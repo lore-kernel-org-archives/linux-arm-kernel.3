@@ -4,133 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAA1CCD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 14:31:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB577CD98C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 14:32:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KX6V6rSl3K3kiRjJ4KBXWZ5lhaebbXpOGSHK9UQLM8Q=; b=kX6GkkXbZOz+uEyKVyXm2tuQ9L
-	qaCpJehQokKTp0goe1WjV2hIWa9K53+yVe/0fZL/km6iBV/oprO1qiqMa8O6lxj82mlAIKQw5osOp
-	dOw7S9MknXUhbfLWssXSFhKz22KqFv6unvjj2FPySotv8bAxLy0r+o8YOitPINbL5Zujl2fFSzU59
-	gBUA7NoruensV88wlT+Gcv7mhC3mTOoy2NUFI3xBQA7Dlj2UTgp3nQOWDvAmtc26tAazXAmXdlhSX
-	52q0AOYkQkjnMHI57eB0c885/OnlTx28BwUPBL9IntuYTLC58+H9nELd+/PPd4aM/14R3aA4O28rz
-	ml4ARnew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3tjTiOW8L5XMvZNg9p3Y/5l4xg/YCEGSjiRSop5LAtE=; b=YEGMdOtF9JEkyMCzp//kifyoPx
+	TvAr9Y7JlFcKRDriu7/m0w3UcOAzPgfFeWvD5PVgc0faszQJeRtKCtMmYI1ritKQi/ZbOq1i4Gc4P
+	QltWXM54pI+Kk30hpxZ2Rn3lJr+65yNBCHkaiMonywF4cinKqXn+bHUGz6RVJ8bHokSk1MMlgC2zw
+	DAMTzVMqXNSuQ4gBhbm+MeJaqFRLiJcd1UDKfLr/8Syti5CeztIPIKDDpSmAvrPRKCCIFJvfmj0wP
+	wmyCsSEOtGmLDHUWORyA01W9XYDjoT35c1YO79knCRTjxvQ4DuqllthJsF27casb+cf2uHbut/4GS
+	nRXKTxfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ8LM-0000000EPt5-1BOg;
-	Mon, 15 Jun 2026 14:31:16 +0000
-Received: from mail-northeuropeazon11011051.outbound.protection.outlook.com ([52.101.65.51] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1wZ6Sw-0000000EBel-3ePz;
+	Mon, 15 Jun 2026 12:30:58 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ8LJ-0000000EPsY-343u
+	id 1wZ6Sj-0000000EBNk-05cf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 14:31:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FQkUiFB8A1bTvo2v1958quG3Ufe8fXxsP4TRW4WiP54gg2zxdYAljtA2lK4SX6shlO8ulbjxGzf9ZHWHcvqXO57V4Uda0dRUALiY84Ofv4Pfe87GSoB6oUXEnkY1KqKIR3lNBHuub5IlG+IjMnS3vuKewh1fdYX57nfkYL/0wOTymaXhRsbh/wqEGiarmwVnFhTLb2CfYP9P5YXRXWpFdkdt9XVyNzQYoHe4fOmzE3op5/RnfSPdY5dOqbN6aRy4zw1/pqYnDWJVE5A+as4pddiEEAYm2bOXKArMtA3UAIE67qusa4q9sAPOC12wblt6h+WJIt2eWCMy/cy7ril/ag==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KX6V6rSl3K3kiRjJ4KBXWZ5lhaebbXpOGSHK9UQLM8Q=;
- b=ljO+y3shYmk2q1LuVtxeBcUrv4j0CfF2v0wB4tettDdhjUB1rBMtYaTKW5SPDhDb7mBkQUKWkz1BlsjD1vyY3M3MfYPSb2y/PoXU6Kv0J8nwqCMGsjtugeQf6lPnPWao2vRk30oQaTgkJp8SiUPYLeFygyY4HRY49on/RW9v8rEMNq58+4l1wdnKrI/3STifOAK/QTZsotiTqi2QG54P4jHNF2aXLqDy2wlwKpKrfyHKQIG0kWiBLRnrKMsyJ4dpQQ6R1DFLQ6E27+47ycl9zADfmLhBcZr6X7x5GDn40e7G3jeXa6h7XPHLTaI99WeRH7E1cCWAaEf8PkWzZYPJsg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KX6V6rSl3K3kiRjJ4KBXWZ5lhaebbXpOGSHK9UQLM8Q=;
- b=vFEH6/GmBX31yXHTjYyQKQCR76cg4Watqpuv+tZTcVhcz5D8+ntOA6YytVWNIuUkvEO1qfynYOucarxXIG9V3HBoNM7ptvyzQzS0AJxEqnOmUAqcDsHrAwPO4wjgnuXyN/1fGMOZKsf54p57+qIvbAdB+BHi+JiOvFGI1OU77WJ13YM7biE3ZPC8JiPvipxtJs4O6QW85cnya9cJIOJC05F9TfZ/dBrh2MHBypM9B1DOduA2VObC7X5zjFjI0xLJGEtMOulTnzbBmm7+W4SYZBZBpWGHKbKVI/cm4c/6D7DWF0tPG51TEb+c2hEP3ADt89pUEMuR6Z9kfOKljnkbBw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AS8PR04MB9144.eurprd04.prod.outlook.com (2603:10a6:20b:44b::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.18; Mon, 15 Jun
- 2026 14:31:07 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0113.015; Mon, 15 Jun 2026
- 14:31:07 +0000
-Date: Mon, 15 Jun 2026 09:30:56 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: phucduc.bui@gmail.com
-Cc: Mark Brown <broonie@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Shengjiu Wang <shengjiu.wang@gmail.com>,
-	Xiubo Li <Xiubo.Lee@gmail.com>, Frank Li <Frank.Li@nxp.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Nicolin Chen <nicoleotsuka@gmail.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org
-Subject: Re: [PATCH v2 02/11] ASoC: fsl_audmix: Use guard() for spin locks
-Message-ID: <ajAMoIwRSnfJtH6J@SMW015318>
-References: <20260615093824.115751-1-phucduc.bui@gmail.com>
- <20260615093824.115751-3-phucduc.bui@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260615093824.115751-3-phucduc.bui@gmail.com>
-X-ClientProxiedBy: SN7PR04CA0214.namprd04.prod.outlook.com
- (2603:10b6:806:127::9) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Mon, 15 Jun 2026 12:30:47 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-490b9318997so23476145e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 05:30:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781526643; x=1782131443; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=3tjTiOW8L5XMvZNg9p3Y/5l4xg/YCEGSjiRSop5LAtE=;
+        b=MYji0droP65P1LbvM/KErcHf1Rj2q0xqY3EMpVY0Wt2bxL7hV4XvRYBV2N81FrEu/H
+         nY88v9G39KvrZDTKIz+0vgFjZ0oMzE0YKNGmFh0MAhi5MRbediEYk+QzkGrneXeUQ+S0
+         +mtIgpKIazfKTrGNvVgl70PhoKhFhpS2XwA1iSzJR8VO/xHcPwCoWIr4vUzHr2mdC9cC
+         HYW1UwWYWLv2sJPTAIs7nZDk7BliyzR9jRYNgT5nzni8qc4aRvc19sVAQQ8NpP65oG7W
+         oLnSzsNN6SAO22ihvpLl3xqfEQi2mMR9i9liJP2V5YLF/h/8KkN6FkUhEapphjibfwbY
+         ThuA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781526643; x=1782131443;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=3tjTiOW8L5XMvZNg9p3Y/5l4xg/YCEGSjiRSop5LAtE=;
+        b=C+ruUmh3z9EQ8KBIDmyLLy2BoyTXx47vZlo8z42OUzW9PhgKoPrJM1sJA4KtneI6+o
+         4YxLmmyYuPDy+8jhl5iOldsND37p0muvT8itDRoUI5s0+J5syjwRy4MSforrIx4zgwRF
+         A2WP8wrodEaMqm4y/6vHybFOYd1raDFCoULd8OFdgKwh5YsX69uXvtcfZAfPU226ZjdX
+         CnDOQq7Pvyz54PYhVSQjRmj9XenzksbDeoBhQS+ShAhZgez+GRZrJFoXchp0bElLb2+3
+         mB/tbNWLzqpu+YgNulECPCOQOLORwtxa5ykaCKDuzpz7GJ92cY3ohNOMP3wtHA7jfTwT
+         qbxg==
+X-Forwarded-Encrypted: i=1; AFNElJ/UL4ZuZlyMrVfEX8GaJNPsdVChvYYXH5y7OKEg6ClDeLWP7X447UM81ANuCD0g3PXOxUARLmmC59ZSZVieUM/S@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyk4EdJWR/veVR3ecv/ttGc/EUmEwXUk+7fCKXcSapR0/ExjwQU
+	heUtO4bE+CkWVfKRcnUbNpHttZEb9EwNXv1qQGMFKHOXgXlI9FfFW8rS
+X-Gm-Gg: Acq92OEy1a8sEPiEwG5BD77C6PhD5pnwv4VuOGxr1kboPRXQGTAhutSKZ4cn5Zt4hL+
+	twmjBGwqKRxNdNRAf7PsP8qPWY1Ddc2Y7fLKnBimgg504jMNANcuLsv0oaCJroG6OsZzQ/p0jhT
+	KKb4K+Hs0SvkdUGs0uj2iUfGsebaM/PjjpLEAYbkpixFA/JZyNAiXaw7dmOODqHrfJxKkdMWzCk
+	l6t5ZYxwTu3/lMSq0cnhklIY+80oNUuBE9jgxjRKXj/Rqfzxm8AevSybmvFUtIzAdDVnZL+scGD
+	R3/0T0449p+k4CZMFybu0Pk1mhAuXUwb8I08UqxmdDzuxENPdMEbqjKtWdpqrvfh7NMMHCo4Zqa
+	G0LdWdhRm66LlH6YS5xrBnSGIp+orzuEy/CpfTKQZaF4CtVLXp3i6FdWiv5kE3ICD8lE/FoVNa3
+	2j1lJE7bFX5uyl/QHeptrTftkDl6sUh2zYQnFFhJQBhjdmwV492l4dYws=
+X-Received: by 2002:a05:600c:628f:b0:492:1e36:85dc with SMTP id 5b1f17b1804b1-4922017b005mr124400735e9.36.1781526642421;
+        Mon, 15 Jun 2026 05:30:42 -0700 (PDT)
+Received: from Ansuel-XPS24 (93-34-88-103.ip49.fastwebnet.it. [93.34.88.103])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-490ea95c512sm191426435e9.2.2026.06.15.05.30.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 15 Jun 2026 05:30:41 -0700 (PDT)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Simon Horman <horms@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Christian Marangi <ansuelsmth@gmail.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Saravana Kannan <saravanak@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	llvm@lists.linux.dev
+Subject: [PATCH net-next v7 05/12] net: phylink: support late PCS provider attach
+Date: Mon, 15 Jun 2026 14:29:41 +0200
+Message-ID: <20260615122950.22281-6-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260615122950.22281-1-ansuelsmth@gmail.com>
+References: <20260615122950.22281-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AS8PR04MB9144:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0f86213e-bbd6-4150-735f-08decaeabca0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|7416014|376014|23010399003|22082099003|18002099003|4143699003|11063799006|56012099006|6133799003;
-X-Microsoft-Antispam-Message-Info: zPV/FFQ8oMQ3ryolE7FDhdG816Lq8hlSn55edYbTLkMyJdsq6DKrsztRAg0EJtywLnKg9EXAYuOysgvN3xsNlBnI7cbsmZXHB0hVUASUcPPPtH+UEYw26rd0IqLWW9A5IjrsxRQ3+14HGpPEYnGEiTqDOS5tZjE2ohD21s9dDy4T6ntTwE8A7BhUDXBj8MSJS0KUB995cE4QiHzTuW8SbAJtNT9b3w9MgIBM7/rBXrJt+st9iyQWEhPoekG//2vOd4d1LASpcNrws6qTKLRNJOTLNvzch6/dyKmdNL2XqgmYYdcT75cUhzuukFhDDY6GrgAY14G7duYri1ImbJ/a5LcHpgejn98Pjn5QXKd0aRIiitkKPZX7mOFztPnklsS9Uq72oJc1by9nrQRV78jONPKs/0iFiobi/KiAc926WbnkskEM7R3zWACvld3WuT19rCoUHKDtyQ+sbZV65bCmVUEQmlekSxtqBfAZIL9xoAtA0lXls/ug5u75FzRky/gUB6G36TzxrDCeUiA90Iiy8g2/f+Gr5Z4BzVVCsl6zHkxFCEDk/fiC12lJKAGDBNunkBwVflEUMe4YMV8A2ZjgWRg54EV18iws2P/QwoMV2QJtfrea46oMZ7P6yDb/vKOawRAfy+Mcx6C0Cw6ubS8ncnQZVg5kIXTQoc8Jml1g/gMr/QuhLh6GEq/pev0R1bgG
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(7416014)(376014)(23010399003)(22082099003)(18002099003)(4143699003)(11063799006)(56012099006)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?9uyZH/8qKJgMmmGuGCvymmKIMZlYyfboqGD52127aB+gRZINz+ByyKSe4mPU?=
- =?us-ascii?Q?cxInPMVryvTyHe8S67VNR7s3SvRnVUSgArqyQavrKJ1U5UuyQhju+JOYL4lb?=
- =?us-ascii?Q?FWxUHCwQTr4hVpESQNSOapfMIpFYgCkd+DPg7HLlkmkwDP/CzrJ3GeKeikOK?=
- =?us-ascii?Q?FT0jXfFFFQvd0cVCBzsJ3d67WbqOYNmwvc13Y6m7nBR18txaAu4J9SeuwcS9?=
- =?us-ascii?Q?a37PLhtfeHMeirjqQskecYcvX951izoOCtfaY226vFijWhL1Uk/39+Dpj3UE?=
- =?us-ascii?Q?9+FwH0JxnLb6lUnb4xtFvsmplQOF9H1K/c4cZk2N5Pe5/4i6dWp8Zaop1oGg?=
- =?us-ascii?Q?4zQwRFIwxnofYUopngdo58Y3CdewkNysOe2h43fv8rRkk3xRsuUB1N18S8CF?=
- =?us-ascii?Q?e+PRAANfdP02Ghe/wfKSMy6zHLW0JKE18D3RPOCh+umZaX2lefo8O/VN7tIP?=
- =?us-ascii?Q?dkHCQt2mphkn5e9bQMlRUbI/wFM5iwy11819LcWI2rI6fRHBXVOQQ56Er5Nf?=
- =?us-ascii?Q?+tx6qY821c2TBvFZyUKrxWvu6dychW8UU04U1IJsJl+z/JQY7Kp1DIwAnMqK?=
- =?us-ascii?Q?JXe9TgSKGxIHBayTpF7RCAeVEFKEOAGHAzbkftDtER+nTEsXsDhQON1FMH9L?=
- =?us-ascii?Q?CryNgYZPkk50OijZfpppwqMxkt+SVoOa2wwlHJBrbsrrKIdUfIncN+krklYq?=
- =?us-ascii?Q?v1gnPIGchL/m9pF4m+1wvul2LaBVaiishTStsoBYAcry1RLltlZ6FHLf2o2l?=
- =?us-ascii?Q?f+8gC9OqdNC3Gth2ZTkSydOmaGQ6pmW8fQBrx06j6bFZr4rroJ0zvoQuUEhV?=
- =?us-ascii?Q?mfTZHaS06+G6JmNeJZ6/r3xD0GjpUTPxYUolIR2z1pn978SDoSCU+bghiVBv?=
- =?us-ascii?Q?RKmYhIooq4EA6N3+Ahdppc0Xb6sDePPLsYeZDy3S+1veQ5HfM1Xo03GYhwJd?=
- =?us-ascii?Q?+sK8/yqPRn+7L5AHJPACHi6Fy7xpg9zooF/erA6PSccKbRRYWvzKzxYFOXCG?=
- =?us-ascii?Q?fu+4fDh/nJr4gl3yKcTmWl1c77KPrtdSQ2i6IfYn8wQ1EvGc5I07eSVkPbTN?=
- =?us-ascii?Q?J8TP6Ofvme2Kg0+8A8maRwKsT3P3QwHcItK9xMfFwN9ICSbLzuShCHdA07Yb?=
- =?us-ascii?Q?KiHmPSInEu+MPncwk2vQO574J2QF2K3kaZGglW3sqagTcYnngPCguTnTM/me?=
- =?us-ascii?Q?c7M8gS5mCh83ZCRx94WqIEeTYr3nwrSyLwdiVT7s9w12N3ESfn6dGl+EPRo1?=
- =?us-ascii?Q?r1FBueFbYOseMouM1T3jRHM8gXVmmXAVJN9tMe0ZSVYM7WN4sZnTqMgMkZrV?=
- =?us-ascii?Q?eB9VQ6/BUvdqndnAKbregSFDzy7H+LX3iCeApABl44T11TTt8HTuIU/ZSQ2t?=
- =?us-ascii?Q?VbGjgS19CEDW8u04O+Grq3eoo55nIpKNYOExmvx72XUV1KgNSnYd5/Oa3HeD?=
- =?us-ascii?Q?sfIC93WM7rePrZgGBo8jqOyKI+k5zU5+arKivoNTSzQXVtIYkFm2Yss7O5tK?=
- =?us-ascii?Q?747qdd3fxIWffDDEKqhnu7NXRzprRaDlIRvRdAG3YB9IbWORk2GMjUMpVcuw?=
- =?us-ascii?Q?oRwziIbYuOxP3JZ2hEq9ld610MUmA3eACmaIjxKY56ww+qSS1vRG6OiLxOo2?=
- =?us-ascii?Q?Ikjo3GM9SyqSxIZy6QKaWR8C0SHPY7ZwKq+yUEipWQ6hMg2GQGG7pJrLO4hn?=
- =?us-ascii?Q?8L10n92xqvwbEGKL656ONs1OFo+srUVGlkhHQygPlJrCgh93UIFvmmS91xKo?=
- =?us-ascii?Q?a/x5v8o535IbPrFSre6Pfc0XGkOXRkMEfXQZKT8WPkGF5lHCLF9p?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0f86213e-bbd6-4150-735f-08decaeabca0
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jun 2026 14:31:07.2089
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ic2MKIYZ106b9iRCOQqBPQ7+KEoqGsG/PpboUmu2LCoxcoZHcFFDmiHM/8DcSIyYyVW0R/g5eFzLNY7VnSQg3+Lp/iQ1el3D6Hte1OdN5nwWjChSgIRDJtaaByBbvylG
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB9144
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_073113_768845_518A67F6 
-X-CRM114-Status: GOOD (  15.87  )
+X-CRM114-CacheID: sfid-20260615_053045_119411_A84D5756 
+X-CRM114-Status: GOOD (  28.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,55 +123,302 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 15, 2026 at 04:38:15PM +0700, phucduc.bui@gmail.com wrote:
-> From: bui duc phuc <phucduc.bui@gmail.com>
->
-> Clean up the code using guard() for spin locks.
-> Merely code refactoring, and no behavior change.
->
-> Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
-> ---
+Add support for late PCS provider attachment to a phylink instance.
+This works by creating a global notifier for the PCS provider and
+making each phylink instance that makes use of fwnode subscribe to
+this notifier.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+The PCS notifier will emit the event FWNODE_PCS_PROVIDER_ADD every time
+a new PCS provider is added.
 
->  sound/soc/fsl/fsl_audmix.c | 11 ++++-------
->  1 file changed, 4 insertions(+), 7 deletions(-)
->
-> diff --git a/sound/soc/fsl/fsl_audmix.c b/sound/soc/fsl/fsl_audmix.c
-> index 40a3b7432174..066239c64037 100644
-> --- a/sound/soc/fsl/fsl_audmix.c
-> +++ b/sound/soc/fsl/fsl_audmix.c
-> @@ -280,7 +280,6 @@ static int fsl_audmix_dai_trigger(struct snd_pcm_substream *substream, int cmd,
->  				  struct snd_soc_dai *dai)
->  {
->  	struct fsl_audmix *priv = snd_soc_dai_get_drvdata(dai);
-> -	unsigned long lock_flags;
->
->  	/* Capture stream shall not be handled */
->  	if (substream->stream == SNDRV_PCM_STREAM_CAPTURE)
-> @@ -290,16 +289,14 @@ static int fsl_audmix_dai_trigger(struct snd_pcm_substream *substream, int cmd,
->  	case SNDRV_PCM_TRIGGER_START:
->  	case SNDRV_PCM_TRIGGER_RESUME:
->  	case SNDRV_PCM_TRIGGER_PAUSE_RELEASE:
-> -		spin_lock_irqsave(&priv->lock, lock_flags);
-> -		priv->tdms |= BIT(dai->driver->id);
-> -		spin_unlock_irqrestore(&priv->lock, lock_flags);
-> +		scoped_guard(spinlock_irqsave, &priv->lock)
-> +			priv->tdms |= BIT(dai->driver->id);
->  		break;
->  	case SNDRV_PCM_TRIGGER_STOP:
->  	case SNDRV_PCM_TRIGGER_SUSPEND:
->  	case SNDRV_PCM_TRIGGER_PAUSE_PUSH:
-> -		spin_lock_irqsave(&priv->lock, lock_flags);
-> -		priv->tdms &= ~BIT(dai->driver->id);
-> -		spin_unlock_irqrestore(&priv->lock, lock_flags);
-> +		scoped_guard(spinlock_irqsave, &priv->lock)
-> +			priv->tdms &= ~BIT(dai->driver->id);
->  		break;
->  	default:
->  		return -EINVAL;
-> --
-> 2.43.0
->
->
+phylink will then react to this event and will call the new function
+fwnode_phylink_pcs_get_from_fwnode() that will check if the PCS fwnode
+provided by the event is present in the pcs-handle property of the
+phylink instance.
+
+If a related PCS is found, then such PCS is added to the phylink
+instance PCS list.
+
+Then we link the PCS to the phylink instance and we refresh the supported
+interfaces of the phylink instance.
+
+Finally we check if we are in a major_config_failed scenario and trigger
+an interface reconfiguration in the next phylink resolve.
+
+In the example scenario where the link was previously torn down due to
+removal of PCS, the link will be established again as the PCS came back
+and is now available to phylink.
+
+Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+---
+ drivers/net/pcs/pcs.c     | 49 ++++++++++++++++++++++++++++++++
+ drivers/net/phy/phylink.c | 57 +++++++++++++++++++++++++++++++++++++
+ include/linux/pcs/pcs.h   | 60 +++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 166 insertions(+)
+
+diff --git a/drivers/net/pcs/pcs.c b/drivers/net/pcs/pcs.c
+index 67f9716f48fd..713b2ec22c97 100644
+--- a/drivers/net/pcs/pcs.c
++++ b/drivers/net/pcs/pcs.c
+@@ -22,6 +22,19 @@ struct fwnode_pcs_provider {
+ 
+ static LIST_HEAD(fwnode_pcs_providers);
+ static DEFINE_MUTEX(fwnode_pcs_mutex);
++static BLOCKING_NOTIFIER_HEAD(fwnode_pcs_notify_list);
++
++int register_fwnode_pcs_notifier(struct notifier_block *nb)
++{
++	return blocking_notifier_chain_register(&fwnode_pcs_notify_list, nb);
++}
++EXPORT_SYMBOL_GPL(register_fwnode_pcs_notifier);
++
++int unregister_fwnode_pcs_notifier(struct notifier_block *nb)
++{
++	return blocking_notifier_chain_unregister(&fwnode_pcs_notify_list, nb);
++}
++EXPORT_SYMBOL_GPL(unregister_fwnode_pcs_notifier);
+ 
+ struct phylink_pcs *fwnode_pcs_simple_get(struct fwnode_reference_args *pcsspec,
+ 					  void *data)
+@@ -55,6 +68,10 @@ int fwnode_pcs_add_provider(struct fwnode_handle *fwnode,
+ 
+ 	fwnode_dev_initialized(fwnode, true);
+ 
++	blocking_notifier_call_chain(&fwnode_pcs_notify_list,
++				     FWNODE_PCS_PROVIDER_ADD,
++				     fwnode);
++
+ 	return 0;
+ }
+ EXPORT_SYMBOL_GPL(fwnode_pcs_add_provider);
+@@ -150,6 +167,38 @@ struct phylink_pcs *fwnode_pcs_get(struct fwnode_handle *fwnode, unsigned int in
+ }
+ EXPORT_SYMBOL_GPL(fwnode_pcs_get);
+ 
++struct phylink_pcs *
++fwnode_phylink_pcs_get_from_fwnode(struct fwnode_handle *fwnode,
++				   struct fwnode_handle *pcs_fwnode)
++{
++	struct fwnode_reference_args pcsspec;
++	int index = 0;
++	int ret;
++
++	/* Loop until we find a matching PCS node or
++	 * fwnode_parse_pcsspec() returns error
++	 * if we don't have any other PCS reference to check.
++	 */
++	while (true) {
++		ret = fwnode_parse_pcsspec(fwnode, index, NULL, &pcsspec);
++		if (ret)
++			return ERR_PTR(ret);
++
++		/* Exit loop if we found the matching PCS node */
++		if (pcsspec.fwnode == pcs_fwnode) {
++			fwnode_handle_put(pcsspec.fwnode);
++			break;
++		}
++
++		/* Check the next PCS reference */
++		fwnode_handle_put(pcsspec.fwnode);
++		index++;
++	}
++
++	return fwnode_pcs_get(fwnode, index);
++}
++EXPORT_SYMBOL_GPL(fwnode_phylink_pcs_get_from_fwnode);
++
+ unsigned int fwnode_phylink_pcs_count(struct fwnode_handle *fwnode)
+ {
+ 	struct fwnode_reference_args out_args;
+diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
+index ca4dad4b140a..0734c98498a9 100644
+--- a/drivers/net/phy/phylink.c
++++ b/drivers/net/phy/phylink.c
+@@ -12,6 +12,7 @@
+ #include <linux/netdevice.h>
+ #include <linux/of.h>
+ #include <linux/of_mdio.h>
++#include <linux/pcs/pcs.h>
+ #include <linux/phy.h>
+ #include <linux/phy_fixed.h>
+ #include <linux/phylink.h>
+@@ -62,6 +63,7 @@ struct phylink {
+ 
+ 	/* List of available PCS */
+ 	struct list_head pcs_list;
++	struct notifier_block fwnode_pcs_nb;
+ 
+ 	/* What interface are supported by the current link.
+ 	 * Can change on removal or addition of new PCS.
+@@ -1997,6 +1999,51 @@ static int phylink_fill_available_pcs(struct phylink *pl,
+ 	return ret;
+ }
+ 
++static int pcs_provider_notify(struct notifier_block *self,
++			       unsigned long val, void *data)
++{
++	struct phylink *pl = container_of(self, struct phylink, fwnode_pcs_nb);
++	struct fwnode_handle *pcs_fwnode = data;
++	struct phylink_pcs *pcs;
++
++	/* Check if the just added PCS provider is
++	 * in the phylink instance pcs-handle property.
++	 */
++	pcs = fwnode_phylink_pcs_get_from_fwnode(dev_fwnode(pl->config->dev),
++						 pcs_fwnode);
++	if (IS_ERR(pcs))
++		return NOTIFY_DONE;
++
++	/* Add the PCS */
++	rtnl_lock();
++
++	mutex_lock(&pl->state_mutex);
++
++	/* Link PCS with phylink */
++	list_add(&pcs->list, &pl->pcs_list);
++	pcs->phylink = pl;
++
++	/* Refresh supported interfaces */
++	phy_interface_copy(pl->supported_interfaces,
++			   pl->config->supported_interfaces);
++	list_for_each_entry(pcs, &pl->pcs_list, list)
++		phy_interface_or(pl->supported_interfaces,
++				 pl->supported_interfaces,
++				 pcs->supported_interfaces);
++
++	/* Force an interface reconfig if major config fail */
++	if (pl->major_config_failed)
++		pl->force_major_config = true;
++
++	mutex_unlock(&pl->state_mutex);
++
++	rtnl_unlock();
++
++	phylink_run_resolve(pl);
++
++	return NOTIFY_OK;
++}
++
+ /**
+  * phylink_create() - create a phylink instance
+  * @config: a pointer to the target &struct phylink_config
+@@ -2068,6 +2115,12 @@ struct phylink *phylink_create(struct phylink_config *config,
+ 				 pl->supported_interfaces,
+ 				 pcs->supported_interfaces);
+ 
++	/* Register notifier for late PCS attach */
++	if (!phy_interface_empty(config->pcs_interfaces)) {
++		pl->fwnode_pcs_nb.notifier_call = pcs_provider_notify;
++		register_fwnode_pcs_notifier(&pl->fwnode_pcs_nb);
++	}
++
+ 	pl->config = config;
+ 	if (config->type == PHYLINK_NETDEV) {
+ 		pl->netdev = to_net_dev(config->dev);
+@@ -2151,6 +2204,10 @@ void phylink_destroy(struct phylink *pl)
+ 	if (pl->link_gpio)
+ 		gpiod_put(pl->link_gpio);
+ 
++	/* Unregister notifier for late PCS attach */
++	if (pl->fwnode_pcs_nb.notifier_call)
++		unregister_fwnode_pcs_notifier(&pl->fwnode_pcs_nb);
++
+ 	/* Drop link between PCS and phylink */
+ 	list_for_each_entry(pcs, &pl->pcs_list, list)
+ 		pcs->phylink = NULL;
+diff --git a/include/linux/pcs/pcs.h b/include/linux/pcs/pcs.h
+index df1e6f32cfad..9de3f273428e 100644
+--- a/include/linux/pcs/pcs.h
++++ b/include/linux/pcs/pcs.h
+@@ -4,7 +4,36 @@
+ 
+ #include <linux/phylink.h>
+ 
++enum fwnode_pcs_notify_event {
++	FWNODE_PCS_PROVIDER_ADD,
++};
++
+ #if IS_ENABLED(CONFIG_FWNODE_PCS)
++/**
++ * register_fwnode_pcs_notifier - Register a notifier block for fwnode
++ *				  PCS events
++ * @nb: pointer to the notifier block
++ *
++ * Registers a notifier block to the fwnode_pcs_notify_list blocking
++ * notifier chain. This allows phylink instance to subscribe for
++ * PCS provider events.
++ *
++ * Returns: 0 or a negative error.
++ */
++int register_fwnode_pcs_notifier(struct notifier_block *nb);
++
++/**
++ * unregister_fwnode_pcs_notifier - Unregister a notifier block for fwnode
++ *				    PCS events
++ * @nb: pointer to the notifier block
++ *
++ * Unregisters a notifier block to the fwnode_pcs_notify_list blocking
++ * notifier chain.
++ *
++ * Returns: 0 or a negative error.
++ */
++int unregister_fwnode_pcs_notifier(struct notifier_block *nb);
++
+ /**
+  * fwnode_pcs_get - Retrieves a PCS from a firmware node
+  * @fwnode: firmware node
+@@ -20,6 +49,25 @@
+ struct phylink_pcs *fwnode_pcs_get(struct fwnode_handle *fwnode,
+ 				   unsigned int index);
+ 
++/**
++ * fwnode_phylink_pcs_get_from_fwnode - Retrieves the PCS provided
++ *					by the firmware node from a
++ *					firmware node
++ * @fwnode: firmware node
++ * @pcs_fwnode: PCS firmware node
++ *
++ * Parse 'pcs-handle' in 'fwnode' and get the PCS that match
++ * 'pcs_fwnode' firmware node.
++ *
++ * Returns: a pointer to the phylink_pcs or a negative
++ * error pointer. Can return -EPROBE_DEFER if the PCS is not
++ * present in global providers list (either due to driver
++ * still needs to be probed or it failed to probe/removed)
++ */
++struct phylink_pcs *
++fwnode_phylink_pcs_get_from_fwnode(struct fwnode_handle *fwnode,
++				   struct fwnode_handle *pcs_fwnode);
++
+ /**
+  * fwnode_phylink_pcs_count - count PCS entries described in firmware node
+  * @fwnode: firmware node
+@@ -53,12 +101,24 @@ int fwnode_phylink_pcs_parse(struct fwnode_handle *fwnode,
+ 			     struct phylink_pcs **available_pcs,
+ 			     unsigned int num_pcs);
+ #else
++static inline int register_fwnode_pcs_notifier(struct notifier_block *nb)
++{
++	return -EOPNOTSUPP;
++}
++
+ static inline struct phylink_pcs *fwnode_pcs_get(struct fwnode_handle *fwnode,
+ 						 int index)
+ {
+ 	return ERR_PTR(-ENOENT);
+ }
+ 
++static inline struct phylink_pcs *
++fwnode_phylink_pcs_get_from_fwnode(struct fwnode_handle *fwnode,
++				   struct fwnode_handle *pcs_fwnode)
++{
++	return ERR_PTR(-ENOENT);
++}
++
+ static inline unsigned int fwnode_phylink_pcs_count(struct fwnode_handle *fwnode)
+ {
+ 	return 0;
+-- 
+2.53.0
+
 
