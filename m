@@ -4,67 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AD2BCD98C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 15:15:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83125CD98CF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Jun 2026 15:27:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=phEhRUj9G13/wjtp0uNvDzH26SE41TIZiYGlA0Wtzs4=; b=WsfgiIZIkH/n4gdPXkU+4RSIeD
-	jpW6Jz2H8asdIzycvkxTRxHjoV9vfrMfjCvU2WtbYUN/SJXVpvgePIoBRvzvlhER59xqaAnj8+Voc
-	TnO7nLhs3geY9wRxGlTcFXoaCiD1oQwKOO7ecvMDlSuIKoGPrLNw53ExYaNB4kbLiMplCD73EZdxP
-	eoKVQiNRa2pvxvLF3/vq6aI8FY0o6wMKIlQtBTckP5pGXmkpLCcUJILPxpV4vH0XVfRCtLLuFgRZf
-	5M9CznM4lcx6GOOqTv60UDDBd5xoso7I1nFC/s2ioPbLni1m8dt8BQtU+EADIDST/Uguo9GGnEz7J
-	d8RrRU1w==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=93S5IJn8Nm38fDgXmSpC8QemVzQ1sjDUuJR7xlPUztY=; b=ChMH3v5zeePtNl9d2CPEoZ1jCb
+	a+6+QHSVd2jpVM4P8sG4pkZCVqc85zP1Lf0rjYJBEr+MBDbcmF8R7v8SIhKKf0vNDxtSaPqc8Ool0
+	BVFmJK7qAetFOndNmfztyWVYXCBlhDVItIcf7turm1qgtW50uAwuuPSYJcYhEBvLM1/F7YFxgr0oZ
+	qwkQnm1F+xNYWVoRfphfIHyOuVwQ7QTLl821UCPXDVW1zHzfjfOh4H9uqYlnwB1fcmfDfd7gJl0k1
+	7EyUcT/jvn7fMryaUUJaf7BnrClYlElIuN9XaqNkOYO11XJKDcrHBhLQlCHQ6P5AiqycY2bfnYF1x
+	SzLRi5SQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ91y-0000000EUVp-0Qcb;
-	Mon, 15 Jun 2026 15:15:18 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZ91v-0000000EUUf-0NQK
+	id 1wZ9E5-0000000EVAI-0dzw;
+	Mon, 15 Jun 2026 15:27:49 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wZ9E2-0000000EV9c-10D8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Jun 2026 15:15:17 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 45EFB153B;
-	Mon, 15 Jun 2026 08:15:07 -0700 (PDT)
-Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D29AF3F915;
-	Mon, 15 Jun 2026 08:15:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1781536512; bh=UMds3JWYoP4xBh9/MVtO7qrCiFXS+QTbkrgDexGU2lk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=otpBswBzH9O7Ge221RiwYL1pM+rZbDK1y6azYqw6h/bfL58KOx+j5GhPusqfeqrgC
-	 UW3MkAsQHlw4FZBw4bjAvMvuRdKOTkhsNG7PPl+O6yGp9qZj7WS6SQVRvcaqZK/La/
-	 Sbw1ivz4uRfRhzBUiuEVfMtdssP8SEffMnIrSs+A=
-Message-ID: <56c6c2c7-c270-4864-a26b-a7de8428acec@arm.com>
-Date: Mon, 15 Jun 2026 17:15:08 +0200
+	Mon, 15 Jun 2026 15:27:48 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 6FDD4C51474;
+	Mon, 15 Jun 2026 15:27:47 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 378B460015;
+	Mon, 15 Jun 2026 15:27:43 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 75110106C8297;
+	Mon, 15 Jun 2026 17:27:34 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1781537262; h=from:subject:date:message-id:to:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=93S5IJn8Nm38fDgXmSpC8QemVzQ1sjDUuJR7xlPUztY=;
+	b=eJqkbjRIok7cjg54WjqMc6fe6G3dz/a0LkNOep2ilTQerWzkrRIgxxZMEeXuBNJq5web0h
+	A2M4yefSKsLwn1t9M3LWHFWS342nrWp1I/I+le6oqzVXZwbLxbRWljpwWhXkZt3z9dbbp3
+	Y4ID0x3rhrNyTGd8RV+HSFmrEOqKHB7EXbFyyR/3Nm/hV/LQeaufsrgpRp1NVpapIFdIJN
+	4ptnQyWdKWKmvviISPPROC4tzfvLfVr1jxsz2p0q+lyMLhAHnUJvWiPmbXknRKRv0pojOg
+	3qd6uC0pIgFR1T1Z2qqNnVNoqRsGL4vTTrumHZUfX5YXpUpINApAtumDwT/5bA==
+Message-ID: <53f0eca8-05ef-4432-87c7-25bad6252585@bootlin.com>
+Date: Mon, 15 Jun 2026 17:27:33 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 2/6] firmware: hwrng: arm_smccc_trng: Register as an
- SMCCC device
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
- linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
- Greg KH <gregkh@linuxfoundation.org>, Jeremy Linton <jeremy.linton@arm.com>,
- Jonathan Cameron <jic23@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Will Deacon <will@kernel.org>, Steven Price <steven.price@arm.com>,
- Suzuki K Poulose <Suzuki.Poulose@arm.com>
-References: <20260611130429.295516-1-aneesh.kumar@kernel.org>
- <20260611130429.295516-3-aneesh.kumar@kernel.org>
+Subject: Re: [PATCH net] net: ethernet: mtk_eth_soc: fix supported_interface
+ set after phylink_create
+To: Christian Marangi <ansuelsmth@gmail.com>, Felix Fietkau <nbd@nbd.name>,
+ Lorenzo Bianconi <lorenzo@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Russell King <linux@armlinux.org.uk>, Daniel Golle <daniel@makrotopia.org>,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20260615151106.15438-1-ansuelsmth@gmail.com>
 Content-Language: en-US
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <20260611130429.295516-3-aneesh.kumar@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <20260615151106.15438-1-ansuelsmth@gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_081516_085401_4E1C5A6C 
-X-CRM114-Status: GOOD (  31.28  )
+X-CRM114-CacheID: sfid-20260615_082746_476242_FFDE2BE2 
+X-CRM114-Status: UNSURE (   9.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,204 +84,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Aneesh,
 
-thanks for doing this, we have thought about this for quite a while, but 
-no one dared to just bite the bullet...
 
-On 6/11/26 15:04, Aneesh Kumar K.V (Arm) wrote:
-> The SMCCC TRNG interface is a firmware-provided SMCCC service rather than a
-> standalone platform device. Now that the SMCCC core has an SMCCC bus,
-> create an arm-smccc-trng device for the discovered TRNG service and convert
-> the hwrng driver to an SMCCC driver.
+On 6/15/26 17:11, Christian Marangi wrote:
+> Everything configured in phylink_config it's assumed to be set before
+> calling phylink_create() to permit correct parsing of all the different
+> modes and capabilities.
 > 
-> The SMCCC id table preserves module autoloading for systems where the TRNG
-> driver is built as a module.
+> Commit 51cf06ddafc9 ("net: ethernet: mtk_eth_soc: add support for MT7988
+> internal 2.5G PHY") while introducing support for 2.5G phy for MT7988,
+> probably due to an auto-rebase, placed the configuration of the INTERNAL
+> interface mode for the supported_interfaces for phylink_config right after
+> phylink_create() introducing a possible problem with supported interfaces
+> parsing.
 > 
-> The sysfs device path changes from the old smccc_trng platform-device path
-> to an arm-smccc device path. No known userspace dependency on the old path
-> was found; a Debian Code Search lookup for the existing platform-device
-> name/path did not find any users.
+> While this doesn't currently create any problem/bug, move setting this bit
+> before phylink_create() to prevent any possible regression in future code
+> change in phylink core.
+
+Agreed
+
 > 
-> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
-> ---
->   arch/arm64/include/asm/archrandom.h     |  2 +-
->   drivers/char/hw_random/arm_smccc_trng.c | 32 +++++++++-----
->   drivers/firmware/smccc/smccc.c          | 58 +++++++++++++++++++++----
->   3 files changed, 71 insertions(+), 21 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/archrandom.h b/arch/arm64/include/asm/archrandom.h
-> index 8babfbe31f95..7605dd81bd1e 100644
-> --- a/arch/arm64/include/asm/archrandom.h
-> +++ b/arch/arm64/include/asm/archrandom.h
-> @@ -12,7 +12,7 @@
->   
->   extern bool smccc_trng_available;
->   
-> -static inline bool __init smccc_probe_trng(void)
-> +static inline bool smccc_probe_trng(void)
->   {
->   	struct arm_smccc_res res;
->   
-> diff --git a/drivers/char/hw_random/arm_smccc_trng.c b/drivers/char/hw_random/arm_smccc_trng.c
-> index dcb8e7f37f25..8f7f9d830cf2 100644
-> --- a/drivers/char/hw_random/arm_smccc_trng.c
-> +++ b/drivers/char/hw_random/arm_smccc_trng.c
-> @@ -16,8 +16,10 @@
->   #include <linux/device.h>
->   #include <linux/hw_random.h>
->   #include <linux/module.h>
-> -#include <linux/platform_device.h>
->   #include <linux/arm-smccc.h>
-> +#include <linux/arm-smccc-bus.h>
-> +
-> +#include <asm/archrandom.h>
->   
->   #ifdef CONFIG_ARM64
->   #define ARM_SMCCC_TRNG_RND	ARM_SMCCC_TRNG_RND64
-> @@ -94,29 +96,37 @@ static int smccc_trng_read(struct hwrng *rng, void *data, size_t max, bool wait)
->   	return copied;
->   }
->   
-> -static int smccc_trng_probe(struct platform_device *pdev)
-> +static int smccc_trng_probe(struct arm_smccc_device *sdev)
->   {
->   	struct hwrng *trng;
->   
-> -	trng = devm_kzalloc(&pdev->dev, sizeof(*trng), GFP_KERNEL);
-> +	/* validate the minimum version requirement */
-> +	if (!smccc_probe_trng())
-> +		return -ENODEV;
-> +
-> +	trng = devm_kzalloc(&sdev->dev, sizeof(*trng), GFP_KERNEL);
->   	if (!trng)
->   		return -ENOMEM;
->   
->   	trng->name = "smccc_trng";
->   	trng->read = smccc_trng_read;
->   
-> -	return devm_hwrng_register(&pdev->dev, trng);
-> +	return devm_hwrng_register(&sdev->dev, trng);
->   }
->   
-> -static struct platform_driver smccc_trng_driver = {
-> -	.driver = {
-> -		.name		= "smccc_trng",
-> -	},
-> -	.probe		= smccc_trng_probe,
-> +static const struct arm_smccc_device_id smccc_trng_id_table[] = {
-> +	{ .name = "arm-smccc-trng" },
-> +	{}
-> +};
-> +MODULE_DEVICE_TABLE(arm_smccc, smccc_trng_id_table);
-> +
-> +static struct arm_smccc_driver smccc_trng_driver = {
-> +	.name	  = KBUILD_MODNAME,
-> +	.probe	  = smccc_trng_probe,
-> +	.id_table = smccc_trng_id_table,
->   };
-> -module_platform_driver(smccc_trng_driver);
-> +module_arm_smccc_driver(smccc_trng_driver);
->   
-> -MODULE_ALIAS("platform:smccc_trng");
->   MODULE_AUTHOR("Andre Przywara");
->   MODULE_DESCRIPTION("Arm SMCCC TRNG firmware interface support");
->   MODULE_LICENSE("GPL");
-> diff --git a/drivers/firmware/smccc/smccc.c b/drivers/firmware/smccc/smccc.c
-> index bdee057db2fd..a47696f3a5de 100644
-> --- a/drivers/firmware/smccc/smccc.c
-> +++ b/drivers/firmware/smccc/smccc.c
-> @@ -9,7 +9,8 @@
->   #include <linux/init.h>
->   #include <linux/arm-smccc.h>
->   #include <linux/kernel.h>
-> -#include <linux/platform_device.h>
-> +#include <linux/arm-smccc-bus.h>
-> +
->   #include <asm/archrandom.h>
->   
->   static u32 smccc_version = ARM_SMCCC_VERSION_1_0;
-> @@ -81,16 +82,55 @@ bool arm_smccc_hypervisor_has_uuid(const uuid_t *hyp_uuid)
->   }
->   EXPORT_SYMBOL_GPL(arm_smccc_hypervisor_has_uuid);
->   
-> +struct smccc_device_info {
-> +	u32 func_id;
-> +	bool requires_smc;
-> +	const char *device_name;
-> +};
-> +
-> +static const struct smccc_device_info smccc_devices[] __initconst = {
-> +	{
-> +		.func_id        = ARM_SMCCC_TRNG_VERSION,
-> +		.requires_smc   = false,
-> +		.device_name    = "arm-smccc-trng",
-> +	},
-> +};
-> +
-> +static bool __init smccc_probe_smccc_device(const struct smccc_device_info *smccc_dev)
-> +{
-> +	unsigned long ret;
-> +	struct arm_smccc_res res;
-> +
-> +	if (smccc_conduit == SMCCC_CONDUIT_NONE)
-> +		return false;
-> +
-> +	if (smccc_dev->requires_smc && smccc_conduit != SMCCC_CONDUIT_SMC)
-> +		return false;
-> +
-> +	arm_smccc_1_1_invoke(smccc_dev->func_id, &res);
-> +	ret = res.a0;
+> Fixes: 51cf06ddafc9 ("net: ethernet: mtk_eth_soc: add support for MT7988 internal 2.5G PHY")
+> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 
-Mostly a nit:
-Why the assignment to a variable of the same type here? Wouldn't it be 
-cleaner to let "ret" be an "int"? Then you can save the cast below.
-Or drop the assignment, and just cast res.a0 below directly.
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 
-In any case, I tested this in a KVM guest, and it worked flawlessly: the 
-device is created, works, and sysfs looks good, both with this file 
-compiled in (=y), and also as a module. Module autoloading also seems to 
-work.
-So that's:
-
-Tested-by: Andre Przywara <andre.przywara@arm.com>
-
-Cheers,
-Andre.
-
-
-> +
-> +	if ((s32)ret == SMCCC_RET_NOT_SUPPORTED)
-> +		return false;
-> +
-> +	return true;
-> +}
-> +
->   static int __init smccc_devices_init(void)
->   {
-> -	struct platform_device *pdev;
-> -
-> -	if (smccc_trng_available) {
-> -		pdev = platform_device_register_simple("smccc_trng", -1,
-> -						       NULL, 0);
-> -		if (IS_ERR(pdev))
-> -			pr_err("smccc_trng: could not register device: %ld\n",
-> -			       PTR_ERR(pdev));
-> +	struct arm_smccc_device *sdev;
-> +	const struct smccc_device_info *smccc_dev;
-> +
-> +	for (int i = 0; i < ARRAY_SIZE(smccc_devices); i++) {
-> +		smccc_dev = &smccc_devices[i];
-> +
-> +		if (!smccc_probe_smccc_device(smccc_dev))
-> +			continue;
-> +
-> +		sdev = arm_smccc_device_register(smccc_dev->device_name);
-> +		if (IS_ERR(sdev))
-> +			pr_err("%s: could not register device: %ld\n",
-> +			       smccc_dev->device_name, PTR_ERR(sdev));
->   	}
->   
->   	return 0;
+Maxime
 
 
