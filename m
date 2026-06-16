@@ -4,29 +4,29 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76D1FCD98DA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 03:30:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DADCCD98E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 03:30:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VMf9sNjHJw2BsEQrYgeWnW9Ukxa/ro2TiiasJQRS3SE=; b=MzhLJg+z+w1gN2vLRKcRWpocli
-	cMIpoXh405s+VaUR5fxuG6qFzV/sQ4u9JJAKz+P7jL4j1doGAlru1g0k2wFrAXJJTuAopSYfRRS/r
-	IrfTHaE3mtQEuogQ3C6ukSu768iQQLaCG6LQfie01wVDs3gVPkq/Oylf6L9iwYqGf1pYZQVdRGTBb
-	BnsU0eQk6vc6qJ3bKxi+MQ0BCkDNxJlzwFg4W2zfpkSvIrgnI4tdh13T3vRPRnqOX7ox5Ny34mg8x
-	++sYGri/sIa4oyhzddCtJK6rYxePRTI9VoS43BDneqWln984Z1K5Lv218B9twgbCGIwypFpAwz/CC
-	QttAt9Yg==;
+	bh=OoA5fcjHiDIQMSYoJiUkvrtob6g82mV1RciuPYwaVxw=; b=eF9GHjNCu9G2/XEXlhpL2RXPT4
+	NBlc87VUIHvzoHTkw1W6DeU/kpyWBpsRe0Bqa1Sat/MXaoFZIOpoUdpYIXqzZGzwNsfZZk+kxrtVj
+	pYYhd1AriJ1Sa6zZyEtnLuogmpA6ifP/54CU4wIpz56yIt5SzSWZ7J9qS0iid5/C371+crCsx1lxb
+	l38OFULOtLSpYU8Lrx20TTN85bKYyLD2WNAuIDSD4GoumPGE+G67zo55NHvWADSUPEguJojmBAQ6i
+	St2D0RPwknU6O2vYOWYYC74y80GoobiVRskdrMooiLAgUMdVYpm26KUxJttO9CqaJ5KAufNpI8kax
+	Qr9JDppw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZKVK-0000000F9FM-01Ek;
-	Tue, 16 Jun 2026 03:30:22 +0000
+	id 1wZKVJ-0000000F9F3-3ndE;
+	Tue, 16 Jun 2026 03:30:21 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=twmbx01.aspeedtech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZKVF-0000000F9CX-3qFS
+	id 1wZKVE-0000000F9CX-1LtI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Jun 2026 03:30:18 +0000
+	Tue, 16 Jun 2026 03:30:17 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Tue, 16 Jun
@@ -35,13 +35,13 @@ Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
  Transport; Tue, 16 Jun 2026 11:30:02 +0800
 From: Billy Tsai <billy_tsai@aspeedtech.com>
-Date: Tue, 16 Jun 2026 11:30:01 +0800
-Subject: [PATCH 1/2] dt-bindings: pinctrl: aspeed,ast2700-soc1: Add
- JTAGM1TRST group
+Date: Tue, 16 Jun 2026 11:30:02 +0800
+Subject: [PATCH 2/2] pinctrl: aspeed: Split TRST out of the AST2700 SoC1
+ JTAGM1 group
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20260616-pinctrl-fix-v1-1-621036e45c7c@aspeedtech.com>
+Message-ID: <20260616-pinctrl-fix-v1-2-621036e45c7c@aspeedtech.com>
 References: <20260616-pinctrl-fix-v1-0-621036e45c7c@aspeedtech.com>
 In-Reply-To: <20260616-pinctrl-fix-v1-0-621036e45c7c@aspeedtech.com>
 To: Andrew Jeffery <andrew@codeconstruct.com.au>, Linus Walleij
@@ -53,17 +53,16 @@ CC: <linux-aspeed@lists.ozlabs.org>, <openbmc@lists.ozlabs.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
 	"Billy Tsai" <billy_tsai@aspeedtech.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1781580601; l=1070;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1781580602; l=1914;
  i=billy_tsai@aspeedtech.com; s=20251118; h=from:subject:message-id;
- bh=GQ3UQ5BFqq5w8PmNHkkbD3GB5wPV3CqM9yPcj5KE00g=;
- b=bHIkg0RFnCrvD4WKwjeopVECkuhuV/dk2dW8dRMWJM/DDZ9aLi/6fkU5tjS07KZJZyRxeo96e
- YPaQoo8uQWzCEr9WtIWN3OHGitlQEd35PnEnK3QyQrt8WPpA2/Dcq72
+ bh=3g5Xwg8h1zZKhm3yigBW7k/XgEh1YvhsBXpVJn3jjYc=;
+ b=8/rgiPAyR99n1WV2vAnALgdaOrGtS/4Pyejknog3mNZ6wbRX5G6acnNUpKvpkyOieYdOYck9k
+ mkV47AQIGOhCU3adl3tEKUMaH7IRepbeciaAkhCja6uYFwxUU0eA1qV
 X-Developer-Key: i=billy_tsai@aspeedtech.com; a=ed25519;
  pk=/A8qvgZ6CPfnwKgT6/+k+nvXOkN477MshEGJvVdzeeQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_203017_959265_0FF5E40E 
-X-CRM114-Status: UNSURE (   7.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260615_203016_364360_33C4B1AF 
+X-CRM114-Status: GOOD (  10.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,30 +77,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The TRST signal of the JTAG master is optional and may not be wired on
-every design, but it is only selectable as part of the JTAGM1 group,
-which forces the D12 ball to be muxed whenever the JTAG master is used.
+The JTAGM1 group includes the D12 ball carrying the TRST signal, but
+TRST is optional for a JTAG master and the ball may be needed for other
+functions on designs that do not wire it. With TRST embedded in the
+group, such designs cannot use the JTAG master at all.
 
-Add a separate JTAGM1TRST group so boards can enable TRST independently
-of the other JTAG master signals.
+Move D12 into a new JTAGM1TRST group under the same JTAGM1 function so
+TRST is muxed only when a board requests it. Boards that do use TRST
+now need to select both the JTAGM1 and JTAGM1TRST groups.
 
 Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
 ---
- .../devicetree/bindings/pinctrl/aspeed,ast2700-soc1-pinctrl.yaml         | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/pinctrl/aspeed/pinctrl-aspeed-g7-soc1.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/pinctrl/aspeed,ast2700-soc1-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/aspeed,ast2700-soc1-pinctrl.yaml
-index 76944fd14e2c..fe7cef4fef6a 100644
---- a/Documentation/devicetree/bindings/pinctrl/aspeed,ast2700-soc1-pinctrl.yaml
-+++ b/Documentation/devicetree/bindings/pinctrl/aspeed,ast2700-soc1-pinctrl.yaml
-@@ -356,6 +356,7 @@ patternProperties:
-           - I3C8
-           - I3C9
-           - JTAGM1
-+          - JTAGM1TRST
-           - LPC0
-           - LPC1
-           - LTPI
+diff --git a/drivers/pinctrl/aspeed/pinctrl-aspeed-g7-soc1.c b/drivers/pinctrl/aspeed/pinctrl-aspeed-g7-soc1.c
+index 50027d69c342..f8b4066699ce 100644
+--- a/drivers/pinctrl/aspeed/pinctrl-aspeed-g7-soc1.c
++++ b/drivers/pinctrl/aspeed/pinctrl-aspeed-g7-soc1.c
+@@ -1018,7 +1018,8 @@ PIN_GROUP(I3C6, AA22, AB20);
+ PIN_GROUP(I3C7, AF18, AE19);
+ PIN_GROUP(I3C8, AD20, AC20);
+ PIN_GROUP(I3C9, AA21, AB21);
+-PIN_GROUP(JTAGM1, D12, F10, E11, F11, F13);
++PIN_GROUP(JTAGM1, F10, E11, F11, F13);
++PIN_GROUP(JTAGM1TRST, D12);
+ PIN_GROUP(LPC0, AF26, AF25, B16, D14, B15, B14, C17, B13, E14, C15);
+ PIN_GROUP(LPC1, C16, C14, C11, D9, F14, D10, C12, C13, AE16, AE17);
+ PIN_GROUP(LTPI, U25, U26, Y26, AA24);
+@@ -1263,6 +1264,7 @@ static const struct pingroup aspeed_g7_soc1_groups[] = {
+ 	GROUP(I3C8),
+ 	GROUP(I3C9),
+ 	GROUP(JTAGM1),
++	GROUP(JTAGM1TRST),
+ 	GROUP(LPC0),
+ 	GROUP(LPC1),
+ 	GROUP(LTPI),
+@@ -1528,7 +1530,7 @@ static const struct aspeed_g7_soc1_function aspeed_g7_soc1_functions[] = {
+ 	FUNC(I3C7, (1), "I3C7"),
+ 	FUNC(I3C8, (1), "I3C8"),
+ 	FUNC(I3C9, (1), "I3C9"),
+-	FUNC(JTAGM1, (1), "JTAGM1"),
++	FUNC(JTAGM1, (1, 1), "JTAGM1", "JTAGM1TRST"),
+ 	FUNC(LPC0, (2), "LPC0"),
+ 	FUNC(LPC1, (2), "LPC1"),
+ 	FUNC(LTPI, (2), "LTPI"),
 
 -- 
 2.34.1
