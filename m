@@ -4,57 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5FF3CD98DA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 01:12:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F00E0CD98DA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 01:31:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=oIBaY0k9zVGIJP/SSLcXb42bXbADd5fwDXzr8mujOWA=; b=kq1OEzBRqOanD5gBQCiWTf6qHp
-	A+WNXZJcJloScpqgwDdQiFNsknVIKr86qwKCRYjvJQ3XJbgBOO1tzOwJZzXdnqfDO07AZqDDBZy4s
-	7UFTc+Xij4bl+2T3zrqiS9guU3lmV50Q7CDLflkjhEFZlSdtBb7d+jJwRsMCas0G07J1tltxxPzvb
-	Y/Oy11dKDbH4R1lDSVPZSaGJnH0EfQHWZMPBn4HuHaWvqLfsArTajznEM0N40GhzzGKM9ZfDEkQa8
-	NI79pVDt2ecWpTYoqFh8lIRqArQ9W5btpdRafVNYpTzpDPnR6gV3fTylarsKM+THqf55+OPyQc6lw
-	ZN3sQyNA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RkEWQpJeooQUHud2pK3BQotynQTlDyt68lm61nQYAI4=; b=evhjHAqj4vyql8u6zfqJPrXy/g
+	aYqmyaanramIZ7xaA/k9uUx8z4CydSLvRIS1WfxeL2epZj4fSNO/IMlyYFTGcHjk9nrnzB2+AMfWU
+	h7GM0w8RSdN0wNgUyM0r8ie8QL3+gHv5/q29maOmlmdPIE3WjA89JWUaAJVoqxmanUIVCfE86gLus
+	yLU0iSLYgGBgcBTy7hFjmEJ6BKjScn75w103Gv4OY/DGtBB7NMlGorc2IKRUEKFoWYM+dqBs7lZFp
+	tU4ScVmNEqBRYM4GwSku0dbMfkpSb1kj8ZUcIUhQuehj52xw1ox6MuSAZ+IYIZianSu92zgVWrFx0
+	zNpbY6zA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZILt-0000000F3RK-0cK2;
-	Tue, 16 Jun 2026 01:12:29 +0000
-Received: from mx.socionext.com ([202.248.49.38])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZILq-0000000F3Qy-3uyC
+	id 1wZIeP-0000000F472-0HcG;
+	Tue, 16 Jun 2026 01:31:37 +0000
+Received: from dggsgout12.his.huawei.com ([45.249.212.56])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wZIeK-0000000F46S-3bGO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Jun 2026 01:12:28 +0000
-Received: from unknown (HELO iyokan3-ex.css.socionext.com) ([172.31.9.54])
-  by mx.socionext.com with ESMTP; 16 Jun 2026 10:12:26 +0900
-Received: from mail.mfilter.local (mail-arc02.css.socionext.com [10.213.46.40])
-	by iyokan3-ex.css.socionext.com (Postfix) with ESMTP id 095CB2091480;
-	Tue, 16 Jun 2026 10:12:26 +0900 (JST)
-Received: from kinkan3.css.socionext.com ([172.31.9.51]) by m-FILTER with ESMTP; Tue, 16 Jun 2026 10:12:25 +0900
-Received: from plum.e01.socionext.com (unknown [10.212.245.39])
-	by kinkan3.css.socionext.com (Postfix) with ESMTP id 5D3FD15FF;
-	Tue, 16 Jun 2026 10:12:25 +0900 (JST)
-From: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
-To: Mark Brown <broonie@kernel.org>,
-	linux-spi@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Sangyun Kim <sangyun.kim@snu.ac.kr>,
-	Kyungwook Boo <bookyungwook@gmail.com>,
-	stable@vger.kernel.org,
-	Masami Hiramatsu <mhiramat@kernel.org>
-Subject: [PATCH v2] spi: uniphier: Fix completion initialization order before devm_request_irq()
-Date: Tue, 16 Jun 2026 10:12:23 +0900
-Message-Id: <20260616011223.201357-1-hayashi.kunihiko@socionext.com>
-X-Mailer: git-send-email 2.34.1
+	Tue, 16 Jun 2026 01:31:35 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.198])
+	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4gfTvf31MzzKHMV6
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 09:30:38 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.112])
+	by mail.maildlp.com (Postfix) with ESMTP id 720AD40701
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 09:31:24 +0800 (CST)
+Received: from [10.166.163.161] (unknown [10.166.163.161])
+	by APP1 (Coremail) with SMTP id cCh0CgBntjtrpzBqERXNBw--.61908S2;
+	Tue, 16 Jun 2026 09:31:24 +0800 (CST)
+Message-ID: <cda86396-afe1-4bc9-97c2-0e7a3c739217@huaweicloud.com>
+Date: Tue, 16 Jun 2026 09:31:22 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/6] irqchip/gic-v3-its: Fix LPI range leak and refactor
+ error handler in its_lpi_alloc()
+To: Marc Zyngier <maz@kernel.org>
+Cc: tglx@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260615032910.54735-1-shikemeng@huaweicloud.com>
+ <20260615032910.54735-2-shikemeng@huaweicloud.com>
+ <87jys089sn.wl-maz@kernel.org>
+From: Kemeng Shi <shikemeng@huaweicloud.com>
+In-Reply-To: <87jys089sn.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: cCh0CgBntjtrpzBqERXNBw--.61908S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7uw4Dtr4kKr1DGF17XryUGFg_yoW8trWUpF
+	43Wa9Fyr48JFWUKw42vFykJF90qws7XFW8KryfGa4ruFn8uF93KF4IkFyfX3WxCr9rJa48
+	X3Z5Wa4Duw1UAaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUgvb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
+	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
+	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
+	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY
+	6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17
+	CEb7AF67AKxVWUAVWUtwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF
+	0xvE2Ix0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIx
+	AIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVWUJVW8JbIYCTnIWIev
+	Ja73UjIFyTuYvjxUzsqWUUUUU
+X-CM-SenderInfo: 5vklyvpphqwq5kxd4v5lfo033gof0z/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_181227_090292_17471D5D 
-X-CRM114-Status: GOOD (  13.72  )
+X-CRM114-CacheID: sfid-20260615_183133_264926_B84A8F48 
+X-CRM114-Status: GOOD (  15.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,51 +86,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The driver calls devm_request_irq() before initializing the completion
-used by the interrupt handler. Because the interrupt may occur immediately
-after devm_request_irq(), the handler may execute before init_completion().
+在 2026/6/15 16:52:56, Marc Zyngier 写道:
+> On Mon, 15 Jun 2026 04:29:05 +0100,
+> Kemeng Shi <shikemeng@huaweicloud.com> wrote:
+>>
+>> Fix the LIP range leak when bitmap_zalloc() failed. Besides refactor
+> 
+> Typo.
+> 
+>> error handling code to make it a little simpler.
+> 
+> No. Please don't mix fixes and (totally pointless) refactoring.
+OK, I will only keep fix in this patch.> 
+>>
+>> Signed-off-by: Kemeng Shi <shikemeng@huaweicloud.com>
+>> ---
+>>  drivers/irqchip/irq-gic-v3-its.c | 21 +++++++++------------
+>>  1 file changed, 9 insertions(+), 12 deletions(-)
+>>
+>> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+>> index 291d7668cc8d..2b7b546c43c8 100644
+>> --- a/drivers/irqchip/irq-gic-v3-its.c
+>> +++ b/drivers/irqchip/irq-gic-v3-its.c
+>> @@ -2217,10 +2217,9 @@ static int __init its_lpi_init(u32 id_bits)
+>>  static unsigned long *its_lpi_alloc(int nr_irqs, u32 *base, int *nr_ids)
+>>  {
+>>  	unsigned long *bitmap = NULL;
+>> -	int err = 0;
+>>  
+>>  	do {
+>> -		err = alloc_lpi_range(nr_irqs, base);
+>> +		int err = alloc_lpi_range(nr_irqs, base);
+>>  		if (!err)
+>>  			break;
+>>  
+>> @@ -2228,22 +2227,20 @@ static unsigned long *its_lpi_alloc(int nr_irqs, u32 *base, int *nr_ids)
+>>  	} while (nr_irqs > 0);
+>>  
+>>  	if (!nr_irqs)
+>> -		err = -ENOSPC;
+>> -
+>> -	if (err)
+>> -		goto out;
+>> +		goto err_out;
+>>  
+>>  	bitmap = bitmap_zalloc(nr_irqs, GFP_ATOMIC);
+>>  	if (!bitmap)
+>> -		goto out;
+>> +		goto err_free_lpi;
+>>  
+>>  	*nr_ids = nr_irqs;
+>> -
+>> -out:
+>> -	if (!bitmap)
+>> -		*base = *nr_ids = 0;
+>> -
+>>  	return bitmap;
+>> +
+>> +err_free_lpi:
+>> +	free_lpi_range(*base, nr_irqs);
+>> +err_out:
+>> +	*base = *nr_ids = 0;
+>> +	return NULL;
+>>  }
+>>  
+>>  static void its_lpi_free(unsigned long *bitmap, u32 base, u32 nr_ids)
+> 
+> Honestly, I question the validity of handling errors this way. You are
+> already unable to allocate a per-device bitmap. And yet you are
+> calling free_lpi_range(), which has the interesting property of
+> *allocating* memory. Which you don't have. Oh wait...
+You are right. I'm considering use xarray to track the lpi range or
+modify free_lpi_range to try merge first before memory allocation.
+What would you recommend?
 
-This may result in calling complete() on an uninitialized completion,
-causing undefined behavior. This has been observed with KASAN.
-
-Fix this by initializing the completion before registering the IRQ.
-
-Reported-by: Sangyun Kim <sangyun.kim@snu.ac.kr>
-Reported-by: Kyungwook Boo <bookyungwook@gmail.com>
-Fixes: 5ba155a4d4cc ("spi: add SPI controller driver for UniPhier SoC")
-Cc: stable@vger.kernel.org
-Cc: Masami Hiramatsu <mhiramat@kernel.org>
-Signed-off-by: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
----
-Changes in v2:
-- Rebase onto latest, no functional changes
-
-drivers/spi/spi-uniphier.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/spi/spi-uniphier.c b/drivers/spi/spi-uniphier.c
-index cc20fd11f03f..86fce9a571da 100644
---- a/drivers/spi/spi-uniphier.c
-+++ b/drivers/spi/spi-uniphier.c
-@@ -656,6 +656,8 @@ static int uniphier_spi_probe(struct platform_device *pdev)
- 	priv->host = host;
- 	priv->is_save_param = false;
- 
-+	init_completion(&priv->xfer_done);
-+
- 	priv->base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
- 	if (IS_ERR(priv->base))
- 		return PTR_ERR(priv->base);
-@@ -679,8 +681,6 @@ static int uniphier_spi_probe(struct platform_device *pdev)
- 		return ret;
- 	}
- 
--	init_completion(&priv->xfer_done);
--
- 	clk_rate = clk_get_rate(priv->clk);
- 
- 	host->max_speed_hz = DIV_ROUND_UP(clk_rate, SSI_MIN_CLK_DIVIDER);
--- 
-2.34.1
+Thanks,
+Kemeng Shi> 
+> 	M.
+> 
 
 
