@@ -4,60 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDEDBCD98CF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 08:16:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FF10CD98DA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 08:19:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KYszhK6WxOVPWQUbaHbnDx1n+yjag9Hv6cthNWEQF+0=; b=ZucdKYHSTyFNNVvvsqQlf0Vmjh
-	lNpd3Y+PMgwdxJLgytvWy6hIPLRQ+/2Da+pRZ7bFSv2qYwJRF2alBm36NZPgjekXSn2A8OenF89ve
-	buYYLn4FKj4+y/B8jnEPBfYy3YW+1t4jJenAWWIBBZlU/0qAqKsvqJYxneqIX/Zc+fDjBtwddNDjQ
-	ptt+MVtneGsCWQK41Pc2aG2MvBSk2jKwbpjagL4XRjoZx4Jkd/UXQ+Zo7z4lqasRchM6U19gvFfBf
-	HehmiLBj2rvixl6GK1UsZg3e1nWciRr8Almh3M8BXS9rjHuVpE7WfixDzIL/DZLTf8cnHopgxXRZD
-	j9VXju/Q==;
+	bh=kVlwzhdqMo0IkLJmL9SfZENeK7a3vWBac1kTS+2TzVA=; b=OGXCJexsQztURZA+NuhI8p0Kjo
+	tjRXpAdp/mf87rEojfRzITrF8yGolpPKT+biFQHzd01CVtiwEoOeUjDcYxNb37uBXtUqtY6nU8C/Y
+	eqwugVm/52Ck+Lbm2bQlBSG3Ot2rF0RYLf2JGFR4seT6aRn5/5WAulaoh8KxyRO7oOY1e0+3b/3CL
+	lNo3IIEl28Sdz9GzkAitSEKXaxeVLSOjInJpM9bKXuOZc7C5bxaMvQA3LUQcQSZhvRs5Icuy5xx5A
+	OGtOlrbjXSbsjWT0QqZ/doLOKPo2lZpa4enVpOCylD6t0xnzOF2fqn9rlXfPmN4zwJXDOgulwW6Ja
+	7a3M9n+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZOy1-0000000FQWf-3dO8;
-	Tue, 16 Jun 2026 08:16:18 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wZP0y-0000000FQrw-3hxk;
+	Tue, 16 Jun 2026 08:19:20 +0000
+Received: from fhigh-b1-smtp.messagingengine.com ([202.12.124.152])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZOxx-0000000FQWI-0pX2
+	id 1wZP0w-0000000FQrD-32RW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Jun 2026 08:16:13 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 38ADB40134;
-	Tue, 16 Jun 2026 08:16:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6AE71F000E9;
-	Tue, 16 Jun 2026 08:16:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781597772;
-	bh=KYszhK6WxOVPWQUbaHbnDx1n+yjag9Hv6cthNWEQF+0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=RSMDCDw51+nLSofJBh02sdNbMVceO0cma1wN64jWmVAWTZULW2R3tYlmeQ1ZcxDY2
-	 MoW+axlsz5dL16v8oeezk2XDRiwwWXDct+8HBDTVreYhP42LWXkEEO0ewVtpk8xhsz
-	 5qj/tKR5hxlICXVGGooZZMeAB6/WfZ3JnkbzqycvfZqULcJreSon8ys8qGqSkyZU8C
-	 wIMRSzvtqFXKi0E6bJfaQE9eu50vt8jN4YaQe7Rtn2lmaawRpqo7+/PXz8CUMLWEaH
-	 ObVLa7PCJ123b5i6BN0sJxc+5xBNqJQkIcyya0Ox/8fOWxykP2+zrFACa38wlb4j3A
-	 JINTWWSXxukTQ==
-Date: Tue, 16 Jun 2026 17:16:09 +0900
-From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-To: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
-Cc: Mark Brown <broonie@kernel.org>, linux-spi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Sangyun
- Kim <sangyun.kim@snu.ac.kr>, Kyungwook Boo <bookyungwook@gmail.com>,
- stable@vger.kernel.org, Masami Hiramatsu <mhiramat@kernel.org>
-Subject: Re: [PATCH v2] spi: uniphier: Fix completion initialization order
- before devm_request_irq()
-Message-Id: <20260616171609.358d9d8c39ff7a59cd1559fc@kernel.org>
-In-Reply-To: <20260616011223.201357-1-hayashi.kunihiko@socionext.com>
-References: <20260616011223.201357-1-hayashi.kunihiko@socionext.com>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+	Tue, 16 Jun 2026 08:19:20 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 9B0F27A0042;
+	Tue, 16 Jun 2026 04:19:17 -0400 (EDT)
+Received: from phl-imap-05 ([10.202.2.95])
+  by phl-compute-04.internal (MEProxy); Tue, 16 Jun 2026 04:19:17 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1781597957;
+	 x=1781684357; bh=kVlwzhdqMo0IkLJmL9SfZENeK7a3vWBac1kTS+2TzVA=; b=
+	PqxlMVaE7o662r3yF4be0n4LYZ4fcKwWgkrKPR67QbBOJ9OjH3D95gZIlGL6cMsS
+	XTPYBoBx8C20WNWNHl6NS9CucuDpQu95mRWtuhajjta9URqp8vS8qejONxDOQ9l9
+	qx91+qelp0w6BD33yKGq/CnyfPrOvIhLKJolBmoeXPbEI3zeYZb0kUwa6YfsIvAe
+	I3AOaKV7ofLeJ11euZMayalgrOXVwu8evVOj+fvtlk0YNrQ2Z+mC+tjJ8MJhTAj0
+	r2b6HlJI3o4ZKrVYy/qAv7y66k5KzH/ciSJmNfDiXO1ItX0wK5g2MXivAjQajmZk
+	faIRedr7XDHPd/fHDHY9Fw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1781597957; x=
+	1781684357; bh=kVlwzhdqMo0IkLJmL9SfZENeK7a3vWBac1kTS+2TzVA=; b=Q
+	Iq/pkuZMH9g/ZjnHReaKj1SNW4RguBo/g+Iwh4tTOwHWMYstM6fa1tiVqAJ90GfP
+	ZsWZEOJCiujI48zXM7cYo14vhX65Dx0mCwDFRf3lZKa1xZdd5cRL8ZxtKq7kIOPA
+	nvgfOgPaRBNygwE6WdKt8xn+ZzX3lMHaJyYeUSxl5wB9lo5WPE62EuDoqr8Oy798
+	e80x/Hv7RBIpWY7UUT6HFb6eyx9UQtgMibGunTctw6aM4RK23qHJ0cwBc3AAf4gP
+	8+PnTovjkIESnmHBLp4eKsk/la2GTJK8RHw3XQHhTbpjJd/O36f9c3k1MFxlLv4y
+	GNcvz4pYUwpFW5z9mkvNw==
+X-ME-Sender: <xms:BAcxaq9tXoAw0Z73IMpHBSRXpro8qlpNXbBOUKhUjg5IH59rDws_eQ>
+    <xme:BAcxaljBojnemsFH390L-fne7UhM6yKjQTwk0tjggzMJiDL8XSTP-49jfFIckhKuH
+    yTyjPlWivVhpU1d7FMEkCrDTg0CAkDmPa51pLicfBKOaV-J2gR2AdI>
+X-ME-Proxy-Cause: dmFkZTF4QUMeGd6iv3yzBOf7Fnfsl6QGcgSaC2dICC10YWwno/3Qc04Co1gCVVJ19qLyN+
+    ZUxWiKuI66nphoATdJKGPOv0qD89bJDhmLlMicILzFz01OG8YIY8nG9ZWmB5r5nxkFKh5p
+    MfPG5R8mAXpbO7/kzN2MnUEhBydZYsOvncSOE9wN1NNvwm8G49t6bRblhVGDekkf7Otpzp
+    gjuEeeGQPc62BH+4yDegF87F6tYk16gy3Jv8/BuBCnKtZBANF1ZkEwVz50MordIJfg0x2H
+    qBbTUj7nu0uljkIXZRRMKTfwaKSYY14+GrXMwEpnNFXdWjpRbltZjb/tGnTMx4qcXf4Taz
+    N3qBp0c5/yyIDcTVr12XI41GIgTDKRhVZQBGs1JTX5zFuITJSGHlWO6DL3rGtTKKWh31kz
+    yEaxnqFQ5JOSmtdFzf544xfbYP/vIL/Qk6oW58eq6chv+DJJHVH8nL0iJKVkJr/fywURM1
+    +blE1NjaJ6bxZJ1qxzlx3dHA3H9jFO7dKQc/Ig2lrgaR3L6aIwDUOXsbSqc20/3UpVuFcU
+    ua7DeT4b2BlaFfvA7d72flI6CzdO6LKcJx8MOluhcjVbMry75EbGBkK4H6dD7ayfc68TAO
+    jD/MXaWrjynBHVvotbU8UNRFPqa3c8ppfx5cckclLko7FX6f+O7topgqGL9A
+X-ME-Proxy: <xmx:BAcxaogqiJS22nqquboqx7tial-iDHbByDefyuTp8J7ZLNOksnMuFA>
+    <xmx:BAcxajRQXrijaufQPclYXosoj4K2Z6Z7zEjrV_bXeBC7QTtNMZoNsw>
+    <xmx:BAcxaiW6ai8X8Ja0zNmNQkqYPgETF7vQFNOPEF8ai6Hl2-ZfRj8Oqw>
+    <xmx:BAcxavTteVI6iIhn8exToIZoHAW4ykp8EEev3xBm7KqegPl_NwoOnw>
+    <xmx:BQcxakkrvUhNNUGai7EygD8GrxjGCDn5XWyrKqQieFdWeh3ywiZv26Ws>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id CB01E182007E; Tue, 16 Jun 2026 04:19:16 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
+MIME-Version: 1.0
+X-ThreadId: AY-ceJz73NQB
+Date: Tue, 16 Jun 2026 10:18:46 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Linus Torvalds" <torvalds@linux-foundation.org>
+Cc: soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ "Krzysztof Kozlowski" <krzk@kernel.org>, "Linus Walleij" <linusw@kernel.org>,
+ linux-kernel@vger.kernel.org
+Message-Id: <ec0724b8-e660-4ff8-a06b-b34e288870ce@app.fastmail.com>
+In-Reply-To: <40c8ebc3-d681-4dcf-b3f2-ce0d780c539e@app.fastmail.com>
+References: <40c8ebc3-d681-4dcf-b3f2-ce0d780c539e@app.fastmail.com>
+Subject: [GIT PULL 3/4] soc: defconfig updates for 7.2
+Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260616_011918_816051_44F77BF7 
+X-CRM114-Status: UNSURE (   9.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,69 +110,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 16 Jun 2026 10:12:23 +0900
-Kunihiko Hayashi <hayashi.kunihiko@socionext.com> wrote:
+The following changes since commit 7fd2df204f342fc17d1a0bfcd474b24232fb0f32:
 
-> The driver calls devm_request_irq() before initializing the completion
-> used by the interrupt handler. Because the interrupt may occur immediately
-> after devm_request_irq(), the handler may execute before init_completion().
-> 
-> This may result in calling complete() on an uninitialized completion,
-> causing undefined behavior. This has been observed with KASAN.
-> 
-> Fix this by initializing the completion before registering the IRQ.
-> 
-> Reported-by: Sangyun Kim <sangyun.kim@snu.ac.kr>
-> Reported-by: Kyungwook Boo <bookyungwook@gmail.com>
-> Fixes: 5ba155a4d4cc ("spi: add SPI controller driver for UniPhier SoC")
-> Cc: stable@vger.kernel.org
-> Cc: Masami Hiramatsu <mhiramat@kernel.org>
-> Signed-off-by: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
+  Linux 7.1-rc2 (2026-05-03 14:21:25 -0700)
 
-Looks good to me.
+are available in the Git repository at:
 
-Reviewed-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+  https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-defconfig-7.2
 
+for you to fetch changes up to cccde8de2c72068051ff8351ae6f1e2a12718aa0:
 
-> ---
-> Changes in v2:
-> - Rebase onto latest, no functional changes
+  Merge tag 'bst-arm64-emmc-driver-defconfig-for-v7.2' of https://github.com/BlackSesame-SoC/linux into soc/defconfig (2026-06-12 09:03:41 +0200)
 
-BTW, please clarify the actual branch name instead of "latest".
+----------------------------------------------------------------
+soc: defconfig updates for 7.2
 
-Thanks,
+The main change this time is a cleanup series from Krzysztof Kozlowski
+that updates the defconfig files to be more in sync with changes to
+the Kconfig files that moved options around or removed the completely.
 
-> 
-> drivers/spi/spi-uniphier.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/spi/spi-uniphier.c b/drivers/spi/spi-uniphier.c
-> index cc20fd11f03f..86fce9a571da 100644
-> --- a/drivers/spi/spi-uniphier.c
-> +++ b/drivers/spi/spi-uniphier.c
-> @@ -656,6 +656,8 @@ static int uniphier_spi_probe(struct platform_device *pdev)
->  	priv->host = host;
->  	priv->is_save_param = false;
->  
-> +	init_completion(&priv->xfer_done);
-> +
->  	priv->base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
->  	if (IS_ERR(priv->base))
->  		return PTR_ERR(priv->base);
-> @@ -679,8 +681,6 @@ static int uniphier_spi_probe(struct platform_device *pdev)
->  		return ret;
->  	}
->  
-> -	init_completion(&priv->xfer_done);
-> -
->  	clk_rate = clk_get_rate(priv->clk);
->  
->  	host->max_speed_hz = DIV_ROUND_UP(clk_rate, SSI_MIN_CLK_DIVIDER);
-> -- 
-> 2.34.1
-> 
+In addition, a number of drivers get enabled, in order to support
+more hardware out of the box, as usual.
+
+----------------------------------------------------------------
+
+I originally sent this as 0/4, which was obviously a mistake.
 
 
--- 
-Masami Hiramatsu (Google) <mhiramat@kernel.org>
+Albert Yang (1):
+      arm64: defconfig: enable BST SDHCI controller
+
+Arnd Bergmann (5):
+      Merge tag 'v7.2-qcom-pinctrl-defconfigs' of git://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-pinctrl into soc/defconfig
+      Merge tag 'cix-defconfig-v7.2-rc1' of git://git.kernel.org/pub/scm/linux/kernel/git/peter.chen/cix into soc/defconfig
+      Merge tag 'at91-defconfig-7.2' of https://git.kernel.org/pub/scm/linux/kernel/git/at91/linux into soc/defconfig
+      Merge tag 'imx-defconfig-7.2' of git://git.kernel.org/pub/scm/linux/kernel/git/frank.li/linux into soc/defconfig
+      Merge tag 'bst-arm64-emmc-driver-defconfig-for-v7.2' of https://github.com/BlackSesame-SoC/linux into soc/defconfig
+
+Krzysztof Kozlowski (12):
+      pinctrl: qcom: Make important drivers default (2)
+      arm64: defconfig: Move entries to match savedefconfig
+      arm64: defconfig: Drop unused legacy netfilter options
+      arm64: defconfig: Drop default or selected drivers
+      arm64: defconfig: Drop unused Ethernet vendors
+      arm64: defconfig: Switch Ethernet drivers to modules
+      ARM: multi_v7_defconfig: Move entries to match savedefconfig
+      ARM: configs: Drop redundant I2C_DESIGNWARE_PLATFORM
+      ARM: configs: Drop redundant SND_ATMEL_SOC
+      ARM: multi_v7_defconfig: Cleanup redundant options
+      ARM: multi_v7_defconfig: Correct QCOM_RPMH and QCOM_RPMHPD
+      ARM: configs: Drop duplicated CONFIG_EXT4_FS
+
+Manikandan Muralidharan (1):
+      ARM: configs: at91: sama7: add sama7d65 i3c-hci
+
+Manivannan Sadhasivam (1):
+      arm64: defconfig: Enable PCI M.2 power sequencing driver
+
+Maxime Ripard (1):
+      ARM: multi_v7_defconfig: Enable dma-buf heaps
+
+Peter Chen (1):
+      arm64: defconfig: Enable CIX Sky1 pinctrl, PCIe host, and Cadence GPIO
+
+Ryan Chen (1):
+      arm64: configs: Update defconfig for AST2700 platform support
+
+Stefan Wahren (1):
+      arm64: defconfig: Enable DP83822 PHY driver
+
+ arch/arm/configs/at91_dt_defconfig   |   1 -
+ arch/arm/configs/axm55xx_defconfig   |   1 -
+ arch/arm/configs/dove_defconfig      |   1 -
+ arch/arm/configs/ep93xx_defconfig    |   1 -
+ arch/arm/configs/hisi_defconfig      |   1 -
+ arch/arm/configs/mmp2_defconfig      |   1 -
+ arch/arm/configs/multi_v5_defconfig  |   1 -
+ arch/arm/configs/multi_v7_defconfig  | 106 ++++-----
+ arch/arm/configs/mv78xx0_defconfig   |   1 -
+ arch/arm/configs/pxa_defconfig       |   2 -
+ arch/arm/configs/qcom_defconfig      |  15 --
+ arch/arm/configs/sama5_defconfig     |   1 -
+ arch/arm/configs/sama7_defconfig     |   3 +-
+ arch/arm/configs/socfpga_defconfig   |   1 -
+ arch/arm/configs/spear13xx_defconfig |   1 -
+ arch/arm/configs/spear3xx_defconfig  |   1 -
+ arch/arm/configs/spear6xx_defconfig  |   1 -
+ arch/arm64/configs/defconfig         | 423 +++++++++++++++++------------------
+ 18 files changed, 250 insertions(+), 312 deletions(-)
 
