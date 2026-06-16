@@ -4,117 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50602CD8CA8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 06:08:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6E2ACD98E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 06:12:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:To:Subject:From
-	:MIME-Version:Date:Message-ID:Cc:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fg7/Bt2hoSMHwuHZLh5Xj5ceyiuOjajftOMuvqKGx0E=; b=rjhxwXNl5TIdc3NHAijP2E3Sad
-	y0x9mPil7PBGBFJ9VVmCeJoWThV3QKlvOXZZCGuKkGyBeo8D6NgYRCVWNv66S5d93Caaad2fZ7hl8
-	3esuCDgf4uOB9CGAZNn0ZhsA2KeYkkGad7L6VC1LY6xGMGYpRpKi7BoAuTxEWWymnyrPJ0NfuDnvQ
-	85bTjr+mO8abXReN/ZVUIfu3M0rD7lnAbMTDfmbJvAmpy8Y+QvJB39XvBZGEsET7S8ZscmpCV4pT9
-	fMLV5IRD948H+/D0d6stwtT6EI2mNUEJtBcSAjGrRbsoB3iJf5GHre3e1GaIa9fvI3FJhRpLdLYYb
-	7V4EXfCA==;
+	bh=IC1KoUvF73OtWJ/lTWg9nZe3Dxd1TPPs/CEL0ojNFYQ=; b=XirD9UVQCrEJhOn+bu0A1KduAX
+	JRKco1RKc0WJY16XWKIuFu4uNlfFZ1B1A23wey0qZpwIlDTeuUyca/U4TmddU9BaWbHzZFDFC1Kqn
+	ynS/th1GhXEkK88w/4jOWP8///LVa1MPJOd0voRISErKQHg/LIpTWvKcGtlOJRFrcfy9dijSK7/1p
+	fniGa3KEPDkb1Q7p4687l7ERVFF+qu0TKzHl9J9blFMcmIy18ypuvPGUWGWNdqYp/zFHmIGPiRo5z
+	YcnLiuVNUgWMWD6uFfrsCMxx20w+0CAYCe/uYjn65kGIX8Gz5CmAAu3ep85miBReT7D7AxKi7D2or
+	zH5Twkjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZMxt-0000000FHyz-3vFM;
-	Tue, 16 Jun 2026 06:08:01 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1wZN2O-0000000FIhe-2o2z;
+	Tue, 16 Jun 2026 06:12:40 +0000
+Received: from mail-japanwestazon11022140.outbound.protection.outlook.com ([40.107.75.140] helo=OS8PR02CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZMxr-0000000FHxx-0oy8
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Jun 2026 06:08:01 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-45fd461e4a5so3245373f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Jun 2026 23:07:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1781590077; x=1782194877; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Fg7/Bt2hoSMHwuHZLh5Xj5ceyiuOjajftOMuvqKGx0E=;
-        b=l71X16e3PnlNsF9zN5UFezrQG5Sn2CyXlZsrckGTSDZhRzHIf4BT2ixox89U1lu3tY
-         PwIlobPxLW8CWagQwR5wRhTgQb8lrZvTxN6t79WNJUDSTFu5z4c71UfMOP1ne5BSTCdk
-         5z0zOMf4VJCd1fq86t2FIeUQELMdNf38pleKoEEoPVExxXqkNiK12lPKPCOFaFMZpZ9W
-         E9AJt8dOmx4U1DZ2cK6KLL0QyLlD/z6zviqC0egV1DmuBmdRi/j6PFKFhO5S1sN7gXQ5
-         iyyE3qJua6VcQ664J60yJM/w696l7cZsvOHzL8qTH43TQy1w51HNEKlW16I0SziyVy8K
-         ZVJA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781590077; x=1782194877;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Fg7/Bt2hoSMHwuHZLh5Xj5ceyiuOjajftOMuvqKGx0E=;
-        b=POKyPrHYnKsiZUgq1QiG5WatdRR7jc8v+nvnuT5QUaklaBUJHS+SRv7UiKv7cDyJeN
-         MKZKKgQijpO8wgsxFgOywReciXjvpH/Qyf0odX4V1m+Ox+Q2F0ASYHe2Qi8cULyWxnb+
-         GrsUR94IdxDF3ovCytsQ5xHDXE1FyfSvxVMtw4PzNRER6jjy5mGQp+bwZYym2e6B9Rxp
-         HQ09IidsUbQsSRO5V6Wvw3GZCGuWIzzaBoPGAoJraG/nIv3yj1BrG4m5Fz/3dXT1+vuw
-         5APYOKgHaA3Vl3pGrrm6V7nlI7gqHMiacImM7lziX5GOTYRhGsOVphiNeRGQLTzn+W8+
-         kdBw==
-X-Forwarded-Encrypted: i=1; AFNElJ/pnZgSD+TcrbNV4dFwx3t+5TiVen8SRVg9ftCkT1a0w3QuECBvAcWSZ9fQq/21Bf/wP7olkiZ6GDjGFbx7aAyS@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx+P5VkbFEqszaWPn/KAAVJqb1NyifOUjS/GQEH5l/UOBMGWA5o
-	xmmTkbwJLbKCmJD18xKfpsP5FdLAKzmH+8TOcZ1cd//ESSTRLSDIR8VSk5j/yQ5uig8=
-X-Gm-Gg: Acq92OFHFf33rYK3Gj8y9KMhC0FPMu71h6AhH+XrmEEMMbDw4FWPuuz+LAM5WlaD3u+
-	YlE3hfiVX8FAX2SQZHL9YUWjch6n0necyrf2eiUM+3/gsUKWpUOG56W/ekwPWkP9hnQlKBRIXY4
-	UpREo8iBMbUwhWuUQvg/DbLB7Ab/kVEMRGiecrWkFEZvWH2whw6cM1EI52YfTk22mSl/HOoeBcd
-	DOcdNC59YNC2ev4yG1xUKsejCi/LJFjhHwAh2AwhL0nQ6CIbZTCbvQUOjRMKBebLBTYLFrpbfrB
-	t/lKPK3b8sJGfFNoa/gtRaXuQfwP+9u+PJx0eQEP3CPPI3JEp1Z15WMMa+58SY8GoPb/4lEqRfB
-	M4U7OaTX5PE89W/uWuK5IqYDNIYu/quv3jFe7N5padH3L9qGZeeeDFcV+gQ85QARqFxFjZN9wND
-	cu6SqslAAOw5zlhpERf5yvKmS6veSi0E/7z+g9cpIE87c=
-X-Received: by 2002:a5d:64e3:0:b0:461:a5d6:704c with SMTP id ffacd0b85a97d-461a5d673fcmr202253f8f.27.1781590077340;
-        Mon, 15 Jun 2026 23:07:57 -0700 (PDT)
-Received: from [172.20.10.3] ([37.167.117.98])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4606f26f4f6sm45062575f8f.16.2026.06.15.23.07.52
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 15 Jun 2026 23:07:57 -0700 (PDT)
-Message-ID: <1922bb19-78a1-456a-ade8-417290068e3f@linaro.org>
-Date: Tue, 16 Jun 2026 08:07:50 +0200
-MIME-Version: 1.0
+	id 1wZN2M-0000000FIgj-0RxZ;
+	Tue, 16 Jun 2026 06:12:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=krZqORzIA9hiVaRipo57if/3wi9c4l8YvZLL22G6iNC+OYyscgEUZaJfjG2DNS3ch7hSr4VaQ/l/susSJSn7iKgDvzJZMudOd24CgAa9ovT7IpYoVGBqlWa6qVAwbybSnWavURKqZtHCZhIMRSekN9l6DaO7yLlT2F/dFyZvYe95Xp5q37SD7vTm+w2dlRP7Rw/Y0SEJQLdv6t6hktQdzt9OkQr8HRcq0k0e4IGYHtWLsyoIeOrhOxXh6/l8UW+UpOWEpujcj+qG88bRY9AHbbSo+r4G8rQV5S96yh4KfgtXdF0wfXJpQEbdL+aByTE40lwXoloKtS9VoEEVEwI+aw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=IC1KoUvF73OtWJ/lTWg9nZe3Dxd1TPPs/CEL0ojNFYQ=;
+ b=EhuYiXk7oqAmDc+1xRqC4vnMMZaBuxIn9uqmF5ymmf1ajl3f728fxOCZu+28fmgwFwSw5txkQjZpyM4tDEWslb9uCxpm0EfIK3FEKznBxbs/GUr8YMzJ3Mx6KQqY3WjVa7eIzU9AmM7qJivgytBWDPsS44PXvMqDOO+2zP3jTYHuxs45AqNGeHSbIlkyrTPrQt6kd7hL6VBSSSRXpVXwBfY3v06u6+j8N86UFYpDIiiQdozCIkYpQz8CK2WnohdnaoGWtAu1VpJDVOn3//kM4aSzsEoWlGbxJC/6TthcLDJU3qbI+NyC0RpR/aVG6Q6Bpn1zHrTTffgD4sawyR0IiA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
+ dkim=pass header.d=amlogic.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=IC1KoUvF73OtWJ/lTWg9nZe3Dxd1TPPs/CEL0ojNFYQ=;
+ b=DC9es54Qzes7h8R4dKDVAhrAQY9n+teFlKPp2P6qBc+H67tvfc95lJIF5itMPdFHMZaBmJ8UzcA0tT7PGMx++Er0RdfnFZC0VuzcGJ2qk9IWO0wsjaualyThJBkrDvusTtQupc/hpakHlT7AAwoayxSK8uzzzYDzPhsqiiWZXTiq35/I5Oe/qaxIlLoXJ2AsUvmU4FIf+nzMxTmKSTeHJmQq9HP9XKHGf/W5xjZegfACV0dWxMB9t0jUN+M0p0vS1GaSbcK83Iu/3JkBh/o+f/LKsBSj95LwAaK3nj0B7MrSPdBgjraK5sLjjjmGTSv9zdo2qYtHFoWXBww94Y2f/A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amlogic.com;
+Received: from KL1PR03MB7149.apcprd03.prod.outlook.com (2603:1096:820:ca::7)
+ by KL1PR03MB8413.apcprd03.prod.outlook.com (2603:1096:820:130::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.11; Tue, 16 Jun
+ 2026 06:12:24 +0000
+Received: from KL1PR03MB7149.apcprd03.prod.outlook.com
+ ([fe80::2f06:12a:fff0:6506]) by KL1PR03MB7149.apcprd03.prod.outlook.com
+ ([fe80::2f06:12a:fff0:6506%5]) with mapi id 15.21.0139.009; Tue, 16 Jun 2026
+ 06:12:24 +0000
+Message-ID: <5601fe65-777b-4db0-a6e5-8d2cdcde7e53@amlogic.com>
+Date: Tue, 16 Jun 2026 14:12:20 +0800
 User-Agent: Mozilla Thunderbird
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH] soc: amlogic: meson-clk-measure: remove debugfs tree
-To: Pengpeng Hou <pengpeng@iscas.ac.cn>, Kevin Hilman <khilman@baylibre.com>,
- Jerome Brunet <jbrunet@baylibre.com>,
+Subject: Re: [PATCH v3 2/2] clk: amlogic: Add A9 peripherals clock controller
+ driver
+To: Jerome Brunet <jbrunet@baylibre.com>
+Cc: Jian Hu via B4 Relay <devnull+jian.hu.amlogic.com@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Xianwei Zhao <xianwei.zhao@amlogic.com>,
+ Kevin Hilman <khilman@baylibre.com>,
  Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260615091531.21964-1-pengpeng@iscas.ac.cn>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <20260615091531.21964-1-pengpeng@iscas.ac.cn>
+ linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260610-a9_peripherals-v3-0-d07a78085f71@amlogic.com>
+ <20260610-a9_peripherals-v3-2-d07a78085f71@amlogic.com>
+ <1jecieftme.fsf@starbuckisacylon.baylibre.com>
+ <bfe92bbe-5325-4497-b79f-10c7a6e1ed5b@amlogic.com>
+ <1j7bo0dm0z.fsf@starbuckisacylon.baylibre.com>
+From: Jian Hu <jian.hu@amlogic.com>
+In-Reply-To: <1j7bo0dm0z.fsf@starbuckisacylon.baylibre.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SE2P216CA0180.KORP216.PROD.OUTLOOK.COM
+ (2603:1096:101:2ca::11) To KL1PR03MB7149.apcprd03.prod.outlook.com
+ (2603:1096:820:ca::7)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: KL1PR03MB7149:EE_|KL1PR03MB8413:EE_
+X-MS-Office365-Filtering-Correlation-Id: b3403e22-7158-44c9-e7c8-08decb6e3bb6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|7416014|376014|1800799024|11063799006|56012099006|6133799003|4143699003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: s0J5WRAdpCQI4IeALV4jhkkTyfsO3QOpcgA3GaLM2eDeI987dsCiVB8HR+yK0pOeJ6wDvfypnjM4p9YhxN78zFTCAEeRZHZpznkesNFYXomOY2qbeJ8xpAYcgPK4oqa0zvz6vYAmS0uGKabqUJchR/DNJzkk0SrUA9qqx4z9YPt2xZZTrI5EndMBVngTFD0U8xU2ZCw19uChIisEaCqCDrEjjTQN5tisks4Ph7pnTzMdDEzlWQpqd3Iq2fq/8Wdgfebd77p6KDs1YajHCn35EJTIrDUyW1gi0/vCpz4kPaVaEuf5VSb6mzTOPFPiEdLKPvCx4NuloWsOWGhjFDgReB3li1iPGmK+B7E1SD9ycPtwc23h81IpsMLsuDCu2Up23x5pVLH+CAYM91/sEy8GnfXI/l7kbDJ0j2H68PbkU5tb2t2tMYQCgTclWYxbAg1ra1y2achNUVX23YDaqfMajJ9CC7V1JED3eUIJ7NXRySvIrJa2wvxkx2HkrifXpl4MAno5JiKsmWQmR158rcC1WcWFgXFhrxKntzhKnrNqxP6P3wppYANDGCZZZt6exDnly8XLEM+4d+mCaHQ3iWOqju80KzNe9an/hk3w6NU1w1k4nZOywRgUZEaZI8Q7RFQCoEyqc5fPhtRJSNUYljW3j7HFbz3PfkvFYqLZ39tkuynz69Emq1hOZZGvq3R6oWTH
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB7149.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(7416014)(376014)(1800799024)(11063799006)(56012099006)(6133799003)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RzJxSVRGNUhUQmNkNlNoTkZlK2w0eFlMOFJMOVd1SVFYcTIrQzJKc0FlWVBY?=
+ =?utf-8?B?czUwNFBVRUtselgxcWhSc2ZnZlV0Ukc0VEtlL2MwMWgwTUI4SVNOL1RtbnBu?=
+ =?utf-8?B?ZlNsMUJCbVNxcm9pQ2w1ZmRJaHpMVmFqN3FSRFJUeU5nUVhMTnJ3L2QyYkVH?=
+ =?utf-8?B?UEtjcXdwaWdJdExXTVhUMjdxM3R5cjB5K1RFQ1FXVUsyK1dIU29yUDRhSVp2?=
+ =?utf-8?B?TlU2eXRQSFVNVzZmSWJYak9pcm1abEJKbFJoSEJBUUQyRWd4R0VXVkNJY3Rj?=
+ =?utf-8?B?c2RZaWRSSXFSczJBNmlGQkpJcDh1UjVJcU5MUHI0VDM0dGhYeGtzOVE2OU9O?=
+ =?utf-8?B?MXN2L3VKT2ZWM3NZRURzUXllSjhjemxLdUM3bmxjbk43RUFHVnhnTjMwUHRX?=
+ =?utf-8?B?Q2c3MTFPakJOSnNOU0dDU0cvbkN5MlUrTERqYlBnUWFTdHlQSXlkMG5vamt1?=
+ =?utf-8?B?Wm9GbE1QUHFvNEY3b0JVT3h4SHpyM3Bkc1FHTUZDMVpGS2lwamFhYlJYSW0w?=
+ =?utf-8?B?cW5RQ0ZjcUlDeFg3Y3VwRkVFWnRBRXVINVNya1BoajA1T0p5VFlNZlBRZklZ?=
+ =?utf-8?B?RmpiNFFnVWNWb29PTm5TcXBkcEFWZjhVVnlJYlhmTDUvR3NYcEpEcGwzb3hp?=
+ =?utf-8?B?am9PY3FZL3ZjMzdUQmZCNlgrNVcydGtNN2R2bklkamlLNzdqbUNjY1ZwM0po?=
+ =?utf-8?B?M1VPMVQyekJHMWtseDhBeUVaRVMyQ0lJdDQrV0NweFdTZ0hyS0VKcDE4enJZ?=
+ =?utf-8?B?MGYwaUJiSU9sWXlERnFvb2pMZmFjQXpEMkpXSWVKMWFBaEk3eWtobGpwR1pr?=
+ =?utf-8?B?S25jdHRZZmhDMERCV1UySzViR3Jja2wzNk1CWjdEbXZvNEtJdVRrVU9JQndH?=
+ =?utf-8?B?THNOVVhWYnMzSE9wbFpQdGV5ajBaY0NGbjlFN2g5YVl6czZKSXduNEdMT0NO?=
+ =?utf-8?B?RFp3cysra3hkVzFrRm9ncWFhOTF6UndteFYvSzB4bWRsNG5ncVNQblNFd2hB?=
+ =?utf-8?B?SHRZdWdtVUI1Tm80WC9rSkZESVU0b1o1MnAxT3pGYzNyTFE2aFlSS09OK0tp?=
+ =?utf-8?B?VGpyOEZZUGRiZDBNVzNJVWFqUzhzbzBkbzB2bDI0TDhhREZUdFNYU1Z1WlVY?=
+ =?utf-8?B?T0hybGlFNi9sTWgvS1RCMDdLOVdVVHRSMHFrdmxtSGtCMXFqczZTeGF6SitZ?=
+ =?utf-8?B?dHk1bFhKdUlJT0VEL0VDOTR2d1hGbVpHUDVsc20xekJ1ZGVKRmtVYjNpU0Vv?=
+ =?utf-8?B?eGt1TGpKQ0I4YUhJM0RIcTZyaWJZNW4vdzRtdTE2VE9UNUErem10WDBHYjNx?=
+ =?utf-8?B?b1hwbUFPaVNpRE5pZGNqKzE3V0VhM1ZNMGdmYWh5aDI2Z2VNa0NpZ2RheURp?=
+ =?utf-8?B?eHRVTEhWVUFpdXhVb3FxTjMyMzRQd1gwYWMvMWlPb1E5bFNVQ0hyQkNqYlY3?=
+ =?utf-8?B?eHR3c20vNm5tNzExalc2L3RaR2k3MEJDTWY3cTdXcU9EeVVmWHFnSTlTdm81?=
+ =?utf-8?B?bEFmSm4wNDBxWG9pMXdRMjA5WW1xNFRqbjZNc0RGWUE0eUUwN29nelYyek5J?=
+ =?utf-8?B?YjFBQlhpUFp1QWV3RU9Gd1FhY2Y0d1Q0emRHQjg4N2E0UXRUc3I0K3V2akJp?=
+ =?utf-8?B?TndJOFptK0RiWVUwVlRmeWJZc2xnOGhVcisxZ0VKSFF2UldjMk1aMkdLMU9i?=
+ =?utf-8?B?R1VoOUVrdmhnMVpVNnJjTlZaQ0taV2hVRWE5cmZ1NUlMdGVXaVVhcWl2TGp0?=
+ =?utf-8?B?YU93cTMreTFsMXV5VUZuN1RRVEl1dU1Ub1djdDFXcmw5bmVFejhscHF3VVh3?=
+ =?utf-8?B?c2VEc0syS29mbmNQMSt1MnBLQzRPOFkwZm5jNlNCNk9OOGZTMks3a1R1ZG8y?=
+ =?utf-8?B?bVIzTjhKRHhSaVFqWmRpcHpQRzJjTit6NXB2TTdRWDU2QW5jR1dCVW84NFN3?=
+ =?utf-8?B?aDdCdnByZVV5VTdrRW0yMkNyaDRGd3JIUDFMWUdRZ0RDK2dqZ3dFbzFHRkNy?=
+ =?utf-8?B?QjV3ekZHaXE1V21jUXlmQmdrWktMU251eldUMkxCVXFMN0thMUFselRmNkJD?=
+ =?utf-8?B?djVKUDVGdlY5UWdqdG9teHphMGlqSWIwaHplY0JvUk5FWGNMaHlVVUk0R2N2?=
+ =?utf-8?B?aG5MTVVhd3AzU2hTVzhGUkZxOGxQNmlMZGVCdTBrTDRzRW93WWdvV1FFdjYz?=
+ =?utf-8?B?QVh1U0g2b0V1WnNVcXFRTDVNdnhJYUh6ek5makFGVElKUWcwTHQ5RzZ4cm9k?=
+ =?utf-8?B?QTFGVElrYThicUV5TWdOTE5rSXozK1RnQmhhQmhBdDk3TVUwMlZyYXhIS2V1?=
+ =?utf-8?B?WE1ULzZKS3ZqekkySTJkaXFIeXU3clNKME1GYzNIN05kRHMxV0djZz09?=
+X-OriginatorOrg: amlogic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b3403e22-7158-44c9-e7c8-08decb6e3bb6
+X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB7149.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jun 2026 06:12:24.3300
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: EwlWXhCVAET6VZDyjO3CFUc3I6vVslrrrHmL59r9ZVKYIF4H8WXeFjfE4oq2hlfDj8/oIrlt+fxw3IJh2edh3w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR03MB8413
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_230759_294079_24806E86 
-X-CRM114-Status: GOOD (  20.59  )
+X-CRM114-CacheID: sfid-20260615_231238_294268_2EAB4116 
+X-CRM114-Status: GOOD (  24.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,82 +155,188 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/15/26 11:15, Pengpeng Hou wrote:
-> meson_msr_probe() creates a debugfs tree with entries that reference
-> devm-managed measurement table entries and the driver's private regmap
-> state. The driver has no remove callback, so unbinding the device can
-> leave those debugfs entries behind after the private data is released.
-> 
-> Store the debugfs root and remove the subtree from a new remove callback.
-> 
-> Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
-> ---
->   drivers/soc/amlogic/meson-clk-measure.c | 14 ++++++++++++++
->   1 file changed, 14 insertions(+)
-> 
-> diff --git a/drivers/soc/amlogic/meson-clk-measure.c b/drivers/soc/amlogic/meson-clk-measure.c
-> index d862e30a244e..7ca43bcb622a 100644
-> --- a/drivers/soc/amlogic/meson-clk-measure.c
-> +++ b/drivers/soc/amlogic/meson-clk-measure.c
-> @@ -7,6 +7,7 @@
->   #include <linux/of_address.h>
->   #include <linux/platform_device.h>
->   #include <linux/bitfield.h>
-> +#include <linux/err.h>
->   #include <linux/seq_file.h>
->   #include <linux/debugfs.h>
->   #include <linux/regmap.h>
-> @@ -50,6 +51,7 @@ struct meson_msr_data {
->   struct meson_msr {
->   	struct regmap *regmap;
->   	struct meson_msr_data data;
-> +	struct dentry *debugfs_root;
->   };
->   
->   #define CLK_MSR_ID(__id, __name) \
-> @@ -952,6 +954,7 @@ static int meson_msr_probe(struct platform_device *pdev)
->   	       sizeof(struct msr_reg_offset));
->   
->   	root = debugfs_create_dir("meson-clk-msr", NULL);
-> +	priv->debugfs_root = root;
->   	clks = debugfs_create_dir("clks", root);
->   
->   	debugfs_create_file("measure_summary", 0444, root,
-> @@ -967,9 +970,19 @@ static int meson_msr_probe(struct platform_device *pdev)
->   				    &priv->data.msr_table[i], &clk_msr_fops);
->   	}
->   
-> +	platform_set_drvdata(pdev, priv);
-> +
->   	return 0;
->   }
->   
-> +static void meson_msr_remove(struct platform_device *pdev)
-> +{
-> +	struct meson_msr *priv = platform_get_drvdata(pdev);
-> +
-> +	if (!IS_ERR_OR_NULL(priv->debugfs_root))
-> +		debugfs_remove_recursive(priv->debugfs_root);
-> +}
-> +
->   static const struct msr_reg_offset msr_reg_offset = {
->   	.duty_val = 0x0,
->   	.freq_ctrl = 0x4,
-> @@ -1065,6 +1078,7 @@ MODULE_DEVICE_TABLE(of, meson_msr_match_table);
->   
->   static struct platform_driver meson_msr_driver = {
->   	.probe	= meson_msr_probe,
-> +	.remove = meson_msr_remove,
->   	.driver = {
->   		.name		= "meson_msr",
->   		.of_match_table	= meson_msr_match_table,
 
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+On 6/15/2026 8:29 PM, Jerome Brunet wrote:
+> [ EXTERNAL EMAIL ]
+>
+> On lun. 15 juin 2026 at 19:25, Jian Hu <jian.hu@amlogic.com> wrote:
+>
+>> On 6/10/2026 8:49 PM, Jerome Brunet wrote:
+>>> [ EXTERNAL EMAIL ]
+>>>
+>>> On mer. 10 juin 2026 at 16:14, Jian Hu via B4 Relay <devnull+jian.hu.amlogic.com@kernel.org> wrote:
+>>>
+>>>> From: Jian Hu <jian.hu@amlogic.com>
+>>>>
+>>>> Add the peripherals clock controller driver for the Amlogic A9 SoC family.
+>>>>
+>>>> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
+>>>> ---
+>>>>    drivers/clk/meson/Kconfig          |   15 +
+>>>>    drivers/clk/meson/Makefile         |    1 +
+>>>>    drivers/clk/meson/a9-peripherals.c | 1925 ++++++++++++++++++++++++++++++++++++
+>>>>    3 files changed, 1941 insertions(+)
+>>>>
+>> [ ... ]
+>>
+>>>> +
+>>>> +/* Channel 6 is unconnected. */
+>>>> +static u32 a9_glb_parents_val_table[] = { 0, 1, 2, 3, 4, 5, 7 };
+>>>> +static struct clk_regmap a9_dspa;
+>>> What is this ?
+>>
+>> The peripheral clock definitions are ordered by register offset.
+>>
+>> dspa is one of the parents of the glb clock, while the dsp clock registers
+>> are located after the GLB clock registers.
+>>
+>> Since glb references a9_dspa before its full definition appears, the
+>> declaration
+>>
+>> static struct clk_regmap a9_dspa;
+>>
+>> is added as a forward declaration to satisfy the compiler.
+>>
+>>
+>> Would it make sense to relax the register-offset ordering in this case?
+>>
+> I don't think we ever enforced such ordering (or any other ordering) in
+> the clock driver, so yes please.
+>
 
-Thanks,
-Neil
+Understood. I'll reorder the clock definitions accordingly and remove 
+the forward declaration
+
+in the next version.
+
+>> By defining the DSP clock before the GLB clock, we could remove the forward
+>> declaration of a9_dspa.
+> Unless it is absolutely necessary, please avoid forward declaration.
+>
+> Declare what is needed first, keep related things together and use your.
+> best judgement ... IOW, make it easy for me to review ;)
+
+
+Ok.
+
+>>>> +
+>>>> +static const struct clk_parent_data a9_glb_parents[] = {
+>>>> +};
+> [...]
+>
+>>>> +
+>>>> +static struct clk_regmap a9_vclk_div2_en = {
+>>>> +     .data = &(struct clk_regmap_gate_data){
+>>>> +             .offset = VID_CLK_CTRL,
+>>>> +             .bit_idx = 1,
+>>>> +     },
+>>>> +     .hw.init = CLK_HW_INIT_HW("vclk_div2_en", &a9_vclk.hw,
+>>>> +                               &clk_regmap_gate_ops, CLK_SET_RATE_PARENT),
+>>>> +};
+>>> Looks to me all this div_en / div repeating pattern would be easier to review
+>>> with tiny macro .
+>>
+>> Good point.
+>>
+>> I tried to reduce the repeated div_en/div pattern using a helper macro.
+>>
+>> It keeps the relationship between gate and fixed-factor clock more compact
+>> and easier to review.
+>>
+>> After using the helper macro, the div_en/div code can be simplified to the
+>> following:
+>>
+>> #define A9_VCLK(_name, _reg, _bit, _div, _parent)        \
+>> struct clk_regmap a9_##_name##_en = {      \
+>                         ^- not strictly necessary, a touch too agressive
+>
+>
+>>          .data = &(struct clk_regmap_gate_data){          \
+>>                  .offset = _reg,      \
+>>                  .bit_idx = _bit,       \
+>>          },       \
+>>          .hw.init = &(struct clk_init_data) {           \
+>>                  .name = #_name "_en",      \
+>>                  .ops = &clk_regmap_gate_ops,           \
+>>                  .parent_hws = (const struct clk_hw *[]) { _parent },    \
+>>                  .num_parents = 1,      \
+>>                  .flags = CLK_SET_RATE_PARENT,      \
+>>          },       \
+>> };       \
+>>        \
+>> struct clk_fixed_factor a9_##_name = {       \
+>>          .mult = 1,       \
+>>          .div = _div,       \
+>>          .hw.init = &(struct clk_init_data){          \
+>>                  .name = #_name,      \
+>>                  .ops = &clk_fixed_factor_ops,          \
+>>                  .parent_hws = (const struct clk_hw *[]) {      \
+>>                          &a9_##_name##_en.hw          \
+>>                  },       \
+>>                  .num_parents = 1,      \
+>>                  .flags = CLK_SET_RATE_PARENT,      \
+>>          },       \
+>> };       \
+>>
+>> static A9_VCLK(vclk_div2, VID_CLK_CTRL, 1, 2, &a9_vclk.hw);
+>> static A9_VCLK(vclk_div4, VID_CLK_CTRL, 2, 4, &a9_vclk.hw);
+>> static A9_VCLK(vclk_div6, VID_CLK_CTRL, 3, 6, &a9_vclk.hw);
+>> static A9_VCLK(vclk_div6, VID_CLK_CTRL, 4, 12, &a9_vclk.hw);
+>> static A9_VCLK(vclk2_div2, VIID_CLK_CTRL, 1, 2, &a9_vclk2.hw);
+>> static A9_VCLK(vclk2_div4, VIID_CLK_CTRL, 2, 4, &a9_vclk2.hw);
+>> static A9_VCLK(vclk2_div6, VIID_CLK_CTRL, 3, 6, &a9_vclk2.hw);
+>> static A9_VCLK(vclk2_div6, VIID_CLK_CTRL, 4, 12, &a9_vclk2.hw);
+>>
+>>
+>> If you think splitting it further into separate helper macros would improve
+>> readability.
+> One clock per macro please. Hidding 2 declaration is recipe for
+> disaster. For ex, here the first one is static, the 2nd is not
+
+
+I'll split it into separate helper macros so that each macro expands to 
+a single clock definition.
+
+They are defined as follows: (Excluding struct clk_regmap)
+
+#define A9_VCLK_GATE(_name, _reg, _bit,  _parent)        \
+         .data = &(struct clk_regmap_gate_data){          \
+                 .offset = _reg,      \
+                 .bit_idx = _bit,       \
+         },       \
+         .hw.init = &(struct clk_init_data) {           \
+                 .name = #_name "_en",      \
+                 .ops = &clk_regmap_gate_ops,           \
+                 .parent_hws = (const struct clk_hw *[]) { _parent },    \
+                 .num_parents = 1,      \
+                 .flags = CLK_SET_RATE_PARENT,      \
+         },
+
+#define A9_VCLK_DIV(_name, _reg, _div)       \
+
+     ....
+
+static struct clk_regmap a9_vclk_div2_en = {
+         A9_VCLK_GATE(vclk_div2, VID_CLK_CTRL, 1, &a9_vclk.hw),
+};
+
+
+static struct clk_regmap a9_vclk_div2 = {
+         A9_VCLK_DIV(vclk_div2, VID_CLK_CTRL, 2),
+};
+
+My understanding is that you would prefer helper macros to cover only 
+the repeated initializer fields,
+while keeping the actual clock declarations explicit.
+
+If that's not what you had in mind, please let me know.
+>> I can do that as well.
+>>
+--
+
+Jian
+
 
