@@ -4,145 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3376FCD98E1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 18:09:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D765CD98E1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 18:10:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=fAKiKuo+7Xo4tAEEl10qvc4jZotTrJ4XmaotDb6MuMw=; b=ZcXiZ6045DIiao
-	V8Jcx58Jb5eGrxLgVOkuJQ2Q0wQd16LrkM70aRbttuIEPk+YKaAjCVoK3O7+/8/SsdChdMumImFue
-	5y8bkhHOF2oCl5QUguS+O4fYcN/pXx/kxKYS8Tb9ovC1/xSmC/2wKGmqMOcKQnoha16/2I/OFtd2w
-	LZQtCwIX8N3dpo3mLVvU75YV38v4QWk/mP+YevIRsO+jVtSqVJy/6IHxrI0fZLyrn4QcCaF1i6iLl
-	oqOoNBVsni1tpNKMvU/w8K1do2+4QoRFzoFLbblE/179zztnSn+uXZ5VCRc9zEN1R6W1b+hBFuYiZ
-	GoVM5mocnODxccCX3j4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=eYqRknknxESBanxzole9EToCHcveUIZ1I/pg8xqJ+Mk=; b=UPZm8jNBCzJ9Trq+6MNfjSTfsj
+	ewJD6ibXJkUbwQ5Ky3hFAjJUOQGdK+CCkpiM3R6xRpyszeEowHYod9JWR4jT1YLx1YNdNH7WYZlUN
+	5fSn8546evmEO3gn2Q+s3eb+lwuh0sucBtvODe5ySKJrg/Ouk/16BRvNw8/m/dimZF1sLMz5Jyzsh
+	BdvLJuR3qUAzMP8uY9krqvUcZ/Tvnhu97CnBsDeQJb99DIMPCnIMjUxeCmhRhUGtJCtnR33q5gRQW
+	fBIYGfOe2WruXmGQjinZpiC6vRgYnNRuv+IF9KRoMMRWIVvNp+XZGv7/mmgoTNJTJiXHWlKctYYnK
+	BJYNQHQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZYE3-0000000GCI5-241W;
-	Tue, 16 Jun 2026 18:09:27 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wZYFN-0000000GCbV-0Dc6;
+	Tue, 16 Jun 2026 18:10:49 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZYE0-0000000GCH3-4BqY
+	id 1wZYFJ-0000000GCau-0qBJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Jun 2026 18:09:26 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65GH8x311210400
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 18:09:23 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=fAKiKuo+7Xo4tAEEl10qvc
-	4jZotTrJ4XmaotDb6MuMw=; b=eSQ6G6EI4RGw4WM19eGumGrwdRiSdRQKs0RRQ6
-	BjHW/PyvK1eOHeqj5LrfBfP5+MVLwJjTKKWRJb6YHF0yxrMjzb8hkS5p7E8cUIMw
-	J1yZtyrPHbwrDLm0WD8lySaH5mKP3Kl42mrcBxt7xplwJzgncVCWGRKSkAy+MRso
-	xLrwhPzZCDqgXB4ugiANvDlWfsjAGEIv/aEWHxL6sh3rtW+Ei/fDNuGvwC4qYxD5
-	YN1Jsvzlj/fJFYRBMvvQm9Y1OgFlEs8bgcITsCPQ1ybIG8nkoKmlDHaSjj7HiakQ
-	/qDT3RFCE0p12DkzHtEcmBtitpsob+s77AOaOisT48ckAunQ==
-Received: from mail-dl1-f70.google.com (mail-dl1-f70.google.com [74.125.82.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4eu2xsard2-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 18:09:22 +0000 (GMT)
-Received: by mail-dl1-f70.google.com with SMTP id a92af1059eb24-13967c19ac6so10733810c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 11:09:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1781633362; x=1782238162; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=fAKiKuo+7Xo4tAEEl10qvc4jZotTrJ4XmaotDb6MuMw=;
-        b=XnLWXu1Pdws3j2TC8m5iTJIhN4MARE2YXkZAmIU5yWiZ8OA7tWEyhqQVmw8PNDeeDK
-         5j7TKrxs0XGVQ4evm42Ouw+7+9Eh/LeoMnjULxOY5JIwzhMRU5fSmChkHvjDFh+jquME
-         9yCZI1qJh5wZnWKmZ20cOCa2h7rBdYlSCAOTugwC0MjkUXq+2JEc9puHuMX4y/rl3dfa
-         u9UZnAzhphdAfKmCIH1+eyx97clGLJ8PzhKSTeXtvFE1iI4cCIzLqRRDvL9gc6XrrX4c
-         AZi5oD7NyAE+e20eVwMEePlqJkbYQ9NMWWRXr5nd8KquuXFR0UmSNqD7JEUZBwZkoi/a
-         G4WA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781633362; x=1782238162;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=fAKiKuo+7Xo4tAEEl10qvc4jZotTrJ4XmaotDb6MuMw=;
-        b=RCVFO8VTZ9nuXumpvrur0TfXYNDbhhB1UCNcErJq6bZ09q8fixIvbMiDUeaAwXluFL
-         LGzzPct6uRhjjwD7SN/Rd84j1ZlzLmerT1cZ6zRegma+u6OLto3cF0Jk/jdQBs261sW/
-         MwGibwjOcbhEFk5JkTGl7KmhS28J1Uw31U7pypnFRAxbM6cTwe6iEndbNi1KX/n3qpG2
-         L9O2wjULMc2se5vbfMNZKlEFPQ14jsbiKfKWP45JOwMlY/sLvH+R2wKUdmhp7zmr639f
-         L36hsGoz1MBPHV5ZJrrLuttQsYowd/LQkStJNUrfeKtL3jb/8UWTD3RubVVBl5QuhBF0
-         jmew==
-X-Forwarded-Encrypted: i=1; AFNElJ/u7Mov/wCZZdxcpvv+jiLXml1dm0X0uy16ncPvPBQm8/LIrrJZ2KBVSQPHZCvt6qRayrk4myzhVUoYNO9oZpFo@lists.infradead.org
-X-Gm-Message-State: AOJu0YxyoIDnn44FGPuy/k5dSFcFKkuzWs8JsG8Hr6Hqg5rXJq6MfrqV
-	AmtEeN4YCWMRKz6vCYUzRHIwlxqy96O1NDZHy2N5TGSj3Dalew9y5tuMhIoY90DW3dR6CZId2uK
-	rc6hcymPfnKhbz7h+PVIGW3c8fMVq4iov8SrCRl0sWoWHA6ziB76Zgc1NfoqVmB0nnH25bpxbrC
-	T08iSqfABSGw==
-X-Gm-Gg: Acq92OEhgoym9g0aaRsBsNa0DiT5YD/nqGK/9gyS+fZCW3asle1/saFVmfce8d/En3B
-	PD6uukn69oYQ74/T0KTApqsqs8tdTj8aTPsoYH/QzRMXerpUf7NxHChBt6FoMX6hbG5SGgBvhUB
-	dqja21Owop3bkK814uk1EubUiHgoMCmHeHQjF/ZL+E5MqUOb7Suvfo55a+lyLL6S4a51BJKrX1P
-	d07+toeGQv5ST/9RWQM1BJS4eBHMbumdwM9tb4G06tY7xjKwhAdaJH3jqRskgeNc6/YNp9Dac8L
-	UBFPXpavcy6QmmkTQukNQbCgzkuU1QAVlQGxLvB9nmcWl3fIQs9rNT35/KENn/9pYGfjdeUbvuM
-	bkeBYPK96kfcRmJTQJTtBArLJAEAdu4bAqMZTJlyPrCWYoLK9RIvpnPnC+VS46l8=
-X-Received: by 2002:a05:7022:2228:b0:139:7bac:db41 with SMTP id a92af1059eb24-1398f69ed04mr25452c88.28.1781633362202;
-        Tue, 16 Jun 2026 11:09:22 -0700 (PDT)
-X-Received: by 2002:a05:7022:2228:b0:139:7bac:db41 with SMTP id a92af1059eb24-1398f69ed04mr25432c88.28.1781633361714;
-        Tue, 16 Jun 2026 11:09:21 -0700 (PDT)
-Received: from [169.254.0.13] (Global_NAT1.qualcomm.com. [129.46.96.20])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1384b916b2bsm13747124c88.6.2026.06.16.11.09.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 16 Jun 2026 11:09:21 -0700 (PDT)
-From: Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>
-Subject: [PATCH 0/2] firmware: arm_scmi: Ensure automatic module loading
-Date: Tue, 16 Jun 2026 18:09:14 +0000
-Message-Id: <20260616-scmi-modalias-v1-0-662b8dd52ab2@oss.qualcomm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAEqRMWoC/yXMQQ6DIBBA0auYWUsCo7LoVYwLhKGOETWMbUyMd
- y9tl2/x/wVCmUngUV2Q6c3C21pg6gr85NYnKQ7FgBqttsYq8YlV2oJb2InSscEWzRjaDqE0e6b
- I5+/XD3/La5zJH98J3PcHRd5bKnEAAAA=
-X-Change-ID: 20260616-scmi-modalias-0f32421bd452
-To: Sudeep Holla <sudeep.holla@kernel.org>,
-        Cristian Marussi <cristian.marussi@arm.com>,
-        Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>
-Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, linux-kbuild@vger.kernel.org,
-        Hans de Goede <johannes.goede@oss.qualcomm.com>,
-        Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1781633360; l=1190;
- i=bjorn.andersson@oss.qualcomm.com; s=20230915; h=from:subject:message-id;
- bh=gSQMryyLHdvcV09dgoClPUfxYxJLHgh4cYOBza3eWEQ=;
- b=hF93igeEPPEEj+VjMuQ/oRz7Gv5WUFbaGYz6EcAFAMGMdz2f+wcZBl7zZGwazwjqTJy2yhDFx
- MXSW0mgkrRxDx2fXqHBhray2y2xzXr9Z6MwzY44vUQpYGYsQZEcrnSQ
-X-Developer-Key: i=bjorn.andersson@oss.qualcomm.com; a=ed25519;
- pk=VkhObtljigy9k0ZUIE1Mvr0Y+E1dgBEH9WoLQnUtbIM=
-X-Proofpoint-ORIG-GUID: 7U3X1UFdC9UnOeGtJbTNJ1Ej16bIi3RL
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjE2MDE4NiBTYWx0ZWRfX/upEof8MM9qk
- KY/52DBwbTWPoNH4K17cIPLzhGFL06cM+WlLLdpwM8IrnwD8luPJhVC7tuUkNLsjzPHlTbUNv8w
- F4e84mufYS0OERI57ROfU8l2jrSoAwvSfRS1a/Lf8jYNGt5myjv+b72pJ9nLu6UvK3uJrb/+phy
- UOmoEcKPbjX3dQ1UVSXtBrO83hxSd3KzOYWMaHb4Kvv3f+JR9IUfAi5yITpsWZ030fXnrQ9s9g/
- hu+FWayMpI43xhXFVE/94U7xx2YtFNx8Ill3qpPw9SuX1fKFkPIWJEy6OUyyLC3NNj6R11tjPpI
- cugFRsxhgNa3ndbQ6taOmpyT8scSSFO9xUE5dFuXSRszITqQ8RbBNJ0dySvdqhSwLI/e/OJ3DJH
- z28BDqwOwEzGDUltl8o4YWEeCELU5Ofqf0460ZxLYxdUYU67NPWDGRrNlLc4ygve34tH15CjCz3
- 1fCnBsJYOrQ3on+EApw==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNjE2MDE4NiBTYWx0ZWRfX0PAwvfOdNOkp
- wEDEyV/k2S+pnQIhJHWisLrbECxwYm3Het6EderRwOX9hmPtMD8C7nXOwwlJQyCY+zGkgQATnAr
- gvjkFhRcQUiVdrBZRV6C7KVb8vpuXew=
-X-Authority-Analysis: v=2.4 cv=MdJcfZ/f c=1 sm=1 tr=0 ts=6a319152 cx=c_pps
- a=SvEPeNj+VMjHSW//kvnxuw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
- a=EUspDBNiAAAA:8 a=8yBAbjwBbfdicugfQZEA:9 a=QEXdDO2ut3YA:10
- a=Kq8ClHjjuc5pcCNDwlU0:22
-X-Proofpoint-GUID: 7U3X1UFdC9UnOeGtJbTNJ1Ej16bIi3RL
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-16_05,2026-06-16_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 impostorscore=0 adultscore=0 lowpriorityscore=0 clxscore=1011
- malwarescore=0 spamscore=0 priorityscore=1501 phishscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606040000 definitions=main-2606160186
+	Tue, 16 Jun 2026 18:10:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1781633445; x=1813169445;
+  h=date:from:to:cc:subject:message-id;
+  bh=WLhylBI7iBEBoDXp5oXrIMNoYusbO2uqRdlItSpgQOM=;
+  b=ZvEaCsSH+N0Y3TWJXBEPCm+HLra5kh4ZX7Q4VHsWDTX/fNnSpyi0menv
+   ljdIRnV3fW+HONML4KvbTV1J1tbRqFr+ds/qfUuuLpMWsUXH3qell51Jx
+   lgEC0q/tbVGjKZtS2eZP7vaS0aTeKfzBciZF/dn/LjblCAkqd6wzIHH09
+   caX6aA5eYD9hbyVkI5+9s/bEtizc1s5gr573jAgpVZ7gEgYUw9CGP7+R/
+   qs1P3BzkBkVdzQhgY3e9kqsJRwMCqIiUqopKmqbL+RFieSf837kMoncaE
+   sRxm5ueLbCJfQmpcALIPO0rpPVoNKUStEj8Lr9YhMkZZr9mNIOy0hnnlx
+   w==;
+X-CSE-ConnectionGUID: Ac/jSa4EQQmr6ojysQ6Gkw==
+X-CSE-MsgGUID: uklrodVAT92JOixAzaSJbA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11819"; a="105082450"
+X-IronPort-AV: E=Sophos;i="6.24,208,1774335600"; 
+   d="scan'208";a="105082450"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jun 2026 11:10:44 -0700
+X-CSE-ConnectionGUID: gYm2QiNTSD+jiSRuXtyyMA==
+X-CSE-MsgGUID: rl4b4Gq+TRavo7zkesJLsg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.24,208,1774335600"; 
+   d="scan'208";a="278050086"
+Received: from lkp-server01.sh.intel.com (HELO f0d55cb201f0) ([10.239.97.150])
+  by orviesa002.jf.intel.com with ESMTP; 16 Jun 2026 11:10:43 -0700
+Received: from kbuild by f0d55cb201f0 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wZYFC-00000000Tbq-3f4B;
+	Tue, 16 Jun 2026 18:10:38 +0000
+Date: Wed, 17 Jun 2026 02:10:09 +0800
+From: kernel test robot <lkp@intel.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: [arm-platforms:kvm-arm64/nv3 37/37]
+ arch/arm64/kvm/sys_regs.c:222:50: error: expected ';' before ':' token
+Message-ID: <202606170206.EV8DFnS1-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260616_110925_061985_179E6E65 
-X-CRM114-Status: GOOD (  11.33  )
+X-CRM114-CacheID: sfid-20260616_111045_310587_7A1B992F 
+X-CRM114-Status: UNSURE (   8.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,32 +83,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SCMI drivers such as the Arm SCMI CPUfreq driver are allowed to built as
-modules, but they are then not automatically loaded. Rework the SCMI
-device table alias support to make modpost consume the information from
-MODULE_DEVICE_TABLE(scmi, ...) and allow drivers to be loaded based on
-this information, if known. Also add a protocol-based alias to also
-trigger driver loading when only the SCMI protocol id is known.
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git kvm-arm64/nv3
+head:   aa9a6e84f564417704258a20210b95d18ebf5601
+commit: aa9a6e84f564417704258a20210b95d18ebf5601 [37/37] WIP
+config: arm64-defconfig (https://download.01.org/0day-ci/archive/20260617/202606170206.EV8DFnS1-lkp@intel.com/config)
+compiler: aarch64-linux-gcc (GCC) 16.1.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260617/202606170206.EV8DFnS1-lkp@intel.com/reproduce)
 
-Signed-off-by: Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>
----
-Bjorn Andersson (2):
-      module: add SCMI device table alias support
-      firmware: arm_scmi: request modules for discovered protocols
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202606170206.EV8DFnS1-lkp@intel.com/
 
- drivers/firmware/arm_scmi/bus.c    | 19 +++++++++----------
- drivers/firmware/arm_scmi/driver.c |  2 ++
- include/linux/mod_devicetable.h    | 12 ++++++++++++
- include/linux/scmi_protocol.h      |  6 +-----
- scripts/mod/devicetable-offsets.c  |  4 ++++
- scripts/mod/file2alias.c           | 13 +++++++++++++
- 6 files changed, 41 insertions(+), 15 deletions(-)
----
-base-commit: 8d6dbbbe3ba62de0a63e962ee004afb848c8e3ac
-change-id: 20260616-scmi-modalias-0f32421bd452
+All errors (new ones prefixed by >>):
 
-Best regards,
---  
-Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>
+   arch/arm64/kvm/sys_regs.c: In function 'locate_register':
+>> arch/arm64/kvm/sys_regs.c:222:50: error: expected ';' before ':' token
+     222 |                         loc->loc = SR_LOC_SPECIAL : SR_LOC_MEMORY;
+         |                                                  ^~
+         |                                                  ;
 
+
+vim +222 arch/arm64/kvm/sys_regs.c
+
+   168	
+   169	#define MAPPED_EL2_SYSREG(r, m, t)					\
+   170		case r:	{							\
+   171			locate_mapped_el2_register(vcpu, r, m, t, loc);		\
+   172			break;							\
+   173		}
+   174	
+   175	static void locate_register(const struct kvm_vcpu *vcpu, enum vcpu_sysreg reg,
+   176				    struct sr_loc *loc)
+   177	{
+   178		if (!vcpu_get_flag(vcpu, SYSREGS_ON_CPU)) {
+   179			loc->loc = SR_LOC_MEMORY;
+   180			return;
+   181		}
+   182	
+   183		switch (reg) {
+   184			MAPPED_EL2_SYSREG(SCTLR_EL2,   SCTLR_EL1,
+   185					  translate_sctlr_el2_to_sctlr_el1	     );
+   186			MAPPED_EL2_SYSREG(TTBR0_EL2,   TTBR0_EL1,
+   187					  translate_ttbr0_el2_to_ttbr0_el1	     );
+   188			MAPPED_EL2_SYSREG(TTBR1_EL2,   TTBR1_EL1,   NULL	     );
+   189			MAPPED_EL2_SYSREG(TCR_EL2,     TCR_EL1,
+   190					  translate_tcr_el2_to_tcr_el1		     );
+   191			MAPPED_EL2_SYSREG(VBAR_EL2,    VBAR_EL1,    NULL	     );
+   192			MAPPED_EL2_SYSREG(AFSR0_EL2,   AFSR0_EL1,   NULL	     );
+   193			MAPPED_EL2_SYSREG(AFSR1_EL2,   AFSR1_EL1,   NULL	     );
+   194			MAPPED_EL2_SYSREG(ESR_EL2,     ESR_EL1,     NULL	     );
+   195			MAPPED_EL2_SYSREG(FAR_EL2,     FAR_EL1,     NULL	     );
+   196			MAPPED_EL2_SYSREG(MAIR_EL2,    MAIR_EL1,    NULL	     );
+   197			MAPPED_EL2_SYSREG(TCR2_EL2,    TCR2_EL1,    NULL	     );
+   198			MAPPED_EL2_SYSREG(PIR_EL2,     PIR_EL1,     NULL	     );
+   199			MAPPED_EL2_SYSREG(PIRE0_EL2,   PIRE0_EL1,   NULL	     );
+   200			MAPPED_EL2_SYSREG(POR_EL2,     POR_EL1,     NULL	     );
+   201			MAPPED_EL2_SYSREG(AMAIR_EL2,   AMAIR_EL1,   NULL	     );
+   202			MAPPED_EL2_SYSREG(ELR_EL2,     ELR_EL1,	    NULL	     );
+   203			MAPPED_EL2_SYSREG(SPSR_EL2,    SPSR_EL1,    NULL	     );
+   204			MAPPED_EL2_SYSREG(CONTEXTIDR_EL2, CONTEXTIDR_EL1, NULL	     );
+   205			MAPPED_EL2_SYSREG(SCTLR2_EL2,  SCTLR2_EL1,  NULL	     );
+   206		case CNTHCTL_EL2:
+   207			/* CNTHCTL_EL2 is super special, unless we support NV2p1 */
+   208			loc->loc = (is_hyp_ctxt(vcpu) && vcpu_el2_e2h_is_set(vcpu) ?
+   209				    SR_LOC_SPECIAL : SR_LOC_MEMORY);
+   210			break;
+   211		case CPTR_EL2:
+   212			/*
+   213			 * CPTR_EL2 is just as special, and needs a certain amount
+   214			 * of handholding. It always lives in memory, due to being
+   215			 * heavily trapped thanks to CPACR_EL1.TCPAC being RES0.
+   216			 * FEAT_NV2p1 fixes this.
+   217			 */
+   218			locate_mapped_el2_register(vcpu, CPTR_EL2, CPACR_EL1,
+   219						   translate_cptr_el2_to_cpacr_el1,
+   220						   loc);
+   221			if (is_hyp_ctxt(vcpu))
+ > 222				loc->loc = SR_LOC_SPECIAL : SR_LOC_MEMORY;
+   223			break;
+   224		default:
+   225			loc->loc = locate_direct_register(vcpu, reg);
+   226		}
+   227	}
+   228	
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
