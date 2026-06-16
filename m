@@ -4,110 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22BDDCD98E1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 20:27:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B45D4CD98E6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 20:37:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4T7EkkegVyODZ1yMUvqUb4I+TPr2uXbUfFIWfX/3x7g=; b=R5Y0ErYwvLlOgg9aDA5JIQvE0t
-	iejCr4dPTEQqFSFyYfbdgfdpcJrCpMXv0yWL0cd7Vcgv7XzW3oy87mye6BEWCxLc+wx4T4hpYLYzC
-	/XJS3KOzOzAvqDAWpmSNJMQ/0r/+v5Q+lPKwwt+gDD0hMrcn1sonLzFLwDk5OqZIazwXzdwMIvcMh
-	TRdo4NBj18chtxOc/RY1rXQFegJEtGT5t++6B17piAPk2KN/wvNNeUTCJTIKQUN4Utcr7o1vrr/+g
-	NooDevfPEZxPO2Q24gHy6bT6x64cfqAysccBjXc0b5egphFyhCDJtEnba8T+LtS+zEovxK3toQzjS
-	d+5wF7Tw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=CrLoF9O2gK56aSgF362GMcTl76FqQNxQ8LR8P9Q5yns=; b=DdQ13HUQ/6hDHEncc8zXciEMEL
+	bh0zSeSdqOFEtkMnPTq52xt0jlKwNAg/4kENQ+ppnXLdgdGlVWhSGNd80UPuADMxab5uTj521gmp5
+	elBUdQqopUMWRrQO87Dy2jzzkOZfbBbDMU6e3QYOru06tzSDj+lf0uxggLHWgXfeTOtOGWuwUsocN
+	VeroOWVYlpp7J0KYJywY3Ul7YftaJAU3LyVVNLKhcD2UAsa4YsSW/zXK6/4qGevhuyX1G0b0n2pjQ
+	nePsilXk0BYutuVbri/A2L0dsbJF1Nzdx+0qE7S8S96YUAzqwda3E6WMwiVclaVrQwB5TO44G2iF8
+	dpdtRKHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZaNu-0000000GIUH-3DQO;
-	Tue, 16 Jun 2026 20:27:46 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1wZaWk-0000000GJIa-0Yl3;
+	Tue, 16 Jun 2026 20:36:54 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZaNp-0000000GINb-2x5E
+	id 1wZaWh-0000000GJIE-0o91
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Jun 2026 20:27:44 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-490b64c8311so49050755e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 13:27:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781641660; x=1782246460; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=4T7EkkegVyODZ1yMUvqUb4I+TPr2uXbUfFIWfX/3x7g=;
-        b=Bfg6ZQSKnmTn76r1bZLk5xueK2mQXlcfpa6Anls8M/3/X6VUlperJyxwbXi++MY/7q
-         iRpLSfrrG5GAhti2lne7bqz6pYSanckhlDuny4fs9/UmYBwP9jiASGNckcHMt4hkJL3v
-         CRcLaCddDTuLRStqkj3ywCZtUKW4keJ78cpp/1IWRZzmbAyjvln9nP5O3ucyXu4YUnml
-         P9c64Osqr+g+yLbIg1acXnA4K9rUya04pBpib1p3+86dtSt3QsbX7H7IVAvhoaH0RlFK
-         fE4d61AyE617WYuxeSDykSZMDsM5TXqlfKo9r498h1z4d9uCyVgx3uilxNpGEDZ+/ySx
-         p0ZQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781641660; x=1782246460;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=4T7EkkegVyODZ1yMUvqUb4I+TPr2uXbUfFIWfX/3x7g=;
-        b=oKi7ULanHACQ6ij1CxyeR7B83UaHKj9zjCJFaYIzHDcGrhiy2uj+ohfBOZ3NdfMSBL
-         //1tKUnOXaOn1ms0Z5HjUf2ZPTVQU1p6ba3fPHBMmyRPWlim0w4cl+PnKNyff3Qwktyg
-         FJ8zYF+nw7m7loH8QgEAUAgZzWRnU/5DYr3Cl7WjRTzRHtzeKMitnRwSF6Z64/k6RCzJ
-         jBuKBwua2RvUkiVWJ4qjV1ihRRpIRAkO76ZIfcVgAhYMlF9uwHepVFUIsSAAulJ+WvFp
-         Dg2y+ph+9NvvXQS8GUrSxkQD+fUh+44B4cewJLk3ZVA5z4HS/lDDQyI0tZlEqfmUnwGS
-         r/0Q==
-X-Forwarded-Encrypted: i=1; AFNElJ8H8ok3vcq/5qqUYybw0HUWknrxIwPGs32VcdOVUuNNV2M40JiOjLsYDzXZcHwNnIEfppLdnVWcBAtWQwtz8Joz@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy8EOe5k+ccEk04Z1XaBxZnvnHt6slc7GtdgJMoJ3PDfvLc49TQ
-	/MeLN7uxf7Z3J6dHuwXKWiEEir1bw4iMS4A+BhORYcOSchbzjvb4yve8
-X-Gm-Gg: Acq92OG9t94aaFz3Ez1ZN4fqVuLcmZWsn2aHYnf1IuFtHye1jqn8qMCedLm1CDA1aUM
-	HE8adzwCLq/vxnb7tIf0iC6BpXQTrynyE4Mn8d5jwZG+MqeNRTyUGrB5SB7/kibpiuJywLP/PCD
-	/5CoLi3vr2z4Wc+FF3Om1ShpRDnlinCD7h04yrM8icePbPo/cv3t8GT5qqoZm9oqLndSL08iSb4
-	FzNQTycvMapX6h/4F6qoTEGKcrPqrN6rNylB+AYl/IOOaiJprTTOlKJVsIiDWU6aGVPgvuzpGvB
-	TvCkyRK3ni+t3dBap9lVxpRh6tLLpjq7g9dPdz0mhU1Elm57l+mO+HMAiAYzka5nCUpHo5h1gT4
-	l9DA5mJkkzD2MCdYJIZ37mye5SYdxjY/Jay0Kz00S/evHGjr+u3XVTu0Hams20UY79lo5Gy+7aA
-	FaKFTw2GiJim9HUf0Ksvu9vzxaB+LMEDhdQg==
-X-Received: by 2002:a7b:c3d1:0:b0:490:9df1:f0cf with SMTP id 5b1f17b1804b1-492333a1b10mr11488675e9.2.1781641659641;
-        Tue, 16 Jun 2026 13:27:39 -0700 (PDT)
-Received: from [192.168.0.2] ([197.250.51.220])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49230a458f2sm89987005e9.3.2026.06.16.13.27.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 16 Jun 2026 13:27:39 -0700 (PDT)
-From: =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
-Date: Tue, 16 Jun 2026 23:26:32 +0300
-Subject: [PATCH RFC v4 12/12] ARM: dts: zte: Add a syscon-reboot for
- zx297520v3 boards
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260616-zx29clk-v4-12-ca994bd22e9d@gmail.com>
-References: <20260616-zx29clk-v4-0-ca994bd22e9d@gmail.com>
-In-Reply-To: <20260616-zx29clk-v4-0-ca994bd22e9d@gmail.com>
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
- Brian Masney <bmasney@redhat.com>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=817;
- i=stefandoesinger@gmail.com; h=from:subject:message-id;
- bh=dEe7AnhTFAr5p/XXrX/uCCb9oMxECR6QftpPnuBBlPY=;
- b=owEBiQJ2/ZANAwAIAT0TvMhUTxoiAcsmYgBqMbGGdznTfH74HtE8ynnSgt60AzmAGzDzYjSBF
- v5tV/6RRTmJAk8EAAEIADkWIQRDFvS2qgVbJ5UyXWw9E7zIVE8aIgUCajGxhhsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDIACgkQPRO8yFRPGiKHEw/9FhrXlF6q4Lzp5fUaLbRw/bc/1+9787X
- vYpRe2fXPGZx9mRtm/9BiFcwv84Yw1sVzTFxVOEfG69VjUX+Ku1D2Tk5Q8HT3O6fSn5I9lObMwt
- kboi/YHrRmec5FIxp8tVGKQSZ7IrtPMkJhQFDs/PzAq0ECfW1pgtVd/kw9s0WqVVliTP+Hu7io4
- zeW8EPpUz4HrN9dB8PdC7wo6nL2keck2pwuIqPfxNRRRxItmUbOwNxNTAaZopvL12WPT/tnD0Xm
- w7TvVmXK6e8iEdznzirlzYc8akeQe2NveWLTO7yNOybrt/UmoWR/NNlkXa6McyKkSGHDRuG1VWB
- 7/UWwaQqyWW4CG96xs0PIV5zmFV1b4j6lLgnGoSV2YHR/RJ0DqAxBJ3vUhSouV+J7NNwkl4XUgr
- dYTiRMN4hzq/3imJh08ZRi7AzfZWU3pGob+CwmeCKzhrjYcDLpR8mFFRqGuaRkXpywo14b/jeK8
- yD6ZCDRvH8hT1HXv6dAYhIxBnorfg57VBPMWUOM4NEWCTvQaV9MXLTO7V6GmkZ+TIeysUXU/aVa
- qyb5CKCJptLSpp4D17PARQZ2Vzg2ov9eomoWzLNZ2Sll7WyGs8tdeSwzdix48gEWPfUS+OLWVWE
- 3hfSH9JKGwoLDkvwwS9LQzW5/uwgcLIT3UeemWbz35claV7Zzc8k=
-X-Developer-Key: i=stefandoesinger@gmail.com; a=openpgp;
- fpr=4F9C2C8728019633893EBBB98CB81F9A72BBA155
+	Tue, 16 Jun 2026 20:36:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1781642211; x=1813178211;
+  h=date:from:to:cc:subject:message-id;
+  bh=0K3eP+no2cHAAZUakn0krxZkUzTuH1y6/TQVmezBnWg=;
+  b=T91pDKE5U08WkvCC+wGdk2zkAvm/FfHmmO8qWXC93CdvfTqt9H0tOCqp
+   rqlN6flA7veJm8jfrYn+9Z5M25DI/PSKiv7RjskTULw17xt/c5uqyDEA6
+   eRJwFGTbHXuqrOfLqG+tbYfMABTqEdcc5c5UN7NHuU/TWsWVKwSwGZIQe
+   E0u1pL/rWqGGJ7X6xQdW0bwQfKC11ddx0PZzSO0kIR5YuENW4BHwbHNpa
+   TcPgJrxgFckgbKgpAVIPHFMjcelPbUtAAdSVLX3QXqQw5IVw9SP+Zeuhj
+   5hVZpGGSS1JMufbu0Sdcj/Fu78cFHOdQcHCYf0bp5KzNBk8Jdc4rzeQyi
+   A==;
+X-CSE-ConnectionGUID: kvw2guKgQ0KWyQ+Gvsou2g==
+X-CSE-MsgGUID: ZY552OZ3TR2GQHdZGZyLdA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11819"; a="93915933"
+X-IronPort-AV: E=Sophos;i="6.24,208,1774335600"; 
+   d="scan'208";a="93915933"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jun 2026 13:36:50 -0700
+X-CSE-ConnectionGUID: C1u20FZWQMmnBd7YaoDUCg==
+X-CSE-MsgGUID: wlLTFH1jQhmCZg2i1o90lg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.24,208,1774335600"; 
+   d="scan'208";a="244982215"
+Received: from lkp-server01.sh.intel.com (HELO f0d55cb201f0) ([10.239.97.150])
+  by fmviesa007.fm.intel.com with ESMTP; 16 Jun 2026 13:36:48 -0700
+Received: from kbuild by f0d55cb201f0 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wZaWc-00000000TiU-0acd;
+	Tue, 16 Jun 2026 20:36:46 +0000
+Date: Wed, 17 Jun 2026 04:36:44 +0800
+From: kernel test robot <lkp@intel.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org
+Subject: [arm-platforms:kvm-arm64/nv3 37/37]
+ arch/arm64/kvm/sys_regs.c:222:30: error: expected ';' after expression
+Message-ID: <202606170443.zZpDusGs-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260616_132741_995946_8120603A 
-X-CRM114-Status: GOOD (  10.45  )
+X-CRM114-CacheID: sfid-20260616_133651_303657_7953DED4 
+X-CRM114-Status: UNSURE (   8.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,34 +84,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is fairly simple with the driver exposing a syscon regmap. Write a
-one to the lowest bit of register 0 and the board resets.
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git kvm-arm64/nv3
+head:   aa9a6e84f564417704258a20210b95d18ebf5601
+commit: aa9a6e84f564417704258a20210b95d18ebf5601 [37/37] WIP
+config: arm64-randconfig-003 (https://download.01.org/0day-ci/archive/20260617/202606170443.zZpDusGs-lkp@intel.com/config)
+compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260617/202606170443.zZpDusGs-lkp@intel.com/reproduce)
 
-Signed-off-by: Stefan Dösinger <stefandoesinger@gmail.com>
----
- arch/arm/boot/dts/zte/zx297520v3.dtsi | 7 +++++++
- 1 file changed, 7 insertions(+)
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202606170443.zZpDusGs-lkp@intel.com/
 
-diff --git a/arch/arm/boot/dts/zte/zx297520v3.dtsi b/arch/arm/boot/dts/zte/zx297520v3.dtsi
-index a2b6909e7434..013ece51c2a0 100644
---- a/arch/arm/boot/dts/zte/zx297520v3.dtsi
-+++ b/arch/arm/boot/dts/zte/zx297520v3.dtsi
-@@ -33,6 +33,13 @@ osc32k: osc32k {
- 		#clock-cells = <0>;
- 	};
- 
-+	syscon-reboot {
-+		compatible = "syscon-reboot";
-+		regmap = <&topclk>;
-+		offset = <0x0>;
-+		mask = <0x1>;
-+	};
-+
- 	timer {
- 		compatible = "arm,armv7-timer";
- 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
+All errors (new ones prefixed by >>):
 
--- 
-2.53.0
+>> arch/arm64/kvm/sys_regs.c:222:30: error: expected ';' after expression
+     222 |                         loc->loc = SR_LOC_SPECIAL : SR_LOC_MEMORY;
+         |                                                   ^
+         |                                                   ;
+   arch/arm64/kvm/sys_regs.c:222:32: warning: misleading indentation; statement is not part of the previous 'if' [-Wmisleading-indentation]
+     222 |                         loc->loc = SR_LOC_SPECIAL : SR_LOC_MEMORY;
+         |                                                     ^
+   arch/arm64/kvm/sys_regs.c:221:3: note: previous statement is here
+     221 |                 if (is_hyp_ctxt(vcpu))
+         |                 ^
+   arch/arm64/kvm/sys_regs.c:222:32: warning: expression result unused [-Wunused-value]
+     222 |                         loc->loc = SR_LOC_SPECIAL : SR_LOC_MEMORY;
+         |                                                     ^~~~~~~~~~~~~
+   2 warnings and 1 error generated.
 
+
+vim +222 arch/arm64/kvm/sys_regs.c
+
+   168	
+   169	#define MAPPED_EL2_SYSREG(r, m, t)					\
+   170		case r:	{							\
+   171			locate_mapped_el2_register(vcpu, r, m, t, loc);		\
+   172			break;							\
+   173		}
+   174	
+   175	static void locate_register(const struct kvm_vcpu *vcpu, enum vcpu_sysreg reg,
+   176				    struct sr_loc *loc)
+   177	{
+   178		if (!vcpu_get_flag(vcpu, SYSREGS_ON_CPU)) {
+   179			loc->loc = SR_LOC_MEMORY;
+   180			return;
+   181		}
+   182	
+   183		switch (reg) {
+   184			MAPPED_EL2_SYSREG(SCTLR_EL2,   SCTLR_EL1,
+   185					  translate_sctlr_el2_to_sctlr_el1	     );
+   186			MAPPED_EL2_SYSREG(TTBR0_EL2,   TTBR0_EL1,
+   187					  translate_ttbr0_el2_to_ttbr0_el1	     );
+   188			MAPPED_EL2_SYSREG(TTBR1_EL2,   TTBR1_EL1,   NULL	     );
+   189			MAPPED_EL2_SYSREG(TCR_EL2,     TCR_EL1,
+   190					  translate_tcr_el2_to_tcr_el1		     );
+   191			MAPPED_EL2_SYSREG(VBAR_EL2,    VBAR_EL1,    NULL	     );
+   192			MAPPED_EL2_SYSREG(AFSR0_EL2,   AFSR0_EL1,   NULL	     );
+   193			MAPPED_EL2_SYSREG(AFSR1_EL2,   AFSR1_EL1,   NULL	     );
+   194			MAPPED_EL2_SYSREG(ESR_EL2,     ESR_EL1,     NULL	     );
+   195			MAPPED_EL2_SYSREG(FAR_EL2,     FAR_EL1,     NULL	     );
+   196			MAPPED_EL2_SYSREG(MAIR_EL2,    MAIR_EL1,    NULL	     );
+   197			MAPPED_EL2_SYSREG(TCR2_EL2,    TCR2_EL1,    NULL	     );
+   198			MAPPED_EL2_SYSREG(PIR_EL2,     PIR_EL1,     NULL	     );
+   199			MAPPED_EL2_SYSREG(PIRE0_EL2,   PIRE0_EL1,   NULL	     );
+   200			MAPPED_EL2_SYSREG(POR_EL2,     POR_EL1,     NULL	     );
+   201			MAPPED_EL2_SYSREG(AMAIR_EL2,   AMAIR_EL1,   NULL	     );
+   202			MAPPED_EL2_SYSREG(ELR_EL2,     ELR_EL1,	    NULL	     );
+   203			MAPPED_EL2_SYSREG(SPSR_EL2,    SPSR_EL1,    NULL	     );
+   204			MAPPED_EL2_SYSREG(CONTEXTIDR_EL2, CONTEXTIDR_EL1, NULL	     );
+   205			MAPPED_EL2_SYSREG(SCTLR2_EL2,  SCTLR2_EL1,  NULL	     );
+   206		case CNTHCTL_EL2:
+   207			/* CNTHCTL_EL2 is super special, unless we support NV2p1 */
+   208			loc->loc = (is_hyp_ctxt(vcpu) && vcpu_el2_e2h_is_set(vcpu) ?
+   209				    SR_LOC_SPECIAL : SR_LOC_MEMORY);
+   210			break;
+   211		case CPTR_EL2:
+   212			/*
+   213			 * CPTR_EL2 is just as special, and needs a certain amount
+   214			 * of handholding. It always lives in memory, due to being
+   215			 * heavily trapped thanks to CPACR_EL1.TCPAC being RES0.
+   216			 * FEAT_NV2p1 fixes this.
+   217			 */
+   218			locate_mapped_el2_register(vcpu, CPTR_EL2, CPACR_EL1,
+   219						   translate_cptr_el2_to_cpacr_el1,
+   220						   loc);
+   221			if (is_hyp_ctxt(vcpu))
+ > 222				loc->loc = SR_LOC_SPECIAL : SR_LOC_MEMORY;
+   223			break;
+   224		default:
+   225			loc->loc = locate_direct_register(vcpu, reg);
+   226		}
+   227	}
+   228	
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
