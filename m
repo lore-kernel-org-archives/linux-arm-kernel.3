@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3579CCD98DA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 12:35:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E821BCD98E1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 12:38:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=17RgpFCBH4m8pJlxhHaaqvMX7DlUgffBsaUwblhbOrk=; b=KldpdL1Fl+G36km02JxRfN/sZ7
-	Zv2s6esGzTzImbOVRRhzer5G8/bkSy2wfx6J90qpmGJVXcekEjcUnhxysi7C40u3JW0+vZmyKWMLy
-	m+/4sX00SHKwbvOtMNjuHO+DYuY266Ltvf/pzCkVHQHJeQ3roDn3XxCYf9quNQtvDUzqtcOYHs5ob
-	hufhyuJhpHwLyUyZnfwsZdOQHFGCyy2oRwN84w8r3STilW0x0bR0TQxU78+DTCvqeAp6c4IrBpwsS
-	c05rSrYQ9C7dZWbgqM/tdQVwOKJs/JyqMlnoDct9lt6XQRQwHeeqQKXF0hjcMWYBLw2xuRQyodtiU
-	BSnoDctg==;
+	bh=5Oy424Sj0LX7AKqPFqDzgHyunoDhCO/BF75OQEB7OE0=; b=DbwADsci5n/zPDuF+fCkLLIaa/
+	fm77TNx/nL51g+eorIWbiOpPy97WVz6Kz5sFrNIhMQtu1fhCW3xN9GMj5zkv7vZ4fVqLX7LqCMLVy
+	yah6LIG52pIIpQ5n9uBhu0WxrWsWhBgsIVAgZypZBr9yfI7RLekX/wi2LysE75mxt9Bq0u3KQLhC6
+	hH6h91arIn4vRBf6a5WYSMTrXqWw8xkysYwt51UPOh5qxJ/Mt3WmRHL9aeX38xyWCft9jscKtbJZN
+	H908n7A3TwNeaXOEqRfEzEzYf4/JeTPYoOMK5klo6fdEQ7LmcWdzJrpfODE+6qzafaQr9weEc6IC3
+	fnLdxOSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZT0d-0000000FlZ0-15iC;
-	Tue, 16 Jun 2026 12:35:15 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wZT3E-0000000FlqC-41LR;
+	Tue, 16 Jun 2026 12:37:56 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZT0a-0000000FlYg-396l;
-	Tue, 16 Jun 2026 12:35:13 +0000
+	id 1wZT3D-0000000Flq1-3noS;
+	Tue, 16 Jun 2026 12:37:56 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id AA35960132;
-	Tue, 16 Jun 2026 12:35:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D64041F000E9;
-	Tue, 16 Jun 2026 12:35:10 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 952ED42B32;
+	Tue, 16 Jun 2026 12:37:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF36D1F000E9;
+	Tue, 16 Jun 2026 12:37:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781613311;
-	bh=17RgpFCBH4m8pJlxhHaaqvMX7DlUgffBsaUwblhbOrk=;
+	s=k20260515; t=1781613475;
+	bh=5Oy424Sj0LX7AKqPFqDzgHyunoDhCO/BF75OQEB7OE0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=BRZ60BWeV+DWL3afFYfSit+P84pepfep1y0QrI79qYne7dzlGesvYs8bcCBcNBlCQ
-	 XQ6tw0vCVxm25BFd9qdSagQCsVfeGEoyVFgczmuPelnLFRg+xk8bmKytUI3EOsJsSG
-	 2LvYTL4xE1WTSRravroMwuy2mngWV7PHghZZySPHrpo1N0Os0dv/gUC5Qo3AJj0OO4
-	 WwK7c30EW+wqXbdEyMPhKjHxeZv3zDH/xErVUBuHbxQpvLv2vDbyRgFRsL8dAKq/V6
-	 qGZtFEEbqqxf64k0d0idku3qvQp6gIQkkKZ8xjln7g8VUpYTARr/QPB1bdWLz/4PqF
-	 +H08D0KyfSa3Q==
-Date: Tue, 16 Jun 2026 14:35:09 +0200
+	b=QelHVbWCr3gEApPJyMPVPZfr1zOnxFa2AJ38+NGqlCgR2V2XcPtb6cuYKEIa26PCc
+	 YPtodlNOGuV0fWlOQrBtV7KZEpWwBX9LNHqsXWxIvpjOqQaU6fkQ/GXfV9yVpB6eYo
+	 ozX7XbOHntXIMQC/AEpMU0TTbVt4uRnmyeaZLayUwT4MIlIApH5DoO5lZ8L0WODEyU
+	 qEPyHopNUm2cXxCVkDX4m1/SBG6fYLIgSCb4VA+rLWE3S61MBlRXkB9iT5MnYD6VH/
+	 6nObY1y9JseWsEMB834jDL6D7Cg4pFGrIRnDVhBRwWGDtN/7FCgBoEjyDSSoQfouF6
+	 3WkngWTFRTD/w==
+Date: Tue, 16 Jun 2026 14:37:53 +0200
 From: Lorenzo Bianconi <lorenzo@kernel.org>
 To: Wayen Yan <win847@gmail.com>
 Cc: netdev@vger.kernel.org, horms@kernel.org, pabeni@redhat.com,
@@ -49,15 +49,15 @@ Cc: netdev@vger.kernel.org, horms@kernel.org, pabeni@redhat.com,
 	angelogioacchino.delregno@collabora.com, matthias.bgg@gmail.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v2] [net] net: airoha: Fix QoS counter configuration for
- Tx-fwd channels
-Message-ID: <ajFC_W0RT3Nzlpjb@lore-desk>
-References: <178161132384.2164449.18407700117859190327@gmail.com>
+Subject: Re: [PATCH v2] [net] net: airoha: Stop TX queues on error path in
+ airoha_dev_open
+Message-ID: <ajFDoTBg3dyB2GRI@lore-desk>
+References: <178161146875.2165143.7400860261990016053@gmail.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="KXA7XktxuGW70IKZ"
+	protocol="application/pgp-signature"; boundary="KjNXxW/DJwe/iA3u"
 Content-Disposition: inline
-In-Reply-To: <178161132384.2164449.18407700117859190327@gmail.com>
+In-Reply-To: <178161146875.2165143.7400860261990016053@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,61 +73,66 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---KXA7XktxuGW70IKZ
+--KjNXxW/DJwe/iA3u
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-> In airoha_qdma_init_qos_stats(), the Tx-fwd counter was incorrectly
-> using register index (i << 1) instead of ((i << 1) + 1). This caused
-> the Tx-fwd configuration to overwrite the Tx-cpu configuration for
-> each QoS channel, resulting in incorrect QoS statistics.
+> In airoha_dev_open(), if airoha_set_vip_for_gdm_port() fails after
+> netif_tx_start_all_queues() has been called, the TX queues remain
+> started while the device configuration is incomplete. This leaves
+> the device in an inconsistent state where packets could be
+> transmitted before the VIP/IFC port configuration is complete.
 >=20
-> Fix by using the correct register index ((i << 1) + 1) for Tx-fwd
-> counter configuration.
+> Add netif_tx_stop_all_queues() call on the error path to properly
+> roll back the TX queue state.
 >=20
-> Fixes: 20bf7d07c956 ("net: airoha: Add sched ETS offload support")
+> Fixes: 23020f049327 ("net: airoha: Introduce ethernet support for EN7581 =
+SoC")
 > Signed-off-by: Wayen Yan <win847@gmail.com>
+> ---
+>  drivers/net/ethernet/airoha/airoha_eth.c | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ether=
+net/airoha/airoha_eth.c
+> index 31cdb11cd7..cf9c366907 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+> @@ -1715,8 +1715,10 @@ static int airoha_dev_open(struct net_device *dev)
+> =20
+>  	netif_tx_start_all_queues(dev);
+>  	err =3D airoha_set_vip_for_gdm_port(port, true);
+> -	if (err)
+> +	if (err) {
+> +		netif_tx_stop_all_queues(dev);
 
-Is this a patch you already sent? IIRC I have acked it.
+I do not think this is necessary since if ndo_open() callback fails, the
+net_device is not marked as running.
 
 Regards,
 Lorenzo
 
-> ---
->  drivers/net/ethernet/airoha/airoha_eth.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->=20
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ether=
-net/airoha/airoha_eth.c
-> index 31cdb11cd7..329988a840 100644
-> --- a/drivers/net/ethernet/airoha/airoha_eth.c
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-> @@ -1256,7 +1256,7 @@ static void airoha_qdma_init_qos_stats(struct airoh=
-a_qdma *qdma)
->  			       FIELD_PREP(CNTR_CHAN_MASK, i));
->  		/* Tx-fwd transferred count */
->  		airoha_qdma_wr(qdma, REG_CNTR_VAL((i << 1) + 1), 0);
-> -		airoha_qdma_wr(qdma, REG_CNTR_CFG(i << 1),
-> +		airoha_qdma_wr(qdma, REG_CNTR_CFG((i << 1) + 1),
->  			       CNTR_EN_MASK | CNTR_ALL_QUEUE_EN_MASK |
->  			       CNTR_ALL_DSCP_RING_EN_MASK |
->  			       FIELD_PREP(CNTR_SRC_MASK, 1) |
+>  		return err;
+> +	}
+> =20
+>  	if (netdev_uses_dsa(dev))
+>  		airoha_fe_set(qdma->eth, REG_GDM_INGRESS_CFG(port->id),
 > --=20
 > 2.51.0
 >=20
 >=20
 
---KXA7XktxuGW70IKZ
+--KjNXxW/DJwe/iA3u
 Content-Type: application/pgp-signature; name=signature.asc
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCajFC/QAKCRA6cBh0uS2t
-rP97AQDtEwdCs3IEnZIgHzLnaLEcSm4lg1hkzIvKxmjeodohIQEAtMfzpjcqFQ7O
-vwSeteUqDl0KbX22ioTCherCWeKZPAA=
-=1Wk4
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCajFDoQAKCRA6cBh0uS2t
+rEAgAQDqk/81Cv2VNY0oTfDbvAQ5ag+hMIs4uuDX4yrwGwyhYQEApGYMF3uo83aZ
+6wQByjRd9vAzTo8XFHg+hfIKjgRjggY=
+=c3L7
 -----END PGP SIGNATURE-----
 
---KXA7XktxuGW70IKZ--
+--KjNXxW/DJwe/iA3u--
 
