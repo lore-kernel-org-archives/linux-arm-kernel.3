@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97C5ACD98E1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 10:54:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A6AACD98CF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 10:55:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2TDzPlo+obG7Khugzgn+eWzESFaACPnZFWLiw8gSSDQ=; b=UPAwds5Woq2ubw6r3VrRk71jqK
-	4MDCHOc7gVZZWpAUkG9lLRqo2OMGdwWy69NTG6fL/vcjE5PwayGK6O1GbyGHwRWxYzt/eLXSZ6jcn
-	/yy1l6/CHEDpzPHMUMQ8hAFDxIL2CrQ+Kib8HWuJVwjnZ4FexC9ngGUfmZVJcDcFI47MV1dtknQLg
-	dujQQLBiFPTJ2Rkti+voVdmqCuy4LnCDqX4ZW7DH+qzjbL5u6wEtqY/I3INXZ+jpb3C8kL3QAkXkh
-	fyDA3bL+Th8QM4VmOR97ms9NGe2+P1GGYTAlbWfH/zDlx8LEpMgYwYdFb1lftp5zMgiSphkS284j7
-	T1DGGsLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=72nfFGwOqmCepnKWEGZx1I8t5XYaTrVTqrklMpMGSkY=; b=G4geLLJLLn1XIMe1XQI9ak2JBA
+	By7LhPwrIk6kETcBaOu8qH/etpGPYmqOczoS4usbAmMrzQLqbvET3R3DHZ6FB0L1FZS+5iIO37jrr
+	wFnxHQ5iSMu6h2jEm58zMl+EtLKf9pdSH+XH2eD99g1dOHilxGNwrDnj2MZdIIS0gl99yTE4Cvp95
+	BTTBWc/AIG72tii64eWWsx2f9XJpPfh2NVNHcer5nFSnDhdfohDO2k4qOxqVt+xI8N90HSvchvpR/
+	vEPS3IwmwngNypYSZDp9Ls9pFOJu9T5ANO+1Y4C2SoS0JbavB1jvcau05mm7BylKKxiGJv0+DEmnU
+	ufgpQlMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZRRO-0000000FdRe-1fQU;
-	Tue, 16 Jun 2026 10:54:46 +0000
-Received: from mail-ej1-x649.google.com ([2a00:1450:4864:20::649])
+	id 1wZRRh-0000000FdlA-3sqV;
+	Tue, 16 Jun 2026 10:55:05 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZRRD-0000000FdJI-25zG
+	id 1wZRRf-0000000Fdiq-3i8u
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Jun 2026 10:54:36 +0000
-Received: by mail-ej1-x649.google.com with SMTP id a640c23a62f3a-bed3550917eso355962366b.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 03:54:34 -0700 (PDT)
+	Tue, 16 Jun 2026 10:55:05 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-8422a92b6d6so2180617b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 03:55:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781607273; x=1782212073; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=2TDzPlo+obG7Khugzgn+eWzESFaACPnZFWLiw8gSSDQ=;
-        b=Vr2m0t/NGCIIYNBp9F6cJAU35DHa0yaIldvn+qZxkrO/Y/pLP9Gc20QEkkhSXOeCNK
-         E2vOzPJGqxAexR0qJg35DGct7790JgAC571OrW1mfED3Nq+iCN609q8bVkbEZcautwsh
-         v46QEa5vaITbp1YnJd8pOY8WXIpGAOVWywaBs+DtIbRrNXunvdE96z3AhxH6fQ+s18ty
-         ru1K2apw6biEIZNl1Q1Qiv3q05LP+nwwBpm2eWl9oPc/dvAkcFAOscHABJd4pNB49Qp/
-         RPt6+Drjq5lzqiKow0xsS1lL2BAx/6jXGchIl4pSJifVqP1K5ilsExkzasSHPHnldzqM
-         w7Pg==
+        d=gmail.com; s=20251104; t=1781607303; x=1782212103; darn=lists.infradead.org;
+        h=mime-version:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=72nfFGwOqmCepnKWEGZx1I8t5XYaTrVTqrklMpMGSkY=;
+        b=ae9RV9Nuvs9jQSUvrE3TfQHX8lFlVN+Y6QimRNPUYLhtgQB711946WH+UFByh8omyg
+         V2vjrBX5tdbQbT1aI3FzeBkDGQ/n+74MT/qADWqg1YS5eEaCVv5vLKWqIggLlY6TiUtQ
+         L2aim/kqDZU0AZMIWpV9SMb4EKsFJLO5XOKf3xWjdinGgJnqswb9trLBUVuXyfw592/j
+         sJhhvZSzIwUgBNIxChjziMBYz11hY2F3gFFktHG1xjjNTD/tQQ5o1fhWePfWG5aZj8m8
+         493xZ7VHHZKfOSO1wZY9+J9fpWmARurrXEu5JhZudTBQ17i/cuYGJyu1nKr+7QvF5ruW
+         LDgA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781607273; x=1782212073;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=2TDzPlo+obG7Khugzgn+eWzESFaACPnZFWLiw8gSSDQ=;
-        b=ZNOE5dGaeBWbF7hibRBsEh0GHp9kQXHAAv6E6M5eBU7zf8GJGzP0RS7rOExZoTmzWV
-         k0AbfhreA3kTczo0ON4TLBMjbwx+uvjOvXJvuJGxvudE7WwFbaxahCc8nzgbek0FoAfo
-         bfmWePk2w+s2mAFFa0gwJbTBd2nxD4bNOs25zTTxYzLkRk0640WGES3wVRXywA2n+V8s
-         XMjNnfAfdFNKcN+TTjtJU3IOFo2dyxqzQOXT2iTqIPq7qn8fZuh7ox+vWeEZ0rOHzom0
-         rsTXwtC8EWYSdnTkagmIxvs85wuzaejENkKFM7hSr2OOFws/FiqCqiC8aON8aoApSQV+
-         B7AQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+oPt56ao/c/h6iMnnQ9mdgHYna68uHqMH6pF0mIFafpCID63bPDmZH2l8H8h63z/hN350xyb8qjn5q1EY34Mt9@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy9Nq7yy0UEcCusoux8nIoXgVZKa/vNN+K9dKGWMF1h24KsNoQe
-	b4dMSwd1Ld7BZA49bI8Fo/i2kMpYDDm1m4+wSC22VKjaPb75unS+p6Cc9z26Of/+7czpNu+a2Cs
-	YeYQIGLMeGv4OzE1nFLQjCg2xPLAKug==
-X-Received: from ejcjl3.prod.google.com ([2002:a17:907:75c3:b0:c04:5e68:2b37])
- (user=sebastianene job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:906:8a72:b0:c00:f408:c8b7 with SMTP id a640c23a62f3a-c043ee23d0emr122018466b.28.1781607272779;
- Tue, 16 Jun 2026 03:54:32 -0700 (PDT)
-Date: Tue, 16 Jun 2026 10:54:15 +0000
-In-Reply-To: <20260616105417.2578670-1-sebastianene@google.com>
-Mime-Version: 1.0
-References: <20260616105417.2578670-1-sebastianene@google.com>
-X-Mailer: git-send-email 2.54.0.1136.gdb2ca164c4-goog
-Message-ID: <20260616105417.2578670-9-sebastianene@google.com>
-Subject: [PATCH v3 6/7] KVM: arm64: Support FFA_NOTIFICATION_GET in host handler
-From: Sebastian Ene <sebastianene@google.com>
-To: catalin.marinas@arm.com, maz@kernel.org, oupton@kernel.org, 
-	will@kernel.org
-Cc: joey.gouly@arm.com, korneld@google.com, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	android-kvm@google.com, mrigendra.chaubey@gmail.com, perlarsen@google.com, 
-	sebastianene@google.com, suzuki.poulose@arm.com, vdonnefort@google.com, 
-	yuzenghui@huawei.com
-Content-Type: text/plain; charset="UTF-8"
+        d=1e100.net; s=20251104; t=1781607303; x=1782212103;
+        h=mime-version:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=72nfFGwOqmCepnKWEGZx1I8t5XYaTrVTqrklMpMGSkY=;
+        b=JjDredmRX7musaU9WvKOK2wUc5nH8OOIY5sNWtdYt5f6ZpQZPp/5sssEcqQCD2sBwz
+         Zb1py2h41wOKXoBJDHovI8S9PWYnQ/+9BWaLvLZr2IPf5vkBxH43dkAkPr7eCEcAy5gu
+         qlKvueJjfPoXg7ZC68es17SYy6gcqa87srgwBzuOSyPZ5HhQs8ft9v0s8LGcxfs1WxCE
+         WHZl2URTGfszKDitdbrEwe50u9vhZgpCaXAwKcn/Tuxaq3B/juhfIz1ymxbyXjGAbxfH
+         zKQAA41H2FMK5rgSlVoYmoKtgjnenU/nlLjHL0k74KLcqtZQ2e2MzX23lc9kvETOQ+si
+         viVQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8si2DI0JafiDCAFisVpQgNs+Crju1/d1xJgo224RR1XSwG2qrhjiGVJPeK7ZqAZNUkyAMoazn0y7eP348Vw2bc@lists.infradead.org
+X-Gm-Message-State: AOJu0YzUpv8Ift4eq0DubwqhX1qhM6cD+NIrqNkZ2CNkNAB0/M5HcuEw
+	Q3NQn1eIVNhRaY76z5WlXzoyx4BEmf6pBoDjeCyDoxtlIgQkBVR7rupX
+X-Gm-Gg: Acq92OEJuesc3zAEOxxlqZhZP7zUEkQG4lVTrcUvD1707odWFgcmEvMbyRjh/AltMz7
+	CCFS03gA2qg+/UKfqOK4rBHWpF+/4p5as/vH83rXxeaGp/WTpMR6524mc3cUiQlvtamKQhR9/cF
+	XstHby3xPZ7Qh7LroQm+ENPVw3qc9RsaGkp/TfZzqyzjCWvAyLYdFwR0Exu5C763fHFDKpbvZ9j
+	Q5erek7jP4MTjt78oIWihWrsm38DMDgyidZTGJPJXRF2dGrcyn73IiYrEoeGnkXmzt19Uy1+H8W
+	nR38DPRPwgDCBZ3vlRMkvan0PSUoIU4BBNK3/wEVIrAcBhY+eOs8NgBir/Cd1gmuZEXpYacrTrf
+	jrNogvqdsS+uUdpCKQ8bYfRvINMi5Eu8UXTwuuIYrizOg2P5xFTorK0v/XFAysdJddmH1uk98bE
+	eLwFGEx4yQCyXkNok/
+X-Received: by 2002:a05:6a00:1ad3:b0:842:50fd:4c13 with SMTP id d2e1a72fcca58-84513e1750dmr2556028b3a.4.1781607302958;
+        Tue, 16 Jun 2026 03:55:02 -0700 (PDT)
+Received: from [127.0.1.1] ([47.253.114.73])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8434b0112edsm11550889b3a.45.2026.06.16.03.54.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 16 Jun 2026 03:55:02 -0700 (PDT)
+From: Wayen Yan <win847@gmail.com>
+To: netdev@vger.kernel.org
+Cc: lorenzo@kernel.org, horms@kernel.org, pabeni@redhat.com, kuba@kernel.org, edumazet@google.com, andrew+netdev@lunn.ch, angelogioacchino.delregno@collabora.com, matthias.bgg@gmail.com, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Subject: [PATCH] net: airoha: Stop TX queues on error path in airoha_dev_open
+Date: Tue, 16 Jun 2026 18:50:39 +0800
+Message-ID: <178160729880.2156257.7978513589649053826@gmail.com>
+Content-Type: text/plain; charset=utf-8
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260616_035435_563930_29B7DE4C 
+X-CRM114-CacheID: sfid-20260616_035503_952573_86124EF8 
 X-CRM114-Status: GOOD (  11.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,64 +92,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allow FF-A notification GET messages to be proxied from the pKVM
-hypervisor to Trustzone and enforce MBZ/SBZ fields.
+In airoha_dev_open(), if airoha_set_vip_for_gdm_port() fails after
+netif_tx_start_all_queues() has been called, the TX queues remain
+started while the device configuration is incomplete. This leaves
+the device in an inconsistent state where packets could be
+transmitted before the VIP/IFC port configuration is complete.
 
-Signed-off-by: Sebastian Ene <sebastianene@google.com>
+Add netif_tx_stop_all_queues() call on the error path to properly
+roll back the TX queue state.
+
+Fixes: 20bf7d07c956 ("net: airoha: add QDMA support for Airoha EN7581 Ethernet")
+Signed-off-by: Wayen Yan <win847@gmail.com>
 ---
- arch/arm64/kvm/hyp/nvhe/ffa.c | 24 +++++++++++++++++++++++-
- 1 file changed, 23 insertions(+), 1 deletion(-)
+ drivers/net/ethernet/airoha/airoha_eth.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-index fcfaa441770d..549250ff8f82 100644
---- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-+++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-@@ -715,7 +715,6 @@ static bool ffa_call_supported(u64 func_id)
- 	case FFA_MEM_DONATE:
- 	case FFA_MEM_RETRIEVE_REQ:
-        /* Optional notification interfaces added in FF-A 1.1 */
--	case FFA_NOTIFICATION_GET:
- 	case FFA_NOTIFICATION_INFO_GET:
- 	/* Optional interfaces added in FF-A 1.2 */
- 	case FFA_MSG_SEND_DIRECT_REQ2:		/* Optional per 7.5.1 */
-@@ -1001,6 +1000,26 @@ static void do_ffa_notif_set(struct arm_smccc_1_2_regs *res,
- 	arm_smccc_1_2_smc(args, res);
- }
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+index 31cdb11cd7..cf9c366907 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.c
++++ b/drivers/net/ethernet/airoha/airoha_eth.c
+@@ -1715,8 +1715,10 @@ static int airoha_dev_open(struct net_device *dev)
  
-+static void do_ffa_notif_get(struct arm_smccc_1_2_regs *res,
-+			     struct kvm_cpu_context *ctxt)
-+{
-+	DECLARE_REG(u32, flags, ctxt, 2);
-+	struct arm_smccc_1_2_regs *args;
-+
-+	if (ffa_check_unused_args_sbz(ctxt, 3)) {
-+		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
-+		return;
+ 	netif_tx_start_all_queues(dev);
+ 	err = airoha_set_vip_for_gdm_port(port, true);
+-	if (err)
++	if (err) {
++		netif_tx_stop_all_queues(dev);
+ 		return err;
 +	}
-+
-+	if (flags & GENMASK(31, 4)) {
-+		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
-+		return;
-+	}
-+
-+	args = (void *)&ctxt->regs.regs[0];
-+	arm_smccc_1_2_smc(args, res);
-+}
-+
- bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
- {
- 	struct arm_smccc_1_2_regs res;
-@@ -1072,6 +1091,9 @@ bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
- 	case FFA_NOTIFICATION_SET:
- 		do_ffa_notif_set(&res, host_ctxt);
- 		goto out_handled;
-+	case FFA_NOTIFICATION_GET:
-+		do_ffa_notif_get(&res, host_ctxt);
-+		goto out_handled;
- 	}
  
- 	if (ffa_call_supported(func_id))
+ 	if (netdev_uses_dsa(dev))
+ 		airoha_fe_set(qdma->eth, REG_GDM_INGRESS_CFG(port->id),
 -- 
-2.54.0.1136.gdb2ca164c4-goog
+2.51.0
+
 
 
