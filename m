@@ -4,87 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05BC7CD98E1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 09:39:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30F8CCD98DA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 09:50:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zQIShJg6Ftimoja4PEgmZnx0HyZtrXTVnvJJnqLKevw=; b=qbGeeCp35EM7UxZ5FGW23TANzy
-	YzvMBEuJAATlituiX0TsLXoULCb+4l4s3kWa+Mzm1hY6YDXaYZP1msC2aP3tUVbfgAsbkkrUMHdZA
-	jIPaOHnS5q3icejh8EEiut6ryrWGiSFXZyorqOH7LM7PdR/ux1UpiWFX+xM7S6289MDUXtVS1dAEc
-	w23R+0mXfJ4tgmzwcZKFS+JSET2ekUCKFaervey0jJX57lOmIHV7FJ76OIbqELbx3hQ7Rsokaij5g
-	BLDSg1g3BxFyi5zLgKBILZeSTAvSGZhj/G+8sPjc622FglHsl2o8euxU5WnLk+mU838Jc73DrZg0U
-	GQWvEIiQ==;
+	bh=NQiZZvuAbKBvUjZbZVVninjgYcEiugRsy2ygB3ZkJGs=; b=OYCiL+d8AapFf2fkpeQ9b1x39i
+	cPwqbrCxvQj6H+wMmitrBorrWx6gxAJLxs/TIQVDXs6O8Zn6Vvhvv2VW+4OO1enJ6wia3ITFTLCZo
+	TGwhIgKDltwrhfogXi4OFQLc3zbPKCt/IMqQF0/i9KewIPP9cQq+O26UFuAjLVhnIyelaM1k32uc9
+	o9ML809C0QDYEqqn8Boswfgw+hrakDNthUyLKyizbmgn6IP4WwQcH5ZFNZQUQ9z9o8V1X6tzD8jpA
+	qTZGrm5EiP8JP0IHAgsCI7w0e2edaozWATn9sVEDtJiUKPqqgpP4r37gEqUph3asltK7ctf1saBNX
+	ULZApGsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZQGH-0000000FWpY-1aZP;
-	Tue, 16 Jun 2026 09:39:13 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wZQRG-0000000FXY0-1wB8;
+	Tue, 16 Jun 2026 09:50:34 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZQGF-0000000FWpO-3tKf
+	id 1wZQRE-0000000FXX5-1kox
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Jun 2026 09:39:12 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C2A9B600AB;
-	Tue, 16 Jun 2026 09:39:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 249871F00A3A;
-	Tue, 16 Jun 2026 09:39:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781602750;
-	bh=zQIShJg6Ftimoja4PEgmZnx0HyZtrXTVnvJJnqLKevw=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=KiGcSEurA0bA2tm0k4D1frf9Zo+Sb99JN0fq6GlsHkUL9WBcffL7SQogQSKoTHLee
-	 wSzGQNbvdYE8YuqI34TdBNZeHWQHqN8vVHeXfi+TcxS/kz3xRAylqNTFhX8eiA/4lD
-	 9lXRMg6haG1grL92pEsviJ+SfCiIosxOv5NeTzhp/IHXdILsYEYj4+hj0zBoQTBihq
-	 v5SEoRxB1Sg8lqBpNd5+BAs2ZKOLxhmZw6qlFIUXLpnShwuHQIfz3KtSv6M40/nGd/
-	 l7KO863tKNtuJoqpmM8Tbs3tdm8LTP7AtgSFoylKDVDLPRB6mUuu8j8AjxPkwU+PFu
-	 xlxUIS5SF6F1Q==
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 3AF84F40088;
-	Tue, 16 Jun 2026 05:39:09 -0400 (EDT)
-Received: from phl-imap-05 ([10.202.2.95])
-  by phl-compute-01.internal (MEProxy); Tue, 16 Jun 2026 05:39:09 -0400
-X-ME-Sender: <xms:vRkxajW7YWBumGb6A4iRcA2CdL0CMXCVqrmEFkaQlkld6efNhHkzcQ>
-    <xme:vRkxamYnOT7Tu1LGNsaGL-2Cs2csdc7vCCXbbvML_eLkqZVj0h25mbhal4_7xzI0V
-    92G2AobgUAi__LtehTRIK8btatIts5hxPL3dec1vgI8drYr2YDlyjs>
-X-ME-Proxy-Cause: dmFkZTFM51YHfFrDfAOUAPxdVwxe7tVW0qqhy91bxQZOzvwB6WQa1dxMIYZMNd4LkfbkRL
-    vfFOiked41ElbEAn3yw6jWtw/GnNW0UbhyFevdJhaitnMWv80BWzsepnt721BLY1N5Mrmc
-    KY3xZrIefmuMr0Tudi6CR4R5MzT7STOn/N0aASnqOsHxUnFvMEyrD5fi9VPwdzuYADMY9P
-    D6rKnG37RFnjIQft3Rx5E+i3Xzxnagqk435WSY/e5rLTlIYWqnl0Zy9vAHfdmre0ITu47I
-    CsvKOCyXHii8DIMoTkGxsMYdKiMPiL/6Q2RjwsHZYr585zU+vkpa5ObwgtkSzMjylBJwoY
-    EJ/iKPFyFYIIJDWlxnMSXcC47ykW3VhAiE01YWBeE0RaU+uq4g8aGau1vzURjpTkwTy7r3
-    5buxw6uQKcXDG2bUn3iqi/DkrZSA5BBTNbI30BFLCUpiL4iLGePz46afk/lJ5RhZSlKZG6
-    mLYAtav9aH5JVZ++FwsD8K70cHE+UIebqjIKWf0ds5pdWhFFak3ioEObVVIWqkaP+HRlAW
-    fakoXK4VYUX55+BsyRicMnrUjtPnHtrRFo6/t8ONaHLeI7X0a50zH6aPfzPdhVXnYCm+SR
-    RmCdxdw9EecoUbZ045qoZ0pm4Sj/zZVVEPopTdOn3NmrtPxlHzLbnXCmzopA
-X-ME-Proxy: <xmx:vRkxavLQboasl_4zj75TdNGPoZMNKlQ6WYsfMQ35OA0Y0kALKgxkew>
-    <xmx:vRkxau2bprsBw1KMIzY_woFRVvAYItuIyxw0SYTKtU5E_-IXZ45fBA>
-    <xmx:vRkxakJT-AonaOAaPrAmIRg5AoSz_H1qgJbbM-lRwvc0hKFGst6rXA>
-    <xmx:vRkxahiXfh-vFI0wlyYbh2ijS5kdQnfDxN4T-eL0Zgcl0eCTpyqWVg>
-    <xmx:vRkxasBcyBdLwTvaoBfNQGQz48mKn_84X9FY3ANM-VqPOL3W5ikkLDrA>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id F2D2D1820086; Tue, 16 Jun 2026 05:39:08 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Tue, 16 Jun 2026 09:50:33 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65G7I1fX2832556
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 09:50:31 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	NQiZZvuAbKBvUjZbZVVninjgYcEiugRsy2ygB3ZkJGs=; b=CbxBq71TeX+Ekoak
+	Lr+ynkoEdj1zcqidsrSn38QeNLWeGOhqyeLtPPjgMaB2R7oPqTHWJYcZLW3g5Zrf
+	Bezo7TbiQ7gA9HopG3BD240GOrzcfZuqT7DI3buVjY4QRP2BlezHoorSJZGSwR3q
+	luNynNWBCKe/zxxZdDg4E50cctV5BU4udfdG54GgR60x1tI/vy8vTLAhRhpsnDL7
+	XyZKFran3CkRogVc2cBZCFg5MEg5EfU1ARnuWUXtYhB9RtlvBaZPRCJ/s3EAeSLn
+	LM+xmccP7Nq+UCBdD83Am2bCRq2EKl7LAf6Gm/zYP7nL07hfelo0epnkHJrUrRIy
+	+228jA==
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4eu1ysrkrs-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 09:50:31 +0000 (GMT)
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-9156dc90fdaso102197985a.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 02:50:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1781603431; x=1782208231; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=NQiZZvuAbKBvUjZbZVVninjgYcEiugRsy2ygB3ZkJGs=;
+        b=XvXbMxLYKnu1T2ELQtD0T7cLspoVng7kU+LbbMOl5OizLGf0u9DtnSuP/92VxLHzAR
+         mwepU/RyVUUJ3VM1IaC4TKIROEkXHgezqutH4KWHvEm9FqADIbLbfYaVm1+KblkUbHe/
+         aL5R09As6mR5mJjTQhWBC7bRmThUJEYuULGHmxGGgSYS73yRrjritvxZMlumuU/Ibb/k
+         qM1uYPmm9KVAeZsjv9o4WgkuKX1EMzBotTw7bq2qPFIfiVXBaLV1NKez87onK02Pa15U
+         lP9Fc+jKUgZtzlTTbPh8q72zK4Djnnll52ou2zTfNFfjBkRcNpWlsfV29iIfphjc8CCG
+         ZWcQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781603431; x=1782208231;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=NQiZZvuAbKBvUjZbZVVninjgYcEiugRsy2ygB3ZkJGs=;
+        b=RMyh+MpF0aHmPADcUQJsu51xjN4I6cKo1RgK+ckUfE+gCODwUgePZXTAWGQDFwraXr
+         IvuKGbfAf9TGeVLK1dUQZx8tBGzW8ggSqvjMEDnug66LfoRREdo7/+Z3ghZaFvuUoO4c
+         XsCiCPiDOAs7DwO86eAeeSdbwuRHhnBuOhNEriTIXH2a9uy1saz3Vn3lPG1ypx4ii8SA
+         mYCwykcLJbwKTjbyO/LfwQelxi61fvSLnd7ue31N3AOK4FlITzKwz1Ag2SwNsNlRGOwe
+         Vl/UlHytRl8gv04tk9Hhr2hBpLbfUI6s8CgscD8uxwVlfZSo26hdmzCUnzA7kWrfqspI
+         +4Kw==
+X-Forwarded-Encrypted: i=1; AFNElJ9BUys9Wc2WR7eZDNWMwQzkFCAj1cE2fxUo9q7THAvRP0uMhN/mbjT9VvhUljv68Dh/VOWs9SyqO+x3RKbBexqW@lists.infradead.org
+X-Gm-Message-State: AOJu0YwtNlbu53Wbmh4sr2Wmf8+emkMrir1DjRHgLfQWfmpBeZbPqCR+
+	ajSJYlzQSTHpKcp9LU1/JhtAjoCtLAK6sU6qJHyDQ8jl9a+XWctFcqCVCSsuhAhNLjBuHFA+bxH
+	p785JSU3SplXozu0vF7b4o+oua+cIG33CIzeD5cyvn8t5xwfNz0ezphSktSP7rHfizHTmTX/a06
+	1YMA==
+X-Gm-Gg: Acq92OFa+TLkL+aK47Z6hxL0OrwtdXhSPaIv5aNSBPgBaxwh0IU4M0QbRd1+Z9Wf86S
+	aoMTPaOw6nvaYMCGfHnyhc50EfTxLDX49KCGs/Kq5Ml8UNeGNtNBnO3dDJ9GrcUMHrm3mrpK2Y3
+	G7FkIBHSjgxitcV96KRu6eKoumJetaEUm0+XoFswqHO85Ssm0s4TbVih0BtpyB0KGTYkZuhFIeF
+	B6i2UF/yvJfqKQzRKbp5vS7L6hw8itcwQcDgADcyJpfe9DstQvPSxXr6esngiC5eIq/Zy+NMppP
+	Yc6y8Jw3aqMsciBHOGIUXzfo4y9aFs8zb8yoD8Am0B34nZu1KCgDMo58x2k/Ep93Eyvp2q9JeeW
+	R3QmloBlyFRqZlbR0Q28aB5dpYP4j02H5pwfZlX1vmc9/bw==
+X-Received: by 2002:a05:620a:710c:b0:915:7a64:cb68 with SMTP id af79cd13be357-9161ba94318mr1786716585a.2.1781603430920;
+        Tue, 16 Jun 2026 02:50:30 -0700 (PDT)
+X-Received: by 2002:a05:620a:710c:b0:915:7a64:cb68 with SMTP id af79cd13be357-9161ba94318mr1786714885a.2.1781603430509;
+        Tue, 16 Jun 2026 02:50:30 -0700 (PDT)
+Received: from [192.168.120.170] ([178.235.128.140])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-bfdb4b22136sm630904566b.15.2026.06.16.02.50.27
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 16 Jun 2026 02:50:29 -0700 (PDT)
+Message-ID: <2cb658f3-f564-4396-884d-d025eaa674a1@oss.qualcomm.com>
+Date: Tue, 16 Jun 2026 11:50:26 +0200
 MIME-Version: 1.0
-Date: Tue, 16 Jun 2026 11:38:48 +0200
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Frank Li" <Frank.li@oss.nxp.com>, "Ard Biesheuvel" <ardb+git@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- "Will Deacon" <will@kernel.org>, "Catalin Marinas" <catalin.marinas@arm.com>,
- "Kevin Brodsky" <kevin.brodsky@arm.com>, "Mark Brown" <broonie@kernel.org>,
- "Marc Zyngier" <maz@kernel.org>
-Message-Id: <fe467789-ae72-4a74-a9c0-6062b522fbd2@app.fastmail.com>
-In-Reply-To: <ajBcE3qfT7ldBNKG@lizhi-Precision-Tower-5810>
-References: <20260604151151.150377-7-ardb+git@google.com>
- <20260604151151.150377-8-ardb+git@google.com>
- <ajBcE3qfT7ldBNKG@lizhi-Precision-Tower-5810>
-Subject: Re: [PATCH v2 1/5] arm64: Rename page table BSS section to .bss..pgtbl
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC 8/9] arm64: dts: qcom: shikra-cqs-evk: Enable
+ ethernet0
+To: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller"
+ <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Richard Cochran <richardcochran@gmail.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Russell King <linux@armlinux.org.uk>
+Cc: linux-arm-msm@vger.kernel.org, netdev@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org
+References: <20260612-shikra_ethernet-v1-0-f0f4a1d19929@oss.qualcomm.com>
+ <20260612-shikra_ethernet-v1-8-f0f4a1d19929@oss.qualcomm.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20260612-shikra_ethernet-v1-8-f0f4a1d19929@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-Proofpoint-GUID: 6b5xc9c5lEfNdAYvTvf4z9CwTNcuMYPN
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNjE2MDA5OSBTYWx0ZWRfXysgtWNFwoMRe
+ K0lDnFhmZq89/cSzD/DzAIxX6ooDK+/qcR1mOPkSdfZu4iCqXd+LB7/7sxjSVZp7UarWFOBbQtp
+ DPnksNABzO5e3lp35WAdPYoU4QadB4g=
+X-Proofpoint-ORIG-GUID: 6b5xc9c5lEfNdAYvTvf4z9CwTNcuMYPN
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjE2MDA5OSBTYWx0ZWRfXyfWMSUbX0+U6
+ DNE5Y9IwylUmgmjT/naYSzLtdq2OUGo4HEk0pDhUjgLEqbcBhxT52nGMvmW40l6kTFAtQNc1Nj1
+ iBriV0yeR2ybmDzqPAMdzcpNWZdCGtQVh+3eXfcTx/mmpyPpH8jklC3faGWQZ+xTTuRGq5Q8agG
+ 2+5KViosfaYw0IVwppJEa4/rOmopnoQrmMjVr+xCeXs0E5bLYfPYvUIoQQYlQJF1/8Vc6w1Dx5p
+ AJhp/25gFINlf8b6SQ3mquUUu/7q5t6qBXq6W6oQjRiSa3kEdi7HVhbb9x7cfezkdk5v/M2xSd5
+ LrU6sbqhpz38LdvXMJxCwmpHiq73aQ+NrG/vBi/23DCLlmfuPHp9e/b4KccaJabLb3L2NzJQRbr
+ DIUIlmSgX5hzFA+DoCd4fEORUTmsGkxFTDEBtDN4SjbN4jkRdrB0abmvo52jbpOuCja2jy1HvRS
+ c5ngJQ/i2TRDMatwPdQ==
+X-Authority-Analysis: v=2.4 cv=JJcLdcKb c=1 sm=1 tr=0 ts=6a311c67 cx=c_pps
+ a=50t2pK5VMbmlHzFWWp8p/g==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
+ a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
+ a=EUspDBNiAAAA:8 a=w1iEB-1klUxI70mDNfQA:9 a=QEXdDO2ut3YA:10
+ a=IoWCM6iH3mJn3m4BftBB:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-06-16_02,2026-06-15_04,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 clxscore=1015 bulkscore=0 malwarescore=0 suspectscore=0
+ phishscore=0 priorityscore=1501 adultscore=0 impostorscore=0
+ lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606040000
+ definitions=main-2606160099
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260616_025032_583029_406D80D7 
+X-CRM114-Status: GOOD (  19.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,94 +166,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 6/11/26 8:37 PM, Mohd Ayaan Anwar wrote:
+> Enable the first Gigabit Ethernet controller.  The board layout is
+> identical to the CQM EVK.
+> 
+> Signed-off-by: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
+> ---
+>  arch/arm64/boot/dts/qcom/shikra-cqs-evk.dts | 119 ++++++++++++++++++++++++++++
+>  1 file changed, 119 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/qcom/shikra-cqs-evk.dts b/arch/arm64/boot/dts/qcom/shikra-cqs-evk.dts
+> index 26ff8007a819e46bbc9ffa3dddc6fee6530a4a7a..1f2e4f6dd7cca436f62ba9f09cd328e5a2079095 100644
+> --- a/arch/arm64/boot/dts/qcom/shikra-cqs-evk.dts
+> +++ b/arch/arm64/boot/dts/qcom/shikra-cqs-evk.dts
+> @@ -7,6 +7,7 @@
+>  
+>  #include "shikra-cqm-som.dtsi"
+>  #include "shikra-evk.dtsi"
+> +#include <dt-bindings/net/ti-dp83867.h>
+>  
+>  / {
+>  	model = "Qualcomm Technologies, Inc. Shikra CQS EVK";
+> @@ -60,6 +61,92 @@ vreg_pmu_ch1: ldo4 {
+>  	};
+>  };
+>  
+> +&ethernet0 {
+> +	status = "okay";
 
+'status' should go last, with a \n before it
 
-On Mon, 15 Jun 2026, at 22:09, Frank Li wrote:
-> On Thu, Jun 04, 2026 at 05:11:53PM +0200, Ard Biesheuvel wrote:
->> From: Ard Biesheuvel <ardb@kernel.org>
->>
->> Rename the .pgdir.bss section to .bss..pgtbl so that the compiler will
->> notice the leading ".bss" and mark it as NOBITS by default (rather than
->> PROGBITS, which would take up space in Image binary, forcing all of the
->> preceding BSS to be emitted into the image as well). This supersedes the
->> NOLOAD linker directive, which achieves the same thing, and can be
->> therefore be dropped.
->>
->> Also, rename .pgdir to .pgtbl to be more generic, as page tables of
->> various levels will reside here.
->>
->> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
->> ---
->
-> I met boot failure for i.MX8QXP by this patch
->
-> [    0.823515] Unable to handle kernel paging request at virtual 
-> address ffff00000328f000
-> [    0.831116] Mem abort info:
-> [    0.833886]   ESR = 0x0000000096000147
-> [    0.837622]   EC = 0x25: DABT (current EL), IL = 32 bits
-> [    0.842923]   SET = 0, FnV = 0
-> [    0.845961]   EA = 0, S1PTW = 0
-> [    0.849088]   FSC = 0x07: level 3 translation fault
-> [    0.853952] Data abort info:
-> [    0.856809]   ISV = 0, ISS = 0x00000147, ISS2 = 0x00000000
-> [    0.862296]   CM = 1, WnR = 1, TnD = 0, TagAccess = 0
-> [    0.867330]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
-> [    0.872633] swapper pgtable: 4k pages, 48-bit VAs, 
-> pgdp=000000008211f000
-> [    0.879321] [ffff00000328f000] pgd=0000000000000000, 
-> p4d=18000008bffff403, pud=18000008bfffe403, pmd=18000008bffea403, 
-> pte=00e800008328ff06
-> [    0.891834] Internal error: Oops: 0000000096000147 [#1]  SMP
-> [    0.897469] Modules linked in:
-> [    0.900514] CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 
-> 7.1.0-rc1-00016-g63e0b6a5b693 #834 PREEMPT
-> [    0.909978] Hardware name: Freescale i.MX8QXP MEK (DT)
-> [    0.915104] pstate: 80000005 (Nzcv daif -PAN -UAO -TCO -DIT -SSBS 
-> BTYPE=--)
-> [    0.922053] pc : dcache_clean_inval_poc+0x24/0x48
-> [    0.926742] lr : kvm_arm_init+0xa78/0x1638
-> [    0.930828] sp : ffff80008318bd10
-> [    0.934127] x29: ffff80008318bd50 x28: 0000000000000000 x27: 
-> ffff00000328f000
-> [    0.941251] x26: 0000000000002000 x25: ffff80008219e000 x24: 
-> 0000000001002222
-> [    0.948374] x23: 0000000000000030 x22: ffff800081e850c0 x21: 
-> ffff800082b790d0
-> [    0.955498] x20: 0000000000000004 x19: ffff8000830a0000 x18: 
-> 0000000000000000
-> [    0.962622] x17: ffff800082f938b8 x16: ffff800082b8b4e0 x15: 
-> ffff800082b8b4b8
-> [    0.969746] x14: ffff80008308f0a0 x13: ffff800082b8b490 x12: 
-> ffff800082b8b530
-> [    0.976869] x11: ffff800082b8b508 x10: ffff80008308f140 x9 : 
-> ffff80008308f118
-> [    0.983993] x8 : ffff80008308f0f0 x7 : ffff80008308f0c8 x6 : 
-> ffff80008308f078
-> [    0.991117] x5 : ffff80008308f050 x4 : ffff800082b8b468 x3 : 
-> 000000000000003f
-> [    0.998240] x2 : 0000000000000040 x1 : ffff000003291000 x0 : 
-> ffff00000328f000
-> [    1.005367] Call trace:
-> [    1.007800]  dcache_clean_inval_poc+0x24/0x48 (P)
-> [    1.012490]  do_one_initcall+0x80/0x1c8
-> [    1.016310]  kernel_init_freeable+0x208/0x2f0
-> [    1.020654]  kernel_init+0x24/0x1e0
-> [    1.024131]  ret_from_fork+0x10/0x20
-> [    1.027700] Code: 9ac32042 d1000443 8a230000 d503201f (d50b7e20)
-> [    1.033779] ---[ end trace 0000000000000000 ]---
-> [    1.038428] Kernel panic - not syncing: Attempted to kill init! 
-> exitcode=0x0000000b
-> [    1.046026] SMP: stopping secondary CPUs
-> [    1.049943] Kernel Offset: disabled
-> [    1.053408] CPU features: 0x00000000,00000008,00040021,0400421b
-> [    1.059316] Memory Limit: none
-> [    1.062359] ---[ end Kernel panic - not syncing: Attempted to kill 
-> init! exitcode=0x0000000b ]---
->
->
-> Any idea?
->
+> +	phy-handle = <&ethphy0>;
+> +	phy-mode = "rgmii-id";
+> +
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&ethernet0_defaults>;
 
-Which tree is this based on?
+property-n
+property-names
+
+in this order, please
+
+[...]
+
+> +&tlmm {
+> +	ethernet0_defaults: ethernet0-defaults-state {
+
+s/defaults/default
+
+Please move this definition to shikra.dtsi
+
+> +		rgmii-rx-pins {
+> +			pins = "gpio121", "gpio122", "gpio123",
+> +			       "gpio124", "gpio125", "gpio126";
+> +			function = "rgmii";
+> +			bias-disable;
+> +			drive-strength = <16>;
+
+Let's move drive-strength before bias (that's the order used in other
+places)
+
+> +		};
+> +		rgmii-tx-pins {
+
+Please separate subsequent subnodes with \n
+
+> +			pins = "gpio127", "gpio128", "gpio129",
+> +			       "gpio130", "gpio131", "gpio132";
+> +			function = "rgmii";
+> +			bias-pull-up;
+> +			drive-strength = <16>;
+> +		};
+> +		rgmii-mdio-pins {
+> +			pins = "gpio133", "gpio134";
+> +			function = "rgmii";
+> +			bias-pull-up;
+> +			drive-strength = <16>;
+> +		};
+
+> +	};
+> +
+> +	emac0_phy_en_hog: emac0-phy-en-hog {
+> +		gpio-hog;
+> +		gpios = <149 GPIO_ACTIVE_HIGH>;
+> +		output-high;
+> +		line-name = "emac0-phy-en";
+> +	};
+
+This looks like a hack - what does this pin actually do?
+
+Konrad
 
