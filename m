@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC7B2CD98E1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 15:25:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 031CCCD98E1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 15:25:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=b7M8qZtmu0bZQdu1QNURqoYjrqJMG0t/ykNnN1cBj2w=; b=ULsMAMQ5qA7KLAmD73wyl79TTq
-	4pqfFIgnqcLLkL1sPwG7QfP3RnemIIEv0BJshdJr+eYExzHYQjGOte5XFDL0JOB8t4C5F2GVUo95G
-	ybcP1iuvUZmphZ+ul1B+s8mTpJ3d+9ix0bQURBnnUsoQ1QUvO4ErFVY3oznUKHuw8uqR41HHzO3Zz
-	L5kHqRdzg4Xu2Ao7TNecLfqiGSYpi+3zfQMH+WsH6xuEosrk8qqAdVXxidyTv6/49jgGHBHjxriL5
-	kgCpqR8x+g/mFuksJE2rE6Df82f5bTM5mb3GA8146wWrcxPe7tVczWgT/0iCI63Noz0TJ1r0zTWh/
-	T3fymQZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qLMumJf1RKl2eLxtJE2mfNPELwqfdC4TqjLEXDZKRSI=; b=T59b6Bo9ur9KOGGYf8fhGskN1c
+	yHrC0LzcnlkeKS+sYSJxo6prW5PNr5a+5wLXq7mMXIPE878JHEi73U/MAykklaZ8Wa6s7Nu7w2Aql
+	gxB5n1Xk8Z5qeruglD4diJWYihs7KJTGpCz/GjK4fCmKXl/TaCpMXORJ2zOwiolOKYY1DH+PiTQEc
+	ZeUMB8eQz47hZmhh1a2OV3NPxkbTFzE63M26M0F7PmhzxweWHBJ+ogdp7AODBRaGxAnaVJNmRI9po
+	gJWU4v09kXHFcRENrPGrr+D8Njr/HJSADJrr3DEYeZGyLn5GRz5jqrEOf0k5bSRZd7zcc3wm0Tl8u
+	SX1trxcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZVex-0000000G0Pv-1K8u;
-	Tue, 16 Jun 2026 15:25:03 +0000
-Received: from mail-dy1-x1330.google.com ([2607:f8b0:4864:20::1330])
+	id 1wZVfX-0000000G0YQ-3H2c;
+	Tue, 16 Jun 2026 15:25:39 +0000
+Received: from mail-dy1-x132a.google.com ([2607:f8b0:4864:20::132a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZVeu-0000000G0Og-22RT
+	id 1wZVfU-0000000G0We-0Dd0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Jun 2026 15:25:01 +0000
-Received: by mail-dy1-x1330.google.com with SMTP id 5a478bee46e88-306f36df4feso3293669eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 08:25:00 -0700 (PDT)
+	Tue, 16 Jun 2026 15:25:38 +0000
+Received: by mail-dy1-x132a.google.com with SMTP id 5a478bee46e88-307263ad0cbso7352906eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 08:25:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781623500; x=1782228300; darn=lists.infradead.org;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=b7M8qZtmu0bZQdu1QNURqoYjrqJMG0t/ykNnN1cBj2w=;
-        b=aKhVqO7r5aZwtnkqQmyAyWGiYQuKo0GWH5VtNUFOqNypfAW/usma5zsH1mfBSIVe/V
-         GObckdTY5+11e+EXihD/v737ggpRRXQHjEOtVzqbkFyDLuF6v5E8fuTe/eoX0zIfURes
-         gGchNJ4mBLia/8MsbHBuibhzbdUddPFag8iP6kibwggk9K1ee3ExjpGku4WnRz6Tvikl
-         cfxQYxvSroXpwmEdzCHsP7pLc06Rs5KQVjovdeQQKdh350BvyFij2vTbe50gqfqiHA+z
-         +W94I3+AlS+Ym9nJqN2wuOa8KSP5mgirlFOa6/nKAw3aNsROr2M5bwu+H5yo02BlF0H2
-         fqLw==
+        d=gmail.com; s=20251104; t=1781623535; x=1782228335; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=qLMumJf1RKl2eLxtJE2mfNPELwqfdC4TqjLEXDZKRSI=;
+        b=ndp/KvumIBOPJUij1xkyZMnR+6KrH8BlXlcvXGBGPvJ07gJdeFLfaQ68ce/9o5Gr7J
+         nTOQwo9BCFEbirndnQCXGMjERmI4OSOMKcO2GXNwyQ6/oh0hh83yF1RXU8r4Bjy8s2Qj
+         yoVJTDTXQsuyD+/xVMjwIvBsxWbb0zhiG2AE/yCz7WkyAvghGdml2XmDMvMIgKBYDoNp
+         hQmZ/9js/rZhjkYjWgZH+kXRzSelIMmC8l1HLNf27YPy74IaGy/ILWiV5gIJzf+J+KAi
+         UQqimw6LjweKpEKAZIgd2uxEMjQiTz3iPOnMcVyiIpn6qlLRJYuhF00Zo+a1TXIiVNEC
+         VLFQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781623500; x=1782228300;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=b7M8qZtmu0bZQdu1QNURqoYjrqJMG0t/ykNnN1cBj2w=;
-        b=NTDTotmAF0GKeKI58OSAPRchENKpyuagUZk1nqBXxq08eGq0lrymDpD9oXlNhPJiWH
-         mxVmfJh5TtjNIPChlcWlH8fDfKp0O0sEJ/tA8CdFTsmrPS465B8tHWuMEuYAuPKodb5w
-         NzqYrcmxSUvwXo2fHSLs/6zMsGa2cyd+fjjPHjCm6gT+9KH06hgZxtnatPz8pLM07vS5
-         X/sCe06tJkkoNb69sfvSMvDinOq6QSfHLye2f0JK2/Y8RXH1L9M0ZNPnLU7jfHOFUqgj
-         aSt/nLgRJDR8msKh5VUQZog2y/CTBkVGdmu0pHVk+m24DLx83z2dq4h1LabJUIRV70EG
-         N4wA==
-X-Forwarded-Encrypted: i=1; AFNElJ/VN9AkMW4LdSM0kH0/eHaSwn6tBr9c7ChAC1gmEm2E+L6AMCTBSGO6qx70fI/LL++tJXMPXMifw8/VP+/w02Y/@lists.infradead.org
-X-Gm-Message-State: AOJu0YxduLZ4LexkDqMdHaDrlWj/8pukWqHQaGMg9auLHsyi4wrSZetI
-	k7lLXDuTiJkxoh/sBZFsKotXKN9DbX/pXOBAsqrTCYDgDEiUwzlV4Csk
-X-Gm-Gg: Acq92OECLJvrGtA6o7122iKvKVjw+GBl4W0KytNSpyyin3kUl81gsiTeVt2RSXa5nDe
-	4NFXa6dF659bSOBKtk3Kh8JSHuXkHmJTzdn7Eh+WtZdbxdrsfjVo+3rCmJB5Sk+r3uKYZ4ta3f7
-	tiq0ml3EhJQGreWQu9oZeW/RQ6bsX4SoO39oncYjmn1gTuUeTVRz7ag+lE5jAHp2+GWOT76t9/b
-	y1jaVBtP4m48DiA0lsKJWK2/Nc0M3Q5WX4hN0X6iZubeThmH+TE7HMRDzqw1LcXwTJPnMkLeLJm
-	lu4FoUb1z35JcBbKRT+owYD8/OhrgZeQubMrjHkYAdXbWRVbXvVZdnIWcXsFjSDOQVraLfvRA2z
-	nNjhm2gbOgbQg/7X++2RZLOThG+EtexRGSjy6FOpJNDkk3fP4rpvINxzF7YlBBpC8Hq6+usfBeL
-	xmUt8crec9PPPnm8RaxOjH
-X-Received: by 2002:a05:7300:bb07:b0:2f9:1004:b2cd with SMTP id 5a478bee46e88-30ba3ad0bcfmr2565276eec.20.1781623499389;
-        Tue, 16 Jun 2026 08:24:59 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1781623535; x=1782228335;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=qLMumJf1RKl2eLxtJE2mfNPELwqfdC4TqjLEXDZKRSI=;
+        b=koANRqjsywzXF2pWQxXZFrfffESxg/MURc18wtarUs5JSyEbyORypzUR60qwbPKMsi
+         kZzGvn2dIgHjQEU55szpv4osWrbLrrs+n0OCsqJ6bRlG878TEjr7sLVyfSFGu5mzHr5Z
+         b/jEmiuGj+Bh151SvhiPQvP/5BtQj5GAW8tQd2+jS3WWs/PC9eZtpjAGObLOrYtnLHRZ
+         9QoIFSvLNLooYLyKWbeFkA2cP2w5gfSmLmyW5n+bws4FRtR0uKnYxLKyntXdlUMh/AX8
+         LgCsMkzPxyyeWuZzgWxUdXYWivaJ3KISa0maiyKk65udB4i+fUwRZANVLwcUSZQfMDug
+         x8XA==
+X-Forwarded-Encrypted: i=1; AFNElJ+b6PZ8b+rpZZ+MJNpH55Q+ChBmf0bqA7trcz8+KRFVdAEmqyFUHDBY+NlnHkMuLEb8zV4r2jRaQLQOfCOiD4RO@lists.infradead.org
+X-Gm-Message-State: AOJu0YzzCsjx4oFz0seJ8RyMd1Jv4iTnwv/yCcO2Ns6H5zDKM+oCy/Ex
+	j5oss1x3dfXX+G2n2ehqjGn6tDyH7i4MLG4jVFyu6WUof0bXHJnnGuKvG1ShDrAC0vk=
+X-Gm-Gg: Acq92OFvP5vDXqsuKANFT9WMdG/XRjnrVboNBggMljSjGcdcHWiz26MrVX2vzrfQ79p
+	LZaeNeXY5YjXfP8D3138/XV0VUb3XWJ+90QXHnSAi1+uA7qGVQ+n0JMhL3n4rpkYbl9itsi/ypw
+	SsdJKwc/CWuC/KXNBiNtOv66h620YxjiJ6Ql4zoUTPeAKNvPQCedUnciLJK4NzLZEQujOWahp4p
+	tqyiglSGmqziit44aYiyleHBf0pTe7WyRuPBZXC+k/bjDKA1unX4r1TOrzvxPBVZ59SACKFGB0q
+	C5OKp/fWgc/Qk9gISBE4DZpzKBuhpWRA5v9xztd6TNoIHONLegqPoo9ppaDHTy1w7Y3E5RhSdHJ
+	mALQ9cioPCBNOoA31wSESUe2TcCpZmRrF0MctZaq1qWDVppVSM5gY21NxnFeuHUjmVX+DxFsi0F
+	ChRTRT1odHihKLLsEEEwRf
+X-Received: by 2002:a05:7300:a887:b0:305:179:4dde with SMTP id 5a478bee46e88-3094044cbeemr8636687eec.35.1781623534764;
+        Tue, 16 Jun 2026 08:25:34 -0700 (PDT)
 Received: from geday ([189.115.92.220])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3081eb95450sm23757871eec.28.2026.06.16.08.24.56
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3081e91f88bsm19695217eec.16.2026.06.16.08.25.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 16 Jun 2026 08:24:58 -0700 (PDT)
-Date: Tue, 16 Jun 2026 12:24:48 -0300
+        Tue, 16 Jun 2026 08:25:34 -0700 (PDT)
+Date: Tue, 16 Jun 2026 12:25:28 -0300
 From: Geraldo Nascimento <geraldogabriel@gmail.com>
 To: Shawn Lin <shawn.lin@rock-chips.com>, Dragan Simic <dsimic@manjaro.org>
 Cc: linux-rockchip@lists.infradead.org,
@@ -79,14 +79,16 @@ Cc: linux-rockchip@lists.infradead.org,
 	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Geraldo Nascimento <geraldogabriel@gmail.com>
-Subject: [PATCH v7 0/3] PCI: rockchip: 5.0 GT/s speed discouraged by Rockchip
-Message-ID: <cover.1781622998.git.geraldogabriel@gmail.com>
+Subject: [PATCH v7 1/3] PCI: rockchip-ep: do not attempt 5.0 GT/s retraining
+Message-ID: <d994f8fb3481bbb8f3972f117334a6e8aea383fb.1781622998.git.geraldogabriel@gmail.com>
+References: <cover.1781622998.git.geraldogabriel@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+In-Reply-To: <cover.1781622998.git.geraldogabriel@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260616_082500_595903_B279B0A4 
-X-CRM114-Status: GOOD (  10.83  )
+X-CRM114-CacheID: sfid-20260616_082536_095008_0C3E3E64 
+X-CRM114-Status: GOOD (  14.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,62 +103,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dragan Simic already had warned me of potential issues with 5.0 GT/s
-speed operation in Rockchip PCIe. However, in recent interactions
-with Shawn Lin from Rockchip it came to my attention there's grave
-danger in the unknown errata regarding 5.0 GT/s operational speed
-of their PCIe core, including data loss.
+Drop the 5.0 GT/s Link Speed retraining code block from Rockchip PCIe
+EP driver. The reason is that Shawn Lin from Rockchip has reiterated
+that there may be danger of "catastrophic failure" in using their PCIe
+with 5.0 GT/s speeds.
 
-Drop all code related to 5.0 GT/s operational speed from this driver.
+While Rockchip has done so informally without issuing a proper errata,
+and the particulars are thus unknown, this may cause data loss or
+worse.
 
-Endpoint Mode driver was not tested.
+This change is corroborated by RK3399 official datasheet [1], which
+states maximum link speed for this platform is 2.5 GT/s.
 
-Changes in v7:
-- In pcie-rockchip.c (PATCH 3) drop unreachable code
-- Link to v6: https://lore.kernel.org/all/cover.1781207474.git.geraldogabriel@gmail.com/T/
+[1] https://opensource.rock-chips.com/images/d/d7/Rockchip_RK3399_Datasheet_V2.1-20200323.pdf
 
-Changes in v6:
-- Squashed patches 3 & 4 together as suggested by Mani
-- More formal warning message as suggested by Dragan
-- Set the 2.5 GT/s bit regardless of if link-speed is set to 2
-- Link to v5: https://lore.kernel.org/all/cover.1772239598.git.geraldogabriel@gmail.com/T/
+Link: https://lore.kernel.org/all/ffd05070-9879-4468-94e3-b88968b4c21b@rock-chips.com/
+Cc: stable@vger.kernel.org
+Reported-by: Dragan Simic <dsimic@manjaro.org>
+Reported-by: Shawn Lin <shawn.lin@rock-chips.com>
+Signed-off-by: Geraldo Nascimento <geraldogabriel@gmail.com>
+---
+ drivers/pci/controller/pcie-rockchip-ep.c | 13 -------------
+ 1 file changed, 13 deletions(-)
 
-Changes in v5:
-- Changed commit order to not break builds and adjusted copy pasted
-  commit message. (thanks Charalampos!)
-- Reintroduced behavior to force 2.5 GT/s in case there's something
-  non-default in the DT. (thanks Dragan!)
-- Link to v4: https://lore.kernel.org/linux-rockchip/cover.1772169998.git.geraldogabriel@gmail.com/T/
-
-Changes in v4:
-- Incorporate suggestion by Bjorn and refined by Dragan to drop the
-  "catastrophic" code
-- Link to v3: https://lore.kernel.org/linux-rockchip/cover.1772057799.git.geraldogabriel@gmail.com/T/
-
-Changes in v3:
-- Clarify warning message even though Rockchip won't disclose details
-- Drop DT changes as they were applied as subset by Heiko
-- Link to v2: https://lore.kernel.org/all/cover.1763415705.git.geraldogabriel@gmail.com/T/
-
-Changes in v2:
-- hard limit to 2.5 GT/s, not just warn
-- add Reported-by: and Reviewed-by: Dragan Simic
-- remove redundant declaration of max-link-speed from helios64 dts
-- fix Link: of helios64 patch
-- simplify RC mode comment
-- Link to v1: https://lore.kernel.org/all/aRhR79u5BPtRRFw3@geday/T/
-
-Geraldo Nascimento (3):
-  PCI: rockchip-ep: do not attempt 5.0 GT/s retraining
-  PCI: rockchip-host: do not attempt 5.0 GT/s retraining
-  PCI: rockchip: drive at 2.5 GT/s, error other speeds
-
- drivers/pci/controller/pcie-rockchip-ep.c   | 13 -------------
- drivers/pci/controller/pcie-rockchip-host.c | 20 --------------------
- drivers/pci/controller/pcie-rockchip.c      | 14 ++++++--------
- drivers/pci/controller/pcie-rockchip.h      |  3 ---
- 4 files changed, 6 insertions(+), 44 deletions(-)
-
+diff --git a/drivers/pci/controller/pcie-rockchip-ep.c b/drivers/pci/controller/pcie-rockchip-ep.c
+index 799461335762e..9ebc227a1ef84 100644
+--- a/drivers/pci/controller/pcie-rockchip-ep.c
++++ b/drivers/pci/controller/pcie-rockchip-ep.c
+@@ -553,19 +553,6 @@ static void rockchip_pcie_ep_link_training(struct work_struct *work)
+ 	if (ret)
+ 		goto again;
+ 
+-	/*
+-	 * Check the current speed: if gen2 speed was requested and we are not
+-	 * at gen2 speed yet, retrain again for gen2.
+-	 */
+-	val = rockchip_pcie_read(rockchip, PCIE_CORE_CTRL);
+-	if (!PCIE_LINK_IS_GEN2(val) && rockchip->link_gen == 2) {
+-		/* Enable retrain for gen2 */
+-		rockchip_pcie_ep_retrain_link(rockchip);
+-		readl_poll_timeout(rockchip->apb_base + PCIE_CORE_CTRL,
+-				   val, PCIE_LINK_IS_GEN2(val), 50,
+-				   LINK_TRAIN_TIMEOUT);
+-	}
+-
+ 	/* Check again that the link is up */
+ 	if (!rockchip_pcie_ep_link_up(rockchip))
+ 		goto again;
 -- 
 2.54.0
 
