@@ -4,119 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77377CD98E1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 15:41:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2663CD98E1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 15:42:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4fXKQZ62YbUSWMyHmi4buCG/RQAWQXgAM+XKOF1miWg=; b=21InsvtcXgmRdZR+3DgyhgMWzN
-	nR07gFy6uz15dcOLfxf6ci0WXUltBUn5v7qlRojAxDwv3hOJxeyBh4ZZgOd3+igg1jPFEH0TVDJ2D
-	O94WBfu/DGAlGE3t86r20+0TL7uEqeMRNVxKUrc6O1KXm7wg2b0+f+AcCfhZaZCejXKkIJN1OtjRJ
-	Y+3DjxrwYDjjRWD3IL31oSfGtO4EOZRiuT8Ilh3EpZYun/G5Sbx2YUvjMaJ/Zz9gt3hP02cUHfXVu
-	21wxWK3xAUWomf3lfhhvEeh6Cz6d54DvL6nfYyZokNBOLiznduWjX84Adi/voAr+mZWH6PmSaZx3J
-	a/feHN0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fHtYPZ3p2t9f2nLF/1WXA269aMaG2YVhAxwX4n4X/s0=; b=xgG7JS3be7LzOOtV0GYO3rpQL4
+	IRVdl3NM+4XLdxWdxpRUIwil6nuyC5Bq/QyclYgRvSzEcSluIeyXDQvO2YX84xPU4NmkTXLX758jW
+	wG8KGulUkW//QiMgRcP0VurE0DR6Zza8hNfupjB3ghrSxISphhkS8k8QM7WjrI1PBVuOv+hgdDEMY
+	A0N1fDKCzN1HqUI/Z0NgbYjPaUos+8Xfk0xra+5N1DoNQUsoaI5HBQW9yDqckD3RiZieV9NDuFqAq
+	Z3IB2s0SSWdLQhqQ/p2vgbrxgaxW+NDyB0sE2PG2i1bLlb/VtvNDORTdtW/XUTXw6WVGfcL2RngrV
+	erl/x6BA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZVua-0000000G1wg-43d5;
-	Tue, 16 Jun 2026 15:41:13 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wZVvS-0000000G24R-1IXb;
+	Tue, 16 Jun 2026 15:42:06 +0000
+Received: from mail-ed1-x549.google.com ([2a00:1450:4864:20::549])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZVuZ-0000000G1wE-1jyG
+	id 1wZVvP-0000000G23i-0MIC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Jun 2026 15:41:11 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6E19D60141;
-	Tue, 16 Jun 2026 15:41:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C1D11F00A3A;
-	Tue, 16 Jun 2026 15:41:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781624470;
-	bh=4fXKQZ62YbUSWMyHmi4buCG/RQAWQXgAM+XKOF1miWg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=b+dMyBHR6oRMk34jYJ5+9hacn+vl4i1HjkIPv1VdV5hCcpOveE1k5rHWYZP61ieb8
-	 lSPbvU43se8+w/uZKjFucWKa6QWOcFQHbUSv3osbRweZaZzBxF2KtyLss3gOf8WlkE
-	 x8s2dvTpbY0NpBBgVv8zOFzuccrAjYLHMy8cSIXCzRxfQbhx+YOhMA4EW9hccdMDQX
-	 yuRDK6VHPKv8P/D6uQKOuiccx2+s713o5GAmFuyPEKSWaxGBy7/oB0/u5raXeJ/KmX
-	 1ccIijXynm3jy2p7h2cH+Az7bsSvtwfLAdcVeHiHKPfWaAVV+wzzmglsG+bLMhBf/B
-	 bxNI5Sn2wa+2Q==
-Message-ID: <e026ab6b-aee2-48e7-9bb5-1735d7a23859@kernel.org>
-Date: Tue, 16 Jun 2026 17:41:02 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC v8 02/24] set_memory: Introduce set_memory_pkey() stub
-To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-hardening@vger.kernel.org
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Andy Lutomirski <luto@kernel.org>, Catalin Marinas
- <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>,
- Ira Weiny <ira.weiny@intel.com>, Jann Horn <jannh@google.com>,
- Jeff Xu <jeffxu@chromium.org>, Joey Gouly <joey.gouly@arm.com>,
- Kees Cook <kees@kernel.org>, Linus Walleij <linusw@kernel.org>,
- Marc Zyngier <maz@kernel.org>, Mark Brown <broonie@kernel.org>,
- Matthew Wilcox <willy@infradead.org>, Maxwell Bland <mbland@motorola.com>,
- "Mike Rapoport (IBM)" <rppt@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>,
- Pierre Langlois <pierre.langlois@arm.com>,
- Quentin Perret <qperret@google.com>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>,
- Ryan Roberts <ryan.roberts@arm.com>, Vlastimil Babka <vbabka@kernel.org>,
- Will Deacon <will@kernel.org>, Yang Shi <yang@os.amperecomputing.com>,
- Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
- linux-mm@kvack.org, x86@kernel.org, Lorenzo Stoakes <ljs@kernel.org>,
- Thomas Gleixner <tglx@kernel.org>
-References: <20260526-kpkeys-v8-0-eaaacdacc67c@arm.com>
- <20260526-kpkeys-v8-2-eaaacdacc67c@arm.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20260526-kpkeys-v8-2-eaaacdacc67c@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	Tue, 16 Jun 2026 15:42:04 +0000
+Received: by mail-ed1-x549.google.com with SMTP id 4fb4d7f45d1cf-68d2339febdso5868609a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 08:42:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1781624520; x=1782229320; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=fHtYPZ3p2t9f2nLF/1WXA269aMaG2YVhAxwX4n4X/s0=;
+        b=KykYEnlBegbKvmmyyKA3dtBA+rMNu2UmQaWeFVPv+Qe4ceVVdlj9UHTuMjBFzbTy0q
+         AE6q12tex63QKJmv70DIzog+tCiDUHITHGVpglTmee5gnoNzppFeQeXlDTB2DLap67tv
+         yUhedTZPqF8m4NobuxUYAHsqjaWBFCG5A/M4elj/I78hrJ2vVSGmkCEYh0i9ej72p9SD
+         H5YCfji4niaPXSEjogTAM5GIewHK7O57BVLLXPTB9wd/ICWaFEgEeXzYvOleZrS2R9rt
+         Tzsxk6xERakS3FxtxQp2OjURidng/SsgRFHzgV7EsPtjl9xPN7/nmwKkNhCWH/Cp4p+i
+         m7RQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781624520; x=1782229320;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=fHtYPZ3p2t9f2nLF/1WXA269aMaG2YVhAxwX4n4X/s0=;
+        b=ejZRFhJHoOdylCiAvkmxU7GHZ0zC3WqjuU9zsHxbVnpTVrvsiOzL4bqE405g4qxoRZ
+         o6gHEfTKOB5izpBtzlngZnQ3rj7Ly1md7HFB7hqm47rF3tn+baMug2QtfZaTlgO/J4X8
+         5q7LdmQDSLFNcApuo307ZHWqlujIW7lD377r19kj3b2EXxegeojRa7lXtGtODgqagFUl
+         yePWAaX/Wnhss7mQl97nNH3IP/LhARb39u88Puzb5cge+A5+vvmR+VS+DPS6fgL9KLC0
+         xxBrEEFA2enjO7QCE6IoDnk3jgQFtaaBUnkkWlyrgMV7L4zZAg7lpo4JvbG3RdE97/5w
+         SsoA==
+X-Forwarded-Encrypted: i=1; AFNElJ//zBCCzaiuWc75hjaSTqgkUow0/WAi3QLSZJNWC/F0/93wLGm2zLWKqsCMiC/Nuf4Yk2Pa3EjBgQwUSALq7uGf@lists.infradead.org
+X-Gm-Message-State: AOJu0YxxcbqdUji5eyXICoBK3c7HjIuMi7bba1Awt+KJQP/1TtAvZl7y
+	P9Eh1Gvc+/oKWgbg/NXwTKTdNaBFLJcyVqg9vNZS/0TogSQmT+59pxU9VAbwLtGanH3X2PfG3jl
+	BzkeqZ0SFavqMzfGIrxbhnhHGcfFtjA==
+X-Received: from edrj2.prod.google.com ([2002:aa7:c342:0:b0:695:469a:cfda])
+ (user=sebastianene job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6402:4498:b0:68c:bf82:884c with SMTP id 4fb4d7f45d1cf-695086dce09mr2519000a12.6.1781624520031;
+ Tue, 16 Jun 2026 08:42:00 -0700 (PDT)
+Date: Tue, 16 Jun 2026 15:41:42 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.54.0.1136.gdb2ca164c4-goog
+Message-ID: <20260616154149.2763214-1-sebastianene@google.com>
+Subject: [PATCH v4 0/7] KVM: arm64: Forward FFA_NOTIFICATION* calls to TrustZone
+From: Sebastian Ene <sebastianene@google.com>
+To: catalin.marinas@arm.com, maz@kernel.org, oupton@kernel.org, 
+	will@kernel.org
+Cc: joey.gouly@arm.com, korneld@google.com, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	android-kvm@google.com, mrigendra.chaubey@gmail.com, perlarsen@google.com, 
+	sebastianene@google.com, suzuki.poulose@arm.com, vdonnefort@google.com, 
+	yuzenghui@huawei.com
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260616_084203_139229_95204356 
+X-CRM114-Status: GOOD (  16.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,43 +90,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/26/26 13:15, Kevin Brodsky wrote:
-> Introduce a new function, set_memory_pkey(), which sets the
-> protection key (pkey) of pages in the specified linear mapping
-> range. Architectures implementing kernel pkeys (kpkeys) must
-> provide a suitable implementation; an empty stub is added as
-> fallback.
-> 
-> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
-> ---
->  include/linux/set_memory.h | 7 +++++++
->  1 file changed, 7 insertions(+)
-> 
-> diff --git a/include/linux/set_memory.h b/include/linux/set_memory.h
-> index 3030d9245f5a..7b3a8bfde3c6 100644
-> --- a/include/linux/set_memory.h
-> +++ b/include/linux/set_memory.h
-> @@ -84,4 +84,11 @@ static inline int set_memory_decrypted(unsigned long addr, int numpages)
->  }
->  #endif /* CONFIG_ARCH_HAS_MEM_ENCRYPT */
->  
-> +#ifndef CONFIG_ARCH_HAS_KPKEYS
-> +static inline int set_memory_pkey(unsigned long addr, int numpages, int pkey)
-> +{
-> +	return 0;
-> +}
-> +#endif
-> +
->  #endif /* _LINUX_SET_MEMORY_H_ */
-> 
+Remove the FFA_NOTIFICATION* calls from the blocklist used by the pKVM
+FF-A proxy. This restriction was preventing the use of asynchronous
+signaling mechanisms defined by the Arm FF-A specification to
+communicate with the secure services.
+While these calls are markes as optional, there is no reason why the
+hypervisor proxy would block them because:
 
-This patch looks rather odd, given that this is just a stub that won't be used
-before patch #20.
+1. Host is the Sole Non-Secure Endpoint: The Host operates as the
+   only Non-Secure VM ID (VM ID 0) recognized by the Secure World.
+   Because all forwarded notifications are inherently attributed to
+   the Host by the SPMC, there is no risk of VM ID spoofing
+   originating from the Normal World.
 
-And there, it's only used from arm64 code? So why do we need the common-code stub?
+2. No Memory Pointers or Addresses: The FFA_NOTIFICATION_* ABIs
+   operate strictly via register-based parameters, passing only
+   VM IDs, VCPU IDs, flags, and bitmaps. Because these calls do
+   not contain memory addresses, offsets, or pointers, forwarding
+   them doesn't pose a risk of memory-based confused deputy attack
+   (e.g., tricking the SPMC into overwriting protected memory).
+
+While the pKVM proxy behaves as a relayer, it doesn't currently have its
+own FF-A ID(only the host has the ID 0). The behavior of the setup
+flow is covered by the spec in the: '10.9 Notification support without
+a Hypervisor'.
+
+---
+Changes in v4:
+- previous series(v3) had serious issues with the patch number and it
+  appeared like it used a mixed bag from v2 as well. Resend this to
+  restore the correct order of the patches.
+- fix strict check in ffa_check_unused_args_sbz and make it "<= 17"
+- check the receiver endpoint Id in
+  FFA_NOTIFICATION_BIND/FFA_NOTIFICATION_UNBIND instead of the sender
+- use hyp_smccc_1_2_smc all along 
+- check the receiver endpoit Id when doing FFA_NOTIFICATION_GET  
+
+Changes in v3:
+- applied Will's suggestion to use the introduced method
+  ffa_check_unused_args_sbz for existing calls and added a new
+patch in the beggining of the series to do this.
+- merged the handling of
+  FFA_NOTIFICATION_BITMAP_CREATE/FFA_NOTIFICATION_BITMAP_DESTROY into
+one patch as Vincent suggested and create one handler for both.
+
+Changes in v2:
+- enforce the MBZ/SBZ fields
+- split the calls into separate patches
+- rebase on 7.1-rc7
+
+Link to v3:
+https://lore.kernel.org/all/20260616105417.2578670-1-sebastianene@google.com/
+Link to v2:
+https://lore.kernel.org/all/20260608165549.1479409-1-sebastianene@google.com/
+Link to v1:
+https://lore.kernel.org/all/20260501114447.2389222-2-sebastianene@google.com/
+
+Sebastian Ene (7):
+  KVM: arm64: Enforce strict SBZ checks in the FF-A proxy
+  KVM: arm64: Forward FFA_NOTIFICATION_BITMAP calls to Trustzone
+  KVM: arm64: Support FFA_NOTIFICATION_BIND in host handler
+  KVM: arm64: Support FFA_NOTIFICATION_UNBIND in host handler
+  KVM: arm64: Support FFA_NOTIFICATION_SET in host handler
+  KVM: arm64: Support FFA_NOTIFICATION_GET in host handler
+  KVM: arm64: Support FFA_NOTIFICATION_INFO_GET in host handler
+
+ arch/arm64/kvm/hyp/nvhe/ffa.c | 211 ++++++++++++++++++++++++++++++++--
+ 1 file changed, 203 insertions(+), 8 deletions(-)
 
 -- 
-Cheers,
+2.54.0.1136.gdb2ca164c4-goog
 
-David
 
