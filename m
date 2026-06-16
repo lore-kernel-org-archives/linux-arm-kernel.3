@@ -4,91 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72AC3CD98D2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 07:31:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 885F4CD98DA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 07:50:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O+WDurAqpK+dkb0URg/+1yUjEvRH9T2h7sdxZWsTGMw=; b=lDsOow8hyMVRyyivYP9lNB2Szw
-	ulezKwFtV37t+YU+nscMOf1GzB72RtHLrIkV6fMEcl02dVuOTn0z73EueMFKfuTEbD70iK9fBd1g9
-	jMuL9BLyObxbmjijTczsuPdod6D1cYXq5qI4nwLOp7euVaEXhILn0/qp9AWTUbtvpIaevuQL7FGKc
-	gSePZF2ow9F1leMsQHA723fr+Esj0XHweKQQB2LfUeoy/m1cEOB7NFEQp/Kjcf2mZcrefL6JT6Bme
-	ERzVyToWmRsZkvxKdh6c3Xmo2RmddEnMWMr/hpjCk3D7NuqNK6TNpunC7KWaSR/nM5MymZ+NDVVZK
-	UbOY8jNw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fw23X1FwjGe46vUwZBuX/t+y72XuixGwM1Rny5Zyri0=; b=qF2jKj/CRFJo8SJo/E6ydNShqc
+	yKRFjEC4OaLEJDtRgMBc5cA3GXH4qpQ5xzG4qsRhxoei43lCMebog8Reof3QxQXYIr2dpHMRE0duy
+	+Xtr5K6iyIhWQU7jrmM/YFe1LHlc9/jZxPHzVF5Sja6rvhB/VVT1y0nng+lRfgoucXxWvp3exgYQd
+	znDRpLRx355z50jcHw7E9mcPKSPFLdbKKwifqEAPtZ+ELhaFfhi4YHrqKOB2vTpET6W8z0EHDRSdD
+	bXgBoOHuvM2SaGZZ7WcGlnbfm0FUxFLevLi7MRBCYWd7o+xQbDzeJuWlXh4NOaEARW2QFLZ3433NW
+	Hn+eTFHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZOGK-0000000FNhn-06bS;
-	Tue, 16 Jun 2026 07:31:08 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1wZOYa-0000000FORO-0EnC;
+	Tue, 16 Jun 2026 07:50:00 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZOGE-0000000FNhL-2BGo
+	id 1wZOYX-0000000FOQZ-1saa
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Jun 2026 07:31:06 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2c40397e746so25094475ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 00:31:01 -0700 (PDT)
+	Tue, 16 Jun 2026 07:49:58 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-45ef616daf6so4788617f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 00:49:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781595061; x=1782199861; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=O+WDurAqpK+dkb0URg/+1yUjEvRH9T2h7sdxZWsTGMw=;
-        b=OLzM1vJVjdFAniR0JTQnUkTcuozmwJx0XNi/g8UIz+asM+8cPoS/b5mEz2z+vXE+U8
-         /CY53l7lySyr2+SHN3487XzpU0KqGb+COUhGIB/Oo3Racy2PSlLnnlDcqLj2NHnKplPR
-         +WMS4bficrBxANqMEJgVcRYcIcU8ddRgirOUR2SyurNPpxCnscL7ErdiPGktnNpIHD4Q
-         OGza/a8u2S1hHo4mWrwlan4Sdrhzpq25cKEAHP6VzVwWm8XU4AkLrhpzyCXshtXbPA6I
-         7d/P9m4RDgWhfwKa50uHid68ZSuuq/Q/ER/i8MjHQysGCqywi8nzVmTsdLys3T8VSSOW
-         AHtw==
+        d=0sec.ai; s=google; t=1781596195; x=1782200995; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=fw23X1FwjGe46vUwZBuX/t+y72XuixGwM1Rny5Zyri0=;
+        b=VzKqc4Xf2468p0NKT7X/o/dU385YHTkp1uUQuPv382/z6AViGxBmebTyyQH7WxzWIx
+         eMKk0nVsSvmMf28vpREe3HZWtItASYs8503Q9pIVdn7GHkTJbeaofNa+8lEHAPjgo7Kb
+         mqaexf9nuN+TDv8Wl/dlY/UHfsvEpYQq4eW8nzp0Dt3TPDbw75ygL5R691oCzV2bRh7q
+         RYfSLATLyNzM8U2HLdNba+zDOjkvSq1NTHoWQtoj9vozHWJjopEli4yhHe0ACthsORax
+         5g0deTUXkCyjx9n7KTAz/IVdT9AFOS+mrr7/+ElJeIoI9bDT4leqQOWtButClnZL6+dX
+         GibA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781595061; x=1782199861;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=O+WDurAqpK+dkb0URg/+1yUjEvRH9T2h7sdxZWsTGMw=;
-        b=KB07OrfGWR+TmjhKrtGHOU0LyWbIpOvXPJzjB5bhTL8apUAOX7eIOUqCkODg64QHW4
-         Db82zwOrg3w0UulTnGhofuqqnrPTw4FTfre6vsW/yZ2BiLHIEe+DdELZsUtdTNMAjR0j
-         vDej/l1nuvitDb/nz2DgZA+5z2PijZBVRbH5qFHTUpkHVG/u0B+eXta0QgyLPQpTJJvQ
-         O4NK2vJaT8vXo81R+9o+pCNEdlewXhTL/gwrQijb360rdEDEuFkMt4qimIANK7mcqWky
-         ypq8OJfTc2s9JBC6mwGUro+Mrewlonpvxd7J2X30LDJ/8/Dga8+vdIov3Wxbsb5SMw8q
-         7TPg==
-X-Forwarded-Encrypted: i=1; AFNElJ8xraXbJ4V8pJUraspUns8yznJuhXHbJs84wFx8Kl5Iupb52AT1b/3ILX11KzpTLQkfpwxzA5MqbsNP0lmOKZIt@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw/HajrxbWa0otUQ8MLRep5rRuWaHeP7ewM8buz/2nPnx1E/2/l
-	FPw3FfUbqZ9OJDw4XYV779Kjvjye/Ox/YzJNsi1iwdF0VPHaezE1kkHl
-X-Gm-Gg: Acq92OGsHzwTpxdkD0mxsFs8AWmjBJq4ifCh5VuVanEVFv2ikoopxrG5QtYoGZTrV/L
-	d4m6NrKpmNTS8aZyYDpp7PEM6X5orwEeyeTG0q/9fd2y+Zj9ieP210cF92f57iHUu4yc3IrhSTV
-	HOgRD2fg25ayz4DlmU5Vl4o1ZhcatIRWnKZ2C935RfwuNkCEjo4BpAR3fIYpw8yIkClYFaVAlvM
-	SEDe30JmtiiyqgQjEoHf8IZJPhtaGZignKEI+DruFDQ443JWcLwjLAfcwNYHll+6QoWITf+S9ZR
-	r/aJ6e82qHfaaHbji/WzirGF0UrULH7XOhn+2x1zFDTCUoWY3WW+pYUheyOG9rITB2F33ALG937
-	b5kT0hJmDtgGP/XlubZim+ZHasv/o8tmXEShwU5auIzmrxa3kWVY/iHi42s3DR1YlUnlGEJKDWA
-	GVGtDHKwE/Ds0yf5fuqXp97I3Kyn93B1y/yU62HeHqf3I2ga8izo//LpA=
-X-Received: by 2002:a17:903:11cd:b0:2c2:21e9:5a7d with SMTP id d9443c01a7336-2c69a21d05bmr26333555ad.34.1781595060778;
-        Tue, 16 Jun 2026 00:31:00 -0700 (PDT)
-Received: from LAPTOP-97G9G880.domain.name ([106.222.200.99])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c433460a60sm147542995ad.76.2026.06.16.00.30.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 16 Jun 2026 00:31:00 -0700 (PDT)
-From: Karthikeyan KS <karthiproffesional@gmail.com>
-To: andrew@codeconstruct.com.au
-Cc: joel@jms.id.au,
-	andrew@aj.id.au,
-	Kees Cook <kees@kernel.org>,
+        d=1e100.net; s=20251104; t=1781596195; x=1782200995;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=fw23X1FwjGe46vUwZBuX/t+y72XuixGwM1Rny5Zyri0=;
+        b=rf66sL81SjYYR2UbEyXkY52PfwaSoxQq0osBK567HI4+3ThL97NbqaLhhdrnr7SFP+
+         E3Io54WvZBPQ0dDZH25UudnHzzNiWdqOiaKuPx4b5dRM1LRnbRT8/Fi0Th5d/gMXaNnO
+         iY5SXbyMzP3T8mWgaFnfMnpaZCGrRaMt4IEPkry5/dNqWhen0APJeNxto6rnCpCxXGRS
+         TMbosojXyz4NT9OWZQAytz7JW6YY04ZK64PXJyn885CcQ+oCGc4hbMHIN8QzVXrYrsB4
+         UsAgiKIfcKYEds1OmtlgOt8YZmUwEj6QKd/NlRJgTs13jFfmt4iuHTP1InhLguhJ5zT/
+         YWDA==
+X-Forwarded-Encrypted: i=1; AFNElJ8aSMWnGpXkhwu8hVCtEcoJqLZ+m6ikyrzuYAK33n1urabc14IrVQkF1BCgjA6byExhjUQ88o9s2XlMIywxQO0u@lists.infradead.org
+X-Gm-Message-State: AOJu0YwRC4p8EG+mbJy+u5x5UDn0kbeOTlOZzBPoX7a4e6rqwMwDBISq
+	b4ypr+AuSn8RAcT/pKL5j/ypb1eKyGFQP6Jn7Xh1dOUGTYAYPQrI+MFM0cVFpKcUXxLx
+X-Gm-Gg: Acq92OHa1yN6lPPv6joS6NQvyD5LmWulA7kWRuyFpyokVQUgxIAiXaE/Okwy+aM6jQF
+	dblBX9T7yijYKNd3FMxqIEQgFdgnktAwEwQoc8TxTEW/sPvXv/08vcam8jM+fkH2tYNXq/APXU5
+	xRZV06Qm2ccCU2MkGLlIoLIg8dIBPAT6h1MbAn/sxCtNFtxij8IE2x0fW30EepsSX7bI54kTfYK
+	597SeiKPuxo6Ff8xdtd2F3DJMt9j0Ngu0/IiwGlLMOd91M3iylz8prhw+gx6cYkqDOd5YwuLSJg
+	iG+5NihtsmW9FiNGLyuAHwRM1kikpAgn22h+mGjKCWy4G+AetEYwSlJTQwloAKz8V8niBBZXZ45
+	0S8WrycWIWgv/pwmLqRyj5y7UKd9fvbgEtt8VYxpq3kVgHVEJqoLLHgbOU43mEnSxORcjeNfiN8
+	PwV0/o6O41uzmc0wKrvx3WYQNm4EOmu2HDSyx1wCsyIwn0EsTaUS6zhYTsnCUXe6kxhYs6Ss9K+
+	28VSbxTP3qNT7qQ7K9PIGpquil3MqMc7tvakG8mEJ8StBAQgKWZIuie
+X-Received: by 2002:a05:600c:6286:b0:490:b355:9c70 with SMTP id 5b1f17b1804b1-4922ff93b2cmr36681535e9.11.1781596194984;
+        Tue, 16 Jun 2026 00:49:54 -0700 (PDT)
+Received: from PeakBook-Mini.tail8e484.ts.net ([178.197.218.209])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4606f20e77asm44475179f8f.0.2026.06.16.00.49.53
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Tue, 16 Jun 2026 00:49:54 -0700 (PDT)
+From: Doruk Tan Ozturk <doruk@0sec.ai>
+To: neil.armstrong@linaro.org,
+	mchehab@kernel.org,
+	gregkh@linuxfoundation.org,
+	khilman@baylibre.com
+Cc: jbrunet@baylibre.com,
+	martin.blumenstingl@googlemail.com,
+	hverkuil@kernel.org,
+	linux-media@vger.kernel.org,
+	linux-amlogic@lists.infradead.org,
+	linux-staging@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
 	linux-kernel@vger.kernel.org,
-	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v6] soc: aspeed: lpc-snoop: Fix usercopy overflow in snoop_file_read
-Date: Tue, 16 Jun 2026 07:30:53 +0000
-Message-ID: <20260616073053.1144730-1-karthiproffesional@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <033f2657ae6a94ad13d22f717a2900afb75d892d.camel@codeconstruct.com.au>
-References: <033f2657ae6a94ad13d22f717a2900afb75d892d.camel@codeconstruct.com.au>
+	Doruk Tan Ozturk <doruk@0sec.ai>,
+	stable@vger.kernel.org
+Subject: [PATCH v2] media: meson: vdec: fix use-after-free of decode work in stop/close path
+Date: Tue, 16 Jun 2026 09:49:52 +0200
+Message-ID: <20260616074952.93076-1-doruk@0sec.ai>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260616_003103_085333_20E6FDD3 
-X-CRM114-Status: GOOD (  22.15  )
+X-CRM114-CacheID: sfid-20260616_004957_547436_E20912A5 
+X-CRM114-Status: GOOD (  18.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,278 +107,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
+The ESPARSER worker (esparser_queue_all_src(), scheduled via
+sess->esparser_queue_work) dereferences sess->m2m_ctx and accesses the
+ESPARSER/DOS registers. On the stop_streaming()/release() paths the
+buffers and, on close, the m2m context are torn down while this worker
+may still be pending or running, leading to a use-after-free of the
+freed session state.
 
-Happy to. Short version: ast2600-evb can't hit the SMP timing window,
-so I reproduce each missing piece deliberately. The driver code under
-test is unmodified -- only the stimulus and the post-race state are
-injected. Stock qemu-system-arm (Debian 8.2.2), no QEMU changes.
+vdec_poweroff() previously only called vdec_ops->stop() and disabled the
+clocks; it never synchronized against the worker. Two problems follow:
 
-Three obstacles, and what I did about each:
+  - The decode (VDEC) interrupt is threaded
+    (devm_request_threaded_irq(.., vdec_isr, vdec_threaded_isr, ..)) and
+    its threaded handler re-arms the worker through amvdec_dst_buf_done()
+    -> schedule_work(&sess->esparser_queue_work). A handler that is still
+    in flight can therefore queue the worker again after teardown has
+    begun.
 
-1. No BIOS to emit POST codes -- an injection module stages bytes into
-   the snoop registers via the LPC syscon regmap (SNPWDR + the HICR6
-   data-ready bit).
+  - The worker touches ESPARSER/DOS registers, so it must not run after
+    the clocks have been disabled.
 
-2. QEMU doesn't raise the snoop IRQ for those writes -- after staging,
-   the module dispatches it in software with
-   generic_handle_irq_safe(sdev->irq), which runs the driver's real
-   aspeed_lpc_snoop_irq() -> put_fifo_with_discard() path.
+Quiesce everything in vdec_poweroff(), in order, before disabling the
+clocks: vdec_ops->stop() masks the VDEC interrupt in hardware so no new
+IRQ can be raised; synchronize_irq() on the VDEC line then drains any
+threaded handler still in flight (the only context that re-arms the
+worker); cancel_work_sync() finally cancels/waits for the worker. After
+this nothing can re-arm the work, and the worker can no longer run with
+clocks disabled or against a freed m2m context.
 
-3. The SMP race won't trigger under TCG -- so I reconstruct its outcome
-   instead: force the channel-0 kfifo to in=4097, out=1, i.e.
-   (in - out) = 4096 > the 2048-byte ring, the exact state a reader
-   observes inside the window.
+Only the VDEC interrupt is synchronized: the ESPARSER interrupt handler
+(esparser_isr()) only acknowledges the start-code-found status and wakes
+the internal wait queue used by esparser_write_data(); it never touches
+the session or schedules the worker, so it cannot re-arm it.
 
-One caveat so it isn't misread: step 3 writes in/out directly, so it
-bypasses the new lock. The patched run therefore shows the read path no
-longer turns a corrupt (in - out) into a usercopy overflow; the lock's
-job of preventing that state is the SPSC argument from the commit, which
-TCG can't exercise.
+stop_streaming()/release() run under the video device lock, not under
+sess->lock (the mutex the worker takes), so cancel_work_sync() here
+cannot deadlock against the worker.
 
-== Tree / config ==
+The VDEC IRQ number is now stored in struct amvdec_core so it is
+available to synchronize_irq() at teardown.
 
-  base:  v7.1-rc7
-  clang: 22.1.7 (LLVM=-22; needed for the context-analysis check)
-  ARM multi_v7_defconfig + CONFIG_CC_IS_CLANG, WARN_CONTEXT_ANALYSIS,
-  SMP, ASPEED_LPC_SNOOP, HARDENED_USERCOPY, PROVE_LOCKING,
-  DEBUG_ATOMIC_SLEEP.
+Fixes: 3e7f51bd9607 ("media: meson: add v4l2 m2m video decoder driver")
+Cc: stable@vger.kernel.org
+Signed-off-by: Doruk Tan Ozturk <doruk@0sec.ai>
+---
+v2: also synchronize_irq() before cancelling the work, so a delayed
+    threaded IRQ cannot re-arm it after cancel_work_sync() (raised by
+    automated review). Only the VDEC IRQ is synchronized, as the
+    ESPARSER IRQ handler does not touch the session or schedule the work.
+v1: https://lore.kernel.org/linux-media/20260615140529.52653-1-doruk@0sec.ai/
 
-  make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- LLVM=-22 O=build \
-       -j$(nproc) zImage
+ drivers/staging/media/meson/vdec/vdec.c | 21 +++++++++++++++++++++
+ drivers/staging/media/meson/vdec/vdec.h |  3 +++
+ 2 files changed, 24 insertions(+)
 
-== Run ==
+diff --git a/drivers/staging/media/meson/vdec/vdec.c b/drivers/staging/media/meson/vdec/vdec.c
+index 4b77ec1af5a7..5304987546fa 100644
+--- a/drivers/staging/media/meson/vdec/vdec.c
++++ b/drivers/staging/media/meson/vdec/vdec.c
+@@ -123,6 +123,25 @@ static void vdec_poweroff(struct amvdec_session *sess)
+ 		codec_ops->drain(sess);
+ 
+ 	vdec_ops->stop(sess);
++
++	/*
++	 * vdec_ops->stop() masks the VDEC interrupt at the hardware level, so
++	 * no new IRQ can be raised past this point. The threaded ISR re-arms
++	 * the ESPARSER worker via amvdec_dst_buf_done() (schedule_work()), so
++	 * drain any in-flight handler before cancelling the worker, otherwise
++	 * a late threaded IRQ could schedule it again after the cancel.
++	 *
++	 * The worker dereferences sess->m2m_ctx and touches the ESPARSER/DOS
++	 * registers, so it must be cancelled while m2m_ctx is still valid and
++	 * the clocks are still enabled, i.e. before the clk_disable below.
++	 *
++	 * This runs from the stop_streaming()/release() paths, which are
++	 * serialized by the video device lock, not by sess->lock (the lock the
++	 * worker takes), so cancel_work_sync() cannot deadlock here.
++	 */
++	synchronize_irq(sess->core->vdec_irq);
++	cancel_work_sync(&sess->esparser_queue_work);
++
+ 	clk_disable_unprepare(sess->core->dos_clk);
+ 	clk_disable_unprepare(sess->core->dos_parser_clk);
+ }
+@@ -1053,6 +1072,8 @@ static int vdec_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		return ret;
+ 
++	core->vdec_irq = irq;
++
+ 	ret = esparser_init(pdev, core);
+ 	if (ret)
+ 		return ret;
+diff --git a/drivers/staging/media/meson/vdec/vdec.h b/drivers/staging/media/meson/vdec/vdec.h
+index 7a5d8e871d70..9a50116a2665 100644
+--- a/drivers/staging/media/meson/vdec/vdec.h
++++ b/drivers/staging/media/meson/vdec/vdec.h
+@@ -66,6 +66,8 @@ struct amvdec_session;
+  * @v4l2_dev: v4l2 device
+  * @cur_sess: current decoding session
+  * @lock: video device lock
++ * @vdec_irq: IRQ line of the VDEC, used to synchronize the threaded ISR
++ *	      against teardown
+  */
+ struct amvdec_core {
+ 	void __iomem *dos_base;
+@@ -91,6 +93,7 @@ struct amvdec_core {
+ 
+ 	struct amvdec_session *cur_sess;
+ 	struct mutex lock;
++	int vdec_irq;
+ };
+ 
+ /**
+-- 
+2.43.0
 
-The injection module (full source below the sign-off) creates two
-write-only sysfs knobs under /sys/kernel/snoop_test/. The init loads it,
-then:
-
-  echo 4096 > /sys/kernel/snoop_test/generate    # fill via the real
-                                                  # IRQ path 
-  echo 1    > /sys/kernel/snoop_test/adjust_ptrs  # force in=4097/out=1
-                                                  
-  read(fd, buf, 4096) from /dev/aspeed-lpc-snoop0 # the overflowing read
-
-Build it against the same tree (-DSNOOP_PATCHED for v6, which mirrors the
-spinlock the fix adds ahead of @fifo; omit it for the unpatched build).
-
-  qemu-system-arm -M ast2600-evb -smp 2 \
-    -kernel build/arch/arm/boot/zImage \
-    -dtb build/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dtb \
-    -initrd repro.cpio.gz \
-    -append "console=ttyS4,115200 panic=-1" -nographic -no-reboot
-
-== Result ==
-
-Unpatched, read(4096) with in=4097/out=1:
-
-  usercopy: Kernel memory exposure attempt detected from SLUB object
-  'kmalloc-2k' (offset 0, size 2049)!
-   kfifo_copy_to_user / __kfifo_to_user / snoop_file_read / vfs_read
-  Kernel panic - not syncing: Fatal exception
-
-Patched: read() returns 2048, no panic; no lockdep or atomic-sleep
-splats.
-
-The init is just: mount proc/sysfs/devtmpfs, finit_module() the .ko,
-write the two knobs above, then read(4096) from the char device. Full
-injection module follows.
-
-Thanks,
-Karthikeyan
-
------- snoop_test_inject.c (build as an out-of-tree module) ------
-
-// SPDX-License-Identifier: GPL-2.0
-/*
- * Reproduce the aspeed-lpc-snoop kfifo SPSC-violation post-race state
- * deterministically under QEMU. Two write-only sysfs knobs under
- * /sys/kernel/snoop_test/:
- *
- *   generate <count>  Push <count> POST-code bytes through the *real*
- *                     driver IRQ path: write SNPWDR + HICR6 via the LPC
- *                     syscon regmap, then dispatch the snoop IRQ so
- *                     aspeed_lpc_snoop_irq() -> put_fifo_with_discard()
- *                     runs.
- *
- *   adjust_ptrs <1>   Force the channel-0 kfifo into the state a reader
- *                     observes inside the race window: in = 4097,
- *                     out = 1, so (in - out) = 4096 > the 2048-byte ring.
- *
- * The driver's private channel is reached through a mirror struct whose
- * layout must match drivers/soc/aspeed/aspeed-lpc-snoop.c. The v6 fix
- * inserts a spinlock_t ahead of @fifo -- build with -DSNOOP_PATCHED to
- * mirror that, otherwise the &fifo offset is wrong.
- */
-#include <linux/module.h>
-#include <linux/init.h>
-#include <linux/kernel.h>
-#include <linux/version.h>
-#include <linux/fs.h>
-#include <linux/file.h>
-#include <linux/kfifo.h>
-#include <linux/miscdevice.h>
-#include <linux/regmap.h>
-#include <linux/interrupt.h>
-#include <linux/irq.h>
-#include <linux/irqdesc.h>
-#include <linux/device.h>
-#include <linux/kobject.h>
-#include <linux/sysfs.h>
-#include <linux/wait.h>
-#include <linux/spinlock.h>
-#include <linux/bitops.h>
-
-#define HICR6			0x84
-#define HICR6_STR_SNP0W		BIT(0)
-#define SNPWDR			0x94
-#define SNOOP_DEV		"/dev/aspeed-lpc-snoop0"
-#define RACE_OUT		1u
-#define RACE_IN			4097u
-
-struct snoop_chan_mirror {
-	const void		*cfg;
-	bool			enabled;
-#ifdef SNOOP_PATCHED
-	spinlock_t		lock;		/* added by the fix */
-#endif
-	struct kfifo		fifo;
-	wait_queue_head_t	wq;
-	struct miscdevice	miscdev;
-};
-
-struct snoop_dev_mirror {
-	struct regmap		*regmap;
-	int			irq;
-	/* struct clk *clk; struct aspeed_lpc_snoop_channel chan[2]; follow */
-};
-
-static struct file *snoop_open(struct snoop_chan_mirror **chan_out)
-{
-	struct file *filp;
-	struct miscdevice *md;
-
-	filp = filp_open(SNOOP_DEV, O_RDONLY | O_NONBLOCK, 0);
-	if (IS_ERR(filp))
-		return filp;
-
-	md = filp->private_data;
-	if (!md) {
-		filp_close(filp, NULL);
-		return ERR_PTR(-ENODEV);
-	}
-
-	*chan_out = container_of(md, struct snoop_chan_mirror, miscdev);
-	return filp;
-}
-
-static ssize_t generate_store(struct kobject *kobj, struct kobj_attribute *attr,
-			      const char *buf, size_t len)
-{
-	struct snoop_chan_mirror *chan;
-	struct snoop_dev_mirror *sdev;
-	struct file *filp;
-	unsigned int count, i;
-	int rc;
-
-	rc = kstrtouint(buf, 0, &count);
-	if (rc)
-		return rc;
-
-	filp = snoop_open(&chan);
-	if (IS_ERR(filp))
-		return PTR_ERR(filp);
-
-	sdev = dev_get_drvdata(chan->miscdev.parent);
-	if (!sdev || !sdev->regmap || sdev->irq <= 0) {
-		filp_close(filp, NULL);
-		return -ENODEV;
-	}
-
-	for (i = 0; i < count; i++) {
-		/* Stage the snoop'ed byte and the data-ready status bit. */
-		regmap_write(sdev->regmap, SNPWDR, (u32)(i & 0xff));
-		regmap_write(sdev->regmap, HICR6, HICR6_STR_SNP0W);
-
-		/*
-		 * Dispatch IRQ -> aspeed_lpc_snoop_irq() ->
-		 * put_fifo_with_discard(). generic_handle_irq_safe() copes
-		 * with the GIC requiring the handler to run with IRQs off.
-		 */
-		generic_handle_irq_safe(sdev->irq);
-	}
-
-	filp_close(filp, NULL);
-	return len;
-}
-
-static ssize_t adjust_ptrs_store(struct kobject *kobj, struct kobj_attribute *attr,
-				 const char *buf, size_t len)
-{
-	struct snoop_chan_mirror *chan;
-	struct file *filp;
-	struct __kfifo *kf;
-	unsigned int val;
-	int rc;
-
-	rc = kstrtouint(buf, 0, &val);
-	if (rc)
-		return rc;
-	if (val != 1)
-		return -EINVAL;
-
-	filp = snoop_open(&chan);
-	if (IS_ERR(filp))
-		return PTR_ERR(filp);
-
-	kf = &chan->fifo.kfifo;
-	/* Reproduce the race outcome: fresh 'in', stale 'out'. */
-	WRITE_ONCE(kf->out, RACE_OUT);
-	WRITE_ONCE(kf->in, RACE_IN);
-	pr_info("snoop_test: in=%u out=%u (in-out=%u, size=%u)\n",
-		kf->in, kf->out, kf->in - kf->out, kf->mask + 1);
-
-	filp_close(filp, NULL);
-	return len;
-}
-
-static struct kobj_attribute generate_attr =
-	__ATTR(generate, 0220, NULL, generate_store);
-static struct kobj_attribute adjust_ptrs_attr =
-	__ATTR(adjust_ptrs, 0220, NULL, adjust_ptrs_store);
-
-static struct attribute *snoop_attrs[] = {
-	&generate_attr.attr,
-	&adjust_ptrs_attr.attr,
-	NULL,
-};
-static const struct attribute_group snoop_group = { .attrs = snoop_attrs };
-static struct kobject *snoop_kobj;
-
-static int __init snoop_test_init(void)
-{
-	int rc;
-
-	snoop_kobj = kobject_create_and_add("snoop_test", kernel_kobj);
-	if (!snoop_kobj)
-		return -ENOMEM;
-
-	rc = sysfs_create_group(snoop_kobj, &snoop_group);
-	if (rc) {
-		kobject_put(snoop_kobj);
-		return rc;
-	}
-	return 0;
-}
-
-static void __exit snoop_test_exit(void)
-{
-	sysfs_remove_group(snoop_kobj, &snoop_group);
-	kobject_put(snoop_kobj);
-}
-
-module_init(snoop_test_init);
-module_exit(snoop_test_exit);
-MODULE_LICENSE("GPL");
-MODULE_DESCRIPTION("aspeed-lpc-snoop kfifo race post-state reproducer");
 
