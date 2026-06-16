@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A4FFCD98E6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 20:27:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22BDDCD98E1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 20:27:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ltlo+66CbkzQq4Lsr4cyfZ7a+2/NQVI4939KsTGc97E=; b=bq9lP5OcFAi1sNNDCfxqpnEugu
-	3AFbKejicB7z+l7fkLJqx5TEWDwxav8Nnsc4VCQhYqpXvTosZaYAsSd8MookhWmJYxAQbpVhHQD3J
-	HErOQgmerXyW8Mh2pSHWRo8WfhEmLHH8Xw9McSozuymnbpSljG3Vfr8MYHTLViYqGiUf/B2llGj4t
-	ffNZs9jIfZiwq2K5OOXKApOVQxhkxf7G81s4D9dD9fgsKGl8XBLdFUz8OT5/GoDpM7/7LEgIDSd1B
-	l4E8EJsVcyuozbR+US6AgoYAJEsxZSmjMvsb99LT5qjsoN3IDkQ8LLO8Hc3xz9pCV/IDFo8mF9Hu3
-	EZo6//hw==;
+	bh=4T7EkkegVyODZ1yMUvqUb4I+TPr2uXbUfFIWfX/3x7g=; b=R5Y0ErYwvLlOgg9aDA5JIQvE0t
+	iejCr4dPTEQqFSFyYfbdgfdpcJrCpMXv0yWL0cd7Vcgv7XzW3oy87mye6BEWCxLc+wx4T4hpYLYzC
+	/XJS3KOzOzAvqDAWpmSNJMQ/0r/+v5Q+lPKwwt+gDD0hMrcn1sonLzFLwDk5OqZIazwXzdwMIvcMh
+	TRdo4NBj18chtxOc/RY1rXQFegJEtGT5t++6B17piAPk2KN/wvNNeUTCJTIKQUN4Utcr7o1vrr/+g
+	NooDevfPEZxPO2Q24gHy6bT6x64cfqAysccBjXc0b5egphFyhCDJtEnba8T+LtS+zEovxK3toQzjS
+	d+5wF7Tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZaNq-0000000GIPs-2WUT;
-	Tue, 16 Jun 2026 20:27:42 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1wZaNu-0000000GIUH-3DQO;
+	Tue, 16 Jun 2026 20:27:46 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZaNl-0000000GIJR-32XH
+	id 1wZaNp-0000000GINb-2x5E
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Jun 2026 20:27:39 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-490aaeabdb4so35178935e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 13:27:37 -0700 (PDT)
+	Tue, 16 Jun 2026 20:27:44 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-490b64c8311so49050755e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 13:27:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781641656; x=1782246456; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1781641660; x=1782246460; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=Ltlo+66CbkzQq4Lsr4cyfZ7a+2/NQVI4939KsTGc97E=;
-        b=mdBzGbdnU8vZshnGavb7092u6Qp9jYj6Sjt7jBRmedViaSZXUi4NpbQuXPcwp0GPPw
-         OMtk9CKyO6DvvqGfqbA9/D4ol+YS3f3g0b8gaZNc3aMkk/NRhcqE3/kcFJPTqb4QAkIl
-         3uRFT+8CodLGg5rfI3YfWBziwQsv+5A4dYMImHR3hZzXrRygD0ASsqoaAmqDOG53VtfM
-         exAbmSgT96Ojkl7yxM38v1SrVQIxlFFUuWCm3/Sqotr4sxbJcji639mYcVko9bo88fC1
-         IH5NwcDMg7JH1rOUglzv48WTudCrPzTdCww06MKD9haYhy5/7gO/n1jtyChQY9ysdudW
-         /L6Q==
+        bh=4T7EkkegVyODZ1yMUvqUb4I+TPr2uXbUfFIWfX/3x7g=;
+        b=Bfg6ZQSKnmTn76r1bZLk5xueK2mQXlcfpa6Anls8M/3/X6VUlperJyxwbXi++MY/7q
+         iRpLSfrrG5GAhti2lne7bqz6pYSanckhlDuny4fs9/UmYBwP9jiASGNckcHMt4hkJL3v
+         CRcLaCddDTuLRStqkj3ywCZtUKW4keJ78cpp/1IWRZzmbAyjvln9nP5O3ucyXu4YUnml
+         P9c64Osqr+g+yLbIg1acXnA4K9rUya04pBpib1p3+86dtSt3QsbX7H7IVAvhoaH0RlFK
+         fE4d61AyE617WYuxeSDykSZMDsM5TXqlfKo9r498h1z4d9uCyVgx3uilxNpGEDZ+/ySx
+         p0ZQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781641656; x=1782246456;
+        d=1e100.net; s=20251104; t=1781641660; x=1782246460;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=Ltlo+66CbkzQq4Lsr4cyfZ7a+2/NQVI4939KsTGc97E=;
-        b=ccdcAVvjqb99THq/pQxtbGfajsG3BQ0fRwF8KGvIOzdpPwx6OvB6apRHJVT2RIKQN1
-         tigP97Drom6uaIRTHIWmKJiihWUerDhzfey+KWDhxQLhk5b8Czor4DMiu3+3xvZ5ROjP
-         ibuHMLFpRpi9Fq7oSIIp99C1CT8O7sC6dS/9LfGFzlzZSWlKwRCDNhwUI+s2ow05C+U+
-         eMvqGqxHS68MNrHjMS5aP/MUPVwb9eCtJWvzuzNeZPd7GgPgHSw48gwDFE+ZCxGIbP6j
-         GAVqss9w7nSftSdjYLpKX4IE7ovecVt8K8D4qHlrzrClAqI8ebBLJV12wtOle+8ZBu58
-         kK9w==
-X-Forwarded-Encrypted: i=1; AFNElJ+24e7f4pePY6lFM6WcNuuIKDQbeBiH0fBHADoBr/t8E+gdQNTqRMMR1zyoSfD6vHJ/YCh0ZDU+UfY/0LErlbPC@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy4GzLJyfU45rbKh45z8Xrhuo1mVpdupPC0yz0AmwmC4mqd/k+7
-	G5GZQmLQykkQXvcndqoS0byV90qQ5KzppjObMZci9ISlvFjdS2EMFjMF
-X-Gm-Gg: Acq92OGBFhvB+MGaoUa/gWFjDGfMvZSlK5zbFEnX3X161cPKEvP90lZ9TKTMgXQbJ1V
-	+8n8NEkKDiqHGsQay+qeuKfTE5SFeWjRVUs5YvC3xSJe9NJIZ68KC8jfMpGspX+k3n6WCNwBm/b
-	NkUmvKdXCCP9MrZ+Wx557prsE1aBMNpuXSvgdtmro773kLjRuqKcNzXaZ6jokGWYyO0/9urL7+n
-	HL/tZcW6QdjtrcAP8v2wZqS2JrPNrq6LpgEWf3n5kMVy9O3SHu6t9XjauPtN2qagTisLqDnRKE0
-	/nFhferAn4+tibM9D0gc1zlyodWdNVJnz5vrgghyDSPv3Pi651jjBcwYBwBHYKokMPqB/lNGpNC
-	lgMZG4e9FkYeyQgxCR+kS36FksPPxEwqxcffXWxiYPg7UdfmJw0bS9T7DP0ZN6HzQXqsh6i0Scn
-	3WLavbAfGVyC6mhc631TsqXCYEZtb9RAsDkQ==
-X-Received: by 2002:a05:600c:a104:b0:492:3347:12a9 with SMTP id 5b1f17b1804b1-492334712camr12197255e9.26.1781641655477;
-        Tue, 16 Jun 2026 13:27:35 -0700 (PDT)
+        bh=4T7EkkegVyODZ1yMUvqUb4I+TPr2uXbUfFIWfX/3x7g=;
+        b=oKi7ULanHACQ6ij1CxyeR7B83UaHKj9zjCJFaYIzHDcGrhiy2uj+ohfBOZ3NdfMSBL
+         //1tKUnOXaOn1ms0Z5HjUf2ZPTVQU1p6ba3fPHBMmyRPWlim0w4cl+PnKNyff3Qwktyg
+         FJ8zYF+nw7m7loH8QgEAUAgZzWRnU/5DYr3Cl7WjRTzRHtzeKMitnRwSF6Z64/k6RCzJ
+         jBuKBwua2RvUkiVWJ4qjV1ihRRpIRAkO76ZIfcVgAhYMlF9uwHepVFUIsSAAulJ+WvFp
+         Dg2y+ph+9NvvXQS8GUrSxkQD+fUh+44B4cewJLk3ZVA5z4HS/lDDQyI0tZlEqfmUnwGS
+         r/0Q==
+X-Forwarded-Encrypted: i=1; AFNElJ8H8ok3vcq/5qqUYybw0HUWknrxIwPGs32VcdOVUuNNV2M40JiOjLsYDzXZcHwNnIEfppLdnVWcBAtWQwtz8Joz@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy8EOe5k+ccEk04Z1XaBxZnvnHt6slc7GtdgJMoJ3PDfvLc49TQ
+	/MeLN7uxf7Z3J6dHuwXKWiEEir1bw4iMS4A+BhORYcOSchbzjvb4yve8
+X-Gm-Gg: Acq92OG9t94aaFz3Ez1ZN4fqVuLcmZWsn2aHYnf1IuFtHye1jqn8qMCedLm1CDA1aUM
+	HE8adzwCLq/vxnb7tIf0iC6BpXQTrynyE4Mn8d5jwZG+MqeNRTyUGrB5SB7/kibpiuJywLP/PCD
+	/5CoLi3vr2z4Wc+FF3Om1ShpRDnlinCD7h04yrM8icePbPo/cv3t8GT5qqoZm9oqLndSL08iSb4
+	FzNQTycvMapX6h/4F6qoTEGKcrPqrN6rNylB+AYl/IOOaiJprTTOlKJVsIiDWU6aGVPgvuzpGvB
+	TvCkyRK3ni+t3dBap9lVxpRh6tLLpjq7g9dPdz0mhU1Elm57l+mO+HMAiAYzka5nCUpHo5h1gT4
+	l9DA5mJkkzD2MCdYJIZ37mye5SYdxjY/Jay0Kz00S/evHGjr+u3XVTu0Hams20UY79lo5Gy+7aA
+	FaKFTw2GiJim9HUf0Ksvu9vzxaB+LMEDhdQg==
+X-Received: by 2002:a7b:c3d1:0:b0:490:9df1:f0cf with SMTP id 5b1f17b1804b1-492333a1b10mr11488675e9.2.1781641659641;
+        Tue, 16 Jun 2026 13:27:39 -0700 (PDT)
 Received: from [192.168.0.2] ([197.250.51.220])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49230a458f2sm89987005e9.3.2026.06.16.13.27.31
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49230a458f2sm89987005e9.3.2026.06.16.13.27.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 16 Jun 2026 13:27:34 -0700 (PDT)
+        Tue, 16 Jun 2026 13:27:39 -0700 (PDT)
 From: =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
-Date: Tue, 16 Jun 2026 23:26:31 +0300
-Subject: [PATCH RFC v4 11/12] ARM: dts: zte: Declare zx297520v3 clock
- device nodes
+Date: Tue, 16 Jun 2026 23:26:32 +0300
+Subject: [PATCH RFC v4 12/12] ARM: dts: zte: Add a syscon-reboot for
+ zx297520v3 boards
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260616-zx29clk-v4-11-ca994bd22e9d@gmail.com>
+Message-Id: <20260616-zx29clk-v4-12-ca994bd22e9d@gmail.com>
 References: <20260616-zx29clk-v4-0-ca994bd22e9d@gmail.com>
 In-Reply-To: <20260616-zx29clk-v4-0-ca994bd22e9d@gmail.com>
 To: Michael Turquette <mturquette@baylibre.com>, 
@@ -88,26 +88,26 @@ Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5713;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=817;
  i=stefandoesinger@gmail.com; h=from:subject:message-id;
- bh=WCM0t2tSpKbIjViogFh06SwJ0ZwBBkr30bJ7ePaJsf4=;
- b=kA0DAAgBPRO8yFRPGiIByyZiAGoxsYaiDmVa7tF78rIc/+Vl7tgrhQY8mQM5Yh4KGvxwiGHNr
- IkCTwQAAQgAORYhBEMW9LaqBVsnlTJdbD0TvMhUTxoiBQJqMbGGGxSAAAAAAAQADm1hbnUyLDIu
- NSsxLjEyLDIsMgAKCRA9E7zIVE8aIpRhEACvKmqnDur7+8kPrK12EWu35XXeLXUinVJ0g/4I8QB
- ZqBj02ZtosMPs4FkVtdx2+9/iGDrf9cBcLN+YkzllQ+jP68E7Ps8GILZx0GqWZlMv9CeFz2DPZV
- AnwkfeuL4/9GF6rQXDdkaKa4bp7IFgnzkjvdgGzn4/TLoDQO0/YctobzHJZzAbOWra2gmdXqDuT
- G+RaSViXHnZZMjxB/UfBut8O/3w2IYUSnU7dnXCnAGJRMxoljKzDNXLSqzptpnvdQz5phTA3pTX
- nvk6Z5gDGgW0i1uCm+rwmBCUuZJWiFJ//A+Y1EcILgxaCsyP63gaxo/EMRKl+UEcLnxXMzB0vaz
- pWGDB+rOZwj1HBzc3khtcL68RO4CUHvAKlfmljai3o+B/RYrKRw9gu/TGyKkepDS2+xi5OzbDCp
- GCql6zX8Ig0DxNiU9RQ92P9Z5vcU1m/w2pq/UXy9xPUKluH50vKAQiXSTq/E8OnDMdTzJ9t1zKJ
- TapBwT+kd/UC/Ycv+38ci/h5lzKA/KkVkieL/1HR9pYokYpe/9sYTH0OEPmKoKD6rlegWD+s5dN
- wt104eqgKg3dZbwmXZ+cwxVO4W+Q5qeG7CkTrE+jOJ+1JTiwbapHBqL2SUyy/EAOoqW6HBVDKZM
- Cf4s78AXtxPhTrBhXYqLgUqvYTcSXtutnCoEMVmWDrg==
+ bh=dEe7AnhTFAr5p/XXrX/uCCb9oMxECR6QftpPnuBBlPY=;
+ b=owEBiQJ2/ZANAwAIAT0TvMhUTxoiAcsmYgBqMbGGdznTfH74HtE8ynnSgt60AzmAGzDzYjSBF
+ v5tV/6RRTmJAk8EAAEIADkWIQRDFvS2qgVbJ5UyXWw9E7zIVE8aIgUCajGxhhsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDIACgkQPRO8yFRPGiKHEw/9FhrXlF6q4Lzp5fUaLbRw/bc/1+9787X
+ vYpRe2fXPGZx9mRtm/9BiFcwv84Yw1sVzTFxVOEfG69VjUX+Ku1D2Tk5Q8HT3O6fSn5I9lObMwt
+ kboi/YHrRmec5FIxp8tVGKQSZ7IrtPMkJhQFDs/PzAq0ECfW1pgtVd/kw9s0WqVVliTP+Hu7io4
+ zeW8EPpUz4HrN9dB8PdC7wo6nL2keck2pwuIqPfxNRRRxItmUbOwNxNTAaZopvL12WPT/tnD0Xm
+ w7TvVmXK6e8iEdznzirlzYc8akeQe2NveWLTO7yNOybrt/UmoWR/NNlkXa6McyKkSGHDRuG1VWB
+ 7/UWwaQqyWW4CG96xs0PIV5zmFV1b4j6lLgnGoSV2YHR/RJ0DqAxBJ3vUhSouV+J7NNwkl4XUgr
+ dYTiRMN4hzq/3imJh08ZRi7AzfZWU3pGob+CwmeCKzhrjYcDLpR8mFFRqGuaRkXpywo14b/jeK8
+ yD6ZCDRvH8hT1HXv6dAYhIxBnorfg57VBPMWUOM4NEWCTvQaV9MXLTO7V6GmkZ+TIeysUXU/aVa
+ qyb5CKCJptLSpp4D17PARQZ2Vzg2ov9eomoWzLNZ2Sll7WyGs8tdeSwzdix48gEWPfUS+OLWVWE
+ 3hfSH9JKGwoLDkvwwS9LQzW5/uwgcLIT3UeemWbz35claV7Zzc8k=
 X-Developer-Key: i=stefandoesinger@gmail.com; a=openpgp;
  fpr=4F9C2C8728019633893EBBB98CB81F9A72BBA155
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260616_132737_840466_34398FA1 
-X-CRM114-Status: GOOD (  13.65  )
+X-CRM114-CacheID: sfid-20260616_132741_995946_8120603A 
+X-CRM114-Status: GOOD (  10.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,154 +122,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This makes use of the driver added in the previous patches. It wires up
-the uart clocks and resets and allows getting rid of the placeholder
-uartclk node.
+This is fairly simple with the driver exposing a syscon regmap. Write a
+one to the lowest bit of register 0 and the board resets.
 
 Signed-off-by: Stefan Dösinger <stefandoesinger@gmail.com>
 ---
- arch/arm/boot/dts/zte/zx297520v3.dtsi | 90 +++++++++++++++++++++++++++++++----
- 1 file changed, 81 insertions(+), 9 deletions(-)
+ arch/arm/boot/dts/zte/zx297520v3.dtsi | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
 diff --git a/arch/arm/boot/dts/zte/zx297520v3.dtsi b/arch/arm/boot/dts/zte/zx297520v3.dtsi
-index a16c30a164bb..a2b6909e7434 100644
+index a2b6909e7434..013ece51c2a0 100644
 --- a/arch/arm/boot/dts/zte/zx297520v3.dtsi
 +++ b/arch/arm/boot/dts/zte/zx297520v3.dtsi
-@@ -4,6 +4,7 @@
-  */
- 
- #include <dt-bindings/interrupt-controller/arm-gic.h>
-+#include <dt-bindings/clock/zte,zx297520v3-clk.h>
- 
- / {
- 	#address-cells = <1>;
-@@ -20,13 +21,16 @@ cpu@0 {
- 		};
+@@ -33,6 +33,13 @@ osc32k: osc32k {
+ 		#clock-cells = <0>;
  	};
  
--	/* Base bus clock and default for the UART. It will be replaced once a clock driver has
--	 * been added.
--	 */
--	uartclk: uartclk-26000000 {
--		#clock-cells = <0>;
-+	osc26m: osc26m {
- 		compatible = "fixed-clock";
- 		clock-frequency = <26000000>;
-+		#clock-cells = <0>;
++	syscon-reboot {
++		compatible = "syscon-reboot";
++		regmap = <&topclk>;
++		offset = <0x0>;
++		mask = <0x1>;
 +	};
 +
-+	osc32k: osc32k {
-+		compatible = "fixed-clock";
-+		clock-frequency = <32768>;
-+		#clock-cells = <0>;
- 	};
- 
  	timer {
-@@ -70,13 +74,80 @@ gic: interrupt-controller@f2000000 {
- 			      <0xf2040000 0x20000>;
- 		};
- 
-+		topclk: clock-controller@13b000 {
-+			compatible = "zte,zx297520v3-topclk", "syscon";
-+			reg = <0x0013b000 0x400>;
-+			#clock-cells = <1>;
-+			#reset-cells = <1>;
-+			clocks = <&osc26m>, <&osc32k>;
-+			clock-names = "osc26m", "osc32k";
-+		};
-+
-+		matrixclk: clock-controller@1306000 {
-+			compatible = "zte,zx297520v3-matrixclk", "syscon";
-+			reg = <0x01306000 0x400>;
-+			#clock-cells = <1>;
-+			#reset-cells = <1>;
-+			clocks = <&osc26m>, <&osc32k>,
-+				 <&topclk ZX297520V3_MPLL>, <&topclk ZX297520V3_MPLL_D2>,
-+				 <&topclk ZX297520V3_MPLL_D3>, <&topclk ZX297520V3_MPLL_D4>,
-+				 <&topclk ZX297520V3_MPLL_D5>, <&topclk ZX297520V3_MPLL_D6>,
-+				 <&topclk ZX297520V3_MPLL_D8>, <&topclk ZX297520V3_MPLL_D12>,
-+				 <&topclk ZX297520V3_MPLL_D16>, <&topclk ZX297520V3_MPLL_D26>,
-+				 <&topclk ZX297520V3_UPLL>, <&topclk ZX297520V3_UPLL_D2>,
-+				 <&topclk ZX297520V3_UPLL_D3>, <&topclk ZX297520V3_UPLL_D4>,
-+				 <&topclk ZX297520V3_UPLL_D5>, <&topclk ZX297520V3_UPLL_D6>,
-+				 <&topclk ZX297520V3_UPLL_D8>, <&topclk ZX297520V3_UPLL_D12>,
-+				 <&topclk ZX297520V3_UPLL_D16>,
-+				 <&topclk ZX297520V3_DPLL>, <&topclk ZX297520V3_DPLL_D2>,
-+				 <&topclk ZX297520V3_DPLL_D3>, <&topclk ZX297520V3_DPLL_D4>,
-+				 <&topclk ZX297520V3_DPLL_D5>, <&topclk ZX297520V3_DPLL_D6>,
-+				 <&topclk ZX297520V3_DPLL_D8>, <&topclk ZX297520V3_DPLL_D12>,
-+				 <&topclk ZX297520V3_DPLL_D16>,
-+				 <&topclk ZX297520V3_GPLL>, <&topclk ZX297520V3_GPLL_D2>,
-+				 <&topclk ZX297520V3_GPLL_D3>, <&topclk ZX297520V3_GPLL_D4>,
-+				 <&topclk ZX297520V3_GPLL_D5>, <&topclk ZX297520V3_GPLL_D6>,
-+				 <&topclk ZX297520V3_GPLL_D8>, <&topclk ZX297520V3_GPLL_D12>,
-+				 <&topclk ZX297520V3_GPLL_D16>;
-+			clock-names = "osc26m", "osc32k", "mpll", "mpll_d2", "mpll_d3", "mpll_d4",
-+				      "mpll_d5", "mpll_d6", "mpll_d8", "mpll_d12", "mpll_d16",
-+				      "mpll_d26", "upll", "upll_d2", "upll_d3", "upll_d4",
-+				      "upll_d5", "upll_d6", "upll_d8", "upll_d12", "upll_d16",
-+				      "dpll", "dpll_d2", "dpll_d3", "dpll_d4", "dpll_d5", "dpll_d6",
-+				      "dpll_d8", "dpll_d12", "dpll_d16", "gpll", "gpll_d2",
-+				      "gpll_d3", "gpll_d4", "gpll_d5", "gpll_d6", "gpll_d8",
-+				      "gpll_d12", "gpll_d16";
-+		};
-+
-+		lspclk: clock-controller@1400000 {
-+			compatible = "zte,zx297520v3-lspclk";
-+			reg = <0x01400000 0x100>;
-+			#clock-cells = <1>;
-+			#reset-cells = <1>;
-+
-+			clocks = <&matrixclk ZX297520V3_LSP_MPLL_D5_WCLK>,
-+				 <&matrixclk ZX297520V3_LSP_MPLL_D4_WCLK>,
-+				 <&matrixclk ZX297520V3_LSP_MPLL_D6_WCLK>,
-+				 <&matrixclk ZX297520V3_LSP_MPLL_D8_WCLK>,
-+				 <&matrixclk ZX297520V3_LSP_MPLL_D12_WCLK>,
-+				 <&matrixclk ZX297520V3_LSP_OSC26M_WCLK>,
-+				 <&matrixclk ZX297520V3_LSP_OSC32K_WCLK>,
-+				 <&matrixclk ZX297520V3_LSP_PCLK>,
-+				 <&matrixclk ZX297520V3_LSP_TDM_WCLK>,
-+				 <&matrixclk ZX297520V3_LSP_DPLL_D4_WCLK>;
-+			clock-names = "mpll_d5", "mpll_d4", "mpll_d6", "mpll_d8", "mpll_d12",
-+				      "osc26m", "osc32k", "pclk", "tdm_wclk", "dpll_d4";
-+		};
-+
-+
- 		uart0: serial@131000 {
- 			compatible = "arm,pl011", "arm,primecell";
- 			arm,primecell-periphid = <0x0018c011>;
- 			reg = <0x00131000 0x1000>;
- 			interrupts = <GIC_SPI 0 IRQ_TYPE_LEVEL_HIGH>;
--			clocks = <&uartclk>, <&uartclk>;
-+			clocks = <&topclk ZX297520V3_UART0_WCLK>, <&topclk ZX297520V3_UART0_PCLK>;
- 			clock-names = "uartclk", "apb_pclk";
-+			resets = <&topclk ZX297520V3_UART0_RESET>;
- 			status = "disabled";
- 		};
- 
-@@ -85,8 +156,9 @@ uart1: serial@1408000 {
- 			arm,primecell-periphid = <0x0018c011>;
- 			reg = <0x01408000 0x1000>;
- 			interrupts = <GIC_SPI 1 IRQ_TYPE_LEVEL_HIGH>;
--			clocks = <&uartclk>, <&uartclk>;
-+			clocks = <&lspclk ZX297520V3_UART1_WCLK>, <&lspclk ZX297520V3_UART1_PCLK>;
- 			clock-names = "uartclk", "apb_pclk";
-+			resets = <&lspclk ZX297520V3_UART1_RESET>;
- 			status = "disabled";
- 		};
- 
-@@ -94,9 +166,9 @@ uart2: serial@140d000 {
- 			compatible = "arm,pl011", "arm,primecell";
- 			arm,primecell-periphid = <0x0018c011>;
- 			reg = <0x0140d000 0x1000>;
--			interrupts = <GIC_SPI 2 IRQ_TYPE_LEVEL_HIGH>;
--			clocks = <&uartclk>, <&uartclk>;
-+			clocks = <&lspclk ZX297520V3_UART2_WCLK>, <&lspclk ZX297520V3_UART2_PCLK>;
- 			clock-names = "uartclk", "apb_pclk";
-+			resets = <&lspclk ZX297520V3_UART2_RESET>;
- 			status = "disabled";
- 		};
- 	};
+ 		compatible = "arm,armv7-timer";
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
 
 -- 
 2.53.0
