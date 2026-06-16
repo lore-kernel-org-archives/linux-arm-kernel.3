@@ -4,146 +4,178 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6E2ACD98E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 06:12:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 461D1CD98DA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 06:13:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IC1KoUvF73OtWJ/lTWg9nZe3Dxd1TPPs/CEL0ojNFYQ=; b=XirD9UVQCrEJhOn+bu0A1KduAX
-	JRKco1RKc0WJY16XWKIuFu4uNlfFZ1B1A23wey0qZpwIlDTeuUyca/U4TmddU9BaWbHzZFDFC1Kqn
-	ynS/th1GhXEkK88w/4jOWP8///LVa1MPJOd0voRISErKQHg/LIpTWvKcGtlOJRFrcfy9dijSK7/1p
-	fniGa3KEPDkb1Q7p4687l7ERVFF+qu0TKzHl9J9blFMcmIy18ypuvPGUWGWNdqYp/zFHmIGPiRo5z
-	YcnLiuVNUgWMWD6uFfrsCMxx20w+0CAYCe/uYjn65kGIX8Gz5CmAAu3ep85miBReT7D7AxKi7D2or
-	zH5Twkjw==;
+	bh=qwQ6pv4reOK/zAELW9vRuQpzIpB0AmDkNhAk4FuCq0s=; b=BElmtQg6w0hhPRFs56NLjrYB17
+	y6xjJO9wmiBoePWo6W9pGRTDUZ+DqIUPz6uoogcfPR6cEwr8mEkQ7DvDVw2l3vlPeJoSBXad+tmE7
+	+Jtwa4mpH69TZVC7Y3bCBxRCiCbDr9LK29PEyJ+Uu+A5OuHbuhzHFks/dJJS9VCdJ1o4NPdU/WRPj
+	ZPoLZr6WpoDio8jQqfPR5/wvgQAc25vy5vb0hrvspP6h7P9GLM6jf7hv+XvYrZJWMuPILAWGykTLq
+	LrgNzLbGSDskDi95za/e9SkG+1rfv09ZkIrhL4cVfImaeuSUNi8CwC2dIsztR5hJMweUpG9Tju+nA
+	tRqAN4Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZN2O-0000000FIhe-2o2z;
-	Tue, 16 Jun 2026 06:12:40 +0000
-Received: from mail-japanwestazon11022140.outbound.protection.outlook.com ([40.107.75.140] helo=OS8PR02CU002.outbound.protection.outlook.com)
+	id 1wZN37-0000000FIrB-3ob2;
+	Tue, 16 Jun 2026 06:13:25 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZN2M-0000000FIgj-0RxZ;
-	Tue, 16 Jun 2026 06:12:39 +0000
+	id 1wZN35-0000000FIqg-0hbw
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 16 Jun 2026 06:13:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1781590403; x=1813126403;
+  h=message-id:date:subject:to:references:from:in-reply-to:
+   content-transfer-encoding:mime-version;
+  bh=ci2P261uI/4o6nbhhgegY/A4U+Mo38OI5Fgn9q8JnHQ=;
+  b=PTMoswZLfQP4dYhP3XOdmgdw3YmUYPSomFMKOsi0jzD6E/C2iJELHo9e
+   20DPDOUHWrgKYC2uZPuHGCqhPV/CZRt6peL2uwsj39TGDpeu6e4qOkRnG
+   wicjWTWb2FKEHNmxBQ8jL0YRditRlFILCjNuRKmYfSx5TnRtYhYrcJcms
+   4IQusSEgmftwN7GjbUv3SgKhtped6TNLQ7pVF8pQkAbrmYT99n5hJAWXE
+   jIZa7W4fzIFG7YKVSospjytBXfDL4MXj1N8FGnusOVQ4nMCfEItngBaNi
+   HmeMM8Y5dX6XBbVRCqWBg4vHDWkBAWlsuLXD0juHTfk/CbX5cyPGrW1pU
+   g==;
+X-CSE-ConnectionGUID: eTvxuYDsSL2RQaqzkwpjWg==
+X-CSE-MsgGUID: tXs6f63ESK26NFfQPF/elA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11818"; a="82190481"
+X-IronPort-AV: E=Sophos;i="6.24,207,1774335600"; 
+   d="scan'208";a="82190481"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jun 2026 23:13:22 -0700
+X-CSE-ConnectionGUID: OWDSkLT+QXe/2KEIDOpzig==
+X-CSE-MsgGUID: +WBTLQZmST2tZNJC1oMsbw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.24,207,1774335600"; 
+   d="scan'208";a="245282729"
+Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
+  by fmviesa008.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jun 2026 23:13:22 -0700
+Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37; Mon, 15 Jun 2026 23:13:21 -0700
+Received: from ORSEDG901.ED.cps.intel.com (10.7.248.11) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37 via Frontend Transport; Mon, 15 Jun 2026 23:13:21 -0700
+Received: from DM5PR21CU001.outbound.protection.outlook.com (52.101.62.42) by
+ edgegateway.intel.com (134.134.137.111) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37; Mon, 15 Jun 2026 23:13:21 -0700
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=krZqORzIA9hiVaRipo57if/3wi9c4l8YvZLL22G6iNC+OYyscgEUZaJfjG2DNS3ch7hSr4VaQ/l/susSJSn7iKgDvzJZMudOd24CgAa9ovT7IpYoVGBqlWa6qVAwbybSnWavURKqZtHCZhIMRSekN9l6DaO7yLlT2F/dFyZvYe95Xp5q37SD7vTm+w2dlRP7Rw/Y0SEJQLdv6t6hktQdzt9OkQr8HRcq0k0e4IGYHtWLsyoIeOrhOxXh6/l8UW+UpOWEpujcj+qG88bRY9AHbbSo+r4G8rQV5S96yh4KfgtXdF0wfXJpQEbdL+aByTE40lwXoloKtS9VoEEVEwI+aw==
+ b=srsb9+5utz92sgEel8EBgTSkdllzTGn0jm3/tdZMLqey5WTty7ZXwGvYWLepLX5BDrwEUFzpFUe+ftT2aQ8VR0AHLEwLC9LHoeiKYu/1iwe2DPSeQWyblTOm/edZGyJ4CyCXdnZ6jAR8mViSM6+Z5iuQG4RvZtHq2C2UCBjgXxawx62sDy5G4cQsVxTap1YdiLFNT2wgdux+nHBP4rXF45bzrceX/F4nIkuG1fwNj17/nskOxxNQigxaPVRf9wIFCFFNqTUnQjxnlkaA67o7O1/ZS1y2wDx3NhTM9NPCtxm4S2SQy3RGhaqkKHyhCL7jRuW8L8BktRVjgmQC9cE7uw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=IC1KoUvF73OtWJ/lTWg9nZe3Dxd1TPPs/CEL0ojNFYQ=;
- b=EhuYiXk7oqAmDc+1xRqC4vnMMZaBuxIn9uqmF5ymmf1ajl3f728fxOCZu+28fmgwFwSw5txkQjZpyM4tDEWslb9uCxpm0EfIK3FEKznBxbs/GUr8YMzJ3Mx6KQqY3WjVa7eIzU9AmM7qJivgytBWDPsS44PXvMqDOO+2zP3jTYHuxs45AqNGeHSbIlkyrTPrQt6kd7hL6VBSSSRXpVXwBfY3v06u6+j8N86UFYpDIiiQdozCIkYpQz8CK2WnohdnaoGWtAu1VpJDVOn3//kM4aSzsEoWlGbxJC/6TthcLDJU3qbI+NyC0RpR/aVG6Q6Bpn1zHrTTffgD4sawyR0IiA==
+ bh=qwQ6pv4reOK/zAELW9vRuQpzIpB0AmDkNhAk4FuCq0s=;
+ b=yFFuarr1Oz9GvJrAI/G6mY4SKKMqz1ClcQIs4CQBTdHC89pwysFlupm7P//XqFppnpxdtepc4WZFxE8wm9NBuUCFJFv95+i+rocNV8isM4vdriKGOPiVHBz9M/2R5PD67FFmS8uNMFApL1Lp0NXZiNQK6DfcrpYZvgatRhQPKkCPV9qMjEl83GiTFZ77EvSUdnL3tMnI9+xDR+FH9JaLtYixE3cuHvhFpUSE5skZ01mMdlw20/kybNb0KRf9yJvdMIMzniM5674rqgWoMhXGyknU+tpgiFB6ScqC5y16jlqxDTgPAc9i3+6raq3EyDreBJ8rwh3B0nlWd9lzN5AFag==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
- dkim=pass header.d=amlogic.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=IC1KoUvF73OtWJ/lTWg9nZe3Dxd1TPPs/CEL0ojNFYQ=;
- b=DC9es54Qzes7h8R4dKDVAhrAQY9n+teFlKPp2P6qBc+H67tvfc95lJIF5itMPdFHMZaBmJ8UzcA0tT7PGMx++Er0RdfnFZC0VuzcGJ2qk9IWO0wsjaualyThJBkrDvusTtQupc/hpakHlT7AAwoayxSK8uzzzYDzPhsqiiWZXTiq35/I5Oe/qaxIlLoXJ2AsUvmU4FIf+nzMxTmKSTeHJmQq9HP9XKHGf/W5xjZegfACV0dWxMB9t0jUN+M0p0vS1GaSbcK83Iu/3JkBh/o+f/LKsBSj95LwAaK3nj0B7MrSPdBgjraK5sLjjjmGTSv9zdo2qYtHFoWXBww94Y2f/A==
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
 Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amlogic.com;
-Received: from KL1PR03MB7149.apcprd03.prod.outlook.com (2603:1096:820:ca::7)
- by KL1PR03MB8413.apcprd03.prod.outlook.com (2603:1096:820:130::8) with
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from IA1PR11MB7198.namprd11.prod.outlook.com (2603:10b6:208:419::15)
+ by PH0PR11MB9774.namprd11.prod.outlook.com (2603:10b6:510:398::9) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.11; Tue, 16 Jun
- 2026 06:12:24 +0000
-Received: from KL1PR03MB7149.apcprd03.prod.outlook.com
- ([fe80::2f06:12a:fff0:6506]) by KL1PR03MB7149.apcprd03.prod.outlook.com
- ([fe80::2f06:12a:fff0:6506%5]) with mapi id 15.21.0139.009; Tue, 16 Jun 2026
- 06:12:24 +0000
-Message-ID: <5601fe65-777b-4db0-a6e5-8d2cdcde7e53@amlogic.com>
-Date: Tue, 16 Jun 2026 14:12:20 +0800
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.18; Tue, 16 Jun
+ 2026 06:13:13 +0000
+Received: from IA1PR11MB7198.namprd11.prod.outlook.com
+ ([fe80::2c4e:e92a:4fa:a456]) by IA1PR11MB7198.namprd11.prod.outlook.com
+ ([fe80::2c4e:e92a:4fa:a456%3]) with mapi id 15.21.0113.015; Tue, 16 Jun 2026
+ 06:13:13 +0000
+Message-ID: <076d773e-85fd-44ab-9665-2598b770b2a7@intel.com>
+Date: Tue, 16 Jun 2026 09:13:08 +0300
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/2] clk: amlogic: Add A9 peripherals clock controller
- driver
-To: Jerome Brunet <jbrunet@baylibre.com>
-Cc: Jian Hu via B4 Relay <devnull+jian.hu.amlogic.com@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Xianwei Zhao <xianwei.zhao@amlogic.com>,
- Kevin Hilman <khilman@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260610-a9_peripherals-v3-0-d07a78085f71@amlogic.com>
- <20260610-a9_peripherals-v3-2-d07a78085f71@amlogic.com>
- <1jecieftme.fsf@starbuckisacylon.baylibre.com>
- <bfe92bbe-5325-4497-b79f-10c7a6e1ed5b@amlogic.com>
- <1j7bo0dm0z.fsf@starbuckisacylon.baylibre.com>
-From: Jian Hu <jian.hu@amlogic.com>
-In-Reply-To: <1j7bo0dm0z.fsf@starbuckisacylon.baylibre.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SE2P216CA0180.KORP216.PROD.OUTLOOK.COM
- (2603:1096:101:2ca::11) To KL1PR03MB7149.apcprd03.prod.outlook.com
- (2603:1096:820:ca::7)
+Subject: Re: [PATCH] mmc: sdhci-of-aspeed: depopulate slots before disabling
+ clock
+To: Pengpeng Hou <pengpeng@iscas.ac.cn>, Andrew Jeffery
+	<andrew@codeconstruct.com.au>, Ulf Hansson <ulfh@kernel.org>, Joel Stanley
+	<joel@jms.id.au>, <linux-mmc@vger.kernel.org>,
+	<linux-aspeed@lists.ozlabs.org>, <openbmc@lists.ozlabs.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>, "Ryan
+ Chen" <ryan_chen@aspeedtech.com>
+References: <20260616004953.3469-1-pengpeng@iscas.ac.cn>
+Content-Language: en-US
+From: Adrian Hunter <adrian.hunter@intel.com>
+Organization: Intel Finland Oy, Registered Address: c/o Alberga Business Park,
+ 6 krs, Bertel Jungin Aukio 5, 02600 Espoo, Business Identity Code: 0357606 -
+ 4, Domiciled in Helsinki
+In-Reply-To: <20260616004953.3469-1-pengpeng@iscas.ac.cn>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: DUZPR01CA0017.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:46b::8) To IA1PR11MB7198.namprd11.prod.outlook.com
+ (2603:10b6:208:419::15)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: KL1PR03MB7149:EE_|KL1PR03MB8413:EE_
-X-MS-Office365-Filtering-Correlation-Id: b3403e22-7158-44c9-e7c8-08decb6e3bb6
+X-MS-TrafficTypeDiagnostic: IA1PR11MB7198:EE_|PH0PR11MB9774:EE_
+X-MS-Office365-Filtering-Correlation-Id: e2c287c1-af77-4139-7a76-08decb6e5917
+X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|7416014|376014|1800799024|11063799006|56012099006|6133799003|4143699003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: s0J5WRAdpCQI4IeALV4jhkkTyfsO3QOpcgA3GaLM2eDeI987dsCiVB8HR+yK0pOeJ6wDvfypnjM4p9YhxN78zFTCAEeRZHZpznkesNFYXomOY2qbeJ8xpAYcgPK4oqa0zvz6vYAmS0uGKabqUJchR/DNJzkk0SrUA9qqx4z9YPt2xZZTrI5EndMBVngTFD0U8xU2ZCw19uChIisEaCqCDrEjjTQN5tisks4Ph7pnTzMdDEzlWQpqd3Iq2fq/8Wdgfebd77p6KDs1YajHCn35EJTIrDUyW1gi0/vCpz4kPaVaEuf5VSb6mzTOPFPiEdLKPvCx4NuloWsOWGhjFDgReB3li1iPGmK+B7E1SD9ycPtwc23h81IpsMLsuDCu2Up23x5pVLH+CAYM91/sEy8GnfXI/l7kbDJ0j2H68PbkU5tb2t2tMYQCgTclWYxbAg1ra1y2achNUVX23YDaqfMajJ9CC7V1JED3eUIJ7NXRySvIrJa2wvxkx2HkrifXpl4MAno5JiKsmWQmR158rcC1WcWFgXFhrxKntzhKnrNqxP6P3wppYANDGCZZZt6exDnly8XLEM+4d+mCaHQ3iWOqju80KzNe9an/hk3w6NU1w1k4nZOywRgUZEaZI8Q7RFQCoEyqc5fPhtRJSNUYljW3j7HFbz3PfkvFYqLZ39tkuynz69Emq1hOZZGvq3R6oWTH
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB7149.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(7416014)(376014)(1800799024)(11063799006)(56012099006)(6133799003)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|23010399003|1800799024|921020|56012099006|11063799006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: SxgzL5HztG/DTyukqAJjX+kHwO0c1X0PD6afFIVU2D5xJJQuzXVQKA9NC1lk/cCwOVIbRYuCnHnuZYZZ1xoyFQDYOalp5VRT9lPfRuKQDUjCgOg8nUKVwOB2b9ewWEgXcwyEKiGKNoMkj2H6SlfuwhitTfGUdhSaxqwsi1oRES//MtV/lpt3z8u9T9lf77f6BFdzkiMfBAhvQdFrsAvFMgUtdjdHia0b/gTojqCB5/WGNtkMoPhvU8hvHCP0VOPVShWriCrfcxSQ2xYidUQDmsUBCP7y1TRAOdEiN8uaD1YUrZrrUDeXq70bW1OjX4/qcG1pWDeqegRLYYF3ZgeJdpX0rnAkh+L5K8r9Xopn9xLeeOKj1H/T0kivkV78AN+JBO/gThyDzrtwohtG7AbaP0kaSPH2SaDH4WMeyf1OdShzopcjVwmzNBOzkb8tI3xobXMHgaSCWDGZiB8ZgF8/NtAwMX4FxVYRLOEfLPCCcbmvahf+jac1Cqd8KC0djRTJLLLaHFqNiC6gNJvvlw1ON0FH0YiBXrXZqIKe6PSt/u9AqRojM9m+rU2Obj5vaAtam7Qy5Fak5Ys84ptgSYUEwuCBKO/JpZu540Z3O4kwPrOO9DJH0zkQna301Y32D4gs2f+24auOYT2vvNbStrZpLq0zh09+gxiVWC5G1CLfdtTTRxlDtYHstT/+yqPErSWw
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA1PR11MB7198.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(23010399003)(1800799024)(921020)(56012099006)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RzJxSVRGNUhUQmNkNlNoTkZlK2w0eFlMOFJMOVd1SVFYcTIrQzJKc0FlWVBY?=
- =?utf-8?B?czUwNFBVRUtselgxcWhSc2ZnZlV0Ukc0VEtlL2MwMWgwTUI4SVNOL1RtbnBu?=
- =?utf-8?B?ZlNsMUJCbVNxcm9pQ2w1ZmRJaHpMVmFqN3FSRFJUeU5nUVhMTnJ3L2QyYkVH?=
- =?utf-8?B?UEtjcXdwaWdJdExXTVhUMjdxM3R5cjB5K1RFQ1FXVUsyK1dIU29yUDRhSVp2?=
- =?utf-8?B?TlU2eXRQSFVNVzZmSWJYak9pcm1abEJKbFJoSEJBUUQyRWd4R0VXVkNJY3Rj?=
- =?utf-8?B?c2RZaWRSSXFSczJBNmlGQkpJcDh1UjVJcU5MUHI0VDM0dGhYeGtzOVE2OU9O?=
- =?utf-8?B?MXN2L3VKT2ZWM3NZRURzUXllSjhjemxLdUM3bmxjbk43RUFHVnhnTjMwUHRX?=
- =?utf-8?B?Q2c3MTFPakJOSnNOU0dDU0cvbkN5MlUrTERqYlBnUWFTdHlQSXlkMG5vamt1?=
- =?utf-8?B?Wm9GbE1QUHFvNEY3b0JVT3h4SHpyM3Bkc1FHTUZDMVpGS2lwamFhYlJYSW0w?=
- =?utf-8?B?cW5RQ0ZjcUlDeFg3Y3VwRkVFWnRBRXVINVNya1BoajA1T0p5VFlNZlBRZklZ?=
- =?utf-8?B?RmpiNFFnVWNWb29PTm5TcXBkcEFWZjhVVnlJYlhmTDUvR3NYcEpEcGwzb3hp?=
- =?utf-8?B?am9PY3FZL3ZjMzdUQmZCNlgrNVcydGtNN2R2bklkamlLNzdqbUNjY1ZwM0po?=
- =?utf-8?B?M1VPMVQyekJHMWtseDhBeUVaRVMyQ0lJdDQrV0NweFdTZ0hyS0VKcDE4enJZ?=
- =?utf-8?B?MGYwaUJiSU9sWXlERnFvb2pMZmFjQXpEMkpXSWVKMWFBaEk3eWtobGpwR1pr?=
- =?utf-8?B?S25jdHRZZmhDMERCV1UySzViR3Jja2wzNk1CWjdEbXZvNEtJdVRrVU9JQndH?=
- =?utf-8?B?THNOVVhWYnMzSE9wbFpQdGV5ajBaY0NGbjlFN2g5YVl6czZKSXduNEdMT0NO?=
- =?utf-8?B?RFp3cysra3hkVzFrRm9ncWFhOTF6UndteFYvSzB4bWRsNG5ncVNQblNFd2hB?=
- =?utf-8?B?SHRZdWdtVUI1Tm80WC9rSkZESVU0b1o1MnAxT3pGYzNyTFE2aFlSS09OK0tp?=
- =?utf-8?B?VGpyOEZZUGRiZDBNVzNJVWFqUzhzbzBkbzB2bDI0TDhhREZUdFNYU1Z1WlVY?=
- =?utf-8?B?T0hybGlFNi9sTWgvS1RCMDdLOVdVVHRSMHFrdmxtSGtCMXFqczZTeGF6SitZ?=
- =?utf-8?B?dHk1bFhKdUlJT0VEL0VDOTR2d1hGbVpHUDVsc20xekJ1ZGVKRmtVYjNpU0Vv?=
- =?utf-8?B?eGt1TGpKQ0I4YUhJM0RIcTZyaWJZNW4vdzRtdTE2VE9UNUErem10WDBHYjNx?=
- =?utf-8?B?b1hwbUFPaVNpRE5pZGNqKzE3V0VhM1ZNMGdmYWh5aDI2Z2VNa0NpZ2RheURp?=
- =?utf-8?B?eHRVTEhWVUFpdXhVb3FxTjMyMzRQd1gwYWMvMWlPb1E5bFNVQ0hyQkNqYlY3?=
- =?utf-8?B?eHR3c20vNm5tNzExalc2L3RaR2k3MEJDTWY3cTdXcU9EeVVmWHFnSTlTdm81?=
- =?utf-8?B?bEFmSm4wNDBxWG9pMXdRMjA5WW1xNFRqbjZNc0RGWUE0eUUwN29nelYyek5J?=
- =?utf-8?B?YjFBQlhpUFp1QWV3RU9Gd1FhY2Y0d1Q0emRHQjg4N2E0UXRUc3I0K3V2akJp?=
- =?utf-8?B?TndJOFptK0RiWVUwVlRmeWJZc2xnOGhVcisxZ0VKSFF2UldjMk1aMkdLMU9i?=
- =?utf-8?B?R1VoOUVrdmhnMVpVNnJjTlZaQ0taV2hVRWE5cmZ1NUlMdGVXaVVhcWl2TGp0?=
- =?utf-8?B?YU93cTMreTFsMXV5VUZuN1RRVEl1dU1Ub1djdDFXcmw5bmVFejhscHF3VVh3?=
- =?utf-8?B?c2VEc0syS29mbmNQMSt1MnBLQzRPOFkwZm5jNlNCNk9OOGZTMks3a1R1ZG8y?=
- =?utf-8?B?bVIzTjhKRHhSaVFqWmRpcHpQRzJjTit6NXB2TTdRWDU2QW5jR1dCVW84NFN3?=
- =?utf-8?B?aDdCdnByZVV5VTdrRW0yMkNyaDRGd3JIUDFMWUdRZ0RDK2dqZ3dFbzFHRkNy?=
- =?utf-8?B?QjV3ekZHaXE1V21jUXlmQmdrWktMU251eldUMkxCVXFMN0thMUFselRmNkJD?=
- =?utf-8?B?djVKUDVGdlY5UWdqdG9teHphMGlqSWIwaHplY0JvUk5FWGNMaHlVVUk0R2N2?=
- =?utf-8?B?aG5MTVVhd3AzU2hTVzhGUkZxOGxQNmlMZGVCdTBrTDRzRW93WWdvV1FFdjYz?=
- =?utf-8?B?QVh1U0g2b0V1WnNVcXFRTDVNdnhJYUh6ek5makFGVElKUWcwTHQ5RzZ4cm9k?=
- =?utf-8?B?QTFGVElrYThicUV5TWdOTE5rSXozK1RnQmhhQmhBdDk3TVUwMlZyYXhIS2V1?=
- =?utf-8?B?WE1ULzZKS3ZqekkySTJkaXFIeXU3clNKME1GYzNIN05kRHMxV0djZz09?=
-X-OriginatorOrg: amlogic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b3403e22-7158-44c9-e7c8-08decb6e3bb6
-X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB7149.apcprd03.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VlREN3dKT1lQWVVvV1BLL01hTzROWjVFMVJ3VEpvUWR5L3JJbE5GMllLenQ4?=
+ =?utf-8?B?d2Rydm9DN1FCeGkrUEIxTFRXT3ZIYitQZkpBQ3UreUtHd3FmQUVsZDFVQUZB?=
+ =?utf-8?B?Vi9BQnIwZytwZVRnVWlWazJBVjg2amE2MTFUWHl1cTJDc0VkeXNzaGo0dHFh?=
+ =?utf-8?B?NDF2aUxtTkJURjFsVlZwN1o5bjNzTmNrSlJ1dnVSRTJkSE04UTZnc2lTR2JT?=
+ =?utf-8?B?TWUxdmhQdE52SkJFbzVQVWtZM3F5RHVLdS8xeTR2MEdqbnBVSDhPR0dpRkJE?=
+ =?utf-8?B?cTlSWWY3ZFhJVzh6NjF0YTlKaVVwWGZIL2hLaG5WSjlML0hpQzhvd1Q1bFEx?=
+ =?utf-8?B?L2hLaklDd0RzYmh0SDh2L21QalZCb1o5TjN4ZGpnUXN3bVd4b3JJS2QyRGdC?=
+ =?utf-8?B?ZFdQMk5LaGJBOExGNXdVV0pGYmc0VFFEeW41Y283T01uL3J3LzBNQWlIMkFr?=
+ =?utf-8?B?TVVCQ0lwQU9iTnd2RmZXVGRndjY2L3BPd2JJYWRFd1NVQ21IbE9rSlM4a2Vn?=
+ =?utf-8?B?VkdXVk96T0wyRTc2UUxwRDI2MGJYajd0LzJEdzUxTTNSN0RPNUFxaEFic05K?=
+ =?utf-8?B?SW9rZnN2c0ZNbnZEdjNRdHZPS00wTlZLUVRMQ2N6MTRaYmpUVWo4V0VKZUow?=
+ =?utf-8?B?VXRTQ0hEODBiYVVoYk1NNjROb1BhY1pEbUsyRTQvNzA2Sk04L2tDaWNack1Y?=
+ =?utf-8?B?cWxWZGdZbUZlYU5rcU5yYUZjeDVlUVlqRkFGeVJ3RG5BczBhOWlnaGlDbHUv?=
+ =?utf-8?B?UnhsOXJVTWxjRHMwVzk2aVVJYU5md2l1MGs2VzFwVHhza0F6Z0Q2Q0E0RFhD?=
+ =?utf-8?B?K3pERmxqTklLa1pUa3BaTHFaMlMwUXgvZ282alhKOEdRYWNmd2hoUS9zaHFu?=
+ =?utf-8?B?RGJUY1N5Nm5Nd04xY0dCOUwwdFZCWHIvRTZoRVNiMm9OdnVoY05rSmhKeTVI?=
+ =?utf-8?B?NGl1TjJiTTlpY0dtQnBRVUpTYzhaRHh4U2t5YUdOY2g0eHZSL2RaWTAyYlUx?=
+ =?utf-8?B?MlJpNUh1MHhESGxMa2pQZXZ4SVcvNlIyVlBaeU9JRDRaK3F3ZzBFY3ZrWEhI?=
+ =?utf-8?B?OFpCdnZJSy9qUFNQcm1XU28yWjdyWGwwUm4rZVBnRzJyK05HWUhLU2FCTGE3?=
+ =?utf-8?B?OFRKYU01ZkRDNWhrR3ZIMHEzQStnWDZOcWdpVjFsV1cwdzRmRDd0ZlhHaHVv?=
+ =?utf-8?B?eTZta2Vmd005RUdjV2lVYlBUaDIwU0hMRmRHY1dNU2NBZURmMjNjdTRvM0o1?=
+ =?utf-8?B?NVg5UUZGU2JSRzNrMXErZVB5aUF1SEdUMWZiV1JLYUxGQUhYRmV0Vm42QTRz?=
+ =?utf-8?B?NmZGOXBZaXdheEQySDBsN2srT2dEVnRqQ3lhd3AzR2dvNlRJYURLQktGc25i?=
+ =?utf-8?B?ZVJVTXZRdE82MkV0US9xUGVQVkhLenZwdmg5eTRaZ1UwU2pyWU1QbFBtK1Q4?=
+ =?utf-8?B?TDZXbmhvYi9XKzN3N0x0aTlhckNuNHRZQnNaNnNSUmxESmRaQi9ySVNrVFIy?=
+ =?utf-8?B?Vllqb3M5L1dHODhVbHlHNXdtaHgvMEwxR1lnYmFDMWtEYTh4bVIxZTNVU0o0?=
+ =?utf-8?B?ZlltT0drUWcxN1pUV0pBMzR0ODV6aHZ6YVBTckFWQ2c3SjlQOEZOQXFyenRK?=
+ =?utf-8?B?a2ZKQkpyUkdpWUZvb3RHRE1SNHNESk5IUmM3eml5amp3WndvVVNINFhuWXIx?=
+ =?utf-8?B?OFh6dWNHWlZEZE5YZ3JMNE1hWWUwZ0c5M3htS0lyeXFjVE9xV0tzS3FrbzhM?=
+ =?utf-8?B?UTZmemJtaERuYjBUbERvZjM2eTJ3eVlaNUUvWXU0Tm54OE9yallaZzFjbjlx?=
+ =?utf-8?B?KytYaHZOWWN0V0xacGZEZHMrOUFqRVkyT1BJNS8rUTVYQnNsaHZBVHNjQXdy?=
+ =?utf-8?B?U0lXVnRBazdIeUhpOVhMRzlsZnVpZnZ4NTJVcHk3NmZ2cG5MSktSNkxId1JE?=
+ =?utf-8?B?ZlhEVC9GR2ZSY3BPWGljai9kOU5iRElFZk5TNE14Q2pabEJrTEU0Yk9KbHRC?=
+ =?utf-8?B?TmlaT2VBcTErVkFhUllkQmlhRFNvSERNVnhxQWxpUi9xNU9jdnluSE0rdjVK?=
+ =?utf-8?B?ZGZRNVMwL3BUNHRVMlpDOGdUZm5mYWJFV2pkY2Joa0I5QXgvSTk2WXZTaEtp?=
+ =?utf-8?B?aGNCa2pTRndiSThMVllTVkE3ZVhaZGQ0eFI4M2tzNzVQSU9sUG5MYlBNVUVn?=
+ =?utf-8?B?SENoNDIySXRlTkdBdzhEWTkwUFZoUTFCNFBnM1AxT0YzZDM5cUZUdVVqcGdZ?=
+ =?utf-8?B?dDRPNWRlMUpSWUVlbms1Z2FXZGtQUW9CRUJuUzNFekZiY21BdzRoSjlxZmRK?=
+ =?utf-8?B?ajBhWndMd2xqNjh3SnJSandocEhzK2NqK0NRSHZyOTlFSFI2VW9tL2JpbENR?=
+ =?utf-8?Q?w0UTNM5nGG/+2h+A=3D?=
+X-Exchange-RoutingPolicyChecked: iCeTDARgfxOCSH7gAyD7knnMKflZnod90+rFBOJreXD/N98Ur5yeBN1Y6hzNj1tskpl28zcixOzzpTqb7Qe2hJS2pkNTnDKrroHxE/3SjiCWJx0CI9yrkof6J6jc/Xk41Pw6XZfqzGa4J4A4PFNaHplXdna0Al44g/ewMwQdQHHy2XO5XLiujhViA5fpCGHkBa4wOWtW6l7LdCZ9dJHphJW+p3rL9RDo5SrTeo0aFiU1Yop4Pcou3ZQmGYEyadBVOL13J/ZqiwBhJf1Vre0zV4I0uS/0xuicN+Syl4AzwvOMo75a8MBqcjQUP+SezR8ypnXL8iJaYzemSBUsDvzLiQ==
+X-MS-Exchange-CrossTenant-Network-Message-Id: e2c287c1-af77-4139-7a76-08decb6e5917
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR11MB7198.namprd11.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jun 2026 06:12:24.3300
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jun 2026 06:13:13.7203
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: EwlWXhCVAET6VZDyjO3CFUc3I6vVslrrrHmL59r9ZVKYIF4H8WXeFjfE4oq2hlfDj8/oIrlt+fxw3IJh2edh3w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR03MB8413
+X-MS-Exchange-CrossTenant-UserPrincipalName: Tn6iGwL4KsRUO402KYy9CI3T57qYd1s87gErfdpQ9sQjT9Z6YkNBybGqSPhjEd05XrZtHh3ZOB3rZ+UiZ/Nx7w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR11MB9774
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_231238_294268_2EAB4116 
-X-CRM114-Status: GOOD (  24.12  )
+X-CRM114-CacheID: sfid-20260615_231323_230224_1F20B7C4 
+X-CRM114-Status: GOOD (  18.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,185 +190,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 16/06/2026 03:49, Pengpeng Hou wrote:
+> aspeed_sdc_probe() creates child slot devices one by one after enabling
+> the controller clock.  If a later slot creation fails, the already-created
+> slot devices remain registered while the parent probe returns an error.
+> 
+> Depopulate any created slot devices on probe failure and during remove,
+> before disabling the shared controller clock used by the slots.
+> 
+> Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
+> ---
+>  drivers/mmc/host/sdhci-of-aspeed.c | 5 ++++-
+>  1 file changed, 4 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/mmc/host/sdhci-of-aspeed.c b/drivers/mmc/host/sdhci-of-aspeed.c
+> index f5d973783cbe..3e941b176687 100644
+> --- a/drivers/mmc/host/sdhci-of-aspeed.c
+> +++ b/drivers/mmc/host/sdhci-of-aspeed.c
+> @@ -560,12 +560,14 @@ static int aspeed_sdc_probe(struct platform_device *pdev)
+>  		cpdev = of_platform_device_create(child, NULL, &pdev->dev);
+>  		if (!cpdev) {
+>  			ret = -ENODEV;
+> -			goto err_clk;
+> +			goto err_depopulate;
+>  		}
+>  	}
+>  
+>  	return 0;
+>  
+> +err_depopulate:
+> +	of_platform_depopulate(&pdev->dev);
 
-On 6/15/2026 8:29 PM, Jerome Brunet wrote:
-> [ EXTERNAL EMAIL ]
->
-> On lun. 15 juin 2026 at 19:25, Jian Hu <jian.hu@amlogic.com> wrote:
->
->> On 6/10/2026 8:49 PM, Jerome Brunet wrote:
->>> [ EXTERNAL EMAIL ]
->>>
->>> On mer. 10 juin 2026 at 16:14, Jian Hu via B4 Relay <devnull+jian.hu.amlogic.com@kernel.org> wrote:
->>>
->>>> From: Jian Hu <jian.hu@amlogic.com>
->>>>
->>>> Add the peripherals clock controller driver for the Amlogic A9 SoC family.
->>>>
->>>> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
->>>> ---
->>>>    drivers/clk/meson/Kconfig          |   15 +
->>>>    drivers/clk/meson/Makefile         |    1 +
->>>>    drivers/clk/meson/a9-peripherals.c | 1925 ++++++++++++++++++++++++++++++++++++
->>>>    3 files changed, 1941 insertions(+)
->>>>
->> [ ... ]
->>
->>>> +
->>>> +/* Channel 6 is unconnected. */
->>>> +static u32 a9_glb_parents_val_table[] = { 0, 1, 2, 3, 4, 5, 7 };
->>>> +static struct clk_regmap a9_dspa;
->>> What is this ?
->>
->> The peripheral clock definitions are ordered by register offset.
->>
->> dspa is one of the parents of the glb clock, while the dsp clock registers
->> are located after the GLB clock registers.
->>
->> Since glb references a9_dspa before its full definition appears, the
->> declaration
->>
->> static struct clk_regmap a9_dspa;
->>
->> is added as a forward declaration to satisfy the compiler.
->>
->>
->> Would it make sense to relax the register-offset ordering in this case?
->>
-> I don't think we ever enforced such ordering (or any other ordering) in
-> the clock driver, so yes please.
->
+of_platform_depopulate() does not appear to work with
+of_platform_device_create() due to the OF_POPULATED_BUS flag
 
-Understood. I'll reorder the clock definitions accordingly and remove 
-the forward declaration
+>  err_clk:
+>  	clk_disable_unprepare(sdc->clk);
+>  	return ret;
+> @@ -575,6 +577,7 @@ static void aspeed_sdc_remove(struct platform_device *pdev)
+>  {
+>  	struct aspeed_sdc *sdc = dev_get_drvdata(&pdev->dev);
+>  
+> +	of_platform_depopulate(&pdev->dev);
+>  	clk_disable_unprepare(sdc->clk);
+>  }
+>  
 
-in the next version.
+There is another existing issue that Sashiko noticed:
 
->> By defining the DSP clock before the GLB clock, we could remove the forward
->> declaration of a9_dspa.
-> Unless it is absolutely necessary, please avoid forward declaration.
->
-> Declare what is needed first, keep related things together and use your.
-> best judgement ... IOW, make it easy for me to review ;)
+struct platform_driver aspeed_sdc_driver has:
+	.pm	= &sdhci_pltfm_pmops,
 
+where it won't work correctly.  It looks like it
+should have instead been in:
 
-Ok.
+struct platform_driver aspeed_sdhci_driver
 
->>>> +
->>>> +static const struct clk_parent_data a9_glb_parents[] = {
->>>> +};
-> [...]
->
->>>> +
->>>> +static struct clk_regmap a9_vclk_div2_en = {
->>>> +     .data = &(struct clk_regmap_gate_data){
->>>> +             .offset = VID_CLK_CTRL,
->>>> +             .bit_idx = 1,
->>>> +     },
->>>> +     .hw.init = CLK_HW_INIT_HW("vclk_div2_en", &a9_vclk.hw,
->>>> +                               &clk_regmap_gate_ops, CLK_SET_RATE_PARENT),
->>>> +};
->>> Looks to me all this div_en / div repeating pattern would be easier to review
->>> with tiny macro .
->>
->> Good point.
->>
->> I tried to reduce the repeated div_en/div pattern using a helper macro.
->>
->> It keeps the relationship between gate and fixed-factor clock more compact
->> and easier to review.
->>
->> After using the helper macro, the div_en/div code can be simplified to the
->> following:
->>
->> #define A9_VCLK(_name, _reg, _bit, _div, _parent)        \
->> struct clk_regmap a9_##_name##_en = {      \
->                         ^- not strictly necessary, a touch too agressive
->
->
->>          .data = &(struct clk_regmap_gate_data){          \
->>                  .offset = _reg,      \
->>                  .bit_idx = _bit,       \
->>          },       \
->>          .hw.init = &(struct clk_init_data) {           \
->>                  .name = #_name "_en",      \
->>                  .ops = &clk_regmap_gate_ops,           \
->>                  .parent_hws = (const struct clk_hw *[]) { _parent },    \
->>                  .num_parents = 1,      \
->>                  .flags = CLK_SET_RATE_PARENT,      \
->>          },       \
->> };       \
->>        \
->> struct clk_fixed_factor a9_##_name = {       \
->>          .mult = 1,       \
->>          .div = _div,       \
->>          .hw.init = &(struct clk_init_data){          \
->>                  .name = #_name,      \
->>                  .ops = &clk_fixed_factor_ops,          \
->>                  .parent_hws = (const struct clk_hw *[]) {      \
->>                          &a9_##_name##_en.hw          \
->>                  },       \
->>                  .num_parents = 1,      \
->>                  .flags = CLK_SET_RATE_PARENT,      \
->>          },       \
->> };       \
->>
->> static A9_VCLK(vclk_div2, VID_CLK_CTRL, 1, 2, &a9_vclk.hw);
->> static A9_VCLK(vclk_div4, VID_CLK_CTRL, 2, 4, &a9_vclk.hw);
->> static A9_VCLK(vclk_div6, VID_CLK_CTRL, 3, 6, &a9_vclk.hw);
->> static A9_VCLK(vclk_div6, VID_CLK_CTRL, 4, 12, &a9_vclk.hw);
->> static A9_VCLK(vclk2_div2, VIID_CLK_CTRL, 1, 2, &a9_vclk2.hw);
->> static A9_VCLK(vclk2_div4, VIID_CLK_CTRL, 2, 4, &a9_vclk2.hw);
->> static A9_VCLK(vclk2_div6, VIID_CLK_CTRL, 3, 6, &a9_vclk2.hw);
->> static A9_VCLK(vclk2_div6, VIID_CLK_CTRL, 4, 12, &a9_vclk2.hw);
->>
->>
->> If you think splitting it further into separate helper macros would improve
->> readability.
-> One clock per macro please. Hidding 2 declaration is recipe for
-> disaster. For ex, here the first one is static, the 2nd is not
-
-
-I'll split it into separate helper macros so that each macro expands to 
-a single clock definition.
-
-They are defined as follows: (Excluding struct clk_regmap)
-
-#define A9_VCLK_GATE(_name, _reg, _bit,  _parent)        \
-         .data = &(struct clk_regmap_gate_data){          \
-                 .offset = _reg,      \
-                 .bit_idx = _bit,       \
-         },       \
-         .hw.init = &(struct clk_init_data) {           \
-                 .name = #_name "_en",      \
-                 .ops = &clk_regmap_gate_ops,           \
-                 .parent_hws = (const struct clk_hw *[]) { _parent },    \
-                 .num_parents = 1,      \
-                 .flags = CLK_SET_RATE_PARENT,      \
-         },
-
-#define A9_VCLK_DIV(_name, _reg, _div)       \
-
-     ....
-
-static struct clk_regmap a9_vclk_div2_en = {
-         A9_VCLK_GATE(vclk_div2, VID_CLK_CTRL, 1, &a9_vclk.hw),
-};
-
-
-static struct clk_regmap a9_vclk_div2 = {
-         A9_VCLK_DIV(vclk_div2, VID_CLK_CTRL, 2),
-};
-
-My understanding is that you would prefer helper macros to cover only 
-the repeated initializer fields,
-while keeping the actual clock declarations explicit.
-
-If that's not what you had in mind, please let me know.
->> I can do that as well.
->>
---
-
-Jian
+Refer:
+	https://sashiko.dev/#/patchset/20260616004953.3469-1-pengpeng%40iscas.ac.cn
 
 
