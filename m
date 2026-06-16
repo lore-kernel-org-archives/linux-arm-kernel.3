@@ -4,98 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B9A8CD98E1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 12:15:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 858FDCD98E1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 12:30:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=50SE8l3bKCw1R5C7MBcazdi1YXMeu+dYN+l8lo26Bi0=; b=nagjIt0IBzWW63xrJnLFxnMX6h
-	Pra40ddQAwELkkFYsBouz0QtWMlMSD3ifhmhyqXyyTQ+7kOdIbzU6pgoWTryDuYb75cN6oNzfu3Mf
-	1FK9xhq4FWDm4N/kNoLFQrXi3J0xoniMJWC1KaMtrzvSCg+7poR4yadTavS1aT75mUkjEOGLALjUF
-	2kokpSsRTFX1WGmwrSlm6JQxAX3ILLTGaMWJQyeJcjP48Cx6cRy9zmbaMlU+AUQT2YkRUx0RPFRsz
-	p1K/x4b8sp/U09PmNLtIcbYpU0LYfu4g6HkvXGeR87o4uP+ENQwWleLOcrU78QEGjf9hZR034Y5Dx
-	3msGw8Vw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+A4mUvJbAxqYGqhR2zz9wk5RNSEo4OH7kiEDPeIKYLU=; b=AIp+dz+hIReTRT7Hm/lDVe7ly5
+	5g0atUHPLDpJmMRgCWIyVW5NyatfI+9bU9N8rmvhhWVHuh5AOv0uTelJJ2ZLOCfc3W8yZEY240p9h
+	hQP2sdlY0tLfcL8oB0i7EqeFjd8gA3iGLaDDAQy7x7ZEh0N046JYjv0HC/JWottU12zj7PmOUM2bU
+	bXxAALA6btCvQ3x+C9aoqlwTQJtlGLlpAsQ5hpu+Mki/XgX2D8L0ZOOI+V0Hxodv8GZ7jdxGPX8c0
+	URF8JAmw+fvrcbRbGcd0L0BDfYwzTD4NFdZCTMzNToPxRfiX6rml8P/cZ+/QTzcFtX4eQXpyZfRcE
+	9rc8i9nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZSh7-0000000FkhL-02P5;
-	Tue, 16 Jun 2026 12:15:05 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	id 1wZSvu-0000000FlID-2FZw;
+	Tue, 16 Jun 2026 12:30:22 +0000
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZSh4-0000000Fkgt-0Gq1
+	id 1wZSvq-0000000FlH6-2lV9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Jun 2026 12:15:03 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-36ba706ab46so2857604a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 05:15:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781612100; x=1782216900; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=50SE8l3bKCw1R5C7MBcazdi1YXMeu+dYN+l8lo26Bi0=;
-        b=Z9YKVr0PoLZ3oGfO9iOCzNeaWjhRPa7q9E4JY9Bic528OzGr6Ezf166am1zIbQY9kA
-         eiJ1DQkp2kxGeqyxzY97v0TjLt9zzP88hl0/qkoLN4dmYWcm1HLwEivX4lHo9fNS2HBv
-         Yu8LKDOzCHtJBhQpfgpa+tQ7rN3mjcbnrYDa50zx8OOduEtaqugg+cNLG9PWvMlsrlvJ
-         caLZZYQx32yvery4hTlmuX2qJeAxSf9eO10Rpl6LDrIWwPhOi2Ea6P5jQcATz736ordy
-         01yOOqEzlG/PAMTjrpTzrPVuZNkC0xveSh+l0NQb5jEu5PEaq55+vLueQ2xAlVeL7jik
-         2qOw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781612101; x=1782216901;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=50SE8l3bKCw1R5C7MBcazdi1YXMeu+dYN+l8lo26Bi0=;
-        b=jLwrAcuV6dRVXjPLPB792rCiopOINtYw4M12M4zb732EXx0lmayoEjE5eOR/YvgrxL
-         +K9pA26fRpm8W6DQA8jh1osaddHf/04JRvC1RBOgedU7SmEifdnuDEsLDIasGDojrXPs
-         kEsLYBbBPS4DcHL5klm9to6J2damdgk3LXvj8VD8v0I0WrLOlpVEctoWIw1yRFj82ow8
-         /ZpDPVOgBH4R+GlCm0dmWPw7SFHGxNILY1ECSD3DHlKCN+rZigJinlUHYR5oT13/E5rC
-         8NR5SESZ7K8cbbRFAgmZkFN1wXJ1Yp2NCQOsDujN/eo4df+K5we5mfACANcuZrvO0f2b
-         ua+A==
-X-Forwarded-Encrypted: i=1; AFNElJ9pIWQx5dOrGbHoBH0aFR9akV2J4ZPNA9voRTybNM2N4HpRI+h25F0OUNFTLyiF4MmoZJfd0NURivfjv64Qzb+f@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy4ubBF1On/n9LFH4oR1gVEZsOvSsCeyd8sj6ejvMsGCEpC2A96
-	HmRY0CDDh5zaML8Utc5glF03r9ishee6vNdlIo+5bY3SOTdpH9XQ9sQ1
-X-Gm-Gg: Acq92OEdWGw8agt/MfAu8d6saXzuMlq1zjuxyI4YvK1zRxMmGTRg+ltFte8oYquUtuY
-	2ecVS5kgrELn9QwmbwpT8KMzIdb5xTCc1aeeoKRGFYKfBY0GsYL9hxCf7mU3CeFYoKqIe62ChNT
-	rCAnbRZcvTLE0EWMCcTyOTUmKCh/qySjWNcTinvilBuUcbUN+iqz3verZP6ByPkR2HP5jFHKQnm
-	eLug+yOiqUeWDrStz+7ITRwcpWilv2IS0KHpqil2oSJzqnGvpSpT2jADBwvPQousB0BYlqoXNYc
-	hblO7SOs7d8c3bpZZry/Hnspr/rSqYQB0H63ePH+jTv/whE3n+1aQ8kzNFhxGD2Y7eHrIpe8tcy
-	aXHLEWZWusuuTM5Ynof1DKTb1bd1ObQcUKslLnRzBKkAL0evlhXW7fijlzBKZyBZhBvhWPwcu06
-	+6EW/eXHxeFcikKLtgCLXGYGe128nifxKpMFmGETw8rQva+QvNpm0L0SUvr8E1T3iIACbKZLzSN
-	WfOc2EiXTDETlgNXA==
-X-Received: by 2002:a17:902:ce03:b0:2c6:a99a:52a9 with SMTP id d9443c01a7336-2c6a99a5426mr9079815ad.7.1781612100226;
-        Tue, 16 Jun 2026 05:15:00 -0700 (PDT)
-Received: from junjungu-PC.localdomain ([223.166.246.74])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c42f2e586bsm135118355ad.12.2026.06.16.05.14.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 16 Jun 2026 05:14:59 -0700 (PDT)
-From: Felix Gu <ustc.gu@gmail.com>
-Date: Tue, 16 Jun 2026 20:14:49 +0800
-Subject: [PATCH RESEND] pinctrl: imx1: fix device_node leak in
- dt_is_flat_functions()
+	Tue, 16 Jun 2026 12:30:21 +0000
+Received: from dfae2b116770.home.arpa (unknown [36.110.52.2])
+	by APP-05 (Coremail) with SMTP id zQCowADXYQXRQTFqayHBEw--.14646S2;
+	Tue, 16 Jun 2026 20:30:10 +0800 (CST)
+From: Wentao Liang <vulab@iscas.ac.cn>
+To: andrew@lunn.ch,
+	gregory.clement@bootlin.com,
+	sebastian.hesselbarth@gmail.com,
+	mturquette@baylibre.com,
+	sboyd@kernel.org
+Cc: bmasney@redhat.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Wentao Liang <vulab@iscas.ac.cn>
+Subject: [PATCH v2] clk: mvebu: ap-cpu: fix missing clk_put() in ap_cpu_clock_probe()
+Date: Tue, 16 Jun 2026 12:29:36 +0000
+Message-Id: <20260616122936.1669366-1-vulab@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260616-pinctrl-imx-v1-1-777c14cd2858@gmail.com>
-To: Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>, 
- Frank Li <Frank.Li@nxp.com>, Jacky Bai <ping.bai@nxp.com>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- NXP S32 Linux Team <s32@nxp.com>, Linus Walleij <linusw@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>
-Cc: linux-gpio@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Felix Gu <ustc.gu@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1781612096; l=1643;
- i=ustc.gu@gmail.com; h=from:subject:message-id;
- bh=6S8wuEyltAzT8/X/ySOKtLmdWupADMGiotqEpc6gdtc=;
- b=Zku0M2FJaEoEwwEmrCy//KeKEm/UNXg9nSoC03e69VuLUmDz9Ml+HSmsuuOUOgc4xg7mHQJS5
- d/LUhvYU2XUCGf2+Y9u4oXQNobiZ7p+MVx3pW+HgMzZyL+314bfXKqO
-X-Developer-Key: i=ustc.gu@gmail.com; a=ed25519;
- pk=fjUXwmjchVN7Ja6KGP55IXOzFeCl9edaHoQIEUA+/hw=
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: zQCowADXYQXRQTFqayHBEw--.14646S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxGFWrKr1rWFW8Xw1xWF1ftFb_yoW5GFW8pF
+	18GF9Ykw47GrWj9ay7tF4DuryrWw1xtFy5Aw40yasak3Z3JF1UGr10ka95ZF1UurW8X34a
+	qF4UG3WUuF1DZFUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9014x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
+	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
+	jxv20xvE14v26r126r1DMcIj6I8E87Iv67AKxVWxJr0_GcWlOx8S6xCaFVCjc4AY6r1j6r
+	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
+	n2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7x
+	kEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E
+	67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCw
+	CI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1x
+	MIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIda
+	VFxhVjvjDU0xZFpf9x0JjjLvNUUUUU=
+X-Originating-IP: [36.110.52.2]
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBwwAA2oxFfyguwAAsh
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260616_051502_176180_D5577E32 
-X-CRM114-Status: GOOD (  11.48  )
+X-CRM114-CacheID: sfid-20260616_053019_299013_9E854307 
+X-CRM114-Status: GOOD (  13.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,49 +83,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-for_each_child_of_node() holds a reference on the iterator node that
-must be released on early return. imx1_pinctrl_dt_is_flat_functions()
-has two early return paths inside the loop that skip this cleanup.
+The function ap_cpu_clock_probe() calls of_clk_get() to obtain a
+reference to the parent clock for each CPU cluster, but it never
+releases it with clk_put().  The returned clk is used only to read
+the parent's name via __clk_get_name(), and the reference is leaked
+on every successful cluster initialization as well as on the error
+path when devm_clk_hw_register() fails.
 
-Replace both loops with the scoped variant so that the reference is
-automatically dropped when the iterator goes out of scope.
+Rather than adding clk_put() calls, replace the of_clk_get() +
+__clk_get_name() pattern with of_clk_get_parent_name(), which is
+the intended API for this use case and handles the reference
+counting internally.  This matches the pattern already used by the
+sibling drivers clk-cpu.c and clk-corediv.c.
 
-Fixes: 63d2059cd665 ("pinctrl: imx1: Allow parsing DT without function nodes")
-Signed-off-by: Felix Gu <ustc.gu@gmail.com>
+Fixes: af9617b419f7 ("clk: mvebu: ap-cpu-clk: Fix a memory leak in error handling paths")
+Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
 ---
- drivers/pinctrl/freescale/pinctrl-imx1-core.c | 7 ++-----
- 1 file changed, 2 insertions(+), 5 deletions(-)
+v2: Replace of_clk_get() + __clk_get_name() with of_clk_get_parent_name()
+    as suggested by Brian Masney, instead of adding clk_put() calls.
+    Also correct the Fixes: tag to point to the original commit that
+    introduced the leak.
+---
+ drivers/clk/mvebu/ap-cpu-clk.c | 10 +++-------
+ 1 file changed, 3 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/pinctrl/freescale/pinctrl-imx1-core.c b/drivers/pinctrl/freescale/pinctrl-imx1-core.c
-index b7bd4ef9c0db..4a6bdaefa42f 100644
---- a/drivers/pinctrl/freescale/pinctrl-imx1-core.c
-+++ b/drivers/pinctrl/freescale/pinctrl-imx1-core.c
-@@ -547,14 +547,11 @@ static int imx1_pinctrl_parse_functions(struct device_node *np,
-  */
- static bool imx1_pinctrl_dt_is_flat_functions(struct device_node *np)
- {
--	struct device_node *function_np;
--	struct device_node *pinctrl_np;
--
--	for_each_child_of_node(np, function_np) {
-+	for_each_child_of_node_scoped(np, function_np) {
- 		if (of_property_present(function_np, "fsl,pins"))
- 			return true;
+diff --git a/drivers/clk/mvebu/ap-cpu-clk.c b/drivers/clk/mvebu/ap-cpu-clk.c
+index a8175908e353..1cf63c7a0bc3 100644
+--- a/drivers/clk/mvebu/ap-cpu-clk.c
++++ b/drivers/clk/mvebu/ap-cpu-clk.c
+@@ -288,7 +288,6 @@ static int ap_cpu_clock_probe(struct platform_device *pdev)
+ 		char *clk_name = "cpu-cluster-0";
+ 		struct clk_init_data init;
+ 		const char *parent_name;
+-		struct clk *parent;
+ 		u64 cpu;
  
--		for_each_child_of_node(function_np, pinctrl_np) {
-+		for_each_child_of_node_scoped(function_np, pinctrl_np) {
- 			if (of_property_present(pinctrl_np, "fsl,pins"))
- 				return false;
+ 		cpu = of_get_cpu_hwid(dn, 0);
+@@ -304,13 +303,12 @@ static int ap_cpu_clock_probe(struct platform_device *pdev)
+ 		if (ap_cpu_data->hws[cluster_index])
+ 			continue;
+ 
+-		parent = of_clk_get(np, cluster_index);
+-		if (IS_ERR(parent)) {
+-			dev_err(dev, "Could not get the clock parent\n");
++		parent_name = of_clk_get_parent_name(np, cluster_index);
++		if (!parent_name) {
++			dev_err(dev, "Could not get the clock parent name\n");
+ 			of_node_put(dn);
+ 			return -EINVAL;
  		}
-
----
-base-commit: c1ecb239fa3456529a32255359fc78b69eb9d847
-change-id: 20260523-pinctrl-imx-b198f8391abf
-
-Best regards,
---
-Felix Gu <ustc.gu@gmail.com>
+-		parent_name =  __clk_get_name(parent);
+ 		clk_name[12] += cluster_index;
+ 		ap_cpu_clk[cluster_index].clk_name =
+ 			ap_cp_unique_name(dev, np->parent, clk_name);
+@@ -328,11 +326,9 @@ static int ap_cpu_clock_probe(struct platform_device *pdev)
+ 		ret = devm_clk_hw_register(dev, &ap_cpu_clk[cluster_index].hw);
+ 		if (ret) {
+ 			of_node_put(dn);
+-			clk_put(parent);
+ 			return ret;
+ 		}
+ 		ap_cpu_data->hws[cluster_index] = &ap_cpu_clk[cluster_index].hw;
+-		clk_put(parent);
+ 	}
+ 
+ 	ap_cpu_data->num = cluster_index + 1;
 -- 
-Felix Gu <ustc.gu@gmail.com>
+2.34.1
 
 
