@@ -4,99 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D779CD98DA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 11:50:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EA63CD98E1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 11:54:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+B8CgWtXYrJhRkqUat12EDvVB3QBzEo8L7yf27L0qGs=; b=hmdwkIQl8yJJPOfbRK/0/kZqjs
-	S3loYWF6YMYqtSWun4zZGf7P1CGF3ujvApvb/CL9MN5FYRKmCAfDWmA9cA+FDj63h1TCFG1htdQwc
-	feuwsQuhfxO2HNg8cW2+k/7ho8VXMG+UzB/fy+2Xvd47Im8SJx21r5GbOAvnwf9mTJdMkY1gC3kpQ
-	vOcpfLTOEOTiTjvNk/Gji9HJxn7a2pcHfXy4gpaeLhwSNnGxWqWtiBexSIRMVdLhnQTedsH7grkTI
-	K0rrFlv/+BYAXeT3kHwSpqcsqiOpdJhV7IOBbkKDikJO+eD3K3mutjt24XhTKRgHe2PkjmvZs3qpJ
-	u5mbllKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dNVJXmnbo2ErI8XUBjroeAaAGQ/OI0+FqeSb9lvbJmo=; b=YwnJcZxjsQAoALyGzpK2AAHUr6
+	7CEDjHQ9wzbd65qytKj50fAmrTaURG09sRAFACRlMjfRcVKUoyJwsD8Rji6ZTR52EfJs4I/vIYMQP
+	YCyCaUzG6OvqNuatedC2UAbAankq9DG0NLoHPXZhB0WwRkfMCcrrw/Z6j+qE96PR0mB6JZ98OZn2A
+	aKJcE7EFXXHbNQIO2x1QVyi162zVgiPd0S6sYL6qkj/7GY0qieInergXiA1qPoWA8Y3Jtc10OZy4w
+	kcvIhTdHaxCq260dqaA88j+auUOwQAQLgW9FcPgYRxeeEVx1YRgxGD1NRt4AUL3SxVBaZaGwjvPjD
+	cPNsHQXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZSIx-0000000FhBA-2O7Q;
-	Tue, 16 Jun 2026 11:50:07 +0000
-Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
+	id 1wZSMp-0000000FheN-243q;
+	Tue, 16 Jun 2026 11:54:07 +0000
+Received: from mail.fris.de ([116.203.77.234])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZSIu-0000000FhAp-2ctb
+	id 1wZSMi-0000000FhaG-3nID
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Jun 2026 11:50:06 +0000
-Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-84234c83142so1991137b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 04:50:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781610603; x=1782215403; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=+B8CgWtXYrJhRkqUat12EDvVB3QBzEo8L7yf27L0qGs=;
-        b=MnJIgKssklnJm6gYpoxPsndidPTqu0sHTIjkmxxTB4J5H1H+ALTd7EZNllkTRQletz
-         NRAD74O56qE+PKt4fZ3sYwxDXu58BLZQQB4B/69CAw1D8v/K/2vsGqfp4pbANnNrh/YN
-         nMKBJZuWz+6Sk2NLAt8RDDJ+IU12E8YI0+f6EsQlreXSdpgHMJj9qaHr1mjEoTuplmwA
-         3YbmoLXXO+ZMmSURzlw4crVfFE2h/jkmhqixXoBiM8um+PsRnEJKZ/i6KG2I3IEu9PWM
-         DyCnwtzqNyAMzkJoPpIKhCCRLkG1PR+kUNr20SiNj/jHb1VPrWAmjhmHw/wglCEqn5vQ
-         KiNQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781610603; x=1782215403;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+B8CgWtXYrJhRkqUat12EDvVB3QBzEo8L7yf27L0qGs=;
-        b=qRBGDz3/QoXSppsIpApRFygp4kN4+4CibhaDcXzSWMIgj+vpVCwp4ggKONuz0VuiUA
-         179ZyI9SH0sdUm2e3LDgEJpw1SH8vL9DUJ0zVxGZd9INP6wTtBC0ymxFAg8l7AHheuct
-         sdoylc8cUGqkCHr1zEDjqDlHuOZwxZ4BdTv9ioVlyhp2yCy+Sis50x00OxuVNFG1w4Hs
-         RUDIcu9vzKwPy8BRDDt4As9SpKzBzbW/ztn9hjqg1G88OEuLNB1uXVHSU99s42enN3ug
-         57phXFhL7YNJCg1bzIwiHPTAJiU3XLnMW3CfnKbHIQ+Fhn/Pw77KMdGgKoqhbVFDG/qT
-         Ytyw==
-X-Forwarded-Encrypted: i=1; AFNElJ81L3X0g8AnfJSLRGJuwCCrLxeZ0D3E7SBOv+BMxlsoAxmxCE1uRtOfM53ItSysA7SHSoHNTKZZBU5UDV+5F0X3@lists.infradead.org
-X-Gm-Message-State: AOJu0YwpiRLvvMok/LjpuyCTsYr18ZzOWJ9fKvpP1HsUQlXTZwT/CEYA
-	P/2vFQu7gJVdXzdftrvseoRjXAuFSk5E+kgntP0PsMVRQ4kbBdmvmo0B
-X-Gm-Gg: Acq92OEYMPF4BQhrrIR6FoBd3AKn8R8DCFbjSOyQmnwwT7OSgpwLa4tfUkmcmAzIvHl
-	zrTS8xFTcO6rcNBk9RR83GqHnUuraR+nMjEUdJTQG6/HIsz9X9QMGMJjL+v3ErhOabiCLYVQdyG
-	aeO5YPQl2Y2423RQpC5iI0egUrPHG1dYRPexdQ6AiaMuwhnWrem7wNT2V0mcrt9gEx8zkvRdfcK
-	f9O763IdAF+KDB2LyIGRYGZDTPdMna6DvxAmyq4qiTrheADVvd5RJSKca7ZGCLjf2oEufNDXta6
-	UaYjusq3teqYJNRaD0Oj9wKefNK7XQq8U4aJXXxJ8Bc1yiu2KIvrGSo3FZ0TWyKHAhIhTrPgXWa
-	ZDLX84KXpZ+NQC5jhbC+Il32hEud0zQ5wP3S32NjcHD+bs73kC9jPECOAzCIs2P1VbP5/szshOD
-	T7KoDowVi2HlWyEVnUuS+efx0S2vTLtbpo19qS7hFoxvmbhA/KWo+qT8xsfXpCjDNp5jc4KCGJF
-	k9yS0Z0OYug
-X-Received: by 2002:a05:6a00:1309:b0:842:6fec:1296 with SMTP id d2e1a72fcca58-844e193a3f7mr15072267b3a.4.1781610602893;
-        Tue, 16 Jun 2026 04:50:02 -0700 (PDT)
-Received: from SLSGDTSWING002.tail0ac356.ts.net ([129.126.109.177])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8434ac9df57sm13255838b3a.7.2026.06.16.04.49.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 16 Jun 2026 04:50:02 -0700 (PDT)
-From: Weiming Shi <bestswngs@gmail.com>
-To: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Kristina Martsenko <kristina.martsenko@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	Zhong Wang <wangzhong.c0ss4ck@bytedance.com>,
-	Xuanqing Shi <shixuanqing.11@bytedance.com>,
-	Weiming Shi <bestswngs@gmail.com>
-Subject: [PATCH] KVM: arm64: nv: Translate vEL2 PSTATE to EL1 in kvm_hyp_handle_mops()
-Date: Tue, 16 Jun 2026 19:49:44 +0800
-Message-ID: <20260616114943.81188-2-bestswngs@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Tue, 16 Jun 2026 11:54:04 +0000
+From: Frieder Schrempf <frieder@fris.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fris.de; s=mail;
+	t=1781610839;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=dNVJXmnbo2ErI8XUBjroeAaAGQ/OI0+FqeSb9lvbJmo=;
+	b=Qxyzka9Z2/BfResNZYKxeAS+6gSafg+yztGnXQMcHZo9Dr6y0qa9ci+UVp/FK/QcoZ2UYI
+	c4u+n/DEcnVFu+P/UytMaYIdU78CxlcI9A+dbnoL1cxpQYxxCUqyrxddTvTLtwpe3kBHUK
+	RgZWBkpfg+XJLq/SCe44g9Xgqi6lzb8fTI6+QVNtMx+yzrAan8UepJV8FeCkLF+8dt2U1g
+	MsfxFvNjVvBIjrF7MGIpR2+7VhS22IVFOK6hfc8IkvoLakNiqZTHhoOQMZYJcpFryOpRzM
+	LYvxPB9EIAybY1c2oUj8IjdvNo3KtAqyCU8NjjixSd5oLLbIT2175aFxysrd4w==
+Date: Tue, 16 Jun 2026 13:52:17 +0200
+Subject: [PATCH 2/9] firmware: imx: ele: Fix indentation in ele_base_msg.h
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260616-upstreaming-next-20260609-imx-ocotp-ele-v1-2-cb7f3698c3e6@kontron.de>
+References: <20260616-upstreaming-next-20260609-imx-ocotp-ele-v1-0-cb7f3698c3e6@kontron.de>
+In-Reply-To: <20260616-upstreaming-next-20260609-imx-ocotp-ele-v1-0-cb7f3698c3e6@kontron.de>
+To: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Frieder Schrempf <frieder.schrempf@kontron.de>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1529;
+ i=frieder.schrempf@kontron.de; h=from:subject:message-id;
+ bh=9BlIi1Wa2vPpEtoll5ZFZen/fKfIAcvcQG9oPp3xYGQ=;
+ b=owGbwMvMwCWWWSatKlDTJMZ4Wi2JIcvQMnSl9XSvuvQF+jypDx44fXb3E6xwrjS8mSqq8Un8d
+ OeuprMdpSwMYlwMsmKKLFL8Fq9tzWJ95I9VR8HMYWUCGcLAxSkAEznZyMhw/2I5e9annUfSq4vM
+ zCztzzCl3A9hepe3QHjNd/9ZMk0nGP4KSSdW32C7GmpmxSp38NZZtr0/W1/uUy5nN9x+/2SyoBM
+ vAA==
+X-Developer-Key: i=frieder.schrempf@kontron.de; a=openpgp;
+ fpr=1A0F38EB3D365D4C1FC67B5A69761B25107C8216
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260616_045004_812306_52B03604 
-X-CRM114-Status: GOOD (  14.05  )
+X-CRM114-CacheID: sfid-20260616_045401_622111_F926C23A 
+X-CRM114-Status: UNSURE (   7.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,88 +84,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When a nested virtualisation guest is running its virtual EL2 (vEL2),
-fixup_guest_exit() rewrites vcpu_cpsr() to the guest's virtual exception
-level: a hardware PSTATE.M of EL1{t,h} is presented as EL2{t,h}. The
-hardware, however, executes vEL2 at EL1.
+From: Frieder Schrempf <frieder.schrempf@kontron.de>
 
-kvm_hyp_handle_mops() runs on the fast guest re-entry path, where it
-clears the single-step bit and restores SPSR_EL2 directly from
-vcpu_cpsr():
+The file uses mixed indentation characters. Use tabs everywhere.
 
-	*vcpu_cpsr(vcpu) &= ~DBG_SPSR_SS;
-	write_sysreg_el2(*vcpu_cpsr(vcpu), SYS_SPSR);
-
-For a guest hypervisor this writes the vEL2 view (PSTATE.M == EL2h) into
-the hardware SPSR_EL2 without translating it back. The fast path re-enters
-the guest via __guest_enter()/ERET without going through
-__sysreg_restore_el2_return_state(), so neither to_hw_pstate() nor the
-"return to a less privileged mode" safety check there (which would set
-PSR_IL_BIT) is applied. The ERET therefore restores PSTATE.M = EL2h and
-re-enters the guest at the real EL2 with a guest-controlled ELR, escaping
-stage-2 and the guest/host boundary.
-
-This is reachable on a kernel with FEAT_MOPS running a KVM nested guest
-(kvm-arm.mode=nested): KVM sets HCRX_EL2.MCE2, which the guest hypervisor
-cannot clear for its own context (is_nested_ctxt() is false), so a vEL2
-MOPS exception is taken to the host and dispatched to kvm_hyp_handle_mops()
-with VCPU_IN_HYP_CONTEXT set.
-
-Translate EL2{t,h} back to EL1{t,h} before writing SPSR_EL2, mirroring
-kvm_hyp_handle_eret(). For non-nested guests vcpu_cpsr() never holds an
-EL2 mode, so the translation is a no-op and behaviour is unchanged.
-
-Fixes: 2de451a329cf ("KVM: arm64: Add handler for MOPS exceptions")
-Assisted-by: Claude:claude-opus-4-8
-Reported-by: Zhong Wang <wangzhong.c0ss4ck@bytedance.com>
-Reported-by: Xuanqing Shi <shixuanqing.11@bytedance.com>
-Signed-off-by: Weiming Shi <bestswngs@gmail.com>
+Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
 ---
- arch/arm64/kvm/hyp/include/hyp/switch.h | 23 ++++++++++++++++++++++-
- 1 file changed, 22 insertions(+), 1 deletion(-)
+ drivers/firmware/imx/ele_base_msg.h | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
 
-diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
-index e9b36a3b27bbc..a6b7963ddbf0b 100644
---- a/arch/arm64/kvm/hyp/include/hyp/switch.h
-+++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-@@ -448,6 +448,8 @@ static inline bool __populate_fault_info(struct kvm_vcpu *vcpu)
+diff --git a/drivers/firmware/imx/ele_base_msg.h b/drivers/firmware/imx/ele_base_msg.h
+index 75e65e279193..1c5d6791b323 100644
+--- a/drivers/firmware/imx/ele_base_msg.h
++++ b/drivers/firmware/imx/ele_base_msg.h
+@@ -27,19 +27,19 @@
+ #define ELE_GEN_KEY_BLOB_REQ		0xaf
+ #define ELE_GET_FW_STATUS_REQ		0xc5
+ #define ELE_XIP_DECRYPT_REQ		0xc6
+-#define ELE_WRITE_FUSE                  0xd6
+-#define ELE_DEV_ATTEST_REQ              0xdb
+-#define ELE_WRITE_SHADOW_FUSE_REQ       0xf2
+-#define ELE_READ_SHADOW_FUSE_REQ        0xf3
++#define ELE_WRITE_FUSE			0xd6
++#define ELE_DEV_ATTEST_REQ		0xdb
++#define ELE_WRITE_SHADOW_FUSE_REQ	0xf2
++#define ELE_READ_SHADOW_FUSE_REQ	0xf3
  
- static inline bool kvm_hyp_handle_mops(struct kvm_vcpu *vcpu, u64 *exit_code)
- {
-+	u64 spsr, mode;
-+
- 	*vcpu_pc(vcpu) = read_sysreg_el2(SYS_ELR);
- 	arm64_mops_reset_regs(vcpu_gp_regs(vcpu), vcpu->arch.fault.esr_el2);
- 	write_sysreg_el2(*vcpu_pc(vcpu), SYS_ELR);
-@@ -457,7 +459,26 @@ static inline bool kvm_hyp_handle_mops(struct kvm_vcpu *vcpu, u64 *exit_code)
- 	 * instruction.
- 	 */
- 	*vcpu_cpsr(vcpu) &= ~DBG_SPSR_SS;
--	write_sysreg_el2(*vcpu_cpsr(vcpu), SYS_SPSR);
-+
-+	/*
-+	 * For a guest hypervisor, vcpu_cpsr() holds the vEL2 view
-+	 * (PSTATE.M == EL2h) installed by fixup_guest_exit(), but vEL2
-+	 * runs at EL1. Translate it back before restoring SPSR_EL2, as in
-+	 * kvm_hyp_handle_eret().
-+	 */
-+	spsr = *vcpu_cpsr(vcpu);
-+	mode = spsr & (PSR_MODE_MASK | PSR_MODE32_BIT);
-+	switch (mode) {
-+	case PSR_MODE_EL2t:
-+		mode = PSR_MODE_EL1t;
-+		break;
-+	case PSR_MODE_EL2h:
-+		mode = PSR_MODE_EL1h;
-+		break;
-+	}
-+	spsr = (spsr & ~(PSR_MODE_MASK | PSR_MODE32_BIT)) | mode;
-+
-+	write_sysreg_el2(spsr, SYS_SPSR);
+ #define ELE_GET_INFO_REQ		0xda
+ #define ELE_GET_INFO_REQ_MSG_SZ		0x10
+ #define ELE_GET_INFO_RSP_MSG_SZ		0x08
  
- 	return true;
- }
+-#define MAX_UID_SIZE                     (16)
+-#define DEV_GETINFO_ROM_PATCH_SHA_SZ     (32)
+-#define DEV_GETINFO_FW_SHA_SZ            (32)
+-#define DEV_GETINFO_OEM_SRKH_SZ          (64)
++#define MAX_UID_SIZE			(16)
++#define DEV_GETINFO_ROM_PATCH_SHA_SZ	(32)
++#define DEV_GETINFO_FW_SHA_SZ		(32)
++#define DEV_GETINFO_OEM_SRKH_SZ		(64)
+ #define DEV_GETINFO_MIN_VER_MASK	0xff
+ #define DEV_GETINFO_MAJ_VER_MASK	0xff00
+ #define ELE_DEV_INFO_EXTRA_SZ		0x60
+
 -- 
-2.43.0
+2.54.0
 
 
