@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53FFBCD98E1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 15:16:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A31E9CD98E1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 15:18:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6p+RlG1yJ9LChAtcgysiZFznKaiWMZkWJEOXAVXMk38=; b=kgpZw5PYZcTd5VQ+awPIIcXp/h
-	RXN0PSq/GA01DmMSwSQbRP729sasF9Fw0Jo+k77/kHdmXAGnQyz3QjWctAue11a6crivkRoP1GIp6
-	Wpp5mI8yzgrFXz1iAlPIP7RKk20Z5hqD/cV26Lg5r+vjvvb/qilcqzW0aVp6kMw9R0tzNG9NfnwZ3
-	WrSUcdFd2zccy4KMT2sSsEvd5nUJLhGdJWOjpPSw03zcn7+vPMEIrzsG8wC8V1SMP2VkrXRKhqaKa
-	QP1bu85zw3JIhYgoIIDq+ylqvLAK140+eX8bZZKuMQvcjuDUCtuzFkdCSrX5Co9l+qXYva15aLYxc
-	SQ+OF7dQ==;
+	bh=Z/z23ki6JU1wVLxYHN7jiBJVtals/LDfa5OPoy17TRg=; b=1VUi8BglVEnISGwsgtGW8DV/JR
+	RVAvE0NfpWvVt5PCe3PgutER+qTGY+NAn/loumICh+ab+et0a1/SN8HTLhBsFOahXRZHCctEHEIpU
+	omD3wQ7ZWWHqmMpNB7H03N9FLDfbD6GixRPO+84DQp4xyy80+oLTqxuBpVWy5fmn3P4n54+M2+nPM
+	JtFYtkKLYwIQKwazX8z6uxwhslEFp0UCrFd5TNdGMYGKrI+f0n44fp7zM4D76Dn1itueF6Hm5tGQp
+	wBT3PDU9vjNHZWYwD5EKjLAssIDQUBSkWwqTT6PuhbSUQHK+RJpuxzgKoz/P84iSUHXi73Q8MDSsE
+	JVjPRFmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZVWS-0000000FzY1-3lCF;
-	Tue, 16 Jun 2026 15:16:16 +0000
+	id 1wZVYD-0000000Fzg6-0nEW;
+	Tue, 16 Jun 2026 15:18:05 +0000
 Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZVWQ-0000000FzXW-0H5I
+	id 1wZVYA-0000000Fzfb-11rT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Jun 2026 15:16:15 +0000
+	Tue, 16 Jun 2026 15:18:03 +0000
 Received: from localhost.localdomain (unknown [111.196.245.140])
-	by APP-03 (Coremail) with SMTP id rQCowAAH7OK7aDFqCiDxFA--.41914S2;
-	Tue, 16 Jun 2026 23:16:11 +0800 (CST)
+	by APP-03 (Coremail) with SMTP id rQCowADX5s0naTFqpi3xFA--.13356S2;
+	Tue, 16 Jun 2026 23:17:59 +0800 (CST)
 From: Pengpeng Hou <pengpeng@iscas.ac.cn>
-To: Gatien Chevallier <gatien.chevallier@foss.st.com>
-Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
 	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
 	Pengpeng Hou <pengpeng@iscas.ac.cn>
-Subject: [PATCH] bus: stm32_rifsc: clean up debugfs file with device state
-Date: Tue, 16 Jun 2026 23:16:04 +0800
-Message-ID: <20260616151604.10548-1-pengpeng@iscas.ac.cn>
+Subject: [PATCH] memory: atmel-ebi: unwind SMC clock on probe failures
+Date: Tue, 16 Jun 2026 23:17:57 +0800
+Message-ID: <20260616151757.32322-1-pengpeng@iscas.ac.cn>
 X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowAAH7OK7aDFqCiDxFA--.41914S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Cr15JryxZr4xur1rtw17trb_yoW8CF47pa
-	n5Cr9xGr40yw43AFZxAF10qr9aqrZ7XrnxWryxu348uF4Syr10k3y5XrWY9FWUJa48Kayk
-	XF45t34UZr1DCr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+X-CM-TRANSID: rQCowADX5s0naTFqpi3xFA--.13356S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7tr1DWw4DtF18Ww4UJryrZwb_yoW5Jr4DpF
+	WUAFW8KrW0ga4Iga17tF4DZ3Wak3yxKayIkrW7C34v93ZIyryrXFyrAFy2qFs5AFWkGw13
+	XayUJFy8ua17ZF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
 	9KBjDU0xBIdaVrnRJUUUkC14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
 	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
 	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
@@ -64,8 +64,8 @@ X-Coremail-Antispam: 1UD129KBjvJXoW7Cr15JryxZr4xur1rtw17trb_yoW8CF47pa
 X-Originating-IP: [111.196.245.140]
 X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260616_081614_574044_456BF6C9 
-X-CRM114-Status: GOOD (  11.61  )
+X-CRM114-CacheID: sfid-20260616_081802_701749_B735BCFF 
+X-CRM114-Status: GOOD (  11.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,57 +80,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-stm32_rifsc_register_debugfs() creates a debugfs file whose private data
-is devm-allocated RIFSC debug state. If a later probe step fails, or if
-the device is removed, that debugfs file can outlive the private data it
-dereferences.
+atmel_ebi_probe() obtains the SMC clock with of_clk_get() and enables it
+before several later validation and child setup steps.  Those later
+failures currently return directly, leaving the non-managed SMC clock
+enabled and referenced.
 
-Keep the created dentry and register a devm cleanup action so the file is
-removed before the RIFSC state is released.
+Route the post-enable failures through common cleanup labels, put the SMC
+clock on enable failure, and depopulate any partially created children if
+the final child population fails.
 
 Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
 ---
- drivers/bus/stm32_rifsc.c | 14 ++++++++++++--
- 1 file changed, 12 insertions(+), 2 deletions(-)
+ drivers/memory/atmel-ebi.c | 28 +++++++++++++++++++++-------
+ 1 file changed, 21 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/bus/stm32_rifsc.c b/drivers/bus/stm32_rifsc.c
-index 19d10379dcef..3877198e6eb9 100644
---- a/drivers/bus/stm32_rifsc.c
-+++ b/drivers/bus/stm32_rifsc.c
-@@ -602,11 +602,17 @@ static int stm32_rifsc_conf_dump_show(struct seq_file *s, void *data)
- }
- DEFINE_SHOW_ATTRIBUTE(stm32_rifsc_conf_dump);
+diff --git a/drivers/memory/atmel-ebi.c b/drivers/memory/atmel-ebi.c
+index 1e8e8aba2542..f331eed362c5 100644
+--- a/drivers/memory/atmel-ebi.c
++++ b/drivers/memory/atmel-ebi.c
+@@ -562,7 +562,7 @@ static int atmel_ebi_probe(struct platform_device *pdev)
+ 	}
+ 	ret = clk_prepare_enable(ebi->smc.clk);
+ 	if (ret)
+-		return ret;
++		goto err_put_smc_clk;
  
-+static void stm32_rifsc_remove_debugfs(void *data)
-+{
-+	debugfs_remove(data);
-+}
+ 	/*
+ 	 * The sama5d3 does not provide an EBICSA register and thus does need
+@@ -572,14 +572,16 @@ static int atmel_ebi_probe(struct platform_device *pdev)
+ 		ebi->regmap =
+ 			syscon_regmap_lookup_by_phandle(np,
+ 							ebi->caps->regmap_name);
+-		if (IS_ERR(ebi->regmap))
+-			return PTR_ERR(ebi->regmap);
++		if (IS_ERR(ebi->regmap)) {
++			ret = PTR_ERR(ebi->regmap);
++			goto err_disable_smc_clk;
++		}
+ 	}
+ 
+ 	ret = of_property_read_u32(np, "#address-cells", &val);
+ 	if (ret) {
+ 		dev_err(dev, "missing #address-cells property\n");
+-		return ret;
++		goto err_disable_smc_clk;
+ 	}
+ 
+ 	reg_cells = val;
+@@ -587,7 +589,7 @@ static int atmel_ebi_probe(struct platform_device *pdev)
+ 	ret = of_property_read_u32(np, "#size-cells", &val);
+ 	if (ret) {
+ 		dev_err(dev, "missing #address-cells property\n");
+-		return ret;
++		goto err_disable_smc_clk;
+ 	}
+ 
+ 	reg_cells += val;
+@@ -603,11 +605,23 @@ static int atmel_ebi_probe(struct platform_device *pdev)
+ 
+ 			ret = atmel_ebi_dev_disable(ebi, child);
+ 			if (ret)
+-				return ret;
++				goto err_disable_smc_clk;
+ 		}
+ 	}
+ 
+-	return of_platform_populate(np, NULL, NULL, dev);
++	ret = of_platform_populate(np, NULL, NULL, dev);
++	if (ret) {
++		of_platform_depopulate(dev);
++		goto err_disable_smc_clk;
++	}
 +
- static int stm32_rifsc_register_debugfs(struct stm32_firewall_controller *rifsc_controller,
- 					u32 nb_risup, u32 nb_rimu, u32 nb_risal)
- {
- 	struct rifsc_dbg_private *rifsc_priv;
- 	struct dentry *root = NULL;
-+	struct dentry *file;
- 
- 	rifsc_priv = devm_kzalloc(rifsc_controller->dev, sizeof(*rifsc_priv), GFP_KERNEL);
- 	if (!rifsc_priv)
-@@ -625,9 +631,13 @@ static int stm32_rifsc_register_debugfs(struct stm32_firewall_controller *rifsc_
- 	if (IS_ERR(root))
- 		return PTR_ERR(root);
- 
--	debugfs_create_file("rifsc", 0444, root, rifsc_priv, &stm32_rifsc_conf_dump_fops);
-+	file = debugfs_create_file("rifsc", 0444, root, rifsc_priv,
-+				   &stm32_rifsc_conf_dump_fops);
-+	if (IS_ERR(file))
-+		return PTR_ERR(file);
- 
--	return 0;
-+	return devm_add_action_or_reset(rifsc_controller->dev,
-+					stm32_rifsc_remove_debugfs, file);
++	return 0;
++
++err_disable_smc_clk:
++	clk_disable_unprepare(ebi->smc.clk);
++err_put_smc_clk:
++	clk_put(ebi->smc.clk);
++	return ret;
  }
- #endif /* defined(CONFIG_DEBUG_FS) */
  
+ static __maybe_unused int atmel_ebi_resume(struct device *dev)
 -- 
 2.43.0
 
