@@ -4,76 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B643CD98DA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 12:54:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 000E4CD98E1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 12:54:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kp1syzW1srOQcyb+eZQpIHaaqzeGgItPN+sOMv5L2Hg=; b=09QdINiiMdyR0EEKsl+vMbvrT3
-	ljSeIsHGVAeqnKVdemovebrwPjEzC1FrdTFl3MZHkjZHl366Xq99wdm8K+Gw4KLtkFvyl9TrLpNcp
-	wyfJlo+yoU2cRo9jh+GC04tSg4TLZBlGK7GiBZVWUgi7Cv0jSx7hEsWIs3yhw9zz63nT3yZHgcuOX
-	ryS8PL8MNnPCboR8jzK0gDPJ7w9NevuGZXseO74jYn1JFv9nGDSakLkW9PKcd3BV7Y927LvwEK5pG
-	JCfEGz3jxEgZX3I6jYCyoWzQsOjSYNEl+nDja9uUKiiQ45UiWU8tescS4LPuHKKvNGyQtx4JvND6H
-	nbaz1fRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TSf3030RVTK4uKHu0QPzsTd4Zqy3YqljDoHw7m8yJ5E=; b=mCBoZciy8N+YysLx5HqX/Z+luD
+	LGdG98sKqmmUQ7+UWQGqrhES6FOw6GhBUC+8WaQ+RvV6KkY50OVBDioM7TNCH4eAb/o1hoQsbDq4D
+	ERasneSSV0qrvloZKPIDcCFeuJXXpYZ0IM4ae7L+6Ftj3I0WhEVHR8XOYmhe0sLlPG5rYSjoZn9ka
+	HF49T2oC7Miu5x4u+f6vWAdrO9R+wfjYdeE2AlISFSz7roNeG5k75yzDiAW9lgzAt+gTHneMUtPEW
+	gaFCV+Hl9qvkVlrHE7mSlS9SX+8WmUTfK5Gdh/OvVdHWn4LlOhN+Dy1VRBIhehfTMXiOTSDCw4/xZ
+	BCFRyY+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZTIj-0000000FnaY-0Rr4;
-	Tue, 16 Jun 2026 12:53:57 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wZTJT-0000000FnjR-1rkX;
+	Tue, 16 Jun 2026 12:54:43 +0000
+Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZTIh-0000000Fna4-2YV4
+	id 1wZTJQ-0000000FniR-2D0W
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Jun 2026 12:53:55 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id DC86860172
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 12:53:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9451D1F00ADB
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 12:53:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781614434;
-	bh=kp1syzW1srOQcyb+eZQpIHaaqzeGgItPN+sOMv5L2Hg=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=JUrsC+XKP0qscMP7HnDfrjRQ5ozuE9hbzBs0+iQMt0fT6UdRzpvOOtTYmVgwiQgo3
-	 tl2PGkkWyGntRfGI47/vPqdpoKco0OMvD34hr7l5spnoO7bPndkY4IEu/XilC2eNnI
-	 H9u2U7NpDdw5zdnWMcAx1ZThsxbefVoJN4ROv+nxQArO3IPIRGkf5hufb4ojt9SRgY
-	 KyG0NvdvuQG7T1wBhhUfV/7A07FLTVvmyHUR6vZOpbBIg0ddZMDkGGYyGgKf7SGNMr
-	 6uBVXZMLwgqVlT08MaZh5cM/DhT7JaR/sEh3tELaBROfyOPbrSSqSO7sTkHsksxhwA
-	 8X9FwEViiLwVg==
-Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-5aa68d65d24so4111274e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 05:53:54 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ8epElGhAp35xtU8+B/mocWj+Y+o7EKkIfjVC6RR4WQpc8Nq7A1Gsay5y57MOmMcyjcaoDu3P4dYTGBl4N6RK7E@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy3edK/acdGVTBThltij47kQs7G7TlEe5RrxTC2U9dLspYxlnUr
-	U8y6e8vB8254QjRhTA+YnU14RwLlKunIIWqfz30MHBA49ebUyPNypy4NHCw3jDs1sfhiO06wB4I
-	ZxtMHLPeLBGoe6NdBrkK2xAqLIJqmFBEqJqizdGwQ+w==
-X-Received: by 2002:ac2:5df3:0:b0:5ad:3035:c2c2 with SMTP id
- 2adb3069b0e04-5ad428bdd78mr855785e87.51.1781614433226; Tue, 16 Jun 2026
- 05:53:53 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 16 Jun 2026 12:53:51 +0000
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 16 Jun 2026 12:53:51 +0000
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260610153329.937833-2-v@baodeep.com>
+	Tue, 16 Jun 2026 12:54:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=cJ9N96Hhh/dDmiq2Pl5/aqIzpQprd3o6HDrLdF5Objvb8PeeJ9lKDVsSYuV1nxIXKiFDmB5nXNYs80aqJmvmuYzLSMJcRlZ01ivsQQwRkSzDboFQyJHjURiWDPbCK45ZhdnKxL6DnHyeqNBFCWRm+3wt7vU4Xd2IP/bNoLJ7nI7hWTjT6bWdFuWWs5uQz4TInXu+bv3hXlak24wkCDvYSjUjKZ9RqCOvtvAfOC5FITW9J31PuBqlMnF5bHsoiV1kDRX9dRqriQckkN+yjTk51eu1+xBm0WDTOdsQxrEg3hb4mZ9F48Cz+NxJmH7cBh4aNgUlfCP4SpSJ8A6+iMbL9A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=TSf3030RVTK4uKHu0QPzsTd4Zqy3YqljDoHw7m8yJ5E=;
+ b=Yzfs9gdUQRzCMGFeWs2ePFTQbppv9WrAu1tjkeZaoaOKMgXelZd3BOgjWEvEjy7hA5Hj/KNnUp231hyIXLpkN7R/AQenD2pQ4bLwjv0qubwgOQLELObzWBysoDxx6b/9XtFM4qTWd2zjPQjZt+FnlXavAOSSbEwJiJTRZBvVe2dO+MSzeSTUrVp+ZCAPbo6kWcikj7T2i4szSlYZlDYPzKAqZmeiDCai3gPasORPxTO4A/dSc0M0yq3hmqu1x94j550sTKj32kvqZgPcJog3EMe+bxWKIYvGqfzy92FZtgvRnPs+nEO0iR/MhKOKc0RlXOVt0y/Q0olNw0Z0JK0vZA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=TSf3030RVTK4uKHu0QPzsTd4Zqy3YqljDoHw7m8yJ5E=;
+ b=DYbz2JYwdMLGnuxdQWXyk14bpd0qzNS4lcOJQ/eIGLB2IAozeAeGypHPaotFMZklEf4LoTXXvunoENd4VWJdLRZgyl8OQDgCnG/PugigMF1KucXx3ayiYqjTU+j9pRkl6Al5CF2rf0yJVlaowEowEjXAFMzQDTwcCBEu/h+U+rI=
+Received: from DS7PR03CA0136.namprd03.prod.outlook.com (2603:10b6:5:3b4::21)
+ by SA1PR10MB6319.namprd10.prod.outlook.com (2603:10b6:806:252::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.13; Tue, 16 Jun
+ 2026 12:54:33 +0000
+Received: from DS2PEPF00003442.namprd04.prod.outlook.com
+ (2603:10b6:5:3b4:cafe::a9) by DS7PR03CA0136.outlook.office365.com
+ (2603:10b6:5:3b4::21) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.113.18 via Frontend Transport; Tue,
+ 16 Jun 2026 12:54:32 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
+Received: from flwvzet201.ext.ti.com (198.47.21.195) by
+ DS2PEPF00003442.mail.protection.outlook.com (10.167.17.69) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.139.8 via Frontend Transport; Tue, 16 Jun 2026 12:54:32 +0000
+Received: from DFLE214.ent.ti.com (10.64.6.72) by flwvzet201.ext.ti.com
+ (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 16 Jun
+ 2026 07:54:29 -0500
+Received: from DFLE211.ent.ti.com (10.64.6.69) by DFLE214.ent.ti.com
+ (10.64.6.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 16 Jun
+ 2026 07:54:28 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE211.ent.ti.com
+ (10.64.6.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Tue, 16 Jun 2026 07:54:28 -0500
+Received: from [172.24.231.93] (ti.dhcp.ti.com [172.24.231.93] (may be forged))
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 65GCsMfU024437;
+	Tue, 16 Jun 2026 07:54:23 -0500
+Message-ID: <d0123269-b1e8-4fba-94b0-b94d3d9a5405@ti.com>
+Date: Tue, 16 Jun 2026 18:24:22 +0530
 MIME-Version: 1.0
-References: <20260610153329.937833-1-v@baodeep.com> <20260610153329.937833-2-v@baodeep.com>
-Date: Tue, 16 Jun 2026 12:53:51 +0000
-X-Gmail-Original-Message-ID: <CAMRc=Mf-nMWzTiP3vZQSBW_NQQ6OFPmMGGG0-VE_iWs-B-Q4_A@mail.gmail.com>
-X-Gm-Features: AVVi8CfI5Xcsmf9X5ZMB8tIz5JfgYHEL15SP9-TSKbR6tUfKWWLJo7jfpnDNBRA
-Message-ID: <CAMRc=Mf-nMWzTiP3vZQSBW_NQQ6OFPmMGGG0-VE_iWs-B-Q4_A@mail.gmail.com>
-Subject: Re: [PATCH 1/2] gpio: shared-proxy: always serialize with a sleeping mutex
-To: Viacheslav Bocharov <v@baodeep.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
-	Marek Szyprowski <m.szyprowski@samsung.com>, Robin Murphy <robin.murphy@arm.com>, 
-	Diederik de Haas <diederik@cknow-tech.com>, linux-gpio@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Linus Walleij <linusw@kernel.org>, 
-	Bartosz Golaszewski <brgl@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v7 2/2] net: ti: icssg-prueth: Add ethtool ops
+ for Frame Preemption MAC Merge
+To: Jakub Kicinski <kuba@kernel.org>
+CC: <elfring@users.sourceforge.net>, <haokexin@gmail.com>,
+	<vadim.fedorenko@linux.dev>, <devnexen@gmail.com>, <horms@kernel.org>,
+	<jacob.e.keller@intel.com>, <arnd@arndb.de>, <basharath@couthit.com>,
+	<afd@ti.com>, <parvathi@couthit.com>, <vladimir.oltean@nxp.com>,
+	<rogerq@kernel.org>, <danishanwar@ti.com>, <pabeni@redhat.com>,
+	<edumazet@google.com>, <davem@davemloft.net>, <andrew+netdev@lunn.ch>,
+	<linux-arm-kernel@lists.infradead.org>, <netdev@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <srk@ti.com>, <vigneshr@ti.com>
+References: <20260610052511.781752-3-m-malladi@ti.com>
+ <20260615231041.1007484-1-kuba@kernel.org>
+ <20260615163932.50bb3df0@kernel.org>
+Content-Language: en-US
+From: Meghana Malladi <m-malladi@ti.com>
+In-Reply-To: <20260615163932.50bb3df0@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS2PEPF00003442:EE_|SA1PR10MB6319:EE_
+X-MS-Office365-Filtering-Correlation-Id: ed6102de-8bd4-413c-ebe9-08decba66912
+X-LD-Processed: e5b49634-450b-4709-8abb-1e2b19b982b7,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|23010399003|36860700016|82310400026|1800799024|4143699003|56012099006|6133799003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: SQxr1KSDWCOlHg09/PVtVJowckHdAAot+cw3+XXuLBUnFtY03KSgmYqfI4x3d1aK/Fc8vZaX9A1Pl+qrWZwIAKnjdm+5trgArnsvzIgZWMBK10qi2VNEXngwQwqgUYGMNr7Z2Aie2kMe2pc7xRqAVxp0ZJnj8T5bZuM6sHl6JAA4WTPep2EIfY5RrfEBL5oRE96IL0IZLkGL5jM9xkVQVX2du16vkblBCcM8cVcg3Q7ZyvmQ/z0fC6U5K/UDtA4NKqv9q6wfcBYfjdTi7VLnOsraSWfwveQkQeypHcgYqTj/QRyVrryLjRMmNj4Gj7q5pEkDQgKua0Q4nhAVSEu69d3vI4wfmn4UImVytdSXjMYT1FfWG9fIQj8abTOzFg5XFOYxTnk37KdAxkGaN+71f8scSnZgWmBiORGJBp+JyFCKJ+MYxjH3dvqN6NDXIGOaZaomzlBNbH8rTk/PnfnKf6tLIxDtfelVVIQH3KZl2Rd8qyXCBbUywnzDrmzJ4NhZTZKtzpxi1zLgR4Pk/UYOvuk6nn4dbr2j53NuKXKF608U7kCorzjoYzb0Urf4ndM2ABcas0F8Aj8o84aQW30c1IrVnrIFpvhhoyXOneP+KC+N44Gv3Fw7slhHfB2pAg/iGbvynVNsAKlez8pGf6mwzDPBJypDU75ZXzzT5X9MsgMq/dzMUSoNkR/u5rF6Ye6KmXLJFhQKf3orhbHbFddYKCbWY9RAfGw5kgTYXCgrFbg=
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(7416014)(376014)(23010399003)(36860700016)(82310400026)(1800799024)(4143699003)(56012099006)(6133799003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: AlXsitBGVw3Q3G9cJSx8rfXJJna1ZnIk5xzvaTqtvPCLsTZQLFFBH5gSDBmgK4qK6yVo4zOehER6Y+W6+FH8a1JUBgrESFAs4OtBTaHivpWH+iARtdF6nfBJnSvcxpGbDhAy40lRmY+CcbsEfQQOGfOJeH++frepgYoXskozcRquOKz10CwMxhsdCh1fLq2a8YZ4F6IM2wxAMkd0xw4MSpv/1M3C4GK/ZQI43k54S5NkbLTTiOqsmBtoAUP6BiNmvI6ATCSULv8AKdpcKFvFWBXBzrGKkzBV5N94NrH56EdkUV/Z2FtQZ+upml7hJcaB2DHx1tstbLhRjYDkicmuPSIrvbaGD7vTOYRnG6L7Tbq5NntIHIAHzG92mFAnPFqEMK9w1LFLJglDD+GbB5kNNR5Y8mb9rYiyvkpjbvDrCdmrF+c3d5/dLzTI/RueBr7e
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jun 2026 12:54:32.0031
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: ed6102de-8bd4-413c-ebe9-08decba66912
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: DS2PEPF00003442.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR10MB6319
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260616_055440_688248_3B6B5AC5 
+X-CRM114-Status: GOOD (  12.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,260 +140,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 10 Jun 2026 17:32:10 +0200, Viacheslav Bocharov <v@baodeep.com> said:
-> The shared GPIO descriptor used either a mutex or a spinlock, chosen at
-> runtime from the underlying chip's can_sleep:
->
-> 	shared_desc->can_sleep = gpiod_cansleep(shared_desc->desc);
-> 	... if (can_sleep) mutex_lock(); else spin_lock_irqsave();
->
-> can_sleep describes only the value path (->get/->set). Under the same
-> lock, however, the proxy may call gpiod_set_config() and
-> gpiod_direction_*(), which can reach pinctrl paths that take a mutex
-> (e.g. gpiod_set_config() -> gpiochip_generic_config() ->
-> pinctrl_gpio_set_config()), independent of can_sleep. On a controller
-> with non-sleeping MMIO value ops the descriptor lock was a spinlock, so
-> the sleeping pinctrl call ran from atomic context. Reproduced on an
-> Amlogic A113X board with the workaround from commit 28f240683871
-> ("pinctrl: meson: mark the GPIO controller as sleeping") reverted; the
-> original Khadas VIM3 report hit the same path:
->
-> 	BUG: sleeping function called from invalid context
-> 	  __mutex_lock
-> 	  pinctrl_get_device_gpio_range
-> 	  pinctrl_gpio_set_config
-> 	  gpiochip_generic_config
-> 	  gpiod_set_config
-> 	  gpio_shared_proxy_set_config   <- voting spinlock held
-> 	  ...
-> 	  mmc_pwrseq_simple_probe
->
-> The spinlock existed to take the value vote from atomic context, but the
-> vote and the (possibly sleeping) control operations share the same state
-> and lock, so this scheme cannot serialize config under a mutex and still
-> offer atomic value access. Always serialize the shared descriptor with a
-> mutex instead and mark the proxy a sleeping gpiochip, driving the
-> underlying GPIO through the cansleep value accessors: those are valid
-> for both sleeping and non-sleeping chips, so value access keeps working
-> on fast controllers, at the cost of no longer being atomic.
->
-> This is observable: consumers gating on gpiod_cansleep() take their
-> sleeping branch on a proxied GPIO (mmc-pwrseq-emmc skips its
-> emergency-restart reset handler; its normal reset is unaffected), and
-> consumers that reject sleeping GPIOs (pwm-gpio, ps2-gpio, ...) would
-> fail to probe. Such atomic users do not share a pin through the proxy,
-> whose purpose is voting on shared reset/enable lines. The same narrowing
-> already applies on Amlogic since that workaround, and rockchip
-> addressed the identical splat per-driver in commit 7ca497be0016 ("gpio:
-> rockchip: Stop calling pinctrl for set_direction"); fixing the proxy
-> addresses the locking error once, for every controller.
->
-> The lock type was added by commit a060b8c511ab ("gpiolib: implement
-> low-level, shared GPIO support"); the sleeping call under it arrived with
-> the proxy driver.
->
-> Fixes: e992d54c6f97 ("gpio: shared-proxy: implement the shared GPIO proxy driver")
-> Reported-by: Marek Szyprowski <m.szyprowski@samsung.com>
-> Closes: https://lore.kernel.org/all/00107523-7737-4b92-a785-14ce4e93b8cb@samsung.com/
-> Signed-off-by: Viacheslav Bocharov <v@baodeep.com>
-> ---
+Hi Jakub,
 
-Sigh... Ok let's try this. This limits users of shared pins to using them from
-process context exclusively but maybe there is in fact no need to do it from
-atomic context. After all: bit-banging can't work if we're using the voting
-mechanism.
+On 6/16/26 05:09, Jakub Kicinski wrote:
+> On Mon, 15 Jun 2026 16:10:41 -0700 Jakub Kicinski wrote:
+>>> diff --git a/drivers/net/ethernet/ti/icssg/icssg_stats.h b/drivers/net/ethernet/ti/icssg/icssg_stats.h
+>>> index 5ec0b38e0c67..8073deac35c3 100644
+>>> --- a/drivers/net/ethernet/ti/icssg/icssg_stats.h
+>>> +++ b/drivers/net/ethernet/ti/icssg/icssg_stats.h
+>>> @@ -189,6 +187,11 @@ static const struct icssg_pa_stats icssg_all_pa_stats[] = {
+>>>   	ICSSG_PA_STATS(FW_INF_DROP_PRIOTAGGED),
+>>>   	ICSSG_PA_STATS(FW_INF_DROP_NOTAG),
+>>>   	ICSSG_PA_STATS(FW_INF_DROP_NOTMEMBER),
+>>> +	ICSSG_PA_STATS(FW_PREEMPT_BAD_FRAG),
+>>> +	ICSSG_PA_STATS(FW_PREEMPT_ASSEMBLY_ERR),
+>>> +	ICSSG_PA_STATS(FW_PREEMPT_FRAG_CNT_TX),
+>>> +	ICSSG_PA_STATS(FW_PREEMPT_ASSEMBLY_OK),
+>>> +	ICSSG_PA_STATS(FW_PREEMPT_FRAG_CNT_RX),
+>>>   	ICSSG_PA_STATS(FW_RX_EOF_SHORT_FRMERR),
+>>>   	ICSSG_PA_STATS(FW_RX_B0_DROP_EARLY_EOF),
+>>>   	ICSSG_PA_STATS(FW_TX_JUMBO_FRM_CUTOFF),
+>>
+>> [Medium]
+>> Are these five new entries duplicating values that already have a
+>> standard uAPI?
+>>
+>> The same five firmware counters are exposed through the new
+>> .get_mm_stats callback as the standardized MAC Merge stats
+>> (MACMergeFrameAssOkCount, MACMergeFrameAssErrorCount, MACMergeFragCountRx,
+>> MACMergeFragCountTx, MACMergeFrameSmdErrorCount in struct
+>> ethtool_mm_stats), and adding them to icssg_all_pa_stats[] also
+>> publishes them via emac_get_strings() / emac_get_ethtool_stats() as
+>> ethtool -S strings.
+>>
+>> Documentation/networking/statistics.rst describes ethtool -S as the
+>> private-driver-stats interface; counters that have a standard uAPI are
+>> expected to flow only through that uAPI.
+>>
+>> Could the firmware-register lookup table used by emac_get_stat_by_name()
+>> be separated from the ethtool -S string table, so the new preemption
+>> counters feed get_mm_stats without also showing up under ethtool -S?
+> 
+> This -- not sure about the other complaints but this one looks legit.
 
->
->  drivers/gpio/gpio-shared-proxy.c | 43 +++++++-------------------------
->  drivers/gpio/gpiolib-shared.c    |  9 ++-----
->  drivers/gpio/gpiolib-shared.h    | 31 +++++++++--------------
->  3 files changed, 23 insertions(+), 60 deletions(-)
->
-> diff --git a/drivers/gpio/gpio-shared-proxy.c b/drivers/gpio/gpio-shared-proxy.c
-> index 6941e4be6cf1..856e5b9d6163 100644
-> --- a/drivers/gpio/gpio-shared-proxy.c
-> +++ b/drivers/gpio/gpio-shared-proxy.c
-> @@ -109,7 +109,7 @@ static void gpio_shared_proxy_free(struct gpio_chip *gc, unsigned int offset)
->
->  	if (proxy->voted_high) {
->  		ret = gpio_shared_proxy_set_unlocked(proxy,
-> -			shared_desc->can_sleep ? gpiod_set_value_cansleep : gpiod_set_value, 0);
-> +			gpiod_set_value_cansleep, 0);
->  		if (ret)
->  			dev_err(proxy->dev,
->  				"Failed to unset the shared GPIO value on release: %d\n", ret);
-> @@ -222,13 +222,6 @@ static int gpio_shared_proxy_direction_output(struct gpio_chip *gc,
->  	return gpio_shared_proxy_set_unlocked(proxy, gpiod_direction_output, value);
->  }
->
-> -static int gpio_shared_proxy_get(struct gpio_chip *gc, unsigned int offset)
-> -{
-> -	struct gpio_shared_proxy_data *proxy = gpiochip_get_data(gc);
-> -
-> -	return gpiod_get_value(proxy->shared_desc->desc);
-> -}
-> -
->  static int gpio_shared_proxy_get_cansleep(struct gpio_chip *gc,
->  					  unsigned int offset)
->  {
-> @@ -237,29 +230,15 @@ static int gpio_shared_proxy_get_cansleep(struct gpio_chip *gc,
->  	return gpiod_get_value_cansleep(proxy->shared_desc->desc);
->  }
->
-> -static int gpio_shared_proxy_do_set(struct gpio_shared_proxy_data *proxy,
-> -				    int (*set_func)(struct gpio_desc *desc, int value),
-> -				    int value)
-> -{
-> -	guard(gpio_shared_desc_lock)(proxy->shared_desc);
-> -
-> -	return gpio_shared_proxy_set_unlocked(proxy, set_func, value);
-> -}
-> -
-> -static int gpio_shared_proxy_set(struct gpio_chip *gc, unsigned int offset,
-> -				 int value)
-> -{
-> -	struct gpio_shared_proxy_data *proxy = gpiochip_get_data(gc);
-> -
-> -	return gpio_shared_proxy_do_set(proxy, gpiod_set_value, value);
-> -}
-> -
->  static int gpio_shared_proxy_set_cansleep(struct gpio_chip *gc,
->  					  unsigned int offset, int value)
->  {
->  	struct gpio_shared_proxy_data *proxy = gpiochip_get_data(gc);
->
-> -	return gpio_shared_proxy_do_set(proxy, gpiod_set_value_cansleep, value);
-> +	guard(gpio_shared_desc_lock)(proxy->shared_desc);
-> +
-> +	return gpio_shared_proxy_set_unlocked(proxy, gpiod_set_value_cansleep,
-> +					      value);
->  }
->
->  static int gpio_shared_proxy_get_direction(struct gpio_chip *gc,
-> @@ -302,20 +281,16 @@ static int gpio_shared_proxy_probe(struct auxiliary_device *adev,
->  	gc->label = dev_name(dev);
->  	gc->parent = dev;
->  	gc->owner = THIS_MODULE;
-> -	gc->can_sleep = shared_desc->can_sleep;
-> +	/* Always a sleeping gpiochip: see the lock comment in gpiolib-shared.h. */
-> +	gc->can_sleep = true;
->
->  	gc->request = gpio_shared_proxy_request;
->  	gc->free = gpio_shared_proxy_free;
->  	gc->set_config = gpio_shared_proxy_set_config;
->  	gc->direction_input = gpio_shared_proxy_direction_input;
->  	gc->direction_output = gpio_shared_proxy_direction_output;
-> -	if (gc->can_sleep) {
-> -		gc->set = gpio_shared_proxy_set_cansleep;
-> -		gc->get = gpio_shared_proxy_get_cansleep;
-> -	} else {
-> -		gc->set = gpio_shared_proxy_set;
-> -		gc->get = gpio_shared_proxy_get;
-> -	}
-> +	gc->set = gpio_shared_proxy_set_cansleep;
-> +	gc->get = gpio_shared_proxy_get_cansleep;
->  	gc->get_direction = gpio_shared_proxy_get_direction;
->  	gc->to_irq = gpio_shared_proxy_to_irq;
->
-> diff --git a/drivers/gpio/gpiolib-shared.c b/drivers/gpio/gpiolib-shared.c
-> index de72776fb154..495bd3d0ddf0 100644
-> --- a/drivers/gpio/gpiolib-shared.c
-> +++ b/drivers/gpio/gpiolib-shared.c
-> @@ -627,8 +627,7 @@ static void gpio_shared_release(struct kref *kref)
->
->  	shared_desc = entry->shared_desc;
->  	gpio_device_put(shared_desc->desc->gdev);
-> -	if (shared_desc->can_sleep)
-> -		mutex_destroy(&shared_desc->mutex);
-> +	mutex_destroy(&shared_desc->mutex);
->  	kfree(shared_desc);
->  	entry->shared_desc = NULL;
->  }
-> @@ -659,11 +658,7 @@ gpiod_shared_desc_create(struct gpio_shared_entry *entry)
->  	}
->
->  	shared_desc->desc = &gdev->descs[entry->offset];
-> -	shared_desc->can_sleep = gpiod_cansleep(shared_desc->desc);
-> -	if (shared_desc->can_sleep)
-> -		mutex_init(&shared_desc->mutex);
-> -	else
-> -		spin_lock_init(&shared_desc->spinlock);
-> +	mutex_init(&shared_desc->mutex);
->
->  	return shared_desc;
->  }
-> diff --git a/drivers/gpio/gpiolib-shared.h b/drivers/gpio/gpiolib-shared.h
-> index 15e72a8dcdb1..5c725118b1af 100644
-> --- a/drivers/gpio/gpiolib-shared.h
-> +++ b/drivers/gpio/gpiolib-shared.h
-> @@ -6,7 +6,6 @@
->  #include <linux/cleanup.h>
->  #include <linux/lockdep.h>
->  #include <linux/mutex.h>
-> -#include <linux/spinlock.h>
->
->  struct gpio_device;
->  struct gpio_desc;
-> @@ -42,35 +41,29 @@ static inline int gpio_shared_add_proxy_lookup(struct device *consumer,
->
->  struct gpio_shared_desc {
->  	struct gpio_desc *desc;
-> -	bool can_sleep;
->  	unsigned long cfg;
->  	unsigned int usecnt;
->  	unsigned int highcnt;
-> -	union {
-> -		struct mutex mutex;
-> -		spinlock_t spinlock;
-> -	};
-> +	struct mutex mutex; /* serializes all proxy operations on this descriptor */
->  };
->
->  struct gpio_shared_desc *devm_gpiod_shared_get(struct device *dev);
->
-> +/*
-> + * Under this lock the proxy may call gpiod_set_config()/gpiod_direction_*(),
-> + * which can reach pinctrl paths that take a mutex (e.g. gpiod_set_config() ->
-> + * gpiochip_generic_config() -> pinctrl_gpio_set_config()), independent of the
-> + * underlying chip's can_sleep. A spinlock would run that sleeping call from
-> + * atomic context, so the descriptor lock must be a mutex and the proxy
-> + * gpiochip is therefore sleeping (can_sleep=true).
-> + */
->  DEFINE_LOCK_GUARD_1(gpio_shared_desc_lock, struct gpio_shared_desc,
-> -	if (_T->lock->can_sleep)
-> -		mutex_lock(&_T->lock->mutex);
-> -	else
-> -		spin_lock_irqsave(&_T->lock->spinlock, _T->flags),
-> -	if (_T->lock->can_sleep)
-> -		mutex_unlock(&_T->lock->mutex);
-> -	else
-> -		spin_unlock_irqrestore(&_T->lock->spinlock, _T->flags),
-> -	unsigned long flags)
-> +	mutex_lock(&_T->lock->mutex),
-> +	mutex_unlock(&_T->lock->mutex))
+I agree that this is legit, but right now there is no other place holder 
+other than pa stats to put the mac merge firmware counters. I believe
+the effort needs to go in re-structuring the hardware and firmware stats 
+implementation to address this issue.
 
-Just drop these wrappers altogether then, let's open-code mutex locking in
-the proxy.
-
->
->  static inline void gpio_shared_lockdep_assert(struct gpio_shared_desc *shared_desc)
->  {
-> -	if (shared_desc->can_sleep)
-> -		lockdep_assert_held(&shared_desc->mutex);
-> -	else
-> -		lockdep_assert_held(&shared_desc->spinlock);
-> +	lockdep_assert_held(&shared_desc->mutex);
-
-Same here, move it to the proxy.
-
->  }
->
->  #endif /* __LINUX_GPIO_SHARED_H */
-> --
-> 2.54.0
->
->
->
-
-Bart
 
