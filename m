@@ -4,128 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 000E4CD98E1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 12:54:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89431CD98E6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 12:55:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TSf3030RVTK4uKHu0QPzsTd4Zqy3YqljDoHw7m8yJ5E=; b=mCBoZciy8N+YysLx5HqX/Z+luD
-	LGdG98sKqmmUQ7+UWQGqrhES6FOw6GhBUC+8WaQ+RvV6KkY50OVBDioM7TNCH4eAb/o1hoQsbDq4D
-	ERasneSSV0qrvloZKPIDcCFeuJXXpYZ0IM4ae7L+6Ftj3I0WhEVHR8XOYmhe0sLlPG5rYSjoZn9ka
-	HF49T2oC7Miu5x4u+f6vWAdrO9R+wfjYdeE2AlISFSz7roNeG5k75yzDiAW9lgzAt+gTHneMUtPEW
-	gaFCV+Hl9qvkVlrHE7mSlS9SX+8WmUTfK5Gdh/OvVdHWn4LlOhN+Dy1VRBIhehfTMXiOTSDCw4/xZ
-	BCFRyY+g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qrY935J+hSM69Iye4uJ/PYQuqFrUvW1UmaPi4e3ZBEM=; b=1KQbQNzCdBavebV7/SdgF1p9W6
+	UiSEmRBAOAPoPvjN/gCaGv9KCMAcY8FsAaRek444I+vsnfZlS6sePPxfVBIwegFPgvPDee/2BhRsg
+	Po+ozTtQDJ93xt8QLV0pDoHeUkQTdXUUcNR+n0B0bwMIaffs2OsvZELsS/5+VzQ/b0++P02Q8HBSo
+	Mwn7MlpzryMoeX6wZ0pDLyqUrz9Yqr1EaVZsp8AtihWa8v61psm1XdoVyZe0WzMkkBqAzOOyWXK2c
+	MUq9ZE5UtZ75WSKUEiuC/tGsCvB7Oyy7EaMhLPbKiALd4wihJjlLFvNzNkfVxkefESz3LTQ+Wur9Y
+	7QtMkDcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZTJT-0000000FnjR-1rkX;
-	Tue, 16 Jun 2026 12:54:43 +0000
-Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZTJQ-0000000FniR-2D0W
+	id 1wZTJf-0000000Fnmv-2hDi;
+	Tue, 16 Jun 2026 12:54:55 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wZTJT-0000000Fnj6-4Baz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Jun 2026 12:54:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cJ9N96Hhh/dDmiq2Pl5/aqIzpQprd3o6HDrLdF5Objvb8PeeJ9lKDVsSYuV1nxIXKiFDmB5nXNYs80aqJmvmuYzLSMJcRlZ01ivsQQwRkSzDboFQyJHjURiWDPbCK45ZhdnKxL6DnHyeqNBFCWRm+3wt7vU4Xd2IP/bNoLJ7nI7hWTjT6bWdFuWWs5uQz4TInXu+bv3hXlak24wkCDvYSjUjKZ9RqCOvtvAfOC5FITW9J31PuBqlMnF5bHsoiV1kDRX9dRqriQckkN+yjTk51eu1+xBm0WDTOdsQxrEg3hb4mZ9F48Cz+NxJmH7cBh4aNgUlfCP4SpSJ8A6+iMbL9A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=TSf3030RVTK4uKHu0QPzsTd4Zqy3YqljDoHw7m8yJ5E=;
- b=Yzfs9gdUQRzCMGFeWs2ePFTQbppv9WrAu1tjkeZaoaOKMgXelZd3BOgjWEvEjy7hA5Hj/KNnUp231hyIXLpkN7R/AQenD2pQ4bLwjv0qubwgOQLELObzWBysoDxx6b/9XtFM4qTWd2zjPQjZt+FnlXavAOSSbEwJiJTRZBvVe2dO+MSzeSTUrVp+ZCAPbo6kWcikj7T2i4szSlYZlDYPzKAqZmeiDCai3gPasORPxTO4A/dSc0M0yq3hmqu1x94j550sTKj32kvqZgPcJog3EMe+bxWKIYvGqfzy92FZtgvRnPs+nEO0iR/MhKOKc0RlXOVt0y/Q0olNw0Z0JK0vZA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=TSf3030RVTK4uKHu0QPzsTd4Zqy3YqljDoHw7m8yJ5E=;
- b=DYbz2JYwdMLGnuxdQWXyk14bpd0qzNS4lcOJQ/eIGLB2IAozeAeGypHPaotFMZklEf4LoTXXvunoENd4VWJdLRZgyl8OQDgCnG/PugigMF1KucXx3ayiYqjTU+j9pRkl6Al5CF2rf0yJVlaowEowEjXAFMzQDTwcCBEu/h+U+rI=
-Received: from DS7PR03CA0136.namprd03.prod.outlook.com (2603:10b6:5:3b4::21)
- by SA1PR10MB6319.namprd10.prod.outlook.com (2603:10b6:806:252::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.13; Tue, 16 Jun
- 2026 12:54:33 +0000
-Received: from DS2PEPF00003442.namprd04.prod.outlook.com
- (2603:10b6:5:3b4:cafe::a9) by DS7PR03CA0136.outlook.office365.com
- (2603:10b6:5:3b4::21) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.113.18 via Frontend Transport; Tue,
- 16 Jun 2026 12:54:32 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- DS2PEPF00003442.mail.protection.outlook.com (10.167.17.69) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.139.8 via Frontend Transport; Tue, 16 Jun 2026 12:54:32 +0000
-Received: from DFLE214.ent.ti.com (10.64.6.72) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 16 Jun
- 2026 07:54:29 -0500
-Received: from DFLE211.ent.ti.com (10.64.6.69) by DFLE214.ent.ti.com
- (10.64.6.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 16 Jun
- 2026 07:54:28 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE211.ent.ti.com
- (10.64.6.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Tue, 16 Jun 2026 07:54:28 -0500
-Received: from [172.24.231.93] (ti.dhcp.ti.com [172.24.231.93] (may be forged))
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 65GCsMfU024437;
-	Tue, 16 Jun 2026 07:54:23 -0500
-Message-ID: <d0123269-b1e8-4fba-94b0-b94d3d9a5405@ti.com>
-Date: Tue, 16 Jun 2026 18:24:22 +0530
+	Tue, 16 Jun 2026 12:54:46 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5A5CD3D5D;
+	Tue, 16 Jun 2026 05:54:36 -0700 (PDT)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B7FE43F915;
+	Tue, 16 Jun 2026 05:54:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1781614481; bh=SZCMbXqIZpc5Kw6xTc1qIEPXEmhDKCy5D5S6DrxbzL4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lMg5hkSW4SJqERq0Z1kzZylQbb+Ji1hjTiwNaPoXjR5TlThXOa0+IxQojPJ6gy+KT
+	 84E36Xy1wxRPsta1MJapZ6IhGS4BrKGeL1qGbrcIaV0GV5cuT5qm3peSHOqnbjmoIp
+	 tgBrkXvU+/KiyKZm09avOVtTFUyrZa7Ti8w1/Bek=
+Date: Tue, 16 Jun 2026 13:54:33 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: liuqiqi@kylinos.cn
+Subject: Re: [PATCH] arm64: kgdb: Fix interrupt-induced single-step exception
+Message-ID: <ajFHibvMJeJykb72@J2N7QTR9R3.cambridge.arm.com>
+References: <20260615052903.207943-1-liuqiqi@kylinos.cn>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v7 2/2] net: ti: icssg-prueth: Add ethtool ops
- for Frame Preemption MAC Merge
-To: Jakub Kicinski <kuba@kernel.org>
-CC: <elfring@users.sourceforge.net>, <haokexin@gmail.com>,
-	<vadim.fedorenko@linux.dev>, <devnexen@gmail.com>, <horms@kernel.org>,
-	<jacob.e.keller@intel.com>, <arnd@arndb.de>, <basharath@couthit.com>,
-	<afd@ti.com>, <parvathi@couthit.com>, <vladimir.oltean@nxp.com>,
-	<rogerq@kernel.org>, <danishanwar@ti.com>, <pabeni@redhat.com>,
-	<edumazet@google.com>, <davem@davemloft.net>, <andrew+netdev@lunn.ch>,
-	<linux-arm-kernel@lists.infradead.org>, <netdev@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <srk@ti.com>, <vigneshr@ti.com>
-References: <20260610052511.781752-3-m-malladi@ti.com>
- <20260615231041.1007484-1-kuba@kernel.org>
- <20260615163932.50bb3df0@kernel.org>
-Content-Language: en-US
-From: Meghana Malladi <m-malladi@ti.com>
-In-Reply-To: <20260615163932.50bb3df0@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS2PEPF00003442:EE_|SA1PR10MB6319:EE_
-X-MS-Office365-Filtering-Correlation-Id: ed6102de-8bd4-413c-ebe9-08decba66912
-X-LD-Processed: e5b49634-450b-4709-8abb-1e2b19b982b7,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|23010399003|36860700016|82310400026|1800799024|4143699003|56012099006|6133799003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: SQxr1KSDWCOlHg09/PVtVJowckHdAAot+cw3+XXuLBUnFtY03KSgmYqfI4x3d1aK/Fc8vZaX9A1Pl+qrWZwIAKnjdm+5trgArnsvzIgZWMBK10qi2VNEXngwQwqgUYGMNr7Z2Aie2kMe2pc7xRqAVxp0ZJnj8T5bZuM6sHl6JAA4WTPep2EIfY5RrfEBL5oRE96IL0IZLkGL5jM9xkVQVX2du16vkblBCcM8cVcg3Q7ZyvmQ/z0fC6U5K/UDtA4NKqv9q6wfcBYfjdTi7VLnOsraSWfwveQkQeypHcgYqTj/QRyVrryLjRMmNj4Gj7q5pEkDQgKua0Q4nhAVSEu69d3vI4wfmn4UImVytdSXjMYT1FfWG9fIQj8abTOzFg5XFOYxTnk37KdAxkGaN+71f8scSnZgWmBiORGJBp+JyFCKJ+MYxjH3dvqN6NDXIGOaZaomzlBNbH8rTk/PnfnKf6tLIxDtfelVVIQH3KZl2Rd8qyXCBbUywnzDrmzJ4NhZTZKtzpxi1zLgR4Pk/UYOvuk6nn4dbr2j53NuKXKF608U7kCorzjoYzb0Urf4ndM2ABcas0F8Aj8o84aQW30c1IrVnrIFpvhhoyXOneP+KC+N44Gv3Fw7slhHfB2pAg/iGbvynVNsAKlez8pGf6mwzDPBJypDU75ZXzzT5X9MsgMq/dzMUSoNkR/u5rF6Ye6KmXLJFhQKf3orhbHbFddYKCbWY9RAfGw5kgTYXCgrFbg=
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(7416014)(376014)(23010399003)(36860700016)(82310400026)(1800799024)(4143699003)(56012099006)(6133799003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: AlXsitBGVw3Q3G9cJSx8rfXJJna1ZnIk5xzvaTqtvPCLsTZQLFFBH5gSDBmgK4qK6yVo4zOehER6Y+W6+FH8a1JUBgrESFAs4OtBTaHivpWH+iARtdF6nfBJnSvcxpGbDhAy40lRmY+CcbsEfQQOGfOJeH++frepgYoXskozcRquOKz10CwMxhsdCh1fLq2a8YZ4F6IM2wxAMkd0xw4MSpv/1M3C4GK/ZQI43k54S5NkbLTTiOqsmBtoAUP6BiNmvI6ATCSULv8AKdpcKFvFWBXBzrGKkzBV5N94NrH56EdkUV/Z2FtQZ+upml7hJcaB2DHx1tstbLhRjYDkicmuPSIrvbaGD7vTOYRnG6L7Tbq5NntIHIAHzG92mFAnPFqEMK9w1LFLJglDD+GbB5kNNR5Y8mb9rYiyvkpjbvDrCdmrF+c3d5/dLzTI/RueBr7e
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jun 2026 12:54:32.0031
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: ed6102de-8bd4-413c-ebe9-08decba66912
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS2PEPF00003442.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR10MB6319
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260615052903.207943-1-liuqiqi@kylinos.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260616_055440_688248_3B6B5AC5 
-X-CRM114-Status: GOOD (  12.42  )
+X-CRM114-CacheID: sfid-20260616_055444_308160_3C28B6D9 
+X-CRM114-Status: GOOD (  21.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,55 +63,95 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, linux-kernel@vger.kernel.org, Tongbo Wei <kf.weitongbo@h3c.com>, Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jakub,
-
-On 6/16/26 05:09, Jakub Kicinski wrote:
-> On Mon, 15 Jun 2026 16:10:41 -0700 Jakub Kicinski wrote:
->>> diff --git a/drivers/net/ethernet/ti/icssg/icssg_stats.h b/drivers/net/ethernet/ti/icssg/icssg_stats.h
->>> index 5ec0b38e0c67..8073deac35c3 100644
->>> --- a/drivers/net/ethernet/ti/icssg/icssg_stats.h
->>> +++ b/drivers/net/ethernet/ti/icssg/icssg_stats.h
->>> @@ -189,6 +187,11 @@ static const struct icssg_pa_stats icssg_all_pa_stats[] = {
->>>   	ICSSG_PA_STATS(FW_INF_DROP_PRIOTAGGED),
->>>   	ICSSG_PA_STATS(FW_INF_DROP_NOTAG),
->>>   	ICSSG_PA_STATS(FW_INF_DROP_NOTMEMBER),
->>> +	ICSSG_PA_STATS(FW_PREEMPT_BAD_FRAG),
->>> +	ICSSG_PA_STATS(FW_PREEMPT_ASSEMBLY_ERR),
->>> +	ICSSG_PA_STATS(FW_PREEMPT_FRAG_CNT_TX),
->>> +	ICSSG_PA_STATS(FW_PREEMPT_ASSEMBLY_OK),
->>> +	ICSSG_PA_STATS(FW_PREEMPT_FRAG_CNT_RX),
->>>   	ICSSG_PA_STATS(FW_RX_EOF_SHORT_FRMERR),
->>>   	ICSSG_PA_STATS(FW_RX_B0_DROP_EARLY_EOF),
->>>   	ICSSG_PA_STATS(FW_TX_JUMBO_FRM_CUTOFF),
->>
->> [Medium]
->> Are these five new entries duplicating values that already have a
->> standard uAPI?
->>
->> The same five firmware counters are exposed through the new
->> .get_mm_stats callback as the standardized MAC Merge stats
->> (MACMergeFrameAssOkCount, MACMergeFrameAssErrorCount, MACMergeFragCountRx,
->> MACMergeFragCountTx, MACMergeFrameSmdErrorCount in struct
->> ethtool_mm_stats), and adding them to icssg_all_pa_stats[] also
->> publishes them via emac_get_strings() / emac_get_ethtool_stats() as
->> ethtool -S strings.
->>
->> Documentation/networking/statistics.rst describes ethtool -S as the
->> private-driver-stats interface; counters that have a standard uAPI are
->> expected to flow only through that uAPI.
->>
->> Could the firmware-register lookup table used by emac_get_stat_by_name()
->> be separated from the ethtool -S string table, so the new preemption
->> counters feed get_mm_stats without also showing up under ethtool -S?
+On Mon, Jun 15, 2026 at 01:29:03PM +0800, liuqiqi@kylinos.cn wrote:
+> From: Qiqi Liu <liuqiqi@kylinos.cn>
 > 
-> This -- not sure about the other complaints but this one looks legit.
+> After entering kdb due to breakpoint, when we execute 'ss' or 'go'
+> (will delay installing breakpoints, do single-step first),
+> and it will enter kdb again.
+> We found that due to context switching caused by interrupt, 
+> the instruction at ss is no longer the original breakpoint instruction.
+> 
+> Before the patch:
+> [root@localhost ~]# echo g > /proc/sysrq-trigger
+> Entering kdb (current=0xffff030004f2bc00, pid 8818) on processor 15 due to Keyboard Entry
+> [15]kdb> bp sysctl_vm_numa_stat_handler
+> Instruction(i) BP #0 at 0xffffae550650c810 (sysctl_vm_numa_stat_handler)
+>     is enabled    addr at 0xffffae550650c810, hardtype=0 installed=0
+> [15]kdb> g
+> [root@localhost ~]# echo 1 > /proc/sys/vm/numa_stat
+> Entering kdb (current=0xffff030004f2bc00, pid 8818) on processor 12 due to Breakpoint @ 0xffffae550650c810
+> [12]kdb> g
+> Entering kdb (current=0xffff030004f2bc00, pid 8818) on processor 12 due to Breakpoint @ 0xffffae550650c810
+> [12]kdb> g
+> 
+> After the patch:
+> [root@localhost ~]# echo g > /proc/sysrq-trigger
+> Entering kdb (current=0xfffff010012c36400, pid 6488) on processor 41 due to Keyboard Entry
+> [41]kdb> bp sysctl_vm_numa_stat_handler
+> Instruction(i) BP #0 at 0xfffffd1768c2dc7c8 (sysctl_vm_numa_stat_handler)
+>     is enabled    addr at ffffdf1768c2dc7c8, hardtype=0 installed=0
+> [41]kdb> g
+> [root@localhost ~]# echo 1 > /proc/sys/vm/numa_stat
+> Entering kdb (current=0xfffff010012c36400, pid 6488) on processor 7 due to Breakpoint @ 0xfffffd1768c2dc7c8
+> [7]kdb> g
+> [root@localhost ~]#
+> 
+> Fixes: 44679a4f142b ("arm64: KGDB: Add step debugging support")
+> Co-developed-by: Tongbo Wei <kf.weitongbo@h3c.com>
+> Signed-off-by: Tongbo Wei <kf.weitongbo@h3c.com>
+> Signed-off-by: Qiqi Liu <liuqiqi@kylinos.cn>
+> ---
+>  arch/arm64/kernel/kgdb.c | 12 ++++++++++++
+>  1 file changed, 12 insertions(+)
+> 
+> diff --git a/arch/arm64/kernel/kgdb.c b/arch/arm64/kernel/kgdb.c
+> index 968324a79a89..e9a246a0c34f 100644
+> --- a/arch/arm64/kernel/kgdb.c
+> +++ b/arch/arm64/kernel/kgdb.c
+> @@ -101,6 +101,8 @@ struct dbg_reg_def_t dbg_reg_def[DBG_MAX_REG_NUM] = {
+>  	{ "fpcr", 4, -1 },
+>  };
+>  
+> +static DEFINE_PER_CPU(unsigned int, kgdb_pstate);
+> +
+>  char *dbg_get_reg(int regno, void *mem, struct pt_regs *regs)
+>  {
+>  	if (regno >= DBG_MAX_REG_NUM || regno < 0)
+> @@ -207,6 +209,8 @@ int kgdb_arch_handle_exception(int exception_vector, int signo,
+>  		err = 0;
+>  		break;
+>  	case 's':
+> +		__this_cpu_write(kgdb_pstate, linux_regs->pstate);
+> +		linux_regs->pstate |= PSR_I_BIT;
+>  		/*
+>  		 * Update step address value with address passed
+>  		 * with step packet.
+> @@ -252,9 +256,17 @@ NOKPROBE_SYMBOL(kgdb_compiled_brk_handler);
+>  
+>  int kgdb_single_step_handler(struct pt_regs *regs, unsigned long esr)
+>  {
+> +	unsigned int pstate;
+>  	if (!kgdb_single_step)
+>  		return DBG_HOOK_ERROR;
+>  
+> +	/* restore interrupt mask status */
+> +	pstate = __this_cpu_read(kgdb_pstate);
+> +	if (pstate & PSR_I_BIT)
+> +		regs->pstate |= PSR_I_BIT;
+> +	else
+> +		regs->pstate &= ~PSR_I_BIT;
 
-I agree that this is legit, but right now there is no other place holder 
-other than pa stats to put the mac merge firmware counters. I believe
-the effort needs to go in re-structuring the hardware and firmware stats 
-implementation to address this issue.
+I don't think this is sufficient; see the comments from last time this
+approach was proposed:
 
+  https://lore.kernel.org/linux-arm-kernel/aNPiUbdRhaRklebF@J2N7QTR9R3/
+
+I don't think we can solve this without enlightening the entry code.
+
+Mark.
 
