@@ -4,72 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B45D4CD98E6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 20:37:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1504FCD98D2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 20:48:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=CrLoF9O2gK56aSgF362GMcTl76FqQNxQ8LR8P9Q5yns=; b=DdQ13HUQ/6hDHEncc8zXciEMEL
-	bh0zSeSdqOFEtkMnPTq52xt0jlKwNAg/4kENQ+ppnXLdgdGlVWhSGNd80UPuADMxab5uTj521gmp5
-	elBUdQqopUMWRrQO87Dy2jzzkOZfbBbDMU6e3QYOru06tzSDj+lf0uxggLHWgXfeTOtOGWuwUsocN
-	VeroOWVYlpp7J0KYJywY3Ul7YftaJAU3LyVVNLKhcD2UAsa4YsSW/zXK6/4qGevhuyX1G0b0n2pjQ
-	nePsilXk0BYutuVbri/A2L0dsbJF1Nzdx+0qE7S8S96YUAzqwda3E6WMwiVclaVrQwB5TO44G2iF8
-	dpdtRKHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aecnW+H0FeU6Q6eTzXEjo011zFDY2mL+wqX/rWLb9WA=; b=0vrrrSmG0i8OfWRoCP5xoEd2pH
+	u5FmMWi9iWFgvI38+3GPaQvBO8DqbrYVrck9DaMv7LqdCfcWVILc6YaWZjHPLlJl7QuknKLg12Bcg
+	6tYVVFlHNYE+D/mlK1ibD4MdzloFFXovuQJoiDI/8n37kWhqBbmqsrlrWcCE2kZCReDMGiFzJ+8kC
+	FH1lcDqgR9dGzL/hJKSiUd6J43t2eUkViSRNG/uVK0Y5TgwbCzMkFOVaIW/RJo3PRn4IqtYvqvjIG
+	6DSnP+yB2Whh7e6n7ZCoarup+CsSFtsoW6Plqys0z0n1e4qtzxkLk1xZMEiIf88aE8MwhZVL0CH/8
+	Hn9ct8zQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZaWk-0000000GJIa-0Yl3;
-	Tue, 16 Jun 2026 20:36:54 +0000
-Received: from mgamail.intel.com ([198.175.65.12])
+	id 1wZahR-0000000GJfc-0ref;
+	Tue, 16 Jun 2026 20:47:57 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZaWh-0000000GJIE-0o91
+	id 1wZahN-0000000GJfD-3e5m
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Jun 2026 20:36:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1781642211; x=1813178211;
-  h=date:from:to:cc:subject:message-id;
-  bh=0K3eP+no2cHAAZUakn0krxZkUzTuH1y6/TQVmezBnWg=;
-  b=T91pDKE5U08WkvCC+wGdk2zkAvm/FfHmmO8qWXC93CdvfTqt9H0tOCqp
-   rqlN6flA7veJm8jfrYn+9Z5M25DI/PSKiv7RjskTULw17xt/c5uqyDEA6
-   eRJwFGTbHXuqrOfLqG+tbYfMABTqEdcc5c5UN7NHuU/TWsWVKwSwGZIQe
-   E0u1pL/rWqGGJ7X6xQdW0bwQfKC11ddx0PZzSO0kIR5YuENW4BHwbHNpa
-   TcPgJrxgFckgbKgpAVIPHFMjcelPbUtAAdSVLX3QXqQw5IVw9SP+Zeuhj
-   5hVZpGGSS1JMufbu0Sdcj/Fu78cFHOdQcHCYf0bp5KzNBk8Jdc4rzeQyi
-   A==;
-X-CSE-ConnectionGUID: kvw2guKgQ0KWyQ+Gvsou2g==
-X-CSE-MsgGUID: ZY552OZ3TR2GQHdZGZyLdA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11819"; a="93915933"
-X-IronPort-AV: E=Sophos;i="6.24,208,1774335600"; 
-   d="scan'208";a="93915933"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jun 2026 13:36:50 -0700
-X-CSE-ConnectionGUID: C1u20FZWQMmnBd7YaoDUCg==
-X-CSE-MsgGUID: wlLTFH1jQhmCZg2i1o90lg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.24,208,1774335600"; 
-   d="scan'208";a="244982215"
-Received: from lkp-server01.sh.intel.com (HELO f0d55cb201f0) ([10.239.97.150])
-  by fmviesa007.fm.intel.com with ESMTP; 16 Jun 2026 13:36:48 -0700
-Received: from kbuild by f0d55cb201f0 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1wZaWc-00000000TiU-0acd;
-	Tue, 16 Jun 2026 20:36:46 +0000
-Date: Wed, 17 Jun 2026 04:36:44 +0800
-From: kernel test robot <lkp@intel.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-Subject: [arm-platforms:kvm-arm64/nv3 37/37]
- arch/arm64/kvm/sys_regs.c:222:30: error: expected ';' after expression
-Message-ID: <202606170443.zZpDusGs-lkp@intel.com>
-User-Agent: s-nail v14.9.25
+	Tue, 16 Jun 2026 20:47:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JoYryzMHt2AJPKJGrQLyzf3rATpaSuZRywpIxgxVjg5b5hwXTb4vtOyt2W0aPLyE42qZ++O1RbhSgRJvYyUnQ3oaHkXSGjBUlSTKU1uU7IUGws6yBHG6JhDSyL6wqcqvN8whMFC/pyHVDy6dZa0r0KpawAhd7mfGHGsV0Ylsb78T8B1Sno0FgJ+gTQ3NdknRxPxsF6MKdxwMHoKmiiWqxsclZ+opNR4OF9jiGQ2ZCZbH0FJaFwxo+5btHz3vG5I3OnuzEyNxWXrOqJKaj2fmpqQELTixPXRm3gbmsVe9uMRtSZppB80swULq1oxdfmCJsDjRps/WNXTsfJtHil9wDA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=aecnW+H0FeU6Q6eTzXEjo011zFDY2mL+wqX/rWLb9WA=;
+ b=xt1H86XuP4GuuqfhSDUceoiBZqr0TIrCBJdRj8xks9F9jL1wA72g2sd+jEofxSgPr8tNw9H7OPJ2nOgUPblUClnUQlPcCKypgDtZOuJt63vOElzMn8Yh47z6b/3YbO8JfO27oAArQtoszz6xVS4WBOR4pvPRfGrCHU1ZSLkZXJlbJjBvASZJNRuSxSU3sBDyVys3cIDAK0jJrGK0vcpXAl7NaipzFD7S0WHj6fTuPxvYi+/QchV2sGT6EgCzis5wp76opSwuIFpK2SFeLHPDEk5f7GVQmgrYiGuFJqu8ybsbNdJ2egeCbdn3Lg29tDWlLsygX5gNuQVE+0QiVIhBUA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=aecnW+H0FeU6Q6eTzXEjo011zFDY2mL+wqX/rWLb9WA=;
+ b=pm6XjgjxXU8bsH04b8HDn4H7alPzjIbtRer5IdNNFz70XjMCsber/ibgMbh+GroQahi15qoh4oyNeaqt/eX15q6Qt+7/a2CcmRm/3/NMyh4qEklYMYmWgGRW1gqOl7a5npLssnk6mFS8GMP4HDtNmODxPhTGreWK1Bhj5EMokJi3ZQR/F6gX+eRmB9VGn/YPDp2tV6bh/tx9EbwsVALsgBBJKGf4mvBk34ReQ+K9YC6noV8plmPVyIDxv+cxZm0LouVtxExSQjBwoGeIBMHCdgWqzYDsWgWp8UO/qeyEj90XFGXm3BYOLb/mgk7ltDG9NBicKRy8SkhNbJWHgG92AQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by GV2PR04MB11710.eurprd04.prod.outlook.com (2603:10a6:150:2d5::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.18; Tue, 16 Jun
+ 2026 20:47:47 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0113.015; Tue, 16 Jun 2026
+ 20:47:46 +0000
+Date: Tue, 16 Jun 2026 15:47:37 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Hongling Zeng <zenghongling@kylinos.cn>
+Cc: vkoul@kernel.org, Frank.Li@kernel.org, wens@kernel.org,
+	jernej.skrabec@gmail.com, samuel@sholland.org, mripard@kernel.org,
+	arnd@arndb.de, dmaengine@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org, zhongling0719@126.com
+Subject: Re: [PATCH v2] dmaengine: sun6i-dma: Fix memory leak in
+ sun6i_dma_terminate_all
+Message-ID: <ajG2aR70B4z6j1fd@SMW015318>
+References: <20260616060449.42225-1-zenghongling@kylinos.cn>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260616060449.42225-1-zenghongling@kylinos.cn>
+X-ClientProxiedBy: SA9PR13CA0085.namprd13.prod.outlook.com
+ (2603:10b6:806:23::30) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GV2PR04MB11710:EE_
+X-MS-Office365-Filtering-Correlation-Id: aecf906f-6605-4f75-bacf-08decbe88577
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|7416014|376014|23010399003|22082099003|18002099003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: 978hYwEd6conq4kbr+JWKOJGjoFSZ+ynZ/RVIInXcvqM1WoKsvfVGqp/devSYG/70v59dCBd/Xu/TkQCPdB6dd67ZZ0UL8VYeOQhY1sS2Rn80M7wQKSXBPTvl1kcM3pQKpAQ49e4+HOgY8qOAZjIylAAkJljb+L3r2uHUNTbd/y4ObDmpUdt13DH4/JWz2iabgqVBDeHsWhZNPkEbtmTGMOtlknN38mLtJpwuOXXsrqQXOT5IJhX8kzdIU8oJWx1+CPDmZfBUq1JvnJjS6lIQWZ+TtW7FgMz8EY8tqfLrL5HEaVjIzeW/QVQjG/3ylxfcxl/VGNGccXcy7nTpWT99C2iJbeE8fWFQXyiVcobymdvMTKPVsVR6LYaD3vm4Mfv9igV6ZKevNljpIlGcJ4040hS/O3JgA1dlitgPj/SMa7mxCe8yngieMOV4B7kBsszEzTnenibb9NeEtSWXqGHs/SY/nzUBd+ZvkmrMGtN13PlYFLpei8Cw4Do7UY1lA0BeAH1xY0jow4XH8FDz8m4ReS66Z2P95+lp0yat1fPGK3u1fZ4WOb8uFjBukoxa0uburS25DzUVxoLRVvQrUsHjDoK4FJqIIo3w3RMxhOOOXG+Tc7H69q1D1GdhvjRhlap+fiO0NAbSkgIhEnzXKwwCNgnLASEf1aP8lTjAW09vxtypJkZFnpOJhJdmPKab15RCE6+x5cJHL6p+JBUjFg1hg==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(7416014)(376014)(23010399003)(22082099003)(18002099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?2VAFz3YBnaFffuB/6KyyOme4fAtFDiOYSN1Tp4WjfOCXrtO8Ae/xMIsAjpA0?=
+ =?us-ascii?Q?nKtEKh45Q2SiTP7dtnSuSUpegv0Lr4Rn9SJk+XSyydcJW6Zj1VwPa7M7QMpN?=
+ =?us-ascii?Q?R+WIG//tof4okNBPCpKXNLnozbuJExurbfDPNzuLQTN2TYM7pBU+/m6yEadN?=
+ =?us-ascii?Q?hv21c2pMUrUj+mk2aa338VrVB3Qc84dgW7XK38ywpXpF7xfCzDQK70KsBEm2?=
+ =?us-ascii?Q?L8Yw+PoutK+1MQAWXf+MFsqvsF7rbI8XHAuuKzL/p+QmU19pMOIAdcst9WJE?=
+ =?us-ascii?Q?RweqpQSCA7+qGrGQMxXU7HqYil7HzUU7Nxz7PSfosombIlXv/DQ+u8KTRw4v?=
+ =?us-ascii?Q?YSoIQurgV2THIUE5D7GX1Z/joRWrmG/2VT9i/6wMAWybHKSco6dntZcmh1aX?=
+ =?us-ascii?Q?Z+4U0jE/4dJ9UGzrgva+1p1+Nu2JdxcWbLbPn4wr0Sz2mDiVjPItnkmdzTru?=
+ =?us-ascii?Q?9GVMUN+A2J6FOF+9XG1E3OIW7acO9JUwbH4bhF15Z8YH5NI4/bcUd6VT6HZJ?=
+ =?us-ascii?Q?PqsMBPWDSuj8sOU7qvuNPdCHWK6MCGTGUQX4e2q2pbI9N4HUcucv6mM7xGJR?=
+ =?us-ascii?Q?fkh++HcMIJe9gY8Vjr+gQrnsp0uzJqZ8JYWow5GNDczff3+h7X+Wq/Oiw8p0?=
+ =?us-ascii?Q?YLETGXURZS+OaSvvTYIjVS09uaQmgAl1G+Co1qnBgzebfH15qy8DEvxW1wqJ?=
+ =?us-ascii?Q?lyewwPczydzp1Ocya27cMnDMJazJ9gguttFFRnDHDDvK4cmqGQut0EZUw7mY?=
+ =?us-ascii?Q?Q152mzB8zQJsxFU+aRTD4PHXblbT4IlaudeVfzCKY5I4OxQc3Mhx7s9Q+0/w?=
+ =?us-ascii?Q?HpxIkK/YGE62L5ZsEib04rWMGXEDQ7wawRHEt5tI8YsK/zPR+jxVtMDE5VIr?=
+ =?us-ascii?Q?F1U1pyoRhOtuHPO6dF8gaTrDFrjMLp+Wr4zHSE/TpgFOLTVNhwBEA8L7SD4G?=
+ =?us-ascii?Q?fbOD39NCgJcgmWqIJyEh0nXQqta9TZEPsnMZKmMi/z+vQV2QzUWtGPR72zFJ?=
+ =?us-ascii?Q?5qWC0KxUTo+4L2ktWyqndfoh0HzLVXIM8s1Y9Oo3noPG+FnkS3hP35+HiCHK?=
+ =?us-ascii?Q?JfriHcOon0wzEQsumWhpdHaLQMNJnYhoTpsnxvGw2FbsTrHf/QnLaFRYkSpP?=
+ =?us-ascii?Q?jLiqqvYF49dMutEyZrdIwWaK7P7mB5ale2I1NZ7qjBN6UjRP15Ci4FhcvRQh?=
+ =?us-ascii?Q?pcVa/vTs6nNhjoEMAhESP+pXqA21PXa6A/UWx7oDVOrGoBABNTCcxGbWaatu?=
+ =?us-ascii?Q?Rsy3u4N12M9QXR0HDxvV6q/7okL09dL/c1aJHHN1n5FHIUFSm6jXW+4198QH?=
+ =?us-ascii?Q?BRt7wkSUOqAhdX1pxNS6GPdWoShwKi2u5swijIlPXSkXmyyD0zZbqa0Z+N3g?=
+ =?us-ascii?Q?GqferCMuMGEes9fvGl5fol8pzyvJy/JiFUhCb7CM2+OAzsKhFX47F+PJwWu1?=
+ =?us-ascii?Q?XjtYiqc7Z13Zyjxn1gDKdnFBo434qdLnpg2Xx9Ynj2OG1koMhuWM0McFPKbR?=
+ =?us-ascii?Q?EoQvv/hFpBskiFO4YvzQ6pwJajQzBG5ZxwNsTuQhd3vnXKg1Xa5tXl3fN+HT?=
+ =?us-ascii?Q?7Xo+tk2K2msbcJSSUsDSFSyJ5AQ7sDbWJYfdjn+kk1PtuYIvi4AldrDqpQXJ?=
+ =?us-ascii?Q?B5YU+PZennhW8nq+SzseGPr/UMyzZroZTtOhCNvNb8ComNnjU6pPYrEVoZdZ?=
+ =?us-ascii?Q?V1mHMJcT3Q2TnZYX4gXMxJ4StqKl/ohV/NE9sItxtIQvqTUpEvjXKARXTFte?=
+ =?us-ascii?Q?qfN7rY1AFYPUqZCwI0oxCYWIUS2qEKckuXYG3P4ImHpQVOlFa/mA?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: aecf906f-6605-4f75-bacf-08decbe88577
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jun 2026 20:47:46.8269
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: T18Tvc5Cmif1CcPoH7SdsrLT+gdI4PL1DohKxvSx/bsLE82K2kc6MzSVB3Dr1EdTBAKpj4IlKJB/wyDCDanmlcEmhFJNe1WzZ0JGDk3YXW/DDsyWmDDytdrbNpfCZVwM
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11710
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260616_133651_303657_7953DED4 
-X-CRM114-Status: UNSURE (   8.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260616_134753_913630_221E4A86 
+X-CRM114-Status: GOOD (  21.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,101 +139,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git kvm-arm64/nv3
-head:   aa9a6e84f564417704258a20210b95d18ebf5601
-commit: aa9a6e84f564417704258a20210b95d18ebf5601 [37/37] WIP
-config: arm64-randconfig-003 (https://download.01.org/0day-ci/archive/20260617/202606170443.zZpDusGs-lkp@intel.com/config)
-compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260617/202606170443.zZpDusGs-lkp@intel.com/reproduce)
+On Tue, Jun 16, 2026 at 02:04:49PM +0800, Hongling Zeng wrote:
+> When terminating a non-cyclic DMA transfer, the active descriptor
+> is not properly reclaimed. The descriptor is removed from the
+> desc_issued list in sun6i_dma_start_desc(), but in
+> sun6i_dma_terminate_all(), only cyclic transfer descriptors are
+> added to the desc_completed list before cleanup.
+>
+> For non-cyclic transfers, pchan->desc is set to NULL without first
+> adding the descriptor back to a list that vchan_get_all_descriptors()
+> can collect. This causes the descriptor and its associated LLI chain
+> to be permanently leaked.
+>
+> Fix by ensuring both cyclic and non-cyclic active descriptors are
+> added to the desc_completed list before setting pchan->desc to NULL.
+>
+> Fixes: 555859308723 ("dmaengine: sun6i: Add driver for the Allwinner A31 DMA controller")
+> Signed-off-by: Hongling Zeng <zenghongling@kylinos.cn>
+>
+> ---
+>  Change in v2;
+>  -Add pchan->desc != pchan->done check to prevent race condition
+>   where completed descriptors could be double-added to desc_completed
+>   list, causing list corruption
+> ---
+>  drivers/dma/sun6i-dma.c | 12 +++++-------
+>  1 file changed, 5 insertions(+), 7 deletions(-)
+>
+> diff --git a/drivers/dma/sun6i-dma.c b/drivers/dma/sun6i-dma.c
+> index 7a79f346250a..12d038ef5f2e 100644
+> --- a/drivers/dma/sun6i-dma.c
+> +++ b/drivers/dma/sun6i-dma.c
+> @@ -946,16 +946,14 @@ static int sun6i_dma_terminate_all(struct dma_chan *chan)
+>
+>  	spin_lock_irqsave(&vchan->vc.lock, flags);
+>
+> -	if (vchan->cyclic) {
+> -		vchan->cyclic = false;
+> -		if (pchan && pchan->desc) {
+> -			struct virt_dma_desc *vd = &pchan->desc->vd;
+> -			struct virt_dma_chan *vc = &vchan->vc;
+> +	if (pchan && pchan->desc && pchan->desc != pchan->done) {
+> +		struct virt_dma_desc *vd = &pchan->desc->vd;
+> +		struct virt_dma_chan *vc = &vchan->vc;
+>
+> -			list_add_tail(&vd->node, &vc->desc_completed);
+> -		}
+> +		list_add_tail(&vd->node, &vc->desc_completed);
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202606170443.zZpDusGs-lkp@intel.com/
+should It be in desc_terminated queue?
 
-All errors (new ones prefixed by >>):
+ref: https://lore.kernel.org/dmaengine/ajETw7uwVx_U9o5F@ryzen/T/#m541c24b45fb425c6a8a81d800db225b58411447e
 
->> arch/arm64/kvm/sys_regs.c:222:30: error: expected ';' after expression
-     222 |                         loc->loc = SR_LOC_SPECIAL : SR_LOC_MEMORY;
-         |                                                   ^
-         |                                                   ;
-   arch/arm64/kvm/sys_regs.c:222:32: warning: misleading indentation; statement is not part of the previous 'if' [-Wmisleading-indentation]
-     222 |                         loc->loc = SR_LOC_SPECIAL : SR_LOC_MEMORY;
-         |                                                     ^
-   arch/arm64/kvm/sys_regs.c:221:3: note: previous statement is here
-     221 |                 if (is_hyp_ctxt(vcpu))
-         |                 ^
-   arch/arm64/kvm/sys_regs.c:222:32: warning: expression result unused [-Wunused-value]
-     222 |                         loc->loc = SR_LOC_SPECIAL : SR_LOC_MEMORY;
-         |                                                     ^~~~~~~~~~~~~
-   2 warnings and 1 error generated.
-
-
-vim +222 arch/arm64/kvm/sys_regs.c
-
-   168	
-   169	#define MAPPED_EL2_SYSREG(r, m, t)					\
-   170		case r:	{							\
-   171			locate_mapped_el2_register(vcpu, r, m, t, loc);		\
-   172			break;							\
-   173		}
-   174	
-   175	static void locate_register(const struct kvm_vcpu *vcpu, enum vcpu_sysreg reg,
-   176				    struct sr_loc *loc)
-   177	{
-   178		if (!vcpu_get_flag(vcpu, SYSREGS_ON_CPU)) {
-   179			loc->loc = SR_LOC_MEMORY;
-   180			return;
-   181		}
-   182	
-   183		switch (reg) {
-   184			MAPPED_EL2_SYSREG(SCTLR_EL2,   SCTLR_EL1,
-   185					  translate_sctlr_el2_to_sctlr_el1	     );
-   186			MAPPED_EL2_SYSREG(TTBR0_EL2,   TTBR0_EL1,
-   187					  translate_ttbr0_el2_to_ttbr0_el1	     );
-   188			MAPPED_EL2_SYSREG(TTBR1_EL2,   TTBR1_EL1,   NULL	     );
-   189			MAPPED_EL2_SYSREG(TCR_EL2,     TCR_EL1,
-   190					  translate_tcr_el2_to_tcr_el1		     );
-   191			MAPPED_EL2_SYSREG(VBAR_EL2,    VBAR_EL1,    NULL	     );
-   192			MAPPED_EL2_SYSREG(AFSR0_EL2,   AFSR0_EL1,   NULL	     );
-   193			MAPPED_EL2_SYSREG(AFSR1_EL2,   AFSR1_EL1,   NULL	     );
-   194			MAPPED_EL2_SYSREG(ESR_EL2,     ESR_EL1,     NULL	     );
-   195			MAPPED_EL2_SYSREG(FAR_EL2,     FAR_EL1,     NULL	     );
-   196			MAPPED_EL2_SYSREG(MAIR_EL2,    MAIR_EL1,    NULL	     );
-   197			MAPPED_EL2_SYSREG(TCR2_EL2,    TCR2_EL1,    NULL	     );
-   198			MAPPED_EL2_SYSREG(PIR_EL2,     PIR_EL1,     NULL	     );
-   199			MAPPED_EL2_SYSREG(PIRE0_EL2,   PIRE0_EL1,   NULL	     );
-   200			MAPPED_EL2_SYSREG(POR_EL2,     POR_EL1,     NULL	     );
-   201			MAPPED_EL2_SYSREG(AMAIR_EL2,   AMAIR_EL1,   NULL	     );
-   202			MAPPED_EL2_SYSREG(ELR_EL2,     ELR_EL1,	    NULL	     );
-   203			MAPPED_EL2_SYSREG(SPSR_EL2,    SPSR_EL1,    NULL	     );
-   204			MAPPED_EL2_SYSREG(CONTEXTIDR_EL2, CONTEXTIDR_EL1, NULL	     );
-   205			MAPPED_EL2_SYSREG(SCTLR2_EL2,  SCTLR2_EL1,  NULL	     );
-   206		case CNTHCTL_EL2:
-   207			/* CNTHCTL_EL2 is super special, unless we support NV2p1 */
-   208			loc->loc = (is_hyp_ctxt(vcpu) && vcpu_el2_e2h_is_set(vcpu) ?
-   209				    SR_LOC_SPECIAL : SR_LOC_MEMORY);
-   210			break;
-   211		case CPTR_EL2:
-   212			/*
-   213			 * CPTR_EL2 is just as special, and needs a certain amount
-   214			 * of handholding. It always lives in memory, due to being
-   215			 * heavily trapped thanks to CPACR_EL1.TCPAC being RES0.
-   216			 * FEAT_NV2p1 fixes this.
-   217			 */
-   218			locate_mapped_el2_register(vcpu, CPTR_EL2, CPACR_EL1,
-   219						   translate_cptr_el2_to_cpacr_el1,
-   220						   loc);
-   221			if (is_hyp_ctxt(vcpu))
- > 222				loc->loc = SR_LOC_SPECIAL : SR_LOC_MEMORY;
-   223			break;
-   224		default:
-   225			loc->loc = locate_direct_register(vcpu, reg);
-   226		}
-   227	}
-   228	
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Frank
+>  	}
+>
+> +	vchan->cyclic = false;
+>  	vchan_get_all_descriptors(&vchan->vc, &head);
+>
+>  	if (pchan) {
+> --
+> 2.25.1
+>
 
