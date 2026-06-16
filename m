@@ -4,122 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F35D0CD98D2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 07:11:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67156CD98D2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 07:12:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RpWtGQUMO6w+AqepPhMZrIYR/+GHp+ISWGwYizWvLWs=; b=NMJ++9OhWR45Z2sclrkJaDbrLY
-	VAjYx1SBKmzdjQ7j2q1f9Mx9sUQb7E7/Qe4mumGbNmx24cc2DCRMHmKZQwEfOLPysiiw7ozia8gcB
-	gZA8Sl2BF02A1wj8djzm1ph2S3SE4zq+gPY1MCbB7ycBwUTa4emgEEtx8vWEkBBjGm1oI75AYjsny
-	DfeQU13dRJUFqPwddzDKTF8PTNhJGtEGHAK0DB9EbSpNvEsYFehFt5GsfQSbjAXN7pkVPB0QdSp5v
-	4TaorrCV76jaV3LYwJaUUktt80ViA9mOZjNHX8PfsjD7nF9CDHkCKW6kpXUOLVRBViE2rt8qqKMqm
-	NAVIXWyQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KFQhCwI2XRgHAY4VX3EsV/7XNZL6c8jN5EtxQfawdAc=; b=yD9lxeuMI8iFH5Q9bdfnhg6h+r
+	6AUSn0qzIvQ1qlvUtIE9RWeJ1FIECQsXlAidD6EjurNiBv22z9MPy8tptsAsz2F9itQQImtBEt4jK
+	YWNCfMyZvMgRbueK2IxZPK66/duEdadCZdgru4Ro22QSZDAaDoiksvsN3BO1PXzwQhw5eTgHrieae
+	qh+WIFI7LGkQrJawEeKiVm/TZVks6lTKvpRkJC91IVxslCK30Qaae2pj8IefdOljQ5Gt0OsIFvA+j
+	79RwY45VEVfUEYUAYUtPrMWI5QO8055hi50cGSD0qiMASlhefFb4uhq+qsmX48NVsxgHstqPM/YNZ
+	hGYec+vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZNww-0000000FLps-2Vu5;
-	Tue, 16 Jun 2026 07:11:06 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1wZNxy-0000000FM1H-3YeM;
+	Tue, 16 Jun 2026 07:12:10 +0000
+Received: from mx0b-0016f401.pphosted.com ([67.231.156.173])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZNwt-0000000FLox-2tAc
+	id 1wZNxw-0000000FM0K-1POb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Jun 2026 07:11:04 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-45efa80e0afso3288504f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 00:11:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1781593862; x=1782198662; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=RpWtGQUMO6w+AqepPhMZrIYR/+GHp+ISWGwYizWvLWs=;
-        b=jH6FJQ8LRwssaemFByrrn14ILbvp5Mdzbx0GNa0Qy6fgVRrDBC/6o7/LOGcBAjaMYJ
-         6Hb2BDCoHjGyXSkJdMkFrkJ/EILbW7iBeWUt1RAiN0gE1k6/t5eD0R7JbsJUpg1gAo2B
-         p0Tb+b3RIRtORoarZOCEHNxjsThiJPegmydxZx+wPGmelmWHBDDnRDdBnJBvL15fO6Nc
-         +XNsyQsBX2CkJRvtnrXhK66CIFHs3sTEMmLAx946ASmT7PQWUP0QRaqmAse285BoYpR8
-         CBUfaTkjXk89YRIHf5xLp6bHyNJ2SKdVuHuq84It96nKM0Im70JIyHqpq2DqrlffAnFb
-         /Xaw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781593862; x=1782198662;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=RpWtGQUMO6w+AqepPhMZrIYR/+GHp+ISWGwYizWvLWs=;
-        b=p4H321fJVVh720N9g/YDnLoqukt77+P28V8BhoKUb7dFu/Ga3Ya1BsdxZdnyozRc4f
-         kzka0M8lKD/02Egzl4E+SCeN+zkSJCX/HTU6sAPITHoJa/nytnlTCiYqlDB6u/yJKCwF
-         2ccdC/YHBGD5JluePtcrcR7MiX1YplutFBbnD2lO3HR7Gq1chUKbTQLyKQb4o6tSpivS
-         yRNn3vkKbGjTZA09vVtth7Wbt7N5ryFEjFWK6jshTJTyaWXp6J9yLyPZkFvNoLsU9Qm4
-         OYOcikWSH+aqyi/ts51UU7u6m4YJ9tIIZmVptOhFmbPq9tlY8yg1G2Lj3EYO/Y3MwDOc
-         a1uA==
-X-Forwarded-Encrypted: i=1; AFNElJ+gIw6BWPR3nu6Uze3VCvqKA7k4bLCF3O8dRJ4G9/reJQUmqFb+ZZJwUrH3xe+S3Jd1jSCulzgT/fPQMJyrBOi+@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx3aEKJmFyNAUaTclt/QcyGiInJkhll4gZFXl3d9KM4UBA5IwX/
-	bauYx3pebVPFC713Y+zkssx6AJrk2aTuHJPZddknxIGoHrUH6qrPBrAvhVAv7BPuIhI=
-X-Gm-Gg: Acq92OFCkbvSgWbnyYrHArPn6hk7Pj7+VJn9FqlawFx0fBZaEcwJBTHyxnYICOXe4mN
-	yO1cdBOt5NRu2K9pbWlMCAwGX/5L4J0XKIhDffJReNNmQ1Digv/45zy0TsKz9SJs707ZhRULQZ5
-	3eYbjXppABEMni8CC9N0KHLESY50jgQc9EuZGvNtvp06Zcy3u7TQK0BWSyTkN198MW5j9ciTj2R
-	4A5Vp7luxLfSCCzV4f8EIwHxRSJTRgnS3mis9Jz/ElJPWa6O4xgNMXpUEgNaEKMD6CHM1xnP/cl
-	2y054b3r+u/ibrfRIXdr3fZ4q9cc3irpLypTYQySE3+JrOi7f5pl1CVFDqTzKu3oEOxbKoanzOh
-	Wcne+b/AjXGIa4RfusTq6EMNQfOSlBlO7GxJT+Jgyl3pfczZkuGr0huA+JgikWoZrLZXbeo2Jsi
-	xia657qoE3ZIb8YRHCUNNHMA27dG/vMA==
-X-Received: by 2002:a5d:5d01:0:b0:45e:ec18:f20a with SMTP id ffacd0b85a97d-4606dbeff08mr26112789f8f.32.1781593861537;
-        Tue, 16 Jun 2026 00:11:01 -0700 (PDT)
-Received: from [10.3.4.22] ([212.133.41.77])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4606f2c4240sm38392203f8f.27.2026.06.16.00.11.00
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 16 Jun 2026 00:11:01 -0700 (PDT)
-Message-ID: <870a2721-5fad-42fc-b8f7-40a87d5a277e@linaro.org>
-Date: Tue, 16 Jun 2026 09:10:59 +0200
+	Tue, 16 Jun 2026 07:12:09 +0000
+Received: from pps.filterd (m0045851.ppops.net [127.0.0.1])
+	by mx0b-0016f401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65G66QlT2715623;
+	Tue, 16 Jun 2026 00:11:55 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
+	cc:content-type:date:from:message-id:mime-version:subject:to; s=
+	pfpt0220; bh=KFQhCwI2XRgHAY4VX3EsV/7XNZL6c8jN5EtxQfawdAc=; b=ZCa
+	4qIr8SdV1ZCDHNFGClaSkzMcjvrcrE3MMcVPG56eb/m+uAmFXC/eW9CPSftX/xjb
+	LtlR0kOl7W0Oe+6jiW2gKafzGX9agvt49Ux7Hjh1FvQKRBmTYdeO5oHNCp/hAZrB
+	eAmVhj357a2yi7OWAPi2ryLc2P4zu1X36AiF3YLi9tp4KzQL9QMDTeNOOIqEori3
+	n8h40psZKz5vd7EyDigIxjMXJ8INb+ejNk3w41xqMXHeyApgf0jqhC24JTj4jy8K
+	GRia9ospOyDMRcWI0BvMOoT+FsF5iHApe88j6+Twvg9/Lj2r4nisqHoRIoOdIhZE
+	HOisgggOVsCerDdGbVQ==
+Received: from dc6wp-exch02.marvell.com ([4.21.29.225])
+	by mx0b-0016f401.pphosted.com (PPS) with ESMTPS id 4es6qek0jh-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 16 Jun 2026 00:11:54 -0700 (PDT)
+Received: from DC6WP-EXCH02.marvell.com (10.76.176.209) by
+ DC6WP-EXCH02.marvell.com (10.76.176.209) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.25; Tue, 16 Jun 2026 00:11:54 -0700
+Received: from maili.marvell.com (10.69.176.80) by DC6WP-EXCH02.marvell.com
+ (10.76.176.209) with Microsoft SMTP Server id 15.2.1544.25 via Frontend
+ Transport; Tue, 16 Jun 2026 00:11:54 -0700
+Received: from hyd1soter3.marvell.com (unknown [10.29.37.12])
+	by maili.marvell.com (Postfix) with ESMTP id 2F27F3F7099;
+	Tue, 16 Jun 2026 00:11:50 -0700 (PDT)
+From: Geetha sowjanya <gakula@marvell.com>
+To: <linux-perf-users@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>
+CC: <mark.rutland@arm.com>, <will@kernel.org>, <krzk+dt@kernel.org>,
+        <gakula@marvell.com>
+Subject: [PATCH v3 0/3] perf: marvell: LLC-TAD PMU MPAM filtering support
+Date: Tue, 16 Jun 2026 12:41:46 +0530
+Message-ID: <20260616071149.12523-1-gakula@marvell.com>
+X-Mailer: git-send-email 2.17.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH] PCI: dwc: meson: Fix reset GPIO initial state
-To: linux-kernel-dev@aliel.fr, Yue Wang <yue.wang@Amlogic.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Bjorn Helgaas <bhelgaas@google.com>, Kevin Hilman <khilman@baylibre.com>,
- Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Remi Pommarel <repk@triplefau.lt>
-Cc: linux-pci@vger.kernel.org, linux-amlogic@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260616-fix-meson-pcie-reset-gpio-v1-1-fca404b4c8be@aliel.fr>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <20260616-fix-meson-pcie-reset-gpio-v1-1-fca404b4c8be@aliel.fr>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain
+X-Proofpoint-GUID: g6AZezlY3GdQFavchmv-96kWSL4d7Kru
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNjE2MDA3MCBTYWx0ZWRfX9JM50qDX2sfs
+ bdLI6e6hPfb+ThZWnsM3sFxYzfCxlT9m3XkIN/FbERUQG2P15NZJP0zRejsueRFwcHAFv7m3RY1
+ w0/24gNWhWkZgvIAbGAh3Pbq2m5pi1c=
+X-Authority-Analysis: v=2.4 cv=TuXWQjXh c=1 sm=1 tr=0 ts=6a30f73a cx=c_pps
+ a=gIfcoYsirJbf48DBMSPrZA==:117 a=gIfcoYsirJbf48DBMSPrZA==:17
+ a=FelO9ux0wxsA:10 a=VkNPw1HP01LnGYTKEx00:22 a=l0iWHRpgs5sLHlkKQ1IR:22
+ a=QXcCYyLzdtTjyudCfB6f:22 a=M5GUcnROAAAA:8 a=mgbCCiCACyxXVg7t1IEA:9
+ a=OBjm3rFKGHvpk9ecZwUJ:22
+X-Proofpoint-ORIG-GUID: g6AZezlY3GdQFavchmv-96kWSL4d7Kru
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjE2MDA3MCBTYWx0ZWRfXxEfNl4NPKD0V
+ ZN7a4Idw+ktfHjIzEWqvf2vmqZNVtDa0JnaqS77HV7BR5BTgQh6gY4Z/jptY1FxQiugPgRZ+RV8
+ wuowBxWvSRI5lko1XbOHsaKxWW2Rh5QkC4ikWY8eO0TtUaPW8mShrrZmEIZTFQLUM2soGd9yMNx
+ Xcv3DuckXLKcC1BSP5o71AawU28NJwhXW1FDIQ6wagrbAaoK2Pjvu0zeU90qEy2tvfuK561TU+O
+ OJvPmdW9rbpPRxWWIvAff4+T0OEFo5zJXLXjoPIJ0kF49Qi4i9HWpjIvSBkSHLp1NgsGnnPC7Aj
+ bKQNg0WlLJpIDXXgmdyGGB+aiX51E5Lcqg5G/fVRIeIpph4gxAXgR4HqzNch+RXRqyk24DvNQDI
+ 5XbHfQwADOLFxEtZRth04T3OQbwpxYqQnjpXWvXKC8CtQ8ArZrtDtKlS7CGExzuLKszdaW+hq8k
+ 8s+MFifJVUUnGV0OTZw==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-06-16_02,2026-06-15_04,2025-10-01_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260616_001103_776724_F2EA6FD2 
-X-CRM114-Status: GOOD (  18.43  )
+X-CRM114-CacheID: sfid-20260616_001208_496477_57AC644E 
+X-CRM114-Status: UNSURE (   8.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,64 +100,51 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/16/26 09:07, Ronald Claveau via B4 Relay wrote:
-> From: Ronald Claveau <linux-kernel-dev@aliel.fr>
-> 
-> Commit 4d3186a525b3 ("PCI: amlogic: Fix reset assertion via gpio
-> descriptor") inverted the reset assertion logic to use proper gpio
-> descriptor semantics, and moved the polarity configuration to the
-> device tree as GPIO_ACTIVE_LOW. However, the initial GPIO state
-> "GPIOD_OUT_LOW" was not updated accordingly.
-> 
-> Change GPIOD_OUT_LOW to GPIOD_OUT_HIGH to get the right behaviour.
-> 
-> With GPIOD_OUT_LOW:
-> 
->      ahci 0000:01:00.0: enabling device (0000 -> 0002)
->      ahci 0000:01:00.0: SSS flag set, parallel bus scan disabled
->      ahci 0000:01:00.0: Controller reset failed (0xffffffff)
->      ahci 0000:01:00.0: probe with driver ahci failed with error -5
-> 
-> With this fix:
-> 
->      ahci 0000:01:00.0: enabling device (0000 -> 0002)
->      ahci 0000:01:00.0: AHCI vers 0001.0300, 32 command slots, 6 Gbps,
->                         SATA mode
->      ahci 0000:01:00.0: 1/1 ports implemented (port mask 0x1)
->      ahci 0000:01:00.0: flags: 64bit ncq led clo only pio ccc
-> 
-> Fixes: 4d3186a525b3 ("PCI: amlogic: Fix reset assertion via gpio descriptor")
-> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
-> ---
->   drivers/pci/controller/dwc/pci-meson.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/pci/controller/dwc/pci-meson.c b/drivers/pci/controller/dwc/pci-meson.c
-> index 0694084f612b7..15ed59b8764fb 100644
-> --- a/drivers/pci/controller/dwc/pci-meson.c
-> +++ b/drivers/pci/controller/dwc/pci-meson.c
-> @@ -400,7 +400,7 @@ static int meson_pcie_probe(struct platform_device *pdev)
->   		return PTR_ERR(mp->phy);
->   	}
->   
-> -	mp->reset_gpio = devm_gpiod_get(dev, "reset", GPIOD_OUT_LOW);
-> +	mp->reset_gpio = devm_gpiod_get(dev, "reset", GPIOD_OUT_HIGH);
->   	if (IS_ERR(mp->reset_gpio)) {
->   		dev_err(dev, "get reset gpio failed\n");
->   		return PTR_ERR(mp->reset_gpio);
-> 
-> ---
-> base-commit: abe651837cb394f76d738a7a747322fca3bf17ba
-> change-id: 20260616-fix-meson-pcie-reset-gpio-2b9e188668c5
-> 
-> Best regards,
+This series extends the Marvell LLC-TAD performance driver used on CN10K
+and CN20K systems.
 
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+Patch 1 adds optional MPAM partition-id filtering for the subset of TAD
+events that support it, exposes partid / partid_en in the PMU format string,
+and keeps the reduced Odyssey event surface without advertising partid where
+it does not apply.  It also fixes probe resource handling (no in-place
+mutation of platform_get_resource() bounds, validate MMIO window vs
+tad-cnt), orders perf registration vs hotplug with unwind, and aligns the
+filter-enable bit in config1 with the sysfs format (bit 9).
 
-Thanks,
-Neil
+Patch 2 introduces CN20K LLC-TAD support: non-standard PFC/PRF offsets,
+additional programmable events with visibility checks so CN10K does not
+advertise V3-only events, CN20K-specific MPAM encoding for the V3 profile,
+local64_set(prev_count) on counter start, and device discovery via OF and
+ACPI.
+
+Patch 3 extends the DeviceTree binding for marvell,cn20k-tad-pmu.
+
+Changes since v2
+----------------
+- Validate the eventId using an appropriate mask to ensure it is restricted to 8 bits.
+
+Changes since v1
+----------------
+- config1: use bit 9 for MPAM filter enable consistently with partid_en in
+  the PMU format; allow only bits 0..9 in event_init on CN10K/CN20K paths.
+- Reject reserved bits in attr.config and use the same 8-bit event index in
+  start_counter as in event_init so MPAM validation cannot be bypassed.
+- Hide V3-only sysfs events on V1.
+- Reset prev_count when starting counters after clearing hardware.
+- DT binding: explain non-fallback compatibles for CN10K vs CN20K.
+
+Tanmay Jagdale (1):
+  perf: marvell: Add MPAM partid filtering to CN10K TAD PMU
+
+Geetha sowjanya (2):
+  perf: marvell: Add CN20K LLC-TAD PMU support
+  dt-bindings: perf: marvell: Extend CN10K TAD PMU binding for CN20K
+
+Signed-off-by: Geetha sowjanya <gakula@marvell.com>
+
+-- 
+2.25.1
 
