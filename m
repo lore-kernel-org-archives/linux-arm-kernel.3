@@ -4,64 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8005CD98E1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 17:50:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B274CCD98E4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 17:52:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pC+3y6u05bo4j+kfEVgXTpJcC8QAQdLa7XJcQZ3gASs=; b=4+Gukb8i4MwkblgkQT+p5oZYjv
-	M7zYx4p4YtFel3rfsk+N1nS0hnUyihzd8C5R0up8iaukz9pO6aGMHK0n6w8yo8Xoak/A45dsny0ci
-	A7pRJmJWQYq0FZf+YXEFUZAYPEND9UWnLipyp/OQv0AOYrb90uLKVGaLAdrFdkc/r+unfAcd63j5Z
-	Pg3X8QS62lRyo/S8KbzSJECihTRf6FwADqkDJt9btU9gXXtTr2YOHRHCgc8Z9t9Vc0y0Yq1BSEkqu
-	hOvUs53/GLgcccXKBI22+P4Ug+6v7Kev20xy1m8ADbZ3jWftfd+2InsNyVtAkaiHIAq/PacnhuIks
-	+FpigjhQ==;
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=VqBp2YLsM32E0REqpNCDe06V2yuMHSi6VSGKJN37n6U=; b=4w1dUABa98kzy2MXp9xkdKrw32
+	sXsXOyoyrW1eWl7FSKQ/jl+K39dWmVwyIHb9UviS2X+AZ6S0PFukxCwYEEPNszaokRYAVJhD3MtFz
+	4okO/IbqU1tuFzIfMcaFKaoC6vIybht6uPy+Z7Y0xCzwOt2ECTMacnzudacRoBhdB8LuA5A5xhr7n
+	kjWxXz8T6+7DunUA29gA9izNp/mFme6Zq5tK4ytKQdVg/aPShUn6NWDw+pmpvbK4sUf/DXPy4SQVS
+	Zp0QFkF26qNuyZXwtHiMmMQnbV2zSNQal48XQX76zpjqtnlE/Spbm5xFrmLiDSr1rWMTaRRXDrVJt
+	eiLZs4Gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZXvA-0000000GBQ8-2dla;
-	Tue, 16 Jun 2026 17:49:56 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wZXxp-0000000GBiv-43HA;
+	Tue, 16 Jun 2026 17:52:41 +0000
+Received: from mail.andi.de1.cc ([2a02:c205:3004:2154::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZXv9-0000000GBQ1-1I4N
+	id 1wZXxn-0000000GBhe-1ULL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Jun 2026 17:49:55 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 986D940BC3;
-	Tue, 16 Jun 2026 17:49:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B1431F000E9;
-	Tue, 16 Jun 2026 17:49:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1781632194;
-	bh=pC+3y6u05bo4j+kfEVgXTpJcC8QAQdLa7XJcQZ3gASs=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=kXcTxd5CKxHajSrkqlik9zm4YaMrhKgkcgR7A3o2tnd59aZjPbLqNBTrzHXh8vmsa
-	 Xx3NoZvWtfsE4PcAgLCFTz6VxNY/HqvWciC7Dx06ykBtrSU72MY2HmVVeQ7E1K6Hn9
-	 /CiwIUT0RtXKz2L7mn32LjJ/xWLncac8bMIpOusY=
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: stable@vger.kernel.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	patches@lists.linux.dev,
-	Will Deacon <will@kernel.org>,
+	Tue, 16 Jun 2026 17:52:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=kemnade.info; s=20220719; h=Subject:To:From:Reply-To:Cc:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=VqBp2YLsM32E0REqpNCDe06V2yuMHSi6VSGKJN37n6U=; t=1781632359; x=1782841959; 
+	b=KfVrFEhuyPKM1ABtoRmDF/D62s37xAaDegwYZgQctQhMuUFLigEg7pLGhNHRxTK6sR8XyqEO6cb
+	N/iJYL7Q3Clw1fQddUJU4CDNklpn4fVVjqughugjvAnqL46j3BhwYOz/G6Y1LCRIbrARkmxVfuKmj
+	ZyqBAtiQwneqX2eJpbcw0atg5OsAd6r5v5njiSgGc1OC3pnSAOYtkwsr55COXT9fGyg7dDWQ0U//L
+	OzM9S4PL2SefDTUYmu+bnjDNGR/DU+MfKHWPyBpDqpxBeW0Ll2mhMSPXurMNMJyefkKkcXCvBAXy2
+	hqLJ9JgYAZpumDk3vHQSArPW5xLySefaXT3g==;
+From: Andreas Kemnade <andreas@kemnade.info>
+To: aaro.koskinen@iki.fi,
+	andreas@kemnade.info,
+	khilman@baylibre.com,
+	rogerq@kernel.org,
+	tony@atomide.com,
+	linux@armlinux.org.uk,
+	linux-omap@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	"David Hildenbrand (Arm)" <david@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH 6.1 337/522] arm64/mm: Enable batched TLB flush in unmap_hotplug_range()
-Date: Tue, 16 Jun 2026 20:28:04 +0530
-Message-ID: <20260616145141.584613180@linuxfoundation.org>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260616145125.307082728@linuxfoundation.org>
-References: <20260616145125.307082728@linuxfoundation.org>
-User-Agent: quilt/0.69
-X-stable: review
-X-Patchwork-Hint: ignore
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] ARM: omap2plus_defconfig: enable things required by iwd
+Date: Tue, 16 Jun 2026 19:51:52 +0200
+Message-ID: <20260616175152.1373709-1-andreas@kemnade.info>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260616_105239_393737_2B12C9ED 
+X-CRM114-Status: UNSURE (   7.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,139 +70,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-6.1-stable review patch.  If anyone has any objections, please let me know.
+Several crypto related things are missing for opreation of iwd, turn
+them on according to the list being printed out.
 
-------------------
+:~# /usr/libexec/iwd &
+:~# No HMAC(SHA1) support found
+No HMAC(MD5) support found
+No CMAC(AES) support found
+No HMAC(SHA256) support not found
+No HMAC(SHA512) support found, certain TLS connections might fail
+DES support not found
+AES support not found
+No CBC(DES3_EDE) support found, certain TLS connections might fail
+No CBC(AES) support found, WPS will not be available
+No Diffie-Hellman support found, WPS will not be available
+The following options are missing in the kernel:
+        CONFIG_CRYPTO_USER_API_HASH
+        CONFIG_CRYPTO_USER_API_SKCIPHER
+        CONFIG_KEY_DH_OPERATIONS
+        CONFIG_CRYPTO_ECB
+        CONFIG_CRYPTO_MD5
+        CONFIG_CRYPTO_CBC
+        CONFIG_CRYPTO_SHA256
+        CONFIG_CRYPTO_AES
+        CONFIG_CRYPTO_DES
+        CONFIG_CRYPTO_CMAC
+        CONFIG_CRYPTO_HMAC
+        CONFIG_CRYPTO_SHA512
+        CONFIG_CRYPTO_SHA1
 
-From: Anshuman Khandual <anshuman.khandual@arm.com>
+Apparently missing USER_API_SKCIPHER did also
+hide some things for iwd.
 
-[ Upstream commit 48478b9f791376b4b89018d7afdfd06865498f65 ]
-
-During a memory hot remove operation, both linear and vmemmap mappings for
-the memory range being removed, get unmapped via unmap_hotplug_range() but
-mapped pages get freed only for vmemmap mapping. This is just a sequential
-operation where each table entry gets cleared, followed by a leaf specific
-TLB flush, and then followed by memory free operation when applicable.
-
-This approach was simple and uniform both for vmemmap and linear mappings.
-But linear mapping might contain CONT marked block memory where it becomes
-necessary to first clear out all entire in the range before a TLB flush.
-This is as per the architecture requirement. Hence batch all TLB flushes
-during the table tear down walk and finally do it in unmap_hotplug_range().
-
-Prior to this fix, it was hypothetically possible for a speculative access
-to a higher address in the contiguous block to fill the TLB with shattered
-entries for the entire contiguous range after a lower address had already
-been cleared and invalidated. Due to the table entries being shattered, the
-subsequent TLB invalidation for the higher address would not then clear the
-TLB entries for the lower address, meaning stale TLB entries could persist.
-
-Besides it also helps in improving the performance via TLBI range operation
-along with reduced synchronization instructions. The time spent executing
-unmap_hotplug_range() improved 97% measured over a 2GB memory hot removal
-in KVM guest.
-
-This scheme is not applicable during vmemmap mapping tear down where memory
-needs to be freed and hence a TLB flush is required after clearing out page
-table entry.
-
-Cc: Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Closes: https://lore.kernel.org/all/aWZYXhrT6D2M-7-N@willie-the-truck/
-Fixes: bbd6ec605c0f ("arm64/mm: Enable memory hot remove")
-Cc: stable@vger.kernel.org
-Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
-Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
-Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
-[ replaced `__pte_clear()` with `pte_clear()` ]
-Signed-off-by: Sasha Levin <sashal@kernel.org>
-Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Signed-off-by: Andreas Kemnade <andreas@kemnade.info>
 ---
- arch/arm64/mm/mmu.c |   36 ++++++++++++++++++++----------------
- 1 file changed, 20 insertions(+), 16 deletions(-)
+ arch/arm/configs/omap2plus_defconfig | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -925,10 +925,14 @@ static void unmap_hotplug_pte_range(pmd_
- 
- 		WARN_ON(!pte_present(pte));
- 		pte_clear(&init_mm, addr, ptep);
--		flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
--		if (free_mapped)
-+		if (free_mapped) {
-+			/* CONT blocks are not supported in the vmemmap */
-+			WARN_ON(pte_cont(pte));
-+			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
- 			free_hotplug_page_range(pte_page(pte),
- 						PAGE_SIZE, altmap);
-+		}
-+		/* unmap_hotplug_range() flushes TLB for !free_mapped */
- 	} while (addr += PAGE_SIZE, addr < end);
- }
- 
-@@ -949,15 +953,14 @@ static void unmap_hotplug_pmd_range(pud_
- 		WARN_ON(!pmd_present(pmd));
- 		if (pmd_sect(pmd)) {
- 			pmd_clear(pmdp);
--
--			/*
--			 * One TLBI should be sufficient here as the PMD_SIZE
--			 * range is mapped with a single block entry.
--			 */
--			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
--			if (free_mapped)
-+			if (free_mapped) {
-+				/* CONT blocks are not supported in the vmemmap */
-+				WARN_ON(pmd_cont(pmd));
-+				flush_tlb_kernel_range(addr, addr + PMD_SIZE);
- 				free_hotplug_page_range(pmd_page(pmd),
- 							PMD_SIZE, altmap);
-+			}
-+			/* unmap_hotplug_range() flushes TLB for !free_mapped */
- 			continue;
- 		}
- 		WARN_ON(!pmd_table(pmd));
-@@ -982,15 +985,12 @@ static void unmap_hotplug_pud_range(p4d_
- 		WARN_ON(!pud_present(pud));
- 		if (pud_sect(pud)) {
- 			pud_clear(pudp);
--
--			/*
--			 * One TLBI should be sufficient here as the PUD_SIZE
--			 * range is mapped with a single block entry.
--			 */
--			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
--			if (free_mapped)
-+			if (free_mapped) {
-+				flush_tlb_kernel_range(addr, addr + PUD_SIZE);
- 				free_hotplug_page_range(pud_page(pud),
- 							PUD_SIZE, altmap);
-+			}
-+			/* unmap_hotplug_range() flushes TLB for !free_mapped */
- 			continue;
- 		}
- 		WARN_ON(!pud_table(pud));
-@@ -1020,6 +1020,7 @@ static void unmap_hotplug_p4d_range(pgd_
- static void unmap_hotplug_range(unsigned long addr, unsigned long end,
- 				bool free_mapped, struct vmem_altmap *altmap)
- {
-+	unsigned long start = addr;
- 	unsigned long next;
- 	pgd_t *pgdp, pgd;
- 
-@@ -1041,6 +1042,9 @@ static void unmap_hotplug_range(unsigned
- 		WARN_ON(!pgd_present(pgd));
- 		unmap_hotplug_p4d_range(pgdp, addr, next, free_mapped, altmap);
- 	} while (addr = next, addr < end);
-+
-+	if (!free_mapped)
-+		flush_tlb_kernel_range(start, end);
- }
- 
- static void free_empty_pte_table(pmd_t *pmdp, unsigned long addr,
-
+diff --git a/arch/arm/configs/omap2plus_defconfig b/arch/arm/configs/omap2plus_defconfig
+index ad5ae1636dee..fa6fb8b27f93 100644
+--- a/arch/arm/configs/omap2plus_defconfig
++++ b/arch/arm/configs/omap2plus_defconfig
+@@ -257,6 +257,9 @@ CONFIG_RXKAD=y
+ CONFIG_CFG80211=m
+ CONFIG_CFG80211_WEXT=y
+ CONFIG_MAC80211=m
++CONFIG_RFKILL=m
++CONFIG_RFKILL_INPUT=y
++CONFIG_RFKILL_GPIO=m
+ CONFIG_PCI=y
+ CONFIG_PCI_MSI=y
+ CONFIG_PCI_DRA7XX_EP=y
+@@ -703,7 +706,15 @@ CONFIG_NFS_V4=y
+ CONFIG_ROOT_NFS=y
+ CONFIG_NLS_CODEPAGE_437=y
+ CONFIG_NLS_ISO8859_1=y
++CONFIG_KEY_DH_OPERATIONS=y
+ CONFIG_SECURITY=y
++CONFIG_CRYPTO_DH_RFC7919_GROUPS=y
++CONFIG_CRYPTO_DES=m
++CONFIG_CRYPTO_DEFLATE=y
++CONFIG_CRYPTO_LZO=y
++CONFIG_CRYPTO_ZSTD=y
++CONFIG_CRYPTO_USER_API_HASH=m
++CONFIG_CRYPTO_USER_API_SKCIPHER=m
+ CONFIG_CRYPTO_GHASH_ARM_CE=m
+ CONFIG_CRYPTO_AES=m
+ CONFIG_CRYPTO_AES_ARM_BS=m
+-- 
+2.47.3
 
 
