@@ -4,48 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC185CD98ED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 11:54:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38407CD98E6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 11:54:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WvzHJw3xGPVe+e/TU8pVaYT0zHe7RkHLoH5hXlxjocU=; b=hIBxosHggmUhcPPB88K7wLNpIl
-	9H7HfIJX3fZ8X5136qi7jXeXTn9CcpXlpT0Q3IPG/QNRKKnlnvvyf4zADQoXXapCszMnCyRIbZYUW
-	LhzM/BOjZHMjaedO18ZIwOU8NVKSs8HI0x5m30u+WMHRoGac9a5WPhX8uLJRTot5OXfCUGpTFFQfm
-	k2ANjdgAlNAPsc8EPt1IC8bQ2RlrQjNF5/xOk6EmHh44x3n1m8Lvcx4eR4pxicdlR3Atymea7s5LN
-	Sw37ld5JQIEOIGznDLWOQsjuVGH9cGesM/vMLXL/geYTRqom77VjrFdSP//+IEcqhJeUfzBk9uxdH
-	CBx47phQ==;
+	bh=T66RyhO6Abrm/JiL4F0gaG4GTabEp7JP+fNBjtPHAmw=; b=fvwIr4whpp8ChF/ThwXBUVH9zM
+	TPNhQrRPnEcHgATiyIZzRW3xi82dEJ+5vWUqRpkVQeemopUiLJdfafOh2D9jqS0cYI0yNfXua0+EU
+	3poWzKmVKwcjTqoPauZZ3sSFjYtooZyTgRWZwPaWcomVZMvwH9oIrdtCDEAHsaXmDZom1gFQYrkKl
+	lQdeMU0wUzc9TqWWLqZXPoeGO0lXILPP1iahDgEf6mngwuqgda5E+rcWjshwcPs2RobZPr7GuU02Q
+	+tm3hgj/qbFziXcsdJ0HPFcU1W+9Wk8VjtIEMXe6nFe+MUuSOjQEsu0PjsZ4e6xDUvoXxx91C+cP4
+	ZdL9XPsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZSNC-0000000Fhvx-1Dd6;
-	Tue, 16 Jun 2026 11:54:30 +0000
+	id 1wZSND-0000000Fhy3-2lLE;
+	Tue, 16 Jun 2026 11:54:31 +0000
 Received: from mail.fris.de ([116.203.77.234])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZSMo-0000000FhcD-1OCB
+	id 1wZSMn-0000000Fhc6-20A8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Jun 2026 11:54:10 +0000
+	Tue, 16 Jun 2026 11:54:11 +0000
 From: Frieder Schrempf <frieder@fris.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fris.de; s=mail;
-	t=1781610840;
+	t=1781610839;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=WvzHJw3xGPVe+e/TU8pVaYT0zHe7RkHLoH5hXlxjocU=;
-	b=XSTk9k4vhU3DdzwzEPrHJsbP9fkOyUHx9fzWRo1EmXL9WQZIJYM1Pw7PZQqhfLRWZOm/fp
-	bhaY0ZxVmGqH03VtYy6KU2he2EFs0s/+tTxvgdFFGkeosDnmQWWawtbBTiBHJ8Ua8YK8PN
-	g7aldn401uVj66dwap12FnVqmNe9r4cW9PrJqEy+UXhGihP/htuGCFhmoJJA6w88Le5aru
-	Yhdh3Yna38c/VKXfrquz/cTDgiEjHsgL9DfsJSGXKjrvJH8H/PEfRKaDNCk412RER890OO
-	x0qTzudhyaCUbUZQ3OkcszDNgxFnTFda0qRfnkvDxE+1hV40Ye5R08DnAYFwmA==
-Date: Tue, 16 Jun 2026 13:52:22 +0200
-Subject: [PATCH 7/9] nvmem: imx-ocotp-ele: Remove the FUSE_ELE type
+	bh=T66RyhO6Abrm/JiL4F0gaG4GTabEp7JP+fNBjtPHAmw=;
+	b=EimosjD6QcfRvLwuq2gKhrmzgKk4pWNhaG6QDDhbiMmE3xwBe07ggU8UjlJWKWR+91jE9y
+	Wzet5vJ0oPIAh3aK6zwDsfkP3Abuye0MEL7SetpK4eZYRYyWyqg6OkfQ/S2qe1eV51AOJj
+	7EaMlQCh0Pc+FL+Uws4LQbYqnHmbeaoOx6j5WqQj/MJHVquq2M+SWiq5OJ7hT8+ZuAufqj
+	NypclxNMpxiCqtcyv5tJ1+Sd6O6YsykL7TZ0YScAZbn17r1a3tICurFGQwnIJ6SZHhoKtg
+	HLB0M2WFtG2Fpl6gcTE1wv3GTeuaHbXqt8Yn67gsuxpx0WTl1B8670Nv4qRIOQ==
+Date: Tue, 16 Jun 2026 13:52:20 +0200
+Subject: [PATCH 5/9] nvmem: imx-ocotp-ele: Remove device-specific
+ reg_read()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260616-upstreaming-next-20260609-imx-ocotp-ele-v1-7-cb7f3698c3e6@kontron.de>
+Message-Id: <20260616-upstreaming-next-20260609-imx-ocotp-ele-v1-5-cb7f3698c3e6@kontron.de>
 References: <20260616-upstreaming-next-20260609-imx-ocotp-ele-v1-0-cb7f3698c3e6@kontron.de>
 In-Reply-To: <20260616-upstreaming-next-20260609-imx-ocotp-ele-v1-0-cb7f3698c3e6@kontron.de>
 To: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -57,18 +58,18 @@ To: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>,
 Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Frieder Schrempf <frieder.schrempf@kontron.de>
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2820;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1858;
  i=frieder.schrempf@kontron.de; h=from:subject:message-id;
- bh=EADxJoYxA3oYZiZFPQ+kvzhJf1dQOzKZeqWnu3tSMbo=;
- b=owGbwMvMwCWWWSatKlDTJMZ4Wi2JIcvQMlRv5favfin/Tq3gjnGcFGVyOvLPX9OAV3MWPn18/
- tXGD9JsHaUsDGJcDLJiiixS/Bavbc1ifeSPVUfBzGFlAhnCwMUpABM55s/wP1vK6Qxzt35Eu6XI
- 75UWJZISG8U+nZBOktF+kzy/7/iERIZ/ps80eLiFznzw5J9s9WXJX/XG3YpGjSEzfxv8Opx2JPU
- SNwA=
+ bh=qHeDROtk+pvkrSPR9Yg3D12fXZZ1XEbJj/3tSOk51NE=;
+ b=owGbwMvMwCWWWSatKlDTJMZ4Wi2JIcvQMlTl0ewuH/GHMUa735lP/pBQ7XLj3WSfnN5jb/L/X
+ TXLf5PeUcrCIMbFICumyCLFb/Ha1izWR/5YdRTMHFYmkCEMXJwCMBGJfQz/jM6fye7N+pJfVP7/
+ 8QZ2fp9FN2SSAx7PeZmcW7Of2cj0CcN/D9tjGwKivgp7lR0VVzT9ISznktb26HDtx8j+RfP0gra
+ yAAA=
 X-Developer-Key: i=frieder.schrempf@kontron.de; a=openpgp;
  fpr=1A0F38EB3D365D4C1FC67B5A69761B25107C8216
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260616_045406_677730_9513EB5E 
-X-CRM114-Status: GOOD (  10.47  )
+X-CRM114-CacheID: sfid-20260616_045405_831186_59F84CFF 
+X-CRM114-Status: GOOD (  12.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,93 +86,59 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Frieder Schrempf <frieder.schrempf@kontron.de>
 
-There is no use in tracking the fuses that are only accessible via
-ELE API and the current lists are incomplete. If the ELE API is
-available it will be used as primary access method anyway, otherwise
-the fuses not listed as accessible through the FSB can be considered
-invalid.
-
-No functional changes intended.
+We only have a single implementation of the read hook. There is no
+need to store it in the device data.
 
 Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
 ---
- drivers/nvmem/imx-ocotp-ele.c | 19 +++++--------------
- 1 file changed, 5 insertions(+), 14 deletions(-)
+ drivers/nvmem/imx-ocotp-ele.c | 6 +-----
+ 1 file changed, 1 insertion(+), 5 deletions(-)
 
 diff --git a/drivers/nvmem/imx-ocotp-ele.c b/drivers/nvmem/imx-ocotp-ele.c
-index 92cc061b9b34..3d6fad149ed5 100644
+index dadec19ca252..9d3f94e35508 100644
 --- a/drivers/nvmem/imx-ocotp-ele.c
 +++ b/drivers/nvmem/imx-ocotp-ele.c
-@@ -18,8 +18,7 @@
+@@ -33,7 +33,6 @@ struct ocotp_devtype_data {
+ 	u32 size;
+ 	u32 num_entry;
+ 	u32 flag;
+-	nvmem_reg_read_t reg_read;
+ 	const struct nvmem_keepout *keepout;
+ 	unsigned int nkeepout;
+ 	struct ocotp_map_entry entry[];
+@@ -158,7 +157,7 @@ static int imx_ele_ocotp_probe(struct platform_device *pdev)
+ 	priv->config.id = NVMEM_DEVID_AUTO;
+ 	priv->config.owner = THIS_MODULE;
+ 	priv->config.size = priv->data->size;
+-	priv->config.reg_read = priv->data->reg_read;
++	priv->config.reg_read = imx_ocotp_reg_read;
+ 	priv->config.word_size = 1;
+ 	priv->config.stride = 1;
+ 	priv->config.priv = priv;
+@@ -190,7 +189,6 @@ static const struct nvmem_keepout imx93_ocotp_keepout[] = {
  
- enum fuse_type {
- 	FUSE_FSB = BIT(0),
--	FUSE_ELE = BIT(1),
--	FUSE_ECC = BIT(2),
-+	FUSE_ECC = BIT(1),
- 	FUSE_INVALID = -1
- };
- 
-@@ -111,7 +110,7 @@ static int imx_ocotp_reg_read(void *context, unsigned int offset, void *val, siz
- 		}
- 
- 		type = imx_ocotp_fuse_type(context, i);
--		if (type == FUSE_INVALID || type == FUSE_ELE) {
-+		if (type == FUSE_INVALID) {
- 			*buf++ = 0;
- 			continue;
- 		}
-@@ -264,13 +263,9 @@ static const struct nvmem_keepout imx93_ocotp_keepout[] = {
  static const struct ocotp_devtype_data imx93_ocotp_data = {
  	.reg_off = 0x8000,
+-	.reg_read = imx_ocotp_reg_read,
  	.size = 2048,
--	.num_entry = 6,
-+	.num_entry = 2,
+ 	.num_entry = 6,
  	.entry = {
- 		{ 0, 52, FUSE_FSB },
--		{ 63, 1, FUSE_ELE},
--		{ 128, 16, FUSE_ELE },
--		{ 182, 1, FUSE_ELE },
--		{ 188, 1, FUSE_ELE },
- 		{ 312, 200, FUSE_FSB }
- 	},
- 	.keepout = imx93_ocotp_keepout,
-@@ -280,7 +275,7 @@ static const struct ocotp_devtype_data imx93_ocotp_data = {
+@@ -207,7 +205,6 @@ static const struct ocotp_devtype_data imx93_ocotp_data = {
+ 
  static const struct ocotp_devtype_data imx94_ocotp_data = {
  	.reg_off = 0x8000,
+-	.reg_read = imx_ocotp_reg_read,
  	.size = 3296, /* 103 Banks */
--	.num_entry = 10,
-+	.num_entry = 9,
+ 	.num_entry = 10,
  	.entry = {
- 		{ 0, 1, FUSE_FSB | FUSE_ECC },
- 		{ 7, 1, FUSE_FSB | FUSE_ECC },
-@@ -288,7 +283,6 @@ static const struct ocotp_devtype_data imx94_ocotp_data = {
- 		{ 12, 24, FUSE_FSB },
- 		{ 36, 2, FUSE_FSB  | FUSE_ECC },
- 		{ 38, 14, FUSE_FSB },
--		{ 59, 1, FUSE_ELE },
- 		{ 525, 2, FUSE_FSB | FUSE_ECC },
- 		{ 528, 7, FUSE_FSB },
- 		{ 536, 280, FUSE_FSB },
-@@ -298,7 +292,7 @@ static const struct ocotp_devtype_data imx94_ocotp_data = {
+@@ -226,7 +223,6 @@ static const struct ocotp_devtype_data imx94_ocotp_data = {
+ 
  static const struct ocotp_devtype_data imx95_ocotp_data = {
  	.reg_off = 0x8000,
+-	.reg_read = imx_ocotp_reg_read,
  	.size = 2048,
--	.num_entry = 12,
-+	.num_entry = 9,
+ 	.num_entry = 12,
  	.entry = {
- 		{ 0, 1, FUSE_FSB | FUSE_ECC },
- 		{ 7, 1, FUSE_FSB | FUSE_ECC },
-@@ -306,9 +300,6 @@ static const struct ocotp_devtype_data imx95_ocotp_data = {
- 		{ 12, 24, FUSE_FSB },
- 		{ 36, 2, FUSE_FSB  | FUSE_ECC },
- 		{ 38, 14, FUSE_FSB },
--		{ 63, 1, FUSE_ELE },
--		{ 128, 16, FUSE_ELE },
--		{ 188, 1, FUSE_ELE },
- 		{ 317, 2, FUSE_FSB | FUSE_ECC },
- 		{ 320, 7, FUSE_FSB },
- 		{ 328, 184, FUSE_FSB }
 
 -- 
 2.54.0
