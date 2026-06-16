@@ -4,91 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CA56CD98E4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 16:59:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27B84CD98E4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 17:36:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F2MzvP3M/Lvdf+YQEoRrr/63qV3jwcTxyyvjTUVpfjs=; b=HhBu84KulaHA508+t57JifCkLG
-	pLdNl9Zu0PjHQc0fWuz8ivXKem4ftE4kNcv8gdPHUVtaAuK1RRquJ7c8iNaqL2zgKfG/JgwbRl4d7
-	3WWzJMxJSRdYsgKPX7ny1iot5kD6V83mS1D30GEZ61Xn/wcF81RaC6SKvUkZye1/M9jSDQ3qR/06B
-	J7/6OV0S61WiOf6H0Dmrmefub/9DQj4nJJlBqluRwrQkdpflvBnAMq3j02joVAIPz8plgnBeSNKXl
-	1FCu1eR2rYNXuqlGxLhp97Q+EVYx+CMxgn3j5FYm1q7ONExKSCy7UwTXb3IKtPUWUKrLTj9H179Lp
-	6H7dCVrw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=j8mE12+DhQDOCsN4kz2sxFjHcIdD+IWi9/3TxDS4ABI=; b=Wuf7aEE7ssNPwTJNBJwcYKbCZr
+	zghAlrboK6qawpHPUboDvMoy+ASMx7Gzmix0C/8GDvNarokaDMSQZnNbaVHLGHueFygV1qKolThSp
+	dEbklLy7B76GTVMpGCUHjrxO4m/HaucXcXnojdphRTvhhxzRnJH8140P6tytR66G1n0jphx1faebu
+	DFVeUPOIuMbSQxNeYa2zi/zvU0tbUzVOhlraqyY9OdWEFMajk+d4kXihJp0gAhyX7vNeaTgVQrXI6
+	msZ7LfxjFuAHGaGvnZgwDVZcHPZwINejBU/c6gY5bX4B1B3yy2DUbRP4GNs1Ug/A44ZnObRgP65Bz
+	XLc0O00Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZX8N-0000000G8OE-2FwQ;
-	Tue, 16 Jun 2026 16:59:31 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1wZXiO-0000000GAyo-2SSG;
+	Tue, 16 Jun 2026 17:36:44 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZX8L-0000000G8Nm-1wMg
+	id 1wZXiL-0000000GAyR-0pvu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Jun 2026 16:59:30 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-490b3637b90so37430795e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 09:59:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781629168; x=1782233968; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=F2MzvP3M/Lvdf+YQEoRrr/63qV3jwcTxyyvjTUVpfjs=;
-        b=rSUj9DFFahOsjLGoQJ9u2F4G8Mt326lUQXJ2lZG1kn+Xt1hTVLUzmm6a4qnA24rqZf
-         +Atjc6y+lQeYWtpnzKs1FE6bYzTuQHGANd84Q6hLByJq891C+/qS5XpRe14BUYo+ACvP
-         2Z0nbKQ+AR2+LV/oFInIFkvDG/DcOX5DJa+8OVtHTBKmxLdQfeLvL2fr05YCVLAo/w8P
-         yWuIIz8x8hMJ5fiGtKeofs/4XRUCwST6Nfvc0Ae63423RZSMFMM5WBdBdF20aLayk68O
-         kj3rMjT2EAeS7MNP8uTJvZt9veH2gEc4obd9fQA/6nfzm3ebGUo3oH8v1rldGnF3JwTw
-         nrPg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781629168; x=1782233968;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=F2MzvP3M/Lvdf+YQEoRrr/63qV3jwcTxyyvjTUVpfjs=;
-        b=kew6mx1KFZuiW637DhA6IoIeJosAPybicd35T1OBRhILf4/lVkn8TuLeQliyy8QnZb
-         nAmcYMpaET2unwzIOf4H+WTdzncSIIQyZ6bnKNGVMN7FCoJcEukj+i3nOJ94PwJ/rWES
-         Ob9m+GUZQC4lS3637VBihXrPphsS+eoOJpiApQp0uHhoJnVZOp3n8vg7INGEQFAxesBO
-         7yyQIQqowGIPdr6aZm09d5J/jZ87KAwsetCtQN5WEmt9/xJteZBILp3sveDRYxV8onDu
-         B48DdtH443QDbsXzRl4ROtYrebV2M68F/v/vamMg+t+RDs4BRN+K4W/0ymjS0pY2mosy
-         7lUA==
-X-Forwarded-Encrypted: i=1; AFNElJ+wSO3EcjdoWfGz6FD7LN1PQPbJas8B4W6kPrak9wKJV3ZFV79RVzMtdKEl1AAFXMJv841cdIRMZcszOfKc38aD@lists.infradead.org
-X-Gm-Message-State: AOJu0YwCy4GxBD/ZUHP7qCB2fZIrEStlOeMYgZuQ/U4iLlMj8SrZ4YzC
-	bNJXxhgDxsLhyaMOZW2lYDrpOlmYgXVktfLgzBN0zJ2K7csIR9M4kv8w
-X-Gm-Gg: Acq92OHHDiY447YR4SHNq1EuI0adftMYBuV0IGWdsQJ7dWJMqwngrNFDSLUXM9DWO+a
-	6eVsB3Dp5WoUXm8COMC3rVnzVfz4YV7/OAOGCAtdpCtM+l9HI2f29Ayw0ESxYUSW2hGQai5zRTZ
-	sOJT93aNitjkTlQCz+jRkXEaTVPwA/EaQ3pwQ95FZ+fPZDVDspTlbMQqB4Z7O7ttGxkmhppuP3s
-	0WmoDHMmMyLXFsQ89QIbjUSfGJfTwsBtNnNMncV7+Td5gKyhMe7coFWGO+Wodr8hHO3bqeCTv+6
-	8Aab1oVWTMvjjvcXcoKooA3Jj6eOZwEJhaT8QjVgH/BAJQgyfmdc3jVoBP5yv3WVQc0eR4iCBOP
-	iwBJ64omGH8Zx5zGhoWqYhvl0+dWAUzBgBxnya2IzHqcc2E7xz1LnSwK+dCJGBjvG6nawRoO+RD
-	letwzSSgYKux2PqXK5+GhZJ79zKRqNgd4EFPS6S9ONZPpbi3TP0KiLzFTyQV5jyWKEiKNaSfOYD
-	NUxnp3YPCuyaFKVSRp5NRK0pVqJUPBb2nKL
-X-Received: by 2002:a05:600c:3b02:b0:490:6237:521d with SMTP id 5b1f17b1804b1-492333a8e2cmr6254255e9.13.1781629167571;
-        Tue, 16 Jun 2026 09:59:27 -0700 (PDT)
-Received: from jernej-laptop.localnet (APN-122-99-120-gprs.simobil.net. [46.122.99.120])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4922fa890d8sm103698875e9.10.2026.06.16.09.59.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 16 Jun 2026 09:59:27 -0700 (PDT)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: vkoul@kernel.org, Frank.Li@kernel.org, wens@kernel.org,
- samuel@sholland.org, mripard@kernel.org, arnd@arndb.de,
- Hongling Zeng <zenghongling@kylinos.cn>
-Cc: dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- zhongling0719@126.com, Hongling Zeng <zenghongling@kylinos.cn>
-Subject: Re: [PATCH v2] dmaengine: sun6i-dma: Fix memory leak in
- sun6i_dma_terminate_all
-Date: Tue, 16 Jun 2026 18:59:24 +0200
-Message-ID: <9Stif-p9RWiht_4RVVcSpg@gmail.com>
-In-Reply-To: <20260616060449.42225-1-zenghongling@kylinos.cn>
-References: <20260616060449.42225-1-zenghongling@kylinos.cn>
-MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+	Tue, 16 Jun 2026 17:36:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1781631401; x=1813167401;
+  h=date:from:to:cc:subject:message-id;
+  bh=IlgdQiVrIUvUyXtg1A3PnUxmjTNZ6p/D/ns6KhmP2oY=;
+  b=iw8BHRhijI1jkIrF4WM/uCkfjQJXz+tCwfLQ6ub3aq+Qk8mN8Fg3Nmtl
+   nC13vC/ET6rSaTNavk4bQiCla2uAhjoiEHuqVIrjG6U7+bT7U6e3QWqSi
+   DTJqAhOQr6VvrC2cyCrFJYq6falYuZRJdZdMmSu+lw3GuZduv30NBs+uz
+   euqOcND2u1WMYBZ4SSomamWjPPRGyUmTcyqqeLFh4sQQRz9ut5IULoG0P
+   DO6FJVT16qbS/zJTndhnpcINIM2S8hjCzyUQ9CBVWRWyqDAviK2zTWG9E
+   JO+TurPw9W8Wlmf8R+azmCyB/VFrOb1WC34ZjwPcSbbg3quu/qTVqhMd2
+   A==;
+X-CSE-ConnectionGUID: vNRlpQjKSXWMvp7+Ssm9Sw==
+X-CSE-MsgGUID: UlmiJvH4Tn2dxFPDGruY3Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11819"; a="82257948"
+X-IronPort-AV: E=Sophos;i="6.24,208,1774335600"; 
+   d="scan'208";a="82257948"
+Received: from orviesa010.jf.intel.com ([10.64.159.150])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jun 2026 10:36:39 -0700
+X-CSE-ConnectionGUID: 8fCZjLf4QomJYPCJhnbUDA==
+X-CSE-MsgGUID: ijIhMbcqSDKigMtgYE2vrg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.24,208,1774335600"; 
+   d="scan'208";a="246938020"
+Received: from lkp-server01.sh.intel.com (HELO f0d55cb201f0) ([10.239.97.150])
+  by orviesa010.jf.intel.com with ESMTP; 16 Jun 2026 10:36:38 -0700
+Received: from kbuild by f0d55cb201f0 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wZXiE-00000000TaY-2iqc;
+	Tue, 16 Jun 2026 17:36:34 +0000
+Date: Wed, 17 Jun 2026 01:35:54 +0800
+From: kernel test robot <lkp@intel.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org
+Subject: [arm-platforms:kvm-arm64/nv3 37/37]
+ arch/arm64/kvm/sys_regs.c:222:32: warning: misleading indentation; statement
+ is not part of the previous 'if'
+Message-ID: <202606170158.W9YgYBN4-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260616_095929_515728_F2C948A9 
-X-CRM114-Status: GOOD (  20.67  )
+X-CRM114-CacheID: sfid-20260616_103641_424112_FEAFC1D0 
+X-CRM114-Status: UNSURE (   9.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,71 +85,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne torek, 16. junij 2026 ob 08:04:49 Srednjeevropski poletni =C4=8Das je H=
-ongling Zeng napisal(a):
-> When terminating a non-cyclic DMA transfer, the active descriptor
-> is not properly reclaimed. The descriptor is removed from the
-> desc_issued list in sun6i_dma_start_desc(), but in
-> sun6i_dma_terminate_all(), only cyclic transfer descriptors are
-> added to the desc_completed list before cleanup.
->=20
-> For non-cyclic transfers, pchan->desc is set to NULL without first
-> adding the descriptor back to a list that vchan_get_all_descriptors()
-> can collect. This causes the descriptor and its associated LLI chain
-> to be permanently leaked.
->=20
-> Fix by ensuring both cyclic and non-cyclic active descriptors are
-> added to the desc_completed list before setting pchan->desc to NULL.
->=20
-> Fixes: 555859308723 ("dmaengine: sun6i: Add driver for the Allwinner A31 =
-DMA controller")
-> Signed-off-by: Hongling Zeng <zenghongling@kylinos.cn>
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git kvm-arm64/nv3
+head:   aa9a6e84f564417704258a20210b95d18ebf5601
+commit: aa9a6e84f564417704258a20210b95d18ebf5601 [37/37] WIP
+config: arm64-randconfig-003 (https://download.01.org/0day-ci/archive/20260617/202606170158.W9YgYBN4-lkp@intel.com/config)
+compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260617/202606170158.W9YgYBN4-lkp@intel.com/reproduce)
 
-Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202606170158.W9YgYBN4-lkp@intel.com/
 
-Best regards,
-Jernej
+All warnings (new ones prefixed by >>):
 
->=20
-> ---
->  Change in v2;
->  -Add pchan->desc !=3D pchan->done check to prevent race condition
->   where completed descriptors could be double-added to desc_completed
->   list, causing list corruption
-> ---
->  drivers/dma/sun6i-dma.c | 12 +++++-------
->  1 file changed, 5 insertions(+), 7 deletions(-)
->=20
-> diff --git a/drivers/dma/sun6i-dma.c b/drivers/dma/sun6i-dma.c
-> index 7a79f346250a..12d038ef5f2e 100644
-> --- a/drivers/dma/sun6i-dma.c
-> +++ b/drivers/dma/sun6i-dma.c
-> @@ -946,16 +946,14 @@ static int sun6i_dma_terminate_all(struct dma_chan =
-*chan)
-> =20
->  	spin_lock_irqsave(&vchan->vc.lock, flags);
-> =20
-> -	if (vchan->cyclic) {
-> -		vchan->cyclic =3D false;
-> -		if (pchan && pchan->desc) {
-> -			struct virt_dma_desc *vd =3D &pchan->desc->vd;
-> -			struct virt_dma_chan *vc =3D &vchan->vc;
-> +	if (pchan && pchan->desc && pchan->desc !=3D pchan->done) {
-> +		struct virt_dma_desc *vd =3D &pchan->desc->vd;
-> +		struct virt_dma_chan *vc =3D &vchan->vc;
-> =20
-> -			list_add_tail(&vd->node, &vc->desc_completed);
-> -		}
-> +		list_add_tail(&vd->node, &vc->desc_completed);
->  	}
-> =20
-> +	vchan->cyclic =3D false;
->  	vchan_get_all_descriptors(&vchan->vc, &head);
-> =20
->  	if (pchan) {
->=20
+   arch/arm64/kvm/sys_regs.c:222:30: error: expected ';' after expression
+     222 |                         loc->loc = SR_LOC_SPECIAL : SR_LOC_MEMORY;
+         |                                                   ^
+         |                                                   ;
+>> arch/arm64/kvm/sys_regs.c:222:32: warning: misleading indentation; statement is not part of the previous 'if' [-Wmisleading-indentation]
+     222 |                         loc->loc = SR_LOC_SPECIAL : SR_LOC_MEMORY;
+         |                                                     ^
+   arch/arm64/kvm/sys_regs.c:221:3: note: previous statement is here
+     221 |                 if (is_hyp_ctxt(vcpu))
+         |                 ^
+>> arch/arm64/kvm/sys_regs.c:222:32: warning: expression result unused [-Wunused-value]
+     222 |                         loc->loc = SR_LOC_SPECIAL : SR_LOC_MEMORY;
+         |                                                     ^~~~~~~~~~~~~
+   2 warnings and 1 error generated.
 
 
+vim +/if +222 arch/arm64/kvm/sys_regs.c
 
+   168	
+   169	#define MAPPED_EL2_SYSREG(r, m, t)					\
+   170		case r:	{							\
+   171			locate_mapped_el2_register(vcpu, r, m, t, loc);		\
+   172			break;							\
+   173		}
+   174	
+   175	static void locate_register(const struct kvm_vcpu *vcpu, enum vcpu_sysreg reg,
+   176				    struct sr_loc *loc)
+   177	{
+   178		if (!vcpu_get_flag(vcpu, SYSREGS_ON_CPU)) {
+   179			loc->loc = SR_LOC_MEMORY;
+   180			return;
+   181		}
+   182	
+   183		switch (reg) {
+   184			MAPPED_EL2_SYSREG(SCTLR_EL2,   SCTLR_EL1,
+   185					  translate_sctlr_el2_to_sctlr_el1	     );
+   186			MAPPED_EL2_SYSREG(TTBR0_EL2,   TTBR0_EL1,
+   187					  translate_ttbr0_el2_to_ttbr0_el1	     );
+   188			MAPPED_EL2_SYSREG(TTBR1_EL2,   TTBR1_EL1,   NULL	     );
+   189			MAPPED_EL2_SYSREG(TCR_EL2,     TCR_EL1,
+   190					  translate_tcr_el2_to_tcr_el1		     );
+   191			MAPPED_EL2_SYSREG(VBAR_EL2,    VBAR_EL1,    NULL	     );
+   192			MAPPED_EL2_SYSREG(AFSR0_EL2,   AFSR0_EL1,   NULL	     );
+   193			MAPPED_EL2_SYSREG(AFSR1_EL2,   AFSR1_EL1,   NULL	     );
+   194			MAPPED_EL2_SYSREG(ESR_EL2,     ESR_EL1,     NULL	     );
+   195			MAPPED_EL2_SYSREG(FAR_EL2,     FAR_EL1,     NULL	     );
+   196			MAPPED_EL2_SYSREG(MAIR_EL2,    MAIR_EL1,    NULL	     );
+   197			MAPPED_EL2_SYSREG(TCR2_EL2,    TCR2_EL1,    NULL	     );
+   198			MAPPED_EL2_SYSREG(PIR_EL2,     PIR_EL1,     NULL	     );
+   199			MAPPED_EL2_SYSREG(PIRE0_EL2,   PIRE0_EL1,   NULL	     );
+   200			MAPPED_EL2_SYSREG(POR_EL2,     POR_EL1,     NULL	     );
+   201			MAPPED_EL2_SYSREG(AMAIR_EL2,   AMAIR_EL1,   NULL	     );
+   202			MAPPED_EL2_SYSREG(ELR_EL2,     ELR_EL1,	    NULL	     );
+   203			MAPPED_EL2_SYSREG(SPSR_EL2,    SPSR_EL1,    NULL	     );
+   204			MAPPED_EL2_SYSREG(CONTEXTIDR_EL2, CONTEXTIDR_EL1, NULL	     );
+   205			MAPPED_EL2_SYSREG(SCTLR2_EL2,  SCTLR2_EL1,  NULL	     );
+   206		case CNTHCTL_EL2:
+   207			/* CNTHCTL_EL2 is super special, unless we support NV2p1 */
+   208			loc->loc = (is_hyp_ctxt(vcpu) && vcpu_el2_e2h_is_set(vcpu) ?
+   209				    SR_LOC_SPECIAL : SR_LOC_MEMORY);
+   210			break;
+   211		case CPTR_EL2:
+   212			/*
+   213			 * CPTR_EL2 is just as special, and needs a certain amount
+   214			 * of handholding. It always lives in memory, due to being
+   215			 * heavily trapped thanks to CPACR_EL1.TCPAC being RES0.
+   216			 * FEAT_NV2p1 fixes this.
+   217			 */
+   218			locate_mapped_el2_register(vcpu, CPTR_EL2, CPACR_EL1,
+   219						   translate_cptr_el2_to_cpacr_el1,
+   220						   loc);
+   221			if (is_hyp_ctxt(vcpu))
+ > 222				loc->loc = SR_LOC_SPECIAL : SR_LOC_MEMORY;
+   223			break;
+   224		default:
+   225			loc->loc = locate_direct_register(vcpu, reg);
+   226		}
+   227	}
+   228	
 
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
