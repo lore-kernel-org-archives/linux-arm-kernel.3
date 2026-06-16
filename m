@@ -4,80 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27A7BCD98CF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 10:52:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5674DCD98CF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 10:54:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Transfer-Encoding:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=JsNwyh+KeC3nDRQIncNAKnYy51JDR11+Uff9rlShFdQ=; b=GYfJiRAONMm9CClZ01BoU3WLVl
-	shAXiQ6o+HvCQMXUQMaF6klffj7JBwCB/WtwvT82jug5tJNCrvfoHqIe4bCYRoAI71DkrgSHXhbeH
-	1R7fwQzidNn2rn6yn7fn0AkzDDyNgMCgSC5npUX+wIJXfSCi2FrBJQWegTndrXC/YnjmNm2TE29RL
-	g6zKjKlvPuh4a2eGOm7OnvyVptGV19UpZMEBK/+9FjGodIH2BVd40p0iellxE/YbqKadmn6glHwpg
-	6Y4DBNoYuuNGvWSHZOov1YXCpn7C2p5Rc8Yioo31ugAG8pdY5t0oFoNcNP53PGk6Wtf96rUUMqsNp
-	06M9kKDg==;
+	bh=FV02eNruyFpNY0VqdlUhlXmfFOP3V4dDqxbZnj7/URY=; b=YhLeQd3JXx+t8GIULvavkbuIr7
+	xGLWLDOhMQ7BoRzjlVWWIN9/nv/qW7uQaJ+pFyJdyUm9SR2pdXVLptJpM/RZpm20WYVJ9T9bnx2jw
+	DjiPeBiaMKwgz8ujWNoEZgzxaRVwc99ZG3AAGsRMPIB1VNCBy5UkSOJH1IrbdA7xOGadBurStLO2b
+	e5An37duTG2RSFwfUItZS9Tc8YVkIcWWF67S9L/PSRYeA1oRbpzbplpmYaJXMN6BpjbUbBxonJC2M
+	Xlx5JNEu2de3eP2Dfs2Ud9l0eex/HMOtuJZo6sSYg0NuMzDrDgi2O51/JmN5i2QZqLAkU6VeLutgq
+	cQU4JK3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZRP0-0000000Fd24-1CWo;
-	Tue, 16 Jun 2026 10:52:18 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1wZRR6-0000000FdFw-3UzS;
+	Tue, 16 Jun 2026 10:54:28 +0000
+Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZROw-0000000Fd0q-38CC
+	id 1wZRR4-0000000FdEf-0Pq5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Jun 2026 10:52:17 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2c0b944f6edso44761915ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 03:52:14 -0700 (PDT)
+	Tue, 16 Jun 2026 10:54:27 +0000
+Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-461e0dad8easo54091f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 03:54:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781607134; x=1782211934; darn=lists.infradead.org;
-        h=mime-version:message-id:date:subject:cc:to:from:from:to:cc:subject
+        d=google.com; s=20251104; t=1781607263; x=1782212063; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=JsNwyh+KeC3nDRQIncNAKnYy51JDR11+Uff9rlShFdQ=;
-        b=n0NKBeuiBo770cJJdqHYeJgLVTa/qrXNuAyghy+gR7L4fjW1yjUyaCutz1pBB7Bhlv
-         BLoS82ogmeg1G3agBb6ipqyyzBSxZcOnr3fpSxXO59TEfWRQY2ij6AYqt2Th1JPRxTUK
-         ON6rxN5ISA0yiqrVTWOMh0kbobsWNbhGeUbUEH0aEA4guSmhUxBdT5AbaIX9g5gzople
-         rDd22qASZXHm20DRUOL5nvru0aoMMTJNxMHBfdERwVw3vKsu6VAUQfwhPm4me85FHyn+
-         7ShZtt99RvIz9dyq+UwDd5yME0PIqPf6HCQyRvW2yQfb8osjv42NLCnLOf8kWQWZaOt9
-         4RBQ==
+        bh=FV02eNruyFpNY0VqdlUhlXmfFOP3V4dDqxbZnj7/URY=;
+        b=tJqETAciXyItiXClRpH2SuzTpx0ZDGmRXbBWe/ukyBbZzFujh7tXXCD+ayUoZCzim8
+         1zeHwkL1zDrP75tLKhioezJCJZGGO4VFvs384LcsaZ7Xc1qpI5Py7KmtG2TnnnhAbvgG
+         i6JjlDXpNvIS6KLhPGRkecTKW5TxAD28049v/WtknLW4LflmqQL7mjVZvyR3yf5TcHc7
+         TD7lmBXEGyQL5qIr3Vpp5XXF8vc/OeExMWnch3kZMBlpRq1rHU2GSfGBabySwBsnXy2d
+         x0LVoiKJHxb6QI05zO4cuW0yu/7P+wpcji2ihw/HN2jefuzEFn7CAT1y5cCKzpMZpXjz
+         1P5w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781607134; x=1782211934;
-        h=mime-version:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=JsNwyh+KeC3nDRQIncNAKnYy51JDR11+Uff9rlShFdQ=;
-        b=HG541smSdtbC+e+Vus0qXvkj4qpk2RSPnQPaHxAasmtbJraeV8i11HC9/GckFxs+1u
-         14Nr0jxM0hWKNVBftX75SVC2jYso1b2mjXi/JAj1ZG+GOMinKMTJgm3RCliG6AGfY5Xi
-         dSTM9Gjq9yj1b2CmLH9SoQfoPCHS0OGdIz39+OPGEeIQ8ZH6hxY66z7LF1bag9GcjDE/
-         9ht2fJLBHPOfDaOwSgnu1GQxKaLczcU+w08jWLRqEa66T3YT/1o+6YG+w0hbsTW6Knyv
-         186YsEJa3/7oE/SPepOzy+rExQ3cSCTfnCCANUGiMcv63qIiSqWPtVCyQr5SA5n6EPKY
-         m50g==
-X-Forwarded-Encrypted: i=1; AFNElJ++PpIuLVxd3Fcoh2LqwQOn/BjxlXUIj4wazfA1JIi9BtfeUtMJeTjGSdZUryTk1aP53HaCL9MhJJ38azzjzJBA@lists.infradead.org
-X-Gm-Message-State: AOJu0YzjrxFUa/ylGaFyRhJiCax65KLLfiK02KcmSAY73MdUzBuXWR8D
-	xDCxe6ZFdUwzEhC6HKH/DixB1tTocl26QrrHS4v+wMFhD3jAJShnvmcU
-X-Gm-Gg: Acq92OFNGl8UCE8w0UyieC4eUDo39y6lp5xL8/DENvvfRdWX5ZMCYLguniYPUlzEuKa
-	WNFDGGXtiNCOQNg9h3HPeBsP1o9cY+w23CvohpWt2tLKezj0YR34u+cJAzFf4fQ3CKb4hXNJRgJ
-	kDPAsbCI2sMLsGgG3KTY/wHLf/K1uQIQiAJhXg99yfdrQR52FnfXsH1d+9QDxdIjKZoCwbuspa6
-	gGHEI8Hx5Nxhy9cpAGRrP3755w8zX/0ZNKM97UtasxzzhnKdnGtV6YxQ57cITlktP38zBmhqLYi
-	qPLg28gNbQxwH1n6wxH0bIvHIyX9mVjq2noGgyDKhyB1A+HGwY+pwl2y8nyKw9LROgl7ops7An3
-	szmS3PPoetibFqtp7pIh8GhxE3MbTUnYpm2g04nZcmvubvj5mM8bNOcpIa391cR/QH2yjKPjan2
-	P9b7dvkncBYEtR1Yl/pKYGRAtTJGs=
-X-Received: by 2002:a17:902:e790:b0:2c0:b4f5:41ea with SMTP id d9443c01a7336-2c66424305emr154961485ad.17.1781607133919;
-        Tue, 16 Jun 2026 03:52:13 -0700 (PDT)
-Received: from [127.0.1.1] ([47.253.114.73])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c42f7c5535sm130371465ad.18.2026.06.16.03.52.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 16 Jun 2026 03:52:13 -0700 (PDT)
-From: Wayen Yan <win847@gmail.com>
-To: netdev@vger.kernel.org
-Cc: lorenzo@kernel.org, horms@kernel.org, pabeni@redhat.com, kuba@kernel.org, edumazet@google.com, andrew+netdev@lunn.ch, angelogioacchino.delregno@collabora.com, matthias.bgg@gmail.com, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Subject: [PATCH] net: airoha: Fix QoS counter configuration for Tx-fwd channels
-Date: Tue, 16 Jun 2026 18:50:29 +0800
-Message-ID: <178160712947.2156222.3765685889775458986@gmail.com>
-Content-Type: text/plain; charset=utf-8
-MIME-Version: 1.0
+        d=1e100.net; s=20251104; t=1781607263; x=1782212063;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=FV02eNruyFpNY0VqdlUhlXmfFOP3V4dDqxbZnj7/URY=;
+        b=eCdZLJaFJlFsEuQyeFaYkLuMPZbDWbcW0Nwj6Ls9MKJZrldWhh+HkdAQ3Up+heGjfq
+         W1P8JFQC//ui1v8rZyiLwma2RMkVuZYX28zsvwJOJDyhzm9091fDhxm7qJz78vj52mP2
+         yYf1XOXDOGZz5WZYOEDD+F13Nh1SQCrKeZ7VcteQMQTGYZso3fVn6C2V3hXV/2L4TNVY
+         noPkoPyMUL0CbJcI2l6xG/m+MywYIvblA6hW/me9EIyl9sE6lE4NnqDTSiVZOMYTQzEv
+         ZWqQEhd7aL0rVs0Y4V9hIfpRkzR03SHDM9Cxr/FwnWOJ7+0JEG6QlP805/QfKdhcS/q6
+         XgfA==
+X-Forwarded-Encrypted: i=1; AFNElJ+wFw6Fjs9rxhnMd+GImYbdF0Lj/IEUsLsZnu5GjiLXHODik34idg9xFaKdRaJS9OFO1O1wh+CbBs2qEezUmLgT@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyb5gRmKeZFJJji3rMHSkj7oUwv9o48Bv/PIigOwu70TIshcEvn
+	CQufELeu9E8q+aocYkdW+jGMQrK+Rc3pXpVnLU5jRRiCKiycjH9VYDday611MA5VdzDb4xcFbOb
+	iIOj0RZGfLRRXKsHhr6EKGsK1M1SwfQ==
+X-Received: from wrqd7.prod.google.com ([2002:adf:f847:0:b0:451:e1c2:5b4b])
+ (user=sebastianene job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6000:2883:b0:45e:f8d0:d22c with SMTP id ffacd0b85a97d-4606dbde14emr27992139f8f.25.1781607262521;
+ Tue, 16 Jun 2026 03:54:22 -0700 (PDT)
+Date: Tue, 16 Jun 2026 10:54:07 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.54.0.1136.gdb2ca164c4-goog
+Message-ID: <20260616105417.2578670-1-sebastianene@google.com>
+Subject: [PATCH v3 0/7] KVM: arm64: Forward FFA_NOTIFICATION* calls to TrustZone
+From: Sebastian Ene <sebastianene@google.com>
+To: catalin.marinas@arm.com, maz@kernel.org, oupton@kernel.org, 
+	will@kernel.org
+Cc: joey.gouly@arm.com, korneld@google.com, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	android-kvm@google.com, mrigendra.chaubey@gmail.com, perlarsen@google.com, 
+	sebastianene@google.com, suzuki.poulose@arm.com, vdonnefort@google.com, 
+	yuzenghui@huawei.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260616_035214_804082_2BFCF3FD 
-X-CRM114-Status: GOOD (  10.20  )
+X-CRM114-CacheID: sfid-20260616_035426_214984_103DB8BE 
+X-CRM114-Status: GOOD (  13.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,35 +90,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In airoha_qdma_init_qos_stats(), the Tx-fwd counter was incorrectly
-using register index (i << 1) instead of ((i << 1) + 1). This caused
-the Tx-fwd configuration to overwrite the Tx-cpu configuration for
-each QoS channel, resulting in incorrect QoS statistics.
+Remove the FFA_NOTIFICATION* calls from the blocklist used by the pKVM
+FF-A proxy. This restriction was preventing the use of asynchronous
+signaling mechanisms defined by the Arm FF-A specification to
+communicate with the secure services.
+While these calls are markes as optional, there is no reason why the
+hypervisor proxy would block them because:
 
-Fix by using the correct register index ((i << 1) + 1) for Tx-fwd
-counter configuration.
+1. Host is the Sole Non-Secure Endpoint: The Host operates as the
+   only Non-Secure VM ID (VM ID 0) recognized by the Secure World.
+   Because all forwarded notifications are inherently attributed to
+   the Host by the SPMC, there is no risk of VM ID spoofing
+   originating from the Normal World.
 
-Fixes: 20bf7d07c956 ("net: airoha: add QDMA support for Airoha EN7581 Ethernet")
-Signed-off-by: Wayen Yan <win847@gmail.com>
+2. No Memory Pointers or Addresses: The FFA_NOTIFICATION_* ABIs
+   operate strictly via register-based parameters, passing only
+   VM IDs, VCPU IDs, flags, and bitmaps. Because these calls do
+   not contain memory addresses, offsets, or pointers, forwarding
+   them doesn't pose a risk of memory-based confused deputy attack
+   (e.g., tricking the SPMC into overwriting protected memory).
+
+While the pKVM proxy behaves as a relayer, it doesn't currently have its
+own FF-A ID(only the host has the ID 0). The behavior of the setup
+flow is covered by the spec in the: '10.9 Notification support without
+a Hypervisor'.
+
 ---
- drivers/net/ethernet/airoha/airoha_eth.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Changes in v3:
+- applied Will's suggestion to use the introduced method
+  ffa_check_unused_args_sbz for existing calls and added a new
+patch in the beggining of the series to do this.
+- merged the handling of
+  FFA_NOTIFICATION_BITMAP_CREATE/FFA_NOTIFICATION_BITMAP_DESTROY into
+one patch as Vincent suggested and create one handler for both.
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 31cdb11cd7..329988a840 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -1256,7 +1256,7 @@ static void airoha_qdma_init_qos_stats(struct airoha_qdma *qdma)
- 			       FIELD_PREP(CNTR_CHAN_MASK, i));
- 		/* Tx-fwd transferred count */
- 		airoha_qdma_wr(qdma, REG_CNTR_VAL((i << 1) + 1), 0);
--		airoha_qdma_wr(qdma, REG_CNTR_CFG(i << 1),
-+		airoha_qdma_wr(qdma, REG_CNTR_CFG((i << 1) + 1),
- 			       CNTR_EN_MASK | CNTR_ALL_QUEUE_EN_MASK |
- 			       CNTR_ALL_DSCP_RING_EN_MASK |
- 			       FIELD_PREP(CNTR_SRC_MASK, 1) |
+Changes in v2:
+- enforce the MBZ/SBZ fields
+- split the calls into separate patches
+- rebase on 7.1-rc7
+
+Link to v2:
+https://lore.kernel.org/all/20260608165549.1479409-1-sebastianene@google.com/
+Link to v1:
+https://lore.kernel.org/all/20260501114447.2389222-2-sebastianene@google.com/
+
+
+Sebastian Ene (7):
+  KVM: arm64: Enforce strict SBZ checks in the FF-A proxy
+  KVM: arm64: Forward FFA_NOTIFICATION_BITMAP calls to Trustzone
+  KVM: arm64: Support FFA_NOTIFICATION_BIND in host handler
+  KVM: arm64: Support FFA_NOTIFICATION_UNBIND in host handler
+  KVM: arm64: Support FFA_NOTIFICATION_SET in host handler
+  KVM: arm64: Support FFA_NOTIFICATION_GET in host handler
+  KVM: arm64: Support FFA_NOTIFICATION_INFO_GET in host handler
+
+ arch/arm64/kvm/hyp/nvhe/ffa.c | 205 ++++++++++++++++++++++++++++++++--
+ 1 file changed, 197 insertions(+), 8 deletions(-)
+
 -- 
-2.51.0
-
+2.54.0.1136.gdb2ca164c4-goog
 
 
