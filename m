@@ -4,127 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1504FCD98D2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 20:48:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 379B7CD98E1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 21:15:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aecnW+H0FeU6Q6eTzXEjo011zFDY2mL+wqX/rWLb9WA=; b=0vrrrSmG0i8OfWRoCP5xoEd2pH
-	u5FmMWi9iWFgvI38+3GPaQvBO8DqbrYVrck9DaMv7LqdCfcWVILc6YaWZjHPLlJl7QuknKLg12Bcg
-	6tYVVFlHNYE+D/mlK1ibD4MdzloFFXovuQJoiDI/8n37kWhqBbmqsrlrWcCE2kZCReDMGiFzJ+8kC
-	FH1lcDqgR9dGzL/hJKSiUd6J43t2eUkViSRNG/uVK0Y5TgwbCzMkFOVaIW/RJo3PRn4IqtYvqvjIG
-	6DSnP+yB2Whh7e6n7ZCoarup+CsSFtsoW6Plqys0z0n1e4qtzxkLk1xZMEiIf88aE8MwhZVL0CH/8
-	Hn9ct8zQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sgOZGAVRtcof+wGB0xB9WSeFloGw8arPsNKl8QzdnwA=; b=Udsjc6VOQ5B2KKFOkIBfEn+qNP
+	8hWim5YaeFnCj2XZjJ/ZMZAsbg9bgWwTRnW2Yu92xhIl85BawvBsct729DSc5o0IWX7Su3we5dbYp
+	dmf2uvsWIp7N73i7mQTO4jJBzjv/AesZW3YdD4Pj9Y64fd1O9mt84dZzQTwqImcLUUedsK+ljTbDc
+	A7Pi8QnhC1PMVwsPrjILmj/8xZjvOd7CWb+TbR/70E4JJvGqil6OaVs4flqRlnE7/nuGpEk5hkSYk
+	VTVDgP2b6T2RdYLcskWvvi9hoEqiQmIMHDFA8cb/KhFDQ808bnKh88r9AZuQQDECl8wF1sfzeHl70
+	/Y7/FKCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZahR-0000000GJfc-0ref;
-	Tue, 16 Jun 2026 20:47:57 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1wZb7t-0000000GKq2-0zx4;
+	Tue, 16 Jun 2026 21:15:17 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZahN-0000000GJfD-3e5m
+	id 1wZb7q-0000000GKpf-0ggA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Jun 2026 20:47:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JoYryzMHt2AJPKJGrQLyzf3rATpaSuZRywpIxgxVjg5b5hwXTb4vtOyt2W0aPLyE42qZ++O1RbhSgRJvYyUnQ3oaHkXSGjBUlSTKU1uU7IUGws6yBHG6JhDSyL6wqcqvN8whMFC/pyHVDy6dZa0r0KpawAhd7mfGHGsV0Ylsb78T8B1Sno0FgJ+gTQ3NdknRxPxsF6MKdxwMHoKmiiWqxsclZ+opNR4OF9jiGQ2ZCZbH0FJaFwxo+5btHz3vG5I3OnuzEyNxWXrOqJKaj2fmpqQELTixPXRm3gbmsVe9uMRtSZppB80swULq1oxdfmCJsDjRps/WNXTsfJtHil9wDA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=aecnW+H0FeU6Q6eTzXEjo011zFDY2mL+wqX/rWLb9WA=;
- b=xt1H86XuP4GuuqfhSDUceoiBZqr0TIrCBJdRj8xks9F9jL1wA72g2sd+jEofxSgPr8tNw9H7OPJ2nOgUPblUClnUQlPcCKypgDtZOuJt63vOElzMn8Yh47z6b/3YbO8JfO27oAArQtoszz6xVS4WBOR4pvPRfGrCHU1ZSLkZXJlbJjBvASZJNRuSxSU3sBDyVys3cIDAK0jJrGK0vcpXAl7NaipzFD7S0WHj6fTuPxvYi+/QchV2sGT6EgCzis5wp76opSwuIFpK2SFeLHPDEk5f7GVQmgrYiGuFJqu8ybsbNdJ2egeCbdn3Lg29tDWlLsygX5gNuQVE+0QiVIhBUA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=aecnW+H0FeU6Q6eTzXEjo011zFDY2mL+wqX/rWLb9WA=;
- b=pm6XjgjxXU8bsH04b8HDn4H7alPzjIbtRer5IdNNFz70XjMCsber/ibgMbh+GroQahi15qoh4oyNeaqt/eX15q6Qt+7/a2CcmRm/3/NMyh4qEklYMYmWgGRW1gqOl7a5npLssnk6mFS8GMP4HDtNmODxPhTGreWK1Bhj5EMokJi3ZQR/F6gX+eRmB9VGn/YPDp2tV6bh/tx9EbwsVALsgBBJKGf4mvBk34ReQ+K9YC6noV8plmPVyIDxv+cxZm0LouVtxExSQjBwoGeIBMHCdgWqzYDsWgWp8UO/qeyEj90XFGXm3BYOLb/mgk7ltDG9NBicKRy8SkhNbJWHgG92AQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by GV2PR04MB11710.eurprd04.prod.outlook.com (2603:10a6:150:2d5::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.18; Tue, 16 Jun
- 2026 20:47:47 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0113.015; Tue, 16 Jun 2026
- 20:47:46 +0000
-Date: Tue, 16 Jun 2026 15:47:37 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Hongling Zeng <zenghongling@kylinos.cn>
-Cc: vkoul@kernel.org, Frank.Li@kernel.org, wens@kernel.org,
-	jernej.skrabec@gmail.com, samuel@sholland.org, mripard@kernel.org,
-	arnd@arndb.de, dmaengine@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org, zhongling0719@126.com
-Subject: Re: [PATCH v2] dmaengine: sun6i-dma: Fix memory leak in
- sun6i_dma_terminate_all
-Message-ID: <ajG2aR70B4z6j1fd@SMW015318>
-References: <20260616060449.42225-1-zenghongling@kylinos.cn>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260616060449.42225-1-zenghongling@kylinos.cn>
-X-ClientProxiedBy: SA9PR13CA0085.namprd13.prod.outlook.com
- (2603:10b6:806:23::30) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Tue, 16 Jun 2026 21:15:15 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65GIOr2g172546
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 21:15:12 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	sgOZGAVRtcof+wGB0xB9WSeFloGw8arPsNKl8QzdnwA=; b=Q2oPYf+jo1OvqJTw
+	32YbeVDpke0fD6J3kNMfzmSzeD788D6pocq05EmXvXt0Rd/og22w3ueg/tKQpMza
+	IzGGHORUG35ejfjyPofnYwOQVNW4XY4vLATf+Ce05VjNd6J6/Hy/K89MSUsgsUum
+	xlHDXDlX4aZ+t74kQ6McsFoQpP9FfcOJXv58eGmkFPEd/CRfDeUsPU6fJFyXQnWn
+	QZ7zfvvUDKXW6QCc7qD9bFcLrNs63W4bm6Q6rC2lX8BHbGbwjjBRh7zWnnDZXG72
+	rAbzAXhzKbx7O8L375+oRJ1XOHnQXl9cTFmpCxeY+XAoVkJQSbR8v/YUByIwA2li
+	+zGIOA==
+Received: from mail-dl1-f72.google.com (mail-dl1-f72.google.com [74.125.82.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4eu09kcd6v-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 21:15:12 +0000 (GMT)
+Received: by mail-dl1-f72.google.com with SMTP id a92af1059eb24-137fc6f8e9fso4928288c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 14:15:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1781644511; x=1782249311; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=sgOZGAVRtcof+wGB0xB9WSeFloGw8arPsNKl8QzdnwA=;
+        b=QshefIba3Zg9iETxS3waYjhI2BEetoJAsPNa0Zhb7Qm0Xt/SMWbU5RGxWUN4nV4OPV
+         8gDi8VdgdLDsMLihHm/dwJOBc5YC2/3tTeKCqRg+yPAjuiTkpgw5LZnjvHRyMxoAVn+8
+         nEmWOv8OzJYlZsVNiyWA4Ai/eoHtjl0TjDZnvJrcywgVQq3qti0jw0yHv5D06I7DUX/R
+         vjHfz1sqofRkK8s7E8R+AFz4S7894+I1BwDi2jehaqhbrviScM0BKLYtI1+M/UP4jjxQ
+         spKeNxukF7hVByByKswOPwmH1ckk5nn7EFkngqmXYvubgZD2LY2uzy2w4FLfVn9HMM7H
+         t7sA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781644511; x=1782249311;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=sgOZGAVRtcof+wGB0xB9WSeFloGw8arPsNKl8QzdnwA=;
+        b=Y1f02A9rQ7auwuLDQLwgNXlGrc0UZKwGB0/SqQDCeJv+Mw2gZXNAoXf2qA9nNI1eFq
+         iQJ8R7Iqqej0gfaTZ4KHjC5nUJ0McMb1AZed8Gc62ksT0RPHTIXea1WdpyMbpfnNtftn
+         wXF1iSm4mQCLky7dRLV89WsA9imv6RBlLUKg1khpwXfQigbY1T30UBTy/aVMELnCac9E
+         myYXjVgVjIKi1M+GI37qPoA33fdGIX0W5YmhaLcIb6n6OTAznexs1Zla4QTsHPjjCGVb
+         w/1vatP2EJyvyUkSsRP2E1ZcOtadXU86nQBjDVX0ksCaJq8ewRJWlqIsnjo5CgS7e2IP
+         JvNA==
+X-Forwarded-Encrypted: i=1; AFNElJ/D1FXSWkrDKdSptOEuyYHYfc52DIU9KOTu0FyI+f6iHo8zz5Tz4xhN3u8IzEr95MjQjpGCXfqU+7xRQhmV5MIq@lists.infradead.org
+X-Gm-Message-State: AOJu0YxHE0lFegcBcueCSG7WRjcTiZZB1cbZxwUIe9pWIgT2+W5Xutk2
+	w7+IBJ4vwkuD1XWlYzxoXfl5889F6xHP5jdW3fa+bOZwlvmyWNgrIjU6X76KI0TkUg/BmhPEwea
+	C1u+Vr+6kzG0Nyl8V1iQeplI6xFPeRQq1UKj0RDMNoK1sHwn2YVsDuZTgq+jAxz6jYWeizBBctE
+	Qnbw==
+X-Gm-Gg: Acq92OHfGShOpq2OlSKj5Wa0UHEtYswztO8P2cIBk7n150kgmSLTylxKDYF1fkaR8ow
+	1JSOdIE9jmu5QvcTwBCya1VJirWYdnRNC8NYOJOel/GB0IY+Mlr9nZKfiAoLKtCXJsGjJMShPGD
+	2krLkDZ9ASmv+uLriEP1IUkUFUNeejR+Aswkww2DcxbH9zzcagGDbxc12Q4rj/Nfdm2PzMtDOOe
+	NC4z6dYVbo+v6M2ZFWr9lJnND083F9cKrZdlIbSFxmQKdJ8dJD5GUfffUASdzGotdJYsqOns6lV
+	HICSG2w30aOLpkRMw+ioIX6KGXVormQXILwSk0mM9feDhjXPICSTRzafo2VzNbD52fB2QOC9Uo0
+	qOEWrpcZuOWi2gQNGRbTpiKiRqC/T/Shz5yQatrM/Nd1eafgZJQO6i6iTojwDqzmyIjlEsnsRYc
+	FRP+7Qy96tlpbczw==
+X-Received: by 2002:a05:7022:6b98:b0:12d:d972:b969 with SMTP id a92af1059eb24-1398f696275mr381893c88.24.1781644511464;
+        Tue, 16 Jun 2026 14:15:11 -0700 (PDT)
+X-Received: by 2002:a05:7022:6b98:b0:12d:d972:b969 with SMTP id a92af1059eb24-1398f696275mr381871c88.24.1781644510903;
+        Tue, 16 Jun 2026 14:15:10 -0700 (PDT)
+Received: from [10.71.190.32] (i-global254.qualcomm.com. [199.106.103.254])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1384b97570asm14029259c88.12.2026.06.16.14.15.10
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 16 Jun 2026 14:15:10 -0700 (PDT)
+Message-ID: <eb50b45d-ad04-4da7-8cfa-6e1abb1ffba4@oss.qualcomm.com>
+Date: Tue, 16 Jun 2026 14:14:59 -0700
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GV2PR04MB11710:EE_
-X-MS-Office365-Filtering-Correlation-Id: aecf906f-6605-4f75-bacf-08decbe88577
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|7416014|376014|23010399003|22082099003|18002099003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: 978hYwEd6conq4kbr+JWKOJGjoFSZ+ynZ/RVIInXcvqM1WoKsvfVGqp/devSYG/70v59dCBd/Xu/TkQCPdB6dd67ZZ0UL8VYeOQhY1sS2Rn80M7wQKSXBPTvl1kcM3pQKpAQ49e4+HOgY8qOAZjIylAAkJljb+L3r2uHUNTbd/y4ObDmpUdt13DH4/JWz2iabgqVBDeHsWhZNPkEbtmTGMOtlknN38mLtJpwuOXXsrqQXOT5IJhX8kzdIU8oJWx1+CPDmZfBUq1JvnJjS6lIQWZ+TtW7FgMz8EY8tqfLrL5HEaVjIzeW/QVQjG/3ylxfcxl/VGNGccXcy7nTpWT99C2iJbeE8fWFQXyiVcobymdvMTKPVsVR6LYaD3vm4Mfv9igV6ZKevNljpIlGcJ4040hS/O3JgA1dlitgPj/SMa7mxCe8yngieMOV4B7kBsszEzTnenibb9NeEtSWXqGHs/SY/nzUBd+ZvkmrMGtN13PlYFLpei8Cw4Do7UY1lA0BeAH1xY0jow4XH8FDz8m4ReS66Z2P95+lp0yat1fPGK3u1fZ4WOb8uFjBukoxa0uburS25DzUVxoLRVvQrUsHjDoK4FJqIIo3w3RMxhOOOXG+Tc7H69q1D1GdhvjRhlap+fiO0NAbSkgIhEnzXKwwCNgnLASEf1aP8lTjAW09vxtypJkZFnpOJhJdmPKab15RCE6+x5cJHL6p+JBUjFg1hg==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(7416014)(376014)(23010399003)(22082099003)(18002099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?2VAFz3YBnaFffuB/6KyyOme4fAtFDiOYSN1Tp4WjfOCXrtO8Ae/xMIsAjpA0?=
- =?us-ascii?Q?nKtEKh45Q2SiTP7dtnSuSUpegv0Lr4Rn9SJk+XSyydcJW6Zj1VwPa7M7QMpN?=
- =?us-ascii?Q?R+WIG//tof4okNBPCpKXNLnozbuJExurbfDPNzuLQTN2TYM7pBU+/m6yEadN?=
- =?us-ascii?Q?hv21c2pMUrUj+mk2aa338VrVB3Qc84dgW7XK38ywpXpF7xfCzDQK70KsBEm2?=
- =?us-ascii?Q?L8Yw+PoutK+1MQAWXf+MFsqvsF7rbI8XHAuuKzL/p+QmU19pMOIAdcst9WJE?=
- =?us-ascii?Q?RweqpQSCA7+qGrGQMxXU7HqYil7HzUU7Nxz7PSfosombIlXv/DQ+u8KTRw4v?=
- =?us-ascii?Q?YSoIQurgV2THIUE5D7GX1Z/joRWrmG/2VT9i/6wMAWybHKSco6dntZcmh1aX?=
- =?us-ascii?Q?Z+4U0jE/4dJ9UGzrgva+1p1+Nu2JdxcWbLbPn4wr0Sz2mDiVjPItnkmdzTru?=
- =?us-ascii?Q?9GVMUN+A2J6FOF+9XG1E3OIW7acO9JUwbH4bhF15Z8YH5NI4/bcUd6VT6HZJ?=
- =?us-ascii?Q?PqsMBPWDSuj8sOU7qvuNPdCHWK6MCGTGUQX4e2q2pbI9N4HUcucv6mM7xGJR?=
- =?us-ascii?Q?fkh++HcMIJe9gY8Vjr+gQrnsp0uzJqZ8JYWow5GNDczff3+h7X+Wq/Oiw8p0?=
- =?us-ascii?Q?YLETGXURZS+OaSvvTYIjVS09uaQmgAl1G+Co1qnBgzebfH15qy8DEvxW1wqJ?=
- =?us-ascii?Q?lyewwPczydzp1Ocya27cMnDMJazJ9gguttFFRnDHDDvK4cmqGQut0EZUw7mY?=
- =?us-ascii?Q?Q152mzB8zQJsxFU+aRTD4PHXblbT4IlaudeVfzCKY5I4OxQc3Mhx7s9Q+0/w?=
- =?us-ascii?Q?HpxIkK/YGE62L5ZsEib04rWMGXEDQ7wawRHEt5tI8YsK/zPR+jxVtMDE5VIr?=
- =?us-ascii?Q?F1U1pyoRhOtuHPO6dF8gaTrDFrjMLp+Wr4zHSE/TpgFOLTVNhwBEA8L7SD4G?=
- =?us-ascii?Q?fbOD39NCgJcgmWqIJyEh0nXQqta9TZEPsnMZKmMi/z+vQV2QzUWtGPR72zFJ?=
- =?us-ascii?Q?5qWC0KxUTo+4L2ktWyqndfoh0HzLVXIM8s1Y9Oo3noPG+FnkS3hP35+HiCHK?=
- =?us-ascii?Q?JfriHcOon0wzEQsumWhpdHaLQMNJnYhoTpsnxvGw2FbsTrHf/QnLaFRYkSpP?=
- =?us-ascii?Q?jLiqqvYF49dMutEyZrdIwWaK7P7mB5ale2I1NZ7qjBN6UjRP15Ci4FhcvRQh?=
- =?us-ascii?Q?pcVa/vTs6nNhjoEMAhESP+pXqA21PXa6A/UWx7oDVOrGoBABNTCcxGbWaatu?=
- =?us-ascii?Q?Rsy3u4N12M9QXR0HDxvV6q/7okL09dL/c1aJHHN1n5FHIUFSm6jXW+4198QH?=
- =?us-ascii?Q?BRt7wkSUOqAhdX1pxNS6GPdWoShwKi2u5swijIlPXSkXmyyD0zZbqa0Z+N3g?=
- =?us-ascii?Q?GqferCMuMGEes9fvGl5fol8pzyvJy/JiFUhCb7CM2+OAzsKhFX47F+PJwWu1?=
- =?us-ascii?Q?XjtYiqc7Z13Zyjxn1gDKdnFBo434qdLnpg2Xx9Ynj2OG1koMhuWM0McFPKbR?=
- =?us-ascii?Q?EoQvv/hFpBskiFO4YvzQ6pwJajQzBG5ZxwNsTuQhd3vnXKg1Xa5tXl3fN+HT?=
- =?us-ascii?Q?7Xo+tk2K2msbcJSSUsDSFSyJ5AQ7sDbWJYfdjn+kk1PtuYIvi4AldrDqpQXJ?=
- =?us-ascii?Q?B5YU+PZennhW8nq+SzseGPr/UMyzZroZTtOhCNvNb8ComNnjU6pPYrEVoZdZ?=
- =?us-ascii?Q?V1mHMJcT3Q2TnZYX4gXMxJ4StqKl/ohV/NE9sItxtIQvqTUpEvjXKARXTFte?=
- =?us-ascii?Q?qfN7rY1AFYPUqZCwI0oxCYWIUS2qEKckuXYG3P4ImHpQVOlFa/mA?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: aecf906f-6605-4f75-bacf-08decbe88577
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jun 2026 20:47:46.8269
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: T18Tvc5Cmif1CcPoH7SdsrLT+gdI4PL1DohKxvSx/bsLE82K2kc6MzSVB3Dr1EdTBAKpj4IlKJB/wyDCDanmlcEmhFJNe1WzZ0JGDk3YXW/DDsyWmDDytdrbNpfCZVwM
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11710
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] firmware: arm_ffa: Fix NULL dereference in
+ ffa_partition_info_get()
+To: Sudeep Holla <sudeep.holla@kernel.org>
+Cc: Jens Wiklander <jens.wiklander@linaro.org>,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org, kernel@oss.qualcomm.com,
+        Trilok Soni <trilok.soni@oss.qualcomm.com>,
+        Satya Durga Srinivasu Prabhala <satya.prabhala@oss.qualcomm.com>
+References: <20260611-ffa_partition_nullptr_fix-v1-1-ec2b7ef7e130@oss.qualcomm.com>
+ <20260612-fat-energetic-hummingbird-8ddc62@sudeepholla>
+Content-Language: en-US
+From: Unnathi Chalicheemala <unnathi.chalicheemala@oss.qualcomm.com>
+In-Reply-To: <20260612-fat-energetic-hummingbird-8ddc62@sudeepholla>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNjE2MDIxNSBTYWx0ZWRfX3c3QBTCJSwzl
+ SzfojIY8I5TO5EQ+QjKW6wEG4FDIjjwq+4yMG20XXtnryk+XjTa0t359WPLCs0r4MIyItt/p/Bj
+ kqUXiQpQPZS4pdqju9ZQ7zbPlOryHYk=
+X-Proofpoint-GUID: tCXQzV8BH2WbK0Ikdh0szYbDQDGgjO4m
+X-Authority-Analysis: v=2.4 cv=DoZmPm/+ c=1 sm=1 tr=0 ts=6a31bce0 cx=c_pps
+ a=bS7HVuBVfinNPG3f6cIo3Q==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+ a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
+ a=EUspDBNiAAAA:8 a=l2X_Lv62_SrtoPT5pgEA:9 a=QEXdDO2ut3YA:10
+ a=vBUdepa8ALXHeOFLBtFW:22
+X-Proofpoint-ORIG-GUID: tCXQzV8BH2WbK0Ikdh0szYbDQDGgjO4m
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjE2MDIxNSBTYWx0ZWRfX17CaygNknTvQ
+ muQYz2USWMS6ZcQxASlNA/J8VQ1xFJErRr+gyK13XSB4SYCTXFDUmNlnEcW/oacGKnK4AqxqDUn
+ oDIFArifSQ/HJ7Rq9t6gi+SVRiMqy8XMT3XPavCGcWf+yzm7CM7BV4/YPXvS7l5tsaPcuxzKK0X
+ 9ipILdu77LUEluPdcb9JLQA2P3jutZ+1Z4yKNboeB0KhkFlVdlVYdnGinkG2pKJzBZAs0eUYEUm
+ 7dYINvgdiqg8r4WVUMAyonKlzNvlGdvpkoAI0k59k1Ad6DVVpd/maY9NXUP/MZI6VcFz4RhIhQb
+ xwFdYEAn05crPRCSwOgXJAXz5UtilFbAGYoV6RtL3IzPthrW0XIwtfXdP8VIx5lRth+jWi2SAoo
+ zKF6jtQAVGfjcjgo2/SSqn/cOMTC0kntwkAvqwFw+T0+x+AlSv1hkYxa997EJoHsak50iNsr3ld
+ fXPCd8EsOMi29mqAWYQ==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-06-16_05,2026-06-16_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 malwarescore=0 phishscore=0 adultscore=0 impostorscore=0
+ suspectscore=0 priorityscore=1501 spamscore=0 bulkscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606040000 definitions=main-2606160215
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260616_134753_913630_221E4A86 
-X-CRM114-Status: GOOD (  21.87  )
+X-CRM114-CacheID: sfid-20260616_141514_384800_87F332F3 
+X-CRM114-Status: GOOD (  22.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,66 +154,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 16, 2026 at 02:04:49PM +0800, Hongling Zeng wrote:
-> When terminating a non-cyclic DMA transfer, the active descriptor
-> is not properly reclaimed. The descriptor is removed from the
-> desc_issued list in sun6i_dma_start_desc(), but in
-> sun6i_dma_terminate_all(), only cyclic transfer descriptors are
-> added to the desc_completed list before cleanup.
->
-> For non-cyclic transfers, pchan->desc is set to NULL without first
-> adding the descriptor back to a list that vchan_get_all_descriptors()
-> can collect. This causes the descriptor and its associated LLI chain
-> to be permanently leaked.
->
-> Fix by ensuring both cyclic and non-cyclic active descriptors are
-> added to the desc_completed list before setting pchan->desc to NULL.
->
-> Fixes: 555859308723 ("dmaengine: sun6i: Add driver for the Allwinner A31 DMA controller")
-> Signed-off-by: Hongling Zeng <zenghongling@kylinos.cn>
->
-> ---
->  Change in v2;
->  -Add pchan->desc != pchan->done check to prevent race condition
->   where completed descriptors could be double-added to desc_completed
->   list, causing list corruption
-> ---
->  drivers/dma/sun6i-dma.c | 12 +++++-------
->  1 file changed, 5 insertions(+), 7 deletions(-)
->
-> diff --git a/drivers/dma/sun6i-dma.c b/drivers/dma/sun6i-dma.c
-> index 7a79f346250a..12d038ef5f2e 100644
-> --- a/drivers/dma/sun6i-dma.c
-> +++ b/drivers/dma/sun6i-dma.c
-> @@ -946,16 +946,14 @@ static int sun6i_dma_terminate_all(struct dma_chan *chan)
->
->  	spin_lock_irqsave(&vchan->vc.lock, flags);
->
-> -	if (vchan->cyclic) {
-> -		vchan->cyclic = false;
-> -		if (pchan && pchan->desc) {
-> -			struct virt_dma_desc *vd = &pchan->desc->vd;
-> -			struct virt_dma_chan *vc = &vchan->vc;
-> +	if (pchan && pchan->desc && pchan->desc != pchan->done) {
-> +		struct virt_dma_desc *vd = &pchan->desc->vd;
-> +		struct virt_dma_chan *vc = &vchan->vc;
->
-> -			list_add_tail(&vd->node, &vc->desc_completed);
-> -		}
-> +		list_add_tail(&vd->node, &vc->desc_completed);
+On 6/12/2026 3:55 AM, Sudeep Holla wrote:
+> 
+>> Per the FF-A spec, the all-zeros UUID is the defined wildcard that
+>> instructs the SPMC to return information for all partitions. Map NULL
+>> and empty string to uuid_null rather than crashing in uuid_parse(),
+>> preserving the intended "return all partitions" semantics for callers
+>> that pass NULL.
+>>
+> 
+> Agreed on the spec part but not w.r.t the interface. Where is the driver
+> using this call and why is it sending null or wants to extract all the
+> partition information ?
+> 
 
-should It be in desc_terminated queue?
+A developer wanting all partitions might reasonably pass the all-zeros string
+"00000000-0000-0000-0000-000000000000"? 
 
-ref: https://lore.kernel.org/dmaengine/ajETw7uwVx_U9o5F@ryzen/T/#m541c24b45fb425c6a8a81d800db225b58411447e
+>> Fixes: d0c0bce83122 ("firmware: arm_ffa: Setup in-kernel users of FFA partitions")
+>> Signed-off-by: Unnathi Chalicheemala <unnathi.chalicheemala@oss.qualcomm.com>
+>> ---
+>>  drivers/firmware/arm_ffa/driver.c | 4 +++-
+>>  1 file changed, 3 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
+>> index b9f17fda7243..dd500fb81b79 100644
+>> --- a/drivers/firmware/arm_ffa/driver.c
+>> +++ b/drivers/firmware/arm_ffa/driver.c
+>> @@ -1129,7 +1129,9 @@ static int ffa_partition_info_get(const char *uuid_str,
+>>  	uuid_t uuid;
+>>  	struct ffa_partition_info *pbuf;
+>>  
+>> -	if (uuid_parse(uuid_str, &uuid)) {
+>> +	if (!uuid_str || uuid_str[0] == '\0') {
+>> +		uuid = uuid_null;
+> 
+> I object to make it uuid_null. Below check is enough to check NULL
+> dereference.
+> 
+> -       if (uuid_parse(uuid_str, &uuid)) {
+> +       if (!uuid_str || uuid_parse(uuid_str, &uuid)) {
+> 
+> 
+> I don't think we need to service NULL as valid argument via this interface
+> as the callee driver needs to pass its partition UUID here.
+> 
+I agree with you, NULL doesn't seem like a valid use case.
 
-Frank
->  	}
->
-> +	vchan->cyclic = false;
->  	vchan_get_all_descriptors(&vchan->vc, &head);
->
->  	if (pchan) {
-> --
-> 2.25.1
->
+Will send another version with your suggestion, thank you for the review.
+
+Regards,
+Unnathi
+
 
