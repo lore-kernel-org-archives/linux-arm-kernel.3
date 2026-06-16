@@ -4,54 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89431CD98E6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 12:55:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5248CD98E1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 13:00:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qrY935J+hSM69Iye4uJ/PYQuqFrUvW1UmaPi4e3ZBEM=; b=1KQbQNzCdBavebV7/SdgF1p9W6
-	UiSEmRBAOAPoPvjN/gCaGv9KCMAcY8FsAaRek444I+vsnfZlS6sePPxfVBIwegFPgvPDee/2BhRsg
-	Po+ozTtQDJ93xt8QLV0pDoHeUkQTdXUUcNR+n0B0bwMIaffs2OsvZELsS/5+VzQ/b0++P02Q8HBSo
-	Mwn7MlpzryMoeX6wZ0pDLyqUrz9Yqr1EaVZsp8AtihWa8v61psm1XdoVyZe0WzMkkBqAzOOyWXK2c
-	MUq9ZE5UtZ75WSKUEiuC/tGsCvB7Oyy7EaMhLPbKiALd4wihJjlLFvNzNkfVxkefESz3LTQ+Wur9Y
-	7QtMkDcg==;
+	bh=wNTSMzgRJmXIzWcqWEqDdC42PhcZeRCvxhxGiPL0LsI=; b=b3UPaKqqsMvmiY+Kw+k5MQtzX7
+	iEAbvtDnGZMB5J6DOQZvMJQGmve2+J07qAN+k5e1bEm1wAiEbVQW97cEtBbCjuuP9R/Admu1/giup
+	iZAyLq6hS3ncxN6jY7hGC+dbmvSKTEPhW2jijXjd0kDSWxLGwKhIOesMogITerVCpEFMR1OdbmQjI
+	CWnJTVAX4UaUkgAatr535C7cDn5ABUyzHiXizOvYnaE4PGdnqFgBlmC/jPtrzhLzR45X464/t24tF
+	p4Ns6hgZcLynBVhq5n/VhstuuvjVc4iYNwOZlC1XHLZI7NGc1dQ4u0nPLBR+TuLmM35JHK0UHnFrk
+	OeuG7Jcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZTJf-0000000Fnmv-2hDi;
-	Tue, 16 Jun 2026 12:54:55 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZTJT-0000000Fnj6-4Baz
+	id 1wZTPO-0000000Fo5K-3dWg;
+	Tue, 16 Jun 2026 13:00:50 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wZTPL-0000000Fo4z-2p3F
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Jun 2026 12:54:46 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5A5CD3D5D;
-	Tue, 16 Jun 2026 05:54:36 -0700 (PDT)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B7FE43F915;
-	Tue, 16 Jun 2026 05:54:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1781614481; bh=SZCMbXqIZpc5Kw6xTc1qIEPXEmhDKCy5D5S6DrxbzL4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lMg5hkSW4SJqERq0Z1kzZylQbb+Ji1hjTiwNaPoXjR5TlThXOa0+IxQojPJ6gy+KT
-	 84E36Xy1wxRPsta1MJapZ6IhGS4BrKGeL1qGbrcIaV0GV5cuT5qm3peSHOqnbjmoIp
-	 tgBrkXvU+/KiyKZm09avOVtTFUyrZa7Ti8w1/Bek=
-Date: Tue, 16 Jun 2026 13:54:33 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: liuqiqi@kylinos.cn
-Subject: Re: [PATCH] arm64: kgdb: Fix interrupt-induced single-step exception
-Message-ID: <ajFHibvMJeJykb72@J2N7QTR9R3.cambridge.arm.com>
-References: <20260615052903.207943-1-liuqiqi@kylinos.cn>
+	Tue, 16 Jun 2026 13:00:49 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-bec2ddee9bbso914697266b.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 06:00:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1781614845; x=1782219645; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=wNTSMzgRJmXIzWcqWEqDdC42PhcZeRCvxhxGiPL0LsI=;
+        b=DEh+Uf+xCS1MSFLxFYsec/S2AeqflRA2Ppg0P5HtI5HwmnIL35iOV9Ng1MBJmK8495
+         +3ZEmqkdd6T3Bq63ouRCtcE3XIT3olrzmR3BbbDJRnJZMoRg6JOsmwkcx2E1WDG2S5qz
+         2xiz55pL7ikM1o5fxQ2V2moNw1eCqFcfHfinWWPhhJLgIdmSeqlsKF0oH46p8hrYaWaT
+         z49sbF14CyxICW6HGycQJ6iIDa/7rq7014xHLK2hc21MJf1BvU0r7AJTyZaAGvXpKTbi
+         A/aele+aVAITHdHhluMdk18KpyusIBbS+COa+zA7yG9AhgM5ZsJfGYMPYZwh0G5tWp+I
+         kZ6g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781614845; x=1782219645;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=wNTSMzgRJmXIzWcqWEqDdC42PhcZeRCvxhxGiPL0LsI=;
+        b=LndRwxeSAZ9H2xUlvs6ZE+z/X+0n0c0nGFplFMtX4+1+TqlZ+Y0ZV4LT5nqT79UNlp
+         XOg48GkggnIE2RuHjb947TdUjv+iuXZP6kYULkDDOjezHT/36wTmRI2oxgF5SNVb+zwh
+         OkeAUkA/wzTCtzPfIGs63j3i+lzwSz1Lj1JkCRQ8x5CIU7qn9rAOrFtKurGQnNj7lRBg
+         pWKYa+GDcQJ534xUQskWT2Rv9WBLSiUe9bezlZdI+HHDZWae4poHnrTbhB2xd2cB6Ms1
+         7DtrldvRue6z1/f86mQqFsSse5ybHAVgasYu7+SyTigX6ROaDNnX3QSJFL1cEQ9F7XUg
+         ehNg==
+X-Forwarded-Encrypted: i=1; AFNElJ+N/a7jM2C5P+uiS71KLEO1vjWuvXK5bZJzuhOC2nTQ+GEaMnD229KwWObD5j7yl8DfcaLv2wdL3cE8Uarfzsj8@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxtmy0cHhXH+Hj93t0RY0GTu3WT3YmJfLBBBihBxKqN69Df8AvI
+	9o3W5fk3BVnk98a5LCmwdijZqChTFppIFWqyXcjxOgrW0cpzqpOD8PxnDHjpVowlFQ==
+X-Gm-Gg: Acq92OE32jb817LkGBzl8ci5iVmxt+fwwQFKPNkZBEhM9drjJD3CkREul+J7NdFOvA/
+	vEOOMlI+ODsQ6DF0wyRrmMh/KAKMYFbcRWAR9wSMJUD0ye7Z+YcHehkT9ynNdI0JegePOdimE8W
+	b9bsWhST0PSBRiuF4f9I9e+MGKc2jyIUOMN5h41GY/IhXt5CVPiMmSpMoEnlCe4SmgG5HqVSTM7
+	6NxtCH6QvG4uaeU+HHTIYtF8CwLhm/vxnlwcmwhtba15V9C63wcXDNoSmAnUckHVxEcI+5Dwe6G
+	NBTaAp/XfzQk3lCApWcSWmE06L4qGBqNgijajZZ65u23Dvx4aQxxZpxG9uS67kTSrw3dJUN9Kbw
+	8fb2HRmgoM7Oyb/MvACiAaiEqiSa5LoleV/Ih2sn417bLF8tMKTmCNymnHjjVt7jfokmXEdY3EZ
+	r/dxFnMM25ecOLY9cmBAjp/CfzF7cVFQ02slVIS4ry68mYEPAxAaZw42PiVWqlTLF89q0=
+X-Received: by 2002:a17:906:f5a0:b0:c04:1973:cdd1 with SMTP id a640c23a62f3a-c041973d111mr250472566b.36.1781614845012;
+        Tue, 16 Jun 2026 06:00:45 -0700 (PDT)
+Received: from google.com (135.91.155.104.bc.googleusercontent.com. [104.155.91.135])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c03ba328d6dsm214905966b.49.2026.06.16.06.00.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 16 Jun 2026 06:00:43 -0700 (PDT)
+Date: Tue, 16 Jun 2026 14:00:39 +0100
+From: Vincent Donnefort <vdonnefort@google.com>
+To: Sebastian Ene <sebastianene@google.com>
+Cc: catalin.marinas@arm.com, maz@kernel.org, oupton@kernel.org,
+	will@kernel.org, joey.gouly@arm.com, korneld@google.com,
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, android-kvm@google.com,
+	mrigendra.chaubey@gmail.com, perlarsen@google.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com
+Subject: Re: [PATCH v3 1/7] KVM: arm64: Enforce strict SBZ checks in the FF-A
+ proxy
+Message-ID: <ajFI95hZJxZfFg5q@google.com>
+References: <20260616105417.2578670-1-sebastianene@google.com>
+ <20260616105417.2578670-2-sebastianene@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260615052903.207943-1-liuqiqi@kylinos.cn>
+In-Reply-To: <20260616105417.2578670-2-sebastianene@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260616_055444_308160_3C28B6D9 
-X-CRM114-Status: GOOD (  21.54  )
+X-CRM114-CacheID: sfid-20260616_060047_814058_EA973190 
+X-CRM114-Status: GOOD (  16.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,95 +100,43 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, linux-kernel@vger.kernel.org, Tongbo Wei <kf.weitongbo@h3c.com>, Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 15, 2026 at 01:29:03PM +0800, liuqiqi@kylinos.cn wrote:
-> From: Qiqi Liu <liuqiqi@kylinos.cn>
+On Tue, Jun 16, 2026 at 10:54:08AM +0000, Sebastian Ene wrote:
+> Introduce a helper method ffa_check_unused_args_sbz to enforce strict
+> arguments checking when the hypervisor acts as a relayer between the
+> host and Trustzone.
 > 
-> After entering kdb due to breakpoint, when we execute 'ss' or 'go'
-> (will delay installing breakpoints, do single-step first),
-> and it will enter kdb again.
-> We found that due to context switching caused by interrupt, 
-> the instruction at ss is no longer the original breakpoint instruction.
-> 
-> Before the patch:
-> [root@localhost ~]# echo g > /proc/sysrq-trigger
-> Entering kdb (current=0xffff030004f2bc00, pid 8818) on processor 15 due to Keyboard Entry
-> [15]kdb> bp sysctl_vm_numa_stat_handler
-> Instruction(i) BP #0 at 0xffffae550650c810 (sysctl_vm_numa_stat_handler)
->     is enabled    addr at 0xffffae550650c810, hardtype=0 installed=0
-> [15]kdb> g
-> [root@localhost ~]# echo 1 > /proc/sys/vm/numa_stat
-> Entering kdb (current=0xffff030004f2bc00, pid 8818) on processor 12 due to Breakpoint @ 0xffffae550650c810
-> [12]kdb> g
-> Entering kdb (current=0xffff030004f2bc00, pid 8818) on processor 12 due to Breakpoint @ 0xffffae550650c810
-> [12]kdb> g
-> 
-> After the patch:
-> [root@localhost ~]# echo g > /proc/sysrq-trigger
-> Entering kdb (current=0xfffff010012c36400, pid 6488) on processor 41 due to Keyboard Entry
-> [41]kdb> bp sysctl_vm_numa_stat_handler
-> Instruction(i) BP #0 at 0xfffffd1768c2dc7c8 (sysctl_vm_numa_stat_handler)
->     is enabled    addr at ffffdf1768c2dc7c8, hardtype=0 installed=0
-> [41]kdb> g
-> [root@localhost ~]# echo 1 > /proc/sys/vm/numa_stat
-> Entering kdb (current=0xfffff010012c36400, pid 6488) on processor 7 due to Breakpoint @ 0xfffffd1768c2dc7c8
-> [7]kdb> g
-> [root@localhost ~]#
-> 
-> Fixes: 44679a4f142b ("arm64: KGDB: Add step debugging support")
-> Co-developed-by: Tongbo Wei <kf.weitongbo@h3c.com>
-> Signed-off-by: Tongbo Wei <kf.weitongbo@h3c.com>
-> Signed-off-by: Qiqi Liu <liuqiqi@kylinos.cn>
+> Signed-off-by: Sebastian Ene <sebastianene@google.com>
 > ---
->  arch/arm64/kernel/kgdb.c | 12 ++++++++++++
->  1 file changed, 12 insertions(+)
+>  arch/arm64/kvm/hyp/nvhe/ffa.c | 47 +++++++++++++++++++++++++++++++++++
+>  1 file changed, 47 insertions(+)
 > 
-> diff --git a/arch/arm64/kernel/kgdb.c b/arch/arm64/kernel/kgdb.c
-> index 968324a79a89..e9a246a0c34f 100644
-> --- a/arch/arm64/kernel/kgdb.c
-> +++ b/arch/arm64/kernel/kgdb.c
-> @@ -101,6 +101,8 @@ struct dbg_reg_def_t dbg_reg_def[DBG_MAX_REG_NUM] = {
->  	{ "fpcr", 4, -1 },
->  };
+> diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> index 1af722771178..c723a21006aa 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> @@ -71,6 +71,18 @@ static u32 hyp_ffa_version;
+>  static bool has_version_negotiated;
+>  static hyp_spinlock_t version_lock;
 >  
-> +static DEFINE_PER_CPU(unsigned int, kgdb_pstate);
+> +static bool ffa_check_unused_args_sbz(struct kvm_cpu_context *ctxt, int first_reg)
+> +{
+> +	int reg;
 > +
->  char *dbg_get_reg(int regno, void *mem, struct pt_regs *regs)
->  {
->  	if (regno >= DBG_MAX_REG_NUM || regno < 0)
-> @@ -207,6 +209,8 @@ int kgdb_arch_handle_exception(int exception_vector, int signo,
->  		err = 0;
->  		break;
->  	case 's':
-> +		__this_cpu_write(kgdb_pstate, linux_regs->pstate);
-> +		linux_regs->pstate |= PSR_I_BIT;
->  		/*
->  		 * Update step address value with address passed
->  		 * with step packet.
-> @@ -252,9 +256,17 @@ NOKPROBE_SYMBOL(kgdb_compiled_brk_handler);
->  
->  int kgdb_single_step_handler(struct pt_regs *regs, unsigned long esr)
->  {
-> +	unsigned int pstate;
->  	if (!kgdb_single_step)
->  		return DBG_HOOK_ERROR;
->  
-> +	/* restore interrupt mask status */
-> +	pstate = __this_cpu_read(kgdb_pstate);
-> +	if (pstate & PSR_I_BIT)
-> +		regs->pstate |= PSR_I_BIT;
-> +	else
-> +		regs->pstate &= ~PSR_I_BIT;
+> +	for (reg = first_reg; reg < 17; reg++) {
 
-I don't think this is sufficient; see the comments from last time this
-approach was proposed:
+Hum, should it be reg <= 17? 
 
-  https://lore.kernel.org/linux-arm-kernel/aNPiUbdRhaRklebF@J2N7QTR9R3/
 
-I don't think we can solve this without enlightening the entry code.
+> +		if (cpu_reg(ctxt, reg))
+> +			return true;
+> +	}
+> +
+> +	return false;
+> +}
+> +
 
-Mark.
+[...]
 
