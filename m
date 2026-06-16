@@ -4,142 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 379B7CD98E1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 21:15:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEBEFCD98EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 21:38:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sgOZGAVRtcof+wGB0xB9WSeFloGw8arPsNKl8QzdnwA=; b=Udsjc6VOQ5B2KKFOkIBfEn+qNP
-	8hWim5YaeFnCj2XZjJ/ZMZAsbg9bgWwTRnW2Yu92xhIl85BawvBsct729DSc5o0IWX7Su3we5dbYp
-	dmf2uvsWIp7N73i7mQTO4jJBzjv/AesZW3YdD4Pj9Y64fd1O9mt84dZzQTwqImcLUUedsK+ljTbDc
-	A7Pi8QnhC1PMVwsPrjILmj/8xZjvOd7CWb+TbR/70E4JJvGqil6OaVs4flqRlnE7/nuGpEk5hkSYk
-	VTVDgP2b6T2RdYLcskWvvi9hoEqiQmIMHDFA8cb/KhFDQ808bnKh88r9AZuQQDECl8wF1sfzeHl70
-	/Y7/FKCg==;
+	bh=Ku36PgmZ23d8x6k2ldFVCZ2r1RXJuytjTrS1Up4q2Vc=; b=HqdtGZushnXM/b0kO/Zbwry/Et
+	v+rGYOvUFYLgmqMtMmQ6Bd7KHZY8xC6egZ+NM8V1px6ggdSy9b4WNFJgSL8j9Fc13gXWacXekCv42
+	SW1itkJl0fabdt0LLjR19IsEZ4HuWVgIHC2MK6KmLXp31lRlNrfY6Gb6zPgXN4ROWjWQC1nyUVCT2
+	f+Z3dPh3KUoZDRiCZaxw8cyHw/j5AuZstuUydIHJdSbPgBz3woW02MK8rclrd/r0DrK/QycWHqF2f
+	7YhfsPptUs5MJlZcuaNGrzECTtG5NA351hq2ncyj4RhEiLOc2i1hOA60dDAUu2VrytIfA7uAKXQM3
+	Q8BtnHbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZb7t-0000000GKq2-0zx4;
-	Tue, 16 Jun 2026 21:15:17 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wZbUQ-0000000GLsw-1buc;
+	Tue, 16 Jun 2026 21:38:34 +0000
+Received: from mail-ua1-x933.google.com ([2607:f8b0:4864:20::933])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZb7q-0000000GKpf-0ggA
+	id 1wZbUN-0000000GLsB-36XG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Jun 2026 21:15:15 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65GIOr2g172546
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 21:15:12 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	sgOZGAVRtcof+wGB0xB9WSeFloGw8arPsNKl8QzdnwA=; b=Q2oPYf+jo1OvqJTw
-	32YbeVDpke0fD6J3kNMfzmSzeD788D6pocq05EmXvXt0Rd/og22w3ueg/tKQpMza
-	IzGGHORUG35ejfjyPofnYwOQVNW4XY4vLATf+Ce05VjNd6J6/Hy/K89MSUsgsUum
-	xlHDXDlX4aZ+t74kQ6McsFoQpP9FfcOJXv58eGmkFPEd/CRfDeUsPU6fJFyXQnWn
-	QZ7zfvvUDKXW6QCc7qD9bFcLrNs63W4bm6Q6rC2lX8BHbGbwjjBRh7zWnnDZXG72
-	rAbzAXhzKbx7O8L375+oRJ1XOHnQXl9cTFmpCxeY+XAoVkJQSbR8v/YUByIwA2li
-	+zGIOA==
-Received: from mail-dl1-f72.google.com (mail-dl1-f72.google.com [74.125.82.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4eu09kcd6v-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 21:15:12 +0000 (GMT)
-Received: by mail-dl1-f72.google.com with SMTP id a92af1059eb24-137fc6f8e9fso4928288c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 14:15:12 -0700 (PDT)
+	Tue, 16 Jun 2026 21:38:33 +0000
+Received: by mail-ua1-x933.google.com with SMTP id a1e0cc1a2514c-9639130b20fso2891305241.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 14:38:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1781644511; x=1782249311; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=sgOZGAVRtcof+wGB0xB9WSeFloGw8arPsNKl8QzdnwA=;
-        b=QshefIba3Zg9iETxS3waYjhI2BEetoJAsPNa0Zhb7Qm0Xt/SMWbU5RGxWUN4nV4OPV
-         8gDi8VdgdLDsMLihHm/dwJOBc5YC2/3tTeKCqRg+yPAjuiTkpgw5LZnjvHRyMxoAVn+8
-         nEmWOv8OzJYlZsVNiyWA4Ai/eoHtjl0TjDZnvJrcywgVQq3qti0jw0yHv5D06I7DUX/R
-         vjHfz1sqofRkK8s7E8R+AFz4S7894+I1BwDi2jehaqhbrviScM0BKLYtI1+M/UP4jjxQ
-         spKeNxukF7hVByByKswOPwmH1ckk5nn7EFkngqmXYvubgZD2LY2uzy2w4FLfVn9HMM7H
-         t7sA==
+        d=chromium.org; s=google; t=1781645910; x=1782250710; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Ku36PgmZ23d8x6k2ldFVCZ2r1RXJuytjTrS1Up4q2Vc=;
+        b=OxBIhyS57tR/n+OvwMLuzrruC2iZCzQ97VIOhxYBB7nbjPXjAZirqutgE7AADY05TA
+         nMf1cRUPnI4mjlr2PKUUSzHZrhSy1puM7l4EyJkXNGsc/ZfJ5sB6kXKdHOg5zevD/Ay5
+         T4hWt0maezGeP60KQqNG1sP7V/1owYRyLA4Ko=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781644511; x=1782249311;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=sgOZGAVRtcof+wGB0xB9WSeFloGw8arPsNKl8QzdnwA=;
-        b=Y1f02A9rQ7auwuLDQLwgNXlGrc0UZKwGB0/SqQDCeJv+Mw2gZXNAoXf2qA9nNI1eFq
-         iQJ8R7Iqqej0gfaTZ4KHjC5nUJ0McMb1AZed8Gc62ksT0RPHTIXea1WdpyMbpfnNtftn
-         wXF1iSm4mQCLky7dRLV89WsA9imv6RBlLUKg1khpwXfQigbY1T30UBTy/aVMELnCac9E
-         myYXjVgVjIKi1M+GI37qPoA33fdGIX0W5YmhaLcIb6n6OTAznexs1Zla4QTsHPjjCGVb
-         w/1vatP2EJyvyUkSsRP2E1ZcOtadXU86nQBjDVX0ksCaJq8ewRJWlqIsnjo5CgS7e2IP
-         JvNA==
-X-Forwarded-Encrypted: i=1; AFNElJ/D1FXSWkrDKdSptOEuyYHYfc52DIU9KOTu0FyI+f6iHo8zz5Tz4xhN3u8IzEr95MjQjpGCXfqU+7xRQhmV5MIq@lists.infradead.org
-X-Gm-Message-State: AOJu0YxHE0lFegcBcueCSG7WRjcTiZZB1cbZxwUIe9pWIgT2+W5Xutk2
-	w7+IBJ4vwkuD1XWlYzxoXfl5889F6xHP5jdW3fa+bOZwlvmyWNgrIjU6X76KI0TkUg/BmhPEwea
-	C1u+Vr+6kzG0Nyl8V1iQeplI6xFPeRQq1UKj0RDMNoK1sHwn2YVsDuZTgq+jAxz6jYWeizBBctE
-	Qnbw==
-X-Gm-Gg: Acq92OHfGShOpq2OlSKj5Wa0UHEtYswztO8P2cIBk7n150kgmSLTylxKDYF1fkaR8ow
-	1JSOdIE9jmu5QvcTwBCya1VJirWYdnRNC8NYOJOel/GB0IY+Mlr9nZKfiAoLKtCXJsGjJMShPGD
-	2krLkDZ9ASmv+uLriEP1IUkUFUNeejR+Aswkww2DcxbH9zzcagGDbxc12Q4rj/Nfdm2PzMtDOOe
-	NC4z6dYVbo+v6M2ZFWr9lJnND083F9cKrZdlIbSFxmQKdJ8dJD5GUfffUASdzGotdJYsqOns6lV
-	HICSG2w30aOLpkRMw+ioIX6KGXVormQXILwSk0mM9feDhjXPICSTRzafo2VzNbD52fB2QOC9Uo0
-	qOEWrpcZuOWi2gQNGRbTpiKiRqC/T/Shz5yQatrM/Nd1eafgZJQO6i6iTojwDqzmyIjlEsnsRYc
-	FRP+7Qy96tlpbczw==
-X-Received: by 2002:a05:7022:6b98:b0:12d:d972:b969 with SMTP id a92af1059eb24-1398f696275mr381893c88.24.1781644511464;
-        Tue, 16 Jun 2026 14:15:11 -0700 (PDT)
-X-Received: by 2002:a05:7022:6b98:b0:12d:d972:b969 with SMTP id a92af1059eb24-1398f696275mr381871c88.24.1781644510903;
-        Tue, 16 Jun 2026 14:15:10 -0700 (PDT)
-Received: from [10.71.190.32] (i-global254.qualcomm.com. [199.106.103.254])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1384b97570asm14029259c88.12.2026.06.16.14.15.10
+        d=1e100.net; s=20251104; t=1781645910; x=1782250710;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=Ku36PgmZ23d8x6k2ldFVCZ2r1RXJuytjTrS1Up4q2Vc=;
+        b=UiOPyGyKgL+uRMS5UHlYFfFUsWxRq2gY65JkcbgA/angx595lQMqBBhw+xrIhcUQ3W
+         zI8D2DFvqHQzJp37OA7hbU+tCvbXKApph6lGKD87Rzxth8K7oxUrsqT52LLCw8OhN72D
+         YHd/AtpD2w57JIVf+a8Ou7nxcwXf8uD5cmJ1XXb3pGxHe1MTEeclu2PRPzn9enTFaWQG
+         aCBNOzgEPs9h32FJO++xySR3fwMucZGokG7I5nw1VtQZf29I2rT3lt5kEXdiH/a7SMrY
+         SAfrWh+5aRi+7mKJ8gFwP19C4A95KXYTn7lyMes6DIa4y9jxYAwi0ItmwMCDlP9pD/i6
+         xKYg==
+X-Forwarded-Encrypted: i=1; AFNElJ8qvstf0v5BmUF/0/nZ3F02USX0LDJXaZOV7QfmwiFGgZ2sOXnmNZ4YFDXsBGxVKC/ZxtO53ykgqfTptkgO0Fy4@lists.infradead.org
+X-Gm-Message-State: AOJu0YzhAa4YbNb8BxHDOjgx/TFwKCG1l3N2rL88R2eRVeHo+WMkisCz
+	EaJlNSuX+VLj+jkzwseBXYlaB7mkiQo8QbqEZ2oSB+5YyykknRtjCBvOUeaDk2wcnWo/Hxt2bVh
+	tyw4=
+X-Gm-Gg: Acq92OGVeGiF3AJxUXA11roWMls9XJXqrg0IiIcuNJ7AO+zvMVOtpvI2I5TJ8NZWM+N
+	L3quQ/KFor1raSnx88Adk5QZvScYY+UwkQiBgufBkBgxwJYbgwpe881LB+xKmguaWOI3KbrAX2i
+	LzlK9/4ZFaFWj6i+5Y8dOO05FKYoZISwxMv1TccZYS8KHd3u53ptFFUnpotZfJJMzOEtO5xusE5
+	eMsGRzG9LzaAV8jG0HSVuABppMk3vdaBp2u5hSpOqCpRlAPpTGHQx1IkcgMAjZYoAOxdCqA8B6B
+	TDdE/5xEpE91kPZPUxhyHtzBpay/S39k8Bd4lkDalkmE654MpPREkOJYl/OF4uBYII3WHzkgbDe
+	RknouCB+ixf5VEc6V265tHKcpwS9c5UCWjD2T52UoU8Ptd+Ue6ePViXVk0zv3U4vjRb9MNOCTBf
+	Wph/TLEJcYNMns1n/drQPSFkr2zwvIK6tF1Shka+ytDnPb/qKXX4HFqWa9oJZIrA==
+X-Received: by 2002:a05:6102:3f48:b0:633:c6c4:b32c with SMTP id ada2fe7eead31-7246c890bd5mr755647137.15.1781645909914;
+        Tue, 16 Jun 2026 14:38:29 -0700 (PDT)
+Received: from mail-vs1-f48.google.com (mail-vs1-f48.google.com. [209.85.217.48])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-72084cd88e7sm5633386137.4.2026.06.16.14.38.28
+        for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 16 Jun 2026 14:15:10 -0700 (PDT)
-Message-ID: <eb50b45d-ad04-4da7-8cfa-6e1abb1ffba4@oss.qualcomm.com>
-Date: Tue, 16 Jun 2026 14:14:59 -0700
+        Tue, 16 Jun 2026 14:38:28 -0700 (PDT)
+Received: by mail-vs1-f48.google.com with SMTP id ada2fe7eead31-6c25b040554so2740285137.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 14:38:28 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ+wSjPpxrN7MI0BloeRc9Ta21CaMrp29yrvZeiRfZFJ6agejS5eOZA3gxwbaJ3cP3dch27avUOjB4/9Jd+YUbbs@lists.infradead.org
+X-Received: by 2002:a05:6102:3910:b0:631:ff40:22b2 with SMTP id
+ ada2fe7eead31-7245d20641emr780692137.2.1781645907501; Tue, 16 Jun 2026
+ 14:38:27 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] firmware: arm_ffa: Fix NULL dereference in
- ffa_partition_info_get()
-To: Sudeep Holla <sudeep.holla@kernel.org>
-Cc: Jens Wiklander <jens.wiklander@linaro.org>,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org, kernel@oss.qualcomm.com,
-        Trilok Soni <trilok.soni@oss.qualcomm.com>,
-        Satya Durga Srinivasu Prabhala <satya.prabhala@oss.qualcomm.com>
-References: <20260611-ffa_partition_nullptr_fix-v1-1-ec2b7ef7e130@oss.qualcomm.com>
- <20260612-fat-energetic-hummingbird-8ddc62@sudeepholla>
-Content-Language: en-US
-From: Unnathi Chalicheemala <unnathi.chalicheemala@oss.qualcomm.com>
-In-Reply-To: <20260612-fat-energetic-hummingbird-8ddc62@sudeepholla>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNjE2MDIxNSBTYWx0ZWRfX3c3QBTCJSwzl
- SzfojIY8I5TO5EQ+QjKW6wEG4FDIjjwq+4yMG20XXtnryk+XjTa0t359WPLCs0r4MIyItt/p/Bj
- kqUXiQpQPZS4pdqju9ZQ7zbPlOryHYk=
-X-Proofpoint-GUID: tCXQzV8BH2WbK0Ikdh0szYbDQDGgjO4m
-X-Authority-Analysis: v=2.4 cv=DoZmPm/+ c=1 sm=1 tr=0 ts=6a31bce0 cx=c_pps
- a=bS7HVuBVfinNPG3f6cIo3Q==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
- a=EUspDBNiAAAA:8 a=l2X_Lv62_SrtoPT5pgEA:9 a=QEXdDO2ut3YA:10
- a=vBUdepa8ALXHeOFLBtFW:22
-X-Proofpoint-ORIG-GUID: tCXQzV8BH2WbK0Ikdh0szYbDQDGgjO4m
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjE2MDIxNSBTYWx0ZWRfX17CaygNknTvQ
- muQYz2USWMS6ZcQxASlNA/J8VQ1xFJErRr+gyK13XSB4SYCTXFDUmNlnEcW/oacGKnK4AqxqDUn
- oDIFArifSQ/HJ7Rq9t6gi+SVRiMqy8XMT3XPavCGcWf+yzm7CM7BV4/YPXvS7l5tsaPcuxzKK0X
- 9ipILdu77LUEluPdcb9JLQA2P3jutZ+1Z4yKNboeB0KhkFlVdlVYdnGinkG2pKJzBZAs0eUYEUm
- 7dYINvgdiqg8r4WVUMAyonKlzNvlGdvpkoAI0k59k1Ad6DVVpd/maY9NXUP/MZI6VcFz4RhIhQb
- xwFdYEAn05crPRCSwOgXJAXz5UtilFbAGYoV6RtL3IzPthrW0XIwtfXdP8VIx5lRth+jWi2SAoo
- zKF6jtQAVGfjcjgo2/SSqn/cOMTC0kntwkAvqwFw+T0+x+AlSv1hkYxa997EJoHsak50iNsr3ld
- fXPCd8EsOMi29mqAWYQ==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-16_05,2026-06-16_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 malwarescore=0 phishscore=0 adultscore=0 impostorscore=0
- suspectscore=0 priorityscore=1501 spamscore=0 bulkscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606040000 definitions=main-2606160215
+References: <cover.1781490440.git.kas@kernel.org> <167493d30ef6c99a44291de14cddd41ced8149c4.1781490440.git.kas@kernel.org>
+In-Reply-To: <167493d30ef6c99a44291de14cddd41ced8149c4.1781490440.git.kas@kernel.org>
+From: Doug Anderson <dianders@chromium.org>
+Date: Tue, 16 Jun 2026 14:38:16 -0700
+X-Gmail-Original-Message-ID: <CAD=FV=WK0=xTZOWK+yDqEtGbbhkvoW50ekHKBBWhpoO9Zb8cBQ@mail.gmail.com>
+X-Gm-Features: AVVi8Ce2TIVRIg1dSgVrmoNtDRnxocNt72MHs5ddjhzazA-47T8vaWkWcQhOaik
+Message-ID: <CAD=FV=WK0=xTZOWK+yDqEtGbbhkvoW50ekHKBBWhpoO9Zb8cBQ@mail.gmail.com>
+Subject: Re: [PATCH v3 3/3] arm64: escalate smp_send_stop() to an SDEI NMI as
+ a last resort
+To: Kiryl Shutsemau <kirill@shutemov.name>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	James Morse <james.morse@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
+	Marc Zyngier <maz@kernel.org>, Petr Mladek <pmladek@suse.com>, Thomas Gleixner <tglx@linutronix.de>, 
+	Andrew Morton <akpm@linux-foundation.org>, Baoquan He <bhe@redhat.com>, 
+	Puranjay Mohan <puranjay@kernel.org>, Usama Arif <usama.arif@linux.dev>, 
+	Breno Leitao <leitao@debian.org>, Julien Thierry <julien.thierry.kdev@gmail.com>, 
+	Lecopzer Chen <lecopzer@gmail.com>, Sumit Garg <sumit.garg@kernel.org>, kernel-team@meta.com, 
+	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, "Kiryl Shutsemau (Meta)" <kas@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260616_141514_384800_87F332F3 
-X-CRM114-Status: GOOD (  22.19  )
+X-CRM114-CacheID: sfid-20260616_143831_785784_358F846D 
+X-CRM114-Status: GOOD (  26.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,56 +113,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/12/2026 3:55 AM, Sudeep Holla wrote:
-> 
->> Per the FF-A spec, the all-zeros UUID is the defined wildcard that
->> instructs the SPMC to return information for all partitions. Map NULL
->> and empty string to uuid_null rather than crashing in uuid_parse(),
->> preserving the intended "return all partitions" semantics for callers
->> that pass NULL.
->>
-> 
-> Agreed on the spec part but not w.r.t the interface. Where is the driver
-> using this call and why is it sending null or wants to extract all the
-> partition information ?
-> 
+Hi,
 
-A developer wanting all partitions might reasonably pass the all-zeros string
-"00000000-0000-0000-0000-000000000000"? 
+On Sun, Jun 14, 2026 at 7:36=E2=80=AFPM Kiryl Shutsemau <kirill@shutemov.na=
+me> wrote:
+>
+> +/*
+> + * Bring the local CPU to a stop, saving its register state into the vmc=
+ore
+> + * on the kdump crash path first. The single point every arm64 stop path
+> + * funnels through, so the bookkeeping (mask interrupts, mark offline, m=
+ask
+> + * SDEI, optionally power off) lives in one place:
+> + *
+> + *   - the regular IPI_CPU_STOP and pseudo-NMI IPI_CPU_STOP_NMI handlers=
+;
+> + *   - panic_smp_self_stop(), a CPU parking itself on a parallel panic()=
+;
+> + *   - the SDEI cross-CPU NMI handler (drivers/firmware/arm_sdei_nmi.c),
+> + *     which reaches CPUs the stop IPIs could not.
+> + *
+> + * @regs is the register state to record in the vmcore on a crash stop; =
+NULL
+> + * means "capture the current context". @die_on_crash decides the kdump =
+crash
+> + * path: the IPI stop handlers pass true and power the CPU off (PSCI CPU=
+_OFF,
+> + * via __cpu_try_die()) so a capture kernel can reclaim it. The SDEI han=
+dler
+> + * and panic_smp_self_stop() pass false and only park. For SDEI that is
+> + * required, not just conservative: it runs inside an SDEI event that is
+> + * deliberately never completed (completing it has firmware resume the w=
+edged
+> + * context), and a CPU_OFF from that not-yet-completed context wedges EL=
+3 on
+> + * some firmware -- a documented follow-up. Parking also matches this pa=
+th's
+> + * own fallback when CPU_OFF is unavailable.
 
->> Fixes: d0c0bce83122 ("firmware: arm_ffa: Setup in-kernel users of FFA partitions")
->> Signed-off-by: Unnathi Chalicheemala <unnathi.chalicheemala@oss.qualcomm.com>
->> ---
->>  drivers/firmware/arm_ffa/driver.c | 4 +++-
->>  1 file changed, 3 insertions(+), 1 deletion(-)
->>
->> diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
->> index b9f17fda7243..dd500fb81b79 100644
->> --- a/drivers/firmware/arm_ffa/driver.c
->> +++ b/drivers/firmware/arm_ffa/driver.c
->> @@ -1129,7 +1129,9 @@ static int ffa_partition_info_get(const char *uuid_str,
->>  	uuid_t uuid;
->>  	struct ffa_partition_info *pbuf;
->>  
->> -	if (uuid_parse(uuid_str, &uuid)) {
->> +	if (!uuid_str || uuid_str[0] == '\0') {
->> +		uuid = uuid_null;
-> 
-> I object to make it uuid_null. Below check is enough to check NULL
-> dereference.
-> 
-> -       if (uuid_parse(uuid_str, &uuid)) {
-> +       if (!uuid_str || uuid_parse(uuid_str, &uuid)) {
-> 
-> 
-> I don't think we need to service NULL as valid argument via this interface
-> as the callee driver needs to pass its partition UUID here.
-> 
-I agree with you, NULL doesn't seem like a valid use case.
+Nice to have all the details in the function comment. Any reason why
+you didn't use kernel-doc format? Nothing else in this file does, I
+guess, but it doesn't seem like it would be a problem to start the
+trend... ;-)
 
-Will send another version with your suggestion, thank you for the review.
 
-Regards,
-Unnathi
+> @@ -59,8 +64,51 @@ static bool sdei_nmi_available;
+>
+>  #define SDEI_NMI_EVENT                 0
+>
+> +/*
+> + * Backtrace and stop both ride SDEI event 0. That is not a chosen econo=
+my:
+> + * event 0 is the only architecturally software-signalled event -- the s=
+ole
+> + * event SDEI_EVENT_SIGNAL can target at an arbitrary PE. Every other ev=
+ent
+> + * number is a firmware/platform interrupt-bound event, not something th=
+e
+> + * kernel can raise cross-CPU, so a dedicated "stop" event would need
+> + * firmware to define and bind it -- exactly the firmware dependency thi=
+s
+> + * driver sets out to avoid.
+> + *
+> + * Sharing one event means the handler must tell a stop apart from a
+> + * backtrace. A stop is terminal and system-wide -- sdei_nmi_stop_cpus()=
+ is
+> + * only reached from smp_send_stop() (reboot/halt/panic/kdump), which ne=
+ver
+> + * returns -- so once a stop is requested, every later event-0 fire is a
+> + * stop too. A single write-once flag therefore carries as much as a
+> + * per-CPU mask would: sdei_nmi_stop_cpus() sets it before signalling, a=
+nd
+> + * the handler reads a set flag as "stop this CPU" and a clear flag as
+> + * "backtrace" (handled by nmi_cpu_backtrace(), which self-gates on the
+> + * framework's backtrace mask). A backtrace fire that races in after a s=
+top
+> + * has begun just stops that CPU instead -- harmless, it is going down.
+> + */
+> +static bool sdei_nmi_stopping;
+> +
+>  static int sdei_nmi_handler(u32 event, struct pt_regs *regs, void *arg)
+>  {
+> +       if (READ_ONCE(sdei_nmi_stopping)) {
 
+Don't you need a smp_rmb() before that, to match with the smp_wmb()?
+
+-Doug
 
