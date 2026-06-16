@@ -4,73 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27B84CD98E4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 17:36:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8005CD98E1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 17:50:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=j8mE12+DhQDOCsN4kz2sxFjHcIdD+IWi9/3TxDS4ABI=; b=Wuf7aEE7ssNPwTJNBJwcYKbCZr
-	zghAlrboK6qawpHPUboDvMoy+ASMx7Gzmix0C/8GDvNarokaDMSQZnNbaVHLGHueFygV1qKolThSp
-	dEbklLy7B76GTVMpGCUHjrxO4m/HaucXcXnojdphRTvhhxzRnJH8140P6tytR66G1n0jphx1faebu
-	DFVeUPOIuMbSQxNeYa2zi/zvU0tbUzVOhlraqyY9OdWEFMajk+d4kXihJp0gAhyX7vNeaTgVQrXI6
-	msZ7LfxjFuAHGaGvnZgwDVZcHPZwINejBU/c6gY5bX4B1B3yy2DUbRP4GNs1Ug/A44ZnObRgP65Bz
-	XLc0O00Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pC+3y6u05bo4j+kfEVgXTpJcC8QAQdLa7XJcQZ3gASs=; b=4+Gukb8i4MwkblgkQT+p5oZYjv
+	M7zYx4p4YtFel3rfsk+N1nS0hnUyihzd8C5R0up8iaukz9pO6aGMHK0n6w8yo8Xoak/A45dsny0ci
+	A7pRJmJWQYq0FZf+YXEFUZAYPEND9UWnLipyp/OQv0AOYrb90uLKVGaLAdrFdkc/r+unfAcd63j5Z
+	Pg3X8QS62lRyo/S8KbzSJECihTRf6FwADqkDJt9btU9gXXtTr2YOHRHCgc8Z9t9Vc0y0Yq1BSEkqu
+	hOvUs53/GLgcccXKBI22+P4Ug+6v7Kev20xy1m8ADbZ3jWftfd+2InsNyVtAkaiHIAq/PacnhuIks
+	+FpigjhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZXiO-0000000GAyo-2SSG;
-	Tue, 16 Jun 2026 17:36:44 +0000
-Received: from mgamail.intel.com ([192.198.163.17])
+	id 1wZXvA-0000000GBQ8-2dla;
+	Tue, 16 Jun 2026 17:49:56 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZXiL-0000000GAyR-0pvu
+	id 1wZXv9-0000000GBQ1-1I4N
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Jun 2026 17:36:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1781631401; x=1813167401;
-  h=date:from:to:cc:subject:message-id;
-  bh=IlgdQiVrIUvUyXtg1A3PnUxmjTNZ6p/D/ns6KhmP2oY=;
-  b=iw8BHRhijI1jkIrF4WM/uCkfjQJXz+tCwfLQ6ub3aq+Qk8mN8Fg3Nmtl
-   nC13vC/ET6rSaTNavk4bQiCla2uAhjoiEHuqVIrjG6U7+bT7U6e3QWqSi
-   DTJqAhOQr6VvrC2cyCrFJYq6falYuZRJdZdMmSu+lw3GuZduv30NBs+uz
-   euqOcND2u1WMYBZ4SSomamWjPPRGyUmTcyqqeLFh4sQQRz9ut5IULoG0P
-   DO6FJVT16qbS/zJTndhnpcINIM2S8hjCzyUQ9CBVWRWyqDAviK2zTWG9E
-   JO+TurPw9W8Wlmf8R+azmCyB/VFrOb1WC34ZjwPcSbbg3quu/qTVqhMd2
-   A==;
-X-CSE-ConnectionGUID: vNRlpQjKSXWMvp7+Ssm9Sw==
-X-CSE-MsgGUID: UlmiJvH4Tn2dxFPDGruY3Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11819"; a="82257948"
-X-IronPort-AV: E=Sophos;i="6.24,208,1774335600"; 
-   d="scan'208";a="82257948"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jun 2026 10:36:39 -0700
-X-CSE-ConnectionGUID: 8fCZjLf4QomJYPCJhnbUDA==
-X-CSE-MsgGUID: ijIhMbcqSDKigMtgYE2vrg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.24,208,1774335600"; 
-   d="scan'208";a="246938020"
-Received: from lkp-server01.sh.intel.com (HELO f0d55cb201f0) ([10.239.97.150])
-  by orviesa010.jf.intel.com with ESMTP; 16 Jun 2026 10:36:38 -0700
-Received: from kbuild by f0d55cb201f0 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1wZXiE-00000000TaY-2iqc;
-	Tue, 16 Jun 2026 17:36:34 +0000
-Date: Wed, 17 Jun 2026 01:35:54 +0800
-From: kernel test robot <lkp@intel.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-Subject: [arm-platforms:kvm-arm64/nv3 37/37]
- arch/arm64/kvm/sys_regs.c:222:32: warning: misleading indentation; statement
- is not part of the previous 'if'
-Message-ID: <202606170158.W9YgYBN4-lkp@intel.com>
-User-Agent: s-nail v14.9.25
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260616_103641_424112_FEAFC1D0 
-X-CRM114-Status: UNSURE (   9.02  )
-X-CRM114-Notice: Please train this message.
+	Tue, 16 Jun 2026 17:49:55 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 986D940BC3;
+	Tue, 16 Jun 2026 17:49:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B1431F000E9;
+	Tue, 16 Jun 2026 17:49:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1781632194;
+	bh=pC+3y6u05bo4j+kfEVgXTpJcC8QAQdLa7XJcQZ3gASs=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=kXcTxd5CKxHajSrkqlik9zm4YaMrhKgkcgR7A3o2tnd59aZjPbLqNBTrzHXh8vmsa
+	 Xx3NoZvWtfsE4PcAgLCFTz6VxNY/HqvWciC7Dx06ykBtrSU72MY2HmVVeQ7E1K6Hn9
+	 /CiwIUT0RtXKz2L7mn32LjJ/xWLncac8bMIpOusY=
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: stable@vger.kernel.org
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	patches@lists.linux.dev,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	"David Hildenbrand (Arm)" <david@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Sasha Levin <sashal@kernel.org>
+Subject: [PATCH 6.1 337/522] arm64/mm: Enable batched TLB flush in unmap_hotplug_range()
+Date: Tue, 16 Jun 2026 20:28:04 +0530
+Message-ID: <20260616145141.584613180@linuxfoundation.org>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260616145125.307082728@linuxfoundation.org>
+References: <20260616145125.307082728@linuxfoundation.org>
+User-Agent: quilt/0.69
+X-stable: review
+X-Patchwork-Hint: ignore
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,101 +76,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git kvm-arm64/nv3
-head:   aa9a6e84f564417704258a20210b95d18ebf5601
-commit: aa9a6e84f564417704258a20210b95d18ebf5601 [37/37] WIP
-config: arm64-randconfig-003 (https://download.01.org/0day-ci/archive/20260617/202606170158.W9YgYBN4-lkp@intel.com/config)
-compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260617/202606170158.W9YgYBN4-lkp@intel.com/reproduce)
+6.1-stable review patch.  If anyone has any objections, please let me know.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202606170158.W9YgYBN4-lkp@intel.com/
+------------------
 
-All warnings (new ones prefixed by >>):
+From: Anshuman Khandual <anshuman.khandual@arm.com>
 
-   arch/arm64/kvm/sys_regs.c:222:30: error: expected ';' after expression
-     222 |                         loc->loc = SR_LOC_SPECIAL : SR_LOC_MEMORY;
-         |                                                   ^
-         |                                                   ;
->> arch/arm64/kvm/sys_regs.c:222:32: warning: misleading indentation; statement is not part of the previous 'if' [-Wmisleading-indentation]
-     222 |                         loc->loc = SR_LOC_SPECIAL : SR_LOC_MEMORY;
-         |                                                     ^
-   arch/arm64/kvm/sys_regs.c:221:3: note: previous statement is here
-     221 |                 if (is_hyp_ctxt(vcpu))
-         |                 ^
->> arch/arm64/kvm/sys_regs.c:222:32: warning: expression result unused [-Wunused-value]
-     222 |                         loc->loc = SR_LOC_SPECIAL : SR_LOC_MEMORY;
-         |                                                     ^~~~~~~~~~~~~
-   2 warnings and 1 error generated.
+[ Upstream commit 48478b9f791376b4b89018d7afdfd06865498f65 ]
+
+During a memory hot remove operation, both linear and vmemmap mappings for
+the memory range being removed, get unmapped via unmap_hotplug_range() but
+mapped pages get freed only for vmemmap mapping. This is just a sequential
+operation where each table entry gets cleared, followed by a leaf specific
+TLB flush, and then followed by memory free operation when applicable.
+
+This approach was simple and uniform both for vmemmap and linear mappings.
+But linear mapping might contain CONT marked block memory where it becomes
+necessary to first clear out all entire in the range before a TLB flush.
+This is as per the architecture requirement. Hence batch all TLB flushes
+during the table tear down walk and finally do it in unmap_hotplug_range().
+
+Prior to this fix, it was hypothetically possible for a speculative access
+to a higher address in the contiguous block to fill the TLB with shattered
+entries for the entire contiguous range after a lower address had already
+been cleared and invalidated. Due to the table entries being shattered, the
+subsequent TLB invalidation for the higher address would not then clear the
+TLB entries for the lower address, meaning stale TLB entries could persist.
+
+Besides it also helps in improving the performance via TLBI range operation
+along with reduced synchronization instructions. The time spent executing
+unmap_hotplug_range() improved 97% measured over a 2GB memory hot removal
+in KVM guest.
+
+This scheme is not applicable during vmemmap mapping tear down where memory
+needs to be freed and hence a TLB flush is required after clearing out page
+table entry.
+
+Cc: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Closes: https://lore.kernel.org/all/aWZYXhrT6D2M-7-N@willie-the-truck/
+Fixes: bbd6ec605c0f ("arm64/mm: Enable memory hot remove")
+Cc: stable@vger.kernel.org
+Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
+Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+[ replaced `__pte_clear()` with `pte_clear()` ]
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+---
+ arch/arm64/mm/mmu.c |   36 ++++++++++++++++++++----------------
+ 1 file changed, 20 insertions(+), 16 deletions(-)
+
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -925,10 +925,14 @@ static void unmap_hotplug_pte_range(pmd_
+ 
+ 		WARN_ON(!pte_present(pte));
+ 		pte_clear(&init_mm, addr, ptep);
+-		flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+-		if (free_mapped)
++		if (free_mapped) {
++			/* CONT blocks are not supported in the vmemmap */
++			WARN_ON(pte_cont(pte));
++			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+ 			free_hotplug_page_range(pte_page(pte),
+ 						PAGE_SIZE, altmap);
++		}
++		/* unmap_hotplug_range() flushes TLB for !free_mapped */
+ 	} while (addr += PAGE_SIZE, addr < end);
+ }
+ 
+@@ -949,15 +953,14 @@ static void unmap_hotplug_pmd_range(pud_
+ 		WARN_ON(!pmd_present(pmd));
+ 		if (pmd_sect(pmd)) {
+ 			pmd_clear(pmdp);
+-
+-			/*
+-			 * One TLBI should be sufficient here as the PMD_SIZE
+-			 * range is mapped with a single block entry.
+-			 */
+-			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+-			if (free_mapped)
++			if (free_mapped) {
++				/* CONT blocks are not supported in the vmemmap */
++				WARN_ON(pmd_cont(pmd));
++				flush_tlb_kernel_range(addr, addr + PMD_SIZE);
+ 				free_hotplug_page_range(pmd_page(pmd),
+ 							PMD_SIZE, altmap);
++			}
++			/* unmap_hotplug_range() flushes TLB for !free_mapped */
+ 			continue;
+ 		}
+ 		WARN_ON(!pmd_table(pmd));
+@@ -982,15 +985,12 @@ static void unmap_hotplug_pud_range(p4d_
+ 		WARN_ON(!pud_present(pud));
+ 		if (pud_sect(pud)) {
+ 			pud_clear(pudp);
+-
+-			/*
+-			 * One TLBI should be sufficient here as the PUD_SIZE
+-			 * range is mapped with a single block entry.
+-			 */
+-			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+-			if (free_mapped)
++			if (free_mapped) {
++				flush_tlb_kernel_range(addr, addr + PUD_SIZE);
+ 				free_hotplug_page_range(pud_page(pud),
+ 							PUD_SIZE, altmap);
++			}
++			/* unmap_hotplug_range() flushes TLB for !free_mapped */
+ 			continue;
+ 		}
+ 		WARN_ON(!pud_table(pud));
+@@ -1020,6 +1020,7 @@ static void unmap_hotplug_p4d_range(pgd_
+ static void unmap_hotplug_range(unsigned long addr, unsigned long end,
+ 				bool free_mapped, struct vmem_altmap *altmap)
+ {
++	unsigned long start = addr;
+ 	unsigned long next;
+ 	pgd_t *pgdp, pgd;
+ 
+@@ -1041,6 +1042,9 @@ static void unmap_hotplug_range(unsigned
+ 		WARN_ON(!pgd_present(pgd));
+ 		unmap_hotplug_p4d_range(pgdp, addr, next, free_mapped, altmap);
+ 	} while (addr = next, addr < end);
++
++	if (!free_mapped)
++		flush_tlb_kernel_range(start, end);
+ }
+ 
+ static void free_empty_pte_table(pmd_t *pmdp, unsigned long addr,
 
 
-vim +/if +222 arch/arm64/kvm/sys_regs.c
-
-   168	
-   169	#define MAPPED_EL2_SYSREG(r, m, t)					\
-   170		case r:	{							\
-   171			locate_mapped_el2_register(vcpu, r, m, t, loc);		\
-   172			break;							\
-   173		}
-   174	
-   175	static void locate_register(const struct kvm_vcpu *vcpu, enum vcpu_sysreg reg,
-   176				    struct sr_loc *loc)
-   177	{
-   178		if (!vcpu_get_flag(vcpu, SYSREGS_ON_CPU)) {
-   179			loc->loc = SR_LOC_MEMORY;
-   180			return;
-   181		}
-   182	
-   183		switch (reg) {
-   184			MAPPED_EL2_SYSREG(SCTLR_EL2,   SCTLR_EL1,
-   185					  translate_sctlr_el2_to_sctlr_el1	     );
-   186			MAPPED_EL2_SYSREG(TTBR0_EL2,   TTBR0_EL1,
-   187					  translate_ttbr0_el2_to_ttbr0_el1	     );
-   188			MAPPED_EL2_SYSREG(TTBR1_EL2,   TTBR1_EL1,   NULL	     );
-   189			MAPPED_EL2_SYSREG(TCR_EL2,     TCR_EL1,
-   190					  translate_tcr_el2_to_tcr_el1		     );
-   191			MAPPED_EL2_SYSREG(VBAR_EL2,    VBAR_EL1,    NULL	     );
-   192			MAPPED_EL2_SYSREG(AFSR0_EL2,   AFSR0_EL1,   NULL	     );
-   193			MAPPED_EL2_SYSREG(AFSR1_EL2,   AFSR1_EL1,   NULL	     );
-   194			MAPPED_EL2_SYSREG(ESR_EL2,     ESR_EL1,     NULL	     );
-   195			MAPPED_EL2_SYSREG(FAR_EL2,     FAR_EL1,     NULL	     );
-   196			MAPPED_EL2_SYSREG(MAIR_EL2,    MAIR_EL1,    NULL	     );
-   197			MAPPED_EL2_SYSREG(TCR2_EL2,    TCR2_EL1,    NULL	     );
-   198			MAPPED_EL2_SYSREG(PIR_EL2,     PIR_EL1,     NULL	     );
-   199			MAPPED_EL2_SYSREG(PIRE0_EL2,   PIRE0_EL1,   NULL	     );
-   200			MAPPED_EL2_SYSREG(POR_EL2,     POR_EL1,     NULL	     );
-   201			MAPPED_EL2_SYSREG(AMAIR_EL2,   AMAIR_EL1,   NULL	     );
-   202			MAPPED_EL2_SYSREG(ELR_EL2,     ELR_EL1,	    NULL	     );
-   203			MAPPED_EL2_SYSREG(SPSR_EL2,    SPSR_EL1,    NULL	     );
-   204			MAPPED_EL2_SYSREG(CONTEXTIDR_EL2, CONTEXTIDR_EL1, NULL	     );
-   205			MAPPED_EL2_SYSREG(SCTLR2_EL2,  SCTLR2_EL1,  NULL	     );
-   206		case CNTHCTL_EL2:
-   207			/* CNTHCTL_EL2 is super special, unless we support NV2p1 */
-   208			loc->loc = (is_hyp_ctxt(vcpu) && vcpu_el2_e2h_is_set(vcpu) ?
-   209				    SR_LOC_SPECIAL : SR_LOC_MEMORY);
-   210			break;
-   211		case CPTR_EL2:
-   212			/*
-   213			 * CPTR_EL2 is just as special, and needs a certain amount
-   214			 * of handholding. It always lives in memory, due to being
-   215			 * heavily trapped thanks to CPACR_EL1.TCPAC being RES0.
-   216			 * FEAT_NV2p1 fixes this.
-   217			 */
-   218			locate_mapped_el2_register(vcpu, CPTR_EL2, CPACR_EL1,
-   219						   translate_cptr_el2_to_cpacr_el1,
-   220						   loc);
-   221			if (is_hyp_ctxt(vcpu))
- > 222				loc->loc = SR_LOC_SPECIAL : SR_LOC_MEMORY;
-   223			break;
-   224		default:
-   225			loc->loc = locate_direct_register(vcpu, reg);
-   226		}
-   227	}
-   228	
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
