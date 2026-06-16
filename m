@@ -4,92 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F010ACD98D2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 07:12:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0943ECD98DA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 07:15:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bOaklr0Z8A7gtp1ktpsq7SgsTnp+Akvr7bZ3S4KWi2o=; b=c3JIVR059Pko0jOC2bd2c2n+Sa
-	FZDuqCBm23RynxRhAIdvglXt/dHIxacRDq1McFyPftISzb7ZO+fsoq55+mrs6d1KcVOc/SANPKWwX
-	04LNqNzPtzC94pYhlo5e40L93ArjjnhE/rRZ4Z0W0G1F2lNIWJ6uEcPfAHqPwJ9oxxKfyZWdbW6li
-	qoaBiD4kM+s1uoLutTjgZshWbvAufrpeEmGVDZ4PD3SjyzqClEkHrXQnIJ8TaWIZKo+LrYmZHa+gW
-	E/yzumoNytdjSdXV9hqCa9s+mO8A+4VNy8f0w4cimFfYl/Rbjvhc43Voo14KRryluFjrmGGVD/bwO
-	ntR8mHqA==;
+	bh=zfk+mGtbcHnHU76KeuAYRBwnAXlAcIZ73zuiE3hh1mA=; b=KHA8EUUeG9fFx7zCJr+k/WzozC
+	8SlHLQ8QR8ASNFVLZ+alFJqZM4kc9dTJc95lP+MY7hXmm6D5nMea/Q2kv9CyTQ8XDNioFlD3VMJJL
+	l7k7q58+OTmMNOqKmZYOarhcY7akmkjvHSz4JV+Ldi9bqNopi+RTYgFbbBCzVdWgFtTXG6nE+Ams+
+	CxBtK0LJiwLApUF4mWwgfyseHwgRunlMOVzXUoRV3PVb7QpaviBPVIzl9I1Jkr8pL5t/gZckEB4Mg
+	/F15ic4xQHTgCPxzzbWV7JHsPHn+g4E756K+TgT8Kptj/hDzjEteh0Hs5A5Bk16fPLelZgFbyQ6vb
+	ppoMt+xA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZNyC-0000000FM9X-2hk4;
-	Tue, 16 Jun 2026 07:12:24 +0000
-Received: from mx0b-0016f401.pphosted.com ([67.231.156.173])
+	id 1wZO0x-0000000FMck-2GW2;
+	Tue, 16 Jun 2026 07:15:15 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZNy9-0000000FM6V-2ThI
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Jun 2026 07:12:23 +0000
-Received: from pps.filterd (m0431383.ppops.net [127.0.0.1])
-	by mx0b-0016f401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65G65xNP1992650;
-	Tue, 16 Jun 2026 00:12:04 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pfpt0220; bh=bOaklr0Z8A7gtp1ktpsq7SgsT
-	np+Akvr7bZ3S4KWi2o=; b=KtE7azVYOALGjMKQrS6kr7xTZNOusvzTJyVsn3G6k
-	ZMEoXJELQZG/l7xkITI/LdMS7+uOR52Art9sxSyCzOLS9gCDdzKrDs8aEjYxrqQZ
-	3Q433G3kmmA5kT3uyJ4EG/TF4+i5XngWCAfi8yUOFP+lpGiZr9v3yqYxtzzYLUGn
-	Mh7aMgqUGWV4NtZQyT6IgsViBV4sUBX9xLef8kxIr9Oq1Diozg9Q0DpJV94X9Udl
-	vHuWHhwNRsjN3r6/XXJekQ4QG8mG4BELpCIGZo0ASsxayK982lugeINxYq2+OqFi
-	kq7KymX2LwaMu/rZGQ7iFfKWH7slw6hr8DUrdk8ErcFEg==
-Received: from dc6wp-exch02.marvell.com ([4.21.29.225])
-	by mx0b-0016f401.pphosted.com (PPS) with ESMTPS id 4etu38hk04-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 16 Jun 2026 00:12:04 -0700 (PDT)
-Received: from DC6WP-EXCH02.marvell.com (10.76.176.209) by
- DC6WP-EXCH02.marvell.com (10.76.176.209) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.25; Tue, 16 Jun 2026 00:12:03 -0700
-Received: from maili.marvell.com (10.69.176.80) by DC6WP-EXCH02.marvell.com
- (10.76.176.209) with Microsoft SMTP Server id 15.2.1544.25 via Frontend
- Transport; Tue, 16 Jun 2026 00:12:03 -0700
-Received: from hyd1soter3.marvell.com (unknown [10.29.37.12])
-	by maili.marvell.com (Postfix) with ESMTP id 9F3043F7043;
-	Tue, 16 Jun 2026 00:12:00 -0700 (PDT)
-From: Geetha sowjanya <gakula@marvell.com>
-To: <linux-perf-users@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>
-CC: <mark.rutland@arm.com>, <will@kernel.org>, <krzk+dt@kernel.org>,
-        <gakula@marvell.com>
-Subject: [PATCH v3 3/3] dt-bindings: perf: marvell: add CN20K TAD PMU support
-Date: Tue, 16 Jun 2026 12:41:49 +0530
-Message-ID: <20260616071149.12523-4-gakula@marvell.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20260616071149.12523-1-gakula@marvell.com>
-References: <20260616071149.12523-1-gakula@marvell.com>
+	id 1wZO0v-0000000FMcH-0HGS;
+	Tue, 16 Jun 2026 07:15:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1781594113; x=1813130113;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=suM1vaBZzxEvLorQ3UANqC+a9M8bRtbGMzN7Lvb1LXQ=;
+  b=Yob9Z+GRum0/dwjpbDRQbeisEYcz+tLwaLZe03o2OwdUNq9oUlR59cBE
+   6o5J50DTHEIjAxzX4xzDzh0HcEDu+hvZXFNUkavlVQpYDnoPGYhrx7b2d
+   mQ4VrMtVUr9VmkSEbcZQXkugCnGEsuDbjOjZzdwHPcNBO//ZRqmz9IzTN
+   Zhika8VzLerfmTxr3xHmNPLjYbBYUEAlBIR5fHDvVfmfmNgHw5r++ywu7
+   kQYw0QATgF0craFryqispRf4MgzVcYK3uh2bUxRvh34kfsXP/Rp8Nn0Go
+   +aaj17gOC3HDdwFw3R+DqYN8wGq6H3CsKQdWljbMgSmPOc4yC8wAH0Q0H
+   A==;
+X-CSE-ConnectionGUID: mV38e7ElR+WYTllysMrPGg==
+X-CSE-MsgGUID: NMCSx6PATTS10af1JRYC1A==
+X-IronPort-AV: E=McAfee;i="6800,10657,11818"; a="82454974"
+X-IronPort-AV: E=Sophos;i="6.24,207,1774335600"; 
+   d="scan'208";a="82454974"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jun 2026 00:15:12 -0700
+X-CSE-ConnectionGUID: Js6zgKzFS8OBjoiBuyjWtg==
+X-CSE-MsgGUID: 9l4PRjvRTume6H6d4EtCeA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.24,207,1774335600"; 
+   d="scan'208";a="241314568"
+Received: from amilburn-desk.amilburn-desk (HELO localhost) ([10.245.244.153])
+  by fmviesa009-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jun 2026 00:15:08 -0700
+Date: Tue, 16 Jun 2026 10:15:06 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Roman Vivchar <rva333@protonmail.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Lee Jones <lee@kernel.org>, linux-iio@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Ben Grisdale <bengris32@protonmail.ch>
+Subject: Re: [PATCH v2 2/4] iio: adc: mt6323-auxadc: add mt6323 PMIC AUXADC
+ driver
+Message-ID: <ajD3-tbA4TvKMj1Y@ashevche-desk.local>
+References: <20260609-mt6323-adc-v2-0-aa93a22309f9@protonmail.com>
+ <20260609-mt6323-adc-v2-2-aa93a22309f9@protonmail.com>
+ <20260614182214.65d052e4@jic23-huawei>
+ <E5H72l1Cg-JQGpaYAFl5TIyITmghqMsTaHQTR8VkuFtlzmfCGTpVlceNp8c2BDW7UoheO0Fx6NLJHmu56WHRNWdPNLsaoIKMCftj_bnyvEI=@protonmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain
-X-Proofpoint-GUID: J-001GTt2QhuW3hjQn_6GIYHdK4EJTCW
-X-Proofpoint-ORIG-GUID: J-001GTt2QhuW3hjQn_6GIYHdK4EJTCW
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNjE2MDA3MCBTYWx0ZWRfX46XvziRoK90Z
- QdpURor9aX4QYA4f8ASoHkvIB4I/nOqUCiuu0AtY2J0atdbghg3/2FbETPpgfXw88a827HOEfIW
- RyRx7pGXtwGMWulBDeXFo2Ew33P1juA=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjE2MDA3MCBTYWx0ZWRfX0pMvjy00X74u
- Ci+O5y/f8DKE28Rpz6p1pf8iHJlE2VGuoGgfCspFioe9vYs05OLfSM3JbY8665/SIJ8QAGB1tj4
- EQenEujtC9YzxKbCeRU8kXheuz7vbPAB3qfFNC53eqN66ESPZ+Fhi+1d7U5mV7Ck0Hujc0vQF4E
- 3jD2uqhgIVf2zTYOpIJK3FA9fmvO6XVsbrR+kRwg+V3/qjQ7VmClS83EXOUvM1Dwv6WfDmjdzp3
- nd2KUfNclYDyFbUCOWrgO/UXKL2xkEca8o+VpyyD/WHDJIo4NIBaU7QoMZwRFqnMXh8MvFNLWt+
- hHMMiLJYN8tgQrRBE42OmeNL3f+8/om1ncb4APql5s3EWFsH2FHvoFKzO/9EIZUd1VXvRgy2dtI
- ZE0iibj79DTIwoEAEGMqLJB/tCX3jOBcVMK9k8rXAvq8vVN0JBEfkSMePAWacfEMQPSbu4XbGqb
- QUqUW6SwC1ZwtgraMEQ==
-X-Authority-Analysis: v=2.4 cv=SeXHsPRu c=1 sm=1 tr=0 ts=6a30f744 cx=c_pps
- a=gIfcoYsirJbf48DBMSPrZA==:117 a=gIfcoYsirJbf48DBMSPrZA==:17
- a=FelO9ux0wxsA:10 a=VkNPw1HP01LnGYTKEx00:22 a=l0iWHRpgs5sLHlkKQ1IR:22
- a=qit2iCtTFQkLgVSMPQTB:22 a=gEfo2CItAAAA:8 a=M5GUcnROAAAA:8 a=EUspDBNiAAAA:8
- a=AeVSjtvhjGoncaazplIA:9 a=sptkURWiP4Gy88Gu7hUp:22 a=OBjm3rFKGHvpk9ecZwUJ:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-16_02,2026-06-15_04,2025-10-01_01
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <E5H72l1Cg-JQGpaYAFl5TIyITmghqMsTaHQTR8VkuFtlzmfCGTpVlceNp8c2BDW7UoheO0Fx6NLJHmu56WHRNWdPNLsaoIKMCftj_bnyvEI=@protonmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260616_001221_763519_E6F4DBE2 
-X-CRM114-Status: GOOD (  14.56  )
+X-CRM114-CacheID: sfid-20260616_001513_140326_AF405A42 
+X-CRM114-Status: GOOD (  17.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,76 +100,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Marvell CN20K SoCs integrate a Performance Monitoring Unit (PMU)
-associated with the LLC Tag-and-Data (TAD) blocks. The PMU provides
-hardware counters to monitor cache traffic and performance events
-via a dedicated MMIO region.
+On Mon, Jun 15, 2026 at 10:52:57PM +0000, Roman Vivchar wrote:
+> On Sunday, June 14th, 2026 at 8:22 PM, Jonathan Cameron <jic23@kernel.org> wrote:
+> > On Tue, 09 Jun 2026 16:31:59 +0300
+> > Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org> wrote:
 
-The CN20K LLC-TAD PMU is largely similar to CN10K, but differs in the
-layout of PFC/PRF register offsets relative to each TAD base. These
-offsets are derived from the compatible string in the driver and are
-not described through Devicetree properties.
+...
 
-Because of this, using "marvell,cn10k-tad-pmu" as a fallback for CN20K
-would result in incorrect register programming. Therefore, add a
-separate compatible string:
+> > > +/*
+> > > + * The MediaTek MT6323 (as well as a lot of other PMICs) has the following hierarchy:
+> > > + * PMIC AUXADC <- PMIC MFD <- SoC PWRAP (wrapper for PWRAP FSM)
+> > > + *
+> > > + * Therefore, PWRAP regmap should be obtained using dev->parent->parent.
+> > > + */
+> > > +struct mt6323_auxadc {
+> > > +	struct regmap *regmap;
+> > > +	struct mutex lock;
+> > Locks should always have a comment on what data they are protecting.
+> > I think this one is about protecting the state of a device during a channel read
+> > by serializing those reads.
+> 
+> Nuno said kerneldoc looks unnecessary on v1 [1]. How the comment should
+> look?
 
-  "marvell,cn20k-tad-pmu"
+The comment near to the member:
 
-Update the binding to document CN20K alongside CN10K.
+	/* Why this lock? */
+	struct mutex lock;
 
-Signed-off-by: Geetha sowjanya <gakula@marvell.com>
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
----
- .../bindings/perf/marvell-cn10k-tad.yaml      | 25 +++++++++++++------
- 1 file changed, 17 insertions(+), 8 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/perf/marvell-cn10k-tad.yaml b/Documentation/devicetree/bindings/perf/marvell-cn10k-tad.yaml
-index 362142252667..d11121a1e2c9 100644
---- a/Documentation/devicetree/bindings/perf/marvell-cn10k-tad.yaml
-+++ b/Documentation/devicetree/bindings/perf/marvell-cn10k-tad.yaml
-@@ -4,23 +4,32 @@
- $id: http://devicetree.org/schemas/perf/marvell-cn10k-tad.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
- 
--title: Marvell CN10K LLC-TAD performance monitor
-+title: Marvell CN10K / CN20K LLC-TAD performance monitor
- 
- maintainers:
-   - Bhaskara Budiredla <bbudiredla@marvell.com>
-+  - Geetha sowjanya <gakula@marvell.com>
- 
- description: |
--  The Tag-and-Data units (TADs) maintain coherence and contain CN10K
--  shared on-chip last level cache (LLC). The tad pmu measures the
--  performance of last-level cache. Each tad pmu supports up to eight
--  counters.
-+  The Tag-and-Data units (TADs) maintain coherence and contain the
-+  shared on-chip last level cache (LLC) on Marvell CN10K and CN20K SoCs.
-+  The TAD PMU measures last-level cache performance. Each TAD PMU
-+  supports up to eight counters.
- 
--  The DT setup comprises of number of tad blocks, the sizes of pmu
--  regions, tad blocks and overall base address of the HW.
-+  The DT setup describes the number of TAD blocks, the sizes of PMU
-+  regions and TAD pages, and the overall MMIO base of the hardware.
-+
-+  marvell,cn20k-tad-pmu is not a compatible fallback for
-+  marvell,cn10k-tad-pmu (and vice versa): the driver selects different
-+  PFC/PRF MMIO offsets from the compatible string, and those offsets are
-+  not described by separate DT properties today.
- 
- properties:
-   compatible:
--    const: marvell,cn10k-tad-pmu
-+    items:
-+      - enum:
-+          - marvell,cn10k-tad-pmu
-+          - marvell,cn20k-tad-pmu
- 
-   reg:
-     maxItems: 1
+...
+
+> After these changes, should I keep or drop Andy's Reviewed-by?
+
+Keep it, the above mentioned changes does not affect on that.
+
 -- 
-2.25.1
+With Best Regards,
+Andy Shevchenko
+
 
 
