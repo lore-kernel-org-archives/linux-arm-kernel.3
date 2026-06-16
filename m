@@ -4,62 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC514CD98DA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 06:23:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCCB4CD98DA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 07:08:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JgENt1aUql5leWB11YhE4AQhVjtbVDS4QwxhrhSyIHI=; b=MndAH4OBmodb4NucJA125Vphuj
-	KpzXsabENAZATWsH4z0fsfyvz/uiw39g2MfORp+oTC5LPhAT50M0NAUDvpP+lhaSxLo3Rsf7l7QJO
-	GDTphPDgJHgVz0802BS71YM8jbSqWMnJ3Dy67Vs1+4Nt4EFnkMc0pMs3A42LQg4i1oyUvUQQoXNiE
-	/h0Q/fW2wtF2HJJzBWkmtNORu1jD6Wk6R3tj1oupZQpBXdqHrW5hUFDUVMzfJ6cson0lFJ6uUrmJA
-	OnFrJZILdmk/EDYTdRW3PYPYhwOVF35Svjpv91cnegXyFE9aKU9iFQrreiVm/vS3pJWRp1rqYtB6J
-	IBJm19Eg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=XBZqLailnRbterZQ0G25p8/O2vw0Eu2jF5MGvuZbRaE=; b=GKt+xdTG9y7uN6NoAqDwAlUvIB
+	T7ORjTeM8faxoQh9FJhXMjNrRexDYREhMXeOhvwRl/X4GbyK92zqESWqJuh5oI+mOVIXHIcmvOuKr
+	Iv4yAuWyCwgNzRhTRV9k6xjs3eTEfwwWCbK9jhR8rKYKtdTdbfOI3884QAWEV6xh7Gn9fYVMl4Uvi
+	Ix8TkRTDHEfCxZxzfHrGU14JanCrE3SU+Q04xZ1j3qx7vJzQwgdotRWQcuh047PYaZP9wKI2x1b/0
+	GKo25Xek4dmTbPpcUX+mrpBeXcF54HFt9Px0OWmFg18gf0ge8QVeXjgUexuuF2g/A0rSfI6UmQLV+
+	PdymibtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZNCU-0000000FJSE-1sla;
-	Tue, 16 Jun 2026 06:23:06 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wZNuB-0000000FLVc-0lNN;
+	Tue, 16 Jun 2026 07:08:15 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZNCT-0000000FJS5-1SAr
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Jun 2026 06:23:05 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5483F60137;
-	Tue, 16 Jun 2026 06:23:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DAF171F000E9;
-	Tue, 16 Jun 2026 06:22:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781590984;
-	bh=JgENt1aUql5leWB11YhE4AQhVjtbVDS4QwxhrhSyIHI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=K6GSroawCwbP0PxVEQc17I3NazJ7RtNnYjSWzZ6hX8BidX+413z4mve6p06B6m9mB
-	 rjLO9xYk4L11ZlS58wskr7I3MmKAHk9oyEmVlNDpEuO1gvh25fmpDuDrRnFDKhkwGl
-	 DM6UEXr6vP23ROYX/Bhz1jUgZDponk+coNBaagfsqGnRXRRalAW79bIq1FFyA/ghGQ
-	 wWMuGcAn/SgRZmPD5/pITbQoucTk3Ju5OUrn/WTLX4P3Fi6/sBMvSq7HyZeHRkmFW1
-	 cpAdgXkypm7w2V1XKvTExM+7xheraW5WRnldrwcrJhyUh7hmUpVrw+pBppo7+z6Eqg
-	 U/kvYrg5/KCZw==
-Date: Tue, 16 Jun 2026 08:22:53 +0200
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Aksh Garg <a-garg7@ti.com>
-Cc: Bjorn Helgaas <helgaas@kernel.org>, linux-pci@vger.kernel.org, 
-	linux-doc@vger.kernel.org, kwilczynski@kernel.org, bhelgaas@google.com, corbet@lwn.net, 
-	kishon@kernel.org, skhan@linuxfoundation.org, lukas@wunner.de, cassel@kernel.org, 
-	alistair@alistair23.me, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, s-vadapalli@ti.com, danishanwar@ti.com, srk@ti.com
-Subject: Re: [PATCH v5 3/4] PCI: endpoint: Add support for DOE initialization
- and setup in EPC core
-Message-ID: <grfjlghqd3k3i3uxll2jksrh7pgi2mtxifbq2vymsdgbzijsnq@dvgu2qp2hza3>
-References: <20260611191252.GA499821@bhelgaas>
- <0216a528-3737-4714-b9d1-5d28008e0ec8@ti.com>
+	id 1wZNu9-0000000FLVB-27PC;
+	Tue, 16 Jun 2026 07:08:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C6D69445CC;
+	Tue, 16 Jun 2026 07:08:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id A0BBBC2BCB8;
+	Tue, 16 Jun 2026 07:08:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1781593692;
+	bh=jPrNLutw4Ysc+N2RMnAo1AgpSoU9ps2Y5tib4WbdHRY=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=QnXwOBuCGKmdZXhweBzMY7vhhaXDm+FpFBa7EZYh8uuHd4A+6EcOyZNBn3teoAsy1
+	 6N6dq5fJLrU7qV4DwVX1A0clz5O5UtT5F+vRZJ3esye/mY91DNiAP2zoC+XMKoJqcx
+	 l2X+j2csBZjZa6dbsjR8oR7d8dOnAENFr8+0qwTUzc1+twOIla2m1+ok/zgkTBoKGe
+	 I0U1cqQd7X7TYXY9ppl4km43Pe9J+XXDqy58MMiG0XD3tfcmbwdZJ0hg8WG5VGbNjV
+	 MHH2o26NaHgQsWXvwUwX/yvoQG+BNrjwAY8WgUpM1yWwsmef818bRZDx6VeIKX25Rw
+	 f3nXyHNISQBxg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 95199CD98D2;
+	Tue, 16 Jun 2026 07:08:12 +0000 (UTC)
+From: Ronald Claveau via B4 Relay <devnull+linux-kernel-dev.aliel.fr@kernel.org>
+Date: Tue, 16 Jun 2026 09:07:25 +0200
+Subject: [PATCH] PCI: dwc: meson: Fix reset GPIO initial state
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <0216a528-3737-4714-b9d1-5d28008e0ec8@ti.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260616-fix-meson-pcie-reset-gpio-v1-1-fca404b4c8be@aliel.fr>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x2MwQqDMBAFf0X27IIJdEn7K+JB49PuoUnIliKI/
+ 97gcWBmTjJUhdGrO6nip6Y5NXB9R/E9px2sa2Pyg5dBnPCmB39gOXGJCq4wfHkvmtkvT7gQREJ
+ 8UOtLRZPv9zhd1x/wr4sXawAAAA==
+X-Change-ID: 20260616-fix-meson-pcie-reset-gpio-2b9e188668c5
+To: Yue Wang <yue.wang@Amlogic.com>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Bjorn Helgaas <bhelgaas@google.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Remi Pommarel <repk@triplefau.lt>
+Cc: linux-pci@vger.kernel.org, linux-amlogic@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Ronald Claveau <linux-kernel-dev@aliel.fr>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1981;
+ i=linux-kernel-dev@aliel.fr; h=from:subject:message-id;
+ bh=7kvkuPDfnNo3RE26T6/4WDZzxv1opTuPQg33oMuoPoI=;
+ b=owGbwMvMwCWm1SvKXP3cUInxtFoSQ5bBt8iN7xYkGjz9k3/Q4LBC+svHf2ZG82SwRvv8+qxrP
+ uHg7J0CHaUsDGJcDLJiiiz9cy1PvLt89MzXPeopMHNYmUCGMHBxCsBEzp5kZFgsZmWhufqRu+TS
+ f+fmXmrY9OFF+xKJmwd6J02ZtCHQyMmA4b+f1oLDa9vKjvUVXWPQFejIeei0+jJ3dve9Ob5VVYG
+ qFVwA
+X-Developer-Key: i=linux-kernel-dev@aliel.fr; a=openpgp;
+ fpr=DFD863F61375BF917F0012173953305EF1D0EC3E
+X-Endpoint-Received: by B4 Relay for linux-kernel-dev@aliel.fr/default with
+ auth_id=744
+X-Original-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,75 +91,62 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: linux-kernel-dev@aliel.fr
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 12, 2026 at 01:54:13PM +0530, Aksh Garg wrote:
-> 
-> 
-> On 12/06/26 00:42, Bjorn Helgaas wrote:
-> > On Wed, Jun 10, 2026 at 03:32:55PM +0530, Aksh Garg wrote:
-> > > Add pci_epc_init_capabilities() in EPC core driver to initialize and
-> > > setup the capabilities supported by the EPC driver. This calls
-> > > pci_epc_doe_setup() to setup the DOE framework for an endpoint controller,
-> > > which discovers the DOE capabilities (extended capability ID 0x2E), and
-> > > registers each discovered DOE mailbox for all the functions in the
-> > > endpoint controller.
-> > > 
-> > > Add pci_epc_deinit_capabilities() in EPC core driver for cleanup of the
-> > > resources used by the capabilities of the EPC driver. This calls
-> > > pci_ep_doe_destroy() to destroy all DOE mailboxes and free associated
-> > > resources.
-> > > 
-> > > Co-developed-by: Siddharth Vadapalli <s-vadapalli@ti.com>
-> > > Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
-> > > Signed-off-by: Aksh Garg <a-garg7@ti.com>
-> > > ---
-> > > +/**
-> > > + * pci_epc_doe_setup() - Discover and setup DOE mailboxes for all functions
-> > > + * @epc: the EPC device on which DOE mailboxes has to be setup
-> > > + *
-> > > + * Discover DOE (Data Object Exchange) capabilities for all physical functions
-> > > + * in the endpoint controller and register DOE mailboxes.
-> > > + *
-> > > + * Returns: 0 on success, -errno on failure
-> > > + */
-> > > +static int pci_epc_doe_setup(struct pci_epc *epc)
-> > > +{
-> > > +	u8 func_no, vfunc_no = 0;
-> > > +	u16 cap_offset;
-> > > +	int ret;
-> > > +
-> > > +	if (!epc->ops || !epc->ops->find_ext_capability)
-> > > +		return -EINVAL;
-> > 
-> 
-> Hi Bjorn,
-> 
-> Thank you for your feedback comments. I will work on them and post v6
-> series incorporating the changes.
-> 
-> > I don't see anything that sets pci_epc_ops.find_ext_capability in this
-> > series, so this looks currently unused and untestable, so likely not
-> > mergeable as-is.  What's the plan for users of this?
-> > 
-> 
-> Currently there is no EPC driver upstream which supports DOE yet. However, I
-> am working on a platform which supports DOE (support for
-> which would be added soon). Mani pointed out that if EPC driver support
-> for the same is guaranteed to be added soon, the APIs can be merged
-> first.
-> 
-> For the demonstration purpose, he asked to show how an EPC driver is
-> expected to use the API as a snippet in the cover letter itself.
-> 
+From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 
-I retract my previous comment here. Let's not introduce dead code in the kernel.
-We can review the series now, but cannot merge it until the EPC driver gets
-submitted.
+Commit 4d3186a525b3 ("PCI: amlogic: Fix reset assertion via gpio
+descriptor") inverted the reset assertion logic to use proper gpio
+descriptor semantics, and moved the polarity configuration to the
+device tree as GPIO_ACTIVE_LOW. However, the initial GPIO state
+"GPIOD_OUT_LOW" was not updated accordingly.
 
-- Mani
+Change GPIOD_OUT_LOW to GPIOD_OUT_HIGH to get the right behaviour.
 
+With GPIOD_OUT_LOW:
+
+    ahci 0000:01:00.0: enabling device (0000 -> 0002)
+    ahci 0000:01:00.0: SSS flag set, parallel bus scan disabled
+    ahci 0000:01:00.0: Controller reset failed (0xffffffff)
+    ahci 0000:01:00.0: probe with driver ahci failed with error -5
+
+With this fix:
+
+    ahci 0000:01:00.0: enabling device (0000 -> 0002)
+    ahci 0000:01:00.0: AHCI vers 0001.0300, 32 command slots, 6 Gbps,
+                       SATA mode
+    ahci 0000:01:00.0: 1/1 ports implemented (port mask 0x1)
+    ahci 0000:01:00.0: flags: 64bit ncq led clo only pio ccc
+
+Fixes: 4d3186a525b3 ("PCI: amlogic: Fix reset assertion via gpio descriptor")
+Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+---
+ drivers/pci/controller/dwc/pci-meson.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/pci/controller/dwc/pci-meson.c b/drivers/pci/controller/dwc/pci-meson.c
+index 0694084f612b7..15ed59b8764fb 100644
+--- a/drivers/pci/controller/dwc/pci-meson.c
++++ b/drivers/pci/controller/dwc/pci-meson.c
+@@ -400,7 +400,7 @@ static int meson_pcie_probe(struct platform_device *pdev)
+ 		return PTR_ERR(mp->phy);
+ 	}
+ 
+-	mp->reset_gpio = devm_gpiod_get(dev, "reset", GPIOD_OUT_LOW);
++	mp->reset_gpio = devm_gpiod_get(dev, "reset", GPIOD_OUT_HIGH);
+ 	if (IS_ERR(mp->reset_gpio)) {
+ 		dev_err(dev, "get reset gpio failed\n");
+ 		return PTR_ERR(mp->reset_gpio);
+
+---
+base-commit: abe651837cb394f76d738a7a747322fca3bf17ba
+change-id: 20260616-fix-meson-pcie-reset-gpio-2b9e188668c5
+
+Best regards,
 -- 
-மணிவண்ணன் சதாசிவம்
+Ronald Claveau <linux-kernel-dev@aliel.fr>
+
+
 
