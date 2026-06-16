@@ -4,73 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54692CD98E1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 15:11:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8B33CD98E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 15:14:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8Xk0PdLiYymMCUqB6kWMCwekoJyvD8MM/ojXTg/ijko=; b=RxjHSJ1soAMszV+iuTqLr6aVmq
-	nHgfL7r4+A5H26dNzPRRQA69rI+s2Onu5Gfdr18iwuzOIG76omenkYr7CNQiqlI+GeFCAij9aeaD/
-	+/bCa1zj4JQEhjDLayvuyfvH7cH76ppzPiwwsMQsTnUTuvikxceacMT/bjJScTdeaYeSFyM+G/ka2
-	cTca7duOhX2bgq7aqzKxEZXGfXlF97jOFBbVxlVmMRhilHHPInw2CiwC2u56hMAagpx8gHrBDpZdS
-	blaESKMfStRLmXEzWBCKEqlNxA4/vdAdNv04bB0zzWmz8zz0Lm/ufqiE5Q7Vxaim5u2TGDpC/L4FV
-	q9k3CeMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=k4sF5WpVzdEyVtuQeIw9MyeysNuky4T6E+XmpN9EmF8=; b=wUMb2bGxB+BvXhAqSMoI29l1jw
+	Xs9SZYl0U2oLeLMf6AUf47dW1oj1IKCJ4DiT1d5nikR57+vXNyRJTQn0k4tz3TghPljm17rMMc0Hh
+	ZU0dWp0JfuuHoDp/QqOQFRCX5ku3W2r448ev08b/zaFRpbT3Y5Rgdka1HduB6OeUFDcYDLR7V7uI9
+	fomc53c5bZMSpxERDOpTp4C3rA8QGPcCmUbuUg1JiEjk2k4GCyoSCSdgqWsvneayZ2Chf2iUsH5Lz
+	W/hxDYbS2rMQz/9waa3BkD3eSOUI/V4mt2m9/Fw7Rzsed5OnY+U1g8/8gJ/3QVRjqOqvIpUCWg2RS
+	zUdCK64g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZUBK-0000000Fs1a-3xhQ;
-	Tue, 16 Jun 2026 13:50:22 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wZVUa-0000000FzNK-28hX;
+	Tue, 16 Jun 2026 15:14:20 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZUBK-0000000Fs1C-0p0Z;
-	Tue, 16 Jun 2026 13:50:22 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6B487600AB;
-	Tue, 16 Jun 2026 13:50:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E72581F00A3A;
-	Tue, 16 Jun 2026 13:50:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781617821;
-	bh=8Xk0PdLiYymMCUqB6kWMCwekoJyvD8MM/ojXTg/ijko=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=bctDtHcgCuI3AA4NjgzsGt6xKEfxgIvEO1rFEtIVw0SvA0e8sDjRtlT+QFfGqT4xx
-	 MEy8vspJNIdbfF1LCuWkQ1xpygdYURwY68TtcT8h6LoFzLVSiKiqyiYnHsB2mO927Z
-	 cxXJIYfaehrwxMRwpbUcC+9UuFaUYuCxKd56iJdtsTzLNYoRVeTU+NWVVF9HsPQJLb
-	 fB28TqMMOXyBuextma02GV38UzL0h4FAQoSKsn05nDPunPEWBrguWxTVRj1SzQ8aCR
-	 O4G061n0UmZScpEF2jgoDNm+/yC0Uk/WqgFLsrAI5M/TGIvdmAhLDa6tZ1EVmQZ4jH
-	 uCBlivyCU/Esg==
-Date: Tue, 16 Jun 2026 08:50:17 -0500
-From: Rob Herring <robh@kernel.org>
-To: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-Cc: linux-mediatek@lists.infradead.org,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Sen Chu <sen.chu@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>, Linus Walleij <linusw@kernel.org>,
-	Val Packett <val@packett.cool>,
-	Julien Massot <julien.massot@collabora.com>,
-	Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
-	Fabien Parent <parent.f@gmail.com>,
-	Akari Tsuyukusa <akkun11.open@gmail.com>,
-	Chen Zhong <chen.zhong@mediatek.com>, linux-input@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org
-Subject: Re: [PATCH v7 3/9] regulator: dt-bindings: Add MediaTek MT6392 PMIC
-Message-ID: <20260616135017.GA2350711-robh@kernel.org>
-References: <20260615071836.362883-1-l.scorcia@gmail.com>
- <20260615071836.362883-4-l.scorcia@gmail.com>
+	id 1wZVUX-0000000FzMO-2SLU;
+	Tue, 16 Jun 2026 15:14:19 +0000
+Received: from localhost.localdomain (unknown [111.196.245.140])
+	by APP-03 (Coremail) with SMTP id rQCowAAHINdAaDFqIxPxFA--.13533S2;
+	Tue, 16 Jun 2026 23:14:09 +0800 (CST)
+From: Pengpeng Hou <pengpeng@iscas.ac.cn>
+To: Matthias Brugger <matthias.bgg@gmail.com>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Pengpeng Hou <pengpeng@iscas.ac.cn>
+Subject: [PATCH] soc: mediatek: mtk-svs: clean up debugfs entries
+Date: Tue, 16 Jun 2026 23:14:06 +0800
+Message-ID: <20260616151406.92529-1-pengpeng@iscas.ac.cn>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260615071836.362883-4-l.scorcia@gmail.com>
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: rQCowAAHINdAaDFqIxPxFA--.13533S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7Kr4UCFW7Ar1rAr18JFW5ZFb_yoW8uw48pa
+	nYk3WrKry8Jr13GFWfAa1UX3Z3u3yIg3y7Ga47Wwn7Z3sxAr4rXr97JFWYvrWSqFykGay7
+	XF10kryUC3W5trJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUkG14x267AKxVWUJVW8JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
+	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
+	jxv20xvE14v26r126r1DMcIj6I8E87Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr
+	1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7MxkF7I0En4kS14v26r12
+	6r1DMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI
+	0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUAVWUtwCIc40Y
+	0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxV
+	W8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Gr0_Cr1l
+	IxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUxcTPUUU
+	UU=
+X-Originating-IP: [111.196.245.140]
+X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260616_081418_255228_E928518B 
+X-CRM114-Status: GOOD (  10.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,133 +78,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 15, 2026 at 09:16:09AM +0200, Luca Leonardo Scorcia wrote:
-> Add bindings for the regulators found in the MediaTek MT6392 PMIC,
-> usually found in board designs using the MediaTek MT8516/MT8167 SoCs.
-> 
-> Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-> ---
->  .../regulator/mediatek,mt6392-regulator.yaml  | 234 ++++++++++++++++++
->  .../regulator/mediatek,mt6392-regulator.h     |  24 ++
->  2 files changed, 258 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/regulator/mediatek,mt6392-regulator.yaml
->  create mode 100644 include/dt-bindings/regulator/mediatek,mt6392-regulator.h
-> 
-> diff --git a/Documentation/devicetree/bindings/regulator/mediatek,mt6392-regulator.yaml b/Documentation/devicetree/bindings/regulator/mediatek,mt6392-regulator.yaml
-> new file mode 100644
-> index 000000000000..197041df4ba1
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/regulator/mediatek,mt6392-regulator.yaml
-> @@ -0,0 +1,234 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/regulator/mediatek,mt6392-regulator.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: MediaTek MT6392 regulator
-> +
-> +maintainers:
-> +  - Luca Leonardo Scorcia <l.scorcia@gmail.com>
-> +
-> +description:
-> +  MT6392 is a power management system chip containing three buck converters and
-> +  23 LDOs. All voltage regulators provided by the PMIC are described as
-> +  sub-nodes of this node.
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - const: mediatek,mt6392-regulator
-> +
-> +  vproc-supply:
-> +    description: Supply for buck regulator vproc
-> +  vcore-supply:
-> +    description: Supply for buck regulator vcore
-> +  vsys-supply:
-> +    description: Supply for buck regulator vsys
-> +  avddldo-supply:
-> +    description: |
+svs_create_debug_cmds() publishes debugfs files whose private data points
+at the SVS platform and bank state, but neither partial debugfs creation
+failures nor device teardown remove the tree before that state is
+released.
 
-Don't need '|' if no formatting to preserve. Elsewhere too.
+Remove the debugfs tree on partial creation failures and register a devm
+action so successful probes remove the tree before devm-managed SVS state
+is freed.
 
-> +      Supply for AVDD LDOs (vm, vio18, vcn18, vcamd, vcamio). According to the data sheet
-> +      this is an internal supply derived from vsys.
-> +  ldo1-supply:
-> +    description: Supply for LDOs group 1 (vaud28, vxo22, vaud22, vadc18, vcama, vrtc)
-> +  ldo2-supply:
-> +    description: Supply for LDOs group 2 (vcn35, vio28, vmc, vmch, vefuse, vdig18)
-> +  ldo3-supply:
-> +    description: Supply for LDOs group 3 (vusb, vemc3v3, vcamaf, vgp1, vgp2, vm25)
-> +
-> +patternProperties:
-> +  "^v(core|proc|sys)$":
-> +    description: Buck regulators
-> +    type: object
-> +    $ref: regulator.yaml#
-> +    properties:
-> +      regulator-allowed-modes:
-> +        description: |
-> +          BUCK regulators can set regulator-initial-mode and regulator-allowed-modes to
-> +          values specified in dt-bindings/regulator/mediatek,mt6392-regulator.h
-> +        items:
-> +          enum: [0, 1]
+Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
+---
+ drivers/soc/mediatek/mtk-svs.c | 19 +++++++++++++++----
+ 1 file changed, 15 insertions(+), 4 deletions(-)
 
-           minItems: 1
-           maxItems: 2
+diff --git a/drivers/soc/mediatek/mtk-svs.c b/drivers/soc/mediatek/mtk-svs.c
+index 99edecb204f2..2caab6a89698 100644
+--- a/drivers/soc/mediatek/mtk-svs.c
++++ b/drivers/soc/mediatek/mtk-svs.c
+@@ -172,6 +172,11 @@ static DEFINE_SPINLOCK(svs_lock);
+ 	}
+ 
+ #define svs_dentry_data(name)	{__stringify(name), &svs_##name##_debug_fops}
++
++static void svs_remove_debug_cmds(void *data)
++{
++	debugfs_remove_recursive(data);
++}
+ #endif
+ 
+ /**
+@@ -887,7 +892,7 @@ static int svs_create_debug_cmds(struct svs_platform *svsp)
+ 		if (IS_ERR(file_entry)) {
+ 			dev_err(svsp->dev, "cannot create %s/%s: %ld\n",
+ 				d, svs_entries[i].name, PTR_ERR(file_entry));
+-			return PTR_ERR(file_entry);
++			goto err_remove_debugfs;
+ 		}
+ 	}
+ 
+@@ -901,7 +906,8 @@ static int svs_create_debug_cmds(struct svs_platform *svsp)
+ 		if (IS_ERR(svsb_dir)) {
+ 			dev_err(svsp->dev, "cannot create %s/%s: %ld\n",
+ 				d, svsb->name, PTR_ERR(svsb_dir));
+-			return PTR_ERR(svsb_dir);
++			file_entry = svsb_dir;
++			goto err_remove_debugfs;
+ 		}
+ 
+ 		for (i = 0; i < ARRAY_SIZE(svsb_entries); i++) {
+@@ -912,12 +918,17 @@ static int svs_create_debug_cmds(struct svs_platform *svsp)
+ 				dev_err(svsp->dev, "no %s/%s/%s?: %ld\n",
+ 					d, svsb->name, svsb_entries[i].name,
+ 					PTR_ERR(file_entry));
+-				return PTR_ERR(file_entry);
++				goto err_remove_debugfs;
+ 			}
+ 		}
+ 	}
+ 
+-	return 0;
++	return devm_add_action_or_reset(svsp->dev, svs_remove_debug_cmds,
++					svs_dir);
++
++err_remove_debugfs:
++	debugfs_remove_recursive(svs_dir);
++	return PTR_ERR(file_entry);
+ }
+ #endif /* CONFIG_DEBUG_FS */
+ 
+-- 
+2.43.0
 
-? Because if there are only 2 modes, can't have more entries than that, 
-right? Though wouldn't 2 entries be the same as no property present 
-because I would assume the default is all modes. I shouldn't have to 
-assume though.
-
-
-> +    unevaluatedProperties: false
-
-Place this after $ref. Easier to read than after indented blocks.
-
-> +
-> +  "^v(adc18|camio|cn18|io18|xo22|m25|aud28|io28|rtc|usb)$":
-> +    description: LDOs with fixed output and mode setting
-> +    type: object
-> +    $ref: regulator.yaml#
-> +    properties:
-> +      regulator-allowed-modes:
-> +        description: |
-> +          LDO regulators can set regulator-initial-mode and regulator-allowed-modes to
-> +          values specified in dt-bindings/regulator/mediatek,mt6392-regulator.h
-> +        items:
-> +          enum: [0, 1]
-> +    unevaluatedProperties: false
-> +
-> +  "^v(cama|dig18)$":
-> +    description: LDOs with fixed output without mode setting
-> +    type: object
-> +    $ref: regulator.yaml#
-> +    unevaluatedProperties: false
-> +
-> +  "^v(aud22|camaf|camd|cn35|efuse|emc3v3|gp1|gp2|m|mc|mch)$":
-> +    description: LDOs with adjustable output
-> +    type: object
-> +    $ref: regulator.yaml#
-> +    properties:
-> +      regulator-allowed-modes: false
-> +    unevaluatedProperties: false
-> +
-> +required:
-> +  - compatible
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +
-> +    regulators {
-> +      compatible = "mediatek,mt6392-regulator";
-
-Drop the example. Put 1 complete example in the MFD schema rather than 
-incomplete examples.
-
-Rob
 
