@@ -4,71 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBD69CD98E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 15:08:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54692CD98E1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 15:11:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Subject:From:To:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EBs7aK9Ax6fMaFCay5iPgFUdd3Tp5vEneucNpM5vdFM=; b=cusZKcjo1R1jaT2RDyXLQrkcZt
-	tNxB7jR0pjomjyaPmNfpUkkN5Hal1UYQTHjPXmXYfyWW12U1rq2Cdnxal7g2SZwdOvRYRQiHVxMUR
-	eZCvutqiY2Ctp9YLsNFpiDNr5rDVnymJ9sPYPnqbjOuCenGhj+A/KIrPEw7RzzpFmTKMfIryfMmda
-	VOm4+Vie7fFVLDgbc2FJo/vmYw4Nw+Io2SyxG5IE4jz0nURYzbGwhBr/CfJqQ4p2MVpTB2T88ZMMT
-	eHSOvCqQcDIYrOuCLVTFJZzSZnOPTLhqgxKtX2WggGdlO2lHNEtH3EAvshBtyl3rSNxEEBXxqHz0G
-	Seboec4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8Xk0PdLiYymMCUqB6kWMCwekoJyvD8MM/ojXTg/ijko=; b=RxjHSJ1soAMszV+iuTqLr6aVmq
+	nHgfL7r4+A5H26dNzPRRQA69rI+s2Onu5Gfdr18iwuzOIG76omenkYr7CNQiqlI+GeFCAij9aeaD/
+	+/bCa1zj4JQEhjDLayvuyfvH7cH76ppzPiwwsMQsTnUTuvikxceacMT/bjJScTdeaYeSFyM+G/ka2
+	cTca7duOhX2bgq7aqzKxEZXGfXlF97jOFBbVxlVmMRhilHHPInw2CiwC2u56hMAagpx8gHrBDpZdS
+	blaESKMfStRLmXEzWBCKEqlNxA4/vdAdNv04bB0zzWmz8zz0Lm/ufqiE5Q7Vxaim5u2TGDpC/L4FV
+	q9k3CeMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZVOw-0000000Fyku-29Py;
-	Tue, 16 Jun 2026 15:08:30 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1wZUBK-0000000Fs1a-3xhQ;
+	Tue, 16 Jun 2026 13:50:22 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZVOY-0000000Fybc-0CQg
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Jun 2026 15:08:08 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 0AA4A1A395A;
-	Tue, 16 Jun 2026 15:08:01 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id D096B601A9;
-	Tue, 16 Jun 2026 15:08:00 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CEA1D106C9EBE;
-	Tue, 16 Jun 2026 17:07:54 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1781622479; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=EBs7aK9Ax6fMaFCay5iPgFUdd3Tp5vEneucNpM5vdFM=;
-	b=NVv3zruaGYxD6uLc0Dkz0jkCucJNGC7apCS+4WPn2sVbSFDx2QGIYsz261nmI+KsXjmz6C
-	KPHnro43cSEKKy2lbClsVYbRKSOLJJwjav+H+tvFIelYyNA1APl2ElxYXKrp58GcZtNNT9
-	0/xnKQyZWDnb0nQqGI5kQVH+bLnFji5CX1PmxXrpqllh56i1F49ui10N5G+WqtfP1nkXL/
-	8ptRGhQhgawEHVGSyGYwvTcbdLp58+T88NcQx31GPXc53ycBQy3ZUkkyvUAx+kndq2r05h
-	z2w9pUPkCscZ3sxtvljDmyUQz91sy1Ur4jImarFbfRLL3l5xUYAMq2SumoiVLg==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 16 Jun 2026 17:07:54 +0200
-Message-Id: <DJAKGHKZGUI2.29AHYNFX4LGBJ@bootlin.com>
-Cc: "Lukasz Raczylo" <lukasz@raczylo.com>, "Steffen Jaeckel"
- <sjaeckel@suse.de>
-To: "Andrea della Porta" <andrea.porta@suse.com>, <netdev@vger.kernel.org>,
- "Nicolas Ferre" <nicolas.ferre@microchip.com>, "Claudiu Beznea"
- <claudiu.beznea@tuxon.dev>, "Andrew Lunn" <andrew+netdev@lunn.ch>, "David S
- . Miller" <davem@davemloft.net>, "Eric Dumazet" <edumazet@google.com>,
- "Jakub Kicinski" <kuba@kernel.org>, "Paolo Abeni" <pabeni@redhat.com>,
- <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-rpi-kernel@lists.infradead.org>, "Nicolai Buchwitz" <nb@tipi-net.de>
-From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
-Subject: Re: [PATCH v2] net: macb: add TX stall timeout callback to recover
- from lost TSTART write
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <468f480454a314303bac6a54780b153f689f2267.1781598350.git.andrea.porta@suse.com>
-In-Reply-To: <468f480454a314303bac6a54780b153f689f2267.1781598350.git.andrea.porta@suse.com>
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260616_080806_245240_02FA56A6 
-X-CRM114-Status: UNSURE (   8.82  )
-X-CRM114-Notice: Please train this message.
+	id 1wZUBK-0000000Fs1C-0p0Z;
+	Tue, 16 Jun 2026 13:50:22 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6B487600AB;
+	Tue, 16 Jun 2026 13:50:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E72581F00A3A;
+	Tue, 16 Jun 2026 13:50:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781617821;
+	bh=8Xk0PdLiYymMCUqB6kWMCwekoJyvD8MM/ojXTg/ijko=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=bctDtHcgCuI3AA4NjgzsGt6xKEfxgIvEO1rFEtIVw0SvA0e8sDjRtlT+QFfGqT4xx
+	 MEy8vspJNIdbfF1LCuWkQ1xpygdYURwY68TtcT8h6LoFzLVSiKiqyiYnHsB2mO927Z
+	 cxXJIYfaehrwxMRwpbUcC+9UuFaUYuCxKd56iJdtsTzLNYoRVeTU+NWVVF9HsPQJLb
+	 fB28TqMMOXyBuextma02GV38UzL0h4FAQoSKsn05nDPunPEWBrguWxTVRj1SzQ8aCR
+	 O4G061n0UmZScpEF2jgoDNm+/yC0Uk/WqgFLsrAI5M/TGIvdmAhLDa6tZ1EVmQZ4jH
+	 uCBlivyCU/Esg==
+Date: Tue, 16 Jun 2026 08:50:17 -0500
+From: Rob Herring <robh@kernel.org>
+To: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+Cc: linux-mediatek@lists.infradead.org,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Sen Chu <sen.chu@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>, Linus Walleij <linusw@kernel.org>,
+	Val Packett <val@packett.cool>,
+	Julien Massot <julien.massot@collabora.com>,
+	Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
+	Fabien Parent <parent.f@gmail.com>,
+	Akari Tsuyukusa <akkun11.open@gmail.com>,
+	Chen Zhong <chen.zhong@mediatek.com>, linux-input@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-gpio@vger.kernel.org
+Subject: Re: [PATCH v7 3/9] regulator: dt-bindings: Add MediaTek MT6392 PMIC
+Message-ID: <20260616135017.GA2350711-robh@kernel.org>
+References: <20260615071836.362883-1-l.scorcia@gmail.com>
+ <20260615071836.362883-4-l.scorcia@gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260615071836.362883-4-l.scorcia@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,41 +85,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Andrea,
+On Mon, Jun 15, 2026 at 09:16:09AM +0200, Luca Leonardo Scorcia wrote:
+> Add bindings for the regulators found in the MediaTek MT6392 PMIC,
+> usually found in board designs using the MediaTek MT8516/MT8167 SoCs.
+> 
+> Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+> ---
+>  .../regulator/mediatek,mt6392-regulator.yaml  | 234 ++++++++++++++++++
+>  .../regulator/mediatek,mt6392-regulator.h     |  24 ++
+>  2 files changed, 258 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/regulator/mediatek,mt6392-regulator.yaml
+>  create mode 100644 include/dt-bindings/regulator/mediatek,mt6392-regulator.h
+> 
+> diff --git a/Documentation/devicetree/bindings/regulator/mediatek,mt6392-regulator.yaml b/Documentation/devicetree/bindings/regulator/mediatek,mt6392-regulator.yaml
+> new file mode 100644
+> index 000000000000..197041df4ba1
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/regulator/mediatek,mt6392-regulator.yaml
+> @@ -0,0 +1,234 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/regulator/mediatek,mt6392-regulator.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: MediaTek MT6392 regulator
+> +
+> +maintainers:
+> +  - Luca Leonardo Scorcia <l.scorcia@gmail.com>
+> +
+> +description:
+> +  MT6392 is a power management system chip containing three buck converters and
+> +  23 LDOs. All voltage regulators provided by the PMIC are described as
+> +  sub-nodes of this node.
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - const: mediatek,mt6392-regulator
+> +
+> +  vproc-supply:
+> +    description: Supply for buck regulator vproc
+> +  vcore-supply:
+> +    description: Supply for buck regulator vcore
+> +  vsys-supply:
+> +    description: Supply for buck regulator vsys
+> +  avddldo-supply:
+> +    description: |
 
-On Tue Jun 16, 2026 at 3:23 PM CEST, Andrea della Porta wrote:
-> From: Lukasz Raczylo <lukasz@raczylo.com>
->
-> The MACB found in the Raspberry Pi RP1 suffers from sporadic stalls on
-> the TX queue.
-> While the exact root cause is not yet fully understood, it is likely
-> related to a hardware issue where a TSTART write to the NCR register
-> is missed, preventing the transmission from being kicked off.
->
-> Implement a timeout callback to handle TX queue stalls, triggering the
-> existing restart mechanism to recover.
->
-> Link: https://lore.kernel.org/all/20260514215459.36109-1-lukasz@raczylo.c=
-om/
-> Fixes: dc110d1b23564 ("net: cadence: macb: Add support for Raspberry Pi R=
-P1 ethernet controller")
-> Signed-off-by: Lukasz Raczylo <lukasz@raczylo.com>
-> Co-developed-by: Steffen Jaeckel <sjaeckel@suse.de>
-> Signed-off-by: Steffen Jaeckel <sjaeckel@suse.de>
-> Co-developed-by: Andrea della Porta <andrea.porta@suse.com>
-> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+Don't need '|' if no formatting to preserve. Elsewhere too.
 
-Thanks for this V2.
+> +      Supply for AVDD LDOs (vm, vio18, vcn18, vcamd, vcamio). According to the data sheet
+> +      this is an internal supply derived from vsys.
+> +  ldo1-supply:
+> +    description: Supply for LDOs group 1 (vaud28, vxo22, vaud22, vadc18, vcama, vrtc)
+> +  ldo2-supply:
+> +    description: Supply for LDOs group 2 (vcn35, vio28, vmc, vmch, vefuse, vdig18)
+> +  ldo3-supply:
+> +    description: Supply for LDOs group 3 (vusb, vemc3v3, vcamaf, vgp1, vgp2, vm25)
+> +
+> +patternProperties:
+> +  "^v(core|proc|sys)$":
+> +    description: Buck regulators
+> +    type: object
+> +    $ref: regulator.yaml#
+> +    properties:
+> +      regulator-allowed-modes:
+> +        description: |
+> +          BUCK regulators can set regulator-initial-mode and regulator-allowed-modes to
+> +          values specified in dt-bindings/regulator/mediatek,mt6392-regulator.h
+> +        items:
+> +          enum: [0, 1]
 
-Reviewed-by: Th=C3=A9o Lebrun <theo.lebrun@bootlin.com>
+           minItems: 1
+           maxItems: 2
 
-Any news from the Raspberry Pi community about this bug investigation?
+? Because if there are only 2 modes, can't have more entries than that, 
+right? Though wouldn't 2 entries be the same as no property present 
+because I would assume the default is all modes. I shouldn't have to 
+assume though.
 
-Thanks,
 
---
-Th=C3=A9o Lebrun, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+> +    unevaluatedProperties: false
 
+Place this after $ref. Easier to read than after indented blocks.
+
+> +
+> +  "^v(adc18|camio|cn18|io18|xo22|m25|aud28|io28|rtc|usb)$":
+> +    description: LDOs with fixed output and mode setting
+> +    type: object
+> +    $ref: regulator.yaml#
+> +    properties:
+> +      regulator-allowed-modes:
+> +        description: |
+> +          LDO regulators can set regulator-initial-mode and regulator-allowed-modes to
+> +          values specified in dt-bindings/regulator/mediatek,mt6392-regulator.h
+> +        items:
+> +          enum: [0, 1]
+> +    unevaluatedProperties: false
+> +
+> +  "^v(cama|dig18)$":
+> +    description: LDOs with fixed output without mode setting
+> +    type: object
+> +    $ref: regulator.yaml#
+> +    unevaluatedProperties: false
+> +
+> +  "^v(aud22|camaf|camd|cn35|efuse|emc3v3|gp1|gp2|m|mc|mch)$":
+> +    description: LDOs with adjustable output
+> +    type: object
+> +    $ref: regulator.yaml#
+> +    properties:
+> +      regulator-allowed-modes: false
+> +    unevaluatedProperties: false
+> +
+> +required:
+> +  - compatible
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +
+> +    regulators {
+> +      compatible = "mediatek,mt6392-regulator";
+
+Drop the example. Put 1 complete example in the MFD schema rather than 
+incomplete examples.
+
+Rob
 
