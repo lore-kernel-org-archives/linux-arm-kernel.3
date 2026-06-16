@@ -4,145 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BA22CD98E4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 18:00:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 168D2CD98E4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 18:09:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=354EhyoiTyVH+TQ3lhrEiNN941P3hTTXkPMo0SVqlOo=; b=hrZcTjyxLG1I8rvkbkRNuoUoW0
-	IJZCtG5+LyALm0hA0R7MIAIksKGupvMP53SmLpKNs5N0OeiyXrUY+smOxDsMx+k49e6lWPkTSXP6A
-	uB9NaEbk77rRWbWIMMJSM9Glkv3RxVyV2GMKtXtbE40fF6Ft2cjid+Cc2ZkFIjiAHFi/gJKV+MXUA
-	ClCcmnRdouGEsiMSYUW2RfkwfNbG0aZebla8MLrR1F/mUwBdDDaA4+oJw381hgkaR3glLkxTMP8vX
-	EOUfNl77SF2VaU6O5qFfFIuSqcwK96nccpT4kK0X28k4Weevw7x4G1yWF5twsqeRw7MEj85xKknq0
-	YGN3baqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PDZtaXjETEhxMoI0zV7AcPBY5Wbkc86wyJ65881hyNY=; b=DwQ4hx/p2OoCkgq6C6lBu98fbS
+	5SN/qf7yTosnBhG6wc/KsAShY+GDzyCLyUO9STCMrOOuO7v3UmWGqUQKbEfoLFlN8nweLxwQLub6V
+	xwWKvTCVKB2GoT8AA69x1FeGQg9pNhteJqe90NkyA8C25ojWAVrejl8ysJ+3dwFzh5rYRW74QP0Cw
+	gMG/lp1PvP7EtKdyitd0AvY5jCnXCbw1vef3baOpfxVnV0BqRDV82h1sHvyaI6qhMcKAfIOzA7Uxx
+	+/98x8pGI/7AiC7Le/JZlf6tFPam1C34jejAHUHJH8WXdSo59P7Amnc9Rsjgf7qJAAMMfsM4nliPq
+	4Iyt2xEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZY51-0000000GC0B-2n2I;
-	Tue, 16 Jun 2026 18:00:07 +0000
-Received: from mail-francesouthazon11021124.outbound.protection.outlook.com ([40.107.130.124] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1wZYE3-0000000GCI9-2bBQ;
+	Tue, 16 Jun 2026 18:09:27 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZY4y-0000000GBzS-1Ddx
+	id 1wZYE1-0000000GCH4-0nKo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Jun 2026 18:00:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=SJr5pPNjPmauKvwu/F/Jp5wi14G5f0xCH3eZwG8f9Xalw4RDhMpneZYWJsY6B/Xhy6LIBuhmY0zAPwifM+WlEO9f5DbdSNWt5gJWjm/k/u0dl4aBbTMu9HfPB5wgZxR8ov4fZ4ENCNmgdi6P5f2LURkxku36vFFtuqCiR1PxQiDp6NdOX4DQrlZJEZdR4sITbORjx9cCOn2Hiwftv6EtmzzLgw4i9mCiaTkOBvoW5Q9cPnNopxqWrUw1ZBujOpGQr0/y+lmmS3a1forKMqTAQKXlR0Av/dAExrBVFXNcQ6+QnvHeAJm66w+1sQR3hxWy2pXTXTr1AMz6O5PCSR3+sQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=354EhyoiTyVH+TQ3lhrEiNN941P3hTTXkPMo0SVqlOo=;
- b=ny9slTJAJwp2NqTnRFWP3SZZpvuEjNVd4zJ7qGaVw0yWLA0QqFtWEoYqqyYlOOIkgGGPJl+tZr/wh+sxizQp6m3Bx0g1Kg7j+xjp6BJgCNJu+mKGMXhxn5R/3Vt1idM3DLgyNBjfSLQBYmX7gj2UcxW4d6eymGwA5AxQFvNAY380bSZnIlP0r8/JNjrIanmE6nB98O4OaWw9suICcoszYHOorgCiCW8JwIKmeaA1+LFqU/AxiQeuwxdrfb+yHBif1kQpEw3ELNr98v3xch/Pt81ISKdf2BMkrTAoxNXjM0V/O1k1N9XLxH9KsaWM7W9YWTW6BkKC/4a6XiHaE8XnmQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=kontron.de; dmarc=pass action=none header.from=kontron.de;
- dkim=pass header.d=kontron.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kontron.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=354EhyoiTyVH+TQ3lhrEiNN941P3hTTXkPMo0SVqlOo=;
- b=nHSM6l863olJOeO0MsmHatILkWyAb4FKUJxsSkxF613FpSsFOv4NDUnWASeyTWLv5QkncbIcjg07bLh6vA5/ohICQF9avzJM1VOpP5aN8xfqLdyRP0rbsm0CaaMWaDF0BCFfuXsyBAp5WQ1jZNV/nOqJKOXLkhBqDsEhOeLib/93fs2L/uZyVpauFZoBs8sHaV90AJpt0ZAiiJtmtZsM397OVDrGizwXAQrcnTgdwkIzXL/+7xTjlvHRDmnpWg5hkR/PGeRqUkJ6Kth3OyqaMMapCbn1F0nNQ2eRGdM9DPZ2AaZhpowqAsvbsNqImpuzwlLVus17l+megrf9EqNf6g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=kontron.de;
-Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:1fb::23)
- by DU4PR10MB8890.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:56c::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.18; Tue, 16 Jun
- 2026 17:59:57 +0000
-Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::a276:4ad7:962:da22]) by AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::a276:4ad7:962:da22%3]) with mapi id 15.21.0113.015; Tue, 16 Jun 2026
- 17:59:56 +0000
-Message-ID: <cea74ed4-1003-419e-8da3-1c62b1ace726@kontron.de>
-Date: Tue, 16 Jun 2026 19:59:54 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/9] firmware: imx: ele: Add API functions for OCOTP fuse
- access
-To: Frank Li <Frank.li@oss.nxp.com>, Frieder Schrempf <frieder@fris.de>,
- Pankaj Gupta <pankaj.gupta@nxp.com>
-Cc: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260616-upstreaming-next-20260609-imx-ocotp-ele-v1-0-cb7f3698c3e6@kontron.de>
- <20260616-upstreaming-next-20260609-imx-ocotp-ele-v1-3-cb7f3698c3e6@kontron.de>
- <ajFtkysqxuLV8GgF@SMW015318>
-Content-Language: en-US, de-DE
-From: Frieder Schrempf <frieder.schrempf@kontron.de>
-In-Reply-To: <ajFtkysqxuLV8GgF@SMW015318>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR4P281CA0060.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:cc::20) To AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:20b:1fb::23)
+	Tue, 16 Jun 2026 18:09:26 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65GH8taV3746555
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 18:09:24 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	PDZtaXjETEhxMoI0zV7AcPBY5Wbkc86wyJ65881hyNY=; b=k7TJxMK2tEDVKdCZ
+	fcPYpg+1uVbV2651EKTIOIhdItA5a2Bwr78sfjVqpUSW17xA1Wv2loh9kLX1fr+X
+	3MDz2sMbMa0rVouu6JiGpbnUmKhGUXcVCwy1+KojoYTRS/L1O9D7JjkbdHs6vxf5
+	PD6vpwOT2WePZYOAXuaVv0iie0JZFd0Adr1CdP8xANnRcsERYRjQyfod3yFxBh23
+	eJz73dDbm8afvgtwxq3YHyCTf/cvRpxul4RSheH7JmrjPqnbYIhRftfY0OLeoSI3
+	Ger5BUeQPHdO7jIVwrMcDuQiktds+4wDwRl0UywtR594IrfPC+s/P4S5t63jQ1j9
+	Vd6V7w==
+Received: from mail-dl1-f70.google.com (mail-dl1-f70.google.com [74.125.82.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4eu0a7uepc-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 18:09:23 +0000 (GMT)
+Received: by mail-dl1-f70.google.com with SMTP id a92af1059eb24-139553dd8acso7407356c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 11:09:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1781633363; x=1782238163; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=PDZtaXjETEhxMoI0zV7AcPBY5Wbkc86wyJ65881hyNY=;
+        b=HeIDE6NX3j0wnGNMPtdjWcQw4OFzfSnK+HGUY/yWbnnU9tGUIvUY7PtI9UQy9HG3M0
+         pm8FrNpxiAqiL3feANQva3NDIxYlyWWQTR8UR1I1TZHCGZ1QRAqhXKf/Twf/qQiKm/xf
+         7XHLMDSmyJc1AASkzktlfEjMW/wLk8qkbI7CLL92Btvr6M7q8/k9e1XqQLidtNh3Q9MK
+         axzIXcMPdWETuPgdGJMWSThS9OZxMFvjJb09GGTqYVgm7MpdMF0Cj7Aug+bkyaztQNtC
+         YTsTzKAmNMzbxu7JdHg7ET2iVy6q3LSoTh3lMYSvOiOSs+LSrm2x7w140jAe/a9Ek+n9
+         NbTA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781633363; x=1782238163;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=PDZtaXjETEhxMoI0zV7AcPBY5Wbkc86wyJ65881hyNY=;
+        b=mwTYQGNmZ76mCQPY/wCmYYP1riQExDku+fTvAufhZLnJYIMBH3+BjiKu7HbvbQUrtw
+         IUIGxSdbnXcEoi04WQRcM3CWObfHGw0PZY0NDIt6l/PhBMO98SUevil8Wv0S2x3CJmbg
+         NCSNjSwFBoFR1QFn8SK+eslsllbU8yvFiT4j8BZju3uVxRLy81sUbnEA+f2hL4uoaQ+X
+         YLdZ8u3IX2H3mgRpig5uoaVYcBOSwE1pgLRcNMyhb3trVNx0nvjrNXRLPxrDdL39ccCU
+         UAmhiMBcXPu5t98+DcOLT7b4x9CGHiBiSUvttmCHkrRK4789NxKWydk2dvKAq3sMkddD
+         B0OQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9uOgI+5EPnF7K8uvZjH7gn2ZTXuplONxsQ7xH1Iv4ch6gzEZpauvNf2cBm/V3XuZDK8N43Kzzqgz1zTFUPJZXl@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx4pvFE/Vv5eqgc5ia52lA8zX4sF2dQEPDgW6A4tr2OWinwzle+
+	25DXkTU5Hwv60sCsD0iR+c+qgo88VR8FEy9qHypFOF0QcAkTxSnqL/arxGySAGUkt7FjlYP4tcq
+	3gbpQWE7W1XynjCkaErWsXbt6sVJIW5bJ3q5taEHYx/F2DVPXCI+3bbb/B5jglLbw/AmHODN2uj
+	J8gMXvN9vbhQ==
+X-Gm-Gg: Acq92OEMVY37hOibi23a1pLhj5veRDPYloy90k0ANQIinx2hjZRjTAjMhLL2+4oEPuD
+	psp5TSkItAZS0WKgoXfsthwBgmkcFMoF7HP5IxOeJ/A9TQ7mmiBtwHeJajZUbijJaJFHo1lDYyx
+	ejWKNCfVZ3Lf70kN3BhAK8cf9QC6tqQSh62A8quvG6ym0cK9sMUWe32zploQ2rSO+d7ixgklx3V
+	/jQf5NkUPAdWtKa/m2X4Z5y4Ml/KMepCg4uF8ADz0TFheeHUTwVv3h5ujx5aREFduJWxPndYc5X
+	9vyPihx/xwMbCnWc7ZxD1KZC7J+44MikJjI6wYRZOl4s6WotqcNy9hu5K2+125q9vD6R6GD72ZW
+	wZ3madDEVklFkV8tTg0lQIVtkDzv2712vSJ3E5zuSpl5hkk/fxEiWGgO0Bz+t0gQ=
+X-Received: by 2002:a05:7022:68d:b0:137:6bdb:5842 with SMTP id a92af1059eb24-1398f5c45ecmr43993c88.0.1781633363286;
+        Tue, 16 Jun 2026 11:09:23 -0700 (PDT)
+X-Received: by 2002:a05:7022:68d:b0:137:6bdb:5842 with SMTP id a92af1059eb24-1398f5c45ecmr43970c88.0.1781633362667;
+        Tue, 16 Jun 2026 11:09:22 -0700 (PDT)
+Received: from [169.254.0.13] (Global_NAT1.qualcomm.com. [129.46.96.20])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1384b916b2bsm13747124c88.6.2026.06.16.11.09.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 16 Jun 2026 11:09:22 -0700 (PDT)
+From: Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>
+Date: Tue, 16 Jun 2026 18:09:15 +0000
+Subject: [PATCH 1/2] module: add SCMI device table alias support
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR10MB4277:EE_|DU4PR10MB8890:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2541f6e5-a6f9-4c34-3fd3-08decbd112ca
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|23010399003|376014|18002099003|22082099003|56012099006|4143699003|3023799007|11063799006|6133799003;
-X-Microsoft-Antispam-Message-Info: Lqi2URoJhhH9uTywSObW6uGs4VcQ71CU9Z5anti1RxMh3627XI26bBGf0cXEWdRtrPc+GF5QhE4udZDW49ovHkmnpjyHCY/vsPLK1xM61k3q+BfVumK40mqK8yBo+QKtZXewsT+XqB8fge31Z64yYXaafLGF5P7UqOEnjweJkTq3fAO86hC427pR69CHOGWy9u8my+ljSK6uK8SRIFQW4/rXk6OY6mpy4U41UZ2y+LYFbJs2Y07dF5hWLPwAmc0w89YwF7kzgRPmdPtimb3X8pAHEBuuswIe3g8mjpUd/BAsd5VVr57qxIupDvEzzEDCsfX9jBN6/wR271hzGedaWZ+vHs6pnl6QopSivMmJkne/GJAn+6Y+OERrCRFR1f8m+e4mpQCokhzcv9wyIcsgTALsCZ2Rq8MEc53Tfe5e3Hw+s1taDbRWTm5gfZARvaPCpxVJbgHSvk4sTE4I3DSrB+IW0IyRV/FHSOGwweF6sqk5LaPfDTYmHNzCXb5kWqR8NCfrnA+kK7k72nr4eqwNyKJbFHuFSdRWL4rbyhyM/JT6H7lQadZasME4zCRzF2TMw4ckjLoEqPalOuN0abaKRBispaSkcAdOVX0EHl7BJrsjHJqwHXfDHbizJcb6RHho9Cifz0xdIkTnEpeLj+pjhyLysNF2aOYJ8VtsbMO/mwf7ATqlrSX1JZCkZRsnVCde
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(23010399003)(376014)(18002099003)(22082099003)(56012099006)(4143699003)(3023799007)(11063799006)(6133799003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aXNkOHRmRXMrUXdMTGl1TE5RZUJuejJZWmQzU3J4d3B6Kzh3M0dkMXNNcE5W?=
- =?utf-8?B?MXVDNXk1c0FPVGE5RFNRV01EOFluNmVKeVlGcU1zT21PdmV2OVdyVWJMQWhz?=
- =?utf-8?B?T0pGaWJybnVXN1dqVXgxUnRiWkd6R3VYcmRXakVudWtxaEdhV3ZMaW9OSEhT?=
- =?utf-8?B?LzFtUHh1QitrRVNYelBBaTA5bUMvOXBmdHEvNFM2QmpJOWVZYWJUSDFvN0p4?=
- =?utf-8?B?K2R6OGFRdnNoV1hrQi9pMmNOaWN4SGgxa3c1U05rbFdUeEtVcVd0ekVzYU40?=
- =?utf-8?B?SmFhSWJueEt0cEtNVDg4NE9vank2QUxoR2U1RHlxRS9tbklDUUZPYXVPa0Fi?=
- =?utf-8?B?TU5ZeGVCQ0VRaFRYUU0wdHRYMDI0YnlnYkdQc0FSeVkwSmUwaHM2aGxFbFFD?=
- =?utf-8?B?cWtPMjVEK0xvWHVWOGM3ZGkxSDZLMDgzMURQOFhhR0FpblkvTUp3UWhpQ0I0?=
- =?utf-8?B?akdWSjc2bFNpSUw2VlRrNGI5cEFxYjkyYTJTaXkwQ3FzU2t2ZGpmMER4Q2Vo?=
- =?utf-8?B?WnVyOGlMc2JQYUpnNjdzRXc0NS9pVEVRUHB0SXd0VkU5cnpFOVVzY3NGVVRy?=
- =?utf-8?B?YmM0WnZ3ZmcwdENreFZPaFp0QXlEWDlCMVNabHJSRmJocmZTQms3djhQODAx?=
- =?utf-8?B?NHVycFRsMCtJTkMwZ0FtdnBvWHRsUE5UOExTczA1bzJuRlFwRjc0bWV6VW9y?=
- =?utf-8?B?TjUxNTFVWE5MTGpRRXRjTWwvWjFjQ0NtQ2FkUEdIVDRsSEIzQ3dNQmFvRERN?=
- =?utf-8?B?eFA4Ny9CNnZHdHdEd25PRXlySGR4RWxRTDI2a1gzT294aG95cHpoMkFPdmhM?=
- =?utf-8?B?dFRxc2pIVG1udDE5SFBUREx0eEFUdmJZU3VhVkhTMVViTVVRaGZpRE04VDk0?=
- =?utf-8?B?bGM2SENYd3RUVytuZUc5dWdUUDJ6VHNCLzYwLzlDbTdRVHFkWk52MTc2NEth?=
- =?utf-8?B?c3I1SlhPSnEvZ09wUEZ0bE5IM3VOMHl6Z2wvVjRrNE1uWWc5M2lMNXZSU3Fi?=
- =?utf-8?B?Y0RIcDhEZnF2TDBlU3RLT1lGcHJRaVQ2WFBUdk56dUQ4QlpWTERhS0pOYllm?=
- =?utf-8?B?YVpnamRjYUZWUnFFS1VoLy9TZFE4aG1jQWppV1FCODZQb3hBRExEVUZVNlRz?=
- =?utf-8?B?T2dJZkJNSk5xZjRQTS9zdXhOWkR6U1BOWE45dUxzNlQ0WWFYYmUyc1loTHJC?=
- =?utf-8?B?aFFhNjB5bXhwZE9RSjFYekxQMnRVLzM5U0JyMzZPWVd0bkdZcU9qMXRhVVht?=
- =?utf-8?B?RnpWSytwSWZXN3o1SWUxQmN6a2hIV3RXK1lWTkVncnRRRGx6V0U4bUxpVzZV?=
- =?utf-8?B?TCtYcCtpWTVROU5ndFNBcGxlWUNZQ2I5cVdtUkE0MFFsOUZaZnV2Ri9tdHFJ?=
- =?utf-8?B?c1Vmbjk4TWd0RnFkVG9Xb1E5dldOdnBJVFhVRjhlSXYwUUhwekNjMVUzSWNw?=
- =?utf-8?B?ajNIQytQNC9kMXVsb3JBYzRhMm5lNzVhVG40RGdSRWV3VTJJcFU4Kys3K3Ir?=
- =?utf-8?B?UTdoVkhuZVFObUVTQ2ZkcnpBY3BXSnhuVHNSMlg5eVUvZGN2ZnlxdzdlOUZK?=
- =?utf-8?B?MXA5QlBYcEZxd0ozeUdQZVkxTzYzSTRoZHJzU0dndjhEek5Bd0xYMHpyc0hz?=
- =?utf-8?B?N2FkSTEzbnBlMkpoRG5xcnU0RlpvelZQUURiUzBLTTc1R1VXUkkxcEs3cHcv?=
- =?utf-8?B?dkRhb25JTkhwd1k5TWsvby9rRHZ4cThFOXFxaGQ4Qk5aek92T096cGlPUmJa?=
- =?utf-8?B?czkrMEhBV0ltL3BkUlU0amlLRWw4NTdDQ0lJN1VyVGJnTThDc2EwQmFEWDVK?=
- =?utf-8?B?WEY2MkxGbi8rMW9WMkF1RDFnTlZIKzVjLzM5Zk5MVVFrTHJRQ1dVYXZkVjk5?=
- =?utf-8?B?dUpiNkRMVXJNQWJqYVhOSjkvUC9QbWJXc1Q5V1hpb0wyeVZKeTBCUytvQ2sx?=
- =?utf-8?B?U3pMbVhoQitwVWRCU25FVUovMEE0c0lvcEIvTnBIWkViRlVLaEgxMDM3alJk?=
- =?utf-8?B?M1FqY2poYTQ1WVRNSU9yVGtGTEsvcTRKK093VWFaWDRQc05PZVY2WUw4Sy9u?=
- =?utf-8?B?UW1HMEFlYVRsQStpbXdnWjBRR0RZNXFMTGp4bHBpbU9ad296czRYWlFVNTJC?=
- =?utf-8?B?NURxd2RDbjZFL2w4WFBsWEFoWW5nZ3FZS0YxVjQrcXRyU1hlU01JcnlROEJQ?=
- =?utf-8?B?N042VDRWNEFsS1UwcWJzU2lOSnNOZ3B4RHh1bmNYZHVjY2xuSFErZmI3YWgw?=
- =?utf-8?B?Qk0zNnA1MXJsblJJV2loeEFPQkZjYzlubUF5a0F6b0ovMDJNQ1JTU3NvcmZy?=
- =?utf-8?B?eVNRTlhVTDBlbG5RUzNoUmhWS0pQY1UvZ2I5NkdvMkprK1NCdlllZTROQ0xC?=
- =?utf-8?Q?Yua7SaVCTJIDlE7Q=3D?=
-X-OriginatorOrg: kontron.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2541f6e5-a6f9-4c34-3fd3-08decbd112ca
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jun 2026 17:59:56.7147
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8c9d3c97-3fd9-41c8-a2b1-646f3942daf1
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: czrlW9bZpKUNMD/2YogO8JDWBYib66Tul3UpwXTpa3FUqexFvQfZ13UvfXw1D/9fQucbiDHVaY9pcs0gEqPiLPQ7kwR2s/7zbFw/uolqmnM=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR10MB8890
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260616-scmi-modalias-v1-1-662b8dd52ab2@oss.qualcomm.com>
+References: <20260616-scmi-modalias-v1-0-662b8dd52ab2@oss.qualcomm.com>
+In-Reply-To: <20260616-scmi-modalias-v1-0-662b8dd52ab2@oss.qualcomm.com>
+To: Sudeep Holla <sudeep.holla@kernel.org>,
+        Cristian Marussi <cristian.marussi@arm.com>,
+        Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>
+Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-kbuild@vger.kernel.org,
+        Hans de Goede <johannes.goede@oss.qualcomm.com>,
+        Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1781633360; l=6788;
+ i=bjorn.andersson@oss.qualcomm.com; s=20230915; h=from:subject:message-id;
+ bh=zuntpegxMNUfLfKRKVJpD+fHhSqwi5sTESBy5Gc11ms=;
+ b=kEt4IJDgAcszo9qEnabKZ1PfxlY0dKprUvlsugiQm0JnJgv6B2HuknECadqYw9wTY5ru0hGcj
+ llEct1gZ35UAhFv/6bNJUnMr8bmgM7PyCuD4VLWerqLC475PpaR0wqw
+X-Developer-Key: i=bjorn.andersson@oss.qualcomm.com; a=ed25519;
+ pk=VkhObtljigy9k0ZUIE1Mvr0Y+E1dgBEH9WoLQnUtbIM=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjE2MDE4NiBTYWx0ZWRfX6tSC7ShuxmwY
+ kVi1HjLvTSTEvRlYoQir7febCvWyHE8ctdqqLZg08WqmAFIaiFaypqjnBu277WO9Px/ysHubYfb
+ BcF19wBkXt/AN7z3qAY6pViVpcHlMKE1KW8FszOv/ZAplZn/y+ITKMeuxHIlJamoqI+DP9+PAim
+ ZpXlCLSOTkc7FRaq1A7Tdy2xkxtgP6CsnmuelS/0KMulusdBy+w5CLhFTA0sc/pop2Xll0Q+/NB
+ 25Qh5ZNyOKMuZa6DL1AF1IL66qrLEzfF0LuvMeqjrqFibM8qrsotQ7Q186+86Aju08+6zUF3Cm7
+ zM2sf4RZeiw8Z+5NnLC7OHql0ja1pQ+hqiMMJxJbMDLmHNzqa89roiYHgsiv0rZYyCsew7x+ZW8
+ FF3tkmpcmV57DdegR+ZfzmEYf7X2ObEdCENDB2qfXTVfnDPNZ/VD5G1cuhg1drPR7PRaaVNfFbd
+ XsV1H0nQzDII3IbeArw==
+X-Authority-Analysis: v=2.4 cv=JKALdcKb c=1 sm=1 tr=0 ts=6a319154 cx=c_pps
+ a=SvEPeNj+VMjHSW//kvnxuw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
+ a=EUspDBNiAAAA:8 a=Fcj57D9thYDiAllwEF0A:9 a=QEXdDO2ut3YA:10
+ a=Kq8ClHjjuc5pcCNDwlU0:22
+X-Proofpoint-ORIG-GUID: jPwqIA_ZH3dh7Wpe_M5YGbmdDFG5_Qo9
+X-Proofpoint-GUID: jPwqIA_ZH3dh7Wpe_M5YGbmdDFG5_Qo9
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNjE2MDE4NiBTYWx0ZWRfX6KZr1aXN70eA
+ 3hN2nbXxG03iM5oErfnkFWntONbVElWZAKbt4Q7QVUAXwtebVkMx3NsNm46qjorYzl0RhcNic31
+ lOuG2sUct9DiOidUJr2XpY/9bH94gxs=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-06-16_05,2026-06-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 lowpriorityscore=0 bulkscore=0 impostorscore=0 spamscore=0
+ priorityscore=1501 adultscore=0 clxscore=1011 suspectscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606040000 definitions=main-2606160186
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260616_110004_779852_1D9A4A37 
-X-CRM114-Status: GOOD (  20.23  )
+X-CRM114-CacheID: sfid-20260616_110925_267805_6AEEA713 
+X-CRM114-Status: GOOD (  22.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,48 +157,199 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16.06.26 17:36, Frank Li wrote:
-> On Tue, Jun 16, 2026 at 01:52:18PM +0200, Frieder Schrempf wrote:
->> From: Frieder Schrempf <frieder.schrempf@kontron.de>
->>
->> The ELE S400 API provides read and write access to the OCOTP fuse
->> registers. This adds the necessary API functions imx_se_read_fuse()
->> and imx_se_write_fuse() to be used by other drivers such as the
->> OCOTP S400 NVMEM driver.
->>
->> This is ported from the downstream vendor kernel.
->>
->> Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
->> ---
->>  drivers/firmware/imx/ele_base_msg.c | 122 ++++++++++++++++++++++++++++++++++++
->>  drivers/firmware/imx/ele_base_msg.h |   6 ++
->>  include/linux/firmware/imx/se_api.h |   3 +
->>  3 files changed, 131 insertions(+)
->>
-> ...
->> +++ b/include/linux/firmware/imx/se_api.h
->> @@ -11,4 +11,7 @@
->>  #define SOC_ID_OF_IMX8ULP		0x084d
->>  #define SOC_ID_OF_IMX93			0x9300
->>
->> +int imx_se_read_fuse(void *se_if_data, uint16_t fuse_id, u32 *value);
->> +int imx_se_write_fuse(void *se_if_data, uint16_t fuse_id, u32 value);
->> +
-> 
-> This API should implement in fuse drivers. Other consume should use standard
-> fuse API to get value. If put here, it may bypass fuse driver.
+SCMI client drivers already describe their bus match data with
+MODULE_DEVICE_TABLE(scmi, ...), but modpost does not know how to consume
+SCMI device tables. As a result, SCMI modules do not get generated module
+aliases from their id tables.
 
-The reason this is here, is the downstream implementation in linux-imx
-and the current code organization. I thought there is some good reason
-to have shared functions and it looks like Pankaj structured it like
-this so all API functions live in ele_base_msg.c and the internal
-structs and defines in ele_base_msg.h and se_ctrl.h are not exposed to
-other drivers.
+Move struct scmi_device_id to mod_devicetable.h so it has a fixed layout
+visible to modpost, add the corresponding generated offsets and teach
+file2alias to emit scmi:<protocol>:<name> aliases.
 
-If I would move this into imx-ocotp-ele.c, then I would also need to
-change how the code is organized and make the internal se_api functions
-exposed to other drivers. I don't know if that is really a good idea.
+Use the same stable alias format for SCMI device uevents and sysfs
+modaliases. The previous string included the instance-specific device
+name, which is not useful for matching modules.
 
-I get your point but it looks like this contradicts the intention of
-having a clean API in the firmware driver.
+Assisted-by: Codex:GPT-5.5
+Signed-off-by: Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>
+---
+ drivers/firmware/arm_scmi/bus.c   | 19 +++++++++----------
+ include/linux/mod_devicetable.h   | 11 +++++++++++
+ include/linux/scmi_protocol.h     |  6 +-----
+ scripts/mod/devicetable-offsets.c |  4 ++++
+ scripts/mod/file2alias.c          | 11 +++++++++++
+ 5 files changed, 36 insertions(+), 15 deletions(-)
+
+diff --git a/drivers/firmware/arm_scmi/bus.c b/drivers/firmware/arm_scmi/bus.c
+index 793be9eabaed..7e344f2ee18d 100644
+--- a/drivers/firmware/arm_scmi/bus.c
++++ b/drivers/firmware/arm_scmi/bus.c
+@@ -13,11 +13,12 @@
+ #include <linux/of.h>
+ #include <linux/kernel.h>
+ #include <linux/slab.h>
++#include <linux/string.h>
+ #include <linux/device.h>
+ 
+ #include "common.h"
+ 
+-#define SCMI_UEVENT_MODALIAS_FMT	"%s:%02x:%s"
++#define SCMI_UEVENT_MODALIAS_FMT	SCMI_MODULE_PREFIX "%02x:%s"
+ 
+ BLOCKING_NOTIFIER_HEAD(scmi_requested_devices_nh);
+ EXPORT_SYMBOL_GPL(scmi_requested_devices_nh);
+@@ -141,7 +142,7 @@ static int scmi_protocol_table_register(const struct scmi_device_id *id_table)
+ 	int ret = 0;
+ 	const struct scmi_device_id *entry;
+ 
+-	for (entry = id_table; entry->name && ret == 0; entry++)
++	for (entry = id_table; entry->name[0] && ret == 0; entry++)
+ 		ret = scmi_protocol_device_request(entry);
+ 
+ 	return ret;
+@@ -197,18 +198,18 @@ scmi_protocol_table_unregister(const struct scmi_device_id *id_table)
+ {
+ 	const struct scmi_device_id *entry;
+ 
+-	for (entry = id_table; entry->name; entry++)
++	for (entry = id_table; entry->name[0]; entry++)
+ 		scmi_protocol_device_unrequest(entry);
+ }
+ 
+ static int scmi_dev_match_by_id_table(struct scmi_device *scmi_dev,
+ 				      const struct scmi_device_id *id_table)
+ {
+-	if (!id_table || !id_table->name)
++	if (!id_table || !id_table->name[0])
+ 		return 0;
+ 
+ 	/* Always skip transport devices from matching */
+-	for (; id_table->protocol_id && id_table->name; id_table++)
++	for (; id_table->protocol_id && id_table->name[0]; id_table++)
+ 		if (id_table->protocol_id == scmi_dev->protocol_id &&
+ 		    strncmp(scmi_dev->name, "__scmi_transport_device", 23) &&
+ 		    !strcmp(id_table->name, scmi_dev->name))
+@@ -245,7 +246,7 @@ static struct scmi_device *scmi_child_dev_find(struct device *parent,
+ 	struct device *dev;
+ 
+ 	id_table[0].protocol_id = prot_id;
+-	id_table[0].name = name;
++	strscpy(id_table[0].name, name, sizeof(id_table[0].name));
+ 
+ 	dev = device_find_child(parent, &id_table, scmi_match_by_id_table);
+ 	if (!dev)
+@@ -282,8 +283,7 @@ static int scmi_device_uevent(const struct device *dev, struct kobj_uevent_env *
+ 	const struct scmi_device *scmi_dev = to_scmi_dev(dev);
+ 
+ 	return add_uevent_var(env, "MODALIAS=" SCMI_UEVENT_MODALIAS_FMT,
+-			      dev_name(&scmi_dev->dev), scmi_dev->protocol_id,
+-			      scmi_dev->name);
++			      scmi_dev->protocol_id, scmi_dev->name);
+ }
+ 
+ static ssize_t modalias_show(struct device *dev,
+@@ -292,8 +292,7 @@ static ssize_t modalias_show(struct device *dev,
+ 	struct scmi_device *scmi_dev = to_scmi_dev(dev);
+ 
+ 	return sysfs_emit(buf, SCMI_UEVENT_MODALIAS_FMT,
+-			  dev_name(&scmi_dev->dev), scmi_dev->protocol_id,
+-			  scmi_dev->name);
++			  scmi_dev->protocol_id, scmi_dev->name);
+ }
+ static DEVICE_ATTR_RO(modalias);
+ 
+diff --git a/include/linux/mod_devicetable.h b/include/linux/mod_devicetable.h
+index 3b0c9a251a2e..769382f2eadd 100644
+--- a/include/linux/mod_devicetable.h
++++ b/include/linux/mod_devicetable.h
+@@ -473,6 +473,17 @@ struct rpmsg_device_id {
+ 	kernel_ulong_t driver_data;
+ };
+ 
++/* scmi */
++
++#define SCMI_NAME_SIZE		32
++#define SCMI_MODULE_PREFIX	"scmi:"
++
++struct scmi_device_id {
++	__u8 protocol_id;
++	char name[SCMI_NAME_SIZE];
++	kernel_ulong_t driver_data;
++};
++
+ /* i2c */
+ 
+ #define I2C_NAME_SIZE	20
+diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
+index 5ab73b1ab9aa..48b346a26068 100644
+--- a/include/linux/scmi_protocol.h
++++ b/include/linux/scmi_protocol.h
+@@ -10,6 +10,7 @@
+ 
+ #include <linux/bitfield.h>
+ #include <linux/device.h>
++#include <linux/mod_devicetable.h>
+ #include <linux/notifier.h>
+ #include <linux/types.h>
+ 
+@@ -951,11 +952,6 @@ struct scmi_device {
+ 
+ #define to_scmi_dev(d) container_of_const(d, struct scmi_device, dev)
+ 
+-struct scmi_device_id {
+-	u8 protocol_id;
+-	const char *name;
+-};
+-
+ struct scmi_driver {
+ 	const char *name;
+ 	int (*probe)(struct scmi_device *sdev);
+diff --git a/scripts/mod/devicetable-offsets.c b/scripts/mod/devicetable-offsets.c
+index b4178c42d08f..da5bd712c8da 100644
+--- a/scripts/mod/devicetable-offsets.c
++++ b/scripts/mod/devicetable-offsets.c
+@@ -144,6 +144,10 @@ int main(void)
+ 	DEVID(rpmsg_device_id);
+ 	DEVID_FIELD(rpmsg_device_id, name);
+ 
++	DEVID(scmi_device_id);
++	DEVID_FIELD(scmi_device_id, protocol_id);
++	DEVID_FIELD(scmi_device_id, name);
++
+ 	DEVID(i2c_device_id);
+ 	DEVID_FIELD(i2c_device_id, name);
+ 
+diff --git a/scripts/mod/file2alias.c b/scripts/mod/file2alias.c
+index 8d36c74dec2d..a5283f4c8e6f 100644
+--- a/scripts/mod/file2alias.c
++++ b/scripts/mod/file2alias.c
+@@ -852,6 +852,16 @@ static void do_rpmsg_entry(struct module *mod, void *symval)
+ 	module_alias_printf(mod, false, RPMSG_DEVICE_MODALIAS_FMT, *name);
+ }
+ 
++/* Looks like: scmi:NN:S */
++static void do_scmi_entry(struct module *mod, void *symval)
++{
++	DEF_FIELD(symval, scmi_device_id, protocol_id);
++	DEF_FIELD_ADDR(symval, scmi_device_id, name);
++
++	module_alias_printf(mod, false, SCMI_MODULE_PREFIX "%02x:%s",
++			    protocol_id, *name);
++}
++
+ /* Looks like: i2c:S */
+ static void do_i2c_entry(struct module *mod, void *symval)
+ {
+@@ -1491,6 +1501,7 @@ static const struct devtable devtable[] = {
+ 	{"virtio", SIZE_virtio_device_id, do_virtio_entry},
+ 	{"vmbus", SIZE_hv_vmbus_device_id, do_vmbus_entry},
+ 	{"rpmsg", SIZE_rpmsg_device_id, do_rpmsg_entry},
++	{"scmi", SIZE_scmi_device_id, do_scmi_entry},
+ 	{"i2c", SIZE_i2c_device_id, do_i2c_entry},
+ 	{"i3c", SIZE_i3c_device_id, do_i3c_entry},
+ 	{"slim", SIZE_slim_device_id, do_slim_entry},
+
+-- 
+2.53.0
+
 
