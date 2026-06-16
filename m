@@ -4,128 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6025CCD98DA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 11:11:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61676CD98E1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 11:12:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xrXdi6srfp0Ao/tvJZ9Wyvr5NlHDCnKq/XdFuOkOCfU=; b=yj+ILfO3BnAViZH6Kvgsd3VMi7
-	MHVDRdNeb5rivGYl0oPqRs4UfKx3yQM3+wCrFkYMRWEMvP2xucB/M9jjnf0NaZlynTL4/6LGSVsif
-	LJkybsBMMkThrEDP+EIrMFwbTUktSDSjxpUbX2Dit+wZg47xbCAv99eVnq3dD58PKbdOKbEuFsJND
-	77MNTNHiMI/6K/G5G1+OKO+N0xRCdrIWIKMXCIJjAt/iBgzLaLhbi5N043hUCDrBxM2JFchGXWrKZ
-	YVsl8DC9cXZ3CUnQXkyfgGWc2iJdeGPbuEe8N7nCh7HOBX5h2BcbBurmlbUG1TgZM8m5kY7OwDrRg
-	O7uA5qKA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DsaDqBODBOe0uQd4CZKQhSELJgMWAA7Q260cUecRjlk=; b=eb8H3dinv+/ej3MD7duSys8RQ/
+	/BcijyUmhABRnZPP2cIj9zMOGTTdV5WNX8Nyf/tP+0GsK3tufZhL3+L/uM8VangyexbE+lNPYP/pC
+	JAbfQ9HXapubQ0UxDHfBnwliWpuvWACg4KbdiDC1MNDumFWGpZm6S7gB8eOhvMbKFMQFr23p/pNSh
+	wgpz1U99VwRWDy46cJrflsd51bd5vir/rng7RWSupGga4cP3IqwtfkNS0cMHjSuODNjFfHA3sm3lZ
+	hKz3FJlQjBMpFd8XjI1SqSLeBqCxF4PlFQX9FcKCsbm10+cSnBIH1aEOCPAq3xNL9OmUqg3xM2rCo
+	6NqPoLdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZRhN-0000000Feoo-21uJ;
-	Tue, 16 Jun 2026 11:11:17 +0000
-Received: from mail-southcentralusazon11012049.outbound.protection.outlook.com ([40.93.195.49] helo=SN4PR2101CU001.outbound.protection.outlook.com)
+	id 1wZRiu-0000000Fey7-3iRl;
+	Tue, 16 Jun 2026 11:12:52 +0000
+Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZRhK-0000000FeoN-1MeP
+	id 1wZRir-0000000Fewp-2W60
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Jun 2026 11:11:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BWLiHuLKAhGKbGnm2ZVxjLfP2psm+CnpLGaxMcMjYfP5KJihaqt26ifX8rJsm4msXFdMvte5d0L7jldDpFm3Z1zo1ZcnksZWoX2+MsQSQEzrylJtR96NwtNToZmm9x6tv2eRAWBU4LoVS7mVMrlY1KOnEsX09AesvEQig96CASR8jT6QBNksHGNopGPH5GfcvB4feVPbEG4xnn1stddO1MbpNKSVrwj1Rw75JriicXDF7Xop+5AUwz7qlXqL3SX92OePc2G9OPzccVwUQW9Yjupej6dH9UIX5pP+Q7WA7756GOT5kgcNh3hULc4gL5Bb3Y9YosK/cRSo1arMY0O4gw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xrXdi6srfp0Ao/tvJZ9Wyvr5NlHDCnKq/XdFuOkOCfU=;
- b=Cywj/EXb9ZGRIIFCZYaXOXMoeJlRAh+aJ+9EO/S/gI/mlp+ZAmCKw1IEADT+9w13cB3VgWs9lgOoJz0eMbDV9ofXoGTU0N+1BcdH5qrAPgUjm0mKs/VLXJcAYGYuiO92WWW8sHAOjMww/Xy+lsi1PS+YTvxnewx/nm0IgxHtorshZGrqYk4I+u+uZPcu+12oshU0O1KKIy0LZQxn1UEpb4D7S2FWZaqg6HBfkyyb3cYNmnxSv2X+XrbCxedbQTiTfMfE4dhPt/KwfKR6vMgypgVhmCOCUFPQZUccKUgwXCyaWwPZcCXiEzAkqL6IHp53vLVd3BVWHtr/l05/JEJeOA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=kernel.org smtp.mailfrom=ti.com; dmarc=pass
- (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xrXdi6srfp0Ao/tvJZ9Wyvr5NlHDCnKq/XdFuOkOCfU=;
- b=cwDgQc48CHXNO66E5eJI7LdzNl61cUyVOEYPxErj12FZ2d+WWxwVjcqylA3HeK8kMk/0EWSju7PZJuvQuVAGyCnTNACcDXgNG7aHoY2+tc4/l782DgZJZPqNa7DHFYWI+e8DOTwj38mlHytjQzo2mgz2QBF/xaXddoI7MTEoOK0=
-Received: from CYZPR19CA0019.namprd19.prod.outlook.com (2603:10b6:930:8e::28)
- by CY8PR10MB6826.namprd10.prod.outlook.com (2603:10b6:930:9d::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.18; Tue, 16 Jun
- 2026 11:11:08 +0000
-Received: from DS3PEPF0000C37B.namprd04.prod.outlook.com
- (2603:10b6:930:8e:cafe::1d) by CYZPR19CA0019.outlook.office365.com
- (2603:10b6:930:8e::28) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.113.18 via Frontend Transport; Tue,
- 16 Jun 2026 11:11:08 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- DS3PEPF0000C37B.mail.protection.outlook.com (10.167.23.5) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.139.8 via Frontend Transport; Tue, 16 Jun 2026 11:11:08 +0000
-Received: from DLEE200.ent.ti.com (157.170.170.75) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 16 Jun
- 2026 06:11:07 -0500
-Received: from DLEE201.ent.ti.com (157.170.170.76) by DLEE200.ent.ti.com
- (157.170.170.75) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 16 Jun
- 2026 06:11:07 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE201.ent.ti.com
- (157.170.170.76) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Tue, 16 Jun 2026 06:11:07 -0500
-Received: from [172.24.231.93] (ti.dhcp.ti.com [172.24.231.93] (may be forged))
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 65GBB03k3480225;
-	Tue, 16 Jun 2026 06:11:01 -0500
-Message-ID: <ed0bc332-0196-4613-8066-9b94f8ed0013@ti.com>
-Date: Tue, 16 Jun 2026 16:41:00 +0530
+	Tue, 16 Jun 2026 11:12:50 +0000
+Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-84229481d44so2173266b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 04:12:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1781608368; x=1782213168; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=DsaDqBODBOe0uQd4CZKQhSELJgMWAA7Q260cUecRjlk=;
+        b=k+S0b0WbEmPP/MyhEaP+goelQWiudgAxBgj2bsRxR6GgsJYol3dpvKSmZTPO+J3qdd
+         EUvhyQPa6Tajb+f3dZ9C5cGjVVrSGPtlUG0gk+e25djaQHhZuVD9LYjAlM0K68QLZnab
+         dwC3pljbF9sua4XS+zwbdiX9M3Z4FoS7j+s6o=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781608368; x=1782213168;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=DsaDqBODBOe0uQd4CZKQhSELJgMWAA7Q260cUecRjlk=;
+        b=KzuN4m0p3gh88WsO6GDMq1XF+56jbNhyScQ1jGZOdtX7Qev+QzgLRULC86Nn8/tahP
+         b8HYj0h/w8REWqpO/XuMyPniMOc0LCliZjp/FOQ1jnzA46WFoVENaZG24UbC04hK8uF6
+         FIt8jn2fKBaJUyRjqHb6phaQmghjkMGjPWxRjtphphDjeLp5V1I7fx1ydhcjMv9vNQIb
+         yH4osvu6ai//BlLTaLOfNlIQDh2R1LtbEuLW8kTlx7jm6nmhWhPPSgrp0Ryp/adloMER
+         BsuM+sPiU6Z/gc34O6rjvE6VuDyXM35GD2RiPR7/Cj4NfJGsbI/flzlx/njwdHaH9wGH
+         xQZQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/qPILLxZCG+uvWVQScs75aeuwoWW1C1qWImQRsZgr1vU0RJtZY83nBe5d5Xs7iQg/OFIgDeAAw6Iz91Yn6AnBz@lists.infradead.org
+X-Gm-Message-State: AOJu0YyeXAijU/9Qo2Vp5906aY+NH2NkuSOfbpQDK6qP5WM1N41pQM1Q
+	x8BLJxyrxxU3WL0vZNiaoZGMF9cdJYCBeNilYm+oOjLtY44ynH4Ct12xKgmWlRoMI/gFcnbUwUe
+	veiw=
+X-Gm-Gg: Acq92OE3dP1fN3UH4m9n/fPPefpDwUI15THy38QMnIPyFetV/yrVnEFebd1WJT1fla4
+	lpSwjsnLxH0OlgiLM/O7iJs+lr54U9YhmzJy5om05Cu5XFlX4N0TZU5DLc4I0TIfmnknXN3zXM9
+	qD1TBpIHEYKc8J85sitku9UrMPlV20W5gCedH2LDKOcAcKo8n0sW7RS6l0jZ19luXG5jy28w4aK
+	l7gEmBy6wZUM+Yl1O2vqoeBdP3QtBAfPZMH32a1A2IzYJCEWR9sskw7dyGvOHYP96YbJ4HNjnSV
+	9biPVo4C3ggSOMKavrQGbWiEf8kmwMAXv002cnWweTtOF/8TYzAD9k/8D2rjOT4voaJ4bcjb+Bp
+	5OZVR2kEWGu1VRnT3l5pOp+iuGeIJpINBzQSDgc6+KZTx5+0XaNX1m2apzCl9AKLeWReii9h7KI
+	E4fqozr4DUmn+vcn8GN431tTl4eTizLVnKqxRhYy83WxpXpzF2E4Xyf7CHfOMvYEXy7+2+bK4dk
+	/Kdveon9XUi5r5wK8InVd8=
+X-Received: by 2002:a05:6a00:3691:b0:842:4af4:3099 with SMTP id d2e1a72fcca58-844e1998f75mr15786071b3a.20.1781608367732;
+        Tue, 16 Jun 2026 04:12:47 -0700 (PDT)
+Received: from tigerii.tok.corp.google.com ([2a00:79e0:2031:6:a0b:fabb:5b62:b85b])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8434b05921bsm12906321b3a.59.2026.06.16.04.12.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 16 Jun 2026 04:12:47 -0700 (PDT)
+From: Sergey Senozhatsky <senozhatsky@chromium.org>
+To: Marcel Holtmann <marcel@holtmann.org>,
+	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
+	Mark-yw Chen <mark-yw.chen@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>
+Cc: Tomasz Figa <tfiga@chromium.org>,
+	linux-bluetooth@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Sergey Senozhatsky <senozhatsky@chromium.org>
+Subject: [PATCH v2 0/3] Bluetooth: btmtksdio: teardown fixes
+Date: Tue, 16 Jun 2026 20:12:05 +0900
+Message-ID: <20260616111224.152140-1-senozhatsky@chromium.org>
+X-Mailer: git-send-email 2.54.0.1136.gdb2ca164c4-goog
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net 4/4] net: ti: icssg: Fix XSK zero copy TX during
- application wakeup
-To: Jakub Kicinski <kuba@kernel.org>
-CC: <diogo.ivo@siemens.com>, <haokexin@gmail.com>,
-	<vadim.fedorenko@linux.dev>, <devnexen@gmail.com>, <horms@kernel.org>,
-	<jacob.e.keller@intel.com>, <sdf@fomichev.me>, <john.fastabend@gmail.com>,
-	<hawk@kernel.org>, <daniel@iogearbox.net>, <ast@kernel.org>,
-	<pabeni@redhat.com>, <edumazet@google.com>, <davem@davemloft.net>,
-	<andrew+netdev@lunn.ch>, <bpf@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <srk@ti.com>, Vignesh Raghavendra
-	<vigneshr@ti.com>, Roger Quadros <rogerq@kernel.org>, <danishanwar@ti.com>
-References: <20260611185744.2498070-1-m-malladi@ti.com>
- <20260611185744.2498070-5-m-malladi@ti.com>
- <20260615162157.3748bcda@kernel.org>
-Content-Language: en-US
-From: Meghana Malladi <m-malladi@ti.com>
-In-Reply-To: <20260615162157.3748bcda@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS3PEPF0000C37B:EE_|CY8PR10MB6826:EE_
-X-MS-Office365-Filtering-Correlation-Id: 149d6917-7978-4d46-e157-08decb97f738
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|36860700016|23010399003|376014|82310400026|1800799024|56012099006|4143699003|6133799003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: wdG9YScI2ByOTzBg8XFkctAIV8akMtbj2ZiCVP0UB1kgquAMvsGjYjcdEFUw4sCP+qMZmOjKgjeWjlyAiSracSXro/Au1V1aBm2TT8d9egku/x9g0yvUlMgCf3eVvip6DY5Lk7EZb+aiNwyFB2T4rcVD//S3uJTdKkJMbN7mmtFyfWXeLOVokcw3RUKAnk9/owl6/24TR0qMG2J4Wl6qxKpccJ2PI5Nzheu3cIYlwWoUkSFnbV9i+ZpA4OlmU1o/TmzNAUKJ2QN9bN7/O+C8xEOex4f43VN/cAEMQFyvi/lVOnoHsAlcDTblkucXebPddeGeLVDVYCqP1GJyUIBj+I4BshaTgGDdjU7qCfeTYsFh+XVbbcDd97kK4yAO5F7RnDjdoxx/gaitvWk7gry99nj3Rh8xXrp8WAso4Hmgrl+V4AYBrPK2IMHNJfwyEDQ65ZgVbPMu5fn3P/LqnT+Acs2s87CoWsBqwl26vSngT+QjdBKnul5gI0SAvYmHZ5k/E9dkg9YyapG3+wk2KAKHBDFaJNse3w3XxhSEMgp7B6RlBUZE1ljcZqRrRXieoXKuyQXnNy1fmng8vKqhHwqAETwW5u+dJkFnd9JtKpdr8Y7+1hUoWqFSHfNvaNknxY7RKz0Q82/MreCX40muTIOG4dpOEfqzz1IL4AQNCwd08ik4T/p5mSOxc7ybjsKvBz0JrpSiaB7MevS4qhWmHjsq42OLjLi44saeEITgko9RWQI=
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(36860700016)(23010399003)(376014)(82310400026)(1800799024)(56012099006)(4143699003)(6133799003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: CUVkqNsLYvV/rBPD9VHoduBxEYhuM0QyNikvvJSSTDXZri2tcM2jy5CvS+mg2CMD0B18Q8vWWdhbGnqz0TJdM0PgZmlSWL5tcI9wyU3xWccHiu89zQDUE3/lXgWwelu8ulqHyj2kxHklWYf8ey7bIR5Tw2EKC5GwHFCYl4J7YL79KUAsHS0M5S8QGvQDlmd+eKV3YccLslNxytHupiRxlf0PTaGmb+Yj+NGTjDaki3/4v0pn8xe6+Inn+us7SRF4NznTEUbTO43ppKmTkRPET73gu2Z4TWfXukFxbT9ggmTvDXUFU2QG4lpvjKNB5ueLGNdrPd4lQZKWH60RdPVE/8o3+vbu8KJWzn6Sw8ARkzpVxmSh287Yw4O6HmIf9kqJ0b9VmyI76sclPwCvPVgKICONxmFLrwZKEnG59j35S6QR2n5vnLq1WCBVmnzXofUn
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jun 2026 11:11:08.0318
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 149d6917-7978-4d46-e157-08decb97f738
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS3PEPF0000C37B.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR10MB6826
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260616_041114_596216_EA6ADDC1 
-X-CRM114-Status: GOOD (  11.91  )
+X-CRM114-CacheID: sfid-20260616_041249_783276_B11FEE85 
+X-CRM114-Status: UNSURE (   8.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,67 +102,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jakub,
+This is v2 of teardown fixes.
 
-On 6/16/26 04:51, Jakub Kicinski wrote:
-> On Fri, 12 Jun 2026 00:27:44 +0530 Meghana Malladi wrote:
->> @@ -169,9 +169,6 @@ static int emac_xsk_xmit_zc(struct prueth_emac *emac,
->>   
->>   		num_tx++;
->>   	}
->> -
->> -	xsk_tx_release(tx_chn->xsk_pool);
->> -	return num_tx;
-> 
-> Why are you deleting this?
-> 
+We noticed a number of cases when btmtk close/teardown would hung:
 
-xsk_sendmsg() also calls this without an rcu-lock when transmitting the 
-packets if the xmit was successful, so I was assuming it is not required 
-and I removed this.
+     INFO: task kworker/u17:0:189 blocked for more than 122 seconds.
+     __cancel_work_timer+0x3f4/0x460
+     cancel_work_sync+0x1c/0x2c
+     btmtksdio_flush+0x2c/0x40
+     hci_dev_open_sync+0x10c4/0x2190
+     [..]
 
->>   }
->>   
->>   void prueth_xmit_free(struct prueth_tx_chn *tx_chn,
->> @@ -279,9 +276,6 @@ int emac_tx_complete_packets(struct prueth_emac *emac, int chn,
->>   		num_tx++;
->>   	}
->>   
->> -	if (!num_tx)
->> -		return 0;
-> 
-> Does something prevent us from running all this code if budget is 0?
-> If budget is 0 we can complete normal Tx with skbs but we must
-> not touch any AF-XDP related state.
-> 
+There are several issues with the teardown (close/reset) code
+in the driver.  First, the btmtksdio_txrx_work() potentially
+can spin forever (infinite loop).  Second, close/flush can
+deadlock when run concurrently with btmtksdio_txrx_work().
 
-Can you elaborate more, I couldn't interpret your comment here
+v1 -> v2:
+- added two more patches (deadlock fix, interrupts re-enabling
+  enhancement)
 
->>   	netif_txq = netdev_get_tx_queue(ndev, chn);
->>   	netdev_tx_completed_queue(netif_txq, num_tx, total_bytes);
->>   
->> @@ -306,7 +300,9 @@ int emac_tx_complete_packets(struct prueth_emac *emac, int chn,
->>   
->>   		netif_txq = netdev_get_tx_queue(ndev, chn);
->>   		txq_trans_cond_update(netif_txq);
-> 
-> This looks misplaced, now we will hit it even if we didn't complete
-> or submit any Tx.
-> 
+Sergey Senozhatsky (3):
+  Bluetooth: btmtksdio: correct btmtksdio_txrx_work() loop timeout check
+  Bluetooth: btmtksdio: test for bug IO errors in btmtksdio_txrx_work()
+  Bluetooth: btmtksdio: call cancel_work_sync() outside of host lock
+    scope
 
-This code needs to be hit for packet transmission in zero copy mode.
-emac_xsk_xmit_zc() submits the packets to the DMA in NAPI context,
-when application wakes up the driver and triggers NAPI. Once DMA 
-transfer is done, irq gets triggered NAPI gets called which will handle 
-the tx packet completion + submit next Tx batch packets to the DMA.
+ drivers/bluetooth/btmtksdio.c | 18 ++++++++++++++----
+ 1 file changed, 14 insertions(+), 4 deletions(-)
 
-if (tx_chn->xsk_pool) -> check ensure this hits and runs for zero copy 
-only. Also above check (!num_tx) returns early during the application 
-wakeup (where budget is zero), hence it is removed.
-
->> +		__netif_tx_lock(netif_txq, smp_processor_id());
->>   		emac_xsk_xmit_zc(emac, chn);
->> +		__netif_tx_unlock(netif_txq);
->>   	}
+-- 
+2.54.0.1136.gdb2ca164c4-goog
 
 
