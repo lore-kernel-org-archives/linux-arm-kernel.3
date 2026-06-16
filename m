@@ -4,144 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B958CD98DE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 02:57:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74187CD98D2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 03:30:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C9V+MxCJ9Aft6i6ZzUuBiG22xRDCPEi8bJuXRhyofKc=; b=AbOacZUj4AhbRdkxrLfRwG+imO
-	+aQQfCd0zP7tg2R0ZLeXNJGs1BLhoWwylHxqTlPwbrHedpIXyM3pGC7faGk0Ol24a+EujOpXQrj5/
-	ocw639WM7ZZ0wGdmNUEGZJkWttIKMwSbmEWLIsje9upAuS/8LuuKPijObTQE7dzSUkXOPrYO1dqND
-	fUZB4Q2BrYEk5n2iQQYyhCqVY0xICGzmGo1/YTzyFo3Ue5gwHIE9CUZhaFuM2SCOWcV13RinWV9/Q
-	pQ5BXyKNFuBApVyykq+j5FFSM+ee4B5mENGp+TFXKUyoRComOu3FrM7AMlDws55PiWyHVzgz/Pcfy
-	pJFGRppA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=nJ5OEFZy7nj2uyFJmqnDumGMHfGkIB4K5n7IIqro29M=; b=hhnvEVB6eG4GuK
+	4QPuPD/C8hl5INLEsyEFsOA4ICX7DBiZ5REzaMvvG92jMt4Ak+rpx33BqjrNrOCPATh4bwN7ec6QX
+	u9FmSUzQuEERUTvnQPIMyzugoDBBwDkJD1T2YMTY6jt8q4O2RIVBL7DrBDSeycpNk8v4lHMf1iQP1
+	rlKJG51/RrWTTeriU0ftg6D1lgFBTHX8IEE3QFI17yYVRAyM+t1A/tFayb1s9jL8yPgbRT77JKb6T
+	fsU9YNPWMdyTcAVy6zmjNBaqUepfE9OCAg+wOG9Gua8Z94rdnBH2+3ePHs0N5QGPirgUx3MLOPIpp
+	6JyuVE6Yx6yvCi+n4evg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZJxe-0000000F7hM-0pZW;
-	Tue, 16 Jun 2026 02:55:34 +0000
-Received: from mail-japanwestazon11022138.outbound.protection.outlook.com ([40.107.75.138] helo=OS8PR02CU002.outbound.protection.outlook.com)
+	id 1wZKVF-0000000F9Dd-30Kj;
+	Tue, 16 Jun 2026 03:30:17 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=twmbx01.aspeedtech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZJxa-0000000F7gj-2XZ1;
-	Tue, 16 Jun 2026 02:55:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=SzNRXV5zAU5NWk4rmGzpoi23AqlFRO3xw3tD2CbrGN/HBsV8uT+914DuCMo/exbXVi9vq82xzpUcfH1Ug4zzrsrmPlBqW9ISTzizlTFr2oHVC5bR2DnGQcCSFgNQwRR++fOjPPoNxXnfkLzgUG1idxQrgRkdwgzPv9PdfANX2RUHpaUSLeeCUHIoOHymmumS35wHQzDyMqdrUWQORMrhmMaIKY3RH7WrnT6rHBiioWSsfmcaRppHVa19F7fIgiRqtZcpMrDdjmNnuVbZL+Vo8SGvHsfhQQOYGMx9eqTejAl1gJap5yAvxTecNbRipUloAJPLghoPuyOEVRvZT0jKVA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=C9V+MxCJ9Aft6i6ZzUuBiG22xRDCPEi8bJuXRhyofKc=;
- b=H7wJ0xOEUkLEubbVoq1rqgUTwbOPEvaJuJjL6K3Qu2Kx+3NlsViH3cDjybL2KM7LqGjU9Vxh1lMHAM8WRWR1OIT6A5Ksl19mObT0Gr6vrMmIBm0oYYOvNgO6Fl3kATPAqUew0LwrnbVFfSNCinE1xVMj0X1ezZrJSaL69eZXhA/E6iA1BoRdjzgtdCzOkelN3h5f6gnoHFbcd5J7yEusWAjZ/5eW73zF8Wn1NEf7rkYoNni6PYI1LglVF4+kBI9ICwPLgf9xm0YKK9jY+s462eQe706URAXp/7dPQjjxwWSh008J08cObyNF3ScnALOROv9L/WqqualiRvaZ9RBMpA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
- dkim=pass header.d=amlogic.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=C9V+MxCJ9Aft6i6ZzUuBiG22xRDCPEi8bJuXRhyofKc=;
- b=di/p2muKpkWujphurqpGRMjHrnkOUzrOXhl1muas1rh7cyhGdOjRQGFeoWBOaYXzTpguNUiUrsNLafADdM5MUbxH+bh2OPGfEqRjbJKuUjejqPIhZf0TLtzMAkGdHW0lGuEPAbfju21ykvW88YgSmwjCHOt6cdZTeUM6OxNPz2RgSVzhBgeauKDu0a0w2UIThQVlJjhUcTBimpreBgnF4mg+lHVfRIrROzXYKwAckDDT+QCzfQoq0PyC6vCV5rkohiTBC7Q/tWtEIZiD1xEcmuK+8YwXh8TV/eMdh/OODiGMQ4BU9o1uuR9lMwbnd3lcbXhcDa0fNwcqwe4gxKUFeg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amlogic.com;
-Received: from TYZPR03MB6896.apcprd03.prod.outlook.com (2603:1096:400:289::14)
- by SE3PR03MB10535.apcprd03.prod.outlook.com (2603:1096:101:324::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.11; Tue, 16 Jun
- 2026 02:54:52 +0000
-Received: from TYZPR03MB6896.apcprd03.prod.outlook.com
- ([fe80::78d4:9dee:2e32:d1e4]) by TYZPR03MB6896.apcprd03.prod.outlook.com
- ([fe80::78d4:9dee:2e32:d1e4%3]) with mapi id 15.21.0139.009; Tue, 16 Jun 2026
- 02:54:51 +0000
-Message-ID: <d2dfaa5c-67d2-40d2-a1f8-bb01cfa8586c@amlogic.com>
-Date: Tue, 16 Jun 2026 10:54:47 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 1/2] dt-bindings: pinctl: amlogic,pinctrl-a4: Add gpio
- irq property
-Content-Language: en-US
-To: Krzysztof Kozlowski <krzk@kernel.org>, Conor Dooley <conor@kernel.org>
-Cc: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- linux-amlogic@lists.infradead.org, linux-gpio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260611-gpio-to-irq-v1-0-12201716f23f@amlogic.com>
- <20260611-gpio-to-irq-v1-1-12201716f23f@amlogic.com>
- <20260611-ungloved-snowplow-522e7c0b7a51@spud>
- <a79e58b5-3a11-4593-847d-ba92527549bf@amlogic.com>
- <542ec217-1187-4fb2-8fd3-b90a6143b84d@kernel.org>
-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
-In-Reply-To: <542ec217-1187-4fb2-8fd3-b90a6143b84d@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SE2P216CA0191.KORP216.PROD.OUTLOOK.COM
- (2603:1096:101:2c5::9) To TYZPR03MB6896.apcprd03.prod.outlook.com
- (2603:1096:400:289::14)
+	id 1wZKVB-0000000F9CX-49zZ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 16 Jun 2026 03:30:15 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Tue, 16 Jun
+ 2026 11:30:02 +0800
+Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Tue, 16 Jun 2026 11:30:02 +0800
+From: Billy Tsai <billy_tsai@aspeedtech.com>
+Subject: [PATCH 0/2] pinctrl: aspeed: Make AST2700 SoC1 JTAG master TRST
+ optional
+Date: Tue, 16 Jun 2026 11:30:00 +0800
+Message-ID: <20260616-pinctrl-fix-v1-0-621036e45c7c@aspeedtech.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TYZPR03MB6896:EE_|SE3PR03MB10535:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5b6df0ad-30ac-4dee-c1af-08decb52a305
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|376014|7416014|18002099003|22082099003|4143699003|6133799003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: F/iEmcg+t3NUuF0nzpqZd/kGum20hmu1ojQ5jXI3UkEzNavg7lQV3emkOjy3jVjkrYGvcOaKODd+UpQSBT34hmjX3npOeCqljFMAQozCTqp6I2i+2OnM4w5V8KlBof30yNWhrTRTK/CF29Okv3XRN+BRBqF7fG4Vp5BHo5fQzaLc7SgQa8T8LEUPQ8e4sVMau+GI8Y0qvu8QA0/W0fHFAmS52XuZbxNS1CfMYgp6UiVIz7UnFo4rN8bbRzu7yusO2P8LhyeWqCJIHFLjBJoEKP3g7I5DpwK6jEs2JEsAi/NsAyKFlEHeY4O8mVpV4lsmRjBQ+/4qfggneaCVLphxd34bSdatT3dss6N9RwCaI8VM8z9ZV9TYwWa0U+hZVUWMXAanudEB9q7mhxuCC/Yk5Si0FOmHnhSXxw/e+lfnbfgr2pn2OyQAaqP+y58v/OHGl2lByiiNwYN2+mL9jXneHaO/tQ5F7UhOXdNbZKVahnW6kulKJFPhc9y3BW9So3unXg4EUVJKxt6Sx3GaQKOPnQ5MktMt4IsYGT5LPk1fghB1fcBiV7/wjzmUFGAZEzThI1uyaN5iw0UN6f6d1HJu1bnlkULcNw2pzVdxfTykHq3+u4nLECpSOJyc0Wmco0mk+VmADlU+cTNfPHvVGjBNV+hxPLKjrqgqMOtKphPCtPjLDnNrjH77DkXxiOFYOpiWXAH3hH8Oeu1+bjUNHoAsRg==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB6896.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(376014)(7416014)(18002099003)(22082099003)(4143699003)(6133799003)(11063799006)(56012099006);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eHdld3FremZscjg3VHJqVy9TQnVMR2VSM3A1RXlUWEIxd0YxekpaVTdoa2hR?=
- =?utf-8?B?RndvU2dBa3hnTE1PczJoR1dKdkVtRFFPL2RmVVVtczJYYUlQb0d5MkdTd1pz?=
- =?utf-8?B?WW9YUlMxdkVtTzRkcENKV0J5NUdwOWptbzJQNmNham1xcjZ3QU1oVEhLeGcy?=
- =?utf-8?B?bE5KMmtHTDdKcXlUai9mMEhRcnQ2K1BwYVd0UkFjbWM5aU9COEpmcHkxRzVG?=
- =?utf-8?B?ZktIMXRvNnVhK1hobHdTbC9sODRWeC8rTE1PY1l5SXFWOG9uNE8vWlVYcVhC?=
- =?utf-8?B?VU1QQzBEekZrbXRuOUh6VktId2MrdE1Ic0dUSUJQM0VxZ0gzdmZ1eUFMaDZn?=
- =?utf-8?B?SkFhNDVhWVVIYmNIUGo2MUpNanBOQW1md1JuVVJMa2lLeGpYUEhYQ1dMbGxh?=
- =?utf-8?B?ZjQ1Y1lCdHl5QUx5L0VtRjlFcDl4Um40NGQ2TDIyV2ViQS9lamZEdWplNi9C?=
- =?utf-8?B?RTE0dkxLc0xTcUdlQk85d0V3WGRMeThTN3J6VXdJdnlQSHFzUXdScmlPTUp5?=
- =?utf-8?B?d0ZNa3p1UTRsNUtaZ2pVRGFEbTlsMFJhQzZ5SUJ2Tm5oWUhUYnl1MzdUcWNE?=
- =?utf-8?B?anQ3ZEhSdlk2eUxyeFVDdTVXdkdFR2xoTjEzeXVaYUc0QVRnRHdIN0NTYlg5?=
- =?utf-8?B?REQxTGZyMVNKeWJGWExYeUNjUlVMNGh0MTU0THZEenNLdTcyWFlKRVBxZXZu?=
- =?utf-8?B?bWVVaENXeTd3Uy9rejYvKzhGZnhXL0o4NFhDRTFaVkZJeEFCWjcra245S1dT?=
- =?utf-8?B?bUZ5UmNBM0dic3lLdWJTcUFhaFBVS0RGWVJLMFhaL1REZlJabTlaU245SDZW?=
- =?utf-8?B?SVhnOVRMMitaS0l4RjRVeEtsQmhKeFFYSGZJem9vKzJiQkYzOU1ZVlVkZmtk?=
- =?utf-8?B?VGdpRDdGTnJtUzFuSEMxY0U5WUwyV2NCVGxZYVlCUnp5aGZKQ2hOdjBvZ1Zi?=
- =?utf-8?B?SzlIUWs4RXBVOXIyWTZLeDFCSjkvQVl4R0FFMzh3VEJZN3hlSTlRUlRrSUxT?=
- =?utf-8?B?NXVlZVkzdjlJeGhSbi92a3dvQUZhY0IrSWpiT3pyNTZTMFdNbGc0V2w2TDhY?=
- =?utf-8?B?b1dZVi9wRU0vVGMwK002OGdBRFROY29qakVWM1A0anNmalR4L1lSMUErdDZU?=
- =?utf-8?B?SzdGWFJ0U1JkL1dXMldnZ2RKK2NZcnZ1TVVDbUU1MHF5ekZ3TlRzMWhwMU0r?=
- =?utf-8?B?blY2NGoxeGdyNjZDUEMwcmRGc2lYd0hvTC8yQ1B2dUhWVUxLU2hIVHh4Vkt0?=
- =?utf-8?B?UVBDV20zRmZrL3FaWVhMdEtkSXJnM3IzQUxkRFJxb0dyWGdsK0ltSktseXVM?=
- =?utf-8?B?RTRUaG8vcDJEcnBibC9QZW9CU3pNQ0Z5QzRDUExyM1lpQXUyL3JuOXZSTXdJ?=
- =?utf-8?B?TVYza0dWMUVpL0txZURNVWpEMUVNZVJ3a2RsTWg2T2JoSElwa0gvSkJrNW5q?=
- =?utf-8?B?aHBWdFU0bmNObXIwc2didFIzTXRWc1JPck5FTG9ZRjRWeFpaWXhoTnQ4aHdh?=
- =?utf-8?B?SWJQTHMyQ2M4WmxCR0VNcTVvQTV5YlcvSFFzQllHcUVGR1dtVkxiTDFxOUl1?=
- =?utf-8?B?ZnRCZHFsYlp4cjR4eHpkamFNNUVyM29VRER0cCtCd1JGaE1JS2NJQ3RCcE9P?=
- =?utf-8?B?YU1NWkZUR293VEthSzduQ055VloxTGlUbkxKYm9PR2wwM3hENllMdkR5bVpJ?=
- =?utf-8?B?Vlc3bDdTeU5hRjYycXFqTFhjYkI2VmRnZTRMb2hGVm5JVHhlaXlwMWhpUklQ?=
- =?utf-8?B?WDhsbksxNGFtcUNIbTZCTmJ5TmpJN09seE4wU2lhNGUvb3FyMVdlWUlONHVS?=
- =?utf-8?B?NndhTHlxWVhTODBHc0dqcXBlaVM4QUdDbWFIenRvc2pWczRSelJwM1dRK1Bi?=
- =?utf-8?B?Z1ZPUXNrcHFrRTNDekU4SXFsUGxZNEliTjBaTFZnOXlxcWRZblZ6S0srL21Q?=
- =?utf-8?B?enkyNXhVclpZY1RGam1zckkwOEt4UlRIbjFjWkRtOU16Ris1clhSb2d0Szlj?=
- =?utf-8?B?T2xpckJUaHc2emxjM1NvOXlEQ3c4cGc0bGJIN3JRRmRLVm9jNkZxQW5oS2pO?=
- =?utf-8?B?ektnSlEyYkFIRjNaS3dsc3BuNGpIM0ZJb3VkbW4vRzh2QU1UMHVmWkVRRUV3?=
- =?utf-8?B?VnJidnM4SytQUWgvTVhYQkdOSkl0M3cvY1R6TDR0L0NWQkdjOWpUbjhWM1pC?=
- =?utf-8?B?T1Z2bDdTZ3U1dy9LVDVsNHUzN3RGZzBRTFplaGxNa2VUK3VUSkYyb1cwd0p2?=
- =?utf-8?B?VTgvMFprRlNtdFFJNmpFejhRUXNjbWpHSTdRa1RMNnR3Tnh2MXR5R0hNVEJj?=
- =?utf-8?B?WndoRHJSWUNRUEF4U3FBZXFheVBsWUR5UWVaMEcxV3grSkxSdisrdz09?=
-X-OriginatorOrg: amlogic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5b6df0ad-30ac-4dee-c1af-08decb52a305
-X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6896.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jun 2026 02:54:51.7292
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: woU9IWi5qPZ+5+gFZ2jtvUwhnxxdBU9WJPszRz3WDzXJNpJAkVxiPOuLliCZQDlFekD2XVd/EdBPpSfmtAtqBVJKkjQu5GWq5l9JO55VAxY=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SE3PR03MB10535
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIADnDMGoC/x2MQQqAIBAAvyJ7bsE1UOgr0SG2rRbCRCOC8O9Jx
+ xmYeaFIVikwmBey3Fr0jA2oM8D7HDdBXRqDs85bTw6TRr7ygas+SEwSuA/OE0MrUpam/9s41fo
+ Bl38dYV0AAAA=
+X-Change-ID: 20260612-pinctrl-fix-1c1e7c37261c
+To: Andrew Jeffery <andrew@codeconstruct.com.au>, Linus Walleij
+	<linusw@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley
+	<joel@jms.id.au>
+CC: <linux-aspeed@lists.ozlabs.org>, <openbmc@lists.ozlabs.org>,
+	<linux-gpio@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	"Billy Tsai" <billy_tsai@aspeedtech.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1781580601; l=1278;
+ i=billy_tsai@aspeedtech.com; s=20251118; h=from:subject:message-id;
+ bh=clIW3mqQh+QXIWxnyxrFoyC5AKtAFPYDP4kc7EQtnBk=;
+ b=IE+rJ0KmC/MBgTobjoqpYiPsgcvPlPwuwhMeeVU4dF0pNKrT6GZt9EOwOIxSurQTiqnGq0nO1
+ qCKtBnQTG5XCTz+5Y8OLyAPwhetW1bytcJRT4PmhZdI54cI6St0qwPJ
+X-Developer-Key: i=billy_tsai@aspeedtech.com; a=ed25519;
+ pk=/A8qvgZ6CPfnwKgT6/+k+nvXOkN477MshEGJvVdzeeQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260615_195530_654703_0D80D559 
-X-CRM114-Status: GOOD (  19.59  )
+X-CRM114-CacheID: sfid-20260615_203014_065089_65AEE751 
+X-CRM114-Status: UNSURE (   9.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,82 +80,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
-    Thanks for your detailed review. After considering the feedback, I 
-think this approach is not suitable, so I will drop this patch.
+The JTAGM1 pin group of the AST2700 SoC1 includes ball D12, which
+carries the TRST signal. TRST is an optional signal for a JTAG master:
+designs that do not wire it may need the D12 ball for other functions,
+but with TRST embedded in the group they cannot use the JTAG master at
+all.
 
-On 2026/6/15 13:32, Krzysztof Kozlowski wrote:
-> On 15/06/2026 04:47, Xianwei Zhao wrote:
->> Hi Conor,
->>      Thanks for your review.
->>
->> On 2026/6/12 01:39, Conor Dooley wrote:
->>> Subject:
->>> Re: [PATCH RFC 1/2] dt-bindings: pinctl: amlogic,pinctrl-a4: Add gpio
->>> irq property
->>> From:
->>> Conor Dooley<conor@kernel.org>
->>> Date:
->>> 2026/6/12 01:39
->>>
->>> To:
->>> xianwei.zhao@amlogic.com
->>> CC:
->>> Linus Walleij<linusw@kernel.org>, Rob Herring<robh@kernel.org>,
->>> Krzysztof Kozlowski<krzk+dt@kernel.org>, Conor Dooley
->>> <conor+dt@kernel.org>, Neil Armstrong<neil.armstrong@linaro.org>, Kevin
->>> Hilman<khilman@baylibre.com>, Jerome Brunet<jbrunet@baylibre.com>,
->>> Martin Blumenstingl<martin.blumenstingl@googlemail.com>,
->>> linux-amlogic@lists.infradead.org,linux-gpio@vger.kernel.org,
->>> devicetree@vger.kernel.org,linux-kernel@vger.kernel.org,
->>> linux-arm-kernel@lists.infradead.org
->>>
->>>
->>>
->>> On Thu, Jun 11, 2026 at 07:54:33AM +0000, Xianwei Zhao via B4 Relay wrote:
->>>> From: Xianwei Zhao<xianwei.zhao@amlogic.com>
->>>>
->>>> Add the hw-irq property for each GPIO bank and enable interrupt-parent
->>>> for pinctrl so that gpiod_to_irq() can translate GPIO lines to IRQs.
->>> Uhhhhh, what? Why can't you just use the normal interrupts property?
->>>
->> The interrupt cannot be used directly because the GPIO bank only
->> provides an IRQ base, which does not have a one-to-one mapping with the
->> actual hardware interrupts.
->>
->> On Amlogic SoCs, GPIO interrupts are handled through a mux. Multiple
->> GPIO pins are mapped to a limited number of real interrupt sources. The
->> implementation can be found here:
->>
->> https://github.com/torvalds/linux/blob/master/drivers/irqchip/irq-meson-gpio.c
->>
->> To use a GPIO interrupt, an unused hardware interrupt must first be
->> allocated, and then the corresponding mux register must be configured.
->> This allocation and mapping are already implemented in the existing driver.
->>
->> In that driver, the mapping is performed dynamically rather than simply
->> calculating:
->>
->> irq = irq_start + gpio_offset
->>
->> If the interrupt is used directly, only the GPIO index can be obtained.
-> 
-> If it is performed dynamically, then it is not suitable for DT.
-> 
-> You still did not explain what hardware aspect exactly is described by
-> "hw-irq".
-> 
-> 
-> 
->> The real interrupt number cannot be derived by simply adding an offset,
->> because the hardware interrupt must be allocated first. Pre-allocating
->> all interrupts during initialization would prevent later GPIOs from
->> obtaining available interrupt sources.
->>
->> Perhaps other names would be more appropriate here, such as "irq_start".
->>
->>>> Signed-off-by: Xianwei Zhao<xianwei.zhao@amlogic.com>
->>>> ---
-> Best regards,
-> Krzysztof
+Split D12 into a new JTAGM1TRST group under the existing JTAGM1
+function, so TRST is only muxed when a board explicitly requests it.
+Patch 1 adds the new group to the device tree binding and patch 2
+splits the group in the driver.
+
+Note that this changes the meaning of the existing JTAGM1 group: boards
+that do use TRST now need to select both the JTAGM1 and JTAGM1TRST
+groups.
+
+Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
+---
+Billy Tsai (2):
+      dt-bindings: pinctrl: aspeed,ast2700-soc1: Add JTAGM1TRST group
+      pinctrl: aspeed: Split TRST out of the AST2700 SoC1 JTAGM1 group
+
+ .../devicetree/bindings/pinctrl/aspeed,ast2700-soc1-pinctrl.yaml    | 1 +
+ drivers/pinctrl/aspeed/pinctrl-aspeed-g7-soc1.c                     | 6 ++++--
+ 2 files changed, 5 insertions(+), 2 deletions(-)
+---
+base-commit: 761af93c9f1a100b8d9f71aa744b8f9abbbbbfb2
+change-id: 20260612-pinctrl-fix-1c1e7c37261c
+
+Best regards,
+-- 
+Billy Tsai <billy_tsai@aspeedtech.com>
+
 
