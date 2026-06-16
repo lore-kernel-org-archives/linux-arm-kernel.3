@@ -4,92 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42B40CD98E1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 12:43:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11123CD98DA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 12:45:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J8dPq5z6m1qmF3lfWoJltmjfpShaHtrEx/mXnH1vSGM=; b=F7rYWXuddAcIgcs+4QmMA6JhOo
-	4Ysm3qBXgxAU+l+Bi1vb8LzrAGbE3IyiRIxXhfaik1M5Zysne8oTrxR6x52/rRrDqnPVmQZU4ChdZ
-	X4w0zYCvSQRvBSXW3RygLMp9+3kIya49eRnd82Uqpi9X8P5bWInp8A/V91Rdc0T29qbvSpWZmI7lA
-	Kofc8/Mr7wt1k90J90jNN04Fjb4q3bRbCqTuDONNQ2qYDonik5hjLIn7bNKiC03kxMnbaKAVdnCVN
-	I9UR+ld3RRgbN1Af3Mnhdp02HiEs7u5EzAvrRgz6gRdflpDLntkKAayQmZ8fDyRgBWAbJf++s44Jy
-	nZ4ENV8Q==;
+	bh=RSxvpTbCusWvzxxh+O+6AIb5tE3WgMP54vCTbFP+AEs=; b=SSYMt4IJOprT0Xcgu/mZZSF3QH
+	hmLgSWO16hCNZS9nLIbbvy7jAFIWesV1SMDrhkKCmnbfOBZ2QpN/SXcKI2Teybphsirg7oOWWiz81
+	CL5ozIsS5QHwiQUoHr/rUN1GLn9lzw5wdLMXmDbFmtUsXBtuOoRVHH92Dtyj91fbyiGD2Nimi+Ska
+	xcADzENF/3MvwSpYcl+nEv5n4p27lINv3tnELQsFZdebfD5x5M6Fky30W1jLmh7Oan8GssSIEAQ6+
+	W98FNr6oKRqOGA8I6CZiHIBzsrOJ8SGW5cVq7Vj1A30BVtcVDzuYLvDe+EHiTcgzugs6qOAqsdIFj
+	jDsto4qQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZT8i-0000000Fmb2-347D;
-	Tue, 16 Jun 2026 12:43:36 +0000
-Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
+	id 1wZTAD-0000000FmoH-0ctC;
+	Tue, 16 Jun 2026 12:45:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZT8g-0000000FmaE-0tJA
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Jun 2026 12:43:35 +0000
-Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-68b90fc6a1dso8712265a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 05:43:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781613812; x=1782218612; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=J8dPq5z6m1qmF3lfWoJltmjfpShaHtrEx/mXnH1vSGM=;
-        b=ho0fxhIxcbsmKvFtOb5ZaTka6M73XxU8vWR5pjawPxT8+i4cNlPJoa30sWj9hQz/4A
-         8XQMyg3RDgDd+HvijchpDMxuop2uKziDVKrQqoO5zWSPufKWmt5M8zl1qbCiVP0htSXx
-         Y9CsHYByN1GETqyvV96sv/CfaCagxz3BEoILg24h9xLOkpOUyFOrrnlB7L6uhXKp7n/c
-         nj76a4bjJ6u9cFFcjgRLgzWIuoX9hXmGY/DwZZRb6tei52jKG0ZMlmtjGd85f3aaNe08
-         EDR9pvwtQnnwGmD4wu3ghCL7W47AminMg7pSEYZrotQPjUCZFK/lwLtXGrPIGzhEr/nr
-         fvKg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781613812; x=1782218612;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=J8dPq5z6m1qmF3lfWoJltmjfpShaHtrEx/mXnH1vSGM=;
-        b=o4u/n9h7Fi5acsKibmCLiCctsPDqo9AlSd1/trw5Pk20baQsXO8/w0YiDvWXHCrjdE
-         8kSK/IO5XP+klNgNZjHbqt4o4u3scTbN0gq8pxp7qWj/hd5nbXFGZE9DYqSq5e43vRxO
-         lRy0nNMm01Zwonv6ZmihykaesndsIydhNlwZdm2y4cUaQAtRD9gTBvCMtUeH7KSox84o
-         Ua623efzo2aHzGqO5+4ZnQGtTTD6ATJQ0n793ALdeOAxhOaUhMyoV7Yl1/NBYUHBbWci
-         Yrwrk8cUmxOhPN4vpu3BSZzicyqNt1gCspXRnB44Gdg4/rfWLP5YmGxlUzy3bQvS8trP
-         qaBQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9PTRmjgVKi9DAJc+K1Lmm73L53n47tHm1/7+A6hQOf9tHATSm7W/Mtc32dSAfu8a5OmVRL+N1XrtWzazBlHPZW@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw328LaVynhGEgz5/VTei5dfLcJLSsYciRp51bZGzL5K5OX6Tqj
-	zDWLTZkAC8JLO5V0/0YKIWL6ASPT6vGHrd3+J0xgBd3Je27BYIdUsPXkpmQ47p4YZQ==
-X-Gm-Gg: Acq92OFBzPaL2+6CA8ptJk0bxg7azWx1+8VrqEWIa1K3UrbTtbu5BYkOuv2lHjd+PhL
-	qlXuhS++r+wvpVEXVe4/1z2zE3fgjm48scAEmxsoWUjQqxz1a8aGD50zFgRk6Z45iM/mA8e+neA
-	+vabp+jSrUhk8Y9KJ41iDAaGm8UiVtbiCts78cN6ku+uDzk28DTzemTSoPvB/5TEK8BU4O0ecVe
-	hu3mngE03Rl8xi5sYIaoxUBjbwJuYSPGytkf0kHf+YU2Svz9ao5rwzCooL7J17N6KXsLZtpgPHf
-	9u09/V2PY6NJ5z1lBjCt6Lee6QCbGawzsiXkeSdPZKdZJ3+mgXXx5s108hNzC2ENiLI+GddAdam
-	+sI2A+6aJjbjeMjlzfwQI/78hF39Z9PBkovrw/foAZbJB7+WmeEv0eh+WebTdvy2shoGC89UVa2
-	tViog42vjesGiIG5TedvE6R3ZBc71amEC7rqCJ9XILPqHP9jFj40E7O1ddVwnQ+WTImN0dpevzu
-	sRxSw==
-X-Received: by 2002:aa7:c047:0:b0:68f:9fd9:435a with SMTP id 4fb4d7f45d1cf-69508237df1mr1454321a12.17.1781613811803;
-        Tue, 16 Jun 2026 05:43:31 -0700 (PDT)
-Received: from google.com (135.91.155.104.bc.googleusercontent.com. [104.155.91.135])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6937938a524sm5008893a12.18.2026.06.16.05.43.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 16 Jun 2026 05:43:31 -0700 (PDT)
-Date: Tue, 16 Jun 2026 13:43:27 +0100
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Sebastian Ene <sebastianene@google.com>
-Cc: catalin.marinas@arm.com, maz@kernel.org, oupton@kernel.org,
-	will@kernel.org, joey.gouly@arm.com, korneld@google.com,
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, android-kvm@google.com,
-	mrigendra.chaubey@gmail.com, perlarsen@google.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com
-Subject: Re: [PATCH v3 2/7] KVM: arm64: Support
- FFA_NOTIFICATION_BITMAP_DESTROY in host handler
-Message-ID: <ajFE7wrrXcdzXdkI@google.com>
-References: <20260616105417.2578670-1-sebastianene@google.com>
- <20260616105417.2578670-5-sebastianene@google.com>
+	id 1wZTAB-0000000Fmo6-0GWq;
+	Tue, 16 Jun 2026 12:45:07 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 96C564343C;
+	Tue, 16 Jun 2026 12:45:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EEA611F00A3A;
+	Tue, 16 Jun 2026 12:45:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781613906;
+	bh=RSxvpTbCusWvzxxh+O+6AIb5tE3WgMP54vCTbFP+AEs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=J5ySzhETylCMwlWJqWi2xiHpCYAbtxTalJzbQ1tiNxnXEXXmlpUF5s76yDrsFT+Th
+	 un+UlxxuV43H3KlRjBS7KXnq2/Tfmq9E0BYvkJAFkT0O9Ox7j1qqiwdDFDV9Jw740T
+	 knJ3VMAcrqOIDJj0JU1BgIGuVZ+Q0rnNwOuldLegv0CiqvLjQArC/1Yh0izAiP1296
+	 uheO3IjE4eXUngi/GISPMiOliLxR+Wd4VDtTXIPkLwr5hMlTxX2e6c4O9wPnRdtEGN
+	 +4oADLKrPsimhEzMF/FByaXU/7CqXjgwBEQXgqGFWUe5oBIcB+uyRmgC3OqTD0yAf8
+	 XEfLMicbv1dFw==
+Date: Tue, 16 Jun 2026 14:45:04 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Wayen Yan <win847@gmail.com>
+Cc: netdev@vger.kernel.org, horms@kernel.org, pabeni@redhat.com,
+	kuba@kernel.org, edumazet@google.com, andrew+netdev@lunn.ch,
+	angelogioacchino.delregno@collabora.com, matthias.bgg@gmail.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v2] [net] net: airoha: Clean up RX queues in
+ airoha_dev_stop
+Message-ID: <ajFFUFgsd9KDvdGy@lore-desk>
+References: <178161160256.2165161.14322392784449633554@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="oUOTYG3fwkRvybn7"
 Content-Disposition: inline
-In-Reply-To: <20260616105417.2578670-5-sebastianene@google.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260616_054334_343214_B11806AE 
-X-CRM114-Status: GOOD (  17.96  )
+In-Reply-To: <178161160256.2165161.14322392784449633554@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,54 +72,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 16, 2026 at 10:54:11AM +0000, Sebastian Ene wrote:
-> Allow FF-A notification bitmap destruction messages to be forwarded to
-> Trustzone from the host.
-> 
-> Signed-off-by: Sebastian Ene <sebastianene@google.com>
+
+--oUOTYG3fwkRvybn7
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Jun 16, Wayen Yan wrote:
+> When the last port is stopped, airoha_dev_stop() clears TX queues
+> but neglects to clean up RX queues. This can lead to:
+> - RX ring buffer descriptors remaining valid after device close
+> - Potential DMA synchronization issues on device reopen
+> - Risk of use-after-free if pages are freed while DMA is still active
+>=20
+> Add cleanup loop for RX queues to mirror the TX queue cleanup,
+> ensuring symmetric resource management.
+>=20
+> Fixes: 23020f049327 ("net: airoha: Introduce ethernet support for EN7581 =
+SoC")
+> Signed-off-by: Wayen Yan <win847@gmail.com>
+
+when you send a new revision:
+- please add a note of what you changed with respect to the previous one.
+- please give some time to reviewers to take a look to the previous revisio=
+n.
+
 > ---
->  arch/arm64/kvm/hyp/nvhe/ffa.c | 6 ++++--
->  1 file changed, 4 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> index b1e5f9ee86ef..49a43c38a931 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> @@ -688,7 +688,6 @@ static bool ffa_call_supported(u64 func_id)
->  	case FFA_MEM_DONATE:
->  	case FFA_MEM_RETRIEVE_REQ:
->         /* Optional notification interfaces added in FF-A 1.1 */
-> -	case FFA_NOTIFICATION_BITMAP_DESTROY:
->  	case FFA_NOTIFICATION_BIND:
->  	case FFA_NOTIFICATION_UNBIND:
->  	case FFA_NOTIFICATION_SET:
-> @@ -876,10 +875,12 @@ static void do_ffa_part_get(struct arm_smccc_1_2_regs *res,
->  static void do_ffa_notif_bitmap(struct arm_smccc_1_2_regs *res,
->  				struct kvm_cpu_context *ctxt)
->  {
-> +	DECLARE_REG(u32, func_id, ctxt, 0);
->  	DECLARE_REG(u32, vmid, ctxt, 1);
->  	struct arm_smccc_1_2_regs *args;
-> +	u32 idx_unused_args = func_id == FFA_NOTIFICATION_BITMAP_CREATE ? 3 : 2;
-
-Hum, this one applies weirdly too as it's been introduced in the previous patch
-already.
-
->  
-> -	if (ffa_check_unused_args_sbz(ctxt, 3)) {
-> +	if (ffa_check_unused_args_sbz(ctxt, idx_unused_args)) {
->  		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
->  		return;
+>  drivers/net/ethernet/airoha/airoha_eth.c | 7 +++++++
+>  1 file changed, 7 insertions(+)
+>=20
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ether=
+net/airoha/airoha_eth.c
+> index 31cdb11cd7..9ca5bbf64d 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+> @@ -1771,6 +1771,13 @@ static int airoha_dev_stop(struct net_device *dev)
+> =20
+>  			airoha_qdma_cleanup_tx_queue(&qdma->q_tx[i]);
+>  		}
+> +
+> +		for (i =3D 0; i < ARRAY_SIZE(qdma->q_rx); i++) {
+> +			if (!qdma->q_rx[i].ndesc)
+> +				continue;
+> +
+> +			airoha_qdma_cleanup_rx_queue(&qdma->q_rx[i]);
+> +		}
 >  	}
-> @@ -952,6 +953,7 @@ bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
->  		do_ffa_part_get(&res, host_ctxt);
->  		goto out_handled;
->  	case FFA_NOTIFICATION_BITMAP_CREATE:
-> +	case FFA_NOTIFICATION_BITMAP_DESTROY:
->  		do_ffa_notif_bitmap(&res, host_ctxt);
->  		goto out_handled;
->  	}
-> -- 
-> 2.54.0.1099.g489fc7bff1-goog
-> 
+
+I do not think this patch is needed since there is no point to remove all t=
+he
+RX buffers from the hw RX queues stopping the device, this is necessary just
+removing the module (I think we can avoid it for TX too, I have a patch for=
+ it
+I need to post).
+Moreover, doing so, when the device is opened again, RX queues will be empt=
+y.
+
+Regards,
+Lorenzo
+
+> =20
+>  	return 0;
+> --=20
+> 2.51.0
+>=20
+>=20
+
+--oUOTYG3fwkRvybn7
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCajFFUAAKCRA6cBh0uS2t
+rEYHAQCdVSubIzZ2cVft7kjoGjr/zu7URV9JU3sxY5jp8tVr4QEA7hR72xCrHK/G
+RBtj7gTHqoSlUgRBVIgKNfP494jhvAU=
+=a8N+
+-----END PGP SIGNATURE-----
+
+--oUOTYG3fwkRvybn7--
 
