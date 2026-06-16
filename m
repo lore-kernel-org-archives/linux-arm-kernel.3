@@ -4,62 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 090F1CD98D2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 05:39:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BFC6CD8CA8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 06:05:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=80RmZrwXuKFVLAWjbGHY+VjBEIxT3ywEjfnnRscgprA=; b=05439ASI15JdDp8i2m/0ARym15
-	Os9flHV48/4fhpwvgNSWeMy8IrgRu2+4UvGLkwePP559iE9R/0phyl6LfgB1SdwE51Syf6oK5PC6/
-	GAIRV0ByWDqRTEodmN233xAt4b+/qHb38C/6adTTqY2kIA0zf4swp9/YE8txI4+wYrn6n7MaK3GHv
-	BSsKvQ6nYk2yehuB2Re3TopHtXwUp4nCgSqiR4EJdx3WdO9DyBZV0diMBAnj/rm2uxtnCZyZFinQ0
-	tWG3emQQQwLx1pt87n2gDcsawKjg95j2uuH1s+MBZZ7ul2Z1PNDPPeznAK5FXpWrrjdW3N+n3dCgE
-	7PKpDMww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DP9yGT6QKwGNgFyL+ot+cc5mr0CL8Vk2HURoU3nGDBo=; b=Yq8Mke42uG7XrywhZXazErCNiX
+	6Yc1v05/ukrQNh67GVvBYypnJKE3tim23m4BW9Xw72GVPXeIXGylSpxCerRUVIsZ3rjUn77FGmzLG
+	kRGih3zE9yVPrgPtyAfrFXjt9AyG4k4W+OjOPCABGq3gTuzm2nPV5ULoFVyv7/VEDQ7uHd95HHw19
+	vnPTRiUoQWxuLTRvbd0/QtPMH73GjK8AfeEiQL4+2yqN/vAm29dKqYyfzfshnuDuxrS0WI53fyn7Z
+	eBK9Os42TqPfQlKL/qJnI6nL5AmhnGIOrjVS2SwlnBlR1/W2aBzVHbiHvYn5y6yP85ThAvgn44tlg
+	C1HaETbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZMWO-0000000FFj8-3Kg8;
-	Tue, 16 Jun 2026 05:39:36 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wZMv0-0000000FHUI-47kg;
+	Tue, 16 Jun 2026 06:05:02 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZMWN-0000000FFim-2nuk;
-	Tue, 16 Jun 2026 05:39:35 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id ADC7A601F0;
-	Tue, 16 Jun 2026 05:39:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3D581F00A3D;
-	Tue, 16 Jun 2026 05:39:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781588374;
-	bh=80RmZrwXuKFVLAWjbGHY+VjBEIxT3ywEjfnnRscgprA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=bFxrHIdCaXCMK8Ds5Dzlp3idpjzEVT1sCk3OFQ/2GMb2VCvCA4245IBnL/WVAsJc5
-	 JyniP+z5QEHf6RdWdWAcIcO2nXOFKYgTzElancuh0rzTGp/gg4jJsnvOERy4v9Ukuj
-	 YhhkEs2qiVhq5ZjcG123PLk1Eo6qMy3fnz036gWF4f4Zyxq+gWvQ2/dBxRHRb1CX6J
-	 aBHlyOha24fkmEjm3WTsrTytcPtC5QNzXqH+zESrTP9CG/yoLJ2njm5r3NI2S7BoSw
-	 OVcVyVnKtu9etqcuzfjlWtUiDGbJbFcw0D+G/XU6C47Qt+Z4+izJcRwyG4o+NXKuh+
-	 ieyxgDHfylEhQ==
-Date: Tue, 16 Jun 2026 07:39:26 +0200
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Geraldo Nascimento <geraldogabriel@gmail.com>
-Cc: Shawn Lin <shawn.lin@rock-chips.com>, 
-	Dragan Simic <dsimic@manjaro.org>, linux-rockchip@lists.infradead.org, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, linux-pci@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 3/3] PCI: rockchip: drive at 2.5 GT/s, error other
- speeds
-Message-ID: <2nhgubo6h6eo5t5mzzizhiatea2f6if6fgjumzb7qae7idw34x@nljy2gwgi64g>
-References: <cover.1781207474.git.geraldogabriel@gmail.com>
- <4ac5cd7d2271df375ed6307f5c394247721395d9.1781207474.git.geraldogabriel@gmail.com>
- <ajBS3tGp0wqLyVq7@geday>
+	id 1wZMux-0000000FHTE-2n8D
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 16 Jun 2026 06:05:01 +0000
+X-UUID: 4b335554694911f1aa26b74ffac11d73-20260616
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.12,REQID:f8c07405-8f65-4cc3-93c2-90861c38714d,IP:0,U
+	RL:0,TC:0,Content:-25,EDM:-25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACT
+	ION:release,TS:-50
+X-CID-META: VersionHash:e7bac3a,CLOUDID:8d830cddd8d0be4aff8ba95ffb23005c,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:102|850|865|898,TC:nil,Content:0|15|50,E
+	DM:2,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:
+	0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 4b335554694911f1aa26b74ffac11d73-20260616
+X-User: zenghongling@kylinos.cn
+Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <zenghongling@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 1123411217; Tue, 16 Jun 2026 14:04:54 +0800
+From: Hongling Zeng <zenghongling@kylinos.cn>
+To: vkoul@kernel.org,
+	Frank.Li@kernel.org,
+	wens@kernel.org,
+	jernej.skrabec@gmail.com,
+	samuel@sholland.org,
+	mripard@kernel.org,
+	arnd@arndb.de
+Cc: dmaengine@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	zhongling0719@126.com,
+	Hongling Zeng <zenghongling@kylinos.cn>
+Subject: [PATCH v2] dmaengine: sun6i-dma: Fix memory leak in sun6i_dma_terminate_all
+Date: Tue, 16 Jun 2026 14:04:49 +0800
+Message-Id: <20260616060449.42225-1-zenghongling@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <ajBS3tGp0wqLyVq7@geday>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260615_230500_081325_329665E5 
+X-CRM114-Status: GOOD (  10.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,73 +83,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 15, 2026 at 04:30:38PM -0300, Geraldo Nascimento wrote:
-> Hi,
-> 
-> On Thu, Jun 11, 2026 at 05:04:22PM -0300, Geraldo Nascimento wrote:
-> > Configure the core to be driven at 2.5 GT/s Link Speed and ignore
-> > any other speed with a warning. Also drop the 5.0 GT/s Link Speed
-> > defines from Rockchip PCIe header.
-> > 
-> > The reason is that Shawn Lin from Rockchip has reiterated that there
-> > may be danger of "catastrophic failure" in using their PCIe with
-> > 5.0 GT/s speeds.
-> > 
-> > While Rockchip has done so informally without issuing a proper errata,
-> > and the particulars are thus unknown, this may cause data loss or
-> > worse.
-> > 
-> > This change is corroborated by RK3399 official datasheet [1], which
-> > states maximum link speed for this platform is 2.5 GT/s.
-> > 
-> > [1] https://opensource.rock-chips.com/images/d/d7/Rockchip_RK3399_Datasheet_V2.1-20200323.pdf
-> > 
-> > Fixes: 956cd99b35a8 ("PCI: rockchip: Separate common code from RC driver")
-> > Link: https://lore.kernel.org/all/ffd05070-9879-4468-94e3-b88968b4c21b@rock-chips.com/
-> > Cc: stable@vger.kernel.org
-> > Reported-by: Dragan Simic <dsimic@manjaro.org>
-> > Reported-by: Shawn Lin <shawn.lin@rock-chips.com>
-> > Signed-off-by: Geraldo Nascimento <geraldogabriel@gmail.com>
-> > ---
-> >  drivers/pci/controller/pcie-rockchip.c | 16 +++++++++-------
-> >  drivers/pci/controller/pcie-rockchip.h |  3 ---
-> >  2 files changed, 9 insertions(+), 10 deletions(-)
-> > 
-> > diff --git a/drivers/pci/controller/pcie-rockchip.c b/drivers/pci/controller/pcie-rockchip.c
-> > index 0f88da3788054..5a2876d7c8547 100644
-> > --- a/drivers/pci/controller/pcie-rockchip.c
-> > +++ b/drivers/pci/controller/pcie-rockchip.c
-> > @@ -66,8 +66,10 @@ int rockchip_pcie_parse_dt(struct rockchip_pcie *rockchip)
-> >  	}
-> >  
-> >  	rockchip->link_gen = of_pci_get_max_link_speed(node);
-> > -	if (rockchip->link_gen < 0 || rockchip->link_gen > 2)
-> > -		rockchip->link_gen = 2;
-> > +	if (rockchip->link_gen < 0 || rockchip->link_gen >= 2) {
-> > +		rockchip->link_gen = 1;
-> > +		dev_warn(dev, "invalid max-link-speed, limited to 2.5 GT/s\n");
-> > +	}
-> >  
-> >  	for (i = 0; i < ROCKCHIP_NUM_PM_RSTS; i++)
-> >  		rockchip->pm_rsts[i].id = rockchip_pci_pm_rsts[i];
-> > @@ -147,12 +149,12 @@ int rockchip_pcie_init_port(struct rockchip_pcie *rockchip)
-> >  		goto err_exit_phy;
-> >  	}
-> >  
-> > +	/* 5.0 GT/s may cause catastrophic failure for this core */
-> >  	if (rockchip->link_gen == 2)
-> > -		rockchip_pcie_write(rockchip, PCIE_CLIENT_GEN_SEL_2,
-> 
-> Sashiko caught unreachable dead code rightfully here. It looks like I
-> had got it right in v4 and then the fix regressed.
-> 
-> Will address this for v7 after I get more comments.
-> 
+When terminating a non-cyclic DMA transfer, the active descriptor
+is not properly reclaimed. The descriptor is removed from the
+desc_issued list in sun6i_dma_start_desc(), but in
+sun6i_dma_terminate_all(), only cyclic transfer descriptors are
+added to the desc_completed list before cleanup.
 
-I don't have any comments other than this.
+For non-cyclic transfers, pchan->desc is set to NULL without first
+adding the descriptor back to a list that vchan_get_all_descriptors()
+can collect. This causes the descriptor and its associated LLI chain
+to be permanently leaked.
 
-- Mani
+Fix by ensuring both cyclic and non-cyclic active descriptors are
+added to the desc_completed list before setting pchan->desc to NULL.
 
+Fixes: 555859308723 ("dmaengine: sun6i: Add driver for the Allwinner A31 DMA controller")
+Signed-off-by: Hongling Zeng <zenghongling@kylinos.cn>
+
+---
+ Change in v2;
+ -Add pchan->desc != pchan->done check to prevent race condition
+  where completed descriptors could be double-added to desc_completed
+  list, causing list corruption
+---
+ drivers/dma/sun6i-dma.c | 12 +++++-------
+ 1 file changed, 5 insertions(+), 7 deletions(-)
+
+diff --git a/drivers/dma/sun6i-dma.c b/drivers/dma/sun6i-dma.c
+index 7a79f346250a..12d038ef5f2e 100644
+--- a/drivers/dma/sun6i-dma.c
++++ b/drivers/dma/sun6i-dma.c
+@@ -946,16 +946,14 @@ static int sun6i_dma_terminate_all(struct dma_chan *chan)
+ 
+ 	spin_lock_irqsave(&vchan->vc.lock, flags);
+ 
+-	if (vchan->cyclic) {
+-		vchan->cyclic = false;
+-		if (pchan && pchan->desc) {
+-			struct virt_dma_desc *vd = &pchan->desc->vd;
+-			struct virt_dma_chan *vc = &vchan->vc;
++	if (pchan && pchan->desc && pchan->desc != pchan->done) {
++		struct virt_dma_desc *vd = &pchan->desc->vd;
++		struct virt_dma_chan *vc = &vchan->vc;
+ 
+-			list_add_tail(&vd->node, &vc->desc_completed);
+-		}
++		list_add_tail(&vd->node, &vc->desc_completed);
+ 	}
+ 
++	vchan->cyclic = false;
+ 	vchan_get_all_descriptors(&vchan->vc, &head);
+ 
+ 	if (pchan) {
 -- 
-மணிவண்ணன் சதாசிவம்
+2.25.1
+
 
