@@ -4,70 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28969CD98E4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 14:38:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5A16CD98E4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 14:51:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=L4HUsPuZdj6LV3uNElVOC/aB6ZtKXn8837uRKeGnUl0=; b=0bIVsmL5IVTN4+5BjUJqNnuzaW
-	YuMSAkMolpviWsT02LVhvLuEIIaJLvM7aHrKQmtMvdHXWJAYOIiIKxPjHuytbJCkjq37e9hRfxq9u
-	hm6YD2znSGTjrGFq5hKKimvwickGFB2IFnUaoNPTSjACxPS/23EyPWbZSTofv4K4bBdAUfXTlXUOi
-	egJEbW/HUADU75bvSrnTLl4inK7uHCXRXpTdA49wCT/OtU0WRKq77hYBd87tiTkcmPGI85Neg3/Xn
-	COB//7N+82gU9Gf/ycOwqwm/sn6xAk/vbmYCZOsbdZMeClae3VFLXlymm1wctns0zf77FRfGkkZ8t
-	czWCwB5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=46GBdWkm5i4/Qc8CW1ppcuejtyjh+KZhdw8o/Frxcd0=; b=CXp8kQcMCLU5VG
+	g+oxxKDA7nDkuBcfSw5lo17Z2VuyF7o8BAth5mKOjxE9+X7FHJLJKA1PF6ha9IZpne12uQauo9312
+	NSs+zT6WD57CNendyby6mDpgdULBiZK1inR7JCMqDuzPdsBrj0ok0KIe8moNFiNuymVJw77vS+TFI
+	NCBAXLscIt6uJLGcMbq8znd1F7sc/fnVmul+EjXUvRV9v+uW5Kas6Xs+wLvsbUIMEX6r9kFqZj+xC
+	+gV5PSmiLTGhxrWuxad0rBiPQhLlfPEmmUKH4MOng3PBsS42JhwxXFZT8edUUqmvchXLavPF9LEbc
+	g10gGkAXyhJ4pqs0HHHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZUve-0000000FvqY-3AMw;
-	Tue, 16 Jun 2026 14:38:14 +0000
-Received: from smtp-bc0a.mail.infomaniak.ch ([45.157.188.10])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZUvb-0000000Fvpj-0f3N
+	id 1wZV8U-0000000Fwk4-3t79;
+	Tue, 16 Jun 2026 14:51:30 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wZV8R-0000000FwjF-2bI9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Jun 2026 14:38:13 +0000
-Received: from smtp-3-0000.mail.infomaniak.ch (unknown [IPv6:2001:1600:4:17::246b])
-	by smtp-3-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4gfqND4ClszC3W;
-	Tue, 16 Jun 2026 16:38:04 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pschenker.ch;
-	s=20220412; t=1781620684;
-	bh=L4HUsPuZdj6LV3uNElVOC/aB6ZtKXn8837uRKeGnUl0=;
-	h=From:To:Cc:Subject:Date:From;
-	b=tAi96LJXCg+fKOs6D1B1q64Pr4G70CxNuWQUFaWA9A+WDqf4Gc6eAM0ZBvGatjXId
-	 /Fi1Xe8/4Riq0LXduefg3SJpl59vwyHZyJgfUd+f+gyQkrSU0unGCXKTy8Ux6MaaVL
-	 nVEwf9VC6Ww+wNNTk90YNVNIVLor7B5oLju+kPPo=
-Received: from unknown by smtp-3-0000.mail.infomaniak.ch (Postfix) with ESMTPA id 4gfqN93F77zy0m;
-	Tue, 16 Jun 2026 16:38:01 +0200 (CEST)
-From: Philippe Schenker <dev@pschenker.ch>
-To: netdev@vger.kernel.org
-Cc: Philippe Schenker <philippe.schenker@impulsing.ch>,
-	danishanwar@ti.com,
-	rogerq@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	stable@vger.kernel.org,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	David Carlier <devnexen@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jacob Keller <jacob.e.keller@intel.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Kevin Hao <haokexin@gmail.com>,
-	Meghana Malladi <m-malladi@ti.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Vadim Fedorenko <vadim.fedorenko@linux.dev>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net] net: ethernet: ti: icssg: guard PA stat lookups
-Date: Tue, 16 Jun 2026 16:35:34 +0200
-Message-ID: <20260616143642.1972071-1-dev@pschenker.ch>
-X-Mailer: git-send-email 2.54.0
+	Tue, 16 Jun 2026 14:51:29 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1DF5F1FC7;
+	Tue, 16 Jun 2026 07:51:20 -0700 (PDT)
+Received: from e132581.arm.com (unknown [10.2.196.114])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B1AB83F915;
+	Tue, 16 Jun 2026 07:51:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1781621484; bh=VhYU14kHVmOkYlCo12qzbYEStQbZfNtpmsNmyGUChao=;
+	h=From:Subject:Date:To:Cc:From;
+	b=bomdml3dvSQ7hOQ4nUhHc71vxgKHmhWlUNSrSF/ikw/EaLd8c21DLPDyL4IZXdLRT
+	 J0YloRsQBM1PNdPsHNLsvoDGD986DYVEIpS0/tvfwH397asYcq3EqpeuTq5s4G47ax
+	 z4ys/ul+R9yypkC8eX2fchN8o9lNourLxEoIMxUA=
+From: Leo Yan <leo.yan@arm.com>
+Subject: [PATCH v9 0/9] perf cs-etm: Support thread stack and callchain
+Date: Tue, 16 Jun 2026 15:51:08 +0100
+Message-Id: <20260616-b4-arm_cs_callchain_support_v1-v9-0-f8fad931c413@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Infomaniak-Routing: alpha
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAN1iMWoC/5XOzQoCIRQF4FcZXGeoOf606j0ixLmjjVDjoJMUM
+ e+eBRGtouW5HL5z7yi7FFxG2+aOkishhzjWoFcNgsGOR4dDXzNihAnSMoo7jm06G8gG7OlUO2E
+ 0+TJNMc2mUMyAWUkk1R0AqsiUnA/X18D+UPMQ8hzT7bVXxPP6psUvughMsNeea99uQPf9rrbXE
+ M/oCRf5wQT9+WeRFaOdlZKAEsy6b0z9h6mKyY3UXLWKe2c/2LIsD3fRAbtkAQAA
+X-Change-ID: 20260521-b4-arm_cs_callchain_support_v1-2c2a70719bcc
+To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
+ James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@arm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>, Al Grant <al.grant@arm.com>, 
+ Paschalis Mpeis <paschalis.mpeis@arm.com>, Amir Ayupov <aaupov@fb.com>
+Cc: linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org, 
+ linux-perf-users@vger.kernel.org, Leo Yan <leo.yan@arm.com>, 
+ Leo Yan <leo.yan@linux.dev>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1781621481; l=7661;
+ i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
+ bh=VhYU14kHVmOkYlCo12qzbYEStQbZfNtpmsNmyGUChao=;
+ b=o8KwOGFuL1kdEFj1UbjKF7Rwl5K7Mfhl0Bs9dg9Wgj+WWqmXpwcTVWQ4mAGfGzhYND+irumnc
+ MQGg1sIiHisD6w66Mi6yJPNSmPn1UOg+9xs3OHyOAj32HZve48ovgYM
+X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
+ pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260616_073811_720656_48411F4F 
-X-CRM114-Status: GOOD (  11.20  )
+X-CRM114-CacheID: sfid-20260616_075127_823855_800E0728 
+X-CRM114-Status: GOOD (  17.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,103 +88,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Philippe Schenker <philippe.schenker@impulsing.ch>
+This series adds thread-stack and synthesized callchain support for Arm
+CoreSight, which comes from older series [1] but heavily rewritten.
 
-icssg_ndo_get_stats64() unconditionally calls emac_get_stat_by_name()
-with FW PA stat names regardless of whether the PA stats block is
-present on the hardware.  emac_get_stat_by_name() already guards the
-PA stats lookup with `if (emac->prueth->pa_stats)`; when that pointer
-is NULL the lookup falls through to netdev_err() and returns -EINVAL.
-Because ndo_get_stats64 is polled regularly by the networking stack
-this produces thousands of log entries of the form:
+CS ETM previously kept last-branch state in a per-trace-queue buffer.
+That effectively makes the state per CPU, while the call/return history
+belongs to a thread. This series moves branch tracking to the common
+thread-stack code.
 
-  icssg-prueth icssg1-eth end0: Invalid stats FW_RX_ERROR
+The series records CoreSight branches with thread_stack__event(), uses
+thread_stack__br_sample() for last branch entries, flushes thread stacks
+after decoder resets.
 
-A secondary consequence is that the int(-EINVAL) return value is
-implicitly widened to a near-ULLONG_MAX unsigned value when accumulated
-into the __u64 fields of rtnl_link_stats64, silently corrupting the
-rx_errors, rx_dropped and tx_dropped counters reported by `ip -s link`.
+A decoder reset between AUX trace buffers is treated as a global trace
+discontinuity, so all thread stacks are flushed, so avoids carrying
+stale call/return history across a trace discontinuity.
 
-Every other PA-aware code path in the driver is already guarded with
-the same `if (emac->prueth->pa_stats)` check.  Apply the same guard
-here.
+One limitation remains for instructions emulated by the kernel. In that
+case the exception return address may not match the return address
+stored in the thread stack, because after exception return can be one
+instruction ahead. The stack can still recover when a later return
+matches an upper caller. Given emulated instructions are not the common
+target for performance callchain analysis. Supporting this would require
+extending the common thread-stack path to accept both the real target
+address and an adjusted address for stack matching, so this series
+leaves that extra complexity out.
 
-Fixes: 0d15a26b247d ("net: ti: icssg-prueth: Add ICSSG FW Stats")
+The series has been tested on Orion6 board:
 
-Signed-off-by: Philippe Schenker <philippe.schenker@impulsing.ch>
+  perf test 136 -vvv
+  136: CoreSight synthesized callchain:
+  --- start ---
+  test child forked, pid 3539
+  ---- end(0) ----
+  136: CoreSight synthesized callchain			: Ok
 
-Cc: danishanwar@ti.com
-Cc: rogerq@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: stable@vger.kernel.org
+  perf script --itrace=g16i10il64
+
+  callchain_test   17468 [005] 1031003.229943:         10 instructions:
+              aaaac32507c4 main+0x8 (/home/kernel/leoy/test_cs_callchain/callchain_test)
+              ffff90bd225c __libc_start_call_main+0x7c (/usr/lib/aarch64-linux-gnu/libc.so.6)
+              ffff90bd233c call_init+0x9c (inlined)
+              ffff90bd233c __libc_start_main_impl+0x9c (inlined)
+              aaaac3250670 _start+0x30 (/home/kernel/leoy/test_cs_callchain/callchain_test)
+
+  callchain_test   17468 [005] 1031003.229943:         10 instructions:
+              aaaac3250774 do_svc+0xc (/home/kernel/leoy/test_cs_callchain/callchain_test)
+              aaaac3250798 print+0xc (/home/kernel/leoy/test_cs_callchain/callchain_test)
+              aaaac32507b0 foo+0xc (/home/kernel/leoy/test_cs_callchain/callchain_test)
+              aaaac32507c8 main+0xc (/home/kernel/leoy/test_cs_callchain/callchain_test)
+              ffff90bd225c __libc_start_call_main+0x7c (/usr/lib/aarch64-linux-gnu/libc.so.6)
+              ffff90bd233c call_init+0x9c (inlined)
+              ffff90bd233c __libc_start_main_impl+0x9c (inlined)
+              aaaac3250670 _start+0x30 (/home/kernel/leoy/test_cs_callchain/callchain_test)
+
+  callchain_test   17468 [005] 1031003.229944:         10 instructions:
+          ffff800080010c20 vectors+0x420 ([kernel.kallsyms])
+              aaaac3250784 do_svc+0x1c (/home/kernel/leoy/test_cs_callchain/callchain_test)
+              aaaac3250798 print+0xc (/home/kernel/leoy/test_cs_callchain/callchain_test)
+              aaaac32507b0 foo+0xc (/home/kernel/leoy/test_cs_callchain/callchain_test)
+              aaaac32507c8 main+0xc (/home/kernel/leoy/test_cs_callchain/callchain_test)
+              ffff90bd225c __libc_start_call_main+0x7c (/usr/lib/aarch64-linux-gnu/libc.so.6)
+              ffff90bd233c call_init+0x9c (inlined)
+              ffff90bd233c __libc_start_main_impl+0x9c (inlined)
+              aaaac3250670 _start+0x30 (/home/kernel/leoy/test_cs_callchain/callchain_test)
+
+Note, the test fails on Juno board which is caused by many discontinuity
+packets (mainly caused by NO_SYNC elem). This is likely caused by the
+FIFO overflow on the path.
+
+[1] https://lore.kernel.org/linux-arm-kernel/20200220052701.7754-1-leo.yan@linaro.org/
+
+Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
+Changes in v9:
+- Added patch 01 to fixed thread leak during trace queue init (sashiko).
+- Added check in instruction and branch samples in
+  cs_etm__add_stack_event() (sashiko).
+- Released frontend_thread properly in cs_etm__context() (sashiko).
+- Refined cs_etm__flush_all_stack() to use switch (sashiko).
+- Gathered James' review tags.
+- Rebased on the latest perf-tools-next.
+- Link to v8: https://lore.kernel.org/r/20260611-b4-arm_cs_callchain_support_v1-v8-0-737948584fea@arm.com
 
- drivers/net/ethernet/ti/icssg/icssg_common.c | 48 +++++++++++---------
- 1 file changed, 27 insertions(+), 21 deletions(-)
+Changes in v8:
+- Updated test_arm_coresight_disasm.sh to pass "--itrace=b" and updated
+  examples in arm-cs-trace-disasm.py (James).
+- Removed static annotation in callchain workload and renamed functions
+  with prefix "callchain_" to reduce naming conflict (James).
+- For callchain test pre-condition check, removed the aarch64 check and
+  added the root permission check (James).
+- Resolved the shellcheck errors (James).
+- Link to v7: https://lore.kernel.org/r/20260611-b4-arm_cs_callchain_support_v1-v7-0-1ba770c862ae@arm.com
 
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_common.c b/drivers/net/ethernet/ti/icssg/icssg_common.c
-index a28a608f9bf4..2dbb8f717de0 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_common.c
-+++ b/drivers/net/ethernet/ti/icssg/icssg_common.c
-@@ -1628,28 +1628,34 @@ void icssg_ndo_get_stats64(struct net_device *ndev,
- 	stats->rx_over_errors = emac_get_stat_by_name(emac, "rx_over_errors");
- 	stats->multicast      = emac_get_stat_by_name(emac, "rx_multicast_frames");
- 
--	stats->rx_errors  = ndev->stats.rx_errors +
--			    emac_get_stat_by_name(emac, "FW_RX_ERROR") +
--			    emac_get_stat_by_name(emac, "FW_RX_EOF_SHORT_FRMERR") +
--			    emac_get_stat_by_name(emac, "FW_RX_B0_DROP_EARLY_EOF") +
--			    emac_get_stat_by_name(emac, "FW_RX_EXP_FRAG_Q_DROP") +
--			    emac_get_stat_by_name(emac, "FW_RX_FIFO_OVERRUN");
--	stats->rx_dropped = ndev->stats.rx_dropped +
--			    emac_get_stat_by_name(emac, "FW_DROPPED_PKT") +
--			    emac_get_stat_by_name(emac, "FW_INF_PORT_DISABLED") +
--			    emac_get_stat_by_name(emac, "FW_INF_SAV") +
--			    emac_get_stat_by_name(emac, "FW_INF_SA_DL") +
--			    emac_get_stat_by_name(emac, "FW_INF_PORT_BLOCKED") +
--			    emac_get_stat_by_name(emac, "FW_INF_DROP_TAGGED") +
--			    emac_get_stat_by_name(emac, "FW_INF_DROP_PRIOTAGGED") +
--			    emac_get_stat_by_name(emac, "FW_INF_DROP_NOTAG") +
--			    emac_get_stat_by_name(emac, "FW_INF_DROP_NOTMEMBER");
-+	stats->rx_errors  = ndev->stats.rx_errors;
-+	stats->rx_dropped = ndev->stats.rx_dropped;
- 	stats->tx_errors  = ndev->stats.tx_errors;
--	stats->tx_dropped = ndev->stats.tx_dropped +
--			    emac_get_stat_by_name(emac, "FW_RTU_PKT_DROP") +
--			    emac_get_stat_by_name(emac, "FW_TX_DROPPED_PACKET") +
--			    emac_get_stat_by_name(emac, "FW_TX_TS_DROPPED_PACKET") +
--			    emac_get_stat_by_name(emac, "FW_TX_JUMBO_FRM_CUTOFF");
-+	stats->tx_dropped = ndev->stats.tx_dropped;
-+
-+	if (emac->prueth->pa_stats) {
-+		stats->rx_errors  +=
-+				emac_get_stat_by_name(emac, "FW_RX_ERROR") +
-+				emac_get_stat_by_name(emac, "FW_RX_EOF_SHORT_FRMERR") +
-+				emac_get_stat_by_name(emac, "FW_RX_B0_DROP_EARLY_EOF") +
-+				emac_get_stat_by_name(emac, "FW_RX_EXP_FRAG_Q_DROP") +
-+				emac_get_stat_by_name(emac, "FW_RX_FIFO_OVERRUN");
-+		stats->rx_dropped +=
-+				emac_get_stat_by_name(emac, "FW_DROPPED_PKT") +
-+				emac_get_stat_by_name(emac, "FW_INF_PORT_DISABLED") +
-+				emac_get_stat_by_name(emac, "FW_INF_SAV") +
-+				emac_get_stat_by_name(emac, "FW_INF_SA_DL") +
-+				emac_get_stat_by_name(emac, "FW_INF_PORT_BLOCKED") +
-+				emac_get_stat_by_name(emac, "FW_INF_DROP_TAGGED") +
-+				emac_get_stat_by_name(emac, "FW_INF_DROP_PRIOTAGGED") +
-+				emac_get_stat_by_name(emac, "FW_INF_DROP_NOTAG") +
-+				emac_get_stat_by_name(emac, "FW_INF_DROP_NOTMEMBER");
-+		stats->tx_dropped +=
-+				emac_get_stat_by_name(emac, "FW_RTU_PKT_DROP") +
-+				emac_get_stat_by_name(emac, "FW_TX_DROPPED_PACKET") +
-+				emac_get_stat_by_name(emac, "FW_TX_TS_DROPPED_PACKET") +
-+				emac_get_stat_by_name(emac, "FW_TX_JUMBO_FRM_CUTOFF");
-+	}
- }
- EXPORT_SYMBOL_GPL(icssg_ndo_get_stats64);
- 
+Changes in v7:
+- Rebased on the latest perf-tools-next.
+- Used struct_size() for allocation callchain struct (James).
+- Added a helper cs_etm__packet_has_taken_branch() (James).
+- Minor improvements for the callchain test (used record-ctl FIFO and
+  reworked the validation callstack push / pop).
+- Link to v6: https://lore.kernel.org/r/20260526-b4-arm_cs_callchain_support_v1-v6-0-f9f49f53c9dd@arm.com
+
+Changes in v6:
+- Heavily rewrote the patches since restarted the work after 6 years.
+- Changed to use the common thread-stack for branch stack and callchain
+  management.
+- Added a callchain test.
+- Link to v5: https://lore.kernel.org/linux-arm-kernel/20200220052701.7754-1-leo.yan@linaro.org/
+
+Changes in v5:
+- Addressed Mike's suggestion for performance improvement for function
+  cs_etm__instr_addr() for quick calculation for non T32;
+- Removed the patch 'perf cs-etm: Synchronize instruction sample with
+  the thread stack' (Mike);
+- Fixed the issue for exception is taken for branch target address
+  accessing, for the branch sample and stack thread handling, the
+  related patches are 01, 02, 07;
+- Fixed the stack thread handling for instruction emulation and single
+  step with patches 08, 09.
+- Link to v4: https://lore.kernel.org/linux-arm-kernel/20200203020716.31832-1-leo.yan@linaro.org/
+
+---
+Leo Yan (9):
+      perf cs-etm: Fix thread leaks on trace queue init failure
+      perf cs-etm: Filter synthesized branch samples
+      perf cs-etm: Decode ETE exception packets
+      perf cs-etm: Refactor instruction size handling
+      perf cs-etm: Use thread-stack for last branch entries
+      perf cs-etm: Flush thread stacks after decoder reset
+      perf cs-etm: Support call indentation
+      perf cs-etm: Synthesize callchains for instruction samples
+      perf test: Add Arm CoreSight callchain test
+
+ tools/perf/Documentation/perf-test.txt             |   6 +-
+ tools/perf/scripts/python/arm-cs-trace-disasm.py   |   9 +-
+ tools/perf/tests/builtin-test.c                    |   1 +
+ tools/perf/tests/shell/coresight/callchain.sh      | 172 ++++++++++
+ .../shell/coresight/test_arm_coresight_disasm.sh   |   4 +-
+ tools/perf/tests/tests.h                           |   1 +
+ tools/perf/tests/workloads/Build                   |   2 +
+ tools/perf/tests/workloads/callchain.c             |  33 ++
+ tools/perf/util/cs-etm.c                           | 367 +++++++++++++--------
+ 9 files changed, 446 insertions(+), 149 deletions(-)
+---
+base-commit: 44543bb53ebfecb5ce4e890053a666affab9e482
+change-id: 20260521-b4-arm_cs_callchain_support_v1-2c2a70719bcc
+
+Best regards,
 -- 
-2.54.0
+Leo Yan <leo.yan@arm.com>
 
-base-commit: 8cd9520d35a6c38db6567e97dd93b1f11f185dc6
-branch: fix-icssg_common-pa-stats-errors__master-7-1
 
