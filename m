@@ -4,63 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26F15CD98E1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 09:13:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F031CD98CF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 09:27:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FW1d3+ywfL/u89Y0GaANXP2o6Did6zok4uhLhWb9zSM=; b=draw0+CGElWXxNGGI6DY51AIoC
-	mmfPiJJzcWbn0ReJdmZ6roqyUFV6h8hAHHZmvWKgtJLy6XkJD5AaRCkXdKUyrdZduFZ9sagvNPpNj
-	2KB0xCpgEemqph2HiaOjoHAtqh5etPEXqIM73rj+sDtDeIgSemlPqf8RrFSckrXmgbuaq9G78027L
-	aqBwBNO8qwFVanwsYyGegeCE3Ehq/aQP9ESdug4d4quZ4IUo4e0ek6mhjG4M4BDKSi1jxArlnMZIt
-	uhl6KAiOLXsYK8zfPNJ93qnQ3HnBiZ4PiG+rqyeK3k5ZeEeCC9iwqHwCFYVBnJVDnMf/QYxIz3hP5
-	dZrdOmTw==;
+	bh=fAR+kZdKg8CQXZyfFqfHPkT3hq9wuaD/SsPffT0/d9M=; b=2JHrD5KLkHBExUAdRpHV6cvX0s
+	55usNnax/63gPzHF1DvzryKTqJpMs3mUanyi+Eg0IL9Y/20fUsHDSsMRUSEb2BNh5R+1MtiBz5KeQ
+	XgFiPQQJIoXi3Em7ndTNTgrgie3VkpPIxsHVRUaZCegwbHX1ujRITR4Rz/hc0om8FRgV3Q46FWifG
+	srumr5xBwr7oUUrz+uexUsdxelaJLnK+2kD7iRMBVQRai07EwIfNa3tRhinsNLpKWo9JSo3GosCDd
+	TC1DFzFf9mDGpjhzROOW56YBt0zknKeNckX45IhVvCXa9WCQWCeh9NOoUW7a25P00cZRsWpXriay+
+	KRdQ2bTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZPqp-0000000FVRk-2kEt;
-	Tue, 16 Jun 2026 09:12:55 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZPqo-0000000FVRX-0h1d;
-	Tue, 16 Jun 2026 09:12:54 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3060841E4C;
-	Tue, 16 Jun 2026 09:12:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BB3E1F000E9;
-	Tue, 16 Jun 2026 09:12:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781601173;
-	bh=FW1d3+ywfL/u89Y0GaANXP2o6Did6zok4uhLhWb9zSM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=XxWGbp6geRDNQzfxDhSwRIUZBmg3xTl0P94mNm/l6/oZFK0Hu0sZjXjX2wtaIekTW
-	 knC5/NwA80iuU0sE8HEUoabMVZi8wONVDqoa/E6K9ithuGPv/XIDfwJgM4c3A2zmRS
-	 7lyHeYFjMGiFz7HvwgN0fWiWh/ClKVOCccvfBMOmsqTZh1GIlqGn2IByfMw09oA5R7
-	 Mh2KW5sN2aN8Jjkqz5gGN/HZQzIROUm7jbY8R+W3so4kEqrHf7lQ9n5MGa35GPMscf
-	 bEtrOHAWWdG7tRP5kZMzj/0cz4YnH6X20DeSAuMXqxZTptHnzrdNYieR2E/ZVC7vtH
-	 ESYqMRO6pCkLA==
-Date: Tue, 16 Jun 2026 11:12:50 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	Madhur Agrawal <madhur.agrawal@airoha.com>,
-	Alexander Lobakin <aleksander.lobakin@intel.com>
-Subject: Re: [PATCH net-next v5 0/3] airoha: add the capability to configure
- GDM3/GDM4 as WAN/LAN on demand
-Message-ID: <ajETkkD9DlBtYHLu@lore-desk>
-References: <20260611-airoha-ethtool-priv_flags-v5-0-c11de08486d1@kernel.org>
- <20260615163713.665271a2@kernel.org>
+	id 1wZQ4b-0000000FWE6-0DyV;
+	Tue, 16 Jun 2026 09:27:09 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wZQ4Y-0000000FWDS-1ueF
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 16 Jun 2026 09:27:07 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 754D8451F;
+	Tue, 16 Jun 2026 02:26:57 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 735453F763;
+	Tue, 16 Jun 2026 02:27:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1781602022; bh=akwRtrmOehERGjKh1XJj0GnjvAM3JAzOkBw8eLzNbYA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FmXAQMBQ+OfD2FgM+zUABycQwgwOIwhfkR8kErgVJ1eqngcODPDIrXJHkV4YNb0zX
+	 b4tyu+kHIwydfu+6W6lI5nX0HrIZ6xjyk4w9VGpeI5vnNa1JRndy4ivLsJGlBRejeb
+	 XS39H1lm3zWDoKlyULbVPpgLsK8XNsXWsjMQ9iaQ=
+Date: Tue, 16 Jun 2026 10:26:59 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] arm64: futex: Consolidate 'old == new' check in
+ __lsui_cmpxchg32()
+Message-ID: <ajEW41-ncVO_nDY7@e129823.arm.com>
+References: <20260519090823.7216-1-will@kernel.org>
+ <agx9DmAbHdAoSlWU@arm.com>
+ <ah7md1ha86Anr7nb@willie-the-truck>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="veXpHt1QEexMKAbu"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260615163713.665271a2@kernel.org>
+In-Reply-To: <ah7md1ha86Anr7nb@willie-the-truck>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260616_022706_654716_2B0C3AD4 
+X-CRM114-Status: GOOD (  28.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,35 +71,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+> On Tue, May 19, 2026 at 04:09:02PM +0100, Catalin Marinas wrote:
+> > On Tue, May 19, 2026 at 10:08:22AM +0100, Will Deacon wrote:
+> > > The LSUI futex implementation relies on a cmpxchg() loop to implement
+> > > FUTEX_OP_XOR, as the architecture doesn't provide unprivileged *EOR
+> > > atomics. Since the unprivileged 'CAST' instructions used to implement
+> > > the cmpxchg() can only operate on 64-bit memory locations, the
+> > > __lsui_cmpxchg32() helper function performs a song and dance to marshall
+> > > the 32-bit futex value into the correct part of a 64-bit register and
+> > > fill the remaining bytes with the neighbouring data.
+> > 
+> > IIRC, the reason for the current __lsui_cmpxchg32() was not EOR but the
+> > expected futex_atomic_cmpxchg_inatomic() semantics. Looking at it again,
+> > we have wake_futex_pi() that does something else if the ret is 0 but the
+> > value differs. Looking at it again, the caller of wake_futex_pi()
+> > retries on -EAGAIN anyway, so I don't see a correctness issue, it will
+> > eventually hit the condition.
+> 
+> Hmm, but I think that means my patch does change the behaviour of
+> wake_futex_pi() in an undesirable way. For example, futex_unlock_pi()
+> will go round the retry loop for any change in the futex value, whereas
+> before we would go back to userspace only if the TID changed.
+> 
+> So I think we should swallow the -EAGAIN for the CAS-based cmpxchg() if
+> the futex word has changed, along the lines of the diff below.
+> 
+> Will
+> 
+> --->8
+> 
+> diff --git a/arch/arm64/include/asm/futex.h b/arch/arm64/include/asm/futex.h
+> index db84a7b2de74..79c6d86c38a9 100644
+> --- a/arch/arm64/include/asm/futex.h
+> +++ b/arch/arm64/include/asm/futex.h
+> @@ -215,14 +215,14 @@ __lsui_futex_atomic_eor(int oparg, u32 __user *uaddr, int *oval)
+>  static __always_inline int
+>  __lsui_futex_cmpxchg(u32 __user *uaddr, u32 oldval, u32 newval, u32 *oval)
+>  {
+> +       u32 curval = oldval;
+>         int ret;
+>  
+> -       /*
+> -        * Callers of futex_atomic_cmpxchg_inatomic() already retry on
+> -        * -EAGAIN, no need for another loop of max retries.
+> -        */
+> -       ret = __lsui_cmpxchg32(uaddr, &oldval, newval);
+> -       *oval = oldval;
+> +       ret = __lsui_cmpxchg32(uaddr, &curval, newval);
+> +       if (ret == -EAGAIN && curval != oldval)
+> +               ret = 0;
+> +
+> +       *oval = curval;
+>         return ret;
+>  }
+>  #endif /* CONFIG_ARM64_LSUI */
 
---veXpHt1QEexMKAbu
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Agree. It is good that this additional patch does not change
+the existing behavior.
 
-> On Thu, 11 Jun 2026 23:55:50 +0200 Lorenzo Bianconi wrote:
-> >       net: airoha: use int instead of atomic_t for qdma users counter
-> >       net: airoha: refactor QDMA start/stop into reusable helpers
-> >       net: airoha: defer GDM3/GDM4 WAN mode and GDM2 loopback to QoS of=
-fload
->=20
-> only the first patch applies cleanly right now
+@Catalin, Could you check this please?
 
-ack, I will repost missing ones as soon as net-next is open again.
+Thanks!
 
-Regards,
-Lorenzo
-
---veXpHt1QEexMKAbu
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCajETkgAKCRA6cBh0uS2t
-rOReAPsEmnYAMhDF28XS2vXZY1/UTQg2145bDKxI02AfrrbHKAD/RlrEtKZzVD+t
-rV+CYqb0oXC+8tSoTWXY/uU+fRE88wk=
-=SZVh
------END PGP SIGNATURE-----
-
---veXpHt1QEexMKAbu--
+-- 
+Sincerely,
+Yeoreum Yun
 
