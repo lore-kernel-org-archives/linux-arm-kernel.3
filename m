@@ -4,67 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49BC3CD98E1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 15:20:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC7B2CD98E1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 15:25:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VfbnHY+aIdC82PGEHGtuLsQPBx8FLWY1rXe+qSv98R8=; b=rKzkCisaqoo8T22jQq5HUJ+Ocu
-	eomODxgNk2iKGLsFEhgwdHYRxhB01pcm+4DH7vrsFfL8BEpqgKOfkviQZGlQ6Gl/soXOKqG2QBZsR
-	tU30GgvTP8H19/Z5qyN7/R810BFur2zboFJ0Kvtb87WORX9h5VYAFB8ZhYIpnf8s0hwi50tm1Ms9d
-	8BbxEUeJQyLltaqEzbP6+FdhIZPqlPXU2apODP4l3Kv7mTYCPI9HSlaRLMcpQD7VspSfqhvCJXxpS
-	cnXHNWmKnRf5OAm1+B7Z9OekIXf932O3CUJyPoR44uJ8jhAW+yRwzYL5WbMO6FBFaPGUeAglZNA5q
-	hIb6J+/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=b7M8qZtmu0bZQdu1QNURqoYjrqJMG0t/ykNnN1cBj2w=; b=ULsMAMQ5qA7KLAmD73wyl79TTq
+	4pqfFIgnqcLLkL1sPwG7QfP3RnemIIEv0BJshdJr+eYExzHYQjGOte5XFDL0JOB8t4C5F2GVUo95G
+	ybcP1iuvUZmphZ+ul1B+s8mTpJ3d+9ix0bQURBnnUsoQ1QUvO4ErFVY3oznUKHuw8uqR41HHzO3Zz
+	L5kHqRdzg4Xu2Ao7TNecLfqiGSYpi+3zfQMH+WsH6xuEosrk8qqAdVXxidyTv6/49jgGHBHjxriL5
+	kgCpqR8x+g/mFuksJE2rE6Df82f5bTM5mb3GA8146wWrcxPe7tVczWgT/0iCI63Noz0TJ1r0zTWh/
+	T3fymQZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZVa2-0000000Fztb-3phG;
-	Tue, 16 Jun 2026 15:19:59 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wZVex-0000000G0Pv-1K8u;
+	Tue, 16 Jun 2026 15:25:03 +0000
+Received: from mail-dy1-x1330.google.com ([2607:f8b0:4864:20::1330])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZVa1-0000000FztG-2Nmp
+	id 1wZVeu-0000000G0Og-22RT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Jun 2026 15:19:57 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DF34A44307;
-	Tue, 16 Jun 2026 15:19:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B128D1F000E9;
-	Tue, 16 Jun 2026 15:19:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781623196;
-	bh=VfbnHY+aIdC82PGEHGtuLsQPBx8FLWY1rXe+qSv98R8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=mHNEtl8RbNvTGPTjX3pTBwPHUIhqntugKsjms91Ls7d61c5mmVyuH+GHfghcDdZSf
-	 /nj7LafsGUp8ljfbv63H7uY34K5fpgjQh4rjja9+ps6pad72/qnzQs1BiHxiRIk2fo
-	 B5Crbz5sDRCq5okwRknKNZImddxeI6GJ2BRpPygnNMrUx4tBM7acfOgOMz9w5YH7kf
-	 JlMP/6iVUSX5Qfu17S7v6LuM2+H4nfUo0klMVovuNkWlpkxVm59Rlk8RnS82YjkNMp
-	 hBg6JVIezzCk91zmmovFSBIwW1/DbYzebsj0R8QTgJYcYTYqes/yI0/LETGFkutney
-	 moeafmV/dqjGw==
-Date: Tue, 16 Jun 2026 08:19:54 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Meghana Malladi <m-malladi@ti.com>
-Cc: <diogo.ivo@siemens.com>, <haokexin@gmail.com>,
- <vadim.fedorenko@linux.dev>, <devnexen@gmail.com>, <horms@kernel.org>,
- <jacob.e.keller@intel.com>, <sdf@fomichev.me>, <john.fastabend@gmail.com>,
- <hawk@kernel.org>, <daniel@iogearbox.net>, <ast@kernel.org>,
- <pabeni@redhat.com>, <edumazet@google.com>, <davem@davemloft.net>,
- <andrew+netdev@lunn.ch>, <bpf@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>, Vignesh Raghavendra
- <vigneshr@ti.com>, Roger Quadros <rogerq@kernel.org>, <danishanwar@ti.com>
-Subject: Re: [PATCH net 4/4] net: ti: icssg: Fix XSK zero copy TX during
- application wakeup
-Message-ID: <20260616081954.0d12aa13@kernel.org>
-In-Reply-To: <ed0bc332-0196-4613-8066-9b94f8ed0013@ti.com>
-References: <20260611185744.2498070-1-m-malladi@ti.com>
-	<20260611185744.2498070-5-m-malladi@ti.com>
-	<20260615162157.3748bcda@kernel.org>
-	<ed0bc332-0196-4613-8066-9b94f8ed0013@ti.com>
+	Tue, 16 Jun 2026 15:25:01 +0000
+Received: by mail-dy1-x1330.google.com with SMTP id 5a478bee46e88-306f36df4feso3293669eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 08:25:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781623500; x=1782228300; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=b7M8qZtmu0bZQdu1QNURqoYjrqJMG0t/ykNnN1cBj2w=;
+        b=aKhVqO7r5aZwtnkqQmyAyWGiYQuKo0GWH5VtNUFOqNypfAW/usma5zsH1mfBSIVe/V
+         GObckdTY5+11e+EXihD/v737ggpRRXQHjEOtVzqbkFyDLuF6v5E8fuTe/eoX0zIfURes
+         gGchNJ4mBLia/8MsbHBuibhzbdUddPFag8iP6kibwggk9K1ee3ExjpGku4WnRz6Tvikl
+         cfxQYxvSroXpwmEdzCHsP7pLc06Rs5KQVjovdeQQKdh350BvyFij2vTbe50gqfqiHA+z
+         +W94I3+AlS+Ym9nJqN2wuOa8KSP5mgirlFOa6/nKAw3aNsROr2M5bwu+H5yo02BlF0H2
+         fqLw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781623500; x=1782228300;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=b7M8qZtmu0bZQdu1QNURqoYjrqJMG0t/ykNnN1cBj2w=;
+        b=NTDTotmAF0GKeKI58OSAPRchENKpyuagUZk1nqBXxq08eGq0lrymDpD9oXlNhPJiWH
+         mxVmfJh5TtjNIPChlcWlH8fDfKp0O0sEJ/tA8CdFTsmrPS465B8tHWuMEuYAuPKodb5w
+         NzqYrcmxSUvwXo2fHSLs/6zMsGa2cyd+fjjPHjCm6gT+9KH06hgZxtnatPz8pLM07vS5
+         X/sCe06tJkkoNb69sfvSMvDinOq6QSfHLye2f0JK2/Y8RXH1L9M0ZNPnLU7jfHOFUqgj
+         aSt/nLgRJDR8msKh5VUQZog2y/CTBkVGdmu0pHVk+m24DLx83z2dq4h1LabJUIRV70EG
+         N4wA==
+X-Forwarded-Encrypted: i=1; AFNElJ/VN9AkMW4LdSM0kH0/eHaSwn6tBr9c7ChAC1gmEm2E+L6AMCTBSGO6qx70fI/LL++tJXMPXMifw8/VP+/w02Y/@lists.infradead.org
+X-Gm-Message-State: AOJu0YxduLZ4LexkDqMdHaDrlWj/8pukWqHQaGMg9auLHsyi4wrSZetI
+	k7lLXDuTiJkxoh/sBZFsKotXKN9DbX/pXOBAsqrTCYDgDEiUwzlV4Csk
+X-Gm-Gg: Acq92OECLJvrGtA6o7122iKvKVjw+GBl4W0KytNSpyyin3kUl81gsiTeVt2RSXa5nDe
+	4NFXa6dF659bSOBKtk3Kh8JSHuXkHmJTzdn7Eh+WtZdbxdrsfjVo+3rCmJB5Sk+r3uKYZ4ta3f7
+	tiq0ml3EhJQGreWQu9oZeW/RQ6bsX4SoO39oncYjmn1gTuUeTVRz7ag+lE5jAHp2+GWOT76t9/b
+	y1jaVBtP4m48DiA0lsKJWK2/Nc0M3Q5WX4hN0X6iZubeThmH+TE7HMRDzqw1LcXwTJPnMkLeLJm
+	lu4FoUb1z35JcBbKRT+owYD8/OhrgZeQubMrjHkYAdXbWRVbXvVZdnIWcXsFjSDOQVraLfvRA2z
+	nNjhm2gbOgbQg/7X++2RZLOThG+EtexRGSjy6FOpJNDkk3fP4rpvINxzF7YlBBpC8Hq6+usfBeL
+	xmUt8crec9PPPnm8RaxOjH
+X-Received: by 2002:a05:7300:bb07:b0:2f9:1004:b2cd with SMTP id 5a478bee46e88-30ba3ad0bcfmr2565276eec.20.1781623499389;
+        Tue, 16 Jun 2026 08:24:59 -0700 (PDT)
+Received: from geday ([189.115.92.220])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3081eb95450sm23757871eec.28.2026.06.16.08.24.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 16 Jun 2026 08:24:58 -0700 (PDT)
+Date: Tue, 16 Jun 2026 12:24:48 -0300
+From: Geraldo Nascimento <geraldogabriel@gmail.com>
+To: Shawn Lin <shawn.lin@rock-chips.com>, Dragan Simic <dsimic@manjaro.org>
+Cc: linux-rockchip@lists.infradead.org,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Geraldo Nascimento <geraldogabriel@gmail.com>
+Subject: [PATCH v7 0/3] PCI: rockchip: 5.0 GT/s speed discouraged by Rockchip
+Message-ID: <cover.1781622998.git.geraldogabriel@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260616_082500_595903_B279B0A4 
+X-CRM114-Status: GOOD (  10.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,67 +101,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 16 Jun 2026 16:41:00 +0530 Meghana Malladi wrote:
-> On 6/16/26 04:51, Jakub Kicinski wrote:
-> > On Fri, 12 Jun 2026 00:27:44 +0530 Meghana Malladi wrote:  
-> >> @@ -169,9 +169,6 @@ static int emac_xsk_xmit_zc(struct prueth_emac *emac,
-> >>   
-> >>   		num_tx++;
-> >>   	}
-> >> -
-> >> -	xsk_tx_release(tx_chn->xsk_pool);
-> >> -	return num_tx;  
-> > 
-> > Why are you deleting this?
-> >   
-> 
-> xsk_sendmsg() also calls this without an rcu-lock when transmitting the 
-> packets if the xmit was successful, so I was assuming it is not required 
-> and I removed this.
+Dragan Simic already had warned me of potential issues with 5.0 GT/s
+speed operation in Rockchip PCIe. However, in recent interactions
+with Shawn Lin from Rockchip it came to my attention there's grave
+danger in the unknown errata regarding 5.0 GT/s operational speed
+of their PCIe core, including data loss.
 
-I think you still need it. Besides, seems like a separate cleanup.
+Drop all code related to 5.0 GT/s operational speed from this driver.
 
-> >>   void prueth_xmit_free(struct prueth_tx_chn *tx_chn,
-> >> @@ -279,9 +276,6 @@ int emac_tx_complete_packets(struct prueth_emac *emac, int chn,
-> >>   		num_tx++;
-> >>   	}
-> >>   
-> >> -	if (!num_tx)
-> >> -		return 0;  
-> > 
-> > Does something prevent us from running all this code if budget is 0?
-> > If budget is 0 we can complete normal Tx with skbs but we must
-> > not touch any AF-XDP related state.
-> 
-> Can you elaborate more, I couldn't interpret your comment here
+Endpoint Mode driver was not tested.
 
-netpoll may call napi from any context, including from IRQ.
-It uses budget of 0 to indicate that it's trying to only reap tx
-completions, without doing any Rx or XDP work. XDPs can't be called
-from IRQ context.
+Changes in v7:
+- In pcie-rockchip.c (PATCH 3) drop unreachable code
+- Link to v6: https://lore.kernel.org/all/cover.1781207474.git.geraldogabriel@gmail.com/T/
 
-> >>   	netif_txq = netdev_get_tx_queue(ndev, chn);
-> >>   	netdev_tx_completed_queue(netif_txq, num_tx, total_bytes);
-> >>   
-> >> @@ -306,7 +300,9 @@ int emac_tx_complete_packets(struct prueth_emac *emac, int chn,
-> >>   
-> >>   		netif_txq = netdev_get_tx_queue(ndev, chn);
-> >>   		txq_trans_cond_update(netif_txq);  
-> > 
-> > This looks misplaced, now we will hit it even if we didn't complete
-> > or submit any Tx.
-> 
-> This code needs to be hit for packet transmission in zero copy mode.
-> emac_xsk_xmit_zc() submits the packets to the DMA in NAPI context,
-> when application wakes up the driver and triggers NAPI. Once DMA 
-> transfer is done, irq gets triggered NAPI gets called which will handle 
-> the tx packet completion + submit next Tx batch packets to the DMA.
-> 
-> if (tx_chn->xsk_pool) -> check ensure this hits and runs for zero copy 
-> only. Also above check (!num_tx) returns early during the application 
-> wakeup (where budget is zero), hence it is removed.
+Changes in v6:
+- Squashed patches 3 & 4 together as suggested by Mani
+- More formal warning message as suggested by Dragan
+- Set the 2.5 GT/s bit regardless of if link-speed is set to 2
+- Link to v5: https://lore.kernel.org/all/cover.1772239598.git.geraldogabriel@gmail.com/T/
 
-I'm commenting on txq_trans_cond_update(), you're calling it
-effectively on every NAPI call when XSK is bound, whether
-Tx is making progress or not.
+Changes in v5:
+- Changed commit order to not break builds and adjusted copy pasted
+  commit message. (thanks Charalampos!)
+- Reintroduced behavior to force 2.5 GT/s in case there's something
+  non-default in the DT. (thanks Dragan!)
+- Link to v4: https://lore.kernel.org/linux-rockchip/cover.1772169998.git.geraldogabriel@gmail.com/T/
+
+Changes in v4:
+- Incorporate suggestion by Bjorn and refined by Dragan to drop the
+  "catastrophic" code
+- Link to v3: https://lore.kernel.org/linux-rockchip/cover.1772057799.git.geraldogabriel@gmail.com/T/
+
+Changes in v3:
+- Clarify warning message even though Rockchip won't disclose details
+- Drop DT changes as they were applied as subset by Heiko
+- Link to v2: https://lore.kernel.org/all/cover.1763415705.git.geraldogabriel@gmail.com/T/
+
+Changes in v2:
+- hard limit to 2.5 GT/s, not just warn
+- add Reported-by: and Reviewed-by: Dragan Simic
+- remove redundant declaration of max-link-speed from helios64 dts
+- fix Link: of helios64 patch
+- simplify RC mode comment
+- Link to v1: https://lore.kernel.org/all/aRhR79u5BPtRRFw3@geday/T/
+
+Geraldo Nascimento (3):
+  PCI: rockchip-ep: do not attempt 5.0 GT/s retraining
+  PCI: rockchip-host: do not attempt 5.0 GT/s retraining
+  PCI: rockchip: drive at 2.5 GT/s, error other speeds
+
+ drivers/pci/controller/pcie-rockchip-ep.c   | 13 -------------
+ drivers/pci/controller/pcie-rockchip-host.c | 20 --------------------
+ drivers/pci/controller/pcie-rockchip.c      | 14 ++++++--------
+ drivers/pci/controller/pcie-rockchip.h      |  3 ---
+ 4 files changed, 6 insertions(+), 44 deletions(-)
+
+-- 
+2.54.0
+
 
