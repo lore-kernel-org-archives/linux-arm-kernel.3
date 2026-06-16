@@ -4,69 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D94A7CD98E4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 20:14:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6936CD98E1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 20:27:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mX65hj6pHJKi5UZV5lw/UMIZ0zXM54bmOLByN+V/vGs=; b=gj+tp/eKYg60oGw4lejO/W+9fy
-	Y7cWasmaGeKKkP7+7tj52r4jxh4PhB5UzRsg2JZYCMHEdmAad+LsddRciXq0IlBzsZaiEY2HgwcQt
-	Bcv3Cgndw/pPWvLfYQ2VNYkUToODnpBu0YaZvFO2FwL7F7/DqeKKw0O/Vd/LzaTTHWxTvQC7En3xI
-	j/Kw0kYcJO2fMOVLX0wwpZJ7BUc39n64h78tYNxQbneakl+Q2lCOoGd8oWMdEzAPnPDMQywl2ZAxP
-	YjNgqHwQNo3OYQaJzYcuh8dQGmSbf6TmcQ0yJZyDFsPX3x3VHu++7ghPtt8C0gsnn5clWOlWZfTLM
-	GLuGufEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=BPpoQ7v1yBgGnokyZPjeSn3hpjUfo+LeGZ8fvnOwicA=; b=w7iiDC9CA+e9gX
+	xGCj0+nhhuNfgXtBSS32REV6gyRzDKVr0yK6Zfk2Sv+Ym9M8uRA+JgLVCrVppb1LuB8Cx81Khyoiy
+	YNZGGxd8HDM98KoLzOEqNj8iXk7OSu211cetEdDGlQvesBiVYbi/cghLMizMwUpsoMUh50hlcyXO/
+	+l2BVFJIeYb1GSu8wrVg+/JW6kSInJfmkhvdxS4WwWZeIYPc4XRTxCgZqS7MaExBNgTiUT8hGiXYD
+	GDoMrRxA71jUDNMJ93bcy9Lpgy+GrYA6ziEBXzWTAc/JtV3Q4R5WgsP41qZWmdJjGtJnpWOhJM0sb
+	gqClmPOUfBX1DwCCfv7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZaBG-0000000GHSj-0WFz;
-	Tue, 16 Jun 2026 20:14:42 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wZaN7-0000000GHpY-1haz;
+	Tue, 16 Jun 2026 20:26:57 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZaBF-0000000GHSd-27KC
+	id 1wZaN3-0000000GHou-2xbV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Jun 2026 20:14:41 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C7A0B43457;
-	Tue, 16 Jun 2026 20:14:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6044B1F000E9;
-	Tue, 16 Jun 2026 20:14:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781640880;
-	bh=mX65hj6pHJKi5UZV5lw/UMIZ0zXM54bmOLByN+V/vGs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=QiYGCEuTZ/ct0jFJNuBbo5YeJwkX0i3J2Rj1OFr54KSD85o8iFZ6avC0An/qnKWXW
-	 p7bS61sBaEzlSOw0ZS3VmR2ao0iNIQt3SErQxjE8sBf9Tj2GlXMhEUyoOl9ACCSmBC
-	 CIbdHIDMvZ0W4ejSakSn2uG9lMyQoX63Z16Uh4ZfHNAKDgtWA1GGszKEyd/ZefhOQ9
-	 EQy9dZil82utpIkQoGZ06OZ2QJfdCbIajeDjO9+VzpSAyEKclk+jbb9oOhsfSUHtuP
-	 aLbsDP5W7TQcSxTKGByZFqo32tj2BlM2txKR5PAt6k5KK632bf4sucoSBc87TgPD5V
-	 OMBsJ1WpoVMJg==
-Date: Tue, 16 Jun 2026 13:14:39 -0700
-From: Oliver Upton <oupton@kernel.org>
-To: Weiming Shi <bestswngs@gmail.com>
-Cc: Marc Zyngier <maz@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Kristina Martsenko <kristina.martsenko@arm.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	Zhong Wang <wangzhong.c0ss4ck@bytedance.com>,
-	Xuanqing Shi <shixuanqing.11@bytedance.com>
-Subject: Re: [PATCH] KVM: arm64: nv: Translate vEL2 PSTATE to EL1 in
- kvm_hyp_handle_mops()
-Message-ID: <ajGur_YEMoMLZPSF@kernel.org>
-References: <20260616114943.81188-2-bestswngs@gmail.com>
+	Tue, 16 Jun 2026 20:26:55 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-490a76757e5so36355265e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 13:26:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781641611; x=1782246411; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=BPpoQ7v1yBgGnokyZPjeSn3hpjUfo+LeGZ8fvnOwicA=;
+        b=VgkmCrKWsh8AGJoVOCvNE274tKvYv4pwoHmncmHeJ+ePUmcmGNJ95QnQeARYFteI/t
+         gs6VWwzi5fbeKYf/pLx7XZZw+s8qKRQ9i4yECe3OBInFN/yjPZV4/OlN8zz2cbej6hqb
+         SLbYVFVwakt5Sf4GRHtIWdhr346/Aw26JNSfh6lJZHc0K9U8HAbeSa8isOerTwl6DDi6
+         T/wP5AjEJgjeCyhQQxlAK+gQVZOYucg2eNaHv9k3drz04tyxNVhGzn1LTcILIZ+HRWPd
+         KKuZd0KXl2w8ZuKadRZ2u+yXhF/axzSOCrqfyMAzxzK1O7JwSqOiayqypW6WPBcx5yqD
+         tA7w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781641611; x=1782246411;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=BPpoQ7v1yBgGnokyZPjeSn3hpjUfo+LeGZ8fvnOwicA=;
+        b=NKqj3cG2/YIbLkZiow3FNqY7Gnw0Gauy1fH5Ej0SfCAFLtgSyERrMS3qhlY6stSCn9
+         SRJs0KIMxwwfhdVWe2oHkw9AuAF6bIDsIRGFEF7edNLNft4vU61TPwLAn5DSdi1DB1K0
+         4qeX/uVjzinOBup5XcHKRPF+rdCXbHgew0hA2j1quc3jws9ZEuVK2g+5lI2qD2YhifXH
+         FuJPD+8K8hfNEhED1YsOSEQ2oaTCESqL0kK7yPhPLQQrrT2+yNhDF3N/4/6yeA9utVjr
+         oQz+OyL5J1FHQc0cQbbiMjklUAg+8bSYYErMWnUVD/cU+KbUsN2OCeH8+aKhc58MXZk4
+         eI8A==
+X-Forwarded-Encrypted: i=1; AFNElJ86Cy5kCGIXMxuhOOy+GuidP3JBJL0w9LdHcwT+j/ncTYsnmf7Jvg9HeCAFW1WdRuBQdyY7ySHZuYuA5ZEtrDFI@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyrh3DGHTYHXWDTP4unj8LD41sQe/iJ/7eKMPgTNWDNRN9ZqOKO
+	0CSVJ3k+eb0L/KCQSMEin5EAlrCBIsFWy8yRamJVT8tRtj3uwoubZ/2NwDmqOhzdDGicrw==
+X-Gm-Gg: Acq92OEVIY2funlVSwcKHNqtnIHw70GdRlvf9aNPbA3DRhlxngUEtvlLuH3RbO4Nnt3
+	3wBXUv3rac/MEsSwAtBy2j69PTHDp2N+16CSUtjlf3XOVBXYcxMRnxa7rlQuHu7y+aoNNYuAMV0
+	5QuKAiRUnlxho8qLZykzHwwohtYBhYJQepPPlXtArKhuvWVekD+Fcn7hhwYkbFvv0Y2B4iUcOqH
+	rKRG0PJSAOih910X3X7ztzzQLpShgyHY4Ve1Qu48pghRXLB3yMpKHhFtlO5eufyZ/IylEDsrSUh
+	QPjy2w0NDffRobV9h6BMFchu8Tid9W6bmzo9tEXoYU9fJdwaywkYe37KMY+NkL1fn6V0hZm5I0X
+	LfD5cFuBTuwIVJxsYfGHv8aAlVqErF71KZEQl1ac5B42hkmuDjtJJIw/rexYyAorZnfLnPEfjd7
+	nXsAJpyMdHIGvqpLzalGji+muiCtgK15/bUA==
+X-Received: by 2002:a05:600c:c09a:b0:490:bb37:9d49 with SMTP id 5b1f17b1804b1-492333bf9f6mr15240805e9.11.1781641611016;
+        Tue, 16 Jun 2026 13:26:51 -0700 (PDT)
+Received: from [192.168.0.2] ([197.250.51.220])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49230a458f2sm89987005e9.3.2026.06.16.13.26.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 16 Jun 2026 13:26:50 -0700 (PDT)
+From: =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
+Subject: [PATCH RFC v4 00/12] ZTE zx297520v3 clock bindings and driver
+Date: Tue, 16 Jun 2026 23:26:20 +0300
+Message-Id: <20260616-zx29clk-v4-0-ca994bd22e9d@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260616114943.81188-2-bestswngs@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/2WOQU7DMBBFrxJ5jZE9YydxV0hIHIAtYmE749Zq0
+ 4AdokKVu2MZpEaw/DPz3vwry5QiZbZrrizREnOcziWou4b5gz3vicehZAYCWqGl4F8XMP505EB
+ qQEMoofesXL8lCvFSTS/s+emRvf4ME71/FOv8u3E2E/fTOMZ513hJ3gGaYFHpVoOxCKA1ahN81
+ 7vWkDNDr7rqOsQ8T+mzNl1klf0rtUguOElnfQiBTNs97EcbT/flYXUssOXkjYPCgQmCBo9CBP2
+ Xww0H5sZh4XwXSCuy2Pdhy63r+g3mrePpXwEAAA==
+X-Change-ID: 20260510-zx29clk-2e4d39e3128c
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+ Brian Masney <bmasney@redhat.com>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3793;
+ i=stefandoesinger@gmail.com; h=from:subject:message-id;
+ bh=FwO80H1E3JHTygfTphnHg7nPuRMZdLoWNR8BX9Qlzrk=;
+ b=owEBiQJ2/ZANAwAIAT0TvMhUTxoiAcsmYgBqMbGA2Nqb6P7bZNY0Jn4Ahgvm54BiflHnww1Wp
+ u3KXRrPtbCJAk8EAAEIADkWIQRDFvS2qgVbJ5UyXWw9E7zIVE8aIgUCajGxgBsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDIACgkQPRO8yFRPGiKA+hAAnx40hgB9SBYrpop0r6jTAhXwWFB+/nn
+ 8O5iuk7DJYzsn3lFHR+tQsG/3cq8O7tocyhW4ubq6jhNbAzdzsYG6+XgURtNbokwpiShr/YAiDb
+ 4oQ1NC8EXwXA7LgrmX2yZdOmbAyxuRhzMRybynIIdF1njxSpkjG00NV2Zd0yKyQcNzuD2F2YAym
+ 0FVMdmgtHajdER14GjV7j/lVTxhLlYSWAywYjzo12eOhe46yC2wEpvYNDXwvgnxqp/pWsMHS1UC
+ +nK7V4n9pzLusWq0KIbO/QhI5e5ZqmigRzmls9mRjJvpa51E/tzbJCnxJm3JWpHw/ORPl6iMw5O
+ gg4JE/Gq2lO3gfmdpPlFhXZ5BTAJWVB1bhiSj1rX+qok978+gl79sn34X1UFOI7leRg4W+bARP7
+ UCH19kVRvyS57uxdSj979jBaGnUBk7W9m8YvESecdVtlcvRK47vAR/4QH330wX8kgNkxV9SfAlg
+ Uk6pDKy1JQ+Jvq7EGbEIDjbjIPOfukvF4YJm5vu8z+QbLOMA0pimFP9kDsfHb6JDPEW1m83p9HU
+ h+eW2BFnEfs75ZDUTn1jsbm/hhRvEGoCqKcq7hvHELRO3NtnT+5Pl/uJgIqMTepp4EDDqeIkjKK
+ eP6OcLPboHD1sgSiQp35Tdl+pAfF0drGakTpXhQvSlYivxx4SD3k=
+X-Developer-Key: i=stefandoesinger@gmail.com; a=openpgp;
+ fpr=4F9C2C8728019633893EBBB98CB81F9A72BBA155
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260616_132653_812809_E6CA2F12 
+X-CRM114-Status: GOOD (  14.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,118 +124,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Weiming,
+Hi,
 
-Thanks for the fix.
+I am sending version 4 of my zx297520v3 clock patch. The major change is 
+using regmaps rather than raw mmio to access the clocks and moving reset 
+handling into its own aux bus driver.
 
-On Tue, Jun 16, 2026 at 07:49:44PM +0800, Weiming Shi wrote:
-> When a nested virtualisation guest is running its virtual EL2 (vEL2),
-> fixup_guest_exit() rewrites vcpu_cpsr() to the guest's virtual exception
-> level: a hardware PSTATE.M of EL1{t,h} is presented as EL2{t,h}. The
-> hardware, however, executes vEL2 at EL1.
-> 
-> kvm_hyp_handle_mops() runs on the fast guest re-entry path, where it
-> clears the single-step bit and restores SPSR_EL2 directly from
-> vcpu_cpsr():
-> 
-> 	*vcpu_cpsr(vcpu) &= ~DBG_SPSR_SS;
-> 	write_sysreg_el2(*vcpu_cpsr(vcpu), SYS_SPSR);
-> 
-> For a guest hypervisor this writes the vEL2 view (PSTATE.M == EL2h) into
-> the hardware SPSR_EL2 without translating it back. The fast path re-enters
-> the guest via __guest_enter()/ERET without going through
-> __sysreg_restore_el2_return_state(), so neither to_hw_pstate() nor the
-> "return to a less privileged mode" safety check there (which would set
-> PSR_IL_BIT) is applied. The ERET therefore restores PSTATE.M = EL2h and
-> re-enters the guest at the real EL2 with a guest-controlled ELR, escaping
-> stage-2 and the guest/host boundary.
-> 
-> This is reachable on a kernel with FEAT_MOPS running a KVM nested guest
-> (kvm-arm.mode=nested): KVM sets HCRX_EL2.MCE2, which the guest hypervisor
-> cannot clear for its own context (is_nested_ctxt() is false), so a vEL2
-> MOPS exception is taken to the host and dispatched to kvm_hyp_handle_mops()
-> with VCPU_IN_HYP_CONTEXT set.
-> 
-> Translate EL2{t,h} back to EL1{t,h} before writing SPSR_EL2, mirroring
-> kvm_hyp_handle_eret(). For non-nested guests vcpu_cpsr() never holds an
-> EL2 mode, so the translation is a no-op and behaviour is unchanged.
+I think the list of clocks in my driver is fairly complete; It is 
+certainly a lot better than what the downstream ZTE drivers have. I 
+deduced a lot of it by trial and error. I am sure there are some clocks 
+missing that will need to be added to the binding later. Afaiu adding 
+clocks is not an issue, but removing or reordering them is an ABI break.
 
-The changelog is unnecessarily verbose, instead:
+I expect Sashiko to find a lot of slopiness mistakes, so I kept the 
+[RFC] tag for this submission.
 
-  kvm_hyp_handle_mops() resets the single-step state machine as part of
-  rewinding state for a MOPS exception by modifying vcpu_cpsr() and
-  writing the result directly into hardware.
+Signed-off-by: Stefan Dösinger <stefandoesinger@gmail.com>
+---
+Changes in v4:
+*) Use syscon and regmap instead of raw IO
+*) Move reset to its own driver on the aux bus, but keep reset and clk 
+in the same binding as it matches the way the hardware works
+*) Go back to having matrixclk in its own device because syscon deals 
+poorly with multi io reg devices. List all PLL outputs from topclk as 
+inputs to matrixclk
+*) Some more hardware research: Figure out the parents of the 4 possible
+GPIO clock outputs and declare them in the driver. They are unused on 
+the hardware I have, but they show that all PLLs can be used.
 
-  In the case of nested virtualization, vcpu_cpsr() is a synthetic value
-  such that the rest of KVM can deal with vEL2 cleanly. That means the 
-  value requires translation before being written into hardware, which is
-  unfortunately missing from the MOPS handler.
+- Link to v3: https://lore.kernel.org/r/20260529-zx29clk-v3-0-c7fe54ea388f@gmail.com
 
-  Fix it by directly modifying SPSR_EL2 and avoiding the synthetic state
-  altogether, which will be resynchronized on the next 'full' exit back
-  to KVM.
+Changes in v3:
+Model top and matrix clocks as one device
+Add PLL driver
+Fixed a few issues found by Sashiko: register lock, some missing devm_, 
+error handling
 
-Also:
+v2: Fix build issues introduced by checkpatch.pl fixes that I didn't 
+spot earlier.
 
-Cc: stable@vger.kernel.org
+---
+Stefan Dösinger (12):
+      dt-bindings: clk: zte: Add zx297520v3 top clock and reset bindings
+      dt-bindings: clk: zte: Add zx297520v3 matrix clock and reset bindings
+      dt-bindings: clk: zte: Add zx297520v3 LSP clock and reset bindings
+      clk: zte: Add Clock registration infrastructure.
+      clk: zte: Add zx PLL support infrastructure
+      clk: zte: Add regmap based clocks
+      clk: zte: Introduce a driver for zx297520v3 top clocks
+      clk: zte: Introduce a driver for zx297520v3 matrix clocks
+      clk: zte: Introduce a driver for zx297520v3 LSP clocks
+      reset: zte: Add a zx297520v3 reset driver
+      ARM: dts: zte: Declare zx297520v3 clock device nodes
+      ARM: dts: zte: Add a syscon-reboot for zx297520v3 boards
 
-Definitely meets the bar :)
+ .../bindings/clock/zte,zx297520v3-lspclk.yaml      | 130 ++++
+ .../bindings/clock/zte,zx297520v3-matrixclk.yaml   | 180 +++++
+ .../bindings/clock/zte,zx297520v3-topclk.yaml      |  70 ++
+ MAINTAINERS                                        |   4 +
+ arch/arm/boot/dts/zte/zx297520v3.dtsi              |  97 ++-
+ drivers/clk/Kconfig                                |   1 +
+ drivers/clk/Makefile                               |   1 +
+ drivers/clk/zte/Kconfig                            |  28 +
+ drivers/clk/zte/Makefile                           |   6 +
+ drivers/clk/zte/clk-regmap.c                       | 247 +++++++
+ drivers/clk/zte/clk-zx.c                           | 157 ++++
+ drivers/clk/zte/clk-zx.h                           |  79 ++
+ drivers/clk/zte/clk-zx297520v3.c                   | 795 +++++++++++++++++++++
+ drivers/clk/zte/pll-zx.c                           | 477 +++++++++++++
+ drivers/reset/Kconfig                              |  11 +
+ drivers/reset/Makefile                             |   1 +
+ drivers/reset/reset-zte-zx297520v3.c               | 224 ++++++
+ include/dt-bindings/clock/zte,zx297520v3-clk.h     | 219 ++++++
+ 18 files changed, 2718 insertions(+), 9 deletions(-)
+---
+base-commit: c1ecb239fa3456529a32255359fc78b69eb9d847
+change-id: 20260510-zx29clk-2e4d39e3128c
 
-> Fixes: 2de451a329cf ("KVM: arm64: Add handler for MOPS exceptions")
-> Assisted-by: Claude:claude-opus-4-8
-> Reported-by: Zhong Wang <wangzhong.c0ss4ck@bytedance.com>
-> Reported-by: Xuanqing Shi <shixuanqing.11@bytedance.com>
-> Signed-off-by: Weiming Shi <bestswngs@gmail.com>
-> ---
->  arch/arm64/kvm/hyp/include/hyp/switch.h | 23 ++++++++++++++++++++++-
->  1 file changed, 22 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
-> index e9b36a3b27bbc..a6b7963ddbf0b 100644
-> --- a/arch/arm64/kvm/hyp/include/hyp/switch.h
-> +++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-> @@ -448,6 +448,8 @@ static inline bool __populate_fault_info(struct kvm_vcpu *vcpu)
->  
->  static inline bool kvm_hyp_handle_mops(struct kvm_vcpu *vcpu, u64 *exit_code)
->  {
-> +	u64 spsr, mode;
-> +
->  	*vcpu_pc(vcpu) = read_sysreg_el2(SYS_ELR);
->  	arm64_mops_reset_regs(vcpu_gp_regs(vcpu), vcpu->arch.fault.esr_el2);
->  	write_sysreg_el2(*vcpu_pc(vcpu), SYS_ELR);
-> @@ -457,7 +459,26 @@ static inline bool kvm_hyp_handle_mops(struct kvm_vcpu *vcpu, u64 *exit_code)
->  	 * instruction.
->  	 */
->  	*vcpu_cpsr(vcpu) &= ~DBG_SPSR_SS;
-> -	write_sysreg_el2(*vcpu_cpsr(vcpu), SYS_SPSR);
-> +
-> +	/*
-> +	 * For a guest hypervisor, vcpu_cpsr() holds the vEL2 view
-> +	 * (PSTATE.M == EL2h) installed by fixup_guest_exit(), but vEL2
-> +	 * runs at EL1. Translate it back before restoring SPSR_EL2, as in
-> +	 * kvm_hyp_handle_eret().
-> +	 */
-> +	spsr = *vcpu_cpsr(vcpu);
-> +	mode = spsr & (PSR_MODE_MASK | PSR_MODE32_BIT);
-> +	switch (mode) {
-> +	case PSR_MODE_EL2t:
-> +		mode = PSR_MODE_EL1t;
-> +		break;
-> +	case PSR_MODE_EL2h:
-> +		mode = PSR_MODE_EL1h;
-> +		break;
-> +	}
-> +	spsr = (spsr & ~(PSR_MODE_MASK | PSR_MODE32_BIT)) | mode;
-> +
-> +	write_sysreg_el2(spsr, SYS_SPSR);
+Best regards,
+-- 
+Stefan Dösinger <stefandoesinger@gmail.com>
 
-As I allude to in the modified changelog, I'd rather we just manipulate
-the hardware value of SPSR_EL2 directly. We already do this in
-kvm_hyp_handle_eret()
-
-	spsr = read_sysreg_el2(SYS_SPSR);
-	write_sysreg_el2(spsr & ~DBG_SPSR_SS, SYS_SPSR);
-
-Thanks,
-Oliver
 
