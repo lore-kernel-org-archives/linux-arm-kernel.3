@@ -4,71 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 858FDCD98E1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 12:30:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 000B9CD98E6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 12:34:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+A4mUvJbAxqYGqhR2zz9wk5RNSEo4OH7kiEDPeIKYLU=; b=AIp+dz+hIReTRT7Hm/lDVe7ly5
-	5g0atUHPLDpJmMRgCWIyVW5NyatfI+9bU9N8rmvhhWVHuh5AOv0uTelJJ2ZLOCfc3W8yZEY240p9h
-	hQP2sdlY0tLfcL8oB0i7EqeFjd8gA3iGLaDDAQy7x7ZEh0N046JYjv0HC/JWottU12zj7PmOUM2bU
-	bXxAALA6btCvQ3x+C9aoqlwTQJtlGLlpAsQ5hpu+Mki/XgX2D8L0ZOOI+V0Hxodv8GZ7jdxGPX8c0
-	URF8JAmw+fvrcbRbGcd0L0BDfYwzTD4NFdZCTMzNToPxRfiX6rml8P/cZ+/QTzcFtX4eQXpyZfRcE
-	9rc8i9nw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AU0Gj7255AvQ5CwD1pZx8WKNH581mx4ihVIONMOZiTA=; b=t5HrT2clVtwZKVV2HqS0xoue9Z
+	q4jCTcPqRvACwlIWaiwAZ1ylgqvHimEczSP0xIWXwPOAPX+BNOQgsHqpQ4FLWYY9BLl4Kr+RD0j5n
+	ZoeXFN7YJnA3O8jixEWiizeJGwe8tEdVsKewQygAGtUkZq+EbCxxhxjScTkKLP+417m7gm1r4Jt+g
+	gWpeuIpjqUUWaJwH/Z6CeKmLX9L48Yc7A4n231KIiKJx5UBCHXl1yuAsq52qapwxLg+ms1v8KcL3e
+	06Th8ld/Mxp/n4Dyj5VLtnRBNXvdZH8ASEphuxU/vv+Ox+k+ExamqGNkRPKFF+Gk+lu+9kNbmLyf/
+	gdCYgXKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZSvu-0000000FlID-2FZw;
-	Tue, 16 Jun 2026 12:30:22 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1wZSzV-0000000FlRD-3wbg;
+	Tue, 16 Jun 2026 12:34:05 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZSvq-0000000FlH6-2lV9
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Jun 2026 12:30:21 +0000
-Received: from dfae2b116770.home.arpa (unknown [36.110.52.2])
-	by APP-05 (Coremail) with SMTP id zQCowADXYQXRQTFqayHBEw--.14646S2;
-	Tue, 16 Jun 2026 20:30:10 +0800 (CST)
-From: Wentao Liang <vulab@iscas.ac.cn>
-To: andrew@lunn.ch,
-	gregory.clement@bootlin.com,
-	sebastian.hesselbarth@gmail.com,
-	mturquette@baylibre.com,
-	sboyd@kernel.org
-Cc: bmasney@redhat.com,
+	id 1wZSzT-0000000FlR3-2Yo8;
+	Tue, 16 Jun 2026 12:34:03 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id EB8F3440CE;
+	Tue, 16 Jun 2026 12:34:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 513B81F000E9;
+	Tue, 16 Jun 2026 12:34:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781613242;
+	bh=AU0Gj7255AvQ5CwD1pZx8WKNH581mx4ihVIONMOZiTA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ORbZDDXRXZDF5r27bqtCDyNWhYxW83M3PZV1M1XhHFzVDjuThzl/q2lyxnx6ZOHdB
+	 W96WTV8hCRBbFpX/UEh0SJaYf05GYlJmmpmEHPbkGmD/nFqQSRVQzAvb4X90qrElQb
+	 NFNztCewp7PGZ5DDafiMXFX9gmcDig48e5TK3fpvdD5B6DcVKK1L0jgDlr+HtfN0KI
+	 rRl8vBqimk7bMiiOa29i5hVKTKfzz5VfZe0xzDxuQp1DA1cY3/WFZPeQCrlApOLQJj
+	 9hqrRnv4pKQNGHQJZwjW7vBfET+jVp4gRwR5rUYAv74Tg6Z9sFCCgMd4tHJkMojTvZ
+	 JRO000ngSqyRQ==
+Date: Tue, 16 Jun 2026 14:34:00 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Wayen Yan <win847@gmail.com>
+Cc: netdev@vger.kernel.org, horms@kernel.org, pabeni@redhat.com,
+	kuba@kernel.org, edumazet@google.com, andrew+netdev@lunn.ch,
+	angelogioacchino.delregno@collabora.com, matthias.bgg@gmail.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Wentao Liang <vulab@iscas.ac.cn>
-Subject: [PATCH v2] clk: mvebu: ap-cpu: fix missing clk_put() in ap_cpu_clock_probe()
-Date: Tue, 16 Jun 2026 12:29:36 +0000
-Message-Id: <20260616122936.1669366-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v2] [net] net: airoha: fix foe_check_time allocation size
+Message-ID: <ajFCuOEGT0iJttOh@lore-desk>
+References: <178161119471.2163752.14373384830691569758@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowADXYQXRQTFqayHBEw--.14646S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxGFWrKr1rWFW8Xw1xWF1ftFb_yoW5GFW8pF
-	18GF9Ykw47GrWj9ay7tF4DuryrWw1xtFy5Aw40yasak3Z3JF1UGr10ka95ZF1UurW8X34a
-	qF4UG3WUuF1DZFUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9014x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
-	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
-	jxv20xvE14v26r126r1DMcIj6I8E87Iv67AKxVWxJr0_GcWlOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
-	n2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7x
-	kEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E
-	67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCw
-	CI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1x
-	MIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIda
-	VFxhVjvjDU0xZFpf9x0JjjLvNUUUUU=
-X-Originating-IP: [36.110.52.2]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBwwAA2oxFfyguwAAsh
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260616_053019_299013_9E854307 
-X-CRM114-Status: GOOD (  13.59  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="hWXa442R11LoZs39"
+Content-Disposition: inline
+In-Reply-To: <178161119471.2163752.14373384830691569758@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,72 +71,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The function ap_cpu_clock_probe() calls of_clk_get() to obtain a
-reference to the parent clock for each CPU cluster, but it never
-releases it with clk_put().  The returned clk is used only to read
-the parent's name via __clk_get_name(), and the reference is leaked
-on every successful cluster initialization as well as on the error
-path when devm_clk_hw_register() fails.
 
-Rather than adding clk_put() calls, replace the of_clk_get() +
-__clk_get_name() pattern with of_clk_get_parent_name(), which is
-the intended API for this use case and handles the reference
-counting internally.  This matches the pattern already used by the
-sibling drivers clk-cpu.c and clk-corediv.c.
+--hWXa442R11LoZs39
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Fixes: af9617b419f7 ("clk: mvebu: ap-cpu-clk: Fix a memory leak in error handling paths")
-Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
----
-v2: Replace of_clk_get() + __clk_get_name() with of_clk_get_parent_name()
-    as suggested by Brian Masney, instead of adding clk_put() calls.
-    Also correct the Fixes: tag to point to the original commit that
-    introduced the leak.
----
- drivers/clk/mvebu/ap-cpu-clk.c | 10 +++-------
- 1 file changed, 3 insertions(+), 7 deletions(-)
+> foe_check_time is declared as u16 pointer but was allocated with
+> only ppe_num_entries bytes instead of ppe_num_entries * sizeof(u16).
+>=20
+> When airoha_ppe_foe_verify_entry() is called with hash >=3D ppe_num_entri=
+es/2,
+> it writes beyond the allocated buffer, causing heap buffer overflow and
+> potential kernel crash.
+>=20
+> Fixes: 6d5b601d52a2 ("net: airoha: ppe: Dynamically allocate foe_check_ti=
+me array in airoha_ppe struct")
+> Signed-off-by: Wayen Yan <win847@gmail.com>
 
-diff --git a/drivers/clk/mvebu/ap-cpu-clk.c b/drivers/clk/mvebu/ap-cpu-clk.c
-index a8175908e353..1cf63c7a0bc3 100644
---- a/drivers/clk/mvebu/ap-cpu-clk.c
-+++ b/drivers/clk/mvebu/ap-cpu-clk.c
-@@ -288,7 +288,6 @@ static int ap_cpu_clock_probe(struct platform_device *pdev)
- 		char *clk_name = "cpu-cluster-0";
- 		struct clk_init_data init;
- 		const char *parent_name;
--		struct clk *parent;
- 		u64 cpu;
- 
- 		cpu = of_get_cpu_hwid(dn, 0);
-@@ -304,13 +303,12 @@ static int ap_cpu_clock_probe(struct platform_device *pdev)
- 		if (ap_cpu_data->hws[cluster_index])
- 			continue;
- 
--		parent = of_clk_get(np, cluster_index);
--		if (IS_ERR(parent)) {
--			dev_err(dev, "Could not get the clock parent\n");
-+		parent_name = of_clk_get_parent_name(np, cluster_index);
-+		if (!parent_name) {
-+			dev_err(dev, "Could not get the clock parent name\n");
- 			of_node_put(dn);
- 			return -EINVAL;
- 		}
--		parent_name =  __clk_get_name(parent);
- 		clk_name[12] += cluster_index;
- 		ap_cpu_clk[cluster_index].clk_name =
- 			ap_cp_unique_name(dev, np->parent, clk_name);
-@@ -328,11 +326,9 @@ static int ap_cpu_clock_probe(struct platform_device *pdev)
- 		ret = devm_clk_hw_register(dev, &ap_cpu_clk[cluster_index].hw);
- 		if (ret) {
- 			of_node_put(dn);
--			clk_put(parent);
- 			return ret;
- 		}
- 		ap_cpu_data->hws[cluster_index] = &ap_cpu_clk[cluster_index].hw;
--		clk_put(parent);
- 	}
- 
- 	ap_cpu_data->num = cluster_index + 1;
--- 
-2.34.1
+Acked-by: Lorenzo Bianconi <lorenzo@kernel.org>
 
+> ---
+>  drivers/net/ethernet/airoha/airoha_ppe.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ether=
+net/airoha/airoha_ppe.c
+> index 5c9dff6bcc..8fb8ecf909 100644
+> --- a/drivers/net/ethernet/airoha/airoha_ppe.c
+> +++ b/drivers/net/ethernet/airoha/airoha_ppe.c
+> @@ -1578,7 +1578,8 @@ int airoha_ppe_init(struct airoha_eth *eth)
+>  			return -ENOMEM;
+>  	}
+> =20
+> -	ppe->foe_check_time =3D devm_kzalloc(eth->dev, ppe_num_entries,
+> +	ppe->foe_check_time =3D devm_kzalloc(eth->dev,
+> +					   ppe_num_entries * sizeof(*ppe->foe_check_time),
+>  					   GFP_KERNEL);
+>  	if (!ppe->foe_check_time)
+>  		return -ENOMEM;
+> --=20
+> 2.51.0
+>=20
+>=20
+
+--hWXa442R11LoZs39
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCajFCuAAKCRA6cBh0uS2t
+rJMyAP0XT8469xm0evPWy2tNpY3Hl1oAlHZBX0cU5FrHDnoG/QD+IdvSSfUcOGbL
+7vS6dZq7Uv9cqvghkCSPUUQf1TxLUQE=
+=AVaX
+-----END PGP SIGNATURE-----
+
+--hWXa442R11LoZs39--
 
