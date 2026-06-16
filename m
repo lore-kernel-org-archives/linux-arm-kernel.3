@@ -4,80 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 829B1CD98DA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 09:08:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26F15CD98E1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 09:13:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sU3QkWiFrN4SZorLI8GgUb3+KhkdTqA+waJhyvDUrRY=; b=JwsILJe0T3IfDJsCaLw4/be7HQ
-	6KmkoRGbhfJFez3rB/stx+hezWujY+L5v0fYUYsGfqSmfExSpbO7I/o9J6lGDPdIAunJaS8IXadZs
-	EgJe6CYL7QRZMUF6+OQm5h7RxseY/Tr9OHPEfVlmd0IvB7l+2qfUyp2mgeCv9Q0FsGLB5k5jIZEPi
-	u5tN5BLbqKbuVe3oJKktLc82sSAZewomcDX6sVj5GNVyaQO5L0gHwG7GsfCbzgGRocgzqIhIIDGM0
-	EkgZQwfaY8T0A4xdVwLnUpyi2Pt3Kvjyu6mXxYDhAInE0G6awgi914qV2vjxHRWAsp31MgrS1diDY
-	LthNt7Ew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FW1d3+ywfL/u89Y0GaANXP2o6Did6zok4uhLhWb9zSM=; b=draw0+CGElWXxNGGI6DY51AIoC
+	mmfPiJJzcWbn0ReJdmZ6roqyUFV6h8hAHHZmvWKgtJLy6XkJD5AaRCkXdKUyrdZduFZ9sagvNPpNj
+	2KB0xCpgEemqph2HiaOjoHAtqh5etPEXqIM73rj+sDtDeIgSemlPqf8RrFSckrXmgbuaq9G78027L
+	aqBwBNO8qwFVanwsYyGegeCE3Ehq/aQP9ESdug4d4quZ4IUo4e0ek6mhjG4M4BDKSi1jxArlnMZIt
+	uhl6KAiOLXsYK8zfPNJ93qnQ3HnBiZ4PiG+rqyeK3k5ZeEeCC9iwqHwCFYVBnJVDnMf/QYxIz3hP5
+	dZrdOmTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZPmC-0000000FV9i-0KR6;
-	Tue, 16 Jun 2026 09:08:08 +0000
-Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
+	id 1wZPqp-0000000FVRk-2kEt;
+	Tue, 16 Jun 2026 09:12:55 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZPm9-0000000FV8q-05Qj
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Jun 2026 09:08:07 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=sU3QkWiFrN4SZorLI8GgUb3+KhkdTqA+waJhyvDUrRY=;
-	b=ptQ3lVuPq4HoFoxQoiDf81+5iqfP5Xi9RbH0Mjcou6X98sDc9Nc6dVXQKiJQlcbUwpkUzFi8+
-	vowuf4jlqCC/8z8m/3YdsDMiWEFdTSsI9S5uau1II6Obp9meNJfyS9gpltVfJ2rPdgG9HOzvZIq
-	VXJXF4bKX8ns5TqH2ovoIjY=
-Received: from mail.maildlp.com (unknown [172.19.163.163])
-	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4gfgt10GB9z1K9D8;
-	Tue, 16 Jun 2026 16:59:53 +0800 (CST)
-Received: from kwepemo100012.china.huawei.com (unknown [7.202.195.139])
-	by mail.maildlp.com (Postfix) with ESMTPS id 9B03A405D2;
-	Tue, 16 Jun 2026 17:07:49 +0800 (CST)
-Received: from [10.67.120.222] (10.67.120.222) by
- kwepemo100012.china.huawei.com (7.202.195.139) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.36; Tue, 16 Jun 2026 17:07:48 +0800
-Message-ID: <df30b9e0-6938-47f5-bb5d-5b1e67c8879c@huawei.com>
-Date: Tue, 16 Jun 2026 17:07:48 +0800
+	id 1wZPqo-0000000FVRX-0h1d;
+	Tue, 16 Jun 2026 09:12:54 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3060841E4C;
+	Tue, 16 Jun 2026 09:12:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BB3E1F000E9;
+	Tue, 16 Jun 2026 09:12:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781601173;
+	bh=FW1d3+ywfL/u89Y0GaANXP2o6Did6zok4uhLhWb9zSM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=XxWGbp6geRDNQzfxDhSwRIUZBmg3xTl0P94mNm/l6/oZFK0Hu0sZjXjX2wtaIekTW
+	 knC5/NwA80iuU0sE8HEUoabMVZi8wONVDqoa/E6K9ithuGPv/XIDfwJgM4c3A2zmRS
+	 7lyHeYFjMGiFz7HvwgN0fWiWh/ClKVOCccvfBMOmsqTZh1GIlqGn2IByfMw09oA5R7
+	 Mh2KW5sN2aN8Jjkqz5gGN/HZQzIROUm7jbY8R+W3so4kEqrHf7lQ9n5MGa35GPMscf
+	 bEtrOHAWWdG7tRP5kZMzj/0cz4YnH6X20DeSAuMXqxZTptHnzrdNYieR2E/ZVC7vtH
+	 ESYqMRO6pCkLA==
+Date: Tue, 16 Jun 2026 11:12:50 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	Madhur Agrawal <madhur.agrawal@airoha.com>,
+	Alexander Lobakin <aleksander.lobakin@intel.com>
+Subject: Re: [PATCH net-next v5 0/3] airoha: add the capability to configure
+ GDM3/GDM4 as WAN/LAN on demand
+Message-ID: <ajETkkD9DlBtYHLu@lore-desk>
+References: <20260611-airoha-ethtool-priv_flags-v5-0-c11de08486d1@kernel.org>
+ <20260615163713.665271a2@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 11/20] KVM: arm64: Enforce PMU event filter at
- vcpu_load()
-To: Colton Lewis <coltonlewis@google.com>, <kvm@vger.kernel.org>
-CC: Alexandru Elisei <alexandru.elisei@arm.com>, Paolo Bonzini
-	<pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, Russell King
-	<linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, Will
- Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Oliver Upton
-	<oliver.upton@linux.dev>, Mingwei Zhang <mizhang@google.com>, Joey Gouly
-	<joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
-	<yuzenghui@huawei.com>, Mark Rutland <mark.rutland@arm.com>, Shuah Khan
-	<shuah@kernel.org>, Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	James Clark <james.clark@linaro.org>, <linux-doc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<kvmarm@lists.linux.dev>, <linux-perf-users@vger.kernel.org>,
-	<linux-kselftest@vger.kernel.org>, wangyushan <wangyushan12@huawei.com>,
-	<fanghao11@huawei.com>, Zhou Wang <wangzhou1@hisilicon.com>,
-	<prime.zeng@hisilicon.com>, <xuwei5@huawei.com>
-References: <20260504211813.1804997-1-coltonlewis@google.com>
- <20260504211813.1804997-12-coltonlewis@google.com>
-From: wuyifan <wuyifan50@huawei.com>
-In-Reply-To: <20260504211813.1804997-12-coltonlewis@google.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.120.222]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- kwepemo100012.china.huawei.com (7.202.195.139)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260616_020805_546474_27FCC3A4 
-X-CRM114-Status: UNSURE (   8.53  )
-X-CRM114-Notice: Please train this message.
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="veXpHt1QEexMKAbu"
+Content-Disposition: inline
+In-Reply-To: <20260615163713.665271a2@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,38 +75,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Colton,
 
-On 5/5/2026 5:18 AM, Colton Lewis wrote:
-> +	for_each_set_bit(i, &guest_counters, ARMPMU_MAX_HWEVENTS) {
-> +		if (i == ARMV8_PMU_CYCLE_IDX) {
-> +			val = __vcpu_sys_reg(vcpu, PMCCFILTR_EL0);
-> +			evsel = ARMV8_PMUV3_PERFCTR_CPU_CYCLES;
-> +		} else {
-> +			val = __vcpu_sys_reg(vcpu, PMEVTYPER0_EL0 + i);
-> +			evsel = val & kvm_pmu_event_mask(vcpu->kvm);
-> +		}
-> +
-> +		guest_include_el2 = (val & ARMV8_PMU_INCLUDE_EL2);
-> +		val &= ~evtyper_clr;
-> +
-> +		if (unlikely(is_hyp_ctxt(vcpu)) && guest_include_el2)
-> +			val &= ~ARMV8_PMU_EXCLUDE_EL1;
-> +
-> +		if (vcpu->kvm->arch.pmu_filter &&
-> +		    !test_bit(evsel, vcpu->kvm->arch.pmu_filter))
-> +			val |= evtyper_set;
-> +
-> +		if (i == ARMV8_PMU_CYCLE_IDX) {
-> +			write_sysreg(val, pmccntr_el0);
-This should be pmccfiltr_el0.
-Writing the filter bits to pmccntr_el0 would corrupt the cycle count value.
-> +		} else {
-> +			write_sysreg(i, pmselr_el0);
-> +			write_sysreg(val, pmxevtyper_el0);
-> +		}
-> +	}
-> +}
-Thanks,
-Yifan
+--veXpHt1QEexMKAbu
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+> On Thu, 11 Jun 2026 23:55:50 +0200 Lorenzo Bianconi wrote:
+> >       net: airoha: use int instead of atomic_t for qdma users counter
+> >       net: airoha: refactor QDMA start/stop into reusable helpers
+> >       net: airoha: defer GDM3/GDM4 WAN mode and GDM2 loopback to QoS of=
+fload
+>=20
+> only the first patch applies cleanly right now
+
+ack, I will repost missing ones as soon as net-next is open again.
+
+Regards,
+Lorenzo
+
+--veXpHt1QEexMKAbu
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCajETkgAKCRA6cBh0uS2t
+rOReAPsEmnYAMhDF28XS2vXZY1/UTQg2145bDKxI02AfrrbHKAD/RlrEtKZzVD+t
+rV+CYqb0oXC+8tSoTWXY/uU+fRE88wk=
+=SZVh
+-----END PGP SIGNATURE-----
+
+--veXpHt1QEexMKAbu--
 
