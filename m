@@ -4,68 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11404CD98DA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 10:05:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36553CD98E1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 10:10:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1g2CG9IiKEy/YVPbiNnEetF5KBKUdZhApz3+tSzsmiw=; b=LXHo4/cU6ELUHVpnljlXt4SkH8
-	3pJuVJfiPBLLz1LQFf+qVCTjT/nHSUesMZ4HEOIM3NMMnp+mxkZdoypnSPqxcezHOIWushmrE2HuN
-	soTM6fn8PDqcfP/pnvm1Kdg+sLSXoNyX52lDTSFIfo3PLEmZqfaB9WgG2jfn5MDcGJdgVD6jqllXC
-	45LVqeQsnyBOfiFjop2s+P9Ts3JaEngO7RpF2HVdMtVYUcCiH9+oGcyX/mJlvPohvxPbT9bg/DljT
-	GxKmgXQ31wE7TbFnipooRA5u62p5qAg98MkbVJfbEKG/sy44ZJOwQz74PA/oNU8WMWONAcg/U8L7B
-	SONKnkNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rgXck3qhvoJPxsaGkk1pMrxcKj77tOWzD/6bHjBzG1I=; b=TO+uWuiFOGhdadSkcpYBgKf2N/
+	lq5t0g41oM3OBUmxL/ZMIXhF7zy/Ck92R0RbmGMHDmmqxMOJ8HnZxKix4Olcd5MuNGj1ROBY2axQz
+	BLKy0ZOvkoXcO11+wpNwjxh3kg5H7xCXwM2WT82yEzlWgqQR1uhusGzqbQpeviv4dJb7h7uXjfZQq
+	qIHvBAZK9PCKq9e7wKTwYbFK7fz5q3MLjGThaG5amKBDvMPjEZCd5zP4xPwp1GUMLXnueicZRA/3n
+	kdqLopaMlXjmIiNB2vvVSnAuz5rei8rQHBpwW/UNu/WGJsOKirkfhXpzDuPBgviep3eXVOWBsozeM
+	88jE1CAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZQfS-0000000FZDg-3UA9;
-	Tue, 16 Jun 2026 10:05:14 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1wZQkM-0000000FZnE-1VGk;
+	Tue, 16 Jun 2026 10:10:18 +0000
+Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZQfP-0000000FZCx-2rBC
+	id 1wZQkK-0000000FZmI-0X5X
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Jun 2026 10:05:14 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1wZQfH-0003jK-3A; Tue, 16 Jun 2026 12:05:03 +0200
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1wZQfG-0030uu-2j;
-	Tue, 16 Jun 2026 12:05:02 +0200
-Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.98.2)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1wZQfG-00000008itz-32QJ;
-	Tue, 16 Jun 2026 12:05:02 +0200
-Date: Tue, 16 Jun 2026 12:05:02 +0200
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: Liu Ying <victor.liu@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>, devicetree@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 3/3] arm64: dts: imx93-11x11-evk: Add DY1212W-4856
- LVDS panel
-Message-ID: <nj7yarck53nfnmsa3fafw7iqh6cqwfsm4qmfeig3w5pr3pvof6@cblp4m4aqu2l>
-References: <20260610-imx93-ldb-v3-0-c9b65d742753@nxp.com>
- <20260610-imx93-ldb-v3-3-c9b65d742753@nxp.com>
+	Tue, 16 Jun 2026 10:10:17 +0000
+Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-842307472d4so1608584b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 03:10:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781604615; x=1782209415; darn=lists.infradead.org;
+        h=mime-version:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=rgXck3qhvoJPxsaGkk1pMrxcKj77tOWzD/6bHjBzG1I=;
+        b=b0orjZVRQcki2Yo8cd79rV2BBuW9bqmx/SN26QitDb5j7rXpwAFdiQt0ESFyL0P65n
+         o101bn7wpbBLKamFDa1uajMCqPRAq3e05ZUiZ8KnFGj88H3qnQEmwoiz0DwZmxEZfWp/
+         glyZRzN/At8BYUV0dN9ud14rf01PuX0iDlF1MSYthjfZPvimwAM0U6EDj2tkmhKWsxQs
+         w5wUYBgboZ7JT84ghxhf4lbGpHwxY9usN6ws2+hRURLqIXhoULtuaTxFr5PaEvkfc5l9
+         /JreX1GTpHNqmVlP/ZEkwBUQxbKISM+3HsRGpNA4Rmg4bk/8Res0HmQK8FYISBkBb/IX
+         /nag==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781604615; x=1782209415;
+        h=mime-version:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=rgXck3qhvoJPxsaGkk1pMrxcKj77tOWzD/6bHjBzG1I=;
+        b=b4QGrJelJLvQxgUKzWYALMUAI0sA3FpbgzhONY3uJiav6n1luP6sc2EZqymUrnx09k
+         JeHUTlFrlTNiyxJKBiPhdaEnb3WbdeeolQO7hPDrIGGSYz1JIZ0MMO5iteb8e/uSMRp5
+         NRKfIz2XGoZ+0FTfbghnnNFJbeNwTzt1BJSYfVYgHktuXbsbv1gBcGUAcxoF0bBE44Qk
+         96nKRQmPkx8e2iOBVm3Kf09vtY+j10WD+CT/1oyTgSwZj3cSaviyn9xMwgDG5Q4ejOdu
+         7S1mzvylsXumjWj6WsuiGlJGz5g83Nv9ifrmIsgImHMzsMsecRDXnLd+YXRICDkZT7Qd
+         uNvg==
+X-Forwarded-Encrypted: i=1; AFNElJ8HvwqcyeL2BUjA3SSU5+DWPHzJHJGbDcX3dCiNMZgW4dukstZ3zH7Xq1rFWtAp1Ei0VxCDzlOxe+4xlPH/jDu/@lists.infradead.org
+X-Gm-Message-State: AOJu0YzwHt/WTjyprBNCSP8YidAlT0OKr7BK37UGL1xYsEqBIbRxXRoV
+	cZ4MqjViBMD62VtlOZ9/RImSDJ8/FG3FL/Ian2uUvBUFacc/Y76tjIkd
+X-Gm-Gg: Acq92OEyHKXA2EAMJxnfFyGSYHWlr0Zmkb6Nyud81ph36r9N6XSOTgXn3sp1uojZMtC
+	ZfWk3mz9zcIhEX2QArNPRUHVDr5EXftJD9iowB5K3fnHEWWkiEXyjX95x36gwopSZ/SG8PmVgNc
+	jRkqjjPy91U+ef1ZPXKLEHOH12BiDtYQ4kG++x7ymKmYgJrJv7+FHCzMf+H4ZCliJyngDlHWrm/
+	u1t9giNaTGjXgsdZ8jWUUtCsaa2FOAnQhfqouk8y03t/tUmI9NflRKo+J1IjBco9Fjpt7o92cmH
+	Y4BaHKE8prmZBX88ZNdi7hLZljEku3Z2mfv2uvjcr1v+eko/ZzxQUi1EN7NCzfSdMm2/pXqnfjn
+	S2XFBFfVT/JyO0bZ+MELoCNkzVL06fkdLmh2QZ9ghoNVRSJHbN7gljiYY4q+qxyQWVa3EtLbsh4
+	YKSBZ4l1m9mpPVFiKU
+X-Received: by 2002:a05:6a00:1151:b0:842:6fac:bd3 with SMTP id d2e1a72fcca58-84515556183mr2848320b3a.28.1781604615062;
+        Tue, 16 Jun 2026 03:10:15 -0700 (PDT)
+Received: from [127.0.1.1] ([47.253.114.73])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8434ad03fdcsm12396943b3a.24.2026.06.16.03.10.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 16 Jun 2026 03:10:14 -0700 (PDT)
+From: Wayen Yan <win847@gmail.com>
+To: netdev@vger.kernel.org
+Cc: lorenzo@kernel.org, horms@kernel.org, pabeni@redhat.com, kuba@kernel.org, edumazet@google.com, andrew+netdev@lunn.ch, angelogioacchino.delregno@collabora.com, matthias.bgg@gmail.com, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Subject: [PATCH] net: airoha: fix foe_check_time allocation size
+Date: Tue, 16 Jun 2026 17:49:03 +0800
+Message-ID: <178160461057.2154221.15886112443159132305@gmail.com>
+Content-Type: text/plain; charset=utf-8
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260610-imx93-ldb-v3-3-c9b65d742753@nxp.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mfe@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260616_030511_727581_852DD3EE 
-X-CRM114-Status: GOOD (  19.99  )
+X-CRM114-CacheID: sfid-20260616_031016_165264_F5301D3C 
+X-CRM114-Status: UNSURE (   8.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,139 +93,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26-06-10, Liu Ying wrote:
-> DY1212W-4856 [1] is a 12.1" (WXGA) TFT LCD panel with LVDS interface.
-> The panel's 40-pin connector allows it to be directly connected to
-> i.MX93 11x11 EVK board.
-> 
-> Link: https://www.nxp.com/design/design-center/development-boards-and-designs/dy1212w-4856-tft-lcd-panel-with-lvds-interface:DY1212W-4856 [1]
-> Signed-off-by: Liu Ying <victor.liu@nxp.com>
-> ---
->  arch/arm64/boot/dts/freescale/Makefile             |  4 ++
->  .../freescale/imx93-11x11-evk-dy1212w-4856.dtso    | 81 ++++++++++++++++++++++
->  2 files changed, 85 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-> index 8ddaab127ab9..dbe27d757c86 100644
-> --- a/arch/arm64/boot/dts/freescale/Makefile
-> +++ b/arch/arm64/boot/dts/freescale/Makefile
-> @@ -588,6 +588,10 @@ dtb-$(CONFIG_ARCH_MXC) += imx93-9x9-qsb-ontat-kd50g21-40nt-a1.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx93-9x9-qsb-tianma-tm050rdh03.dtb
->  
->  dtb-$(CONFIG_ARCH_MXC) += imx93-11x11-evk.dtb
-> +
-> +imx93-11x11-evk-dy1212w-4856-dtbs += imx93-11x11-evk.dtb imx93-11x11-evk-dy1212w-4856.dtbo
-> +dtb-$(CONFIG_ARCH_MXC) += imx93-11x11-evk-dy1212w-4856.dtb
-> +
->  dtb-$(CONFIG_ARCH_MXC) += imx93-11x11-frdm.dtb
->  
->  imx93-11x11-frdm-pixpaper-dtbs += imx93-11x11-frdm.dtb imx93-11x11-frdm-pixpaper.dtbo
-> diff --git a/arch/arm64/boot/dts/freescale/imx93-11x11-evk-dy1212w-4856.dtso b/arch/arm64/boot/dts/freescale/imx93-11x11-evk-dy1212w-4856.dtso
-> new file mode 100644
-> index 000000000000..35f7c5699e3a
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/freescale/imx93-11x11-evk-dy1212w-4856.dtso
-> @@ -0,0 +1,81 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> +/*
-> + * Copyright 2026 NXP
-> + */
-> +
-> +/dts-v1/;
-> +/plugin/;
-> +
-> +#include <dt-bindings/clock/imx93-clock.h>
-> +
-> +&{/} {
-> +	panel-lvds {
-> +		compatible = "boe,ev121wxm-n10-1850";
-> +		backlight = <&backlight_lvds>;
-> +		power-supply = <&buck4>;
-> +
-> +		panel-timing {
-> +			/*
-> +			 * Set clock frequency to 71142858Hz to accommodate
-> +			 * IMX93_CLK_VIDEO_PLL rate at 498000000Hz in a rate
-> +			 * table.
-> +			 */
-> +			clock-frequency = <71142858>;
-> +			hactive = <1280>;
-> +			vactive = <800>;
-> +			hfront-porch = <48>;
-> +			hback-porch = <80>;
-> +			hsync-len = <32>;
-> +			vfront-porch = <3>;
-> +			vback-porch = <14>;
-> +			vsync-len = <6>;
-> +		};
-> +
-> +		port {
-> +			panel_lvds_in: endpoint {
-> +				remote-endpoint = <&ldb_lvds_ch0>;
-> +			};
-> +		};
-> +	};
-> +};
-> +
-> +&backlight_lvds {
-> +	status = "okay";
-> +};
-> +
-> +&lcdif {
-> +	status = "okay";
-> +};
-> +
-> +&lvds_bridge {
-> +	status = "okay";
-> +
-> +	ports {
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +
-> +		port@1 {
-> +			reg = <1>;
-> +
-> +			ldb_lvds_ch0: endpoint {
-> +				remote-endpoint = <&panel_lvds_in>;
-> +			};
-> +		};
-> +	};
+foe_check_time is declared as u16 pointer but was allocated with
+only ppe_num_entries bytes instead of ppe_num_entries * sizeof(u16).
 
-You could just make use of the ldb_lvds_ch0 phandle you added previously
-and drop the complete override.
+When airoha_ppe_foe_verify_entry() is called with hash >= ppe_num_entries/2,
+it writes beyond the allocated buffer, causing heap buffer overflow and
+potential kernel crash.
 
-Regards,
-  Marco
+Signed-off-by: Wayen Yan <win847@gmail.com>
+---
+ drivers/net/ethernet/airoha/airoha_ppe.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-> +};
-> +
-> +&media_blk_ctrl {
-> +	assigned-clocks = <&clk IMX93_CLK_MEDIA_AXI>,
-> +			  <&clk IMX93_CLK_MEDIA_APB>,
-> +			  <&clk IMX93_CLK_MEDIA_DISP_PIX>,
-> +			  <&clk IMX93_CLK_VIDEO_PLL>;
-> +	assigned-clock-parents = <&clk IMX93_CLK_SYS_PLL_PFD1>,
-> +				 <&clk IMX93_CLK_SYS_PLL_PFD1_DIV2>,
-> +				 <&clk IMX93_CLK_VIDEO_PLL>;
-> +	/*
-> +	 * Set IMX93_CLK_MEDIA_DISP_PIX rate to 71142858Hz to accommodate
-> +	 * IMX93_CLK_VIDEO_PLL rate at 498000000Hz in a rate table.
-> +	 */
-> +	assigned-clock-rates = <400000000>, <133333333>, <71142858>, <498000000>;
-> +	status = "okay";
-> +};
-> 
-> -- 
-> 2.43.0
-> 
-> 
-
+diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
+index 5c9dff6bcc..8fb8ecf909 100644
+--- a/drivers/net/ethernet/airoha/airoha_ppe.c
++++ b/drivers/net/ethernet/airoha/airoha_ppe.c
+@@ -1578,7 +1578,8 @@ int airoha_ppe_init(struct airoha_eth *eth)
+ 			return -ENOMEM;
+ 	}
+ 
+-	ppe->foe_check_time = devm_kzalloc(eth->dev, ppe_num_entries,
++	ppe->foe_check_time = devm_kzalloc(eth->dev,
++					   ppe_num_entries * sizeof(*ppe->foe_check_time),
+ 					   GFP_KERNEL);
+ 	if (!ppe->foe_check_time)
+ 		return -ENOMEM;
 -- 
-#gernperDu 
-#CallMeByMyFirstName
+2.51.0
 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
+
 
