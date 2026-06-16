@@ -4,92 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FA9DCD98D2
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E0CBCD98E5
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 07:12:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Uo/8hRa6SMsvDyocseJ33Veh0RccKirVBAdcKfEXzTY=; b=S2VZMbn8Tr6BPdtSLwXYUM1UM8
-	/p5chXFgJqedTlvRsYl0mqNlIXy0tUHnG694uCVl7dLB82f/d49SV807EHMWyA4N/tNvvUsnvElPk
-	8Qp1ifFnfTzdWsY3JW+4VgBfzpNqZ2ziTFLjW41xCOVCLcHx/0rNGun3taXX7A3/Vqu8FPju7HubC
-	+hCq/wi2InNp7v3GkuzmnAOFWCht9/7qXb/z7b2/9vFWEdg9+S4RxROSufdWR7I4eub81c2g/lgVA
-	rYdeflYrSuhoVU9xMSAmUkOEVCvlyKsEvZeoO9ZyBCUyUWQxjXMRtkn+lb3U8ZDDY839vNVM+lhHI
-	WbvdxcmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:In-Reply-To:Date:From:Cc:To:Subject:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=xmfQ0B4mSuUz0qzwmeF8cNt6KjZ0N5hpb3HAjnabsW8=; b=LErBzPYI+37ioMtqMlk/9nnKkS
+	R2tY8NAUKer+sk0+33GTT49PIEx3E8ET1iT4Ccf/yU/GgN7iXlEHETzibArrPa/9CRWB7OQMQFfR4
+	cpPSZzKVR3rQzMqtY3NLWACjIZZv6NG8qaphFnaDdGwMrSDslKVaHoMZeIP8nZ+/OAezhfe7eda7u
+	Hzho2LSeRhujwkw0QAPtRW+tLcKSgbKeFurbbIu75/aVgV83hjH8Jwyn9Rf4hzWNjH3uAXNwEWCb2
+	NNhSaIXGZO1q6K7q0REOFUVNe9l7AqvwI4IUp4oVivAIElq++HnBabehxk5A0IZh5CLzTMQKw0CqN
+	CJplZj5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZNy3-0000000FM3b-1BuL;
+	id 1wZNy2-0000000FM38-4626;
 	Tue, 16 Jun 2026 07:12:15 +0000
-Received: from mx0b-0016f401.pphosted.com ([67.231.156.173])
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZNxx-0000000FM0l-3BPK
+	id 1wZNxy-0000000FM0q-1zHk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Jun 2026 07:12:11 +0000
-Received: from pps.filterd (m0045851.ppops.net [127.0.0.1])
-	by mx0b-0016f401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65G66Q7I2715622;
-	Tue, 16 Jun 2026 00:11:58 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pfpt0220; bh=Uo/8hRa6SMsvDyocseJ33Veh0
-	RccKirVBAdcKfEXzTY=; b=N1kRIBgwzip5Usoz7TLvhi/uLHRlxAuDiPnl4gFzQ
-	UrEVyJntfgRzX3kGb4Dwb3z+UvhBDYwjF/z2BAfpvhO/x5cGgtzsM0b682xUhDge
-	rOaMiWqVNbO+LpxVyda9PsFR3Robe5LUbVKrlpLYKfBf55ErsPo3dAKJeyeshegC
-	W7rrbbpT6aJgtyRJzVpF8wvYgirO2tkkCyLSEbiCq2tuZR/4HbkVewAi4SCJTfV2
-	8N6UPefSWKxjdfIf8GChu/vf8vHlj4twbg5Grm/9vJkiv4urQyYCQzvVtv5y5OUV
-	vlOLm798CxfybQnjIGSF9RQTcQTB70C/qL6oM4mpqJxMQ==
-Received: from dc5-exch05.marvell.com ([199.233.59.128])
-	by mx0b-0016f401.pphosted.com (PPS) with ESMTPS id 4es6qek0jm-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 16 Jun 2026 00:11:58 -0700 (PDT)
-Received: from DC5-EXCH05.marvell.com (10.69.176.209) by
- DC5-EXCH05.marvell.com (10.69.176.209) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.25; Tue, 16 Jun 2026 00:11:56 -0700
-Received: from maili.marvell.com (10.69.176.80) by DC5-EXCH05.marvell.com
- (10.69.176.209) with Microsoft SMTP Server id 15.2.1544.25 via Frontend
- Transport; Tue, 16 Jun 2026 00:11:56 -0700
-Received: from hyd1soter3.marvell.com (unknown [10.29.37.12])
-	by maili.marvell.com (Postfix) with ESMTP id 54C5B3F7043;
-	Tue, 16 Jun 2026 00:11:54 -0700 (PDT)
-From: Geetha sowjanya <gakula@marvell.com>
-To: <linux-perf-users@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>
-CC: <mark.rutland@arm.com>, <will@kernel.org>, <krzk+dt@kernel.org>,
-        <gakula@marvell.com>
-Subject: [PATCH v3 1/3] perf: marvell: Add MPAM partid filtering to CN10K TAD PMU
-Date: Tue, 16 Jun 2026 12:41:47 +0530
-Message-ID: <20260616071149.12523-2-gakula@marvell.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20260616071149.12523-1-gakula@marvell.com>
-References: <20260616071149.12523-1-gakula@marvell.com>
+	Tue, 16 Jun 2026 07:12:10 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3457460137;
+	Tue, 16 Jun 2026 07:12:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12C481F00A3A;
+	Tue, 16 Jun 2026 07:12:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1781593928;
+	bh=xmfQ0B4mSuUz0qzwmeF8cNt6KjZ0N5hpb3HAjnabsW8=;
+	h=Subject:To:Cc:From:Date:In-Reply-To;
+	b=adabKzK66QkTZp8HYktsjJ3I1e5pvGTaMc8GNLaSzo2yawQv8EX2Iu9HB9g5BNGI0
+	 RcmkyqDVzYEdFPcSpn0k48RbQTdXcqng5SBQckEqjRO+661QGN7brxHsgRihGG4hrl
+	 W/juEyrAyjqf3OZJ9o8nt9FotAh2ns+SYxmUoduY=
+Subject: Patch "arm64/mm: Enable batched TLB flush in unmap_hotplug_range()" has been added to the 5.10-stable tree
+To: anshuman.khandual@arm.com,catalin.marinas@arm.com,david@kernel.org,gregkh@linuxfoundation.org,linux-arm-kernel@lists.infradead.org,ryan.roberts@arm.com,sashal@kernel.org,will@kernel.org
+Cc: <stable-commits@vger.kernel.org>
+From: <gregkh@linuxfoundation.org>
+Date: Tue, 16 Jun 2026 12:40:41 +0530
+In-Reply-To: <20260428200548.3191346-1-sashal@kernel.org>
+Message-ID: <2026061641-pungent-mustard-6f0b@gregkh>
 MIME-Version: 1.0
-Content-Type: text/plain
-X-Proofpoint-GUID: 9wnTt69ZtmGgDnwrCglXeE_ujqi64ShP
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNjE2MDA3MCBTYWx0ZWRfX3LkuW3I9J+7e
- S54sq8yogSn5uk+3t12omQMg6TERu1uyTdMoPfJ1ig/Mu5Gn5Ovsk8Ff+QPB51p1zL9oPXbHATr
- Ktntk9Surshw7xB0k/Q80YUoSd7T8vQ=
-X-Authority-Analysis: v=2.4 cv=TuXWQjXh c=1 sm=1 tr=0 ts=6a30f73e cx=c_pps
- a=rEv8fa4AjpPjGxpoe8rlIQ==:117 a=rEv8fa4AjpPjGxpoe8rlIQ==:17
- a=FelO9ux0wxsA:10 a=VkNPw1HP01LnGYTKEx00:22 a=l0iWHRpgs5sLHlkKQ1IR:22
- a=QXcCYyLzdtTjyudCfB6f:22 a=M5GUcnROAAAA:8 a=vq2FkfN3LUNKyec-IwwA:9
- a=OBjm3rFKGHvpk9ecZwUJ:22
-X-Proofpoint-ORIG-GUID: 9wnTt69ZtmGgDnwrCglXeE_ujqi64ShP
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjE2MDA3MCBTYWx0ZWRfX3ulmEtPmKg+T
- RM35UDZGQEJiS+ej2p7+SJhJSImY+FP8mLyxayEdS130MzhCwHCRrRXKHzNnvZJfVZGFXJQC2cE
- Z8sxb7MG6QhWtetzDewshK810tWsrziyE02lMlzax9NnMWDsH/3Q1BD5iehug/D+yxvGGSP7/EW
- kyMUJOPLkrgS4xmBnTrMQlp6jsJHkz/aigHX57suR6NslWU3o8GNPhuaHVlJD6zHNW5qI0Xyflt
- x5M4GXBtNkCRV87yvfzrjzw0HePMUkJqBHms6te4O2rPMnRojXxmhGnZAcGeloCNoIqYAfCp0r2
- fp5OowPx+mLAorTt2B9fqbzGKpr3ic57qjzOHTTZ5D0F5tX/4fDFCFf4gFnchCzd2nPxLLTGILj
- QQyBVyVNfdg6Wcv/YOML/IVUIp4bg2IsB6C5VgIE9xRA2SfZBQLjt4axkZor/+2QnBUlfei9Qn4
- 7uydsRUyZ0Uy6TJ2WWQ==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-16_02,2026-06-15_04,2025-10-01_01
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260616_001209_922238_050F54BF 
-X-CRM114-Status: GOOD (  28.09  )
+Content-Type: text/plain; charset=ANSI_X3.4-1968
+Content-Transfer-Encoding: 8bit
+X-stable: commit
+X-Patchwork-Hint: ignore
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,463 +65,363 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Tanmay Jagdale <tanmay@marvell.com>
 
-The TAD PMU exposes counters that can be filtered by MPAM partition id
-for a subset of allocation and hit events.
+This is a note to let you know that I've just added the patch titled
 
-Add a 9-bit partid format attribute (config1) and route counter programming
-through variant-specific ops so CN10K keeps MPAM-capable programming while
-Odyssey keeps the reduced event set without advertising partid in sysfs.
+    arm64/mm: Enable batched TLB flush in unmap_hotplug_range()
 
-Probe no longer mutates the platform_device MMIO resource (walk a local
-map_start), rejects tad-cnt / page sizes of zero, validates the memory
-window against tad-cnt, and registers the perf PMU before hotplug with
-correct unwind.
+to the 5.10-stable tree which can be found at:
+    http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
 
-Example:
-  perf stat -e tad/tad_alloc_any,partid=0x12,partid_en=1/ -- <program>
+The filename of the patch is:
+     arm64-mm-enable-batched-tlb-flush-in-unmap_hotplug_range.patch
+and it can be found in the queue-5.10 subdirectory.
 
-Signed-off-by: Tanmay Jagdale <tanmay@marvell.com>
+If you, or anyone else, feels it should not be added to the stable tree,
+please let <stable@vger.kernel.org> know about it.
+
+
+From stable+bounces-241768-greg=kroah.com@vger.kernel.org Wed Apr 29 01:35:55 2026
+From: Sasha Levin <sashal@kernel.org>
+Date: Tue, 28 Apr 2026 16:05:48 -0400
+Subject: arm64/mm: Enable batched TLB flush in unmap_hotplug_range()
+To: stable@vger.kernel.org
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>, Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, "David Hildenbrand (Arm)" <david@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, Sasha Levin <sashal@kernel.org>
+Message-ID: <20260428200548.3191346-1-sashal@kernel.org>
+
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+
+[ Upstream commit 48478b9f791376b4b89018d7afdfd06865498f65 ]
+
+During a memory hot remove operation, both linear and vmemmap mappings for
+the memory range being removed, get unmapped via unmap_hotplug_range() but
+mapped pages get freed only for vmemmap mapping. This is just a sequential
+operation where each table entry gets cleared, followed by a leaf specific
+TLB flush, and then followed by memory free operation when applicable.
+
+This approach was simple and uniform both for vmemmap and linear mappings.
+But linear mapping might contain CONT marked block memory where it becomes
+necessary to first clear out all entire in the range before a TLB flush.
+This is as per the architecture requirement. Hence batch all TLB flushes
+during the table tear down walk and finally do it in unmap_hotplug_range().
+
+Prior to this fix, it was hypothetically possible for a speculative access
+to a higher address in the contiguous block to fill the TLB with shattered
+entries for the entire contiguous range after a lower address had already
+been cleared and invalidated. Due to the table entries being shattered, the
+subsequent TLB invalidation for the higher address would not then clear the
+TLB entries for the lower address, meaning stale TLB entries could persist.
+
+Besides it also helps in improving the performance via TLBI range operation
+along with reduced synchronization instructions. The time spent executing
+unmap_hotplug_range() improved 97% measured over a 2GB memory hot removal
+in KVM guest.
+
+This scheme is not applicable during vmemmap mapping tear down where memory
+needs to be freed and hence a TLB flush is required after clearing out page
+table entry.
+
+Cc: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Closes: https://lore.kernel.org/all/aWZYXhrT6D2M-7-N@willie-the-truck/
+Fixes: bbd6ec605c0f ("arm64/mm: Enable memory hot remove")
+Cc: stable@vger.kernel.org
+Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
+Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+[ renamed `__pte_clear()` to `pte_clear()` and inlined `pmd_cont(pmd)` as `pmd_val(pmd) & PMD_SECT_CONT` ]
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 ---
-Changelog (since v2)
---------------------
-- Validate the eventId using an appropriate mask to ensure
-  it is restricted to 8 bits 
+ arch/arm64/mm/mmu.c |   36 ++++++++++++++++++++----------------
+ 1 file changed, 20 insertions(+), 16 deletions(-)
 
-Changelog (since v1)
---------------------
-- Fix config1 filter enable to use bit 9 consistently with the PMU format
-  string (partid_en) and reject reserved bits with GENMASK(9, 0).
-- Register perf_pmu_register before cpuhp_state_add_instance_nocalls and
-  unregister on hotplug failure.
-
- drivers/perf/marvell_cn10k_tad_pmu.c | 216 ++++++++++++++++++++-------
- 1 file changed, 164 insertions(+), 52 deletions(-)
-
-diff --git a/drivers/perf/marvell_cn10k_tad_pmu.c b/drivers/perf/marvell_cn10k_tad_pmu.c
-index 51ccb0befa05..69a6648fa664 100644
---- a/drivers/perf/marvell_cn10k_tad_pmu.c
-+++ b/drivers/perf/marvell_cn10k_tad_pmu.c
-@@ -7,6 +7,7 @@
- #define pr_fmt(fmt) "tad_pmu: " fmt
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -862,10 +862,14 @@ static void unmap_hotplug_pte_range(pmd_
  
- #include <linux/io.h>
-+#include <linux/bits.h>
- #include <linux/module.h>
- #include <linux/of.h>
- #include <linux/cpuhotplug.h>
-@@ -14,12 +15,20 @@
- #include <linux/platform_device.h>
- #include <linux/acpi.h>
- 
--#define TAD_PFC_OFFSET		0x800
--#define TAD_PFC(counter)	(TAD_PFC_OFFSET | (counter << 3))
- #define TAD_PRF_OFFSET		0x900
--#define TAD_PRF(counter)	(TAD_PRF_OFFSET | (counter << 3))
-+#define TAD_PFC_OFFSET		0x800
-+#define TAD_PFC(base, counter)	((base) | ((u64)(counter) << 3))
-+#define TAD_PRF(base, counter)	((base) | ((u64)(counter) << 3))
- #define TAD_PRF_CNTSEL_MASK	0xFF
-+#define TAD_PRF_MATCH_PARTID	BIT(8)
-+#define TAD_PRF_PARTID_NS	BIT(10)
-+/*
-+ * config1: bits 0..8 MPAM partition id (including 0); bit 9 requests
-+ * filtering for MPAM-capable events. All-zero config1 means no filter.
-+ */
-+#define TAD_PARTID_FILTER_EN	BIT(9)
- #define TAD_MAX_COUNTERS	8
-+#define TAD_EVENT_SEL_MASK	GENMASK(7, 0)
- 
- #define to_tad_pmu(p) (container_of(p, struct tad_pmu, pmu))
- 
-@@ -27,30 +36,92 @@ struct tad_region {
- 	void __iomem	*base;
- };
- 
-+enum mrvl_tad_pmu_version {
-+	TAD_PMU_V1 = 1,
-+	TAD_PMU_V2,
-+};
-+
-+struct tad_pmu_data {
-+	int id;
-+	u64 tad_prf_offset;
-+	u64 tad_pfc_offset;
-+};
-+
- struct tad_pmu {
- 	struct pmu pmu;
- 	struct tad_region *regions;
- 	u32 region_cnt;
- 	unsigned int cpu;
-+	const struct tad_pmu_ops *ops;
-+	const struct tad_pmu_data *pdata;
- 	struct hlist_node node;
- 	struct perf_event *events[TAD_MAX_COUNTERS];
- 	DECLARE_BITMAP(counters_map, TAD_MAX_COUNTERS);
- };
- 
--enum mrvl_tad_pmu_version {
--	TAD_PMU_V1 = 1,
--	TAD_PMU_V2,
--};
--
--struct tad_pmu_data {
--	int id;
-+struct tad_pmu_ops {
-+	void (*start_counter)(struct tad_pmu *pmu, struct perf_event *event);
- };
- 
- static int tad_pmu_cpuhp_state;
- 
-+static void tad_pmu_start_counter(struct tad_pmu *pmu,
-+				  struct perf_event *event)
-+{
-+	const struct tad_pmu_data *pdata = pmu->pdata;
-+	struct hw_perf_event *hwc = &event->hw;
-+	u32 event_idx = (u32)(event->attr.config & TAD_EVENT_SEL_MASK);
-+	u32 counter_idx = hwc->idx;
-+	u64 partid_filter = 0;
-+	u64 reg_val;
-+	u64 cfg1 = event->attr.config1;
-+	bool use_mpam = cfg1 & TAD_PARTID_FILTER_EN;
-+	u32 partid = (u32)(cfg1 & GENMASK(8, 0));
-+	int i;
-+
-+	for (i = 0; i < pmu->region_cnt; i++)
-+		writeq_relaxed(0, pmu->regions[i].base +
-+			       TAD_PFC(pdata->tad_pfc_offset, counter_idx));
-+
-+	if (use_mpam && event_idx > 0x19 && event_idx < 0x21) {
-+		partid_filter = TAD_PRF_MATCH_PARTID | TAD_PRF_PARTID_NS |
-+				((u64)partid << 11);
-+	}
-+
-+
-+	for (i = 0; i < pmu->region_cnt; i++) {
-+		reg_val = event_idx & 0xFF;
-+		reg_val |= partid_filter;
-+		writeq_relaxed(reg_val, pmu->regions[i].base +
-+			       TAD_PRF(pdata->tad_prf_offset, counter_idx));
-+	}
-+}
-+
-+static void tad_pmu_v2_start_counter(struct tad_pmu *pmu,
-+				     struct perf_event *event)
-+{
-+	const struct tad_pmu_data *pdata = pmu->pdata;
-+	struct hw_perf_event *hwc = &event->hw;
-+	u32 event_idx = (u32)(event->attr.config & TAD_EVENT_SEL_MASK);
-+	u32 counter_idx = hwc->idx;
-+	u64 reg_val;
-+	int i;
-+
-+	for (i = 0; i < pmu->region_cnt; i++)
-+		writeq_relaxed(0, pmu->regions[i].base +
-+			       TAD_PFC(pdata->tad_pfc_offset, counter_idx));
-+
-+	for (i = 0; i < pmu->region_cnt; i++) {
-+		reg_val = event_idx & 0xFF;
-+		writeq_relaxed(reg_val, pmu->regions[i].base +
-+			       TAD_PRF(pdata->tad_prf_offset, counter_idx));
-+	}
-+}
-+
- static void tad_pmu_event_counter_read(struct perf_event *event)
- {
- 	struct tad_pmu *tad_pmu = to_tad_pmu(event->pmu);
-+	const struct tad_pmu_data *pdata = tad_pmu->pdata;
- 	struct hw_perf_event *hwc = &event->hw;
- 	u32 counter_idx = hwc->idx;
- 	u64 prev, new;
-@@ -60,7 +131,7 @@ static void tad_pmu_event_counter_read(struct perf_event *event)
- 		prev = local64_read(&hwc->prev_count);
- 		for (i = 0, new = 0; i < tad_pmu->region_cnt; i++)
- 			new += readq(tad_pmu->regions[i].base +
--				     TAD_PFC(counter_idx));
-+				     TAD_PFC(pdata->tad_pfc_offset, counter_idx));
- 	} while (local64_cmpxchg(&hwc->prev_count, prev, new) != prev);
- 
- 	local64_add(new - prev, &event->count);
-@@ -69,16 +140,14 @@ static void tad_pmu_event_counter_read(struct perf_event *event)
- static void tad_pmu_event_counter_stop(struct perf_event *event, int flags)
- {
- 	struct tad_pmu *tad_pmu = to_tad_pmu(event->pmu);
-+	const struct tad_pmu_data *pdata = tad_pmu->pdata;
- 	struct hw_perf_event *hwc = &event->hw;
- 	u32 counter_idx = hwc->idx;
- 	int i;
- 
--	/* TAD()_PFC() stop counting on the write
--	 * which sets TAD()_PRF()[CNTSEL] == 0
--	 */
- 	for (i = 0; i < tad_pmu->region_cnt; i++) {
- 		writeq_relaxed(0, tad_pmu->regions[i].base +
--			       TAD_PRF(counter_idx));
-+			       TAD_PRF(pdata->tad_prf_offset, counter_idx));
- 	}
- 
- 	tad_pmu_event_counter_read(event);
-@@ -89,26 +158,10 @@ static void tad_pmu_event_counter_start(struct perf_event *event, int flags)
- {
- 	struct tad_pmu *tad_pmu = to_tad_pmu(event->pmu);
- 	struct hw_perf_event *hwc = &event->hw;
--	u32 event_idx = event->attr.config;
--	u32 counter_idx = hwc->idx;
--	u64 reg_val;
--	int i;
- 
- 	hwc->state = 0;
- 
--	/* Typically TAD_PFC() are zeroed to start counting */
--	for (i = 0; i < tad_pmu->region_cnt; i++)
--		writeq_relaxed(0, tad_pmu->regions[i].base +
--			       TAD_PFC(counter_idx));
--
--	/* TAD()_PFC() start counting on the write
--	 * which sets TAD()_PRF()[CNTSEL] != 0
--	 */
--	for (i = 0; i < tad_pmu->region_cnt; i++) {
--		reg_val = event_idx & 0xFF;
--		writeq_relaxed(reg_val,	tad_pmu->regions[i].base +
--			       TAD_PRF(counter_idx));
--	}
-+	tad_pmu->ops->start_counter(tad_pmu, event);
+ 		WARN_ON(!pte_present(pte));
+ 		pte_clear(&init_mm, addr, ptep);
+-		flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+-		if (free_mapped)
++		if (free_mapped) {
++			/* CONT blocks are not supported in the vmemmap */
++			WARN_ON(pte_cont(pte));
++			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+ 			free_hotplug_page_range(pte_page(pte),
+ 						PAGE_SIZE, altmap);
++		}
++		/* unmap_hotplug_range() flushes TLB for !free_mapped */
+ 	} while (addr += PAGE_SIZE, addr < end);
  }
  
- static void tad_pmu_event_counter_del(struct perf_event *event, int flags)
-@@ -128,7 +181,6 @@ static int tad_pmu_event_counter_add(struct perf_event *event, int flags)
- 	struct hw_perf_event *hwc = &event->hw;
- 	int idx;
- 
--	/* Get a free counter for this event */
- 	idx = find_first_zero_bit(tad_pmu->counters_map, TAD_MAX_COUNTERS);
- 	if (idx == TAD_MAX_COUNTERS)
- 		return -EAGAIN;
-@@ -148,6 +200,9 @@ static int tad_pmu_event_counter_add(struct perf_event *event, int flags)
- static int tad_pmu_event_init(struct perf_event *event)
- {
- 	struct tad_pmu *tad_pmu = to_tad_pmu(event->pmu);
-+	const struct tad_pmu_data *pdata = tad_pmu->pdata;
-+	u32 event_idx = (u32)(event->attr.config & TAD_EVENT_SEL_MASK);
-+	u64 cfg1 = event->attr.config1;
- 
- 	if (event->attr.type != event->pmu->type)
- 		return -ENOENT;
-@@ -158,6 +213,23 @@ static int tad_pmu_event_init(struct perf_event *event)
- 	if (event->state != PERF_EVENT_STATE_OFF)
- 		return -EINVAL;
- 
-+	if (event->attr.config & ~TAD_EVENT_SEL_MASK)
-+		return -EINVAL;
-+
-+	if (pdata->id == TAD_PMU_V2) {
-+		if (cfg1)
-+			return -EINVAL;
-+	} else {
-+		if ((cfg1 & GENMASK(8, 0)) && !(cfg1 & TAD_PARTID_FILTER_EN))
-+			return -EINVAL;
-+		if (cfg1 & TAD_PARTID_FILTER_EN) {
-+			if (event_idx <= 0x19 || event_idx >= 0x21)
-+				return -EINVAL;
-+		}
-+		if (cfg1 & ~GENMASK(9, 0))
-+			return -EINVAL;
-+	}
-+
- 	event->cpu = tad_pmu->cpu;
- 	event->hw.idx = -1;
- 	event->hw.config_base = event->attr.config;
-@@ -232,7 +304,7 @@ static struct attribute *ody_tad_pmu_event_attrs[] = {
- 	TAD_PMU_EVENT_ATTR(tad_hit_ltg, 0x1e),
- 	TAD_PMU_EVENT_ATTR(tad_hit_any, 0x1f),
- 	TAD_PMU_EVENT_ATTR(tad_tag_rd, 0x20),
--	TAD_PMU_EVENT_ATTR(tad_tot_cycle, 0xFF),
-+	TAD_PMU_EVENT_ATTR(tad_tot_cycle, 0xff),
- 	NULL
- };
- 
-@@ -242,9 +314,13 @@ static const struct attribute_group ody_tad_pmu_events_attr_group = {
- };
- 
- PMU_FORMAT_ATTR(event, "config:0-7");
-+PMU_FORMAT_ATTR(partid, "config1:0-8");
-+PMU_FORMAT_ATTR(partid_en, "config1:9-9");
- 
- static struct attribute *tad_pmu_format_attrs[] = {
- 	&format_attr_event.attr,
-+	&format_attr_partid.attr,
-+	&format_attr_partid_en.attr,
- 	NULL
- };
- 
-@@ -253,6 +329,16 @@ static struct attribute_group tad_pmu_format_attr_group = {
- 	.attrs = tad_pmu_format_attrs,
- };
- 
-+static struct attribute *ody_tad_pmu_format_attrs[] = {
-+	&format_attr_event.attr,
-+	NULL
-+};
-+
-+static struct attribute_group ody_tad_pmu_format_attr_group = {
-+	.name = "format",
-+	.attrs = ody_tad_pmu_format_attrs,
-+};
-+
- static ssize_t tad_pmu_cpumask_show(struct device *dev,
- 				struct device_attribute *attr, char *buf)
- {
-@@ -281,16 +367,25 @@ static const struct attribute_group *tad_pmu_attr_groups[] = {
- 
- static const struct attribute_group *ody_tad_pmu_attr_groups[] = {
- 	&ody_tad_pmu_events_attr_group,
--	&tad_pmu_format_attr_group,
-+	&ody_tad_pmu_format_attr_group,
- 	&tad_pmu_cpumask_attr_group,
- 	NULL
- };
- 
-+static const struct tad_pmu_ops tad_pmu_ops = {
-+	.start_counter = tad_pmu_start_counter,
-+};
-+
-+static const struct tad_pmu_ops tad_pmu_v2_ops = {
-+	.start_counter = tad_pmu_v2_start_counter,
-+};
-+
- static int tad_pmu_probe(struct platform_device *pdev)
- {
- 	const struct tad_pmu_data *dev_data;
- 	struct device *dev = &pdev->dev;
- 	struct tad_region *regions;
-+	resource_size_t map_start;
- 	struct tad_pmu *tad_pmu;
- 	struct resource *res;
- 	u32 tad_pmu_page_size;
-@@ -298,7 +393,6 @@ static int tad_pmu_probe(struct platform_device *pdev)
- 	u32 tad_cnt;
- 	int version;
- 	int i, ret;
--	char *name;
- 
- 	tad_pmu = devm_kzalloc(&pdev->dev, sizeof(*tad_pmu), GFP_KERNEL);
- 	if (!tad_pmu)
-@@ -312,6 +406,7 @@ static int tad_pmu_probe(struct platform_device *pdev)
- 		return -ENODEV;
- 	}
- 	version = dev_data->id;
-+	tad_pmu->pdata = dev_data;
- 
- 	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
- 	if (!res) {
-@@ -338,22 +433,31 @@ static int tad_pmu_probe(struct platform_device *pdev)
- 		dev_err(&pdev->dev, "Can't find tad-cnt property\n");
- 		return ret;
- 	}
-+	if (!tad_cnt || !tad_page_size || !tad_pmu_page_size) {
-+		dev_err(&pdev->dev, "Invalid tad-cnt or page size\n");
-+		return -EINVAL;
-+	}
- 
- 	regions = devm_kcalloc(&pdev->dev, tad_cnt,
- 			       sizeof(*regions), GFP_KERNEL);
- 	if (!regions)
- 		return -ENOMEM;
- 
--	/* ioremap the distributed TAD pmu regions */
--	for (i = 0; i < tad_cnt && res->start < res->end; i++) {
--		regions[i].base = devm_ioremap(&pdev->dev,
--					       res->start,
-+	map_start = res->start;
-+	for (i = 0; i < tad_cnt; i++) {
-+		if (map_start > res->end ||
-+		    tad_pmu_page_size > (resource_size_t)(res->end - map_start + 1)) {
-+			dev_err(&pdev->dev, "TAD PMU mem window too small for tad-cnt=%u\n",
-+				tad_cnt);
-+			return -EINVAL;
-+		}
-+		regions[i].base = devm_ioremap(&pdev->dev, map_start,
- 					       tad_pmu_page_size);
- 		if (!regions[i].base) {
- 			dev_err(&pdev->dev, "TAD%d ioremap fail\n", i);
- 			return -ENOMEM;
+@@ -886,15 +890,14 @@ static void unmap_hotplug_pmd_range(pud_
+ 		WARN_ON(!pmd_present(pmd));
+ 		if (pmd_sect(pmd)) {
+ 			pmd_clear(pmdp);
+-
+-			/*
+-			 * One TLBI should be sufficient here as the PMD_SIZE
+-			 * range is mapped with a single block entry.
+-			 */
+-			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+-			if (free_mapped)
++			if (free_mapped) {
++				/* CONT blocks are not supported in the vmemmap */
++				WARN_ON(pmd_val(pmd) & PMD_SECT_CONT);
++				flush_tlb_kernel_range(addr, addr + PMD_SIZE);
+ 				free_hotplug_page_range(pmd_page(pmd),
+ 							PMD_SIZE, altmap);
++			}
++			/* unmap_hotplug_range() flushes TLB for !free_mapped */
+ 			continue;
  		}
--		res->start += tad_page_size;
-+		map_start += tad_page_size;
- 	}
- 
- 	tad_pmu->regions = regions;
-@@ -374,28 +478,31 @@ static int tad_pmu_probe(struct platform_device *pdev)
- 		.read		= tad_pmu_event_counter_read,
- 	};
- 
--	if (version == TAD_PMU_V1)
-+	if (version == TAD_PMU_V1) {
- 		tad_pmu->pmu.attr_groups = tad_pmu_attr_groups;
--	else
-+		tad_pmu->ops		 = &tad_pmu_ops;
-+	} else {
- 		tad_pmu->pmu.attr_groups = ody_tad_pmu_attr_groups;
-+		tad_pmu->ops		 = &tad_pmu_v2_ops;
-+	}
- 
- 	tad_pmu->cpu = raw_smp_processor_id();
- 
--	/* Register pmu instance for cpu hotplug */
-+	ret = perf_pmu_register(&tad_pmu->pmu, "tad", -1);
-+	if (ret) {
-+		dev_err(&pdev->dev, "Error %d registering perf PMU\n", ret);
-+		return ret;
-+	}
-+
- 	ret = cpuhp_state_add_instance_nocalls(tad_pmu_cpuhp_state,
- 					       &tad_pmu->node);
- 	if (ret) {
- 		dev_err(&pdev->dev, "Error %d registering hotplug\n", ret);
-+		perf_pmu_unregister(&tad_pmu->pmu);
- 		return ret;
- 	}
- 
--	name = "tad";
--	ret = perf_pmu_register(&tad_pmu->pmu, name, -1);
--	if (ret)
--		cpuhp_state_remove_instance_nocalls(tad_pmu_cpuhp_state,
--						    &tad_pmu->node);
+ 		WARN_ON(!pmd_table(pmd));
+@@ -919,15 +922,12 @@ static void unmap_hotplug_pud_range(p4d_
+ 		WARN_ON(!pud_present(pud));
+ 		if (pud_sect(pud)) {
+ 			pud_clear(pudp);
 -
--	return ret;
-+	return 0;
+-			/*
+-			 * One TLBI should be sufficient here as the PUD_SIZE
+-			 * range is mapped with a single block entry.
+-			 */
+-			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+-			if (free_mapped)
++			if (free_mapped) {
++				flush_tlb_kernel_range(addr, addr + PUD_SIZE);
+ 				free_hotplug_page_range(pud_page(pud),
+ 							PUD_SIZE, altmap);
++			}
++			/* unmap_hotplug_range() flushes TLB for !free_mapped */
+ 			continue;
+ 		}
+ 		WARN_ON(!pud_table(pud));
+@@ -957,6 +957,7 @@ static void unmap_hotplug_p4d_range(pgd_
+ static void unmap_hotplug_range(unsigned long addr, unsigned long end,
+ 				bool free_mapped, struct vmem_altmap *altmap)
+ {
++	unsigned long start = addr;
+ 	unsigned long next;
+ 	pgd_t *pgdp, pgd;
+ 
+@@ -978,6 +979,9 @@ static void unmap_hotplug_range(unsigned
+ 		WARN_ON(!pgd_present(pgd));
+ 		unmap_hotplug_p4d_range(pgdp, addr, next, free_mapped, altmap);
+ 	} while (addr = next, addr < end);
++
++	if (!free_mapped)
++		flush_tlb_kernel_range(start, end);
  }
  
- static void tad_pmu_remove(struct platform_device *pdev)
-@@ -410,12 +517,17 @@ static void tad_pmu_remove(struct platform_device *pdev)
- #if defined(CONFIG_OF) || defined(CONFIG_ACPI)
- static const struct tad_pmu_data tad_pmu_data = {
- 	.id   = TAD_PMU_V1,
-+	.tad_prf_offset = TAD_PRF_OFFSET,
-+	.tad_pfc_offset = TAD_PFC_OFFSET,
- };
-+
- #endif
- 
- #ifdef CONFIG_ACPI
- static const struct tad_pmu_data tad_pmu_v2_data = {
- 	.id   = TAD_PMU_V2,
-+	.tad_prf_offset = TAD_PRF_OFFSET,
-+	.tad_pfc_offset = TAD_PFC_OFFSET,
- };
- #endif
- 
-@@ -491,6 +603,6 @@ static void __exit tad_pmu_exit(void)
- module_init(tad_pmu_init);
- module_exit(tad_pmu_exit);
- 
--MODULE_DESCRIPTION("Marvell CN10K LLC-TAD Perf driver");
-+MODULE_DESCRIPTION("Marvell CN10K LLC-TAD perf driver");
- MODULE_AUTHOR("Bhaskara Budiredla <bbudiredla@marvell.com>");
- MODULE_LICENSE("GPL v2");
--- 
-2.25.1
+ static void free_empty_pte_table(pmd_t *pmdp, unsigned long addr,
 
+
+Patches currently in stable-queue which might be from sashal@kernel.org are
+
+queue-5.10/team-move-team-device-type-change-at-the-end-of-team.patch
+queue-5.10/netfilter-nft_fib-fix-stale-stack-leak-via-the-oifname-register.patch
+queue-5.10/asoc-intel-bytcht_es8316-fix-mclk-leak-on-init-error.patch
+queue-5.10/spi-sun4i-fix-controller-deregistration.patch
+queue-5.10/bluetooth-l2cap-fix-possible-crash-on-l2cap_ecred_co.patch
+queue-5.10/ice-fix-vf-queue-configuration-with-low-mtu-values.patch
+queue-5.10/ipv6-sit-reload-inner-ipv6-header-after-gso-offloads.patch
+queue-5.10/ktest-fixing-indentation-to-match-expected-pattern.patch
+queue-5.10/6lowpan-fix-off-by-one-in-multicast-context-address-.patch
+queue-5.10/spi-meson-spicc-fix-double-put-in-remove-path.patch
+queue-5.10/sctp-fix-race-between-sctp_wait_for_connect-and-peel.patch
+queue-5.10/pcnet32-stop-holding-device-spin-lock-during-napi_co.patch
+queue-5.10/mptcp-do-not-drop-partial-packets.patch
+queue-5.10/bluetooth-hci_core-fix-use-after-free-in-vhci_flush.patch
+queue-5.10/serial-qcom-geni-fix-uart_rx_par_en-bit-position.patch
+queue-5.10/arm64-tlb-optimize-arm64_workaround_repeat_tlbi.patch
+queue-5.10/nfc-llcp-fix-use-after-free-race-in-nfc_llcp_recv_cc.patch
+queue-5.10/octeontx2-pf-avoid-double-free-of-pool-stack-on-aq-init-failure.patch
+queue-5.10/net-hsr-defer-node-table-free-until-after-rcu-readers.patch
+queue-5.10/f2fs-fix-incorrect-file-address-mapping-when-inline-inode-is-unwritten.patch
+queue-5.10/phy-tegra-xusb-fix-per-pad-high-speed-termination-calibration.patch
+queue-5.10/net-netlink-fix-sending-unassigned-nsid-after-assign.patch
+queue-5.10/net-qrtr-ns-free-the-node-during-ctrl_cmd_bye.patch
+queue-5.10/dm-cache-policy-smq-check-allocation-under-invalidat.patch
+queue-5.10/rdma-rxe-fix-double-free-in-rxe_srq_from_init.patch-26331
+queue-5.10/spi-ti-qspi-fix-controller-deregistration.patch
+queue-5.10/ipv6-rpl-fix-hdrlen-overflow-in-ipv6_rpl_srh_decompr.patch
+queue-5.10/smb-client-use-fullsessionkey-for-aes-256-encryption-key-derivation.patch
+queue-5.10/ieee802154-6lowpan-only-accept-ipv6-packets-in-lowpa.patch
+queue-5.10/tun-free-page-on-short-frame-rejection-in-tun_xdp_on.patch
+queue-5.10/usb-serial-mct_u232-fix-memory-corruption-with-small.patch
+queue-5.10/ext4-validate-p_idx-bounds-in-ext4_ext_correct_index.patch
+queue-5.10/spi-topcliff-pch-fix-controller-deregistration.patch
+queue-5.10/spi-uniphier-fix-controller-deregistration.patch
+queue-5.10/mtd-spi-nor-sst-fix-write-enable-before-aai-sequence.patch
+queue-5.10/signal-clear-jobctl_pending_mask-for-caller-in-zap_o.patch
+queue-5.10/spi-syncuacer-fix-controller-deregistration.patch
+queue-5.10/alsa-aoa-i2sbus-clear-stale-prepared-state.patch
+queue-5.10/sched-use-u64-for-bandwidth-ratio-calculations.patch
+queue-5.10/spi-tegra20-sflash-fix-controller-deregistration.patch
+queue-5.10/usb-typec-ucsi-check-if-power-role-change-actually-happened-before-handling.patch
+queue-5.10/rdma-umem-fix-kernel-doc-warnings.patch
+queue-5.10/revert-rdma-rxe-fix-double-free-in-rxe_srq_from_init.patch
+queue-5.10/octeontx2-af-add-validation-for-lmac-type.patch
+queue-5.10/can-ucan-fix-devres-lifetime.patch
+queue-5.10/net-qrtr-fix-refcount-saturation-and-potential-uaf-i.patch
+queue-5.10/spi-qup-switch-to-use-modern-name.patch
+queue-5.10/media-rc-igorplugusb-heed-coherency-rules.patch
+queue-5.10/bpf-free-reuseport-cbpf-prog-after-rcu-grace-period.patch
+queue-5.10/net-qrtr-ns-change-servers-radix-tree-to-xarray.patch
+queue-5.10/qed-fix-double-free-in-qed_cxt_tables_alloc.patch
+queue-5.10/usb-typec-ucsi-don-t-update-power_supply-on-power-role-change-if-not-connected.patch
+queue-5.10/media-rc-ttusbir-respect-dma-coherency-rules.patch
+queue-5.10/wifi-mac80211-check-tdls-flag-in-ieee80211_tdls_oper.patch
+queue-5.10/batman-adv-tt-fix-toctou-race-for-reported-vlans.patch
+queue-5.10/tty-serial-qcom-geni-serial-remove-unused-symbols.patch
+queue-5.10/tty-serial-qcom-geni-serial-align-define-values.patch
+queue-5.10/bluetooth-fix-uaf-in-l2cap_sock_cleanup_listen-vs-l2cap_conn_del.patch
+queue-5.10/time-fix-off-by-one-in-settimeofday-usec-validation.patch
+queue-5.10/usb-serial-cypress_m8-fix-memory-corruption-with-sma.patch
+queue-5.10/xfrm-policy-fix-use-after-free-on-inexact-bin-in-xfr.patch
+queue-5.10/netlabel-validate-unlabeled-address-and-mask-attribu.patch
+queue-5.10/can-ucan-fix-typos-in-comments.patch
+queue-5.10/batman-adv-tp_meter-fix-race-condition-in-send-error.patch
+queue-5.10/batman-adv-tt-avoid-empty-vlan-responses.patch
+queue-5.10/net-qrtr-ns-limit-the-total-number-of-nodes.patch
+queue-5.10/spi-zynq-qspi-fix-controller-deregistration.patch
+queue-5.10/serial-altera_jtaguart-handle-uart_add_one_port-failures.patch
+queue-5.10/thunderbolt-property-cap-recursion-depth-in-__tb_property_parse_dir.patch
+queue-5.10/serial-dz-fix-bootconsole-handover-lockup.patch
+queue-5.10/net-sched-revert-net-sched-restrict-conditions-for-a.patch
+queue-5.10/octeontx2-af-cgx-add-bounds-check-to-cgx_speed_mbps-index.patch
+queue-5.10/btrfs-fix-missing-last_unlink_trans-update-when-removing-a-directory.patch
+queue-5.10/vxlan-do-not-reuse-cached-ip_hdr-value-after-skb_tun.patch
+queue-5.10/udf-fix-partition-descriptor-append-bookkeeping.patch
+queue-5.10/net-guard-timestamp-cmsgs-to-real-error-queue-skbs.patch
+queue-5.10/batman-adv-tvlv-reject-oversized-tvlv-packets.patch
+queue-5.10/xfrm-check-for-underflow-in-xfrm_state_mtu.patch
+queue-5.10/rdma-umem-fix-truncation-for-block-sizes-4g.patch
+queue-5.10/net-garp-fix-unsigned-integer-underflow-in-garp_pdu_.patch
+queue-5.10/alsa-aloop-fix-peer-runtime-uaf-during-format-change-stop.patch
+queue-5.10/hid-core-fix-size_t-specifier-in-hid_report_raw_even.patch
+queue-5.10/rds-mark-snapshot-pages-dirty-in-rds_info_getsockopt.patch
+queue-5.10/bluetooth-init-sk_peer_-on-bt_sock_alloc.patch
+queue-5.10/serial-altera_jtaguart-use-platform_get_irq_optional-to-get-the-interrupt.patch
+queue-5.10/net-sched-act_api-use-rcu-with-deferred-freeing-for-.patch
+queue-5.10/bluetooth-6lowpan-check-skb_clone-return-value-in-se.patch
+queue-5.10/batman-adv-v-stop-ogmv2-on-disabled-interface.patch
+queue-5.10/nfc-llcp-protect-nfc_llcp_sock_unlink-calls.patch
+queue-5.10/net-openvswitch-fix-possible-kfree_skb-of-err_ptr.patch
+queue-5.10/smb-client-fix-smbdirect_recv_io-leak-in-smbd_negoti.patch
+queue-5.10/arm64-tlb-flush-walk-cache-when-unsharing-pmd-tables.patch
+queue-5.10/mptcp-pm-add_addr-rtx-fix-potential-data-race.patch
+queue-5.10/spi-st-ssc4-fix-controller-deregistration.patch
+queue-5.10/net-packet-fix-toctou-race-on-mmap-d-vnet_hdr-in-tpacket_snd.patch
+queue-5.10/netfilter-nf_queue-hold-bridge-skb-dev-while-queued.patch
+queue-5.10/drm-nouveau-fix-u32-overflow-in-pushbuf-reloc-bounds-check.patch
+queue-5.10/ip6_vti-fix-incorrect-tunnel-matching-in-vti6_tnl_lo.patch
+queue-5.10/btrfs-fix-btrfs_ioctl_space_info-slot_count-toctou-which-can-lead-to-info-leak.patch
+queue-5.10/io_uring-prevent-opcode-speculation.patch
+queue-5.10/wifi-brcmfmac-fix-potential-use-after-free-issue-when-stopping-watchdog-task.patch
+queue-5.10/hid-pass-the-buffer-size-to-hid_report_raw_event.patch
+queue-5.10/alsa-aoa-skip-devices-with-no-codecs-in-i2sbus_resume.patch
+queue-5.10/printk-add-print_hex_dump_devel.patch
+queue-5.10/dm-thin-fix-metadata-refcount-underflow.patch
+queue-5.10/batman-adv-bla-avoid-null-ptr-deref-for-claim-via-dr.patch
+queue-5.10/tracing-probes-limit-size-of-event-probe-to-3k.patch
+queue-5.10/usb-serial-digi_acceleport-fix-memory-corruption-wit.patch
+queue-5.10/mm-hugetlb_cma-round-up-per_node-before-logging-it.patch
+queue-5.10/bluetooth-rfcomm-hold-listener-socket-in-rfcomm_conn.patch
+queue-5.10/wifi-mwifiex-fix-use-after-free-in-mwifiex_adapter_cleanup.patch
+queue-5.10/tracepoint-balance-regfunc-on-func_add-failure-in-tracepoint_add_func.patch
+queue-5.10/batman-adv-iv-recover-ogm-scheduling-after-forward-p.patch
+queue-5.10/net-sched-cls_fw-fix-null-dereference-of-old-filters.patch
+queue-5.10/compiler-clang.h-add-__diag-infrastructure-for-clang.patch
+queue-5.10/spi-qup-fix-error-pointer-deref-after-dma-setup-failure.patch
+queue-5.10/net-netlink-don-t-set-nsid-on-local-notifications.patch
+queue-5.10/smb-client-fix-oob-read-in-smb2_ioctl_query_info-query_info-path.patch
+queue-5.10/alsa-core-fix-potential-data-race-at-fasync-handling.patch
+queue-5.10/net-smc-do-not-re-initialize-smc-hashtables.patch
+queue-5.10/batman-adv-tp_meter-avoid-role-confusion-in-tp_list.patch
+queue-5.10/ipvs-clear-the-svc-scheduler-ptr-early-on-edit.patch
+queue-5.10/bluetooth-l2cap-clear-chan-ident-on-ecred-reconfigur.patch
+queue-5.10/tunnels-do-not-assume-transport-header-in-iptunnel_p.patch
+queue-5.10/selftests-mptcp-drop-nanoseconds-width-specifier.patch
+queue-5.10/net-802-mrp-fix-vector-attribute-parsing-in-mrp_pdu_.patch
+queue-5.10/batman-adv-bla-avoid-double-decrement-of-bla.num_req.patch
+queue-5.10/hfsplus-fix-uninit-value-by-validating-catalog-record-size.patch
+queue-5.10/batman-adv-tvlv-abort-ogm-send-on-tvlv-append-failur.patch
+queue-5.10/alsa-pcm-fix-wait-queue-list-corruption-in-snd_pcm_d.patch
+queue-5.10/rdma-move-dma-block-iterator-logic-into-dedicated-files.patch
+queue-5.10/dm-btree-improve-btree-residency.patch
+queue-5.10/page_pool-fix-use-after-free-in-page_pool_recycle_in.patch
+queue-5.10/fbcon-avoid-oob-font-access-if-console-rotation-fails.patch
+queue-5.10/tun-free-page-on-build_skb-failure-in-tun_xdp_one.patch
+queue-5.10/qed-use-the-bitmap-api-to-simplify-some-functions.patch
+queue-5.10/hid-core-add-printk_ratelimited-variants-to-hid_warn.patch
+queue-5.10/bluetooth-mgmt-validate-advertising-tlv-before-type-.patch
+queue-5.10/usb-dwc3-move-guid-programming-after-phy-initialization.patch
+queue-5.10/netfilter-synproxy-add-mutex-to-guard-hook-reference.patch
+queue-5.10/net-remove-redundant-if-statements.patch
+queue-5.10/tee-optee-prevent-use-after-free-when-the-client-exi.patch
+queue-5.10/hv_netvsc-use-kmap_local_page-in-netvsc_copy_to_send_buf.patch
+queue-5.10/disable-wattribute-alias-for-clang-23-and-newer.patch
+queue-5.10/net-qrtr-ns-limit-the-maximum-number-of-lookups.patch
+queue-5.10/net-sched-sch_sfb-replace-direct-dequeue-call-with-p.patch
+queue-5.10/netfilter-x_tables-avoid-leaking-percpu-counter-poin.patch
+queue-5.10/tunnels-load-network-headers-after-skb_cow-in-iptunn.patch
+queue-5.10/netfilter-synproxy-refresh-tcphdr-after-skb_ensure_w.patch
+queue-5.10/arm64-mm-enable-batched-tlb-flush-in-unmap_hotplug_range.patch
+queue-5.10/alsa-aoa-use-guard-for-mutex-locks.patch
+queue-5.10/bluetooth-hci_event-fix-potential-uaf-in-ssp-passkey-handlers.patch
+queue-5.10/bluetooth-consolidate-code-around-sk_alloc-into-a-helper-function.patch
+queue-5.10/kvm-arm64-remove-vpipt-i-cache-handling.patch
+queue-5.10/xhci-tegra-fix-ghost-usb-device-on-dual-role-port-un.patch
+queue-5.10/netfilter-nft_exthdr-fix-register-tracking-for-f_pre.patch
+queue-5.10/net-iucv-fix-locking-in-.getsockopt.patch
+queue-5.10/sctp-purge-outqueue-on-stale-cookie-echo-handling.patch
+queue-5.10/ipv4-restrict-ipopt_ssrr-and-ipopt_lsrr-options.patch
+queue-5.10/netfilter-xt_cpu-prefer-raw_smp_processor_id.patch
+queue-5.10/bluetooth-hci_qca-convert-timeout-from-jiffies-to-ms.patch
+queue-5.10/spi-lantiq-ssc-fix-controller-deregistration.patch
+queue-5.10/erofs-fix-the-out-of-bounds-nameoff-handling-for-trailing-dirents.patch
+queue-5.10/smb-client-require-a-full-nfs-mode-sid-before-reading-mode-bits.patch
+queue-5.10/phy-renesas-rcar-gen3-usb2-fix-the-use-of-msleep-dur.patch
+queue-5.10/bonding-limit-bond_mode_8023ad-to-ethernet-devices.patch
+queue-5.10/scsi-target-iscsi-bound-iscsi_encode_text_output-appends-to-rsp_buf.patch
+queue-5.10/spi-sun6i-fix-controller-deregistration.patch
+queue-5.10/netfilter-ebtables-fix-oob-read-in-compat_mtw_from_u.patch
+queue-5.10/phy-tegra-xusb-disable-trk-clk-when-not-in-use.patch
+queue-5.10/ceph-only-d_add-negative-dentries-when-they-are-unhashed.patch
+queue-5.10/octeontx2-af-replace-deprecated-strncpy-with-strscpy.patch
+queue-5.10/tap-free-page-on-error-paths-in-tap_get_user_xdp.patch
+queue-5.10/nfc-nxp-nci-i2c-use-rising-edge-irq-on-acpi-systems.patch
+queue-5.10/ktest-fix-the-month-in-the-name-of-the-failure-directory.patch
+queue-5.10/pmdomain-core-fix-detach-procedure-for-virtual-devices-in-genpd.patch
+queue-5.10/scsi-target-iscsi-fix-crc-overread-and-double-free-in-iscsit_handle_text_cmd.patch
+queue-5.10/mm-huge_memory-update-file-pmd-counter-before-folio_put.patch
+queue-5.10/net-bridge-use-a-stable-fdb-dst-snapshot-in-rcu-readers.patch
+queue-5.10/f2fs-fix-uaf-caused-by-decrementing-sbi-nr_pages-in-f2fs_write_end_io.patch
+queue-5.10/thermal-core-fix-thermal-zone-governor-cleanup-issues.patch
+queue-5.10/net-lan743x-permit-vlan-tagged-packets-up-to-configu.patch
+queue-5.10/drm-imx-fix-three-kernel-doc-warnings-in-dcss-scaler.patch
+queue-5.10/usbnet-fix-using-smp_processor_id-in-preemptible-cod.patch
+queue-5.10/spi-tegra114-fix-controller-deregistration.patch
+queue-5.10/bluetooth-serialize-accept_q-access.patch
+queue-5.10/crypto-caam-guard-hmac-key-hex-dumps-in-hash_digest_key.patch
+queue-5.10/netfilter-bridge-make-ebt_snat-arp-rewrite-writable.patch
+queue-5.10/acpi-scan-use-acpi_dev_put-in-object-add-error-paths.patch
+queue-5.10/nfc-llcp-fix-use-after-free-in-llcp_sock_release.patch
+queue-5.10/selftests-forwarding-lib-add-helpers-for-checksum-ha.patch
+queue-5.10/alsa-usb-audio-fix-null-pointer-dereference-on-point.patch
+queue-5.10/hfsplus-fix-held-lock-freed-on-hfsplus_fill_super.patch
+queue-5.10/netfilter-conntrack_irc-fix-possible-out-of-bounds-r.patch
+queue-5.10/netfilter-xt_nfqueue-prefer-raw_smp_processor_id.patch
+queue-5.10/use-less-confusing-names-for-iov_iter-direction-initializers.patch
+queue-5.10/net-rds-fix-null-deref-in-rds_ib_send_cqe_handler-on.patch
+queue-5.10/sctp-fix-uninit-value-in-__sctp_rcv_asconf_lookup.patch
+queue-5.10/ipv4-free-net-ipv4.sysctl_local_reserved_ports-after.patch
+queue-5.10/net-mvpp2-sync-rx-data-at-the-hardware-packet-offset.patch
+queue-5.10/arm64-tlb-allow-xzr-argument-to-tlbi-ops.patch
+queue-5.10/nfsd-don-t-ignore-the-return-code-of-svc_proc_regist.patch
 
