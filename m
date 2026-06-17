@@ -4,110 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D73F2CD98F1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 02:25:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2219CD98F0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 02:29:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I9jkNgg69cYp9Gmed8dyPc4oJRxJqglqMoz9LIyCVkM=; b=1u7neoQl5uOyXPeMXw8URwclTT
-	FAiS21xukJ48D7ffVovWGw51406/FyDcXLac4cYi6/otaizFCx4gozbHz1PmyS5F1YwS3hIhhmc4e
-	U6AKYecjHF+MSS424ot9SQA3rXeBapq2JI4rUfeMha4XXzj5Ew89WyxNlPT5sAfg3vO1lbzSLtqZq
-	GtV6CULXQs4UKzNGCcqmHLu9AhH43ffafrQ4WdGaest1cCEShpq7WzLA2oxHUDEaeugeRLLwOGUd1
-	iu5ksmR5SvJtg6MqE4U78o7yPLEkbQeej+NOCWsXa08ZapE0JoOhDb7bYAe2hUhsR7SKBp6QxanDP
-	TXbaOm0g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Subject:CC:To:MIME-Version:From:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T2eQr/t8U1wQpTsAv2oqP/O+K73c/8wMmiyGmptHgmo=; b=uYpZAxRD8c7zWRKwZDJc4uEIgx
+	nWH1wH5dNXJ1CyXbIFUoBccn040YUq7TYVs/5VGWZhQ427TjJCmwmFEYA+J8F5p6jTV/fxn/AENdz
+	Nreq2HEA4MskLa1pc9G8nqP2FA++9wdSjvUkBVwg35BBW33SveduHmRb+kNnLoPbb2qwMQdpvuHGn
+	wxgwsOOTjexVuUFvc5/iGS6RnQWeOiNNmZ0uPhVbcaWY3s5ik8c8DuevrL5RbQWWjq6sfDs49k4YE
+	Z/wZU+Mg4tn4yt4GdWiC6SjDiF7PDRXUEemv4OktbIzVmaPRNUCIxgmMA9Vow+DRHruNSaF9CP7mO
+	Ao+lyrzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZfyH-0000000GVYL-2bqk;
-	Wed, 17 Jun 2026 02:25:41 +0000
-Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
+	id 1wZg1u-0000000GVhP-07RY;
+	Wed, 17 Jun 2026 02:29:26 +0000
+Received: from m16.mail.126.com ([117.135.210.7])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZfyE-0000000GVY2-1UFm
+	id 1wZg1q-0000000GVh2-0T7x
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 02:25:39 +0000
-Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-842848fd613so4513350b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 19:25:37 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1781663137; cv=none;
-        d=google.com; s=arc-20240605;
-        b=L3rIYII6NSaRrskGMuU5p4JCNUc71KZ4GvoAw1JZPN0GsYem/+XPITv/eD9+xn6gPy
-         OadRphSfzTet0yvPjIJq0jz9K4LfEmt2LRt1BeGBwPtfM8ShboW/IWTufFs0sNNGtIKD
-         4z2JSDAw7GZjZPPaaT06IyMNzE4OJTWIY4//AR2dPIsY9cPX1DPv37vCmHyW3fngc5dv
-         qmV9Ok8E4ZM5ocYu+A9QskEpvmKMHCZady2tvzds40Tdt9K2RIzoQags57nS+EaHsM8e
-         NfxKDa3/vCNg5BWzEdjA5z++Fv54PtCcnqTQn+1bmnDu1T7FMZimkrSXDzvoCCu1A6bv
-         JD8g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=I9jkNgg69cYp9Gmed8dyPc4oJRxJqglqMoz9LIyCVkM=;
-        fh=4OgSxBYx9HzkfAdk7QefnZyj9vrqbKgCQl8Qo10b3Dw=;
-        b=N22Q+w6Bh5jNSkXlLgqdnD7ELig7rOjaE74xbpYmL/8LQm2s3oSI6Ed75ahABjyKaV
-         qBAVHFQ3UEKB1QlfYpq80gkwL7+LpotI/Bdkc8iLQK1lnbHN2dt8pau1xE2zyvrajIGF
-         97jWlxaTjitXnBc/QuuIwXFz8gtEfDtAwLk86yNbbUgM2ESsnUbJs1vN/980gnviZ5D8
-         BNXD0PC3dxzDL7tV508zbz0OIJynomYsEtrlhz69GVTmRAG9MAkxvP/AjcZS1Q0t1Bvu
-         DXn8/b+PXE7BhVwr5kyRDtrT2mXjHE45VqaNH/M4/7JuxGRNQLQM+i3KRb7Zq86tyXFs
-         nMZQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781663137; x=1782267937; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=I9jkNgg69cYp9Gmed8dyPc4oJRxJqglqMoz9LIyCVkM=;
-        b=iQ2D/gKGI1poMwx4oRs+Sl3rMgkVgwkIdTRuATbX0kGn2IL1X2T8yyCG1ownKzLURA
-         3xDUp0k5gCSUZGMiF+ghTq4UOSzemjCFjDyG10itY8/4GAjfL0cE98UDC/yvmzvZ2+Ky
-         vvJ54T98nT1wNWhYXLOcHzyfvBtzG+EGv95l0miNm3pU3gMurtw4nspHZJ3TBQKFLTS2
-         290uSeHdEbRe/jecfV63McYWeczAv1Z2YpBi9xIGRfxrjXz6zsMVHsnJ9Kbv52k3SsJh
-         TUqcyBhGIGUgJm7QhfQVM0s4Z5KPaZxaSxX2TyH0OWUM0Zv/+JEhOfHueqq66dxDfvD+
-         uz+g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781663137; x=1782267937;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=I9jkNgg69cYp9Gmed8dyPc4oJRxJqglqMoz9LIyCVkM=;
-        b=bLvL25o5muLtAI3faFb0ROzk3nQWMaoPVwzxXvy2wJP1d/Yq75YzzozA3RscLVIn1c
-         uVzNnHH8f7q4HcHNC0svuIiyTlMZQDq09Ruocf7UjeRiLlA+NfIRANyxcGDLNGSF7qgM
-         fYIdVspufJbg0b5C3QGH+okQ2X5nODdmazES/1KfNYCGyOolcOAUADTTZwlmzX4HYKtZ
-         rUugp3w9UVgZ2z0FMENgUT6OrdxduEMy4VDcGh46qMfKSVGC/aa4+4Ifk4PKzkFR7kFS
-         iLSrz7NYS5DVOT+Ct82VMpMoSFlrq9v0gzpKW0+h35mDPxECUXguKuZ4K4aqeFTpKUuD
-         kLmg==
-X-Forwarded-Encrypted: i=1; AFNElJ9fqhf84o8LpBn8auO/nTV0tRGtZbdEkp1WgZmWibYKQw2gLHDbkC7gaseW2DxYHFHnkSYYwMgkIz6NncjzRScR@lists.infradead.org
-X-Gm-Message-State: AOJu0YzEQ0dJkFGaLF+cTPrHy10Yf1s03HPpwbhUU8YEKWReuJzURNyd
-	V9DWw69dYA/rGHssxws4+EELPlDKwJrKx4g/PiaiNfd7hH0eb5+fnWosC5XN8EPJvcfXfo7D9tH
-	yOSG9VuVZojE0eE9Niol5GF3mx9wCZk0=
-X-Gm-Gg: Acq92OEfbvW1RTIvBx1TDkDFoBrlvTZbLnGd/zi/0tJvJozdl+Z0YFOZ+8WxR9MCllz
-	zmplhBjle1KPXpwb7dy2FR3hTFuugi4r74BuszsbjKLk5Iwo4cDVeNSGiBIa7r5KeJcrXbsEpIq
-	rOQcXL+OEZotkPCjX1LDVmpeGYOjgxJZGnT2cPShJuEkIvcCmeaGqlHb8xOGZJZvTaVPkRdTgTa
-	uxnJWVx9qu3PYY+bvyTGG/8ONz1v4lHDdrk/xZzlvNwgKPJrAUwvKTicWH1QCBhLPwsU0/66W2D
-	8d535Z1GuKsLbbYeTzRBjmdRocI=
-X-Received: by 2002:a05:6a00:b89:b0:842:5da3:9b8b with SMTP id
- d2e1a72fcca58-845245994cfmr1624839b3a.36.1781663136820; Tue, 16 Jun 2026
- 19:25:36 -0700 (PDT)
+	Wed, 17 Jun 2026 02:29:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
+	s=s110527; h=Message-ID:Date:From:MIME-Version:To:Subject:
+	Content-Type; bh=T2eQr/t8U1wQpTsAv2oqP/O+K73c/8wMmiyGmptHgmo=;
+	b=okul5jce2NFh3k5vp7WjDI0WDf67UyKt1/zDFBfi7heNVLjta++no3Fk8aRn0P
+	ciVVscI7M0P+K5pPcxXkuITBoOh99FFUTrtATDtMx7usCts/BmfRXq33c1Xg2JtY
+	qHQS/9IDoT0wwsBwuHjZzbFVEseW4Ei1UqHOLzqIft4tw=
+Received: from localhost.localdomain (unknown [])
+	by gzsmtp5 (Coremail) with SMTP id QCkvCgCXL2ddBjJqASY2BQ--.52696S2;
+	Wed, 17 Jun 2026 10:28:46 +0800 (CST)
+Message-ID: <6A32065F.3030705@126.com>
+Date: Wed, 17 Jun 2026 10:28:47 +0800
+From: Hongling Zeng <zhongling0719@126.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Thunderbird/31.2.0
 MIME-Version: 1.0
-References: <20260615093824.115751-1-phucduc.bui@gmail.com>
- <20260615093824.115751-2-phucduc.bui@gmail.com> <ajAJt-EV1sSfG3OC@SMW015318>
-In-Reply-To: <ajAJt-EV1sSfG3OC@SMW015318>
-From: Bui Duc Phuc <phucduc.bui@gmail.com>
-Date: Wed, 17 Jun 2026 09:25:23 +0700
-X-Gm-Features: AVVi8CdoNbD47oGFTWSfJEm9Lr238WEoMJ3mqPMc2xN9snSeNNUZupbWD1q6iqo
-Message-ID: <CAABR9nHNLchAnkeuGrDWoS4+sAKnqQMgx9b0cuv7rOHzC8P6Pw@mail.gmail.com>
-Subject: Re: [PATCH v2 01/11] ASoC: fsl_asrc: Use guard() for spin locks
 To: Frank Li <Frank.li@oss.nxp.com>
-Cc: Mark Brown <broonie@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, 
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Shengjiu Wang <shengjiu.wang@gmail.com>, 
-	Xiubo Li <Xiubo.Lee@gmail.com>, Frank Li <Frank.Li@nxp.com>, 
-	Fabio Estevam <festevam@gmail.com>, Nicolin Chen <nicoleotsuka@gmail.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
-	linuxppc-dev@lists.ozlabs.org
-Content-Type: text/plain; charset="UTF-8"
+CC: Hongling Zeng <zenghongling@kylinos.cn>, vkoul@kernel.org, 
+ Frank.Li@kernel.org, wens@kernel.org, jernej.skrabec@gmail.com, 
+ samuel@sholland.org, mripard@kernel.org, arnd@arndb.de, 
+ dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] dmaengine: sun6i-dma: Fix memory leak in sun6i_dma_terminate_all
+References: <20260616060449.42225-1-zenghongling@kylinos.cn> <ajG2aR70B4z6j1fd@SMW015318>
+In-Reply-To: <ajG2aR70B4z6j1fd@SMW015318>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: QCkvCgCXL2ddBjJqASY2BQ--.52696S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxur15JF1UWFW3WrWDWryfJFb_yoW5XF13pr
+	W5Ja13GFW5Jwsaga1ftw4FqF1Yqa13tF47u3y5Zw13Zr45trnFkF1xCw1F9F4DArn8Zrn0
+	yFs8Z34xC3WUCFDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jstxhUUUUU=
+X-Originating-IP: [112.64.161.44]
+X-CM-SenderInfo: x2kr0wpolqwiqxrzqiyswou0bp/xtbBoR6-kGoyBl5mLQAA3b
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260616_192538_564259_4BC3698E 
-X-CRM114-Status: UNSURE (   7.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260616_192922_605302_4C5A9CB0 
+X-CRM114-Status: GOOD (  18.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,15 +76,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
+Hi Frank and Jernej Skrabec:
 
+      Thanks for all the review!
+
+   You're absolutely right.After checking virt-dma.h, I see that 
+desc_terminated is the correct queue for actively terminated transfers. 
+I'll update to use:
+
+   - vchan_terminate_vdesc(vd);
+
+   I'll send v3 ,Please help to review.
+
+   Best regards,
+   Hongling Zeng
+
+在 2026年06月17日 04:47, Frank Li 写道:
+> On Tue, Jun 16, 2026 at 02:04:49PM +0800, Hongling Zeng wrote:
+>> When terminating a non-cyclic DMA transfer, the active descriptor
+>> is not properly reclaimed. The descriptor is removed from the
+>> desc_issued list in sun6i_dma_start_desc(), but in
+>> sun6i_dma_terminate_all(), only cyclic transfer descriptors are
+>> added to the desc_completed list before cleanup.
+>>
+>> For non-cyclic transfers, pchan->desc is set to NULL without first
+>> adding the descriptor back to a list that vchan_get_all_descriptors()
+>> can collect. This causes the descriptor and its associated LLI chain
+>> to be permanently leaked.
+>>
+>> Fix by ensuring both cyclic and non-cyclic active descriptors are
+>> added to the desc_completed list before setting pchan->desc to NULL.
+>>
+>> Fixes: 555859308723 ("dmaengine: sun6i: Add driver for the Allwinner A31 DMA controller")
+>> Signed-off-by: Hongling Zeng <zenghongling@kylinos.cn>
+>>
+>> ---
+>>   Change in v2;
+>>   -Add pchan->desc != pchan->done check to prevent race condition
+>>    where completed descriptors could be double-added to desc_completed
+>>    list, causing list corruption
+>> ---
+>>   drivers/dma/sun6i-dma.c | 12 +++++-------
+>>   1 file changed, 5 insertions(+), 7 deletions(-)
+>>
+>> diff --git a/drivers/dma/sun6i-dma.c b/drivers/dma/sun6i-dma.c
+>> index 7a79f346250a..12d038ef5f2e 100644
+>> --- a/drivers/dma/sun6i-dma.c
+>> +++ b/drivers/dma/sun6i-dma.c
+>> @@ -946,16 +946,14 @@ static int sun6i_dma_terminate_all(struct dma_chan *chan)
+>>
+>>   	spin_lock_irqsave(&vchan->vc.lock, flags);
+>>
+>> -	if (vchan->cyclic) {
+>> -		vchan->cyclic = false;
+>> -		if (pchan && pchan->desc) {
+>> -			struct virt_dma_desc *vd = &pchan->desc->vd;
+>> -			struct virt_dma_chan *vc = &vchan->vc;
+>> +	if (pchan && pchan->desc && pchan->desc != pchan->done) {
+>> +		struct virt_dma_desc *vd = &pchan->desc->vd;
+>> +		struct virt_dma_chan *vc = &vchan->vc;
+>>
+>> -			list_add_tail(&vd->node, &vc->desc_completed);
+>> -		}
+>> +		list_add_tail(&vd->node, &vc->desc_completed);
+> should It be in desc_terminated queue?
 >
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> ref: https://lore.kernel.org/dmaengine/ajETw7uwVx_U9o5F@ryzen/T/#m541c24b45fb425c6a8a81d800db225b58411447e
 >
+> Frank
+>>   	}
+>>
+>> +	vchan->cyclic = false;
+>>   	vchan_get_all_descriptors(&vchan->vc, &head);
+>>
+>>   	if (pchan) {
+>> --
+>> 2.25.1
+>>
 
-Thank you for taking the time to review the series and for providing
-the Reviewed-by tags.
-
-Best regards,
-Phuc
 
