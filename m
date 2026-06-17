@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CC79CD98F5
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03415CD98F0
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 06:56:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,43 +12,43 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XfpZwCg0u8EXGbePq2dXyBkiOQd+rMzCgxtnb63zw4Q=; b=nMIAbaiVW/co48dLFknURLzEgd
-	9uH70mJ0C9aPjIV7jw3RLNhJ8KNsUA+VpszONR19G8Cf+ZXqq9N8gw4hS5RUc0g79x/mcwr85LwQx
-	PFuk7KUTztaBzyD8W6X9eI8y5Ym0M/5w8kHFbcWXZ1XOF6cR93mZC5zXbYJEGJ104NBCLgIA3lT9i
-	KzC1dwx/hzKe7/RSfYX/nSXR8JfMdKYb87gzKYbR4DLsiabpQlKnyursJWGlisiiS6pgERbUrgYEH
-	sCJajeXTQtogn+fblL5zNDruR/xJnLSbOh2Y72MuR8vK+0l4Cv1ia+EVLBnUsxFYdH879Bp3f8ULT
-	FCdY2Bfg==;
+	bh=3DjHQpJo0DpxApXO7REZGRiNP5Ze/KHB1Lmpc4X8mS8=; b=mhLGcRMrpuNvXGz8CQcT7VAs+J
+	/jOhkp9MqFFpkhC9jCOPGr5DyqYY66fIkaEWV/QeDIFwjf9R68i3a0iMO8jPB77xAOsRJH5y8Vbwj
+	fCa6UHifhuQml7/Dmb1rYwVaMLXdTjQeTHLjXVqC+CoQrjZwaHKowR03HonBw5CEZSBXosBNF45hc
+	cpQznC2WBq9aTjgFvSCJ4MQGwwNG0Jqsef6dhNsglsSeMST9qlMwqdZf4QVjpUI/1AvE7Ysc3VOkU
+	Po96J3abqqiwu3SDxy3xSQPgHWeowp9s34KOlL4H5j9ZqDLOayoeNV/mM26CbDP7i3M+5tmbA5xDZ
+	f798w9VQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZkBr-0000000Gkq9-0BdC;
-	Wed, 17 Jun 2026 06:55:59 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1wZkBq-0000000GkpQ-2z84;
+	Wed, 17 Jun 2026 06:55:58 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZkBl-0000000GkiW-016r
+	id 1wZkBk-0000000GkiG-2Gmb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 06:55:55 +0000
+	Wed, 17 Jun 2026 06:55:54 +0000
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1781679347;
+	s=2020; t=1781679345;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=XfpZwCg0u8EXGbePq2dXyBkiOQd+rMzCgxtnb63zw4Q=;
-	b=4197dqZO4E0vEx+lbAySGiYIXBQp8v/En4/APLfBoRnzar5WKQUWC6Z3mjD4Udb1Y/dsWg
-	LQdiiTXnWz1S/YaYQte2CoSiznAdMOWq5Ym532Am/ZQ1Ex0KpznZ4yKuJTDH9PcBYXo+4Z
-	/AcADq3Wl8TEKIasmWN5WzePhwEla9GhyeSVZG7f2f9RF3Ct1U4Bu0FTOXgi1X0f+hKlol
-	4l9fZhg2azZlFGvcsOJ3oqxzoPSqcAQWxJXaCFLBDFXeCngjsTO+MUjVsDVdqR3iymRm6D
-	4a7lij8KUrbz/VHLCnSDg0FVBvNzD94FK1vfKWHefpd7w1N6cKGP7RBi3fszKg==
+	bh=3DjHQpJo0DpxApXO7REZGRiNP5Ze/KHB1Lmpc4X8mS8=;
+	b=a2XJfXoWgi2YkUquJH82ZjYh8FiqBl388XK6Cx0cBy/SX1E/4DIYqlXGukYANZqlc2y6rj
+	1/rCuUC2uyNl8XPcyKHEzFS+MvWavVhf0p1o7CH7EaA+0B+D7GuafWp6wSsGG1cEfXmg66
+	wm18Kd0se8HswFFAzp4XPrbou89GttRMXZeQZfLLOizMy44MVXlfmxVZERWPk9sgIJ5rcJ
+	SBhexWoJk4uYyFxg186uMxMqameNpODx8hf/BzGiZytRWT1SMCmOi16MOD6aa6yjV1Du7R
+	0M0gswMEv1MSEPs85jUDcMAHb2cOk5oQ3snfA3KrlSezBARcbdvqLTklIt4PSA==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1781679347;
+	s=2020e; t=1781679345;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=XfpZwCg0u8EXGbePq2dXyBkiOQd+rMzCgxtnb63zw4Q=;
-	b=gsHonUWZxVol++wYr+zwgcvF9YrlMryZLh+vqM7zn2gjNPeWObezot9Sw2eZoceolLONjq
-	INmhqyk4C+V9yjBQ==
+	bh=3DjHQpJo0DpxApXO7REZGRiNP5Ze/KHB1Lmpc4X8mS8=;
+	b=LlsaMY8oNWaK1mMFy5QqvMRjCgOuN96pEXong7qjJohUCjHYad5OFNKqItD+qKgOpQ4Qh8
+	EPTME9V9YgdB2aCQ==
 To: linux-remoteproc@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -64,17 +64,17 @@ Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Steven Rostedt <rostedt@goodmis.org>,
 	Peng Fan <peng.fan@nxp.com>
-Subject: [PATCH v3 07/10] mailbox: imx: Move the RX part of the mailbox into the threaded handler
-Date: Wed, 17 Jun 2026 08:55:32 +0200
-Message-ID: <20260617-imx_mbox_rproc-v3-7-77948112defc@linutronix.de>
+Subject: [PATCH v3 05/10] mailbox: imx: Use channel index instead of zero in imx_mu_specific_rx()
+Date: Wed, 17 Jun 2026 08:55:30 +0200
+Message-ID: <20260617-imx_mbox_rproc-v3-5-77948112defc@linutronix.de>
 In-Reply-To: <20260617-imx_mbox_rproc-v3-0-77948112defc@linutronix.de>
 References: <20260617-imx_mbox_rproc-v3-0-77948112defc@linutronix.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260616_235553_231836_7A3A45C1 
-X-CRM114-Status: GOOD (  11.92  )
+X-CRM114-CacheID: sfid-20260616_235552_732435_F0A051E1 
+X-CRM114-Status: GOOD (  12.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,72 +89,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move RX callback handling into the threaded handler. This is similar to
-the TX side except that we explicitly mask the source interrupt in the
-primary handler and unmask it in the threaded handler again after
-success. This was done automatically in the TX part.
+imx_mu_specific_rx() masks channel 0 and unmasks it again at the end of
+the function. Given that at startup the channel index got unmasked it
+should do the right job.
 
-The masking/ unmasking can be removed from imx_mu_specific_rx() since it
-already happens in the primary/ threaded handler before invoking the
-channel specific callback.
+This here either unmasks the actual channel or another one but should
+have no impact given that it reverses its doing at the end.
 
-Move RX channel handling into threaded handler.
+Peng Fan commented here:
+| For specific rx channel, whether it is i.MX8 SCU or i.MX ELE, actually th=
+ere is
+| only 1 channel as of now, but it seems better to use cp->idx in case more
+| channels in future.
+
+Use the channel index instead of zero.
 
 Reviewed-by: Peng Fan <peng.fan@nxp.com>
 Reviewed-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 ---
- drivers/mailbox/imx-mailbox.c | 10 +++++++---
- 1 file changed, 7 insertions(+), 3 deletions(-)
+ drivers/mailbox/imx-mailbox.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/mailbox/imx-mailbox.c b/drivers/mailbox/imx-mailbox.c
-index 87acc43cb99c4..1219c35b116e4 100644
+index a8d4e970fb786..408cd083c64ee 100644
 --- a/drivers/mailbox/imx-mailbox.c
 +++ b/drivers/mailbox/imx-mailbox.c
-@@ -381,7 +381,6 @@ static int imx_mu_specific_rx(struct imx_mu_priv *priv,=
+@@ -381,7 +381,7 @@ static int imx_mu_specific_rx(struct imx_mu_priv *priv,=
  struct imx_mu_con_priv *
 =20
  	data =3D (u32 *)priv->msg;
 =20
--	imx_mu_xcr_rmw(priv, IMX_MU_RCR, 0, IMX_MU_xCR_RIEn(priv->dcfg->type, cp-=
+-	imx_mu_xcr_rmw(priv, IMX_MU_RCR, 0, IMX_MU_xCR_RIEn(priv->dcfg->type, 0));
++	imx_mu_xcr_rmw(priv, IMX_MU_RCR, 0, IMX_MU_xCR_RIEn(priv->dcfg->type, cp-=
 >idx));
  	*data++ =3D imx_mu_read(priv, priv->dcfg->xRR);
 =20
  	if (priv->dcfg->type & IMX_MU_V2_S4) {
-@@ -408,7 +407,6 @@ static int imx_mu_specific_rx(struct imx_mu_priv *priv,=
+@@ -408,7 +408,7 @@ static int imx_mu_specific_rx(struct imx_mu_priv *priv,=
  struct imx_mu_con_priv *
  		*data++ =3D imx_mu_read(priv, priv->dcfg->xRR + (i % num_rr) * 4);
  	}
 =20
 -	imx_mu_xcr_set_act(priv, cp, IMX_MU_RCR, IMX_MU_xCR_RIEn(priv->dcfg->type=
+, 0));
++	imx_mu_xcr_set_act(priv, cp, IMX_MU_RCR, IMX_MU_xCR_RIEn(priv->dcfg->type=
 , cp->idx));
  	mbox_chan_received_data(cp->chan, (void *)priv->msg);
 =20
  	return 0;
-@@ -551,6 +549,11 @@ static irqreturn_t imx_mu_isr_th(int irq, void *p)
- 		mbox_chan_txdone(chan, 0);
- 		break;
-=20
-+	case IMX_MU_TYPE_RX:
-+		if (!priv->dcfg->rx(priv, cp))
-+			imx_mu_xcr_set_act(priv, cp, IMX_MU_RCR, IMX_MU_xCR_RIEn(priv->dcfg->ty=
-pe, cp->idx));
-+		break;
-+
- 	default:
- 		dev_warn_ratelimited(priv->dev, "Unhandled channel type %d\n",
- 				     cp->type);
-@@ -603,7 +606,8 @@ static irqreturn_t imx_mu_isr(int irq, void *p)
- 		ret =3D IRQ_WAKE_THREAD;
- 	} else if ((val =3D=3D IMX_MU_xSR_RFn(priv->dcfg->type, cp->idx)) &&
- 		   (cp->type =3D=3D IMX_MU_TYPE_RX)) {
--		priv->dcfg->rx(priv, cp);
-+		imx_mu_xcr_rmw(priv, IMX_MU_RCR, 0, IMX_MU_xCR_RIEn(priv->dcfg->type, cp=
-->idx));
-+		ret =3D IRQ_WAKE_THREAD;
- 	} else if ((val =3D=3D IMX_MU_xSR_GIPn(priv->dcfg->type, cp->idx)) &&
- 		   (cp->type =3D=3D IMX_MU_TYPE_RXDB)) {
- 		priv->dcfg->rxdb(priv, cp);
 
 --=20
 2.53.0
