@@ -4,62 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 995C3CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 18:37:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D84E4CD98F3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 18:38:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WVXssO8EFA9BNezf6Qbqed3+OIPwO+I6eW/HhTeooU0=; b=WLBMP/xy2wFWBWIS90wdO0tHeE
-	4HA5PWAY+5WshpIKdnnY+uNtshpGKTaukd7ImR9bl+Ylcq0RLNrdK5fyLHQjbHxKZV2ZosZjpVpia
-	Pij+B4xzmgn58WuKDyu7cGelPcHDVN4rlALdzMCd4RupEZdjkR5wBgIj093vt1J4fAH1PwJ4M5x31
-	Kmz80f4tShRaip7io6SoWyE8bxWIQa2unV/6Uvh4mgPLf4Yyhs8uZH6s1MQwOU+3pQmccP035t66r
-	R5flkkmdFzKRiVgJmZ9COdH3v5jthyZ8gmERxRJXRvrRIVxBlP0rA55oSP54/ZpUgySHii4Ub+mOA
-	yTzD8Dtw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dIbRfd7aYU0GeYpTY8y8KadKkzK/q9yUDr+phGEG5vU=; b=TBxT3cJ/D1+pHOjkLUhPJzpelS
+	9AvFlsQIKGWszjPXJYz/dd0zPeHLhJtpA/9OplmlvktOREyAeP+sU8MZC+oXuYtTBiaskn7aKgwnh
+	YHDc7QIF8Og+7KlO7I7ARglqBiZ3MpUtIZ8BlO7A597WvcP/6te2tzTk51fXKrBY5Oc1n++8QOAOi
+	+YLxBrb2A008qy00JkdMwLaYjyW8X5euG6BYEkZeCoCbpYfu3cMzik8YFpKNDANYCdZSM2Cd3osX0
+	wGKyQ5SsqFFJok9VqnOzHQD94BAabbpv+x0LNdd0A0GDh5nzlPjVK3VQh7eHExv25CbIW3QTD/hwC
+	3p4lg32g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZv8S-00000000AUs-2ubh;
-	Wed, 17 Jun 2026 18:37:12 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wZv9R-00000000Aks-1v5O;
+	Wed, 17 Jun 2026 18:38:13 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZv8K-00000000ASM-49Qe
+	id 1wZv9O-00000000Aip-0FDB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 18:37:05 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6D4ED6001D;
-	Wed, 17 Jun 2026 18:37:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1FC8E1F000E9;
-	Wed, 17 Jun 2026 18:37:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781721424;
-	bh=WVXssO8EFA9BNezf6Qbqed3+OIPwO+I6eW/HhTeooU0=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc;
-	b=SJK8VaG+vpPzyGZl9bsevox1vS4Xzo+icGA3JqIWwPKUHuFrVtvW+e1cdhWmq9076
-	 OkwgTQ2qIPTvNVsIiXeGTM80/OxI900Ye+PFMN+YEr6Sq0Xejlxr7xUDXKTTtXv+PR
-	 ddZluVD6Wp8U/6pidaxvdcUhXsLE6Ljhe/I+dbPvDANFTj1KreRfEOuRpO70bsp5OR
-	 TFoHLu60qtJDScuaWR3DNurlgOmxPIR+JsagpHDNyz6aGE/pWMTsptKnDS7rSRoBE5
-	 FfF230ap2gfBQtoMPF6mcfEvcQszmJy0TFY5M/OePd/HIRoRkD1R5mJIYSCvK6EfhG
-	 s9X9uB2cf29rQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 568B43930FA7;
-	Wed, 17 Jun 2026 18:36:59 +0000 (UTC)
-Subject: Re: [GIT PULL 4/4] soc: arm code changes for 7.2
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <c00cadd6-b8ae-4d09-bcdf-adbeab2f0e11@app.fastmail.com>
-References: <40c8ebc3-d681-4dcf-b3f2-ce0d780c539e@app.fastmail.com> <c00cadd6-b8ae-4d09-bcdf-adbeab2f0e11@app.fastmail.com>
-X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
-X-PR-Tracked-Message-Id: <c00cadd6-b8ae-4d09-bcdf-adbeab2f0e11@app.fastmail.com>
-X-PR-Tracked-Remote: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-arm-7.2
-X-PR-Tracked-Commit-Id: cb2c3b5e113f26f74ef05926c6ace0f83cc3d0b3
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: 6505114e82e7541414b176b5da4a3c015a1214ea
-Message-Id: <178172141784.1757661.634270573366128584.pr-tracker-bot@kernel.org>
-Date: Wed, 17 Jun 2026 18:36:57 +0000
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Krzysztof Kozlowski <krzk@kernel.org>, Linus Walleij <linusw@kernel.org>, linux-kernel@vger.kernel.org
+	Wed, 17 Jun 2026 18:38:12 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2bf1f074a12so1550295ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 11:38:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781721489; x=1782326289; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=dIbRfd7aYU0GeYpTY8y8KadKkzK/q9yUDr+phGEG5vU=;
+        b=syhgNCSUeKlbqMYtAGWaG6tMVC394/96/5AssqJGei6ALcWjxx7Nhz/9QefP1CvVLw
+         m1VoQUxL3SBfUrQzToNgDB2Z2Afw2ocnkAaGHQ9pvgrccTxi0BWzIfld2vpMaEgopMAr
+         p0wtLQgEZVFOoYpaWuuDxu0VdTHztnKRCQAY77RPildt2svlZVsPWUTJzbR7QGHwEY5p
+         PLOeu7eFaaaLtlkXirhBto/pROPvUOMm7EhA9X5L7Em1pcZeyvNSqPVfTxJV6IS9mG6c
+         5Q2NeDifPpbDZJN6Ui5qNxaWPsKS8TGJVxFkD9O1uFRRd0cyAw3vENAaxCyNnUQnDLec
+         4JMg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781721489; x=1782326289;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=dIbRfd7aYU0GeYpTY8y8KadKkzK/q9yUDr+phGEG5vU=;
+        b=kuZbF87M95VWtLRvuKtvfEvyB4CSmHmYmhBisymWlnqOlfBebLhQaJSYtwnxz4iPzN
+         5sJUMf5XVhsw0c20a9WCSdMm9WPtpybkV6P1e/5Zt37WBoZJuFo7YBRIi4Y1TKh3OQF/
+         2bWHgvUNwTdHZjWmB2sbW2mwKhOmT3CRqq3GgvFs7LiN/gxdyvW5qJJtiNccpc7E0bzf
+         rgTx1T09mbfGhYtMkxId3XiauQDf72v4ojDPj4jj39CvPhOg7DxUKho/dHMMykTm2fQ9
+         TB/nqGIra0W2LP1XcT8uziP4iHYhHhxi4aQJbWzb60socWKA9kQBPcwlqjWm2okO8xm1
+         S4sg==
+X-Forwarded-Encrypted: i=1; AFNElJ8Wctna1GCbkJCFHh/Qwav7BMU9I17QvV9MbpazoG0+yhH0Oi1NtWWGi4X8jeaK7SVDJhHl9Vporc5Ym/iH85B/@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxu04MVzhmcRIouHhk9cNZO2Hm4wakOx9j84+nMx3bzmMLL4Zns
+	ddYH2dO0eUGwnRagNPEjYIzH5XUYX3JM/Z1T9UUmnCN+ZYWR4c8X2eGMMRbnN7JGmTU=
+X-Gm-Gg: AfdE7cmxQrJusfTn+8py96HriQzqPMI/DNqabLNixaj+Hs9zmv6tabSm3ScrXeKsxI3
+	saZ+1QwUHwBaXlOVGoXbpQG6r/V4EcQc0vJ7d8gv25pZxwMcqIjIXAwljjdHMAN87XLHU4Tqz1M
+	ww//ybD79Ztfhtq/5Ay5ldbwF7IVOkL/VMVxQf0l4Tax+bNbGTchbXIp6d0l08DzOX3/3uHlw1A
+	0PE79QW/h1i/uZrdEmMDsBGmXhiMhZNgSY5BA6+8xwtOiixvV/u47ZqrhYgExNpaps2GB1zHKkG
+	iBVi5BLuQLXl5X5SCPqColZL1p/hpx20beLMgavpHhYCQ0tTEyUolwOP1LbswVe6UCw3T7qoqrU
+	Xj4P/J+5TD3i3HGJvs0m3nVGPSjbOOqJy1EJccqEQmYiBeQnwaKWx23ZlZLViCTvdF55W0Q6/Dv
+	QTqA2ez2BfDUTr/r4ID+3PmwUaI8mLXvyY
+X-Received: by 2002:a17:903:b85:b0:2c6:cf7b:d34d with SMTP id d9443c01a7336-2c6cf7bd4fdmr26141485ad.13.1781721489139;
+        Wed, 17 Jun 2026 11:38:09 -0700 (PDT)
+Received: from haichao.tail057a43.ts.net ([2001:da8:e000:1206:1886:6b7a:3e78:272c])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c6e54e8390sm392335ad.71.2026.06.17.11.38.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 17 Jun 2026 11:38:08 -0700 (PDT)
+From: Ruoyu Wang <ruoyuw560@gmail.com>
+To: Srinivas Kandagatla <srini@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] nvmem: rockchip-otp: initialize ret in rk3588_otp_read
+Date: Thu, 18 Jun 2026 02:38:03 +0800
+Message-ID: <20260617183803.1106486-1-ruoyuw560@gmail.com>
+X-Mailer: git-send-email 2.51.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260617_113810_096991_D2FD3989 
+X-CRM114-Status: GOOD (  11.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,16 +97,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Tue, 16 Jun 2026 09:55:00 +0200:
+rk3588_otp_read() returns ret after a count-controlled loop. If count is
+zero, the loop is skipped and ret is not assigned. Initialize ret to 0
+for the empty read path.
 
-> https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-arm-7.2
+Signed-off-by: Ruoyu Wang <ruoyuw560@gmail.com>
+---
+ drivers/nvmem/rockchip-otp.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/6505114e82e7541414b176b5da4a3c015a1214ea
-
-Thank you!
-
+diff --git a/drivers/nvmem/rockchip-otp.c b/drivers/nvmem/rockchip-otp.c
+index 0ec78b5e19e7d..50a19b6dc4027 100644
+--- a/drivers/nvmem/rockchip-otp.c
++++ b/drivers/nvmem/rockchip-otp.c
+@@ -242,7 +242,7 @@ static int rk3588_otp_read(void *context, unsigned int offset,
+ {
+ 	struct rockchip_otp *otp = context;
+ 	u32 *buf = val;
+-	int ret;
++	int ret = 0;
+ 
+ 	while (count--) {
+ 		writel((offset++ << RK3588_ADDR_SHIFT) |
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+2.51.0
+
 
