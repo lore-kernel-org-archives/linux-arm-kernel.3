@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E197CCD98E2
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE6BFCD98F0
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 06:55:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,43 +12,43 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=djD3Y0Nz6xCSNgvzQv0FMlV0XPA5TGOJDzSsNQVNlsg=; b=2t9kn1pbhF1W5XDXQuRznoDgPb
-	PfKP4PKv9cCLexbcZuLoWU9CIoS6b6l2Fol7z3UbxKQxqv88s8EOWLfV1HGFIfcyD8JvACGD6SCur
-	KNqUf5TQ5XU9kpI43lIDTDJ/6R/hw1ZxlZuTM7NI22YdzQTmQ15wJnOaPt3h3PkkFvagzuDZ4xf7V
-	xyoP+mTsFmsg+4FB+ljiq7WHbDD2Vz3+rN+UGWdGIFaACS8ShVbfMrIx7WLUWV0ZRR3JgdwBLDpPy
-	zaZyJE/vFfpIxnORHa7rZb1FGJJxRogP4hWxLIQdtqBy9Whstn0ejU5GF+GOrcafQLJUcKybnO6V7
-	2iQ3BJxQ==;
+	bh=CBZwcNL1eAQUAHJfoFSR6vjSaP4CfP98WpLqLWH2NEc=; b=Dnle7OFesRrzgtZUQvHDH5e1Gd
+	s2N1PHOre1elGl3SZOJop6fH15oT9stS2kx/tuuMOrqgiFOmAp9i92BiaICplhx2rqjUOwFeqIalA
+	eg9P+u11005oAhjX3P6kfJKIsj9Fx6riC9L002ME8E8EAx8y588Odw+BqUY0ky8WhB78fbqERJj8A
+	rS1g0abm4xHvxvdOtnYBHKgkkFMHJOmAsU0whM8jXwP2TK82R18E2BA1TAbN84hs76DuWgxngrqKW
+	AunpXd2Kno4gIGGu+17pGcxV/3Pmn8IuOc1q27lbB6+ofAbY70uU8F7XhABWoq4S8L6kA7tTJX++r
+	YlQ//GGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZkBj-0000000Gkip-3pD4;
+	id 1wZkBj-0000000GkiX-3LcC;
 	Wed, 17 Jun 2026 06:55:51 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZkBh-0000000GkgG-3OaC
+	id 1wZkBh-0000000GkgE-3FSI
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 17 Jun 2026 06:55:51 +0000
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1781679345;
+	s=2020; t=1781679344;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=djD3Y0Nz6xCSNgvzQv0FMlV0XPA5TGOJDzSsNQVNlsg=;
-	b=GEjyCA0b5QKtKRrQytaHTDii4CMXm4UDTZlWVaC5FcDYD5Un25Hpl+2TqMzk+yJvZvQ2dp
-	EhIM9UKQajrpVRcFxz3lAANPjtDx+KEQrwOevKnglXrRswfTm3CxW0KFwIKTIUyMBhwMch
-	/gnL6r3ssi/jdv2Vg7hM0ldwPJKN2YIa0y3bfOH40jHgHEs3fF4mIm0SAzXLxDp38/EPnt
-	ilbbMnpMPNi5ZApB1QFtJzjx5LjfXGf0MIavgcfyaWeketX1sW96fCrPATM5fXnwXCcmED
-	LEhUFvAwBOgPtqsbG1G3M60UhyZnXVt1wH9UQGpD8w+Oxw5OrosAhkf/eZgZGg==
+	bh=CBZwcNL1eAQUAHJfoFSR6vjSaP4CfP98WpLqLWH2NEc=;
+	b=xhUXCBqqY3ZTzw3Etoal/C+jfmal1HS4BCPmF9LgagPZls5uptQHmTDsi2iSC21DysjPT/
+	Wa4SMF0Az4k0H0AEZ87XdczztQ0tthR5x8FWO9ujVaOU/0q7wkupzxC1gUkjQh3chaNQwZ
+	JIZi4oxJo5O9L+s+N6w16Ed8HvN1Alk7jvnHMcC0zBVsIogfOduFGqp9CRUdfBEfE0u7mw
+	o+8ayhT6VIaj8C/LYVACJoVv5ifoxcyffwc2Ir/EcFwXkOwkYdknTnjQF4CMAeUQoFnNPu
+	S5JIGFb/H70/Iy7BvNl6SvuF+et+MD/pqfPMrGfCIPpEbEJ7cmpaCOmtIjDcrA==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1781679345;
+	s=2020e; t=1781679344;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=djD3Y0Nz6xCSNgvzQv0FMlV0XPA5TGOJDzSsNQVNlsg=;
-	b=sHNGw7HJTUingmE29PYXAFSG+EyyaSt/4eTAWsUKpn2s51ydJkoR4f5eYYFq7WYGRmCI+i
-	/1t8KsV5dCAUBRDA==
+	bh=CBZwcNL1eAQUAHJfoFSR6vjSaP4CfP98WpLqLWH2NEc=;
+	b=o+qabkhss1CF9txBm3J5BtgSGmHg0yjdOUdm0zBjW5oqk7OPywC5SzGdrcyaowwMDTWDTi
+	/3SCgpz/PEOIQtCw==
 To: linux-remoteproc@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -64,17 +64,17 @@ Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Steven Rostedt <rostedt@goodmis.org>,
 	Peng Fan <peng.fan@nxp.com>
-Subject: [PATCH v3 04/10] mailbox: imx: use devm_of_platform_populate()
-Date: Wed, 17 Jun 2026 08:55:29 +0200
-Message-ID: <20260617-imx_mbox_rproc-v3-4-77948112defc@linutronix.de>
+Subject: [PATCH v3 02/10] mailbox: imx: Add a channel shutdown field
+Date: Wed, 17 Jun 2026 08:55:27 +0200
+Message-ID: <20260617-imx_mbox_rproc-v3-2-77948112defc@linutronix.de>
 In-Reply-To: <20260617-imx_mbox_rproc-v3-0-77948112defc@linutronix.de>
 References: <20260617-imx_mbox_rproc-v3-0-77948112defc@linutronix.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260616_235549_991413_89335395 
-X-CRM114-Status: GOOD (  10.31  )
+X-CRM114-CacheID: sfid-20260616_235549_952614_B205D1AF 
+X-CRM114-Status: GOOD (  13.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,33 +89,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The driver uses of_platform_populate() but does not remove the added
-devices on removal. This can lead to "double devices" on module removal
-followed by adding the module again.
+sashiko complained about possible teardown problem. The scenario
 
-Use devm_of_platform_populate() to remove the populated devices once the
-parent device is removed.
+ CPU 0                              CPU 1
+  imx_mu_isr()                   imx_mu_shutdown()
+                                   imx_mu_xcr_rmw(priv, IMX_MU_RCR, 0, IMX_=
+MU_xCR_RIEn(priv->dcfg->type, cp->idx));
+    imx_mu_specific_rx()
+      imx_mu_xcr_rmw(priv, IMX_MU_RCR, IMX_MU_xCR_RIEn(priv->dcfg->type, 0)=
+, 0);
+                                   free_irq()
+
+The RX event remains enabled because in this short window the RX event
+was disabled in ->shutdown() while the interrupt was active and then
+enabled again by the ISR while ->shutdown waited in free_irq().
+
+This race requires timing and if happens can be problematic on shared
+handlers if the "removed" channel triggers an interrupt. In this case
+the irq-core will shutdown the interrupt with the "nobody cared"
+message.
+
+Introduce imx_mu_con_priv::shutdown to signal that the channel is
+shutting down. This flag is set with the lock held (by
+imx_mu_xcr_clr_shut()). The unmask side uses imx_mu_xcr_set_act() which
+only enables the event if the channel has not been shutdown and
+serialises on the same lock.
 
 Reviewed-by: Peng Fan <peng.fan@nxp.com>
 Reviewed-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 ---
- drivers/mailbox/imx-mailbox.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/mailbox/imx-mailbox.c | 40 ++++++++++++++++++++++++++++++++++++----
+ 1 file changed, 36 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/mailbox/imx-mailbox.c b/drivers/mailbox/imx-mailbox.c
-index 516a05b64daa1..a8d4e970fb786 100644
+index 0028073be4a71..e261b382d5c90 100644
 --- a/drivers/mailbox/imx-mailbox.c
 +++ b/drivers/mailbox/imx-mailbox.c
-@@ -984,7 +984,7 @@ static int imx_mu_probe(struct platform_device *pdev)
- 	if (ret)
- 		goto err_out;
+@@ -80,6 +80,7 @@ struct imx_mu_con_priv {
+ 	enum imx_mu_chan_type	type;
+ 	struct mbox_chan	*chan;
+ 	struct work_struct 	txdb_work;
++	bool			shutdown;
+ };
 =20
--	of_platform_populate(dev->of_node, NULL, NULL, dev);
-+	devm_of_platform_populate(dev);
+ struct imx_mu_priv {
+@@ -219,6 +220,36 @@ static u32 imx_mu_xcr_rmw(struct imx_mu_priv *priv, en=
+um imx_mu_xcr type, u32 se
+ 	return val;
+ }
+=20
++static void imx_mu_xcr_clr_shut(struct imx_mu_priv *priv, struct imx_mu_co=
+n_priv *cp,
++				enum imx_mu_xcr type, u32 clr)
++{
++	unsigned long flags;
++	u32 val;
++
++	spin_lock_irqsave(&priv->xcr_lock, flags);
++	cp->shutdown =3D true;
++
++	val =3D imx_mu_read(priv, priv->dcfg->xCR[type]);
++	val &=3D ~clr;
++	imx_mu_write(priv, val, priv->dcfg->xCR[type]);
++	spin_unlock_irqrestore(&priv->xcr_lock, flags);
++}
++
++static void imx_mu_xcr_set_act(struct imx_mu_priv *priv, struct imx_mu_con=
+_priv *cp,
++			       enum imx_mu_xcr type, u32 set)
++{
++	unsigned long flags;
++	u32 val;
++
++	spin_lock_irqsave(&priv->xcr_lock, flags);
++	if (!cp->shutdown) {
++		val =3D imx_mu_read(priv, priv->dcfg->xCR[type]);
++		val |=3D set;
++		imx_mu_write(priv, val, priv->dcfg->xCR[type]);
++	}
++	spin_unlock_irqrestore(&priv->xcr_lock, flags);
++}
++
+ static int imx_mu_generic_tx(struct imx_mu_priv *priv,
+ 			     struct imx_mu_con_priv *cp,
+ 			     void *data)
+@@ -377,7 +408,7 @@ static int imx_mu_specific_rx(struct imx_mu_priv *priv,=
+ struct imx_mu_con_priv *
+ 		*data++ =3D imx_mu_read(priv, priv->dcfg->xRR + (i % num_rr) * 4);
+ 	}
+=20
+-	imx_mu_xcr_rmw(priv, IMX_MU_RCR, IMX_MU_xCR_RIEn(priv->dcfg->type, 0), 0);
++	imx_mu_xcr_set_act(priv, cp, IMX_MU_RCR, IMX_MU_xCR_RIEn(priv->dcfg->type=
+, 0));
+ 	mbox_chan_received_data(cp->chan, (void *)priv->msg);
 =20
  	return 0;
+@@ -605,6 +636,7 @@ static int imx_mu_startup(struct mbox_chan *chan)
+ 		return ret;
+ 	}
 =20
++	cp->shutdown =3D false;
+ 	switch (cp->type) {
+ 	case IMX_MU_TYPE_RX:
+ 		imx_mu_xcr_rmw(priv, IMX_MU_RCR, IMX_MU_xCR_RIEn(priv->dcfg->type, cp->i=
+dx), 0);
+@@ -639,13 +671,13 @@ static void imx_mu_shutdown(struct mbox_chan *chan)
+=20
+ 	switch (cp->type) {
+ 	case IMX_MU_TYPE_TX:
+-		imx_mu_xcr_rmw(priv, IMX_MU_TCR, 0, IMX_MU_xCR_TIEn(priv->dcfg->type, cp=
+->idx));
++		imx_mu_xcr_clr_shut(priv, cp, IMX_MU_TCR, IMX_MU_xCR_TIEn(priv->dcfg->ty=
+pe, cp->idx));
+ 		break;
+ 	case IMX_MU_TYPE_RX:
+-		imx_mu_xcr_rmw(priv, IMX_MU_RCR, 0, IMX_MU_xCR_RIEn(priv->dcfg->type, cp=
+->idx));
++		imx_mu_xcr_clr_shut(priv, cp, IMX_MU_RCR, IMX_MU_xCR_RIEn(priv->dcfg->ty=
+pe, cp->idx));
+ 		break;
+ 	case IMX_MU_TYPE_RXDB:
+-		imx_mu_xcr_rmw(priv, IMX_MU_GIER, 0, IMX_MU_xCR_GIEn(priv->dcfg->type, c=
+p->idx));
++		imx_mu_xcr_clr_shut(priv, cp, IMX_MU_GIER, IMX_MU_xCR_GIEn(priv->dcfg->t=
+ype, cp->idx));
+ 		break;
+ 	case IMX_MU_TYPE_RST:
+ 		imx_mu_xcr_rmw(priv, IMX_MU_CR, IMX_MU_xCR_RST(priv->dcfg->type), 0);
 
 --=20
 2.53.0
