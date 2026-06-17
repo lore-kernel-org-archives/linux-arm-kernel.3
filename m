@@ -4,175 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AD7ACD98F0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 21:26:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DFB5CD98E4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 21:41:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yalCcxQ5OLAsDwLDfK5Pm6dcAvm+yptjanMpgSp4Cb0=; b=sZK9OBVRhCEFdEAYFPsBN9FKxJ
-	UiauZPqSk+pOaoPPmE02xutD6bshvWf2ttXoewmEoSU9Y5bxjtaHIgAXv+YD3a7iu5V1diUAHA1gS
-	xk2oiLwBoUqYa2M2+9YKNREuRE8l9B+lUr6GLayUanlJR8/GiL518yFYe1XeRN8sZBwRzQsrOMJbf
-	g5hjJyOl7pkddLkn1qijxog+f/9fuVEvrvUJ4tIps6WW1WfpL+6FtyayvIDkmXLSJmCLoqPxL4xdj
-	VOkp0v0gUieX2XXWf381Shfq0vuxjN+SJdgsiOOpiqV297tPM9X/dGdotSpriaVYgevm6OPhmy+Fm
-	7/OtYDvQ==;
+	bh=404tAE/+R1SyZUkdqbOQ+xCot/cOxhbKnrTtvvurl98=; b=hxuqlv4zehhLDfADnlfMO5yfIN
+	9ZA55YfNSZQuo8hlFpeldJ6kj2KDj1Jwuj4GzEQto3PYcH/NCxzxk70qcsWGHwZMjE4GPd6jWsOGm
+	wusUOmOvnErBz1Hrzak/kv6Bqy/0hEsgfKZs2jTZDy6ZpFOs1pQpxrxedHmDI92umbDUe1BZKaXWv
+	p270PREoa0sg5mQGr0SFU0R9l6mimy6AHRkJ/Z3E0mRy4+/JZADoSQwYwR8ZV2SjXF6XxSZgQm2NI
+	ZDH1VA2U4dITMt08iuseW+wUrJ9WBiLZaXh/MrWeRjEp9FBnAYPKe3WaSRmRa8rORQGeNNl628GvH
+	pJ9qjLjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZxmY-00000000LuU-17Bw;
-	Wed, 17 Jun 2026 21:26:46 +0000
-Received: from mgamail.intel.com ([192.198.163.11])
+	id 1wZy0R-00000000MGx-2lR5;
+	Wed, 17 Jun 2026 21:41:07 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZxmV-00000000Lu7-0hB2
+	id 1wZy0Q-00000000MGr-3L2R
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 21:26:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1781731603; x=1813267603;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=1e/nJsBSKvlxVgr5m3VA4tej8hVa3AylhTKtGKt1KXQ=;
-  b=CfNIyHTB2XZftYETFdlK9PW5zDFln9Um2zejENeys3nIH0rewVVSM693
-   rLv7fUGONITgIWkj0uXGl3vYbpzZKHTD1elEATaMeQQnZzj8xSvPHY8ux
-   A5ZZhU8+qC9v6IHHyPxGRZYwOZgCVIcxUwNdQ1vo7AhmFEjQNQ4yQdQvZ
-   R67qPQUl69r4ac27oZxzzxNmrOXYtN1J6IhlEv5nZpJzRThJdL6UV8LTE
-   ueuFcFXUku4VEbCcT1ghUG79+1nYdnG2SDF8Fa95c4MYO6e9hrrFtwx4G
-   oC42u5z9BPdGM8iUsWgnR+38en/K+Hw+zqur2izNQnJ8AC3FQVKw3M1Bh
-   A==;
-X-CSE-ConnectionGUID: /5qU1Uh1RNia9IhcGnl/Eg==
-X-CSE-MsgGUID: a/4lmXN5RfWJ9lQzjK3TjQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11820"; a="93145926"
-X-IronPort-AV: E=Sophos;i="6.24,210,1774335600"; 
-   d="scan'208";a="93145926"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Jun 2026 14:26:42 -0700
-X-CSE-ConnectionGUID: qAx1bl8WRHCDVc0LpdcvWw==
-X-CSE-MsgGUID: +tArMvWbR6uZ3AF4QlVhdg==
-X-ExtLoop1: 1
-Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
-  by fmviesa003.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Jun 2026 14:26:42 -0700
-Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.37; Wed, 17 Jun 2026 14:26:41 -0700
-Received: from ORSEDG903.ED.cps.intel.com (10.7.248.13) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.37 via Frontend Transport; Wed, 17 Jun 2026 14:26:41 -0700
-Received: from BN8PR05CU002.outbound.protection.outlook.com (52.101.57.47) by
- edgegateway.intel.com (134.134.137.113) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.37; Wed, 17 Jun 2026 14:26:40 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HiraAfTF26OVjlwhArgfnRNMk7TloP/HMCJ0fvmaYA+5j3l8gsr8sy9gEPJ0Ka+0UPO3NN4TAfdp3Zg0rKW/tVX8OFxSNwqrDkdW/gNySdPKtgbbMoROp9j12sOFJhLJxvsrqMd8n+cVbPTaHs2WNIxREWlZ3fjCnbC6b9Qw0FesAtMzm1LBtxQbHwx8No901+GQ7hiaa/6nKzSoHSZ9y2gyRb7WMRwtXiFjd/amZ9pV9v0xI5iVzMQi5qwsLHHdc4ujYoyExqPU4yfXBPHPFJmaGjWlQV1jZhI6AmkpTfxCHeadMAMdinaeM8yLobN+banKF1HeLOIFf/TxyN5eqw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yalCcxQ5OLAsDwLDfK5Pm6dcAvm+yptjanMpgSp4Cb0=;
- b=wR3CEDHqlGvM3zPcN+3qouW1zLx53wTZ92yFfUN1hYX1tRYxUyYjrkH9R3AX/ZWNBSGRmfQ51mGF+SIyZ9MAJUCxYdsdRqmxNj+9X1cOoz6kb8PkgOmd/7O7X72crBDV3ZjQioxD6t8uuu0tecLJfRuDSZtrWI1i8UaR9Xd+TKWbwPzyF2RJDvq6u1u1DrFeR1Yj4v3YtX4FbV5zXH8waDBw2p1TWOFJKzdBVSLmV04aEVDEUu7vxR5yWK3z8Df1NNevtgZaohULcEn+KLt1sCjl1kG4o2nQKG+Xpw+I6dSRYKLl1nwWqxTQSGbTE7JyMTwkhMPGmmc4g11yfMKRpw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from DS0PR11MB7381.namprd11.prod.outlook.com (2603:10b6:8:134::14)
- by SA1PR11MB6687.namprd11.prod.outlook.com (2603:10b6:806:25a::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.11; Wed, 17 Jun
- 2026 21:26:28 +0000
-Received: from DS0PR11MB7381.namprd11.prod.outlook.com
- ([fe80::4c39:dfe6:d6dc:6f58]) by DS0PR11MB7381.namprd11.prod.outlook.com
- ([fe80::4c39:dfe6:d6dc:6f58%5]) with mapi id 15.21.0113.015; Wed, 17 Jun 2026
- 21:26:28 +0000
-Message-ID: <6b8db599-5bb2-47f9-ab53-a0b5141af2e5@intel.com>
-Date: Wed, 17 Jun 2026 14:26:25 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] net: stmmac: loongson1: Use dev_err_probe()
-To: Jakub Kicinski <kuba@kernel.org>
-CC: <keguang.zhang@gmail.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
- Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, "Paolo
- Abeni" <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	<linux-mips@vger.kernel.org>, <netdev@vger.kernel.org>,
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20260615-dwmac-loongson1-v1-1-cbcf5bc01d9b@gmail.com>
- <31630db0-85cb-421b-8ebe-bbae07521533@intel.com>
- <20260617135407.6ff54e27@kernel.org>
-From: Jacob Keller <jacob.e.keller@intel.com>
-Content-Language: en-US
-In-Reply-To: <20260617135407.6ff54e27@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MW4PR03CA0136.namprd03.prod.outlook.com
- (2603:10b6:303:8c::21) To DS0PR11MB7381.namprd11.prod.outlook.com
- (2603:10b6:8:134::14)
+	Wed, 17 Jun 2026 21:41:06 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id C07B36001D;
+	Wed, 17 Jun 2026 21:41:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F4B11F000E9;
+	Wed, 17 Jun 2026 21:41:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781732465;
+	bh=404tAE/+R1SyZUkdqbOQ+xCot/cOxhbKnrTtvvurl98=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=YTnUtpL6Lr0x0CQQtTyI0DkN21QWM2xh3qkfbRkWOv0y85XPDJuI3a7vp8qy5dgYb
+	 vH4LblkNLxC1uJOBjj2RjKsZICTavJjedU+53pdVlJl0tGzTtZT9vSFklpncd4Y3Uq
+	 Jwy4EFyUamCpLp+ACc66go/TDzcg632smTIaseBWgKnA1CFR7PitKW1cUUoWdKRLVq
+	 HFBXDWlQuXoWs+2AMJepj72Lzln1ApRyoJ8YKNbm7IokF++KXGBwN/ghNvLxDaAyTw
+	 y+nw8zPuvdBzV2mrzSlgig1v0muqHra8Y6lAmUiZBp+DKc0HSSJVGq9QNoEpy3gFP5
+	 KoSInkaXxI5zg==
+Date: Wed, 17 Jun 2026 22:41:01 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Stefan =?iso-8859-1?Q?D=F6singer?= <stefandoesinger@gmail.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Brian Masney <bmasney@redhat.com>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH RFC v4 01/12] dt-bindings: clk: zte: Add zx297520v3 top
+ clock and reset bindings
+Message-ID: <20260617-gone-antennae-66b362e9d42c@spud>
+References: <20260616-zx29clk-v4-0-ca994bd22e9d@gmail.com>
+ <20260616-zx29clk-v4-1-ca994bd22e9d@gmail.com>
+ <20260617-tabasco-pulsate-454ed3f8f0b6@spud>
+ <-l2OM6P0RNSYRQfOSObOyw@gmail.com>
+ <20260617-deed-snap-4649ffae0e27@spud>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS0PR11MB7381:EE_|SA1PR11MB6687:EE_
-X-MS-Office365-Filtering-Correlation-Id: 69602cf7-6abf-4e67-d11a-08deccb717b2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|23010399003|1800799024|11063799006|56012099006|4143699003|6133799003|22082099003|18002099003|3023799007;
-X-Microsoft-Antispam-Message-Info: QaLTpVX8lU50KGaDE2mvHe2Vmq3STSHgWkZxXR00K9GIvltXa/fxUHiUKJmkIARlaKhGSRmnROAaeAWHybyJjDvWfNQGKJ8xUTgmw+ip0f/c36nZ3UfBKHfj1gHMRbPnJWgVeXeCeoyDstaTOnazsWZCM1NozsqDkQhYOZsUupZY1b/PjvaiJ+r53IS1hDEzVuIx9F51XFZuVptvO4zGdu8H1aizAJn6CoI3gZuF85DcwfDqt4BrIczK6sEyuhEnSISwQr6Mqcmw0NuNiesfEat6fnYw04yc47kjWU6MVuxIZ0XxztjMBgli/BqvP6FgDRImBnxPLS/saPZ5X+sNAqm+GfZ72hy3DoeO8rc7EAgEgaSu72YnyqXwlt2Y5ATUhYPkDcfaCE+ztaHkeDwHv8i60JN0DtDENRwWD6WVlH5+IV+rH16rrfXHGqNdzTBx8ySJ6QRR2QwuowsiUy6vkRDSmDtQyH9hSXx4qY/WMq7SWPY6gV0J4DltvRsB/L8KJt/Yz071fZgSWuwG1+8Ul0HTslBOWEQS75Jw5QkNfcPZZzrb5s4k2nHiCYDIAucNHE0IjYRsjN7e2zg9DjSQMC9QhtNySdlWXIIucpwnCGdTKRefzuft2d67Y5LkLaqReRv8zV7bYAmcyXZOEGzo91/aY8kFeA7+xc7sgrd8casEnwb1oxqmXr1btPUG3Gci
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR11MB7381.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(23010399003)(1800799024)(11063799006)(56012099006)(4143699003)(6133799003)(22082099003)(18002099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Qkw4blNNTnF5T0JWMDdFaFU3TFZZT2IraHBwOUxTWEVQR3pqZjBDTlo5bnhs?=
- =?utf-8?B?NWY4bHFjYmdxejlHNjE0QWl1RVlEYkhmamxURXhhMjJFckpCay9QelpSR3N1?=
- =?utf-8?B?WFNqRVVPenQ3MDFWU2k3Rk1BK29UTk4vd2ZwTUcreGFSS0JzQTVzZ29iNk9V?=
- =?utf-8?B?NWtWQkxidGtOcHlYZnBkMURRcHdSUFdpTUE2UGYwcU1mVlpwUmE2TS9iclFE?=
- =?utf-8?B?cWo2MExvU1MvMDlzYkJXUGxscXNkL3FmWUkrMEEyMHRIYU1MekdHMHZWMU5N?=
- =?utf-8?B?MlNaSjZIekc0RjlzMjVXMXpuNkFKQS95bGhQTHkvYVlhM2ZXem9MUFU4RmFq?=
- =?utf-8?B?UmNBclNabWl2Tnc4b0hSeG9tUVVBVnliZzFPWiswckFGZXZiT3NxRkhwaXBG?=
- =?utf-8?B?QWpPZGZvb1lmUXd6QTBCb3dEN091QVc1TERVYnRLUWwvbkpzYWRwdVdNSHcw?=
- =?utf-8?B?OXR2UDAyUWMzN2NIeVBEM1hWQi9Za3gzeUVma2pGRzFOUkJvTWZ3Q29HTFZQ?=
- =?utf-8?B?WEhUQk1hTkJMWXlTc3lwZ0tJM2ZualhZc3dIWDVzYlJ2T2JINTNIUFF6eDVQ?=
- =?utf-8?B?dmFCQTBOczc0OW5sN1ZkMFpTcjd1QjZjZmJWTHJiQ3ByWUIyQW5nZUtDVnVp?=
- =?utf-8?B?cHE2UStzc2dHOTJ4bE5iL1VFZjdJemJLRHJ3bTBoeTdRYmNoMWNlcWNhc3Fi?=
- =?utf-8?B?N2hHUzIzRFpzK2c0N1R1SGV5a3EwWTZkcyswSmFDQlVXcVBVSUVScWxubHJW?=
- =?utf-8?B?T3FFVEN5ZUhMUnNHeW5IYkRzWm5SNWZwcllMQVJLcHlYZFJDUGxNM1Z0ZzNI?=
- =?utf-8?B?MzFyRzUvR3B3bUZ1ZVppcHdVVlVMSUZQMDdVY1lzWjllWUVmeldRYUFHODZo?=
- =?utf-8?B?OTcwanlOTG1lVUluNFhrRTVIUVBabXJaVDQxcXZ1WU4xblpxSHNJSHloUThr?=
- =?utf-8?B?Z3BZM29tS0tZaGhPM3pGQ1B5UGtUMHh5UmR5a1Y5ZGRuU0plcE51Nm1LYmo1?=
- =?utf-8?B?bE1sdUdNdXROLzg3eUJKUUE4UWRhK2xBdlZuNzVXZ1FPSE9hQTF1M1ZvKy9V?=
- =?utf-8?B?bnc0b3VRNnUrZEEzeWxXOHowQThGUkg5T1RJMHJBQnliOUhNSzBQcXcwVzcx?=
- =?utf-8?B?ZkFJbTNXeEozN0xleHBtR0xXR0E1bmVuVVpRNklDaERsaTFldmRhbXhMYVdp?=
- =?utf-8?B?d3E5THQ4cW1HOVJTZVhJYTR4akdEZDRoL3pldWJrSjF3em4rbDcxZm5rMEQ5?=
- =?utf-8?B?NHlCRndaa3hlKzZBclpYZlpRRWxBM0YzY3hFYUIvZGdTN0xvTjc5dnRPcERU?=
- =?utf-8?B?bjNKbjMyMlcwZkhzZGk1RkhZNDJrY2kyajN2eWx6QXE3bEFIc0orRFVJdEVC?=
- =?utf-8?B?djVROEd2Sm5BZkdOcVMwTTZPVW4wbE5GSnNpL05UekhLbG5nb2hmamt5V3Zm?=
- =?utf-8?B?aWJFdGh0SUFPMjQzTFlKNjRrSFpYUTdoNkdTQlhuOTRZZWI4VUlyUHcxa0la?=
- =?utf-8?B?Wm9VUW10TXpqL1hMNHRtenlDRWVTR1FnV203ZFJ2YlVtL014TUZmZEJiMkRo?=
- =?utf-8?B?eW81anZqSmpTRm80VmhGQ2VtQ3N4WVJLTG9ISlJjRkE2SmZ2aFptT3h6Rk1S?=
- =?utf-8?B?cjNVVkRCMGpaTThNVURvT1BiMTFRektOMTZhVWVncC95ZmR1ZjVXZE9kZUc5?=
- =?utf-8?B?VmpEVnVWVkt1Z2VmV3hzVjhNZDNlaGVJN0VTKzBReVZmSWRxakc4UFIwT2Vi?=
- =?utf-8?B?YTVUTkRGNG1odFJET0FFSmp1Y3ZaMWErN01CUlpMVzcvZXIvc3FaVzVPYWZY?=
- =?utf-8?B?aXFCMEdVUXQ2RlBJVlhGSWViTGtQQ0R5WmpwaE5GQ2Z5U1VXbTFvMm9uS1BZ?=
- =?utf-8?B?YUlZaUUwTFVqS2dESFMxQ1NEOXV0Z3pIRFAvcXp3anFRd1ZuMURaZ2w4ZE9l?=
- =?utf-8?B?ZDFNWkVGZ0NBUkh3a0tReXBpeHdGemw5dEI3dWxpWE1HMnRhVVY4VFRwaXNW?=
- =?utf-8?B?MngrMmJEMitqNlAxUFVEZW1IbFBhWWZXUUZGcHdFdGMzNE8yRmsyK3UvRGZo?=
- =?utf-8?B?dTRkVmRJKytKZVZUWE00Qllra09KNHhPTWVJSDNzUTJsSmZ3S3VTUEVhcTZS?=
- =?utf-8?B?WlBkc0lRbmV0Mk1kZitZRURKZ3RjbDlsR3pVcHVMZDVYNFROcC9IVld5S2U0?=
- =?utf-8?B?SmZORUxUdWdxVnJOYzZOWkJUbElIWFpvZ0hNSVRROG0xY3ByYWxKNmZ4d1Qr?=
- =?utf-8?B?bWFnR21SL1YrUWgrOGZBcE13NTVKV2Z4NnFSMHdjNjhXTmhHM09wWnhqSWVO?=
- =?utf-8?B?clBCUGhKRVJhSVhxdUpHOTJHS1JZaklLMDFQQmxKcEViSW9uV2lKWStaQlBY?=
- =?utf-8?Q?tI6MWPktghcR7wws=3D?=
-X-Exchange-RoutingPolicyChecked: JY4mYwQ7c/YzcBRi40asvd963kOzbq+sHZ8Kd29Y7VFIopZlasTA9IKMdWxMf7ieVVKW31noHmK8DTaswtUOx7ycy+btYU/NiYv/ElQao0b2gFs2rOQG/uXD+IO6bf3gYRAcEGZBNOe+QQtJFo84tmxmftS8b+B6OMvSH09ugJL8kDdBmTtJqIibqdE2nXy8kxL721+otDmvAteD0TnQi+9EiHGj++JXA5Li4N6E/HwLkOeQ5xPl+e+PKXGzz9K/IhrpQBys8Rkt5FRAV8LjBaHni55OioFTgLcSfK+4D35mSwtp2OK66VQVXDRw2Y4zHFwkCjvSOtRWA22+aZyb3g==
-X-MS-Exchange-CrossTenant-Network-Message-Id: 69602cf7-6abf-4e67-d11a-08deccb717b2
-X-MS-Exchange-CrossTenant-AuthSource: DS0PR11MB7381.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jun 2026 21:26:28.3104
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 7QGftbkzHQpf67eWgMlxM1aHZoM32EfRJPnckTt00rXmEXw5Wna8r/kZr9zvnPvr9FnFvxK5OcmfoWYCGDUAWcvuudKtqyJyEsb7z7CaSiY=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR11MB6687
-X-OriginatorOrg: intel.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260617_142643_252559_1B9EADC1 
-X-CRM114-Status: GOOD (  12.59  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="yGnFFU5qPObdCcLm"
+Content-Disposition: inline
+In-Reply-To: <20260617-deed-snap-4649ffae0e27@spud>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -187,39 +80,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/17/2026 1:54 PM, Jakub Kicinski wrote:
-> On Tue, 16 Jun 2026 16:42:18 -0700 Jacob Keller wrote:
->> I'd probably also argue this may go against the desired goals of
->> net-next with only wanting such cleanups when in the context of other
->> larger work. Of course that decision ultimately belongs to the maintainers.
-> 
-> Yes, feeding const EINVAL into dev_err_probe() is pretty pointless
-> so if this helps it's just by "saving" 2 LoC. I'm not sure it's worth
-> it even in context of larger work, let along by itself.
 
-It does claim that it has benefit since you get the error code emitted
-symbolically. But we have %pe for that. I wonder if dev_err_probe
-predates %pe?
+--yGnFFU5qPObdCcLm
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Per commit: 532888a59505 ("driver core: Better advertise dev_err_probe()"):
+On Wed, Jun 17, 2026 at 10:23:56PM +0100, Conor Dooley wrote:
+> On Wed, Jun 17, 2026 at 08:47:53PM +0300, Stefan D=F6singer wrote:
+> > Am Mittwoch, 17. Juni 2026, 19:08:02 Ostafrikanische Zeit schrieb Conor=
+=20
+> > Dooley:
+> > > On Tue, Jun 16, 2026 at 11:26:21PM +0300, Stefan D=F6singer wrote:
+> >=20
+> > > > +F:	Documentation/devicetree/zte,zx297520v3-*
+> > >=20
+> > > Sashiko complaint here looks valid.
+> >=20
+> > Yes, it is valid.
+> >=20
+> > It also brought up another concern in patch 12 that has an impact on th=
+is=20
+> > binding:
+> >=20
+> > Am Dienstag, 16. Juni 2026, 23:42:19 Ostafrikanische Zeit schrieb sashi=
+ko-
+> > bot@kernel.org:
+> > > issue(s) to consider: - [Low] The `syscon-reboot` node is incorrectly
+> > > defined at the root level using the explicitly deprecated `regmap`
+> > > property. --
+> >=20
+> > And indeed "regmap" is deprecated and I missed it somehow. As far as I=
+=20
+> > understand, to put syscon-reboot as a child of the clock, I need to add=
+ the=20
+> > simple-mfd .compatible:
+> >=20
+> > Either
+> >=20
+> > topclk: clock-controller@13b000 {
+> > 	compatible =3D "zte,zx297520v3-topclk", "syscon", "simple-mfd";
+> > 	reg =3D <0x0013b000 0x400>;
+> > 	...
+> > 	syscon-reboot {
+> > 		compatible =3D "syscon-reboot";
+> > 		regmap =3D <&topclk>;
+> > 		offset =3D <0x0>;
+> > 		mask =3D <0x1>;
+> > 	};
+> > };
+> >=20
+> > --- or ---
+> >=20
+> > something@13b000 {
+> > 	compatible =3D "zte,zx297520v3-topcrm", "syscon", "simple-mfd";
+> > 	reg =3D <0x0013b000 0x400>;
+> > 	ranges;
+> >=20
+> > 	topclk: clock-controller@0 {
+> > 		compatible =3D "zte,zx297520v3-topclk";
+> > 		...
+> > 	}
+> >=20
+> > 	syscon-reboot {
+> > 		compatible =3D "syscon-reboot";
+> > 		offset =3D <0x0>;
+> > 		mask =3D <0x1>;
+> > 	};
+> > };
+> >=20
+> > I see both ways in existing DTS files (e.g. imx6sl.dtsi for the fomer,=
+=20
+> > uniphier-pro4.dtsi for the latter). Is there a preferred way? I have a =
+mild=20
+> > preference for the first, as it would keep all 3 clocks in the same way=
+=2E If I=20
+> > go for the second, the clock driver would have to query its own node an=
+d the=20
+> > parent node for the regmap.
+>=20
+> The first one is more natural...
+>=20
+> > AFAIU unrelated to syscon-reboot option 2 would give me the opportunity=
+ to=20
+> > have separate clock and reset nodes and bindings and skip the aux bus, =
+but=20
+> > this would not be a correct representation of how the hardware works.
+>=20
+> ...for this reason!
+> Do you actually need an aux bus here though? Since you have to add
+> simple-mfd for your the syscon-reboot and simple-mfd is a real bus, can y=
+ou
+> set the reset controller up with an mfd_cell + devm_mfd_add_devices()
+> instead?
 
->     Describing the usage of dev_err_probe() as being (only?) "deemed
->     acceptable" has a bad connotation. In fact dev_err_probe() fulfills
->     three tasks:
-> 
->      - handling of EPROBE_DEFER (even more than degrading to dev_dbg())
->      - symbolic output of the error code
->      - return err for compact error code paths
+Although, the /naming/ is more natural in the second case. "topcrm"
+sounds like the actual name of this register region. And syscon@ for the
+node name.
 
-This was in 2023.. %pe was introduced in 2019, so I guess %pe is even older.
+--yGnFFU5qPObdCcLm
+Content-Type: application/pgp-signature; name=signature.asc
 
-I personally find dev_err_probe acceptable and might find it nice when
-writing new code, but I agree its not really meaningful gain to refactor
-existing legacy code.
+-----BEGIN PGP SIGNATURE-----
 
-Anyways, all this to say in too many words: this patch doesn't seem to
-have much value for netdev.
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCajMUbQAKCRB4tDGHoIJi
+0r2hAPwNW7XtiqbIzMgNxrNCvFns+PFFwkEpnFNspkst36LvJwD/UrRB3kPmZ4Bk
+W7Wu8WXjAqQnoDnptstn15CHqLXgtwk=
+=IZMg
+-----END PGP SIGNATURE-----
 
-Thanks,
-Jake
+--yGnFFU5qPObdCcLm--
 
