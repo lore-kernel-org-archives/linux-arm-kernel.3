@@ -4,96 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E31CFCD98ED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 08:15:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CB69CD98ED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 08:17:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QxXn1Oj6SL8VleTEBTLmlWInvGgOzp9b11hsJyxGyH4=; b=tGKRdPefDw+5/DZ8dWiVSb21Ns
-	NAeAFowJKtFG7nbeP5iz+f/gGJWTk3pkemvMQNlsAe7lAbxf9QBDew/WCXcefLrrbWV55E8BrzOaP
-	MYdrZBgflpb1MABhaIW/m7/C18A7i9wgyffz9tacqktWEdpNamdMs+nBI+NnMcaj9w7pk2BLkjAoW
-	PWbTYFeqrG4cXk1JN1Y7PUQ45KakcKs3d2s+SNjtVdorufRFNKcmf05O669uRocd/CoVPM248aKTb
-	euLhAwYKN7cz+NbE9caa6FlEhWFU2vTfNNup9Sfbn7GZVQP+6YojtEXdqkNZM771nZ9XdseW8910G
-	lDjU1msA==;
+	bh=mBTKYwGxxl/jM+RXNLO33CzMPL8Fj3pA2Ytc8fhml8c=; b=ZfDKhg1VPEZSJM8yp3+aDu1u0K
+	iQVW5WqiobYdKz4k5kelHKdShVjxeOB/dZr1rDixncWZl5CZZ68e5qXgW50xiKjvN3zPrphFQTEEq
+	P0uAqQEGi6jg4dtkdwSe6llwkNKjvex+f86LLZUjlIymsks4r4nfHzy5SXbcs4YonW5jkDx9i4COK
+	SnBKiBgPim9sIgXwWHAKh6wIDtZN/ljwnL8Q2L8kA8pWQpPSqDiHKDdQJ/zmLlx/SBgjqDRRh0YNU
+	j3RximRD9JnmzmtwaIKKHSojKCWOOvEmnoxz4c8uLLZ1OiqZgjKTl6PVx7lc79S34OizkWqJvvmO2
+	ifpnU02g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZlQz-0000000GrTT-0y1G;
-	Wed, 17 Jun 2026 08:15:41 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1wZlSb-0000000GrhG-2Fgd;
+	Wed, 17 Jun 2026 08:17:21 +0000
+Received: from mail-westeuropeazon11013029.outbound.protection.outlook.com ([52.101.72.29] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZlQw-0000000GrSe-1cfY
+	id 1wZlSZ-0000000GrgH-2oqU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 08:15:40 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-842307473b5so3697331b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 01:15:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781684137; x=1782288937; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=QxXn1Oj6SL8VleTEBTLmlWInvGgOzp9b11hsJyxGyH4=;
-        b=KL7dKk8a3JwkJBVdAGEEg1Ki+zfel651l4/9CiK5fC6dPeuqy36ZcFqgD0oJGmuhjK
-         UbUYCP9vcOYLqBcCzVkMs+aOtJwJpn/Y0B1Tfk5/2OPgOeESdc4prhZkhko1rPCWmA94
-         0xwIBq1iTLQEpvcCpAvwuD96nb7nDZcmCcaj0xEvtoIsDu9BWZ8Ho0fkxXp8w3Zk53gM
-         J6CSOsBM/5y/r1n1l6/fjr+cGsqggvfujbXRgnpnweGd2CqTpqZrwIEteAAl+iGFr5A1
-         1MuvajiXooLvsdDDrliOa5jQjuYDy+JuzV8+sHKdVFncglgssqEl57FWbvTu/gIYD4F7
-         1dkA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781684137; x=1782288937;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=QxXn1Oj6SL8VleTEBTLmlWInvGgOzp9b11hsJyxGyH4=;
-        b=l2zRo6ZZlfWnqAOq7bMBzhKVOD10tm4xj63LLnbaA4FzRpZHWBzSsIqJCxDpS6agn8
-         6pQ7+CaQV6OdVddrTzNhHR0kzUEufpvd+T9Yer5EgIWrJ5h6x0OfmhINZpor1ZZipLOL
-         vGkG1dlRHj0JXRf8vMsBMR9vW+vrVqE0sXEfWs5YbVvMQyPz72aYRfs8yunWrQf96SWd
-         RqrYheC55QwRNtzAbnCBcp8X/4LEcNVXgE1r/5JyCrZexCnI5LmjB2QdtuscxhQM6Ys2
-         B4uxmed1lkHEfgyR765EgYXK8nyjrYWEBHWBOdieP1wRO9uDyrUUdw5hDvcIL+sOoskQ
-         GLWA==
-X-Forwarded-Encrypted: i=1; AFNElJ+lAiPS9sLVzPkg5/tcfAMxX/7Sa3m2SSnMWTYK0/ZTbrR2I3WYC7hOI1pkFpSmlmZwKRBfXeqhERqhbd5JPpJ4@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzu41H8aEMJwY4SpjHV6GBKUb09YMoM4tSosQ+3yc5axLGfkRGv
-	yDkZ6mhaMEJLl/tDGFwMKyo6ylRK3OgfpjH57sU3iMUVxrj1sT8uvQquQrkGmkFV
-X-Gm-Gg: Acq92OEZpPzlEOeLWlWHgsFntiZJeL9bvuUyf7pnX97+rajp0sGNCh/ZqqfXrqWk8B8
-	AxFwdXlWV+ssdGJ1/6P+ksympA9zc/9it12fug0e4nzFnczGG8/PUIRLI7wVPHgiQFdwrqwcObL
-	a5rlWQZm21XyHAYhJ7TNlqTYhaP8hQUrz2A4P1lf15P53shGU6ne19qQCfvl11KHzaC3Co9LhQi
-	J+a+4iiuIS39MPHKBVluOeg4TeBN0L7isnER4GOB0uCujmczxeF2uVW3C8aC3KwJyeZnPAhm8JB
-	dK1lWU/KEn/Vii4bsVef0GLk/47DMn2m6Xq9Ae86EOEiZy1ftFD7hXp+SXSgUSgaQdad3bwJRmK
-	fzQpdtmgKaVxWGL68qSYTnq+X4xXTGsv/MRXpKOxVx5ZblP75gZEUeKTzE6J/fMW5n7c5TTkZBu
-	90WxEQqQKQ0Q==
-X-Received: by 2002:a05:6a00:99e:b0:842:6ec3:2352 with SMTP id d2e1a72fcca58-84524484febmr2781503b3a.18.1781684137489;
-        Wed, 17 Jun 2026 01:15:37 -0700 (PDT)
-Received: from arch.localdomain ([2409:8a28:a52:c491::1002])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8434ac9c474sm14054459b3a.2.2026.06.17.01.15.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 17 Jun 2026 01:15:37 -0700 (PDT)
-From: Jun Yan <jerrysteve1101@gmail.com>
-To: neil.armstrong@linaro.org
-Cc: avkrasnov@salutedevices.com,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	jbrunet@baylibre.com,
-	jerrysteve1101@gmail.com,
-	khilman@baylibre.com,
-	krzk+dt@kernel.org,
-	linux-amlogic@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	martin.blumenstingl@googlemail.com,
-	robh@kernel.org
-Subject: Re: [PATCH v2 4/4] arm64: dts: amlogic: meson-axg-s400: Enable pcie_phy
-Date: Wed, 17 Jun 2026 16:15:31 +0800
-Message-ID: <20260617081531.644109-1-jerrysteve1101@gmail.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <915e4524-d407-4b4b-9e61-e4a2274a6f6b@linaro.org>
-References: <915e4524-d407-4b4b-9e61-e4a2274a6f6b@linaro.org>
+	Wed, 17 Jun 2026 08:17:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XqiokRLFzLe4uoXu31YTLQef0Zk/WIve2Xk5Dsb5IOf4XLSYQtYSDHD3sxDr84iVg1ven8DhWFQG7bjEA0yQMNcyuY7t8pzo20aBf3EMUfSf4+wZSEFRaHnahY6GZnqvKEl9PZyeXHKBO5lEqi2p4pdP0c0EPnpxf0jmrUhMe8ildskIo2X4QSNA16uQt+fpgjeQH8IYREZZEt8Nd3Y+EK1OerTMVFo+ht2n5UaBlfAX2uWBrEcTnIBdyP4PqEuu1wDFrEYJgCTGGiVWJ7lniITDm/pDLbZw9I9ImqfErJPc7IEWeLkOC2b1kqUWs1GPEpP+1234QjcSI6M5WYDiFg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=mBTKYwGxxl/jM+RXNLO33CzMPL8Fj3pA2Ytc8fhml8c=;
+ b=It2ly8+ULMATefgtof154etO5R//V528J8+KqgPB5wSsT2lYWW1Ospw+2ztCEqZycoDg4Qom4tABYNMXzo/hkFVHUvlavFY4whAG44iW8z1pcv4ifU5Y7wuawMK4AyzU41JQNfym8qgyN3u+d0aPDz9X70jWDJMkeaGCLmVIbTpuVCvN8PIWg7P3iQNQmMRjd3qtoTkZFJH/7LVNs6tVej/H7T9Z+5mqXDAsdIxKca8aoOFUb0T0U/ktF2lRsVb73J8fg62HdvKzYPQXevHy4jfFQp30JUnXYqsFtIo/HnD7S3qimcPSAWJareOYYCPjRXYekNXdVzPFnsQAjgXrKQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.60) smtp.rcpttodomain=gmail.com smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=mBTKYwGxxl/jM+RXNLO33CzMPL8Fj3pA2Ytc8fhml8c=;
+ b=nibwvKlGwJLkx8nQ9SY0Zjs7sBok+m3/Vhzr13H7ZfQhU5tVVGcTx9QVHu+Sejp64wj0uaRzUwstyfK9FUgeFdcW0ujCqMI0EYrHb1qxYpylaNCrXXSFqZ4cOR5/FQZlG1EUlOeo4giL6qFY4EomAyaPcZy41wCR95FZKsukw/c1w/IAVA+qCTU1H3LxEzM+v+WPoIc3cl/SoXvfrmzRsr5bNImcEVo4b/3arJfYxcyeKi/KNxUbSbBimYjOjNshpekdJDKaaD8e8B9sn47rr36Qpa2cGYNuTIacc9yViSlTWK6NMwX/rJsi1PtjjpySnCIAvTpFY1uSYm8EfCsj7A==
+Received: from DUZPR01CA0115.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:4bc::27) by FRWPR10MB9255.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:d10:16f::8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.18; Wed, 17 Jun
+ 2026 08:17:12 +0000
+Received: from DB5PEPF00014B9B.eurprd02.prod.outlook.com
+ (2603:10a6:10:4bc:cafe::7) by DUZPR01CA0115.outlook.office365.com
+ (2603:10a6:10:4bc::27) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.139.11 via Frontend Transport; Wed,
+ 17 Jun 2026 08:17:12 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.60; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.60) by
+ DB5PEPF00014B9B.mail.protection.outlook.com (10.167.8.168) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.139.8 via Frontend Transport; Wed, 17 Jun 2026 08:17:12 +0000
+Received: from STKDAG1NODE1.st.com (10.75.128.132) by smtpO365.st.com
+ (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.35; Wed, 17 Jun
+ 2026 10:21:16 +0200
+Received: from [10.48.87.176] (10.48.87.176) by STKDAG1NODE1.st.com
+ (10.75.128.132) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.35; Wed, 17 Jun
+ 2026 10:17:11 +0200
+Message-ID: <ca964566-597c-4675-8e41-33382bcb63b8@foss.st.com>
+Date: Wed, 17 Jun 2026 10:16:58 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] i2c: stm32f7: truncate clock period instead of rounding
+ it
+To: Alain Volmat <alain.volmat@foss.st.com>,
+	=?UTF-8?Q?Guillermo_Rodr=C3=ADguez?= <guille.rodriguez@gmail.com>
+CC: Andi Shyti <andi.shyti@kernel.org>, Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	M'boumba Cedric Madianga <cedric.madianga@gmail.com>, Wolfram Sang
+	<wsa@kernel.org>, Pierre-Yves MORDRET <pierre-yves.mordret@st.com>,
+	<linux-i2c@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20260611104857.242153-1-guille.rodriguez@gmail.com>
+ <ajJVct1fcVrUSuLE@gnbcxd0016.gnb.st.com>
+Content-Language: en-US
+From: Pierre Yves MORDRET <pierre-yves.mordret@foss.st.com>
+In-Reply-To: <ajJVct1fcVrUSuLE@gnbcxd0016.gnb.st.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.48.87.176]
+X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE1.st.com
+ (10.75.128.132)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB5PEPF00014B9B:EE_|FRWPR10MB9255:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1e6a34b8-8673-4ec5-a2b6-08decc48d5a3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|376014|82310400026|23010399003|22082099003|18002099003|11063799006|56012099006|4143699003;
+X-Microsoft-Antispam-Message-Info: raP/PKNKoYHmWq9gzQtl4a9eBTbwShqwmfLa6bPQTAHeJ5JI0awCSvkmPDa3v4YfKfbwPXpji2WtTIXpRfgzSDYAXwtF1XFJ0i236KZMAI7tHcCsVB0r9a9ckdo79qtGBxUcLjd2gbOY4Hg7vgW8p+HP+GBbuDf9iszkDg52gmb2GvrpIiKDYEX4N15K0HQ26pFZfzsFg4qiGqU2Y92QC4i8c82vwGfoz0hUw0dFpkqdtlWoYiTajt5j1WIoiyPHRde4UtIvwaBskeiCyxOsG56jjNZ6ChMw+FZkG/9JpDrvu2XNfqyOV2lyi2A7aqCOV+US4fL7Wl5qoWGlmo6qKCEoGsuzosMeJxC22uqeH5LJI1XgjrRQcVBC6noYpC7cKPDgyYuwd9JNhSaeSTRqMSChUUqsohrsOTV+zPSi91ZtAnIfR62SYXW2LMBn5loxtbBsD+tY0VBHNwnRBORUY9FdsL3uByBmo6s6XxJS6Cdq8GQ7slVupEA3ruvuscL6XnHYQuFFbIGS/IjedmJfUSZuA4AAo3znrYRreATQqcpHHrwOIN29pNIRm90NCnzqXbsiIRH+yEIWdtDC8a+izTMFpEF0MYrARNmAkFQ5mmnF+WH5Y+7mgZyUcJswaO92t6WAf6xYsSrj+oc0f1NxBG39t8/dyl1oXAZXI82kK5Sf0L93fMImab0lvypwIfPaSv+UxIvXVUur6+IJ7DyEtdrekwKAHNO4RuOJY47nHxE=
+X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(376014)(82310400026)(23010399003)(22082099003)(18002099003)(11063799006)(56012099006)(4143699003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 4MRQ4fVuz41PihA79cTpm8ixhM+J6pmFImZMTECFqrehdArugBtqkVd4enllbOYHz+iomgMq7Ux/fQXgzn1AWoWL9BP4HpZpk0zolYznsGnKRiLa5suuPznqGDLrboiVtl4taAUw4DhijWkXB6qQBtVcFIryZ9Y349zEUB/MidVmpOW3Lf6cJPu0LcYhtZSuOFowqM+YPAc3Z0Hssctd6WdLOl1v+igeJ/hXfVzS+PmbXvQ3f8Fy9YGH2JKoaUSQIG9ThU65jQaQYH0yVQnF3ODwrIGJTkaUWtImFJAVB0AmaFVy7I0M3aWsW7+wwWp03ljr8qFnWU6L2CE87xlbvj4Wia8D9MV8P7iT3GA0qvTYPxvRBwR68aWY2xrbigsNU98ey4uuHMpmNL4q+6RQJDGAk3/fvlVdLrbhTdEEeoSxuJyqwgjKJFnWFhoP6sjt
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jun 2026 08:17:12.5984
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1e6a34b8-8673-4ec5-a2b6-08decc48d5a3
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB5PEPF00014B9B.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: FRWPR10MB9255
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260617_011538_430313_371BFB7E 
-X-CRM114-Status: GOOD (  15.07  )
+X-CRM114-CacheID: sfid-20260617_011719_712955_C4958DBF 
+X-CRM114-Status: GOOD (  18.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,37 +133,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > The meson-axg dtsi now disables pcie_phy by default, so enable it
-> > for the s400 board to support PCIe functionality.
-> > 
-> > Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
-> > ---
-> >   arch/arm64/boot/dts/amlogic/meson-axg-s400.dts | 4 ++++
-> >   1 file changed, 4 insertions(+)
-> > 
-> > diff --git a/arch/arm64/boot/dts/amlogic/meson-axg-s400.dts b/arch/arm64/boot/dts/amlogic/meson-axg-s400.dts
-> > index 285c6ac1dd61..7ba249cc3d56 100644
-> > --- a/arch/arm64/boot/dts/amlogic/meson-axg-s400.dts
-> > +++ b/arch/arm64/boot/dts/amlogic/meson-axg-s400.dts
-> > @@ -448,6 +448,10 @@ &pcieB {
-> >   	status = "okay";
-> >   };
-> >   
-> > +&pcie_phy {
-> > +	status = "okay";
-> > +};
-> > +
-> >   &pwm_ab {
-> >   	status = "okay";
-> >   	pinctrl-0 = <&pwm_a_x20_pins>;
-> 
-> Please squash this one with the previous patch
+Hi all,
 
-Sure, will squash with the prior patch in v3
+Look good to me.
 
+Best Regards
+
+Reviewed-by: Pierre-Yves MORDRET <pierre-yves.mordret@foss.st.com>
+
+On 6/17/26 10:06, Alain Volmat wrote:
+> Hi Guillermo,
 > 
-> Thanks,
-> Neil
+> make sense indeed. Thanks a lot for this patch.
 > 
+> On Thu, Jun 11, 2026 at 12:48:56PM +0200, Guillermo Rodríguez wrote:
+>> stm32f7_i2c_compute_timing() derives the I2C clock source period
+>> (i2cclk) with DIV_ROUND_CLOSEST, which may round it up. When the
+>> period is overestimated, all timings computed from it (SCLDEL,
+>> SDADEL, SCLL, SCLH) come out shorter on the wire than calculated,
+>> and the resulting bus rate can exceed the requested speed, violating
+>> the I2C specification minimums for tLOW and tHIGH.
+>>
+>> For example, with a 104.45 MHz clock source (e.g. PCLK1, the
+>> reset-default I2C clock source on STM32MP1), i2cclk is rounded from
+>> 9.574 ns up to 10 ns. Requesting a 400 kHz fast mode bus with
+>> 72/27 ns rise/fall times and no analog/digital filters then produces
+>> an actual bus rate of 415.6 kHz with tLOW = 1254 ns, violating both
+>> the 400 kHz maximum rate and the 1300 ns tLOW minimum of the
+>> specification.
+>>
+>> Truncate the period instead, so that it can only be underestimated.
+>> The error then falls on the safe side: the programmed timings come
+>> out slightly longer than computed and the bus runs marginally below
+>> the target rate (375.3 kHz in the example above) while meeting the
+>> specification.
+>>
+>> i2cbus is left rounded-to-closest: it is only used as the target of
+>> the clk_error comparison and is never multiplied into the programmed
+>> timings, so nearest rounding remains accurate there.
+>>
+>> Fixes: aeb068c57214 ("i2c: i2c-stm32f7: add driver")
+>> Cc: stable@vger.kernel.org
+>> Signed-off-by: Guillermo Rodríguez <guille.rodriguez@gmail.com>
+>> ---
+>>  drivers/i2c/busses/i2c-stm32f7.c | 9 +++++++--
+>>  1 file changed, 7 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/drivers/i2c/busses/i2c-stm32f7.c b/drivers/i2c/busses/i2c-stm32f7.c
+>> index 53d9df70ebe4..6439620d6bed 100644
+>> --- a/drivers/i2c/busses/i2c-stm32f7.c
+>> +++ b/drivers/i2c/busses/i2c-stm32f7.c
+>> @@ -464,8 +464,13 @@ static int stm32f7_i2c_compute_timing(struct stm32f7_i2c_dev *i2c_dev,
+>>  {
+>>  	struct stm32f7_i2c_spec *specs;
+>>  	u32 p_prev = STM32F7_PRESC_MAX;
+>> -	u32 i2cclk = DIV_ROUND_CLOSEST(NSEC_PER_SEC,
+>> -				       setup->clock_src);
+>> +	/*
+>> +	 * Truncate instead of rounding to closest: if the clock period is
+>> +	 * overestimated, the computed SCL timings will come out shorter on
+>> +	 * the wire, which can push the bus above the target rate and below
+>> +	 * the spec's tLOW/tHIGH minimums.
+>> +	 */
+>> +	u32 i2cclk = NSEC_PER_SEC / setup->clock_src;
+>>  	u32 i2cbus = DIV_ROUND_CLOSEST(NSEC_PER_SEC,
+>>  				       setup->speed_freq);
+>>  	u32 clk_error_prev = i2cbus;
+>> -- 
+>> 2.25.1
+>>
+> 
+> Acked-by: Alain Volmat <alain.volmat@foss.st.com>
+> 
+> Regards,
+> Alain
+
+-- 
+--
+~ Py MORDRET
+--
 
 
