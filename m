@@ -4,60 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB3BACD98E2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 17:42:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0468CD98E2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 17:43:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9RC8jmYaG6xK0VuQBqROoKrirquMSwIRTfAs/g0x82s=; b=LaNbha52VRrUA2HFrchX2dvPxy
-	x84lYaevobfvJyb+sT7icNSgyg5OvWClG6fBf/rKWLwPs25grlASZ2A89tvh37+YfCG/VVDC/VgFE
-	SGIhbJa+EepxxGC+EZDShrFw35BM+XdkBsfDmMMffXlo331yjhJRGJWxmacR3R8j3YtC/VZHQYh4D
-	Nj3u3aRxBs0lpXLP+Ms3ADVL4RL5bgKiO/y9D+rExk6WJUEx4OVd8cc+fZ0i4/gJO3spnmuQWYO/V
-	kEuceI+Bl9WM3FrhgWP4SMM12m0o/NsUVioe+rHznA6pIldpGpoMuESQ9yIr0RCR48e8GOjDSMmK/
-	QDWvDMOg==;
+	bh=9w0uM5qxxsgUvqa94spUIYbpA1pZJswDZhZQjxo+Q68=; b=avlNqu33hUVWwlGZqkEgMjzBOM
+	x3S8i5Iy6PSzSIEA6X+2je+xkBbDvnOeim6HFFbHb6gn84V5FrjPkx6JoZd2nlxUg0bpWpdQ9/rCn
+	8OevteLFvuU0le/3pBhcTudlibFUC/IxTJ5RbIVodubDcW0PX15sOj9wqlpfhxb/c15RVJPgQXXmQ
+	afpSIfog8irMUfyAzRWB8R8zxQf+iElI3t8Eg7PoC4MWhBpMwOdroGS1Ewv/3dwPLwuzvczVgYK3H
+	jL7FRzYRcgWyMVW8G3Ax6FkBftvhImBRgvZRdySjU78gCs4TjQSAm7vKcUNIprgL/1tpNkTtnN910
+	TxEKndFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZuH3-000000007g3-17mp;
-	Wed, 17 Jun 2026 17:42:01 +0000
+	id 1wZuHv-000000007pC-2TJY;
+	Wed, 17 Jun 2026 17:42:55 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZuH1-000000007fw-43Ls
+	id 1wZuHu-000000007p3-17PG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 17:42:00 +0000
+	Wed, 17 Jun 2026 17:42:54 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 116CF60052;
-	Wed, 17 Jun 2026 17:41:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7F281F000E9;
-	Wed, 17 Jun 2026 17:41:57 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B63586001D;
+	Wed, 17 Jun 2026 17:42:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 688281F000E9;
+	Wed, 17 Jun 2026 17:42:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781718118;
-	bh=9RC8jmYaG6xK0VuQBqROoKrirquMSwIRTfAs/g0x82s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=N+Mzdag973iH4hO6Sjg54nL3kg6ofkz0cQfNurdpysbU5SXY/OybFr3meSgPBeGPw
-	 wfc7JmVDLkerB4mclX8PUwiVTc7O4jklyyIuXclD2Bx5XTAR5uQ8SWKX8g2Aw/bcZf
-	 rgggTSpe6fhEYRPoSkxLmQmgd/hqkxfr3VKqIi9gqXYu80iouiWDWiLLrWWAxwoAbu
-	 lCxCY+2R3aZDnnhAx+upRayjijyJmLPe2wdZSyds8EIW4mB5FFxeR3S2Nv4Q6ntixM
-	 MYNQoq3wFKRu/LxhuyF/lnd7l9Qh604Je7hagQs5OqvaOu34TopxyUtf610uLzaBkc
-	 MwTa3tHMZsieQ==
-Date: Wed, 17 Jun 2026 12:41:55 -0500
-From: Bjorn Andersson <andersson@kernel.org>
-To: Ayushi Makhija <ayushi.makhija@oss.qualcomm.com>
-Cc: konrad.dybcio@linaro.org, robh+dt@kernel.org, 
-	krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org, dmitry.baryshkov@linaro.org, 
-	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, quic_rajeevny@quicinc.com, quic_vproddut@quicinc.com, 
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Subject: Re: [PATCH v1] arm64: dts: qcom: sm8750-mtp: Set sufficient voltage
- for panel nt37801
-Message-ID: <ajLbyqELjduwbKC_@baldur>
-References: <20260409122110.214680-1-ayushi.makhija@oss.qualcomm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260409122110.214680-1-ayushi.makhija@oss.qualcomm.com>
+	s=k20260515; t=1781718173;
+	bh=9w0uM5qxxsgUvqa94spUIYbpA1pZJswDZhZQjxo+Q68=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=iALhzLc2MAoZos23UUsBTxomajsVm8lH6DuMga9uIO9HGhy4pbZ4NizraoBLur7Qw
+	 MBwKIsEEiuFVlRethEtuk0/CJCEo8W8u8ZbnKo+N/q4NiztDh/lbH8upN3UKheBZ7w
+	 6JDTuvS+oOqgcN6cLsDLXwV/uFjCcMNN4tBzj5Mw+ba4iq/CBUBNMsj1nXoww3O4T3
+	 3kT7Vas47Mz5K4jggfATDqafI+CG9hvn+3DFDaUipYfUi2wYf67I06R2Bs2HqYGUlZ
+	 5g8+2cDoKznQCNOeyeclAWWEQA1EqIG+1YGvQz3bNZqEYZDp5hvuJ3GGPF5izlGjbz
+	 wCAKra/STBwdA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wZuHr-0000000Dls5-0yUp;
+	Wed, 17 Jun 2026 17:42:51 +0000
+Date: Wed, 17 Jun 2026 18:42:50 +0100
+Message-ID: <86pl1prrl1.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Oliver Upton <oupton@kernel.org>
+Cc: Fuad Tabba <tabba@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] KVM: arm64: Add Fuad Tabba as a reviewer
+In-Reply-To: <ajLZXw3m4QGaYeTa@kernel.org>
+References: <20260617131237.2842619-1-tabba@google.com>
+	<ajLZXw3m4QGaYeTa@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: oupton@kernel.org, tabba@google.com, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,42 +88,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 09, 2026 at 05:51:09PM +0530, Ayushi Makhija wrote:
-
-Here's a link to "v1":
-https://lore.kernel.org/all/20260323102229.1546504-1-quic_amakhija@quicinc.com/
-Which makes this v2.
-
-You also ignored my feedback.
-
-Thank you,
-Bjorn
-
-> The NT37801 Sepc V1.0 chapter "5.7.1 Power On Sequence" states
-> VDDI=1.65V~1.95V, so set sufficient voltage for panel nt37801.
+On Wed, 17 Jun 2026 18:29:03 +0100,
+Oliver Upton <oupton@kernel.org> wrote:
 > 
-> Fixes: 4fca6849864d ("drm/panel: Add Novatek NT37801 panel driver")
-> Signed-off-by: Ayushi Makhija <ayushi.makhija@oss.qualcomm.com>
-> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-> ---
->  arch/arm64/boot/dts/qcom/sm8750-mtp.dts | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+> On Wed, Jun 17, 2026 at 02:12:36PM +0100, Fuad Tabba wrote:
+> > I have been working on KVM/arm64 for a couple of years, mostly on
+> > pKVM, and am currently upstreaming protected guest support, with more
+> > to come later. I already review KVM/arm64 patches more broadly, and
+> > am happy to continue doing so in an official capacity.
+> > 
+> > Add myself to the KVM/arm64 reviewer list.
+> > 
+> > Signed-off-by: Fuad Tabba <tabba@google.com>
 > 
-> diff --git a/arch/arm64/boot/dts/qcom/sm8750-mtp.dts b/arch/arm64/boot/dts/qcom/sm8750-mtp.dts
-> index 3837f6785320..6ba4e69bf377 100644
-> --- a/arch/arm64/boot/dts/qcom/sm8750-mtp.dts
-> +++ b/arch/arm64/boot/dts/qcom/sm8750-mtp.dts
-> @@ -462,7 +462,7 @@ vreg_l11b_1p0: ldo11 {
->  
->  		vreg_l12b_1p8: ldo12 {
->  			regulator-name = "vreg_l12b_1p8";
-> -			regulator-min-microvolt = <1200000>;
-> +			regulator-min-microvolt = <1650000>;
->  			regulator-max-microvolt = <1800000>;
->  			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
->  			regulator-allow-set-load;
-> -- 
-> 2.34.1
+> Welcome to the party! Marc, I'm guessing you'll take this as a fix so
+> Fuad can suffer through reviews ASAP :)
+
+Yup. Though it doesn't apply to the current kvmarm/fixes tree, as it
+is missing Steffen who has been in the same boat since 7.1-rc4! I've
+fixed that.
+
 > 
+> Acked-by: Oliver Upton <oupton@kernel.org>
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
