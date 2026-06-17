@@ -4,73 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B26DCD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 15:09:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0CFDCD98E4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 15:13:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=il0quM6eJYltxESuUY4WFRQX4ZfuExo/ggifhQxmIzY=; b=P/jtapvJB11LiMbmlACAl3ykV2
-	uUdt80NuWeEYJMIB69TO9WNTYQA5r9gvNzhJv82SJiizIH8qbeyMv4nUvn7hmS+u3mpO44t6LLAyG
-	M80imKFv3arEaXZzhCHcX5DjJ42qKVAWFpHHyrZy+1sBvmdhUliHSMff/F89FmOYB/p6GoUxYqjgi
-	rVCsH3grT17ZRbzIdBJjzIEJgy4UXVCBApnwIi6RPxhQCGqq9ow7g7DCTz/yyOUv8bYszVBZxSyRI
-	CnQP1LKQf4E7bCfTQP0Tng0Qs7oeHajyKGibcSPFmfaJQh9iR2qGIUP8zB9cZ+Akt+CFDCPCHZ0n8
-	23oC0VsQ==;
+	bh=kLH2EYfcnmjV4+OcjUuMrn5lYsdA4BHEscTR5GyJ3aM=; b=jRu5CekCR2fNsbtR3N6SusBhPD
+	JMrNmJ+ljYNSthyJJX4+MsVGjPyFjgn2yHltFijz+aRXHpwIuTzo4YdE17qvyUvl3N46xEXPI9HrO
+	j85K8dilUK4zcxVT8luee0SiZT1qv7OqEJrvo9oEU5G5ZcaqenR3KorlkmnjR/HsiB4rdWoy5Yd8q
+	1xRxNiIJoqhhK3v5P4BG8OquRoZgymDajl9GBfmPolLqnOiksfeQhBsCQPo9sJAEvUHGEO7Woa5tn
+	reW2vUjk4gmajHEh4GcmodvgtAPlhMVMheCiv26P45UL/VQKev6WeAyIaYwcvLryqAS+cYq75kH1D
+	EIayVH6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZrtZ-0000000HXOw-1V3n;
-	Wed, 17 Jun 2026 15:09:37 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZrtP-0000000HXEn-2ZQi
+	id 1wZr3j-0000000HTGZ-3DB0;
+	Wed, 17 Jun 2026 14:16:03 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wZr3g-0000000HTGB-0jC1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 15:09:29 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CF41732AB;
-	Wed, 17 Jun 2026 08:09:21 -0700 (PDT)
-Received: from e132581.arm.com (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 645043F915;
-	Wed, 17 Jun 2026 08:09:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1781708966; bh=bTTXTCY6bMeZvsHDLEFSKDDgs2IEFuhUgoUQRiONDQI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=BgYR9AwFxCgC8/1jWvsaakSjNVR0pgB7k93FCq5pYoyJgx2cUQB3MNXkZ7U6moaTs
-	 AjTTVZz1KBA7dK7/YFIBxgX8dKSdABHKx9w1XwWNF2n1qDlg67AX67LRcTX+emQjAL
-	 flgr3CTfr0H9c+C3KFT6TXbzHtUn1AHU9PTyeFJQ=
-From: Leo Yan <leo.yan@arm.com>
-Date: Wed, 17 Jun 2026 16:08:58 +0100
-Subject: [PATCH v10 7/9] perf cs-etm: Support call indentation
+	Wed, 17 Jun 2026 14:16:02 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-84237a0fd84so157634b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 07:15:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781705759; x=1782310559; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=kLH2EYfcnmjV4+OcjUuMrn5lYsdA4BHEscTR5GyJ3aM=;
+        b=XuVlmPylF012yEFYXvVr3rYlCb4L9OQo49dCOCFsHUiMKkmaCaTlb3+78ryunzR5f5
+         6f75a7ao8YF3dtFB72AjG8sakQlDtG9jCw0tvh7qWGudCfF/wf8wNXSO32QKCk2Kl7Mz
+         x/bpsLdoLP5fwh2Tfk7L5bFERC7R5IB7wWbDXDO71his+X2STMzRI9+Gbn3iUO4/LYoa
+         59jPZmeA6jfviBY7Y0H7EMQM3d4mzB52mGxA93aEfYClOH09eWG6VXDLhNHBsME5Dt2g
+         QeMxKDK53penz1CzxzfV6izgmZ9cJmzeChxyZDu67bymoytcHs+zmL8ExbzzbvVGudnc
+         Vklg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781705759; x=1782310559;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=kLH2EYfcnmjV4+OcjUuMrn5lYsdA4BHEscTR5GyJ3aM=;
+        b=MGEjGPNugbLfYHQwzwcVcYY05NnN65VhjkNF5PWfM2hH6H/et/pHBqi5ui49AGCkfQ
+         K2/Jpstb6tbLWobdZ1nZx5nt6P6jxVjzNax6PAVMVqq6u4uUkT7iCXI7A9ZZvTp9b47z
+         AUDTkrncvoHbdsT++ExQGPuoYpUJJnk9F7Q5pD+/fGXe2u3Rp+R/2RC+MDcqGM9R5R8X
+         GEL1yEypvq/js1mvFXIiLPLVt0hBnICGJmtpY/oURqYyoqr6a1HaaTt2SfIJ+ha8PT33
+         L/lUkJunEg/b5Tgg0QOdcIv/ZiNEjtML+j2SDIXglds0SnZFtHSZ3GI+OsfTBGbviV+D
+         ypdw==
+X-Forwarded-Encrypted: i=1; AFNElJ+XHO5kkn5vZGaYRNMnzYUdTLUKHertiVnD2dwqAS4PWOT+MlDXGDseLtaA4lwr8Jv8Le6tQVISFtineOk9RTRh@lists.infradead.org
+X-Gm-Message-State: AOJu0YzUp0eqYFVXyATAsg9IHztDa5cbee3UHMalXwMWPjNoz9kIW9eN
+	O2zjEEfRCMNtSlHx56/0SM8L5yod463T1TuW7LyKlWrlUYrfYznMzcsd
+X-Gm-Gg: AfdE7cmxh6c0rMZAXItA6Enb5QEk55/CjB/5AeluXKHpK/FSDqNRYURMntp4tue1jWQ
+	qobRq49boHO9Ta06Pir1lLNSMG5ZsspTczmvp30ZnY8D/sfbBF7xgDvn3HsNl/xMpNprffq43+7
+	9jUS10A/ZOxpFGr7fXOEjvH90DU9JJb0RL62nPuMLCV8AN/QnbhYawfMoIOhmp9grEUevJNSEFp
+	qXfxdy2T9CYgQSfDLcuTzqphvzsasxRk0ko+r7NDFt/rjhuqoohp0Xkzp9nc0P7MDlf1fDSVM7z
+	QWSHA7EDjoIJXGkSgzSrBsAeJOIkqEc0LTKdEoi6/693/1wLeKbvP/txOtaBTvPN/hiE1cbqkxz
+	guBs6DJxzezQVyn8JxLfZCe6gbHtmCOwPC4llQpisbmNXyjmf6orK8BIoEKy8rUV3quCSG3LwHp
+	d1rfjWpMyjDHJkljMcjSt/fDuwtJ7pptE4C2qYlRE5BEF8bkHh8ygldLrI8TVK9N8YV2ZQg6B0B
+	8c=
+X-Received: by 2002:a05:6a00:3e1b:b0:842:2280:5392 with SMTP id d2e1a72fcca58-845247c66aamr2077327b3a.7.1781705758882;
+        Wed, 17 Jun 2026 07:15:58 -0700 (PDT)
+Received: from fedora ([188.253.112.231])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8434b040718sm16905766b3a.51.2026.06.17.07.15.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 17 Jun 2026 07:15:58 -0700 (PDT)
+From: Xueyuan Chen <xueyuan.chen21@gmail.com>
+To: david@kernel.org
+Cc: dave.hansen@intel.com,
+	xueyuan.chen21@gmail.com,
+	akpm@linux-foundation.org,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	x86@kernel.org,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	tglx@kernel.org,
+	mingo@redhat.com,
+	bp@alien8.de,
+	dave.hansen@linux.intel.com,
+	luto@kernel.org,
+	peterz@infradead.org,
+	hpa@zytor.com,
+	ljs@kernel.org,
+	liam@infradead.org,
+	vbabka@kernel.org,
+	rppt@kernel.org,
+	surenb@google.com,
+	mhocko@suse.com,
+	ziy@nvidia.com,
+	baolin.wang@linux.alibaba.com,
+	npache@redhat.com,
+	ryan.roberts@arm.com,
+	dev.jain@arm.com,
+	baohua@kernel.org,
+	lance.yang@linux.dev,
+	yang@os.amperecomputing.com,
+	jannh@google.com
+Subject: Re: [RFC PATCH v2 1/3] mm/huge_memory: make persistent huge zero folio read-only
+Date: Wed, 17 Jun 2026 22:15:47 +0800
+Message-ID: <20260617141547.144275-1-xueyuan.chen21@gmail.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <3b20ad2e-bb69-44be-bad3-5efeb169c573@kernel.org>
+References: <3b20ad2e-bb69-44be-bad3-5efeb169c573@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260617-b4-arm_cs_callchain_support_v1-v10-7-e8b6e5d63db5@arm.com>
-References: <20260617-b4-arm_cs_callchain_support_v1-v10-0-e8b6e5d63db5@arm.com>
-In-Reply-To: <20260617-b4-arm_cs_callchain_support_v1-v10-0-e8b6e5d63db5@arm.com>
-To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
- John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
- James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@arm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, Al Grant <al.grant@arm.com>, 
- Paschalis Mpeis <paschalis.mpeis@arm.com>, Amir Ayupov <aaupov@fb.com>
-Cc: linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org, 
- linux-perf-users@vger.kernel.org, Leo Yan <leo.yan@arm.com>, 
- Leo Yan <leo.yan@linux.dev>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1781708939; l=7010;
- i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=qUXWx7vjCqjuCPzAHvn3DLsFsXx/T0Yz2PwNAPmzQKE=;
- b=uZR59Mjb7XjCdJpMGG19zYfdYbqHexjK9fHG+aFgysV9IuDoxTGFQizA1WYd6qyU4anaAu9JV
- 13BnO8vW3X1B9w4zREfi0bnNv+N47Qv+tJOfL8wXMVjDz61Cmf31i2U
-X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
- pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260617_080927_809577_EAD4877C 
-X-CRM114-Status: GOOD (  14.63  )
+X-CRM114-CacheID: sfid-20260617_071600_230866_A3C424A5 
+X-CRM114-Status: GOOD (  12.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,135 +129,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Leo Yan <leo.yan@linaro.org>
 
-The perf script callindent is derived from call stack in thread context,
-CS ETM ignores the requirement for callindent without pushing and poping
-call stack.
+On Wed, Jun 17, 2026 at 01:50:08PM +0200, David Hildenbrand (Arm) wrote:
 
-Enable thread-stack when either itrace thread-stack support or last branch
-entries are requested, allocate the branch stack storage accordingly, and
-feed taken branches to thread_stack__event() whenever thread-stack state
-is needed.
+Hi, David
 
-When callindent is requested, pass callstack=true to thread_stack__event()
-so the common thread-stack code maintains call depth for branch samples.
+>Yes, kerneldoc please.
 
-Before:
+Ack.
 
-  perf script -F +callindent
+>
+>We're adjusting the directmap, remapping a r/w page to be r/o. I think we should
+>be very clear about which transition we expect+support.
+>
+>Also, I rather hate the "set_memory" naming scheme ... "set_direct_map" is
+>clearer. Anyhow ...
+>
+>Now we are throwing a "arch_make_pages_*" into the mix.
+>
+>Should it really contain the "arch"?
+>Should it really contain the "make" ?
+>
+>Why can't we just reuse set_memory_ro and pass address+nr_pages? (highmem check?
+>Could that be moved in there?)
+>
+>Or do we want a "change_direct_map_ro()" / "remap_direct_map_ro" interface?
+>
+>
 
-  callchain_test    6543 [002]          1 branches: main                                 ffff93252258 __libc_start_call_main+0x78 (/usr/lib/aarch64-linux-gnu/libc.so.6)
-  callchain_test    6543 [002]          1 branches: foo                                  aaaad6b607c4 main+0x8 (/home/kernel/leoy/test_cs_callchain/callchain_test)
-  callchain_test    6543 [002]          1 branches: print                                aaaad6b607ac foo+0x8 (/home/kernel/leoy/test_cs_callchain/callchain_test)
-  callchain_test    6543 [002]          1 branches: do_svc                               aaaad6b60794 print+0x8 (/home/kernel/leoy/test_cs_callchain/callchain_test)
-  callchain_test    6543 [002]          1 branches: vectors                              aaaad6b60780 do_svc+0x18 (/home/kernel/leoy/test_cs_callchain/callchain_test)
-  callchain_test    6543 [002]          1 branches: el0t_64_sync_handler             ffff80008001159c el0t_64_sync+0x194 ([kernel.kallsyms])
-  callchain_test    6543 [002]          1 branches: el0_svc                          ffff800081829194 el0t_64_sync_handler+0x9c ([kernel.kallsyms])
-  callchain_test    6543 [002]          1 branches: lockdep_hardirqs_off             ffff800081828794 el0_svc+0x24 ([kernel.kallsyms])
-  callchain_test    6543 [002]          1 branches: __this_cpu_preempt_check         ffff80008182b348 lockdep_hardirqs_off+0xf0 ([kernel.kallsyms])
+How about naming it int set_direct_map_ro(struct page *page, unsigned nr)?
 
-After:
+>> 4. Should this new API be folio or page-based in the first place?
+>> 5. Is mm/huge_memory.c the right place to define a generic mm function,
+>>    even a stub?
+>
+>+1
 
-  callchain_test    6543 [002]          1 branches:                 main                                                 ffff93252258 __libc_start_call_main+0x78 (/usr/lib/aarch64-linux-gnu/libc.so.6)
-  callchain_test    6543 [002]          1 branches:                     foo                                              aaaad6b607c4 main+0x8 (/home/kernel/leoy/test_cs_callchain/callchain_test)
-  callchain_test    6543 [002]          1 branches:                         print                                        aaaad6b607ac foo+0x8 (/home/kernel/leoy/test_cs_callchain/callchain_test)
-  callchain_test    6543 [002]          1 branches:                             do_svc                                   aaaad6b60794 print+0x8 (/home/kernel/leoy/test_cs_callchain/callchain_test)
-  callchain_test    6543 [002]          1 branches:                                 vectors                              aaaad6b60780 do_svc+0x18 (/home/kernel/leoy/test_cs_callchain/callchain_test)
-  callchain_test    6543 [002]          1 branches:                                     el0t_64_sync_handler         ffff80008001159c el0t_64_sync+0x194 ([kernel.kallsyms])
-  callchain_test    6543 [002]          1 branches:                                         el0_svc                  ffff800081829194 el0t_64_sync_handler+0x9c ([kernel.kallsyms])
-  callchain_test    6543 [002]          1 branches:                                             lockdep_hardirqs_off ffff800081828794 el0_svc+0x24 ([kernel.kallsyms])
-  callchain_test    6543 [002]          1 branches:                                                 __this_cpu_preempt_check                         ffff80008182b348 lockdep_hardirqs_off+0xf0 ([kernel.kallsyms])
+Ack, will move it out in RFC v3.
 
-Signed-off-by: Leo Yan <leo.yan@linaro.org>
-Reviewed-by: James Clark <james.clark@linaro.org>
-Signed-off-by: Leo Yan <leo.yan@arm.com>
----
- tools/perf/util/cs-etm.c | 20 +++++++++++++++-----
- 1 file changed, 15 insertions(+), 5 deletions(-)
-
-diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
-index e43f0c1dd00788abaed4455bc0da4723b0b36b9e..30536b919af732abeee11d4f7813dcef0b4047eb 100644
---- a/tools/perf/util/cs-etm.c
-+++ b/tools/perf/util/cs-etm.c
-@@ -67,6 +67,8 @@ struct cs_etm_auxtrace {
- 	bool snapshot_mode;
- 	bool data_queued;
- 	bool has_virtual_ts; /* Virtual/Kernel timestamps in the trace. */
-+	bool use_thread_stack;
-+	bool use_callchain;
- 
- 	int num_cpu;
- 	u64 latest_kernel_timestamp;
-@@ -638,7 +640,7 @@ static int cs_etm__init_traceid_queue(struct cs_etm_queue *etmq,
- 	if (!tidq->prev_packet)
- 		goto out_free;
- 
--	if (etm->synth_opts.last_branch) {
-+	if (etm->use_thread_stack) {
- 		size_t sz = sizeof(struct branch_stack);
- 
- 		sz += etm->synth_opts.last_branch_sz *
-@@ -1554,7 +1556,7 @@ static void cs_etm__add_stack_event(struct cs_etm_queue *etmq,
- 	if (!cs_etm__packet_has_taken_branch(tidq->prev_packet))
- 		return;
- 
--	if (etmq->etm->synth_opts.last_branch) {
-+	if (etmq->etm->use_thread_stack) {
- 		from = cs_etm__last_executed_instr(tidq->prev_packet);
- 		to = cs_etm__first_executed_instr(tidq->packet);
- 
-@@ -1563,7 +1565,8 @@ static void cs_etm__add_stack_event(struct cs_etm_queue *etmq,
- 		/* Enable callchain so thread stack entry can be allocated */
- 		thread_stack__event(tidq->frontend_thread, tidq->prev_packet->cpu,
- 				    tidq->prev_packet->flags, from, to, size,
--				    etmq->buffer->buffer_nr + 1, false,
-+				    etmq->buffer->buffer_nr + 1,
-+				    etmq->etm->use_callchain,
- 				    tidq->br_stack_sz, 0);
- 	} else {
- 		thread_stack__set_trace_nr(tidq->frontend_thread,
-@@ -1970,7 +1973,7 @@ static int cs_etm__flush(struct cs_etm_queue *etmq,
- 	cs_etm__packet_swap(etm, tidq);
- 
- 	/* Reset last branches after flush the trace */
--	if (etm->synth_opts.last_branch)
-+	if (etm->use_thread_stack)
- 		thread_stack__flush(tidq->frontend_thread);
- 
- 	return err;
-@@ -2033,7 +2036,7 @@ static void cs_etm__flush_all_stack(struct cs_etm_queue *etmq)
- {
- 	enum cs_etm_pid_fmt pid_fmt = cs_etm__get_pid_fmt(etmq);
- 
--	if (!etmq->etm->synth_opts.last_branch)
-+	if (!etmq->etm->use_thread_stack)
- 		return;
- 
- 	switch (pid_fmt) {
-@@ -3520,6 +3523,7 @@ int cs_etm__process_auxtrace_info_full(union perf_event *event,
- 		itrace_synth_opts__set_default(&etm->synth_opts,
- 				session->itrace_synth_opts->default_no_sample);
- 		etm->synth_opts.callchain = false;
-+		etm->synth_opts.thread_stack = session->itrace_synth_opts->thread_stack;
- 	}
- 
- 	if (etm->synth_opts.calls)
-@@ -3581,6 +3585,12 @@ int cs_etm__process_auxtrace_info_full(union perf_event *event,
- 		etm->tc.cap_user_time_zero = tc->cap_user_time_zero;
- 		etm->tc.cap_user_time_short = tc->cap_user_time_short;
- 	}
-+
-+	etm->use_thread_stack = etm->synth_opts.thread_stack ||
-+				etm->synth_opts.last_branch;
-+
-+	etm->use_callchain = etm->synth_opts.thread_stack;
-+
- 	err = cs_etm__synth_events(etm, session);
- 	if (err)
- 		goto err_free_queues;
-
--- 
-2.34.1
-
+Thanks, Xueyuan
 
