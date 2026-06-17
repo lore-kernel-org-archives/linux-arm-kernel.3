@@ -4,88 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C99CCD98E4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 11:20:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBA94CD98E4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 11:25:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Cc:Subject:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QmpVju6t1H4zbdKM4jpMagQX9IqAMGicbUC5PSgBpBQ=; b=FoDLNQyUQOdYI0p0R0QlI6Vjhr
-	lyDNhvIE+Tcf3+Fzhol3cnn2lC2rwleuH0AAbqvShtQnDa8G6cU5KvpQT/bkWEoE/8jFWzqxhettq
-	xlgrakImQbrOH6L7slk0LeaqtOSO3IW+q7MTEHN1bB2PXW8FISRPZw/RMGXoTvco0+LA79745KAst
-	n2heqmb/jh3pbixzLIgLf2CyNJ/PPWOJPSW23YZrmHsTbRXU4RjwVEpVKJspfiXrvlkIXL6pSKiFY
-	dUokV1BAczQqSl3hrp5HnVZvKVCfsFuxFKH5kwesxLgWruQb+c3ta7C7PQwWfZFrxU01mwSUbeEQg
-	w1y4rR5g==;
+	bh=+en6VMPHt/KzGMa143NsFtwcRUN7ww53r4cKrYsgA0c=; b=MSVXwpaQw6KV8442dJaG7nscTE
+	kCvIpadEAktWR1GAHPxXLmxFA2ogTSomyd/LdRtlOUTTzksoH6V84LcFBVu912GsaUrqDG1HCrZ5o
+	fGT28mlZDk1vlR0zE8VhXCEj1XZhZyJatxBiobgFT+TEn6Xp+sGNxFOcTddQnVF9st31ieJ/NrxUA
+	1fiFRIOakuKC3GcJY9gH5r/b/J2t2Y1Dpi0xZ2BDCqXqwiTxSlZgW31K6bnpzklNV/m3NcwpC4oXe
+	CSUFddz2EiliJ5AIfemPsIWSyK2jP0yIP+/kGqRi6L25xgFa9n5fpTHqJ6m4MjKkx+odlrbkvWhuL
+	EuF7kJyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZoJO-0000000HDix-344f;
-	Wed, 17 Jun 2026 11:20:02 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wZoOR-0000000HE99-3U4c;
+	Wed, 17 Jun 2026 11:25:15 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZoJN-0000000HDiZ-1lwW;
-	Wed, 17 Jun 2026 11:20:01 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with UTF8SMTP id 319094071C;
-	Wed, 17 Jun 2026 11:20:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 8A03E1F000E9;
-	Wed, 17 Jun 2026 11:20:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781695201;
-	bh=QmpVju6t1H4zbdKM4jpMagQX9IqAMGicbUC5PSgBpBQ=;
-	h=Date:Subject:Cc:From:To:References:In-Reply-To;
-	b=PhZtZrAG+elWGzO5YoCFGusWT/CYMgHWieRPrvrURowNfPQ3i90TlohgdoYcZWStV
-	 63YhnI3BEDnLp5pOeFtRmfuARqqxNNxDhOQBibpKrVfEpRUJ/jLpgUka9Xe/kxuX0L
-	 8xm8dxJsy5nDd1ML0Wlkpm3O3TLHWPbZ+YVom7RLrXbub6DtIw740NjKhMPj2dSzTH
-	 iXTyyDktgyQ1pGUf7Qja511gLgGeKC4saFivTLL14M9sbarXAmMUFN622usU9e8zo6
-	 LBq5lmcQUPVmNk6vga/hZra0w+OqfwBJoS6mJHaQr2DApaZDdDPQL8goTVyk3UfXIK
-	 sUlA5j1Pdejxw==
-Mime-Version: 1.0
-Content-Type: multipart/signed;
- boundary=30991a780f930c85dbe063c06cf260d6554dfbcf048d534393a8b0204307;
- micalg=pgp-sha384; protocol="application/pgp-signature"
-Date: Wed, 17 Jun 2026 13:19:56 +0200
-Message-Id: <DJBA8HX2E2HL.3H9NMHA9PW7N2@kernel.org>
-Subject: Re: [PATCH v3 2/7] gpio: regmap: add gpio_regmap_get_gpiochip()
- accessor
-Cc: "linusw@kernel.org" <linusw@kernel.org>, "robh@kernel.org"
- <robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>, "afaerber@suse.com"
- <afaerber@suse.com>, "wbg@kernel.org" <wbg@kernel.org>,
- "mathieu.dubois-briand@bootlin.com" <mathieu.dubois-briand@bootlin.com>,
- "lars@metafoo.de" <lars@metafoo.de>, "Michael.Hennerich@analog.com"
- <Michael.Hennerich@analog.com>, "jic23@kernel.org" <jic23@kernel.org>,
- "nuno.sa@analog.com" <nuno.sa@analog.com>, "andy@kernel.org"
- <andy@kernel.org>, "dlechner@baylibre.com" <dlechner@baylibre.com>,
- =?utf-8?b?VFlfQ2hhbmdb5by15a2Q6YC4XQ==?= <tychang@realtek.com>,
- "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-realtek-soc@lists.infradead.org"
- <linux-realtek-soc@lists.infradead.org>, "linux-iio@vger.kernel.org"
- <linux-iio@vger.kernel.org>, =?utf-8?b?Q1lfSHVhbmdb6buD6Ymm5pmPXQ==?=
- <cy.huang@realtek.com>, =?utf-8?b?U3RhbmxleSBDaGFuZ1vmmIzogrLlvrdd?=
- <stanley_chang@realtek.com>, =?utf-8?b?SmFtZXMgVGFpIFvmiLTlv5fls7Bd?=
- <james.tai@realtek.com>
-From: "Michael Walle" <mwalle@kernel.org>
-To: =?utf-8?b?WXUtQ2h1biBMaW4gW+ael+elkOWQm10=?= <eleanor.lin@realtek.com>,
- "Bartosz Golaszewski" <brgl@kernel.org>, "Andy Shevchenko"
- <andriy.shevchenko@intel.com>
-X-Mailer: aerc 0.20.0
-References: <20260512033317.1602537-1-eleanor.lin@realtek.com>
- <20260512033317.1602537-3-eleanor.lin@realtek.com>
- <agMM9soiqpG-TRSb@ashevche-desk.local>
- <adff3a2d21a64d3ea3b408d62157ee1e@realtek.com>
- <ah92oEavMu4QRn8y@ashevche-desk.local>
- <CAMRc=MdA24z-tB_D8CTw68Di8e4OVQJ1QH4+rDskFzq=xjJ5BQ@mail.gmail.com>
- <DJ3QVMZ6XLW9.1M9W541O92QWJ@kernel.org>
- <39de4d4ada5446e7a33e48c43f410439@realtek.com>
- <DJB6XO07EC8Q.1X9P752MLFB4N@kernel.org>
- <61c053a5a8e6461f9e6fcd40b6b5064d@realtek.com>
-In-Reply-To: <61c053a5a8e6461f9e6fcd40b6b5064d@realtek.com>
+	id 1wZoOO-0000000HE81-1JVZ;
+	Wed, 17 Jun 2026 11:25:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1781695504; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=S3S+HXkc/bIBO6garwC2AsXTuouzterZycrXWitY/ZiAS98YIIViImUbabhHvUE5McQSadwy33d0vezR0IrutUcrBh7CzTrAF21PmbmOkTOMwL8k76xhYrceL9vqwoGlcvLdPWyB0tzgtgoI3z78wb7u8o7C/R8zH4J6w/nrvLY=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1781695504; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=+en6VMPHt/KzGMa143NsFtwcRUN7ww53r4cKrYsgA0c=; 
+	b=n/GBeTrGRv0tLF0xqChNVAYnLcMIhFbpJc/EBqnB7aRKBz92WwWRjVs1DLHukRY7vB36OO0X7MW8elupY0D+qqTBV5pxsk6jR6M4Zl+tQ7W6F6Txmxuh/dp9cVVLgBWYEPIPvac+Ld/IUQuOCIp2+ZfIXFajKEAnA+V6B64rAc0=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1781695504;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=+en6VMPHt/KzGMa143NsFtwcRUN7ww53r4cKrYsgA0c=;
+	b=iy8eH+zwYcMHtnrJY3L0B4jCxc1/p2XiNbqvA62ZUtt4smf3evsz0P5W4MdDOLbS
+	W9UN0HbsgSstidEU56PfqXoRGWBceMSFT6Qp4wZK3aadEKehOozZxFiQCbrtWQ06Seg
+	Hq9+NNJmZfjP/IZmICbgfFmBSPoEoxgE0gl3olzc=
+Received: by mx.zohomail.com with SMTPS id 1781695502861977.1206640958941;
+	Wed, 17 Jun 2026 04:25:02 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Heiko Stuebner <heiko@sntech.de>, Liam Girdwood <lgirdwood@gmail.com>,
+ phucduc.bui@gmail.com, Mark Brown <broonie@kernel.org>
+Cc: Nicolas Frattaroli <frattaroli.nicolas@gmail.com>,
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+ linux-sound@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/3] ASoC: rockchip: Use guard() for spin locks
+Date: Wed, 17 Jun 2026 13:24:58 +0200
+Message-ID: <mPIrpl-QRw6_Q9DZcTQ5xA@collabora.com>
+In-Reply-To: <178120760640.484538.12942087225448845771.b4-ty@b4>
+References: <20260604033554.96996-1-phucduc.bui@gmail.com>
+ <178120760640.484538.12942087225448845771.b4-ty@b4>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260617_042512_432391_DBAE1733 
+X-CRM114-Status: GOOD (  23.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,89 +79,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---30991a780f930c85dbe063c06cf260d6554dfbcf048d534393a8b0204307
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+On Thursday, 11 June 2026 21:53:26 Central European Summer Time Mark Brown wrote:
+> On Thu, 04 Jun 2026 10:35:50 +0700, phucduc.bui@gmail.com wrote:
+> > ASoC: rockchip: Use guard() for spin locks
+> > 
+> > From: bui duc phuc <phucduc.bui@gmail.com>
+> > 
+> > Hi all,
+> > 
+> > This series converts spinlock handling in the Rockchip sound drivers
+> > to use guard() helpers.
+> > The changes are code cleanup only and should have no functional impact.
+> > 
+> > [...]
+> 
+> Applied to
+> 
+>    https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.2
+> 
+> Thanks!
 
-Hi,
+FWIW, the SAI patch wasn't sent to the proper maintainer e-mail
+for it which is why I didn't notice this series at all until now,
+and the whole thing is pointless churn that wasn't even tested.
 
-On Wed Jun 17, 2026 at 11:54 AM CEST, Yu-Chun Lin [=E6=9E=97=E7=A5=90=E5=90=
-=9B] wrote:
-> Hi Michael,
->
->> Hi,
->>
->> On Wed Jun 17, 2026 at 10:36 AM CEST, Yu-Chun Lin [=E6=9E=97=E7=A5=90=E5=
-=90=9B] wrote:
->>>>>>> Without an accessor like gpio_regmap_get_gpiochip(), we cannot=20
->>>>>>> retrieve the gpio_chip instantiated inside gpio-regmap.c to=20
->>>>>>> fulfill these requirements in our
->>>>>>> map() function.
->>>>
->>>> Why is gpiochip_irq_reqres() called in the first place? Isn't that=20
->>>> only called if the irq handling is set up via gc->irq.chip and not=20
->>>> via
->>>> gpiochip_irqchip_add_domain() like in gpio-regmap?
->>>>
->>>
->>> The panic was caused by my driver including=20
->>> 'GPIOCHIP_IRQ_RESOURCE_HELPERS', which forced the call to 'gpiochip_irq=
-_reqres()' and crashed.
->>
->> But why did you use it if your irq domain isn't managed by the gpiolib, =
-but rather your own >irq domain? Before going with option #3 I'd double che=
-ck if that is correct in your driver.
->>
->> -michael
->
-> Do you mean that a custom IRQ domain shouldn't be mixed with gpiolib feat=
-ures like
-> 'GPIOCHIP_IRQ_RESOURCE_HELPERS'?
+From a cursory glance, whatever LLM was pointed at this and decided
+to make the output my problem also didn't do a good job, the scoped
+indentation of rockchip_sai_runtime_suspend seems pointless because
+it could've been replaced by a pm guard followed by a spinlock guard,
+without an additional level of indentation, and `if (ret == 0) {` is
+not kernel style.
 
-Honestly, I'm not sure. I've never done anything with irq domains
-except for using the regmap_irq_chip. But from what I can tell is
-that GPIOCHIP_IRQ_RESOURCE_HELPERS are tied to the handling with
-gc->irq.chip, which isn't used at all if you add the domain via
-gpiochip_irqchip_add_domain(). Please correct me if I'm wrong
-though.
+It's not worth the revert but it sucks that I have to now set up a
+new lei search for all the drivers I am supposed to receive mail for
+because vibecoders can't be bothered to run get_maintainers as they
+pad their CV with nonsense like this.
 
--michael
-
-> Additional information: our GPIO controller receives 3 separate interrupt=
- lines.
-> Because the standard 'regmap_irq_chip' mechanism in 'gpio-regmap' does no=
-t support
-> this multi-line hardware design, we are forced to create our own IRQ doma=
-in and pass
-> it via 'config->irq_domain'.=20
->
-> Given this constraint (that we must use our own IRQ domain), are you sugg=
-esting
-> that we should implement our own 'irq_request_resources' and
-> 'irq_release_resources' callbacks instead of relying on
-> 'GPIOCHIP_IRQ_RESOURCE_HELPERS'?
->
-> But if that is the case, we would much prefer to let the core gpiolib han=
-dle
-> these resource and state management tasks for us *as proposed in option 3=
-), rather=20
-> than duplicating the effort in our driver.
->
-> Best Regards,
-> Yu-Chun
+> 
+> [1/3] ASoC: rockchip: rockchip_i2s: Use guard() for spin locks
+>       https://git.kernel.org/broonie/sound/c/4bda5af16920
+> [2/3] ASoC: rockchip: i2s-tdm: Use guard() for spin locks
+>       https://git.kernel.org/broonie/sound/c/ec22437fc41a
+> [3/3] ASoC: rockchip: rockchip_sai: Use guard() for spin locks
+>       https://git.kernel.org/broonie/sound/c/f7fe9f707360
+> 
+> All being well this means that it will be integrated into the linux-next
+> tree (usually sometime in the next 24 hours) and sent to Linus during
+> the next merge window (or sooner if it is a bug fix), however if
+> problems are discovered then the patch may be dropped or reverted.
+> 
+> You may get further e-mails resulting from automated or manual testing
+> and review of the tree, please engage with people reporting problems and
+> send followup patches addressing any issues that are reported if needed.
+> 
+> If any updates are required or you are submitting further changes they
+> should be sent as incremental updates against current git, existing
+> patches will not be replaced.
+> 
+> Please add any relevant lists and maintainers to the CCs when replying
+> to this mail.
+> 
+> Thanks,
+> Mark
+> 
+> 
+> 
 
 
---30991a780f930c85dbe063c06cf260d6554dfbcf048d534393a8b0204307
-Content-Type: application/pgp-signature; name="signature.asc"
 
------BEGIN PGP SIGNATURE-----
 
-iKgEABMJADAWIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCajKC3RIcbXdhbGxlQGtl
-cm5lbC5vcmcACgkQEic87j4CH/iFxwGA9GnpxKtX1eMaDBRZLS2qXUO5rwxnfcPH
-PrpuryubAiSmq4+/qWts4440bm64mrTxAYC8thI7zuN+jL1FtOZG+peZJT8y/pS2
-Y9xeRMo/jVCMUytnXmfeeRq8Ax2WJG+bC3Q=
-=l7H9
------END PGP SIGNATURE-----
-
---30991a780f930c85dbe063c06cf260d6554dfbcf048d534393a8b0204307--
 
