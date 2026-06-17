@@ -4,80 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43197CD98E1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 03:31:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D955CCD98E1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 03:41:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=PNRRDdQAg6OTo/rPWnE2gKXvJ32DvRz3h1z/Jd46StI=; b=HdvSfFv0BQfS3vzNZoJV2xvfeP
-	4c9eOq8aZ8e9XwLkwT4HEbTv/8apAFcW/lOfNK8rp2TiposJxSn2jdqFoEGEmFgIxIXA4XuBAdKKz
-	dFDo1H+GDcXE8J0YmBrS6sZVe9RpwtQFhF7a1GwxuojogUsDSpBXIrR2iHPuFLWMic+IBgCXKlshX
-	fGXZhecI55dyuBbYTWyQmwyh7CJOi9q/Bsiv6kkNPUxyNLYzBbAIo5ap+BbcMWJPLlcJzpAHJql7X
-	l5s0/WFVJ/eczlxr9qfCV2JonXQEDSmeNs/ry6tH9H+so+b5Q2QZjvSJZtCyvLBJL/C/u7TVLTY9s
-	zQ+KS8ww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Gix0nvCYK1OhR2Kcuql53IhC6b91d4kE/6Woyx2T6JY=; b=tjHe3HYfTSl2ViiVli9ER039ER
+	D0+MMTBbBPd8Cr1F8XYPwi3PFvvuhRdXpXQTh84YPaFwufP8IQXqzfC5PwX4JgByhyO7oaTCVl6Eu
+	e/FkAHF/qqcmUotdPQfPIz1K7mAysJ405aIASORNXBlGxZLwOCH3y2syxLvMl5hmGogNsewSDVyWz
+	f761T4yvQUohsnYk9nL2d60ub7iOpC4vAHM+oAzYw3kpJa7z9tDEJXXzo86wDapwNjpzNikU1h19S
+	uOU5WzGaUIsMNtHlNgpe0UrTUlRG3CY148Fn5c2+9J+EAp1YTNTS58EzETvgU0fwYgoLYpdGZNcOL
+	bUndwGXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZgzR-0000000GYmk-358A;
-	Wed, 17 Jun 2026 03:30:57 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1wZh9Y-0000000GZF9-1lFj;
+	Wed, 17 Jun 2026 03:41:24 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZgzP-0000000GYm5-0hSM
+	id 1wZh9V-0000000GZE3-1nwI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 03:30:56 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-842288702fbso2501779b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 20:30:54 -0700 (PDT)
+	Wed, 17 Jun 2026 03:41:22 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-36da8439078so4569727a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 20:41:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781667054; x=1782271854; darn=lists.infradead.org;
-        h=mime-version:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=PNRRDdQAg6OTo/rPWnE2gKXvJ32DvRz3h1z/Jd46StI=;
-        b=CkmouPpVleYV7lSt+bdi96J8/pzOkOQHDJjzDHWtJAwY8CYr3SoE47Xfwoyv7h8JVz
-         74BslZcYmDPOijiAuv31Gt5PsOwNpySR2fbSdMFpjmWN46BiKDq7kx+yY4bpG7CidgXk
-         Pgk0iMq3cXAg4HR+alo1+kqhBp+huu4Ha8dTgFCRest0AhVQKOlKw+F68veRrUbyosOq
-         24TL53Uulb8VRO9N1k9Qjm24Oo8gAIJMeE4DQZd7fxkJR9SDwXtPiPDq9TwL8pD1hEs0
-         kADn6hRuZmlHUOo9oQ0kt0x0VpoeiQeg8nya1IkPbliZfRGr3hNf8ZVmRjafGf0+JsmP
-         KRHg==
+        d=chromium.org; s=google; t=1781667680; x=1782272480; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Gix0nvCYK1OhR2Kcuql53IhC6b91d4kE/6Woyx2T6JY=;
+        b=Tn4xATAJYmWCqB/nue4djO2i/1PzNtL3I7IUdRJxZ1LjR2gKHcSfQAIwc51vzkuO0N
+         2zqPyLJ/WB6ViIlHZMac2g6SsKP5c4sirPu82ISWi7JBhL+2u1qFjF5zK9GWnfspDeq9
+         8EsRO4v/H9MNSjUNdpN0Vfk3MfhJw92XQC1cY=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781667054; x=1782271854;
-        h=mime-version:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=PNRRDdQAg6OTo/rPWnE2gKXvJ32DvRz3h1z/Jd46StI=;
-        b=hqnMybuZq6rMfP6MjH8LMgQ2YELK/6SJtoJOEfRGqvroiSnI64nsPWrjvNQZHnJ57n
-         CfExr1i925KKRGYZeep3Kv9H/4W08pGgGnViDZ/S6rMSvk1CjU13dDj0Q4WYXPB78eAD
-         gDmuSF9gy0mj4hKAUlW+S/Ok7FhafSlNd5xpYF/aBUlpokp3sUV7tHc4W/e2ODkpJ9cC
-         aXu7sBMlUVa9PPDrsFppHFcvZYTYt0k3K9J3wyPbnFc0NQ5e4fYnDEIa8ap+zGgvDrE0
-         Y/xpRbwhmoX2JqPnYXu24t1hq1myEiZStxUCIFXPOaHNOc2hzrEq/rg/2uLAowBQERq7
-         /CUg==
-X-Forwarded-Encrypted: i=1; AFNElJ8b4F2w9Ms9FEPGjnHuAXqmyWV9RhqS8fNfaQoTaCxt3foGWhNlIDBwu7ZAUw9hodHfzR2VE/zDd31PYENkA5gs@lists.infradead.org
-X-Gm-Message-State: AOJu0YxL7GewwAyg/xcNKz1NBGFvHHvhUj7rGZoVXbOvUvIMLtstHO1R
-	qsE1ho3r79tSTQ7GK1NsM0bPAexyOcRAG5n3Vb2swZVWxeWirbOA07QW
-X-Gm-Gg: Acq92OHn4cHG7Bz0jXRSSHW/ERaw57aTkHjADIXjAAOA6jTt6YCcy/rMIB/ED2s1KK+
-	6mPNMpcIs8Dm4UZmjZVIQe8rQ8tIlHxoFGgzHQMzrcWRWesaIdg1mg/DhVficxsPffq1j9Au8Vc
-	oOaC4Vver0aCtym7Rh20LS62IHWSWQy8bp98bktIV8trJ5wKg85Oq/J0lifjVS5rK59Cx/ualI2
-	r6Midz59yZXAjwNGJa4idTUZfKvmOoraCzkFFME/5PuDEEGcvrGloJl1JSd5PdoTJgoTP/B2BfJ
-	Lx09cLxWicH6mJ0fOaADYVBabbpKrn4uH+Mp+1UZwH3Z8/xAaM2Q5z1ahkpVaynsgIPnGtZxe0v
-	nRNcLa9y3qkmQh+ynnTlUhq7YvD7QairOha8G0n6qWwhfe3f9vLisI7DIw/5A1BL0U8+g0DdAVv
-	pXR2YtMw==
-X-Received: by 2002:a05:6a21:4903:b0:3b4:870e:6f44 with SMTP id adf61e73a8af0-3b8be9b197cmr1944323637.35.1781667053893;
-        Tue, 16 Jun 2026 20:30:53 -0700 (PDT)
-Received: from [127.0.1.1] ([47.253.114.73])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c8661b5ccafsm13070205a12.2.2026.06.16.20.30.49
+        d=1e100.net; s=20251104; t=1781667680; x=1782272480;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Gix0nvCYK1OhR2Kcuql53IhC6b91d4kE/6Woyx2T6JY=;
+        b=Fj0oe8+cYvIqW9Jtwvk3D/LHOu5nmmenJDwnpnbA6OmI+r4yZQQJVmonS37DDHtceh
+         lSLkJ4Ol11mZwJebzgo6jGkdDRbdPzdPDu+g6xw0/tnJaH0qR37DuJ1SQSpV48/cNd5/
+         zi43krBoseJOBOwMExk9FTepEK7BCp1YlrUZeVZ0gPvly0ddSLISKQ9Bz0IO4Mv8FSNG
+         oRuK8pWUnchsqfHqelv8pWVqcMRGURlnb8483ybi3SKv5rf8qAV27T/11dn8MVs68GI4
+         tSr/llVYWemsU8iDjdEpyVdmeS17BmxrC9orNygFFXjLqKMtCoO0ueAJ/OandfI1PyPh
+         iqiA==
+X-Forwarded-Encrypted: i=1; AFNElJ9YEPpJAZcGuQXAVHLrC4uo0H/5GvVut1GIMenm31Wh4D5Ee0OuaXhlA48s9PAcYFaaLVkMvLeS5Ta2U3d3nAq5@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywlc/6qQmWGcOYvZgbMzgvXTLJ1h6nVvN42Xp4y/v7kOE3Ct6AF
+	fip8pf2M8H2XOiWGS4Pvhf2jEzOnfNLsIjU+hc+vugTPzx7JQk4bA7J5TYL+VwXQng==
+X-Gm-Gg: AfdE7cmCwIQKnckT2thW3hjqCGlzoSQaQ8JliMW3ygUgBK72GOOMIGL/I3ekahc3PoA
+	wL9oxd7AyI1X20Ru6XKFefsy04gTW0S41N5vOdjaGDduiVg/v2v9gsakrBjgG1W6xRUoVGmajtu
+	KTukG94EPnBBEbYYNJNG29pwvAMNj0u9ly6ZdtvAblUIKtv3nPjJWpRBNwbBz7QwP324zIvqgFw
+	QhCTd8F+FoOeT1l/rg87BBcBY8nCGIk4J/vUfEYWO2mK24B1N+6y3oXBeQZBs8iZ1FdwZdNSrHt
+	ScaeEaJz6LiLuiZah0Z40LOhGX9a0lbNF8XWxeMLN6VL9/cQm5CxMFfCHNcDXrSKNslyKB+oh/P
+	zGrNaleRH9HMEamwhUxbHLWkNOfUaImFXzxTmltruSYJKyY3G/j/q9fLkpMEAviwmEmcHYRckAf
+	TiGmaqJMYqND+2tTBmSzLNE2bwBTx/VJCIxdwhjlT5oaJyVsMHn0c=
+X-Received: by 2002:a17:90b:5107:b0:36a:a16b:5f65 with SMTP id 98e67ed59e1d1-37c9372863cmr2233719a91.11.1781667680584;
+        Tue, 16 Jun 2026 20:41:20 -0700 (PDT)
+Received: from google.com ([2a00:79e0:2031:6:a0b:fabb:5b62:b85b])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-37c521d8e7bsm4513705a91.5.2026.06.16.20.41.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 16 Jun 2026 20:30:53 -0700 (PDT)
-From: Wayen Yan <win847@gmail.com>
-To: netdev@vger.kernel.org
-Cc: lorenzo@kernel.org, horms@kernel.org, pabeni@redhat.com, kuba@kernel.org, edumazet@google.com, andrew+netdev@lunn.ch, angelogioacchino.delregno@collabora.com, matthias.bgg@gmail.com, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Subject: [PATCH net] net: airoha: Fix TX scheduler queue mask loop upper bound
-Date: Wed, 17 Jun 2026 11:20:10 +0800
-Message-ID: <178166704952.2212140.11002626760717132754@gmail.com>
-Content-Type: text/plain; charset=utf-8
+        Tue, 16 Jun 2026 20:41:20 -0700 (PDT)
+Date: Wed, 17 Jun 2026 12:41:15 +0900
+From: Sergey Senozhatsky <senozhatsky@chromium.org>
+To: Sean Wang <sean.wang@kernel.org>
+Cc: Sergey Senozhatsky <senozhatsky@chromium.org>, 
+	Marcel Holtmann <marcel@holtmann.org>, Luiz Augusto von Dentz <luiz.dentz@gmail.com>, 
+	Mark-yw Chen <mark-yw.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+	Tomasz Figa <tfiga@chromium.org>, linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, stable@vger.kernel.org
+Subject: Re: [PATCH v2 3/3] Bluetooth: btmtksdio: call cancel_work_sync()
+ outside of host lock scope
+Message-ID: <ajIWAC9b_l6Id_6A@google.com>
+References: <20260616111224.152140-1-senozhatsky@chromium.org>
+ <20260616111224.152140-4-senozhatsky@chromium.org>
+ <CAGp9LzqT4knwk9hONu43cGDr005Phs3xw6T+YexXa3X6JEBOpA@mail.gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAGp9LzqT4knwk9hONu43cGDr005Phs3xw6T+YexXa3X6JEBOpA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260616_203055_212548_910C19AD 
-X-CRM114-Status: GOOD (  10.57  )
+X-CRM114-CacheID: sfid-20260616_204121_510470_E1173671 
+X-CRM114-Status: GOOD (  16.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,43 +100,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In airoha_qdma_set_chan_tx_sched(), the loop clearing queue mask was
-using AIROHA_NUM_TX_RING (32) instead of AIROHA_NUM_QOS_QUEUES (8).
+On (26/06/16 19:56), Sean Wang wrote:
+> The patch looks good to me. Inspired by your patch,
+> do you think should we add another patch to keep txrx_work out of the
+> reset window by rejecting TX during reset,
+> ignoring reset-time interrupts, and making queued workers exit early?
 
-Each channel has 8 queues, and TXQ_DISABLE_CHAN_QUEUE_MASK(channel, i)
-computes BIT(i + (channel * 8)). With i ranging 0..31, this causes:
-- channel 0: clears bit 0..31 (all 4 channels) instead of 0..7
-- channel 1: clears bit 8..31 (channels 1-3) instead of 8..15
-- channel 2: clears bit 16..31 (channels 2-3) instead of 16..23
-- channel 3: clears bit 24..31 (channel 3 only) - correct by accident
+I honestly don't know, it's hard for to me judge as I'm not all that
+familiar with the code.  To make things more complex, I don't think we
+see any crashes on reset path.  My personal preference maybe would be
+to keep things the way they are?
 
-While BIT(32+) on arm64 produces 64-bit values truncated to 0 in u32
-mask parameter, the loop still incorrectly clears queues within the
-same channel beyond queue 7.
+> Some code like:
+> 
+> --- a/drivers/bluetooth/btmtksdio.c
+> +++ b/drivers/bluetooth/btmtksdio.c
+> @@ -567,6 +567,8 @@ static void btmtksdio_txrx_work(struct work_struct *work)
+>         pm_runtime_get_sync(bdev->dev);
+> 
+>         sdio_claim_host(bdev->func);
+> +       if (test_bit(BTMTKSDIO_HW_RESET_ACTIVE, &bdev->tx_state))
+> +               goto out;
 
-Fix by using AIROHA_NUM_QOS_QUEUES (8) as the loop upper bound.
+A nit: I think you can test_bit() outside of host lock scope.
+Other than that I'm afraid I cannot be of much help here.
 
-Fixes: ef1ca9271313 ("net: airoha: Add sched HTB offload support")
-Signed-off-by: Wayen Yan <win847@gmail.com>
----
- drivers/net/ethernet/airoha/airoha_eth.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 31cdb11cd7..a1eda13400 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -2217,7 +2217,7 @@ static int airoha_qdma_set_chan_tx_sched(struct net_device *dev,
- 	struct airoha_gdm_port *port = netdev_priv(dev);
- 	int i;
- 
--	for (i = 0; i < AIROHA_NUM_TX_RING; i++)
-+	for (i = 0; i < AIROHA_NUM_QOS_QUEUES; i++)
- 		airoha_qdma_clear(port->qdma, REG_QUEUE_CLOSE_CFG(channel),
- 				  TXQ_DISABLE_CHAN_QUEUE_MASK(channel, i));
- 
--- 
-2.51.0
-
-
+>         /* Disable interrupt */
+>         sdio_writel(bdev->func, C_INT_EN_CLR, MTK_REG_CHLPCR, NULL);
+> @@ -628,6 +630,7 @@ static void btmtksdio_txrx_work(struct work_struct *work)
+>             !test_bit(BTMTKSDIO_HW_RESET_ACTIVE, &bdev->tx_state))
+>                 sdio_writel(bdev->func, C_INT_EN_SET, MTK_REG_CHLPCR, NULL);
+> 
+> +out:
+>         sdio_release_host(bdev->func);
+> 
+>         pm_runtime_put_autosuspend(bdev->dev);
+> @@ -646,6 +649,9 @@ static void btmtksdio_interrupt(struct sdio_func *func)
+>         /* Disable interrupt */
+>         sdio_writel(bdev->func, C_INT_EN_CLR, MTK_REG_CHLPCR, NULL);
+> 
+> +       if (test_bit(BTMTKSDIO_HW_RESET_ACTIVE, &bdev->tx_state))
+> +               return;
+> +
+>         schedule_work(&bdev->txrx_work);
+>  }
+> 
+> @@ -1250,6 +1256,9 @@ static int btmtksdio_send_frame(struct hci_dev
+> *hdev, struct sk_buff *skb)
+>  {
+>         struct btmtksdio_dev *bdev = hci_get_drvdata(hdev);
+> 
+> +       if (test_bit(BTMTKSDIO_HW_RESET_ACTIVE, &bdev->tx_state))
+> +               return -EBUSY;
+> +
+>         switch (hci_skb_pkt_type(skb)) {
+>         case HCI_COMMAND_PKT:
+>                 hdev->stat.cmd_tx++;
 
