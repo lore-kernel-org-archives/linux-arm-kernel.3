@@ -4,90 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D394CD98F0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 03:06:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 049BACD98E1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 03:09:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TBin7H0Wt7Oi8P0z8wsZgQQjqhBwvW2vxMHjxdsEcyI=; b=d9vMlEYQckI91xRv2XD/+aGlhj
-	gmRYHll6pfHYYatGJXGvlsGWm5Ev7aJ5/5nkuVTPi+clqxLtGcLlM9b6CdGSLzKP8SFYL950p4svv
-	izahxpu6HfrJhrkSraQ2TLoIkg0OhPIO0dgcGMRtUdpPxyndiVSbHj6kHtw7hQZ9hc0Pp3MYDNlKx
-	Br9WjhVGmLQ1EzJI1hDRZRMDzw+jRk6rKur70DqITyeXhcsnhH87Zi5aTMZx3ASxOr/FTdzeZx1Ef
-	kK2s7m1l0ZcPDm1fzGqDbpbm1Zdxqf+sa3tcHK+k3cuPA/rBluBIKcd73jhv/YyzD12PlJ5iWi/BM
-	nHE0IhJw==;
+	bh=gk9eB3MjnEEPRjMQFZWXNmN3y+0l6KK1WdI3cPoJm6A=; b=oNKg5X8XmN/ruSjQNYBQZeeaWI
+	22o908EUfPsLkc4/7iTvv94DEDvZNf2ngdoywlreyO8nfB17jrZdyBCnBKvTtzTCX9ouG5lZ0SwjG
+	L2nj3qTe2YPOIAO4ACuMSY6+AoS/Burblhc/gmeruiaewmXyGpXfWTy8674WF8vDom9SU2E5cR52Y
+	JdNeGX2ty3dBh0VrArMgTfh2II2JeFNqsB8k1pA+mNtasGBDpDTlM9VZc4I46zkv74g86auX8OcmX
+	tZexQ9TY++oNyUKBOyswxCQ0InO8/jL06iENQZ69hZlNbHVq6EYd99hAzPcM8yonMuCRqAk9W3DFZ
+	63KIGvUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZgV5-0000000GXBE-2bSh;
-	Wed, 17 Jun 2026 02:59:35 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1wZg6p-0000000GVxW-01ng;
+	Wed, 17 Jun 2026 02:34:31 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZgV2-0000000GXAp-42RV
+	id 1wZg6m-0000000GVx5-0HNJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 02:59:34 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-842848fd613so4527986b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 19:59:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781665172; x=1782269972; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=TBin7H0Wt7Oi8P0z8wsZgQQjqhBwvW2vxMHjxdsEcyI=;
-        b=EV35SucQ74Hre9eXucqx2mTzb8C4imdMkFgSReFtcbIzkGzgljmwFV9ofP9qIFbjML
-         HUAvSpEDXfUH7UzrNjCdHaC5cn4Mmnn3F8Th/HwjmBycTT1Cu0WPlbHcgcal5BUJWWzp
-         /49lyfh7jJjlVfj64eaQqnP53OZotMj3fpfofhzKESbjy08pAOW6TImWPAFFu6YC14AE
-         n1kWc/+069vVmN1+YjLzNlIljR3fq7JfL7mvc36vjVj+7nmk01/vPEqY+wEm5eB99iMT
-         UBu+zBkDFslIPSu3EWMBhDrKfi+/gW+tNhvZmtWzru09eSTgE17vFGWtlgetvStatHbm
-         rm9A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781665172; x=1782269972;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TBin7H0Wt7Oi8P0z8wsZgQQjqhBwvW2vxMHjxdsEcyI=;
-        b=XWsSQK+WcXATSCf3JGVoXMBq9gJrwq079b11oqqWkRE0e1AHfGsqXaAla8+XV/zPCU
-         EgqNL33lxsWq7WkzIHoSPe+t3OlI2csZTyKsWFkp09MrhqijsSk+XaQq3kfkbwEYN1d3
-         piiHqWZ2MquqZIbtrMSHQp3ZZMtxPKdYZ4T5qq/u8FkM2Ufr6ImIqpvIqfA7TFstceQH
-         KCz3E6k3+ANfhrOO63FZ9vDOsF6NlD5UjyYwnIlQFyMMOT9hMvMQPZcfLcGIVXKdDozV
-         sCdEbsmoaRis3qZCQqvLF1m96xijJzdyIrGIYkmvaFNvkhhhmA/2VhSYu8c1nJAllGzw
-         L+jg==
-X-Gm-Message-State: AOJu0YzB+1XKLzMHFufX7M881wFlswZgbr9qgyZXl2N1UijMR9wxQelA
-	DAH/G2FLfogOEfC00QWPxwyvu6jyvwlTIuoomXcpuZqlU2zQmrK8XzsA
-X-Gm-Gg: Acq92OFYpHdhvGKd1aETGJXXU019BqZuHJxTN7cevvz3aO1FM45LwNnGS5klPhh3tlk
-	U6oHP0EN/o8Y4wJ0Tj1fsv3mB0izDFwj/fEpWI+NuM29KDs09zg5EoFTEJpeOsrLMeUMa3MAgTU
-	5F3jgLLcDnhljP5V1/V2ZL70i34wDd6ZsY9EmlEfIlD1v8sJJeQw8Yndez8ch9ZfdAt4mo/KIJC
-	B+aN0OtaQStG7ly73OR3kJO2Pu0kMr7NbntL9FNdDJNRmpWbbg5T33IPCjBjc6uITZ/iSEyn4Rt
-	cMY8AcmjOs6ItaNRC7BUrwnSSxdc6FLchYBkeGUyeZAPxqxnWj/+bP3iAe8NlxW+UBsX5sXhiFH
-	kFwpsoa9XVf7yUBTVOnFOmxzmiCYiMfG8gavWlHrhGm0wZLSDUTgn593PNMiTnKSc8ui5VFGYPR
-	b9iYqu/4dU7TzHOGvvPC1nqTk35jZaRy/xlOe5C3le3oW9fiUzC3Xk5h2Q1M9FFVjNFB9aSmB1/
-	7A=
-X-Received: by 2002:a05:6a00:2987:b0:836:3f6a:3e7a with SMTP id d2e1a72fcca58-8452454cd35mr1655165b3a.26.1781665171696;
-        Tue, 16 Jun 2026 19:59:31 -0700 (PDT)
-Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8434afc825csm14212821b3a.36.2026.06.16.19.59.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 16 Jun 2026 19:59:31 -0700 (PDT)
-From: Chi-Wen Weng <cwweng.linux@gmail.com>
-To: ukleinek@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-pwm@vger.kernel.org,
-	devicetree@vger.kernel.org,
+	Wed, 17 Jun 2026 02:34:30 +0000
+X-UUID: 088dc55c69f511f1aa26b74ffac11d73-20260617
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.12,REQID:3509e3fe-e98e-43f4-8322-c8e72fabe82c,IP:0,U
+	RL:0,TC:0,Content:-25,EDM:-25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACT
+	ION:release,TS:-50
+X-CID-META: VersionHash:e7bac3a,CLOUDID:cfbce81a19c81799c41c83c0864cf5ba,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:102|850|865|898,TC:nil,Content:0|15|50,E
+	DM:2,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:
+	0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 088dc55c69f511f1aa26b74ffac11d73-20260617
+X-User: zenghongling@kylinos.cn
+Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <zenghongling@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 106712783; Wed, 17 Jun 2026 10:34:15 +0800
+From: Hongling Zeng <zenghongling@kylinos.cn>
+To: vkoul@kernel.org,
+	Frank.Li@kernel.org,
+	wens@kernel.org,
+	jernej.skrabec@gmail.com,
+	samuel@sholland.org,
+	mripard@kernel.org,
+	arnd@arndb.de
+Cc: dmaengine@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	cwweng@nuvoton.com,
-	cwweng.linux@gmail.com
-Subject: [PATCH v4 0/2] pwm: Add Nuvoton MA35D1 PWM controller support
-Date: Wed, 17 Jun 2026 10:59:23 +0800
-Message-Id: <20260617025925.2539334-1-cwweng.linux@gmail.com>
+	zhongling0719@126.com,
+	Hongling Zeng <zenghongling@kylinos.cn>,
+	Frank Li <Frank.li@oss.nxp.com>
+Subject: [PATCH v3] dmaengine: sun6i-dma: Fix memory leak in sun6i_dma_terminate_all
+Date: Wed, 17 Jun 2026 10:34:11 +0800
+Message-Id: <20260617023411.574488-1-zenghongling@kylinos.cn>
 X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260616_195933_002785_95B11793 
-X-CRM114-Status: GOOD (  19.54  )
+X-CRM114-CacheID: sfid-20260616_193428_473327_8AE8E361 
+X-CRM114-Status: GOOD (  11.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,87 +84,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chi-Wen Weng <cwweng@nuvoton.com>
+When terminating a non-cyclic DMA transfer, the active descriptor
+is not properly reclaimed. The descriptor is removed from the
+desc_issued list in sun6i_dma_start_desc(), but in
+sun6i_dma_terminate_all(), only cyclic transfer descriptors are
+added to the desc_completed list before cleanup.
 
-This series adds support for the Nuvoton MA35D1 PWM controller.
+For non-cyclic transfers, pchan->desc is set to NULL without first
+adding the descriptor back to a list that vchan_get_all_descriptors()
+can collect. This causes the descriptor and its associated LLI chain
+to be permanently leaked.
 
-The MA35D1 PWM controller provides 6 PWM channels. The hardware supports
-several counter types and output modes. This driver configures the controller
-to use up-counting mode, auto-reload mode and independent output mode. The
-waveform generator is configured to drive the output high at the zero point
-and low at the compare-up point.
+Fix by ensuring both cyclic and non-cyclic active descriptors are
+added to the desc_completed list before setting pchan->desc to NULL.
 
-For the up-counting mode used by this driver, the counter counts from 0 to
-PERIOD inclusive. Therefore, the programmed period is PERIOD + 1 cycles. The
-hardware can generate 0% duty cycle with CMPDAT = 0 and 100% duty cycle with
-CMPDAT > PERIOD. To keep 100% duty cycle representable, the driver limits the
-maximum PERIOD value to 0xfffe and reserves CMPDAT = 0xffff for the full-duty
-case.
+Fixes: 555859308723 ("dmaengine: sun6i: Add driver for the Allwinner A31 DMA controller")
+Signed-off-by: Hongling Zeng <zenghongling@kylinos.cn>
+Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+Suggested-by: Frank Li <Frank.li@oss.nxp.com>
 
-The hardware buffers PERIOD and CMPDAT updates when IMMLDENn is disabled. The
-driver keeps IMMLDENn disabled, so period and duty cycle updates take effect
-at the end of the current period. Polarity and waveform-control changes are
-applied directly and may cause transient output changes if the PWM is running.
+---
+ Change in v2;
+ -Add pchan->desc != pchan->done check to prevent race condition
+  where completed descriptors could be double-added to desc_completed
+  list, causing list corruption
+---
+ Change in v3:
+ -Fix by using vchan_terminate_vdesc() as suggested by Frank Li
+---
+ drivers/dma/sun6i-dma.c | 13 +++++--------
+ 1 file changed, 5 insertions(+), 8 deletions(-)
 
-When the PWM output is disabled by clearing POENn, the output pin is put into
-tri-state according to the MA35D1 reference manual.
-
-Changes in v4:
-- Add a Limitations section to describe the hardware capabilities and driver
-  limitations.
-- Add a link to the MA35D1 reference manual.
-- Replace register address macros containing the base pointer with register
-  offset macros.
-- Add readl/writel/rmw helper functions.
-- Rename TOTAL_CHANNELS to NUM_CHANNELS.
-- Use unsigned long for the cached clock rate.
-- Use devm_clk_rate_exclusive_get().
-- Configure polarity before enabling the counter and output.
-- Add controller initialization for up-counting, auto-reload and independent
-  output mode.
-- Configure the waveform generator for zero-point-high and compare-up-low
-  output.
-- Fix the period conversion because the hardware period is PERIOD + 1 cycles.
-- Limit the maximum PERIOD value to 0xfffe so that CMPDAT = 0xffff can be used
-  to generate 100% duty cycle.
-- Use CNTEN and POEN bits to report the enabled state in .get_state().
-- Disable the PWM by clearing POENn and CNTENn.
-- Fix error message capitalization and trailing newlines.
-- Fix coding style issues reported by review/checkpatch-style tools.
-
-Changes in v3:
-  - Update nuvoton,ma35d1-pwm.yaml
-    - Add maintainers entry
-    - Increse "#pwm-cells" to 3
-  - Update ma35d1 pwm driver
-    - Make include header and macros definitions organized alphabetically
-    - Rename macros REG_PWM_XXXX to MA35D1_REG_PWM_XXXX
-    - Add macros for register address
-
-v2 resend:
-  - Remove wrong 'Reviewed-by' tags.
-
-Changes in v2:
-  - Update nuvoton,ma35d1-pwm.yaml
-    - Fix 'maxItems' of 'reg' to 1.
-    - Remove unused label
-  - Update ma35d1 pwm driver
-    - Remove MODULE_ALIAS()
-    - Add chip->atomic = true
-
-
-Chi-Wen Weng (2):
-  dt-bindings: pwm: Add Nuvoton MA35D1 PWM controller
-  pwm: Add Nuvoton MA35D1 PWM controller support
-
- .../bindings/pwm/nuvoton,ma35d1-pwm.yaml      |  45 +++
- drivers/pwm/Kconfig                           |   9 +
- drivers/pwm/Makefile                          |   1 +
- drivers/pwm/pwm-ma35d1.c                      | 344 ++++++++++++++++++
- 4 files changed, 399 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/pwm/nuvoton,ma35d1-pwm.yaml
- create mode 100644 drivers/pwm/pwm-ma35d1.c
-
+diff --git a/drivers/dma/sun6i-dma.c b/drivers/dma/sun6i-dma.c
+index 7a79f346250a..134ae840f176 100644
+--- a/drivers/dma/sun6i-dma.c
++++ b/drivers/dma/sun6i-dma.c
+@@ -946,16 +946,13 @@ static int sun6i_dma_terminate_all(struct dma_chan *chan)
+ 
+ 	spin_lock_irqsave(&vchan->vc.lock, flags);
+ 
+-	if (vchan->cyclic) {
+-		vchan->cyclic = false;
+-		if (pchan && pchan->desc) {
+-			struct virt_dma_desc *vd = &pchan->desc->vd;
+-			struct virt_dma_chan *vc = &vchan->vc;
+-
+-			list_add_tail(&vd->node, &vc->desc_completed);
+-		}
++	if (pchan && pchan->desc && pchan->desc != pchan->done) {
++		struct virt_dma_desc *vd = &pchan->desc->vd;
++		
++		vchan_terminate_vdesc(vd);
+ 	}
+ 
++	vchan->cyclic = false;
+ 	vchan_get_all_descriptors(&vchan->vc, &head);
+ 
+ 	if (pchan) {
 -- 
 2.25.1
 
