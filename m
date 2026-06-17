@@ -4,129 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6835BCD98EE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 06:39:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3976CD98E2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 06:40:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8i3ZBOEfRG7BgDxurOeRQoDXm+GzmuXfbZlALLpD6Nk=; b=LhodAjFurftnyqkbCtXNSbPUMG
-	O/4w7vviW+mgVdYFaf+YKcIAWeMDg67GCSG3eSj3qVoikoo8PMjMKwxSAxbRaQg+V+WdRylK5Ev/L
-	FToK+D4AroWiPfgXlqwR8cFm97qS0BxQcWZWrB0axVqdkg4a0Csy7ehq0ZizLUdnqBXeBc+ShQ7pF
-	c3Ph7zYOx5WA2+G5EVHpkhPbQhLxiouRjBT6HloPNzKuEK7T3R1kBXJyE7txFRIqvC2C0PYdvUBgS
-	Rgmqwq/SaLsPUKgvwY2Ebp+ZrhOGMwdMmIXWg4mvxwTu3U+NTyncn0SPMA5timsay7BmmHeKY3h6V
-	P3iL6bjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=627DvcBL/GTdPlpYYcEZZXWw06fe0YXL5NBPNlxZyAg=; b=ybGSj/WGbZj2ZJ9lIljWxK4jrz
+	k/ayetyg7DhKLpPEVFEooecKTy0+wtq90g62cNxubUYhHXSGSsYlZ2o1e33reSgssra7eVATHtC6Z
+	qDvkoltYdl0HyZkJxPF0A2ZG0idgbYOnI94aM6Ut20Sk/fE0zpLUuKkjsvJpns0p69ziGFa3Mn2PK
+	KQHBIH3CepWu789tIYmEY+x6ZEKlYoN8O3vB2CO/uBZlBriAIaoDOKUMxWgW8EFnxC2rRrV9ASA/7
+	M5cQq54P3rF9YrIYkiqwK7V9MEeam52kVTvIXAcDg19qxUdF7jESbGM52E3n52amBmDA/9rgwKYtn
+	UQOjZU5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZjvX-0000000Gid3-2H1M;
-	Wed, 17 Jun 2026 06:39:07 +0000
-Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
+	id 1wZjx3-0000000Gik3-370M;
+	Wed, 17 Jun 2026 06:40:41 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZjvU-0000000Gica-2M61
+	id 1wZjx0-0000000GijP-0YqL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 06:39:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=O6ezkm21/aO2+dZBiKH9B3YVLghHdCEiw8RFWF3Q4nkQHY4Hm57xBQv4IDK86LEuHlRVyrO1RhWI17ALBQ7t2kgegke4NiA05+Ww7HdzD/s0zmu1kYD+4oX4zZWx/8hlGEXpB3/2A5uHIPgSOjt/XH0z1DeoYP2Szs2MVQyiqQFePA8So8BJcPyXLswyfR0sJokRFGM2rwz1FBhMIOqnZsPMYACzV1BgkiFU52aI4vOvEWHuwV/1+dKnqK7pwW6Z5rsylmQYrYFnKXNv8YMiuDzqmqUFsGzRO2t53QH+iTwmRHPXz607WgaT/aL5QoegRLIzO8CAVuYCi00kpiFVUg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=8i3ZBOEfRG7BgDxurOeRQoDXm+GzmuXfbZlALLpD6Nk=;
- b=wGh/V/xf/Meeu8NEFTDh6MMQb99AWxlMlg0zpJL4dpvVnm45BupxxWfI0n006tq79lshspHv15NSi+gPBQ5auuv2DWDAH2kvAxV8MJP8qTzhCP/FiHxwlkTaf859F1fYZvUoZjxEABRm8nwYZIODglrLhI1JbPsQOD1tNFJZmSjGGAeaAvU00j024WmNFq7VfuHsxmR5FsYd6zCu0J4dngYpeBgpfrJRhVzGf3B2F7hJHYfpXvd7Q1VcDdFeTg8cVrYBHJ73BT5oCdr6cmeOuGWOIP1q6JRxyDwcaH8r9dcqQZFSfbJBHrHKLpoS2/ILhz4xkq+pj8VhIK/VUS7Xmg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=cixtech.com; dmarc=pass action=none header.from=cixtech.com;
- dkim=pass header.d=cixtech.com; arc=none
-Received: from SEYPR06MB6226.apcprd06.prod.outlook.com (2603:1096:101:df::13)
- by TYUPR06MB5977.apcprd06.prod.outlook.com (2603:1096:400:355::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.18; Wed, 17 Jun
- 2026 06:38:49 +0000
-Received: from SEYPR06MB6226.apcprd06.prod.outlook.com
- ([fe80::56e8:777c:d80e:d364]) by SEYPR06MB6226.apcprd06.prod.outlook.com
- ([fe80::56e8:777c:d80e:d364%5]) with mapi id 15.21.0113.015; Wed, 17 Jun 2026
- 06:38:49 +0000
-From: "Joakim  Zhang" <joakim.zhang@cixtech.com>
-To: "Joakim  Zhang" <joakim.zhang@cixtech.com>, "mturquette@baylibre.com"
-	<mturquette@baylibre.com>, "sboyd@kernel.org" <sboyd@kernel.org>,
-	"bmasney@redhat.com" <bmasney@redhat.com>, "robh@kernel.org"
-	<robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>, "p.zabel@pengutronix.de"
-	<p.zabel@pengutronix.de>, Gary Yang <Gary.Yang@cixtech.com>
-CC: cix-kernel-upstream <cix-kernel-upstream@cixtech.com>,
-	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: RE: [PATCH v4 0/5] Add Cix Sky1 AUDSS clock and reset support
-Thread-Topic: [PATCH v4 0/5] Add Cix Sky1 AUDSS clock and reset support
-Thread-Index: AQHc/h81tIF89r3H202GW+SLijASs7ZCSwYw
-Date: Wed, 17 Jun 2026 06:38:49 +0000
-Message-ID: <SEYPR06MB622679D0E4A78883085C8A1B82E42@SEYPR06MB6226.apcprd06.prod.outlook.com>
-References: <20260617060437.1474816-1-joakim.zhang@cixtech.com>
-In-Reply-To: <20260617060437.1474816-1-joakim.zhang@cixtech.com>
-Accept-Language: zh-CN, en-US
-Content-Language: zh-CN
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=cixtech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SEYPR06MB6226:EE_|TYUPR06MB5977:EE_
-x-ms-office365-filtering-correlation-id: 37edd888-fb70-4b98-388f-08decc3b1728
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|23010399003|1800799024|56012099006|6133799003|3023799007|18002099003|22082099003|38070700021;
-x-microsoft-antispam-message-info: FrcKlgxE1XNqR0eT+eONjWAlRhjCexaM/AlnI30DtvDZ5gePZOgQkve7d1llBT18h6FzA6UlIE1d+30PDxAzqiY7v+J0/pFxpkcfuv8M8qRRdZyzU8Oo3TctlWf64dxfXTBY18Oljd+8eC8nilRdYEtUzNTj5/0klSoAwak2vK0gg+tEUCfkiVY6SV+KkcC/iVtyGNttk/AcGh6hhceJZHYo6nI7Yv9p6t2wjsf/DPgghJ8b7L0WSINvRRFcS1sIbG/b5Xi2s9H/4qy8I09RZu2iu7FtWVYwj93USmEdbLgqIxuAh3dQf0/vvtsYgAEvBRnKN/HMkvtFR6o7bo3BSGg1pC7DI0uxxiHO5S0hSKhGNFrmrab1qszVvEN6ndIOzyoyGxIh1rJAI0vPvLEbqbIBduv8NYgiVy2EYs5RFHA9PC2TB44qGi+BSzSsR6VYu4FlJtbnVpgvls+9K+VmzQLdWR4gQm4QUgdYR9/jRLq7YSTpcwjO98vwc0fV62BvCQILlJfOkUbbDN/xJCSmLVG/i7tWwSGOfBOZNcMVuOu3w4ONpzjKZMWZkQUN+xA6BNPwcMJfmpmAuJZR2X6twu93VmvY9LMfEJj9wjm6v/7Tw6gMSwgKlUlMD/9ZFdPsraMp5PPk+3FFqOitdu3bPSO5c/QgkzywLYpY42IgEKq2+xfirJvMjJ3AbweiVt+plHpFyjIXItbUAKuPjuwEkqTGvGM3w7L2DYXhQu0tOGH+8mp5wW2xg2I7qDWcjhzN
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEYPR06MB6226.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(23010399003)(1800799024)(56012099006)(6133799003)(3023799007)(18002099003)(22082099003)(38070700021);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?sgxtYRhxQvYEBatvclUpoWWKJxE8VgyTDzRpLGKigyc5F0GKoFrjewTkvvjp?=
- =?us-ascii?Q?EYQhBzPTbIGUkgfWvxRnOTdT6ZNXCc6nA1T7mIOUUuVmr3YFjHAnmoCzRzps?=
- =?us-ascii?Q?feONZ32PesWs4WSARwutvCZA4qm28MK5xzquTZsFnnA0fTWfuahWl5wlib6Y?=
- =?us-ascii?Q?aRMcZgz5RTqyxOC5ewQqe4pmdY7hraI60K4XoxurXuA5lqe8QW0aY96ZgQjo?=
- =?us-ascii?Q?WVivquTbFAj6bxkEkAzDeZ73GD1iVGfHyMO80YS0Sad1zt5Frze/pm428aZB?=
- =?us-ascii?Q?i6LuD/Cd5K9tw+LpgaH7NsMvJ6kqqN8/tqBjuhkpeZNdI0UKHZHL4j8AsYs1?=
- =?us-ascii?Q?KcYhNBlVckZX/dGOZL2sFlkfuwvp+M8DTyJ89xL6ElMXLyUzS0iMaLpoDV/p?=
- =?us-ascii?Q?arr07GU9CxzVSipQNjUT5TuTaeRUchQkQuxQ3rgowHtZ0Bh6dPNo1Ika239e?=
- =?us-ascii?Q?pzri2oNlMYrqkEsLEimis40iyVLIhdf2mDqM3Nid6W7L7NfJMMtTwUwWXFaK?=
- =?us-ascii?Q?P523vgISTtaejnwBJ006Rs0vUSwIsP62GG1x0atSaURb7WWfsA0UnXK+Hl0b?=
- =?us-ascii?Q?f4xTko/crxR0xZFFTcZobQpYN0fvgErqvqZNLEfYjc8udC7LimDfPv3SVP5X?=
- =?us-ascii?Q?YQyNilTgeNmRVH31KDWNWed9ZA75QhCGyLy0BTrSj5OtK2aYKVIsH67ot/F5?=
- =?us-ascii?Q?mfJZ68nyUpBLAtGDQO3iyf3Wm7sgL0XHVybhHU47lSqDVtkCm6q8/Z/sShBQ?=
- =?us-ascii?Q?J753ihp1O4hdCRf1eUHn0Jf4curdsDxLj+aIKjnvZ5kzOZwH44rquOCvZYc/?=
- =?us-ascii?Q?U8HTZuWKOozafpBxhXzjHZ/vk57xrmk9WHerhPRH6Hve5aabPqqQVY3h50+U?=
- =?us-ascii?Q?JSsh8+q4o6p/45e8v+ZzNp2Dolbmtd6iOau+z5ZZ7wH9uJfNudVb7Wk5ZtFf?=
- =?us-ascii?Q?vFIXVkIqzx8djl3vNkZtgMUr11Je3oihCoIq8koy+DYOIEJx2pW5VLEvGSjp?=
- =?us-ascii?Q?rWaiX+w3X6NhtAKp2ZNNsE9tZEnkGNtRnyECGn7XRLZyPr85GnT0JihxcaRE?=
- =?us-ascii?Q?2NXnmI3CMl+8/dF/GIGhLlbkc5skrGiiRVsZ2M227WYmsPeDsBHHSSZn3lu9?=
- =?us-ascii?Q?xskb8k8nZF4EWHs10hkF79JgPtkV+ZB2bcUSI/psYh/x0fsGokNd8fXEKj6G?=
- =?us-ascii?Q?SG5TSffstGxOWKAvanBUvdrajIybcKgmErQcy08AbbNs/abZWovbk/EILlJe?=
- =?us-ascii?Q?tKiBapLg7sEo4FcpXESSK9RGbKdbzUpVoSlXkvx1Fgi7MW45YtCvdP1uqeA3?=
- =?us-ascii?Q?RQQHDrkMXs534zKsImwm/d397iTbc24iuQIbL1jL8DRBExsT+CbxTvk/hpDf?=
- =?us-ascii?Q?Q+qbQSOAGGsubq1hHPXPa6r+zeZJX+gWVPAQO9VP12XCs5ZsETxS7PzvR4sS?=
- =?us-ascii?Q?/36WQWQqUM3bogrCWEb2B1IgfDnLtFHo1dIZdtpNn63aZnhWSMQCS/GaoVJn?=
- =?us-ascii?Q?/ygbvno8Cjsot9h6/BzDgge6RMAit8hqM+xdT3PRxcW3RrVBXpXL8Sm8NwgK?=
- =?us-ascii?Q?+oQbUuwLhgtigZPqExDj9bWQcoZuTsB01wzY30UwcdkFSxT41Nu4p/NoucqT?=
- =?us-ascii?Q?Zl+DM/YDrwewBftss5L5DGhOwmvifbrt2wwHX7PygS44KOnIXzthscRKWGcM?=
- =?us-ascii?Q?mrZvlFV87TBx6LBEjLDz0xygHMtYzhgqAZ9rNOO18f5/hRPOLLYFwZksW0NQ?=
- =?us-ascii?Q?iFlAmjcskA=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Wed, 17 Jun 2026 06:40:39 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-490b7866869so54652565e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 23:40:36 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1781678435; cv=none;
+        d=google.com; s=arc-20240605;
+        b=bHEOj/3kZrvcegobOSUoO+MOzpzRT9mqzXMvLPnwSlRmtXzHE1k3fhonW4QTmGKqKN
+         U0uxM7KQrAhQlNmWlb/ZuOTEtK/zbbOg/upx/OUfcpgYi01IbLbuMx/PsPrzMMZoHT1Y
+         ezyADaYMyAgylbGzdEQdVnrY5IvS4j0JBjM+MFA9/KQzp4JPjkyMl2kTLt3z9iwyqbI9
+         RsLucOD1EE8DrX+GBtCx+eqNCZvvc/P4oJ2CRmxrImWVRpkNeM5YmYkIhYTm/E3ieSeS
+         BjvO6ZSGTYxQWZQVIZnlBqTglYkoB/nOlbvpMYefbRIKPhaH255TJ7/gi8tK7FP646A/
+         VXIw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=627DvcBL/GTdPlpYYcEZZXWw06fe0YXL5NBPNlxZyAg=;
+        fh=Bxr9tEvNss2SJmoitKI8GxeXPRffwSRlmqN3oQTn3VQ=;
+        b=lEu2g17PshVWKw5OQHP8Mropc6p1o9u93ScrI4oa6kQwJLCzM2aE9o5sy0DVcY4JJ9
+         o7Koe6yqtbH/2GZZ1bPP05LlhCyvwVSMhocZPUi+3DBMIAMhD5N91AkugIO1ucD0rqGT
+         qTZ4KseVKL3liJYPyPZ1Kx8M3yiYXW34jm7zcqgi585gkU7ADTaB5p9UpfqjwrOWmHc7
+         AOfhc2yScNnHMKaJ82VoJdo8dGwtqGYociqlMgYNhA3BnAKlkdl3P2AFCI+6eFJfhcCb
+         zw1GHs21UvMHJ7nEkrauxrUgsW2OnTUIKwAR2TdPp2tRuok9T9JF9y3ZxPFme37lxjP2
+         xR/g==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=9elements.com; s=google; t=1781678435; x=1782283235; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=627DvcBL/GTdPlpYYcEZZXWw06fe0YXL5NBPNlxZyAg=;
+        b=fVqDl2QvqC9Q4U3mWkyNGS8Y+lqXFKhRa0kAOlI8Lg3V7E+2l8U5ZC8ecAK3TQUqJp
+         lU9HAgEIkMuH2gqMQqSyGEJ7ekbC43SYoMzaWrWfA1RdpaEIo+tI1fSa8iphMIePXLOS
+         K7rqAKD3NPlAHwUpyl9FrMzqnL9sjvQbhkaiTNrQRmfg9FlCUG/Gk/YwDpfDifc5rufq
+         ATCEXEsP8kpzxC/uXgK0hlrb3WTasZFa/6f3TzoXHjNDFmDS+jB1TAosmm+ZX2LVh4Ij
+         19KR+IX7iHY5mPBi0U8FTRHov1B+8WSZMPlzEZTmwcJdKkOKMrcaneTRN4TXt5QiqVvp
+         r8vA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781678435; x=1782283235;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=627DvcBL/GTdPlpYYcEZZXWw06fe0YXL5NBPNlxZyAg=;
+        b=DuCUq22PuCw5yDLf26IrQ82p4VSJZF89UnACdW+l0KuWuHDBLngXhBKPUwK1OwLiZ+
+         icwqGh2y0+ZlzkLbDV83t6tT5cYx2wspZ7bipZ0od7HdWz5dXF9Uu159vAD+JaJ4C4Dz
+         jFiJsFc09E9RgPydmdlHPIEr6lvpGzmEOXDgS/K2ReEVCgXkWDIME2yf+OpSIVZYDpRz
+         5Shan/TIc5BDg5/z3U6V2J4QrEz84dYtySOT2zUPBQqChpblr7psDUcYPbjZTxrVCGfq
+         VtfXpTwCxe6oX9OrhBWmvWDGhHjITurAfO9DA8K1UG0uSqhI2aWsmdZ88dPxEJ+bUHCk
+         rteA==
+X-Forwarded-Encrypted: i=1; AFNElJ9iHV8HBeObpjMAfMkg97g1F6rg78kdhHAgC/AOosCzMvCuS/hdSoF2AnDL/vUgaRRaqyAtBeuZ65Mx/TK97DEE@lists.infradead.org
+X-Gm-Message-State: AOJu0YwpzpALLyenATc68+KEpaQm4jECbHDR2vFd6w2JiMkb3vQ1S7OF
+	1vMOEN+ZQTx2lP32z1+uDmQ7qf/AWZ1gzOXcFTNsGYGSypu8tN/DDYcIVs4kDd208diaGPl2xSQ
+	eeKAwXgmsGCqawxcF/u9hZxqB/M6CJYX5Ll55W1M1Lw==
+X-Gm-Gg: Acq92OF1sdXFXLc7B5DBrawnfsduBreZGLrrUyYmm7rlBq4PJT0YvtP5jQs0K99kOJA
+	XUVhkR6FsXRZkOs2KvmMiVcI6Opj4BGT9kqEDtzUpwXqaVKLIRDe8o0IZFL57ptsQqV9xgoAtQb
+	flOrlqSz2TtO1KOXcd0KixhVT4+F0aS+n2tRmqAKzkVpRDP3u4SXjV9BZGYfXFPVLlNV0RMD/G2
+	HgHrY6RSP4+jIMfhIYDkrzLbi4LgOmF7rD6Om2fqs2t0KpT+Uvvyz/BkVpW19oMzdMucvcAAZXb
+	TLyeciJz2dLt+Lrk/pbTcDwfFsA8swdHKSw3yojpL1yinthNGlTftSrpsFIQBmVe5Se0
+X-Received: by 2002:a05:600c:4503:b0:490:cdb2:fb5e with SMTP id
+ 5b1f17b1804b1-4923412792amr26171515e9.22.1781678435211; Tue, 16 Jun 2026
+ 23:40:35 -0700 (PDT)
 MIME-Version: 1.0
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SEYPR06MB6226.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 37edd888-fb70-4b98-388f-08decc3b1728
-X-MS-Exchange-CrossTenant-originalarrivaltime: 17 Jun 2026 06:38:49.6175
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: PpgVr11wl8wO18TWty/+Ul/xn54/7QNRry1MvEn0cHzOG0nkgogrhacu3GUxDpSz961ygvAULO+0/TYIh+nHzkZEZ6LgPhb9YNIhwlSig3E=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYUPR06MB5977
+References: <cover.1780929570.git.gregoire.layet@9elements.com>
+ <af322e76d34ad504e0bdec470293a017b489cfd7.1780929570.git.gregoire.layet@9elements.com>
+ <4839c31f666b612799a795bb47c884901fd2a903.camel@codeconstruct.com.au>
+ <CAFi2wKYzUDY5Gis9GaHdqeYdv-orHB+gWfLXkJBgbxfbnRgorA@mail.gmail.com>
+ <CAFi2wKanAH+ekKz3eVtdiz=pjEvmKwSh1XhE-Xo7p=CCiSWpEw@mail.gmail.com> <e5822b82e99f8c2f81deecfeaea2192b223dfbec.camel@codeconstruct.com.au>
+In-Reply-To: <e5822b82e99f8c2f81deecfeaea2192b223dfbec.camel@codeconstruct.com.au>
+From: =?UTF-8?Q?Gr=C3=A9goire_Layet?= <gregoire.layet@9elements.com>
+Date: Wed, 17 Jun 2026 08:40:22 +0200
+X-Gm-Features: AVVi8Ce_fPNb_-dl2aHTctX4f_poGDs7t08FlXnmiOLbRzVBfN5Op5CBNbdSeAw
+Message-ID: <CAFi2wKYgxKpp0ezzryYhFPDeqAeHhUq9Lhm67pVpnXRg+c2Vhw@mail.gmail.com>
+Subject: Re: [PATCH v2 1/2] soc: aspeed: add BMC-side PCIe BMC device driver
+To: Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: joel@jms.id.au, andrew@lunn.ch, jacky_chou@aspeedtech.com, 
+	yh_chung@aspeedtech.com, ninad@linux.ibm.com, linux-aspeed@lists.ozlabs.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	anirudhsriniv@gmail.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260616_233904_629749_03A689EE 
-X-CRM114-Status: GOOD (  27.51  )
+X-CRM114-CacheID: sfid-20260616_234038_441562_9EA17A18 
+X-CRM114-Status: GOOD (  16.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,139 +122,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello Andrew,
 
-Sorry for the disturb, I will resend the patch set to fix a typo.
+> The concept sounds reasonable to me. There's probably some bikeshedding
+> to do on the devicetree property though.
 
-Joakim
+Yes, having looked at how it's done, I would say :
+'aspeed,vuart-over-pci' and 'aspeed,kcs-over-pci' flags would be
+better.
 
-> -----Original Message-----
-> From: joakim.zhang@cixtech.com <joakim.zhang@cixtech.com>
-> Sent: Wednesday, June 17, 2026 2:05 PM
-> To: mturquette@baylibre.com; sboyd@kernel.org; bmasney@redhat.com;
-> robh@kernel.org; krzk+dt@kernel.org; conor+dt@kernel.org;
-> p.zabel@pengutronix.de; Gary Yang <gary.yang@cixtech.com>
-> Cc: cix-kernel-upstream <cix-kernel-upstream@cixtech.com>; linux-
-> clk@vger.kernel.org; devicetree@vger.kernel.org; linux-kernel@vger.kernel=
-.org;
-> linux-arm-kernel@lists.infradead.org; Joakim Zhang
-> <joakim.zhang@cixtech.com>
-> Subject: [PATCH v4 0/5] Add Cix Sky1 AUDSS clock and reset support
->=20
-> From: Joakim Zhang <joakim.zhang@cixtech.com>
->=20
-> This patch set adds the clock and reset support for AUDSS. The AUDSS grou=
-ps
-> audio-related peripherals (HDA, I2S, DSP, DMA, mailboxes, watchdog, timer=
-,
-> etc.) behind a single Clock and Reset Unit (CRU) register block.
->=20
-> Clock and reset changes normally belong to separate subsystems and would
-> ideally be submitted as independent series. They are combined here becaus=
-e
-> the AUDSS DT bindings cross-reference each other: the system-control bind=
-ing
-> describes the clock child node, the clock binding documents reset lines e=
-xposed
-> on the parent syscon, and the DTS example wires both together. Keeping cl=
-ock
-> and reset in one series gives reviewers the full picture when evaluating =
-the
-> binding layout, dependencies, and integration.
->=20
-> Patches apply in the following order:
->=20
->   1. Reset support
->      - dt-bindings: soc: cix,sky1-system-control: add audss system contro=
-l
->      - reset: cix: add audss support to sky1 reset driver
->=20
->   2. Clock support
->      - dt-bindings: clock: cix,sky1-audss-clock: add audss clock controll=
-er
->      - clk: cix: add sky1 audss clock controller
->=20
->   3. Device tree
->      - arm64: dts: cix: sky1: add audss system control
->=20
-> The reset and clock parts have each been build-tested and checked with
-> dt_binding_check independently. If reviewers prefer separate series for t=
-he
-> reset and clock maintainers, I can split and resubmit after this round of=
- review
-> once the overall design is agreed on.
->=20
-> ---
-> ChangeLogs:
-> v3->v4:
->   * move both power domain and resets into parset node (audss_cru)
->   * remove "simple-mfd", and change to populate the child node
->   * cix,sky1-audss.h -> cix,sky1-audss-clock.h
->=20
-> v2->v3:
->   * clk part:
->     * devm_reset_control_get()->devm_reset_control_get_exclusive()
->     * assert noc reset from suspend
->     * clock parents changes from 6 to 4, and rename the clock names,
->       explain more about this: confirm with our designer, In fact,
->       there are 6 clock sources going into the audio subsystem. audio_clk=
-1
->       and audio_clk3 are redundant in design and are not actually needed
->       in practice, so they are not shown here.
->     * refine clocks and clock-names property
->     * add detailed description of clocks
->     * drop parent node from clk binding
->     * drop define AUDSS_MAX_CLKS
->   * reset part:
->     * rename reset signal macro, remove _N
->     * drop SKY1_AUDSS_SW_RESET_NUM
->     * switching to compatible-style of defining subnodes in parent schema
->=20
-> v1->v2:
->   * remove audss_rst device node since it doesn't has resource, and
->     move to reset-sky1.c driver.
->   * remove hda related which would be sent after this patch set accepted
->   * soc componnet is okay by default from dtsi
->   * fix for audss clk driver:
->     * remove "comment "Clock options for Cixtech audss:""
->     * add select MFD_SYSCON
->     * move lock and clk_data into struct sky1_audss_clks_priv
->     * const char *name -> const char * const * name
->     * remove CLK_GET_RATE_NOCACHE
->     * divicer -> divider
->     * Reverse Christmas tree order
->     * return reg ? 1 : 0; -> return !!reg;
->     * return ERR_CAST(hw); -> return hw;
->     * of_device_get_match_data(dev) -> device_get_match_data()
->     * add lock from runtime_suspend/resume
->   * loop to more mailing lists
->=20
-> Joakim Zhang (5):
->   dt-bindings: soc: cix,sky1-system-control: add audss system control
->   reset: cix: add audss support to sky1 reset driver
->   dt-bindings: clock: cix,sky1-audss-clock: add audss clock controller
->   clk: cix: add sky1 audss clock controller
->   arm64: dts: cix: sky1: add audss system control
->=20
->  .../bindings/clock/cix,sky1-audss-clock.yaml  |   72 +
->  .../soc/cix/cix,sky1-system-control.yaml      |   48 +
->  arch/arm64/boot/dts/cix/sky1.dtsi             |   24 +
->  drivers/clk/Kconfig                           |    1 +
->  drivers/clk/Makefile                          |    1 +
->  drivers/clk/cix/Kconfig                       |   16 +
->  drivers/clk/cix/Makefile                      |    3 +
->  drivers/clk/cix/clk-sky1-audss.c              | 1167 +++++++++++++++++
->  drivers/reset/reset-sky1.c                    |   86 +-
->  .../dt-bindings/clock/cix,sky1-audss-clock.h  |   60 +
->  .../reset/cix,sky1-audss-system-control.h     |   25 +
->  11 files changed, 1500 insertions(+), 3 deletions(-)  create mode 100644
-> Documentation/devicetree/bindings/clock/cix,sky1-audss-clock.yaml
->  create mode 100644 drivers/clk/cix/Kconfig  create mode 100644
-> drivers/clk/cix/Makefile  create mode 100644 drivers/clk/cix/clk-sky1-aud=
-ss.c
-> create mode 100644 include/dt-bindings/clock/cix,sky1-audss-clock.h
->  create mode 100644 include/dt-bindings/reset/cix,sky1-audss-system-contr=
-ol.h
->=20
-> --
-> 2.50.1
+> Can you outline the duplication you're concerned about? I think it's a
+> matter of resolving the SCU syscon to its regmap, then performing the
+> necessary accesses?
+
+Both drivers will need to set :
+- Enable PCI BMC Device MMIO
+- Enable PCI BMC Device IRQ
+- Enable PCI BMC Device MSI rooting over PCI Device 1 (BAR1)
+- Enable Host 2 BMC MSI interrupts
+- PCI device class to 0xff000000 to be identified as a MFD device. The
+reset default is 0x0C070100 which is an IPMI KCS device, but that
+causes issues as it is detected by ipmi_si but can't be loaded because
+of non default KCS address.
+
+Sorry for my errors, there is not that much. But both drivers will do
+almost the same initialisation. That was my code duplication concern.
+
+> I think it's not as bad as you make it out to be. The SCU's regmap
+> protects updates to individual registers under a lock, so concurrent
+> modification isn't a concern. The hardware design choices make all of
+> this slightly awkward for any related software design. As an
+> alternative you could implement a mini subsystem that relevant drivers
+> could call through to set the bits, but I currently think that's
+> unnecessary work.
+
+You are right it's not as bad as I thought.
+For now, I will focus on the VUART until the solution has been
+validated. Then I will easily do the same for the KCS over PCI.
+
+So I'll do for the V3 of the BMC side driver:
+- modify the device tree binding to have 'aspeed,ast2600-vuart' and
+add the 'aspeed,vuart-over-pci' boolean flag, only for the ast2600.
+- modify the '8250_aspeed_vuart' driver to add 'aspeed,ast2600-vuart' suppo=
+rt.
+- add vuart over pci enable and disable code to the '8250_aspeed_vuart' dri=
+ver.
+
+Regards,
+Gr=C3=A9goire
 
