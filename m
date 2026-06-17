@@ -4,97 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 538C0CD98EE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 08:38:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D553CD98EE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 08:44:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QxQkYPDeG9/K/PqOacJLwmZ2WmaJbUWGTbBP5HUZIyU=; b=Hl/QHHfC4tC2J7nKLr4zHnKEGR
-	KJWOkkaxEM8/Mda8rAALpaoa4LB/ILChO1qvbWx/hyoGO8fbl2Yiu+1eTjecfQ9f1Zwj2hIYQfPNe
-	ROfjJdX8Hxp/Kx8Emb2b6+lmFiDog9iu6rItS8bOc3dy7bv/dJIgS3JW3IiOK7BzSWX9CezxcoTRl
-	fl0quOmIX8FDxvAa6vYts0CqCE90fSKSeroPp40HX2lyEfjFUc2nhcqthgGIsfVtpBkjEB7gT4Hd9
-	k85PdjtqdvRWqy+mmUzxDwOy2rHIeThSKgLb185oEL8sykZ1Par8qsMQXKh4OQQd0+dq++aihFJxg
-	scempC2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Cc:Subject:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q+cUJZOydKXdWDpZXEceW0s0RozWR5kA7NjUSuPBp1M=; b=TGENID8NLU+BU8sUuKm5GGCAHy
+	sHYmCvmRBaDgu9MF/0w0ymKYgs79ANrC3jZosusYkTZ52zGz0uAJ+g6J4PMphT8PPRqHnRzAg0z7k
+	rv1MrS2bobuPI6ya98R1ev7qEOJtUDbHXnqzELT8h5OUM8vm3PVz0OCBnOOR8eSWBHlusWo6rN4sc
+	CJEXUE44RUoUuf8b7ph2+PFFm7X8Vm67vNIG3xE3vkBKn7dXK7AUHRvx+ATqQuz9tygme5P3Vo4BF
+	v0yCU9IPonrmpJ2yJogrw+mnTiGaV5wCjuawKX+fHi1GDBu3IiSuoKKvnU3jQzR70/QfOGlxc6d2Q
+	GezH5BPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZlnM-0000000Gtb0-2KzB;
-	Wed, 17 Jun 2026 08:38:48 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1wZltD-0000000Gu13-1N2v;
+	Wed, 17 Jun 2026 08:44:51 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZlnK-0000000Gta7-1M03
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 08:38:47 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-4602e2a0372so4291603f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 01:38:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1781685524; x=1782290324; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=QxQkYPDeG9/K/PqOacJLwmZ2WmaJbUWGTbBP5HUZIyU=;
-        b=DqQkE/zWvsB3ckBoIepedfckBzhkBU2iXSN/R5yB+YL7cDjRUa+uCyyqWxcq+PIR3C
-         tHyHnI/WdeGxyGJEs9GsqcVqsSRBJ/9cIY1+61DrfrPAhTtSeaEdCuW1u4jxr5ZQizE3
-         kf1kK+3j8EgohsLNLQIL6nk/cYwlY2JWS6gbj/IZ1vYRf2QxBdffhv6PeEN3wUEV5Aw4
-         Bp30C7qb0IlMnDhecXkEqbOHG0OhOEXgWuWJFs4V0inOGt/qM63M2yZPOuX16S8qpVx7
-         29dT5FKbHjsy0EvCLLf2cgAST35U5xH7iVtQpgiiVqeZTU+QMzPqZm3rBnFJJUHx6BdF
-         RhXQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781685524; x=1782290324;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=QxQkYPDeG9/K/PqOacJLwmZ2WmaJbUWGTbBP5HUZIyU=;
-        b=kjEnmJ8w2CDmK5Wx6+UTB+PcEyzIhKFQEs43F+SNy8AT+K0GEwSVtgc8wKg0npmQgf
-         iSJPMO65GbhVVUsm1tDNP9Wrnqo2STzizXbXFCcg+m/4cIsz3jgKfhVY70bzZFzZ85st
-         q+0pVze3Qcl7zZ6FKvEZcivXxb0dljXomxlTOSmI5JFd23zZAQUZgxewf9mJEXvIPhvg
-         SDjPjGkPYpvr60E+gQ3mX8WZd0hlA7K3YAulTD0Gk4VeRfOh9FPN6RxAluiRi3i9zh37
-         wCdYPZkqGL7ZsW1JiczAKL7zsiUrCucJjQBk6QIpJLSudOpRzl0ZzqbW9wxGERf0X+FI
-         S5Ow==
-X-Gm-Message-State: AOJu0YybuzcHRhteR8QmppWwwkQDmCgy2UKnzlqHzjgzwbUBM40QsuBf
-	HNgsBm3acnuLse3b8k/M9chVZJOz2Ez6YsKhHSBLvRWbymffk0j7wOZnR52opugWTSs=
-X-Gm-Gg: AfdE7ckUESYSAm++nX6tz/bkUw97t9mabVP5wO2U0v7iboRfKw/rJa7bUS0AbMbSpZH
-	IDc0rlJlFkxoMUv9KeXjDziiFhYO17WM/X0NnvFbpx6vvaG4ahxMg6tW8PcKd+fq7qnZnFgZ6ZQ
-	z9n9vjqkFWNiGcRkai7yQZPHCuUokxqVe4rsuowjx42rrUPY1Ad1thhQX9p/kkqbEWFSroRqZla
-	eMhC17b+UuqZZS6vSirbUDarAHoWAbh0wGFxQDbXxvtpJ68LYFjfVCRYKbmpNKHaFbU8uD2kA0E
-	Qwq2e5VZMdyzLhg6ZHnha/EsAddTidMiTCICvkFyWWMf+Ime8FHXlxOGr1JruaLZZaBkDUvgCsH
-	Fb8mL0+j5exBHG3S4QzWuMz+hPrZl0YgFu+I4JrvELeZF6L90pKHLuSpn1TOVeFHVQIL3ismUCo
-	iLr3XkII811GLMdaAk8A==
-X-Received: by 2002:a05:6000:4602:b0:460:70d1:c75 with SMTP id ffacd0b85a97d-4623f3e0a31mr4263904f8f.13.1781685523826;
-        Wed, 17 Jun 2026 01:38:43 -0700 (PDT)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-462236047c8sm7311876f8f.10.2026.06.17.01.38.42
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 17 Jun 2026 01:38:43 -0700 (PDT)
-Message-ID: <00183ce3-e387-4ca3-9eb8-67aa6a1221e5@linaro.org>
-Date: Wed, 17 Jun 2026 09:38:42 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 9/9] perf test: Add Arm CoreSight callchain test
-To: Leo Yan <leo.yan@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org,
- linux-perf-users@vger.kernel.org, Arnaldo Carvalho de Melo
- <acme@kernel.org>, John Garry <john.g.garry@oracle.com>,
- Will Deacon <will@kernel.org>, Mike Leach <mike.leach@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Namhyung Kim
- <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>, Al Grant <al.grant@arm.com>,
- Paschalis Mpeis <paschalis.mpeis@arm.com>, Amir Ayupov <aaupov@fb.com>
-References: <20260616-b4-arm_cs_callchain_support_v1-v9-0-f8fad931c413@arm.com>
- <20260616-b4-arm_cs_callchain_support_v1-v9-9-f8fad931c413@arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20260616-b4-arm_cs_callchain_support_v1-v9-9-f8fad931c413@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260617_013846_450970_3963D45D 
-X-CRM114-Status: GOOD (  32.77  )
+	id 1wZltB-0000000Gu0s-2DX8;
+	Wed, 17 Jun 2026 08:44:49 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with UTF8SMTP id E79924038C;
+	Wed, 17 Jun 2026 08:44:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 4CC831F0155C;
+	Wed, 17 Jun 2026 08:44:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781685888;
+	bh=q+cUJZOydKXdWDpZXEceW0s0RozWR5kA7NjUSuPBp1M=;
+	h=Date:Subject:Cc:From:To:References:In-Reply-To;
+	b=fJqsmqL5tZ/r2VH0IDbyLmtJ/fMTxFUKdxTuwnVob95x+LB24GU7YsTTyi0kN1dQF
+	 HKvf3Emei2d/BcrOnOP1KutEq1B6Ic8FXQLLNstMBnQ+vCB8arEO2UAMlNqolz/yZz
+	 O1kzRxFmtv4oway1kQfPzAixZQxuVvW5lPcAxfoVBRkLr7dAcJk5KhyqqGFNwKnQ5x
+	 M2TjnNUC1yfK5Xx+cZjrGR6UTDHD3Mf/1vySIaaSQ45uQIs/+wxJeaNRDB5oCGkTYW
+	 TdWIw29fD8sraD3l/V4vuCaOUGHPF7BaCUrbPm+XkwJkxx1+9hAO8VomFrq08nyW0R
+	 eo3cPgfwBLH5g==
+Mime-Version: 1.0
+Content-Type: multipart/signed;
+ boundary=ae7d6270ac9333222e92442123309da8a5c3fc1e7564e8b96e096513da81;
+ micalg=pgp-sha384; protocol="application/pgp-signature"
+Date: Wed, 17 Jun 2026 10:44:44 +0200
+Message-Id: <DJB6XO07EC8Q.1X9P752MLFB4N@kernel.org>
+Subject: Re: [PATCH v3 2/7] gpio: regmap: add gpio_regmap_get_gpiochip()
+ accessor
+Cc: "linusw@kernel.org" <linusw@kernel.org>, "robh@kernel.org"
+ <robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>, "afaerber@suse.com"
+ <afaerber@suse.com>, "wbg@kernel.org" <wbg@kernel.org>,
+ "mathieu.dubois-briand@bootlin.com" <mathieu.dubois-briand@bootlin.com>,
+ "lars@metafoo.de" <lars@metafoo.de>, "Michael.Hennerich@analog.com"
+ <Michael.Hennerich@analog.com>, "jic23@kernel.org" <jic23@kernel.org>,
+ "nuno.sa@analog.com" <nuno.sa@analog.com>, "andy@kernel.org"
+ <andy@kernel.org>, "dlechner@baylibre.com" <dlechner@baylibre.com>,
+ =?utf-8?b?VFlfQ2hhbmdb5by15a2Q6YC4XQ==?= <tychang@realtek.com>,
+ "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-realtek-soc@lists.infradead.org"
+ <linux-realtek-soc@lists.infradead.org>, "linux-iio@vger.kernel.org"
+ <linux-iio@vger.kernel.org>, =?utf-8?b?Q1lfSHVhbmdb6buD6Ymm5pmPXQ==?=
+ <cy.huang@realtek.com>, =?utf-8?b?U3RhbmxleSBDaGFuZ1vmmIzogrLlvrdd?=
+ <stanley_chang@realtek.com>, =?utf-8?b?SmFtZXMgVGFpIFvmiLTlv5fls7Bd?=
+ <james.tai@realtek.com>
+From: "Michael Walle" <mwalle@kernel.org>
+To: =?utf-8?b?WXUtQ2h1biBMaW4gW+ael+elkOWQm10=?= <eleanor.lin@realtek.com>,
+ "Bartosz Golaszewski" <brgl@kernel.org>, "Andy Shevchenko"
+ <andriy.shevchenko@intel.com>
+X-Mailer: aerc 0.20.0
+References: <20260512033317.1602537-1-eleanor.lin@realtek.com>
+ <20260512033317.1602537-3-eleanor.lin@realtek.com>
+ <agMM9soiqpG-TRSb@ashevche-desk.local>
+ <adff3a2d21a64d3ea3b408d62157ee1e@realtek.com>
+ <ah92oEavMu4QRn8y@ashevche-desk.local>
+ <CAMRc=MdA24z-tB_D8CTw68Di8e4OVQJ1QH4+rDskFzq=xjJ5BQ@mail.gmail.com>
+ <DJ3QVMZ6XLW9.1M9W541O92QWJ@kernel.org>
+ <39de4d4ada5446e7a33e48c43f410439@realtek.com>
+In-Reply-To: <39de4d4ada5446e7a33e48c43f410439@realtek.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,335 +98,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+--ae7d6270ac9333222e92442123309da8a5c3fc1e7564e8b96e096513da81
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
+Hi,
 
-On 16/06/2026 3:51 pm, Leo Yan wrote:
-> Add a CoreSight shell test for synthesized callchains.
-> 
-> The test uses the new callchain workload to generate trace and decodes
-> it with synthesis callchain. It then verifies that the instruction
-> samples show the expected callchain push and pop.
-> 
-> Use control FIFOs so tracing starts only around the workload, which
-> keeps the trace data small. The test is limited to with the cs_etm
-> event available and root permission.
-> 
-> After:
-> 
->    perf test 138 -vvv
->    138: CoreSight synthesized callchain:
->    ---- start ----
->    test child forked, pid 35581
->    Callchain flow matched:
->      l1=4642868 l2=4642880 l3=4642895 l4=4642919 l5=4670494 l6=4670500 l7=4670520
->    ---- end(0) ----
->    138: CoreSight synthesized callchain                                                                           : Ok
-> 
-> Assisted-by: Codex:GPT-5.5
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-> ---
->   tools/perf/Documentation/perf-test.txt        |   6 +-
->   tools/perf/tests/builtin-test.c               |   1 +
->   tools/perf/tests/shell/coresight/callchain.sh | 172 ++++++++++++++++++++++++++
->   tools/perf/tests/tests.h                      |   1 +
->   tools/perf/tests/workloads/Build              |   2 +
->   tools/perf/tests/workloads/callchain.c        |  33 +++++
->   6 files changed, 213 insertions(+), 2 deletions(-)
-> 
-> diff --git a/tools/perf/Documentation/perf-test.txt b/tools/perf/Documentation/perf-test.txt
-> index 81c8525f594680d814f80e6f88bcce8d867bb350..859df74e62efc4b1e80da13ae8e053356f68ae54 100644
-> --- a/tools/perf/Documentation/perf-test.txt
-> +++ b/tools/perf/Documentation/perf-test.txt
-> @@ -57,7 +57,8 @@ OPTIONS
->   --workload=::
->   	Run a built-in workload, to list them use '--list-workloads', current
->   	ones include: noploop, thloop, leafloop, sqrtloop, brstack, datasym,
-> -	context_switch_loop, deterministic, named_threads and landlock.
-> +	context_switch_loop, deterministic, named_threads, landlock and
-> +	callchain.
->   
->   	Used with the shell script regression tests.
->   
-> @@ -69,7 +70,8 @@ OPTIONS
->   	'named_threads' accepts the number of threads and the number of loops to
->   	do in each thread.
->   
-> -	The datasym, landlock and deterministic workloads don't accept any.
-> +	The datasym, landlock, deterministic and callchain workloads don't accept
-> +	any.
->   
->   --list-workloads::
->   	List the available workloads to use with -w/--workload.
-> diff --git a/tools/perf/tests/builtin-test.c b/tools/perf/tests/builtin-test.c
-> index 7e75f590f225e3284980829707ca8d916c98cada..1d1f38127e05429a27f31beda814f2b5f5a75089 100644
-> --- a/tools/perf/tests/builtin-test.c
-> +++ b/tools/perf/tests/builtin-test.c
-> @@ -168,6 +168,7 @@ static struct test_workload *workloads[] = {
->   	&workload__jitdump,
->   	&workload__context_switch_loop,
->   	&workload__deterministic,
-> +	&workload__callchain,
->   
->   #ifdef HAVE_RUST_SUPPORT
->   	&workload__code_with_type,
-> diff --git a/tools/perf/tests/shell/coresight/callchain.sh b/tools/perf/tests/shell/coresight/callchain.sh
-> new file mode 100755
-> index 0000000000000000000000000000000000000000..13cca7dc11184002e3ddc058c0d0ffa1c458c483
-> --- /dev/null
-> +++ b/tools/perf/tests/shell/coresight/callchain.sh
-> @@ -0,0 +1,172 @@
-> +#!/bin/bash
-> +# CoreSight synthesized callchain (exclusive)
-> +# SPDX-License-Identifier: GPL-2.0
-> +
-> +glb_err=1
-> +
-> +if ! tmpdir=$(mktemp -d /tmp/perf-cs-callchain-test.XXXXXX); then
-> +	echo "mktemp failed"
-> +	exit 1
-> +fi
-> +
-> +cleanup_files()
-> +{
-> +	rm -rf "$tmpdir"
-> +}
-> +
-> +trap cleanup_files EXIT
-> +trap 'cleanup_files; exit $glb_err' TERM INT
-> +
-> +skip_if_system_is_not_ready()
-> +{
-> +	perf list | grep -Pzq 'cs_etm//' || {
-> +		echo "[Skip] cs_etm event is not available" >&2
-> +		return 2
-> +	}
-> +
-> +	# Requires root for trace in kernel
-> +	[ "$(id -u)" = 0 ] || {
-> +		echo "[Skip] No root permission" >&2
-> +		return 2
-> +	}
-> +
-> +	return 0
-> +}
-> +
-> +record_trace()
-> +{
-> +	local data=$1
-> +	local script=$2
-> +
-> +	local cf="$tmpdir/ctl"
-> +	local af="$tmpdir/ack"
-> +
-> +	mkfifo "$cf" "$af"
-> +
-> +	perf record -o "$data" -e cs_etm// --per-thread -D -1 --control fifo:"$cf","$af" -- \
-> +		perf test --record-ctl fifo:"$cf","$af" -w callchain >/dev/null 2>&1 &&
-> +
-> +	# It is safe to use 'i3i' with a three-instruction interval, since the
-> +	# workload is compiled with -O0.
-> +	perf script --itrace=g16i3il64 -i "$data" > "$script"
-> +}
-> +
-> +callchain_regex_1()
-> +{
-> +	printf '%s' \
-> +'perf[[:space:]]+[0-9]+[[:space:]]+\[[0-9]+\][[:space:]]+([0-9.]+:[[:space:]]+)?[0-9]+ instructions:[[:space:]]*\n'\
-> +'[[:space:]]+[[:xdigit:]]+ callchain_foo\+0x[[:xdigit:]]+ \(.*/perf\)\n'\
-> +'[[:space:]]+[[:xdigit:]]+ callchain\+0x[[:xdigit:]]+ \(.*/perf\)\n'\
-> +'([[:space:]]+[[:xdigit:]]+ .*\n)*'
-> +}
-> +
-> +callchain_regex_2()
-> +{
-> +	printf '%s' \
-> +'perf[[:space:]]+[0-9]+[[:space:]]+\[[0-9]+\][[:space:]]+([0-9.]+:[[:space:]]+)?[0-9]+ instructions:[[:space:]]*\n'\
-> +'[[:space:]]+[[:xdigit:]]+ callchain_do_syscall\+0x[[:xdigit:]]+ \(.*/perf\)\n'\
-> +'[[:space:]]+[[:xdigit:]]+ callchain_foo\+0x[[:xdigit:]]+ \(.*/perf\)\n'\
-> +'[[:space:]]+[[:xdigit:]]+ callchain\+0x[[:xdigit:]]+ \(.*/perf\)\n'\
-> +'([[:space:]]+[[:xdigit:]]+ .*\n)*'
-> +}
-> +
-> +callchain_regex_3()
-> +{
-> +	printf '%s' \
-> +'perf[[:space:]]+[0-9]+[[:space:]]+\[[0-9]+\][[:space:]]+([0-9.]+:[[:space:]]+)?[0-9]+ instructions:[[:space:]]*\n'\
-> +'[[:space:]]+[[:xdigit:]]+ syscall(@plt)?\+0x[[:xdigit:]]+ \(.*\)\n'\
-> +'[[:space:]]+[[:xdigit:]]+ callchain_do_syscall\+0x[[:xdigit:]]+ \(.*/perf\)\n'\
-> +'[[:space:]]+[[:xdigit:]]+ callchain_foo\+0x[[:xdigit:]]+ \(.*/perf\)\n'\
-> +'[[:space:]]+[[:xdigit:]]+ callchain\+0x[[:xdigit:]]+ \(.*/perf\)\n'\
-> +'([[:space:]]+[[:xdigit:]]+ .*\n)*'
-> +}
-> +
-> +callchain_regex_4()
-> +{
-> +	printf '%s' \
-> +'perf[[:space:]]+[0-9]+[[:space:]]+\[[0-9]+\][[:space:]]+([0-9.]+:[[:space:]]+)?[0-9]+ instructions:[[:space:]]*\n'\
-> +'[[:space:]]+[[:xdigit:]]+ .*\+0x[[:xdigit:]]+ \(\[kernel\.kallsyms\]\)\n'\
-> +'[[:space:]]+[[:xdigit:]]+ syscall(@plt)?\+0x[[:xdigit:]]+ \(.*\)\n'\
-> +'[[:space:]]+[[:xdigit:]]+ callchain_do_syscall\+0x[[:xdigit:]]+ \(.*/perf\)\n'\
-> +'[[:space:]]+[[:xdigit:]]+ callchain_foo\+0x[[:xdigit:]]+ \(.*/perf\)\n'\
-> +'[[:space:]]+[[:xdigit:]]+ callchain\+0x[[:xdigit:]]+ \(.*/perf\)\n'\
-> +'([[:space:]]+[[:xdigit:]]+ .*\n)*'
-> +}
-> +
-> +find_after_line()
-> +{
-> +	local regex="$1"
-> +	local file="$2"
-> +	local start="$3"
-> +	local offset
-> +	local line
-> +
-> +	# Search in byte offset
-> +	offset=$(
-> +		tail -n +"$start" "$file" |
-> +		grep -Pzob -m1 "$regex" |
-> +		tr '\0' '\n' |
-> +		sed -n 's/^\([0-9][0-9]*\):.*/\1/p;q'
-> +	)
-> +
-> +	if [ -z "$offset" ]; then
-> +		echo "Failed to match regex after line $start" >&2
-> +		echo "Regex:" >&2
-> +		printf '%s\n' "$regex" >&2
-> +		echo "Context from line $start:" >&2
-> +		sed -n "${start},$((start + 100))p" "$file" >&2
-> +		return 1
-> +	fi
-> +
-> +	# Convert from offset to line
-> +	line=$(
-> +		tail -n +"$start" "$file" |
-> +		head -c "$offset" |
-> +		wc -l
-> +	)
-> +
-> +	echo "$((start + line))"
-> +}
-> +
-> +check_callchain_flow()
-> +{
-> +	local file="$1"
-> +	local l1 l2 l3 l4 l5 l6 l7
-> +
-> +	# Callchain push
-> +	l1=$(find_after_line "$(callchain_regex_1)" "$file" 1) || return 1
-> +	l2=$(find_after_line "$(callchain_regex_2)" "$file" "$((l1 + 1))") || return 1
-> +	l3=$(find_after_line "$(callchain_regex_3)" "$file" "$((l2 + 1))") || return 1
-> +	l4=$(find_after_line "$(callchain_regex_4)" "$file" "$((l3 + 1))") || return 1
-> +
-> +	# Callchain pop
-> +	l5=$(find_after_line "$(callchain_regex_3)" "$file" "$((l4 + 1))") || return 1
-> +	l6=$(find_after_line "$(callchain_regex_2)" "$file" "$((l5 + 1))") || return 1
-> +	l7=$(find_after_line "$(callchain_regex_1)" "$file" "$((l6 + 1))") || return 1
-> +
-> +	echo "Callchain flow matched:"
-> +	echo "  l1=$l1 l2=$l2 l3=$l3 l4=$l4 l5=$l5 l6=$l6 l7=$l7"
-> +
-> +	return 0
-> +}
-> +
-> +run_test()
-> +{
-> +	local data=$tmpdir/perf.data
-> +	local script=$tmpdir/perf.script
-> +
-> +	if ! record_trace "$data" "$script"; then
-> +		echo "perf record/script failed"
-> +		return
-> +	fi
-> +
-> +	check_callchain_flow "$script" || return
-> +
-> +	glb_err=0
-> +}
-> +
-> +skip_if_system_is_not_ready || exit 2
-> +
-> +run_test
-> +
-> +exit $glb_err
-> diff --git a/tools/perf/tests/tests.h b/tools/perf/tests/tests.h
-> index 7cedf05be544ad79a99e86d30dfa4f7b01ca0837..cee9e6b62dcc838c864bbe76efe3b638ed75b134 100644
-> --- a/tools/perf/tests/tests.h
-> +++ b/tools/perf/tests/tests.h
-> @@ -248,6 +248,7 @@ DECLARE_WORKLOAD(inlineloop);
->   DECLARE_WORKLOAD(jitdump);
->   DECLARE_WORKLOAD(context_switch_loop);
->   DECLARE_WORKLOAD(deterministic);
-> +DECLARE_WORKLOAD(callchain);
->   
->   #ifdef HAVE_RUST_SUPPORT
->   DECLARE_WORKLOAD(code_with_type);
-> diff --git a/tools/perf/tests/workloads/Build b/tools/perf/tests/workloads/Build
-> index 7bb4b9829ba245740c8967e6bf3235614cdd55a3..048e371eb63e316453b6b46ebd0a02794c3d25d7 100644
-> --- a/tools/perf/tests/workloads/Build
-> +++ b/tools/perf/tests/workloads/Build
-> @@ -13,6 +13,7 @@ perf-test-y += inlineloop.o
->   perf-test-y += jitdump.o
->   perf-test-y += context_switch_loop.o
->   perf-test-y += deterministic.o
-> +perf-test-y += callchain.o
->   
->   ifeq ($(CONFIG_RUST_SUPPORT),y)
->       perf-test-y += code_with_type.o
-> @@ -27,3 +28,4 @@ CFLAGS_traploop.o         = -g -O0 -fno-inline -U_FORTIFY_SOURCE
->   CFLAGS_inlineloop.o       = -g -O2
->   CFLAGS_deterministic.o    = -g -O0 -fno-inline -U_FORTIFY_SOURCE
->   CFLAGS_named_threads.o    = -g -O0 -fno-inline -U_FORTIFY_SOURCE
-> +CFLAGS_callchain.o        = -g -O0 -fno-inline -U_FORTIFY_SOURCE
-> diff --git a/tools/perf/tests/workloads/callchain.c b/tools/perf/tests/workloads/callchain.c
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..3951423d8115e9efb49af8ba2586001fc6f02761
-> --- /dev/null
-> +++ b/tools/perf/tests/workloads/callchain.c
-> @@ -0,0 +1,33 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +#include <linux/compiler.h>
-> +#include <sys/syscall.h>
-> +#include <unistd.h>
-> +#include "../tests.h"
-> +
-> +/*
-> + * Mark as noinline to establish the call chain, and avoid the static
-> + * annotation to prevent LTO from renaming the functions.
-> + */
-> +noinline void callchain_do_syscall(void);
-> +noinline void callchain_foo(void);
-> +noinline int callchain(int argc, const char **argv);
-> +
-> +noinline void callchain_do_syscall(void)
-> +{
-> +	syscall(SYS_getpid);
+On Wed Jun 17, 2026 at 10:36 AM CEST, Yu-Chun Lin [=E6=9E=97=E7=A5=90=E5=90=
+=9B] wrote:
+>>>>> Without an accessor like gpio_regmap_get_gpiochip(), we cannot=20
+>>>>> retrieve the gpio_chip instantiated inside gpio-regmap.c to fulfill=
+=20
+>>>>> these requirements in our
+>>>>> map() function.
+>>
+>> Why is gpiochip_irq_reqres() called in the first place? Isn't that only
+>> called if the irq handling is set up via gc->irq.chip and not via=20
+>> gpiochip_irqchip_add_domain() like in gpio-regmap?
+>>
+>
+> The panic was caused by my driver including 'GPIOCHIP_IRQ_RESOURCE_HELPER=
+S',
+> which forced the call to 'gpiochip_irq_reqres()' and crashed.
 
-I get this error when compiling for x86, but it works on Arm:
+But why did you use it if your irq domain isn't managed by the
+gpiolib, but rather your own irq domain? Before going with option #3
+I'd double check if that is correct in your driver.
 
-tests/workloads/callchain.c:17:10: error: use of undeclared identifier 
-'SYS_getpid'; did you mean '__getpgid'?
-         syscall(SYS_getpid);
-                 ^~~~~~~~~~
-                 __getpgid
-/usr/include/unistd.h:659:16: note: '__getpgid' declared here
-extern __pid_t __getpgid (__pid_t __pid) __THROW;
+-michael
 
+--ae7d6270ac9333222e92442123309da8a5c3fc1e7564e8b96e096513da81
+Content-Type: application/pgp-signature; name="signature.asc"
 
-> +}
-> +
-> +noinline void callchain_foo(void)
-> +{
-> +	callchain_do_syscall();
-> +}
-> +
-> +noinline int callchain(int argc __maybe_unused,
-> +		       const char **argv __maybe_unused)
-> +{
-> +	callchain_foo();
-> +
-> +	return 0;
-> +}
-> +
-> +DEFINE_WORKLOAD(callchain);
-> 
+-----BEGIN PGP SIGNATURE-----
 
+iKgEABMJADAWIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCajJefRIcbXdhbGxlQGtl
+cm5lbC5vcmcACgkQEic87j4CH/hggAGA48SYycuQ31SATiLygkbvb0W1zefVePET
+gk6JbWW8iIuoG0dOdIPsod0/pPg692m9AYDoGRmD/J1tvhi2B28P6PCSOkTa7yRs
+HmpBeIQ/pXUXteE59FADrOs+i7f7s0N8AxU=
+=kuX1
+-----END PGP SIGNATURE-----
+
+--ae7d6270ac9333222e92442123309da8a5c3fc1e7564e8b96e096513da81--
 
