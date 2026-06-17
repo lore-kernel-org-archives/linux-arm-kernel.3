@@ -4,89 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41714CD98F0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 12:44:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C642CD98F0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 12:49:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qtZpg6+SNfqVKkCzu8nevfRevHrYlcFg9kiIrAq1Sj4=; b=FzjRa+LNxZnRwrOgZSqk7pKR9B
-	0FYR91QD0E0/w4sqgOKgfPCwU6wmEbEQRKqJDmpATvvKdLosP2HS1qHDLvsss91r3QNiBXrb6WY4O
-	kxH319OsuD0dyqcxEzQmnsu9zr7B6hzWCPBAI1cE/im+A3Ii7kl19iR42TEhVByMbtcnncBqxLQi+
-	UgxJvy0skZ4RsqOOO9fjNY/4gPZ98+1xGwWiiS5QW2JbSDWp6J9+d/JTE+n5tCZnG8p6Xhuj+bHaf
-	mxYXd7I9TXsEMhTsDK3GUTiDX2JyCORVtMBDONWRCNODdaqy3k7QPhhr3IAPW+t7Yx/YTnwHlUsHi
-	yGJHCHIA==;
+	bh=IMIppte+gBwuC5XbBRIXlUQ0aozwvo/6xvW4VF9LfrQ=; b=UjL6eEuIW1J97eP0I9NiLV09qZ
+	xx406OVcrvhn5ZfJA5RebuyPDwR3WtWXoMAq5H5nlEroQx5kRXmf7qU+vG78QFGGDqW0xoSx5uUbw
+	cBCY3/8EBafng6Q6WYt5g9qATBJ7MQFcN9QgTNWzdfRphcTn02QqwBnKUOPl+zXxuiV6bQt1fVawY
+	vb7oigvZPoIcZdJIzjzlqMt3Um/tqMy4pMs9VY5OXUQqAzNFerrJZwfskOFOfYaYgaXhYSaWt1ISG
+	lahzBezaI1WcEOkYTZrVc1ooDSYcUHPNlAPkez3GGrhPy3dBmBSyTInJ3sOmqX3sY9HvW1d9HcaA3
+	BN+shzeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZpdD-0000000HMUl-38l0;
-	Wed, 17 Jun 2026 12:44:35 +0000
-Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
+	id 1wZphQ-0000000HMtC-2b5k;
+	Wed, 17 Jun 2026 12:48:56 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZpdA-0000000HMTx-34qv
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 12:44:33 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-36babe2c4bdso3514029a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 05:44:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781700272; x=1782305072; darn=lists.infradead.org;
-        h=mime-version:content-transfer-encoding:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qtZpg6+SNfqVKkCzu8nevfRevHrYlcFg9kiIrAq1Sj4=;
-        b=B0KVcj+nxG1LqVn8mJCEy56RSkjEKL8nHiHsom51Svo7zpucaZRrhBSa6jMuG3UtUX
-         Q/a32y8v7Ti4fZFiDVtqf6Zxrb6B1vmaEaeautmZIUSYEfX6sWdRNqEAi2YyOabbgcrU
-         qocwampiHZHTG//8HAcX1etvUj1zSe4+c+mxCXTLJ5LQLinIoCzEltA1uu3gSzolcb6H
-         yB0udEZME2JBJ52b8wQ4WEgfeVy0i8DoeY5AqRg5MFiSPcxxiWYTvsZNpFlNAUDZNvtv
-         TUBvI2RSz1wzlyQ+k+F6xGgdms7NNuVkEWNPNOx66pGM1FIjg3g8ou893XnAmWp7XRAs
-         tQgQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781700272; x=1782305072;
-        h=mime-version:content-transfer-encoding:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=qtZpg6+SNfqVKkCzu8nevfRevHrYlcFg9kiIrAq1Sj4=;
-        b=oXoRzXf+2RPuGIwAgPi6TIvw/Nl+/KV0jwEaD/YTcKb6QkStl7vUMlBNKJpj1ZWJJq
-         WOcd9KZMDxUYo52BynkADC8OVrXrrccAgfRckWns6NaeX5WNmwdQ5P4kZEujugKtjIhg
-         t/2LL5olkW+fERMxgEGLwYoLy2jtiwtqzma9MMcrlBO9FhQ3h1Q7jBmTbam8HCuLOtbX
-         wDZGQMRCkH9gQFjnFMZPHOd5aaZmI43AJ362oNuuJYK2Pimw9grTdLZkSNRnSKBz36KH
-         Bqj5JlHHenZG7FDhhdiaW4RJnx0BKcq4NDjlR3L87Mjf+e0elidqMBFqN0YLPL4PZfyh
-         05Jg==
-X-Forwarded-Encrypted: i=1; AFNElJ8WBHjtQRT4Q1fFHRfZP7bSSAmpIyq4P12zOiKEkCpdVBffGwOOWBQF2ltOypGxjA4OlCMka5il2TxgGuY85gJd@lists.infradead.org
-X-Gm-Message-State: AOJu0YzH+IpT0HwK7M4mDtHrQmsPqctZgILQS0QUtAuqCiWiQQ7hkDPc
-	XRz44OaS1WizXA7wuWgy1TdscFWolLxV1bpJ1lI4Gd9vm8ir5cHCEdZc
-X-Gm-Gg: AfdE7clohAWdmMpZKWheo2uSUMG+Xa/QK3BSojj6mifNetk5IPExSDmrmJBwB+hzlVr
-	e0DYbdkNa+KyvW5/cxNsJnfo9arzp1RqYoQbY7U1tp+IFLZ7FiwII0/sXD+V6SpG6DHI0uUla7n
-	ejwXDSRQG9eDYcPwSYW3qenHuR72zhlXG9iudBt7kmvgdi//gtKGoewkkffWsR1xrzFYPAKOgWM
-	XV3ZVIdV1b5Tr8n3JHDTLTN+RDYR2zPfePElNiv+pBr3io7kPo3ec04cRp4vfb6BmYkqa11KmWS
-	b5BMs70Z8rCcjrntx8QDy2GzDKxprVtEwMqD/FyQu8KTMiIGEPbi/zLsPYjj+w5pdEP9yIcKSNo
-	Wh5qZ4ihTQPEMVUo6prqpDTh8wQCVv9WF5/c479dyhO6JXEIcTL97t+w6v3wGPZ8ymi7jtesYtI
-	vHUtHxEVav
-X-Received: by 2002:a17:90a:7347:b0:36b:b4a1:2939 with SMTP id 98e67ed59e1d1-37c9366b4d2mr2876234a91.15.1781700271792;
-        Wed, 17 Jun 2026 05:44:31 -0700 (PDT)
-Received: from [127.0.1.1] ([58.240.122.156])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-37c521ae78csm5987071a91.4.2026.06.17.05.44.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 17 Jun 2026 05:44:31 -0700 (PDT)
-From: Wayen Yan <win847@gmail.com>
-To: netdev@vger.kernel.org
-Cc: lorenzo@kernel.org, horms@kernel.org, pabeni@redhat.com, kuba@kernel.org,
- edumazet@google.com, andrew+netdev@lunn.ch,
- angelogioacchino.delregno@collabora.com, matthias.bgg@gmail.com,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v2] [net] net: airoha: Clean up RX queues in airoha_dev_stop
-Date: Wed, 17 Jun 2026 20:44:26 +0800
-Message-ID: <178170026659.2238511.17652659042899875248@gmail.com>
-In-Reply-To: <178161160256.2165161.14322392784449633554@gmail.com>
+	id 1wZphP-0000000HMt0-22Et;
+	Wed, 17 Jun 2026 12:48:55 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 10E5840E50;
+	Wed, 17 Jun 2026 12:48:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A9831F000E9;
+	Wed, 17 Jun 2026 12:48:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781700534;
+	bh=IMIppte+gBwuC5XbBRIXlUQ0aozwvo/6xvW4VF9LfrQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=N+skJEbER87qujetlVk/j6Tkuyd1Vhrm3VXBA4mpK2P60nXN0b5oN1qOIIW6l7Wyj
+	 2ms5f0Emq1qAEDkoFKTGqjGgSEtOPjFRk7/XMQBuCoSq6Nvn4CIfyx9BEHS8kIaHzk
+	 aTjbGFxY9/L25JBs+T0SFQPMOKYOTOsaunEOmJQPHli7aEr6PlvgTDOQJ2VKMMSCdB
+	 q7CRFMHrvi2z+xZaTYC/7Dsa3rYsqlHPTf2v/6JhZoacfchH8uET0V1q8BeohY8UJO
+	 vs/F03aR3R1MwdkUoN5GqAtbKaI9jlrVPlelxSmRugQLTvpKc+PNOafKH1LhBkNzKp
+	 NHJ3OkNZj3iXw==
+Date: Wed, 17 Jun 2026 14:48:52 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Wayen Yan <win847@gmail.com>
+Cc: netdev@vger.kernel.org, horms@kernel.org, pabeni@redhat.com,
+	kuba@kernel.org, edumazet@google.com, andrew+netdev@lunn.ch,
+	angelogioacchino.delregno@collabora.com, matthias.bgg@gmail.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v2] [net] net: airoha: Clean up RX queues in
+ airoha_dev_stop
+Message-ID: <ajKXtDxPipRcA20X@lore-desk>
 References: <178161160256.2165161.14322392784449633554@gmail.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+ <178170026659.2238511.17652659042899875248@gmail.com>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260617_054432_793638_022B7C61 
-X-CRM114-Status: UNSURE (   8.10  )
-X-CRM114-Notice: Please train this message.
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="dwA6XgDlcLvaJ+Fq"
+Content-Disposition: inline
+In-Reply-To: <178170026659.2238511.17652659042899875248@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,16 +73,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-VGhhbmtzIFNpbW9uIGZvciBmb3J3YXJkaW5nIHRoZSBBSSByZXZpZXcuIEkndmUgcmV2aWV3ZWQg
-YWxsIHRocmVlCmNvbmNlcm5zOgoKIzEgKE5BUEkgcmFjZSkgYW5kICMyIChSWCByZWZpbGwpIGFy
-ZSB2YWxpZC4gIzIgaXMgdGhlIGRlY2lzaXZlCmlzc3VlOiBhaXJvaGFfZGV2X29wZW4oKSBoYXMg
-bm8gUlggcmluZyByZWZpbGwsIHNvIGRyYWluaW5nIHRoZQpxdWV1ZXMgaW4gc3RvcCB3b3VsZCBj
-YXVzZSBSWCBzdGFsbCBvbiBuZXh0IG9wZW4uIFRoaXMgYWxpZ25zIHdpdGgKTG9yZW56bydzIGVh
-cmxpZXIgZmVlZGJhY2sg4oCUIFJYIHF1ZXVlcyBkb24ndCBuZWVkIGNsZWFudXAgaW4KZGV2X3N0
-b3AoKS4gSSdsbCBkcm9wIHRoaXMgcGF0Y2guCgojMyAocS0+c2tiIGxlYWspIGlzIGEgcHJlLWV4
-aXN0aW5nIGlzc3VlLCBub3QgaW50cm9kdWNlZCBieSB0aGlzCnBhdGNoLiBJdCBleGlzdHMgZXZl
-biBpbiB0aGUgbW9kdWxlIHVubG9hZCBwYXRoCihhaXJvaGFfcWRtYV9jbGVhbnVwKCkpLiBATG9y
-ZW56byDigJQgZG8geW91IHRoaW5rIHRoaXMgd2FycmFudHMgYQpmaXg/IEEgb25lLWxpbmVyIGlu
-IGFpcm9oYV9xZG1hX2NsZWFudXBfcnhfcXVldWUoKSB3b3VsZCBjb3ZlciBib3RoCnBhdGhzLiBP
-ciBpcyB0aGlzIHRvbyB1bmxpa2VseSB0byBtYXR0ZXIgaW4gcHJhY3RpY2U/Cg==
+
+--dwA6XgDlcLvaJ+Fq
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+> Thanks Simon for forwarding the AI review. I've reviewed all three
+> concerns:
+>=20
+> #1 (NAPI race) and #2 (RX refill) are valid. #2 is the decisive
+> issue: airoha_dev_open() has no RX ring refill, so draining the
+> queues in stop would cause RX stall on next open. This aligns with
+> Lorenzo's earlier feedback =E2=80=94 RX queues don't need cleanup in
+> dev_stop(). I'll drop this patch.
+>=20
+> #3 (q->skb leak) is a pre-existing issue, not introduced by this
+> patch. It exists even in the module unload path
+> (airoha_qdma_cleanup()). @Lorenzo =E2=80=94 do you think this warrants a
+> fix? A one-liner in airoha_qdma_cleanup_rx_queue() would cover both
+> paths. Or is this too unlikely to matter in practice?
+
+Soon I will post a patch to run airoha_qdma_cleanup_tx_queue() just in
+airoha_hw_cleanup() so I think we should just drop this patch.
+
+Regards,
+Lorenzo
+
+--dwA6XgDlcLvaJ+Fq
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCajKXtAAKCRA6cBh0uS2t
+rKmiAQDehtR9VrdOdbmTSHIKJQn9uL7BkvVVXPg39gdOUoJbDgD/cL9I+HyY/qdR
+q4EY1FHiIibYx/ptSfwkEGZI8MtXrgg=
+=owDH
+-----END PGP SIGNATURE-----
+
+--dwA6XgDlcLvaJ+Fq--
 
