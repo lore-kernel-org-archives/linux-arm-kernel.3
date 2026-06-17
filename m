@@ -4,63 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1A1ACD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 15:55:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB753CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 16:02:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kuLjsOyt0s5N38trSvmQ1A2O6kbOr5UBIbKVqpy5InY=; b=0geMWLMlBIfNWggYIQtgbgcIKj
-	gmv+8z8Xe4I5mOFcX+o0j/yd/hC1Gp4fQhVs0Bj6XdL8sGNiuM31WqB6EJhVlUGRRzYc2J6eUKx1o
-	ig6PXA9rS5zfS0P5bUEozAU09zD9cQCYXWRJLZN4SkoMHlSOM2rjBPchhwHL1cw3PscTdreTw3i5u
-	pP8NE82KJyykWZMPUKiqr4adzpwmsyrZqAT7oAq58PF2NE+5WD/e0TcNwUl3jHtV6o9Elo4jtgw1A
-	nN9FgHJiXU8hsCzPlFQ/AnPcXUqEKuI9R7s0nzC88UwYbOxXfpfbH7BrQ77QKvFdvsBSrSHIUB6NF
-	UwJ9tx7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=/LoVxtRj0R52dH4uIgoFPmFgovVaGxwYo6wbRTBUqMY=; b=ndIbgWl1FsRyAX
+	o+d0YyQz35tMR6nJbcH6Rh1l3d5K5TTsLPJ7LUPPGhs7IUoAj5DtRtVdElFbnZZho5kYV2tC+lNnC
+	tFvZGtn7MXV5NazepFMXw8N927s+LYSDz+LzHLlFx8eTIJe6QO21pjrAjK+qFiatzwNflDFebs4Hb
+	SvUv1lyQ8sJXbVCB5gq1wcUzRkZ0QADLq40RGVeTXU5WBZHbF4j3sCdzT3p7f0taTRqiLUv3e6z+h
+	Lk+i+taAIHrECtAbOh8qCTYd3veZTCvKB4AP+47JFh2PUZiSYXGIsPe/1iRcFTBUBcRzMqErcrZNq
+	E9H5WXcSeVpZ5TsYIJcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZscJ-0000000Hb7W-2Qmk;
-	Wed, 17 Jun 2026 15:55:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wZsig-000000000To-3IIg;
+	Wed, 17 Jun 2026 16:02:26 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZscI-0000000Hb7L-1Fbt
+	id 1wZsie-000000000TT-2i13
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 15:55:50 +0000
+	Wed, 17 Jun 2026 16:02:24 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9602544322;
-	Wed, 17 Jun 2026 15:55:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D5DBA1F00A3A;
-	Wed, 17 Jun 2026 15:55:46 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id DDBBB60098;
+	Wed, 17 Jun 2026 16:02:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 104221F00A3A;
+	Wed, 17 Jun 2026 16:02:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781711749;
-	bh=kuLjsOyt0s5N38trSvmQ1A2O6kbOr5UBIbKVqpy5InY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=YcuB6n/X2IIBSZTP9S/LMJ9qQfHOxCrLbI0D3CWyBwp4POMB+5EsXNMbc2yzcrUtD
-	 x17mefYivkjXN8odDek8MiyW/zARNfVCQhOJidilozik9SiB7iHWmPu6Q1Hyp05/8p
-	 X0b7k4ndD3DR1lYup83aru8/S5JmC/SVsYFXOp2hMimF+P5mSUD5pwdPjrxp95gs7H
-	 keUgL/u5RkDD3UKIvmHvZW4b0sv/XhMsD4MoS+M1mZ1a6M3g5Nd13KPqAeEvMKrFze
-	 7M9BaQAh/2m/zmBPCvX//q5xpyglifFkAb8KtaLs7LFLElqOb50AogG+g0K4JfELmm
-	 SDE5Ev4SHp7OQ==
-Date: Wed, 17 Jun 2026 16:55:44 +0100
-From: Conor Dooley <conor@kernel.org>
-To: joakim.zhang@cixtech.com
-Cc: mturquette@baylibre.com, sboyd@kernel.org, bmasney@redhat.com,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	p.zabel@pengutronix.de, gary.yang@cixtech.com,
-	cix-kernel-upstream@cixtech.com, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v4 3/5] dt-bindings: clock: cix,sky1-audss-clock: add
- audss clock controller
-Message-ID: <20260617-clinic-blank-61289f8fc1c2@spud>
-References: <20260617060437.1474816-1-joakim.zhang@cixtech.com>
- <20260617060437.1474816-4-joakim.zhang@cixtech.com>
+	s=k20260515; t=1781712143;
+	bh=/LoVxtRj0R52dH4uIgoFPmFgovVaGxwYo6wbRTBUqMY=;
+	h=From:Subject:Date:To:Cc;
+	b=XXe/tlVLGN5R4COOiN6tKPFOC+eXChWcr5VVkPRyxH3H09bWnMWEld4fdaI9frQWO
+	 R+uGHwWlV5AOoxfDyXtjUGIkR/OPEwQb5PiWB08+4tnea6LpUxu5BvFd7zmW42iFAm
+	 eJ6Fy8KjlrOZIm5dJwoFJ84j2Bz3rBGCIdRQKMRpze9p1ns1/RLlQegC72dVlW4YRg
+	 M5GvQz/qE35vvdDSpQAuvWNoQ+ZO5ezkKtdtyxx4/nUqen6LPJt9u25zHgOL89uVD9
+	 D+ftTA/Q4XcoQdYfrAexepDjFySqTGm/YXTCGHKNpWrxdIDb5byRudMFC0lvcZTsL3
+	 qckSJrYo/XKBw==
+From: Thierry Reding <thierry.reding@kernel.org>
+Subject: [PATCH v7 0/4] PCI: tegra: Add Tegra264 support
+Date: Wed, 17 Jun 2026 18:01:27 +0200
+Message-Id: <20260617-tegra264-pcie-v7-0-eae7ae964629@nvidia.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="H3jp4bQy33qL1L2I"
-Content-Disposition: inline
-In-Reply-To: <20260617060437.1474816-4-joakim.zhang@cixtech.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4XQTW6DMBAF4KtEXtfIM/7DXeUeVRcGD8RtA5Ghq
+ FHE3WvCgrQssrH8pPneSHNjA6VIA3s93FiiKQ6x73KwLwdWn3zXEo8hZ4YCjVAC+Uht8mgUv9S
+ ROEnhK0IZvLAsm0uiJv7c+97e1zx8Vx9Uj0vJMnGKw9in633hBMvc2i3BgREAokDIf6048PEUK
+ aVrkSjErj1+Uuroq+hTy5buCR90flErJQvUFhyK51o+agNSl1oXaJ0G5Z5rten9VSbFBUcgJHC
+ utFQeuymG6Iu6P69cb1yj+c915qXyJcjKWRfsjpuNm/12kzmFqm689bZs6A+f5/kX+oSZRfUBA
+ AA=
+X-Change-ID: 20260402-tegra264-pcie-e30abe23da07
+To: Bjorn Helgaas <bhelgaas@google.com>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Thierry Reding <thierry.reding@gmail.com>, 
+ Jonathan Hunter <jonathanh@nvidia.com>, 
+ Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>, 
+ Hou Zhiqiang <Zhiqiang.Hou@nxp.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ =?utf-8?q?Pali_Roh=C3=A1r?= <pali@kernel.org>, 
+ Michal Simek <michal.simek@amd.com>, Kevin Xie <kevin.xie@starfivetech.com>, 
+ Thierry Reding <thierry.reding@kernel.org>, Aksh Garg <a-garg7@ti.com>
+Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, Thierry Reding <treding@nvidia.com>, 
+ Manikanta Maddireddy <mmaddireddy@nvidia.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3378; i=treding@nvidia.com;
+ h=from:subject:message-id; bh=v8HDwt+n7/b/jRVoPHxCigecNb5QSzrJ40vrmsyP7II=;
+ b=owEBbQKS/ZANAwAKAd0jrNd/PrOhAcsmYgBqMsUHM/q1k2bU6WAMeyf09xac1kKbw4GNkUjZ9
+ vCax0zGR52JAjMEAAEKAB0WIQSI6sMIAUnM98CNyJ/dI6zXfz6zoQUCajLFBwAKCRDdI6zXfz6z
+ obIVD/9ZgYXZfy+uYDPoZiuookvsphjG36+pVXEU3A4nlOcUkn2mHC2e9XtI44H/41WXOAhOGs2
+ NozQa97aQY+gGFoi4U4BraVhkKA/ezmsDK4vYSp0fXbBbGSaRyGqRfLrb8lw+Bqz6t3ekBuPVxS
+ DSQspt1rMz0jpsTJ3DFBV1ag5ZBhCNqb3Y1w1n6dQSbQa1TL/9aq53xW1txYxx7L8rlWxvkJYey
+ pvPyFMckNRKvIfFxR7grQwQQ1gdZjZ9t9/t+MpXwiuXRkRttrad+qgFP9DvCMxW8oW+3E1AkmtQ
+ YO8BIJmf9HpdmF6xNfUurQg5ZRCtmsLHiuh/smDkQdAoqIFtKoPbO+6wn4qTxFAkIYNjOMjfk2t
+ OhmhV2cz1HXw+JrcZpuD31XGPGn8gIdNhj1cYtkAVx8EO5VR+RoiTsVxsAMb4ip5SKAZcemKMC0
+ f6kN2bmKVzSNRPR47x1dLmUhXNYneVLsLJsUGvKsuBxsEUZ6Z7w2JKVIHX3JdY2dJHnk4X0o9Q1
+ 4QHoPVXsBXsWkLUV7Qm2A6db5JdYDpQ8fEFdUQ+x3pnEkwplrngKoYVFXuOU7eYaJqQUrFcXtaq
+ FDP4sSBK1mitCIIoDow38JLNbjYZttaerldSJ4QFLGtPfRLHEH1fN6i/8cb8xT9dH7Ebk7/Gyhy
+ jfUdxN8KSX1PdZQ==
+X-Developer-Key: i=treding@nvidia.com; a=openpgp;
+ fpr=88EAC3080149CCF7C08DC89FDD23ACD77F3EB3A1
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,207 +105,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
---H3jp4bQy33qL1L2I
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+this series adds support for the PCIe controllers found on the Tegra264
+SoC. There are six instances, one of which is for internal purposes only
+and the other five are general purpose.
 
-On Wed, Jun 17, 2026 at 02:04:35PM +0800, joakim.zhang@cixtech.com wrote:
-> From: Joakim Zhang <joakim.zhang@cixtech.com>
->=20
-> The AUDSS CRU contains an internal clock tree of muxes, dividers and
-> gates for DSP, I2S, HDA, DMAC and related blocks. The clock provider is
-> a child node of the cix,sky1-audss-system-control syscon and accesses
-> registers through the parent MMIO region.
+The first patch tweaks the DT bindings slightly to avoid new DT compiler
+warnings that slipped through because they are now disabled by default
+(-Wno-unit_address_vs_reg).
 
-Why can this not just be part of the parent syscon node?
+Before adding the driver in patch 3, patch 2 introduces some new common
+wait times for PCIe and unifies the way that drivers use them. Finally,
+patch 4 reorders the reg and reg-names property entries to match the
+bindings changes from patch 1.
 
-Cheers,
-Conor.
+All of the prerequisites were merged in v7.1-rc1, so this can be applied
+to the PCI tree directly. Optionally I can also pick up patch 4 into the
+Tegra tree, but there should be no conflicts, so feel free to pick this
+up with the rest.
 
->=20
-> Signed-off-by: Joakim Zhang <joakim.zhang@cixtech.com>
-> ---
->  .../bindings/clock/cix,sky1-audss-clock.yaml  | 72 +++++++++++++++++++
->  .../dt-bindings/clock/cix,sky1-audss-clock.h  | 60 ++++++++++++++++
->  2 files changed, 132 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/clock/cix,sky1-auds=
-s-clock.yaml
->  create mode 100644 include/dt-bindings/clock/cix,sky1-audss-clock.h
->=20
-> diff --git a/Documentation/devicetree/bindings/clock/cix,sky1-audss-clock=
-=2Eyaml b/Documentation/devicetree/bindings/clock/cix,sky1-audss-clock.yaml
-> new file mode 100644
-> index 000000000000..ea813c5a2307
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/clock/cix,sky1-audss-clock.yaml
-> @@ -0,0 +1,72 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/clock/cix,sky1-audss-clock.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Cix Sky1 audio subsystem clock controller
-> +
-> +maintainers:
-> +  - Joakim Zhang <joakim.zhang@cixtech.com>
-> +
-> +description: |
-> +  Clock provider for the Cix Sky1 audio subsystem (AUDSS).
-> +
-> +  This node is a child of a cix,sky1-audss-system-control syscon node
-> +  (see cix,sky1-system-control.yaml). It does not have a reg property; c=
-lock
-> +  mux, divider and gate fields are accessed through the parent register =
-block.
-> +
-> +  Software reset lines for AUDSS blocks are exposed on the parent syscon=
- via
-> +  #reset-cells (provider). Reset indices are defined in
-> +  include/dt-bindings/reset/cix,sky1-audss-system-control.h.
-> +
-> +  Four SoC-level reference clocks listed in clocks/clock-names feed the =
-AUDSS
-> +  clock tree. The provider exposes the internal AUDSS clocks to other de=
-vices
-> +  via #clock-cells; indices are defined in cix,sky1-audss-clock.h.
-> +
-> +  The parent cix,sky1-audss-system-control node describes the SoC syscon
-> +  NoC (or bus) reset via resets and the audio subsystem power domain via
-> +  power-domains.
-> +
-> +properties:
-> +  compatible:
-> +    const: cix,sky1-audss-clock
-> +
-> +  '#clock-cells':
-> +    const: 1
-> +    description:
-> +      Clock indices are defined in include/dt-bindings/clock/cix,sky1-au=
-dss-clock.h.
-> +
-> +  clocks:
-> +    items:
-> +      - description: I2S parent clock for sampling rates multiple of 8kH=
-z.
-> +      - description: I2S parent clock for sampling rates multiple of 11.=
-025kHz.
-> +      - description: clock feeding most devices in audss (NOC, DSP, SRAM=
-, HDA, DMAC, I2S, and Mailbox).
-> +      - description: clock feeding for HDA, Timer and Watchdog, which is=
- a delicated 48MHz clock.
-> +
-> +  clock-names:
-> +    items:
-> +      - const: x8k
-> +      - const: x11k
-> +      - const: sys
-> +      - const: 48m
-> +
-> +required:
-> +  - compatible
-> +  - '#clock-cells'
-> +  - clocks
-> +  - clock-names
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/cix,sky1.h>
-> +
-> +    clock-controller {
-> +        compatible =3D "cix,sky1-audss-clock";
-> +        #clock-cells =3D <1>;
-> +        clocks =3D <&scmi_clk CLK_TREE_AUDIO_CLK0>, <&scmi_clk CLK_TREE_=
-AUDIO_CLK2>,
-> +                 <&scmi_clk CLK_TREE_AUDIO_CLK4>, <&scmi_clk CLK_TREE_AU=
-DIO_CLK5>;
-> +        clock-names =3D "x8k", "x11k", "sys", "48m";
-> +    };
-> diff --git a/include/dt-bindings/clock/cix,sky1-audss-clock.h b/include/d=
-t-bindings/clock/cix,sky1-audss-clock.h
-> new file mode 100644
-> index 000000000000..7e9bd3e6c7a1
-> --- /dev/null
-> +++ b/include/dt-bindings/clock/cix,sky1-audss-clock.h
-> @@ -0,0 +1,60 @@
-> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-> +/*
-> + * Copyright 2026 Cix Technology Group Co., Ltd.
-> + */
-> +
-> +#ifndef _DT_BINDINGS_CLK_CIX_SKY1_AUDSS_CLOCK_H
-> +#define _DT_BINDINGS_CLK_CIX_SKY1_AUDSS_CLOCK_H
-> +
-> +#define CLK_AUD_CLK4_DIV2	0
-> +#define CLK_AUD_CLK4_DIV4	1
-> +#define CLK_AUD_CLK5_DIV2	2
-> +
-> +#define CLK_DSP_CLK		3
-> +#define CLK_DSP_BCLK		4
-> +#define CLK_DSP_PBCLK		5
-> +
-> +#define CLK_SRAM_AXI		6
-> +
-> +#define CLK_HDA_SYS		7
-> +#define CLK_HDA_HDA		8
-> +
-> +#define CLK_DMAC_AXI		9
-> +
-> +#define CLK_WDG_APB		10
-> +#define CLK_WDG_WDG		11
-> +
-> +#define CLK_TIMER_APB		12
-> +#define CLK_TIMER_TIMER		13
-> +
-> +#define CLK_MB_0_APB		14	/* MB0: ap->dsp */
-> +#define CLK_MB_1_APB		15	/* MB1: dsp->ap */
-> +
-> +#define CLK_I2S0_APB		16
-> +#define CLK_I2S1_APB		17
-> +#define CLK_I2S2_APB		18
-> +#define CLK_I2S3_APB		19
-> +#define CLK_I2S4_APB		20
-> +#define CLK_I2S5_APB		21
-> +#define CLK_I2S6_APB		22
-> +#define CLK_I2S7_APB		23
-> +#define CLK_I2S8_APB		24
-> +#define CLK_I2S9_APB		25
-> +#define CLK_I2S0		26
-> +#define CLK_I2S1		27
-> +#define CLK_I2S2		28
-> +#define CLK_I2S3		29
-> +#define CLK_I2S4		30
-> +#define CLK_I2S5		31
-> +#define CLK_I2S6		32
-> +#define CLK_I2S7		33
-> +#define CLK_I2S8		34
-> +#define CLK_I2S9		35
-> +
-> +#define CLK_MCLK0		36
-> +#define CLK_MCLK1		37
-> +#define CLK_MCLK2		38
-> +#define CLK_MCLK3		39
-> +#define CLK_MCLK4		40
-> +
-> +#endif
-> --=20
-> 2.50.1
->=20
+Thanks,
+Thierry
 
---H3jp4bQy33qL1L2I
-Content-Type: application/pgp-signature; name=signature.asc
+Changes in v7:
+- fix build dependency on PCI_ECAM
+- remove pre-silicon support code
+- Link to v6: https://patch.msgid.link/20260602-tegra264-pcie-v6-0-edbcfa7a78fe@nvidia.com
 
------BEGIN PGP SIGNATURE-----
+Changes in v6:
+- address review comments from Sashiko
+- rebase onto v7.1-rc1, adjust DT bindings patch accordingly
+- Link to v5: https://patch.msgid.link/20260526-tegra264-pcie-v5-0-84a813b979d7@nvidia.com
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCajLDgAAKCRB4tDGHoIJi
-0h5+AQCZewSDRlcOq2M4+7bLDUZ1dbF2OLY5oXnkHuWGJ9PD3gD/UtpFAB35VcqP
-zuLveKAYWRUTTQuzEKwycGrY2NOvsw8=
-=lm+A
------END PGP SIGNATURE-----
+Changes in v5:
+- address review comments for the PCI driver patch
+- Link to v4: https://patch.msgid.link/20260402-tegra264-pcie-v4-0-21e2e19987e8@nvidia.com
 
---H3jp4bQy33qL1L2I--
+Changes in v4:
+- strip out dependencies that are going in through the ARM SoC tree
+- revert bindings to oneOf construct so that we don't produce new DTC
+  warnings
+- Link to v3: https://patch.msgid.link/20260326135855.2795149-1-thierry.reding@kernel.org
+
+Changes in v3:
+- integrate PCI standard wait times patch into the series to maintain
+  bisectability
+- fix review comments from Mikko
+- Link to v2: https://patch.msgid.link/20260320225443.2571920-1-thierry.reding@kernel.org
+
+Changes in v2:
+- fix an issue with sanity-checking disabled BARs
+- address review comments
+- Link to v1: https://patch.msgid.link/20260319160110.2131954-1-thierry.reding@kernel.org
+
+Thanks,
+Thierry
+
+---
+Thierry Reding (4):
+      dt-bindings: pci: Strictly distinguish C0 from C1-C5
+      PCI: Use standard wait times for PCIe link monitoring
+      PCI: tegra: Add Tegra264 support
+      arm64: tegra: Reorder reg and reg-names to match bindings
+
+ .../bindings/pci/nvidia,tegra264-pcie.yaml         |  75 ++-
+ arch/arm64/boot/dts/nvidia/tegra264.dtsi           |  48 +-
+ drivers/pci/controller/Kconfig                     |  10 +-
+ drivers/pci/controller/Makefile                    |   1 +
+ .../controller/cadence/pcie-cadence-host-common.c  |   6 +-
+ .../pci/controller/cadence/pcie-cadence-lga-regs.h |   5 -
+ drivers/pci/controller/mobiveil/pcie-mobiveil.c    |   4 +-
+ drivers/pci/controller/mobiveil/pcie-mobiveil.h    |   5 -
+ drivers/pci/controller/pci-aardvark.c              |   7 +-
+ drivers/pci/controller/pcie-tegra264.c             | 538 +++++++++++++++++++++
+ drivers/pci/controller/pcie-xilinx-nwl.c           |   9 +-
+ drivers/pci/controller/plda/pcie-starfive.c        |   9 +-
+ 12 files changed, 634 insertions(+), 83 deletions(-)
+---
+base-commit: 8f5b04d01f6fbbb5537a0979182acf820766660d
+change-id: 20260402-tegra264-pcie-e30abe23da07
+
+Best regards,
+--  
+Thierry Reding <treding@nvidia.com>
+
 
