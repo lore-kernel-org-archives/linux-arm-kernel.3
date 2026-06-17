@@ -4,55 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CDA8CD98F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 18:11:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3B16CD98E2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 18:11:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IDB5prAxMd+2FnKU9Rf3dGmVfczHMqcomND9tO+kKgs=; b=qcmYUbVPA+YnaVMh/cuAWgxY4L
-	67p9RQbdZdXDr78+iyKX5sixge9ogZxw1ruZ+olKPH6cx+J9pic0vYwztx5BUnctVfa7uVkQF35+G
-	nn3RKqQMY8EytXzXwlwSctRdSktpY2OmKLAegp23isT86Ps2UkcwnCXtBWAK6utTAfBZSq5EY2dZ9
-	Dq8keETEdVN0lG4WupAuhljbFs3pWOa7dC4UiUYqs6b/eRt8tOIwtQSvrF551lbWdbVE3Un4Ta8EG
-	Dsbg76d4AhRZkAe/rYs9FxMvOEv2H10lvhDvJSidhGTcgoNryb1iVXBvIsWUKzYzTxNF00iJRGjHO
-	FQuG2V/g==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=sCx7/GrS1NY7tP/YcWrM9QhX/XkVqe1nWcj/hzRoPz4=; b=Gxfph2doJ+9a5d
+	NExZUI/Fhjr/752oQbtnoQq+Bi13rAdAhKHuDdC3+LJ/renWoHbP9MLVY4wHfMvmKZXxg+T4gz8pK
+	Or81qGvjjLXRFenapkowRDbDHMHrZsxh64OE9SGjTqQ7j4xqpMLalB8ShL5K+1fodBZ04rbo3l1iJ
+	MwY5PCorXrdE3VkMmPGNHbqgTvnaDFBMIOgKZDfUVWuUDVc0uxgDz3+DaQ5314FbLefYq8kZqxq47
+	QUHpU7Ju9QeCwVr6x+HOlQur11o8HVwjmWds7HnK/V6nSFaeCa5r/zw6e00DTVhqfZfpCFJY0BVvp
+	jx4xO+vspZF77HAvR7bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZujR-000000009HF-3SHv;
+	id 1wZujR-000000009GW-2CHm;
 	Wed, 17 Jun 2026 18:11:21 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZujM-000000009Dn-464r;
-	Wed, 17 Jun 2026 18:11:18 +0000
+	id 1wZujK-000000009Cr-1K7t;
+	Wed, 17 Jun 2026 18:11:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1781719873;
-	bh=wxFDIVFTpkjnrKaMbsP5v0hX2Xzlz1fap4XvyI5tDTw=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=BCmkGk1jEPKg0TsQXk9hKAVQU+mCtzL0S2taBl8f/z1pZLMbO+iQHEenESvCC18EY
-	 jaWQYIrSoTsmHNTKFroG7qqhSvlGuJaonErfVnYWaIxy76ylxyUnXitiui71oYcWra
-	 uhDHqFaCPU3oNA2oxOGXzwKCpqg7mLw7DfLsGzMXWeWY/85AOnz63tPnbqZT5t+M0r
-	 NYjQjeGgpYla5QjPe9dJ0Hol/yJ5PCY8bYChoPN7cs2/4vtoZ9gLTrB0ebw4YnucXn
-	 VfYSg0RpNO3IT7ob9lk7lrmveLQ07pcIlUh5Du/hyVg7c13pnghG+ezmilHxy9Ec3z
-	 Tiag0NoZ9FJKg==
+	s=mail; t=1781719870;
+	bh=Z7z73Vx6mkRGNkH8EeUxS/CCZ1mzZNxlvdn2HLEWTQo=;
+	h=From:Subject:Date:To:Cc:From;
+	b=hVi5hsz7e63rB4gVLSCgUy5meFM0i/5ti7SSV7bSlE+dahY0+pYoNGK4I+rS18xMv
+	 LVutmxWKrB+LOpM2ntw/bcudTEi0oDfI5D0rm5Hh9BTp+qKkaGH2LedVv7jkRjdKC6
+	 0Tqg6kJhurdf/CBxCpQ+8tBvrk2dDHCpRL4e+IHUAHIcXV0+thpMnFeIzUb25U8bmn
+	 yg9QVOQR9DB3Wvnsf5mSDCQlMsMqDuJD7DqPzEckDBh6rmrzR5yc+z7b5d5YM/UvHx
+	 DaUQW7GWfryu9lH6PvR7yvvAqibBjK8a932FaS8YsiAuXKxy3IDZRywC471a+gFrOD
+	 /ENKuZLJiVovg==
 Received: from [192.168.0.15] (unknown [100.64.0.170])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: detlev)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 36EE817E0B81;
-	Wed, 17 Jun 2026 20:11:12 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 716D417E0566;
+	Wed, 17 Jun 2026 20:11:08 +0200 (CEST)
 From: Detlev Casanova <detlev.casanova@collabora.com>
-Date: Wed, 17 Jun 2026 14:10:57 -0400
-Subject: [PATCH v2 2/5] docs: media: add documentation for media client
- usage stats
+Subject: [PATCH v2 0/5] media: Add fdinfo support for v4l2 drivers
+Date: Wed, 17 Jun 2026 14:10:55 -0400
+Message-Id: <20260617-v4l2-add-fdinfo-v2-0-d298e98ce06a@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260617-v4l2-add-fdinfo-v2-2-d298e98ce06a@collabora.com>
-References: <20260617-v4l2-add-fdinfo-v2-0-d298e98ce06a@collabora.com>
-In-Reply-To: <20260617-v4l2-add-fdinfo-v2-0-d298e98ce06a@collabora.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/2WNyw6CMBBFf4XM2pp2MCCu/A/Doo+pjEFqWmw0h
+ H8XMK5cnuTccydIFJkSnIoJImVOHIYFcFeA7fRwJcFuYUCJlayUFPnQo9DOCe948EHoupHekjY
+ lNrCsHpE8v7bipf1yepob2XHNrEbHaQzxvV1mtXq/Ov7VsxJS1FiiUtrYY6XONvS9NiHqvQ13a
+ Od5/gAQWHarxAAAAA==
+X-Change-ID: 20260610-v4l2-add-fdinfo-a790fceab329
 To: Mauro Carvalho Chehab <mchehab@kernel.org>, 
  Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
  Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
@@ -66,8 +68,8 @@ Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
  Christopher Healy <healych@amazon.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260617_111117_182644_93F8C839 
-X-CRM114-Status: GOOD (  16.64  )
+X-CRM114-CacheID: sfid-20260617_111114_517573_C6D9E827 
+X-CRM114-Status: GOOD (  15.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,135 +84,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Christopher Healy <healych@amazon.com>
+fdinfo is useful to poll information from the driver.
+Unlike the ftrace interface, it lets userspace tools get a snapshot of
+the state of the driver at their own pace, instead of getting events for
+each driver status change.
 
-Document the media fdinfo interface for per-file-descriptor usage
-statistics exposed by stateless V4L2 codec drivers via
-/proc/<pid>/fdinfo/<fd>.
+This works better to get information like HW usage time or clock
+frequencies, as well as memory usage.
+This patch set focuses on mem2mem drivers that are per-frame based and
+an implementation is proposed for the Verisilicon Hantro and Rockchip
+rkvdec drivers, limited to main clock frequency and HW usage time.
 
-This interface is designed for stateless (request API based) codec
-devices where the kernel driver has per-job visibility into hardware
-execution. Stateful codecs cannot support all of this because their
-firmware manages job scheduling opaquely.
+To ease support in drivers, a v4l2_stats struct is added.
+It stores statistics information and provides helper functions to write
+the fdinfo file in a standard way.
 
-The specification defines media- prefixed keys for engine utilization
-time, and operating frequency, following the same conventions as the DRM
-fdinfo mechanism documented in drm-usage-stats.rst.
+An example of usage of this from userspace is implemented in v4l2top:
 
-More fields can be added later.
+https://github.com/cazou/v4l2top (Check the upstream branch)
 
-Signed-off-by: Christopher Healy <healych@amazon.com>
+checkpatch.pl warning: The 2 arguments in the show_fdinfo callback
+definition are kept unnamed to match with the rest of the struct
+definition.
+
 Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
 ---
+Changes in v2:
+- Simplify key/value pairs by removing repeated <eng> suffix
+- Add media type support
+- Add v4l2_stats helpers
+- Add support in rkvdec too
+- Link to v1: https://patch.msgid.link/20260612-v4l2-add-fdinfo-v1-0-723211abc861@collabora.com
+
+To: Mauro Carvalho Chehab <mchehab@kernel.org>
+To: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+To: Philipp Zabel <p.zabel@pengutronix.de>
+To: Detlev Casanova <detlev.casanova@collabora.com>
+To: Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: kernel@collabora.com
+Cc: linux-media@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-rockchip@lists.infradead.org
+Cc: linux-arm-kernel@lists.infradead.org
+
+---
+Christopher Healy (2):
+      docs: media: add documentation for media client usage stats
+      media: hantro: add per-context fdinfo usage stats
+
+Detlev Casanova (3):
+      media: v4l2: Add callback for show_fdinfo
+      media: v4l2-core: Add v4l2-stats interface
+      media: rkvdec: Add per-context fdinfo usage stats
+
  .../userspace-api/media/drivers/index.rst          |  1 +
  .../media/drivers/media-usage-stats.rst            | 85 ++++++++++++++++++++++
- 2 files changed, 86 insertions(+)
+ drivers/media/platform/rockchip/rkvdec/rkvdec.c    | 19 +++++
+ drivers/media/platform/rockchip/rkvdec/rkvdec.h    |  1 +
+ drivers/media/platform/verisilicon/hantro.h        |  3 +
+ drivers/media/platform/verisilicon/hantro_drv.c    | 19 +++++
+ drivers/media/v4l2-core/Makefile                   |  2 +-
+ drivers/media/v4l2-core/v4l2-dev.c                 | 12 +++
+ drivers/media/v4l2-core/v4l2-fh.c                  |  3 +
+ drivers/media/v4l2-core/v4l2-stats.c               | 65 +++++++++++++++++
+ include/media/v4l2-dev.h                           |  1 +
+ include/media/v4l2-fh.h                            |  2 +
+ include/media/v4l2-stats.h                         | 44 +++++++++++
+ 13 files changed, 256 insertions(+), 1 deletion(-)
+---
+base-commit: 66affa37cfac0aec061cc4bcf4a065b0c52f7e19
+change-id: 20260610-v4l2-add-fdinfo-a790fceab329
 
-diff --git a/Documentation/userspace-api/media/drivers/index.rst b/Documentation/userspace-api/media/drivers/index.rst
-index 02967c9b18d6..61879738836c 100644
---- a/Documentation/userspace-api/media/drivers/index.rst
-+++ b/Documentation/userspace-api/media/drivers/index.rst
-@@ -34,6 +34,7 @@ For more details see the file COPYING in the source distribution of Linux.
- 	imx-uapi
- 	mali-c55
- 	max2175
-+	media-usage-stats
- 	npcm-video
- 	omap3isp-uapi
- 	thp7312
-diff --git a/Documentation/userspace-api/media/drivers/media-usage-stats.rst b/Documentation/userspace-api/media/drivers/media-usage-stats.rst
-new file mode 100644
-index 000000000000..d3dc07002f62
---- /dev/null
-+++ b/Documentation/userspace-api/media/drivers/media-usage-stats.rst
-@@ -0,0 +1,85 @@
-+.. SPDX-License-Identifier: GPL-2.0
-+
-+.. _media-usage-stats:
-+
-+==========================
-+Media client usage stats
-+==========================
-+
-+Stateless V4L2 codec drivers can optionally expose per-file-descriptor usage
-+statistics via ``/proc/<pid>/fdinfo/<fd>``. This is analogous to the DRM fdinfo
-+mechanism documented in :ref:`drm-client-usage-stats`, but uses the ``media-``
-+key prefix for V4L2 media devices.
-+
-+This interface is specific to stateless (request API based) codec devices,
-+including both decoders and encoders. With stateless codecs, the kernel driver
-+explicitly submits each frame to the hardware and receives a completion
-+interrupt, providing a clean per-job boundary that can be attributed to the
-+submitting file descriptor.
-+
-+Stateful codec devices cannot support this interface because their firmware
-+manages job scheduling internally. The kernel driver submits bitstream data
-+but has no visibility into per-frame hardware execution timing.
-+
-+Implementation
-+==============
-+
-+The V4L2 core provides the plumbing: drivers implement the ``show_fdinfo``
-+callback in ``struct v4l2_file_operations``, and the core wires it into the
-+kernel ``struct file_operations`` so that ``/proc/<pid>/fdinfo/<fd>`` output
-+includes the driver-provided keys.
-+
-+File format specification
-+=========================
-+
-+- File shall contain one key value pair per one line of text.
-+- Colon character (``:``) must be used to delimit keys and values.
-+- All standardised keys shall be prefixed with ``media-``.
-+- Driver-specific keys shall be prefixed with ``driver_name-``.
-+
-+Mandatory keys
-+--------------
-+
-+- media-driver: <valstr>
-+
-+  String shall contain the name of the media driver.
-+
-+- media-type: <valstr>
-+
-+  String shall identify the type of media engine exposed through this file
-+  descriptor. Standard values are ``decoder`` and ``encoder``.
-+
-+Utilization keys
-+----------------
-+
-+- media-engine-usage: <uint> ns
-+
-+  Time in nanoseconds that the hardware engine spent busy processing work
-+  belonging to this file descriptor. The engine being measured is identified
-+  by the ``media-type`` key.
-+
-+  Values are not required to be constantly monotonic if it makes the driver
-+  implementation easier, but are required to catch up with the previously
-+  reported larger value within a reasonable period.
-+
-+Frequency keys
-+--------------
-+
-+- media-maxfreq: <uint> Hz
-+
-+  Maximum operating frequency of the main engine clock.
-+
-+- media-curfreq: <uint> Hz
-+
-+  Current operating frequency of the main engine clock.
-+
-+Example output
-+==============
-+
-+::
-+
-+  media-driver:           hantro-vpu
-+  media-type:             decoder
-+  media-engine-usage:     123456789 ns
-+  media-maxfreq:          600000000 Hz
-+  media-curfreq:          600000000 Hz
-
--- 
-2.54.0
+Best regards,
+--  
+Detlev Casanova <detlev.casanova@collabora.com>
 
 
