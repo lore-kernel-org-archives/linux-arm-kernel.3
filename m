@@ -4,98 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57AFACD98E4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 10:07:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9F24CD98F6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 10:14:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L8o6FpowEVikyJSlF+fJiucK7IqeLK1mQod3QozTsco=; b=NkRC2cXiNCjhBBdErKI4zkHQc2
-	GlCqEFIAQ5T1qQAoUyHqxDr2zsISa5ADotw65xrNyb7WTlU4y6eh3vNDEkTnovfQos7/qZzjLJjZh
-	dd1MLgcRcEUtvu89yCP65fyMlJ/6RJiZZy7N4cz4dHvZacB7nUfJ7uPdm4NYNJ2mStKpeqqxLFZ6L
-	OdTTk6DGzsHZhx2Tm6u4PLHj9QZASLHwEcZM/6S+vYp3Xkk6mXLTuM+5CdlX8tw0FOzGXaG+GPs5D
-	DPyt+Z43l1M/0CfZbDzG4JoyvtH/nVUVd7oxkO4B8PWuKUKDCCpVf28UrFSnxx/eyFZJ1Z919ezAx
-	LUJgtDlQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Eaa6hysqpPiDJEqUBAFSr3eeLO0CbBPtefrObtR96og=; b=IyydFhAun8MfkN
+	+zoaXsHaQ3cZggzv/L+rY7yNWtFiS6dpjyEb8GU4y8W+YVTVVssrhKaX+8AZlrR3EefrTC3x5hIu0
+	WOMEFLrQbVB8SgMrs46C4EsF3SvXdv/MZ6X2F841k/3n89nSEJVyDbOBpXZ9jkK1HklF3K8CYcgHH
+	KEGSVu6qf4L3kw0SrE/i6LrEQFiqZszb5WEeDiM5HkWEdGDuI0t0NDpAmgcatfFBnE/lC0KUIr6gn
+	1VsQ2au1i7E1VsvNhw0FTE49RFu4MeUTHd3WsuRAzpwKrtEchHWAK8fP8cv/tjz3531qMqmHMUm8J
+	rJZfe59FweyIht/3XqEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZnBT-0000000H1a3-2OHi;
-	Wed, 17 Jun 2026 10:07:47 +0000
-Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
+	id 1wZnIK-0000000H249-0v6v;
+	Wed, 17 Jun 2026 10:14:52 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZnBR-0000000H1ZU-2pdr
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 10:07:46 +0000
-Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-c03a466c96aso477242066b.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 03:07:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1781690864; x=1782295664; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=L8o6FpowEVikyJSlF+fJiucK7IqeLK1mQod3QozTsco=;
-        b=Np8LCah53gEjt+Dpxhqb94JWiykO/CyzvCZ0z1BTODWP8BquwwKhE2BlZwDKA1mJTm
-         kGYf4onN9g7nIh27REC11wSA92JDDU0YLWvsIqnKRk+snN86RGSa0neb+ivbDnNtnvSg
-         EfVMJFCbkmdPpbW0a+q/wQJUMoI2gDjQdahhtIN3z7J/26TebZmDc4vmHPfMp9c1O/9y
-         iaAMqf2nibO+CG+ct5gG78wXleTVcI2pWrx9Hq+4UiQWV9xefGc0zoAAbI6rI0r30Okb
-         vtg7KHSJh5YxKpAN0l/w8CIAKcohzxdvWNXQLclOpb1AhXXxA1IY1FJRzQwkwO/Dy+Ez
-         h2iA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781690864; x=1782295664;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=L8o6FpowEVikyJSlF+fJiucK7IqeLK1mQod3QozTsco=;
-        b=GalZXdMD31z2Yc8oHumBzHptt9eaEQ5HSVxY0FFW/+FDTgONk5IEz7kcoYA/mCtPU/
-         65hMkV5wDkRxNDyHa2KOjRuIXrEvUN46u8jSUyFRJAygB3FWJlfjSjEnQ3EveM8fZT4d
-         xfqu3n4CY/+qvA/51LP1+FDYXwksK8kg6XQXRKHYoAiIb6beWZ79VwhUhFJnFrRCRH3b
-         0hJkcc/8hpttxB45hZcLoKy/mma50pStHj6p3BMqW9cnq67Qrhbb7VsYeO/w4S4dJOGM
-         J//fRmPauIkWfGm51g00JCa9o6yEvMYU5oqIZ1OTYx8QJ4f1kvY83mF3vNoCpYLbBlY7
-         YCWg==
-X-Gm-Message-State: AOJu0YxwqKjJ/duQMatVdEDXVKI3U3N5ZIfG9+4IQg/Lfu4F8ScKA5/T
-	UBt0Y1QlyQLssxSt9i4lcjdVNtmGNlEKFgtGF+jKvpjU6A+TE2ULit/z7bc8Ot+RB4g=
-X-Gm-Gg: Acq92OF8ODPvUve08wl3q8E4nt2JXmluwW09LzVPDLmi3nhkcgKSblDsM8pJ41zE7Wt
-	3CqcaKhj93vDGAq2qVkKpORZ7uYXUbk6QHQtXcjhtlAdXT/RtVT872vHR8xY1WeBlYsxQ9PJqeh
-	MRvNTeWriQa5s2aPPzigUonZ32k9BWVmDXafbHSxVwWCTRct1Cn/PRXR7WwXV8pPcyTe5DrHm9S
-	NX5cU+jtEom15AmalnOv/wFzZvV4/p7DtbprF0lK6obpzxSj1pkoVKC9IiB44VQil/IfDBLmaJG
-	os2tlYY6ouczNDbsQ+lVZVdivomLeaXJNO58gbXcZxO5E22zgoRTC1otx/wPnOz9M49QpQfepPa
-	1zp3+BwKAYqvruB/436mgPWE/l97GEXrLZEDKtzqo0AEo6RR8RG1olw4pH/QIhjbZanPRoAIh8Z
-	IZeAyErMIz65yjzWSISA==
-X-Received: by 2002:a17:906:fe06:b0:c05:21a7:6b0d with SMTP id a640c23a62f3a-c05a859954bmr221241766b.47.1781690863765;
-        Wed, 17 Jun 2026 03:07:43 -0700 (PDT)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-bfdb51007a9sm758325366b.21.2026.06.17.03.07.42
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 17 Jun 2026 03:07:43 -0700 (PDT)
-Message-ID: <1b6fccaa-b15d-4a33-af41-8c445f9c9d21@linaro.org>
-Date: Wed, 17 Jun 2026 11:07:42 +0100
+	id 1wZnIJ-0000000H23y-28YQ;
+	Wed, 17 Jun 2026 10:14:51 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 62645600AA;
+	Wed, 17 Jun 2026 10:14:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D18A1F000E9;
+	Wed, 17 Jun 2026 10:14:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781691290;
+	bh=Eaa6hysqpPiDJEqUBAFSr3eeLO0CbBPtefrObtR96og=;
+	h=From:Subject:Date:To:Cc;
+	b=Hm5GbP5loI4zSx0axhqRh95HBZNpLKSFjgkKZE0oqwDjcXK0EVpS1zZeBVq3zgAQw
+	 vrQYg8lVu5nfTrLRc8pseODvMTpfJWzX8XrJ0lxx5a7E1LimNQy9stWpgGUW0cQGKJ
+	 EqmBt4I8EtiNDCMPd8geV65T0IRJ5n0fNVusL6k07QIIK8CON3QQjOMleb/2DwYbhd
+	 pTv92KNcGlzFtZ8MLCvZPZ4R0s+mqrvp5byNVuwE1r37sn0cEueFnIv8IXpMKlM5P+
+	 S/9dL6HG6KZxpTDUtXvx68PM19A8FeirS5ow4VTX6fzLfWvIMO8G098wUiJjJU/i0Y
+	 nAeJBEV2kMDqg==
+From: Maxime Ripard <mripard@kernel.org>
+Subject: [PATCH 00/37] drm/bridge: Convert all bridges to atomic
+Date: Wed, 17 Jun 2026 12:14:25 +0200
+Message-Id: <20260617-drm-all-atomic-bridges-v1-0-b63e6316166b@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 1/9] perf cs-etm: Fix thread leaks on trace queue init
- failure
-To: Leo Yan <leo.yan@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org,
- linux-perf-users@vger.kernel.org, Arnaldo Carvalho de Melo
- <acme@kernel.org>, John Garry <john.g.garry@oracle.com>,
- Will Deacon <will@kernel.org>, Mike Leach <mike.leach@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Namhyung Kim
- <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>, Al Grant <al.grant@arm.com>,
- Paschalis Mpeis <paschalis.mpeis@arm.com>, Amir Ayupov <aaupov@fb.com>
-References: <20260616-b4-arm_cs_callchain_support_v1-v9-0-f8fad931c413@arm.com>
- <20260616-b4-arm_cs_callchain_support_v1-v9-1-f8fad931c413@arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20260616-b4-arm_cs_callchain_support_v1-v9-1-f8fad931c413@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260617_030745_735536_DB7EB4F8 
-X-CRM114-Status: GOOD (  15.40  )
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/02Nyw6CMBBFf6WZtZPU2hblVwyLPqbYhFJtkZgQ/
+ l0CLlyem9xzFqhUIlVo2QKF5lhjHjc4nxi4hxl7wug3BsGF5vqs0JeEZhjQTDlFh7ZE31NF6Y0
+ M1PigrgG287NQiJ9dfO8OLvR6b/7pGMGaSuhySnFqmebe8ZvU1hoP/+2W7WV14Xt5zJhyoV8WC
+ 1Wa0BnBvSIhGsnbWUC3rl+1JtrY2AAAAA==
+X-Change-ID: 20260615-drm-all-atomic-bridges-4da4fe7df58f
+To: Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>
+Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, dri-devel@lists.freedesktop.org, 
+ Maxime Ripard <mripard@kernel.org>, Sasha Finkelstein <k@chaosmail.tech>, 
+ Janne Grunau <j@jannau.net>, asahi@lists.linux.dev, 
+ Benson Leung <bleung@chromium.org>, Guenter Roeck <groeck@chromium.org>, 
+ chrome-platform@lists.linux.dev, Francesco Dolcini <francesco@dolcini.it>, 
+ Peter Senna Tschudin <peter.senna@gmail.com>, Ian Ray <ian.ray@ge.com>, 
+ Martyn Welch <martyn.welch@collabora.co.uk>, 
+ Manikandan Muralidharan <manikandan.m@microchip.com>, 
+ Dharma Balasubiramani <dharma.b@microchip.com>, 
+ Russell King <linux@armlinux.org.uk>, Inki Dae <inki.dae@samsung.com>, 
+ Seung-Woo Kim <sw0312.kim@samsung.com>, 
+ Kyungmin Park <kyungmin.park@samsung.com>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, Linus Walleij <linusw@kernel.org>, 
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ linux-mediatek@lists.infradead.org, 
+ Rob Clark <robin.clark@oss.qualcomm.com>, 
+ Dmitry Baryshkov <lumag@kernel.org>, 
+ Abhinav Kumar <abhinav.kumar@linux.dev>, 
+ Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>, 
+ Marijn Suijten <marijn.suijten@somainline.org>, 
+ freedreno@lists.freedesktop.org, 
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
+ Alain Volmat <alain.volmat@foss.st.com>, 
+ Raphael Gallais-Pou <rgallaispou@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=10819; i=mripard@kernel.org;
+ h=from:subject:message-id; bh=l45ATxpNcC61gCiINfNL0ijq8s18ot8yNP+uMqYYJ4c=;
+ b=owGbwMvMwCmsHn9OcpHtvjLG02pJDFlGxW1bNlk+99/+01Lky+0FxtucdAQvciQrhhSbzfp4w
+ Pn1K57rHVNZGIQ5GWTFFFmeyISdXt6+uMrBfuUPmDmsTCBDGLg4BWAiKqcYG+Y8KEwoXLx1V9im
+ tZrv+oQW7q/UL/eX3Kn9427NlL+dx2rKOv32LfJ5eX1d9MKpUhxzfRir2aVXv9m8hX3asatuxrk
+ O7Rs+Tz/vs9ph39RrKUsXdGmaK/6YpfKjpuDxiS9qM2ebqChaAgA=
+X-Developer-Key: i=mripard@kernel.org; a=openpgp;
+ fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,46 +112,187 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
+Over the years, most of the bridges have been converted to atomic
+modesetting and hooks, but not all of them. This forces us to maintain
+two different code path in quite a few places, which is pretty
+bothersome. The switch to atomic modesetting for legacy bridges though
+is pretty trivial, and we don't have a lot of drivers still using the
+legacy path.
 
-On 16/06/2026 3:51 pm, Leo Yan wrote:
-> cs_etm__init_traceid_queue() allocates the frontend and decode threads,
-> if a later allocation fails, the error path does not drop thread
-> reference that was already acquired.
-> 
-> Release both thread pointers with thread__zput() on the error path, so
-> does not leak thread references or leave stale pointers behind.
-> 
-> Fixes: 951ccccdc715 ("perf cs-etm: Only track threads instead of PID and TIDs")
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-> ---
->   tools/perf/util/cs-etm.c | 4 ++++
->   1 file changed, 4 insertions(+)
-> 
-> diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
-> index 0927b0b9c06b15046afeafe23fe170b8248cfcc6..d484a6155c2c22fa916d0365987302f6bb9978e9 100644
-> --- a/tools/perf/util/cs-etm.c
-> +++ b/tools/perf/util/cs-etm.c
-> @@ -627,6 +627,8 @@ static int cs_etm__init_traceid_queue(struct cs_etm_queue *etmq,
->   					       queue->tid);
->   	tidq->decode_thread = machine__findnew_thread(&etm->session->machines.host, -1,
->   					       queue->tid);
-> +	if (!tidq->frontend_thread || !tidq->decode_thread)
-> +		goto out;
->   
->   	tidq->packet = zalloc(sizeof(struct cs_etm_packet));
->   	if (!tidq->packet)
-> @@ -661,6 +663,8 @@ static int cs_etm__init_traceid_queue(struct cs_etm_queue *etmq,
->   	zfree(&tidq->prev_packet);
->   	zfree(&tidq->packet);
->   out:
-> +	thread__zput(tidq->frontend_thread);
-> +	thread__zput(tidq->decode_thread);
->   	return rc;
->   }
->   
-> 
+This series converts all bridges to atomic modesetting and drops the
+legacy codepaths where relevant.
 
-Reviewed-by: James Clark <james.clark@linaro.org>
+Let me know what you think,
+Maxime
+
+Signed-off-by: Maxime Ripard <mripard@kernel.org>
+---
+Maxime Ripard (37):
+      drm/adp: mipi: Switch to atomic bridge callbacks
+      drm/bridge: analogix-anx6345: Switch to atomic bridge callbacks
+      drm/bridge: analogix-anx78xx: Switch to atomic bridge callbacks
+      drm/bridge: aux-bridge: Switch to atomic bridge callbacks
+      drm/bridge: aux-hpd-bridge: Switch to atomic bridge callbacks
+      drm/bridge: chrontel-ch7033: Switch to atomic bridge callbacks
+      drm/bridge: cros-ec-anx7688: Switch to atomic bridge callbacks
+      drm/bridge: lontium-lt8713sx: Switch to atomic bridge callbacks
+      drm/bridge: lontium-lt8912b: Switch to atomic bridge callbacks
+      drm/bridge: lontium-lt9611uxc: Switch to atomic bridge callbacks
+      drm/bridge: lvds-codec: Switch to atomic bridge callbacks
+      drm/bridge: megachips-stdpxxxx-ge-b850v3-fw: Switch to atomic bridge callbacks
+      drm/bridge: microchip-lvds: Switch to atomic bridge callbacks
+      drm/bridge: nxp-ptn3460: Switch to atomic bridge callbacks
+      drm/bridge: of-display-mode-bridge: Switch to atomic bridge callbacks
+      drm/bridge: parade-ps8622: Switch to atomic bridge callbacks
+      drm/bridge: sii9234: Switch to atomic bridge callbacks
+      drm/bridge: sil-sii8620: Switch to atomic bridge callbacks
+      drm/bridge: simple-bridge: Switch to atomic bridge callbacks
+      drm/bridge: tc358764: Switch to atomic bridge callbacks
+      drm/bridge: tda998x: Switch to atomic bridge callbacks
+      drm/bridge: ti-tfp410: Switch to atomic bridge callbacks
+      drm/bridge: ti-tpd12s015: Switch to atomic bridge callbacks
+      drm/bridge: thc63lvd1024: Switch to atomic bridge callbacks
+      drm/bridge: waveshare-dsi: Switch to atomic bridge callbacks
+      drm/exynos: mic: Switch to atomic bridge callbacks
+      drm/mcde: dsi: Switch to atomic bridge callbacks
+      drm/mediatek: dpi: Switch to atomic bridge callbacks
+      drm/msm: dsi: Switch to atomic bridge callbacks
+      drm/omap: dpi: Switch to atomic bridge callbacks
+      drm/omap: dsi: Switch to atomic bridge callbacks
+      drm/omap: sdi: Switch to atomic bridge callbacks
+      drm/omap: venc: Switch to atomic bridge callbacks
+      drm/sti: dvo: Switch to atomic bridge callbacks
+      drm/sti: hda: Switch to atomic bridge callbacks
+      drm/sti: hdmi: Switch to atomic bridge callbacks
+      drm/bridge: Remove legacy bridge callback support
+
+ drivers/gpu/drm/adp/adp-mipi.c                     |   4 +
+ drivers/gpu/drm/bridge/analogix/analogix-anx6345.c |  13 ++-
+ drivers/gpu/drm/bridge/analogix/analogix-anx78xx.c |  13 ++-
+ drivers/gpu/drm/bridge/aux-bridge.c                |   4 +
+ drivers/gpu/drm/bridge/aux-hpd-bridge.c            |   4 +
+ drivers/gpu/drm/bridge/chrontel-ch7033.c           |  13 ++-
+ drivers/gpu/drm/bridge/cros-ec-anx7688.c           |   4 +
+ drivers/gpu/drm/bridge/lontium-lt8713sx.c          |   4 +
+ drivers/gpu/drm/bridge/lontium-lt8912b.c           |   8 +-
+ drivers/gpu/drm/bridge/lontium-lt9611uxc.c         |   3 +
+ drivers/gpu/drm/bridge/lvds-codec.c                |  10 +-
+ .../drm/bridge/megachips-stdpxxxx-ge-b850v3-fw.c   |   3 +
+ drivers/gpu/drm/bridge/microchip-lvds.c            |   3 +
+ drivers/gpu/drm/bridge/nxp-ptn3460.c               |  17 ++--
+ drivers/gpu/drm/bridge/of-display-mode-bridge.c    |   4 +
+ drivers/gpu/drm/bridge/parade-ps8622.c             |  18 ++--
+ drivers/gpu/drm/bridge/sii9234.c                   |   4 +
+ drivers/gpu/drm/bridge/sil-sii8620.c               |   4 +
+ drivers/gpu/drm/bridge/simple-bridge.c             |  13 ++-
+ drivers/gpu/drm/bridge/tc358764.c                  |  13 ++-
+ drivers/gpu/drm/bridge/tda998x_drv.c               |  13 ++-
+ drivers/gpu/drm/bridge/thc63lvd1024.c              |  14 ++-
+ drivers/gpu/drm/bridge/ti-tfp410.c                 |  10 +-
+ drivers/gpu/drm/bridge/ti-tpd12s015.c              |   4 +
+ drivers/gpu/drm/bridge/waveshare-dsi.c             |  14 ++-
+ drivers/gpu/drm/drm_bridge.c                       |  27 +-----
+ drivers/gpu/drm/exynos/exynos_drm_mic.c            |  14 ++-
+ drivers/gpu/drm/mcde/mcde_dsi.c                    |   3 +
+ drivers/gpu/drm/mediatek/mtk_dpi.c                 |  10 +-
+ drivers/gpu/drm/msm/dsi/dsi_manager.c              |  13 ++-
+ drivers/gpu/drm/omapdrm/dss/dpi.c                  |  14 ++-
+ drivers/gpu/drm/omapdrm/dss/dsi.c                  |  14 ++-
+ drivers/gpu/drm/omapdrm/dss/sdi.c                  |  14 ++-
+ drivers/gpu/drm/omapdrm/dss/venc.c                 |  14 ++-
+ drivers/gpu/drm/sti/sti_dvo.c                      |  20 ++--
+ drivers/gpu/drm/sti/sti_hda.c                      |  20 ++--
+ drivers/gpu/drm/sti/sti_hdmi.c                     |  20 ++--
+ drivers/gpu/drm/tests/drm_bridge_test.c            | 104 ---------------------
+ include/drm/drm_bridge.h                           | 103 --------------------
+ 39 files changed, 272 insertions(+), 332 deletions(-)
+---
+base-commit: 60dc0946bbad3eef8bc66a5a8b09b98dbc6e09c0
+change-id: 20260615-drm-all-atomic-bridges-4da4fe7df58f
+prerequisite-change-id: 20260530-drm-no-more-bridge-reset-ca20d5e22740:v2
+prerequisite-patch-id: 8a8fbf1313a047a4a519f531a71c6c6f87b9bc83
+prerequisite-patch-id: a4e58ec70eaf69e00dba8b06a9ea276476d99743
+prerequisite-patch-id: d352592969ab04b77b981b3f214f2564e03adbb5
+prerequisite-patch-id: 12209462a46aa438a0e5c415de008e2328128fe5
+prerequisite-patch-id: 6193aa414873bcc7fa5d1062ed34cc124838ea6a
+prerequisite-patch-id: 076dae12bdbc2c270f30588a8d6e95563359b309
+prerequisite-patch-id: ffc56b19b1cd7ca4e909224903d8d43b39ae7fc6
+prerequisite-patch-id: 5dfc850e535eea05740da327f1ec8ab1a57a3218
+prerequisite-patch-id: 128438e2c3f56d29d05cf98486786c307441678b
+prerequisite-patch-id: 9f030232058e7b6c6eb9978c0e2ea8baebadbfd8
+prerequisite-patch-id: 9aa995e299738e71811fce508043e049216dbee8
+prerequisite-patch-id: 3c8c77a634ee316df7d077926b84f97f75ce3b9d
+prerequisite-patch-id: d60457e4989ffd8315fc5dfa0fe938f20ba5769e
+prerequisite-patch-id: d8aca430669a3514e9c7c8071392fd975c729943
+prerequisite-patch-id: f13b78cddc8e1d0a24ad2f07822cddcc2f349d56
+prerequisite-patch-id: 274645e4a50795892bba19c49b7228223837e4ee
+prerequisite-patch-id: b6e9e252c6b97ff453c31e7ce9f0c7e30af226ad
+prerequisite-patch-id: eaf8dc37e5fa9671a749287932de5cedeaa19367
+prerequisite-patch-id: ed140d0015fe32b1a312902d6a49dfa505d0c062
+prerequisite-patch-id: 1798291a06b97eb5e44521dcb1d2db22266b7322
+prerequisite-patch-id: 643d01d3dbe83950d3b3f1cec7adddc297163f24
+prerequisite-patch-id: 3e63f40fbd7b98e342da46b1aa377e39fb4e20fe
+prerequisite-patch-id: 83a906dc9533cfd63233328737c13092b0117164
+prerequisite-patch-id: 24f53e9c4f55a4e879fa5a32b30910ed6c1cd269
+prerequisite-patch-id: bd7e4106e2f0ef8608121b0408eac85d0f17b4df
+prerequisite-patch-id: 2b76a8943c04e7be9da62a78caa5fc86437d87e3
+prerequisite-patch-id: 59b0884a01a819a1d67e9135ea8e313a97bbb4fc
+prerequisite-patch-id: bb66b9cc8daa47a2ebedbf0b8bfe67b3f5afc193
+prerequisite-patch-id: 476834604d587da752945e53b2e4c6e0aba74b38
+prerequisite-patch-id: 0d0c0d400e2dda1b2a2143c2bd34d6a361b97f13
+prerequisite-patch-id: 27768e65101e85d23f008b22c9e34e8556334e1c
+prerequisite-patch-id: 8ee093b3d6884c6c7dcd5072893c58dad092fda6
+prerequisite-patch-id: 9ed3a66dc12bd099b09a495bd8148ecc363d3779
+prerequisite-patch-id: 288c493e2466e08e8a7b3137fbb443e17a99e510
+prerequisite-patch-id: 6f00079c63b96a7de1603f1524f06c0ad27c2cd3
+prerequisite-patch-id: f5c58ba609d0b609afd627e0452d6de34bb12f4e
+prerequisite-patch-id: 7f22cb2b55bd93af027ca50709fbbda072c15a06
+prerequisite-patch-id: 922a3d5ceb0607718a290ffd1f02e3e573a49cf4
+prerequisite-patch-id: 1d79eb945c8ca7ecae7b9d94b3ea07883c0337a9
+prerequisite-patch-id: 2f97212d2d87fabca5724d003cc6c70ae1e026b0
+prerequisite-patch-id: f667fac52310410fc067bebcf2c12e5757edbc51
+prerequisite-patch-id: ddc5ac03c75f6c6bd080e379b1c86c0024f09010
+prerequisite-patch-id: 1811f9a95469f9ab89faacc8fa23af3a8def0e10
+prerequisite-patch-id: 29684ab02ba8bf4ee366a56627c02ff4ef0d5af3
+prerequisite-patch-id: 00ebcbd12168a25f625d41dc4e0fc11659e00773
+prerequisite-patch-id: 1c570484a5d1a5209db2290b991dd7914e219e1c
+prerequisite-patch-id: 740c4469f788188f0e08fcbe9772ab2654892638
+prerequisite-patch-id: 2fb23f6f9a41c7ddf94480c904ad7ec22c161f95
+prerequisite-patch-id: d7f382a50b8db0525f2341a86705d01cdfbd9b56
+prerequisite-patch-id: d7243d13750efb81a0e93d223f1afd7e30bcae24
+prerequisite-patch-id: 6fd0d1296c2b01204a703d740cded71e448f7514
+prerequisite-patch-id: e093cf415c55b339b04562e3dc970361a971b226
+prerequisite-patch-id: 5f2c35278a4eb15ccf7f388b996a2ae2ba9b7396
+prerequisite-patch-id: 9c732ea87d43b26c1e16377fe3a4de42f603f153
+prerequisite-patch-id: 0d06852811ed3d3b52b701be99df135772b22d86
+prerequisite-patch-id: 972a1fe51fc62083eee9af1ba4cccc2350f87820
+prerequisite-patch-id: f78004b914048a14f48f9efbcf95586d84b33f23
+prerequisite-patch-id: cd38c76c499c1e9722889d97938b0406eff31940
+prerequisite-patch-id: 0777475583042460d0ef343533d8e2c37d3d2c4b
+prerequisite-patch-id: 2e535f65d1b8e0e768e8f897f779f06c31d128a6
+prerequisite-patch-id: ee47825cdbe1d4b937a6775fca324171015282d1
+prerequisite-patch-id: 1e4c68816dc7d1672dfd7e7175a1680a40ab18ae
+prerequisite-patch-id: 7509918098c4aabff7639a8f3849f4b2c56fca53
+prerequisite-patch-id: fd07b55c2a713e73540f3049818d996fcd5ef966
+prerequisite-patch-id: 5b269160fdaa636392cb2f1bf362c0cc393f08b8
+prerequisite-patch-id: 021c28b68be7ccbab88067648f9730be2c70cdf6
+prerequisite-patch-id: 8b208c636fb9439764239b991fd123ffc1addf1f
+prerequisite-patch-id: dd6127d8825c9225abe959d6720b58bbac72a978
+prerequisite-patch-id: 0001484c6655bfd60677b5af414aac14cbcf7431
+prerequisite-patch-id: 592c6729eac409319be242a8358b469236f159b3
+prerequisite-patch-id: dfcbcf6d807e482d41bf04ac4e65227e8ab5f39d
+prerequisite-patch-id: 9817811602db4b50fed170d50d43c1989dc06202
+prerequisite-patch-id: 6f932774c07dbe23e95a0fa35cdb1d3d9122e84b
+prerequisite-patch-id: 70d2333469ba724002e019f785ca50b6fe636648
+prerequisite-patch-id: f29fad83d6c2e4bf4e9c4606b7bf1e150f2be3c6
+prerequisite-patch-id: d4c58215c22b28a9b7488f666004e399b47dac8b
+prerequisite-patch-id: 14734115bea19a7d037f8f68899ac8a4016b3b43
+prerequisite-patch-id: 8e74affd6c728fd5096ce92e57bbff3126685151
+
+Best regards,
+-- 
+Maxime Ripard <mripard@kernel.org>
 
 
