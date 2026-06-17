@@ -4,63 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 391FFCD98E2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 09:06:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 610F1CD98E2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 09:10:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pw+CPMxX7kIpTRzGOW9utdbjRiEhzIi4EfaZkGwIwfQ=; b=kvXjOOIeOTJFr127IDOgi5rsRq
-	BrRE8u6xTogz8EifzpGl0t8au6rIbIXF/bmVG26hEA8SISBSEYf2+ZaKecsFmkIDfZV6GUVzXP2ez
-	zMTOJ323NTemnQLAiRNx4i5xVsI+jPx/DM8ufIkYw+n+j+VhkysBO/1cpC6Vb9vwNNPMxyJ9REbAn
-	ryntmf5ZFcUmo542Rc7swiR435TRE+vZg0rWPchPJ3DVmnigRFdRPFqKFmIBaxYtoxn0ggNDvU+7H
-	PjM9SZJOLnhIgSv82rOePOU/5IsYF142KEtTGaaA9agSSI0D1xyGD+lvLn9o+BGZhXfZFCejDfm1I
-	RTadGHQg==;
+	bh=cZeY91bsLZ6XcUtAEW8LR2FhjQcmo4GITFYewTgQyTU=; b=uwTvrXhbDQ7lZGrRYslj8CCeTP
+	TdSLR1mbkktf3fJg6XvPfbHbsZQRBwGsMsv/46WpIpzl0ELDd/HZJlpInJWsdqcUyH6/pX6Uz7p1Q
+	0xh+twH7ZPXBxZol+SaHEex0x4yOyzHzt9RbBQ+Z5Wxt/xht7gisQjeG6/OR4HgwPVH8CJE3wGaYS
+	quu+HJorkMuwNpeT7zvOiVU+9DXLwCHZIJQgG8KyYlShXqXVAIKsqk3qWE5xeMF+gDb7XIvuAaNAA
+	GIs5YF3upaH5IGHsuMVy9gWZhHTzTa8W45XnhGPLyNQXnwGiG/pnnEaCVGCN56bal7NZ9gZieiQeQ
+	YvCoEFgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZmDy-0000000Gw6g-0ejJ;
-	Wed, 17 Jun 2026 09:06:18 +0000
+	id 1wZmHl-0000000GwJa-2Txa;
+	Wed, 17 Jun 2026 09:10:13 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZmDx-0000000Gw6O-425O
+	id 1wZmHl-0000000GwJU-0eIY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 09:06:17 +0000
+	Wed, 17 Jun 2026 09:10:13 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 505B840611;
-	Wed, 17 Jun 2026 09:06:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9CD61F000E9;
-	Wed, 17 Jun 2026 09:06:15 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6109C40740;
+	Wed, 17 Jun 2026 09:10:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43A941F000E9;
+	Wed, 17 Jun 2026 09:10:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781687177;
-	bh=pw+CPMxX7kIpTRzGOW9utdbjRiEhzIi4EfaZkGwIwfQ=;
+	s=k20260515; t=1781687412;
+	bh=cZeY91bsLZ6XcUtAEW8LR2FhjQcmo4GITFYewTgQyTU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Zbe5rA8Bp1ZRulmaMmYPa5pKdOrFqNrOs5Se+yDhmavxDWaJqTuHpePKyWkUD9AW4
-	 KmL6PsO65Wi1be5roCIcW/aU/oRDosM0QnH6Ai8nenfTn7vevGg+PgpvvFqLpbOZgj
-	 jd7bDKt4g5S8ikvOaONBSbT7QQdf/s5Ki+Jfqj/EBDsvoq/19Bxa1dV05WOmAH4or9
-	 mz8HSUnmQ+qKgFcvvNEsLbQMO005Ojj049W1W3fzSTnEYlJU8cFZHpEmAl/VmRQyg4
-	 2D7abf91XRNhU/HeQAof4QHkWl7/uMQgPhNFRriuHGghBLl0UQUhkbecfqJr9cNYtZ
-	 NjERu/NhylcgQ==
-Date: Wed, 17 Jun 2026 10:06:13 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Unnathi Chalicheemala <unnathi.chalicheemala@oss.qualcomm.com>
-Cc: Jens Wiklander <jens.wiklander@linaro.org>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org, kernel@oss.qualcomm.com,
-	Trilok Soni <trilok.soni@oss.qualcomm.com>,
-	Satya Durga Srinivasu Prabhala <satya.prabhala@oss.qualcomm.com>
-Subject: Re: [PATCH] firmware: arm_ffa: Fix NULL dereference in
- ffa_partition_info_get()
-Message-ID: <20260617-glittering-aloof-dormouse-3acd96@sudeepholla>
-References: <20260611-ffa_partition_nullptr_fix-v1-1-ec2b7ef7e130@oss.qualcomm.com>
- <20260612-fat-energetic-hummingbird-8ddc62@sudeepholla>
- <eb50b45d-ad04-4da7-8cfa-6e1abb1ffba4@oss.qualcomm.com>
+	b=CNWs3zZjlcA1gaAwoIQDc6sIc4rHPrYCKFvz7Um7OaHbuzS+Y4+tufkSTTKo9VznT
+	 AmtO+GEq/K5WbBGhV+xtrE3dbM4Yoa+QO5NCpaOYX28GKwBkVJWtTGab6YKgEA5ZFw
+	 Pg+o2jnNE5W/vOrhkQc9TBjJeYb47U6KT82pxmY5fVmi2NKDY0cONakXjsCwVrVzE+
+	 dgdg54ax9/H6QMlpJFrkjcwcFpnmQ1ymNfj1xtaMoQHZCgozdo+Adu/tFmtisgZRbl
+	 0ixZcaweD0r2hNv0fkXjzvZucg0Z+U4s5/qy6fyo4ejUZpggvV7TPsXvMikUjhtCCa
+	 tHUzFSzxOuLBg==
+Date: Wed, 17 Jun 2026 11:10:07 +0200
+From: Andi Shyti <andi.shyti@kernel.org>
+To: "Carlos Song (OSS)" <carlos.song@oss.nxp.com>
+Cc: aisheng.dong@nxp.com, Frank.Li@nxp.com, s.hauer@pengutronix.de, 
+	kernel@pengutronix.de, festevam@gmail.com, carlos.song@nxp.com, 
+	linux-i2c@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v3] i2c: imx-lpi2c: mark I2C adapter when hardware is
+ powered down
+Message-ID: <ajJkQIUD0gu9nlf3@zenone.zhora.eu>
+References: <20260525031450.3183421-1-carlos.song@oss.nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <eb50b45d-ad04-4da7-8cfa-6e1abb1ffba4@oss.qualcomm.com>
+In-Reply-To: <20260525031450.3183421-1-carlos.song@oss.nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,50 +71,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 16, 2026 at 02:14:59PM -0700, Unnathi Chalicheemala wrote:
-> On 6/12/2026 3:55 AM, Sudeep Holla wrote:
-> > 
-> >> Per the FF-A spec, the all-zeros UUID is the defined wildcard that
-> >> instructs the SPMC to return information for all partitions. Map NULL
-> >> and empty string to uuid_null rather than crashing in uuid_parse(),
-> >> preserving the intended "return all partitions" semantics for callers
-> >> that pass NULL.
-> >>
-> > 
-> > Agreed on the spec part but not w.r.t the interface. Where is the driver
-> > using this call and why is it sending null or wants to extract all the
-> > partition information ?
-> > 
+Hi Carlos,
+
+On Mon, May 25, 2026 at 11:14:50AM +0800, Carlos Song (OSS) wrote:
+> From: Carlos Song <carlos.song@nxp.com>
 > 
-> A developer wanting all partitions might reasonably pass the all-zeros string
-> "00000000-0000-0000-0000-000000000000"?
-
-I understand that and the core driver does exactly this when initialising
-to enumerate all the partitions on the system. But you didn't answer my
-question as where is the FF-A client driver pass NULL ? You just expressed
-the possibility here.
-
-
-[...]
-
-> > I object to make it uuid_null. Below check is enough to check NULL
-> > dereference.
-> > 
-> > -       if (uuid_parse(uuid_str, &uuid)) {
-> > +       if (!uuid_str || uuid_parse(uuid_str, &uuid)) {
-> > 
-> > 
-> > I don't think we need to service NULL as valid argument via this interface
-> > as the callee driver needs to pass its partition UUID here.
-> > 
-> I agree with you, NULL doesn't seem like a valid use case.
+> On some i.MX platforms, certain I2C client drivers keep a periodic
+> workqueue which continues to trigger I2C transfers.
 > 
-> Will send another version with your suggestion, thank you for the review.
+> During system suspend/resume, there exists a time window between:
+>   - suspend_noirq and the system entering suspend
+>   - the system starting to resume and resume_noirq
 > 
+> In this window, the I2C controller resources such as clock and pinctrl
+> may already be disabled or not yet restored.
+> 
+> If a workqueue triggers an I2C transfer in this period, the driver
+> attempts to access I2C registers while the hardware resources are
+> unavailable, which may lead to system hang.
+> 
+> Mark the I2C adapter as suspended during noirq suspend and block new
+> transfers until resume, ensuring that I2C transfers are only issued
+> when hardware resources are available.
+> 
+> Fixes: 1ee867e465c1 ("i2c: imx-lpi2c: add target mode support")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Carlos Song <carlos.song@nxp.com>
 
-Thanks!
+merged to i2c/i2c-host.
 
--- 
-Regards,
-Sudeep
+Slowly I will check more carefully all your fixes. I'm sorry for
+the delay in this period.
+
+Thanks,
+Andi
 
