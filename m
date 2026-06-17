@@ -4,63 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C64C4CD98E2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 10:33:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 704E1CD98E4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 10:34:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=szLE0S72oFPtCHbqy6RYhj+xzfkKN142/ocsCt11p94=; b=kcxi3K+3lpTB/aeXrTB0fHiFrZ
-	Hr/teakFdliAeFnCugWD+CiFlIGyGrs21eOx7E4Mf1Xy9ghR1KWgKtis1GXgBAIgqNv5m1uLJvRGT
-	KM5hYULkBNegF1qkTlKwMsKmW4sVuP8MJ7ZUi+7c/3kARlxK6pDvtQvFWBOxkvGOSqbKM1kT30XHy
-	O1rIN+pCdvXccxAbUq0thtdrXybJ5viMexgoOz3cYg7k66C9h8acD4a7MN/s+Bqa4tZ8moT1Vbxpm
-	Nqwhcgau7+x2BzgWS3IC1fI1WTBNL29skMy6OfJNgKmuJwszQx9ZkUumj8TEEObaTluJCtjIBEgWr
-	T8vyjh9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uLJVi2lQkwcQJakc7pftwG/u0GTIiX/FfTuiAYCAfco=; b=qtsCIUeJS8gRodbDmGdx6WFc/W
+	TDGutLGPJgxTynNHcnjtKbFr4MER87ZGjXj1w3xulpNVEe9qK1EGC5f4sYqnEzWnMTwFyENMS9RbD
+	Oe2VUycJn+bwgDkTf/0b3c4nti2lAXgDqTxOK3EEOdqZunmipqBqB7wz6GYE9W9RC4C3z9594livW
+	eZDLk70zSE6SozxJLXFRO7nSdUJnP5xo+JbpT2QWUzwkkiYF2yCiT670jKBUlYAioD5vLfASyKJlo
+	6KYnDNO0m0jgBjGTl1PWxkmvWdOEJb2tc6RLWcitv5ScQ0qXjt1KeJPLXZ3CGW/MJM1zLoWkQ8a4S
+	8VuvzjgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZnah-0000000H3zk-2hn4;
-	Wed, 17 Jun 2026 10:33:51 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wZnap-0000000H46x-0TS1;
+	Wed, 17 Jun 2026 10:33:59 +0000
+Received: from mail-dy1-x132a.google.com ([2607:f8b0:4864:20::132a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZnaf-0000000H3y2-2g7o
+	id 1wZnam-0000000H442-2TT8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 10:33:49 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 175C540533;
-	Wed, 17 Jun 2026 10:33:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 749A61F000E9;
-	Wed, 17 Jun 2026 10:33:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781692429;
-	bh=szLE0S72oFPtCHbqy6RYhj+xzfkKN142/ocsCt11p94=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=N37b7IhgoLv0nxsiTXFRbKaFHlR4HBRYKnrPzolbj6l4lHrypkiYiRraYPnPdiubo
-	 mKX35W+0Fmhe6GwAubfGWzQWrwAGV87fmOeAlG0NnfsiiNNXzXkTTMyTt3dSDWHSLI
-	 WQaNuRFAaxGAFo1gwCbVJAOtA6yEab3oT8GxxiML/HK3sToP8Ru5ugvj4jtucO8cp7
-	 Bp02jPEYrbv1etezulBk/di4LkHhR4eSduZBgOlvzIK7GV6DpUVSRV3RFSUIGDPVqB
-	 XOXbDPaXbzxDMGb34jsJzWBqpbp4/k6tM8ZbGC99oiJI51tWsVgeSper9fg1cJxUne
-	 KMateyyg0kgWQ==
-Date: Wed, 17 Jun 2026 12:33:39 +0200
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-pci@vger.kernel.org, 
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Conor Dooley <conor+dt@kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Marc Zyngier <maz@kernel.org>, Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH 1/3] PCI: rcar-gen4: Configure AXIINTC if iMSI-RX not used
-Message-ID: <lstafqaogzunb2azyqwvtt3swrk42nu3n5zyct2la5fqxomaqg@wyrz3qolhist>
-References: <20260617030008.154449-1-marek.vasut+renesas@mailbox.org>
+	Wed, 17 Jun 2026 10:33:57 +0000
+Received: by mail-dy1-x132a.google.com with SMTP id 5a478bee46e88-30bd445db39so180806eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 03:33:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781692436; x=1782297236; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=uLJVi2lQkwcQJakc7pftwG/u0GTIiX/FfTuiAYCAfco=;
+        b=lK0VQf98f5J41Lw9HM5XODlpWZxwXGKoqJw8J0rBeD42is7zxc0pRnZ0fa1XMAMtKL
+         HqXnBL3j+Z6YZmoAw6FU1WumMDT+GRr/AbSiEjjz3VurZiBR3aq/BWMOruQkv32Trawj
+         dKNj3whr2oWDdsdycsgGxZYlTdnOPymhD/Fzd1b0+bAciNTkliHjV6e8tSEBN7QHNaWK
+         HCYtx2mPS4PpJGiPF3+KEsr09S6rDa5cbtG6/g4a6YTQBu0HjDkV54e/gmZrhy8hkjmW
+         u4EVAnQxenMZFglj78pRiXfAT7AkQI1omqJUoqgTs79G73E/oiIEKcm1U+L7biZ0hCHr
+         ikqQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781692436; x=1782297236;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=uLJVi2lQkwcQJakc7pftwG/u0GTIiX/FfTuiAYCAfco=;
+        b=X9UwhIwWCUBibNzLQmMwde1/pWsxiq+Jm9i8GRTkZC4U7NN7UVybYvw6OawmURMbNg
+         F6Lhne/k05is+BPTsg7y0OkSF0SltXxI0Y4aEgFXNkyvtD45wtkrs9FjE/oeIN52zlfb
+         3OjX0BgHKq7YtGvdfJMYooYS74G3qgoSGiouEv/Wl+YI1HVDfdM+NoTe0ESmYPou+1ow
+         SRUF8WOn0Fii81TrzR5nAlY4AB6HVlu19FQFuq5jwfSb2QIsaJ4btaJltcIZ+WCFBVjd
+         IPypD88+7fBai3Oup8z/LfB1fLLR8SNn07kFHW58EBIdReT+KxujHSEqW87mhc3Mw1yu
+         LHxw==
+X-Forwarded-Encrypted: i=1; AFNElJ8kaeE3lQQN0Mksv8UG61l6ClUz7I/6ZBj1o630Frj3TTm4e60xIQQ3ImQNSyil+HmJBIR5NU2kfzhWChBIjMb+@lists.infradead.org
+X-Gm-Message-State: AOJu0YxWQy/nsKZRnsNJxOhgpllprL+3NUnzn7LAi8OlRxRqPP+lLYM3
+	5/ytk+eLQZ+kYwzzX06oT13mdkqACrCbpvFBZv+BijiYBAp2I54uj+ce
+X-Gm-Gg: AfdE7cmVUCBo6TXQOd5YmxZfZpN/jx7oVgOGw38Ufiik+3VIM/ZNX1YZgji7z100K/B
+	B7+lbt7WBerJL7lfILvjagwWxPCigdJUR12TNep7O7dumhtNNr6mpvwLTyVHgk/vI+KMB+Ok1RD
+	o1MLeXk2fOYMzytvnfW0LKRTPa+Zgce5OfZCNCxipatfMxVu2cYGkPvmC5oiUm1Memty9o4Rg82
+	lMZumjGogAJGW2le7AuuTrnDUUojlgByLhFIfkLfPwvWfzJYGz3V4Lu3fN9AtjdTvbJiNyo5rCl
+	0acfqdUSuNl6RWIoQdzCSksdzt4CjvjH5/6mCTwUxxxhYpG02EX/A6t0zTcxZnqD4vgGfF6bK9g
+	Pu4L8AeDydCq2XA04m1K62CnVZKmxMErmv3fZXvYIVm+ceQIpDEcAeOncs5vJXCIx8IfYgMPEBQ
+	vgofn8NreG+qxHp625YuYDVQVpzeSf0O6rmCtKvgdX8zCwRXY=
+X-Received: by 2002:a05:7300:da13:b0:304:56fc:775 with SMTP id 5a478bee46e88-30bcf567d78mr865158eec.21.1781692435786;
+        Wed, 17 Jun 2026 03:33:55 -0700 (PDT)
+Received: from phuc-desktop.. ([183.91.15.56])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3081e5d0828sm24616275eec.10.2026.06.17.03.33.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 17 Jun 2026 03:33:55 -0700 (PDT)
+From: phucduc.bui@gmail.com
+To: Mark Brown <broonie@kernel.org>
+Cc: Liam Girdwood <lgirdwood@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Cheng-Yi Chiang <cychiang@chromium.org>,
+	Tzung-Bi Shih <tzungbi@kernel.org>,
+	Guenter Roeck <groeck@chromium.org>,
+	Benson Leung <bleung@chromium.org>,
+	David Rhodes <david.rhodes@cirrus.com>,
+	Richard Fitzgerald <rf@opensource.cirrus.com>,
+	povik+lin@cutebit.org,
+	Charles Keepax <ckeepax@opensource.cirrus.com>,
+	Support Opensource <support.opensource@diasemi.com>,
+	Nick Li <nick.li@foursemi.com>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Shenghao Ding <shenghao-ding@ti.com>,
+	Kevin Lu <kevin-lu@ti.com>,
+	Baojun Xu <baojun.xu@ti.com>,
+	Sen Wang <sen@ti.com>,
+	Oder Chiou <oder_chiou@realtek.com>,
+	Lars-Peter Clausen <lars@metafoo.de>,
+	nuno.sa@analog.com,
+	Steven Eckhoff <steven.eckhoff.opensource@gmail.com>,
+	patches@opensource.cirrus.com,
+	chrome-platform@lists.linux.dev,
+	asahi@lists.linux.dev,
+	linux-arm-msm@vger.kernel.org,
+	linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	bui duc phuc <phucduc.bui@gmail.com>
+Subject: [PATCH 06/78] ASoC: codecs: aw88081: Use guard() for mutex locks
+Date: Wed, 17 Jun 2026 17:31:23 +0700
+Message-ID: <20260617103235.449609-7-phucduc.bui@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260617103235.449609-1-phucduc.bui@gmail.com>
+References: <20260617103235.449609-1-phucduc.bui@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260617030008.154449-1-marek.vasut+renesas@mailbox.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260617_033356_636552_DF796ECC 
+X-CRM114-Status: GOOD (  11.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,114 +130,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 17, 2026 at 04:59:44AM +0200, Marek Vasut wrote:
-> In case MSI are enabled, but DWC built-in iMSI-RX is not in use, the
-> MSI are handled via GIC ITS. Configure all controller MSI registers
-> fully.
-> 
-> Set or clear MSI capability register MSICAP0 MSI enable MSIE bit and
-> PCIe Interrupt Status 0 Enable register PCIEINTSTS0EN MSI interrupt
-> enable MSI_CTRL_INT bit according to MSI enable state, set both bits
-> if MSI are enabled, clear both bits if MSI are disabled.
-> 
-> If MSI are disabled, or MSI are enabled and iMSI-RX is used, then
-> deconfigure AXIINTCADDR and AXIINTCCONT to 0, which disables any
-> pass through of MSI TLPs onto the AXI bus and then further into
-> GIC ITS translation registers.
-> 
-> If MSI are enabled and iMSI-RX is not used, the configure AXIINTCADDR
-> with target address of GIC ITS translation registers, and configure
-> AXIINTCCONT to enable MSI TLP pass through onto AXI bus and into the
-> GIC ITS. This specific configuration allows handling of MSI via the
-> GIC ITS instead of integrated iMSI-RX.
-> 
-> Signed-off-by: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
-> ---
-> NOTE: This would not be possible without prior work from Shimoda-san
-> ---
-> Cc: "Krzysztof Wilczyński" <kwilczynski@kernel.org>
-> Cc: Bjorn Helgaas <bhelgaas@google.com>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: Geert Uytterhoeven <geert+renesas@glider.be>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> Cc: Manivannan Sadhasivam <mani@kernel.org>
-> Cc: Marc Zyngier <maz@kernel.org>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
-> Cc: devicetree@vger.kernel.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-doc@vger.kernel.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-pci@vger.kernel.org
-> Cc: linux-renesas-soc@vger.kernel.org
-> ---
->  drivers/pci/controller/dwc/pcie-rcar-gen4.c | 53 +++++++++++++++++++--
->  1 file changed, 48 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/dwc/pcie-rcar-gen4.c b/drivers/pci/controller/dwc/pcie-rcar-gen4.c
-> index 485cfa8bd9692..ba6e3bedd6d0a 100644
-> --- a/drivers/pci/controller/dwc/pcie-rcar-gen4.c
-> +++ b/drivers/pci/controller/dwc/pcie-rcar-gen4.c
-> @@ -31,6 +31,10 @@
->  #define DEVICE_TYPE_RC		BIT(4)
->  #define BIFUR_MOD_SET_ON	BIT(0)
->  
-> +/* MSI Capability */
-> +#define MSICAP0			0x0050
-> +#define MSICAP0_MSIE		BIT(16)
-> +
->  /* PCIe Interrupt Status 0 */
->  #define PCIEINTSTS0		0x0084
->  
-> @@ -55,6 +59,16 @@
->  #define APP_HOLD_PHY_RST	BIT(16)
->  #define APP_LTSSM_ENABLE	BIT(0)
->  
-> +/* INTC address */
-> +#define AXIINTCADDR		0x0a00
-> +/* GITS GIC ITS translation register */
-> +#define AXIINTCADDR_VAL		0xf1050000
+From: bui duc phuc <phucduc.bui@gmail.com>
 
-As Marc pointed out, this address should be fetched from DT, not hardcoded in
-the driver.
+Clean up the code using guard() for mutex locks.
+Merely code refactoring, and no behavior change.
 
-> +
-> +/* INTC control & mask */
-> +#define AXIINTCCONT		0x0a04
-> +#define INTC_EN			BIT(31)
-> +#define INTC_MASK		GENMASK(11, 2)
-> +
->  /* PCIe Power Management Control */
->  #define PCIEPWRMNGCTRL		0x0070
->  #define APP_CLK_REQ_N		BIT(11)
-> @@ -305,6 +319,39 @@ static struct rcar_gen4_pcie *rcar_gen4_pcie_alloc(struct platform_device *pdev)
->  	return rcar;
->  }
->  
-> +static void rcar_gen4_pcie_host_msi_init(struct dw_pcie_rp *pp)
-> +{
-> +	struct dw_pcie *dw = to_dw_pcie_from_pp(pp);
-> +	struct rcar_gen4_pcie *rcar = to_rcar_gen4_pcie(dw);
-> +	u32 val;
-> +
-> +	/* Make sure MSICAP0 MSIE is configured. */
-> +	val = dw_pcie_readl_dbi(dw, MSICAP0);
-> +	if (pci_msi_enabled())
-> +		val |= MSICAP0_MSIE;
-> +	else
-> +		val &= ~MSICAP0_MSIE;
-> +	dw_pcie_writel_dbi(dw, MSICAP0, val);
-> +
-> +	if (!pci_msi_enabled() || pp->use_imsi_rx) {
+Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
+---
+ sound/soc/codecs/aw88081.c | 17 +++++------------
+ 1 file changed, 5 insertions(+), 12 deletions(-)
 
-If MSI is not enabled, then what's the point in clearing these registers (also
-above)? I see it as a redundant code. Is there a necessity to clear them?
-
-- Mani
-
+diff --git a/sound/soc/codecs/aw88081.c b/sound/soc/codecs/aw88081.c
+index d5e886a8f106..fce56a249a1f 100644
+--- a/sound/soc/codecs/aw88081.c
++++ b/sound/soc/codecs/aw88081.c
+@@ -763,9 +763,8 @@ static void aw88081_startup_work(struct work_struct *work)
+ 	struct aw88081 *aw88081 =
+ 		container_of(work, struct aw88081, start_work.work);
+ 
+-	mutex_lock(&aw88081->lock);
++	guard(mutex)(&aw88081->lock);
+ 	aw88081_start_pa(aw88081);
+-	mutex_unlock(&aw88081->lock);
+ }
+ 
+ static void aw88081_start(struct aw88081 *aw88081, bool sync_start)
+@@ -942,11 +941,10 @@ static int aw88081_profile_set(struct snd_kcontrol *kcontrol,
+ 	int ret;
+ 
+ 	/* pa stop or stopping just set profile */
+-	mutex_lock(&aw88081->lock);
++	guard(mutex)(&aw88081->lock);
+ 	ret = aw88081_dev_set_profile_index(aw88081->aw_pa, ucontrol->value.integer.value[0]);
+ 	if (ret) {
+ 		dev_dbg(codec->dev, "profile index does not change");
+-		mutex_unlock(&aw88081->lock);
+ 		return 0;
+ 	}
+ 
+@@ -955,8 +953,6 @@ static int aw88081_profile_set(struct snd_kcontrol *kcontrol,
+ 		aw88081_start(aw88081, AW88081_SYNC_START);
+ 	}
+ 
+-	mutex_unlock(&aw88081->lock);
+-
+ 	return 1;
+ }
+ 
+@@ -1165,11 +1161,9 @@ static int aw88081_request_firmware_file(struct aw88081 *aw88081)
+ 	if (ret)
+ 		return ret;
+ 
+-	mutex_lock(&aw88081->lock);
+-	ret = aw88081_dev_init(aw88081, aw88081->aw_cfg);
+-	mutex_unlock(&aw88081->lock);
++	guard(mutex)(&aw88081->lock);
+ 
+-	return ret;
++	return aw88081_dev_init(aw88081, aw88081->aw_cfg);
+ }
+ 
+ static int aw88081_playback_event(struct snd_soc_dapm_widget *w,
+@@ -1178,7 +1172,7 @@ static int aw88081_playback_event(struct snd_soc_dapm_widget *w,
+ 	struct snd_soc_component *component = snd_soc_dapm_to_component(w->dapm);
+ 	struct aw88081 *aw88081 = snd_soc_component_get_drvdata(component);
+ 
+-	mutex_lock(&aw88081->lock);
++	guard(mutex)(&aw88081->lock);
+ 	switch (event) {
+ 	case SND_SOC_DAPM_PRE_PMU:
+ 		aw88081_start(aw88081, AW88081_ASYNC_START);
+@@ -1189,7 +1183,6 @@ static int aw88081_playback_event(struct snd_soc_dapm_widget *w,
+ 	default:
+ 		break;
+ 	}
+-	mutex_unlock(&aw88081->lock);
+ 
+ 	return 0;
+ }
 -- 
-மணிவண்ணன் சதாசிவம்
+2.43.0
+
 
