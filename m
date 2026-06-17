@@ -4,66 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3888BCD98E2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 15:46:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84AD1CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 15:52:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MHJXgDZdrQXug3OSJET//w33iY1x+Rusb29X/DZT8Gw=; b=LYfHsiSUtycIkBd7C46xVeXA9a
-	/ZXByrKhvZGiYPAU6Qe1xgEityDm4kwiwLW9keQh3bISlgy5gTvZytwHM1lB/Cu/VXBu7QGJzJu/Z
-	1pnf56qxkTe8ooCm1sV06eqRs2LMpD0lzeEqgYIUplTh8x0ye7j4lDQMjQByaxZGlVxALEaOKIXLC
-	9+TIZQFKtofytGg/zXHAmB4WHMndpuNCQp3UrSJ+tmd/6Iei10H/WDSkesQcc6nVdUaK9L5Z+jBGf
-	bDaSwwBjwTUwFtVcfw1GdAfRf3f6g88ZswFD3UBQyxbjvTtac58aHA7P4oaE5sHIPnmRQ/IJ5gwoD
-	uOj115+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gtj5dg64TxuCBekH6gIVDZSCybZ/XwBRYoS+TH55748=; b=PdJZg9yXgSTiVLn5vyt8TAWKog
+	7N6/IgaMoB7QzEgN45ZwVfAzgdAWoXoG53S6HvfUHaCDEsuSDgPr0hoLrQHTZIyx7fQfUDSmSMzzG
+	B3E0byiadl3TSHd2f5lcSRLpi8HqdY4fjdwiFe7czaoxmxurkm6EU/jFSoZAE/w00DXAwOKTBL4SY
+	8P+8cX47okWsUC+1wkF6W920sQpk1i6w+NuDdxndCjz1fE1dc5px2ziotwq91I/3iTfNAjpsQDFIQ
+	l83x8hGUuzaNsuHGV2hwhUCeXAP7EcZxnGsaBYUitfJfWDSVSklcMrt15hlXRGZmusukXTjdLXmcN
+	Ix0AkZsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZsTX-0000000Ha7i-14xb;
-	Wed, 17 Jun 2026 15:46:47 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wZsYc-0000000HagW-45F0;
+	Wed, 17 Jun 2026 15:52:02 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZsTV-0000000Ha7Y-3PX3;
-	Wed, 17 Jun 2026 15:46:45 +0000
+	id 1wZsYb-0000000HagF-1klU;
+	Wed, 17 Jun 2026 15:52:01 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id F406060052;
-	Wed, 17 Jun 2026 15:46:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7ECF01F000E9;
-	Wed, 17 Jun 2026 15:46:41 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C0B6A4018E;
+	Wed, 17 Jun 2026 15:52:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F0201F000E9;
+	Wed, 17 Jun 2026 15:51:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781711204;
-	bh=MHJXgDZdrQXug3OSJET//w33iY1x+Rusb29X/DZT8Gw=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=J9ORgys/GhA4HTpeMpHgnGulykS+dtFlH7f0szkpPPkby4tQweo00ZhBanut5hmLg
-	 fNX92VTENgJ4Cvw/1D7CROusIoLImwfPeS2X791tVdGt0PBJMmQnHo/UtoFcm5ltjA
-	 9D/uzTlaY3VTCW6IRlpfbM5cx7Mugmdjcjq5z5Y433wiyyvG/wkAQVtj+jq/qKWAGo
-	 cHeLPXq40QNIZG/IzTns47XdF/Js1hfgdLnWW2r5/7sb5IltfGS8iTpTEF7cEidqRh
-	 sPZnB2lmALqkxRnhnVRSjSa1vQ+0Or6ZUgmEph+zDmmQTOAQ6b2yGgMkZCOQ07tpcb
-	 P/Xj6GFDm6scA==
-From: Lee Jones <lee@kernel.org>
-To: Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
- Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Srinivas Kandagatla <srini@kernel.org>, 
- Roman Vivchar <rva333@protonmail.com>
-Cc: Andy Shevchenko <andy@kernel.org>, linux-pm@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Ben Grisdale <bengris32@protonmail.ch>
-In-Reply-To: <20260617-mt6323-nvmem-v2-3-4f30e36aa0f4@protonmail.com>
-References: <20260617-mt6323-nvmem-v2-3-4f30e36aa0f4@protonmail.com>
-Subject: Re: (subset) [PATCH v2 3/4] mfd: mt6397-core: add mt6323 EFUSE
- support
-Message-Id: <178171120126.1657680.13074561200311670232.b4-ty@b4>
-Date: Wed, 17 Jun 2026 16:46:41 +0100
+	s=k20260515; t=1781711520;
+	bh=gtj5dg64TxuCBekH6gIVDZSCybZ/XwBRYoS+TH55748=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=QfTlOKUslYhUnlz4WPjprU6l2Bl/sK2EoRV2qIAAC5HWapAwMLx7cqGNoOMvIoZKa
+	 pQwwbHZp+EhIju41Y7LJbOCm1rP2AXYk4qsepwBUGAnd3iBZeuNHNxBZqijpo/btbI
+	 hl9xcmLSc7Pb2uuDHAaUNJEssiVY8/zB5D0qzZvDnEOh6c7NMi7IlLHT5eGywT84RJ
+	 VvpEtQt1guRuw7maw33RyAKAByb3uf3y6SWf3N4QFzpTQ45GtjB+gZMZId07PF4ehX
+	 a1yblVlKREyF/URZRXJumKWDGYgzRUYiZajGC+bJ7S2RunBm7VEWGhAOJ9zz1NGTSh
+	 kqobO8NFZoUuQ==
+Date: Wed, 17 Jun 2026 16:51:56 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Gerald Loacker <gerald.loacker@wolfvision.net>
+Cc: Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, linux-phy@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH 2/3] dt-bindings: phy: rockchip-inno-csi-dphy: add
+ rockchip,clk-lane-phase property
+Message-ID: <20260617-deviate-sulk-c57104ef939f@spud>
+References: <20260617-feature-mipi-csi-dphy-4k60-v1-0-4611ff00b0ff@wolfvision.net>
+ <20260617-feature-mipi-csi-dphy-4k60-v1-2-4611ff00b0ff@wolfvision.net>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.16-dev-ad80c
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="VWeXfw4mhda8KfwY"
+Content-Disposition: inline
+In-Reply-To: <20260617-feature-mipi-csi-dphy-4k60-v1-2-4611ff00b0ff@wolfvision.net>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,17 +76,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 17 Jun 2026 12:48:46 +0300, Roman Vivchar wrote:
-> The mt6323 PMIC includes an EFUSE. Register the EFUSE in the mt6323
-> devices array to allow the corresponding driver to probe using compatible
-> string.
 
-Applied, thanks!
+--VWeXfw4mhda8KfwY
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-[3/4] mfd: mt6397-core: add mt6323 EFUSE support
-      commit: f5ce60535d04ca21799d558cfa13ba91bbe714b5
+On Wed, Jun 17, 2026 at 02:23:14PM +0200, Gerald Loacker wrote:
+> Add support for the optional rockchip,clk-lane-phase device tree property
+> to allow board-specific tuning of the clock lane sampling phase for
+> improved signal integrity across supported data rates.
+>=20
+> Signed-off-by: Gerald Loacker <gerald.loacker@wolfvision.net>
+> ---
+>  Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml | 7 ++=
++++++
+>  1 file changed, 7 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy=
+=2Eyaml b/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml
+> index 03950b3cad08c..0d824d1511bc0 100644
+> --- a/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml
+> +++ b/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml
+> @@ -56,6 +56,13 @@ properties:
+>      description:
+>        Some additional phy settings are access through GRF regs.
+> =20
+> +  rockchip,clk-lane-phase:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    minimum: 0
+> +    maximum: 7
+> +    description:
+> +      Clock lane sampling phase in 40 ps steps. The hardware default is =
+3.
 
---
-Lee Jones [李琼斯]
+Can this instead become rockchip,clk-lane-phase-ps and be listed in the
+actual unit?
+With the -ps suffix, you can then drop the $ref.
+The default should be listed as "default: 3" (or default: 120)
 
+pw-bot: changes-requested
+
+> +
+>  required:
+>    - compatible
+>    - reg
+>=20
+> --=20
+> 2.34.1
+>=20
+
+--VWeXfw4mhda8KfwY
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHQEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCajLCnAAKCRB4tDGHoIJi
+0gDoAP9k3dz45bxi4cXPTLEgr6PZeKMsVt1LStk2R98sBcwk2AD3bcuGGmbrTcuM
++Q1nqKDjDPHzxpNyJkTPhyVUuYB5AA==
+=kgQi
+-----END PGP SIGNATURE-----
+
+--VWeXfw4mhda8KfwY--
 
