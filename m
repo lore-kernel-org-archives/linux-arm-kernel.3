@@ -4,62 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D1ACCD98E2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 10:49:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B06D9CD98E4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 10:55:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qMycG1ndqRl0cGcAck43prqsHHxJI4FoJfuvDdddzAI=; b=r3xe32eI8tyoIplYX7jnGyr2OX
-	Y14toLyOH6Q0XsymOS9HXntHZjjMEssKSFZVwncROiRp7c1y1KPDTOA572eY+7lBN+RzkFCniqkOB
-	IAioggtIglazEbQ72M1o3jD6lD6aWzpyvH0ohPpHGyA/sHR2sGEHTkJIGucr3TAlD4j3rh/5GfprE
-	wMacb/WrioTjGWt36X8XVRR3qwH847C3ZltnAqNk7Dq7SW59Y6h7K71o7WT6vFppC8AUBk/P6y6RO
-	78XzG28gG/fy4KEBi4yPurOD7P8nYB+8/gWylCflDZd56O8U0sKvtb0dR30+NovXgF/6v/tYgH0E6
-	ZEcsvOpA==;
+	bh=CzmyMfOjUoqFSrudEqB/8Bk4sn/k1QYEewnBQo+Bwnw=; b=3Si+YOctaogHBUh/MGEbeWv9W8
+	2F7ve9EQpO7XJhBUCtHbjXwxVYVxIniZRensABmPdVIAICeXV6oKLWivcrTi/GYF2Vk5X/OCHPBs/
+	TvtjJyQVqIBD9pmA/4ph4gBrn8wCwlUNeNwGbeC0wulgqJuk8yjPZcadHHJA6fbNfZdmifmGLDmR6
+	p2h1UK0Js8ttyDKye3pCiLHnUUMRGEDg4pNVaCZ05egsrjFq5r6YzDCfNFwdRR/Zs3ptCXTVWKWIr
+	rf6adiVnfu2C+D6f+KLpBLK13D5HIMxBfi82dHkcbeBLM7udDrlKHn1cta4zv2lq0gRZsZja5mJwJ
+	kT1bwDvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZnpT-0000000HB2n-13Rd;
-	Wed, 17 Jun 2026 10:49:07 +0000
+	id 1wZnvb-0000000HBdj-1FkK;
+	Wed, 17 Jun 2026 10:55:27 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZnpS-0000000HB2c-138x
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 10:49:06 +0000
+	id 1wZnvZ-0000000HBdK-27mo;
+	Wed, 17 Jun 2026 10:55:25 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1B6AD600AA;
-	Wed, 17 Jun 2026 10:49:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD4A71F000E9;
-	Wed, 17 Jun 2026 10:49:03 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8C02E600BB;
+	Wed, 17 Jun 2026 10:55:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49E151F00A3A;
+	Wed, 17 Jun 2026 10:55:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781693344;
-	bh=qMycG1ndqRl0cGcAck43prqsHHxJI4FoJfuvDdddzAI=;
+	s=k20260515; t=1781693724;
+	bh=CzmyMfOjUoqFSrudEqB/8Bk4sn/k1QYEewnBQo+Bwnw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=gNoh+3xrSW7aPhGluYFukYTIjASftnhZSltISCZsyqQqyizG+fvkuCeiIwSYnJz2e
-	 JlwzBiStKKLaRwRZOPlss4wKLbkakM/djwoT5q09fKnJAaL9JpgYyMnzs2L19MWIu2
-	 BkQmOsDqbl7JgH7qQ8szQOr0IKzoCQ97oy25Q5AtZiJA+1WeOwlVDozta8cBb/xPyi
-	 uEXfhBUWqsv6xH2nTrNpfecrxDQpE1Y1rkDleHHMRsKzoFN/JnmHfeIfd7yKwn4za5
-	 qG5F8O6sFVlLKUpMHY9lqM5brSR0CRkewrbD5cBrWq3QlwcJz4C7BiTAte9MgRsBUB
-	 h/cbpNMcRoj8w==
-Date: Wed, 17 Jun 2026 12:49:01 +0200
+	b=E/T+qRmKeRe1xiQtXPb7xphBSvMbr2f/OBq7UwN5FbCxGgMLyE192XdQwWk+VEeM3
+	 BaWFeI263quFZrVTRatYSxijDrOTQt66qQIRWQZoNLu8UL0G3DpqpQLjGrNbQUYjQT
+	 bxhLVDPMR2g4yvldQtNO77w+9WQO7uaz9LXDPSkLp+Y6vprKOgP57sWbTEI3sACrgr
+	 sVbDcE88lheO/X7gpoAfyByr/6hb3Y+OF89AMZcX8MRE1Q/7rQPr3esh3xzfyuUmlK
+	 5Qkm44J7a4OrWhcBIJDPNCT76nb8mDQWNWQHlqQjLuR1uuLZ5o99xDQmS+YWY0NzOQ
+	 3hg4dAC3PPdIQ==
+Date: Wed, 17 Jun 2026 12:55:20 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Frieder Schrempf <frieder@fris.de>
-Cc: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Frieder Schrempf <frieder.schrempf@kontron.de>
-Subject: Re: [PATCH 1/9] dt-bindings: nvmem: imx-ocotp: Add support for
- secure-enclave
-Message-ID: <20260617-prodigious-private-inchworm-beae1e@quoll>
-References: <20260616-upstreaming-next-20260609-imx-ocotp-ele-v1-0-cb7f3698c3e6@kontron.de>
- <20260616-upstreaming-next-20260609-imx-ocotp-ele-v1-1-cb7f3698c3e6@kontron.de>
+To: Zakariya Hadrami <zkh1@proton.me>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Sean Wang <sean.wang@mediatek.com>, Wim Van Sebroeck <wim@linux-watchdog.org>, 
+	Guenter Roeck <linux@roeck-us.net>, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-watchdog@vger.kernel.org
+Subject: Re: [PATCH 4/5] dt-bindings: arm: mediatek: Add MT8127 Amazon ford
+Message-ID: <20260617-rigorous-refined-lion-f36a29@quoll>
+References: <20260617-mt8127-amazon-ford-basic-v1-0-d02ad15ac359@proton.me>
+ <20260617-mt8127-amazon-ford-basic-v1-4-d02ad15ac359@proton.me>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260616-upstreaming-next-20260609-imx-ocotp-ele-v1-1-cb7f3698c3e6@kontron.de>
+In-Reply-To: <20260617-mt8127-amazon-ford-basic-v1-4-d02ad15ac359@proton.me>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,45 +73,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 16, 2026 at 01:52:16PM +0200, Frieder Schrempf wrote:
-> From: Frieder Schrempf <frieder.schrempf@kontron.de>
+On Wed, Jun 17, 2026 at 11:20:13AM +0900, Zakariya Hadrami wrote:
+> Add entry for the MT8127 based Amazon ford tablet.
 > 
-> Some SoCs like the i.MX9 family allow full access to the fuses only
-> through the secure enclave firmware API. Add a property to reference
-> the secure enclave node and let the driver use the API.
-> 
-> Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
+> Signed-off-by: Zakariya Hadrami <zkh1@proton.me>
 > ---
->  Documentation/devicetree/bindings/nvmem/imx-ocotp.yaml | 4 ++++
+>  Documentation/devicetree/bindings/arm/mediatek.yaml | 4 ++++
 >  1 file changed, 4 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/nvmem/imx-ocotp.yaml b/Documentation/devicetree/bindings/nvmem/imx-ocotp.yaml
-> index a8076d0e2737..14a6429f4a4c 100644
-> --- a/Documentation/devicetree/bindings/nvmem/imx-ocotp.yaml
-> +++ b/Documentation/devicetree/bindings/nvmem/imx-ocotp.yaml
-> @@ -53,6 +53,10 @@ properties:
->    reg:
->      maxItems: 1
->  
-> +  secure-enclave:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description: A phandle to the secure enclave node
+> diff --git a/Documentation/devicetree/bindings/arm/mediatek.yaml b/Documentation/devicetree/bindings/arm/mediatek.yaml
+> index 382d0eb4d0af..5ddc79689df9 100644
+> --- a/Documentation/devicetree/bindings/arm/mediatek.yaml
+> +++ b/Documentation/devicetree/bindings/arm/mediatek.yaml
+> @@ -124,6 +124,10 @@ properties:
+>            - enum:
+>                - mediatek,mt8127-moose
+>            - const: mediatek,mt8127
+> +      - items:
+> +          - enum:
+> +              - amazon,ford
 
-Two things here:
-1. Here you describe what for is that phandle, how it is used by the
-hardware. Currently the description repeats the property name and type,
-so not much useful.
+And it is not part of existing enum because?
 
-2. If you access OTP via firmware, then this is completely different
-interface than MMIO, thus:
-A. reg is not appropriate
-B. Device is very different thus it has different compatible and I even
-claim should be in different binding. Devices having completely
-different SW interface should not be in the same binding, at least
-usually.
-
-If any of above is not accurate, then your commit msg should answer why
-and give some background.
+> +          - const: mediatek,mt8127
 
 Best regards,
 Krzysztof
