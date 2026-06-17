@@ -4,83 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC2EECD98E4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 09:52:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7EB3CD98E2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 09:55:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jU2lF5D8WsZ49yodI+DbJaHAzFovQXJU1C8q9EyojGw=; b=KVSFwvFNMXSHBtCwsbk81H5wPq
-	K7VWwQ2yrdVC/M9c5SvlHDkyuUuz9RHlp02Ljw7GFDO8HFLf3Oc9mXjII222SoIk5yL/cscaMjsvW
-	N57hU0dTTjOWKvGh1ff212hDVa/CmTu1viJkmKejrOQsT9Goc5TnLKiqykuWx7jtjzX11IiVpDN4l
-	E5WqP0Avw8ATEBKg8AWiJMFeAE8phU34pqCt8AYJMf66EMMPBSiYAgiGwaGlpw4esl7H3RruSWOhc
-	x+E8gCgXO2dwsZEp+E8G3AWcw5VB9RJz52hirwLABZr056jObOD1Rg9fr+SD+5OQZT/+so/9zm8e7
-	ezUGs/5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zTinsQw/nEGi1wFzOxFuLPf8UTkNQwbK0dcHdALi4gQ=; b=0x4FNE+mo4V8haz6gB5qFoyugb
+	Bc3s5XJ5Sr+gn9Yo5ZD/O5t/ASi9JbNQjPaN9t43cUSMJTHlXNkscVk+kcr7lGPAZQirTT1iwrz55
+	16E0XAoZR5zfWDXlkjCWeXT0ObWZkn8o7sLtDGE9nqSl3kJqQLgl62C7Oyk1IJa6iCQMhHyY3uEEI
+	Cs43BnVPF9QYQMGoVAnXn/wA4Ia34ljK6MldYRQuKqXX4VlS0kijgd/0199zlMEIE3Z4yf8c26vah
+	MBPi7+3Ai12LN5l5nkyWsKVsxN2jQMQnvfGPlC8VTS6TjIKPfBmWw0LSJnFaNbk2gdP+LBa/89z4U
+	GW/bmRgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZm3C-0000000Guyg-1Kzd;
-	Wed, 17 Jun 2026 08:55:10 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1wZmzJ-0000000Gz39-47uF;
+	Wed, 17 Jun 2026 09:55:14 +0000
+Received: from mail-ed1-x549.google.com ([2a00:1450:4864:20::549])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZm3A-0000000Guxm-04fa
+	id 1wZmzH-0000000Gz2l-1HQi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 08:55:09 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2c0c32f6ce1so38485215ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 01:55:07 -0700 (PDT)
+	Wed, 17 Jun 2026 09:55:12 +0000
+Received: by mail-ed1-x549.google.com with SMTP id 4fb4d7f45d1cf-695a081e715so49333a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 02:55:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781686507; x=1782291307; darn=lists.infradead.org;
-        h=mime-version:references:in-reply-to:message-id:date:subject:cc:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=jU2lF5D8WsZ49yodI+DbJaHAzFovQXJU1C8q9EyojGw=;
-        b=lnW/5IxINKywlLOmuaK/oGB5tD/oBWSyBN3QeqyoLPgOfYdKIn3v0uLm6Ic1N7qHtk
-         P5yFV6/N3DYKwFi2lD6iHLf6g+Wf69PtCqTOy+LX4lvYENztj7xkrlslOOCySyJf9MZh
-         CYQDLEPfgUdmJq5/41EAPJChELRDZfPWboADYdMeCeKV6fVCXBDJKtIkz8Cad7a3euLL
-         DpGnLd6kFZdHnxa9qPoejA8gbcmFRIdiZm7w6jcwh9NnEGDkVuiKTcDRTr7EvVj8fjYg
-         HnHrHpJMijPz7u+acFSl20HYQk34YUS43D4uPUkssZod1l4FJnR32Jh1a9cL2gJ827zv
-         54yw==
+        d=google.com; s=20251104; t=1781690108; x=1782294908; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=zTinsQw/nEGi1wFzOxFuLPf8UTkNQwbK0dcHdALi4gQ=;
+        b=X+D42N8nkW+EAac23gIpTMHmaVEa3fhz9JDaCgufRb1fhAJKCN72lG8lfgoFJWO1qU
+         BKmtuL4G/ADgRSsvmCoosXb9/6W0RdVTgXxEwL+jtq9VwYF/ypvIZ0Ffz3Ahb3rdPnGr
+         2dkbhAmc0xyZoDDB+Tv2A470F6dwB8LPgr4qzqmgDcPE0IkEN47koQ1eQJgilI4Io3jE
+         STHmHOMSvqKNQRr7CrjyPwsdN0f4i15o0WW+2eChMZ7exPxmAKoeyQjX3FWhOg1fsuGM
+         FLPUe7tmvrN+XG4+nGMoMyCzHjPOBkYiDE4kivcoN8wOJ9jkyq2XM9bT5CZwEJZ5MCiU
+         vesg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781686507; x=1782291307;
-        h=mime-version:references:in-reply-to:message-id:date:subject:cc:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=jU2lF5D8WsZ49yodI+DbJaHAzFovQXJU1C8q9EyojGw=;
-        b=DODQ+RgL4sU6I9RoW3KyUx8WdA4vzUaTuWc9f7v+GgbPkTMrqES/8sQGPBhEYC/qtH
-         pVGgpyqWkh4wJMRbbRO0f3tXDeoj2ilJcm6khC6T/KJmK2bC/SBJ1uQebZNraJEj+EHt
-         ctqZNRdxkwpAnKwu7wf7/TQjbFM3FuhFtNzlMViS8QpJuK52iEEPC8IGvKnvkLG/mN9n
-         abW4WgWSVIyaP1Yxb9TJmGvAK3XpKhh1G74zb8Pxu53/2KVm5GZrKk2WP4o2Frw8W2II
-         c+9XmskYgTYzyaHdLwCWsVGUaLdW6ujxI9Ry4emyUg4ECcN/wemuj52ZhWUvpE6Aip2J
-         IdEQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9hnzfgAdBRQI2SDjp7qePgc2mG5t2lrKCNi73n/ejM/I87zXnMHx5cFBzGwBQTs0KGQKW9LCOJDEHNuZQa+Rxi@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx1Px1cU9H3jkSl/ObjFAtkAZvGLO0C4SeoRB+3BBThPkHufQBG
-	mgqR2I13CTvi23F/JPNZR8MLmNVolZO3rEfGwqJoAi2akduDNiDadEuN
-X-Gm-Gg: AfdE7cmgdk4CGY0L44NILcgfdz0sTPDYN+ojZNMi82LCDUSBApPQhEO6EJq3O9LyFsl
-	D+9tfg/kMh6vhJIZIYSkNaQz1GZkWHCKumYrKdrV4jkKZgz1eLwiCwa0qHH28kiu6BVI77cA1bG
-	ehd+IlEQ+DzA+tKElqQo3s98cBnn6StZbUM4VkKq7VU/qIqdTqf6Htl/avToa7BzJt1eCFuADJt
-	ndx9EJNnKoU9p+jnh5HOVJO81d8whRa9G3YLwn2fq4t3lUg4DEt1P0FJ05WU4fYtGuIO/4Qc3r1
-	+lLadBZam0Z8vDxkfpheF6ZkAygoYAq1AC9y/LL+ZtnSQQGosj9UWFLqP8jzupjc4L4sfK2fGtH
-	ouUP7fvnuyc+LKCXwKAeIcA77JJcNkEDVVq+7NwUxmEPDY52jsJdKQAO7+JA24OX/2/881rI8RZ
-	rxYXK5xIJmKKReh6iI
-X-Received: by 2002:a17:902:f64d:b0:2ae:450c:951e with SMTP id d9443c01a7336-2c6bc0e9707mr27907285ad.17.1781686507025;
-        Wed, 17 Jun 2026 01:55:07 -0700 (PDT)
-Received: from [127.0.1.1] ([47.253.114.73])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c6be262b93sm15031735ad.68.2026.06.17.01.55.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 17 Jun 2026 01:55:06 -0700 (PDT)
-From: Wayen Yan <win847@gmail.com>
-To: lorenzo@kernel.org
-Cc: netdev@vger.kernel.org, nbd@nbd.name, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH net] net: airoha: Fix TX scheduler queue mask loop upper bound
-Date: Wed, 17 Jun 2026 16:55:01 +0800
-Message-ID: <178168650178.2224380.3950331731013129336@gmail.com>
-In-Reply-To: <178166704952.2212140.11002626760717132754@gmail.com>
-References: <178166704952.2212140.11002626760717132754@gmail.com>
-Content-Type: text/plain; charset=utf-8
-MIME-Version: 1.0
+        d=1e100.net; s=20251104; t=1781690108; x=1782294908;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=zTinsQw/nEGi1wFzOxFuLPf8UTkNQwbK0dcHdALi4gQ=;
+        b=q/3xOoB9Ewbf86ke0TkkhJv42k8qEPCQrcamYF9o8gYm1/23dEGF1TG10b7cWZQGfm
+         o3pqbjLRTuJjO2KJq0mB0/my6/4zpoWU22g5gAq8PnJauFi2x9mGsO7739jZkTI6jazT
+         tAalxW30KuRP1zVg52TC5z9jZACAq5W8YzFlaA59skVFmUEFuADCznmgjSFhonpkepSX
+         TQfPoIHga7XWGw3MUu+R2z3Az6FnfvLgddtPFqT2pU9Z6ccAHXGbOnxBH6WgaJ/p+Akq
+         9j8+mCHqu00QFqqFkL8D0/J3/Uqs0j25TWADOhaKnwkIAkrYU8ltRN3w2VoY85FTEuFO
+         lUcw==
+X-Gm-Message-State: AOJu0YzO52agw1x8PwYPqWWNufuMqnIGqwoY6pd3jSaJPKlueJf89ZF4
+	3ThLzJttPh8uFf6AgZFy9oRC9XwjZ3Zj2bbfEEAn4PBQWEwHYqv1a63LYReZD5F1bQOyQrhyOuN
+	eLxDfH++oos+lL9Ocs7d8Jg==
+X-Received: from edr4.prod.google.com ([2002:a05:6402:44c4:b0:692:18a5:3cb8])
+ (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6402:5293:b0:693:ee1:9018 with SMTP id 4fb4d7f45d1cf-695474c4c20mr1392906a12.28.1781690107629;
+ Wed, 17 Jun 2026 02:55:07 -0700 (PDT)
+Date: Wed, 17 Jun 2026 10:52:38 +0100
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.54.0.1136.gdb2ca164c4-goog
+Message-ID: <20260617095238.1530121-1-vdonnefort@google.com>
+Subject: [PATCH] KVM: arm64: Add missing hyp_enter when trapping sysreg
+From: Vincent Donnefort <vdonnefort@google.com>
+To: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
+	will@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kernel-team@android.com, tabba@google.com, 
+	Vincent Donnefort <vdonnefort@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260617_015508_082615_A2123F3D 
-X-CRM114-Status: GOOD (  15.50  )
+X-CRM114-CacheID: sfid-20260617_025511_351368_FF756C1F 
+X-CRM114-Status: UNSURE (   6.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,63 +89,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 17, 2026, Lorenzo Bianconi wrote:
-> Even if the current codebase supports just AIROHA_NUM_QOS_CHANNEL (4), the hw
-> exposes 32 hw QoS channels (AIROHA_NUM_TX_RING). Here we are just clearing the
-> configuration, so I guess the current implementation is correct.
+Add a missing hypervisor event call for hyp_enter on sysreg trapping,
+causing an unbalanced hyp_enter/hyp_exit.
 
-Hi Lorenzo,
+The enum hyp_enter_exit_reason is not ABI, so we can keep the ERET
+reasons at the end for clarity.
 
-You are right that there is no functional impact, and I agree this
-should not go to net. Let me explain the register layout I was worried
-about, and you can decide whether it is worth a net-next cleanup or
-should just be dropped.
+Fixes: 696dfec22b8e ("KVM: arm64: Add hyp_enter/hyp_exit events to nVHE/pKVM hyp")
+Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-The two macros are:
+diff --git a/arch/arm64/include/asm/kvm_hypevents.h b/arch/arm64/include/asm/kvm_hypevents.h
+index 743c49bd878f..5f6e6789d121 100644
+--- a/arch/arm64/include/asm/kvm_hypevents.h
++++ b/arch/arm64/include/asm/kvm_hypevents.h
+@@ -12,6 +12,7 @@
+ enum hyp_enter_exit_reason {
+ 	HYP_REASON_SMC,
+ 	HYP_REASON_HVC,
++	HYP_REASON_SYS,
+ 	HYP_REASON_PSCI,
+ 	HYP_REASON_HOST_ABORT,
+ 	HYP_REASON_GUEST_EXIT,
+diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+index 06db299c37a8..45a4abb9619d 100644
+--- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
++++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+@@ -913,6 +913,7 @@ void handle_trap(struct kvm_cpu_context *host_ctxt)
+ 		handle_host_mem_abort(host_ctxt);
+ 		break;
+ 	case ESR_ELx_EC_SYS64:
++		trace_hyp_enter(host_ctxt, HYP_REASON_SYS);
+ 		if (handle_host_mte(esr))
+ 			break;
+ 		fallthrough;
+diff --git a/arch/arm64/kvm/hyp_trace.c b/arch/arm64/kvm/hyp_trace.c
+index c4b3ee552131..c84434e2349a 100644
+--- a/arch/arm64/kvm/hyp_trace.c
++++ b/arch/arm64/kvm/hyp_trace.c
+@@ -398,6 +398,7 @@ static const char *__hyp_enter_exit_reason_str(u8 reason)
+ 	static const char strs[][12] = {
+ 		"smc",
+ 		"hvc",
++		"sys",
+ 		"psci",
+ 		"host_abort",
+ 		"guest_exit",
 
-	REG_QUEUE_CLOSE_CFG(_n)             = 0x00a0 + ((_n) & 0xfc)
-	TXQ_DISABLE_CHAN_QUEUE_MASK(_n, _m) = BIT((_m) + (((_n) & 0x3) << 3))
-
-REG_QUEUE_CLOSE_CFG() masks the channel with 0xfc, and the bit macro
-folds the channel with & 0x3 (mod 4) shifted by 3. So one 32-bit
-register holds 4 channels x 8 queues, 8 queue bits per channel:
-
-	channel 0 -> reg 0x00a0, bits  0..7
-	channel 1 -> reg 0x00a0, bits  8..15
-	channel 2 -> reg 0x00a0, bits 16..23
-	channel 3 -> reg 0x00a0, bits 24..31
-	channel 4 -> reg 0x00a4, bits  0..7
-	...
-
-In airoha_qdma_set_chan_tx_sched() the loop variable 'i' is passed as
-the *queue* argument _m, not as a channel:
-
-	for (i = 0; i < AIROHA_NUM_TX_RING; i++)   // i = 0..31
-		airoha_qdma_clear(qdma, REG_QUEUE_CLOSE_CFG(channel),
-				  TXQ_DISABLE_CHAN_QUEUE_MASK(channel, i));
-
-Since each channel only has AIROHA_NUM_QOS_QUEUES (8) queues, the correct
-logic is to clear the 8 queue bits belonging to 'channel'. With i running
-up to 31 the BIT() shift instead walks past those 8 bits and into the bit
-ranges of the other channels folded into the same register. For channel 0
-the accumulated mask becomes 0xffffffff, i.e. it touches channels 1..3 as
-well.
-
-This is harmless today only because REG_QUEUE_CLOSE_CFG is written
-exclusively here, via airoha_qdma_clear() (RMW clear), and the register
-resets to 0 and is never set anywhere -- so clearing extra bits is a
-no-op. Functionally the current code is fine, as you say.
-
-The point is just the loop-bound semantics: 'i' is a per-channel queue
-index, so the bound should be AIROHA_NUM_QOS_QUEUES (8), not
-AIROHA_NUM_TX_RING (32). The two happen to be related (32 == 4 channels *
-8 queues) but mean different things.
-
-Since there is no functional change, feel free to drop this if you would
-rather not carry a cosmetic patch. If you think the clarity is worth it I
-can resend against net-next without the Fixes tag.
-
-Thanks,
-Wayen
+base-commit: 8cd9520d35a6c38db6567e97dd93b1f11f185dc6
+-- 
+2.54.0.1136.gdb2ca164c4-goog
 
 
