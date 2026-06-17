@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84AD1CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 15:52:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CAA0CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 15:54:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gtj5dg64TxuCBekH6gIVDZSCybZ/XwBRYoS+TH55748=; b=PdJZg9yXgSTiVLn5vyt8TAWKog
-	7N6/IgaMoB7QzEgN45ZwVfAzgdAWoXoG53S6HvfUHaCDEsuSDgPr0hoLrQHTZIyx7fQfUDSmSMzzG
-	B3E0byiadl3TSHd2f5lcSRLpi8HqdY4fjdwiFe7czaoxmxurkm6EU/jFSoZAE/w00DXAwOKTBL4SY
-	8P+8cX47okWsUC+1wkF6W920sQpk1i6w+NuDdxndCjz1fE1dc5px2ziotwq91I/3iTfNAjpsQDFIQ
-	l83x8hGUuzaNsuHGV2hwhUCeXAP7EcZxnGsaBYUitfJfWDSVSklcMrt15hlXRGZmusukXTjdLXmcN
-	Ix0AkZsQ==;
+	bh=opUxdvmK1Et6y5WUWvpU9uzBkwAJJgHLgmimVcvo5b0=; b=kixeeWcMftBirmO7nvV46ipu+w
+	5qRSzK/jBYtVJTmU7keBGxmDqMvSw1ddA37robCFu/ESuVmObIkAujL2B6+8OUFntA1/lEPzPvmTo
+	vlh3V/0abztApaJQH9dJ45YyTjkGauoN/Vqs8Yg6vkNPDTP9LAIUP+cF1GO6nDkhD1UIfaMTgLf61
+	BixN3S21+rbfs3BQ0xR2xJ6XUoPNuM2NBX4Vh29JITMe6oQOcx2BT2fP4esSXrRtlRJRiHwSPzQJr
+	73BdH4PdytE0FUWaHZCHg0zeqZ9Zr6B7wAtUrUrbDRdoW6lqN9ergZpH1y6bZWdljmerU54D2NWka
+	WThYN54g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZsYc-0000000HagW-45F0;
-	Wed, 17 Jun 2026 15:52:02 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wZsaq-0000000Hazn-1G6e;
+	Wed, 17 Jun 2026 15:54:20 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZsYb-0000000HagF-1klU;
-	Wed, 17 Jun 2026 15:52:01 +0000
+	id 1wZsao-0000000HazZ-2pi3
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 17 Jun 2026 15:54:18 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C0B6A4018E;
-	Wed, 17 Jun 2026 15:52:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F0201F000E9;
-	Wed, 17 Jun 2026 15:51:58 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E053860122;
+	Wed, 17 Jun 2026 15:54:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F050A1F000E9;
+	Wed, 17 Jun 2026 15:54:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781711520;
-	bh=gtj5dg64TxuCBekH6gIVDZSCybZ/XwBRYoS+TH55748=;
+	s=k20260515; t=1781711657;
+	bh=opUxdvmK1Et6y5WUWvpU9uzBkwAJJgHLgmimVcvo5b0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=QfTlOKUslYhUnlz4WPjprU6l2Bl/sK2EoRV2qIAAC5HWapAwMLx7cqGNoOMvIoZKa
-	 pQwwbHZp+EhIju41Y7LJbOCm1rP2AXYk4qsepwBUGAnd3iBZeuNHNxBZqijpo/btbI
-	 hl9xcmLSc7Pb2uuDHAaUNJEssiVY8/zB5D0qzZvDnEOh6c7NMi7IlLHT5eGywT84RJ
-	 VvpEtQt1guRuw7maw33RyAKAByb3uf3y6SWf3N4QFzpTQ45GtjB+gZMZId07PF4ehX
-	 a1yblVlKREyF/URZRXJumKWDGYgzRUYiZajGC+bJ7S2RunBm7VEWGhAOJ9zz1NGTSh
-	 kqobO8NFZoUuQ==
-Date: Wed, 17 Jun 2026 16:51:56 +0100
+	b=b2+XOHcOo2Klgcfi2veVilYT6I6na3TgNB3e4dWz8oSs1nkgL4C5dhKBcQWTBRgQE
+	 +gtI6841po3OD26ssrj7OqHQTs9VtpoCEaLmZsyCSZMvmBOnnIbeeDLRqtMxBuOfB9
+	 bkUEvG5oFmtDRbYe4beJ0HNYnk4jdunes+5GWGQJTPI6+qAdf+T8jvkwduPg/Puub9
+	 LJ7mvUUMUjHeka+p8/bKPrfMbZ3yoGtnFCUpJlLZB6N4mEeUffY8gX7lAUiZEwZxad
+	 PkmXVANKAyIX9XcGCnMeSBGAPX+cUN4g0+YohVOI8nFpuvUfZ4e3iG8Y2Owpl1HZKj
+	 bHbIH9N1KHUCQ==
+Date: Wed, 17 Jun 2026 16:54:12 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Gerald Loacker <gerald.loacker@wolfvision.net>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, linux-phy@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH 2/3] dt-bindings: phy: rockchip-inno-csi-dphy: add
- rockchip,clk-lane-phase property
-Message-ID: <20260617-deviate-sulk-c57104ef939f@spud>
-References: <20260617-feature-mipi-csi-dphy-4k60-v1-0-4611ff00b0ff@wolfvision.net>
- <20260617-feature-mipi-csi-dphy-4k60-v1-2-4611ff00b0ff@wolfvision.net>
+To: joakim.zhang@cixtech.com
+Cc: mturquette@baylibre.com, sboyd@kernel.org, bmasney@redhat.com,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	p.zabel@pengutronix.de, gary.yang@cixtech.com,
+	cix-kernel-upstream@cixtech.com, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v4 1/5] dt-bindings: soc: cix,sky1-system-control: add
+ audss system control
+Message-ID: <20260617-chummy-automatic-6c11e9958bbf@spud>
+References: <20260617060437.1474816-1-joakim.zhang@cixtech.com>
+ <20260617060437.1474816-2-joakim.zhang@cixtech.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="VWeXfw4mhda8KfwY"
+	protocol="application/pgp-signature"; boundary="8ZYS5gijymMBUHHL"
 Content-Disposition: inline
-In-Reply-To: <20260617-feature-mipi-csi-dphy-4k60-v1-2-4611ff00b0ff@wolfvision.net>
+In-Reply-To: <20260617060437.1474816-2-joakim.zhang@cixtech.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,65 +76,163 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---VWeXfw4mhda8KfwY
+--8ZYS5gijymMBUHHL
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Wed, Jun 17, 2026 at 02:23:14PM +0200, Gerald Loacker wrote:
-> Add support for the optional rockchip,clk-lane-phase device tree property
-> to allow board-specific tuning of the clock lane sampling phase for
-> improved signal integrity across supported data rates.
+On Wed, Jun 17, 2026 at 02:04:33PM +0800, joakim.zhang@cixtech.com wrote:
+> From: Joakim Zhang <joakim.zhang@cixtech.com>
 >=20
-> Signed-off-by: Gerald Loacker <gerald.loacker@wolfvision.net>
+> The Cix Sky1 Audio Subsystem (AUDSS) groups audio-related clock, reset
+> and control registers in a dedicated CRU block. Software reset lines are
+> exposed on the syscon parent via #reset-cells, following the same model
+> as the existing Sky1 FCH and S5 system control bindings.
+>=20
+> A clock-controller child node is required under the audss syscon. It has
+> no reg property of its own and accesses the parent register block for mux,
+> divider and gate fields.
+>=20
+> The AUDSS is also controlled by one power domain and reset part.
+>=20
+> Signed-off-by: Joakim Zhang <joakim.zhang@cixtech.com>
 > ---
->  Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml | 7 ++=
-+++++
->  1 file changed, 7 insertions(+)
+>  .../soc/cix/cix,sky1-system-control.yaml      | 48 +++++++++++++++++++
+>  .../reset/cix,sky1-audss-system-control.h     | 25 ++++++++++
+>  2 files changed, 73 insertions(+)
+>  create mode 100644 include/dt-bindings/reset/cix,sky1-audss-system-contr=
+ol.h
 >=20
-> diff --git a/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy=
-=2Eyaml b/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml
-> index 03950b3cad08c..0d824d1511bc0 100644
-> --- a/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml
-> +++ b/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml
-> @@ -56,6 +56,13 @@ properties:
->      description:
->        Some additional phy settings are access through GRF regs.
-> =20
-> +  rockchip,clk-lane-phase:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    minimum: 0
-> +    maximum: 7
-> +    description:
-> +      Clock lane sampling phase in 40 ps steps. The hardware default is =
-3.
+> diff --git a/Documentation/devicetree/bindings/soc/cix/cix,sky1-system-co=
+ntrol.yaml b/Documentation/devicetree/bindings/soc/cix/cix,sky1-system-cont=
+rol.yaml
+> index a01a515222c6..5a1cd5c24ade 100644
+> --- a/Documentation/devicetree/bindings/soc/cix/cix,sky1-system-control.y=
+aml
+> +++ b/Documentation/devicetree/bindings/soc/cix/cix,sky1-system-control.y=
+aml
+> @@ -19,6 +19,7 @@ properties:
+>        - enum:
+>            - cix,sky1-system-control
+>            - cix,sky1-s5-system-control
+> +          - cix,sky1-audss-system-control
+>        - const: syscon
 
-Can this instead become rockchip,clk-lane-phase-ps and be listed in the
-actual unit?
-With the -ps suffix, you can then drop the $ref.
-The default should be listed as "default: 3" (or default: 120)
+If the only thing these share are being a reset controller and having a
+syscon fallback, I think it should be in a different file.
 
 pw-bot: changes-requested
 
+Cheers,
+Conor.
+
+> =20
+>    reg:
+> @@ -27,6 +28,38 @@ properties:
+>    '#reset-cells':
+>      const: 1
+> =20
+> +  power-domains:
+> +    maxItems: 1
+> +
+> +  resets:
+> +    maxItems: 1
+> +
+> +  clock-controller:
+> +    type: object
+> +    properties:
+> +      compatible:
+> +        const: cix,sky1-audss-clock
+> +    required:
+> +      - compatible
+> +    additionalProperties: true
+> +
+> +allOf:
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: cix,sky1-audss-system-control
+> +    then:
+> +      required:
+> +        - clock-controller
+> +        - power-domains
+> +        - resets
+> +    else:
+> +      properties:
+> +        clock-controller: false
+> +        power-domains: false
+> +        resets: false
 > +
 >  required:
 >    - compatible
 >    - reg
->=20
+> @@ -40,3 +73,18 @@ examples:
+>        reg =3D <0x4160000 0x100>;
+>        #reset-cells =3D <1>;
+>      };
+> +  - |
+> +    audss_syscon: system-controller@7110000 {
+> +        compatible =3D "cix,sky1-audss-system-control", "syscon";
+> +        reg =3D <0x7110000 0x10000>;
+> +        power-domains =3D <&smc_devpd 0>;
+> +        resets =3D <&s5_syscon 31>;
+> +        #reset-cells =3D <1>;
+> +
+> +        clock-controller {
+> +            compatible =3D "cix,sky1-audss-clock";
+> +            #clock-cells =3D <1>;
+> +            clocks =3D <&scmi_clk 0>, <&scmi_clk 2>, <&scmi_clk 4>, <&sc=
+mi_clk 5>;
+> +            clock-names =3D "x8k", "x11k", "sys", "48m";
+> +        };
+> +    };
+> diff --git a/include/dt-bindings/reset/cix,sky1-audss-system-control.h b/=
+include/dt-bindings/reset/cix,sky1-audss-system-control.h
+> new file mode 100644
+> index 000000000000..aabdce60b094
+> --- /dev/null
+> +++ b/include/dt-bindings/reset/cix,sky1-audss-system-control.h
+> @@ -0,0 +1,25 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
+> +/*
+> + * Copyright 2026 Cix Technology Group Co., Ltd.
+> + */
+> +#ifndef DT_BINDING_RESET_CIX_SKY1_AUDSS_SYSTEM_CONTROL_H
+> +#define DT_BINDING_RESET_CIX_SKY1_AUDSS_SYSTEM_CONTROL_H
+> +
+> +#define AUDSS_I2S0_SW_RST	0
+> +#define AUDSS_I2S1_SW_RST	1
+> +#define AUDSS_I2S2_SW_RST	2
+> +#define AUDSS_I2S3_SW_RST	3
+> +#define AUDSS_I2S4_SW_RST	4
+> +#define AUDSS_I2S5_SW_RST	5
+> +#define AUDSS_I2S6_SW_RST	6
+> +#define AUDSS_I2S7_SW_RST	7
+> +#define AUDSS_I2S8_SW_RST	8
+> +#define AUDSS_I2S9_SW_RST	9
+> +#define AUDSS_WDT_SW_RST	10
+> +#define AUDSS_TIMER_SW_RST	11
+> +#define AUDSS_MB0_SW_RST	12
+> +#define AUDSS_MB1_SW_RST	13
+> +#define AUDSS_HDA_SW_RST	14
+> +#define AUDSS_DMAC_SW_RST	15
+> +
+> +#endif
 > --=20
-> 2.34.1
+> 2.50.1
 >=20
 
---VWeXfw4mhda8KfwY
+--8ZYS5gijymMBUHHL
 Content-Type: application/pgp-signature; name=signature.asc
 
 -----BEGIN PGP SIGNATURE-----
 
-iHQEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCajLCnAAKCRB4tDGHoIJi
-0gDoAP9k3dz45bxi4cXPTLEgr6PZeKMsVt1LStk2R98sBcwk2AD3bcuGGmbrTcuM
-+Q1nqKDjDPHzxpNyJkTPhyVUuYB5AA==
-=kgQi
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCajLDJAAKCRB4tDGHoIJi
+0n08AP9FWdFnJlmy1XpwpZm5ueHB+dzRSkWhJiBjANCLE5sYsgD8CiHLbLKAAkrG
+yx7JaPmoV1fjFVuKjaMyF6IIA/HASwI=
+=HsU8
 -----END PGP SIGNATURE-----
 
---VWeXfw4mhda8KfwY--
+--8ZYS5gijymMBUHHL--
 
