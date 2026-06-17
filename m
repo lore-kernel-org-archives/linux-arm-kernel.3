@@ -4,61 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F5E8CD98E4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 09:58:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4EFDCD98E4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 09:59:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vf55Z27wBvYv5++UeYCjXZHA1iYmcLSXC7ozvIxrmWQ=; b=SXb9armCNOf3nnEK1A0NMriSSY
-	Optc/IaUkAdz0nl8DTD72X2Mupsh/k3rIqrVGdAain8b+kevvySwSVWWIcLYGqQ/pRZWbcmfLG3Jw
-	NPxPxKeGAKiEmWs/Xm++rGoDy+IqMlrqOKlSF9mt/yk1J2ZIei2YXgyN1S+nqHVPEGby565wLWZQj
-	9zsXyYYzX0+JKmeVJNbCTqJ4MitLtmtDb66aXmxvzuVw1lAKCEB3DrBCelv3fokPr0PY18OtcYTZv
-	hHz65Gbd/AyZBnsDBBDYnD+mr0eB23HuY5RpBhpPz3JFrqVq60yhArz7oPcVuH2YhUAvnq3zREa/N
-	Auha61rg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zh/z5tnXP6hfVph2lmiDlHoky5dTCCvIkfRb/8EB05E=; b=qVTMkd+FoLA4kPQv3kF3A0N61Y
+	5v/q+7cA1XtXJa1oBA0V74PpkJ7GNn5AxmESgCzlKIcvCePctqknaLXefcA2q+9fLdv2rj6RHU2I5
+	tcVKnWhVwYA3tFJ5bOBGATo3ZVyTq9/pzuBdceEQ+vdyEdiG9XqLhd7K1rCY8k7k2IYb26tehc/Dz
+	6nKlTNjx7xwo7FVk2yj2a7vURVLNE/eL9eSFnakrHurk4g+DSaLt0ghDsIYNwwrxtGfGD7j6WpokM
+	UjDhYXwq5hnjCVuZRevTBhn+t7vOG1W5mJKKfNHg/g7aMYVgKY1HFVE5r98soO59uM2Hlz/a2sTlM
+	Yv+xVgVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZn2i-0000000GzOK-1viy;
-	Wed, 17 Jun 2026 09:58:44 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZn2h-0000000GzOC-1zxA
+	id 1wZn3V-0000000GzYY-2wp6;
+	Wed, 17 Jun 2026 09:59:33 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wZn3S-0000000GzXK-2mJl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 09:58:43 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E202B600AA;
-	Wed, 17 Jun 2026 09:58:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5C081F000E9;
-	Wed, 17 Jun 2026 09:58:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781690322;
-	bh=vf55Z27wBvYv5++UeYCjXZHA1iYmcLSXC7ozvIxrmWQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=l8kJnIBm1jSmrk2QikHqGG6bK1/5+Ofq3pmQ45J9JHLQXBFissEibc1nEPgk60hw6
-	 mBZ3XvX9Y0pV2Ve5kuvKvUo14CtbLx6pPoUzyfVVbM18ux/1qHODNcUF+zmUo+mFVp
-	 q1i6Zn1dTeBQJMk9HGbyr7H8LBrdwWw6Mm0SJ6wbKLluYCoC3x35r8BKFiVdMY7p0H
-	 OYnxP2DKGkR9ZBMwH2IsFRGXt8d+nHVDCAlcyhHFQGlpaWmMhXR1yT3EjsU5whp2Sd
-	 JEesksXMx4E3wbx9EzkoNxnfFYzzxmelGRdy1iXgLu/9PPiuPbzqn3u7bKzmUQILRC
-	 HPsXjlZPSF+7w==
-Date: Wed, 17 Jun 2026 11:58:38 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: joakim.zhang@cixtech.com
-Cc: mturquette@baylibre.com, sboyd@kernel.org, bmasney@redhat.com, 
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, p.zabel@pengutronix.de, 
-	gary.yang@cixtech.com, cix-kernel-upstream@cixtech.com, linux-clk@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v4 resend 1/5] dt-bindings: soc: cix,sky1-system-control:
- add audss system control
-Message-ID: <20260617-resolute-sarcastic-orangutan-0fcf73@quoll>
-References: <20260617064100.1504617-1-joakim.zhang@cixtech.com>
- <20260617064100.1504617-2-joakim.zhang@cixtech.com>
+	Wed, 17 Jun 2026 09:59:32 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7AB124800;
+	Wed, 17 Jun 2026 02:59:24 -0700 (PDT)
+Received: from donnerap.manchester.arm.com (donnerap.manchester.arm.com [10.33.8.81])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CC1E13F915;
+	Wed, 17 Jun 2026 02:59:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1781690369; bh=v4PQvJxXL6yAb8eVisl3HMvO3Ev5F2132vGHAZ1Y3G8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=ocKnKrUNbDSGDgA+dgTEXWVBhPgJ7ntsBDPjrnt8OqAIa8r32N4spvPd7My6PyJvx
+	 TUxBfqGpcPYMnbZlDMMzfcrE7k6FOTS8URajgVXp6ldMHyNNAvzzeqHVTrDFGOVYvG
+	 rVE5k76a00UbE9b6wqoWjPYkuEkvXnNHaUL0XZxY=
+From: Philip Radford <philip.radford@arm.com>
+To: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org,
+	linux-pm@vger.kernel.org
+Cc: sudeep.holla@arm.com,
+	james.quinlan@broadcom.com,
+	f.fainelli@gmail.com,
+	vincent.guittot@linaro.org,
+	etienne.carriere@st.com,
+	peng.fan@oss.nxp.com,
+	michal.simek@amd.com,
+	quic_sibis@quicinc.com,
+	dan.carpenter@linaro.org,
+	d-gole@ti.com,
+	souvik.chakravarty@arm.com,
+	Philip Radford <philip.radford@arm.com>
+Subject: [PATCH v7 01/13] powercap: Add enable disable control-type
+Date: Wed, 17 Jun 2026 10:58:58 +0100
+Message-ID: <20260617095910.1963578-2-philip.radford@arm.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260617095910.1963578-1-philip.radford@arm.com>
+References: <20260617095910.1963578-1-philip.radford@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260617064100.1504617-2-joakim.zhang@cixtech.com>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260617_025930_788870_E82D3B3F 
+X-CRM114-Status: GOOD (  16.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,30 +81,209 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 17, 2026 at 02:40:56PM +0800, joakim.zhang@cixtech.com wrote:
-> From: Joakim Zhang <joakim.zhang@cixtech.com>
-> 
-> The Cix Sky1 Audio Subsystem (AUDSS) groups audio-related clock, reset
-> and control registers in a dedicated CRU block. Software reset lines are
-> exposed on the syscon parent via #reset-cells, following the same model
-> as the existing Sky1 FCH and S5 system control bindings.
-> 
-> A clock-controller child node is required under the audss syscon. It has
-> no reg property of its own and accesses the parent register block for mux,
-> divider and gate fields.
-> 
-> The AUDSS is also controlled by one power domain and reset part.
-> 
-> Signed-off-by: Joakim Zhang <joakim.zhang@cixtech.com>
-> ---
->  .../soc/cix/cix,sky1-system-control.yaml      | 48 +++++++++++++++++++
->  .../reset/cix,sky1-audss-system-control.h     | 25 ++++++++++
->  2 files changed, 73 insertions(+)
->  create mode 100644 include/dt-bindings/reset/cix,sky1-audss-system-control.h
+Add functionality to disable or enable the Powercap control-type by writing
+directly into sys/class/powercap/arm-scmi/enabled.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Signed-off-by: Philip Radford <philip.radford@arm.com>
+---
+ drivers/powercap/arm_scmi_powercap.c | 155 ++++++++++++++++++++++++++-
+ 1 file changed, 154 insertions(+), 1 deletion(-)
 
-Best regards,
-Krzysztof
+diff --git a/drivers/powercap/arm_scmi_powercap.c b/drivers/powercap/arm_scmi_powercap.c
+index ab66e9a3b1e2..e33829d5c551 100644
+--- a/drivers/powercap/arm_scmi_powercap.c
++++ b/drivers/powercap/arm_scmi_powercap.c
+@@ -33,13 +33,151 @@ struct scmi_powercap_zone {
+ 
+ struct scmi_powercap_root {
+ 	unsigned int num_zones;
++	bool enabled;
++	struct list_head node;
+ 	struct scmi_powercap_zone *spzones;
+ 	struct list_head *registered_zones;
+ 	struct list_head scmi_zones;
+ };
+ 
++static LIST_HEAD(scmi_powercap_roots);
++static DEFINE_MUTEX(scmi_powercap_roots_lock);
++
+ static struct powercap_control_type *scmi_top_pcntrl;
+ 
++static bool scmi_powercap_is_control_type_child(const struct scmi_powercap_zone *spz)
++{
++	return spz->registered && !spz->invalid &&
++	       spz->info->parent_id == SCMI_POWERCAP_ROOT_ZONE_ID;
++}
++
++static int
++scmi_powercap_read_root_children_enable_state(struct scmi_powercap_root *pr, bool *mode)
++{
++	struct scmi_powercap_zone *spz;
++	bool enabled;
++	int i, ret;
++
++	*mode = true;
++
++	for (i = 0; i < pr->num_zones; i++) {
++		spz = &pr->spzones[i];
++
++		if (!scmi_powercap_is_control_type_child(spz))
++			continue;
++
++		ret = powercap_ops->cap_enable_get(spz->ph, spz->info->id, &enabled);
++		if (ret)
++			return ret;
++
++		if (!enabled) {
++			*mode = false;
++			return 0;
++		}
++	}
++
++	return 0;
++}
++
++static int
++scmi_powercap_set_root_children_enable_state(struct scmi_powercap_root *pr, bool enable)
++{
++	struct scmi_powercap_zone *spz;
++	bool *prev_state;
++	int i, ret;
++
++	prev_state = kcalloc(pr->num_zones, sizeof(*prev_state), GFP_KERNEL);
++	if (!prev_state)
++		return -ENOMEM;
++
++	for (i = 0; i < pr->num_zones; i++) {
++		spz = &pr->spzones[i];
++
++		if (!scmi_powercap_is_control_type_child(spz))
++			continue;
++
++		ret = powercap_ops->cap_enable_get(spz->ph, spz->info->id,
++						   &prev_state[i]);
++
++		if (ret)
++			goto revert;
++
++		if (prev_state[i] == enable)
++			continue;
++
++		ret = powercap_ops->cap_enable_set(spz->ph, spz->info->id, enable);
++		if (ret)
++			goto revert;
++	}
++
++	pr->enabled = enable;
++	kfree(prev_state);
++	return 0;
++
++revert:
++	while (--i >= 0) {
++		spz = &pr->spzones[i];
++
++		if (!scmi_powercap_is_control_type_child(spz))
++			continue;
++		if (!spz->info->powercap_cap_config)
++			continue;
++		if (prev_state[i] == enable)
++			continue;
++
++		powercap_ops->cap_enable_set(spz->ph, spz->info->id, prev_state[i]);
++	}
++
++	kfree(prev_state);
++	return ret;
++}
++
++static int
++scmi_powercap_control_type_set_enable(struct powercap_control_type *pct, bool mode)
++{
++	struct scmi_powercap_root *pr;
++	int ret = 0;
++
++	mutex_lock(&scmi_powercap_roots_lock);
++	list_for_each_entry(pr, &scmi_powercap_roots, node) {
++		ret = scmi_powercap_set_root_children_enable_state(pr, mode);
++		if (ret)
++			break;
++	}
++	mutex_unlock(&scmi_powercap_roots_lock);
++
++	return ret;
++}
++
++static int
++scmi_powercap_control_type_get_enable(struct powercap_control_type *pct, bool *mode)
++{
++	struct scmi_powercap_root *pr;
++	int ret = 0;
++
++	*mode = true;
++
++	mutex_lock(&scmi_powercap_roots_lock);
++	list_for_each_entry(pr, &scmi_powercap_roots, node) {
++		ret = scmi_powercap_read_root_children_enable_state(pr, &pr->enabled);
++
++		if (ret)
++			break;
++		if (!pr->enabled) {
++			*mode = false;
++			break;
++		}
++	}
++	mutex_unlock(&scmi_powercap_roots_lock);
++
++	return ret;
++}
++
++static const struct powercap_control_type_ops scmi_powercap_control_type_ops = {
++	.set_enable = scmi_powercap_control_type_set_enable,
++	.get_enable = scmi_powercap_control_type_get_enable,
++};
++
+ static int scmi_powercap_zone_release(struct powercap_zone *pz)
+ {
+ 	return 0;
+@@ -495,6 +633,16 @@ static int scmi_powercap_probe(struct scmi_device *sdev)
+ 	if (ret)
+ 		return ret;
+ 
++	INIT_LIST_HEAD(&pr->node);
++
++	ret = scmi_powercap_read_root_children_enable_state(pr, &pr->enabled);
++	if (ret)
++		return ret;
++
++	mutex_lock(&scmi_powercap_roots_lock);
++	list_add_tail(&pr->node, &scmi_powercap_roots);
++	mutex_unlock(&scmi_powercap_roots_lock);
++
+ 	dev_set_drvdata(dev, pr);
+ 
+ 	return ret;
+@@ -505,6 +653,10 @@ static void scmi_powercap_remove(struct scmi_device *sdev)
+ 	struct device *dev = &sdev->dev;
+ 	struct scmi_powercap_root *pr = dev_get_drvdata(dev);
+ 
++	mutex_lock(&scmi_powercap_roots_lock);
++	list_del(&pr->node);
++	mutex_unlock(&scmi_powercap_roots_lock);
++
+ 	scmi_powercap_unregister_all_zones(pr);
+ }
+ 
+@@ -525,7 +677,8 @@ static int __init scmi_powercap_init(void)
+ {
+ 	int ret;
+ 
+-	scmi_top_pcntrl = powercap_register_control_type(NULL, "arm-scmi", NULL);
++	scmi_top_pcntrl = powercap_register_control_type(NULL, "arm-scmi",
++							 &scmi_powercap_control_type_ops);
+ 	if (IS_ERR(scmi_top_pcntrl))
+ 		return PTR_ERR(scmi_top_pcntrl);
+ 
+-- 
+2.47.3
 
 
