@@ -4,144 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F46ACD98E4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 11:36:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5187CCD98E4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 11:46:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CGiAW1AK7Hfc62TVSH27JkLQxeVPiq04b88L8T8a15w=; b=VZplERitN1AxqekkmK8r2/5pJs
-	4oR8GlSr3Or0bfipxknlujYohhUMMK77warVsf69IRQNc4yhAzCaE6cNRn1Kmgu/A4siyz6gDhjZg
-	KDto6HmFL/D5QQX6Zng8x2IqJCu3mAAQ1LkNrk/H8e2wGnHXRikMCQIoe52ZYfsDSt49wZz5v96ip
-	k9wljF/LFXvWN5erDhxetkurpreMIgNp51q14EEm5xPLqy4Fv9r01j0oW9q1tJKCK4fPIl5Buz9f6
-	5kzplPCiACw+rUI1enlzAUOK0sC8nR8AYBumjeFSyGv9SfoxfJBeaB7uY0IrtTIqxkKm5+0hJqHjJ
-	qsA/Vncg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rWnGuIDH8coFdp7LkOu+vl1fCvswvcymwLh9fcmP7Yc=; b=FYsVCLuw9vcvi6rf4krvftFNLR
+	zTyTRNUyF2s0egEE1PGRG5uNqev0STq+SzfzKu2QD8qcF+9vMl5sAJ8AkRzUXUocJvwhJBlmuNGW9
+	HQujf7eeN3BMMQk9zInuO0oABm1v8N0naIDN6fxLI1TqHmI2zuQfsPswk3qSI88zl6G+yKJy99IqZ
+	pg6cU6YOQuENco2TEEDlo02nZQxviY9pCiHvnCqHOsZ1862fht+EzuAzw1DK/riLUFaU6GX3yBgKD
+	7uSa4UKbacfZxauuvxRgdMoZNGcWwXNJsLGu461jpPiSkxyXnoNiCXSTK9LFssQpqdu0ODeSLFviE
+	oC0/ncBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZoZV-0000000HF8f-1P0a;
-	Wed, 17 Jun 2026 11:36:41 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1wZojC-0000000HG9I-1lV4;
+	Wed, 17 Jun 2026 11:46:42 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZoZS-0000000HF7t-0zuY
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 11:36:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PQGr3QLbU0E2kPHzzb5L4SDrqbpihDbQnAEBR8eFQKHtVmdBWiWT/7F31xk+TOlcP0S3aRGxEHBDxlV3/KQglN90WLQLeZqQAKViO2FzczenBOEvFBdgDHd37odKhWEvnFNhwKpUoJjUrZPdgjhzW0J8B2D4o/NX3wcV1aBIR7jvcx1iuK+wzAJNc7m+ZhEUAPt90GPsm8Lpve+mZGEuwhG5U9FcJjYJoxoD83Xh+tJ8DbvCEB41jrRM4uWReBbFRjOT95ViAKtTp/Z7qiYK3ipAqcgJwgrzJporJ6unhMvpc6TwcobC19C9YbInF0qcJuhVfW7E3HR5keLfkqv5nQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=CGiAW1AK7Hfc62TVSH27JkLQxeVPiq04b88L8T8a15w=;
- b=YxmVUhfUjo9KGNcTqp3RTdBqLUQtM6RQrvdfIB37nnmBqVXmFxEaOsrtNFMHoR8qK/lfijBGdzzIrrSKE50k8SvBeHeC2dUNfgThNSX7W8wc9Ky+PvEyEdVI61yHJnwjeQeGnj99fxVEguFICpWEfjeIVlOf7kHSmmaNebsZbAaInr+csV+f5S7sk07ob/DZS3ZFjP855VtEn3znV5fCdSmMdo/3knpqc66qko+Cn4f9BnU1fk19QWnrkCeh2sUAQzIxyZEWp5n7KOEYssBrUjsQjHbL7bjJo97WNuxCyRJeFA+O+98bAHoTIH+7LRuqYeaxWrEKZJ4LH1Q4GYmtxw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=kontron.de; dmarc=pass action=none header.from=kontron.de;
- dkim=pass header.d=kontron.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kontron.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=CGiAW1AK7Hfc62TVSH27JkLQxeVPiq04b88L8T8a15w=;
- b=EOn7zPf4XOYnj18kCZz51b/ZQlHoqYB8HVX9597T/JTXKUDsPO1KM8mFU8aC0j6SsGjd543xPPJpJ27jsmaT0ZVF5gnMi3yIeNvwblgqWrzBqBzhpx9HRx1yjqGyd65bRcweGZRosnp+CDHQYodx3052CtbG9InfQHVAUEi2xFCz4woJEEK9E3TcLX1eK3wDCTCsi5/qZjZYrsI3rJJkOzLTD24FwNHI6QLvYlGmfrbufwEzg9FjRJlUVqjJbaNQ/6d5nA9NF0hq9RqTGKQdy/Lyr69L+Tpple951HhjaJ8E0qXPGFdqPmyCasyFKIftI5x84TSWlAZmqnjLVdy0ow==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=kontron.de;
-Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:1fb::23)
- by DBAPR10MB4106.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:1ca::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.11; Wed, 17 Jun
- 2026 11:36:32 +0000
-Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::a276:4ad7:962:da22]) by AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::a276:4ad7:962:da22%3]) with mapi id 15.21.0113.015; Wed, 17 Jun 2026
- 11:36:32 +0000
-Message-ID: <085262ba-32e5-4011-8df3-5a677575b2db@kontron.de>
-Date: Wed, 17 Jun 2026 13:36:30 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/9] dt-bindings: nvmem: imx-ocotp: Add support for
- secure-enclave
-To: Krzysztof Kozlowski <krzk@kernel.org>, Frieder Schrempf <frieder@fris.de>
-Cc: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260616-upstreaming-next-20260609-imx-ocotp-ele-v1-0-cb7f3698c3e6@kontron.de>
- <20260616-upstreaming-next-20260609-imx-ocotp-ele-v1-1-cb7f3698c3e6@kontron.de>
- <20260617-prodigious-private-inchworm-beae1e@quoll>
-Content-Language: en-US, de-DE
-From: Frieder Schrempf <frieder.schrempf@kontron.de>
-In-Reply-To: <20260617-prodigious-private-inchworm-beae1e@quoll>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR4P281CA0263.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:e8::10) To AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:20b:1fb::23)
+	id 1wZojA-0000000HG7u-2Gzr;
+	Wed, 17 Jun 2026 11:46:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1781696789; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=AFMJi1DswncZUEWEYB44nFn/u1aEnd/CKzHVYPzjDw+3pD+u9u8+LPA/hpSWeZ7LFmOAqZ+GkK09juJzCWy80DLkrz0kuIM2fu14CqbjIdTClZhlOrQ8W73b2OVyKVL65HeU5EgUPYR2zZ8hGE7l3rx4X1WEns3hwHwF+HQPICY=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1781696789; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=rWnGuIDH8coFdp7LkOu+vl1fCvswvcymwLh9fcmP7Yc=; 
+	b=DEtM+S5Rd4Sdf7QF4nggrer3dAsoOYhwum7upYBnUOZzaNCYEMGYSGwcPygwdNvFh7T3R77Y2KoYj1LUAsB9NBBow9XxT0Cye2P18JUOUtrUnaGTvPeNievb4E/GA9au3Jfee0UKSn5fppwQNnbsRV1De5dTzXuKbhRG7Xcvabk=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1781696789;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:To:To:Cc:Cc:Reply-To;
+	bh=rWnGuIDH8coFdp7LkOu+vl1fCvswvcymwLh9fcmP7Yc=;
+	b=P096ENKawLnG2ujh/TmnuwXb3mwAJ2W+cpDpFqEkI2dqQG2FNXlSFZn9nD6S2BXa
+	ytyGoMMikmchnZ2J8l+2Id/KOQbuRs0VmrGexLShy5qzAhsTx3m4UP/1u9DkW0wHb0W
+	+r+mX68K4pUb0PhXi54/1RzXLEY1yR4Z/BBT9Q5k=
+Received: by mx.zohomail.com with SMTPS id 178169678637923.794530340782558;
+	Wed, 17 Jun 2026 04:46:26 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Date: Wed, 17 Jun 2026 13:46:04 +0200
+Subject: [PATCH] Revert "ASoC: rockchip: rockchip_sai: Use guard() for spin
+ locks"
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR10MB4277:EE_|DBAPR10MB4106:EE_
-X-MS-Office365-Filtering-Correlation-Id: dce69ab9-cfbb-46aa-736f-08decc64ae30
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|366016|1800799024|11063799006|56012099006|22082099003|18002099003|3023799007|4143699003;
-X-Microsoft-Antispam-Message-Info: 2TCiXdZlghebiyiUKpuqFqU/GFrXAuxiBlF3DBgdeH2VeTjQVzQBi3GziyKtYBZB2eIMaDS6JX26aBzp3nFzQi22e0+8jyeFySrsUm2YJW51f5925x/ZUebzOPvtl/DAOTS3yCTEMiN5JymsZ/iGz6B7rVxgFpyORAqwoPtT1Gy6KlKI/S7CqPZAnk/GI3VzheksjpQDg88l8GEo9FrZhVhfZXwbPspzGLngVMc/A7ffLXKX8WQEY+VWcYibAXGbPoMnehMZf5KdVjXCGEjLtpiVmu57N/cQ+yDISIyEQ/YucxRmXzDOwfS+3FDoxe14ET13paYaxnUdNZFDOTrSYte1h7z7bcYsDhDagnRy65cMWJhU0iIkTX7imSyzfCcyS1w2LqSKoRQVKt50fbxE9qx25HBQeQzSFVPEB8mTfzxDa2AjADPjI/EiK5PGdNhtUHYlEtIfv/g7Q4jie6Zl+C4JF+KvFJPqqFJKXKKdBi3SUqqHwzSRFxlUdhrrTSDpv7z3HeSZV5NWYw+ECG+RBlw+KPpsTXbGs7SwG652zjx3necGDtK2l3LF6cESiYIj04GzCueBqk1SVHQaIanJq+ixL8G+tEHfVNCsiMgi+KdqduokJE30Ndtx3Wn1wAJxLuDd5utbgxM2Jz6irDvL76/39YUpJSxN2cdUOdMTAw/76sFnabG5m4PNQ4Ldg/Rc
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(366016)(1800799024)(11063799006)(56012099006)(22082099003)(18002099003)(3023799007)(4143699003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SkcxRlpKSE5uM25seGplOHZYelc3Um9UZFV2ZERqSDVpWDllTkYzTVh1WTFl?=
- =?utf-8?B?M0JoRHp2MnJYUWdTeGpRQmd5aXlJRlR1a25rQzF1L2VjVmZZdjdrTXBBVERB?=
- =?utf-8?B?UnVrYWNCMkdQTjJVb2dEWFhyeWZBbXIxclF0MFppbXpzeCtKTmhPZTQ5cUts?=
- =?utf-8?B?aFNqR1FaM1B1VWlPT0FNZ215OWlveFU5WU1NbFRlZDcwT2hpY09KM3NFQ2pW?=
- =?utf-8?B?alZsam9GbFdzU0lkMDczK0YxT3lqTmpleFdyck13YXNFNTd3NHhYWFoybURq?=
- =?utf-8?B?YmZOWlVMRTJWbU43UFJzYjRMR0xXZVFtYnkxVWhQYld2V3YrdEduaytFZ0tE?=
- =?utf-8?B?bWF2S3hLVUpLTEVIbHVvcGFQd3BpODI5WHNyeVlXUHgwVVVSWjlBWHhuRWxl?=
- =?utf-8?B?Q1hzTmdnTmU3OU4wTFJsQ0VHeFMxQ1JRSjg2NzBnbFNwRkFHOXlGTUdCcGF5?=
- =?utf-8?B?Q0M0M0FlZS9iaWhKUXNhVVJHS2xMNjZGNmtoK1BIZWRaZzZCaE1JcU5aS2dC?=
- =?utf-8?B?K3BFbVZVTFBVWE8xMVBRSEl2ZzVlNDRZL0d6dENYZS91Wjh0a3hQNW1HWUZ4?=
- =?utf-8?B?WW5aOVZPbSsxdVQzeDZ6U1lKVmY2aXQwUzB3YWF4Sm5maGg4TFhmVWlGVzJI?=
- =?utf-8?B?ck9jMmlvaVBtUGJXRm1GeHFBQjdWdmRVaVFrOC96NWwvenUwQUpyNVlZTmt0?=
- =?utf-8?B?bVZxL1VtVUdIR1l6VmhIZG94WXJERk9CQTNYa2dSY0duMDRvbGRmZXVBUWZy?=
- =?utf-8?B?MFVPeWJlN1MyRzhHTkVvUlB6R09aU3J5ejFwWFdNUEcwL3dmOWhWN2IzeDQv?=
- =?utf-8?B?eFU5MkxJSkxhL21UblJJa0xTZmFBUXVRSkdFblpudkYxbzFlMVd2bkRHOGlx?=
- =?utf-8?B?NUM4bldFUHZZSUhFYVJSc0xmazd3ZThCdkJZdlB4bzdJZHRLMFZicy9sNk5Z?=
- =?utf-8?B?ZmhGSjBUY2w5NjVQNVZuTkpKS09zRGdhRFV3VzltWFZzYjZPQUMyVnRoU3FW?=
- =?utf-8?B?enBOenVOUlMwYlhDaEZ6NStFZk96WjYwS2dBVkhMTHBzUTllVnNJS1A4QWVN?=
- =?utf-8?B?SVpFNUVTUGZJZi8xWHlpNjlCYWhHRGNXU21tY3Z3aHN6a3ZNZlF1ZSszc3JV?=
- =?utf-8?B?KytBMnN6aURGRmI5bTNQZ0dyMkdjR0pVTEZmMmlZYTcydGpDNlNvekN0ZUZR?=
- =?utf-8?B?NkR2U1ZXeE9PTGFkRUdCZDBlVU1FN1FqY2RoQmNJdVZHdG42SHExaHYyeHor?=
- =?utf-8?B?Y0RXRkN3VllDTWFicFRienlPVGJwUGFQbkoydGJCTG5jMkIvM0p6UDRmVVVG?=
- =?utf-8?B?ZlBnYW5PeVN2enk2eEpTQ3JOTVRibHoxYWJMWW5GWGhJYWxHQkE4YzB2WlpU?=
- =?utf-8?B?S0dWNkNaTkY1bk5kM3BjeDQ1S212bDh2ZENKdXV5ZDM0QTVXeGF0aDBtZTc0?=
- =?utf-8?B?aTN2aUt5ZmxTNHN2OHkzV3BtK2pINUVPRG5IWmZMcUlBUVdITVJ4V1JDL1F1?=
- =?utf-8?B?YU9TV3ZOWWdkWFdvcml2K1VZQktvTzhBVnFjUFIwcGp2aHIwc2FTUkhnTEhv?=
- =?utf-8?B?QXg5ZGRRVjJBYmxweVZYUWpIODhPZ0JqNk1QR1hhOVowemM2dFVsRmJjZG83?=
- =?utf-8?B?WDlWUTAwWHBXaW4rTGhMQURtSHpoVFViWjNENlJlWlptdlFCUTRxUXkvWnN4?=
- =?utf-8?B?bzVZRWdkMlpJLzMvQmlJQTlMMjBHY1BtdWs2MGRxUDBnMTdTcHNackJlL3o0?=
- =?utf-8?B?WG5MZGJFUWJsMUo0alk3eFdJMzJ6NjBaeTYrVDY2ZWFsTFJyaVZHdGhkSW9R?=
- =?utf-8?B?ekk1ZTRXSFRJTlZjalZ5VzFMMEJjMWNXbFpUZTNrZnBjUUZ6SnhWb0duWFh3?=
- =?utf-8?B?OTZpdlFuWFY4V1ZjckNiMGV1d1orM0IxTlVaaW00ZjByTllPN284REczNXJD?=
- =?utf-8?B?MnpRNno0ckVNbmVzY1MvdzdWaHE1K1NpMTV5dEtyM1NuNlhyZGFxc0ZiSXhX?=
- =?utf-8?B?RkIrTFg4N3lXZzZVZFA5WFpNMjVPMG9nS3UxakwzVWRRa21pb2ZCbjRQa2tW?=
- =?utf-8?B?aVZ3RnVWcjBWRUMxeDAxSm84eXVnRDd3VzhlRjdWZldEaHAxY0ZkZjRNQmtO?=
- =?utf-8?B?MUJUdjA1ZmV6SWJ1a09wU3FsQU53ZEdJOENienNlZG9wOTFBOXpiY2EwRTFw?=
- =?utf-8?B?d1hGOHZ5MHB1SzF3L0dNNHZ6cHBsOTZrSXdzbVljcWJRTTBHaWNLNkQvV1NB?=
- =?utf-8?B?QXpzMlg3bE4rUHY4REl4b0lENGlkeS84eTc3OW1HWUpZc1ZqZFpSdWxxa3dO?=
- =?utf-8?B?YlZBcFcwWlFqd3VadlV5eDlWNjJweUk0c0NNNlQ4ZSs4c3Q1d0k2M3ZHU0NF?=
- =?utf-8?Q?mkyTnHPvVXYfWJJU=3D?=
-X-OriginatorOrg: kontron.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: dce69ab9-cfbb-46aa-736f-08decc64ae30
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jun 2026 11:36:32.5775
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8c9d3c97-3fd9-41c8-a2b1-646f3942daf1
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: FYouQNKPfa4z58kRCDfxDSTIJ4QF7iWgozl4YzsMNKS5b490P6W7TsZMsjNoWkNAB5wNV26VeTQJwtDl9eQy5ZMEpar/bIQ0tEVUPchva+E=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR10MB4106
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260617-sai-revert-v1-1-e46adda2213b@collabora.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/y2NQQ6CMBBFr0JmbSPtoghXMSzaMugYS3WmEBLC3
+ a3i8iXvv7+BIBMKdNUGjAsJpamAPlUQ7m66oaKhMJja2NrqRokjVUTkrC5j451uW2uChzJ4MY6
+ 0/mLX/mCZ/QND/hb+BuN7Li/50MA7QRVSjJS7Kide3HOQc3SSkaHf9w8Ka1ccoQAAAA==
+X-Change-ID: 20260617-sai-revert-8f7ba19962cb
+To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Heiko Stuebner <heiko@sntech.de>
+Cc: bui duc phuc <phucduc.bui@gmail.com>, 
+ linux-rockchip@lists.infradead.org, linux-sound@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ kernel@collabora.com, Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260617_043638_611316_9D1DFAEB 
-X-CRM114-Status: GOOD (  26.93  )
+X-CRM114-CacheID: sfid-20260617_044640_653465_5EB6F19B 
+X-CRM114-Status: GOOD (  19.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,76 +83,400 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17.06.26 12:49, Krzysztof Kozlowski wrote:
-> On Tue, Jun 16, 2026 at 01:52:16PM +0200, Frieder Schrempf wrote:
->> From: Frieder Schrempf <frieder.schrempf@kontron.de>
->>
->> Some SoCs like the i.MX9 family allow full access to the fuses only
->> through the secure enclave firmware API. Add a property to reference
->> the secure enclave node and let the driver use the API.
->>
->> Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
->> ---
->>  Documentation/devicetree/bindings/nvmem/imx-ocotp.yaml | 4 ++++
->>  1 file changed, 4 insertions(+)
->>
->> diff --git a/Documentation/devicetree/bindings/nvmem/imx-ocotp.yaml b/Documentation/devicetree/bindings/nvmem/imx-ocotp.yaml
->> index a8076d0e2737..14a6429f4a4c 100644
->> --- a/Documentation/devicetree/bindings/nvmem/imx-ocotp.yaml
->> +++ b/Documentation/devicetree/bindings/nvmem/imx-ocotp.yaml
->> @@ -53,6 +53,10 @@ properties:
->>    reg:
->>      maxItems: 1
->>  
->> +  secure-enclave:
->> +    $ref: /schemas/types.yaml#/definitions/phandle
->> +    description: A phandle to the secure enclave node
-> 
-> Two things here:
-> 1. Here you describe what for is that phandle, how it is used by the
-> hardware. Currently the description repeats the property name and type,
-> so not much useful.
+This reverts commit f7fe9f7073602958d6b63cc58a144094533377fa.
 
-Ok, agree.
+This is very noisy pointless churn that was not tested by the submitter,
+nor was it addressed to the driver's maintainer. It mixes unrelated
+whitespace changes (eliminating the blank line between the includes -
+why?) with hard to review diffs that add a whole indentation level to
+the function for no benefit, while also not following kernel code style
+by doing stuff like "ret == 0".
 
-> 
-> 2. If you access OTP via firmware, then this is completely different
-> interface than MMIO, thus:
-> A. reg is not appropriate
-> B. Device is very different thus it has different compatible and I even
-> claim should be in different binding. Devices having completely
-> different SW interface should not be in the same binding, at least
-> usually.
-> 
-> If any of above is not accurate, then your commit msg should answer why
-> and give some background.
+The driver is better off without these changes, and they're not worth
+the time to validate whether they really do make no functional changes.
 
-Thanks for the feedback!
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+---
+ sound/soc/rockchip/rockchip_sai.c | 262 +++++++++++++++++++-------------------
+ 1 file changed, 133 insertions(+), 129 deletions(-)
 
-The driver currently uses the limited MMIO (FSB) interface to access the
-OTPs. The intention is to support the firmware interface alongside the
-MMIO interface so the driver can pick the interface that is available
-(firmware might not be loaded) and fallback to MMIO.
+diff --git a/sound/soc/rockchip/rockchip_sai.c b/sound/soc/rockchip/rockchip_sai.c
+index a195e96fed0a..ed393e5034a4 100644
+--- a/sound/soc/rockchip/rockchip_sai.c
++++ b/sound/soc/rockchip/rockchip_sai.c
+@@ -18,6 +18,7 @@
+ #include <sound/pcm_params.h>
+ #include <sound/dmaengine_pcm.h>
+ #include <sound/tlv.h>
++
+ #include "rockchip_sai.h"
+ 
+ #define DRV_NAME		"rockchip-sai"
+@@ -215,12 +216,14 @@ static void rockchip_sai_xfer_clk_stop_and_wait(struct rk_sai_dev *sai, unsigned
+ static int rockchip_sai_runtime_suspend(struct device *dev)
+ {
+ 	struct rk_sai_dev *sai = dev_get_drvdata(dev);
++	unsigned long flags;
+ 
+ 	rockchip_sai_fsync_lost_detect(sai, 0);
+ 	rockchip_sai_fsync_err_detect(sai, 0);
+ 
+-	scoped_guard(spinlock_irqsave, &sai->xfer_lock)
+-		rockchip_sai_xfer_clk_stop_and_wait(sai, NULL);
++	spin_lock_irqsave(&sai->xfer_lock, flags);
++	rockchip_sai_xfer_clk_stop_and_wait(sai, NULL);
++	spin_unlock_irqrestore(&sai->xfer_lock, flags);
+ 
+ 	regcache_cache_only(sai->regmap, true);
+ 	/*
+@@ -480,6 +483,7 @@ static int rockchip_sai_set_fmt(struct snd_soc_dai *dai, unsigned int fmt)
+ 	struct rk_sai_dev *sai = snd_soc_dai_get_drvdata(dai);
+ 	unsigned int mask = 0, val = 0;
+ 	unsigned int clk_gates;
++	unsigned long flags;
+ 	int ret = 0;
+ 
+ 	pm_runtime_get_sync(dai->dev);
+@@ -495,56 +499,56 @@ static int rockchip_sai_set_fmt(struct snd_soc_dai *dai, unsigned int fmt)
+ 		sai->is_master_mode = false;
+ 		break;
+ 	default:
+-		pm_runtime_put(dai->dev);
+-		return -EINVAL;
++		ret = -EINVAL;
++		goto err_pm_put;
+ 	}
+ 
+-	scoped_guard(spinlock_irqsave, &sai->xfer_lock) {
+-		rockchip_sai_xfer_clk_stop_and_wait(sai, &clk_gates);
+-		if (sai->initialized) {
+-			if (sai->has_capture && sai->has_playback)
+-				rockchip_sai_xfer_stop(sai, -1);
+-			else if (sai->has_capture)
+-				rockchip_sai_xfer_stop(sai, SNDRV_PCM_STREAM_CAPTURE);
+-			else
+-				rockchip_sai_xfer_stop(sai, SNDRV_PCM_STREAM_PLAYBACK);
+-		} else {
+-			rockchip_sai_clear(sai, 0);
+-			sai->initialized = true;
+-		}
++	spin_lock_irqsave(&sai->xfer_lock, flags);
++	rockchip_sai_xfer_clk_stop_and_wait(sai, &clk_gates);
++	if (sai->initialized) {
++		if (sai->has_capture && sai->has_playback)
++			rockchip_sai_xfer_stop(sai, -1);
++		else if (sai->has_capture)
++			rockchip_sai_xfer_stop(sai, SNDRV_PCM_STREAM_CAPTURE);
++		else
++			rockchip_sai_xfer_stop(sai, SNDRV_PCM_STREAM_PLAYBACK);
++	} else {
++		rockchip_sai_clear(sai, 0);
++		sai->initialized = true;
++	}
+ 
+-		regmap_update_bits(sai->regmap, SAI_CKR, mask, val);
+-
+-		mask = SAI_CKR_CKP_MASK | SAI_CKR_FSP_MASK;
+-		switch (fmt & SND_SOC_DAIFMT_INV_MASK) {
+-		case SND_SOC_DAIFMT_NB_NF:
+-			val = SAI_CKR_CKP_NORMAL | SAI_CKR_FSP_NORMAL;
+-			break;
+-		case SND_SOC_DAIFMT_NB_IF:
+-			val = SAI_CKR_CKP_NORMAL | SAI_CKR_FSP_INVERTED;
+-			break;
+-		case SND_SOC_DAIFMT_IB_NF:
+-			val = SAI_CKR_CKP_INVERTED | SAI_CKR_FSP_NORMAL;
+-			break;
+-		case SND_SOC_DAIFMT_IB_IF:
+-			val = SAI_CKR_CKP_INVERTED | SAI_CKR_FSP_INVERTED;
+-			break;
+-		default:
+-			ret = -EINVAL;
+-			break;
+-		}
++	regmap_update_bits(sai->regmap, SAI_CKR, mask, val);
+ 
+-		if (ret == 0) {
+-			regmap_update_bits(sai->regmap, SAI_CKR, mask, val);
+-			rockchip_sai_fmt_create(sai, fmt);
+-		}
+-
+-		if (clk_gates)
+-			regmap_update_bits(sai->regmap, SAI_XFER,
+-					SAI_XFER_CLK_MASK | SAI_XFER_FSS_MASK,
+-					clk_gates);
++	mask = SAI_CKR_CKP_MASK | SAI_CKR_FSP_MASK;
++	switch (fmt & SND_SOC_DAIFMT_INV_MASK) {
++	case SND_SOC_DAIFMT_NB_NF:
++		val = SAI_CKR_CKP_NORMAL | SAI_CKR_FSP_NORMAL;
++		break;
++	case SND_SOC_DAIFMT_NB_IF:
++		val = SAI_CKR_CKP_NORMAL | SAI_CKR_FSP_INVERTED;
++		break;
++	case SND_SOC_DAIFMT_IB_NF:
++		val = SAI_CKR_CKP_INVERTED | SAI_CKR_FSP_NORMAL;
++		break;
++	case SND_SOC_DAIFMT_IB_IF:
++		val = SAI_CKR_CKP_INVERTED | SAI_CKR_FSP_INVERTED;
++		break;
++	default:
++		ret = -EINVAL;
++		goto err_xfer_unlock;
+ 	}
+ 
++	regmap_update_bits(sai->regmap, SAI_CKR, mask, val);
++
++	rockchip_sai_fmt_create(sai, fmt);
++
++err_xfer_unlock:
++	if (clk_gates)
++		regmap_update_bits(sai->regmap, SAI_XFER,
++				SAI_XFER_CLK_MASK | SAI_XFER_FSS_MASK,
++				clk_gates);
++	spin_unlock_irqrestore(&sai->xfer_lock, flags);
++err_pm_put:
+ 	pm_runtime_put(dai->dev);
+ 
+ 	return ret;
+@@ -560,6 +564,7 @@ static int rockchip_sai_hw_params(struct snd_pcm_substream *substream,
+ 	unsigned int ch_per_lane, slot_width;
+ 	unsigned int val, fscr, reg;
+ 	unsigned int lanes, req_lanes;
++	unsigned long flags;
+ 	int ret = 0;
+ 
+ 	if (!rockchip_sai_stream_valid(substream, dai))
+@@ -586,8 +591,8 @@ static int rockchip_sai_hw_params(struct snd_pcm_substream *substream,
+ 			dev_err(sai->dev, "not enough lanes (%d) for requested number of %s channels (%d)\n",
+ 				lanes, reg == SAI_TXCR ? "playback" : "capture",
+ 				params_channels(params));
+-			pm_runtime_put(sai->dev);
+-			return -EINVAL;
++			ret = -EINVAL;
++			goto err_pm_put;
+ 		} else {
+ 			lanes = req_lanes;
+ 		}
+@@ -613,88 +618,84 @@ static int rockchip_sai_hw_params(struct snd_pcm_substream *substream,
+ 		val = SAI_XCR_VDW(32);
+ 		break;
+ 	default:
+-		pm_runtime_put(sai->dev);
+-		return -EINVAL;
++		ret = -EINVAL;
++		goto err_pm_put;
+ 	}
+ 
+ 	val |= SAI_XCR_CSR(lanes);
+ 
+-	scoped_guard(spinlock_irqsave, &sai->xfer_lock) {
++	spin_lock_irqsave(&sai->xfer_lock, flags);
++
++	regmap_update_bits(sai->regmap, reg, SAI_XCR_VDW_MASK | SAI_XCR_CSR_MASK, val);
+ 
+-		regmap_update_bits(sai->regmap, reg, SAI_XCR_VDW_MASK | SAI_XCR_CSR_MASK, val);
++	if (!sai->is_tdm)
++		regmap_update_bits(sai->regmap, reg, SAI_XCR_SBW_MASK,
++				   SAI_XCR_SBW(params_physical_width(params)));
+ 
+-		if (!sai->is_tdm)
+-			regmap_update_bits(sai->regmap, reg, SAI_XCR_SBW_MASK,
+-					   SAI_XCR_SBW(params_physical_width(params)));
++	regmap_read(sai->regmap, reg, &val);
+ 
+-		regmap_read(sai->regmap, reg, &val);
++	slot_width = SAI_XCR_SBW_V(val);
++	ch_per_lane = params_channels(params) / lanes;
+ 
+-		slot_width = SAI_XCR_SBW_V(val);
+-		ch_per_lane = params_channels(params) / lanes;
++	regmap_update_bits(sai->regmap, reg, SAI_XCR_SNB_MASK,
++			   SAI_XCR_SNB(ch_per_lane));
+ 
+-		regmap_update_bits(sai->regmap, reg, SAI_XCR_SNB_MASK,
+-				   SAI_XCR_SNB(ch_per_lane));
++	fscr = SAI_FSCR_FW(sai->fw_ratio * slot_width * ch_per_lane);
+ 
+-		fscr = SAI_FSCR_FW(sai->fw_ratio * slot_width * ch_per_lane);
++	switch (sai->fpw) {
++	case FPW_ONE_BCLK_WIDTH:
++		fscr |= SAI_FSCR_FPW(1);
++		break;
++	case FPW_ONE_SLOT_WIDTH:
++		fscr |= SAI_FSCR_FPW(slot_width);
++		break;
++	case FPW_HALF_FRAME_WIDTH:
++		fscr |= SAI_FSCR_FPW(sai->fw_ratio * slot_width * ch_per_lane / 2);
++		break;
++	default:
++		dev_err(sai->dev, "Invalid Frame Pulse Width %d\n", sai->fpw);
++		ret = -EINVAL;
++		goto err_xfer_unlock;
++	}
+ 
+-		switch (sai->fpw) {
+-		case FPW_ONE_BCLK_WIDTH:
+-			fscr |= SAI_FSCR_FPW(1);
+-			break;
+-		case FPW_ONE_SLOT_WIDTH:
+-			fscr |= SAI_FSCR_FPW(slot_width);
+-			break;
+-		case FPW_HALF_FRAME_WIDTH:
+-			fscr |= SAI_FSCR_FPW(sai->fw_ratio * slot_width * ch_per_lane / 2);
+-			break;
+-		default:
+-			dev_err(sai->dev, "Invalid Frame Pulse Width %d\n", sai->fpw);
++	regmap_update_bits(sai->regmap, SAI_FSCR,
++			   SAI_FSCR_FW_MASK | SAI_FSCR_FPW_MASK, fscr);
++
++	if (sai->is_master_mode) {
++		bclk_rate = sai->fw_ratio * slot_width * ch_per_lane * params_rate(params);
++		ret = clk_set_rate(sai->mclk, sai->mclk_rate);
++		if (ret) {
++			dev_err(sai->dev, "Failed to set mclk to %u: %pe\n",
++				sai->mclk_rate, ERR_PTR(ret));
++			goto err_xfer_unlock;
++		}
++
++		mclk_rate = clk_get_rate(sai->mclk);
++		if (mclk_rate < bclk_rate) {
++			dev_err(sai->dev, "Mismatch mclk: %u, at least %u\n",
++				mclk_rate, bclk_rate);
+ 			ret = -EINVAL;
+-			break;
++			goto err_xfer_unlock;
+ 		}
+ 
+-		if (ret == 0) {
+-			regmap_update_bits(sai->regmap, SAI_FSCR,
+-					   SAI_FSCR_FW_MASK | SAI_FSCR_FPW_MASK, fscr);
+-
+-			if (sai->is_master_mode) {
+-				bclk_rate = sai->fw_ratio * slot_width *
+-						ch_per_lane * params_rate(params);
+-				ret = clk_set_rate(sai->mclk, sai->mclk_rate);
+-				if (ret)
+-					dev_err(sai->dev, "Failed to set mclk to %u: %pe\n",
+-						sai->mclk_rate, ERR_PTR(ret));
+-				else {
+-					mclk_rate = clk_get_rate(sai->mclk);
+-					if (mclk_rate < bclk_rate) {
+-						dev_err(sai->dev, "Mismatch mclk: %u, at least %u\n",
+-							mclk_rate, bclk_rate);
+-						ret = -EINVAL;
+-					} else {
+-
+-						div_bclk = DIV_ROUND_CLOSEST(mclk_rate, bclk_rate);
+-						mclk_req_rate = bclk_rate * div_bclk;
+-
+-						if (mclk_rate <
+-							mclk_req_rate - CLK_SHIFT_RATE_HZ_MAX ||
+-						    mclk_rate >
+-							mclk_req_rate + CLK_SHIFT_RATE_HZ_MAX) {
+-							dev_err(sai->dev,
+-								"Mismatch mclk: %u, expected %u (+/- %dHz)\n",
+-								mclk_rate, mclk_req_rate,
+-								CLK_SHIFT_RATE_HZ_MAX);
+-							ret = -EINVAL;
+-						} else
+-							regmap_update_bits(sai->regmap,
+-									SAI_CKR,
+-									SAI_CKR_MDIV_MASK,
+-									SAI_CKR_MDIV(div_bclk));
+-					}
+-				}
+-			}
++		div_bclk = DIV_ROUND_CLOSEST(mclk_rate, bclk_rate);
++		mclk_req_rate = bclk_rate * div_bclk;
++
++		if (mclk_rate < mclk_req_rate - CLK_SHIFT_RATE_HZ_MAX ||
++		    mclk_rate > mclk_req_rate + CLK_SHIFT_RATE_HZ_MAX) {
++			dev_err(sai->dev, "Mismatch mclk: %u, expected %u (+/- %dHz)\n",
++				mclk_rate, mclk_req_rate, CLK_SHIFT_RATE_HZ_MAX);
++			ret = -EINVAL;
++			goto err_xfer_unlock;
+ 		}
++
++		regmap_update_bits(sai->regmap, SAI_CKR, SAI_CKR_MDIV_MASK,
++				   SAI_CKR_MDIV(div_bclk));
+ 	}
+ 
++err_xfer_unlock:
++	spin_unlock_irqrestore(&sai->xfer_lock, flags);
++err_pm_put:
+ 	pm_runtime_put(sai->dev);
+ 
+ 	return ret;
+@@ -704,6 +705,7 @@ static int rockchip_sai_prepare(struct snd_pcm_substream *substream,
+ 				struct snd_soc_dai *dai)
+ {
+ 	struct rk_sai_dev *sai = snd_soc_dai_get_drvdata(dai);
++	unsigned long flags;
+ 
+ 	if (!rockchip_sai_stream_valid(substream, dai))
+ 		return 0;
+@@ -724,12 +726,13 @@ static int rockchip_sai_prepare(struct snd_pcm_substream *substream,
+ 		 * udelay falls short.
+ 		 */
+ 		udelay(20);
+-		scoped_guard(spinlock_irqsave, &sai->xfer_lock)
+-			regmap_update_bits(sai->regmap, SAI_XFER,
+-					   SAI_XFER_CLK_MASK |
+-					   SAI_XFER_FSS_MASK,
+-					   SAI_XFER_CLK_EN |
+-					   SAI_XFER_FSS_EN);
++		spin_lock_irqsave(&sai->xfer_lock, flags);
++		regmap_update_bits(sai->regmap, SAI_XFER,
++				   SAI_XFER_CLK_MASK |
++				   SAI_XFER_FSS_MASK,
++				   SAI_XFER_CLK_EN |
++				   SAI_XFER_FSS_EN);
++		spin_unlock_irqrestore(&sai->xfer_lock, flags);
+ 	}
+ 
+ 	rockchip_sai_fsync_lost_detect(sai, 1);
+@@ -912,6 +915,7 @@ static int rockchip_sai_set_tdm_slot(struct snd_soc_dai *dai,
+ 				     int slots, int slot_width)
+ {
+ 	struct rk_sai_dev *sai = snd_soc_dai_get_drvdata(dai);
++	unsigned long flags;
+ 	unsigned int clk_gates;
+ 	int sw = slot_width;
+ 
+@@ -927,16 +931,16 @@ static int rockchip_sai_set_tdm_slot(struct snd_soc_dai *dai,
+ 		return -EINVAL;
+ 
+ 	pm_runtime_get_sync(dai->dev);
+-	scoped_guard(spinlock_irqsave, &sai->xfer_lock) {
+-		rockchip_sai_xfer_clk_stop_and_wait(sai, &clk_gates);
+-		regmap_update_bits(sai->regmap, SAI_TXCR, SAI_XCR_SBW_MASK,
+-				   SAI_XCR_SBW(sw));
+-		regmap_update_bits(sai->regmap, SAI_RXCR, SAI_XCR_SBW_MASK,
+-				   SAI_XCR_SBW(sw));
+-		regmap_update_bits(sai->regmap, SAI_XFER,
+-				   SAI_XFER_CLK_MASK | SAI_XFER_FSS_MASK,
+-				   clk_gates);
+-	}
++	spin_lock_irqsave(&sai->xfer_lock, flags);
++	rockchip_sai_xfer_clk_stop_and_wait(sai, &clk_gates);
++	regmap_update_bits(sai->regmap, SAI_TXCR, SAI_XCR_SBW_MASK,
++			   SAI_XCR_SBW(sw));
++	regmap_update_bits(sai->regmap, SAI_RXCR, SAI_XCR_SBW_MASK,
++			   SAI_XCR_SBW(sw));
++	regmap_update_bits(sai->regmap, SAI_XFER,
++			   SAI_XFER_CLK_MASK | SAI_XFER_FSS_MASK,
++			   clk_gates);
++	spin_unlock_irqrestore(&sai->xfer_lock, flags);
+ 	pm_runtime_put(dai->dev);
+ 
+ 	return 0;
 
-Following your argument would mean a driver deciding by itself which
-interface to use at runtime is not something we want to have in general,
-right?
+---
+base-commit: 5b33fc6492a7b7a62359157db0f92f5b6e9af690
+change-id: 20260617-sai-revert-8f7ba19962cb
 
-In turn this would mean we need two drivers, or at least two
-compatibles/bindings for something that is effectively the same hardware.
+Best regards,
+--  
+Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-Actually, my first RFC approach [1] was to create a separate driver. But
-in the end it seemed very weird to have two drivers and two DT nodes for
-the same hardware block. Also I have no idea what happens if both
-interfaces are used at the same time.
-
-The other idea from back then was to replace the MMIO (FSB) interface
-with ELE, but this would mean that we rely on the proprietary ELE
-firmware to be available for simple things like reading a MAC address,
-which is not desirable either, I guess.
-
-In which direction should I move on with this?
-
-[1]
-https://patchwork.kernel.org/project/linux-arm-kernel/patch/20250416142715.1042363-1-frieder@fris.de/
 
