@@ -4,78 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE150CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 17:36:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB3BACD98E2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 17:42:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9c4JXxUSHmrMHbwQQezcBaAvkJYq69p41kAusufWTpI=; b=s/Ub7RN+54Ea+NZYZ06nOAEP+/
-	VkKPJKvlS/RZaBK8axdFAQoAdupHu7XN0Q/fT9kDFNxMevv+htJLnLyRK6+J1wbsKj/GXv263Oq0O
-	b7MU6Zr3eyRrtafWa2vEhIphmsr6ynGCbozHoo5EOsSZsz14dMDc+fn5O0Ye6IWPAaHPwaH6bEvGe
-	gjH42VEeEdN0G47uY0V/nOf/cnvHmL0Wgd7sfZXCVKVFA60SWRs0JelpbEKSSQh2ZL9haa2Hs58HX
-	p3wkP4CkKitWgAzh+kE45jni2jTSil4UQQl4l47vmaHZF7IA1Rg0a71EvmVcmuWZU1kWE3jQwoyaB
-	S7mVoumg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9RC8jmYaG6xK0VuQBqROoKrirquMSwIRTfAs/g0x82s=; b=LaNbha52VRrUA2HFrchX2dvPxy
+	x84lYaevobfvJyb+sT7icNSgyg5OvWClG6fBf/rKWLwPs25grlASZ2A89tvh37+YfCG/VVDC/VgFE
+	SGIhbJa+EepxxGC+EZDShrFw35BM+XdkBsfDmMMffXlo331yjhJRGJWxmacR3R8j3YtC/VZHQYh4D
+	Nj3u3aRxBs0lpXLP+Ms3ADVL4RL5bgKiO/y9D+rExk6WJUEx4OVd8cc+fZ0i4/gJO3spnmuQWYO/V
+	kEuceI+Bl9WM3FrhgWP4SMM12m0o/NsUVioe+rHznA6pIldpGpoMuESQ9yIr0RCR48e8GOjDSMmK/
+	QDWvDMOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZuBi-000000007R2-2UYJ;
-	Wed, 17 Jun 2026 17:36:30 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wZuH3-000000007g3-17mp;
+	Wed, 17 Jun 2026 17:42:01 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZuBh-000000007Qm-14an
+	id 1wZuH1-000000007fw-43Ls
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 17:36:29 +0000
+	Wed, 17 Jun 2026 17:42:00 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8786940531;
-	Wed, 17 Jun 2026 17:36:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68C261F000E9;
-	Wed, 17 Jun 2026 17:36:28 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 116CF60052;
+	Wed, 17 Jun 2026 17:41:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7F281F000E9;
+	Wed, 17 Jun 2026 17:41:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781717788;
-	bh=9c4JXxUSHmrMHbwQQezcBaAvkJYq69p41kAusufWTpI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=aDuOCp5FcyoOulq2FR+bh4HO1geXcFkVep1yQVImvGf0P1gdPhCqy/oQbqfw2kLff
-	 3J19L8KfcIY+CJvWFiL0q1mXXr9yrh4pE2DwVJOSHhQ2wKkKMjktcPePgky3NANOwT
-	 VJ3/0d07Zz5mZ7erZr6qlVhTTamFdHNZyt7Dzxvg+vzflCIXH1C9a/4VqbEoanP0Zk
-	 qjSfrzgzpyqECZTML/rI6mxY/+CiRqMdHze95d/w4T4gIDpWvS7nDQFvrf/qWRnfC9
-	 gUqlfrBAv93hFQqZeX0IvVKWHVTHcqMlvHjESL4UZA6ojMUCTddA9N/UF/lYmF/Aej
-	 LhSzujhqJfkEA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wZuBe-0000000DlkU-2Mrq;
-	Wed, 17 Jun 2026 17:36:26 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: Oliver Upton <oupton@kernel.org>,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Fuad Tabba <tabba@google.com>
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Jintack Lim <jintack.lim@linaro.org>,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: nv: Fix PSTATE construction on illegal exception return
-Date: Wed, 17 Jun 2026 18:36:23 +0100
-Message-ID: <178171777578.3090427.13421187058645390320.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260617144907.2972095-1-tabba@google.com>
-References: <20260617144907.2972095-1-tabba@google.com>
+	s=k20260515; t=1781718118;
+	bh=9RC8jmYaG6xK0VuQBqROoKrirquMSwIRTfAs/g0x82s=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=N+Mzdag973iH4hO6Sjg54nL3kg6ofkz0cQfNurdpysbU5SXY/OybFr3meSgPBeGPw
+	 wfc7JmVDLkerB4mclX8PUwiVTc7O4jklyyIuXclD2Bx5XTAR5uQ8SWKX8g2Aw/bcZf
+	 rgggTSpe6fhEYRPoSkxLmQmgd/hqkxfr3VKqIi9gqXYu80iouiWDWiLLrWWAxwoAbu
+	 lCxCY+2R3aZDnnhAx+upRayjijyJmLPe2wdZSyds8EIW4mB5FFxeR3S2Nv4Q6ntixM
+	 MYNQoq3wFKRu/LxhuyF/lnd7l9Qh604Je7hagQs5OqvaOu34TopxyUtf610uLzaBkc
+	 MwTa3tHMZsieQ==
+Date: Wed, 17 Jun 2026 12:41:55 -0500
+From: Bjorn Andersson <andersson@kernel.org>
+To: Ayushi Makhija <ayushi.makhija@oss.qualcomm.com>
+Cc: konrad.dybcio@linaro.org, robh+dt@kernel.org, 
+	krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org, dmitry.baryshkov@linaro.org, 
+	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, quic_rajeevny@quicinc.com, quic_vproddut@quicinc.com, 
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Subject: Re: [PATCH v1] arm64: dts: qcom: sm8750-mtp: Set sufficient voltage
+ for panel nt37801
+Message-ID: <ajLbyqELjduwbKC_@baldur>
+References: <20260409122110.214680-1-ayushi.makhija@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, tabba@google.com, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, jintack.lim@linaro.org, gankulkarni@os.amperecomputing.com, christoffer.dall@arm.com, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260409122110.214680-1-ayushi.makhija@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,28 +72,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 17 Jun 2026 15:49:07 +0100, Fuad Tabba wrote:
-> kvm_check_illegal_exception_return() sourced the flags {N,Z,C,V} and
-> masks {D,A,I,F} of the resulting PSTATE from the current PSTATE, but
-> R_VWJHB takes them from the SPSR being returned to and leaves
-> PSTATE.{EL,SP,nRW} (and EXLOCK when FEAT_GCS) unchanged. PAN, ALLINT
-> and PM were not applied at all.
+On Thu, Apr 09, 2026 at 05:51:09PM +0530, Ayushi Makhija wrote:
+
+Here's a link to "v1":
+https://lore.kernel.org/all/20260323102229.1546504-1-quic_amakhija@quicinc.com/
+Which makes this v2.
+
+You also ignored my feedback.
+
+Thank you,
+Bjorn
+
+> The NT37801 Sepc V1.0 chapter "5.7.1 Power On Sequence" states
+> VDDI=1.65V~1.95V, so set sufficient voltage for panel nt37801.
 > 
-> Build the PSTATE by taking those fields from the SPSR while preserving
-> EL, SP, nRW and EXLOCK from the current PSTATE, then set IL.
+> Fixes: 4fca6849864d ("drm/panel: Add Novatek NT37801 panel driver")
+> Signed-off-by: Ayushi Makhija <ayushi.makhija@oss.qualcomm.com>
+> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+> ---
+>  arch/arm64/boot/dts/qcom/sm8750-mtp.dts | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> [...]
-
-Applied to fixes, thanks!
-
-[1/1] KVM: arm64: nv: Fix PSTATE construction on illegal exception return
-      commit: 0e8e955b9bcf84a70f20079390e19971fec1586d
-
-Cheers,
-
-	M.
--- 
-Without deviation from the norm, progress is not possible.
-
-
+> diff --git a/arch/arm64/boot/dts/qcom/sm8750-mtp.dts b/arch/arm64/boot/dts/qcom/sm8750-mtp.dts
+> index 3837f6785320..6ba4e69bf377 100644
+> --- a/arch/arm64/boot/dts/qcom/sm8750-mtp.dts
+> +++ b/arch/arm64/boot/dts/qcom/sm8750-mtp.dts
+> @@ -462,7 +462,7 @@ vreg_l11b_1p0: ldo11 {
+>  
+>  		vreg_l12b_1p8: ldo12 {
+>  			regulator-name = "vreg_l12b_1p8";
+> -			regulator-min-microvolt = <1200000>;
+> +			regulator-min-microvolt = <1650000>;
+>  			regulator-max-microvolt = <1800000>;
+>  			regulator-initial-mode = <RPMH_REGULATOR_MODE_HPM>;
+>  			regulator-allow-set-load;
+> -- 
+> 2.34.1
+> 
 
