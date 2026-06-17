@@ -4,87 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B48E8CD98E2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 10:28:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFC3DCD98E2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 10:28:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Zlxz3Bt/5n5+mM+hnvjVuEoeVfHELml3tumeQTe5OCA=; b=FGB//ksS55RXj1Yhx8j1M04+rZ
-	gnEVGRTMq74cwbFEf+/ayzPrzyrFSNu9xUeav0hjPZGqyWSy0vd04GR9eEEF//be2H1rLH7N3voEE
-	obIpTtE/9JKbD3YRjNvh+//KibFk7JFnLg+ikoqIYrngQumdF4/xTS9QlQkWf6kOvlqQafE9QmJsq
-	LWr2L/wF+yvW73CE2GSQneIAUN7PH7AKgyZNQ3qZiUyWjw09ieBmxo0yUli63zQdZS2nh7xCBfLV8
-	BUtFGrObBg22vjPY264/g7fBjrPdeEtznQYh6xOnBIwW5BuJarMZbrrGbqBDfI5tgKpmNfKND9DPW
-	z29bUhyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N2jPlRyhxf5Js0wrvZhbEPMffqjEBHr4VMZy0F6mhfY=; b=NCkS6dV+gAYYfsrlTku7oYJT8D
+	6XjTw+vrbcOsIo5KKviPzhKfhJgTA/TS0ebWvMxQdWyptSnF7oo4a8OOu0BrZTP+5k31XNtyvEx+O
+	apmBb9U9xHP30loTN8YtebtdTzEIl4jDGZrq6GFMejT6GGSSp2KEkmXmVI9Krs1XHFKDVTyWKKdH2
+	R91opNCvWPISiZPkcJ2fxB/+5ASuGq8IMoIHB94E8Yq1cermOnfUhRGgHMaJ+tRzMSRxrRnIaN2g2
+	VCou9DG9VkVrmkW4ihxTGqgcqIvRRfW5s0oCVvyo7pw46rXqa0zbGjgTcP9HElU6GN9cjg3xj77q8
+	xAiIAS1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZnVg-0000000H3GY-1g1k;
-	Wed, 17 Jun 2026 10:28:40 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1wZnVt-0000000H3Im-2AXR;
+	Wed, 17 Jun 2026 10:28:53 +0000
+Received: from mail-qt1-x82a.google.com ([2607:f8b0:4864:20::82a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZnVd-0000000H3GB-2eUG
+	id 1wZnVr-0000000H3Hw-1Fn5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 10:28:39 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-45fe59255beso3146107f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 03:28:37 -0700 (PDT)
+	Wed, 17 Jun 2026 10:28:52 +0000
+Received: by mail-qt1-x82a.google.com with SMTP id d75a77b69052e-51765531803so219831cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 03:28:49 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1781692129; cv=none;
+        d=google.com; s=arc-20240605;
+        b=S64i/vQG8O7Rl9yNHPdQK3T5PgvXkx0dRJYyxONPTR9/0tF9Agn+uTNbibIln/HzII
+         6jxKVg3rv7FcND0wuPW59Esj9gJNYUrv8uXQfVn7UmrL/uX5lE3pppMHuV9PZ3+g3qqf
+         Zsia2umqqP268g6mRBLcYjZd/lPSAcgwglXGfNGitz4+Od/gALOasdldmyldM00EhMY0
+         EbQr2iGBhuGd6TFpX7Lj0qoJ2O4G8Kk2G/R5GX1qXhdktGHgms3Exnoh7LX+jDBJxx9Y
+         hDTH8E+/+cFKH7yz+AuJMN7u5F4bsTVO4Oy2kRh0FsT5Z35JutnphZafDx857eQqDw8U
+         D9LA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=N2jPlRyhxf5Js0wrvZhbEPMffqjEBHr4VMZy0F6mhfY=;
+        fh=f6Tct5pKIv63uJ5mlvw60eEGQMVBEjNyoaowK9cC184=;
+        b=WMagP29pCugVS5SaDO6bBlV1LEoh0VdETMqCQLAmBbuI8lEajTN5i9eZQHPuweppPI
+         CyNHNRxsZK5W1IdbCpnqRXwYXMTynULUGogyBolVOk4FFmeKpOlX3rxaKySl5Bl10JoG
+         GN+qaVaVSJ/46GXW9xJDWrfH4ctHiaCvPxLqQYjYuDV/ZUX9O4EIrhG1ETnaFphpgCFZ
+         I9M9qGVZd2u4wAqvYEPQCKpqxldCU3gfNXR3eCLbzcwm30ubjVSIIx1pnLvUTWavyQJm
+         vCLBdBX2kWpFVLxn4zZU6YP7m980DpAvYHga/tKAU1s9iXVVbLa1xxhkgeNjfMR0KbPj
+         zPvw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1781692116; x=1782296916; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Zlxz3Bt/5n5+mM+hnvjVuEoeVfHELml3tumeQTe5OCA=;
-        b=NeXGNf1Nh0mXQAtgjbQ/WG/DOdpIHxwL4ptJl2YTYjRVcTMZNAqVZ8Quw6AO59OYgQ
-         n7nrskcQ7ESXA7+oqBTbQAgEIBA0fpSV+hGsptK1GCqTne3XPPRzEKBMUtdQjSl463yD
-         LYLGJawXFbAq/sqFvmUGSe3lnrEmVJayZbM/dT8jxxv1Ikf19yAvMlgEAnYwF7JDbGIL
-         KdXHa3XZUwxW5mUbFAq3L4CWHu4ETPxRyiDPgP64H5XvacOVjI1QfDr8ErATjAMjz3l3
-         4n2TKTu77iXn8uDEPvMN1K5UapLnITnZavtmktE1ItKiPy4CVKksNZWNooJy+ayFkX1X
-         pBAA==
+        d=google.com; s=20251104; t=1781692129; x=1782296929; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=N2jPlRyhxf5Js0wrvZhbEPMffqjEBHr4VMZy0F6mhfY=;
+        b=QMT86sFLG30MWpdNv10A+vKhzABy93/KPIjSEstidwius5StdL3MCsfa8wuiswuK0M
+         iOCSWbxAxMaAC/MKQL52RqPbO3VTfL/Z7Qk/4Ipqu+f1G5t6eUMltnj9H0ExeB5i24v/
+         tgAaJQmX2IKUsjvqqGaeWX/hj/jdMGH9IBC/rcaHyigI08ZPkBiAWdMj9YH6SFJvVQ0B
+         Dv1e01jUyu6e9iTLM9kWD+gwjhvLWSL8qy3V5lZ5RGmojF5UIXYnstqdpOYYa7D95nkX
+         JemGJqE570TYV8ocdGYzpxjpI06sPvED80Dlv9JTLprRSI328jfWOa9PfFt+/nVOqVP3
+         Hjdg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781692116; x=1782296916;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20251104; t=1781692129; x=1782296929;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Zlxz3Bt/5n5+mM+hnvjVuEoeVfHELml3tumeQTe5OCA=;
-        b=XO6539LucFC97VnrQv2dwCZvcP5xt6HHksMUURTo73AoWiEISpTm+zSiIVYLQml2wu
-         H4J5pPt4MmPOpHk1iYK+8MV1uF//a+4Szvw5yMM+hqvEoTXCDkMSZDEdW1NFOayodchK
-         5okdzCfAhXGOQBuEdDYdvPL9Utq9v39fG7n5dStkZnFwjjH3btbvprYAWVHZYINHyPA1
-         tXNVl2m+0QMIqqMy+DE8ZbBJOwkaS0PVNiFgswCQZKjn+gAYiy7XxHPlcAm4uHqIiZk6
-         LhXz4fKkFCcrTWC7p+dTGo4mtTh87dLyiZUvW1Pf7Vxm8/H73/k9S+LK4ngawtYtEouL
-         u7Fw==
-X-Gm-Message-State: AOJu0Ywr0a2uvhGhDgzCBfdgqOjpxvmuIlIbnlG6iuLXyJoxg6z0c/k5
-	cYjNiwA1eHRlSuxhjMmruX9615TFUJsWiAcr90NLqO1YNFCzPs88saaS1PEQEo9zxLg=
-X-Gm-Gg: AfdE7clEOo/ohkYmz/3D8/DKfMnZSOX96Is4Rn6lZRw510+V/zV8bpaE0337tYPlF99
-	YaRaow5qQhI9n2hjEBVTGJ0Yh0y5cKKh3DC+VO0l45cC+gvvZ6uXwi7H52HCOInwQa/lhZZgYGo
-	PaqRbemwBKi1hBGbWMoiF3hAuwWtCIt3BLI8m4mvhZWGdXJEsvuUJcTZmu8c3qkTcl6nY3WEs4y
-	g6ZLLfJ7yueY0huVuYIMZlutTp54cFHVDI6VD6bDtfHCDBY+DhTpFlvzLvyjQFf1Wz/R3gdf3XF
-	nq531J2Ah3hw4w1zj8/LMuyOwKI6Sgnh2JSCPqulBmmUVbbU0cydEfKtRVEUP97qUUsY0SXAoTJ
-	sDd7KyQLIEfJbuXrmFB8tEsbJhKfP6jFN5FJbvAoBUTHzA3+tvH2Ek2pMkEgSXrWQE/9f1iq4j+
-	oHSc9CWvFP32pIqEvRMEmcskKslLiUFaahXjkfuOUIhxO7aEYRC37NVR0KNdROIbU33VUmwqz3L
-	/cR
-X-Received: by 2002:a05:6000:4007:b0:45e:ed10:8dff with SMTP id ffacd0b85a97d-462410d3c3dmr5581827f8f.24.1781692115610;
-        Wed, 17 Jun 2026 03:28:35 -0700 (PDT)
-Received: from localhost (p200300f65f47db04bc2080ea3c93ea6d.dip0.t-ipconnect.de. [2003:f6:5f47:db04:bc20:80ea:3c93:ea6d])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-4619b9b7750sm24616628f8f.6.2026.06.17.03.28.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 17 Jun 2026 03:28:35 -0700 (PDT)
-From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig=20=28The=20Capable=20Hub=29?= <u.kleine-koenig@baylibre.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1] virt: arm-cca-guest: Drop unused assignment of platform_device_id driver data
-Date: Wed, 17 Jun 2026 12:28:26 +0200
-Message-ID: <1420ce71c3be5056a384be9c733f5df3277bf61a.1781690829.git.u.kleine-koenig@baylibre.com>
-X-Mailer: git-send-email 2.47.3
+        bh=N2jPlRyhxf5Js0wrvZhbEPMffqjEBHr4VMZy0F6mhfY=;
+        b=U0gH9niXPKkuj5Q9CIRY7qbZ6Ac3Up8xgQ75PEihY/sWZ9H7B7K/cpR4nTsbUIH8tL
+         GvnAthT451IhIBj6N5w8xkVBGdqRG23ydDxiIqqR5dwZuqsft8zwbJw26dGXizA4QiIL
+         49g+yaUDl9ZmIBeOfvtldvNqmu2Y1jCMiqvTD5eXXSlFqJNEcq0a5xgmsy5PL2iYLQW/
+         1ET9r+m2h43HCAXJm4279ekZQgPTOY1E8CV5cVDjOmux69vR8SCKnO/Cbg192qz2I5RL
+         YAtq+hkw+M7yQ8xtdDAL/lB5Em2rVAmFhdMtXbd1XPNMXwI6CGXnNQJ8uxOoloMgE/P8
+         F9yQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/j7QoaqzcrhyPatQiffmKVe7RoqdQYYxlMHoI7p4XTkWS4tkoBrjRxgeHBy8PTo85my7rwVWKf36yEGxXgq62q@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJxoSzaSYJpihA3k6czyaCmwungepd9AGWh/cAWaWsgH4YXLu1
+	NiT0eSRFrbdxW3pFD8KjgX++scYpKEB81d8aKa9EMLXjwWKsNJKnSYPLUlqNj+teJPK6UBShGL+
+	eSubAL5xGEV5Lz7pYF7rqaeF6wr4y3fxfOehcSK+Z
+X-Gm-Gg: Acq92OHmfBWMtUURRCMYjHXggzXJTc24663cm5az71nYhJVYvkPqic2qFP0tD1kXWZw
+	+cGhD9A9IMwE2ZVnwfqQcPXkxwClvxLGxaf9szA484kT7i4hwG2+fy6G2p3FatbwqmdOUKxhwA/
+	SPJJw/vP08jebIpiCEqRQwAGYeLIlpWfI56Jq7rJWCEB9WU3Cu2H7fSSHZywOAXbMexLDtwSSxm
+	ceTZ1DKz+T528BeWcyeSfTFhJAimeHDuBMBa6BaanIvE/mkKmM8HgQ2nl0L+RCkSoVzkzXVBzgF
+	M0sV+nyzwmMdGdxfM1lnIGTW9PzRAuoxy4s1Zw==
+X-Received: by 2002:a05:622a:5884:b0:517:5e32:2d14 with SMTP id
+ d75a77b69052e-519aa962ed6mr8749471cf.10.1781692128086; Wed, 17 Jun 2026
+ 03:28:48 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1025; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=m6kOgAsyorGWKjGknyKm9JIY19RH5b+1zNzb/E8dCKo=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBqMnbLhs3K5QX4Whr0FdDDo1OwFCWSzcuYd10b/ BGeW2LFfVqJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCajJ2ywAKCRCPgPtYfRL+ ThFIB/0QlZecuODpHiRkKhIWysJG9Vv+9YLUfKpu4ybJ53oxEonx9Jz3yP7p4y+AgD+rxWSsUR1 jSARmg/za8+JvfhYyyognO3GLsa0Axs3DRoUlT2R1QdXC5vsFwynbPIkemIosnesEEvYQfHe90Y T+38FGcLbPCU+mnjH8V/GNmV+QTBP6J5DUPRnlXXdIzEz8+KS2kYwqLVxBhF3FEyBe4d14UDmI7 ZRTVgTwF9gPwr7u7XRuu6WYC7EnBdrqGGMob+jIHQPmhSZTU9ueqVBuVv+ePkghDKn48VsQmbU9 PPuDwfzmCIMrC2QxN3ZUPJm7zRsPo2RMZfyQIEg6pOAVr9+u
-X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
-Content-Transfer-Encoding: 8bit
+References: <20260617095238.1530121-1-vdonnefort@google.com>
+In-Reply-To: <20260617095238.1530121-1-vdonnefort@google.com>
+From: Fuad Tabba <tabba@google.com>
+Date: Wed, 17 Jun 2026 11:28:11 +0100
+X-Gm-Features: AVVi8CcmYvjIYllhBFKEFTxWmmEyw5Kb3hq8FaZ92P7SG3S3_sWI4gBOOlTgKqk
+Message-ID: <CA+EHjTz2Hc-mCA4Q0ayw0KV6KJ9_-qN5oPahVqMeKKUs93xtZQ@mail.gmail.com>
+Subject: Re: [PATCH] KVM: arm64: Add missing hyp_enter when trapping sysreg
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
+	will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kernel-team@android.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260617_032837_686596_65F94FD5 
-X-CRM114-Status: GOOD (  12.76  )
+X-CRM114-CacheID: sfid-20260617_032851_349789_66F520CB 
+X-CRM114-Status: GOOD (  15.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,33 +116,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The driver explicitly sets the .driver_data member of struct
-platform_device_id to zero without relying on that value. Drop this
-unused assignment.
+On Wed, 17 Jun 2026 at 10:55, Vincent Donnefort <vdonnefort@google.com> wrote:
+>
+> Add a missing hypervisor event call for hyp_enter on sysreg trapping,
+> causing an unbalanced hyp_enter/hyp_exit.
+>
+> The enum hyp_enter_exit_reason is not ABI, so we can keep the ERET
+> reasons at the end for clarity.
+>
+> Fixes: 696dfec22b8e ("KVM: arm64: Add hyp_enter/hyp_exit events to nVHE/pKVM hyp")
+> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-While touching this array use a named initializer for .name.
+One thing that caught my eye (as Sashiko would say: pre-existing, not
+introduced here), __hyp_enter_exit_reason_str() relies on positional
+correspondence between strs[] and enum hyp_enter_exit_reason, with no
+compile-time check. Inserting a new value in the middle of the enum
+(as you do here) silently shifts all the strings after it if the table
+isn't updated in lockstep.
 
-Signed-off-by: Uwe Kleine-König (The Capable Hub) <u.kleine-koenig@baylibre.com>
----
- drivers/virt/coco/arm-cca-guest/arm-cca-guest.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+A BUILD_BUG_ON(ARRAY_SIZE(strs)...) would at least catch size
+mismatches; catching ordering bugs is harder without per-entry
+initialisers like [HYP_REASON_SYS] = "sys".
 
-diff --git a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c b/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
-index 66d00b6ceb78..6155576a9711 100644
---- a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
-+++ b/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
-@@ -223,7 +223,7 @@ module_exit(arm_cca_guest_exit);
- 
- /* modalias, so userspace can autoload this module when RSI is available */
- static const struct platform_device_id arm_cca_match[] __maybe_unused = {
--	{ RSI_PDEV_NAME, 0},
-+	{ .name = RSI_PDEV_NAME },
- 	{ }
- };
- 
+Something for a future patch, for now:
 
-base-commit: 4fa3f5fabb30bf00d7475d5a33459ea83d639bf9
--- 
-2.47.3
+Reviewed-by: Fuad Tabba <tabba@google.com>
+Tested-by: Fuad Tabba <tabba@google.com>
 
+Cheers,
+/fuad
+
+
+>
+> diff --git a/arch/arm64/include/asm/kvm_hypevents.h b/arch/arm64/include/asm/kvm_hypevents.h
+> index 743c49bd878f..5f6e6789d121 100644
+> --- a/arch/arm64/include/asm/kvm_hypevents.h
+> +++ b/arch/arm64/include/asm/kvm_hypevents.h
+> @@ -12,6 +12,7 @@
+>  enum hyp_enter_exit_reason {
+>         HYP_REASON_SMC,
+>         HYP_REASON_HVC,
+> +       HYP_REASON_SYS,
+>         HYP_REASON_PSCI,
+>         HYP_REASON_HOST_ABORT,
+>         HYP_REASON_GUEST_EXIT,
+> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> index 06db299c37a8..45a4abb9619d 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> @@ -913,6 +913,7 @@ void handle_trap(struct kvm_cpu_context *host_ctxt)
+>                 handle_host_mem_abort(host_ctxt);
+>                 break;
+>         case ESR_ELx_EC_SYS64:
+> +               trace_hyp_enter(host_ctxt, HYP_REASON_SYS);
+>                 if (handle_host_mte(esr))
+>                         break;
+>                 fallthrough;
+> diff --git a/arch/arm64/kvm/hyp_trace.c b/arch/arm64/kvm/hyp_trace.c
+> index c4b3ee552131..c84434e2349a 100644
+> --- a/arch/arm64/kvm/hyp_trace.c
+> +++ b/arch/arm64/kvm/hyp_trace.c
+> @@ -398,6 +398,7 @@ static const char *__hyp_enter_exit_reason_str(u8 reason)
+>         static const char strs[][12] = {
+>                 "smc",
+>                 "hvc",
+> +               "sys",
+>                 "psci",
+>                 "host_abort",
+>                 "guest_exit",
+>
+> base-commit: 8cd9520d35a6c38db6567e97dd93b1f11f185dc6
+> --
+> 2.54.0.1136.gdb2ca164c4-goog
+>
 
