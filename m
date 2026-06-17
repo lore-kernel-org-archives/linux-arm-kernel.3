@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E73DFCD98E2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 09:59:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 470FCCD98E2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 09:59:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=tIezZTbZfWeDTho02rbANXJiX0Q/iXK0cwTeAMD7oRk=; b=3yQcuRfTi2edcuMYemR3UKwXFN
-	eNFt0asRjpoFBWiEs0s1uoxObWsulaQDG0hxMY7vqcx8DkmxumzebYN2ukWZLcGk1iwTr4xSRua4r
-	7KDH0RWZ3Zmco5W7nQmWzWbfVONSpP4JQhgmADFZ/9YpxrOXCFj1gqZXQDIXwgau4CNSvQFeSucpn
-	RhcBoXIzMl8LDpyB1X9akYBk76BDMRHDQFgKtGR1V5IaLWgcTmtW6o5aaccVIQyVlHDqJhuhsT5zK
-	Dgyhrty0/7IVpI8H4VQW+v9UFilcndTFEESPgOkY6MHZtPwUchGq4UJjrzUTRWV6cwybFtS1/1i80
-	xC2MLh1Q==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CjrcmaDlzJPrhdYlzrBeWuWbdP3POx8JvX+i0sZJ4z0=; b=O4N7KxQtpVHgCjZxpSYh3TUJat
+	A/O0RdGUzYzgd0glhnTGkXh3m5HdIbeBU/2PK+n8rqHW7klK9qjbpzq33x9BzDtoj/S5Dfnz/Jj4I
+	k+FL7R7ccp/dcYmTkZTifu8hRZXGgALvqraI388hLia/2pFKirF1+vWly4w3Ofw/fJA+zXRyHt65N
+	tYljNektH4sTDxqhHlZ4Qcp/hz85VpJIO6fLm6LxY04yXh21svi45JB7o9/KLFPLo5sHuy1J3c/v7
+	SGJCtCUVq+g3fQaS82veyc9EinpxIdrstmY/QQLVxTF2MzYfALcfx3LdMiwycPTTAQ2UKXtZNV7VC
+	g6t4tODw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZn3V-0000000GzYM-2TQc;
-	Wed, 17 Jun 2026 09:59:33 +0000
+	id 1wZn3b-0000000Gzby-3rnM;
+	Wed, 17 Jun 2026 09:59:39 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZn3S-0000000GzWb-0tSn
+	id 1wZn3V-0000000GzY6-0DU8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 09:59:32 +0000
+	Wed, 17 Jun 2026 09:59:34 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CC5B32E8E;
-	Wed, 17 Jun 2026 02:59:21 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 51F392E8E;
+	Wed, 17 Jun 2026 02:59:27 -0700 (PDT)
 Received: from donnerap.manchester.arm.com (donnerap.manchester.arm.com [10.33.8.81])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 28CEF3F915;
-	Wed, 17 Jun 2026 02:59:24 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7D5DE3F915;
+	Wed, 17 Jun 2026 02:59:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1781690366; bh=puo12DKANvFKQmbQRuX5KP74Au9nNZmnxhnRxIm5rAE=;
-	h=From:To:Cc:Subject:Date:From;
-	b=ve9NdZQkeuJTc5GPFDSjwiFZ9NdXKxivMS0zen8gkFxfxSlnnWgEjQHQccX1PWi8z
-	 GJLa2yh0ZxxDsZF0BHxLVVcmIxMpOnDgN7y5qiKpivcOwvErToxzedXE6hyb7bD7FQ
-	 kW+WpZM1yrvtk6FMl3fcPG2us59pQTQt8cyUXVus=
+	t=1781690372; bh=kb+faEBQwpa+6x5yiLQOyunnwPeV1UaGWYCXwUJdJ0k=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Kc7lGPtRhEDKZSRTGxhg2k9a6y7tUwgejqrCwwnF8y1Rkk7Uow2Ns+INiI4du/GlE
+	 vU6p0y14ErcD8Yv8UQ5wvv69FObdNNK5pNktU0b7Ul9TxEo/4pq7iZcL+fZai2l0XM
+	 F37HvGbD8CkesJ98yfTG06IjJYJyg2NdQSe42I8k=
 From: Philip Radford <philip.radford@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -55,16 +55,19 @@ Cc: sudeep.holla@arm.com,
 	dan.carpenter@linaro.org,
 	d-gole@ti.com,
 	souvik.chakravarty@arm.com,
+	Cristian Marussi <cristian.marussi@arm.com>,
 	Philip Radford <philip.radford@arm.com>
-Subject: [PATCH v7 00/13] Add support for SCMIv4.0 Powercap Extensions
-Date: Wed, 17 Jun 2026 10:58:57 +0100
-Message-ID: <20260617095910.1963578-1-philip.radford@arm.com>
+Subject: [PATCH v7 02/13] firmware: arm_scmi: Add an optional custom parameter to fastchannel helpers
+Date: Wed, 17 Jun 2026 10:58:59 +0100
+Message-ID: <20260617095910.1963578-3-philip.radford@arm.com>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260617095910.1963578-1-philip.radford@arm.com>
+References: <20260617095910.1963578-1-philip.radford@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260617_025930_609940_1D921239 
-X-CRM114-Status: GOOD (  20.78  )
+X-CRM114-CacheID: sfid-20260617_025933_187891_7D72A00D 
+X-CRM114-Status: GOOD (  12.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,140 +82,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+From: Cristian Marussi <cristian.marussi@arm.com>
 
-I will be taking over this series from Cristian and in doing so I have
-addressed a couple of issues raised by the first version and added six
-additional patches since Cristian's original series:
+Starting from SCMIv4.0 the protocols DESCRIBE_FASTCHANNEL commands allow
+to specify one additional per-protocol custom field in the outgoing message
+request in order to, optionally, further narrow down the scope of the
+fastchannel discovery request; the related message-reply format is instead
+unchanged.
 
-[1/13] addresses an omission from the original powercap functionality. The
-ABI documentation describes allowing enabling and disabling power capping
-for a control type via /sys/class/powercap/<control type>/enabled. This
-first patch implements this functionality but as stated before, this was an
-omission rather than a bug that requires fixing. Disabling the control type
-disables any immediate children of the control type.
+Add an optional custom protocol parameter to the common fastchannel helper
+so as to enable the caller to choose the kind of message to send based on
+the detected protocol version.
 
-The logic for this patch is based on the logic I was using for enabling and
-disabling the synthetic node in the final patch of this series. As a result,
-the synthetic node enable/disable patch has now been significantly reduced.
-
-[7/13] exposes the measurement averaging interval (MAI) value when the
-agent has registered to receive power measurement change notifications
-for the power capping domain.
-
-[10/13] adds MAI get and set support for the powercap protocol.
-
-[11/13] introduces a synthetic root zone to act as a common parent for all
-top-level domains.
-
-[12/13] adds get_power_uw to synthetic root zone, summing the per-zone
-power of immediate child zones.
-
-[13/13] adds enable/disable functionality to synthetic root zone to
-enable/disable immediate children.
-
-The original series was based on v6.17-rc1 whereas this version has been
-based on v7.1-rc7.
-
-The rest of Cristian's series is explained below;
-
-SCMIv4.0 [1] introduces some new features and commands into the Powercap
-protocol. In a nutshell, such protocol changes add support for:
-
- - setting multiple powercap limit/interval constraints for each SCMI
-   powercap domain which supports multiple Concurrent Power Limit
- - enabling more Powercap commands to use Fastchannels mechanism
- - adding multiple constraints support to the existing notifications
-
-After a bit of needed updates in the SCMI core this series adds:
-
-- support for the idea of optional multiple Concurrent Power Limit (CPLs)
-- support for the new FCs
-- support for extended notifications
-- enable usage of such multiple constraint in the ARM SCMI Powercap driver
-
-Note that the public SCMIv4.0 spec at [1] is currently still BETA0, so
-this series could anyway need some minor rework along the way and
-definitely will need to wait for a final public release before being
-possibly merged.
-
-Tested on a single and multi-instance scenario on an emulated setup
-implementing the new protocol extensions.
-
-Based on v7.1-rc7.
-
-Thanks,
-Phil
+Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+Signed-off-by: Philip Radford <philip.radford@arm.com>
 ---
-V6->V7
-- Added control type enable/disable patch
-- Refactored Synthetic zone enable disable patch
-- Corrected naming of define V2/V3 payload sizes
-- Prevent possible cpli[0] out-of-bounds access
-- Added cleanup for zones during scmi_powercap_probe
-- Prevent instance_root_get_enable reporting a stale state
-- Rebased on v7.1-rc7
-V5->V6
-- Re-worded existing comment for POWERCAP_MEASUREMENTS_NOTIFY
-- Added define for V2/V3 payload sizes
-- Used new definitions for payload sizes
-- Fixed comment length
-- Changed warning message warning
-- Fixed line lengths and alignment
-- Updated docs for new fields
-- Amended omission of spz initialization when unregistering powercap zones
-- Tested unloading and loading powercap module
-- Re-wrote commit message
-- Added use of to_scmi_powercap_root macro
-- Changed instance_root_set_enable_state to bail out on any error
-V4->V5
-- Added enable/disable functionality to synthetic node
-- Rebased on v7.1-rc1
-V3->V4
-- Rebased on v7.0-rc4
-- Added sythentic parent node and functionality
-- Moved fastchannel inits outside of loop
-- Renamed arguments for consistency
-V2->V3
-- Added powercap MAI get/set support
-V1->V2
-- Rebased on sudeep/for-next/scmi/updates
-- Amended Copyright to include 2026
-- Added patch to extend powercap report to include MAI
-- Removed creation of pi powercap_info struct due to legacy code change
-- Amended references to pi->version and similar, which were based on
-  legacy code
-- Wrapped two variables in le32_to_cpu() to appease Sparse warnings
-- Amended comparing operator value in response to feedback
+ drivers/firmware/arm_scmi/driver.c    | 12 ++++++++++--
+ drivers/firmware/arm_scmi/perf.c      |  8 ++++----
+ drivers/firmware/arm_scmi/powercap.c  |  8 ++++----
+ drivers/firmware/arm_scmi/protocols.h |  2 +-
+ 4 files changed, 19 insertions(+), 11 deletions(-)
 
-Cristian Marussi (7):
-  firmware: arm_scmi: Add an optional custom parameter to fastchannel
-    helpers
-  firmware: arm_scmi: Refactor powercap domain layout
-  firmware: arm_scmi: Add SCMIv4.0 Powercap basic support
-  firmware: arm_scmi: Add SCMIv4.0 Powercap FCs support
-  firmware: arm_scmi: Add SCMIV4.0 Powercap notifications support
-  include: trace: Add new parameter to trace_scmi_fc_call
-  powercap: arm_scmi: Enable multiple constraints support
-
-Philip Radford (6):
-  powercap: Add enable disable control-type
-  firmware: arm_scmi: Extend powercap report to include MAI
-  firmware: arm_scmi: add Powercap MAI get/set support
-  powercap: arm_scmi: Create synthetic parent node for multi-instance
-  powercap: arm_scmi: Add get_power_uw to synthetic node
-  powercap: arm_scmi: Synthetic zone enable/disable
-
- drivers/firmware/arm_scmi/driver.c    |   12 +-
- drivers/firmware/arm_scmi/perf.c      |   16 +-
- drivers/firmware/arm_scmi/powercap.c  | 1001 ++++++++++++++++++++-----
- drivers/firmware/arm_scmi/protocols.h |    2 +-
- drivers/powercap/arm_scmi_powercap.c  |  355 ++++++++-
- include/linux/scmi_protocol.h         |   97 ++-
- include/trace/events/scmi.h           |   12 +-
- 7 files changed, 1214 insertions(+), 281 deletions(-)
-
---
+diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+index f247e19cff87..53ae4cfa10b1 100644
+--- a/drivers/firmware/arm_scmi/driver.c
++++ b/drivers/firmware/arm_scmi/driver.c
+@@ -1872,6 +1872,11 @@ static int scmi_iterator_run(void *iter)
+ struct scmi_msg_get_fc_info {
+ 	__le32 domain;
+ 	__le32 message_id;
++	__le32 custom;
++#define MSG_FC_INFO_SZ_EXTENDED	\
++	(sizeof(struct scmi_msg_get_fc_info))
++#define MSG_FC_INFO_SZ		\
++	(sizeof(struct scmi_msg_get_fc_info) - sizeof(__le32))
+ };
+ 
+ struct scmi_msg_resp_desc_fc {
+@@ -1900,7 +1905,7 @@ struct scmi_msg_resp_desc_fc {
+ static void
+ scmi_common_fastchannel_init(const struct scmi_protocol_handle *ph,
+ 			     u8 describe_id, u32 message_id, u32 valid_size,
+-			     u32 domain, void __iomem **p_addr,
++			     u32 domain, u32 *custom, void __iomem **p_addr,
+ 			     struct scmi_fc_db_info **p_db, u32 *rate_limit)
+ {
+ 	int ret;
+@@ -1931,13 +1936,16 @@ scmi_common_fastchannel_init(const struct scmi_protocol_handle *ph,
+ 	}
+ 
+ 	ret = ph->xops->xfer_get_init(ph, describe_id,
+-				      sizeof(*info), sizeof(*resp), &t);
++				      custom ? MSG_FC_INFO_SZ_EXTENDED :
++				      MSG_FC_INFO_SZ, sizeof(*resp), &t);
+ 	if (ret)
+ 		goto err_out;
+ 
+ 	info = t->tx.buf;
+ 	info->domain = cpu_to_le32(domain);
+ 	info->message_id = cpu_to_le32(message_id);
++	if (custom)
++		info->custom = cpu_to_le32(*custom);
+ 
+ 	/*
+ 	 * Bail out on error leaving fc_info addresses zeroed; this includes
+diff --git a/drivers/firmware/arm_scmi/perf.c b/drivers/firmware/arm_scmi/perf.c
+index 4583d02bee1c..7f283f457e02 100644
+--- a/drivers/firmware/arm_scmi/perf.c
++++ b/drivers/firmware/arm_scmi/perf.c
+@@ -835,25 +835,25 @@ static void scmi_perf_domain_init_fc(const struct scmi_protocol_handle *ph,
+ 		return;
+ 
+ 	ph->hops->fastchannel_init(ph, PERF_DESCRIBE_FASTCHANNEL,
+-				   PERF_LEVEL_GET, 4, dom->id,
++				   PERF_LEVEL_GET, 4, dom->id, NULL,
+ 				   &fc[PERF_FC_LEVEL].get_addr, NULL,
+ 				   &fc[PERF_FC_LEVEL].rate_limit);
+ 
+ 	ph->hops->fastchannel_init(ph, PERF_DESCRIBE_FASTCHANNEL,
+-				   PERF_LIMITS_GET, 8, dom->id,
++				   PERF_LIMITS_GET, 8, dom->id, NULL,
+ 				   &fc[PERF_FC_LIMIT].get_addr, NULL,
+ 				   &fc[PERF_FC_LIMIT].rate_limit);
+ 
+ 	if (dom->info.set_perf)
+ 		ph->hops->fastchannel_init(ph, PERF_DESCRIBE_FASTCHANNEL,
+-					   PERF_LEVEL_SET, 4, dom->id,
++					   PERF_LEVEL_SET, 4, dom->id, NULL,
+ 					   &fc[PERF_FC_LEVEL].set_addr,
+ 					   &fc[PERF_FC_LEVEL].set_db,
+ 					   &fc[PERF_FC_LEVEL].rate_limit);
+ 
+ 	if (dom->set_limits)
+ 		ph->hops->fastchannel_init(ph, PERF_DESCRIBE_FASTCHANNEL,
+-					   PERF_LIMITS_SET, 8, dom->id,
++					   PERF_LIMITS_SET, 8, dom->id, NULL,
+ 					   &fc[PERF_FC_LIMIT].set_addr,
+ 					   &fc[PERF_FC_LIMIT].set_db,
+ 					   &fc[PERF_FC_LIMIT].rate_limit);
+diff --git a/drivers/firmware/arm_scmi/powercap.c b/drivers/firmware/arm_scmi/powercap.c
+index ab9733f4458b..22aff71c75e9 100644
+--- a/drivers/firmware/arm_scmi/powercap.c
++++ b/drivers/firmware/arm_scmi/powercap.c
+@@ -716,24 +716,24 @@ static void scmi_powercap_domain_init_fc(const struct scmi_protocol_handle *ph,
+ 		return;
+ 
+ 	ph->hops->fastchannel_init(ph, POWERCAP_DESCRIBE_FASTCHANNEL,
+-				   POWERCAP_CAP_SET, 4, domain,
++				   POWERCAP_CAP_SET, 4, domain, NULL,
+ 				   &fc[POWERCAP_FC_CAP].set_addr,
+ 				   &fc[POWERCAP_FC_CAP].set_db,
+ 				   &fc[POWERCAP_FC_CAP].rate_limit);
+ 
+ 	ph->hops->fastchannel_init(ph, POWERCAP_DESCRIBE_FASTCHANNEL,
+-				   POWERCAP_CAP_GET, 4, domain,
++				   POWERCAP_CAP_GET, 4, domain, NULL,
+ 				   &fc[POWERCAP_FC_CAP].get_addr, NULL,
+ 				   &fc[POWERCAP_FC_CAP].rate_limit);
+ 
+ 	ph->hops->fastchannel_init(ph, POWERCAP_DESCRIBE_FASTCHANNEL,
+-				   POWERCAP_PAI_SET, 4, domain,
++				   POWERCAP_PAI_SET, 4, domain, NULL,
+ 				   &fc[POWERCAP_FC_PAI].set_addr,
+ 				   &fc[POWERCAP_FC_PAI].set_db,
+ 				   &fc[POWERCAP_FC_PAI].rate_limit);
+ 
+ 	ph->hops->fastchannel_init(ph, POWERCAP_DESCRIBE_FASTCHANNEL,
+-				   POWERCAP_PAI_GET, 4, domain,
++				   POWERCAP_PAI_GET, 4, domain, NULL,
+ 				   &fc[POWERCAP_FC_PAI].get_addr, NULL,
+ 				   &fc[POWERCAP_FC_PAI].rate_limit);
+ 
+diff --git a/drivers/firmware/arm_scmi/protocols.h b/drivers/firmware/arm_scmi/protocols.h
+index f51245aca259..e618d3141c95 100644
+--- a/drivers/firmware/arm_scmi/protocols.h
++++ b/drivers/firmware/arm_scmi/protocols.h
+@@ -280,7 +280,7 @@ struct scmi_proto_helpers_ops {
+ 				  u32 message_id, u32 *attributes);
+ 	void (*fastchannel_init)(const struct scmi_protocol_handle *ph,
+ 				 u8 describe_id, u32 message_id,
+-				 u32 valid_size, u32 domain,
++				 u32 valid_size, u32 domain, u32 *custom,
+ 				 void __iomem **p_addr,
+ 				 struct scmi_fc_db_info **p_db,
+ 				 u32 *rate_limit);
+-- 
 2.47.3
 
 
