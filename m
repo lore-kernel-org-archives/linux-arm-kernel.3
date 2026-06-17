@@ -4,57 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45C6CCD98E2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 16:27:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08729CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 16:32:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ajrU9nkUmPHhfUiRvSV5Q/ZkE7bhDDPvX3VB5Rj0PQQ=; b=e2E29not78guVc
-	73t06Ks4z6LvYXfdqG09IplhwqBGw+gVN0iBL9/4exl78T9lrmEg5VxErMyxLZ7KP7mllLi3tQqXg
-	0RuMrtPp2M535ebehEVMJ7WVy0fgUEDCXB43HoE3306zV2Dixox9tDOhlMh50vtG0766dc2uyR+lO
-	cApHDpnes24jO6lm5Wyzbc+iv9pRek6amzPwzZh0zu8zY4wduTjn+5lw7W14sWcFUjjyrvalX6hma
-	5pupkOiT0wN0Y6bC727sulbctkhOhhiXQMIkel0XMPpzYoKqYqOekV9aJCjcdgsLIXfQpz4eOJMvJ
-	O+iYIkjvRFcytnSq3Clg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tDODFxvqjMAAbOWBcbLxnUN/zpkolakDgolvYWIF5VY=; b=0rcTOsAOCBR1B4ZkwAgATb83Yf
+	vLmM6K0qXwCcoPUoVs/tRas6y/Nh03vjck9gIN7I+3H5mBLB1QX3wdcH+N2DUJhdCFx+OYIpFd0Oy
+	2W2ITYjGcKwkeFw4fqz0bl5YpTbkjIPEXJwrI6/2ee/008qn9tqVKq5RfQrw4VG/5l/qv00BHBljo
+	MSaZouspd1ZlEuWvW5Tz2/hCquJKOXLVoSNDC8M02cbR6p2sWUh+qzpbeXJl2CSFIzi8XhP+BXHm2
+	GryI7ymY6SwHr+djpbjNzXmUP38rs3zFeDBMrtQSdiPtGlV9+K+SxPtSU4vocHgCS0HIM/f0cO3/T
+	xfK6+v6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZt6m-000000002zj-01NE;
-	Wed, 17 Jun 2026 16:27:20 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZt6j-000000002z6-0lIJ
+	id 1wZtBn-000000003Vj-2pHc;
+	Wed, 17 Jun 2026 16:32:31 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wZtBl-000000003VL-2EJL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 16:27:18 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9BF292F7D;
-	Wed, 17 Jun 2026 09:27:08 -0700 (PDT)
-Received: from [10.2.213.11] (e137867.arm.com [10.2.213.11])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5BAE43F905;
-	Wed, 17 Jun 2026 09:27:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1781713633; bh=p4UAsXwHo9mOUblbz0uEvgWXwkwq2hl5qXUDiEiSsKM=;
-	h=Date:Subject:To:References:From:Cc:In-Reply-To:From;
-	b=d8NesNgjJHUqGb/u/+5qa63gy1FRu/VvOCI2PCo+I9ll8Y1pxSvehEgKBQfE/LD+z
-	 ouzrNfBzgmXtNtKnruh41zKkkCOFx6LUe/x5gBXmxp9D4S6mXLVtvroQMPt2dOvs0e
-	 UURs3lcC0GZXD3vzgXHlWAObV9/W7GcjVcRS6aVI=
-Message-ID: <ec181396-e398-4ce2-8cb8-10d7bdfeed61@arm.com>
-Date: Wed, 17 Jun 2026 17:27:03 +0100
+	Wed, 17 Jun 2026 16:32:30 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65HFoVI72697247
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 16:32:29 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	tDODFxvqjMAAbOWBcbLxnUN/zpkolakDgolvYWIF5VY=; b=FVpm4RLhwTJ5UyC7
+	B6ZGjcXa2vAgMJ+e8iK7oJvmAAqYMj/eZMOaamwFRLMl12N5FkOXZvFP4Mlp1Ajy
+	x6bwywCR6e810IfnJeqOF/JG4xSZErFagttXbb78rHgDxQQIag9OmUmlk1YrlXYP
+	kvPzr17u2GI0bNWkxo/Sd+lSoyF5Wy0f4QmLN7kXlraJ8weXLfKW0ZG4dbTi5QCw
+	Khy2/MkzufgcxzYGeE/fkpjvVsoexrFnwKkauDqwx1sOJLiOL2jtXApBr08HgoL6
+	Lysw52Cz5XlOJ8GxYoaLIvslQKM+HmuRqp/nviqEEHzfcIgyxJ4BTvNZBbJS0f7F
+	QZ2D+Q==
+Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4eueet460t-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 16:32:28 +0000 (GMT)
+Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2c6af282daaso95155ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 09:32:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1781713948; x=1782318748; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=tDODFxvqjMAAbOWBcbLxnUN/zpkolakDgolvYWIF5VY=;
+        b=eAg9FymodZxtYAfzO33RIwBwaCkK8jNOYI5cZ4m120QeyCop+axM2eV5WoyrolMMHw
+         xy5p3NLubimX6Gf8JfdGNAwCVUu2mRK1Oo6JDt61rjumQjDW3K6s/Y40txyagAv9jn/e
+         ovgjG4ArYJ/cBjTbgEyaROf05rBicYhDyHYlKu8r5R/8OzDpTLFSieXQ/kEQzLfTi/Hp
+         7UICYkBoYdIDsSeuCLLeNTjFRbc/2JFfKMC7tHJ8j6yiShq/t387+dc0EKZ70Szjmyn9
+         8x3huCRvJfCzcJlipvfAKTTlQykvvzgVVsbnIVRppKyeqQfUL3+aIFygMixOA9eRJQaz
+         4y+Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781713948; x=1782318748;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=tDODFxvqjMAAbOWBcbLxnUN/zpkolakDgolvYWIF5VY=;
+        b=n/MK6x/5biNwEJ86rez5BXNHuhOonovplhCSu1r+xGhDZogZhwrEuIs4o3OpekjQkJ
+         weVJJ6/vQ3uXvr7ziq2PafZoSgweCN1PU2bF6H5Z9MBE2lgqNvfuKN3bs1kOQoVQEtER
+         cmRjXZZ5RediWcP8xWHx//L4bBlrFi9XF7woRqRsW7WfVqzTlWIkQvgSssc2N8FNrbAH
+         10QiJHpgwqcmhCRC4LC5NIVQAZKAXCsUjArx/CHeoc/B7d//oM0vqHQcMhLZ4muFdXYz
+         MmZW0/51GSpFDmER+UCak3MhKSuni9tqqfdh7B19xfDD5vG84ZKxqNrKXWHMlKQnaoxG
+         1s8w==
+X-Forwarded-Encrypted: i=1; AFNElJ9RRx4+wuwSQhwg6Iu2sD1OhfGXmZdTjDkYsltg92pPBknp0fGQxNHKWF/5FliHSAppFu5pzfjSRz0e6M7clmzS@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzhppvk7f4b35vKcQgpxnZfPTg6sIzOy8oO+SggBDeP0YmxWyb+
+	GfQoFuwQu/pLJcU4Ksk63CIiCP8zjLmX8NxHFn2zg+lzHLG/Va2nthbvus+drTQC4cDg9fyjdlR
+	jaQKGAj7TMw74ecUC+3qSkl8WarFpOkFUQXr8juO08F9GehPmXBr93QwIX9bprU7r7z/ljEvUZa
+	2kLA==
+X-Gm-Gg: AfdE7ckqs6iXF1cystyqZLKJ0/XlPi+qG0+4d2SM04OYVDCx8A7uDwzy+5reYOkN/14
+	rhBKq9fy7OoveIFK2qo/5ym62JtNI2RWLLoOd0T9N/T7WDQfOpah4soyzlTU47FdY5BrdSxyGlj
+	m4eTjKq/nqogh98R5KCchbx8GhgVClObszjE61DIB0aoy6fFICYJy9AeWN+c4+ARuk+7gIIFAL1
+	KnjbtLqc78JUkbmSa442Fs4K2SqwFB0gXkmaHoD6d+ezw3uyS43ziRCE6iDXuzdHWyyqW0s1Fsi
+	qJY7xRL1EcSYechULA+UII04hI4sbJARdZMBq394kGbQiuqefpUdc8L+Fa6UrqDWureE2H5Uqis
+	PWOEPRcMI8JKsAHzuyBwe4RhnvVxck9bX3bLPuJU=
+X-Received: by 2002:a17:903:3806:b0:2c0:b35d:ed49 with SMTP id d9443c01a7336-2c6bc09a06dmr48129615ad.2.1781713947982;
+        Wed, 17 Jun 2026 09:32:27 -0700 (PDT)
+X-Received: by 2002:a17:903:3806:b0:2c0:b35d:ed49 with SMTP id d9443c01a7336-2c6bc09a06dmr48129125ad.2.1781713947448;
+        Wed, 17 Jun 2026 09:32:27 -0700 (PDT)
+Received: from [10.219.57.228] ([202.46.23.19])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c6d637caccsm7991475ad.20.2026.06.17.09.32.23
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 17 Jun 2026 09:32:27 -0700 (PDT)
+Message-ID: <984ff9c7-3eef-463c-a330-bf7acd063667@oss.qualcomm.com>
+Date: Wed, 17 Jun 2026 22:02:21 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v15 00/11] arm64: entry: Convert to Generic Entry
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-References: <20260511092103.1974980-1-ruanjinjie@huawei.com>
-From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-Content-Language: en-US, en-GB, fr
-Organization: Arm Ltd.
-In-Reply-To: <20260511092103.1974980-1-ruanjinjie@huawei.com>
+Subject: Re: [PATCH v2 2/6] iommu/arm-smmu: Add interconnect bandwidth voting
+ support
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+        Joerg Roedel <joro@8bytes.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org
+References: <20260526-smmu_interconnect_addition-v2-0-2a6d8ca30d63@oss.qualcomm.com>
+ <20260526-smmu_interconnect_addition-v2-2-2a6d8ca30d63@oss.qualcomm.com>
+ <7xfxlxfqjcqdzl6gckaoyy2ioefglc7bgi66yv5khrbl6fi2zc@ivtiukdaj4jv>
+ <8518a085-b8b7-4ee6-b08c-8dde3971a6f1@oss.qualcomm.com>
+ <2i6yzwu2yk5bngq723g75yeqzeg4ihvtbuydzunceltl526tjp@vnt6nmxxkfut>
+Content-Language: en-US
+From: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
+In-Reply-To: <2i6yzwu2yk5bngq723g75yeqzeg4ihvtbuydzunceltl526tjp@vnt6nmxxkfut>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-GUID: 5fz0dgOQiwRLqC5_CnYVNrY5eiseUa2q
+X-Authority-Analysis: v=2.4 cv=JufBas4C c=1 sm=1 tr=0 ts=6a32cc1c cx=c_pps
+ a=MTSHoo12Qbhz2p7MsH1ifg==:117 a=j4ogTh8yFefVWWEFDRgCtg==:17
+ a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
+ a=EUspDBNiAAAA:8 a=XunzQJBhBzqSrgwI8wIA:9 a=QEXdDO2ut3YA:10
+ a=GvdueXVYPmCkWapjIL-Q:22
+X-Proofpoint-ORIG-GUID: 5fz0dgOQiwRLqC5_CnYVNrY5eiseUa2q
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjE3MDE1OCBTYWx0ZWRfX3YCFnsQwdAeN
+ zZaxC9Emo5BHbLSH4me/EL0TBkk9zAsEv4vZzeIlRUDg+vF68XtV/JxnBM7b2ZMYdrYeucSRVgw
+ VzXOAiReZF/9+fhFJXQYw3/IwDFmHkDBdccytdKx8MvOGvdi4HMft0LcU7MmWzAH8KygQApTWVQ
+ xPNKmLfuvplu/cQufbchwS+ENM5LXeLDzVr57cSpGDPs6ST7PPm8E3xdNQpryCo1i9a1ZTBDTyM
+ z/APeTU5DJpK7FpHJFsZe7wx3yud/KQhsrHB0JWZ/1XkXjLCapIMNB57l9G743p7T4G6ivDhQUK
+ 5y95mU1cKXSWt0KlwP0RWhafFBSIq3TRZyjBoqLVGQVPuNy61l3nJywQknarln6IpdPAF86yzoJ
+ SVaYlp6zIEAYaigJHnJkNxY9zZbZNQTGWuuur74GAxPiL8/+5/NZOSIiMaMqAilzBmwQER3XAa+
+ 0m3UL9IpZacAQlHLLGQ==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNjE3MDE1OCBTYWx0ZWRfX0C+108HNFEo6
+ JSTgnEjkrlpf0/W+vKUQsj+aYeTLYMxgaIZZokegf+AHA2wK0JIzbBCb9Nsb1W050AXHCrd0b1B
+ nRWL0T0lFlu6QAkVRIJC5vnVnR/FEiQ=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-06-17_02,2026-06-17_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 clxscore=1015 adultscore=0 priorityscore=1501 impostorscore=0
+ spamscore=0 bulkscore=0 lowpriorityscore=0 suspectscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2606170158
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260617_092717_395960_82B469F7 
-X-CRM114-Status: GOOD (  18.08  )
+X-CRM114-CacheID: sfid-20260617_093229_591477_B2CFD76B 
+X-CRM114-Status: GOOD (  24.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,178 +158,102 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, peterz@infradead.org, catalin.marinas@arm.com, ldv@strace.io, song@kernel.org, will@kernel.org, kees@kernel.org, thuth@redhat.com, ryan.roberts@arm.com, anshuman.khandual@arm.com, kevin.brodsky@arm.com, pengcan@kylinos.cn, broonie@kernel.org, luto@kernel.org, linux-arm-kernel@lists.infradead.org, wad@chromium.org, yeoreum.yun@arm.com, oleg@redhat.com, linux-kernel@vger.kernel.org, james.morse@arm.com, tglx@kernel.org, liqiang01@kylinos.cn, linusw@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jinjie,
-
-On 11/05/2026 10:20, Jinjie Ruan wrote:
-> Currently, x86, Riscv, Loongarch use the Generic Entry which makes
-> maintainers' work easier and codes more elegant. arm64 has already
-> successfully switched to the Generic IRQ Entry in commit
-> b3cf07851b6c ("arm64: entry: Switch to generic IRQ entry"), it is
-> time to completely convert arm64 to Generic Entry.
->
-> [...]
->
-> It was tested ok with following test cases on QEMU virt platform:
->   - Stress-ng CPU stress test.
->   - Hackbench stress test.
->   - "sud" selftest testcase.
->   - get_set_sud, get_syscall_info, set_syscall_info, peeksiginfo
->     in tools/testing/selftests/ptrace.
->   - breakpoint_test_arm64 in selftests/breakpoints.
->   - syscall-abi and ptrace in tools/testing/selftests/arm64/abi
->   - fp-ptrace, sve-ptrace, za-ptrace in selftests/arm64/fp.
->   - vdso_test_getrandom in tools/testing/selftests/vDSO
->   - Strace tests.
->
-> The test QEMU configuration is as follows:
->
-> 	qemu-system-aarch64 \
-> 		-M virt \
-> 		-enable-kvm \
-> 		-cpu host \
-> 		-kernel Image \
-> 		-smp 8 \
-> 		-m 512m \
-> 		-nographic \
-> 		-no-reboot \
-> 		-device virtio-rng-pci \
-> 		-append "root=/dev/vda rw console=ttyAMA0 kgdboc=ttyAMA0,115200 \
-> 			earlycon irqchip.gicv3_pseudo_nmi=1" \
-> 		-drive if=none,file=images/rootfs.ext4,format=raw,id=hd0 \
-> 		-device virtio-blk-device,drive=hd0 \
-
-Thanks for the series and the extensive test coverage !
-
-I did some additional testing on my side with the series rebased
-on -rc5, to get the latest fixes from Mark Rutland, focusing on stability
-rather than performance, with the following configurations :
-
-- Systems
-   - M1SDP (4 CPU, 16 GiB RAM, GICv3)
-   - QEMU/KVM on M1SDP (4 CPU, 4 GiB RAM, GICv3)
-     - Host running upstream
-     - Host running this series
-   - AMD Seattle (4 CPU, 8 GiB RAM, GICv2)
-- Kernel configurations (+ debug options[1])
-   - defconfig
-   - pseudo-NMI (except on Seattle)
-   - PREEMPT_RT
-   - PREEMPT_RT + pseudo-NMI (except on Seattle)
-- Tests
-   - stress-ng
-     - CPU stress test
-     - Interrupt stress tests
-     - Virtual Memory stress tests
-     - Syscall validation tests
-   - Hackbench
-   - pseudo-NMI load tests via perf
-   - debug exception entry load tests
-   - memcached stress test via mc-crusher
-   - The above plus high system load/low available memory
-   - Suspend test via /sys/power/pm_test
-   - Hibernate (QEMU only)
 
 
-All tests were able to complete without major issues !
+On 6/16/2026 5:52 AM, Dmitry Baryshkov wrote:
+> On Mon, Jun 15, 2026 at 06:55:45PM +0530, Bibek Kumar Patro wrote:
+>>
+>>
+>> On 6/8/2026 7:25 PM, Dmitry Baryshkov wrote:
+>>> On Tue, May 26, 2026 at 08:12:03PM +0530, Bibek Kumar Patro wrote:
+>>>> On some SoCs the SMMU registers require an active interconnect
+>>>> bandwidth vote to be accessible. While other clients typically
+>>>> satisfy this requirement implicitly, certain corner cases (e.g.
+>>>> during sleep/wakeup transitions) can leave the SMMU without a
+>>>> vote, causing intermittent register access failures.
+>>>>
+>>>> Add support for an optional interconnect path to the arm-smmu
+>>>> driver and vote for bandwidth while the SMMU is active. The path
+>>>> is acquired from DT if present and ignored otherwise.
+>>>>
+>>>> The bandwidth vote is enabled before accessing SMMU registers
+>>>> during probe and runtime resume, and released during runtime
+>>>> suspend and on error paths.
+>>>>
+>>>> Generally, from an architectural perspective, GEM_NOC and DDR are
+>>>> expected to have an active vote whenever the adreno_smmu block is
+>>>> powered on. In most common use cases, this requirement is implicitly
+>>>> satisfied because other GPU-related clients (for example, the GMU
+>>>> device) already hold a GEM_NOC vote when adreno_smmu is enabled.
+>>>>
+>>>> However, there are certain corner cases, such as during sleep/wakeup
+>>>> transitions, where the GEM_NOC vote can be removed before adreno_smmu
+>>>> is powered down. If adreno_smmu is then accessed while the interconnect
+>>>> vote is missing, it can lead to the observed failures. Because of the
+>>>> precise ordering involved, this scenario is difficult to reproduce
+>>>> consistently.
+>>>> (also GDSC is involved in adreno usecases can have an independent vote)
+>>>>
+>>>> Signed-off-by: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
+>>>> ---
+>>>>    drivers/iommu/arm/arm-smmu/arm-smmu.c | 57 +++++++++++++++++++++++++++++++++--
+>>>>    drivers/iommu/arm/arm-smmu/arm-smmu.h |  2 ++
+>>>>    2 files changed, 57 insertions(+), 2 deletions(-)
+>>>>
+>>>> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c b/drivers/iommu/arm/arm-smmu/arm-smmu.c
+>>>> index 0bd21d206eb3e75c3b9fb1364cdc92e82c5aa499..07c7e44ec6a5bd1488f00f87d859a20495e46601 100644
+>>>> --- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
+>>>> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
+>>>> @@ -53,6 +53,11 @@
+>>>>    #define MSI_IOVA_BASE			0x8000000
+>>>>    #define MSI_IOVA_LENGTH			0x100000
+>>>> +/* Interconnect bandwidth vote values for the SMMU register access path */
+>>>> +#define ARM_SMMU_ICC_AVG_BW		0
+>>>> +#define ARM_SMMU_ICC_PEAK_BW_HIGH	1000
+>>>
+>>> totally random numbers, which might be different for non-Qualcomm platform.
+>>>
+>>>> +#define ARM_SMMU_ICC_PEAK_BW_LOW	0
+>>>> +
+>>>>    static int force_stage;
+>>>>    module_param(force_stage, int, S_IRUGO);
+>>>>    MODULE_PARM_DESC(force_stage,
+>>>> @@ -86,6 +91,36 @@ static inline void arm_smmu_rpm_put(struct arm_smmu_device *smmu)
+>>>>    	}
+>>>>    }
+>>>> +static int arm_smmu_icc_get(struct arm_smmu_device *smmu)
+>>>> +{
+>>>> +	smmu->icc_path = devm_of_icc_get(smmu->dev, NULL);
+>>>
+>>> Is there always only one bus / path in question?
+>>>
+>>
+>> <Apologies, missed to respond to this query>
+>> Yes for TCU, it needs to only have a vote on GEM_NOC interconnect
+>> while accessing the DDR in downstream path (client->TCU->DDR), which we are
+>> addressing here.
+>> Hence it's only one icc path in question here.
+> 
+> Again, you are describing Qualcomm platform, while the code part is
+> generic.
+> 
 
+ah yes, single icc path is specific to Qualcomm platforms as of now.
 
-However, when combining pseudo-NMIs with PREEMPT_RT under heavy pNMI load,
-I was able to trigger a new warning compared to upstream :
+As per my assumption, it's possible for other vendors/ARM-SMMU users to
+have one or more than one icc path to reach DDR in downstream flow
+(similar to clocks).
 
-     BUG: MAX_LOCKDEP_CHAIN_HLOCKS too low!
+I will revisit the logic for icc_voting to check for possibility on
+additional icc path as well, so the generic code can cater to other arm-
+smmu users.
 
-Specifically, this was when running `stress-ng --all 100 --class vm -t 
-300` with
-`perf top -a -e 'cycles'` in another shell.
+Thanks & regards,
+Bibek
 
-This does not feel like a major issue : from my understanding it only 
-happens
-when running the full suite for some time and with many stressors (I was not
-able to reproduce it by running individual tests), and flooding the 
-system with
-pseudo-NMIs.
-
-Given that this only happen with PREEMPT_RT, my guess is that it interacts
-with generic entry in a way that can lead to more nesting than before,
-leading to an easier exhaustion of the limit on lockdep.
-As the system was still able to recover and did not lock up, I think it 
-can be OK
-as-is, or simply bumped a bit ? Happy for more opinions on that.
-
-
-Otherwise, this is
-Tested-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-
-As this is an important change, any other testing, especially on real 
-workloads
-as well as on very large systems (which we haven't covered), would be 
-very welcome !
-
-
-I will take some time soon to review this latest version, now that I am 
-able to.
-
-Thanks again,
-Kind regards
-Ada
-
-[0] BUG dump
-
-    BUG: MAX_LOCKDEP_CHAIN_HLOCKS too low!
-    turning off the locking correctness validator.
-    CPU: 0 UID: 0 PID: 77252 Comm: stress-ng-shm-s Tainted: G        W           7.1.0-rc5-pnmi-rt-00011-g856fda168b7e #477 PREEMPT_RT
-    Tainted: [W]=WARN
-    Hardware name: ARM LTD Morello System Development Platform, BIOS EDK II Mar  7 2024
-    Call trace:
-      show_stack+0x20/0x38 (C)
-      dump_stack_lvl+0xf8/0x1b8
-      dump_stack+0x18/0x28
-      __lock_acquire+0x1a50/0x1f78
-      lock_acquire+0x260/0x448
-      _raw_spin_lock+0x50/0x70
-      rcu_note_context_switch+0x11c/0x608
-      __schedule+0x100/0x1280
-      preempt_schedule_irq+0x58/0x158
-      raw_irqentry_exit_cond_resched+0x4c/0x78
-      arm64_exit_to_kernel_mode+0xa8/0x158
-      el1_interrupt+0x58/0xb0
-      el1h_64_irq_handler+0x18/0x28
-      el1h_64_irq+0x80/0x88
-      lock_acquire+0x3b0/0x448 (P)
-      rt_spin_lock+0x11c/0x218
-      new_inode+0x38/0x78
-      __shmem_get_inode+0xa8/0x408
-      __shmem_file_setup+0x16c/0x1b0
-      shmem_kernel_file_setup+0x38/0x50
-      newseg+0x100/0x3d8
-      ipcget+0x464/0x5f0
-      __arm64_sys_shmget+0x64/0xa0
-      invoke_syscall.constprop.0+0x58/0x118
-      do_el0_svc+0x64/0x3d8
-      el0_svc+0x54/0x310
-      el0t_64_sync_handler+0xa0/0xe8
-      el0t_64_sync+0x1ac/0x1b0
-
-
-[1] Debug options defconfig :
-
-CONFIG_ARM64_DEBUG_PRIORITY_MASKING=y
-CONFIG_PM_DEBUG=y
-CONFIG_PM_ADVANCED_DEBUG=y
-CONFIG_KPROBES=y
-CONFIG_DEBUG_MEMORY_INIT=y
-CONFIG_DEBUG_SHIRQ=y
-CONFIG_HARDLOCKUP_DETECTOR=y
-CONFIG_PROVE_LOCKING=y
-CONFIG_DEBUG_ATOMIC_SLEEP=y
-CONFIG_DEBUG_IRQFLAGS=y
-CONFIG_RCU_EQS_DEBUG=y
-CONFIG_FUNCTION_TRACER=y
-CONFIG_FPROBE=y
-CONFIG_USER_EVENTS=y
+> 
 
 
