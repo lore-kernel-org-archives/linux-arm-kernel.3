@@ -4,180 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F4D3CD98ED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 22:37:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DA72CD98ED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 23:19:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jJhWhvZhcNBIulZ+zg+Vdx8iSYl6FqaJTLG0SfEWu5c=; b=HQbd6/2S/vZ604r3WAYrtwJFO+
-	z0jB//EdfQZOIULTk077+rkNx/Vw1EC+18rs5JeDGiWCVKdfXDZXWsqtAM5u/kDjo3ACvJdy1c2aM
-	f1InONHgIWpXFE5y20IzhUcb7CBnpEpFGgpJC19Y/y5spMh/DzX2r0UcIrpPDC7XjiJlaPP5RjUco
-	3aSzAsJpl1UDpq4l3UqoD1/T4mELerdvSWgdUk4gmpTpxUU1+CL2l5mrq8VyE/V2r/0dlKDm2zmrM
-	0FGC9SZQsNIaRBL/YNps2kjkkpT6z5MJEG8ufXUNC8Gr+RpRBHkkVfV3sbAY214R3Rmx5ej1kZO6L
-	lXoLEFDA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lwVDvYzjQxyECx1yVb/9X3JuzhEAdvMppJ0CKYONVrE=; b=y4hG5P/bSbL7jVuW5fCg/haYaD
+	rupQxmWRZZmrnipP2W/0OLnc7y4inAE0qVtHoqlNU8JENxcnkBFfkv7q3Wl8cRIX/9zGXCWwGsoqC
+	2Qdvmeb/olB6/osVsOUImzumuw2DVNJ9nZEuWT41dMTLVrrhSVv1fEPi0ufKec10+XaFUFKpCx9KD
+	WOyVlQTkkAh6b6T0XtJPcq3XkjiuGXIHZ5Kuxxe+4lVE1ltC016dJnsofulCJ+RH1UZF3GNbvwqp9
+	NLbKCTGk874cit0oQatKvM35115PczN8E9NxNxxJI6nXz0uJG4mxxoeZudMjD0cqDhXY1fBAnP1fQ
+	IzSgt9xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZysd-00000000Oz3-1pNH;
-	Wed, 17 Jun 2026 22:37:07 +0000
-Received: from mgamail.intel.com ([192.198.163.12])
+	id 1wZzY3-00000000QKQ-3yR7;
+	Wed, 17 Jun 2026 23:19:55 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZys8-00000000Oxc-1w6F
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 22:37:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1781735796; x=1813271796;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=5+iGSe9iWmkYihC4wjdGVswVCSTzqsEk+7tJCH38iXI=;
-  b=JPla1HDyG1AqhFXmcwgqm0sdmA1NXDyPZEYxs/nEQXMV8dcXs8HYt6jC
-   mC2mn+GCkoaRtqnKrPRsED6iXCXXGAbcBMXfgVs9xnXbVHNPOvh7n0zN7
-   /YWPxy3JyTxTbFkkz/3lvFTryVOv6+riBA1Cy6QO5tsR/QrBy0jvkMcCl
-   GoL9JIKtdaOC/o0dwHM6F735/lt+w/DaSeXibDANmk3/c5yFso2cn5Slf
-   1ZvC0/sJZAl1WjHaPPJfjhHxVGIvVy+/+wIcIjCavhaURNXZ3wVy/GA77
-   Sd0eU81sa7FNPYhGkgmMmJAE+tmKK4QdvXoH9317PPJ02Q2/gC0CF6l1X
-   g==;
-X-CSE-ConnectionGUID: IvpurvrNRHa9I/srZkjohg==
-X-CSE-MsgGUID: U7roovPvQHSkfAzW4AxrqQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11820"; a="86399456"
-X-IronPort-AV: E=Sophos;i="6.24,210,1774335600"; 
-   d="scan'208";a="86399456"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Jun 2026 15:36:36 -0700
-X-CSE-ConnectionGUID: tnRdIhfqTMOkIKUM+mRbVQ==
-X-CSE-MsgGUID: hPuj61biTyOFtvSyF0IY9w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.24,210,1774335600"; 
-   d="scan'208";a="250080679"
-Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
-  by fmviesa004.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Jun 2026 15:36:36 -0700
-Received: from ORSMSX902.amr.corp.intel.com (10.22.229.24) by
- ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.37; Wed, 17 Jun 2026 15:36:35 -0700
-Received: from ORSEDG902.ED.cps.intel.com (10.7.248.12) by
- ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.37 via Frontend Transport; Wed, 17 Jun 2026 15:36:35 -0700
-Received: from SN4PR0501CU005.outbound.protection.outlook.com (40.93.194.46)
- by edgegateway.intel.com (134.134.137.112) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.37; Wed, 17 Jun 2026 15:36:35 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=di6mBd8ssB//WRj9GlgUT55dzO2TNxoYQ7d+QphEeo/7nMrFluq656c4WX5l9DsBiBzzcW15dMTHgTdptQeKr9uzJokllWL28pjh8gPouZCeijWqgBpe+uqsiR8QZp5rdJ0BkdPt7E8pwyHCU+IiXfegtQBiQI8zzi34VvD16LNBtuoCLpL0NBANqyeaKhJSIgtBSYxfIhFAW/uofNb6aU84/dW3Fj+YJflu322vXPsvCneXviuyz9XqGAGSebmD+2Wi5bYR4TT/ImZg26yOqo3FVsarYiNrcUGEvT+nqz0mZboWlWrv1+ZzS92LPevGeAzoBLcRJ0/92GEAaaHb1Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=jJhWhvZhcNBIulZ+zg+Vdx8iSYl6FqaJTLG0SfEWu5c=;
- b=hOD96P4pmUiLwtfExAYIVtBBlBqrXOQDm3lkEUW5sfFsFvdSxSAURrLE5DSUs/4nvYZ38uszh07wj2mBzSutaTDjBBYU0OiVxSbrL5l8O/TUSTVxk5MNMZ68kTeuO2mU8FuAnP/lvZIrmIQOOYmheIgHeexDPoyopwvu2M592VMWAq6jUvhaEQGj7IELiaen3qcaHDDCHGRu0bNFsacBN5AcLHweN7TJcEpBfN5bE6Jp2hX6SZU36gJn1i8D/NbKML9+dSUitOvj+ImLgE/0yZ6CKtO7+s2o3kjWYSyrJqfu7jIaJL3DFo9h4ZR3BvcwaRrxiRkD/0lsMQJQ1174PQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from DS0PR11MB7381.namprd11.prod.outlook.com (2603:10b6:8:134::14)
- by IA1PR11MB8099.namprd11.prod.outlook.com (2603:10b6:208:448::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.18; Wed, 17 Jun
- 2026 22:36:32 +0000
-Received: from DS0PR11MB7381.namprd11.prod.outlook.com
- ([fe80::4c39:dfe6:d6dc:6f58]) by DS0PR11MB7381.namprd11.prod.outlook.com
- ([fe80::4c39:dfe6:d6dc:6f58%5]) with mapi id 15.21.0113.015; Wed, 17 Jun 2026
- 22:36:32 +0000
-Message-ID: <57c31dc1-39e2-4977-9331-5eed20d676fa@intel.com>
-Date: Wed, 17 Jun 2026 15:36:30 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] net: stmmac: loongson1: Use dev_err_probe()
-To: Jakub Kicinski <kuba@kernel.org>
-CC: <keguang.zhang@gmail.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
- Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, "Paolo
- Abeni" <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	<linux-mips@vger.kernel.org>, <netdev@vger.kernel.org>,
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20260615-dwmac-loongson1-v1-1-cbcf5bc01d9b@gmail.com>
- <31630db0-85cb-421b-8ebe-bbae07521533@intel.com>
- <20260617135407.6ff54e27@kernel.org>
- <6b8db599-5bb2-47f9-ab53-a0b5141af2e5@intel.com>
- <20260617150744.05756f0b@kernel.org>
-From: Jacob Keller <jacob.e.keller@intel.com>
-Content-Language: en-US
-In-Reply-To: <20260617150744.05756f0b@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MW4PR03CA0112.namprd03.prod.outlook.com
- (2603:10b6:303:b7::27) To DS0PR11MB7381.namprd11.prod.outlook.com
- (2603:10b6:8:134::14)
+	id 1wZzY2-00000000QKG-1bzg;
+	Wed, 17 Jun 2026 23:19:54 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id C3AB5403ED;
+	Wed, 17 Jun 2026 23:19:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25A7C1F000E9;
+	Wed, 17 Jun 2026 23:19:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781738393;
+	bh=lwVDvYzjQxyECx1yVb/9X3JuzhEAdvMppJ0CKYONVrE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=SrWJbfoYeMhjv1FkuFksigLZtgltUzGa0+7XY9K5aysrUf+m+qvzNq1nt+IAszAdV
+	 3zAZwMrMmVOMX7PmmkbKWHcb4DcO5059TI+hSkn8Rl1UzsAAzJ2R02pYBD4cDEt8kh
+	 QumZ96mHoXVKTezMTYubxBCyrCNx686fuJCzTcihcQ0XDwz6O1tX6NItMnZp30qMku
+	 89GnIzeYVo2Xioj1CwQw44AsfK5yVFQIlTAU4LV2L5gtEt/iJxPBPI0IPygeJrjxgX
+	 QkMsH+zqRMo1vPhkTTAk4NEPlP9yijDaOFB+F0wB8EWpPpY3MlWETxwxNTcdXAWtKY
+	 gRUwMHbC+9eBw==
+Date: Wed, 17 Jun 2026 16:19:51 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: lorenzo@kernel.org
+Cc: Wayen Yan <win847@gmail.com>, netdev@vger.kernel.org, horms@kernel.org,
+ pabeni@redhat.com, edumazet@google.com, andrew+netdev@lunn.ch,
+ angelogioacchino.delregno@collabora.com, matthias.bgg@gmail.com,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH net v3] net: airoha: Fix skb->priority underflow in
+ airoha_dev_select_queue()
+Message-ID: <20260617161951.52abe413@kernel.org>
+In-Reply-To: <178161373805.2167512.2544164327472822616@gmail.com>
+References: <178161373805.2167512.2544164327472822616@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS0PR11MB7381:EE_|IA1PR11MB8099:EE_
-X-MS-Office365-Filtering-Correlation-Id: 432e86e1-00e0-415b-1bb2-08deccc0e184
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|366016|1800799024|56012099006|11063799006|6133799003|4143699003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: pxMg4vF1h498QdAqGCeJfj0RoJSDDPM9UH7I2MsZn4KNTJJ2OcHTFk8zUn1nhyvfzhNEJcIjGr+/xe2xN7iCyBEGDPNUt/qsK9C+MOq9DiGzAJ1fMG1K0okXlgsod3ejZxeAmmR4mUEPpX7vK7lmmTVEvVxTL0z56GMcSRAu6VMVtbPJrnExRGHu9v/9rVbrZaV4J4OlpXRP5uCPYko4MdyoVJtw0RhBNwr1qEuOhoJ4B7fitQf9y58L1B4In36gZDiSj7hdgYLYheajkTnhYNN/G6cJV0TcOwgm3qp3NmElF1giucAlNRmLNSjrXdMP4Pa1OimuSYavM5aihbK1V/jw83TsCt4Klyt7an6lahLUZjeegNtgJavea4DFU62RW7SKYDXocRCXrPMzjrk/9mBxfcalh2P5D3BpBgIt1uVGUZKy+iHYA5GB/pPgoOLWG/pMt9O9GMQvnBh2yhw4seMiduoR/2c/k2k7cHXyx64KNjPVIr98pDWfsakcUiOUXMweN1iy1W0hBNdVK/UPeNsjKHtyKSCdiLr3JF2ip8NkFgPRQsJfRjCe6hSg+AXL410hy6CAXVRPOyzQE7DtEwNchZHPuTcoXu+WZ2UNdenjR7Y+dEU6lJXeuenZ5QbrUcnWHBqJQJFHjpgP5DCNc/M/iBU5U9tX28aZLEIld1HrkxT/cZlsrDaiTvli+9xQ
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR11MB7381.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(366016)(1800799024)(56012099006)(11063799006)(6133799003)(4143699003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SVNmdzFpQ29aMjNTYmIxMHRzNUtHZXRXZEdqZU41TW5DZ1VqWTFPNWxPUjIy?=
- =?utf-8?B?ZWhUZlk4UzBNSzJvQWtmNEUvNTYxVW44SjNFUmIwWkZ2SVJjUENmWHpLMnFz?=
- =?utf-8?B?MDRYald2NXJZUDB0dE80KzVHb0VEcGFzMTlxajJvREZvam5nQ2tIdE0vMGE2?=
- =?utf-8?B?c0FVWHo2a2Z1d28vMHBXejlNY0lFY2MrVTBXTEJpR2M0clJ0SkgrempNMGd6?=
- =?utf-8?B?V1g1enFESkZwdGRlUEhpQ24yWEloTysrM1NESDVpTzRmRkFZY2dqTmJCSENG?=
- =?utf-8?B?NzRNS2tTOXJreXpZT0NvSG1VcU9DR3p1ZytZMnRqMlRWcFNiYzhZN0E1bHov?=
- =?utf-8?B?MDZyNEttV1hlYlh5Rk1tNzRpWStxYnR6VnI3L2RFdTJxU3FXMmxrNnAyK1c5?=
- =?utf-8?B?WVZURmg1cFRrSTdwakNJVzB5ZHluWkRMQUxHZlN2UkcvL0ZVOUgwbE5kM2lY?=
- =?utf-8?B?S0t4bmRPQ0Z6a29Rd0wyNVMwTkRMcDI5K2FoUVc4djExM3cwSDU4Nk9TdjFS?=
- =?utf-8?B?RVZPSUt5ajBkcVF3ck9zZ3RveTJrSDVQOEZjdkVoMmUzRklUclJrWUxRQmgr?=
- =?utf-8?B?dTkwWGVWMGp2NVRPVmN5STJIZFVQUWFoQ3k5K2Vka0Q0TTVkRTRWY25pbTBu?=
- =?utf-8?B?OEtUWitlTUVTRHlBbW1GbUd0Tmwyc2ozY0Y1MllwWUdMNkFCUW5ZQnRzc2Q5?=
- =?utf-8?B?NWtsbFlSdUZrMFdFTGdzQUlPZEFqNVoxZEVueVhET3l4VG1yYWkvYldqYjBP?=
- =?utf-8?B?M0hmNU1qK2ZNZlpaUWUvM0plaTlHSE1zb2tDeEdxem5OQnFSeEJyWWowZEEy?=
- =?utf-8?B?WitiSjFIbXFkaERTellpNDUveC9ac1lVWVpoSnR5bld5a3lLUHgrczJTUzU2?=
- =?utf-8?B?RmVPUmFlWUdmRFBFYnE4ekZxYmJaVXBuNElqZEg5NWxhUFNuWlo5TEx6VUJt?=
- =?utf-8?B?YVFKZUZod2diSkFDS0M4eG1uWEtLVkwyOEVvSlBVZDl4UjdtLzMyakgzSXhr?=
- =?utf-8?B?TVVMNzJ2QmJZQkI2S2J4NnZlckcyeDNZNG96UXFac3ZlWklaeU9zZ1hYTndH?=
- =?utf-8?B?ZWZqcHEyZkkyYU96QkdlUlVQL1hGa1pjWjlDOFJNT2szK0IwbWp3eTE5ZkFO?=
- =?utf-8?B?cVkrZG5EUEF2UVR1a2pndTlTYlpYOFVvN1p3SkpheGJMV3JzNWxnN1BTd3lt?=
- =?utf-8?B?KzRlU2pJMFI1WEVzL3AvUWNhSmtob0h3V29wbElMUHN1Ui9JQWswdHBhaUd3?=
- =?utf-8?B?TlFpVHkwc0VqVFBNb0JkOWJpMkZlY1pHd1JmK25nTkZQUEk2V1g3Y3NjUHls?=
- =?utf-8?B?T3lvN1k0aHErcUFQd2hrRTQwQVRpYU9ib2FjZFoydjd3SXlPUlV2cmwzTW1t?=
- =?utf-8?B?MmdTSmlia0dsWTNnNS9pc3NldlZzelpvNi8yREdVcDJkS0g3QlM1REM5SkFX?=
- =?utf-8?B?NGxjeG05aTVPQzVWM2RnZ3NCNlBkOXlTdEdwcElsWEUrN0tnSjN0bXg1OUI1?=
- =?utf-8?B?bGM4aXIyeUFvWjlncGJDQ01XMlNhVHlacWxIYjZNYVBkMEpSQ25qTFVCRTZp?=
- =?utf-8?B?UDIrMnVDYlB6Q1lTTjBFN1V5V0sxcXZoRE9HUHNJMmF2OUxQSlUybGF0Rmxu?=
- =?utf-8?B?WHQ5RDdra0E3eThFT05qVVVjZUFPZnl3T0pRc1U2MSszc21zTDVLc3ZTSHZS?=
- =?utf-8?B?OEtJNXNRc21CU0xmbVBTbmxoNWxJME5RN004ZnBWRUpnTCtPQ1pwQ09aK2x0?=
- =?utf-8?B?cjM3VWJFQlFNZHJ1c0tremV6Zkl6ZHg4eXdXSUF4MWdkUjR4T1ZSQnhTWkE1?=
- =?utf-8?B?dUEvZmNQSVQzVDZRVjArZXM3WTlGQXlBUnR2bVdmVDM4Unk2L3ZhMVVqTlNq?=
- =?utf-8?B?b1R1WEltSDR6R3FiVzhmYmJoNVdkMlFmOHpxQ0dEdmE0V2Rzbms0MUZtODVu?=
- =?utf-8?B?MHpqM0RhTE1OeVZHek9LbGFYSnhwdExTbjNrb09JbWIxdlJIYnFQa1R5WmQw?=
- =?utf-8?B?Y1h1Zk9uSFpQVWlmUjhubVNkWFNyM0NBM1JTZUl3UEdENFBQeC8xS1JPK3lN?=
- =?utf-8?B?VnRvaUZkakFVS3pUZCtuWUo2ZEp0cmMzd0Rxd25hUmd4SVZ1aFkvK2pvU3BV?=
- =?utf-8?B?aUF6bWw1S1JhdGxOVUZwYlZFb0VOL0lrNG4wQ3V2cnJEVWhDdW5pNFc1VlhF?=
- =?utf-8?B?NlhDbjdsc0NvWCtBcGNVVWxwTnd5NHpqZTdKVERJTDN6MUtPc25FT0xPY0Qv?=
- =?utf-8?B?S1p5WmYyLzk1elJKRlFnQWpkT0xWTFA3SDlWR0pOVGNVQlZMTGRYTERXQStS?=
- =?utf-8?B?Q1RTMUN5YnJ3NlF0QjVTY29YOFJ4UXhpSUVyK290aW5xN0pNdWozbHhpYlhn?=
- =?utf-8?Q?z0JNkx0s98CLZOzc=3D?=
-X-Exchange-RoutingPolicyChecked: qIghjDl1Ue70u4hN0QZnVBOimUkZszjcFBZvBJknHKSVUJAHY+gb7GDgQzhEiEqVMJ0NRPy8NqJ6kKDe4Heu22oiJOwioas1NBLC0Re1hc4P40EQctAP+gb2o5sSnNKujSfaA2jGDSmcAxR+Y7WYL3FAVXmaPcfsKRWdmm+fDJ2gn/4/a5cNOdkSq7HyK+ZH0p7bGhnz2VCK5oEmjUWCvbUnplJNSPPg0UDMeXw6GuNifE/QEbBPR2Y2OjwXFvJta3fMKV8aroEqCdExlBO3Wj9xhY1zTzR1yDZEVxUqiTrMrbC3sUxqQQjYdWuy+y2VlkZ72n9Y8cGOcANOdr3ldw==
-X-MS-Exchange-CrossTenant-Network-Message-Id: 432e86e1-00e0-415b-1bb2-08deccc0e184
-X-MS-Exchange-CrossTenant-AuthSource: DS0PR11MB7381.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jun 2026 22:36:32.4493
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: xUUzfoxCQsMvQZ1I0DuR+mmUJVpJyTbLOU3/JjFqemmR25Fi0QeD8ezU7lNrAG0BPT8INlBN+2ov7g8x3e7PaxPMXA5gHTN8I27h8iUM8PI=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR11MB8099
-X-OriginatorOrg: intel.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260617_153636_539657_A37E3993 
-X-CRM114-Status: UNSURE (   8.93  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -192,21 +70,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/17/2026 3:07 PM, Jakub Kicinski wrote:
-> On Wed, 17 Jun 2026 14:26:25 -0700 Jacob Keller wrote:
->> It does claim that it has benefit since you get the error code emitted
->> symbolically. But we have %pe for that. I wonder if dev_err_probe
->> predates %pe?
+On Sun, 14 Jun 2026 07:30:54 +0800 Wayen Yan wrote:
+> In airoha_dev_select_queue(), the expression:
 > 
-> I'd argue
+>   queue = (skb->priority - 1) % AIROHA_NUM_QOS_QUEUES;
 > 
->   No of match data provided: -EINVAL
+> implicitly converts to unsigned arithmetic: when skb->priority is 0
+> (the default for unclassified traffic), (0u - 1u) wraps to UINT_MAX,
+> and UINT_MAX % 8 = 7, routing default best-effort packets to the
+> highest-priority QoS queue. This causes QoS inversion where the
+> majority of traffic on a PON gateway starves actual high-priority
+> flows (VoIP, gaming, etc.).
 > 
-> is more confusing than just:
+> Fix by guarding the subtraction: when priority is 0, map to queue 0
+> (lowest priority), otherwise apply the original (priority - 1) % 8
+> mapping.
 > 
->   No of match data provided
+> Fixes: 2b288b81560b ("net: airoha: Introduce ndo_select_queue callback")
+> Acked-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> Reviewed-by: Joe Damato <joe@dama.to>
+> Signed-off-by: Wayen Yan <win847@gmail.com>
+> ---
+>  drivers/net/ethernet/airoha/airoha_eth.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> the EINVAL is meaningless and hardcoded in this case?
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+> index 31cdb11cd7..d476ef83c3 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+> @@ -1933,7 +1933,7 @@ static u16 airoha_dev_select_queue(struct net_device *dev, struct sk_buff *skb,
+>  	 */
+>  	channel = netdev_uses_dsa(dev) ? skb_get_queue_mapping(skb) : port->id;
+>  	channel = channel % AIROHA_NUM_QOS_CHANNELS;
+> -	queue = (skb->priority - 1) % AIROHA_NUM_QOS_QUEUES; /* QoS queue */
+> +	queue = skb->priority ? (skb->priority - 1) % AIROHA_NUM_QOS_QUEUES : 0;
 
-Yea, it is a bit more pointless with a hard-coded error.
+Hi Lorenzo, is there a reason we're subtracting 1 here in the first
+place? Could be just me, but may be worth adding a comment here.
+
+Intuitively if we are "narrowing" 16 prios to 8 queues it'd make most
+sense to group the adjacent ones -- divide by two.
+
+Please respin with some sort of an explanation..
+
+>  	queue = channel * AIROHA_NUM_QOS_QUEUES + queue;
+>  
+>  	return queue < dev->num_tx_queues ? queue : 0;
+-- 
+pw-bot: cr
 
