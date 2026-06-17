@@ -4,173 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E40D8CD98EE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 05:30:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D184CD98E2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 06:05:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vJpykL80rTQRvnRia3WFg2L43XLyk2BtotfDSsdOPRI=; b=zwPjPMJ+h+nENqXrwebCcbWgq4
-	TaxEpLPDfDrHlw6PrGg0gEaUEUjNaNXLMaIPCi3hTviPy6M4oFkPwumBTj1gDMJd/zj8uqP9Gblzl
-	6jHi3cylxt5kXMADVPY4NPVfZl9aIuK8jto3JHdnkzKPSEWOWPZ3WzD1QkfvByPBk6LplPkZn8JD9
-	5cVLGpGPrbwuMddJ0LQDAw39GubpHpT5R31TENWJSbKKi5TDsoBRu9lWavP0rAwOl+z5QA5DcMeD0
-	PXvAizulGnTGnSo+Zr91pKxq+nNntjwjS4YexBe1JKEAQ2Ipo//QHWEBbILhrPUCGrBq57pNFwNxp
-	w9AO1QMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gsVcWPOoXobWoPTi/Jzbm85KOJxpXRs4ZYiZlNStTgs=; b=gJDfINBZ3Bm854t6m4bcojGQSU
+	3RTaow67kGjh9kCeijOYNMH3Gjx5KcICCMIMlk4zTf/aAhzsV97tRmvuU7U1nksK00QNObVukt88W
+	DXZ0dVxJdTvWRTUxMHA9fhpvGyLs1bmJwsf4uLyg1DMfLCwXxQUnjv67CTLfO2ixhYsIe8KNpG0qP
+	g9XPqjgWOzL3am+mr52xhu2ceinDGHGtzdaidOQ5HRSEMVr52Kb5WUyzhf37eSmPiZRes/Kty6ePy
+	D1TA7cR+vh9RzrtfiQKgHEIfPRJ8YtMEvL1Y7WwHqcLmokgZfhRGE/htkHd7Ex3JRUaXrWxAFuQY3
+	sR8RpEIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZiqr-0000000Ged6-3noa;
-	Wed, 17 Jun 2026 05:30:13 +0000
-Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
+	id 1wZjOY-0000000GgSd-394E;
+	Wed, 17 Jun 2026 06:05:02 +0000
+Received: from mail-japaneastazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c405::5] helo=TYPPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZiqo-0000000GecW-2b4I
+	id 1wZjOW-0000000GgQd-03p7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 05:30:11 +0000
-Received: from pps.filterd (m0380145.ppops.net [127.0.0.1])
-	by m0380145.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 65H4STd54146306;
-	Wed, 17 Jun 2026 00:28:55 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=vJpykL80rTQRvnRia3WFg2L43XLyk2BtotfDSsdOP
-	RI=; b=DNPHKEvn2Y13Y/b/3uwfI1qxjuPbZYxjxrbEiNNp11JnM35JXQK+9p1cY
-	G+5wm/K74tqCxCILiar3mqfx3hitAAIpaFQknj0JWU6IIVp2GAw4ptJKfRof+Sbj
-	RI440nbGoue0S0w3DQ5zN1rpGmJwkGZq0PTKefP0nqeZSy3ew8ctwlMmoxwlCZud
-	oN5EFzXo4+MZeu0M2JZM+s8SchdjpVH3mLeC0pwKgyAO06oNrylyIOjwlrD8exS4
-	21dkEzDL6KefdX807Jr0sYMkcwVE0xCTJAsPlAHtkX32GvLL4+J4lIiTCo+w9t6e
-	/B3JP7QeZ1WKv1CRF2vIly+UVn18g==
-Received: from ph8pr06cu001.outbound.protection.outlook.com (mail-westus3azon11012007.outbound.protection.outlook.com [40.107.209.7])
-	by m0380145.ppops.net (PPS) with ESMTPS id 4eueeu2j5m-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 17 Jun 2026 00:28:55 -0500 (CDT)
+	Wed, 17 Jun 2026 06:05:01 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=aGSwNj42Q5hMVCMrYZ1xx/oNhZHSuPQbNtCOXVentDKqx66eiutSiIlotylitkTRNpEGVpArM56afmGOE6qvnFHXP0aEAB0rlkodDgaExqMa1JxmAa1mDxhh05nmKauH4oKYk7E4GPItvF9PyssGPkSrguA2WmzgeFCYcXpkqqmlyA9U8B0hft1GtktmNPI+guzCPbsv4/cNouQ4weep53y8klSOY49sW1acTJr0rvjdA8L3x/YqatCEKtIm/Sjk8Rx9PFvlzuv7ubqsCDOh/FKQjfLDku+uxT8M49A35bRkzLiUw0LxmWpuLPmbD+aFcn7Vi46yUjAH5T+R7z2kZw==
+ b=dkZlYkPwiFYBlHUDgwrC+PxsxMtPZz7D9aPz93jj4sX7gUYm0iaHTAlkpSL22UqpOoFxXUY2EGhBC9COEgtC0atNG6UNmRDz5Gul8fZoiToz3AWXSnyjc4vIi0Se+bmp7Y1T/wefLuscEQ58hfMrwtr0txL/oM+9hnWajOqt22mksrw/l7itgrkNtuzFyvexN/zqcPc6ZrAT7d6DP+cai58wWu8J3Y5JeSSzZlpHsmKa76Fte7HA4NvU6a9IG4GVSrYVtLIfxa3cy/yfrYL27k4nqZ3cKZKuCJpVrbk2vLMGn81PluZilIASjsPoB5YoP6Gw6HQjlEdbeVUBygKN7g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vJpykL80rTQRvnRia3WFg2L43XLyk2BtotfDSsdOPRI=;
- b=Z0OOSMGFZ45UAlZIUCz3yjqJFU4vW93jT5/gJAaHEHrMrVgEohCX1vDYwhfVFtXlNRjaXPYWw0dKZfK/YowGuqr7zaOiSMZ2tkxfoIVSssxi7rfy4wgNVp/AyZAf5h7o5i0CaYKxN4BpJWNrXsoQJoa8PNmzCz98mCRs7oCyIcuygPSU9CIbnvpkdbWjsBs8CNPV3hokqq0KSVp9aoZH+/pIgvwDr6DguTebxHSsle0uM5+Zrhwpe0/2TbkjyBsyiIQ93TwRAy4pxpoJHw/uZUNu9zmoPB+i01RyppLox32jsQm1ZJmMyEi5CQcVMZ/mhCNLBacBpdvoDxllSzvnPw==
+ bh=gsVcWPOoXobWoPTi/Jzbm85KOJxpXRs4ZYiZlNStTgs=;
+ b=r9CaO3WdZATs9IGSYci8G8+mR/jezlPR9yji1yOF8tgEDLJEiVWl2VokF4mCbgDQgzmgL1wJuOhPzLu/SqRe4Vx3LawxGe6hw6OkWSBFJq+tqkItwk2JK/tnP6MZO83H6rkw6q/Vfu3BdqF3e25e7txqvMOzcrdfwBXV1PFqtiDJ3B/Sbk/LPLEUer5sX+02nSDCSDRd4NHD6k7izXcbtpts6gSgP1Sn5iIYs4DDda+XK0D+R6B+iBvFTAPieGQAqUFikb2aEDUTFr9qnwhhflI8IbYTqB6rDG9OsTq7KfwYxnSuwJaKUXRBdn51ijSQSTRr7Jl3MzSbkvuRUDi7eg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vJpykL80rTQRvnRia3WFg2L43XLyk2BtotfDSsdOPRI=;
- b=ki1OdV+9PVUr7rViEFcV7J2Ql5neKht5WN3BI0vBkFh2XMQ9mEp6KmOnzmZPyOnWBr4nO+TPL7+gLLXo+U9DtzikcX/yj2E6gOmMPWeQu74Gqnrk1AX95IGNaLj1H/n+bg7zFVm9IWY6XMr+HsAHHOz2Vy8/IeXVECT+RzwIukg=
-Received: from DS7P220CA0121.NAMP220.PROD.OUTLOOK.COM (2603:10b6:8:25f::18) by
- IA4PR10MB8541.namprd10.prod.outlook.com (2603:10b6:208:56b::5) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.113.18; Wed, 17 Jun 2026 05:28:51 +0000
-Received: from DS1PEPF0001709A.namprd05.prod.outlook.com
- (2603:10b6:8:25f:cafe::2c) by DS7P220CA0121.outlook.office365.com
- (2603:10b6:8:25f::18) with Microsoft SMTP Server (version=TLS1_3,
+ 222.71.101.198) smtp.rcpttodomain=baylibre.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from SI1PR02CA0049.apcprd02.prod.outlook.com (2603:1096:4:1f5::18)
+ by KL1PR0601MB5704.apcprd06.prod.outlook.com (2603:1096:820:ba::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.11; Wed, 17 Jun
+ 2026 06:04:49 +0000
+Received: from SG2PEPF000B66CB.apcprd03.prod.outlook.com
+ (2603:1096:4:1f5:cafe::46) by SI1PR02CA0049.outlook.office365.com
+ (2603:1096:4:1f5::18) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.139.11 via Frontend Transport; Wed,
- 17 Jun 2026 05:28:51 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
-Received: from lewvzet200.ext.ti.com (198.47.23.194) by
- DS1PEPF0001709A.mail.protection.outlook.com (10.167.18.104) with Microsoft
+ 17 Jun 2026 06:04:49 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ SG2PEPF000B66CB.mail.protection.outlook.com (10.167.240.24) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.139.8 via Frontend Transport; Wed, 17 Jun 2026 05:28:51 +0000
-Received: from DLEE207.ent.ti.com (157.170.170.95) by lewvzet200.ext.ti.com
- (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 17 Jun
- 2026 00:28:51 -0500
-Received: from DLEE204.ent.ti.com (157.170.170.84) by DLEE207.ent.ti.com
- (157.170.170.95) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 17 Jun
- 2026 00:28:50 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE204.ent.ti.com
- (157.170.170.84) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Wed, 17 Jun 2026 00:28:50 -0500
-Received: from [172.24.231.152] (danish-tpc.dhcp.ti.com [172.24.231.152])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 65H5Si8W1608292;
-	Wed, 17 Jun 2026 00:28:44 -0500
-Message-ID: <a62d5243-d641-48e7-a1f5-88150513be48@ti.com>
-Date: Wed, 17 Jun 2026 10:58:43 +0530
+ 15.21.139.8 via Frontend Transport; Wed, 17 Jun 2026 06:04:48 +0000
+Received: from cix (unknown [172.18.64.61])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 85D3F41D400D;
+	Wed, 17 Jun 2026 14:04:47 +0800 (CST)
+From: joakim.zhang@cixtech.com
+To: mturquette@baylibre.com,
+	sboyd@kernel.org,
+	bmasney@redhat.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	p.zabel@pengutronix.de,
+	gary.yang@cixtech.com
+Cc: cix-kernel-upstream@cixtech.com,
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Joakim Zhang <joakim.zhang@cixtech.com>
+Subject: [PATCH v4 2/5] reset: cix: add audss support to sky1 reset driver
+Date: Wed, 17 Jun 2026 14:04:34 +0800
+Message-ID: <20260617060437.1474816-3-joakim.zhang@cixtech.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20260617060437.1474816-1-joakim.zhang@cixtech.com>
+References: <20260617060437.1474816-1-joakim.zhang@cixtech.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v7 2/2] net: ti: icssg-prueth: Add ethtool ops
- for Frame Preemption MAC Merge
-To: Meghana Malladi <m-malladi@ti.com>, Jakub Kicinski <kuba@kernel.org>
-CC: <elfring@users.sourceforge.net>, <haokexin@gmail.com>,
-        <vadim.fedorenko@linux.dev>, <devnexen@gmail.com>, <horms@kernel.org>,
-        <jacob.e.keller@intel.com>, <arnd@arndb.de>, <basharath@couthit.com>,
-        <afd@ti.com>, <parvathi@couthit.com>, <vladimir.oltean@nxp.com>,
-        <rogerq@kernel.org>, <pabeni@redhat.com>, <edumazet@google.com>,
-        <davem@davemloft.net>, <andrew+netdev@lunn.ch>,
-        <linux-arm-kernel@lists.infradead.org>, <netdev@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <srk@ti.com>, <vigneshr@ti.com>
-References: <20260610052511.781752-3-m-malladi@ti.com>
- <20260615231041.1007484-1-kuba@kernel.org>
- <20260615163932.50bb3df0@kernel.org>
- <d0123269-b1e8-4fba-94b0-b94d3d9a5405@ti.com>
-Content-Language: en-US
-From: MD Danish Anwar <danishanwar@ti.com>
-In-Reply-To: <d0123269-b1e8-4fba-94b0-b94d3d9a5405@ti.com>
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS1PEPF0001709A:EE_|IA4PR10MB8541:EE_
-X-MS-Office365-Filtering-Correlation-Id: ce539259-d96b-4a7c-7f7e-08decc3150f2
-X-LD-Processed: e5b49634-450b-4709-8abb-1e2b19b982b7,ExtAddr
+X-MS-TrafficTypeDiagnostic: SG2PEPF000B66CB:EE_|KL1PR0601MB5704:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: 3b657531-259d-46be-cc07-08decc3656ed
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|23010399003|7416014|376014|82310400026|22082099003|18002099003|56012099006|6133799003|4143699003;
-X-Microsoft-Antispam-Message-Info: ECKBD9nKE1uLoel/rzHX0bWlAyiNbfKhhggJK0NhzDHmSfG1GEdXyrkjkajbkZldxOJGwkhPp9afQLbVrjEk6AWxkR0VZvg5QJJ2mYDAQYSfZOzm/zYfVT2d3Yp2+YcZCblyh+1y/rU9hAvt+YXh7Lm3DBm4PLuShl3zMKcv+txGlasylGZiH/DXWM1lUQ+xUQvuJ+Sjf4GyqQPZ+gJrGQ5kS8VWpqlhpmqM2dDL2+NLk0jJAVurPLYaaz7Wi5Hmrs0pUjI9NTC0LUo8dwpSR5QTwrM5xfjHY05bRO5v9/sGA3jMfE/QHk7+RCsguY//GJu5FHsSRvh61sH0Lk9yJT3sRNO4yw+mbKkEDYV8vxknMoiV6Hye/jb8xj6v4rZCMxq++Py5aT4FfWwhHJD7Oqv73cMyOC9CgQ1Lvod+yb8UWAcjmLSjRwUUXUdTIYhwta7R/r/kMn0dP/NIGvvLlDGkFzGAvsJiVDpAFdX6n+aam4iN5afajrInfuih2ZLd+yGoQNwhIIAW4HPCuJOcfCQb2jZbmDvaUw5cZcYZcsRfbORabyFDaqETOA1ZR4e6ie5jSxhwmUxTFRbQEFv1agwvIB8fCtG6Y+BQOhq6/8+gdFXZzLfMupLlQAvOmc/+ahOEQjM2kHPBDtW6J6xzB13DiooVka4Z9M+bTG7LZo3cnW5vJit+dpSj5B0WKH9AFEcoN8eC8HQfI5cFHGHmfVq/QAfqWj9XyJnQp4d2v1U=
-X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(23010399003)(7416014)(376014)(82310400026)(22082099003)(18002099003)(56012099006)(6133799003)(4143699003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|23010399003|1800799024|36860700016|7416014|376014|18002099003|22082099003|56012099006;
+X-Microsoft-Antispam-Message-Info: VKatRRrKNILXQnxiZpvc1GbDrvHMU+zG+JkVz2fcCz4T/Ru+J/zcjo7qFBLunvr54QQUWjkQ2AXYeQnYqFX6QPpnCWHYSelpOP75hWfNJJlVdFQZN/otVDWErSpi0NuMH8Dc4QNaKARPvGL0E7tevOK95rMWGNHnoU1BgnFhNtYySCtkxBjXabM52gW9r8RGtRGHBJ2s7BwS/UDqa3ZR/9LE8ZvOhpU3sxNSXUyAiG7tgLvzpOBJiIe/2H40e3koKSwKQ6lEnb+mmoFIpQ4lTv/SKq2OUxTe+6dcroZgx4pCCIDfVBSaY4ZQ5Gd6AlMO87hnFvXgfRlzHwIsFx6DXMD0cowHoWItf6G0pZfyX46uXqupBI+ugp8iSIHO7mcbBxHQrklNv+sPyL+/Hk8m4pCTPwQs0hDCagSsNjj2gVBIdKzXS1tM7CB5Fdtt0bVZWkMBm/+YWG8fIw9W34JWcXz+Tp3bBb9DiNjWK1mxfbzsnMdH0oJyVZ52Iy4Px5AXGhwBfwV1nJkClyPpALM1CzQmz1jWtfeKEsHi/tKO5JLTpgpaMbcJty0BUr5snZCYEO6o/KZAlN22XZFB+mnoT0v1DFcoaHqvZPR+G9ynJ1btvz6OExkmBcgE3zzXV5WfKj4t7pGgW7RV5ts41fy7WCIHY0/tZ0FjLY5z4IfPkzrDwUTcuDyMpouvQBSl5Yn0AvGKTO9C30qtRMbA0jwUaAiQhIJVizbrjx7avRRoifY=
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(23010399003)(1800799024)(36860700016)(7416014)(376014)(18002099003)(22082099003)(56012099006);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: J1/MrA0CXY7zjVf7r0z9QvNGvGAr6rV4KY+qTfa50x0QYSxXCVs3WYC3nsJ9d2SYYGTY5lYUFmtGRsH5tSp6jD6iIYuIkYCy5h//MZAxN5ZU87q4E+o9lgowliHIVgFgg4Yhi1avu6JTc8AqBmVAoFSUIenaAghU6rJpqJZYgRG0+rKQi0os9+ss2YhR++s7xPoXGwTBba+1r815rpWT0ZdJTfXl+ZIh7wLwPJ8H1k5hreQ4bTPkdjTv3fFeysHccqEhlMRnYZXkUWmCH6NcP2gXZvmiL0rx6PaUv9Iz0C/S3ZfhDXwsPKwB/zG9vve49bOHWaYwMbDYER7ebn35BsLBTreEbP8DGRIWvN4nUNxxeKYX64zjfUYzE5kxXZWig+fZWtFTn9i2QZQM3Dl9klHxTCF5h1laB+VSwMIX1Cy6jZ5sBRm5WxOGUbf6CuqP
-X-Exchange-RoutingPolicyChecked: TtU3PNJJxlH6NlltcfICZI0H/GPIZITnZT501hC1zdNT8zv6onInKZkEcSu3tfn20hN8Gfi6PnIlaxv9dJ4rE7KRtapDZnCNLJ0iEDurGkcI+nxcUx26gwiMeRcx0ZDj5C5NUDZubUqPs2Xp2V8rq3VaYlBsnxnr+6T8VB756NqmkfQ3bIHmG0FFU3NRufrY4QzrSaxSrmVJ5HQpVT4jWFbdyhukC32GT2Tox1H5kQewwyxE9b6WsVvoBvz2cjnJRSzky2ovaUzHXVHbgy9u+LMHwZofVlq2bgeX5PPNiddnS2lh5Pa7ILvpC5EbdVH/37BNmiKigtNiA92h7A9cvw==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jun 2026 05:28:51.5738
+X-MS-Exchange-AntiSpam-MessageData-0: O4SemWu1VdrH3xBguFr2DpUpSvEa9h3M8QpOTPxVoco9kJBAUp2BaKMcEbiKeW6suBRULGvieb1AvVMxUH8/XhVeF2TLM9v6tQiX4mmgmQ/KvP5NmpJC8DAHjWJ72Jh2MEKryvkzR4j4nfB9jdqh4CkxvRMUjHvp3lo9Y7gWGXszzWpyhfXaLXqWtYvD64Tz6Lij8wfTbTib9GqoOdxhDyFWpl2DT5TYJbZsqrNa1l7ZoyI5hfnJ5ZvIQkil9xZbgLM0bzoAxu5Jyg/qcisbDJRIV7Q0Qr8fLu1SDvToILJQCR8oehds+HFGiSSg/E9NZPl4XwZH83If4P1qSGxCsRjFFr5l0hRCyOAK9kjexMsmjhvSaVMW/9RNMIhXq77+jV754TWt5vK9s8dUyK7D2TPpL8Ol04IPzy6ZPRVM6SfoGm7IeNqZWu9HHvBBjtcS
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jun 2026 06:04:48.9563
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: ce539259-d96b-4a7c-7f7e-08decc3150f2
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS1PEPF0001709A.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3b657531-259d-46be-cc07-08decc3656ed
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: SG2PEPF000B66CB.apcprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA4PR10MB8541
-X-Authority-Analysis: v=2.4 cv=YZONIQRf c=1 sm=1 tr=0 ts=6a323097 cx=c_pps
- a=OJmONvCW+i+0F2OUQkAdQg==:117 a=WotqVVQAdb04rnGuttW3Kw==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10
- a=s63m1ICgrNkA:10 a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=Z8NIEmU8O1QQgoT56wFK:22 a=gO1vWkAQAl3rybz1DQOp:22 a=grig9dWVmO9VqFHnrocA:9
- a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNjE3MDA0OCBTYWx0ZWRfX3o57DDSVYtjQ
- ddxGztycv2HsDDE/dtGc8lGMhtFQ47ytAmerFz4Z7ii0NLnJ6AuKKLkJ2x+uAMPMXGK5/CdYSoe
- 1TylgSA6/OqdUZ3sbmQ4dkaAvT0nC1Q=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjE3MDA0OCBTYWx0ZWRfX5GcbnEx4b/gh
- 72EkOwWNE4RHACuGIKfCcEmS/0+2NlUZOTi+FUuihB90GX4yqxwYTp1P13/iZI7YpA1zH+3YG06
- HweQZtx8PhQL4ZuPbKrdKeokY9nPSCWWQ8yIa8oZLiw2qYOkbqz9/CbnK8xYsJVzNbOlH/nRbec
- 2DcsqlqHoXPU1LFhI6+dmdhXpUziXihL130Ewo64MfssVR0yh51DlNlOYGDCpJkJXqFLeJ26fS4
- 1xESFur1SUkFvpaN+JqPWdYqzJfySZpsNvvdtqL8Uya628c4Jv8r/Z39gUmAOGx3uU54N0KTI2q
- u11DG0IOD8RZ222JEcTuz3j+cyYHc+wuEAvgzFtwhUiaYfcBSHU+ndnIthOa7lx66C3xiKd5OYU
- sX6PlccryuxIUx3FaM57eq5ab7Qa0Yp5Ox3QJPaqoRBaLSiNzs20mM0542nMf2RpWHFoR94YG4Q
- mOqbyJwi6wnLmCxEA5A==
-X-Proofpoint-GUID: BdNRJNeKE1WSEcp7t3_YZbbPArkt7qGw
-X-Proofpoint-ORIG-GUID: BdNRJNeKE1WSEcp7t3_YZbbPArkt7qGw
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-16_05,2026-06-16_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 impostorscore=0 bulkscore=0 clxscore=1011 adultscore=0
- phishscore=0 priorityscore=1501 malwarescore=0 suspectscore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2606170048
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR0601MB5704
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260616_223010_668406_35E3F09E 
-X-CRM114-Status: GOOD (  13.81  )
+X-CRM114-CacheID: sfid-20260616_230500_068792_BFDC031D 
+X-CRM114-Status: GOOD (  17.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,70 +123,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Meghana,
+From: Joakim Zhang <joakim.zhang@cixtech.com>
 
-On 16/06/26 6:24 pm, Meghana Malladi wrote:
-> Hi Jakub,
-> 
-> On 6/16/26 05:09, Jakub Kicinski wrote:
->> On Mon, 15 Jun 2026 16:10:41 -0700 Jakub Kicinski wrote:
->>>> diff --git a/drivers/net/ethernet/ti/icssg/icssg_stats.h b/drivers/
->>>> net/ethernet/ti/icssg/icssg_stats.h
->>>> index 5ec0b38e0c67..8073deac35c3 100644
->>>> --- a/drivers/net/ethernet/ti/icssg/icssg_stats.h
->>>> +++ b/drivers/net/ethernet/ti/icssg/icssg_stats.h
->>>> @@ -189,6 +187,11 @@ static const struct icssg_pa_stats
->>>> icssg_all_pa_stats[] = {
->>>>       ICSSG_PA_STATS(FW_INF_DROP_PRIOTAGGED),
->>>>       ICSSG_PA_STATS(FW_INF_DROP_NOTAG),
->>>>       ICSSG_PA_STATS(FW_INF_DROP_NOTMEMBER),
->>>> +    ICSSG_PA_STATS(FW_PREEMPT_BAD_FRAG),
->>>> +    ICSSG_PA_STATS(FW_PREEMPT_ASSEMBLY_ERR),
->>>> +    ICSSG_PA_STATS(FW_PREEMPT_FRAG_CNT_TX),
->>>> +    ICSSG_PA_STATS(FW_PREEMPT_ASSEMBLY_OK),
->>>> +    ICSSG_PA_STATS(FW_PREEMPT_FRAG_CNT_RX),
->>>>       ICSSG_PA_STATS(FW_RX_EOF_SHORT_FRMERR),
->>>>       ICSSG_PA_STATS(FW_RX_B0_DROP_EARLY_EOF),
->>>>       ICSSG_PA_STATS(FW_TX_JUMBO_FRM_CUTOFF),
->>>
->>> [Medium]
->>> Are these five new entries duplicating values that already have a
->>> standard uAPI?
->>>
->>> The same five firmware counters are exposed through the new
->>> .get_mm_stats callback as the standardized MAC Merge stats
->>> (MACMergeFrameAssOkCount, MACMergeFrameAssErrorCount,
->>> MACMergeFragCountRx,
->>> MACMergeFragCountTx, MACMergeFrameSmdErrorCount in struct
->>> ethtool_mm_stats), and adding them to icssg_all_pa_stats[] also
->>> publishes them via emac_get_strings() / emac_get_ethtool_stats() as
->>> ethtool -S strings.
->>>
->>> Documentation/networking/statistics.rst describes ethtool -S as the
->>> private-driver-stats interface; counters that have a standard uAPI are
->>> expected to flow only through that uAPI.
->>>
->>> Could the firmware-register lookup table used by emac_get_stat_by_name()
->>> be separated from the ethtool -S string table, so the new preemption
->>> counters feed get_mm_stats without also showing up under ethtool -S?
->>
->> This -- not sure about the other complaints but this one looks legit.
-> 
-> I agree that this is legit, but right now there is no other place holder
-> other than pa stats to put the mac merge firmware counters. I believe
+Extend the Sky1 reset controller driver for the AUDSS CRU syscon. The
+AUDSS block provides sixteen active-low software reset bits in one
+register for audio subsystem peripherals, reusing the existing
+regmap-based reset ops used by the FCH and S5 system control variants.
 
-You can put a boolean is_standard_stats. Only those where
-is_standard_stats=false will be populated via ethtool. Others will be
-populated via the standard interface.
+Signed-off-by: Joakim Zhang <joakim.zhang@cixtech.com>
+---
+ drivers/reset/reset-sky1.c | 86 ++++++++++++++++++++++++++++++++++++--
+ 1 file changed, 83 insertions(+), 3 deletions(-)
 
-Look at icssg_miig_stats for reference.
-
-> the effort needs to go in re-structuring the hardware and firmware stats
-> implementation to address this issue.
-> 
-
+diff --git a/drivers/reset/reset-sky1.c b/drivers/reset/reset-sky1.c
+index 78e80a533c39..462501c2ea06 100644
+--- a/drivers/reset/reset-sky1.c
++++ b/drivers/reset/reset-sky1.c
+@@ -10,12 +10,16 @@
+ #include <linux/mfd/syscon.h>
+ #include <linux/module.h>
+ #include <linux/of.h>
++#include <linux/of_platform.h>
+ #include <linux/platform_device.h>
++#include <linux/pm_runtime.h>
+ #include <linux/regmap.h>
++#include <linux/reset.h>
+ #include <linux/reset-controller.h>
+ 
+ #include <dt-bindings/reset/cix,sky1-system-control.h>
+ #include <dt-bindings/reset/cix,sky1-s5-system-control.h>
++#include <dt-bindings/reset/cix,sky1-audss-system-control.h>
+ 
+ #define SKY1_RESET_SLEEP_MIN_US		50
+ #define SKY1_RESET_SLEEP_MAX_US		100
+@@ -34,6 +38,7 @@ struct sky1_src {
+ 	struct reset_controller_dev rcdev;
+ 	const struct sky1_src_signal *signals;
+ 	struct regmap *regmap;
++	struct reset_control *rst_noc;
+ };
+ 
+ enum {
+@@ -258,6 +263,34 @@ static const struct sky1_src_variant variant_sky1_fch = {
+ 	.signals_num = ARRAY_SIZE(sky1_src_fch_signals),
+ };
+ 
++enum {
++	AUDSS_SW_RST = 0x78,
++};
++
++static const struct sky1_src_signal sky1_audss_signals[] = {
++	[AUDSS_I2S0_SW_RST]   = { AUDSS_SW_RST, BIT(0) },
++	[AUDSS_I2S1_SW_RST]   = { AUDSS_SW_RST, BIT(1) },
++	[AUDSS_I2S2_SW_RST]   = { AUDSS_SW_RST, BIT(2) },
++	[AUDSS_I2S3_SW_RST]   = { AUDSS_SW_RST, BIT(3) },
++	[AUDSS_I2S4_SW_RST]   = { AUDSS_SW_RST, BIT(4) },
++	[AUDSS_I2S5_SW_RST]   = { AUDSS_SW_RST, BIT(5) },
++	[AUDSS_I2S6_SW_RST]   = { AUDSS_SW_RST, BIT(6) },
++	[AUDSS_I2S7_SW_RST]   = { AUDSS_SW_RST, BIT(7) },
++	[AUDSS_I2S8_SW_RST]   = { AUDSS_SW_RST, BIT(8) },
++	[AUDSS_I2S9_SW_RST]   = { AUDSS_SW_RST, BIT(9) },
++	[AUDSS_WDT_SW_RST]    = { AUDSS_SW_RST, BIT(10) },
++	[AUDSS_TIMER_SW_RST]  = { AUDSS_SW_RST, BIT(11) },
++	[AUDSS_MB0_SW_RST]    = { AUDSS_SW_RST, BIT(12) },
++	[AUDSS_MB1_SW_RST]    = { AUDSS_SW_RST, BIT(13) },
++	[AUDSS_HDA_SW_RST]    = { AUDSS_SW_RST, BIT(14) },
++	[AUDSS_DMAC_SW_RST]   = { AUDSS_SW_RST, BIT(15) },
++};
++
++static const struct sky1_src_variant variant_sky1_audss = {
++	.signals = sky1_audss_signals,
++	.signals_num = ARRAY_SIZE(sky1_audss_signals),
++};
++
+ static struct sky1_src *to_sky1_src(struct reset_controller_dev *rcdev)
+ {
+ 	return container_of(rcdev, struct sky1_src, rcdev);
+@@ -318,17 +351,34 @@ static const struct reset_control_ops sky1_src_ops = {
+ 	.status   = sky1_reset_status
+ };
+ 
++static int __maybe_unused sky1_reset_runtime_suspend(struct device *dev)
++{
++	struct sky1_src *sky1src = dev_get_drvdata(dev);
++
++	return reset_control_assert(sky1src->rst_noc);
++}
++
++static int __maybe_unused sky1_reset_runtime_resume(struct device *dev)
++{
++	struct sky1_src *sky1src = dev_get_drvdata(dev);
++
++	return reset_control_deassert(sky1src->rst_noc);
++}
++
+ static int sky1_reset_probe(struct platform_device *pdev)
+ {
+ 	struct sky1_src *sky1src;
+ 	struct device *dev = &pdev->dev;
+ 	const struct sky1_src_variant *variant;
++	int ret;
+ 
+ 	sky1src = devm_kzalloc(dev, sizeof(*sky1src), GFP_KERNEL);
+ 	if (!sky1src)
+ 		return -ENOMEM;
+ 
+ 	variant = of_device_get_match_data(dev);
++	if (!variant)
++		return -ENODEV;
+ 
+ 	sky1src->regmap = device_node_to_regmap(dev->of_node);
+ 	if (IS_ERR(sky1src->regmap)) {
+@@ -343,12 +393,36 @@ static int sky1_reset_probe(struct platform_device *pdev)
+ 	sky1src->rcdev.of_node   = dev->of_node;
+ 	sky1src->rcdev.dev       = dev;
+ 
+-	return devm_reset_controller_register(dev, &sky1src->rcdev);
++	ret = devm_reset_controller_register(dev, &sky1src->rcdev);
++	if (ret)
++		return ret;
++
++	platform_set_drvdata(pdev, sky1src);
++
++	if (of_device_is_compatible(dev->of_node, "cix,sky1-audss-system-control")) {
++		sky1src->rst_noc = devm_reset_control_get_exclusive(dev, NULL);
++		if (IS_ERR(sky1src->rst_noc))
++			return dev_err_probe(dev, PTR_ERR(sky1src->rst_noc),
++					     "failed to get audss noc reset");
++
++		pm_runtime_get_noresume(dev);
++		pm_runtime_set_active(dev);
++		devm_pm_runtime_enable(dev);
++
++		reset_control_deassert(sky1src->rst_noc);
++
++		ret = devm_of_platform_populate(dev);
++		pm_runtime_put(dev);
++		return ret;
++	}
++
++	return 0;
+ }
+ 
+ static const struct of_device_id sky1_sysreg_of_match[] = {
+-	{ .compatible = "cix,sky1-system-control", .data = &variant_sky1_fch},
+-	{ .compatible = "cix,sky1-s5-system-control", .data = &variant_sky1},
++	{ .compatible = "cix,sky1-system-control", .data = &variant_sky1_fch },
++	{ .compatible = "cix,sky1-s5-system-control", .data = &variant_sky1 },
++	{ .compatible = "cix,sky1-audss-system-control", .data = &variant_sky1_audss },
+ 	{},
+ };
+ MODULE_DEVICE_TABLE(of, sky1_sysreg_of_match);
+@@ -358,6 +432,12 @@ static struct platform_driver sky1_reset_driver = {
+ 	.driver = {
+ 		.name		= "cix,sky1-rst",
+ 		.of_match_table = sky1_sysreg_of_match,
++		.pm		= &(const struct dev_pm_ops){
++			SET_RUNTIME_PM_OPS(sky1_reset_runtime_suspend,
++					   sky1_reset_runtime_resume, NULL)
++			SET_SYSTEM_SLEEP_PM_OPS(pm_runtime_force_suspend,
++						pm_runtime_force_resume)
++		},
+ 	},
+ };
+ module_platform_driver(sky1_reset_driver)
 -- 
-Thanks and Regards,
-Danish
+2.50.1
 
 
