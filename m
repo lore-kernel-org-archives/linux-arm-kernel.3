@@ -4,61 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F56FCD98ED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 12:40:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47F27CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 12:52:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5sUQR/xdZQxSzSMRRiS9uGPf8xtVlstkiyBWNK3BRuQ=; b=dOs1PyXA7M3sDYJ75Hh2Gdsk3k
-	a9qpsWpO3Jf1wYB0tTZFXPuh6uFvxmQUsXEjSM3I9y8V/WjrQv9xBMYSdNKyGFa0sVdTgia+MZEvW
-	oj+vqgutPZgGnB5DSnsoUvG/sjxVqnpRylJ4k/DI2DvTZLsNBDJ58VStOHBc1wuULblDCIRVMDQiy
-	7a5qHxlOsvxX9m4byINNKxlUyGo738XU1X6Y6A8kx/7N+1R6+usR41DFJsjIFMNo8fXkGRLWqSnik
-	6N4Tf/MS5XCpt2AJ+rKL7WI3psDHxQk1begLHGvGSHrNhX1TFXbJ0XmwMG6k8T3lb1lkPdVKEQR05
-	jcOzxxiQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=L+sZTuqfAwZOvcHkddEpZ2hQIeARdrjBTwFIa3TnH4M=; b=B5fG0C1XmebafkT4J8+LDq3Dev
+	k0tTRiCbNx2e3FCeX3RYducS7KvBuK4RA6Ez1H63v4He2fS01U80lhzkUcU69pHozxCYhLVbJx9Gw
+	fdA4YXNHynRLNgoG7djH1NmsChZys9Ha/SpoMX0fC4kXExwz0xP47jSgfJLXAAPhtbCAWQ1eEsW1s
+	YFkBy/Wagjjn/nDQEeC4eveaLWUwd1mUfkvNK8AZp1zEzlvWW97yF1Mvnwu+0jdqfQmXfb6GOUdPf
+	Ng7PAqVaqy+JZHaFpJCFwL8vvcLHVdDu19E3HkFLv5pGBpkHnAKRsZdsgRoypXCt31D6qar+tZTZH
+	+vWEWmcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waC2y-00000001HUy-2FG0;
-	Thu, 18 Jun 2026 12:40:40 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1waCEI-00000001Hut-2ubn;
+	Thu, 18 Jun 2026 12:52:22 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waC2x-00000001HUp-1T20;
-	Thu, 18 Jun 2026 12:40:39 +0000
+	id 1waCEH-00000001Hub-2YZj;
+	Thu, 18 Jun 2026 12:52:21 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1204E40A68;
-	Thu, 18 Jun 2026 12:40:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C46B1F000E9;
-	Thu, 18 Jun 2026 12:40:36 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A079460008;
+	Thu, 18 Jun 2026 12:52:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A67C1F00A3D;
+	Thu, 18 Jun 2026 12:52:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781786438;
-	bh=5sUQR/xdZQxSzSMRRiS9uGPf8xtVlstkiyBWNK3BRuQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=YKdudmbmAA7hoKeEjbEC5ynsd1yMi6ff4ydVxut7ivYJLXZJ8ToZRyoDl6Wsbcgqn
-	 h7uSslj4hlUqtFIdRc/6jzaAoaa/pwvo3cD5p4y/4VuMgK7ySgw8A+0leinMJ3oWZk
-	 KPTpw/++YT3M3I+UZENUSWka01ldYvd6LG5Jm484WgiR+vIDSxEIdVkdjeZlPtnBee
-	 lnkNDZ8e7FdjWqJu1XND2XJck6CfLEQHYDCGegW0TEbh3gB22B73Eumk4Oztw2Klnk
-	 SaTa1MgbtsBVZNDBAJy9h223qiXFG1iVYzVvVc4s2xiViaKbfiWFDIfXluoxoQSeHN
-	 mY/wzzvx3ePLw==
-Date: Thu, 18 Jun 2026 13:40:34 +0100
-From: Lee Jones <lee@kernel.org>
-To: Alexey Charkov <alchark@flipper.net>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH 3/4] mfd: Add support for UGREEN NASync DH2300 MCU
-Message-ID: <20260618124034.GI1672911@google.com>
-References: <20260612-dh2300-mcu-v1-0-ab8db1617bc0@flipper.net>
- <20260612-dh2300-mcu-v1-3-ab8db1617bc0@flipper.net>
+	s=k20260515; t=1781787140;
+	bh=L+sZTuqfAwZOvcHkddEpZ2hQIeARdrjBTwFIa3TnH4M=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=QJuMtccOvtTNhNy4ODHt796eaLXGIqqNI+marKFA2Y68RH49mxSJ6Qp3LLMeWvpA7
+	 7rhuBdSJwOd+Oarwz8U7s73cCMhSY0Egz1BIxE4hcvlXYuHpjMaTIPf+34ZvWreuyt
+	 iQtzRD9HUjRzQw0SXQK0IqxlIgxpxn30RWy5OMWWHGMFbCSApvSEVAfqtevhvRJYj0
+	 FRCLlTv77nVKmx3pDPV9sUicVg828RE3qUOoaaP8T22r0+2q6cx4pUqm0wHuirGr18
+	 sooykekHs1U1rDl9xrEAK1iqWbM9HaViAH7hhWXJVPX3CW7SJhg2LqeRGEurr/A3iU
+	 Rg72rnATGbq2Q==
+From: Mark Brown <broonie@kernel.org>
+To: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, Heiko Stuebner <heiko@sntech.de>, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: bui duc phuc <phucduc.bui@gmail.com>, 
+ linux-rockchip@lists.infradead.org, linux-sound@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ kernel@collabora.com
+In-Reply-To: <20260617-sai-revert-v1-1-e46adda2213b@collabora.com>
+References: <20260617-sai-revert-v1-1-e46adda2213b@collabora.com>
+Subject: Re: [PATCH] Revert "ASoC: rockchip: rockchip_sai: Use guard() for
+ spin locks"
+Message-Id: <178170382923.38451.6156134773470813531.b4-ty@b4>
+Date: Wed, 17 Jun 2026 14:43:49 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260612-dh2300-mcu-v1-3-ab8db1617bc0@flipper.net>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.16-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1154; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=5dwo2XrqeVLORSUE1lwRd6yNZITVOczsLi9vIE3RgdU=;
+ b=owGbwMvMwMWocq27KDak/QLjabUkhizjV4x857jfRDss/Ki4/oiiVfyyI4xbXvw039x12jpg6
+ 57stvPfOxmNWRgYuRhkxRRZ1j7LWJUeLrF1/qP5r2AGsTKBTGHg4hSAiaQ3sv93uKJ7O7bFj4FH
+ vKElisvm3LuW1/7dZsadbOveHUt85RSjwjMlnzlu0V1ezq0ys/brLWU+F5sWEKbS7lS5bN+flaK
+ uHx96ML5Jz5ndEzNztdNte2EJfz83K+6K0jPbudQi1E4dkNu1XDWt0V/v/B4D3rcMzo8P26iGcl
+ vY+sxPD+dXusB2UdXsmk6bmeqDzOn/HwW/OnN0ZUubwtvFvE/ZZmmq8Or/n679cNbqCz/tzm1w/
+ d1R3Pr5n8KqlpiMRNH7bIHTt3seruMN1puVfVum4rt2u9E9piWqhavKNE3j3Np/zE53Xmc8N7ni
+ unKR7mQNrT+Bm2oPcQSz3JxjxN9wxlOc02/Fo98mqi2KAA==
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,151 +84,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 12 Jun 2026, Alexey Charkov wrote:
+On Wed, 17 Jun 2026 13:46:04 +0200, Nicolas Frattaroli wrote:
+> Revert "ASoC: rockchip: rockchip_sai: Use guard() for spin locks"
 
-> Add a driver for the HC32F005 MCU used as an embedded controller on the
-> UGREEN NASync DH2300 NAS.
-> 
-> This part provides the shared I2C regmap to be used by function-specific
-> sub-devices, and instantiates the SATA drive-bay power gate regulator.
-> Implemented as an MFD to allow for other functions of the MCU to be added
-> later: vendor binaries imply that it also provides a hardware watchdog
-> and somehow serves as a wake source, but so far only the SATA power gating
-> function has been confirmed in absence of documentation and sources for the
-> vendor firmware.
-> 
-> Signed-off-by: Alexey Charkov <alchark@flipper.net>
-> ---
->  MAINTAINERS                     |  1 +
->  drivers/mfd/Kconfig             | 16 +++++++++++
->  drivers/mfd/Makefile            |  1 +
->  drivers/mfd/ugreen-dh2300-mcu.c | 60 +++++++++++++++++++++++++++++++++++++++++
->  4 files changed, 78 insertions(+)
+Applied to
 
-Did you see: drivers/mfd/simple-mfd-i2c.c ?
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.2
 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index ca27df7cd684..9578a06fe651 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -27637,6 +27637,7 @@ UGREEN DH2300 MCU MFD DRIVER
->  M:	Alexey Charkov <alchark@flipper.net>
->  S:	Maintained
->  F:	Documentation/devicetree/bindings/mfd/ugreen,dh2300-mcu.yaml
-> +F:	drivers/mfd/ugreen-dh2300-mcu.c
->  
->  UHID USERSPACE HID IO DRIVER
->  M:	David Rheinsberg <david@readahead.eu>
-> diff --git a/drivers/mfd/Kconfig b/drivers/mfd/Kconfig
-> index 763ce6a34782..5a2ad75bd9c9 100644
-> --- a/drivers/mfd/Kconfig
-> +++ b/drivers/mfd/Kconfig
-> @@ -1947,6 +1947,22 @@ config MFD_TPS6594_SPI
->  	  This driver can also be built as a module.  If so, the module
->  	  will be called tps6594-spi.
->  
-> +config MFD_UGREEN_DH2300_MCU
-> +	tristate "UGREEN NASync DH2300 embedded controller"
-> +	depends on I2C
-> +	depends on OF
-> +	select MFD_CORE
-> +	select REGMAP_I2C
-> +	help
-> +	  Say yes here to enable support for the HC32F005 microcontroller found
-> +	  on the UGREEN NASync DH2300 NAS, where it acts as a board embedded
-> +	  controller. This core driver sets up the shared register map and
-> +	  instantiates the function sub-devices (the SATA drive-bay power
-> +	  regulator).
-> +
-> +	  This driver can also be built as a module. If so, the module will be
-> +	  called ugreen-dh2300-mcu.
-> +
->  config TWL4030_CORE
->  	bool "TI TWL4030/TWL5030/TWL6030/TPS659x0 Support"
->  	depends on I2C=y
-> diff --git a/drivers/mfd/Makefile b/drivers/mfd/Makefile
-> index dd4bb7e77c33..6247239bcfe1 100644
-> --- a/drivers/mfd/Makefile
-> +++ b/drivers/mfd/Makefile
-> @@ -109,6 +109,7 @@ obj-$(CONFIG_MFD_TPS65912_SPI)  += tps65912-spi.o
->  obj-$(CONFIG_MFD_TPS6594)	+= tps6594-core.o
->  obj-$(CONFIG_MFD_TPS6594_I2C)	+= tps6594-i2c.o
->  obj-$(CONFIG_MFD_TPS6594_SPI)	+= tps6594-spi.o
-> +obj-$(CONFIG_MFD_UGREEN_DH2300_MCU)	+= ugreen-dh2300-mcu.o
->  obj-$(CONFIG_MENELAUS)		+= menelaus.o
->  
->  obj-$(CONFIG_TWL4030_CORE)	+= twl-core.o twl4030-irq.o twl6030-irq.o
-> diff --git a/drivers/mfd/ugreen-dh2300-mcu.c b/drivers/mfd/ugreen-dh2300-mcu.c
-> new file mode 100644
-> index 000000000000..5184b0c98759
-> --- /dev/null
-> +++ b/drivers/mfd/ugreen-dh2300-mcu.c
-> @@ -0,0 +1,60 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Core driver for the UGREEN NASync DH2300 embedded controller (HC32F005 MCU).
-> + *
-> + * The microcontroller sits on I2C and exposes an 8-bit register map. It is a
-> + * multi-function device: SATA drive-bay power gate, hardware watchdog and
-> + * possibly other functions
-> + */
-> +
-> +#include <linux/i2c.h>
-> +#include <linux/mfd/core.h>
-> +#include <linux/mod_devicetable.h>
-> +#include <linux/module.h>
-> +#include <linux/regmap.h>
-> +
-> +#define UGREEN_DH2300_MCU_REG_MAX	0x94
-> +
-> +static const struct regmap_config ugreen_dh2300_mcu_regmap_config = {
-> +	.reg_bits = 8,
-> +	.val_bits = 8,
-> +	.max_register = UGREEN_DH2300_MCU_REG_MAX,
-> +};
-> +
-> +static const struct mfd_cell ugreen_dh2300_mcu_cells[] = {
-> +	{ .name = "ugreen-dh2300-mcu-regulator" },
-> +};
-> +
-> +static int ugreen_dh2300_mcu_probe(struct i2c_client *client)
-> +{
-> +	struct device *dev = &client->dev;
-> +	struct regmap *regmap;
-> +
-> +	regmap = devm_regmap_init_i2c(client, &ugreen_dh2300_mcu_regmap_config);
-> +	if (IS_ERR(regmap))
-> +		return dev_err_probe(dev, PTR_ERR(regmap),
-> +				     "failed to initialise regmap\n");
-> +
-> +	return devm_mfd_add_devices(dev, PLATFORM_DEVID_AUTO,
-> +				    ugreen_dh2300_mcu_cells,
-> +				    ARRAY_SIZE(ugreen_dh2300_mcu_cells),
-> +				    NULL, 0, NULL);
-> +}
-> +
-> +static const struct of_device_id ugreen_dh2300_mcu_of_match[] = {
-> +	{ .compatible = "ugreen,dh2300-mcu" },
-> +	{ }
-> +};
-> +MODULE_DEVICE_TABLE(of, ugreen_dh2300_mcu_of_match);
-> +
-> +static struct i2c_driver ugreen_dh2300_mcu_driver = {
-> +	.driver = {
-> +		.name = "ugreen-dh2300-mcu",
-> +		.of_match_table = ugreen_dh2300_mcu_of_match,
-> +	},
-> +	.probe = ugreen_dh2300_mcu_probe,
-> +};
-> +module_i2c_driver(ugreen_dh2300_mcu_driver);
-> +
-> +MODULE_DESCRIPTION("UGREEN NASync DH2300 embedded controller core driver");
-> +MODULE_LICENSE("GPL");
-> 
-> -- 
-> 2.53.0
-> 
+Thanks!
 
--- 
-Lee Jones
+[1/1] Revert "ASoC: rockchip: rockchip_sai: Use guard() for spin locks"
+      https://git.kernel.org/broonie/sound/c/1a3c8e289597
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
