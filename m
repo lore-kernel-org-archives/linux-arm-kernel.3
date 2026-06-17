@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35639CD98F0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 21:18:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E87C6CD98F0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 21:24:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r8L0edQt/Ee/yQpXmlrZgcjgW4ACeKUS6LxtyCaw9XY=; b=CDaAbfgXIYfuZZpygWYQ3IecPz
-	pidyoIlwPPsHkoradTZBsiwMLAI+ERuOfov3rkbr4CAe2nSBQhpDa8dYZd4vBaxXdI1r3d2Iza+2+
-	wSX9bCH3864pFXpGqKWKMAPxoMr1MPiN5WhWGTK4fxomP9ibNjTFe/HcYscR0NF3LdNkQ0qjxfAfD
-	x2/lfy8ky4C5HmdB1pUQ4CGKPHPGVdkAAdbqu8PxRhjABvX5xj44cCW1r1SrZ9CGWGN2+Q98P2Qae
-	Vj32U+GZQa1klX/o8JP1ygk2JLjEhOR8UnuzBIQKTcKTqHyCMoxj1Ry/Ap8bX1/nHSN640Nqw/5ta
-	YDXoZ/DA==;
+	bh=beNpfuk/6VLfvMcqWyijbHRYY4nZbi8qSQddBym6GBw=; b=V4B0fyq0/8GfHwZFvIk0UeUMDW
+	hctuSLqAsgC60G8w2lfcOCp4dH9jFK9V+WAtXIkqFjnuTCBpwS+/u6MXPmcxp+6itwtkJSIO7Xk5H
+	r8jb1wiwSN4tBVDRX2gVENUVXzAZp69Mygq4e16McUy5gIp/Yn4/+ebHkJCl7cXTH7G8/uekHL9Qm
+	L+aQPjqTDRXJKUAClGtvPRKq4M7lVrwudcqx4R3upHCmiyee8FEKlcLmdprRaKKtifz2eSnbetEcU
+	7427YdN2j2nZhAVsOVCLTv3kFtlGjow10sxbTBfAJGLTHb8WNFbwjSQr1H/apk4ZSJPmBzy+/1VGs
+	XreIdySw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZxe2-00000000LWP-0Vk6;
-	Wed, 17 Jun 2026 21:17:58 +0000
+	id 1wZxju-00000000LkK-3bKx;
+	Wed, 17 Jun 2026 21:24:02 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZxdz-00000000LWC-3oPJ;
-	Wed, 17 Jun 2026 21:17:56 +0000
+	id 1wZxjt-00000000Lk7-2QKb
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 17 Jun 2026 21:24:01 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id DA3D86001D;
-	Wed, 17 Jun 2026 21:17:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A3F71F000E9;
-	Wed, 17 Jun 2026 21:17:52 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8FE536001D;
+	Wed, 17 Jun 2026 21:24:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2EF11F000E9;
+	Wed, 17 Jun 2026 21:23:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781731074;
-	bh=r8L0edQt/Ee/yQpXmlrZgcjgW4ACeKUS6LxtyCaw9XY=;
+	s=k20260515; t=1781731440;
+	bh=beNpfuk/6VLfvMcqWyijbHRYY4nZbi8qSQddBym6GBw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=EUFhYcTqHHFprC+qZA3THeFlIO8qFuA5cHIEVgLsAZVQ6sMUJU+vSWkNNi3if6Zv0
-	 OkPfTUuHql8WSH92iBZoJyldI9iRlKLs8V4PBdp+VV6pmYSmXiKyrmaWAZAo777F/B
-	 vbo8e2TjqdunvNkZUG10as16NbmOWAdi9cA/BcWQN7kas0fUJFIBJGnQSa35vgur4R
-	 oF2182EZPnrUMy8qvWvKwc7NYFxSQT0vgOA8bKxvd8P/wv2yPo8tC+jmCyYmpJ6QJ2
-	 kM0Ov8CC+QfE9NBm0IOUvLEVXJCTjPwsKJee/DQoL3N/KELYjdOiZKG3LncoK6sJsZ
-	 v5kDJI6h/C4lg==
-Date: Wed, 17 Jun 2026 22:17:50 +0100
+	b=Y3HdAWjJv7yEtzUHOcQNvSG0ujaiA74CmoR4PyzgxZa5PjqBHOHH0h0rCq/dkrLNc
+	 QNCWO1I52sgewS043ZwduF3iZz4HDhNv+Qgv+fY4MoKnSsXXoUt9fBRKVAIB6CWNGi
+	 39O+Gxcqk23ge9fI9ca3LxL9QMPnUh1LxBKLe3BAMRmoJD/vu/Qx/WJXwPSZhWprl2
+	 6N1ZUH8sRFNUj3/Q2qmzgUvrzaj+gacjV69Rob7XXntCij7VbZxAZ9ySCpkEySecjA
+	 i7YbjGEK8Pftnsb+oxP/K6EZRAStw5se4GbUavclmhL8MKUscg2sMxosd2rWNW6F3o
+	 TBn2wRF3QSV7A==
+Date: Wed, 17 Jun 2026 22:23:56 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Gerald Loacker <gerald.loacker@wolfvision.net>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+To: Stefan =?iso-8859-1?Q?D=F6singer?= <stefandoesinger@gmail.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, linux-phy@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH 2/3] dt-bindings: phy: rockchip-inno-csi-dphy: add
- rockchip,clk-lane-phase property
-Message-ID: <20260617-defrost-handler-3290abc01857@spud>
-References: <20260617-feature-mipi-csi-dphy-4k60-v1-0-4611ff00b0ff@wolfvision.net>
- <20260617-feature-mipi-csi-dphy-4k60-v1-2-4611ff00b0ff@wolfvision.net>
- <20260617-deviate-sulk-c57104ef939f@spud>
- <c34d4167-1a33-4e20-820c-735811b6a966@wolfvision.net>
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Brian Masney <bmasney@redhat.com>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH RFC v4 01/12] dt-bindings: clk: zte: Add zx297520v3 top
+ clock and reset bindings
+Message-ID: <20260617-deed-snap-4649ffae0e27@spud>
+References: <20260616-zx29clk-v4-0-ca994bd22e9d@gmail.com>
+ <20260616-zx29clk-v4-1-ca994bd22e9d@gmail.com>
+ <20260617-tabasco-pulsate-454ed3f8f0b6@spud>
+ <-l2OM6P0RNSYRQfOSObOyw@gmail.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Ickn2VCpN26N0qJ+"
+	protocol="application/pgp-signature"; boundary="aXpZeYmC7TLQbH+H"
 Content-Disposition: inline
-In-Reply-To: <c34d4167-1a33-4e20-820c-735811b6a966@wolfvision.net>
+In-Reply-To: <-l2OM6P0RNSYRQfOSObOyw@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,93 +80,104 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---Ickn2VCpN26N0qJ+
-Content-Type: text/plain; charset=utf-8
+--aXpZeYmC7TLQbH+H
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Wed, Jun 17, 2026 at 06:20:19PM +0200, Gerald Loacker wrote:
-> Hi Conor,
+On Wed, Jun 17, 2026 at 08:47:53PM +0300, Stefan D=F6singer wrote:
+> Am Mittwoch, 17. Juni 2026, 19:08:02 Ostafrikanische Zeit schrieb Conor=
+=20
+> Dooley:
+> > On Tue, Jun 16, 2026 at 11:26:21PM +0300, Stefan D=F6singer wrote:
 >=20
-> Am 17.06.2026 um 17:51 schrieb Conor Dooley:
-> > On Wed, Jun 17, 2026 at 02:23:14PM +0200, Gerald Loacker wrote:
-> >> Add support for the optional rockchip,clk-lane-phase device tree prope=
-rty
-> >> to allow board-specific tuning of the clock lane sampling phase for
-> >> improved signal integrity across supported data rates.
-> >>
-> >> Signed-off-by: Gerald Loacker <gerald.loacker@wolfvision.net>
-> >> ---
-> >>  Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml | 7=
- +++++++
-> >>  1 file changed, 7 insertions(+)
-> >>
-> >> diff --git a/Documentation/devicetree/bindings/phy/rockchip-inno-csi-d=
-phy.yaml b/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml
-> >> index 03950b3cad08c..0d824d1511bc0 100644
-> >> --- a/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml
-> >> +++ b/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml
-> >> @@ -56,6 +56,13 @@ properties:
-> >>      description:
-> >>        Some additional phy settings are access through GRF regs.
-> >> =20
-> >> +  rockchip,clk-lane-phase:
-> >> +    $ref: /schemas/types.yaml#/definitions/uint32
-> >> +    minimum: 0
-> >> +    maximum: 7
-> >> +    description:
-> >> +      Clock lane sampling phase in 40 ps steps. The hardware default =
-is 3.
+> > > +F:	Documentation/devicetree/zte,zx297520v3-*
 > >=20
-> > Can this instead become rockchip,clk-lane-phase-ps and be listed in the
-> > actual unit?
-> > With the -ps suffix, you can then drop the $ref.
-> > The default should be listed as "default: 3" (or default: 120)
-> >=20
-> > pw-bot: changes-requested
-> >=20
+> > Sashiko complaint here looks valid.
 >=20
-> Thanks for the suggestion.
+> Yes, it is valid.
 >=20
-> The phase setting is a hardware tap index (0=E2=80=937) selecting a delay=
- line
-> position. The datasheet mentions =E2=80=9Cabout 40 ps=E2=80=9D per step, =
-but this is not
-> a calibrated or guaranteed value and may vary with PVT.
+> It also brought up another concern in patch 12 that has an impact on this=
+=20
+> binding:
 >=20
-> Because of that, I=E2=80=99d prefer to keep the property as an index and
-> document the approximate delay in the description:
+> Am Dienstag, 16. Juni 2026, 23:42:19 Ostafrikanische Zeit schrieb sashiko-
+> bot@kernel.org:
+> > issue(s) to consider: - [Low] The `syscon-reboot` node is incorrectly
+> > defined at the root level using the explicitly deprecated `regmap`
+> > property. --
 >=20
-> Clock lane sampling phase selection (hardware tap index 0=E2=80=937). Eac=
-h step
-> corresponds to an approximately 40 ps delay as described in the hardware
-> specification.
+> And indeed "regmap" is deprecated and I missed it somehow. As far as I=20
+> understand, to put syscon-reboot as a child of the clock, I need to add t=
+he=20
+> simple-mfd .compatible:
 >=20
-> This matches the hardware model more closely. Happy to adjust if needed.
+> Either
 >=20
+> topclk: clock-controller@13b000 {
+> 	compatible =3D "zte,zx297520v3-topclk", "syscon", "simple-mfd";
+> 	reg =3D <0x0013b000 0x400>;
+> 	...
+> 	syscon-reboot {
+> 		compatible =3D "syscon-reboot";
+> 		regmap =3D <&topclk>;
+> 		offset =3D <0x0>;
+> 		mask =3D <0x1>;
+> 	};
+> };
+>=20
+> --- or ---
+>=20
+> something@13b000 {
+> 	compatible =3D "zte,zx297520v3-topcrm", "syscon", "simple-mfd";
+> 	reg =3D <0x0013b000 0x400>;
+> 	ranges;
+>=20
+> 	topclk: clock-controller@0 {
+> 		compatible =3D "zte,zx297520v3-topclk";
+> 		...
+> 	}
+>=20
+> 	syscon-reboot {
+> 		compatible =3D "syscon-reboot";
+> 		offset =3D <0x0>;
+> 		mask =3D <0x1>;
+> 	};
+> };
+>=20
+> I see both ways in existing DTS files (e.g. imx6sl.dtsi for the fomer,=20
+> uniphier-pro4.dtsi for the latter). Is there a preferred way? I have a mi=
+ld=20
+> preference for the first, as it would keep all 3 clocks in the same way. =
+If I=20
+> go for the second, the clock driver would have to query its own node and =
+the=20
+> parent node for the regmap.
 
-Sure, I think that's fair.
+The first one is more natural...
 
-> >> +
-> >>  required:
-> >>    - compatible
-> >>    - reg
-> >>
-> >> --=20
-> >> 2.34.1
-> >>
->=20
+> AFAIU unrelated to syscon-reboot option 2 would give me the opportunity t=
+o=20
+> have separate clock and reset nodes and bindings and skip the aux bus, bu=
+t=20
+> this would not be a correct representation of how the hardware works.
 
---Ickn2VCpN26N0qJ+
+=2E..for this reason!
+Do you actually need an aux bus here though? Since you have to add
+simple-mfd for your the syscon-reboot and simple-mfd is a real bus, can you
+set the reset controller up with an mfd_cell + devm_mfd_add_devices()
+instead?
+
+--aXpZeYmC7TLQbH+H
 Content-Type: application/pgp-signature; name=signature.asc
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCajMO/gAKCRB4tDGHoIJi
-0nNiAQDGqdn+tVrfgHKSxX2jDI4GVxuPM/2N7UWyiTmGN1rXPQEAgQ4uRnmAPDwA
-ghCPMmy7HHNGhVGn8aephG5ofuMtPgg=
-=h3/b
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCajMQawAKCRB4tDGHoIJi
+0i1ZAQChkntDCaVz6at1gTETpGDuYDaGrt/c9Ih6y89+zogSggD/QNSAz1aKjTsZ
+eA1aiNiWJJUe0WjPlwBo8QPgGL6g4Qc=
+=eiAi
 -----END PGP SIGNATURE-----
 
---Ickn2VCpN26N0qJ+--
+--aXpZeYmC7TLQbH+H--
 
