@@ -4,94 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A500FCD98F0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 02:59:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E658DCD98E1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 03:00:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qlq7rf7D7jnIOwcFham5QcmoXd7kahsZXkCesqlAf3g=; b=IULG3956hbq6Puk3G1fdDjRJYM
-	RZTC9c1GsSSJplorQ1pGt+HP+hx7qvLdXefafyDHSVXRc7IHDFMb/mEzfCdGFaX+4GEqHLid1LkfE
-	5WPEjSEKOrvVgCwBYCyVwEyG4sh9iNgpiiS1VzoGNpKGiqzPTkPBZ86BaiXR1hptn3cpp0GGAS/++
-	GppgLWBt5N/chJ7SSm13cbSJkBFDY8oViPTng8W4DB9EAalTBuqVdGpGNpepr0gNOUfivGQDuJclN
-	Ahxbea7HIpOylbPEYRS9QFP+UBNJJ/mn8OnjEUd5PjQFpH6zYVmP0j2wEuvDE28rd6kIiufmC87Et
-	X1HyPDlw==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=755kSzKoGCVo0Cb8/TSXpktU8jUi66NDNw4VHwou0DU=; b=dHXwOk6A30MCWMKfW+u/fmfQCD
+	UEhFKV+1zhaKHEA3bJwnzO5mpC3/gD2tDjuMWPb8/OykPOYCQ/wgxyPcXkOzywXxA42JJkm+pvS0r
+	k9QVxaupPQlm6gUEyQQCnjQe6ZfeQCogLtTvpR0SSncGIlEJXQjJv9qsPWyFjnyB3QGONUZw5irEM
+	dlCUeBbtHuJzgqpPDxSq+ap44F9Fn4dRC8uSrec4FT7Ea73yRVzSO3cEaYYIaarE0KVhcSzXTUsFl
+	yS4LNcWGBYAuBY1qvIQAtXbR8B+4mL3fwvFeXXYXTfQ+Xh+xjI8VcevulcUhy8+NQ0OTjvjvYrEad
+	2pDqZdCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZgVD-0000000GXE1-3d80;
-	Wed, 17 Jun 2026 02:59:43 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1wZgW5-0000000GXRW-0JZJ;
+	Wed, 17 Jun 2026 03:00:37 +0000
+Received: from mout-p-202.mailbox.org ([80.241.56.172])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZgVB-0000000GXDL-1E2D
+	id 1wZgW2-0000000GXQl-1CNo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 02:59:43 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-84237c55ef9so3351671b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 19:59:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781665181; x=1782269981; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Qlq7rf7D7jnIOwcFham5QcmoXd7kahsZXkCesqlAf3g=;
-        b=O89uTYOFW7L9UZnVJmxG5Au7Skby8Gm98XkkEIySWvua8C9YYg692KpoC92JvRIOvt
-         mx0uGfsE982bY4DMPbG5/Dh85zoEKPV8aD2YZ0XUky6gz7yJkJEI9y/7Gkqb9aHTCz45
-         KN3mxyonubGsqng0pvDcCMkXobwJTMlKE2XeGdt9cNoLeZ3g2o0jIUlZYQ+FjY1xdVfx
-         co71x96rFuTPiMA20P1Nih1SM9NxybSJjpLD2gzOhLR8hvgvnRrn198vNIAarIeD+eAd
-         t5nGsIpssQmWmQMChHAYE9pPBGW1A6Hx+ZWTbS6j05MP/JRMJDON9PQKt7a2S63VAAUB
-         91eA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781665181; x=1782269981;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Qlq7rf7D7jnIOwcFham5QcmoXd7kahsZXkCesqlAf3g=;
-        b=DNzJRHi6VpbS8ohl/JjZgIUbNsXRHrCkwgtJcwhpEUDjgFYR6h5SN4ZX4HjYuSmXfD
-         rhBgcdeuqfE4vX6/B0flbDt4VfbGAAy3Z+3/8NjboaKOgoYYZKnZos1tHStDFfe0R5A8
-         DCWy8XlZu/YNMK3Xgrl6BzKqm2XVXCnAc2wlByPLZd7nMzPGrDxHSFe/bAYlJpQGJGeM
-         CbP7gOSs/G/Qxtg5YSnreevmm/nK0IFLJUZA04nz9wlwXiGZmxDNd22i39TCRmSGmkN3
-         j4AzJypRV6dy+Amt0SnvNBKrucPXBHwXlhswODIajoTWTmpI/JiveJIgqwkICKVAisk9
-         2wZg==
-X-Gm-Message-State: AOJu0YxCfh+WzDT7FtsG8CUMuOPyK/Rgb+fEqU6y8iV5Xt3l29T3u2fx
-	99OBt8XapsFw8ApW0e6PZv/3CNnIj6gb9CK3agyzdl2pV9BMiEsQ5mCr
-X-Gm-Gg: Acq92OFhyNu4JnKJinSDi/xAJWXzIoWnZlTQa6pZ+WpxymYc5l6qFllw2i2IocqgSz9
-	cQXgzDFu/9wSD2BziVdL5Zy35H49uyShdAqgDaK0PWlYJkiPhf/hrjdm7C5KUuzkPRLu4K3vi+m
-	DvAoZsNo+Mkp3Oyqi2juvwYxrAMi65NlFQD6L+XcevYSbZ3xjwPB7P4geyprbrdoMEGnSGzvKoc
-	Xp44y/OV+XG2B8qXSH1Zbp8u89xvLLzHJWcWZMoAHUUk8DgJKjv/UKPYpZC1OmFa6bYKedS7NEI
-	1D9oByivs1T4yiahZ615QJQYPwpXu6QWo/7M+VgaB1Yu+RVmOEEoSHJuwujqa83Gl1yGUMllkyB
-	OmMJLD90PG7AYwHUxCG9q9mK6lJtzb1alUVNxoA8onRzdik/Y8x3n+4whHIUYQX7A2Z1H7g2+1z
-	JT8ri10XgI+uJjhaMqMIDomMa7DRAWmx3xDnsrYSZStIGT7xAWWKUlJkXSuEV1/tyxKtCzUXfTT
-	dk=
-X-Received: by 2002:a05:6a00:80a:b0:842:5719:455c with SMTP id d2e1a72fcca58-84524561f5bmr1631613b3a.25.1781665180476;
-        Tue, 16 Jun 2026 19:59:40 -0700 (PDT)
-Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8434afc825csm14212821b3a.36.2026.06.16.19.59.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 16 Jun 2026 19:59:40 -0700 (PDT)
-From: Chi-Wen Weng <cwweng.linux@gmail.com>
-To: ukleinek@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-pwm@vger.kernel.org,
+	Wed, 17 Jun 2026 03:00:36 +0000
+Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:b231:465::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4gg7rr5CFnz9tsW;
+	Wed, 17 Jun 2026 05:00:28 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1781665228;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=755kSzKoGCVo0Cb8/TSXpktU8jUi66NDNw4VHwou0DU=;
+	b=b61+jpkyS00DITJ6Dd6gzKSWsbglkfkz5NpkbnBFUhCAwe8xu+6KyQ0e+SYZEJ6KpudBhW
+	jfIfBVEGolzmHfUZeA3zRgu9E5lNuPMKz3wCLqJr5edmWs9odft67RA9+GNpmto1QzbBYP
+	ikUECIhoAgEo+VdVmWB97uupF2ldhIiIBrBuaqGUJ0NkxASWh7fC5+fDM3nVHhbAKPPYiB
+	9rfdzy4O4IZBwZFEBqfq4sToK89gUfAJvNPMosL4AqL4poZm94MjQ+Q9MShWVDs7uYV16h
+	Pcq+GHilHuJ6NUjDGyZvXZ0H8dUGMlQOk9D8CVZ6v323f0Bggb+PcruzBAyhnw==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=f9po6CAw;
+	spf=pass (outgoing_mbo_mout: domain of marek.vasut+renesas@mailbox.org designates 2001:67c:2050:b231:465::1 as permitted sender) smtp.mailfrom=marek.vasut+renesas@mailbox.org
+From: Marek Vasut <marek.vasut+renesas@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1781665226;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=755kSzKoGCVo0Cb8/TSXpktU8jUi66NDNw4VHwou0DU=;
+	b=f9po6CAw/6ZJzzx4IHKkIHCzG7S7g0dKoXo56Ocqw3FiTbPfCRv5gIF1xWSfwueZk+goRr
+	JesIQ9a+9SDuzfmAtoho0JZ/ssVjcOOidGectPq6Mt1iATb5BR2NW1Vw4Aac+5W2whMcyW
+	kU89brzDPXXTozRhCMFIWjqHr8A8/WC2K+UtpIg6eLzqXW2DG0epzdfUEFiykKeR//dp7G
+	NwDdEERMKc+J7oSpesSuw7XsSnPUsreqHzzkhEsElw+PLBasZxKJmzLrxuHiG9RhAdYXUA
+	J4L+c2wQJJeZ81NOJTzYbO6HZr2Kv042/wNA5Urry9VVyMlGhYi3svJQ4FnU1Q==
+To: linux-pci@vger.kernel.org
+Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Rob Herring <robh@kernel.org>,
 	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	cwweng@nuvoton.com,
-	cwweng.linux@gmail.com,
-	Trevor Gamblin <tgamblin@baylibre.com>
-Subject: [PATCH v4 2/2] pwm: Add Nuvoton MA35D1 PWM controller support
-Date: Wed, 17 Jun 2026 10:59:25 +0800
-Message-Id: <20260617025925.2539334-3-cwweng.linux@gmail.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20260617025925.2539334-1-cwweng.linux@gmail.com>
-References: <20260617025925.2539334-1-cwweng.linux@gmail.com>
+	linux-renesas-soc@vger.kernel.org
+Subject: [PATCH 1/3] PCI: rcar-gen4: Configure AXIINTC if iMSI-RX not used
+Date: Wed, 17 Jun 2026 04:59:44 +0200
+Message-ID: <20260617030008.154449-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-MBO-RS-ID: 50660cbd64fe0ecdeeb
+X-MBO-RS-META: pfxbqyyscfkyoswjsnjgjm6195nm4mcb
+X-Rspamd-Queue-Id: 4gg7rr5CFnz9tsW
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260616_195941_350808_F93C4217 
-X-CRM114-Status: GOOD (  29.27  )
+X-CRM114-CacheID: sfid-20260616_200034_684206_7D08D44C 
+X-CRM114-Status: GOOD (  14.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,419 +103,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chi-Wen Weng <cwweng@nuvoton.com>
+In case MSI are enabled, but DWC built-in iMSI-RX is not in use, the
+MSI are handled via GIC ITS. Configure all controller MSI registers
+fully.
 
-Add a PWM framework driver for the Nuvoton MA35D1 PWM controller.
+Set or clear MSI capability register MSICAP0 MSI enable MSIE bit and
+PCIe Interrupt Status 0 Enable register PCIEINTSTS0EN MSI interrupt
+enable MSI_CTRL_INT bit according to MSI enable state, set both bits
+if MSI are enabled, clear both bits if MSI are disabled.
 
-The MA35D1 PWM controller provides 6 PWM channels. The hardware supports
-up, down and up-down counter types, auto-reload and one-shot modes, and
-independent and complementary output modes. This driver configures all
-channels to up-counting mode, auto-reload mode and independent output mode.
+If MSI are disabled, or MSI are enabled and iMSI-RX is used, then
+deconfigure AXIINTCADDR and AXIINTCCONT to 0, which disables any
+pass through of MSI TLPs onto the AXI bus and then further into
+GIC ITS translation registers.
 
-The waveform generator is configured to drive the output high at the zero
-point and low at the compare-up point. In up-counting mode the counter
-counts from 0 to PERIOD inclusive, so the PWM period is PERIOD + 1 cycles.
-With the selected waveform actions, CMPDAT = 0 generates 0% duty cycle and
-CMPDAT > PERIOD generates 100% duty cycle. Limit PERIOD to 0xfffe so that
-CMPDAT = 0xffff can be used for the full-duty case.
+If MSI are enabled and iMSI-RX is not used, the configure AXIINTCADDR
+with target address of GIC ITS translation registers, and configure
+AXIINTCCONT to enable MSI TLP pass through onto AXI bus and into the
+GIC ITS. This specific configuration allows handling of MSI via the
+GIC ITS instead of integrated iMSI-RX.
 
-PERIOD and CMPDAT updates are buffered by the hardware and take effect at
-the end of the current period because IMMLDENn is left disabled. When the
-PWM output is disabled, POENn is cleared and the output pin is put into
-tri-state.
-
-Reviewed-by: Trevor Gamblin <tgamblin@baylibre.com>
-Signed-off-by: Chi-Wen Weng <cwweng@nuvoton.com>
+Signed-off-by: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
+Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 ---
- drivers/pwm/Kconfig      |   9 +
- drivers/pwm/Makefile     |   1 +
- drivers/pwm/pwm-ma35d1.c | 344 +++++++++++++++++++++++++++++++++++++++
- 3 files changed, 354 insertions(+)
- create mode 100644 drivers/pwm/pwm-ma35d1.c
+NOTE: This would not be possible without prior work from Shimoda-san
+---
+Cc: "Krzysztof Wilczyński" <kwilczynski@kernel.org>
+Cc: Bjorn Helgaas <bhelgaas@google.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Manivannan Sadhasivam <mani@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Rob Herring <robh@kernel.org>
+Cc: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
+Cc: devicetree@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-doc@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-pci@vger.kernel.org
+Cc: linux-renesas-soc@vger.kernel.org
+---
+ drivers/pci/controller/dwc/pcie-rcar-gen4.c | 53 +++++++++++++++++++--
+ 1 file changed, 48 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
-index e8886a9b64d9..355131e6efac 100644
---- a/drivers/pwm/Kconfig
-+++ b/drivers/pwm/Kconfig
-@@ -463,6 +463,15 @@ config PWM_LPSS_PLATFORM
- 	  To compile this driver as a module, choose M here: the module
- 	  will be called pwm-lpss-platform.
+diff --git a/drivers/pci/controller/dwc/pcie-rcar-gen4.c b/drivers/pci/controller/dwc/pcie-rcar-gen4.c
+index 485cfa8bd9692..ba6e3bedd6d0a 100644
+--- a/drivers/pci/controller/dwc/pcie-rcar-gen4.c
++++ b/drivers/pci/controller/dwc/pcie-rcar-gen4.c
+@@ -31,6 +31,10 @@
+ #define DEVICE_TYPE_RC		BIT(4)
+ #define BIFUR_MOD_SET_ON	BIT(0)
  
-+config PWM_MA35D1
-+	tristate "Nuvoton MA35D1 PWM support"
-+	depends on ARCH_MA35 || COMPILE_TEST
-+	help
-+	  Generic PWM framework driver for Nuvoton MA35D1.
++/* MSI Capability */
++#define MSICAP0			0x0050
++#define MSICAP0_MSIE		BIT(16)
 +
-+	  To compile this driver as a module, choose M here: the module
-+	  will be called pwm-ma35d1.
+ /* PCIe Interrupt Status 0 */
+ #define PCIEINTSTS0		0x0084
+ 
+@@ -55,6 +59,16 @@
+ #define APP_HOLD_PHY_RST	BIT(16)
+ #define APP_LTSSM_ENABLE	BIT(0)
+ 
++/* INTC address */
++#define AXIINTCADDR		0x0a00
++/* GITS GIC ITS translation register */
++#define AXIINTCADDR_VAL		0xf1050000
 +
- config PWM_MAX7360
- 	tristate "MAX7360 PWMs"
- 	depends on MFD_MAX7360
-diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
-index 5630a521a7cf..7ad761ea27d1 100644
---- a/drivers/pwm/Makefile
-+++ b/drivers/pwm/Makefile
-@@ -40,6 +40,7 @@ obj-$(CONFIG_PWM_LPC32XX)	+= pwm-lpc32xx.o
- obj-$(CONFIG_PWM_LPSS)		+= pwm-lpss.o
- obj-$(CONFIG_PWM_LPSS_PCI)	+= pwm-lpss-pci.o
- obj-$(CONFIG_PWM_LPSS_PLATFORM)	+= pwm-lpss-platform.o
-+obj-$(CONFIG_PWM_MA35D1)	+= pwm-ma35d1.o
- obj-$(CONFIG_PWM_MAX7360)	+= pwm-max7360.o
- obj-$(CONFIG_PWM_MC33XS2410)	+= pwm-mc33xs2410.o
- obj-$(CONFIG_PWM_MEDIATEK)	+= pwm-mediatek.o
-diff --git a/drivers/pwm/pwm-ma35d1.c b/drivers/pwm/pwm-ma35d1.c
-new file mode 100644
-index 000000000000..c07eedeca035
---- /dev/null
-+++ b/drivers/pwm/pwm-ma35d1.c
-@@ -0,0 +1,344 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Driver for the Nuvoton MA35D1 PWM controller
-+ *
-+ * Copyright (C) 2026 Nuvoton Corporation
-+ *               Chi-Wen Weng <cwweng@nuvoton.com>
-+ *
-+ * Reference Manual:
-+ * https://www.nuvoton.com.cn/resource-download.jsp?tp_GUID=DA05-MA35D16
-+ *
-+ * Limitations:
-+ * - The hardware supports 6 PWM channels.
-+ * - The hardware supports up, down and up-down counter types. This driver
-+ *   configures all channels to up-counting mode.
-+ * - The hardware supports auto-reload and one-shot counter modes. This driver
-+ *   configures all channels to auto-reload mode.
-+ * - The hardware supports independent and complementary output modes. This
-+ *   driver configures all channels to independent output mode.
-+ * - The hardware supports programmable waveform actions at zero, period and
-+ *   compare points. This driver uses zero point high and compare-up point low
-+ *   actions for normal PWM output.
-+ * - In up-counting mode, the counter counts from 0 to PERIOD inclusive. With
-+ *   zero point high and compare-up point low actions, CMPDAT = 0 produces 0%
-+ *   duty and CMPDAT > PERIOD produces 100% duty.
-+ * - The driver limits PERIOD to 0xfffe so that CMPDAT can be set greater than
-+ *   PERIOD to generate a 100% duty cycle.
-+ * - Period and duty cycle changes are buffered by hardware and take effect at
-+ *   the end of the current period because IMMLDENn is left disabled.
-+ * - Polarity changes are applied directly and may cause a transient output
-+ *   change if the PWM output is running.
-+ * - When disabled, the output pin is put in tri-state by clearing POENn.
-+ */
++/* INTC control & mask */
++#define AXIINTCCONT		0x0a04
++#define INTC_EN			BIT(31)
++#define INTC_MASK		GENMASK(11, 2)
 +
-+#include <linux/bits.h>
-+#include <linux/clk.h>
-+#include <linux/io.h>
-+#include <linux/math64.h>
-+#include <linux/mod_devicetable.h>
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+#include <linux/pwm.h>
-+
-+#define MA35D1_REG_PWM_CTL0			0x00
-+#define MA35D1_REG_PWM_CTL1			0x04
-+#define MA35D1_REG_PWM_CNTEN			0x20
-+#define MA35D1_REG_PWM_PERIOD(ch)		(0x30 + 4 * (ch))
-+#define MA35D1_REG_PWM_CMPDAT(ch)		(0x50 + 4 * (ch))
-+#define MA35D1_REG_PWM_WGCTL0			0xb0
-+#define MA35D1_REG_PWM_WGCTL1			0xb4
-+#define MA35D1_REG_PWM_POLCTL			0xd4
-+#define MA35D1_REG_PWM_POEN			0xd8
-+
-+#define MA35D1_PWM_CTL1_CNTMODE_MASK(ch)	BIT(16 + (ch))
-+#define MA35D1_PWM_CTL1_OUTMODE_MASK(ch)	BIT(24 + ((ch) / 2))
-+
-+#define MA35D1_PWM_WGCTL_ACTION_MASK		0x3
-+#define MA35D1_PWM_WGCTL_ACTION_LOW		1
-+#define MA35D1_PWM_WGCTL_ACTION_HIGH		2
-+
-+#define MA35D1_PWM_WGCTL_ZERO_HIGH(ch)		\
-+	(MA35D1_PWM_WGCTL_ACTION_HIGH << (2 * (ch)))
-+#define MA35D1_PWM_WGCTL_CMP_UP_LOW(ch)		\
-+	(MA35D1_PWM_WGCTL_ACTION_LOW << (2 * (ch)))
-+
-+#define MA35D1_PWM_CNTEN_EN(ch)			BIT(ch)
-+#define MA35D1_PWM_POEN_EN(ch)			BIT(ch)
-+#define MA35D1_PWM_POLCTL_INV(ch)		BIT(ch)
-+
-+#define MA35D1_PWM_MAX_CMPDAT			0xffff
-+#define MA35D1_PWM_MAX_PERIOD			0xfffe
-+#define MA35D1_PWM_MAX_PERIOD_CYCLES		(MA35D1_PWM_MAX_PERIOD + 1)
-+#define MA35D1_PWM_NUM_CHANNELS			6
-+
-+struct nuvoton_pwm {
-+	void __iomem *base;
-+	unsigned long clkrate;
-+};
-+
-+static inline struct nuvoton_pwm *nuvoton_pwm_from_chip(struct pwm_chip *chip)
+ /* PCIe Power Management Control */
+ #define PCIEPWRMNGCTRL		0x0070
+ #define APP_CLK_REQ_N		BIT(11)
+@@ -305,6 +319,39 @@ static struct rcar_gen4_pcie *rcar_gen4_pcie_alloc(struct platform_device *pdev)
+ 	return rcar;
+ }
+ 
++static void rcar_gen4_pcie_host_msi_init(struct dw_pcie_rp *pp)
 +{
-+	return pwmchip_get_drvdata(chip);
-+}
++	struct dw_pcie *dw = to_dw_pcie_from_pp(pp);
++	struct rcar_gen4_pcie *rcar = to_rcar_gen4_pcie(dw);
++	u32 val;
 +
-+static inline u32 nuvoton_pwm_ctl1_cnttype_mask(unsigned int ch)
-+{
-+	return MA35D1_PWM_WGCTL_ACTION_MASK << (2 * ch);
-+}
-+
-+static inline u32 nuvoton_pwm_wgctl_zero_mask(unsigned int ch)
-+{
-+	return MA35D1_PWM_WGCTL_ACTION_MASK << (2 * ch);
-+}
-+
-+static inline u32 nuvoton_pwm_wgctl_period_mask(unsigned int ch)
-+{
-+	return MA35D1_PWM_WGCTL_ACTION_MASK << (16 + 2 * ch);
-+}
-+
-+static inline u32 nuvoton_pwm_wgctl_cmp_up_mask(unsigned int ch)
-+{
-+	return MA35D1_PWM_WGCTL_ACTION_MASK << (2 * ch);
-+}
-+
-+static inline u32 nuvoton_pwm_wgctl_cmp_down_mask(unsigned int ch)
-+{
-+	return MA35D1_PWM_WGCTL_ACTION_MASK << (16 + 2 * ch);
-+}
-+
-+static inline u32 nuvoton_pwm_readl(struct nuvoton_pwm *nvtpwm,
-+				    unsigned int offset)
-+{
-+	return readl(nvtpwm->base + offset);
-+}
-+
-+static inline void nuvoton_pwm_writel(struct nuvoton_pwm *nvtpwm,
-+				      unsigned int offset, u32 value)
-+{
-+	writel(value, nvtpwm->base + offset);
-+}
-+
-+static inline void nuvoton_pwm_rmw(struct nuvoton_pwm *nvtpwm,
-+				   unsigned int offset, u32 mask, u32 value)
-+{
-+	u32 reg;
-+
-+	reg = nuvoton_pwm_readl(nvtpwm, offset);
-+	reg &= ~mask;
-+	reg |= value & mask;
-+	nuvoton_pwm_writel(nvtpwm, offset, reg);
-+}
-+
-+static void nuvoton_pwm_init(struct nuvoton_pwm *nvtpwm)
-+{
-+	u32 ctl1_mask = 0;
-+	u32 wgctl0_mask = 0;
-+	u32 wgctl0_val = 0;
-+	u32 wgctl1_mask = 0;
-+	u32 wgctl1_val = 0;
-+	int ch;
-+
-+	for (ch = 0; ch < MA35D1_PWM_NUM_CHANNELS; ch++) {
-+		/* CNTTYPEn = 00: up counter type */
-+		ctl1_mask |= nuvoton_pwm_ctl1_cnttype_mask(ch);
-+
-+		/* CNTMODEn = 0: auto-reload mode */
-+		ctl1_mask |= MA35D1_PWM_CTL1_CNTMODE_MASK(ch);
-+
-+		/* ZPCTLn = 10: output high at zero point */
-+		wgctl0_mask |= nuvoton_pwm_wgctl_zero_mask(ch);
-+		wgctl0_val |= MA35D1_PWM_WGCTL_ZERO_HIGH(ch);
-+
-+		/* PRDPCTLn = 00: do nothing at period point */
-+		wgctl0_mask |= nuvoton_pwm_wgctl_period_mask(ch);
-+
-+		/* CMPUCTLn = 01: output low at compare up point */
-+		wgctl1_mask |= nuvoton_pwm_wgctl_cmp_up_mask(ch);
-+		wgctl1_val |= MA35D1_PWM_WGCTL_CMP_UP_LOW(ch);
-+
-+		/* CMPDCTLn = 00: do nothing at compare down point */
-+		wgctl1_mask |= nuvoton_pwm_wgctl_cmp_down_mask(ch);
-+	}
-+
-+	for (ch = 0; ch < MA35D1_PWM_NUM_CHANNELS; ch += 2) {
-+		/* OUTMODEn = 0: independent mode */
-+		ctl1_mask |= MA35D1_PWM_CTL1_OUTMODE_MASK(ch);
-+	}
-+
-+	nuvoton_pwm_rmw(nvtpwm, MA35D1_REG_PWM_CTL1, ctl1_mask, 0);
-+	nuvoton_pwm_rmw(nvtpwm, MA35D1_REG_PWM_WGCTL0,
-+			wgctl0_mask, wgctl0_val);
-+	nuvoton_pwm_rmw(nvtpwm, MA35D1_REG_PWM_WGCTL1,
-+			wgctl1_mask, wgctl1_val);
-+}
-+
-+static int nuvoton_pwm_apply(struct pwm_chip *chip, struct pwm_device *pwm,
-+			     const struct pwm_state *state)
-+{
-+	struct nuvoton_pwm *nvtpwm = nuvoton_pwm_from_chip(chip);
-+	u32 ch = pwm->hwpwm;
-+	u64 duty_cycles, period_cycles;
-+	u32 cmpdat, period;
-+
-+	if (!state->enabled) {
-+		nuvoton_pwm_rmw(nvtpwm, MA35D1_REG_PWM_POEN,
-+				MA35D1_PWM_POEN_EN(ch), 0);
-+		nuvoton_pwm_rmw(nvtpwm, MA35D1_REG_PWM_CNTEN,
-+				MA35D1_PWM_CNTEN_EN(ch), 0);
-+
-+		return 0;
-+	}
-+
-+	period_cycles = mul_u64_u64_div_u64(nvtpwm->clkrate,
-+					    state->period,
-+					    NSEC_PER_SEC);
-+	if (!period_cycles)
-+		return -EINVAL;
-+
-+	if (period_cycles > MA35D1_PWM_MAX_PERIOD_CYCLES)
-+		period_cycles = MA35D1_PWM_MAX_PERIOD_CYCLES;
-+
-+	duty_cycles = mul_u64_u64_div_u64(nvtpwm->clkrate,
-+					  state->duty_cycle,
-+					  NSEC_PER_SEC);
-+	if (duty_cycles > period_cycles)
-+		duty_cycles = period_cycles;
-+
-+	if (state->polarity == PWM_POLARITY_NORMAL)
-+		nuvoton_pwm_rmw(nvtpwm, MA35D1_REG_PWM_POLCTL,
-+				MA35D1_PWM_POLCTL_INV(ch), 0);
++	/* Make sure MSICAP0 MSIE is configured. */
++	val = dw_pcie_readl_dbi(dw, MSICAP0);
++	if (pci_msi_enabled())
++		val |= MSICAP0_MSIE;
 +	else
-+		nuvoton_pwm_rmw(nvtpwm, MA35D1_REG_PWM_POLCTL,
-+				MA35D1_PWM_POLCTL_INV(ch),
-+				MA35D1_PWM_POLCTL_INV(ch));
++		val &= ~MSICAP0_MSIE;
++	dw_pcie_writel_dbi(dw, MSICAP0, val);
 +
-+	/*
-+	 * In up-counting mode the counter counts from 0 to PERIOD inclusive.
-+	 * With zero point high and compare-up point low actions:
-+	 * - CMPDAT = 0 produces 0% duty.
-+	 * - CMPDAT > PERIOD produces 100% duty.
-+	 * PERIOD is limited to 0xfffe, so duty_cycles can be written directly
-+	 * to CMPDAT and still fit in the 16-bit compare field for 100% duty.
-+	 */
-+	period = period_cycles - 1;
-+	cmpdat = duty_cycles;
++	if (!pci_msi_enabled() || pp->use_imsi_rx) {
++		/* Clear AXIINTC mapping. */
++		writel(0, rcar->base + AXIINTCADDR);
++		writel(0, rcar->base + AXIINTCCONT);
++	} else {
++		/* Point AXIINTC to GIC ITS and enable. */
++		writel(AXIINTCADDR_VAL, rcar->base + AXIINTCADDR);
++		writel(INTC_EN | INTC_MASK, rcar->base + AXIINTCCONT);
++	}
 +
-+	nuvoton_pwm_writel(nvtpwm, MA35D1_REG_PWM_PERIOD(ch), period);
-+	nuvoton_pwm_writel(nvtpwm, MA35D1_REG_PWM_CMPDAT(ch), cmpdat);
-+
-+	nuvoton_pwm_rmw(nvtpwm, MA35D1_REG_PWM_CNTEN,
-+			MA35D1_PWM_CNTEN_EN(ch), MA35D1_PWM_CNTEN_EN(ch));
-+	nuvoton_pwm_rmw(nvtpwm, MA35D1_REG_PWM_POEN,
-+			MA35D1_PWM_POEN_EN(ch), MA35D1_PWM_POEN_EN(ch));
-+
-+	return 0;
-+}
-+
-+static int nuvoton_pwm_get_state(struct pwm_chip *chip, struct pwm_device *pwm,
-+				 struct pwm_state *state)
-+{
-+	struct nuvoton_pwm *nvtpwm = nuvoton_pwm_from_chip(chip);
-+	u32 ch = pwm->hwpwm;
-+	u32 cmpdat, cnten, period, poen, polctl;
-+	u64 duty_cycles, period_cycles;
-+
-+	cnten = nuvoton_pwm_readl(nvtpwm, MA35D1_REG_PWM_CNTEN);
-+	poen = nuvoton_pwm_readl(nvtpwm, MA35D1_REG_PWM_POEN);
-+	polctl = nuvoton_pwm_readl(nvtpwm, MA35D1_REG_PWM_POLCTL);
-+	period = nuvoton_pwm_readl(nvtpwm, MA35D1_REG_PWM_PERIOD(ch)) &
-+		 MA35D1_PWM_MAX_CMPDAT;
-+	cmpdat = nuvoton_pwm_readl(nvtpwm, MA35D1_REG_PWM_CMPDAT(ch)) &
-+		 MA35D1_PWM_MAX_CMPDAT;
-+
-+	period_cycles = period + 1;
-+	if (cmpdat > period)
-+		duty_cycles = period_cycles;
++	/* Configure MSI interrupt signal */
++	val = readl(rcar->base + PCIEINTSTS0EN);
++	if (pci_msi_enabled())
++		val |= MSI_CTRL_INT;
 +	else
-+		duty_cycles = cmpdat;
-+
-+	state->enabled = (cnten & MA35D1_PWM_CNTEN_EN(ch)) &&
-+			 (poen & MA35D1_PWM_POEN_EN(ch));
-+	state->polarity = (polctl & MA35D1_PWM_POLCTL_INV(ch)) ?
-+			  PWM_POLARITY_INVERSED : PWM_POLARITY_NORMAL;
-+	state->period = DIV64_U64_ROUND_UP(period_cycles * NSEC_PER_SEC,
-+					   nvtpwm->clkrate);
-+	state->duty_cycle = DIV64_U64_ROUND_UP(duty_cycles * NSEC_PER_SEC,
-+					       nvtpwm->clkrate);
-+
-+	return 0;
++		val &= ~MSI_CTRL_INT;
++	writel(val, rcar->base + PCIEINTSTS0EN);
 +}
 +
-+static const struct pwm_ops nuvoton_pwm_ops = {
-+	.apply = nuvoton_pwm_apply,
-+	.get_state = nuvoton_pwm_get_state,
-+};
-+
-+static int nuvoton_pwm_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct pwm_chip *chip;
-+	struct nuvoton_pwm *nvtpwm;
-+	struct clk *clk;
-+	int ret;
-+
-+	chip = devm_pwmchip_alloc(dev, MA35D1_PWM_NUM_CHANNELS,
-+				  sizeof(*nvtpwm));
-+	if (IS_ERR(chip))
-+		return PTR_ERR(chip);
-+
-+	nvtpwm = nuvoton_pwm_from_chip(chip);
-+
-+	nvtpwm->base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(nvtpwm->base))
-+		return PTR_ERR(nvtpwm->base);
-+
-+	clk = devm_clk_get_enabled(dev, NULL);
-+	if (IS_ERR(clk))
-+		return dev_err_probe(dev, PTR_ERR(clk),
-+				     "Unable to get the clock\n");
-+
-+	ret = devm_clk_rate_exclusive_get(dev, clk);
-+	if (ret)
-+		return dev_err_probe(dev, ret,
-+				     "Unable to get exclusive clock rate\n");
-+
-+	nvtpwm->clkrate = clk_get_rate(clk);
-+	if (!nvtpwm->clkrate)
-+		return dev_err_probe(dev, -EINVAL,
-+				     "PWM clock rate is zero\n");
-+
-+	if (nvtpwm->clkrate > NSEC_PER_SEC)
-+		return dev_err_probe(dev, -EINVAL,
-+				     "PWM clock out of range (%lu)\n",
-+				     nvtpwm->clkrate);
-+
-+	nuvoton_pwm_init(nvtpwm);
-+
-+	chip->ops = &nuvoton_pwm_ops;
-+	chip->atomic = true;
-+
-+	ret = devm_pwmchip_add(dev, chip);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Unable to add PWM chip\n");
-+
-+	return 0;
-+}
-+
-+static const struct of_device_id nuvoton_pwm_of_match[] = {
-+	{ .compatible = "nuvoton,ma35d1-pwm" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, nuvoton_pwm_of_match);
-+
-+static struct platform_driver nuvoton_pwm_driver = {
-+	.probe = nuvoton_pwm_probe,
-+	.driver = {
-+		.name = "nuvoton-pwm",
-+		.of_match_table = nuvoton_pwm_of_match,
-+	},
-+};
-+module_platform_driver(nuvoton_pwm_driver);
-+
-+MODULE_AUTHOR("Chi-Wen Weng <cwweng@nuvoton.com>");
-+MODULE_DESCRIPTION("Nuvoton MA35D1 PWM driver");
-+MODULE_LICENSE("GPL");
+ static int rcar_gen4_pcie_enable_device(struct pci_host_bridge *bridge,
+ 					struct pci_dev *dev)
+ {
+@@ -359,7 +406,6 @@ static int rcar_gen4_pcie_host_init(struct dw_pcie_rp *pp)
+ 	struct dw_pcie *dw = to_dw_pcie_from_pp(pp);
+ 	struct rcar_gen4_pcie *rcar = to_rcar_gen4_pcie(dw);
+ 	int ret;
+-	u32 val;
+ 
+ 	if (pp->bridge)
+ 		pp->bridge->enable_device = rcar_gen4_pcie_enable_device;
+@@ -379,10 +425,7 @@ static int rcar_gen4_pcie_host_init(struct dw_pcie_rp *pp)
+ 	dw_pcie_writel_dbi2(dw, PCI_BASE_ADDRESS_0, 0x0);
+ 	dw_pcie_writel_dbi2(dw, PCI_BASE_ADDRESS_1, 0x0);
+ 
+-	/* Enable MSI interrupt signal */
+-	val = readl(rcar->base + PCIEINTSTS0EN);
+-	val |= MSI_CTRL_INT;
+-	writel(val, rcar->base + PCIEINTSTS0EN);
++	rcar_gen4_pcie_host_msi_init(pp);
+ 
+ 	msleep(PCIE_T_PVPERL_MS);	/* pe_rst requires 100msec delay */
+ 
 -- 
-2.25.1
+2.53.0
 
 
