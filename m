@@ -4,97 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3784CD98E2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 15:18:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1D5CCD98F6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 15:26:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+mqWVy0xz5Q5QOdMchs2mpfdZbtXWI7hrs2LNKIi0SA=; b=y5Mpko/WMIF0NR+/95oEMg42rx
-	sRt7aPQ54N/d6dSb+IzjCI1JVv6cRvN9VgGc7qFSmKKoueC7yS2JUbEHeuGlGjHkLEO3PD2V/sGUl
-	sWMuKdcRDqGsQsXQBpGeAjh/ehsRElUF3nfXgn1lD96lmHK8ZijIbqKmVOYRM1rSI6fiLSfKFufJn
-	R34LDvD7OXJJNKR7puNhGTIn+Ji/F880JUg4M9MOXK1RsQ546Krd062jAXgYXgw6/+zKWFNCe7/5/
-	MDQ9X/0uU09rZHxAuDOEMSyMrEczZwLRRhmxW0ut2G/McleIcoPR6t0Zuk0jAncHqAp/CFaS0tWL8
-	uy7mUf5w==;
+	bh=I9V3ZxzZvxmKgc8hMN0KNAw5jx1AF9PyZSuoGpdw3cc=; b=oHHD4ANBUnXTjUzDeB/p46aU5v
+	mm2eF/3ZE1Ij9ZCbG9QB5Y56S4SMMlggWhbXh/4kvkgq4N8sZ4nqX/tfkA+66GNR+WsZJmIUt5Qt7
+	DjCbs0BZpUB5uVQy9DG7QISM7fudq1uDQ5enIV5mw3T3LH8FGob9jC9oUrQEG/FbUO1w8btOznFJQ
+	HcIvzYqE7FMv94Y9f2BHsNdtI+c0stxdFJ0J+Pk5/kqg0iM46nUSiVt6t5fdEv4G6GEd6hh3+DjCz
+	Rp1im+bpFrP9shIQHMxeHmlXTJb1RPd0Iy2quE93aMKTE4YAWB6Ke8aRibM3822loNM5sdleS7orD
+	YPZYx7IA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZs2H-0000000HYTm-2J45;
-	Wed, 17 Jun 2026 15:18:37 +0000
-Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
+	id 1wZs9m-0000000HYxI-2Ajj;
+	Wed, 17 Jun 2026 15:26:22 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZs2F-0000000HYT0-2Mvr
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 15:18:36 +0000
-Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-69583ca0499so1050926a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 08:18:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781709512; x=1782314312; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=+mqWVy0xz5Q5QOdMchs2mpfdZbtXWI7hrs2LNKIi0SA=;
-        b=Nl4i+HnpnoP+vZFZucYixpld2svAaC2wCKYoRuroRHJYT5jv9jaagslchIW3zQo9mK
-         vODXNZJgWq3LHMSpkFbfqxc3cYj5+NYzqJ/tW4sv8gzm1ERdDoyz0WM4h6q84DYPLUCI
-         hZUrfyzmEZiaWMEPFbsrqQ7/FEnsdvL+AWBVLc0sBIpUapQiHz9/7K4MSkBRSJxll5so
-         8t2JVcbqXv6nJ6kw6DukwBMfcY+njTJa2hb3g2rYct/l0gJFDKBJrE4tx2QjLpfoUCij
-         9YPMQ1Cce21M56zgRHuVstpfHprMRHB9CBM2EQGPhBzrgRnnryOgCDg9Ocvgz5OqoFvh
-         eaEg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781709512; x=1782314312;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+mqWVy0xz5Q5QOdMchs2mpfdZbtXWI7hrs2LNKIi0SA=;
-        b=GKBbVO0eqKuFFvvNZYVOYeBKMMBlYP0F26uVTLjODipHPUM4IFY2wnnXAwrrRxW/eI
-         OGfTH3Uityk19/iPmthRKol0v1Ifa7pbfS4tAEKo4EwK+5HiBDe3dLYVKb+wfMSuXFy8
-         yLmRmg1Fmm3ahxttIB9zN2ZTNP8nMM86Fm+fEcYlJtafx0IEDPg4fcGbibQvhH0MSqek
-         OwWg81AE2aB1pDTC1/NqqghvNhj7rusL624bjSvPD3BrFLNHMIS7A5FtyfEwrvic4CvR
-         2Zzz//RDmaO5dX0/zbDvbopW8mErE7v7FVmLvDF0g58uZgclUBWMWl5BhW/quMTAETtS
-         yNVA==
-X-Forwarded-Encrypted: i=1; AFNElJ+pj9U++dZaE2onJAXQtuFwxhBICdn3OrE8nxr70j/Gi/HMSC7Dw1AEFw2BsVWwA9ECuI5rBuzUiN1gp4aDB8hh@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz1SSosW1+dPa964dIGhf7plDbd7fGRUIyr9krmOeLOKF8fiL4a
-	c5pf1BBmeVJodRtbyRM/FCoNQdQ02p4A61iJ12reWwWmhOtU7pDATwG0d9gNFvq8Dg==
-X-Gm-Gg: AfdE7cl/9gpUb3NE7ERd0sBinbeOyYcJE88hrOlJMu+V8y4uXrXqBdAp1EOYMrUy+YH
-	aA2Tlk4zA5Ns+I3zMn6x4bSRi10RaYEt077auGSxJ6HAbz6Y5vob5a6fDpupYWCnRtm1ZyVkPyT
-	68crJKCrRfC5Cespoa9jlvPVLwpUnytEMqxhEk4zyBYztjifv9V9wZbcqNMlxfeUQMgyYLoLE6Y
-	zouiuuwgTGn03rympRT1gIgcEEMRoTCwFX2mo8S1PdZtuYQuVjE44UdYqbRaDwyymq9ECXNAIlV
-	n7sJwPlNfPXkCDalmCKLczfF7ivkMh3nEKQea4oRuJcuopNBmfS/KarTbeu+74OhACY6VEszine
-	6O1DEU5k1FAOghCjMaqlB1DcF56Zr/cIyAOaHfJFVHnrMCffKWwiwARTsxFWBrW18uVDO9AD3p3
-	2kW+s/jAEF6aW+AAObSF6Gwip8NCWDBZLZnMI5YzyAawyoKmx8og==
-X-Received: by 2002:a05:6402:528b:b0:68a:ac5e:f4ba with SMTP id 4fb4d7f45d1cf-695476ff271mr2444959a12.24.1781709511761;
-        Wed, 17 Jun 2026 08:18:31 -0700 (PDT)
-Received: from google.com (78.207.190.35.bc.googleusercontent.com. [35.190.207.78])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6937948dde4sm6692740a12.20.2026.06.17.08.18.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 17 Jun 2026 08:18:31 -0700 (PDT)
-Date: Wed, 17 Jun 2026 15:18:27 +0000
-From: Adrian =?utf-8?Q?Barna=C5=9B?= <abarnas@google.com>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Brendan Jackman <brendan.jackman@linux.dev>,
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
-	David Hildenbrand <david@kernel.org>,
-	Ard Biesheuvel <ardb@kernel.org>, Christoph Lameter <cl@gentwo.org>,
-	Yang Shi <yang@os.amperecomputing.com>,
-	Brendan Jackman <jackmanb@google.com>, owner-linux-mm@kvack.org
-Subject: Re: [RFC PATCH 3/6] arm64: mm: fix restoring linear map permissions
- on execmem cache clean
-Message-ID: <ajK6w3YTFpVaUl3v@google.com>
-References: <20260611130144.1385343-1-abarnas@google.com>
- <20260611130144.1385343-4-abarnas@google.com>
- <DJ69RCVRBO0Y.3JCYSW50IC4RC@linux.dev>
- <aiuyoy8Kmr9yU4GM@kernel.org>
+	id 1wZs9k-0000000HYx0-3w5V;
+	Wed, 17 Jun 2026 15:26:20 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5293443E1A;
+	Wed, 17 Jun 2026 15:26:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B30611F000E9;
+	Wed, 17 Jun 2026 15:26:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781709980;
+	bh=I9V3ZxzZvxmKgc8hMN0KNAw5jx1AF9PyZSuoGpdw3cc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=GGc3w/taoFG0RXND5OIr62RcuvZJ96WfVxFE1dJAvXJEQZssuQAmifrc/UsW01jLo
+	 u+lEqurxi/Gs/rns8svl88//8lReobfOutFJgGWb5ncKDSNyHY4nZW17EarTHgI2kf
+	 tH+HokNplG+ToJw0BrvqvD2B/CUK2ARKVtYliWU5TRC/AuAaZIC/nxc423UyXxgynb
+	 GFVvvquwV+XNbXFHM8Tp/Wg2yJsl0GkGL0AtOYBie2dWl/rMletg4M63tom2xVqs64
+	 ssn1uABWOEqdnCj7IchQjQ2Dm2qmHiFPLGVLgNk5w6kSqMXOwVsVk7PCOMG1Wj91oD
+	 LCfIEaZ4jsX0g==
+Date: Wed, 17 Jun 2026 16:26:15 +0100
+From: Lee Jones <lee@kernel.org>
+To: Yuho Choi <dbgh9129@gmail.com>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v1] mfd: mt6397-irq: Fix PM notifier use-after-free
+Message-ID: <20260617152615.GO10056@google.com>
+References: <20260608021048.2577577-1-dbgh9129@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aiuyoy8Kmr9yU4GM@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260617_081835_655416_EA0B7872 
-X-CRM114-Status: GOOD (  32.06  )
+In-Reply-To: <20260608021048.2577577-1-dbgh9129@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,119 +69,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 12, 2026 at 10:17:55AM +0300, Mike Rapoport wrote:
->On Thu, Jun 11, 2026 at 01:54:13PM +0000, Brendan Jackman wrote:
->> On Thu Jun 11, 2026 at 1:01 PM UTC, =?UTF-8?q?Adrian=20Barna=C5=9B?= wrote:
->> > Strip the read-only attribute from the selected memory range when
->> > restoring the linear map after an execmem cache clean.
->> >
->> > An execmem cache clean is performed when a cache block becomes empty
->> > after unloading a module. When making the memory valid again, the linear
->> > memory alias must also have its read-only attribute cleared.
->> >
->> > Without this change, the linear memory alias remains read-only even
->> > after the execmem cache block itself is freed, which prevents subsequent
->> > allocations from writing to that memory.
->> >
->> > Signed-off-by: Adrian Barnaś <abarnas@google.com>
->> > ---
->> >  arch/arm64/mm/pageattr.c | 17 ++++++++++++++++-
->> >  1 file changed, 16 insertions(+), 1 deletion(-)
->> >
->> > diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
->> > index 88720bbba892..eaefdf90b0d5 100644
->> > --- a/arch/arm64/mm/pageattr.c
->> > +++ b/arch/arm64/mm/pageattr.c
->> > @@ -239,6 +239,13 @@ int set_memory_x(unsigned long addr, int numpages)
->> >  					__pgprot(PTE_PXN));
->> >  }
->> >
->> > +static int set_memory_default(unsigned long addr, int numpages)
->> > +{
->> > +	return __change_memory_common(addr, PAGE_SIZE * numpages,
->> > +				      __pgprot(PTE_VALID),
->> > +				      __pgprot(PTE_RDONLY));
->> > +}
->> > +
->> >  int set_memory_valid(unsigned long addr, int numpages, int enable)
->> >  {
->> >  	if (enable)
->> > @@ -362,7 +369,15 @@ int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
->> >  	if (!can_set_direct_map())
->> >  		return 0;
->> >
->> > -	return set_memory_valid(addr, nr, valid);
->> > +	/*
->> > +	 * Execmem cache uses this function to reset permissions on linear mapping
->> > +	 * when freeing unused cache block. On x86 it makes memory RW which is
->> > +	 * desirable.
->>
->> Hm, maybe desirable for execmem but that doesn't really mean the x86
->> behaviour is correct. Maybe it makes more sense to change the x86
->> to align with the arm64 behaviour here?
->>
->> BTW we should probably document this API a little bit, I never thought
->> abut what "valid" actually means until now. I had thought of it as "I
->> can access this memory" but that's an unclear concept and now I realise
->> "valid" is a technical concept in Arm that's confusing. And it's extra
->> confusing if the kernel API uses "valid" to mean a _different_ thing.
->
->I've got confused too and that's how set_direct_map_valid() got into x86
->with a different semantics than on arm64.
->
->What execmem really needs is set_direct_map_default() variant that gets
->nr_pages.
->
->AFAIR, set_direct_map_default() has a single 'page' parameter because it
->was added to reset permissions for the direct map alias for vmalloc()'ed
->pages before there was VMALLOC_HUGE and each page had to be reset
->independently anyway.
->
->Maybe it's time to add nr_pages to set_direct_map_valid().
->
->> Also, shouldn't execmem be using set_memory_default_noflush() before
->> freeing anyway? I guess that shoudl even be documented as "if you change
->> anything you need to call this before you free the page".
->
->It does on x86 because there set_direct_map_valid() is the same as
->set_direct_map_default().
->
->> > On ARM64 set_memory_valid() just change valid bit which
->> > +	 * leave direct mapping read-only so use set_memory_default instead.
->> > +	 */
->> > +
->> > +	return valid ? set_memory_default(addr, nr) :
->> > +		       set_memory_valid(addr, nr, false);
->> >  }
->> >
->> >  #ifdef CONFIG_DEBUG_PAGEALLOC
->>
->>
->
->-- 
->Sincerely yours,
->Mike.
+/* Sashiko Automation: Issues Found (3 Findings) */
 
-Hi Mike, Brendan,
+Worth considering.
 
-Thanks for taking a look at the RFC.
+On Sun, 07 Jun 2026, Yuho Choi wrote:
 
-I was also quite confused by this initially. I spent some time debugging 
-until I realized why unloading all the modules was causing the kernel to 
-crash.
+> mt6397_irq_init() registers chip->pm_nb with the global PM notifier
+> chain. The notifier callback uses container_of() to recover struct
+> mt6397_chip and then dereferences chip fields.
+> 
+> The chip structure is allocated with devm_kzalloc() in mt6397_probe().
+> If probe fails after mt6397_irq_init() succeeds, for example when
+> devm_mfd_add_devices() fails, devres can release the chip while the PM
+> notifier remains registered. The same lifetime mismatch exists when the
+> driver is unbound.
+> 
+> Check the register_pm_notifier() return value and add a devm cleanup
+> action to unregister the notifier before the devm-managed chip is freed.
+> If adding the cleanup action fails, devm_add_action_or_reset()
+> unregisters the notifier immediately; then remove the IRQ domain in the
+> remaining error path.
+> 
+> Fixes: 4e2e7cfec13a ("mfd: mt6397: Modify suspend/resume behavior")
+> Signed-off-by: Yuho Choi <dbgh9129@gmail.com>
+> ---
+>  drivers/mfd/mt6397-irq.c | 22 ++++++++++++++++++++--
+>  1 file changed, 20 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/mfd/mt6397-irq.c b/drivers/mfd/mt6397-irq.c
+> index 5d2e5459f744..8947f7e732fa 100644
+> --- a/drivers/mfd/mt6397-irq.c
+> +++ b/drivers/mfd/mt6397-irq.c
+> @@ -169,6 +169,13 @@ static int mt6397_irq_pm_notifier(struct notifier_block *notifier,
+>  	return NOTIFY_DONE;
+>  }
 
-The reason I took this approach was that I wanted to send out a working 
-prototype for arm64 that wouldn't interfere with the existing, working 
-implementation on x86.
+[Severity: High]
+This is a pre-existing issue, but does this PM notifier safely access the
+hardware registers and software state?
 
-Following your suggestion, I can put together a preparatory patch series 
-to refactor the set_direct_map_* APIs to accept a nr_pages parameter. 
-This refactoring would also allow us to drop the redundant 
-set_area_direct_map helper. I could then rebase the rox_cache series on 
-top of that.
+In mt6397_irq_pm_notifier(), the hardware registers and chip->irq_masks_cur
+are read and written without holding chip->irqlock. Since PM notifiers like
+PM_SUSPEND_PREPARE run while tasks are still active, if another driver
+requests or frees an IRQ concurrently, mt6397_irq_sync_unlock() will acquire
+irqlock and write dynamically updated irq_masks_cur to the hardware registers.
 
-Does this sound like a good path forward?
+Can this data race allow the PM notifier to silently overwrite the dynamically
+updated hardware masks with stale data, or corrupt the suspend wake_mask?
 
-Thanks,
-Adrian
+
+
+>  
+> +static void mt6397_irq_pm_notifier_unregister(void *data)
+> +{
+> +	struct mt6397_chip *chip = data;
+> +
+> +	unregister_pm_notifier(&chip->pm_nb);
+> +}
+> +
+>  int mt6397_irq_init(struct mt6397_chip *chip)
+>  {
+>  	int ret;
+> @@ -233,6 +240,17 @@ int mt6397_irq_init(struct mt6397_chip *chip)
+>  		return ret;
+>  	}
+>  
+> -	register_pm_notifier(&chip->pm_nb);
+> -	return 0;
+> +	ret = register_pm_notifier(&chip->pm_nb);
+> +	if (ret) {
+> +		dev_err(chip->dev, "failed to register PM notifier: %d\n", ret);
+> +		irq_domain_remove(chip->irq_domain);
+
+[Severity: High]
+Is it safe to explicitly remove the IRQ domain here while the devm-managed
+parent threaded IRQ remains active?
+
+The parent IRQ was requested earlier via devm_request_threaded_irq(). Because
+devres cleanup does not run until the probe function completely fails and
+returns, the parent IRQ remains active and enabled during this window.
+
+If an interrupt triggers during this error path, the active IRQ handler
+mt6397_irq_thread() will execute and call mt6397_irq_handle_reg(). This in
+turn calls irq_find_mapping(), which will dereference the freed irq_domain,
+resulting in a use-after-free.
+
+
+
+[Severity: High]
+This is a pre-existing issue, but does the IRQ domain properly unregister
+during driver unbind?
+
+The irq_domain is created using irq_domain_create_linear() earlier in
+mt6397_irq_init(), which is not managed by devm. The MT6397 driver lacks a
+.remove callback and relies entirely on devres for cleanup.
+
+When the device is unbound, devres frees the chip structure. However, the
+irq_domain is never removed and remains in the global IRQ domain list, leaking
+memory. Furthermore, its host_data points to the now-freed chip.
+
+If the device is rebound, mt6397_irq_domain_map() will dereference the freed
+chip pointer, causing a use-after-free.
+
+
+> +		return ret;
+> +	}
+> +
+> +	ret = devm_add_action_or_reset(chip->dev,
+> +				       mt6397_irq_pm_notifier_unregister, chip);
+> +	if (ret)
+> +		irq_domain_remove(chip->irq_domain);
+> +
+> +	return ret;
+>  }
+> -- 
+> 2.43.0
+> 
+
+-- 
+Lee Jones
 
