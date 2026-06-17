@@ -4,62 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 098C9CD98E4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 13:22:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD8E2CD98E4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 13:24:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XcHn+OqjLeBAX8IEau6ZDZhceXfurepXWjvJLi5A47U=; b=kWNz/4y8Dpqo+jDlEZ/DqvwMJj
-	igWCTNyC3ypMTkIroyKzDnsWr4IJZxGjt30zHUW/6uurJ1G4pLI0WcJCdpvN/FbJIzb/O4lnJ9pGv
-	DNlQIeqWIVFgocaopZ9nNQ2DPC292fZz7Tcp9If/XjDlAakZFli1wmfA6QwxFqc90/Td5kefhgvHV
-	nWilzs5FfQlipnjKhUdGRLy7J0HuEkmsxN9IH8pJ4Amfq+Qo2yqCO/PZW9sgph+9SDzXbje62mmD1
-	DCnGalew8fwimsjKUzQfh/c4fzLj1BKuvmTn9DqUhHJ6ThRbw62ki9TvOMfM30usV64VPRUwGC/2K
-	BemmJqmw==;
+	bh=60Pf9XMwdYobqlpxIf9V/Xi8ufuCJnBC10qkluRXtPw=; b=O6Thb5FtijwGTlOlAE2EPLussI
+	BjsdTOm27tq632wGbsiIO/3EhZJWS/lxrSDUoEaukbeN9/m8cPphPdRSfjYqTSNme5l3AQUVSvovs
+	+ax+Dgl0TSwKh5aa+CZPSYmc+WGqDgOoy/0fvTQzvRL2JuO0wFnPBaKlQ6efTwjGKDGaGZHKNDUqP
+	lfCmgtpxkGo4bTDupQTPHQWTvu0SUvEaAxe55Ii3qVIIWq5dVqyHL2Ya6TO1PJJ7VLd9tOXKDPfJm
+	kuxygnNKwFP2fJPskdnI20LTLuucEK/C2HCMhSSLqtru3A5XLaDocQaDeUNexrcjJz+VsdJpHTjJH
+	UA9bweFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZqDa-0000000HPLK-1LCd;
-	Wed, 17 Jun 2026 13:22:10 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZqDY-0000000HPLB-48Vv;
-	Wed, 17 Jun 2026 13:22:09 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2BB106001D;
-	Wed, 17 Jun 2026 13:22:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A86941F00A3A;
-	Wed, 17 Jun 2026 13:22:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781702527;
-	bh=XcHn+OqjLeBAX8IEau6ZDZhceXfurepXWjvJLi5A47U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=LS08RM8pAhzITsYqZkoulcLPChoDgGjX48NVOyVTZKbOM+/5nELQYBIkhimKfCHE6
-	 AARTUDjcNzaXKYdvu3tqG4M+e4r9wfYbi+ROyqrME6zJzyOUHEGS9sF4WC2jAc9+v3
-	 SeXNHMn2zwmBMx5ZqShOmh8GH3bu30pS1dMdIDt+ftvpkFd8El4Ucf0beRuQqUDb9e
-	 quA+69q2SponemBzUDeuz8NV+HVLdusTpqO6E/YCzy24lSKv3kfrfdce+JKEBeQQSM
-	 7UAiamNEuCbGeLN3ErZIWXCUv4LuSDJ4yYU49tWyBVLLoujHHVUen0uX/eoendfaOm
-	 tgXpR9ggwZxyw==
-Date: Wed, 17 Jun 2026 14:22:03 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>, Heiko Stuebner <heiko@sntech.de>,
-	bui duc phuc <phucduc.bui@gmail.com>,
-	linux-rockchip@lists.infradead.org, linux-sound@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kernel@collabora.com
-Subject: Re: [PATCH] Revert "ASoC: rockchip: rockchip_sai: Use guard() for
- spin locks"
-Message-ID: <f9babde8-4012-4fc4-a553-101fa94ad50b@sirena.org.uk>
-References: <20260617-sai-revert-v1-1-e46adda2213b@collabora.com>
+	id 1wZqFJ-0000000HPTn-2MAr;
+	Wed, 17 Jun 2026 13:23:57 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wZqFG-0000000HPTH-3xSU
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 17 Jun 2026 13:23:56 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C1AAA4794;
+	Wed, 17 Jun 2026 06:23:46 -0700 (PDT)
+Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B94FC3F915;
+	Wed, 17 Jun 2026 06:23:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1781702631; bh=af+vwUJx5/nKf7spNaPaxuPmMl8dQF1xTaTv0lMenRU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=e0RKjS5efaGFzQSLQqFTgt0U5xjfYBjoUrrXTUdKz6sBI4aYwgx3Fol7GuTwU+tfd
+	 oCi0OKgiG72jmzixU3bWCpjqsXpVpJ6SafCaxjol828e3Pz4YLDg4xopW/Ccxg0uuP
+	 UyLI8cC1NQLB4JBHqj+zCFh6ST0x8KMP2l2S/swA=
+Date: Wed, 17 Jun 2026 14:23:47 +0100
+From: Alexandru Elisei <alexandru.elisei@arm.com>
+To: David Hildenbrand <david.hildenbrand@arm.com>
+Cc: pbonzini@redhat.com, kvm@vger.kernel.org, linux-kernel@vger.kernel.org,
+	maz@kernel.org, oupton@kernel.org, suzuki.poulose@arm.com,
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	seanjc@google.com, mark.rutland@arm.com
+Subject: Re: [RFC PATCH] KVM: Ignore MMU notifiers for guest_memfd-only
+ memslots
+Message-ID: <ajKf41Fgy_jKBAMI@raptor>
+References: <20260615155244.183044-1-alexandru.elisei@arm.com>
+ <42323088-c06e-42e2-b095-136062a8d27c@arm.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ESdZ8J34ZAzYqCiE"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260617-sai-revert-v1-1-e46adda2213b@collabora.com>
-X-Cookie: Absence makes the heart go wander.
+In-Reply-To: <42323088-c06e-42e2-b095-136062a8d27c@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260617_062355_052268_AEEDE303 
+X-CRM114-Status: GOOD (  24.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,41 +72,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi David,
 
---ESdZ8J34ZAzYqCiE
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+On Mon, Jun 15, 2026 at 09:07:50PM +0200, David Hildenbrand wrote:
+> On 6/15/26 17:52, Alexandru Elisei wrote:
+> > For guest_memfd-only memslots (kvm_memslot_is_gmem_only() is true), the
+> > memory provider for the virtual machine is the guest_memfd file, not the
+> > userspace mapping. Faults are resolved using the guest_memfd page cache,
+> > and the permissions for the secondary MMU mapping depends exclusively on
+> > the memslot (i.e, if the memslot is read-only). How userspace happens to
+> > have the memory mmaped at fault time, or even if the memory is mapped at
+> > all into userspace, is not taken into consideration.
+> > 
+> > guest_memfd memory is not evictable, is not movable and there's no backing
+> > storage. Once memory is allocated for an offset in guest_memfd file, the
+> > offset will not change, and that memory is not freed unless userspace
+> > explicitly punches a hole in the file. As a result, memory reclaim, page
+> > migration, page aging and dirty page tracking for the userspace mapping
+> > serve little purpose.
+> 
+> I don't think any of that is relevant for the patch at hand?
+> 
+> The thing is: invalidation (truncation, later migration, for any other reason)
+> is driven through guest_memfd notifications, not through unrelated page tables.
+> 
+> If we don't lookup pages for the KVM MMU through the page table, then there is
+> also no need for MMU notifiers. It's all guest_memfd only.
+> 
+> Or am I missing something?
 
-On Wed, Jun 17, 2026 at 01:46:04PM +0200, Nicolas Frattaroli wrote:
-> This reverts commit f7fe9f7073602958d6b63cc58a144094533377fa.
+My thinking was that, because guest_memfd is not evictable, there is no need to
+do page ageing, which would require that secondary MMU mappings be made old.
 
-Please submit patches using subject lines reflecting the style for the
-subsystem, this makes it easier for people to identify relevant patches.
-Look at what existing commits in the area you're changing are doing and
-make sure your subject lines visually resemble what they're doing.
-There's no need to resubmit to fix this alone.
+The invalidate callbacks are also used when userspace memory is marked read-only
+for dirty state tracking. I was trying to explaing that, since there is no
+backing for the guest_memfd file, host doesn't need to keep track of dirty state
+for the memory, and ignoring the invalidate callbacks is correct for all cases.
 
-Please include human readable descriptions of things like commits and
-issues being discussed in e-mail in your mails, this makes them much
-easier for humans to read especially when they have no internet access.
-I do frequently catch up on my mail on flights or while otherwise
-travelling so this is even more pressing for me than just being about
-making things a bit easier to read.
+I can drop the paragraph entirely, if you think that would make the commit
+message clearer.
 
---ESdZ8J34ZAzYqCiE
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmoyn3oACgkQJNaLcl1U
-h9CBjAgAhKORSNAME5t9lOsbE4Y5E6rTqR7dHYVslJY3f4/5X3t8jzzbRa16RPo3
-CL0S9U+e3BUYT1LJ2YSoVDzwfsUmGyCE3QAU2pMqhitpJkcs8OxZOa/v4e/I88xM
-8YxLphLW1o/W3Xnk5cPFOceqkB7YBfq+OzzauJNjbZJkv2k5n98/no72MN1tLBh0
-ngDse4ZfUvICI9EzWQFyZ24EW2lVT6kzDIunp7iDZJBoa4IDtWhFAUG+drZLBYZ7
-LdRsdbbEeRqY/CrDSxAU1Xg0HZSa3nQKQ8IR7PRyKOE7qepPRscZ2BNncrInSdHX
-2a08NtpGTUfT+kMtxhQkoGRvQoOotQ==
-=RJhn
------END PGP SIGNATURE-----
-
---ESdZ8J34ZAzYqCiE--
+Thanks,
+Alex
 
