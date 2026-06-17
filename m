@@ -4,99 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9881DCD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 16:43:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20677CD98E2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 16:46:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=91ni4OHOJEhYMTKX+2kMkaj6csE1qduQg5o/8P82bfQ=; b=QFAnuntCeJIXYu201i8POdu65i
-	TUVbPOtQa2sn00wwqCnOFmnKy230p7g8I96h1XGzofuY8kmIzepJTx0DuKAqZ37r/ssHO5JL4JNHa
-	jy/FOYebAFq7d33kyA8gKmLwivpWKC4yX7q2w+hyvv4xb2MSSUd71QYLj2oq8MXDipe7NNkK5l+9u
-	dUfQe6z6/0PaVZMXDWTJ2G5l9ufE7oUAf6Z31JVkepgz2Lk4N+c+gOKYt9qI089cmbcVW+Rzv47p1
-	PkF/UZB5xQ9IUDruMd7BdGcM694gKc6vrTM4rYeOy4hgFqUN3w7rfNUQEMCNB+9x6ag7JgkfkeXcr
-	jn5jxoRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kCqNp1NQLYw/Dr+HJGaVovbbIw9IsLxqOSc3rvrdKkU=; b=w8EhQvHGOxWKw5O5AERx1XBUBP
+	C+9esbHZ+NBOoC3xr2GTiWJW6Yc7mjvSJAB7pvV1TjwT4xpbQPOgjBXofa9dg2AkNHkWjRVHO+5YP
+	5uHPvT9TBmw7Qw6sYp9PgKXaR5jtaRe4J2y9JMbaX3LUNfyW/kbbwn50WoJDAORvMP/P9GZqb+0U1
+	Y36YinK9jh/W+iDQ55zEdHfKXtie/pLfl79b/1PCrrwdsaBk1GqwNdmVyapmEpe8Oc/HPSm+jWf/o
+	1x2L4/ni5RLyxD53qh/XlkhIQN3MGa7a2TiLri1fBoPKUX6l6Np38yaZy/1LHZgEVTL2iB72od0G8
+	UcjNGrEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZtMk-000000003xs-2UgL;
-	Wed, 17 Jun 2026 16:43:50 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1wZtOq-0000000049K-3byB;
+	Wed, 17 Jun 2026 16:46:00 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZtMh-000000003x7-475R
+	id 1wZtOp-0000000049B-1twi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 16:43:49 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4923139e940so13001575e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 09:43:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781714625; x=1782319425; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=91ni4OHOJEhYMTKX+2kMkaj6csE1qduQg5o/8P82bfQ=;
-        b=mISUp8UbBMCuMCI18l9wPEEKB8UHlnkbsLYefqt2LHP5jgwoSpTGtUNYIqg+EcLLW9
-         xCPjuTQZTVqXxl2wlaLPEx6wN84kxxZSLMULQr50si4M1SXp8XQGRVJTMNDBD0tyVZo8
-         Y+dDmOaV0hl4eiXlIfHSTHee2UXOcrtsYoiCKTjOt38spXhDHVhEt9hsZQ0FAvafmQUL
-         /YAa4sM1TDFuXdHCIVtupLRM/U8qg5IeAbXdP6FInUqn/zmTw28GrBVI3bbgSe7ZWgxm
-         W7j7tOGHph0/qCXv8cUVY3eiqoVzr674epFh1n8dSRRuRXt/jT4dQwRfwP+xxI1ff/Gt
-         yZBQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781714625; x=1782319425;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=91ni4OHOJEhYMTKX+2kMkaj6csE1qduQg5o/8P82bfQ=;
-        b=HVHj0lfR8SehgCcgwBDGg2XI77OnUVWSw1gVg5az0jDnVK3IFyUtINcNp95ajope4s
-         8B+ZoA65YotjmqWofganP08wtmNOpHrZUG5GLo0xZeqsKOYJrQvoZt32aZmTbDTYLAXR
-         2WDe0rkbdIk6wl1zoJhL5XILfV9iXo+aZ/1Hz4HTwhG/02/fTivbDyWEjMIOCmQnq2/t
-         QFCboBg0nTXaqVOv6CtByq2KU+nRZXf2PkHlEBqDglt1pQ2xryEQSGKtzDDZVtKVmV5c
-         P777VkpHloX0O1zntru8ZPjdo1u1lskzamSxzUZZdsUiiLv+GEjp0SjC5z14+of8n00O
-         Fs5Q==
-X-Forwarded-Encrypted: i=1; AFNElJ+DHVrsgxv9sZcQod491jC4/qSMiuiBQKZA9+z7eUDxWWgTJj6y78rmPcr2fwPD/+N5J4tFWthe8prIukewLgWV@lists.infradead.org
-X-Gm-Message-State: AOJu0YxuPlRuqAH1zyO7tG8pWMcIFBcPqBRVyAB5a/5booskH9k6Npmu
-	lZyi+fcx/V79g0PPCsStovjSlnUsUx35Daxa7d6RIc0IXCm5TPMW8mOg
-X-Gm-Gg: Acq92OEsJKSc3ZuZhnOpw64LSbyIyLyAgFFRAxcmHGxAx08hCEp5qqIUSLW4AA9h7nf
-	P/B+LWtfhNB9luzm3dJ2NJLN0xPgT034gCdUbiG8msj6sXOlOhMRAuiJYZYfCCxhsGZLwtGJ5jG
-	umu4jC4RjtO762P8PBx5Uu36JEbxadmvT0+r2qXjUkSa2ODC6dEjko3J6chIdCUlfZK4Vjf/1qo
-	dSBBZcWtDj1yJo3BfXRyDL43ZnWyo02jt0YUmAf64SIOVQ7grqX2HvacNrhGzCMF69iyIGZsag4
-	k0vOgx8yiZ2gKTeskOUhy9URIIRXVgyozSjojgZiYjJdsv2fQykmPFZ9O646py+JJgdTeN74x4G
-	BxVusvMuASqyK0qGPFSYE+pbpVWADiw4Pjdj9u/ZV2vNCayTDh9MHYBghhnQVvZs+4onbTyqiPm
-	Qvgv0RqneYRQNXOzJqDb/kVrsUoNOjPuy/E+WxydBXuXgn+nlSeVYtg4x9CIoucQOyBUu4kuGQA
-	3ZpA/ttnQ2YML3046MsPz6BsEKq//9zXC710RbvRkWU8gyMvlHkiZM=
-X-Received: by 2002:a05:600c:a15:b0:491:91cc:d12d with SMTP id 5b1f17b1804b1-49234131f7dmr59507685e9.25.1781714625451;
-        Wed, 17 Jun 2026 09:43:45 -0700 (PDT)
-Received: from ?IPV6:2003:ea:8f4a:8700:58d1:af07:762f:9d17? (p200300ea8f4a870058d1af07762f9d17.dip0.t-ipconnect.de. [2003:ea:8f4a:8700:58d1:af07:762f:9d17])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49230a8ec56sm156440695e9.9.2026.06.17.09.43.44
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 17 Jun 2026 09:43:44 -0700 (PDT)
-Message-ID: <876a38f8-75ea-4b32-bb65-216cb3adb436@gmail.com>
-Date: Wed, 17 Jun 2026 18:43:42 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/3] dt-bindings: net: add Realtek RTL8125 PCIe
- Ethernet
-To: ricardo@pardini.net, nic_swsd@realtek.com,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: Sebastian Reichel <sebastian.reichel@collabora.com>,
- netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org
-References: <20260617-rk3588-dts-rtl-eth-describe-dt-alias-v4-0-2bd38922d129@pardini.net>
- <20260617-rk3588-dts-rtl-eth-describe-dt-alias-v4-1-2bd38922d129@pardini.net>
-Content-Language: en-US
-From: Heiner Kallweit <hkallweit1@gmail.com>
-In-Reply-To: <20260617-rk3588-dts-rtl-eth-describe-dt-alias-v4-1-2bd38922d129@pardini.net>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260617_094348_048422_C78F6C6F 
-X-CRM114-Status: GOOD (  21.09  )
+	Wed, 17 Jun 2026 16:45:59 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6D6FD60052;
+	Wed, 17 Jun 2026 16:45:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F9601F000E9;
+	Wed, 17 Jun 2026 16:45:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781714758;
+	bh=kCqNp1NQLYw/Dr+HJGaVovbbIw9IsLxqOSc3rvrdKkU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=HbCaxnUd9f71prEUWp5ETMqUF/wcNolQPWxR/CxyHHlqMyEkQ3Lw1rWLfI7FOJElG
+	 /J6v3OAqFAKEcgpjCFgp0dy6FRICegJfvSB4rkZDcyIGQbmxAWgjBbjypn+YMQDK/f
+	 7tsO9hdH7qwjbMk1kFy+q7Sq7lotg+oSgquTY0+kUFjX3RhK7vQewVifp/t3I+uYxE
+	 lgt4rW5Pcupg+1CR2Bxtkp5G6EbRVt1/xcjE0hN6H/GCqEMp89KkFdztM12KaSkMV/
+	 PD/J0yBQbre13ZrsmCnfundF1q5Ab8GiASA4xyGH2PwjjlF5Fk7IzyNAE1LxJE4SeU
+	 aD+9fa1CNuGeg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wZtOl-0000000Dky4-3lUV;
+	Wed, 17 Jun 2026 16:45:55 +0000
+Date: Wed, 17 Jun 2026 17:45:55 +0100
+Message-ID: <86se6lru7w.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: Oliver Upton <oupton@kernel.org>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Jintack Lim <jintack.lim@linaro.org>,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] KVM: arm64: nv: Fix PSTATE construction on illegal exception return
+In-Reply-To: <20260617144907.2972095-1-tabba@google.com>
+References: <20260617144907.2972095-1-tabba@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: tabba@google.com, oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, jintack.lim@linaro.org, gankulkarni@os.amperecomputing.com, christoffer.dall@arm.com, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,92 +91,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17.06.2026 14:58, Ricardo Pardini via B4 Relay wrote:
-> From: Ricardo Pardini <ricardo@pardini.net>
+On Wed, 17 Jun 2026 15:49:07 +0100,
+Fuad Tabba <tabba@google.com> wrote:
 > 
-> Add a binding for fixed/soldered Realtek RTL8125 PCIe Ethernet
-> controller.
+> kvm_check_illegal_exception_return() sourced the flags {N,Z,C,V} and
+> masks {D,A,I,F} of the resulting PSTATE from the current PSTATE, but
+> R_VWJHB takes them from the SPSR being returned to and leaves
+> PSTATE.{EL,SP,nRW} (and EXLOCK when FEAT_GCS) unchanged. PAN, ALLINT
+> and PM were not applied at all.
 > 
-> The "pciVVVV,DDDD" compatibles are the Open Firmware PCI Bus Binding
-> spelling, auto-derived from PCI-SIG vendor/device IDs, but they still
-> need a binding when used in a board DT - analogous to "usbVVVV,PPPP"
-> compatibles documented in their own bindings (e.g. microchip,lan95xx)
-> so board DTs attaching properties (fixed MAC, nvmem cell, ...) to
-> these PCI function nodes can be validated.
+> Build the PSTATE by taking those fields from the SPSR while preserving
+> EL, SP, nRW and EXLOCK from the current PSTATE, then set IL.
 > 
-> Suggested-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-> Signed-off-by: Ricardo Pardini <ricardo@pardini.net>
+> Fixes: 47f3a2fc765a ("KVM: arm64: nv: Support virtual EL2 exceptions")
+> Suggested-by: Marc Zyngier <maz@kernel.org>
+> Link: https://lore.kernel.org/all/86wlvxs5r0.wl-maz@kernel.org/
+> Signed-off-by: Fuad Tabba <tabba@google.com>
 > ---
->  .../devicetree/bindings/net/realtek,rtl8125.yaml   | 43 ++++++++++++++++++++++
->  MAINTAINERS                                        |  1 +
->  2 files changed, 44 insertions(+)
+> This is a modified version of Marc's suggested diff [1]. That diff applied
+> a single mask to the incoming SPSR, which also takes PSTATE.{EL,SP,nRW}
+> (and EXLOCK) from the SPSR. The ARM ARM leaves those fields unchanged on an
+> illegal exception return. This path is reached precisely because SPSR.M is
+> illegal (EL3, M[1]=1, AArch32, EL1 under TGE), so this version preserves
+> EL/SP/nRW/EXLOCK from the current PSTATE and takes only the flags, masks
+> and PAN/ALLINT/PM from the SPSR.
 > 
-> diff --git a/Documentation/devicetree/bindings/net/realtek,rtl8125.yaml b/Documentation/devicetree/bindings/net/realtek,rtl8125.yaml
-> new file mode 100644
-> index 0000000000000..eee13fbc1e6a6
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/net/realtek,rtl8125.yaml
-> @@ -0,0 +1,43 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/net/realtek,rtl8125.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Realtek RTL8125 2.5 Gigabit PCIe Ethernet Controller
-> +
-> +maintainers:
-> +  - Heiner Kallweit <hkallweit1@gmail.com>
-> +
-> +description:
-> +  The Realtek RTL8125 is a 2.5GBASE-T Ethernet controller with a PCIe host
-> +  interface.
-> +
-> +allOf:
-> +  - $ref: ethernet-controller.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    const: pci10ec,8125
-
-IIRC we came to the conclusion that the compatible string isn't used in the
-relevant code path. Then why add it here? Is there an alignment on this?
-If it should be added here, then an explaining comment would be helpful.
-
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    pcie {
-> +        #address-cells = <3>;
-> +        #size-cells = <2>;
-> +
-> +        ethernet@0,0 {
-> +            compatible = "pci10ec,8125";
-> +            reg = <0x10000 0 0 0 0>;
-> +            local-mac-address = [00 00 00 00 00 00];
-> +        };
-> +    };
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index c8d4b913f26c1..e5fbd82946aec 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -134,6 +134,7 @@ M:	Heiner Kallweit <hkallweit1@gmail.com>
->  M:	nic_swsd@realtek.com
->  L:	netdev@vger.kernel.org
->  S:	Maintained
-> +F:	Documentation/devicetree/bindings/net/realtek,rtl8125.yaml
->  F:	drivers/net/ethernet/realtek/r8169*
+> [1] https://lore.kernel.org/all/86wlvxs5r0.wl-maz@kernel.org/
+> ---
+>  arch/arm64/kvm/emulate-nested.c | 33 +++++++++++++++++++++++----------
+>  1 file changed, 23 insertions(+), 10 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
+> index dba7ced74ca5..ace2b40cf875 100644
+> --- a/arch/arm64/kvm/emulate-nested.c
+> +++ b/arch/arm64/kvm/emulate-nested.c
+> @@ -2738,17 +2738,30 @@ static u64 kvm_check_illegal_exception_return(struct kvm_vcpu *vcpu, u64 spsr)
+>  	    (spsr & PSR_MODE32_BIT) ||
+>  	    (vcpu_el2_tge_is_set(vcpu) && (mode == PSR_MODE_EL1t ||
+>  					   mode == PSR_MODE_EL1h))) {
+> -		/*
+> -		 * The guest is playing with our nerves. Preserve EL, SP,
+> -		 * masks, flags from the existing PSTATE, and set IL.
+> -		 * The HW will then generate an Illegal State Exception
+> -		 * immediately after ERET.
+> -		 */
+> -		spsr = *vcpu_cpsr(vcpu);
+> +		u64 cpsr = *vcpu_cpsr(vcpu);
+> +		u64 mask;
 >  
->  8250/16?50 (AND CLONE UARTS) SERIAL DRIVER
-> 
+> -		spsr &= (PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT |
+> -			 PSR_N_BIT | PSR_Z_BIT | PSR_C_BIT | PSR_V_BIT |
+> -			 PSR_MODE_MASK | PSR_MODE32_BIT);
+> +		/*
+> +		 * On an illegal exception return, PSTATE.{EL,SP,nRW} and,
+> +		 * if FEAT_GCS, PSTATE.EXLOCK are unchanged, while the flags
+> +		 * and masks are taken from the SPSR (R_VWJHB). Set IL so the
+> +		 * HW generates an Illegal State Exception right after ERET.
+> +		 */
+> +		mask = PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT |
+> +		       PSR_N_BIT | PSR_Z_BIT | PSR_C_BIT | PSR_V_BIT;
+> +
+> +		if (kvm_has_feat(vcpu->kvm, ID_AA64MMFR1_EL1, PAN, IMP))
+> +			mask |= PSR_PAN_BIT;
+> +		if (kvm_has_feat(vcpu->kvm, ID_AA64PFR1_EL1, NMI, IMP))
+> +			mask |= ALLINT_ALLINT;
+> +		/* FEAT_SPE_EXC and FEAT_TRBE_EXC also gate PSTATE.PM one day... */
+> +		if (kvm_has_feat(vcpu->kvm, ID_AA64DFR1_EL1, EBEP, IMP))
+> +			mask |= BIT_ULL(32);	/* PSTATE.PM */
+> +
+> +		spsr &= mask;
+> +		spsr |= cpsr & (PSR_MODE_MASK | PSR_MODE32_BIT);
+> +		if (kvm_has_feat(vcpu->kvm, ID_AA64PFR1_EL1, GCS, IMP))
+> +			spsr |= cpsr & BIT_ULL(34);	/* PSTATE.EXLOCK */
+>  		spsr |= PSR_IL_BIT;
+>  	}
 
+While I'm happy that you caught the bugs I left for you to address,
+the overall structure is a bit inconsistent. I'd like to have:
+
+- a mask of the bits we preserve from SPSR, and apply that to SPSR
+  itself
+
+- a mask of the bits we preserve from PSTATE, and transfer them to
+  SPSR
+
+- the comment at the top to describe this in that particular order.
+
+With that, I reworked your patch as follows:
+
+diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
+index bb335fa16f7cc..243e5e26f7018 100644
+--- a/arch/arm64/kvm/emulate-nested.c
++++ b/arch/arm64/kvm/emulate-nested.c
+@@ -2746,14 +2746,14 @@ static u64 kvm_check_illegal_exception_return(struct kvm_vcpu *vcpu, u64 spsr)
+ 	    (spsr & PSR_MODE32_BIT) ||
+ 	    (vcpu_el2_tge_is_set(vcpu) && (mode == PSR_MODE_EL1t ||
+ 					   mode == PSR_MODE_EL1h))) {
+-		u64 cpsr = *vcpu_cpsr(vcpu);
+ 		u64 mask;
+ 
+ 		/*
+-		 * On an illegal exception return, PSTATE.{EL,SP,nRW} and,
+-		 * if FEAT_GCS, PSTATE.EXLOCK are unchanged, while the flags
+-		 * and masks are taken from the SPSR (R_VWJHB). Set IL so the
+-		 * HW generates an Illegal State Exception right after ERET.
++		 * On an illegal exception return, the flags and masks are
++		 * taken from the SPSR while PSTATE.{EL,SP,nRW} and, if
++		 * FEAT_GCS, PSTATE.EXLOCK are unchanged (R_VWJHB). Set IL
++		 * so the HW generates an Illegal State Exception right
++		 * after ERET.
+ 		 */
+ 		mask = PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT |
+ 		       PSR_N_BIT | PSR_Z_BIT | PSR_C_BIT | PSR_V_BIT;
+@@ -2767,9 +2767,12 @@ static u64 kvm_check_illegal_exception_return(struct kvm_vcpu *vcpu, u64 spsr)
+ 			mask |= BIT_ULL(32);	/* PSTATE.PM */
+ 
+ 		spsr &= mask;
+-		spsr |= cpsr & (PSR_MODE_MASK | PSR_MODE32_BIT);
++
++		mask = PSR_MODE_MASK | PSR_MODE32_BIT;
+ 		if (kvm_has_feat(vcpu->kvm, ID_AA64PFR1_EL1, GCS, IMP))
+-			spsr |= cpsr & BIT_ULL(34);	/* PSTATE.EXLOCK */
++			mask |= BIT_ULL(34);	/* PSTATE.EXLOCK */
++
++		spsr |= *vcpu_cpsr(vcpu) & mask;
+ 		spsr |= PSR_IL_BIT;
+ 	}
+ 
+Does that work for you?
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
