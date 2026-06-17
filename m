@@ -4,68 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6408CD98ED
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 22:05:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F9ECCD98F0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 22:07:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cwLzgTxmd17MPMjVud2qLnK0Cd61KPIrOzasA94Klt4=; b=WBzKgOj2fzyi/POxgLOOlolSK/
-	xboolRmz3iVJxJL4igiKeWmlKtMNDJISrlZ1e3nBpBm/edM4eYeFVPLH7Lp1uuMuhxmkXsOfoCGRI
-	/f5yMGQPXT1w+jGLnOWDReqq1YnrLP1KNCFOCe/SYPuSesiufvZkEgudHIwwHQv798WoTWJpvUpWf
-	npKyq83L9yVnNNHvHO0towXRG9cxhtVyD/vZ/LKuOi6HVdvq2+joFNbEqgIbpggNfCl33d4udHJi5
-	az31htOMsaJpBrF9MqfK1Rc47a6ocK7YeYUDmkRxMxPkI8ja0tYTg1IKL4nNz3rYFVi+ImEROFbw4
-	mPJ/I4PA==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CqN76L0GmoGTlUxyqmYpYwkQVk5OIJLansyMs93EdPk=; b=CMUC+kygprvVPcZt88jpnwYZ+M
+	tF4Wb2eP4qQjrYhof97VC7+f43vxw6QjoV/W1Ks0QUMiiQZtDTBwVKVBJHlopERU4Gdk6l3oEW4gk
+	eWPbMxGxOagGrlEyydIEdun/yMeFqLLuwHYFzQVbO6hn0Rq0ml0wB7mBd6nV39JjdzfOBO2hoJHte
+	Rwl28sDLsZ32dEruvIu/fLlHb/u8BHuk1yK4V/eRY3xht/V8QoqaxeEGL8O6AdHv9OmZH/TQ1euXf
+	tA7JRnpN5OZHsJCq3qb/Dtv2Le1RugzthvV+AoAJv7GJddJlBhOBIY76o10wYxQuTNO4BES3gkYdL
+	jgZuRnrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZyNh-00000000O6L-38fq;
-	Wed, 17 Jun 2026 22:05:09 +0000
-Received: from sender-op-o11.zoho.eu ([136.143.169.11])
+	id 1wZyQF-00000000OHm-0klU;
+	Wed, 17 Jun 2026 22:07:47 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZyNe-00000000O5Z-0fIr;
-	Wed, 17 Jun 2026 22:05:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1781733900; cv=none; 
-	d=zohomail.eu; s=zohoarc; 
-	b=VoBW12IeSG/YFCRsIpOAw34h/PXpuszDABNyFeqrhtbl/I4ljPTKKm56s/4gqORumKxZZ6L4eRP5qfVzHEUx3s/WomoSOSKlZeL0q/atYT5kvPg5EFK4iVssgzKAWuINl8J/oqeh9xdtGCSvUEY+CcoI9o8tyjntPBfmSaWoFow=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.eu; s=zohoarc; 
-	t=1781733900; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=cwLzgTxmd17MPMjVud2qLnK0Cd61KPIrOzasA94Klt4=; 
-	b=B4AspH2QACy2j6PgvizBfA05OBmNVC2D1pGl2IWX+vPn0TiXU4uZugfvn8JHuVRwfeZ/2Yk0Dt2mpz6DgQSb71R9BjwmaKuGjmI7f1gt0q1Fu2HRaR7RrP50Co/aWDHB9E88FQlnCkg3ID0fRs1UHL47vHkYWobXWJvlU4WVUaw=
-ARC-Authentication-Results: i=1; mx.zohomail.eu;
-	dkim=pass  header.i=dragonzap.com;
-	spf=pass  smtp.mailfrom=daniel@dragonzap.com;
-	dmarc=pass header.from=<daniel@dragonzap.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1781733900;
-	s=zoho; d=dragonzap.com; i=daniel@dragonzap.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=cwLzgTxmd17MPMjVud2qLnK0Cd61KPIrOzasA94Klt4=;
-	b=X/j09m6urwiiFXYm6GBH2zaOdOVbYQnCxx8aK6NUdd23LC7dhr4bCnwyvPY5Z6qW
-	LAO1QoRJv23U3NLktZMuj7Xl9yDfN527XP5APUBj5cJtX+KQvjz7JDZ5Whim10k3Zgd
-	BmNe9KSNrKAnFpCAWzRruJutViut6vN4n+pkiIJM=
-Received: by mx.zoho.eu with SMTPS id 1781733898081206.27637502109712;
-	Thu, 18 Jun 2026 00:04:58 +0200 (CEST)
-From: Daniel McCarthy <daniel@dragonzap.com>
-To: Linus Walleij <linusw@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>
-Cc: linux-gpio@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Daniel McCarthy <daniel@dragonzap.com>
-Subject: [PATCH] pinctrl: bcm2835: Don't remove an unregistered GPIO chip
-Date: Thu, 18 Jun 2026 01:04:51 +0300
-Message-ID: <20260617220451.15298-1-daniel@dragonzap.com>
-X-Mailer: git-send-email 2.53.0
+	id 1wZyQE-00000000OHL-2uvW
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 17 Jun 2026 22:07:46 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2F38242A40;
+	Wed, 17 Jun 2026 22:07:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BE301F000E9;
+	Wed, 17 Jun 2026 22:07:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781734066;
+	bh=CqN76L0GmoGTlUxyqmYpYwkQVk5OIJLansyMs93EdPk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=XNxowSn0OJP7I2CIW2JV0Oo+0Rb+Kin3QNSOcQuHP6QKaSXwJYNG4kFgHdWzc6Kdf
+	 2pVYVBMVbEft9I+hqRuLM45mXxtDKkIrE16UXxKkNjSPtiG0cNyVdWldzciE/3B/Lg
+	 dxmDRcDjInvW5G/O+L5ZZ2G8zkczw4R31UbnwJ/UclDCiyAl0ng5d7bpd777pgunfq
+	 wEI2dW2j+0XDGEpTVhUup+ZP8N7/EzprERi1gqb9r29KVHngQmWAiFWLOLK0y/EQo+
+	 sQc92qNEXX27qZIhquXOuI/QZ49TFfmsRnXHvh5qclJjht0ry/VefZz5qfZQLLtCR2
+	 qWca2TTAx2Y6A==
+Date: Wed, 17 Jun 2026 15:07:44 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Jacob Keller <jacob.e.keller@intel.com>
+Cc: <keguang.zhang@gmail.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David
+ S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ "Paolo Abeni" <pabeni@redhat.com>, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, <linux-mips@vger.kernel.org>,
+ <netdev@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] net: stmmac: loongson1: Use dev_err_probe()
+Message-ID: <20260617150744.05756f0b@kernel.org>
+In-Reply-To: <6b8db599-5bb2-47f9-ab53-a0b5141af2e5@intel.com>
+References: <20260615-dwmac-loongson1-v1-1-cbcf5bc01d9b@gmail.com>
+	<31630db0-85cb-421b-8ebe-bbae07521533@intel.com>
+	<20260617135407.6ff54e27@kernel.org>
+	<6b8db599-5bb2-47f9-ab53-a0b5141af2e5@intel.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-ZohoMailClient: External
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260617_150506_530701_D715EA82 
-X-CRM114-Status: GOOD (  11.39  )
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,38 +76,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If the devm_pinctrl_register() function fails,
-bcm2835_pinctrl_probe() calls gpiochip_remove()
-before gpiochip_add_data() has registered the GPIO chip.
+On Wed, 17 Jun 2026 14:26:25 -0700 Jacob Keller wrote:
+> It does claim that it has benefit since you get the error code emitted
+> symbolically. But we have %pe for that. I wonder if dev_err_probe
+> predates %pe?
 
-This means that upon failure the gpio_chip.gpiodev
- is NULL resulting in a null pointer dereference
-inside the gpiochip_remove() function.
+I'd argue
 
-Remove the unnecessary function call to gpiochip_remove().
-No GPIO cleanup is required because the GPIO chip
-has not yet been registered. Without this change there
-is potential for a kernel panic upon registration failure
+  No of match data provided: -EINVAL
 
-Fixes: 266423e60ea1 ("pinctrl: bcm2835: Change init order for gpio hogs")
-Signed-off-by: Daniel McCarthy <daniel@dragonzap.com>
----
- drivers/pinctrl/bcm/pinctrl-bcm2835.c | 1 -
- 1 file changed, 1 deletion(-)
+is more confusing than just:
 
-diff --git a/drivers/pinctrl/bcm/pinctrl-bcm2835.c b/drivers/pinctrl/bcm/pinctrl-bcm2835.c
-index e7b35019a5a7..725e880ae086 100644
---- a/drivers/pinctrl/bcm/pinctrl-bcm2835.c
-+++ b/drivers/pinctrl/bcm/pinctrl-bcm2835.c
-@@ -1350,7 +1350,6 @@ static int bcm2835_pinctrl_probe(struct platform_device *pdev)
- 	pc->pctl_desc = *pdata->pctl_desc;
- 	pc->pctl_dev = devm_pinctrl_register(dev, &pc->pctl_desc, pc);
- 	if (IS_ERR(pc->pctl_dev)) {
--		gpiochip_remove(&pc->gpio_chip);
- 		return PTR_ERR(pc->pctl_dev);
- 	}
- 
--- 
-2.53.0
+  No of match data provided
 
+the EINVAL is meaningless and hardcoded in this case?
 
