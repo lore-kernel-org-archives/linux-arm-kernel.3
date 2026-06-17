@@ -4,61 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C642CD98F0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 12:49:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1CE1CD98E4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 12:58:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IMIppte+gBwuC5XbBRIXlUQ0aozwvo/6xvW4VF9LfrQ=; b=UjL6eEuIW1J97eP0I9NiLV09qZ
-	xx406OVcrvhn5ZfJA5RebuyPDwR3WtWXoMAq5H5nlEroQx5kRXmf7qU+vG78QFGGDqW0xoSx5uUbw
-	cBCY3/8EBafng6Q6WYt5g9qATBJ7MQFcN9QgTNWzdfRphcTn02QqwBnKUOPl+zXxuiV6bQt1fVawY
-	vb7oigvZPoIcZdJIzjzlqMt3Um/tqMy4pMs9VY5OXUQqAzNFerrJZwfskOFOfYaYgaXhYSaWt1ISG
-	lahzBezaI1WcEOkYTZrVc1ooDSYcUHPNlAPkez3GGrhPy3dBmBSyTInJ3sOmqX3sY9HvW1d9HcaA3
-	BN+shzeg==;
+	bh=6kkhjZjL73iL5SGgm49lqvbOfAh7vnr1veqEvER01Nk=; b=XsbDWRAEMlfsvzq6Hs0wZxTWB5
+	IOZ2fXk50voX6qtDGHU6QC+k3/CePe71FFwNonAbGewjSVRRB2Q82j3cqpsSnagcLOzRHt060V1ie
+	tY2HsogRRyu8PGaWyu8+9EfcWmbeX6yWwjbDwMUvvUTCojL5Ie7T0ngU2O9LMvuP+FXCmgJt6Knvt
+	EjaZu+ogX43hsZX+ShBGeVz7XXK559XFnHNUjMWkcvx7dILQIKH6tudsngS1TLpb4Dq8w1P+sYC+V
+	26hPqbsxQL8vA0kssW4UW/33fw8p0QhC5rrOSJ1Fh7PDQ0HqNxibczPC6uI/j5cY5sij7q30b7uDP
+	3BSc1mJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZphQ-0000000HMtC-2b5k;
-	Wed, 17 Jun 2026 12:48:56 +0000
+	id 1wZpqU-0000000HNLN-31pv;
+	Wed, 17 Jun 2026 12:58:18 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZphP-0000000HMt0-22Et;
-	Wed, 17 Jun 2026 12:48:55 +0000
+	id 1wZpqU-0000000HNLH-1TR6
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 17 Jun 2026 12:58:18 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 10E5840E50;
-	Wed, 17 Jun 2026 12:48:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A9831F000E9;
-	Wed, 17 Jun 2026 12:48:54 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 88163416FE;
+	Wed, 17 Jun 2026 12:58:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4472D1F000E9;
+	Wed, 17 Jun 2026 12:58:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781700534;
-	bh=IMIppte+gBwuC5XbBRIXlUQ0aozwvo/6xvW4VF9LfrQ=;
+	s=k20260515; t=1781701097;
+	bh=6kkhjZjL73iL5SGgm49lqvbOfAh7vnr1veqEvER01Nk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=N+skJEbER87qujetlVk/j6Tkuyd1Vhrm3VXBA4mpK2P60nXN0b5oN1qOIIW6l7Wyj
-	 2ms5f0Emq1qAEDkoFKTGqjGgSEtOPjFRk7/XMQBuCoSq6Nvn4CIfyx9BEHS8kIaHzk
-	 aTjbGFxY9/L25JBs+T0SFQPMOKYOTOsaunEOmJQPHli7aEr6PlvgTDOQJ2VKMMSCdB
-	 q7CRFMHrvi2z+xZaTYC/7Dsa3rYsqlHPTf2v/6JhZoacfchH8uET0V1q8BeohY8UJO
-	 vs/F03aR3R1MwdkUoN5GqAtbKaI9jlrVPlelxSmRugQLTvpKc+PNOafKH1LhBkNzKp
-	 NHJ3OkNZj3iXw==
-Date: Wed, 17 Jun 2026 14:48:52 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Wayen Yan <win847@gmail.com>
-Cc: netdev@vger.kernel.org, horms@kernel.org, pabeni@redhat.com,
-	kuba@kernel.org, edumazet@google.com, andrew+netdev@lunn.ch,
-	angelogioacchino.delregno@collabora.com, matthias.bgg@gmail.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v2] [net] net: airoha: Clean up RX queues in
- airoha_dev_stop
-Message-ID: <ajKXtDxPipRcA20X@lore-desk>
-References: <178161160256.2165161.14322392784449633554@gmail.com>
- <178170026659.2238511.17652659042899875248@gmail.com>
+	b=G3VQzoseBcEc4ZqnjUIl5dazPAdmqv7vocvgDItW4EH/fCUZCK1d3yK4zzLroA2gb
+	 pUOaT9bhTD3u970CxoWgLfxnyqCF4Y37VhygB0LU1Gfs+JmtJ+DASl6HnJtvongAWB
+	 ehFYqG5mGezcnrDiU/QJNNylFoHvhuMhhChrUW9aKp9z0rZLHO8VsQlaKa7OhNMrDD
+	 S7CLqoLojp6bvkRavTBq6arKO6F8UhAY+hkxtSBMgAnZpn7niR+gl0TTKQSbL328Yn
+	 gKRlBAqhpEojrnPsRtGea5Vs7SuYNGUe1MicyGQaNPKGTsvvj1n50OVDLhotYEhb2P
+	 LVJL/M4K0GSvw==
+Date: Wed, 17 Jun 2026 14:58:09 +0200
+From: Christian Brauner <brauner@kernel.org>
+To: Cristian Marussi <cristian.marussi@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	arm-scmi@vger.kernel.org, linux-fsdevel@vger.kernel.org, linux-doc@vger.kernel.org, 
+	sudeep.holla@kernel.org, james.quinlan@broadcom.com, f.fainelli@gmail.com, 
+	vincent.guittot@linaro.org, etienne.carriere@st.com, peng.fan@oss.nxp.com, 
+	michal.simek@amd.com, d-gole@ti.com, jic23@kernel.org, elif.topuz@arm.com, 
+	lukasz.luba@arm.com, philip.radford@arm.com, souvik.chakravarty@arm.com, 
+	leitao@kernel.org, kas@kernel.org, puranjay@kernel.org, usama.arif@linux.dev, 
+	kernel-team@meta.com
+Subject: Re: [PATCH v4 00/31] Introduce SCMI Telemetry FS support
+Message-ID: <20260617-waten-allabendlich-zueinander-93d4b1367b8c@brauner>
+References: <20260612223802.1337232-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="dwA6XgDlcLvaJ+Fq"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <178170026659.2238511.17652659042899875248@gmail.com>
+In-Reply-To: <20260612223802.1337232-1-cristian.marussi@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,43 +74,158 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Jun 12, 2026 at 11:37:30PM +0100, Cristian Marussi wrote:
+> Hi all,
+> 
+> --------------------------------------------------------------------------------
+> [TLDR Summary]
+> This series introduces a new SCMI driver which uses a new Telemetry FS to expose
+> and configure SCMI Telemetry Data Events retrieved from the platform SCMI FW
+> at runtime. The patches carrying the new STLMFS Filesystem support are tagged
+> with 'stlmfs'.
+> --------------------------------------------------------------------------------
+> 
+> the upcoming SCMI v4.0 specification [0] introduces a new SCMI protocol
+> dedicated to System Telemetry.
+> 
+> In a nutshell, the SCMI Telemetry protocol allows an agent to discover at
+> runtime the set of Telemetry Data Events (DEs) available on a specific
+> platform and provides the means to configure the set of DEs that a user is
+> interested into, while reading them back using the collection method that
+> is deeemed more suitable for the usecase at hand. (...amongst the various
+> possible collection methods allowed by SCMI specification)
+> 
+> Without delving into the gory details of the whole SCMI Telemetry protocol
+> let's just say that the SCMI platform/server firmware advertises a number
+> of Telemetry Data Events, each one identified by a 32bit unique ID, and an
+> SCMI agent/client, like Linux, can discover them and read back at will the
+> associated data value in a number of ways.
+> Data collection is mainly intended to happen on demand via shared memory
+> areas exposed by the platform firmware, discovered dynamically via SCMI
+> Telemetry and accessed by Linux on-demand, but some DE can also be reported
+> via SCMI Notifications asynchronous messages or via direct dedicated
+> FastChannels (another kind of SCMI memory based access): all of this
+> underlying mechanism is anyway hidden to the user since it is mediated by
+> the kernel driver which will return the proper data value when queried.
+> 
+> Anyway, the set of well-known architected DE IDs defined by the spec is
+> limited to a dozen IDs, which means that the vast majority of DE IDs are
+> customizable per-platform: as a consequence, though, the same ID, say
+> '0x1234', could represent completely different things on different systems.
+> 
+> Precise definitions and semantic of such custom Data Event IDs are out of
+> the scope of the SCMI Telemetry specification and of this implementation:
+> they are supposed to be provided using some kind of JSON-like description
+> file that will have to be consumed by a userspace tool which would be
+> finally in charge of making sense of the set of available DEs.
+> 
+> IOW, in turn, this means that even though the DEs enumerated via SCMI come
+> with some sort of topological and qualitative description provided by the
+> protocol (like unit of measurements, name, topology info etc), kernel-wise
+> we CANNOT be completely sure of "what is what" without being fed-back some
+> sort of information about the DEs by the afore mentioned userspace tool.
+> 
+> For these reasons, currently this series does NOT attempt to register any
+> of these DEs with any of the usual in-kernel subsystems (like HWMON, IIO,
+> PERF etc), simply because we cannot be sure which DE is suitable, or even
+> desirable, for a given subsystem. This also means there are NO in-kernel
+> users of these Telemetry data events as of now.
+> 
+> So, while we do not exclude, for the future, to feed/register some of the
+> discovered DEs to/with some of the above mentioned Kernel subsystems, as
+> of now we have ONLY modeled a custom userspace API to make SCMI Telemetry
+> available to userspace tools.
+> 
+> In deciding which kind of interface to expose SCMI Telemetry data to a
+> user, this new SCMI Telemetry driver aims at satisfying 2 main reqs:
+> 
+>  - exposing an FS-based human-readable interface that can be used to
+>    discover, configure and access our Telemetry data directly also from
+>    the shell without special tools
+> 
+>  - exposing alternative machine-friendly, more-performant, binary
+>    interfaces that can be used to avoid the overhead of multiple accesses
+>    to the VFS and that can be more suitable to access with custom tools
+> 
+> In the initial RFC posted a few months ago [1], the above was achieved
+> with a combination of a SysFS interface, for the human-readable side of
+> the story, and a classic chardev/ioctl for the plain binary access.
+> 
+> Since V1, instead, we moved away from this combined approach, especially
+> away from SysFS, for the following reason:
+> 
+>  1. "Abusing SysFS": SysFS is a handy way to expose device related
+>       properties in a common way, using a few common helpers built on
+>       kernfs; this means, though, that unfortunately in our scenario I had
+>       to generate a dummy simple device for EACH SCMI Telemetry DataEvent
+>       that I got to discover at runtime and attach to them, all of the
+>       properties I need.
+>       This by itself seemed to me abusing the SysFS framework, but, even
+>       ignoring this, the impact on the system when we have to deal with
+>       hundreds or tens of thousands of DEs is sensible.
+>       In some test scenario I ended with 50k DE devices and half-a-millon
+>       related property files ... O_o
+> 
+>  2. "SysFS constraints": SysFS usage itself has its well-known constraints
+>       and best practices, like the one-file/one-value rule, and due to the
+>       fact that any virtual file with a complex structure or handling logic
+>       is frowned upon, you can forget about IOCTLs and mmap'ing to provide
+>       a more performant interface within SysFs, which is the reason why,
+>       in the previous RFC, there was an additional alternative chardev
+>       interface.
+>       These latter limitations around the implementation of files with a
+>       more complex semantic (i.e. with a broader set of file_operations)
+>       derive from the underlying KernFS support, so KernFS is equally not
+>       suitable as a building block for our implementation.
+> 
+>  2. "Chardev limitations": Given the nature of the protocol, the hybrid
+>       approach employing character devices was itself problematic: first
+>       of all because there is an upper limit on the number of chardev we
+>       can create, dictated by the range of available minor numbers, and
+>       then because the fact itself to have to maintain 2 completely
+>       different interfaces (FS + chardev) is painful.
+> 
+> As a final remark, please NOTE THAT all of this is supposed to be available
+> in production systems across a number of heterogeneous platforms: for these
+> reasons the easy choice, debugFS, is NOT an option here.
+> 
+> Due to the above reasoning, since V1 we opted for a new approach with the
+> proposed interfaces now based on a full fledged, unified, virtual pseudo
+> filesystem implemented from scratch, so that we can:
+> 
+>  - expose all the DEs property we like as before with SysFS, but without
+>    any of the constraint imposed by the usage of SysFs or kernfs.
+> 
+>  - easily expose additional alternative views of the same set of DEs
+>    using symlinking capabilities (e.g. alternative topological view)
+> 
+>  - additionally expose a few alternative and more performant interfaces
+>    by embedding in that same FS, a few special virtual files:
+> 
+>    + 'control': to issue IOCTLs for quicker discovery and on-demand access
+>    		to data
+>    + 'pipe' [TBD]: to provide a stream of events using a virtual
+>    		   infinite-style file
+>    + 'raw_<N>' [TBD]: to provide direct memory mapped access to the raw
+>    		      SCMI Telemetry data from userspace
 
---dwA6XgDlcLvaJ+Fq
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+A filsystem driver for telemetry like this is really misguided. I think
+shell access is really not an argument for adding a filesystem into the
+kernel like this. That's just not appropriate justification to push
+thousand and thousands of lines of code into the kernel.
 
-> Thanks Simon for forwarding the AI review. I've reviewed all three
-> concerns:
->=20
-> #1 (NAPI race) and #2 (RX refill) are valid. #2 is the decisive
-> issue: airoha_dev_open() has no RX ring refill, so draining the
-> queues in stop would cause RX stall on next open. This aligns with
-> Lorenzo's earlier feedback =E2=80=94 RX queues don't need cleanup in
-> dev_stop(). I'll drop this patch.
->=20
-> #3 (q->skb leak) is a pre-existing issue, not introduced by this
-> patch. It exists even in the module unload path
-> (airoha_qdma_cleanup()). @Lorenzo =E2=80=94 do you think this warrants a
-> fix? A one-liner in airoha_qdma_cleanup_rx_queue() would cover both
-> paths. Or is this too unlikely to matter in practice?
+You're building completely new infrastructure. The format is whatever it
+is. If you stream it somehow just add a binary that userspace can use to
+consume or translate it. If you need a filesystem interface for
+convenience build it via FUSE on top of whatever streams that data and
+get it ouf of the kernels way.
 
-Soon I will post a patch to run airoha_qdma_cleanup_tx_queue() just in
-airoha_hw_cleanup() so I think we should just drop this patch.
+You also buy into all kinds of really wonky properties. If you split it
+over multiple files you can never get a snapshot of data that is
+consistent if it's across multiple files.
 
-Regards,
-Lorenzo
-
---dwA6XgDlcLvaJ+Fq
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCajKXtAAKCRA6cBh0uS2t
-rKmiAQDehtR9VrdOdbmTSHIKJQn9uL7BkvVVXPg39gdOUoJbDgD/cL9I+HyY/qdR
-q4EY1FHiIibYx/ptSfwkEGZI8MtXrgg=
-=owDH
------END PGP SIGNATURE-----
-
---dwA6XgDlcLvaJ+Fq--
+Telemetry over a filesystem is just not a great idea. If you did it via
+sysfs I really wouldn't care because all because the infrastructure
+already exists and I couldn't be bothered if this grew yet another wart
+but as a separate massive hand-rolled pseudofs, no I'm not seeing it.
 
