@@ -4,96 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B62ECD98E4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 08:23:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17E3CCD98E4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 08:26:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mk86bxlrPWUP+ZTPQQXB6H9xJamJagPahnQQ0p/X5sM=; b=uBK1Gzr1YKEkPTXLmbXjMC+dhD
-	EM/wrnfuILk0xZRSXAmgKj3fK/TR4cb2sFxdEKQEwnhTNANdVcv6plcjLoff5ZjxAh7tSuV78R/fF
-	CFzWd11UEbUM2eVmGClEkAe2CJt/G/Yop4QyWVka8kVR33G1zmVWjV4NJI1DXqqAMMUikFDqw/BVb
-	YC/Nn8p37KPZvZx9Nob0XqIx2YXZBh4GO3AQ111hlTz+U2JPZEmumhR/Yq5vqHuIeKg89+FL7PvS/
-	vvmS9e0nl8VtwiiWsXy8dYnuSURJOFiknUWsWrGNZRor0Jd6dSVKQiZaIxh9QQWqnLf9mnvbdrEBS
-	Pvo6VpSg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NH6hocZNylot+M4XVVVgASnxnSv/8JW5bdpWIVIZHYU=; b=j/4VlmxsCGpso/gWQvxHBBIy//
+	WkWvcrzsRy8T1QUTRaxD5rhg+1AF1U5sVNGRxpaatLW5FjxlJLZctyT06QeokwQEExeZgvlyeTmY3
+	v+OSODJbFgcag74G0QJ6k/C2PslD/DMXLSU1n0JUmQw7/R+xCbQnU0FcwPN/sbDknHaYXe3VEcY29
+	7GE2jCKrxWbuQMuZLG7SBHiw+7lEQCCUiVAWUzF3/Br9aN9aGMA6Pqw5nBil4/poAM0JQ0odvCJqz
+	6toIqE2O0iFOBk528z7ZDBa0HJoetb0FBX7RDO8+KjVaD7+cYfsI6n0GIVieT1bQu5675SsjZ84hB
+	8Bm3l3ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZlYQ-0000000GsKm-06NH;
-	Wed, 17 Jun 2026 08:23:22 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1wZlbk-0000000Gsp7-1tuM;
+	Wed, 17 Jun 2026 08:26:48 +0000
+Received: from mail-ua1-f49.google.com ([209.85.222.49])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZlYN-0000000GsIe-1l2b
+	id 1wZlbi-0000000Gsoh-0hJ2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 08:23:20 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2c6c57c5bcfso1846065ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 01:23:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781684599; x=1782289399; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=mk86bxlrPWUP+ZTPQQXB6H9xJamJagPahnQQ0p/X5sM=;
-        b=Ib+ZZ8yBAjT3j7MQm1o1nJcxqEn45NLO03EpyGEMAa9bFYKAqFSldjV2n0t44RtxGT
-         /i5ESBlbb9yuxYON9F+Mtk1SPqxG3HlkKAJ6U5pnu7wmE6dt/wX2yYdtZZ69zorp7Jph
-         518dKDNqA+L/HbRd+5uhi/ey1dZk1BdmvYqI5EgAfzvKkoRZvLJwF8/UPKKbi6G0Qtm0
-         qd8G7afyTlVHzipT/z9yVkAWLJ1vXVNctlTyu/AwhjmrIjcV5KriCsbjQovp+nA8a+re
-         hAwnXNW9XaiGJwb78v9f/GeyobRHGK51Tq3EGjNfiOnO2dsGtm7iZxUv6vAQnbyC67Yc
-         EB2A==
+	Wed, 17 Jun 2026 08:26:47 +0000
+Received: by mail-ua1-f49.google.com with SMTP id a1e0cc1a2514c-963f63fe025so1372381241.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 01:26:45 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781684599; x=1782289399;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=mk86bxlrPWUP+ZTPQQXB6H9xJamJagPahnQQ0p/X5sM=;
-        b=i7/zLr1zROfzwo61soKENcRXGdQGLucF845yuslQV36Q8LdWVFGnc9+K7Fy8xGpYFo
-         kAdwCGwnXphVMCQwGsAQk1/CzsksA2SotMA4ognGJIl9ZG6A0e3uGNfajhaQ5xH6iW+y
-         8F6Bxn+jnZeIbDRfx9mlbKkYYOYlcDJVNAHLhtBHYyam6E5aA0qniTsnur9k+Fir89b7
-         oZ4IBYgLMilj854QEBlNQOQ7TIIWFLkHPHnJKhdd66XFiLGxV55xfST7W9YLVRgI155x
-         kdYl7lsetm2t6HJiDzFUtnKj3pLQI0jyMOATt6mf2oscZYIaNfMV1xr/jYKPcrZ1IF3t
-         aqWQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/h+WSLYpGbbvANVlWw+cp8S77qXfw6dXTCEoRqtY8MN/L9Mf1BTrFfJBRYTbtzy3yEfQpEp3u5LOdRMrPT57p5@lists.infradead.org
-X-Gm-Message-State: AOJu0YzsroRWmh4y0t2AWOPkHg+lBA+Tz+mZ/HfojGgbpdBzhon8H9qn
-	vM4qzC0mGZQXMyD/LZk7bJEyhtJYARwAS6x8gxs8TfgSkgbFzHcF29Ax
-X-Gm-Gg: AfdE7cnYhE9h3pTIF6jAhg85NahbVfRvwCI/1DmhYO5IDB5ZrSciKGNcO+ayidbcq7r
-	G4CrMarAziwZNICkqBFYJhxcpf4pGOgLJDS5PZkRseyXejb+jqxuO44mnjo7wwrjoi4IGi71t3z
-	602hG5KwnNJT7SKJIUtwh6A9yMiQ2uWc40zoyMq8xAaoOvZXHjG5KfriIylZZCrsHKqG+W/3/pa
-	P5FMBJs06QYTf/mxNQugaI31eXIVKfVqBZPgGCv2787RSiU2EJ+IyT4gTY+8oiUFScwi8rlsMME
-	9JjUzjGfoe08zpFTfH4Y6e/ip/3sU7IwmouHZ8hZF15t65sKqjXXS7WcgMGVrgOVpTyytrcdC4m
-	3zIA+v6XaE7EqgHgXKOCIC9AzapH6aAoR6vyhP0L9281bWkvMf/P1Z5+5ZIvl1KZjza/uR1a/l6
-	mEscZmZFUA1g==
-X-Received: by 2002:a17:903:3c46:b0:2c0:bcff:e191 with SMTP id d9443c01a7336-2c6bc27199amr27006845ad.36.1781684598761;
-        Wed, 17 Jun 2026 01:23:18 -0700 (PDT)
-Received: from arch.localdomain ([2409:8a28:a52:c491::1002])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c6a758a3c6sm35282045ad.52.2026.06.17.01.23.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 17 Jun 2026 01:23:18 -0700 (PDT)
-From: Jun Yan <jerrysteve1101@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Arseniy Krasnov <avkrasnov@salutedevices.com>
-Cc: Jun Yan <jerrysteve1101@gmail.com>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 3/3] arm64: dts: amlogic: meson-axg: Disable pcie_phy node by default
-Date: Wed, 17 Jun 2026 16:22:34 +0800
-Message-ID: <20260617082239.645562-4-jerrysteve1101@gmail.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260617082239.645562-1-jerrysteve1101@gmail.com>
-References: <20260617082239.645562-1-jerrysteve1101@gmail.com>
+        d=1e100.net; s=20251104; t=1781684805; x=1782289605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=NH6hocZNylot+M4XVVVgASnxnSv/8JW5bdpWIVIZHYU=;
+        b=Xu9uOHVqccL6KSy7Kz6455kSFPLgmy4AB7scSyW7+PArDSszw6PEqHDVY8Yxo35V8V
+         6VwgUv/kQBqNMi7wAoztYxsH5JcUeN9I5QciDGtboBezcvTvaFXGNuRJicAL9hdDR6PL
+         N3wk3dGqLOnEPWFFQSPDRX+g5God2nnXiAFcSC1iPbgLvInalVw/d7h0TTTR/iG7WwlL
+         px6X2u8Im1qSntqMWED7M+qnRJrQLQhBtzk/Tm8StgfEDTXAS0nN23PYOnZ8t0QxkAFC
+         1oKWtbjevOzqHxGRmUzkm7nmlSVcSGRJ3vUb/zuf6PLPyMoJHvBohGs8zS3R3BBa9JKs
+         RjJg==
+X-Forwarded-Encrypted: i=1; AFNElJ+fXwKDHZtEMB5E91mNs/3wHefRyzTLXVPY4PK0y6IoU0cBvKJngjaK23PnT8sjBowOpLrWK//4VXwUee6/sA6s@lists.infradead.org
+X-Gm-Message-State: AOJu0YzjxFH0aOR7wwjy78v+sJjZb0B0q2GyzIfjKynQo24k5TuET6Le
+	IAQLSux4r2itx830jMXYj2kXpDVh9f/oPCzuUrzkgpEjp1U0sGUgm9y4JnyFbcM/
+X-Gm-Gg: Acq92OH2vWkk0882gp54IJPKD9QitEqgiqOfT0d4t49T/rECmapwnL+A73Z6fMGceV4
+	mCGw76IdpMGzCRD4hScN1ZNQDBzEbfDgh0Txt5sFThgpMRDjP39ayMhxSQQbGCUZDcIgdvBZxYG
+	xPXG04XwwcVd+PmV8Qg9vsl045FZKqNJ5P12ASCHl6WPC6kHUyPh9tMJ5gEyw5KFpPiRg/zlEg6
+	aRn2y06tP6TeraXyaLfFn7mIMDiX8owCq5dTjN6QEmycvhcht8HTS1C9rslenh7Rdy5NOPuEAzJ
+	hJot9JYIF8CsMWV44D/U3bmsw+keyX2WyncsxtGseaesKwBJBABr1fS47u3fehd1zczzGTgLqG5
+	PxRwmbnMtJsCJS1uI080dn/pN+VAIhC07fBEKaa4dNuMEIVaYsAfl70bBYX+HhWEmtZcdFR1bbP
+	bTx5PwUkrlOKU8bMKzkkmaTRBKQx7j9dfWrtLOadhIM1rNFuJLFw==
+X-Received: by 2002:a05:6102:3f4d:b0:6ef:dd26:e2c3 with SMTP id ada2fe7eead31-7246d105146mr1305570137.24.1781684804613;
+        Wed, 17 Jun 2026 01:26:44 -0700 (PDT)
+Received: from mail-vs1-f50.google.com (mail-vs1-f50.google.com. [209.85.217.50])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-966ce8dceccsm2437894241.6.2026.06.17.01.26.43
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 17 Jun 2026 01:26:44 -0700 (PDT)
+Received: by mail-vs1-f50.google.com with SMTP id ada2fe7eead31-6cfd17e9250so2228090137.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 01:26:43 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ8yl5oNYCFKzRWYtuY8nKBl4nuTyI/vxOrraEmDd8mjGLVYnflLt6dHGJiWWGvF3mDdzWJyPxV1f63oTuI8JbaW@lists.infradead.org
+X-Received: by 2002:a05:6102:4b03:b0:632:3bb5:95f1 with SMTP id
+ ada2fe7eead31-7246d528766mr1135210137.27.1781684803531; Wed, 17 Jun 2026
+ 01:26:43 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260617030008.154449-1-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20260617030008.154449-1-marek.vasut+renesas@mailbox.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 17 Jun 2026 10:26:32 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdU0SJ0q2hcpu+qZCH3eZ5eFDyo8Z964h9DhuSaQ7QdHSg@mail.gmail.com>
+X-Gm-Features: AVVi8CfAqddoQorfQ6TrjH19DY2WU_w8lZ69fu1Z-CMFemynEW91v1W75EneBEs
+Message-ID: <CAMuHMdU0SJ0q2hcpu+qZCH3eZ5eFDyo8Z964h9DhuSaQ7QdHSg@mail.gmail.com>
+Subject: Re: [PATCH 1/3] PCI: rcar-gen4: Configure AXIINTC if iMSI-RX not used
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-pci@vger.kernel.org, 
+	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, 
+	=?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Conor Dooley <conor+dt@kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Marc Zyngier <maz@kernel.org>, Rob Herring <robh@kernel.org>, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260617_012319_460729_D11209CF 
-X-CRM114-Status: GOOD (  12.66  )
+X-CRM114-CacheID: sfid-20260617_012646_217864_9B1D1CE9 
+X-CRM114-Status: GOOD (  29.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,50 +102,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Set the pcie_phy node to "disabled" as it is not used on some boards
-and should be enabled per-board when necessary.
+Hi Marek,
 
-This change suppresses the deferred probe warning:
+On Wed, 17 Jun 2026 at 05:00, Marek Vasut
+<marek.vasut+renesas@mailbox.org> wrote:
+> In case MSI are enabled, but DWC built-in iMSI-RX is not in use, the
+> MSI are handled via GIC ITS. Configure all controller MSI registers
+> fully.
+>
+> Set or clear MSI capability register MSICAP0 MSI enable MSIE bit and
+> PCIe Interrupt Status 0 Enable register PCIEINTSTS0EN MSI interrupt
+> enable MSI_CTRL_INT bit according to MSI enable state, set both bits
+> if MSI are enabled, clear both bits if MSI are disabled.
+>
+> If MSI are disabled, or MSI are enabled and iMSI-RX is used, then
+> deconfigure AXIINTCADDR and AXIINTCCONT to 0, which disables any
+> pass through of MSI TLPs onto the AXI bus and then further into
+> GIC ITS translation registers.
+>
+> If MSI are enabled and iMSI-RX is not used, the configure AXIINTCADDR
+> with target address of GIC ITS translation registers, and configure
+> AXIINTCCONT to enable MSI TLP pass through onto AXI bus and into the
+> GIC ITS. This specific configuration allows handling of MSI via the
+> GIC ITS instead of integrated iMSI-RX.
+>
+> Signed-off-by: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 
-platform ff644000.phy: deferred probe pending: (reason unknown)
+Thanks for your patch!
 
-The meson-axg dtsi now disables pcie_phy by default, so enable it
-for the s400 board to support PCIe functionality.
+> --- a/drivers/pci/controller/dwc/pcie-rcar-gen4.c
+> +++ b/drivers/pci/controller/dwc/pcie-rcar-gen4.c
+> @@ -31,6 +31,10 @@
+>  #define DEVICE_TYPE_RC         BIT(4)
+>  #define BIFUR_MOD_SET_ON       BIT(0)
+>
+> +/* MSI Capability */
+> +#define MSICAP0                        0x0050
+> +#define MSICAP0_MSIE           BIT(16)
+> +
+>  /* PCIe Interrupt Status 0 */
+>  #define PCIEINTSTS0            0x0084
+>
+> @@ -55,6 +59,16 @@
+>  #define APP_HOLD_PHY_RST       BIT(16)
+>  #define APP_LTSSM_ENABLE       BIT(0)
+>
+> +/* INTC address */
+> +#define AXIINTCADDR            0x0a00
+> +/* GITS GIC ITS translation register */
+> +#define AXIINTCADDR_VAL                0xf1050000
+> +
+> +/* INTC control & mask */
+> +#define AXIINTCCONT            0x0a04
+> +#define INTC_EN                        BIT(31)
+> +#define INTC_MASK              GENMASK(11, 2)
+> +
+>  /* PCIe Power Management Control */
+>  #define PCIEPWRMNGCTRL         0x0070
+>  #define APP_CLK_REQ_N          BIT(11)
+> @@ -305,6 +319,39 @@ static struct rcar_gen4_pcie *rcar_gen4_pcie_alloc(struct platform_device *pdev)
+>         return rcar;
+>  }
+>
+> +static void rcar_gen4_pcie_host_msi_init(struct dw_pcie_rp *pp)
+> +{
+> +       struct dw_pcie *dw = to_dw_pcie_from_pp(pp);
+> +       struct rcar_gen4_pcie *rcar = to_rcar_gen4_pcie(dw);
+> +       u32 val;
+> +
+> +       /* Make sure MSICAP0 MSIE is configured. */
+> +       val = dw_pcie_readl_dbi(dw, MSICAP0);
+> +       if (pci_msi_enabled())
+> +               val |= MSICAP0_MSIE;
+> +       else
+> +               val &= ~MSICAP0_MSIE;
+> +       dw_pcie_writel_dbi(dw, MSICAP0, val);
+> +
+> +       if (!pci_msi_enabled() || pp->use_imsi_rx) {
+> +               /* Clear AXIINTC mapping. */
+> +               writel(0, rcar->base + AXIINTCADDR);
+> +               writel(0, rcar->base + AXIINTCCONT);
+> +       } else {
+> +               /* Point AXIINTC to GIC ITS and enable. */
+> +               writel(AXIINTCADDR_VAL, rcar->base + AXIINTCADDR);
+> +               writel(INTC_EN | INTC_MASK, rcar->base + AXIINTCCONT);
+> +       }
+> +
+> +       /* Configure MSI interrupt signal */
+> +       val = readl(rcar->base + PCIEINTSTS0EN);
+> +       if (pci_msi_enabled())
+> +               val |= MSI_CTRL_INT;
+> +       else
+> +               val &= ~MSI_CTRL_INT;
+> +       writel(val, rcar->base + PCIEINTSTS0EN);
+> +}
+> +
+>  static int rcar_gen4_pcie_enable_device(struct pci_host_bridge *bridge,
 
-Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
----
- arch/arm64/boot/dts/amlogic/meson-axg-s400.dts | 4 ++++
- arch/arm64/boot/dts/amlogic/meson-axg.dtsi     | 1 +
- 2 files changed, 5 insertions(+)
+FTR, this has a contextual dependency on "[PATCH v2] PCI: rcar-gen4:
+Limit Max_Read_Request_Size and Max_Payload_Size to 256 Bytes"
+(https://lore.kernel.org/all/20260519195219.189323-1-marek.vasut+renesas@mailbox.org).
 
-diff --git a/arch/arm64/boot/dts/amlogic/meson-axg-s400.dts b/arch/arm64/boot/dts/amlogic/meson-axg-s400.dts
-index 285c6ac1dd61..7ba249cc3d56 100644
---- a/arch/arm64/boot/dts/amlogic/meson-axg-s400.dts
-+++ b/arch/arm64/boot/dts/amlogic/meson-axg-s400.dts
-@@ -448,6 +448,10 @@ &pcieB {
- 	status = "okay";
- };
- 
-+&pcie_phy {
-+	status = "okay";
-+};
-+
- &pwm_ab {
- 	status = "okay";
- 	pinctrl-0 = <&pwm_a_x20_pins>;
-diff --git a/arch/arm64/boot/dts/amlogic/meson-axg.dtsi b/arch/arm64/boot/dts/amlogic/meson-axg.dtsi
-index 8ca3ac09b306..5b8ef98f6d03 100644
---- a/arch/arm64/boot/dts/amlogic/meson-axg.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/meson-axg.dtsi
-@@ -328,6 +328,7 @@ pcie_phy: phy@ff644000 {
- 			phys = <&mipi_pcie_analog_dphy>;
- 			phy-names = "analog";
- 			#phy-cells = <0>;
-+			status = "disabled";
- 		};
- 
- 		pdm: audio-controller@ff632000 {
+>                                         struct pci_dev *dev)
+>  {
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
 -- 
-2.54.0
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
