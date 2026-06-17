@@ -4,57 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1D5CCD98F6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 15:26:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20A76CD98F3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 15:41:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I9V3ZxzZvxmKgc8hMN0KNAw5jx1AF9PyZSuoGpdw3cc=; b=oHHD4ANBUnXTjUzDeB/p46aU5v
-	mm2eF/3ZE1Ij9ZCbG9QB5Y56S4SMMlggWhbXh/4kvkgq4N8sZ4nqX/tfkA+66GNR+WsZJmIUt5Qt7
-	DjCbs0BZpUB5uVQy9DG7QISM7fudq1uDQ5enIV5mw3T3LH8FGob9jC9oUrQEG/FbUO1w8btOznFJQ
-	HcIvzYqE7FMv94Y9f2BHsNdtI+c0stxdFJ0J+Pk5/kqg0iM46nUSiVt6t5fdEv4G6GEd6hh3+DjCz
-	Rp1im+bpFrP9shIQHMxeHmlXTJb1RPd0Iy2quE93aMKTE4YAWB6Ke8aRibM3822loNM5sdleS7orD
-	YPZYx7IA==;
+	bh=ElWjBVhbO2IQzO43OlPWnTyijSop9myiCxf+4rjWyeA=; b=zj9s/RU707+5TdlAXsOSvDAJg/
+	fYe2QJsmDtvRhV2/m7yAN604Ir2yGOavVwAt2ijoDZKk7KIckzauA0AndMUQ5q2gWT+eCe2Cowxqg
+	uZmI6KT8C4LFAsdJLYg3omgjoJckfS5FnFnPvoxiJ+uXcQRSpP1h+wC6naZmb6WunPj7hExmuriF/
+	FWpTOIzMXJGJtONC5gYRKysoac932QGRbMeq6CE02VzopkZ0QFAIrA4tBW8zSiujW7Zk5wV9j6AhF
+	dvu11cYMURJYtz4s9C8dEwOJoJl5Ku7RIIO1jvG9qLclLk1Bu2ZMLwxTpMFsNrvYcxpYVYAcHreZf
+	eXfRsljw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZs9m-0000000HYxI-2Ajj;
-	Wed, 17 Jun 2026 15:26:22 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wZsO4-0000000HZa5-2z40;
+	Wed, 17 Jun 2026 15:41:10 +0000
+Received: from mail-qt1-x82c.google.com ([2607:f8b0:4864:20::82c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZs9k-0000000HYx0-3w5V;
-	Wed, 17 Jun 2026 15:26:20 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5293443E1A;
-	Wed, 17 Jun 2026 15:26:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B30611F000E9;
-	Wed, 17 Jun 2026 15:26:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781709980;
-	bh=I9V3ZxzZvxmKgc8hMN0KNAw5jx1AF9PyZSuoGpdw3cc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=GGc3w/taoFG0RXND5OIr62RcuvZJ96WfVxFE1dJAvXJEQZssuQAmifrc/UsW01jLo
-	 u+lEqurxi/Gs/rns8svl88//8lReobfOutFJgGWb5ncKDSNyHY4nZW17EarTHgI2kf
-	 tH+HokNplG+ToJw0BrvqvD2B/CUK2ARKVtYliWU5TRC/AuAaZIC/nxc423UyXxgynb
-	 GFVvvquwV+XNbXFHM8Tp/Wg2yJsl0GkGL0AtOYBie2dWl/rMletg4M63tom2xVqs64
-	 ssn1uABWOEqdnCj7IchQjQ2Dm2qmHiFPLGVLgNk5w6kSqMXOwVsVk7PCOMG1Wj91oD
-	 LCfIEaZ4jsX0g==
-Date: Wed, 17 Jun 2026 16:26:15 +0100
-From: Lee Jones <lee@kernel.org>
-To: Yuho Choi <dbgh9129@gmail.com>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v1] mfd: mt6397-irq: Fix PM notifier use-after-free
-Message-ID: <20260617152615.GO10056@google.com>
-References: <20260608021048.2577577-1-dbgh9129@gmail.com>
+	id 1wZsO1-0000000HZZf-3qb0
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 17 Jun 2026 15:41:07 +0000
+Received: by mail-qt1-x82c.google.com with SMTP id d75a77b69052e-517760dc3c2so39006521cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 08:41:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1781710864; x=1782315664; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ElWjBVhbO2IQzO43OlPWnTyijSop9myiCxf+4rjWyeA=;
+        b=P9AIPJxh3YqWABgauGH/E2em0d0v0xhNOGVOSggeFxQExcgVhY7b7LgoYlfVIXw/RB
+         iPct8xpptv1sHnWD1nHNq5N1ZIdz5sFC3VySSbAgbB2Ke0b+7f31IpYnINORCkcTvwfb
+         W9aS+gSRq1bQThTNN35VpZwiRgr2l50u0cokQH/ccqcZ5g+ATutZptiv8gPnUzh15luT
+         DHd3CFFUtZ5A/V99BLFjCZkJBaJ/EWSlkoEERu2PCGhi+Uz/aIlrpfIMU0hBuUSAtep7
+         s1liKELl+NEiwsw0Lxm7V/taLiyUc7SnmEfIlEakdyhZLVkV99xBrxVG3yjwyDKqQ5rp
+         YOzw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781710864; x=1782315664;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ElWjBVhbO2IQzO43OlPWnTyijSop9myiCxf+4rjWyeA=;
+        b=REU9up9HD+dRoR5x42EdLHJS7kCRF17t39RRyNMUJ+xpiWEQuqJdQuEL34JJ9TTlVJ
+         dfmhQMClcSU9Hy29xWoMtAzNA/S3TalajnCChakZwSjFZMSe+ErP62gGAulNwIahiO1o
+         LkNwzHGiXLIPgIngBTn78FtLTEqaFPCma873PDl+kGrOJur4t0HeBPfZHcjnoUxSvOIn
+         A2AUxwyHOdW2cOsc2o8+NQ6UwIszzc9L1HI6ErgA4G5P7CULZ/voPvP5Ljpjrrb8BMV5
+         R8irPR1GHl9shEzT88QnObxXemwdJ/aSapZ8gezc2iaowhwVFstzlAUpyf+qbAOZC1U3
+         FVXA==
+X-Forwarded-Encrypted: i=1; AFNElJ8Rq/STNo7oBRr3GooLt7ZEM0td3PLuYv7oHoWAupSpfz4ivSpgP+G1825SOEZqdxNhkYElvYqzwib5gLuBci1y@lists.infradead.org
+X-Gm-Message-State: AOJu0YxtfYcmfTDsrolZGZEKdcD0mDpgqvf1mLigqpaTkBbQHreijoih
+	+cPHpHtAswh+QN04cN/MhpFQDS5NRdVIPanUwS20FhGFymBdMmf8eb3PUu08lf9xk94=
+X-Gm-Gg: Acq92OGcYz4Wba8q/iPolSMKA+8OWpKJAcnRvRRnJy+wbjEp8LmH0mKaWuKWTA82JAu
+	U8IV0MsE6KLGgvUEzXd0hD6EStJ0Pxjb8ci6Tee2BI2xxPgCj9HF7l/vgIkrRSBlnlkrm4AEqt8
+	wAZw7PAhnRc1gkAyeKmBMCW/QJQlrzTeYN+rLzpzYe+cP0oDWHFlaYxSEtKb8Hl6qrrBimmKAig
+	FcdHstA3RnFCWxb5kdHVgpoDbqkZOGhgLoyDfw8OyEh2Z6q+P8ifr8hxkrwHryyGxbvYFuROJ3c
+	/yc4j053n/E9uoYphGnhgceE06PXETpq2tZo6lw3WP59wxJMIfX2erswZSkfQReW05IVuwz0pPh
+	HdDJU5Bl4gCY+gv0cJEOu4iI6ckWmXR90TKPIv59xux0T1azdD9DrzTQxvAQ6yGndf8VWG0lIf+
+	KlDsRo3m1BOvVbUDXU5mc+/1teQ4nGiDIvrjWHaAQgpfZoUgJoK+XpWZriAO6b6E8xO0eyHmSCT
+	pqa2A==
+X-Received: by 2002:ac8:638b:0:b0:517:7620:20f9 with SMTP id d75a77b69052e-519a8e01895mr53967651cf.19.1781710863733;
+        Wed, 17 Jun 2026 08:41:03 -0700 (PDT)
+Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-517fb7a3c4asm171544001cf.14.2026.06.17.08.41.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 17 Jun 2026 08:41:02 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1wZsNx-00000000iiO-3Q8i;
+	Wed, 17 Jun 2026 12:41:01 -0300
+Date: Wed, 17 Jun 2026 12:41:01 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Alexey Kardashevskiy <aik@amd.com>
+Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+	iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
+	Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>, Mostafa Saleh <smostafa@google.com>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
+	Jiri Pirko <jiri@nvidia.com>, Michael Kelley <mhklinux@outlook.com>,
+	"Cheloha, Scott" <Scott.Cheloha@amd.com>
+Subject: Re: [PATCH v6 03/20] dma-direct: use DMA_ATTR_CC_SHARED in
+ alloc/free paths
+Message-ID: <20260617154101.GE3577091@ziepe.ca>
+References: <20260604083959.1265923-1-aneesh.kumar@kernel.org>
+ <20260604083959.1265923-4-aneesh.kumar@kernel.org>
+ <845d0c8a-6d51-47aa-8e0b-8381e733444a@amd.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260608021048.2577577-1-dbgh9129@gmail.com>
+In-Reply-To: <845d0c8a-6d51-47aa-8e0b-8381e733444a@amd.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260617_084106_174482_0C6BEFAA 
+X-CRM114-Status: GOOD (  16.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,124 +129,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-/* Sashiko Automation: Issues Found (3 Findings) */
-
-Worth considering.
-
-On Sun, 07 Jun 2026, Yuho Choi wrote:
-
-> mt6397_irq_init() registers chip->pm_nb with the global PM notifier
-> chain. The notifier callback uses container_of() to recover struct
-> mt6397_chip and then dereferences chip fields.
+On Wed, Jun 17, 2026 at 10:50:39AM +1000, Alexey Kardashevskiy wrote:
+> > @@ -193,16 +193,31 @@ void *dma_direct_alloc(struct device *dev, size_t size,
+> >   		dma_addr_t *dma_handle, gfp_t gfp, unsigned long attrs)
+> >   {
+> >   	bool remap = false, set_uncached = false;
+> > -	bool mark_mem_decrypt = true;
+> > +	bool mark_mem_decrypt = false;
+> >   	struct page *page;
+> >   	void *ret;
+> > +	/*
+> > +	 * DMA_ATTR_CC_SHARED is not a caller-visible dma_alloc_*()
+> > +	 * attribute. The direct allocator uses it internally after it has
+> > +	 * decided that the backing pages must be shared/decrypted, so the
+> > +	 * rest of the allocation path can consistently select DMA addresses,
+> > +	 * choose compatible pools and restore encryption on free.
 > 
-> The chip structure is allocated with devm_kzalloc() in mt6397_probe().
-> If probe fails after mt6397_irq_init() succeeds, for example when
-> devm_mfd_add_devices() fails, devres can release the chip while the PM
-> notifier remains registered. The same lifetime mismatch exists when the
-> driver is unbound.
+> Why this limit?
 > 
-> Check the register_pm_notifier() return value and add a devm cleanup
-> action to unregister the notifier before the devm-managed chip is freed.
-> If adding the cleanup action fails, devm_add_action_or_reset()
-> unregisters the notifier immediately; then remove the IRQ domain in the
-> remaining error path.
-> 
-> Fixes: 4e2e7cfec13a ("mfd: mt6397: Modify suspend/resume behavior")
-> Signed-off-by: Yuho Choi <dbgh9129@gmail.com>
-> ---
->  drivers/mfd/mt6397-irq.c | 22 ++++++++++++++++++++--
->  1 file changed, 20 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/mfd/mt6397-irq.c b/drivers/mfd/mt6397-irq.c
-> index 5d2e5459f744..8947f7e732fa 100644
-> --- a/drivers/mfd/mt6397-irq.c
-> +++ b/drivers/mfd/mt6397-irq.c
-> @@ -169,6 +169,13 @@ static int mt6397_irq_pm_notifier(struct notifier_block *notifier,
->  	return NOTIFY_DONE;
->  }
+> Context: I am looking for a memory pool for a few shared pages (to
+> do some guest<->host communication), SWIOTLB seems like the right
+> fit but swiotlb_alloc() is not exported and
+> dma_direct_alloc(DMA_ATTR_CC_SHARED) is not allowed.  Thanks,
 
-[Severity: High]
-This is a pre-existing issue, but does this PM notifier safely access the
-hardware registers and software state?
+Then setup your struct device so that the DMA API knows the
+guest<->host channel requires unecrypted and it will work correctly.
 
-In mt6397_irq_pm_notifier(), the hardware registers and chip->irq_masks_cur
-are read and written without holding chip->irqlock. Since PM notifiers like
-PM_SUSPEND_PREPARE run while tasks are still active, if another driver
-requests or frees an IRQ concurrently, mt6397_irq_sync_unlock() will acquire
-irqlock and write dynamically updated irq_masks_cur to the hardware registers.
+I think this is a reasonable API to use for that, and I was just
+advocating that hyperv should be using it too.
 
-Can this data race allow the PM notifier to silently overwrite the dynamically
-updated hardware masks with stale data, or corrupt the suspend wake_mask?
+But it all relies on a properly setup struct device.
 
-
-
->  
-> +static void mt6397_irq_pm_notifier_unregister(void *data)
-> +{
-> +	struct mt6397_chip *chip = data;
-> +
-> +	unregister_pm_notifier(&chip->pm_nb);
-> +}
-> +
->  int mt6397_irq_init(struct mt6397_chip *chip)
->  {
->  	int ret;
-> @@ -233,6 +240,17 @@ int mt6397_irq_init(struct mt6397_chip *chip)
->  		return ret;
->  	}
->  
-> -	register_pm_notifier(&chip->pm_nb);
-> -	return 0;
-> +	ret = register_pm_notifier(&chip->pm_nb);
-> +	if (ret) {
-> +		dev_err(chip->dev, "failed to register PM notifier: %d\n", ret);
-> +		irq_domain_remove(chip->irq_domain);
-
-[Severity: High]
-Is it safe to explicitly remove the IRQ domain here while the devm-managed
-parent threaded IRQ remains active?
-
-The parent IRQ was requested earlier via devm_request_threaded_irq(). Because
-devres cleanup does not run until the probe function completely fails and
-returns, the parent IRQ remains active and enabled during this window.
-
-If an interrupt triggers during this error path, the active IRQ handler
-mt6397_irq_thread() will execute and call mt6397_irq_handle_reg(). This in
-turn calls irq_find_mapping(), which will dereference the freed irq_domain,
-resulting in a use-after-free.
-
-
-
-[Severity: High]
-This is a pre-existing issue, but does the IRQ domain properly unregister
-during driver unbind?
-
-The irq_domain is created using irq_domain_create_linear() earlier in
-mt6397_irq_init(), which is not managed by devm. The MT6397 driver lacks a
-.remove callback and relies entirely on devres for cleanup.
-
-When the device is unbound, devres frees the chip structure. However, the
-irq_domain is never removed and remains in the global IRQ domain list, leaking
-memory. Furthermore, its host_data points to the now-freed chip.
-
-If the device is rebound, mt6397_irq_domain_map() will dereference the freed
-chip pointer, causing a use-after-free.
-
-
-> +		return ret;
-> +	}
-> +
-> +	ret = devm_add_action_or_reset(chip->dev,
-> +				       mt6397_irq_pm_notifier_unregister, chip);
-> +	if (ret)
-> +		irq_domain_remove(chip->irq_domain);
-> +
-> +	return ret;
->  }
-> -- 
-> 2.43.0
-> 
-
--- 
-Lee Jones
+Jason
 
