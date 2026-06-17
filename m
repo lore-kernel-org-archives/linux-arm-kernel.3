@@ -4,166 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D8ABCD98E2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 10:58:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0419FCD98E4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 11:01:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mgmmp0Lv3Gziow9ehaV1b8dgVvw3DMFOCG76pwn62MQ=; b=1b4kAg0dJ1DsF+nBgluD0vymji
-	FUfHKRIfArp7JFNI9ZHmpXFngESEgrORtRy+Gz76cwTGMBbH/mEU38SOyx+7r0n6zHRqj1zzIAX2D
-	HgBOLWrVl1OJHE9y0R2Fy/nvc+0CmaxhX30pAd120s78cUAGhNGdNvZOl/ih6NvuxUs19T/qQybk+
-	raxyJ0gx922XwimDYZfQFNvE1omrv4tS/2ISTWqZTHpz/jHKsHyaOXHNykQgNcDnJQiCKJS/P45A5
-	Pk5Ob5i3x10lb7di3COZJlXqV3jFAxQ/ACLJfh1Hj7rozp2RlcqKYX7YEURtR1oLDCiPhOHCzd5+p
-	l31dVlUA==;
+	bh=8TcYVumjXtOCP5kzdiYOwgOj5Y9zDw6OkE9mWprckgc=; b=Ugqlbc7/E7QGqkXidyxRb1oW7k
+	6dJutZhnly2sW89y2H65C2P9j20T8z4xDoDkC40vme0mVPNQuakL+XsignFlw3mMTeHLq4EfIbhAe
+	w8g9vT2cwUlWv7Jrs07p0vs7TDMMplQm4h9eIYRm6zU9Pq8vGNjKPoSVf/iZAmexM1fHf6P2bJegh
+	4g0R2xDfaPF2w+3fOq0Ccjow1J+EaQRnOenmUhfpVvbnvJmmfKEQgYPB/fYP6oK9687JUVdSVQSEZ
+	jaSTxLv9P7rajIKd4lkSjRwsEehmFjW9nyLdBS6UsRDxxC4u8AfJBpZaZFJoADNOLh0lng9QOkKzU
+	jjftm03w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZnyS-0000000HC3w-0Sxy;
-	Wed, 17 Jun 2026 10:58:24 +0000
-Received: from mx0a-001ae601.pphosted.com ([67.231.149.25] helo=mx0b-001ae601.pphosted.com)
+	id 1wZo1Y-0000000HCHI-2ELk;
+	Wed, 17 Jun 2026 11:01:36 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZnyP-0000000HC3V-3qmr;
-	Wed, 17 Jun 2026 10:58:23 +0000
-Received: from pps.filterd (m0077473.ppops.net [127.0.0.1])
-	by mx0a-001ae601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65H2qmXD1832765;
-	Wed, 17 Jun 2026 05:57:56 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cirrus.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=PODMain02222019; bh=Mgmmp0Lv3Gziow9eha
-	V1b8dgVvw3DMFOCG76pwn62MQ=; b=C0UbKJ6EHAr3zbgiaBpr67VNhh4fzDIjyf
-	bhyYTEQ0rXtB4EydIru2vNtcfQJvbyZ0TL7UAg5Cz9XRsWRxL9fZwhoJy75alvw7
-	Sd0S7cZRXwBnqjqqJCuTr+qIf3lfXzFf+5f5KphZbBZXTFhOglQPIt5upiP5ICjr
-	9gLWgI+6mRJ6X9R5bVnwXeccHPOoZ6JMGq54uTaGWAd9KyekXqnaF9LdUs0yBShU
-	9ekAnLizK0SJWaV5TAtKHrmpaJxoxmJZQE+i3Ji2uspkvCumADV9TisbXbnsTIqq
-	5OonCkN3tM1EW37q6FUr4G5GspFXi48Nw9UgMoY+DwnO2XORVDIw==
-Received: from bl0pr03cu003.outbound.protection.outlook.com (mail-eastusazon11022079.outbound.protection.outlook.com [52.101.53.79])
-	by mx0a-001ae601.pphosted.com (PPS) with ESMTPS id 4eueefrska-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 17 Jun 2026 05:57:56 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vy3UVeyfCwsilxA0+jj+1xS8oNL5GxBPvfRy6tvU3hJAR0z1cyMKyJNLGgDAowfsWrzFSdClZaVwKy/rMwKaqJWplHq7FsJbogD9i2p+MGRatB7HtrgC4sFcDTS2hG1H0i3juTO33RPXnMrQqMWuNdxE55QzhS147dmZYMHDwFBtdZFPDxw4byt1oGbfOh8pDXojB/FTXv2GixklgP3PnysnKtdmjl4e7ZGkRhc4X/s7L5SiIwH13gUz2t4envYMSBe+DK/1qlc27j85iO/xvBfCmrYoYj8G7oqE0nOLJkpCfm2GruiTv9l5oyQzjM22hUXOiNkWsXPvrUQx6Z4RFg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Mgmmp0Lv3Gziow9ehaV1b8dgVvw3DMFOCG76pwn62MQ=;
- b=i3Zf5ymq6hRYbnYVFcEo9jHde+ZQNOz/mvRxf7EtICpuLqVaALol9re/LlWmT1OZkaBKnWnez0BmSaHDpxGYcamO9An/zRI9m2WKKL4CS7u3oNb5IoviUk0gEnWgwdUIOiZnpxJ8RaYSgsgl+Wms0pr4596j8xxFU99z3I2nqOYkGRcIY9dfTtA4U0qRzLTFxKz6VNPzgX9Q68Tb+odrhCLPqNQ9HtNsYFmG1e/QmWM+AIWd2OMaayig0OKbZnGjZOpKcAeOz9gShETx+joqMp9+a5Re8dlfbHPJIOI/wHIDc8zb1/A6NRAL9yVRzpRgo3/pTGGLo9MagApX6+k7vg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
- is 84.19.233.75) smtp.rcpttodomain=analog.com
- smtp.mailfrom=opensource.cirrus.com; dmarc=fail (p=reject sp=reject pct=100)
- action=oreject header.from=opensource.cirrus.com; dkim=none (message not
- signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=cirrus4.onmicrosoft.com; s=selector2-cirrus4-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Mgmmp0Lv3Gziow9ehaV1b8dgVvw3DMFOCG76pwn62MQ=;
- b=XuyMbcjuY7U7Wzz1bTBlApS6UVVRiT8fC0mA+2XfN3IdL/sY0N5hLa2kJdu3ZtrtAJ1J9yhzxwN8ehX04+eWsy62MTRA+kf8sQyik3tB7tzX8TXIO03n/FnO1ToTduK6JcXh8fIRF06ZYWNxzrpVp9CX/vWTtw5yH7/kOOCIAjk=
-Received: from SA1P222CA0167.NAMP222.PROD.OUTLOOK.COM (2603:10b6:806:3c3::15)
- by DM6PR19MB4183.namprd19.prod.outlook.com (2603:10b6:5:2bf::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.16; Wed, 17 Jun
- 2026 10:57:52 +0000
-Received: from SN1PEPF0002636C.namprd02.prod.outlook.com
- (2603:10b6:806:3c3:cafe::2) by SA1P222CA0167.outlook.office365.com
- (2603:10b6:806:3c3::15) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.139.12 via Frontend Transport; Wed,
- 17 Jun 2026 10:57:52 +0000
-X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 84.19.233.75)
- smtp.mailfrom=opensource.cirrus.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=oreject header.from=opensource.cirrus.com;
-Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
- opensource.cirrus.com discourages use of 84.19.233.75 as permitted sender)
-Received: from edirelay1.ad.cirrus.com (84.19.233.75) by
- SN1PEPF0002636C.mail.protection.outlook.com (10.167.241.137) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.139.8
- via Frontend Transport; Wed, 17 Jun 2026 10:57:51 +0000
-Received: from ediswmail9.ad.cirrus.com (ediswmail9.ad.cirrus.com [198.61.86.93])
-	by edirelay1.ad.cirrus.com (Postfix) with ESMTPS id 7655B406544;
-	Wed, 17 Jun 2026 10:57:50 +0000 (UTC)
-Received: from opensource.cirrus.com (ediswmail9.ad.cirrus.com [198.61.86.93])
-	by ediswmail9.ad.cirrus.com (Postfix) with ESMTPSA id 54FDD82025A;
-	Wed, 17 Jun 2026 10:57:50 +0000 (UTC)
-Date: Wed, 17 Jun 2026 11:57:49 +0100
-From: Charles Keepax <ckeepax@opensource.cirrus.com>
-To: phucduc.bui@gmail.com
-Cc: Mark Brown <broonie@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
-        Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-        Cheng-Yi Chiang <cychiang@chromium.org>,
-        Tzung-Bi Shih <tzungbi@kernel.org>,
-        Guenter Roeck <groeck@chromium.org>,
-        Benson Leung <bleung@chromium.org>,
-        David Rhodes <david.rhodes@cirrus.com>,
-        Richard Fitzgerald <rf@opensource.cirrus.com>, povik+lin@cutebit.org,
-        Support Opensource <support.opensource@diasemi.com>,
-        Nick Li <nick.li@foursemi.com>,
-        Herve Codina <herve.codina@bootlin.com>,
-        Srinivas Kandagatla <srini@kernel.org>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-        Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>,
-        Baojun Xu <baojun.xu@ti.com>, Sen Wang <sen@ti.com>,
-        Oder Chiou <oder_chiou@realtek.com>,
-        Lars-Peter Clausen <lars@metafoo.de>, nuno.sa@analog.com,
-        Steven Eckhoff <steven.eckhoff.opensource@gmail.com>,
-        patches@opensource.cirrus.com, chrome-platform@lists.linux.dev,
-        asahi@lists.linux.dev, linux-arm-msm@vger.kernel.org,
-        linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH 15/78] ASoC: codecs: cs42l43: Use guard() for mutex locks
-Message-ID: <ajJ9rbHTspXHo6Ou@opensource.cirrus.com>
-References: <20260617103235.449609-1-phucduc.bui@gmail.com>
- <20260617103235.449609-16-phucduc.bui@gmail.com>
+	id 1wZo1V-0000000HCGq-4Bff
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 17 Jun 2026 11:01:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1781694092;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8TcYVumjXtOCP5kzdiYOwgOj5Y9zDw6OkE9mWprckgc=;
+	b=Zwl2o2+fA21tSB16cgwDlgh5ebBMkY7mhJELBqAG7MU9xtbkZECoNwW9HDyQE6LFj7sY1S
+	Ttd0lJA5g2Ux5G+2iwFHajnMfbf5L2+gwxGXZsK42Wq7BC3WIZg2aX6WxwQ0GsMvKuDmXh
+	aJI0jZiT7XImnpYvmjgnvB3aDjRBDko=
+Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com
+ [209.85.219.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-17-WElWVbgnNGe86yHDVS6yTw-1; Wed, 17 Jun 2026 07:01:30 -0400
+X-MC-Unique: WElWVbgnNGe86yHDVS6yTw-1
+X-Mimecast-MFC-AGG-ID: WElWVbgnNGe86yHDVS6yTw_1781694090
+Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-8cce2b4c290so106253476d6.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 04:01:30 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781694090; x=1782298890;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=8TcYVumjXtOCP5kzdiYOwgOj5Y9zDw6OkE9mWprckgc=;
+        b=WygaDZuJygI/YW5OyQKjK9sihkZntutgfbR0SD5v6TzEtV4jt2roQ/HWjLF6wjWzQJ
+         j+CYr+kaoOWgMX6kyT2xHUO/bcw+FcGWKCjliplUJF2F+GFeW33qgN/Y5F/jcehB/yCg
+         LXYVJqrD39vJ3h9iIhT1XW0GepyJ7YR0Hswt7ToM63Ft/zu7iFPZB+hwNqF3jmizH2ZU
+         Gf5tEMauRpnVUwHjGHIcPG59SWop+cG+T8oi35s/Vncndb6YFkMQflb6Zu+rxi1PFjCa
+         O8+h9PZ11gWzbmlEDwFMnI93Uh2FhdaIHKNaMSbbniv9ikpPGwcN/rfR16gIXbP6PkCI
+         htdA==
+X-Forwarded-Encrypted: i=1; AFNElJ/eTYdbSUU6unHotNopNqC1TYzrfsZIqJNknIq8IjfP3WVczjBqaKdAUCvTG9XNPu4RVn1NwSlXVagZzAfFrm9/@lists.infradead.org
+X-Gm-Message-State: AOJu0YyylWFaHEO4/In1s2s78chtzXuwZqLf+EmL63ejeAgZqMYlMpZX
+	Ft3LT2HHeAXey/GMgmFyYCN/JPn4u++P3EaaMIi7SekYeOOvI60Hg/yJeYr0nEoWJksQv7vb5K3
+	QgHOwoUsowCJyNRy7B+M3BnHgK1gwwd1fh0DHtDofYhL2FHyob/hYI+U90oGDdEXYxwfSzu8PVK
+	Fx
+X-Gm-Gg: Acq92OGvnkqMUKqI1FfQddNgkBT1X7J7czRsudVd+5EOvQKg4ZIJxMcLSatJZrf+p/t
+	ec/hbs1YMh5XcMO4YMvskmMyD8VhBCgXC6IIzdwF2n7ypxYDtnqckXVd0CAgfFOmLpp6SlLi/gI
+	TRxipSsYP+Sb/lIs9jRkujSuLguo43dUQCYxuwcVXrYY1jZz9D/QHKid//W3oQNdNb0Gg03zNrY
+	3NlD8R7P95RolI1Xko26nyIHSXs96X0b6VTnXTGNVioa9e3LTu8ld8GgB2dYJBb6MJhZSl0yYFJ
+	PHapgtADy9gpihYwAP8yI2pD1Q11t8kZfuqR7XLKfuioqh4VCBAhUQ8CxjMcUJsv03uwuZapZNn
+	hU/7BwhqGTowel3HN0ai8xkkudQqBHSzPX7c2pwPPm5L2Bg==
+X-Received: by 2002:a05:620a:7103:b0:915:d10e:8c4c with SMTP id af79cd13be357-91d8dcabb5emr574006185a.42.1781694077437;
+        Wed, 17 Jun 2026 04:01:17 -0700 (PDT)
+X-Received: by 2002:a05:620a:7103:b0:915:d10e:8c4c with SMTP id af79cd13be357-91d8dcabb5emr573733385a.42.1781694058081;
+        Wed, 17 Jun 2026 04:00:58 -0700 (PDT)
+Received: from redhat.com (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-91619f1c851sm1732803285a.16.2026.06.17.04.00.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 17 Jun 2026 04:00:57 -0700 (PDT)
+Date: Wed, 17 Jun 2026 07:00:55 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Wentao Liang <vulab@iscas.ac.cn>
+Cc: andrew@lunn.ch, gregory.clement@bootlin.com,
+	sebastian.hesselbarth@gmail.com, mturquette@baylibre.com,
+	sboyd@kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3] clk: mvebu: ap-cpu: fix missing clk_put() in
+ ap_cpu_clock_probe()
+Message-ID: <ajJ-Z2ooI_Wd9J4a@redhat.com>
+References: <20260617014126.1716291-1-vulab@iscas.ac.cn>
 MIME-Version: 1.0
+In-Reply-To: <20260617014126.1716291-1-vulab@iscas.ac.cn>
+User-Agent: Mutt/2.3.1 (2026-03-20)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: aOP4ip0rZNd9w0eAtekL-YMcbjdVom88R82SvZNELfw_1781694090
+X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260617103235.449609-16-phucduc.bui@gmail.com>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN1PEPF0002636C:EE_|DM6PR19MB4183:EE_
-X-MS-Office365-Filtering-Correlation-Id: 73f8f070-5757-47de-aca8-08decc5f4709
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|82310400026|376014|23010399003|61400799027|36860700016|22082099003|3023799007|11063799006|16102099003|18002099003|56012099006|4143699003;
-X-Microsoft-Antispam-Message-Info: REHvjaJVSeWra+hItFE2ON20a8FyWYg78mq10hpU2xNFbo2nnHgxN/sY10mI9JCxbEXLC4f8HI3r15Nav4mNlBAOsRXjnPMyOUCt0Z5oaIeqY2DGhwIXy7tXKxQ6DZUTcf6+mHxEfeVaJfB7HZ2sFBDq0Vp7Zq5jWi80BkJMPAnlEtHHTCd8vQHkmqJJtI7+xhElOFBgdqzVLq5Mu4M7n6zurk0euLgVyj5aq5MdY1wsKif5VlbMTvg4kPVE+YDDoSI8C2C1yjVH1SOstKQceIBk4QrkD7XB25uXZspG8TZhO77bk+987xkxI3EENiGOMKlNHHNJRKfqEy6eNfg1jrK5ozGJR8ARk+02h4JyN01v8fMFrfAkVF59PUJ76thBNbKkFVESANe5aBmmOLOO6pVkXhPcQxcVsG8llIdTLqErJQoX26BvGddozRBrOw7CErL9FjdP4QUVhFm364uapkqzommSHLas00yF5jb5aVuJmyDYVu1dCsM6QmuSVcXBgKHm1dBmV2yZhn1CTRA6bVR4VPcd1i74XdLCz3jG9+QLnI5wwduUkqi5JVBmNw/di5GHvTrRAtocFowEkB1Ac7cN5q3o0utCSw3tK/QOPlLZzrITIxWpfYwqdlyxfGvtnFZQMW/f9xEBOpDWH35EC6eXtcvsL5lduC+bGAU4nxJ5MMWFnJO3biHryLIvqc0PaYByI8Lq9VQsduL9nut4qSaEtd9uypRRQdSCFMe3/uk=
-X-Forefront-Antispam-Report: CIP:84.19.233.75;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:edirelay1.ad.cirrus.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(82310400026)(376014)(23010399003)(61400799027)(36860700016)(22082099003)(3023799007)(11063799006)(16102099003)(18002099003)(56012099006)(4143699003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: fddZDunmeLwpAxiD/dAGBp5/ONK0X1bzh/yD+ps502h3BRPba+9ZWvynDuQSm2gq6hWJ0xV6SRSZFh9yGf2/ZEm0+WFJMbCHl3hQgzgbpDsUBNidPe75oYnO2RRKh5i2ZJDgYg+cjy0UVe8gd/USdFrk9dMv6ZO35LdFFAiI9CVwn9RimvwjwNvvzOLiJ0QXWQye0GN7k29wGJLEjK/qzCAjB38e769hG0rG3PHbULErKWmB3R4z+MQY4qM5GBJ8FwTe8gHMMrFyAxdejdpS5vWuRAhUaPI4dKE7em5BCq3X74sM8uj6dmNcJf6UMSq+ikxGEDLeu6j8zgnIHA0qZtGFQ1aQb0ZXVJ22WhKjow3GxHjBXsTfEif/fhjRtMk4qjXdu+aW7Q3AF6+vy+DXra/TrWfkAzm1zAMYQjEWbms+3VELrf00tDSzBoD2fJsX
-X-Exchange-RoutingPolicyChecked: D3qGYjEfOo5yEWiGT0NztdjJxoYFAuZscjkQ3rHtna+PL+4dWgEuXtZn+dOZMC3RYl+eYkuYxZFZaEVx7JSsj2TXnlbUsrxj3/0KIpMJfuACDc+KIAhPn1qWMhPCK5CaXxrILMayK1YhhIubvy3cx2yBA9BtYOiWzZ1g4tTxCx8GYn3EKCdpr04mNBoTvnWSRVEpTdC0KUb5XjKsjBG2GCJM62LHxQEe1BVuUEL8dT20YaC/X8JVGASPstMPH2T0YrzyaaOqLGmaDj1c2cj1RQkdexapp/qN13DRGaF41zjNlGzUmM36BfV7cT84rd2ptFe1YDT/1JsCYb3pPO9u5Q==
-X-OriginatorOrg: opensource.cirrus.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jun 2026 10:57:51.6367
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 73f8f070-5757-47de-aca8-08decc5f4709
-X-MS-Exchange-CrossTenant-Id: bec09025-e5bc-40d1-a355-8e955c307de8
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=bec09025-e5bc-40d1-a355-8e955c307de8;Ip=[84.19.233.75];Helo=[edirelay1.ad.cirrus.com]
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TreatMessagesAsInternal-SN1PEPF0002636C.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR19MB4183
-X-Proofpoint-GUID: PooAyIcsWbvRVS3XxM_1OXPtOE077Mq1
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjE3MDEwMyBTYWx0ZWRfX/4Qm0S9t7rdI
- zipYu3BmiQGPB9pad5EAtJHmYPu0pAiNs+oVgTQkPVMDTDAm7XBS3+NlR6hAzmE03efAPLCevbq
- /adj9rRjqGkeb9RpRVnnAsyVQhd3VUCnKaiu9FOVUa6RINmnbRRfcU/90KGrufwiEYykow7j3Tq
- yU+GafMISysznAI24oYfE6pwBUnhdrI/7rizUuk9kYXgwpyM+0BrvP89Ak06/MpKKyVEYV8oQkP
- Q7E24MZ5sH4bLrCYDNG2qEpRhl7XNV0qv6+gGQW8J5k2+nQPScFewsPyZ63hqaGy2fLx//BbVuF
- Sv5Rx/clTZIG0xuRa/IA6Db0hlxe92xnoGc8Dt4DhosXt1K1QSWo+qfAd3FdLe6fEU+vSArXGsM
- FmKqTAP4hqFbJ9AD5Dope5eE7455oWgvhVnj+DpwyvZTdBjjS5n8MS4cPeaWsfLFJfR3KCbf/X2
- lYt8f3PjnZmgPUhyklg==
-X-Proofpoint-ORIG-GUID: PooAyIcsWbvRVS3XxM_1OXPtOE077Mq1
-X-Authority-Analysis: v=2.4 cv=Wukb99fv c=1 sm=1 tr=0 ts=6a327db4 cx=c_pps
- a=Y1/fp9MKcFODYkh4PiV91Q==:117 a=h1hSm8JtM9GN1ddwPAif2w==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
- a=kj9zAlcOel0A:10 a=FelO9ux0wxsA:10 a=s63m1ICgrNkA:10 a=RWc_ulEos4gA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=iX4cTi3TZMoOKdANLEfx:22 a=Dj2-6B8FqX4mGL0U3gbX:22
- a=pGLkceISAAAA:8 a=2LXkwXwYv1G787AwtbYA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNjE3MDEwMyBTYWx0ZWRfX0xlvaC/5iGO0
- Utry3e6RLuSw1Xq5Wiusgbjw1aR/BMEa2lVT7gVIh99gwWayqHGC59JovI2o2+ZfMKmNZS1PFVl
- DN265TmEakA/Fma1xATRDzqgHGNRfyQ=
-X-Proofpoint-Spam-Reason: safe
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260617_035822_001229_AD3229A6 
-X-CRM114-Status: GOOD (  13.19  )
+X-CRM114-CacheID: sfid-20260617_040134_127929_3C9FF1B8 
+X-CRM114-Status: GOOD (  13.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,28 +111,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 17, 2026 at 05:31:32PM +0700, phucduc.bui@gmail.com wrote:
-> From: bui duc phuc <phucduc.bui@gmail.com>
+On Wed, Jun 17, 2026 at 01:41:26AM +0000, Wentao Liang wrote:
+> The function ap_cpu_clock_probe() calls of_clk_get() to obtain a
+> reference to the parent clock for each CPU cluster, but it never
+> releases it with clk_put().  The returned clk is used only to read
+> the parent's name via __clk_get_name(), and the reference is leaked
+> on every successful cluster initialization as well as on the error
+> path when devm_clk_hw_register() fails.
 > 
-> Clean up the code using guard() for mutex locks.
-> Merely code refactoring, and no behavior change.
+> Rather than adding clk_put() calls, replace the of_clk_get() +
+> __clk_get_name() pattern with of_clk_get_parent_name(), which is
+> the intended API for this use case and handles the reference
+> counting internally.  This matches the pattern already used by the
+> sibling drivers clk-cpu.c and clk-corediv.c.
 > 
-> Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
-> ---
-> @@ -913,17 +908,13 @@ int cs42l43_jack_put(struct snd_kcontrol *kcontrol, struct snd_ctl_elem_value *u
->  	if (override >= e->items)
->  		return -EINVAL;
->  
-> -	mutex_lock(&priv->jack_lock);
-> +	guard(mutex)(&priv->jack_lock);
+> Fixes: f756e362d9384 ("clk: mvebu: add CPU clock driver for Armada 7K/8K")
+> Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
 
-I believe you have to use scoped_guard here, as there is a return
-from the function above, if memory serves it attempts to release
-the mutex on that path despite it being above the guard.
+Reviewed-by: Brian Masney <bmasney@redhat.com>
 
-Be worth having a quick scan through the rest of the series for
-this as well.
+For the future, if someone leaves a tag like Reviewed-by, or Tested-by,
+then include it with your next version, unless something major changes
+with the code. Don't post another version since Stephen's automation
+will pick up my tag when he merges this.
 
-Thanks,
-Charles
+Brian
+
 
