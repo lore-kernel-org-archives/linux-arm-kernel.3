@@ -4,74 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70446CD98E4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 10:16:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95275CD98E2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 10:25:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OePkATTgFfdiavKlzrrIFI0972DzwQxlO0AHh6bZkDk=; b=4uT/eTvaD406F3jc/xAdxWsSSj
-	NnjI0fgKYzh/MWlenlu4KfMi/Pgme5BX+5S04tFbtXiKgUNWYf5EJV3DYT64n+f+vC8BRmSiElNFa
-	X09VnF7RtiGISjTFPSGZQZYygwpGCuCKIXHpneES1sOal9CirfuxqBWbMd93uXLyvOQqdWf5lXzea
-	YwE8CGSs4sQr1Yr+Yjvnb+pdNAzAp6g1ahlLzRNtRAYljs3StwFkL6Uau4av8cY1eti9BVdZEZwDT
-	jLhuuKmfRO6ryK5hUmNot1zni5r3cepSqlfKThpKLXNrALPxfWqyXEaUZ5/OsqUOcXY3SSd2Umk96
-	nGZ5ZzWw==;
+	bh=VbVg/KwHCVhdvL9LHCxz6CTvTzl761Uhp31GttVosv0=; b=xz6l+Zx7R5Ij9H2X4XYcB1l/0G
+	dasK7fNAwmfJ1440p4u85drTtI7AJwaQ/IQ7/vco0TOB6iaPJ2Rxpb1IO/jht8+601gsJTcNSeMzS
+	EhvnumJAPWigd5FvHb2umhabXqVmFFzbxlrpTozRouTW5pSUhTC4+WZDPq+13G4DqJsLYBLBjNeJg
+	oTf1tJoXuiaOEjhXFGwSipCwrb5fk9jl7DwiqEnRKq1WHk8b7J3wuzVMOFvv3eFvRyFEsAjhmdRwZ
+	Yreu1Sc3pffw98rn+8yTravfhDLAagJJ14JtRIXkihfU30Weeejg0sKWITmDjLVijjpTfptqJlTp1
+	6fxtUomQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZnJW-0000000H2Dy-3GzC;
-	Wed, 17 Jun 2026 10:16:06 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wZnSK-0000000H307-3O0K;
+	Wed, 17 Jun 2026 10:25:12 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZnJV-0000000H2Dj-2FnO;
-	Wed, 17 Jun 2026 10:16:05 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 028EF60128;
-	Wed, 17 Jun 2026 10:16:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3BCD01F00A3A;
-	Wed, 17 Jun 2026 10:16:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781691364;
-	bh=OePkATTgFfdiavKlzrrIFI0972DzwQxlO0AHh6bZkDk=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=nujJAwAEG47Wa7/1vWZKhyqKhP+wKE6wRovSL6crs2RpfRKXwzpUjjPXWXypCKZC2
-	 CLb8ELRmBuiA/h8WUvbNeTnJZ6MsN36KaHpQ4aa8CYkWhxTBb2mCnkKEz/IEsVMDd0
-	 /x5ZC9SiCtFqy8kWoCr1c+97DIuNeAP/8RBccOLyzaaHjoOdN3VJKvvjQ7nbOIdOfw
-	 t2vDFsrXQ5skleoa+ttEg8ONzqpO0nk4O5YFdTIciUaqkP4d4FN5eVXQ8Y+SYPUan3
-	 D0v6UYTZkwe67CULgi04h3KrTCXxsq4gT7NNkrMORPx13HdNkoBBY+W4Vcd7C4nyQx
-	 1bvNAyCAlgUlA==
-From: Maxime Ripard <mripard@kernel.org>
-Date: Wed, 17 Jun 2026 12:14:53 +0200
-Subject: [PATCH 28/37] drm/mediatek: dpi: Switch to atomic bridge callbacks
+	id 1wZnSH-0000000H2zZ-2ydl
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 17 Jun 2026 10:25:10 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2c6a97e1d1bso10323225ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 03:25:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781691908; x=1782296708; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=VbVg/KwHCVhdvL9LHCxz6CTvTzl761Uhp31GttVosv0=;
+        b=Xy+U5gVFklbnAhOrceSjxf0fanJWyz/3S1JDGAZGu3C0Hh9CLHdeJafXxqkrIH6Wst
+         a9u3wBvxsqB7GRm4Bj2AKg/BycmEsZkGnaTh+bRZ62TBiBU+qIA4gjnzkm7MQd94XMl5
+         2zFRelDtPTzyOYMxICNamxEiGd+HjsUSw+WvJcTWiAfy936rdZVKrCcbuv2Jqms5qHbF
+         9d0f4/ORUcOTQylorV5fQUX+wfep0N5sSqh3O1Ygh/wyE9vYJUK8JwWJVAxNsYAESwH8
+         HObBOPwM0EL/ppSRwJlrB64hNo+jryw5ZxLreN7qVDOkL0JWJmqpngSNR/12k3sYu4hd
+         U5iw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781691908; x=1782296708;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=VbVg/KwHCVhdvL9LHCxz6CTvTzl761Uhp31GttVosv0=;
+        b=qnKV91HnrPe7qVQ/i/HqGEDzZU2XN6nrH6c1TEtDnZ/L/eto+tO4+k6Rp1NS4Jz7Rl
+         TmmHYVPZUnWUeDxbNfYxX8ylE/ipkOrUT0ChISMa69KwtgPQMRBiUpZTVasd5OFhDZQX
+         9Y+HMkFxemmL3eb9wtBlO9hjWlLMzSCLjWbhe5/3KUuoxVTufsmqRUb2+O1H44hJomSB
+         wJ4D1b6IZlOvB+VHuqPiYaqt5CyV+12HdmF4xEZOoO7X6Aask7zA6qpEpRvp4uEwq6YG
+         PMH3bYgDRoc8URdEr36o+WFRY/cTZxnT/bGDHr6dgTO2ZbgkykY8bpCv+z4wdwEQnBwK
+         Pchg==
+X-Forwarded-Encrypted: i=1; AFNElJ9vEcb2Uxdle+sK+gF0HTgbCaYwFaIx2dKxvQ7bmNqa3Z3c4jIFke078rHpPtY/tNcKvDKYV1F9YWgs+YJzBMAs@lists.infradead.org
+X-Gm-Message-State: AOJu0YyXY4BRbZmzPu4qiteDaH9IRxOIc5H5hrjKRMrL+srn/2KW/ege
+	8S544D+xLfPXYuu5QTA0zLgB/fBC4o1eHdhC56Kpt1UVvuJ93p0cXSUS
+X-Gm-Gg: AfdE7cneZpmA8aEXaZ28CGggule3hGAEgVEZxVfxMNAOZAXlFe1Gpwei0vr1rSfmvkD
+	iYxbd9TxQYbqeEVn4pvyRilkgSvvtXy+ZQWrYxKnZn96cOH3WuNeeBzT5Xbi2bkBYl5jIduwH25
+	YzS3xkcORb7lYz/rUrb73XyeOVnCJUlX5d9NH2EVvl4lrCu/xSzJA1W7KLJNso5wZtulIaiIhlg
+	qe4mYdNXTfispsg+UD8GuNbgfh0c9LYxK3Unv/TzKiw1848lPsI6QFA5tXBXtscXh05kGrHb5he
+	jMapHlCwBJls9yoHXOAxgm6l+UcFeLozm4gzpAviQqZTTNnWFGO937trV6NOl4M73n3QAYrRMCz
+	KkH2V1I9pvnZv2EnhDw5P35m3HLabHXyHx3IMvVX09aLey/czxiH4ROZtPFrpKcYwGYPiQgWEwy
+	N13BHIDcFbfK6HHuryZYcX5g87jcWegBiKLyoDIy4YwZPiwPIa9b0175KD+ajhPtxqdg==
+X-Received: by 2002:a17:902:ef44:b0:2c6:c66b:4b03 with SMTP id d9443c01a7336-2c6c66b4d39mr11874145ad.10.1781691908280;
+        Wed, 17 Jun 2026 03:25:08 -0700 (PDT)
+Received: from [192.168.0.100] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c42fbb4134sm143780715ad.30.2026.06.17.03.25.04
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 17 Jun 2026 03:25:07 -0700 (PDT)
+Message-ID: <6d3e3121-22f2-4c59-9678-df2f57ff4d31@gmail.com>
+Date: Wed, 17 Jun 2026 18:25:02 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260617-drm-all-atomic-bridges-v1-28-b63e6316166b@kernel.org>
-References: <20260617-drm-all-atomic-bridges-v1-0-b63e6316166b@kernel.org>
-In-Reply-To: <20260617-drm-all-atomic-bridges-v1-0-b63e6316166b@kernel.org>
-To: Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>
-Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, dri-devel@lists.freedesktop.org, 
- Maxime Ripard <mripard@kernel.org>, Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4874; i=mripard@kernel.org;
- h=from:subject:message-id; bh=50nNV2gOk3Dn5TP3UVQWya6pySg8qWx6qlSUclanS5Y=;
- b=owGbwMvMwCmsHn9OcpHtvjLG02pJDFlGxZM+cOlytdS2nGy/HGOSKXmnru5q68HLly5c/Mv+s
- U/c0mZtx1QWBmFOBlkxRZYnMmGnl7cvrnKwX/kDZg4rE8gQBi5OAZjIdD3G+qDlByuiJFZ3r/Nb
- r+h6sDzlP2ev74JN//fca1iaeVbL5nmey49pJ9ZczT2Zyfds8vWqp4wN8w9ObLrVN/3wTKXaFDY
- /bcnYZ4/zK05cq1sY37/uNtf6gma3nk3N8g5Su/pOlPk2R18DAA==
-X-Developer-Key: i=mripard@kernel.org; a=openpgp;
- fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 1/6] dt-bindings: display: verisilicon, dc: generalize
+ for single-output variants
+To: Icenowy Zheng <zhengxingda@iscas.ac.cn>,
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
+ airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org
+Cc: ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260615065003.76661-1-a0987203069@gmail.com>
+ <20260615065003.76661-2-a0987203069@gmail.com>
+ <3683c5c617324f5835529617325745ef48fa1943.camel@iscas.ac.cn>
+Content-Language: en-US
+From: Joey Lu <a0987203069@gmail.com>
+In-Reply-To: <3683c5c617324f5835529617325745ef48fa1943.camel@iscas.ac.cn>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260617_032509_753845_E0694DB7 
+X-CRM114-Status: GOOD (  19.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,195 +108,188 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The mediatek mtk_dpi bridge still uses the deprecated non-atomic bridge
-callbacks.
 
-Switch to their atomic counterparts.
-
-Generated by the following Coccinelle script:
-
-@ is_bridge @
-identifier funcs;
-@@
-
- struct drm_bridge_funcs funcs = {
-	...,
- };
-
-@ has_create_state depends on is_bridge @
-identifier funcs, f;
-@@
-
-struct drm_bridge_funcs funcs = {
-  ...,
-  .atomic_create_state = f,
-  ...,
-};
-
-@ update_struct depends on (is_bridge && !has_create_state) @
-identifier is_bridge.funcs;
-identifier f;
-@@
-
- struct drm_bridge_funcs funcs = {
-+	.atomic_create_state = drm_atomic_helper_bridge_create_state,
-+	.atomic_destroy_state = drm_atomic_helper_bridge_destroy_state,
-+	.atomic_duplicate_state = drm_atomic_helper_bridge_duplicate_state,
- 	...,
- };
-
-@ update_pre_enable_struct depends on is_bridge @
-identifier is_bridge.funcs;
-identifier f;
-@@
-
- struct drm_bridge_funcs funcs = {
- 	...,
--	.pre_enable = f,
-+	.atomic_pre_enable = f,
- 	...,
- };
-
-@ update_pre_enable_impl depends on update_pre_enable_struct @
-identifier update_pre_enable_struct.f;
-identifier b;
-@@
-
--void f(struct drm_bridge *b)
-+void f(struct drm_bridge *b, struct drm_atomic_commit *commit)
- {
-	...
- }
-
-@ update_enable_struct depends on is_bridge @
-identifier is_bridge.funcs;
-identifier f;
-@@
-
- struct drm_bridge_funcs funcs = {
- 	...,
--	.enable = f,
-+	.atomic_enable = f,
- 	...,
- };
-
-@ update_enable_impl depends on update_enable_struct @
-identifier update_enable_struct.f;
-identifier b;
-@@
-
--void f(struct drm_bridge *b)
-+void f(struct drm_bridge *b, struct drm_atomic_commit *commit)
- {
-	...
- }
-
-@ update_disable_struct depends on is_bridge @
-identifier is_bridge.funcs;
-identifier f;
-@@
-
- struct drm_bridge_funcs funcs = {
- 	...,
--	.disable = f,
-+	.atomic_disable = f,
- 	...,
- };
-
-@ update_disable_impl depends on update_disable_struct @
-identifier update_disable_struct.f;
-identifier b;
-@@
-
--void f(struct drm_bridge *b)
-+void f(struct drm_bridge *b, struct drm_atomic_commit *commit)
- {
-	...
- }
-
-@ update_post_disable_struct depends on is_bridge @
-identifier is_bridge.funcs;
-identifier f;
-@@
-
- struct drm_bridge_funcs funcs = {
- 	...,
--	.post_disable = f,
-+	.atomic_post_disable = f,
- 	...,
- };
-
-@ update_post_disable_impl depends on update_post_disable_struct @
-identifier update_post_disable_struct.f;
-identifier b;
-@@
-
--void f(struct drm_bridge *b)
-+void f(struct drm_bridge *b, struct drm_atomic_commit *commit)
- {
-	...
- }
-
-Signed-off-by: Maxime Ripard <mripard@kernel.org>
-
----
-To: Chun-Kuang Hu <chunkuang.hu@kernel.org>
-To: Philipp Zabel <p.zabel@pengutronix.de>
-To: Matthias Brugger <matthias.bgg@gmail.com>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-mediatek@lists.infradead.org
-Cc: linux-arm-kernel@lists.infradead.org
----
- drivers/gpu/drm/mediatek/mtk_dpi.c | 10 ++++++----
- 1 file changed, 6 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/gpu/drm/mediatek/mtk_dpi.c b/drivers/gpu/drm/mediatek/mtk_dpi.c
-index 959c994eef24..0e4f430de983 100644
---- a/drivers/gpu/drm/mediatek/mtk_dpi.c
-+++ b/drivers/gpu/drm/mediatek/mtk_dpi.c
-@@ -848,21 +848,23 @@ static void mtk_dpi_bridge_mode_set(struct drm_bridge *bridge,
- 	struct mtk_dpi *dpi = bridge_to_dpi(bridge);
- 
- 	drm_mode_copy(&dpi->mode, adjusted_mode);
- }
- 
--static void mtk_dpi_bridge_disable(struct drm_bridge *bridge)
-+static void mtk_dpi_bridge_disable(struct drm_bridge *bridge,
-+				   struct drm_atomic_commit *commit)
- {
- 	struct mtk_dpi *dpi = bridge_to_dpi(bridge);
- 
- 	mtk_dpi_power_off(dpi);
- 
- 	if (dpi->pinctrl && dpi->pins_gpio)
- 		pinctrl_select_state(dpi->pinctrl, dpi->pins_gpio);
- }
- 
--static void mtk_dpi_bridge_enable(struct drm_bridge *bridge)
-+static void mtk_dpi_bridge_enable(struct drm_bridge *bridge,
-+				  struct drm_atomic_commit *commit)
- {
- 	struct mtk_dpi *dpi = bridge_to_dpi(bridge);
- 
- 	if (dpi->pinctrl && dpi->pins_dpi)
- 		pinctrl_select_state(dpi->pinctrl, dpi->pins_dpi);
-@@ -980,12 +982,12 @@ static void mtk_dpi_debugfs_init(struct drm_bridge *bridge, struct dentry *root)
- 
- static const struct drm_bridge_funcs mtk_dpi_bridge_funcs = {
- 	.attach = mtk_dpi_bridge_attach,
- 	.mode_set = mtk_dpi_bridge_mode_set,
- 	.mode_valid = mtk_dpi_bridge_mode_valid,
--	.disable = mtk_dpi_bridge_disable,
--	.enable = mtk_dpi_bridge_enable,
-+	.atomic_disable = mtk_dpi_bridge_disable,
-+	.atomic_enable = mtk_dpi_bridge_enable,
- 	.atomic_check = mtk_dpi_bridge_atomic_check,
- 	.atomic_get_output_bus_fmts = mtk_dpi_bridge_atomic_get_output_bus_fmts,
- 	.atomic_get_input_bus_fmts = mtk_dpi_bridge_atomic_get_input_bus_fmts,
- 	.atomic_duplicate_state = drm_atomic_helper_bridge_duplicate_state,
- 	.atomic_destroy_state = drm_atomic_helper_bridge_destroy_state,
-
--- 
-2.54.0
-
+On 6/15/2026 4:19 PM, Icenowy Zheng wrote:
+> 在 2026-06-15一的 14:49 +0800，Joey Lu写道：
+>> The existing schema hard-codes the five-clock/three-reset/dual-port
+>> topology of the DC8200 IP block, preventing reuse for single-output
+>> variants such as the Verisilicon DCUltraLite used in the Nuvoton
+>> MA35D1
+>> SoC.
+>>
+>> Rework the schema so that variant-specific constraints are expressed
+>> via
+>> allOf/if blocks:
+>>
+>> - Add nuvoton,ma35d1-dcu to the SoC-specific compatible enum.  The
+>>    generic verisilicon,dc fallback remains the driver-binding string.
+>> - Move clock and reset items descriptions into the per-variant
+>> allOf/if
+>>    blocks; keep only minItems/maxItems at the top level so the base
+>> schema
+>>    accepts all variants.
+>> - Restore full items lists for clock-names and reset-names at the top
+>>    level with minItems so the names are validated against the
+>> descriptions.
+>> - Keep ports in the global required list and keep
+>> additionalProperties: false.
+>> - Add an allOf/if block for thead,th1520-dc8200: five-clock (core,
+>> axi,
+>>    ahb, pix0, pix1), three-reset (core, axi, ahb), required resets.
+>> - Add an allOf/if block for nuvoton,ma35d1-dcu: two-clock (core,
+>> pix0),
+>>    one-reset (core), required resets.
+>>
+>> Signed-off-by: Joey Lu <a0987203069@gmail.com>
+>> ---
+>>   .../bindings/display/verisilicon,dc.yaml      | 80
+>> +++++++++++++++++--
+>>   1 file changed, 73 insertions(+), 7 deletions(-)
+>>
+>> diff --git
+>> a/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+>> b/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+>> index 9dc35ab973f2..0c41286b8223 100644
+>> --- a/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+>> +++ b/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+>> @@ -17,6 +17,7 @@ properties:
+>>       items:
+>>         - enum:
+>>             - thead,th1520-dc8200
+>> +          - nuvoton,ma35d1-dcu
+>>         - const: verisilicon,dc # DC IPs have discoverable ID/revision
+>> registers
+>>   
+>>     reg:
+>> @@ -26,14 +27,12 @@ properties:
+>>       maxItems: 1
+>>   
+>>     clocks:
+>> -    items:
+>> -      - description: DC Core clock
+>> -      - description: DMA AXI bus clock
+>> -      - description: Configuration AHB bus clock
+>> -      - description: Pixel clock of output 0
+>> -      - description: Pixel clock of output 1
+> Clock descriptions should still be in the global part instead of the
+> per-compatible part.
+>
+> In the per-compatible part, clock-names should be constraint for SoCs.
+I will move the `items:` clock descriptions back into the global 
+`clocks:` property, covering all five possible clocks. In the 
+per-compatible sections I will remove the description items and only 
+constrain `clocks: minItems/maxItems` and `clock-names: 
+minItems/maxItems`; for nuvoton,ma35d1-dcu I will additionally override 
+`clock-names: items:` to the two names actually used (core, pix0).
+>> +    minItems: 2
+>> +    maxItems: 5
+>>   
+>>     clock-names:
+>> +    minItems: 2
+>> +    maxItems: 5
+>>       items:
+>>         - const: core
+>>         - const: axi
+>> @@ -42,12 +41,16 @@ properties:
+>>         - const: pix1
+>>   
+>>     resets:
+>> +    minItems: 1
+>> +    maxItems: 3
+>>       items:
+>>         - description: DC Core reset
+>>         - description: DMA AXI bus reset
+>>         - description: Configuration AHB bus reset
+>>   
+>>     reset-names:
+>> +    minItems: 1
+>> +    maxItems: 3
+>>       items:
+>>         - const: core
+>>         - const: axi
+>> @@ -59,7 +62,7 @@ properties:
+>>       properties:
+>>         port@0:
+>>           $ref: /schemas/graph.yaml#/properties/port
+>> -        description: The first output channel , endpoint 0 should be
+>> +        description: The first output channel, endpoint 0 should be
+> If you really want to fix this, please make it a separated patch
+> instead of doing it here, for commit atomicity.
+>
+> Thanks,
+> Icenowy
+I’ll drop this change and keep it as is
+>>             used for DPI format output and endpoint 1 should be used
+>>             for DP format output.
+>>   
+>> @@ -77,6 +80,69 @@ required:
+>>     - clock-names
+>>     - ports
+>>   
+>> +allOf:
+>> +  - if:
+>> +      properties:
+>> +        compatible:
+>> +          contains:
+>> +            const: thead,th1520-dc8200
+>> +    then:
+>> +      properties:
+>> +        clocks:
+>> +          minItems: 5
+>> +          maxItems: 5
+>> +          items:
+>> +            - description: DC Core clock
+>> +            - description: DMA AXI bus clock
+>> +            - description: Configuration AHB bus clock
+>> +            - description: Pixel clock of output 0
+>> +            - description: Pixel clock of output 1
+>> +
+>> +        clock-names:
+>> +          minItems: 5
+>> +          maxItems: 5
+>> +
+>> +        resets:
+>> +          minItems: 3
+>> +          maxItems: 3
+>> +
+>> +        reset-names:
+>> +          minItems: 3
+>> +          maxItems: 3
+>> +
+>> +      required:
+>> +        - resets
+>> +        - reset-names
+>> +
+>> +  - if:
+>> +      properties:
+>> +        compatible:
+>> +          contains:
+>> +            const: nuvoton,ma35d1-dcu
+>> +    then:
+>> +      properties:
+>> +        clocks:
+>> +          minItems: 2
+>> +          maxItems: 2
+>> +          items:
+>> +            - description: DC Core clock
+>> +            - description: Pixel clock of output 0
+>> +
+>> +        clock-names:
+>> +          minItems: 2
+>> +          maxItems: 2
+>> +
+>> +        resets:
+>> +          minItems: 1
+>> +          maxItems: 1
+>> +
+>> +        reset-names:
+>> +          maxItems: 1
+>> +
+>> +      required:
+>> +        - resets
+>> +        - reset-names
+>> +
+>>   additionalProperties: false
+>>   
+>>   examples:
 
