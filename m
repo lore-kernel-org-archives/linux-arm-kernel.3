@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B86CCD98F1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 10:00:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20E6ECD98E4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 10:00:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=28t0Rp9RwQavCaATHTS/jazQMdda0WJr2a9TFNE5hK0=; b=ZoP2H4Gu0JWVxzwDFy4mMdN5qx
-	caSundEcFaXHs1fEdbKmqNxiIDs0auBKxOjCaV+rkOtGOyombehJTekgcfrIvRSY/LhY78vXC9wSE
-	+Jp2rXgpUg673/TNaWYy4OoQ0GuXv+HVx0AHj+ZotVRVaAyGeUDjmdFGPGTqhWg9PYAtE2s5b+kpP
-	Xb6G7B+i8AEAbepFmxFIymjixKIlXc9ujvJiP5Xt/2t4i+9m8LgQI9AGa+EVuUBr4mue5KupSjPBP
-	sXw8tbHxkW9sA3+P/CiwahK67EAAVqLZWS9A0AohYEiOiHMLspODZxF0zqzaHI8+dWFf+S0T2d/Ad
-	QcLao/aw==;
+	bh=jScW08cupGg4jUuWlOCd0I2U9uHY87trUT7kEFVP5hA=; b=VrqeerDw+hvyX1oEB1PKjRHWea
+	kHDFYF4DJeI2Z7zcHWasibOhecDK0mb6v4UlJkGKDtL1NM+WXO9dkWrGgtdJCxh7RJ6gBQc83bO12
+	uqlkRGFjaGGbl/CikgloEiE5Qn9wEYbzbkHuUzrF0/fjaTcnoPjOxX5Ep47eK9zCCYkS+fborWZce
+	dobuLo9MMx8uaIsfBAE8k/FWCii4TgF6M5CkCGu6sYnMmxnXfjJe3lUtEB6uAGa6FG1lu8ryy62PE
+	r7TNuaG+/VsD7pD+73ii0RVG6ckrnCMPkdN69XcgNdQbyYlepnFD2zXhKcCc/0WSJmLR6u0NIiZOa
+	CKKkAcBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZn3t-0000000GzuQ-4AOH;
-	Wed, 17 Jun 2026 09:59:57 +0000
+	id 1wZn43-0000000H06O-39do;
+	Wed, 17 Jun 2026 10:00:07 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZn3o-0000000GzoP-18V1
+	id 1wZn3w-0000000GzxM-23sx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 09:59:53 +0000
+	Wed, 17 Jun 2026 10:00:01 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 12AEF483F;
-	Wed, 17 Jun 2026 02:59:47 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 125F92E8E;
+	Wed, 17 Jun 2026 02:59:55 -0700 (PDT)
 Received: from donnerap.manchester.arm.com (donnerap.manchester.arm.com [10.33.8.81])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 23E2E3F915;
-	Wed, 17 Jun 2026 02:59:49 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 63E6A3F915;
+	Wed, 17 Jun 2026 02:59:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1781690391; bh=DaBtTc44ZyRVxzGxVQBX/VonOPX9QiFrI2KUSG4ItFM=;
+	t=1781690399; bh=uQ2IxnI5PBbEK+vSVRZY0b0+hKZufqL3dFY/NKgEynE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=relyCZ526Tbi6T4WX9R/x+kZMFgqaAVZYrre+ucHVrkrdskmjbn43fXUyBasArqUV
-	 ldXbBwNDdtYPwFn1Oa9PgHamyyviB4EPeTOTpKPyuIZMxL1//uDn/eUYRcpHrRiecV
-	 LZEBHlPuhCAxuVNcqZV1A9w0LUFQnTsSwFG/r66k=
+	b=fb4KH2egIRDRjwAOvCEK9JUixNmbOr4tnpIYvgtFlsXP0LvcktPpwHXUNErbHHcpr
+	 MJDY3O2zl8+vRW01sdRkB0sT9m7TlKVq10SmkeKi+FmBxCDG9zA8bZfHVN+ZO0/eko
+	 qU5wbefLXSocyDoXhnqPoG0PuG1jh2k0KNiSd7Uo=
 From: Philip Radford <philip.radford@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -55,21 +55,18 @@ Cc: sudeep.holla@arm.com,
 	dan.carpenter@linaro.org,
 	d-gole@ti.com,
 	souvik.chakravarty@arm.com,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
 	Philip Radford <philip.radford@arm.com>
-Subject: [PATCH v7 09/13] powercap: arm_scmi: Enable multiple constraints support
-Date: Wed, 17 Jun 2026 10:59:06 +0100
-Message-ID: <20260617095910.1963578-10-philip.radford@arm.com>
+Subject: [PATCH v7 12/13] powercap: arm_scmi: Add get_power_uw to synthetic node
+Date: Wed, 17 Jun 2026 10:59:09 +0100
+Message-ID: <20260617095910.1963578-13-philip.radford@arm.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260617095910.1963578-1-philip.radford@arm.com>
 References: <20260617095910.1963578-1-philip.radford@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260617_025952_365369_16D75094 
-X-CRM114-Status: UNSURE (   9.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260617_030000_610249_8433B1D7 
+X-CRM114-Status: GOOD (  14.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,43 +81,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Cristian Marussi <cristian.marussi@arm.com>
+Exposes the current power usage from the immediate children of the
+synthetic (root) powercap node. Iterates over pr->spzones and sums per-zone
+power.
 
-Initialize the domains with all the discovered available constraints,
-making available multiple per-domain constraints when the platform has
-advertised support for multiple concurrent power limits.
-
-CC: "Rafael J. Wysocki" <rafael@kernel.org>
-CC: linux-pm@vger.kernel.org
-Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
-[Philip: Amended Copyright]
 Signed-off-by: Philip Radford <philip.radford@arm.com>
 ---
- drivers/powercap/arm_scmi_powercap.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+V6->V7
+- Fixed commit message length
+V5->V6
+- Moved multiple u64 values to the same line
+- Reworked logic to walk SCMI zones and filter by parent
+- Added to_scmi_powercap_root macro
+---
+ drivers/powercap/arm_scmi_powercap.c | 35 ++++++++++++++++++++++++++--
+ 1 file changed, 33 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/powercap/arm_scmi_powercap.c b/drivers/powercap/arm_scmi_powercap.c
-index 90d1fa70b1d4..2f8a1e0ecccf 100644
+index d45e4af0cdc7..e1bad4b19990 100644
 --- a/drivers/powercap/arm_scmi_powercap.c
 +++ b/drivers/powercap/arm_scmi_powercap.c
-@@ -2,7 +2,7 @@
- /*
-  * SCMI Powercap support.
-  *
-- * Copyright (C) 2022 ARM Ltd.
-+ * Copyright (C) 2022-2026 ARM Ltd.
-  */
+@@ -17,6 +17,9 @@
+ #define to_scmi_powercap_zone(z)		\
+ 	container_of(z, struct scmi_powercap_zone, zone)
  
- #include <linux/device.h>
-@@ -449,7 +449,7 @@ static int scmi_powercap_register_zone(struct scmi_powercap_root *pr,
++#define to_scmi_powercap_root(z)		\
++	container_of(z, struct scmi_powercap_root, instance_root.zone)
++
+ static const struct scmi_powercap_proto_ops *powercap_ops;
  
- 	z = powercap_register_zone(&spz->zone, scmi_top_pcntrl, spz->info->name,
- 				   parent ? &parent->zone : NULL,
--				   &zone_ops, 1, &constraint_ops);
-+				   &zone_ops, spz->info->num_cpli, &constraint_ops);
- 	if (!IS_ERR(z)) {
- 		spz->height = scmi_powercap_get_zone_height(spz);
- 		spz->registered = true;
+ struct scmi_powercap_zone {
+@@ -411,9 +414,37 @@ static int instance_root_release(struct powercap_zone *pz)
+ 	return 0;
+ }
+ 
+-static int instance_root_get_power_uw(struct powercap_zone *pz, u64 *v)
++static int instance_root_get_power_uw(struct powercap_zone *pz, u64 *power_uw)
+ {
+-	*v = 0;
++	struct scmi_powercap_root *pr = to_scmi_powercap_root(pz);
++	struct scmi_powercap_zone *child;
++
++	u64 p, acc = 0;
++	int i, ret;
++
++	if (!pz || !power_uw)
++		return -EINVAL;
++
++	if (!pr)
++		return -ENODEV;
++
++	for (i = 0; i < pr->num_zones; i++) {
++		child = &pr->spzones[i];
++
++		if (!child->registered || child->invalid)
++			continue;
++
++		if (child->info->parent_id != SCMI_POWERCAP_ROOT_ZONE_ID)
++			continue;
++
++		ret = scmi_powercap_get_power_uw(&child->zone, &p);
++		if (!ret)
++			acc += p;
++		else
++			dev_dbg(child->dev, "Failed to read child power: %u\n", ret);
++	}
++
++	*power_uw = acc;
+ 	return 0;
+ }
+ 
 -- 
 2.47.3
 
