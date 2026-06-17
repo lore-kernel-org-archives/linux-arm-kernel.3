@@ -4,72 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 049BACD98E1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 03:09:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43197CD98E1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 03:31:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gk9eB3MjnEEPRjMQFZWXNmN3y+0l6KK1WdI3cPoJm6A=; b=oNKg5X8XmN/ruSjQNYBQZeeaWI
-	22o908EUfPsLkc4/7iTvv94DEDvZNf2ngdoywlreyO8nfB17jrZdyBCnBKvTtzTCX9ouG5lZ0SwjG
-	L2nj3qTe2YPOIAO4ACuMSY6+AoS/Burblhc/gmeruiaewmXyGpXfWTy8674WF8vDom9SU2E5cR52Y
-	JdNeGX2ty3dBh0VrArMgTfh2II2JeFNqsB8k1pA+mNtasGBDpDTlM9VZc4I46zkv74g86auX8OcmX
-	tZexQ9TY++oNyUKBOyswxCQ0InO8/jL06iENQZ69hZlNbHVq6EYd99hAzPcM8yonMuCRqAk9W3DFZ
-	63KIGvUQ==;
+	bh=PNRRDdQAg6OTo/rPWnE2gKXvJ32DvRz3h1z/Jd46StI=; b=HdvSfFv0BQfS3vzNZoJV2xvfeP
+	4c9eOq8aZ8e9XwLkwT4HEbTv/8apAFcW/lOfNK8rp2TiposJxSn2jdqFoEGEmFgIxIXA4XuBAdKKz
+	dFDo1H+GDcXE8J0YmBrS6sZVe9RpwtQFhF7a1GwxuojogUsDSpBXIrR2iHPuFLWMic+IBgCXKlshX
+	fGXZhecI55dyuBbYTWyQmwyh7CJOi9q/Bsiv6kkNPUxyNLYzBbAIo5ap+BbcMWJPLlcJzpAHJql7X
+	l5s0/WFVJ/eczlxr9qfCV2JonXQEDSmeNs/ry6tH9H+so+b5Q2QZjvSJZtCyvLBJL/C/u7TVLTY9s
+	zQ+KS8ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZg6p-0000000GVxW-01ng;
-	Wed, 17 Jun 2026 02:34:31 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1wZgzR-0000000GYmk-358A;
+	Wed, 17 Jun 2026 03:30:57 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZg6m-0000000GVx5-0HNJ
+	id 1wZgzP-0000000GYm5-0hSM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 02:34:30 +0000
-X-UUID: 088dc55c69f511f1aa26b74ffac11d73-20260617
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:3509e3fe-e98e-43f4-8322-c8e72fabe82c,IP:0,U
-	RL:0,TC:0,Content:-25,EDM:-25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACT
-	ION:release,TS:-50
-X-CID-META: VersionHash:e7bac3a,CLOUDID:cfbce81a19c81799c41c83c0864cf5ba,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:102|850|865|898,TC:nil,Content:0|15|50,E
-	DM:2,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:
-	0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 088dc55c69f511f1aa26b74ffac11d73-20260617
-X-User: zenghongling@kylinos.cn
-Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <zenghongling@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 106712783; Wed, 17 Jun 2026 10:34:15 +0800
-From: Hongling Zeng <zenghongling@kylinos.cn>
-To: vkoul@kernel.org,
-	Frank.Li@kernel.org,
-	wens@kernel.org,
-	jernej.skrabec@gmail.com,
-	samuel@sholland.org,
-	mripard@kernel.org,
-	arnd@arndb.de
-Cc: dmaengine@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	zhongling0719@126.com,
-	Hongling Zeng <zenghongling@kylinos.cn>,
-	Frank Li <Frank.li@oss.nxp.com>
-Subject: [PATCH v3] dmaengine: sun6i-dma: Fix memory leak in sun6i_dma_terminate_all
-Date: Wed, 17 Jun 2026 10:34:11 +0800
-Message-Id: <20260617023411.574488-1-zenghongling@kylinos.cn>
-X-Mailer: git-send-email 2.25.1
+	Wed, 17 Jun 2026 03:30:56 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-842288702fbso2501779b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 20:30:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781667054; x=1782271854; darn=lists.infradead.org;
+        h=mime-version:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=PNRRDdQAg6OTo/rPWnE2gKXvJ32DvRz3h1z/Jd46StI=;
+        b=CkmouPpVleYV7lSt+bdi96J8/pzOkOQHDJjzDHWtJAwY8CYr3SoE47Xfwoyv7h8JVz
+         74BslZcYmDPOijiAuv31Gt5PsOwNpySR2fbSdMFpjmWN46BiKDq7kx+yY4bpG7CidgXk
+         Pgk0iMq3cXAg4HR+alo1+kqhBp+huu4Ha8dTgFCRest0AhVQKOlKw+F68veRrUbyosOq
+         24TL53Uulb8VRO9N1k9Qjm24Oo8gAIJMeE4DQZd7fxkJR9SDwXtPiPDq9TwL8pD1hEs0
+         kADn6hRuZmlHUOo9oQ0kt0x0VpoeiQeg8nya1IkPbliZfRGr3hNf8ZVmRjafGf0+JsmP
+         KRHg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781667054; x=1782271854;
+        h=mime-version:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=PNRRDdQAg6OTo/rPWnE2gKXvJ32DvRz3h1z/Jd46StI=;
+        b=hqnMybuZq6rMfP6MjH8LMgQ2YELK/6SJtoJOEfRGqvroiSnI64nsPWrjvNQZHnJ57n
+         CfExr1i925KKRGYZeep3Kv9H/4W08pGgGnViDZ/S6rMSvk1CjU13dDj0Q4WYXPB78eAD
+         gDmuSF9gy0mj4hKAUlW+S/Ok7FhafSlNd5xpYF/aBUlpokp3sUV7tHc4W/e2ODkpJ9cC
+         aXu7sBMlUVa9PPDrsFppHFcvZYTYt0k3K9J3wyPbnFc0NQ5e4fYnDEIa8ap+zGgvDrE0
+         Y/xpRbwhmoX2JqPnYXu24t1hq1myEiZStxUCIFXPOaHNOc2hzrEq/rg/2uLAowBQERq7
+         /CUg==
+X-Forwarded-Encrypted: i=1; AFNElJ8b4F2w9Ms9FEPGjnHuAXqmyWV9RhqS8fNfaQoTaCxt3foGWhNlIDBwu7ZAUw9hodHfzR2VE/zDd31PYENkA5gs@lists.infradead.org
+X-Gm-Message-State: AOJu0YxL7GewwAyg/xcNKz1NBGFvHHvhUj7rGZoVXbOvUvIMLtstHO1R
+	qsE1ho3r79tSTQ7GK1NsM0bPAexyOcRAG5n3Vb2swZVWxeWirbOA07QW
+X-Gm-Gg: Acq92OHn4cHG7Bz0jXRSSHW/ERaw57aTkHjADIXjAAOA6jTt6YCcy/rMIB/ED2s1KK+
+	6mPNMpcIs8Dm4UZmjZVIQe8rQ8tIlHxoFGgzHQMzrcWRWesaIdg1mg/DhVficxsPffq1j9Au8Vc
+	oOaC4Vver0aCtym7Rh20LS62IHWSWQy8bp98bktIV8trJ5wKg85Oq/J0lifjVS5rK59Cx/ualI2
+	r6Midz59yZXAjwNGJa4idTUZfKvmOoraCzkFFME/5PuDEEGcvrGloJl1JSd5PdoTJgoTP/B2BfJ
+	Lx09cLxWicH6mJ0fOaADYVBabbpKrn4uH+Mp+1UZwH3Z8/xAaM2Q5z1ahkpVaynsgIPnGtZxe0v
+	nRNcLa9y3qkmQh+ynnTlUhq7YvD7QairOha8G0n6qWwhfe3f9vLisI7DIw/5A1BL0U8+g0DdAVv
+	pXR2YtMw==
+X-Received: by 2002:a05:6a21:4903:b0:3b4:870e:6f44 with SMTP id adf61e73a8af0-3b8be9b197cmr1944323637.35.1781667053893;
+        Tue, 16 Jun 2026 20:30:53 -0700 (PDT)
+Received: from [127.0.1.1] ([47.253.114.73])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c8661b5ccafsm13070205a12.2.2026.06.16.20.30.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 16 Jun 2026 20:30:53 -0700 (PDT)
+From: Wayen Yan <win847@gmail.com>
+To: netdev@vger.kernel.org
+Cc: lorenzo@kernel.org, horms@kernel.org, pabeni@redhat.com, kuba@kernel.org, edumazet@google.com, andrew+netdev@lunn.ch, angelogioacchino.delregno@collabora.com, matthias.bgg@gmail.com, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Subject: [PATCH net] net: airoha: Fix TX scheduler queue mask loop upper bound
+Date: Wed, 17 Jun 2026 11:20:10 +0800
+Message-ID: <178166704952.2212140.11002626760717132754@gmail.com>
+Content-Type: text/plain; charset=utf-8
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260616_193428_473327_8AE8E361 
-X-CRM114-Status: GOOD (  11.17  )
+X-CRM114-CacheID: sfid-20260616_203055_212548_910C19AD 
+X-CRM114-Status: GOOD (  10.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,64 +92,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When terminating a non-cyclic DMA transfer, the active descriptor
-is not properly reclaimed. The descriptor is removed from the
-desc_issued list in sun6i_dma_start_desc(), but in
-sun6i_dma_terminate_all(), only cyclic transfer descriptors are
-added to the desc_completed list before cleanup.
+In airoha_qdma_set_chan_tx_sched(), the loop clearing queue mask was
+using AIROHA_NUM_TX_RING (32) instead of AIROHA_NUM_QOS_QUEUES (8).
 
-For non-cyclic transfers, pchan->desc is set to NULL without first
-adding the descriptor back to a list that vchan_get_all_descriptors()
-can collect. This causes the descriptor and its associated LLI chain
-to be permanently leaked.
+Each channel has 8 queues, and TXQ_DISABLE_CHAN_QUEUE_MASK(channel, i)
+computes BIT(i + (channel * 8)). With i ranging 0..31, this causes:
+- channel 0: clears bit 0..31 (all 4 channels) instead of 0..7
+- channel 1: clears bit 8..31 (channels 1-3) instead of 8..15
+- channel 2: clears bit 16..31 (channels 2-3) instead of 16..23
+- channel 3: clears bit 24..31 (channel 3 only) - correct by accident
 
-Fix by ensuring both cyclic and non-cyclic active descriptors are
-added to the desc_completed list before setting pchan->desc to NULL.
+While BIT(32+) on arm64 produces 64-bit values truncated to 0 in u32
+mask parameter, the loop still incorrectly clears queues within the
+same channel beyond queue 7.
 
-Fixes: 555859308723 ("dmaengine: sun6i: Add driver for the Allwinner A31 DMA controller")
-Signed-off-by: Hongling Zeng <zenghongling@kylinos.cn>
-Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
-Suggested-by: Frank Li <Frank.li@oss.nxp.com>
+Fix by using AIROHA_NUM_QOS_QUEUES (8) as the loop upper bound.
 
+Fixes: ef1ca9271313 ("net: airoha: Add sched HTB offload support")
+Signed-off-by: Wayen Yan <win847@gmail.com>
 ---
- Change in v2;
- -Add pchan->desc != pchan->done check to prevent race condition
-  where completed descriptors could be double-added to desc_completed
-  list, causing list corruption
----
- Change in v3:
- -Fix by using vchan_terminate_vdesc() as suggested by Frank Li
----
- drivers/dma/sun6i-dma.c | 13 +++++--------
- 1 file changed, 5 insertions(+), 8 deletions(-)
+ drivers/net/ethernet/airoha/airoha_eth.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/dma/sun6i-dma.c b/drivers/dma/sun6i-dma.c
-index 7a79f346250a..134ae840f176 100644
---- a/drivers/dma/sun6i-dma.c
-+++ b/drivers/dma/sun6i-dma.c
-@@ -946,16 +946,13 @@ static int sun6i_dma_terminate_all(struct dma_chan *chan)
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+index 31cdb11cd7..a1eda13400 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.c
++++ b/drivers/net/ethernet/airoha/airoha_eth.c
+@@ -2217,7 +2217,7 @@ static int airoha_qdma_set_chan_tx_sched(struct net_device *dev,
+ 	struct airoha_gdm_port *port = netdev_priv(dev);
+ 	int i;
  
- 	spin_lock_irqsave(&vchan->vc.lock, flags);
+-	for (i = 0; i < AIROHA_NUM_TX_RING; i++)
++	for (i = 0; i < AIROHA_NUM_QOS_QUEUES; i++)
+ 		airoha_qdma_clear(port->qdma, REG_QUEUE_CLOSE_CFG(channel),
+ 				  TXQ_DISABLE_CHAN_QUEUE_MASK(channel, i));
  
--	if (vchan->cyclic) {
--		vchan->cyclic = false;
--		if (pchan && pchan->desc) {
--			struct virt_dma_desc *vd = &pchan->desc->vd;
--			struct virt_dma_chan *vc = &vchan->vc;
--
--			list_add_tail(&vd->node, &vc->desc_completed);
--		}
-+	if (pchan && pchan->desc && pchan->desc != pchan->done) {
-+		struct virt_dma_desc *vd = &pchan->desc->vd;
-+		
-+		vchan_terminate_vdesc(vd);
- 	}
- 
-+	vchan->cyclic = false;
- 	vchan_get_all_descriptors(&vchan->vc, &head);
- 
- 	if (pchan) {
 -- 
-2.25.1
+2.51.0
+
 
 
