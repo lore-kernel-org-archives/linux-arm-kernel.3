@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32C92CD98E2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 10:35:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74FBACD98E2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 10:35:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y8VWF2SeEtHF667M6jhaZnBwcldxW4ZuQhlBOZBeK1Y=; b=JaYha5kSko1V1CfkSC+GOvKO3E
-	KziI5riHpRO8qk1m1kzwyRG0sE/sbOZW86Ui28yQcsPTebXTMgS5hLvC2Od91/CC+oFvcyWcZVAk1
-	YQ30RCjT+k5NcghBesqKJxNezgW2MISUEkm7c54PGevBIcuYVyhZLoiAcZHB+6Bllip+RfcQNrBUI
-	l7VnyTMGAhUopTYrcKKBQKUuX2g3VdWCc9qwOtB6iU91LJju7eL6t+FhRq9k7bP9bm/xhbuUorw0O
-	Byfs4Dq9EQnxqiSI+VGKe2sVNRtBAf4gM02++eYhCkaXuWx5vQ6cbEzTWFPYvWMXApdUw99WVgjUl
-	E7vtHR0w==;
+	bh=D3pG1tEFOJl9HudGSqGDOqn89cYK/BAFq0QnLsL5JtM=; b=g8TVYtvBjsruB0/ucmWZIfbR/n
+	1bmiJmDW5we6am7BAzAIWNQbeTcgN8e8vK19UR2JtOZJz3Y0irsnWb2mowgjx6JLWJMqklOE15ORV
+	bVhR8huaGDEIWtLyDQ6qftruOpGYWMuojthXO03XoKvzSYB6lGLztpZh3f1LWuq454UKUHFzsDyTx
+	OG+lHXv6KcI5VCblLz/Iw7RVvwnG/H36TFOSc2krjw8xa02u5ueTFOMzC5NQxBXlkYOCRxmYmuTtH
+	mdRHnfbB9dTlcmI9QOwe/+SnO7YoIGo/1pKyo9CrwhQsMwBhkgANW4FYjMDEfkL4f0kCgB8w6QWA7
+	IfdCjsZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZncS-0000000H5TG-3L0v;
-	Wed, 17 Jun 2026 10:35:40 +0000
-Received: from mail-dy1-x1330.google.com ([2607:f8b0:4864:20::1330])
+	id 1wZncc-0000000H5bF-1AEr;
+	Wed, 17 Jun 2026 10:35:50 +0000
+Received: from mail-dy1-x132d.google.com ([2607:f8b0:4864:20::132d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZncR-0000000H5Rg-0bMk
+	id 1wZnca-0000000H5Z3-0PuD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 10:35:40 +0000
-Received: by mail-dy1-x1330.google.com with SMTP id 5a478bee46e88-304d8362a58so601381eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 03:35:39 -0700 (PDT)
+	Wed, 17 Jun 2026 10:35:49 +0000
+Received: by mail-dy1-x132d.google.com with SMTP id 5a478bee46e88-30bdb3eb5f0so150605eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 03:35:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781692538; x=1782297338; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1781692547; x=1782297347; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Y8VWF2SeEtHF667M6jhaZnBwcldxW4ZuQhlBOZBeK1Y=;
-        b=Uq01J7M6G/Rvpgd6N0G1rCWcJHFTilwjpaopMtk/YgS62ktrU99pX/SbuZgdR0XwaZ
-         uYp6JiyUq86j+P05mb4wEPCr7Ok/sY5FUueC+E7mM/hpq5u0bKsxjAoVFrujP5wjaSwI
-         JqM3qgHKbsJbwhsFuiWZ9qzsizQWeUmI+wPHFkqmK2rlzlIZ2oYjkemzdWsFNOQIrjA+
-         aOSVeOmC9KwTBxa6hzp7CdVQ/uDTZ5LcA3uLyrWfteNefFELNpk/z5Pcw3hlpnUYSEm7
-         LpknKgPvwe1WJn5jt8cZE2bCmDhJTn4U37H3SDYrhom4GKMJiRjpCYGCruXX1n9KT5jN
-         JvhA==
+        bh=D3pG1tEFOJl9HudGSqGDOqn89cYK/BAFq0QnLsL5JtM=;
+        b=su25Y9RWcF22Clt59kiW03Ymx+pEHz/2Bic8cjKrZedXZkkmq/yEup45RxRJyNmE86
+         cHhCHqPyIUCLrmVorOlVxHO58PtGJq2GZ7yLZihWMszCVzCYVpZYfJSYhTKndsS0Yye+
+         xFPMAs6ZwT9t6uSJq3LSWFqjXLlqiZ+Hysm9iVU2ALpUvUevoe0kih15JAWDP/G9XMKj
+         XnFPgKkM9IgW9LUK+gwmOZS+a+uh5uUSQ3HOH4yRTp9NQgTdv2oAL3pxF0lE3iURzG6C
+         LZRTKx6RZYkipfCr+MyAsVEPl4dPeUM+MPFKZLakjU2R/zC1AmNoSpG+LKnLr3nvxi6O
+         KLtg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781692538; x=1782297338;
+        d=1e100.net; s=20251104; t=1781692547; x=1782297347;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=Y8VWF2SeEtHF667M6jhaZnBwcldxW4ZuQhlBOZBeK1Y=;
-        b=X15CrPhwOYLJC+M6cMI55OyPGPDqiAjZAlnuSJSCoW474NUVPe8+XWQP3qCY/oDEH5
-         sg5CwW6RLc6phQ8ZwzfuS7o1y7KUsjaEcNF5bi6i4GKtbBuNz9veK2ThHnkQm7742kg5
-         iyl84PEU0Eh0I0UQFgN1vJl1Prpl9XKtFpiWAMXICxq9sq0qtW+eWcMNveKk3xRWslaO
-         3mBfPZ9roOCQzsL3vVEbVYvD/c0be4rhkky4tnu2WpE86TVez/yV6OE5/Cp/k5+FoNsf
-         wMg2rCGVCowQvBwbkPuCAlmaWY19W7lg9bgjZoyfDqrG3ashlbQ4jTFargyncmuOPLzZ
-         qynQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9k6QWcx7iP3ZzuhEvw+0lgyDvqCTt2U8vRru6OXDXcn2Dtxvp2a5y0yEpW1XchSxEDFm35q6zCSdXWYx8eZ3dH@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzb4DHk6bLEnDNj2qS37PAR0oT7B3fBDF3CNIt/myxqJdWRzq1L
-	RpX1ZXRSU7qURqdYw4pPLCZXXqAsVzLPZRVeODu5ZcD9ZNRWnFN6RnoU
-X-Gm-Gg: AfdE7cmt7quqgXx63I2Lu+2emBZI7b/BWjJiAHlaj8o7nBRVGhKUmaTdSBOMTlTSe7R
-	l7Mo7lT/ryvmVtPSfj8R6mI8+wWWGaL3vABGFZjIe7dd4NtWo6EzQNet4zEJv9HklrSTrZ0VKMX
-	bwbqGNlLd/IGeEhbNaGcEMlc74tjGR6A9rKnQYIgivPwsU9dspNUCSXtTNvbI9n6Ehzmlw/qZRp
-	pp2EkXYaS/uQ6mAvSSlqy2qw1SKjUgHNHGMw6a1ZnRgUwOd7asdeEknmDvpF5xFNIpBJoSE440b
-	yVQ92HKwDt8/wdW3ZAUOIyE2qiFVYBIW9LzE0/ClGx42MSafmtGL4W+kdfD3PzNefb6BcrCj9sX
-	2BVGXT8IBEO4g9AeqlsPf6Q2TRLoC2VjsFNn4pml9e/cEss0kfK8u8kkcrRsd1l1ZtcTMHlUlv1
-	37SDOvo0aPcKyVx5wUShQ15GRwz/lCm7pLEmBXBddPBZH8HnM=
-X-Received: by 2002:a05:7300:6420:b0:304:bd90:b88f with SMTP id 5a478bee46e88-30bcf5ff5abmr1289238eec.9.1781692538389;
-        Wed, 17 Jun 2026 03:35:38 -0700 (PDT)
+        bh=D3pG1tEFOJl9HudGSqGDOqn89cYK/BAFq0QnLsL5JtM=;
+        b=f54r8At8y+Fj5XXWcNQ6wM4O5GkYy5C4eNfxPU+2ZuOsM+7l1NqsiIgyfW6BmZlT3O
+         FFO3KTOdO8Ath5R8gKrC63d8PLhZvQsSSwWziOOCv4vRF3vlU1BTrwMYIu+bgI5oD7Bt
+         FpOwD/a1jW3/CASeWdl5xlczP50oAX0qS6keVjneasr9HzkZI3oAi6NKjwqE2rKBvUbK
+         oEBBmTtmTF3vudOu7wTMFirZzLKl8QCzhlc3O6r9qktFcv6VTmQ37nd0wj+839kEshJf
+         GrRY/3kOhIzPD5EIgttce+rFhJVOxHZI9CmofowHzU61Ab3p6zKKS8xmgnvOhC2qTowG
+         FU2Q==
+X-Forwarded-Encrypted: i=1; AFNElJ8YQu4e1smtTwKrFxqJaUj9h2HavDobdC6Ku9wY626IiQl9xjmrdwWV6h3YNGF+hCzcsul7Y3DXUhp+Q5OLv1cy@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxuc4idmX4Vog/DsD8i0DFAk/oLv8nTm3CAxAdx20VaC9ANg0Bi
+	2QYVMIOuKb3ClnmN6U37pvSc9P3pFoq8tSV/KIxWElW1q0I6UWAKxtlZ
+X-Gm-Gg: AfdE7ckjQE8Y0bMgdBqoKV+3vLZ9kuP7RupeheMPke99Garhs1PZZu2Yk0T7kA4YPzE
+	DCezs5avXMrYT4yAFwP0zq7GOb//AKwWV8frgh+rT5D2NkRWNGdCLkMMcQyscn8fDYhxXig2VM5
+	MbMPG5D0N17SDHO3/NuIYzPcpNUBMhVZiWYIvljjo0WZTMJm/7tBJJJJjp+j5StgP8yQzztKzAS
+	pxl9MdbcmzrE8socleW8V+g6ygrhgM9RHmv1Hmzt0eoG6bYq2u50pDf4t4ISgAhkmdcFPM1E7ES
+	9j0f4Xp8w9EaA9sHRs8DvGrBIxkGVtF+Jq5qz0qeQjWjTny/1NOlpdTVZdDB1rIA2cgLthMg8pT
+	5yTcjdITxJ3LtyptiSs55e5SYW3sTNv/YEtsVP8+S8LnnadvJuRNAJfbCq/a6XGHShHrmKl/3jb
+	DpNCvsPP315Kkom3CUIRtll0FsLRn2tiuQcp/Zd52eRar8WPg=
+X-Received: by 2002:a05:7301:6402:b0:30b:d209:dc18 with SMTP id 5a478bee46e88-30bd209ff68mr689839eec.10.1781692547532;
+        Wed, 17 Jun 2026 03:35:47 -0700 (PDT)
 Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3081e5d0828sm24616275eec.10.2026.06.17.03.35.30
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3081e5d0828sm24616275eec.10.2026.06.17.03.35.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 17 Jun 2026 03:35:38 -0700 (PDT)
+        Wed, 17 Jun 2026 03:35:47 -0700 (PDT)
 From: phucduc.bui@gmail.com
 To: Mark Brown <broonie@kernel.org>
 Cc: Liam Girdwood <lgirdwood@gmail.com>,
@@ -105,17 +105,17 @@ Cc: Liam Girdwood <lgirdwood@gmail.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
 	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH 17/78] ASoC: codecs: cs43130: Use guard() for mutex locks
-Date: Wed, 17 Jun 2026 17:31:34 +0700
-Message-ID: <20260617103235.449609-18-phucduc.bui@gmail.com>
+Subject: [PATCH 18/78] ASoC: codecs: cs47l15: Use guard() for mutex locks
+Date: Wed, 17 Jun 2026 17:31:35 +0700
+Message-ID: <20260617103235.449609-19-phucduc.bui@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260617103235.449609-1-phucduc.bui@gmail.com>
 References: <20260617103235.449609-1-phucduc.bui@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260617_033539_188349_CF7D6E05 
-X-CRM114-Status: GOOD (  14.88  )
+X-CRM114-CacheID: sfid-20260617_033548_143495_40C87864 
+X-CRM114-Status: GOOD (  11.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,161 +137,37 @@ Merely code refactoring, and no behavior change.
 
 Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
 ---
- sound/soc/codecs/cs43130.c | 96 +++++++++++++++++++-------------------
- 1 file changed, 47 insertions(+), 49 deletions(-)
+ sound/soc/codecs/cs47l15.c | 10 ++++------
+ 1 file changed, 4 insertions(+), 6 deletions(-)
 
-diff --git a/sound/soc/codecs/cs43130.c b/sound/soc/codecs/cs43130.c
-index e7b06f962790..5e7472e9e107 100644
---- a/sound/soc/codecs/cs43130.c
-+++ b/sound/soc/codecs/cs43130.c
-@@ -818,26 +818,26 @@ static int cs43130_dsd_hw_params(struct snd_pcm_substream *substream,
- 	unsigned int required_clk;
- 	u8 dsd_speed;
+diff --git a/sound/soc/codecs/cs47l15.c b/sound/soc/codecs/cs47l15.c
+index da64e0a1db28..7a69f79fe496 100644
+--- a/sound/soc/codecs/cs47l15.c
++++ b/sound/soc/codecs/cs47l15.c
+@@ -1285,9 +1285,8 @@ static int cs47l15_component_probe(struct snd_soc_component *component)
  
--	mutex_lock(&cs43130->clk_mutex);
--	if (!cs43130->clk_req) {
--		/* no DAI is currently using clk */
--		if (!(CS43130_MCLK_22M % params_rate(params)))
--			required_clk = CS43130_MCLK_22M;
--		else
--			required_clk = CS43130_MCLK_24M;
-+	scoped_guard(mutex, &cs43130->clk_mutex) {
-+		if (!cs43130->clk_req) {
-+			/* no DAI is currently using clk */
-+			if (!(CS43130_MCLK_22M % params_rate(params)))
-+				required_clk = CS43130_MCLK_22M;
-+			else
-+				required_clk = CS43130_MCLK_24M;
-+
-+			cs43130_set_pll(component, 0, 0, cs43130->mclk, required_clk);
-+			if (cs43130->pll_bypass)
-+				cs43130_change_clksrc(component, CS43130_MCLK_SRC_EXT);
-+			else
-+				cs43130_change_clksrc(component, CS43130_MCLK_SRC_PLL);
-+		}
+ 	snd_soc_component_init_regmap(component, madera->regmap);
  
--		cs43130_set_pll(component, 0, 0, cs43130->mclk, required_clk);
--		if (cs43130->pll_bypass)
--			cs43130_change_clksrc(component, CS43130_MCLK_SRC_EXT);
--		else
--			cs43130_change_clksrc(component, CS43130_MCLK_SRC_PLL);
-+		cs43130->clk_req++;
-+		if (cs43130->clk_req == 2)
-+			cs43130_pcm_dsd_mix(true, cs43130->regmap);
- 	}
+-	mutex_lock(&madera->dapm_ptr_lock);
+-	madera->dapm = snd_soc_component_to_dapm(component);
+-	mutex_unlock(&madera->dapm_ptr_lock);
++	scoped_guard(mutex, &madera->dapm_ptr_lock)
++		madera->dapm = snd_soc_component_to_dapm(component);
  
--	cs43130->clk_req++;
--	if (cs43130->clk_req == 2)
--		cs43130_pcm_dsd_mix(true, cs43130->regmap);
--	mutex_unlock(&cs43130->clk_mutex);
--
- 	switch (params_rate(params)) {
- 	case 176400:
- 		dsd_speed = 0;
-@@ -881,26 +881,26 @@ static int cs43130_hw_params(struct snd_pcm_substream *substream,
- 	unsigned int required_clk;
- 	u8 dsd_speed;
+ 	ret = madera_init_inputs(component);
+ 	if (ret)
+@@ -1317,9 +1316,8 @@ static void cs47l15_component_remove(struct snd_soc_component *component)
+ 	struct cs47l15 *cs47l15 = snd_soc_component_get_drvdata(component);
+ 	struct madera *madera = cs47l15->core.madera;
  
--	mutex_lock(&cs43130->clk_mutex);
--	if (!cs43130->clk_req) {
--		/* no DAI is currently using clk */
--		if (!(CS43130_MCLK_22M % params_rate(params)))
--			required_clk = CS43130_MCLK_22M;
--		else
--			required_clk = CS43130_MCLK_24M;
-+	scoped_guard(mutex, &cs43130->clk_mutex) {
-+		if (!cs43130->clk_req) {
-+			/* no DAI is currently using clk */
-+			if (!(CS43130_MCLK_22M % params_rate(params)))
-+				required_clk = CS43130_MCLK_22M;
-+			else
-+				required_clk = CS43130_MCLK_24M;
-+
-+			cs43130_set_pll(component, 0, 0, cs43130->mclk, required_clk);
-+			if (cs43130->pll_bypass)
-+				cs43130_change_clksrc(component, CS43130_MCLK_SRC_EXT);
-+			else
-+				cs43130_change_clksrc(component, CS43130_MCLK_SRC_PLL);
-+		}
+-	mutex_lock(&madera->dapm_ptr_lock);
+-	madera->dapm = NULL;
+-	mutex_unlock(&madera->dapm_ptr_lock);
++	scoped_guard(mutex, &madera->dapm_ptr_lock)
++		madera->dapm = NULL;
  
--		cs43130_set_pll(component, 0, 0, cs43130->mclk, required_clk);
--		if (cs43130->pll_bypass)
--			cs43130_change_clksrc(component, CS43130_MCLK_SRC_EXT);
--		else
--			cs43130_change_clksrc(component, CS43130_MCLK_SRC_PLL);
-+		cs43130->clk_req++;
-+		if (cs43130->clk_req == 2)
-+			cs43130_pcm_dsd_mix(true, cs43130->regmap);
- 	}
- 
--	cs43130->clk_req++;
--	if (cs43130->clk_req == 2)
--		cs43130_pcm_dsd_mix(true, cs43130->regmap);
--	mutex_unlock(&cs43130->clk_mutex);
--
- 	switch (dai->id) {
- 	case CS43130_ASP_DOP_DAI:
- 	case CS43130_XSP_DOP_DAI:
-@@ -988,14 +988,13 @@ static int cs43130_hw_free(struct snd_pcm_substream *substream,
- 	struct snd_soc_component *component = dai->component;
- 	struct cs43130_private *cs43130 = snd_soc_component_get_drvdata(component);
- 
--	mutex_lock(&cs43130->clk_mutex);
-+	guard(mutex)(&cs43130->clk_mutex);
- 	cs43130->clk_req--;
- 	if (!cs43130->clk_req) {
- 		/* no DAI is currently using clk */
- 		cs43130_change_clksrc(component, CS43130_MCLK_SRC_RCO);
- 		cs43130_pcm_dsd_mix(false, cs43130->regmap);
- 	}
--	mutex_unlock(&cs43130->clk_mutex);
- 
- 	return 0;
+ 	wm_adsp2_component_remove(&cs47l15->core.adsp[0], component);
  }
-@@ -2132,18 +2131,18 @@ static void cs43130_imp_meas(struct work_struct *wk)
- 
- 	cs43130->hpload_done = false;
- 
--	mutex_lock(&cs43130->clk_mutex);
--	if (!cs43130->clk_req) {
--		/* clk not in use */
--		cs43130_set_pll(component, 0, 0, cs43130->mclk, CS43130_MCLK_22M);
--		if (cs43130->pll_bypass)
--			cs43130_change_clksrc(component, CS43130_MCLK_SRC_EXT);
--		else
--			cs43130_change_clksrc(component, CS43130_MCLK_SRC_PLL);
--	}
-+	scoped_guard(mutex, &cs43130->clk_mutex) {
-+		if (!cs43130->clk_req) {
-+			/* clk not in use */
-+			cs43130_set_pll(component, 0, 0, cs43130->mclk, CS43130_MCLK_22M);
-+			if (cs43130->pll_bypass)
-+				cs43130_change_clksrc(component, CS43130_MCLK_SRC_EXT);
-+			else
-+				cs43130_change_clksrc(component, CS43130_MCLK_SRC_PLL);
-+		}
- 
--	cs43130->clk_req++;
--	mutex_unlock(&cs43130->clk_mutex);
-+		cs43130->clk_req++;
-+	}
- 
- 	regmap_read(cs43130->regmap, CS43130_INT_STATUS_4, &reg);
- 
-@@ -2215,12 +2214,11 @@ static void cs43130_imp_meas(struct work_struct *wk)
- 	regmap_multi_reg_write(cs43130->regmap, hp_cln_seq,
- 			       ARRAY_SIZE(hp_cln_seq));
- 
--	mutex_lock(&cs43130->clk_mutex);
-+	guard(mutex)(&cs43130->clk_mutex);
- 	cs43130->clk_req--;
- 	/* clk not in use */
- 	if (!cs43130->clk_req)
- 		cs43130_change_clksrc(component, CS43130_MCLK_SRC_RCO);
--	mutex_unlock(&cs43130->clk_mutex);
- }
- 
- static irqreturn_t cs43130_irq_thread(int irq, void *data)
 -- 
 2.43.0
 
