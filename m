@@ -4,73 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A43ACD98F0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 12:10:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19C60CD98E4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 12:22:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jdxmBgV7xIk2aU1yR0qr5KSK2tuwAbIYHWip0SjnY18=; b=w/7BaglbJ2zoCKhP+YGd+8OqZP
-	JOAMuFZvy1TyuYwWbYpZlM4Qjekn4PUz/8Wzege2ZbKH0vrL4VQtOKU3IubHk71LYOCe4VCSEY0Cp
-	xx/lrgnu+uyrC1FNNByUC+QeVMDElFltszzIHh1Ai/SGpMJB4K7UAaGOk4XaTWTfb4qUm6JWNrRtW
-	kAMhJWWeBFo898uIcx3Hu7ygJ2FZEaCycdIkVmLeHHAXjJYFYFeD1rHYdsskSyQ8UdBTni+bSBD9O
-	IaDj2EC5joeDKgwRzYqT6wvDDkycDZoF2SGy3BKHQsbQgfjhjPr78zNYXKnspj5xUMK9GR3hV9axE
-	f/Yvd/EA==;
+	bh=C91mNtrzgPeKSlnGkaTiPEalhjsVdXTjVYDja2SR5Z0=; b=pFG1welrctC3c4e4Ywbo1TC1LX
+	0x5Y4dCIlvOOJdYryJ27jB7RFrifW1hFjN1bAGg4AdWXZKryMTYBKbwJtiZqGgLjgY6sB2RDPPgPw
+	Tbs6Td/En2dYYQZT6652O5ZCKPXluG2G5lQP7KTp4tlwR5W5z5hPHMCG4tIDjRVHbpZjgJplJYgVc
+	szNmjZBGY/sY4XSsoHHaW2MMC38s/VGYA5FUu/lWW/ZBdopm3p+xGZO5LOfRsHHBfNySi45CUYSBe
+	vpmhRA4bvfguCGOGib2um5Vju26pIzvK34Mf5oqMEX4G/0MWrpYPYGZZbLEb7Vfl4iSQYqokbshaq
+	HFAKRqMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZp5e-0000000HJCP-1vcN;
-	Wed, 17 Jun 2026 12:09:54 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wZpHa-0000000HK6v-2bU8;
+	Wed, 17 Jun 2026 12:22:14 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZp5d-0000000HJCE-2WC7
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 12:09:53 +0000
+	id 1wZpHZ-0000000HK6m-0Xil;
+	Wed, 17 Jun 2026 12:22:13 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2EE8740B9A;
-	Wed, 17 Jun 2026 12:09:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11A271F00A3A;
-	Wed, 17 Jun 2026 12:09:53 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 042B76001D;
+	Wed, 17 Jun 2026 12:22:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99CF31F000E9;
+	Wed, 17 Jun 2026 12:22:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781698193;
-	bh=jdxmBgV7xIk2aU1yR0qr5KSK2tuwAbIYHWip0SjnY18=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=dyCtHVxvxG5jAeXkN7iA355KwPGzIsH9XJysaSLabhSbcYDbhpdagUM5W+u50DbGO
-	 lhxKNVk+kOCOk5mLql0rAbtXWXbx9m6ssuzHx35lQ9KoDIEOpJmq57OH2OLGz0uhlV
-	 4fWZOLiYbGRTEShiop7tRvzv0oVMtJkwTbZN63GgF+ukeiFbXB/gXKz8Yjd6PKlHpi
-	 Lbr82J9x2goCzUEStqA/vr58w5NAiJt/sxKcUnYdh1rtupOpl3j/IEVAbSOgR6VUE2
-	 8BhAHK9g9iiQdHCNF6DdpKY+uQmZUs104hXIgko1/rN/x+3SuS7mzhAvXIEHQqOo2A
-	 eKz8Ym76YY2fw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wZp5b-0000000Dfi2-1WrG;
-	Wed, 17 Jun 2026 12:09:51 +0000
-Date: Wed, 17 Jun 2026 13:09:51 +0100
-Message-ID: <86y0gds700.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Kemeng Shi <shikemeng@huaweicloud.com>
-Cc: tglx@kernel.org,
+	s=k20260515; t=1781698931;
+	bh=C91mNtrzgPeKSlnGkaTiPEalhjsVdXTjVYDja2SR5Z0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=mekYatbMEmJXUGcnAbabV9Da4XDBoPIVNHMbvLbEZEObEgCdAZFY1rvPgkPQX+zH5
+	 oM91aFVte4WoeFXSlkhiA5navSUy8hBkyw58JmK0GbzGZ5jinWH10hE0hrjGiUJpXr
+	 57ioUT6ROSt1nR13Th/kOWC/oCBew+P/g/B7q8YUzuj7B2NfxIoJGEFCUWZJMEdb79
+	 d6bZ8kmGCvaknWQ/F8xl7RpP9WEC3L02MMXuC4oRqM28UYJB4NRiI3tUFhI7NpHGjh
+	 InGT4n7UTLi/rMJs2gyGGst7ze2e5jAE1X1dzsQ6wV2ZY3NHhv78/3cgBxKd96C3wD
+	 PVLkXiadx0AHQ==
+Date: Wed, 17 Jun 2026 13:22:07 +0100
+From: Simon Horman <horms@kernel.org>
+To: Wayen Yan <win847@gmail.com>
+Cc: netdev@vger.kernel.org, lorenzo@kernel.org, pabeni@redhat.com,
+	kuba@kernel.org, edumazet@google.com, andrew+netdev@lunn.ch,
+	angelogioacchino.delregno@collabora.com, matthias.bgg@gmail.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/6] irqchip/gic-v3-its: Fix LPI range leak and refactor error handler in its_lpi_alloc()
-In-Reply-To: <cda86396-afe1-4bc9-97c2-0e7a3c739217@huaweicloud.com>
-References: <20260615032910.54735-1-shikemeng@huaweicloud.com>
-	<20260615032910.54735-2-shikemeng@huaweicloud.com>
-	<87jys089sn.wl-maz@kernel.org>
-	<cda86396-afe1-4bc9-97c2-0e7a3c739217@huaweicloud.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: shikemeng@huaweicloud.com, tglx@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH] net: airoha: Clean up RX queues in airoha_dev_stop
+Message-ID: <20260617122207.GD827683@horms.kernel.org>
+References: <178160746585.2156302.190868309474762875@gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <178160746585.2156302.190868309474762875@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,93 +70,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 16 Jun 2026 02:31:22 +0100,
-Kemeng Shi <shikemeng@huaweicloud.com> wrote:
->=20
-> =E5=9C=A8 2026/6/15 16:52:56, Marc Zyngier =E5=86=99=E9=81=93:
-> > On Mon, 15 Jun 2026 04:29:05 +0100,
-> > Kemeng Shi <shikemeng@huaweicloud.com> wrote:
-> >>
-> >> Fix the LIP range leak when bitmap_zalloc() failed. Besides refactor
-> >=20
-> > Typo.
-> >=20
-> >> error handling code to make it a little simpler.
-> >=20
-> > No. Please don't mix fixes and (totally pointless) refactoring.
-> OK, I will only keep fix in this patch.>=20
-> >>
-> >> Signed-off-by: Kemeng Shi <shikemeng@huaweicloud.com>
-> >> ---
-> >>  drivers/irqchip/irq-gic-v3-its.c | 21 +++++++++------------
-> >>  1 file changed, 9 insertions(+), 12 deletions(-)
-> >>
-> >> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gi=
-c-v3-its.c
-> >> index 291d7668cc8d..2b7b546c43c8 100644
-> >> --- a/drivers/irqchip/irq-gic-v3-its.c
-> >> +++ b/drivers/irqchip/irq-gic-v3-its.c
-> >> @@ -2217,10 +2217,9 @@ static int __init its_lpi_init(u32 id_bits)
-> >>  static unsigned long *its_lpi_alloc(int nr_irqs, u32 *base, int *nr_i=
-ds)
-> >>  {
-> >>  	unsigned long *bitmap =3D NULL;
-> >> -	int err =3D 0;
-> >> =20
-> >>  	do {
-> >> -		err =3D alloc_lpi_range(nr_irqs, base);
-> >> +		int err =3D alloc_lpi_range(nr_irqs, base);
-> >>  		if (!err)
-> >>  			break;
-> >> =20
-> >> @@ -2228,22 +2227,20 @@ static unsigned long *its_lpi_alloc(int nr_irq=
-s, u32 *base, int *nr_ids)
-> >>  	} while (nr_irqs > 0);
-> >> =20
-> >>  	if (!nr_irqs)
-> >> -		err =3D -ENOSPC;
-> >> -
-> >> -	if (err)
-> >> -		goto out;
-> >> +		goto err_out;
-> >> =20
-> >>  	bitmap =3D bitmap_zalloc(nr_irqs, GFP_ATOMIC);
-> >>  	if (!bitmap)
-> >> -		goto out;
-> >> +		goto err_free_lpi;
-> >> =20
-> >>  	*nr_ids =3D nr_irqs;
-> >> -
-> >> -out:
-> >> -	if (!bitmap)
-> >> -		*base =3D *nr_ids =3D 0;
-> >> -
-> >>  	return bitmap;
-> >> +
-> >> +err_free_lpi:
-> >> +	free_lpi_range(*base, nr_irqs);
-> >> +err_out:
-> >> +	*base =3D *nr_ids =3D 0;
-> >> +	return NULL;
-> >>  }
-> >> =20
-> >>  static void its_lpi_free(unsigned long *bitmap, u32 base, u32 nr_ids)
-> >=20
-> > Honestly, I question the validity of handling errors this way. You are
-> > already unable to allocate a per-device bitmap. And yet you are
-> > calling free_lpi_range(), which has the interesting property of
-> > *allocating* memory. Which you don't have. Oh wait...
-> You are right. I'm considering use xarray to track the lpi range or
-> modify free_lpi_range to try merge first before memory allocation.
-> What would you recommend?
+On Tue, Jun 16, 2026 at 06:50:48PM +0800, Wayen Yan wrote:
+> When the last port is stopped, airoha_dev_stop() clears TX queues
+> but neglects to clean up RX queues. This can lead to:
+> - RX ring buffer descriptors remaining valid after device close
+> - Potential DMA synchronization issues on device reopen
+> - Risk of use-after-free if pages are freed while DMA is still active
+> 
+> Add cleanup loop for RX queues to mirror the TX queue cleanup,
+> ensuring symmetric resource management.
+> 
+> Fixes: 20bf7d07c956 ("net: airoha: add QDMA support for Airoha EN7581 Ethernet")
+> Signed-off-by: Wayen Yan <win847@gmail.com>
 
-My personal take on this is that leaking a few LPIs is not a big deal,
-given how many we have. You are trying to optimise for an error case
-that never happens, and I really don't want to add more complexity to
-this.
+Hi Wayen Yan,
 
-	M.
+There is AI-generated review of this patch-set available on both
+https://sashiko.dev and https://netdev-ai.bots.linux.dev/sashiko/
 
---=20
-Without deviation from the norm, progress is not possible.
+I asked AI to summarise these concerns, it came up with the
+following. I would appreciate it if you could look over this feedback.
+
+1. NAPI Synchronization:
+   While the TX path is managed by the netdev layer during stop, the RX path
+   relies on the NAPI subsystem. Since NAPI remains active during
+   `airoha_dev_stop()`, the new cleanup loop could race with the poller
+   (`airoha_qdma_rx_process`). It would be safer to call `napi_disable()`
+   before draining the queues to ensure exclusive access to the descriptors.
+
+2. RX Queue Refill:
+   Unlike TX, the RX hardware requires descriptors to be pre-allocated and
+   posted by the driver to receive data. Because this patch empties the rings,
+   `airoha_dev_open()` needs a corresponding update to refill them (e.g.,
+   via `airoha_qdma_fill_rx_queue()`). Without this, the interface will
+   encounter an empty ring on restart, leading to an RX stall.
+
+3. SKB Accumulation:
+   The cleanup should also account for the `q->skb` pointer used for
+   fragmented packets. If a partial packet is sitting in the queue when the
+   interface is stopped, freeing it and resetting the pointer to NULL will
+   prevent a memory leak and ensure the next session starts with a clean
+   state.
 
