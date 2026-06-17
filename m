@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05C3ECD98F8
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A55E4CD98FA
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 18:52:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,44 +12,44 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K5YqRur10Nj/J0FxlJmN/GyyGaN4JlEeGez0siRR5LU=; b=fJypdtOnwx+fjcUrFS2JBEIS9r
-	n3udy0vcNgVtRZq10R4cOT6jGmfH1zhYubACsNXkmkLxCDuhn859dd7VVyFk054cppstl839AEIE2
-	T+tQu0ZMk27JTOjq49/iWqGnptIBrxgnDvg/sO88GbChEp5/wis9O66kDOvRseFw0V26S/UODnFyA
-	i1JKZ9XjeQ5IfxKQoiIxT8Zw4zb6GNlz/fL/NTWGu2XUBB/JffpY2ulgfjyfzFzlY64CZn09YE6I6
-	hy2W3JUUnRveBaaSIZkO7xopOQOk4G7ndaouEbcBwNJfmN7FrhW31OMjg3CS6PNXt6QARY99behre
-	D30vB/SQ==;
+	bh=1DoqaLVawP8gRNWNHoPVDweofVpWaIvLGSYin3Jpa68=; b=LMHMZCG2e1pfWX6OfYOBE8uejk
+	GoQmmd0HjGWp+2j+Iz9yCsdanlQh7XBs2xXI/lR2M8bFMJ0vcZQSCMj/tqQR+QI1tEM+Xim6ZK3j1
+	n4McRagb3rwSYOeRBPhVbEPJ2QuHPcySsozdzJpRND6haesqEq434CaeQo0jv7IMnXp+f1jD5j3i3
+	MHUekqaJA4qX6QO7iOQXzOh3SnMDoHiFDVY2mlxRqGMVPlh95f+mspTK4agParwFmBswOEcaDtvBz
+	HaEWujwbHkSrlQ3R9cUJ0iFUIic2ip6wgHjC5zpV5fzNJHSyGAl2stxPAGV7td2QB5ij+z2A9u+Ml
+	bUqcB8qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZvN0-00000000CWs-1awW;
-	Wed, 17 Jun 2026 18:52:14 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wZvN2-00000000CcS-2mNe;
+	Wed, 17 Jun 2026 18:52:16 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZvMs-00000000CLq-4BA9;
+	id 1wZvMt-00000000CMO-3Vhc;
 	Wed, 17 Jun 2026 18:52:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1781722322;
-	bh=C/AphHeqUmYgEpPCNKjM0R3CijmfEx2tuybcOWNfG/g=;
+	s=mail; t=1781722325;
+	bh=+zMBc9cvNd9kN7V+U1U6o2kMwD6S1HsWu+emdfG6GtE=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=UQ8W+ubZpP133M3xLQmpz7U1GO0LzqC62rTLnNVk+OQ3JIX12gG09317MAabS5im4
-	 3c9zuqQORZpGfERlFdpwcvX/In5U76JJ0iBEWOe1qQW+z3eMvffuVGopcTwLDv+lDQ
-	 fJ+OKdPGezm/GWbzsQxH+aE+22DRLyJwS30hFIlQ0LDn+d/L2ES2Z92Qmd602e1jh/
-	 v+JNFM5Vb65Orrul2gbeewgoRZfwvR0xO+ZX9pJ8mCfVfyW6GlO9oTO1wz5JumuW7e
-	 Pdqpd1Mnu0Do8UycxN8gHOj79MJA7VWs+EaO5RlwvA0X7JArn/CDUFdbw4FyeTcSD2
-	 lM3DOPQN4YTmQ==
+	b=fTTDpCI0S6IuZnP5O7AF58qW5BWea8gyzki9trM4Qfrkonwc9O5CxyhaXb9Qb5LmD
+	 mUf7OO8LU32m/fGh1A4SEZ6qJWsFhtZH+mNIW16GUmZb6el+5/rnMNULpn6ntyvThg
+	 mVnp9VWDaoxq8xb7STmO4BsT9mnKXshMLeTVuTpgV2DMfaGKJSZyV3S80aMv082reb
+	 kriYrGVLaI5pa0Pkd06dPy+9BJSXSpengWo/MfDySt0WkOTJdghQIIriZ8dOKiBfyI
+	 6Es6Qyuuh2DJApuDjk9oqsuyMUw3SlMnlkVo+BiZpUZTScTeMu+T6vxkZtGFJLjA10
+	 oaviC2DLeQI/w==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 906CE17E0E64;
-	Wed, 17 Jun 2026 20:52:02 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9167217E14FA;
+	Wed, 17 Jun 2026 20:52:05 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Wed, 17 Jun 2026 21:51:58 +0300
-Subject: [PATCH 5/9] drm/rockchip: vop2: Switch to enum vop_csc_format
+Date: Wed, 17 Jun 2026 21:52:02 +0300
+Subject: [PATCH 9/9] arm64: dts: rockchip: Add RK3588 VOP2 resets
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260617-dw-hdmi-qp-yuv-v1-5-a665cfd06d7d@collabora.com>
+Message-Id: <20260617-dw-hdmi-qp-yuv-v1-9-a665cfd06d7d@collabora.com>
 References: <20260617-dw-hdmi-qp-yuv-v1-0-a665cfd06d7d@collabora.com>
 In-Reply-To: <20260617-dw-hdmi-qp-yuv-v1-0-a665cfd06d7d@collabora.com>
 To: Sandy Huang <hjc@rock-chips.com>, 
@@ -71,8 +71,9 @@ Cc: kernel@collabora.com, Andy Yan <andyshrk@163.com>,
  linux-kernel@vger.kernel.org
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260617_115207_248031_60423077 
-X-CRM114-Status: GOOD (  10.57  )
+X-CRM114-CacheID: sfid-20260617_115208_065121_84F83796 
+X-CRM114-Status: UNSURE (   7.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,51 +88,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Improve code readability in vop2_setup_csc_mode() by using enum
-vop_csc_format for the csc_mode variable, as well as for the return type
-of the vop2_convert_csc_mode() helper, which already returns CSC_*
-enumerators.
+Add the missing reset properties to VOP2 on RK3588.
 
-While at it, replace the nonsensical 'csc_mode = false' assignment in
-the no-conversion branch with the equivalent CSC_BT601L, which carries
-the same value (0) but is type-correct.
-
+Co-developed-by: Andy Yan <andy.yan@rock-chips.com>
+Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index df475173dc8e..e0d6e42fedb1 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-@@ -648,7 +648,7 @@ static void vop2_setup_scale(struct vop2 *vop2, const struct vop2_win *win,
- 	}
- }
- 
--static int vop2_convert_csc_mode(int csc_mode)
-+static enum vop_csc_format vop2_convert_csc_mode(int csc_mode)
- {
- 	switch (csc_mode) {
- 	case V4L2_COLORSPACE_SMPTE170M:
-@@ -711,7 +711,7 @@ static void vop2_setup_csc_mode(struct vop2_video_port *vp,
- 	int input_csc = V4L2_COLORSPACE_DEFAULT;
- 	int output_csc = vcstate->color_space;
- 	bool r2y_en, y2r_en;
--	int csc_mode;
-+	enum vop_csc_format csc_mode;
- 
- 	if (is_input_yuv && !is_output_yuv) {
- 		y2r_en = true;
-@@ -724,7 +724,7 @@ static void vop2_setup_csc_mode(struct vop2_video_port *vp,
- 	} else {
- 		y2r_en = false;
- 		r2y_en = false;
--		csc_mode = false;
-+		csc_mode = CSC_BT601L;
- 	}
- 
- 	vop2_win_write(win, VOP2_WIN_Y2R_EN, y2r_en);
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+index 4fb8888c281c..1404cd7ecf02 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+@@ -1453,6 +1453,18 @@ vop: vop@fdd90000 {
+ 			      "pll_hdmiphy0";
+ 		iommus = <&vop_mmu>;
+ 		power-domains = <&power RK3588_PD_VOP>;
++		resets = <&cru SRST_A_VOP>,
++			 <&cru SRST_H_VOP>,
++			 <&cru SRST_D_VOP0>,
++			 <&cru SRST_D_VOP1>,
++			 <&cru SRST_D_VOP2>,
++			 <&cru SRST_D_VOP3>;
++		reset-names = "axi",
++			      "ahb",
++			      "dclk_vp0",
++			      "dclk_vp1",
++			      "dclk_vp2",
++			      "dclk_vp3";
+ 		rockchip,grf = <&sys_grf>;
+ 		rockchip,vop-grf = <&vop_grf>;
+ 		rockchip,vo1-grf = <&vo1_grf>;
 
 -- 
 2.54.0
