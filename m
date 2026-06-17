@@ -4,97 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E27C0CD98E2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 10:37:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57654CD98E2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 10:37:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AhUWEjlecPu7hlJvyuwWPRxl2TYmG2bGNVOKZVs0d90=; b=uEGrrZjGEvhDu/t0j/RsE0Xrra
-	DCGsnsT9v4QBX78DWaKIcTmmx3LcSp1RmgeIYk1QL7mYxW2E3fITjClsVQDuXW13r/RC0KvtgJm9w
-	B4R21FPpbFXXuoQxqE+LcZiPD/XuGiukJERJnCJSOuZG1lCPGjvjqKp9sqcd8/uMbzEbsCeUt5adf
-	tKXaDbrETGEHOCjybnG6K4/kbaUvwtytUHHvvq0sfxH8YJRRPl5LXuOoRHi5nrr/rmFFnEuOazatY
-	6DJB5A1XjxH24Ji9fcy15pFQjYxWaD5z0QXO6fX5fjk0d7yhNuqXrT1Wxq1DOtPuNiXXJA5GCyIp6
-	Lzny1XnA==;
+	bh=qwK8VBg5mhUKIoR2ZpQuKpCqhgCKrAbRlRpszsndm90=; b=pNi4bI+Y/A98DtM6vvEJo42h/x
+	9u4/OVE2ce9MqR3gf5HFjicTxp1SGeWCvyzmcRs+dP6F2q7d4NoAX9xuW2BjoKFAWgZ6Q+tdbmG5n
+	nBtaKyAaQKpU9WQZl2JQjJKthoVsbwPiOASrjV7+uYHLo5vUEdK8OE8xTf2kuSuVIYyFhcm/84fpX
+	keuTBHijT5pznHaueFYm9C+1XGAkPCkr2c9kTc/Tc0ovzvZiFncu+tU+UuyS6c3Sb5STUBDVxyuuG
+	WbnHa8Dh5ZnMmIGR4FddciuYs7/mCKDKyF0zrg4JQA4bKjGRcwLSlKJu9Alw8tCtJVAQSoX02fxaH
+	LBcLs+/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZneS-0000000H7BA-2HGB;
-	Wed, 17 Jun 2026 10:37:44 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	id 1wZneX-0000000H7F1-3qjq;
+	Wed, 17 Jun 2026 10:37:49 +0000
+Received: from mail-dy1-x1330.google.com ([2607:f8b0:4864:20::1330])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZneM-0000000H75b-2Gvk
+	id 1wZneU-0000000H7CU-2CNY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 10:37:40 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-8453427d3f4so17484b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 03:37:38 -0700 (PDT)
+	Wed, 17 Jun 2026 10:37:48 +0000
+Received: by mail-dy1-x1330.google.com with SMTP id 5a478bee46e88-30bcc877b4cso1627831eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 03:37:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781692657; x=1782297457; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=AhUWEjlecPu7hlJvyuwWPRxl2TYmG2bGNVOKZVs0d90=;
-        b=VSBLpohunaxGKYPjo9bNH6q2WTwi1Cwbsms3q0rvly7TIF1btjewRWekEWAVq5IO87
-         Jwd0grBSjuDmJRPnSsosmtoMb+A0vdRVPznBUsvjhym2J40FTfAXwVZFH5czseLeSQ0i
-         fZwrbWJSk13TN7dhdTxZ1xwkkZShOFfzVZInsoCUx3XRMpuV8W6XLi6wV8TMh+5uv2JZ
-         UfPDj1ZFCTbBJRXNdBCXoHXuOgJEqmlyHZZ7xfGCPsVsHiuEo4E97UR1FX+qUSl1w33Y
-         amnLxmt05FE0QwS3OtCtEB32kBg/uL42UOmTTvUZ9U5ydlEVTZu91qqDgRsUytWfBPU4
-         cmbg==
+        d=gmail.com; s=20251104; t=1781692666; x=1782297466; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=qwK8VBg5mhUKIoR2ZpQuKpCqhgCKrAbRlRpszsndm90=;
+        b=OrK8UVEa03w2zKxxWW/GLWCAG+HpAUGFUri+/TSbbmeJRd9bEHSp2vnDtCwBiYFbg9
+         2F3oB3PQD9gLgME9MzPWUK4r+IBnhWf8TLkB8rz/OigoS0ZQG1oU2db4xYMvTjymZ0H5
+         y2uzS6TGPkwUJ0I+vbcKaQzTRwqTlmlGz+Ee2J2T7xor6Cm8aPLaL60Y0K/viRcCAhdQ
+         vDd82yu3+iNwWT890rL8bBayv8jVxWm7LTcDTuLNYAE0nHJmfrjfkcapLAGqnufgvqzL
+         YC4gkVqrWf0cGZ7icPQXqg6bI69N0PuQnFI9wcVEBbBpsDxvZkK9h9qWhKuzY0Gv1n4z
+         X8Fw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781692657; x=1782297457;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=AhUWEjlecPu7hlJvyuwWPRxl2TYmG2bGNVOKZVs0d90=;
-        b=HScS+addvSTuODv9Dvq7jPjVVL+BLUx/ifiFLElrlULoitTYwZZbku3rJYIXczMp0m
-         uSnURzVC9N0eFo+6BBZTIfW1nPxQkHJcvHpIBfCjJvd78aZw9Om+7Rz8D1+UCbW80wsw
-         gTlK1ikCGN70coVipkbb0eYNxEp93s8JStaKlGz0Par3YGdYlVBYnKGnSNQdbnJnjVZ8
-         5/Y/cZoC4n4GMmT+0GYLyFk2kufiIg7gvy32eKh8mmrK2eUl3KztUpZj+4atDIn7cw7w
-         zz7rm//1KO3zs5Ow2y7GQZjuUxJtjXBRzzebXCcEb6TD4RZ0ftdVsGgToBwDi46/1Ede
-         0QuA==
-X-Forwarded-Encrypted: i=1; AFNElJ+5jVO3HL9sqp2R8LNgMWpBuXxVtBle6y2c/1M4q3uZ20S2maUyOq3AYq0gpNFzPk3cUBMF8VTfm38RASHF9ji4@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx+Z2utFgQvflvz2nSmQvz7jv23GfQhc4hEahUuvZAcEpah8UAp
-	ksMylyMNt20iZBuQy/Lkggrmr+CiIVzoNHL4ZKk4aboXuznuMnQC1ew6
-X-Gm-Gg: Acq92OGq5MPVY0iEbl0DrNqIkvhy5Y8J/uBH4MFHmmy6X+ATtaC5hDjVxCz2+48hfES
-	v3f/FjwztTILSxyJismm67LIozHcrmkmsXBxYtPX2yEN8Z7BwUvaMYwwNpRRiZ63gZs2JE1f3Tv
-	Vfukk+hWrXBPi3N/LvGrerjxafwNMPBBnsSuN/cOmaj0sw88L5A1069Ws2PyfsB8YXDlrXjjXb3
-	kr2Xnjc4OOZJtqLe9pY5FHMyHu8kRDltFaQJsCxoZk52tF6Puer/EjALnABqPTu7dysvhy7a5iR
-	nqno2OvTPl6Dzoo95rtGO4/Uepe3pnEz+i+efNIIfpbN10iQZ+0KAxz9FxEwMwsEMGBVyD6YH+3
-	esyC1VU9OAY1I/MiuHs+qad1J/KFwbvssH5ofYkZ733sKyURf8122wV5KzkPkM6tkN8uOPc5iIM
-	ZPTTUJnm4PgE7zx+vFIyiSXdkqvCLbwPBUddbcsuTUCndtXDIrNZ9UYfEGLFDgf8cHPjrlJEm/N
-	9Bn
-X-Received: by 2002:a05:6a00:10d5:b0:842:4a39:6047 with SMTP id d2e1a72fcca58-84524550f44mr3301789b3a.29.1781692657527;
-        Wed, 17 Jun 2026 03:37:37 -0700 (PDT)
-Received: from [192.168.0.100] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8434ad03fdcsm15269159b3a.24.2026.06.17.03.37.34
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 17 Jun 2026 03:37:37 -0700 (PDT)
-Message-ID: <bd90109d-5c1c-47d6-ac1a-c9b81de5cf7b@gmail.com>
-Date: Wed, 17 Jun 2026 18:37:33 +0800
+        d=1e100.net; s=20251104; t=1781692666; x=1782297466;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=qwK8VBg5mhUKIoR2ZpQuKpCqhgCKrAbRlRpszsndm90=;
+        b=RN02EY0kBkxX0YqOgCoJNm/6r1BWx1yOgcsvAabqwCFMbdGUr+WJ5WmmRadpHuOBEP
+         YHcM6E93RZHOjka3AzraAu6qg/oslO0VOQaJoKwYCJ6XoOchPq+5/O6DdNeERGH70TFq
+         G1L45bi3UDKIczGi0Z1uwbGKEF5CySbAtnJ9rLcCoKM+oSv52lETOVgpupZvNzpyYMXT
+         RVmAQHOjvS2OGSBWk+ujnIZbN8kFQxwT4Kmec9cfXbmoaHgIY6Z9SxCVpLkutd8cGIC7
+         HYcbY41mLPChq+Sx+M3ppcgFjHlzFkobOTZqEGThRWzsyxaQkavjGHB0SMLYDEjEbr6j
+         GjaQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8IP1Afe8t3DK4QQwkJDFu49fYdNj09Uki4bED+8z8IjQumKaR5ng60YyelGdqpLY2fQRylKBb26qe32OpUpZJe@lists.infradead.org
+X-Gm-Message-State: AOJu0YwOXQz3+/Yk+1btwEzQBRM8p5xqcmV6o0zvU7GwB9m+5wkRLFbj
+	VARw55UBoYPizWIaM0TzWpDctPWB/jEDrXmT8DPdUG7NVojxTGyl3KRs
+X-Gm-Gg: AfdE7cl2Jmmv0l6XbMFWWjB/9u1NjQs+R/ws9matI4zNBYGRvgJ0cStx54ZOFpxyQj4
+	8+DoDu2FEdEmffZH1AG/N4E8+dX7RiiJbWrJqzUVT4XHTQsDmTVfzVpAyy1lxvYyiKgq9/Cl9V4
+	fc9U1cFN50qWrhGOmVY2kRGIcndON8KkgXkXvQcBHA+lxZ5QcsTyvvLCcjurHV4iQvSWyPU9/LO
+	Gf3CsJ8AHlqGhUlZCHDCp2I2cvLzsXpg4GUDlLrVMiklaTKvTR/ycR9NiT5z6fdeLC8QRF39mL1
+	7vMX7plGDqGSe3DquLlsXxJvRAJt2o8U2BHAZw57mDAAC9CQOYVwNFsSxyE+Rp0fJ9twhzXJBI+
+	z8c4N2/Cv/kF3Afe0IV5Bf+YWT25fSADu9smhQRngx+uI5uUd6HmDQW2+YpZIcJCkHGs4vMChUv
+	V+inPWSFeeW1e3iaHx3dbK88RvpzaujP7FtUUNQEFpSntv5uQ=
+X-Received: by 2002:a05:7300:a945:b0:307:91f9:c1c1 with SMTP id 5a478bee46e88-30bca08cc96mr1666554eec.25.1781692665702;
+        Wed, 17 Jun 2026 03:37:45 -0700 (PDT)
+Received: from phuc-desktop.. ([183.91.15.56])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3081e5d0828sm24616275eec.10.2026.06.17.03.37.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 17 Jun 2026 03:37:45 -0700 (PDT)
+From: phucduc.bui@gmail.com
+To: Mark Brown <broonie@kernel.org>
+Cc: Liam Girdwood <lgirdwood@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Cheng-Yi Chiang <cychiang@chromium.org>,
+	Tzung-Bi Shih <tzungbi@kernel.org>,
+	Guenter Roeck <groeck@chromium.org>,
+	Benson Leung <bleung@chromium.org>,
+	David Rhodes <david.rhodes@cirrus.com>,
+	Richard Fitzgerald <rf@opensource.cirrus.com>,
+	povik+lin@cutebit.org,
+	Charles Keepax <ckeepax@opensource.cirrus.com>,
+	Support Opensource <support.opensource@diasemi.com>,
+	Nick Li <nick.li@foursemi.com>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Shenghao Ding <shenghao-ding@ti.com>,
+	Kevin Lu <kevin-lu@ti.com>,
+	Baojun Xu <baojun.xu@ti.com>,
+	Sen Wang <sen@ti.com>,
+	Oder Chiou <oder_chiou@realtek.com>,
+	Lars-Peter Clausen <lars@metafoo.de>,
+	nuno.sa@analog.com,
+	Steven Eckhoff <steven.eckhoff.opensource@gmail.com>,
+	patches@opensource.cirrus.com,
+	chrome-platform@lists.linux.dev,
+	asahi@lists.linux.dev,
+	linux-arm-msm@vger.kernel.org,
+	linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	bui duc phuc <phucduc.bui@gmail.com>
+Subject: [PATCH 31/78] ASoC: codecs: hdac_hdmi: Use guard() for mutex locks
+Date: Wed, 17 Jun 2026 17:31:48 +0700
+Message-ID: <20260617103235.449609-32-phucduc.bui@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260617103235.449609-1-phucduc.bui@gmail.com>
+References: <20260617103235.449609-1-phucduc.bui@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 5/6] drm/verisilicon: add DCUltraLite chip identity to
- HWDB
-To: Icenowy Zheng <zhengxingda@iscas.ac.cn>,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
- airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org
-Cc: ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260615065003.76661-1-a0987203069@gmail.com>
- <20260615065003.76661-6-a0987203069@gmail.com>
- <62c0b8ab9b6d9f994daa8bb60b3b626688af7d5e.camel@iscas.ac.cn>
-Content-Language: en-US
-From: Joey Lu <a0987203069@gmail.com>
-In-Reply-To: <62c0b8ab9b6d9f994daa8bb60b3b626688af7d5e.camel@iscas.ac.cn>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260617_033738_601938_CF176189 
-X-CRM114-Status: GOOD (  19.17  )
+X-CRM114-CacheID: sfid-20260617_033746_608497_7CA7C572 
+X-CRM114-Status: GOOD (  16.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,68 +130,203 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: bui duc phuc <phucduc.bui@gmail.com>
 
-On 6/15/2026 4:57 PM, Icenowy Zheng wrote:
-> 在 2026-06-15一的 14:50 +0800，Joey Lu写道：
->> Register the Nuvoton MA35D1 DCUltraLite chip identity in
->> vs_chip_identities[]:
->>    model       = 0x0   (DCUltraLite; Verisilicon uses 0 for this IP)
->>    revision    = 0x5560
->>    customer_id = 0x305
->>    generation  = VSDC_GEN_DC8000
->>    display_count = 1
->>    max_cursor_size = 32
-> I suggest make this more human-readable instead of replicating the
-> machine-readable data of HWDB.
->
-> My proposal here:
->
-> ```
-> The Nuvoton MA35D1 chip contains a DCUltraLite display controller with
-> model number 0x0 (sic, the model name contains no number either),
-> revision 0x5560 and customer ID 0x305. It has a similar register map
-> with DC8000, only one display output and only 32x32 cursor supported.
-> ```
-Thanks. I will use your proposed wording for the commit message in v5
->> Placing this entry last makes it the gate that enables MA35D1
->> hardware
->> recognition only after all the supporting ops and DT binding changes
->> are
->> in place.
-> It's a little ambiguous that "last" here means whether the last in the
-> patchset or the last in the HWDB array, although I think it's not so
-> needed to explain the reason of the place in the patchset.
->
-> I propose just say `Adding it to the HWDB to enable it to be usable
-> with the verisilicon driver.` .
-I will simplify the placement sentence to "Adding it to the HWDB to 
-enable it to be usable with the verisilicon driver." in v5.
->> Signed-off-by: Joey Lu <a0987203069@gmail.com>
->> ---
->>   drivers/gpu/drm/verisilicon/vs_hwdb.c | 10 ++++++++++
->>   1 file changed, 10 insertions(+)
->>
->> diff --git a/drivers/gpu/drm/verisilicon/vs_hwdb.c
->> b/drivers/gpu/drm/verisilicon/vs_hwdb.c
->> index 91524d16f778..7d630a667a3f 100644
->> --- a/drivers/gpu/drm/verisilicon/vs_hwdb.c
->> +++ b/drivers/gpu/drm/verisilicon/vs_hwdb.c
->> @@ -129,6 +129,16 @@ static struct vs_chip_identity
->> vs_chip_identities[] = {
->>   		.max_cursor_size = 64,
->>   		.formats = &vs_formats_no_yuv444,
->>   	},
->> +	{
->> +		.model = 0x0,		/* DCUltraLite */
->> +		.revision = 0x5560,
->> +		.customer_id = 0x305,
->> +
->> +		.generation = VSDC_GEN_DC8000,
->> +		.display_count = 1,
->> +		.max_cursor_size = 32,
->> +		.formats = &vs_formats_no_yuv444,
->> +	},
->>   };
->>   
->>   int vs_fill_chip_identity(struct regmap *regs,
+Clean up the code using guard() for mutex locks.
+Merely code refactoring, and no behavior change.
+
+Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
+---
+ sound/soc/codecs/hdac_hdmi.c | 116 +++++++++++++++++------------------
+ 1 file changed, 56 insertions(+), 60 deletions(-)
+
+diff --git a/sound/soc/codecs/hdac_hdmi.c b/sound/soc/codecs/hdac_hdmi.c
+index 3220f9226e0b..eeca901aea74 100644
+--- a/sound/soc/codecs/hdac_hdmi.c
++++ b/sound/soc/codecs/hdac_hdmi.c
+@@ -537,10 +537,10 @@ static struct hdac_hdmi_port *hdac_hdmi_get_port_from_cvt(
+ 				continue;
+ 
+ 			list_for_each_entry(port, &pcm->port_list, head) {
+-				mutex_lock(&pcm->lock);
+-				ret = hdac_hdmi_query_port_connlist(hdev,
+-							port->pin, port);
+-				mutex_unlock(&pcm->lock);
++				scoped_guard(mutex, &pcm->lock) {
++					ret = hdac_hdmi_query_port_connlist(hdev,
++								port->pin, port);
++				}
+ 				if (ret < 0)
+ 					continue;
+ 
+@@ -640,11 +640,11 @@ static void hdac_hdmi_pcm_close(struct snd_pcm_substream *substream,
+ 	pcm = hdac_hdmi_get_pcm_from_cvt(hdmi, dai_map->cvt);
+ 
+ 	if (pcm) {
+-		mutex_lock(&pcm->lock);
+-		pcm->chmap_set = false;
+-		memset(pcm->chmap, 0, sizeof(pcm->chmap));
+-		pcm->channels = 0;
+-		mutex_unlock(&pcm->lock);
++		scoped_guard(mutex, &pcm->lock) {
++			pcm->chmap_set = false;
++			memset(pcm->chmap, 0, sizeof(pcm->chmap));
++			pcm->channels = 0;
++		}
+ 	}
+ 
+ 	if (dai_map->port)
+@@ -922,7 +922,7 @@ static int hdac_hdmi_set_pin_port_mux(struct snd_kcontrol *kcontrol,
+ 	if (port == NULL)
+ 		return -EINVAL;
+ 
+-	mutex_lock(&hdmi->pin_mutex);
++	guard(mutex)(&hdmi->pin_mutex);
+ 	list_for_each_entry(pcm, &hdmi->pcm_list, head) {
+ 		if (list_empty(&pcm->port_list))
+ 			continue;
+@@ -945,12 +945,10 @@ static int hdac_hdmi_set_pin_port_mux(struct snd_kcontrol *kcontrol,
+ 			list_add_tail(&port->head, &pcm->port_list);
+ 			if (port->eld.monitor_present && port->eld.eld_valid) {
+ 				hdac_hdmi_jack_report_sync(pcm, port, true);
+-				mutex_unlock(&hdmi->pin_mutex);
+ 				return ret;
+ 			}
+ 		}
+ 	}
+-	mutex_unlock(&hdmi->pin_mutex);
+ 
+ 	return ret;
+ }
+@@ -1274,67 +1272,66 @@ static void hdac_hdmi_present_sense(struct hdac_hdmi_pin *pin,
+ 	 * In case of non MST pin, get_eld info API expectes port
+ 	 * to be -1.
+ 	 */
+-	mutex_lock(&hdmi->pin_mutex);
+-	port->eld.monitor_present = false;
++	scoped_guard(mutex, &hdmi->pin_mutex) {
++		port->eld.monitor_present = false;
+ 
+-	if (pin->mst_capable)
+-		port_id = port->id;
++		if (pin->mst_capable)
++			port_id = port->id;
+ 
+-	size = snd_hdac_acomp_get_eld(hdev, pin->nid, port_id,
+-				&port->eld.monitor_present,
+-				port->eld.eld_buffer,
+-				ELD_MAX_SIZE);
++		size = snd_hdac_acomp_get_eld(hdev, pin->nid, port_id,
++					&port->eld.monitor_present,
++					port->eld.eld_buffer,
++					ELD_MAX_SIZE);
+ 
+-	if (size > 0) {
+-		size = min(size, ELD_MAX_SIZE);
+-		if (hdac_hdmi_parse_eld(hdev, port) < 0)
+-			size = -EINVAL;
+-	}
++		if (size > 0) {
++			size = min(size, ELD_MAX_SIZE);
++			if (hdac_hdmi_parse_eld(hdev, port) < 0)
++				size = -EINVAL;
++		}
+ 
+-	eld_valid = port->eld.eld_valid;
++		eld_valid = port->eld.eld_valid;
+ 
+-	if (size > 0) {
+-		port->eld.eld_valid = true;
+-		port->eld.eld_size = size;
+-	} else {
+-		port->eld.eld_valid = false;
+-		port->eld.eld_size = 0;
+-	}
++		if (size > 0) {
++			port->eld.eld_valid = true;
++			port->eld.eld_size = size;
++		} else {
++			port->eld.eld_valid = false;
++			port->eld.eld_size = 0;
++		}
+ 
+-	eld_changed = (eld_valid != port->eld.eld_valid);
++		eld_changed = (eld_valid != port->eld.eld_valid);
+ 
+-	pcm = hdac_hdmi_get_pcm(hdev, port);
++		pcm = hdac_hdmi_get_pcm(hdev, port);
+ 
+-	if (!port->eld.monitor_present || !port->eld.eld_valid) {
++		if (!port->eld.monitor_present || !port->eld.eld_valid) {
+ 
+-		dev_dbg(&hdev->dev, "%s: disconnect for pin:port %d:%d\n",
+-			__func__, pin->nid, port->id);
++			dev_dbg(&hdev->dev, "%s: disconnect for pin:port %d:%d\n",
++				__func__, pin->nid, port->id);
+ 
+-		/*
+-		 * PCMs are not registered during device probe, so don't
+-		 * report jack here. It will be done in usermode mux
+-		 * control select.
+-		 */
+-		if (pcm) {
+-			hdac_hdmi_jack_report(pcm, port, false);
+-			schedule_work(&port->dapm_work);
+-		}
+-
+-		mutex_unlock(&hdmi->pin_mutex);
+-		return;
+-	}
++			/*
++			 * PCMs are not registered during device probe, so don't
++			 * report jack here. It will be done in usermode mux
++			 * control select.
++			 */
++			if (pcm) {
++				hdac_hdmi_jack_report(pcm, port, false);
++				schedule_work(&port->dapm_work);
++			}
+ 
+-	if (port->eld.monitor_present && port->eld.eld_valid) {
+-		if (pcm) {
+-			hdac_hdmi_jack_report(pcm, port, true);
+-			schedule_work(&port->dapm_work);
++			return;
+ 		}
+ 
+-		print_hex_dump_debug("ELD: ", DUMP_PREFIX_OFFSET, 16, 1,
+-			  port->eld.eld_buffer, port->eld.eld_size, false);
++		if (port->eld.monitor_present && port->eld.eld_valid) {
++			if (pcm) {
++				hdac_hdmi_jack_report(pcm, port, true);
++				schedule_work(&port->dapm_work);
++			}
+ 
++			print_hex_dump_debug("ELD: ", DUMP_PREFIX_OFFSET, 16, 1,
++				  port->eld.eld_buffer, port->eld.eld_size, false);
++
++		}
+ 	}
+-	mutex_unlock(&hdmi->pin_mutex);
+ 
+ 	if (eld_changed && pcm)
+ 		snd_ctl_notify(hdmi->card,
+@@ -1795,13 +1792,12 @@ static void hdac_hdmi_set_chmap(struct hdac_device *hdev, int pcm_idx,
+ 	if (list_empty(&pcm->port_list))
+ 		return;
+ 
+-	mutex_lock(&pcm->lock);
++	guard(mutex)(&pcm->lock);
+ 	pcm->chmap_set = true;
+ 	memcpy(pcm->chmap, chmap, ARRAY_SIZE(pcm->chmap));
+ 	list_for_each_entry(port, &pcm->port_list, head)
+ 		if (prepared)
+ 			hdac_hdmi_setup_audio_infoframe(hdev, pcm, port);
+-	mutex_unlock(&pcm->lock);
+ }
+ 
+ static bool is_hdac_hdmi_pcm_attached(struct hdac_device *hdev, int pcm_idx)
+-- 
+2.43.0
+
 
