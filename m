@@ -4,66 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 385DCCD98E2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 17:12:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F2F3CD98E2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 17:20:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lXMziEmn+wlZHroAMA95A0WzdcOj6w7hW/MFqGRcDV8=; b=O2I/2MjwK69ner6pO7aDL56SyY
-	+DH+i6eQZqRzh1tHV+VgS4YrcsRyNDJKS/ywG2vTZh9NbAV2+RJZenKMfhf5YCpJ0sSsLHV9qY2KJ
-	KFd5LPLCfDvrg69CaocZ1hX70JzsUwhsyIkBikmIqE/qDM/JDdNMDPvyJFO4m8VnsxkZCnGrJw+GI
-	7ezfyfkb1WC/LftBBArpVUjizjm8vxe0vgfeSPx/YNNYfYteMqsC29gmPEgSZ4lyPicW9XPkaJ3Oj
-	odzQO/tY5oM0QZsfeoBpZJicogzX0jcLoxu4WC2wSgIP6yB5fEVlHgUBL8TCmWevupWMVND4sHEvv
-	1RufcpUQ==;
+	bh=i5AuHa12lkUBfYhiINFlt22UCH0oA/1yHIWHNN85vbE=; b=3uJSApF2SjaaJbMkoia1ljv+AH
+	6Yw0ZCZJtYULHpGaXo4YXzfNDHvkUp4qOtGu2mghGfR1GY4ZdTalbORzWtzCFsHvwX6E84V/oMXz2
+	cbWiDujFnhudB1Pk33p4NAC59bJXfE9fKd3YxNWppVkYPMBi8JXs1fRxoVMdWqApeI2ZuG5bej67B
+	qEl+hlDI5JW96mdY8d/TMIVMUMhaYLm4ZypoGoWlRNX6+HOLehCVIlKb6xWPnJRB7fkJz84TuOBQ1
+	Cc4ITXzOc0oUpQELyPU/4V6PYZ03qJVV+tnoB7Hv/ExYE1eew47o3plYpyjIfvwLbOeoAy8B+y6Gg
+	05WKrYqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZto9-000000005mL-3RHD;
-	Wed, 17 Jun 2026 17:12:09 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZto7-000000005lv-0bmp
+	id 1wZtvm-000000006MC-2aWz;
+	Wed, 17 Jun 2026 17:20:02 +0000
+Received: from mail-qt1-x831.google.com ([2607:f8b0:4864:20::831])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wZtvj-000000006LN-3lyd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 17:12:08 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2D9992BC6;
-	Wed, 17 Jun 2026 10:12:01 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BD9DC3F763;
-	Wed, 17 Jun 2026 10:12:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1781716325; bh=qtq/IBU8PZzD/1Fu/0Y0dF/SchG8mINMtFUyXVucawI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FbHUID58nz4QkOwaVHiCItdlgGxLgeqOlXhpH89C60dg/mkRpgweNcr5iGlpEB/ko
-	 owJt/dHdKvmO3+OcIft8ynEj0StDqOwEUXyoo0TqcDMM5a9YOyY/cHSx7lDu5lA1Kx
-	 2g44p0ch6IpE02yaRStHd/t2NE3y1OFa3xyftPRw=
-Date: Wed, 17 Jun 2026 18:11:55 +0100
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Christian Brauner <brauner@kernel.org>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org, linux-fsdevel@vger.kernel.org,
-	linux-doc@vger.kernel.org, sudeep.holla@kernel.org,
-	james.quinlan@broadcom.com, f.fainelli@gmail.com,
-	vincent.guittot@linaro.org, etienne.carriere@st.com,
-	peng.fan@oss.nxp.com, michal.simek@amd.com, d-gole@ti.com,
-	jic23@kernel.org, elif.topuz@arm.com, lukasz.luba@arm.com,
-	philip.radford@arm.com, souvik.chakravarty@arm.com,
-	leitao@kernel.org, kas@kernel.org, puranjay@kernel.org,
-	usama.arif@linux.dev, kernel-team@meta.com
-Subject: Re: [PATCH v4 00/31] Introduce SCMI Telemetry FS support
-Message-ID: <ajLVW1eHzbGDm4yn@pluto>
-References: <20260612223802.1337232-1-cristian.marussi@arm.com>
- <20260617-waten-allabendlich-zueinander-93d4b1367b8c@brauner>
+	Wed, 17 Jun 2026 17:20:01 +0000
+Received: by mail-qt1-x831.google.com with SMTP id d75a77b69052e-5177d1ff061so14071cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 10:19:59 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1781716798; cv=none;
+        d=google.com; s=arc-20260327;
+        b=nYyFdEWlH7pjnOfe9SCCoXxsmH7p3h+tO+TgnPBsr9fRlZAkgBLKTlnDvXdJijb0AD
+         oMG2zyNbgVw15SGsUNgI1y0O9a+Gx+6LDqGmf7DcWnOcZK0sZE/bPLwNCESLdl/J5D34
+         FzgmpEQwWRLiMt0YHyGqbxPnLcKa6LEUCwrDJ078rk0ruHfu7bZnhy/Gh/uO98EbxdRH
+         zxAXn9QfARACUl3XpTMDE2b5sm7SEcPa1e6iHSDyAAfWRWx4ZeF3TXGPuTylQiFTDYaG
+         jH7Q9xfL41vdY606z2poVC/2HRrgnrvLDpGjM0cTELfBE53Xufx7spm6coZETYfoJ7/u
+         EJdg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=i5AuHa12lkUBfYhiINFlt22UCH0oA/1yHIWHNN85vbE=;
+        fh=lyz0EiYnUkRFZDGlzXUOkwE/mR+OY5o4FCVpWVKDdf8=;
+        b=IsKPYuEi+0Z6Tf6ocDrrKqM6OvHx4+jkizRTmKoWGJutjIj8sa4PtPP9pHkrA6+o91
+         1zo3CC+raw44JB4wRpmuGla1R2Glss2T/H8QOIFoTQqDTCmkkkZ7oJ3eVIR7RKMm3hAX
+         8zmfvk1aZvOIcv8g+PpcKG2zOEbiaZ2Op2uagX23Qitje1rWOs/O3fBLViuwq5HRJup+
+         v1CHVQ9oOEJhIJWLjBPQ7iXvgF+WgsijcTsI8/kVfeAHjec6wWjWey4QpmnbMR5CTVkK
+         4CaDogGan0Gs55+4jDmEfpC+zclMGu2fzFv/ANgBsUUsNd3cPTuyTcoDBtV3Kq/s1Zn/
+         r2Rw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1781716798; x=1782321598; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=i5AuHa12lkUBfYhiINFlt22UCH0oA/1yHIWHNN85vbE=;
+        b=Difm51oyLkZaoLTPxvC1W2Zm/a/Bum7Mg0aBl3Bw+Aek9F6tAJyv3oFNepALzFyvar
+         G2OFDWObdY0xD96YOw4cV23hGyPzyJ1c0m7r8CjG+JLKbcy/o+nva9z4egrg4vXxJdMg
+         Zxp02MV9mb6gOUX//wDaiE/BeaOdAwkzLi8L3F66DQVZfAJl+L1SZ6pURv7H4diBNseH
+         jwJP4w3ltkHT7hvUmtDvVkKWDgahuX4/OEuyKVffXgaGuMaBA2ALm8cXawiuXF+Zl6z8
+         QPshYJtMfzAQU1eVBa+S0+csURk/dM00ZglGzxhlttBwu4DiQxeUgSp53q/RBbFuL4IC
+         H7pg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781716798; x=1782321598;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=i5AuHa12lkUBfYhiINFlt22UCH0oA/1yHIWHNN85vbE=;
+        b=BFWi3yC5wpEzcdYWNJtfCC4XMrKi8tRN5muCJlbsVFdQ2pOL9VbH7x8jO6zhw3a910
+         +AlstbpG09sZBGfH/8lVLaHn0l/0OU/wasrgSiUc4YNJOqBkq9AUD6lePJVoyfOnE88h
+         kcmBmOnRzUw/KoOESCV6dnYdD0UEhIS2Tni3E4Qiuxyh85r/Eb/SPpI+VNjWJU41as9x
+         /lJrqKWVAviwFnbEMv4krxenMyg9CfkOYonHihhoSYlN2iB26x7lLKQtWo8iCa/BqIIw
+         2KYXtSoQy5veFTbtMR0u7KNrcHFyZQhxbYxgTFC0VffTrl+/mmeOZTpQVN2VhcK8mWpG
+         G/FA==
+X-Forwarded-Encrypted: i=1; AFNElJ8CbPxs8WChRhBB+T0Mb+7mbHIVo+J+2M2YMYXtp2thpOFfZir7i2rsdO/voY19KV4VooGEfYMiDhIZV1tQ3hCg@lists.infradead.org
+X-Gm-Message-State: AOJu0YzVg692us6NpisYoHxwmeqMkNH1tPqHImhokDLP6dm8vFaZHigE
+	iA/OwICEFsJMWq2yAMal7X7mj/h6+FXaqdLGfM/j0FKC8VOE6ErpQC7sveS3LBnmVfaSsgVOMQ/
+	bBpgcBy0W10NGxv+48zI8BTzxVnIZuMYUTox6iOwl
+X-Gm-Gg: Acq92OFMujVsSebWw8NoQPDOZfOLylbchqGP6eB0DYR0HZ4HG94FIb5jGo0xv0QosvU
+	KB+cI5g1rxAjMQHBqVx2/6sKCjQflQEHVT64JDoO6yYlCQTMRckDxpmh+hWIj1/1iBskO/on8XD
+	ZY/PdmoKUJx6zUa0B541Q0LqKTbhL1xVJVZNauAkLcAbONGsYI9OY5WspIEamPdgI7eliz1ustZ
+	GnXqxVpxJ+LYZ1sqs1kzQwhcKVjTEmp+OYzYURlMzf/13ncDTblfL1FJ0BniZkFWnxhTsuSNQ==
+X-Received: by 2002:a05:622a:5a12:b0:516:4f62:85eb with SMTP id
+ d75a77b69052e-519c661aee8mr160121cf.22.1781716797721; Wed, 17 Jun 2026
+ 10:19:57 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260617-waten-allabendlich-zueinander-93d4b1367b8c@brauner>
+References: <20260617144907.2972095-1-tabba@google.com> <86se6lru7w.wl-maz@kernel.org>
+In-Reply-To: <86se6lru7w.wl-maz@kernel.org>
+From: Fuad Tabba <tabba@google.com>
+Date: Wed, 17 Jun 2026 18:19:20 +0100
+X-Gm-Features: AVVi8CekeI_lGuSPPCeiswsqcvt1h5ISzFMhZQqw1f94ExrSVGJodvqXM6iSYrs
+Message-ID: <CA+EHjTyv107RDF_MG1AtqqpJsiRbFx=xbrp12TgSu_N8dS55oA@mail.gmail.com>
+Subject: Re: [PATCH] KVM: arm64: nv: Fix PSTATE construction on illegal
+ exception return
+To: Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oupton@kernel.org>, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, Joey Gouly <joey.gouly@arm.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Jintack Lim <jintack.lim@linaro.org>, 
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>, 
+	Christoffer Dall <christoffer.dall@arm.com>, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260617_101207_284591_A1DD2703 
-X-CRM114-Status: GOOD (  64.25  )
+X-CRM114-CacheID: sfid-20260617_101959_979850_0381664E 
+X-CRM114-Status: GOOD (  34.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,204 +120,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 17, 2026 at 02:58:09PM +0200, Christian Brauner wrote:
-> On Fri, Jun 12, 2026 at 11:37:30PM +0100, Cristian Marussi wrote:
-> > Hi all,
-> > 
+On Wed, 17 Jun 2026 at 17:45, Marc Zyngier <maz@kernel.org> wrote:
+>
+> On Wed, 17 Jun 2026 15:49:07 +0100,
+> Fuad Tabba <tabba@google.com> wrote:
+> >
+> > kvm_check_illegal_exception_return() sourced the flags {N,Z,C,V} and
+> > masks {D,A,I,F} of the resulting PSTATE from the current PSTATE, but
+> > R_VWJHB takes them from the SPSR being returned to and leaves
+> > PSTATE.{EL,SP,nRW} (and EXLOCK when FEAT_GCS) unchanged. PAN, ALLINT
+> > and PM were not applied at all.
+> >
+> > Build the PSTATE by taking those fields from the SPSR while preserving
+> > EL, SP, nRW and EXLOCK from the current PSTATE, then set IL.
+> >
+> > Fixes: 47f3a2fc765a ("KVM: arm64: nv: Support virtual EL2 exceptions")
+> > Suggested-by: Marc Zyngier <maz@kernel.org>
+> > Link: https://lore.kernel.org/all/86wlvxs5r0.wl-maz@kernel.org/
+> > Signed-off-by: Fuad Tabba <tabba@google.com>
+> > ---
+> > This is a modified version of Marc's suggested diff [1]. That diff applied
+> > a single mask to the incoming SPSR, which also takes PSTATE.{EL,SP,nRW}
+> > (and EXLOCK) from the SPSR. The ARM ARM leaves those fields unchanged on an
+> > illegal exception return. This path is reached precisely because SPSR.M is
+> > illegal (EL3, M[1]=1, AArch32, EL1 under TGE), so this version preserves
+> > EL/SP/nRW/EXLOCK from the current PSTATE and takes only the flags, masks
+> > and PAN/ALLINT/PM from the SPSR.
+> >
+> > [1] https://lore.kernel.org/all/86wlvxs5r0.wl-maz@kernel.org/
+> > ---
+> >  arch/arm64/kvm/emulate-nested.c | 33 +++++++++++++++++++++++----------
+> >  1 file changed, 23 insertions(+), 10 deletions(-)
+> >
+> > diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
+> > index dba7ced74ca5..ace2b40cf875 100644
+> > --- a/arch/arm64/kvm/emulate-nested.c
+> > +++ b/arch/arm64/kvm/emulate-nested.c
+> > @@ -2738,17 +2738,30 @@ static u64 kvm_check_illegal_exception_return(struct kvm_vcpu *vcpu, u64 spsr)
+> >           (spsr & PSR_MODE32_BIT) ||
+> >           (vcpu_el2_tge_is_set(vcpu) && (mode == PSR_MODE_EL1t ||
+> >                                          mode == PSR_MODE_EL1h))) {
+> > -             /*
+> > -              * The guest is playing with our nerves. Preserve EL, SP,
+> > -              * masks, flags from the existing PSTATE, and set IL.
+> > -              * The HW will then generate an Illegal State Exception
+> > -              * immediately after ERET.
+> > -              */
+> > -             spsr = *vcpu_cpsr(vcpu);
+> > +             u64 cpsr = *vcpu_cpsr(vcpu);
+> > +             u64 mask;
+> >
+> > -             spsr &= (PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT |
+> > -                      PSR_N_BIT | PSR_Z_BIT | PSR_C_BIT | PSR_V_BIT |
+> > -                      PSR_MODE_MASK | PSR_MODE32_BIT);
+> > +             /*
+> > +              * On an illegal exception return, PSTATE.{EL,SP,nRW} and,
+> > +              * if FEAT_GCS, PSTATE.EXLOCK are unchanged, while the flags
+> > +              * and masks are taken from the SPSR (R_VWJHB). Set IL so the
+> > +              * HW generates an Illegal State Exception right after ERET.
+> > +              */
+> > +             mask = PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT |
+> > +                    PSR_N_BIT | PSR_Z_BIT | PSR_C_BIT | PSR_V_BIT;
+> > +
+> > +             if (kvm_has_feat(vcpu->kvm, ID_AA64MMFR1_EL1, PAN, IMP))
+> > +                     mask |= PSR_PAN_BIT;
+> > +             if (kvm_has_feat(vcpu->kvm, ID_AA64PFR1_EL1, NMI, IMP))
+> > +                     mask |= ALLINT_ALLINT;
+> > +             /* FEAT_SPE_EXC and FEAT_TRBE_EXC also gate PSTATE.PM one day... */
+> > +             if (kvm_has_feat(vcpu->kvm, ID_AA64DFR1_EL1, EBEP, IMP))
+> > +                     mask |= BIT_ULL(32);    /* PSTATE.PM */
+> > +
+> > +             spsr &= mask;
+> > +             spsr |= cpsr & (PSR_MODE_MASK | PSR_MODE32_BIT);
+> > +             if (kvm_has_feat(vcpu->kvm, ID_AA64PFR1_EL1, GCS, IMP))
+> > +                     spsr |= cpsr & BIT_ULL(34);     /* PSTATE.EXLOCK */
+> >               spsr |= PSR_IL_BIT;
+> >       }
+>
+> While I'm happy that you caught the bugs I left for you to address,
+> the overall structure is a bit inconsistent. I'd like to have:
+>
+> - a mask of the bits we preserve from SPSR, and apply that to SPSR
+>   itself
+>
+> - a mask of the bits we preserve from PSTATE, and transfer them to
+>   SPSR
+>
+> - the comment at the top to describe this in that particular order.
+>
+> With that, I reworked your patch as follows:
+>
+> diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
+> index bb335fa16f7cc..243e5e26f7018 100644
+> --- a/arch/arm64/kvm/emulate-nested.c
+> +++ b/arch/arm64/kvm/emulate-nested.c
+> @@ -2746,14 +2746,14 @@ static u64 kvm_check_illegal_exception_return(struct kvm_vcpu *vcpu, u64 spsr)
+>             (spsr & PSR_MODE32_BIT) ||
+>             (vcpu_el2_tge_is_set(vcpu) && (mode == PSR_MODE_EL1t ||
+>                                            mode == PSR_MODE_EL1h))) {
+> -               u64 cpsr = *vcpu_cpsr(vcpu);
+>                 u64 mask;
+>
+>                 /*
+> -                * On an illegal exception return, PSTATE.{EL,SP,nRW} and,
+> -                * if FEAT_GCS, PSTATE.EXLOCK are unchanged, while the flags
+> -                * and masks are taken from the SPSR (R_VWJHB). Set IL so the
+> -                * HW generates an Illegal State Exception right after ERET.
+> +                * On an illegal exception return, the flags and masks are
+> +                * taken from the SPSR while PSTATE.{EL,SP,nRW} and, if
+> +                * FEAT_GCS, PSTATE.EXLOCK are unchanged (R_VWJHB). Set IL
+> +                * so the HW generates an Illegal State Exception right
+> +                * after ERET.
+>                  */
+>                 mask = PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT |
+>                        PSR_N_BIT | PSR_Z_BIT | PSR_C_BIT | PSR_V_BIT;
+> @@ -2767,9 +2767,12 @@ static u64 kvm_check_illegal_exception_return(struct kvm_vcpu *vcpu, u64 spsr)
+>                         mask |= BIT_ULL(32);    /* PSTATE.PM */
+>
+>                 spsr &= mask;
+> -               spsr |= cpsr & (PSR_MODE_MASK | PSR_MODE32_BIT);
+> +
+> +               mask = PSR_MODE_MASK | PSR_MODE32_BIT;
+>                 if (kvm_has_feat(vcpu->kvm, ID_AA64PFR1_EL1, GCS, IMP))
+> -                       spsr |= cpsr & BIT_ULL(34);     /* PSTATE.EXLOCK */
+> +                       mask |= BIT_ULL(34);    /* PSTATE.EXLOCK */
+> +
+> +               spsr |= *vcpu_cpsr(vcpu) & mask;
+>                 spsr |= PSR_IL_BIT;
+>         }
+>
+> Does that work for you?
 
-Hi Christian,
+Yes, that's cleaner, thanks. The two-mask form (take from SPSR, then
+preserve from PSTATE) reads better than my interleaved version.
 
-thanks for having had a look at this, first of all.
+Would you like me to send a v2 (which would be identical to the above?
+:) ), or would you fold it in?
 
-A few remarks down below...
+Cheers,
+/fuad
 
-> > --------------------------------------------------------------------------------
-> > [TLDR Summary]
-> > This series introduces a new SCMI driver which uses a new Telemetry FS to expose
-> > and configure SCMI Telemetry Data Events retrieved from the platform SCMI FW
-> > at runtime. The patches carrying the new STLMFS Filesystem support are tagged
-> > with 'stlmfs'.
-> > --------------------------------------------------------------------------------
-> > 
-> > the upcoming SCMI v4.0 specification [0] introduces a new SCMI protocol
-> > dedicated to System Telemetry.
-> > 
-> > In a nutshell, the SCMI Telemetry protocol allows an agent to discover at
-> > runtime the set of Telemetry Data Events (DEs) available on a specific
-> > platform and provides the means to configure the set of DEs that a user is
-> > interested into, while reading them back using the collection method that
-> > is deeemed more suitable for the usecase at hand. (...amongst the various
-> > possible collection methods allowed by SCMI specification)
-> > 
-> > Without delving into the gory details of the whole SCMI Telemetry protocol
-> > let's just say that the SCMI platform/server firmware advertises a number
-> > of Telemetry Data Events, each one identified by a 32bit unique ID, and an
-> > SCMI agent/client, like Linux, can discover them and read back at will the
-> > associated data value in a number of ways.
-> > Data collection is mainly intended to happen on demand via shared memory
-> > areas exposed by the platform firmware, discovered dynamically via SCMI
-> > Telemetry and accessed by Linux on-demand, but some DE can also be reported
-> > via SCMI Notifications asynchronous messages or via direct dedicated
-> > FastChannels (another kind of SCMI memory based access): all of this
-> > underlying mechanism is anyway hidden to the user since it is mediated by
-> > the kernel driver which will return the proper data value when queried.
-> > 
-> > Anyway, the set of well-known architected DE IDs defined by the spec is
-> > limited to a dozen IDs, which means that the vast majority of DE IDs are
-> > customizable per-platform: as a consequence, though, the same ID, say
-> > '0x1234', could represent completely different things on different systems.
-> > 
-> > Precise definitions and semantic of such custom Data Event IDs are out of
-> > the scope of the SCMI Telemetry specification and of this implementation:
-> > they are supposed to be provided using some kind of JSON-like description
-> > file that will have to be consumed by a userspace tool which would be
-> > finally in charge of making sense of the set of available DEs.
-> > 
-> > IOW, in turn, this means that even though the DEs enumerated via SCMI come
-> > with some sort of topological and qualitative description provided by the
-> > protocol (like unit of measurements, name, topology info etc), kernel-wise
-> > we CANNOT be completely sure of "what is what" without being fed-back some
-> > sort of information about the DEs by the afore mentioned userspace tool.
-> > 
-> > For these reasons, currently this series does NOT attempt to register any
-> > of these DEs with any of the usual in-kernel subsystems (like HWMON, IIO,
-> > PERF etc), simply because we cannot be sure which DE is suitable, or even
-> > desirable, for a given subsystem. This also means there are NO in-kernel
-> > users of these Telemetry data events as of now.
-> > 
-> > So, while we do not exclude, for the future, to feed/register some of the
-> > discovered DEs to/with some of the above mentioned Kernel subsystems, as
-> > of now we have ONLY modeled a custom userspace API to make SCMI Telemetry
-> > available to userspace tools.
-> > 
-> > In deciding which kind of interface to expose SCMI Telemetry data to a
-> > user, this new SCMI Telemetry driver aims at satisfying 2 main reqs:
-> > 
-> >  - exposing an FS-based human-readable interface that can be used to
-> >    discover, configure and access our Telemetry data directly also from
-> >    the shell without special tools
-> > 
-> >  - exposing alternative machine-friendly, more-performant, binary
-> >    interfaces that can be used to avoid the overhead of multiple accesses
-> >    to the VFS and that can be more suitable to access with custom tools
-> > 
-> > In the initial RFC posted a few months ago [1], the above was achieved
-> > with a combination of a SysFS interface, for the human-readable side of
-> > the story, and a classic chardev/ioctl for the plain binary access.
-> > 
-> > Since V1, instead, we moved away from this combined approach, especially
-> > away from SysFS, for the following reason:
-> > 
-> >  1. "Abusing SysFS": SysFS is a handy way to expose device related
-> >       properties in a common way, using a few common helpers built on
-> >       kernfs; this means, though, that unfortunately in our scenario I had
-> >       to generate a dummy simple device for EACH SCMI Telemetry DataEvent
-> >       that I got to discover at runtime and attach to them, all of the
-> >       properties I need.
-> >       This by itself seemed to me abusing the SysFS framework, but, even
-> >       ignoring this, the impact on the system when we have to deal with
-> >       hundreds or tens of thousands of DEs is sensible.
-> >       In some test scenario I ended with 50k DE devices and half-a-millon
-> >       related property files ... O_o
-> > 
-> >  2. "SysFS constraints": SysFS usage itself has its well-known constraints
-> >       and best practices, like the one-file/one-value rule, and due to the
-> >       fact that any virtual file with a complex structure or handling logic
-> >       is frowned upon, you can forget about IOCTLs and mmap'ing to provide
-> >       a more performant interface within SysFs, which is the reason why,
-> >       in the previous RFC, there was an additional alternative chardev
-> >       interface.
-> >       These latter limitations around the implementation of files with a
-> >       more complex semantic (i.e. with a broader set of file_operations)
-> >       derive from the underlying KernFS support, so KernFS is equally not
-> >       suitable as a building block for our implementation.
-> > 
-> >  2. "Chardev limitations": Given the nature of the protocol, the hybrid
-> >       approach employing character devices was itself problematic: first
-> >       of all because there is an upper limit on the number of chardev we
-> >       can create, dictated by the range of available minor numbers, and
-> >       then because the fact itself to have to maintain 2 completely
-> >       different interfaces (FS + chardev) is painful.
-> > 
-> > As a final remark, please NOTE THAT all of this is supposed to be available
-> > in production systems across a number of heterogeneous platforms: for these
-> > reasons the easy choice, debugFS, is NOT an option here.
-> > 
-> > Due to the above reasoning, since V1 we opted for a new approach with the
-> > proposed interfaces now based on a full fledged, unified, virtual pseudo
-> > filesystem implemented from scratch, so that we can:
-> > 
-> >  - expose all the DEs property we like as before with SysFS, but without
-> >    any of the constraint imposed by the usage of SysFs or kernfs.
-> > 
-> >  - easily expose additional alternative views of the same set of DEs
-> >    using symlinking capabilities (e.g. alternative topological view)
-> > 
-> >  - additionally expose a few alternative and more performant interfaces
-> >    by embedding in that same FS, a few special virtual files:
-> > 
-> >    + 'control': to issue IOCTLs for quicker discovery and on-demand access
-> >    		to data
-> >    + 'pipe' [TBD]: to provide a stream of events using a virtual
-> >    		   infinite-style file
-> >    + 'raw_<N>' [TBD]: to provide direct memory mapped access to the raw
-> >    		      SCMI Telemetry data from userspace
-> 
-> A filsystem driver for telemetry like this is really misguided. I think
-> shell access is really not an argument for adding a filesystem into the
-> kernel like this. That's just not appropriate justification to push
-> thousand and thousands of lines of code into the kernel.
-> 
-> You're building completely new infrastructure. The format is whatever it
-> is. If you stream it somehow just add a binary that userspace can use to
-> consume or translate it. If you need a filesystem interface for
-> convenience build it via FUSE on top of whatever streams that data and
-> get it ouf of the kernels way.
-> 
-
-...I would not say that this was the kind of feedback I was hoping for,
-but I am NOT gonna argue, given that you shot down already what I thought
-were all my best selling points :P
-
-At this point my understanding is that the way forward must be to use
-a custom tool to configure/extract/translate the raw Telemetry data and
-move up into userspace the whole human readable FS layer via FUSE, if
-really needed.
-
-I suppose that the new kernel/user interface has to be some dedicated char
-device implementing proper fops. (like I did previously in early versions
-of this series and then abandoned...)
-
-Is this you have in mind ? Dedicated character device(s) with enough fops
-to be able to configure/extract Telemetry data with a custom tool ?
-
-Should/could such a tool live in the kernel tree (tools/) at least for
-ease of development/deployment ?
-
-> You also buy into all kinds of really wonky properties. If you split it
-> over multiple files you can never get a snapshot of data that is
-> consistent if it's across multiple files.
-
-There were also bulk read-all-together interfaces but it does not matter
-at this point...
-
-> 
-> Telemetry over a filesystem is just not a great idea. If you did it via
-> sysfs I really wouldn't care because all because the infrastructure
-> already exists and I couldn't be bothered if this grew yet another wart
-> but as a separate massive hand-rolled pseudofs, no I'm not seeing it.
-
-...well, I am sure Greg would have shot down the SysFS approach even
-more quickly, given the amount of abuse I had to carry-on to be able
-to fit my Telemetry sources on top of a zillion dummy devices created
-just to be representable in SysFS; indeed I did try to use SysFS in the
-initial RFC and it was also a lot of pain to play that game in my
-context from the implementation point of view...
-
-...so I thought that adopting this new unified FS approach would have
-been much cleaner and acceptable upstream... :D
-
-Thanks again,
-Cristian
-
+>
+>         M.
+>
+> --
+> Without deviation from the norm, progress is not possible.
 
