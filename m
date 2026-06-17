@@ -4,57 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48096CD98F6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 18:52:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 019EFCD98FB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 18:52:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=gGEpde/WcN2mOnAGcJm57uhoIH5udb9bO/gqHiAq7GU=; b=seknjN6ZgpPcPT
-	4HmFOGzySx5V2jCANjmmOSsy/g40WWtw/+c/v5i3z71tgSYdbk3pY50duycWp6HoB0rV2R+IKaDFw
-	1GcOguwO1uVz0hC+yrLBfpApOKwXMlVjVu+AoEJ5YiCU3fdROfVrvNm73AKRpO4kWhPMS62Id7Bpo
-	UDpQJhBWFYkVSrV0hICS/dUHKyK9ycfSfpx/Ov1I9G3M0uVgWmSRNYTLQeiZiO9g2xsIIZ6n1URyl
-	g3HuLUmZ+KAWl+7ywzGQyphOSJ8cfh6+T7NQmE9DAzRSxwdCWNdc8vKGIlFSmxGHqiH3vGzGImPPJ
-	VcYWVWs+oVI1eC+nIVYQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zR+etgUjUe/BH3+sK9yXZfBPu5aEUHsuFGMr8iGXiD0=; b=KZHJ7CGnv0P2Su/WKU6Qf4VFwS
+	KeDt8vcblWCE1q5dLx5CVWtw1M2+JCk4uQUJFH2ltReoUvRzoeGGkefOLObUl6X+iVXqbqIDL2O98
+	5pzMJYXRt+6UQehgbh0gZf1c63WS0uFK+xLYUOa9dYlBAMEQ4oLsnVNQxym8g7XvX5tuSX949kbXC
+	FcoLtNedG9NY39r6+saSbPbRiwHX4GcHOI77uhLWMxKeiU6vWpTMFZM7ElXGADD2OAL00FHpGHS1u
+	5RTP92y/cSK2iwXxLv/sPFSoY0LHCKOlYG6+EDbmE0IMWV2fNTPCZSZQxayKRwx3t9NKFhS4JGifZ
+	ZUbaiGYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZvMr-00000000CM1-3BKT;
-	Wed, 17 Jun 2026 18:52:05 +0000
+	id 1wZvMx-00000000CQ0-0FWJ;
+	Wed, 17 Jun 2026 18:52:11 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZvMn-00000000CIt-3E7j;
+	id 1wZvMo-00000000CJM-2Bqk;
 	Wed, 17 Jun 2026 18:52:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1781722318;
-	bh=nf6NkIlR7n2XLzubJdyTlml008+Sq48Xj1YMgHt8MX0=;
-	h=From:Subject:Date:To:Cc:From;
-	b=Cz60rWKvjgZKWs1Nt2pZGoXpNC9WdCKRF08s9piwZMrPqTDWW0ezC2srPnh6w0e7Q
-	 /LvneQAFMBvGV2q7nqNqC6mN9Fxp1AOOL7Ab0ZBCBCydeYuA4AuXeHeOMjdwNj0QxR
-	 wB/ms2KKfnU03vRaPKGjPb4TU4da532H8u1iyAxTVEcrPsZrnGQ0+cgY94iL3gptrU
-	 uOCbcb4s3AN2DHHhzVdqis2brARiTzkgmjJPK5QkAfvDoCKxal/e6zIfeetAO1qq5w
-	 72kPTAc+rMShT6wu1mrMvto6XtuPBQ19XQqSnzljZ4Q3THZLGaSyyyDrWZd/GITLBo
-	 0zmTRgjwSSjwQ==
+	s=mail; t=1781722319;
+	bh=EihMJ+MjwJWw3LKzGCW8dkUoe6Mk2y9hm9cHf1RY+70=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=p4yoIqz1k+roX3xgVG83uX9jBwG51o/SWD4kDzbrnjsPEGVC8GBbHP5T5UjwZE/q4
+	 BVJ/tIOf46dn2SyDILCkVL/MzTYZSrMOdvCcCPLYJV/ECYJqw44bHGAJNNfIp+0tEN
+	 I5TT17jAGc0OCxThJqqDAEBpmLJ/1y4dhXZXCABrZzPaxH7o2sHuU3ee0pmfwH/Xc9
+	 0+F2yPKF64X/Lt5Q8GtLSVbvgJjsd+lnkz10FPTJ9330qa5gIecP8djEWtnqHEyOxj
+	 j/Y8GbNADtDTWmko3xj/yLicNipgnGpA6FcOK5uEjQJ8gHvGqNcLal3TMDHjSNDvLq
+	 SoEtqTlhxB4wg==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id CC17717E045E;
-	Wed, 17 Jun 2026 20:51:58 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 89AA817E05DE;
+	Wed, 17 Jun 2026 20:51:59 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Subject: [PATCH 0/9] Support 10-bit YUV422 and 8/10-bit YUV420 color format
- on DW HDMI QP
-Date: Wed, 17 Jun 2026 21:51:53 +0300
-Message-Id: <20260617-dw-hdmi-qp-yuv-v1-0-a665cfd06d7d@collabora.com>
+Date: Wed, 17 Jun 2026 21:51:54 +0300
+Subject: [PATCH 1/9] dt-bindings: display: vop2: Add missing reset
+ properties
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMSQqEMBBA0atIrS1IAg54lcaFZUotQdtOHBHvb
- lqXb/H/CZ6dsIciOsHxKl6+Y4COI6i7amwZxQaDUSZVqc7QbtjZQfA34bGsaEg1GVFCVa4hRJP
- jRvZn+Clf+4V6ruf/Ba7rBqXfq3pyAAAA
-X-Change-ID: 20260617-dw-hdmi-qp-yuv-2b0f7bb5ba81
+Message-Id: <20260617-dw-hdmi-qp-yuv-v1-1-a665cfd06d7d@collabora.com>
+References: <20260617-dw-hdmi-qp-yuv-v1-0-a665cfd06d7d@collabora.com>
+In-Reply-To: <20260617-dw-hdmi-qp-yuv-v1-0-a665cfd06d7d@collabora.com>
 To: Sandy Huang <hjc@rock-chips.com>, 
  =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
  Andy Yan <andy.yan@rock-chips.com>, David Airlie <airlied@gmail.com>, 
@@ -74,8 +72,9 @@ Cc: kernel@collabora.com, Andy Yan <andyshrk@163.com>,
  linux-kernel@vger.kernel.org
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260617_115201_984326_08471025 
-X-CRM114-Status: GOOD (  10.34  )
+X-CRM114-CacheID: sfid-20260617_115202_774390_4E325C30 
+X-CRM114-Status: UNSURE (   8.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,61 +89,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series extends the output color format support of the Rockchip DW
-HDMI QP controller to cover 10-bit YUV 4:2:2 and 8/10-bit YUV 4:2:0.
-
-Please note this has a runtime dependency on the Rockchip Samsung HDPTX
-PHY driver bug fixes posted separately as [1].  While there is no build
-dependency, those fixes are required to address clock rate calculation
-and synchronization issues that arise when changing the color depth
-(bpc) while keeping the modeline constant.
-
-Patches 1, 2 & 9 improve VOP2 robustness on RK3588, helping recover from
-exceptions and preventing random display output glitches observed when
-switching modes that also change the color format, e.g. from RGB to YUV
-4:2:0 and vice versa.
-
-Patch 3 avoids an incorrect DCLK source switch for 10-bit YUV 4:2:2 by
-forcing 8 bpc in the bandwidth check.
-
-Patches 4-6 are independent cleanups/improvements and can be applied on
-their own.
-
-Patch 7 adds MEDIA_BUS_FMT_UYVY10_1X20 for 10-bit YUV 4:2:2 output,
-configuring the PHY with 8 bpc.  YUV 4:2:2 always transmits two 12-bit
-components per pixel regardless of color depth, so from a clock-rate
-perspective it is equivalent to three 8-bit RGB components.
-
-Patch 8 advertises YUV 4:2:0 output, now that the bus-format and VOP2
-support are in place.
-
-Tested on Radxa ROCK 5B (RK3588) and Radxa ROCK 4D (RK3576), up to
-4K@60Hz YUV 4:2:0 and 4K@30Hz RGB.
-
-[1] https://lore.kernel.org/all/20260612-hdptx-clk-fixes-v4-0-ce5e1d456cda@collabora.com/
+Document the VOP2 resets corresponding to the AXI, AHB and DCLK_VP0..2
+clocks, which are common to all supported SoCs, plus DCLK_VP3 which is
+provided only on RK3588.
 
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
-Cristian Ciocaltea (9):
-      dt-bindings: display: vop2: Add missing reset properties
-      drm/rockchip: vop2: Reset AXI and DCLK to improve robustness
-      drm/rockchip: vop2: Avoid DCLK source switch for 10-bit YUV422 output
-      drm/rockchip: vop2: Consolidate HDMI PHY PLL clock parent switch
-      drm/rockchip: vop2: Switch to enum vop_csc_format
-      drm/bridge: dw-hdmi-qp: Log resolution and refresh rate in atomic_enable()
-      drm/rockchip: dw_hdmi_qp: Support 10-bit YUV422 output format
-      drm/rockchip: dw_hdmi_qp: Enable YUV420 output format
-      arm64: dts: rockchip: Add RK3588 VOP2 resets
+ .../bindings/display/rockchip/rockchip-vop2.yaml   | 42 ++++++++++++++++++++++
+ 1 file changed, 42 insertions(+)
 
- .../bindings/display/rockchip/rockchip-vop2.yaml   | 42 ++++++++++
- arch/arm64/boot/dts/rockchip/rk3588-base.dtsi      | 12 +++
- drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c       | 10 ++-
- drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c     | 13 +++-
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.c       | 90 +++++++++++++++-------
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.h       |  4 +
- 6 files changed, 141 insertions(+), 30 deletions(-)
----
-base-commit: 2bfa2e7f19a106966ca97e0aaaad49e17f614cbb
-change-id: 20260617-dw-hdmi-qp-yuv-2b0f7bb5ba81
+diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
+index 93da1fb9adc4..d3bc5380f910 100644
+--- a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
++++ b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
+@@ -82,6 +82,20 @@ properties:
+       - {}
+       - {}
+ 
++  resets:
++    minItems: 5
++    maxItems: 6
++
++  reset-names:
++    minItems: 5
++    items:
++      - const: axi
++      - const: ahb
++      - const: dclk_vp0
++      - const: dclk_vp1
++      - const: dclk_vp2
++      - const: dclk_vp3
++
+   rockchip,grf:
+     $ref: /schemas/types.yaml#/definitions/phandle
+     description:
+@@ -148,6 +162,12 @@ allOf:
+         clock-names:
+           maxItems: 5
+ 
++        resets:
++          maxItems: 5
++
++        reset-names:
++          maxItems: 5
++
+         interrupts:
+           maxItems: 1
+ 
+@@ -194,6 +214,12 @@ allOf:
+             - {}
+             - const: pll_hdmiphy0
+ 
++        resets:
++          maxItems: 5
++
++        reset-names:
++          maxItems: 5
++
+         interrupts:
+           minItems: 4
+ 
+@@ -246,6 +272,12 @@ allOf:
+             - const: pll_hdmiphy0
+             - const: pll_hdmiphy1
+ 
++        resets:
++          minItems: 6
++
++        reset-names:
++          minItems: 6
++
+         interrupts:
+           maxItems: 1
+ 
+@@ -289,6 +321,16 @@ examples:
+                               "dclk_vp0",
+                               "dclk_vp1",
+                               "dclk_vp2";
++                resets = <&cru SRST_A_VOP>,
++                         <&cru SRST_H_VOP>,
++                         <&cru SRST_VOP0>,
++                         <&cru SRST_VOP1>,
++                         <&cru SRST_VOP2>;
++                reset-names = "axi",
++                              "ahb",
++                              "dclk_vp0",
++                              "dclk_vp1",
++                              "dclk_vp2";
+                 power-domains = <&power RK3568_PD_VO>;
+                 rockchip,grf = <&grf>;
+                 iommus = <&vop_mmu>;
+
+-- 
+2.54.0
 
 
