@@ -4,89 +4,180 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46ED3CD98E4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 22:37:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F4D3CD98ED
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 22:37:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5ht3Y2gw7aLExBw+qb4CEwcLhztxh5KbxtMCsO7yS08=; b=IPJz1CNz8HgqX8F2ZBdD48n9CZ
-	vr9QeDrLTZbDxfQ0EWv7tmdzK6t0eaOWDotUAOp2Dp7Xl2RODkiVGr7W5YQ9fYwBdnkEra5s/Shhj
-	YAi5MUSDxkaGoyrfsQpga3JdhQz5JNSbZNb0NsVLLLNB2TZjKu/9D/J0IBNLAP7sxWZ48dwOFWCwd
-	2IaBq8i3zLgEDHFikgTj3caYkPVahaaHqepJZWN8dk9GtOATo/ulNfodHy+bfUwpXaeMiXhkOSu5H
-	2G+vGb/C9UIo5b6IDYo04Eov+BURorrBL+rnjeZbzKgHa1KICDhjFcXSaMXWt4XUGiTRYXXodLWTh
-	DeD2EWuw==;
+	bh=jJhWhvZhcNBIulZ+zg+Vdx8iSYl6FqaJTLG0SfEWu5c=; b=HQbd6/2S/vZ604r3WAYrtwJFO+
+	z0jB//EdfQZOIULTk077+rkNx/Vw1EC+18rs5JeDGiWCVKdfXDZXWsqtAM5u/kDjo3ACvJdy1c2aM
+	f1InONHgIWpXFE5y20IzhUcb7CBnpEpFGgpJC19Y/y5spMh/DzX2r0UcIrpPDC7XjiJlaPP5RjUco
+	3aSzAsJpl1UDpq4l3UqoD1/T4mELerdvSWgdUk4gmpTpxUU1+CL2l5mrq8VyE/V2r/0dlKDm2zmrM
+	0FGC9SZQsNIaRBL/YNps2kjkkpT6z5MJEG8ufXUNC8Gr+RpRBHkkVfV3sbAY214R3Rmx5ej1kZO6L
+	lXoLEFDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZysa-00000000OyT-1TDy;
-	Wed, 17 Jun 2026 22:37:04 +0000
+	id 1wZysd-00000000Oz3-1pNH;
+	Wed, 17 Jun 2026 22:37:07 +0000
 Received: from mgamail.intel.com ([192.198.163.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZys0-00000000Ox6-2ihg
+	id 1wZys8-00000000Oxc-1w6F
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 17 Jun 2026 22:37:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1781735789; x=1813271789;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=xqYjUeV6vUJ0e8uDgzC+drVzHWfpAA3DVqnkox41OuM=;
-  b=ZAUMVUllyGAZmYI2Aed6qFY86ovh5CUYUwF9hx7r19Hdvg5XDW8I+wKl
-   S/5/M8TAH8szXRop344FwdKWYFDGPJvBcaNxRobdB7iAUulbI8dYlyoiz
-   JTKeU5nwbG9k4vwYix1FP4OYPI7fPhF0VKKl1leoLa5z40D62YfUg0TL9
-   b+hPgcCTnnNcamWCUQQmnVypunkpd292VX2SVyjQXqu2aXhDb6eTKPt9z
-   i17CYDacnA06qiQhi0sl4gueeJf8mhLJfKDd1yWM/EnGSBqbtg0fmezgN
-   UcXid4aKtvXxWp4RX42PCk8//n3ZsauprbnL6BuV4ygywuwBeLFSpxuRr
+  t=1781735796; x=1813271796;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=5+iGSe9iWmkYihC4wjdGVswVCSTzqsEk+7tJCH38iXI=;
+  b=JPla1HDyG1AqhFXmcwgqm0sdmA1NXDyPZEYxs/nEQXMV8dcXs8HYt6jC
+   mC2mn+GCkoaRtqnKrPRsED6iXCXXGAbcBMXfgVs9xnXbVHNPOvh7n0zN7
+   /YWPxy3JyTxTbFkkz/3lvFTryVOv6+riBA1Cy6QO5tsR/QrBy0jvkMcCl
+   GoL9JIKtdaOC/o0dwHM6F735/lt+w/DaSeXibDANmk3/c5yFso2cn5Slf
+   1ZvC0/sJZAl1WjHaPPJfjhHxVGIvVy+/+wIcIjCavhaURNXZ3wVy/GA77
+   Sd0eU81sa7FNPYhGkgmMmJAE+tmKK4QdvXoH9317PPJ02Q2/gC0CF6l1X
    g==;
-X-CSE-ConnectionGUID: D0pUZ2lfSnSceYf3g0r5Dw==
-X-CSE-MsgGUID: CYQ8vDFFStasiCS0gjTXCw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11820"; a="86399437"
+X-CSE-ConnectionGUID: IvpurvrNRHa9I/srZkjohg==
+X-CSE-MsgGUID: U7roovPvQHSkfAzW4AxrqQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11820"; a="86399456"
 X-IronPort-AV: E=Sophos;i="6.24,210,1774335600"; 
-   d="scan'208";a="86399437"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Jun 2026 15:36:27 -0700
-X-CSE-ConnectionGUID: SPtzNDigSgO4NknRt6PRGw==
-X-CSE-MsgGUID: wzISkg4lQyqkIxcyu5zSnA==
+   d="scan'208";a="86399456"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Jun 2026 15:36:36 -0700
+X-CSE-ConnectionGUID: tnRdIhfqTMOkIKUM+mRbVQ==
+X-CSE-MsgGUID: hPuj61biTyOFtvSyF0IY9w==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.24,210,1774335600"; 
-   d="scan'208";a="248250158"
-Received: from ettammin-mobl3.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.245.232])
-  by orviesa007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Jun 2026 15:36:22 -0700
-Received: from kekkonen.localdomain (localhost [IPv6:::1])
-	by kekkonen.fi.intel.com (Postfix) with SMTP id 0BB2811FAA5;
-	Thu, 18 Jun 2026 01:36:20 +0300 (EEST)
-Date: Thu, 18 Jun 2026 01:36:20 +0300
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
-From: Sakari Ailus <sakari.ailus@linux.intel.com>
-To: Frank.Li@oss.nxp.com
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Michael Riesch <michael.riesch@collabora.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Martin Kepplinger-Novakovic <martink@posteo.de>,
-	Rui Miguel Silva <rmfrfs@gmail.com>,
-	Purism Kernel Team <kernel@puri.sm>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v5 2/8] media: v4l2-fwnode: Add common helper library for
- 1-to-1 subdev registration
-Message-ID: <ajMhZP5YHuQdhc5M@kekkonen.localdomain>
-References: <20260617-imx8qxp_pcam-v5-0-7fa6c8e7fba7@nxp.com>
- <20260617-imx8qxp_pcam-v5-2-7fa6c8e7fba7@nxp.com>
+   d="scan'208";a="250080679"
+Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
+  by fmviesa004.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Jun 2026 15:36:36 -0700
+Received: from ORSMSX902.amr.corp.intel.com (10.22.229.24) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37; Wed, 17 Jun 2026 15:36:35 -0700
+Received: from ORSEDG902.ED.cps.intel.com (10.7.248.12) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37 via Frontend Transport; Wed, 17 Jun 2026 15:36:35 -0700
+Received: from SN4PR0501CU005.outbound.protection.outlook.com (40.93.194.46)
+ by edgegateway.intel.com (134.134.137.112) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37; Wed, 17 Jun 2026 15:36:35 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=di6mBd8ssB//WRj9GlgUT55dzO2TNxoYQ7d+QphEeo/7nMrFluq656c4WX5l9DsBiBzzcW15dMTHgTdptQeKr9uzJokllWL28pjh8gPouZCeijWqgBpe+uqsiR8QZp5rdJ0BkdPt7E8pwyHCU+IiXfegtQBiQI8zzi34VvD16LNBtuoCLpL0NBANqyeaKhJSIgtBSYxfIhFAW/uofNb6aU84/dW3Fj+YJflu322vXPsvCneXviuyz9XqGAGSebmD+2Wi5bYR4TT/ImZg26yOqo3FVsarYiNrcUGEvT+nqz0mZboWlWrv1+ZzS92LPevGeAzoBLcRJ0/92GEAaaHb1Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=jJhWhvZhcNBIulZ+zg+Vdx8iSYl6FqaJTLG0SfEWu5c=;
+ b=hOD96P4pmUiLwtfExAYIVtBBlBqrXOQDm3lkEUW5sfFsFvdSxSAURrLE5DSUs/4nvYZ38uszh07wj2mBzSutaTDjBBYU0OiVxSbrL5l8O/TUSTVxk5MNMZ68kTeuO2mU8FuAnP/lvZIrmIQOOYmheIgHeexDPoyopwvu2M592VMWAq6jUvhaEQGj7IELiaen3qcaHDDCHGRu0bNFsacBN5AcLHweN7TJcEpBfN5bE6Jp2hX6SZU36gJn1i8D/NbKML9+dSUitOvj+ImLgE/0yZ6CKtO7+s2o3kjWYSyrJqfu7jIaJL3DFo9h4ZR3BvcwaRrxiRkD/0lsMQJQ1174PQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from DS0PR11MB7381.namprd11.prod.outlook.com (2603:10b6:8:134::14)
+ by IA1PR11MB8099.namprd11.prod.outlook.com (2603:10b6:208:448::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.18; Wed, 17 Jun
+ 2026 22:36:32 +0000
+Received: from DS0PR11MB7381.namprd11.prod.outlook.com
+ ([fe80::4c39:dfe6:d6dc:6f58]) by DS0PR11MB7381.namprd11.prod.outlook.com
+ ([fe80::4c39:dfe6:d6dc:6f58%5]) with mapi id 15.21.0113.015; Wed, 17 Jun 2026
+ 22:36:32 +0000
+Message-ID: <57c31dc1-39e2-4977-9331-5eed20d676fa@intel.com>
+Date: Wed, 17 Jun 2026 15:36:30 -0700
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] net: stmmac: loongson1: Use dev_err_probe()
+To: Jakub Kicinski <kuba@kernel.org>
+CC: <keguang.zhang@gmail.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
+ Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, "Paolo
+ Abeni" <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	<linux-mips@vger.kernel.org>, <netdev@vger.kernel.org>,
+	<linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20260615-dwmac-loongson1-v1-1-cbcf5bc01d9b@gmail.com>
+ <31630db0-85cb-421b-8ebe-bbae07521533@intel.com>
+ <20260617135407.6ff54e27@kernel.org>
+ <6b8db599-5bb2-47f9-ab53-a0b5141af2e5@intel.com>
+ <20260617150744.05756f0b@kernel.org>
+From: Jacob Keller <jacob.e.keller@intel.com>
+Content-Language: en-US
+In-Reply-To: <20260617150744.05756f0b@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MW4PR03CA0112.namprd03.prod.outlook.com
+ (2603:10b6:303:b7::27) To DS0PR11MB7381.namprd11.prod.outlook.com
+ (2603:10b6:8:134::14)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260617-imx8qxp_pcam-v5-2-7fa6c8e7fba7@nxp.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR11MB7381:EE_|IA1PR11MB8099:EE_
+X-MS-Office365-Filtering-Correlation-Id: 432e86e1-00e0-415b-1bb2-08deccc0e184
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|366016|1800799024|56012099006|11063799006|6133799003|4143699003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: pxMg4vF1h498QdAqGCeJfj0RoJSDDPM9UH7I2MsZn4KNTJJ2OcHTFk8zUn1nhyvfzhNEJcIjGr+/xe2xN7iCyBEGDPNUt/qsK9C+MOq9DiGzAJ1fMG1K0okXlgsod3ejZxeAmmR4mUEPpX7vK7lmmTVEvVxTL0z56GMcSRAu6VMVtbPJrnExRGHu9v/9rVbrZaV4J4OlpXRP5uCPYko4MdyoVJtw0RhBNwr1qEuOhoJ4B7fitQf9y58L1B4In36gZDiSj7hdgYLYheajkTnhYNN/G6cJV0TcOwgm3qp3NmElF1giucAlNRmLNSjrXdMP4Pa1OimuSYavM5aihbK1V/jw83TsCt4Klyt7an6lahLUZjeegNtgJavea4DFU62RW7SKYDXocRCXrPMzjrk/9mBxfcalh2P5D3BpBgIt1uVGUZKy+iHYA5GB/pPgoOLWG/pMt9O9GMQvnBh2yhw4seMiduoR/2c/k2k7cHXyx64KNjPVIr98pDWfsakcUiOUXMweN1iy1W0hBNdVK/UPeNsjKHtyKSCdiLr3JF2ip8NkFgPRQsJfRjCe6hSg+AXL410hy6CAXVRPOyzQE7DtEwNchZHPuTcoXu+WZ2UNdenjR7Y+dEU6lJXeuenZ5QbrUcnWHBqJQJFHjpgP5DCNc/M/iBU5U9tX28aZLEIld1HrkxT/cZlsrDaiTvli+9xQ
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR11MB7381.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(366016)(1800799024)(56012099006)(11063799006)(6133799003)(4143699003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SVNmdzFpQ29aMjNTYmIxMHRzNUtHZXRXZEdqZU41TW5DZ1VqWTFPNWxPUjIy?=
+ =?utf-8?B?ZWhUZlk4UzBNSzJvQWtmNEUvNTYxVW44SjNFUmIwWkZ2SVJjUENmWHpLMnFz?=
+ =?utf-8?B?MDRYald2NXJZUDB0dE80KzVHb0VEcGFzMTlxajJvREZvam5nQ2tIdE0vMGE2?=
+ =?utf-8?B?c0FVWHo2a2Z1d28vMHBXejlNY0lFY2MrVTBXTEJpR2M0clJ0SkgrempNMGd6?=
+ =?utf-8?B?V1g1enFESkZwdGRlUEhpQ24yWEloTysrM1NESDVpTzRmRkFZY2dqTmJCSENG?=
+ =?utf-8?B?NzRNS2tTOXJreXpZT0NvSG1VcU9DR3p1ZytZMnRqMlRWcFNiYzhZN0E1bHov?=
+ =?utf-8?B?MDZyNEttV1hlYlh5Rk1tNzRpWStxYnR6VnI3L2RFdTJxU3FXMmxrNnAyK1c5?=
+ =?utf-8?B?WVZURmg1cFRrSTdwakNJVzB5ZHluWkRMQUxHZlN2UkcvL0ZVOUgwbE5kM2lY?=
+ =?utf-8?B?S0t4bmRPQ0Z6a29Rd0wyNVMwTkRMcDI5K2FoUVc4djExM3cwSDU4Nk9TdjFS?=
+ =?utf-8?B?RVZPSUt5ajBkcVF3ck9zZ3RveTJrSDVQOEZjdkVoMmUzRklUclJrWUxRQmgr?=
+ =?utf-8?B?dTkwWGVWMGp2NVRPVmN5STJIZFVQUWFoQ3k5K2Vka0Q0TTVkRTRWY25pbTBu?=
+ =?utf-8?B?OEtUWitlTUVTRHlBbW1GbUd0Tmwyc2ozY0Y1MllwWUdMNkFCUW5ZQnRzc2Q5?=
+ =?utf-8?B?NWtsbFlSdUZrMFdFTGdzQUlPZEFqNVoxZEVueVhET3l4VG1yYWkvYldqYjBP?=
+ =?utf-8?B?M0hmNU1qK2ZNZlpaUWUvM0plaTlHSE1zb2tDeEdxem5OQnFSeEJyWWowZEEy?=
+ =?utf-8?B?WitiSjFIbXFkaERTellpNDUveC9ac1lVWVpoSnR5bld5a3lLUHgrczJTUzU2?=
+ =?utf-8?B?RmVPUmFlWUdmRFBFYnE4ekZxYmJaVXBuNElqZEg5NWxhUFNuWlo5TEx6VUJt?=
+ =?utf-8?B?YVFKZUZod2diSkFDS0M4eG1uWEtLVkwyOEVvSlBVZDl4UjdtLzMyakgzSXhr?=
+ =?utf-8?B?TVVMNzJ2QmJZQkI2S2J4NnZlckcyeDNZNG96UXFac3ZlWklaeU9zZ1hYTndH?=
+ =?utf-8?B?ZWZqcHEyZkkyYU96QkdlUlVQL1hGa1pjWjlDOFJNT2szK0IwbWp3eTE5ZkFO?=
+ =?utf-8?B?cVkrZG5EUEF2UVR1a2pndTlTYlpYOFVvN1p3SkpheGJMV3JzNWxnN1BTd3lt?=
+ =?utf-8?B?KzRlU2pJMFI1WEVzL3AvUWNhSmtob0h3V29wbElMUHN1Ui9JQWswdHBhaUd3?=
+ =?utf-8?B?TlFpVHkwc0VqVFBNb0JkOWJpMkZlY1pHd1JmK25nTkZQUEk2V1g3Y3NjUHls?=
+ =?utf-8?B?T3lvN1k0aHErcUFQd2hrRTQwQVRpYU9ib2FjZFoydjd3SXlPUlV2cmwzTW1t?=
+ =?utf-8?B?MmdTSmlia0dsWTNnNS9pc3NldlZzelpvNi8yREdVcDJkS0g3QlM1REM5SkFX?=
+ =?utf-8?B?NGxjeG05aTVPQzVWM2RnZ3NCNlBkOXlTdEdwcElsWEUrN0tnSjN0bXg1OUI1?=
+ =?utf-8?B?bGM4aXIyeUFvWjlncGJDQ01XMlNhVHlacWxIYjZNYVBkMEpSQ25qTFVCRTZp?=
+ =?utf-8?B?UDIrMnVDYlB6Q1lTTjBFN1V5V0sxcXZoRE9HUHNJMmF2OUxQSlUybGF0Rmxu?=
+ =?utf-8?B?WHQ5RDdra0E3eThFT05qVVVjZUFPZnl3T0pRc1U2MSszc21zTDVLc3ZTSHZS?=
+ =?utf-8?B?OEtJNXNRc21CU0xmbVBTbmxoNWxJME5RN004ZnBWRUpnTCtPQ1pwQ09aK2x0?=
+ =?utf-8?B?cjM3VWJFQlFNZHJ1c0tremV6Zkl6ZHg4eXdXSUF4MWdkUjR4T1ZSQnhTWkE1?=
+ =?utf-8?B?dUEvZmNQSVQzVDZRVjArZXM3WTlGQXlBUnR2bVdmVDM4Unk2L3ZhMVVqTlNq?=
+ =?utf-8?B?b1R1WEltSDR6R3FiVzhmYmJoNVdkMlFmOHpxQ0dEdmE0V2Rzbms0MUZtODVu?=
+ =?utf-8?B?MHpqM0RhTE1OeVZHek9LbGFYSnhwdExTbjNrb09JbWIxdlJIYnFQa1R5WmQw?=
+ =?utf-8?B?Y1h1Zk9uSFpQVWlmUjhubVNkWFNyM0NBM1JTZUl3UEdENFBQeC8xS1JPK3lN?=
+ =?utf-8?B?VnRvaUZkakFVS3pUZCtuWUo2ZEp0cmMzd0Rxd25hUmd4SVZ1aFkvK2pvU3BV?=
+ =?utf-8?B?aUF6bWw1S1JhdGxOVUZwYlZFb0VOL0lrNG4wQ3V2cnJEVWhDdW5pNFc1VlhF?=
+ =?utf-8?B?NlhDbjdsc0NvWCtBcGNVVWxwTnd5NHpqZTdKVERJTDN6MUtPc25FT0xPY0Qv?=
+ =?utf-8?B?S1p5WmYyLzk1elJKRlFnQWpkT0xWTFA3SDlWR0pOVGNVQlZMTGRYTERXQStS?=
+ =?utf-8?B?Q1RTMUN5YnJ3NlF0QjVTY29YOFJ4UXhpSUVyK290aW5xN0pNdWozbHhpYlhn?=
+ =?utf-8?Q?z0JNkx0s98CLZOzc=3D?=
+X-Exchange-RoutingPolicyChecked: qIghjDl1Ue70u4hN0QZnVBOimUkZszjcFBZvBJknHKSVUJAHY+gb7GDgQzhEiEqVMJ0NRPy8NqJ6kKDe4Heu22oiJOwioas1NBLC0Re1hc4P40EQctAP+gb2o5sSnNKujSfaA2jGDSmcAxR+Y7WYL3FAVXmaPcfsKRWdmm+fDJ2gn/4/a5cNOdkSq7HyK+ZH0p7bGhnz2VCK5oEmjUWCvbUnplJNSPPg0UDMeXw6GuNifE/QEbBPR2Y2OjwXFvJta3fMKV8aroEqCdExlBO3Wj9xhY1zTzR1yDZEVxUqiTrMrbC3sUxqQQjYdWuy+y2VlkZ72n9Y8cGOcANOdr3ldw==
+X-MS-Exchange-CrossTenant-Network-Message-Id: 432e86e1-00e0-415b-1bb2-08deccc0e184
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR11MB7381.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jun 2026 22:36:32.4493
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: xUUzfoxCQsMvQZ1I0DuR+mmUJVpJyTbLOU3/JjFqemmR25Fi0QeD8ezU7lNrAG0BPT8INlBN+2ov7g8x3e7PaxPMXA5gHTN8I27h8iUM8PI=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR11MB8099
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260617_153628_734003_44D25AF2 
-X-CRM114-Status: GOOD (  16.65  )
+X-CRM114-CacheID: sfid-20260617_153636_539657_A37E3993 
+X-CRM114-Status: UNSURE (   8.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,46 +192,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
-
-Thanks for the patch.
-
-On Wed, Jun 17, 2026 at 03:50:12PM -0400, Frank.Li@oss.nxp.com wrote:
-> From: Frank Li <Frank.Li@nxp.com>
+On 6/17/2026 3:07 PM, Jakub Kicinski wrote:
+> On Wed, 17 Jun 2026 14:26:25 -0700 Jacob Keller wrote:
+>> It does claim that it has benefit since you get the error code emitted
+>> symbolically. But we have %pe for that. I wonder if dev_err_probe
+>> predates %pe?
 > 
-> Many V4L2 subdev drivers implement the same registration and media pad
-> setup logic for simple pipelines consisting of a single sink pad and a
-> single source pad. As a result, the same boilerplate code is duplicated
-> across multiple drivers.
+> I'd argue
 > 
-> Introduce a common helper library for 1-to-1 subdevs to encapsulate the
-> registration, media entity initialization, and cleanup paths. Drivers
-> can embed a struct v4l2_subdev_1to1 instance and use the provided helper
-> APIs instead of open-coding the setup sequence.
+>   No of match data provided: -EINVAL
+> 
+> is more confusing than just:
+> 
+>   No of match data provided
+> 
+> the EINVAL is meaningless and hardcoded in this case?
 
-I appreciate your efforts in trying to reduce the amount of code drivers
-need simply to get things done but I think there are a few issues with the
-approach taken in this patch:
-
-- The new helpers aren't generic enough, but require two pads; one sink,
-  one source. You could provide special helpers for just this case, but
-  right now it looks like that if there's something you need that the
-  helper assumes you don't, you can't use the helper at all. In other
-  words, more modularity would be nice.
-
-- The new helper should work with the existing types and not add new types
-  (struct v4l2_subdev_1to1).
-
-- There should be a way to provide default V4L2 fwnode endpoint
-  configuration as well as to validate the obtained configuration.
-
-I don't have a good proposal to address the above but at least one way I
-can think of making error handling easier would be to use devm_() for
-teardown in more places we to today. That certainly does have its own
-issues though.
-
--- 
-Kind regards,
-
-Sakari Ailus
+Yea, it is a bit more pointless with a hard-coded error.
 
