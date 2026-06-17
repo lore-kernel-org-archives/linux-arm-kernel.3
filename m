@@ -4,109 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C748DCD98E2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 09:14:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA883CD98EE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 09:17:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3ois7uJYLekKAQG+JspaUzPJU4OIUiESd+WUf3xjbcM=; b=JyUe/fJKR05JXtnk59iMDLLMZ3
-	X7QSZO4w5Gwao44qW1JujdqiexYJf8L2+qjbxR6Xv54APOyNYK+6ZfOK7e+2iDr4YbeRLXYEFc+yO
-	uW3VNoo83xMTm+BIdW80t4QNRmDHovQPxEe0dSd5MK/CG3/CVP1H0o2DJ9L1sgJOAcHfZuN51DiIl
-	WUWFmSDSBBaLoMnekN8ATbGEW/D1qJH5JQXcTSXiEf9RbKOzvKflErFbz19kc+dZAzUYAekVVRPci
-	5+X0WQsxR0LvsRllTH4Q0YV5m71JeTtq+y3R112gyq5cOVD4WNROhXMnAeuUv+iUGBG3/AYYGnDt3
-	eMO5hiqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZnXuxdsvCZXi+yhcRRlP0nnKlUJzsEw2xOj6/CVvJuY=; b=sUMbO7c7VXuP3+zJV10KtaRMSb
+	oI7FjSbVa6Z8oNQEeIhYSB1LqaN7rfqaIfPC9Bdqa7qpi1l3FLhs2I5MxpNvR4t3EMR9WetnuvKCV
+	v/d1XTEtjVIPRn6Y6ZOJT53cXXEP32S55+8DkwUKlCf+7OlF9JqYmL1ii8n77ps9Z72HmUioDixR8
+	JTXNgq81BTenNbAr7YjMrI0doQz+imxW1UXyxCJ/vXaAfptrZs6K6fGGDI/lZfHYYfagkDAFUXLya
+	rDU2WKC5pfUtY5jb7DkTiER1Pckphpdj9N7psHmAXSep7aVxTrUk5WMYPJ3Dw3c4E1pLYaa/iS2fc
+	Dg+NXdNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZmLK-0000000GwSv-0JGJ;
-	Wed, 17 Jun 2026 09:13:54 +0000
-Received: from mail-yw1-x1136.google.com ([2607:f8b0:4864:20::1136])
+	id 1wZmOi-0000000GwbZ-1w0p;
+	Wed, 17 Jun 2026 09:17:24 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZmLI-0000000GwSa-0fQk
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 09:13:53 +0000
-Received: by mail-yw1-x1136.google.com with SMTP id 00721157ae682-7e2f3646c10so62080447b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 02:13:51 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1781687630; cv=none;
-        d=google.com; s=arc-20240605;
-        b=YIHrSKSLHO84cF1ZtNYT1ZRq4YJoHDY5LAafoi8nKYjZz7dqY890g02DvsTjSyF3k2
-         QFthlugMoTDEiug3aW1QjVQXpv1h1cxwegNINwTfkJMuZptgNltJUHfC25MEhhwZOhVL
-         6KwiO8HMkpBkVjhH71Yb6YQWBRMQ2etTAS3H1FK+I5/C3o5E5WEEByEPS2gJUHsHLITA
-         HMEJhVJnCoS0vVa038e3/PDvo9NgK+H60JewplxbyqE8ZD1oKGp+KUhDBSRwzBvD/hCr
-         tIhVqU3d52JhX73BnZkzKjaQlXR3vHyDVdtmzXIOKWOqV/nCWRGgv8L/W7T6HLJdxSYN
-         /ZHg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=3ois7uJYLekKAQG+JspaUzPJU4OIUiESd+WUf3xjbcM=;
-        fh=Xp15ASsOvsXFQqoVaXQagCaHO5IUP6suz/I4y4T2MPA=;
-        b=KzL1mKE8rC0awxf4dMZzlYd7+KGJz+gcnVpL1PvgKZbvQZpsLHq0kSijYpqtIOtrAg
-         XtR3wjTDfk/+Z0+kcqbFtddjIZTCDYbAYBHSw5OEgPqfvIZS/d/kw2BVloOuZ07vzgkj
-         yvj6DTziQN8bMj2kLybdX6X6aNaxB/IX9R4leZx8G0T143AX6dYUmDY3vQTufldAPqWg
-         hyHFculXFM3eDRGiO/yQ/y+jPa4DsQmP86UPzSoY3vtIFeeWqb4qHIo7A9db5H7y4P4A
-         vDZDy3EKgyUUzS0t5zHXvWxtCwCEQgItx4yZ9Zr7sxVUM9cTQ1nHHekNuA3CmRPnbX2V
-         OE0g==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781687630; x=1782292430; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3ois7uJYLekKAQG+JspaUzPJU4OIUiESd+WUf3xjbcM=;
-        b=oTU4OSU5wnSnDyercD031CKv/t9cLGlYb97lP/1Z2cvrnqX1HHutOsrXhRQHKjKjMR
-         OZbpxY8idnXmnYGRBkxnmRuNkYAQ4ZIOUIQGMU5BNVlO/lLYzF50zUjMxXngrXLKIjGQ
-         o8DzCnn/znH0bRL2cJzsPesKK0jt3Fze00JQnsPbg93PTRUsa0u55Ume3x0Genu+/AYB
-         Hx0cl1KH/+VqyIAS0/KdlU295ICGCpuQ8ibUZeK3nTCyflh8OtSXhzvx/Sh/iIRIATDN
-         L96fFODJrl5u8nErWcrWQGdYRfEpWvglebK0x6Vmt8gKvbxy96eFx3wNMcrs2gxgQr6R
-         pq3w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781687630; x=1782292430;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=3ois7uJYLekKAQG+JspaUzPJU4OIUiESd+WUf3xjbcM=;
-        b=YH5MgLbJB+Xp9OwLqItGRyA4iHLt8tN5pFgoGtpoCRxgL9CsM/xvryBOAkz/xp+ajT
-         h4h9Kw9RRz0KY1BLGjJk1jubQT6eEOF1s5/K+Ojyr0XqP6lWDg4MLIHveER1Z2RSQWBm
-         +JcOQWmzTy00k6DouQkUWDVr2fsQSAQi94iptv4LK3umw5mIsWsbBG2mS73e2BMCOPI7
-         Jzo93DmIUp74nbLc3epjqJZmbKQMpa4EtR9uNSAZq8zqBMmAn1/ZdEr/toJYMnpSJnnQ
-         yDwS9YrZHmhLEc4dum1DJF3k3GzJ4ZSflC5wBhO0oLWX5EX4207qxAAri+geXeF9pAAL
-         OvNA==
-X-Forwarded-Encrypted: i=1; AFNElJ/Ika2ETqzan6urpmcF+q35n0F3E5zNgCiHrVc4GjPu6CufZmeizZq7FD7mRKMIAS25rKBYIm1yJF5pk22uJF8x@lists.infradead.org
-X-Gm-Message-State: AOJu0YxVx9kxUG30OgvlzAtvQOJF0QJKJFBTdkNehYlcXnUv2GtCZPfA
-	O4WkU+cCMfEYzN81W7CIjjXti1oFqHrBqdSrTg2ByCqBngbxkaO09fgwhEIwJKM++V14zVR8xUz
-	Upsq9RkW9k2c8qAPVf1Ks85tyLXVllOY=
-X-Gm-Gg: AfdE7ckUp+kG7Fqx1SBwM4nMMaONewpZRX1DWWZxZdWIGY/1b+FCqhjZmnI7MITceYw
-	HVM5FcMfUjwKF1p0CvvHMOHfK9Vr4BHsUdkPGk7GyxGZEaGKKsCCCVSK/YLJqfqefoJ4Qbk1AJY
-	HTIV+cJnRuMsT1EaCFcBUG65pIjshigRx/qEWn11V9e2nnAHqqbXhMmIF/EkT4qIwH2pVjm3/5y
-	lgIkBgHragSAIfImCLkr+Nv+euYqWfBjJF30nCrSlIituZP31PLxewNmx56qdWhwjcmRs6kpZmP
-	PaeeoOjdzjc3sT6g868qrEFt/EKR
-X-Received: by 2002:a05:690c:ec1:b0:7f8:7e31:28af with SMTP id
- 00721157ae682-7fe5e3949a6mr25687807b3.49.1781687630339; Wed, 17 Jun 2026
- 02:13:50 -0700 (PDT)
+	id 1wZmOh-0000000GwbM-2DB8;
+	Wed, 17 Jun 2026 09:17:23 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 89D27600AA;
+	Wed, 17 Jun 2026 09:17:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3B671F000E9;
+	Wed, 17 Jun 2026 09:17:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781687842;
+	bh=ZnXuxdsvCZXi+yhcRRlP0nnKlUJzsEw2xOj6/CVvJuY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Tc2o8afQpKiwso4i+pUMbegXm9w4FdsldOJEIycWlQuBKzvzKP/80uB25ERY7H9to
+	 rlTBV9HS2My1rfz+o5ejfrZv7pxmZVA/3VLl0xw+1VpT9WdMAaKAWs2fQlF642MRWp
+	 R0fZrndsiKF6U6XD4tFD/tYT8DBjO/HryBTGwlRuKeptvYqTlfyqRpuLmqBTa3OAwh
+	 9j9K164Ij7Ja+gPqjqgK4f0zErjFpRDU0dtYxFsvmZ3zYO7nwHGO0sOdRGvdsT3kqX
+	 /nGioXXdZFVhPWbAzswPyQ096Fsff7VYQk1V1GJ3Rz20/AAqQwlk9iPVEJZVPjwkyo
+	 zcJ2kCDF+XuZQ==
+Date: Wed, 17 Jun 2026 11:17:20 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Wayen Yan <win847@gmail.com>
+Cc: netdev@vger.kernel.org, nbd@nbd.name,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH net] net: airoha: Fix TX scheduler queue mask loop upper
+ bound
+Message-ID: <ajJmIIpju9P3oyne@lore-desk>
+References: <178166704952.2212140.11002626760717132754@gmail.com>
+ <178168650178.2224380.3950331731013129336@gmail.com>
 MIME-Version: 1.0
-References: <20260611104857.242153-1-guille.rodriguez@gmail.com> <ajJcxgVejqzlwo9A@zenone.zhora.eu>
-In-Reply-To: <ajJcxgVejqzlwo9A@zenone.zhora.eu>
-From: Guillermo Rodriguez Garcia <guille.rodriguez@gmail.com>
-Date: Wed, 17 Jun 2026 11:13:38 +0200
-X-Gm-Features: AVVi8CcpI0W5riwjaqmESRlTpsqx7BYL6KjvKyJMbak5WMtWwLSsdGYOX4x2Jls
-Message-ID: <CABDcavYH+=xrCA605me+6XrjV3QmVAqdfEmAC7SwFQBT4GHarQ@mail.gmail.com>
-Subject: Re: [PATCH] i2c: stm32f7: truncate clock period instead of rounding it
-To: Andi Shyti <andi.shyti@kernel.org>
-Cc: Pierre-Yves MORDRET <pierre-yves.mordret@foss.st.com>, 
-	Alain Volmat <alain.volmat@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	"M'boumba Cedric Madianga" <cedric.madianga@gmail.com>, Wolfram Sang <wsa@kernel.org>, 
-	Pierre-Yves MORDRET <pierre-yves.mordret@st.com>, linux-i2c@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260617_021352_231464_2CDE1F7F 
-X-CRM114-Status: GOOD (  21.29  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="VyUTMvxzWiaGc/iq"
+Content-Disposition: inline
+In-Reply-To: <178168650178.2224380.3950331731013129336@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,71 +71,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-Thank you everyone.
+--VyUTMvxzWiaGc/iq
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-A possible improvement would be to derive the clock period in
-picoseconds rather than ns and do all the timing calculations based on
-that.
-This would reduce the rounding error (from max 1ns to max 1ps) and
-help the solver find TIMINGR values closer to the target bus
-frequency, while still keeping both freq and tLOW within spec.
+> On Tue, Jun 17, 2026, Lorenzo Bianconi wrote:
+> > Even if the current codebase supports just AIROHA_NUM_QOS_CHANNEL (4), =
+the hw
+> > exposes 32 hw QoS channels (AIROHA_NUM_TX_RING). Here we are just clear=
+ing the
+> > configuration, so I guess the current implementation is correct.
+>=20
+> Hi Lorenzo,
+>=20
+> You are right that there is no functional impact, and I agree this
+> should not go to net. Let me explain the register layout I was worried
+> about, and you can decide whether it is worth a net-next cleanup or
+> should just be dropped.
+>=20
+> The two macros are:
+>=20
+> 	REG_QUEUE_CLOSE_CFG(_n)             =3D 0x00a0 + ((_n) & 0xfc)
+> 	TXQ_DISABLE_CHAN_QUEUE_MASK(_n, _m) =3D BIT((_m) + (((_n) & 0x3) << 3))
+>=20
+> REG_QUEUE_CLOSE_CFG() masks the channel with 0xfc, and the bit macro
+> folds the channel with & 0x3 (mod 4) shifted by 3. So one 32-bit
+> register holds 4 channels x 8 queues, 8 queue bits per channel:
+>=20
+> 	channel 0 -> reg 0x00a0, bits  0..7
+> 	channel 1 -> reg 0x00a0, bits  8..15
+> 	channel 2 -> reg 0x00a0, bits 16..23
+> 	channel 3 -> reg 0x00a0, bits 24..31
+> 	channel 4 -> reg 0x00a4, bits  0..7
+> 	...
+>=20
+> In airoha_qdma_set_chan_tx_sched() the loop variable 'i' is passed as
+> the *queue* argument _m, not as a channel:
+>=20
+> 	for (i =3D 0; i < AIROHA_NUM_TX_RING; i++)   // i =3D 0..31
+> 		airoha_qdma_clear(qdma, REG_QUEUE_CLOSE_CFG(channel),
+> 				  TXQ_DISABLE_CHAN_QUEUE_MASK(channel, i));
+>=20
+> Since each channel only has AIROHA_NUM_QOS_QUEUES (8) queues, the correct
+> logic is to clear the 8 queue bits belonging to 'channel'. With i running
+> up to 31 the BIT() shift instead walks past those 8 bits and into the bit
+> ranges of the other channels folded into the same register. For channel 0
+> the accumulated mask becomes 0xffffffff, i.e. it touches channels 1..3 as
+> well.
+>=20
+> This is harmless today only because REG_QUEUE_CLOSE_CFG is written
+> exclusively here, via airoha_qdma_clear() (RMW clear), and the register
+> resets to 0 and is never set anywhere -- so clearing extra bits is a
+> no-op. Functionally the current code is fine, as you say.
+>=20
+> The point is just the loop-bound semantics: 'i' is a per-channel queue
+> index, so the bound should be AIROHA_NUM_QOS_QUEUES (8), not
+> AIROHA_NUM_TX_RING (32). The two happen to be related (32 =3D=3D 4 channe=
+ls *
+> 8 queues) but mean different things.
+>=20
+> Since there is no functional change, feel free to drop this if you would
+> rather not carry a cosmetic patch. If you think the clarity is worth it I
+> can resend against net-next without the Fixes tag.
+>=20
+> Thanks,
+> Wayen
+>=20
 
-I wanted to keep this patch minimal to address the spec violation
-itself, and also to make it easier to backport to stable. The
-suggested improvement is a bit more involved, but I wanted to mention
-it in case you want to consider it.
+Sorry you are right, I misread the code, your patch is correct. Since as you
+pointed out REG_QUEUE_CLOSE_CFG() is actually never set at the moment and t=
+he
+default register value is 0, I would repost this patch for net-next as soon=
+ as
+it is opened (this will avoid merge conflicts).
 
-Thanks,
+Regards,
+Lorenzo
 
-Guillermo
+--VyUTMvxzWiaGc/iq
+Content-Type: application/pgp-signature; name=signature.asc
 
+-----BEGIN PGP SIGNATURE-----
 
-El mi=C3=A9, 17 jun 2026 a las 10:38, Andi Shyti (<andi.shyti@kernel.org>) =
-escribi=C3=B3:
->
-> Hi Guillermo,
->
-> On Thu, Jun 11, 2026 at 12:48:56PM +0200, Guillermo Rodr=C3=ADguez wrote:
-> > stm32f7_i2c_compute_timing() derives the I2C clock source period
-> > (i2cclk) with DIV_ROUND_CLOSEST, which may round it up. When the
-> > period is overestimated, all timings computed from it (SCLDEL,
-> > SDADEL, SCLL, SCLH) come out shorter on the wire than calculated,
-> > and the resulting bus rate can exceed the requested speed, violating
-> > the I2C specification minimums for tLOW and tHIGH.
-> >
-> > For example, with a 104.45 MHz clock source (e.g. PCLK1, the
-> > reset-default I2C clock source on STM32MP1), i2cclk is rounded from
-> > 9.574 ns up to 10 ns. Requesting a 400 kHz fast mode bus with
-> > 72/27 ns rise/fall times and no analog/digital filters then produces
-> > an actual bus rate of 415.6 kHz with tLOW =3D 1254 ns, violating both
-> > the 400 kHz maximum rate and the 1300 ns tLOW minimum of the
-> > specification.
-> >
-> > Truncate the period instead, so that it can only be underestimated.
-> > The error then falls on the safe side: the programmed timings come
-> > out slightly longer than computed and the bus runs marginally below
-> > the target rate (375.3 kHz in the example above) while meeting the
-> > specification.
-> >
-> > i2cbus is left rounded-to-closest: it is only used as the target of
-> > the clk_error comparison and is never multiplied into the programmed
-> > timings, so nearest rounding remains accurate there.
-> >
-> > Fixes: aeb068c57214 ("i2c: i2c-stm32f7: add driver")
-> > Cc: stable@vger.kernel.org
-> > Signed-off-by: Guillermo Rodr=C3=ADguez <guille.rodriguez@gmail.com>
->
-> Merged to i2c/i2c-host.
->
-> Thanks to Alain and Pierre-Yves for their review!
->
-> Andi
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCajJmHwAKCRA6cBh0uS2t
+rFNyAP9PkgQvfxp6CioRi0IbaYkDxw09bkje9eUMjIyNtTw65AEAnUSecAOlA8Ng
+x0S8I6Vr7K3l5fdREJxsd22doNsKKwY=
+=kBNZ
+-----END PGP SIGNATURE-----
 
-
-
---
-Guillermo Rodriguez Garcia
-guille.rodriguez@gmail.com
+--VyUTMvxzWiaGc/iq--
 
