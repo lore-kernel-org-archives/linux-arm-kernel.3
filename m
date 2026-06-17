@@ -4,74 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22418CD98F1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 12:42:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41714CD98F0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 12:44:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=shMcTxpz7Iae4CMErv9/x2nY1BGPOVWbdpSfFAc09vY=; b=C6XGZRFACPDqWXzfuEm3UHpXoZ
-	yX57KfmqUl8hBEWB6jnwpjSwTLSw1Nn9r3/Vsftfo/SGYIwdizbs9W+Clx6fWpR5IeyIuEswTPaoz
-	l49OFtyK/IREgcUfZMi7GDcKOclOIrZjnN4eIqzA+k/YKiEEJCrYwJJFnN7oLnLRNjSAXKijS6lcC
-	PP1nil+vin/oDlIBiFCY2A4NkGmBHXiEf5bws0Gbo7XuzM7UvvcI5dMxfHC7FAdrf5TriPOFxUigd
-	L9AoZH17NkSp4SaFYHTAzGHeFvTKPOHVjBBgwTy3eoJZE1pK6agsS7L5CX54/ooIgyWl1iIi6jj3R
-	qFaBdOTg==;
+	bh=qtZpg6+SNfqVKkCzu8nevfRevHrYlcFg9kiIrAq1Sj4=; b=FzjRa+LNxZnRwrOgZSqk7pKR9B
+	0FYR91QD0E0/w4sqgOKgfPCwU6wmEbEQRKqJDmpATvvKdLosP2HS1qHDLvsss91r3QNiBXrb6WY4O
+	kxH319OsuD0dyqcxEzQmnsu9zr7B6hzWCPBAI1cE/im+A3Ii7kl19iR42TEhVByMbtcnncBqxLQi+
+	UgxJvy0skZ4RsqOOO9fjNY/4gPZ98+1xGwWiiS5QW2JbSDWp6J9+d/JTE+n5tCZnG8p6Xhuj+bHaf
+	mxYXd7I9TXsEMhTsDK3GUTiDX2JyCORVtMBDONWRCNODdaqy3k7QPhhr3IAPW+t7Yx/YTnwHlUsHi
+	yGJHCHIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZpas-0000000HMFi-0rPJ;
-	Wed, 17 Jun 2026 12:42:10 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wZpdD-0000000HMUl-38l0;
+	Wed, 17 Jun 2026 12:44:35 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZpar-0000000HMFV-0Ou9;
-	Wed, 17 Jun 2026 12:42:09 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8175D40945;
-	Wed, 17 Jun 2026 12:42:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 643E41F000E9;
-	Wed, 17 Jun 2026 12:41:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781700128;
-	bh=shMcTxpz7Iae4CMErv9/x2nY1BGPOVWbdpSfFAc09vY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Im0bG8AmD3bgsJUqZdYGdopEe5rvENwOqhRGA6LfcbikFOn2YUPQXBJWxsK3aAa3F
-	 IKOG49MBRGBJ1Mar6LZ2Kju1FxOKtyMrE//+MnE4N9/Z71fGW3gauigkbzrv2V1kZP
-	 1FNp162R2Z9QvBsI+njynVaaI0fNfgYS5ai3uG8OmNg5itH6o2+k7segaCwH+SbOb5
-	 zOcIdHYuAFv7ORTp8+4nDfybUyv7DTPv3xm7a9kUQ+vj1V5p2XZfw7CYh7IqwWcWUs
-	 ypezZIGEaKxUJ1MkpzhGlNdEe4jZuo9Q/Bc1arqIHR5rd7H/I68vBRL6fPgiqclkJT
-	 0u72NIrlwde9g==
-Date: Wed, 17 Jun 2026 14:41:54 +0200
-From: Christian Brauner <brauner@kernel.org>
-To: Vincent Mailhol <mailhol@kernel.org>
-Cc: Jens Axboe <axboe@kernel.dk>, Davidlohr Bueso <dave@stgolabs.net>, 
-	Alexander Viro <viro@zeniv.linux.org.uk>, Jan Kara <jack@suse.cz>, linux-kernel@vger.kernel.org, 
-	linux-block@vger.kernel.org, linux-efi@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
-	Richard Henderson <richard.henderson@linaro.org>, Matt Turner <mattst88@gmail.com>, 
-	Magnus Lindholm <linmag7@gmail.com>, linux-alpha@vger.kernel.org, Vineet Gupta <vgupta@kernel.org>, 
-	linux-snps-arc@lists.infradead.org, Russell King <linux@armlinux.org.uk>, 
-	linux-arm-kernel@lists.infradead.org, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, 
-	WANG Xuerui <kernel@xen0n.name>, loongarch@lists.linux.dev, 
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, linux-mips@vger.kernel.org, 
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, Helge Deller <deller@gmx.de>, linux-parisc@vger.kernel.org, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	linuxppc-dev@lists.ozlabs.org, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	linux-riscv@lists.infradead.org, Heiko Carstens <hca@linux.ibm.com>, 
-	Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, 
-	linux-s390@vger.kernel.org, Thomas Gleixner <tglx@kernel.org>, 
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, Jonathan Corbet <corbet@lwn.net>, 
-	Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org
-Subject: Re: [PATCH 00/19] init: discoverable root partitions, a.k.a. an
- omittable "root=" cmdline option
-Message-ID: <20260617-irritation-rollen-wirst-7d636cbfec92@brauner>
-References: <20260615-discoverable-root_partitions-v1-0-39c78fac42e2@kernel.org>
+	id 1wZpdA-0000000HMTx-34qv
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 17 Jun 2026 12:44:33 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-36babe2c4bdso3514029a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 05:44:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781700272; x=1782305072; darn=lists.infradead.org;
+        h=mime-version:content-transfer-encoding:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=qtZpg6+SNfqVKkCzu8nevfRevHrYlcFg9kiIrAq1Sj4=;
+        b=B0KVcj+nxG1LqVn8mJCEy56RSkjEKL8nHiHsom51Svo7zpucaZRrhBSa6jMuG3UtUX
+         Q/a32y8v7Ti4fZFiDVtqf6Zxrb6B1vmaEaeautmZIUSYEfX6sWdRNqEAi2YyOabbgcrU
+         qocwampiHZHTG//8HAcX1etvUj1zSe4+c+mxCXTLJ5LQLinIoCzEltA1uu3gSzolcb6H
+         yB0udEZME2JBJ52b8wQ4WEgfeVy0i8DoeY5AqRg5MFiSPcxxiWYTvsZNpFlNAUDZNvtv
+         TUBvI2RSz1wzlyQ+k+F6xGgdms7NNuVkEWNPNOx66pGM1FIjg3g8ou893XnAmWp7XRAs
+         tQgQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781700272; x=1782305072;
+        h=mime-version:content-transfer-encoding:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=qtZpg6+SNfqVKkCzu8nevfRevHrYlcFg9kiIrAq1Sj4=;
+        b=oXoRzXf+2RPuGIwAgPi6TIvw/Nl+/KV0jwEaD/YTcKb6QkStl7vUMlBNKJpj1ZWJJq
+         WOcd9KZMDxUYo52BynkADC8OVrXrrccAgfRckWns6NaeX5WNmwdQ5P4kZEujugKtjIhg
+         t/2LL5olkW+fERMxgEGLwYoLy2jtiwtqzma9MMcrlBO9FhQ3h1Q7jBmTbam8HCuLOtbX
+         wDZGQMRCkH9gQFjnFMZPHOd5aaZmI43AJ362oNuuJYK2Pimw9grTdLZkSNRnSKBz36KH
+         Bqj5JlHHenZG7FDhhdiaW4RJnx0BKcq4NDjlR3L87Mjf+e0elidqMBFqN0YLPL4PZfyh
+         05Jg==
+X-Forwarded-Encrypted: i=1; AFNElJ8WBHjtQRT4Q1fFHRfZP7bSSAmpIyq4P12zOiKEkCpdVBffGwOOWBQF2ltOypGxjA4OlCMka5il2TxgGuY85gJd@lists.infradead.org
+X-Gm-Message-State: AOJu0YzH+IpT0HwK7M4mDtHrQmsPqctZgILQS0QUtAuqCiWiQQ7hkDPc
+	XRz44OaS1WizXA7wuWgy1TdscFWolLxV1bpJ1lI4Gd9vm8ir5cHCEdZc
+X-Gm-Gg: AfdE7clohAWdmMpZKWheo2uSUMG+Xa/QK3BSojj6mifNetk5IPExSDmrmJBwB+hzlVr
+	e0DYbdkNa+KyvW5/cxNsJnfo9arzp1RqYoQbY7U1tp+IFLZ7FiwII0/sXD+V6SpG6DHI0uUla7n
+	ejwXDSRQG9eDYcPwSYW3qenHuR72zhlXG9iudBt7kmvgdi//gtKGoewkkffWsR1xrzFYPAKOgWM
+	XV3ZVIdV1b5Tr8n3JHDTLTN+RDYR2zPfePElNiv+pBr3io7kPo3ec04cRp4vfb6BmYkqa11KmWS
+	b5BMs70Z8rCcjrntx8QDy2GzDKxprVtEwMqD/FyQu8KTMiIGEPbi/zLsPYjj+w5pdEP9yIcKSNo
+	Wh5qZ4ihTQPEMVUo6prqpDTh8wQCVv9WF5/c479dyhO6JXEIcTL97t+w6v3wGPZ8ymi7jtesYtI
+	vHUtHxEVav
+X-Received: by 2002:a17:90a:7347:b0:36b:b4a1:2939 with SMTP id 98e67ed59e1d1-37c9366b4d2mr2876234a91.15.1781700271792;
+        Wed, 17 Jun 2026 05:44:31 -0700 (PDT)
+Received: from [127.0.1.1] ([58.240.122.156])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-37c521ae78csm5987071a91.4.2026.06.17.05.44.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 17 Jun 2026 05:44:31 -0700 (PDT)
+From: Wayen Yan <win847@gmail.com>
+To: netdev@vger.kernel.org
+Cc: lorenzo@kernel.org, horms@kernel.org, pabeni@redhat.com, kuba@kernel.org,
+ edumazet@google.com, andrew+netdev@lunn.ch,
+ angelogioacchino.delregno@collabora.com, matthias.bgg@gmail.com,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v2] [net] net: airoha: Clean up RX queues in airoha_dev_stop
+Date: Wed, 17 Jun 2026 20:44:26 +0800
+Message-ID: <178170026659.2238511.17652659042899875248@gmail.com>
+In-Reply-To: <178161160256.2165161.14322392784449633554@gmail.com>
+References: <178161160256.2165161.14322392784449633554@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260615-discoverable-root_partitions-v1-0-39c78fac42e2@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260617_054432_793638_022B7C61 
+X-CRM114-Status: UNSURE (   8.10  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,35 +101,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 15, 2026 at 06:08:56PM +0200, Vincent Mailhol wrote:
-> DPS [1] defines GPT partition type UUIDs for OS partitions and
-> attributes that control whether such partitions should be
-> automatically discovered. The specification states that:
-> 
->   The OS can discover and mount the necessary file systems with a
->   non-existent or incomplete /etc/fstab file and without the root=
->   kernel command line option.
-> 
-> DPS is already implemented in systemd-gpt-auto-generator [2], which,
-> when embedded in an initrd, indeed allows automatic detection of the
-> root filesystem through its partition type UUID.
-> 
-> This series adds this discovery feature directly into the kernel so
-> that people who are not using systemd or not using an initrd can still
-> benefit from it. The implementation follows the same model as
-> systemd-gpt-auto-generator:
-
-I happen to co-maintain the DPS. It is userspace policy and complex
-userspace policy at that and does not belong into the kernel.
-
-This also implements a really tiny portion of the spec. It deals with a
-lot more complex concepts such as automatic partitioning during
-installation, verity, LUKS, containers. This is really not intended for
-the kernel at all. I mean, it's great that this spec is being used but I
-do not want this in the kernel just for the sake of auto-discovery.
-
-The DPS is completely generic and can be implemented by tooling other
-than systemd (util-linux implements it and so does refind iirc). I think
-not wanting to use or build alternative userspace tooling for this is a
-really weak argument for pushing this into the kernel.
+VGhhbmtzIFNpbW9uIGZvciBmb3J3YXJkaW5nIHRoZSBBSSByZXZpZXcuIEkndmUgcmV2aWV3ZWQg
+YWxsIHRocmVlCmNvbmNlcm5zOgoKIzEgKE5BUEkgcmFjZSkgYW5kICMyIChSWCByZWZpbGwpIGFy
+ZSB2YWxpZC4gIzIgaXMgdGhlIGRlY2lzaXZlCmlzc3VlOiBhaXJvaGFfZGV2X29wZW4oKSBoYXMg
+bm8gUlggcmluZyByZWZpbGwsIHNvIGRyYWluaW5nIHRoZQpxdWV1ZXMgaW4gc3RvcCB3b3VsZCBj
+YXVzZSBSWCBzdGFsbCBvbiBuZXh0IG9wZW4uIFRoaXMgYWxpZ25zIHdpdGgKTG9yZW56bydzIGVh
+cmxpZXIgZmVlZGJhY2sg4oCUIFJYIHF1ZXVlcyBkb24ndCBuZWVkIGNsZWFudXAgaW4KZGV2X3N0
+b3AoKS4gSSdsbCBkcm9wIHRoaXMgcGF0Y2guCgojMyAocS0+c2tiIGxlYWspIGlzIGEgcHJlLWV4
+aXN0aW5nIGlzc3VlLCBub3QgaW50cm9kdWNlZCBieSB0aGlzCnBhdGNoLiBJdCBleGlzdHMgZXZl
+biBpbiB0aGUgbW9kdWxlIHVubG9hZCBwYXRoCihhaXJvaGFfcWRtYV9jbGVhbnVwKCkpLiBATG9y
+ZW56byDigJQgZG8geW91IHRoaW5rIHRoaXMgd2FycmFudHMgYQpmaXg/IEEgb25lLWxpbmVyIGlu
+IGFpcm9oYV9xZG1hX2NsZWFudXBfcnhfcXVldWUoKSB3b3VsZCBjb3ZlciBib3RoCnBhdGhzLiBP
+ciBpcyB0aGlzIHRvbyB1bmxpa2VseSB0byBtYXR0ZXIgaW4gcHJhY3RpY2U/Cg==
 
