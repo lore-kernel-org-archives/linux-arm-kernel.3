@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E318DCD98E4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 14:52:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEB30CD98E2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 14:52:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CQFj/8TPJyuneEGc/c18D84EbHbY3hzTyS99LAP/4do=; b=q84iJCIRxrCNULHjEGU8inRuB4
-	tZGSZ4TpOi7QtphkbmJtaqZHolQe9F4mlt9MHNv+gQX0SVhj8vtpYNanwDlH7ctBwSpDQmTnBzhvd
-	pxm3AijoLwMQQpamqY+CVEsWhJpMLEKfAQMY5ZXsJcM1G3gLqmNXHmWvunxNGVYz6lFmi7WAp+lSj
-	VDWd8LcqccGxCVN81gJp+SR11zMM5kL4rVCuGz7ieJPfHO1V3Qw0UTKwcBJ5mQZFXTtEGux93elH4
-	lMANcNLTrzP6mC3szPY/qu4y0r6Tw4ahwA/rw9ujDstDD7jCvzHqjuZWRBJJaFS8f/DxWEDpAVNIx
-	HLmQ4YqA==;
+	bh=Aw1QEoh+UiZ5XFZdVoOucXmJoUZRDixdHeCpCeuLYa8=; b=MJZpkeHP2DPVnVG86mUcBVqpwa
+	EyiAPOCJUJHLOs4Fx70mktRU3jrdtEtCo4uMi3Tcu0P8ZNxLBkGVqaAGrGeNxFIc58ysUZcz9uWva
+	5sArk2ifZTu8iiwfRwsMhsgdM0DzVZcymLPtAYfo2hAuzqyJHpPDuLClcbrY6ZCJmN4NbHjXiDKnk
+	JZomsoG0bMqWttr1S0O6D8zfgLEz4MSkaN0tNcpEajZaJLCWavOhXhxEdyOCmDzLyg38qtV1//4t8
+	Q+bOY2s5Wd9EyI4c2hZfjVNhqDRsYMJQTSwbyJkkVgsq/MRfjTVnOW1CpURC9AuOffAGBkBtTg8Em
+	nwxtfqOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZrcT-0000000HVHS-0qyC;
+	id 1wZrcT-0000000HVI5-1lHw;
 	Wed, 17 Jun 2026 14:51:57 +0000
 Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZrcL-0000000HVC7-1Di6
+	id 1wZrcP-0000000HVF2-1z9S
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 14:51:50 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-490ae461f8dso44676405e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 07:51:48 -0700 (PDT)
+	Wed, 17 Jun 2026 14:51:54 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-490c4f61a34so40255795e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 07:51:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781707907; x=1782312707; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1781707911; x=1782312711; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=CQFj/8TPJyuneEGc/c18D84EbHbY3hzTyS99LAP/4do=;
-        b=gyhGyCjVMT+8v9la1nVnlIPL6dRX/VlFPn+VunHS+Z1/Ow1oUp8q/QqS1RPqrbkNbL
-         Q58a9y5IVGD2nwEJ3iH9v6UTumutNIMxfaEWk0iVSwkTngp99QmvC9+Mkk+AuBq0UfH/
-         3ucxBdfcbPwm22/cIVFjli6X/UBI1RnoqpatBMJc7hP9u5DglO/bBxLHVH/xp5hymxcm
-         Z9ge0VOtfDF+XGk5Aa57H+BggdidFl7fl3m5WlMrZ81b4qy1ds/uFSDfmLRx9mJ318hG
-         vsDtfx06wjPHmafwJLowdTIN6YLKfljPfw4wIozJVnfbEP/I3eyvyCYNwDE3p2zka/T9
-         ZvwA==
+        bh=Aw1QEoh+UiZ5XFZdVoOucXmJoUZRDixdHeCpCeuLYa8=;
+        b=G7ZwNOlRYUepHye1KEFq9wsbZSa87KIfNQ5BoJvdCPR6HWvJz8sUMMhQN7yn33zpYx
+         t0Q9XTUyvuNPlVEJ4ZRqQPeYTv7RROEnNTS0WJq2trhK0WFTWloUkPL0g46Ldbf+wOud
+         9GGsRCe3jsq/w+Z2TwR2fZqZ7YRXiSalwkZnrCeyLWzUN5P6LtIf+YVFU1MuEp3zQHcm
+         Vrjvdf5IqBdgGY/vuajc9X4SR3RW7esoB44HYiZW1SvnwGcSIYe6jQ9GYPlW+MhXCy9C
+         RUuvyo0bLcu2l0uid5O6HJQpwjLZ11sLqGS3ruQjM5NG3fUrv0mY0fyMKcw11cGuAcpy
+         7X0A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781707907; x=1782312707;
+        d=1e100.net; s=20251104; t=1781707911; x=1782312711;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=CQFj/8TPJyuneEGc/c18D84EbHbY3hzTyS99LAP/4do=;
-        b=UapETAWeT6cMVuZRyOWB0aTvFERCXHHkYkXn6MmSuEzK7oaGGioYJ/srYT39xF09/Y
-         4rTBG/B/aJhxWGurdDkpYo9or8+lKbnf5J0g1HQFyLYe7M7YadzyKufJljuya66QXnwm
-         CeiMx5lzUHGxvmIwcQKjExWnkwPppLYiHfVtFoA7WQiB62xLxBap6EaDzfmlJsMK2lwN
-         JzTjNJmt0TJOB3tKL7mE8Wps/5T5yvI9WV5JHuo/hfMXxQc7X//1uYsbV+XyXgj1ZIZF
-         Gr9k7OhVkr4sgtpOcQm0eXHS4qGC0fcJeL8qCFc8SE8qzXcfjZVABlaiiJVHnp8a6oor
-         AJtA==
-X-Forwarded-Encrypted: i=1; AFNElJ/yLRTXe2iOMi53MXZ4FmL8TehDDF//RC7zuxCVLZCD+wcfKv638KuXs/BDbzIp2haEq91eqLmujv4YkZTnzZ70@lists.infradead.org
-X-Gm-Message-State: AOJu0YyhDb5R3MmKbiRJMLIixZN6S9bR36zmLBISqY9X8NGKIEHcai/t
-	W991mJjuDqnst+2u0m3Y5Ivqe6Gim5wxZwmjXA8i4RT05Ly6u211JDPPf65Nb+IgHsTlChw70a5
-	s1thmOHcdugCf8XgKmrI7qJ0B6ZLgtg==
-X-Received: from wmbju24.prod.google.com ([2002:a05:600c:56d8:b0:490:b18a:b4e2])
+        bh=Aw1QEoh+UiZ5XFZdVoOucXmJoUZRDixdHeCpCeuLYa8=;
+        b=R3pjlcsO0Fqf/Tj0rh8mfuS00sLbpYrzCbxJf6EIukXWaImv//2f7YXMggQIXX8vZP
+         LSh7MQAmkaViqkVmqDZDqxfe5K7Mg/YpJBV7kLrC3TUVhKkfaQVI3HhPjNARIgTBWYV0
+         THxkTCUChW9ohGliHEisncKMI8pkKHhFgHhwcXLcsbV8fUQdcdMgBuEQ6GV51saYAsrh
+         Yd9iIW0diamY8L0udJwDh0S4+k1FqKm/Dhab8pMLGGJNcMe2ZuyOWZSC71rhZyhwkHgr
+         eYNO+o+9mJOqlOVYaw3DX0jVnKp40Z8ytfSJzL0ORXGjkzjwbjY/+pGIft74QBTDujZ0
+         TY8A==
+X-Forwarded-Encrypted: i=1; AFNElJ++ze2oN/ahOeaVKDuxgepMwMl5JuPkQCVlNDr4hyhl0L4mgYgYOCffpNUk/BnvrfQ6enoq1J5/lmTibH47fOAs@lists.infradead.org
+X-Gm-Message-State: AOJu0YxHW8KxCvJt+zQMNjHPP1lMEEGQF94zzULlvN4japQZS6NWNNGD
+	ByfnEwxhKps1ehyuGVnvqzE+c3MZ3fgxtxSGZE2AXO6P560Sk9AwYghcjiHORKMyy2rnL55/4Pe
+	C/GzvwLAmlKBvRR39R1zNL7KfrziWzQ==
+X-Received: from wmxb4-n2.prod.google.com ([2002:a05:600d:8444:20b0:490:4477:50d3])
  (user=sebastianene job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:828e:b0:492:2e7a:9ba7 with SMTP id 5b1f17b1804b1-4923339fca0mr74090555e9.3.1781707906450;
- Wed, 17 Jun 2026 07:51:46 -0700 (PDT)
-Date: Wed, 17 Jun 2026 14:51:27 +0000
+ 2002:a05:600c:3148:b0:490:b5d0:598e with SMTP id 5b1f17b1804b1-4923412f0e7mr58923595e9.21.1781707910745;
+ Wed, 17 Jun 2026 07:51:50 -0700 (PDT)
+Date: Wed, 17 Jun 2026 14:51:29 +0000
 In-Reply-To: <20260617145130.3729015-1-sebastianene@google.com>
 Mime-Version: 1.0
 References: <20260617145130.3729015-1-sebastianene@google.com>
 X-Mailer: git-send-email 2.54.0.1136.gdb2ca164c4-goog
-Message-ID: <20260617145130.3729015-5-sebastianene@google.com>
-Subject: [PATCH v7 4/7] KVM: arm64: Fix bounds checking in do_ffa_mem_reclaim()
+Message-ID: <20260617145130.3729015-7-sebastianene@google.com>
+Subject: [PATCH v7 6/7] KVM: arm64: Ensure FFA ranges are page aligned
 From: Sebastian Ene <sebastianene@google.com>
 To: catalin.marinas@arm.com, oupton@kernel.org, sudeep.holla@kernel.org, 
 	will@kernel.org
@@ -78,8 +78,8 @@ Cc: jens.wiklander@linaro.org, joey.gouly@arm.com, kvmarm@lists.linux.dev,
 	yuzenghui@huawei.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260617_075149_344869_E31F10A7 
-X-CRM114-Status: GOOD (  15.55  )
+X-CRM114-CacheID: sfid-20260617_075153_523316_5F8E549A 
+X-CRM114-Status: GOOD (  13.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,65 +96,46 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Mostafa Saleh <smostafa@google.com>
 
-Sashiko (locally) reports out of bound write possiblity if SPMD
-returns an invalid data.
+At the moment we only check that the size of the range is page
+aligned, and truncate the address to the page boundary.
+This make an assumption that TZ will do the same.
 
-While SPMD is considered trusted, pKVM does some basic checks,
-for offset to be less than or equal len.
+However, it might decide to use the extra offset of the neighbour
+page at the end, which is valid under FFA if NS is using larger
+page size.
 
-However, that is incorrect as even if the offset is smaller than
-len pKVM can still access out of bound memory in the next
-ffa_host_unshare_ranges().
+Harden this check by also checking that the base address is aligned
+and reject it otherwise.
 
-Split this check into 2:
-1- Check that the fixed portion of the descriptor fits.
-2- After getting reg, check the variable array size addr_range_cnt
-   fits.
-
-Also, drop the WARN_ONs as that will panic the kernel and in the
-next checks there are no WARNs, so that makes it consistent.
-
-Fixes: 0a9f15fd5674 ("KVM: arm64: pkvm: Add support for fragmented FF-A descriptors")
+Fixes: 436090001776 ("KVM: arm64: Handle FFA_MEM_SHARE calls from the host")
 Signed-off-by: Mostafa Saleh <smostafa@google.com>
 Signed-off-by: Sebastian Ene <sebastianene@google.com>
 ---
- arch/arm64/kvm/hyp/nvhe/ffa.c | 12 +++++++++---
- 1 file changed, 9 insertions(+), 3 deletions(-)
+ arch/arm64/kvm/hyp/nvhe/ffa.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-index 1af722771178..2d211661952e 100644
+index 1a2abd0154c6..d7c5701d0584 100644
 --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
 +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-@@ -607,8 +607,8 @@ static void do_ffa_mem_reclaim(struct arm_smccc_1_2_regs *res,
- 	 * check that we end up with something that doesn't look _completely_
- 	 * bogus.
- 	 */
--	if (WARN_ON(offset > len ||
--		    fraglen > KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE)) {
-+	if (offset + CONSTITUENTS_OFFSET(0) > len ||
-+	    fraglen > KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE) {
- 		ret = FFA_RET_ABORTED;
- 		ffa_rx_release(res);
- 		goto out_unlock;
-@@ -636,11 +636,17 @@ static void do_ffa_mem_reclaim(struct arm_smccc_1_2_regs *res,
- 		ffa_rx_release(res);
- 	}
+@@ -352,7 +352,7 @@ static u32 __ffa_host_share_ranges(struct ffa_mem_region_addr_range *ranges,
+ 		u64 sz = (u64)range->pg_cnt * FFA_PAGE_SIZE;
+ 		u64 pfn = hyp_phys_to_pfn(range->address);
  
-+	reg = (void *)buf + offset;
-+	if (offset + CONSTITUENTS_OFFSET(reg->addr_range_cnt) > len) {
-+		ret = FFA_RET_ABORTED;
-+		ffa_rx_release(res);
-+		goto out_unlock;
-+	}
-+
- 	ffa_mem_reclaim(res, handle_lo, handle_hi, flags);
- 	if (res->a0 != FFA_SUCCESS)
- 		goto out_unlock;
+-		if (!PAGE_ALIGNED(sz))
++		if (!PAGE_ALIGNED(sz | range->address))
+ 			break;
  
--	reg = (void *)buf + offset;
- 	/* If the SPMD was happy, then we should be too. */
- 	WARN_ON(ffa_host_unshare_ranges(reg->constituents,
- 					reg->addr_range_cnt));
+ 		if (__pkvm_host_share_ffa(pfn, sz / PAGE_SIZE))
+@@ -372,7 +372,7 @@ static u32 __ffa_host_unshare_ranges(struct ffa_mem_region_addr_range *ranges,
+ 		u64 sz = (u64)range->pg_cnt * FFA_PAGE_SIZE;
+ 		u64 pfn = hyp_phys_to_pfn(range->address);
+ 
+-		if (!PAGE_ALIGNED(sz))
++		if (!PAGE_ALIGNED(sz | range->address))
+ 			break;
+ 
+ 		if (__pkvm_host_unshare_ffa(pfn, sz / PAGE_SIZE))
 -- 
 2.54.0.1136.gdb2ca164c4-goog
 
