@@ -4,91 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1383CD98F0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 03:00:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D394CD98F0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 03:06:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A49POi8nN3oUd1qpWc6mG922Z/E7Nqb7ymDT6hWk3jg=; b=EUIGbh2YbAtMZTKgp7NdILdkLX
-	hSFrHA4TlbLp4gNI1fl/WljaPJ7U4Z8EhddNfOcBBHULNerLQRZ1QSXWPMmFskUxVfgmnZs/vTmdi
-	eoZ+GWEEHy7JDRcoaDD/0vhyTPcNWFVxyfj9bPsgLKavMst91+Lfbhw5y5vd7429PYV+RQBFrKqbB
-	TjbWdRjewjwm+OYz3RQwO1Rs8jhtPaiLdmVROB8EeTgfM8mwJBwCOMv5zbIAv6fFmfrBrLEecrJ0+
-	ky02Y6iH7CNTcJa7onu76KxX0rcObqeQxGZ27gTy4dKQso3yU81PTI4WeEjDNnHUx2kCA8EthIGc9
-	2Xra/uWA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=TBin7H0Wt7Oi8P0z8wsZgQQjqhBwvW2vxMHjxdsEcyI=; b=d9vMlEYQckI91xRv2XD/+aGlhj
+	gmRYHll6pfHYYatGJXGvlsGWm5Ev7aJ5/5nkuVTPi+clqxLtGcLlM9b6CdGSLzKP8SFYL950p4svv
+	izahxpu6HfrJhrkSraQ2TLoIkg0OhPIO0dgcGMRtUdpPxyndiVSbHj6kHtw7hQZ9hc0Pp3MYDNlKx
+	Br9WjhVGmLQ1EzJI1hDRZRMDzw+jRk6rKur70DqITyeXhcsnhH87Zi5aTMZx3ASxOr/FTdzeZx1Ef
+	kK2s7m1l0ZcPDm1fzGqDbpbm1Zdxqf+sa3tcHK+k3cuPA/rBluBIKcd73jhv/YyzD12PlJ5iWi/BM
+	nHE0IhJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZgWG-0000000GXVL-1cRo;
-	Wed, 17 Jun 2026 03:00:48 +0000
-Received: from mout-p-202.mailbox.org ([80.241.56.172])
+	id 1wZgV5-0000000GXBE-2bSh;
+	Wed, 17 Jun 2026 02:59:35 +0000
+Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZgWD-0000000GXTH-18JX
+	id 1wZgV2-0000000GXAp-42RV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 03:00:47 +0000
-Received: from smtp1.mailbox.org (smtp1.mailbox.org [10.196.197.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4gg7s62ZFQz9ts2;
-	Wed, 17 Jun 2026 05:00:42 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1781665242;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=A49POi8nN3oUd1qpWc6mG922Z/E7Nqb7ymDT6hWk3jg=;
-	b=klJcQpJNfBMEGKfRMFkwxDnRI1n6yL/PIoupEcDNODaGG6GDVdirECl/mxnrnRsJRGTT1k
-	4dhyNNiC3N6BjzV+qd/Iw3wvICnjdYufGX54fXxMYSu2DS7/QC4treo4wBbSAFTvQB7YGl
-	OWuBNk44Sklz+G9A+O04bzGTLYGAfjGQF2bTg6MRujBIq32mBL++6oAly9nkyYuRihLNkb
-	K3Bpm32jFwgO+zLgjf+ny69V9ab33f7LymcHDauZ8bTXSqV3Dt/JfEzhVjeVOG3WQJfLqw
-	phiskJDD/rfuExY2abQsFUVd5yJecBypgx5WJX6eRfLZOBcDGjUjtOC67rNhDA==
-From: Marek Vasut <marek.vasut+renesas@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1781665239;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=A49POi8nN3oUd1qpWc6mG922Z/E7Nqb7ymDT6hWk3jg=;
-	b=nmQbOUcBEjjTcO4Iqp0im9tT48Uwjt9F3IyhprPrpajvKPrzepGsd2XdmGi3E1PSuCgivi
-	djleLbd7uro7a75NwLX22YsTFUgZMdzZRmXa5sG5rzOxoEc6+yVwR5i4aUorLU6zqGyWq6
-	rIBnylIN9+6v4DOqQeRIgQr6DBjgAyf2UWog09pt7/l1VYQ8fZAlm7UaHnSgNCkH+G7gU6
-	ZErPgCE1ZafoSg5e6Lnvxp9hmKqdZnpCrtWh1PMX/XddON404fT0gi4f5DYaTgrJh6l0W8
-	2en+FIR3BrncLSOzgX3NZc7Gjl3olwq6yuUq7hN5d4CGfw2liNnTmW0sO7g87A==
-To: linux-pci@vger.kernel.org
-Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Rob Herring <robh@kernel.org>,
+	Wed, 17 Jun 2026 02:59:34 +0000
+Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-842848fd613so4527986b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 19:59:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781665172; x=1782269972; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=TBin7H0Wt7Oi8P0z8wsZgQQjqhBwvW2vxMHjxdsEcyI=;
+        b=EV35SucQ74Hre9eXucqx2mTzb8C4imdMkFgSReFtcbIzkGzgljmwFV9ofP9qIFbjML
+         HUAvSpEDXfUH7UzrNjCdHaC5cn4Mmnn3F8Th/HwjmBycTT1Cu0WPlbHcgcal5BUJWWzp
+         /49lyfh7jJjlVfj64eaQqnP53OZotMj3fpfofhzKESbjy08pAOW6TImWPAFFu6YC14AE
+         n1kWc/+069vVmN1+YjLzNlIljR3fq7JfL7mvc36vjVj+7nmk01/vPEqY+wEm5eB99iMT
+         UBu+zBkDFslIPSu3EWMBhDrKfi+/gW+tNhvZmtWzru09eSTgE17vFGWtlgetvStatHbm
+         rm9A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781665172; x=1782269972;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=TBin7H0Wt7Oi8P0z8wsZgQQjqhBwvW2vxMHjxdsEcyI=;
+        b=XWsSQK+WcXATSCf3JGVoXMBq9gJrwq079b11oqqWkRE0e1AHfGsqXaAla8+XV/zPCU
+         EgqNL33lxsWq7WkzIHoSPe+t3OlI2csZTyKsWFkp09MrhqijsSk+XaQq3kfkbwEYN1d3
+         piiHqWZ2MquqZIbtrMSHQp3ZZMtxPKdYZ4T5qq/u8FkM2Ufr6ImIqpvIqfA7TFstceQH
+         KCz3E6k3+ANfhrOO63FZ9vDOsF6NlD5UjyYwnIlQFyMMOT9hMvMQPZcfLcGIVXKdDozV
+         sCdEbsmoaRis3qZCQqvLF1m96xijJzdyIrGIYkmvaFNvkhhhmA/2VhSYu8c1nJAllGzw
+         L+jg==
+X-Gm-Message-State: AOJu0YzB+1XKLzMHFufX7M881wFlswZgbr9qgyZXl2N1UijMR9wxQelA
+	DAH/G2FLfogOEfC00QWPxwyvu6jyvwlTIuoomXcpuZqlU2zQmrK8XzsA
+X-Gm-Gg: Acq92OFYpHdhvGKd1aETGJXXU019BqZuHJxTN7cevvz3aO1FM45LwNnGS5klPhh3tlk
+	U6oHP0EN/o8Y4wJ0Tj1fsv3mB0izDFwj/fEpWI+NuM29KDs09zg5EoFTEJpeOsrLMeUMa3MAgTU
+	5F3jgLLcDnhljP5V1/V2ZL70i34wDd6ZsY9EmlEfIlD1v8sJJeQw8Yndez8ch9ZfdAt4mo/KIJC
+	B+aN0OtaQStG7ly73OR3kJO2Pu0kMr7NbntL9FNdDJNRmpWbbg5T33IPCjBjc6uITZ/iSEyn4Rt
+	cMY8AcmjOs6ItaNRC7BUrwnSSxdc6FLchYBkeGUyeZAPxqxnWj/+bP3iAe8NlxW+UBsX5sXhiFH
+	kFwpsoa9XVf7yUBTVOnFOmxzmiCYiMfG8gavWlHrhGm0wZLSDUTgn593PNMiTnKSc8ui5VFGYPR
+	b9iYqu/4dU7TzHOGvvPC1nqTk35jZaRy/xlOe5C3le3oW9fiUzC3Xk5h2Q1M9FFVjNFB9aSmB1/
+	7A=
+X-Received: by 2002:a05:6a00:2987:b0:836:3f6a:3e7a with SMTP id d2e1a72fcca58-8452454cd35mr1655165b3a.26.1781665171696;
+        Tue, 16 Jun 2026 19:59:31 -0700 (PDT)
+Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8434afc825csm14212821b3a.36.2026.06.16.19.59.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 16 Jun 2026 19:59:31 -0700 (PDT)
+From: Chi-Wen Weng <cwweng.linux@gmail.com>
+To: ukleinek@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-pwm@vger.kernel.org,
 	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH 3/3] arm64: dts: renesas: r8a779g0: Add GICv3 ITS and update PCIe nodes
-Date: Wed, 17 Jun 2026 04:59:46 +0200
-Message-ID: <20260617030008.154449-3-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20260617030008.154449-1-marek.vasut+renesas@mailbox.org>
-References: <20260617030008.154449-1-marek.vasut+renesas@mailbox.org>
+	cwweng@nuvoton.com,
+	cwweng.linux@gmail.com
+Subject: [PATCH v4 0/2] pwm: Add Nuvoton MA35D1 PWM controller support
+Date: Wed, 17 Jun 2026 10:59:23 +0800
+Message-Id: <20260617025925.2539334-1-cwweng.linux@gmail.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-MBO-RS-META: ewq34yboiabci7oz8hnd9ue97xgjut7k
-X-MBO-RS-ID: 57a2861579fa265c5dc
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260616_200045_669754_A23640E9 
-X-CRM114-Status: GOOD (  11.52  )
+X-CRM114-CacheID: sfid-20260616_195933_002785_95B11793 
+X-CRM114-Status: GOOD (  19.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,121 +102,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This SoC implements GIC600 with GICv3 ITS and PCIe host mode on this
-SoC can use it. Add GIC ITS node into GIC node, update interrupt-map
-and add msi-map into PCIe controller node.
+From: Chi-Wen Weng <cwweng@nuvoton.com>
 
-The GIC ITS does have master interface to issue transactions to RAM.
-The interface does support cacheable transactions, however, it does
-not support shareable attribute, because the AXI port signals are tied
-to inactive in this implementation. Therefore, add "dma-noncoherent"
-DT property into the GIC ITS subnode.
+This series adds support for the Nuvoton MA35D1 PWM controller.
 
-The GIC redistributor does not have cacheable/shareable, therefore
-add "dma-noncoherent" DT property into the GIC node.
+The MA35D1 PWM controller provides 6 PWM channels. The hardware supports
+several counter types and output modes. This driver configures the controller
+to use up-counting mode, auto-reload mode and independent output mode. The
+waveform generator is configured to drive the output high at the zero point
+and low at the compare-up point.
 
-Signed-off-by: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
-Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
----
-NOTE: This would not be possible without prior work from Shimoda-san
-      https://lore.kernel.org/all/20240214052144.1966569-1-yoshihiro.shimoda.uh@renesas.com/
----
-Cc: "Krzysztof Wilczyński" <kwilczynski@kernel.org>
-Cc: Bjorn Helgaas <bhelgaas@google.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Manivannan Sadhasivam <mani@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Rob Herring <robh@kernel.org>
-Cc: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
-Cc: devicetree@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-doc@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-pci@vger.kernel.org
-Cc: linux-renesas-soc@vger.kernel.org
----
- arch/arm64/boot/dts/renesas/r8a779g0.dtsi | 31 ++++++++++++++++-------
- 1 file changed, 22 insertions(+), 9 deletions(-)
+For the up-counting mode used by this driver, the counter counts from 0 to
+PERIOD inclusive. Therefore, the programmed period is PERIOD + 1 cycles. The
+hardware can generate 0% duty cycle with CMPDAT = 0 and 100% duty cycle with
+CMPDAT > PERIOD. To keep 100% duty cycle representable, the driver limits the
+maximum PERIOD value to 0xfffe and reserves CMPDAT = 0xffff for the full-duty
+case.
 
-diff --git a/arch/arm64/boot/dts/renesas/r8a779g0.dtsi b/arch/arm64/boot/dts/renesas/r8a779g0.dtsi
-index 3a8af825bb253..82e864acf2601 100644
---- a/arch/arm64/boot/dts/renesas/r8a779g0.dtsi
-+++ b/arch/arm64/boot/dts/renesas/r8a779g0.dtsi
-@@ -792,6 +792,7 @@ pciec0: pcie@e65d0000 {
- 			resets = <&cpg 624>;
- 			reset-names = "pwr";
- 			max-link-speed = <4>;
-+			msi-parent = <&its>;
- 			num-lanes = <2>;
- 			#address-cells = <3>;
- 			#size-cells = <2>;
-@@ -802,10 +803,10 @@ pciec0: pcie@e65d0000 {
- 			dma-ranges = <0x42000000 0 0x00000000 0 0x00000000 1 0x00000000>;
- 			#interrupt-cells = <1>;
- 			interrupt-map-mask = <0 0 0 7>;
--			interrupt-map = <0 0 0 1 &gic GIC_SPI 449 IRQ_TYPE_LEVEL_HIGH>,
--					<0 0 0 2 &gic GIC_SPI 449 IRQ_TYPE_LEVEL_HIGH>,
--					<0 0 0 3 &gic GIC_SPI 449 IRQ_TYPE_LEVEL_HIGH>,
--					<0 0 0 4 &gic GIC_SPI 449 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-map = <0 0 0 1 &gic 0 0 GIC_SPI 449 IRQ_TYPE_LEVEL_HIGH>,
-+					<0 0 0 2 &gic 0 0 GIC_SPI 449 IRQ_TYPE_LEVEL_HIGH>,
-+					<0 0 0 3 &gic 0 0 GIC_SPI 449 IRQ_TYPE_LEVEL_HIGH>,
-+					<0 0 0 4 &gic 0 0 GIC_SPI 449 IRQ_TYPE_LEVEL_HIGH>;
- 			snps,enable-cdm-check;
- 			status = "disabled";
- 
-@@ -839,6 +840,7 @@ pciec1: pcie@e65d8000 {
- 			resets = <&cpg 625>;
- 			reset-names = "pwr";
- 			max-link-speed = <4>;
-+			msi-parent = <&its>;
- 			num-lanes = <2>;
- 			#address-cells = <3>;
- 			#size-cells = <2>;
-@@ -849,10 +851,10 @@ pciec1: pcie@e65d8000 {
- 			dma-ranges = <0x42000000 0 0x00000000 0 0x00000000 1 0x00000000>;
- 			#interrupt-cells = <1>;
- 			interrupt-map-mask = <0 0 0 7>;
--			interrupt-map = <0 0 0 1 &gic GIC_SPI 456 IRQ_TYPE_LEVEL_HIGH>,
--					<0 0 0 2 &gic GIC_SPI 456 IRQ_TYPE_LEVEL_HIGH>,
--					<0 0 0 3 &gic GIC_SPI 456 IRQ_TYPE_LEVEL_HIGH>,
--					<0 0 0 4 &gic GIC_SPI 456 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-map = <0 0 0 1 &gic 0 0 GIC_SPI 456 IRQ_TYPE_LEVEL_HIGH>,
-+					<0 0 0 2 &gic 0 0 GIC_SPI 456 IRQ_TYPE_LEVEL_HIGH>,
-+					<0 0 0 3 &gic 0 0 GIC_SPI 456 IRQ_TYPE_LEVEL_HIGH>,
-+					<0 0 0 4 &gic 0 0 GIC_SPI 456 IRQ_TYPE_LEVEL_HIGH>;
- 			snps,enable-cdm-check;
- 			status = "disabled";
- 
-@@ -2131,11 +2133,22 @@ ipmmu_mm: iommu@eefc0000 {
- 		gic: interrupt-controller@f1000000 {
- 			compatible = "arm,gic-v3";
- 			#interrupt-cells = <3>;
--			#address-cells = <0>;
-+			#address-cells = <2>;
-+			#size-cells = <2>;
- 			interrupt-controller;
- 			reg = <0x0 0xf1000000 0 0x20000>,
- 			      <0x0 0xf1060000 0 0x110000>;
- 			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
-+			dma-noncoherent;
-+
-+			ranges = <0x0 0x0 0x0 0xf1000000 0x0 0x200000>;
-+
-+			its: msi-controller@40000 {
-+				compatible = "arm,gic-v3-its";
-+				reg = <0x0 0x40000 0x0 0x20000>;
-+				dma-noncoherent;
-+				msi-controller;
-+			};
- 		};
- 
- 		gpu: gpu@fd000000 {
+The hardware buffers PERIOD and CMPDAT updates when IMMLDENn is disabled. The
+driver keeps IMMLDENn disabled, so period and duty cycle updates take effect
+at the end of the current period. Polarity and waveform-control changes are
+applied directly and may cause transient output changes if the PWM is running.
+
+When the PWM output is disabled by clearing POENn, the output pin is put into
+tri-state according to the MA35D1 reference manual.
+
+Changes in v4:
+- Add a Limitations section to describe the hardware capabilities and driver
+  limitations.
+- Add a link to the MA35D1 reference manual.
+- Replace register address macros containing the base pointer with register
+  offset macros.
+- Add readl/writel/rmw helper functions.
+- Rename TOTAL_CHANNELS to NUM_CHANNELS.
+- Use unsigned long for the cached clock rate.
+- Use devm_clk_rate_exclusive_get().
+- Configure polarity before enabling the counter and output.
+- Add controller initialization for up-counting, auto-reload and independent
+  output mode.
+- Configure the waveform generator for zero-point-high and compare-up-low
+  output.
+- Fix the period conversion because the hardware period is PERIOD + 1 cycles.
+- Limit the maximum PERIOD value to 0xfffe so that CMPDAT = 0xffff can be used
+  to generate 100% duty cycle.
+- Use CNTEN and POEN bits to report the enabled state in .get_state().
+- Disable the PWM by clearing POENn and CNTENn.
+- Fix error message capitalization and trailing newlines.
+- Fix coding style issues reported by review/checkpatch-style tools.
+
+Changes in v3:
+  - Update nuvoton,ma35d1-pwm.yaml
+    - Add maintainers entry
+    - Increse "#pwm-cells" to 3
+  - Update ma35d1 pwm driver
+    - Make include header and macros definitions organized alphabetically
+    - Rename macros REG_PWM_XXXX to MA35D1_REG_PWM_XXXX
+    - Add macros for register address
+
+v2 resend:
+  - Remove wrong 'Reviewed-by' tags.
+
+Changes in v2:
+  - Update nuvoton,ma35d1-pwm.yaml
+    - Fix 'maxItems' of 'reg' to 1.
+    - Remove unused label
+  - Update ma35d1 pwm driver
+    - Remove MODULE_ALIAS()
+    - Add chip->atomic = true
+
+
+Chi-Wen Weng (2):
+  dt-bindings: pwm: Add Nuvoton MA35D1 PWM controller
+  pwm: Add Nuvoton MA35D1 PWM controller support
+
+ .../bindings/pwm/nuvoton,ma35d1-pwm.yaml      |  45 +++
+ drivers/pwm/Kconfig                           |   9 +
+ drivers/pwm/Makefile                          |   1 +
+ drivers/pwm/pwm-ma35d1.c                      | 344 ++++++++++++++++++
+ 4 files changed, 399 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pwm/nuvoton,ma35d1-pwm.yaml
+ create mode 100644 drivers/pwm/pwm-ma35d1.c
+
 -- 
-2.53.0
+2.25.1
 
 
