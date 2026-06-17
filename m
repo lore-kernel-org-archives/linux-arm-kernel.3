@@ -4,80 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6036BCD98F0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 02:54:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17FBECD98E1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 02:59:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ynVgrV1BKxZf8bSSqKXL4ymJEj5mSIOpHynliU6D9pI=; b=2qv19YnJ+ZGkIl57zm9rRU69K3
-	ZrR3dvzLLx4iRk1LV3q4+9ltr1PyO0Q8NN0xl/cEzZBb3aubA5Ij3ASa7ccyWvLI2CPCf45ff82XX
-	vyR/huubR+WjXcN9gJh67qeOy5idvcD8V8sKlEU0rOht/LMWgAjMWd5P4XUfqqydLPUegJy9NMhqq
-	TGG+4lzi/BvppwgW+NRsbPS/5zArtPqZ718IObA//28zWCek53FM5lllM61dTt12PYbSowvkTntAg
-	FgjtPnYIs72M075bzILZT1mk+lDmLwkv1ocCThqC7gQLSHLRT5xB4lznGHEzxhnGonkGZU3wlTxST
-	GAcK0X/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CQu/v9VbPVOFvypxy+vSIVqVZUuLUc8YlsM7QgQ5RmA=; b=ne7l0SpUKv+4Ln4rCGN/QQjmHD
+	jcY6ml8ljqoaA+TQFXs+6xLNBG1kYPY3xYtNd75jE0JgZS1C+P53j2oWMvD/Htfftb3TfU8gK/igT
+	g4Yvd4avoOOp5QWu2y+GL0mPfokXHtwYnIKI6DGLn4SVNqXfdm+LnHZlhsuw9iTICt4Mkb89WX2wJ
+	YAsENxFwGvMoYrJ7Rh9ZDfKG8Gwabsj6SghtQfqktKktQol90qRNWFfscSDMgU4SRtTZrIUBaTnNs
+	g95Ca6IXovqzQ/hFXSgi2HLYpV821tfRKUTDQt9AzQ1WuOaCe/KmcpbNwcYvxkY3gCFcHK6XoC0Ea
+	D60eQofg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZgPh-0000000GWkr-3j1S;
-	Wed, 17 Jun 2026 02:54:01 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1wZgV8-0000000GXCM-3B0s;
+	Wed, 17 Jun 2026 02:59:38 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZgPe-0000000GWjY-48Nr
+	id 1wZgV6-0000000GXBW-2QNw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 02:54:00 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-36da151a152so3761438a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 19:53:58 -0700 (PDT)
+	Wed, 17 Jun 2026 02:59:37 +0000
+Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-8424b00710aso3578215b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 19:59:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781664837; x=1782269637; darn=lists.infradead.org;
-        h=mime-version:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=ynVgrV1BKxZf8bSSqKXL4ymJEj5mSIOpHynliU6D9pI=;
-        b=CdFWr9PyB89OIZBJtPZ2JroBTHakruEv5EQB0qE3xR/1ShUedfpgbLfNBAjbQRbW1X
-         YpHBaShibQpJqA+GgnqiLhQV9WqtfyomxMoBvo1ohWmYF17tCwTtn4ViHDpHNNQZV1+W
-         cGrPuQBgbMLmLvpLBqpTmqLiwB6AgC3+HB5kgvoENIhpgf50t8VGG/jCWJpcmamu1qPm
-         6HPl4zdBcoRv6RGnMKQ+6dqIx1emGZJeGxaVhay7SlTld9C6wouZE42C1Q1uM3hDD6so
-         cm2Iop5D3UKAIARiTEivXfdHCLd+5/WfLPMFwL4I0gxGMxSc2OG8uSSDdinEqGe0nVW2
-         2vdw==
+        d=gmail.com; s=20251104; t=1781665176; x=1782269976; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=CQu/v9VbPVOFvypxy+vSIVqVZUuLUc8YlsM7QgQ5RmA=;
+        b=DJ/UM+AjLl01zjAVMP+Bv6aVBTJSAhCzZx/gWucs4b8OZrYy16OliuRYqV+Kj2Q4Po
+         wYQ7quW0fxTm02vGFg1N3UXgw/UqeUURhoV5zup6K41I/WCt8SFuQrrj26iKm/cHTpTi
+         6cEpnTkjSsIKPjkNBdeps8RdoH+1gzQOn3b/buP+bboWNwtJJMSLUZJx+aGU0lF8Y2am
+         FfGTzQyH4iJe/1SRPh0KdkHMwks49AXpmvDpzyzjIKS7BmMAg7KMyTzJU/4TCWucWXEZ
+         1ZA48lY3jzLC9p1HW25eSDjw9tjQVgau5+R0Zma8sQvwHS+mv3bLrmBF2gKEkCuw5Buv
+         evTw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781664837; x=1782269637;
-        h=mime-version:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ynVgrV1BKxZf8bSSqKXL4ymJEj5mSIOpHynliU6D9pI=;
-        b=UOgfKtuzldjdhMswOoPPSv6F+4zecAloEjDcsS6DYoKYrdBxQ0QMU72LF0cZsuHT2V
-         5do/kwX+1JpYlAW6HUzQGqD89GPgvOAHIXBxIa6MjY1o42EmNXt7/NnVvvW4mhWCj+7R
-         XDgA1CUhzkYJurlGQ7faC+r5L4dWvBKnvRvKdgO1/c19lxKG9jHDVJgB8Gpnw47g17Dj
-         nUuhxQTjxKNgqd07cRdZEqLWMZKPhbh/mwIrRR064r4kq5+x1ImCCMOWwXyx25C3tuYZ
-         UHHaeD6KQiuz8jEPVwofQXwZgXklksrXVDEfSXCxpJaSDOov46qLFNpcOYrrrR0ewheE
-         ogVw==
-X-Forwarded-Encrypted: i=1; AFNElJ+ogXtoquxYjlPOHnqyoHKcE4TlO8Ad2cmCSz1YjCqYdGUAasbbG/u7Xf606LUT2RKDI14CwjUnU0sVkw5KMvHu@lists.infradead.org
-X-Gm-Message-State: AOJu0YyWdTYFyD93q4JBwl/oUFpbPeLI5/P3oT0uwSVp9XJ5SeuFOeyM
-	eQTXR27/GSrvobka8t8lFNOvnH0myUJ8FxR7VjAMAD+4i3QGmUM0UYyQ
-X-Gm-Gg: AfdE7cls+MOB7fL+GBhEzTS4OOxs6pEFAL1CVSi81ave2Z5YiCw3fq4OAbuUpl402s9
-	n19W+tHIqK6PnPEprJgYruUUWEJJxnU02M6i4eIY24m+a8u2NOWD0AjmCzcx4wLNCH7jJrkCqBM
-	UtA1nXkmtg/qrH8wz7VyMk5WiGyo7rathb3McpolGpSK9eMM20wAzSD+COE3BsCtFWc9qKfzzmc
-	iaakfu3u2nd2YBzCdewh6HHs8enuHQ6jhuXpKVbX+NHvNMXSj7FI0YTqKsl5GPBljpB9+1uWrfl
-	zQ3/lqdgnM/VbBMnIFpOpi+CHM4zi5i8RxcfwHyQy/ISjXBYRyfHExR1gdL2kjijEywO/vgcebq
-	e68YHsCGwvY+iC/8Pee56M7GLZ1UBA/WgFay8gfFvAkxwHigEMrJGLtMWwEWZG0eMuVYSbAyGzD
-	CarAihWw==
-X-Received: by 2002:a17:90b:224d:b0:36d:d8fd:4578 with SMTP id 98e67ed59e1d1-37c93437f61mr2004429a91.11.1781664837535;
-        Tue, 16 Jun 2026 19:53:57 -0700 (PDT)
-Received: from [127.0.1.1] ([47.253.114.73])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-37c521ae039sm4334909a91.1.2026.06.16.19.53.53
+        d=1e100.net; s=20251104; t=1781665176; x=1782269976;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=CQu/v9VbPVOFvypxy+vSIVqVZUuLUc8YlsM7QgQ5RmA=;
+        b=Hln4c0lJcK6qmrTzKzeqSxTw3dm9NGKsiK1fccgAOC2wZJi5C/9lgsdLoh5yIm+8vo
+         H9SNQPH9S8S4fwNUIWQrlxAFmLw4pqrD3+AvO/yDVkjre9LRcz2uDT1k8QwPY9y/0JYP
+         BwiLh1nG3ndhqEw4tBMh1CnaLpKM2ZYSFNisDrz2q3xM/JNV68hF2ObsmB8V93IjzIyN
+         0fcSRx6IAirhgUDLSV7Rb8tVAGspyNXcTL5lT5/DGQs0txyfcmV+/gV47wAt6cNiw7QR
+         VUkZf7A79Xy+sM95XIHhVZxJgwiGPokl+an/PDT/hqrc8zQJPp+n0H93gBE242lLqJDK
+         V2xw==
+X-Gm-Message-State: AOJu0YykFz4pB/+F/gSU/ATIQ0oUBo9YaqTLIl7bSTQ9VWu7wrDtHlrr
+	CUhGXJEWskk/gyhGA6rAc/Hmd0BNDioEz2IKIjMOPEwaQPEZ4Gq2EULc
+X-Gm-Gg: Acq92OEyktvf0LhmdjleJ/Rjv2moxOuI4KEZeSJehUSGjnrvgicz3A+PkI5Gs5bDtpp
+	s2RkAu+Z9m5PxB4xlDH6U4k8aIa00Eg2mf+rV3ozIPxAoQVZHj2u55jL2gIc2e8DA/NV7d49JPF
+	/Fu5utH1N8YvcPWCOGgvU6iWocRnik5pFUbC1LwqXPuw5VCEoreTQJRnKgybRAdwOVJWKjl/d6+
+	jyblLubDBH16nss0zK5rI/tW3hBVfDOUfCpIjjNtMR4oVK7U27LZP9ALJC8fdiAsGQL/eoGy/EO
+	B05G9djNrjNfVcUDea4wk+slzSDMA9lhxE9/T3daJR0orr64hbr6M/MxhRFC2nK0yz4OcwEcYzt
+	hJaJg0ek5ePTLq1tqYztYxW76AcJLRTzaquaaoGw2kuSZbfhOwsxhBfr8DlWxV6BJ3nzqNzT0YE
+	qjLd6BQVQOjPbzfvQPs/cuyfoZ6cYmTEeuX5we1cpUkZoXBoSA/qE4racbld0qRowjA3z/L+J6n
+	Yo=
+X-Received: by 2002:a05:6a00:2d81:b0:842:4bb9:5fe0 with SMTP id d2e1a72fcca58-84524442788mr1866187b3a.10.1781665175597;
+        Tue, 16 Jun 2026 19:59:35 -0700 (PDT)
+Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8434afc825csm14212821b3a.36.2026.06.16.19.59.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 16 Jun 2026 19:53:57 -0700 (PDT)
-From: Wayen Yan <win847@gmail.com>
-To: netdev@vger.kernel.org
-Cc: lorenzo@kernel.org, horms@kernel.org, pabeni@redhat.com, kuba@kernel.org, edumazet@google.com, andrew+netdev@lunn.ch, angelogioacchino.delregno@collabora.com, matthias.bgg@gmail.com, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Subject: [PATCH] net: airoha: Fix off-by-one error in HTB rate-limit channel removal
-Date: Wed, 17 Jun 2026 10:51:40 +0800
-Message-ID: <178166483303.2209640.10761097847073356089@gmail.com>
-Content-Type: text/plain; charset=utf-8
+        Tue, 16 Jun 2026 19:59:35 -0700 (PDT)
+From: Chi-Wen Weng <cwweng.linux@gmail.com>
+To: ukleinek@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-pwm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	cwweng@nuvoton.com,
+	cwweng.linux@gmail.com,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH v4 1/2] dt-bindings: pwm: Add Nuvoton MA35D1 PWM controller
+Date: Wed, 17 Jun 2026 10:59:24 +0800
+Message-Id: <20260617025925.2539334-2-cwweng.linux@gmail.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20260617025925.2539334-1-cwweng.linux@gmail.com>
+References: <20260617025925.2539334-1-cwweng.linux@gmail.com>
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260616_195359_024796_CE10940F 
-X-CRM114-Status: GOOD (  10.65  )
+X-CRM114-CacheID: sfid-20260616_195936_662584_DC3C774D 
+X-CRM114-Status: GOOD (  13.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,38 +106,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In airoha_tc_remove_htb_queue(), the rate-limit was being cleared
-using (queue + 1) instead of queue, causing:
-- The original channel rate-limit configuration to remain active
-- The next channel to be incorrectly disabled
-- Potential out-of-bounds access when queue == 3 (channel 4)
+From: Chi-Wen Weng <cwweng@nuvoton.com>
 
-The alloc path (airoha_tc_htb_alloc_leaf_queue) correctly uses
-channel (0..3), but the remove path incorrectly added 1.
+Add device tree binding for the Nuvoton MA35D1 PWM controller.
 
-Fix by using queue directly to match the alloc and rollback paths.
+The MA35D1 PWM controller provides 6 PWM channels and uses one register
+region and one functional clock. The binding uses the standard PWM binding
+with three PWM cells.
 
-Fixes: ef1ca9271313 ("net: airoha: Add sched HTB offload support")
-Signed-off-by: Wayen Yan <win847@gmail.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Signed-off-by: Chi-Wen Weng <cwweng@nuvoton.com>
 ---
- drivers/net/ethernet/airoha/airoha_eth.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ .../bindings/pwm/nuvoton,ma35d1-pwm.yaml      | 45 +++++++++++++++++++
+ 1 file changed, 45 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pwm/nuvoton,ma35d1-pwm.yaml
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 31cdb11cd7..02807b3967 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -2805,7 +2805,7 @@ static void airoha_tc_remove_htb_queue(struct net_device *dev, int queue)
- 	struct airoha_gdm_port *port = netdev_priv(dev);
- 
- 	netif_set_real_num_tx_queues(dev, dev->real_num_tx_queues - 1);
--	airoha_qdma_set_tx_rate_limit(dev, queue + 1, 0, 0);
-+	airoha_qdma_set_tx_rate_limit(dev, queue, 0, 0);
- 	clear_bit(queue, port->qos_sq_bmap);
- }
- 
+diff --git a/Documentation/devicetree/bindings/pwm/nuvoton,ma35d1-pwm.yaml b/Documentation/devicetree/bindings/pwm/nuvoton,ma35d1-pwm.yaml
+new file mode 100644
+index 000000000000..47a59bdd14d0
+--- /dev/null
++++ b/Documentation/devicetree/bindings/pwm/nuvoton,ma35d1-pwm.yaml
+@@ -0,0 +1,45 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pwm/nuvoton,ma35d1-pwm.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Nuvoton MA35D1 PWM controller
++
++maintainers:
++  - Chi-Wen Weng <cwweng@nuvoton.com>
++
++allOf:
++  - $ref: pwm.yaml#
++
++properties:
++  compatible:
++    enum:
++      - nuvoton,ma35d1-pwm
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  "#pwm-cells":
++    const: 3
++
++required:
++  - compatible
++  - reg
++  - clocks
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/nuvoton,ma35d1-clk.h>
++
++    pwm@40580000 {
++      compatible = "nuvoton,ma35d1-pwm";
++      reg = <0x40580000 0x400>;
++      clocks = <&clk EPWM0_GATE>;
++      #pwm-cells = <3>;
++    };
 -- 
-2.51.0
-
+2.25.1
 
 
