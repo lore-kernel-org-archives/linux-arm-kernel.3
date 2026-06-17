@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 780E5CD98E4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 10:33:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B60D1CD98E4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 10:33:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9wU4tKY2KGJdHyXYk6dnV63C3KexEicox33mI2r9NjI=; b=bBFD+f9t+xMcuO9OrQeFQcEgSk
-	m3EriNUON7/fw2f3aH/+D53g802KpQJSMyynEKaNglQV8zDldRBNTd5Ajg56vadWimoyBJYL14feP
-	HhCsKioi4SeudZKKoA8OKToGckvcIJ7JgcoX5uoPxT5DiDJLjUVUS/84eoIjREdfYpoX7IP74yHfz
-	2BUIFhSE5buweZGZ5zdz8fFJuz+RgiCodS5Mi6SEO4qgXwx52QGA8P2JIC8aJeCd89zVO3nYZsyyJ
-	kcXGfn3St/uOLB6R70t5MA5jeJp2ca+c/dqZoXrEho9AX8P3mYSINUqR3FwN1tVQWf4ByGdqKmAt7
-	BXgF+HDQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+xBbIRxBXS5OYYxHEW50Za3vbeVn2bnT2ZgYpZa7ur4=; b=OzbBm0t+eREI/pPqpNJkruUWuG
+	uNiXUDJglyzAhUDWqKgtq8ouN1VkM9mQ1qNqWoS/kPcepS9ge2EyUfHWpJ3mFFRj4JzVEQINnz0gH
+	qstj6K6Nyp+CcNUAw5YjOY97Wj98l7qvGInns5YWBRY/KwfHlgDtoHF80uPaNTiDKhyMiNBVertIe
+	IFXGmlYDxKg6DeXbl/m+mRZi/hXBDeZM47jOEHQoM1ZZr/992gayXzeJ8WMWGd+0GK/EO8t15UB6p
+	5uUND0rWrnk5XcYU4jXbrtG/tYFnVO9cXZdiQbvpwP6RJT067+EDKAl/B5WLlz+S+HiGguL4wpBo8
+	63+Y0IMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZnZu-0000000H3ZC-1AVo;
-	Wed, 17 Jun 2026 10:33:02 +0000
-Received: from mail-dy1-x1329.google.com ([2607:f8b0:4864:20::1329])
+	id 1wZna4-0000000H3cP-2Mm5;
+	Wed, 17 Jun 2026 10:33:12 +0000
+Received: from mail-dy1-x132d.google.com ([2607:f8b0:4864:20::132d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZnZr-0000000H3YQ-2nav
+	id 1wZna1-0000000H3bH-4BfK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 10:33:01 +0000
-Received: by mail-dy1-x1329.google.com with SMTP id 5a478bee46e88-3042a388168so428888eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 03:32:59 -0700 (PDT)
+	Wed, 17 Jun 2026 10:33:11 +0000
+Received: by mail-dy1-x132d.google.com with SMTP id 5a478bee46e88-30be4a661aeso100441eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 03:33:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781692379; x=1782297179; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=9wU4tKY2KGJdHyXYk6dnV63C3KexEicox33mI2r9NjI=;
-        b=NJe9juntbiclt7OcpvF9UiVS2tY2JQDluL1m3aSqgN33A3zmZewiZrXIYOEJMCNPgu
-         5ESHocZcREjfvWFVCxL7S+HJsRklBxvmyPOjRPfYupiULA/Htc1s3Kr4u6AGIKFPX6/B
-         xKlUe03CnYYurROrrFTZ5wm7duUIF0EI933yTin5HpC/25IhlC+orqBbURPCF0MyLnn9
-         aT+bdy28azQiYgRw/cm5pLW9OzMgF0HXGVyrx5RFslCMPt+FmSuDIi8QhPeu6pDvcd/J
-         RbOrPXUlhh64x4WuRm/pWzBtx9HuTSPzZw6c3TsH35o/d+SrKdKVNeyDxR1PN4ihPg6g
-         MYRQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781692379; x=1782297179;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1781692389; x=1782297189; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=9wU4tKY2KGJdHyXYk6dnV63C3KexEicox33mI2r9NjI=;
-        b=aeU5ds7QlnxBVbrwqEcRqO+WPlDS+Cq4Ail9QsXCP8+TLUIPRL0NhFzE+dAJiCEsbk
-         CiPtL2LJ5BnpJ6Pbbw09BEsTMXHLPFcuDIIkjZi4D007TufpJjYowPjK/OF1nXhZyH2O
-         kX7mMFKmwfV7aBDSbkGwRZRCmABBIYwCk/1PBCSjVa+E3aLUii+sg9lDBOx40H6BmZG5
-         Bd3NKfVsYd4Ho8xXCKGL/YxN+1H2kiKyLjj/1V+MvkIxYdZm5cmlJ8hxhHmaVeAMRAdx
-         LI2GrR7iIc723VaQQrZTrDkMvICv29nF+fl8jVOTO6hDQesyUYmdQITHDi5K+UYZhQ6+
-         b/+A==
-X-Forwarded-Encrypted: i=1; AFNElJ+ZyBrtSGVVuta0GtVyYhiKWfLCW0ypZcm9Sl4NPocoteGK4LZT7vKf6DS3aFs4iGQwtzVSGSP+nWZyDZL1s1tP@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw3aP1xvkGwK9O+/nfinUm7yAduDrPMyBoRByZ1T4enCWiv+5Tu
-	RBFkgfCyYOjbrxWqOwsODCQRnvamQMQL01nAqgVrpyuvNxmWQNKJNKf3
-X-Gm-Gg: AfdE7cn89zu5TjaqruzfUtjnl+gA0dlfnl/o59YNpmVNvf5Za04c8xpJTN5IwM5q5QF
-	EaHNdhO1fLoRoh64ZjHhI1xw3SddCTDuBoS6Or/3Td/NH24uSwZj/W3Y4M9HZ1N9mYsQrCOftfr
-	isoWYn5CwnNP6POLHSv+EpKuXyNi7xfLXmo55c4vUSsWgRhfAYu4FKJtQE5fPdEyaZr0UbicUVy
-	KsoiRCHnz9BPZLZfVWPwOwxsxfwZWA/sI8cp6f4e+tRgQJhbQhcp1PJw20QDSDFo9xM8K3zlzMA
-	sRf3oVXnVramkSK1mhT3GLOzMP5BtjXXR4BptSR6btOt1d30InT355JzebXiRGXSIhLuwEB9Lbx
-	psDgsGIKPYH5+6tSntthK4Afxk9ciVSj9cDCkUvs5cFJlih/BWXgbdWk2QqHmfUpQIDFu/sDYeP
-	xTH5tS69rI8exjSgcRf8Ve1lELc1q4oUuGyCiKWYyUxB7sx7g=
-X-Received: by 2002:a05:7301:6402:b0:30b:d209:dc18 with SMTP id 5a478bee46e88-30bd209ff68mr687132eec.10.1781692378517;
-        Wed, 17 Jun 2026 03:32:58 -0700 (PDT)
+        bh=+xBbIRxBXS5OYYxHEW50Za3vbeVn2bnT2ZgYpZa7ur4=;
+        b=hLR9e7X9oiTfQcYeiL3eHZ9gdXTtITfNO8lNN/i9FZ3Z5xg3l8ianTQPPOf+17AWcg
+         U71SV3orCJYY6PmnL8TUJbASoNAh4y2L3S3KcyvCjMzcriuXYwSUQtsCGTpI9naZlhAV
+         DXq6xSNoJVzCQxvufnDS1EpKhpiH9aL5lK+Ggvhbec7fbMJj/SGjFpg73TQLmB8PjD17
+         +4tAHVWcM/7LGal/6o+GEooG6ET/0FcNGpcoPCR3Ia1y8amUZKxzeX6iRqeXpE0FD6nB
+         8bzhnvZTSwps1Iu+iURV7wdI4qmHFQ9I2CGiPK96+jVMDDVxQIi0rUXF4zVOih/RyCeQ
+         iXCg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781692389; x=1782297189;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=+xBbIRxBXS5OYYxHEW50Za3vbeVn2bnT2ZgYpZa7ur4=;
+        b=kkPzn2yrDCdcm3q/ukBsflFF1buYNcf+XHrn5Bnfmn2ghbchOXsZzeeWKfZDvVFJ4O
+         SnnPcXJ/5l8odcpsRzKmSyRnDxH3sA2Kd3RjpDpGXuAN5JeUajCY8nttE2z4yAUOksNb
+         lPsn2rUoxohd2FGxidl48yqjYdlbKyW+ts4CPfZaHn+z0q9uhsBzt+kZkSKUHsNGFAdQ
+         Tq++h2P7Y5dT+iFbXgP8zXTZPxl3oRO2o8wvnxHDaGTFsbAkMgNMJyeGyG3pOYRQYS2n
+         4T9ATiJc9Gr2mJ7teOsxyNnWXgn9sTwZjpXVJ2rcu7YqhtdCeqfIx/erHmWyljip80D3
+         46qw==
+X-Forwarded-Encrypted: i=1; AFNElJ/iaazte686zWW3Y9O8pBttxiEEu6epBDD826ogXAoW7q09SLOgfq8IDmy75d6tr5fIbtzyh2AN4juChDOvLNng@lists.infradead.org
+X-Gm-Message-State: AOJu0YyZfLTBpd2dO+wO/KqsDoPHTKKT/EteJAUFS7p/qQ/JFfH1JHSo
+	Zp0qyxzegHL/bFrJnFTqoO3dUzookekE08ziJaQVhaXk5HfT4JTH5+sA
+X-Gm-Gg: AfdE7cl1Z4RAn6Nymh+KKq6n0GKiLjJ7LdEvCoSSnEnk/jq2Ee/lfwJKdWYEORO3Wng
+	eWmq019JWHDfwiH9WfrbS0SVzhrNpMiLuaaz2V+wzLgZMYRGsyyg9TBmrdBmXTYXznARg8YSjM2
+	kqpdj5EjW8acm0Dw6nyiRjdqx2FmY0GHEaI1sT6TGltPB+OnnneQFT7g5RfOCLnfiEcWvM6Gu++
+	q+MWfCt5mzr9DCeD7AxOJ2ZImwfn4odaKiI4uR2OVRbYffzbNzTl3EmURTUfIyloVk1VfO5RYiZ
+	ofaNTyO78FIZWAwX/hIRkgD7qk0soz1XMZn3ABXHHVUJUtxudKA5FSGPX7+QPmbEdszl9GlWrcg
+	RnUGBsqoOgASEryX9wPb+qBWrrV42eLOYuN4ecMBQS+/eUvh31IVXsUVRQ3DhY2Mv7V3xW1zO6Y
+	pJl7t93p4anfaLcuoHCTAOiJ/eoftDpoew5bRv/AiI49MLwcM=
+X-Received: by 2002:a05:693c:2d94:b0:2ed:2942:34ab with SMTP id 5a478bee46e88-30bc990c00amr1603108eec.3.1781692389024;
+        Wed, 17 Jun 2026 03:33:09 -0700 (PDT)
 Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3081e5d0828sm24616275eec.10.2026.06.17.03.32.50
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3081e5d0828sm24616275eec.10.2026.06.17.03.33.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 17 Jun 2026 03:32:58 -0700 (PDT)
+        Wed, 17 Jun 2026 03:33:08 -0700 (PDT)
 From: phucduc.bui@gmail.com
 To: Mark Brown <broonie@kernel.org>
 Cc: Liam Girdwood <lgirdwood@gmail.com>,
@@ -104,15 +105,17 @@ Cc: Liam Girdwood <lgirdwood@gmail.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
 	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH 00/78] ASoC: codecs: Use guard() for mutex & spin locks
-Date: Wed, 17 Jun 2026 17:31:17 +0700
-Message-ID: <20260617103235.449609-1-phucduc.bui@gmail.com>
+Subject: [PATCH 01/78] ASoC: codecs: ab8500: Use guard() for mutex locks
+Date: Wed, 17 Jun 2026 17:31:18 +0700
+Message-ID: <20260617103235.449609-2-phucduc.bui@gmail.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260617103235.449609-1-phucduc.bui@gmail.com>
+References: <20260617103235.449609-1-phucduc.bui@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260617_033259_736725_4AE97B90 
-X-CRM114-Status: GOOD (  11.38  )
+X-CRM114-CacheID: sfid-20260617_033310_041104_123C50F9 
+X-CRM114-Status: GOOD (  10.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,193 +132,58 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: bui duc phuc <phucduc.bui@gmail.com>
 
-Hi all,
+Clean up the code using guard() for mutex locks.
+Merely code refactoring, and no behavior change.
 
-This series converts mutex and spinlock handling in the ASoC codec
-drivers to use guard() and scoped_guard() helpers.
-The changes are purely refactoring and should have no functional
-impact.
+Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
+---
+ sound/soc/codecs/ab8500-codec.c | 11 ++++-------
+ 1 file changed, 4 insertions(+), 7 deletions(-)
 
-Compile tested only.
-
-Best regards,
-Phuc
-
-bui duc phuc (78):
-  ASoC: codecs: ab8500: Use guard() for mutex locks
-  ASoC: codecs: ak4613: Use guard() for mutex locks
-  ASoC: codecs: arizona-jack: Use guard() for mutex locks
-  ASoC: codecs: arizona: Use guard() for mutex locks
-  ASoC: codecs: aw87390: Use guard() for mutex locks
-  ASoC: codecs: aw88081: Use guard() for mutex locks
-  ASoC: codecs: aw88166: Use guard() for mutex locks
-  ASoC: codecs: aw88261: Use guard() for mutex locks
-  ASoC: codecs: aw88395: Use guard() for mutex locks
-  ASoC: codecs: aw88399: Use guard() for mutex locks
-  ASoC: codecs: cros_ec_codec: Use guard() for mutex locks
-  ASoC: codecs: cs-amp-lib: Use guard() for mutex locks
-  ASoC: codecs: cs35l56: Use guard() for mutex locks
-  ASoC: codecs: cs42l42: Use guard() for mutex locks
-  ASoC: codecs: cs42l43: Use guard() for mutex locks
-  ASoC: codecs: cs42l84: Use guard() for mutex locks
-  ASoC: codecs: cs43130: Use guard() for mutex locks
-  ASoC: codecs: cs47l15: Use guard() for mutex locks
-  ASoC: codecs: cs47l35: Use guard() for mutex locks
-  ASoC: codecs: cs47l85: Use guard() for mutex locks
-  ASoC: codecs: cs47l90: Use guard() for mutex locks
-  ASoC: codecs: cs47l92: Use guard() for mutex locks
-  ASoC: codecs: cs48l32: Use guard() for mutex locks
-  ASoC: codecs: cs2072x: Use guard() for mutex locks
-  ASoC: codecs: da7213: Use guard() for mutex locks
-  ASoC: codecs: da7219: Use guard() for mutex locks
-  ASoC: codecs: es8316: Use guard() for mutex locks
-  ASoC: codecs: es8326: Use guard() for mutex locks
-  ASoC: codecs: es9356: Use guard() for mutex locks
-  ASoC: codecs: fs210x: Use guard() for mutex locks
-  ASoC: codecs: hdac_hdmi: Use guard() for mutex locks
-  ASoC: codecs: hdmi-codec: Use guard() for mutex locks
-  ASoC: codecs: idt821034: Use guard() for mutex locks
-  ASoC: codecs: lpass-macro: Use guard() for mutex locks
-  ASoC: codecs: madera: Use guard() for mutex locks
-  ASoC: codecs: max98095: Use guard() for mutex locks
-  ASoC: codecs: mt6359-accdet: Use guard() for mutex locks
-  ASoC: codecs: pcm512x: Use guard() for mutex locks
-  ASoC: codecs: pcm6240: Use guard() for mutex locks
-  ASoC: codecs: peb2466: Use guard() for mutex locks
-  ASoC: codecs: rt5514-spi: Use guard() for mutex locks
-  ASoC: codecs: rt5645: Use guard() for mutex locks
-  ASoC: codecs: rt5665: Use guard() for mutex locks
-  ASoC: codecs: rt5668: Use guard() for mutex locks
-  ASoC: codecs: rt5677: Use guard() for mutex locks
-  ASoC: codecs: rt5682: Use guard() for mutex locks
-  ASoC: codecs: rt700: Use guard() for mutex locks
-  ASoC: codecs: rt711: Use guard() for mutex locks
-  ASoC: codecs: rt712: Use guard() for mutex locks
-  ASoC: codecs: rt721: Use guard() for mutex locks
-  ASoC: codecs: rt722: Use guard() for mutex locks
-  ASoC: codecs: sigmadsp: Use guard() for mutex locks
-  ASoC: codecs: sta350: Use guard() for mutex locks
-  ASoC: codecs: sta32x: Use guard() for mutex locks
-  ASoC: codecs: tas2781: Use guard() for mutex locks
-  ASoC: codecs: tas2783: Use guard() for mutex locks
-  ASoC: codecs: tas5805m: Use guard() for mutex locks
-  ASoC: codecs: tas675x: Use guard() for mutex locks
-  ASoC: codecs: tlv320dac33: Use guard() for mutex & spin locks
-  ASoC: codecs: tscs42xx: Use guard() for mutex locks
-  ASoC: codecs: tscs454: Use guard() for mutex locks
-  ASoC: codecs: twl6040: Use guard() for mutex locks
-  ASoC: codecs: wcd-mbhc: Use guard() for mutex locks
-  ASoC: codecs: wcd934x: Use guard() for mutex locks
-  ASoC: codecs: wcd937x: Use guard() for mutex locks
-  ASoC: codecs: wcd938x: Use guard() for mutex locks
-  ASoC: codecs: wcd939x: Use guard() for mutex locks
-  ASoC: codecs: wm0010: Use guard() for mutex & spin locks
-  ASoC: codecs: wm2000: Use guard() for mutex locks
-  ASoC: codecs: wm5102: Use guard() for mutex locks
-  ASoC: codecs: wm8731: Use guard() for mutex locks
-  ASoC: codecs: wm8903: Use guard() for mutex locks
-  ASoC: codecs: wm8958: Use guard() for mutex locks
-  ASoC: codecs: wm8962: Use guard() for mutex locks
-  ASoC: codecs: wm8994: Use guard() for mutex locks
-  ASoC: codecs: wm971x: Use guard() for mutex locks
-  ASoC: codecs: wm_adsp: Use guard() for mutex locks
-  ASoC: codecs: wsa88xx: Use guard() for mutex locks
-
- sound/soc/codecs/ab8500-codec.c           |  11 +-
- sound/soc/codecs/ak4613.c                 |  72 ++++---
- sound/soc/codecs/arizona-jack.c           | 194 +++++++++----------
- sound/soc/codecs/arizona.c                |  25 +--
- sound/soc/codecs/aw87390.c                |   9 +-
- sound/soc/codecs/aw88081.c                |  17 +-
- sound/soc/codecs/aw88166.c                |  23 +--
- sound/soc/codecs/aw88261.c                |  20 +-
- sound/soc/codecs/aw88395/aw88395.c        |  23 +--
- sound/soc/codecs/aw88395/aw88395_device.c |  39 ++--
- sound/soc/codecs/aw88399.c                |  14 +-
- sound/soc/codecs/cros_ec_codec.c          |  17 +-
- sound/soc/codecs/cs-amp-lib.c             |  10 +-
- sound/soc/codecs/cs35l56-shared.c         |   6 +-
- sound/soc/codecs/cs35l56.c                |  56 +++---
- sound/soc/codecs/cs42l42.c                | 222 +++++++++++-----------
- sound/soc/codecs/cs42l43-jack.c           |  57 +++---
- sound/soc/codecs/cs42l43.c                |  16 +-
- sound/soc/codecs/cs42l84.c                |   9 +-
- sound/soc/codecs/cs43130.c                |  96 +++++-----
- sound/soc/codecs/cs47l15.c                |  10 +-
- sound/soc/codecs/cs47l35.c                |  10 +-
- sound/soc/codecs/cs47l85.c                |  10 +-
- sound/soc/codecs/cs47l90.c                |  10 +-
- sound/soc/codecs/cs47l92.c                |  10 +-
- sound/soc/codecs/cs48l32.c                |  28 ++-
- sound/soc/codecs/cx2072x.c                |   4 +-
- sound/soc/codecs/da7213.c                 |  36 ++--
- sound/soc/codecs/da7219.c                 |  59 ++----
- sound/soc/codecs/es8316.c                 |  30 ++-
- sound/soc/codecs/es8326.c                 |  29 ++-
- sound/soc/codecs/es9356.c                 |  29 ++-
- sound/soc/codecs/fs210x.c                 |  86 +++------
- sound/soc/codecs/hdac_hdmi.c              | 116 ++++++-----
- sound/soc/codecs/hdmi-codec.c             |  16 +-
- sound/soc/codecs/idt821034.c              | 120 +++++-------
- sound/soc/codecs/lpass-macro-common.c     |  11 +-
- sound/soc/codecs/madera.c                 |  31 +--
- sound/soc/codecs/max98095.c               |  34 ++--
- sound/soc/codecs/mt6359-accdet.c          |  12 +-
- sound/soc/codecs/pcm512x.c                |  17 +-
- sound/soc/codecs/pcm6240.c                |  27 ++-
- sound/soc/codecs/peb2466.c                |  15 +-
- sound/soc/codecs/rt5514-spi.c             |  20 +-
- sound/soc/codecs/rt5645.c                 | 161 ++++++++--------
- sound/soc/codecs/rt5665.c                 |   7 +-
- sound/soc/codecs/rt5668.c                 |   9 +-
- sound/soc/codecs/rt5677-spi.c             |  35 ++--
- sound/soc/codecs/rt5677.c                 |  77 ++++----
- sound/soc/codecs/rt5682-sdw.c             |  23 ++-
- sound/soc/codecs/rt5682.c                 |   4 +-
- sound/soc/codecs/rt5682s.c                |  16 +-
- sound/soc/codecs/rt700-sdw.c              |  13 +-
- sound/soc/codecs/rt711-sdca-sdw.c         |  33 ++--
- sound/soc/codecs/rt711-sdca.c             |   7 +-
- sound/soc/codecs/rt711-sdw.c              |  23 ++-
- sound/soc/codecs/rt711.c                  |  19 +-
- sound/soc/codecs/rt712-sdca-sdw.c         |  34 ++--
- sound/soc/codecs/rt712-sdca.c             |   7 +-
- sound/soc/codecs/rt721-sdca-sdw.c         |  33 ++--
- sound/soc/codecs/rt721-sdca.c             |   3 +-
- sound/soc/codecs/rt722-sdca-sdw.c         |  33 ++--
- sound/soc/codecs/rt722-sdca.c             |   3 +-
- sound/soc/codecs/sigmadsp.c               |  16 +-
- sound/soc/codecs/sta32x.c                 |  12 +-
- sound/soc/codecs/sta350.c                 |  12 +-
- sound/soc/codecs/tas2781-comlib-i2c.c     |   4 +-
- sound/soc/codecs/tas2781-i2c.c            |  20 +-
- sound/soc/codecs/tas2783-sdw.c            |  89 +++++----
- sound/soc/codecs/tas5805m.c               |  15 +-
- sound/soc/codecs/tas675x.c                |   6 +-
- sound/soc/codecs/tlv320dac33.c            |  77 +++-----
- sound/soc/codecs/tscs42xx.c               |  44 ++---
- sound/soc/codecs/tscs454.c                | 106 ++++-------
- sound/soc/codecs/twl6040.c                |   4 +-
- sound/soc/codecs/wcd-mbhc-v2.c            | 142 +++++++-------
- sound/soc/codecs/wcd934x.c                |  46 ++---
- sound/soc/codecs/wcd937x.c                |  24 +--
- sound/soc/codecs/wcd938x.c                |  21 +-
- sound/soc/codecs/wcd939x.c                |  19 +-
- sound/soc/codecs/wm0010.c                 |  63 +++---
- sound/soc/codecs/wm2000.c                 |  27 +--
- sound/soc/codecs/wm5102.c                 |  12 +-
- sound/soc/codecs/wm8731.c                 |   3 +-
- sound/soc/codecs/wm8903.c                 |   3 +-
- sound/soc/codecs/wm8958-dsp2.c            |   9 +-
- sound/soc/codecs/wm8962.c                 |   7 +-
- sound/soc/codecs/wm8994.c                 |  51 ++---
- sound/soc/codecs/wm9712.c                 |   4 +-
- sound/soc/codecs/wm9713.c                 |   4 +-
- sound/soc/codecs/wm_adsp.c                |  87 +++------
- sound/soc/codecs/wsa883x.c                |  10 +-
- sound/soc/codecs/wsa884x.c                |  10 +-
- 93 files changed, 1330 insertions(+), 1863 deletions(-)
-
+diff --git a/sound/soc/codecs/ab8500-codec.c b/sound/soc/codecs/ab8500-codec.c
+index 6e8ef9cd1b31..20beb830fd62 100644
+--- a/sound/soc/codecs/ab8500-codec.c
++++ b/sound/soc/codecs/ab8500-codec.c
+@@ -989,9 +989,8 @@ static int sid_status_control_get(struct snd_kcontrol *kcontrol,
+ 	struct snd_soc_component *component = snd_kcontrol_chip(kcontrol);
+ 	struct ab8500_codec_drvdata *drvdata = dev_get_drvdata(component->dev);
+ 
+-	mutex_lock(&drvdata->ctrl_lock);
++	guard(mutex)(&drvdata->ctrl_lock);
+ 	ucontrol->value.enumerated.item[0] = drvdata->sid_status;
+-	mutex_unlock(&drvdata->ctrl_lock);
+ 
+ 	return 0;
+ }
+@@ -1014,7 +1013,7 @@ static int sid_status_control_put(struct snd_kcontrol *kcontrol,
+ 		return -EIO;
+ 	}
+ 
+-	mutex_lock(&drvdata->ctrl_lock);
++	guard(mutex)(&drvdata->ctrl_lock);
+ 
+ 	sidconf = snd_soc_component_read(component, AB8500_SIDFIRCONF);
+ 	if (((sidconf & BIT(AB8500_SIDFIRCONF_FIRSIDBUSY)) != 0)) {
+@@ -1025,7 +1024,8 @@ static int sid_status_control_put(struct snd_kcontrol *kcontrol,
+ 		} else {
+ 			status = -EBUSY;
+ 		}
+-		goto out;
++		dev_dbg(component->dev, "%s: Exit\n", __func__);
++		return status;
+ 	}
+ 
+ 	snd_soc_component_write(component, AB8500_SIDFIRADR, 0);
+@@ -1043,9 +1043,6 @@ static int sid_status_control_put(struct snd_kcontrol *kcontrol,
+ 
+ 	drvdata->sid_status = SID_FIR_CONFIGURED;
+ 
+-out:
+-	mutex_unlock(&drvdata->ctrl_lock);
+-
+ 	dev_dbg(component->dev, "%s: Exit\n", __func__);
+ 
+ 	return status;
 -- 
 2.43.0
 
