@@ -4,88 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E49BCD98E2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 16:02:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D769CD98E2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 16:06:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cp5BkG390f/fn9ldPF3mpiSrgkIetFpKVYvXrJB7/WU=; b=QgOfvLCHA1jdEkfevhOjWfBgej
-	cdDjNJLueDKJkUL2UORxqkQwYapdU38vIWtrIM/jM+Kr047zvR+tbq0CSEoPhtFjbitUm6GiOyckp
-	sANR3SHYngYwH/QssDVyC5e5g8uDVk1+f/z18K9qBBqa18K+qYIwHktaSE0JAz/R/eNK2GEhpFaL2
-	RQQ4a/m6U24hQEk5ydNhD+wxPCRw6OnQRdL5MKVNPGdatDyZDoCJDCH7C3yRf/xtsEHRzaHi0pE+j
-	dBUrZ4bGopcJFes8eurzQ6KWv8h6GFLQM8iILfmhM7autoS/aY2neo4bJBMV/EUgo6lPbNLNbLIgL
-	BiLocBBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qkRBbhHB4iuN7xSPIITChDuTjwYpXvbOBnslFsQsEpc=; b=We+Kuf/lQbBKpyx1OqlWLRyLLb
+	YM4V6zxrW0eimVxE+TJkOjCAaiS/vRkVZ5rsh+EovYuDlSDWtvg+ucSDFGx2ujcdPjd292BhLF/RP
+	1uTbnrMAJ0sZUJ7wC/tecG476IP5NFA/oduCoEF2t1+Co7dJCrOmuTiqyY75R8MGsYeEePd/lWw/R
+	7DAAmupUirHehe6/kGqgIgPswyaGd8QPDEPynDg+rqsgoMRXF78AqBayZms2kaXkJLt8R7gDZ1D9O
+	u/oATl9QAAWmypcHawiK5x1Oz+tKcB6NhpYWg8Ih29jsps7OS57D5s8qPMVd5hhsYQ1zfTAMnvZXP
+	VkBUQuGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZsiu-000000000a8-2H8i;
-	Wed, 17 Jun 2026 16:02:40 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wZrcT-0000000HVHl-1IYC;
+	Wed, 17 Jun 2026 14:51:57 +0000
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZsip-000000000X2-19vI
+	id 1wZrcN-0000000HVCx-0QUq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 16:02:35 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B3AD3600BB;
-	Wed, 17 Jun 2026 16:02:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D73F21F01558;
-	Wed, 17 Jun 2026 16:02:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781712154;
-	bh=cp5BkG390f/fn9ldPF3mpiSrgkIetFpKVYvXrJB7/WU=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=E477XrUk2dw6FrkEB01E35B5mc3yzvjUx19J/vYBDs7vI+DGIEtx8pOq6jzVZrz+Q
-	 Im9DgfD/qC+EzOxYLu0CN+sEV7T6yISgGOloz1tA9QEa5RDvy+5AYZQLCDyGplwa6v
-	 d++w+eZ4MSk4UMDQxOtE4iBFFV8opeaFeauSk/qcFQoOfpjR62lSFzApctcJVnEkPF
-	 qRH6QhablCNTPUrJkslC1DGv0A25OEdyNvk/ngRVNjk7xj5b0U2CVVGmCs7oHaPjjT
-	 JPBl4uGMApfEroA8g6cHRBwKsq930XKTqv90H+Dx67h6m8ijOGyhPPj7PrsP/e1i/K
-	 I6RcyPUccuP9Q==
-From: Thierry Reding <thierry.reding@kernel.org>
-Date: Wed, 17 Jun 2026 18:01:31 +0200
-Subject: [PATCH v7 4/4] arm64: tegra: Reorder reg and reg-names to match
- bindings
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260617-tegra264-pcie-v7-4-eae7ae964629@nvidia.com>
-References: <20260617-tegra264-pcie-v7-0-eae7ae964629@nvidia.com>
-In-Reply-To: <20260617-tegra264-pcie-v7-0-eae7ae964629@nvidia.com>
-To: Bjorn Helgaas <bhelgaas@google.com>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Thierry Reding <thierry.reding@gmail.com>, 
- Jonathan Hunter <jonathanh@nvidia.com>, 
- Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>, 
- Hou Zhiqiang <Zhiqiang.Hou@nxp.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- =?utf-8?q?Pali_Roh=C3=A1r?= <pali@kernel.org>, 
- Michal Simek <michal.simek@amd.com>, Kevin Xie <kevin.xie@starfivetech.com>, 
- Thierry Reding <thierry.reding@kernel.org>, Aksh Garg <a-garg7@ti.com>
-Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Thierry Reding <treding@nvidia.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4765; i=treding@nvidia.com;
- h=from:subject:message-id; bh=g4lQg9cZ99o24xfKWoKjSIFGaumk63ktv5zBQENtPlA=;
- b=owEBbQKS/ZANAwAKAd0jrNd/PrOhAcsmYgBqMsUNciDqZaew/sWNx3N02UnAfVlH6AQ0aW8b3
- C53LXX1XBuJAjMEAAEKAB0WIQSI6sMIAUnM98CNyJ/dI6zXfz6zoQUCajLFDQAKCRDdI6zXfz6z
- oQ+AD/0YqfMEpfe+KyTdT2s+1mO2EZ5By76Fr+WrXUS3GypSQEx9jn9v/J1mFAQCQG5n1TX97oS
- qnmb28n466W96XUChkVXVIgHfqGra1B8wyOY8Si+gJW0vJFEwg6hVmOhpqJXMBY7Wnp1x0ufGOO
- JKCB3LYh6Rdwn3X1VVQxbG/LZ5gu7abPvotDxEWcDd5twtksEKwFcIddM6+cKKeVLD6umvgdXfV
- 8IGqwSNJoWIwBqrxat1wMKotBfpTVnlswnkHUlxGOdG2hrCm1dKhlugLOfb51UFw4c4hxZLFOM9
- uHCX00MS4R2kySyQFX0sSFd4Fw2LU+miJWJ/7nCcYdMA1UtFBxxgl8FbjIj1wvxSfWmLukYcKhL
- o783Si/+0pyRn4aPdyNmaw3aVz7jnpqo31LGmAu9hgZuIu2iKR93/7+jfg4kz5QUfWaxWD3RuIS
- Nfku6OfshvZHe+T1BsSbhK+sJh+eL6ZMDq25W/7LbhVgbE4T0YtXo4V9/pXyQs0ZsK4+Xhfwbqp
- NuZIJ0xIrAgVIxKpbj31EwreBx6d9Uo685/7jDgb0mIXpT+sVLgf6QQC0DEiiN7rgyLsw5yEUX0
- 86DmpdiXqy7O1LmJERJcSCN61aHuy6Tz9nMxqAsVrT60e7IqLEnMlryQsF7KFYudNrbHROtZFLD
- kAfVJwndTWsCOtA==
-X-Developer-Key: i=treding@nvidia.com; a=openpgp;
- fpr=88EAC3080149CCF7C08DC89FDD23ACD77F3EB3A1
+	Wed, 17 Jun 2026 14:51:52 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-490b0682d2fso55108195e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 07:51:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1781707909; x=1782312709; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=qkRBbhHB4iuN7xSPIITChDuTjwYpXvbOBnslFsQsEpc=;
+        b=uqGby7zSHsLzaLeG5TQmHbueoIktx48esKyp/0uwg5gxGN2rEjbiYwl3tkQUryiczt
+         AJ41JD1IpDimqJtG97M6BVLHAP8jV8H6zGbdRCkrbz+wJYAQAKOel3/avor7EeiyOAt1
+         eenmYGoGusf8XDplaB2jA5g3p5f8qyGhuW5QnBxgieD8dXJgJvsGLJ6yKrWZlOwv7kVL
+         3py35T5Ozp7oehalj0Krk1vixkTkWTPGwFDBvJtStV5f1289gpInKA3qXtfxhlwvsn5W
+         i3/NevjOFohsY+ARSE1ud3HqzsLuCYpAExABSF5Ur1HkXzg0FqwYTVFu2C675EqQw7M7
+         e1nw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781707909; x=1782312709;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=qkRBbhHB4iuN7xSPIITChDuTjwYpXvbOBnslFsQsEpc=;
+        b=q1a6NYPPcIdicYfqoYC0XkaUtNVRgZ+iN/fxo20Q+ofm8OpWNpQyZzVlhoZFz9g2DG
+         d/Ky1GACDqWpFA72H6mwIDJ+O5ctWcojSrTUOZgp4J2fmIMBL/o3DGo2jp8X97lo2yiQ
+         Z+fCT/YaBtMPnf0Di4A9v/Ji/6djPsxbzjME8a/aiHZlkAS77EvnqnHWZl+q6nD4V0DZ
+         TI8jNBX0jPyS+TkTL3hgt0qwRy/EhVOkhyNS4byVaCtYZ3UNH9s0FLDEEWi0bBuzE8Eh
+         QKqnZluHD0U/Z59Jh12YfGDTKTqp1LIDGi7TWVNHJUic5hfUu6m3q3GFzkHnBPPR092G
+         NTcA==
+X-Forwarded-Encrypted: i=1; AFNElJ8snEmRohV8SR2RhOnQ9A1KvQ3fPlNaEIzN2UrIne9pHbI3NurC8dqJQAKbb4xde741G98fOWuG+aj138vGqUDC@lists.infradead.org
+X-Gm-Message-State: AOJu0YxG8oX7sronMYBxdqFSslroFlFKBakBouYZjkhSXUJH/LiZ2ydq
+	EkPKU8rlEcsTfQztSV6gTcx9sShgM3IWtLiPynhY0+5TRiL387N9HYDnigD5a+jWR2AyswFasxU
+	d4loaiXrrDImUltO4y9H5g4w/L9iWag==
+X-Received: from wmbc22.prod.google.com ([2002:a7b:c016:0:b0:491:41a:40d4])
+ (user=sebastianene job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:37ce:b0:490:bd66:e526 with SMTP id 5b1f17b1804b1-49236791faemr29047845e9.32.1781707908701;
+ Wed, 17 Jun 2026 07:51:48 -0700 (PDT)
+Date: Wed, 17 Jun 2026 14:51:28 +0000
+In-Reply-To: <20260617145130.3729015-1-sebastianene@google.com>
+Mime-Version: 1.0
+References: <20260617145130.3729015-1-sebastianene@google.com>
+X-Mailer: git-send-email 2.54.0.1136.gdb2ca164c4-goog
+Message-ID: <20260617145130.3729015-6-sebastianene@google.com>
+Subject: [PATCH v7 5/7] KVM: arm64: Validate the offset to the mem access descriptor
+From: Sebastian Ene <sebastianene@google.com>
+To: catalin.marinas@arm.com, oupton@kernel.org, sudeep.holla@kernel.org, 
+	will@kernel.org
+Cc: jens.wiklander@linaro.org, joey.gouly@arm.com, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	android-kvm@google.com, maz@kernel.org, mrigendra.chaubey@gmail.com, 
+	op-tee@lists.trustedfirmware.org, perlarsen@google.com, 
+	sebastianene@google.com, seiden@linux.ibm.com, smostafa@google.com, 
+	sumit.garg@kernel.org, suzuki.poulose@arm.com, vdonnefort@google.com, 
+	yuzenghui@huawei.com
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260617_075151_176066_F421E43C 
+X-CRM114-Status: GOOD (  15.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,134 +94,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Thierry Reding <treding@nvidia.com>
+Prevent the pKVM hypervisor from making assumptions that the
+endpoint memory access descriptor (EMAD) comes right after the
+FF-A memory region header.
+Prior to FF-A version 1.1 the header of the memory region
+didn't contain an offset to the endpoint memory access descriptor.
+The layout of a memory transaction looks like this from 1.1 onward:
+Type | Field name | Offset
+[ Header | ffa_mem_region  | 0
+  EMAD 1 | ffa_mem_region_attributes) | ffa_mem_region.ep_mem_offset
+]
+Verify that the offset to the first endpoint memory access descriptor
+is within the mailbox buffer bounds.
 
-The ECAM region cannot be the first entry in the "reg" property, because
-in that case the unit-address wouldn't match the first entry. The order
-of the nodes can also not be changed to match the ECAM entry because the
-ECAM region is global and outside of any of the control busses.
+Also, fix one hardcoded sizeof(struct ffa_mem_region_attributes) that
+should be replaced ffa_emad_size_get() for compatibility with FFA v1.0.
 
-Signed-off-by: Thierry Reding <treding@nvidia.com>
+Fixes: 42fb33dde42b ("KVM: arm64: Use FF-A 1.1 with pKVM")
+Signed-off-by: Sebastian Ene <sebastianene@google.com>
+Signed-off-by: Mostafa Saleh <smostafa@google.com>
 ---
-Changes in v5:
-- rebase onto v7.1-rc1
+ arch/arm64/kvm/hyp/nvhe/ffa.c | 29 +++++++++++++++++++++--------
+ 1 file changed, 21 insertions(+), 8 deletions(-)
 
-Changes in v4:
-- revert ECAM "reg" entry order
-
-Changes in v2:
-- order ECAM "reg" entry before others
----
- arch/arm64/boot/dts/nvidia/tegra264.dtsi | 48 ++++++++++++++++----------------
- 1 file changed, 24 insertions(+), 24 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/nvidia/tegra264.dtsi b/arch/arm64/boot/dts/nvidia/tegra264.dtsi
-index 8f4350c7793b..4c701abd25a8 100644
---- a/arch/arm64/boot/dts/nvidia/tegra264.dtsi
-+++ b/arch/arm64/boot/dts/nvidia/tegra264.dtsi
-@@ -3513,11 +3513,11 @@ cmdqv4: cmdqv@b200000 {
+diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+index 2d211661952e..1a2abd0154c6 100644
+--- a/arch/arm64/kvm/hyp/nvhe/ffa.c
++++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+@@ -476,11 +476,14 @@ static void __do_ffa_mem_xfer(const u64 func_id,
+ 	DECLARE_REG(u32, fraglen, ctxt, 2);
+ 	DECLARE_REG(u64, addr_mbz, ctxt, 3);
+ 	DECLARE_REG(u32, npages_mbz, ctxt, 4);
++	u32 offset, nr_ranges, checked_offset, em_mem_access_off;
+ 	struct ffa_mem_region_attributes *ep_mem_access;
+ 	struct ffa_composite_mem_region *reg;
+ 	struct ffa_mem_region *buf;
+-	u32 offset, nr_ranges, checked_offset;
+ 	int ret = 0;
++	size_t mem_region_len = !FFA_MEM_REGION_HAS_EP_MEM_OFFSET(hyp_ffa_version) ?
++		offsetof(struct ffa_mem_region, ep_mem_offset) :
++		sizeof(struct ffa_mem_region);
  
- 		pci@c000000 {
- 			compatible = "nvidia,tegra264-pcie";
--			reg = <0xd0 0xb0000000 0x0 0x10000000>,
--			      <0x00 0x0c000000 0x0 0x00004000>,
-+			reg = <0x00 0x0c000000 0x0 0x00004000>,
- 			      <0x00 0x0c004000 0x0 0x00001000>,
--			      <0x00 0x0c005000 0x0 0x00001000>;
--			reg-names = "ecam", "xal", "xtl", "xtl-pri";
-+			      <0x00 0x0c005000 0x0 0x00001000>,
-+			      <0xd0 0xb0000000 0x0 0x10000000>;
-+			reg-names = "xal", "xtl", "xtl-pri", "ecam";
- 			#address-cells = <3>;
- 			#size-cells = <2>;
- 			device_type = "pci";
-@@ -3893,12 +3893,12 @@ gpio_uphy: gpio@8300000 {
+ 	if (addr_mbz || npages_mbz || fraglen > len ||
+ 	    fraglen > KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE) {
+@@ -488,8 +491,7 @@ static void __do_ffa_mem_xfer(const u64 func_id,
+ 		goto out;
+ 	}
  
- 		pci@8400000 {
- 			compatible = "nvidia,tegra264-pcie";
--			reg = <0xa8 0xb0000000 0x0 0x10000000>,
--			      <0x00 0x08400000 0x0 0x00004000>,
-+			reg = <0x00 0x08400000 0x0 0x00004000>,
- 			      <0x00 0x08404000 0x0 0x00001000>,
- 			      <0x00 0x08405000 0x0 0x00001000>,
--			      <0x00 0x08410000 0x0 0x00010000>;
--			reg-names = "ecam", "xal", "xtl", "xtl-pri", "xpl";
-+			      <0x00 0x08410000 0x0 0x00010000>,
-+			      <0xa8 0xb0000000 0x0 0x10000000>;
-+			reg-names = "xal", "xtl", "xtl-pri", "xpl", "ecam";
- 			#address-cells = <3>;
- 			#size-cells = <2>;
- 			device_type = "pci";
-@@ -3925,12 +3925,12 @@ pci@8400000 {
+-	if (fraglen < sizeof(struct ffa_mem_region) +
+-		      sizeof(struct ffa_mem_region_attributes)) {
++	if (fraglen < mem_region_len + ffa_emad_size_get(hyp_ffa_version)) {
+ 		ret = FFA_RET_INVALID_PARAMETERS;
+ 		goto out;
+ 	}
+@@ -508,8 +510,13 @@ static void __do_ffa_mem_xfer(const u64 func_id,
+ 	buf = hyp_buffers.tx;
+ 	memcpy(buf, host_buffers.tx, fraglen);
  
- 		pci@8420000 {
- 			compatible = "nvidia,tegra264-pcie";
--			reg = <0xb0 0xb0000000 0x0 0x10000000>,
--			      <0x00 0x08420000 0x0 0x00004000>,
-+			reg = <0x00 0x08420000 0x0 0x00004000>,
- 			      <0x00 0x08424000 0x0 0x00001000>,
- 			      <0x00 0x08425000 0x0 0x00001000>,
--			      <0x00 0x08430000 0x0 0x00010000>;
--			reg-names = "ecam", "xal", "xtl", "xtl-pri", "xpl";
-+			      <0x00 0x08430000 0x0 0x00010000>,
-+			      <0xb0 0xb0000000 0x0 0x10000000>;
-+			reg-names = "xal", "xtl", "xtl-pri", "xpl", "ecam";
- 			#address-cells = <3>;
- 			#size-cells = <2>;
- 			device_type = "pci";
-@@ -3957,12 +3957,12 @@ pci@8420000 {
+-	ep_mem_access = (void *)buf +
+-			ffa_mem_desc_offset(buf, 0, hyp_ffa_version);
++	em_mem_access_off = ffa_mem_desc_offset(buf, 0, hyp_ffa_version);
++	if ((u64)em_mem_access_off + ffa_emad_size_get(hyp_ffa_version) > fraglen) {
++		ret = FFA_RET_INVALID_PARAMETERS;
++		goto out_unlock;
++	}
++
++	ep_mem_access = (void *)buf + em_mem_access_off;
+ 	offset = ep_mem_access->composite_off;
+ 	if (!offset || buf->ep_count != 1 || buf->sender_id != HOST_FFA_ID) {
+ 		ret = FFA_RET_INVALID_PARAMETERS;
+@@ -574,9 +581,9 @@ static void do_ffa_mem_reclaim(struct arm_smccc_1_2_regs *res,
+ 	DECLARE_REG(u32, handle_lo, ctxt, 1);
+ 	DECLARE_REG(u32, handle_hi, ctxt, 2);
+ 	DECLARE_REG(u32, flags, ctxt, 3);
++	u32 offset, len, fraglen, fragoff, em_mem_access_off;
+ 	struct ffa_mem_region_attributes *ep_mem_access;
+ 	struct ffa_composite_mem_region *reg;
+-	u32 offset, len, fraglen, fragoff;
+ 	struct ffa_mem_region *buf;
+ 	int ret = 0;
+ 	u64 handle;
+@@ -599,8 +606,14 @@ static void do_ffa_mem_reclaim(struct arm_smccc_1_2_regs *res,
+ 	len = res->a1;
+ 	fraglen = res->a2;
  
- 		pci@8440000 {
- 			compatible = "nvidia,tegra264-pcie";
--			reg = <0xb8 0xb0000000 0x0 0x10000000>,
--			      <0x00 0x08440000 0x0 0x00004000>,
-+			reg = <0x00 0x08440000 0x0 0x00004000>,
- 			      <0x00 0x08444000 0x0 0x00001000>,
- 			      <0x00 0x08445000 0x0 0x00001000>,
--			      <0x00 0x08450000 0x0 0x00010000>;
--			reg-names = "ecam", "xal", "xtl", "xtl-pri", "xpl";
-+			      <0x00 0x08450000 0x0 0x00010000>,
-+			      <0xb8 0xb0000000 0x0 0x10000000>;
-+			reg-names = "xal", "xtl", "xtl-pri", "xpl", "ecam";
- 			#address-cells = <3>;
- 			#size-cells = <2>;
- 			device_type = "pci";
-@@ -3989,12 +3989,12 @@ pci@8440000 {
- 
- 		pci@8460000 {
- 			compatible = "nvidia,tegra264-pcie";
--			reg = <0xc0 0xb0000000 0x0 0x10000000>,
--			      <0x00 0x08460000 0x0 0x00004000>,
-+			reg = <0x00 0x08460000 0x0 0x00004000>,
- 			      <0x00 0x08464000 0x0 0x00001000>,
- 			      <0x00 0x08465000 0x0 0x00001000>,
--			      <0x00 0x08470000 0x0 0x00010000>;
--			reg-names = "ecam", "xal", "xtl", "xtl-pri", "xpl";
-+			      <0x00 0x08470000 0x0 0x00010000>,
-+			      <0xc0 0xb0000000 0x0 0x10000000>;
-+			reg-names = "xal", "xtl", "xtl-pri", "xpl", "ecam";
- 			#address-cells = <3>;
- 			#size-cells = <2>;
- 			device_type = "pci";
-@@ -4021,12 +4021,12 @@ pci@8460000 {
- 
- 		pci@8480000 {
- 			compatible = "nvidia,tegra264-pcie";
--			reg = <0xc8 0xb0000000 0x0 0x10000000>,
--			      <0x00 0x08480000 0x0 0x00004000>,
-+			reg = <0x00 0x08480000 0x0 0x00004000>,
- 			      <0x00 0x08484000 0x0 0x00001000>,
- 			      <0x00 0x08485000 0x0 0x00001000>,
--			      <0x00 0x08490000 0x0 0x00010000>;
--			reg-names = "ecam", "xal", "xtl", "xtl-pri", "xpl";
-+			      <0x00 0x08490000 0x0 0x00010000>,
-+			      <0xc8 0xb0000000 0x0 0x10000000>;
-+			reg-names = "xal", "xtl", "xtl-pri", "xpl", "ecam";
- 			#address-cells = <3>;
- 			#size-cells = <2>;
- 			device_type = "pci";
-
+-	ep_mem_access = (void *)buf +
+-			ffa_mem_desc_offset(buf, 0, hyp_ffa_version);
++	em_mem_access_off = ffa_mem_desc_offset(buf, 0, hyp_ffa_version);
++	if ((u64)em_mem_access_off + ffa_emad_size_get(hyp_ffa_version) > fraglen) {
++		ret = FFA_RET_INVALID_PARAMETERS;
++		ffa_rx_release(res);
++		goto out_unlock;
++	}
++
++	ep_mem_access = (void *)buf + em_mem_access_off;
+ 	offset = ep_mem_access->composite_off;
+ 	/*
+ 	 * We can trust the SPMD to get this right, but let's at least
 -- 
-2.54.0
+2.54.0.1136.gdb2ca164c4-goog
 
 
