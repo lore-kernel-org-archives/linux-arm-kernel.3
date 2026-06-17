@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E3C7CD98F1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 12:08:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A43ACD98F0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 12:10:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
 	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1j3L783xN5tmnlQDQzKwqjETkSIJXUdm+vGp8MYnTFY=; b=UtYEaZYtCnNlA5nZqWkKOu3D4w
-	zzVbr5q4uAnd/nTb4VGMiDY3DFoEv7kU1zk3G/7benGQ20LaW0rCi1alRPZAIApSZ+MP7hel0N61/
-	elUWjlnSVS5zvL38e9+ft8bgxL0fpD54u6bnmR5QKqnEsz9hMD6rYT3mkm38aPQfOOhD0M56Oj18s
-	YNXQaQ21/H5XDkK5SYxD9UzO0/47zqHB45ohDXjQztDNkYJfUlUWDnCnwx/SibEYe/7zLyT3NE/P/
-	Q1AnMPZ6RXOSBUhSlfrWXeEdfyjWlEdxdskG3tJGcmz3naoJ5l/UyZGb4RkPp6IHRh4U/D32N3025
-	92yO1E+Q==;
+	bh=jdxmBgV7xIk2aU1yR0qr5KSK2tuwAbIYHWip0SjnY18=; b=w/7BaglbJ2zoCKhP+YGd+8OqZP
+	JOAMuFZvy1TyuYwWbYpZlM4Qjekn4PUz/8Wzege2ZbKH0vrL4VQtOKU3IubHk71LYOCe4VCSEY0Cp
+	xx/lrgnu+uyrC1FNNByUC+QeVMDElFltszzIHh1Ai/SGpMJB4K7UAaGOk4XaTWTfb4qUm6JWNrRtW
+	kAMhJWWeBFo898uIcx3Hu7ygJ2FZEaCycdIkVmLeHHAXjJYFYFeD1rHYdsskSyQ8UdBTni+bSBD9O
+	IaDj2EC5joeDKgwRzYqT6wvDDkycDZoF2SGy3BKHQsbQgfjhjPr78zNYXKnspj5xUMK9GR3hV9axE
+	f/Yvd/EA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZp3m-0000000HIwc-0km4;
-	Wed, 17 Jun 2026 12:07:58 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wZp5e-0000000HJCP-1vcN;
+	Wed, 17 Jun 2026 12:09:54 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZp3l-0000000HIwK-05mh
+	id 1wZp5d-0000000HJCE-2WC7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 12:07:57 +0000
+	Wed, 17 Jun 2026 12:09:53 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C191643F3E;
-	Wed, 17 Jun 2026 12:07:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A45DD1F00A3D;
-	Wed, 17 Jun 2026 12:07:56 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2EE8740B9A;
+	Wed, 17 Jun 2026 12:09:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11A271F00A3A;
+	Wed, 17 Jun 2026 12:09:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781698076;
-	bh=1j3L783xN5tmnlQDQzKwqjETkSIJXUdm+vGp8MYnTFY=;
+	s=k20260515; t=1781698193;
+	bh=jdxmBgV7xIk2aU1yR0qr5KSK2tuwAbIYHWip0SjnY18=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=TZSbXhY0660q6khj5w+1+nUtCVJlCkkF6rfC7kgOt6X43Weow9Jyj6LHChJkfJ1ua
-	 NFo3PpKelYmAiXYxDHZid2Jz4m8LK5aD7nnlOH1kE6i9ZH76Fu7QNg/iv6/hFg9n8X
-	 rmqFajlYYeDF3JfOe/pQdQhrPy85nJX7eMxWsgXderOebSEGvpPbpZiZ4GJNm7lZRa
-	 u15LkcC0qhhTY45qPxDZ1e64ASgTWwzzKjbSXERIM6BwlUbixy4PDymXnJFT0Aoxdr
-	 G7UCmAn0k8uNh7tpoqQV8atly8jRtp7OH1PjaZ3c2VpXwGffCcy5Msf8M9OI4Gq19c
-	 MCNhZR5PRAM4A==
+	b=dyCtHVxvxG5jAeXkN7iA355KwPGzIsH9XJysaSLabhSbcYDbhpdagUM5W+u50DbGO
+	 lhxKNVk+kOCOk5mLql0rAbtXWXbx9m6ssuzHx35lQ9KoDIEOpJmq57OH2OLGz0uhlV
+	 4fWZOLiYbGRTEShiop7tRvzv0oVMtJkwTbZN63GgF+ukeiFbXB/gXKz8Yjd6PKlHpi
+	 Lbr82J9x2goCzUEStqA/vr58w5NAiJt/sxKcUnYdh1rtupOpl3j/IEVAbSOgR6VUE2
+	 8BhAHK9g9iiQdHCNF6DdpKY+uQmZUs104hXIgko1/rN/x+3SuS7mzhAvXIEHQqOo2A
+	 eKz8Ym76YY2fw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wZp3i-0000000Dfe5-3dDR;
-	Wed, 17 Jun 2026 12:07:54 +0000
-Date: Wed, 17 Jun 2026 13:07:54 +0100
-Message-ID: <86zf0ts739.wl-maz@kernel.org>
+	id 1wZp5b-0000000Dfi2-1WrG;
+	Wed, 17 Jun 2026 12:09:51 +0000
+Date: Wed, 17 Jun 2026 13:09:51 +0100
+Message-ID: <86y0gds700.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
 To: Kemeng Shi <shikemeng@huaweicloud.com>
 Cc: tglx@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/6] irqchip/gic-v3-its: Fix memleak in its_probe_one()
-In-Reply-To: <bf396073-9a23-4602-ad64-ac3f38f2df65@huaweicloud.com>
+Subject: Re: [PATCH 1/6] irqchip/gic-v3-its: Fix LPI range leak and refactor error handler in its_lpi_alloc()
+In-Reply-To: <cda86396-afe1-4bc9-97c2-0e7a3c739217@huaweicloud.com>
 References: <20260615032910.54735-1-shikemeng@huaweicloud.com>
-	<20260615032910.54735-3-shikemeng@huaweicloud.com>
-	<87ik7k89i5.wl-maz@kernel.org>
-	<bf396073-9a23-4602-ad64-ac3f38f2df65@huaweicloud.com>
+	<20260615032910.54735-2-shikemeng@huaweicloud.com>
+	<87jys089sn.wl-maz@kernel.org>
+	<cda86396-afe1-4bc9-97c2-0e7a3c739217@huaweicloud.com>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
@@ -85,57 +85,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 16 Jun 2026 02:39:10 +0100,
+On Tue, 16 Jun 2026 02:31:22 +0100,
 Kemeng Shi <shikemeng@huaweicloud.com> wrote:
 >=20
-> =E5=9C=A8 2026/6/15 16:59:14, Marc Zyngier =E5=86=99=E9=81=93:
-> > On Mon, 15 Jun 2026 04:29:06 +0100,
+> =E5=9C=A8 2026/6/15 16:52:56, Marc Zyngier =E5=86=99=E9=81=93:
+> > On Mon, 15 Jun 2026 04:29:05 +0100,
 > > Kemeng Shi <shikemeng@huaweicloud.com> wrote:
 > >>
-> >> Fix collection leak when its_init_domain() failed in its_probe_one().
+> >> Fix the LIP range leak when bitmap_zalloc() failed. Besides refactor
+> >=20
+> > Typo.
+> >=20
+> >> error handling code to make it a little simpler.
+> >=20
+> > No. Please don't mix fixes and (totally pointless) refactoring.
+> OK, I will only keep fix in this patch.>=20
 > >>
 > >> Signed-off-by: Kemeng Shi <shikemeng@huaweicloud.com>
 > >> ---
-> >>  drivers/irqchip/irq-gic-v3-its.c | 10 +++++++++-
-> >>  1 file changed, 9 insertions(+), 1 deletion(-)
+> >>  drivers/irqchip/irq-gic-v3-its.c | 21 +++++++++------------
+> >>  1 file changed, 9 insertions(+), 12 deletions(-)
 > >>
 > >> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gi=
 c-v3-its.c
-> >> index 2b7b546c43c8..df26ddc97ae2 100644
+> >> index 291d7668cc8d..2b7b546c43c8 100644
 > >> --- a/drivers/irqchip/irq-gic-v3-its.c
 > >> +++ b/drivers/irqchip/irq-gic-v3-its.c
-> >> @@ -3032,6 +3032,12 @@ static int its_alloc_collections(struct its_nod=
-e *its)
-> >>  	return 0;
+> >> @@ -2217,10 +2217,9 @@ static int __init its_lpi_init(u32 id_bits)
+> >>  static unsigned long *its_lpi_alloc(int nr_irqs, u32 *base, int *nr_i=
+ds)
+> >>  {
+> >>  	unsigned long *bitmap =3D NULL;
+> >> -	int err =3D 0;
+> >> =20
+> >>  	do {
+> >> -		err =3D alloc_lpi_range(nr_irqs, base);
+> >> +		int err =3D alloc_lpi_range(nr_irqs, base);
+> >>  		if (!err)
+> >>  			break;
+> >> =20
+> >> @@ -2228,22 +2227,20 @@ static unsigned long *its_lpi_alloc(int nr_irq=
+s, u32 *base, int *nr_ids)
+> >>  	} while (nr_irqs > 0);
+> >> =20
+> >>  	if (!nr_irqs)
+> >> -		err =3D -ENOSPC;
+> >> -
+> >> -	if (err)
+> >> -		goto out;
+> >> +		goto err_out;
+> >> =20
+> >>  	bitmap =3D bitmap_zalloc(nr_irqs, GFP_ATOMIC);
+> >>  	if (!bitmap)
+> >> -		goto out;
+> >> +		goto err_free_lpi;
+> >> =20
+> >>  	*nr_ids =3D nr_irqs;
+> >> -
+> >> -out:
+> >> -	if (!bitmap)
+> >> -		*base =3D *nr_ids =3D 0;
+> >> -
+> >>  	return bitmap;
+> >> +
+> >> +err_free_lpi:
+> >> +	free_lpi_range(*base, nr_irqs);
+> >> +err_out:
+> >> +	*base =3D *nr_ids =3D 0;
+> >> +	return NULL;
 > >>  }
 > >> =20
-> >> +static void its_free_collections(struct its_node *its)
-> >> +{
-> >> +	kfree(its->collections);
-> >> +	its->collections =3D NULL;
-> >> +}
+> >>  static void its_lpi_free(unsigned long *bitmap, u32 base, u32 nr_ids)
 > >=20
-> > Why do we need an extra helper for something that has a single calling
-> > spot? Why is it important to set collections to NULL, given that we're
-> > about to free the structure without even looking further?
-> >=20
-> The extra helper is added for symmetry with its_alloc_collections(), keep=
-ing
-> allocation/deallocation logic paired.
+> > Honestly, I question the validity of handling errors this way. You are
+> > already unable to allocate a per-device bitmap. And yet you are
+> > calling free_lpi_range(), which has the interesting property of
+> > *allocating* memory. Which you don't have. Oh wait...
+> You are right. I'm considering use xarray to track the lpi range or
+> modify free_lpi_range to try merge first before memory allocation.
+> What would you recommend?
 
-But there is zero logic here. None. it is a call to kfree(), just
-that, and we don't need any additional abstraction.
-
-> In this way, we need to only modified
-> allocation/deallocation function if more member is added for collections.
-
-Well, when we get there, we can always add an abstraction.
-
-> Setting collections to NULL is a personal habit to quickly catch use-afte=
-r-free
-> of collections. Could drop this which is not that import.
-
-I don't see the point of doing that.
+My personal take on this is that leaking a few LPIs is not a big deal,
+given how many we have. You are trying to optimise for an error case
+that never happens, and I really don't want to add more complexity to
+this.
 
 	M.
 
