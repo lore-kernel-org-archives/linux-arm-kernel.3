@@ -4,71 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 250DBCD98EC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 00:40:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A909CCD98D2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 00:45:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nsPimvOxFtNpOsrcCdC4WZqlfbRzu95KX1Bfdk2/Wx0=; b=tQRjcz6gq333u9zNHYcdnOWUeU
-	gpK+8dbKpwaqKlEbE9Imte5CWsEK1E1xExqDXFcEMGmIfp3kDDyRnI75NnNYx+D2FrSAFIiPzEgFA
-	oaTRUIGNkBO3utcTcc9GIUxEpRIecHqBbsc4dPycMsnX9WOpTNYxCjI2ZCMdCR8SKKGyQbSlOMpNr
-	fIx41fn/uwAveal0GUvMtBKWgzflu7RnxvwzAmvEm3qu6pyQwgIXSAqrVBfSHjV0w7BIqP2vdZn1S
-	3pfSMRHgVmvAYp5pA14RfUJbSoPjmcguVeIjYuAnu9rA1ZHU5RwljC5ml4eQ81t2qN2ucQQZFoO2O
-	E65rxnpg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oW3NBxoz0h1ByrSqH5tPVmY3lr7CHCdPxDnqXMlrypY=; b=169/7+tb1uGISYpv8ZEMVSsqG5
+	HxK0wJbDOM9xlhp5K2xOIPvPK9Hrlbmm6epGwF9v9KVO7HVbGCf9EY4QIpkbNp7lVZQU6hNFmzHzm
+	4nMgAfOPq42RqRK/fhNenvTMmPSUViLQka1U22QCnQwxK3JtVXdZHeZqwJ9aGKg7x3sdwuc7vP7oS
+	YdtHNznB6VXgF0C722KTvDZy9+1FScyL4qIUr+0XpY5nELS9lfkixx4JafV+qDeV8RRmMy8kFnrBz
+	vPOde95Ovh8oseBOWknRFt9CjTxOHo4wOh+YpWOCFPe+uEEbS9e2HHqt3DM7HnTr80dfcwJWk0OUW
+	ltUrD0kQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZeKI-0000000GRK3-1SZz;
-	Wed, 17 Jun 2026 00:40:18 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wZeOp-0000000GRSr-3vbZ;
+	Wed, 17 Jun 2026 00:44:59 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZeKH-0000000GRJs-1KdZ
+	id 1wZeOm-0000000GRSU-3RQo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 00:40:17 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9DABD43DE1
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 00:40:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48A111F00ACF
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 00:40:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781656816;
-	bh=nsPimvOxFtNpOsrcCdC4WZqlfbRzu95KX1Bfdk2/Wx0=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=fjmCrLO3zbAroMhw9rZ3qKRetjFLhR5TLTnehcYYd1ttflKewxORMDBP18zJy1vLE
-	 kGlrB/DYFYMJoTbLhIRFle9oZrJw9ryG00rbfgEU9rBYBD5uGA6O8eVhNc9IG/GlGR
-	 BpR0N6tyICgTUdoVHJgpf9KxETMgMNYr+nTKb2ZZRVhhgvmcayvFh/QQWY17M0WUQu
-	 W8Solnx3sSpaecaZJpyRMN5ijnxCVlXzGW8PuPqIcKfeXRnYfbX4MtJf8pdQdby+nM
-	 zRJ9LJLMhk7VAmt+cH7qf7fTAXLfsDyqJT6prcWIR28JyiWl8K3Ov3ct2hJnWCRcLB
-	 bznjnPwl5B7GQ==
-Received: by mail-lj1-f176.google.com with SMTP id 38308e7fff4ca-396669329fbso3906051fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 17:40:16 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ8Tmu5Niiferu7mbalfsdN5EMyqtMmFnjLWVAijI091VYqlDkGGXIfZ1jAPqlaX8lt8ZP2qSo+zacLibKlX5qHF@lists.infradead.org
-X-Gm-Message-State: AOJu0YznGLyiLL4NRLw5jwNDqsmRp2T8qAx+gpel5zylm0guQiXN6+Qz
-	oCL4PSpHzIkumJtx8NyVoE+pCAheINwy6J7QtIw2VePvYwPq7a+YkZ26+qwqWndL4yubSXWyE5s
-	sYTgs5/NXsLHV5jU8eldV/sCCjML4CsM=
-X-Received: by 2002:a2e:be08:0:b0:38b:dd55:b71 with SMTP id
- 38308e7fff4ca-3996a322bd5mr2098101fa.20.1781656814764; Tue, 16 Jun 2026
- 17:40:14 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260616111224.152140-1-senozhatsky@chromium.org> <20260616111224.152140-2-senozhatsky@chromium.org>
-In-Reply-To: <20260616111224.152140-2-senozhatsky@chromium.org>
-From: Sean Wang <sean.wang@kernel.org>
-Date: Tue, 16 Jun 2026 19:40:01 -0500
-X-Gmail-Original-Message-ID: <CAGp9LzpCMGr2hyVJRMehs_BD4Rk6mS2jAifWuCgBaANdqgtvqA@mail.gmail.com>
-X-Gm-Features: AVVi8CePh02iDBIiYBUKoKLWcbC8GIPcYK15HYAKhoj7Eq4e84wo6CwYl-6iRWo
-Message-ID: <CAGp9LzpCMGr2hyVJRMehs_BD4Rk6mS2jAifWuCgBaANdqgtvqA@mail.gmail.com>
-Subject: Re: [PATCH v2 1/3] Bluetooth: btmtksdio: correct btmtksdio_txrx_work()
- loop timeout check
-To: Sergey Senozhatsky <senozhatsky@chromium.org>
-Cc: Marcel Holtmann <marcel@holtmann.org>, Luiz Augusto von Dentz <luiz.dentz@gmail.com>, 
-	Mark-yw Chen <mark-yw.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
-	Tomasz Figa <tfiga@chromium.org>, linux-bluetooth@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, stable@vger.kernel.org
+	Wed, 17 Jun 2026 00:44:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1781657086;
+	bh=oW3NBxoz0h1ByrSqH5tPVmY3lr7CHCdPxDnqXMlrypY=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=ZL2rTl7ZbPOIJdHwOxroNvNWUC/kgtRAbAsWGXCKonHXLRrmL/CwWU+Z7+Gkh+iwA
+	 rkleWiff1R18xZXbDHV+V6vMusxH4YNZC0aGcNbfh4HOuA7mznwR5ltcHkR4fT3sDm
+	 x/mZEoOJHLzPyiLd/vEHJeeIGlfhNiMfAETpc0G+CkSpDn7tzt4F4t1En5OBL/lM76
+	 LzFyNucIhKKmtxaZyCp/u1GAB7I+Mr7Ul1tYOBMQ6EbabGD4O1M8frojJ/D/NRwiPU
+	 Iu+YKrclcxY0vsp14NBVCDcBduvG3TjzN8iwbtZkI6ijucd3m8yoAvkqE898hdaM/q
+	 MxOsQal375ETw==
+Received: from [192.168.68.117] (unknown [180.150.112.11])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 0A1D7659B9;
+	Wed, 17 Jun 2026 08:44:45 +0800 (AWST)
+Message-ID: <b50b84b169b632200ca348971451baca83357c7b.camel@codeconstruct.com.au>
+Subject: Re: [PATCH v6] soc: aspeed: lpc-snoop: Fix usercopy overflow in
+ snoop_file_read
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Karthikeyan KS <karthiproffesional@gmail.com>
+Cc: joel@jms.id.au, andrew@aj.id.au, Kees Cook <kees@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org
+Date: Wed, 17 Jun 2026 10:14:44 +0930
+In-Reply-To: <20260616073053.1144730-1-karthiproffesional@gmail.com>
+References: <033f2657ae6a94ad13d22f717a2900afb75d892d.camel@codeconstruct.com.au>
+	 <20260616073053.1144730-1-karthiproffesional@gmail.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
+MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260616_174457_105491_71EDC15F 
+X-CRM114-Status: UNSURE (   7.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,52 +74,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Tue, 2026-06-16 at 07:30 +0000, Karthikeyan KS wrote:
+> Hi Andrew,
+>=20
+> Happy to. Short version: ast2600-evb can't hit the SMP timing window,
+> so I reproduce each missing piece deliberately. The driver code under
+> test is unmodified -- only the stimulus and the post-race state are
+> injected. Stock qemu-system-arm (Debian 8.2.2), no QEMU changes.
+>=20
+> Three obstacles, and what I did about each:
 
-On Tue, Jun 16, 2026 at 6:15=E2=80=AFAM Sergey Senozhatsky
-<senozhatsky@chromium.org> wrote:
->
-> The btmtksdio_txrx_work() loop is expected to be terminated if running
-> for longer than 5*HZ.  However the timeout check is reversed:
-> time_is_before_jiffies(old_jiffies + 5*HZ) evaluates to true when
-> old_jiffies + 5*HZ is in the past i.e. when a timeout has occurred.
-> Using OR with time_is_before_jiffies(txrx_timeout) means that:
-> - before the 5-second timeout: the condition is `int_status || false`,
->   so it loops as long as there are pending interrupts.
-> - after the 5-second timeout: the condition becomes `int_status || true`,
->   which is always true.
->
-> Fix loop termination condition to actually enforce a 5*HZ timeout.
->
-> Fixes: 26270bc189ea4 ("Bluetooth: btmtksdio: move interrupt service to wo=
-rk")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Sergey Senozhatsky <senozhatsky@chromium.org>
-> ---
->  drivers/bluetooth/btmtksdio.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/drivers/bluetooth/btmtksdio.c b/drivers/bluetooth/btmtksdio.=
-c
-> index 5b0fab7b89b5..c6f80c419e90 100644
-> --- a/drivers/bluetooth/btmtksdio.c
-> +++ b/drivers/bluetooth/btmtksdio.c
-> @@ -620,7 +620,7 @@ static void btmtksdio_txrx_work(struct work_struct *w=
-ork)
->                         if (btmtksdio_rx_packet(bdev, rx_size) < 0)
->                                 bdev->hdev->stat.err_rx++;
->                 }
-> -       } while (int_status || time_is_before_jiffies(txrx_timeout));
-> +       } while (int_status && time_is_after_jiffies(txrx_timeout));
->
+This looks like a lot of heavily LLM-assisted effort. Please review the
+relevant documentation, starting here:
 
-This patch has already been merged, so I think the series should be
-respun based on the latest code.
+   https://docs.kernel.org/process/submitting-patches.html#using-assisted-b=
+y
 
->         /* Enable interrupt */
->         if (bdev->func->irq_handler)
-> --
-> 2.54.0.1136.gdb2ca164c4-goog
->
->
+I feel the testing strategy is pretty questionable. Any invariant
+violation is possible with that type of meddling.
+
+I was interested in whether you drove the interrupt sequence via
+emulated hardware. I asked because upstream qemu doesn't currently
+support the snoop device.
+
+In v3 you said:
+
+   The issue was observed on physical AST2600 (dual-core Cortex-A7)
+   in production under heavy POST code traffic during concurrent
+   userspace reads.
+
+   https://lore.kernel.org/all/20260527175939.2939714-1-karthiproffesional@=
+gmail.com/
+
+Is this true? What platform did you test with?
+
+Andrew
 
