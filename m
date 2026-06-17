@@ -4,173 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD547CD98D2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Jun 2026 23:44:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 250DBCD98EC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 00:40:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lG6i0nvX/OzvkhmyAFitC2zc+tYqqOTfjahalcVnDTs=; b=wytTW2Woww42dhDMHuZvL6Pub5
-	p5vz0FC5upalTWedJFyK+6JWRVEH0K2cwuRrf09wJGZgQX3C2qk/D/4/y6UlLAWb3cYBoYAFbeFad
-	aeDG9g+wbEHTz7BJk6OZ7BwPEQamo0dsq+JKTmhec9AKE9bjlabTTLGV6hdq27trd8DN3K6UGg22u
-	x5mBRiP5DKNIGMOINWlOOAciNRg5a4woPrHVuhWUteOsVUxTqrxJFgaVaFBP1Noid5xrBK+sa+M2E
-	HE/btvprwixCQQReX0ewB5rVkdhNcfyuxLmv2AYW48ulDz+3v7bwP6LIYAaIDp6/KlsSH/eEkEVNM
-	HUJUtGkA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nsPimvOxFtNpOsrcCdC4WZqlfbRzu95KX1Bfdk2/Wx0=; b=tQRjcz6gq333u9zNHYcdnOWUeU
+	gpK+8dbKpwaqKlEbE9Imte5CWsEK1E1xExqDXFcEMGmIfp3kDDyRnI75NnNYx+D2FrSAFIiPzEgFA
+	oaTRUIGNkBO3utcTcc9GIUxEpRIecHqBbsc4dPycMsnX9WOpTNYxCjI2ZCMdCR8SKKGyQbSlOMpNr
+	fIx41fn/uwAveal0GUvMtBKWgzflu7RnxvwzAmvEm3qu6pyQwgIXSAqrVBfSHjV0w7BIqP2vdZn1S
+	3pfSMRHgVmvAYp5pA14RfUJbSoPjmcguVeIjYuAnu9rA1ZHU5RwljC5ml4eQ81t2qN2ucQQZFoO2O
+	E65rxnpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZdSJ-0000000GPh3-45gt;
-	Tue, 16 Jun 2026 23:44:31 +0000
-Received: from mgamail.intel.com ([198.175.65.17])
+	id 1wZeKI-0000000GRK3-1SZz;
+	Wed, 17 Jun 2026 00:40:18 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZdSG-0000000GPdT-1DwZ
+	id 1wZeKH-0000000GRJs-1KdZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Jun 2026 23:44:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1781653469; x=1813189469;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=QFmg8nnKFoA+SzUj+0Jft56NE58ghv7Ef8VkoZEaY1Q=;
-  b=Q8+ivWmeBnpX7Eil2RRaLaFVJsds3tK/as5ZiGfHd44Pf/6QvVR3gfJ2
-   ckHJBpYW16rkanSTCrUCUDxPzbZh0Rs/lG8ai8NTlv9P/haSDHpjJZZTN
-   509FxU3IRa7tEVVyBPP/eKxOggw9hiqS4dnjWjNO1VuLaeccXu8GRnowK
-   XiGAuUk6gR/t3dWtp7kM+RAIK0k4HwkhOzQ56B1ioVxQ13VCgjzCxemLy
-   Sr8rq8rJ0WhNrAhhMR7HFvuLTppJQQwU5kZ5ovz58TSVr61VChSbCULKf
-   t+OJajQlPGLALGid9vpmSuq7GxXbrH/kT+TnUCEfA2hUukoZRjo7mMUVf
-   g==;
-X-CSE-ConnectionGUID: LsnpH+0YT22boHl1XN3o9Q==
-X-CSE-MsgGUID: g2LKTw1xSm6tehqMY6sTJw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11819"; a="82446718"
-X-IronPort-AV: E=Sophos;i="6.24,208,1774335600"; 
-   d="scan'208";a="82446718"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jun 2026 16:42:27 -0700
-X-CSE-ConnectionGUID: T8EIr/ZlR2m5dU40rUV9Pg==
-X-CSE-MsgGUID: X08j38XFTWWkZEasSoq2/w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.24,208,1774335600"; 
-   d="scan'208";a="247023349"
-Received: from fmsmsx901.amr.corp.intel.com ([10.18.126.90])
-  by orviesa010.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jun 2026 16:42:26 -0700
-Received: from FMSMSX901.amr.corp.intel.com (10.18.126.90) by
- fmsmsx901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.37; Tue, 16 Jun 2026 16:42:25 -0700
-Received: from fmsedg903.ED.cps.intel.com (10.1.192.145) by
- FMSMSX901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.37 via Frontend Transport; Tue, 16 Jun 2026 16:42:25 -0700
-Received: from BN8PR05CU002.outbound.protection.outlook.com (52.101.57.58) by
- edgegateway.intel.com (192.55.55.83) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.37; Tue, 16 Jun 2026 16:42:25 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ma77mXFjM71kHMIHdpWugjqHsJ4JjpkDQjGI+C/W9mJYX6A0FylnFG1KCsMwpqPo+F23/WQNznzKUnq8pcAQcuhdinM9p6IQgaTy2RvNhW722th4uFrgQhcAg89l+3rjJPpk+T0sn9HcS7kx7K79ogSQQHt13SuETOGm6yFw4vHZH0Cvx8qmc7ktAljTU9DI3Y5VPSp1ISO6+vksXdiN1fCPuPspPUyWMQcVkmiOFp0Zj1j96HLV4XRvo2gKElmxag7cYf23YmtIEzOO3qjh6RqrZZHj5icTtKwE4B+AJPO9OS9bxtZVT/xzkLLIttob5s1sGRa7kxjBuwv5iVwgXw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lG6i0nvX/OzvkhmyAFitC2zc+tYqqOTfjahalcVnDTs=;
- b=bvD5OetT1KFKi0c1Bw3tHjPO+IViLwAEuUA9rYiC9ZYaFVpuxyqYMkcSv5ODbUbaZSYihu6K5v8HslGPgCpY6JYLqRl3IeNLAv+IXWG12h03gx70fQMC9kA3Yx5ikdaICGmxXxJiBKDdYHWvteKJFbYEVu49HhaSfna3kUxdepJyJGY7H1Fw6lRV1B/cn/hNeH+Jyx4KQ2puGhlHZOlCu81akam96VXFm8EYl+5wnQ2BnVb0O4ayCSGv18XU0bbJnepbN+t8QoM0HJ31w3WQ7P35sHi100nLa8Efa1M7/e21Y94qvemFK+fsVeLxXlPI0OpCLob35fdtXgotPldWlw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from DS0PR11MB7381.namprd11.prod.outlook.com (2603:10b6:8:134::14)
- by IA4PR11MB8944.namprd11.prod.outlook.com (2603:10b6:208:563::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.18; Tue, 16 Jun
- 2026 23:42:21 +0000
-Received: from DS0PR11MB7381.namprd11.prod.outlook.com
- ([fe80::4c39:dfe6:d6dc:6f58]) by DS0PR11MB7381.namprd11.prod.outlook.com
- ([fe80::4c39:dfe6:d6dc:6f58%5]) with mapi id 15.21.0113.015; Tue, 16 Jun 2026
- 23:42:21 +0000
-Message-ID: <31630db0-85cb-421b-8ebe-bbae07521533@intel.com>
-Date: Tue, 16 Jun 2026 16:42:18 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] net: stmmac: loongson1: Use dev_err_probe()
-To: <keguang.zhang@gmail.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
- Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, "Jakub
- Kicinski" <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>
-CC: <linux-mips@vger.kernel.org>, <netdev@vger.kernel.org>,
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20260615-dwmac-loongson1-v1-1-cbcf5bc01d9b@gmail.com>
-From: Jacob Keller <jacob.e.keller@intel.com>
-Content-Language: en-US
-In-Reply-To: <20260615-dwmac-loongson1-v1-1-cbcf5bc01d9b@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MW4PR03CA0314.namprd03.prod.outlook.com
- (2603:10b6:303:dd::19) To DS0PR11MB7381.namprd11.prod.outlook.com
- (2603:10b6:8:134::14)
+	Wed, 17 Jun 2026 00:40:17 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9DABD43DE1
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 00:40:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48A111F00ACF
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 00:40:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781656816;
+	bh=nsPimvOxFtNpOsrcCdC4WZqlfbRzu95KX1Bfdk2/Wx0=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=fjmCrLO3zbAroMhw9rZ3qKRetjFLhR5TLTnehcYYd1ttflKewxORMDBP18zJy1vLE
+	 kGlrB/DYFYMJoTbLhIRFle9oZrJw9ryG00rbfgEU9rBYBD5uGA6O8eVhNc9IG/GlGR
+	 BpR0N6tyICgTUdoVHJgpf9KxETMgMNYr+nTKb2ZZRVhhgvmcayvFh/QQWY17M0WUQu
+	 W8Solnx3sSpaecaZJpyRMN5ijnxCVlXzGW8PuPqIcKfeXRnYfbX4MtJf8pdQdby+nM
+	 zRJ9LJLMhk7VAmt+cH7qf7fTAXLfsDyqJT6prcWIR28JyiWl8K3Ov3ct2hJnWCRcLB
+	 bznjnPwl5B7GQ==
+Received: by mail-lj1-f176.google.com with SMTP id 38308e7fff4ca-396669329fbso3906051fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Jun 2026 17:40:16 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ8Tmu5Niiferu7mbalfsdN5EMyqtMmFnjLWVAijI091VYqlDkGGXIfZ1jAPqlaX8lt8ZP2qSo+zacLibKlX5qHF@lists.infradead.org
+X-Gm-Message-State: AOJu0YznGLyiLL4NRLw5jwNDqsmRp2T8qAx+gpel5zylm0guQiXN6+Qz
+	oCL4PSpHzIkumJtx8NyVoE+pCAheINwy6J7QtIw2VePvYwPq7a+YkZ26+qwqWndL4yubSXWyE5s
+	sYTgs5/NXsLHV5jU8eldV/sCCjML4CsM=
+X-Received: by 2002:a2e:be08:0:b0:38b:dd55:b71 with SMTP id
+ 38308e7fff4ca-3996a322bd5mr2098101fa.20.1781656814764; Tue, 16 Jun 2026
+ 17:40:14 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS0PR11MB7381:EE_|IA4PR11MB8944:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8d18fd25-8289-4b0f-03f8-08decc00e8cf
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|376014|7416014|366016|56012099006|6133799003|11063799006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: HPBFmXAaEmjUgDQNzKJd+mAXgk2mn1DSgdGHVqMCxTshU0vhbTS6g7uF7PWgfSFoyhFqPVHoQ0xt7XriSBtKMoVgm+zJnscVm+H0fIdhzxWW/2Suqfqy673KeZHLtgeGkLiFhNk9qLPPPKCCoTrwETuKYC4DCsl5qLLO3vStyGXlawzlZQwK0bUk7TsJni/jFV5mXeY6l3tpUxmo/ES14rhjEWRIL0bOikKtk63SHSx/ckhG/Fhe3auo630K7Pp108sOmI09wGfNX9djO6XzRVI6PFeb5S9GzL6rGZGWqwKxev2wQTHMjloDlpTHVVmAf/Wu2TGx8XmcHWnnTRBOTPzYJKzGNu1LzvHVT1hbYeD7/ERjA8R783oTzNK+jJalZnV3muHp6ZPxFHkMnoktQc5eCS7zeH6zzovtGJdGd20kI4xNgWOVl3Vq+7MHINzRnqtiYSP/cCMu3xBuifGx7O2z8iMJZjh/c6q2qd4HTWCzvqBEwKi4ORSnBNsiEPJXC56xIMDGd6Nz+yTiajORvFu3wNY94aHnwXqK1JMqqAHd3ZihU93emwLM+kkkW7+yidHiKB+zQnR28FiAGqq55ZfABAVIphFf/1Gh+YO+mAiYYHrcTXWPkTZKjYOj8fW6yyMxXKC1nDrkvm9omPesIFjkIdkge3UXzRITwPwwEpQ4oYz/9fQdoR2gmXK/b2rO
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR11MB7381.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(376014)(7416014)(366016)(56012099006)(6133799003)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?K1JaMUtzUGtoSXJrczQvK0lWQVBsSjBjYlc0QkxYVmNTc3NycWVUN0drOTVN?=
- =?utf-8?B?MWxRVEMrVk5Fak9aajlXcXQ1OEc3NWk1NG1jcktobDZqRnBuYkNuUldxMlN0?=
- =?utf-8?B?R25SV1phVllGM0ozU2U0Skowdm1YLzkzalJDblc1aWRsbDZTZS9FelZJaEZy?=
- =?utf-8?B?RlhIM1dkR1l1d1dpWFNpTkhDS3ZzMjJWcWJTSlVLNHpSU2NXZFlONDZsbnhS?=
- =?utf-8?B?a2JMNzU1bEVoZnQ1YkltYjB2T2JzakZTLzE1T2ZwZi90TFRXT2hDS1NLZWNB?=
- =?utf-8?B?RitiZGhPOG5iRHkrclJLYXY0VlhGR09hcGhSK29Xa1RVNG11dkpwKzlVZlpQ?=
- =?utf-8?B?bUdlUFd2bDVtMUVOMTVwS2hLenJONk9LWGxodEtFOTRpeWw2QVZJRFpzd1k5?=
- =?utf-8?B?cEx3Tk5FRStGRVJFaThqTm0ybDlzN2lKaDhSa0ExK01ob3pLWDhyYXZHc1k4?=
- =?utf-8?B?SmJwRTBzWlZnSTlRVmdIa3VsNTRWd21ZZTlRREI0T1RBQ1FpcDVvMVJLcjZs?=
- =?utf-8?B?Y282T0JxY05pK1pYT0VpL0xjTXc2a1g1akZpMmNrZERncFdPYzR0YzBZY1Jo?=
- =?utf-8?B?TXpvR3NoWjlBYXlpNFVrTXI1N3JSdndPOEdLY2ltZmxPU21CTzU0eFFzL1dZ?=
- =?utf-8?B?a2lsV21OaEgyTmtzTkZPZERRbjB0M0dacDEyb2JzVXlNS1ZtM0JnaXh3RGxv?=
- =?utf-8?B?ZFJteXRUb1pXL2F0TFRrWHhtNHlESDlNelNUVkRSTThaeFBwYlpyVEJpMEhD?=
- =?utf-8?B?UWtndkl5aXFJUmNXSzFZSzBaMGZoTUMzbnVsYUJmRlkrV09kaFQvTmVSekNO?=
- =?utf-8?B?amFaR2JHLzloZUJLazNwL3dTWlozVlVjVW9PaGx5Wi9RczhHRkZudHFPN1N2?=
- =?utf-8?B?OXVlS0NBYzdqZlZGS2VjUVJ6MWJ3SzlORENuSjFDYXc3Y01UMFl2WjhDZlNS?=
- =?utf-8?B?UStXMDhsSThtNnJ0VjRYNHViOE1UM3MvcWVteWNLRlhkQytpb1g3WlBtYTht?=
- =?utf-8?B?Y1NWYXBCWDdNd0RQbUtqUkxJcWFUYXJqaWc2ekkvSnRRb1BqZm5YYkpsc0Vk?=
- =?utf-8?B?cEJUVjNidUN6T1RGb1JIcC81eEI5VzBYcFVrKys5WGVrNFkrbTY2T3Y1OXMw?=
- =?utf-8?B?WjJ0UnZQdHJJcE0ydnRmRjhWVDVrR25Kd1BlcnBNbEJ3L2lqZFVFOU1vYy85?=
- =?utf-8?B?M1M4YVhIYWljWkVSTHZpVWVXeTBxYmIwemNhaVNFN3BGZW1wN0Y0OU95Wlp2?=
- =?utf-8?B?R3EyVWNEYXNoRWhlb3dUbllFN001YTA2dzlyKzZ4R0JWWkVXamlxaE8rREk2?=
- =?utf-8?B?WDNuNVlJcWFHeGdHc2I3YWxVRXJQUk5QUE5zTWRFUGZwVSt6TmZwNzljanVW?=
- =?utf-8?B?VSt4WkE2aUtMZlhxWWdrNURvQXlUazVTOWt2QTJEQVhkcmhJNXpTYVlOckpo?=
- =?utf-8?B?Z3pXSFhpcDJLSy9xUTF1RnJEV29TbXorTUdqdkdqOHg2eGQvSEc1WStUT056?=
- =?utf-8?B?Y2JzTEQxYy8xQlBaVHhMSlE2MEpvaUhIT21sV3hBbjcwdkcvakNFRjBwQmhh?=
- =?utf-8?B?bXlZVGc5Yk1OZlF0aFJJR1pKSk1sNVdrMlFZaW4rMlZhZUVscHV4bDhIektQ?=
- =?utf-8?B?ZDlrWjQyTkJHRW0xR3A5WWNuU2lCTXdUNzhVbnBLNms1eXhJL2dSSkh6aTd0?=
- =?utf-8?B?M1JBbjYzWnBrS3NLTUNIZmJUTFlZQ0d6R1JyNHZGdU1kNkVzby9YbnA0RlJu?=
- =?utf-8?B?K2YyclhJbWVsc1J4b29sNm04TEJQVkIySHlwRHZBRXM2dzVYWDlUSGs4d2Rt?=
- =?utf-8?B?dWhZRkpJaldrZHNUU0R5aDZtWlhBNC8vVWI3dWxVbUtDbE5oVlpvM1pFWk5l?=
- =?utf-8?B?dDRIS1M5MUt6SzUrQWlXamJ0WUtjTXR1NnlrZVhqQm5XMXhiVC82RGdpMWFD?=
- =?utf-8?B?akQyNFN0MkpSd2pDSTFHUmFiVW9TU2tTeWJwMW1aaFJ3bis4SVZIUkNjc0Zs?=
- =?utf-8?B?ZG1jeHZ4dkRqVDZNV2lSczdKYkpHcVdFMzNRVkJRNTdsc2RhRDhLY2Zjamk5?=
- =?utf-8?B?eDRsTnBKMzFnOXNDazFPRTlWeGpwd0JzVXVwakZ4QmhyeTF6SFpNeU1Ud3h2?=
- =?utf-8?B?YXBvVWIzL3M1ZG1hZ3lqVXhQZ0QxNkZFdlIvdkoxTllZbUtxMVAzeUpIM3JV?=
- =?utf-8?B?cUtFV20wY2RoS2RNRUl2b21aOVhkQ29PS3pQVTI0Rk84ejhneEk3SnNsTnF1?=
- =?utf-8?B?alF0dmE1Vi91TDRJTTh3MWJENzBDRmN2SjlWS2NRQzAvd2Y1YXVQdndENW12?=
- =?utf-8?B?N0daUVgyZVkvOE1qZ3hVV2ZwckpMNkpxTXhQWlNidjAweHhzRjVZdz09?=
-X-Exchange-RoutingPolicyChecked: gDoLCpC3omJ8wOKQy2q4cMo67U/yHv9A8p1F1JGnLlOXaB9NeKvNGKPUv8skr1wH6E3Z7GysKBBYqpF4DyrEgPbEj9FRS0p9Oz2fKenRIjIWzFN9ZUY7ezFYcGd9y65FnWNIbPWPL5ja4/JYOgZ0vmUTlp2y2R9+eHKnEchKG3S2nungkMJYxIAw2Xb/UkoNvFb5mGeJMOuN4KKjBixL7t0zIKDrRoBSDmfcT1tLofMSM/iNNT+Ns76GEw5AUzckOwWctejc6PXTsI/4Pj/RRfVijETynQ5MUu8jNEXxifnovZ/MwWhSZvcXF5AE4cFJ5LKpHrrPNzIvp/7Q5nbnJA==
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8d18fd25-8289-4b0f-03f8-08decc00e8cf
-X-MS-Exchange-CrossTenant-AuthSource: DS0PR11MB7381.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jun 2026 23:42:21.2585
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: DtYzBoQLiRShG5EfCIwONie1n6jx5jwwDqkQ/22kUalJ9a9CGKTkoANQGfvdDIWEjcPowJijQsgi2QCmlWDG1y37huUDu6M0OqrDArH0q9k=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA4PR11MB8944
-X-OriginatorOrg: intel.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260616_164428_426205_A263C005 
-X-CRM114-Status: GOOD (  24.98  )
+References: <20260616111224.152140-1-senozhatsky@chromium.org> <20260616111224.152140-2-senozhatsky@chromium.org>
+In-Reply-To: <20260616111224.152140-2-senozhatsky@chromium.org>
+From: Sean Wang <sean.wang@kernel.org>
+Date: Tue, 16 Jun 2026 19:40:01 -0500
+X-Gmail-Original-Message-ID: <CAGp9LzpCMGr2hyVJRMehs_BD4Rk6mS2jAifWuCgBaANdqgtvqA@mail.gmail.com>
+X-Gm-Features: AVVi8CePh02iDBIiYBUKoKLWcbC8GIPcYK15HYAKhoj7Eq4e84wo6CwYl-6iRWo
+Message-ID: <CAGp9LzpCMGr2hyVJRMehs_BD4Rk6mS2jAifWuCgBaANdqgtvqA@mail.gmail.com>
+Subject: Re: [PATCH v2 1/3] Bluetooth: btmtksdio: correct btmtksdio_txrx_work()
+ loop timeout check
+To: Sergey Senozhatsky <senozhatsky@chromium.org>
+Cc: Marcel Holtmann <marcel@holtmann.org>, Luiz Augusto von Dentz <luiz.dentz@gmail.com>, 
+	Mark-yw Chen <mark-yw.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+	Tomasz Figa <tfiga@chromium.org>, linux-bluetooth@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,88 +83,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/15/2026 5:24 AM, Keguang Zhang via B4 Relay wrote:
-> From: Keguang Zhang <keguang.zhang@gmail.com>
-> 
-> Use dev_err_probe() for the missing match data case to simplify
-> error handling.
-> 
-> Signed-off-by: Keguang Zhang <keguang.zhang@gmail.com>
+Hi,
+
+On Tue, Jun 16, 2026 at 6:15=E2=80=AFAM Sergey Senozhatsky
+<senozhatsky@chromium.org> wrote:
+>
+> The btmtksdio_txrx_work() loop is expected to be terminated if running
+> for longer than 5*HZ.  However the timeout check is reversed:
+> time_is_before_jiffies(old_jiffies + 5*HZ) evaluates to true when
+> old_jiffies + 5*HZ is in the past i.e. when a timeout has occurred.
+> Using OR with time_is_before_jiffies(txrx_timeout) means that:
+> - before the 5-second timeout: the condition is `int_status || false`,
+>   so it loops as long as there are pending interrupts.
+> - after the 5-second timeout: the condition becomes `int_status || true`,
+>   which is always true.
+>
+> Fix loop termination condition to actually enforce a 5*HZ timeout.
+>
+> Fixes: 26270bc189ea4 ("Bluetooth: btmtksdio: move interrupt service to wo=
+rk")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Sergey Senozhatsky <senozhatsky@chromium.org>
 > ---
+>  drivers/bluetooth/btmtksdio.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/bluetooth/btmtksdio.c b/drivers/bluetooth/btmtksdio.=
+c
+> index 5b0fab7b89b5..c6f80c419e90 100644
+> --- a/drivers/bluetooth/btmtksdio.c
+> +++ b/drivers/bluetooth/btmtksdio.c
+> @@ -620,7 +620,7 @@ static void btmtksdio_txrx_work(struct work_struct *w=
+ork)
+>                         if (btmtksdio_rx_packet(bdev, rx_size) < 0)
+>                                 bdev->hdev->stat.err_rx++;
+>                 }
+> -       } while (int_status || time_is_before_jiffies(txrx_timeout));
+> +       } while (int_status && time_is_after_jiffies(txrx_timeout));
+>
 
-At first I recalled that dev_err_probe does strange things with
--EPROBE_DEFER. From the documentation for dev_err_probe:
+This patch has already been merged, so I think the series should be
+respun based on the latest code.
 
->  * @dev: the pointer to the struct device
->  * @err: error value to test
->  * @fmt: printf-style format string
->  * @...: arguments as specified in the format string
->  *
->  * This helper implements common pattern present in probe functions for error
->  * checking: print debug or error message depending if the error value is
->  * -EPROBE_DEFER and propagate error upwards.
->  * In case of -EPROBE_DEFER it sets also defer probe reason, which can be
->  * checked later by reading devices_deferred debugfs attribute.
->  * It replaces the following code sequence::
->  *
->  *      if (err != -EPROBE_DEFER)
->  *              dev_err(dev, ...);
->  *      else
->  *              dev_dbg(dev, ...);
->  *      return err;
->  *
->  * with::
->  *
->  *      return dev_err_probe(dev, err, ...);
->  *
->  * Using this helper in your probe function is totally fine even if @err
->  * is known to never be -EPROBE_DEFER.
->  * The benefit compared to a normal dev_err() is the standardized format
->  * of the error code, which is emitted symbolically (i.e. you get "EAGAIN"
->  * instead of "-35"), and having the error code returned allows more
->  * compact error paths.
->  *
->  * Returns @err.
->  */
-
-I guess even without -EPROBE_DEFER this is still acceptable. The change
-seems fine, if a bit of a minor cleanup. However, net-next is closed,
-and this is definitely not a bug-fix worthy of net. This does have the
-added benefit of
-
-I'd probably also argue this may go against the desired goals of
-net-next with only wanting such cleanups when in the context of other
-larger work. Of course that decision ultimately belongs to the maintainers.
-
-You can add my reviewed-by when/if you resubmit when net-next re-opens:
-
-Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
-
->  drivers/net/ethernet/stmicro/stmmac/dwmac-loongson1.c | 6 ++----
->  1 file changed, 2 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson1.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson1.c
-> index de9aba756aac..ec34adb63f61 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson1.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson1.c
-> @@ -176,10 +176,8 @@ static int ls1x_dwmac_probe(struct platform_device *pdev)
->  				     "Unable to find syscon\n");
->  
->  	data = of_device_get_match_data(&pdev->dev);
-> -	if (!data) {
-> -		dev_err(&pdev->dev, "No of match data provided\n");
-> -		return -EINVAL;
-> -	}
-> +	if (!data)
-> +		return dev_err_probe(&pdev->dev, -EINVAL, "No of match data provided\n");
->  
->  	dwmac = devm_kzalloc(&pdev->dev, sizeof(*dwmac), GFP_KERNEL);
->  	if (!dwmac)
-> 
-> ---
-> base-commit: ec039126b7fac4e3af35ebccaa7c6f9b6875ba81
-> change-id: 20260602-dwmac-loongson1-5e1b9dfc3c62
-> 
-> Best regards,
-
+>         /* Enable interrupt */
+>         if (bdev->func->irq_handler)
+> --
+> 2.54.0.1136.gdb2ca164c4-goog
+>
+>
 
