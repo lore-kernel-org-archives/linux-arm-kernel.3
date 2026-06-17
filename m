@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81C62CD98E4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 10:41:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29349CD98E4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 10:41:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kxB3SnelSJeC61Cb2O2sZ2DxgfCvfhJf77FHm8odZMc=; b=081LMoApfALFKbJDk1g025/fNy
-	pY+V3ne5g1LePBwc06jD+6nHBubDZ43WzjMdexRQP/S5BV92n1p6TONiUTz4y0Bq3j4+FHiAsncKQ
-	3HOyLsJffvum20AioKfBQDWtMKmb9Ww9tu84xjw/sml9Gs6ltPlMUdH14IoJEvemqPXVqjxtjPpUQ
-	eGaILk7Tla63GwPIKvrSNoq0XE4daRwni0++5PHUc5xtwczUj1q8sTEToJaghIoHN8wjpxlTOgZTz
-	q5lwTBsVCyKp4N+P4Hmendamhda1MefFHrxfuK+Ybi7CSH6lf3mQjbT3JL6O4dLJnrgtAHpPXkOC/
-	/N+OhA5g==;
+	bh=djEuHymjWJS5SFW/o8P0inIono61ptYNHJ11jX9l3Ik=; b=d5xaAXQVbAET5/8zoi8en2ddpL
+	ZVrvROsG0QowInhRyuKdBkX5Hmq+M6VtPPEnAZsDxKjpbrnVVNiWOO65T3awSE1c227nKqP6p4h4H
+	0Jkx79VWk673Dz30x4xAaHHPtSufX1v6t76XsBuXSBB3tlaW5yj3BaEDx6Bw+8xYGRm10e/3upjtc
+	yvS9+DA5eNo6t3pQb/w0wcFmWSrYo2jjM6MyV6QKAsYYM6RGJ6tURKbun2d4orkd9m1pggsatuTGb
+	EDX8TxDmF5aMFj/qSS7Hag/B1ZZfyLwunx9xxagVtNe/MMTLwsmjQOClouRP/09C0Tm87C2q+wmkl
+	bRtb2+Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZnhd-0000000H9lV-1u3Y;
-	Wed, 17 Jun 2026 10:41:01 +0000
-Received: from mail-dy1-x1331.google.com ([2607:f8b0:4864:20::1331])
+	id 1wZnhm-0000000H9rc-0RsJ;
+	Wed, 17 Jun 2026 10:41:10 +0000
+Received: from mail-dy1-x1334.google.com ([2607:f8b0:4864:20::1334])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZnhZ-0000000H9iB-3Mte
+	id 1wZnhh-0000000H9og-491u
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 10:40:59 +0000
-Received: by mail-dy1-x1331.google.com with SMTP id 5a478bee46e88-30bbe98c3f0so2732207eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 03:40:57 -0700 (PDT)
+	Wed, 17 Jun 2026 10:41:08 +0000
+Received: by mail-dy1-x1334.google.com with SMTP id 5a478bee46e88-307d0405e07so8462797eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 03:41:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781692857; x=1782297657; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1781692865; x=1782297665; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=kxB3SnelSJeC61Cb2O2sZ2DxgfCvfhJf77FHm8odZMc=;
-        b=cX34vhuPO/mlD6RC+pBf+NDtr7nSFA7olErudnd5ZgC2MBK6FH/wa+6G3rP4RR8m2C
-         mfXNW7LMUZsdbYd4Fpi2jj+8uBP5GhLtYq+ghemq4vKUOX0kO2mDNSNXu2P7iRdd2AYT
-         DoPi0OgW759zaJJlVguiYv1AjozcOTzGxUCt0yMufXGPEoWDcGliWAPRZff318Dqx1Fx
-         d40fKmb57A0oW2LcOC+XXa2p2vDeRhLwcl1HaNaxvItxrtCoNqZndBXrihSQOJoMfquJ
-         Z4FdfgcUV1R0Y4lB1ezOnU+Aihkou1zMu3CNbg39q1+ZDn2BhkR8nvYOeliqXEd4cIT0
-         HP7Q==
+        bh=djEuHymjWJS5SFW/o8P0inIono61ptYNHJ11jX9l3Ik=;
+        b=VF6waUukMALBWIigvLx00/g65C7WcdGSVor0Ppz3kG3k5LUHjMzTPwSVfzqcN0tTRR
+         u+G49CNsJQFRx+UrCdnNbuKTkh+Ui0btiv/DzsjFUSplLGSmI93jSozAWU1EGyaobX+3
+         G/Bj+Z5TqjfNUPoMgz8LD9vCJFgAyTPUqHvUqspCIuQw6PjFqfifiCXkGVqZXTIIduJB
+         2ofizqADfwnZuY7+f/RLW/+Ura6tcEVUcybFvz6opsHZD20O1fy6Dn51lQnXT4wXRD1f
+         AbDWMWl65TK8FH+CeMTh14nz5A4zrSgHYhdbGk7v4b1fgq0UFoWjoeZBZjdFNhp4+Uak
+         903A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781692857; x=1782297657;
+        d=1e100.net; s=20251104; t=1781692865; x=1782297665;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=kxB3SnelSJeC61Cb2O2sZ2DxgfCvfhJf77FHm8odZMc=;
-        b=kAn8tz2PyvVRmyLavaKgbHMR9vBwd1DnpcPUgXQwIZBGjUmxlCd6gz/XNTcj1yVwhH
-         EUUV356AvpiP2fo/ANO32x6tHYLbL7p4H64B4i/YxpSaen9fIC6pjHwN8bRNWDHd05RJ
-         wlRHtPe7C/9v910GT+CcgZYBpbXIg4FKPATUIx6iNzjr2K84cynFuupflexyQFz8kr2d
-         ev96lihx6ThqOkvsBvFGWhc9qmr12Ys7dQuI08goe7Z7mJTzM0DwETwm5laF06qNu/U9
-         CYLwg22nWR7HqHJu+zZDEQNXSe6aUWieiIkHdKvQ5TscN7faDwY9VGMPKubVPFHJt4kX
-         D4QQ==
-X-Forwarded-Encrypted: i=1; AFNElJ98awfPvmlgADW04doKagCbPlW/uOk0HWYTaYIMfVgixeGCfinDpaQb3rK9VS+iWRgwCIgDSifGmuczc889cqWG@lists.infradead.org
-X-Gm-Message-State: AOJu0YwhtXOSxwLorh1D9jFxtyNIVfv74JIvkl5mEo1cyejMQ5ohf6lh
-	I3BYFUok5xxOzeci4vm/Cj/GMKxYV+imb56Ec7mIeUsgjw2TedCbrpSw
-X-Gm-Gg: AfdE7cmpRGgGAkZz5hKZqLyC7kfgceANSn1caNDFHGIupm6C1JllHBaDUYgrhjIlw2f
-	lyjMrk01sQprgjb2O7EddzFTVbXuS4pAsy/bTFCUpfzZC14uW+zGeTIw9x7a+GSWsJflA2dat1l
-	/zNA44OlXKejitGYR3hNwqjLP9HdApi5Iepw56Viqfg0p0dDW4zW4fJZAJqCVEQKRLmzsJKzdr0
-	PXHhcFfH+xz73OW/qCZPth6EGQvhW0fedJaGzaS4+bApQscJEpX0kRoCvQq2/Orzfe8wjU9Nxla
-	gpqRZBM4UPfZ9bD2kFMpgiYN359uD+e2358M1vtcKWVghmHWviCwTwedkrmfwH+ffJraEl2e/TZ
-	rxwZ+x3DRaG1+GKbpo12GgjKB/dhJ16C8SHE6tl0fbQJdMfroAhKPEkX/1cSfMr7QXW435DolEg
-	f4DspNkY536GL4DLpY7jPkYvcPvDi1FxLaH7tw7Rxknl1xZa4=
-X-Received: by 2002:a05:7301:10c5:b0:2e2:3381:2fba with SMTP id 5a478bee46e88-30bc9cad496mr1423566eec.3.1781692856764;
-        Wed, 17 Jun 2026 03:40:56 -0700 (PDT)
+        bh=djEuHymjWJS5SFW/o8P0inIono61ptYNHJ11jX9l3Ik=;
+        b=jOE+oVWWCKitATWUNhW47wsg/ZKKcqk/iMkyV/k6Jo0Gaj1MsakPUjgE46b1mpBMxW
+         BKBgarblAl4b0UyPf4wFMMXzCtTEwRI/JxBr5KT3G9lSKl4/GReB92iz1POdT9BkMKKz
+         VcPkuoWVMFoDbXjddzCO/LhEGoJeyikaknm1wriQrp/cKzMcNhTsqWhH4JwG/Slo8ZHP
+         KkeStIdG601VkHeoVv1CGuFmi7K/pM3irew+wN1/ctnxVQhGmTDiMKR9/f9aVC+/8/Ei
+         WBMQKGhhubeAkoBybKd242DdQ6n8v7NXpMMQn1RNoqNNGIVh7hLR/lBagm+j+F0Ar3TS
+         OjXw==
+X-Forwarded-Encrypted: i=1; AFNElJ+3cDaFr0hxDEwxYGD0nLfvciIAU6lzp4k0noiKX189TghfpZ0081bbrDZ+J4SZrqlzbQ9xugNSJif2WFRJVVYH@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx1+lPZfWlb97M7EUAGUav64TRIgdyWxC6HsmY3BC/jXiQMyv5S
+	kZWOA9gRaPTU0/R5Da3IUD6axLt4aI8xbDDtdayGXkIdKxq41iQtH6xc
+X-Gm-Gg: AfdE7cl6jO6Z/Y3e4emLrnoBWC6ckzRQOD8+GZASJNWUtQDqbWzZBI9lwESvnbjoGIO
+	LVe5THzxh9Be4uZ4J2oKCnXzIj/ud3y0SXEHRDnB2JIwDerNN40OM3O7FHWn/9kKyEHy38ybGIi
+	lMjNeDl9ofWN9wP9Sdyurn/Lm9plotpg3ata4MH4eSXs8+jUPFI1WKnkgIcHdbrgyMWnAm+XF1x
+	xTDzZXL4e0FVbruhx4ZwkWLocKJPv2XLifRS3TdT/3HB1kWgXkgVq9++P7BaHwMd74CptAjbWUw
+	z4AWHXysC5byv7g14zIAff+6afXO/ZnhDhVgw7FYgPbDSA0a6adzriBQIG5qZ78LuTB5JHhHs9m
+	DQa16zRJ3VfYblHipAtf0B5HYXBDtAmUcHx3yuNBTAk0Z52XA1GKaFDU+g1p7IVk2hQb8v2hM+1
+	t41DmAplL0BqqHIUb/yNi8YqEXYNqHZ7h8YanrDLpAQweA2MB9oOCxAju7Fg==
+X-Received: by 2002:a05:7300:30c8:b0:30a:e52d:fb27 with SMTP id 5a478bee46e88-30bc9df5a44mr2016767eec.11.1781692865129;
+        Wed, 17 Jun 2026 03:41:05 -0700 (PDT)
 Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3081e5d0828sm24616275eec.10.2026.06.17.03.40.48
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3081e5d0828sm24616275eec.10.2026.06.17.03.40.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 17 Jun 2026 03:40:56 -0700 (PDT)
+        Wed, 17 Jun 2026 03:41:04 -0700 (PDT)
 From: phucduc.bui@gmail.com
 To: Mark Brown <broonie@kernel.org>
 Cc: Liam Girdwood <lgirdwood@gmail.com>,
@@ -105,17 +105,17 @@ Cc: Liam Girdwood <lgirdwood@gmail.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
 	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH 51/78] ASoC: codecs: rt722: Use guard() for mutex locks
-Date: Wed, 17 Jun 2026 17:32:08 +0700
-Message-ID: <20260617103235.449609-52-phucduc.bui@gmail.com>
+Subject: [PATCH 52/78] ASoC: codecs: sigmadsp: Use guard() for mutex locks
+Date: Wed, 17 Jun 2026 17:32:09 +0700
+Message-ID: <20260617103235.449609-53-phucduc.bui@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260617103235.449609-1-phucduc.bui@gmail.com>
 References: <20260617103235.449609-1-phucduc.bui@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260617_034057_924269_50850E15 
-X-CRM114-Status: GOOD (  14.09  )
+X-CRM114-CacheID: sfid-20260617_034106_024525_102574F2 
+X-CRM114-Status: GOOD (  11.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,100 +137,64 @@ Merely code refactoring, and no behavior change.
 
 Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
 ---
- sound/soc/codecs/rt722-sdca-sdw.c | 33 +++++++++++++++----------------
- sound/soc/codecs/rt722-sdca.c     |  3 +--
- 2 files changed, 17 insertions(+), 19 deletions(-)
+ sound/soc/codecs/sigmadsp.c | 16 ++++++----------
+ 1 file changed, 6 insertions(+), 10 deletions(-)
 
-diff --git a/sound/soc/codecs/rt722-sdca-sdw.c b/sound/soc/codecs/rt722-sdca-sdw.c
-index 0f76492ff915..ca5a4ee6ce9e 100644
---- a/sound/soc/codecs/rt722-sdca-sdw.c
-+++ b/sound/soc/codecs/rt722-sdca-sdw.c
-@@ -368,7 +368,7 @@ static int rt722_sdca_interrupt_callback(struct sdw_slave *slave,
- 	 * scheme. We do want however to prevent new workqueues from being scheduled if
- 	 * the disable_irq flag was set during system suspend.
- 	 */
--	mutex_lock(&rt722->disable_irq_lock);
-+	guard(mutex)(&rt722->disable_irq_lock);
+diff --git a/sound/soc/codecs/sigmadsp.c b/sound/soc/codecs/sigmadsp.c
+index 2e08fde3989c..592aba25de11 100644
+--- a/sound/soc/codecs/sigmadsp.c
++++ b/sound/soc/codecs/sigmadsp.c
+@@ -135,7 +135,7 @@ static int sigmadsp_ctrl_put(struct snd_kcontrol *kcontrol,
+ 	uint8_t *data;
+ 	int ret = 0;
  
- 	ret = sdw_read_no_pm(rt722->slave, SDW_SCP_SDCA_INT1);
- 	if (ret < 0)
-@@ -432,12 +432,9 @@ static int rt722_sdca_interrupt_callback(struct sdw_slave *slave,
- 		mod_delayed_work(system_power_efficient_wq,
- 			&rt722->jack_detect_work, msecs_to_jiffies(280));
+-	mutex_lock(&sigmadsp->lock);
++	guard(mutex)(&sigmadsp->lock);
  
--	mutex_unlock(&rt722->disable_irq_lock);
+ 	data = ucontrol->value.bytes.data;
+ 
+@@ -148,8 +148,6 @@ static int sigmadsp_ctrl_put(struct snd_kcontrol *kcontrol,
+ 			ctrl->cached = true;
+ 	}
+ 
+-	mutex_unlock(&sigmadsp->lock);
 -
- 	return 0;
- 
- io_error:
--	mutex_unlock(&rt722->disable_irq_lock);
- 	pr_err_ratelimited("IO error in %s, ret %d\n", __func__, ret);
  	return ret;
  }
-@@ -514,13 +511,13 @@ static int rt722_sdca_dev_system_suspend(struct device *dev)
- 	 * deferred work completes and before the parent disables
- 	 * interrupts on the link
- 	 */
--	mutex_lock(&rt722_sdca->disable_irq_lock);
--	rt722_sdca->disable_irq = true;
--	ret1 = sdw_update_no_pm(slave, SDW_SCP_SDCA_INTMASK1,
--				SDW_SCP_SDCA_INTMASK_SDCA_0, 0);
--	ret2 = sdw_update_no_pm(slave, SDW_SCP_SDCA_INTMASK2,
--				SDW_SCP_SDCA_INTMASK_SDCA_8, 0);
--	mutex_unlock(&rt722_sdca->disable_irq_lock);
-+	scoped_guard(mutex, &rt722_sdca->disable_irq_lock) {
-+		rt722_sdca->disable_irq = true;
-+		ret1 = sdw_update_no_pm(slave, SDW_SCP_SDCA_INTMASK1,
-+					SDW_SCP_SDCA_INTMASK_SDCA_0, 0);
-+		ret2 = sdw_update_no_pm(slave, SDW_SCP_SDCA_INTMASK2,
-+					SDW_SCP_SDCA_INTMASK_SDCA_8, 0);
-+	}
  
- 	if (ret1 < 0 || ret2 < 0) {
- 		/* log but don't prevent suspend from happening */
-@@ -542,13 +539,15 @@ static int rt722_sdca_dev_resume(struct device *dev)
- 		return 0;
+@@ -160,7 +158,7 @@ static int sigmadsp_ctrl_get(struct snd_kcontrol *kcontrol,
+ 	struct sigmadsp *sigmadsp = snd_kcontrol_chip(kcontrol);
+ 	int ret = 0;
  
- 	if (!slave->unattach_request) {
--		mutex_lock(&rt722->disable_irq_lock);
--		if (rt722->disable_irq == true) {
--			sdw_write_no_pm(slave, SDW_SCP_SDCA_INTMASK1, SDW_SCP_SDCA_INTMASK_SDCA_0);
--			sdw_write_no_pm(slave, SDW_SCP_SDCA_INTMASK2, SDW_SCP_SDCA_INTMASK_SDCA_8);
--			rt722->disable_irq = false;
-+		scoped_guard(mutex, &rt722->disable_irq_lock) {
-+			if (rt722->disable_irq == true) {
-+				sdw_write_no_pm(slave, SDW_SCP_SDCA_INTMASK1,
-+						SDW_SCP_SDCA_INTMASK_SDCA_0);
-+				sdw_write_no_pm(slave, SDW_SCP_SDCA_INTMASK2,
-+						SDW_SCP_SDCA_INTMASK_SDCA_8);
-+				rt722->disable_irq = false;
-+			}
- 		}
--		mutex_unlock(&rt722->disable_irq_lock);
+-	mutex_lock(&sigmadsp->lock);
++	guard(mutex)(&sigmadsp->lock);
+ 
+ 	if (!ctrl->cached) {
+ 		ret = sigmadsp_read(sigmadsp, ctrl->addr, ctrl->cache,
+@@ -174,8 +172,6 @@ static int sigmadsp_ctrl_get(struct snd_kcontrol *kcontrol,
+ 			ctrl->num_bytes);
  	}
  
- 	ret = sdw_slave_wait_for_init(slave, RT722_PROBE_TIMEOUT);
-diff --git a/sound/soc/codecs/rt722-sdca.c b/sound/soc/codecs/rt722-sdca.c
-index 1b6729f363fc..5fb5dc2ee3b4 100644
---- a/sound/soc/codecs/rt722-sdca.c
-+++ b/sound/soc/codecs/rt722-sdca.c
-@@ -294,7 +294,7 @@ static void rt722_sdca_btn_check_handler(struct work_struct *work)
- 
- static void rt722_sdca_jack_init(struct rt722_sdca_priv *rt722)
- {
--	mutex_lock(&rt722->calibrate_mutex);
-+	guard(mutex)(&rt722->calibrate_mutex);
- 	if (rt722->hs_jack) {
- 		/* set SCP_SDCA_IntMask1[0]=1 */
- 		sdw_write_no_pm(rt722->slave, SDW_SCP_SDCA_INTMASK1,
-@@ -317,7 +317,6 @@ static void rt722_sdca_jack_init(struct rt722_sdca_priv *rt722)
- 		rt722_sdca_index_update_bits(rt722, RT722_VENDOR_HDA_CTL,
- 			RT722_GE_RELATED_CTL2, 0x4000, 0x4000);
- 	}
--	mutex_unlock(&rt722->calibrate_mutex);
+-	mutex_unlock(&sigmadsp->lock);
+-
+ 	return ret;
  }
  
- static int rt722_sdca_set_jack_detect(struct snd_soc_component *component,
+@@ -677,10 +673,10 @@ static void sigmadsp_activate_ctrl(struct sigmadsp *sigmadsp,
+ 		return;
+ 	changed = snd_ctl_activate_id(card, &ctrl->kcontrol->id, active);
+ 	if (active && changed > 0) {
+-		mutex_lock(&sigmadsp->lock);
+-		if (ctrl->cached)
+-			sigmadsp_ctrl_write(sigmadsp, ctrl, ctrl->cache);
+-		mutex_unlock(&sigmadsp->lock);
++		scoped_guard(mutex, &sigmadsp->lock) {
++			if (ctrl->cached)
++				sigmadsp_ctrl_write(sigmadsp, ctrl, ctrl->cache);
++		}
+ 	}
+ }
+ 
 -- 
 2.43.0
 
