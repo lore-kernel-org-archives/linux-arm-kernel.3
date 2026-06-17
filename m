@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBA57CD98E2
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34025CD98E4
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 15:09:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,40 +12,40 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9qrijT18PORDPHteH+8XfOMHe0yAhvCoC3FXyTLIcWY=; b=maPE8QdS6uFqzitj4Fr+1ru47/
-	pbbbTYkx3wL5xhj7+oUCKCDc0SBUSSJ1szuFCfxArpnu0l1sDVGqjG7ol9Ya2EVdjnBuUSV8GvStd
-	61ztzTBAKQ9jtGZ4izgP+kkkUdJMtwzwe6mgYZb6jk6FobpkJyyqCt5AN66HiDUQXzGDIrcDwuLdS
-	BCtKJ/ICb/UxYEQ7DsqD+Ed26mzAl7BR3nEJd1I/kkkK5jmG4B2i39OZ91eaKw3cGG9O/v3ZShFsq
-	4uoF7CyMFLRgfPcA3W8GfKqmxoDTZstOSHNdZQR1ZWSEtdOU7Kzs97vUJHGgvfi1G6uKZXcORIcQB
-	PIx66Qkg==;
+	bh=0gVLH7/UaCrmXzyurXhvcgLm+wL46mF33MfP1B0qYmg=; b=UgTlmk/KzlctfQlqs2Cx0D8Nop
+	JyiDyENat/Xs8fytBS6tJqkKBALBsa33+jMKj9yfOT3LR5wzKm6s/scCv1PIh3CMyonCGKk3C3Zub
+	wTIDjU34VkZ9B65L5lVt/gh1ughlGnHAO8jG8azAZUq5Y97EKPAy/UU60ugvxV24ooN0fCsKTTQIB
+	phGDctNGftnXZhayrBdIpNOmtw9i/nbl8/760B5IS4T1bz24vL+HtVt/FNr1VIuoUUUZAXtJjdX/A
+	8rwDARNxkWyYAQw5+SJRxNWqAMXdB8urpzEHoMDjjK7pUn2c+qw6ozKNn8SFM8yOG+IgSd0ityD8c
+	x/km07cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZrtH-0000000HX9A-2H6F;
+	id 1wZrtH-0000000HX8m-1nam;
 	Wed, 17 Jun 2026 15:09:19 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZrtC-0000000HX68-3KPJ
+	id 1wZrt8-0000000HX3I-2ANv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 15:09:16 +0000
+	Wed, 17 Jun 2026 15:09:11 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 555ED32AB;
-	Wed, 17 Jun 2026 08:09:08 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0D1553589;
+	Wed, 17 Jun 2026 08:09:05 -0700 (PDT)
 Received: from e132581.arm.com (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 11F963F915;
-	Wed, 17 Jun 2026 08:09:09 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 953033F915;
+	Wed, 17 Jun 2026 08:09:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1781708953; bh=D1FtZyXlzdlSZeEQumhz16VVUk8Y+LyL/Y9/6kB7zD0=;
+	t=1781708949; bh=bxnD7gcREDH0UKb+ThQ+3UciWuDwSJW9O2ix8pkbsHo=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=UGyzWXhMTZLVy6fEHdjBbU2ugpnVdmuwTPbbh3wH5N5iz3VhDrcQqMYCnYPKARO1j
-	 iQHNQYrIJjlUw4txUNRRDKnd3QxkAqevaq9NJyCV7pSIf0ja7ZjvQtf9Zlt+XpCBnh
-	 hPcT2FBlGxXB4uVHB81egzKzcuM6dSFGyPbXYVJw=
+	b=jKVF9yXQ83dIFn1MFi7fXIXeRfp4aDTFLHIhrQCtkrHIyK51nF0a3RPtvsQpVn0YY
+	 e1eMfMgkX2Vwx62hfqqJAxtTJ4eD2ScYnnPVbA5VLS+4KgBPVNkmMQFUjeEYUKLPHm
+	 En/5rwJXsUZNp+DMAuctNwhvYtpUDmlSUPdRcHuQ=
 From: Leo Yan <leo.yan@arm.com>
-Date: Wed, 17 Jun 2026 16:08:54 +0100
-Subject: [PATCH v10 3/9] perf cs-etm: Decode ETE exception packets
+Date: Wed, 17 Jun 2026 16:08:53 +0100
+Subject: [PATCH v10 2/9] perf cs-etm: Filter synthesized branch samples
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260617-b4-arm_cs_callchain_support_v1-v10-3-e8b6e5d63db5@arm.com>
+Message-Id: <20260617-b4-arm_cs_callchain_support_v1-v10-2-e8b6e5d63db5@arm.com>
 References: <20260617-b4-arm_cs_callchain_support_v1-v10-0-e8b6e5d63db5@arm.com>
 In-Reply-To: <20260617-b4-arm_cs_callchain_support_v1-v10-0-e8b6e5d63db5@arm.com>
 To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
@@ -58,18 +58,19 @@ To: Arnaldo Carvalho de Melo <acme@kernel.org>,
  Adrian Hunter <adrian.hunter@intel.com>, Al Grant <al.grant@arm.com>, 
  Paschalis Mpeis <paschalis.mpeis@arm.com>, Amir Ayupov <aaupov@fb.com>
 Cc: linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org, 
- linux-perf-users@vger.kernel.org, Leo Yan <leo.yan@arm.com>
+ linux-perf-users@vger.kernel.org, Leo Yan <leo.yan@arm.com>, 
+ Leo Yan <leo.yan@linux.dev>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1781708939; l=2006;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1781708939; l=9782;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=D1FtZyXlzdlSZeEQumhz16VVUk8Y+LyL/Y9/6kB7zD0=;
- b=dRuBYCTI+cptutfNwpcOECzBHEdd1e5O/Kf4Hwou6Ulul2ixcQoGfV7Gq75cqDDzC14xpsjyp
- nkXESrFPBuuCRme09AfPGI4b4DZmBPrHc65jXU1RZpmNk7lkJrcAfbq
+ bh=7WG58GhUWZXhtTC8EUo8w3+mOY4nYvnO0DRSftgqRWQ=;
+ b=bda0VTYXR4kzAPx6+MYAlFU5snFHYmLX9kny/bn5OEZcqHWhIAd6uvUy+UXXkw0cWlAAFnMsP
+ QitTddzFKbYAEcxb468ayvDHnKUKpDG49tgpsc6ufynhIzMcTOR55kd
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260617_080915_491398_B217C761 
-X-CRM114-Status: GOOD (  10.25  )
+X-CRM114-CacheID: sfid-20260617_080910_629681_0A4C777C 
+X-CRM114-Status: GOOD (  14.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,49 +85,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ETE shares the same packet format as ETMv4, but exception decoding
-handled ETMv4 packets only. As a result, ETE exception packets were
-not classified.
+From: Leo Yan <leo.yan@linaro.org>
 
-Recognize the ETE magic for exception number decoding.
+The itrace 'c' and 'r' options request synthesized branch events for
+calls and returns only. For perf script the default itrace options are
+"--itrace=ce", so CS ETM should emit call branches and error events by
+default.
 
+CS ETM currently synthesizes a branch sample for every decoded taken
+branch whenever branch synthesis is enabled. This produces redundant
+jump and conditional branch samples.
+
+Add a branch filter derived from the itrace calls and returns options.
+When neither option is set, keep the existing behavior and synthesize all
+branch samples. When calls or returns are requested, emit only branch
+samples whose flags match the selected branch type, while preserving trace
+begin/end markers.
+
+Also update test_arm_coresight_disasm.sh and arm-cs-trace-disasm.py
+to use the --itrace=b option for generating branch samples.
+
+Before:
+
+  perf script -F,+flags
+
+  callchain_test    6114 [005] 331519.825214:          1 branches:   tr strt jmp                           0 [unknown] ([unknown]) => ffff8000803a3a68 perf_report_aux_output_id+0x50 ([kernel.kallsyms])
+  callchain_test    6114 [005] 331519.825214:          1 branches:   call                   ffff8000803a3a74 perf_report_aux_output_id+0x5c ([kernel.kallsyms]) => ffff8000817f4d88 memset+0x0 ([kernel.kallsyms])
+  callchain_test    6114 [005] 331519.825214:          1 branches:   jmp                    ffff8000817f4d8c memset+0x4 ([kernel.kallsyms]) => ffff8000817f4c00 __pi_memset_generic+0x0 ([kernel.kallsyms])
+  callchain_test    6114 [005] 331519.825214:          1 branches:   jcc                    ffff8000817f4c1c __pi_memset_generic+0x1c ([kernel.kallsyms]) => ffff8000817f4c44 __pi_memset_generic+0x44 ([kernel.kallsyms])
+  callchain_test    6114 [005] 331519.825214:          1 branches:   jcc                    ffff8000817f4c4c __pi_memset_generic+0x4c ([kernel.kallsyms]) => ffff8000817f4c5c __pi_memset_generic+0x5c ([kernel.kallsyms])
+  callchain_test    6114 [005] 331519.825214:          1 branches:   jcc                    ffff8000817f4c5c __pi_memset_generic+0x5c ([kernel.kallsyms]) => ffff8000817f4cf0 __pi_memset_generic+0xf0 ([kernel.kallsyms])
+  callchain_test    6114 [005] 331519.825214:          1 branches:   jcc                    ffff8000817f4d30 __pi_memset_generic+0x130 ([kernel.kallsyms]) => ffff8000817f4d68 __pi_memset_generic+0x168 ([kernel.kallsyms])
+  callchain_test    6114 [005] 331519.825214:          1 branches:   jcc                    ffff8000817f4d78 __pi_memset_generic+0x178 ([kernel.kallsyms]) => ffff8000817f4d6c __pi_memset_generic+0x16c ([kernel.kallsyms])
+  callchain_test    6114 [005] 331519.825214:          1 branches:   jcc                    ffff8000817f4d78 __pi_memset_generic+0x178 ([kernel.kallsyms]) => ffff8000817f4d6c __pi_memset_generic+0x16c ([kernel.kallsyms])
+  callchain_test    6114 [005] 331519.825214:          1 branches:   jcc                    ffff8000817f4d78 __pi_memset_generic+0x178 ([kernel.kallsyms]) => ffff8000817f4d6c __pi_memset_generic+0x16c ([kernel.kallsyms])
+  callchain_test    6114 [005] 331519.825214:          1 branches:   return                 ffff8000817f4d84 __pi_memset_generic+0x184 ([kernel.kallsyms]) => ffff8000803a3a78 perf_report_aux_output_id+0x60 ([kernel.kallsyms])
+  callchain_test    6114 [005] 331519.825214:          1 branches:   jcc                    ffff8000803a3a98 perf_report_aux_output_id+0x80 ([kernel.kallsyms]) => ffff8000803a3b04 perf_report_aux_output_id+0xec ([kernel.kallsyms])
+  callchain_test    6114 [005] 331519.825214:          1 branches:   call                   ffff8000803a3b1c perf_report_aux_output_id+0x104 ([kernel.kallsyms]) => ffff8000803a38f8 __perf_event_header__init_id+0x0 ([kernel.kallsyms])
+
+After:
+
+  callchain_test    6114 [005] 331519.825214:          1 branches:   tr strt jmp                           0 [unknown] ([unknown]) => ffff8000803a3a68 perf_report_aux_output_id+0x50 ([kernel.kallsyms])
+  callchain_test    6114 [005] 331519.825214:          1 branches:   call                   ffff8000803a3a74 perf_report_aux_output_id+0x5c ([kernel.kallsyms]) => ffff8000817f4d88 memset+0x0 ([kernel.kallsyms])
+  callchain_test    6114 [005] 331519.825214:          1 branches:   call                   ffff8000803a3b1c perf_report_aux_output_id+0x104 ([kernel.kallsyms]) => ffff8000803a38f8 __perf_event_header__init_id+0x0 ([kernel.kallsyms])
+  callchain_test    6114 [005] 331519.825214:          1 branches:   call                   ffff8000803a39c0 __perf_event_header__init_id+0xc8 ([kernel.kallsyms]) => ffff800080105258 __task_pid_nr_ns+0x0 ([kernel.kallsyms])
+  callchain_test    6114 [005] 331519.825214:          1 branches:   call                   ffff80008010528c __task_pid_nr_ns+0x34 ([kernel.kallsyms]) => ffff8000801d5610 __rcu_read_lock+0x0 ([kernel.kallsyms])
+  callchain_test    6114 [005] 331519.825214:          1 branches:   call                   ffff8000801052b0 __task_pid_nr_ns+0x58 ([kernel.kallsyms]) => ffff800080192078 lock_acquire+0x0 ([kernel.kallsyms])
+  callchain_test    6114 [005] 331519.825214:          1 branches:   call                   ffff8000801923f4 lock_acquire+0x37c ([kernel.kallsyms]) => ffff8000801d6da0 rcu_is_watching+0x0 ([kernel.kallsyms])
+
+Fixes: b12235b113cf ("perf tools: Add mechanic to synthesise CoreSight trace packets")
+Signed-off-by: Leo Yan <leo.yan@linaro.org>
 Reviewed-by: James Clark <james.clark@linaro.org>
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- tools/perf/util/cs-etm.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ tools/perf/scripts/python/arm-cs-trace-disasm.py          |  9 +++++----
+ .../tests/shell/coresight/test_arm_coresight_disasm.sh    |  4 ++--
+ tools/perf/util/cs-etm.c                                  | 15 +++++++++++++++
+ 3 files changed, 22 insertions(+), 6 deletions(-)
 
+diff --git a/tools/perf/scripts/python/arm-cs-trace-disasm.py b/tools/perf/scripts/python/arm-cs-trace-disasm.py
+index 8f6fa4a007b42fcc98e71b74b36ba3a61d7acb2f..42579f8586842704d3800ad731d4609d2bb968da 100755
+--- a/tools/perf/scripts/python/arm-cs-trace-disasm.py
++++ b/tools/perf/scripts/python/arm-cs-trace-disasm.py
+@@ -31,18 +31,19 @@ from perf_trace_context import perf_sample_srccode, perf_config_get
+ #
+ # Output disassembly with objdump and auto detect vmlinux
+ # (when running on same machine.):
+-#  perf script -s scripts/python/arm-cs-trace-disasm.py -d
++#  perf script --itrace=b -s scripts/python/arm-cs-trace-disasm.py \
++#       -- -d
+ #
+ # Output disassembly with llvm-objdump:
+-#  perf script -s scripts/python/arm-cs-trace-disasm.py \
++#  perf script --itrace=b -s scripts/python/arm-cs-trace-disasm.py \
+ #		-- -d llvm-objdump-11 -k path/to/vmlinux
+ #
+ # Output accurate disassembly by passing kcore to script:
+-#  perf script -s scripts/python/arm-cs-trace-disasm.py \
++#  perf script --itrace=b -s scripts/python/arm-cs-trace-disasm.py \
+ #		-- -d -k perf.data/kcore_dir/kcore
+ #
+ # Output only source line and symbols:
+-#  perf script -s scripts/python/arm-cs-trace-disasm.py
++#  perf script --itrace=b -s scripts/python/arm-cs-trace-disasm.py
+ 
+ def default_objdump():
+ 	config = perf_config_get("annotate.objdump")
+diff --git a/tools/perf/tests/shell/coresight/test_arm_coresight_disasm.sh b/tools/perf/tests/shell/coresight/test_arm_coresight_disasm.sh
+index ccb90dda24758522be12cba27140abc9b60d8261..f3ebad5963783e9ae74be5b046d20c3f2e01a5a1 100755
+--- a/tools/perf/tests/shell/coresight/test_arm_coresight_disasm.sh
++++ b/tools/perf/tests/shell/coresight/test_arm_coresight_disasm.sh
+@@ -44,7 +44,7 @@ branch_search='[[:space:]](bl|b(\.(eq|ne|cs|cc|mi|pl|vs|vc|hi|ls|ge|lt|gt|le|al)
+ if [ "$(id -u)" == 0 ] && [ -e /proc/kcore ]; then
+ 	echo "Testing kernel disassembly"
+ 	perf record -o ${perfdata} -e cs_etm//k --kcore -Se -m,64K -- touch $file > /dev/null 2>&1
+-	perf script -i ${perfdata} -s python:${script_path} -- \
++	perf script -i ${perfdata} --itrace=b -s python:${script_path} -- \
+ 		-d --stop-sample=2 -k ${perfdata}/kcore_dir/kcore 2> /dev/null > ${file}
+ 	grep -q -E ${branch_search} ${file}
+ 	echo "Found kernel branches"
+@@ -56,7 +56,7 @@ fi
+ ## Test user ##
+ echo "Testing userspace disassembly"
+ perf record -o ${perfdata} -e cs_etm//u -Se -m,64K -- touch $file > /dev/null 2>&1
+-perf script -i ${perfdata} -s python:${script_path} -- \
++perf script -i ${perfdata} --itrace=b -s python:${script_path} -- \
+ 	-d --stop-sample=2 2> /dev/null > ${file}
+ grep -q -E ${branch_search} ${file}
+ echo "Found userspace branches"
 diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
-index 42de2d82fd728bcc719adcab80670efa9859762f..e2c3d2efb5982136abf9295159acab04271897a0 100644
+index d484a6155c2c22fa916d0365987302f6bb9978e9..42de2d82fd728bcc719adcab80670efa9859762f 100644
 --- a/tools/perf/util/cs-etm.c
 +++ b/tools/perf/util/cs-etm.c
-@@ -2181,7 +2181,7 @@ static bool cs_etm__is_syscall(struct cs_etm_queue *etmq,
- 	 * HVC cases; need to check if it's SVC instruction based on
- 	 * packet address.
- 	 */
--	if (magic == __perf_cs_etmv4_magic) {
-+	if (magic == __perf_cs_etmv4_magic || magic == __perf_cs_ete_magic) {
- 		if (packet->exception_number == CS_ETMV4_EXC_CALL &&
- 		    cs_etm__is_svc_instr(etmq, tidq, prev_packet,
- 					 prev_packet->end_addr))
-@@ -2204,7 +2204,7 @@ static bool cs_etm__is_async_exception(struct cs_etm_traceid_queue *tidq,
- 		    packet->exception_number == CS_ETMV3_EXC_FIQ)
- 			return true;
+@@ -71,6 +71,7 @@ struct cs_etm_auxtrace {
+ 	int num_cpu;
+ 	u64 latest_kernel_timestamp;
+ 	u32 auxtrace_type;
++	u32 branches_filter;
+ 	u64 branches_sample_type;
+ 	u64 branches_id;
+ 	u64 instructions_sample_type;
+@@ -1686,6 +1687,10 @@ static int cs_etm__synth_branch_sample(struct cs_etm_queue *etmq,
+ 	} dummy_bs;
+ 	u64 ip;
  
--	if (magic == __perf_cs_etmv4_magic)
-+	if (magic == __perf_cs_etmv4_magic || magic == __perf_cs_ete_magic)
- 		if (packet->exception_number == CS_ETMV4_EXC_RESET ||
- 		    packet->exception_number == CS_ETMV4_EXC_DEBUG_HALT ||
- 		    packet->exception_number == CS_ETMV4_EXC_SYSTEM_ERROR ||
-@@ -2234,7 +2234,7 @@ static bool cs_etm__is_sync_exception(struct cs_etm_queue *etmq,
- 		    packet->exception_number == CS_ETMV3_EXC_GENERIC)
- 			return true;
++	if (etm->branches_filter &&
++		!(etm->branches_filter & tidq->prev_packet->flags))
++		return 0;
++
+ 	ip = cs_etm__last_executed_instr(tidq->prev_packet);
  
--	if (magic == __perf_cs_etmv4_magic) {
-+	if (magic == __perf_cs_etmv4_magic || magic == __perf_cs_ete_magic) {
- 		if (packet->exception_number == CS_ETMV4_EXC_TRAP ||
- 		    packet->exception_number == CS_ETMV4_EXC_ALIGNMENT ||
- 		    packet->exception_number == CS_ETMV4_EXC_INST_FAULT ||
+ 	event->sample.header.type = PERF_RECORD_SAMPLE;
+@@ -3528,6 +3533,16 @@ int cs_etm__process_auxtrace_info_full(union perf_event *event,
+ 		etm->synth_opts.callchain = false;
+ 	}
+ 
++	if (etm->synth_opts.calls)
++		etm->branches_filter |= PERF_IP_FLAG_CALL |
++					PERF_IP_FLAG_TRACE_BEGIN |
++					PERF_IP_FLAG_TRACE_END;
++
++	if (etm->synth_opts.returns)
++		etm->branches_filter |= PERF_IP_FLAG_RETURN |
++					PERF_IP_FLAG_TRACE_BEGIN |
++					PERF_IP_FLAG_TRACE_END;
++
+ 	etm->session = session;
+ 
+ 	etm->num_cpu = num_cpu;
 
 -- 
 2.34.1
