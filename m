@@ -4,79 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9C64CD98E2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 14:49:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58A77CD98E4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 14:51:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=pMZzZ6fqN5YBPOf12bGJv42Jck9RA2bQObyqdO6aFM4=; b=Gu7Ws3wTrtc0A+HjUV8d1KO595
-	Bt0Gy2FA5OoE/ZvDoeH0jC4ErMVytrQIJiX1BuOKQBA+Eex616yZz8A+C2YhWmUgSTbcByiaHM9Di
-	wedAelv51r+Q1h4sisJ8QziyGWidO3vbWiDZDX/LbzMi8gL71bifOlN4pcdFiG90dJCbfGqavkYnT
-	5z6tKxq0kg22gxdSI3ksDwLRFNtSXKlD5Hugq2ywuuElIStqKghfiLaNvMQFOyqb1W6Rg2BD8Src2
-	EogLuB+FYM1f4GGPB33dST2HxX+wx8CNb/pjCTkBZ5Q1GNfxGw7wjICszpfuWBaAWott4IkQHUX4T
-	zGD7y0/g==;
+	bh=DRCIDgfvyWb8F6dd51kKp09a/LacrvNUI0KU4btuiv8=; b=otM4gTe+reKi0zYVhCVQuNUo8y
+	bF+D2ZgBUqrEbv4EUJnhfadCW3XY1TN1+DndGv6Ojab2AVxBo85iVg7ZGzTBzw4wzwsyGNYXwriHi
+	f7kMWtkE3c2QUa05Cz6vAKkmEIe5B+7idCHjeo6reGfrihLktkQ49q9bUKL1Rdd/NY2Wskvyi7FbZ
+	F2Du/4YaDoUO9+tzOI4/lcry4gJvMXaTr0Rj1iQuS7ZEDPDpNYW7UjEKiIJOJTGgeBAadiYCyjCl0
+	h0oZ0X/YOF7f0eUC5iwtSTqG8rRwy0+vA8FYT7U6Wiw0LozgFoNtkWJudwtYaBAbriCu+M8m6tIq8
+	60FOJCGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZrZq-0000000HUsO-0d47;
-	Wed, 17 Jun 2026 14:49:14 +0000
-Received: from mail-ed1-x549.google.com ([2a00:1450:4864:20::549])
+	id 1wZrcD-0000000HV8z-2WP9;
+	Wed, 17 Jun 2026 14:51:41 +0000
+Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZrZn-0000000HUrW-3sgp
+	id 1wZrcB-0000000HV8X-2axk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 14:49:13 +0000
-Received: by mail-ed1-x549.google.com with SMTP id 4fb4d7f45d1cf-69596925f4cso413444a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 07:49:10 -0700 (PDT)
+	Wed, 17 Jun 2026 14:51:40 +0000
+Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-45ef616db45so4813007f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 07:51:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781707749; x=1782312549; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1781707897; x=1782312697; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=pMZzZ6fqN5YBPOf12bGJv42Jck9RA2bQObyqdO6aFM4=;
-        b=ccDFajbC1F54mEjdzEHs9OJFDQBmDvTRIycXRZAiCMutA/00m/PSyNTdy3yePl+4HR
-         GFSkcYHbR9KoIg5Gd5spOBtg5qzLbJykGlKKkaB7uiYR8SVk32nUGNC7bT+Z68ZjW9gl
-         iqBYWgRrppviPAQX1NvSFof19zntvTye7lQVsFnc5Jh7Dqqh66PKxP/BtASaO5oRCZy1
-         l1WLlNj4DDHxXa31Q187ncJPYWNmzd44shGiyhgzaID82e9DLYvnIM38yu/8Xvw1iRvZ
-         hS9/raPRZGHiauvlHzPGsXD3Gl4dUvTPfyTx/U75gPi5yuHo645Bra6yLE6L7u7xFI38
-         LQ6g==
+        bh=DRCIDgfvyWb8F6dd51kKp09a/LacrvNUI0KU4btuiv8=;
+        b=HRYgiGIhZbMvyHVpNw2A8c/pQzBbIWkPTLWgUmbRt5x5Ezt0c8kOXELMxhPxbKtIRK
+         bpVwIl+djhdjuuhgoaZiXGwh1Fj7Db8eby3v2sOS0TqQX0zB89d+7Omjn6MQPI1+SUmf
+         dDzM0WFsszhZI8T/YK2kgjxJQh7k1E3N4nV90g9Q6SI17+mPxBlavgSxYihFxsH7+fpu
+         jP5DQg+52BhqjgwhKEOyAyDTLdRARR68g6rUtbBIANu263U8oYvuSr0z98RtCJ8hOVm5
+         dtdVTe5h1RlZYqHNiyKAR0toXayrqzwrTRqgO6VOixaYu/p8dDl/S56MW/k3Y36IwuIv
+         6aSw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781707749; x=1782312549;
+        d=1e100.net; s=20251104; t=1781707897; x=1782312697;
         h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=pMZzZ6fqN5YBPOf12bGJv42Jck9RA2bQObyqdO6aFM4=;
-        b=OefJKAy445HRO2N+ROc1NBoxuNL2MQ+TZna6WDdsBXHCb3jZWlX/dvjlR9zFSqetwy
-         tbqTvSoXx1tej6c+hy5qJIh14Bm1FlHcP4vknVjOwjwZjDTGpyWgaRsBnc9C8lE9kXsD
-         Mv7w2ePnmlfj2pgaTO82r670USeXxMQSD77vCuOufoR2ak8lLLo4c+x76e2aG3fnc44x
-         tr6QefhobdSYWiWx35JG0TGRazPgtIXN8a3qa7AricwTpmwD6KQ7WG6qxoEM4Q+mOxUH
-         rtYPN2ZVSMowlbHRfeM2pvuVsLOZ82LSIpxw99WWAUheBjDBZEa3Lhuoeh5TG1cMzkg+
-         yEZQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+MlbMZ33Qc/2k+QwpoCX2L7ZAdkHANAvaRut65eskODWfEnLeKmELUYWIaTJc9zY3EMqv7NjAyOP996H1UGS5n@lists.infradead.org
-X-Gm-Message-State: AOJu0YwsDhwW0tUq6JRL54yMqlsnGdz/mDhIInz9ZZ62Lt5tgNRY1oIv
-	mSzJx3NGCOmr/LYBOm5WkJvjDhwKi6tQnB4nZw2MLlGDuCgqenPl9zod8vEH0nDfCp1pUKs18ST
-	FhQ==
-X-Received: from edr13.prod.google.com ([2002:a05:6402:44cd:b0:68c:16ac:54aa])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6402:11ca:b0:68d:235a:cdaf
- with SMTP id 4fb4d7f45d1cf-695471ea956mr2493921a12.5.1781707748559; Wed, 17
- Jun 2026 07:49:08 -0700 (PDT)
-Date: Wed, 17 Jun 2026 15:49:07 +0100
+        bh=DRCIDgfvyWb8F6dd51kKp09a/LacrvNUI0KU4btuiv8=;
+        b=mp0RQjN9bqlqdwsqH02VhCewAGlw/zPZYe9U7UKLWGccTH5hoUOKUogqRTjDkvXphQ
+         IuajcYR0Xc62ZfbGQS06t1aWtJrXw1HOILWku/NvEBXig6o+QiWiLg8vilqQocABpmUj
+         ZiXmAHp9mx4KsKE2U6rb4pAss9qo5Zv8Re/DWGfKKsY+VPvZIZhrjRPdrjFcm6t+wP6d
+         333gxKiBTRhOgY3XZAQN+Vh7PE7MQm0maGWe1CW5tOhSB27sy4Pi+5dQrqpeqEYa7oAC
+         pASxROvZpuiEN+m2Y9qa8YAFSZIzk+Lhp07//ScSSZ3BSb1OiJ3DltAsZnuuepCazMmk
+         nvMQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/Q0wPwJJoA7mqK2yPQyex8MdsUtT0PcJ4K5pJD976v+388lOIepNsoAIQxLOnnKQr7ikdDJTLCv3mV8QWZtDMr@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxe+dPhctSNsOU+JgZc9CV5lw1Ac7k8ObogoLkBv25+TPu3HGzJ
+	TdkSm0df1Np2AT4AErq277IrLVeVnsXU0e0hgF3VQq4TmfuAiJyMUOYTLppVHMrg58Rk2u+uauw
+	HF7jUFox/QmTCKcUWC5KFyM2MJrgUIg==
+X-Received: from wrsi9.prod.google.com ([2002:adf:fdc9:0:b0:43d:677d:1980])
+ (user=sebastianene job=prod-delivery.src-stubby-dispatcher) by
+ 2002:adf:edcf:0:b0:461:bfd6:510c with SMTP id ffacd0b85a97d-46235e9ae48mr6358501f8f.3.1781707896957;
+ Wed, 17 Jun 2026 07:51:36 -0700 (PDT)
+Date: Wed, 17 Jun 2026 14:51:23 +0000
 Mime-Version: 1.0
 X-Mailer: git-send-email 2.54.0.1136.gdb2ca164c4-goog
-Message-ID: <20260617144907.2972095-1-tabba@google.com>
-Subject: [PATCH] KVM: arm64: nv: Fix PSTATE construction on illegal exception return
-From: Fuad Tabba <tabba@google.com>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Cc: Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Jintack Lim <jintack.lim@linaro.org>, 
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>, 
-	Christoffer Dall <christoffer.dall@arm.com>, linux-kernel@vger.kernel.org, tabba@google.com
+Message-ID: <20260617145130.3729015-1-sebastianene@google.com>
+Subject: [PATCH v7 0/7] arm_ffa, KVM: Fix FF-A emad offset calculations
+From: Sebastian Ene <sebastianene@google.com>
+To: catalin.marinas@arm.com, oupton@kernel.org, sudeep.holla@kernel.org, 
+	will@kernel.org
+Cc: jens.wiklander@linaro.org, joey.gouly@arm.com, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	android-kvm@google.com, maz@kernel.org, mrigendra.chaubey@gmail.com, 
+	op-tee@lists.trustedfirmware.org, perlarsen@google.com, 
+	sebastianene@google.com, seiden@linux.ibm.com, smostafa@google.com, 
+	sumit.garg@kernel.org, suzuki.poulose@arm.com, vdonnefort@google.com, 
+	yuzenghui@huawei.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260617_074911_980791_5B771F78 
-X-CRM114-Status: GOOD (  14.35  )
+X-CRM114-CacheID: sfid-20260617_075139_675790_5927E6A5 
+X-CRM114-Status: GOOD (  19.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,78 +92,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-kvm_check_illegal_exception_return() sourced the flags {N,Z,C,V} and
-masks {D,A,I,F} of the resulting PSTATE from the current PSTATE, but
-R_VWJHB takes them from the SPSR being returned to and leaves
-PSTATE.{EL,SP,nRW} (and EXLOCK when FEAT_GCS) unchanged. PAN, ALLINT
-and PM were not applied at all.
+Hi all,
 
-Build the PSTATE by taking those fields from the SPSR while preserving
-EL, SP, nRW and EXLOCK from the current PSTATE, then set IL.
+This series fixes the Endpoint Memory Access Descriptor (EMAD) offset
+calculations and adds the necessary bounds checks for both the core
+FF-A driver and the pKVM hypervisor.
 
-Fixes: 47f3a2fc765a ("KVM: arm64: nv: Support virtual EL2 exceptions")
-Suggested-by: Marc Zyngier <maz@kernel.org>
-Link: https://lore.kernel.org/all/86wlvxs5r0.wl-maz@kernel.org/
-Signed-off-by: Fuad Tabba <tabba@google.com>
----
-This is a modified version of Marc's suggested diff [1]. That diff applied
-a single mask to the incoming SPSR, which also takes PSTATE.{EL,SP,nRW}
-(and EXLOCK) from the SPSR. The ARM ARM leaves those fields unchanged on an
-illegal exception return. This path is reached precisely because SPSR.M is
-illegal (EL3, M[1]=1, AArch32, EL1 under TGE), so this version preserves
-EL/SP/nRW/EXLOCK from the current PSTATE and takes only the flags, masks
-and PAN/ALLINT/PM from the SPSR.
+Prior to FF-A version 1.1, the memory region header didn't specify an
+explicit offset for the EMADs, leading to the assumption that they
+immediately follow the header.
+However, from v1.1 onwards, the specification dictates using the
+ep_mem_offset` field to determine the start of the memory access
+array.
 
-[1] https://lore.kernel.org/all/86wlvxs5r0.wl-maz@kernel.org/
----
- arch/arm64/kvm/emulate-nested.c | 33 +++++++++++++++++++++++----------
- 1 file changed, 23 insertions(+), 10 deletions(-)
+The patches in this series address this by:
+1. Updating the core `arm_ffa` firmware driver to correctly calculate
+the descriptor
+   offset using `ep_mem_offset` rather than defaulting to `sizeof(struct
+ffa_mem_region)`.
+   It also introduces bounds checking against `max_fragsize`.
+2. Enhancing the pKVM hypervisor validation logic to no longer strictly
+enforce that
+   the descriptor strictly follows the header, aligning it with the
+driver behavior
+   and the FF-A specification, while also ensuring the offset falls
+within the mailbox
+   buffer bounds.
 
-diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
-index dba7ced74ca5..ace2b40cf875 100644
---- a/arch/arm64/kvm/emulate-nested.c
-+++ b/arch/arm64/kvm/emulate-nested.c
-@@ -2738,17 +2738,30 @@ static u64 kvm_check_illegal_exception_return(struct kvm_vcpu *vcpu, u64 spsr)
- 	    (spsr & PSR_MODE32_BIT) ||
- 	    (vcpu_el2_tge_is_set(vcpu) && (mode == PSR_MODE_EL1t ||
- 					   mode == PSR_MODE_EL1h))) {
--		/*
--		 * The guest is playing with our nerves. Preserve EL, SP,
--		 * masks, flags from the existing PSTATE, and set IL.
--		 * The HW will then generate an Illegal State Exception
--		 * immediately after ERET.
--		 */
--		spsr = *vcpu_cpsr(vcpu);
-+		u64 cpsr = *vcpu_cpsr(vcpu);
-+		u64 mask;
- 
--		spsr &= (PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT |
--			 PSR_N_BIT | PSR_Z_BIT | PSR_C_BIT | PSR_V_BIT |
--			 PSR_MODE_MASK | PSR_MODE32_BIT);
-+		/*
-+		 * On an illegal exception return, PSTATE.{EL,SP,nRW} and,
-+		 * if FEAT_GCS, PSTATE.EXLOCK are unchanged, while the flags
-+		 * and masks are taken from the SPSR (R_VWJHB). Set IL so the
-+		 * HW generates an Illegal State Exception right after ERET.
-+		 */
-+		mask = PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT |
-+		       PSR_N_BIT | PSR_Z_BIT | PSR_C_BIT | PSR_V_BIT;
-+
-+		if (kvm_has_feat(vcpu->kvm, ID_AA64MMFR1_EL1, PAN, IMP))
-+			mask |= PSR_PAN_BIT;
-+		if (kvm_has_feat(vcpu->kvm, ID_AA64PFR1_EL1, NMI, IMP))
-+			mask |= ALLINT_ALLINT;
-+		/* FEAT_SPE_EXC and FEAT_TRBE_EXC also gate PSTATE.PM one day... */
-+		if (kvm_has_feat(vcpu->kvm, ID_AA64DFR1_EL1, EBEP, IMP))
-+			mask |= BIT_ULL(32);	/* PSTATE.PM */
-+
-+		spsr &= mask;
-+		spsr |= cpsr & (PSR_MODE_MASK | PSR_MODE32_BIT);
-+		if (kvm_has_feat(vcpu->kvm, ID_AA64PFR1_EL1, GCS, IMP))
-+			spsr |= cpsr & BIT_ULL(34);	/* PSTATE.EXLOCK */
- 		spsr |= PSR_IL_BIT;
- 	}
- 
+While addressing these bugs, Sashiko uncovered other issues that were
+fixed in the same series.
+
+All the patches aside from the first one in optee are urgent fixes as
+they either impact the hypervisor security or kernel stability.
+
+Changelog
+#########
+v6->v7:
+- taking the patches from Mostafa and sending a new version with the
+  collected tags
+- Added overflow checks when doing `ep_offset + emad_size` in the arm
+  ff-a driver
+- Move the length check before the ffa_mem_reclaim
+- fix compatibility break with ff-a version 1.0 reported by Sashiko
+- add one more patch to fix an issue with the FFA_VERSION call
+  that can lead to leaking pKVM stack un-initialized data to
+  a host when -ftrivial-auto-var-init=zero is not used.
+
+v5->v6:
+- Add fixes tag
+- Small clean up make variable declaration reverse christmas tree.
+
+v4->v5:
+- Collect Sudeep Rbs
+- Add extra patch to check base address alignment.
+- Remove WARN_ONs in KVM code
+- Use ffa_emad_size_get() instead of hardcoded size in KVM code.
+
+v3 -> v4:
+- Address review comments and fix Sashiko bugs
+
+v2 -> v3:
+- Fixed typo in nvhe/ffa.c (missing sizeof)
+
+v1 -> v2:
+- For pKVM, removed the strict placement enforcement for `ep_mem_offset`
+  as it is not
+  compliant with the spec, and avoids making assumptions about the
+driver's memory
+  layout.
+
+Link to:
+########
+v6:
+https://lore.kernel.org/all/20260527150236.1978655-1-smostafa@google.com/
+v5:
+https://lore.kernel.org/all/20260526151934.3783707-1-smostafa@google.com/
+v4:
+https://lore.kernel.org/all/20260520204948.2440882-1-smostafa@google.com/
+v3:
+https://lore.kernel.org/all/20260512124442.1899107-1-sebastianene@google.com/
+v2:
+https://lore.kernel.org/all/20260430160241.1934777-1-sebastianene@google.com/
+v1: https://lore.kernel.org/all/ae9KN9nkOgDYJcGP@google.com/T/#t
+
+Mostafa Saleh (4):
+  optee: ffa: Add NULL check in optee_ffa_lend_protmem
+  firmware: arm_ffa: Fix out-of-bound writes in ffa_setup_and_transmit()
+  KVM: arm64: Fix bounds checking in do_ffa_mem_reclaim()
+  KVM: arm64: Ensure FFA ranges are page aligned
+
+Sebastian Ene (3):
+  firmware: arm_ffa: Fix Endpoint Memory Access Descriptor offset
+    calculation
+  KVM: arm64: Validate the offset to the mem access descriptor
+  KVM: arm64: Zero out the stack initialized data in the FFA handler
+
+ arch/arm64/kvm/hyp/nvhe/ffa.c     | 47 ++++++++++++++++++++++---------
+ drivers/firmware/arm_ffa/driver.c | 25 ++++++++++------
+ drivers/tee/optee/ffa_abi.c       |  3 ++
+ include/linux/arm_ffa.h           |  2 +-
+ 4 files changed, 54 insertions(+), 23 deletions(-)
+
 -- 
 2.54.0.1136.gdb2ca164c4-goog
 
