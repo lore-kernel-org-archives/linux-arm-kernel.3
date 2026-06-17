@@ -4,90 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A87E8CD98E2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 07:17:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC68BCD98EE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 07:25:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LdX/1r/VC5gVdSWCvpldxzdbyoom7W8WRGEDFlCTq6c=; b=zfY54QtewIHUlas2yOFSr7poP/
-	AbWBe7FAznuX57x5ahaUoYf34fnkRY8aUl6st9tHI/GuCyMLtW4BDm10VlFOwQG15WkdlwFKT5Rqa
-	Z47aHVTtu9rZSt8iaRI5d1L5cNEjrTE7eSJgEpLI6G9qrITds5V9b6wvqH+02T4F1uThcJaRrVQaW
-	HW5Vw+UYzcqtSy+5O1wxINz420wHuRP7O5c4gGlxG+q2YDPay2Gu4gKnwZBKxv17v6fYiWDc14Drx
-	t5SvRca9GM+Lrs6P9zgOlldoL+MVHOhkibgMwFjMRAgjsRCvG9WhaoUdb0hLEXKRUV5kARTzJee+V
-	nWR3Az2w==;
+	bh=JYgA4r+iMvN9v+KvAsaOKYP1T3sIeJZ4mxJT+xgfLbU=; b=jo17N4ZRu5QGOvj++LTN8vYUeJ
+	El/w43UzdKV12s4opC/6BwP0hHfh5oxWNm+K94ydYadosmIdle1oJYIgGrcBi00KU4qAUppUyyGvX
+	kDVudpKgjNCPF1biCM/sNPeh9rx6nSlvrqjyv353SWPTpofvbtE1RNzA67eEX8YDJXkv/5ODsnAJW
+	ORePWv1Tpl+DnNjdlon/WSh6McD6kjfpC1wrC8932SOu3yWdbxw4ZPNf5zMBpC2NZJ3DmnVLHikcc
+	W7erxDcP2l/mvd10bk0kto9GkNrslSaifkTWaoznJf5b0bAQHgzAa1uAUzeXzNsEKT69Ia44NX33z
+	uE4J2Cpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZkWU-0000000GoCy-0qD4;
-	Wed, 17 Jun 2026 07:17:18 +0000
-Received: from mail-qv1-f44.google.com ([209.85.219.44])
+	id 1wZkdp-0000000Gozt-3zeV;
+	Wed, 17 Jun 2026 07:24:53 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZkWS-0000000GoBp-1qtP
+	id 1wZkdp-0000000Gozl-0Ejh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 07:17:17 +0000
-Received: by mail-qv1-f44.google.com with SMTP id 6a1803df08f44-8cceb2ecc03so50977706d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 00:17:15 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781680634; x=1782285434;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=LdX/1r/VC5gVdSWCvpldxzdbyoom7W8WRGEDFlCTq6c=;
-        b=WKEVbnUgJr7OQD4tx1RzdQcY+8v2MDK9gwUu1G1cNhr84UwyPkNVpaK63xvd5MR1Cf
-         4CQBCLRakGeh6GtZ8w6t4KZWX6VJD/nIqY49DGIL4HosISnwOoUysaUgqif3v1NJfaLv
-         WZoIK4ZM6VEhPHPX6Om1dB/ctmgfRmB7pW7gEY8Dg9aLXtZMEZEhmBSTrLNIT5j7081d
-         j/x9DNg/gG2eUbpugQFrO8GQiez3Y0rr6FZDehxICXE+QizX1eM7o0T+mfLBLplqG8En
-         ntojm4sEN9A/51L+YEJQnvj6IL29dZpgtn1xs3mDyZw9KzXu886CpeL/IEjaKWen6FM/
-         J5NA==
-X-Forwarded-Encrypted: i=1; AFNElJ8Zqn10r5O5ciidc2A5dAnqXBs59bPtTJz6kVZ2634sFhH62bLOO9NdmF6fSHirnswmPpNYlwtxAEGXPHggHcr0@lists.infradead.org
-X-Gm-Message-State: AOJu0YymOFp3oWNFGHrhxtqmmdDSDW7kziVG7y2RhG687QQUjrOfqR+o
-	sbBkFM5+BhNB1aXx/Xthi3Vd6cGnMMWUsCmQv9kLwaR6Fa8laySqkZZYSnHjMyUb
-X-Gm-Gg: AfdE7cmw9Y5DCYF/VK8Fk692SVDvQoISFZbz4l6p82WCIuhkgKv//Rslu18IoK5feW7
-	mVff78gmA5s+HY05vT07+GhTEuKIUhQYPH1IdqQQbgrDXOg7KJYH5qR82fXgkMonM9Dd5WCQLN0
-	1FmXl1E/HSp1OHkaypCRnkLcF637FpmPO7AgOnVhsDWtYveWAYNeFBC+AFZDG2nEQoy5xXcNyIv
-	8EIT9Da56zP8w0qfpj5xI2LiGTwjj8dEFgrt57fD6hSePgpKLvtIkvifziO3NoGyimRi7wgCxvA
-	wvrNz51fshX4HboPl0ySIIWEpLz8rWZOSfRnuvAJF1Z6MY7HyW1LibP5Emr6UDqfXaSNu8wMBIa
-	dAg1h/OXD193bCgIQc7dyXFVvNl1Jkq5c24eOSfXl3lKY6P4Er45dnhFGMj3kEHB/MjX9Qc3szH
-	Z71S9rCLWIqb5gwZVq8XfpB6m/U6EDZsllNCbCo5fQhtD5NLXoTXLgvphzeYhkHq/v
-X-Received: by 2002:a0c:c384:0:b0:8cc:ce03:c020 with SMTP id 6a1803df08f44-8db5d7a4049mr39409616d6.20.1781680634590;
-        Wed, 17 Jun 2026 00:17:14 -0700 (PDT)
-Received: from mail-qk1-f180.google.com (mail-qk1-f180.google.com. [209.85.222.180])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8dba79d0e40sm13565256d6.15.2026.06.17.00.17.14
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 17 Jun 2026 00:17:14 -0700 (PDT)
-Received: by mail-qk1-f180.google.com with SMTP id af79cd13be357-915e1354934so574871485a.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 00:17:14 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ9E0YbPGR0vrMPkMrzmXAVC7bCDm+8KR8U/wPiot9XITQRd2uQMHxxiqafaOo2KwRT9pZfoL390CwptewKae+Q+@lists.infradead.org
-X-Received: by 2002:a05:6102:8386:20b0:631:e729:4575 with SMTP id
- ada2fe7eead31-7245cec45e5mr949237137.5.1781680186567; Wed, 17 Jun 2026
- 00:09:46 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260617030008.154449-1-marek.vasut+renesas@mailbox.org> <20260617030008.154449-2-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20260617030008.154449-2-marek.vasut+renesas@mailbox.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 17 Jun 2026 09:09:35 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdX7XuHQDSsX4P7NZ46_OnCX2o25szuALwSs2z+PHq+JNg@mail.gmail.com>
-X-Gm-Features: AVVi8Cf4irFbaHbMK6oTTjowYmtlzx-ojJFWgXAHjFGSCYVJj8Ydp7M37Z78yvQ
-Message-ID: <CAMuHMdX7XuHQDSsX4P7NZ46_OnCX2o25szuALwSs2z+PHq+JNg@mail.gmail.com>
-Subject: Re: [PATCH 2/3] irqchip/gic-v3: Add Renesas R-Car Gen4 erratum workaround
+	Wed, 17 Jun 2026 07:24:53 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id CF9334452F;
+	Wed, 17 Jun 2026 07:24:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C84A1F00A3D;
+	Wed, 17 Jun 2026 07:24:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781681091;
+	bh=JYgA4r+iMvN9v+KvAsaOKYP1T3sIeJZ4mxJT+xgfLbU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=HGDyUQDh3t+aV2B7rWzcTrOtt8o66v8zDf7qbV3Ab7Jye4Q7ltUKNppxgXSX0Vi9B
+	 kD/aZioiQMRuEHAhHIP4ZUR1sYQNBpCi2pfOLX5pvo+IKMm4p/2S3ez4P+75Gg3jpS
+	 3mbzuiu0cuWPfk4lskEYenAJrCoUZrfHxikwvXEdX6dgtQJrAGx0t5fdvDkcHaNSDW
+	 xfe0bxl4sT4Tm/ER4qdDD+vMa10j4FFhXGu5iHEnZ1SQ5YfDiV/AyeEAUsKDoYt62c
+	 NrxkVr2AxjIWBYEdkZFNDEBkf47x+j3eigd2Ov1COJARgI1XWTYl8A7IgXdtIGf+3D
+	 LZzrGpJWW3MxA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wZkdl-0000000Da9B-0HQw;
+	Wed, 17 Jun 2026 07:24:49 +0000
+Date: Wed, 17 Jun 2026 08:24:48 +0100
+Message-ID: <864ij1tyrj.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
 To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-pci@vger.kernel.org, 
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, 
-	=?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Conor Dooley <conor+dt@kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Marc Zyngier <maz@kernel.org>, Rob Herring <robh@kernel.org>, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+Cc: linux-pci@vger.kernel.org,	Yoshihiro Shimoda
+ <yoshihiro.shimoda.uh@renesas.com>,	Krzysztof =?UTF-8?B?V2lsY3p5xYRza2k=?=
+ <kwilczynski@kernel.org>,	Bjorn Helgaas <bhelgaas@google.com>,	Catalin
+ Marinas <catalin.marinas@arm.com>,	Conor Dooley <conor+dt@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,	Krzysztof Kozlowski
+ <krzk+dt@kernel.org>,	Lorenzo Pieralisi <lpieralisi@kernel.org>,	Manivannan
+ Sadhasivam <mani@kernel.org>,	Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org,	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,	linux-kernel@vger.kernel.org,
 	linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260617_001716_482009_B018E083 
-X-CRM114-Status: GOOD (  25.62  )
+Subject: Re: [PATCH 2/3] irqchip/gic-v3: Add Renesas R-Car Gen4 erratum workaround
+In-Reply-To: <20260617030008.154449-2-marek.vasut+renesas@mailbox.org>
+References: <20260617030008.154449-1-marek.vasut+renesas@mailbox.org>
+	<20260617030008.154449-2-marek.vasut+renesas@mailbox.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: marek.vasut+renesas@mailbox.org, linux-pci@vger.kernel.org, yoshihiro.shimoda.uh@renesas.com, kwilczynski@kernel.org, bhelgaas@google.com, catalin.marinas@arm.com, conor+dt@kernel.org, geert+renesas@glider.be, krzk+dt@kernel.org, lpieralisi@kernel.org, mani@kernel.org, robh@kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,10 +90,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marek,
-
-On Wed, 17 Jun 2026 at 05:00, Marek Vasut
-<marek.vasut+renesas@mailbox.org> wrote:
+On Wed, 17 Jun 2026 03:59:45 +0100,
+Marek Vasut <marek.vasut+renesas@mailbox.org> wrote:
+>=20
 > Renesas R-Car S4/V4H/V4M GIC600 integration has address width for AXI
 > or APB interface configured to 32 bit, it can therefore access only
 > the first 4 GiB of physical address space. This information comes from
@@ -114,52 +101,193 @@ On Wed, 17 Jun 2026 at 05:00, Marek Vasut
 > engineer indicates that this limitation also applies to R-Car S4 and V4M.
 > Name the limitation GEN4GICITS1, and add a driver quirk to mitigate this
 > limitation.
->
+>=20
 > Note that the 0x0201743b GIC600 ID is not Renesas-specific, it is
 > common for many ARM GICv3 implementations. Therefore, add an extra
+
+Not quite. It designates GIC600 unambiguously. It is just that GIC600
+is integrated in zillions of SoCs, most of which don't have this
+problem (the machine I'm typing this from has a GIC600 *and* 96GB of
+RAM).
+
 > of_machine_is_compatible() check.
->
+>=20
 > The GIC600 implementation in R-Car S4/V4H/V4M is r1p6.
->
+
+Is this relevant?
+
+>=20
 > Signed-off-by: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
 > Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
-
-Thanks for your patch!
-
+> ---
+> NOTE: This would not be possible without prior work from Shimoda-san
+>       https://lore.kernel.org/all/20240214052050.1966439-1-yoshihiro.shim=
+oda.uh@renesas.com/
+> ---
+> Cc: "Krzysztof Wilczy=C5=84ski" <kwilczynski@kernel.org>
+> Cc: Bjorn Helgaas <bhelgaas@google.com>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Conor Dooley <conor+dt@kernel.org>
+> Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> Cc: Manivannan Sadhasivam <mani@kernel.org>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
+> Cc: devicetree@vger.kernel.org
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-doc@vger.kernel.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linux-pci@vger.kernel.org
+> Cc: linux-renesas-soc@vger.kernel.org
+> ---
+>  Documentation/arch/arm64/silicon-errata.rst |  1 +
+>  arch/arm64/Kconfig                          |  9 +++++++++
+>  drivers/irqchip/irq-gic-v3-its.c            | 20 ++++++++++++++++++++
+>  3 files changed, 30 insertions(+)
+>=20
+> diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/=
+arch/arm64/silicon-errata.rst
+> index 014aa1c215a16..b0c68b64f5ac2 100644
+> --- a/Documentation/arch/arm64/silicon-errata.rst
+> +++ b/Documentation/arch/arm64/silicon-errata.rst
+> @@ -352,6 +352,7 @@ stable kernels.
+>  +----------------+-----------------+-----------------+------------------=
+-----------+
+>  | Qualcomm Tech. | Kryo4xx Gold    | N/A             | ARM64_ERRATUM_128=
+6807       |
+>  +----------------+-----------------+-----------------+------------------=
+-----------+
+> +| Renesas        | S4/V4H/V4M      | N/A             | RENESAS_ERRATUM_G=
+EN4GICITS1 |
+>  +----------------+-----------------+-----------------+------------------=
+-----------+
+>  | Rockchip       | RK3588          | #3588001        | ROCKCHIP_ERRATUM_=
+3588001    |
+>  +----------------+-----------------+-----------------+------------------=
+-----------+
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index b3afe0688919b..b9e17ce475e61 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -1382,6 +1382,15 @@ config NVIDIA_CARMEL_CNP_ERRATUM
+> =20
+>  	  If unsure, say Y.
+> =20
+> +config RENESAS_ERRATUM_GEN4GICITS1
+> +	bool "Renesas R-Car Gen4: GIC600 can not access physical addresses abov=
+e 4 GiB"
+> +	default y
+> +	help
+> +	  The Renesas R-Car Gen4 S4/V4H/V4M GIC600 SoC integrations have AXI
+> +	  addressing limited to the first 32-bit of physical address space.
+> +
+> +	  If unsure, say Y.
+> +
+>  config ROCKCHIP_ERRATUM_3568002
+>  	bool "Rockchip 3568002: GIC600 can not access physical addresses higher=
+ than 4GB"
+>  	default y
+> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v=
+3-its.c
+> index b57d81ad33a0a..ec3756f29cf1a 100644
 > --- a/drivers/irqchip/irq-gic-v3-its.c
 > +++ b/drivers/irqchip/irq-gic-v3-its.c
-> @@ -4901,6 +4901,18 @@ static bool __maybe_unused its_enable_rk3568002(void *data)
->         return true;
+> @@ -4901,6 +4901,18 @@ static bool __maybe_unused its_enable_rk3568002(vo=
+id *data)
+>  	return true;
 >  }
->
+> =20
 > +static bool __maybe_unused its_enable_renesas_gen4(void *data)
 > +{
-> +       if (!of_machine_is_compatible("renesas,r8a779f0") &&
-> +           !of_machine_is_compatible("renesas,r8a779g0") &&
-> +           !of_machine_is_compatible("renesas,r8a779h0"))
-
-of_machine_compatible_match() with an array of strings might generate
-smaller code (I didn't check if 3 entries is enough to trip the balance).
-
-> +               return false;
+> +	if (!of_machine_is_compatible("renesas,r8a779f0") &&
+> +	    !of_machine_is_compatible("renesas,r8a779g0") &&
+> +	    !of_machine_is_compatible("renesas,r8a779h0"))
+> +		return false;
 > +
-> +       gfp_flags_quirk |= GFP_DMA32;
+> +	gfp_flags_quirk |=3D GFP_DMA32;
 > +
-> +       return true;
+> +	return true;
 > +}
 > +
->  static const struct gic_quirk its_quirks[] = {
+>  static const struct gic_quirk its_quirks[] =3D {
 >  #ifdef CONFIG_CAVIUM_ERRATUM_22375
->         {
+>  	{
+> @@ -4975,6 +4987,14 @@ static const struct gic_quirk its_quirks[] =3D {
+>  		.mask   =3D 0xffffffff,
+>  		.init   =3D its_enable_rk3568002,
+>  	},
+> +#endif
+> +#ifdef CONFIG_RENESAS_ERRATUM_GEN4GICITS1
+> +	{
+> +		.desc   =3D "ITS: Renesas R-Car Gen4 GIC600 32-bit limit",
+> +		.iidr   =3D 0x0201743b,
+> +		.mask   =3D 0xffffffff,
+> +		.init   =3D its_enable_renesas_gen4,
+> +	},
+>  #endif
+>  	{
+>  	}
 
-Gr{oetje,eeting}s,
 
-                        Geert
+Honestly, that's a bit too much copy-paste for my taste. Just refactor
+the erratum handling to be more generic, something like this:
 
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-=
+its.c
+index 291d7668cc8da..380c4758647d2 100644
+--- a/drivers/irqchip/irq-gic-v3-its.c
++++ b/drivers/irqchip/irq-gic-v3-its.c
+@@ -4894,10 +4894,17 @@ static bool __maybe_unused its_enable_quirk_hip09_1=
+62100801(void *data)
+ 	return true;
+ }
+=20
+-static bool __maybe_unused its_enable_rk3568002(void *data)
++static const char * const dma_impaired_platforms[] =3D {
++#ifdef CONFIG_ROCKCHIP_ERRATUM_3568002
++	"rockchip,rk3566",
++	"rockchip,rk3568",
++#endif
++	NULL,
++};
++
++static bool __maybe_unused its_enable_dma32(void *data)
+ {
+-	if (!of_machine_is_compatible("rockchip,rk3566") &&
+-	    !of_machine_is_compatible("rockchip,rk3568"))
++	if (!of_machine_compatible_match(dma_impaired_platforms))
+ 		return false;
+=20
+ 	gfp_flags_quirk |=3D GFP_DMA32;
+@@ -4972,14 +4979,12 @@ static const struct gic_quirk its_quirks[] =3D {
+ 		.property =3D "dma-noncoherent",
+ 		.init   =3D its_set_non_coherent,
+ 	},
+-#ifdef CONFIG_ROCKCHIP_ERRATUM_3568002
+ 	{
+-		.desc   =3D "ITS: Rockchip erratum RK3568002",
++		.desc   =3D "ITS: Broken GIC600 integration limited to 32bit PA",
+ 		.iidr   =3D 0x0201743b,
+ 		.mask   =3D 0xffffffff,
+-		.init   =3D its_enable_rk3568002,
++		.init   =3D its_enable_dma32,
+ 	},
+-#endif
+ 	{
+ 	}
+ };
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Then add the two lines you need in a separate patch.
+
+In the future, please provide a cover letter when you have more than a
+single patch (git will happily generate one for you).
+
+Thanks,
+
+	M.
+
+--=20
+Without deviation from the norm, progress is not possible.
 
