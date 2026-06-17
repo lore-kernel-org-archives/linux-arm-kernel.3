@@ -4,85 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D25E3CD98E4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 14:47:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9C64CD98E2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 14:49:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=erXy90F1aVhSTW8POQ0NgCMddX+dCML396UHDEIaezg=; b=vNPGMLGwkvI7p+iZjdn5wrwutK
-	mJ6J5ntUPNQ8jvqWNGBnXjketRXQpRl57rJZ5LAUd+D4koW2zQXuSDzEEfSC4QpSwTfrdZNqsDE82
-	TZx6bjbg/dCWbEyhxPaiDxcbe6zfjryGrl4LopcD1MaTGZ7VSxsKtf8Ejpgq5BBgEmdp3GFHdv0Il
-	AlWBzR20rNvfPbXNWAlrWm+woMh4zfWg5AFA8R+hBQfRk8mDxyzcNGaShi9RWgRsmKfgQGqMArW3a
-	KqRTvpD3ewQksTY4hNgr+QmePiXMcr0Yt5ppGIePI+c1VgRp4LrUyuV6KPFlzFKKCujKenA4I2z4t
-	j44Pw2CQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=pMZzZ6fqN5YBPOf12bGJv42Jck9RA2bQObyqdO6aFM4=; b=Gu7Ws3wTrtc0A+HjUV8d1KO595
+	Bt0Gy2FA5OoE/ZvDoeH0jC4ErMVytrQIJiX1BuOKQBA+Eex616yZz8A+C2YhWmUgSTbcByiaHM9Di
+	wedAelv51r+Q1h4sisJ8QziyGWidO3vbWiDZDX/LbzMi8gL71bifOlN4pcdFiG90dJCbfGqavkYnT
+	5z6tKxq0kg22gxdSI3ksDwLRFNtSXKlD5Hugq2ywuuElIStqKghfiLaNvMQFOyqb1W6Rg2BD8Src2
+	EogLuB+FYM1f4GGPB33dST2HxX+wx8CNb/pjCTkBZ5Q1GNfxGw7wjICszpfuWBaAWott4IkQHUX4T
+	zGD7y0/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZrXb-0000000HUSN-35es;
-	Wed, 17 Jun 2026 14:46:55 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wZrZq-0000000HUsO-0d47;
+	Wed, 17 Jun 2026 14:49:14 +0000
+Received: from mail-ed1-x549.google.com ([2a00:1450:4864:20::549])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZrXa-0000000HUSH-0T7g
+	id 1wZrZn-0000000HUrW-3sgp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 14:46:54 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A98A4408C4;
-	Wed, 17 Jun 2026 14:46:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 370791F000E9;
-	Wed, 17 Jun 2026 14:46:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781707613;
-	bh=erXy90F1aVhSTW8POQ0NgCMddX+dCML396UHDEIaezg=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=laR53S4ZEFqpK1RU2C/yjKgmXtvMoVq6Ik55ii1gAWmh3rRuIBk1UrsjhJal8Mf7Y
-	 nKNxtvFmqU30GaFlFd6gJbCL6OuI9sKlymNooPjqVLA22wKu2cf7YHqk3iUzTcFnOg
-	 AonnWRxxacImdlprsatSccr+it2PVoCE2farsGQZ0BWMkTXGQH9HozuVaFKisG7AwT
-	 5FkwBoRfJFlzW7mX9CM093Zy2Sxh6cGHKqN/0EWAVZkIvKHcMUePMuRTEjPFcC8cMu
-	 msrJ3x9CnBMTnDsAFfGnXCnBCSM+Po6oFWp3nnIuybjDCDIkSmxHIeOL5R+Ez/oZG3
-	 ThZCeuyOnZbdQ==
-X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: Alexey Kardashevskiy <aik@amd.com>, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev
-Cc: Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>,
-	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
-	Jiri Pirko <jiri@nvidia.com>,
-	Michael Kelley <mhklinux@outlook.com>, "Cheloha,
-	Scott" <Scott.Cheloha@amd.com>
-Subject: Re: [PATCH v6 03/20] dma-direct: use DMA_ATTR_CC_SHARED in
- alloc/free paths
-In-Reply-To: <845d0c8a-6d51-47aa-8e0b-8381e733444a@amd.com>
-References: <20260604083959.1265923-1-aneesh.kumar@kernel.org>
- <20260604083959.1265923-4-aneesh.kumar@kernel.org>
- <845d0c8a-6d51-47aa-8e0b-8381e733444a@amd.com>
-Date: Wed, 17 Jun 2026 15:46:41 +0100
-Message-ID: <yq5atsr1dy26.fsf@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain
+	Wed, 17 Jun 2026 14:49:13 +0000
+Received: by mail-ed1-x549.google.com with SMTP id 4fb4d7f45d1cf-69596925f4cso413444a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 07:49:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1781707749; x=1782312549; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=pMZzZ6fqN5YBPOf12bGJv42Jck9RA2bQObyqdO6aFM4=;
+        b=ccDFajbC1F54mEjdzEHs9OJFDQBmDvTRIycXRZAiCMutA/00m/PSyNTdy3yePl+4HR
+         GFSkcYHbR9KoIg5Gd5spOBtg5qzLbJykGlKKkaB7uiYR8SVk32nUGNC7bT+Z68ZjW9gl
+         iqBYWgRrppviPAQX1NvSFof19zntvTye7lQVsFnc5Jh7Dqqh66PKxP/BtASaO5oRCZy1
+         l1WLlNj4DDHxXa31Q187ncJPYWNmzd44shGiyhgzaID82e9DLYvnIM38yu/8Xvw1iRvZ
+         hS9/raPRZGHiauvlHzPGsXD3Gl4dUvTPfyTx/U75gPi5yuHo645Bra6yLE6L7u7xFI38
+         LQ6g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781707749; x=1782312549;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=pMZzZ6fqN5YBPOf12bGJv42Jck9RA2bQObyqdO6aFM4=;
+        b=OefJKAy445HRO2N+ROc1NBoxuNL2MQ+TZna6WDdsBXHCb3jZWlX/dvjlR9zFSqetwy
+         tbqTvSoXx1tej6c+hy5qJIh14Bm1FlHcP4vknVjOwjwZjDTGpyWgaRsBnc9C8lE9kXsD
+         Mv7w2ePnmlfj2pgaTO82r670USeXxMQSD77vCuOufoR2ak8lLLo4c+x76e2aG3fnc44x
+         tr6QefhobdSYWiWx35JG0TGRazPgtIXN8a3qa7AricwTpmwD6KQ7WG6qxoEM4Q+mOxUH
+         rtYPN2ZVSMowlbHRfeM2pvuVsLOZ82LSIpxw99WWAUheBjDBZEa3Lhuoeh5TG1cMzkg+
+         yEZQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+MlbMZ33Qc/2k+QwpoCX2L7ZAdkHANAvaRut65eskODWfEnLeKmELUYWIaTJc9zY3EMqv7NjAyOP996H1UGS5n@lists.infradead.org
+X-Gm-Message-State: AOJu0YwsDhwW0tUq6JRL54yMqlsnGdz/mDhIInz9ZZ62Lt5tgNRY1oIv
+	mSzJx3NGCOmr/LYBOm5WkJvjDhwKi6tQnB4nZw2MLlGDuCgqenPl9zod8vEH0nDfCp1pUKs18ST
+	FhQ==
+X-Received: from edr13.prod.google.com ([2002:a05:6402:44cd:b0:68c:16ac:54aa])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6402:11ca:b0:68d:235a:cdaf
+ with SMTP id 4fb4d7f45d1cf-695471ea956mr2493921a12.5.1781707748559; Wed, 17
+ Jun 2026 07:49:08 -0700 (PDT)
+Date: Wed, 17 Jun 2026 15:49:07 +0100
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.54.0.1136.gdb2ca164c4-goog
+Message-ID: <20260617144907.2972095-1-tabba@google.com>
+Subject: [PATCH] KVM: arm64: nv: Fix PSTATE construction on illegal exception return
+From: Fuad Tabba <tabba@google.com>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Cc: Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Jintack Lim <jintack.lim@linaro.org>, 
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>, 
+	Christoffer Dall <christoffer.dall@arm.com>, linux-kernel@vger.kernel.org, tabba@google.com
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260617_074911_980791_5B771F78 
+X-CRM114-Status: GOOD (  14.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,55 +91,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Alexey Kardashevskiy <aik@amd.com> writes:
+kvm_check_illegal_exception_return() sourced the flags {N,Z,C,V} and
+masks {D,A,I,F} of the resulting PSTATE from the current PSTATE, but
+R_VWJHB takes them from the SPSR being returned to and leaves
+PSTATE.{EL,SP,nRW} (and EXLOCK when FEAT_GCS) unchanged. PAN, ALLINT
+and PM were not applied at all.
 
-> On 4/6/26 18:39, Aneesh Kumar K.V (Arm) wrote:
->> Propagate force_dma_unencrypted() into DMA_ATTR_CC_SHARED in the
->> dma-direct allocation path and use the attribute to drive the related
->> decisions.
->> 
->> This updates dma_direct_alloc(), dma_direct_free(), and
->> dma_direct_alloc_pages() to fold the forced unencrypted case into attrs.
->> 
->> Tested-by: Jiri Pirko <jiri@nvidia.com>
->> Tested-by: Michael Kelley <mhklinux@outlook.com>
->> Tested-by: Mostafa Saleh <smostafa@google.com>
->> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
->> ---
->>   kernel/dma/direct.c | 53 +++++++++++++++++++++++++++++++++++++--------
->>   1 file changed, 44 insertions(+), 9 deletions(-)
->> 
->> diff --git a/kernel/dma/direct.c b/kernel/dma/direct.c
->> index a741c8a2ee66..90dc5057a0c0 100644
->> --- a/kernel/dma/direct.c
->> +++ b/kernel/dma/direct.c
->> @@ -193,16 +193,31 @@ void *dma_direct_alloc(struct device *dev, size_t size,
->>   		dma_addr_t *dma_handle, gfp_t gfp, unsigned long attrs)
->>   {
->>   	bool remap = false, set_uncached = false;
->> -	bool mark_mem_decrypt = true;
->> +	bool mark_mem_decrypt = false;
->>   	struct page *page;
->>   	void *ret;
->>   
->> +	/*
->> +	 * DMA_ATTR_CC_SHARED is not a caller-visible dma_alloc_*()
->> +	 * attribute. The direct allocator uses it internally after it has
->> +	 * decided that the backing pages must be shared/decrypted, so the
->> +	 * rest of the allocation path can consistently select DMA addresses,
->> +	 * choose compatible pools and restore encryption on free.
->
-> Why this limit?
->
-> Context: I am looking for a memory pool for a few shared pages (to do
-> some guest<->host communication), SWIOTLB seems like the right fit but
-> swiotlb_alloc() is not exported and
-> dma_direct_alloc(DMA_ATTR_CC_SHARED) is not allowed. Thanks,
->
+Build the PSTATE by taking those fields from the SPSR while preserving
+EL, SP, nRW and EXLOCK from the current PSTATE, then set IL.
 
-swiotlb is not the right pool to use for that, right?
-CCA had a similar requirement for ITS pages and ended up creating a genpool:
-b08e2f42e86b ("irqchip/gic-v3-its: Share ITS tables with a non-trusted hypervisor")
+Fixes: 47f3a2fc765a ("KVM: arm64: nv: Support virtual EL2 exceptions")
+Suggested-by: Marc Zyngier <maz@kernel.org>
+Link: https://lore.kernel.org/all/86wlvxs5r0.wl-maz@kernel.org/
+Signed-off-by: Fuad Tabba <tabba@google.com>
+---
+This is a modified version of Marc's suggested diff [1]. That diff applied
+a single mask to the incoming SPSR, which also takes PSTATE.{EL,SP,nRW}
+(and EXLOCK) from the SPSR. The ARM ARM leaves those fields unchanged on an
+illegal exception return. This path is reached precisely because SPSR.M is
+illegal (EL3, M[1]=1, AArch32, EL1 under TGE), so this version preserves
+EL/SP/nRW/EXLOCK from the current PSTATE and takes only the flags, masks
+and PAN/ALLINT/PM from the SPSR.
 
--aneesh
+[1] https://lore.kernel.org/all/86wlvxs5r0.wl-maz@kernel.org/
+---
+ arch/arm64/kvm/emulate-nested.c | 33 +++++++++++++++++++++++----------
+ 1 file changed, 23 insertions(+), 10 deletions(-)
+
+diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
+index dba7ced74ca5..ace2b40cf875 100644
+--- a/arch/arm64/kvm/emulate-nested.c
++++ b/arch/arm64/kvm/emulate-nested.c
+@@ -2738,17 +2738,30 @@ static u64 kvm_check_illegal_exception_return(struct kvm_vcpu *vcpu, u64 spsr)
+ 	    (spsr & PSR_MODE32_BIT) ||
+ 	    (vcpu_el2_tge_is_set(vcpu) && (mode == PSR_MODE_EL1t ||
+ 					   mode == PSR_MODE_EL1h))) {
+-		/*
+-		 * The guest is playing with our nerves. Preserve EL, SP,
+-		 * masks, flags from the existing PSTATE, and set IL.
+-		 * The HW will then generate an Illegal State Exception
+-		 * immediately after ERET.
+-		 */
+-		spsr = *vcpu_cpsr(vcpu);
++		u64 cpsr = *vcpu_cpsr(vcpu);
++		u64 mask;
+ 
+-		spsr &= (PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT |
+-			 PSR_N_BIT | PSR_Z_BIT | PSR_C_BIT | PSR_V_BIT |
+-			 PSR_MODE_MASK | PSR_MODE32_BIT);
++		/*
++		 * On an illegal exception return, PSTATE.{EL,SP,nRW} and,
++		 * if FEAT_GCS, PSTATE.EXLOCK are unchanged, while the flags
++		 * and masks are taken from the SPSR (R_VWJHB). Set IL so the
++		 * HW generates an Illegal State Exception right after ERET.
++		 */
++		mask = PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT |
++		       PSR_N_BIT | PSR_Z_BIT | PSR_C_BIT | PSR_V_BIT;
++
++		if (kvm_has_feat(vcpu->kvm, ID_AA64MMFR1_EL1, PAN, IMP))
++			mask |= PSR_PAN_BIT;
++		if (kvm_has_feat(vcpu->kvm, ID_AA64PFR1_EL1, NMI, IMP))
++			mask |= ALLINT_ALLINT;
++		/* FEAT_SPE_EXC and FEAT_TRBE_EXC also gate PSTATE.PM one day... */
++		if (kvm_has_feat(vcpu->kvm, ID_AA64DFR1_EL1, EBEP, IMP))
++			mask |= BIT_ULL(32);	/* PSTATE.PM */
++
++		spsr &= mask;
++		spsr |= cpsr & (PSR_MODE_MASK | PSR_MODE32_BIT);
++		if (kvm_has_feat(vcpu->kvm, ID_AA64PFR1_EL1, GCS, IMP))
++			spsr |= cpsr & BIT_ULL(34);	/* PSTATE.EXLOCK */
+ 		spsr |= PSR_IL_BIT;
+ 	}
+ 
+-- 
+2.54.0.1136.gdb2ca164c4-goog
+
 
