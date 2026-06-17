@@ -4,67 +4,176 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBA94CD98E4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 11:25:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A919CD98F0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 11:26:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+en6VMPHt/KzGMa143NsFtwcRUN7ww53r4cKrYsgA0c=; b=MSVXwpaQw6KV8442dJaG7nscTE
-	kCvIpadEAktWR1GAHPxXLmxFA2ogTSomyd/LdRtlOUTTzksoH6V84LcFBVu912GsaUrqDG1HCrZ5o
-	fGT28mlZDk1vlR0zE8VhXCEj1XZhZyJatxBiobgFT+TEn6Xp+sGNxFOcTddQnVF9st31ieJ/NrxUA
-	1fiFRIOakuKC3GcJY9gH5r/b/J2t2Y1Dpi0xZ2BDCqXqwiTxSlZgW31K6bnpzklNV/m3NcwpC4oXe
-	CSUFddz2EiliJ5AIfemPsIWSyK2jP0yIP+/kGqRi6L25xgFa9n5fpTHqJ6m4MjKkx+odlrbkvWhuL
-	EuF7kJyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7kEaNSstlwAaFn9NnsJziKpW2MMxDpQT5h/1xFi7vn0=; b=snv3dlya5df1dmSf8ccgGoWQmJ
+	+JEfiiZbbGgZ6v+SQnrzqafOoraZmIzUDKJ0ynPhCXPUYAO3jubMdW3eVhBfKnsGR1u6IfvzJG677
+	GXr9hKsnXEOsqia/uxziRosMv3FrlSJMSXQM3aLdMeTcB+xFPrHpUtD2V4Sphy+Dia0FkH3ZkGLOB
+	d7Iqr0WYpfi+f/k4BRwG2MrfQAHGLy4hKt1psZgEDazAVkTdv65jACVD9+B0+acxxzhiM04j5G0Ff
+	G2qH129FXPx/hylyewIdUsPGQU7/V5t91rSb37FrOXxEnSTDnjB5BVAEjoHk8HXUeFb5SBi8y9syT
+	re4qq0IQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZoOR-0000000HE99-3U4c;
-	Wed, 17 Jun 2026 11:25:15 +0000
-Received: from sender4-op-o12.zoho.com ([136.143.188.12])
+	id 1wZoPx-0000000HENJ-0Nni;
+	Wed, 17 Jun 2026 11:26:49 +0000
+Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZoOO-0000000HE81-1JVZ;
-	Wed, 17 Jun 2026 11:25:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1781695504; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=S3S+HXkc/bIBO6garwC2AsXTuouzterZycrXWitY/ZiAS98YIIViImUbabhHvUE5McQSadwy33d0vezR0IrutUcrBh7CzTrAF21PmbmOkTOMwL8k76xhYrceL9vqwoGlcvLdPWyB0tzgtgoI3z78wb7u8o7C/R8zH4J6w/nrvLY=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1781695504; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=+en6VMPHt/KzGMa143NsFtwcRUN7ww53r4cKrYsgA0c=; 
-	b=n/GBeTrGRv0tLF0xqChNVAYnLcMIhFbpJc/EBqnB7aRKBz92WwWRjVs1DLHukRY7vB36OO0X7MW8elupY0D+qqTBV5pxsk6jR6M4Zl+tQ7W6F6Txmxuh/dp9cVVLgBWYEPIPvac+Ld/IUQuOCIp2+ZfIXFajKEAnA+V6B64rAc0=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1781695504;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=+en6VMPHt/KzGMa143NsFtwcRUN7ww53r4cKrYsgA0c=;
-	b=iy8eH+zwYcMHtnrJY3L0B4jCxc1/p2XiNbqvA62ZUtt4smf3evsz0P5W4MdDOLbS
-	W9UN0HbsgSstidEU56PfqXoRGWBceMSFT6Qp4wZK3aadEKehOozZxFiQCbrtWQ06Seg
-	Hq9+NNJmZfjP/IZmICbgfFmBSPoEoxgE0gl3olzc=
-Received: by mx.zohomail.com with SMTPS id 1781695502861977.1206640958941;
-	Wed, 17 Jun 2026 04:25:02 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Heiko Stuebner <heiko@sntech.de>, Liam Girdwood <lgirdwood@gmail.com>,
- phucduc.bui@gmail.com, Mark Brown <broonie@kernel.org>
-Cc: Nicolas Frattaroli <frattaroli.nicolas@gmail.com>,
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
- linux-sound@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/3] ASoC: rockchip: Use guard() for spin locks
-Date: Wed, 17 Jun 2026 13:24:58 +0200
-Message-ID: <mPIrpl-QRw6_Q9DZcTQ5xA@collabora.com>
-In-Reply-To: <178120760640.484538.12942087225448845771.b4-ty@b4>
-References: <20260604033554.96996-1-phucduc.bui@gmail.com>
- <178120760640.484538.12942087225448845771.b4-ty@b4>
+	id 1wZoPu-0000000HEMq-1xrQ
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 17 Jun 2026 11:26:48 +0000
+Received: from pps.filterd (m0374955.ppops.net [127.0.0.1])
+	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65HBEFsM1874140;
+	Wed, 17 Jun 2026 06:25:30 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=7kEaNSstlwAaFn9NnsJziKpW2MMxDpQT5h/1xFi7v
+	n0=; b=NIpAX02YjN2dhKSWEa91kgmNxP1+DYwu8WAAi5ZtlOSJC+WNSlrj7hHSC
+	yf4Qq3XrqdVRtwmj3o+7xbuPXFXGvyKlgkJfDx+4ch2Ee/zDI63/r8WW1M7khKZv
+	2KtosCeYKgb7piAMuh+NpTGuUaHpCCVEoxlk6+0Qr+Qor26S2h8VJRIR6bitpCSR
+	f1x28HTbGewbZRDnR3qfolt+3s5TKoPL5TiJLQtakEXCfT1ord6Ux28tJBBI1HhM
+	ARtjrL6uXjAiWPTQYJ+EiIjrxnWlj2HMnMSzH213x92weUghARYoTHTrQEXAbcxC
+	gy+fjzXbNU5/C1uJhK1n987rfWpKw==
+Received: from cy3pr05cu001.outbound.protection.outlook.com (mail-westcentralusazon11013014.outbound.protection.outlook.com [40.93.201.14])
+	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4euther1fx-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 17 Jun 2026 06:25:29 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=q9sAjEq54XxTxyD+QwCoG64tiQo9uMAJz7HQlYsPbp2zY5TMrAenTdKeNgmL43KSpWiQniY0+69EHVJenV904bXGDi1YxwcO5usNXaFL0DKxrUPwy4RUbIOWwyL0N0QHwvccOvN8Yldr+E/iw8Xam8X8DTrnqLhMoGPNtp9NWmadMqgZh/tNNG5w1hO8Y+jd3KwQRYgJXlji6wew0BwjFbRbakmfoIoPhRza6TGo48xlr1ERlmkQi/I8SDxN/N1+1jcTV1w4mPRq5YRDm2CeFZAUoPw68yldxzVxxp84pOeMZdSIjLzjv7QEBHHnpeLBS/eNGfncJ+o1zylB0xZnmQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7kEaNSstlwAaFn9NnsJziKpW2MMxDpQT5h/1xFi7vn0=;
+ b=c1LlT5l5EcUfAERwR4yOFyi/IdjYXzkgPKA+6afCNEbA8ChOaDlgK22L1ztFMrygtTp02+gpKSYckwMzYW/3bRdKLw+qZ69HI+wIOwSNliKms5p5WnG+vp2RUPS7hA7ArHZ/M8q+L2P4PkyQDsXy/z12+UW6Nn8YxAvn2PT6R2R/h+1w2+M4sx71fOEI2Mc8YnQEZdxj1HZMn7mmcEOhvJYlQQMyctQ660zz83LbDOGtMlJW9aONx5IAvMyZ9qhsxa/pF0yER/kkg2Th8p6M2eJ0Kiu7KWsP37WvGMSGySwtLyWw7GsTRBsMvK6idmz+1j3y2sSXwNasK4C4dDMOOA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7kEaNSstlwAaFn9NnsJziKpW2MMxDpQT5h/1xFi7vn0=;
+ b=qROi7eQIN+O/uzyZGlF/UfbCY0kO9+OkC8pZjahx+9ZFyws2yvyx81i+j17d/ZHkzQPIrE4mfOfLJcmDtiO/7wGjBpYmIELXmk/biU4vNt5GemTcvWIpSqx70nuWyUOyrmzBKl1bqm8Ts5f7i3od+fAVI88J/4Pv6kN/pY3fYzE=
+Received: from BN9PR03CA0860.namprd03.prod.outlook.com (2603:10b6:408:13d::25)
+ by DM4PR10MB7403.namprd10.prod.outlook.com (2603:10b6:8:184::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.11; Wed, 17 Jun
+ 2026 11:25:26 +0000
+Received: from BN1PEPF00004689.namprd05.prod.outlook.com
+ (2603:10b6:408:13d:cafe::7) by BN9PR03CA0860.outlook.office365.com
+ (2603:10b6:408:13d::25) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.139.11 via Frontend Transport; Wed,
+ 17 Jun 2026 11:25:26 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ BN1PEPF00004689.mail.protection.outlook.com (10.167.243.134) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.139.8 via Frontend Transport; Wed, 17 Jun 2026 11:25:25 +0000
+Received: from DFLE215.ent.ti.com (10.64.6.73) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 17 Jun
+ 2026 06:25:23 -0500
+Received: from DFLE204.ent.ti.com (10.64.6.62) by DFLE215.ent.ti.com
+ (10.64.6.73) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 17 Jun
+ 2026 06:25:23 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE204.ent.ti.com
+ (10.64.6.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Wed, 17 Jun 2026 06:25:23 -0500
+Received: from [172.24.231.93] (ti.dhcp.ti.com [172.24.231.93] (may be forged))
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 65HBPGn01616083;
+	Wed, 17 Jun 2026 06:25:17 -0500
+Message-ID: <c58175a9-27f8-4f21-91fe-b99e7c7ec966@ti.com>
+Date: Wed, 17 Jun 2026 16:55:16 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v7 2/2] net: ti: icssg-prueth: Add ethtool ops
+ for Frame Preemption MAC Merge
+To: MD Danish Anwar <danishanwar@ti.com>, Jakub Kicinski <kuba@kernel.org>
+CC: <elfring@users.sourceforge.net>, <haokexin@gmail.com>,
+        <vadim.fedorenko@linux.dev>, <devnexen@gmail.com>, <horms@kernel.org>,
+        <jacob.e.keller@intel.com>, <arnd@arndb.de>, <basharath@couthit.com>,
+        <afd@ti.com>, <parvathi@couthit.com>, <vladimir.oltean@nxp.com>,
+        <rogerq@kernel.org>, <pabeni@redhat.com>, <edumazet@google.com>,
+        <davem@davemloft.net>, <andrew+netdev@lunn.ch>,
+        <linux-arm-kernel@lists.infradead.org>, <netdev@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <srk@ti.com>, <vigneshr@ti.com>
+References: <20260610052511.781752-3-m-malladi@ti.com>
+ <20260615231041.1007484-1-kuba@kernel.org>
+ <20260615163932.50bb3df0@kernel.org>
+ <d0123269-b1e8-4fba-94b0-b94d3d9a5405@ti.com>
+ <a62d5243-d641-48e7-a1f5-88150513be48@ti.com>
+Content-Language: en-US
+From: Meghana Malladi <m-malladi@ti.com>
+In-Reply-To: <a62d5243-d641-48e7-a1f5-88150513be48@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN1PEPF00004689:EE_|DM4PR10MB7403:EE_
+X-MS-Office365-Filtering-Correlation-Id: 28793055-c5f5-4233-2bcc-08decc632091
+X-LD-Processed: e5b49634-450b-4709-8abb-1e2b19b982b7,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|36860700016|23010399003|1800799024|82310400026|18002099003|22082099003|4143699003|56012099006|6133799003;
+X-Microsoft-Antispam-Message-Info: ebXYpKTOIGhSb/HvJ7SPsLlIAvpGKBizjpIZm6Op0ECR7RzY330oC7XQIEJROlAX/4hzqhUu2sxJEtHuEb+LdWrBAVVWph/48qLVA8ursQApjP5a+yZgh7u1GwrGTKadHnaI25k5CJPshDqGcYKdRsDrYogkgibjTBgZyGFnUTOe7h7iwGgvNnaEcv90u9QZQB9619vpD/hYOzzeJqgaEfmAFF1DbdTtaZOnrnicWC6VskB8cOrQQ7ToVV2VJYKAIeyScKKLPVP4UbgK9h8K81YUWuwQWfVq1GUQCGpwfAEwourIFz/KtWVS//lJDqWsz/9RjVjEFL0qs28ZNp1cx2OxGzRL6na3eWtQg429Kf11AASVxvECSCu9r+VAV2TpuiS6UMNs+me47YiByFr2biqjjuB1boYrDyR3z/+u1delBqpIVA72Gh0Xdd+rauZD1KwvGdhloI9QURZgnFouGVJ/EZ9gM/2aCeBEB1uLGZ1elaJ1s4hmxx2O6XpAKzfFkSjPZyKLfI31qnlpK0yY1wyWs2C1SpM1b/yOrc8/hGEjfeALG3XN0Xna7LEAT2IR0GLt4mEXuvW/GHk87KcNTn7K/mylcqCQ+3BcO+yTjAOsp76zlauH/kVfJ2L89no64l11hNyIs/cU2WYelC+e5qBHx6Zd2Dj8weG3v+2koGj0Rm31WreSyQSSn4GJC4bYPb8CiSEVrYrGNjdog5bcpd6q9PNp3DZO5QeQ/fFPl6s=
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(7416014)(36860700016)(23010399003)(1800799024)(82310400026)(18002099003)(22082099003)(4143699003)(56012099006)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: eeSZ9hg4IDhHEY5R6h1H7rPf8Wj6k9ZhKoauH6s3NzsqKKl9A1Mql9c0tGfaihgKELRgiNwQRAnMiwNx4b7fXXU2kcaaq/LCXSQP1C1iUY5fSZ/dNw8tOYvid3keMqJg9RRUmIWO65vatODzkYrxWpYDICWsaJujG+h+kl6seeeE9ePCHG1H8+65XPSxtxoVnC75GBnY/8J/Ob+vmGibytWcG6mw8DfnWGtCWWN4cXxImIKPCLsIxcom+UOW+E2rJt9NETy4+pm0HEu4FPjTZJuvy2S9NspydvE0aVysYFgCWz/fUb/jxt0IqkVejDL45hL2lplCyycqv3ZOfWehUop8kjCehIuSU2XgB62j6KjDBEDFFgXidXqoOSEiCibWPp/FgGXT1a0e58hKc+sM59L6NefXZmdzJD7SM5A9TirLLtIfFvzWEJxpXC8DNBME
+X-Exchange-RoutingPolicyChecked: Vp0JVVobnu9cXMLRhqcn2V1IZiC20hdvILATYNnosOGRBm/zacISAeScycdyXsF0FbQwfnyNikHXIQX/bSSsQ2Igoudy1cAi5w7KiMYTswA1+HyHa57BGKRMfeHh2dwlYpIP9i2WFPUqj6G0OiMoum4PbchyUp9uedGAnNXYAJ0XhwnS779hYZb8JUUEpiMfpWyd7iGf8d6RRW4tbSm5LHk20IYQnDlrxq9qcInAS+xZnLgMRbydhLANwU8rjlgpyGpXKLC2Mm5zD5YBLsxr+V/j1967d+pHPu/tMv30VFTQJubbBeFFv9yEfZuPszrE+d61MOmXquJv7HCx35zYLg==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jun 2026 11:25:25.2281
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 28793055-c5f5-4233-2bcc-08decc632091
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF00004689.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR10MB7403
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjE3MDEwOCBTYWx0ZWRfX49jn44cT+mHm
+ ycENlz+r5EnrlGHT3422IUM4vuacN5wHYPJD05/3c1VTh06lQ5B05bxfbBhdsF98v4TXhBYkZre
+ QXYlO7jKxM4K7RXINcUQOe+scjkX3D0zkO2vl5kvZDD+CvPgRwAVkIpCUjMp9Gcz5g4vMzlvwDZ
+ ZOagWpoPXnJLWfVPN3ixAzSkzA9GMLh97VESyfTdirqfiUF7aqiezedL1Tg/57jbDja2h5vCv9J
+ yxWSZoURVQrwdUPbMc0xrPIDImmPDbzHSoNr3bA0eGFZukrqhtbNRCJqZDDsAWW4UGPbIMuLoDa
+ 9OV2qL3m7vf77+axgokCzFBMg8cIc+Ysysredju4nPcdB7absnh8g1tlGfsM5HMqRMJdYZ2DdPR
+ T5kdQyfRJy8XOTD48LgL6zBzCcM2RqPO393WOcr/PzoqDS2dxO9tAo1NZ1WcTL0j7Cbn5Cd0C8l
+ wkDFTJ/8iOkx40wwEvA==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNjE3MDEwOCBTYWx0ZWRfX+iYxuEEkbtVW
+ xYctTY9lIM87K/urmo4GA4TzfzDhkGq/S8W/T2+ZFn2wm+NhyjHV6bGxrsI5XHJxO/yIWa/uM1e
+ 15FywqYkq7z+hrs4xyzEt7wUwHMCDzU=
+X-Authority-Analysis: v=2.4 cv=AK4+T1yy c=1 sm=1 tr=0 ts=6a328429 cx=c_pps
+ a=U8Tqu/vdlUTsaY0Seu/jpg==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10
+ a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
+ a=fPAWb5peG099m5CrUpKH:22 a=YBvtnp3W659tjkMh2GMA:9 a=3ZKOabzyN94A:10
+ a=QEXdDO2ut3YA:10
+X-Proofpoint-GUID: tYN0ckySltTGVh1lUy3Uhf9bTAXVrxJq
+X-Proofpoint-ORIG-GUID: tYN0ckySltTGVh1lUy3Uhf9bTAXVrxJq
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-06-17_01,2026-06-16_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 adultscore=0 suspectscore=0 clxscore=1011 bulkscore=0
+ phishscore=0 priorityscore=1501 lowpriorityscore=0 spamscore=0
+ impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2606170108
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260617_042512_432391_DBAE1733 
-X-CRM114-Status: GOOD (  23.55  )
+X-CRM114-CacheID: sfid-20260617_042646_739122_528DB431 
+X-CRM114-Status: GOOD (  14.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,73 +188,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thursday, 11 June 2026 21:53:26 Central European Summer Time Mark Brown wrote:
-> On Thu, 04 Jun 2026 10:35:50 +0700, phucduc.bui@gmail.com wrote:
-> > ASoC: rockchip: Use guard() for spin locks
-> > 
-> > From: bui duc phuc <phucduc.bui@gmail.com>
-> > 
-> > Hi all,
-> > 
-> > This series converts spinlock handling in the Rockchip sound drivers
-> > to use guard() helpers.
-> > The changes are code cleanup only and should have no functional impact.
-> > 
-> > [...]
+On 6/17/26 10:58, MD Danish Anwar wrote:
+> Meghana,
 > 
-> Applied to
+> On 16/06/26 6:24 pm, Meghana Malladi wrote:
+>> Hi Jakub,
+>>
+>> On 6/16/26 05:09, Jakub Kicinski wrote:
+>>> On Mon, 15 Jun 2026 16:10:41 -0700 Jakub Kicinski wrote:
+>>>>> diff --git a/drivers/net/ethernet/ti/icssg/icssg_stats.h b/drivers/
+>>>>> net/ethernet/ti/icssg/icssg_stats.h
+>>>>> index 5ec0b38e0c67..8073deac35c3 100644
+>>>>> --- a/drivers/net/ethernet/ti/icssg/icssg_stats.h
+>>>>> +++ b/drivers/net/ethernet/ti/icssg/icssg_stats.h
+>>>>> @@ -189,6 +187,11 @@ static const struct icssg_pa_stats
+>>>>> icssg_all_pa_stats[] = {
+>>>>>        ICSSG_PA_STATS(FW_INF_DROP_PRIOTAGGED),
+>>>>>        ICSSG_PA_STATS(FW_INF_DROP_NOTAG),
+>>>>>        ICSSG_PA_STATS(FW_INF_DROP_NOTMEMBER),
+>>>>> +    ICSSG_PA_STATS(FW_PREEMPT_BAD_FRAG),
+>>>>> +    ICSSG_PA_STATS(FW_PREEMPT_ASSEMBLY_ERR),
+>>>>> +    ICSSG_PA_STATS(FW_PREEMPT_FRAG_CNT_TX),
+>>>>> +    ICSSG_PA_STATS(FW_PREEMPT_ASSEMBLY_OK),
+>>>>> +    ICSSG_PA_STATS(FW_PREEMPT_FRAG_CNT_RX),
+>>>>>        ICSSG_PA_STATS(FW_RX_EOF_SHORT_FRMERR),
+>>>>>        ICSSG_PA_STATS(FW_RX_B0_DROP_EARLY_EOF),
+>>>>>        ICSSG_PA_STATS(FW_TX_JUMBO_FRM_CUTOFF),
+>>>>
+>>>> [Medium]
+>>>> Are these five new entries duplicating values that already have a
+>>>> standard uAPI?
+>>>>
+>>>> The same five firmware counters are exposed through the new
+>>>> .get_mm_stats callback as the standardized MAC Merge stats
+>>>> (MACMergeFrameAssOkCount, MACMergeFrameAssErrorCount,
+>>>> MACMergeFragCountRx,
+>>>> MACMergeFragCountTx, MACMergeFrameSmdErrorCount in struct
+>>>> ethtool_mm_stats), and adding them to icssg_all_pa_stats[] also
+>>>> publishes them via emac_get_strings() / emac_get_ethtool_stats() as
+>>>> ethtool -S strings.
+>>>>
+>>>> Documentation/networking/statistics.rst describes ethtool -S as the
+>>>> private-driver-stats interface; counters that have a standard uAPI are
+>>>> expected to flow only through that uAPI.
+>>>>
+>>>> Could the firmware-register lookup table used by emac_get_stat_by_name()
+>>>> be separated from the ethtool -S string table, so the new preemption
+>>>> counters feed get_mm_stats without also showing up under ethtool -S?
+>>>
+>>> This -- not sure about the other complaints but this one looks legit.
+>>
+>> I agree that this is legit, but right now there is no other place holder
+>> other than pa stats to put the mac merge firmware counters. I believe
 > 
->    https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.2
+> You can put a boolean is_standard_stats. Only those where
+> is_standard_stats=false will be populated via ethtool. Others will be
+> populated via the standard interface.
 > 
-> Thanks!
-
-FWIW, the SAI patch wasn't sent to the proper maintainer e-mail
-for it which is why I didn't notice this series at all until now,
-and the whole thing is pointless churn that wasn't even tested.
-
-From a cursory glance, whatever LLM was pointed at this and decided
-to make the output my problem also didn't do a good job, the scoped
-indentation of rockchip_sai_runtime_suspend seems pointless because
-it could've been replaced by a pm guard followed by a spinlock guard,
-without an additional level of indentation, and `if (ret == 0) {` is
-not kernel style.
-
-It's not worth the revert but it sucks that I have to now set up a
-new lei search for all the drivers I am supposed to receive mail for
-because vibecoders can't be bothered to run get_maintainers as they
-pad their CV with nonsense like this.
-
-> 
-> [1/3] ASoC: rockchip: rockchip_i2s: Use guard() for spin locks
->       https://git.kernel.org/broonie/sound/c/4bda5af16920
-> [2/3] ASoC: rockchip: i2s-tdm: Use guard() for spin locks
->       https://git.kernel.org/broonie/sound/c/ec22437fc41a
-> [3/3] ASoC: rockchip: rockchip_sai: Use guard() for spin locks
->       https://git.kernel.org/broonie/sound/c/f7fe9f707360
-> 
-> All being well this means that it will be integrated into the linux-next
-> tree (usually sometime in the next 24 hours) and sent to Linus during
-> the next merge window (or sooner if it is a bug fix), however if
-> problems are discovered then the patch may be dropped or reverted.
-> 
-> You may get further e-mails resulting from automated or manual testing
-> and review of the tree, please engage with people reporting problems and
-> send followup patches addressing any issues that are reported if needed.
-> 
-> If any updates are required or you are submitting further changes they
-> should be sent as incremental updates against current git, existing
-> patches will not be replaced.
-> 
-> Please add any relevant lists and maintainers to the CCs when replying
-> to this mail.
-> 
-> Thanks,
-> Mark
-> 
-> 
+> Look at icssg_miig_stats for reference.
 > 
 
+Sure, since you were already doing some refactoring w.r.t HSR standard 
+stats I thought this could also be covered there.
 
+I will send out another version addressing this then.
 
+>> the effort needs to go in re-structuring the hardware and firmware stats
+>> implementation to address this issue.
+>>
+> 
 
 
