@@ -4,122 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A365CD98E2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 07:30:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2446FCD98EE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 07:41:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E1Eht0yqmtyjKLK+ckWvK3e4AnkyB7fNvSVWTQiIHbk=; b=yv9odFC/XA1FtK0SK4u32crakS
-	o08WRd9qT/gXxGNhZJ2WmH814VM7nLFyD3jyvJK2xz5UbkzdUBJU2+xnPR/fSAf1/631/Yd+3xZVo
-	JD/JYzG/nAeac6iJthIhKv/V2ySZqjyA5MIwwzx6f3L/zSFVeN+Uz5+cWLnd8KKYboz+Auw8+LSMC
-	VBsQSChmV0s1Rs7z0K9rX+Fj3iloHAu6vRD2euls1w+RTvkNEZYctkKAKjs36qxzyb2UghYj1O9bx
-	oTWwXEK4CLk0Ph/JH1WZi1Qni0rba4UmPfkk6rKvDdAkEXGYxtkeo5Tm3JdMZjuSu+n6A2mjOn+vG
-	+tIPjTig==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JTKHX6NCn7vn/+gvhr4Pc1ts3vNTjwaHvcnrlwVBhzs=; b=ZdJljpNNcR74KgAhvqV3N9d0ju
+	N5XdoD8yj6OJBGH+DrTopHAp5P8tf6uSoebWCGO78UnaW8bFLtCdPJJZKKzNUo/UYcToFgcDrID+s
+	JiYn5MpJdW2SqnICKE9uCMekrd+jzCISSumR+u+Fn4wwbeSpTK9ihyTj1CFs3gSOXGtNYo7oitjRg
+	znBHFxfiD5IoV4SgVgQwUHlJVxT3Nvaxbi2dl8N3RrRFbK7J4oXlhBsF9ZAG8nxfaImDKhxjDxKfe
+	TuL+GBUxxAYJZlEFomiUANB8t5W9ClJ9yPbQ+jg0i26AO71PhsmcCTbmAGGpvDPk4uscG8im0aE+E
+	k6ohG3NQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZkjN-0000000GpXL-0KRJ;
-	Wed, 17 Jun 2026 07:30:37 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1wZktv-0000000Gq2M-15sI;
+	Wed, 17 Jun 2026 07:41:31 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZkjK-0000000GpVZ-3Coy
+	id 1wZkts-0000000Gq1b-3Ybm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 07:30:35 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-490be29c1c5so57380255e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 00:30:33 -0700 (PDT)
+	Wed, 17 Jun 2026 07:41:29 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-460166910e6so2892465f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 00:41:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1781681432; x=1782286232; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=E1Eht0yqmtyjKLK+ckWvK3e4AnkyB7fNvSVWTQiIHbk=;
-        b=LUUufPIHxkc5oNOi0g5RZU6vbMAsYqzCtvGsANgJqVD+KXm5qMeecg3wUNMS1ZWX9W
-         dG/ungr+KmJfzDjvGjeTAC+f07QBlFvvrfGeUEv6ZmvIIKVzsg29myZbolBdrre97yUB
-         /cqwSo65HFeloRpOxTZVGbKn9wwaSZm/B11Rzb1MY/JI5cS9Cqbed7lISTUXBxAYMKoK
-         9vf1XQlHh94sCeCb/k+kYbn8+hsDTwMJngilOfu2HiKbXv2O1Yn8ddPyCqLJ4Z3C7sW3
-         JINZlGfGysFwFa2tMvwaZtyFhdxJuQNJvBLytsyyxwuAofd+5pk/v+9qU9fmFb7CIWd1
-         yz2w==
+        d=0sec.ai; s=google; t=1781682086; x=1782286886; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=JTKHX6NCn7vn/+gvhr4Pc1ts3vNTjwaHvcnrlwVBhzs=;
+        b=WPAwDyKj+i0O3Zt+7lzhpH+oMizxO94WTA1T6CuOJK83TC6UcJAG/FGyVvRcZg0040
+         Cz4cPDKre4oC+NuYUmYrZw2cfQypHMnJGQ6WdBH9GhEOfn3OS5fn35PPnMA/f+d3M8Nt
+         EubiIqz8cVK3LxreZvN8hZJ1HChMRZwb5m1HzrNuThobfC30qB2YdaWqoZaj8LGHVgGx
+         bSoaaCzNwW1mUjeIW8lE5QbhcjS24VfQDztSKEJNAdCoey78D0yQyMX/jbx/U9oYu0pb
+         HGwnC2uUFnga7HNqENgavPksKP784uokAjwhYctkFxQvZnBTymBQfKvPF2dwWnRTaMK+
+         pCrA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781681432; x=1782286232;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=E1Eht0yqmtyjKLK+ckWvK3e4AnkyB7fNvSVWTQiIHbk=;
-        b=R1otvP6wOnvmaPutrkL2BTAJr0IQkD3Ktzq3tyPnFYLcdr1XC99eESCHliC6aPfmXQ
-         AhNWKH8lj9jSgUTsm+3vHwFx3duWsjloYgLl8rD2IRWy3g/7zK/VTGu1l1xStE4CJcWo
-         wFYDMLYR26+EpSy1PrE9N20DQw9NdtUrgh3vU9H4qWRByMHTp02PdmlFeY/dRSPNo3uZ
-         FGtzUOMP2n2dgihAHwVHLq3mcE4FCs9RwMIAHG1d190851nSl5Tf8Ex/wAXxTMWL8mrV
-         ke4Omy3TH1fkqgeUz9OiXX5Y2pMFRQpiofksFXOD0fNis07SPR7SMabcJegLCgH10tqS
-         4TAQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9xFHpeKrwikDH6kotCdxU+/dFlCz+YkyNZ4sU4tmLiUujZiAnjTMAe6mqgd7cKd2IrQETsw3Tvk9Jo+fhtXC8b@lists.infradead.org
-X-Gm-Message-State: AOJu0YyQciIHnPlBWyZAL8lIm8RCZAoHcq2i39gYvWoYQklqXTrUPxh3
-	Igj9UxM2NQ79EPAIRD3An2KS4NChHrjUK4Cjy963NzP8ZqUy8jUzjUJ7T5cnSKRDc/k=
-X-Gm-Gg: Acq92OGmioDLMfl9jXDn5zOCP07PlR3lYopSZR1mlIKwFGRqAgTurzT8l13lL2MBYRy
-	PvrXN8FCfYYKGMSIid/1axlrMMnn00SnjgyoJMZjzwVKyrvMpBb3sb69WGUuY6JbsOisSVtqH8W
-	aaYxc10p3pneVb6pOBWfV6ECyoflaMFwtd3AC/RGPOPFE22eFRdKte+gGGliG3dzz3h4mCDgD/t
-	SIivKEPsjJ/CdLRVk0ctOdaEoiIGBHwedwJ+riXSeYtbYIcm8dbo4by1vEoEjX7ywahQ7FbiWH+
-	pNoJPbqT08UhdRLAX5gKKqHVVq0VyuSPATQesgVCFWs/Ie/swq0NLxSNGuXhR/BjiVYPUIXh4nU
-	VstS21TP2VSOu2bPIvNq23yHi7XmUhyGCYr4mCQGER4qsfwKqxNwODL4hlWSVKqGfx4qcILq+IH
-	yAneP4p47oDQQPRnsKz81t2g==
-X-Received: by 2002:a05:600c:19cb:b0:490:bb45:79f0 with SMTP id 5b1f17b1804b1-492333ba306mr44593555e9.3.1781681431573;
-        Wed, 17 Jun 2026 00:30:31 -0700 (PDT)
-Received: from [10.12.4.106] ([212.133.41.97])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4922fa47da9sm170120445e9.5.2026.06.17.00.30.30
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 17 Jun 2026 00:30:31 -0700 (PDT)
-Message-ID: <915e4524-d407-4b4b-9e61-e4a2274a6f6b@linaro.org>
-Date: Wed, 17 Jun 2026 09:30:29 +0200
+        d=1e100.net; s=20251104; t=1781682086; x=1782286886;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=JTKHX6NCn7vn/+gvhr4Pc1ts3vNTjwaHvcnrlwVBhzs=;
+        b=m0iSyTHgPpIS6b1RtayJHfpq/Dx/zxmmuXOGKya3Pzkn31KP6zRjcgCL5UtblLupnq
+         P+mymE7Re8ITqmE2ZmT/ezqysrAjaK6ZyQuLR1H/TvpiuTJV+pmD/LZ9A47ppFEOzCZ4
+         zIm0It2ifGri05//qppTEcaPWhTDzsY050E1KCfLZmSUZfFcx48Pv6ejHs4uqNP3vRbM
+         yc0oXMpI5JvoOOeck2VUKAafAlrAL3afzB9hjmR/4oYIYslkZZONYmficRjt/Cnw+iBC
+         JXTHjFKjKSpLbHN/ld5DF468Jb9hP089NFpYi5mnf1hWDnIvzdY6gGDBlzrU9S7Lr0j/
+         Zzag==
+X-Forwarded-Encrypted: i=1; AFNElJ8vJ1JWJDGB1AZg9/jfLglxxxGRrLkaeGzCGaspVrgFakapBJvbOZDobhPsWah916BLWpMdYXvkRbPfuzoZ+JyD@lists.infradead.org
+X-Gm-Message-State: AOJu0YxkDuav+Adwr5x7883S3GUG9CdAUPBXzDxuR5zgLiFcXHfHIY3J
+	bGh/+BDkM6N/Cma1+F8hB9tR/IUbDoR9FRmcdj2h8Vl8O2E5uQUAl5XLkl83herYapTz
+X-Gm-Gg: AfdE7ckrW+dA6ix1cFbGGiWVi4Xc1mj5Hjz6V7HECTkhWLM+p7zQbJo2su5HNdOoDDx
+	4f3ifJcU4U9SMb8ioW5ZeWwLokCfY1uSPgn7FPdV5DhhWr9Toz6+tRhw67lD8UJFnY8rGT2znu2
+	EgJkKw7ogxhzxTzSF+qc2SwFqwAWF0v0iPwr+rpgALFU0bKfONiR01KMdcc4wpgJea3bORBazGy
+	tlJG8z/gA7vKSn33h5urjrp0Ty3FetNUnhbOad1BbNP53gwMw+BsL2i0hCLNZVpLXfOr3xpXNJ+
+	yi6pG1Hk0uaH4rSRITebbyeAwSMoMmXcgeHm4HQsxjiwW7Pwg4cTNwnOQKKWll+YzILX/D8Pab2
+	wDdaU2agdmkOQ+22bisoQ76R9nNsbshtfVH57yHYza4A7kyAS+ORK9c0Pl9l0x6JSM+bLc8z5Ky
+	jxI45AVQ4J52IPOqWHHNT+b1fNTZKrC9tz45K2fbCOggbQMgFHLj0Y8GrMFU4peT9FmUgNNZ+sQ
+	ehplwvtsZ/bP3GY3a3ixMYipAY1jqjKY2c=
+X-Received: by 2002:a5d:6a87:0:b0:460:25f3:b25a with SMTP id ffacd0b85a97d-46238f980ccmr3573765f8f.34.1781682085876;
+        Wed, 17 Jun 2026 00:41:25 -0700 (PDT)
+Received: from PeakBook-Mini.tail8e484.ts.net ([178.197.218.209])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4606f26434dsm52677098f8f.1.2026.06.17.00.41.24
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 17 Jun 2026 00:41:24 -0700 (PDT)
+From: Doruk Tan Ozturk <doruk@0sec.ai>
+To: neil.armstrong@linaro.org
+Cc: mchehab@kernel.org,
+	gregkh@linuxfoundation.org,
+	hverkuil@kernel.org,
+	jbrunet@baylibre.com,
+	martin.blumenstingl@googlemail.com,
+	linux-media@vger.kernel.org,
+	linux-amlogic@lists.infradead.org,
+	linux-staging@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Doruk Tan Ozturk <doruk@0sec.ai>
+Subject: Re: [PATCH v2] media: meson: vdec: fix use-after-free of decode work in stop/close path
+Date: Wed, 17 Jun 2026 09:41:23 +0200
+Message-ID: <20260617074123.32464-1-doruk@0sec.ai>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260616074952.93076-1-doruk@0sec.ai>
+References: <20260616074952.93076-1-doruk@0sec.ai>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH v2 4/4] arm64: dts: amlogic: meson-axg-s400: Enable
- pcie_phy
-To: Jun Yan <jerrysteve1101@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
- Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Arseniy Krasnov <avkrasnov@salutedevices.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260617071604.635627-1-jerrysteve1101@gmail.com>
- <20260617071604.635627-5-jerrysteve1101@gmail.com>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <20260617071604.635627-5-jerrysteve1101@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260617_003034_813947_94160883 
-X-CRM114-Status: GOOD (  13.47  )
+X-CRM114-CacheID: sfid-20260617_004128_902786_45CD252D 
+X-CRM114-Status: UNSURE (   8.13  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,37 +106,40 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/17/26 09:15, Jun Yan wrote:
-> The meson-axg dtsi now disables pcie_phy by default, so enable it
-> for the s400 board to support PCIe functionality.
-> 
-> Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
-> ---
->   arch/arm64/boot/dts/amlogic/meson-axg-s400.dts | 4 ++++
->   1 file changed, 4 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/amlogic/meson-axg-s400.dts b/arch/arm64/boot/dts/amlogic/meson-axg-s400.dts
-> index 285c6ac1dd61..7ba249cc3d56 100644
-> --- a/arch/arm64/boot/dts/amlogic/meson-axg-s400.dts
-> +++ b/arch/arm64/boot/dts/amlogic/meson-axg-s400.dts
-> @@ -448,6 +448,10 @@ &pcieB {
->   	status = "okay";
->   };
->   
-> +&pcie_phy {
-> +	status = "okay";
-> +};
-> +
->   &pwm_ab {
->   	status = "okay";
->   	pinctrl-0 = <&pwm_a_x20_pins>;
+Please drop v1 and v2 -- both are wrong, and the sashiko review was right
+about the deadlock.
 
-Please squash this one with the previous patch
+The underlying bug is real: vdec_close() does kfree(sess) (and
+v4l2_m2m_ctx_release() frees sess->m2m_ctx) without cancelling
+sess->esparser_queue_work, whose worker dereferences sess->lock and
+sess->m2m_ctx -> UAF if it is pending/running at teardown.
 
-Thanks,
-Neil
+But cancelling on the streamoff/poweroff path can't work:
+
+1) Deadlock. The worker takes sess->lock. For an m2m fh the ioctl core
+   takes m2m_ctx->q_lock (== sess->lock) for VIDIOC_STREAMOFF and holds it
+   across the handler, so vdec_stop_streaming() -> vdec_poweroff() already
+   runs under sess->lock; cancel_work_sync() there waits on a worker blocked
+   on that same lock.
+
+2) Use-after-power-down. v2 also cancelled after vdec_ops->stop(), which
+   power-gates VDEC1 (__vdec_1_stop()), while the worker still reads a VDEC1
+   register (vdec_1_vififo_level() -> VLD_MEM_VIFIFO_LEVEL).
+
+The only deadlock-free point I see is vdec_close() (the ->release fop, not
+under sess->lock), cancelling before v4l2_m2m_ctx_release() -- but that
+still leaves the threaded VDEC ISR (amvdec_dst_buf_done() ->
+schedule_work()) able to re-arm the worker, and there are adjacent teardown
+issues (esparser_isr() vs the dos_parser_clk disable;
+vdec_decoder_cmd()/esparser_queue_eos() without sess->lock).
+
+I don't have Meson hardware to validate a corrected fix. Is a
+vdec_close()-only cancel (plus quiescing the VDEC IRQ outside sess->lock)
+the direction you'd want, or would you rather take it given the HW testing
+and the surrounding teardown concerns?
+
+Doruk
 
