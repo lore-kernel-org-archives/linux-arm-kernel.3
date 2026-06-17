@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E635CD98EE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 06:58:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70267CD98E2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 07:00:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n9YBolv+gzQ7HhE0xK39SkRKgHgeZglk5MjU3GOUQ/s=; b=nPC6gCJl8QW2tbSE18SjORgbWw
-	ouQqSfdtps5eU5gJ6fbBRobc9u2OOGsYKMgfWdOqhpfn+GzLQ99yIgbIWYRkjlgPDQITnVJPvGceh
-	Bs/nPExPnSdeqYLlVOha5W3rIZCBNjomHWAG3WzJTdJAFjHH5INFblncJt9Xj4W3v54/5WjoYX5P2
-	+odD1n5Oq4tLdAlu0sBUoCJ61n+HmwCsTK2bloeoirTZD92duTBI231u61dvkzgGLHBix/Ug+9d+j
-	K1OoaagswvRsqVL9qew64OKnDXdmFf2fLI+1CDvHbN2mF3bmlkP2sF6WPxoz0lngwW8FJOpLKsg5T
-	TkwOHaig==;
+	bh=XBpoUxlFURwMzl39lkkX4tmx4aM2S2NACZ/n3dp5+so=; b=a/xWcq7z8uQQ5SF+c1FJ9/fe+8
+	MaRgc935LN6uICCPhUjvhFhpkrC0QqDyFN0zzh1SmAGm8udUGGaiNs9GaNHng/WyY/vCW+DVE5bDQ
+	4XakpjGK0+8YxrrGzuAoyIOPD5Q3v7QFZ7fAGfYeH4ZyE81UU/Z8vhKwYYGvpnB/ZQEEKfkzwywUe
+	BOhmO9M1F/pZ4YvM0cA5gaNK7+deaH/srzOW7KroFVVsXpp2pJiOXes9BVA4cE673Udvt/IM4vIDi
+	c0tM8MgQaA7fj6UmGvUOHfZskcmi6lDNukBgD5EODS9fVPG5dqZvfr/yRRluiPuBQlM7UHV8K8yWR
+	P7XLrauw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZkEU-0000000Glnu-0TZD;
-	Wed, 17 Jun 2026 06:58:42 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wZkFx-0000000Gm0Q-2Hcv;
+	Wed, 17 Jun 2026 07:00:13 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZkES-0000000Glnd-1PwJ;
-	Wed, 17 Jun 2026 06:58:40 +0000
+	id 1wZkFx-0000000Gm0C-0pFJ;
+	Wed, 17 Jun 2026 07:00:13 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BE0FD416B5;
-	Wed, 17 Jun 2026 06:58:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22C171F000E9;
-	Wed, 17 Jun 2026 06:58:38 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 23E0C600AB;
+	Wed, 17 Jun 2026 07:00:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF8631F00A3A;
+	Wed, 17 Jun 2026 07:00:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781679519;
-	bh=n9YBolv+gzQ7HhE0xK39SkRKgHgeZglk5MjU3GOUQ/s=;
+	s=k20260515; t=1781679611;
+	bh=XBpoUxlFURwMzl39lkkX4tmx4aM2S2NACZ/n3dp5+so=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=D6dXz3bbM8MjoqY3y3YE07w2Xj698HV93s818L5A1a0vkH+TL/F/m3W2SKgwkljwB
-	 SgfDtQ0jtNCs6UYRSrrLT5MKTeZ3CPwgzJPr5k8Z1fllD/ny0i2UN2XG6yn0/dIYMD
-	 vG9EqTLnoA8MJJXgaAE0UYK2tXMcll9D0OdkDJUdyEpeAGSsyqBAKrAYw0bKKMMy2l
-	 inTOMJE/C3Nj4Rf8VKsYSkHAPLjWvZoVP2h3Ar1gFS6XPsnO+A8GfE3jvwyY+KbOgS
-	 ju6P40Q2NhJLmDdGZcAUmhHYX/VXh1EwgyazuxQnoGFc7hOh47a+n8R0wDj5KpCqhK
-	 7B1ffH4O+r8Sw==
-Date: Wed, 17 Jun 2026 08:58:36 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Wayen Yan <win847@gmail.com>
-Cc: netdev@vger.kernel.org, horms@kernel.org, pabeni@redhat.com,
-	kuba@kernel.org, edumazet@google.com, andrew+netdev@lunn.ch,
-	angelogioacchino.delregno@collabora.com, matthias.bgg@gmail.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH net] net: ethernet: mtk_ppe: Fix rhashtable leak in
- mtk_ppe_init error paths
-Message-ID: <ajJFnBsnyoSeKl1D@lore-desk>
-References: <178167550101.2217645.14579307712717502425@gmail.com>
+	b=W5421pE+zesDptUzhst7HpNXtPpcGlPo/CiLMC/qhE8rYuSI/5U5sNi0I5eArizU0
+	 QvPq4kaZk0RNSQ1jWAf3DhbbAHcSTsnYhjRXUJxqoqJdcPEekxE9yuL8uqHpfcmxrp
+	 ZoVKs/bNRjW2nxQGhG1vy9geof5PQ/m1HL8eAFuuIqSZj9zex6hUnPkC00/uIg3f0Z
+	 /VtC3/amaHyT/cu1heN1M44vFzjhgg4B7WXr6YxAQ8sfU+VG6SvhT2su7RF0K1+KP/
+	 brpGHo9m+WoaRJKWcIrPW+NY2lIeKmfXhYaNbJdQ4LgT9SmJoe+KEHT5JTco6zyYSm
+	 AKtQGmL+zh8uw==
+Date: Wed, 17 Jun 2026 09:00:08 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+Cc: linux-mediatek@lists.infradead.org, 
+	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v4] ASoC: dt-bindings: mtk-btcvsd-snd: Convert to DT
+ Schema
+Message-ID: <20260617-fuzzy-lorikeet-of-joy-f6bd1e@quoll>
+References: <20260615185810.11804-1-l.scorcia@gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="8NDJ4ufy8ArQzYca"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <178167550101.2217645.14579307712717502425@gmail.com>
+In-Reply-To: <20260615185810.11804-1-l.scorcia@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,73 +72,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---8NDJ4ufy8ArQzYca
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-> In mtk_ppe_init(), when accounting is enabled, the error paths for
-> dmam_alloc_coherent(mib) and devm_kzalloc(acct) failures return NULL
-> directly, bypassing the err_free_l2_flows label that destroys the
-> rhashtable initialized earlier.
->=20
-> While this leak only occurs during probe (not runtime) and the leaked
-> memory is minimal (an empty rhash table), fixing it ensures proper
-> error path cleanup consistency.
->=20
-> Fix by changing the two return NULL statements to goto err_free_l2_flows.
->=20
-> Fixes: 603ea5e7ffa7 ("net: ethernet: mtk_eth_soc: fix memory leak in erro=
-r path")
-> Signed-off-by: Wayen Yan <win847@gmail.com>
-
-Acked-by: Lorenzo Bianconi <lorenzo@kernel.org>
-
+On Mon, Jun 15, 2026 at 08:57:50PM +0200, Luca Leonardo Scorcia wrote:
+> Convert the mtk-btcvsd-snd.txt DT binding to DT Schema format.
+> 
+> Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
 > ---
->  drivers/net/ethernet/mediatek/mtk_ppe.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->=20
-> diff --git a/drivers/net/ethernet/mediatek/mtk_ppe.c b/drivers/net/ethern=
-et/mediatek/mtk_ppe.c
-> index 18279e2a70..8451dc3fd0 100644
-> --- a/drivers/net/ethernet/mediatek/mtk_ppe.c
-> +++ b/drivers/net/ethernet/mediatek/mtk_ppe.c
-> @@ -918,7 +918,7 @@ struct mtk_ppe *mtk_ppe_init(struct mtk_eth *eth, voi=
-d __iomem *base, int index)
->  		mib =3D dmam_alloc_coherent(ppe->dev, MTK_PPE_ENTRIES * sizeof(*mib),
->  					  &ppe->mib_phys, GFP_KERNEL);
->  		if (!mib)
-> -			return NULL;
-> +			goto err_free_l2_flows;
-> =20
->  		ppe->mib_table =3D mib;
-> =20
-> @@ -926,7 +926,7 @@ struct mtk_ppe *mtk_ppe_init(struct mtk_eth *eth, voi=
-d __iomem *base, int index)
->  				    GFP_KERNEL);
-> =20
->  		if (!acct)
-> -			return NULL;
-> +			goto err_free_l2_flows;
-> =20
->  		ppe->acct_table =3D acct;
->  	}
-> --=20
-> 2.51.0
->=20
->=20
+> Changes in v4:
 
---8NDJ4ufy8ArQzYca
-Content-Type: application/pgp-signature; name=signature.asc
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
------BEGIN PGP SIGNATURE-----
+Best regards,
+Krzysztof
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCajJFnAAKCRA6cBh0uS2t
-rI0aAPwM2odjog7hQypO1g2W6YBDDYMmzP5yW+nhVPnoN4SFPAD/RUOnP+tpmTPx
-yLojKc99Vrm8lkiLh6lj+hu3m/WI5ws=
-=srBO
------END PGP SIGNATURE-----
-
---8NDJ4ufy8ArQzYca--
 
