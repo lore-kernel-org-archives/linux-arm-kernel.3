@@ -4,62 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1CE1CD98E4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 12:58:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71C83CD98F6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 12:58:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6kkhjZjL73iL5SGgm49lqvbOfAh7vnr1veqEvER01Nk=; b=XsbDWRAEMlfsvzq6Hs0wZxTWB5
-	IOZ2fXk50voX6qtDGHU6QC+k3/CePe71FFwNonAbGewjSVRRB2Q82j3cqpsSnagcLOzRHt060V1ie
-	tY2HsogRRyu8PGaWyu8+9EfcWmbeX6yWwjbDwMUvvUTCojL5Ie7T0ngU2O9LMvuP+FXCmgJt6Knvt
-	EjaZu+ogX43hsZX+ShBGeVz7XXK559XFnHNUjMWkcvx7dILQIKH6tudsngS1TLpb4Dq8w1P+sYC+V
-	26hPqbsxQL8vA0kssW4UW/33fw8p0QhC5rrOSJ1Fh7PDQ0HqNxibczPC6uI/j5cY5sij7q30b7uDP
-	3BSc1mJg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8P7vXNq4wkq1xDq5yQzXyrqbp4ldFR6VhF8iMgSEOp0=; b=LyQE0gjMMLIJWoXTJ84KzIqBOm
+	cOR7ntrGUQ9orsMJEOWd/PI4UHUrdNsbwvqNqUJKejFH8zabcE1qsZVi4ZY9vDlJZ2YpuWnr2mu6A
+	uHe+htEFQl2bXsknIIgRSuw2PrTzcLGUebEJcfHyioqFC4xM+wOcsYQ8VhPCKcFJOpz/QzIZN0Rro
+	vNLsWK+NMrRAOM0n1jnrkMtSdNkDpXk9xd9jZKO7biIxYDlu5TwWV7qbz+IrTEeD9R7DZ5wnT3gus
+	ZVhsZt3Zyj2uiS5E9fKXitc03y9UFE9lgKoLPO+si0pV6aIZ5YLRmh+MBrHjntnaikyW2jWMBK3tA
+	GxTOwT4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZpqU-0000000HNLN-31pv;
-	Wed, 17 Jun 2026 12:58:18 +0000
+	id 1wZpqm-0000000HNO6-3jcK;
+	Wed, 17 Jun 2026 12:58:36 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZpqU-0000000HNLH-1TR6
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 12:58:18 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 88163416FE;
-	Wed, 17 Jun 2026 12:58:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4472D1F000E9;
-	Wed, 17 Jun 2026 12:58:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781701097;
-	bh=6kkhjZjL73iL5SGgm49lqvbOfAh7vnr1veqEvER01Nk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=G3VQzoseBcEc4ZqnjUIl5dazPAdmqv7vocvgDItW4EH/fCUZCK1d3yK4zzLroA2gb
-	 pUOaT9bhTD3u970CxoWgLfxnyqCF4Y37VhygB0LU1Gfs+JmtJ+DASl6HnJtvongAWB
-	 ehFYqG5mGezcnrDiU/QJNNylFoHvhuMhhChrUW9aKp9z0rZLHO8VsQlaKa7OhNMrDD
-	 S7CLqoLojp6bvkRavTBq6arKO6F8UhAY+hkxtSBMgAnZpn7niR+gl0TTKQSbL328Yn
-	 gKRlBAqhpEojrnPsRtGea5Vs7SuYNGUe1MicyGQaNPKGTsvvj1n50OVDLhotYEhb2P
-	 LVJL/M4K0GSvw==
-Date: Wed, 17 Jun 2026 14:58:09 +0200
-From: Christian Brauner <brauner@kernel.org>
-To: Cristian Marussi <cristian.marussi@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	arm-scmi@vger.kernel.org, linux-fsdevel@vger.kernel.org, linux-doc@vger.kernel.org, 
-	sudeep.holla@kernel.org, james.quinlan@broadcom.com, f.fainelli@gmail.com, 
-	vincent.guittot@linaro.org, etienne.carriere@st.com, peng.fan@oss.nxp.com, 
-	michal.simek@amd.com, d-gole@ti.com, jic23@kernel.org, elif.topuz@arm.com, 
-	lukasz.luba@arm.com, philip.radford@arm.com, souvik.chakravarty@arm.com, 
-	leitao@kernel.org, kas@kernel.org, puranjay@kernel.org, usama.arif@linux.dev, 
-	kernel-team@meta.com
-Subject: Re: [PATCH v4 00/31] Introduce SCMI Telemetry FS support
-Message-ID: <20260617-waten-allabendlich-zueinander-93d4b1367b8c@brauner>
-References: <20260612223802.1337232-1-cristian.marussi@arm.com>
+	id 1wZpqm-0000000HNNk-1HrY;
+	Wed, 17 Jun 2026 12:58:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 15B3843A3B;
+	Wed, 17 Jun 2026 12:58:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id DEAA3C2BCB0;
+	Wed, 17 Jun 2026 12:58:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1781701116;
+	bh=iK2ZWTSF7L93Etn4Phm9syUtj0nmrXOQvs6fpSsNjdo=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=uFVnfYIw44Rju20GmDv1agE2BQdk0vOcHXQnRiklAoydXPbuMS0bVKDvnT2o1+qpG
+	 GxvB9qiojRisB0rTz6u5bpW0buwedz6XNYmGPCooWYEd02T6BU0MgqMC1XsrUYjtmf
+	 O6Jegj346CF6Qm3CVvtn/tOcJQ0bS5PLUWIk7K/NNN60eguudEUYGs5aV00cZIUmAQ
+	 rC+BUWpWq+YRGHvXnC81lEnI516lXi7Pewh1Md44UKvErmRkMd8RlfJGJf26fNylYN
+	 PdnlFR7DkRWdyD4VHr6nCAYmwBTJOz6p3+72yDLIkAZ5+qz1Yzx1UxoZuUqll9F6vE
+	 jIEbQ67r9538g==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AEC79CD98E2;
+	Wed, 17 Jun 2026 12:58:35 +0000 (UTC)
+From: Ricardo Pardini via B4 Relay <devnull+ricardo.pardini.net@kernel.org>
+Subject: [PATCH v4 0/3] describe RTL8125 PCIe NICs on Rockchip boards (and
+ add DT binding)
+Date: Wed, 17 Jun 2026 14:58:27 +0200
+Message-Id: <20260617-rk3588-dts-rtl-eth-describe-dt-alias-v4-0-2bd38922d129@pardini.net>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260612223802.1337232-1-cristian.marussi@arm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/43OTU7DMBAF4KtUXjPIv7HTFfdALCb2hAxUaWWbC
+ FTl7jhFCASbLN/o6XtzFYUyUxHHw1VkWrjweW7B3h1EnHB+JuDUstBSd9JpC/nVuBAg1QK5noD
+ qBIlKzDxQOwKeGAtERUkFP/jopGjUJdPI77eZx6evXN6GF4p1s7fGxKWe88ftj0Vtve9Jt29yU
+ aAAuzEmdJ3B6B8umBPPfD9TFdvoon+z/U5WgwTbeym1Dcqa8T9rftgG72RNYwOG4Pxg+oR/2HV
+ dPwFlosSemgEAAA==
+X-Change-ID: 20260524-rk3588-dts-rtl-eth-describe-dt-alias-c1ed187b7c50
+To: Heiner Kallweit <hkallweit1@gmail.com>, nic_swsd@realtek.com, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, Ricardo Pardini <ricardo@pardini.net>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3702;
+ i=ricardo@pardini.net; h=from:subject:message-id;
+ bh=iK2ZWTSF7L93Etn4Phm9syUtj0nmrXOQvs6fpSsNjdo=;
+ b=owEBiQF2/pANAwAIATteP+Oex+3pAcsmYgBqMpn4fSKiL6WLMJiO4lZ7wl5/feW3yruuYoEgB
+ W04aHyAtzaJAU8EAAEIADkWIQSsGCMM9q/qytxIiJM7Xj/jnsft6QUCajKZ+BsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwwLDMACgkQO14/457H7emxXwf/e94Y0R4VyLNLAv8lziyAVCXu4rrDeRG
+ WPGnCHi0bhGdF/Yd1WZZoEHaNBvOA6eHWv8S3mRRHu42gd/nb9JWavMEVrRls1/loicvt5Xx7c2
+ 5bEfo7vMHQ3+IcP6haGXT487ZV31xbthuA3kqGdCNCT5Wr4YFXVoFKPOKnmhgHLb7R0u74OpAqe
+ s9fW4Kt9/ffhqWcthbG9OX3XrKxrsJAmbAhpHqsyBK3+EwUaucMFZo5dVQuKjUaCn1zMwWMtKfQ
+ a4GpYWcg/a2lky/qb0AVe8C2pAfI4x7bRO5dW6HWJSdVyBGoyHCg/gt7PSmHA/QZFHHMP1GIRm4
+ 80pmFQzWo6A==
+X-Developer-Key: i=ricardo@pardini.net; a=openpgp;
+ fpr=AC18230CF6AFEACADC4888933B5E3FE39EC7EDE9
+X-Endpoint-Received: by B4 Relay for ricardo@pardini.net/default with
+ auth_id=588
+X-Original-From: Ricardo Pardini <ricardo@pardini.net>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,161 +96,92 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: ricardo@pardini.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 12, 2026 at 11:37:30PM +0100, Cristian Marussi wrote:
-> Hi all,
-> 
-> --------------------------------------------------------------------------------
-> [TLDR Summary]
-> This series introduces a new SCMI driver which uses a new Telemetry FS to expose
-> and configure SCMI Telemetry Data Events retrieved from the platform SCMI FW
-> at runtime. The patches carrying the new STLMFS Filesystem support are tagged
-> with 'stlmfs'.
-> --------------------------------------------------------------------------------
-> 
-> the upcoming SCMI v4.0 specification [0] introduces a new SCMI protocol
-> dedicated to System Telemetry.
-> 
-> In a nutshell, the SCMI Telemetry protocol allows an agent to discover at
-> runtime the set of Telemetry Data Events (DEs) available on a specific
-> platform and provides the means to configure the set of DEs that a user is
-> interested into, while reading them back using the collection method that
-> is deeemed more suitable for the usecase at hand. (...amongst the various
-> possible collection methods allowed by SCMI specification)
-> 
-> Without delving into the gory details of the whole SCMI Telemetry protocol
-> let's just say that the SCMI platform/server firmware advertises a number
-> of Telemetry Data Events, each one identified by a 32bit unique ID, and an
-> SCMI agent/client, like Linux, can discover them and read back at will the
-> associated data value in a number of ways.
-> Data collection is mainly intended to happen on demand via shared memory
-> areas exposed by the platform firmware, discovered dynamically via SCMI
-> Telemetry and accessed by Linux on-demand, but some DE can also be reported
-> via SCMI Notifications asynchronous messages or via direct dedicated
-> FastChannels (another kind of SCMI memory based access): all of this
-> underlying mechanism is anyway hidden to the user since it is mediated by
-> the kernel driver which will return the proper data value when queried.
-> 
-> Anyway, the set of well-known architected DE IDs defined by the spec is
-> limited to a dozen IDs, which means that the vast majority of DE IDs are
-> customizable per-platform: as a consequence, though, the same ID, say
-> '0x1234', could represent completely different things on different systems.
-> 
-> Precise definitions and semantic of such custom Data Event IDs are out of
-> the scope of the SCMI Telemetry specification and of this implementation:
-> they are supposed to be provided using some kind of JSON-like description
-> file that will have to be consumed by a userspace tool which would be
-> finally in charge of making sense of the set of available DEs.
-> 
-> IOW, in turn, this means that even though the DEs enumerated via SCMI come
-> with some sort of topological and qualitative description provided by the
-> protocol (like unit of measurements, name, topology info etc), kernel-wise
-> we CANNOT be completely sure of "what is what" without being fed-back some
-> sort of information about the DEs by the afore mentioned userspace tool.
-> 
-> For these reasons, currently this series does NOT attempt to register any
-> of these DEs with any of the usual in-kernel subsystems (like HWMON, IIO,
-> PERF etc), simply because we cannot be sure which DE is suitable, or even
-> desirable, for a given subsystem. This also means there are NO in-kernel
-> users of these Telemetry data events as of now.
-> 
-> So, while we do not exclude, for the future, to feed/register some of the
-> discovered DEs to/with some of the above mentioned Kernel subsystems, as
-> of now we have ONLY modeled a custom userspace API to make SCMI Telemetry
-> available to userspace tools.
-> 
-> In deciding which kind of interface to expose SCMI Telemetry data to a
-> user, this new SCMI Telemetry driver aims at satisfying 2 main reqs:
-> 
->  - exposing an FS-based human-readable interface that can be used to
->    discover, configure and access our Telemetry data directly also from
->    the shell without special tools
-> 
->  - exposing alternative machine-friendly, more-performant, binary
->    interfaces that can be used to avoid the overhead of multiple accesses
->    to the VFS and that can be more suitable to access with custom tools
-> 
-> In the initial RFC posted a few months ago [1], the above was achieved
-> with a combination of a SysFS interface, for the human-readable side of
-> the story, and a classic chardev/ioctl for the plain binary access.
-> 
-> Since V1, instead, we moved away from this combined approach, especially
-> away from SysFS, for the following reason:
-> 
->  1. "Abusing SysFS": SysFS is a handy way to expose device related
->       properties in a common way, using a few common helpers built on
->       kernfs; this means, though, that unfortunately in our scenario I had
->       to generate a dummy simple device for EACH SCMI Telemetry DataEvent
->       that I got to discover at runtime and attach to them, all of the
->       properties I need.
->       This by itself seemed to me abusing the SysFS framework, but, even
->       ignoring this, the impact on the system when we have to deal with
->       hundreds or tens of thousands of DEs is sensible.
->       In some test scenario I ended with 50k DE devices and half-a-millon
->       related property files ... O_o
-> 
->  2. "SysFS constraints": SysFS usage itself has its well-known constraints
->       and best practices, like the one-file/one-value rule, and due to the
->       fact that any virtual file with a complex structure or handling logic
->       is frowned upon, you can forget about IOCTLs and mmap'ing to provide
->       a more performant interface within SysFs, which is the reason why,
->       in the previous RFC, there was an additional alternative chardev
->       interface.
->       These latter limitations around the implementation of files with a
->       more complex semantic (i.e. with a broader set of file_operations)
->       derive from the underlying KernFS support, so KernFS is equally not
->       suitable as a building block for our implementation.
-> 
->  2. "Chardev limitations": Given the nature of the protocol, the hybrid
->       approach employing character devices was itself problematic: first
->       of all because there is an upper limit on the number of chardev we
->       can create, dictated by the range of available minor numbers, and
->       then because the fact itself to have to maintain 2 completely
->       different interfaces (FS + chardev) is painful.
-> 
-> As a final remark, please NOTE THAT all of this is supposed to be available
-> in production systems across a number of heterogeneous platforms: for these
-> reasons the easy choice, debugFS, is NOT an option here.
-> 
-> Due to the above reasoning, since V1 we opted for a new approach with the
-> proposed interfaces now based on a full fledged, unified, virtual pseudo
-> filesystem implemented from scratch, so that we can:
-> 
->  - expose all the DEs property we like as before with SysFS, but without
->    any of the constraint imposed by the usage of SysFs or kernfs.
-> 
->  - easily expose additional alternative views of the same set of DEs
->    using symlinking capabilities (e.g. alternative topological view)
-> 
->  - additionally expose a few alternative and more performant interfaces
->    by embedding in that same FS, a few special virtual files:
-> 
->    + 'control': to issue IOCTLs for quicker discovery and on-demand access
->    		to data
->    + 'pipe' [TBD]: to provide a stream of events using a virtual
->    		   infinite-style file
->    + 'raw_<N>' [TBD]: to provide direct memory mapped access to the raw
->    		      SCMI Telemetry data from userspace
+Several Rockchip rk35xx boards carry on-board Realtek RTL8125 2.5GbE
+NICs whose PCI function nodes are not described in the DT. Describing
+them allows for stable ethernetN aliases (matching the GMAC alias
+convention on these boards) and lets U-Boot's fdt_fixup_ethernet()
+inject mac-address properties from its ethaddr/ethNaddr env, so MACs
+stay stable across boots and U-Boot and kernel MAC match.
 
-A filsystem driver for telemetry like this is really misguided. I think
-shell access is really not an argument for adding a filesystem into the
-kernel like this. That's just not appropriate justification to push
-thousand and thousands of lines of code into the kernel.
+Patch 1 adds a DT binding for Realtek RTL8125 family PCIe Ethernet
+controllers.
 
-You're building completely new infrastructure. The format is whatever it
-is. If you stream it somehow just add a binary that userspace can use to
-consume or translate it. If you need a filesystem interface for
-convenience build it via FUSE on top of whatever streams that data and
-get it ouf of the kernels way.
+Patch 2 describes the on-board RTL8125 function nodes on the
+FriendlyElec NanoPC-T6 (and variants).
 
-You also buy into all kinds of really wonky properties. If you split it
-over multiple files you can never get a snapshot of data that is
-consistent if it's across multiple files.
+Patch 3 describes the on-board RTL8125 function nodes on the Radxa
+ROCK 5B / 5B+ / 5T family done based on lspci output provided by
+helpful Armbian folks.
 
-Telemetry over a filesystem is just not a great idea. If you did it via
-sysfs I really wouldn't care because all because the infrastructure
-already exists and I couldn't be bothered if this grew yet another wart
-but as a separate massive hand-rolled pseudofs, no I'm not seeing it.
+---
+Changes in v4:
+- binding: simplify the binding YAML ref Sashiko's and Krzysztof's
+  reviews
+- binding: describe only the RTL8125 + rename to match ref Heiner's
+  review.
+- dt: fix the bus-range according to Sashiko's review.
+- Link to v3: https://patch.msgid.link/20260605-rk3588-dts-rtl-eth-describe-dt-alias-v3-0-8a8857b39daf@pardini.net
+
+Changes in v3:
+- new patch: add a DT binding for Realtek r8169 family PCIe Ethernet
+  controllers, per Sebastian Reichel's review (the "pciVVVV,DDDD" OF
+  spelling still needs a binding when used in a board DT).
+- new patch for Rock5 series, and include a brief rationale in each.
+- retitle the series, since it now covers a few boards and a binding
+  rather than just DeviceTree changes for the NanoPC-T6.
+- drop the v2 "rename vcc3v3_pcie2x1l0 regulator" patch from this
+  series; it will be sent separately as it is not relevant to this.
+- Link to v2: https://patch.msgid.link/20260529-rk3588-dts-rtl-eth-describe-dt-alias-v2-0-49700248143f@pardini.net
+
+Changes in v2:
+- fix: pcie2x1l0, not pcie2x1l1; indirectly caught by Sashiko's review [1]
+- while-at-it: rename regulator vcc3v3_pcie2x1l0 to l1
+- Link to v1: https://patch.msgid.link/20260525-rk3588-dts-rtl-eth-describe-dt-alias-v1-1-a6fcda563ac7@pardini.net
+
+[1] https://sashiko.dev/#/patchset/20260525-rk3588-dts-rtl-eth-describe-dt-alias-v1-1-a6fcda563ac7%40pardini.net
+
+To: Heiner Kallweit <hkallweit1@gmail.com>
+To: nic_swsd@realtek.com
+To: Andrew Lunn <andrew+netdev@lunn.ch>
+To: "David S. Miller" <davem@davemloft.net>
+To: Eric Dumazet <edumazet@google.com>
+To: Jakub Kicinski <kuba@kernel.org>
+To: Paolo Abeni <pabeni@redhat.com>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Sebastian Reichel <sebastian.reichel@collabora.com>
+Cc: netdev@vger.kernel.org
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-rockchip@lists.infradead.org
+Signed-off-by: Ricardo Pardini <ricardo@pardini.net>
+
+---
+Ricardo Pardini (3):
+      dt-bindings: net: add Realtek RTL8125 PCIe Ethernet
+      arm64: dts: rockchip: describe PCIe RTL8125 Ethernet on NanoPC-T6
+      arm64: dts: rockchip: describe PCIe RTL8125 Ethernet on Radxa ROCK 5 family
+
+ .../devicetree/bindings/net/realtek,rtl8125.yaml   | 43 ++++++++++++++++++++++
+ MAINTAINERS                                        |  1 +
+ arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi | 30 +++++++++++++++
+ .../boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi   | 15 ++++++++
+ arch/arm64/boot/dts/rockchip/rk3588-rock-5t.dts    | 18 +++++++++
+ 5 files changed, 107 insertions(+)
+---
+base-commit: 8cd9520d35a6c38db6567e97dd93b1f11f185dc6
+change-id: 20260524-rk3588-dts-rtl-eth-describe-dt-alias-c1ed187b7c50
+
+Best regards,
+--  
+Ricardo Pardini <ricardo@pardini.net>
+
+
 
