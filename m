@@ -4,77 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7B68CD98EE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 07:28:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A365CD98E2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 07:30:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oitSDh2idwbTV4wEy6qC2suZE8c7ocMdTmo0GG8WGDo=; b=uvdrosyXa2SDTsdK9bKUPFNwiw
-	vroKEGxV7G96XivtJX+Jo+ZFmZLKtdSeP/XjnMf9+Z8xB4e134T+Aw+APRYMLa1EpN2VXuPfS7f56
-	uNlipEZGbqJ4kPEitmgRXP7o4z9PNtfgXouNUojoJl+4SN7ginjMkBcF1mA02dV3MWD+vbCzO3bWv
-	6b1/GQnR8wChsFWkwMU2copXe1iujWKstE6j57pLmsZajBTDiGENNNOZppoX6G0lbEqFrZCSA/+o+
-	BjVtMI3++CsldjKO3QZ+BieHvlmAmsT3dJoyP2coA1EY1VpOFgzR4MeNKZ2C+n+T+xfdi6p6CroE9
-	c1sH3uQA==;
+	bh=E1Eht0yqmtyjKLK+ckWvK3e4AnkyB7fNvSVWTQiIHbk=; b=yv9odFC/XA1FtK0SK4u32crakS
+	o08WRd9qT/gXxGNhZJ2WmH814VM7nLFyD3jyvJK2xz5UbkzdUBJU2+xnPR/fSAf1/631/Yd+3xZVo
+	JD/JYzG/nAeac6iJthIhKv/V2ySZqjyA5MIwwzx6f3L/zSFVeN+Uz5+cWLnd8KKYboz+Auw8+LSMC
+	VBsQSChmV0s1Rs7z0K9rX+Fj3iloHAu6vRD2euls1w+RTvkNEZYctkKAKjs36qxzyb2UghYj1O9bx
+	oTWwXEK4CLk0Ph/JH1WZi1Qni0rba4UmPfkk6rKvDdAkEXGYxtkeo5Tm3JdMZjuSu+n6A2mjOn+vG
+	+tIPjTig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZkhB-0000000GpGG-1zW3;
-	Wed, 17 Jun 2026 07:28:21 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wZkjN-0000000GpXL-0KRJ;
+	Wed, 17 Jun 2026 07:30:37 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZkhA-0000000GpG4-0rbr
+	id 1wZkjK-0000000GpVZ-3Coy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Jun 2026 07:28:20 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id F0F5843E51;
-	Wed, 17 Jun 2026 07:28:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE7E31F000E9;
-	Wed, 17 Jun 2026 07:28:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781681299;
-	bh=oitSDh2idwbTV4wEy6qC2suZE8c7ocMdTmo0GG8WGDo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=Tk/MzqARhtO/HndX2786H385m3mP0z4djw5iFO90tSRLvwxL16ywK4URVqkV/4rQy
-	 ep0GYGp4MjJeKgyXQ85tmW6z100V5Bb3GIztO0Ap9raxgu0lZZMGWGpa5PcThHg8Dq
-	 nrkGwQ4pEbrneqbgy1rFm/T7IvWkHVOp/1haoK+NMxgaS0CpAxpluaPDOw2dA1Ok3R
-	 8piupywSCM3pWiKd5owkiMYtu+3mmRlk6kXYvmDhGOlCC7e9ovzkbkGDYTxvklwEZr
-	 rQFwg+XFxycW73LyxVvVtBWG7vMljSYnb9vWbJvIh5adUVvs34ahQ9Ya5jYMBQ6hqY
-	 nMIVkd7RmlVgA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wZkh7-0000000DaBi-3EhI;
-	Wed, 17 Jun 2026 07:28:17 +0000
-Date: Wed, 17 Jun 2026 08:28:17 +0100
-Message-ID: <8633yltylq.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-pci@vger.kernel.org,	Yoshihiro Shimoda
- <yoshihiro.shimoda.uh@renesas.com>,	Krzysztof =?UTF-8?B?V2lsY3p5xYRza2k=?=
- <kwilczynski@kernel.org>,	Bjorn Helgaas <bhelgaas@google.com>,	Catalin
- Marinas <catalin.marinas@arm.com>,	Conor Dooley <conor+dt@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,	Krzysztof Kozlowski
- <krzk+dt@kernel.org>,	Lorenzo Pieralisi <lpieralisi@kernel.org>,	Manivannan
- Sadhasivam <mani@kernel.org>,	Rob Herring <robh@kernel.org>,
-	devicetree@vger.kernel.org,	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,	linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH 1/3] PCI: rcar-gen4: Configure AXIINTC if iMSI-RX not used
-In-Reply-To: <20260617030008.154449-1-marek.vasut+renesas@mailbox.org>
-References: <20260617030008.154449-1-marek.vasut+renesas@mailbox.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: marek.vasut+renesas@mailbox.org, linux-pci@vger.kernel.org, yoshihiro.shimoda.uh@renesas.com, kwilczynski@kernel.org, bhelgaas@google.com, catalin.marinas@arm.com, conor+dt@kernel.org, geert+renesas@glider.be, krzk+dt@kernel.org, lpieralisi@kernel.org, mani@kernel.org, robh@kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Wed, 17 Jun 2026 07:30:35 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-490be29c1c5so57380255e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 00:30:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1781681432; x=1782286232; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=E1Eht0yqmtyjKLK+ckWvK3e4AnkyB7fNvSVWTQiIHbk=;
+        b=LUUufPIHxkc5oNOi0g5RZU6vbMAsYqzCtvGsANgJqVD+KXm5qMeecg3wUNMS1ZWX9W
+         dG/ungr+KmJfzDjvGjeTAC+f07QBlFvvrfGeUEv6ZmvIIKVzsg29myZbolBdrre97yUB
+         /cqwSo65HFeloRpOxTZVGbKn9wwaSZm/B11Rzb1MY/JI5cS9Cqbed7lISTUXBxAYMKoK
+         9vf1XQlHh94sCeCb/k+kYbn8+hsDTwMJngilOfu2HiKbXv2O1Yn8ddPyCqLJ4Z3C7sW3
+         JINZlGfGysFwFa2tMvwaZtyFhdxJuQNJvBLytsyyxwuAofd+5pk/v+9qU9fmFb7CIWd1
+         yz2w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781681432; x=1782286232;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=E1Eht0yqmtyjKLK+ckWvK3e4AnkyB7fNvSVWTQiIHbk=;
+        b=R1otvP6wOnvmaPutrkL2BTAJr0IQkD3Ktzq3tyPnFYLcdr1XC99eESCHliC6aPfmXQ
+         AhNWKH8lj9jSgUTsm+3vHwFx3duWsjloYgLl8rD2IRWy3g/7zK/VTGu1l1xStE4CJcWo
+         wFYDMLYR26+EpSy1PrE9N20DQw9NdtUrgh3vU9H4qWRByMHTp02PdmlFeY/dRSPNo3uZ
+         FGtzUOMP2n2dgihAHwVHLq3mcE4FCs9RwMIAHG1d190851nSl5Tf8Ex/wAXxTMWL8mrV
+         ke4Omy3TH1fkqgeUz9OiXX5Y2pMFRQpiofksFXOD0fNis07SPR7SMabcJegLCgH10tqS
+         4TAQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9xFHpeKrwikDH6kotCdxU+/dFlCz+YkyNZ4sU4tmLiUujZiAnjTMAe6mqgd7cKd2IrQETsw3Tvk9Jo+fhtXC8b@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQciIHnPlBWyZAL8lIm8RCZAoHcq2i39gYvWoYQklqXTrUPxh3
+	Igj9UxM2NQ79EPAIRD3An2KS4NChHrjUK4Cjy963NzP8ZqUy8jUzjUJ7T5cnSKRDc/k=
+X-Gm-Gg: Acq92OGmioDLMfl9jXDn5zOCP07PlR3lYopSZR1mlIKwFGRqAgTurzT8l13lL2MBYRy
+	PvrXN8FCfYYKGMSIid/1axlrMMnn00SnjgyoJMZjzwVKyrvMpBb3sb69WGUuY6JbsOisSVtqH8W
+	aaYxc10p3pneVb6pOBWfV6ECyoflaMFwtd3AC/RGPOPFE22eFRdKte+gGGliG3dzz3h4mCDgD/t
+	SIivKEPsjJ/CdLRVk0ctOdaEoiIGBHwedwJ+riXSeYtbYIcm8dbo4by1vEoEjX7ywahQ7FbiWH+
+	pNoJPbqT08UhdRLAX5gKKqHVVq0VyuSPATQesgVCFWs/Ie/swq0NLxSNGuXhR/BjiVYPUIXh4nU
+	VstS21TP2VSOu2bPIvNq23yHi7XmUhyGCYr4mCQGER4qsfwKqxNwODL4hlWSVKqGfx4qcILq+IH
+	yAneP4p47oDQQPRnsKz81t2g==
+X-Received: by 2002:a05:600c:19cb:b0:490:bb45:79f0 with SMTP id 5b1f17b1804b1-492333ba306mr44593555e9.3.1781681431573;
+        Wed, 17 Jun 2026 00:30:31 -0700 (PDT)
+Received: from [10.12.4.106] ([212.133.41.97])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4922fa47da9sm170120445e9.5.2026.06.17.00.30.30
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 17 Jun 2026 00:30:31 -0700 (PDT)
+Message-ID: <915e4524-d407-4b4b-9e61-e4a2274a6f6b@linaro.org>
+Date: Wed, 17 Jun 2026 09:30:29 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: Re: [PATCH v2 4/4] arm64: dts: amlogic: meson-axg-s400: Enable
+ pcie_phy
+To: Jun Yan <jerrysteve1101@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
+ Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Arseniy Krasnov <avkrasnov@salutedevices.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260617071604.635627-1-jerrysteve1101@gmail.com>
+ <20260617071604.635627-5-jerrysteve1101@gmail.com>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <20260617071604.635627-5-jerrysteve1101@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260617_003034_813947_94160883 
+X-CRM114-Status: GOOD (  13.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,90 +131,37 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 17 Jun 2026 03:59:44 +0100,
-Marek Vasut <marek.vasut+renesas@mailbox.org> wrote:
->=20
-> In case MSI are enabled, but DWC built-in iMSI-RX is not in use, the
-> MSI are handled via GIC ITS. Configure all controller MSI registers
-> fully.
->=20
-> Set or clear MSI capability register MSICAP0 MSI enable MSIE bit and
-> PCIe Interrupt Status 0 Enable register PCIEINTSTS0EN MSI interrupt
-> enable MSI_CTRL_INT bit according to MSI enable state, set both bits
-> if MSI are enabled, clear both bits if MSI are disabled.
->=20
-> If MSI are disabled, or MSI are enabled and iMSI-RX is used, then
-> deconfigure AXIINTCADDR and AXIINTCCONT to 0, which disables any
-> pass through of MSI TLPs onto the AXI bus and then further into
-> GIC ITS translation registers.
->=20
-> If MSI are enabled and iMSI-RX is not used, the configure AXIINTCADDR
-> with target address of GIC ITS translation registers, and configure
-> AXIINTCCONT to enable MSI TLP pass through onto AXI bus and into the
-> GIC ITS. This specific configuration allows handling of MSI via the
-> GIC ITS instead of integrated iMSI-RX.
->=20
-> Signed-off-by: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+On 6/17/26 09:15, Jun Yan wrote:
+> The meson-axg dtsi now disables pcie_phy by default, so enable it
+> for the s400 board to support PCIe functionality.
+> 
+> Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
 > ---
-> NOTE: This would not be possible without prior work from Shimoda-san
-> ---
-> Cc: "Krzysztof Wilczy=C5=84ski" <kwilczynski@kernel.org>
-> Cc: Bjorn Helgaas <bhelgaas@google.com>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: Geert Uytterhoeven <geert+renesas@glider.be>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> Cc: Manivannan Sadhasivam <mani@kernel.org>
-> Cc: Marc Zyngier <maz@kernel.org>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
-> Cc: devicetree@vger.kernel.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-doc@vger.kernel.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-pci@vger.kernel.org
-> Cc: linux-renesas-soc@vger.kernel.org
-> ---
->  drivers/pci/controller/dwc/pcie-rcar-gen4.c | 53 +++++++++++++++++++--
->  1 file changed, 48 insertions(+), 5 deletions(-)
->=20
-> diff --git a/drivers/pci/controller/dwc/pcie-rcar-gen4.c b/drivers/pci/co=
-ntroller/dwc/pcie-rcar-gen4.c
-> index 485cfa8bd9692..ba6e3bedd6d0a 100644
-> --- a/drivers/pci/controller/dwc/pcie-rcar-gen4.c
-> +++ b/drivers/pci/controller/dwc/pcie-rcar-gen4.c
-> @@ -31,6 +31,10 @@
->  #define DEVICE_TYPE_RC		BIT(4)
->  #define BIFUR_MOD_SET_ON	BIT(0)
-> =20
-> +/* MSI Capability */
-> +#define MSICAP0			0x0050
-> +#define MSICAP0_MSIE		BIT(16)
+>   arch/arm64/boot/dts/amlogic/meson-axg-s400.dts | 4 ++++
+>   1 file changed, 4 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/amlogic/meson-axg-s400.dts b/arch/arm64/boot/dts/amlogic/meson-axg-s400.dts
+> index 285c6ac1dd61..7ba249cc3d56 100644
+> --- a/arch/arm64/boot/dts/amlogic/meson-axg-s400.dts
+> +++ b/arch/arm64/boot/dts/amlogic/meson-axg-s400.dts
+> @@ -448,6 +448,10 @@ &pcieB {
+>   	status = "okay";
+>   };
+>   
+> +&pcie_phy {
+> +	status = "okay";
+> +};
 > +
->  /* PCIe Interrupt Status 0 */
->  #define PCIEINTSTS0		0x0084
-> =20
-> @@ -55,6 +59,16 @@
->  #define APP_HOLD_PHY_RST	BIT(16)
->  #define APP_LTSSM_ENABLE	BIT(0)
-> =20
-> +/* INTC address */
-> +#define AXIINTCADDR		0x0a00
-> +/* GITS GIC ITS translation register */
-> +#define AXIINTCADDR_VAL		0xf1050000
+>   &pwm_ab {
+>   	status = "okay";
+>   	pinctrl-0 = <&pwm_a_x20_pins>;
 
-Wouldn't it be preferable to source the address from the device tree,
-rather than hardcoding this?
+Please squash this one with the previous patch
 
 Thanks,
-
-	M.
-
---=20
-Without deviation from the norm, progress is not possible.
+Neil
 
