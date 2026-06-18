@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C37EDCD98ED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 09:26:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F144CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 09:26:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G1fmYR7Bw48yeIaqSnYNhWjdDWiabR6zZde3Hlfn/5k=; b=woTXd1+Wj3qblWTXMRrsme9QgE
-	edBzwjVSTwmPVxylTf0YAjeSj0QJLliyKK9l27dxw6Wy6PNEMM+RMUxAT7m/2nADdTImhIx9SlICM
-	/VOegc/0q+zhRyY3zW2F83SjRrLGZOFYrCPO+Wc6cG3HFA7cUyb+mPvEXQrMRrIViPsj3IhbIgYcM
-	Q5UB2oAJ/uif+DkZ1ctrf4awyKvOnyb/+MDjoURfprVpA+Zvlw/MwqOpuGvZ5A+iyPBHWTmVq9Azt
-	tLXQY8ZLUvXgrYOstDZ7ymtbxD7P05L4AlFzXqhnoKUpKf9M2pXbWSYnyGNuXrTOV9tXYfGpMFaw6
-	abbIM0Rw==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=FXuskZWum2eND8Kqapvq5CnQPejvfWzbZgr0VCqB+mM=; b=k3QVn/Gb7ddNeWWQVKHhCfF1F9
+	8JVVXpi2T38+qtlAcNZKp0IQd8qyX2jkVyJZhRD2NJU9NrXR13VpnLvw3Y/AEV/OFnt2PuCrcRFV1
+	RyNEEZ/10qEPY76gDM9q7epuCGWoYDfKzA1hLjM+8yJBDU1ZbrquLFP1+KHB8Iw2GNzNP3XSBMx/X
+	cEXuaQEmBIhOcJ8Mo7BAe9IJGTEVrKVW8SEVIgPAwXP83lNiphV77R89OMSOcAoEvu4EwOsMaa7x8
+	mhlD73aHi33hJFeBI7DvvvSd83bIu823zSyq9TWd9vdjylIKroX7EnSUmeIFJQqj8kT+kLLyKIb13
+	IE/RQNdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa90l-00000000woP-0GBs;
+	id 1wa90l-00000000won-16Gr;
 	Thu, 18 Jun 2026 09:26:11 +0000
-Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
+Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa90h-00000000wmC-1vrM;
+	id 1wa90h-00000000wmD-2FOX;
 	Thu, 18 Jun 2026 09:26:09 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=G1fmYR7Bw48yeIaqSnYNhWjdDWiabR6zZde3Hlfn/5k=;
-	b=iklZi2sn8UCwgbkC4ASYVWIbolWj7O22qO43+Gm/ir9CNoD3G05AAqzZS/GlgroWTloOILTbC
-	DsZSs3LcCfqRT+soo7oWNIEBqcMjbT429CZ4MHaWH/AM/wkq3hticvYcshk29YMTQDjyDNGxHN9
-	GGT2qdBpBmdqIS/iDK9swMM=
-Received: from mail.maildlp.com (unknown [172.19.163.0])
-	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4ggw9t6XVfzpSvL;
-	Thu, 18 Jun 2026 17:17:54 +0800 (CST)
+	bh=FXuskZWum2eND8Kqapvq5CnQPejvfWzbZgr0VCqB+mM=;
+	b=Ro5n4DsxTcv6kcYs7xwikkAk0E+3gHlYekrLI9Fnl76bnX6pYxu1ksRN3nVu/o8LEnCGulWn4
+	NYHbDMn2L8ZXZbDOkC/9bxJ0EO5TjUstPmISyMxyYmOpRKKSfKS2b9EMry/A0gxrQPqInzl7H83
+	eyAYjkOIHutvlhnE6ZVBqIA=
+Received: from mail.maildlp.com (unknown [172.19.163.15])
+	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4ggw9z4mYZz1cyQF;
+	Thu, 18 Jun 2026 17:17:59 +0800 (CST)
 Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id C549D40537;
-	Thu, 18 Jun 2026 17:25:59 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 9535440539;
+	Thu, 18 Jun 2026 17:25:57 +0800 (CST)
 Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
  (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 18 Jun
- 2026 17:25:57 +0800
+ 2026 17:25:55 +0800
 From: Jinjie Ruan <ruanjinjie@huawei.com>
 To: <catalin.marinas@arm.com>, <will@kernel.org>, <tsbogend@alpha.franken.de>,
 	<pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
@@ -60,12 +60,10 @@ To: <catalin.marinas@arm.com>, <will@kernel.org>, <tsbogend@alpha.franken.de>,
 	<linux-mips@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
 	<apatel@ventanamicro.com>, <mhklinux@outlook.com>
 CC: <ruanjinjie@huawei.com>
-Subject: [PATCH v2 1/4] cpu/hotplug: Introduce CONFIG_PARALLEL_SMT_PRIMARY_FIRST
-Date: Thu, 18 Jun 2026 17:24:41 +0800
-Message-ID: <20260618092444.1316336-2-ruanjinjie@huawei.com>
+Subject: [PATCH v2 0/4] arm64: Add HOTPLUG_PARALLEL support for secondary CPUs
+Date: Thu, 18 Jun 2026 17:24:40 +0800
+Message-ID: <20260618092444.1316336-1-ruanjinjie@huawei.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260618092444.1316336-1-ruanjinjie@huawei.com>
-References: <20260618092444.1316336-1-ruanjinjie@huawei.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
@@ -73,8 +71,8 @@ X-Originating-IP: [10.90.53.73]
 X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
  dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260618_022608_249329_534873A3 
-X-CRM114-Status: GOOD (  12.42  )
+X-CRM114-CacheID: sfid-20260618_022608_249356_35F17A95 
+X-CRM114-Status: GOOD (  10.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,114 +87,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-During parallel CPU bringup, x86 requires primary SMT threads to boot
-first to avoid siblings stopping during microcode updates. This constraint
-is architecture-specific and unnecessary for other platforms
-like arm64.
+Support for parallel secondary CPU bringup is already utilized by x86,
+MIPS, and RISC-V. This patch brings this capability to the arm64
+architecture.
 
-Introduce CONFIG_PARALLEL_SMT_PRIMARY_FIRST to decouple this constraint.
-Platforms requiring this temporal order (e.g., x86) can select it
-in Kconfig. Other architectures (e.g., arm64) can leave it unselected
-to entirely bypass the SMT branch via the preprocessor.
+Introduce CONFIG_PARALLEL_SMT_PRIMARY_FIRST to avoid primary SMT threads
+to boot first constraint.
 
-Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
----
- arch/Kconfig       | 4 ++++
- arch/mips/Kconfig  | 1 +
- arch/riscv/Kconfig | 1 +
- arch/x86/Kconfig   | 1 +
- kernel/cpu.c       | 6 +++++-
- 5 files changed, 12 insertions(+), 1 deletion(-)
+And Add a 'cpu' parameter to update_cpu_boot_status() to allow updating the
+boot status at a per-CPU granularity during parallel bringup.
 
-diff --git a/arch/Kconfig b/arch/Kconfig
-index e86880045158..0365d2df2659 100644
---- a/arch/Kconfig
-+++ b/arch/Kconfig
-@@ -102,6 +102,10 @@ config HOTPLUG_PARALLEL
- 	bool
- 	select HOTPLUG_SPLIT_STARTUP
- 
-+config PARALLEL_SMT_PRIMARY_FIRST
-+	bool
-+	depends on HOTPLUG_PARALLEL
-+
- config GENERIC_IRQ_ENTRY
- 	bool
- 
-diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
-index 4364f3dba688..84e11ac0cf71 100644
---- a/arch/mips/Kconfig
-+++ b/arch/mips/Kconfig
-@@ -642,6 +642,7 @@ config EYEQ
- 	select MIPS_CPU_SCACHE
- 	select MIPS_GIC
- 	select MIPS_L1_CACHE_SHIFT_7
-+	select PARALLEL_SMT_PRIMARY_FIRST if HOTPLUG_PARALLEL
- 	select PCI_DRIVERS_GENERIC
- 	select SMP_UP if SMP
- 	select SWAP_IO_SPACE
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index d235396c4514..0cc49aecc841 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -210,6 +210,7 @@ config RISCV
- 	select OF
- 	select OF_EARLY_FLATTREE
- 	select OF_IRQ
-+	select PARALLEL_SMT_PRIMARY_FIRST if HOTPLUG_PARALLEL
- 	select PCI_DOMAINS_GENERIC if PCI
- 	select PCI_ECAM if (ACPI && PCI)
- 	select PCI_MSI if PCI
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index f3f7cb01d69d..3ad4115ad051 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -314,6 +314,7 @@ config X86
- 	select NEED_PER_CPU_PAGE_FIRST_CHUNK
- 	select NEED_SG_DMA_LENGTH
- 	select NUMA_MEMBLKS			if NUMA
-+	select PARALLEL_SMT_PRIMARY_FIRST	if HOTPLUG_PARALLEL
- 	select PCI_DOMAINS			if PCI
- 	select PCI_LOCKLESS_CONFIG		if PCI
- 	select PERF_EVENTS
-diff --git a/kernel/cpu.c b/kernel/cpu.c
-index bc4f7a9ba64e..7ef8cdf4d239 100644
---- a/kernel/cpu.c
-+++ b/kernel/cpu.c
-@@ -1792,6 +1792,7 @@ static int __init parallel_bringup_parse_param(char *arg)
- }
- early_param("cpuhp.parallel", parallel_bringup_parse_param);
- 
-+#ifdef CONFIG_PARALLEL_SMT_PRIMARY_FIRST
- #ifdef CONFIG_HOTPLUG_SMT
- static inline bool cpuhp_smt_aware(void)
- {
-@@ -1811,7 +1812,8 @@ static inline const struct cpumask *cpuhp_get_primary_thread_mask(void)
- {
- 	return cpu_none_mask;
- }
--#endif
-+#endif /* CONFIG_HOTPLUG_SMT */
-+#endif /* CONFIG_PARALLEL_SMT_PRIMARY_FIRST */
- 
- bool __weak arch_cpuhp_init_parallel_bringup(void)
- {
-@@ -1837,6 +1839,7 @@ static bool __init cpuhp_bringup_cpus_parallel(unsigned int ncpus)
- 	if (!__cpuhp_parallel_bringup)
- 		return false;
- 
-+#ifdef CONFIG_PARALLEL_SMT_PRIMARY_FIRST
- 	if (cpuhp_smt_aware()) {
- 		const struct cpumask *pmask = cpuhp_get_primary_thread_mask();
- 		static struct cpumask tmp_mask __initdata;
-@@ -1857,6 +1860,7 @@ static bool __init cpuhp_bringup_cpus_parallel(unsigned int ncpus)
- 		cpumask_andnot(&tmp_mask, mask, pmask);
- 		mask = &tmp_mask;
- 	}
-+#endif /* CONFIG_PARALLEL_SMT_PRIMARY_FIRST */
- 
- 	/* Bring the not-yet started CPUs up */
- 	cpuhp_bringup_mask(mask, ncpus, CPUHP_BP_KICK_AP);
+Rework the global `secondary_data` accessed during early boot into
+a per-CPU array `cpu_boot_data` to allow secondary CPUs to boot
+in parallel.
+
+And reuse `__cpu_logical_map` array in the early boot code in head.S
+to resolve each secondary CPU's logical ID concurrently.
+
+Changes in v2:
+- Remove RFC.
+- Add Tested-by.
+- Fix AI review issues in [1].
+- Add arch_cpuhp_init_parallel_bringup() to check psci boot.
+- Reuse `__cpu_logical_map` instead of a new aray.
+- Defer rcutree_report_cpu_starting() until after
+  check_local_cpu_capabilities() to prevent a potential control CPU
+  deadlock if an early capability check fails.
+- Move the assembly in head.S to a macro called `mpidr_to_cpuid`.
+- Add `SECONDARY_DATA_SHIFT` for `lsl` to access `cpu_boot_data`.
+- Add sizeof(struct secondary_data) power of 2 assert check.
+- Expand testing with more data collected from real hardware.
+
+[1] https://sashiko.dev/#/patchset/20260611133809.3854977-1-ruanjinjie%40huawei.com
+
+Jinjie Ruan (4):
+  cpu/hotplug: Introduce CONFIG_PARALLEL_SMT_PRIMARY_FIRST
+  arm64: smp: Pass CPU ID to update_cpu_boot_status()
+  arm64: smp: Defer RCU reporting until after local CPU capability
+    checks
+  arm64: Add HOTPLUG_PARALLEL support for secondary CPUs
+
+ arch/Kconfig                    |  4 +++
+ arch/arm64/Kconfig              |  1 +
+ arch/arm64/include/asm/smp.h    | 17 ++++++++++---
+ arch/arm64/kernel/asm-offsets.c |  4 +++
+ arch/arm64/kernel/cpufeature.c  | 22 ++++++++--------
+ arch/arm64/kernel/head.S        | 36 ++++++++++++++++++++++++++
+ arch/arm64/kernel/smp.c         | 45 ++++++++++++++++++++++++++++-----
+ arch/arm64/mm/context.c         |  4 +--
+ arch/mips/Kconfig               |  1 +
+ arch/riscv/Kconfig              |  1 +
+ arch/x86/Kconfig                |  1 +
+ kernel/cpu.c                    |  6 ++++-
+ 12 files changed, 119 insertions(+), 23 deletions(-)
+
 -- 
 2.34.1
 
