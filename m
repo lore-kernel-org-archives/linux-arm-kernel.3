@@ -4,138 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83033CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 10:24:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08AD4CD98ED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 10:25:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pdxvnHNhBcxBAvNVWg4iUTwWhk1g8ApNBvxiWkMn+Ak=; b=17XfhnnVTD+NsIPN6eeP/ZGm0J
-	UQivzZrPJIP5FijkIDPGPR9lGPy5IFd15dIhY674FJDYJw5Vz+9XqjVLBRiJ6sMiZ6HVF8CcKonxk
-	VUGpGDQAo/xWLcLyQgvUs4A4fTgCcszXosBN1glM7FCCAAPi9odc47C27fUnjRYIaJX7zDWczC0z/
-	IwSBBiCnK1jcaRSVob3aNJ+4D+tYE+QqFcOqfVomsgVteGtoUExBCLRThWoJOOky+rvKxYJXmP52K
-	LCB1aSysueXUoLfKTKBuNwC6u58Iof6r2nuP9Go5AWNB1s8Vdo475lr5kU8KqHNG+0AwO90+Fau3h
-	0PlfPysw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Y11imKWZ8hqCvlDLmCpFBUcA/yQFgdZ1dhp+Lfks24c=; b=ffEOo0h1i26aXaKq/8XpHhDm7H
+	qpbQdjuO9Ipjg9nR4yFNqLZiXZrIjrZf2IJ9EmBJwKlwMtTbGJqJYwkz03/RPDfMNJ53zfIImaue/
+	vdm81u1mrJnWvCdQaht9iuXQtWmeK4hbqNgY6DNIMQ0ZYyxlB42s8tcJLana2G8Iarl/o78Yd4Zwq
+	ylQHiWzfTtVkwRwK5RrYd5uT3SHf7nguddVk5WTk5ANJpo7SzYqXesZURQ0q7Fdupu+0FYInTak2G
+	EEtary2D/RsCWYOL5H/C95f4vdHO/5Lpq06NZSU7MzFOmQbw3FpdvBbaiY978Avin0IyvwLIQ2dpw
+	sO1PrJFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa9v3-000000015t9-38Xd;
-	Thu, 18 Jun 2026 10:24:21 +0000
-Received: from mail-vk1-xa61.google.com ([2607:f8b0:4864:20::a61])
+	id 1wa9vi-0000000161w-40gI;
+	Thu, 18 Jun 2026 10:25:02 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa9v1-000000015sd-2Ks5
+	id 1wa9vf-000000015zn-0FFZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 10:24:20 +0000
-Received: by mail-vk1-xa61.google.com with SMTP id 71dfb90a1353d-59ebf30a91dso234367e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 03:24:17 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781778257; x=1782383057;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=pdxvnHNhBcxBAvNVWg4iUTwWhk1g8ApNBvxiWkMn+Ak=;
-        b=XHytWgWW807voFAjFijN1l8XL/r/45VbrerxPHOkeDIrVF0DWFjVlGvZmu6JknZ1KC
-         9um5GJjDSaQWdD4ImnOYFlWqRtcsdYdcYSF3NMZJ0v3ilQ88k1lzs6shtSKQ1V506Pay
-         rX+GguJDRy6GAYXzn3qz9DF/k/oxGY27/Ots2wPFofn7npuHa6gLB9KE9CaLZRJcj6N9
-         /sZcldxyoMCaUiQNp0ol+xI0Cyu3y68ILn3VYyW0oPkcTStUUzoDVpTOBYkVlgVJxrq/
-         nSRC35+DW4vExW9mtPj3Lq2aP5wH3ZvdHM9ECfFE3Z/hlFErQ3e77j8CJHObfP4jiMBP
-         wxag==
-X-Forwarded-Encrypted: i=1; AFNElJ8MUcOUZbPchQRo7rggsB9FWGHH2UEGrZMznZmm8LrubLxMrPu3+MxGfSrD7ZazYUIgA5O+knhBacQfVq1Y2p3/@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy1SyYVNDO/6+1C7SnZRbYTeEn579Kji62YAwoFr+PuAdIVPklw
-	KgIjwZTIS2UOOds0rt5uNS5mFpyN4qkmSU3OeEc5myJ86OONZhPWFtek2JVdxK3BXcpGm0q0p+b
-	+an4q/KeXZXEqUQY0VWgM34z/z6WPZibYzxGhpkpW1NPn9TxiEHtSc4iMAbbIZF3JYwZv8GCOcJ
-	GNSjSeoBvtTewTw6fyiemBnoe4Q8hGbwLZCwQuho0prCcGtpHkLPnV822sNvaI+Lbr1jp0wzPpA
-	41KO7klZc0Ohq75SbPUKlUDsEjAEyq7b1/KOQ==
-X-Gm-Gg: AfdE7clNNE00oHs7K8cC/JpWMZNGUZTlJUJ8dyd7pcUPEGTkW5JIS40OMe36DJrQQF3
-	Ybk6eAfClorifMCOgMc50kqg8gLM28tYXnHkkOcpyrYcW9sptOMrpCoQc2xR9tTThsYiGY9QG5r
-	JRLKpfEKaqPYALiIFozo0dfwpiSGQHAvEJ132BolFnElSG7eC9QhgSjZhsmki3h0llemUZeha3r
-	qGxKG/WAOhtfK5flBwdflxpZtEyTlF95AVEcmCo22KZfwPPxitOI6iQBPCWC8MiCB/Zos3inwzQ
-	b6CrO5hPwJNDI1aXVwI0DFDV0wW6FkZa59nMHLbG/uwo6FThnHIBvV3EHlqXOASKrx0uKqc0L1l
-	iucJMXtABKHgPkKcjJkUKpiCP2G6BOyibQVtXje2XPVNveg7qRf+uJsxQ/UdKZEpUU/ic2ajO6m
-	GV2PFWJ2gwvrnRfkRZsR+mJSOqauapE5sulNH9BRNb6RwuSR8rJQI=
-X-Received: by 2002:a05:6102:a54:b0:6f0:3c5c:6ad with SMTP id ada2fe7eead31-727c6b528bfmr1644188137.21.1781778256656;
-        Thu, 18 Jun 2026 03:24:16 -0700 (PDT)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-18.dlp.protect.broadcom.com. [144.49.247.18])
-        by smtp-relay.gmail.com with ESMTPS id ada2fe7eead31-72086c42916sm983758137.15.2026.06.18.03.24.15
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 18 Jun 2026 03:24:16 -0700 (PDT)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-490b61243easo8506765e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 03:24:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1781778254; x=1782383054; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=pdxvnHNhBcxBAvNVWg4iUTwWhk1g8ApNBvxiWkMn+Ak=;
-        b=AzPkwwKETmqTviJkI+muQ8VhgSmllWZGbdzDBEZS1yjCJceBlEvVZNuYH3ZeZso+wz
-         GD40kp04zImmKZ/20LIPs4uCEnlq0VwzrKWVRD3qveZ/Muxuthlgt53HgTqpzqSONl84
-         y6YT1/AxGC5bqtuW1U/q6TGOI+ivV9MZ3yk5A=
-X-Forwarded-Encrypted: i=1; AFNElJ97H32Q6PMtp/9H8001Pho3nlA+EtAk94noqVvK8ZducprOdd0yIP0H3yZB2T6M2DbJk8Ej/bVdQ9/B0EMW2AT4@lists.infradead.org
-X-Received: by 2002:a05:600c:3e1a:b0:490:e974:e01f with SMTP id 5b1f17b1804b1-492333ecb80mr132153645e9.28.1781778254343;
-        Thu, 18 Jun 2026 03:24:14 -0700 (PDT)
-X-Received: by 2002:a05:600c:3e1a:b0:490:e974:e01f with SMTP id 5b1f17b1804b1-492333ecb80mr132153045e9.28.1781778253884;
-        Thu, 18 Jun 2026 03:24:13 -0700 (PDT)
-Received: from [192.168.1.21] ([41.140.50.249])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49234daafc7sm117621445e9.10.2026.06.18.03.24.12
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 18 Jun 2026 03:24:12 -0700 (PDT)
-Message-ID: <4f4b2f95-e61b-4008-b54a-fdd3101dc492@broadcom.com>
-Date: Thu, 18 Jun 2026 11:24:11 +0100
+	Thu, 18 Jun 2026 10:25:01 +0000
+Received: from edelgard.fodlan.icenowy.me (unknown [112.94.100.206])
+	by APP-01 (Coremail) with SMTP id qwCowAAHqtJxxzNqSVYyAg--.9188S2;
+	Thu, 18 Jun 2026 18:24:51 +0800 (CST)
+Message-ID: <b08277e8a9350f6c68c9774b1b6185b1eb71cd1e.camel@iscas.ac.cn>
+Subject: Re: [PATCH v4 1/6] dt-bindings: display: verisilicon, dc:
+ generalize for single-output variants
+From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+To: Joey Lu <a0987203069@gmail.com>, maarten.lankhorst@linux.intel.com, 
+	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
+ simona@ffwll.ch, 	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
+Cc: ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com, 
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Date: Thu, 18 Jun 2026 18:24:48 +0800
+In-Reply-To: <6d3e3121-22f2-4c59-9678-df2f57ff4d31@gmail.com>
+References: <20260615065003.76661-1-a0987203069@gmail.com>
+	 <20260615065003.76661-2-a0987203069@gmail.com>
+	 <3683c5c617324f5835529617325745ef48fa1943.camel@iscas.ac.cn>
+	 <6d3e3121-22f2-4c59-9678-df2f57ff4d31@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.3 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] pinctrl: Match DT helper types
-To: "Rob Herring (Arm)" <robh@kernel.org>, Linus Walleij <linusw@kernel.org>,
- Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-Cc: linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260612214939.1883911-1-robh@kernel.org>
-Content-Language: en-US
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <20260612214939.1883911-1-robh@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+X-CM-TRANSID: qwCowAAHqtJxxzNqSVYyAg--.9188S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxCr1fuF1rAr15Kw4xKrW5GFg_yoWrXryrpF
+	Z7AFyUJF9Yqr1fXwn7t3W0yry5Aa1kJ3WUXr1xXF1xAFWDGF10gr4a9r90gFy3Xr4xA3W0
+	qFs09343Zr12yF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvvb7Iv0xC_tr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I
+	8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8Jw
+	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
+	c7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
+	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
+	14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
+	IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E
+	87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73Uj
+	IFyTuYvjxU2wIDUUUUU
+X-Originating-IP: [112.94.100.206]
+X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260618_032419_616562_0618C576 
-X-CRM114-Status: GOOD (  10.08  )
+X-CRM114-CacheID: sfid-20260618_032459_472179_2C86C6B2 
+X-CRM114-Status: GOOD (  22.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,23 +86,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+=E5=9C=A8 2026-06-17=E4=B8=89=E7=9A=84 18:25 +0800=EF=BC=8CJoey Lu=E5=86=99=
+=E9=81=93=EF=BC=9A
+>=20
+> On 6/15/2026 4:19 PM, Icenowy Zheng wrote:
+> > =E5=9C=A8 2026-06-15=E4=B8=80=E7=9A=84 14:49 +0800=EF=BC=8CJoey Lu=E5=
+=86=99=E9=81=93=EF=BC=9A
+> > > The existing schema hard-codes the five-clock/three-reset/dual-
+> > > port
+> > > topology of the DC8200 IP block, preventing reuse for single-
+> > > output
+> > > variants such as the Verisilicon DCUltraLite used in the Nuvoton
+> > > MA35D1
+> > > SoC.
+> > >=20
+> > > Rework the schema so that variant-specific constraints are
+> > > expressed
+> > > via
+> > > allOf/if blocks:
+> > >=20
+> > > - Add nuvoton,ma35d1-dcu to the SoC-specific compatible enum.=C2=A0
+> > > The
+> > > =C2=A0=C2=A0 generic verisilicon,dc fallback remains the driver-bindi=
+ng
+> > > string.
+> > > - Move clock and reset items descriptions into the per-variant
+> > > allOf/if
+> > > =C2=A0=C2=A0 blocks; keep only minItems/maxItems at the top level so =
+the
+> > > base
+> > > schema
+> > > =C2=A0=C2=A0 accepts all variants.
+> > > - Restore full items lists for clock-names and reset-names at the
+> > > top
+> > > =C2=A0=C2=A0 level with minItems so the names are validated against t=
+he
+> > > descriptions.
+> > > - Keep ports in the global required list and keep
+> > > additionalProperties: false.
+> > > - Add an allOf/if block for thead,th1520-dc8200: five-clock
+> > > (core,
+> > > axi,
+> > > =C2=A0=C2=A0 ahb, pix0, pix1), three-reset (core, axi, ahb), required
+> > > resets.
+> > > - Add an allOf/if block for nuvoton,ma35d1-dcu: two-clock (core,
+> > > pix0),
+> > > =C2=A0=C2=A0 one-reset (core), required resets.
+> > >=20
+> > > Signed-off-by: Joey Lu <a0987203069@gmail.com>
+> > > ---
+> > > =C2=A0=C2=A0.../bindings/display/verisilicon,dc.yaml=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0 | 80
+> > > +++++++++++++++++--
+> > > =C2=A0=C2=A01 file changed, 73 insertions(+), 7 deletions(-)
+> > >=20
+> > > diff --git
+> > > a/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+> > > b/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+> > > index 9dc35ab973f2..0c41286b8223 100644
+> > > ---
+> > > a/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+> > > +++
+> > > b/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+> > > @@ -17,6 +17,7 @@ properties:
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 items:
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - enum:
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - =
+thead,th1520-dc8200
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - nuvoton,ma3=
+5d1-dcu
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: verisilicon,dc # =
+DC IPs have discoverable
+> > > ID/revision
+> > > registers
+> > > =C2=A0=20
+> > > =C2=A0=C2=A0=C2=A0 reg:
+> > > @@ -26,14 +27,12 @@ properties:
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 maxItems: 1
+> > > =C2=A0=20
+> > > =C2=A0=C2=A0=C2=A0 clocks:
+> > > -=C2=A0=C2=A0=C2=A0 items:
+> > > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - description: DC Core clock
+> > > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - description: DMA AXI bus clock
+> > > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - description: Configuration AHB bus =
+clock
+> > > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - description: Pixel clock of output =
+0
+> > > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - description: Pixel clock of output =
+1
+> > Clock descriptions should still be in the global part instead of
+> > the
+> > per-compatible part.
+> >=20
+> > In the per-compatible part, clock-names should be constraint for
+> > SoCs.
+> I will move the `items:` clock descriptions back into the global=20
+> `clocks:` property, covering all five possible clocks. In the=20
+> per-compatible sections I will remove the description items and only=20
+> constrain `clocks: minItems/maxItems` and `clock-names:=20
+> minItems/maxItems`; for nuvoton,ma35d1-dcu I will additionally
+> override=20
+> `clock-names: items:` to the two names actually used (core, pix0).
+
+Yes, this should be the correct practice, although I wonder whether the
+minItems and maxItems properties are needed globally (because these two
+seem to have default implicit value).
+
+BTW the MA35D1 manual in fact shows 4 clocks for "DCUltra" in the clock
+tree, maybe the DT binding needs to be reconsidered?
+
+Thanks,
+Icenowy
 
 
-On 6/12/2026 2:49 PM, 'Rob Herring (Arm)' via 
-BCM-KERNEL-FEEDBACK-LIST,PDL wrote:
-> The affected pinctrl drivers either check for the presence of a standard
-> property or read a property documented with an 8-bit cell encoding.
-> Using boolean or u32 helpers for those cases disagrees with the binding.
-> 
-> Use a presence helper for "gpio-ranges" and read
-> "microchip,spi-present-mask" with the u8 helper documented by the
-> binding.
-> 
-> Assisted-by: Codex:gpt-5-5
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-
-Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
--- 
-Florian
+> > > +=C2=A0=C2=A0=C2=A0 minItems: 2
+> > > +=C2=A0=C2=A0=C2=A0 maxItems: 5
+> > > =C2=A0=20
+> > > =C2=A0=C2=A0=C2=A0 clock-names:
+> > > +=C2=A0=C2=A0=C2=A0 minItems: 2
+> > > +=C2=A0=C2=A0=C2=A0 maxItems: 5
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 items:
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: core
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: axi
 
 
