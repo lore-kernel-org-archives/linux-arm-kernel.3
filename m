@@ -4,56 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F8DACD98ED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 16:54:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EA91CD98ED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 16:56:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xFLqb3+sZ0NNGI77QPSt9wfmbDqD1RN96r5X08RgE3Q=; b=A0yn1XAz0vAW+Ocry6go9zrJ9Q
-	DlCMF1zkvRU9EV22eq4iYUYAuX7VbUDhqfNGNKr3NSwSk2B7Iei0a4LZazl0OT6eT9tIika8HfV/C
-	xZB0wuL9l8n/rvRUCiEQ8TOGbv3fDdrITY7q0XP9ICa21u7qZ5xbbjTb/BxTsz8Cspw/kwxtu5FJS
-	LRs7qHbn4He0AOZSpBQ26BBpj+w3JW4CSdFfr2DIR5HTGuoPDn3QjJLwCD9jloEw5i9J99AWh1qlA
-	0bk98iWDKS86FJ0EktorRJYixsHjO2NCvv5tb/B5ibOeEKowJCeewFL3eRUYgO9QvQ96TFP0bBGwS
-	u+9ZgZuw==;
+	bh=FYHUL+Y9sDYt/84sbmqrw+bMmVqlzQNkmZJ6A0M/j4w=; b=uff0sk/Z6lSsIycLbh2z6kTlVG
+	1DgD/m5bXBqIv/vKfQIqgmcRxDowHj6hCtp6yhUoaqjVeqAgex5hK6kq1HQT4vp7hp9AZaG9kMmzM
+	9PvHAoez0BGqr2P6i/oHxwK/+kvON6ukIyEnOaKBsA2IBdatROtOVxX47FV8IYR/izBWqwqaGk95a
+	Eb2tci26us4Iib2TZSHtYkahrgtATYtNPAeVIXfUqZuaxUCRhpg/NL/OYuHpa/Pnhv/52XsSQstzA
+	hXLIgfCCtEsHo8447P8tLWkCrO+qcEaABERYxciO2tflvcFzQT8OKJ9zQ8hUI2NLW8QQFtptg2vnF
+	rguqPn4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waG0a-00000001bec-3OY0;
-	Thu, 18 Jun 2026 16:54:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1waG2b-00000001bsh-0873;
+	Thu, 18 Jun 2026 16:56:33 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waG0Z-00000001beM-2CYM
+	id 1waG2Z-00000001bsM-0gBB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 16:54:27 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id F2AA160008;
-	Thu, 18 Jun 2026 16:54:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 128A41F000E9;
-	Thu, 18 Jun 2026 16:54:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781801666;
-	bh=xFLqb3+sZ0NNGI77QPSt9wfmbDqD1RN96r5X08RgE3Q=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=FK7DXe8jgEqKtnlrZZLmBp2e7bN2YkeOONyibF8h8B99VjBhCtkiiJs7RDrcXlmlI
-	 hhe3LpB8cPiMOju0cGhRteDVTU5vH8poPa+VphRnzEiYMkzpkN28qZRWm5nsd0Wi1c
-	 9QjtGfrEUvXVqASn4A6LWC8+Yr9Hm8uvhhHu8hpkALRrckCiMVBMWd9IIvXQSHiZzh
-	 Vmnvgbij8ZqqYk8stSGNFngret9pZkkoj+lW8k99IXj0VRTVfAFnvK5dKq18NOSfp1
-	 V5LP4hwMeUhHkpG4c866XYwp6IF/JOM7LyhXF622aCRyt4k2bI3Lwys2QAuFsRULwb
-	 0Fg2q5lxoZ+tg==
-Date: Thu, 18 Jun 2026 17:54:22 +0100
-From: Will Deacon <will@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] arm64: Avoid eager DVMSync reclaim batches with C1-Pro
- SME erratum
-Message-ID: <ajQivugZfBzG4X2I@willie-the-truck>
-References: <20260610104829.1157497-1-catalin.marinas@arm.com>
+	Thu, 18 Jun 2026 16:56:32 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-490ac10e337so7383845e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 09:56:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1781801789; x=1782406589; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=FYHUL+Y9sDYt/84sbmqrw+bMmVqlzQNkmZJ6A0M/j4w=;
+        b=oV+eAAqrkIa6F/07Xm6+JeB03mpHSA7SMaY+Ld8dy6/UCM526L7CU2KjeBdE1Wd/XT
+         3cgiq25t1Ec8WNYS4sXUW/lJ7SqjawOIFIM8IRx84g8vyoYOul9Tq51XOoPyytbrO1iO
+         H1lyAwVuKy7qTT9zE6rM4zJmg+zu/CXB//2OKfApSA/MC645Ic0ApKy9s1AMFOoWmWDb
+         uIMmsnytyObb9gd+gbMS8+cjT4YvEfnCqKxvM5HECLj/o8Bzi+L2F4wSOEw5NB0i35sy
+         JvWU2Z1LE0HWC1tBguff0W0/3mtWXbPCd04YGkUBiEZIvcwUZ2y5rtempd8NIHwmruJO
+         kPtA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781801789; x=1782406589;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=FYHUL+Y9sDYt/84sbmqrw+bMmVqlzQNkmZJ6A0M/j4w=;
+        b=UdubHugMZSmTPxrXJg4wmXyQeTB3rCpd0+Ic1ErENCraY/Sb40KRpBt0xmivgEzS3W
+         FM3+SeNCU2iiX/duqWjpN+DCTkzBY6wJoiLubDgHcp/ODMYyffPt9Y4uktZwKNh43giv
+         geFqwGsFtfhv8hshmN6Uhx3Xx69WxI7xZKMs1qUgn6DG0JHBwgs7YIeXlojmD05b9fYF
+         lHxEMmY5SAe5rUltc38ng7FMBG47hTP+VyBN6R985r1QcZ4H9/GqNwJsiX8hZL5SrkAe
+         OgVb5fu7cP7dRsPtNTXB5JGBgS/gvglvAHn2M4jlRrBkji8DAyx1bexwMajlfLBZ2u+F
+         Ufuw==
+X-Forwarded-Encrypted: i=1; AFNElJ9V3ttOigh5+pyeMRPrL9KudRYj57IPuemP0Wi+Mq2+rT+/Tex9t4J3WyFS7qrV7zMi5YvmEzmck1WgtFEFsF0X@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx1oOrWV02hHFRAivKfiAfj1tRF6wvkB76O6QiKkAWuUO1lnm0m
+	Wy36DKWVpC3MYOFvOW6M2OQOz9A5qscjIVpQS7Bk8MzodC3iW4fBKN7ZqSMGnRB2rg==
+X-Gm-Gg: AfdE7cmgv8oc8WrhKWlXBsctTkHRgnMVMcJFdLjIoyRLEJYacEtvu4A5XE8vGuid68r
+	4pC8yxBjBxZVs51UpYe2g39Bd+QDJT1zDx+HIl7p5L8d3ILJLPasK01cB4OZdwpPiHYrMsmItjP
+	Xd7OS+meRPg1VIQyhKyyBTItlA3//MbAOo6v29ZwoPne1n+kZque2bZlSeJ7lKr6mIam/uNyuHy
+	Y4rYQbvzrXuKa/1wFb6v3X3ZGyBaoaWZZex7OEXup/zAFEfDs6HD5W9yrJKNJjyLvABtUcO4uJs
+	9AxUwiXcm8q2j6YEOgOP9rToTWVzf9BCFoecxsqjn/wrNDkCc3fSaP0bUNLQiBSYCOhDdsD5lqi
+	BaIpfIb/RMRiDkzzRL9aZNFUzwdZCBTS3l65K4uIieNPbDTwOGDc5/+ejMzAZV1ClSBC4cmVzkO
+	18huTTpt6i0VKkuwMwKytoWXNj52fd8WnEMhf3pgTHOZo/mL8r3m8MN3ZR
+X-Received: by 2002:a05:600c:8217:b0:492:3d05:5639 with SMTP id 5b1f17b1804b1-4923f6a949dmr6700535e9.36.1781801788773;
+        Thu, 18 Jun 2026 09:56:28 -0700 (PDT)
+Received: from google.com (135.91.155.104.bc.googleusercontent.com. [104.155.91.135])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4650b67a33csm153604f8f.17.2026.06.18.09.56.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 18 Jun 2026 09:56:28 -0700 (PDT)
+Date: Thu, 18 Jun 2026 17:56:24 +0100
+From: Vincent Donnefort <vdonnefort@google.com>
+To: Sebastian Ene <sebastianene@google.com>
+Cc: catalin.marinas@arm.com, oupton@kernel.org, sudeep.holla@kernel.org,
+	will@kernel.org, jens.wiklander@linaro.org, joey.gouly@arm.com,
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, android-kvm@google.com,
+	maz@kernel.org, mrigendra.chaubey@gmail.com,
+	op-tee@lists.trustedfirmware.org, perlarsen@google.com,
+	seiden@linux.ibm.com, smostafa@google.com, sumit.garg@kernel.org,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com
+Subject: Re: [PATCH v7 5/7] KVM: arm64: Validate the offset to the mem access
+ descriptor
+Message-ID: <ajQjOH9Cjk1UqdT-@google.com>
+References: <20260617145130.3729015-1-sebastianene@google.com>
+ <20260617145130.3729015-6-sebastianene@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260610104829.1157497-1-catalin.marinas@arm.com>
+In-Reply-To: <20260617145130.3729015-6-sebastianene@google.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260618_095631_250076_F56178E4 
+X-CRM114-Status: GOOD (  25.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,40 +105,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 10, 2026 at 11:37:16AM +0100, Catalin Marinas wrote:
-> The C1-Pro SME DVMSync workaround currently samples mm_cpumask() from
-> arch_tlbbatch_add_pending(). It requires a DSB after every batched TLBI
-> so that the mask read is ordered after the hardware DVMSync, defeating
-> much of the reclaim batching benefit.
+On Wed, Jun 17, 2026 at 02:51:28PM +0000, Sebastian Ene wrote:
+> Prevent the pKVM hypervisor from making assumptions that the
+> endpoint memory access descriptor (EMAD) comes right after the
+> FF-A memory region header.
+> Prior to FF-A version 1.1 the header of the memory region
+> didn't contain an offset to the endpoint memory access descriptor.
+> The layout of a memory transaction looks like this from 1.1 onward:
+> Type | Field name | Offset
+> [ Header | ffa_mem_region  | 0
+>   EMAD 1 | ffa_mem_region_attributes) | ffa_mem_region.ep_mem_offset
+> ]
+> Verify that the offset to the first endpoint memory access descriptor
+> is within the mailbox buffer bounds.
 > 
-> Introduce the sme_active_cpus mask tracking which CPUs run in user-space
-> with SME enabled and use it for batch flushing instead of accumulating
-> the mm_cpumask() of the unmapped pages.
+> Also, fix one hardcoded sizeof(struct ffa_mem_region_attributes) that
+> should be replaced ffa_emad_size_get() for compatibility with FFA v1.0.
 > 
-> Fixes: 0baba94a9779 ("arm64: errata: Work around early CME DVMSync acknowledgement")
-> Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
+> Fixes: 42fb33dde42b ("KVM: arm64: Use FF-A 1.1 with pKVM")
+> Signed-off-by: Sebastian Ene <sebastianene@google.com>
+> Signed-off-by: Mostafa Saleh <smostafa@google.com>
 > ---
+>  arch/arm64/kvm/hyp/nvhe/ffa.c | 29 +++++++++++++++++++++--------
+>  1 file changed, 21 insertions(+), 8 deletions(-)
 > 
-> The dsb() in arch_tlbbatch_add_pending() -> sme_dvmsync_add_pending()
-> did introduce a performance regression for kswapd. This patch restores
-> the original behaviour with the barrier only issued when the TLB batch
-> is flushed. The trade-off is that the IPIs are now sent to all CPUs
-> running with SME enabled at EL0 even if the reclaimed pages do not
-> belong to SME tasks. This is acceptable for current SME deployments.
+> diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> index 2d211661952e..1a2abd0154c6 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> @@ -476,11 +476,14 @@ static void __do_ffa_mem_xfer(const u64 func_id,
+>  	DECLARE_REG(u32, fraglen, ctxt, 2);
+>  	DECLARE_REG(u64, addr_mbz, ctxt, 3);
+>  	DECLARE_REG(u32, npages_mbz, ctxt, 4);
+> +	u32 offset, nr_ranges, checked_offset, em_mem_access_off;
+>  	struct ffa_mem_region_attributes *ep_mem_access;
+>  	struct ffa_composite_mem_region *reg;
+>  	struct ffa_mem_region *buf;
+> -	u32 offset, nr_ranges, checked_offset;
+>  	int ret = 0;
+> +	size_t mem_region_len = !FFA_MEM_REGION_HAS_EP_MEM_OFFSET(hyp_ffa_version) ?
+> +		offsetof(struct ffa_mem_region, ep_mem_offset) :
+> +		sizeof(struct ffa_mem_region);
+>  
+>  	if (addr_mbz || npages_mbz || fraglen > len ||
+>  	    fraglen > KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE) {
+> @@ -488,8 +491,7 @@ static void __do_ffa_mem_xfer(const u64 func_id,
+>  		goto out;
+>  	}
+>  
+> -	if (fraglen < sizeof(struct ffa_mem_region) +
+> -		      sizeof(struct ffa_mem_region_attributes)) {
+> +	if (fraglen < mem_region_len + ffa_emad_size_get(hyp_ffa_version)) {
+
+Can't we replace mem_region_len with ffa_mem_desc_offset()? that pretty much
+looks like the same thing.
+
+
+>  		ret = FFA_RET_INVALID_PARAMETERS;
+>  		goto out;
+>  	}
+> @@ -508,8 +510,13 @@ static void __do_ffa_mem_xfer(const u64 func_id,
+>  	buf = hyp_buffers.tx;
+>  	memcpy(buf, host_buffers.tx, fraglen);
+>  
+> -	ep_mem_access = (void *)buf +
+> -			ffa_mem_desc_offset(buf, 0, hyp_ffa_version);
+> +	em_mem_access_off = ffa_mem_desc_offset(buf, 0, hyp_ffa_version);
+> +	if ((u64)em_mem_access_off + ffa_emad_size_get(hyp_ffa_version) > fraglen) {
+
+This check looks like ffa_mem_desc_offset() with count to 1.
+
+
+> +		ret = FFA_RET_INVALID_PARAMETERS;
+> +		goto out_unlock;
+> +	}
+> +
+> +	ep_mem_access = (void *)buf + em_mem_access_off;
+>  	offset = ep_mem_access->composite_off;
+>  	if (!offset || buf->ep_count != 1 || buf->sender_id != HOST_FFA_ID) {
+>  		ret = FFA_RET_INVALID_PARAMETERS;
+> @@ -574,9 +581,9 @@ static void do_ffa_mem_reclaim(struct arm_smccc_1_2_regs *res,
+>  	DECLARE_REG(u32, handle_lo, ctxt, 1);
+>  	DECLARE_REG(u32, handle_hi, ctxt, 2);
+>  	DECLARE_REG(u32, flags, ctxt, 3);
+> +	u32 offset, len, fraglen, fragoff, em_mem_access_off;
+>  	struct ffa_mem_region_attributes *ep_mem_access;
+>  	struct ffa_composite_mem_region *reg;
+> -	u32 offset, len, fraglen, fragoff;
+>  	struct ffa_mem_region *buf;
+>  	int ret = 0;
+>  	u64 handle;
+> @@ -599,8 +606,14 @@ static void do_ffa_mem_reclaim(struct arm_smccc_1_2_regs *res,
+>  	len = res->a1;
+>  	fraglen = res->a2;
+>  
+> -	ep_mem_access = (void *)buf +
+> -			ffa_mem_desc_offset(buf, 0, hyp_ffa_version);
+> +	em_mem_access_off = ffa_mem_desc_offset(buf, 0, hyp_ffa_version);
+> +	if ((u64)em_mem_access_off + ffa_emad_size_get(hyp_ffa_version) > fraglen) {
+
+ditto. ffa_mem_desc_offset()
+
+> +		ret = FFA_RET_INVALID_PARAMETERS;
+> +		ffa_rx_release(res);
+> +		goto out_unlock;
+> +	}
+> +
+> +	ep_mem_access = (void *)buf + em_mem_access_off;
+>  	offset = ep_mem_access->composite_off;
+>  	/*
+>  	 * We can trust the SPMD to get this right, but let's at least
+> -- 
+> 2.54.0.1136.gdb2ca164c4-goog
 > 
->  arch/arm64/include/asm/tlbbatch.h | 10 ++-----
->  arch/arm64/include/asm/tlbflush.h | 49 +++++--------------------------
->  arch/arm64/kernel/fpsimd.c        | 10 +++++--
->  arch/arm64/kernel/process.c       | 35 ----------------------
->  4 files changed, 17 insertions(+), 87 deletions(-)
-
-Ok, so this partially undoes the work to mitigate the IPI-based DoS
-reported by Sashiko, but only for the TLB batching case. The mm_cpumask()
-is still used for the unbatched case.
-
-It looks functionally correct to me, but it would be great to see some
-Tested-by lines from people who are concerned about the performance...
-
-Will
 
