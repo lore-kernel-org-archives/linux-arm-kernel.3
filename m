@@ -4,64 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 540F3CD98ED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 10:11:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C045CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 10:16:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nUAA1E2BDC/m8Qh4zriU+H1O4lzzxO0FeBLvDHoZgZc=; b=K8BdkYd9heo5IQMiymYcEJo+TN
-	B+3T7quIdY3fnW8AesYcaQTeI6YM/0K/f9tF41nzZDGk0B/ndhiiy2k9eoWFBBSpVoNAgQcbYfiUn
-	H7j+meUb6ceI6f1ADFfNmWFSWlKvxBOsVJ4XetAjNCdZmZBzuEY6a6ibzUh5p/XROnN1dwmzb9KeD
-	Ce5WObZUx5OUUEL19BAh5XbUBkRT+mwzrxzWFrSLm4ADlUYIIP+DUnEf0naXRYMP7V9ewlZmmQBXY
-	yjwJYVL867jjdkLYeb/SnMkkc9LnabXYl3NIkL1nkgiX8QzstOmIFQxH1Khk7weOefJQ/ZVlUhLC3
-	vhVuydCg==;
+	bh=66JgIZ+ZfVcAOFUVboi0UgekLa+PJ0VEWzz7UjtLzxI=; b=nZ0WN3zlPV8QvDb9rdsl1a20nr
+	NLQnxSUQmC4w40afTL4uzdM94+aswrgtTT/K25FO/6U9tmbVRUAhdBtPgvwWHxuBOVAmondLiDM3j
+	yq755JcfU3bSB9HrAR1wAlgOBTDxval+TggR1CXNyvrQMsrGxCvwPFWYIz+9c1E2kw+hsBTXHjY1o
+	dFTxzErS//oxXZdSv6ouQ463J+sjjYUEFRST8OJV1dtcO1lPtW+aqEZf5XGt5igSKQQWGIy9irDfB
+	9c0DRsnHal0OagB2qIWEWpAIK+NPS7O6ybCAIPqWgme1ABpEujXNfNToX9X1l/1n8xLXsnk4iN4Uq
+	fV4Ef/9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa9iS-000000014MY-1KHw;
-	Thu, 18 Jun 2026 10:11:20 +0000
-Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
+	id 1wa9ne-000000014uf-12fy;
+	Thu, 18 Jun 2026 10:16:42 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa9iQ-000000014Lz-0fca;
-	Thu, 18 Jun 2026 10:11:19 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
-	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 03140200275;
-	Thu, 18 Jun 2026 12:11:16 +0200 (CEST)
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1wa9iN-003QAS-2z;
-	Thu, 18 Jun 2026 12:11:15 +0200
-Received: from pza by lupine with local (Exim 4.98.2)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1wa9iN-0000000065I-3Quw;
-	Thu, 18 Jun 2026 12:11:15 +0200
-Message-ID: <ab7fd447a05ab86e889c401350b83c3c85569f5c.camel@pengutronix.de>
-Subject: Re: [PATCH v8 02/10] reset: Add Realtek basic reset support
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Yu-Chun Lin <eleanor.lin@realtek.com>, mturquette@baylibre.com, 
-	sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- 	cylee12@realtek.com, afaerber@suse.com, jyanchou@realtek.com
-Cc: bmasney@redhat.com, devicetree@vger.kernel.org,
- linux-clk@vger.kernel.org, 	linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, 
-	linux-realtek-soc@lists.infradead.org, james.tai@realtek.com, 
-	cy.huang@realtek.com, stanley_chang@realtek.com
-Date: Thu, 18 Jun 2026 12:11:15 +0200
-In-Reply-To: <20260610080824.255063-3-eleanor.lin@realtek.com>
-References: <20260610080824.255063-1-eleanor.lin@realtek.com>
-	 <20260610080824.255063-3-eleanor.lin@realtek.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
-MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260618_031118_346875_281850E2 
-X-CRM114-Status: GOOD (  17.86  )
+	id 1wa9nc-000000014uU-2XFb
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 18 Jun 2026 10:16:40 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 081CB441CF;
+	Thu, 18 Jun 2026 10:16:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DBA971F000E9;
+	Thu, 18 Jun 2026 10:16:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781777799;
+	bh=66JgIZ+ZfVcAOFUVboi0UgekLa+PJ0VEWzz7UjtLzxI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=EJWyH5g1605DUv6IWjNVuxBmHWLdme+hDdzyJx7Sc5pjfRoZPQOleZzMUSh9AvfbE
+	 9Wc4l4SDqRoJsC/6h/b6nB4gPDxbu1JyLXtn7IBNl8QIKk1ob2J63NxBEdy5bR+9/e
+	 TKSsf2W03FjQIPvm7QPe4sJB7WzLSJLtI7yBrkj8HjMefZ3hvlEL9JWsFMCldxyTNG
+	 NPEh0mNOXXM12j+U7yHdNkhtn2V5ab4Yk36/GLEAKD8zSnvJqW7rtD4QXYAerDSeUL
+	 wu+O9afpG4PYom2Q1Ure3+Ec0DP0FlNvPlhoCUtOW2gSB1WsI0cvxSKGtLNgGpUGG8
+	 eE93SJGnh7r9Q==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wa9na-0000000Dxvj-00Cx;
+	Thu, 18 Jun 2026 10:16:38 +0000
+Date: Thu, 18 Jun 2026 11:16:37 +0100
+Message-ID: <86fr2krw56.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: tabba@google.com
+Cc: Oliver Upton <oupton@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Quentin Perret <qperret@google.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Sebastian Ene <sebastianene@google.com>,
+	Per Larsen <perlarsen@google.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	Hyunwoo Kim <imv4bel@gmail.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 11/11] KVM: arm64: Implement lazy vCPU state sync for non-protected guests
+In-Reply-To: <20260612065925.755562-12-tabba@google.com>
+References: <20260612065925.755562-1-tabba@google.com>
+	<20260612065925.755562-12-tabba@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: tabba@google.com, oupton@kernel.org, will@kernel.org, catalin.marinas@arm.com, qperret@google.com, vdonnefort@google.com, sebastianene@google.com, perlarsen@google.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, joey.gouly@arm.com, seiden@linux.ibm.com, mark.rutland@arm.com, jonathan.cameron@huawei.com, imv4bel@gmail.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,103 +96,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mi, 2026-06-10 at 16:08 +0800, Yu-Chun Lin wrote:
-> From: Cheng-Yu Lee <cylee12@realtek.com>
->=20
-> Define the reset operations backed by a regmap-based register interface
-> and prepare the reset controller to be registered through the reset
-> framework.
->=20
-> Since the reset controllers on Realtek SoCs often share the same register
-> space with the clock controllers, this common framework is designed to
-> extract the regmap and device tree node from the parent device
-> (e.g., an auxiliary device parent).
->=20
-> Signed-off-by: Cheng-Yu Lee <cylee12@realtek.com>
-> Co-developed-by: Yu-Chun Lin <eleanor.lin@realtek.com>
-> Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+On Fri, 12 Jun 2026 07:59:25 +0100,
+tabba@google.com wrote:
+> 
+> pKVM copies a non-protected guest's register context between the host
+> and the hypervisor on every world switch, even when the host never
+> inspects it. Defer the copy: on entry, flush the host context into the
+> hyp vCPU only when the host marked it dirty (PKVM_HOST_STATE_DIRTY); on
+> exit, leave it in the hyp vCPU and copy it back only when the host needs
+> it, via a __pkvm_vcpu_sync_state hypercall on trap handling or at vcpu
+> put. A protected guest's context is copied as before, since lazy sync
+> only helps where the host is trusted to see the guest's registers.
+> 
+> The PC is the exception: it is copied back on every exit so the
+> kvm_exit tracepoint reports the guest's real exit PC rather than the
+> value left by the previous sync.
+> 
+> Signed-off-by: Fuad Tabba <tabba@google.com>
 > ---
-> Changes in v8:
-> - None
-> ---
->  MAINTAINERS                    |  1 +
->  drivers/reset/Kconfig          |  1 +
->  drivers/reset/Makefile         |  1 +
->  drivers/reset/realtek/Kconfig  |  8 +++
->  drivers/reset/realtek/Makefile |  2 +
->  drivers/reset/realtek/common.c | 90 ++++++++++++++++++++++++++++++++++
->  drivers/reset/realtek/common.h | 29 +++++++++++
->  7 files changed, 132 insertions(+)
->  create mode 100644 drivers/reset/realtek/Kconfig
->  create mode 100644 drivers/reset/realtek/Makefile
->  create mode 100644 drivers/reset/realtek/common.c
->  create mode 100644 drivers/reset/realtek/common.h
->=20
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 613ca7e95e47..80e840a6691d 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -22484,6 +22484,7 @@ L:	devicetree@vger.kernel.org
->  L:	linux-clk@vger.kernel.org
->  S:	Supported
->  F:	Documentation/devicetree/bindings/clock/realtek*
-> +F:	drivers/reset/realtek/*
->  F:	include/dt-bindings/clock/realtek*
->  F:	include/dt-bindings/reset/realtek*
-> =20
-> diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
-> index d009eb0849a3..45a4227b5f44 100644
-> --- a/drivers/reset/Kconfig
-> +++ b/drivers/reset/Kconfig
-> @@ -418,6 +418,7 @@ config RESET_ZYNQMP
-> =20
->  source "drivers/reset/amlogic/Kconfig"
->  source "drivers/reset/hisilicon/Kconfig"
-> +source "drivers/reset/realtek/Kconfig"
->  source "drivers/reset/spacemit/Kconfig"
->  source "drivers/reset/starfive/Kconfig"
->  source "drivers/reset/sti/Kconfig"
-> diff --git a/drivers/reset/Makefile b/drivers/reset/Makefile
-> index 3e52569bd276..7330fee91365 100644
-> --- a/drivers/reset/Makefile
-> +++ b/drivers/reset/Makefile
-> @@ -2,6 +2,7 @@
->  obj-y +=3D core.o
->  obj-y +=3D amlogic/
->  obj-y +=3D hisilicon/
-> +obj-y +=3D realtek/
->  obj-y +=3D spacemit/
->  obj-y +=3D starfive/
->  obj-y +=3D sti/
-> diff --git a/drivers/reset/realtek/Kconfig b/drivers/reset/realtek/Kconfi=
-g
-> new file mode 100644
-> index 000000000000..bb6dd856a64a
-> --- /dev/null
-> +++ b/drivers/reset/realtek/Kconfig
-> @@ -0,0 +1,8 @@
-> +# SPDX-License-Identifier: GPL-2.0-only
-> +config RESET_RTK_COMMON
-> +	tristate "Realtek common reset driver" if COMPILE_TEST
-> +	help
-> +	  This option enables the common reset controller library for
-> +	  Realtek SoCs. It provides shared reset control operations
-> +	  (assert, deassert, status) and a registration helper function
-> +	  that other Realtek-specific reset drivers can use.
-> diff --git a/drivers/reset/realtek/Makefile b/drivers/reset/realtek/Makef=
-ile
-> new file mode 100644
-> index 000000000000..b59a3f7f2453
-> --- /dev/null
-> +++ b/drivers/reset/realtek/Makefile
-> @@ -0,0 +1,2 @@
-> +# SPDX-License-Identifier: GPL-2.0-only
-> +obj-$(CONFIG_RESET_RTK_COMMON) +=3D common.o
+>  arch/arm64/include/asm/kvm_asm.h   |  1 +
+>  arch/arm64/include/asm/kvm_host.h  |  2 +
+>  arch/arm64/kvm/arm.c               |  7 +++
+>  arch/arm64/kvm/handle_exit.c       | 22 ++++++++
+>  arch/arm64/kvm/hyp/nvhe/hyp-main.c | 88 ++++++++++++++++++++++++++++--
+>  5 files changed, 115 insertions(+), 5 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
+> index 043495f7fc78..6e1135b3ded4 100644
+> --- a/arch/arm64/include/asm/kvm_asm.h
+> +++ b/arch/arm64/include/asm/kvm_asm.h
+> @@ -113,6 +113,7 @@ enum __kvm_host_smccc_func {
+>  	__KVM_HOST_SMCCC_FUNC___pkvm_finalize_teardown_vm,
+>  	__KVM_HOST_SMCCC_FUNC___pkvm_vcpu_load,
+>  	__KVM_HOST_SMCCC_FUNC___pkvm_vcpu_put,
+> +	__KVM_HOST_SMCCC_FUNC___pkvm_vcpu_sync_state,
+>  	__KVM_HOST_SMCCC_FUNC___pkvm_tlb_flush_vmid,
+>  
+>  	MARKER(__KVM_HOST_SMCCC_FUNC_MAX)
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index a49042bfa801..1ef660774adc 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -1113,6 +1113,8 @@ struct kvm_vcpu_arch {
+>  /* SError pending for nested guest */
+>  #define NESTED_SERROR_PENDING	__vcpu_single_flag(sflags, BIT(8))
+>  
+> +/* pKVM host vcpu state is dirty, needs resync (nVHE-only) */
+> +#define PKVM_HOST_STATE_DIRTY	__vcpu_single_flag(iflags, BIT(4))
 
-That's an awfully generic module name. Id doesn't match the config option w=
-ell. Please rename this to reset-rtk-common.o, reset-realtek.o, or somethin=
-g similar.
+Please don't add flags in random positions. Keep them grouped by
+type.
 
-regards
-Philipp
+Also, it is unclear to me whether this is really an input to the
+hypervisor (which is what iflags indicates), but rather a new type of
+flag that indicate some hypervisor-private state. May not be that
+important right now, but worth keeping in mind.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
