@@ -4,67 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E9FECD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 06:01:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70EAACD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 06:13:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zrh0Efzu7OsN5UGgvC0/F8zFCrpiooG8KAqUSiEJ+wY=; b=Fq6Gnrmu84zBUzuEilnCuHZIlk
-	7hAXvYxvojityLfwWpXIamI7W8UoMPrYZJPYp8AJj58UbY5UO2j+vxw2yRnjQ9iUSJsAuUx6eaoZ4
-	oW76BfC9BDpyo/tQeoYPDZADjBcYuxXWWPbyjK11GwwpABLXKTiPc+uTMffHnAInZ3W4nkBDDomtz
-	4NPsfc2ZnNyGxUDOvPZhucfMjH5bNNV9wly3qgdiDU0B5qchgTVlOL1IRogt3TckPYBHCLpUOmOO3
-	gfl7Ui2ojYREFqkI/DomX7xiXuJwNGT+L7E+t1ans3Aj8qknpK/VMbbvB/O5eU+lPLhKVGsx9CgGD
-	w/4xXBPQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HkPc/71jgImUZdgRfROJckyG+AOsxAcO+4dgMgHoUDM=; b=db+efyfTWRM6VLuyP7Iz6VGTNE
+	6rYomzqtl0K2L7yw95qFKWYaqgy0hI9EndGnepQDFRji5HiqovqCWoXvHw7l4W3/FoV98oORn8zRq
+	vm9VcRHfl/BZpHj2w13/18zYQB8zfOOGk1wCmzqCP80YtbM77jBAwHDXo+6qnBSawm8X8yevYhh6t
+	UrB8udADYUMBPDDJNqfeHVIDs4KEPrueG1Og+itjB3fZcN/NrRPX4lneArQxw8yS++3urYRzvwvmo
+	0GLpcdP3bzB4ajHT8ro1OSEBgFB1Mn/9YRq8Cz6gWCoiMVysxHjBpgTj+FgT17jcdrDSnbc5vf3HC
+	32eZS3+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa5oy-00000000g92-2G9H;
-	Thu, 18 Jun 2026 06:01:48 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa5ou-00000000g8f-3aUI
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 06:01:46 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F21B228AC;
-	Wed, 17 Jun 2026 23:01:36 -0700 (PDT)
-Received: from localhost (a079125.arm.com [10.164.21.37])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DBB173F915;
-	Wed, 17 Jun 2026 23:01:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1781762501; bh=wvF71wruNTFedYxNRUL72jmvp9HzpNJuEquij6HZbPQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HJm3SwVpj2AJ1RpncIA7Ng5szhqi7BDwlpNT7Noa4VVYEbmG63EdEQ6zgCg/VnN/L
-	 O3tZthrnEVIIsrzSF2CyEeKqm1B795mDpoFwoPmpwILcrsfFI9O5oaVgDHLYt++hLe
-	 4HLIBUkX13FL0vWXKBRVezQDQPpaPH2zZnwPPd+8=
-Date: Thu, 18 Jun 2026 11:31:37 +0530
-From: Linu Cherian <linu.cherian@arm.com>
-To: Will Deacon <will@kernel.org>
-Cc: Ryan Roberts <ryan.roberts@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Yang Shi <yang@os.amperecomputing.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Huang Ying <ying.huang@linux.alibaba.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	shameerali.kolothum.thodi@huawei.com
-Subject: Re: [PATCH v2] arm64: tlbflush: Don't broadcast if mm was only
- active on local cpu
-Message-ID: <ajOJwcsxl3Qlu9vA@a079125.arm.com>
-References: <20260523134710.3827956-1-linu.cherian@arm.com>
- <ai6KzFgfMAxqplcr@willie-the-truck>
- <bfc8803d-b375-477e-bba7-806edaf86578@arm.com>
- <ajAPnahwTe1OHQDp@willie-the-truck>
+	id 1wa60K-00000000gqi-2EMN;
+	Thu, 18 Jun 2026 06:13:32 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wa60J-00000000gqQ-2AJY;
+	Thu, 18 Jun 2026 06:13:31 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6398460008;
+	Thu, 18 Jun 2026 06:13:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 919D11F000E9;
+	Thu, 18 Jun 2026 06:13:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781763210;
+	bh=HkPc/71jgImUZdgRfROJckyG+AOsxAcO+4dgMgHoUDM=;
+	h=From:Date:Subject:To:Cc;
+	b=jyN63kAHB8NJnjZ2eD77LPsaMR8mKg9QspW3LgscVl8jFFbea/xk7/uKdfdhVd1SQ
+	 Obd2IHOMis2D03NHVDxE2qhTVreyYW9pie1LJA4MJmTo7axBqS8uWFSX5267yi1slT
+	 EfRVyr8oIf/uwxTMVIahphHrPBFbq8HOowI59CnCIAj7/gOnQsL32xqTWoxzxp5YlG
+	 k0aP63YpCHbbHTnv2GwTfmm0fm9D9DrkUeeUSVz1n0OCK/bfGwOp9mGpmMcVIjCVoy
+	 B4ixUEAVeaZDFBP5CcgA3Ncym03lBS6GdwrHcYoPCuxDHYKa74qbqDprF8mq6I17Nw
+	 /ix7jlMq4KmSw==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Thu, 18 Jun 2026 08:13:16 +0200
+Subject: [PATCH net] net: airoha: fix BQL underflow and UAF in shared QDMA
+ TX ring
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ajAPnahwTe1OHQDp@willie-the-truck>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260617_230145_082583_0D699A72 
-X-CRM114-Status: GOOD (  65.58  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260618-airoha-bql-fixes-v1-1-ffd2c2089518@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3LTQqAIBBA4avErBtQox+6SrTQmmogrDQiEO/e0
+ PLj8RJECkwR+iJBoIcjH16gywKmzfqVkGcxGGUa1egOLYdjs+iuHRd+KeJSt87MWnV1W4FsZ6A
+ /yDWApxvGnD8aCKhbZwAAAA==
+X-Change-ID: 20260618-airoha-bql-fixes-f57b2d108573
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: Wayen Yan <win847@gmail.com>, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+X-Mailer: b4 0.14.3
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,197 +74,232 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+When multiple netdevs share a QDMA TX ring and one device is stopped,
+netdev_tx_reset_subqueue() zeroes that device's BQL counters while its
+pending skbs remain in the shared HW TX ring. When NAPI later completes
+those skbs via netdev_tx_completed_queue(), the already-zeroed
+dql->num_queued counter underflows.
+Moreover, in the airoha_remove() path, netdevs are unregistered
+sequentially while skbs from previously unregistered netdevs may still
+reference freed net_device memory via skb->dev, causing a use-after-free
+during BQL accounting.
+Fix both issues:
+- Remove netdev_tx_reset_subqueue() from airoha_dev_stop() so pending
+  skbs are completed naturally by NAPI with proper BQL accounting.
+- Add netdev_tx_completed_queue() in airoha_qdma_cleanup_tx_queue()
+  to properly account for skbs freed during queue teardown.
+- Introduce airoha_qdma_tx_disable() to stop TX on all registered
+  netdevs for a given QDMA instance under RTNL lock.
+- Move DMA engine start/stop into probe/remove and
+  airoha_qdma_cleanup(), ensuring TX queues are cleaned up while all
+  netdevs are still registered and skb->dev is valid.
 
-On Mon, Jun 15, 2026 at 03:43:41PM +0100, Will Deacon wrote:
-> On Mon, Jun 15, 2026 at 12:21:19PM +0100, Ryan Roberts wrote:
-> > On 14/06/2026 12:04, Will Deacon wrote:
-> > > On Sat, May 23, 2026 at 07:17:10PM +0530, Linu Cherian wrote:
-> > >> From: Ryan Roberts <ryan.roberts@arm.com>
-> > >>
-> > >> Testing with 7.1-rc4 :
-> > >> +-----------------------+---------------------------------------------------+-------------+
-> > >> | Benchmark             | Result Class                                      |  Improvement|  
-> > >> +=======================+===================================================+=============+
-> > >> | perf/syscall          | fork (ops/sec)                                    |   (I) 3.25% |
-> > >> +-----------------------+---------------------------------------------------+-------------+
-> > >> | pts/memtier-benchmark | Protocol: Redis Clients: 100 Ratio: 1:5 (Ops/sec) |   (I) 2.70% |
-> > >> | 			| Protocol: Redis Clients: 100 Ratio: 5:1 (Ops/sec) |   (I) 2.13% |
-> > >> +-----------------------+---------------------------------------------------+-------------+
-> > > 
-> > > I think we need a much more comprehensive set of benchmarks before we can
-> > > begin to consider a change like this.
-> > 
-> > I believe that Linu ran a wider set of benchmarks and didn't find any
-> > regressions. These are just the ones that show improvement (Linu, please correct
-> > me and/or provide details).
-> 
-> I think it's important to show the ones that suffer as well... and also
-> look at different configurations (e.g. preemptible settings) and different
-> environments (e.g. native vs in a VM).
-> 
-> > Additionally Huang Ying did some testing against the RFC and reported 4.5%
-> > improvement with Redis:
-> > 
-> > https://lore.kernel.org/linux-arm-kernel/87segumv6w.fsf@DESKTOP-5N7EMDA 
-> 
-> To be clear: I'm not disputing that some benchmarks appear to show a small
-> boost from this series. I'm just worried that's not the whole story.
-> 
-> > >>  arch/arm64/include/asm/mmu.h         |  12 +++
-> > >>  arch/arm64/include/asm/mmu_context.h |   2 +
-> > >>  arch/arm64/include/asm/tlbflush.h    | 127 +++++++++++++++++++++------
-> > >>  arch/arm64/mm/context.c              |  30 ++++++-
-> > >>  4 files changed, 141 insertions(+), 30 deletions(-)
-> > > 
-> > > Doesn't this break BTM/SVM with the SMMU? I think that's a non-starter
-> > > even if you can provide some more compelling numbers.
-> > 
-> > AIUI, we don't support BTM upstream - the SMMU uses private ASIDs and implements
-> > MMU notifiers to forward the TLBIs via its command queue interface.
-> > 
-> > I was also under the impression that supporting BTM upsteam was not desired;
-> > Please correct me if that's not accurate or if you're aware of plans to add
-> > support. I've been (coincidentlly) looking at some other stuff that could
-> > benefit from BTM but had concluded it wouldn't be an acceptable approach upstream.
-> > 
-> > If we did ever want to add SMMU BTM support though, I think it would be simple
-> > enough to add an interface to allow the SMMU to disable the optimization (i.e.
-> > force active_cpu to ACTIVE_CPU_MULTIPLE)?
-> 
-> We used to have some initial BTM support in the SMMUv3 driver but the
-> main problem was finding an upstream driver/soc that can use it properly
-> and so it was ultimately removed in d38c28dbefee ("iommu/arm-smmu-v3: Put
-> the SVA mmu notifier in the smmu_domain") because it was getting in the
-> way of wider driver rework and we couldn't test it.
-> 
-> However, there *is* work to re-enable it on top of that rework (and other
-> changes):
-> 
->   https://lore.kernel.org/linux-iommu/20250319173202.78988-6-shameerali.kolothum.thodi@huawei.com/
-> 
-> although I don't know if Shameer intends to repost that...
-> 
-> > >> +static inline bool flush_tlb_user_pre(struct mm_struct *mm, tlbf_t flags)
-> > >> +{
-> > >> +	unsigned int self, active;
-> > >> +	bool local;
-> > >> +
-> > >> +	migrate_disable();
-> > >> +
-> > >> +	if (flags & TLBF_NOBROADCAST) {
-> > >> +		dsb(nshst);
-> > >> +		return true;
-> > >> +	}
-> > > 
-> > > Why does the NOBROADCAST case need migration disabled? It didn't before...
-> > 
-> > The existing semantic for TLBF_BOBROADCAST is that it emits a local TLBI on
-> > whatever CPU we happen to be executing on. It's used for lazily fixing up
-> > spurious faults (i.e. hitting RO TLB entries when the PTE has been relaxed to
-> > RW). So it's still functionally correct if the thread migrates CPU between
-> > taking the fault and issuing the local TLBI - in the worst case it just leads to
-> > another spurious fault.
-> > 
-> > For this new case, we need to ensure we don't get migrated between reading
-> > active_cpu and issuing the local TLBI, otherwise we would only issue a local
-> > TLBI when a broadcast was required.
-> 
-> Sounds like those two users probably need separating out, then?
-> 
-> > >> +	self = smp_processor_id();
-> > >> +
-> > >> +	/*
-> > >> +	 * The load of mm->context.active_cpu must not be reordered before the
-> > >> +	 * store to the pgtable that necessitated this flush. This ensures that
-> > >> +	 * if the value read is our cpu id, then no other cpu can have seen the
-> > >> +	 * old pgtable value and therefore does not need this old value to be
-> > >> +	 * flushed from its tlb. But we don't want to upgrade the dsb(ishst),
-> > >> +	 * needed to make the pgtable updates visible to the walker, to a
-> > >> +	 * dsb(ish) by default. So speculatively load without a barrier and if
-> > >> +	 * it indicates our cpu id, then upgrade the barrier and re-load.
-> > >> +	 */
-> > >> +	active = READ_ONCE(mm->context.active_cpu);
-> > >> +	if (active == self) {
-> > >> +		dsb(ish);
-> > >> +		active = READ_ONCE(mm->context.active_cpu);
-> > >> +	} else {
-> > >> +		dsb(ishst);
-> > >> +	}
-> > > 
-> > > Why can't you just do:
-> > > 
-> > > 	dsb(ishst);
-> > > 	active = READ_ONCE(mm->context.active_cpu);
-> > > 
-> > > ?
-> > 
-> > Prior to this optimization, we always issued a dsb(ishst) here. Catalin
-> > suggested the same simplification against the RFC. I believe Linu tried it but
-> > saw regressions; Hopefully Linu can provide the details.
-> 
-> I don't follow...
-> 
-> The old code always did dsb(ishst). The proposed code here does either
-> dsb(ish) or dsb(ishst). How can that possibly be faster?
-> 
-> > >> +	local = active == self;
-> > >> +	if (!local)
-> > >> +		migrate_enable();
-> > >> +
-> > >> +	return local;
-> > >> +}
-> > >> +
-> > >> +static inline void flush_tlb_user_post(bool local)
-> > >> +{
-> > >> +	if (local)
-> > >> +		migrate_enable();
-> > >> +}
-> > > 
-> > > I was under the impression that disabling/enabling migration was an
-> > > expensive thing to do, so I'd really want to see some more numbers to
-> > > justify this (including from inside a VM) and allow us to consider the
-> > > trade-offs properly. It's also not at all clear to me that it's safe
-> > > from such a low-level TLB invalidation helper.
-> > 
-> > I had assumed it wasn't very expensive, but perhaps I'm wrong. I know
-> > preempt_enable() can be expensive because it has to test to see if it needs to
-> > reschedule. But I assumed for disabling/enabling migration, it would just be a
-> > counter and the scheduler would check that it's zero before considing moving the
-> > task to another run queue. (But I have practically zero understanding of the
-> > scheduler so I'll assume I'm wrong...).
-> 
-> I'm not an expert here either, but reading the code shows that it has
-> a preempt guard along with additional book-keeping.
-> 
-> > Instead of disabling migration, perhaps we could re-check active_cpu after
-> > issuing the local tlbi - if it's now reporting "multiple" we must have been
-> > migrated and we need to upgrade to a braodcast TLBI?
-> 
-> That's an interesting idea, although I suppose it means the
-> post-invalidation DSB needs to be ISH for the local case to check the
-> active_cpu safely?
+Fixes: 6df0488dc9dd ("net: airoha: fix BQL accounting in airoha_qdma_cleanup_tx_queue()")
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+ drivers/net/ethernet/airoha/airoha_eth.c | 95 ++++++++++++++++++++++++--------
+ 1 file changed, 72 insertions(+), 23 deletions(-)
 
-I might be wrong about this, so please correct me if i am missing
-something here.
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+index 64dde6464f3f..4d6a061cd779 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.c
++++ b/drivers/net/ethernet/airoha/airoha_eth.c
+@@ -1004,6 +1004,7 @@ static int airoha_qdma_tx_napi_poll(struct napi_struct *napi, int budget)
+ 
+ 		e = &q->entry[index];
+ 		skb = e->skb;
++		e->skb = NULL;
+ 
+ 		dma_unmap_single(eth->dev, e->dma_addr, e->dma_len,
+ 				 DMA_TO_DEVICE);
+@@ -1147,6 +1148,42 @@ static int airoha_qdma_init_tx(struct airoha_qdma *qdma)
+ 	return 0;
+ }
+ 
++static void airoha_qdma_tx_disable(struct airoha_qdma *qdma)
++{
++	struct airoha_eth *eth = qdma->eth;
++	int i;
++
++	/* Protect netdev->reg_state and netif_tx_disable() calls. */
++	rtnl_lock();
++
++	for (i = 0; i < ARRAY_SIZE(eth->ports); i++) {
++		struct airoha_gdm_port *port = eth->ports[i];
++		int j;
++
++		if (!port)
++			continue;
++
++		for (j = 0; j < ARRAY_SIZE(port->devs); j++) {
++			struct airoha_gdm_dev *dev = port->devs[j];
++			struct net_device *netdev;
++
++			if (!dev)
++				continue;
++
++			if (dev->qdma != qdma)
++				continue;
++
++			netdev = netdev_from_priv(dev);
++			if (netdev->reg_state != NETREG_REGISTERED)
++				continue;
++
++			netif_tx_disable(netdev);
++		}
++	}
++
++	rtnl_unlock();
++}
++
+ static void airoha_qdma_cleanup_tx_queue(struct airoha_queue *q)
+ {
+ 	struct airoha_qdma *qdma = q->qdma;
+@@ -1158,13 +1195,20 @@ static void airoha_qdma_cleanup_tx_queue(struct airoha_queue *q)
+ 	for (i = 0; i < q->ndesc; i++) {
+ 		struct airoha_queue_entry *e = &q->entry[i];
+ 		struct airoha_qdma_desc *desc = &q->desc[i];
++		struct sk_buff *skb = e->skb;
+ 
+ 		if (!e->dma_addr)
+ 			continue;
+ 
+ 		dma_unmap_single(eth->dev, e->dma_addr, e->dma_len,
+ 				 DMA_TO_DEVICE);
+-		dev_kfree_skb_any(e->skb);
++		if (skb) {
++			struct netdev_queue *txq;
++
++			txq = skb_get_tx_queue(skb->dev, skb);
++			netdev_tx_completed_queue(txq, 1, skb->len);
++			dev_kfree_skb_any(skb);
++		}
+ 		e->dma_addr = 0;
+ 		e->skb = NULL;
+ 		list_add_tail(&e->list, &q->tx_list);
+@@ -1527,6 +1571,23 @@ static void airoha_qdma_cleanup(struct airoha_qdma *qdma)
+ {
+ 	int i;
+ 
++	if (test_bit(DEV_STATE_INITIALIZED, &qdma->eth->state)) {
++		u32 status;
++
++		airoha_qdma_tx_disable(qdma);
++
++		airoha_qdma_clear(qdma, REG_QDMA_GLOBAL_CFG,
++				  GLOBAL_CFG_TX_DMA_EN_MASK |
++				  GLOBAL_CFG_RX_DMA_EN_MASK);
++		if (read_poll_timeout(airoha_qdma_rr, status,
++				      !(status & (GLOBAL_CFG_TX_DMA_BUSY_MASK |
++						  GLOBAL_CFG_RX_DMA_BUSY_MASK)),
++				      USEC_PER_MSEC, 50 * USEC_PER_MSEC, true,
++				      qdma, REG_QDMA_GLOBAL_CFG))
++			dev_warn(qdma->eth->dev,
++				 "QDMA DMA engine busy timeout\n");
++	}
++
+ 	for (i = 0; i < ARRAY_SIZE(qdma->q_rx); i++) {
+ 		if (!qdma->q_rx[i].ndesc)
+ 			continue;
+@@ -1837,9 +1898,6 @@ static int airoha_dev_open(struct net_device *netdev)
+ 	}
+ 	port->users++;
+ 
+-	airoha_qdma_set(qdma, REG_QDMA_GLOBAL_CFG,
+-			GLOBAL_CFG_TX_DMA_EN_MASK |
+-			GLOBAL_CFG_RX_DMA_EN_MASK);
+ 	qdma->users++;
+ 
+ 	if (!airoha_is_lan_gdm_dev(dev) &&
+@@ -1880,12 +1938,9 @@ static int airoha_dev_stop(struct net_device *netdev)
+ 	struct airoha_gdm_dev *dev = netdev_priv(netdev);
+ 	struct airoha_gdm_port *port = dev->port;
+ 	struct airoha_qdma *qdma = dev->qdma;
+-	int i;
+ 
+ 	netif_tx_disable(netdev);
+ 	airoha_set_vip_for_gdm_port(dev, false);
+-	for (i = 0; i < netdev->num_tx_queues; i++)
+-		netdev_tx_reset_subqueue(netdev, i);
+ 
+ 	if (--port->users)
+ 		airoha_set_port_mtu(dev->eth, port);
+@@ -1893,19 +1948,7 @@ static int airoha_dev_stop(struct net_device *netdev)
+ 		airoha_set_gdm_port_fwd_cfg(qdma->eth,
+ 					    REG_GDM_FWD_CFG(port->id),
+ 					    FE_PSE_PORT_DROP);
+-
+-	if (!--qdma->users) {
+-		airoha_qdma_clear(qdma, REG_QDMA_GLOBAL_CFG,
+-				  GLOBAL_CFG_TX_DMA_EN_MASK |
+-				  GLOBAL_CFG_RX_DMA_EN_MASK);
+-
+-		for (i = 0; i < ARRAY_SIZE(qdma->q_tx); i++) {
+-			if (!qdma->q_tx[i].ndesc)
+-				continue;
+-
+-			airoha_qdma_cleanup_tx_queue(&qdma->q_tx[i]);
+-		}
+-	}
++	qdma->users--;
+ 
+ 	return 0;
+ }
+@@ -3413,8 +3456,12 @@ static int airoha_probe(struct platform_device *pdev)
+ 	if (err)
+ 		goto error_netdev_free;
+ 
+-	for (i = 0; i < ARRAY_SIZE(eth->qdma); i++)
++	for (i = 0; i < ARRAY_SIZE(eth->qdma); i++) {
+ 		airoha_qdma_start_napi(&eth->qdma[i]);
++		airoha_qdma_set(&eth->qdma[i], REG_QDMA_GLOBAL_CFG,
++				GLOBAL_CFG_TX_DMA_EN_MASK |
++				GLOBAL_CFG_RX_DMA_EN_MASK);
++	}
+ 
+ 	for_each_child_of_node(pdev->dev.of_node, np) {
+ 		if (!of_device_is_compatible(np, "airoha,eth-mac"))
+@@ -3440,6 +3487,8 @@ static int airoha_probe(struct platform_device *pdev)
+ 	for (i = 0; i < ARRAY_SIZE(eth->qdma); i++)
+ 		airoha_qdma_stop_napi(&eth->qdma[i]);
+ 
++	airoha_hw_cleanup(eth);
++
+ 	for (i = 0; i < ARRAY_SIZE(eth->ports); i++) {
+ 		struct airoha_gdm_port *port = eth->ports[i];
+ 		int j;
+@@ -3461,7 +3510,6 @@ static int airoha_probe(struct platform_device *pdev)
+ 		}
+ 		airoha_metadata_dst_free(port);
+ 	}
+-	airoha_hw_cleanup(eth);
+ error_netdev_free:
+ 	free_netdev(eth->napi_dev);
+ 	platform_set_drvdata(pdev, NULL);
+@@ -3477,6 +3525,8 @@ static void airoha_remove(struct platform_device *pdev)
+ 	for (i = 0; i < ARRAY_SIZE(eth->qdma); i++)
+ 		airoha_qdma_stop_napi(&eth->qdma[i]);
+ 
++	airoha_hw_cleanup(eth);
++
+ 	for (i = 0; i < ARRAY_SIZE(eth->ports); i++) {
+ 		struct airoha_gdm_port *port = eth->ports[i];
+ 		int j;
+@@ -3497,7 +3547,6 @@ static void airoha_remove(struct platform_device *pdev)
+ 		}
+ 		airoha_metadata_dst_free(port);
+ 	}
+-	airoha_hw_cleanup(eth);
+ 
+ 	free_netdev(eth->napi_dev);
+ 	platform_set_drvdata(pdev, NULL);
 
-So we have two possibilities here,
-Case 1: Task not migrated until active_cpu is loaded
+---
+base-commit: 7d8297e26b4e20b5d1c3c3fe51fe81a1c7fbc823
+change-id: 20260618-airoha-bql-fixes-f57b2d108573
 
-In this case, the existing dsb(nsh) would suffice to give necessary
-ordering between tlbi and active_cpu_load. 
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
 
-Case 2: Task migrated(scheduled to run on another cpu) before active_cpu is loaded
-
-In this case, active_cpu gets upgraded to ACTIVE_CPU_MULTIPLE as part of context switch in
-check_and_switch_context and active_cpu gets loaded correctly.
-Also we would end up repeating the tlbi op in broadcast mode for this case.
-
-But then, we will have a problem with the TLBF_NOSYNC | TLBF_NOBRODCAST case, as we need
-to introduce a dsb(nsh) unconditionally to ensure ordering between the tlbi and
-active_cpu load.
-
-
-Thanks,
-Linu Cherian.
 
