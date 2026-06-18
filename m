@@ -4,69 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43A37CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 12:17:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC490CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 12:21:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w+AhAEVoRg1890k5wY55SgwuMZz8LqOoIUrf4PaEO4w=; b=KxU3DClCsvDQS25iK4ygtW09m5
-	dNHOQ8e0T19aJUDKhBGIzIBgzl6owZhz+5BW08vClXmbc3fcYdstsNAc/Wj+rDCKmGelDCUVkUkMA
-	omVMzDLPbw8kO2wXOQMqt/RfY6hs0zsW1zXGk9EsGovrxbnsNHORcvaRDJ1fnc7sEQtY3XE/+Vtm1
-	FD5pfA65cys4dcC+IdzS/VGP6QBOkDMyLz+/KSjHN8jz3glBVoK5AdGOX5o3SiEbIIPyJ+G4gzAmd
-	dGKq91Dm887d5bvEpOXWQvmQjokTBHXgriLTMBTDaHjQYeNj0wfBGcy9TrQeY2YWJ/YrWLsfiPwDi
-	AcRiYwsw==;
+	bh=Jxvhe6p1siX027yhrT2z3XtNk0V+WNmEv1s3Z1RR4ZI=; b=QSbw+7Ed9lw6P2T4Bp2f1M7BSI
+	ZPC+pixtygy9OlFj15VGvlJAASVtGFW4/dlbAayWDAURqJgw6QWC0UmEh34AemAcpMb7YlCmp4yQV
+	01HwmscEdg/5NW9sC0m9MQOIDG+zrLToU2fjKCYgeigfPptbkKKNKqbTcDYl42Mevkw9gtVmZMc+K
+	D24YJz0jhLis6H2MwmYsT9FuRlSU5NTo6Devmt5NG+nLQgBoXga28VXWvzM0PFPfL4sDKJKK7Y2T3
+	BaIkMZ3vL9IhO58K8xOoVZoFZIME9C5y+/DNX6JAR0GCM4ORGbv0qnb+SyiQG7+FdCRDIBj0xhHjQ
+	6UNLzQ+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waBgM-00000001FOk-2Pia;
-	Thu, 18 Jun 2026 12:17:18 +0000
-Received: from sender4-op-o12.zoho.com ([136.143.188.12])
+	id 1waBkH-00000001Fyo-0wEm;
+	Thu, 18 Jun 2026 12:21:21 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waBgC-00000001FD9-1hwD;
-	Thu, 18 Jun 2026 12:17:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1781785021; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=SRY15kLo0a1jC1eWJ0rWHaJ3+azhzZ2fuS836+kPtheGl5MaWh+vmrCRD7hU0PynXanpRQy94PcroHGr83nhA96womaIlWqJO2hiCP4koCXQ1xneB9Ym3KJnpd3leMNb4V7u0vBNq5FYlpMXbRhaYPXXV+J4tfq0Ixo3wZcdFlw=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1781785021; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=w+AhAEVoRg1890k5wY55SgwuMZz8LqOoIUrf4PaEO4w=; 
-	b=mCUAiG0NxgSk5SWKpOvbNBdrxQelLTTHOBWEjhajJf//g/PRTXq0kUnIZQLp+C8WLIGW4sBCOaybZtVYD0y7dI4lMBz5Ba7c8fm4AVf/znttCKLD8YleQ2Iqy5wT0/KBZq2m5vsAZk9yjOpcc4m8TXmjeip7dSIRjHSc7EGAQG0=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1781785021;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=w+AhAEVoRg1890k5wY55SgwuMZz8LqOoIUrf4PaEO4w=;
-	b=O8wU4yi9N4RKZFtuUBldol3ASmhXprLUYvNCiLNHTubaOpMNG5JxgKhPaMEIMwWP
-	xzA96hV9tzi6XSAXgdS8SeKP9dMFsa+HnqubJUOblc1J/9K5cVRrnT/Ypv7pgMf/Nj9
-	SvdVAGPsZqVTMoilol3FPtiJ4Gyqroi6t22fT5IU=
-Received: by mx.zohomail.com with SMTPS id 1781785018759133.6823912950772;
-	Thu, 18 Jun 2026 05:16:58 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Bui Duc Phuc <phucduc.bui@gmail.com>
-Cc: Heiko Stuebner <heiko@sntech.de>, Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>,
- Nicolas Frattaroli <frattaroli.nicolas@gmail.com>,
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
- linux-sound@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/3] ASoC: rockchip: Use guard() for spin locks
-Date: Thu, 18 Jun 2026 14:16:53 +0200
-Message-ID: <D9b19fqJSQK5FO2BflNEKw@collabora.com>
-In-Reply-To: <CAABR9nGEHmy4YSqFSyh+gqXVwNgpaGOjqBeUZyHBmMibHwvMxA@mail.gmail.com>
-References: <20260604033554.96996-1-phucduc.bui@gmail.com>
- <mPIrpl-QRw6_Q9DZcTQ5xA@collabora.com>
- <CAABR9nGEHmy4YSqFSyh+gqXVwNgpaGOjqBeUZyHBmMibHwvMxA@mail.gmail.com>
+	id 1waBkG-00000001FyI-1oxb;
+	Thu, 18 Jun 2026 12:21:20 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 20C8960008;
+	Thu, 18 Jun 2026 12:21:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 014171F000E9;
+	Thu, 18 Jun 2026 12:21:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781785278;
+	bh=Jxvhe6p1siX027yhrT2z3XtNk0V+WNmEv1s3Z1RR4ZI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Abiv2iO4RiW//8pR9dLhCcfHcyT0i58RzDg5KzLOl4m1sOVrs9DawRFk1ryHLcLTZ
+	 GPY4ji0YfFluVDNoGFEQXe/s9wWAINc1y53L2TgIChzRQy+tck3KRiTB4YXjBtxuF/
+	 dKOzf0YDV7JDGJYBomYM/m/3eJJw0ECQPGWyOA2dny3d1EqMKYJ5bv0qL/FdTFInjo
+	 UwObl+tH/TA8ZI2XIv81QMpK+UGTHEWY2yqpQg+12mo83OKk5o3NZmROcMePyhmjO+
+	 piAkoCTIX25wwfovDDqzcGs4sdtJWDhEf0M8suoHHDosU2AvUXb3uErsuxUgwmrIPT
+	 xJGfjxrHWZ73A==
+Date: Thu, 18 Jun 2026 13:21:08 +0100
+From: Will Deacon <will@kernel.org>
+To: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: Michael Kelley <mhklinux@outlook.com>,
+	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+	"tsbogend@alpha.franken.de" <tsbogend@alpha.franken.de>,
+	"pjw@kernel.org" <pjw@kernel.org>,
+	"palmer@dabbelt.com" <palmer@dabbelt.com>,
+	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+	"alex@ghiti.fr" <alex@ghiti.fr>,
+	"tglx@kernel.org" <tglx@kernel.org>,
+	"mingo@redhat.com" <mingo@redhat.com>,
+	"bp@alien8.de" <bp@alien8.de>,
+	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+	"hpa@zytor.com" <hpa@zytor.com>,
+	"peterz@infradead.org" <peterz@infradead.org>,
+	"kees@kernel.org" <kees@kernel.org>,
+	"nathan@kernel.org" <nathan@kernel.org>,
+	"linusw@kernel.org" <linusw@kernel.org>,
+	"ojeda@kernel.org" <ojeda@kernel.org>,
+	"david.kaplan@amd.com" <david.kaplan@amd.com>,
+	"lukas.bulwahn@redhat.com" <lukas.bulwahn@redhat.com>,
+	"ryan.roberts@arm.com" <ryan.roberts@arm.com>,
+	"maz@kernel.org" <maz@kernel.org>,
+	"timothy.hayes@arm.com" <timothy.hayes@arm.com>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"thuth@redhat.com" <thuth@redhat.com>,
+	"oupton@kernel.org" <oupton@kernel.org>,
+	"yeoreum.yun@arm.com" <yeoreum.yun@arm.com>,
+	"miko.lenczewski@arm.com" <miko.lenczewski@arm.com>,
+	"broonie@kernel.org" <broonie@kernel.org>,
+	"kevin.brodsky@arm.com" <kevin.brodsky@arm.com>,
+	"james.clark@linaro.org" <james.clark@linaro.org>,
+	"tabba@google.com" <tabba@google.com>,
+	"mrigendra.chaubey@gmail.com" <mrigendra.chaubey@gmail.com>,
+	"arnd@arndb.de" <arnd@arndb.de>,
+	"anshuman.khandual@arm.com" <anshuman.khandual@arm.com>,
+	"x86@kernel.org" <x86@kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH RFC 3/3] arm64: Add HOTPLUG_PARALLEL support for
+ secondary CPUs
+Message-ID: <ajPitENEHWa8lDfC@willie-the-truck>
+References: <20260611133809.3854977-1-ruanjinjie@huawei.com>
+ <20260611133809.3854977-4-ruanjinjie@huawei.com>
+ <SN6PR02MB41575306521E6223561F476FD4182@SN6PR02MB4157.namprd02.prod.outlook.com>
+ <e96a2579-c010-4198-a2a3-6ba35b14aef0@huawei.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260618_051708_501780_8B499E3F 
-X-CRM114-Status: GOOD (  36.69  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <e96a2579-c010-4198-a2a3-6ba35b14aef0@huawei.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,140 +109,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thursday, 18 June 2026 05:16:24 Central European Summer Time Bui Duc Phuc wrote:
-> Hi Nicolas,
+Hi Jinjie,
+
+On Mon, Jun 15, 2026 at 04:51:48PM +0800, Jinjie Ruan wrote:
+> On 6/12/2026 11:45 PM, Michael Kelley wrote:
+> > From: Jinjie Ruan <ruanjinjie@huawei.com> Sent: Thursday, June 11, 2026 6:38 AM
+> >>
+> >> Support for parallel secondary CPU bringup is already utilized by x86,
+> >> MIPS, and RISC-V. This patch brings this capability to the arm64
+> >> architecture.
+> >>
+> >> Rework the global `secondary_data` accessed during early boot into
+> >> a per-CPU array. This array maps logical CPU IDs to MPIDR_EL1 values,
+> >> enabling the early boot code in head.S to resolve each secondary CPU's
+> >> logical ID concurrently.
+> >>
+> >> To fully enable HOTPLUG_PARALLEL, this patch implements:
+> >> 1) An arm64-specific arch_cpuhp_kick_ap_alive() handler.
+> >> 2) Callbacks to cpuhp_ap_sync_alive() inside secondary_start_kernel().
+> >>
+> >> Successfully tested on QEMU ARM64 virt machine (KVM on, 128 vCPUs).
+> >>
+> >> |     test kernel	   | secondary CPUs boot time |
+> >> |  ---------------------   |	--------------------  |
+> >> |   Without this patch     |		155.672	      |
+> >> |   cpuhp.parallel=0	   |		62.897	      |
+> >> |   cpuhp.parallel=1	   |		166.703	      |
+> > 
+> > The last two rows seem mixed up. I would expect parallel=0 to
+> > result in a longer boot time.
 > 
-> Thanks for the feedback.
+> Hi, Michael,
 > 
-> > FWIW, the SAI patch wasn't sent to the proper maintainer e-mail
-> > for it which is why I didn't notice this series at all until now,
-> > and the whole thing is pointless churn that wasn't even tested.
-> >
-> > From a cursory glance, whatever LLM was pointed at this and decided
-> > to make the output my problem also didn't do a good job, the scoped
-> > indentation of rockchip_sai_runtime_suspend seems pointless because
-> > it could've been replaced by a pm guard followed by a spinlock guard,
-> > without an additional level of indentation, and `if (ret == 0) {` is
-> > not kernel style.
-> >
-> > It's not worth the revert but it sucks that I have to now set up a
-> > new lei search for all the drivers I am supposed to receive mail for
-> > because vibecoders can't be bothered to run get_maintainers as they
-> > pad their CV with nonsense like this.
-> >
-> > >
-> > > [1/3] ASoC: rockchip: rockchip_i2s: Use guard() for spin locks
-> > >       https://git.kernel.org/broonie/sound/c/4bda5af16920
-> > > [2/3] ASoC: rockchip: i2s-tdm: Use guard() for spin locks
-> > >       https://git.kernel.org/broonie/sound/c/ec22437fc41a
-> > > [3/3] ASoC: rockchip: rockchip_sai: Use guard() for spin locks
-> > >       https://git.kernel.org/broonie/sound/c/f7fe9f707360
-> > >
+> The results are correct and not mixed up.
 > 
-> Regarding the claim that the Rockchip SAI patch was not sent to the proper
-> maintainer, I believe there may be a misunderstanding.
-> Before sending the series, I ran get_maintainer.pl on the patch set and
-> included all recipients reported by the script, including:
-> 
-> Nicolas Frattaroli <frattaroli.nicolas@gmail.com>
-> 
-> along with the relevant mailing lists.
-> 
-> ------------------------------------------
-> phuc@phuc-desktop:~/work/linux$ ls ../patch/sound/rockchip/clean/
-> 0000-cover-letter.patch
-> v2-0000-cover-letter.patch
-> 0001-ASoC-rockchip-rockchip_i2s-Use-guard-for-spin-locks.patch
-> v2-0001-ASoC-rockchip-rockchip_i2s-Use-guard-for-spin-loc.patch
-> 0002-ASoC-rockchip-i2s-tdm-Use-guard-for-spin-locks.patch
-> v2-0002-ASoC-rockchip-i2s-tdm-Use-guard-for-spin-locks.patch
-> 0003-ASoC-rockchip-rockchip_sai-Use-guard-for-spin-locks.patch
-> v2-0003-ASoC-rockchip-rockchip_sai-Use-guard-for-spin-loc.patch
-> phuc@phuc-desktop:~/work/linux$
-> phuc@phuc-desktop:~/work/linux$
-> phuc@phuc-desktop:~/work/linux$
-> phuc@phuc-desktop:~/work/linux$ ./scripts/get_maintainer.pl
-> ../patch/sound/rockchip/clean/000*.patch
-> ./scripts/get_maintainer.pl: file
-> '../patch/sound/rockchip/clean/0000-cover-letter.patch' doesn't appear
-> to be a patch.  Add -f to options?
-> Liam Girdwood <lgirdwood@gmail.com> (maintainer:SOUND - SOC LAYER /
-> DYNAMIC AUDIO POWER MANAGEM...)
-> Mark Brown <broonie@kernel.org> (maintainer:SOUND - SOC LAYER /
-> DYNAMIC AUDIO POWER MANAGEM...)
-> Jaroslav Kysela <perex@perex.cz> (maintainer:SOUND)
-> Takashi Iwai <tiwai@suse.com> (maintainer:SOUND)
-> Heiko Stuebner <heiko@sntech.de> (maintainer:ARM/Rockchip SoC support)
-> Nicolas Frattaroli <frattaroli.nicolas@gmail.com> (maintainer:ROCKCHIP
-> I2S TDM DRIVER)
-> linux-sound@vger.kernel.org (open list:SOUND - SOC LAYER / DYNAMIC
-> AUDIO POWER MANAGEM...)
-> linux-arm-kernel@lists.infradead.org (moderated list:ARM/Rockchip SoC support)
-> linux-rockchip@lists.infradead.org (open list:ARM/Rockchip SoC support)
-> linux-kernel@vger.kernel.org (open list)
-> SOUND - SOC LAYER / DYNAMIC AUDIO POWER MANAGEMENT (ASoC) status: Supported
-> phuc@phuc-desktop:~/work/linux$
-> phuc@phuc-desktop:~/work/linux$
-> ---------------------------------------------
+> Compared to the original non‑HOTPLUG_PARALLEL approach, the advantage of
+> cpuhp.parallel=0 lies in its use of cpu_relax(`yield` on arm64) instead
+> of the wait_for_completion_timeout() mechanism (which may cause sleep
+> and context switching). This significantly reduces the overhead of VM
+> exits and context switches in a KVM guest, thereby cutting the secondary
+> CPU boot time by more than half.
 
-$ ./scripts/get_maintainer.pl sound/soc/rockchip/rockchip_sai.c 
-Nicolas Frattaroli <nicolas.frattaroli@collabora.com> (maintainer:ROCKCHIP SAI DRIVER)
-[...]
+I don't think that's a particularly compelling reason to enable this for
+arm64, in all honesty. The yield instruction typically doesn't do
+anything on actual arm64 silicon, so this probably means that you're
+introducing busy-loops which tend to be bad for power and scalability.
 
-b4 will also pick this up. Running get_maintainer.pl on a patch with
-rockchip_sai.* in the diff will also pick it up, see MAINTAINERS. It
-likely wasn't picked up for you because by passing every patch into
-it at once, it decided to "deduplicate" my gmail from my work e-mail
-based on name, which seems like really silly default behaviour for
-get_maintainers to have. `--no-remove-duplicates` works around this.
+I implemented this a while ago [1] but didn't manage to see much in terms
+of performance improvement and so I didn't bother to send the patches out
+after talking about it at KVM forum [2]. However, as mentioned at the end
+of that talk, it _is_ still useful for confidential VMs using PSCI so
+let me dust off my old series and send it out to see what you think.
 
-I should be setting up a forward or checking my gmail at work more
-often.
+It relies on PSCI v0.2, which means we don't need the NR_CPUS size array
+for secondary_data and I also have some support for error handling (it
+doesn't look like you handle __early_cpu_boot_status properly).
 
-> 
-> If there are additional maintainers or mailing lists that should receive these
-> patches but are not currently reported by get_maintainer.pl, please let me know
-> so I can include them in future submissions.
-> I would also appreciate avoiding assumptions that the series was generated
-> by an LLM. The patches were prepared manually and submitted as part of
-> my ongoing effort to convert lock/unlock patterns to guard()/scoped_guard()
-> helpers where appropriate.
-> The series was build-tested before submission, so I do not believe it
-> is accurate
-> to describe it as "wasn't even tested".
-> Whether a particular conversion is worthwhile is certainly open to
-> technical discussion,
-> but I do not think it is reasonable to conclude that a patch was AI-generated
-> simply based on disagreements about the implementation details.
-> I understand maintainers have different preferences regarding how aggressively
-> such conversions should be applied, and I am happy to adjust the approach
-> based on review feedback.
+It looks like I could include your first patch, though!
 
-If the patch worsens code legibility through excessive indentation and does
-not make any functional changes, then I do not see the point of it.
-Build-testing will tell you whether it compiles, but a lot of things in C
-compile but aren't correct.
+Will
 
-If you want to try again, do so in a way where you don't have to indent
-large parts of a function another level, it's possible and the diff
-will be something I can actually read. Remember that you can place a
-guard for the spinlock in the middle of a function, and it'll only be
-picked up then, which should reduce the need for the scoped_guards in
-this. To avoid having to manually do pm unwind (and therefore require
-that the spinlock is dropped somehow before function exit), use the
-runtime pm guard macros as well. That should simplify this immensely.
-
-Last but not least, please run things through checkpatch. Even at the
-default options, it'll warn about the indentation level. With --strict,
-it'll also tell you about the braces. Personally I just use whatever
-preset `b4 prep --check` uses, which usually is quite reasonable.
-
-> 
-> Best regards,
-> Phuc
-> 
-
-
-
-
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/will/linux.git/log/?h=cpu-hotplug
+[2] https://www.youtube.com/watch?v=Q6kOshnnQuE
 
