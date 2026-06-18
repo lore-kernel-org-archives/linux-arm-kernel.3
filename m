@@ -4,55 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8240DCD98ED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 09:26:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E0C3CD98E2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 09:26:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c152yyawWOwtqOgmdJ351m5tfsJBbmik79lhDs9C+mM=; b=CQMr1Kz8DOYC8g1AJUdBQCipbU
-	ovpcZecYdRnVnaO9PLdiZianIjXgeqs7UNwZ/7E//Ld0UrUNjXxr3U8569DaUATqYWooMiYFoq/df
-	3sU3u+PBWbfQKpuu3nTxM8rP0sZ3trNYJLI+ss6+jmQ8Hj1z6JFXQ46zaCNcqkv3Oyjbotf361bV/
-	PgMQ7vzpPbBzHR7J86gFhfyKRxQ52ZPwz+/p/ykBdj5XuGGVGUMy8Q5OL1hrYEFQhMKnSb1Yh43qU
-	kUM7zojPhqanvmhhMb+kThHJl7xPrRZ+UKLQmCVI7/6cqLr1NJh29S/fEk+MS0rnkz6P1lEJP5FNK
-	BqC/vS6Q==;
+	bh=M2DVm3kV6Ggi8rv8O5YqfCiXLk7nZR1mnvOZP3H/9bQ=; b=cZnfBW7W8VDsyLdlbcqQy8IKKF
+	SA7VczMK1B4yixRtWA1L9SRemv6JW7YwuB7it2+b5rNWiwXZMJWqG6YP0jUQj38+hNX0WJBkpD1eN
+	HSga9/IPXXn6FPADA4gVwS6sZJKHkh0fsDNRIkwUbxsEIlf8WZy3aapQvcM0OH44yTl+OEYAqPEVp
+	pseGgbvtnCqzgk7PZU+vrbS0i3HhH6tEHcs9VkJdRXnxHgFbDr7Ej1doCEZPY5B4LG+zic6Gz2AEP
+	Hdi0NTCaHWOoYgXBZYfUWquW94TO5JeTxVYs+bj2KkB9M9d9fKUc3ibIEOg5lerJpQ+ckXVINUGZz
+	EnCzO4Sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa90s-00000000wsj-1zm3;
-	Thu, 18 Jun 2026 09:26:18 +0000
-Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
+	id 1wa90w-00000000wwM-3NWX;
+	Thu, 18 Jun 2026 09:26:22 +0000
+Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa90i-00000000wmJ-04DD;
-	Thu, 18 Jun 2026 09:26:11 +0000
+	id 1wa90m-00000000woL-1syt;
+	Thu, 18 Jun 2026 09:26:18 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=c152yyawWOwtqOgmdJ351m5tfsJBbmik79lhDs9C+mM=;
-	b=3pRLLMQXbk5Ji4A9Nr/somPIkUqHEODjvTuRHTO+MqQLE8vsaFxa49OIQx3vdq3I3YSzfKjwe
-	TCdziiCYZWuQpsNpKj8Ief3gxPdRwEDLjg8av45OjqLzqGDIgOLQUayxMNTbqmapJ5IeDVn1evq
-	t0JJEd2E1UK2l2+MLfufj7w=
-Received: from canpmsgout01.his.huawei.com (unknown [172.19.92.178])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4ggw9W69v5zcZyR;
-	Thu, 18 Jun 2026 17:17:35 +0800 (CST)
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=c152yyawWOwtqOgmdJ351m5tfsJBbmik79lhDs9C+mM=;
-	b=3pRLLMQXbk5Ji4A9Nr/somPIkUqHEODjvTuRHTO+MqQLE8vsaFxa49OIQx3vdq3I3YSzfKjwe
-	TCdziiCYZWuQpsNpKj8Ief3gxPdRwEDLjg8av45OjqLzqGDIgOLQUayxMNTbqmapJ5IeDVn1evq
-	t0JJEd2E1UK2l2+MLfufj7w=
-Received: from mail.maildlp.com (unknown [172.19.162.223])
-	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4ggw9P563Bz1T4Kt;
-	Thu, 18 Jun 2026 17:17:29 +0800 (CST)
+	bh=M2DVm3kV6Ggi8rv8O5YqfCiXLk7nZR1mnvOZP3H/9bQ=;
+	b=Q8B29D0zg2x24QYMY56En+H9ByPxLoagoKjJ4PBlPDI+UPKSz/G8+sSVEf9RKfYV6Kb5kTzQ0
+	vu10qTrjjuUFHGbCJ2o4pry5inI42gZ4gwjqp5TQUH8gWGGYgiTRHZT28nj3yzcGNUja0Kz0Hcy
+	aA1mw4xEqQ9sveRqX92PZrQ=
+Received: from mail.maildlp.com (unknown [172.19.162.92])
+	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4ggwB83cyFz1cyVP;
+	Thu, 18 Jun 2026 17:18:08 +0800 (CST)
 Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 04E0B40561;
-	Thu, 18 Jun 2026 17:26:02 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 6E41D4056E;
+	Thu, 18 Jun 2026 17:26:06 +0800 (CST)
 Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
  (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 18 Jun
- 2026 17:25:59 +0800
+ 2026 17:26:04 +0800
 From: Jinjie Ruan <ruanjinjie@huawei.com>
 To: <catalin.marinas@arm.com>, <will@kernel.org>, <tsbogend@alpha.franken.de>,
 	<pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
@@ -70,9 +60,9 @@ To: <catalin.marinas@arm.com>, <will@kernel.org>, <tsbogend@alpha.franken.de>,
 	<linux-mips@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
 	<apatel@ventanamicro.com>, <mhklinux@outlook.com>
 CC: <ruanjinjie@huawei.com>
-Subject: [PATCH v2 2/4] arm64: smp: Pass CPU ID to update_cpu_boot_status()
-Date: Thu, 18 Jun 2026 17:24:42 +0800
-Message-ID: <20260618092444.1316336-3-ruanjinjie@huawei.com>
+Subject: [PATCH v2 4/4] arm64: Add HOTPLUG_PARALLEL support for secondary CPUs
+Date: Thu, 18 Jun 2026 17:24:44 +0800
+Message-ID: <20260618092444.1316336-5-ruanjinjie@huawei.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260618092444.1316336-1-ruanjinjie@huawei.com>
 References: <20260618092444.1316336-1-ruanjinjie@huawei.com>
@@ -83,8 +73,8 @@ X-Originating-IP: [10.90.53.73]
 X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
  dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260618_022608_364390_AE3927D8 
-X-CRM114-Status: GOOD (  13.10  )
+X-CRM114-CacheID: sfid-20260618_022612_818041_B907637C 
+X-CRM114-Status: GOOD (  17.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,109 +89,247 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-To support CONFIG_HOTPLUG_PARALLEL, the CPU boot status tracking must
-be refactored from a single global variable (secondary_data.status)
-to a per-CPU tracking structure to prevent multi-core race conditions.
+Support for parallel secondary CPU bringup is already utilized by x86,
+MIPS, and RISC-V. This patch brings this capability to the arm64
+architecture.
 
-Add a 'cpu' parameter to update_cpu_boot_status() and update all its
-callsites to pass the corresponding CPU ID. This allows updating the
-boot status at a per-CPU granularity during parallel bringup.
+Rework the global `secondary_data` accessed during early boot into
+a per-CPU array `cpu_boot_data` to allow secondary CPUs to boot
+in parallel.
 
+And reuse `__cpu_logical_map` array in the early boot code in head.S
+to resolve each secondary CPU's logical ID concurrently.
+
+To fully enable HOTPLUG_PARALLEL, this patch implements:
+1) An arm64-specific arch_cpuhp_init_parallel_bringup() handler.
+2) An arm64-specific arch_cpuhp_kick_ap_alive() handler.
+3) Callbacks to cpuhp_ap_sync_alive() inside secondary_start_kernel().
+
+Tested natively with ATF on QEMU arm64 virt machine with 64 cores
+and also tested with KVM arm64 guest with 128 vCPUs.
+
+Bringup Time Comparison (ms, lower is better):
+
+|     Platform			   | Baseline|   P=0   |   P=1  | Delta(%)|
+| -------------------------------- | ------- | ------- | ------ | ------- |
+| 128 vCPUs KVM (256-core HIP09)   | 1921.5  | 1895.9  | 2776.9 | -44.52% |
+| 48 vCPUs KVM (64-core Cortex-A72)| 3644.7  | 3883.6  | 4406.3 | -20.9%  |
+| 64-core ATF QEMU		   | 2075.8  | 2080.7  | 1653.4 | 20.34%  |
+| 192-core server(HIP12)	   | 14619.2 | 14619.1 | 8589.4 | 41.21%  |
+| 32-core board			   | 2776.5  | 2881.0  | 1045.0 | 62.36%  |
+
+Tested-by: Michael Kelley <mhklinux@outlook.com>
 Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
 ---
- arch/arm64/include/asm/smp.h   | 6 +++---
- arch/arm64/kernel/cpufeature.c | 2 +-
- arch/arm64/kernel/smp.c        | 8 ++++----
- arch/arm64/mm/context.c        | 2 +-
- 4 files changed, 9 insertions(+), 9 deletions(-)
+ arch/arm64/Kconfig              |  1 +
+ arch/arm64/include/asm/smp.h    | 11 ++++++++++
+ arch/arm64/kernel/asm-offsets.c |  4 ++++
+ arch/arm64/kernel/head.S        | 36 +++++++++++++++++++++++++++++++++
+ arch/arm64/kernel/smp.c         | 33 ++++++++++++++++++++++++++++++
+ 5 files changed, 85 insertions(+)
 
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 9091c67e1cc2..8735e9d8ed13 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -113,6 +113,7 @@ config ARM64
+ 	select CPUMASK_OFFSTACK if NR_CPUS > 256
+ 	select DCACHE_WORD_ACCESS
+ 	select HAVE_EXTRA_IPI_TRACEPOINTS
++	select HOTPLUG_PARALLEL if SMP && HOTPLUG_CPU
+ 	select DYNAMIC_FTRACE if FUNCTION_TRACER
+ 	select DMA_BOUNCE_UNALIGNED_KMALLOC
+ 	select DMA_DIRECT_REMAP
 diff --git a/arch/arm64/include/asm/smp.h b/arch/arm64/include/asm/smp.h
-index 10ea4f543069..e2151a01731f 100644
+index e2151a01731f..30025030489c 100644
 --- a/arch/arm64/include/asm/smp.h
 +++ b/arch/arm64/include/asm/smp.h
-@@ -122,7 +122,7 @@ static inline void __noreturn cpu_park_loop(void)
- 	}
- }
+@@ -92,7 +92,14 @@ struct secondary_data {
+ 	long status;
+ };
  
--static inline void update_cpu_boot_status(int val)
-+static inline void update_cpu_boot_status(unsigned int cpu, int val)
++#ifdef CONFIG_HOTPLUG_PARALLEL
++static_assert((sizeof(struct secondary_data) & (sizeof(struct secondary_data) - 1)) == 0,
++	      "secondary_data size must be a power of 2 for assembly lsl assembly!");
++
++extern struct secondary_data cpu_boot_data[NR_CPUS];
++#else
+ extern struct secondary_data secondary_data;
++#endif
+ extern long __early_cpu_boot_status;
+ extern void secondary_entry(void);
+ 
+@@ -124,7 +131,11 @@ static inline void __noreturn cpu_park_loop(void)
+ 
+ static inline void update_cpu_boot_status(unsigned int cpu, int val)
  {
++#ifdef CONFIG_HOTPLUG_PARALLEL
++	WRITE_ONCE(cpu_boot_data[cpu].status, val);
++#else
  	WRITE_ONCE(secondary_data.status, val);
++#endif
  	/* Ensure the visibility of the status update */
-@@ -134,9 +134,9 @@ static inline void update_cpu_boot_status(int val)
-  * which calls for a kernel panic. Update the boot status and park the calling
-  * CPU.
-  */
--static inline void __noreturn cpu_panic_kernel(void)
-+static inline void __noreturn cpu_panic_kernel(unsigned int cpu)
- {
--	update_cpu_boot_status(CPU_PANIC_KERNEL);
-+	update_cpu_boot_status(cpu, CPU_PANIC_KERNEL);
- 	cpu_park_loop();
+ 	dsb(ishst);
  }
+diff --git a/arch/arm64/kernel/asm-offsets.c b/arch/arm64/kernel/asm-offsets.c
+index b6367ff3a49c..0a0aa965dbb4 100644
+--- a/arch/arm64/kernel/asm-offsets.c
++++ b/arch/arm64/kernel/asm-offsets.c
+@@ -11,6 +11,7 @@
+ #include <linux/arm_sdei.h>
+ #include <linux/sched.h>
+ #include <linux/ftrace.h>
++#include <linux/log2.h>
+ #include <linux/kexec.h>
+ #include <linux/mm.h>
+ #include <linux/kvm_host.h>
+@@ -97,6 +98,9 @@ int main(void)
+   BLANK();
+ #endif
+   DEFINE(CPU_BOOT_TASK,		offsetof(struct secondary_data, task));
++#ifdef CONFIG_HOTPLUG_PARALLEL
++  DEFINE(SECONDARY_DATA_SHIFT,	ilog2(sizeof(struct secondary_data)));
++#endif
+   BLANK();
+   DEFINE(FTR_OVR_VAL_OFFSET,	offsetof(struct arm64_ftr_override, val));
+   DEFINE(FTR_OVR_MASK_OFFSET,	offsetof(struct arm64_ftr_override, mask));
+diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
+index 87a822e5c4ca..000ab1acf7c5 100644
+--- a/arch/arm64/kernel/head.S
++++ b/arch/arm64/kernel/head.S
+@@ -12,6 +12,7 @@
+ #include <linux/linkage.h>
+ #include <linux/init.h>
+ #include <linux/pgtable.h>
++#include <linux/threads.h>
  
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 6d53bb15cf7b..0552202702bf 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -3674,7 +3674,7 @@ static void verify_local_cpu_caps(u16 scope_mask)
- 			caps->desc, system_has_cap, cpu_has_cap);
+ #include <asm/asm_pointer_auth.h>
+ #include <asm/assembler.h>
+@@ -378,6 +379,33 @@ alternative_else_nop_endif
+ 	br	x8
+ SYM_FUNC_END(secondary_startup)
  
- 		if (cpucap_panic_on_conflict(caps))
--			cpu_panic_kernel();
-+			cpu_panic_kernel(smp_processor_id());
- 		else
- 			cpu_die_early();
- 	}
++#ifdef CONFIG_HOTPLUG_PARALLEL
++	/*
++	 * Convert the physical MPIDR of the current secondary CPU
++	 * to its logical CPUID by traversing __cpu_logical_map
++	 * in parallel.
++	 */
++	.macro	mpidr_to_cpuid, mpidr, cpuid, tmp1, tmp2
++	mov_q	\tmp1, MPIDR_HWID_BITMASK
++	and	\mpidr, \mpidr, \tmp1
++
++	adr_l	\tmp1, __cpu_logical_map
++	mov	\cpuid, #0
++.Lfind_cpuid\@:
++	ldr	\tmp2, [\tmp1, \cpuid, lsl #3]
++	cmp	\tmp2, #-1
++	b.eq	.Lnext_cpu\@
++	cmp	\tmp2, \mpidr
++	b.eq	.Lfound_cpuid\@
++.Lnext_cpu\@:
++	add	\cpuid, \cpuid, #1
++	cmp	\cpuid, #NR_CPUS
++	b.ne	.Lfind_cpuid\@
++	b	__secondary_too_slow
++.Lfound_cpuid\@:
++	.endm
++#endif
++
+ 	.text
+ SYM_FUNC_START_LOCAL(__secondary_switched)
+ 	mov	x0, x20
+@@ -391,7 +419,15 @@ SYM_FUNC_START_LOCAL(__secondary_switched)
+ 	msr	vbar_el1, x5
+ 	isb
+ 
++#ifdef CONFIG_HOTPLUG_PARALLEL
++	mrs	x0, mpidr_el1
++	mpidr_to_cpuid mpidr=x0, cpuid=x2, tmp1=x1, tmp2=x3
++
++	adr_l	x0, cpu_boot_data
++	add	x0, x0, x2, lsl #SECONDARY_DATA_SHIFT
++#else
+ 	adr_l	x0, secondary_data
++#endif
+ 	ldr	x2, [x0, #CPU_BOOT_TASK]
+ 	cbz	x2, __secondary_too_slow
+ 
 diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-index 24f8448e1fbb..6bc90ee4820a 100644
+index 52edabc13d51..f7562c38d724 100644
 --- a/arch/arm64/kernel/smp.c
 +++ b/arch/arm64/kernel/smp.c
-@@ -118,7 +118,7 @@ int __cpu_up(unsigned int cpu, struct task_struct *idle)
- 	 * page tables.
- 	 */
- 	secondary_data.task = idle;
--	update_cpu_boot_status(CPU_MMU_OFF);
+@@ -61,6 +61,11 @@
+  * where to place its SVC stack
+  */
+ struct secondary_data secondary_data;
++
++#ifdef CONFIG_HOTPLUG_PARALLEL
++struct secondary_data cpu_boot_data[NR_CPUS] ____cacheline_aligned;
++#endif
++
+ /* Number of CPUs which aren't online, but looping in kernel text. */
+ static int cpus_stuck_in_kernel;
+ 
+@@ -106,8 +111,30 @@ static int boot_secondary(unsigned int cpu, struct task_struct *idle)
+ 	return -EOPNOTSUPP;
+ }
+ 
++#ifndef CONFIG_HOTPLUG_PARALLEL
+ static DECLARE_COMPLETION(cpu_running);
++#endif
++
++#ifdef CONFIG_HOTPLUG_PARALLEL
++extern const struct cpu_operations smp_spin_table_ops;
++
++/* Establish whether parallel bringup can be supported. */
++bool __init arch_cpuhp_init_parallel_bringup(void)
++{
++	int cpu = smp_processor_id();
++	const struct cpu_operations *ops = get_cpu_ops(cpu);
+ 
++	return ops && ops != &smp_spin_table_ops;
++}
++
++int arch_cpuhp_kick_ap_alive(unsigned int cpu, struct task_struct *tidle)
++{
++	cpu_boot_data[cpu].task = tidle;
 +	update_cpu_boot_status(cpu, CPU_MMU_OFF);
++
++	return boot_secondary(cpu, tidle);
++}
++#else
+ int __cpu_up(unsigned int cpu, struct task_struct *idle)
+ {
+ 	int ret;
+@@ -172,6 +199,7 @@ int __cpu_up(unsigned int cpu, struct task_struct *idle)
  
- 	/* Now bring the CPU into our world */
- 	ret = boot_secondary(cpu, idle);
-@@ -252,7 +252,7 @@ asmlinkage notrace void secondary_start_kernel(void)
- 	pr_info("CPU%u: Booted secondary processor 0x%010lx [0x%08x]\n",
- 					 cpu, (unsigned long)mpidr,
+ 	return -EIO;
+ }
++#endif /* CONFIG_HOTPLUG_PARALLEL */
+ 
+ static void init_gic_priority_masking(void)
+ {
+@@ -223,6 +251,9 @@ asmlinkage notrace void secondary_start_kernel(void)
+ 	 * fail to come online.
+ 	 */
+ 	check_local_cpu_capabilities();
++#ifdef CONFIG_HOTPLUG_PARALLEL
++	cpuhp_ap_sync_alive();
++#endif
+ 	rcutree_report_cpu_starting(cpu);
+ 
+ 	ops = get_cpu_ops(cpu);
+@@ -254,7 +285,9 @@ asmlinkage notrace void secondary_start_kernel(void)
  					 read_cpuid_id());
--	update_cpu_boot_status(CPU_BOOT_SUCCESS);
-+	update_cpu_boot_status(cpu, CPU_BOOT_SUCCESS);
+ 	update_cpu_boot_status(cpu, CPU_BOOT_SUCCESS);
  	set_cpu_online(cpu, true);
++#ifndef CONFIG_HOTPLUG_PARALLEL
  	complete(&cpu_running);
++#endif
  
-@@ -411,11 +411,11 @@ void __noreturn cpu_die_early(void)
- 	rcutree_report_cpu_dead();
- 
- 	if (IS_ENABLED(CONFIG_HOTPLUG_CPU)) {
--		update_cpu_boot_status(CPU_KILL_ME);
-+		update_cpu_boot_status(cpu, CPU_KILL_ME);
- 		__cpu_try_die(cpu);
- 	}
- 
--	update_cpu_boot_status(CPU_STUCK_IN_KERNEL);
-+	update_cpu_boot_status(cpu, CPU_STUCK_IN_KERNEL);
- 
- 	cpu_park_loop();
- }
-diff --git a/arch/arm64/mm/context.c b/arch/arm64/mm/context.c
-index 0f4a28b87469..6b8a3245f393 100644
---- a/arch/arm64/mm/context.c
-+++ b/arch/arm64/mm/context.c
-@@ -72,7 +72,7 @@ void verify_cpu_asid_bits(void)
- 		 */
- 		pr_crit("CPU%d: smaller ASID size(%u) than boot CPU (%u)\n",
- 				smp_processor_id(), asid, asid_bits);
--		cpu_panic_kernel();
-+		cpu_panic_kernel(smp_processor_id());
- 	}
- }
- 
+ 	/*
+ 	 * Secondary CPUs enter the kernel with all DAIF exceptions masked.
 -- 
 2.34.1
 
