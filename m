@@ -4,105 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09D7ECD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 10:46:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54A77CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 10:51:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9zs3o8mtyZf6a3mEQ56g0Zln0Vd2kWO9rUcsd+oFz5A=; b=y6geQKAg3azvzSOXWCIXHO6Vle
-	wDm+hP2FTTvH0h5b4OggGm+PYoEc2yJdABmCO3gGvaIxVDcfcP6zVHB12holwQ3HuuI8J6Y75eisp
-	dgwEQR/9ups8OD1MaGABU921rP1fAGi77wwn/DoN5AjYmxFXUqDUoBklWYFoU3MAy8zA8eM1Xtefl
-	9vkcvT/diCyRnpra1yhkWK6o6kdarJV3uDhjiRD/ekHgbhG7YCiQBAZ6drlqXJKTzkj2mZg/cCeK3
-	hWK6uEsk6sbpcSgoAUU7OOvwTZ1n37djMubSMkjxmzth2aN6sIiuafTOc2Psxyy2af/BzduslKdp9
-	HygKaYZg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PKKpVdrDqnA2ZI2QQYb9QpGJK08L53pkl9uf3Eglr+E=; b=dG6gNU53hgecm0FMNxaR5hg7/t
+	v+MZFGQxXQcMfAaxAEHQujlaOstDIiTHCis18Zrg9owX53lM2RkLJsAgyyXkZmybO5fiukOZXZ6wa
+	rAZGpVH5yi/Y2tuoMAmRrm9IfYXGWEj+3hJlO22R/C8SC/UhgyWvr5d52GCWeKwmQCgP1AC/mbryj
+	5Oi7Y8n9F7ehUijz/xeiZv28x+yhN86LIGz4j6Ve8gWpnQqXI/HnQWRJXN2lwsvwAiO352Tg3+LyN
+	hFsaSvYWRP+EOz27DdN4tBGP8sgcSNn82GmyCL2RmK6WWdMA9+RYln7mpt/F1PTwBigUK6BAlgTYE
+	r1YB090Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waAGK-000000017ZZ-23lq;
-	Thu, 18 Jun 2026 10:46:20 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1waALS-0000000183C-0gsI;
+	Thu, 18 Jun 2026 10:51:38 +0000
+Received: from m16.mail.163.com ([220.197.31.2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waAGH-000000017YR-49Ur
+	id 1waALO-0000000182X-43XF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 10:46:19 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-46255b269c2so545510f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 03:46:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781779576; x=1782384376; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=9zs3o8mtyZf6a3mEQ56g0Zln0Vd2kWO9rUcsd+oFz5A=;
-        b=DRfUU8QbDrPytz4JWDsdujxcC3q2L+knKPGA9svGIriN4FOqPUMJhhhjRON624zmbx
-         NZrAT6LFYSkjSrtVdBq4J1odKprD0SRAdCKwSYVFl/4nbNoPnXxUDD5m/zna8Plxka26
-         i+2rtqjbc2xhhRQkSGWI7NGFbS3berWTECzMasCDC5+G129BDAAbGJBwPCKvZHcDr3KG
-         DolZzgieeNSDy4FN26HjTSei8z7t10sz11869fflZS4YUjA42YPUIQyibS6BNzNTz3Vr
-         5sVeg9TrjrTY4lqaXzWPYSfFKqgPMwtqaKoOPQdA8hf1wpExkXLXozafCxsqC/rISIsw
-         0u3Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781779576; x=1782384376;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :sender:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=9zs3o8mtyZf6a3mEQ56g0Zln0Vd2kWO9rUcsd+oFz5A=;
-        b=DkaaM4qoNUdtOX+YIDSsmW4jRGY4HmnYsaYBphq1LKu/dD31gxeWvQNctcdRmPYBxa
-         yq7juSeTmDRxVW9lgfZazXOsywdAcsUjcOI2vxylxdR5uq7y9HuT5siguuIap1LYBcA2
-         WIrqJXmF9MeFkAQQP4IPbILm6dWJj9dGM2hRRIU/yHSXxr58Ccs+Kxt0kOIDVZNCpKxa
-         I+wEN5mSTUMQ8Z8nFD34JvsSQ2L5SqD6VUGneneFOVfKQKk0VHYVxIMYS8Z3pmiG1mjb
-         8QdrM3M8JEtlLvZmLdJLbHWM8LLK4OunLzXltsC8fksifVD3J4b3I9tJgh+rHRqM343X
-         EXFw==
-X-Forwarded-Encrypted: i=1; AFNElJ+OD3+ViCQ8bbY5dUPwfDRCqVGEX/YY5G8j9PAYbFUAUv0QahGwJX1DTiUsNTf7Df/+5keRTfYs1rUUCzZko2oD@lists.infradead.org
-X-Gm-Message-State: AOJu0YzqMSNt0e6NwubWlyYvBy2tthKbg4Z1ouuAJ+XXVLPRuDH/w6Tz
-	++Ug6h5gZpX7P8r9gSI9wRgjVNrkrPiqHNIDqbmD+cW0ACj7C9TDtZsS
-X-Gm-Gg: AfdE7cnoMx9N1y9LF1Y3WrELKCp7JPXfesgcYC9LutCVBct39sYyp5NoGXiK0yHHv1Q
-	YYyc+K/pa67tbDg3ujv9yspYM9LVMPqvPPsq59zCl6j2u8eQ/tsxg5KB0vJkcBYvXBFPI8rKIN6
-	Gzz1kxClQ9GtKFmgRhmVHHin+N+Bbq+NZdILBh9ydkw25SIZK45O1lkH7Z2KTWRxLESyfzua0dO
-	qA0AkesSvrnTA93QfQZ1GCXlAlLPG8/Hy3P1K3J5OXt1FDJmzSrT9mYOzGuExFZC1KTox+S/cca
-	bSCYyK6LDe0lflfqOF6vp1PyaIFQW19QLbWWEN3umh2H6puvBGGBjpxUVoJ94h/DrI38C1dbcrt
-	OZNxNxs8UAG+vEH9o6gIIBvCuUbHz1MBNtWkNa9x3S6Z/fE8erot1iA53JjtsEbSgDJQlDEZ4zk
-	SK59vzekwOIey4wALIe6Q30IX4DteiVynjSnnenKB2xXeE0DMdF5ZnCRvdjWkB7c2IyKbiVhzdl
-	jF72ADREzjWmloGYw==
-X-Received: by 2002:adf:ec05:0:b0:45e:f780:6177 with SMTP id ffacd0b85a97d-463ab7020cemr3850916f8f.18.1781779575898;
-        Thu, 18 Jun 2026 03:46:15 -0700 (PDT)
-Received: from [10.128.11.42] (195-23-151-163.net.novis.pt. [195.23.151.163])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4606f2b0d70sm62509268f8f.19.2026.06.18.03.46.14
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 18 Jun 2026 03:46:15 -0700 (PDT)
-Message-ID: <a372e209-fbf9-417f-ad08-226cb7025949@gmail.com>
-Date: Thu, 18 Jun 2026 11:46:12 +0100
+	Thu, 18 Jun 2026 10:51:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=PK
+	KpVdrDqnA2ZI2QQYb9QpGJK08L53pkl9uf3Eglr+E=; b=cmCMRFNd+IkDsfzEhs
+	h+RIUGGnycRzk0cu4wibkNk9qammMeqETKS5uTgrVvoBuJeIx7jtxGlTrY7zv1JA
+	qlszwOQFljZRksEDoqhdtg6AIi5m3J3IVj8jPZB1xGjhssG1vJSnMz/JEmEpNxnZ
+	EzHBy6TQ/wLJIrHxWjbY4HV7Y=
+Received: from ubuntu.. (unknown [])
+	by gzsmtp2 (Coremail) with SMTP id PSgvCgD3mfCLzTNqYkSUCg--.3697S4;
+	Thu, 18 Jun 2026 18:50:59 +0800 (CST)
+From: Ma Ke <make_ruc2021@163.com>
+To: suzuki.poulose@arm.com,
+	mike.leach@linaro.org,
+	james.clark@linaro.org,
+	leo.yan@arm.com,
+	alexander.shishkin@linux.intel.com,
+	mathieu.poirier@linaro.org
+Cc: coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	akpm@linux-foundation.org,
+	Ma Ke <make_ruc2021@163.com>,
+	stable@vger.kernel.org
+Subject: [RESEND PATCH v3] coresight: etm-perf: Fix reference count 
+Date: Thu, 18 Jun 2026 18:50:49 +0800
+Message-ID: <20260618105049.2495009-1-make_ruc2021@163.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/4] drivers/firmware: add SDEI cross-CPU NMI service
- for arm64
-To: Kiryl Shutsemau <kirill@shutemov.name>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- James Morse <james.morse@arm.com>
-Cc: Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
- Doug Anderson <dianders@chromium.org>, Petr Mladek <pmladek@suse.com>,
- Thomas Gleixner <tglx@linutronix.de>,
- Andrew Morton <akpm@linux-foundation.org>, Baoquan He <bhe@redhat.com>,
- Puranjay Mohan <puranjay@kernel.org>, Usama Arif <usama.arif@linux.dev>,
- Breno Leitao <leitao@debian.org>,
- Julien Thierry <julien.thierry.kdev@gmail.com>,
- Lecopzer Chen <lecopzer@gmail.com>, Sumit Garg <sumit.garg@kernel.org>,
- kernel-team@meta.com, kexec@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- "Kiryl Shutsemau (Meta)" <kas@kernel.org>
-References: <cover.1781709543.git.kas@kernel.org>
- <cover.1781709543.git.kas@kernel.org>
- <ab745689c0bfd01438d98ed1c79328bf2121be3b.1781709543.git.kas@kernel.org>
-Content-Language: en-US
-From: Julian Braha <julianbraha@gmail.com>
-In-Reply-To: <ab745689c0bfd01438d98ed1c79328bf2121be3b.1781709543.git.kas@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: PSgvCgD3mfCLzTNqYkSUCg--.3697S4
+X-Coremail-Antispam: 1Uf129KBjvJXoW7Kw4UAr17uF43tr4kJF48Crg_yoW8ZFyrpF
+	4jkws0yF98Gr40vws7Jr18Zay5uw4SvF4agFyfKw4DuF4YqFWfZFyjgryFyrn3urZ5Gas0
+	g3WxtF48uFWUXaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0JUUhL8UUUUU=
+X-Originating-IP: [202.112.113.208]
+X-CM-SenderInfo: 5pdnvshuxfjiisr6il2tof0z/xtbC1BP+CmozzZO9YQAA3o
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260618_034618_038323_8581C3B2 
-X-CRM114-Status: UNSURE (   8.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260618_035135_425533_6AEC61C9 
+X-CRM114-Status: GOOD (  13.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,17 +79,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Kiryl,
+bus_find_device() returns a device with its reference count
+incremented. When a user-selected sink is obtained through
+coresight_get_sink_by_id(), etm_setup_aux() keeps using the returned
+sink while building the path and allocating the sink buffer.
 
-On 6/17/26 20:20, Kiryl Shutsemau wrote:
+Therefore the lookup reference must remain valid while etm_setup_aux()
+is still using the sink, otherwise the sink could be removed under the
+caller. Drop the lookup reference on the common exit path, after
+etm_setup_aux() no longer directly uses the user-selected sink.
 
-> +config ARM_SDEI_NMI
-> +	bool "SDEI-based cross-CPU NMI service (arm64)"
-> +	depends on ARM64 && ARM_SDE_INTERFACE
-The dependency on ARM64 is redundant here since you already have the
-dependency on ARM_SDE_INTERFACE. Maybe a comment instead, though I think
-it's pretty clear from the prompt...
+The CoreSight path code takes the references it needs for built paths,
+so the initial lookup reference from coresight_get_sink_by_id() is no
+longer needed after setup_aux finishes.
 
+Found by code review.
 
-- Julian Braha
+Signed-off-by: Ma Ke <make_ruc2021@163.com>
+Cc: stable@vger.kernel.org
+Fixes: 0e6c20517596 ("coresight: etm-perf: Allow an event to use different sinks")
+---
+Changes in v3:
+- do not drop the lookup reference in coresight_get_sink_by_id(), as 
+that would return a sink pointer without keeping the device reference 
+while etm_setup_aux() is still using it.
+- dropped the lookup reference in etm_setup_aux on the common exit path, 
+as suggested by Suzuki.
+- updated the commit message to describe why the reference is kept 
+until etm_setup_aux() finishes using the sink.
+Changes in v2:
+- modified the patch as suggestions.
+---
+ drivers/hwtracing/coresight/coresight-etm-perf.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
+index f85dedf89a3f..d5116177c1b9 100644
+--- a/drivers/hwtracing/coresight/coresight-etm-perf.c
++++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
+@@ -456,6 +456,11 @@ static void *etm_setup_aux(struct perf_event *event, void **pages,
+ 		goto err;
+ 
+ out:
++	if (user_sink) {
++		put_device(&user_sink->dev);
++		user_sink = NULL;
++	}
++
+ 	return event_data;
+ 
+ err:
+-- 
+2.43.0
+
 
