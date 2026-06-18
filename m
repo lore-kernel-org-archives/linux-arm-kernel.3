@@ -4,69 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7BE7CD98F6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 14:39:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CEFDCD98F6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 14:40:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zv46b86Z90c3NTQhbCq7G5dVivB5xZOYy3luOkRnUy8=; b=dGpwnoUHchiauwBgSukAGcsQkh
-	yrv420/Y5mqP0ayv0g4T/dS+cpFtcwnIf9cAkimItKV3RmPXqwYfsBqIhAcp0WM7zxUcFANi8oeei
-	nOnhai/JtV5VpCmoTXht+F/9/DslIYNuH6orB3MjnSy/sXxuSp3XK38igHrhv5ldnqOcNVKJye3th
-	M8SHUq8WP0lbkVpJx23QnUzj0QMqn7ph1eaD3+SCF+/c4nC8JUUmDLsxaBW3u1lwfjDjkdiG62S/k
-	Ye0mDpbj3ZnyYvJw8g9rDtmeRr6RMhNZ/NFsTdGuh/JK8GjhJSt5HRSkKTnGnFGtalk3+JkjLvWy6
-	vifr8+EA==;
+	bh=klc37y86Bp+o8UgyvGFZJuEx2h0iQwGBFLogZZiStCY=; b=CABAypQ67r8i/IdMX5wgdrAcA6
+	b5Sz5weMzDeOUC/hD1f+RCDlGvdSDkTgTjKVKpzidUguNqgEDGhxvZmeJopHCxJg6tA1Kub5kCBz9
+	L6lGfltL2QkAExouITjRBY5wX6cihV3Fzet4+a2r+W9GL6B8wLNGEcCLsPYcwXVAvkUlJ0JyRFyN0
+	mLrXn7sC02Ll8p0XiUm8z9bu7avQo2Gj+Il0xvMUtGSb/fdBz8exOEUM829a8BTqKx66tHScp8ilK
+	fCFSgxW8je2YikXBuPbFdISApIOtNjyW+y46iDrPTUa7ZKvK6WwBl7UbOSK29bti5GIzd3K4E+6Yf
+	XEGWRZWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waDtb-00000001R96-1rj2;
-	Thu, 18 Jun 2026 14:39:07 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waDtY-00000001R8b-2ukk
+	id 1waDuV-00000001RGY-2jMD;
+	Thu, 18 Jun 2026 14:40:03 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1waDuS-00000001RFJ-32TX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 14:39:06 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B849232E2;
-	Thu, 18 Jun 2026 07:38:57 -0700 (PDT)
-Received: from LeoBrasDK.cambridge.arm.com (unknown [10.2.212.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8DA073F62B;
-	Thu, 18 Jun 2026 07:39:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1781793542; bh=6Am1opJXDmybJuNW2jsyzsVYJ+w2+XBiG7OCTHJPHN0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=hbwVow+wO53EszhaV3KgPSBRjjMo41WZsb5sQsMs6O7T7eaqhNU8P8JGPecidJrJr
-	 gC/yiJEA7GpzXF7USZy5TxxczPJ0S2ouIXctelFmQ2806chPzUp90C8/w9s5newedO
-	 n5gYNqvyn6pjiu/Gy2RJOP9UB7MgnecNe/Cje4VU=
-From: Leonardo Bras <leo.bras@arm.com>
-To: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Fuad Tabba <tabba@google.com>,
-	Raghavendra Rao Ananta <rananta@google.com>
-Cc: Leonardo Bras <leo.bras@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/3] Optimize S2 page splitting
-Date: Thu, 18 Jun 2026 15:38:50 +0100
-Message-ID: <ajQAkST-8muzZ1b4@LeoBrasDK>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260618131447.764085-1-leo.bras@arm.com>
-References: <20260618131447.764085-1-leo.bras@arm.com>
+	Thu, 18 Jun 2026 14:40:02 +0000
+Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-6912f4acca4so1714595a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 07:39:59 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1781793598; cv=none;
+        d=google.com; s=arc-20240605;
+        b=FSHhpWbNYRxiIuFV3Mow0P0Vn0qb+/Jo9ZmQQZXBnO1uXDBeBWG2ESMBzSbs7Y1PbP
+         zJDBItQbLbQ/VHpL7D7UbK0Slc3UwLpko/9ERMpNhiLLACEz1yz4n/58tixeS9L8ZYoM
+         jpjxop7BLYyuvl/jpFqw9XdgO4zWsWUSOZMZSFjgkgq9dX8UWVAjDqLU69Be8uC8R8H7
+         I6JodW/EFbhG6RAZgigXJ2OFch0FTGzUD9ty+4Csn2k+cX/YVFhsQ0gWT9ruGOKLXdrT
+         PqtAnjjMoyvPlnqtap9yexHUgO9DRrCrLh7smgKslpLuDZQKoxfBgK4tbCur1QYg+cj6
+         GCuQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=klc37y86Bp+o8UgyvGFZJuEx2h0iQwGBFLogZZiStCY=;
+        fh=xh3BgycrIfc/qTI0H8tlABOpsDfCNmGp1ksypK3gkZU=;
+        b=jgwypwOO5oz/3Jq7PQutdJhqPsDRs5xgEVallvHUMWBzDhgu0unGamKIux/Th837CO
+         rW7nEdrnJ0l2Mr2Y85kidhWdyk8lIxkSNHcBvyHfRKBThY3Vgj8EeikHT+I8E+MTTFAu
+         swnXo40AC7XAgeDkqfhtVdQ3zB9YArT8VY78P42ag2Ab8rOtXXNUdxqTvrkfHL4CQepj
+         SiwmxWvk5h7BEamx2EAhIOf7qz40briQOTY8TYZoFFk0wdh4UKOOGLcmU+wFsaI+2Icl
+         XHUsdCQQ+0T7Pnaa5gH3Ms4PEgE+mpmaMTLe9yX2F5BzndGyzv9qIIG4S1bNZocTeQfS
+         OsUw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=flipper.net; s=google; t=1781793598; x=1782398398; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=klc37y86Bp+o8UgyvGFZJuEx2h0iQwGBFLogZZiStCY=;
+        b=7v+iGvUWiKKZA35zA540yJtNVV7zdEjC3LHKsCu5PYxf24q869ZbB5k2oqenpVKvDk
+         KaCxgyp4vRj0kXkmf5D7GXBhTqQEt5xH985q8VO3xhY2n9SGrPULUo3sT12l6oXZcw7q
+         ijHnJ04G3/gtZj+nXegxbpJFstb/HduCf99IPLk3OIrIn2zNWb2utA7zW8jMan1vBiHp
+         U3XlWKbyzgX0K/zAa4SCpltQ7uALTslZFZtBDpKxa98GzGmcezLtWEW2xp9zKSy09Gw4
+         IJRkn0GVKACm1an3BtV1dt5FLKtNzCypokrOuPaZIXLmAB45bwN0MHxT+c47kDj8IGBO
+         md5w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781793598; x=1782398398;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=klc37y86Bp+o8UgyvGFZJuEx2h0iQwGBFLogZZiStCY=;
+        b=BCJAgJ5iOI0lBKVCBroBY475ywCLMFLnu7U2y3a5hVebzJfV1jaheQIfkHebKKWQAA
+         DMAcijFe1FypFrjJi8ubtA5+so2gzRxct0xO6oQTQqHC0mva98RDjdnH+qmK9T211UAk
+         u5qy/ljkDdKIIkw7VipHp1IuWjytXi24o8lpcOBbE3lG5PcyW4bCyk9kjFTfas5+RJGG
+         SBPHgNqtzyH3SmvuS2iLw3wS/FfxKIco0yYjaTbKtkqZOJ9CYlK0iR036xQlk//XN8Bx
+         k3JvhdfVI6qgwEHcPudSb9iC2LRjqi+4dHO/pAUjK6kUEj4tWJR50+G96uzve+Lx3Ylu
+         99pg==
+X-Forwarded-Encrypted: i=1; AFNElJ82T6rc/qhfyA8re8azgbh5Fmnzx+iRn3/8REvCKpVIQmz+nGJHIPxJHASAl+paOb6TdCjaWIgxjuJ2fK93xuBn@lists.infradead.org
+X-Gm-Message-State: AOJu0YxQXuRWEeiEid+Z1S11XWK2mF0hT4mZaSGeJ8T6tEyChpd1fcSJ
+	mTtbrl+b8l1MyYLCywxjOb7DhsRxspPtWKH9EUWQ7khy/PFKXbzWR7uAN1OIAqrcVqiCEZI4t6R
+	O8yGCDXSkk0zN/QPlbkczfAcvviVcTqLMuch2UHNr5cMSe4kSAKKJI3bmYQ==
+X-Gm-Gg: AfdE7cmfma/hjY+Ftx19u2AFYrYExFh4IZ9CZIW/ZT65RuU23TuggzwPS7V3tp1W716
+	OhRlDYiFjD8UNvRjy9x2D1O9fqp+wZS00qP7jDzWImMaqXirFqw5qb9ZNzheHEmslMWVpNJzdMn
+	FH9tJ6eYszwFIVCI57qN6knZ12i5OZZQxcW25Xl7NHariCzfEu+xpNdDco78VmiAms0NnvibJRU
+	flZnBZatjfzYrL1jiGXDOpZDwEfTUuo8FQizMsv3N0/2hsWC7Y2GI6u0pOLyRM1uYTlPTYJPv96
+	TEtvaABKKayJC6bUkwuukqXF6VYt/Q==
+X-Received: by 2002:a17:906:209a:b0:c07:6950:4490 with SMTP id
+ a640c23a62f3a-c07695ff1c8mr122729166b.42.1781793598164; Thu, 18 Jun 2026
+ 07:39:58 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
+References: <20260612-dh2300-mcu-v1-0-ab8db1617bc0@flipper.net>
+ <20260612-dh2300-mcu-v1-3-ab8db1617bc0@flipper.net> <20260618124034.GI1672911@google.com>
+In-Reply-To: <20260618124034.GI1672911@google.com>
+From: Alexey Charkov <alchark@flipper.net>
+Date: Thu, 18 Jun 2026 18:39:51 +0400
+X-Gm-Features: AVVi8Ccbf4bgucBpzfdBMYf6dTmoR9eMWMyjmKeq_8LMA4KsT1l7bFz4pMkxg6A
+Message-ID: <CAKTNdwEta01QjuaqfJ339pCTKMT_4K9QbmvFu9OBt=M8-JSDKQ@mail.gmail.com>
+Subject: Re: [PATCH 3/4] mfd: Add support for UGREEN NASync DH2300 MCU
+To: Lee Jones <lee@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260618_073904_810221_1729190A 
-X-CRM114-Status: GOOD (  23.56  )
+X-CRM114-CacheID: sfid-20260618_074000_789470_09EAB76D 
+X-CRM114-Status: GOOD (  20.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,109 +120,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 18, 2026 at 02:14:41PM +0100, Leonardo Bras wrote:
-> While playing with dirty-bit tracking, I decided to take a look on how page
-> splitting works. Found out all entries are walked, even though we can infer,
-> for instance that:
-> - If a level-3 entry is walked, it means the parent level-2 entry is split
-> - If a split just succeeded in an table entry, it means all children nodes
->   are already split
-> 
-> This patches' idea is to introduce new walking flags to skip pagetable
-> levels 0-3.
-> 
-> The idea of skipping child nodes was also tested, but it was marginally
-> slower than just skipping levels, so it was discarted.
-> 
-> Optimization measured on two scenarios involving eager-splitting on a
-> VM with 1 memslot of 16GB:
-> - Scenario 1: No manual protect, whole memslot split at dirty-track enable
->   (KVM_SET_USER_MEMORY_REGION2 ioctl with KVM_MEM_LOG_DIRTY_PAGES)
->   - Split happens only once, whole region
->   - Evalutes improved batch performance of splitting
-> - Scenario 2: Manual protect, split happens during every dirty-bit clean
->   (KVM_CLEAR_DIRTY_LOG ioctl), average for 2 iterations.
->   - Split called multiple times, for smaller 64-page sections.
->   - Evaluate improved performance for multiple calls
-> 
-> Scenario 1, improvement on dirty-track enable ioctl for the memslot:
-> - Memory was already split (4k pages):  -44.01% runtime (stdev 2.80%)
-> - THP backed memory:                    -24.66% runtime (stdev 1.21%)
-> - 16x1GB hugetlb memory:                -24.78% runtime (stdev 0.85%)
-> 
-> Scenario 2, improvement on dirty-log clean ioctl for the memslot:
-> - Memory was already split (4k pages):  -38.98% runtime (stdev 1.91%)
-> - THP backed memory:                    -25.49% runtime (stdev 0.65%)
-> - 16x1GB hugetlb memory:                -24.24% runtime (stdev 0.65%)
-> 
-> For collecting above numbers, the following script was ran in both vanilla
-> and patched kernels, with kernel parameter 'default_hugepagesz=1G', on an
-> TX2 with 32GB RAM.
-> 
-> --- dirty_test.sh
-> #!/bin/bash
-> filename=$(uname -r |cut -d'-' -f 4-)
-> 
-> run_test(){
->   uname -a
->   cat /proc/cmdline
-> 
->   #prepare
->   sudo bash -c 'echo 64 > /proc/sys/vm/nr_hugepages'
-> 
->   ./dirty_log_perf_test -g -b 64G
->   ./dirty_log_perf_test -g -b 64G -s anonymous_thp
->   ./dirty_log_perf_test -g -b 64G -s shared_hugetlb
-> 
->   ./dirty_log_perf_test -b 64G
->   ./dirty_log_perf_test -b 64G -s anonymous_thp
->   ./dirty_log_perf_test -b 64G -s shared_hugetlb
-> }
-> 
-> run_test 2>&1 | tee ${filename}
-> ---
+On Thu, Jun 18, 2026 at 4:40=E2=80=AFPM Lee Jones <lee@kernel.org> wrote:
+>
+> On Fri, 12 Jun 2026, Alexey Charkov wrote:
+>
+> > Add a driver for the HC32F005 MCU used as an embedded controller on the
+> > UGREEN NASync DH2300 NAS.
+> >
+> > This part provides the shared I2C regmap to be used by function-specifi=
+c
+> > sub-devices, and instantiates the SATA drive-bay power gate regulator.
+> > Implemented as an MFD to allow for other functions of the MCU to be add=
+ed
+> > later: vendor binaries imply that it also provides a hardware watchdog
+> > and somehow serves as a wake source, but so far only the SATA power gat=
+ing
+> > function has been confirmed in absence of documentation and sources for=
+ the
+> > vendor firmware.
+> >
+> > Signed-off-by: Alexey Charkov <alchark@flipper.net>
+> > ---
+> >  MAINTAINERS                     |  1 +
+> >  drivers/mfd/Kconfig             | 16 +++++++++++
+> >  drivers/mfd/Makefile            |  1 +
+> >  drivers/mfd/ugreen-dh2300-mcu.c | 60 +++++++++++++++++++++++++++++++++=
+++++++++
+> >  4 files changed, 78 insertions(+)
+>
+> Did you see: drivers/mfd/simple-mfd-i2c.c ?
 
-s/64G/16G/ on above script
+Oh. Now I did :-D
 
-> 
-> Above dirty_log_perf_test command is the standard kvm selftest found in the
-> kernel tree. It tested the following guest modes:
-> Testing guest mode: PA-bits:40,  VA-bits:48,  4K pages
-> Testing guest mode: PA-bits:40,  VA-bits:48, 64K pages
-> Testing guest mode: PA-bits:36,  VA-bits:48,  4K pages
-> Testing guest mode: PA-bits:36,  VA-bits:48, 64K pages
-> 
-> Performance numbers from above modes were used to calculate average and
-> stdev showed in the optimization results.
-> 
-> Changes since v1:
-> - Fixed inverted flag verification priority (Sashiko)
-> - Fixed incorrectly skipping POST call if level was skipped (Sashiko), and to that
-> - New pre-patch that changes goto-out -> return to avoid re-testing walk_continue 
-> v1 Link: https://lore.kernel.org/lkml/20260610202112.2695205-2-leo.bras@arm.com/
-> 
-> Changes since RFC:
-> - Changed approach from return value to walk flags (Will Deacon)
-> - Discarted skip_child approach (Oliver Upton)
-> - Measured in real hardware, and from userspace perspective (Marc Zyngier)
-> - Better explanation of what and how numbers were collected
-> RFC Link: https://lore.kernel.org/all/20260515195904.2466381-1-leo.bras@arm.com/
-> 
-> Thanks!
-> Leo
-> 
-> Leonardo Bras (3):
->   KVM: arm64: Avoid re-testing walk_continue
->   KVM: arm64: Introduce KVM_PGTABLE_WALK_SKIP_LEVEL* walk flags
->   KVM: arm64: Make stage2_split_walker() skip unnecessary walks
-> 
->  arch/arm64/include/asm/kvm_pgtable.h | 13 +++++++++++++
->  arch/arm64/kvm/hyp/pgtable.c         | 28 +++++++++++++++++++++-------
->  2 files changed, 34 insertions(+), 7 deletions(-)
-> 
-> 
-> base-commit: 66affa37cfac0aec061cc4bcf4a065b0c52f7e19
-> -- 
-> 2.54.0
-> 
+It's exactly what I needed, thanks a lot for the pointer. Will drop
+the boilerplate in v2 and instead instantiate my tiny child device
+from there.
+
+Best regards,
+Alexey
 
