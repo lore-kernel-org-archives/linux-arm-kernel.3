@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAE39CD98ED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 11:11:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAAB3CD98ED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 11:11:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cLWN4LTtmd7hng+ZhZtLQKsiVn6dQ6fE8GmkqrRR6IA=; b=37ZT70ssnQix6+0a9aQf/j65Qz
-	lVnyX0qqmKo7ZJKhlk5rXpL1zJabhceu+pc00nCGPCHD6niOegrh/HOP9bU3HMHEen/wLZO/V3tX/
-	+ROB78UM6judobVZV8+hMlrX0LBK+RXZ0alucIVRj34Z2lPOtrXLXa5RqpC96qeytx4eAkTJQWML0
-	EVC/zjTNOMTOSOvV50lQxzOVbLwtUbxbcfBnTjOfsHdh0JsRERz3WkMjd7pUEzi3tSa0e9htXDcJX
-	GeGud8nZAhu/MXwWuHixh5npNo73s7EeQ38EN58MWVC1qXLCtdYM3DEjZHvRziC3sCYQ+kHVTIuHu
-	kKZLNzew==;
+	bh=FJMU7K56og6O0Mgof55SgHjMcgC38/i5g3OlSm/yHKg=; b=LxD79s9qvT7DYIwKyvbI1tZ32J
+	8FZUTBh+bGxGzk9VQ2lGQ5/wfMgkuMxc9RZ8jU7+MN1CqvnHeIPW5qv69O0PfZ9cPrB3kgnSPd51X
+	sNlpvKRxgHQbfYHCvRPRJnAazcoluxm6LQeP+DqXb07l68plzvGMbKMHJWgFGh2akj5YRQaB/kt8l
+	skngFqkmUYwXvfA02/C7Zcp+vcDhcfdWVxbPj7Ny3tylpUUWKenMthpYYie+r/rbkZ3cO+fARgLAr
+	8nPaGGk3uP0W+D1vkfFnYurb2j3VuuyHTPRKoi42kXTwkQ0/DjFz7Z6wqtD24VKSzneP837fK5rDo
+	HHZc8BBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waAeg-00000001Amn-2XxO;
-	Thu, 18 Jun 2026 11:11:30 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1waAet-00000001Aw5-0ePF;
+	Thu, 18 Jun 2026 11:11:43 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waAef-00000001Al3-07ZE
+	id 1waAen-00000001Arn-2Mc3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 11:11:30 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2bf22d29dabso5173335ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 04:11:28 -0700 (PDT)
+	Thu, 18 Jun 2026 11:11:41 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2c6d31bfc8aso5621125ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 04:11:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781781088; x=1782385888; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1781781097; x=1782385897; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=cLWN4LTtmd7hng+ZhZtLQKsiVn6dQ6fE8GmkqrRR6IA=;
-        b=ARVkCd8PcvVQD4UgV7ioCFgLFsQRjPIRTj2+W3SO+0rB9Vd3eC7e5J/R0eik/ffT93
-         9xgT6zVbQxIC52teQp6OmVBJEL4oiz8nNhPQAgl0ZJnqsNBRmyiSSIIDlNkvvs7XafmW
-         Dp6itzV9MFcPFmiyOXSL/WvYPB7W4TZ1emmeLZ/c3kx/7yabIfMIomZCjXTmrkTzOcNG
-         ZhI/2jx+53wYMk/WE4qfPa2y8GjPVxMaGRsi8wKSMPhTXWb8i1cDUcL0wsI45ET8CLyL
-         XYE2TDSsxNIMj3GrYjs7H8qA51u3K5GDJZTOwy+p4IlIUYw/zN2DmHN5qTYUGdwMmpwS
-         d/5Q==
+        bh=FJMU7K56og6O0Mgof55SgHjMcgC38/i5g3OlSm/yHKg=;
+        b=YSTDvJnl3tAcivYdBMHxCbgQ3hKnCx/e3+noGdlgUXWpY6CVwx2c8CHifvx6cl6GGQ
+         YQjLxYeDb+ZMODzMAa20E9K14lP5kKKscOitMlF9lbwH2zeqsALGI/evdBmhQg/lxtAn
+         5Ddw7fdSk6YX8tdd1lj+WTcUscGo85MFKWyYz7F+3NJNK735vQvUvUqAgA8XvXjRYbVR
+         ykoCpX1YeG88raD6uO/klfl8AyHsG6Pw1HS76Uj2CJpjoPNLdErwweUPgXB54FGouD1m
+         7ai/Ym7Nij0SBldOdAwi6PTpX3YucH6mVoDYcbido11/um8qhIyBMBS2hkRstXrlIK5v
+         1POQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781781088; x=1782385888;
+        d=1e100.net; s=20251104; t=1781781097; x=1782385897;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=cLWN4LTtmd7hng+ZhZtLQKsiVn6dQ6fE8GmkqrRR6IA=;
-        b=afmHBfrMKcvvTj8LAk3DS5QCg6qLiwMxizkszsV4eNGQzOFj2oSMGyxd+ga9tHR4nB
-         MafGDO4pm9tzIxJuJJMK5EIDcNPwZM6QRjKdikJm01HNeO8Rxak0LHsCkAK42fS/y1b1
-         zW+Vtn+Y9gqJK8AzfHwxJrMeUtONJe3W/FD1nHbBvWqadkZLUNvOa7pbtGG/A1n/ojTq
-         hdwUte5SB1/xsEWb7N+l+FxkzcPJAOuyPwUszucT+AOeAYMGCsrrWmgaHnH2Mawfjqs2
-         SUyODTNGZh4XUX5Abaec+ZmNMuXMG6X5UArCDAYqRN0lj4DK/vI2f7WogsvPJ8BZli59
-         1X9Q==
-X-Forwarded-Encrypted: i=1; AFNElJ8ocl0smaLw7UJrAIwqYHrBvh/NL/BuMsH0mbY1phBRaU5bvqccK1t12F/W4KMF0mjYb7wbr1QpLFhZleMzJnBH@lists.infradead.org
-X-Gm-Message-State: AOJu0YwFECUx/4LBnSALgj60/BTiyuRRVLZfTCuewEIrDD9OBz1g1AfJ
-	iA3RQlZDoAV2Zhp33AHf4QfbpXI0n1/tf7NH3XePHJiH2yzoXGOdVn8V
-X-Gm-Gg: AfdE7cngqRIh5CIFoSylD/GhUCqEp8NBktSllgf9CTd9v8LVQRu9B08xTrhESj36HHR
-	+BLs9uv251aN7NcfcxjItK15I4XguPqQ4VxsIAfh7USxT8lJHYVdkLQfBCZ7FRd0ObQ8uminbx2
-	epFRK3+vZpel1tCZKR1irKh7wGH8XzKGSCQxpIBaUwHBf4mTHTBUOAUarJmQzghOK9LRpnjwVQF
-	G1elM7vAI6yf01oP5vi/HlGOri5uxGvTRPseOr98yj/Nm18CpdN9kG4/moI26DOLWBe5ohbjMfC
-	OD2ELO1UEhGJZVOOFfTz1PNcSSs2b8fAB1n6v3C2mxQgQuDh8C9dQSs7Q1CAECZ8dVs89KGXeb4
-	960EUJTeqDBqytc7pvbAunrVoxoHpfcpFvYg/yT65l2qmzYK3DgZrZpATWW9zNDELLMrTLM8gUT
-	XM0Na1TFyMV4mvnLy8UWLFlR7+Z/g4K+ZXN2eWKg0Uzs155Pl3XeRUwz+jFw==
-X-Received: by 2002:a17:903:1a6f:b0:2b7:975c:dacc with SMTP id d9443c01a7336-2c6f340c78cmr24421195ad.1.1781781088169;
-        Thu, 18 Jun 2026 04:11:28 -0700 (PDT)
+        bh=FJMU7K56og6O0Mgof55SgHjMcgC38/i5g3OlSm/yHKg=;
+        b=RIJ4+YWkEenkCHtTRt/LfiTf4XzJPdPmBWqMVfHqNkn6oxc/yN8XAatU7Ll1F8u7Bj
+         ZSEMYwJVFDBdsbKDS/b8EB2Mt/bF1GHhINTXUSosRoG9GyviCokenI0NGHo3wE1PDCuE
+         EKHwa7Yw78geMXo4S5KxJxi+KX+GVsE8RPYUdRfMjpk0kCGnGDc/dfQ4JLxhJoUQUIdG
+         Eh7Y2MbQZZa7gUJfnorzGjQHf670Gjdbn8WxYbgYHfly/3XwGbX5Xu0GihcfkDXKSp0a
+         LnxmLq5G/oOMutWEYODRfiXzU4A4GL+feDz5kuHVUGu5S4u3JUnZ3jTIlpvjAxfh65Hz
+         s+Gw==
+X-Forwarded-Encrypted: i=1; AFNElJ+pAJjlJrnybN5sdgFlFgXNGyNjcyW2xbK4yGVgGhQgsERuVCAVPfR91etSsudB+0HjuxTXf3ukDN4z8c6uxnA5@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx1Mw9w7/+xuS6xlOqS7nW0SvzASO1fQ+O9iK3ly7bNrhaybzS5
+	QsXaoti9KPRMKXCraDTu1u8hBuhOzLUhElfl0o3TCkSm/OgDSif/eUcR
+X-Gm-Gg: AfdE7clyX2SDNpg6gh5dYJCjuxB4Z69B3mIktWe1v0MsbFjPkFGAEki/vv/L8ldFG3J
+	p+BwW7AMMaRo+WrBekhVOD1+pVsCnJ/6O1s8HRj8rYsQDC/bee0uDJUTn6uOBTJyTAYPkdZNhAt
+	wqImagGhlDGLN9AjoC5SzP/TdK/MvEnRQGJZWn5LBtwYBmccbMz+55dgHLZY25QfjsLU2zNzwQV
+	aR9DuupSTwF8nYOD2FyMrNK97mz4ODAvgbDzmEizagjDeTVxs8bRNRYZagEgPoC/8OxsZxBC19+
+	XaD9tePL5KT85l3U9FkMNhu/vudUV0H3g2r+k3SqlINaKMZWO2rg7HE3T4L33exo3wrSNL7f/Wn
+	+HNMx32bxBQ003HrdHpLGVs65+LrnvaVejKDO5h445pEgsXez09bPxdViL0OUY0Sg8pbyEJL+/c
+	oIXHtewVEvupVZbOSMBA8yfafaejXrxSXWF+ZT2a4DVxnK5IY=
+X-Received: by 2002:a17:902:d546:b0:2c0:cb90:1e08 with SMTP id d9443c01a7336-2c6e2472467mr40617785ad.0.1781781096866;
+        Thu, 18 Jun 2026 04:11:36 -0700 (PDT)
 Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c42f1f0f19sm196384565ad.10.2026.06.18.04.11.20
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c42f1f0f19sm196384565ad.10.2026.06.18.04.11.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 18 Jun 2026 04:11:27 -0700 (PDT)
+        Thu, 18 Jun 2026 04:11:36 -0700 (PDT)
 From: phucduc.bui@gmail.com
 To: Mark Brown <broonie@kernel.org>
 Cc: Liam Girdwood <lgirdwood@gmail.com>,
@@ -105,9 +105,9 @@ Cc: Liam Girdwood <lgirdwood@gmail.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
 	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH 75/78] ASoC: codecs: wm8994: Use guard() for mutex locks
-Date: Thu, 18 Jun 2026 18:08:24 +0700
-Message-ID: <20260618110827.232983-19-phucduc.bui@gmail.com>
+Subject: [PATCH 76/78] ASoC: codecs: wm971x: Use guard() for mutex locks
+Date: Thu, 18 Jun 2026 18:08:25 +0700
+Message-ID: <20260618110827.232983-20-phucduc.bui@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260618110827.232983-1-phucduc.bui@gmail.com>
 References: <20260617103235.449609-1-phucduc.bui@gmail.com>
@@ -115,8 +115,8 @@ References: <20260617103235.449609-1-phucduc.bui@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260618_041129_068724_6AB0A728 
-X-CRM114-Status: GOOD (  13.69  )
+X-CRM114-CacheID: sfid-20260618_041137_626786_459BD950 
+X-CRM114-Status: GOOD (  11.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,124 +138,54 @@ Merely code refactoring, and no behavior change.
 
 Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
 ---
- sound/soc/codecs/wm8994.c | 51 +++++++++++++++------------------------
- 1 file changed, 20 insertions(+), 31 deletions(-)
+ sound/soc/codecs/wm9712.c | 4 +---
+ sound/soc/codecs/wm9713.c | 4 +---
+ 2 files changed, 2 insertions(+), 6 deletions(-)
 
-diff --git a/sound/soc/codecs/wm8994.c b/sound/soc/codecs/wm8994.c
-index 1d64c7c42ed1..58f18bb0057e 100644
---- a/sound/soc/codecs/wm8994.c
-+++ b/sound/soc/codecs/wm8994.c
-@@ -766,7 +766,7 @@ static void active_reference(struct snd_soc_component *component)
- {
- 	struct wm8994_priv *wm8994 = snd_soc_component_get_drvdata(component);
+diff --git a/sound/soc/codecs/wm9712.c b/sound/soc/codecs/wm9712.c
+index 83cd42fa0c28..68ebf9d23865 100644
+--- a/sound/soc/codecs/wm9712.c
++++ b/sound/soc/codecs/wm9712.c
+@@ -229,7 +229,7 @@ static int wm9712_hp_mixer_put(struct snd_kcontrol *kcontrol,
+ 	shift = mc->shift & 0xff;
+ 	mask = 1 << shift;
  
--	mutex_lock(&wm8994->accdet_lock);
-+	guard(mutex)(&wm8994->accdet_lock);
- 
- 	wm8994->active_refcount++;
- 
-@@ -775,8 +775,6 @@ static void active_reference(struct snd_soc_component *component)
- 
- 	/* If we're using jack detection go into audio mode */
- 	wm1811_jackdet_set_mode(component, WM1811_JACKDET_MODE_AUDIO);
--
--	mutex_unlock(&wm8994->accdet_lock);
- }
- 
- static void active_dereference(struct snd_soc_component *component)
-@@ -784,7 +782,7 @@ static void active_dereference(struct snd_soc_component *component)
- 	struct wm8994_priv *wm8994 = snd_soc_component_get_drvdata(component);
- 	u16 mode;
- 
--	mutex_lock(&wm8994->accdet_lock);
-+	guard(mutex)(&wm8994->accdet_lock);
- 
- 	wm8994->active_refcount--;
- 
-@@ -800,8 +798,6 @@ static void active_dereference(struct snd_soc_component *component)
- 
- 		wm1811_jackdet_set_mode(component, mode);
- 	}
--
--	mutex_unlock(&wm8994->accdet_lock);
- }
- 
- static int clk_sys_event(struct snd_soc_dapm_widget *w,
-@@ -3704,7 +3700,7 @@ static void wm8958_open_circuit_work(struct work_struct *work)
- 						  open_circuit_work.work);
- 	struct device *dev = wm8994->wm8994->dev;
- 
--	mutex_lock(&wm8994->accdet_lock);
-+	guard(mutex)(&wm8994->accdet_lock);
- 
- 	wm1811_micd_stop(wm8994->hubs.component);
- 
-@@ -3718,8 +3714,6 @@ static void wm8958_open_circuit_work(struct work_struct *work)
- 	snd_soc_jack_report(wm8994->micdet[0].jack, 0,
- 			    wm8994->btn_mask |
- 			    SND_JACK_HEADSET);
--
--	mutex_unlock(&wm8994->accdet_lock);
- }
- 
- static void wm8958_mic_id(void *data, u16 status)
-@@ -3785,27 +3779,25 @@ static void wm1811_mic_work(struct work_struct *work)
- 		snd_soc_dapm_sync(dapm);
+-	mutex_lock(&wm9712->lock);
++	guard(mutex)(&wm9712->lock);
+ 	old = wm9712->hp_mixer[mixer];
+ 	if (ucontrol->value.integer.value[0])
+ 		wm9712->hp_mixer[mixer] |= mask;
+@@ -251,8 +251,6 @@ static int wm9712_hp_mixer_put(struct snd_kcontrol *kcontrol,
+ 			&update);
  	}
  
--	mutex_lock(&wm8994->accdet_lock);
+-	mutex_unlock(&wm9712->lock);
 -
--	dev_dbg(component->dev, "Starting mic detection\n");
-+	scoped_guard(mutex, &wm8994->accdet_lock) {
-+		dev_dbg(component->dev, "Starting mic detection\n");
+ 	return change;
+ }
  
--	/* Use a user-supplied callback if we have one */
--	if (wm8994->micd_cb) {
--		wm8994->micd_cb(wm8994->micd_cb_data);
--	} else {
--		/*
--		 * Start off measument of microphone impedence to find out
--		 * what's actually there.
--		 */
--		wm8994->mic_detecting = true;
--		wm1811_jackdet_set_mode(component, WM1811_JACKDET_MODE_MIC);
-+		/* Use a user-supplied callback if we have one */
-+		if (wm8994->micd_cb) {
-+			wm8994->micd_cb(wm8994->micd_cb_data);
-+		} else {
-+			/*
-+			 * Start off measument of microphone impedence to find out
-+			 * what's actually there.
-+			 */
-+			wm8994->mic_detecting = true;
-+			wm1811_jackdet_set_mode(component, WM1811_JACKDET_MODE_MIC);
+diff --git a/sound/soc/codecs/wm9713.c b/sound/soc/codecs/wm9713.c
+index b3bbecf074ee..d338b9a915d7 100644
+--- a/sound/soc/codecs/wm9713.c
++++ b/sound/soc/codecs/wm9713.c
+@@ -238,7 +238,7 @@ static int wm9713_hp_mixer_put(struct snd_kcontrol *kcontrol,
+ 	shift = mc->shift & 0xff;
+ 	mask = (1 << shift);
  
--		snd_soc_component_update_bits(component, WM8958_MIC_DETECT_1,
--				    WM8958_MICD_ENA, WM8958_MICD_ENA);
-+			snd_soc_component_update_bits(component, WM8958_MIC_DETECT_1,
-+						      WM8958_MICD_ENA, WM8958_MICD_ENA);
-+		}
+-	mutex_lock(&wm9713->lock);
++	guard(mutex)(&wm9713->lock);
+ 	old = wm9713->hp_mixer[mixer];
+ 	if (ucontrol->value.integer.value[0])
+ 		wm9713->hp_mixer[mixer] |= mask;
+@@ -260,8 +260,6 @@ static int wm9713_hp_mixer_put(struct snd_kcontrol *kcontrol,
+ 			&update);
  	}
  
--	mutex_unlock(&wm8994->accdet_lock);
+-	mutex_unlock(&wm9713->lock);
 -
- 	pm_runtime_put(component->dev);
+ 	return change;
  }
  
-@@ -4028,11 +4020,8 @@ static void wm8958_mic_work(struct work_struct *work)
- 
- 	pm_runtime_get_sync(component->dev);
- 
--	mutex_lock(&wm8994->accdet_lock);
--
--	wm8994->mic_id_cb(wm8994->mic_id_cb_data, wm8994->mic_status);
--
--	mutex_unlock(&wm8994->accdet_lock);
-+	scoped_guard(mutex, &wm8994->accdet_lock)
-+		wm8994->mic_id_cb(wm8994->mic_id_cb_data, wm8994->mic_status);
- 
- 	pm_runtime_put(component->dev);
- }
 -- 
 2.43.0
 
