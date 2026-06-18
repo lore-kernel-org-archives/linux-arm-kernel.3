@@ -4,66 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ACD9CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 12:16:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6F2ECD98F3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 12:17:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hXhmL5CRl3+n80jeER5neBIkpa8f6Enzrvf/cmu79ZA=; b=WftKbGE/Iit3pXbVa4upMkZ85y
-	cBX82yd8SyKuULkq6LevH33PH2Cq4bQ2rfu6TD1LZhQ8Kb/huZN4r7/WSqqtKtB8PcDV+i8IW1poi
-	F3hj7OZ9xNf9a9jzsUd3WSi9OkiissfjzGenirySZb7M2LNWC38D9BUJRETn9OrdpMajC+Z3a/p7v
-	psbnA6zCoiz9qaSeQt8Oa7rpUbOzIM3lXlJlv0+nMI09YhEyEl13wzrBmX/4y0T9t2dU+0+Px5gSR
-	CD57gWDna7sDkiEfJapKCYxMTHL6VVNtvpq3gBZwVwLV6qWmKywKrNZs7Zl+hwxH6t5yekYjeHGFT
-	/HYnaxsg==;
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rqX7MefVbPP0W7Hi9ByJyRvIz6FhPEE0my94/je5OUw=; b=Um0OeDp+wrhRjZqcsazzL6jyq8
+	LUNa8XL4Rz/vasvbTMHaRwtc0tbWRapdqlFghBTMKKziUhbOlPFHqqfrTo5ggZCqtKM0wU9Ni618r
+	lWXewtylk8yGjE6avunQO4sY0Di+RQjhhek43MErmAEI2h2iTWN3Xk/gQhHPAuaqpRppknWBWr/Io
+	kWuKM7y6j/qpoQGf1efUQWBCK7n4aYt5vAmzzMoYCs2k6qG5jeOlfdiwAwl24uG8fES2jICUlnV6c
+	pEXsK1nae2EOyzfWPcoceFHiNQOaHIt+z2pb4wQgSIWMyGrOaN009mLcGBrcQlzQT9YgDC/3DBsWy
+	vlCTK7kQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waBfu-00000001Eyz-0AvC;
-	Thu, 18 Jun 2026 12:16:50 +0000
-Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
+	id 1waBfy-00000001F1b-169n;
+	Thu, 18 Jun 2026 12:16:54 +0000
+Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waBfr-00000001EyI-3j6T
+	id 1waBfu-00000001Eya-0svJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 12:16:49 +0000
-Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-461e0dad8easo592262f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 05:16:46 -0700 (PDT)
+	Thu, 18 Jun 2026 12:16:51 +0000
+Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-45efb6e60e4so961352f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 05:16:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781785005; x=1782389805; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=hXhmL5CRl3+n80jeER5neBIkpa8f6Enzrvf/cmu79ZA=;
-        b=NXLnHRMS+WCGfYF6CM+lbhg1H/hHUhaAFkr4aqSFO6pX+YXAzRqjJHmo93NtrBqlcu
-         XZwHN8KVb5VSrJjCMpJdSPRPeMljfB7m5x5TDJVr8bnukZxFXkE28nk6TmRpIuCbWcDH
-         DPi/yEKqOqN6N/EBcH8Mw6wsfFT9FBpwc510lyLre0wl//1lBBUYirwFoVuffnACDDfJ
-         UT5XgNaJFoXyHfY3322WoStytStgsZGa04hz/hjxqchGb5T7hQ0pa3FTP8IpGhhm0mvN
-         Q9RcL08BSZ2oVvIY4v+iABFJnLAfB4YUpK2g2/mnV3+j2wKkRbH1l5I9nZ2N6YezqgJJ
-         FRXA==
+        d=google.com; s=20251104; t=1781785007; x=1782389807; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=rqX7MefVbPP0W7Hi9ByJyRvIz6FhPEE0my94/je5OUw=;
+        b=kc4dYCeK6xpjH1rxx/Zej6M6st3otEU9fpvI/iBao6RGNXq5F9HiY1QmwbanT563X4
+         lGdkUzHHYNTGKZSGdc3ow5LvnUw7wzs7Rq1b9ETtmYIbpDBmU/pNINwQcOR+vXkP7fWf
+         C9Kr856iq3hCL/9kTZ4ZD1EPjZJsYsH+yNv6hD54Ue3ceEaQ7o+PmPmjNz64dUVvhdLZ
+         ce5ow5fltBPGhTs5LRZlb33jvzcFIgjWouihmnT225qw8N2F2runkGkhibBGSYaV198c
+         yNSdKWwwSnbxXKz3847GB9vxoCC26xLhZE3AakFI1OqMjXuOTJhbeAROB9I41wgZ402E
+         5J4A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781785005; x=1782389805;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=hXhmL5CRl3+n80jeER5neBIkpa8f6Enzrvf/cmu79ZA=;
-        b=JS27Au1bbV/zrbbwOIWhK2WJbNlCf5rYa/Hc688TN5612Kebbv31C4T7JVElHcJ9TU
-         jMCMBN9a8K9pVGqwIOqVqflpEDofXhAqof+DT7kkTbAeOYENcmyiuNBbZBzEFF7zyJQY
-         NfjuFEbcM+1sATHE0MvOSAW8t9L/iolfy7wj5ptswntMnXjvWZ8JOrnVpEJ7jkn3I/bC
-         rXP+4bRlpvIureLHPA3w5ksICCLQuUZhLSZBWF2IpGZR9/6XCntpUY+QHndwHgMuFDFP
-         yCIvyuGtmZhH0EesPFsgRyUOzc0DwDnGQ18cK5DUGl1BNfghPTCrZiKGguTproTuxIs3
-         uljw==
-X-Forwarded-Encrypted: i=1; AFNElJ+XdmtJViNWJIq1HQNnC50Ms09H8JJNQhqY2oZNsmVCxMMEC1trb9cgSv71GsFBYZoywFqELPtQ/Q17/zJBr8KP@lists.infradead.org
-X-Gm-Message-State: AOJu0YwhTrEUXkpkXlhEsqjh/62YSJ/JDg8emGYM3Hpz3tG18Ulmr64l
-	Y2AtKQuOlS/XU4Rz/KsUViWWblybHPuxhXaEBMd/rdWv+zZBunPl50or4zF98cXz+blhaiG/aU7
-	xgQ==
-X-Received: from wrmd14.prod.google.com ([2002:adf:e88e:0:b0:44b:7bd5:1b9f])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a5d:5449:0:b0:45e:de0a:1773
- with SMTP id ffacd0b85a97d-462412c71e6mr10667158f8f.33.1781785004608; Thu, 18
- Jun 2026 05:16:44 -0700 (PDT)
-Date: Thu, 18 Jun 2026 13:16:36 +0100
+        d=1e100.net; s=20251104; t=1781785007; x=1782389807;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=rqX7MefVbPP0W7Hi9ByJyRvIz6FhPEE0my94/je5OUw=;
+        b=HaW+oYZqulEULzDeZUPxcndGRiLajiFicrFdNDecTgXaAxmNmvc5ePZuMu7Wz92rHV
+         5QvUIgr1yyfRBu+2oSU0opVOeqMAvrfGqDnBn7aZzb+VU9GbJQVgdbETWnluY2priA5U
+         6lr/j73VdbnUxwEUe1BS+LiuML7FrvoCaSWmsUYBkNPFFxyonQ2f7xs3/dQkwOsdA92E
+         xgzDTIyjRWZwz83j0LQaygzUIbpYFDFIGmhggB1axh38RJ4Kgm2Pvpoi7xr5Hsn9bkew
+         n+eq9HL/SFb/r4gOPUg4aXRyzkM2TkP9Zgs6EZkv6R0ACLr4lgXjBS6A1tJ/L3XqMYdM
+         k5gw==
+X-Forwarded-Encrypted: i=1; AFNElJ/YmnU7QjqucyTLea1IFAFWCfs6UWt58lp2jPS5v6M5TIwRFo00qDi5+eFY7uY7Pmd45Ng+zW6YHfeqw/ZIj2Wl@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyrlz6AZFDz1P5FW4GtKbZF4paiSixavVxH6GjGR6soC2ySLn/J
+	YPZ3DZ40SZ95JqPUMirAYb/+3s5AnnUN4w2MfQTFVWmM+MA/dhLWHN7sHpFD6LLZ0uzaYNErbso
+	Ibw==
+X-Received: from wrvz3.prod.google.com ([2002:a5d:6543:0:b0:463:7bed:40ab])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a5d:5390:0:b0:45e:eec6:5020
+ with SMTP id ffacd0b85a97d-463ae25709dmr3971523f8f.38.1781785006903; Thu, 18
+ Jun 2026 05:16:46 -0700 (PDT)
+Date: Thu, 18 Jun 2026 13:16:38 +0100
+In-Reply-To: <20260618121643.4105064-1-tabba@google.com>
 Mime-Version: 1.0
+References: <20260618121643.4105064-1-tabba@google.com>
 X-Mailer: git-send-email 2.54.0.1189.g8c84645362-goog
-Message-ID: <20260618121643.4105064-1-tabba@google.com>
-Subject: [PATCH v2 0/7] KVM: arm64: Fix missing ESR_ELx.IL in syndrome injection
+Message-ID: <20260618121643.4105064-3-tabba@google.com>
+Subject: [PATCH v2 2/7] KVM: arm64: Unconditionally set IL for injected
+ undefined exceptions
 From: Fuad Tabba <tabba@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
 	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, kvmarm@lists.linux.dev, 
@@ -73,8 +76,8 @@ Cc: Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>,
 	Vincent Donnefort <vdonnefort@google.com>, Sascha Bischoff <Sascha.Bischoff@arm.com>, tabba@google.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260618_051647_969819_462F38B1 
-X-CRM114-Status: GOOD (  13.96  )
+X-CRM114-CacheID: sfid-20260618_051650_258015_C5C97685 
+X-CRM114-Status: GOOD (  11.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,64 +92,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi folks,
+inject_undef64() derives IL from the triggering trap's instruction
+length (kvm_vcpu_trap_il_is32bit()), but the IL of the injected
+exception is fixed by its EC, not by the triggering instruction. The
+architecture mandates IL=1 for EC=0 (Unknown) unconditionally, so the
+conditional is wrong. The undef-injection paths are not reached from
+16-bit instructions, so there is no functional change today, but the
+logic should not rely on that.
 
-After sashiko caught the missing IL bug [1], I did an audit of all ESR
-syndrome construction sites in KVM/arm64 as Marc suggested. This series
-is the result of that audit.
+Set ESR_ELx_IL unconditionally.
 
-The ARM architecture mandates ESR_ELx.IL=1 for several exception
-classes regardless of instruction length: EC=Unknown, Instruction
-Aborts, Data Aborts with ISV=0, and SError. For FPAC (EC=0x1C), IL
-reflects instruction length, but FPAC can only be generated by A64
-instructions, so IL must also be 1.
-
-Patch 1 is the bug sashiko found: inject_undef64() in the pKVM hyp (EL2)
-path never set IL. Patch 2 makes the same fix to inject_undef64() in the
-normal host path, where IL was derived from the triggering trap's
-instruction length. No instruction that reaches undef injection has a
-16-bit encoding, so patch 2 has no functional change today.
-Patch 3 makes the matching fix to inject_abt64(). Unlike undef
-injection, abort injection is reachable from a 16-bit T32 instruction (a
-32-bit EL0 task under an AArch64 EL1 guest), so the old code there
-injects an abort with IL=0.
-Patch 4 fixes the FPAC syndrome constructed during nested ERET
-emulation, which did not set IL.
-Patches 5-6 fix SError injection in the emulated and nested paths,
-neither of which set IL.
-Patch 7 fixes a fake ESR used to exit to the host. The host does not
-read IL there, so it is not guest-visible.
-
-Changes since v1 [2]:
-- Patch 4: keep IL by masking it through from the trapped ERET's ESR
-  instead of OR-ing the bit in. The ERET trap (EC=0x1A) always reports
-  IL=1, so this preserves the source syndrome rather than adding the
-  bit unconditionally (Marc).
-- Rebased on v7.1.
-
-Cheers,
-/fuad
-
-[1] https://lore.kernel.org/all/87pl1t8q24.wl-maz@kernel.org/
-[2] https://lore.kernel.org/all/20260614163336.3490925-1-tabba@google.com/
-
+Fixes: aa8eff9bfbd5 ("arm64: KVM: fault injection into a guest")
 Signed-off-by: Fuad Tabba <tabba@google.com>
+---
+ arch/arm64/kvm/inject_fault.c | 9 +--------
+ 1 file changed, 1 insertion(+), 8 deletions(-)
 
-Fuad Tabba (7):
-  KVM: arm64: Set ESR_ELx.IL for injected undefined exceptions at EL2
-  KVM: arm64: Unconditionally set IL for injected undefined exceptions
-  KVM: arm64: Unconditionally set IL for injected abort exceptions
-  KVM: arm64: Set IL for injected FPAC exceptions during ERET emulation
-  KVM: arm64: Set IL for emulated SError injection
-  KVM: arm64: Set IL for nested SError injection
-  KVM: arm64: Set IL in fake ESR for pKVM memory sharing exit
-
- arch/arm64/kvm/emulate-nested.c    |  4 ++--
- arch/arm64/kvm/hyp/nvhe/pkvm.c     |  3 ++-
- arch/arm64/kvm/hyp/nvhe/sys_regs.c |  2 +-
- arch/arm64/kvm/inject_fault.c      | 18 +++++-------------
- 4 files changed, 10 insertions(+), 17 deletions(-)
-
+diff --git a/arch/arm64/kvm/inject_fault.c b/arch/arm64/kvm/inject_fault.c
+index 89982bd3345f..9dfae1bcdf99 100644
+--- a/arch/arm64/kvm/inject_fault.c
++++ b/arch/arm64/kvm/inject_fault.c
+@@ -170,14 +170,7 @@ void kvm_inject_sync(struct kvm_vcpu *vcpu, u64 esr)
+ 
+ static void inject_undef64(struct kvm_vcpu *vcpu)
+ {
+-	u64 esr = (ESR_ELx_EC_UNKNOWN << ESR_ELx_EC_SHIFT);
+-
+-	/*
+-	 * Build an unknown exception, depending on the instruction
+-	 * set.
+-	 */
+-	if (kvm_vcpu_trap_il_is32bit(vcpu))
+-		esr |= ESR_ELx_IL;
++	u64 esr = (ESR_ELx_EC_UNKNOWN << ESR_ELx_EC_SHIFT) | ESR_ELx_IL;
+ 
+ 	kvm_inject_sync(vcpu, esr);
+ }
 -- 
 2.54.0.1189.g8c84645362-goog
 
