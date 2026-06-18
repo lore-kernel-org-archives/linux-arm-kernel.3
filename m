@@ -4,108 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B77FCD98ED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 08:18:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5789CD98F0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 08:19:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c45y9wnnyb2cnPIO+srEHNjmV4JorsdhhQBjkEOIpgM=; b=OOsnVRLYOlX6wzVppdHAOjZneF
-	BTnrTee6RSGc778WCBMCq0sgxmvUKeVNShpjAFw6+u+hQOoDb2bmmrPP0Lsu79B9+Ul0nwfko5a9W
-	AL7CJPenu/Eaxeu+3JfhtqnBebNmHjBMkZRpb8K4g0G0B8Kd8i73FCuSGJH5p5Rd+AJ7Spf/5TrWJ
-	X/m5WplFUD7+tlcFWNW/i7wPsLvxVz1wsKcak8qruXRVsvCV5snsgTqeqDALfk1u2+sWw48Wtz8OF
-	KE8UYQw/Pt62vXSeRpNN6V1KPKtGaaABg1pt88hHJweOo5HH83gFDCyKF0fRcF1RhOclhImz1kf2Q
-	llV3RZxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jTDLB1azfarwF5n/5KTJzb1SYDTKLL2v2/t9vmMWvFU=; b=UmpKQAh+h05HCw83f7Z20ZKA0w
+	n7iNgRBzbGCZyyoP73bIDuaLskfMKUvgoGjyO8nHlSMiv3JK97XlOpu6583JPdqIjgejasOo7JwIb
+	UkBBFCgluPedZcvqxOv5xhXs6Dgxb2QjzUAqAoAFsLZUNKdjoAvV2pIB7vnkQaAVjOBp/XaCJ/KlH
+	acw93310oQ73SDC/PGWqiZrU3C9RB3P2fHNTfTtAUAIOGbQOBn7cRihPPN1bpVrVNvYnIxbpN7tIO
+	qsqILquJl5DWDqQ6ZCCe+t0lZtnixx1KjISaXmEMyZzmMkeotL9AzR5e70qVg1BODtvQSDOm0s6v0
+	H+Aq640g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa7xR-00000000pqj-2wl6;
-	Thu, 18 Jun 2026 08:18:42 +0000
-Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
+	id 1wa7y0-00000000pwk-22EV;
+	Thu, 18 Jun 2026 08:19:16 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa7xP-00000000pqG-3SeV
+	id 1wa7xy-00000000pvs-3oAH
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 18 Jun 2026 08:19:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Type:MIME-Version:Message-ID:
+	Date:Subject:CC:To:From:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=jTDLB1azfarwF5n/5KTJzb1SYDTKLL2v2/t9vmMWvFU=; b=WQ4Mr+xYv42znSMHnMct1hgnbj
+	QBOhw9Po7SsyyhW4bi045rT/REQ/WW/tbCoFc5LAfK+FevHhSXJqhM5Z2KCtylOQDTaqGTrxxwDvT
+	3uqqF2zdiTaJBCTqSc+VGLdgz9LJmwJbUqW+61GrKqM2uTfB78n5mZkA5WkN5MNBoW+mFhYrbTTiU
+	RgBEoQDSwCWWXuPJmB5u/22fekibSRKA0cZutSguuKluXXh2XfRTyJw8rYSWsrpZn4NrHZaBP6Dd1
+	E6zX/Bwk45/h85uv989pkEkCTuYjpa2DJ0eVBgsZIuY/EfGFM8QJiTKcULlvXaXQSGNwcK2SG18P6
+	hfZKj2og==;
+Received: from mx21.baidu.com ([220.181.3.85] helo=outbound.baidu.com)
+	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wa7xS-0000000E7b4-1R2y
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 08:18:41 +0000
-Received: by mail-qt1-x82e.google.com with SMTP id d75a77b69052e-51765531803so210661cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 01:18:39 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1781770718; cv=none;
-        d=google.com; s=arc-20260327;
-        b=CiVV9zqBYMn/xB/e03zVyfJ4aWdVurtQxFReJiTPDWjLrpPdiFAr3GuSvAUHI2/hp/
-         e0S32wHLQWybM2i5QdH74iQHmMQ6gUuJBndt6+248ChUPbzlC2opJAoTFGivcFHb1lZ1
-         CteQBrp2VJIuqFz5RSl3MIask3chMRVnRFsRh9yVaaXNSZib3AMdCF6+TRFfeV5h0hPN
-         Tj91q2Zn9vqZx8qreIw+fMyTXyzM4WGbFUz15u2CUr3mNPkrKEaQIfx7e/+UHJc6ufgS
-         bh/h6pLvMXSfPhunyIwGKEsYimm5McuzoH5N2CpZVWbllId8DyxOB4kk92WHk9iU6ErP
-         dcJQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=c45y9wnnyb2cnPIO+srEHNjmV4JorsdhhQBjkEOIpgM=;
-        fh=WjQhw0ytgfPDQLY3YRaRHYWC0+s8tmBaro5bPujPzaM=;
-        b=sbnMWqcvaXVlWeIYhX69Jq/+qhsBZZlcW/quPya4c5yXixDcShnCHAqKD3xdYrgF7s
-         5Ft3URKMwLZM9r5nTAM8WvFHJhJdUaNyBPc2dYII8S5TNIHzY+blK9Dk4S+2uVq6UOsa
-         aWo9APsW7hspnTrdn2zKthK+1GRBIFDonamP0JJr7AlKwWM1L4aFJ7pZUNi0WLzuw2fx
-         QlUnRIhnnnfLUBtbPPVPq5/a+/kxmgf2GoxXNuNRg4p1JtOSE1VxZ+fiO+VtngT28YDb
-         M2tWU4Ry6NNL3aJ1p9U0d7MBYtsP+IC7CfeFpnwMrxEevaxbLPk3E4RVwln7f4+NiyBt
-         KDTQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781770718; x=1782375518; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=c45y9wnnyb2cnPIO+srEHNjmV4JorsdhhQBjkEOIpgM=;
-        b=UNidw++ALi6XVhb4YFYQlUwjjFouAWWYH/K7ll1tkVBhDi67GTHNnC4buZCu+kO5J6
-         +XtlsJljMATRCUr+IMrV4J/f6qAh6J1s82RHZd+njELzedrG6karFrpGX3XExm6nXx+s
-         Vjv9UJI/x1o84ysi0qfzN/imrJr6IJxwKQKDaUUMkf5D/gNKiiz/iNrISScKmj1YoWC7
-         VtjfkxDEnmUWG9NGe/zD8QeU9BiGHffOy5yg+7pZWSvJAFiBsISL2GAIeqLRzI4AHn6M
-         sj2FdV1tTDHdu/Ao5Y2nPA3iyTRcXH5a/pA9WFD3M7reEtgx3BRYsVI2fnfV/9CF75Zi
-         E2oQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781770718; x=1782375518;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=c45y9wnnyb2cnPIO+srEHNjmV4JorsdhhQBjkEOIpgM=;
-        b=er/HYKnt2vTBKj7A5nAxJmq4r2feS5L6DY6mVZnAhuvWe+5cl+eaIHl6KG4o5XopUb
-         A1DPbkchfVDxtz3keqqxtoX1G4aUMHhDi58VNbfIade9G9LppxYb4KC/MZ/2ZPHPSZlL
-         G0Cuiv1YB93GBJ+u7IAt2YYJtzs0ARvP5lIRCrP7g6A+us2y/E+aKOPX9jzmpx8j4URK
-         hEWYsGDnO97MFv65bD4EZJ28Jli1FFs5c+1HoxAZaHKZtZ+xbdhGgZsMDoHnrVdRmrev
-         PyjiD7m+E/mdLOAezfkNbp432ttLGzKPTE+skvmgo5wJRattKxFIr2aEhqpWPDQllkwT
-         XhGA==
-X-Forwarded-Encrypted: i=1; AFNElJ+70q/Znnc4vsGEKquF2PFcJD1LZkCKj/XLdotKDcyCcKtIyOGxHnr2jXYUEsaqnNcKjF5I3wRODQ56NzDG7itv@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy//fQ8V9CHdyL9B6ONskrW9y3+/r+kNQDFIbmDwoSo7sDY9SjG
-	gfvt0jptSGhFlA/uTCCYEr1gb34lhlA7cxSK25u1Je+wHjpkSsfKUlfZkrfovTS3EARiT5dSBBv
-	loQYXvspvVucdWeCwDOuAdzcoJWhjT4kmfGzHPfYB
-X-Gm-Gg: AfdE7clQjNb2K1nfTUr0oOY8INjRwkBayD00/ylbqLufTrxIT3naXTi72uFdKNQZ6j+
-	SMM667RG6DTOxP68hOtSwfrIUXBWC1Gonkk+5UxO5Ur/dKb14SAHyxAEa6WYUbzZAS+L0BU3qOA
-	KjvJ5320DBdze/stvVsBxQi66gPYk5EzuM5yfhn12ikVix9PhzjQxAOsviTrjgJ+niy5cpWOmeb
-	qq4ZOjr5tne6fhp04hBdGvVdEBPojKkdjdY3Cd6fJHXcxr2oEll8sxUaN3YniFC0CICmhKLOw==
-X-Received: by 2002:a05:622a:60e:b0:50f:b69a:f4a8 with SMTP id
- d75a77b69052e-519c97442c5mr5265581cf.7.1781770717860; Thu, 18 Jun 2026
- 01:18:37 -0700 (PDT)
+	Thu, 18 Jun 2026 08:19:07 +0000
+X-MD-Sfrom: lirongqing@baidu.com
+X-MD-SrcIP: 172.31.50.47
+From: lirongqing <lirongqing@baidu.com>
+To: Thierry Reding <thierry.reding@kernel.org>, Krishna Reddy
+	<vdumpa@nvidia.com>, Will Deacon <will@kernel.org>, Robin Murphy
+	<robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>, Jonathan Hunter
+	<jonathanh@nvidia.com>, Nicolin Chen <nicolinc@nvidia.com>, Nate Watterson
+	<nwatterson@nvidia.com>, Jason Gunthorpe <jgg@ziepe.ca>,
+	<linux-tegra@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>
+CC: Li RongQing <lirongqing@baidu.com>
+Subject: [PATCH] iommu/arm-smmu-v3: Fix VCMDQ indexing in tegra241_vintf0_handle_error
+Date: Thu, 18 Jun 2026 15:59:45 +0800
+Message-ID: <20260618075945.2217-1-lirongqing@baidu.com>
+X-Mailer: git-send-email 2.17.1
 MIME-Version: 1.0
-References: <20260614163336.3490925-1-tabba@google.com> <20260614163336.3490925-5-tabba@google.com>
- <86o6h8s2gx.wl-maz@kernel.org>
-In-Reply-To: <86o6h8s2gx.wl-maz@kernel.org>
-From: Fuad Tabba <tabba@google.com>
-Date: Thu, 18 Jun 2026 09:18:00 +0100
-X-Gm-Features: AVVi8CeEsIe0WLVwg5GBkio2jYJMgyWACknxGyB7zwKW8NC6Ll8jR15uMdsNjAs
-Message-ID: <CA+EHjTz1dtmmZ-JcJTEw6Pv+VephGEjpcNpt8zayUeESxcKyuw@mail.gmail.com>
-Subject: Re: [PATCH 4/7] KVM: arm64: Set IL for injected FPAC exceptions
- during ERET emulation
-To: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oupton@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Vincent Donnefort <vdonnefort@google.com>, Sascha Bischoff <Sascha.Bischoff@arm.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain
+X-Originating-IP: [172.31.63.8]
+X-ClientProxiedBy: bjkjy-exc5.internal.baidu.com (172.31.50.49) To
+ bjkjy-exc3.internal.baidu.com (172.31.50.47)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=baidu.com;
+	s=selector1; t=1781769595;
+	bh=jTDLB1azfarwF5n/5KTJzb1SYDTKLL2v2/t9vmMWvFU=;
+	h=From:To:CC:Subject:Date:Message-ID:Content-Type;
+	b=MDNDMRreDvxOTeIPpXBFfo8K9BpR69P+Sum2hHLZFAiFWIJ4cDubAu4l9YQczlECA
+	 365yLLDM+91Wusj528f6z0CGu9KdVNpi2Lbb1sijjh9lXwkuNBoqUKxCcJ4zlUllpP
+	 CfYRIU9Lb+tk0BKe2V4/Ms+PCOoV3tsYIY+kPgxfZKYFZe7L3b+DDEq3sx1eCt3OGj
+	 bsdJ5/AxjB1Hjn7bP1I5LEMYhXhnm18kmj6XO6595R5xtlK/wgEP8UtINYbRBtBF6d
+	 aJDv+4Jux7oUAQbtaEObmNkX8zqc+TznnQIgONeo75VQshaoab3rRzsNVNGJsnXTSE
+	 hQ2baI8RBpkCQ==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260618_011839_909193_B7D1A231 
-X-CRM114-Status: GOOD (  19.41  )
+X-CRM114-CacheID: sfid-20260618_091850_562819_0388921B 
+X-CRM114-Status: GOOD (  10.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,50 +89,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 18 Jun 2026 at 09:00, Marc Zyngier <maz@kernel.org> wrote:
->
-> On Sun, 14 Jun 2026 17:33:33 +0100,
-> Fuad Tabba <tabba@google.com> wrote:
-> >
-> > The FPAC syndrome constructed during nested ERET emulation does not set
-> > IL. For FPAC (EC=0x1C), IL reflects the instruction length. ERET and
-> > its authenticated variants are always A64 32-bit instructions, so IL
-> > must be 1.
-> >
-> > Fixes: 213b3d1ea161 ("KVM: arm64: nv: Handle ERETA[AB] instructions")
-> > Signed-off-by: Fuad Tabba <tabba@google.com>
-> > ---
-> >  arch/arm64/kvm/emulate-nested.c | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> >
-> > diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
-> > index dba7ced74ca5..4b39363cf891 100644
-> > --- a/arch/arm64/kvm/emulate-nested.c
-> > +++ b/arch/arm64/kvm/emulate-nested.c
-> > @@ -2777,7 +2777,7 @@ void kvm_emulate_nested_eret(struct kvm_vcpu *vcpu)
-> >                */
-> >               if (kvm_has_pauth(vcpu->kvm, FPACCOMBINE) && !(spsr & PSR_IL_BIT)) {
-> >                       esr &= ESR_ELx_ERET_ISS_ERETA;
-> > -                     esr |= FIELD_PREP(ESR_ELx_EC_MASK, ESR_ELx_EC_FPAC);
-> > +                     esr |= FIELD_PREP(ESR_ELx_EC_MASK, ESR_ELx_EC_FPAC) | ESR_ELx_IL;
->
-> In general, I prefer retaining information that is present in the
-> source exception, rather than adding arbitrary bits without much
-> context, even if we only support AArch64 for NV. In this case, I'd
-> rather see this:
->
->                         esr &= (ESR_ELx_ERET_ISS_ERETA | ESR_ELx_IL);
+From: Li RongQing <lirongqing@baidu.com>
 
-Sounds good to me. I'll rebase on 7.1 and respin.
+In tegra241_vintf0_handle_error(), the driver loops through the
+LVCMDQ_ERR_MAP_64(i) registers to detect and handle error flags for
+each virtual command queue (VCMDQ).
 
-Cheers,
-/fuad
+However, the code erroneously uses the register-local bit offset
+returned by __ffs64(map) directly as the global logical queue index
+(lidx) into the vintf->lvcmdqs[] array. When 'i' is greater than 0
+(i.e., handling queues 64 and above), this logic incorrectly targets
+the queues in the first block (0-63) instead of the intended queues
+(i * 64 + bit). This leads to handling errors on the wrong VCMDQ
+structures and clearing the wrong hardware error status.
 
->
-> Thanks,
->
->         M.
->
-> --
-> Without deviation from the norm, progress is not possible.
+Fix this by properly decoupling the register-local bit offset from the
+global array index. Use the local bit offset to clear the local map
+snapshot, and use 'i * 64 + bit' to correctly index the global
+vintf->lvcmdqs[] array.
+
+Fixes: 918eb5c856f6 ("iommu/arm-smmu-v3: Add in-kernel support for NVIDIA Tegra241 (Grace) CMDQV")
+Signed-off-by: Li RongQing <lirongqing@baidu.com>
+---
+ drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
+index 67be62a..33ec466 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
++++ b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
+@@ -317,13 +317,14 @@ static void tegra241_vintf0_handle_error(struct tegra241_vintf *vintf)
+ 		u64 map = readq_relaxed(REG_VINTF(vintf, LVCMDQ_ERR_MAP_64(i)));
+ 
+ 		while (map) {
+-			unsigned long lidx = __ffs64(map);
++			unsigned long bit = __ffs64(map);
++			unsigned long lidx = i * 64 + bit;
+ 			struct tegra241_vcmdq *vcmdq = vintf->lvcmdqs[lidx];
+ 			u32 gerror = readl_relaxed(REG_VCMDQ_PAGE0(vcmdq, GERROR));
+ 
+ 			__arm_smmu_cmdq_skip_err(&vintf->cmdqv->smmu, &vcmdq->cmdq);
+ 			writel(gerror, REG_VCMDQ_PAGE0(vcmdq, GERRORN));
+-			map &= ~BIT_ULL(lidx);
++			map &= ~BIT_ULL(bit);
+ 		}
+ 	}
+ }
+-- 
+2.9.4
+
 
