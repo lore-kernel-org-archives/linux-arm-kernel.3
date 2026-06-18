@@ -4,90 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D608CD98F0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 07:40:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56AE6CD98ED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 07:40:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SjiRzYxjlgb1391C0ySksvTAaXp/63Cihk5oFrsX1z4=; b=DUDEQ2bdwhuyelfaXQGpW45eBi
-	RVRsHIU9rLAyI5SSui49MYmSCvewMkBbNzNB4I+/2T3UjQAiSWo5VBJWdkuMCtmxdrB66/EgXaM5S
-	c3htzrNkRQ54wav0Wzq9yjzfkHwp5Ld2Tvf78748YFAeaLhyakttK4uI80KnAOCkkROXipWG8WVAm
-	87U5K3m9tbXPurQEAPwa+5nwZ4e1wbK0qGGu4cVmlv9k7EykrbISE3K937vkBiPzsLQ5dYv6b2se5
-	aRNX/szczKs3SYCUE7j6IjHIIoCP9G3OH3zV5aexNFdafVSLYT5xYDObKfkODXwWXMPY1EkMNkrDk
-	znrjZ6qQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=4bQGAYRRaV2+W1903QsWxmruXddrxMYSZxLh/ZQ661U=; b=SZFzknfinAMWf1
+	QNStDoOUmcz+jgw30sMXbsmYWMvNomDzoCajSUicFCCW9KsZ9fDjIMzuNY2r/O2TBFQd1T6qpxurG
+	pzb1PIT2jf1gh5oQBeXK9sQBD9wIadQHM7p70dOSoxu7p1TSmu4OT0yiY+1wp19YNUYg4yg0Ggal5
+	/lQBeytNrumYW9ZZEQD4s+cDkrKPgp5CmWiaUID8ZiR6T+D07/a1pnp2LtLacfuTXga0YICIcOges
+	TjolWkMIBrrV0PjeVC/Puu+w9EllORMk4ruR9EVMB8QGHl9x59OAM9/GUrcQnVmQMreVqXF6yRTz6
+	ZA11nRoMzfjjOwZA+Ypg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa7Mc-00000000msB-10y3;
-	Thu, 18 Jun 2026 07:40:38 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1wa7Mo-00000000mtt-1OZi;
+	Thu, 18 Jun 2026 07:40:50 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa7Ma-00000000mre-0YW2
+	id 1wa7Mm-00000000mtX-1ia8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 07:40:37 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-8453a67659fso313175b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 00:40:35 -0700 (PDT)
+	Thu, 18 Jun 2026 07:40:49 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2c6bb8a5980so4477725ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 00:40:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1781768435; x=1782373235; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=SjiRzYxjlgb1391C0ySksvTAaXp/63Cihk5oFrsX1z4=;
-        b=FLmZkjfWKZPcdkmcEIq5asC5twYDgLkeBgI56c976dBfQ2CQgTF7niaGrGrc+wNFsL
-         f4BXIkn2tfDpNiKk2jdmTj+pJ9Du31fC6Cyu81tHFa2rOMLrhOxkRv1EMHLdYHiHT3hp
-         CNCSGDIZt8X7AbyFoshpREZIBZmdGUyvBSPxt7RFZAaK9lRR+dd7GOTpT5b2Wrvf+DTy
-         PGXecbpp9YKC+neUtGkGSUfKHAvnUVlk5QIAAU63lCXSxtUwTHew9Ox+xPPCna48O3uz
-         em4uK7rObYjZbr14P5H8UE0YWG90K1MOkriyE6WFgSkzhtv5yO2ZVvwiFBxrnUUe6KZ+
-         DH/Q==
+        d=gmail.com; s=20251104; t=1781768447; x=1782373247; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=4bQGAYRRaV2+W1903QsWxmruXddrxMYSZxLh/ZQ661U=;
+        b=erHLnRvmZad3IPGpDwByYrCFkaCe41Jvmbip7P8LonAEES/9YYTI8h/wOWQDKZDBWX
+         LwynZpfNorf/UHrZ/KTMoPjX/HnBUWafnK6yExSS18zI493fElofejIqHgLdaIGCyXT6
+         dMUSLVi5Als4ODB8n7wNfRq3Yd3a1Jt1fsrjcUsgg2UMsRFz54CvvG7GTML2LR8qDQ84
+         /GdGtBGNO72SVw6rmxJBAkHQWUDwIBEqmTqIMM6XR2P694qKkp/apjkqd/G94Z/BZPrk
+         y4ucZbyZrrampIAdnjaEhP6osTKKI8EyxmGgrcrlFowHFlNA9aO/CUzj32giB4AQv0MI
+         pTlg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781768435; x=1782373235;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=SjiRzYxjlgb1391C0ySksvTAaXp/63Cihk5oFrsX1z4=;
-        b=swajGAWhV325Q7ZmulAHwnq1YxJwhhOH0/ztFlFIhARriOyRM45EWDRUiORDtrQe0F
-         SitsEBPbSINrTA4jdRucguUgIf80qyksLC9WQXF9aloqen1pIreHimXruvcrmyfIXkwC
-         Ll1h439Kid7rAST/AQLhF8LXxfxysZc5C1oeg+emLWCTpKvWBlRpa4REMMl3FWj57z08
-         9qCZpicTIhsBTa2oE8dZB+lYrt2MFyg+t5M7hlgs7XXj3AFnM8H3EB7RyVbPUSqxfFqQ
-         q+hmVgclMK4GbQKcJUjCHV4LcsVcdP1pTThh7XMAJ5oGHbvpTkBvrL8HUKnOouvtR55B
-         qihQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+6zsZwKAyRHHqqxQlrfijMGOK+k6Crz+IbrJoryqcT0yJhQajODaqg8RamSE4DbUq9mCg1XU8P5vOsxFFT5Ygf@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz/EVIYw0KE8c3UpeDlASgODR16bfK2nOubvixmKkbDO9CrU+pv
-	sjG/DMVMF5wgdpl5GB6q5a9r02qUikDweb5Zd+i2dCG+9dE3JZ5FmzOfPZpiqRgeQKk=
-X-Gm-Gg: AfdE7cmXLwj0l4bMHXweEr9eGzemoGuioEiS1E6J+A4cAOoI3ldryrlCeMLGgZLj2zG
-	7BVzF2s/iygyPpM6ny3pt4nNkYzfmdsx3NpynHMUym+9pM8avUFLaZoIAHNNwsjEe8M1TzZcbiB
-	pAtgFRk4Y5c0QStYJA72WfjKbBv/8BFJmGtuHG0HmkBT8l+JhTa60M9wqQWlurJqOaXKn6HQZJ+
-	vm8GEmCb82ZH9XapnoVxrIKKv50SOZr/ddBzfazlH6sYbbbZaP3shfjh+orThOLOiF/S2c/lMgC
-	bZznF/hIHq+fszJS/wppfrUKDAUblsiO5VLI2Ayeu8zAuIem2vDxuyvrrgM+5ZU143gdzltfPEu
-	/E7rrTWjJWFzSz0zPjEZpFXKvdRWXoC9hptg3M4qLfZ65wnLO0igE8uaW5c0tjvXls5xccCMayJ
-	AJL2SjcM8Rhbkp
-X-Received: by 2002:a05:6a00:cce:b0:842:2419:6bfe with SMTP id d2e1a72fcca58-8453b0df8eamr2701471b3a.7.1781768434721;
-        Thu, 18 Jun 2026 00:40:34 -0700 (PDT)
-Received: from localhost ([122.172.82.94])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8434b020b53sm17785056b3a.47.2026.06.18.00.40.33
+        d=1e100.net; s=20251104; t=1781768447; x=1782373247;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=4bQGAYRRaV2+W1903QsWxmruXddrxMYSZxLh/ZQ661U=;
+        b=K6AJ8PdoNHrR2R6PTh59LQtezdBteVCgzkKfNo/Q1rWHswOaZlcwsAF7J1xoi4/OSV
+         eziYw8ZtMJcjM3S+l7Os9tTTn1Dnhwu+tuW/utjg1K/u/suaVTlCMAv/OCt60nmx3JNy
+         tSfq8aFJ40YeQflf9joy3wAgaq4g+ATMMHWqMZNYIqdh1F9w4eER1Lx2X6njjpEcVaeX
+         Cx+RRYVoNljQpkrM/17grEFAcSBiuEGaKgQDk2ANM9Swe+3cn8TKGK9NNdU0qJbFNz6+
+         +TtsH3iwsaNMgIBqQz4Nen1qPd3H67ErkU3WJPNmksYeGQzZ0mcKcFajzux6cTFswi/9
+         FTDQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/r7aC0BGNm9p6q69X5wpQCrTKG9YE1l0QOomtYYtoPYaCPviEbS+Bmn1z+aM83b6L2RiHVQJQO9VEEr+5XBZ5w@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz5Es06wJZiudLy/KtlIKW6z1nyZ1Kmq+GLBtALVJPUCearOnDq
+	whZr+RIb392Hz+49jgWE5ahRT8BjGrTJ3vv0B9VTBstERL3MEYWDlw5+
+X-Gm-Gg: AfdE7cmhj+9NTQXQPHvSD1z8E3ze6yU6vtfwWAs9BE2easjX+1CtLwoNNfLlwiSGNR+
+	O/MLrirEjS1p6xz3stakHYlVO4eFaniBYJmLcHEdWQDEzjm6t7RDlNWK7mfMWv2ANG5RTAr6BU3
+	ddbGVHqYD6nu/MYJjFPQ85QM0GmCHkaYeViI4+c+4vY2BDirmfrBrP9hrJ5rOmyZQM1iaTOQnCx
+	8ALNrjYbCN/ehua8jOgavPt7BNV1IuNQ8CIaZCNj7m50FIMfElPeE64xYTpHYhV9rYWkJisJhcn
+	5fvskLPlcU61s93z9Lt9fKOFldOoifgo5YscfxvXVK8QIXbB05IsvZ9S+apgrIBg4ibIiAVPFA+
+	t8lSLCHhuRqrEV0d/v50VK/Z6ek/BAnkCYHUKey9LcvfQd3N/XYzQ6iwVTspD0AOBY49zVKUKpn
+	OHR/0dy092nJeu9+l/7GGtQqsOnR0OpOpYzY6by0t+bBXH7rqzVQ5vNKbV
+X-Received: by 2002:a17:902:ce09:b0:2c1:f29a:b554 with SMTP id d9443c01a7336-2c6e5276358mr27029345ad.21.1781768447233;
+        Thu, 18 Jun 2026 00:40:47 -0700 (PDT)
+Received: from [127.0.1.1] (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c4327ac80asm170465445ad.39.2026.06.18.00.40.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 18 Jun 2026 00:40:33 -0700 (PDT)
-Date: Thu, 18 Jun 2026 13:10:31 +0530
-From: Viresh Kumar <viresh.kumar@linaro.org>
-To: Runyu Xiao <runyu.xiao@seu.edu.cn>, 
-	Herve Codina <herve.codina@bootlin.com>
-Cc: Viresh Kumar <vireshk@kernel.org>, 
-	Linus Walleij <linus.walleij@linaro.org>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
-	Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
-	linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev, linux-gpio@vger.kernel.org, 
-	linux-rt-devel@lists.linux.dev, linux-kernel@vger.kernel.org, jianhao.xu@seu.edu.cn
-Subject: Re: Question: SPEAr PLGPIO irq_enable on PREEMPT_RT and regmap
- updates
-Message-ID: <sj3oxg5ymbe2ac2geznsidsxz23rkqzqc4ir3pkjc7bsrzaorw@cw3waaj6xxkx>
-References: <20260618023418.213453-1-runyu.xiao@seu.edu.cn>
+        Thu, 18 Jun 2026 00:40:46 -0700 (PDT)
+From: Mike Hsieh <mike.quanta.115@gmail.com>
+Subject: [PATCH 0/2] ARM: dts: aspeed: sanmiguel: configure LM5066i HSCs
+ for PDB
+Date: Thu, 18 Jun 2026 15:41:43 +0800
+Message-Id: <20260618-sanmiguel-dts-config-hsc-lm5066i-v1-0-cccf959c9b78@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260618023418.213453-1-runyu.xiao@seu.edu.cn>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3NQQqDMBBA0avIrB2YxDYtXkW60DiJAxolY0UQ7
+ 97Q5dv8f4FyFlZoqwsyH6KypgJTV+CnPkVGGYvBknXkzBu1T4vEL8847op+TUEiTupxXp7knOC
+ LwoPYDI23DCWzZQ5y/hfd575/UlJw3nIAAAA=
+X-Change-ID: 20260618-sanmiguel-dts-config-hsc-lm5066i-70f40e1b3c2e
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>, 
+ Patrick Williams <patrick@stwcx.xyz>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+ Cosmo Chou <cosmo.chou@quantatw.com>, Potin Lai <potin.lai@quantatw.com>, 
+ Mik Lin <mik.lin@quantatw.com>, Mike Hsieh <Mike_Hsieh@quantatw.com>, 
+ Mike Hsieh <mike.quanta.115@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1781768507; l=715;
+ i=mike.quanta.115@gmail.com; s=20260522; h=from:subject:message-id;
+ bh=6zTiz3w7GY/mvuRAIGS25k8loWak+uMbX/Tb1hT6QIw=;
+ b=R8LnW7P5uTR3hdw1TZeBW8HSvfQD7fYHI9xc1necYSMYzKw9jzZdiu94yh4PMMYgeAVq/vigV
+ vFPAg9cKrhjCTvvTTCFFjDEgtIjsqVID5CvUPSzpINlUFc7KvOFHrLK
+X-Developer-Key: i=mike.quanta.115@gmail.com; a=ed25519;
+ pk=DRIErV0xX0KMBlR/irAsbuN4L3egitHbC8FHruUH4HE=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260618_004036_206467_7A56638A 
-X-CRM114-Status: GOOD (  23.36  )
+X-CRM114-CacheID: sfid-20260618_004048_457262_F3E60C81 
+X-CRM114-Status: UNSURE (   9.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,78 +115,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-+ Herve (the last guy to work on this driver).
+This patch series updates the device tree configurations for
+the four TI LM5066i hot-swap controllers (HSCs) on the Power
+Distribution Board (PDB) for the sanmiguel platform.
 
-On 18-06-26, 10:34, Runyu Xiao wrote:
-> Hi,
-> 
-> While auditing GPIO/pinctrl irqchip callbacks, our static analysis tool
-> flagged the SPEAr PLGPIO irq_enable path, and we manually reviewed it
-> against the current tree.
-> 
-> The path is:
-> 
->   irq_startup()
->     -> plgpio_irq_enable()
->        -> gpiochip_enable_irq()
->        -> spin_lock_irqsave(&plgpio->lock)
->        -> plgpio_reg_reset()
->        -> regmap_update_bits()
-> 
-> On PREEMPT_RT, plgpio->lock is a regular spinlock_t and can become a
-> sleeping lock.  Since irq_enable/irq_disable can be called from IRQ
-> management paths while the IRQ descriptor raw lock is held, taking that
-> regular spinlock there looks unsafe.
-> 
-> A minimal Lockdep reproducer preserving this irq_chip::irq_enable carrier
-> reports:
-> 
->   BUG: sleeping function called from invalid context
->   irqs_disabled(): 1
->   plgpio_rt_spin_lock_irqsave
->   plgpio_irq_enable
->   request_threaded_irq_probe_path
-> 
-> My first thought was to convert the PLGPIO register lock to
-> raw_spinlock_t.  However, that does not seem sufficient because the IE/EIT
-> updates go through regmap_update_bits()/regmap_read()/regmap_write().  For
-> the syscon/MMIO regmap used here, regmap may still take its own regular
-> fast-IO lock unless the regmap was created with use_raw_spinlock.  So a
-> raw_spinlock_t conversion in the PLGPIO driver alone may just move the
-> PREEMPT_RT problem one level down into regmap.
-> 
-> The repair I am considering is to keep the gpiolib resource updates in
-> the fast irq_enable/irq_disable callbacks, but defer the actual PLGPIO
-> IE/EIT register writes to irq_bus_sync_unlock(), after the IRQ core has
-> dropped desc->lock.  The driver would keep per-line shadow state for:
-> 
->   - IRQ disabled/enabled state
->   - pending IE update
->   - edge direction state
->   - pending EIT update
-> 
-> and then synchronize those shadow updates from irq_bus_sync_unlock()
-> under a mutex.
-> 
-> In other words, the fast callbacks would only update local shadow state
-> and call gpiochip_enable_irq()/gpiochip_disable_irq(), while the sleepable
-> regmap writes would be batched into the irq bus sync phase.
-> 
-> Does that sound like an acceptable direction for SPEAr PLGPIO, or would
-> you prefer a different fix, such as changing the underlying syscon regmap
-> locking model or handling only the IE register path?
-> 
-> The draft patch I have locally is roughly:
-> 
->   pinctrl: spear: defer PLGPIO IRQ updates to bus sync
-> 
-> and it changes only drivers/pinctrl/spear/pinctrl-plgpio.c.
+Signed-off-by: Mike Hsieh <mike.quanta.115@gmail.com>
+---
+Mike Hsieh (2):
+      ARM: dts: aspeed: sanmiguel: fix PDB HSC shunt resistor
+      ARM: dts: aspeed: sanmiguel: add current-range property for PDB HSC
 
-I haven't worked on this for a very long time now (15 yrs). There are some
-people who use this hardware, and so it is not removed until now.
+ arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-sanmiguel.dts | 12 ++++++++----
+ 1 file changed, 8 insertions(+), 4 deletions(-)
+---
+base-commit: 57596c043ad59cf2e53fadebf6d1b418190e3a49
+change-id: 20260618-sanmiguel-dts-config-hsc-lm5066i-70f40e1b3c2e
 
-Also I am not sure if RT kernel is a valid use case here for this SoC family.
-
+Best regards,
 -- 
-viresh
+Mike Hsieh <mike.quanta.115@gmail.com>
+
 
