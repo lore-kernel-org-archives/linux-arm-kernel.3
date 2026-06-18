@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B48ACD98F0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 22:05:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B32BDCD98F0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 22:05:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HsG+kwh/RE2Th17kyeIVSQQjjEmBmAST5wWlz7L+k/A=; b=2uBREEYnTyHaaUkjOgCONTOMsM
-	Gt4Anj4RoGA7QwXFlrlhupWnk2L1bCwrc6NSLwMCF/fHaqDVOaISqKItz0nYxdApAVFPEi0q7n4Vo
-	64ZqEdX1wg4m4tmQ+QTnrKyIorwT5wK9P8IKSTXeH59HxKRKTr6jDJC7AyUCcOkSm+/DqOqFk1MOL
-	2yGZnqIc4/ShDPELZ7Ttz0TelpOHB+h41h1C5l2aMpSPneyGWCCswwcg09Kss/MfG12hAZKs+a6ei
-	SHxCktQWDBhGZ4RmljYtlGeODPh9Ftky8O9Iamy4EO3oGIot1KiZU60NGA808UYLfb45Sn6+lWnC5
-	U8roDzvg==;
+	bh=TVPca2W85m+WmiLy6hXkm+KXlzNSHX/SVNrgp/WFCYs=; b=W/XHtvsABVtAWx9BhxqLa7A4aq
+	fNpFjwExlPc06XIyKycCwbmO6aH4WQHGcg3tflOCtoLqf6R8Q11d2Imlx48nm+gkaT64/9ZM+vm0Y
+	EGZ9p/JObOzo7WaOnxTTc4H1pItEeb/qE5yI+ANrK05TzfhlXd0JxLoJPBve/vAMJsT+gJ59K19FV
+	fnRi/oAV9MsjUzXCyhaIgppAABqbsEwWIqiguqJ5Sy13I+2xVaebe8JZZxPoUIqMFeEqUKm2LOwzw
+	P8NUdnE8yqvx8Gkb3ocgDHN1C5hD3rmG1BTAl5XTB20JD/KJJa3ksk7xmcIok4TYtIM7bNg/XAW/Y
+	PQU7zowA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waKre-00000001pTz-1Br7;
-	Thu, 18 Jun 2026 22:05:34 +0000
-Received: from mout-p-102.mailbox.org ([2001:67c:2050:0:465::102])
+	id 1waKrj-00000001pWo-1bc2;
+	Thu, 18 Jun 2026 22:05:39 +0000
+Received: from mout-p-101.mailbox.org ([80.241.56.151])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waKrY-00000001pQU-421z
+	id 1waKrb-00000001pRm-3BTA
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 18 Jun 2026 22:05:33 +0000
 Received: from smtp1.mailbox.org (smtp1.mailbox.org [10.196.197.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4ghFCW2Z5Bz9v9m;
-	Fri, 19 Jun 2026 00:05:27 +0200 (CEST)
+	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4ghFCY6prBz9tFt;
+	Fri, 19 Jun 2026 00:05:29 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1781820327;
+	t=1781820330;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=HsG+kwh/RE2Th17kyeIVSQQjjEmBmAST5wWlz7L+k/A=;
-	b=Vr7/kDwQQVyyn7Q9L3WMvbAOf0DmSjZsRwNWCVqbAQ3K0mvmVR5JS+ubzjuiSOY0fLOK4Z
-	9WzXQa4PQq/TcS5Cgr9WSLEW8fsC2f1O459t50DuJI/I5rXphumG2oHZqifo7/xCSxsG/4
-	Vu01PmHLcwFD8XBORfut00GHNKW7L7PBK3TGrZIXu5Wcw81fah1hwL8PMS2KICSg8rvjiA
-	Tn5smT+NBBaWlH2WP0VwTBO3LUDEmltgLki7OypGLYr5HkK/kJNkm7apAmSHk0D/ay7I9V
-	9C/UsgPEY0f0lXVnS7h9xtdd2NdZ2Hh2ZkNSZUMlPjGWkzBet6tc/mTMKK6a1A==
-Message-ID: <6ac0dd7d-e6f2-4af8-8a8c-0c04b80fe84c@mailbox.org>
+	bh=TVPca2W85m+WmiLy6hXkm+KXlzNSHX/SVNrgp/WFCYs=;
+	b=MLPaW2n459d+ZgMQupaC9cF9NkFnV8HVsA7YZFIOL4YDnDdYKBu2HHWsJmxlacmjhSC0+j
+	m9YUvZ5OLeiNwf27VA8VFjPlG9ydb+0z3coInn8B0CCcPSkA6ZpySvAe7vrxwKdJFm6Pgz
+	r5bxrKBhvCOfEnYAYY7z+Mb7kcqXEf1+4W74LUKTLFDwHBy3QU0qmzs0c5fu8VnyYf3kIf
+	f66wT9fzcnpzfc6mwGyNpQASIRihVjZRbGGYw0kF0IK/R8JfNmqBwhof92OBh8ic9/B8z8
+	oIbvD5UdtpNqtNllporgkNR++Aypq6qyZJJ0sCZNGoq9jhnwcKI74I52LF2Ptw==
+Message-ID: <4fcdc951-e3be-4ae4-8d60-03fd496baec4@mailbox.org>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1781820325;
+	t=1781820328;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=HsG+kwh/RE2Th17kyeIVSQQjjEmBmAST5wWlz7L+k/A=;
-	b=XKITqWdxP93mTM7BWv5LdSPVNU80VmN3Eo0nPVObPZnqcYoefywgvnU0qGrD930f190Kvk
-	bPGTQ6G0ROgP0jyLS57mN2Zga90ceidoNxWV8tfikrnOtVT3vqPGUaag2AEgrEIzWZuI+L
-	JYowfbuAOmVfK04HzsvDxAIVZ0NDBYbeWfHuWPJvSRdFgLyRh20BvpK+wbPINeOCVNDP44
-	/+n7REpcVwlhV7N4Es2gxRZQ5y4mLAkyRtupwfvQOd2Vj8AISY4JfAGlL7FYe0UlsOxtpe
-	+RO3z0NlsWn0Oj7QQylYMxTV2Oj3af46V9WNJeF2AFDQVH4V/XIwaq+6RSNtgw==
-Date: Thu, 18 Jun 2026 23:53:16 +0200
+	bh=TVPca2W85m+WmiLy6hXkm+KXlzNSHX/SVNrgp/WFCYs=;
+	b=l7JqWS1c9Nbgd+oxIvdhdZQFRMrMzI7ax8TH2QPOzHcz/1mY9EWngrrtKXZmc3BT6CT6wz
+	NyuUGcPjNljxdPwvkYOVPUQnXtOmWgGQgr+zFAcIzPxld27e1kaOkDKvFileIdklavCK9E
+	XM0mGvwpbvnozt7A4aDSUK7QvGAJy8ZwqgwPt5/VO7imOiYiQyox0BHp9fzT6uIyUM+kBY
+	3/jQxfaoa+E9LJ/2gv0Co1T7/hy6qgZ3Iqm0xPN1YycpIcv2k1dgM7I8G7bIq6cAgZGili
+	sdKtkRZiDQUn+X1y2nnYEESGXPFV9hctt+5Z8MlBvKjekDA5s/M/A6ZZsGTO1A==
+Date: Thu, 18 Jun 2026 23:54:43 +0200
 MIME-Version: 1.0
-Subject: Re: [PATCH 1/3] PCI: rcar-gen4: Configure AXIINTC if iMSI-RX not used
-To: Marc Zyngier <maz@kernel.org>,
- Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-pci@vger.kernel.org,
+Subject: Re: [PATCH 2/3] irqchip/gic-v3: Add Renesas R-Car Gen4 erratum
+ workaround
+To: Marc Zyngier <maz@kernel.org>
+Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>, linux-pci@vger.kernel.org,
  Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
  =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
  Bjorn Helgaas <bhelgaas@google.com>,
@@ -76,18 +76,20 @@ Cc: linux-pci@vger.kernel.org,
  linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-renesas-soc@vger.kernel.org
 References: <20260617030008.154449-1-marek.vasut+renesas@mailbox.org>
- <8633yltylq.wl-maz@kernel.org>
+ <20260617030008.154449-2-marek.vasut+renesas@mailbox.org>
+ <864ij1tyrj.wl-maz@kernel.org>
+ <0935eb67-83d2-49ea-89ab-0d0aa51ead8a@mailbox.org>
+ <86ldccs0oj.wl-maz@kernel.org>
 Content-Language: en-US
 From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <8633yltylq.wl-maz@kernel.org>
+In-Reply-To: <86ldccs0oj.wl-maz@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-MBO-RS-META: ucoytqqaddo4u58bqotznotj7opphcfn
-X-MBO-RS-ID: 4481829806dbe33cd5c
+X-MBO-RS-ID: 4c9c6b62bae1d8a0379
+X-MBO-RS-META: 1e9soejg6nzs4wwimrf51bf5maqubzyy
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260618_150529_149002_EF4D6D8E 
-X-CRM114-Status: UNSURE (   6.18  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260618_150532_140208_43578E27 
+X-CRM114-Status: GOOD (  21.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,16 +104,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/17/26 9:28 AM, Marc Zyngier wrote:
+On 6/18/26 10:38 AM, Marc Zyngier wrote:
 
-[...]
+Hello Marc,
 
->> +/* INTC address */
->> +#define AXIINTCADDR		0x0a00
->> +/* GITS GIC ITS translation register */
->> +#define AXIINTCADDR_VAL		0xf1050000
+>>>> Renesas R-Car S4/V4H/V4M GIC600 integration has address width for AXI
+>>>> or APB interface configured to 32 bit, it can therefore access only
+>>>> the first 4 GiB of physical address space. This information comes from
+>>>> R-Car V4H Interface Specification sheet, there is currently no technical
+>>>> update number assigned to this limitation. Further input from hardware
+>>>> engineer indicates that this limitation also applies to R-Car S4 and V4M.
+>>>> Name the limitation GEN4GICITS1, and add a driver quirk to mitigate this
+>>>> limitation.
+>>
+>> My concern is this ^ , I do not have an erratum number, because there
+>> isn't one. I am in touch with the hardware engineer and I did get a
+>> glimpse at internal details of the three SoC, which confirm the
+>> limitations. Is this sufficient ?
 > 
-> Wouldn't it be preferable to source the address from the device tree,
-> rather than hardcoding this?
-It would, I will do so in V2.
+> To be honest, this is between you and the SoC vendor. I'll take
+> whatever symbol you come up with at face value, and will assume that
+> the vendor agrees with it. After all, they are on Cc and have their
+> SoB on the patch.
+
+All right.
+
+>>>> Note that the 0x0201743b GIC600 ID is not Renesas-specific, it is
+>>>> common for many ARM GICv3 implementations. Therefore, add an extra
+>>>
+>>> Not quite. It designates GIC600 unambiguously.
+>>
+>> What I am trying to communicate is, that the 0x0201743b ID is not ID
+>> of the Renesas GIC implementation, but it is a generic ARM GIC600
+>> ID. That is why we cannot match the quirk on the ID (it is generic ARM
+>> GIC600 ID), and instead we have to match the quirk on the [ ID
+>> combined with of_machine_is_compatible("renesas,...") ].
+> 
+> This is understood, and is no different from the other broken
+> platforms in the tree.
+> 
+>>
+>>> It is just that GIC600
+>>> is integrated in zillions of SoCs, most of which don't have this
+>>> problem (the machine I'm typing this from has a GIC600 *and* 96GB of
+>>> RAM).
+>>
+>> Right.
+>>
+>> Shall I reword this paragraph somehow to make it clearer ?
+> 
+> I'd simply say that the workaround is keyed on the combination of the
+> GIC implementation and the platform identification in the device tree.
+
+OK
+
+>>>> of_machine_is_compatible() check.
+>>>>
+>>>> The GIC600 implementation in R-Car S4/V4H/V4M is r1p6.
+>>>
+>>> Is this relevant?
+>>
+>> I included it for the sake of completeness and to provide all relevant
+>> information, based on previous discussions about similar limitations
+>> that I could find on lore.k.o
+> 
+> This information is already contained in the ID you quote (bits
+> [19:12]), and can be decoded using the public TRM [1].
+I'll drop it then.
+
+Thanks
 
