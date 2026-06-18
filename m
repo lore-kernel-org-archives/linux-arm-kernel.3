@@ -4,74 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09227CD98ED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 07:59:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62AD5CD98F0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 08:00:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vmts3eVcq1AB/MaOX1+dMbZWrM8G02gzaeVnUoYstpY=; b=PRCEMNc2x2+lwAqbp3oaN8cBQ0
-	yuzmeaPAzweChA9A6rx2mgS7932QsNw+X6ZGN9vtr1+CaF8XZHvwHp+pbzjTWrrBROT2eRtpxeXL5
-	QL5AtjK6bIzdI/k4SzZnvo+POjGoPVDbocZsYjr5JO1DODTS0V0miQyvu9migvg+ORZBkAYxSJubl
-	N3cvZZeCbpxuaPXjYiiRyLD7vdqsdKTLPHIfa4ufaUGSP+El/YVPkOf2cj9iT3MHU4IrCgzRJK5ST
-	d0e3N4HT1m4PKCe9HoJLWvNcjXHhb2MZaarhw2hw369JLlTgFBJTTosX1dQSNTqNm0p9jEYnJWxXp
-	+EYGdY2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Abrw7iIO0WPcwTnLAYnNjUabC/VyQYAVg4feuCtUHh0=; b=dsG/elnaWfoSsb78mdAMijiUFf
+	4Hy1opdM30urdJgEiSsA82FToYbrxHTGoPs4uc5ipaUCq8k4Cbpm3GJJBP21hH8QWM9ukBSNXbCgW
+	b+9nQ5260cAFAfqi/8au2SLa3rRl/ae34aK52ebwgHWlgjQK3uJXeRuxxmv8CW4chTVZVVssQotfF
+	T5S9UajFEfbCs+b/GiFhMwmiIgLaZfXY5HuFIUk+tM2VpYqG37MPt971DfC7daRUCd3YWtZC4Bp5P
+	/saUUr/lBoVLz4hfUWFVN0Rby99byP0CLpmNbDOm93YMWglDLJnrzeu2sOyQOTM4ns28dRA4EoOHr
+	eSNax70w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa7eW-00000000oO7-13IQ;
-	Thu, 18 Jun 2026 07:59:08 +0000
-Received: from out-182.mta0.migadu.com ([91.218.175.182])
+	id 1wa7fQ-00000000obC-2Anh;
+	Thu, 18 Jun 2026 08:00:04 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa7eT-00000000oMp-1yhW
+	id 1wa7fP-00000000oai-0pQA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 07:59:07 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
-	s=key1; t=1781769539;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Vmts3eVcq1AB/MaOX1+dMbZWrM8G02gzaeVnUoYstpY=;
-	b=iHsAZ1Jp6nMQWYrVGGLThRws4MJ9eNCU22+ngX8PXCh56gz2+Vbb24ZIj6VGb6/jM/lMya
-	7u+JmEvYY1JMZM82d6xmfBZcRD77TXUYJe7RDF4Rvhk6o9Y4oUKwc+bcBM43seA8EKzAXD
-	jqJ8XMf6IIrR60MXQaKBLDsvNNEHTWt4MUAG6DUP4bCRjZlgF3DPSSZcWF4biChXaQ2rvJ
-	rMa6+HeOo+GYXNQnVeNDf02rSmTd03tFHgF1wMH8fR/NRxStYWyprrfJFu6hm+FJmrw0Pc
-	98X6LUc1KD/DrZ71YOD/uup/O4qaQgMykCC/fGXLxh8paDGre4D2TXrTsR25LA==
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 18 Jun 2026 09:58:52 +0200
-Message-Id: <DJC0L3CRJ0WL.IZEYVLPROMM1@cknow-tech.com>
-Cc: <kernel@collabora.com>, "Andy Yan" <andyshrk@163.com>,
- <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 1/9] dt-bindings: display: vop2: Add missing reset
- properties
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <diederik@cknow-tech.com>
-To: "Cristian Ciocaltea" <cristian.ciocaltea@collabora.com>, "Sandy Huang"
- <hjc@rock-chips.com>, =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
- "Andy Yan" <andy.yan@rock-chips.com>, "David Airlie" <airlied@gmail.com>,
- "Simona Vetter" <simona@ffwll.ch>, "Maarten Lankhorst"
- <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
- "Thomas Zimmermann" <tzimmermann@suse.de>, "Rob Herring" <robh@kernel.org>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley"
- <conor+dt@kernel.org>, "Philipp Zabel" <p.zabel@pengutronix.de>, "Andrzej
- Hajda" <andrzej.hajda@intel.com>, "Neil Armstrong"
- <neil.armstrong@linaro.org>, "Robert Foss" <rfoss@kernel.org>, "Laurent
- Pinchart" <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman"
- <jonas@kwiboo.se>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Luca
- Ceresoli" <luca.ceresoli@bootlin.com>
-References: <20260617-dw-hdmi-qp-yuv-v1-0-a665cfd06d7d@collabora.com>
- <20260617-dw-hdmi-qp-yuv-v1-1-a665cfd06d7d@collabora.com>
-In-Reply-To: <20260617-dw-hdmi-qp-yuv-v1-1-a665cfd06d7d@collabora.com>
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260618_005906_067917_47FB409A 
-X-CRM114-Status: GOOD (  11.92  )
+	Thu, 18 Jun 2026 08:00:03 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 37B8B60120;
+	Thu, 18 Jun 2026 08:00:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D528C1F000E9;
+	Thu, 18 Jun 2026 08:00:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781769601;
+	bh=Abrw7iIO0WPcwTnLAYnNjUabC/VyQYAVg4feuCtUHh0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=NbAF4aogvkEOt8J7FJFok+yIJSRN3IfPSr/WUgzjsZ/Pvlk78VMLOcWFI4L3G9th+
+	 QLfQCb22yc5d4i/gDBh5Y8XsyvsrkTfrrfL8dmL7NVRbX87xAhdTqYcZU3NErynJT1
+	 gmOHEB8F0TccxrkuX1AKbURk+mP2NJrbgDpG8CQOmpCuOtNJfGsAuwkuYahnLeekml
+	 /ug6R09jP8bTMkp4kfPPAIYQ8rT/DuJW1CRGiWu0f8MCyiQAZwTwsjb37RHOzT25NB
+	 lsom2m5c82ftK9aFV7nzJ+Rnu8y13sPO1p4Kqnojj8Vb3kd9WmX6Dy2zd2PSJXbgF6
+	 I+MoK4fLvwE3Q==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wa7fL-0000000Dv7H-0v1u;
+	Thu, 18 Jun 2026 07:59:59 +0000
+Date: Thu, 18 Jun 2026 08:59:58 +0100
+Message-ID: <86o6h8s2gx.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: Oliver Upton <oupton@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Sascha Bischoff <Sascha.Bischoff@arm.com>
+Subject: Re: [PATCH 4/7] KVM: arm64: Set IL for injected FPAC exceptions during ERET emulation
+In-Reply-To: <20260614163336.3490925-5-tabba@google.com>
+References: <20260614163336.3490925-1-tabba@google.com>
+	<20260614163336.3490925-5-tabba@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: tabba@google.com, oupton@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, vdonnefort@google.com, Sascha.Bischoff@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,112 +91,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Cristian,
-
-Thanks for this series :-) Just 1 nit (at the end) ...
-
-On Wed Jun 17, 2026 at 8:52 PM CEST, Cristian Ciocaltea wrote:
-> Document the VOP2 resets corresponding to the AXI, AHB and DCLK_VP0..2
-> clocks, which are common to all supported SoCs, plus DCLK_VP3 which is
-> provided only on RK3588.
->
-> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+On Sun, 14 Jun 2026 17:33:33 +0100,
+Fuad Tabba <tabba@google.com> wrote:
+> 
+> The FPAC syndrome constructed during nested ERET emulation does not set
+> IL. For FPAC (EC=0x1C), IL reflects the instruction length. ERET and
+> its authenticated variants are always A64 32-bit instructions, so IL
+> must be 1.
+> 
+> Fixes: 213b3d1ea161 ("KVM: arm64: nv: Handle ERETA[AB] instructions")
+> Signed-off-by: Fuad Tabba <tabba@google.com>
 > ---
->  .../bindings/display/rockchip/rockchip-vop2.yaml   | 42 ++++++++++++++++=
-++++++
->  1 file changed, 42 insertions(+)
->
-> diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip-=
-vop2.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop=
-2.yaml
-> index 93da1fb9adc4..d3bc5380f910 100644
-> --- a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.ya=
-ml
-> +++ b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.ya=
-ml
-> @@ -82,6 +82,20 @@ properties:
->        - {}
->        - {}
-> =20
-> +  resets:
-> +    minItems: 5
-> +    maxItems: 6
-> +
-> +  reset-names:
-> +    minItems: 5
-> +    items:
-> +      - const: axi
-> +      - const: ahb
-> +      - const: dclk_vp0
-> +      - const: dclk_vp1
-> +      - const: dclk_vp2
-> +      - const: dclk_vp3
-> +
->    rockchip,grf:
->      $ref: /schemas/types.yaml#/definitions/phandle
->      description:
-> @@ -148,6 +162,12 @@ allOf:
->          clock-names:
->            maxItems: 5
-> =20
-> +        resets:
-> +          maxItems: 5
-> +
-> +        reset-names:
-> +          maxItems: 5
-> +
->          interrupts:
->            maxItems: 1
-> =20
-> @@ -194,6 +214,12 @@ allOf:
->              - {}
->              - const: pll_hdmiphy0
-> =20
-> +        resets:
-> +          maxItems: 5
-> +
-> +        reset-names:
-> +          maxItems: 5
-> +
->          interrupts:
->            minItems: 4
-> =20
-> @@ -246,6 +272,12 @@ allOf:
->              - const: pll_hdmiphy0
->              - const: pll_hdmiphy1
-> =20
-> +        resets:
-> +          minItems: 6
-> +
-> +        reset-names:
-> +          minItems: 6
-> +
->          interrupts:
->            maxItems: 1
-> =20
-> @@ -289,6 +321,16 @@ examples:
->                                "dclk_vp0",
->                                "dclk_vp1",
->                                "dclk_vp2";
-> +                resets =3D <&cru SRST_A_VOP>,
-> +                         <&cru SRST_H_VOP>,
-> +                         <&cru SRST_VOP0>,
-> +                         <&cru SRST_VOP1>,
-> +                         <&cru SRST_VOP2>;
-> +                reset-names =3D "axi",
-> +                              "ahb",
-> +                              "dclk_vp0",
-> +                              "dclk_vp1",
-> +                              "dclk_vp2";
->                  power-domains =3D <&power RK3568_PD_VO>;
+>  arch/arm64/kvm/emulate-nested.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
+> index dba7ced74ca5..4b39363cf891 100644
+> --- a/arch/arm64/kvm/emulate-nested.c
+> +++ b/arch/arm64/kvm/emulate-nested.c
+> @@ -2777,7 +2777,7 @@ void kvm_emulate_nested_eret(struct kvm_vcpu *vcpu)
+>  		 */
+>  		if (kvm_has_pauth(vcpu->kvm, FPACCOMBINE) && !(spsr & PSR_IL_BIT)) {
+>  			esr &= ESR_ELx_ERET_ISS_ERETA;
+> -			esr |= FIELD_PREP(ESR_ELx_EC_MASK, ESR_ELx_EC_FPAC);
+> +			esr |= FIELD_PREP(ESR_ELx_EC_MASK, ESR_ELx_EC_FPAC) | ESR_ELx_IL;
 
-Place reset* props below power-domains (like in patch 9) ?
-So everyone who copies your example has the correct sorting order.
+In general, I prefer retaining information that is present in the
+source exception, rather than adding arbitrary bits without much
+context, even if we only support AArch64 for NV. In this case, I'd
+rather see this:
 
-Cheers,
-  Diederik
+			esr &= (ESR_ELx_ERET_ISS_ERETA | ESR_ELx_IL);
 
->                  rockchip,grf =3D <&grf>;
->                  iommus =3D <&vop_mmu>;
+Thanks,
 
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
