@@ -4,63 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E9B8CD98E2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 09:24:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D15BCD98E2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 09:25:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KJh4ttAEeP8zAxW8vgPKasKk3lK7NINqEYL1NLWWukA=; b=DnYQH2cqVTvSobFpcE70StT5Fm
-	+MPgLNrFvNBlbNfXwVkXb6UFpvSO/oUCEz4FWE6vGHZi0brhiAYH4fusxj7XOqjI3qu3QKvMG1wYl
-	/OEJpma5UCFhTXL5VwuKN+LkNTDI0Zabd287jqYY3Uaz52hx2Wwys469EDI+upg02vGcTc/lm1igG
-	jr5uSxscwbZxb2D57IoUtGon66Vi9NnSimM3zHM9YP0qbrRmfpcukJ9fLEVgAF77yJhTkFeAsq/no
-	Qws7bFQsLesHdIbd84rQLvSNPWUxQu16FFifPxQfovAzSmTMQRX9LobQLS7hB7gaG4qbrgqv65D0a
-	lMx4GZ/A==;
+	bh=/3Zre669MYqcM/Oe6qE8drH+HyzXufisv4LydYG4RVg=; b=rEPQ/PkAhR30Yxzge9zF2fbrCF
+	tz+P05Qi10xz1G53fR8jtK4LSUHEyNQKPyz50V1HMqdIg0/VDtqlMhtu/Dd4KKjwHiuOQAS4BP+U9
+	lRnwi1tufb0KUDSc56anILa7vaasYzWk6t9UP5/HliUjHedD5h4mbOHKvvCC1AzE0PZlAuvkps57o
+	fGr0a5yN87fZgKfK6LkyNSm56uuxQ7n8LgVBB/7gXt4Yzhw0sLSyAxaS447WOKXrkO5bkYTXe5xKj
+	A25q0iWBDVOW3yJcmDHhqpLTKYlRSG1IgXGoaaYFz0MbQznjPLygOmjOj/MVaOtlEAaiTVdnkISTP
+	7N4vSMpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa8z9-00000000wVZ-2Riq;
-	Thu, 18 Jun 2026 09:24:31 +0000
-Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
+	id 1wa90E-00000000wiO-3vD5;
+	Thu, 18 Jun 2026 09:25:38 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa8z6-00000000wUS-2RVa
+	id 1wa90D-00000000wi3-0HDf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 09:24:30 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
-	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id C2CBA2002AA;
-	Thu, 18 Jun 2026 11:24:26 +0200 (CEST)
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1wa8z4-003Plt-2I;
-	Thu, 18 Jun 2026 11:24:26 +0200
-Received: from pza by lupine with local (Exim 4.98.2)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1wa8z4-000000004i0-2ZQF;
-	Thu, 18 Jun 2026 11:24:26 +0200
-Message-ID: <90c4f50eb23dec06497d46f9c0f522a6b90a918b.camel@pengutronix.de>
-Subject: Re: [PATCH RFC v4 10/12] reset: zte: Add a zx297520v3 reset driver
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Stefan =?ISO-8859-1?Q?D=F6singer?= <stefandoesinger@gmail.com>,  Michael
- Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Rob
- Herring <robh@kernel.org>,  Krzysztof Kozlowski	 <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Brian Masney	 <bmasney@redhat.com>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Date: Thu, 18 Jun 2026 11:24:26 +0200
-In-Reply-To: <20260616-zx29clk-v4-10-ca994bd22e9d@gmail.com>
-References: <20260616-zx29clk-v4-0-ca994bd22e9d@gmail.com>
-	 <20260616-zx29clk-v4-10-ca994bd22e9d@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	Thu, 18 Jun 2026 09:25:38 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-5ad2abf31aeso4068e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 02:25:36 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1781774735; cv=none;
+        d=google.com; s=arc-20260327;
+        b=aduTWF8rZHUz89iPLYkO/kQOjGw+FIdjYQyv0wxyQLTqti1uRWcu4qIp5bSZxqXCmm
+         Gn275YpR+rdpLwHAMNAmi+f1Ka7vktkLKei416SAH6VJ7SVeCs/esCY5jY3w8zetVfDv
+         tRpnlkUXrZFQHUb2HnFwlHNzvBUdEgG5/ZcNuOrr+icWUiDN3jnZF0QbzM5nmwofnG3O
+         Log8gKBei6mVTRPbkj0Gdwhm3dvmYRaNCyPe3q+46ciBsKwJWkGKt3Xj74nBNqBOgeXI
+         SlJ1qDkXafnnDBkKD/EDr3bKlkCFBcttXStsmHt9N3/MwTTa6f4ANRok3+iJSPQmD3xH
+         6udw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=/3Zre669MYqcM/Oe6qE8drH+HyzXufisv4LydYG4RVg=;
+        fh=IfuHKLB5kvdfBpxw5f/PHTiVPyP7elqBs036ptWQUpY=;
+        b=Kn2TP2P2G9jlqYSidQxtZJmR9EZlg7RKXKg9YwIwEkXyDYfHqclOM1L91/4CMEWjs8
+         /y5gW8eZazknnQPrupwq1SGw5Bm4Y+rDZ5DNUiOc78OqcfXgKHjrxDYnmRe5fn5Lz6co
+         aboErhyKKrLe5O/pgVAgQ0Xd28Uiqg1LzKT73PQ/N4K6XIFztDQhnQS/kBhjdwO3uc8H
+         fP8iM91XvXH8KyG5PuklYqmCP/Xqmnx5vmIF8y1vIeCTHKMJP395qWu83t6MWRRKRZvh
+         pBIFSVRBecE+7YlCjg062VdJGPzd2cxamDThKuTSaaQS+UAXwgF78zova5N3R98KrPFr
+         /Ymw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1781774735; x=1782379535; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=/3Zre669MYqcM/Oe6qE8drH+HyzXufisv4LydYG4RVg=;
+        b=LoFcAaxULtD8HYI4AQBQTt8oQyMPTLMRNNmLqs+E5xQgBw0c885VDc1uKIEG5lvyum
+         SWZcrCYbOpYCicSeNonssWA4QANUkhgKOX90sCgY+aJ25n8NXBMlH9u1MFo1beqkqHOH
+         DO0NPQBIxoj4oTUEa3QMwWF8uC9M2lXr9w7wCP4UC/cSbiwoi1X9WohYMEkf+ShoMqIv
+         I2n6ED1OPdOIC+GrTiPvBSVQ7+CeRLiMGdyKz3VAju5Zv0uiVgvaknzZHj9y7KMNM5T/
+         iKRMsU4RQx00sATbOrxRy6c/4LU96B+KCggCRVJao3pJDWlfRWlRDEB1AqdexICAmrbx
+         CS/A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781774735; x=1782379535;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=/3Zre669MYqcM/Oe6qE8drH+HyzXufisv4LydYG4RVg=;
+        b=RxUsjMjuDICqS6GNZrratnOZMZ1CarQalSaSaK0qYgGWSRKR+TipTGfFbKaJVxih5d
+         l8w2h49U1t5GmdeEATSTgbmA5OhmG2a3Z5j7LVWLxgjgtVpz9jL7XwXiHk2RH5NNfAfV
+         mRogoNT8pYp4gm8PFaDBmb0/Jf4W9HbaAU/h4w7I8XdqMviizPZyYC1v09WE7uK50SYz
+         vlb9h2I+fvkmlouxcaESM3YJMp1s3Riub366P00uHUFGaxqrc198gZn7+5u3AOn5GYo8
+         F13LUaATgI2qS6OkNHhxgZgnJ3sJYKOuq2Fc6LXXJy/4l3hfvDt4d9J2xvyI7xSzL/zz
+         c8SQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9/36+NyBu9QrCcZVT45LJjUaFh00akA4VirJ10ooDy6i24Q06ECZj6pSVAT0jNc2GlO8cg2gN4pX/87wyWhQVs@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx4yzPGofbgEDOXpxonAYta1Nl7Nc3fDG5kjZdlsPjfPUgaUH9o
+	cfQvW1SuzqDZFPAlVe3HGnO8lfLq8cQzwQRHUVq2tC2SrmSssux5hrs3yhkqu6L3SrNuL1913MW
+	7Xg7NCuwkswzBMpJsz0hD5PAWojZ+S9fsNeeSmWNh
+X-Gm-Gg: AfdE7cnqQXK3W8dcu/dBSmhfxxjHKnCoc6JnZTteOH9kNwKKBiWaGrijoIHaAuaRd9h
+	DhB5e9xjFASnEeEBPVTDTdNrZvFB4mnhKk7fdFoJdAgQdes8XFeT1LaHmN0GZCIT78CcxEeSoxT
+	sD9oCP20YkHuUx5SJn0bEz4bDCTBFgRmq9TOp966ga8jJG9BSyiPoYVF9fXx9LaIWqfb0a/OBFh
+	o7oKMr+uMCdi9GnIDsVrkCb0EuKJX/q3UCNki7VSKv8Pafp/ksxRlH7RzCK6LbmRxV/usy7bw==
+X-Received: by 2002:a05:6512:ad2:b0:5a8:73f1:4099 with SMTP id
+ 2adb3069b0e04-5ad4db0dae4mr128479e87.0.1781774734407; Thu, 18 Jun 2026
+ 02:25:34 -0700 (PDT)
 MIME-Version: 1.0
+References: <20260612065925.755562-1-tabba@google.com> <20260612065925.755562-4-tabba@google.com>
+ <86jyrwrymb.wl-maz@kernel.org>
+In-Reply-To: <86jyrwrymb.wl-maz@kernel.org>
+From: Fuad Tabba <tabba@google.com>
+Date: Thu, 18 Jun 2026 10:24:55 +0100
+X-Gm-Features: AVVi8Cel1tJy73CjSOqfUflX8FM5l1unqh7veSw-rmZTZN4CJ08nDfEqP60aiRU
+Message-ID: <CA+EHjTz-+8M5oSh+7A2vkQ-zPmDkaKptYMoBhLz=rReufKsAHg@mail.gmail.com>
+Subject: Re: [PATCH v1 03/11] KVM: arm64: Use guard()/scoped_guard() in arm64
+ KVM EL1 code
+To: Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oupton@kernel.org>, Will Deacon <will@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Quentin Perret <qperret@google.com>, 
+	Vincent Donnefort <vdonnefort@google.com>, Sebastian Ene <sebastianene@google.com>, 
+	Per Larsen <perlarsen@google.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Joey Gouly <joey.gouly@arm.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Mark Rutland <mark.rutland@arm.com>, 
+	Jonathan Cameron <jonathan.cameron@huawei.com>, Hyunwoo Kim <imv4bel@gmail.com>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260618_022428_922969_2329F279 
-X-CRM114-Status: GOOD (  32.45  )
+X-CRM114-CacheID: sfid-20260618_022537_191204_20D7C036 
+X-CRM114-Status: GOOD (  18.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,380 +123,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Di, 2026-06-16 at 23:26 +0300, Stefan D=C3=B6singer wrote:
-> This drives the auxiliary devices created by the clock driver.
+On Thu, 18 Jun 2026 at 10:23, Marc Zyngier <maz@kernel.org> wrote:
+>
+> On Fri, 12 Jun 2026 07:59:17 +0100,
+> tabba@google.com wrote:
+> >
+> > Convert the manual mutex_lock()/spin_lock() pairs in
+> > arch/arm64/kvm/{pkvm,arm,mmu,reset,psci}.c to guard(mutex),
+> > guard(spinlock) and scoped_guard(), dropping unlock-only goto labels in
+> > favour of direct returns. Centralised cleanup gotos that still serve
+> > other resources are preserved.
+> >
+> > reset.c uses scoped_guard() rather than guard() so the lock covers only
+> > the small read/update window inside kvm_reset_vcpu(), leaving the rest
+> > of the function outside the critical section.
+>
+> To be brutally honest, I don't think this sort of widespread changes
+> bring us anything. This is just churn.
+>
+> Sure, if you are reworking a particular bit of code that is goto-heavy
+> for the purpose of error handling, this has the potential to cleanup
+> the code *while you are changing it*.
+>
+> But doing it for the sake of doing it? I think we have bigger fish to
+> fry right now.
 
-Which auxiliary devices? Which clock driver?
+I understand what you mean. Would you like me to drop all of the guard
+patches, or only those that go beyond the code changed in this series?
 
-> Signed-off-by: Stefan D=C3=B6singer <stefandoesinger@gmail.com>
-> ---
->  MAINTAINERS                          |   1 +
->  drivers/reset/Kconfig                |  11 ++
->  drivers/reset/Makefile               |   1 +
->  drivers/reset/reset-zte-zx297520v3.c | 224 +++++++++++++++++++++++++++++=
-++++++
->  4 files changed, 237 insertions(+)
->=20
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index f1f0459b2c72..55bf0290343a 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -3871,6 +3871,7 @@ F:	Documentation/devicetree/zte,zx297520v3-*
->  F:	arch/arm/boot/dts/zte/
->  F:	arch/arm/mach-zte/
->  F:	drivers/clk/zte/
-> +F:	drivers/reset/reset-zte-zx297520v3.c
->  F:	include/dt-bindings/clock/zte,zx297520v3-clk.h
-> =20
->  ARM/ZYNQ ARCHITECTURE
-> diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
-> index d009eb0849a3..116dd23f1b8e 100644
-> --- a/drivers/reset/Kconfig
-> +++ b/drivers/reset/Kconfig
-> @@ -404,6 +404,17 @@ config RESET_UNIPHIER_GLUE
->  	  on UniPhier SoCs. Say Y if you want to control reset signals
->  	  provided by the glue layer.
-> =20
-> +config RESET_ZTE_ZX297520V3
-> +	tristate "ZTE zx297520v3 Reset Driver"
-> +	depends on (ARCH_ZTE || COMPILE_TEST)
-> +	default CLK_ZTE_ZX297520V3
-> +	select AUXILIARY_BUS
-> +	help
-> +	  This enables the reset controller for ZTE zx297520v3 SoCs. The reset
-> +	  controller is part of the clock controller on this SoC. This driver
-> +	  operates on an auxiliary device exposed by the clock driver. Enable
-> +	  this driver if you plan to boot the kernel on a zx297520v3 based SoC.
-> +
->  config RESET_ZYNQ
->  	bool "ZYNQ Reset Driver" if COMPILE_TEST
->  	default ARCH_ZYNQ
-> diff --git a/drivers/reset/Makefile b/drivers/reset/Makefile
-> index 3e52569bd276..9a8a48d44dc4 100644
-> --- a/drivers/reset/Makefile
-> +++ b/drivers/reset/Makefile
-> @@ -50,5 +50,6 @@ obj-$(CONFIG_RESET_TI_TPS380X) +=3D reset-tps380x.o
->  obj-$(CONFIG_RESET_TN48M_CPLD) +=3D reset-tn48m.o
->  obj-$(CONFIG_RESET_UNIPHIER) +=3D reset-uniphier.o
->  obj-$(CONFIG_RESET_UNIPHIER_GLUE) +=3D reset-uniphier-glue.o
-> +obj-$(CONFIG_RESET_ZTE_ZX297520V3) +=3D reset-zte-zx297520v3.o
->  obj-$(CONFIG_RESET_ZYNQ) +=3D reset-zynq.o
->  obj-$(CONFIG_RESET_ZYNQMP) +=3D reset-zynqmp.o
-> diff --git a/drivers/reset/reset-zte-zx297520v3.c b/drivers/reset/reset-z=
-te-zx297520v3.c
-> new file mode 100644
-> index 000000000000..2022f4df2ebd
-> --- /dev/null
-> +++ b/drivers/reset/reset-zte-zx297520v3.c
-> @@ -0,0 +1,224 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (C) 2026 Stefan D=C3=B6singer
-> + */
-> +#include <dt-bindings/clock/zte,zx297520v3-clk.h>
-> +#include <linux/reset-controller.h>
-> +#include <linux/platform_device.h>
+Thanks,
+/fuad
 
-What is this used for?
-
-> +#include <linux/auxiliary_bus.h>
-> +#include <linux/clk-provider.h>
-
-What is this used for?
-
-> +#include <linux/mfd/syscon.h>
-> +#include <linux/regmap.h>
-> +#include <linux/iopoll.h>
-> +#include <linux/delay.h>
-> +
-> +struct zte_reset_reg {
-> +	u32 mask, wait_mask;
-> +	u16 reg;
-> +};
-> +
-> +struct zte_reset_info {
-> +	const struct zte_reset_reg *resets;
-> +	unsigned int num;
-> +};
-> +
-> +struct zte_reset {
-> +	struct reset_controller_dev rcdev;
-> +	struct regmap *map;
-> +	const struct zte_reset_reg *resets;
-> +};
-> +
-> +static inline struct zte_reset *to_zte_reset(struct reset_controller_dev=
- *rcdev)
-> +{
-> +	return container_of(rcdev, struct zte_reset, rcdev);
-> +}
-> +
-> +static int zx29_rst_assert(struct reset_controller_dev *rcdev, unsigned =
-long id)
-> +{
-> +	struct zte_reset *rst =3D to_zte_reset(rcdev);
-> +
-> +	return regmap_clear_bits(rst->map, rst->resets[id].reg, rst->resets[id]=
-.mask);
-> +}
-> +
-> +static int zx29_rst_deassert(struct reset_controller_dev *rcdev, unsigne=
-d long id)
-> +{
-> +	struct zte_reset *rst =3D to_zte_reset(rcdev);
-> +	int res;
-> +	u32 val;
-> +
-> +	res =3D regmap_set_bits(rst->map, rst->resets[id].reg, rst->resets[id].=
-mask);
-> +	if (res)
-> +		return res;
-> +
-> +	/* This is a special case used only by USB reset */
-> +	if (rst->resets[id].wait_mask) {
-> +		return regmap_read_poll_timeout(rst->map, rst->resets[id].reg + 4, val=
-,
-> +						val & rst->resets[id].wait_mask, 1, 100);
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int zx29_rst_status(struct reset_controller_dev *rcdev, unsigned =
-long id)
-> +{
-> +	struct zte_reset *rst =3D to_zte_reset(rcdev);
-> +	int res;
-> +
-> +	res =3D regmap_test_bits(rst->map, rst->resets[id].reg, rst->resets[id]=
-.mask);
-> +	if (res < 0)
-> +		return res;
-> +
-> +	return !res;
-> +}
-> +
-> +static const struct reset_control_ops zx29_rst_ops =3D {
-> +	.assert		=3D zx29_rst_assert,
-> +	.deassert	=3D zx29_rst_deassert,
-> +	.status		=3D zx29_rst_status,
-> +};
-> +
-> +static const struct zte_reset_reg zx297520v3_top_resets[] =3D {
-> +	/* This bit is set by ZTE's cpko.ko blob, it looks like a reset bit for=
- the LTE DSP
-> +	 * coprocessor. Clocks for it are in matrixclk.
-> +	 */
-> +	[ZX297520V3_ZSP_RESET]       =3D { .reg =3D 0x13c, .mask =3D BIT(0)    =
-        },
-> +
-> +	[ZX297520V3_UART0_RESET]     =3D { .reg =3D 0x78,  .mask =3D BIT(6)  | =
-BIT(7)  },
-
-Is this a single reset line controlled by two bits (do you know what
-they are)? Or might these actually be two different reset controls that
-are just always set together?
-
-> +	[ZX297520V3_I2C0_RESET]      =3D { .reg =3D 0x74,  .mask =3D BIT(8)  | =
-BIT(9)  },
-> +	[ZX297520V3_RTC_RESET]       =3D { .reg =3D 0x74,  .mask =3D BIT(4)  | =
-BIT(5)  },
-> +	[ZX297520V3_TIMER_T08_RESET] =3D { .reg =3D 0x78,  .mask =3D BIT(4)  | =
-BIT(5)  },
-> +	[ZX297520V3_TIMER_T09_RESET] =3D { .reg =3D 0x78,  .mask =3D BIT(2)  | =
-BIT(3)  },
-> +	[ZX297520V3_PMM_RESET]       =3D { .reg =3D 0x74,  .mask =3D BIT(0)  | =
-BIT(1)  },
-> +
-> +	/* I haven't found any clocks for GPIO. It probably wouldn't make much
-> +	 * sense anyway. Only one reset bit per controller.
-> +	 */
-> +	[ZX297520V3_GPIO_RESET]      =3D { .reg =3D  0x74, .mask =3D BIT(3)    =
-        },
-> +	[ZX297520V3_GPIO8_RESET]     =3D { .reg =3D  0x74, .mask =3D BIT(2)    =
-        },
-> +
-> +	[ZX297520V3_TIMER_T12_RESET] =3D { .reg =3D  0x74, .mask =3D BIT(6)  | =
-BIT(7)  },
-> +	[ZX297520V3_TIMER_T13_RESET] =3D { .reg =3D  0x7c, .mask =3D BIT(0)  | =
-BIT(1)  },
-> +	[ZX297520V3_TIMER_T14_RESET] =3D { .reg =3D  0x7c, .mask =3D BIT(2)  | =
-BIT(3)  },
-> +	[ZX297520V3_TIMER_T15_RESET] =3D { .reg =3D  0x74, .mask =3D BIT(10) | =
-BIT(11) },
-> +	[ZX297520V3_TIMER_T16_RESET] =3D { .reg =3D  0x7c, .mask =3D BIT(4)  | =
-BIT(5)  },
-> +	[ZX297520V3_TIMER_T17_RESET] =3D { .reg =3D 0x12c, .mask =3D BIT(0)  | =
-BIT(1)  },
-> +	[ZX297520V3_WDT_T18_RESET]   =3D { .reg =3D  0x74, .mask =3D BIT(12) | =
-BIT(13) },
-> +	[ZX297520V3_USIM1_RESET]     =3D { .reg =3D  0x74, .mask =3D BIT(14) | =
-BIT(15) },
-> +	[ZX297520V3_AHB_RESET]       =3D { .reg =3D  0x70, .mask =3D BIT(0)  | =
-BIT(1)  },
-> +
-> +	/* USB reset. This is slightly special because it needs to wait for a r=
-eady bit after
-> +	 * deasserting.
-> +	 */
-> +	[ZX297520V3_USB_RESET]      =3D  { .reg =3D 0x80,   .mask =3D BIT(3) | =
-BIT(4) | BIT(5),
-> +		.wait_mask =3D BIT(1)},
-
-Same as above, are these actually three separate reset lines?
-
-> +	[ZX297520V3_HSIC_RESET]      =3D { .reg =3D 0x80,   .mask =3D BIT(0) | =
-BIT(1) | BIT(2),
-> +		.wait_mask =3D BIT(0)},
-> +};
-> +
-> +static const struct zte_reset_info zx297520v3_top_info =3D {
-> +	.resets =3D zx297520v3_top_resets,
-> +	.num =3D ARRAY_SIZE(zx297520v3_top_resets),
-> +};
-> +
-> +static const struct zte_reset_reg zx297520v3_matrix_resets[] =3D {
-> +	[ZX297520V3_CPU_RESET]       =3D { .reg =3D  0x28, .mask =3D BIT(1)    =
-        },
-> +	[ZX297520V3_EDCP_RESET]      =3D { .reg =3D  0x68, .mask =3D BIT(0)    =
-        },
-> +	[ZX297520V3_SD0_RESET]       =3D { .reg =3D  0x58, .mask =3D BIT(1)    =
-        },
-> +	[ZX297520V3_SD1_RESET]       =3D { .reg =3D  0x58, .mask =3D BIT(0)    =
-        },
-> +	[ZX297520V3_NAND_RESET]      =3D { .reg =3D  0x58, .mask =3D BIT(4)    =
-        },
-> +	[ZX297520V3_PDCFG_RESET]     =3D { .reg =3D  0x94, .mask =3D BIT(20)   =
-        },
-> +	[ZX297520V3_SSC_RESET]       =3D { .reg =3D  0x94, .mask =3D BIT(24)   =
-        },
-> +	[ZX297520V3_GMAC_RESET]      =3D { .reg =3D 0x114, .mask =3D BIT(0)  | =
-BIT(1)  },
-> +	[ZX297520V3_VOU_RESET]       =3D { .reg =3D 0x16c, .mask =3D BIT(0)    =
-        },
-> +};
-> +
-> +static const struct zte_reset_info zx297520v3_matrix_info =3D {
-> +	.resets =3D zx297520v3_matrix_resets,
-> +	.num =3D ARRAY_SIZE(zx297520v3_matrix_resets),
-> +};
-> +
-> +static const struct zte_reset_reg zx297520v3_lsp_resets[] =3D {
-> +	[ZX297520V3_TIMER_L1_RESET]  =3D { .reg =3D 0x04,  .mask =3D BIT(8)  | =
-BIT(9)  },
-> +	[ZX297520V3_WDT_L2_RESET]    =3D { .reg =3D 0x08,  .mask =3D BIT(8)  | =
-BIT(9)  },
-> +	[ZX297520V3_WDT_L3_RESET]    =3D { .reg =3D 0x0c,  .mask =3D BIT(8)  | =
-BIT(9)  },
-> +	[ZX297520V3_PWM_RESET]       =3D { .reg =3D 0x10,  .mask =3D BIT(8)  | =
-BIT(9)  },
-> +	[ZX297520V3_I2S0_RESET]      =3D { .reg =3D 0x14,  .mask =3D BIT(8)  | =
-BIT(9)  },
-> +	/* 0x18: Not writeable */
-> +	[ZX297520V3_I2S1_RESET]      =3D { .reg =3D 0x1c,  .mask =3D BIT(8)  | =
-BIT(9)  },
-> +	/* 0x20: Not writeable */
-> +	[ZX297520V3_QSPI_RESET]      =3D { .reg =3D 0x24,  .mask =3D BIT(8)  | =
-BIT(9)  },
-> +	[ZX297520V3_UART1_RESET]     =3D { .reg =3D 0x28,  .mask =3D BIT(8)  | =
-BIT(9)  },
-> +	[ZX297520V3_I2C1_RESET]      =3D { .reg =3D 0x2c,  .mask =3D BIT(8)  | =
-BIT(9)  },
-> +	[ZX297520V3_SPI0_RESET]      =3D { .reg =3D 0x30,  .mask =3D BIT(8)  | =
-BIT(9)  },
-> +	[ZX297520V3_TIMER_LB_RESET]  =3D { .reg =3D 0x34,  .mask =3D BIT(8)  | =
-BIT(9)  },
-> +	[ZX297520V3_TIMER_LC_RESET]  =3D { .reg =3D 0x38,  .mask =3D BIT(8)  | =
-BIT(9)  },
-> +	[ZX297520V3_UART2_RESET]     =3D { .reg =3D 0x3c,  .mask =3D BIT(8)  | =
-BIT(9)  },
-> +	[ZX297520V3_WDT_LE_RESET]    =3D { .reg =3D 0x40,  .mask =3D BIT(8)  | =
-BIT(9)  },
-> +	[ZX297520V3_TIMER_LF_RESET]  =3D { .reg =3D 0x44,  .mask =3D BIT(8)  | =
-BIT(9)  },
-> +	[ZX297520V3_SPI1_RESET]      =3D { .reg =3D 0x48,  .mask =3D BIT(8)  | =
-BIT(9)  },
-> +	[ZX297520V3_TIMER_L11_RESET] =3D { .reg =3D 0x4c,  .mask =3D BIT(8)  | =
-BIT(9)  },
-> +	[ZX297520V3_TDM_RESET]       =3D { .reg =3D 0x50,  .mask =3D BIT(8)  | =
-BIT(9)  },
-> +};
-> +
-> +static const struct zte_reset_info zx297520v3_lsp_info =3D {
-> +	.resets =3D zx297520v3_lsp_resets,
-> +	.num =3D ARRAY_SIZE(zx297520v3_lsp_resets),
-> +};
-> +
-> +static int reset_zx297520v3_probe(struct auxiliary_device *adev,
-> +				  const struct auxiliary_device_id *id)
-> +{
-> +	const struct zte_reset_info *drv_info;
-> +	struct device *dev =3D &adev->dev;
-> +	struct zte_reset *rst;
-> +
-> +	drv_info =3D (struct zte_reset_info *)id->driver_data;
-> +
-> +	rst =3D devm_kzalloc(dev, sizeof(*rst), GFP_KERNEL);
-> +	if (!rst)
-> +		return -ENOMEM;
-> +
-> +	rst->resets =3D drv_info->resets;
-> +	rst->rcdev.owner =3D THIS_MODULE;
-> +	rst->rcdev.nr_resets =3D drv_info->num;
-> +	rst->rcdev.ops =3D &zx29_rst_ops;
-> +	rst->rcdev.of_node =3D dev->of_node;
-> +	rst->rcdev.dev =3D dev;
-> +	rst->rcdev.of_reset_n_cells =3D 1;
-
-No need to set of_reset_n_cells if of_xlate is not set. Here
-reset_controller_register will use fwnode_n_cells and set it to 1
-anyway.
-
-> +
-> +	rst->map =3D device_node_to_regmap(dev->of_node);
-> +	if (IS_ERR(rst->map))
-> +		return dev_err_probe(rdev, PTR_ERR(rst->map), "Cannot get parent sysco=
-n regmap\n");
-> +
-> +	return devm_reset_controller_register(dev, &rst->rcdev);
-> +}
-> +
-> +static const struct auxiliary_device_id reset_zx297520v3_ids[] =3D {
-> +	{
-> +		.name =3D "clk_zte.zx297520v3_toprst",
-> +		.driver_data =3D (kernel_ulong_t)&zx297520v3_top_info,
-> +	},
-> +	{
-> +		.name =3D "clk_zte.zx297520v3_matrixrst",
-> +		.driver_data =3D (kernel_ulong_t)&zx297520v3_matrix_info,
-> +	},
-> +	{
-> +		.name =3D "clk_zte.zx297520v3_lsprst",
-> +		.driver_data =3D (kernel_ulong_t)&zx297520v3_lsp_info,
-> +	},
-> +	{ },
-> +};
-> +
-
-Drop this empty line.
-
-> +MODULE_DEVICE_TABLE(auxiliary, reset_zx297520v3_ids);
-> +
-> +static struct auxiliary_driver reset_zx297520v3_drv =3D {
-> +	.name =3D "zx297520v3_reset",
-> +	.id_table =3D reset_zx297520v3_ids,
-> +	.probe =3D reset_zx297520v3_probe,
-> +};
-> +
-
-Drop this empty line.
-
-> +module_auxiliary_driver(reset_zx297520v3_drv);
-> +
-> +MODULE_AUTHOR("Stefan D=C3=B6singer <stefandoesinger@gmail.com>");
-> +MODULE_DESCRIPTION("ZTE zx297520v3 reset driver");
-> +MODULE_LICENSE("GPL");
-
-regards
-Philipp
+>
+>         M.
+>
+> --
+> Without deviation from the norm, progress is not possible.
 
