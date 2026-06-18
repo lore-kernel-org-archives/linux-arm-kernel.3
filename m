@@ -4,69 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E374CCD98F7
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAA2FCD98ED
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 03:14:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RnAPP6DMQ7GwEGmMlCW71qkXAHg6fFaZ5ldwM/JO2oA=; b=PCGGTVW9E2OJwYMpWoBvEqMijE
-	AlToa7B1hP3FE3Bg+uc81UM67QVxeoCaAKjAh6RLq3XCzipnZ/OLuN3a4uDWWJsTunCf1h1v/AabR
-	D2eUILFSr+luVevAvtDLN+usefnepclDi/XT8mSfJhofeCF4coNhH2QG7t0E8MG8ebC/mfH3+zSRa
-	i+iANpUnfJvOzCEQVbAWewbAmlZULiLdv44iOYAQY0NBAJFOOjpaaV1rnqU0fOi7cbxdb+oeNrXuF
-	oBfsSpST/sgWtUpfVGISvMeDz+SNE9FBoiiOXyip0xDvlIf2roPakaAKjbm1Z40+kYSGuULPvnMIE
-	5pbz9eMg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9jDBMo+uapTMqM+YZcqPtN2LM56ZOb5vW285QSsulV4=; b=RrSucsiNkcjbZEmJXDRYl2bKsJ
+	thx985vaXuY+DitR0g1x1EjzwqrfEgykECiRMWs2BxNVCKiQHXZAp7lr83zt9ZVMCRTpEPOuj083y
+	X8SWqEr5mHO3V/wYdkvQljdrLsdAOGOnF1bF6/aUmdB++lCoZXBVa3Tk0j0WgB4PkjkBC0H6RCfSg
+	wP3iWUtyEXXsQjtidLQlZalKV92lDegJG9aPuwxZ4CQt4pAC42tbFUXIwpG3R1eYxj6tNAHZ0lcoO
+	FzrXItTHa7w4zxgqYnB4DMdesSf8LIFLrv9d0jzjdtG31B5iUH8xuICsnac0hXSkVvsBqaeW5HJBp
+	fSU8Mi/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa3CV-00000000YM3-0kEe;
-	Thu, 18 Jun 2026 03:13:55 +0000
-Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
+	id 1wa3CQ-00000000YJS-3wxi;
+	Thu, 18 Jun 2026 03:13:50 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa3CP-00000000YIn-42fV
+	id 1wa3CO-00000000YII-2nEc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 03:13:51 +0000
-Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-8453a67659fso196869b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 20:13:49 -0700 (PDT)
+	Thu, 18 Jun 2026 03:13:49 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-84532e3dbf7so195304b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 20:13:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1781752429; x=1782357229; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RnAPP6DMQ7GwEGmMlCW71qkXAHg6fFaZ5ldwM/JO2oA=;
-        b=coDzPmNJOApcnd3op5yd4D2FnhYNI80yKAuNe3CBVxjNG/i6eHtvWfnf/Hd79WKsrt
-         ZapEcW0RbPsvzsQKxqghN3HfQmFS3qNlbj1OpNe9MZB9xCI96VCE1OhzfXwDDSiaFOnI
-         YsWE3CEKiZoMQqvQkI2rMJ4uDYE7hMPPupvsU=
+        d=chromium.org; s=google; t=1781752427; x=1782357227; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=9jDBMo+uapTMqM+YZcqPtN2LM56ZOb5vW285QSsulV4=;
+        b=Au7XKgiMcSmHb2PiI4VQKjsdfOBp0uKydS7sXsZoTkwM3xbRdTCfFVCXqTICiYQy/a
+         iUZgJXUC07CPUrRbtqmjgkRVY3YP3kdUbVI9p54eb8HVTUFANFd++SghkXc8N4pHgnAg
+         sYltc55ZLvAvPL5VYQW2iNUTWOOOeU0xHMEBs=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781752429; x=1782357229;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=RnAPP6DMQ7GwEGmMlCW71qkXAHg6fFaZ5ldwM/JO2oA=;
-        b=IYvNeYzvN2ykO88X2Vq3wJhbCFnKREOxy6jGtLGjs/u0MRU0G2uVCDP2QsZjjSYKaK
-         Qsz5nmR7TQjarEVF1hXe/uxLJmFf4Q4NDN8jx83MKgKrjo4VGbZDbOhpEAzbqL1lBixY
-         mlXa54216eIPcGP17efNLiAZVirdzdM/W+K33E1VuEgo3gMMC+VAVqQCyvRpfT3HRTJm
-         TjdMirtWj8yuyscPCTXwh/a/TziTONkIHRl1BLt0JqJcfVLXFpr/dLlnhsyFCnhNRAcr
-         WT9hqAbsZ63o6Ah/gbJPsWaj0/CWjOoKPSYMXxTrkwA6O7lgaqZlDx3Sv+gYds2g3sWa
-         7dDA==
-X-Forwarded-Encrypted: i=1; AFNElJ/105DVS/xNfNKFlmyQe18DYHZwero/fJrUbdLzR7l+hQuz2680dkslrBp/k7prUVm1smspMm7J90BKroYihkrl@lists.infradead.org
-X-Gm-Message-State: AOJu0YzsWRy39IKDhJ7E5YvJLWmTqJvwkhkbWUcoC955Z8zBYpP16epp
-	OYpGOWqHhqh6VQO8b5P6EnVklfjpwPRIbaM/9K4QEpiXoKwC7adeDCnlNfArgi6pog==
-X-Gm-Gg: AfdE7cm3hHr982OjDLMxEJzM/mfP8D0qxl76YX6+OnfONu8ry2fkdXUJOMiJaR/0Hcw
-	zCCiryUMQeHJwqt6Pt842UBaHUVKP94kfvFqwt3O3b/YzwYGX2ZgYSrtwFk/V2FucwBErvVmWr5
-	sYP2R/bqWivevy/jGOIaMClrkdrfK9J7k0nDzhJnQ+tevZRTCHm0yDwoYYFZWON5KYicXkkUXBV
-	aDsbYeXh9yiAub17QFZuh8bIjh0q9UpX7w0pGMatBTeF1j6lZEXIOOSaSCUoUDksJVFOTT6YqHO
-	qwtBCD9Ql/kQRTD3SJxxzjS5/T+gZHcOOkbXRxxTDMJHo0kPwanMCvYkiXgj1I0FzH1ZHmqyNpk
-	klcaqEQAy7hbcgyr+hXkUNo0k2bxUzPAYeCm1ML6QIavRzmxs3RBTapZN9n2EGqXkFZXl6KEvm3
-	e+xQNGjTEnLqrz5EyE0A+MxSw0YU+wZvC7aZkydMmzRkyDP4Nvqkdhf119wTkkNt1g286q1y0+2
-	y0=
-X-Received: by 2002:a05:6a00:1896:b0:842:6a3b:60c9 with SMTP id d2e1a72fcca58-8453b214f5emr1655665b3a.24.1781752429085;
-        Wed, 17 Jun 2026 20:13:49 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1781752427; x=1782357227;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=9jDBMo+uapTMqM+YZcqPtN2LM56ZOb5vW285QSsulV4=;
+        b=UDqfydUoSomhjKEjxuWd4Ecoo6EViJn4NJ1DvgaO4UMWLWqM0nbK8UR9+FFMMnv4nK
+         +dMovE1CS/Z6TN3i6pStUSn1BW82HQu+XtMs4HtxNAAx2WLyQTENHnZBG6O7spgEp9IU
+         0/sfPk+QPPEtta6B9orHDRLhyN3J7KgKyHlh2TCVCm2UafowFKFOAap0Glj6PbPgp3Sf
+         E4hAJWDHPed+5D7kDMXCtB2z2qd8ef5rNLd95jbOMU34gJnfQklZPPBf+AKM+cAOWXwB
+         HELUOuugit1m9rYbcucjh4K8mpW2pbX5i4j85U2Z0oxHFupyxWKrwf/qqMqrAnDU2T9l
+         cyjA==
+X-Forwarded-Encrypted: i=1; AFNElJ8v7w31kINi9YsOTnR51DERXTs1CVzhy1RNkBt1Brdzn8ldAj9I6/9ARQS+YmRWBEIxN0SR8b99lSlDsans29Km@lists.infradead.org
+X-Gm-Message-State: AOJu0YwQbuv2+6H4gSGpJaWFOtHzXaYSyd3J3+LTTAY7HWmuQMvonMs9
+	tLnibzWEe2tUjXa2Pl3CaLpi0l5nBRpRdygQ/Dp2qomtmWl7i3iiVbqxvha5y+LppA==
+X-Gm-Gg: AfdE7cluGkbq1B30D/yEb809Plw0CWWVDRozbt9MdGYPxZhccwVND+5JrR/wT22DXig
+	Oi4EeQzkckqn7+OBi5dzS2aSVc62sGnDR1r76wsA5PJj2oy7k0p64eAdvjj/xjAUgzVE1qKVmyi
+	SRWzleWgeeOw5AXrypl79xX7cn3lhbpmnSuUn7zgEnTpKS23TavLO/1jUmX5kc/H18sHEDrVguL
+	WbIe/4MVP0iNZHvC4AP4qm8/rXDizYdJBB3f6KE2j5o7rtjV39geHUK4Z+phTlmsLL9Zmt1U86V
+	IEz9rYdp1LWQuDCgHa2sAUykd7OHL63Zuz1vJjFNnmCvsvSiS5vL3fXWCDaQEQpe8sapll0Lrgt
+	0XeDIbHm/fCmyM46u1dpFXZeB+s6s3tzSJjSsLaoPbOzIW0NNrumbaKT40Qxy9HU3Xod0gBI0zr
+	pwktn2ofb7IV6qfl3b93aSSnLk4ad0v/JeO8N8b5PKkDzyCVpEiayN8UEpG29rhVd+TUqcYsION
+	Bw=
+X-Received: by 2002:a05:6a00:84d:b0:842:1ffc:55b5 with SMTP id d2e1a72fcca58-8453b1959a3mr1855321b3a.26.1781752427130;
+        Wed, 17 Jun 2026 20:13:47 -0700 (PDT)
 Received: from tigerii.tok.corp.google.com ([2a00:79e0:2031:6:20ef:efdb:f2c9:836f])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8434b046911sm17548232b3a.53.2026.06.17.20.13.47
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8434b046911sm17548232b3a.53.2026.06.17.20.13.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 17 Jun 2026 20:13:48 -0700 (PDT)
+        Wed, 17 Jun 2026 20:13:46 -0700 (PDT)
 From: Sergey Senozhatsky <senozhatsky@chromium.org>
 To: Marcel Holtmann <marcel@holtmann.org>,
 	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
@@ -76,19 +75,17 @@ Cc: Tomasz Figa <tfiga@chromium.org>,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
-	Sergey Senozhatsky <senozhatsky@chromium.org>,
-	stable@vger.kernel.org
-Subject: [PATCH v4 1/2] Bluetooth: btmtksdio: test for BUS IO errors in btmtksdio_txrx_work()
-Date: Thu, 18 Jun 2026 12:13:21 +0900
-Message-ID: <20260618031338.1011410-2-senozhatsky@chromium.org>
+	Sergey Senozhatsky <senozhatsky@chromium.org>
+Subject: [PATCH v4 0/2] Bluetooth: btmtksdio: teardown fixes
+Date: Thu, 18 Jun 2026 12:13:20 +0900
+Message-ID: <20260618031338.1011410-1-senozhatsky@chromium.org>
 X-Mailer: git-send-email 2.54.0.1189.g8c84645362-goog
-In-Reply-To: <20260618031338.1011410-1-senozhatsky@chromium.org>
-References: <20260618031338.1011410-1-senozhatsky@chromium.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260617_201350_006469_77FE1A38 
-X-CRM114-Status: GOOD (  11.47  )
+X-CRM114-CacheID: sfid-20260617_201348_746363_AE6C1A3C 
+X-CRM114-Status: UNSURE (   7.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,35 +100,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-btmtksdio_txrx_work() loop termination condition checks for
-int_status being non-zero, however, this evaluates to true
-even when sdio_readl() encounters BUS I/O error (in which
-case int_status is 0xffffffff).  Break out of the loop if
-sdio_readl() errors out.
+This fixes several teardown issues:
 
-Fixes: 26270bc189ea4 ("Bluetooth: btmtksdio: move interrupt service to work")
-Cc: stable@vger.kernel.org
-Signed-off-by: Sergey Senozhatsky <senozhatsky@chromium.org>
----
- drivers/bluetooth/btmtksdio.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+     INFO: task kworker/u17:0:189 blocked for more than 122 seconds.
+     __cancel_work_timer+0x3f4/0x460
+     cancel_work_sync+0x1c/0x2c
+     btmtksdio_flush+0x2c/0x40
+     hci_dev_open_sync+0x10c4/0x2190
+     [..]
 
-diff --git a/drivers/bluetooth/btmtksdio.c b/drivers/bluetooth/btmtksdio.c
-index c6f80c419e90..d8c8d2857527 100644
---- a/drivers/bluetooth/btmtksdio.c
-+++ b/drivers/bluetooth/btmtksdio.c
-@@ -574,7 +574,9 @@ static void btmtksdio_txrx_work(struct work_struct *work)
- 	txrx_timeout = jiffies + 5 * HZ;
- 
- 	do {
--		int_status = sdio_readl(bdev->func, MTK_REG_CHISR, NULL);
-+		int_status = sdio_readl(bdev->func, MTK_REG_CHISR, &err);
-+		if (err < 0 || int_status == 0xffffffff)
-+			break;
- 
- 		/* Ack an interrupt as soon as possible before any operation on
- 		 * hardware.
--- 
+close/flush can deadlock when run concurrently with btmtksdio_txrx_work().
+In addition btmtksdio_txrx_work() re-enables interrupts regardless of
+close/flush being executed on another CPU.
+
+v3 -> v4:
+- fix commit message linter warnings/errors (tabs, subject line over 80
+  chars).
+
+Sergey Senozhatsky (2):
+  Bluetooth: btmtksdio: test for BUS IO errors in btmtksdio_txrx_work()
+  Bluetooth: btmtksdio: call cancel_work_sync() out of host lock scope
+
+ drivers/bluetooth/btmtksdio.c | 16 +++++++++++++---
+ 1 file changed, 13 insertions(+), 3 deletions(-)
+
+--
 2.54.0.1189.g8c84645362-goog
 
 
