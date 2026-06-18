@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6549CCD98ED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 07:41:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91E6FCD98F0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 07:41:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p2/FZLzoVxADBjl0oAzsk6lNUq7prryi/YMGy+b9ziM=; b=Sn4VTcn4oj06WV2BlrGs7Sm0RI
-	6+wMA3LnJLuntItF8N0NXJutcISJl7Y7MFWuncwxmwflcryGklu0YYB1qvLQ0ghvVjtXvGOWVtICk
-	9Dw1+aY9P9rCTzNVVqeDBpCCBYGdH2jXLgRt4z83KS+VRL5nqO3Q+pT+WlkV/Yt6Aoukaoz1ENuoN
-	ns1lrGs6yjrJTX/Mnd4EeEeElzKJutWiQfmxb/GD853gwlEeDZiXImEzrRp/Mvk8OeYY3ZtEDhH2/
-	jWLQB5EApEWwiq9zjkFtOh8ei525ErXeW4pz8Bwdw5ZzAnPfLhUX2F7ZDsvieRWjASEzkgZrFC6HA
-	G9DAvpsw==;
+	bh=NyTu92Zpl4iFWsunxbLWvI4/2I1YGqKD298epHlDZtI=; b=Igb8p3rAOThXH8RLODAl4YjJWj
+	B1tiBRW946txBLWKfGDOlUTgr7IjHQaf+yAlM978NyrBfhwHDReQuwzeZ/DS/lhsHzT9G3sUkb2f5
+	iDzRZgsMo+x1C8oORCzHh/am0yynfpud7UUXaprl75nWbyNVlGkUowTkyNrQ6S/RAR0SX2oC4vGUN
+	3/9t1jdXNAghcPrZfKll4OVaCb5g83wbRsfBl8q0xWtQfB049VFj/RzZ+VzEJWYYgE9eW3rW7XiK5
+	m9ai60ZBSTJY/msXR1EvfzLa/zkJoL3r3mFu/Mn9agp3qBFzPj7hArBJAEuKcKMxlfM8otOsueJG7
+	RPT1vJKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa7Ms-00000000mvf-1lp0;
-	Thu, 18 Jun 2026 07:40:54 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1wa7Mw-00000000mxk-2W69;
+	Thu, 18 Jun 2026 07:40:58 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa7Mp-00000000muS-2MI3
+	id 1wa7Mt-00000000mw2-0IFk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 07:40:52 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-36babe2c4bdso321462a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 00:40:51 -0700 (PDT)
+	Thu, 18 Jun 2026 07:40:56 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-37c6cd1ac98so539137a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 00:40:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781768451; x=1782373251; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1781768454; x=1782373254; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=p2/FZLzoVxADBjl0oAzsk6lNUq7prryi/YMGy+b9ziM=;
-        b=eawvzXMvCpIb5sZhZYToA01XloBwhIyxcvx25pdKZdixPka/eNd3D1jK+P3j7F9Eju
-         xjbMhEe27k0awx+H3ymbjWKyihMXZux16TwCv1nu5W8L6kxxHPJytbh+wLcgHSO6g7j/
-         aX4jAaNfMnDvGpLz+RibrMXAUfyv9TIkXPCOhNwAr9ow2CTRWjhUobm7D265AqxbUvOF
-         PqUgcn5NX3JILv87jXWwnGndKdt1bl9i4dHKn1ypZhwsK5pvpvlxBpB3aQP9r+TjkgbG
-         eVP48EknD6psvbzBeZRrvIhmWsspTFzXSiyjgyzv/0uoootK903RDLocArb5+y0U7yuL
-         NuTg==
+        bh=NyTu92Zpl4iFWsunxbLWvI4/2I1YGqKD298epHlDZtI=;
+        b=Ec5S4+hw3KaltXKrczXbJxOlAKMspRYTlQiN1ZH/HspZwpqxWYYx9Ec5/Jq7uZiOTr
+         LYXeXl6Ig98z9GEJiZFriHImtrZzasVUYQTVUPem2XfE7W/G3PTVxtSyo36ZPtI5Hn5i
+         vEqEvIsuHgMogyQN826+wSfu7KpW3pSu4rTF3OgtylZ5XILlLeW55SuIscStvLwfjuNX
+         SXf8uSWbQJ3juv7H3fBZaA5wp0Asj29BYC3h7kU0uwk07JFkMhffy579gxeZNncb9K07
+         kut3abfc3uEOCSQ/4Ljt8GQbMmmmyplpbS4H3AIvjGe8qqCRwL37JHrhBBnOXY6gsRM3
+         6eVw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781768451; x=1782373251;
+        d=1e100.net; s=20251104; t=1781768454; x=1782373254;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=p2/FZLzoVxADBjl0oAzsk6lNUq7prryi/YMGy+b9ziM=;
-        b=bkp8KN1ayPOe1CLNu6U1P+5se28NpNvSj0+/PSMhsZm3ZRqnpDRsvnyuWGPT3EyTYM
-         j+Aq9V4f6V6tEQQdi95QQ7m4rXHp/PJc6pxo9JX/6iAjKvg0c34v3pql/09YwE4eQQT3
-         2gCKp5yuLurfbXZoSLYPFJxLTizjlGz+qnmjLhlfAX6Cmw3LmWDUXjhfaVACQwkaZcgG
-         T0UF0EmQPkhJsRTFcJmfAP2EgX/QlsTr0t3Z30Ls0FD8m98qtenlDMto319h6qL+U/sC
-         LemICtqVzyB1N0y6vZJs2fgVazA6iQLFCfjh1ya5XKP2YK9bVaPLpQnKZbfkGShY7TmF
-         kS7w==
-X-Forwarded-Encrypted: i=1; AFNElJ9SZJtsOC2F56Mme5YX3SduEwY7fxM9TzUz7qrWOUA6W0Wx6EBQl6f7kgMmZrl6OnmfX439o1vSAcP1TiLVV6Fa@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx8hu6l8UZkctALWfEuIwDFXQryNa8dVqvdwn1lwi0JqRe3KdmP
-	5XofCgsob8RLCV7Ha62Kg8DM3IPnE4aUECPPK2RoIQmJ7XDTgFxh8GhN
-X-Gm-Gg: AfdE7clluNRnIi7hX8XmqYu04EHwaw4vzbZuOJjPKHWrPNh6xMeN3zvXVvZkZHHj/8w
-	Nm7g043mXd84KrMhzheBAiyIwYj+ewpdyJf4CBl7KmVCduF/TBlJqTrkJPs2KE1fu78/IHZCbH3
-	pS1qcW6BvplKJfbUs/xkH7gUwKlh/O741o/StwPzdcyM3TUKtMwFnit11q7gKtPxzRE425dAZzh
-	klj3PsT6TcSctmsy94fnGHoCLXW3kGkLPwOJ3w6oHomxJVpK5NLoKHNzEoMZ3hndVrUSRmrmdOt
-	2Ivd9p/+PjB4QA4EjMKtqLpvjubWjZJPZm9PrRB2rFXs0j08jBXeBu7tIxHno8bOvSTB1woGy/K
-	aLZ6enMLDcJG2FB8KeePPDDYf3EIgkeGfgseTb4Ri4hojDoudGTXxmbwKOBYcDOG0/uioOj5fyW
-	ua7z0viuQ/8/6TcAqUvH9l7sgk0777Y+cM/lPA9MX5XO2XvF1nTTb6JhH7
-X-Received: by 2002:a17:903:2990:b0:2c0:b9a1:6493 with SMTP id d9443c01a7336-2c6bc0b5814mr75341575ad.10.1781768450629;
-        Thu, 18 Jun 2026 00:40:50 -0700 (PDT)
+        bh=NyTu92Zpl4iFWsunxbLWvI4/2I1YGqKD298epHlDZtI=;
+        b=g+7rur6TEzPyzzwpmsd3YI6HfDwIYiNZjxCtx3pKnSHYEMSAq7xQrZsDGugf0bN+Oc
+         5Nup91FkPvI2XZgv+jGbBLj4Ko88QPFeuvZnGPU8dHGxrh1KPElACWmvWldtmUr9rWsf
+         vvXL0sZk57bqEK1G/xngN59w0UwG45hRXYlBtydfhoY1jq1hnGuo1N+iIeQGMFxggZGR
+         33YVMwdnpZZaJh4eDzpZLc4WUO5JY5/Ajoeg18ZL7r5PAhHD/FDcY8nNj6llWGTt7gl+
+         cEdWzVAPdrN9km8cirRjqbN/Occc0KlVtpu6YnTzAWOh66YSITfq42O8c7Xk3l2eOjCf
+         uiFg==
+X-Forwarded-Encrypted: i=1; AFNElJ9crr6Fd3flyvFBxQ/1YFqhJZOw/C0rtnau1s5ktGmj/KHQAS4KUdUCVdBh5oxF7fZP2DoLNXi5tJOaJwaApqlQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YxLoqH84StzTY4nFXyustxEYoEjTvAtfjRhGns/sZUQLtMgMH3Z
+	nE4PUYXp9B7RUUW9dyQ6V9a1yXTivVHzDSJj13dAcDDVdK12cqq+1n9N
+X-Gm-Gg: AfdE7ckFbGboUYhMyZl9iJLH0IHWqOX6v7MCeZfEUMKTAQi/vROrPqycapsR0kuxMPm
+	IRGHKiZkUXYPYYo1vsbUMyXAXZM0rZeLwmfcwwfOuLMid4YvOeK/HakItr9v6tr2HpkKC9exJ3O
+	+Rpg6CMZWYNC9GLrJATDEh/IdkH7TYLBlsaVTaynRD+8PV4uy6JAXENmdmkYPIyesVxFt9Emww0
+	XycztWJYP6r4lViM7fceHdzEqvnp2zlIqqfVzDH/t3icBufKCTBl5U0MjPkb6U4KgHzKDBkbdjf
+	km08Pc4JWbyOBoCNNrX7anP3OHskgxVmZkDzzaqU+Z/5IdqsGfzGu9pvcHwRSGekK2VbsvR53aK
+	AUyIlp0YAA5hoszoIJXdamfmwa93swujhzG+PnXuJ44fqkoVaMJglEZyMVYyqylexhqQr3v9eWr
+	f7yRdpInC9zSRAhed+YI/KRdrEe21lSwp3JYBkzseNuOFI2q/HW9BXOVbI
+X-Received: by 2002:a17:903:950:b0:2bf:1fbd:b946 with SMTP id d9443c01a7336-2c6bbca9fc0mr82427775ad.0.1781768454016;
+        Thu, 18 Jun 2026 00:40:54 -0700 (PDT)
 Received: from [127.0.1.1] (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c4327ac80asm170465445ad.39.2026.06.18.00.40.47
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c4327ac80asm170465445ad.39.2026.06.18.00.40.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 18 Jun 2026 00:40:50 -0700 (PDT)
+        Thu, 18 Jun 2026 00:40:53 -0700 (PDT)
 From: Mike Hsieh <mike.quanta.115@gmail.com>
-Date: Thu, 18 Jun 2026 15:41:44 +0800
-Subject: [PATCH 1/2] ARM: dts: aspeed: sanmiguel: fix PDB HSC shunt
- resistor
+Date: Thu, 18 Jun 2026 15:41:45 +0800
+Subject: [PATCH 2/2] ARM: dts: aspeed: sanmiguel: add current-range
+ property for PDB HSC
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260618-sanmiguel-dts-config-hsc-lm5066i-v1-1-cccf959c9b78@gmail.com>
+Message-Id: <20260618-sanmiguel-dts-config-hsc-lm5066i-v1-2-cccf959c9b78@gmail.com>
 References: <20260618-sanmiguel-dts-config-hsc-lm5066i-v1-0-cccf959c9b78@gmail.com>
 In-Reply-To: <20260618-sanmiguel-dts-config-hsc-lm5066i-v1-0-cccf959c9b78@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -89,16 +89,16 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  Mik Lin <mik.lin@quantatw.com>, Mike Hsieh <Mike_Hsieh@quantatw.com>, 
  Mike Hsieh <mike.quanta.115@gmail.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1781768507; l=1735;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1781768507; l=1681;
  i=mike.quanta.115@gmail.com; s=20260522; h=from:subject:message-id;
- bh=IGy8dSwMRvN0RUNzS4yQN9vBjblujibQ6wVZmTxzM6A=;
- b=cbfHOcPtJb1bDBHBy3LMkGMxGonf7vsB8e3wJhKElSpx0qCCCNUODeAjxlx7HFfDxdrU3ZWvf
- Iz8Tq3lbjvMCBCJfUp0WenMWljz5JEkNQpngeuvlpn5ytFygSFQaUon
+ bh=h7xakdJPR9hp5BA+O9WCA+8GKkcNDqtrcIFBDvQTtso=;
+ b=4B0AKEFAQOcmD4z2TjXWcq5Iu8iXFKS5qLvXFAVhpN8p4jGBM4FxsZpp+iXlGTIDWEOvwsfhw
+ gBfwcTkj7R6DM2PiBnVgBz7fPy4LsIpCOXtkY74OXnxA/XwdsOumh76
 X-Developer-Key: i=mike.quanta.115@gmail.com; a=ed25519;
  pk=DRIErV0xX0KMBlR/irAsbuN4L3egitHbC8FHruUH4HE=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260618_004051_610651_BBE32CDB 
-X-CRM114-Status: GOOD (  10.48  )
+X-CRM114-CacheID: sfid-20260618_004055_119565_A82D6EB2 
+X-CRM114-Status: GOOD (  10.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,52 +113,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Correct the shunt-resistor-micro-ohms values for the four TI LM5066i
-hot-swap controllers on the PDB. This ensures accurate current and
-power sensor readings from the hardware monitors.
+Configure the ti,current-range property for the four TI LM5066i
+hot-swap controllers on PDB board.
+
+This defines the hardware current limit operating mode (low/high)
+for each sensor to match the physical board design.
+
+Specific configurations:
+- HSC1 (0x11): low
+- HSC2 (0x13): high
+- HSC3 (0x15): high
+- HSC4 (0x17): low
 
 Signed-off-by: Mike Hsieh <mike.quanta.115@gmail.com>
 ---
- arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-sanmiguel.dts | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-sanmiguel.dts | 4 ++++
+ 1 file changed, 4 insertions(+)
 
 diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-sanmiguel.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-sanmiguel.dts
-index d7ed497d7227..3faac0925a79 100644
+index 3faac0925a79..e518e3fc1c97 100644
 --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-sanmiguel.dts
 +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-sanmiguel.dts
-@@ -450,7 +450,7 @@ pdb_mps_hsc1: power-monitor@10 {
- 	pdb_ti_hsc1: power-monitor@11 {
+@@ -451,6 +451,7 @@ pdb_ti_hsc1: power-monitor@11 {
  		compatible = "ti,lm5066i";
  		reg = <0x11>;
--		shunt-resistor-micro-ohms = <763>;
-+		shunt-resistor-micro-ohms = <1000>;
+ 		shunt-resistor-micro-ohms = <1000>;
++		ti,current-range = "low";
  	};
  
  	pdb_mps_hsc2: power-monitor@12 {
-@@ -461,7 +461,7 @@ pdb_mps_hsc2: power-monitor@12 {
- 	pdb_ti_hsc2: power-monitor@13 {
+@@ -462,6 +463,7 @@ pdb_ti_hsc2: power-monitor@13 {
  		compatible = "ti,lm5066i";
  		reg = <0x13>;
--		shunt-resistor-micro-ohms = <294>;
-+		shunt-resistor-micro-ohms = <321>;
+ 		shunt-resistor-micro-ohms = <321>;
++		ti,current-range = "high";
  	};
  
  	pdb_mps_hsc3: power-monitor@14 {
-@@ -472,7 +472,7 @@ pdb_mps_hsc3: power-monitor@14 {
- 	pdb_ti_hsc3: power-monitor@15 {
+@@ -473,6 +475,7 @@ pdb_ti_hsc3: power-monitor@15 {
  		compatible = "ti,lm5066i";
  		reg = <0x15>;
--		shunt-resistor-micro-ohms = <294>;
-+		shunt-resistor-micro-ohms = <321>;
+ 		shunt-resistor-micro-ohms = <321>;
++		ti,current-range = "high";
  	};
  
  	pdb_mps_hsc4: power-monitor@16 {
-@@ -483,7 +483,7 @@ pdb_mps_hsc4: power-monitor@16 {
- 	pdb_ti_hsc4: power-monitor@17 {
+@@ -484,6 +487,7 @@ pdb_ti_hsc4: power-monitor@17 {
  		compatible = "ti,lm5066i";
  		reg = <0x17>;
--		shunt-resistor-micro-ohms = <381>;
-+		shunt-resistor-micro-ohms = <500>;
+ 		shunt-resistor-micro-ohms = <500>;
++		ti,current-range = "low";
  	};
  
  	pdb_ioexp_20: gpio@20 {
