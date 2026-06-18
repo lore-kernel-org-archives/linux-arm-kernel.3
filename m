@@ -4,67 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2DAECD98ED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 07:28:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 052BFCD98F0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 07:34:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s52zJzQGwWGgRjTx6SfYo2lIVyEyoqKa4aBtzbVFtO0=; b=GmszLJzpPGHyXn23PqpKOzLjRH
-	xk9lOjG4lXQ/STnAR3fChpCxO4/J8jd0uTCcR+ok4rT59Zbgd81jkxs/e0ZnOiEr+YDOVX7abEh6/
-	und/vxHN34veFAnPJYkqniPHKdtbUZ1e6Z/7geaw1esj1LFuRS9nFDPdgUvqU+3xYwVhuKl1cv295
-	uoYH0kGSoKpwMzlefophQ/jxHC4lnLR6mWHxaPMKkgrEsbjV1lFALzGDJiz7XJT+vfTwoskDCMaGc
-	WxkPpV01xfPeNnVVmK4BrInvFSkTgvKZu7gwmGwKUWBJ9yHSRzyYmEUN83C7q+a1Urgw30tz4lGEL
-	9ZPEcLfw==;
+	bh=hjMxI0rZYwVnV9vNeuTO15pUJpl61GpEQMcW7U9iWKs=; b=Lltwmygs+95qBo7unBBEENC4Gf
+	ekhtBBLXLSbmrcJTkXyN44XHO6JN+mkHf9u78nkb7bDkeMh8x5gKdeTDHDSiopAhR0F1Wah0PAknE
+	jgkB6co2tv5ekkuz02K45IqIEEKIK8zAeImmbYd8VaAdzt8LF/ozCoPLZI0n2cv8w4q21Gwqm8OCV
+	0b2a4XPNqFrLddd5Mcgb5WTj3Q0+ZNezxH/p7r0OYNSLTiifOg5IKmeX1ygmrRKw+NpjwsbnGzwJ6
+	XDfloykLvMiQtGKa3eShkei8ilFI/tpyeRfNwKivplZ59Z2gLmQIJYH/9IXwFESPxhAx9+1K9RkIf
+	ik+91vvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa7AW-00000000lGN-3GB9;
-	Thu, 18 Jun 2026 07:28:08 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wa7G8-00000000lgE-0eEJ;
+	Thu, 18 Jun 2026 07:33:56 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa7AV-00000000lGG-3DDR
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 07:28:07 +0000
+	id 1wa7G6-00000000lfs-2ZnN;
+	Thu, 18 Jun 2026 07:33:54 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id CF30F60098;
-	Thu, 18 Jun 2026 07:28:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 814761F000E9;
-	Thu, 18 Jun 2026 07:27:59 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 066CF44146;
+	Thu, 18 Jun 2026 07:33:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 621E51F000E9;
+	Thu, 18 Jun 2026 07:33:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781767686;
-	bh=s52zJzQGwWGgRjTx6SfYo2lIVyEyoqKa4aBtzbVFtO0=;
+	s=k20260515; t=1781768033;
+	bh=hjMxI0rZYwVnV9vNeuTO15pUJpl61GpEQMcW7U9iWKs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=TiRohrDtdHsj1/63/7KZb5whyJiOdcjVPsXVZyQ+3CvhN0LnBkXRi8DgbxuMHzoqR
-	 xAtKiSeoiRwqfraVNY+4TcLYPe0QWBTPlvSMVwh+eIQbIWJ4tiGGKy713DCQB4ZZkV
-	 N2n7xnCW64Nb4xy3QVcKwOmtF3FE8mGjb5N/CDHe1fBtfClZw/5CTu0GcNbu6jr4Hp
-	 zrE5T6o0fQLJ3So8hiyVT6q3vDLptskYtm5KTU3MLgyRFrL/8AbKUOZ/m8/KYxUQE3
-	 M38fQttoEd04eYWLOGOFok+VdA+AzexZgD6ZsK9ejnB9KYLSQhu1KRkTdBdCfh1SeV
-	 lraR+taNMLKjw==
-Date: Thu, 18 Jun 2026 09:27:55 +0200
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Thierry Reding <thierry.reding@kernel.org>
-Cc: Bjorn Helgaas <bhelgaas@google.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Thierry Reding <thierry.reding@gmail.com>, 
-	Jonathan Hunter <jonathanh@nvidia.com>, Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>, 
-	Hou Zhiqiang <Zhiqiang.Hou@nxp.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
-	Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>, Michal Simek <michal.simek@amd.com>, 
-	Kevin Xie <kevin.xie@starfivetech.com>, Aksh Garg <a-garg7@ti.com>, linux-pci@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Thierry Reding <treding@nvidia.com>
-Subject: Re: [PATCH v7 4/4] arm64: tegra: Reorder reg and reg-names to match
- bindings
-Message-ID: <7nwyrchlc2rhlh3t6keaomwbcnhchurdbxkjhpintwyr6vd56o@c4dzhpo3vg7n>
-References: <20260617-tegra264-pcie-v7-0-eae7ae964629@nvidia.com>
- <20260617-tegra264-pcie-v7-4-eae7ae964629@nvidia.com>
+	b=oIkqaZEnuai5ih9lPd40PVg0x1+o9AkBx60gJR878OY28inJhTYspcBvK8qstse9m
+	 jm7JLACnLUvBFQxzf7xbahErqMuuGi3IwdjzVVERkfjXafu/B9pC7ohnSX8Gdamxb6
+	 7aXS+FU3x+M7PnI2sRMU1gG/fE64v5x2M7LyostDTO4dLHNMfLh9RxlBOJPSconIRX
+	 cPwkB0e9yYGjJwprwLfbSDckRUJLVfT+KPp3uebi1n5g4QHEavPrf5tJlUPkRsG0G3
+	 P2Zeuiy5wX6U2Q3684S8nQcIQ2TgZQv6TWL76CG2Hz/1a6Em529ZTeVYQ8wbPCLXLN
+	 CYGPtKSDSwTiA==
+Date: Thu, 18 Jun 2026 09:33:51 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Wayen Yan <win847@gmail.com>, netdev@vger.kernel.org, horms@kernel.org,
+	pabeni@redhat.com, edumazet@google.com, andrew+netdev@lunn.ch,
+	angelogioacchino.delregno@collabora.com, matthias.bgg@gmail.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH] net: airoha: Stop TX queues on error path in
+ airoha_dev_open
+Message-ID: <ajOfX7RFoSrzopNN@lore-desk>
+References: <178160729880.2156257.7978513589649053826@gmail.com>
+ <20260617164448.31e189bc@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="hz9vSoCD4yGittIQ"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260617-tegra264-pcie-v7-4-eae7ae964629@nvidia.com>
+In-Reply-To: <20260617164448.31e189bc@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,143 +73,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 17, 2026 at 06:01:31PM +0200, Thierry Reding wrote:
-> From: Thierry Reding <treding@nvidia.com>
-> 
-> The ECAM region cannot be the first entry in the "reg" property, because
-> in that case the unit-address wouldn't match the first entry. The order
-> of the nodes can also not be changed to match the ECAM entry because the
-> ECAM region is global and outside of any of the control busses.
-> 
-> Signed-off-by: Thierry Reding <treding@nvidia.com>
 
-Acked-by: Manivannan Sadhasivam <mani@kernel.org>
+--hz9vSoCD4yGittIQ
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-- Mani
+> On Tue, 16 Jun 2026 18:50:39 +0800 Wayen Yan wrote:
+> > In airoha_dev_open(), if airoha_set_vip_for_gdm_port() fails after
+> > netif_tx_start_all_queues() has been called, the TX queues remain
+> > started while the device configuration is incomplete. This leaves
+> > the device in an inconsistent state where packets could be
+> > transmitted before the VIP/IFC port configuration is complete.
+>=20
+> Not sure if this was superseded by another posting but FWIW
+> this posting did not apply.
 
-> ---
-> Changes in v5:
-> - rebase onto v7.1-rc1
-> 
-> Changes in v4:
-> - revert ECAM "reg" entry order
-> 
-> Changes in v2:
-> - order ECAM "reg" entry before others
-> ---
->  arch/arm64/boot/dts/nvidia/tegra264.dtsi | 48 ++++++++++++++++----------------
->  1 file changed, 24 insertions(+), 24 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/nvidia/tegra264.dtsi b/arch/arm64/boot/dts/nvidia/tegra264.dtsi
-> index 8f4350c7793b..4c701abd25a8 100644
-> --- a/arch/arm64/boot/dts/nvidia/tegra264.dtsi
-> +++ b/arch/arm64/boot/dts/nvidia/tegra264.dtsi
-> @@ -3513,11 +3513,11 @@ cmdqv4: cmdqv@b200000 {
->  
->  		pci@c000000 {
->  			compatible = "nvidia,tegra264-pcie";
-> -			reg = <0xd0 0xb0000000 0x0 0x10000000>,
-> -			      <0x00 0x0c000000 0x0 0x00004000>,
-> +			reg = <0x00 0x0c000000 0x0 0x00004000>,
->  			      <0x00 0x0c004000 0x0 0x00001000>,
-> -			      <0x00 0x0c005000 0x0 0x00001000>;
-> -			reg-names = "ecam", "xal", "xtl", "xtl-pri";
-> +			      <0x00 0x0c005000 0x0 0x00001000>,
-> +			      <0xd0 0xb0000000 0x0 0x10000000>;
-> +			reg-names = "xal", "xtl", "xtl-pri", "ecam";
->  			#address-cells = <3>;
->  			#size-cells = <2>;
->  			device_type = "pci";
-> @@ -3893,12 +3893,12 @@ gpio_uphy: gpio@8300000 {
->  
->  		pci@8400000 {
->  			compatible = "nvidia,tegra264-pcie";
-> -			reg = <0xa8 0xb0000000 0x0 0x10000000>,
-> -			      <0x00 0x08400000 0x0 0x00004000>,
-> +			reg = <0x00 0x08400000 0x0 0x00004000>,
->  			      <0x00 0x08404000 0x0 0x00001000>,
->  			      <0x00 0x08405000 0x0 0x00001000>,
-> -			      <0x00 0x08410000 0x0 0x00010000>;
-> -			reg-names = "ecam", "xal", "xtl", "xtl-pri", "xpl";
-> +			      <0x00 0x08410000 0x0 0x00010000>,
-> +			      <0xa8 0xb0000000 0x0 0x10000000>;
-> +			reg-names = "xal", "xtl", "xtl-pri", "xpl", "ecam";
->  			#address-cells = <3>;
->  			#size-cells = <2>;
->  			device_type = "pci";
-> @@ -3925,12 +3925,12 @@ pci@8400000 {
->  
->  		pci@8420000 {
->  			compatible = "nvidia,tegra264-pcie";
-> -			reg = <0xb0 0xb0000000 0x0 0x10000000>,
-> -			      <0x00 0x08420000 0x0 0x00004000>,
-> +			reg = <0x00 0x08420000 0x0 0x00004000>,
->  			      <0x00 0x08424000 0x0 0x00001000>,
->  			      <0x00 0x08425000 0x0 0x00001000>,
-> -			      <0x00 0x08430000 0x0 0x00010000>;
-> -			reg-names = "ecam", "xal", "xtl", "xtl-pri", "xpl";
-> +			      <0x00 0x08430000 0x0 0x00010000>,
-> +			      <0xb0 0xb0000000 0x0 0x10000000>;
-> +			reg-names = "xal", "xtl", "xtl-pri", "xpl", "ecam";
->  			#address-cells = <3>;
->  			#size-cells = <2>;
->  			device_type = "pci";
-> @@ -3957,12 +3957,12 @@ pci@8420000 {
->  
->  		pci@8440000 {
->  			compatible = "nvidia,tegra264-pcie";
-> -			reg = <0xb8 0xb0000000 0x0 0x10000000>,
-> -			      <0x00 0x08440000 0x0 0x00004000>,
-> +			reg = <0x00 0x08440000 0x0 0x00004000>,
->  			      <0x00 0x08444000 0x0 0x00001000>,
->  			      <0x00 0x08445000 0x0 0x00001000>,
-> -			      <0x00 0x08450000 0x0 0x00010000>;
-> -			reg-names = "ecam", "xal", "xtl", "xtl-pri", "xpl";
-> +			      <0x00 0x08450000 0x0 0x00010000>,
-> +			      <0xb8 0xb0000000 0x0 0x10000000>;
-> +			reg-names = "xal", "xtl", "xtl-pri", "xpl", "ecam";
->  			#address-cells = <3>;
->  			#size-cells = <2>;
->  			device_type = "pci";
-> @@ -3989,12 +3989,12 @@ pci@8440000 {
->  
->  		pci@8460000 {
->  			compatible = "nvidia,tegra264-pcie";
-> -			reg = <0xc0 0xb0000000 0x0 0x10000000>,
-> -			      <0x00 0x08460000 0x0 0x00004000>,
-> +			reg = <0x00 0x08460000 0x0 0x00004000>,
->  			      <0x00 0x08464000 0x0 0x00001000>,
->  			      <0x00 0x08465000 0x0 0x00001000>,
-> -			      <0x00 0x08470000 0x0 0x00010000>;
-> -			reg-names = "ecam", "xal", "xtl", "xtl-pri", "xpl";
-> +			      <0x00 0x08470000 0x0 0x00010000>,
-> +			      <0xc0 0xb0000000 0x0 0x10000000>;
-> +			reg-names = "xal", "xtl", "xtl-pri", "xpl", "ecam";
->  			#address-cells = <3>;
->  			#size-cells = <2>;
->  			device_type = "pci";
-> @@ -4021,12 +4021,12 @@ pci@8460000 {
->  
->  		pci@8480000 {
->  			compatible = "nvidia,tegra264-pcie";
-> -			reg = <0xc8 0xb0000000 0x0 0x10000000>,
-> -			      <0x00 0x08480000 0x0 0x00004000>,
-> +			reg = <0x00 0x08480000 0x0 0x00004000>,
->  			      <0x00 0x08484000 0x0 0x00001000>,
->  			      <0x00 0x08485000 0x0 0x00001000>,
-> -			      <0x00 0x08490000 0x0 0x00010000>;
-> -			reg-names = "ecam", "xal", "xtl", "xtl-pri", "xpl";
-> +			      <0x00 0x08490000 0x0 0x00010000>,
-> +			      <0xc8 0xb0000000 0x0 0x10000000>;
-> +			reg-names = "xal", "xtl", "xtl-pri", "xpl", "ecam";
->  			#address-cells = <3>;
->  			#size-cells = <2>;
->  			device_type = "pci";
-> 
-> -- 
-> 2.54.0
-> 
+I think we do not need this patch.
 
--- 
-மணிவண்ணன் சதாசிவம்
+Regards,
+Lorenzo
+
+--hz9vSoCD4yGittIQ
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCajOfXwAKCRA6cBh0uS2t
+rHn/AQCS/e+lABQrjqQaBlZzOEnOM4iJBB83aLuUkcW2RcDJXwEAqw9wyBTx3Mqx
+NCJ9SEynSiNrX7kK38yFjOOyveylwwQ=
+=FtFY
+-----END PGP SIGNATURE-----
+
+--hz9vSoCD4yGittIQ--
 
