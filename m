@@ -4,64 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3804CCD98ED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 10:25:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE318CD98ED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 10:33:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
 	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WwSMfiQMCeU4lUUB9fPK6vGImyG1aOQJtSY6EGHF59Y=; b=isgLL98D2ePRY4cn2GrVySyMdi
-	oNKvXd8BKg7cMG+qnvWAn9EaIyAr9FDdS6w2GoEjiTauvujyXpB6qiP88Soc4j9zw/6ymSGLy9mda
-	s3PPH7pXwVfoOmdwHxwoBuoaV3bhEluvfxYhoiE31KGIUuOKL5vVtL9hNKaqF6bkqqZ54+6r2iQM3
-	gtp1ccE8h/DrQ8MJXMLmfEljfSgR8hFjAVmWtaKgJL7/KIKEMYgi996WlWmInIveNAYpDehrUKi0h
-	P3FCpnXdE56468ZwUDAPt39iPo4BVIhjeaJBLEP4jwHcSrJdICIqFbOrZ+EcVp+qpABMEqD3B++yC
-	tzMK9vXA==;
+	bh=Q7Lb7iUUHoiQZ4Lq+fMd5wqSRsCL9HuQfESapXC6FoY=; b=RZlSwbr+MrqG6qfdSLywW9vJ2k
+	V5/NswnRUExH35Klk78V27IpOWsWbUSvOTdhmAzA72mV7qrR9sbmLFHidRS2Qe0VmK4ZHbn/Xby7q
+	CY2p7Ww+VKtq8rM6NdLxCTS7NJW2dkL5BfOzqDykl6i3gIq6RgWeq2JYHXITeQHeHN7QUGIObvlxX
+	tDD35chxNtXO52CC81NKdXkPv6wFTIJgsIoEwQCAEl6O8Vl3016teNwharE9mKkZnc7uVnf1TIv70
+	O6bPnLL99otO/0gMHO2nYVIpxIT3Q6+ujJGIPVcsjv/QpDCxSAxnkw58f60dAnpCvM89EVCMStd/m
+	ULOXqGng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa9vo-0000000163i-0NF6;
-	Thu, 18 Jun 2026 10:25:08 +0000
-Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
+	id 1waA3s-000000016iO-47mJ;
+	Thu, 18 Jun 2026 10:33:28 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa9vf-0000000160K-3oWP
+	id 1waA3q-000000016ht-1rdx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 10:25:02 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
-	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 18529200275;
-	Thu, 18 Jun 2026 12:24:58 +0200 (CEST)
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1wa9vd-003QBv-3C;
-	Thu, 18 Jun 2026 12:24:58 +0200
-Received: from pza by lupine with local (Exim 4.98.2)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1wa9vd-000000006dq-3gVl;
-	Thu, 18 Jun 2026 12:24:57 +0200
-Message-ID: <922d581718c90c9ca603a35ece7c44da7c425e0a.camel@pengutronix.de>
-Subject: Re: [PATCH v2 1/1] reset: imx7: Correct polarity of MIPI CSI resets
- on i.MX8MQ
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Robby Cai <robby.cai@nxp.com>
-Cc: Frank.Li@nxp.com, s.hauer@pengutronix.de, festevam@gmail.com, 
-	krzk+dt@kernel.org, andrew.smirnov@gmail.com, kernel@pengutronix.de, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, aisheng.dong@nxp.com, guoniu.zhou@nxp.com
-Date: Thu, 18 Jun 2026 12:24:57 +0200
-In-Reply-To: <20260417092809.GA582835@shlinux88>
-References: <20260417080851.489303-1-robby.cai@nxp.com>
-	 <2605c4332e8a3e8950b0b15fc5377423cfed4a1f.camel@pengutronix.de>
-	 <20260417092809.GA582835@shlinux88>
+	Thu, 18 Jun 2026 10:33:28 +0000
+Received: from edelgard.fodlan.icenowy.me (unknown [112.94.100.206])
+	by APP-01 (Coremail) with SMTP id qwCowAB3GtNuyTNqwZIyAg--.9210S2;
+	Thu, 18 Jun 2026 18:33:19 +0800 (CST)
+Message-ID: <0bb460aefb97e44cc0890a7841b8d217349143de.camel@iscas.ac.cn>
+Subject: Re: [PATCH v4 4/6] drm/verisilicon: add DC8000 (DCUltraLite)
+ display controller support
+From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+To: Joey Lu <a0987203069@gmail.com>, maarten.lankhorst@linux.intel.com, 
+	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
+ simona@ffwll.ch, 	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ Michael Turquette	 <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Brian Masney	 <bmasney@redhat.com>
+Cc: ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com, 
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-clk@vger.kernel.org
+Date: Thu, 18 Jun 2026 18:33:18 +0800
+In-Reply-To: <df7363be-0e3f-4459-be4a-43ffb0a5366c@gmail.com>
+References: <20260615065003.76661-1-a0987203069@gmail.com>
+	 <20260615065003.76661-5-a0987203069@gmail.com>
+	 <d5df0e9df3a9a68aae982f2fce830a4b10468476.camel@iscas.ac.cn>
+	 <df7363be-0e3f-4459-be4a-43ffb0a5366c@gmail.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+User-Agent: Evolution 3.58.3 
 MIME-Version: 1.0
+X-CM-TRANSID: qwCowAB3GtNuyTNqwZIyAg--.9210S2
+X-Coremail-Antispam: 1UD129KBjvJXoW3Wr48ZrWUXFy5WFW7AF43Wrg_yoW7ZFWkpF
+	WktFWUKrZ8A3yxurn2qFyjqFyFy3WxJay8Wr18Jry0ywsrAryUWF40qFykua4DXrs7Aw40
+	qa1rCr43urW2vF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvvb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I
+	8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r106r15McIj6I8E87Iv67AKxVWUJVW8Jw
+	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
+	c7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
+	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
+	14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
+	IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E
+	87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73Uj
+	IFyTuYvjxUkX_TUUUUU
+X-Originating-IP: [112.94.100.206]
+X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260618_032500_098686_29F601D9 
-X-CRM114-Status: GOOD (  13.22  )
+X-CRM114-CacheID: sfid-20260618_033326_853541_8D664595 
+X-CRM114-Status: GOOD (  33.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,37 +89,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fr, 2026-04-17 at 17:28 +0800, Robby Cai wrote:
-> On Fri, Apr 17, 2026 at 10:47:48AM +0200, Philipp Zabel wrote:
-> > On Fr, 2026-04-17 at 16:08 +0800, Robby Cai wrote:
-> > > On i.MX8MQ, the MIPI CSI reset lines are active-low and not self-clea=
-ring.
-> > > Writing '0' asserts reset and it remains asserted until explicitly
-> > > deasserted by software.
-> > >=20
-> > > This driver previously treated the MIPI CSI reset signals as active-h=
-igh,
-> > > which led to incorrect reset assert/deassert sequencing. This issue w=
-as
-> > > exposed by commit 6d79bb8fd2aa ("media: imx8mq-mipi-csi2: Explicitly
-> > > release reset").
-> >=20
-> > If this patch is backported without 6d79bb8fd2aa, or the other way
-> > around, will that break MIPI CSI-2 on older kernels? That would warrant
-> > a Cc: stable tag.
-> >=20
+(CC'ed clk maintainers for weird clock gate bit)
+
+=E5=9C=A8 2026-06-17=E4=B8=89=E7=9A=84 18:35 +0800=EF=BC=8CJoey Lu=E5=86=99=
+=E9=81=93=EF=BC=9A
 >=20
-> Yes, will break.
-> These two patches should be backported as a pair to ensure correct behavi=
-or.
+> On 6/15/2026 4:51 PM, Icenowy Zheng wrote:
+> > =E5=9C=A8 2026-06-15=E4=B8=80=E7=9A=84 14:50 +0800=EF=BC=8CJoey Lu=E5=
+=86=99=E9=81=93=EF=BC=9A
+> > > The Nuvoton MA35D1 SoC integrates a Verisilicon DCUltraLite
+> > > display
+> > > controller whose register layout differs from the DC8200 in
+> > > several
+> > > important ways:
+> > >=20
+> > > 1. No CONFIG_EX commit path: framebuffer updates use the enable
+> > > (bit
+> > > 0)
+> > > =C2=A0=C2=A0=C2=A0 and reset (bit 4) bits in FB_CONFIG instead of the=
+ DC8200
+> > > staging
+> > > =C2=A0=C2=A0=C2=A0 registers (FB_CONFIG_EX, FB_TOP_LEFT, FB_BOTTOM_RI=
+GHT,
+> > > =C2=A0=C2=A0=C2=A0 FB_BLEND_CONFIG, PANEL_CONFIG_EX).
+> > >=20
+> > > 2. No PANEL_START register: panel output starts when
+> > > =C2=A0=C2=A0=C2=A0 PANEL_CONFIG.RUNNING is set; there is no multi-dis=
+play sync
+> > > start
+> > > =C2=A0=C2=A0=C2=A0 register.
+> > >=20
+> > > 3. Different IRQ registers: DCUltraLite uses DISP_IRQ_STA
+> > > (0x147C) /
+> > > =C2=A0=C2=A0=C2=A0 DISP_IRQ_EN (0x1480) versus DC8200's TOP_IRQ_ACK (=
+0x0010) /
+> > > =C2=A0=C2=A0=C2=A0 TOP_IRQ_EN (0x0014).
+> > >=20
+> > > 4. Per-frame commit cycle: DCUltraLite requires the VALID bit in
+> > > =C2=A0=C2=A0=C2=A0 FB_CONFIG to be set at the start of each atomic co=
+mmit
+> > > (crtc_begin)
+> > > =C2=A0=C2=A0=C2=A0 and cleared after (crtc_flush).
+> > >=20
+> > > 5. Simpler clock topology: only 'core' (bus gate) and 'pix0'
+> > > (pixel
+> > > =C2=A0=C2=A0=C2=A0 divider) clocks; no axi or ahb clocks required.=C2=
+=A0 Make axi_clk
+> > > and
+> > > =C2=A0=C2=A0=C2=A0 ahb_clk optional (devm_clk_get_optional_enabled) s=
+o DC8000
+> > > nodes
+> > > =C2=A0=C2=A0=C2=A0 without those clocks are handled gracefully.
+> > >=20
+> > > Add vs_dc8000.c implementing the vs_dc_funcs vtable for the above
+> > > differences.=C2=A0 The probe now selects vs_dc8000_funcs when the
+> > > identified
+> > > generation is VSDC_GEN_DC8000 (DCUltraLite reads model 0x0,
+> > > revision 0x5560, customer_id 0x305).
+> > >=20
+> > > Signed-off-by: Joey Lu <a0987203069@gmail.com>
+> > > ---
+> > > =C2=A0=C2=A0drivers/gpu/drm/verisilicon/Makefile=C2=A0=C2=A0=C2=A0 |=
+=C2=A0 2 +-
+> > > =C2=A0=C2=A0drivers/gpu/drm/verisilicon/vs_dc.c=C2=A0=C2=A0=C2=A0=C2=
+=A0 |=C2=A0 9 ++-
+> > > =C2=A0=C2=A0drivers/gpu/drm/verisilicon/vs_dc.h=C2=A0=C2=A0=C2=A0=C2=
+=A0 |=C2=A0 1 +
+> > > =C2=A0=C2=A0drivers/gpu/drm/verisilicon/vs_dc8000.c | 78
+> > > +++++++++++++++++++++++++
+> > > =C2=A0=C2=A04 files changed, 86 insertions(+), 4 deletions(-)
+> > > =C2=A0=C2=A0create mode 100644 drivers/gpu/drm/verisilicon/vs_dc8000.=
+c
+> > >=20
+> > > diff --git a/drivers/gpu/drm/verisilicon/Makefile
+> > > b/drivers/gpu/drm/verisilicon/Makefile
+> > > index 9d4cd16452fa..d2fd8e4dff24 100644
+> > > --- a/drivers/gpu/drm/verisilicon/Makefile
+> > > +++ b/drivers/gpu/drm/verisilicon/Makefile
+> > > @@ -1,6 +1,6 @@
+> > > =C2=A0=C2=A0# SPDX-License-Identifier: GPL-2.0-only
+> > > =C2=A0=20
+> > > -verisilicon-dc-objs :=3D vs_bridge.o vs_crtc.o vs_dc.o vs_dc8200.o
+> > > vs_drm.o vs_hwdb.o \
+> > > +verisilicon-dc-objs :=3D vs_bridge.o vs_crtc.o vs_dc.o vs_dc8200.o
+> > > vs_dc8000.o vs_drm.o vs_hwdb.o \
+> > > =C2=A0=C2=A0	vs_plane.o vs_primary_plane.o vs_cursor_plane.o
+> > > =C2=A0=20
+> > > =C2=A0=C2=A0obj-$(CONFIG_DRM_VERISILICON_DC) +=3D verisilicon-dc.o
+> > > diff --git a/drivers/gpu/drm/verisilicon/vs_dc.c
+> > > b/drivers/gpu/drm/verisilicon/vs_dc.c
+> > > index 9729b693d360..9499fffbca58 100644
+> > > --- a/drivers/gpu/drm/verisilicon/vs_dc.c
+> > > +++ b/drivers/gpu/drm/verisilicon/vs_dc.c
+> > > @@ -90,13 +90,13 @@ static int vs_dc_probe(struct platform_device
+> > > *pdev)
+> > > =C2=A0=C2=A0		return PTR_ERR(dc->core_clk);
+> > > =C2=A0=C2=A0	}
+> > > =C2=A0=20
+> > > -	dc->axi_clk =3D devm_clk_get_enabled(dev, "axi");
+> > > +	dc->axi_clk =3D devm_clk_get_optional_enabled(dev, "axi");
+> > > =C2=A0=C2=A0	if (IS_ERR(dc->axi_clk)) {
+> > > =C2=A0=C2=A0		dev_err(dev, "can't get axi clock\n");
+> > > =C2=A0=C2=A0		return PTR_ERR(dc->axi_clk);
+> > > =C2=A0=C2=A0	}
+> > > =C2=A0=20
+> > > -	dc->ahb_clk =3D devm_clk_get_enabled(dev, "ahb");
+> > > +	dc->ahb_clk =3D devm_clk_get_optional_enabled(dev, "ahb");
+> > Please make the clock change a separated patch for atomicity.
+> >=20
+> > BTW the MA35D1 manual's clock tree shows that DCUltra appears on
+> > AXI2
+> > ACLK, AHB_HCLK2, behind a mux of SYS-PLL/EPLL-DIV2 (which seems to
+> > be
+> > the core clock), and behind a divider (which seems to be the pixel
+> > clock).
+> >=20
+> > However it's weird that only one DCUltra Clock Enable Bit exists
+> > despite both bus clocks have "ICG" (I think it means "Integrated
+> > Clock
+> > Gating"). In addition the linux clk-ma35d1 driver assigns
+> > "dcu_gate" as
+> > a downstream of "dcu_mux", although the Figure 6.5-2 in the TRM
+> > shows
+> > no ICG after the "Display core CLK" mux.
+> >=20
+> > Is the two bus clocks controlled by a single gate bit, and is the
+> > bit
+> > also gating DC core clock?
+> >=20
+> > Thanks,
+> > Icenowy
+> I will split the axi/ahb optional-clock change into its own patch in
+> v5=20
+> for atomicity.
+> Regarding the MA35D1 clock tree: from the TRM, the single "dcu_gate"
+> bit=20
+> gates both bus clocks (AXI ACLK and AHB HCLK) together with the
+> display=20
+> core clock through the same ICG cell. The clk-ma35d1 driver exposes
+> only=20
+> "dcu_gate" (downstream of "dcu_mux") and does not provide separate=20
 
-Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
+Then it's one of the case that the clock tree doesn't properly
+represent the hardware, which is bad. However, as three gates share the
+same bit, I am not sure how to represent such kind of thing in the
+common clk framework.
 
-Can you please resend with
+> axi/ahb clock entries. Therefore the MA35D1 DT binding will use only
+> two=20
+> clocks ("core" and "pix0"); making axi and ahb optional in the driver
+> is the correct approach, and this will be stated clearly in the
+>  split-out patch.
 
-Cc: <stable@vger.kernel.org> # 6d79bb8fd2aa: media: imx8mq-mipi-csi2: Expli=
-citly release reset
+I agree to make them optional, although these two clocks do exist in
+the hardware of MA35D1.
 
-regards
-Philipp
+Thanks,
+Icenowy
+
+> > > =C2=A0=C2=A0	if (IS_ERR(dc->ahb_clk)) {
+> > > =C2=A0=C2=A0		dev_err(dev, "can't get ahb clock\n");
+> > > =C2=A0=C2=A0		return PTR_ERR(dc->ahb_clk);
+
 
