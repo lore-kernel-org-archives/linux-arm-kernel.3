@@ -4,112 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE425CD98ED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 09:47:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2590CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 09:49:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3nOkEEN7ElYuC9x+a6xshp6SZdg9WydOxf9jhKoXMNQ=; b=byGDaJbeZCydUbmfMySKAnHX+f
-	BszUBdWp01mMWiJIq/lYppC+IpPyhcUj4CGG0KzkwvMQ4YNJhVzHpEYb+k3ihIcy5WlrhnNbV+pSg
-	C93UETqb9oj9cfkvoDADDl+AdMIllvZEZy/2eJlCMSH/tGHfkdRzTgGLhOyJ5/u4x0y/MMDSS/jyB
-	Y6Qjc26MkEG9fvInKnQ/2osbeaqlONLGupB5ZxmDYxVil2663YpEcV5R4Z+lO0Mrj1I3m1GCxiIh4
-	MWVzSrg1eVT8bjOJBvdAU7boA7GbCq7AZmb8IL5vDDlFVxovBH8i5kAP+M3xGRyD46SN0zCLa8jNH
-	zhqnLhvg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=J7loy4oJZrVcAl0ueTjUqecmfUXmsIWHQZh/olYXMIo=; b=UHSSUQvvKbuoZfVII+Eox5fj2A
+	px4oONX4RhM5KmRVX3ZTFMrhnjuA6W+mE5i7PPMo0m9CBcrVuCSrDC1BdDSI+7RPZKzotuFddC9FP
+	7BDhGrYmW79BDFE0Fm1S618BbDZ17oGLX6ov8tmwYztv7CZ5k/1x3TH4Y6UlM1hLy9AEcLATrOQRg
+	dMWlxXNpT2C51H3EJa6M/EbFLB7TmSeC8toiMeV6bTij/DIMQeqMQ/SGln8HfsSFVrvkRRVM6kMYX
+	OyoPjzKVnbhf8TU0Ms0AF5/uMVNn89UM8IbxYfAdPm0pO3j3GKcPVCU15PC9XW5TR0YQnp+I4PLph
+	wl4G08pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa9L8-000000010Co-34v5;
-	Thu, 18 Jun 2026 09:47:14 +0000
-Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
+	id 1wa9NE-000000010Ve-2879;
+	Thu, 18 Jun 2026 09:49:24 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa9L6-000000010CC-0CuB
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 09:47:13 +0000
-Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-5ad2abf31aeso4259e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 02:47:11 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1781776030; cv=none;
-        d=google.com; s=arc-20260327;
-        b=NHD+1k/xIeyij2wbp724wL6PmunD3xWJjmQYYqUiO3xtk4eeKBb8FEGptqtkcfPxCU
-         JGcosm2zYwagdXiZztmCgIKiAm8MQ+W09Dulmzy/m9cxFd/v9qgZuEzKrrRgBdoNSEwm
-         yRf53i2y2mcDSQM52Y3Enlkihs8njObcD7gQZ2lYki37Pp2VzKSQVTpHa0nDmbPy0gyW
-         s1cMB/yhViCUJUAexz0mt81zgT+vLLRzywGi5//70eOfem0ky4WOoj3PI9rjgrLYuRl9
-         NG/9qUQHuMDOYK+UnnU4CGCiwOa+pIp3V/Pc/6FyF9IW9ir9dGX7iHx5+d8uJyi41akJ
-         qtTQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=3nOkEEN7ElYuC9x+a6xshp6SZdg9WydOxf9jhKoXMNQ=;
-        fh=8VxovbEPYkfBgBvrG9I/0ia798Tv78yONu6tFazWafs=;
-        b=hfVloWM0L35OQWb5ZQbSRNDOSGf80ojP4VltSl31Dwas8hS0f1oxX6KY6Ds7/cD4jP
-         Ip3CMK/g76yqYgCinzr5YeZK2031oLgyFFQm7NDJrOsni+DYxEJKWTQVBFxcAGTcjnDe
-         m3s04EOEFIPfmAeqAv23ju5QlOURO51nB+R8yDib3zEw0ly1GEdnMB4xQ8kPJ0+2/Kx9
-         XKQIUrnWKeJLU9hS/y7epEjwRW9GVmvwW4tu6dXLZYfrhKfB8X5OQ/M6NjqsxX7JWYxN
-         yg3mH46R/W393k8gXJi22C0fiSewMNw2WarEB9JAOLdRTYSUH5rPz8KAuyIxJxSuX8Jy
-         F/KQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781776030; x=1782380830; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=3nOkEEN7ElYuC9x+a6xshp6SZdg9WydOxf9jhKoXMNQ=;
-        b=q1hFH1OZUiO5bqFlLYLrAHvq7Uo8Q6K3bBc5qc1eQiUTavhmd+YPoN8NX2UQhTj0HK
-         T8l4pUibA+WPhFcgfAWjBjyDSqKKBWUfodOsBCKL9me8HM89xHPb/hYC1Z9t65QadFWZ
-         5fvCXKaKVAdDoiGoZKAMZvUPXUnmhKySBG4AJRR5SJM8Lg0suiAA6+ilUTb/QJtBxxuQ
-         Hx042OAWQ6nobPrfrs2ylZg7WYS8M0UEnHZBTStxdHGTjwQjDofKzXfy4XI14W1mmr5c
-         ft0BjEMDaKxEUFw84sIOFR3clMUimslp1uTuePfnFUvMU2baoNJ4xDUPPoUi9SlQvXrE
-         mKxA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781776030; x=1782380830;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=3nOkEEN7ElYuC9x+a6xshp6SZdg9WydOxf9jhKoXMNQ=;
-        b=U6IPs/6M+ROvmQbFbKkxdsQQ26y8QFulXMwru1Fm4RYauVQBPyLAzrX0bsnf/4g/uO
-         jl5uGkWfAijqcrrjvyuI8hpu3Exm/p0V6ekCa8WUikTRpBokMpl1RTjaLwuGReG4WJLQ
-         ZffWktm8dPwijIOMv3HSET0+IWxJzqqmcWQihjcnDfX+KxRUsdCBldRK6SAN51fq0waK
-         jfUBDyOmQZO/zDk5PxF+W9CkLEkN2ZUAqDvBcdLQ+MssFqwrPu+3ppgoW/tRc39bRTcV
-         LIZ2Wnw5HYXtrsByfUKt3Tr/HkCWd7dVmOvYcKDpeBUwZy3EfL0m8SlRBJRIbAf3+RAq
-         x3eA==
-X-Forwarded-Encrypted: i=1; AFNElJ87wIihzXzSqruAp/+iFp7OLuy5RnbI1QEf3ZVNOJQeS0EhjGRHPGfp2q9zzOoH+uyV3azJX9Ttb3R7eaAmEiYM@lists.infradead.org
-X-Gm-Message-State: AOJu0YyzIGaIfUNUdo8idI+8dcyKgzQUDlHXopBg/DacF1i1c9k6BEiD
-	opL0whZjGc6pbeJfAF7v0kZ3hrSFmSWjENxr2hFajyAu4nvt8ubu5BNahNzndqq9+sADpNdRqC0
-	z35DnnBpmTLhSQGNyK/gO1K1hy8CIBGAGBrUN52OJ
-X-Gm-Gg: AfdE7cnhC9OYXOco2UIBQT7gtrXggc1/jZA69kBbXJxB9w07ycDjC9b1s4GqQAckW03
-	gn/oKUVPp5aHbC0XuMoNdsaSrXScQpeV4xBteP1yqkA5vSvQglzOvfp8kBkMdufpYW33n0jcwau
-	nCYhCUoWVLPqfNRci48dXbZ6voVF+iVEaxSp3YjRCV9eQOgCoQsAcgjC1pj7HkJlvtx61QRk9Vk
-	RYbCqqR8wCevrxSS3p49Wu20ueIEtW6rqmv4OZbWd7gjSbYjB+pDMbJ+xyoVRav7mKo6dLYMQ==
-X-Received: by 2002:a05:6512:3b96:b0:5aa:883f:5da5 with SMTP id
- 2adb3069b0e04-5ad4db8f3b5mr127738e87.12.1781776029259; Thu, 18 Jun 2026
- 02:47:09 -0700 (PDT)
+	id 1wa9N7-000000010Rs-0eIy;
+	Thu, 18 Jun 2026 09:49:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2E445601FD;
+	Thu, 18 Jun 2026 09:49:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id C9C9BC2BCF5;
+	Thu, 18 Jun 2026 09:49:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1781776155;
+	bh=NuY8O2IqRQE61M1abMdjWGK6rCEZPWKvjWWEW9TDJ2o=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=I9ZPR8fhsijqnMJJvIPbZqm/l5civFLkDi2s2LTsmIsmMaGgsIbRGU0rW4r8PQAhp
+	 DG46qBavGm2INrre9RUyhO6hXpiUi0t69fVDm+vlr9DqbhWgERpRq0XrHNaNOgOUw6
+	 ag89rN6+GMWG5XorO/dslzqOfNli7uATesqHP8mDUdmLGhqoW4EKWwVt0qi79/IEz9
+	 PhyQnyzuEXunp24Un9VD2czlFmEgR9u1IoezQYEOgmaik2mgxtNQMLnqExmRDnwit2
+	 M3lBgE/vPsBMgcVKzNpWyYRkZvb/ToEOL/Pp6MqH5/knd556gWm2bbU771ascKtMai
+	 VIcbEsrVqKadw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A8D8ECD98F5;
+	Thu, 18 Jun 2026 09:49:15 +0000 (UTC)
+From: Jian Hu via B4 Relay <devnull+jian.hu.amlogic.com@kernel.org>
+Subject: [PATCH v4 0/2] clk: amlogic: Add A9 AO clock controller
+Date: Thu, 18 Jun 2026 17:49:10 +0800
+Message-Id: <20260618-a9_aoclk-v4-0-569d0425e50c@amlogic.com>
 MIME-Version: 1.0
-References: <20260612065925.755562-1-tabba@google.com> <20260612065925.755562-4-tabba@google.com>
- <86jyrwrymb.wl-maz@kernel.org> <CA+EHjTz-+8M5oSh+7A2vkQ-zPmDkaKptYMoBhLz=rReufKsAHg@mail.gmail.com>
- <86ik7grxrg.wl-maz@kernel.org>
-In-Reply-To: <86ik7grxrg.wl-maz@kernel.org>
-From: Fuad Tabba <tabba@google.com>
-Date: Thu, 18 Jun 2026 10:46:30 +0100
-X-Gm-Features: AVVi8Cdj3_cVvPSPYeXrneOqZ9vthmWKgulM3oMPHaqRW3tcDe5Y00kHjlerqkc
-Message-ID: <CA+EHjTytu_tKDK5+UHX0EWAweLTD-mKtMw32TiQxc0AU9D0x5g@mail.gmail.com>
-Subject: Re: [PATCH v1 03/11] KVM: arm64: Use guard()/scoped_guard() in arm64
- KVM EL1 code
-To: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oupton@kernel.org>, Will Deacon <will@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Quentin Perret <qperret@google.com>, 
-	Vincent Donnefort <vdonnefort@google.com>, Sebastian Ene <sebastianene@google.com>, 
-	Per Larsen <perlarsen@google.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Joey Gouly <joey.gouly@arm.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Mark Rutland <mark.rutland@arm.com>, 
-	Jonathan Cameron <jonathan.cameron@huawei.com>, Hyunwoo Kim <imv4bel@gmail.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260618_024712_106593_D7549CA4 
-X-CRM114-Status: GOOD (  23.16  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIABa/M2oC/22Myw6CMBQFf4V0bU0fUMSV/2GMacsFbgRqWtNoS
+ P/dwgoTl3NyZhYSwCMEci4W4iFiQDdnKA8FsYOee6DYZiaCCcUUk1Q3d+3s+KDGdJXkRrdWSZL
+ vTw8dvrfU9ZZ5wPBy/rOVo1jXP5EoKKNdWYNWXAHUp4ueRtejPVo3kTUT5U7lbKfKrJq6akSrr
+ OQgftWU0hc/244P3QAAAA==
+X-Change-ID: 20260603-a9_aoclk-bbf531badc63
+To: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Jerome Brunet <jbrunet@baylibre.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Xianwei Zhao <xianwei.zhao@amlogic.com>, 
+ Kevin Hilman <khilman@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, Jian Hu <jian.hu@amlogic.com>, 
+ Conor Dooley <conor.dooley@microchip.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1781776153; l=1755;
+ i=jian.hu@amlogic.com; s=20260415; h=from:subject:message-id;
+ bh=NuY8O2IqRQE61M1abMdjWGK6rCEZPWKvjWWEW9TDJ2o=;
+ b=Bfb8JABqNzm9/UBrYWasHh19P9TmDIDa+q7JuflrTMmikeS4rtp77FgEmXhDeGm4AkNL2Ff5H
+ suqKcTN6TjDDr4uZUZXlvhi+dsBaBA4UrsGhEP7FuKxDdFh2ArEn+WE
+X-Developer-Key: i=jian.hu@amlogic.com; a=ed25519;
+ pk=zHUE+rNtH9z+Sb8au1/elWknjFQmy5QDVkBoxleuOIA=
+X-Endpoint-Received: by B4 Relay for jian.hu@amlogic.com/20260415 with
+ auth_id=735
+X-Original-From: Jian Hu <jian.hu@amlogic.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,55 +90,54 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: jian.hu@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 18 Jun 2026 at 10:41, Marc Zyngier <maz@kernel.org> wrote:
->
-> On Thu, 18 Jun 2026 10:24:55 +0100,
-> Fuad Tabba <tabba@google.com> wrote:
-> >
-> > On Thu, 18 Jun 2026 at 10:23, Marc Zyngier <maz@kernel.org> wrote:
-> > >
-> > > On Fri, 12 Jun 2026 07:59:17 +0100,
-> > > tabba@google.com wrote:
-> > > >
-> > > > Convert the manual mutex_lock()/spin_lock() pairs in
-> > > > arch/arm64/kvm/{pkvm,arm,mmu,reset,psci}.c to guard(mutex),
-> > > > guard(spinlock) and scoped_guard(), dropping unlock-only goto labels in
-> > > > favour of direct returns. Centralised cleanup gotos that still serve
-> > > > other resources are preserved.
-> > > >
-> > > > reset.c uses scoped_guard() rather than guard() so the lock covers only
-> > > > the small read/update window inside kvm_reset_vcpu(), leaving the rest
-> > > > of the function outside the critical section.
-> > >
-> > > To be brutally honest, I don't think this sort of widespread changes
-> > > bring us anything. This is just churn.
-> > >
-> > > Sure, if you are reworking a particular bit of code that is goto-heavy
-> > > for the purpose of error handling, this has the potential to cleanup
-> > > the code *while you are changing it*.
-> > >
-> > > But doing it for the sake of doing it? I think we have bigger fish to
-> > > fry right now.
-> >
-> > I understand what you mean. Would you like me to drop all of the guard
-> > patches, or only those that go beyond the code changed in this series?
->
-> The latter. I'm fine with conversion that happens while the code is
-> being reworked.
+This series adds Amlogic A9 AO clock support, including dt-binding and AO clock driver.
 
-Sure, I'll do that on the respin.
+Signed-off-by: Jian Hu <jian.hu@amlogic.com>
+---
+Changes in v4:
+- Drop CLK_IS_CRITICAL for ao_xtal_in clock.
+- Drop CLK_HW_INIT* and revert to explicit clock declarations.
+- Link to v3: https://lore.kernel.org/r/20260610-a9_aoclk-v3-0-b7592d6c31e2@amlogic.com
 
-Cheers,
-/fuad
+Changes in v3:
+- Move COMPILE_TEST after 'depends on ARM64' reported by sashiko-bot.
+- Rename i2c3 to i3c reported by sashiko-bot.
+- Reword the comment describing ao_xtal_in's flags.
+- Use struct clk_init_data to describe ao_xtal_in's hw.init.
+- Link to v2: https://lore.kernel.org/r/20260603-a9_aoclk-v2-0-f47ea616ee78@amlogic.com
 
->
-> Thanks,
->
->         M.
->
-> --
-> Without deviation from the norm, progress is not possible.
+Changes in v2:
+- Split the A9 clock driver and send the AO clock separately.
+- Rename aobus to soc.
+- Use CLK_HW_INIT_FW_NAME to describe clk_init_data.
+- Use CLK_HW_INIT_PARENTS_DATA to describe clk_init_data.
+- Use a9_ao prefix for MESON_COMP_SEL.
+- Correct duandiv name.
+- Fix pwm b reg.
+- Link to v1: https://lore.kernel.org/all/20260511-b4-a9_clk-v1-0-41cb4071b7c9@amlogic.com/
+
+---
+Jian Hu (2):
+      dt-bindings: clock: Add Amlogic A9 AO clock controller
+      clk: amlogic: Add A9 AO clock controller driver
+
+ .../bindings/clock/amlogic,a9-aoclkc.yaml          |  76 ++++
+ drivers/clk/meson/Kconfig                          |  13 +
+ drivers/clk/meson/Makefile                         |   1 +
+ drivers/clk/meson/a9-aoclk.c                       | 488 +++++++++++++++++++++
+ include/dt-bindings/clock/amlogic,a9-aoclkc.h      |  76 ++++
+ 5 files changed, 654 insertions(+)
+---
+base-commit: ca89c88bcf69daca829044c638a8163d5ce47af0
+change-id: 20260603-a9_aoclk-bbf531badc63
+
+Best regards,
+-- 
+Jian Hu <jian.hu@amlogic.com>
+
+
 
