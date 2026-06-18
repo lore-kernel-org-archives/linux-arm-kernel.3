@@ -4,86 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61537CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 16:32:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84141CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 16:52:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EwX9mxVgUx4kbF0qZ290eryMIgfNI0MdhJKVS5zuxOw=; b=KdMwJh+O3zV+zynsY+PTKb9nqJ
-	cY9EQhoZZ8WoKKHm43qWZnJgb7ZU/7DODhObV9ggQAJ+nk+HM7SmoKoOY4uucyAvWbs9SjSIdGRUz
-	2w4Dw8tFq5VksrV7VSHUariK2sYfGGA9Hvb2UO3uGuyUgXHNC2dWsU3peW4NAc8GZmrNnb9+86PuY
-	VFzMdlKoBgFllCfhNRXeAEZFKKQ/rcVhpZtNSnj4/kf+/sNPP2fpXiVpFEAXTpDPSQ3n5vrIAgiZN
-	aPsQUvrBojG4hfQ778Ku/FSLjaIkqNX8kNpEr7HGMNNcxrT8TcyqeD7zddMrSPqg6gIAFeMzMbA1O
-	8PKhIWtA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+C7UJ5EIB57xL4KV5//HXNlxtQfTiI3AQWlDNB9xG9M=; b=uO2znFIBq7KKC2v6A0128seXDj
+	OVYGQb+/oRSlORh8hfrHGXo/VIQwhGBq/2RnEpmjyMKHAUbJZFm+8Lk0PumljNr9L9iCroDQATxk5
+	jnF5pHFOUyDp02IVI46rmLurKsTugWYNOPBd07pP7LwkavKQyjneWd4UQp7K1IZkeV9ARkkfBUT/H
+	TYFvdCozyd7sC6OKHIvcxtysH882VXlgineck3iMRX9xq0xLZB2Icop8UStTzSd9jft4ZV0NgPx46
+	Y+75mH2cftky/Yz/kjcLdK52kyPHjHt/ClpmtUN3DLW07/MxlzXDUje7ia0WJBI8FhufXy5IEcYHv
+	eBzuyVrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waF3q-00000001X57-23A3;
-	Thu, 18 Jun 2026 15:53:46 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1waFyA-00000001bTN-1leS;
+	Thu, 18 Jun 2026 16:51:58 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waF3p-00000001X4l-0iZd;
-	Thu, 18 Jun 2026 15:53:45 +0000
+	id 1waFy9-00000001bTH-3eYL
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 18 Jun 2026 16:51:57 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 60A5460018;
-	Thu, 18 Jun 2026 15:53:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D5851F000E9;
-	Thu, 18 Jun 2026 15:53:43 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 56ABC41ACC;
+	Thu, 18 Jun 2026 16:51:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0CECA1F000E9;
+	Thu, 18 Jun 2026 16:51:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781798024;
-	bh=EwX9mxVgUx4kbF0qZ290eryMIgfNI0MdhJKVS5zuxOw=;
-	h=From:To:Subject:In-Reply-To:References:Date;
-	b=dFbyuhdxS8KRLeKukg6wGxWrZKR7+kw+xqNzs3yRunvw4FB7RQT+K+h6r1RUTVb4a
-	 H+XMDkYxvmBiMuqK6N4j1KwALKy4zAVPDNJLrqk5VRjQmKqdBxJSdrP0h3D/m/mb/Y
-	 08qVUbjX3v5xmk5PeWvmWNQ7NBaxuUDFHMnmx8qih+TsRiJYrLNTg9orqijFMNJ/zY
-	 UYIpbgfnw2o6Wu/fRmaGf38lG5t4n+Y8avnbK9JaZ9rWD+u7xO68HArQRZjlEQIK/U
-	 yTyHP2EioUBOSUKbMp9/bDNibaJlaph6Xa8ztrGG4/FL5Ju36LIJsfYUCim8Oa3P8+
-	 UMWh6Gg9zlbNA==
-From: Thomas Gleixner <tglx@kernel.org>
-To: Jinjie Ruan <ruanjinjie@huawei.com>, Michael Kelley
- <mhklinux@outlook.com>, "catalin.marinas@arm.com"
- <catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>,
- "tsbogend@alpha.franken.de" <tsbogend@alpha.franken.de>, "pjw@kernel.org"
- <pjw@kernel.org>, "palmer@dabbelt.com" <palmer@dabbelt.com>,
- "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "alex@ghiti.fr"
- <alex@ghiti.fr>, "mingo@redhat.com" <mingo@redhat.com>, "bp@alien8.de"
- <bp@alien8.de>, "dave.hansen@linux.intel.com"
- <dave.hansen@linux.intel.com>, "hpa@zytor.com" <hpa@zytor.com>,
- "peterz@infradead.org" <peterz@infradead.org>, "kees@kernel.org"
- <kees@kernel.org>, "nathan@kernel.org" <nathan@kernel.org>,
- "linusw@kernel.org" <linusw@kernel.org>, "ojeda@kernel.org"
- <ojeda@kernel.org>, "david.kaplan@amd.com" <david.kaplan@amd.com>,
- "lukas.bulwahn@redhat.com" <lukas.bulwahn@redhat.com>,
- "ryan.roberts@arm.com" <ryan.roberts@arm.com>, "maz@kernel.org"
- <maz@kernel.org>, "timothy.hayes@arm.com" <timothy.hayes@arm.com>,
- "lpieralisi@kernel.org" <lpieralisi@kernel.org>, "thuth@redhat.com"
- <thuth@redhat.com>, "oupton@kernel.org" <oupton@kernel.org>,
- "yeoreum.yun@arm.com" <yeoreum.yun@arm.com>, "miko.lenczewski@arm.com"
- <miko.lenczewski@arm.com>, "broonie@kernel.org" <broonie@kernel.org>,
- "kevin.brodsky@arm.com" <kevin.brodsky@arm.com>, "james.clark@linaro.org"
- <james.clark@linaro.org>, "tabba@google.com" <tabba@google.com>,
- "mrigendra.chaubey@gmail.com" <mrigendra.chaubey@gmail.com>,
- "arnd@arndb.de" <arnd@arndb.de>, "anshuman.khandual@arm.com"
- <anshuman.khandual@arm.com>, "x86@kernel.org" <x86@kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, "linux-mips@vger.kernel.org"
- <linux-mips@vger.kernel.org>, "linux-riscv@lists.infradead.org"
- <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH RFC 3/3] arm64: Add HOTPLUG_PARALLEL support for
- secondary CPUs
-In-Reply-To: <4588efb4-e757-4ca7-9197-025b67ca9ef6@huawei.com>
-References: <20260611133809.3854977-1-ruanjinjie@huawei.com>
- <20260611133809.3854977-4-ruanjinjie@huawei.com>
- <SN6PR02MB41575306521E6223561F476FD4182@SN6PR02MB4157.namprd02.prod.outlook.com>
- <4588efb4-e757-4ca7-9197-025b67ca9ef6@huawei.com>
-Date: Thu, 18 Jun 2026 17:53:41 +0200
-Message-ID: <874iizdeuy.ffs@fw13>
+	s=k20260515; t=1781801517;
+	bh=+C7UJ5EIB57xL4KV5//HXNlxtQfTiI3AQWlDNB9xG9M=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject;
+	b=cRz3Arfn81Xxb0sb5xjVuc9aHEbbew8OcSDJxv/ZQWPs6orcRzAeN2C+dIx2RArvC
+	 NxqS0oBMA4GI7gesRaqxmeuVANuET6TQ1GMQSsm6gGujTjolJMi5hiFQM6cZ7GS1zj
+	 cUb9z5VIgT5bC3c7Kc8XYT9PRIYm9uhF2cawTytA+LLC9GYJMt5jc5nYKDsJLzcOn2
+	 +LoJNrvv+dVlmX/MzxNlEQamZooeOeMlq7/aa4uWYOedDUylJvasepXktDtifWt+Hw
+	 obOgwDjHstjkEzlU9nqPrTDH/uR1biK3+vvZJuMxyQcCyqGt+XWe6fJ43wKvDdcqvL
+	 zXdtW9BTCB+XQ==
+Date: Thu, 18 Jun 2026 11:51:56 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Lee Jones <lee@kernel.org>, dri-devel@lists.freedesktop.org, 
+ linux-pm@vger.kernel.org, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ David Airlie <airlied@gmail.com>, linux-arm-kernel@lists.infradead.org, 
+ Ulf Hansson <ulfh@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
+ devicetree@vger.kernel.org, Maxime Ripard <mripard@kernel.org>, 
+ dmaengine@vger.kernel.org, Thomas Zimmermann <tzimmermann@suse.de>, 
+ Mark Brown <broonie@kernel.org>, Simona Vetter <simona@ffwll.ch>, 
+ Vinod Koul <vkoul@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Linus Walleij <linusw@kernel.org>
+In-Reply-To: <20260618-ux500-power-domains-v7-1-v1-1-eb5e50b1a588@kernel.org>
+References: <20260618-ux500-power-domains-v7-1-v1-0-eb5e50b1a588@kernel.org>
+ <20260618-ux500-power-domains-v7-1-v1-1-eb5e50b1a588@kernel.org>
+Message-Id: <178180151626.1898523.11669770093439143903.robh@kernel.org>
+Subject: Re: [PATCH 01/11] dt-bindings: power: Convert Ux500 PM domains to
+ schema
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,32 +78,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 15 2026 at 17:57, Jinjie Ruan wrote:
-> On 6/12/2026 11:45 PM, Michael Kelley wrote:
->
-> - Default (no patch): Slowest HVC64 handling (126=E2=80=AF=CE=BCs), highe=
-st WFx count
-> (85k), and most total VM=E2=80=91exits.
->
-> - cpuhp.parallel=3D1: HVC64 latency improved to 78=E2=80=AF=CE=BCs (close=
- to
-> cpuhp.parallel=3D0), but IRQ exits increased dramatically (12.9k, 2.7=C3=
-=97
-> that of `cpuhp.parallel=3D0`), accounting for 95% of event time and
-> becoming the new bottleneck.
->
-> - cpuhp.parallel=3D0: Fastest HVC64 (69=E2=80=AF=CE=BCs), lowest IRQ exit=
-s (4.8k), and
-> lowest total samples, delivering the best overall boot performance.
->
-> Therefor, `cpuhp.parallel=3D1` reduces HVC cost but suffers from a massive
-> increase in IRQ exits, while `cpuhp.parallel=3D0` avoids this interrupt
-> storm and therefore performs best in a KVM guest.
 
-What's the cause for having this massive interrupt exit rate in parallel
-mode? Just because parallel does not give a useful explanation.
+On Thu, 18 Jun 2026 07:00:47 +0200, Linus Walleij wrote:
+> Convert the legacy Ux500 power domain text binding to YAML.
+> 
+> Move it under bindings/power.
+> 
+> Reference the generic power-domain schema.
+> 
+> Update MAINTAINERS for the new path.
+> 
+> Assisted-by: Codex:gpt-5-5
+> Signed-off-by: Linus Walleij <linusw@kernel.org>
+> ---
+>  .../devicetree/bindings/arm/ux500/power_domain.txt | 35 ----------------
+>  .../power/stericsson,ux500-pm-domains.yaml         | 46 ++++++++++++++++++++++
+>  MAINTAINERS                                        |  1 +
+>  3 files changed, 47 insertions(+), 35 deletions(-)
+> 
 
-Thanks,
+My bot found errors running 'make dt_binding_check' on your patch:
 
-        tglx
+yamllint warnings/errors:
+
+dtschema/dtc warnings/errors:
+Documentation/devicetree/bindings/power/stericsson,ux500-pm-domains.example.dts:25.28-28.11: Warning (unit_address_vs_reg): /example-0/sdi0_per1@80126000: node has a unit name, but no reg or ranges property
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/power/stericsson,ux500-pm-domains.example.dtb: sdi0_per1@80126000 (arm,pl18x): $nodename:0: 'sdi0_per1@80126000' does not match '^mmc(@.*)?$'
+	from schema $id: http://devicetree.org/schemas/mmc/arm,pl18x.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/power/stericsson,ux500-pm-domains.example.dtb: sdi0_per1@80126000 (arm,pl18x): 'oneOf' conditional failed, one must be fixed:
+	'interrupts' is a required property
+	'interrupts-extended' is a required property
+	from schema $id: http://devicetree.org/schemas/mmc/arm,pl18x.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/power/stericsson,ux500-pm-domains.example.dtb: sdi0_per1@80126000 (arm,pl18x): 'reg' is a required property
+	from schema $id: http://devicetree.org/schemas/mmc/arm,pl18x.yaml
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.kernel.org/project/devicetree/patch/20260618-ux500-power-domains-v7-1-v1-1-eb5e50b1a588@kernel.org
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
