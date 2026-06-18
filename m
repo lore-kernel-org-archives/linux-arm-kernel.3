@@ -4,76 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85808CD98ED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 13:15:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCCDACD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 13:15:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=se2VEvwaaMu2VOCsN9h9emYfqka530EJJi0CgvGS/WQ=; b=YCoh2Uf1AQHtZjSCYzIyx71jyo
-	cNa+apcgCd3xveFMZnLkiiNjKna+ELZrBXlA3R2U/voc13U4AkUBVHrlKRFy+YADFVsLSjjpw7+ys
-	rb067qjDerECLdEsINwD7RUL3STSZBPiF6TPZOC3/oMYjuTzzWvh/bE5DY8ah1vNj4NoMgX+qJer+
-	ALFj80U9fRGPUSwiNC4zRhNMgZsFW9YbX/pfHtp66kDbjmkeHWHVy3Bd4o2x2gg7NqaOj25fkUpEc
-	Ao0D1lT/ZC8r6xObhVDmPhq5572P5y9oxu5fhb6y07PFkSSA8u2WbHbZSKPlTPIZFiBX6kJDPVCRV
-	k+VtRVHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FAAn/mWJuuN5gL4FlLtNSl6vPNBasbbg1AXB8rDwhzk=; b=s87qp8zb98ymujlCEVOAG7B5gV
+	ye22YYDkVaFgj1/wPZH2Ugk01nOw0R1Em8MIGQRPa8oCSGOdOda0slghD0NDCUMClqXAc8x9/R5+S
+	FJxKhpetcFKnVKin1Uu4XOZ1a+WOg5h5DaM63ohDWEwidxrHsPWQhT1+1Bm7htZjY1klfY/qgRq9e
+	E0NW14Hqn5CCwuiPXMZ7ZjYIcRHSgX4JjPGr42L2SqKBJIVPsrDZ+0OjNmc4C38jceJYWtlPSuky+
+	2hqEdPsGyXXQYGYSnyRMhgTgSrdy2yPI2Q5pwlWqGGan+EmHKCgb+Yk0Gr3bRAstBA6TIPqAKlAxK
+	vjARAtGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waCal-00000001L6r-46Wi;
-	Thu, 18 Jun 2026 13:15:35 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1waCaw-00000001LDb-1GDM;
+	Thu, 18 Jun 2026 13:15:46 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waCak-00000001L6L-3CxA;
-	Thu, 18 Jun 2026 13:15:34 +0000
+	id 1waCau-00000001LCv-2VUL
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 18 Jun 2026 13:15:44 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 003C7600AA;
-	Thu, 18 Jun 2026 13:15:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2BD8C1F000E9;
-	Thu, 18 Jun 2026 13:15:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4E77043C46
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 13:15:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 162701F00ADF
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 13:15:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781788533;
-	bh=se2VEvwaaMu2VOCsN9h9emYfqka530EJJi0CgvGS/WQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=kMwaElRg0hhN8Qwm5J8gj8ms3DfexMQKUxzaebGOiyu31Owe41G2aL8BF5YnSRZE8
-	 CYTaFmVsPQdgCHEPnelBc4l+WIuRmxR2wZmK2Ke5yDtlDv9MeU3LAptPCRQq3Fvt7V
-	 j8XJl2Gfmk3lK+DVEokqiocnhLCvykZXJf0XT8YoxBGBSIjDLxkQIDocD2p+FrPe6f
-	 hTpnCmsxT118emtJ8TXyY3a1rWUP5cNtpX4lXe2Gf6ftTcC0tTZoF/jAFvmBvqMM3H
-	 02qNdkhAPP0bkboU9rce6WjAr9A8ep42eoDklISqD94R7/Qg/KkaTrZS4GwTg8y/XM
-	 R+2ee7Aeutymw==
-Date: Thu, 18 Jun 2026 15:15:31 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Simon Horman <horms@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Saravana Kannan <saravanak@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, llvm@lists.linux.dev,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>
-Subject: Re: [RFC PATCH net-next v8 12/12] net: airoha: add phylink support
-Message-ID: <ajPvcwbdLpG9cNd6@lore-desk>
-References: <20260618125752.1223-1-ansuelsmth@gmail.com>
- <20260618125752.1223-13-ansuelsmth@gmail.com>
+	s=k20260515; t=1781788544;
+	bh=FAAn/mWJuuN5gL4FlLtNSl6vPNBasbbg1AXB8rDwhzk=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=RvDj8lXapXNOvDW2rf9wVnNlwHPrTLK4sqXVu5/UvcJCFMrFeluBRbB7SYTQM7zqe
+	 5j3fADVyCzPW/FMNcXuGyIJkNXAG2eY10J+sPgFludxHZhQliRr+xytCmBOmIqI6rM
+	 iP9qCUbW3Ss9yE+rTytVTiMA+bZXsdkNCjy5RuuotGpr2ErLHf6ktGcAr8fWt7G2hv
+	 lC6t4g9zYopVfoicscD/Sjs4NJmrkTL0RJF7ejLsBWhgOc6va+W3+fwcZyVeUFoMYY
+	 prrIDR80FHzeKc4CM6LUoP7IozLBBYb8Ap5PSDKu2EPiQhuFVVPS/ZL1YEL7Z3LhUC
+	 i1SfWrn9Y2F8Q==
+Received: by mail-lj1-f169.google.com with SMTP id 38308e7fff4ca-39677c80386so9330931fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 06:15:44 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ+qgLKTjZfzIwtP3ZGJEeez1qqjoftg1QTxAiRk6Km+U4QRdEPizm2Fgp3L+wDZHpQ/Y/rBrZFeeeQqSSWqOW+k@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz+nXDPudnJ5Fh/0Jd+OH1n1mitUaf7AMm2EEe4OuMmP6KnuLwh
+	ff7w+53ZhtaIgNhRwJlCkuMYtTJO65LAwWF9IwISAaumf4qA0G4+mMPAiQloVIdxvlJa8URDL4n
+	ndqXem/N7hCypzo5mZOM+dGtvFFm6ZX8=
+X-Received: by 2002:ac2:4f0f:0:b0:5ad:51ac:21d8 with SMTP id
+ 2adb3069b0e04-5ad51ac22a4mr687097e87.14.1781788542680; Thu, 18 Jun 2026
+ 06:15:42 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="q//wKL9lmzZ1YScn"
-Content-Disposition: inline
-In-Reply-To: <20260618125752.1223-13-ansuelsmth@gmail.com>
+References: <20260618053650.4053352-1-runyu.xiao@seu.edu.cn>
+In-Reply-To: <20260618053650.4053352-1-runyu.xiao@seu.edu.cn>
+From: Linus Walleij <linusw@kernel.org>
+Date: Thu, 18 Jun 2026 15:15:30 +0200
+X-Gmail-Original-Message-ID: <CAD++jLmW3vgTFryRAL24x2TbgbR1tbhjw-nFFH3askoZfSibaQ@mail.gmail.com>
+X-Gm-Features: AVVi8Cd4ajb_jyilwrzYqFD2Tx2XDqLDSoVk9kbdtiibfu6CS572v2FjQevMhk4
+Message-ID: <CAD++jLmW3vgTFryRAL24x2TbgbR1tbhjw-nFFH3askoZfSibaQ@mail.gmail.com>
+Subject: Re: Question: pinctrl-backed GPIO set_config and gpio_chip::can_sleep
+To: Runyu Xiao <runyu.xiao@seu.edu.cn>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@kernel.org>, 
+	Ludovic Desroches <ludovic.desroches@microchip.com>, 
+	Nicolas Ferre <nicolas.ferre@microchip.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+	Antonio Borneo <antonio.borneo@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, jianhao.xu@seu.edu.cn
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,290 +87,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Runyu,
 
---q//wKL9lmzZ1YScn
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+thanks for your analysis!
 
-[...]
+On Thu, Jun 18, 2026 at 7:42=E2=80=AFAM Runyu Xiao <runyu.xiao@seu.edu.cn> =
+wrote:
 
-> +static void airoha_mac_config(struct phylink_config *config, unsigned in=
-t mode,
-> +			      const struct phylink_link_state *state)
-> +{
-> +}
-> +
-> +static void airoha_mac_link_up(struct phylink_config *config, struct phy=
-_device *phy,
-> +			       unsigned int mode, phy_interface_t interface,
-> +			       int speed, int duplex, bool tx_pause, bool rx_pause)
-> +{
-> +	struct airoha_gdm_dev *dev =3D container_of(config, struct airoha_gdm_d=
-ev,
-> +						  phylink_config);
-> +	struct airoha_gdm_port *port =3D dev->port;
-> +	struct airoha_eth *eth =3D dev->eth;
-> +	u32 frag_size_tx, frag_size_rx;
-> +	u32 mask, val;
-> +
-> +	/* TX/RX frag is configured only for GDM4 */
-> +	if (port->id !=3D AIROHA_GDM4_IDX)
-> +		return;
-> +
-> +	switch (speed) {
-> +	case SPEED_10000:
-> +	case SPEED_5000:
-> +		frag_size_tx =3D 8;
-> +		frag_size_rx =3D 8;
-> +		break;
-> +	case SPEED_2500:
-> +		frag_size_tx =3D 2;
-> +		frag_size_rx =3D 1;
-> +		break;
-> +	default:
-> +		frag_size_tx =3D 1;
-> +		frag_size_rx =3D 0;
-> +	}
-> +
-> +	spin_lock(&port->lock);
+> The path we are concerned about is:
+>
+>   gpiod_set_config()
+>     -> gpio_do_set_config()
+>        -> gpiochip_generic_config()
+>        -> pinctrl_gpio_set_config()
+>        -> pinctrl_get_device_gpio_range()
+>        -> mutex_lock(&pctldev->mutex)
 
-Using a spin_lock seems overkill here to me since airoha_mac_link_up()
-run in the process context and the spin_lock you are acquiring here
-was just used for stats. Since mac_link_up is running in some cases
-acquiring RTNL, I guess you can even do something like:
+That would be mutex_lock(&pinctrldev_list_mutex); would it not?
 
-	bool rtnl =3D rtnl_is_locked();
+> If gpiod_cansleep() returns false, a GPIO forwarder or another consumer
+> can choose an atomic carrier and call gpiod_set_config() while holding a
+> spinlock.
 
-	if (!rtnl)
-		rtnl_lock();
-	...
-	if (!rtnl)
-		rtnl_unlock();
+I see the problem.
 
-Regards,
-Lorenzo
+> The local draft I am considering marks only these controllers as
+> sleeping:
+>
+>   pinctrl: at91-pio4: mark the GPIO controller as sleeping
+>   pinctrl: stm32: mark the GPIO controller as sleeping
+>   pinctrl: sunxi: mark the GPIO controller as sleeping
+>
+> The reason is that all three expose gpiochip_generic_config() and can
+> therefore reach the pinctrl mutex from the GPIO set_config path, while
+> their current gpio_chip registration does not set can_sleep.
 
-> +
-> +	/* Configure TX/RX frag based on speed */
-> +	if (dev->nbq =3D=3D 1) {
-> +		mask =3D GDM4_SGMII1_TX_FRAG_SIZE_MASK;
-> +		val =3D FIELD_PREP(GDM4_SGMII1_TX_FRAG_SIZE_MASK,
-> +				 frag_size_tx);
-> +	}  else {
-> +		mask =3D GDM4_SGMII0_TX_FRAG_SIZE_MASK;
-> +		val =3D FIELD_PREP(GDM4_SGMII0_TX_FRAG_SIZE_MASK,
-> +				 frag_size_tx);
-> +	}
-> +	airoha_fe_rmw(eth, REG_FE_GDM4_TMBI_FRAG, mask, val);
-> +
-> +	if (dev->nbq =3D=3D 1) {
-> +		mask =3D GDM4_SGMII1_RX_FRAG_SIZE_MASK;
-> +		val =3D FIELD_PREP(GDM4_SGMII1_RX_FRAG_SIZE_MASK,
-> +				 frag_size_rx);
-> +	} else {
-> +		mask =3D GDM4_SGMII0_RX_FRAG_SIZE_MASK;
-> +		val =3D FIELD_PREP(GDM4_SGMII0_RX_FRAG_SIZE_MASK,
-> +				 frag_size_rx);
-> +	}
-> +	airoha_fe_rmw(eth, REG_FE_GDM4_RMBI_FRAG, mask, val);
-> +
-> +	spin_unlock(&port->lock);
-> +}
-> +
-> +/* Nothing to do in MAC, everything is handled in PCS */
-> +static void airoha_mac_link_down(struct phylink_config *config, unsigned=
- int mode,
-> +				 phy_interface_t interface)
-> +{
-> +}
-> +
-> +static const struct phylink_mac_ops airoha_phylink_ops =3D {
-> +	.mac_config =3D airoha_mac_config,
-> +	.mac_link_up =3D airoha_mac_link_up,
-> +	.mac_link_down =3D airoha_mac_link_down,
-> +};
-> +
-> +static int airoha_fill_available_pcs(struct phylink_config *config,
-> +				     struct phylink_pcs **available_pcs,
-> +				     unsigned int num_possible_pcs)
-> +{
-> +	struct device *dev =3D config->dev;
-> +
-> +	return fwnode_phylink_pcs_parse(dev_fwnode(dev), available_pcs,
-> +					num_possible_pcs);
-> +}
-> +
-> +static int airoha_setup_phylink(struct net_device *netdev)
-> +{
-> +	struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
-> +	struct device_node *np =3D netdev->dev.of_node;
-> +	struct airoha_gdm_port *port =3D dev->port;
-> +	struct phylink_config *config;
-> +	phy_interface_t phy_mode;
-> +	struct phylink *phylink;
-> +	int err;
-> +
-> +	err =3D of_get_phy_mode(np, &phy_mode);
-> +	if (err) {
-> +		dev_err(&netdev->dev, "incorrect phy-mode\n");
-> +		return err;
-> +	}
-> +
-> +	config =3D &dev->phylink_config;
-> +	config->dev =3D &netdev->dev;
-> +	config->type =3D PHYLINK_NETDEV;
-> +
-> +	/*
-> +	 * GDM1 only supports internal for Embedded Switch
-> +	 * and doesn't require a PCS.
-> +	 */
-> +	if (port->id =3D=3D AIROHA_GDM1_IDX) {
-> +		config->mac_capabilities =3D MAC_ASYM_PAUSE | MAC_SYM_PAUSE |
-> +					   MAC_10000FD;
-> +
-> +		__set_bit(PHY_INTERFACE_MODE_INTERNAL,
-> +			  config->supported_interfaces);
-> +	} else {
-> +		config->mac_capabilities =3D MAC_ASYM_PAUSE | MAC_SYM_PAUSE |
-> +					   MAC_10 | MAC_100 | MAC_1000 |
-> +					   MAC_2500FD | MAC_5000FD | MAC_10000FD;
-> +
-> +		config->num_possible_pcs =3D fwnode_phylink_pcs_count(dev_fwnode(confi=
-g->dev));
-> +		config->fill_available_pcs =3D airoha_fill_available_pcs;
-> +
-> +		__set_bit(PHY_INTERFACE_MODE_SGMII,
-> +			  config->supported_interfaces);
-> +		__set_bit(PHY_INTERFACE_MODE_1000BASEX,
-> +			  config->supported_interfaces);
-> +		__set_bit(PHY_INTERFACE_MODE_2500BASEX,
-> +			  config->supported_interfaces);
-> +		__set_bit(PHY_INTERFACE_MODE_10GBASER,
-> +			  config->supported_interfaces);
-> +		__set_bit(PHY_INTERFACE_MODE_USXGMII,
-> +			  config->supported_interfaces);
-> +
-> +		phy_interface_copy(config->pcs_interfaces,
-> +				   config->supported_interfaces);
-> +	}
-> +
-> +	phylink =3D phylink_create(config, of_fwnode_handle(np),
-> +				 phy_mode, &airoha_phylink_ops);
-> +	if (IS_ERR(phylink))
-> +		return PTR_ERR(phylink);
-> +
-> +	dev->phylink =3D phylink;
-> +
-> +	return 0;
-> +}
-> +
->  static int airoha_alloc_gdm_device(struct airoha_eth *eth,
->  				   struct airoha_gdm_port *port,
->  				   int nbq, struct device_node *np)
-> @@ -3231,7 +3411,7 @@ static int airoha_alloc_gdm_device(struct airoha_et=
-h *eth,
->  	dev->nbq =3D nbq;
->  	port->devs[index] =3D dev;
-> =20
-> -	return 0;
-> +	return airoha_setup_phylink(netdev);
->  }
-> =20
->  static int airoha_alloc_gdm_port(struct airoha_eth *eth,
-> @@ -3266,7 +3446,7 @@ static int airoha_alloc_gdm_port(struct airoha_eth =
-*eth,
->  		return -ENOMEM;
-> =20
->  	port->id =3D id;
-> -	spin_lock_init(&port->stats_lock);
-> +	spin_lock_init(&port->lock);
->  	eth->ports[p] =3D port;
-> =20
->  	err =3D airoha_metadata_dst_alloc(port);
-> @@ -3457,6 +3637,8 @@ static int airoha_probe(struct platform_device *pde=
-v)
->  			netdev =3D netdev_from_priv(dev);
->  			if (netdev->reg_state =3D=3D NETREG_REGISTERED)
->  				unregister_netdev(netdev);
-> +			if (dev->phylink)
-> +				phylink_destroy(dev->phylink);
->  			of_node_put(netdev->dev.of_node);
->  		}
->  		airoha_metadata_dst_free(port);
-> @@ -3493,6 +3675,7 @@ static void airoha_remove(struct platform_device *p=
-dev)
-> =20
->  			netdev =3D netdev_from_priv(dev);
->  			unregister_netdev(netdev);
-> +			phylink_destroy(dev->phylink);
->  			of_node_put(netdev->dev.of_node);
->  		}
->  		airoha_metadata_dst_free(port);
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ether=
-net/airoha/airoha_eth.h
-> index 46b1c31939de..a6fef1777c7b 100644
-> --- a/drivers/net/ethernet/airoha/airoha_eth.h
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.h
-> @@ -554,6 +554,9 @@ struct airoha_gdm_dev {
->  	int nbq;
-> =20
->  	struct airoha_hw_stats stats;
-> +
-> +	struct phylink *phylink;
-> +	struct phylink_config phylink_config;
->  };
-> =20
->  struct airoha_gdm_port {
-> @@ -561,8 +564,8 @@ struct airoha_gdm_port {
->  	int id;
->  	int users;
-> =20
-> -	/* protect concurrent hw_stats accesses */
-> -	spinlock_t stats_lock;
-> +	/* protect concurrent hw_stats and frag register accesses */
-> +	spinlock_t lock;
-> =20
->  	struct metadata_dst *dsa_meta[AIROHA_MAX_DSA_PORTS];
->  };
-> diff --git a/drivers/net/ethernet/airoha/airoha_regs.h b/drivers/net/ethe=
-rnet/airoha/airoha_regs.h
-> index 436f3c8779c1..6ad91ca6dcd3 100644
-> --- a/drivers/net/ethernet/airoha/airoha_regs.h
-> +++ b/drivers/net/ethernet/airoha/airoha_regs.h
-> @@ -358,6 +358,18 @@
->  #define IP_FRAGMENT_PORT_MASK		GENMASK(8, 5)
->  #define IP_FRAGMENT_NBQ_MASK		GENMASK(4, 0)
-> =20
-> +#define REG_FE_GDM4_TMBI_FRAG		0x2028
-> +#define GDM4_SGMII1_TX_WEIGHT_MASK	GENMASK(31, 26)
-> +#define GDM4_SGMII1_TX_FRAG_SIZE_MASK	GENMASK(25, 16)
-> +#define GDM4_SGMII0_TX_WEIGHT_MASK	GENMASK(15, 10)
-> +#define GDM4_SGMII0_TX_FRAG_SIZE_MASK	GENMASK(9, 0)
-> +
-> +#define REG_FE_GDM4_RMBI_FRAG		0x202c
-> +#define GDM4_SGMII1_RX_WEIGHT_MASK	GENMASK(31, 26)
-> +#define GDM4_SGMII1_RX_FRAG_SIZE_MASK	GENMASK(25, 16)
-> +#define GDM4_SGMII0_RX_WEIGHT_MASK	GENMASK(15, 10)
-> +#define GDM4_SGMII0_RX_FRAG_SIZE_MASK	GENMASK(9, 0)
-> +
->  #define REG_MC_VLAN_EN			0x2100
->  #define MC_VLAN_EN_MASK			BIT(0)
-> =20
-> --=20
-> 2.53.0
->=20
+But that's not the right solution is it? These controllers can probably
+just write a register and be done with it, they all look like they are
+memory-mapped? That means we introduce sleep where not needed.
 
---q//wKL9lmzZ1YScn
-Content-Type: application/pgp-signature; name=signature.asc
+Can we simply replace pinctrldev_list_mutex with a spinlock?
+The list isn't gonna be huge and all in-memory anyway.
+If it takes too much time we need to think about putting the
+ranges in a better data structure such as the maple tree.
 
------BEGIN PGP SIGNATURE-----
+mutex_lock(&pinctrldev_list_mutex); could then be turned
+into spinlock_irqsave() or even better
+guard(spinlock_irqsave)(&pinctrldev_list_lock) in
+pinctrl_get_device_gpio_range().
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCajPvcwAKCRA6cBh0uS2t
-rL+4AQCUijQJBrj+Gjuv2DnvPvVIwe5oHlK0vKutEoEeFo1zjAEAxiDyyse+yJms
-U7RXnPvswTa1DQ447pQOkBd7hrgv5AM=
-=MTUd
------END PGP SIGNATURE-----
+This would mean we just take two different spinlocks in seqence
+and save state in each so it should work just fine.
 
---q//wKL9lmzZ1YScn--
+Yours,
+Linus Walleij
 
