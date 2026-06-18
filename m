@@ -4,105 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CD1BCD98ED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 07:56:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09227CD98ED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 07:59:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UtYT+I9662XplkfCGmvghjrOBbhri8Oyb4z6FWIkm7k=; b=d1zrRMS8AU2rDsqElYLtGrXM1Y
-	aZLDvj1E8+6m4YbE9JpGi9DluNsDU7xb5CQvIuXo89tiNLuXBkMV6br1h574xXxXlBlWZ/SamUbBY
-	RqXRxo41V5w7grR5Yn9UPQA/Bo58NdA1+VBBOsd46w9QueG5IiNWnU+ve9CUs9roFQDm5wo/UGPvK
-	BdbJ2MpZLHNJnkeL22h/srDzy1q51du05YkdHhPEOTVbk48odmhbFP1fDplx0oj/dozKwVeHCXIHO
-	tAw6CBI0fW1QdlylrXj9FWBbPHzicuJr87F/R4WZeAzOZ0Vu048cHcltnAduGfRR+4CXwcAfK2Ctp
-	JS6osSzg==;
+	bh=Vmts3eVcq1AB/MaOX1+dMbZWrM8G02gzaeVnUoYstpY=; b=PRCEMNc2x2+lwAqbp3oaN8cBQ0
+	yuzmeaPAzweChA9A6rx2mgS7932QsNw+X6ZGN9vtr1+CaF8XZHvwHp+pbzjTWrrBROT2eRtpxeXL5
+	QL5AtjK6bIzdI/k4SzZnvo+POjGoPVDbocZsYjr5JO1DODTS0V0miQyvu9migvg+ORZBkAYxSJubl
+	N3cvZZeCbpxuaPXjYiiRyLD7vdqsdKTLPHIfa4ufaUGSP+El/YVPkOf2cj9iT3MHU4IrCgzRJK5ST
+	d0e3N4HT1m4PKCe9HoJLWvNcjXHhb2MZaarhw2hw369JLlTgFBJTTosX1dQSNTqNm0p9jEYnJWxXp
+	+EYGdY2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa7bO-00000000o7J-2kJf;
-	Thu, 18 Jun 2026 07:55:54 +0000
-Received: from mail-qt1-x82f.google.com ([2607:f8b0:4864:20::82f])
+	id 1wa7eW-00000000oO7-13IQ;
+	Thu, 18 Jun 2026 07:59:08 +0000
+Received: from out-182.mta0.migadu.com ([91.218.175.182])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa7bL-00000000o6w-1hrN
+	id 1wa7eT-00000000oMp-1yhW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 07:55:53 +0000
-Received: by mail-qt1-x82f.google.com with SMTP id d75a77b69052e-51790c0a692so7412771cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 00:55:50 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1781769349; cv=none;
-        d=google.com; s=arc-20240605;
-        b=je/UdL2C+ut7UHysa5yCJDMRrigAMGjBs6ITY3TLneQ6dpPO5SjTLKWyTuHCPNbTI6
-         M00wJh48uWQc2bToSPB3rJ5Kqc2ElNt1nETxcRPA71ms5NDRIoxQheQc0wbHBkZSCmwS
-         49xXYuIsgMBj+n5C3N8SfDe/XsrecxsxWvbrQjJyIf7FY1nar+lLL2cp5VrYd7QeUWc7
-         VYJVL/ADPzYE5yxUNL60xic6sQflP/YLbmLuYWsfwrMUXpuBgr23IgygkXkGynFpAZde
-         dt6VMKnRwvepM4lkVyxiRZVzTo6lU8wvrSqaxm8QJu0gYt94WYvIiSO2U3/6sqWYk1MZ
-         NEzw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=UtYT+I9662XplkfCGmvghjrOBbhri8Oyb4z6FWIkm7k=;
-        fh=of7um8tNSOcMXOsryXBKrR4bmQoAZJK+9ObJ7a4xXXM=;
-        b=REjdhP+8nZk7L5wSkILCptXTZCBN2kyx2aJUrtUTd3m3x02rvX3aZzvVB/FErXnP8z
-         XvXabAZjMmWtrQCeKZRSH9iedstgNNPzZu9XrDqVqtWKKo9suiZGzga44Pb9Y+nX3TGb
-         KoC/taolY1A0SwzvjCn3eYGwo93K159sGTt8nJr+t8jOn4X07f7XPGt0V2eieM1fcIYG
-         Z43+8IyKK2lOudbz541YtlnqC8k8qxPYlUR11/3EFVhFnJgD3aaUR0FjhB3tlVxWdM0u
-         Hm7ZH7mIX3DOn2+0RkF8pt9eWOLv2xyrp1jR7f51XnUfxHC1KC6Ld9hbC2mq1uPfnHje
-         oymQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=mongodb.com; s=google; t=1781769349; x=1782374149; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=UtYT+I9662XplkfCGmvghjrOBbhri8Oyb4z6FWIkm7k=;
-        b=XIDQQutaSxgpza34KQ7rb9tdbeJnFjpArE8kNXlIg73wOWY3qX3tPSuXONfq8tQLux
-         PBZqh2CVxcv3rnWvopYs7CvuNc//XWu44StNnGBxM6WmZPmfuViON6t3S0CcCw1iAalT
-         dZz73+eFz54FFyd73/Q9ixcdRH1WaOy2Y0VVk=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781769349; x=1782374149;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=UtYT+I9662XplkfCGmvghjrOBbhri8Oyb4z6FWIkm7k=;
-        b=FDchTLS9GgSSoQkMgWqQV659/CEanWQWPSG//v/3rAaCTwfrHAE3FxhYTVBhOoSh05
-         xeu270nU8cHQdLFB0w8fbtmDEaUcLBftIwIywfmpOgv+iXQzef0VaNVzUy76uac33LYd
-         csSxyPXDHIUSZKyEsUEi4Ty5gq60Iem1P6gkwm8lpb8EMiuME2rP9LMZErWHGzgae9Gy
-         rzL4cSMH7jmzvLfb0YuVUITVcb2Tv2bSMIE/ebEJNPH0OeKFkRQcFVNd5OCLqyAGj8Jd
-         yTB6nFgLHhE1drS18MUiiJkTpERZB9aVJfn4F3WVmqtreMe2kVP61W+V+t1J5MPPXHuu
-         GCBw==
-X-Forwarded-Encrypted: i=1; AFNElJ+X1+UCnGUo3ICEWO+EPgBk133tTfyXUJT8MGbWb6zI3s4pAukqyK3kkHMw+Zc8aVqN66QshSa/d+MnQ7ZS3q4k@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQcC96rOESyNvOwrt6AKat9jRIcDtz9CZqdVzKTJIUy5lOmFLI
-	EtVSkTN9m3A59P78znG1I5OIVnG1m21Pb95JfctHb9YIvQl6scmFOuCTHT/SyzvLJIe6diP2F6h
-	ntDTUlPog6eDUsfRdsd7ciq9IeXaWEN2yDnJe80AXAw==
-X-Gm-Gg: Acq92OGrmXsEazsdC2XPok6Aqmrh+OneTRi02L3YwQJq6yW62tp4P7TbSoi1lvBqPtR
-	ZODyxFkdUBxmsnuiyplTFveXPTBIYt80i49tlrxVQwD1E7vlASqwUOAVRhihTsfld46PP+e/+U0
-	Et3lTmR5uwS1+OEShGapWvU/ROjv6WhsNCaqVPmv7FUiMTYKrhpRzKISwqt6/tQwysFrr9SrYVn
-	ytKd5+iYLGbkixYlCRKVwBCthJlOuqAfwARcAdRQyXEuLfPxQg4esTwsjQ3VSxRmcDlVEU=
-X-Received: by 2002:a05:622a:2611:b0:50e:a1ab:114c with SMTP id
- d75a77b69052e-519ac38fbd1mr104119671cf.32.1781769349417; Thu, 18 Jun 2026
- 00:55:49 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260508142023.3268622-1-mark.rutland@arm.com>
- <54ffcf73-dfc5-417c-b9d5-6dee551f8d39@huawei.com> <CAHnCjA1dGNH07YkWupg1THAmBhW=o4C+uhHbbcRX4edMj2rmEg@mail.gmail.com>
- <ailagpgcDGVoXgm0@willie-the-truck>
-In-Reply-To: <ailagpgcDGVoXgm0@willie-the-truck>
-From: Mathias Stearn <mathias@mongodb.com>
-Date: Thu, 18 Jun 2026 09:55:20 +0200
-X-Gm-Features: AVVi8CfN7euc24_h5NnkYII56Axkn9eu_WM0CSNVpLh7Vo6KuBgYFBpGEkiQEb4
-Message-ID: <CAHnCjA2+LeDt+_i44dq--73N85qpiCupa_82r0Knm0_RFDKTQw@mail.gmail.com>
-Subject: Re: [PATCHv2] arm64/entry: Fix arm64-specific rseq brokenness
-To: Will Deacon <will@kernel.org>
-Cc: Jinjie Ruan <ruanjinjie@huawei.com>, Mark Rutland <mark.rutland@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, 
-	Catalin Marinas <catalin.marinas@arm.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Thomas Gleixner <tglx@linutronix.de>, ckennelly@google.com, dvyukov@google.com, 
-	linux-kernel@vger.kernel.org, mathieu.desnoyers@efficios.com
-Content-Type: text/plain; charset="UTF-8"
+	Thu, 18 Jun 2026 07:59:07 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
+	s=key1; t=1781769539;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Vmts3eVcq1AB/MaOX1+dMbZWrM8G02gzaeVnUoYstpY=;
+	b=iHsAZ1Jp6nMQWYrVGGLThRws4MJ9eNCU22+ngX8PXCh56gz2+Vbb24ZIj6VGb6/jM/lMya
+	7u+JmEvYY1JMZM82d6xmfBZcRD77TXUYJe7RDF4Rvhk6o9Y4oUKwc+bcBM43seA8EKzAXD
+	jqJ8XMf6IIrR60MXQaKBLDsvNNEHTWt4MUAG6DUP4bCRjZlgF3DPSSZcWF4biChXaQ2rvJ
+	rMa6+HeOo+GYXNQnVeNDf02rSmTd03tFHgF1wMH8fR/NRxStYWyprrfJFu6hm+FJmrw0Pc
+	98X6LUc1KD/DrZ71YOD/uup/O4qaQgMykCC/fGXLxh8paDGre4D2TXrTsR25LA==
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 18 Jun 2026 09:58:52 +0200
+Message-Id: <DJC0L3CRJ0WL.IZEYVLPROMM1@cknow-tech.com>
+Cc: <kernel@collabora.com>, "Andy Yan" <andyshrk@163.com>,
+ <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 1/9] dt-bindings: display: vop2: Add missing reset
+ properties
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <diederik@cknow-tech.com>
+To: "Cristian Ciocaltea" <cristian.ciocaltea@collabora.com>, "Sandy Huang"
+ <hjc@rock-chips.com>, =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+ "Andy Yan" <andy.yan@rock-chips.com>, "David Airlie" <airlied@gmail.com>,
+ "Simona Vetter" <simona@ffwll.ch>, "Maarten Lankhorst"
+ <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
+ "Thomas Zimmermann" <tzimmermann@suse.de>, "Rob Herring" <robh@kernel.org>,
+ "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley"
+ <conor+dt@kernel.org>, "Philipp Zabel" <p.zabel@pengutronix.de>, "Andrzej
+ Hajda" <andrzej.hajda@intel.com>, "Neil Armstrong"
+ <neil.armstrong@linaro.org>, "Robert Foss" <rfoss@kernel.org>, "Laurent
+ Pinchart" <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman"
+ <jonas@kwiboo.se>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Luca
+ Ceresoli" <luca.ceresoli@bootlin.com>
+References: <20260617-dw-hdmi-qp-yuv-v1-0-a665cfd06d7d@collabora.com>
+ <20260617-dw-hdmi-qp-yuv-v1-1-a665cfd06d7d@collabora.com>
+In-Reply-To: <20260617-dw-hdmi-qp-yuv-v1-1-a665cfd06d7d@collabora.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260618_005551_618820_1C2704B9 
-X-CRM114-Status: GOOD (  12.78  )
+X-CRM114-CacheID: sfid-20260618_005906_067917_47FB409A 
+X-CRM114-Status: GOOD (  11.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,20 +86,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 10, 2026 at 2:37=E2=80=AFPM Will Deacon <will@kernel.org> wrote=
-:
->
-> On Tue, Jun 09, 2026 at 02:04:23PM +0200, Mathias Stearn wrote:
-> > Is it possible to get 411c1cf43039 backported to 7.0 or was it omitted
-> > intentionally?
->
-> You can send a backport to the stable maintainers:
->
-> https://docs.kernel.org/process/stable-kernel-rules.html#procedure-for-su=
-bmitting-patches-to-the-stable-tree
+Hi Cristian,
 
+Thanks for this series :-) Just 1 nit (at the end) ...
 
-Who was that "you" directed at? I'm not used to the kernel development
-process. Is that my responsibility as the bug reporter / interested
-party, or something that Mark Rutland, author of the patch, should do?
+On Wed Jun 17, 2026 at 8:52 PM CEST, Cristian Ciocaltea wrote:
+> Document the VOP2 resets corresponding to the AXI, AHB and DCLK_VP0..2
+> clocks, which are common to all supported SoCs, plus DCLK_VP3 which is
+> provided only on RK3588.
+>
+> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> ---
+>  .../bindings/display/rockchip/rockchip-vop2.yaml   | 42 ++++++++++++++++=
+++++++
+>  1 file changed, 42 insertions(+)
+>
+> diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip-=
+vop2.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop=
+2.yaml
+> index 93da1fb9adc4..d3bc5380f910 100644
+> --- a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.ya=
+ml
+> +++ b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.ya=
+ml
+> @@ -82,6 +82,20 @@ properties:
+>        - {}
+>        - {}
+> =20
+> +  resets:
+> +    minItems: 5
+> +    maxItems: 6
+> +
+> +  reset-names:
+> +    minItems: 5
+> +    items:
+> +      - const: axi
+> +      - const: ahb
+> +      - const: dclk_vp0
+> +      - const: dclk_vp1
+> +      - const: dclk_vp2
+> +      - const: dclk_vp3
+> +
+>    rockchip,grf:
+>      $ref: /schemas/types.yaml#/definitions/phandle
+>      description:
+> @@ -148,6 +162,12 @@ allOf:
+>          clock-names:
+>            maxItems: 5
+> =20
+> +        resets:
+> +          maxItems: 5
+> +
+> +        reset-names:
+> +          maxItems: 5
+> +
+>          interrupts:
+>            maxItems: 1
+> =20
+> @@ -194,6 +214,12 @@ allOf:
+>              - {}
+>              - const: pll_hdmiphy0
+> =20
+> +        resets:
+> +          maxItems: 5
+> +
+> +        reset-names:
+> +          maxItems: 5
+> +
+>          interrupts:
+>            minItems: 4
+> =20
+> @@ -246,6 +272,12 @@ allOf:
+>              - const: pll_hdmiphy0
+>              - const: pll_hdmiphy1
+> =20
+> +        resets:
+> +          minItems: 6
+> +
+> +        reset-names:
+> +          minItems: 6
+> +
+>          interrupts:
+>            maxItems: 1
+> =20
+> @@ -289,6 +321,16 @@ examples:
+>                                "dclk_vp0",
+>                                "dclk_vp1",
+>                                "dclk_vp2";
+> +                resets =3D <&cru SRST_A_VOP>,
+> +                         <&cru SRST_H_VOP>,
+> +                         <&cru SRST_VOP0>,
+> +                         <&cru SRST_VOP1>,
+> +                         <&cru SRST_VOP2>;
+> +                reset-names =3D "axi",
+> +                              "ahb",
+> +                              "dclk_vp0",
+> +                              "dclk_vp1",
+> +                              "dclk_vp2";
+>                  power-domains =3D <&power RK3568_PD_VO>;
+
+Place reset* props below power-domains (like in patch 9) ?
+So everyone who copies your example has the correct sorting order.
+
+Cheers,
+  Diederik
+
+>                  rockchip,grf =3D <&grf>;
+>                  iommus =3D <&vop_mmu>;
+
 
