@@ -4,130 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 978E5CD98ED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 19:16:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D2F1CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 19:28:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9AFiCKxCRI+YE87/bTWaCD8QqrDiIqN9rCk7Q1U8HYs=; b=cpHt7leEAddA6RaeubCGYFlb41
-	fXxg/6ok73ZMMmewfBg9HaAGev8Q/2yNoCYuiN6nhOuU6VV6BxRNUNti6L7hgeswptsWsv0UMKJbi
-	E80BC/2o5UtgJFaCnMVQ+U/uSmgvtzhwwvoh7u2/F6e1LAk+PBvLH+3uQRpYiYOWYWr6ATHmyqyRu
-	5VG7Y87HJ9d8ddJco4I3YZx0K+tvSFsinNl2bC8zPr9khCUTaWujGj8djzo/LQmeElLgzfo32Ez0f
-	R/AyofYiw4A5VQOghHAtovjuJLwhh5ry6hFM0IJ1KzR5kyTZr/uPIkDAcCMAVFWSm+SXYlXZjtcvl
-	SfrQgcCw==;
+	bh=g7F4n8mgpmXvR1ZomD7s5qVMQgPf2THfCdABQ8kzmgU=; b=zXPh/1wvC9XumyngP3pdEWswK+
+	91zuRMyXkbFvUDPYqHnYkVGQTsY/pWici6QHReBvJn+1G8nvPxzcveyUQbhz11oMI6f0X7vStj0ii
+	w2yKPrBtRRRk9ZhQ+1bz5JCh2AIgL/u1iT17WJJgj2Q73+jk89Ozax0Rt3aXp687mS1T0nr2Sk3+C
+	ZUxdpcDH+n3kiNXU10E7BxCy9vJrZ4GrLLCvWDgqFWkZmCaoQqKWEoGoNxv+wi3HuQtEOnYf1inX/
+	Ig0Br8PxQcBjxYB+MXkiKXyXyCUM42jC+yjjEv3OzkVuPDHrzNjS5tudj/LyN+aExRjLgLO+fE8Cx
+	3YEctH4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waIDe-00000001jnZ-2DIi;
-	Thu, 18 Jun 2026 19:16:06 +0000
-Received: from mail-northeuropeazon11010011.outbound.protection.outlook.com ([52.101.84.11] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1waIPY-00000001k4W-2BHE;
+	Thu, 18 Jun 2026 19:28:24 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waIDb-00000001jnB-2yzb
+	id 1waIPW-00000001k4B-2oKO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 19:16:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=scG7daZVrFt7HA5YESQAWIT5LwXh8n9j67eFLgacoMkt/X5f/Og+fVmgPO3FsB0sRFoXNCVVqAmEK5YTYIZxx1m+feYtNbtb2Ez2Dndb5XVR7rtBEqCOftBqkrejePudzcICL+4X0DkbDyshcdzqVAvakeZcTC05RbLt+mRNzDqG/4O9uDz/C8hf7yNAExUi8OwusuoV/EWC3jI0/+1eHQOt9k98iqumxmUKKHhPbLlHy4CNDIyJAz8a4Vx3g4H9AYlBY4TmzeTUCSuwcAnOQplvHP1TgocwPKKPBdBHoBjQm8qgG61+MIcL8+sgqmS7EYka8XWky6u7gqnnrt1BUA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=9AFiCKxCRI+YE87/bTWaCD8QqrDiIqN9rCk7Q1U8HYs=;
- b=KqmsyXC+3HMX24chZqFKQNeMO9XW/gBt5qBTvaM7KM6XIAY+6uMSx4T5M9ON+QGCMRE9f+reEyy//NpIjiHvsIuDFM58YAmAo/Ft25YgbotQ+V8v3N1RU5mL/bmAI5UKbZyyikSkoy7qEWqzAHrVqAsIuAUBcChFs04AkktMrcMTW+p/Pmr80CFBB4NnKRS6eh+jIJ8HCBkCDacRwCpjYXalpFMd+o/bgxEuviLusJljNU2aZCo+QBl8b5U65S4JItV4TCKLVEedbW7yfHVqtnHDJVOZKRsBfx9TXWtO0de0Zid873ybGY23ECXahVPYJlPS55fO0wMlyO8fc5+kcw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=9AFiCKxCRI+YE87/bTWaCD8QqrDiIqN9rCk7Q1U8HYs=;
- b=uYscytR8/XiUSh253gh7xpKZRvO4jL0s9p7azw2A07EAABkKl56cRMtAHsEp/sYybRf5SVYzEj60CKVU9AmZPwPDSX9MmlMmDLPp6EXLMPZ+as2kP0dlhPM0tLYhg2wv1ZBQtF2tGmwBK0oemTQMvy1yBnuTATHrx709Y4hZ903YgPR727lI85Og2rmglP9PXTizTXlz2POM6Hgj3aZWWe2eG7E1HeHRKYh6yKAfrNSCuJ1YqAwBhou4UwRGYqLJ1cZLPDCfRVvbYdnZKdiZmVZOnKLAgp5TPCb8JCskvHyboUPkMtuqiwov1kGSUvg6vnJbPaW22EoNf8IMV/CKXQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by PR3PR04MB7372.eurprd04.prod.outlook.com (2603:10a6:102:80::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.11; Thu, 18 Jun
- 2026 19:15:58 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0113.015; Thu, 18 Jun 2026
- 19:15:57 +0000
-Date: Thu, 18 Jun 2026 14:15:45 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Golla Nagendra <nagendra.golla@amd.com>
-Cc: vkoul@kernel.org, Frank.Li@kernel.org, michal.simek@amd.com,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	jay.buddhabhatti@amd.com, harini.katakam@amd.com,
-	m.tretter@pengutronix.de, radhey.shyam.pandey@amd.com,
-	abin.joseph@amd.com, kees@kernel.org, sakari.ailus@linux.intel.com,
-	git@amd.com, dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH V2 3/3] dmaengine: zynqmp_dma: Guard IRQ handler against
- spurious interrupts
-Message-ID: <ajRD4VyUiU83YPdJ@SMW015318>
-References: <20260618071056.2024286-1-nagendra.golla@amd.com>
- <20260618071056.2024286-4-nagendra.golla@amd.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260618071056.2024286-4-nagendra.golla@amd.com>
-X-ClientProxiedBy: PH8P220CA0022.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:345::16) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Thu, 18 Jun 2026 19:28:23 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4921e4dd62dso10567615e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 12:28:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781810901; x=1782415701; darn=lists.infradead.org;
+        h=mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=g7F4n8mgpmXvR1ZomD7s5qVMQgPf2THfCdABQ8kzmgU=;
+        b=eHQRBSKDWIV7PDaZbh7XxZVUZ89MSoj7BsITwyzds/1w3IBtzWkINPsu29whgikksJ
+         9kQ7SCfdpBpcDsEjLZQDQbLb6BkY3n9f/CNVLBV/dK+cbQZGinuxRaOkPjAFNit6ZerW
+         JePhl5grsIxRhR1aF3EETOsosNWArz4SyE6A8+D7DaiW4E3jEmY3ysCyYKn/fHet/338
+         xuKAlBrvkvVABELBywa/mGU3HCuYgPPw0NgHLXPhqSu/dFV7xOCyZp762Glkd1TIcVaK
+         QYYvkvEnHiqeIyrRw495/n2VWGHvqhjUtxnF3TwTmfyLwWnCT9qg93ri7xQoSHsa4vSS
+         xYeA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781810901; x=1782415701;
+        h=mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=g7F4n8mgpmXvR1ZomD7s5qVMQgPf2THfCdABQ8kzmgU=;
+        b=Pu/4x3Oy7rgmHizvNw01AUk+Z+lcv0JlTRZdne86DeOCKrgO01jHWfJUMit+XUBayg
+         m9tVUfpT0OjXOY+AmU3681824p6UFIC2MXr88lgbIg9OiEtNfko/BR6Ze0gQUfvjqL6d
+         q9u1EhHfPkd8xktRc/k0TpK5T58ZkfvHkH9RJfCJ4GhVPrhwwxvi1vxPPAnaXykpm5Z0
+         6owuJ16zVLcHrqFRuG50N2pnAU17N6wNFuRo2QBtrmge5uvA1+KzUhBPvt73f0QdmuJf
+         /EA9ZFb+eli/u3lRs/NOhYBHsDuE5QhKTWMDpCXzfqngMcJuJ2FpOvlkOj8lPOsoMtiw
+         w7Cg==
+X-Forwarded-Encrypted: i=1; AFNElJ9OMcpQB8Xi6NjhodAK4e6k+ANOzL8qoL3JiPPvvcVvDHEvB/qgM99iOKx120L6p6MYECWyZFXt4UqocOWU9f4s@lists.infradead.org
+X-Gm-Message-State: AOJu0YyRGofL96mnLHPMX1b5bu5s8k+Ux1UHqXz39OKTxFBa9M00O3ZD
+	GO4aJOAQ5Et8sBbNjFFAp2KKL1msgNbxDc82bw2tfgBxoXvsUet3wuel
+X-Gm-Gg: AfdE7clB4JvSFOvDJUV2OFpMGCpWZ7OjKYddFReV7zMi+ILd8T26v4MinQijrNZlLyl
+	tikkCQLlSrHUY9v89i1v3YPuIIjfaOzCoMOsj9s6CKZQe1ipGkqnl8A0xCGhq6n5gTfT6uCNMw1
+	SZDOAdeEuhtgHX2+j9ZFdVwCaPFL/jvZCmGqhfQQS0hTq7bjyo9yF3xFFC8Cezjt63w5RqG7nBT
+	VdIhE/Q4C7d8g0oBQvha373E/QhEBGAf1LF7U80dKzlQXTXJK9ro1TGwW04j40/VlkBaO/s9V4P
+	MP2fVsLSODIKTMAejLH5Al2mLPTZdYqPKQws5g9reYyhxfyEMuMhvlamfFKJgKaBpPpDcTD8h7C
+	sNPl/1XvmYoJkf6lQ0ubaJdGE/SV6xGVcPzK5xOr668vX8ww9N2NUeZVT+dq2Azowe5N/dcZUlM
+	UIhMHbXSUjQSaeGYg4uAi+2A==
+X-Received: by 2002:a05:600c:4745:b0:490:b26c:64ad with SMTP id 5b1f17b1804b1-49240a051c5mr5075335e9.5.1781810900283;
+        Thu, 18 Jun 2026 12:28:20 -0700 (PDT)
+Received: from strix.localnet ([197.250.96.160])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4923fd29883sm11319845e9.14.2026.06.18.12.28.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 18 Jun 2026 12:28:18 -0700 (PDT)
+From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
+To: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Brian Masney <bmasney@redhat.com>, Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH RFC v4 10/12] reset: zte: Add a zx297520v3 reset driver
+Date: Thu, 18 Jun 2026 22:28:01 +0300
+Message-ID: <8K1EfEWITAurt--cymuLyw@gmail.com>
+In-Reply-To: <90c4f50eb23dec06497d46f9c0f522a6b90a918b.camel@pengutronix.de>
+References: <20260616-zx29clk-v4-0-ca994bd22e9d@gmail.com>
+ <20260616-zx29clk-v4-10-ca994bd22e9d@gmail.com>
+ <90c4f50eb23dec06497d46f9c0f522a6b90a918b.camel@pengutronix.de>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PR3PR04MB7372:EE_
-X-MS-Office365-Filtering-Correlation-Id: 278edd87-0ccb-4252-3ba8-08decd6e06a4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|376014|7416014|366016|19092799006|56012099006|11063799006|22082099003|18002099003|4143699003;
-X-Microsoft-Antispam-Message-Info: 4bbCAwxJgX8kBrPGLikZ1DWDgvb/De5mbgWsAr2KwoCBv78DPhM7Rc8AZQj8nyLc8YjBjnCluLJhcvV+/maFQSIIkNPj3fWOgE0ITZneo/377LY61+8ROk2gCi3SRhJKy0GfLR9DjGBzt2T94fppkn+O8A0EfDY59vlkO0E4VzFC1eG2dUUzd4EIqgOnd6nhsVSuhW9vk7vvW5jK7EroTkqeBsPJfya4KD3Vj6ok/EQoDFZVDRBm0hw4A2db02PwDmn0w1OJJ3dCuE7olSlXhq8MBs2sZm76mKXGIiTgTjSlZ+jEj5ye7cYBk0UoCGq4mGIAUCeUWkOZa75lMW9Ld6+QJ9XSG5TLhjTYZD0KqMQ5qxUgF4ADIelYjiIq9j+5lzhp58+BfhkF5KcsnrJIAlxUmOjP7S0I6Ui7qSsWbcSQ0kO9aEOXzh+GmRmyT62f9kN3Nv4EsqLP18ptsftFfms31n6pOxSntVEm2Qmw0AxWbbphvwpfVB/k8OMXux1APUac2ZNqfDb2uTRZ3PdMMCbGpmcSoiigEdWYJuVJ9YakkJahLTHzQj+M0XUUzJHsPkN2dGSXvARiYkxxoh0ni2g4SDQSNGjcaco35sAdTuh7jmyngmsf+bvtSFy/axNUBTXeNDHhpNRVhnZJXTozVS4mqWsbMhnEPQUmWWAYw2/Y53jDIplEngc+rOivzXFj
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(376014)(7416014)(366016)(19092799006)(56012099006)(11063799006)(22082099003)(18002099003)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?g5E+UfgskJIkHzh/gHyhT9751xTTcf5J7lHJH9fdyjSnNDP6LrfzO4z6C3jt?=
- =?us-ascii?Q?IWaZ/z37gh8KnhNigfZ9qYExXVzV246Ckb9g+cc6xsSO4FwZD5ah/zMUzbgZ?=
- =?us-ascii?Q?z43T+D4TElbD1196ZVJyw31VeqPLbMq+8ipFsoWJDMiV1bWjTGP3zAZs1LQv?=
- =?us-ascii?Q?HWWz1YPqggogXAQSt7KIU+6Bmu+sPZphkeFnvAbX5OeqkfFtLHSOo6tRZnXB?=
- =?us-ascii?Q?XGHalGcGIVb76sHrmytxaJs6mvxMOfjJFhAddwTwtwTXQkq2RELnDWZHPU0n?=
- =?us-ascii?Q?NswK58PIaU4ZDpAvpQthbByWWoG34t2BfDqWZTamZBi+GdPEyclIpGzwQJub?=
- =?us-ascii?Q?2SnBB+9AXENenJnKjcGGKbSSoYP5UACymCW1pfHbALpmt1i24THa60aZj8Vz?=
- =?us-ascii?Q?bvDLNzhsWh53atPciuuhFzlKJxtKPtCUD72CvYHzqCzakfVbzeOXVrw54lMt?=
- =?us-ascii?Q?PKXFMpiJYJ/AwtcaXjIAjAHEHEb+/x1KfIT7tW1u2IdNWD+Dj9UtxmcTHbsO?=
- =?us-ascii?Q?J6FgPllSBXg7SJAV+DIuS9REBb99qbheQ5V4tRlImX/AcVks0rT3RTeJUZ9g?=
- =?us-ascii?Q?uhMC1rCFnuh8r1QB+szjzlMqjY0cHGxj2F2ymmz2BY7QZZW/BGnVm5u26tlv?=
- =?us-ascii?Q?xrEf1jsI2tCcFYrpAZ+brH9HWFiEEfF9oyFBgFox12bPhP2dCP3VzruFk6k2?=
- =?us-ascii?Q?dDu15NpUfMn4KKZvy5VprqDPjpdLXd6HPVA4LpXf2bqliVKBxPYIPawaxQup?=
- =?us-ascii?Q?DgpEC1rwoJYVSGgPgds/mzcZbebfzDg494w9GC0FrHZj5gtbUKJPBCI3ywzI?=
- =?us-ascii?Q?Uss0KK5iB6xj3H0LGBFrKO0Xbx/0ezcvZ0u85Y44THeT0/i9KpnoN6HFjiVq?=
- =?us-ascii?Q?uyRSRIf6rA6QivvzeH+OxTiTKG3SpgLDZogUmOyD4WdOLIXjiHpKoTf04NGt?=
- =?us-ascii?Q?KsHZlH+oWEZ8bJdBVb0ea47+pMBzOVXwp1OZy8bx/AVmxeJdIWvcllrIoVqI?=
- =?us-ascii?Q?J4xpNG0sxtCYSpey4cSGpypxJi+TH61C9h+qc94koA3NARwd17Ati3bEtKN3?=
- =?us-ascii?Q?QLpoh9e1sp1ytYHHG9rsZuKAAmfcxN6f+O8W2HX5kRo+f6OWyabE6gkbM574?=
- =?us-ascii?Q?hAoHWxCm9QpcYXByOyLYsDoyQh2dJVkVAE8zg414n+tAE4GH2ic9jngeuuvO?=
- =?us-ascii?Q?gyGOZhlBibqj2NPgYDEBdjKTBZmzx0MFK0W36G72kVh+LiMWrP+soZp868bZ?=
- =?us-ascii?Q?dw/khR/vFO2RbO0AiVJWaip21irFTlhpogTx5qXUqL+NgzToKvq06mR+lVjc?=
- =?us-ascii?Q?FQkwXHb0IUtR8r1W6MBFs3/0qTacD62EWOWfdl9GobR1j58Vxp5MRRJaec1k?=
- =?us-ascii?Q?8ldH7uOaLa0dm1KiZOjPS8F4fhpVWUkPNiFawXImE6eqPadfB/nGzD87S06l?=
- =?us-ascii?Q?cATPEIn6eb0x67kh0TalNMY9dzbw1u/DzBp2QEMo3YwPmRtaSige2CeaL9lF?=
- =?us-ascii?Q?kLTAxzSG7LlSnycN6y8n53gcvfjLv1G65FrNooaSBhor1m3na+F+svOGOgvD?=
- =?us-ascii?Q?RrqtkMAy8oyJH7QpZHcE0WeaXBIfvQ1QVzMMGNYGXyxVMv9e88walBu3ZrCr?=
- =?us-ascii?Q?Rt7r/lM+cPaLwFJFLoFBGASk39SBspIFTDlMZjSTLW3HgO3Pc4cjpd0Wsi/l?=
- =?us-ascii?Q?4WULp6I7AHL2fkGiwgBrVnrecK6EBDkoat7OMFem2i1TFw95L51sXMz2UzPQ?=
- =?us-ascii?Q?sX0jwWog6Zn0bwFH6w2vDe/62A/u73bD39eGHNJan+lvzMDGvfCu?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 278edd87-0ccb-4252-3ba8-08decd6e06a4
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Jun 2026 19:15:57.8140
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: raGxWMi+gM8b4eVlukZRBSLH44rtRU+Ie8Oa6Hu6a2shCPNyjhjfG4SSulE+yNGlc66qn0YzUEu2disZF1UIhrqgPvNPIOlGKQvYI2UXsaOxda2PD1WPMFX55KVKfNKC
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR04MB7372
+Content-Type: multipart/signed; boundary="nextPart7cqxV3SpSTKGVocmuEIt-Q";
+ micalg="pgp-sha256"; protocol="application/pgp-signature"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260618_121604_084350_AADB0C9C 
-X-CRM114-Status: GOOD (  22.95  )
+X-CRM114-CacheID: sfid-20260618_122822_744324_E76B325B 
+X-CRM114-Status: GOOD (  28.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,59 +102,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 18, 2026 at 12:40:56PM +0530, Golla Nagendra wrote:
-> [You don't often get email from nagendra.golla@amd.com. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
->
-> Add pm_runtime_get_if_active() check in zynqmp_dma_irq_handler() to
-> safely handle spurious interrupts that may arrive while the device is
-> runtime-suspended. Without this guard, a spurious interrupt could cause
-> the handler to access hardware registers (ISR, IMR) with clocks gated,
-> potentially leading to a synchronous external abort and kernel crash.
->
-> When the device is not runtime-active, pm_runtime_get_if_active()
-> returns false without incrementing the usage counter, and the handler
-> returns IRQ_NONE immediately. When the device is active, it increments
-> the usage counter to prevent a concurrent runtime suspend during
-> register access, and pm_runtime_put() releases the reference afterward.
->
-> Signed-off-by: Golla Nagendra <nagendra.golla@amd.com>
-> ---
->  drivers/dma/xilinx/zynqmp_dma.c | 5 +++++
->  1 file changed, 5 insertions(+)
->
-> diff --git a/drivers/dma/xilinx/zynqmp_dma.c b/drivers/dma/xilinx/zynqmp_dma.c
-> index a9dfec3c0ca3..ce9163138be7 100644
-> --- a/drivers/dma/xilinx/zynqmp_dma.c
-> +++ b/drivers/dma/xilinx/zynqmp_dma.c
-> @@ -730,6 +730,9 @@ static irqreturn_t zynqmp_dma_irq_handler(int irq, void *data)
->         u32 isr, imr, status;
->         irqreturn_t ret = IRQ_NONE;
->
-> +       if (pm_runtime_get_if_active(chan->dev) <= 0)
-> +               return IRQ_NONE;
-> +
+--nextPart7cqxV3SpSTKGVocmuEIt-Q
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
+From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
+Subject: Re: [PATCH RFC v4 10/12] reset: zte: Add a zx297520v3 reset driver
+Date: Thu, 18 Jun 2026 22:28:01 +0300
+Message-ID: <8K1EfEWITAurt--cymuLyw@gmail.com>
+In-Reply-To: <90c4f50eb23dec06497d46f9c0f522a6b90a918b.camel@pengutronix.de>
+MIME-Version: 1.0
 
-Can you add AQUIRE macro in include/linux/pm_runtime.h
-so here can use PM_RUNTIME_ACQUIRE_IF_ACITVE
+Am Donnerstag, 18. Juni 2026, 12:24:26 Ostafrikanische Zeit schrieb Philipp=
+=20
+Zabel:
+> On Di, 2026-06-16 at 23:26 +0300, Stefan D=C3=B6singer wrote:
+> > This drives the auxiliary devices created by the clock driver.
+>=20
+> Which auxiliary devices? Which clock driver?
 
-Other person can get benefit for auto clean up especially if there are some
-difference return path.
+The ones from patches 7-10. But I guess you're telling me to spell this out=
+=20
+for readers who see my patch in the kernel commit log rather than the=20
+submission series.
 
-Frank
+> > +	[ZX297520V3_UART0_RESET]     =3D { .reg =3D 0x78,  .mask =3D BIT(6)  =
+|=20
+BIT(7)=20
+> > },
+> Is this a single reset line controlled by two bits (do you know what
+> they are)? Or might these actually be two different reset controls that
+> are just always set together?
 
->         isr = readl(chan->regs + ZYNQMP_DMA_ISR);
->         imr = readl(chan->regs + ZYNQMP_DMA_IMR);
->         status = isr & ~imr;
-> @@ -756,6 +759,8 @@ static irqreturn_t zynqmp_dma_irq_handler(int irq, void *data)
->                 ret = IRQ_HANDLED;
->         }
->
-> +       pm_runtime_put(chan->dev);
-> +
->         return ret;
->  }
->
-> --
-> 2.34.1
->
+Most devices on this SoC have two reset lines. In most cases asserting one =
+is=20
+enough to reset the device, and consequently both need to be deasserted to=
+=20
+bring the device out of reset. In some cases both need to be asserted to re=
+set=20
+the device and it keeps operating fine with only one asserted. I believe I=
+=20
+documented some of that in comments, but maybe I forgot to move it from the=
+=20
+clock part of the driver.
+
+Exceptions apply - some devices have only one reset bit and for some I have=
+n't=20
+found any. USB as you noticed has 3.
+
+I don't really know the difference between the two lines. I don't have a=20
+datasheet and ZTE's downstream kernel only operates on the USB resets. The =
+old=20
+upstream zx2967xx code had no reset driver at all. So I found the resets by=
+=20
+setting the registers and then single bits to 0 and seeing what disappears=
+=20
+from mmio space. Everything on this board except USB comes with resets=20
+deasserted on boot.
+
+I'm pretty sure that what I identified as resets are actually resets and no=
+t=20
+extra clocks because previous device configuration gets lost after assertin=
+g a=20
+reset, whereas it is retained when disabling pclk.
+
+I absolutely expect to run into surprises and epiphanies in the future and=
+=20
+problems on as of yet untested types of zx297520v3 devices.
+
+> > +	[ZX297520V3_USB_RESET]      =3D  { .reg =3D 0x80,   .mask =3D BIT(3) =
+|=20
+BIT(4)
+> > | BIT(5), +		.wait_mask =3D BIT(1)},
+>=20
+> Same as above, are these actually three separate reset lines?
+
+It is likely a combination of the same 2 indistinguishable lines (4, 5) and=
+ a=20
+separate USB PHY line (3) - this is what ZTE's code suggests, but it is a m=
+ess=20
+of #ifdefs and redirection, so I don't know if I isolated the correct=20
+codepath. (No, a kernel built from that ugly code doesn't boot, so I can't =
+add=20
+printks).
+
+The PHY reset line does not do anything observable on my device if I recall=
+=20
+correctly. It might be nonexistent, it might be a leftover from older=20
+revisions or some devices might have different PHYs, similarly to how Ether=
+net=20
+PHYs differ.
+
+I'll double check those USB resets before I resend. It's been months since =
+I=20
+looked at this particular part of the board, and maybe I missed something. =
+On=20
+the booted ZTE kernel and in the bootloader, when booted via USB, all 3 are=
+=20
+deasserted. When booted via the NAND boot chain they are asserted when the=
+=20
+kernel takes over.
+
+
+
+--nextPart7cqxV3SpSTKGVocmuEIt-Q
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part.
+Content-Transfer-Encoding: 7Bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iQJPBAABCAA5FiEEQxb0tqoFWyeVMl1sPRO8yFRPGiIFAmo0RsEbFIAAAAAABAAO
+bWFudTIsMi41KzEuMTIsMiwyAAoJED0TvMhUTxoiEm8P/AvHfClRvmy9YL9udTPC
+Z4QCPIQLCeqVhdF7G8jxr++QtOAWGVMwzMmhkV/HjMOZKzngI/79K7GOXh+ZWacu
+8urWF49rVNSwd66BJAspTEzrhAFzDKyuqRni9MxHUKUZQhwHR74mB3jbvJN7Ro1T
+ivQumkIS2UvKvSXrrn5jN3oy/Nyrvp7D+18fd6olrwCBAqxufx2XnUStim/unV+j
+EetwGC0+OFgDrN3baOlhVHbZpa3sf1R+K7VfUp83K1SaAIil0DbmXho49O6AnV58
+4x8xOXR+e7cJn9Wwal90xb6uhNumK/Pcg1JfxazDu1r3LoO/zNeBuQPhVipny1/L
+5rScYzShnt6RwEhn97EY1+JIUcFl+sSfcsLrM0g9N8IRY6ZF86xwK1uhzZtHVhqa
+iduxPvaxGWzK/I4VO9gLVQ+SzI31jX13AquwVe1wMzR4aWJlBVDqV8eyzDT3xQpT
+pM88XTEW8HucCi8UNTM1UuFwiaEmKBjyp7zRCci16eRY9RkzlADhCT2oQ5SXGaf2
+uy6ke7LyzUvSN4HUzUhN5RY/Kt8qaDi9V/K9yKYc8w/k21N/hdfryJEsouPfmGJq
+EzjOugd9lByljMjhYc2sj6xazXsNLKNNounCgqw2hUyzg5OAdQZRB+fV/c19/QCP
+AIr5phGYT29fwL4Rd0gyO5GJ
+=KeDM
+-----END PGP SIGNATURE-----
+
+--nextPart7cqxV3SpSTKGVocmuEIt-Q--
+
+
+
 
