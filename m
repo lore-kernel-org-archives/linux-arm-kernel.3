@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DBDACD98FC
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DB77CD98FA
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 15:50:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7yc6uliVWqW1OjdP16y1S23yC/xStyuBX2ncIz9WHYs=; b=vdpaKqUtuimgGP2Q/oPVafUqhk
-	QRfQSLnXjG57DOyvnxyPUFrEHeUPzuCXc7CKWJHtgAsflfYQdaj38vZgW+YEQsLW0XmSdNljlxkBw
-	FQdtN9A14JIKFYbAX2pHDxUruMS5E1E6XgpSOqaokhZtS2SXhUpTsZapagT940227a3AOmflP/LAp
-	Ee9cL2xp80nKri7TEAHbU/kHhQqFEwxCjhWFqu7jwyTe0U7A2eqngIcsp7jUf74X0T0eMqzN2HnvG
-	+s5OCQCfWHa327xmbs+87KOY5BpnWImgYTNOxlve9gmPxALw5FBHbM5ttdmVhb430kZleo8Lx36Rf
-	JxuCgToA==;
+	bh=uNHDOlaCsvnXDbbEI/eeGb3akdolhTvx+VMHjX5/FUw=; b=0on6ksUMgGcMuhjY+aDnGUN1D9
+	1nUQedXZEW0mq3bEfouvDoPSXodm7Bye/PJDsxj2uhzS1oOhi9omtC+48qtwpLb3VXpuTNFxsHUAD
+	gU4iah3X2o+OxJDEuAfmwXmhU/HVNLw75P6V6ThUqPd56uCw2ZHM5bM78vxeKlVfYLLSoLaIMyEFB
+	nKiDICESj40Jce5LaJr9NL5V3b6d6bZq2WKjaw2fhd7/Y8VC63OBkneRk4wAVy2ifu9GunlJHkSvp
+	80/dbN9aOtfJk8hDqeHhxtsnnZyKGP0HUCyB+WyLHNdBXTRBr4L0qsKv87yNoEHRIkLaM/JIvt+/X
+	DgSCn13w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waF0w-00000001W6f-1Phm;
+	id 1waF0w-00000001W5s-07Js;
 	Thu, 18 Jun 2026 15:50:46 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waF0t-00000001W3x-1qBn
+	id 1waF0q-00000001W2v-3zuU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 15:50:44 +0000
+	Thu, 18 Jun 2026 15:50:42 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 54DF248FF;
-	Thu, 18 Jun 2026 08:50:37 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A90CB4923;
+	Thu, 18 Jun 2026 08:50:35 -0700 (PDT)
 Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9A2B13F62B;
-	Thu, 18 Jun 2026 08:50:40 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ED1E13F62B;
+	Thu, 18 Jun 2026 08:50:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1781797842; bh=BZrnvb+e+D1AKBEDPNGOe+Da6qi61H0n0AapNH7rhm4=;
+	t=1781797840; bh=iYCvfqVaLiw0Zvcj4Aa2rFqHjzEE0Lem4pZj/+0mm9Q=;
 	h=From:To:Subject:Date:In-Reply-To:References:From;
-	b=k4EQQ6A8WE/LEhNIkEyZFR/xPgQZ3aoFj51a7RAKI0846zddLKpsoIROxDqaT2n9n
-	 osDGxaerAFsQ1tv4x4jkGAj3SCFCidKYl5GJiisPUWLlcEvMphqLVUhHcsxB1tq3KC
-	 F54tOlauieebzc0Sd3qBvSOgd8w8JZH/6sOTfY4o=
+	b=rP8pXPQbEnbH/DQBqZnIur//3OeFepNw3jd4sGXmb+oeGgfRvqn5X/OpEgD1+U+iI
+	 h/QmE1sjsGs+QPocukqdIOYiPBVzPm8q65sYXVPrYZNqQ9gcOMHxYTRamwc0Iqv1OL
+	 RDD0AA23fguz3bcrJ2tTEeI1gcwH1DZgoG098RaM=
 From: Alexandru Elisei <alexandru.elisei@arm.com>
 To: will@kernel.org,
 	julien.thierry.kdev@gmail.com,
@@ -50,17 +50,18 @@ To: will@kernel.org,
 	kvm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	kvmarm@lists.linux.dev
-Subject: [PATCH kvmtool v2 4/7] arm64: Initialise the PMU after the GIC
-Date: Thu, 18 Jun 2026 16:49:58 +0100
-Message-ID: <20260618155001.226266-5-alexandru.elisei@arm.com>
+Subject: [PATCH kvmtool v2 3/7] disk/core: Do not modify const strings in disk_img_name_parser()
+Date: Thu, 18 Jun 2026 16:49:57 +0100
+Message-ID: <20260618155001.226266-4-alexandru.elisei@arm.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260618155001.226266-1-alexandru.elisei@arm.com>
 References: <20260618155001.226266-1-alexandru.elisei@arm.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260618_085043_552877_2BC0D50D 
-X-CRM114-Status: GOOD (  17.32  )
+X-CRM114-CacheID: sfid-20260618_085041_071067_AEE93021 
+X-CRM114-Status: GOOD (  17.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,130 +76,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PMU initialisation is done in:
+@arg is const char *, but disk_img_name_parser() modifies it, which leads
+to a compilation error on x86 with gcc 15.2.1:
 
-setup_fdt()
-  vcpu->generate_fdt_nodes()
-    pmu__generate_fdt_nodes()
+disk/core.c:27:21: error: assignment discards ‘const’ qualifier from pointer target type [-Werror=discarded-qualifiers]
+   27 |                 sep = strstr(arg, ":");
 
-The PMU ioctl KVM_ARM_VCPU_PMU_V3_INIT requires that the GIC has been
-initialised, which is done in gic__init_gic().
-
-gic__init_gic() and setup_fdt() are part of the same initialisation list.
-The relative order on the list depends on the order of compilation: gic.c
-is compiled after fdt.c and this places gic__init_gic() first on the
-initialisation list.
-
-If the compilation order changes and gic.c is compiled *before* fdt.c,
-gic__init_gic() will be executed *after* setup_fdt() and PMU initialisation
-will fail with an error message:
-
-PMU KVM_SET_DEVICE_ATTR: No such device
-
-This is fragile and hard to debug. Improve the situation by having
-gic__init_gic() explicitely initialize the PMU.
+Make a copy of @arg and modify it instead, and be very careful to free it
+when no longer needed.
 
 Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
 ---
- arm64/gic.c             |  9 ++++++++-
- arm64/include/asm/pmu.h |  3 +++
- arm64/pmu.c             | 28 ++++++++++++++++++----------
- 3 files changed, 29 insertions(+), 11 deletions(-)
+ disk/core.c              | 44 +++++++++++++++++++++++++++-------------
+ include/kvm/disk-image.h |  6 +++---
+ 2 files changed, 33 insertions(+), 17 deletions(-)
 
-diff --git a/arm64/gic.c b/arm64/gic.c
-index b0be9e5766df..1e4009625595 100644
---- a/arm64/gic.c
-+++ b/arm64/gic.c
-@@ -9,6 +9,8 @@
- #include <linux/kvm.h>
- #include <linux/sizes.h>
+diff --git a/disk/core.c b/disk/core.c
+index 91db277f7846..b232eece9e73 100644
+--- a/disk/core.c
++++ b/disk/core.c
+@@ -13,35 +13,42 @@ static int disk_image__close(struct disk_image *disk);
  
-+#include <asm/pmu.h>
-+
- #define IRQCHIP_GIC 0
- 
- #define GIC_MAINT_IRQ	9
-@@ -355,7 +357,12 @@ static int gic__init_gic(struct kvm *kvm)
- 
- 	vgic_is_init = true;
- 
--	return irq__setup_irqfd_lines(kvm);
-+	ret = irq__setup_irqfd_lines(kvm);
-+	if (ret)
-+		return ret;
-+
-+	/* The PMU requires that the GIC has been initialized. */
-+	return pmu__init(kvm);
- }
- late_init(gic__init_gic)
- 
-diff --git a/arm64/include/asm/pmu.h b/arm64/include/asm/pmu.h
-index 38e3154b11b7..74566943f355 100644
---- a/arm64/include/asm/pmu.h
-+++ b/arm64/include/asm/pmu.h
-@@ -3,6 +3,9 @@
- 
- #define KVM_ARM_PMUv3_PPI			23
- 
-+struct kvm;
-+
- void pmu__generate_fdt_nodes(void *fdt, struct kvm *kvm);
-+int pmu__init(struct kvm *kvm);
- 
- #endif /* __ARM_PMU_H__ */
-diff --git a/arm64/pmu.c b/arm64/pmu.c
-index 5f31d6b6f346..92cacd62479e 100644
---- a/arm64/pmu.c
-+++ b/arm64/pmu.c
-@@ -193,21 +193,32 @@ static int find_pmu(struct kvm *kvm)
- void pmu__generate_fdt_nodes(void *fdt, struct kvm *kvm)
+ int disk_img_name_parser(const struct option *opt, const char *arg, int unset)
  {
- 	const char compatible[] = "arm,armv8-pmuv3";
--	int irq = KVM_ARM_PMUv3_PPI;
--	struct kvm_cpu *vcpu;
--	int pmu_id = -ENXIO;
--	int i;
--
- 	u32 cpu_mask = gic__get_fdt_irq_cpumask(kvm);
- 	u32 irq_prop[] = {
- 		cpu_to_fdt32(GIC_FDT_IRQ_TYPE_PPI),
--		cpu_to_fdt32(irq - 16),
-+		cpu_to_fdt32(KVM_ARM_PMUv3_PPI - 16),
- 		cpu_to_fdt32(cpu_mask | IRQ_TYPE_LEVEL_HIGH),
- 	};
+-	const char *cur;
+-	char *sep;
++	struct disk_image_params *params;
+ 	struct kvm *kvm = opt->ptr;
++	char *cur, *sep;
  
- 	if (!kvm->cfg.arch.has_pmuv3)
- 		return;
+ 	if (kvm->nr_disks >= MAX_DISK_IMAGES)
+ 		die("Currently only 4 images are supported");
  
-+	_FDT(fdt_begin_node(fdt, "pmu"));
-+	_FDT(fdt_property(fdt, "compatible", compatible, sizeof(compatible)));
-+	_FDT(fdt_property(fdt, "interrupts", irq_prop, sizeof(irq_prop)));
-+	_FDT(fdt_end_node(fdt));
-+}
-+
-+int pmu__init(struct kvm *kvm)
-+{
-+	int irq = KVM_ARM_PMUv3_PPI;
-+	struct kvm_cpu *vcpu;
-+	int pmu_id = -ENXIO;
-+	int i;
-+
-+	if (!kvm->cfg.arch.has_pmuv3)
-+		return 0;
-+
- 	if (pmu_has_attr(kvm->cpus[0], KVM_ARM_VCPU_PMU_V3_SET_PMU)) {
- 		pmu_id = find_pmu(kvm);
- 		if (pmu_id < 0) {
-@@ -228,8 +239,5 @@ void pmu__generate_fdt_nodes(void *fdt, struct kvm *kvm)
- 		set_pmu_attr(vcpu, NULL, KVM_ARM_VCPU_PMU_V3_INIT);
+-	kvm->cfg.disk_image[kvm->nr_disks].filename = arg;
+-	cur = arg;
++	params = &kvm->cfg.disk_image[kvm->nr_disks];
+ 
+ 	if (strncmp(arg, "scsi:", 5) == 0) {
+-		sep = strstr(arg, ":");
+-		kvm->cfg.disk_image[kvm->nr_disks].wwpn = sep + 1;
++		params->wwpn = strdup(strstr(arg, ":") + 1);
++		if (!params->wwpn)
++			die_perror("strdup");
+ 
+ 		/* Old invocation had two parameters. Ignore the second one. */
+-		sep = strstr(sep + 1, ":");
++		sep = strstr(params->wwpn, ":");
+ 		if (sep) {
+ 			*sep = 0;
+ 			cur = sep + 1;
++		} else {
++			cur = params->wwpn;
+ 		}
++	} else {
++		params->filename = strdup(arg);
++		if (!params->filename)
++			die_perror("strdup");
++		cur = params->filename;
  	}
  
--	_FDT(fdt_begin_node(fdt, "pmu"));
--	_FDT(fdt_property(fdt, "compatible", compatible, sizeof(compatible)));
--	_FDT(fdt_property(fdt, "interrupts", irq_prop, sizeof(irq_prop)));
--	_FDT(fdt_end_node(fdt));
-+	return 0;
- }
+ 	do {
+ 		sep = strstr(cur, ",");
+ 		if (sep) {
+ 			if (strncmp(sep + 1, "ro", 2) == 0)
+-				kvm->cfg.disk_image[kvm->nr_disks].readonly = true;
++				params->readonly = true;
+ 			else if (strncmp(sep + 1, "direct", 6) == 0)
+-				kvm->cfg.disk_image[kvm->nr_disks].direct = true;
++				params->direct = true;
+ 			*sep = 0;
+ 			cur = sep + 1;
+ 		}
+@@ -145,8 +152,7 @@ static struct disk_image *disk_image__open(const char *filename, bool readonly,
+ static struct disk_image **disk_image__open_all(struct kvm *kvm)
+ {
+ 	struct disk_image **disks;
+-	const char *filename;
+-	const char *wwpn;
++	char *filename, *wwpn;
+ 	bool readonly;
+ 	bool direct;
+ 	void *err;
+@@ -189,18 +195,27 @@ static struct disk_image **disk_image__open_all(struct kvm *kvm)
+ 			goto error;
+ 		}
+ 		disks[i]->debug_iodelay = kvm->cfg.debug_iodelay;
++
++		free(params[i].filename);
++		params[i].filename = NULL;
+ 	}
+ 
+ 	return disks;
+ error:
+ 	for (i = 0; i < count; i++) {
+-		if (IS_ERR_OR_NULL(disks[i]))
++		free(params[i].filename);
++
++		if (IS_ERR_OR_NULL(disks[i])) {
++			free(params[i].wwpn);
+ 			continue;
++		}
+ 
+-		if (disks[i]->wwpn)
++		if (disks[i]->wwpn) {
++			free(disks[i]->wwpn);
+ 			free(disks[i]);
+-		else
++		} else {
+ 			disk_image__close(disks[i]);
++		}
+ 	}
+ 	free(disks);
+ 	return err;
+@@ -236,6 +251,7 @@ static int disk_image__close(struct disk_image *disk)
+ 	if (disk->fd && close(disk->fd) < 0)
+ 		pr_warning("close() failed");
+ 
++	free(disk->wwpn);
+ 	free(disk);
+ 
+ 	return 0;
+diff --git a/include/kvm/disk-image.h b/include/kvm/disk-image.h
+index bf602b582a3b..cbe91b07af0b 100644
+--- a/include/kvm/disk-image.h
++++ b/include/kvm/disk-image.h
+@@ -47,9 +47,9 @@ struct disk_image_operations {
+ };
+ 
+ struct disk_image_params {
+-	const char *filename;
++	char *filename;
+ 	/* wwpn == World Wide Port Number */
+-	const char *wwpn;
++	char *wwpn;
+ 	bool readonly;
+ 	bool direct;
+ };
+@@ -69,7 +69,7 @@ struct disk_image {
+ 	pthread_t			thread;
+ 	u64				aio_inflight;
+ #endif /* CONFIG_HAS_AIO */
+-	const char			*wwpn;
++	char				*wwpn;
+ 	int				debug_iodelay;
+ };
+ 
 -- 
 2.54.0
 
