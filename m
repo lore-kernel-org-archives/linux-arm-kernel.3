@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C34DCD98ED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 09:22:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15F8FCD98E2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 09:22:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tou+gUoWEZe2fvebXTjOCap3tZyiNjWgYvWq5vHGM5w=; b=sQcR29F7cfRMkz/baroq0lvhWJ
-	CYwxbkZSEgsXQlOkXy0mHAhg7S1CfNcvb2+UQJw2W02Re6R/4X6mYfCIvkENfjmLMYD2Uk8S/mfPD
-	MBP6iYmj94h4H8IyqUFS8az+J9uC5E5v4E1KH9Tdjtai0HKAAASnT+Kn0IYzwBrZSnYN56UYBYGu+
-	bMNtrIm9XpH2v8FTyfl3zZlAzdMtKkPTEJjbEM+Con/MJNCwXOBC/7YAxjFftmISsivx5qtv+QSPG
-	6N0qWifNPk/+zL3EqqrZb5W5ehIRmtgGM0idnJmWrshIR+hElmryVgF92lJ42k90aMxPoukNUhLjC
-	P3Y8FTIQ==;
+	bh=GFT2qwUPpYfCLwTGty0d6yeRs8ICppiuWOoU1Fah3Ls=; b=Rqb8K5VSm6GyEZ4W0ZghrwKE+L
+	PjN+xBc4E5lmWyTrwWgeitjin8i704GyheSSXz7iRNktB8rgTluAj4Xz+YYVvvZk7yfpDop6WUd32
+	8hBNPslKoFcpXNrsnAOhD12FcVjKxtkEhDXSvoKkmtOh5cJsVMu5tf509eB0qt91PC14oowBqXV6k
+	24VxYoV8q4f/CaBAoOObWvHFihoTiQSaBNE8t7njWXwgoeSP7ux832Xrk3mgFLpJMpeNbziu9c4PT
+	DS+vU9vt8M996xVu9R4W6t/OOWmwal5+QT9rMDtxQJb5PwVH9xqwsufgn7lkrl4EOKtp2n/89XMfz
+	0oUi6uyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa8wh-00000000vQD-016V;
-	Thu, 18 Jun 2026 09:21:59 +0000
-Received: from out30-119.freemail.mail.aliyun.com ([115.124.30.119])
+	id 1wa8wl-00000000vSQ-0Nqf;
+	Thu, 18 Jun 2026 09:22:03 +0000
+Received: from out30-97.freemail.mail.aliyun.com ([115.124.30.97])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa8wc-00000000vN1-1jli
+	id 1wa8wf-00000000vOA-1wR8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 09:21:56 +0000
+	Thu, 18 Jun 2026 09:21:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1781774512; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=tou+gUoWEZe2fvebXTjOCap3tZyiNjWgYvWq5vHGM5w=;
-	b=N9sbhRmFkULLgz+T30j9qmHAtBYMWPAz3B4VhHOFE4RfqWvxPZiNaaICN3Mtz4yJZpQCLgHRdEHV+SuEN153vq8jWUJwYvGY/ragBLGGVVgI2IW79K1qbeYqBckanm0zPmF9Pn63EdLEqXhihiIi/xz9BmYxsZTT1e9PNV92kzc=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R191e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037009110;MF=tianruidong@linux.alibaba.com;NM=1;PH=DS;RN=28;SR=0;TI=SMTPD_---0X56UStd_1781774505;
-Received: from localhost(mailfrom:tianruidong@linux.alibaba.com fp:SMTPD_---0X56UStd_1781774505 cluster:ay36)
+	t=1781774515; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=GFT2qwUPpYfCLwTGty0d6yeRs8ICppiuWOoU1Fah3Ls=;
+	b=SAzaeL2eIAqknKcPk0hAIfU2MqZnWt0cR6VDTwd0lvHUj0TM0gO1sfX22lL6MMd9pjxBDl3yFzaeL1rTWybdBBSblaU7jcrwN7A5F57KF6tijhXocVhoydKCip6/qJzL3GlGqkomEKFAAhSZsDIgmfnKnT1Wef0kwDqgoEln76s=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R161e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037009110;MF=tianruidong@linux.alibaba.com;NM=1;PH=DS;RN=28;SR=0;TI=SMTPD_---0X56USuz_1781774509;
+Received: from localhost(mailfrom:tianruidong@linux.alibaba.com fp:SMTPD_---0X56USuz_1781774509 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Thu, 18 Jun 2026 17:21:48 +0800
+          Thu, 18 Jun 2026 17:21:52 +0800
 From: Ruidong Tian <tianruidong@linux.alibaba.com>
 To: catalin.marinas@arm.com,
 	will@kernel.org,
@@ -65,17 +65,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	kasan-dev@googlegroups.com,
 	tianruidong@linux.alibaba.com
-Subject: [PATCH v15 3/9] arm64: extable: merge UACCESS_ERR_ZERO and KACCESS_ERR_ZERO into ACCESS_ERR_ZERO
-Date: Thu, 18 Jun 2026 17:21:17 +0800
-Message-ID: <20260618092124.3901230-4-tianruidong@linux.alibaba.com>
+Subject: [PATCH v15 4/9] arm64: enable recover from synchronous external abort in kernel context
+Date: Thu, 18 Jun 2026 17:21:18 +0800
+Message-ID: <20260618092124.3901230-5-tianruidong@linux.alibaba.com>
 X-Mailer: git-send-email 2.43.7
 In-Reply-To: <20260618092124.3901230-1-tianruidong@linux.alibaba.com>
 References: <20260618092124.3901230-1-tianruidong@linux.alibaba.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260618_022154_629198_18D9235B 
-X-CRM114-Status: GOOD (  10.97  )
+X-CRM114-CacheID: sfid-20260618_022157_828023_4D496102 
+X-CRM114-Status: GOOD (  21.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,97 +90,218 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-EX_TYPE_UACCESS_ERR_ZERO and EX_TYPE_KACCESS_ERR_ZERO have identical
-handling in fixup_exception(): both unconditionally invoke
-ex_handler_uaccess_err_zero() to set the error register to -EFAULT,
-zero the destination register, and branch to the fixup address.
+For the arm64 kernel, when it processes hardware memory errors for
+synchronize notifications(do_sea()), if the errors is consumed within the
+kernel, the current processing is panic. However, it is not optimal.
 
-Merge them into a single EX_TYPE_ACCESS_ERR_ZERO to reduce redundancy
-and renumber the subsequent types accordingly.
+Take copy_from/to_user for example, If ld* triggers a memory error, even in
+kernel mode, only the associated process is affected. Killing the user
+process and isolating the corrupt page is a better choice.
 
-The _ASM_EXTABLE_UACCESS_ERR_ZERO and _ASM_EXTABLE_KACCESS_ERR_ZERO
-helper macros are preserved as-is for caller readability, but both now
-emit the unified EX_TYPE_ACCESS_ERR_ZERO type.
+Add new fixup type EX_TYPE_KACCESS_SEA to identify insn that can recover
+from memory errors triggered by access to kernel memory, and this fixup
+type is used in __arch_copy_to_user(), This make the regular copy_to_user()
+will handle kernel memory errors.
 
+[Ruidong: modify subject and rename EX_TYPE_KACCESS_ERR_ZERO_MEM_ERR to
+EX_TYPE_KACCESS_SEA]
+
+Signed-off-by: Tong Tiangen <tongtiangen@huawei.com>
 Signed-off-by: Ruidong Tian <tianruidong@linux.alibaba.com>
 ---
- arch/arm64/include/asm/asm-extable.h | 15 +++++++--------
- arch/arm64/mm/extable.c              |  7 +++----
- 2 files changed, 10 insertions(+), 12 deletions(-)
+ arch/arm64/include/asm/asm-extable.h |  5 +++++
+ arch/arm64/include/asm/asm-uaccess.h |  4 ++++
+ arch/arm64/include/asm/extable.h     |  1 +
+ arch/arm64/lib/copy_to_user.S        | 10 +++++-----
+ arch/arm64/mm/extable.c              | 28 ++++++++++++++++++++++++++
+ arch/arm64/mm/fault.c                | 30 ++++++++++++++++++++--------
+ 6 files changed, 65 insertions(+), 13 deletions(-)
 
 diff --git a/arch/arm64/include/asm/asm-extable.h b/arch/arm64/include/asm/asm-extable.h
-index d67e2fdd1aee..06b19023939b 100644
+index 06b19023939b..8450ec5a3af6 100644
 --- a/arch/arm64/include/asm/asm-extable.h
 +++ b/arch/arm64/include/asm/asm-extable.h
-@@ -7,12 +7,11 @@
+@@ -10,6 +10,7 @@
+ #define EX_TYPE_ACCESS_ERR_ZERO		2
+ #define EX_TYPE_UACCESS_CPY		3
+ #define EX_TYPE_LOAD_UNALIGNED_ZEROPAD	4
++#define EX_TYPE_KACCESS_SEA		5
  
- #define EX_TYPE_NONE			0
- #define EX_TYPE_BPF			1
--#define EX_TYPE_UACCESS_ERR_ZERO	2
--#define EX_TYPE_KACCESS_ERR_ZERO	3
--#define EX_TYPE_UACCESS_CPY		4
--#define EX_TYPE_LOAD_UNALIGNED_ZEROPAD	5
-+#define EX_TYPE_ACCESS_ERR_ZERO		2
-+#define EX_TYPE_UACCESS_CPY		3
-+#define EX_TYPE_LOAD_UNALIGNED_ZEROPAD	4
- 
--/* Data fields for EX_TYPE_UACCESS_ERR_ZERO */
-+/* Data fields for EX_TYPE_ACCESS_ERR_ZERO */
+ /* Data fields for EX_TYPE_ACCESS_ERR_ZERO */
  #define EX_DATA_REG_ERR_SHIFT	0
- #define EX_DATA_REG_ERR		GENMASK(4, 0)
- #define EX_DATA_REG_ZERO_SHIFT	5
-@@ -43,7 +42,7 @@
+@@ -76,6 +77,10 @@
+ 	__ASM_EXTABLE_RAW(\insn, \fixup, EX_TYPE_UACCESS_CPY, \uaccess_is_write)
+ 	.endm
  
- #define _ASM_EXTABLE_UACCESS_ERR_ZERO(insn, fixup, err, zero)		\
- 	__ASM_EXTABLE_RAW(insn, fixup, 					\
--			  EX_TYPE_UACCESS_ERR_ZERO,			\
-+			  EX_TYPE_ACCESS_ERR_ZERO,			\
- 			  (						\
- 			    EX_DATA_REG(ERR, err) |			\
- 			    EX_DATA_REG(ZERO, zero)			\
-@@ -96,7 +95,7 @@
- #define _ASM_EXTABLE_UACCESS_ERR_ZERO(insn, fixup, err, zero)		\
- 	__DEFINE_ASM_GPR_NUMS						\
- 	__ASM_EXTABLE_RAW(#insn, #fixup, 				\
--			  __stringify(EX_TYPE_UACCESS_ERR_ZERO),	\
-+			  __stringify(EX_TYPE_ACCESS_ERR_ZERO),	\
- 			  "("						\
- 			    EX_DATA_REG(ERR, err) " | "			\
- 			    EX_DATA_REG(ZERO, zero)			\
-@@ -105,7 +104,7 @@
- #define _ASM_EXTABLE_KACCESS_ERR_ZERO(insn, fixup, err, zero)		\
- 	__DEFINE_ASM_GPR_NUMS						\
- 	__ASM_EXTABLE_RAW(#insn, #fixup, 				\
--			  __stringify(EX_TYPE_KACCESS_ERR_ZERO),	\
-+			  __stringify(EX_TYPE_ACCESS_ERR_ZERO),	\
- 			  "("						\
- 			    EX_DATA_REG(ERR, err) " | "			\
- 			    EX_DATA_REG(ZERO, zero)			\
++	.macro          _asm_extable_kaccess_sea, insn, fixup
++	__ASM_EXTABLE_RAW(\insn, \fixup, EX_TYPE_KACCESS_SEA, 0)
++	.endm
++
+ #else /* __ASSEMBLER__ */
+ 
+ #include <linux/stringify.h>
+diff --git a/arch/arm64/include/asm/asm-uaccess.h b/arch/arm64/include/asm/asm-uaccess.h
+index 12aa6a283249..27bf8edbf597 100644
+--- a/arch/arm64/include/asm/asm-uaccess.h
++++ b/arch/arm64/include/asm/asm-uaccess.h
+@@ -57,6 +57,10 @@ alternative_else_nop_endif
+ 	.endm
+ #endif
+ 
++#define KERNEL_SEA(l, x...)			\
++9999:	x;					\
++	_asm_extable_kaccess_sea	9999b, l
++
+ #define USER(l, x...)				\
+ 9999:	x;					\
+ 	_asm_extable_uaccess	9999b, l
+diff --git a/arch/arm64/include/asm/extable.h b/arch/arm64/include/asm/extable.h
+index 9dc39612bdf5..47c851d7df4f 100644
+--- a/arch/arm64/include/asm/extable.h
++++ b/arch/arm64/include/asm/extable.h
+@@ -48,4 +48,5 @@ bool ex_handler_bpf(const struct exception_table_entry *ex,
+ #endif /* !CONFIG_BPF_JIT */
+ 
+ bool fixup_exception(struct pt_regs *regs, unsigned long esr);
++bool fixup_exception_me(struct pt_regs *regs);
+ #endif
+diff --git a/arch/arm64/lib/copy_to_user.S b/arch/arm64/lib/copy_to_user.S
+index 819f2e3fc7a9..6103f5b0a2d0 100644
+--- a/arch/arm64/lib/copy_to_user.S
++++ b/arch/arm64/lib/copy_to_user.S
+@@ -20,7 +20,7 @@
+  *	x0 - bytes not copied
+  */
+ 	.macro ldrb1 reg, ptr, val
+-	ldrb  \reg, [\ptr], \val
++	KERNEL_SEA(9998f, ldrb  \reg, [\ptr], \val)
+ 	.endm
+ 
+ 	.macro strb1 reg, ptr, val
+@@ -28,7 +28,7 @@
+ 	.endm
+ 
+ 	.macro ldrh1 reg, ptr, val
+-	ldrh  \reg, [\ptr], \val
++	KERNEL_SEA(9998f, ldrh  \reg, [\ptr], \val)
+ 	.endm
+ 
+ 	.macro strh1 reg, ptr, val
+@@ -36,7 +36,7 @@
+ 	.endm
+ 
+ 	.macro ldr1 reg, ptr, val
+-	ldr \reg, [\ptr], \val
++	KERNEL_SEA(9998f, ldr \reg, [\ptr], \val)
+ 	.endm
+ 
+ 	.macro str1 reg, ptr, val
+@@ -44,7 +44,7 @@
+ 	.endm
+ 
+ 	.macro ldp1 reg1, reg2, ptr, val
+-	ldp \reg1, \reg2, [\ptr], \val
++	KERNEL_SEA(9998f, ldp \reg1, \reg2, [\ptr], \val)
+ 	.endm
+ 
+ 	.macro stp1 reg1, reg2, ptr, val
+@@ -74,7 +74,7 @@ SYM_FUNC_START(__arch_copy_to_user)
+ 9997:	cmp	dst, dstin
+ 	b.ne	9998f
+ 	// Before being absolutely sure we couldn't copy anything, try harder
+-	ldrb	tmp1w, [srcin]
++KERNEL_SEA(9998f, ldrb	tmp1w, [srcin])
+ USER(9998f, sttrb tmp1w, [dst])
+ 	add	dst, dst, #1
+ 9998:	sub	x0, end, dst			// bytes not copied
 diff --git a/arch/arm64/mm/extable.c b/arch/arm64/mm/extable.c
-index 6e0528831cd3..76b18780f1f9 100644
+index 76b18780f1f9..20a7a9eeed94 100644
 --- a/arch/arm64/mm/extable.c
 +++ b/arch/arm64/mm/extable.c
-@@ -41,7 +41,7 @@ get_ex_fixup(const struct exception_table_entry *ex)
- 	return ((unsigned long)&ex->fixup + ex->fixup);
- }
- 
--static bool ex_handler_uaccess_err_zero(const struct exception_table_entry *ex,
-+static bool ex_handler_access_err_zero(const struct exception_table_entry *ex,
- 					struct pt_regs *regs)
- {
- 	int reg_err = FIELD_GET(EX_DATA_REG_ERR, ex->data);
-@@ -103,9 +103,8 @@ bool fixup_exception(struct pt_regs *regs, unsigned long esr)
- 	switch (ex->type) {
- 	case EX_TYPE_BPF:
- 		return ex_handler_bpf(ex, regs);
--	case EX_TYPE_UACCESS_ERR_ZERO:
--	case EX_TYPE_KACCESS_ERR_ZERO:
--		return ex_handler_uaccess_err_zero(ex, regs);
-+	case EX_TYPE_ACCESS_ERR_ZERO:
-+		return ex_handler_access_err_zero(ex, regs);
- 	case EX_TYPE_UACCESS_CPY:
+@@ -109,7 +109,35 @@ bool fixup_exception(struct pt_regs *regs, unsigned long esr)
  		return ex_handler_uaccess_cpy(ex, regs, esr);
  	case EX_TYPE_LOAD_UNALIGNED_ZEROPAD:
+ 		return ex_handler_load_unaligned_zeropad(ex, regs);
++	/*
++	 * Kernel address faults (e.g. copy_to_user reading from kernel src).
++	 * Do not fixup here: a translation fault on a kernel address is a
++	 * kernel bug (e.g. NULL pointer dereference) and must oops.
++	 * Only SEA (hardware memory error) should be fixed up, which is
++	 * handled by fixup_exception_me() through the do_sea path.
++	 */
++	case EX_TYPE_KACCESS_SEA:
++		return false;
+ 	}
+ 
+ 	BUG();
+ }
++
++bool fixup_exception_me(struct pt_regs *regs)
++{
++	const struct exception_table_entry *ex;
++
++	ex = search_exception_tables(instruction_pointer(regs));
++	if (!ex)
++		return false;
++
++	switch (ex->type) {
++	case EX_TYPE_ACCESS_ERR_ZERO:
++		return ex_handler_access_err_zero(ex, regs);
++	case EX_TYPE_KACCESS_SEA:
++		regs->pc = get_ex_fixup(ex);
++		return true;
++	}
++
++	return false;
++}
+diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+index 0f3c5c7ca054..b775c0928a53 100644
+--- a/arch/arm64/mm/fault.c
++++ b/arch/arm64/mm/fault.c
+@@ -858,21 +858,35 @@ static int do_bad(unsigned long far, unsigned long esr, struct pt_regs *regs)
+ 	return 1; /* "fault" */
+ }
+ 
++/*
++ * APEI claimed this as a firmware-first notification.
++ * Some processing deferred to task_work before ret_to_user().
++ */
++static int do_apei_claim_sea(struct pt_regs *regs)
++{
++	int ret;
++
++	ret = apei_claim_sea(regs);
++	if (ret)
++		return ret;
++
++	if (!user_mode(regs)) {
++		if (!fixup_exception_me(regs))
++			return -ENOENT;
++	}
++
++	return ret;
++}
++
+ static int do_sea(unsigned long far, unsigned long esr, struct pt_regs *regs)
+ {
+ 	const struct fault_info *inf;
+ 	unsigned long siaddr;
+ 
+-	inf = esr_to_fault_info(esr);
+-
+-	if (user_mode(regs) && apei_claim_sea(regs) == 0) {
+-		/*
+-		 * APEI claimed this as a firmware-first notification.
+-		 * Some processing deferred to task_work before ret_to_user().
+-		 */
++	if (do_apei_claim_sea(regs) == 0)
+ 		return 0;
+-	}
+ 
++	inf = esr_to_fault_info(esr);
+ 	if (esr & ESR_ELx_FnV) {
+ 		siaddr = 0;
+ 	} else {
 -- 
 2.39.3
 
