@@ -4,91 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2834BCD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 15:36:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E57CCD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 15:37:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Yc+JfLgikwxjCr5j+j2Q2fnT4FL1p+R5+nJe9mPLB3M=; b=1S35NOmMLg7+aLHIdXWRpI3xA/
-	pAZTjupNGF4mh5tghWCFUYDonR7k29ojk4LgQeYnZCpopwElJerFtzXx691/TbC9c84ASeqQmkCsP
-	ydO+tAv9SFpxL3wR3Lxv9+wYv/N7SjJy5SK2TuffnlJrDF0dYRMk3HJkuJl7j47dOd0OuNmt208O8
-	Qt7qzIAXPLZW5Sg+N2tflH2NEWQzLYiRDnYDK5zPM60+jipabsrpPYg6ers0fCX6TcFlFS857HUgj
-	VMtItVpUcKg/vMz5M2tsnMQ1hR3eykNTixL7WAbjkK4HY4BY9VQp+piIfE8DJ3A3DtmZEK4rdd5yF
-	1eJZbqHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Tm+jP+3WfoLtXaL6gn2l0sQY+Wj2XqJdxBBXikZyHQE=; b=G+X1pw/30SAszbI8cdK5UN6TRB
+	LWdqLFI5BWSx/2qKwIZvVJAHu3yLWkhrsVwkxEY9lLN2i+L/m1xQPtJ0Xh/AQIvyO6384Kt9tYPCT
+	iWV/dofz02CtMI9dpAeQqgb/noztFxnPhTcWEYFcSgllmFgGK6UXvSCwRHmyLw8599Qf+SBHYJp65
+	aBoaaSgiS0J94f+3mrZoJkRPBmdXqgykF4nW3Cvp50U6LwO9B5cVB8B+l9q3/+KN3yzdlxHZN+X40
+	Qk3qy5MqGyQwHTSfZnbn4jczia0y1pCDk5knbAFDL2Jia1o5wsgMAdR+X1jc14Nqxn6QV6sd7x6Hk
+	lfg+UTXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waEnB-00000001UkY-3wkV;
-	Thu, 18 Jun 2026 15:36:33 +0000
-Received: from mx0b-0016f401.pphosted.com ([67.231.156.173])
+	id 1waEnq-00000001Uow-2ayP;
+	Thu, 18 Jun 2026 15:37:14 +0000
+Received: from mail-qk1-x731.google.com ([2607:f8b0:4864:20::731])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waEn7-00000001UjJ-0ISu
+	id 1waEnk-00000001UoX-3EGO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 15:36:32 +0000
-Received: from pps.filterd (m0045851.ppops.net [127.0.0.1])
-	by mx0b-0016f401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65IFHpRe806272;
-	Thu, 18 Jun 2026 08:36:15 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
-	cc:content-type:date:from:message-id:mime-version:subject:to; s=
-	pfpt0220; bh=Yc+JfLgikwxjCr5j+j2Q2fnT4FL1p+R5+nJe9mPLB3M=; b=LsW
-	epN1I2U6TPBIUj2gyzk9jTZVVvACSQ+bt0wWi1BWFGvYlsM7qlZlwNk3Jf4v6exo
-	pvDA/bV68oHnA32+FLb4J1fYQPD3TsNRUSpuM6JvLnc5terFF5jUzdA6Zj0y8VDy
-	/+gdNQ8HwRvpoaqMASGZvczwfHFG3xdG2P1qVUHyJSFFJQyE+4OPbyEBQypcoTGC
-	U1mQTCi6rCB7Hm07W9PQn+njhcpFOMCITi0xJ8KI4IP2Zw/yR5DsBWu06A9l4bCR
-	Ar0g0vUPXeP22eUdQjG+e4s8j/HRqqUliVIFwjU60+vm0fmhwL+mnDqK5LYjDnIo
-	Sfk3I7AMINcZOT9u8hg==
-Received: from dc5-exch05.marvell.com ([199.233.59.128])
-	by mx0b-0016f401.pphosted.com (PPS) with ESMTPS id 4eueg5f723-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 18 Jun 2026 08:36:14 -0700 (PDT)
-Received: from DC5-EXCH05.marvell.com (10.69.176.209) by
- DC5-EXCH05.marvell.com (10.69.176.209) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.25; Thu, 18 Jun 2026 08:36:13 -0700
-Received: from maili.marvell.com (10.69.176.80) by DC5-EXCH05.marvell.com
- (10.69.176.209) with Microsoft SMTP Server id 15.2.1544.25 via Frontend
- Transport; Thu, 18 Jun 2026 08:36:13 -0700
-Received: from hyd1soter3.marvell.com (unknown [10.29.37.12])
-	by maili.marvell.com (Postfix) with ESMTP id 5205A3F707F;
-	Thu, 18 Jun 2026 08:36:11 -0700 (PDT)
-From: Geetha sowjanya <gakula@marvell.com>
-To: <linux-perf-users@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>
-CC: <mark.rutland@arm.com>, <will@kernel.org>, <krzk+dt@kernel.org>,
-        <gakula@marvell.com>
-Subject: [PATCH v4 0/3] perf: marvell: LLC-TAD PMU MPAM filtering support
-Date: Thu, 18 Jun 2026 21:06:07 +0530
-Message-ID: <20260618153610.13649-1-gakula@marvell.com>
-X-Mailer: git-send-email 2.17.1
+	Thu, 18 Jun 2026 15:37:12 +0000
+Received: by mail-qk1-x731.google.com with SMTP id af79cd13be357-9185503e6a5so140949885a.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 08:37:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1781797027; x=1782401827; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Tm+jP+3WfoLtXaL6gn2l0sQY+Wj2XqJdxBBXikZyHQE=;
+        b=ewROTf56ukZ01tNj888vt50yLMfpiDz9V3KC5cqG1t7jk28alOfQPiX0ZjYROmXx/1
+         8rcJDGPfpOxul5F4Wfzmpf4ekXBu7oTkfXCzV5gtNOpxTsR0ULkswYXUU3VSgIp3bzB7
+         bKyVgY8sGh65X4v74R03eweZr488hSt+KI+mu+SSORfPfhxB4/rdrNPUpVZKuRnXv+6V
+         tTHz0LyeYAGQCd8d8RsCv/I1cCBIRYuhp9J/yJnDBzUP1A3hip+Id/S6cyrmWsoEL2t8
+         KJTjK4OLJY2+NpMbizqkeorsgimGSuOYFyeazffvOiZ+vUUHbwL5uctUlk8O5tStEihY
+         9eMQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781797027; x=1782401827;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Tm+jP+3WfoLtXaL6gn2l0sQY+Wj2XqJdxBBXikZyHQE=;
+        b=eetAXdtXMxADeX7neUkF/1j3hKe447MqkyBx14/YEbdX95UM5C9jovvdBVl3qpvsua
+         5d4YFnl1FuHZmBHfCBn87vmLX4mhVm1VDuDD5urxO+BJbeiCx6c5bkd5Z3k7kwm5zGIq
+         xoUQ/jo/xwQANxtrOHs7b62YARZuQiBjFaCqfFP8xEEeYga3Fx6cjYnFfuF7SqY6JQhP
+         4gfbiAcso4Rx4V1xK8JhC8/yw7/pgRQU2l0FvtCaHLXfByDx7EqMUTI+GMfRhiHS59US
+         8FBNSDxwv8PAvgo11WgO3OsJUt2tf4/Ydn/Sb09Z9VBIfYYzuH54dydVdmUppfLOPy+3
+         PUew==
+X-Forwarded-Encrypted: i=1; AFNElJ8lSxxWw8eQ0p/roQ4EQK0WPHtsDlZmRbwehLDGrsxHEWcP0rG0deOQc92N3bi0yD4j7Pxxowk61C+zRrVv/Va9@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxcb1NcffXbh3L0886KKLWgmiteOO8+pxuX2jAEywHIQGTsbjoE
+	84Xj9Z4+YABeRG4+GEzapOVoxGQWc3pXEk8bHRYj/8ynp93KV1oIK4x7GsMBw2Ufuuo=
+X-Gm-Gg: AfdE7ckInvgqJN0Mtxhtw6mwmZjAtCbxuZlq2mYjkzgeJKaKzv2rihRCA3tntR7fAhA
+	wYAtUzeDt3oJu6KCX9Dg+N7EiiLEiXdu4e99bQmMXgFypOFupgzlTuOK07z3BBDpH/2aaT6JBeV
+	S+WT1M6DbY3FAtyKE42DdSgUMTG+2PQdYxhs218FcnHdVaskTAG3GebxBJyt6sUP2kQLevDOdfd
+	93IYEwLxmNm3Z35Q+1ye78bz9EmRi8IYgUzSYu56SERhTkLEsPA/moC241pFvF76sEM67e14ew1
+	ng8nI8hkn/sUQrXdxl3+jXS0gdeYlNMFfOsySfTY4XbAbi4S/SDgEYUdMK8mi7xAbjFpkwxxuz6
+	I4AkLezsn487Sgt4DH0p7wohuWWQaJdUB4+iD/YgqomRWa+zJSvF5qVH4zZinrzl2TQgpMBeVET
+	bImX0e3GBLxV0iz/IXySnp5G2lA3lzWDA693GBB2TDFhk4ObkWLU1MQk4+AMzSoeiyUD0=
+X-Received: by 2002:a05:620a:469e:b0:915:8f64:604c with SMTP id af79cd13be357-91f082ff425mr678605385a.15.1781797026718;
+        Thu, 18 Jun 2026 08:37:06 -0700 (PDT)
+Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-91619f3c324sm2104263685a.21.2026.06.18.08.37.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 18 Jun 2026 08:37:06 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1waEnh-00000002tSw-24HO;
+	Thu, 18 Jun 2026 12:37:05 -0300
+Date: Thu, 18 Jun 2026 12:37:05 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
+Cc: Alexey Kardashevskiy <aik@amd.com>,
+	Catalin Marinas <catalin.marinas@arm.com>, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-coco@lists.linux.dev, Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>, Mostafa Saleh <smostafa@google.com>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
+Subject: Re: [PATCH v6 00/20] dma-mapping: Use DMA_ATTR_CC_SHARED through
+ direct, pool and swiotlb paths
+Message-ID: <20260618153705.GH231643@ziepe.ca>
+References: <20260604083959.1265923-1-aneesh.kumar@kernel.org>
+ <aigYbK12D8uKQvJF@arm.com>
+ <20260609144746.GL2764304@ziepe.ca>
+ <2ecfa1a8-6202-4319-9692-a6ffeb5a3dbf@amd.com>
+ <yq5aqzm4dz25.fsf@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain
-X-Proofpoint-GUID: dtXVFOpK0IhSpt_Sfy_TFL4TI6MW7uNB
-X-Proofpoint-ORIG-GUID: dtXVFOpK0IhSpt_Sfy_TFL4TI6MW7uNB
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNjE4MDE0NSBTYWx0ZWRfX+fAdVVDUmkew
- q6cbssobW2sd6DMwTYp20Eo5rBKyjIQDsSZy51cEtCQl9R/veh7xjqLom/4zoIASkm2EfI4vuDL
- 0kobpRpNqtmD/WOHlO/ktvNxBS8jWHk=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjE4MDE0NSBTYWx0ZWRfX6TftFU6qEfAU
- KQ/XA2AnV1R1TswdaYEOYV9yAWUm21zmUvu6soXxNWBdQeS8TUQbCHnTBrRO1Kbc6goSJcRLQZO
- wLV1fswwPamFr+eedaMevoBlI81bdrq8QZhI1bUDt6DamSE+EXTWD1eC+YfPHHtd7Kf5g40kthf
- RvyHoAwGgaHNcRDa8rBq6GCxAbAecwLOrCXhEkEUf/m26NbXHO9REMhZ75kRCTsDsnsOinYvXw9
- vVHqURXG2lCQG32xLCQiyFpfTR5zuGIxFPdT9PHymVgWpn+sEI1wzmX3AtpO9BTFFAHuQFmf1PD
- jxAjIOnZ0MQAiFmJWkWfwwJzGmxbf+AK9q3h7FFCQC3JyPmAfxcutz8cJnEELm25Hw/dqZqDmtm
- ad1P3yXSa7l9ZRcvIMg+NKIcSujizCqda3xnE/IWwvo6IAZLQLbALjwrazDquH65/mmrD3dNE5g
- 1x3sRA/2k7JZOvOYBjA==
-X-Authority-Analysis: v=2.4 cv=UqNT8ewB c=1 sm=1 tr=0 ts=6a34106e cx=c_pps
- a=rEv8fa4AjpPjGxpoe8rlIQ==:117 a=rEv8fa4AjpPjGxpoe8rlIQ==:17
- a=FelO9ux0wxsA:10 a=VkNPw1HP01LnGYTKEx00:22 a=l0iWHRpgs5sLHlkKQ1IR:22
- a=QXcCYyLzdtTjyudCfB6f:22 a=M5GUcnROAAAA:8 a=ZR7J5KnPW87OS3voGYgA:9
- a=OBjm3rFKGHvpk9ecZwUJ:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-18_02,2026-06-18_03,2025-10-01_01
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <yq5aqzm4dz25.fsf@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260618_083629_232319_57BF32CF 
-X-CRM114-Status: UNSURE (   9.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260618_083708_824749_B0F972BC 
+X-CRM114-Status: GOOD (  25.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,57 +127,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series extends the Marvell LLC-TAD performance driver used on CN10K
-and CN20K systems.
+On Thu, Jun 18, 2026 at 09:37:22AM +0100, Aneesh Kumar K.V wrote:
+> Alexey Kardashevskiy <aik@amd.com> writes:
+> 
+> > On 10/6/26 00:47, Jason Gunthorpe wrote:
+> >> On Tue, Jun 09, 2026 at 02:43:08PM +0100, Catalin Marinas wrote:
+> >>> On Thu, Jun 04, 2026 at 02:09:39PM +0530, Aneesh Kumar K.V (Arm) wrote:
+> >>>> This series propagates DMA_ATTR_CC_SHARED through the dma-direct,
+> >>>> dma-pool, and swiotlb paths so that encrypted and decrypted DMA buffers
+> >>>> are handled consistently.
+> >>>>
+> >>>> Today, the direct DMA path mostly relies on force_dma_unencrypted() for
+> >>>> shared/decrypted buffer handling. This series consolidates the
+> >>>> force_dma_unencrypted() checks in the top-level functions and ensures
+> >>>> that the remaining DMA interfaces use DMA attributes to make the correct
+> >>>> decisions.
+> >>>
+> >>> Please check Sashiko's reports, it has some good points:
+> >>>
+> >>> https://sashiko.dev/#/patchset/20260604083959.1265923-1-aneesh.kumar@kernel.org
+> >>>
+> >>> I think the main one is the swiotlb_tbl_map_single() changes which break
+> >>> AMD SME host support. There cc_platform_has(CC_ATTR_MEM_ENCRYPT) is true
+> >>> but force_dma_unencrypted() is false. Normally you'd not end up on this
+> >>> path but you can have swiotlb=force.
+> >> 
+> >> IMHO that's an AMD issue, not with the design of this series..
+> >> 
+> >> The series is right, a device that is !force_dma_decrypted() must be
+> >> considerd to be a trusted device and we must never place any DMA
+> >> mappings for a trusted device into shared memory.
+> >
+> > swiotlb=force forces swiotlb, not decryption.
 
-Patch 1 adds optional MPAM partition-id filtering for the subset of TAD
-events that support it, exposes partid / partid_en in the PMU format string,
-and keeps the reduced Odyssey event surface without advertising partid where
-it does not apply.  It also fixes probe resource handling (no in-place
-mutation of platform_get_resource() bounds, validate MMIO window vs
-tad-cnt), registers CPU hotplug before perf_pmu_register with unwind, and
-aligns the filter-enable bit in config1 with the sysfs format (bit 9).
+If force_dma_decrypted() == true then swiotlb must allocate from a
+decrypted memory pool. It is right there in the name!
 
-Patch 2 introduces CN20K LLC-TAD support: non-standard PFC/PRF offsets,
-additional programmable events with visibility checks so CN10K does not
-advertise V3-only events, CN20K-specific MPAM encoding for the V3 profile,
-local64_set(prev_count) on counter start, and device discovery via OF and
-ACPI.
+The hypervisor environment should *never* set force_dma_decrypted()
+because all devices can access all hypervisor memory, up to their IOVA
+limits.
 
-Patch 3 extends the DeviceTree binding for marvell,cn20k-tad-pmu.
+> > So when I try "mem_encrypt=on iommu=pt swiotlb=force" with this
+> > patchset, it fails to boot. But it boots with a hack like this:
 
-Changes since v3
-----------------
-- Add perf_ready: tad_pmu_offline_cpu skips perf_pmu_migrate_context until after
-  successful perf_pmu_register, so a CPU offline between hotplug add and perf
-  register does not touch perf core state for an unregistered PMU.
+On the host side I expect this to cause swiotlb to allocate encrypted
+memory and bounce to it.
 
-Changes since v2
-----------------
-- Validate the eventId using an appropriate mask to ensure it is restricted to 8 bits.
+>  		u64 dma_enc_mask = DMA_BIT_MASK(__ffs64(sme_me_mask));
+>  		u64 dma_dev_mask = min_not_zero(dev->coherent_dma_mask,
+>  						dev->bus_dma_limit);
+> +		/*
+> +		 * With memory encryption enabled, SWIOTLB is marked decrypted.
+> +		 * If SWIOTLB bouncing is forced, treat the device as requiring
+> +		 * decrypted DMA.
+> +		 */
 
-Changes since v1
-----------------
-- config1: use bit 9 for MPAM filter enable consistently with partid_en in
-  the PMU format; allow only bits 0..9 in event_init on CN10K/CN20K paths.
-- Reject reserved bits in attr.config and use the same 8-bit event index in
-  start_counter as in event_init so MPAM validation cannot be bypassed.
-- Register CPU hotplug before perf_pmu_register in probe (mainline order); add
-  perf_ready so offline migration is skipped until after perf registration
-  (reconciles v1 vs v2 ordering feedback).
-- Hide V3-only sysfs events on V1.
-- Reset prev_count when starting counters after clearing hardware.
-- DT binding: explain non-fallback compatibles for CN10K vs CN20K.
+And this is more insane logic. The right fix is to allocate the
+swiotlb bounce from the *encrypted* pools when running on the
+hypervisor which requires undoing this abuse of force_dma_decrypted().
 
-Tanmay Jagdale (1):
-  perf: marvell: Add MPAM partid filtering to CN10K TAD PMU
-
-Geetha sowjanya (2):
-  perf: marvell: Add CN20K LLC-TAD PMU support
-  dt-bindings: perf: marvell: Extend CN10K TAD PMU binding for CN20K
-
-Signed-off-by: Geetha sowjanya <gakula@marvell.com>
-
--- 
-2.25.1
+Jason
 
