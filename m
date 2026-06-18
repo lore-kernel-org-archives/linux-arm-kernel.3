@@ -4,148 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB698CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 10:10:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F258CCD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 10:10:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f48RV4ofvmwfRHkoXli/oMlDLzN76hal50VkdpUe5W0=; b=E++6nTWVM25Qbbbmhq31r/tG4V
-	Emhk3p93wgCZo5NuexGnIEIkbWGwnYfdsmmIlLo0A57gtvb5nFAh1q0bMMVyoxZ0EtmALaWXsd4f4
-	SVFOSZneJqjtFycEPOVgf5rQIgcV//pkqbq6HPSH3Gv/RE9gTj0hzAo899XgN8w0yIO5uceCmPLl/
-	LqBaf7X5wBlJZwv18LicKCR9cUDZ3hSSLaUjr0fHgZbdFA930imBd+WIxMfL3V47mJraQsD5AnBdW
-	z5YpSoN/V0cYYUn7U8pC4k5P140pVifSWdsx8wbdLYCsojrnockIj8I2EBbFJintpln6Xz6lGoKan
-	Xmh3qEdg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RJeDZ8MzzJtFaVX8Goz2+Ds5/kUxUd9U6K4ASVsZApg=; b=DkE7Hu5C3Iy5o0OBMTS0MBRiVu
+	R3n7BdMCWp27KN10QfyYgxL+5WaXZBzUujjo8ER6JVxyw7B5HRLYvt+ifIZMhnd+rzQsIsxcGRZPf
+	ogk6kTl1SJLcjLhQ/xBq6vJRj9WqUDG/PSp/Jh3sK1t7XhS6dWsRqRR8UtH5LW421RWKNSZ7OMfAw
+	MDyOW1yOFo0KmIVJgCax74r4f00+Zzg333VUg8LaYfjFHOXGvQrRqrcu6Mnh8A4OxDgBGgeCt8iyj
+	Tb1cRrPqBPXnCMOQO9L9IKx2OEHOw/LDEk6Fo/nc/zRFu8s0+stN0q8ZG1pB0Nztb+S0OSRa9ORUZ
+	/AfpNdWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa9hE-000000013uF-30wF;
-	Thu, 18 Jun 2026 10:10:04 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1wa9hP-0000000141M-0GLM;
+	Thu, 18 Jun 2026 10:10:15 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa9h7-000000013pA-4C3k
+	id 1wa9hO-0000000140B-1UYi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 10:10:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Hf52diWsSGIULb4RRA9bFdJtA1/fPgTpKA0c2qGhcKhgjJLgsc42V9JW/pVW4zEQwWxmwk/UDgDjHLSKNKJQIQuujGQFMwfDMz6gsJixeiPjJJesFtir0s4qXCa8sHPclu4bkfGFS+7mx682EgcZdZcAu5vl4OTqAhAryuBJG653R/Lx0XRaB9QafJuwWB3A7t9NHgZT36RRpikXRLtgYzw/FdpZj/h8mi7Vl9Jxc8xHD6WzeuWqFzT8mlmlMxkzwTi449E6nrJ7Sh1QaiLk6EgCH1oOsfY4lEKht5MPVPY7e3mLqr1AMewZzjBpTMG7RMI96/QFmvV8ULhZcPwuFw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=f48RV4ofvmwfRHkoXli/oMlDLzN76hal50VkdpUe5W0=;
- b=T231C9Vv2ZUPPjotMM0SuvJPbwvN7C9Xrub8K4v31w7axTd9St8ijblSvKzD6a+rgcjWP0JZSrNEgaSUtLeAocNCPCxqV8L1d1Nj/KTh+9anUzLQ47kpou62vcT808A/UIbWl5830Cal/Is39bytE7hQUJbZP4qNrq9HQ5ccN0Ef7wloaqUi8LCtD3gkVNWXPlmwWMZlSche1EayzCEieKcBCkWa0HlL0kAvGOJkZ3LHVV0JTCL6el1Kt+bLuJDbIPGuADR8eV0pJH3n1y5y7lU13xyQe1PSmbZECX3kW/cD8xPbfIvORHzxO1DQsj5gCy6EtysQzK0yqup98ePXQg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=f48RV4ofvmwfRHkoXli/oMlDLzN76hal50VkdpUe5W0=;
- b=UB1sDxQ2rT6fDii+OHgCQaa758zXrzXc2xLPaeike/BXCT0/vJRn6kOV842cvkFfTdBXin+bzugZcGYKLQHJLKD5hRQb6MpCxPu2XSVYt2ht7nTWiN/MftboGHY5/kNXhKYCcCmZRwzKfMxvNnDpuuh8RnB0BfWdvVKavdKZrFNJKhutNx9MKgUvtdi4KRRKypmN07AxDoPNVxdA9RUMUjbydpQC9agRq7wTMWc/+mRADWSiKLi0vONBT7CuDc8gkysDNeZlusBZVvoKVRqbT2x2xq/PNu6sNW7izYeKQaAQH9uJmA7W4VUUO0r6/2/Izp3QAziFGe6cSnaM7oYi7Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from VI2PR04MB11276.eurprd04.prod.outlook.com (2603:10a6:800:296::7)
- by PA1PR04MB10818.eurprd04.prod.outlook.com (2603:10a6:102:48d::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.13; Thu, 18 Jun
- 2026 10:09:50 +0000
-Received: from VI2PR04MB11276.eurprd04.prod.outlook.com
- ([fe80::60d7:a8e5:eb88:9be]) by VI2PR04MB11276.eurprd04.prod.outlook.com
- ([fe80::60d7:a8e5:eb88:9be%5]) with mapi id 15.21.0113.015; Thu, 18 Jun 2026
- 10:09:50 +0000
-From: "Sherry Sun (OSS)" <sherry.sun@oss.nxp.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	Frank.Li@nxp.com,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	amitkumar.karwar@nxp.com,
-	neeraj.sanjaykale@nxp.com,
-	marcel@holtmann.org,
-	luiz.dentz@gmail.com,
-	hongxing.zhu@nxp.com,
-	l.stach@pengutronix.de,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	bhelgaas@google.com,
-	brgl@kernel.org
-Cc: imx@lists.linux.dev,
-	linux-pci@vger.kernel.org,
+	Thu, 18 Jun 2026 10:10:14 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id EDB394376C;
+	Thu, 18 Jun 2026 10:10:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF3321F000E9;
+	Thu, 18 Jun 2026 10:10:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781777413;
+	bh=RJeDZ8MzzJtFaVX8Goz2+Ds5/kUxUd9U6K4ASVsZApg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=ShVIG4xmNuuKeS/lspiqhEROcIOqVpD2Er3sM9FckyE5UEa68+Y4LCiLy7HHaPR3+
+	 UMalruvc8WVKuN7fd4IrhNHy+O6WZw7j5cYNmz3yH5Av+YNJM0CsLfT2+fih4J6P/I
+	 TRzE6O2uV9XSr33H+tzCPOAksMtiDWUyNd+tc0abVNMsKvM28/79PYvO2+rCohqwtE
+	 McHbRNRR9+xzSh/NDuepyam2g5dMs1bZccoJjUA8RH0D16GM3XDkzdN0LwKEX4Vp1E
+	 upnVhVkDKJtpQRkTQ8Y17aGkfHLpTaPN8Yo+Ho/qVEr6qYXn5LPRNvCCJSiBCkjnbJ
+	 Ha8hpsEUJKNaA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wa9hL-0000000Dxkr-3mWi;
+	Thu, 18 Jun 2026 10:10:12 +0000
+Date: Thu, 18 Jun 2026 11:10:11 +0100
+Message-ID: <86h5n0rwfw.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: tabba@google.com
+Cc: Oliver Upton <oupton@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Quentin Perret <qperret@google.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Sebastian Ene <sebastianene@google.com>,
+	Per Larsen <perlarsen@google.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	Hyunwoo Kim <imv4bel@gmail.com>,
 	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-bluetooth@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	sherry.sun@nxp.com
-Subject: [PATCH 8/8] arm64: dts: imx8qxp-mek: Describe the PCIe M.2 Key E connector
-Date: Thu, 18 Jun 2026 18:10:47 +0800
-Message-ID: <20260618101047.4185497-9-sherry.sun@oss.nxp.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20260618101047.4185497-1-sherry.sun@oss.nxp.com>
-References: <20260618101047.4185497-1-sherry.sun@oss.nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: MA5PR01CA0237.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:1f4::13) To VI2PR04MB11276.eurprd04.prod.outlook.com
- (2603:10a6:800:296::7)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: VI2PR04MB11276:EE_|PA1PR04MB10818:EE_
-X-MS-Office365-Filtering-Correlation-Id: c23b1f2b-c379-4f2c-2335-08decd21bbf8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|7416014|376014|366016|19092799006|11063799006|56012099006|18002099003|22082099003|921020;
-X-Microsoft-Antispam-Message-Info: jR6OOT7Mp7JM/85VnDwtYn9ndN+1Jbu38JfFdgXuDTtno061aRJpTVQjdB5ug5A/jJDk/o9hjgLPRIRHzqFKout34NWXEnx+NDwzTU5HzqGAgPKm21GcwbFXtPR0gkeNbGlwOeTFWccpQ4X7X9KIRbD5y+gjgrU1H/GEaPLNOItr6qe6M0tYDKSTuqDfiWYErda3RxhM2CuWQ3T3pXksLj2GYdUbjjZkSSj8HuPbElOdcoOEDTejs1NF/rwd2yQn0J5vT8pgYv1mSDO+FOB/SpF/xHgnWfv/ouxiN52bqJtpV2R2XSSaVIwN4hwfHnysHpRVj92rbLKyj1JOMpGN1nkpAL9sQCv1/MT707x7YotW3TWvE+8jmWnb9wuozC0xPIn7I+FaD1wXnXDrCEfx2qQpuKiHBEZ8EpBYoubgPE06KDswL+LaSoB6SqOyxL7edb8tN5/uTj2Hlrf8ox9G8Y8vfHxh6N4UkoZ8ByqzjnSfts0xSrIcMwnlLL6TlmrInDEF7IDkPMYcvvnH5Z/cCEwcj3RKrfoMo9RGc+Cf6nC+vve/w7pgbQieBQZHJCpktbMgk4mT4tpWAMMEfdMeNFL3PNKucovMhq06/G4WSeQlqouqbvd2ayame4kjs/x/aG/V73Wi47nHCMJbLES2HTE/9zCaRPdruYd1GhpuwAHomMBFoMg/ARY38aifyBmMuJ3By/lLFOgvksHm6rpLSdUZzGhnz4TxoOhNNEnPf1s=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI2PR04MB11276.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(7416014)(376014)(366016)(19092799006)(11063799006)(56012099006)(18002099003)(22082099003)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?WYSxWsraHR+x0xzp1FDVf/FDBRMaWta4R5CDuc8cIUZgyKmid1p+0zpL/m4s?=
- =?us-ascii?Q?2UXqnYU2fUMPVY4lf1PoKFBNG2yt7lO5nl6TOqlX0lTLgy6vScBGObD7eWDv?=
- =?us-ascii?Q?Xri7sP5oeSn+BPA10N2dolrgPDJA6QG+ZauoTXn8aSh+igUFS5Iuq0JNGXWH?=
- =?us-ascii?Q?G9VNV5HhTlN9VzYlLtGFxuU9lfLzargWk05SX/00+uFG+y/FTpJ0ld8KFwBe?=
- =?us-ascii?Q?rz8nrTVxyLVr8GtwrkmFboLmaWqcOiSDSWrxpjFnbXKPI1JNrmSDDytdD1vD?=
- =?us-ascii?Q?Rs82Ob6B4lnkrRE6BPxazw73OfC5kRwUPojk3W7Ou6UhDW5mjV4ChR8KW9xZ?=
- =?us-ascii?Q?AbFCBFgbfOgzml2WqCC6E4Pk8xX0nffk5GBJnNIL6dBYPgDxuuu6DsRrxy6F?=
- =?us-ascii?Q?O7tG3j2AcnZWUbzz8VboxvurFXhBfqs3xd13VzboTsZy0L3ml+r64m6mTn1P?=
- =?us-ascii?Q?tOTBd4znUkA9YAO7k7SHge4c/LKqZyGOkAi9J++0iFWAvtAQITq62SQf/RRG?=
- =?us-ascii?Q?l9vGbf+brfoF8Fq771UxqPZahPbmboVt3RGvtvgYGs2p8DpSeE3U4sReOOn7?=
- =?us-ascii?Q?15xTAdGMEdIQmYO8HhoZ/qE4qUaJ6kBi8E3xuackV/IGFSnnBuunoNinLgQo?=
- =?us-ascii?Q?T+d0PzrkWG5lKK47bW5kHRBaATGf3zRk81cVHZUnf4IN94yFKB5KyPTUyL2a?=
- =?us-ascii?Q?PTdzcS5dYXF6RPWfjnyUa7OmuAJE8KG4xmQnvN3VI0xA3/8l7Ct7FRf+ajfj?=
- =?us-ascii?Q?1WBiWiO52De23/wnvF7me4sSOy7M8Rfm53emNkcArttiQ/7KVJZdYzDE/x1s?=
- =?us-ascii?Q?gV+oUH5TU2rd5zOYqyYOct9Le30SYhO+4om2/dMvLBNCmgpfSQ306MeMPdtJ?=
- =?us-ascii?Q?lKm8pM+pYz+ljhZPphEAtwwgw+NTgRHynGSePyKLFiONQxqU/7awAifXDyYq?=
- =?us-ascii?Q?h2jEpM9FvAbvMfM+JsYxNL76YHTV3oBXsDGzoYmBEHu7Vf8HjBQVb6PgD2s9?=
- =?us-ascii?Q?P8ZDkrHIM1KIYDLUBHZ9YUdkuiQWhMqliv/C4YdgXJcnGxz8PDdj/dc4BRP1?=
- =?us-ascii?Q?03iPfPaFfJtU2Whlki8MW+OsL39xeEHLNZq1KyjcQ85YwZ1VN4sy8dIMksfN?=
- =?us-ascii?Q?bKqrsaMgpTPVxuOvRuuJ/gtrCyTdDlamdEShAgTwIwrILri8TLOr4C8KnHqe?=
- =?us-ascii?Q?GdBbgTILswJV0tqq1U+8E3c7qPZ6xcKZu4K/67+6f5Jq4NSVfYblnlADuwXx?=
- =?us-ascii?Q?6XzlygvtPp3jTrDFHmY8LbljfD813DXnDixIQfCAnpkip0nm6kqaVO2+VGQx?=
- =?us-ascii?Q?uC2Sgk86O9+qW2jia10pKwYtHNUnBbfL4K9NBZRYMOevUj0kolTQYpMz9HBZ?=
- =?us-ascii?Q?5/9EQwOHrhtyAhuvTth0jfXoWLqHAxrkWKiFkfEHIAX0777eDUhqaLseax3I?=
- =?us-ascii?Q?g+FXAkYDliClHl8TAAeEm+gRjbTq2qEYjL3G8BSsGPb0SI6tx9PaJAfPv51J?=
- =?us-ascii?Q?JMzK6cJ6gfzJJJwM/1AF9kbvROQt0NgXWicwbv5Elo6elxj+BTYiH7OaWZFP?=
- =?us-ascii?Q?Fjd3zLdqPOeu4SzAL5l0yzuNdQKg6PbMG8oOwNRO7r+IIyVWYWPOzvNrv1xk?=
- =?us-ascii?Q?HVoZOgw+3AKKHKI2W/vFd9rUStpTJ8cckiCi0XJPFK9EFtdq6M6AI2Dxb2OU?=
- =?us-ascii?Q?HeFYUcSJEkHnP1+nQfFtPlsR7vKPh86GYWtQo0HMfC1siDC1fw2329hD1AGD?=
- =?us-ascii?Q?qb0AGjNwjJbFxOnnUNy1f1ZWkg4soUh0tiFNp78aKLxajXcMu9Ni?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c23b1f2b-c379-4f2c-2335-08decd21bbf8
-X-MS-Exchange-CrossTenant-AuthSource: VI2PR04MB11276.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Jun 2026 10:09:50.6178
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: n3HIHQL6mUAxIaoRv0Hq9x7sYf+6CJ55NnjeHQlRZVQCT7cRcR/Y1Ua+RGPLKTB/1mbdZTtZHsRPjtNDftsEmkmQyfhI4fVViM0sdXWV3xJS8Iiwh78lJhz226ecJzA7
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10818
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260618_030958_041699_7DAE9ABF 
-X-CRM114-Status: UNSURE (   9.22  )
-X-CRM114-Notice: Please train this message.
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 10/11] KVM: arm64: Add primitives to flush/sync the VGIC state at EL2
+In-Reply-To: <20260612065925.755562-11-tabba@google.com>
+References: <20260612065925.755562-1-tabba@google.com>
+	<20260612065925.755562-11-tabba@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: tabba@google.com, oupton@kernel.org, will@kernel.org, catalin.marinas@arm.com, qperret@google.com, vdonnefort@google.com, sebastianene@google.com, perlarsen@google.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, joey.gouly@arm.com, seiden@linux.ibm.com, mark.rutland@arm.com, jonathan.cameron@huawei.com, imv4bel@gmail.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,108 +96,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sherry Sun <sherry.sun@nxp.com>
+On Fri, 12 Jun 2026 07:59:24 +0100,
+tabba@google.com wrote:
+> 
+> From: Marc Zyngier <maz@kernel.org>
+> 
+> pKVM performs its own world switch for protected VMs but has no
+> primitives to move the per-vCPU VGIC state between the host and
+> hypervisor vCPU contexts.
+> 
+> Add flush_hyp_vgic_state() and sync_hyp_vgic_state(). Flush copies
+> vgic_hcr, the in-use list registers and used_lrs from the host into the
+> hyp vCPU and pins vgic_sre to a fixed value; sync copies vgic_hcr,
+> vgic_vmcr and the in-use list registers back. The active priority
+> registers are handled separately by the save/restore-aprs path.
+> 
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> Co-developed-by: Fuad Tabba <tabba@google.com>
+> Signed-off-by: Fuad Tabba <tabba@google.com>
+> ---
+>  arch/arm64/kvm/hyp/nvhe/hyp-main.c | 50 +++++++++++++++++++++++++-----
+>  1 file changed, 42 insertions(+), 8 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> index 2f165b6c7b07..23e644c24a03 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> @@ -99,6 +99,46 @@ static void fpsimd_sve_sync(struct kvm_vcpu *vcpu)
+>  	*host_data_ptr(fp_owner) = FP_STATE_HOST_OWNED;
+>  }
+>  
+> +static void flush_hyp_vgic_state(struct pkvm_hyp_vcpu *hyp_vcpu)
+> +{
+> +	struct kvm_vcpu *host_vcpu = hyp_vcpu->host_vcpu;
+> +	struct vgic_v3_cpu_if *host_cpu_if, *hyp_cpu_if;
+> +	unsigned int used_lrs, max_lrs, i;
+> +
+> +	host_cpu_if	= &host_vcpu->arch.vgic_cpu.vgic_v3;
+> +	hyp_cpu_if	= &hyp_vcpu->vcpu.arch.vgic_cpu.vgic_v3;
+> +
+> +	max_lrs		= (read_gicreg(ICH_VTR_EL2) & ICH_VTR_EL2_ListRegs) + 1;
 
-The i.MX8QXP-MEK has the PCIe M.2 Mechanical Key E connector to connect
-wireless connectivity cards over PCIe and UART interfaces. Hence,
-describe the connector node and link it with the PCIe b Root Port and
-LPUART1 nodes through graph port/endpoint.
+This really needs to be rebased on the current state of kvmarm/next,
+particularly 8cc8bbbfab14c ("KVM: arm64: Bound used_lrs when flushing
+the pKVM hyp vCPU").
 
-The M.2 Key E connector is powered by a 3.3V fixed regulator
-(reg_3v3) on board.
+I really want to avoid using ICH_VTR_EL2 on each and every entry to
+the guest, as this has really bad performance impacts when running
+this under NV (which is the only way I run pKVM).
 
-Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx8qxp-mek.dts | 54 ++++++++++++++-----
- 1 file changed, 41 insertions(+), 13 deletions(-)
+Thanks,
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts b/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts
-index a9b967d0a9be..c9fe4034cc2d 100644
---- a/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts
-@@ -40,6 +40,37 @@ memory@80000000 {
- 		reg = <0x00000000 0x80000000 0 0x40000000>;
- 	};
- 
-+	m2-connector {
-+		compatible = "pcie-m2-e-connector";
-+		vpcie3v3-supply = <&reg_3v3>;
-+		w-disable1-gpios = <&pca9557_a 2 GPIO_ACTIVE_LOW>;
-+
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			port@0 {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+				reg = <0>;
-+				m2_e_pcie_ep: endpoint@0 {
-+					reg = <0>;
-+					remote-endpoint = <&pcieb_port0_ep>;
-+				};
-+			};
-+
-+			port@3 {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+				reg = <3>;
-+				m2_e_uart_ep: endpoint@0 {
-+					reg = <0>;
-+					remote-endpoint = <&lpuart1_ep>;
-+				};
-+			};
-+		};
-+	};
-+
- 	reg_usdhc2_vmmc: usdhc2-vmmc {
- 		compatible = "regulator-fixed";
- 		regulator-name = "SD1_SPWR";
-@@ -157,15 +188,6 @@ reg_3v3: regulator-3v3 {
- 		regulator-max-microvolt = <3300000>;
- 	};
- 
--	reg_pcieb: regulator-pcie {
--		compatible = "regulator-fixed";
--		regulator-max-microvolt = <3300000>;
--		regulator-min-microvolt = <3300000>;
--		regulator-name = "mpcie_3v3";
--		gpio = <&pca9557_a 2 GPIO_ACTIVE_HIGH>;
--		enable-active-high;
--	};
--
- 	reg_audio: regulator-audio {
- 		compatible = "regulator-fixed";
- 		regulator-max-microvolt = <3300000>;
-@@ -696,8 +718,10 @@ &lpuart1 {
- 	pinctrl-0 = <&pinctrl_lpuart1>;
- 	status = "okay";
- 
--	bluetooth {
--		compatible = "nxp,88w8987-bt";
-+	port {
-+		lpuart1_ep: endpoint {
-+			remote-endpoint = <&m2_e_uart_ep>;
-+		};
- 	};
- };
- 
-@@ -746,8 +770,12 @@ &pcie0_ep {
- 
- &pcieb_port0 {
- 	reset-gpios = <&lsio_gpio4 0 GPIO_ACTIVE_LOW>;
--	vpcie-supply = <&reg_pcieb>;
--	vpcie3v3aux-supply = <&reg_pcieb>;
-+
-+	port {
-+		pcieb_port0_ep: endpoint {
-+			remote-endpoint = <&m2_e_pcie_ep>;
-+		};
-+	};
- };
- 
- &scu_key {
+	M.
+
 -- 
-2.50.1
-
+Without deviation from the norm, progress is not possible.
 
