@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02A7BCD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 17:22:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04D9BCD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 17:27:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CCIZDXXSfPKbcMGZbi4n+59Jp79siugdVFjDNu887cE=; b=xQrRf1Q4kgWDY8zdC/fDhPArat
-	QFoayaESLzeeaVRTFzEiG98M5dS8gggY6fBLUyjQ9q3XFlE/GtSL6tTvTU+ni6ET48LNhkcM74Q9i
-	HeXIPfRLzjiNxAFHM4udTUoujPcMKPMtM5QnkfMkSLPTI4PQ79fKAFZxdo1hzVzDtG5G14wltlUED
-	2D1CR3mBvaF+5J/BeZkuhan2hHvmD5boZirouIKHoXppdb/M9oYkqnFwgv3uh61TYJ5TSdVrOa374
-	o0hlt9PPHQDLcpTUkr7GuuFIyKPSFY/xGkOMAzYuQHqSVKq4FdR/KIJOzxDppE66QTsY7Z8yNixSe
-	Mant0xyA==;
+	bh=q0JyIhzls2o9NpV0YiKpx0Z6g8U6hSYHt5wEzck3zpU=; b=LzY3783X+siicIzZva6W/Aztgy
+	ymBkggtwUKXlX5d1qkfcHSWdWZvnMXhkq9eSGHesMEDsiFjUMaWKlmKRbh6FOWCP+5fJlJjMbAif6
+	IJPg2fxlr9KxHIKWmdTE2NX0d9X7GN+sdpGJa9YO6LC4uVuAODMeS8XoU1L/A2yATQz9fvxzfSynG
+	KyKwcw0PVFlpTCwqhX/pvyq7x6eYijmhyWOTSZAKMwwwDiPMgNYVuGEnptTTQ3xarR4oLtCqEbQ2D
+	/2J3Y9c1CYy5Q+H3uawsacibkod+VtzmDiT7w/zgQ0VjQQm63hhXcEBcOW8vXZTNzCcyg+3Nm73Vb
+	UuCb35Cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waGRu-00000001dzG-1U1p;
-	Thu, 18 Jun 2026 17:22:42 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1waGWU-00000001eEQ-3TcR;
+	Thu, 18 Jun 2026 17:27:26 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waGRs-00000001dz1-0Er8
+	id 1waGWT-00000001eED-3QC1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 17:22:40 +0000
+	Thu, 18 Jun 2026 17:27:26 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3311A60008;
-	Thu, 18 Jun 2026 17:22:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 524151F000E9;
-	Thu, 18 Jun 2026 17:22:33 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B02D160008;
+	Thu, 18 Jun 2026 17:27:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AD521F000E9;
+	Thu, 18 Jun 2026 17:27:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781803358;
-	bh=CCIZDXXSfPKbcMGZbi4n+59Jp79siugdVFjDNu887cE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=RaYDLzXFU5AzdR+NTv8GaIfShr54Ma3m5WaOgGzS91/RCOwSrR9Zch0iZDSyuCY7D
-	 2X2CQfHNInWnTp8HTd/+o0yWQ3nnYXLni8vqYHnA/Mel97sMtHdb73Jek+jxwQgwt/
-	 fNvXDt/F4JAMoIS7MNGiyhz4Xdua68y5K5ks+05kCThlQVi8PZLzMJOGt4AY/oMFYk
-	 R/QszxIt7cM0W8mlbynasyE+YerNS+h7KBZ5F9GsfS9Y00dPm20kNg2gKT1VDgOHEK
-	 EcNFMR8G77nZFdNBaj83oEq1RsW/iMuvspFLL83G5Z2gfCAZitGf5phfC+O0+epUKS
-	 WQoMaUJB1q9zg==
-Message-ID: <29a304f0-1e62-418a-b84f-aabdc4c0de8d@kernel.org>
-Date: Thu, 18 Jun 2026 19:22:29 +0200
+	s=k20260515; t=1781803644;
+	bh=q0JyIhzls2o9NpV0YiKpx0Z6g8U6hSYHt5wEzck3zpU=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To;
+	b=hU8BNc99dwbiyFLwMd82FbNlhn3CmuZX68VgNJonQ0dQXqb19ChArtf/C22bXl/3K
+	 ViZz18WKu+hr6xcecB8x8KecXX7myCeLdR3d72RRUbDVlOQeHVXqeT7XjOh1AepU0H
+	 LP3x2d/QmGlip+XU1iubVNXgoMznpg7TMAwKdD1oxWntyvCLZBb00G/x9T2XCZOwU4
+	 5r8Sk67NYmu3QRUrgyqxhl37n8QX0CR39cN5mxmhXr/6ZQphZ5n/Iq+8pEy4oCO+q0
+	 03loamBHrhwLpIjckoyaqRhnjGwS4zGi3BvyYvViWfTwu+PheEaIincqQjxTKqbCqs
+	 L+6LN0fOS4rCQ==
+Message-ID: <9f274251-e863-4661-bbd0-671512dd91e9@kernel.org>
+Date: Thu, 18 Jun 2026 19:27:15 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v4 00/31] Introduce SCMI Telemetry FS support
+From: "David Hildenbrand (Arm)" <david@kernel.org>
 To: Cristian Marussi <cristian.marussi@arm.com>,
  Christian Brauner <brauner@kernel.org>
 Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
@@ -60,8 +61,7 @@ Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  usama.arif@linux.dev, kernel-team@meta.com
 References: <20260612223802.1337232-1-cristian.marussi@arm.com>
  <20260617-waten-allabendlich-zueinander-93d4b1367b8c@brauner>
- <ajLVW1eHzbGDm4yn@pluto>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
+ <ajLVW1eHzbGDm4yn@pluto> <29a304f0-1e62-418a-b84f-aabdc4c0de8d@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -107,7 +107,7 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <ajLVW1eHzbGDm4yn@pluto>
+In-Reply-To: <29a304f0-1e62-418a-b84f-aabdc4c0de8d@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -124,140 +124,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-asking some clarifying questions that I assume also Christian might want to know.
-
->>> In a nutshell, the SCMI Telemetry protocol allows an agent to discover at
->>> runtime the set of Telemetry Data Events (DEs) available on a specific
->>> platform and provides the means to configure the set of DEs that a user is
-
-Is the configuration aspect limited to enabling selected events, or is there
-more that can be configured?
-
->>> interested into, while reading them back using the collection method that
->>> is deeemed more suitable for the usecase at hand. (...amongst the various
->>> possible collection methods allowed by SCMI specification)
->>>
->>> Without delving into the gory details of the whole SCMI Telemetry protocol
->>> let's just say that the SCMI platform/server firmware advertises a number
->>> of Telemetry Data Events, each one identified by a 32bit unique ID, and an
->>> SCMI agent/client, like Linux, can discover them and read back at will the
->>> associated data value in a number of ways.
->>> Data collection is mainly intended to happen on demand via shared memory
->>> areas exposed by the platform firmware, discovered dynamically via SCMI
->>> Telemetry and accessed by Linux on-demand, but some DE can also be reported
->>> via SCMI Notifications asynchronous messages or via direct dedicated
->>> FastChannels (another kind of SCMI memory based access): all of this
->>> underlying mechanism is anyway hidden to the user since it is mediated by
->>> the kernel driver which will return the proper data value when queried.
->>>
->>> Anyway, the set of well-known architected DE IDs defined by the spec is
->>> limited to a dozen IDs, which means that the vast majority of DE IDs are
->>> customizable per-platform: as a consequence, though, the same ID, say
->>> '0x1234', could represent completely different things on different systems.
->>>
->>> Precise definitions and semantic of such custom Data Event IDs are out of
->>> the scope of the SCMI Telemetry specification and of this implementation:
->>> they are supposed to be provided using some kind of JSON-like description
->>> file that will have to be consumed by a userspace tool which would be
->>> finally in charge of making sense of the set of available DEs.
-
-You mention json here ... but I assume the data we are getting fed by the
-protocol is not in some default format? (e.g., json)
-
->>>
->>> IOW, in turn, this means that even though the DEs enumerated via SCMI come
->>> with some sort of topological and qualitative description provided by the
->>> protocol (like unit of measurements, name, topology info etc), kernel-wise
->>> we CANNOT be completely sure of "what is what" without being fed-back some
->>> sort of information about the DEs by the afore mentioned userspace tool.
-
-Maybe you have it in some of the patches here, but what does the typical
-directory + file structure look like in the current implementation?
-
-Do you have an example?
-
-Also, is everything in that filesystem read-only, or are there some writable
-file (IOW, how is stuff configured?).
-
->>>
->>> For these reasons, currently this series does NOT attempt to register any
->>> of these DEs with any of the usual in-kernel subsystems (like HWMON, IIO,
->>> PERF etc), simply because we cannot be sure which DE is suitable, or even
->>> desirable, for a given subsystem. This also means there are NO in-kernel
->>> users of these Telemetry data events as of now.
-
-Okay, so you really only feed this data to user space, exposing all the data you
-have easily available as part of the protocol.
-
->>>
->>> So, while we do not exclude, for the future, to feed/register some of the
->>> discovered DEs to/with some of the above mentioned Kernel subsystems, as
->>> of now we have ONLY modeled a custom userspace API to make SCMI Telemetry
->>> available to userspace tools.
-
-It's a good question how that could be done, if you need more information about
-these events from user space.
-
->>>
->>> In deciding which kind of interface to expose SCMI Telemetry data to a
->>> user, this new SCMI Telemetry driver aims at satisfying 2 main reqs:
->>>
->>>  - exposing an FS-based human-readable interface that can be used to
->>>    discover, configure and access our Telemetry data directly also from
->>>    the shell without special tools
->>>
->>>  - exposing alternative machine-friendly, more-performant, binary
->>>    interfaces that can be used to avoid the overhead of multiple accesses
->>>    to the VFS and that can be more suitable to access with custom tools
-[...]
-
->>>
->>> Due to the above reasoning, since V1 we opted for a new approach with the
->>> proposed interfaces now based on a full fledged, unified, virtual pseudo
->>> filesystem implemented from scratch, so that we can:
->>>
->>>  - expose all the DEs property we like as before with SysFS, but without
->>>    any of the constraint imposed by the usage of SysFs or kernfs.
->>>
->>>  - easily expose additional alternative views of the same set of DEs
->>>    using symlinking capabilities (e.g. alternative topological view)
-
-That sounds reasonable.
-
-[...]
-
-> ...I would not say that this was the kind of feedback I was hoping for,
-> but I am NOT gonna argue, given that you shot down already what I thought
-> were all my best selling points :P
+> Maybe you have it in some of the patches here, but what does the typical
+> directory + file structure look like in the current implementation?
 > 
-> At this point my understanding is that the way forward must be to use
-> a custom tool to configure/extract/translate the raw Telemetry data and
-> move up into userspace the whole human readable FS layer via FUSE, if
-> really needed.
-> 
-> I suppose that the new kernel/user interface has to be some dedicated char
-> device implementing proper fops. (like I did previously in early versions
-> of this series and then abandoned...)
-> 
-> Is this you have in mind ? Dedicated character device(s) with enough fops
-> to be able to configure/extract Telemetry data with a custom tool ?
+> Do you have an example?
 
-I cannot speak for Christian, but I guess you could have some kind of libscmi in
-user space that can obtain the information (as you say, probably char device,
-not sure which alternatives we have), to expose the data through a nice ABI, to
-then either make tools build upon that directly, or have a fuse server in user
-space that mimics what you currently do with the file system.
-
-One thing that is not clear to me yet is how stuff would be configured, and how
-possibly multiple users of libscmi would possibly interact.
-
-> 
-> Should/could such a tool live in the kernel tree (tools/) at least for
-> ease of development/deployment ?
-
-I think OOT.
+Found it in patch #20! :)
 
 -- 
 Cheers,
