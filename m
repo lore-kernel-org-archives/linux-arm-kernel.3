@@ -4,100 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 375ACCD98ED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 21:04:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33491CD98ED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 21:06:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=E9z0pIRRQq0JjZLgtfI21RJrv64iSxf66JeOGPUHps0=; b=ydQ16S3Q8S+69b
-	8CnnTCNOpD77Nne0yOa9ZhUCGXg9krzTyk6HBrht3omtl2tT6ObQW3EY9ylC2W6cbvXVEFbrsXuGr
-	Lswf9kc3R9jtxwhZAkgBpcfm5c1+hWgKN0RQtkkV4N0vfYab0hNdTgH6R+U3XVy155g7u3ov/Y88L
-	A1ip6IC/Ny73BAcHri32gSwOWyn9sru/LEPNsvmqKNcmLYoOmWIQ91kS2lrFhay3KqAjX3Knj7mkZ
-	Qt59hQl3YIEGY7HbkMc4rej38UXR2R4MCXy5Tnr2MvLWpx3ritbjJ3MouY9S1dXxO1xthUc91uEx+
-	tlVDrv0oLPAcgcp1BJ9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wBQkNjECV6xY2iyUaF8p4ty+DWlCLVOGQLFUXgO2Ou4=; b=gCobV4OrjwdDQECFyAbeoOk0Z7
+	Q72imnbiqGVNMGJ4KD82OKoqTZLL0z2U91gOjOsicWKbJpsKhQCvS+ttlhP8dGfMEiPJToer9KOpJ
+	BqJB1gQu/ou51PQBUToj/IjNy6sIC0DkZ/UgX7ljylxnbdEwinlhuK4mBFhp7xQbYWanzwBB4xSb4
+	oOCCVHwdx3dFGK2PXUUkDFVZaqAzo/TP3KV4rVxY7KXDOcNONR2xeDbz7Q6uhbCOK30LAlmk/mEX+
+	c8PTtDW6sjqz/tFhtBuElnTXQfZB8bqj0g/2nKGn1B9I6INnN/+e9nZw3Jk6LcGhYghgvRJY7uAsI
+	oJv8HtpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waJuT-00000001nKt-3eWL;
-	Thu, 18 Jun 2026 21:04:25 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
+	id 1waJwl-00000001ng3-1L1S;
+	Thu, 18 Jun 2026 21:06:47 +0000
+Received: from mout-p-101.mailbox.org ([80.241.56.151])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waJuQ-00000001nJl-0zeI
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 21:04:24 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-5aa68d9d4a3so1744232e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 14:04:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1781816659; x=1782421459; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=E9z0pIRRQq0JjZLgtfI21RJrv64iSxf66JeOGPUHps0=;
-        b=hb5emPU7CJxLgFfX17KtUszc/8w4zgynUpG8TyLJ7jrK3alry5Ya5r7kQ0Fxa9BgyU
-         yCbeNAybRuISFv+IwGooTwHm8XhEKBOTWteaKFkimr03J40fxu9sNv7K7mBpF8/rfnnP
-         11IEXPbgTM24+O4MTSyH/F56LxvVa6WD8RAimb5esKPH6Se1NgD+TME2dFiQZdQnEbh8
-         +7zlnuR+dnICo7lnZ+dKd8SPlX6Ea4J4DqaMY+2I7S6YcYbvW7X3XmJUrZw73JpEexJu
-         PG+elARJzuY23B+nzIv0XLWiM7uhVtrssGx9coTbsRjfsENg97gO0FocvnonsfSuI0PQ
-         nhAw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781816659; x=1782421459;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=E9z0pIRRQq0JjZLgtfI21RJrv64iSxf66JeOGPUHps0=;
-        b=UH699TUmkkn2YISvZuIZtpnSe3GV1S4Vz7g66EYf+02+JftdMB1dQ0bJI0Lo6jhkSH
-         lALgfMAWOt6kFuST3YBwAYpAg15q5or4VVWfZGkP6miIEbU9DT4vTk0tcrqSzELxGQcj
-         lzcyiLvA4bR2D4ZpaT6E0Uk20wf4lLLtgH151wiw9nzB188bsJTXu8XjoTpzL3UWPDks
-         M4kmkk75NJgauypL2yCGcKMHEvcOngb2/T95EXxz0jX0upq2huPCI2a9Y5qok/WyDnOq
-         w1Y1USDXhjDXP2dFE30TPkBJvh0eTC1THOfn/fo5dJY7ZK//+zgWkjvW9XgCbba+YYu9
-         bPYA==
-X-Forwarded-Encrypted: i=1; AFNElJ+3iHPgliEjnkzfjfj1huiqAX6JKRoiOnhdX9N7deCM7MzROovglmxUo8ZnmrhJJUingImtImzPqoBM9tnAjRLR@lists.infradead.org
-X-Gm-Message-State: AOJu0YwrXNwC4RhH5U44jVMRLUzwM0/KD7cwJzx3Pli546QEek9w9I5A
-	v9AQMonpmy0Dg22Ny5ZqRMMv/gDueaY4tYFTyBIIGTL0NGcOT744MQowyvIHKbR5Y3M=
-X-Gm-Gg: AfdE7cls+FGvwo2FL/tccn8jiOYC16MuPeAR7acaqrUEzWbVi2YGicBeoy6yWGxIQXx
-	VY8gnto637poFNxXVSy+8ymHWjoCARX38C6wqg9VJUD3qu9e4J/B+fQgtXqqC4geK6Qa5mljtSF
-	kpFJttGbmSm1oiyCFPMk9Lu7If8d6jNk0Xxu98+qZY3Ll/Ua3eBwQ+1p99c+cUZ2aNkXwMZrBAr
-	TUyqaHkOSxkAvN5itrBiep4AvjvlalJCCSU3qQv6nJXw7QhUjxSbydcQtjPjf5qwHtLxIerdxIp
-	pA5rp4OlnKuXF1n4M4HIl36ghy/biBBsZaRNnZhsloKKdzUSMWe8oqjOQPmSSTmqttiaZE7Dije
-	zXeR4+rZy8K1eN6cc9vk/Ec75pPFxcFrhKDmnh6yIeXQXCZcNf2sTJMkL3p7zE82LeOpdWjL1tF
-	L6/8Ll2q+XRDBLApvX3Q7D
-X-Received: by 2002:a05:6512:8013:20b0:5aa:b6a:738e with SMTP id 2adb3069b0e04-5ad57715b49mr98736e87.44.1781816659260;
-        Thu, 18 Jun 2026 14:04:19 -0700 (PDT)
-Received: from [192.168.0.2] ([2a07:7e81:7daa:0:202:c9ff:fe53:eda4])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5ad57493145sm108586e87.69.2026.06.18.14.04.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 18 Jun 2026 14:04:18 -0700 (PDT)
-From: Angelo Dureghello <adureghello@baylibre.com>
-X-Google-Original-From: Angelo Dureghello <adureghello@baylibre.org>
-Subject: [PATCH v6 0/2] add mcf54415 DAC driver
-Date: Thu, 18 Jun 2026 23:04:14 +0200
-Message-Id: <20260618-wip-stmark2-dac-v6-0-48761dbb96d7@baylibre.com>
+	id 1waJwg-00000001nfU-1bvS;
+	Thu, 18 Jun 2026 21:06:45 +0000
+Received: from smtp1.mailbox.org (smtp1.mailbox.org [10.196.197.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4ghCvZ32Jhz9tjF;
+	Thu, 18 Jun 2026 23:06:34 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=adamthiede.com;
+	s=MBO0001; t=1781816794;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=wBQkNjECV6xY2iyUaF8p4ty+DWlCLVOGQLFUXgO2Ou4=;
+	b=1o2eMq7CpiT82lLfa/EJ2bHxFGd9w1DrgDAhipxOxOToKoH5b6R6Exfos4jx3OiiFM7szl
+	O3pXAeC2FF7dMTnguh/ngM8RXbAnRCu3X+fjoAP977qNzCafGtvBJvs8YcTt118kkTHnMB
+	uUilaRaKfr5LQ/fIxRUh5mqtsig91nSnsvQa0rNx43GWR3HVa7vVmScKZYZ/3qljYRhSU9
+	4tY78sF1ojmAjfASV+j0xcVW8E9vB/XcYWckCHHPON9vK4V+t40RvtxZskPNO2l4DdoI+7
+	hNpS0611k6APoQGAALNp0qSH/OILLRjqJlanB1Wlr7d/i3lb64ZCDWC4VIbhhA==
+Message-ID: <42607fa4-485d-4142-b31c-7bfac71118d2@adamthiede.com>
+Date: Thu, 18 Jun 2026 16:06:28 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4XRy07DMBAF0F+pvMZo/JokXfEfiMX4RQ20qZwQq
- Kr8O05YFKgrlleae64ln9kQcgoD227OLIcpDak/lIB3G+Z2dHgOPPmSmQSJoBXwj3Tkw7in/Cq
- 5J8cbQIi6877TkZXWMYeYPlfx8ek7D+/2JbhxYZaLXRrGPp/WyUkud7f1SXLgQVFssXUaSDxYO
- r0lm8O96/eLtlaNUPVqdJ6CAReNoN/V5W2Tuqwb0NeEKgQYqUlEJ5y6tS5lvSrQBiCvDGFTWRf
- /rItCtI12Ckl3AnyF0D8IJa4JXYgmoCGrpTC+RpgLgaLyA6YQtkHbKoXojftDzPP8Ben+oGRFA
- gAA
-X-Change-ID: 20260430-wip-stmark2-dac-7060f49dd94f
-To: Jonathan Cameron <jic23@kernel.org>, 
- David Lechner <dlechner@baylibre.com>, 
- =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
- Andy Shevchenko <andy@kernel.org>, 
- Geert Uytterhoeven <geert@linux-m68k.org>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: linux-kernel@vger.kernel.org, linux-iio@vger.kernel.org, 
- linux-m68k@lists.linux-m68k.org, linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, 
- Angelo Dureghello <adureghello@baylibre.com>
-X-Mailer: b4 0.15.2
+Subject: Re: [PATCH] drm/mediatek: mtk_dsi: enable hs clock during pre-enable
+To: Gary Bisson <bisson.gary@gmail.com>,
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20260120-mtkdsi-v1-1-b0f4094f3ac3@gmail.com>
+Content-Language: en-US
+From: Adam Thiede <me@adamthiede.com>
+Autocrypt: addr=me@adamthiede.com; keydata=
+ xsBNBF+n+90BCAC2ZRLVcvdXDgfY7EppN05eNor3U7/eeiNCCEIWZkYLhikUEP1ReLGBkXpK
+ Pc70hfnKAKkCoth3IwhDty9WXMNU+iLNei4ieb2luW+UqluR6xIUIA+txahMU9YcjVaQTKf/
+ yZWO4yl6pfBPCxC2UdPZKBAdGoi5NnE0ABFNbhBETQhhBic533lZn33ByupfI3acECnQdjgQ
+ llCUpDbw4I+S/N1iFiEHcbMXH7ZB00e3IYNorZ1E9v7p++5rDY1fQ9gXpieg1vFKwSq1NJWo
+ 9xx336YjaTUbX0EwrdKd9l8AktA3yRjckaK5TAcwSQaDtHvhpbl4ebvPhtwHh699MroXABEB
+ AAHNH0FkYW0gVGhpZWRlIDxtZUBhZGFtdGhpZWRlLmNvbT7CwI4EEwEIADgCGwMFCwkIBwIG
+ FQoJCAsCBBYCAwECHgECF4AWIQQtG9pGQ7sz3tf8M/kC7fV9o/vRzgUCZL1HxQAKCRAC7fV9
+ o/vRzgyRB/wLqRCvvWhQCMgvzeKvru9wcXquhb77K8H/ByLbfiT8YBuP3lZFVh0IQhgO9Ylk
+ fIoOJE4V+jjxyOnO2d9xjGbvAmmR6yT0gfLzSVWqrC4k+V9MWLv43nrNzxt41dvo5j824FAl
+ X+zaiRZCdO8Jtxg5Elpiop2SKLi1utX1Z8i6YZh+ccJZlchUBAGUTk+D4UjK7vUcjLWT96ya
+ CtdtTfXyw36CvGOPEWfc6++Kkl/5sgej1i7biPYzu/r0vssaQYTXKSrv6Cfa3Maa89ASiTtv
+ q4qmhLnJeCrPxWlRAf6LEizeBEkOasYni2u8sp4wBezEq45Ozu45sfPkqLpPolG7zsBNBF+n
+ +90BCADBRt+vrToRBEG580n77S99qSEkbKD+oJtCVyovnjMNkg0K9UG68LIeCX/ezngiV1M8
+ JISvw5iFOuUFqGX/1hLl9wgt/YpuIrgWOp8XxkotavTCloLDvQmufJPO1L8bnnA+WgP2YgVZ
+ 5MJTj/t4DI+yQgysEjsH8aurHO2uuqgJE+xK+2dy6Cl/wskuGxObksSPmmFH5PH0Joziwrtl
+ 61ouLE2XwKbkMgIGEKkbFgbfwz3/QuLZGBni+OOtLzXeZ9wNTW/AHUPy6S9U4F+5z6/09fVT
+ tTH0cvrgAGjbASlYx2VqGONXAsxCfjulq6ryJBFlPLp949c/JTTgOojukCSbABEBAAHCwHYE
+ GAEIACACGwwWIQQtG9pGQ7sz3tf8M/kC7fV9o/vRzgUCZL1H0gAKCRAC7fV9o/vRzlamCACs
+ vHw+0heTm+BfC3S8DUST6889gidIIwdqBep1ByzetCph7Bq8Y8BlT5YTX0u/bSKkxCzFgeTm
+ vC341Q09ST2XjLAl1ZTdzGhH9gcgYyOw34pr5fPQRJLB392mPzD8YReRzciNbhWzj+DLgeVe
+ ouyfGajd6jDjkf4FEq+trQLGZhpfsKn3JnDbzBUs945D50l/vz9q/QN3qZO+H4F6g8ZeMnqo
+ FOEFN26xVtdEDr+0DNFsbgKmEzs675kdAY78ZZdbEetX/FSknxJ+FK1ZW3J7Yswwulj34AXP
+ LB49Mk8Ot7fo6mdt0DkV11JS9LmKxKvpY+KTlrKG+i7pVCSZvVUx
+In-Reply-To: <20260120-mtkdsi-v1-1-b0f4094f3ac3@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260618_140422_310877_732B1836 
-X-CRM114-Status: GOOD (  11.94  )
+X-CRM114-CacheID: sfid-20260618_140642_629492_1DDE73C2 
+X-CRM114-Status: GOOD (  25.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,96 +102,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patchset adds a minimalistic DAC driver for the NXP mcf54415/6/7/8
-builtin DACs.
+On 1/20/26 05:36, Gary Bisson wrote:
+> Some bridges, such as the TI SN65DSI83, require the HS clock to be
+> running in order to lock its PLL during its own pre-enable function.
+> 
+> Without this change, the bridge gives the following error:
+> sn65dsi83 14-002c: failed to lock PLL, ret=-110
+> sn65dsi83 14-002c: Unexpected link status 0x01
+> sn65dsi83 14-002c: reset the pipe
+> 
+> Move the necessary functions from enable to pre-enable.
+> 
+> Signed-off-by: Gary Bisson <bisson.gary@gmail.com>
+> ---
+> Tested on Tungsten510 module with sn65dsi83 + tm070jdhg30 panel.
+> 
+> Left mtk_dsi_set_mode() as part of the enable function to mimic what is
+> done in the Samsung DSIM driver which is known to be working the TI
+> bridge.
+> ---
+>   drivers/gpu/drm/mediatek/mtk_dsi.c | 35 +++++++++++++++++------------------
+>   1 file changed, 17 insertions(+), 18 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediatek/mtk_dsi.c
+> index 0e2bcd5f67b7..b560245d1be9 100644
+> --- a/drivers/gpu/drm/mediatek/mtk_dsi.c
+> +++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
+> @@ -672,6 +672,21 @@ static s32 mtk_dsi_switch_to_cmd_mode(struct mtk_dsi *dsi, u8 irq_flag, u32 t)
+>   	}
+>   }
+>   
+> +static void mtk_dsi_lane_ready(struct mtk_dsi *dsi)
+> +{
+> +	if (!dsi->lanes_ready) {
+> +		dsi->lanes_ready = true;
+> +		mtk_dsi_rxtx_control(dsi);
+> +		usleep_range(30, 100);
+> +		mtk_dsi_reset_dphy(dsi);
+> +		mtk_dsi_clk_ulp_mode_leave(dsi);
+> +		mtk_dsi_lane0_ulp_mode_leave(dsi);
+> +		mtk_dsi_clk_hs_mode(dsi, 0);
+> +		usleep_range(1000, 3000);
+> +		/* The reaction time after pulling up the mipi signal for dsi_rx */
+> +	}
+> +}
+> +
+>   static int mtk_dsi_poweron(struct mtk_dsi *dsi)
+>   {
+>   	struct device *dev = dsi->host.dev;
+> @@ -724,6 +739,8 @@ static int mtk_dsi_poweron(struct mtk_dsi *dsi)
+>   	mtk_dsi_set_vm_cmd(dsi);
+>   	mtk_dsi_config_vdo_timing(dsi);
+>   	mtk_dsi_set_interrupt_enable(dsi);
+> +	mtk_dsi_lane_ready(dsi);
+> +	mtk_dsi_clk_hs_mode(dsi, 1);
+>   
+>   	return 0;
+>   err_disable_engine_clk:
+> @@ -769,30 +786,12 @@ static void mtk_dsi_poweroff(struct mtk_dsi *dsi)
+>   	dsi->lanes_ready = false;
+>   }
+>   
+> -static void mtk_dsi_lane_ready(struct mtk_dsi *dsi)
+> -{
+> -	if (!dsi->lanes_ready) {
+> -		dsi->lanes_ready = true;
+> -		mtk_dsi_rxtx_control(dsi);
+> -		usleep_range(30, 100);
+> -		mtk_dsi_reset_dphy(dsi);
+> -		mtk_dsi_clk_ulp_mode_leave(dsi);
+> -		mtk_dsi_lane0_ulp_mode_leave(dsi);
+> -		mtk_dsi_clk_hs_mode(dsi, 0);
+> -		usleep_range(1000, 3000);
+> -		/* The reaction time after pulling up the mipi signal for dsi_rx */
+> -	}
+> -}
+> -
+>   static void mtk_output_dsi_enable(struct mtk_dsi *dsi)
+>   {
+>   	if (dsi->enabled)
+>   		return;
+>   
+> -	mtk_dsi_lane_ready(dsi);
+>   	mtk_dsi_set_mode(dsi);
+> -	mtk_dsi_clk_hs_mode(dsi, 1);
+> -
+>   	mtk_dsi_start(dsi);
+>   
+>   	dsi->enabled = true;
+> 
+> ---
+> base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+> change-id: 20260120-mtkdsi-29e4c84e7b38
+> 
+> Best regards,
 
-Currently the driver enables the raw write only. Feature as dma, sync, or
-format are not supoprted for this version.
+Hello,
+This commit was part of 7.1 and caused a problem for me.
+I'm running postmarketOS (basically Alpine Linux) on a Lenovo C330 
+chromebook with a Mediatek MT8173 processor.
+The problem: when the display on my laptop powers off (via suspend or 
+idle, like xset dpms off) the picture does not come back when the 
+display powers back on (from resume). The display backlight comes on and 
+brightness is adjustable but there is no picture. The only fix is to reboot.
 
-Additional options suppoerted by the DAC module will be added to the driver
-later on, as needed.
+Reverting this commit and applying it as a patch on top of 7.1 addresses 
+the issue for me.
 
-The same patchset prepares the m68k/coldfire architecture to support
-the driver.
+You can view the config I'm using here: 
+https://gitlab.postmarketos.org/postmarketOS/pmaports/-/merge_requests/8819
 
-Below some basic tests done on stmark2 mcf54415-based board, voltage check
-on DAC0 and DAC1:
+Is there any sort of testing or other debugging info I can provide to 
+help address this issue?
 
-~ # cd /sys/bus/iio/devices/iio:device0/
-/sys/bus/iio/devices/iio:device0 # ls
-name               out_voltage_scale  uevent
-out_voltage_raw    subsystem
-/sys/bus/iio/devices/iio:device0 # cat name
-mcf54415
-/sys/bus/iio/devices/iio:device0 # echo 4095 > out_voltage_raw 
-/sys/bus/iio/devices/iio:device0 # echo 2048 > out_voltage_raw 
-/sys/bus/iio/devices/iio:device0 # echo 4096 > out_voltage_raw 
-sh: write error: Invalid argument
-/sys/bus/iio/devices/iio:device0 # cat out_voltage_raw 
-2048
-/sys/bus/iio/devices/iio:device0 # 
-
-Same behavior for /sys/bus/iio/devices/iio:device1.
-
-Generated a sine wave by shell script, sine shape is good.
-
-is actually in progress:
-
-Note: this patchset depends on mew mcf_read/mcf_write implementation that
-Link: https://lore.kernel.org/linux-m68k/209d0653-6386-4b64-9e15-e358f84453ab@app.fastmail.com/T/#t
-Link: https://lore.kernel.org/linux-m68k/20260506142644.3234270-2-gerg@kernel.org/
----
-Changes in v6:
-- Removed patches 1 to 8, already pushed in m68knommu for-next by
-  Greg Ungerer <gerg@linux-m68k.org>
-- keeping changelog in each single patch, where any
-- Link to v5: https://patch.msgid.link/20260610-wip-stmark2-dac-v5-0-b76b83366d5c@baylibre.com
-
-Changes in v5:
-- keeping changelog in each single patch, where any
-- Link to v4: https://patch.msgid.link/20260531-wip-stmark2-dac-v4-0-7e65ab4215dd@baylibre.com
-
-Changes in v4:
-- keeping changelog in each single patch, where any
-- Link to v3: https://patch.msgid.link/20260522-wip-stmark2-dac-v3-0-16be0ad35a67@baylibre.com
-
-Changes in v3:
-- keeping changelog in each single patch, where any
-- Link to v2: https://patch.msgid.link/20260513-wip-stmark2-dac-v2-0-fcdae50cf51a@baylibre.com
-
-Changes in v2:
-- keeping changelog in each single patch, where any
-- Link to v1: https://patch.msgid.link/20260504-wip-stmark2-dac-v1-0-874c36a4910d@baylibre.com
-
-To: Jonathan Cameron <jic23@kernel.org>
-To: David Lechner <dlechner@baylibre.com>
-To: Nuno Sá <nuno.sa@analog.com>
-To: Andy Shevchenko <andy@kernel.org>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-To: Maxime Coquelin <mcoquelin.stm32@gmail.com>
-To: Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-iio@vger.kernel.org
-Cc: linux-m68k@lists.linux-m68k.org
-Cc: linux-stm32@st-md-mailman.stormreply.com
-Cc: linux-arm-kernel@lists.infradead.org
-
----
-Angelo Dureghello (2):
-      iio: dac: add mcf54415 DAC
-      m68k: defconfig: update stmark2 defconfig
-
- arch/m68k/configs/stmark2_defconfig |   2 +
- drivers/iio/dac/Kconfig             |  11 +++
- drivers/iio/dac/Makefile            |   1 +
- drivers/iio/dac/mcf54415_dac.c      | 183 ++++++++++++++++++++++++++++++++++++
- 4 files changed, 197 insertions(+)
----
-base-commit: d43c76b1fd85cf6f9a53145ed397d10e76f99213
-change-id: 20260430-wip-stmark2-dac-7060f49dd94f
-
-Best regards,
---  
-Angelo Dureghello <adureghello@baylibre.com>
-
+Thanks,
+- Adam Thiede
 
