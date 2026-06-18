@@ -4,72 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 407C7CD98E4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 02:06:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4238CCD98F3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 02:17:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=lxdfaZr2JZcxcbENyNEoTyV9AqrlxHsPutGkwbvtR8E=; b=24C/LfcaDWUtS6eJcFT+0nv/cO
-	rX4gYizHHe6YNfM2yNun1tgbzSxZQeRqkwQnCucFL59hgnFEZq+JCZOlii3iS4OKUQO9pIL3/lKKQ
-	itmR/hTGLxp5BQLjQrAF6JX4PjtL9SLLEY1CiF6UulBFZR0KTKHxrIEo6cAbtYo1EXDN64jm4pl0/
-	QOayU/Ef/FsuSZVQYPnHoBzxXG4Fl39mcdMlbGaxNyiPAPxbKiAUkCzS7ZxWefnBpaSvw4CaXZ5l5
-	4826BCxJ39XzvsnsjQn3HcUzoDWoTMpHpCf+t2VR+OWGAfIIJMkIOO/fIvTD1z9vVanP+mhyYtSRs
-	ZMRuwVqw==;
+	bh=G6bgdFP6eQHqUIHYA197THpQx8Z+j/fXy0gSUXkLpxo=; b=05pi8WkiBSNFRwyUYDYUklGPJN
+	huzQQmwffGtmXKyURX2Uet0WdkTzbHsQtqUqjnuJwxnD49kuANasLSoHrx4cxQS34QXLZg70/F1HW
+	eDhctUCAsq5aUEUXvP9/55hxMi0AeQEQ6qqjvCHxDrCp3e29RNz3lSHMliz3eVAD3ilFLqQn59hwH
+	Mv89Y2NTFGj7TpD/LUhqWMRgEmCKIOsL9pZfWb4N+VK96mWU4bxgtWIxgPNdGnH82QhPqo23A7JWv
+	KAKg0NQiJKrbP72p3Gc0jJ9RLiRCwhaRPCnaqMRd5wYbtOX/rVNVuzmHpVWkDpSojKynR3jjCmpFL
+	6pPi1mSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa29D-00000000Vp3-0IBb;
-	Thu, 18 Jun 2026 02:06:27 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1wa2JL-00000000WGS-3jR3;
+	Thu, 18 Jun 2026 02:16:55 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa298-00000000Vod-43FX
+	id 1wa2JF-00000000WFH-086q
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 02:06:24 +0000
-X-UUID: 48f843406aba11f1aa26b74ffac11d73-20260618
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:3447f558-cb2a-4200-bc7d-813d76b2e642,IP:0,U
-	RL:0,TC:0,Content:-25,EDM:-25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACT
-	ION:release,TS:-50
-X-CID-META: VersionHash:e7bac3a,CLOUDID:40eccdfd8f6688da07010ec25dd2ccf2,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:102|850|865|898,TC:nil,Content:0|15|50,E
-	DM:2,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:
-	0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 48f843406aba11f1aa26b74ffac11d73-20260618
-X-User: zenghongling@kylinos.cn
-Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <zenghongling@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1779771522; Thu, 18 Jun 2026 10:06:14 +0800
-From: Hongling Zeng <zenghongling@kylinos.cn>
-To: vkoul@kernel.org,
-	Frank.Li@kernel.org,
-	wens@kernel.org,
-	jernej.skrabec@gmail.com,
-	samuel@sholland.org,
-	mripard@kernel.org,
-	arnd@arndb.de
-Cc: dmaengine@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
+	Thu, 18 Jun 2026 02:16:50 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2bf125989f2so2696485ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 19:16:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781749008; x=1782353808; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=G6bgdFP6eQHqUIHYA197THpQx8Z+j/fXy0gSUXkLpxo=;
+        b=sIUOIy+eNwGrDjCDUUJiRjjzYOQIMxMXS1gfav83j0Wfpycwr+/lD/Q20q6u1F2xF+
+         zXl9SpbI6iT4oatxq0HZRoquLBe2yaoJNgkDMyweFbzocqIN7Ks5AJAQSbggTqTVAeVv
+         BxNKBWSBzy+ogLqaZu+mhhpZrTY5TFlU52s7dYCdH/z4dUrh6qWQYXBh5vmNhfOxPnvP
+         dXrBBb1QaioK50v5QaHqJj5Lu634OEntLlP5qxtA2+m6859s4ozne70OxbP8MPqLBvs3
+         ma9Yu/M2VuUvRfkfmU+kB0o0IaeO5V44MgQBOCrvRcXnKeVyZjWdTy61ELb8rBtrbj5/
+         HLBQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781749008; x=1782353808;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=G6bgdFP6eQHqUIHYA197THpQx8Z+j/fXy0gSUXkLpxo=;
+        b=O7xzeOFeXq0yh2NXKaqz2x+bgNDXVYw5VoutA4NTG+scJ75WETBT/kRMRtwcvHEbrK
+         0FfSGt37WMLZ2LgLEIEimKOdlo67YokIUjMS2lktQelGvC9XgzWRGJmKUaHlzGgACBcp
+         puVu2VinWupssOQ3soDSUDZGwEBCx6JvAIjlTrOULw0aWGZPNJJ+KZv8+J1z/F3MTk8O
+         w0K2RaA/P30WfMhnn6SdSOnEmX4gtkMnMnvgopLisDqL20Tj2LA5nPwB/ZPHS1/Vx51U
+         Srykup7CEgcHBmLYTC1h2EjpF/QyHH6Tt6hsHNOGfM3VXUWgeHg7pWEiD8MyymkJIfmU
+         Tu5Q==
+X-Forwarded-Encrypted: i=1; AFNElJ/ND41F79ODlYftntZeK5pyMFWmygmWEM+uQ9B9x1J1yYIFedFJywVHYZuuTpIBIHBW/YprYYJoBAIodW3CEcqP@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz5iP5Raw5smWtAqTMATPMzGCeyV56VzSrezSNKLPdcRZu7R2N8
+	tTEApPmwGDLKs5Kmy+7BMfjbw9XU3b9/ud5xnrnCrWnALnJlWy7w9CDn
+X-Gm-Gg: AfdE7ckBnOpLo0X50nqDyeiqClW3PeUet0RaQEiaKmPuLGJ48lNn128Ggpk47p4qn21
+	ulY2HAA3J/PQwskVHVOcUVlmPH/PZN6JKZZAPUo4HXvt3mC8PcfvESSVD5dtXp4A1kVdUE0W3Te
+	joqxFY76WqIsrNT8AinFmjHINEbAclGSfRvKEp8mlOWDjZm9JzL75/TUJvLXECcxfmYPKvzCzYU
+	yTr3YkmQMOHkHVjns+PnvLnAuA8AKWmV5TeAZn8FFfe7zAQaHVxCmakl7BHziXqDjo8qgYxSbeW
+	Zn0PvGsq+0AbIguRu4+10bw7YFDQHcWZKneXXDRmjCU57kusD544WXSgx98WqSNOX2TOfzI0VgR
+	8WcCySLS5+k1LVPeZK0Chf6GeZf0yj6nCKE01lVO3Wez792QoKEJEYtnM24y6YNav45CwP1l1um
+	fPEZpV2aGFowZjghuJEOpZ0iBbjNT3ZRvS/XS0ZQlfNikM8pc7STBQnFuKufDuChLNQfubvcPlS
+	WSWFJDg0TsT8mqjp35iBeQpWLSxYEH2Ls+LqvjflBhM6Dk=
+X-Received: by 2002:a17:903:19ed:b0:2c2:50c7:58a4 with SMTP id d9443c01a7336-2c6bc223ee0mr64827035ad.22.1781749007689;
+        Wed, 17 Jun 2026 19:16:47 -0700 (PDT)
+Received: from bass-virtual-machine.. ([111.202.175.140])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c6a1878493sm61854705ad.81.2026.06.17.19.16.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 17 Jun 2026 19:16:47 -0700 (PDT)
+From: Gui-Dong Han <hanguidong02@gmail.com>
+To: sven@kernel.org,
+	kbusch@kernel.org,
+	linux-nvme@lists.infradead.org
+Cc: axboe@kernel.dk,
+	hch@lst.de,
+	sagi@grimberg.me,
+	j@jannau.net,
+	neal@gompa.dev,
+	asahi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	zhongling0719@126.com,
-	Hongling Zeng <zenghongling@kylinos.cn>,
-	Frank Li <Frank.li@oss.nxp.com>
-Subject: [PATCH v4] dmaengine: sun6i-dma: Fix memory leak in sun6i_dma_terminate_all
-Date: Thu, 18 Jun 2026 10:06:09 +0800
-Message-Id: <20260618020609.1155962-1-zenghongling@kylinos.cn>
-X-Mailer: git-send-email 2.25.1
+	linux-arm-kernel@lists.infradead.org,
+	baijiaju1990@gmail.com,
+	Gui-Dong Han <hanguidong02@gmail.com>
+Subject: [PATCH v2] nvme-apple: Use acquire/release for queue enabled state
+Date: Thu, 18 Jun 2026 10:15:43 +0800
+Message-Id: <20260618021543.3866850-1-hanguidong02@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260617_190623_358706_9BEA2DA3 
-X-CRM114-Status: GOOD (  10.16  )
+X-CRM114-CacheID: sfid-20260617_191649_076944_E99ECF04 
+X-CRM114-Status: GOOD (  15.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,64 +106,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When terminating DMA transfers, active descriptors are not properly
-reclaimed. Only cyclic descriptors were handled, leaving non-cyclic
-descriptors and their LLI chains to be permanently leaked.
+apple_nvme_init_queue() initializes queue state and then marks the queue
+enabled. The interrupt and request paths check enabled before using that
+queue state.
 
-Fix by using vchan_terminate_vdesc() which handles both cyclic and
-non-cyclic descriptors by adding them to desc_terminated queue for
-proper cleanup.
+The old wmb() after WRITE_ONCE(enabled, true) does not publish the
+earlier initialization before enabled becomes visible. Use a release store
+when enabling the queue and acquire loads when testing it.
 
-Add pchan->desc != pchan->done check to prevent double-adding completed
-descriptors, which would corrupt the list.
+Although the shutdown-side enabled accesses are not used for publishing
+queue initialization, use helpers for them as well for consistency.
 
-Fixes: 555859308723 ("dmaengine: sun6i: Add driver for the Allwinner A31 DMA controller")
-Signed-off-by: Hongling Zeng <zenghongling@kylinos.cn>
-Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
-Suggested-by: Frank Li <Frank.li@oss.nxp.com>
-
+Fixes: 5bd2927aceba ("nvme-apple: Add initial Apple SoC NVMe driver")
+Signed-off-by: Gui-Dong Han <hanguidong02@gmail.com>
 ---
- Change in v2;
- -Add pchan->desc != pchan->done check to prevent race condition
-  where completed descriptors could be double-added to desc_completed
-  list, causing list corruption
+v2:
+- Drop the old wmb(), as suggested by Keith Busch.
+- Use the queue enabled helpers in apple_nvme_disable(), as suggested by
+  Keith Busch.
+v1:
+- Found by auditing READ_ONCE() used for synchronization.
+- A similar fix can be found in 8df672bfe3ec.
 ---
- Change in v3:
- -Fix by using vchan_terminate_vdesc() as suggested by Frank Li
----
- Change in v4:
- -Correct the commit message
----
- drivers/dma/sun6i-dma.c | 13 +++++--------
- 1 file changed, 5 insertions(+), 8 deletions(-)
+ drivers/nvme/host/apple.c | 30 +++++++++++++++++++++++-------
+ 1 file changed, 23 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/dma/sun6i-dma.c b/drivers/dma/sun6i-dma.c
-index 7a79f346250a..134ae840f176 100644
---- a/drivers/dma/sun6i-dma.c
-+++ b/drivers/dma/sun6i-dma.c
-@@ -946,16 +946,13 @@ static int sun6i_dma_terminate_all(struct dma_chan *chan)
+diff --git a/drivers/nvme/host/apple.c b/drivers/nvme/host/apple.c
+index f9327feb87d0..291271c3954b 100644
+--- a/drivers/nvme/host/apple.c
++++ b/drivers/nvme/host/apple.c
+@@ -151,6 +151,23 @@ struct apple_nvme_queue {
+ 	bool enabled;
+ };
  
- 	spin_lock_irqsave(&vchan->vc.lock, flags);
++static inline bool apple_nvme_queue_enabled(struct apple_nvme_queue *q)
++{
++	/* Pair with apple_nvme_enable_queue(). */
++	return smp_load_acquire(&q->enabled);
++}
++
++static inline void apple_nvme_enable_queue(struct apple_nvme_queue *q)
++{
++	/* Publish queue initialization before setting q->enabled. */
++	smp_store_release(&q->enabled, true);
++}
++
++static inline void apple_nvme_disable_queue(struct apple_nvme_queue *q)
++{
++	WRITE_ONCE(q->enabled, false);
++}
++
+ /*
+  * The apple_nvme_iod describes the data in an I/O.
+  *
+@@ -677,7 +694,7 @@ static bool apple_nvme_handle_cq(struct apple_nvme_queue *q, bool force)
+ 	bool found;
+ 	DEFINE_IO_COMP_BATCH(iob);
  
--	if (vchan->cyclic) {
--		vchan->cyclic = false;
--		if (pchan && pchan->desc) {
--			struct virt_dma_desc *vd = &pchan->desc->vd;
--			struct virt_dma_chan *vc = &vchan->vc;
--
--			list_add_tail(&vd->node, &vc->desc_completed);
--		}
-+	if (pchan && pchan->desc && pchan->desc != pchan->done) {
-+		struct virt_dma_desc *vd = &pchan->desc->vd;
-+		
-+		vchan_terminate_vdesc(vd);
+-	if (!READ_ONCE(q->enabled) && !force)
++	if (!apple_nvme_queue_enabled(q) && !force)
+ 		return false;
+ 
+ 	found = apple_nvme_poll_cq(q, &iob);
+@@ -780,7 +797,7 @@ static blk_status_t apple_nvme_queue_rq(struct blk_mq_hw_ctx *hctx,
+ 	 * We should not need to do this, but we're still using this to
+ 	 * ensure we can drain requests on a dying queue.
+ 	 */
+-	if (unlikely(!READ_ONCE(q->enabled)))
++	if (unlikely(!apple_nvme_queue_enabled(q)))
+ 		return BLK_STS_IOERR;
+ 
+ 	if (!nvme_check_ready(&anv->ctrl, req, true))
+@@ -863,7 +880,7 @@ static void apple_nvme_disable(struct apple_nvme *anv, bool shutdown)
+ 	nvme_quiesce_io_queues(&anv->ctrl);
+ 
+ 	if (!dead) {
+-		if (READ_ONCE(anv->ioq.enabled)) {
++		if (apple_nvme_queue_enabled(&anv->ioq)) {
+ 			apple_nvme_remove_sq(anv);
+ 			apple_nvme_remove_cq(anv);
+ 		}
+@@ -887,8 +904,8 @@ static void apple_nvme_disable(struct apple_nvme *anv, bool shutdown)
+ 		nvme_disable_ctrl(&anv->ctrl, false);
  	}
  
-+	vchan->cyclic = false;
- 	vchan_get_all_descriptors(&vchan->vc, &head);
+-	WRITE_ONCE(anv->ioq.enabled, false);
+-	WRITE_ONCE(anv->adminq.enabled, false);
++	apple_nvme_disable_queue(&anv->ioq);
++	apple_nvme_disable_queue(&anv->adminq);
+ 	mb(); /* ensure that nvme_queue_rq() sees that enabled is cleared */
+ 	nvme_quiesce_admin_queue(&anv->ctrl);
  
- 	if (pchan) {
+@@ -1016,8 +1033,7 @@ static void apple_nvme_init_queue(struct apple_nvme_queue *q)
+ 		memset(q->tcbs, 0, anv->hw->max_queue_depth
+ 			* sizeof(struct apple_nvmmu_tcb));
+ 	memset(q->cqes, 0, depth * sizeof(struct nvme_completion));
+-	WRITE_ONCE(q->enabled, true);
+-	wmb(); /* ensure the first interrupt sees the initialization */
++	apple_nvme_enable_queue(q);
+ }
+ 
+ static void apple_nvme_reset_work(struct work_struct *work)
 -- 
-2.25.1
-
+2.34.1
 
