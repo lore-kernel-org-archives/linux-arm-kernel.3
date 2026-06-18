@@ -4,121 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2675CCD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 20:54:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 972F2CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 21:04:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ubCvwaEUgfi0AvZ9q1ilI0JbXEafXh235i6OwnGgZbA=; b=UROLkrMYTfmk9Bsbuo+axti+ry
-	NZ38aBBgZY0bM7gTObATqKUZiXMJFV6rg3hHQFwWq0D9Y9+AKwy994gj+EnfWLfDZ++lZOLzonhy3
-	mGY9ggjopLcjMoTWUZ3ygx3JqH1ZKlOuZVg13sEm2eHlO2BRmm3IXPIp8gS3XKu9E4E7i0cuscqK9
-	l8OheFQpsfC1J51HetA4rqYaf+C2B6+vPh4qqy04E+szomZAhK9bIzl4Q0Bp5luJRS7OLhksPrCJk
-	wYd33p6ha4TO7rgN8Mj4OZ/+m458C32yiw5cAsORItgg7HH3DbPhGOfyR5eIw41Jsdy1cV+ZbFTEV
-	74v94AMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YHTc2d1gfZfmsv6g60s61hpLDdJiCapvFvPkETN2gak=; b=mdOHwpZAsF/IT2fh64Hd5T8jV+
+	LWYPWhrN0VtUIb12Qz5iweoprbyxxL4xR+4p9PWXmE22lNwvIVueuPaJsneXYHIistTfHiEUVeT8i
+	2neLhOZv2o2R2OzmUpYtlZGdb9Yo80s9LJYFBtpTvVfuG/Zsb/42Mjt9uQCjOFVrLxjsI9UD4+ccr
+	uIwIjj8KnCh/bU6pvevVOVcSEFEsyfVKS8dUX1A9CgNDDSgI/Tgi0DMJXi6sGlVt9j0U+J4ugJArA
+	8GUZiDGvaFphqVuZ5Y64yd3bBGZO3yw/1bY3T9r5dM5mDKY1g8E9OzLkoOV1U7aa7xpEszwSI+zvk
+	21pdjTbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waJkH-00000001mxg-3ZkY;
-	Thu, 18 Jun 2026 20:53:53 +0000
-Received: from mail-westusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c001::5] helo=BYAPR05CU005.outbound.protection.outlook.com)
+	id 1waJuT-00000001nKp-3Hgy;
+	Thu, 18 Jun 2026 21:04:25 +0000
+Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waJkE-00000001mx8-0pVL
+	id 1waJuR-00000001nJo-0Agi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 20:53:51 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Gbe/EJhRRVcJ3bfKijUMUCMs0k6Z2kZqGmqcbCxlSd/Ov7dfCfoe+XfWeIu+We4Z0/pdJNnzHiERbMjGSLH3URm/X6vqbmVn0ZICwGvC7jX6PonfNNmOUDRmI5sEJNT0u8sJcnJU/exU511S5HCCcaMfxa1yFjJRMX+AQyvm9lIxBjWh+L1h8lzrdHQk+S/mDY8z9TF5tjVygmYwfd2J+oXcTJ0VlBez0PgTousJs4dWXlsrVO/IpGkbIwrfGJcKMhZadd7vv4U/6WFPGl9DwuQPzABd6jrxDJhgfhb1zFtWdGjjtma1YIWztXOqKjjwIvJ/wLsoQK2Ed7M1mYdZLA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ubCvwaEUgfi0AvZ9q1ilI0JbXEafXh235i6OwnGgZbA=;
- b=sGLKuMxNP1vdp8D2VEUUYxk/o/Tj0ZAtqCzNL0v0LSSXHQ0iNIsKSKDi37jZTIbttz6LkNkg1Xs5MoAMSoINwVilK4y97Dj6G/Ryrz/E/L83Zadvq/WGQF6/Oo5yU07kxNMRcLLZZbzOQbcpf97uph+c6uWQNEuOiCb64QsOO3+n84rjaiTZ3S46yOJxhRY310/+iWNRlKWwxBheMGXNJO6LDFznhtJryGOjFUVmQwdAZzAX6q62fd/i4C9s6YyGMTEMOzyHo+NgzMgUwCWNQYGnJMMRGQpvPCnE0jeW0dFj6gxqB03iLd9IqxarOCybjby6rRIiSgOulgN2oyV6Bw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=baidu.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ubCvwaEUgfi0AvZ9q1ilI0JbXEafXh235i6OwnGgZbA=;
- b=jVXEfq1AVjDpBOw2y5wbkd3U/5bQilCkDrhAA+IwaYMTVdMiXsMM3WygK3Y3+gzTnqHjO86WD/dnX0Hq1l9gDEvkxGpG7jTF1QGMeM6RBUA1GGPICaS3VNWh2b8Ps3+NyJkoJTpgmxGBU5ZWdAcbWHzQUEPPZIHrMCt+yqlDSneHq3Fbz6IL6tz2gcS1SGWn9M7IS0rSaRGwYvuoH/9wZe88gqhV98EaeuMvafcRtWFIZltUd8bgxMtprGap6cWOkfvP/+0xXBkpPTZ0NfXmkRP5L5FVtDsw+Xz5v6ctCAYPsmhupKHwMrrBJUWbcB4sR7C0SprmhOMMCY3KhCiB+w==
-Received: from PH8PR02CA0030.namprd02.prod.outlook.com (2603:10b6:510:2da::34)
- by BN7PPF39B20C1D8.namprd12.prod.outlook.com (2603:10b6:40f:fc02::6cc) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.18; Thu, 18 Jun
- 2026 20:53:40 +0000
-Received: from SA2PEPF000015C8.namprd03.prod.outlook.com
- (2603:10b6:510:2da:cafe::88) by PH8PR02CA0030.outlook.office365.com
- (2603:10b6:510:2da::34) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.139.14 via Frontend Transport; Thu,
- 18 Jun 2026 20:53:40 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- SA2PEPF000015C8.mail.protection.outlook.com (10.167.241.198) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.139.8 via Frontend Transport; Thu, 18 Jun 2026 20:53:39 +0000
-Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 18 Jun
- 2026 13:53:38 -0700
-Received: from drhqmail201.nvidia.com (10.126.190.180) by
- drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Thu, 18 Jun 2026 13:53:38 -0700
-Received: from nvidia.com (10.127.8.9) by mail.nvidia.com (10.126.190.180)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Thu, 18 Jun 2026 13:53:36 -0700
-Date: Thu, 18 Jun 2026 13:53:33 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: lirongqing <lirongqing@baidu.com>
-CC: Thierry Reding <thierry.reding@kernel.org>, Krishna Reddy
-	<vdumpa@nvidia.com>, Will Deacon <will@kernel.org>, Robin Murphy
-	<robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>, Jonathan Hunter
-	<jonathanh@nvidia.com>, Nate Watterson <nwatterson@nvidia.com>, "Jason
- Gunthorpe" <jgg@ziepe.ca>, <linux-tegra@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] iommu/arm-smmu-v3: Fix VCMDQ indexing in
- tegra241_vintf0_handle_error
-Message-ID: <ajRazf/zNHRf0jAN@nvidia.com>
-References: <20260618075945.2217-1-lirongqing@baidu.com>
+	Thu, 18 Jun 2026 21:04:24 +0000
+Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-5aa68d7d757so1698632e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 14:04:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1781816661; x=1782421461; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=YHTc2d1gfZfmsv6g60s61hpLDdJiCapvFvPkETN2gak=;
+        b=UQJK/J421oqXpA2kOCxTtTez8m/8ibadFy8kVFXIzTl4ONBtap5oT7wXETZeqYwb/p
+         U8YJjUR5Cvje6nJYeo+bjl8Lu1xisWGVneqvlmqvqKtQ1535sZSBnDRhiUl2QPx+E0ii
+         WKL1nA1kmuzmrLf3H6um8g/ROH8ar4RJJ7VjMufTfpl4upOnGJiPsdCK06v71DTdTDl3
+         xlqBLzyEzCqcDP2zu45qti4ftWxBLd85lLNkPbY9oTe9SOCdmZFWolwFbkaKXC0X3Aew
+         6CDMahXjeDG9fFu5b4EtRMhy3Gy4kJVDqphahMJBpzqfuGtqA88ANl6/8VuTaUzdbuGW
+         ca1A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781816661; x=1782421461;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=YHTc2d1gfZfmsv6g60s61hpLDdJiCapvFvPkETN2gak=;
+        b=cVyN280Llbnv1tc6AwbZ1IImhM4JcZSSSGXb/yzKP8+7Dvx5sNahi3OdVQqGSjhk1n
+         QHxnB0wUkJgpsrQ+XdTn6RN29zu3QlG9HAUEjOku64PB9xIjAzJ25MV0qKCH6kvgAE81
+         TaCDXlkwUzb9I5ttNYnlGCV5Sq2SUmtOcPLtt9YCTTIjFx6XudQaDuWRRpZld11b546l
+         daDM/SDJHAUYFHbp5OkY8+PxZTrKo/aVUsSj3aXRJkT1wmlQN/y2U3tNtkpAiVwQ59I4
+         w73/14rzJBfhOAHCzNMl/uqpy2ANoOKE6zYC5oX1ukEqw2oSp4MpVBPAlrD6F2XkWjRN
+         vAXw==
+X-Forwarded-Encrypted: i=1; AFNElJ+SQsx27+rzw1rjYGYNn8etCTvz8MxCKuVJCZsZEbwLOmZJkVD1HA+UMQOvn+CQAV2ExsRmlb9jbce4rDUweZA0@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx3JZn95bUL7eMcAUWeaurQBrGO43ieq6wBxQBx8CiSpUC6vdxZ
+	mFrJr0hDOkj6m5+O+KzJtLK2n4VAEACXof/FexkVlJrxnpYrt/s8uPd/vnfD1QciTJJSx+NAO8U
+	tvFZP
+X-Gm-Gg: AfdE7ckxNp7xqDBW4cbHZ5gAjDWvYKQlSsiXmaK3ys0dhW+orxjf3P22utAsqdzFXSC
+	W2iY4W8xuhpGdePYXfbhKbMfsrLX/ecaFoypYXWKVYAOSyFoTBiwGOkuiNyqcN8noPkXnaYYz9b
+	xGK8NHIZcBV71BHzfS1wrAhi9DvIcr4XT2ImCYhjDYcC2nmFZMzjfe1v42UT/Am/Rud92XRiY7S
+	594MiZjmuLV9bZuCZhMFoX0r6WSUmgYFv1+8kiVKe71Ydmn8zThcpmf08mP0XbMEO7q6X4ntBan
+	a1ztqM7E5KyEBfE6sSr8aOQLDn1mzgmCLOUMKnrovqffsY3yQA0wNHR6nTb1alU5Ys8HPAIAFec
+	k9RUk3i5JhzWZpyOJPPAz33za1Y/A4h/H47DFjwGcYhx6E3s05XbkYBxEgyUScFX2esO0ak/qGb
+	R6NpLO6dM7EBDM+5rCFZq+
+X-Received: by 2002:a05:6512:2526:b0:5aa:7aba:2a5f with SMTP id 2adb3069b0e04-5ad5627b4edmr302039e87.6.1781816660782;
+        Thu, 18 Jun 2026 14:04:20 -0700 (PDT)
+Received: from [192.168.0.2] ([2a07:7e81:7daa:0:202:c9ff:fe53:eda4])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5ad57493145sm108586e87.69.2026.06.18.14.04.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 18 Jun 2026 14:04:20 -0700 (PDT)
+From: Angelo Dureghello <adureghello@baylibre.com>
+X-Google-Original-From: Angelo Dureghello <adureghello@baylibre.org>
+Date: Thu, 18 Jun 2026 23:04:15 +0200
+Subject: [PATCH v6 1/2] iio: dac: add mcf54415 DAC
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20260618075945.2217-1-lirongqing@baidu.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA2PEPF000015C8:EE_|BN7PPF39B20C1D8:EE_
-X-MS-Office365-Filtering-Correlation-Id: 69c4650b-fe6e-4a8b-42d3-08decd7bac9e
-X-LD-Processed: 43083d15-7273-40c1-b7db-39efd9ccc17a,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|23010399003|36860700016|1800799024|376014|7416014|22082099003|11063799006|18002099003|5023799004|56012099006;
-X-Microsoft-Antispam-Message-Info: 5oMR6b/sMtTZjwyos4QznJIr4KKxZYDlQqdcybBMEjEsio0GlnhKMzJELd79PDO3E6OG2gSvEKmrxGqjShjxBI0JQ4J1/Z4On3wY9daB/F+PM5k1u3I6fy5rJwEb/kCZ2gyntnoV26KXBDahgVbj468/NNmLzgBD4ebrDkdpIMdmhC6XcJyUT2zRWLMJn6S5JiiJEbv73aJE8bDc/E+jSKvhaS727DZYXKnb5ba3iuef+kfv0L27WCe7rdP6ld6yP2xz37CN36MrF8h/pVwf7BmrFvHpK1J9zyTspoU+CwartGMGhawO4N4UGOuOfR6Sqz3EgqBH3DKSZN5K6ZUqYcNJq1zNDyj2iwSJ+XVb53y4EWSA3jKTvcVJCwY+bHhx6y8/Rnv8xM/ZLXLonrwAfQz05ximyUZWh8byCMI6dTMzeVaOtEf56KoMAmTjgdcjhVk8zIeiTmKYNRR40tgySQ6++gkXHTbD67rPMi8iQ19iBilWMCByeUHvgu6aThtw1RBvcMMdbj4lcTBAgBKpJgzUSE8sFWNdENodmzBDfl3QW2BozMcN/Jh4cGwd0eGM7RjPpceBc9U1HehTbea0MDe9gagEjLyzdJsdD7YiqLO32y8nGQRDwMpdKxEbPlL+YAIGGcquAgG5ifL+EbhcZqIaHjdVf153vH6XR1i+ww4/0G2HnfvsAd+WV0jdRjeDuyxSPLkck+MIDOrXkcPlng==
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(23010399003)(36860700016)(1800799024)(376014)(7416014)(22082099003)(11063799006)(18002099003)(5023799004)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: dyqrzZaGWJjB/2VxqNs9Ika6NcI1srvCOfZ4TyMBHPsvWgORo8df9/nWT4KKo2tmMCfUZXtA0sUM61bwiI5VHAakB3QKaqWAvSY/kOmMNDWRW1R++z13aFLZyLCW7Xj8Gok5Z/Zk29tokVJQC4jScrB4GNRpPyn6TpmcqaxjYKF0NiLcFl09jwjikUNafwdg0seSaXbspjXTZaNh6z54fzivcgHJx81c3tr4p2HrwULDAMTxi/0OHrvgDt2X8HMzw6N5ZiyL8CZhPske++eCXPK/QgZcVbevVPMK5FDSuxa6i3if3W1UWl3GrY0+9mZyg6WUwiYD6VHtzu2QqIaIv4BRHebGN8Xwtxe4e2ztjeEWXrWcS+AtsUauot5EIGS15K7HCsjjaQrB9N0a2XaoA1sqRwYsQa/yz/tDLIhNEcBgFBOszqk+pZUN1+HPWW3w
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Jun 2026 20:53:39.2404
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 69c4650b-fe6e-4a8b-42d3-08decd7bac9e
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF000015C8.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN7PPF39B20C1D8
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260618-wip-stmark2-dac-v6-1-48761dbb96d7@baylibre.com>
+References: <20260618-wip-stmark2-dac-v6-0-48761dbb96d7@baylibre.com>
+In-Reply-To: <20260618-wip-stmark2-dac-v6-0-48761dbb96d7@baylibre.com>
+To: Jonathan Cameron <jic23@kernel.org>, 
+ David Lechner <dlechner@baylibre.com>, 
+ =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
+ Andy Shevchenko <andy@kernel.org>, 
+ Geert Uytterhoeven <geert@linux-m68k.org>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: linux-kernel@vger.kernel.org, linux-iio@vger.kernel.org, 
+ linux-m68k@lists.linux-m68k.org, linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, 
+ Angelo Dureghello <adureghello@baylibre.com>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260618_135350_292691_E487F045 
-X-CRM114-Status: GOOD (  17.58  )
+X-CRM114-CacheID: sfid-20260618_140423_148472_DFE7F71D 
+X-CRM114-Status: GOOD (  28.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,68 +109,291 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 18, 2026 at 03:59:45PM +0800, lirongqing wrote:
-> From: Li RongQing <lirongqing@baidu.com>
-> 
-> In tegra241_vintf0_handle_error(), the driver loops through the
-> LVCMDQ_ERR_MAP_64(i) registers to detect and handle error flags for
-> each virtual command queue (VCMDQ).
-> 
-> However, the code erroneously uses the register-local bit offset
-> returned by __ffs64(map) directly as the global logical queue index
+From: Angelo Dureghello <adureghello@baylibre.com>
 
-Hmm, what do you mean by "global"? It should be just the logical
-index to a VINTF:
+Add basic version of mcf54415 DAC driver. DAC is embedded in the SoC and
+DAC configuration registers are mapped in the internal IO address space.
 
-  		u64 map = readq_relaxed(REG_VINTF(vintf, LVCMDQ_ERR_MAP_64(i)));
+The DAC accepts a 12-bit digital signal and creates a monotonic 12-bit
+analog output varying from DAC_VREFL to DAC_VREFH. The DAC module
+consists of a conversion unit, an output amplifier, and the associated
+digital control blocks. Default register values for DAC_VREFL and DAC_VREFH
+are respectively 0 and 0xfff, left untouched in this initial version.
 
-So, nothing "global" here.
+This initial version of the driver is minimalistic, "output raw" only, to
+be extended in the future. DMA and external sync are disabled, default mode
+is high speed, default format is right-justified 12-bit on 16-bit word.
 
-> (lidx) into the vintf->lvcmdqs[] array. When 'i' is greater than 0
-> (i.e., handling queues 64 and above), this logic incorrectly targets
-> the queues in the first block (0-63) instead of the intended queues
-> (i * 64 + bit).
+Signed-off-by: Angelo Dureghello <adureghello@baylibre.com>
+---
+Changes in v2:
+- remove tests from commit message, moved to patch 0
+- remove additional blank lines
+- remove dead code and unused definitions
+- use regmap
+- add limit check on raw write
+- non functional style fixes
+- add COMPILE_TEST to Kconfig
+Changes in v3:
+- add comments where needed
+- code style changes
+- remove unneeded variables
+- use regmap_set_bits where possible
+- remove macro not needed to define a single channel
+- set up regmap to big_endian accesses for next patches that will come,
+  that will adjust ColdFire readx/writex as standard LE (links in 0/x).
+- add return value check on regmap calls
+- sashiko: remove unneeded .io_port from regmap init.
+- sashiko: add select REGMAP_MMIO in Kconfig
+Changes in v4:
+- remove unused includes
+- sashiko: return "ret" as regmap_read ret value in case of error
+- sashiko: using u32 as regmap_read value
+- use local variable in mcf54415_dac_init() for better readability
+- sashiko: check mcf54415_dac_init return value also in resume()
+Changes in v5:
+- commit syntax fixes
+- minor code style fixes
+- use include <linux/type.h>
+- removed unneeded cast
+- disable clock in case of DAC init error
+- use unsigned int for regmap_read and GENMASK for masking 12 bits
+- add id table to match "mcfdac" platform device name
+Changes in v6:
+- removed pm ops, can't be tested for mcf54415 with mmu enabled
+- Kconfig desc line rewrap
+- minor coding style fixes
+---
+ drivers/iio/dac/Kconfig        |  11 +++
+ drivers/iio/dac/Makefile       |   1 +
+ drivers/iio/dac/mcf54415_dac.c | 183 +++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 195 insertions(+)
 
-This should not be reachable: kernel limits num_lvcmdqs_per_vintf
-to 2, covered by the first 64-bit map (i=0); in other words, that
-"'i' is greater than 0" shouldn't happen.
-
-> This leads to handling errors on the wrong VCMDQ
-> structures and clearing the wrong hardware error status.
-
-Neither should this.
-
-So, I don't think this "bug" requires a separate patch to fix.
-
-With that being said, I have prepared a series of VCMDQ patches,
-which I plan to send on rc1. And it does cover this part for a
-defensive enhancement:
-
-@@ -352,13 +352,20 @@ static void tegra241_vintf0_handle_error(struct tegra241_vintf *vintf)
- 		u64 map = readq_relaxed(REG_VINTF(vintf, LVCMDQ_ERR_MAP_64(i)));
+diff --git a/drivers/iio/dac/Kconfig b/drivers/iio/dac/Kconfig
+index cd4870b65415..b23078c8986a 100644
+--- a/drivers/iio/dac/Kconfig
++++ b/drivers/iio/dac/Kconfig
+@@ -516,6 +516,17 @@ config MAX5821
+ 	  Say yes here to build support for Maxim MAX5821
+ 	  10 bits DAC.
  
- 		while (map) {
--			unsigned long lidx = __ffs64(map);
--			struct tegra241_vcmdq *vcmdq = vintf->lvcmdqs[lidx];
--			u32 gerror = readl_relaxed(REG_VCMDQ_PAGE0(vcmdq, GERROR));
-+			unsigned long map_bit = __ffs64(map);
-+			unsigned long lidx = 64 * i + map_bit;
-+			struct tegra241_vcmdq *vcmdq;
-+			u32 gerror;
- 
-+			map &= ~BIT_ULL(map_bit);
++config MCF54415_DAC
++	tristate "NXP MCF54415 DAC driver"
++	depends on M5441x || COMPILE_TEST
++	select REGMAP_MMIO
++	help
++	  Say yes here if you want to build support for NXP ColdFire
++	  MCF54415/6/7/8 12-bit DAC module.
 +
-+			vcmdq = vintf->lvcmdqs[lidx];
-+			if (!vcmdq)
-+				continue;
++	  To compile this driver as a module, choose M here: the module
++	  will be called mcf54415_dac.
 +
-+			gerror = readl_relaxed(REG_VCMDQ_PAGE0(vcmdq, GERROR));
- 			__arm_smmu_cmdq_skip_err(&vintf->cmdqv->smmu, &vcmdq->cmdq);
- 			writel(gerror, REG_VCMDQ_PAGE0(vcmdq, GERRORN));
--			map &= ~BIT_ULL(lidx);
- 		}
- 	}
- }
+ config MCP4725
+ 	tristate "MCP4725/6 DAC driver"
+ 	depends on I2C
+diff --git a/drivers/iio/dac/Makefile b/drivers/iio/dac/Makefile
+index 2a80bbf4e80a..1cb93e83d0eb 100644
+--- a/drivers/iio/dac/Makefile
++++ b/drivers/iio/dac/Makefile
+@@ -51,6 +51,7 @@ obj-$(CONFIG_MAX517) += max517.o
+ obj-$(CONFIG_MAX22007) += max22007.o
+ obj-$(CONFIG_MAX5522) += max5522.o
+ obj-$(CONFIG_MAX5821) += max5821.o
++obj-$(CONFIG_MCF54415_DAC) += mcf54415_dac.o
+ obj-$(CONFIG_MCP4725) += mcp4725.o
+ obj-$(CONFIG_MCP4728) += mcp4728.o
+ obj-$(CONFIG_MCP47FEB02) += mcp47feb02.o
+diff --git a/drivers/iio/dac/mcf54415_dac.c b/drivers/iio/dac/mcf54415_dac.c
+new file mode 100644
+index 000000000000..986c4c6ac727
+--- /dev/null
++++ b/drivers/iio/dac/mcf54415_dac.c
+@@ -0,0 +1,183 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * NXP mcf54415 DAC driver
++ *
++ * Copyright 2026 BayLibre - adureghello@baylibre.com
++ */
++
++#include <linux/bitfield.h>
++#include <linux/bits.h>
++#include <linux/clk.h>
++#include <linux/delay.h>
++#include <linux/err.h>
++#include <linux/io.h>
++#include <linux/mod_devicetable.h>
++#include <linux/module.h>
++#include <linux/platform_device.h>
++#include <linux/regmap.h>
++#include <linux/types.h>
++
++#include <linux/iio/iio.h>
++
++#define MCF54415_DAC_CR			0x00
++#define MCF54415_DAC_CR_PDN		BIT(0)
++#define MCF54415_DAC_CR_HSLS		BIT(6)
++#define MCF54415_DAC_CR_WMLVL		GENMASK(9, 8)
++#define MCF54415_DAC_CR_FILT		BIT(12)
++
++#define MCF54415_DAC_DATA		0x02
++
++struct mcf54415_dac {
++	struct regmap *map;
++	struct clk *clk;
++};
++
++static const struct regmap_config mcf54415_dac_regmap_config = {
++	.reg_bits = 16,
++	.reg_stride = 2,
++	.val_bits = 16,
++	.max_register = 0x0c, /* DACX_FILTCNT,  R.M. Table 30-2 */
++	.val_format_endian = REGMAP_ENDIAN_BIG,
++	.reg_format_endian = REGMAP_ENDIAN_BIG,
++};
++
++static int mcf54415_dac_init(struct mcf54415_dac *info)
++{
++	u16 val = MCF54415_DAC_CR_FILT | FIELD_PREP(MCF54415_DAC_CR_WMLVL, 1);
++	int ret;
++
++	/* Fixed defaults and enable DAC (bit 0 set to 0) */
++	ret = regmap_write(info->map, MCF54415_DAC_CR, val);
++	if (ret)
++		return ret;
++
++	/* DAC is ready after 12us, from RM table 40-3  */
++	fsleep(12);
++
++	return 0;
++}
++
++static void mcf54415_dac_exit(void *data)
++{
++	struct mcf54415_dac *info = data;
++
++	regmap_set_bits(info->map, MCF54415_DAC_CR, MCF54415_DAC_CR_PDN);
++}
++
++static const struct iio_chan_spec mcf54415_dac_iio_channel = {
++	.type = IIO_VOLTAGE,
++	.output = 1,
++	.info_mask_separate = BIT(IIO_CHAN_INFO_RAW),
++	.info_mask_shared_by_type = BIT(IIO_CHAN_INFO_SCALE),
++};
++
++static int mcf54415_read_raw(struct iio_dev *indio_dev,
++			     struct iio_chan_spec const *chan,
++			     int *val, int *val2, long mask)
++{
++	struct mcf54415_dac *info = iio_priv(indio_dev);
++	unsigned int reg;
++	int ret;
++
++	switch (mask) {
++	case IIO_CHAN_INFO_RAW:
++		ret = regmap_read(info->map, MCF54415_DAC_DATA, &reg);
++		if (ret)
++			return ret;
++		*val = reg & GENMASK(11, 0);
++		return IIO_VAL_INT;
++	case IIO_CHAN_INFO_SCALE:
++		/* Reference voltage as per ColdFire datasheet is 3.3V */
++		*val = 3300 /* mV */;
++		*val2 = 12;
++		return IIO_VAL_FRACTIONAL_LOG2;
++	default:
++		return -EINVAL;
++	}
++}
++
++static int mcf54415_write_raw(struct iio_dev *indio_dev,
++			      struct iio_chan_spec const *chan,
++			      int val, int val2, long mask)
++{
++	struct mcf54415_dac *info = iio_priv(indio_dev);
++
++	switch (mask) {
++	case IIO_CHAN_INFO_RAW:
++		/* Check based on RM 30.3.2 (DACn_DATA) reg. resolution */
++		if (val < 0 || val > 4095)
++			return -EINVAL;
++		return regmap_write(info->map, MCF54415_DAC_DATA, val);
++	default:
++		return -EINVAL;
++	}
++}
++
++static const struct iio_info mcf54415_dac_iio_info = {
++	.read_raw = &mcf54415_read_raw,
++	.write_raw = &mcf54415_write_raw,
++};
++
++static int mcf54415_dac_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct iio_dev *indio_dev;
++	struct mcf54415_dac *info;
++	void __iomem *regs;
++	int ret;
++
++	indio_dev = devm_iio_device_alloc(dev, sizeof(*info));
++	if (!indio_dev)
++		return -ENOMEM;
++
++	info = iio_priv(indio_dev);
++
++	regs = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(regs))
++		return dev_err_probe(dev, PTR_ERR(regs), "failed to get io regs\n");
++
++	info->map = devm_regmap_init_mmio(dev, regs, &mcf54415_dac_regmap_config);
++	if (IS_ERR(info->map))
++		return PTR_ERR(info->map);
++
++	info->clk = devm_clk_get_enabled(dev, "dac");
++	if (IS_ERR(info->clk))
++		return dev_err_probe(dev, PTR_ERR(info->clk), "failed getting clock\n");
++
++	platform_set_drvdata(pdev, indio_dev);
++
++	indio_dev->name = "mcf54415";
++	indio_dev->info = &mcf54415_dac_iio_info;
++	indio_dev->modes = INDIO_DIRECT_MODE;
++	indio_dev->channels = &mcf54415_dac_iio_channel;
++	indio_dev->num_channels = 1;
++
++	ret = mcf54415_dac_init(info);
++	if (ret)
++		return ret;
++
++	ret = devm_add_action_or_reset(dev, mcf54415_dac_exit, info);
++	if (ret)
++		return ret;
++
++	return devm_iio_device_register(dev, indio_dev);
++}
++
++static const struct platform_device_id mcf54415_dac_ids[] = {
++	{ .name = "mcfdac" },
++	{ }
++};
++MODULE_DEVICE_TABLE(platform, mcf54415_dac_ids);
++
++static struct platform_driver mcf54415_dac_driver = {
++	.driver = {
++		.name = "mcf54415_dac",
++	},
++	.probe = mcf54415_dac_probe,
++	.id_table = mcf54415_dac_ids,
++};
++module_platform_driver(mcf54415_dac_driver);
++
++MODULE_AUTHOR("Angelo Dureghello <angelo@kernel-space.org>");
++MODULE_DESCRIPTION("NXP MCF54415 DAC driver");
++MODULE_LICENSE("GPL");
 
-Nicolin
+-- 
+2.54.0
+
 
