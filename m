@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AA0CCD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 09:01:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 047A4CD98E2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 09:01:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vSbfsSuF8XQoOBhzJ79rNhpPjL/Yakp0GnQrnvhxx5s=; b=JDtEpwToPr4eM1frDld+lHlpeN
-	vBwxAjQiuWzOSuEH0tJzVloZi8Z6TrfykmzD/csdgvKwfCIhfh/0ywBRd1pfaGkLLa/7H1XG85bW/
-	AXqoxZ4JYQFB3fCxY9a1EycztY46IX8Ux16LNvV/vHHCVnswWgf959uLsYBySwjA8EY8sV/pEUrHv
-	pIo+g90VAuDQVPYLQPtufY6tywfkXKARHQ7PdSw9Fka3MwXXoig4cFDytihvGL75jwFdhuAx7xYgz
-	3mANxxZUS6SlEX7n89hqI3Ujl65AQFtMeLD1lEqoF4RibXh8Z7oiPOmHzUJn8N4dCxzFBQ/ozQUUE
-	+U4zQ8Mw==;
+	bh=Qac8FDS3yeT2+4VM8TKuhIc6uI5EZlyUNr1jGR9SzEs=; b=CIkCP8tNCl23IeAKqTh3Ue3wXR
+	Oj6/VuqYGbU5JizAQY8Yt7xptsmbXlmaD7EF3FPgGYEVcpPDcOq/kcpeu32DjmlGh0tcG8mK8amhQ
+	za5Y5TBGasILPepJDp7My7vjH1odejyKxD/skFBh5TfYJfuDCIbBvFzt/KlQeyIfzcLiDuYWCTo1x
+	LMMOLnQOQeWxIpnETURyCyNWD797C/7aMVMRL+ytiLFIn5AXI1MrkiGOMrEiAjBny1Bl6Fbzi3Z6r
+	A0qdG72Sth73hy3w6fIKpnrNOEQXIyLSIfwwlB7CqI7D/eKe2vgS/vpI3hquptiLqjjZblqvL/xfL
+	Z1CbrggA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa8d1-00000000tE4-0l8a;
+	id 1wa8d1-00000000tDo-0Gcc;
 	Thu, 18 Jun 2026 09:01:39 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+Received: from mail-ej1-x649.google.com ([2a00:1450:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa8cy-00000000tC3-1pVD
+	id 1wa8cx-00000000tBm-3zL8
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 18 Jun 2026 09:01:37 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-490e547f3cfso5997505e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 02:01:35 -0700 (PDT)
+Received: by mail-ej1-x649.google.com with SMTP id a640c23a62f3a-c074ac8a2ddso62636866b.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 02:01:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781773294; x=1782378094; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1781773293; x=1782378093; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=vSbfsSuF8XQoOBhzJ79rNhpPjL/Yakp0GnQrnvhxx5s=;
-        b=e4b77n8a8i36DFZD1JD8IfiVDeL+6gqpWbp8+LA089md3brY5yttE1y+ytMLXgb7ud
-         c33JAHvUULBYagsFner+z8xBI1XZ82YV27uffzX04nBwNjHVXnHQ85vOcugcjlIFur3S
-         ZgvIZbh95wN+DTMyUpAe6Q1KE80aLhHAV0HJSU4tCXoFo9WMaz6eI39S0x5K3gscZJTO
-         wKUeT6NbikIW8kyHnWQtRb4jEu2BpaVGZJ4Y5XpckK5+giugYvF1Mdb2EGowaYObwnmU
-         YmqqsuOG1CXgYf8cUBqhYL7Zxw21v8WwmBPWlDtmCX5wldJo/oasf1BoNzmdD1l8WDkO
-         6BEA==
+        bh=Qac8FDS3yeT2+4VM8TKuhIc6uI5EZlyUNr1jGR9SzEs=;
+        b=eyKiSep3YqimPA/s9GyU/N2IOxtxaHi0KFzv7nxLGQQUi21ZJQnxtIGTJoWaHKk8a6
+         YZNjibp1JlG6q9lDWk6EhYS3apl/6bp2UWGNCMjC0ysu93V64lQrerCT2kWU7+Mffg2W
+         33C2ZGYMhiu+F/GefHQb3RH4wqCEKRtllcvA9vuwGJPkOgClROoaoVVdWO3MHwUxMz8w
+         E81skuIKFdTlz+CQR6vzdhGdg/ZuLR9CdxBr+XBEa5S/14pgf76yM8Z5XFDl7sNmBJDM
+         EYNEHUHC+GA4cPvQWM0pV8MUFgOEzYGNPyUTRpyplRw9J3nAKSUjPRJ9imYzwNNDRPrE
+         NBEg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781773294; x=1782378094;
+        d=1e100.net; s=20251104; t=1781773293; x=1782378093;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=vSbfsSuF8XQoOBhzJ79rNhpPjL/Yakp0GnQrnvhxx5s=;
-        b=e7JVmR7J2pqoQY4/649B0eH1d7+7b8USch/dZVR2KvmTWIchVItiyPJxBAMjkh/J8G
-         4nQZOxKB9APYo/GGpRd9+k6AgsXvClE+2Ld7eMUgpytHLYBOhfD9SxIVILQq8qYhIo6V
-         PP59UADdhWAkoCxv40occV6Cph1+cHFr8PM9v407GHjb/+6YaIG65RaVqqXgjnpc19wb
-         GggCGNzqOdJAQUSJ8L22RiAcPi2UUjofIFRTKwm9f5mqQsCh1DFNXE/GK6MEWi31F4RD
-         loi4TTnvZDuBd+fnroM4/S4T+EXZ9Lm7GIFfSRdmu+1amIKUh1lrdCa+wfHJkTBWOk0n
-         ob6w==
-X-Forwarded-Encrypted: i=1; AFNElJ9cxS3EI/XrN7jPKAmb3ZjwBtGvYFfQHESSE21Qr37lyGPX5u8xtHglWmSPGKNMIm9pp7kzaoHb4VRSF2Tb+HYr@lists.infradead.org
-X-Gm-Message-State: AOJu0YxxVQaf4vecJ4GRYheU2ldqhQ+PIhvf4YYpzmnIvhnjoGNvpo7H
-	Q2gkXVeDQcYDYcFlYC6jztA/bkeiMmu3/bQiCdQessI/a41U2enT7TVUXi94gv1dBi/Re6uT7bZ
-	Hvw==
-X-Received: from wmim8.prod.google.com ([2002:a7b:cb88:0:b0:492:2b56:8534])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600d:6447:10b0:490:c2a3:23cf
- with SMTP id 5b1f17b1804b1-492333dfdbcmr103923175e9.34.1781773294140; Thu, 18
- Jun 2026 02:01:34 -0700 (PDT)
-Date: Thu, 18 Jun 2026 10:01:28 +0100
+        bh=Qac8FDS3yeT2+4VM8TKuhIc6uI5EZlyUNr1jGR9SzEs=;
+        b=SqVUpPlLQVzXKVfyRYXq0vnDrpbi5QQqFRJC4v+ogHnB6ttZ9XM//6Ua57ZMsvHJSC
+         whmAEt/mUo5aEx0O1CY6C25yuvF0UFCDrDqQNQ9LFtqgxc0ulNaXx83SwKSJSvoHf14n
+         1p5/cifXFaIvkmopo8PGBCy+QRzrbcwEMNHvY/VirnVw5Eb+BUbMdCqCcNdX8tJUCybJ
+         KXBHo4NSgQxNeVUVHOBuW7wIgpCXI6MRqZsmmCn4dkfNcJeY9xnsPp3vdkRAjU8TCHgY
+         Mueuz/ZslKqvRShZDdsUNjEseXCusRtua3XriJ0YUUYbZfuHKbF8gtiHHA8zHhvRkjrK
+         m1FA==
+X-Forwarded-Encrypted: i=1; AFNElJ/tqHEjjIY8+UkFFLQHzg+fN6ZyaDGfm78qgwZgUYFyLevFQr2V2g9vDuGCWguLnotsDI59l3IcO8LLHs2x6pBm@lists.infradead.org
+X-Gm-Message-State: AOJu0YyYt17as3CV8KZWiWEjX8R+vpDIcHWl67cvmne3KdpL1TppIdph
+	UZBhUxprM0lMm7WMxKUB9s5EgW3ZX1rjBXk9QNBttogZbDWDIhbFd1firYibx5CJjvHcBImAO0T
+	l2w==
+X-Received: from wrbfu2.prod.google.com ([2002:a05:6000:25e2:b0:461:e741:9a7])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a17:907:26cb:b0:bd0:df77:98bb
+ with SMTP id a640c23a62f3a-c05a1f461femr458002566b.9.1781773292698; Thu, 18
+ Jun 2026 02:01:32 -0700 (PDT)
+Date: Thu, 18 Jun 2026 10:01:27 +0100
 In-Reply-To: <20260618090128.3913688-1-tabba@google.com>
 Mime-Version: 1.0
 References: <20260618090128.3913688-1-tabba@google.com>
 X-Mailer: git-send-email 2.54.0.1189.g8c84645362-goog
-Message-ID: <20260618090128.3913688-4-tabba@google.com>
-Subject: [PATCH 3/3] KVM: arm64: Drop redundant READ_ONCE() in pkvm_hyp_vm_is_created()
+Message-ID: <20260618090128.3913688-3-tabba@google.com>
+Subject: [PATCH 2/3] KVM: arm64: Remove unreachable early checks in pkvm_init_host_vm()
 From: Fuad Tabba <tabba@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
 	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
@@ -77,8 +77,8 @@ Cc: Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>,
 	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260618_020136_557946_48239D78 
-X-CRM114-Status: GOOD (  11.77  )
+X-CRM114-CacheID: sfid-20260618_020135_993435_95834E05 
+X-CRM114-Status: GOOD (  11.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,35 +93,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-is_created is written under config_lock. Every concurrent reader is
-serialised against that write: pkvm_create_hyp_vm() under config_lock,
-and the memslot path (kvm_arch_prepare_memory_region) via slots_lock,
-which the creation writer also holds. The teardown-path accesses have no
-concurrent writer. The read is therefore serialised, and the READ_ONCE()
-is unnecessary.
+pkvm_init_host_vm() runs once from kvm_arch_init_vm(), while the VM is
+still being allocated and is not yet reachable by another thread. Both
+early checks therefore test impossible state: is_created is still false
+(it is only set on first vCPU run) and the handle is still zero (this
+function is what reserves it). Neither branch can be taken.
+
+Remove them.
 
 Signed-off-by: Fuad Tabba <tabba@google.com>
 ---
- arch/arm64/kvm/pkvm.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ arch/arm64/kvm/pkvm.c | 7 -------
+ 1 file changed, 7 deletions(-)
 
 diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-index 67b90a58fbea..008766273912 100644
+index 053e4f733e4b..67b90a58fbea 100644
 --- a/arch/arm64/kvm/pkvm.c
 +++ b/arch/arm64/kvm/pkvm.c
-@@ -185,7 +185,11 @@ static int __pkvm_create_hyp_vm(struct kvm *kvm)
+@@ -230,13 +230,6 @@ int pkvm_init_host_vm(struct kvm *kvm, unsigned long type)
+ 	int ret;
+ 	bool protected = type & KVM_VM_TYPE_ARM_PROTECTED;
  
- bool pkvm_hyp_vm_is_created(struct kvm *kvm)
- {
--	return READ_ONCE(kvm->arch.pkvm.is_created);
-+	/*
-+	 * Serialised by config_lock/slots_lock, or by VM lifecycle at
-+	 * teardown, so a plain read suffices.
-+	 */
-+	return kvm->arch.pkvm.is_created;
- }
- 
- int pkvm_create_hyp_vm(struct kvm *kvm)
+-	if (pkvm_hyp_vm_is_created(kvm))
+-		return -EINVAL;
+-
+-	/* VM is already reserved, no need to proceed. */
+-	if (kvm->arch.pkvm.handle)
+-		return 0;
+-
+ 	/* Reserve the VM in hyp and obtain a hyp handle for the VM. */
+ 	ret = kvm_call_hyp_nvhe(__pkvm_reserve_vm);
+ 	if (ret < 0)
 -- 
 2.54.0.1189.g8c84645362-goog
 
