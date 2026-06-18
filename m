@@ -4,64 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAE90CD98F8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 15:05:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1FB1CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 15:11:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=twN8ACZ9Aa/wKni6yp7we6+vMuHS1QTrgX8POUv0AIQ=; b=vnSWhU+c5jg0QmavWbiM9GYd5G
-	Adu/lx2SyhzZnakMD4Bib4k5ztGKahNEA2hY1Hv0g812jC3RZ0Hve4Inw3fHZuX4r7Tj6Dy/GGSQQ
-	LSQd76xjUtw8MZAe4YXKM5MFdmYMJ3euJ0fvv2zyWyVHF/2uRKflfEsbyoH8/62PT3MMBi5RFfrbf
-	gUjkKDkyRX5Qui+m11yQSE6EF/K39o0rAKSXkDgpDgmiTTF9ztRFjagj+nrq9h8dhVVfFtki3myX/
-	Rd8rCfxOF881jidwwLWtDiFb9hobwGvLSYjM35SRTO/O0ujte1e1jXvHeY//pjyNkQZfJv5BRRAWu
-	9nr80iMQ==;
+	bh=ysY+8CHLH/16Skn1tWHViitmkNPIIbvlsVj2rL0JMwU=; b=spi3H2l7Yftt7CTC+rev95qA4v
+	OjcAtH+OyTYapHqyn+M8xo5PAKmLisHewGFW6KeWvuhRuWDt1TzNlLFzpqUPGgHaVYc7WyLtuuXlD
+	0UaP0P0dcpfzzGdOyyzEjpqPk2weajkWD4F1e82V0R80T0joPK1H/H4rmSj9+U2BHuNA732UXIsLZ
+	ld3SHkfywUTlWbE2UbRXf30ZSFHGExuA86rzySCBqiJhXPPYNFGNSX/qnYxOqUjRXMeFx4Ojhq2MH
+	jea0+R+S+oLNN2dAQ1HrPZPUFMHumsrs4Qgw5ZYU5zkJQYNwR+bD39H87wGx2KIHjZUrpAXUdLWji
+	IywRV4cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waEJE-00000001T2E-3qLr;
-	Thu, 18 Jun 2026 15:05:36 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waEJC-00000001T1q-3XrY
+	id 1waEOb-00000001TPB-2bIE;
+	Thu, 18 Jun 2026 15:11:09 +0000
+Received: from mail-m8143.xmail.ntesmail.com ([156.224.81.43])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1waEOY-00000001TO6-1lDi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 15:05:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A90CB2BF2;
-	Thu, 18 Jun 2026 08:05:28 -0700 (PDT)
-Received: from [10.1.25.219] (XHFQ2J9959-3.cambridge.arm.com [10.1.25.219])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BFE293F62B;
-	Thu, 18 Jun 2026 08:05:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1781795133; bh=zSiCWB4wVmuwYgvliAtv1Bxz/LsfufvrGhKFPRWgIkM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=W/898hXfxrGKOb0NnixwXdgQOv9P/CxQKTFjW3YCgEetxpYkeY1TFUYkdSTjAWq0u
-	 qVVsA4mSccbwF41YvGrgM31uJD11z1aWRp7UwLyTIQeqNTAkUnuVcGZY1fX/JuhTBc
-	 647RbOuA5w6kTr7rdg0h1CSQLGlfBTrmof3aS4hQ=
-Message-ID: <402e247d-1eb9-4842-ba9a-712a3bb9b438@arm.com>
-Date: Thu, 18 Jun 2026 16:05:30 +0100
+	Thu, 18 Jun 2026 15:11:08 +0000
+Received: from PC-202605011814.localdomain (unknown [222.191.246.242])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 42eee9502;
+	Thu, 18 Jun 2026 23:10:55 +0800 (GMT+08:00)
+From: Runyu Xiao <runyu.xiao@seu.edu.cn>
+To: Linus Walleij <linusw@kernel.org>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Ludovic Desroches <ludovic.desroches@microchip.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Antonio Borneo <antonio.borneo@foss.st.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-gpio@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	jianhao.xu@seu.edu.cn,
+	runyu.xiao@seu.edu.cn
+Subject: Re: Question: pinctrl-backed GPIO set_config and gpio_chip::can_sleep
+Date: Thu, 18 Jun 2026 23:10:52 +0800
+Message-Id: <20260618151052.3984665-1-runyu.xiao@seu.edu.cn>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <CAD++jLmW3vgTFryRAL24x2TbgbR1tbhjw-nFFH3askoZfSibaQ@mail.gmail.com>
+References: <CAD++jLmW3vgTFryRAL24x2TbgbR1tbhjw-nFFH3askoZfSibaQ@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 3/6] arm64: mm: fix restoring linear map permissions
- on execmem cache clean
-Content-Language: en-GB
-To: =?UTF-8?Q?Adrian_Barna=C5=9B?= <abarnas@google.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: linux-mm@kvack.org, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, David Hildenbrand <david@kernel.org>,
- "Mike Rapoport (Microsoft)" <rppt@kernel.org>,
- Ard Biesheuvel <ardb@kernel.org>, Christoph Lameter <cl@gentwo.org>,
- Yang Shi <yang@os.amperecomputing.com>, Brendan Jackman <jackmanb@google.com>
-References: <20260611130144.1385343-1-abarnas@google.com>
- <20260611130144.1385343-4-abarnas@google.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20260611130144.1385343-4-abarnas@google.com>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9edb49020703a1kunm36f35ee6a7202
+X-HM-MType: 10
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCTB5LVkhMQhodGElMGUJISFYeHw
+	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlJSUlVSkJKVUlPTVVJT0lZV1kWGg8SFR0UWUFZT0tIVUpLSE
+	pPSExVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=gzs6lqpw8qXjSYqQdjgrqy4UbJUPryJIoyVGglA1ZVZcfxCG/eIUVOAVIzPb5PEX59uS0mPyTnv6o/4XjgTHf/Unef3VNBtVqrOhfLKbT1oN8HKDRFW0BZYcDIX/q4WC4FXp8ft1FKnO30JP/iIeQmbls/QGPs2rAlGcLiH3oi8=; s=default; c=relaxed/relaxed; d=seu.edu.cn; v=1;
+	bh=ysY+8CHLH/16Skn1tWHViitmkNPIIbvlsVj2rL0JMwU=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260618_080535_013001_C66F6550 
-X-CRM114-Status: GOOD (  21.65  )
+X-CRM114-CacheID: sfid-20260618_081106_742547_D97387A7 
+X-CRM114-Status: UNSURE (   7.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,84 +87,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/06/2026 14:01, Adrian Barnaś wrote:
-> Strip the read-only attribute from the selected memory range when
-> restoring the linear map after an execmem cache clean.
-> 
-> An execmem cache clean is performed when a cache block becomes empty
-> after unloading a module. When making the memory valid again, the linear
-> memory alias must also have its read-only attribute cleared.
-> 
-> Without this change, the linear memory alias remains read-only even
-> after the execmem cache block itself is freed, which prevents subsequent
-> allocations from writing to that memory.
-> 
-> Signed-off-by: Adrian Barnaś <abarnas@google.com>
-> ---
->  arch/arm64/mm/pageattr.c | 17 ++++++++++++++++-
->  1 file changed, 16 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
-> index 88720bbba892..eaefdf90b0d5 100644
-> --- a/arch/arm64/mm/pageattr.c
-> +++ b/arch/arm64/mm/pageattr.c
-> @@ -239,6 +239,13 @@ int set_memory_x(unsigned long addr, int numpages)
->  					__pgprot(PTE_PXN));
->  }
->  
-> +static int set_memory_default(unsigned long addr, int numpages)
-> +{
-> +	return __change_memory_common(addr, PAGE_SIZE * numpages,
-> +				      __pgprot(PTE_VALID),
-> +				      __pgprot(PTE_RDONLY));
+Hi,
 
-This is not sufficient to convert an invalid entry to valid. As well as setting
-the PTE_VALID bit, you would also need to clear the PTE_PRESENT_INVALID and set
-PTE_MAYBE_NG.
+Thanks for checking this.
 
-e.g:
+I agree that marking these memory-mapped controllers as can_sleep is too
+broad if the only sleepable part is the pinctrl range lookup.  That would
+make consumers treat otherwise MMIO-backed get/set paths as sleepable,
+which is not the contract I want to change.
 
-int set_memory_valid(unsigned long addr, int numpages, int enable)
-{
-	if (enable)
-		return __change_memory_common(addr, PAGE_SIZE * numpages,
-					__pgprot(PTE_PRESENT_VALID_KERNEL),
-					__pgprot(PTE_PRESENT_INVALID));
-
-
-> +}
-> +
->  int set_memory_valid(unsigned long addr, int numpages, int enable)
->  {
->  	if (enable)
-> @@ -362,7 +369,15 @@ int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
->  	if (!can_set_direct_map())
->  		return 0;
->  
-> -	return set_memory_valid(addr, nr, valid);
-> +	/*
-> +	 * Execmem cache uses this function to reset permissions on linear mapping
-> +	 * when freeing unused cache block. On x86 it makes memory RW which is
-> +	 * desirable. On ARM64 set_memory_valid() just change valid bit which
-> +	 * leave direct mapping read-only so use set_memory_default instead.
-> +	 */
-> +
-> +	return valid ? set_memory_default(addr, nr) :
-> +		       set_memory_valid(addr, nr, false);
-
-Surely execmem should just be using set_direct_map_default_noflush() if that's
-the behaviour it wants?
-
-I think that the current implementation of set_direct_map_default_noflush()
-doesn't undo the effects of set_memory_nx() / set_memory_x(). That might be
-worth checking?
+I will hold back the at91-pio4/stm32/sunxi can_sleep series and look at
+the pinctrl core direction instead, specifically whether
+pinctrldev_list_mutex can be replaced by a non-sleeping lock for
+pinctrl_get_device_gpio_range().  That should also line up with the GPIO
+direction callback case discussed in the other thread.
 
 Thanks,
-Ryan
-
-
->  }
->  
->  #ifdef CONFIG_DEBUG_PAGEALLOC
-
+Runyu
 
