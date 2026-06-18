@@ -4,62 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70EAACD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 06:13:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F941CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 06:42:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HkPc/71jgImUZdgRfROJckyG+AOsxAcO+4dgMgHoUDM=; b=db+efyfTWRM6VLuyP7Iz6VGTNE
-	6rYomzqtl0K2L7yw95qFKWYaqgy0hI9EndGnepQDFRji5HiqovqCWoXvHw7l4W3/FoV98oORn8zRq
-	vm9VcRHfl/BZpHj2w13/18zYQB8zfOOGk1wCmzqCP80YtbM77jBAwHDXo+6qnBSawm8X8yevYhh6t
-	UrB8udADYUMBPDDJNqfeHVIDs4KEPrueG1Og+itjB3fZcN/NrRPX4lneArQxw8yS++3urYRzvwvmo
-	0GLpcdP3bzB4ajHT8ro1OSEBgFB1Mn/9YRq8Cz6gWCoiMVysxHjBpgTj+FgT17jcdrDSnbc5vf3HC
-	32eZS3+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Uq+UrIAjX4AZwds/jvySlMBzvhIQPTWIB6Jqv3g81b4=; b=fz0BrzzA4V9hnwCHE50AThH73U
+	fGbKoqD4zq+ax2yCwVqF8pPkMI+l1ETUXiZNtqR+uCSP/zhEkbjVIQ/d14Vt0YOgrF5p1p1dPjjwY
+	BkrtS9i52jy92MWLO28OsHcSNZr6js+zPfjoOHE+DkN/5/xbukGIScmV0NUp8XMYCh94SGRMzjBqF
+	J129uIdcJnRkcT6Pn82uq6u9hXS3JxtMTAfYpN4FcNqOa4XP6Tt3PhjDT/nVZzd447UjRXIP16LTn
+	J99QuJOhb8GXq7q+DYuUS0PohxGvpz9m//8OLA8e5q1pj7pt9Zz/CAqIzWg02yra6C25TbEu/lVaa
+	BSF2n+iA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa60K-00000000gqi-2EMN;
-	Thu, 18 Jun 2026 06:13:32 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wa6Ru-00000000hgT-0iKY;
+	Thu, 18 Jun 2026 06:42:02 +0000
+Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa60J-00000000gqQ-2AJY;
-	Thu, 18 Jun 2026 06:13:31 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6398460008;
-	Thu, 18 Jun 2026 06:13:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 919D11F000E9;
-	Thu, 18 Jun 2026 06:13:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781763210;
-	bh=HkPc/71jgImUZdgRfROJckyG+AOsxAcO+4dgMgHoUDM=;
-	h=From:Date:Subject:To:Cc;
-	b=jyN63kAHB8NJnjZ2eD77LPsaMR8mKg9QspW3LgscVl8jFFbea/xk7/uKdfdhVd1SQ
-	 Obd2IHOMis2D03NHVDxE2qhTVreyYW9pie1LJA4MJmTo7axBqS8uWFSX5267yi1slT
-	 EfRVyr8oIf/uwxTMVIahphHrPBFbq8HOowI59CnCIAj7/gOnQsL32xqTWoxzxp5YlG
-	 k0aP63YpCHbbHTnv2GwTfmm0fm9D9DrkUeeUSVz1n0OCK/bfGwOp9mGpmMcVIjCVoy
-	 B4ixUEAVeaZDFBP5CcgA3Ncym03lBS6GdwrHcYoPCuxDHYKa74qbqDprF8mq6I17Nw
-	 /ix7jlMq4KmSw==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Thu, 18 Jun 2026 08:13:16 +0200
-Subject: [PATCH net] net: airoha: fix BQL underflow and UAF in shared QDMA
- TX ring
+	id 1wa6Rr-00000000hfh-0cCH
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 18 Jun 2026 06:42:00 +0000
+Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-c85b2139015so248558a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 23:41:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781764915; x=1782369715; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Uq+UrIAjX4AZwds/jvySlMBzvhIQPTWIB6Jqv3g81b4=;
+        b=ql5OVigPpEbRuGGs83PWvj1uCX2nhF51vPOCkKlKxr9ThL6J4aRuwiouOG5eLrfy2o
+         eDcKUjkCuNycd161rDKuat5izt2xJGzqpyIOcGNsT0fNQ4Ua4rdJ1elMRwJoa1FS8BUV
+         iM3OqslkgHERacgSagwXsE2eOhScXG9wjn+pJWgxZ8A9yaiJ7JQNL0mDhtGV18k9n6ag
+         pZxfG78xlY8CrIEbfwX6VZ+KfY0dJOcfqINdNee5KND61nGkrC2AM2Tl8wVyxKnycL5B
+         +/1cP3WdsTRca9ozDy+NTwjgJF+fj9JBpwkP/U2cbhNV16uN6sj1o+iq9WiNNrWNdUQU
+         Rp9w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781764915; x=1782369715;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Uq+UrIAjX4AZwds/jvySlMBzvhIQPTWIB6Jqv3g81b4=;
+        b=omfNmp78JTJ6zdwxTGRiAkyJ4AZDdnWEftpZ3wMC1qSyIMwcB+aJZfRI4IuhjKJZ/c
+         SJDAfPD0h7Xpn8aQAaVlqHwL3uUAFkOyHayBC7Gnzscu+2lv2JjvW39UxaPFcExhBvMz
+         +U7FyF1zfQkyZV6719Y2GrGv3L3sQorNbLRpR4AoWp2+hxpx5iUgsXYxEIJVrMfADwaE
+         q285hnMkbbsV+hPX4b1vCLEX+Uc/q1xHOZZMTEaOa8rURnNpLIPXk8vQmV71QZ+/sKb7
+         2lUvq1JL4kfIAm6Fzpe8aI93m4P2Verxhbla7iEKHUV/xXKurb0K0835k/308g1eYjCQ
+         egRw==
+X-Forwarded-Encrypted: i=1; AFNElJ/hx5pgbmWgADQBDKT1ESN8pqZsGbRV3PZz/L4wDmprnXnN6oZbN8ygbo0sCYXCdjzk558D0dnI+SY0H6zxVpId@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy5sIjiHMv2kZIwwa7dZjif2fFlrYzyNO7jaaQOO1ByZssortzW
+	Tfi6vqJX3nv1C9FY0RrQzbOlynyl229lxK1rxufz8B6WVgH24wF1yDkZ
+X-Gm-Gg: AfdE7ckE9GDF6UvSG/WkyUfWXjdkW2/VFc2G/mnmV/LZ9ftzkqBhGWBENpGHAPc8ZGZ
+	AhvNjU0E72yOPRamDWh71HZzyCbBCGzh/fSItdjC0xu5JkobNPgxBsLA0Uy4P/u2WZKyOvVWGuw
+	Hs7lXI+NaoSYfiEBsgrQFjN7+zERls6rFpBqs8KLVx7vD/NvnXI35g+D2UXibfSMm0gejyDh+5i
+	XhPLiXEpusDW2et/jIJr4iL444Bp6Bg+ZFUo71UOj4Wq8O+N/gJi4RnIxvgnSY4+K1deMUueMoQ
+	EvemgLUGdUmiL19qrnNjossHP2CYCUK/ANrN6ztUSJoCwG6oLsOabwWl076LoBfrIWqCOo0B1h2
+	voQq0uaGGeI4frTn4gJXnHu1/awY/SR6McJa7xhnbu+9+VJnJOHbf/+9itH355nj68yoBVcvf1v
+	RThVqaZp2tiGs=
+X-Received: by 2002:a05:6a21:4d17:b0:3b7:9aa8:3be3 with SMTP id adf61e73a8af0-3ba4d0e7999mr1744739637.2.1781764915177;
+        Wed, 17 Jun 2026 23:41:55 -0700 (PDT)
+Received: from localhost ([2001:19f0:8000:3e6e:5400:6ff:fe38:3d01])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c866325d156sm16799602a12.13.2026.06.17.23.41.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 17 Jun 2026 23:41:54 -0700 (PDT)
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Inochi Amaoto <inochiama@gmail.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Yixun Lan <dlan@kernel.org>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>
+Subject: [PATCH net] net: stmmac: dwmac-spacemit: Fix wrong ctrl register definition
+Date: Thu, 18 Jun 2026 14:41:43 +0800
+Message-ID: <20260618064143.1102179-1-inochiama@gmail.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260618-airoha-bql-fixes-v1-1-ffd2c2089518@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3LTQqAIBBA4avErBtQox+6SrTQmmogrDQiEO/e0
- PLj8RJECkwR+iJBoIcjH16gywKmzfqVkGcxGGUa1egOLYdjs+iuHRd+KeJSt87MWnV1W4FsZ6A
- /yDWApxvGnD8aCKhbZwAAAA==
-X-Change-ID: 20260618-airoha-bql-fixes-f57b2d108573
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: Wayen Yan <win847@gmail.com>, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-X-Mailer: b4 0.14.3
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260617_234159_190699_A20B55F8 
+X-CRM114-Status: GOOD (  12.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,232 +110,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When multiple netdevs share a QDMA TX ring and one device is stopped,
-netdev_tx_reset_subqueue() zeroes that device's BQL counters while its
-pending skbs remain in the shared HW TX ring. When NAPI later completes
-those skbs via netdev_tx_completed_queue(), the already-zeroed
-dql->num_queued counter underflows.
-Moreover, in the airoha_remove() path, netdevs are unregistered
-sequentially while skbs from previously unregistered netdevs may still
-reference freed net_device memory via skb->dev, causing a use-after-free
-during BQL accounting.
-Fix both issues:
-- Remove netdev_tx_reset_subqueue() from airoha_dev_stop() so pending
-  skbs are completed naturally by NAPI with proper BQL accounting.
-- Add netdev_tx_completed_queue() in airoha_qdma_cleanup_tx_queue()
-  to properly account for skbs freed during queue teardown.
-- Introduce airoha_qdma_tx_disable() to stop TX on all registered
-  netdevs for a given QDMA instance under RTNL lock.
-- Move DMA engine start/stop into probe/remove and
-  airoha_qdma_cleanup(), ensuring TX queues are cleaned up while all
-  netdevs are still registered and skb->dev is valid.
+There register layout of the phy ctrl register has something wrong,
+fix it to match the right layout
 
-Fixes: 6df0488dc9dd ("net: airoha: fix BQL accounting in airoha_qdma_cleanup_tx_queue()")
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+Fixes: 30f0ba420ed3 ("net: stmmac: Add glue layer for Spacemit K3 SoC")
+Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
 ---
- drivers/net/ethernet/airoha/airoha_eth.c | 95 ++++++++++++++++++++++++--------
- 1 file changed, 72 insertions(+), 23 deletions(-)
+ .../net/ethernet/stmicro/stmmac/dwmac-spacemit.c    | 13 ++++++++-----
+ 1 file changed, 8 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 64dde6464f3f..4d6a061cd779 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -1004,6 +1004,7 @@ static int airoha_qdma_tx_napi_poll(struct napi_struct *napi, int budget)
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-spacemit.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-spacemit.c
+index 223754cc5c79..6feffaa3ef3a 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-spacemit.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-spacemit.c
+@@ -18,10 +18,12 @@
+ #include "stmmac_platform.h"
  
- 		e = &q->entry[index];
- 		skb = e->skb;
-+		e->skb = NULL;
+ /* ctrl register bits */
+-#define CTRL_PHY_INTF_RGMII		BIT(3)
+-#define CTRL_PHY_INTF_MII		BIT(4)
+-#define CTRL_WAKE_IRQ_EN		BIT(9)
+-#define CTRL_PHY_IRQ_EN			BIT(12)
++#define CTRL_PHY_INTF_MODE		GENMASK(4, 3)
++#define CTRL_PHY_INTF_RMII		FIELD_PREP(CTRL_PHY_INTF_MODE, 0)
++#define CTRL_PHY_INTF_RGMII		FIELD_PREP(CTRL_PHY_INTF_MODE, 1)
++#define CTRL_PHY_INTF_MII		FIELD_PREP(CTRL_PHY_INTF_MODE, 3)
++#define CTRL_PHY_IRQ_EN			BIT(9)
++#define CTRL_WAKE_IRQ_EN		BIT(12)
  
- 		dma_unmap_single(eth->dev, e->dma_addr, e->dma_len,
- 				 DMA_TO_DEVICE);
-@@ -1147,6 +1148,42 @@ static int airoha_qdma_init_tx(struct airoha_qdma *qdma)
- 	return 0;
- }
+ /* dline register bits */
+ #define RGMII_RX_DLINE_EN		BIT(0)
+@@ -118,7 +120,7 @@ static void spacemit_get_interfaces(struct stmmac_priv *priv, void *bsp_priv,
  
-+static void airoha_qdma_tx_disable(struct airoha_qdma *qdma)
-+{
-+	struct airoha_eth *eth = qdma->eth;
-+	int i;
-+
-+	/* Protect netdev->reg_state and netif_tx_disable() calls. */
-+	rtnl_lock();
-+
-+	for (i = 0; i < ARRAY_SIZE(eth->ports); i++) {
-+		struct airoha_gdm_port *port = eth->ports[i];
-+		int j;
-+
-+		if (!port)
-+			continue;
-+
-+		for (j = 0; j < ARRAY_SIZE(port->devs); j++) {
-+			struct airoha_gdm_dev *dev = port->devs[j];
-+			struct net_device *netdev;
-+
-+			if (!dev)
-+				continue;
-+
-+			if (dev->qdma != qdma)
-+				continue;
-+
-+			netdev = netdev_from_priv(dev);
-+			if (netdev->reg_state != NETREG_REGISTERED)
-+				continue;
-+
-+			netif_tx_disable(netdev);
-+		}
-+	}
-+
-+	rtnl_unlock();
-+}
-+
- static void airoha_qdma_cleanup_tx_queue(struct airoha_queue *q)
+ static int spacemit_set_phy_intf_sel(void *bsp_priv, u8 phy_intf_sel)
  {
- 	struct airoha_qdma *qdma = q->qdma;
-@@ -1158,13 +1195,20 @@ static void airoha_qdma_cleanup_tx_queue(struct airoha_queue *q)
- 	for (i = 0; i < q->ndesc; i++) {
- 		struct airoha_queue_entry *e = &q->entry[i];
- 		struct airoha_qdma_desc *desc = &q->desc[i];
-+		struct sk_buff *skb = e->skb;
+-	unsigned int mask = CTRL_PHY_INTF_MII | CTRL_PHY_INTF_RGMII;
++	unsigned int mask = CTRL_PHY_INTF_MODE;
+ 	struct spacmit_dwmac *dwmac = bsp_priv;
+ 	unsigned int val = 0;
  
- 		if (!e->dma_addr)
- 			continue;
+@@ -128,6 +130,7 @@ static int spacemit_set_phy_intf_sel(void *bsp_priv, u8 phy_intf_sel)
+ 		break;
  
- 		dma_unmap_single(eth->dev, e->dma_addr, e->dma_len,
- 				 DMA_TO_DEVICE);
--		dev_kfree_skb_any(e->skb);
-+		if (skb) {
-+			struct netdev_queue *txq;
-+
-+			txq = skb_get_tx_queue(skb->dev, skb);
-+			netdev_tx_completed_queue(txq, 1, skb->len);
-+			dev_kfree_skb_any(skb);
-+		}
- 		e->dma_addr = 0;
- 		e->skb = NULL;
- 		list_add_tail(&e->list, &q->tx_list);
-@@ -1527,6 +1571,23 @@ static void airoha_qdma_cleanup(struct airoha_qdma *qdma)
- {
- 	int i;
+ 	case PHY_INTF_SEL_RMII:
++		val = CTRL_PHY_INTF_RMII;
+ 		break;
  
-+	if (test_bit(DEV_STATE_INITIALIZED, &qdma->eth->state)) {
-+		u32 status;
-+
-+		airoha_qdma_tx_disable(qdma);
-+
-+		airoha_qdma_clear(qdma, REG_QDMA_GLOBAL_CFG,
-+				  GLOBAL_CFG_TX_DMA_EN_MASK |
-+				  GLOBAL_CFG_RX_DMA_EN_MASK);
-+		if (read_poll_timeout(airoha_qdma_rr, status,
-+				      !(status & (GLOBAL_CFG_TX_DMA_BUSY_MASK |
-+						  GLOBAL_CFG_RX_DMA_BUSY_MASK)),
-+				      USEC_PER_MSEC, 50 * USEC_PER_MSEC, true,
-+				      qdma, REG_QDMA_GLOBAL_CFG))
-+			dev_warn(qdma->eth->dev,
-+				 "QDMA DMA engine busy timeout\n");
-+	}
-+
- 	for (i = 0; i < ARRAY_SIZE(qdma->q_rx); i++) {
- 		if (!qdma->q_rx[i].ndesc)
- 			continue;
-@@ -1837,9 +1898,6 @@ static int airoha_dev_open(struct net_device *netdev)
- 	}
- 	port->users++;
- 
--	airoha_qdma_set(qdma, REG_QDMA_GLOBAL_CFG,
--			GLOBAL_CFG_TX_DMA_EN_MASK |
--			GLOBAL_CFG_RX_DMA_EN_MASK);
- 	qdma->users++;
- 
- 	if (!airoha_is_lan_gdm_dev(dev) &&
-@@ -1880,12 +1938,9 @@ static int airoha_dev_stop(struct net_device *netdev)
- 	struct airoha_gdm_dev *dev = netdev_priv(netdev);
- 	struct airoha_gdm_port *port = dev->port;
- 	struct airoha_qdma *qdma = dev->qdma;
--	int i;
- 
- 	netif_tx_disable(netdev);
- 	airoha_set_vip_for_gdm_port(dev, false);
--	for (i = 0; i < netdev->num_tx_queues; i++)
--		netdev_tx_reset_subqueue(netdev, i);
- 
- 	if (--port->users)
- 		airoha_set_port_mtu(dev->eth, port);
-@@ -1893,19 +1948,7 @@ static int airoha_dev_stop(struct net_device *netdev)
- 		airoha_set_gdm_port_fwd_cfg(qdma->eth,
- 					    REG_GDM_FWD_CFG(port->id),
- 					    FE_PSE_PORT_DROP);
--
--	if (!--qdma->users) {
--		airoha_qdma_clear(qdma, REG_QDMA_GLOBAL_CFG,
--				  GLOBAL_CFG_TX_DMA_EN_MASK |
--				  GLOBAL_CFG_RX_DMA_EN_MASK);
--
--		for (i = 0; i < ARRAY_SIZE(qdma->q_tx); i++) {
--			if (!qdma->q_tx[i].ndesc)
--				continue;
--
--			airoha_qdma_cleanup_tx_queue(&qdma->q_tx[i]);
--		}
--	}
-+	qdma->users--;
- 
- 	return 0;
- }
-@@ -3413,8 +3456,12 @@ static int airoha_probe(struct platform_device *pdev)
- 	if (err)
- 		goto error_netdev_free;
- 
--	for (i = 0; i < ARRAY_SIZE(eth->qdma); i++)
-+	for (i = 0; i < ARRAY_SIZE(eth->qdma); i++) {
- 		airoha_qdma_start_napi(&eth->qdma[i]);
-+		airoha_qdma_set(&eth->qdma[i], REG_QDMA_GLOBAL_CFG,
-+				GLOBAL_CFG_TX_DMA_EN_MASK |
-+				GLOBAL_CFG_RX_DMA_EN_MASK);
-+	}
- 
- 	for_each_child_of_node(pdev->dev.of_node, np) {
- 		if (!of_device_is_compatible(np, "airoha,eth-mac"))
-@@ -3440,6 +3487,8 @@ static int airoha_probe(struct platform_device *pdev)
- 	for (i = 0; i < ARRAY_SIZE(eth->qdma); i++)
- 		airoha_qdma_stop_napi(&eth->qdma[i]);
- 
-+	airoha_hw_cleanup(eth);
-+
- 	for (i = 0; i < ARRAY_SIZE(eth->ports); i++) {
- 		struct airoha_gdm_port *port = eth->ports[i];
- 		int j;
-@@ -3461,7 +3510,6 @@ static int airoha_probe(struct platform_device *pdev)
- 		}
- 		airoha_metadata_dst_free(port);
- 	}
--	airoha_hw_cleanup(eth);
- error_netdev_free:
- 	free_netdev(eth->napi_dev);
- 	platform_set_drvdata(pdev, NULL);
-@@ -3477,6 +3525,8 @@ static void airoha_remove(struct platform_device *pdev)
- 	for (i = 0; i < ARRAY_SIZE(eth->qdma); i++)
- 		airoha_qdma_stop_napi(&eth->qdma[i]);
- 
-+	airoha_hw_cleanup(eth);
-+
- 	for (i = 0; i < ARRAY_SIZE(eth->ports); i++) {
- 		struct airoha_gdm_port *port = eth->ports[i];
- 		int j;
-@@ -3497,7 +3547,6 @@ static void airoha_remove(struct platform_device *pdev)
- 		}
- 		airoha_metadata_dst_free(port);
- 	}
--	airoha_hw_cleanup(eth);
- 
- 	free_netdev(eth->napi_dev);
- 	platform_set_drvdata(pdev, NULL);
-
----
-base-commit: 7d8297e26b4e20b5d1c3c3fe51fe81a1c7fbc823
-change-id: 20260618-airoha-bql-fixes-f57b2d108573
-
-Best regards,
+ 	case PHY_INTF_SEL_RGMII:
 -- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+2.54.0
 
 
