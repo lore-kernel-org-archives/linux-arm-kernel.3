@@ -4,115 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E57CCD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 15:37:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4823DCD98F6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 15:38:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Tm+jP+3WfoLtXaL6gn2l0sQY+Wj2XqJdxBBXikZyHQE=; b=G+X1pw/30SAszbI8cdK5UN6TRB
-	LWdqLFI5BWSx/2qKwIZvVJAHu3yLWkhrsVwkxEY9lLN2i+L/m1xQPtJ0Xh/AQIvyO6384Kt9tYPCT
-	iWV/dofz02CtMI9dpAeQqgb/noztFxnPhTcWEYFcSgllmFgGK6UXvSCwRHmyLw8599Qf+SBHYJp65
-	aBoaaSgiS0J94f+3mrZoJkRPBmdXqgykF4nW3Cvp50U6LwO9B5cVB8B+l9q3/+KN3yzdlxHZN+X40
-	Qk3qy5MqGyQwHTSfZnbn4jczia0y1pCDk5knbAFDL2Jia1o5wsgMAdR+X1jc14Nqxn6QV6sd7x6Hk
-	lfg+UTXg==;
+	bh=bLLQfSRhUG8zcGdseNMA5ZGxO/yRJx2j+5jE5Pm3w64=; b=FEFulKHSvqYhep0GKH3RVjgivS
+	lLfbrS0m2HiaCg5A2xAFtvET85Q9UFDJtguCZ899omHWGWzrHPOqnYbvzo0H4WdEWyU6FPVsWeg1T
+	wPT8Dl96NHdbDyfqCixGYdIp8H1ZITLc1Yaga/GvaBEtpAyjBi1N1TbBNqB4K4E3dj6nB5s/cZqYE
+	QCUBgzaQLTG1Wzgm07sZNQHsPtvR4zhMrfK9UYCP98qHQZrmDM92pyzAhNePksoy+tWrJ1HyByIiW
+	zUTL6meokGQ/f2y4cETqwtoxoo3qH9zpWxQYtINadvr1cx5YZXuJR+Csk79mS19zBDP7TKd5MAhOa
+	1djoAH1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waEnq-00000001Uow-2ayP;
-	Thu, 18 Jun 2026 15:37:14 +0000
-Received: from mail-qk1-x731.google.com ([2607:f8b0:4864:20::731])
+	id 1waEnK-00000001UmO-1Htv;
+	Thu, 18 Jun 2026 15:36:42 +0000
+Received: from mx0a-0016f401.pphosted.com ([67.231.148.174] helo=mx0b-0016f401.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waEnk-00000001UoX-3EGO
+	id 1waEnA-00000001Uk5-3kRd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 15:37:12 +0000
-Received: by mail-qk1-x731.google.com with SMTP id af79cd13be357-9185503e6a5so140949885a.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 08:37:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1781797027; x=1782401827; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Tm+jP+3WfoLtXaL6gn2l0sQY+Wj2XqJdxBBXikZyHQE=;
-        b=ewROTf56ukZ01tNj888vt50yLMfpiDz9V3KC5cqG1t7jk28alOfQPiX0ZjYROmXx/1
-         8rcJDGPfpOxul5F4Wfzmpf4ekXBu7oTkfXCzV5gtNOpxTsR0ULkswYXUU3VSgIp3bzB7
-         bKyVgY8sGh65X4v74R03eweZr488hSt+KI+mu+SSORfPfhxB4/rdrNPUpVZKuRnXv+6V
-         tTHz0LyeYAGQCd8d8RsCv/I1cCBIRYuhp9J/yJnDBzUP1A3hip+Id/S6cyrmWsoEL2t8
-         KJTjK4OLJY2+NpMbizqkeorsgimGSuOYFyeazffvOiZ+vUUHbwL5uctUlk8O5tStEihY
-         9eMQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781797027; x=1782401827;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Tm+jP+3WfoLtXaL6gn2l0sQY+Wj2XqJdxBBXikZyHQE=;
-        b=eetAXdtXMxADeX7neUkF/1j3hKe447MqkyBx14/YEbdX95UM5C9jovvdBVl3qpvsua
-         5d4YFnl1FuHZmBHfCBn87vmLX4mhVm1VDuDD5urxO+BJbeiCx6c5bkd5Z3k7kwm5zGIq
-         xoUQ/jo/xwQANxtrOHs7b62YARZuQiBjFaCqfFP8xEEeYga3Fx6cjYnFfuF7SqY6JQhP
-         4gfbiAcso4Rx4V1xK8JhC8/yw7/pgRQU2l0FvtCaHLXfByDx7EqMUTI+GMfRhiHS59US
-         8FBNSDxwv8PAvgo11WgO3OsJUt2tf4/Ydn/Sb09Z9VBIfYYzuH54dydVdmUppfLOPy+3
-         PUew==
-X-Forwarded-Encrypted: i=1; AFNElJ8lSxxWw8eQ0p/roQ4EQK0WPHtsDlZmRbwehLDGrsxHEWcP0rG0deOQc92N3bi0yD4j7Pxxowk61C+zRrVv/Va9@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxcb1NcffXbh3L0886KKLWgmiteOO8+pxuX2jAEywHIQGTsbjoE
-	84Xj9Z4+YABeRG4+GEzapOVoxGQWc3pXEk8bHRYj/8ynp93KV1oIK4x7GsMBw2Ufuuo=
-X-Gm-Gg: AfdE7ckInvgqJN0Mtxhtw6mwmZjAtCbxuZlq2mYjkzgeJKaKzv2rihRCA3tntR7fAhA
-	wYAtUzeDt3oJu6KCX9Dg+N7EiiLEiXdu4e99bQmMXgFypOFupgzlTuOK07z3BBDpH/2aaT6JBeV
-	S+WT1M6DbY3FAtyKE42DdSgUMTG+2PQdYxhs218FcnHdVaskTAG3GebxBJyt6sUP2kQLevDOdfd
-	93IYEwLxmNm3Z35Q+1ye78bz9EmRi8IYgUzSYu56SERhTkLEsPA/moC241pFvF76sEM67e14ew1
-	ng8nI8hkn/sUQrXdxl3+jXS0gdeYlNMFfOsySfTY4XbAbi4S/SDgEYUdMK8mi7xAbjFpkwxxuz6
-	I4AkLezsn487Sgt4DH0p7wohuWWQaJdUB4+iD/YgqomRWa+zJSvF5qVH4zZinrzl2TQgpMBeVET
-	bImX0e3GBLxV0iz/IXySnp5G2lA3lzWDA693GBB2TDFhk4ObkWLU1MQk4+AMzSoeiyUD0=
-X-Received: by 2002:a05:620a:469e:b0:915:8f64:604c with SMTP id af79cd13be357-91f082ff425mr678605385a.15.1781797026718;
-        Thu, 18 Jun 2026 08:37:06 -0700 (PDT)
-Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-91619f3c324sm2104263685a.21.2026.06.18.08.37.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 18 Jun 2026 08:37:06 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1waEnh-00000002tSw-24HO;
-	Thu, 18 Jun 2026 12:37:05 -0300
-Date: Thu, 18 Jun 2026 12:37:05 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
-Cc: Alexey Kardashevskiy <aik@amd.com>,
-	Catalin Marinas <catalin.marinas@arm.com>, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-coco@lists.linux.dev, Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>, Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
-Subject: Re: [PATCH v6 00/20] dma-mapping: Use DMA_ATTR_CC_SHARED through
- direct, pool and swiotlb paths
-Message-ID: <20260618153705.GH231643@ziepe.ca>
-References: <20260604083959.1265923-1-aneesh.kumar@kernel.org>
- <aigYbK12D8uKQvJF@arm.com>
- <20260609144746.GL2764304@ziepe.ca>
- <2ecfa1a8-6202-4319-9692-a6ffeb5a3dbf@amd.com>
- <yq5aqzm4dz25.fsf@kernel.org>
+	Thu, 18 Jun 2026 15:36:34 +0000
+Received: from pps.filterd (m0045849.ppops.net [127.0.0.1])
+	by mx0a-0016f401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65IFHlII885433;
+	Thu, 18 Jun 2026 08:36:21 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pfpt0220; bh=bLLQfSRhUG8zcGdseNMA5ZGxO
+	/yRJx2j+5jE5Pm3w64=; b=I4c+xxgBuwcOhhoC7Vm7pGdJt1TR+mvDDK4DhJYJO
+	1p/uK5TJklssUoSBAcvaqNdIvE0YAjV9CUC4+e4vAYfbhk7UZUVMOdI3PRRLPYVU
+	fN3ocTV77u2hDVDroX6zDI+xO3wvcB1q1ZkU68BC+fqgvncCugcF53+LT2heNTp+
+	1jWpjwWiqIgcxWv1l1BsVMQNZVKxMuX9pp2xVGBBFCdHHMyNjZOvG5IvLON7OTid
+	jRHihrIc6LG1JtXydBSl8rzUtBXzyJdHBdfHvwFJlSYVXlpROm+aO4x5wql/3b99
+	6RlI0d+8zhv0A0+szGvRpn5cNOGz/YufwBh6XLg+7/WKQ==
+Received: from dc6wp-exch02.marvell.com ([4.21.29.225])
+	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 4evc8th945-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 18 Jun 2026 08:36:21 -0700 (PDT)
+Received: from DC6WP-EXCH02.marvell.com (10.76.176.209) by
+ DC6WP-EXCH02.marvell.com (10.76.176.209) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.25; Thu, 18 Jun 2026 08:36:20 -0700
+Received: from maili.marvell.com (10.69.176.80) by DC6WP-EXCH02.marvell.com
+ (10.76.176.209) with Microsoft SMTP Server id 15.2.1544.25 via Frontend
+ Transport; Thu, 18 Jun 2026 08:36:20 -0700
+Received: from hyd1soter3.marvell.com (unknown [10.29.37.12])
+	by maili.marvell.com (Postfix) with ESMTP id A27243F707F;
+	Thu, 18 Jun 2026 08:36:17 -0700 (PDT)
+From: Geetha sowjanya <gakula@marvell.com>
+To: <linux-perf-users@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>
+CC: <mark.rutland@arm.com>, <will@kernel.org>, <krzk+dt@kernel.org>,
+        <gakula@marvell.com>
+Subject: [PATCH v4 2/3] perf: marvell: Add CN20K LLC-TAD PMU support
+Date: Thu, 18 Jun 2026 21:06:09 +0530
+Message-ID: <20260618153610.13649-3-gakula@marvell.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20260618153610.13649-1-gakula@marvell.com>
+References: <20260618153610.13649-1-gakula@marvell.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <yq5aqzm4dz25.fsf@kernel.org>
+Content-Type: text/plain
+X-Proofpoint-ORIG-GUID: 4fdmSmmBUZDxW8crQFlvZGI5qnF3Ty5Y
+X-Authority-Analysis: v=2.4 cv=XqrK/1F9 c=1 sm=1 tr=0 ts=6a341075 cx=c_pps
+ a=gIfcoYsirJbf48DBMSPrZA==:117 a=gIfcoYsirJbf48DBMSPrZA==:17
+ a=FelO9ux0wxsA:10 a=VkNPw1HP01LnGYTKEx00:22 a=l0iWHRpgs5sLHlkKQ1IR:22
+ a=EAYMVhzMl8SCOHhVQcBL:22 a=M5GUcnROAAAA:8 a=yk21Q0SZhpILLZZ3dkMA:9
+ a=OBjm3rFKGHvpk9ecZwUJ:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjE4MDE0NSBTYWx0ZWRfX/6SkUA4faK08
+ nop7cvzOocyaIXM05WcVw2/SfN6WWHGDWZ4TFXmEPldKdI/sY9pcKS4G4lhfwT4+1HyMbN7xGyi
+ 4AQg1Hmzmdy/MR6cHGtPuadquN8XbQCqD6Fp3+h96ymH0ZXb57Zefr/aTY3e1W14YdA+C+hK5HL
+ dtMmqAiId7S6y0IVVVBo2ZRMM9rr7NCM/nvpxbAIJhkBisuAKkxrVIaEO/aJwBK1rK4kxvHKGLL
+ d2WNOJrYgxFA8EXaR9wc4ygwBRqT55LSdWt5z+50Ur0P8Y+xqNdesnEQshUe+YBvTeqwrT9F8dT
+ Jj1WfnM7NEDDZYfcLMI/LBiXHGBq34a9FV4RUJAYXy/F1qVvwpD5Jiel4thNV74F8n/rhS4iU2/
+ 7e8OYsnReR79/6Fd5xoJ7DnA1DWbqhIVTQ0N/0jGkJvG2uZgO0D3hsAB5Hf6txvi6lJ4qcbTvBC
+ 3N4x79WjyD8G/lQQZWQ==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNjE4MDE0NSBTYWx0ZWRfXy0Qr1+DAwamk
+ gFlyQoSHG7p8Wl4yAA9l9dL551nFvIC79BSDMIpe4nR6UA5RoYIP+gSmsh2mrIvmDlGOJ+1OqNh
+ z5uMpJp/x76FEX74YtIPpr5e9P5HqMs=
+X-Proofpoint-GUID: 4fdmSmmBUZDxW8crQFlvZGI5qnF3Ty5Y
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-06-18_02,2026-06-18_03,2025-10-01_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260618_083708_824749_B0F972BC 
-X-CRM114-Status: GOOD (  25.36  )
+X-CRM114-CacheID: sfid-20260618_083632_956397_01990C72 
+X-CRM114-Status: GOOD (  24.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,64 +104,197 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 18, 2026 at 09:37:22AM +0100, Aneesh Kumar K.V wrote:
-> Alexey Kardashevskiy <aik@amd.com> writes:
-> 
-> > On 10/6/26 00:47, Jason Gunthorpe wrote:
-> >> On Tue, Jun 09, 2026 at 02:43:08PM +0100, Catalin Marinas wrote:
-> >>> On Thu, Jun 04, 2026 at 02:09:39PM +0530, Aneesh Kumar K.V (Arm) wrote:
-> >>>> This series propagates DMA_ATTR_CC_SHARED through the dma-direct,
-> >>>> dma-pool, and swiotlb paths so that encrypted and decrypted DMA buffers
-> >>>> are handled consistently.
-> >>>>
-> >>>> Today, the direct DMA path mostly relies on force_dma_unencrypted() for
-> >>>> shared/decrypted buffer handling. This series consolidates the
-> >>>> force_dma_unencrypted() checks in the top-level functions and ensures
-> >>>> that the remaining DMA interfaces use DMA attributes to make the correct
-> >>>> decisions.
-> >>>
-> >>> Please check Sashiko's reports, it has some good points:
-> >>>
-> >>> https://sashiko.dev/#/patchset/20260604083959.1265923-1-aneesh.kumar@kernel.org
-> >>>
-> >>> I think the main one is the swiotlb_tbl_map_single() changes which break
-> >>> AMD SME host support. There cc_platform_has(CC_ATTR_MEM_ENCRYPT) is true
-> >>> but force_dma_unencrypted() is false. Normally you'd not end up on this
-> >>> path but you can have swiotlb=force.
-> >> 
-> >> IMHO that's an AMD issue, not with the design of this series..
-> >> 
-> >> The series is right, a device that is !force_dma_decrypted() must be
-> >> considerd to be a trusted device and we must never place any DMA
-> >> mappings for a trusted device into shared memory.
-> >
-> > swiotlb=force forces swiotlb, not decryption.
+Add support for the LLC Tag-and-Data (TAD) PMU present in
+Marvell CN20K SoCs.
 
-If force_dma_decrypted() == true then swiotlb must allocate from a
-decrypted memory pool. It is right there in the name!
+The CN20K TAD PMU is based on the CN10K design but differs in the
+layout of PFC/PRF register offsets relative to each TAD base, and
+introduces additional events. These offsets are selected by the driver
+based on the compatible string and are not described via DT properties.
 
-The hypervisor environment should *never* set force_dma_decrypted()
-because all devices can access all hypervisor memory, up to their IOVA
-limits.
+Because of this, "marvell,cn10k-tad-pmu" cannot be used as a fallback
+for CN20K, as it would result in incorrect register programming.
 
-> > So when I try "mem_encrypt=on iommu=pt swiotlb=force" with this
-> > patchset, it fails to boot. But it boots with a hack like this:
+Add support for "marvell,cn20k-tad-pmu" by:
+  - Introducing a TAD_PMU_V3 profile with CN20K-specific register bases
+  - Extending the event map for new CN20K events
+  - Matching the PMU via OF and ACPI (MRVL000F)
 
-On the host side I expect this to cause swiotlb to allocate encrypted
-memory and bounce to it.
+Signed-off-by: Geetha sowjanya <gakula@marvell.com>
+---
 
->  		u64 dma_enc_mask = DMA_BIT_MASK(__ffs64(sme_me_mask));
->  		u64 dma_dev_mask = min_not_zero(dev->coherent_dma_mask,
->  						dev->bus_dma_limit);
-> +		/*
-> +		 * With memory encryption enabled, SWIOTLB is marked decrypted.
-> +		 * If SWIOTLB bouncing is forced, treat the device as requiring
-> +		 * decrypted DMA.
-> +		 */
+Changelog (since v2)
+--------------------
+- Validate the eventId using an appropriate mask to ensure
+  it is restricted to 8 bits.
 
-And this is more insane logic. The right fix is to allocate the
-swiotlb bounce from the *encrypted* pools when running on the
-hypervisor which requires undoing this abuse of force_dma_decrypted().
+Changelog (since v1)
+--------------------
+- Hide V3-only events on CN10K via sysfs is_visible and reject them in
+  event_init.
+- Use CN20K-specific MPAM PRF bits (MATCH_MPAMNS, partid << 10) for V3;
+  software partid is limited to nine bits so this does not collide with
+  the fixed bit at 25.
+- Reset hwc->prev_count when starting counters so reads match cleared HW.
 
-Jason
+ drivers/perf/marvell_cn10k_tad_pmu.c | 54 ++++++++++++++++++++++++++--
+ 1 file changed, 52 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/perf/marvell_cn10k_tad_pmu.c b/drivers/perf/marvell_cn10k_tad_pmu.c
+index 340be3776fe7..b73ee2f58fd4 100644
+--- a/drivers/perf/marvell_cn10k_tad_pmu.c
++++ b/drivers/perf/marvell_cn10k_tad_pmu.c
+@@ -18,11 +18,14 @@
+ 
+ #define TAD_PRF_OFFSET		0x900
+ #define TAD_PFC_OFFSET		0x800
++#define TAD_PRF_NS_OFFSET	0x30900
++#define TAD_PFC_NS_OFFSET	0x30800
+ #define TAD_PFC(base, counter)	((base) | ((u64)(counter) << 3))
+ #define TAD_PRF(base, counter)	((base) | ((u64)(counter) << 3))
+ #define TAD_PRF_CNTSEL_MASK	0xFF
+ #define TAD_PRF_MATCH_PARTID	BIT(8)
+ #define TAD_PRF_PARTID_NS	BIT(10)
++#define TAD_PRF_MATCH_MPAMNS	BIT(25)
+ /*
+  * config1: bits 0..8 MPAM partition id (including 0); bit 9 requests
+  * filtering for MPAM-capable events. All-zero config1 means no filter.
+@@ -40,6 +43,7 @@ struct tad_region {
+ enum mrvl_tad_pmu_version {
+ 	TAD_PMU_V1 = 1,
+ 	TAD_PMU_V2,
++	TAD_PMU_V3,
+ };
+ 
+ struct tad_pmu_data {
+@@ -89,8 +93,15 @@ static void tad_pmu_start_counter(struct tad_pmu *pmu,
+ 	if (use_mpam && event_idx > 0x19 && event_idx < 0x21) {
+ 		partid_filter = TAD_PRF_MATCH_PARTID | TAD_PRF_PARTID_NS |
+ 				((u64)partid << 11);
++
++		if (pdata->id == TAD_PMU_V3)
++			partid_filter = TAD_PRF_MATCH_PARTID | TAD_PRF_MATCH_MPAMNS |
++				((u64)partid << 10);
+ 	}
+ 
++	/* CN10K support events 0:24*/
++	if (pdata->id == TAD_PMU_V1 && event_idx >= 0x25)
++		return;
+ 
+ 	for (i = 0; i < pmu->region_cnt; i++) {
+ 		reg_val = event_idx & 0xFF;
+@@ -163,6 +174,7 @@ static void tad_pmu_event_counter_start(struct perf_event *event, int flags)
+ 	struct hw_perf_event *hwc = &event->hw;
+ 
+ 	hwc->state = 0;
++	local64_set(&hwc->prev_count, 0);
+ 
+ 	tad_pmu->ops->start_counter(tad_pmu, event);
+ }
+@@ -223,6 +235,8 @@ static int tad_pmu_event_init(struct perf_event *event)
+ 		if (cfg1)
+ 			return -EINVAL;
+ 	} else {
++		if (pdata->id == TAD_PMU_V1 && event_idx >= 0x25)
++			return -EINVAL;
+ 		if ((cfg1 & GENMASK(8, 0)) && !(cfg1 & TAD_PARTID_FILTER_EN))
+ 			return -EINVAL;
+ 		if (cfg1 & TAD_PARTID_FILTER_EN) {
+@@ -249,6 +263,22 @@ static ssize_t tad_pmu_event_show(struct device *dev,
+ 	return sysfs_emit(page, "event=0x%02llx\n", pmu_attr->id);
+ }
+ 
++static umode_t tad_pmu_event_attr_is_visible(struct kobject *kobj,
++					     struct attribute *attr, int unused)
++{
++	struct pmu *pmu = dev_get_drvdata(kobj_to_dev(kobj));
++	struct tad_pmu *t = to_tad_pmu(pmu);
++	struct device_attribute *da = container_of(attr, struct device_attribute,
++						   attr);
++	struct perf_pmu_events_attr *e = container_of(da, struct perf_pmu_events_attr,
++						      attr);
++	u64 id = e->id;
++
++	if (t->pdata->id != TAD_PMU_V3 && id >= 0x25)
++		return 0;
++	return attr->mode;
++}
++
+ #define TAD_PMU_EVENT_ATTR(name, config)			\
+ 	PMU_EVENT_ATTR_ID(name, tad_pmu_event_show, config)
+ 
+@@ -290,12 +320,25 @@ static struct attribute *tad_pmu_event_attrs[] = {
+ 	TAD_PMU_EVENT_ATTR(tad_dat_rd_byp, 0x22),
+ 	TAD_PMU_EVENT_ATTR(tad_ifb_occ, 0x23),
+ 	TAD_PMU_EVENT_ATTR(tad_req_occ, 0x24),
++	TAD_PMU_EVENT_ATTR(tad_req_msh_out_dtg_evict, 0x25),
++	TAD_PMU_EVENT_ATTR(tad_req_msh_out_ltg_evict, 0x26),
++	TAD_PMU_EVENT_ATTR(tad_rsp_msh_out_mpam, 0x28),
++	TAD_PMU_EVENT_ATTR(tad_replays, 0x29),
++	TAD_PMU_EVENT_ATTR(tad_req_byp0, 0x2a),
++	TAD_PMU_EVENT_ATTR(tad_req_byp1, 0x2b),
++	TAD_PMU_EVENT_ATTR(tad_txreq_byp, 0x2c),
++	TAD_PMU_EVENT_ATTR(tad_time_in_dslp, 0x2d),
++	TAD_PMU_EVENT_ATTR(tad_time_elapsed, 0x2e),
++	TAD_PMU_EVENT_ATTR(tad_req_msh_out_dss_rd_128mrg, 0x2f),
++	TAD_PMU_EVENT_ATTR(tad_req_msh_out_dss_wr_128mrg, 0x30),
++	TAD_PMU_EVENT_ATTR(tad_tot_cycle, 0xff),
+ 	NULL
+ };
+ 
+ static const struct attribute_group tad_pmu_events_attr_group = {
+ 	.name = "events",
+ 	.attrs = tad_pmu_event_attrs,
++	.is_visible = tad_pmu_event_attr_is_visible,
+ };
+ 
+ static struct attribute *ody_tad_pmu_event_attrs[] = {
+@@ -481,7 +524,7 @@ static int tad_pmu_probe(struct platform_device *pdev)
+ 		.read		= tad_pmu_event_counter_read,
+ 	};
+ 
+-	if (version == TAD_PMU_V1) {
++	if (version == TAD_PMU_V1 || version == TAD_PMU_V3) {
+ 		tad_pmu->pmu.attr_groups = tad_pmu_attr_groups;
+ 		tad_pmu->ops		 = &tad_pmu_ops;
+ 	} else {
+@@ -528,6 +571,11 @@ static const struct tad_pmu_data tad_pmu_data = {
+ 	.tad_pfc_offset = TAD_PFC_OFFSET,
+ };
+ 
++static const struct tad_pmu_data tad_pmu_cn20k_data = {
++	.id   = TAD_PMU_V3,
++	.tad_prf_offset = TAD_PRF_NS_OFFSET,
++	.tad_pfc_offset = TAD_PFC_NS_OFFSET,
++};
+ #endif
+ 
+ #ifdef CONFIG_ACPI
+@@ -541,6 +589,7 @@ static const struct tad_pmu_data tad_pmu_v2_data = {
+ #ifdef CONFIG_OF
+ static const struct of_device_id tad_pmu_of_match[] = {
+ 	{ .compatible = "marvell,cn10k-tad-pmu", .data = &tad_pmu_data },
++	{ .compatible = "marvell,cn20k-tad-pmu", .data = &tad_pmu_cn20k_data },
+ 	{},
+ };
+ #endif
+@@ -549,6 +598,7 @@ static const struct of_device_id tad_pmu_of_match[] = {
+ static const struct acpi_device_id tad_pmu_acpi_match[] = {
+ 	{"MRVL000B", (kernel_ulong_t)&tad_pmu_data},
+ 	{"MRVL000D", (kernel_ulong_t)&tad_pmu_v2_data},
++	{"MRVL000F", (kernel_ulong_t)&tad_pmu_cn20k_data},
+ 	{},
+ };
+ MODULE_DEVICE_TABLE(acpi, tad_pmu_acpi_match);
+@@ -613,6 +663,6 @@ static void __exit tad_pmu_exit(void)
+ module_init(tad_pmu_init);
+ module_exit(tad_pmu_exit);
+ 
+-MODULE_DESCRIPTION("Marvell CN10K LLC-TAD perf driver");
++MODULE_DESCRIPTION("Marvell CN10K/CN20K LLC-TAD perf driver");
+ MODULE_AUTHOR("Bhaskara Budiredla <bbudiredla@marvell.com>");
+ MODULE_LICENSE("GPL v2");
+-- 
+2.25.1
+
 
