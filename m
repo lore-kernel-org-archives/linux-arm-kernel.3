@@ -4,140 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11513CD98ED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 09:18:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6A03CD98E2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 09:21:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bDfgym60ftkrd8MyQmA93UKqpybP9KG5f8BRvuMC8mQ=; b=CE8wJBqbWq69s1/cnTHgafb/A/
-	rwiR5WnIDNoLmJjw1EwHJezdskDXVLtHuhAhiSez6G1HfAQa9439WH6Gnb6q1DQhC5xtjRl4XECoO
-	B+nNaTCkrAgD/Jwv15IE9nMjBgffFCllgJIRwOv7lXORfz8yXGthdBs7QpQbJUpNvRNr0GutDnyAy
-	RhkhqRNr7SnHU+ezT5kpJubX333RAHwgaSAOnt+XBflI7PLi2NaCXRdNliezG9Oo6VZMW8JbhrJse
-	brfziBkRFl2JXef8hKfpZiJkk9k6ILXts/x7jfjb22lxljYgikOBITeHv9MuS+lUVB6xsGU5fTCNJ
-	4iI8INcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sVRX8cTCVrBcWN6MBvdM8+S6tRfy0PKW4NWctKlaZS4=; b=DKZdFHRoUE+ABjR/Rfa5df31UK
+	fnIyeLonIg5Ky+2/NdiewA+FR+TjISTtefaj3wwZpvc/M7M1KdmqRU8IIT3qUQZNfQvrSRHQL4Ylx
+	DvesoWL7socXErGae52/umXUu2yG2TK0IvUSnp+mpOeKpbdmBnNveoYja/G857GXsNoCy/ihPYZvD
+	fMgOg4ToiN+J4s3toR4AUra9dmI3Tp7zkELNMry1NnYKQMonxxaMW/TO8+UtH9viLYtS4xkvCfl+1
+	+EVDsEBFbrj1UeptaQkBjW9hrTV/MfVT/tQoahKVwP3YYkGcCT/6vWtrWl7N5FKlNjheO/SeciEwo
+	PDQLOkug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa8tG-00000000uti-0F2Z;
-	Thu, 18 Jun 2026 09:18:26 +0000
-Received: from mail-norwayeastazon11013071.outbound.protection.outlook.com ([40.107.159.71] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1wa8wR-00000000vK3-2Yjg;
+	Thu, 18 Jun 2026 09:21:43 +0000
+Received: from out30-101.freemail.mail.aliyun.com ([115.124.30.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa8t9-00000000upk-3DmB
+	id 1wa8wO-00000000vJQ-2I5C
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 09:18:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Sm4ffQO/+ceHoUMnL8HmYZOoeoYcLlY/SnQeyDZno21Ng6KHz0GdL20/llfBUn3GExQTdE/Bhnn9DGzgPwZXpQL9ha7JFcXwp19ZTDyaFsRoRKlNWoKF3YiDIypA+5CJ19tJ+WqrJ/UXDnaiNj23v8KJ13kytsG+ZdRDbj6MbuN5CsHfcIZEtCP6Aahc1LSqFUu3CIeYcPyHdhp1DcsSC+LEVp4GYnt2QRaNzzmujuZbaI/3gJsZf+Z99alqMWKkHNikZcuZx7Z/eAbPv38nHGiREyzEUG4jeJihnZus04u+6YwKdpRPzeytcm68xGYsbhpVOZsbCIerkx30kVtzLA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bDfgym60ftkrd8MyQmA93UKqpybP9KG5f8BRvuMC8mQ=;
- b=u1XUHaU7KxomcAucDWtIQZN2b15AEyhiCJyO/qV9nbBbxRph5AiB67Pcxl+bBR6iCdV9SqIglinHUWPTtfkbVFyJfd9h3qtE7XhBxVE/DVeXRnBza+7UGyNVI8K3F4Hezpp+K0kIE8V6zheDnJxSRogxa6asy12IahyiYGgnplfPSkpljuP+fjks7R3aQ5JlzuZAWuDNsi5/EIGBMyBTqGkDH7DIz6VlfWm9BRsvGjVC82jP6G08G/+8MVGhTccChEjjm+ttOyAoY3GZqE2PUuQCifPUzHQTi3fi1CMoPoNXEZGSxm6XHzg9oKRA9PdwC7LmJSbmNemXP88VmXWoiw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bDfgym60ftkrd8MyQmA93UKqpybP9KG5f8BRvuMC8mQ=;
- b=KwPv5FN5qY5o+Yny8Mr4zDThpgflMtEkqmWN64n8L6K/8zumqRuyW90js8jioE6+nCTb445UuvstMkk36Iox7xejQZjWWzVDJ5KV950F+9HsUk8lUeLbNdt9L6O+LezkqrwV8xBq6LRr9aKwu0dx/cviLzW9wAP2r7Oh+3/c3ThpJ0RSNLKtbx0Qd6LgsOJ5nVeKXa/9NGvULNogPu4KPPEPGPt9EvkhLbvpmZ1bs71Z3Wb4BRAmisf1Qnx9mJkEYRNbYYp1Fnt56M5neK7vzXc4gk5s0yLZNy+TeRaaCbtJ/joOXnrK5E+MWwFFPU7AruViQ0DNEI5Gmjwll8L76A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8096.eurprd04.prod.outlook.com (2603:10a6:102:1c7::19)
- by GV1PR04MB10332.eurprd04.prod.outlook.com (2603:10a6:150:1ca::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.11; Thu, 18 Jun
- 2026 09:18:07 +0000
-Received: from PAXPR04MB8096.eurprd04.prod.outlook.com
- ([fe80::68be:f721:5000:3f2d]) by PAXPR04MB8096.eurprd04.prod.outlook.com
- ([fe80::68be:f721:5000:3f2d%6]) with mapi id 15.21.0139.011; Thu, 18 Jun 2026
- 09:18:07 +0000
-From: hongxing.zhu@oss.nxp.com
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	bhelgaas@google.com,
-	frank.li@nxp.com,
-	l.stach@pengutronix.de,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Cc: linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
+	Thu, 18 Jun 2026 09:21:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1781774495; h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type;
+	bh=sVRX8cTCVrBcWN6MBvdM8+S6tRfy0PKW4NWctKlaZS4=;
+	b=WLm1S8PDzW2CeeyMhkpXj5h3VlHlicaFYXL2ajpTJmL+ZLsmJFj3E3LLFBL3eMA/DVvKKH4ztREZuuYP2D92Lhgbt8AUD24a/tVwkn0e8lb+R6+faj65unO5aQQeTGziOxi0WyMPvLPyRhC9ypl/7BY/7n3V1kQPzWzm5Uu7CRY=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R901e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045133197;MF=tianruidong@linux.alibaba.com;NM=1;PH=DS;RN=28;SR=0;TI=SMTPD_---0X56USnR_1781774487;
+Received: from localhost(mailfrom:tianruidong@linux.alibaba.com fp:SMTPD_---0X56USnR_1781774487 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Thu, 18 Jun 2026 17:21:32 +0800
+From: Ruidong Tian <tianruidong@linux.alibaba.com>
+To: catalin.marinas@arm.com,
+	will@kernel.org,
+	rafael@kernel.org,
+	tony.luck@intel.com,
+	guohanjun@huawei.com,
+	mchehab@kernel.org,
+	xueshuai@linux.alibaba.com,
+	tongtiangen@huawei.com,
+	james.morse@arm.com,
+	robin.murphy@arm.com,
+	andreyknvl@gmail.com,
+	dvyukov@google.com,
+	vincenzo.frascino@arm.com,
+	mpe@ellerman.id.au,
+	npiggin@gmail.com,
+	ryabinin.a.a@gmail.com,
+	glider@google.com,
+	christophe.leroy@csgroup.eu,
+	aneesh.kumar@kernel.org,
+	naveen.n.rao@linux.ibm.com,
+	tglx@linutronix.de,
+	mingo@redhat.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-mm@kvack.org,
+	linuxppc-dev@lists.ozlabs.org,
 	linux-kernel@vger.kernel.org,
-	Richard Zhu <hongxing.zhu@nxp.com>
-Subject: [PATCH v7 2/3] arm64: dts: imx95: Add dma, intr, aer and pme interrupts for PCIe
-Date: Thu, 18 Jun 2026 17:20:59 +0800
-Message-Id: <20260618092100.3669556-3-hongxing.zhu@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260618092100.3669556-1-hongxing.zhu@oss.nxp.com>
-References: <20260618092100.3669556-1-hongxing.zhu@oss.nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI2PR01CA0023.apcprd01.prod.exchangelabs.com
- (2603:1096:4:192::17) To PAXPR04MB8096.eurprd04.prod.outlook.com
- (2603:10a6:102:1c7::19)
+	kasan-dev@googlegroups.com,
+	tianruidong@linux.alibaba.com
+Subject: [PATCH v15 0/8] arm64: add ARCH_HAS_COPY_MC support
+Date: Thu, 18 Jun 2026 17:21:14 +0800
+Message-ID: <20260618092124.3901230-1-tianruidong@linux.alibaba.com>
+X-Mailer: git-send-email 2.43.7
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8096:EE_|GV1PR04MB10332:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0970343a-e7ac-46f7-f7bc-08decd1a8261
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|366016|376014|19092799006|7416014|11063799006|921020|56012099006|6133799003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: wEOoTLANtDzilGJdZ/3BtjdW4lizl/aWDVOSsRbF9DQTUKm4zRvq/5txTyHj+m21H1yHnrV1pcXaPR/L9GIFONxRIalHHi/CZkUsCMB0X/bXW0dPMXkXXH7ot7RypgzFent4bekIrymWGxYMM88lC7f8L6Ed4D+oMSpAsXY3T9DM9FJ/i4fjkp+OGmIAwzsaIdcHNQs0xqvHkeRWZmtKwGevXIGjSP71za6Z+V1qu8YTqKAKMZbP9SXEDNlkssMb79SXg1g/DJCCBKYf8mFrEP5RJjgo+HIDxosaR+CE4727UOAQM7pl6HAzW48hWhvw1J/8DENqKGbzdpNXG0OIctXQi4Yn4/jHAd8v6TroDetUHTpWCXk6RQdhmRNw7C4I+vOeF10xsGkiT7eBczLgAYgGqevYOKL1bRxEZe07tnxfkrZ308SDCQB6GgeloEUerT8A3Cf/aqLUG084VduOmmw/H/glQ8ff5OMhqXvL/PN99XkmyUMtkqylr//7onA9V6uXTJ6kWjAHH3vY3PeBlrvMzbngT2zXiGNHeM3pUtgU86K6CiJV5U13P7ZaESFe8yY62UVth/vAUWxhAMdOgthIHD02HD4e9kG1yHqMB/ORGoM21RhpyEgsLuHV3TwAJUlIyU4GaX0yxY24CzV87LiU2D22TUIsanOqi7coP45GEHmemVbseJDVDHU6IqBjz9cMyJUNhkgHTLnsOQO1shOhhnm9+UiSNQrRUCO9PzU=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8096.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(366016)(376014)(19092799006)(7416014)(11063799006)(921020)(56012099006)(6133799003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+fsIQAKC0qWsWDYbNpMLsEOO4lqdhsNoqzSj7h52FdcVhQTxwCP76yRiP7wv?=
- =?us-ascii?Q?YQQaUKDkX2hWqOaU+gisnUbabacaK7zNmb+sfTko9wedKblPUgqqCDgFsZ+H?=
- =?us-ascii?Q?22STbUdilXgBifD6qLNYJWzQZgBPR1GNCcgjcBOFyxIDcPlTVQxsTuuqqI1K?=
- =?us-ascii?Q?cl7EH2ZsC/R3nhmmtzxefbX0QTCY6FcbzSnRBgsbq5cMBaTJsJKaX1CijrP5?=
- =?us-ascii?Q?pVFglyLnVyWxvg0a6mHnvWdRvsu0dsk1jwDTen26ZPRSDR7nS5+hIpwjp1da?=
- =?us-ascii?Q?ss9mQnQykwv+ypBv2315d8nbWMWMgvK5DRQ01vv5GpDcEOg2qJPHDYZZpo/Q?=
- =?us-ascii?Q?B195/KbPrETMAV5TKxOs0ufgEdBtCEcWyjEY5t+HRzyuNBQxRymaA4LphDvy?=
- =?us-ascii?Q?UYY6Yf6ruKSbMJQaAvtrYh4YvcM5/cOw0kEPVm8pXnNYyhffe43xcL4fPuBS?=
- =?us-ascii?Q?oZWRr4i9KquPqzHfwNHqX9lgnlmzqJIr6Hwq2ZTCmiZ/M7QbTA0ksWOZEDYt?=
- =?us-ascii?Q?DA0jF4htQ13N7Kf9ZrtYolxbGbwEqiGrA6oH9elk2kVaZLLTtHbXWT+lJUZo?=
- =?us-ascii?Q?w5BsBuHCcLhkFl2EJ9LU0kPPIrL1JyL1JRQgF2MERRxv3/XIX3FWsEbajTcD?=
- =?us-ascii?Q?WsR3rb1G1povqw5kw8QcpbD3BALNRqLysHyYUlVLSV/0h7khCNAhw/8tvz0A?=
- =?us-ascii?Q?Uer4F1dVpKUxq0ZKp+YVnmzq/k4r08ppKCQhPCs5fjW61Jzz9ENJKt63MlS+?=
- =?us-ascii?Q?D9qKQCpD7ZBWiqjzPNdNwoZ2OznY0nc/lDX+u7AdLOi86znB9WYkDb26rGKg?=
- =?us-ascii?Q?8eHqO+OSceGoeN8666gnHine92uVZyoo1Z41TKWOrerxmh0rsIjTdRUXE9tE?=
- =?us-ascii?Q?VRqyfxNnbFGO73HgLEy61lPclcwHkk+uuq25ClQd0a25zHKzT6SruHyGAz1C?=
- =?us-ascii?Q?V4BQmnYsBWHbf4qsswn8+70iX4JIKlaeHfp/s/vQjSsmWwMJBM91RoN+pDYZ?=
- =?us-ascii?Q?dmpeSQHm83luAaenmEVxXaqnePvfaz3SSFcxfRqwgaSLA2njBbYPYGdVXQDq?=
- =?us-ascii?Q?Lp5txTNN3HPfcabas/P41nWzkMzlAr6YfFS5KB5WKOnpO7Ey8HJC0P+SfPZJ?=
- =?us-ascii?Q?t2/h6I5YQTZ24TDiMs6tpPExsu+9WMA83ahVTCciVPAjc4XE/HWCLuEGkWiM?=
- =?us-ascii?Q?HjskJoXBt+etQJvmEtYjf2/HJieHKOHNLf/UD2pWl5L+00tMurRYewe6ywMw?=
- =?us-ascii?Q?5KAOtdvKvEerGLoSeGgvAD3D8YRztbeXQKAyuouWzetRvxpcfX/Ei5BiBQWq?=
- =?us-ascii?Q?w5QtMLr5xC8e/2JVLPHLd6KdLTlFDde3Bj/opW9cdl/i6rFYiIk0LvT7lGjg?=
- =?us-ascii?Q?MGaJzcwLIFI2m+QxkrToysdpPfX8TcVJ5w+C3jyp8RDm5UmeDK3e65ewhG/o?=
- =?us-ascii?Q?/cxwN0FK5j6fGT31CGO5Da7eU/+gdjwOJDKMfpfnV5kolAAjTPni0MfBZEGk?=
- =?us-ascii?Q?76u7S/G4e2siEjzYZuT8ck/NZWhK8vsudsLRceLehhurL67on3XeBPky3o2B?=
- =?us-ascii?Q?OpfpsDESf7I1zjGpFtg+QAH24CEwn+N01gUXTij2zmdspkm+uLWcSV6e2O0o?=
- =?us-ascii?Q?l72SmLTr8kac3LCxwD2ofUEJHB7Z5oY8sZrRiFt+ZLEkIcPQ52Xl3EJiRWll?=
- =?us-ascii?Q?uOGcYVTsPiV4GSWLEQKOmCmhv0dIHC3dLazVr2E0woXIvGCdMRV7ZXsBOmKx?=
- =?us-ascii?Q?+RFxb2hAe/qV8xxfBRdApt8FWXPMu0tTS3I38JWaQTudTX7zu0Wu?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0970343a-e7ac-46f7-f7bc-08decd1a8261
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8096.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Jun 2026 09:18:07.6061
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: +ZGufksleSOai6dkuwlAtDjtsu+dOZ5sXmgYpnXNCkIE8GLg+EJuhbmp9f1mZqmvjyl88TRy7Hewg/Eb/zhFypyxe0RQImgeXw1TwDaQq6ok72REncq231Deqx7ic4fs
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10332
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260618_021819_807403_FC1881BD 
-X-CRM114-Status: UNSURE (   9.38  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260618_022140_940884_FCB8A7CE 
+X-CRM114-Status: GOOD (  35.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,61 +89,304 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Richard Zhu <hongxing.zhu@nxp.com>
+This series continues Tong Tiangen's work on arm64 ARCH_HAS_COPY_MC
+support. We encounter the same problem, and from a forward-looking
+perspective, large-memory ARM machines will suffer more from this class
+of issues, which motivates us to push this feature upstream.
 
-The current PCIe device tree configuration only defines the MSI
-interrupt, which is sufficient for basic PCIe operation but limits
-advanced functionality.
+Problem
+=========
+With the increase of memory capacity and density, the probability of memory
+error also increases. The increasing size and density of server RAM in data
+centers and clouds have shown increased uncorrectable memory errors.
 
-Add the following interrupt lines to pcie0 and pcie1 nodes:
-- dma: DMA interrupt for PCIe DMA operations
-- intr: General controller events and link state changes
-- aer: Advanced Error Reporting interrupt
-- pme: Power Management Event interrupt
+Currently, more and more scenarios that can tolerate memory errors, such as
+COW[1,2,8,9], KSM copy[3], coredump copy[4], khugepaged[5,6], uaccess copy[7],
+page migration[10,11], etc.
 
-This enables enhanced PCIe features and capabilities that were
-previously unavailable due to missing interrupt definitions.
+Solution
+=========
 
-Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx95.dtsi | 16 ++++++++++++----
- 1 file changed, 12 insertions(+), 4 deletions(-)
+This patchset introduces a new processing framework on ARM64, which enables
+ARM64 to support error recovery in the above scenarios, and more scenarios
+can be expanded based on this in the future.
 
-diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
-index 3e35c956a4d7a..1a9803f967901 100644
---- a/arch/arm64/boot/dts/freescale/imx95.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
-@@ -1945,8 +1945,12 @@ pcie0: pcie@4c300000 {
- 			bus-range = <0x00 0xff>;
- 			num-lanes = <1>;
- 			num-viewport = <8>;
--			interrupts = <GIC_SPI 310 IRQ_TYPE_LEVEL_HIGH>;
--			interrupt-names = "msi";
-+			interrupts = <GIC_SPI 310 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 311 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 310 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 310 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 310 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "msi", "dma", "intr", "aer", "pme";
- 			#interrupt-cells = <1>;
- 			interrupt-map-mask = <0 0 0 0x7>;
- 			interrupt-map = <0 0 0 1 &gic 0 0 GIC_SPI 306 IRQ_TYPE_LEVEL_HIGH>,
-@@ -2020,8 +2024,12 @@ pcie1: pcie@4c380000 {
- 			bus-range = <0x00 0xff>;
- 			num-lanes = <1>;
- 			num-viewport = <8>;
--			interrupts = <GIC_SPI 316 IRQ_TYPE_LEVEL_HIGH>;
--			interrupt-names = "msi";
-+			interrupts = <GIC_SPI 316 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 317 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 316 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 316 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 316 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "msi", "dma", "intr", "aer", "pme";
- 			#interrupt-cells = <1>;
- 			interrupt-map-mask = <0 0 0 0x7>;
- 			interrupt-map = <0 0 0 1 &gic 0 0 GIC_SPI 312 IRQ_TYPE_LEVEL_HIGH>,
+In arm64, memory error handling in do_sea(), which is divided into two cases:
+ 1. If the user state consumed the memory errors, the solution is to kill
+    the user process and isolate the error page.
+ 2. If the kernel state consumed the memory errors, the solution is to
+    panic.
+
+For case 2, Undifferentiated panic may not be the optimal choice, as it can
+be handled better. In some scenarios, we can avoid panic, such as uaccess,
+if the uaccess fails due to memory error, only the user process will be
+affected, returning an error to the caller and isolating the user page with
+hardware memory errors is a better choice.
+
+[1]  commit d302c2398ba2 ("mm, hwpoison: when copy-on-write hits poison, take page offline")
+[2]  commit 1cb9dc4b475c ("mm: hwpoison: support recovery from HugePage copy-on-write faults")
+[3]  commit 6b970599e807 ("mm: hwpoison: support recovery from ksm_might_need_to_copy()")
+[4]  commit 245f09226893 ("mm: hwpoison: coredump: support recovery from dump_user_range()")
+[5]  commit 98c76c9f1ef7 ("mm/khugepaged: recover from poisoned anonymous memory")
+[6]  commit 12904d953364 ("mm/khugepaged: recover from poisoned file-backed memory")
+[7]  commit 278b917f8cb9 ("x86/mce: Add _ASM_EXTABLE_CPY for copy user access")
+[8]  commit 658be46520ce ("mm: support poison recovery from copy_present_page()")
+[9]  commit aa549f923f5e ("mm: support poison recovery from do_cow_fault()")
+[10] commit f00b295b9b61 ("fs: hugetlbfs: support poisoned recover from hugetlbfs_migrate_folio()")
+[11] commit 060913999d7a ("mm: migrate: support poisoned recover from migrate folio")
+
+------------------
+Test result:
+
+Tested on Kunpeng 920.
+
+1. copy_page(), copy_mc_page() basic function test pass, and the disassembly
+   contents remains the same before and after refactor.
+
+2. copy_to/from_user() access kernel NULL pointer raise translation fault
+   and dump error message then die(), test pass.
+
+3. Test following scenarios: copy_from_user(), get_user(), COW.
+
+   Before patched: trigger a hardware memory error then panic.
+   After  patched: trigger a hardware memory error without panic.
+
+   Testing step:
+   step1. start an user-process.
+   step2. poison(einj) the user-process's page.
+   step3: user-process access the poison page in kernel mode, then trigger SEA.
+   step4: the kernel will not panic, only the user process is killed, the poison
+          page is isolated. (before patched, the kernel will panic in do_sea())
+
+   The above tests can also be reproduced using ras-tools with extra patch[1], 
+   which provides einj-based injection and validation for all MC-safe recovery paths.
+
+   MM subsystem (hwpoison recovery via copy_mc_[user_]highpage / copy_mc_to_kernel):
+
+     einj_mem_uc cow_anon            # wp_page_copy
+     einj_mem_uc cow_anon_pinned     # copy_present_page (DMA-pinned)
+     einj_mem_uc cow_hugetlb         # hugetlb CoW
+     einj_mem_uc cow_private_filemap # do_cow_fault
+     einj_mem_uc khugepaged_anon     # MADV_COLLAPSE anon
+     einj_mem_uc khugepaged_file     # MADV_COLLAPSE file
+     einj_mem_uc move_pages_numa     # migrate_folio
+     einj_mem_uc migrate_pages_numa  # migrate_pages cross-node
+     einj_mem_uc mbind_move          # mbind MPOL_MF_MOVE
+     einj_mem_uc migrate_hugetlb     # hugetlbfs_migrate_folio
+     einj_mem_uc coredump            # dump_page_copy -> copy_mc_to_kernel
+
+   uaccess (copy_from_user direction):
+
+     einj_mem_uc pwrite_uc           # pwrite(2)
+     einj_mem_uc writev_uc           # writev(2)
+     einj_mem_uc send_uc             # send(2) AF_UNIX
+     einj_mem_uc sendmsg_uc          # sendmsg(2)
+     einj_mem_uc setsockopt_uc       # setsockopt(2)
+     einj_mem_uc netlink_send_uc     # AF_NETLINK sendto(2)
+     einj_mem_uc msgsnd_uc           # SysV msgsnd(2)
+     einj_mem_uc mq_send_uc          # POSIX mq_send(3)
+     einj_mem_uc semop_uc            # semop(2)
+     einj_mem_uc process_vm_writev_uc # process_vm_writev(2)
+
+   Repo: https://git.kernel.org/pub/scm/linux/kernel/git/aegl/ras-tools.git
+   [1] https://lore.kernel.org/all/20260617015211.3962419-1-tianruidong@linux.alibaba.com/
+
+------------------
+
+Benefits
+=========
+According to Huawei's statistics from their storage products, memory errors
+triggered in kernel-mode by COW and page cache read (uaccess) scenarios
+account for more than 50%. With this patchset deployed, all kernel panics
+caused by COW and page cache memory errors are eliminated. 
+Alibaba Cloud has also observed memory errors occurring in uaccess contexts.
+
+Since V14:
+1. Added additional recoverable scenarios (copy_present_page, do_cow_fault,
+   hugetlbfs_migrate_folio, migrate_folio) to the description, as reminded
+   by Kefeng Wang.
+2. Renamed EX_TYPE_KACCESS_ERR_ZERO_MEM_ERR to EX_TYPE_KACCESS_SEA.
+3. Applied review comments from Xueshuai Liu.
+
+Since V13:
+1. Changed MC-safe functions to return an error rather than kill the user
+   process. When a user program invokes a syscall and the kernel encounters
+   a memory error during uaccess, killing the process is unexpected; the
+   syscall should return an error.
+2. Added FEAT_MOPS support for the copy_page_mc paths.
+3. Refactored copy_page() and memcpy() on top of the shared memcpy_template,
+   reducing duplicated assembly code.
+
+Since v12:
+Thanks to the suggestions of Jonathan, Mark, and Mauro, the following modifications
+are made:
+1. Rebase to latest kernel version.
+2. Patch1, add Jonathan's and Mauro's review-by.
+3. Patch2, modified do_apei_claim_sea() according to Mark's and Jonathan's suggestions,
+   and optimized the commit message according to Mark's suggestions(Added description of
+   the impact on regular copy_to_user()).
+4. Patch3, optimized the commit message according to Mauro's suggestions and add Jonathan's
+   review-by.
+5. Patch4, modified copy_mc_user_highpage() and Optimized the commit message according to
+   Jonathan's suggestions(no functional changes).
+6. Patch5, optimized the commit message according to Mauro's suggestions.
+7. Patch4/5, FEAT_MOPS is added to the code logic. Currently, the fixup is not performed
+   on the MOPS instruction. 
+8. Remove patch6 in v12 according to Jonathan's suggestions.
+
+Since v11:
+1. Rebase to latest kernel version 6.9-rc1.
+2. Add patch 5, Since the problem described in "Since V10 Besides 3" has
+   been solved in a50026bdb867 ('iov_iter: get rid of 'copy_mc' flag').
+3. Add the benefit of applying the patch set to our company to the description of patch0.
+
+Since V10:
+ Accroding Mark's suggestion:
+ 1. Merge V10's patch2 and patch3 to V11's patch2.
+ 2. Patch2(V11): use new fixup_type for ld* in copy_to_user(), fix fatal
+    issues (NULL kernel pointeraccess) been fixup incorrectly.
+ 3. Patch2(V11): refactoring the logic of do_sea().
+ 4. Patch4(V11): Remove duplicate assembly logic and remove do_mte().
+
+ Besides:
+ 1. Patch2(V11): remove st* insn's fixup, st* generally not trigger memory error.
+ 2. Split a part of the logic of patch2(V11) to patch5(V11), for detail,
+    see patch5(V11)'s commit msg.
+ 3. Remove patch6(v10) “arm64: introduce copy_mc_to_kernel() implementation”.
+    During modification, some problems that cannot be solved in a short
+    period are found. The patch will be released after the problems are
+    solved.
+ 4. Add test result in this patch.
+ 5. Modify patchset title, do not use machine check and remove "-next".
+
+Since V9:
+ 1. Rebase to latest kernel version 6.8-rc2.
+ 2. Add patch 6/6 to support copy_mc_to_kernel().
+
+Since V8:
+ 1. Rebase to latest kernel version and fix topo in some of the patches.
+ 2. According to the suggestion of Catalin, I attempted to modify the
+    return value of function copy_mc_[user]_highpage() to bytes not copied.
+    During the modification process, I found that it would be more
+    reasonable to return -EFAULT when copy error occurs (referring to the
+    newly added patch 4). 
+
+    For ARM64, the implementation of copy_mc_[user]_highpage() needs to
+    consider MTE. Considering the scenario where data copying is successful
+    but the MTE tag copying fails, it is also not reasonable to return
+    bytes not copied.
+ 3. Considering the recent addition of machine check safe support for
+    multiple scenarios, modify commit message for patch 5 (patch 4 for V8).
+
+Since V7:
+ Currently, there are patches supporting recover from poison
+ consumption for the cow scenario[1]. Therefore, Supporting cow
+ scenario under the arm64 architecture only needs to modify the relevant
+ code under the arch/.
+ [1]https://lore.kernel.org/lkml/20221031201029.102123-1-tony.luck@intel.com/
+
+Since V6:
+ Resend patches that are not merged into the mainline in V6.
+
+Since V5:
+ 1. Add patch2/3 to add uaccess assembly helpers.
+ 2. Optimize the implementation logic of arm64_do_kernel_sea() in patch8.
+ 3. Remove kernel access fixup in patch9.
+ All suggestion are from Mark. 
+
+Since V4:
+ 1. According Michael's suggestion, add patch5.
+ 2. According Mark's suggestiog, do some restructuring to arm64
+ extable, then a new adaptation of machine check safe support is made based
+ on this.
+ 3. According Mark's suggestion, support machine check safe in do_mte() in
+ cow scene.
+ 4. In V4, two patches have been merged into -next, so V5 not send these
+ two patches.
+
+Since V3:
+ 1. According to Robin's suggestion, direct modify user_ldst and
+ user_ldp in asm-uaccess.h and modify mte.S.
+ 2. Add new macro USER_MC in asm-uaccess.h, used in copy_from_user.S
+ and copy_to_user.S.
+ 3. According to Robin's suggestion, using micro in copy_page_mc.S to
+ simplify code.
+ 4. According to KeFeng's suggestion, modify powerpc code in patch1.
+ 5. According to KeFeng's suggestion, modify mm/extable.c and some code
+ optimization.
+
+Since V2:
+ 1. According to Mark's suggestion, all uaccess can be recovered due to
+    memory error.
+ 2. Scenario pagecache reading is also supported as part of uaccess
+    (copy_to_user()) and duplication code problem is also solved. 
+    Thanks for Robin's suggestion.
+ 3. According Mark's suggestion, update commit message of patch 2/5.
+ 4. According Borisllav's suggestion, update commit message of patch 1/5.
+
+Since V1:
+ 1.Consistent with PPC/x86, Using CONFIG_ARCH_HAS_COPY_MC instead of
+   ARM64_UCE_KERNEL_RECOVERY.
+ 2.Add two new scenes, cow and pagecache reading.
+ 3.Fix two small bug(the first two patch).
+
+V1 in here:
+https://lore.kernel.org/lkml/20220323033705.3966643-1-tongtiangen@huawei.com/
+
+Ruidong Tian (5):
+  ACPI: APEI: GHES: use exception context to gate SIGBUS on poison
+    consumption
+  arm64: extable: merge UACCESS_ERR_ZERO and KACCESS_ERR_ZERO into
+    ACCESS_ERR_ZERO
+  arm64: enable recover from synchronous external abort in kernel
+    context
+  lib/test: memcpy_kunit: add copy_page() and copy_mc_page() tests
+  lib/tests: memcpy_kunit: add memcpy_mc() and memcpy_mc_large() test
+
+Tong Tiangen (4):
+  uaccess: add generic fallback version of copy_mc_to_user()
+  mm/hwpoison: return -EFAULT when copy fail in
+    copy_mc_[user]_highpage()
+  arm64: support copy_mc_[user]_highpage()
+  arm64: introduce copy_mc_to_kernel() implementation
+
+ arch/arm64/Kconfig                   |   1 +
+ arch/arm64/include/asm/asm-extable.h |  24 ++-
+ arch/arm64/include/asm/asm-uaccess.h |   4 +
+ arch/arm64/include/asm/extable.h     |   1 +
+ arch/arm64/include/asm/mte.h         |   9 +
+ arch/arm64/include/asm/page.h        |  12 ++
+ arch/arm64/include/asm/string.h      |   5 +
+ arch/arm64/include/asm/uaccess.h     |  17 ++
+ arch/arm64/kernel/acpi.c             |   2 +-
+ arch/arm64/lib/Makefile              |   2 +
+ arch/arm64/lib/copy_mc_page.S        |  44 +++++
+ arch/arm64/lib/copy_page.S           |  67 ++-----
+ arch/arm64/lib/copy_page_template.S  |  70 ++++++++
+ arch/arm64/lib/copy_to_user.S        |  10 +-
+ arch/arm64/lib/memcpy.S              | 251 ++-------------------------
+ arch/arm64/lib/memcpy_mc.S           |  56 ++++++
+ arch/arm64/lib/memcpy_template.S     | 250 ++++++++++++++++++++++++++
+ arch/arm64/lib/mte.S                 |  29 ++++
+ arch/arm64/mm/copypage.c             |  80 +++++++++
+ arch/arm64/mm/extable.c              |  35 +++-
+ arch/arm64/mm/fault.c                |  30 +++-
+ arch/powerpc/include/asm/uaccess.h   |   1 +
+ arch/x86/include/asm/uaccess.h       |   1 +
+ drivers/acpi/apei/ghes.c             |  36 ++--
+ include/acpi/ghes.h                  |  15 +-
+ include/linux/highmem.h              |  16 +-
+ include/linux/uaccess.h              |   8 +
+ lib/tests/memcpy_kunit.c             | 186 +++++++++++++++++++-
+ mm/kasan/shadow.c                    |  12 ++
+ mm/khugepaged.c                      |   4 +-
+ 30 files changed, 938 insertions(+), 340 deletions(-)
+ create mode 100644 arch/arm64/lib/copy_mc_page.S
+ create mode 100644 arch/arm64/lib/copy_page_template.S
+ create mode 100644 arch/arm64/lib/memcpy_mc.S
+ create mode 100644 arch/arm64/lib/memcpy_template.S
+
 -- 
-2.34.1
+2.39.3
 
 
