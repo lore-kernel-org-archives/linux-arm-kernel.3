@@ -4,92 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAA99CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 14:05:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75B43CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 14:05:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WFQnNTOYhtvDC41BGM0bxTP54ugtmHtJK1nGpmbfAd8=; b=xxbImDOSv3Dxr3pmV4NekPkehp
-	W8pbcJ6qhscvlNTktsRZuI8xr2Xg5+aHUz3mNv7ufXi6vVHStCB9zfLQSfw1CeD6oAR7KbJo1F9zy
-	zSrslrxTgiX2FlquW82wUYKyuehLc6XrxLgsmQslzlOYRpcR3ibLk1QxN9P2rwhQ+oUK4u4G7jmgD
-	amrytv9JGyleIIQlpbt+IttdtPccBa9/P8Wu2QiSslVLUFro9U2AIPAioInWRuFEBkjsVKPVx2rdc
-	vtqF24A+SNVNFuRV4KLUTfZEQLb3FdzUem7UWqATNyfSYFsi0H2ESrInNQln2Q5KzJJemw+JFGND0
-	UcYT9o9w==;
+	bh=tVAxdJW7jC5jS/EGdsY03Ok8EVfqupezCmX7jIRIDTo=; b=DjvW2FZ1ctsm/fyvGW5iaRONws
+	Rnekv0HWOQqDpvUkUrUYdX+hfGZWJnsL6f/zrn/OKcRPG1dzYLqS7Xk4MappEGcENjoWspQGsgYO2
+	uVPuzhvMvv//tebHqJ9mtwHX5/r0DVRBUwVPvsPsfAiY6YIa7r4QdcItqDVRONC8EW2wDI64jGaWb
+	g1GwPjNdtTT/VeGPusClGPcfOI7dSsn7WNtG/HF8hfGArPK+fEgptSL213F5w+p8bk5ue9xzfnPf2
+	SrmSU2RZnCIx8n/SZlKsg5UUUitAKBqOVXJzUc5i2mk0C87Ox65cERyddKdeKJq3HC9FPyo4FkdBt
+	y0GG5g+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waDNC-00000001PIf-3hZL;
-	Thu, 18 Jun 2026 14:05:38 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	id 1waDNR-00000001PKc-059v;
+	Thu, 18 Jun 2026 14:05:53 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waDNA-00000001PIF-16T2
+	id 1waDNO-00000001PKE-3m8B
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 14:05:37 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-36d98b68d68so565620a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 07:05:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781791535; x=1782396335; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WFQnNTOYhtvDC41BGM0bxTP54ugtmHtJK1nGpmbfAd8=;
-        b=IXCS/fSqFwu5mIolPdbIzbtcgIrMmDXLHAcQpIhqh4yNTp3go+D3Z8wsgzBo9sHwTK
-         puKUEZ5EZRkl6QTzDBsVek6tcBhH8m0FtnJ95SI930874nXpC5Qn/bDn0vi3Gl+rZnXW
-         ZYfhLpnossJi+gJ84tcGByoWyzpBu7xutAaOh8YDb2mfK+sItToIDhEFeyEkGIh9ZzlT
-         DCW9byJkv99zP6MX0wReo8HG6K2lWFOnzQrKM85Cx8J028xH/nmVjFaVra/Em5hUVtW9
-         feWkPcSDfn7k/wSHoTDz3sMgr2wSwvDSyY4gBHKCfh4RaDBCHVsfsn+JP1YVsZDkGQri
-         MyfQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781791535; x=1782396335;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=WFQnNTOYhtvDC41BGM0bxTP54ugtmHtJK1nGpmbfAd8=;
-        b=cjBYk275md7Zqfw3zBsLWfI7f6cg9LK3o1aqrnpc3qkrc1APm3VVbSXSXLdbxESB9g
-         BduG7KKV1yqyy66l0YKyQSgbEptOnB2ul2ek0qgNiAPvzHtCghNg7zbY1qn6mD0ylymn
-         rWYSRT3rAAvZDYLC3+TDwa1eZT0OgZsF1rEYrMPzg/EOUQSmRBLP79RnqUWZNK/6blFG
-         ZA3QE5Kk50/VHHsu+buGtLHVAsPN1YksnPhFIGqYjmcviHm6EhzfJOBFKwXztFTvDE/g
-         lzZLk1YMYBfdjedlJzdWL/S42uw+uD78J/VTgWGSBdclFu6Cvcpg5xbKkqmYKlK3DMpc
-         mj9Q==
-X-Forwarded-Encrypted: i=1; AFNElJ8NmHxsrVqDOvm8E3Y/dUbyjiGIEOJXlS3vtFBx12s189LkuTi77WarLZKrXRkuras+c/g/t8MJYpto3g9j8S8X@lists.infradead.org
-X-Gm-Message-State: AOJu0YzJQZj9UoqMjVAgoJjx3vrRGMRp2aCUV2FCiW0v8tPuhnjWRhyn
-	7Bt0fNaLeDalj4O8fJ3RTecZIFifmbdOBuTKdO8gpKKsxU/I8iD6a58h
-X-Gm-Gg: AfdE7cl13Ij4+EI++Ye5mhDU850jO6+KgXDTYwSrfFtG/dNCN14JiPfSoYsMU8r/fJ5
-	hDx1NWGlWgPQkpUvrUHfRisiZHgIcLuhZtqGXwGzGWO23kgEMgSjol2oaU4d1GRaYH8aalrxvoU
-	xbTEDCh7FKHkW+bftD3k0SwtcgcwClPrfSNtVqxVmPitBAFDQvbzIUaBDd3FGGD6bWWiqQsBiI7
-	6zBrnazBs3yWeiBFFw2QT57xU7zbhBWdPobmB4LPze0fsCd8W1yRleso6fnXnskzHixRs9fl6Sk
-	DVQcTFNrfqR9MYujYZnIGW0yBtb+etl+s1CnhfAA6xDTEul5nXksuIYvMtJpnxIGuXzy1SbT101
-	9B3SM23KuWS7zxwn6V5gtDwrheUMoyX4dommaci5SYVyueQQeU2Hd0xbx80j2/4NoXwsjhGszeJ
-	l4l7sUEmjLYs+Qhi8Z7LysI0E9V/Dv9XgnP3uyK2JNyA==
-X-Received: by 2002:a17:90b:28c4:b0:37c:b248:1a58 with SMTP id 98e67ed59e1d1-37ce48fcc3bmr3902993a91.24.1781791535352;
-        Thu, 18 Jun 2026 07:05:35 -0700 (PDT)
-Received: from steellegend.taila75641.ts.net ([2409:40c4:35e:20d7:2ccf:7534:4b88:ba43])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-37c521ca980sm9961202a91.6.2026.06.18.07.05.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 18 Jun 2026 07:05:34 -0700 (PDT)
-From: Uday Khare <udaykhare77@gmail.com>
-To: wens@kernel.org,
-	andi.shyti@kernel.org,
-	jernej.skrabec@gmail.com,
-	samuel@sholland.org
-Cc: linux-i2c@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Uday Khare <udaykhare77@gmail.com>
-Subject: [PATCH v2] i2c: sun6i-p2wi: Fix device node reference leak in p2wi_probe
-Date: Thu, 18 Jun 2026 19:35:25 +0530
-Message-ID: <20260618140525.11526-1-udaykhare77@gmail.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260617194522.114984-1-udaykhare77@gmail.com>
-References: <20260617194522.114984-1-udaykhare77@gmail.com>
+	Thu, 18 Jun 2026 14:05:50 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 10C4160008;
+	Thu, 18 Jun 2026 14:05:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2409E1F000E9;
+	Thu, 18 Jun 2026 14:05:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781791549;
+	bh=tVAxdJW7jC5jS/EGdsY03Ok8EVfqupezCmX7jIRIDTo=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To;
+	b=guRgYMnh8lVzlhkg5QOvp9HmCWhWuAtur1nhXuuAxmi6OyIatGXW/4AAMLdpMjQZ1
+	 BuGWAcPIdh4D25J9fv4Shd3xBjt3f8rffxUrUvc9J/ZnbB2f7lgqId/h2fm1RM/uL0
+	 g8VGGkSgiqmlL1jFWg468nX031Kwq6ZlSCQ5LfUfSZ8/stVkSvSFM4Tqe1gYl5N6Mp
+	 dg/VYKXQiT3K05iCarleYoF4Pmr61oApqv8o7lJKdF7Ryl6YiVZ6HerRjgVQgjfpQS
+	 SypMSRxtr5kFuPKLlZgazCm+kz//yoP5XVt+o4fkAcCQgpWwLZCY6wsKabtoZnhzIQ
+	 rasK12Ot6W1Bw==
+Message-ID: <2a7d21fa-28c1-446c-97f5-2513f29157d3@kernel.org>
+Date: Thu, 18 Jun 2026 23:05:43 +0900
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260618_070536_326344_BCB39B70 
-X-CRM114-Status: GOOD (  15.00  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 0/2] kasan: hw_tags: Add option to tag only at
+ allocation time
+From: Harry Yoo <harry@kernel.org>
+To: Dev Jain <dev.jain@arm.com>, ryabinin.a.a@gmail.com,
+ akpm@linux-foundation.org, corbet@lwn.net
+Cc: glider@google.com, andreyknvl@gmail.com, dvyukov@google.com,
+ vincenzo.frascino@arm.com, kasan-dev@googlegroups.com, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, skhan@linuxfoundation.org,
+ workflows@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, ryan.roberts@arm.com,
+ anshuman.khandual@arm.com, kaleshsingh@google.com, 21cnbao@gmail.com,
+ david@kernel.org, will@kernel.org, catalin.marinas@arm.com
+References: <20260612044425.763060-1-dev.jain@arm.com>
+ <b1502a60-09a1-4699-886b-93d041de7023@kernel.org>
+Content-Language: en-US
+In-Reply-To: <b1502a60-09a1-4699-886b-93d041de7023@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,57 +78,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In p2wi_probe(), the device node reference obtained via
-of_get_next_available_child() is stored in childnp. This reference is
-never released, causing a device node reference leak.
 
-Fix this by declaring childnp with the __free(device_node) cleanup
-attribute, which automatically releases the device node reference
-when childnp goes out of scope.
 
-Fixes: 3e833490fae5 ("i2c: sunxi: add P2WI (Push/Pull 2 Wire Interface) controller support")
-Signed-off-by: Uday Khare <udaykhare77@gmail.com>
----
-v2:
-- Use __free(device_node) and include <linux/cleanup.h> to automate the device
-  node reference cleanup instead of manually calling of_node_put() on error and
-  success paths (suggested by Chen-Yu Tsai).
+On 6/18/26 10:35 PM, Harry Yoo wrote:
+>=20
+> Hi Dev,
+>=20
+> On 6/12/26 1:44 PM, Dev Jain wrote:
+>> Introduce a boot option to tag only at allocation time of the objects.=
+ This
+>> reduces KASAN MTE overhead, the tradeoff being reduced ability of
+>> catching bugs.
+>=20
+> I think most of overhead when enabling MTE comes from loading and
+> validing tags for every memory access (either in SYNC or ASYNC mode),
+> rather than from storing tags.
 
- drivers/i2c/busses/i2c-sun6i-p2wi.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+Is there any reason not to use STGM instead of STG + DC GVA when
+setting/clearing tags for large sizes when we know they are properly
+aligned?
 
-diff --git a/drivers/i2c/busses/i2c-sun6i-p2wi.c b/drivers/i2c/busses/i2c-sun6i-p2wi.c
-index dffbe776a195..8469a0ea98d7 100644
---- a/drivers/i2c/busses/i2c-sun6i-p2wi.c
-+++ b/drivers/i2c/busses/i2c-sun6i-p2wi.c
-@@ -21,6 +21,7 @@
-  * PMIC).
-  *
-  */
-+#include <linux/cleanup.h>
- #include <linux/clk.h>
- #include <linux/i2c.h>
- #include <linux/io.h>
-@@ -184,7 +185,6 @@ static int p2wi_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
- 	struct device_node *np = dev->of_node;
--	struct device_node *childnp;
- 	unsigned long parent_clk_freq;
- 	u32 clk_freq = I2C_MAX_STANDARD_MODE_FREQ;
- 	struct p2wi *p2wi;
-@@ -217,7 +217,9 @@ static int p2wi_probe(struct platform_device *pdev)
- 	 * In this case the target_addr is set to -1 and won't be checked when
- 	 * launching a P2WI transfer.
- 	 */
--	childnp = of_get_next_available_child(np, NULL);
-+	struct device_node *childnp __free(device_node) =
-+		of_get_next_available_child(np, NULL);
-+
- 	if (childnp) {
- 		ret = of_property_read_u32(childnp, "reg", &target_addr);
- 		if (ret)
--- 
-2.54.0
+>> Now, when a memory object will be freed, it will retain the random tag=
+ it
+>> had at allocation time. This compromises on catching UAF bugs, till th=
+e
+>> time the object is not reallocated, at which point it will have a new
+>> random tag.
+>>
+>> Hence, not catching "use-after-free-before-reallocation" and not catch=
+ing
+>> "double-free" will be the compromise for reduced KASAN overhead.
+>=20
+> I doubt users who care about security enough to enable HW_TAGS KASAN
+> are willing to compromise on security just to save a few instructions
+> to store tags in the free path.
+>=20
+> To me, it looks like too much of a compromise on security for little
+> performance gain.
+>=20
+>> This is an RFC because we are not clear about the performance benefit.=
+
+>>
+>> Android folks, please help with testing!
+>>
+>> ---
+>> Applies on Linus master (9716c086c8e8).
+>>
+>> Dev Jain (2):
+>>   kasan: hw_tags: Use KASAN_PAGE_REDZONE for vmalloc redzoning
+>>   kasan: hw_tags: Add boot option to elide free time poisoning
+>>
+>>  Documentation/dev-tools/kasan.rst |  4 +++
+>>  mm/kasan/hw_tags.c                | 45 +++++++++++++++++++++++++++++-=
+-
+>>  mm/kasan/kasan.h                  | 23 +++++++++++++++-
+>>  3 files changed, 69 insertions(+), 3 deletions(-)
+>>
+>=20
+
+--=20
+Cheers,
+Harry / Hyeonggon
 
 
