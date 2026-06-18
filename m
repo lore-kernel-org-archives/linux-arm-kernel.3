@@ -4,82 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD45FCD98ED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 08:37:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEABCCD98ED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 08:38:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Tjfp3FF0f+SxzpFBuG9E9B1amsn/loCXBkKBhFITWIo=; b=i+RL6sBb/wlOpFOVv5lpBXM3sI
-	VyvZ2ddBkR8dIYzdnShiX6nX1bZkly2se0Shj7zWp7LKseFEgP9t1mfgEc0d6CDh/+649WTwN0Fny
-	+n72oBoW3Puju9/ZT+FgLPGRmoEAr5QCCW1BZC0eIczpOdl2px77DmeYw2Y1EMMVyAta7WaJ93NtH
-	EU72stkDBna6dyActizAPnWUGe3PsuUo68pDnB9KQzlMhTiw/xa5AQF6O6tbqE8HTpcoE9AM1aSUk
-	SKaS9xb23o2TrE1DTjKqWZdCvSEURLq+DGozzkIllpghFu12Ww+dzpcm1mDJwum9gaeqBnyqgcWlK
-	9t7cPbUw==;
+	bh=BghaV0XJnds55dF2dgFuuXXCRlRZxRm1R2JFiOWPEcY=; b=Lb1KpOzXuHtrLqOc+4YBUMEPUw
+	v2s3xy5nRYX+3sNBhjJijBd2kJkJUxFHy9iYf+lLNQAyt+ajaRZAFmTvFF4GwFWPmNg5pICBukmwq
+	/56rKhmjO+Lr1azmN7C1e5UtY6i426ko+13tvVtnHQw+dkjOxfDzziyaXnMUvOEuI5oCAlkOA6C6x
+	qYzQNPhJQQPmToDciPRcH/DerjzlLLCBBRUygh9g0C3rTFof4Ycj2SyuqMCZQxdtQZt+R97obuuK2
+	Z/IB8+NvB2SUyvOePb7gFCchUTZtAC6iqus9Nxw2I2LCq1XZ3GsoG1xcjHiGxVgLTWCA4J5+rmyEH
+	XgYK9Iag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa8Fj-00000000rDA-25R9;
-	Thu, 18 Jun 2026 08:37:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wa8Gn-00000000rKe-2kRd;
+	Thu, 18 Jun 2026 08:38:41 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa8Fh-00000000rCx-39QS
+	id 1wa8Gm-00000000rKY-3n0g
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 08:37:33 +0000
+	Thu, 18 Jun 2026 08:38:41 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C08CE436FD;
-	Thu, 18 Jun 2026 08:37:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 334ED1F000E9;
-	Thu, 18 Jun 2026 08:37:24 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B41F66012A;
+	Thu, 18 Jun 2026 08:38:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63ADC1F000E9;
+	Thu, 18 Jun 2026 08:38:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781771851;
-	bh=Tjfp3FF0f+SxzpFBuG9E9B1amsn/loCXBkKBhFITWIo=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=bJYmurEUTf4p9ddXp1VSCskBHjygy+xD/oNjB9s2Ep/Uu73ZeAFn3grah/ZH/26bC
-	 Z2IKNbkJrX3SQyniq2V3c43nApViK8ptRc8Gz9vZ5aBx3WYWws6jmsSQ1n8wC/ZhsC
-	 aPXbP4vBO9+s7L7Gu2B1QTaU30Q3lwF3YsxuWM4vVa7T2kphUxDrfVTBh2RPbtKviM
-	 f3h5f4VrWfNGB2xgQRFYm9r1q8fBv53E49ns83ljI6VaL3Opsq3DE6buX9d8xYbXtu
-	 r9HlAXaeEfYUQ5HKSssJFRAz7y8WVKnEyAfSl5fBP2P87RedjDBY2R+S227cOm339+
-	 HGR07rvOMXPTg==
-X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: Alexey Kardashevskiy <aik@amd.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Catalin Marinas <catalin.marinas@arm.com>
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
-	Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>,
-	Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>,
-	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
-Subject: Re: [PATCH v6 00/20] dma-mapping: Use DMA_ATTR_CC_SHARED through
- direct, pool and swiotlb paths
-In-Reply-To: <2ecfa1a8-6202-4319-9692-a6ffeb5a3dbf@amd.com>
-References: <20260604083959.1265923-1-aneesh.kumar@kernel.org>
- <aigYbK12D8uKQvJF@arm.com> <20260609144746.GL2764304@ziepe.ca>
- <2ecfa1a8-6202-4319-9692-a6ffeb5a3dbf@amd.com>
-Date: Thu, 18 Jun 2026 09:37:22 +0100
-Message-ID: <yq5aqzm4dz25.fsf@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain
+	s=k20260515; t=1781771919;
+	bh=BghaV0XJnds55dF2dgFuuXXCRlRZxRm1R2JFiOWPEcY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=nXhelwwdHIkf/sbE8QwEOS03rLt8fBTdIbsCZe07coYKQs4UXoUTDq6Bje6m8uGcu
+	 Dr5MQ0TVj1Uq22/CL5bZi9uGamNGVyuBE4uwrVOqxcsPlGhLbA8QEBhkZmWInPyMJ0
+	 o21G3I2bxvKtL/8BbxKnwjcZpGWTdpx4Egxa9y2kJpMJ0Zargl930VFJWaalzVrn6s
+	 aasDnOM0EZTrvAPxjCdPlJaFr7RqjMSZU0dBX35bXjzedGX+hbz6n808Af92WmSRFu
+	 Jd70COqSStxnjEVjQp7iIs9O/8kmUyPZ1VotsyFi+i48LOEwR+SpqD84Aw2cnWxJU6
+	 RW+fUzBeRRDAQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wa8Gj-0000000DvgM-0yNK;
+	Thu, 18 Jun 2026 08:38:37 +0000
+Date: Thu, 18 Jun 2026 09:38:36 +0100
+Message-ID: <86ldccs0oj.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Marek Vasut <marek.vasut@mailbox.org>
+Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	linux-pci@vger.kernel.org,	Yoshihiro Shimoda
+ <yoshihiro.shimoda.uh@renesas.com>,	Krzysztof =?UTF-8?B?V2lsY3p5xYRza2k=?=
+ <kwilczynski@kernel.org>,	Bjorn Helgaas <bhelgaas@google.com>,	Catalin
+ Marinas <catalin.marinas@arm.com>,	Conor Dooley <conor+dt@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,	Krzysztof Kozlowski
+ <krzk+dt@kernel.org>,	Lorenzo Pieralisi <lpieralisi@kernel.org>,	Manivannan
+ Sadhasivam <mani@kernel.org>,	Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org,	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,	linux-kernel@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH 2/3] irqchip/gic-v3: Add Renesas R-Car Gen4 erratum workaround
+In-Reply-To: <0935eb67-83d2-49ea-89ab-0d0aa51ead8a@mailbox.org>
+References: <20260617030008.154449-1-marek.vasut+renesas@mailbox.org>
+	<20260617030008.154449-2-marek.vasut+renesas@mailbox.org>
+	<864ij1tyrj.wl-maz@kernel.org>
+	<0935eb67-83d2-49ea-89ab-0d0aa51ead8a@mailbox.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: marek.vasut@mailbox.org, marek.vasut+renesas@mailbox.org, linux-pci@vger.kernel.org, yoshihiro.shimoda.uh@renesas.com, kwilczynski@kernel.org, bhelgaas@google.com, catalin.marinas@arm.com, conor+dt@kernel.org, geert+renesas@glider.be, krzk+dt@kernel.org, lpieralisi@kernel.org, mani@kernel.org, robh@kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,98 +92,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Alexey Kardashevskiy <aik@amd.com> writes:
+On Thu, 18 Jun 2026 03:50:29 +0100,
+Marek Vasut <marek.vasut@mailbox.org> wrote:
+> 
+> On 6/17/26 9:24 AM, Marc Zyngier wrote:
+> 
+> Hello Marc,
+> 
+> >> Renesas R-Car S4/V4H/V4M GIC600 integration has address width for AXI
+> >> or APB interface configured to 32 bit, it can therefore access only
+> >> the first 4 GiB of physical address space. This information comes from
+> >> R-Car V4H Interface Specification sheet, there is currently no technical
+> >> update number assigned to this limitation. Further input from hardware
+> >> engineer indicates that this limitation also applies to R-Car S4 and V4M.
+> >> Name the limitation GEN4GICITS1, and add a driver quirk to mitigate this
+> >> limitation.
+> 
+> My concern is this ^ , I do not have an erratum number, because there
+> isn't one. I am in touch with the hardware engineer and I did get a
+> glimpse at internal details of the three SoC, which confirm the
+> limitations. Is this sufficient ?
 
-> On 10/6/26 00:47, Jason Gunthorpe wrote:
->> On Tue, Jun 09, 2026 at 02:43:08PM +0100, Catalin Marinas wrote:
->>> On Thu, Jun 04, 2026 at 02:09:39PM +0530, Aneesh Kumar K.V (Arm) wrote:
->>>> This series propagates DMA_ATTR_CC_SHARED through the dma-direct,
->>>> dma-pool, and swiotlb paths so that encrypted and decrypted DMA buffers
->>>> are handled consistently.
->>>>
->>>> Today, the direct DMA path mostly relies on force_dma_unencrypted() for
->>>> shared/decrypted buffer handling. This series consolidates the
->>>> force_dma_unencrypted() checks in the top-level functions and ensures
->>>> that the remaining DMA interfaces use DMA attributes to make the correct
->>>> decisions.
->>>
->>> Please check Sashiko's reports, it has some good points:
->>>
->>> https://sashiko.dev/#/patchset/20260604083959.1265923-1-aneesh.kumar@kernel.org
->>>
->>> I think the main one is the swiotlb_tbl_map_single() changes which break
->>> AMD SME host support. There cc_platform_has(CC_ATTR_MEM_ENCRYPT) is true
->>> but force_dma_unencrypted() is false. Normally you'd not end up on this
->>> path but you can have swiotlb=force.
->> 
->> IMHO that's an AMD issue, not with the design of this series..
->> 
->> The series is right, a device that is !force_dma_decrypted() must be
->> considerd to be a trusted device and we must never place any DMA
->> mappings for a trusted device into shared memory.
->
->
-> swiotlb=force forces swiotlb, not decryption.
->
->> That AMD has done somethine insane:
->> 
->> bool force_dma_unencrypted(struct device *dev)
->> {
->> 	/*
->> 	 * For SEV, all DMA must be to unencrypted addresses.
->> 	 */
->> 	if (cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT))
->> 		return true;
->> 
->> 	/*
->> 	 * For SME, all DMA must be to unencrypted addresses if the
->> 	 * device does not support DMA to addresses that include the
->> 	 * encryption mask.
->> 	 */
->> 	if (cc_platform_has(CC_ATTR_HOST_MEM_ENCRYPT)) {
->> 		u64 dma_enc_mask = DMA_BIT_MASK(__ffs64(sme_me_mask));
->> 		u64 dma_dev_mask = min_not_zero(dev->coherent_dma_mask,
->> 						dev->bus_dma_limit);
->> 
->> 		if (dma_dev_mask <= dma_enc_mask)
->> 			return true;
->> 	}
->
->
-> So when I try "mem_encrypt=on iommu=pt swiotlb=force" with this patchset, it fails to boot. But it boots with a hack like this:
->
-> ===
-> @@ -39,7 +41,7 @@ bool force_dma_unencrypted(struct device *dev)
->                          return true;
->          }
->   
-> -       return false;
-> +       return swiotlb_force_bounce;
->   }
-> ===
->
-> Or we say "mem_encrypt=on iommu=pt swiotlb=force" combo is just weird and we won't be supporting which bit in this? Thanks,
->
+To be honest, this is between you and the SoC vendor. I'll take
+whatever symbol you come up with at face value, and will assume that
+the vendor agrees with it. After all, they are on Cc and have their
+SoB on the patch.
 
-Something like?
+> 
+> >> Note that the 0x0201743b GIC600 ID is not Renesas-specific, it is
+> >> common for many ARM GICv3 implementations. Therefore, add an extra
+> > 
+> > Not quite. It designates GIC600 unambiguously.
+> 
+> What I am trying to communicate is, that the 0x0201743b ID is not ID
+> of the Renesas GIC implementation, but it is a generic ARM GIC600
+> ID. That is why we cannot match the quirk on the ID (it is generic ARM
+> GIC600 ID), and instead we have to match the quirk on the [ ID
+> combined with of_machine_is_compatible("renesas,...") ].
 
-modified   arch/x86/mm/mem_encrypt.c
-@@ -34,6 +34,13 @@ bool force_dma_unencrypted(struct device *dev)
- 		u64 dma_enc_mask = DMA_BIT_MASK(__ffs64(sme_me_mask));
- 		u64 dma_dev_mask = min_not_zero(dev->coherent_dma_mask,
- 						dev->bus_dma_limit);
-+		/*
-+		 * With memory encryption enabled, SWIOTLB is marked decrypted.
-+		 * If SWIOTLB bouncing is forced, treat the device as requiring
-+		 * decrypted DMA.
-+		 */
-+		if (is_swiotlb_force_bounce(dev))
-+			return true;
- 
- 		if (dma_dev_mask <= dma_enc_mask)
- 			return true;
+This is understood, and is no different from the other broken
+platforms in the tree.
 
+> 
+> > It is just that GIC600
+> > is integrated in zillions of SoCs, most of which don't have this
+> > problem (the machine I'm typing this from has a GIC600 *and* 96GB of
+> > RAM).
+> 
+> Right.
+> 
+> Shall I reword this paragraph somehow to make it clearer ?
 
+I'd simply say that the workaround is keyed on the combination of the
+GIC implementation and the platform identification in the device tree.
 
--aneesh
+>
+> >> of_machine_is_compatible() check.
+> >> 
+> >> The GIC600 implementation in R-Car S4/V4H/V4M is r1p6.
+> > 
+> > Is this relevant?
+> 
+> I included it for the sake of completeness and to provide all relevant
+> information, based on previous discussions about similar limitations
+> that I could find on lore.k.o
+
+This information is already contained in the ID you quote (bits
+[19:12]), and can be decoded using the public TRM [1].
+
+Thanks,
+
+	M.
+
+[1] https://documentation-service.arm.com/static/5e7ddddacbfe76649ba53034
+
+-- 
+Without deviation from the norm, progress is not possible.
 
