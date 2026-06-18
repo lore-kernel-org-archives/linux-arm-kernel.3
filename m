@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61CBDCD98ED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 22:04:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8BB6CD98F9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 22:05:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4A9ZwLjhRh5ZuLtgdZA9Of3IPGy8G7D1YJfP0MiDpBM=; b=jexc2ei1iGyc/1J0DKDz7zERxZ
-	HecbXWPibqXrYslnjxmEVIC4t4qqejarDuX9p7J8a2uubCJB/3JhwkrK3JxeAB9VU3WJap275bWYY
-	lEwswaSeOPJ7dslcYSw71/j/eeb694iSq9mtk5gd8fYnMXXLmpRjlPjEC2tvpyYCz/K4/4MRPsG97
-	/QCWStR2w42iP8P0dWxvIWBE1TasgeuOVQhpa3uVqLFkrCDDQ9dk2clwp0k0NsHr8y5itd3a4x4og
-	+NkNACgcYEWtJ3tQwdPm7BJEIR6AaTpmz9gEY/WDmUsaxusXIa27kBUWPmSXgmQVDcgaazxZ5XJGs
-	5m+Cyqbw==;
+	bh=fmxnn1xGV2jaajdnAkd2F39mWtMrhqNNBNCjdjH9eY0=; b=ZW7FZvEJQkOQSHK8pW3bJGNsXN
+	sc+fmLcSqWWdH5YNlZPdsFBkuNBMKD16OI+pDDpy6SyP6cyrGVXvzWz0MTdllxbUK8CaTLgcIFPOG
+	mvYmsJ3rBFbtehxNfx6wGFrTu+gOd9cqb5zZuJSBOL+u0CV6j0gAY5sJ69FDzEkFrbxLrLPICGCUn
+	euUUcDKLgEygmks34iq8/tuBsEDW3VAGG+l/KN3LpvxqN0ZhbLaC7npu4x91dvG9Taah3cYP+mB1+
+	1Zrha04h7XYyVNitFcdgM3FKGypVMw1iL1D0vgiRbcCTp9/m+chEdh9p4qSSRJy+/dwzWDGCFm2kB
+	DW5WU46g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waKqw-00000001pAH-2mqX;
-	Thu, 18 Jun 2026 22:04:50 +0000
-Received: from mout-p-102.mailbox.org ([2001:67c:2050:0:465::102])
+	id 1waKr2-00000001pBW-3Cya;
+	Thu, 18 Jun 2026 22:04:56 +0000
+Received: from mout-p-102.mailbox.org ([80.241.56.152])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waKqu-00000001p9Y-0tjB
+	id 1waKqz-00000001pAL-1KlM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 22:04:49 +0000
+	Thu, 18 Jun 2026 22:04:54 +0000
 Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4ghFBk2r95z9v9m;
-	Fri, 19 Jun 2026 00:04:46 +0200 (CEST)
+	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4ghFBq09hGz9vCL;
+	Fri, 19 Jun 2026 00:04:51 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1781820286;
+	t=1781820291;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=4A9ZwLjhRh5ZuLtgdZA9Of3IPGy8G7D1YJfP0MiDpBM=;
-	b=plfmKmP5L4JvpAb1+0ifDeaYyVa5/rHvXj4AcbLcKRABN7U+9OJQYCp4zDs94B/X9PzEyP
-	rPjaNObVepst0pu4b/SQc6pn4Djm91TdPMRguBAynqqFKF/Cr+WXP6tXTcjnmmDf/jlJny
-	1AouMXsbHIyizB3uxGbf+uNAgKVpEPp1hygWN1bdJCp8IY1DztJwvqyz7oZeKI0DxLHt1Y
-	EiJ3amCiymYen3wVRM2BUVfeNT12Is6qAQGtSAKIuSAhxzIrdXiYVtDSRCJxGrV/zuB1VE
-	vRmXSNZN9zrU9KNYqe7VJw6FtaBfyceTaSIKv8vSDqJ/T1R2HQyQCJTGanGURg==
+	bh=fmxnn1xGV2jaajdnAkd2F39mWtMrhqNNBNCjdjH9eY0=;
+	b=NGdGFk+cyydHEeo2vGX30Gw4A1Qu91RmrnQEqdTipFBlJsyb+isgjMT6eq6/xo2YAytYxR
+	CGDgRNZNK3uZ5xoGRky4sN5lUXtCvPqKgtswJ6UFZCCNJAVkx9NyKmWWL5rrFL2rIDGWzV
+	NIiJpVXwVIRjCLugjgwk/fk8Xz2O1OBUl7iqH3G8wVre0/7Q1JwSRRAx6RL3JLmmsaJiqb
+	tna+HvwEcawXgih6SmAlILz7rwX1i4L3/y+LSL72gbiUD4WYrYaUcxl80eF3XIi2ymp2Az
+	FJ6c+8SsjyjpUKygm7PcJV/SklldmobYZGjdDBOrVTKoJj0/nJ1FWUVXc7lLaw==
 Authentication-Results: outgoing_mbo_mout;
-	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=Pkmkf5v+;
+	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=x+Uen+Nt;
 	spf=pass (outgoing_mbo_mout: domain of marek.vasut+renesas@mailbox.org designates 2001:67c:2050:b231:465::102 as permitted sender) smtp.mailfrom=marek.vasut+renesas@mailbox.org
 From: Marek Vasut <marek.vasut+renesas@mailbox.org>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1781820284;
+	t=1781820289;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=4A9ZwLjhRh5ZuLtgdZA9Of3IPGy8G7D1YJfP0MiDpBM=;
-	b=Pkmkf5v+SxSuXBvJySsmSfWV0iudVo0nYE/QzHcMCTvrHIAKZxIS4IIXBavaw/0YdTvimB
-	29SBq/agpjy1PPag4OEx9CdjlYGuIbVn+NxLvD67Fu9mrWlzG1+Drn0qV7EHdIhvlGANtl
-	PRhNt3vGJYXxi/Z/eTJDPtwntBr4B72Z1sUZVxyYDjIC87GTalouukvjnPswAtwfHkaQHX
-	rSmFOB8Vz5GZKXYye1HaSbYcn8/02ckxJc8Zzffqa2pT6z+6BVkQewoFRwxIIdcZm+yRHJ
-	zXk5KWqEUaOjZ0nUYBrSzLcmVePKDtzYKEkeTLJPOxBbqcisvtdh8xCSadMQUg==
+	bh=fmxnn1xGV2jaajdnAkd2F39mWtMrhqNNBNCjdjH9eY0=;
+	b=x+Uen+Nt1+OxcZfqH03ULWKV0ZCy18GV0zzXWj8kubsqFXhoFiEWFQKNqjD1jlVoBSM7+J
+	94HnrgKSp5WS/3P8wcV67OyPVeuWeo6Sdsnw5APviHfubLjOMmp590WaTiLnxz6TTHuiEw
+	91RtYhKCpN/doc5tUCNtpfOurW9hAR53bRfMySj3S5yynUl65mcDUEUMpI1pCPLY+qNuex
+	hIeQ5SUvch9RYS+PW5BIOAWBLTn6thNKT0BXz/mSw74ckyqedc0rjQSfiY/roJFJyjJqol
+	MPUBqQVodHLfw1J1G/DPAaBNE+uax3sYuvgMJnh7RcONttooNSgVKK5+PZadWg==
 To: linux-pci@vger.kernel.org
 Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
+	Marc Zyngier <maz@kernel.org>,
 	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
 	Bjorn Helgaas <bhelgaas@google.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
@@ -72,27 +72,27 @@ Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Manivannan Sadhasivam <mani@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
 	Rob Herring <robh@kernel.org>,
+	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-doc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH v2 1/4] PCI: rcar-gen4: Configure AXIINTC if iMSI-RX not used
-Date: Fri, 19 Jun 2026 00:01:59 +0200
-Message-ID: <20260618220427.14325-2-marek.vasut+renesas@mailbox.org>
+Subject: [PATCH v2 2/4] irqchip/gic-v3: Refactor GIC600 limited to 32bit PA erratum handling
+Date: Fri, 19 Jun 2026 00:02:00 +0200
+Message-ID: <20260618220427.14325-3-marek.vasut+renesas@mailbox.org>
 In-Reply-To: <20260618220427.14325-1-marek.vasut+renesas@mailbox.org>
 References: <20260618220427.14325-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-MBO-RS-ID: 98122fbd287f7395f5a
-X-MBO-RS-META: 9hjr68km9ty47nutmt5i8ghs5as88hkr
-X-Rspamd-Queue-Id: 4ghFBk2r95z9v9m
+X-MBO-RS-META: 7x7fbqfctmuyj5g17moafybc439uyhxs
+X-MBO-RS-ID: 7e6c2e40ea8eb87b0b8
+X-Rspamd-Queue-Id: 4ghFBq09hGz9vCL
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260618_150448_545548_A92FB990 
-X-CRM114-Status: GOOD (  21.08  )
+X-CRM114-CacheID: sfid-20260618_150453_562127_EB29000C 
+X-CRM114-Status: GOOD (  11.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,30 +107,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In case MSI are enabled, but DWC built-in iMSI-RX is not in use, the
-MSI are handled via GIC ITS. Configure all controller MSI registers
-fully.
+The GIC600 implementation is now known to be used on multiple 64-bit
+SoCs, where it has address width for AXI or APB interface configured
+to 32 bit, and it can access only the first 4GiB of physical address
+space.
 
-Set or clear MSI capability register MSICAP0 MSI enable MSIE bit and
-PCIe Interrupt Status 0 Enable register PCIEINTSTS0EN MSI interrupt
-enable MSI_CTRL_INT bit according to MSI enable state, set both bits
-if MSI are enabled, clear both bits if MSI are disabled.
+Rework the handling of the quirk to work around this limitation such
+that new entries can be added purely as new compatible strings, with
+no need to add additional functions or new its_quirk array entries.
 
-If MSI are disabled, or MSI are enabled and iMSI-RX is used, then
-deconfigure AXIINTCADDR and AXIINTCCONT to 0, which disables any
-pass through of MSI TLPs onto the AXI bus and then further into
-GIC ITS translation registers.
-
-If MSI are enabled and iMSI-RX is not used, the configure AXIINTCADDR
-with target address of GIC ITS translation registers, and configure
-AXIINTCCONT to enable MSI TLP pass through onto AXI bus and into the
-GIC ITS. This specific configuration allows handling of MSI via the
-GIC ITS instead of integrated iMSI-RX.
-
-Signed-off-by: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
+Suggested-by: Marc Zyngier <maz@kernel.org>
 Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 ---
-NOTE: This would not be possible without prior work from Shimoda-san
+V2: New patch
 ---
 Cc: "Krzysztof Wilczyński" <kwilczynski@kernel.org>
 Cc: Bjorn Helgaas <bhelgaas@google.com>
@@ -150,183 +139,51 @@ Cc: linux-kernel@vger.kernel.org
 Cc: linux-pci@vger.kernel.org
 Cc: linux-renesas-soc@vger.kernel.org
 ---
-V2: Pull GITS_TRANSLATER address from DT, which also fixes missing +0x40
-    offset of the GITS_TRANSLATER register
----
- drivers/pci/controller/dwc/pcie-rcar-gen4.c | 118 +++++++++++++++++++-
- 1 file changed, 113 insertions(+), 5 deletions(-)
+ drivers/irqchip/irq-gic-v3-its.c | 19 ++++++++++++-------
+ 1 file changed, 12 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/pci/controller/dwc/pcie-rcar-gen4.c b/drivers/pci/controller/dwc/pcie-rcar-gen4.c
-index 8b03c42f8c84c..6300ab4dc38b3 100644
---- a/drivers/pci/controller/dwc/pcie-rcar-gen4.c
-+++ b/drivers/pci/controller/dwc/pcie-rcar-gen4.c
-@@ -13,8 +13,11 @@
- #include <linux/interrupt.h>
- #include <linux/io.h>
- #include <linux/iopoll.h>
-+#include <linux/irqchip/arm-gic-v3.h>
- #include <linux/module.h>
- #include <linux/of.h>
-+#include <linux/of_address.h>
-+#include <linux/of_irq.h>
- #include <linux/pci.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
-@@ -31,6 +34,10 @@
- #define DEVICE_TYPE_RC		BIT(4)
- #define BIFUR_MOD_SET_ON	BIT(0)
- 
-+/* MSI Capability */
-+#define MSICAP0			0x0050
-+#define MSICAP0_MSIE		BIT(16)
-+
- /* PCIe Interrupt Status 0 */
- #define PCIEINTSTS0		0x0084
- 
-@@ -55,6 +62,14 @@
- #define APP_HOLD_PHY_RST	BIT(16)
- #define APP_LTSSM_ENABLE	BIT(0)
- 
-+/* INTC address */
-+#define AXIINTCADDR		0x0a00
-+
-+/* INTC control & mask */
-+#define AXIINTCCONT		0x0a04
-+#define INTC_EN			BIT(31)
-+#define INTC_MASK		GENMASK(11, 2)
-+
- /* PCIe Power Management Control */
- #define PCIEPWRMNGCTRL		0x0070
- #define APP_CLK_REQ_N		BIT(11)
-@@ -305,13 +320,103 @@ static struct rcar_gen4_pcie *rcar_gen4_pcie_alloc(struct platform_device *pdev)
- 	return rcar;
+diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+index b57d81ad33a0a..8ec2175b78288 100644
+--- a/drivers/irqchip/irq-gic-v3-its.c
++++ b/drivers/irqchip/irq-gic-v3-its.c
+@@ -4890,10 +4890,17 @@ static bool __maybe_unused its_enable_quirk_hip09_162100801(void *data)
+ 	return true;
  }
  
-+static int rcar_gen4_pcie_host_msi_addr(struct dw_pcie_rp *pp, u32 *msi_addr)
-+{
-+	struct dw_pcie *dw = to_dw_pcie_from_pp(pp);
-+	struct device_node *msi_node = NULL;
-+	struct device *dev = dw->dev;
-+	struct resource res;
-+	u64 addr;
-+	int ret;
+-static bool __maybe_unused its_enable_rk3568002(void *data)
++static const char * const dma_32bit_impaired_platforms[] = {
++#ifdef CONFIG_ROCKCHIP_ERRATUM_3568002
++	"rockchip,rk3566",
++	"rockchip,rk3568",
++#endif
++	NULL,
++};
 +
-+	/*
-+	 * Either the "msi-parent" or the "msi-map" phandle needs to exist
-+	 * to obtain the MSI node.
-+	 */
-+	of_msi_xlate(dev, &msi_node, 0);
-+	if (!msi_node)
-+		return -ENODEV;
-+
-+	/* Check if "msi-parent" or the "msi-map" points to ARM GICv3 ITS. */
-+	if (!of_device_is_compatible(msi_node, "arm,gic-v3-its"))
-+		return dev_err_probe(dev, -ENODEV, "Compatible MSI controller not found\n");
-+
-+	/* Derive GITS_TRANSLATER address from GICv3 */
-+	ret = of_address_to_resource(msi_node, 0, &res);
-+	if (ret < 0)
-+		return dev_err_probe(dev, ret, "MSI controller resources not obtained\n");
-+
-+	addr = res.start + GITS_TRANSLATER;
-+	if (addr >= SZ_4G)
-+		return dev_err_probe(dev, -EINVAL, "MSI controller address above 32bit range\n");
-+
-+	*msi_addr = addr;
-+	return 0;
-+}
-+
-+static int rcar_gen4_pcie_host_msi_init(struct dw_pcie_rp *pp)
-+{
-+	struct dw_pcie *dw = to_dw_pcie_from_pp(pp);
-+	struct rcar_gen4_pcie *rcar = to_rcar_gen4_pcie(dw);
-+	u32 val;
-+	int ret;
-+
-+	/* Make sure MSICAP0 MSIE is configured. */
-+	val = dw_pcie_readl_dbi(dw, MSICAP0);
-+	if (pci_msi_enabled())
-+		val |= MSICAP0_MSIE;
-+	else
-+		val &= ~MSICAP0_MSIE;
-+	dw_pcie_writel_dbi(dw, MSICAP0, val);
-+
-+	if (!pci_msi_enabled() || pp->use_imsi_rx) {
-+		/* Clear AXIINTC mapping. */
-+		writel(0, rcar->base + AXIINTCADDR);
-+		writel(0, rcar->base + AXIINTCCONT);
-+	} else {
-+		ret = rcar_gen4_pcie_host_msi_addr(pp, &val);
-+		if (ret)
-+			goto err;
-+
-+		/* Point AXIINTC to GIC ITS and enable. */
-+		writel(val, rcar->base + AXIINTCADDR);
-+		writel(INTC_EN | INTC_MASK, rcar->base + AXIINTCCONT);
-+	}
-+
-+	/* Configure MSI interrupt signal */
-+	val = readl(rcar->base + PCIEINTSTS0EN);
-+	if (pci_msi_enabled())
-+		val |= MSI_CTRL_INT;
-+	else
-+		val &= ~MSI_CTRL_INT;
-+	writel(val, rcar->base + PCIEINTSTS0EN);
-+
-+	return 0;
-+
-+err:
-+	/* Deconfigure MSICAP0 MSIE. */
-+	val = dw_pcie_readl_dbi(dw, MSICAP0);
-+	val &= ~MSICAP0_MSIE;
-+	dw_pcie_writel_dbi(dw, MSICAP0, val);
-+
-+	/* Clear AXIINTC mapping. */
-+	writel(0, rcar->base + AXIINTCADDR);
-+	writel(0, rcar->base + AXIINTCCONT);
-+
-+	/* Deconfigure MSI interrupt signal */
-+	val = readl(rcar->base + PCIEINTSTS0EN);
-+	val &= ~MSI_CTRL_INT;
-+	writel(val, rcar->base + PCIEINTSTS0EN);
-+
-+	return ret;
-+}
-+
- /* Host mode */
- static int rcar_gen4_pcie_host_init(struct dw_pcie_rp *pp)
++static bool __maybe_unused its_enable_dma32(void *data)
  {
- 	struct dw_pcie *dw = to_dw_pcie_from_pp(pp);
- 	struct rcar_gen4_pcie *rcar = to_rcar_gen4_pcie(dw);
- 	int ret;
--	u32 val;
+-	if (!of_machine_is_compatible("rockchip,rk3566") &&
+-	    !of_machine_is_compatible("rockchip,rk3568"))
++	if (!of_machine_compatible_match(dma_32bit_impaired_platforms))
+ 		return false;
  
- 	gpiod_set_value_cansleep(dw->pe_rst, 1);
- 
-@@ -328,16 +433,19 @@ static int rcar_gen4_pcie_host_init(struct dw_pcie_rp *pp)
- 	dw_pcie_writel_dbi2(dw, PCI_BASE_ADDRESS_0, 0x0);
- 	dw_pcie_writel_dbi2(dw, PCI_BASE_ADDRESS_1, 0x0);
- 
--	/* Enable MSI interrupt signal */
--	val = readl(rcar->base + PCIEINTSTS0EN);
--	val |= MSI_CTRL_INT;
--	writel(val, rcar->base + PCIEINTSTS0EN);
-+	ret = rcar_gen4_pcie_host_msi_init(pp);
-+	if (ret)
-+		goto err;
- 
- 	msleep(PCIE_T_PVPERL_MS);	/* pe_rst requires 100msec delay */
- 
- 	gpiod_set_value_cansleep(dw->pe_rst, 0);
- 
- 	return 0;
-+
-+err:
-+	rcar_gen4_pcie_common_deinit(rcar);
-+	return ret;
- }
- 
- static void rcar_gen4_pcie_host_deinit(struct dw_pcie_rp *pp)
+ 	gfp_flags_quirk |= GFP_DMA32;
+@@ -4968,14 +4975,12 @@ static const struct gic_quirk its_quirks[] = {
+ 		.property = "dma-noncoherent",
+ 		.init   = its_set_non_coherent,
+ 	},
+-#ifdef CONFIG_ROCKCHIP_ERRATUM_3568002
+ 	{
+-		.desc   = "ITS: Rockchip erratum RK3568002",
++		.desc   = "ITS: Broken GIC600 integration limited to 32bit PA",
+ 		.iidr   = 0x0201743b,
+ 		.mask   = 0xffffffff,
+-		.init   = its_enable_rk3568002,
++		.init   = its_enable_dma32,
+ 	},
+-#endif
+ 	{
+ 	}
+ };
 -- 
 2.53.0
 
