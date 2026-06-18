@@ -4,90 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33491CD98ED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 21:06:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CF85CD98ED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 21:42:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wBQkNjECV6xY2iyUaF8p4ty+DWlCLVOGQLFUXgO2Ou4=; b=gCobV4OrjwdDQECFyAbeoOk0Z7
-	Q72imnbiqGVNMGJ4KD82OKoqTZLL0z2U91gOjOsicWKbJpsKhQCvS+ttlhP8dGfMEiPJToer9KOpJ
-	BqJB1gQu/ou51PQBUToj/IjNy6sIC0DkZ/UgX7ljylxnbdEwinlhuK4mBFhp7xQbYWanzwBB4xSb4
-	oOCCVHwdx3dFGK2PXUUkDFVZaqAzo/TP3KV4rVxY7KXDOcNONR2xeDbz7Q6uhbCOK30LAlmk/mEX+
-	c8PTtDW6sjqz/tFhtBuElnTXQfZB8bqj0g/2nKGn1B9I6INnN/+e9nZw3Jk6LcGhYghgvRJY7uAsI
-	oJv8HtpQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V8j94fpKwfXbxZh5xLHwe7ucGfUmxazlRZU8sB7HYkU=; b=KcrouwnXXydUgGRCdz/XDO7ICz
+	5LdUuhuBL+pY41ElKKkkA2q861u6zMwVUUX0K7bG4evnaLlxparzVcviuaiYOntnmvp/mwApOvkc4
+	QqEZU0eZy24onig7WbhKwNVphYw++5roW01Ix16VFy5H1OKoOdyHYEKy1UXmbNAMgadP93UtboiUk
+	4u9LNOcXNwAhtd5m4wPKaZmLoUMa6emHnWPcGZB9pfrDVc+o2tV9uxZm8WbmceDjMy6Y7xijby4bO
+	ntq9J8dniO6B7rJZ8mH7ue7BaB3xdTmKP1mDaSXZRq1ekMisNBlUfhayxJ8WDXL8/U4vxG64fO8ZZ
+	8IXDgbiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waJwl-00000001ng3-1L1S;
-	Thu, 18 Jun 2026 21:06:47 +0000
-Received: from mout-p-101.mailbox.org ([80.241.56.151])
+	id 1waKVT-00000001oFc-3Ssf;
+	Thu, 18 Jun 2026 21:42:39 +0000
+Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waJwg-00000001nfU-1bvS;
-	Thu, 18 Jun 2026 21:06:45 +0000
-Received: from smtp1.mailbox.org (smtp1.mailbox.org [10.196.197.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4ghCvZ32Jhz9tjF;
-	Thu, 18 Jun 2026 23:06:34 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=adamthiede.com;
-	s=MBO0001; t=1781816794;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=wBQkNjECV6xY2iyUaF8p4ty+DWlCLVOGQLFUXgO2Ou4=;
-	b=1o2eMq7CpiT82lLfa/EJ2bHxFGd9w1DrgDAhipxOxOToKoH5b6R6Exfos4jx3OiiFM7szl
-	O3pXAeC2FF7dMTnguh/ngM8RXbAnRCu3X+fjoAP977qNzCafGtvBJvs8YcTt118kkTHnMB
-	uUilaRaKfr5LQ/fIxRUh5mqtsig91nSnsvQa0rNx43GWR3HVa7vVmScKZYZ/3qljYRhSU9
-	4tY78sF1ojmAjfASV+j0xcVW8E9vB/XcYWckCHHPON9vK4V+t40RvtxZskPNO2l4DdoI+7
-	hNpS0611k6APoQGAALNp0qSH/OILLRjqJlanB1Wlr7d/i3lb64ZCDWC4VIbhhA==
-Message-ID: <42607fa4-485d-4142-b31c-7bfac71118d2@adamthiede.com>
-Date: Thu, 18 Jun 2026 16:06:28 -0500
-MIME-Version: 1.0
-Subject: Re: [PATCH] drm/mediatek: mtk_dsi: enable hs clock during pre-enable
-To: Gary Bisson <bisson.gary@gmail.com>,
- Chun-Kuang Hu <chunkuang.hu@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20260120-mtkdsi-v1-1-b0f4094f3ac3@gmail.com>
-Content-Language: en-US
-From: Adam Thiede <me@adamthiede.com>
-Autocrypt: addr=me@adamthiede.com; keydata=
- xsBNBF+n+90BCAC2ZRLVcvdXDgfY7EppN05eNor3U7/eeiNCCEIWZkYLhikUEP1ReLGBkXpK
- Pc70hfnKAKkCoth3IwhDty9WXMNU+iLNei4ieb2luW+UqluR6xIUIA+txahMU9YcjVaQTKf/
- yZWO4yl6pfBPCxC2UdPZKBAdGoi5NnE0ABFNbhBETQhhBic533lZn33ByupfI3acECnQdjgQ
- llCUpDbw4I+S/N1iFiEHcbMXH7ZB00e3IYNorZ1E9v7p++5rDY1fQ9gXpieg1vFKwSq1NJWo
- 9xx336YjaTUbX0EwrdKd9l8AktA3yRjckaK5TAcwSQaDtHvhpbl4ebvPhtwHh699MroXABEB
- AAHNH0FkYW0gVGhpZWRlIDxtZUBhZGFtdGhpZWRlLmNvbT7CwI4EEwEIADgCGwMFCwkIBwIG
- FQoJCAsCBBYCAwECHgECF4AWIQQtG9pGQ7sz3tf8M/kC7fV9o/vRzgUCZL1HxQAKCRAC7fV9
- o/vRzgyRB/wLqRCvvWhQCMgvzeKvru9wcXquhb77K8H/ByLbfiT8YBuP3lZFVh0IQhgO9Ylk
- fIoOJE4V+jjxyOnO2d9xjGbvAmmR6yT0gfLzSVWqrC4k+V9MWLv43nrNzxt41dvo5j824FAl
- X+zaiRZCdO8Jtxg5Elpiop2SKLi1utX1Z8i6YZh+ccJZlchUBAGUTk+D4UjK7vUcjLWT96ya
- CtdtTfXyw36CvGOPEWfc6++Kkl/5sgej1i7biPYzu/r0vssaQYTXKSrv6Cfa3Maa89ASiTtv
- q4qmhLnJeCrPxWlRAf6LEizeBEkOasYni2u8sp4wBezEq45Ozu45sfPkqLpPolG7zsBNBF+n
- +90BCADBRt+vrToRBEG580n77S99qSEkbKD+oJtCVyovnjMNkg0K9UG68LIeCX/ezngiV1M8
- JISvw5iFOuUFqGX/1hLl9wgt/YpuIrgWOp8XxkotavTCloLDvQmufJPO1L8bnnA+WgP2YgVZ
- 5MJTj/t4DI+yQgysEjsH8aurHO2uuqgJE+xK+2dy6Cl/wskuGxObksSPmmFH5PH0Joziwrtl
- 61ouLE2XwKbkMgIGEKkbFgbfwz3/QuLZGBni+OOtLzXeZ9wNTW/AHUPy6S9U4F+5z6/09fVT
- tTH0cvrgAGjbASlYx2VqGONXAsxCfjulq6ryJBFlPLp949c/JTTgOojukCSbABEBAAHCwHYE
- GAEIACACGwwWIQQtG9pGQ7sz3tf8M/kC7fV9o/vRzgUCZL1H0gAKCRAC7fV9o/vRzlamCACs
- vHw+0heTm+BfC3S8DUST6889gidIIwdqBep1ByzetCph7Bq8Y8BlT5YTX0u/bSKkxCzFgeTm
- vC341Q09ST2XjLAl1ZTdzGhH9gcgYyOw34pr5fPQRJLB392mPzD8YReRzciNbhWzj+DLgeVe
- ouyfGajd6jDjkf4FEq+trQLGZhpfsKn3JnDbzBUs945D50l/vz9q/QN3qZO+H4F6g8ZeMnqo
- FOEFN26xVtdEDr+0DNFsbgKmEzs675kdAY78ZZdbEetX/FSknxJ+FK1ZW3J7Yswwulj34AXP
- LB49Mk8Ot7fo6mdt0DkV11JS9LmKxKvpY+KTlrKG+i7pVCSZvVUx
-In-Reply-To: <20260120-mtkdsi-v1-1-b0f4094f3ac3@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+	id 1waKVR-00000001oFG-0br4
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 18 Jun 2026 21:42:38 +0000
+Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-84540c1fff4so1734098b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 14:42:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1781818955; x=1782423755; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=V8j94fpKwfXbxZh5xLHwe7ucGfUmxazlRZU8sB7HYkU=;
+        b=lJkeLEuX1njMgOVQWid1iPLoaGrLuk8oZ4yEKfdK1bZpjPV/VmHRR6/6IbDnpE2CaG
+         2fOcWeCl6eFZYQcnO7qlh5wl/u/ieAc0TVoOXEFp8yyOoky91VlyDucLlZ5uDRLhF2Wt
+         hUKvRJ/IPBrmC/BkmzjM9BIPTg2jitCNBlxe6f0ouqR49sNIID77UaSbF1hihSABhm6L
+         MrQjzB8iHDUUFrHoU7gtzaNrB4pOcqWUMRWWSV4lNkf3taJYBOxGCXDGWDO2EKzJ5Mt2
+         sndiH1TGFBWzgivEyAO4GyqbcapJvpjSG3ATUsVv0mpBebFlxxtiffUUKsHF7u86hhd+
+         WJJw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781818955; x=1782423755;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=V8j94fpKwfXbxZh5xLHwe7ucGfUmxazlRZU8sB7HYkU=;
+        b=QvVoEstuhiCuc1fF/zi74Ek+N18E/opUl9sDkBOBkxlCYyn1dFskVoeJjMAF4My6Ob
+         JP+AtUHv8cmofwgENlof56hpzJSNmU+rxop26MyJDUEPGvkPpDJXRDXShErtN8SWD74X
+         aX66UcXbazZSk9amsiZUwGcuGFr8z/5XZT5c24H0/R0+qPUoWLC3Q7ioquioJwd/obQF
+         9GU4tmtOCC96oFNUydhTsscFPmMhh+gjLhYdWc3PBB3X66PDgJsMFXeY6mnN77GllJAT
+         7qYKDKcGYpOCyQMUG3//CM4ivc8k1eIFU3rJnXQxJ1jICnvDm0kZSqXAWsZa8SJ+/hQf
+         k+Uw==
+X-Forwarded-Encrypted: i=1; AFNElJ9iop5AEBrMdiOF7Dhl/P/oNlUEmj3HdZaBQzMobNI50gA+6t4rjeSdBDG2Z0IWEcdvdqZG3XPfEAifdtxxm5Ks@lists.infradead.org
+X-Gm-Message-State: AOJu0YzUx9qGXPtKsxIlPMcrs7eXHTjXKscL5TKFaDdRIZjTBq0NNkM4
+	ttTMYiSVM1w8XVGpcPouEsSqdb0bmpcj3K+5ZUG5n0mhXSBOQSbi/czJw+ydCrGn4G9OWc2OBxZ
+	TA+eUdw==
+X-Received: from pfbjc15.prod.google.com ([2002:a05:6a00:6c8f:b0:82f:20ed:8059])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:6c9c:b0:845:374f:4ee7
+ with SMTP id d2e1a72fcca58-845507dabc4mr738565b3a.13.1781818954904; Thu, 18
+ Jun 2026 14:42:34 -0700 (PDT)
+Date: Thu, 18 Jun 2026 14:42:34 -0700
+In-Reply-To: <ajRTZNum3u7oVdRa@google.com>
+Mime-Version: 1.0
+References: <20260613002031.745413-1-seanjc@google.com> <20260613002031.745413-10-seanjc@google.com>
+ <ajRTZNum3u7oVdRa@google.com>
+Message-ID: <ajRmStVr-2-QgqGB@google.com>
+Subject: Re: [PATCH v7 09/20] KVM: selftests: Add VFIO device support to
+ eventfd IRQ test
+From: Sean Christopherson <seanjc@google.com>
+To: David Matlack <dmatlack@google.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Josh Hilke <jrhilke@google.com>
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260618_140642_629492_1DDE73C2 
-X-CRM114-Status: GOOD (  25.71  )
+X-CRM114-CacheID: sfid-20260618_144237_237948_60C62F97 
+X-CRM114-Status: GOOD (  23.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,119 +93,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/20/26 05:36, Gary Bisson wrote:
-> Some bridges, such as the TI SN65DSI83, require the HS clock to be
-> running in order to lock its PLL during its own pre-enable function.
+On Thu, Jun 18, 2026, David Matlack wrote:
+> On 2026-06-12 05:20 PM, Sean Christopherson wrote:
+> > From: David Matlack <dmatlack@google.com>
+> > 
+> > Extend the eventfd IRQ test with a '-d' argument that takes a BDF (in the
+> > format segment:bus:device.function) of an interrupt-capable PCI(e) device
+> > bound to VFIO, and use said device to trigger interrupts instead of always
+> > synthesizing interrupts via direct writes to the eventfd.
+> > 
+> > Using a VFIO device to trigger interrupts validates the end-to-end delivery
+> > of IRQs for "real" devices, and when supported by hardware (and KVM), also
+> > validates interrupt delivery via IRQ bypass, i.e. via device posted IRQs.
+> > 
+> > Now that IOMMUFD is a thing, auto-probe IOMMUFD vs. "legacy" VFIO by
+> > temporarily opening /dev/iommufd, and skip the test if neither IOMMUFD nor
+> > legacy VFIO is available.  Add a '-t' option to the user override the probe
+> > logic, e.g. in case IOMMUFD is available but the system is configured for
+> > legacy usage.
+> > 
+> > Note, the device must have a VFIO selftest driver in order to work with
+> > the test.  A helper script to list supported devices will hopefully be
+> > available in the near future at
+> > tools/testing/selftests/vfio/scripts/list_supported_devices.sh[1].
 > 
-> Without this change, the bridge gives the following error:
-> sn65dsi83 14-002c: failed to lock PLL, ret=-110
-> sn65dsi83 14-002c: Unexpected link status 0x01
-> sn65dsi83 14-002c: reset the pipe
+> > +static int vfio_setup_msi(struct vfio_pci_device *device)
+> > +{
+> > +	const int flags = MAP_SHARED | MAP_ANONYMOUS;
+> > +	const int prot = PROT_READ | PROT_WRITE;
+> > +	struct dma_region *region;
+> > +
+> > +	/* A driver is required to generate an MSI. */
+> > +	TEST_REQUIRE(device->driver.ops);
 > 
-> Move the necessary functions from enable to pre-enable.
+> This series is probably going to race with merging another VFIO
+> selftests patch to make send_msi() optional [1]. Can you add a check for
+> that here?
 > 
-> Signed-off-by: Gary Bisson <bisson.gary@gmail.com>
-> ---
-> Tested on Tungsten510 module with sn65dsi83 + tm070jdhg30 panel.
-> 
-> Left mtk_dsi_set_mode() as part of the enable function to mimic what is
-> done in the Samsung DSIM driver which is known to be working the TI
-> bridge.
-> ---
->   drivers/gpu/drm/mediatek/mtk_dsi.c | 35 +++++++++++++++++------------------
->   1 file changed, 17 insertions(+), 18 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediatek/mtk_dsi.c
-> index 0e2bcd5f67b7..b560245d1be9 100644
-> --- a/drivers/gpu/drm/mediatek/mtk_dsi.c
-> +++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
-> @@ -672,6 +672,21 @@ static s32 mtk_dsi_switch_to_cmd_mode(struct mtk_dsi *dsi, u8 irq_flag, u32 t)
->   	}
->   }
->   
-> +static void mtk_dsi_lane_ready(struct mtk_dsi *dsi)
-> +{
-> +	if (!dsi->lanes_ready) {
-> +		dsi->lanes_ready = true;
-> +		mtk_dsi_rxtx_control(dsi);
-> +		usleep_range(30, 100);
-> +		mtk_dsi_reset_dphy(dsi);
-> +		mtk_dsi_clk_ulp_mode_leave(dsi);
-> +		mtk_dsi_lane0_ulp_mode_leave(dsi);
-> +		mtk_dsi_clk_hs_mode(dsi, 0);
-> +		usleep_range(1000, 3000);
-> +		/* The reaction time after pulling up the mipi signal for dsi_rx */
-> +	}
-> +}
-> +
->   static int mtk_dsi_poweron(struct mtk_dsi *dsi)
->   {
->   	struct device *dev = dsi->host.dev;
-> @@ -724,6 +739,8 @@ static int mtk_dsi_poweron(struct mtk_dsi *dsi)
->   	mtk_dsi_set_vm_cmd(dsi);
->   	mtk_dsi_config_vdo_timing(dsi);
->   	mtk_dsi_set_interrupt_enable(dsi);
-> +	mtk_dsi_lane_ready(dsi);
-> +	mtk_dsi_clk_hs_mode(dsi, 1);
->   
->   	return 0;
->   err_disable_engine_clk:
-> @@ -769,30 +786,12 @@ static void mtk_dsi_poweroff(struct mtk_dsi *dsi)
->   	dsi->lanes_ready = false;
->   }
->   
-> -static void mtk_dsi_lane_ready(struct mtk_dsi *dsi)
-> -{
-> -	if (!dsi->lanes_ready) {
-> -		dsi->lanes_ready = true;
-> -		mtk_dsi_rxtx_control(dsi);
-> -		usleep_range(30, 100);
-> -		mtk_dsi_reset_dphy(dsi);
-> -		mtk_dsi_clk_ulp_mode_leave(dsi);
-> -		mtk_dsi_lane0_ulp_mode_leave(dsi);
-> -		mtk_dsi_clk_hs_mode(dsi, 0);
-> -		usleep_range(1000, 3000);
-> -		/* The reaction time after pulling up the mipi signal for dsi_rx */
-> -	}
-> -}
-> -
->   static void mtk_output_dsi_enable(struct mtk_dsi *dsi)
->   {
->   	if (dsi->enabled)
->   		return;
->   
-> -	mtk_dsi_lane_ready(dsi);
->   	mtk_dsi_set_mode(dsi);
-> -	mtk_dsi_clk_hs_mode(dsi, 1);
-> -
->   	mtk_dsi_start(dsi);
->   
->   	dsi->enabled = true;
-> 
-> ---
-> base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
-> change-id: 20260120-mtkdsi-29e4c84e7b38
-> 
-> Best regards,
+>   TEST_REQUIRE(device->driver.ops);
+>   TEST_REQUIRE(device->driver.ops->send_msi);
 
-Hello,
-This commit was part of 7.1 and caused a problem for me.
-I'm running postmarketOS (basically Alpine Linux) on a Lenovo C330 
-chromebook with a Mediatek MT8173 processor.
-The problem: when the display on my laptop powers off (via suspend or 
-idle, like xset dpms off) the picture does not come back when the 
-display powers back on (from resume). The display backlight comes on and 
-brightness is adjustable but there is no picture. The only fix is to reboot.
-
-Reverting this commit and applying it as a patch on top of 7.1 addresses 
-the issue for me.
-
-You can view the config I'm using here: 
-https://gitlab.postmarketos.org/postmarketOS/pmaports/-/merge_requests/8819
-
-Is there any sort of testing or other debugging info I can provide to 
-help address this issue?
-
-Thanks,
-- Adam Thiede
+Ya, will do.
 
