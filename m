@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAA2FCD98ED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 03:14:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C087ACD98E4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 03:14:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9jDBMo+uapTMqM+YZcqPtN2LM56ZOb5vW285QSsulV4=; b=RrSucsiNkcjbZEmJXDRYl2bKsJ
-	thx985vaXuY+DitR0g1x1EjzwqrfEgykECiRMWs2BxNVCKiQHXZAp7lr83zt9ZVMCRTpEPOuj083y
-	X8SWqEr5mHO3V/wYdkvQljdrLsdAOGOnF1bF6/aUmdB++lCoZXBVa3Tk0j0WgB4PkjkBC0H6RCfSg
-	wP3iWUtyEXXsQjtidLQlZalKV92lDegJG9aPuwxZ4CQt4pAC42tbFUXIwpG3R1eYxj6tNAHZ0lcoO
-	FzrXItTHa7w4zxgqYnB4DMdesSf8LIFLrv9d0jzjdtG31B5iUH8xuICsnac0hXSkVvsBqaeW5HJBp
-	fSU8Mi/w==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WUiLNGPqh5xoaR1mbDbB7mwDPFmDNybYuGD8IeVqIGM=; b=ApXnnwnEveyLCGVZOjWpi6TgLr
+	q2ox+2Q00ymd/w9fM/Vpyt9rgLF4aw4U75VkqMniddTXuE+tlEQid2z26jyw4IKI0cLvLPkeAhYKB
+	/79XlWoAZSGXpzj0xnLNPiGQs7CcTh8vjfPOuBeF1M7+psq7tMtLT3eujMf4oKMjLxGmo7ac4nKWI
+	UovODBP9tNxSf6j/bqp5ZJVQaV67DHAqEmFDRGNsG9TLwhhtzmJAQMwyr7yp9kYHQUnt4VU5CKRSb
+	aj8AJhKMEKICh19fnfbMrgr8AATycXecJcuBBRoYPCLu1ytCoAycB/O0Xm6VYWba3eD7Xxt58OQ/2
+	kmzD4bcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa3CQ-00000000YJS-3wxi;
-	Thu, 18 Jun 2026 03:13:50 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1wa3Cd-00000000YQJ-30hw;
+	Thu, 18 Jun 2026 03:14:03 +0000
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa3CO-00000000YII-2nEc
+	id 1wa3CR-00000000YJu-40Tb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 03:13:49 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-84532e3dbf7so195304b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 20:13:47 -0700 (PDT)
+	Thu, 18 Jun 2026 03:13:53 +0000
+Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-8452a597afcso197385b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 20:13:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1781752427; x=1782357227; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=9jDBMo+uapTMqM+YZcqPtN2LM56ZOb5vW285QSsulV4=;
-        b=Au7XKgiMcSmHb2PiI4VQKjsdfOBp0uKydS7sXsZoTkwM3xbRdTCfFVCXqTICiYQy/a
-         iUZgJXUC07CPUrRbtqmjgkRVY3YP3kdUbVI9p54eb8HVTUFANFd++SghkXc8N4pHgnAg
-         sYltc55ZLvAvPL5VYQW2iNUTWOOOeU0xHMEBs=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781752427; x=1782357227;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=chromium.org; s=google; t=1781752431; x=1782357231; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=9jDBMo+uapTMqM+YZcqPtN2LM56ZOb5vW285QSsulV4=;
-        b=UDqfydUoSomhjKEjxuWd4Ecoo6EViJn4NJ1DvgaO4UMWLWqM0nbK8UR9+FFMMnv4nK
-         +dMovE1CS/Z6TN3i6pStUSn1BW82HQu+XtMs4HtxNAAx2WLyQTENHnZBG6O7spgEp9IU
-         0/sfPk+QPPEtta6B9orHDRLhyN3J7KgKyHlh2TCVCm2UafowFKFOAap0Glj6PbPgp3Sf
-         E4hAJWDHPed+5D7kDMXCtB2z2qd8ef5rNLd95jbOMU34gJnfQklZPPBf+AKM+cAOWXwB
-         HELUOuugit1m9rYbcucjh4K8mpW2pbX5i4j85U2Z0oxHFupyxWKrwf/qqMqrAnDU2T9l
-         cyjA==
-X-Forwarded-Encrypted: i=1; AFNElJ8v7w31kINi9YsOTnR51DERXTs1CVzhy1RNkBt1Brdzn8ldAj9I6/9ARQS+YmRWBEIxN0SR8b99lSlDsans29Km@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQbuv2+6H4gSGpJaWFOtHzXaYSyd3J3+LTTAY7HWmuQMvonMs9
-	tLnibzWEe2tUjXa2Pl3CaLpi0l5nBRpRdygQ/Dp2qomtmWl7i3iiVbqxvha5y+LppA==
-X-Gm-Gg: AfdE7cluGkbq1B30D/yEb809Plw0CWWVDRozbt9MdGYPxZhccwVND+5JrR/wT22DXig
-	Oi4EeQzkckqn7+OBi5dzS2aSVc62sGnDR1r76wsA5PJj2oy7k0p64eAdvjj/xjAUgzVE1qKVmyi
-	SRWzleWgeeOw5AXrypl79xX7cn3lhbpmnSuUn7zgEnTpKS23TavLO/1jUmX5kc/H18sHEDrVguL
-	WbIe/4MVP0iNZHvC4AP4qm8/rXDizYdJBB3f6KE2j5o7rtjV39geHUK4Z+phTlmsLL9Zmt1U86V
-	IEz9rYdp1LWQuDCgHa2sAUykd7OHL63Zuz1vJjFNnmCvsvSiS5vL3fXWCDaQEQpe8sapll0Lrgt
-	0XeDIbHm/fCmyM46u1dpFXZeB+s6s3tzSJjSsLaoPbOzIW0NNrumbaKT40Qxy9HU3Xod0gBI0zr
-	pwktn2ofb7IV6qfl3b93aSSnLk4ad0v/JeO8N8b5PKkDzyCVpEiayN8UEpG29rhVd+TUqcYsION
-	Bw=
-X-Received: by 2002:a05:6a00:84d:b0:842:1ffc:55b5 with SMTP id d2e1a72fcca58-8453b1959a3mr1855321b3a.26.1781752427130;
-        Wed, 17 Jun 2026 20:13:47 -0700 (PDT)
+        bh=WUiLNGPqh5xoaR1mbDbB7mwDPFmDNybYuGD8IeVqIGM=;
+        b=hi1df22Gd9mIiUa2wYGUmmTRDTkbL1BPmtp+aH2oyLzhpm+JPC4OtbaZzeKMU7RaEC
+         qjEi2fI8u2RJpBHvX4JaKTpr8AOi//op8WFDeCet6USyCP1OuvtE0ASvhMjDPzCJppqt
+         +5Mb7liVFQ6s/xlcw97uAJbuZxKgi2N40Tzqs=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781752431; x=1782357231;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=WUiLNGPqh5xoaR1mbDbB7mwDPFmDNybYuGD8IeVqIGM=;
+        b=AGP0rSTrjgYubUuM7sVTM2zKSnoJVlvvKN54Pi/pEnvqrQ6VC2IYfZ9GDzp/gBfUmH
+         xRbPowgPibSxObZmDcYg9kRj98OBm88RAVhsfIvx2sRioOu2rxVUE8em5ZGFTfuvEZE6
+         1MHe0A/6cJAPKMRMrp6qPjpuGwHMs73UdvSWJg/Z57xEJ41O6eUV3XEXe96mWCrexjdj
+         +3840MKA99HEll9gDGfkfHWBbK8p1dXJqM1TgoKdQhFHNm8M0vd0AKU6M5xHwK0cHNbd
+         Ci9uMhLQcZ1ZFtqSbnfR+BOTJ8knmV/BmMRWh2wmXN2jzChQ0oWmzYVBXbezfpkDSPcj
+         Zu+A==
+X-Forwarded-Encrypted: i=1; AFNElJ/Ilt9NZgJGOGZXqy0iLWUZ0OG3e+mMrwAkKcdoaLcAwwtOFHwwd64Kg8rB46PXN61BXuIHu3gtplpYBYDufpGE@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywa7Un1IsFRvUuhLWLxfpzIUGh623H/3acUvAVdotOcv4UCUIqw
+	9GDX0m1CfwtBiVNiZEncYBRP2u0h8Ugef6IlY91TdidyXgtCwlyRTk0LyI1NIqJUsA==
+X-Gm-Gg: AfdE7clRX3Ef5sClhfDfABPLN0aamGv5Qbj29g7y6xGuXMg0IboXXVQ2MZ8IHypibTq
+	9DRfMijgH0gkmPYO3QtbIRAHTZEC5rheDOb9e+lVLEoPVMfd7yDLDe1nxYYCwrMVHhYTvsoh71M
+	B6qNk+0HiOoisxos+4SGYw4xN7UFJ5ZQTJGLlAJPbd5Q+qnBF3gBMzLp5ntAtfQJl+5LIV9H+OG
+	Bwj+/Ree0++Q7WB95otJSHdyFA8OhvvyxlARmo2m68veqco6jOb1rQrvMRL2y0JOEwDdINez2Pd
+	oLqcYHxpuA2z8giV2DJ8WrM1SctgoHJNUaweOWKRS5/rfoTuZGmcUsZOHoHlWx0Wx8kpCMpCIpO
+	UZbUjjwoCEuOIaodP1h6VPWwdbFKNMCeykOjTyeaNiLFrsKDabzpGVKFFp9FlqGUjLQZ9TB/j63
+	m4rCjxLDywlm+2HhfU8KcSwXxswDLuijtI2ycPsvQb3aFmzhSw4i9xHFfHdL9X5dukflBy/5OWL
+	ok=
+X-Received: by 2002:a05:6a00:10cf:b0:842:708f:39be with SMTP id d2e1a72fcca58-84541991b98mr590884b3a.5.1781752431077;
+        Wed, 17 Jun 2026 20:13:51 -0700 (PDT)
 Received: from tigerii.tok.corp.google.com ([2a00:79e0:2031:6:20ef:efdb:f2c9:836f])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8434b046911sm17548232b3a.53.2026.06.17.20.13.45
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8434b046911sm17548232b3a.53.2026.06.17.20.13.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 17 Jun 2026 20:13:46 -0700 (PDT)
+        Wed, 17 Jun 2026 20:13:50 -0700 (PDT)
 From: Sergey Senozhatsky <senozhatsky@chromium.org>
 To: Marcel Holtmann <marcel@holtmann.org>,
 	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
@@ -75,17 +76,19 @@ Cc: Tomasz Figa <tfiga@chromium.org>,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
-	Sergey Senozhatsky <senozhatsky@chromium.org>
-Subject: [PATCH v4 0/2] Bluetooth: btmtksdio: teardown fixes
-Date: Thu, 18 Jun 2026 12:13:20 +0900
-Message-ID: <20260618031338.1011410-1-senozhatsky@chromium.org>
+	Sergey Senozhatsky <senozhatsky@chromium.org>,
+	stable@vger.kernel.org
+Subject: [PATCH v4 2/2] Bluetooth: btmtksdio: call cancel_work_sync() out of host lock scope
+Date: Thu, 18 Jun 2026 12:13:22 +0900
+Message-ID: <20260618031338.1011410-3-senozhatsky@chromium.org>
 X-Mailer: git-send-email 2.54.0.1189.g8c84645362-goog
+In-Reply-To: <20260618031338.1011410-1-senozhatsky@chromium.org>
+References: <20260618031338.1011410-1-senozhatsky@chromium.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260617_201348_746363_AE6C1A3C 
-X-CRM114-Status: UNSURE (   7.17  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260617_201351_996806_1B0AB6B5 
+X-CRM114-Status: GOOD (  11.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,31 +103,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This fixes several teardown issues:
+cancel_work_sync() should be called outside of host lock scope
+in order to avoid circular locking scenario:
 
-     INFO: task kworker/u17:0:189 blocked for more than 122 seconds.
-     __cancel_work_timer+0x3f4/0x460
-     cancel_work_sync+0x1c/0x2c
-     btmtksdio_flush+0x2c/0x40
-     hci_dev_open_sync+0x10c4/0x2190
-     [..]
+CPU0                            CPU1
+                                close()/reset()
+                                  sdio_claim_host()
+txrx_work
+  sdio_claim_host() // sleeps
+                                  cancel_work_sync() // sleeps
 
-close/flush can deadlock when run concurrently with btmtksdio_txrx_work().
-In addition btmtksdio_txrx_work() re-enables interrupts regardless of
-close/flush being executed on another CPU.
+In addition, when txrx_work() runs concurrently with close()/reset()
+it better not to re-enable interrupts by testing for BTMTKSDIO_FUNC_ENABLED
+and not BTMTKSDIO_HW_RESET_ACTIVE before C_INT_EN_SET write.  However,
+btmtksdio_close() clears the BTMTKSDIO_FUNC_ENABLED too late (after
+cancel_work_sync() call).  Move BTMTKSDIO_FUNC_ENABLED bit-clear earlier
+so that txrx_work can see concurrent close().
 
-v3 -> v4:
-- fix commit message linter warnings/errors (tabs, subject line over 80
-  chars).
+Fixes: 26270bc189ea4 ("Bluetooth: btmtksdio: move interrupt service to work")
+Cc: stable@vger.kernel.org
+Signed-off-by: Sergey Senozhatsky <senozhatsky@chromium.org>
+---
+ drivers/bluetooth/btmtksdio.c | 12 ++++++++++--
+ 1 file changed, 10 insertions(+), 2 deletions(-)
 
-Sergey Senozhatsky (2):
-  Bluetooth: btmtksdio: test for BUS IO errors in btmtksdio_txrx_work()
-  Bluetooth: btmtksdio: call cancel_work_sync() out of host lock scope
-
- drivers/bluetooth/btmtksdio.c | 16 +++++++++++++---
- 1 file changed, 13 insertions(+), 3 deletions(-)
-
---
+diff --git a/drivers/bluetooth/btmtksdio.c b/drivers/bluetooth/btmtksdio.c
+index d8c8d2857527..207d04cc2282 100644
+--- a/drivers/bluetooth/btmtksdio.c
++++ b/drivers/bluetooth/btmtksdio.c
+@@ -625,7 +625,9 @@ static void btmtksdio_txrx_work(struct work_struct *work)
+ 	} while (int_status && time_is_after_jiffies(txrx_timeout));
+ 
+ 	/* Enable interrupt */
+-	if (bdev->func->irq_handler)
++	if (bdev->func->irq_handler &&
++	    test_bit(BTMTKSDIO_FUNC_ENABLED, &bdev->tx_state) &&
++	    !test_bit(BTMTKSDIO_HW_RESET_ACTIVE, &bdev->tx_state))
+ 		sdio_writel(bdev->func, C_INT_EN_SET, MTK_REG_CHLPCR, NULL);
+ 
+ 	sdio_release_host(bdev->func);
+@@ -741,6 +743,8 @@ static int btmtksdio_close(struct hci_dev *hdev)
+ 	if (!test_bit(BTMTKSDIO_FUNC_ENABLED, &bdev->tx_state))
+ 		return 0;
+ 
++	clear_bit(BTMTKSDIO_FUNC_ENABLED, &bdev->tx_state);
++
+ 	sdio_claim_host(bdev->func);
+ 
+ 	/* Disable interrupt */
+@@ -748,11 +752,12 @@ static int btmtksdio_close(struct hci_dev *hdev)
+ 
+ 	sdio_release_irq(bdev->func);
+ 
++	sdio_release_host(bdev->func);
+ 	cancel_work_sync(&bdev->txrx_work);
++	sdio_claim_host(bdev->func);
+ 
+ 	btmtksdio_fw_pmctrl(bdev);
+ 
+-	clear_bit(BTMTKSDIO_FUNC_ENABLED, &bdev->tx_state);
+ 	sdio_disable_func(bdev->func);
+ 
+ 	sdio_release_host(bdev->func);
+@@ -1295,7 +1300,10 @@ static void btmtksdio_reset(struct hci_dev *hdev)
+ 
+ 	sdio_writel(bdev->func, C_INT_EN_CLR, MTK_REG_CHLPCR, NULL);
+ 	skb_queue_purge(&bdev->txq);
++
++	sdio_release_host(bdev->func);
+ 	cancel_work_sync(&bdev->txrx_work);
++	sdio_claim_host(bdev->func);
+ 
+ 	gpiod_set_value_cansleep(bdev->reset, 1);
+ 	msleep(100);
+-- 
 2.54.0.1189.g8c84645362-goog
 
 
