@@ -4,58 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25BB1CD98E4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Jun 2026 23:44:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87347CD98F0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 00:21:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PUtCH2mIavsa719O4vEdePS3+ukWIimZPi7womHrDik=; b=IernVtG6FSV/p40W9R0yekLZX1
-	dI9IukJq42C6SeXdwSRX+d7hqlBe5Qc0PqTlPXCTgApO7RWnVwxtDnTOU8uTOhyKVJvA5kLRgq+DC
-	pmL91UXdpyvjxt/eZRCbVXpJZuQOfcO9Z0ZbaGd+B26QYWWNIjENzP0QsWTAOe8iQpoDG64j+6zyp
-	j8Bbj5I2dLyABbFjs40qGldt49FWk+qAxm7PZW1hriR35eZN90AZmNF716CYlDJApe4bybg1JLPqi
-	d7yCcqthZMWGKDANIAZMRzcZH/i4Ly3+AQJFrth/4HlJ0HOTA0eBUdRzWo8wor6UTXyReidTHo39H
-	KbLPPKsw==;
+	bh=4fVcwov0xUbbsvxiR509uVDetK1RWIqoecjtKQCv7YQ=; b=OX6KTzhjv5RIYPxZZ1xRl/dVjo
+	DVoA4cejpvi4nSi+y9rM4B6fXSOCpMIpuOPFxFoK7mR/baEw0uJzunrGcqPSkrR0/ISzTGsKU5Pv0
+	USZHDWqVHGP6lmvox3wgWXjl9L4GSYLY2I7i5KYdkdFGQ0GVCnUrIvA0sZniqe10FS+w9oEgkTIPX
+	+2uS6oyqChX3YkGnZJ2edHsfdAdawvNOipThq2dHPXX2fYQ6ncIAyx2wQ68JhZnLqEqcM2c1g+vbs
+	8TBANBXf+EbOyu/YXzTh7F0lW5RovqygrwD8SwOA31+NjmV0Kqh9idyfkKm0F21uSkh+suNsGAffi
+	hjySHGRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZzwC-00000000QvM-49f1;
-	Wed, 17 Jun 2026 23:44:53 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wa0V7-00000000Rqd-3eVN;
+	Thu, 18 Jun 2026 00:20:58 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wZzwC-00000000Qv4-0zkn;
-	Wed, 17 Jun 2026 23:44:52 +0000
+	id 1wa0V6-00000000RqS-1T4l;
+	Thu, 18 Jun 2026 00:20:56 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BCFD542A46;
-	Wed, 17 Jun 2026 23:44:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 271961F000E9;
-	Wed, 17 Jun 2026 23:44:49 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9E0B543B75;
+	Thu, 18 Jun 2026 00:20:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E7E51F000E9;
+	Thu, 18 Jun 2026 00:20:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781739889;
-	bh=PUtCH2mIavsa719O4vEdePS3+ukWIimZPi7womHrDik=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=ehBABrRFTO7Z4VezmK8POW8KuVNQovjhhnh0LvYAr9CxzY9wDhDUhg3LD45I87Dv4
-	 yVaXjElmqTiOGfUCCkGLSEDlUikyey6Hj1t/E3GXCm0FBI2r9YiB/4NLRexOgcpMzX
-	 awUGf/LqdpMHOA2U3MBYFHGAp+TPb0OKXBeaT/TTCIL6/xqWIN3b9b1XSt23fBo7dV
-	 swkPqyyicZWs7gYYC/K3fCIQU2IpiFqn7qURKIuk7nwQeDcmMMAB/TITf/sqYdZKez
-	 Nj+2q6teMCNzp047kNGlXZkX08sThANjueFzWweyMgEjQyo+RuBRMnuneWQJ7bEK4J
-	 Gk4OarN5j/NNQ==
-Date: Wed, 17 Jun 2026 16:44:48 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Wayen Yan <win847@gmail.com>
-Cc: netdev@vger.kernel.org, lorenzo@kernel.org, horms@kernel.org,
- pabeni@redhat.com, edumazet@google.com, andrew+netdev@lunn.ch,
- angelogioacchino.delregno@collabora.com, matthias.bgg@gmail.com,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH] net: airoha: Stop TX queues on error path in
- airoha_dev_open
-Message-ID: <20260617164448.31e189bc@kernel.org>
-In-Reply-To: <178160729880.2156257.7978513589649053826@gmail.com>
-References: <178160729880.2156257.7978513589649053826@gmail.com>
+	s=k20260515; t=1781742055;
+	bh=4fVcwov0xUbbsvxiR509uVDetK1RWIqoecjtKQCv7YQ=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=fboahXFexfnQG2mmEymI4v7jf3N6BQJODVoQswWVNXRmEI/DQvPH1yBnoWNfsd+q7
+	 oAtIV/06GLHxrjBADEAO4nizn5DIgvYqYvqcLPAUm1SKE+ua8srU99ekdeBvxTk3+s
+	 38GUM+deRGe5Rkf7Rl69YO9BteCmVrgvQ2nu65TtFH5nsqUdkAHtnsHy9LJI9Dw4qJ
+	 Dh9/1VqdH45QNqoYpPp27XYn+NMCR9qVLrEUQim9rMM61jkOXY5x3AhMaBP/dYWHj/
+	 JQX3sZPo7SEMPbP4MjUZVSnT/q0QRiT2P0GTjjLvIncSuNZFYgQKInwBAy6r/yfuKo
+	 KDVSr22ZV6UjA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 93A4E393102B;
+	Thu, 18 Jun 2026 00:20:50 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net] net: ethernet: mtk_eth_soc: fix supported_interface
+ set
+ after phylink_create
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <178174204913.1875263.9684568124296836411.git-patchwork-notify@kernel.org>
+Date: Thu, 18 Jun 2026 00:20:49 +0000
+References: <20260615151106.15438-1-ansuelsmth@gmail.com>
+In-Reply-To: <20260615151106.15438-1-ansuelsmth@gmail.com>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: nbd@nbd.name, lorenzo@kernel.org, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+ linux@armlinux.org.uk, daniel@makrotopia.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,13 +76,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 16 Jun 2026 18:50:39 +0800 Wayen Yan wrote:
-> In airoha_dev_open(), if airoha_set_vip_for_gdm_port() fails after
-> netif_tx_start_all_queues() has been called, the TX queues remain
-> started while the device configuration is incomplete. This leaves
-> the device in an inconsistent state where packets could be
-> transmitted before the VIP/IFC port configuration is complete.
+Hello:
 
-Not sure if this was superseded by another posting but FWIW
-this posting did not apply.
+This patch was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
+
+On Mon, 15 Jun 2026 17:11:00 +0200 you wrote:
+> Everything configured in phylink_config it's assumed to be set before
+> calling phylink_create() to permit correct parsing of all the different
+> modes and capabilities.
+> 
+> Commit 51cf06ddafc9 ("net: ethernet: mtk_eth_soc: add support for MT7988
+> internal 2.5G PHY") while introducing support for 2.5G phy for MT7988,
+> probably due to an auto-rebase, placed the configuration of the INTERNAL
+> interface mode for the supported_interfaces for phylink_config right after
+> phylink_create() introducing a possible problem with supported interfaces
+> parsing.
+> 
+> [...]
+
+Here is the summary with links:
+  - [net] net: ethernet: mtk_eth_soc: fix supported_interface set after phylink_create
+    https://git.kernel.org/netdev/net/c/e4b4d8410c7c
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
