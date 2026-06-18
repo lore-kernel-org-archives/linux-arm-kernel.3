@@ -4,75 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCCDACD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 13:15:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E1D6CD98ED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 13:17:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FAAn/mWJuuN5gL4FlLtNSl6vPNBasbbg1AXB8rDwhzk=; b=s87qp8zb98ymujlCEVOAG7B5gV
-	ye22YYDkVaFgj1/wPZH2Ugk01nOw0R1Em8MIGQRPa8oCSGOdOda0slghD0NDCUMClqXAc8x9/R5+S
-	FJxKhpetcFKnVKin1Uu4XOZ1a+WOg5h5DaM63ohDWEwidxrHsPWQhT1+1Bm7htZjY1klfY/qgRq9e
-	E0NW14Hqn5CCwuiPXMZ7ZjYIcRHSgX4JjPGr42L2SqKBJIVPsrDZ+0OjNmc4C38jceJYWtlPSuky+
-	2hqEdPsGyXXQYGYSnyRMhgTgSrdy2yPI2Q5pwlWqGGan+EmHKCgb+Yk0Gr3bRAstBA6TIPqAKlAxK
-	vjARAtGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ljge/heQ4mKe475BVIGEjlJNOrgSimFYRCreokbMn44=; b=EL9UwRgAbNlPox/pwopN72Axo5
+	CJ0rbUpwl3aBRsmqitoj7N+s8KaDNaxe9VVRzKrLI7rHoUi3FJjFZEwXRfQ68XFSYNXSYYwEpX7n7
+	0Q9mIS4aCHZoQ5MRM65uUFdjTODh9Z2aPtn2fwWnUABsrLHY9E2zuYjOo/vWmY5O/8HA0vovIDrsh
+	2TN55tp4ANxWsiyEwifk20KZ00VnvJpWE4nH5ijxjH0vwG545P2kMlvppsBMlsk29BfZ+OGIRBkZm
+	3fwY5+39c6H8DFuB5BaKcils1N3Yv9P2K8cnj+wjf0Ku1jLTpaKOD/21rem7DELMCxMcapA6FbGCy
+	gCQTPItg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waCaw-00000001LDb-1GDM;
-	Thu, 18 Jun 2026 13:15:46 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waCau-00000001LCv-2VUL
+	id 1waCcT-00000001LWt-0Agm;
+	Thu, 18 Jun 2026 13:17:21 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1waCcQ-00000001LWI-3Y3f
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 13:15:44 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4E77043C46
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 13:15:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 162701F00ADF
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 13:15:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781788544;
-	bh=FAAn/mWJuuN5gL4FlLtNSl6vPNBasbbg1AXB8rDwhzk=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=RvDj8lXapXNOvDW2rf9wVnNlwHPrTLK4sqXVu5/UvcJCFMrFeluBRbB7SYTQM7zqe
-	 5j3fADVyCzPW/FMNcXuGyIJkNXAG2eY10J+sPgFludxHZhQliRr+xytCmBOmIqI6rM
-	 iP9qCUbW3Ss9yE+rTytVTiMA+bZXsdkNCjy5RuuotGpr2ErLHf6ktGcAr8fWt7G2hv
-	 lC6t4g9zYopVfoicscD/Sjs4NJmrkTL0RJF7ejLsBWhgOc6va+W3+fwcZyVeUFoMYY
-	 prrIDR80FHzeKc4CM6LUoP7IozLBBYb8Ap5PSDKu2EPiQhuFVVPS/ZL1YEL7Z3LhUC
-	 i1SfWrn9Y2F8Q==
-Received: by mail-lj1-f169.google.com with SMTP id 38308e7fff4ca-39677c80386so9330931fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 06:15:44 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ+qgLKTjZfzIwtP3ZGJEeez1qqjoftg1QTxAiRk6Km+U4QRdEPizm2Fgp3L+wDZHpQ/Y/rBrZFeeeQqSSWqOW+k@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz+nXDPudnJ5Fh/0Jd+OH1n1mitUaf7AMm2EEe4OuMmP6KnuLwh
-	ff7w+53ZhtaIgNhRwJlCkuMYtTJO65LAwWF9IwISAaumf4qA0G4+mMPAiQloVIdxvlJa8URDL4n
-	ndqXem/N7hCypzo5mZOM+dGtvFFm6ZX8=
-X-Received: by 2002:ac2:4f0f:0:b0:5ad:51ac:21d8 with SMTP id
- 2adb3069b0e04-5ad51ac22a4mr687097e87.14.1781788542680; Thu, 18 Jun 2026
- 06:15:42 -0700 (PDT)
+	Thu, 18 Jun 2026 13:17:20 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1A0A22936;
+	Thu, 18 Jun 2026 06:17:12 -0700 (PDT)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 30E343F915;
+	Thu, 18 Jun 2026 06:17:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1781788636; bh=9a3RxmN1cTcYOJM/a3I2P9oCE9OEM/GndeWxQ25GhAo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=CjMMGETHiwjJdwrsbMaMtjIRnx2XnCxwo1aZxcvhmD2QsZ/jw17dvoaUMD3PbCjLk
+	 fOCEcZ24wXN49RaBfKwEAzIITqN01KN42s84C6vshquDwUNyNaEmR7Q17nH7hQSSN6
+	 J33pZwKGaIthDuJPPVHhyWncAEVC3dQ5EBo39XxU=
+Date: Thu, 18 Jun 2026 14:17:10 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Mathias Stearn <mathias@mongodb.com>
+Cc: Will Deacon <will@kernel.org>, Jinjie Ruan <ruanjinjie@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Thomas Gleixner <tglx@linutronix.de>, ckennelly@google.com,
+	dvyukov@google.com, linux-kernel@vger.kernel.org,
+	mathieu.desnoyers@efficios.com
+Subject: Re: [PATCHv2] arm64/entry: Fix arm64-specific rseq brokenness
+Message-ID: <ajPv1tew-QAFE1ib@J2N7QTR9R3.cambridge.arm.com>
+References: <20260508142023.3268622-1-mark.rutland@arm.com>
+ <54ffcf73-dfc5-417c-b9d5-6dee551f8d39@huawei.com>
+ <CAHnCjA1dGNH07YkWupg1THAmBhW=o4C+uhHbbcRX4edMj2rmEg@mail.gmail.com>
+ <ailagpgcDGVoXgm0@willie-the-truck>
+ <CAHnCjA2+LeDt+_i44dq--73N85qpiCupa_82r0Knm0_RFDKTQw@mail.gmail.com>
 MIME-Version: 1.0
-References: <20260618053650.4053352-1-runyu.xiao@seu.edu.cn>
-In-Reply-To: <20260618053650.4053352-1-runyu.xiao@seu.edu.cn>
-From: Linus Walleij <linusw@kernel.org>
-Date: Thu, 18 Jun 2026 15:15:30 +0200
-X-Gmail-Original-Message-ID: <CAD++jLmW3vgTFryRAL24x2TbgbR1tbhjw-nFFH3askoZfSibaQ@mail.gmail.com>
-X-Gm-Features: AVVi8Cd4ajb_jyilwrzYqFD2Tx2XDqLDSoVk9kbdtiibfu6CS572v2FjQevMhk4
-Message-ID: <CAD++jLmW3vgTFryRAL24x2TbgbR1tbhjw-nFFH3askoZfSibaQ@mail.gmail.com>
-Subject: Re: Question: pinctrl-backed GPIO set_config and gpio_chip::can_sleep
-To: Runyu Xiao <runyu.xiao@seu.edu.cn>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@kernel.org>, 
-	Ludovic Desroches <ludovic.desroches@microchip.com>, 
-	Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	Antonio Borneo <antonio.borneo@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Chen-Yu Tsai <wens@csie.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, jianhao.xu@seu.edu.cn
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAHnCjA2+LeDt+_i44dq--73N85qpiCupa_82r0Knm0_RFDKTQw@mail.gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260618_061718_940006_D38766CB 
+X-CRM114-Status: GOOD (  13.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,58 +78,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Runyu,
+On Thu, Jun 18, 2026 at 09:55:20AM +0200, Mathias Stearn wrote:
+> On Wed, Jun 10, 2026 at 2:37 PM Will Deacon <will@kernel.org> wrote:
+> >
+> > On Tue, Jun 09, 2026 at 02:04:23PM +0200, Mathias Stearn wrote:
+> > > Is it possible to get 411c1cf43039 backported to 7.0 or was it omitted
+> > > intentionally?
+> >
+> > You can send a backport to the stable maintainers:
+> >
+> > https://docs.kernel.org/process/stable-kernel-rules.html#procedure-for-submitting-patches-to-the-stable-tree
+> 
+> Who was that "you" directed at? I'm not used to the kernel development
+> process. Is that my responsibility as the bug reporter / interested
+> party, or something that Mark Rutland, author of the patch, should do?
 
-thanks for your analysis!
+I'll sort it out.
 
-On Thu, Jun 18, 2026 at 7:42=E2=80=AFAM Runyu Xiao <runyu.xiao@seu.edu.cn> =
-wrote:
-
-> The path we are concerned about is:
->
->   gpiod_set_config()
->     -> gpio_do_set_config()
->        -> gpiochip_generic_config()
->        -> pinctrl_gpio_set_config()
->        -> pinctrl_get_device_gpio_range()
->        -> mutex_lock(&pctldev->mutex)
-
-That would be mutex_lock(&pinctrldev_list_mutex); would it not?
-
-> If gpiod_cansleep() returns false, a GPIO forwarder or another consumer
-> can choose an atomic carrier and call gpiod_set_config() while holding a
-> spinlock.
-
-I see the problem.
-
-> The local draft I am considering marks only these controllers as
-> sleeping:
->
->   pinctrl: at91-pio4: mark the GPIO controller as sleeping
->   pinctrl: stm32: mark the GPIO controller as sleeping
->   pinctrl: sunxi: mark the GPIO controller as sleeping
->
-> The reason is that all three expose gpiochip_generic_config() and can
-> therefore reach the pinctrl mutex from the GPIO set_config path, while
-> their current gpio_chip registration does not set can_sleep.
-
-But that's not the right solution is it? These controllers can probably
-just write a register and be done with it, they all look like they are
-memory-mapped? That means we introduce sleep where not needed.
-
-Can we simply replace pinctrldev_list_mutex with a spinlock?
-The list isn't gonna be huge and all in-memory anyway.
-If it takes too much time we need to think about putting the
-ranges in a better data structure such as the maple tree.
-
-mutex_lock(&pinctrldev_list_mutex); could then be turned
-into spinlock_irqsave() or even better
-guard(spinlock_irqsave)(&pinctrldev_list_lock) in
-pinctrl_get_device_gpio_range().
-
-This would mean we just take two different spinlocks in seqence
-and save state in each so it should work just fine.
-
-Yours,
-Linus Walleij
+Mark.
 
