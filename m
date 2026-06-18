@@ -4,60 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFF38CD98F6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 15:42:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA689CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 15:47:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VjfhLXxCEIVy/ezaAy4yB7hmEeEswoa6WnM2lC5QNec=; b=E3VJgW6S5HYv73KIy+19GDuV9F
-	k/cjSpJwt/goYq67+HgFRh8TdIRtCd/lXNyisgG+MrkDKnY6LO+KFbMR4Ku/SOi5tgJ/ajhV4MBOy
-	LFF6LiabHrKIEzNK2FP61r3ILep4gyhkGeuRr5Lyto67el1Z4jxhXS7AuIK7WTQrqAGdv4cHUa3P8
-	gXteioJb6FgIf+yJvrUX8MAb7e8emhq+EmEkm2a6raRah82lmKhVJx2FnQQYg4AHoZlFwN+bNwKfz
-	aFVcQnGNWI7aPzuE+zMcw+ZNyOdqKQJqk0K24ThV7pcqFq5L0w6o8uxlQp5YrMeDkOsLQ2RfgN2Vb
-	KZs5iOmg==;
+	bh=MRFgdoA8Tb9xPyc7tsp0kLt91evXE6mSbWW3PiLEJGY=; b=zvxrkT+sU8p+RCHGN12IRMO/Aj
+	kBNJq0EW9v5QX6k3diOkSr6wyvUHNvnI0weReM8VBTeGLWewW0oY6uxWCQNhZ1ASXtd1bVgKozUA6
+	sAsXJnpo5rBmP4rJphN+uV3bytUdbdzNBZxAdlNH+1kLCJHh49XOZ6hh1s2kcRpwq/qDYBCdDPFzj
+	1FMWROIJkKZPoYegcVatTIHfS21wX7zE6YbZXIgeL8VVuKK/Y4xs2bQokEyLeUrhrNFHonFtiGI4C
+	JyEIVPu/C97PJfOfHEgEKv2wzuQIdnXxWFuCFPgGAE3bC05fpmSPYfT3AsqavE4wZmN1yiVWImyKI
+	LUj1FqIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waEt2-00000001VGq-11sr;
-	Thu, 18 Jun 2026 15:42:36 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1waExz-00000001Vei-3ZB0;
+	Thu, 18 Jun 2026 15:47:43 +0000
+Received: from mail-qt1-x836.google.com ([2607:f8b0:4864:20::836])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waEt1-00000001VGh-0jTC;
-	Thu, 18 Jun 2026 15:42:35 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 476FF60018;
-	Thu, 18 Jun 2026 15:42:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72D8D1F000E9;
-	Thu, 18 Jun 2026 15:42:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781797354;
-	bh=VjfhLXxCEIVy/ezaAy4yB7hmEeEswoa6WnM2lC5QNec=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=DzbhgxUxeAAYXTM+y0XcRW+5iZqzWl5duVZ+s/g3tJbbbmbl1xhUB3ebZDAjCW92Z
-	 P9pI9QDUChwsNy3UYAtGN5tUw+brEAw0j6GfjGvGobzW5ietV1tlOg+k7KO9ywrt3p
-	 0spdSwh4RwZqD0bzRzj6s5R9/CpcgERhifh8yuINFvaCue+fEfrw32jwju/jlrpDCc
-	 8FrsbMQpqbyPwMOeczena4A2bCrm0FpffxYr4z0RRuMiumw3pWO56C40ndEzIcqtXE
-	 kQAF3WRj5MsiKd0JYrW18EKNwWGUVS2p6SxkNtrW8CO74KTaqKaQ7XGzbvGtSVmylH
-	 7rZ18tEXGFcIQ==
-Date: Thu, 18 Jun 2026 17:42:31 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: Wayen Yan <win847@gmail.com>, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-Subject: Re: [PATCH net] net: airoha: fix BQL underflow and UAF in shared
- QDMA TX ring
-Message-ID: <ajQR533ZUKyS5KYP@lore-desk>
-References: <20260618-airoha-bql-fixes-v1-1-ffd2c2089518@kernel.org>
+	id 1waExw-00000001Vdx-49DI
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 18 Jun 2026 15:47:42 +0000
+Received: by mail-qt1-x836.google.com with SMTP id d75a77b69052e-51765331535so275301cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 08:47:39 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1781797659; cv=none;
+        d=google.com; s=arc-20260327;
+        b=b2NXkPQaSkRhblqDW12ZrwOmnAt3eBrk2KI7Gn3iz24Cz8rMemN3dm3w+GL/v4MFD+
+         U+295WXAdA8582vZcE7xPF6n6dAlRzhN3ZjkhbWNxgXb1h+FlyEfIDtAW08NveRc1pqC
+         EQFFljLzktTzYIUe0WnTNkfi7cXhIMKrMGWqvYvREHV14sMhK3cQQwckUUasVWCsHm9R
+         eYy9DomyVk9pswYePJ8Lq/KYmtyUZKyTHtJJqUH3n+Th4LFOTGrnP4UoTUGPNPxF/hrO
+         bIQfNg+B7xaiYi4qrDLXZzyBn6I+JCnvBJLpwwSEF1/rbcBcZWO9CfzpKF8+qxIydv52
+         s8dg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=MRFgdoA8Tb9xPyc7tsp0kLt91evXE6mSbWW3PiLEJGY=;
+        fh=rKbt9uhsoRpR1fwGYuXmjjDzjcp0IkLFvSQ5ZF+hVTc=;
+        b=VN8FCt/uJILejlvupQ4p2MVtL5nWewZYfxVk8qF9KlTRnfViS2nGQ5gBehSAEh9HNA
+         f+PNbOcB80tYtc/hXY+94Q9nQC8hO+q6YX6eyQypzpoQRrHSKaZzLqiq2FGwcJUOEbyL
+         gwr6ZWSZajCyM38b585WcdEPlVKgnmq7ItlTlefzyVmcCyiBsiP1p4586BYB3IaTYtVo
+         ZkWiPuvwFyfUIV5W19xKJlazmcX8aT8bYxWtiyP8bTOCZQTEomcdkCpQ1HHAFsryNpCk
+         BYny1FiILRLN7kEEjb6jsGWhN0Hw3zET/bb9r/dQ02XSYL6IhYmS7eEopKtEawHWdppJ
+         xqEw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1781797659; x=1782402459; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=MRFgdoA8Tb9xPyc7tsp0kLt91evXE6mSbWW3PiLEJGY=;
+        b=IxwIdpzlvNESyCxFAbhCFFFB7ikSdz0e6P4PqXqRxfjTT1FMSpngQ365maBiT9U25A
+         ui6NuR8MndQTdcZqU/0vpTNgo+XgEZDhM7+gybI7K5ZgF6sS3w6aW7NPd+zEBLjGzPW9
+         MZ5ZbKT5jlEIYazZZ4RYQPSy58ktLMfohk9JYCV9TIZTjQ/dWq0gmCANl7c6XW8J0Rog
+         vDQSG6Wio5UkfEmuuz6DV8xd2bywKIP0AAL1tfA0CzWEKJvmoE5pjPfIbxSog+hP62jO
+         4e4hk2hL97IQaCQnGMQP1OVkFwLvX6DU8TgzlBU7JWcuBeqQujZnMSvK8h378hYbxbTx
+         hpww==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781797659; x=1782402459;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=MRFgdoA8Tb9xPyc7tsp0kLt91evXE6mSbWW3PiLEJGY=;
+        b=WJhF67M8jk7kxHHDzeaYYzcHz50FoyWyfznjkzBP1Jm0SQdr8Ldrji/NqxO9DI29dY
+         T7xJ2XLyHbEPf3GURpE7qkTSRfSxgLV3QQbMIcP/Zl2Tbjdenng4wpCLWdIyycCgcRty
+         0sK4dlWtyiXEeCuwAH3trMUWxyAhOuaZFY2faVE5eG0YJLSUYAgEKeQVOA40S4Vq0mXZ
+         t2/Qgop0N8xT4uJ9WyT3sHWVs3OfIRDc+kKFzL8nYHZVMDvPoDhh4XJbnI6Z6Ji3eXf9
+         8DzqZXpqWY/z7sHUV+ihRKdpJPYCppHQ6l6+UOqpVndEa1fFZUiP5ME3bjHV0JJqRBlQ
+         C6KA==
+X-Forwarded-Encrypted: i=1; AFNElJ/XZiTx1xu0OLMwhX6EXjoOd33a0H6HhkPA7SZB0MP9SiXRa/Dv2RNfGvNgcpG2NhhZ5Oy9Xj3FTIqzYPDzrM3i@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx5LsorehREzBdeOIMEySdIN6wPOEU/SM01y0ekAc34g40NvE5K
+	uVJ0glJQD1CfLY5elq5errXbcgchRcDYTTJjwek3BKEkAfB9mRgwvtVq6MxWY5vjz1rdUq0DnAB
+	RJ0ndUVSrUWvu+uJk9prL2TP5+RDe4USZ/t44oWWl
+X-Gm-Gg: AfdE7ckPIen+e5KwNe4u8p5BEDsUDkkbZexhFplBfqIiNdho5tIGWsiN/ZGK8tjyOTM
+	qC27GEE0y8HEicleX4+YtWgSp8ER51+zg64ZKQL6XENLaQXJG8+c7EBfuftaEnq+YDHIzODLSK1
+	P3Z+Xnmkp7ss6b74JEDt3LoO/OoOy5vHOpBld58TIcnYM36s+iwHYNr24gnJCXBNv66o+sZbALW
+	VwBk9KSJfgV3wQS1PQMm4jagiIVXr9YAqfXo+NYMuZbwst7C7B15/ViIM8wt9yzh/5eK/vomXQc
+	tUj6j7Ck
+X-Received: by 2002:a05:622a:4d9a:b0:516:d570:82c0 with SMTP id
+ d75a77b69052e-519c9775acemr8514741cf.15.1781797657663; Thu, 18 Jun 2026
+ 08:47:37 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="uRgNDmciIoh0RGbX"
-Content-Disposition: inline
-In-Reply-To: <20260618-airoha-bql-fixes-v1-1-ffd2c2089518@kernel.org>
+References: <20260618121643.4105064-1-tabba@google.com>
+In-Reply-To: <20260618121643.4105064-1-tabba@google.com>
+From: Fuad Tabba <tabba@google.com>
+Date: Thu, 18 Jun 2026 16:47:00 +0100
+X-Gm-Features: AVVi8CdsITDRUKHQCPiJRE7xA_VLp_pZNxNzO3JRnh-OLh6r8j1TswlbWR1CqTM
+Message-ID: <CA+EHjTyjst=3hrMwX2Obh8hNpEQNJgL7i-2xcOpgDrb4kHZfNQ@mail.gmail.com>
+Subject: Re: [PATCH v2 0/7] KVM: arm64: Fix missing ESR_ELx.IL in syndrome injection
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Vincent Donnefort <vdonnefort@google.com>, Sascha Bischoff <Sascha.Bischoff@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260618_084741_067249_ED734A24 
+X-CRM114-Status: GOOD (  24.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,274 +118,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, 18 Jun 2026 at 13:16, Fuad Tabba <tabba@google.com> wrote:
+>
+> Hi folks,
+>
+> After sashiko caught the missing IL bug [1], I did an audit of all ESR
+> syndrome construction sites in KVM/arm64 as Marc suggested. This series
+> is the result of that audit.
 
---uRgNDmciIoh0RGbX
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+FWIW, went through all the issues Sashiko raised [1]; the only real
+bug it found is the one we already fixed [2].
 
-> When multiple netdevs share a QDMA TX ring and one device is stopped,
-> netdev_tx_reset_subqueue() zeroes that device's BQL counters while its
-> pending skbs remain in the shared HW TX ring. When NAPI later completes
-> those skbs via netdev_tx_completed_queue(), the already-zeroed
-> dql->num_queued counter underflows.
-> Moreover, in the airoha_remove() path, netdevs are unregistered
-> sequentially while skbs from previously unregistered netdevs may still
-> reference freed net_device memory via skb->dev, causing a use-after-free
-> during BQL accounting.
-> Fix both issues:
-> - Remove netdev_tx_reset_subqueue() from airoha_dev_stop() so pending
->   skbs are completed naturally by NAPI with proper BQL accounting.
-> - Add netdev_tx_completed_queue() in airoha_qdma_cleanup_tx_queue()
->   to properly account for skbs freed during queue teardown.
-> - Introduce airoha_qdma_tx_disable() to stop TX on all registered
->   netdevs for a given QDMA instance under RTNL lock.
-> - Move DMA engine start/stop into probe/remove and
->   airoha_qdma_cleanup(), ensuring TX queues are cleaned up while all
->   netdevs are still registered and skb->dev is valid.
->=20
-> Fixes: 6df0488dc9dd ("net: airoha: fix BQL accounting in airoha_qdma_clea=
-nup_tx_queue()")
+Cheers,
+/fuad
 
-This Fixes tag is wrong, the proper one is the one below:
-Fixes: a9c2ca61fec7 ("net: airoha: Support multiple net_devices for a singl=
-e FE GDM port")
+[1] https://sashiko.dev/#/patchset/20260618121643.4105064-1-tabba@google.com
+[2] https://lore.kernel.org/all/20260615131116.390977-1-tabba@google.com/
 
-Regards,
-Lorenzo
 
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> ---
->  drivers/net/ethernet/airoha/airoha_eth.c | 95 ++++++++++++++++++++++++--=
-------
->  1 file changed, 72 insertions(+), 23 deletions(-)
->=20
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ether=
-net/airoha/airoha_eth.c
-> index 64dde6464f3f..4d6a061cd779 100644
-> --- a/drivers/net/ethernet/airoha/airoha_eth.c
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-> @@ -1004,6 +1004,7 @@ static int airoha_qdma_tx_napi_poll(struct napi_str=
-uct *napi, int budget)
-> =20
->  		e =3D &q->entry[index];
->  		skb =3D e->skb;
-> +		e->skb =3D NULL;
-> =20
->  		dma_unmap_single(eth->dev, e->dma_addr, e->dma_len,
->  				 DMA_TO_DEVICE);
-> @@ -1147,6 +1148,42 @@ static int airoha_qdma_init_tx(struct airoha_qdma =
-*qdma)
->  	return 0;
->  }
-> =20
-> +static void airoha_qdma_tx_disable(struct airoha_qdma *qdma)
-> +{
-> +	struct airoha_eth *eth =3D qdma->eth;
-> +	int i;
-> +
-> +	/* Protect netdev->reg_state and netif_tx_disable() calls. */
-> +	rtnl_lock();
-> +
-> +	for (i =3D 0; i < ARRAY_SIZE(eth->ports); i++) {
-> +		struct airoha_gdm_port *port =3D eth->ports[i];
-> +		int j;
-> +
-> +		if (!port)
-> +			continue;
-> +
-> +		for (j =3D 0; j < ARRAY_SIZE(port->devs); j++) {
-> +			struct airoha_gdm_dev *dev =3D port->devs[j];
-> +			struct net_device *netdev;
-> +
-> +			if (!dev)
-> +				continue;
-> +
-> +			if (dev->qdma !=3D qdma)
-> +				continue;
-> +
-> +			netdev =3D netdev_from_priv(dev);
-> +			if (netdev->reg_state !=3D NETREG_REGISTERED)
-> +				continue;
-> +
-> +			netif_tx_disable(netdev);
-> +		}
-> +	}
-> +
-> +	rtnl_unlock();
-> +}
-> +
->  static void airoha_qdma_cleanup_tx_queue(struct airoha_queue *q)
->  {
->  	struct airoha_qdma *qdma =3D q->qdma;
-> @@ -1158,13 +1195,20 @@ static void airoha_qdma_cleanup_tx_queue(struct a=
-iroha_queue *q)
->  	for (i =3D 0; i < q->ndesc; i++) {
->  		struct airoha_queue_entry *e =3D &q->entry[i];
->  		struct airoha_qdma_desc *desc =3D &q->desc[i];
-> +		struct sk_buff *skb =3D e->skb;
-> =20
->  		if (!e->dma_addr)
->  			continue;
-> =20
->  		dma_unmap_single(eth->dev, e->dma_addr, e->dma_len,
->  				 DMA_TO_DEVICE);
-> -		dev_kfree_skb_any(e->skb);
-> +		if (skb) {
-> +			struct netdev_queue *txq;
-> +
-> +			txq =3D skb_get_tx_queue(skb->dev, skb);
-> +			netdev_tx_completed_queue(txq, 1, skb->len);
-> +			dev_kfree_skb_any(skb);
-> +		}
->  		e->dma_addr =3D 0;
->  		e->skb =3D NULL;
->  		list_add_tail(&e->list, &q->tx_list);
-> @@ -1527,6 +1571,23 @@ static void airoha_qdma_cleanup(struct airoha_qdma=
- *qdma)
->  {
->  	int i;
-> =20
-> +	if (test_bit(DEV_STATE_INITIALIZED, &qdma->eth->state)) {
-> +		u32 status;
-> +
-> +		airoha_qdma_tx_disable(qdma);
-> +
-> +		airoha_qdma_clear(qdma, REG_QDMA_GLOBAL_CFG,
-> +				  GLOBAL_CFG_TX_DMA_EN_MASK |
-> +				  GLOBAL_CFG_RX_DMA_EN_MASK);
-> +		if (read_poll_timeout(airoha_qdma_rr, status,
-> +				      !(status & (GLOBAL_CFG_TX_DMA_BUSY_MASK |
-> +						  GLOBAL_CFG_RX_DMA_BUSY_MASK)),
-> +				      USEC_PER_MSEC, 50 * USEC_PER_MSEC, true,
-> +				      qdma, REG_QDMA_GLOBAL_CFG))
-> +			dev_warn(qdma->eth->dev,
-> +				 "QDMA DMA engine busy timeout\n");
-> +	}
-> +
->  	for (i =3D 0; i < ARRAY_SIZE(qdma->q_rx); i++) {
->  		if (!qdma->q_rx[i].ndesc)
->  			continue;
-> @@ -1837,9 +1898,6 @@ static int airoha_dev_open(struct net_device *netde=
-v)
->  	}
->  	port->users++;
-> =20
-> -	airoha_qdma_set(qdma, REG_QDMA_GLOBAL_CFG,
-> -			GLOBAL_CFG_TX_DMA_EN_MASK |
-> -			GLOBAL_CFG_RX_DMA_EN_MASK);
->  	qdma->users++;
-> =20
->  	if (!airoha_is_lan_gdm_dev(dev) &&
-> @@ -1880,12 +1938,9 @@ static int airoha_dev_stop(struct net_device *netd=
-ev)
->  	struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
->  	struct airoha_gdm_port *port =3D dev->port;
->  	struct airoha_qdma *qdma =3D dev->qdma;
-> -	int i;
-> =20
->  	netif_tx_disable(netdev);
->  	airoha_set_vip_for_gdm_port(dev, false);
-> -	for (i =3D 0; i < netdev->num_tx_queues; i++)
-> -		netdev_tx_reset_subqueue(netdev, i);
-> =20
->  	if (--port->users)
->  		airoha_set_port_mtu(dev->eth, port);
-> @@ -1893,19 +1948,7 @@ static int airoha_dev_stop(struct net_device *netd=
-ev)
->  		airoha_set_gdm_port_fwd_cfg(qdma->eth,
->  					    REG_GDM_FWD_CFG(port->id),
->  					    FE_PSE_PORT_DROP);
-> -
-> -	if (!--qdma->users) {
-> -		airoha_qdma_clear(qdma, REG_QDMA_GLOBAL_CFG,
-> -				  GLOBAL_CFG_TX_DMA_EN_MASK |
-> -				  GLOBAL_CFG_RX_DMA_EN_MASK);
-> -
-> -		for (i =3D 0; i < ARRAY_SIZE(qdma->q_tx); i++) {
-> -			if (!qdma->q_tx[i].ndesc)
-> -				continue;
-> -
-> -			airoha_qdma_cleanup_tx_queue(&qdma->q_tx[i]);
-> -		}
-> -	}
-> +	qdma->users--;
-> =20
->  	return 0;
->  }
-> @@ -3413,8 +3456,12 @@ static int airoha_probe(struct platform_device *pd=
-ev)
->  	if (err)
->  		goto error_netdev_free;
-> =20
-> -	for (i =3D 0; i < ARRAY_SIZE(eth->qdma); i++)
-> +	for (i =3D 0; i < ARRAY_SIZE(eth->qdma); i++) {
->  		airoha_qdma_start_napi(&eth->qdma[i]);
-> +		airoha_qdma_set(&eth->qdma[i], REG_QDMA_GLOBAL_CFG,
-> +				GLOBAL_CFG_TX_DMA_EN_MASK |
-> +				GLOBAL_CFG_RX_DMA_EN_MASK);
-> +	}
-> =20
->  	for_each_child_of_node(pdev->dev.of_node, np) {
->  		if (!of_device_is_compatible(np, "airoha,eth-mac"))
-> @@ -3440,6 +3487,8 @@ static int airoha_probe(struct platform_device *pde=
-v)
->  	for (i =3D 0; i < ARRAY_SIZE(eth->qdma); i++)
->  		airoha_qdma_stop_napi(&eth->qdma[i]);
-> =20
-> +	airoha_hw_cleanup(eth);
-> +
->  	for (i =3D 0; i < ARRAY_SIZE(eth->ports); i++) {
->  		struct airoha_gdm_port *port =3D eth->ports[i];
->  		int j;
-> @@ -3461,7 +3510,6 @@ static int airoha_probe(struct platform_device *pde=
-v)
->  		}
->  		airoha_metadata_dst_free(port);
->  	}
-> -	airoha_hw_cleanup(eth);
->  error_netdev_free:
->  	free_netdev(eth->napi_dev);
->  	platform_set_drvdata(pdev, NULL);
-> @@ -3477,6 +3525,8 @@ static void airoha_remove(struct platform_device *p=
-dev)
->  	for (i =3D 0; i < ARRAY_SIZE(eth->qdma); i++)
->  		airoha_qdma_stop_napi(&eth->qdma[i]);
-> =20
-> +	airoha_hw_cleanup(eth);
-> +
->  	for (i =3D 0; i < ARRAY_SIZE(eth->ports); i++) {
->  		struct airoha_gdm_port *port =3D eth->ports[i];
->  		int j;
-> @@ -3497,7 +3547,6 @@ static void airoha_remove(struct platform_device *p=
-dev)
->  		}
->  		airoha_metadata_dst_free(port);
->  	}
-> -	airoha_hw_cleanup(eth);
-> =20
->  	free_netdev(eth->napi_dev);
->  	platform_set_drvdata(pdev, NULL);
->=20
-> ---
-> base-commit: 7d8297e26b4e20b5d1c3c3fe51fe81a1c7fbc823
-> change-id: 20260618-airoha-bql-fixes-f57b2d108573
->=20
-> Best regards,
-> --=20
-> Lorenzo Bianconi <lorenzo@kernel.org>
->=20
-
---uRgNDmciIoh0RGbX
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCajQR5wAKCRA6cBh0uS2t
-rAvbAQCjz8fl5z8pg/Dww3cSzoKYeJW7gQgKt5YXJAh8QPDitQD/QuOMcXn0aPf9
-Hnwl+7hYGryC7gxzeLCRhRe0E16isgw=
-=qhPo
------END PGP SIGNATURE-----
-
---uRgNDmciIoh0RGbX--
+>
+> The ARM architecture mandates ESR_ELx.IL=1 for several exception
+> classes regardless of instruction length: EC=Unknown, Instruction
+> Aborts, Data Aborts with ISV=0, and SError. For FPAC (EC=0x1C), IL
+> reflects instruction length, but FPAC can only be generated by A64
+> instructions, so IL must also be 1.
+>
+> Patch 1 is the bug sashiko found: inject_undef64() in the pKVM hyp (EL2)
+> path never set IL. Patch 2 makes the same fix to inject_undef64() in the
+> normal host path, where IL was derived from the triggering trap's
+> instruction length. No instruction that reaches undef injection has a
+> 16-bit encoding, so patch 2 has no functional change today.
+> Patch 3 makes the matching fix to inject_abt64(). Unlike undef
+> injection, abort injection is reachable from a 16-bit T32 instruction (a
+> 32-bit EL0 task under an AArch64 EL1 guest), so the old code there
+> injects an abort with IL=0.
+> Patch 4 fixes the FPAC syndrome constructed during nested ERET
+> emulation, which did not set IL.
+> Patches 5-6 fix SError injection in the emulated and nested paths,
+> neither of which set IL.
+> Patch 7 fixes a fake ESR used to exit to the host. The host does not
+> read IL there, so it is not guest-visible.
+>
+> Changes since v1 [2]:
+> - Patch 4: keep IL by masking it through from the trapped ERET's ESR
+>   instead of OR-ing the bit in. The ERET trap (EC=0x1A) always reports
+>   IL=1, so this preserves the source syndrome rather than adding the
+>   bit unconditionally (Marc).
+> - Rebased on v7.1.
+>
+> Cheers,
+> /fuad
+>
+> [1] https://lore.kernel.org/all/87pl1t8q24.wl-maz@kernel.org/
+> [2] https://lore.kernel.org/all/20260614163336.3490925-1-tabba@google.com/
+>
+> Signed-off-by: Fuad Tabba <tabba@google.com>
+>
+> Fuad Tabba (7):
+>   KVM: arm64: Set ESR_ELx.IL for injected undefined exceptions at EL2
+>   KVM: arm64: Unconditionally set IL for injected undefined exceptions
+>   KVM: arm64: Unconditionally set IL for injected abort exceptions
+>   KVM: arm64: Set IL for injected FPAC exceptions during ERET emulation
+>   KVM: arm64: Set IL for emulated SError injection
+>   KVM: arm64: Set IL for nested SError injection
+>   KVM: arm64: Set IL in fake ESR for pKVM memory sharing exit
+>
+>  arch/arm64/kvm/emulate-nested.c    |  4 ++--
+>  arch/arm64/kvm/hyp/nvhe/pkvm.c     |  3 ++-
+>  arch/arm64/kvm/hyp/nvhe/sys_regs.c |  2 +-
+>  arch/arm64/kvm/inject_fault.c      | 18 +++++-------------
+>  4 files changed, 10 insertions(+), 17 deletions(-)
+>
+> --
+> 2.54.0.1189.g8c84645362-goog
+>
 
