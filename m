@@ -4,64 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 213D9CD98ED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 14:21:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65E99CD98F6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 14:37:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L9GEnYG33F17bRUebP70R9oSvlshe6oh8TC7uZQQU+Q=; b=gaY84/1TRHGNSKqqT2vmlWUW40
-	zJ0N0CKBITJeEz0ilVF6/kJEf/qzHN48YEMGkFmA7coCmQxYQulI1Rd2lMPeXbaT8mP2LgBBKoNL4
-	U0/wAzCowXdocb9TMCwPGybNy/DIcJ64O7d2Jw1nGHH6FY1HIlnK4QZAZEmTTfJYBm9NPVQY57oPM
-	gHPs//5CNOrTmI8NSEcmAyHLbxAXbSyoLuJDUeZo6zvtbHxJj2OH5k1UW0wL7cm43PDgZaZ3szdMn
-	1X17l3cFlJQf2MrR9NcjLQTsK2DX2/csDJ0cbljWbIgm47UVulJRsQ1oSd4e7hlGEvAMM6KTYK6HU
-	9Vha8qsw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=eWNFSAoF1QlxpTcEDqHs6xokC99S7BGwHt6RGWcEFBE=; b=MwFadANI0XEDHcztZdA5nE5ilG
+	uLrmkYE3ij1FKyOA0kgdwhH8/pzjKNsZFvK2B4X3rIwxH8Vs1FdVP7ju+ojPc/hywQO66X99TDnSp
+	77L5gswpZfVIegiatWQmA4ZUcZbC04xXjAACyFj1zqC9WBm0BZO0v+WYSYajcF0XKs/OcyRx23zs7
+	PFUIsWKNHI2VknBTY4hxA2flHH9rpq3PAP7vj42a8nggTRS4JnngDElSvgNbgYrnEtbUQCi6R41IW
+	YK1Hh+NH3AXNyRMY/F5pMxa4z/ItqOjse2CfuyaMstPe5DBxD5C21CQirJKsaLBc7Ul78rT0CboL/
+	JL+97ZWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waDca-00000001QLe-3pZo;
-	Thu, 18 Jun 2026 14:21:32 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waDcX-00000001QL6-2pLK
+	id 1waDsD-00000001R2Q-11fP;
+	Thu, 18 Jun 2026 14:37:41 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1waDsA-00000001R24-1zcr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 14:21:31 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CE6582A31;
-	Thu, 18 Jun 2026 07:21:22 -0700 (PDT)
-Received: from [10.1.25.219] (XHFQ2J9959-3.cambridge.arm.com [10.1.25.219])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E2E653F62B;
-	Thu, 18 Jun 2026 07:21:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1781792487; bh=UJvB2cE80ENLkJAysf+TRElR2F2FZEG3i8BWI3trRbs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=sWlfSJOn+ZN3AFuGhMupaPTBVGQl78THl7kWB9Qc5De6MyoVUtz9XpHh9KnAiKzg4
-	 Y02lLu4SbsrvtwX8WrzRTqxIqiJsCDc+aIE51T47IlccPbJ+fNQ60k821ooOPlS157
-	 0OP/izXFX/EO2mnDAhmcuCh0OKsW4NJuJPv/SUf0=
-Message-ID: <07ab8b6f-cb58-4f8c-af7e-c99c2fb8933a@arm.com>
-Date: Thu, 18 Jun 2026 15:21:24 +0100
+	Thu, 18 Jun 2026 14:37:39 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2c6be9cd7afso4706055ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 07:37:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781793457; x=1782398257; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=eWNFSAoF1QlxpTcEDqHs6xokC99S7BGwHt6RGWcEFBE=;
+        b=ZrSDgrgu+BHo0Pq8OylCq1PP9hoHr4WsA3Idzr1Jmh3JyN+rPdSwVRNHktt4l1kxx5
+         S23wkQPHplQXsCJN4Et6yUPKAKtdvhmewPw7yivsmALz8K6Ve5oJrby3wHvttK1+QJ0/
+         o5182UpDukf/eoDgvYENZWDdYt5R3nBRV0nCyFrBRWG5uiOnbPoOp2typVEDqYrN1oO/
+         DIYYBB2QPYML5zx4ti4R7uIJws2ZWlf+f7BZil6dTwKcIJXJm9tP0N9SIpyZjDncq3aU
+         rCQP8k1QW0ARWMU5gW5+Qz7B7GxL5geclnRWMXTd6tk6fPZ+T2W3CIizv9mjNLOE1t0/
+         Nwzg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781793457; x=1782398257;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=eWNFSAoF1QlxpTcEDqHs6xokC99S7BGwHt6RGWcEFBE=;
+        b=tHpdqCsL2qoDRxqnayqCqV59W63EH0E5Fw/YRQYVVZzmVyfiaHoZMWcpzq32ULFjEB
+         +VBPrc+obXwRWJTM6VBhHr6vgr/vNyC3VYqcn7dNjTGAcW2+PWNEl1IBf2w6iK+GiFB6
+         tQ7fJN14W/dO2Gow763vrjg6hWnjAWOVX03mGBLhu/j0S0/f8YvheGu3x56y5orlrHY0
+         PYJtxtbMV6BcJLNuYC5V60UtDR1Qynn7P4laatfovs/wkoWPa7WvJWPyCW17So2eLdCc
+         etZPlI7xeVXQemygpr17TnNc936nOrArbZJvK1+OMwuUhwG9Qc+FnxBlngz3nn9nq0Nx
+         LdJw==
+X-Forwarded-Encrypted: i=1; AFNElJ+I7DGTDoNEKFE+chTxMfycPWnD8DSSoypl9VXJspTf2beafNlerXrE/jd+IuCC1JPJVosCzSrtmPA3vIy5zKdY@lists.infradead.org
+X-Gm-Message-State: AOJu0YzaF7hWro7PaNidyVTzU1TeZmVXAIaw99J1IxqiJSKbGDARBw5u
+	yiQ0qVP8ltQCOtNtFglJT/rArzIwqonI0OErn3r9kTuN9arxff36FECFsdx0+Cpv
+X-Gm-Gg: AfdE7ckF2QJDCAHo/CdYZOmmK6FAppAFjCO8OaHzO17fM4HLT0/ObACrqC9JNzgIZ5p
+	nOFcJeMR85wj3CPCRYl7uSzRMLlfmFzHXual2A01uVJbLbYRHGhh7CYwc21NDzGWE8gkqbSg3pq
+	2rEE/40lmdozfhgmQWeNRKfS7PSd+VZJbqR9VHg6qg6pOxAdHvMSEqJhff5OIrvkZ+X1xfiwxMq
+	w4qewFuLgQiU97nQ2kdKwIXC8wOW0a/NtW3a0vJluzM/Z+TlyTKPPaHSAKjH4ww8Yzkdt8iF7gL
+	SRVB3GJmBtLCfVCiVjeoqBFKseZvlF2aENKEdR/YevC68QJNwALqxnlS5LcDp4iQwjfvMy5bhBf
+	zZmBi0Ke2fLpooQNzCYGaNVzk7FpUw1LhtlSC7JwEyQrRACG0pdrseg5ik/rwlQL0X3rGKXn0/S
+	6PJ5OHmnYjw0EK1RAJ/ejPkSmbDxeT9GWPtmEf5NLQhw==
+X-Received: by 2002:a17:902:f64d:b0:2bf:1e59:d99 with SMTP id d9443c01a7336-2c6e47253b2mr49138885ad.8.1781793457447;
+        Thu, 18 Jun 2026 07:37:37 -0700 (PDT)
+Received: from steellegend.taila75641.ts.net ([2409:40c4:35e:20d7:2ccf:7534:4b88:ba43])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c6f9aec764sm22554115ad.2.2026.06.18.07.37.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 18 Jun 2026 07:37:36 -0700 (PDT)
+From: Uday Khare <udaykhare77@gmail.com>
+To: Andi Shyti <andi.shyti@kernel.org>
+Cc: Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Boris Brezillon <bbrezillon@kernel.org>,
+	Maxime Ripard <mripard@kernel.org>,
+	Wolfram Sang <wsa@kernel.org>,
+	linux-i2c@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Uday Khare <udaykhare77@gmail.com>
+Subject: [PATCH v3] i2c: sun6i-p2wi: Fix device node reference leak in p2wi_probe
+Date: Thu, 18 Jun 2026 20:07:27 +0530
+Message-ID: <20260618143727.18534-1-udaykhare77@gmail.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 2/6] arm64: mm: allow huge vmap permission adjustments
- with bbml2_no_abort
-Content-Language: en-GB
-To: =?UTF-8?Q?Adrian_Barna=C5=9B?= <abarnas@google.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: linux-mm@kvack.org, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, David Hildenbrand <david@kernel.org>,
- "Mike Rapoport (Microsoft)" <rppt@kernel.org>,
- Ard Biesheuvel <ardb@kernel.org>, Christoph Lameter <cl@gentwo.org>,
- Yang Shi <yang@os.amperecomputing.com>, Brendan Jackman <jackmanb@google.com>
-References: <20260611130144.1385343-1-abarnas@google.com>
- <20260611130144.1385343-3-abarnas@google.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20260611130144.1385343-3-abarnas@google.com>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260618_072129_895869_EEA13A03 
-X-CRM114-Status: GOOD (  22.91  )
+X-CRM114-CacheID: sfid-20260618_073738_534397_7885B39D 
+X-CRM114-Status: GOOD (  16.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,79 +105,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/06/2026 14:01, Adrian Barnaś wrote:
-> Remove the protection against huge vmap permission adjustments on
-> systems that support the bbml2_no_abort CPU feature.
-> 
-> Splitting live kernel VA section mappings into page mappings was
-> restricted because it could cause TLB Conflict Aborts. This forced
-> permission adjustments on memory allocated with VM_ALLOW_HUGE_VMAP to be
-> rejected, resulting in performance drops (e.g., when enforcing rodata=on
-> disables huge mappings).
-> 
-> The bbml2_no_abort feature (which mirrors the architectural guarantees of
-> FEAT_BBML3) ensures that changing between table and block sizes without
-> following a break-before-make sequence will not generate a TLB Conflict
-> Abort. This hardware guarantee makes it safe to allow dynamic permission
-> adjustments on huge vmap regions.
+In p2wi_probe(), the device node reference obtained via
+of_get_next_available_child() is stored in childnp. This reference is
+never released, causing a device node reference leak.
 
-FYI Linu Cherian has a series that renames bbml2_no_abort to bbml3. I think he's
-planning to post at -rc1. Would be good to rebase this on top once merged.
+Fix this by calling of_node_put(childnp) on both the error and success
+paths.
 
-> 
-> Signed-off-by: Adrian Barnaś <abarnas@google.com>
-> ---
->  arch/arm64/mm/pageattr.c | 22 ++++++++++++++--------
->  1 file changed, 14 insertions(+), 8 deletions(-)
-> 
-> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
-> index 358d1dc9a576..88720bbba892 100644
-> --- a/arch/arm64/mm/pageattr.c
-> +++ b/arch/arm64/mm/pageattr.c
-> @@ -157,23 +157,29 @@ static int change_memory_common(unsigned long addr, int numpages,
->  	}
->  
->  	/*
-> -	 * Kernel VA mappings are always live, and splitting live section
-> -	 * mappings into page mappings may cause TLB conflicts. This means
-> -	 * we have to ensure that changing the permission bits of the range
-> -	 * we are operating on does not result in such splitting.
-> -	 *
->  	 * Let's restrict ourselves to mappings created by vmalloc (or vmap).
-> -	 * Disallow VM_ALLOW_HUGE_VMAP mappings to guarantee that only page
-> -	 * mappings are updated and splitting is never needed.
->  	 *
->  	 * So check whether the [addr, addr + size) interval is entirely
->  	 * covered by precisely one VM area that has the VM_ALLOC flag set.
->  	 */
->  	area = find_vm_area((void *)addr);
-> +
->  	if (!area ||
->  	    ((unsigned long)kasan_reset_tag((void *)end) >
->  	     (unsigned long)kasan_reset_tag(area->addr) + area->size) ||
-> -	    ((area->flags & (VM_ALLOC | VM_ALLOW_HUGE_VMAP)) != VM_ALLOC))
-> +	    !(area->flags & VM_ALLOC))
-> +		return -EINVAL;
-> +
-> +	/*
-> +	 * Kernel VA mappings are always live, and splitting live section
-> +	 * mappings into page mappings may cause TLB conflicts if bbml2_noabort
-> +	 * is not present.
-> +	 *
-> +	 * While bbml2_noabort is not present disallow VM_ALLOW_HUGE_VMAP mappings
-> +	 * to guarantee that only page mappings are updated and splitting is not
-> +	 * needed.
-> +	 */
-> +	if (!system_supports_bbml2_noabort() && (area->flags & (VM_ALLOW_HUGE_VMAP)))
+Fixes: 3e833490fae5 ("i2c: sunxi: add P2WI (Push/Pull 2 Wire Interface) controller support")
+Signed-off-by: Uday Khare <udaykhare77@gmail.com>
+---
+v3:
+- Revert back to manual of_node_put() because the function uses goto-based
+  error handling, and mixing the two styles is discouraged (reported by
+  Sashiko-bot).
+v2:
+- Use __free(device_node) and include <linux/cleanup.h> to automate the device
+  node reference cleanup instead of manually calling of_node_put() on error and
+  success paths (suggested by Chen-Yu Tsai).
 
-nit: no need for the parentheses around VM_ALLOW_HUGE_VMAP.
+ drivers/i2c/busses/i2c-sun6i-p2wi.c | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
 
-With that:
-
-Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
-
->  		return -EINVAL;
->  
->  	if (!numpages)
+diff --git a/drivers/i2c/busses/i2c-sun6i-p2wi.c b/drivers/i2c/busses/i2c-sun6i-p2wi.c
+index dffbe776a195..7c0239f8937e 100644
+--- a/drivers/i2c/busses/i2c-sun6i-p2wi.c
++++ b/drivers/i2c/busses/i2c-sun6i-p2wi.c
+@@ -184,7 +184,6 @@ static int p2wi_probe(struct platform_device *pdev)
+ {
+ 	struct device *dev = &pdev->dev;
+ 	struct device_node *np = dev->of_node;
+-	struct device_node *childnp;
+ 	unsigned long parent_clk_freq;
+ 	u32 clk_freq = I2C_MAX_STANDARD_MODE_FREQ;
+ 	struct p2wi *p2wi;
+@@ -217,14 +216,19 @@ static int p2wi_probe(struct platform_device *pdev)
+ 	 * In this case the target_addr is set to -1 and won't be checked when
+ 	 * launching a P2WI transfer.
+ 	 */
++	struct device_node *childnp;
++
+ 	childnp = of_get_next_available_child(np, NULL);
+ 	if (childnp) {
+ 		ret = of_property_read_u32(childnp, "reg", &target_addr);
+-		if (ret)
++		if (ret) {
++			of_node_put(childnp);
+ 			return dev_err_probe(dev, -EINVAL,
+ 					     "invalid target address on node %pOF\n", childnp);
++		}
+ 
+ 		p2wi->target_addr = target_addr;
++		of_node_put(childnp);
+ 	}
+ 
+ 	p2wi->regs = devm_platform_ioremap_resource(pdev, 0);
+-- 
+2.54.0
 
 
