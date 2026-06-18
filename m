@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F039ECD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 08:47:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B170CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 08:48:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kLRuKvFhInROLg4Q8kC57ftYeHhuWOIlgmE1PN84SUM=; b=aGCQ1wmbGtD5Lfc65jDAws52OO
-	8ed3Sc2NlOW3bBKgyoSEurV3Zx0Oz6H2R46v9d/2o813etnUllwMJo1cFGtmUXl3yC8pft6cj9JCM
-	DUl1ycv0DDjK3gbnwsd0tj9HYXWJM8uIQpqEoaIOJ0o4oHwt+tXQt9MwOe3r+STgBNM79hh0z/xOp
-	aVRFxE14L4C0i2CBMfHF+qqfmq2KOn2lUaVFfqbZKmwou4oyBqJf2B6FbkPz71HAJKl1Q6LsaCOdR
-	ehEO1NMsHriPXbMC1C1/4TLGQahwBSrEuYefLrLLd4ymrcf6sIuenCiOnZo0wsXxvK+m7AFNpULvM
-	soe+IH7Q==;
+	bh=OfwAKcFuVrniumYvLLu8JFz9uYaRHWvyegwwsVszSZM=; b=DrRdWmAmcii/6hiUxzsJiJufqT
+	gV1G7MlXzeo0M0zz0mh6lR1O3xRmBfjOJoqpsiPZMfl/0kSNAQTcW/lMXaVyXDy3AKVsl2uYwi79n
+	gNFazeOKJme8huJVZSY8g6LhFdRD1dS4WA+kx6Sv/yzZEPP1ILGD3zRVgF/fdKRduPEtE8he7vFN8
+	xtjq7Vs6zdl2ohZAjxw8YWcxve7i9qamPnX8O+JYkraR9XBIkEaaMgxjBNDuvj8WKETN2+dzncJxQ
+	/p3dCcyzArb/4MjKm5GwYvgk9RDjoN65ansvsm506T0W83DaXZyXE7NwbCmzZO2tNGKpXA52TADbz
+	oDwzYNMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa8Pf-00000000s0Z-3x5v;
-	Thu, 18 Jun 2026 08:47:51 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	id 1wa8Pl-00000000s3Z-0bar;
+	Thu, 18 Jun 2026 08:47:57 +0000
+Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa8Pe-00000000rzm-20bm
+	id 1wa8Pj-00000000s2g-1p7i
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 08:47:51 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-36d98b68d68so361514a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 01:47:50 -0700 (PDT)
+	Thu, 18 Jun 2026 08:47:56 +0000
+Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-37cae11ba85so459310a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 01:47:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781772470; x=1782377270; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1781772475; x=1782377275; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=kLRuKvFhInROLg4Q8kC57ftYeHhuWOIlgmE1PN84SUM=;
-        b=rSO4A9lcdbfC+i77fRaw1LgWd22G06EDexoZXbYA+2Rja+mfJmDvEJSd8agA06pq+b
-         CkwQrINfkD3Ei5+6+zMzJS4205a17fW7ETr9Y1yJjSrpAHTfPr+rM050IV5CbE/rbN4G
-         SxuD/mJY8A2hABItvHJwuW0t3EKKLpQqESMO4Ae/LbOIL5qLNEv16rFr+yHYnvUI+b9S
-         aoCsHUqv9XlQP90ONMrq0xzUCkZOzmATw0ESYPRefz03kPu3Svw9NRawPxi08Vw2/Epb
-         47LhLz8S2QaisXlBAB+cy5pbXZwJ7w+zHBfqqX/t+BpaRxrYsBmSEHYsSBpICw74OCrC
-         PS2Q==
+        bh=OfwAKcFuVrniumYvLLu8JFz9uYaRHWvyegwwsVszSZM=;
+        b=ZA1tA0WlSN8t76a5yK73YwAmfoRVig7kA08aiUTk84pBWKtISBnQ0iOLhLaLWzgK7I
+         +FKcWdASRiLMT0l4/Xf9SmeWy9OK50aTadBBJ5qorVqBzYGGJAT6UP1Qsx6gYBUtKDmI
+         /HnWreSVcYqiGcS0ULQcMEdvHv8L6jloZnCbldeebWFc+W0aWhiHOVYSEmwLqwCXrDZJ
+         l4zKS2qY2JAFh6A0+4YXukzzu5HoTA/lIxcYzFS1TA+y3ssXGgsC2/N7zNYLF9Z5tdPE
+         MPn4T4d/9GLafz/c2mvn8Q6PEcXsE3iym2k9JSs7wyQx1egy6elJp36Dv1pOahLrCoOJ
+         k4Ww==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781772470; x=1782377270;
+        d=1e100.net; s=20251104; t=1781772475; x=1782377275;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=kLRuKvFhInROLg4Q8kC57ftYeHhuWOIlgmE1PN84SUM=;
-        b=TDIpWAXE6/7dYAka9mBTEeHONgyVkystmQhcvzCRHoGa6ETwU0aypsYIe+Xbp+GQhJ
-         9BlsAQ1Q1LeZU93A9miFeBYddTSvYp/pzkelZRIioj+7AfuEapxvAV9qeIVOidUHFXzU
-         HFIkboYSALPSgQIAynqoCN7bFi2K8ogH/f99RqTarF09j6TgWz9GYrWUm1AR8n9SSObL
-         IsckPHKLH58a7KLGBj6bEsW+PU457p7dB88Q04U5t2II3Ow0dkJ2MqFauXtn40qswSqE
-         CZG2SZUjB/5R8qsA8K0izz9KmJrw+JopHFjcI/9YjuULhThQzvueAjk/HsZHp2KgesLR
-         vFuQ==
-X-Forwarded-Encrypted: i=1; AFNElJ80yaE63VT4xOgWtLU/1CvVP7eGERv23iEQmEK8bAfZ852sov/TEJTRtlS0SUvNfALRsNzIiw6WfOoI9IUrBtkd@lists.infradead.org
-X-Gm-Message-State: AOJu0YwutgLDlqANouzr3VNiielV4YkdOhsNikyCZU7lL2FLaYKjhBrq
-	vLIeGC1glVfstgNw4b6CTDD9d1/CRqlznhopumgv3g+GHA79cRiI/Lee
-X-Gm-Gg: AfdE7cl4lz03iZaJ28mPsVpVDjH2IzjIdZ/anjMuWvk86oT3sXzZUC0BVRddkhAPufx
-	0Y+jAc8jtUjarFJgwtkebLa7mMnHkL4/KIllYdyhdDcYOrAl9Sy9qXrgsDARsyPPJ/Hb5mu/vzi
-	jfGxzGYzx3+5kY4Zop/GduwffA2OET/90O8T9EH10OF7r04eqT9883/TQ8+vFjZgCVFmYBN0zlw
-	cu9qu2UStQ7ac4bhC7lpXhafdfKNyoclGnYNBMaVNXVdyP08xkf+D3snkQrx7WbfyU36FyL6uFT
-	y8cjMXmMNn/GEYd2lE9LHEeB9htB0cVX2tTE1bt5gzyQBIiIfKqHAbk+r6dIpzdHB4qFcHcx3Jz
-	35PacSyJ9+4IEv05bIktAmuJb1zbEz3DkuTe2oYg3vMe/huRpNsnIzNz4Op0VWruf/+2ZSMDksc
-	FOtExp/sG+BEuQ9Q8meRnuKmCeeRBeqKGpC6k=
-X-Received: by 2002:a17:90b:1344:b0:37c:607b:2cd9 with SMTP id 98e67ed59e1d1-37ce43c0ed0mr2690740a91.0.1781772469588;
-        Thu, 18 Jun 2026 01:47:49 -0700 (PDT)
+        bh=OfwAKcFuVrniumYvLLu8JFz9uYaRHWvyegwwsVszSZM=;
+        b=LwZNjkbNwJ1NP5/TBeF2EiGrlMNPW61xdjIulqmgbZC33YtWN70YgCAPmIJ1kPRJLE
+         Ef2PCZvAbzY2NPN/CCUOabFisu1Az/YTrrel0jf1TMtk4K1EXmxfvBi6cWKJ6ha9DAxn
+         J4MndmeCGIYmevCaNb57uFFYpl0tHZBgBonJv6kIdHqZwq1Q/0Qu3+Kj4m8ILF4/eLWb
+         oyEfFjamVRZC7v1MkKNUa8wRdnle/wUxTPq8lelixtEHdFBCOjqMP6Uu/UhEXupMATJE
+         qUI3/J7MvjAeRx7CQaLe5M+iT2Ylvdj8ouIdmVQLD4OLwVbMHSqYonBgjIUu5ByumMmB
+         Jg5A==
+X-Forwarded-Encrypted: i=1; AFNElJ/0IA8kMZjCTPJbbyp8OilDfULZ759xuwTIVsaR/Z0QCgkafsjXqitX9806ZPxknKz31ueAwS57hyIXE4c+1dRy@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxx/fWQWGTroJKNvk2J6Dk1PDWMb8NR+H/eyH2KumyJxXVD65i3
+	tUh977uCepMpbBDlev9BYEfIaabNIkXicXQ0VsfAF1geGkRKh/vBKyzP
+X-Gm-Gg: AfdE7clgMMWov9UQtg0UxAMUj9igZXOy5UL8jbfeI3CS68WeDTfURdBN9/5cRbPIFMc
+	DcR+YidZgTg7HqDKN27FAj2pUs30zyWy13tDlnLsf09u0S2s0ePU/jjVmE2USuI6juQD6zfiLhy
+	RMIWVAt6u/1mKZyVfH/1WC32h3B4TwObN0lSCfWXG6Rw/oTTE4iOusnPC+vmdS9JzhVjPPca/T1
+	OCnmLRCIcSo9yZyjSemX9GeaYuqCCFZixIYsfnbqE77J0G+cOM6gWZyxYLRV/mClezvQYsAYg10
+	6yn8jRodF5dmanQQqXdHTWLKetklFZEiGXAQjOldGU5uvVwE+9ppsd5MaOS3rFb5t/NF92o3DjC
+	07U79/1Fe6huetYioepM9sxMnganvTYRSvu/TdJCkgFvcO8zl2ICgd5+OYwyxlhnz6guiulFNMM
+	Teimv5WAVxp7ZaPj7vWu3FiItd4iUi0Q9lX3h+86vKpqAH5A==
+X-Received: by 2002:a17:90b:390f:b0:36d:635b:85a0 with SMTP id 98e67ed59e1d1-37c936a1d28mr8015697a91.3.1781772474606;
+        Thu, 18 Jun 2026 01:47:54 -0700 (PDT)
 Received: from mi-OptiPlex-7060.mioffice.cn ([43.224.245.234])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-37c521d8e7bsm8628856a91.5.2026.06.18.01.47.44
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-37c521d8e7bsm8628856a91.5.2026.06.18.01.47.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 18 Jun 2026 01:47:49 -0700 (PDT)
+        Thu, 18 Jun 2026 01:47:54 -0700 (PDT)
 From: Wen Jiang <jiangwenxiaomi@gmail.com>
 X-Google-Original-From: Wen Jiang <jiangwen6@xiaomi.com>
 To: linux-mm@kvack.org,
@@ -88,17 +88,17 @@ Cc: baohua@kernel.org,
 	linux-kernel@vger.kernel.org,
 	jiangwen6@xiaomi.com,
 	shanghaoqiang@xiaomi.com
-Subject: [PATCH v4 3/6] mm/vmalloc: Extract vmap_set_ptes() to consolidate PTE mapping logic
-Date: Thu, 18 Jun 2026 16:47:23 +0800
-Message-Id: <20260618084726.1070022-4-jiangwen6@xiaomi.com>
+Subject: [PATCH v4 4/6] mm/vmalloc: Extend page table walk to support larger page_shift sizes and eliminate page table rewalk
+Date: Thu, 18 Jun 2026 16:47:24 +0800
+Message-Id: <20260618084726.1070022-5-jiangwen6@xiaomi.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260618084726.1070022-1-jiangwen6@xiaomi.com>
 References: <20260618084726.1070022-1-jiangwen6@xiaomi.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260618_014750_521661_DBE444A8 
-X-CRM114-Status: GOOD (  13.16  )
+X-CRM114-CacheID: sfid-20260618_014755_488264_CEBBBFA9 
+X-CRM114-Status: GOOD (  16.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,84 +113,207 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Extract the common PTE mapping logic from vmap_pte_range() into a
-shared helper vmap_set_ptes(). This handles both CONT_PTE and regular
-PTE mappings in a single function, preparing for the next patch which
-will extend vmap_pages_pte_range() to also use this helper.
+From: "Barry Song (Xiaomi)" <baohua@kernel.org>
 
-The #ifdef CONFIG_HUGETLB_PAGE guard is moved inside vmap_set_ptes(),
-so callers no longer need to handle the conditional compilation.
+vmap_pages_range_noflush_walk() (formerly vmap_small_pages_range_noflush())
+provides a clean interface by taking struct page **pages and mapping them
+via direct PTE iteration. This avoids the page table rewalk seen when
+using vmap_range_noflush() for page_shift values other than PAGE_SHIFT.
 
-No functional change.
+Extend it to support larger page_shift values, and add PMD- and
+contiguous-PTE mappings as well. Rename it to vmap_pages_range_noflush_walk()
+since it now handles more than just small pages.
 
+For vmalloc() allocations with VM_ALLOW_HUGE_VMAP, we no longer need to
+iterate over pages one by one via vmap_range_noflush(), which would
+otherwise lead to page table rewalk. The code is now unified with the
+PAGE_SHIFT case by simply calling vmap_pages_range_noflush_walk().
+
+Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
 Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
 Tested-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
 ---
- mm/vmalloc.c | 44 +++++++++++++++++++++++++++++++-------------
- 1 file changed, 31 insertions(+), 13 deletions(-)
+ mm/vmalloc.c | 81 ++++++++++++++++++++++++++++++----------------------
+ 1 file changed, 47 insertions(+), 34 deletions(-)
 
 diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-index 2c2f74a07f396..6660f240d27c9 100644
+index 6660f240d27c9..253e017130e09 100644
 --- a/mm/vmalloc.c
 +++ b/mm/vmalloc.c
-@@ -91,6 +91,35 @@ struct vfree_deferred {
- static DEFINE_PER_CPU(struct vfree_deferred, vfree_deferred);
+@@ -127,7 +127,8 @@ static int vmap_pte_range(pmd_t *pmd, unsigned long addr, unsigned long end,
+ 	pte_t *pte;
+ 	u64 pfn;
+ 	struct page *page;
+-	unsigned long size = PAGE_SIZE;
++	unsigned long size;
++	unsigned int steps;
  
- /*** Page table manipulation functions ***/
-+
-+/*
-+ * Set PTE mappings for the given PFN. Try CONT_PTE mappings first when
-+ * supported, otherwise fall back to PAGE_SIZE mappings.
-+ *
-+ * Return: mapping size.
-+ */
-+static __always_inline unsigned long vmap_set_ptes(pte_t *pte,
-+		unsigned long addr, unsigned long end, u64 pfn,
-+		pgprot_t prot, unsigned int max_page_shift)
-+{
-+#ifdef CONFIG_HUGETLB_PAGE
-+	if (max_page_shift > PAGE_SHIFT) {
-+		unsigned long size;
-+
-+		size = arch_vmap_pte_range_map_size(addr, end, pfn, max_page_shift);
-+		if (size != PAGE_SIZE) {
-+			pte_t entry = pfn_pte(pfn, prot);
-+
-+			entry = arch_make_huge_pte(entry, ilog2(size), 0);
-+			set_huge_pte_at(&init_mm, addr, pte, entry, size);
-+			return size;
-+		}
-+	}
-+#endif
-+	set_pte_at(&init_mm, addr, pte, pfn_pte(pfn, prot));
-+	return PAGE_SIZE;
-+}
-+
- static int vmap_pte_range(pmd_t *pmd, unsigned long addr, unsigned long end,
- 			phys_addr_t phys_addr, pgprot_t prot,
- 			unsigned int max_page_shift, pgtbl_mod_mask *mask)
-@@ -119,19 +148,8 @@ static int vmap_pte_range(pmd_t *pmd, unsigned long addr, unsigned long end,
- 			BUG();
+ 	if (WARN_ON_ONCE(!PAGE_ALIGNED(end - addr)))
+ 		return -EINVAL;
+@@ -149,8 +150,8 @@ static int vmap_pte_range(pmd_t *pmd, unsigned long addr, unsigned long end,
  		}
  
--#ifdef CONFIG_HUGETLB_PAGE
--		size = arch_vmap_pte_range_map_size(addr, end, pfn, max_page_shift);
--		if (size != PAGE_SIZE) {
--			pte_t entry = pfn_pte(pfn, prot);
--
--			entry = arch_make_huge_pte(entry, ilog2(size), 0);
--			set_huge_pte_at(&init_mm, addr, pte, entry, size);
--			pfn += PFN_DOWN(size);
--			continue;
--		}
--#endif
--		set_pte_at(&init_mm, addr, pte, pfn_pte(pfn, prot));
--		pfn++;
-+		size = vmap_set_ptes(pte, addr, end, pfn, prot, max_page_shift);
-+		pfn += PFN_DOWN(size);
- 	} while (pte += PFN_DOWN(size), addr += size, addr != end);
+ 		size = vmap_set_ptes(pte, addr, end, pfn, prot, max_page_shift);
+-		pfn += PFN_DOWN(size);
+-	} while (pte += PFN_DOWN(size), addr += size, addr != end);
++		steps = PFN_DOWN(size);
++	} while (pte += steps, pfn += steps, addr += size, addr != end);
  
  	lazy_mmu_mode_disable();
+ 	*mask |= PGTBL_PTE_MODIFIED;
+@@ -542,8 +543,10 @@ void vunmap_range(unsigned long addr, unsigned long end)
+ 
+ static int vmap_pages_pte_range(pmd_t *pmd, unsigned long addr,
+ 		unsigned long end, pgprot_t prot, struct page **pages, int *nr,
+-		pgtbl_mod_mask *mask)
++		pgtbl_mod_mask *mask, unsigned int shift)
+ {
++	unsigned long pfn, size;
++	unsigned int steps;
+ 	int err = 0;
+ 	pte_t *pte;
+ 
+@@ -574,9 +577,10 @@ static int vmap_pages_pte_range(pmd_t *pmd, unsigned long addr,
+ 			break;
+ 		}
+ 
+-		set_pte_at(&init_mm, addr, pte, mk_pte(page, prot));
+-		(*nr)++;
+-	} while (pte++, addr += PAGE_SIZE, addr != end);
++		pfn = page_to_pfn(page);
++		size = vmap_set_ptes(pte, addr, end, pfn, prot, shift);
++		steps = PFN_DOWN(size);
++	} while (pte += steps, *nr += steps, addr += size, addr != end);
+ 
+ 	lazy_mmu_mode_disable();
+ 	*mask |= PGTBL_PTE_MODIFIED;
+@@ -586,7 +590,7 @@ static int vmap_pages_pte_range(pmd_t *pmd, unsigned long addr,
+ 
+ static int vmap_pages_pmd_range(pud_t *pud, unsigned long addr,
+ 		unsigned long end, pgprot_t prot, struct page **pages, int *nr,
+-		pgtbl_mod_mask *mask)
++		pgtbl_mod_mask *mask, unsigned int shift)
+ {
+ 	pmd_t *pmd;
+ 	unsigned long next;
+@@ -596,7 +600,27 @@ static int vmap_pages_pmd_range(pud_t *pud, unsigned long addr,
+ 		return -ENOMEM;
+ 	do {
+ 		next = pmd_addr_end(addr, end);
+-		if (vmap_pages_pte_range(pmd, addr, next, prot, pages, nr, mask))
++
++		if (shift >= PMD_SHIFT) {
++			struct page *page = pages[*nr];
++			phys_addr_t phys_addr;
++
++			if (WARN_ON(!page))
++				return -ENOMEM;
++			if (WARN_ON(!pfn_valid(page_to_pfn(page))))
++				return -EINVAL;
++
++			phys_addr = page_to_phys(page);
++
++			if (vmap_try_huge_pmd(pmd, addr, next, phys_addr, prot,
++						shift)) {
++				*mask |= PGTBL_PMD_MODIFIED;
++				*nr += 1 << (PMD_SHIFT - PAGE_SHIFT);
++				continue;
++			}
++		}
++
++		if (vmap_pages_pte_range(pmd, addr, next, prot, pages, nr, mask, shift))
+ 			return -ENOMEM;
+ 	} while (pmd++, addr = next, addr != end);
+ 	return 0;
+@@ -604,7 +628,7 @@ static int vmap_pages_pmd_range(pud_t *pud, unsigned long addr,
+ 
+ static int vmap_pages_pud_range(p4d_t *p4d, unsigned long addr,
+ 		unsigned long end, pgprot_t prot, struct page **pages, int *nr,
+-		pgtbl_mod_mask *mask)
++		pgtbl_mod_mask *mask, unsigned int shift)
+ {
+ 	pud_t *pud;
+ 	unsigned long next;
+@@ -614,7 +638,7 @@ static int vmap_pages_pud_range(p4d_t *p4d, unsigned long addr,
+ 		return -ENOMEM;
+ 	do {
+ 		next = pud_addr_end(addr, end);
+-		if (vmap_pages_pmd_range(pud, addr, next, prot, pages, nr, mask))
++		if (vmap_pages_pmd_range(pud, addr, next, prot, pages, nr, mask, shift))
+ 			return -ENOMEM;
+ 	} while (pud++, addr = next, addr != end);
+ 	return 0;
+@@ -622,7 +646,7 @@ static int vmap_pages_pud_range(p4d_t *p4d, unsigned long addr,
+ 
+ static int vmap_pages_p4d_range(pgd_t *pgd, unsigned long addr,
+ 		unsigned long end, pgprot_t prot, struct page **pages, int *nr,
+-		pgtbl_mod_mask *mask)
++		pgtbl_mod_mask *mask, unsigned int shift)
+ {
+ 	p4d_t *p4d;
+ 	unsigned long next;
+@@ -632,14 +656,18 @@ static int vmap_pages_p4d_range(pgd_t *pgd, unsigned long addr,
+ 		return -ENOMEM;
+ 	do {
+ 		next = p4d_addr_end(addr, end);
+-		if (vmap_pages_pud_range(p4d, addr, next, prot, pages, nr, mask))
++		if (vmap_pages_pud_range(p4d, addr, next, prot, pages, nr, mask, shift))
+ 			return -ENOMEM;
+ 	} while (p4d++, addr = next, addr != end);
+ 	return 0;
+ }
+ 
+-static int vmap_small_pages_range_noflush(unsigned long addr, unsigned long end,
+-		pgprot_t prot, struct page **pages)
++/*
++ * It can take an array of pages which are not all contiguous, but it
++ * may have contiguous chunks, as hinted by @shift.
++ */
++static int vmap_pages_range_noflush_walk(unsigned long addr, unsigned long end,
++		pgprot_t prot, struct page **pages, unsigned int shift)
+ {
+ 	unsigned long start = addr;
+ 	pgd_t *pgd;
+@@ -654,7 +682,7 @@ static int vmap_small_pages_range_noflush(unsigned long addr, unsigned long end,
+ 		next = pgd_addr_end(addr, end);
+ 		if (pgd_bad(*pgd))
+ 			mask |= PGTBL_PGD_MODIFIED;
+-		err = vmap_pages_p4d_range(pgd, addr, next, prot, pages, &nr, &mask);
++		err = vmap_pages_p4d_range(pgd, addr, next, prot, pages, &nr, &mask, shift);
+ 		if (err)
+ 			break;
+ 	} while (pgd++, addr = next, addr != end);
+@@ -677,27 +705,12 @@ static int vmap_small_pages_range_noflush(unsigned long addr, unsigned long end,
+ int __vmap_pages_range_noflush(unsigned long addr, unsigned long end,
+ 		pgprot_t prot, struct page **pages, unsigned int page_shift)
+ {
+-	unsigned int i, nr = (end - addr) >> PAGE_SHIFT;
+-
+ 	WARN_ON(page_shift < PAGE_SHIFT);
+ 
+-	if (!IS_ENABLED(CONFIG_HAVE_ARCH_HUGE_VMALLOC) ||
+-			page_shift == PAGE_SHIFT)
+-		return vmap_small_pages_range_noflush(addr, end, prot, pages);
++	if (!IS_ENABLED(CONFIG_HAVE_ARCH_HUGE_VMALLOC))
++		page_shift = PAGE_SHIFT;
+ 
+-	for (i = 0; i < nr; i += 1U << (page_shift - PAGE_SHIFT)) {
+-		int err;
+-
+-		err = vmap_range_noflush(addr, addr + (1UL << page_shift),
+-					page_to_phys(pages[i]), prot,
+-					page_shift);
+-		if (err)
+-			return err;
+-
+-		addr += 1UL << page_shift;
+-	}
+-
+-	return 0;
++	return vmap_pages_range_noflush_walk(addr, end, prot, pages, page_shift);
+ }
+ 
+ int vmap_pages_range_noflush(unsigned long addr, unsigned long end,
 -- 
 2.34.1
 
