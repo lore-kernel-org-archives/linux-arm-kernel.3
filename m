@@ -4,102 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F118CD98ED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 01:53:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AABDBCD98E4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 01:53:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=82lqWZt5WGmEK1KMEqJe8T2qeTr6htkdS62+9nO0IT8=; b=pBvTaBrt1c7Ux/SJgolx30HvbK
-	P/BuGJMiLxk1fwUkniJHByzzXc4x7mbf1idQbXWE9VzVtPY9k8jPI6QVHmTOtQc9OdgmOlVpjGTZs
-	yHx/h1HOXJyz3LKU+x/CwsRrbzEB6K8S5R4I9tnNY8SIwyl6i6dHClMruXhBAJ9RtWCcvlzIKYLXM
-	QBI8Sz5Of8KcDxFjbq9t9vqEYbyEC4FOmoft9jrLEsp6E7p2X+kCmjmMEGJC6vlY19fiB8DHGBJTc
-	yDKGKoxQJSDtHdRNL+ZAFHULetVtPCuP4o+MXAeA6E4tErRCrHuUQ9fcfNVieBahV5p6uZqL482By
-	nhQKNoUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=baDTuvvK2rnBrTQYWqm7ATQZOTdxwB6p+v1mQB0ln0U=; b=EMkXJAu3s1uS6h2fenjFmDOur5
+	dw9Kf3suvxoN21NR8G6rMfNk5tfdi2bjzGBc/KDdGQXxwuwZV4d7rFSCOTaq1t3hrt5ZSfr18skDU
+	+RUuzqy5K0CevpebmkdLueUctizsuhrI2x4nZjrE1bCC7DpnIwsjd93pE1ktGhi7eUunLKjoxApEW
+	SX8e7OlaOa2xlgCvEpBHUs+gIh5BQUfSRXjQEEFLJg/RtyC8j73tXtSgWQH3eb+tyKAiwtNm8yZHN
+	Bu+hVen7KXSlfV8rkHTF6i/bY94A4vhPXyKTSkoz4O2gWVF4NKyKi7sEey/25Rxva6+G8TS4Fd3NI
+	qi6fS0LQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa1wb-00000000VAC-1zAX;
-	Thu, 18 Jun 2026 01:53:25 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1wa1wn-00000000VD8-2R6i;
+	Thu, 18 Jun 2026 01:53:37 +0000
+Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa1wZ-00000000V9Q-17nw
+	id 1wa1wk-00000000V9v-1yPi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 01:53:25 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-c0115a3794bso68318566b.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 18:53:21 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1781747600; cv=none;
-        d=google.com; s=arc-20240605;
-        b=ARfq8n7iBWeYAn6R+4tBdM6ncK1+V+s0bXY2IpGIqIVVWdmmYyomdLjWnhCw0r5Y5a
-         KKMHbG1VLUn0BXB+z/B5O9tXvghz64uzOZk8ihltyIAMhHcd2ALI7/tWr0ct+bQ5IOfQ
-         TEWcxEYHClxghRPgWfO6B0df6WPTdYmcOJwdOUoq3+mZ503wB2Sob0VHW414AHY0aoqX
-         5SMtYAU13KNek4Mzhm36w1hB/kUTzJhTyY3M8JwNN2jvX41QFN+QnXg/jdcgOFhA+O7z
-         9D0yP1o7HvPkAdLVeVF78hgwFkblXMpI+vlqowHvs2RuP7XLpVLQVLZeOlsBmRnstjn9
-         6wEQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=82lqWZt5WGmEK1KMEqJe8T2qeTr6htkdS62+9nO0IT8=;
-        fh=TCpvwQqLcKFGiIpS946PcdfBuXXRXG81vM175m+IXS0=;
-        b=GkGlWXc2oi3nxk4LGGalPfqd4RsWj79JCHVg9qDX8Y60hWvtCiWZJ04xrgowrs/K3S
-         Txe7nLxFZ9e2QSQ7Z4ZIASWtWY3HOVwodjUYJDIXP8DX04cfQh6lqhI0l727w2PDSPVY
-         vWL662j8I8+Blz1XUTM1Zn3tQ9mgIXb8Q10fsDyJ7K/3L377+O2WgHMMBCXS3oSv+TFJ
-         3V/PJWXcXWmR7OBYoPF0NjS19X4trSh8nhr5ISRG1Cp1CcDacANHTvoFP/MYBakir4sg
-         Zr4QTDp7ZX+Uqc+ptNup0vVpY9IvHGoiRoOM6CyN7UKnrSMHa07Vr1Ag9mVYJSRhuert
-         N0/w==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781747600; x=1782352400; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=82lqWZt5WGmEK1KMEqJe8T2qeTr6htkdS62+9nO0IT8=;
-        b=rXNbOv1velHaskNlgiWDUH2uhOg1onVRs+PS6H7TsOuwsAd2QO7GZaTkmASVz3pNFU
-         fQfW+wop3TPXllxuye5MIPJCazSzANJ206f67ddk69Tw27njmiJUiF3I4drPpTtzM3Kj
-         ZMt+NrsYwe5mu+oUiloanXXa7M+nrUs1KgQ+W1kYcslGgYSqnbgSrwe7LZjwGLcxiPwz
-         DetmpuEgoTaKGXhMZTDExUI8mP/VFZR+DOKxw3cdUYcXdYIfMgNVG/UA6Cyvb33kGFvB
-         VewnO6EfDEZjmLX8AtW1I6vVvuXgXu4M9d/93FsDaLIfCpMMEWM4qWZks/+urnduTvwz
-         Jggg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781747600; x=1782352400;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=82lqWZt5WGmEK1KMEqJe8T2qeTr6htkdS62+9nO0IT8=;
-        b=lhf3PXgO9rw8YB4laH78YUKdV2T5AWUXaHps/uiTCxV+AlukzncdKy3fntEVCsXmAm
-         YYoWImDcxaBNAKyxvJOb9wmib/cC52ZfyLcYZc1F2PwJIwW/0MIdvnwIq94tkke47HN3
-         sI96peqrrF+CQuQYc8D/gUlOj9DcggaC1eps+0vkqSIFEohuWaRdmrTZTjvIIWiyYda5
-         8Oaxmwf6DmKsRqYoPn9mMG9WwtPUsG3iTFcY8b3L5H9HbbAhltfcEYC4Sk8DqwEU8SEe
-         B4KhVFaSiD/y8yutjED30PumrqkscN0dOT3GHbmoQYVvWClKCXISMshXzuJ4eax/OlZP
-         QbOg==
-X-Forwarded-Encrypted: i=1; AFNElJ9xbDwMpAJ4rKp7OaoFpk4fpAIlGQ9EQsO8ca5Ob+Rlux4vnvoOExEC19+lti/ygcuw4b2vTkIOJ+GE6p8IhuhI@lists.infradead.org
-X-Gm-Message-State: AOJu0YzFYdHDLsPobJOpQwmys7Q6CypZI7D5eF30FbvdtKaC+C72XQLM
-	OfQ6CcHJUoMeON6Q4GgUR/0OLW13bCM5yFPLoQO+uw2mFnZlnN8ogxXxzuGfc5v8VBnbD7PovCc
-	I5UUedEOgcK9iDumMsz3loVaVoA/USJ0=
-X-Gm-Gg: AfdE7ckUPV9UUlilaFoEqIXgSHJaHcc6uxGSBjuknJ2SdzzGhhGU75DM7pIbttURFpM
-	blYAFKx7VgZLNyTo8bENpiUn5dIXm0MW5ue9uvcnGgS7Nv43+sgDM0qrdc8eXg1pq48pwM8pkOY
-	DtfAiZpDLIAF/K1495f7wC2SZOZEL6YRqRzJSEaIstpMS1l/w5DtyDKnQ0n19TgCGRQtURPIlBZ
-	fIcUTeCDsE14U0wVtVkmxp1fZ26INMLQ0nIiaWqL1htDdknwKwNsxWtSplDzPRdS+NwVvQ=
-X-Received: by 2002:a17:907:c50e:b0:bef:d3a1:5065 with SMTP id
- a640c23a62f3a-c0749f7991bmr72270866b.18.1781747600035; Wed, 17 Jun 2026
- 18:53:20 -0700 (PDT)
+	Thu, 18 Jun 2026 01:53:36 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=baDTuvvK2rnBrTQYWqm7ATQZOTdxwB6p+v1mQB0ln0U=;
+	b=ovFV3JzhO8N/0lbfun2Dcbo+s3uduzoqK6QFiVNFlaRGSRIEv7jpAN6XoJ/16TPzR05Bm0y3K
+	q0Q304PdA32b4ir8vfHLLV/ktI355N4ho4ZwfONYG/0uu4IaRlj7h7Kg7ymGFOpS9QcGSyGrSLy
+	tIfTWIw3ciHOxrbyGqYCBH8=
+Received: from mail.maildlp.com (unknown [172.19.162.144])
+	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4ggk7d4TTKzRhRL;
+	Thu, 18 Jun 2026 09:45:17 +0800 (CST)
+Received: from kwepemo100012.china.huawei.com (unknown [7.202.195.139])
+	by mail.maildlp.com (Postfix) with ESMTPS id 5E8B340538;
+	Thu, 18 Jun 2026 09:53:16 +0800 (CST)
+Received: from [10.67.120.222] (10.67.120.222) by
+ kwepemo100012.china.huawei.com (7.202.195.139) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.36; Thu, 18 Jun 2026 09:53:15 +0800
+Message-ID: <6dca2d6e-54d0-42c4-95df-45a30a473e0b@huawei.com>
+Date: Thu, 18 Jun 2026 09:53:15 +0800
 MIME-Version: 1.0
-References: <20260608021048.2577577-1-dbgh9129@gmail.com> <20260617152615.GO10056@google.com>
-In-Reply-To: <20260617152615.GO10056@google.com>
-From: =?UTF-8?B?7LWc7Jyg7Zi4?= <dbgh9129@gmail.com>
-Date: Wed, 17 Jun 2026 21:53:08 -0400
-X-Gm-Features: AVVi8Cdlr_Qe6ahvFQ5QtKi7fzQZ_9bCMLj4ZxCwFjjGj2iWMUbd3Sm13KClPNs
-Message-ID: <CACrCO_V24P9LqGu7M2M9b_1Y34rMh7t4=2-LjyR7ZVJcP7gn0Q@mail.gmail.com>
-Subject: Re: [PATCH v1] mfd: mt6397-irq: Fix PM notifier use-after-free
-To: Lee Jones <lee@kernel.org>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 15/20] perf: arm_pmuv3: Handle IRQs for Partitioned PMU
+ guest counters
+To: Colton Lewis <coltonlewis@google.com>, <kvm@vger.kernel.org>
+CC: Alexandru Elisei <alexandru.elisei@arm.com>, Paolo Bonzini
+	<pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, Russell King
+	<linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, Will
+ Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Oliver Upton
+	<oliver.upton@linux.dev>, Mingwei Zhang <mizhang@google.com>, Joey Gouly
+	<joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+	<yuzenghui@huawei.com>, Mark Rutland <mark.rutland@arm.com>, Shuah Khan
+	<shuah@kernel.org>, Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	James Clark <james.clark@linaro.org>, <linux-doc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<kvmarm@lists.linux.dev>, <linux-perf-users@vger.kernel.org>,
+	<linux-kselftest@vger.kernel.org>, wangyushan <wangyushan12@huawei.com>, Zhou
+ Wang <wangzhou1@hisilicon.com>, <xuwei5@huawei.com>,
+	<prime.zeng@hisilicon.com>, <fanghao11@huawei.com>
+References: <20260504211813.1804997-1-coltonlewis@google.com>
+ <20260504211813.1804997-16-coltonlewis@google.com>
+From: wuyifan <wuyifan50@huawei.com>
+In-Reply-To: <20260504211813.1804997-16-coltonlewis@google.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.120.222]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ kwepemo100012.china.huawei.com (7.202.195.139)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260617_185323_310521_A8A14090 
-X-CRM114-Status: GOOD (  12.91  )
+X-CRM114-CacheID: sfid-20260617_185334_970292_779B0A12 
+X-CRM114-Status: UNSURE (   8.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,25 +92,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 17 Jun 2026 at 11:26, Lee Jones <lee@kernel.org> wrote:
+Hi Colton,
 
-> [Severity: High]
-> Is it safe to explicitly remove the IRQ domain here while the devm-managed
-> parent threaded IRQ remains active?
->
-> The parent IRQ was requested earlier via devm_request_threaded_irq(). Because
-> devres cleanup does not run until the probe function completely fails and
-> returns, the parent IRQ remains active and enabled during this window.
->
-> If an interrupt triggers during this error path, the active IRQ handler
-> mt6397_irq_thread() will execute and call mt6397_irq_handle_reg(). This in
-> turn calls irq_find_mapping(), which will dereference the freed irq_domain,
-> resulting in a use-after-free.
+On 5/5/2026 5:18 AM, Colton Lewis wrote:
+>   static irqreturn_t armv8pmu_handle_irq(struct arm_pmu *cpu_pmu)
+>   {
+> -	u64 pmovsr;
+>   	struct perf_sample_data data;
+>   	struct pmu_hw_events *cpuc = this_cpu_ptr(cpu_pmu->hw_events);
+>   	struct pt_regs *regs;
+> +	u64 host_set = kvm_pmu_host_counter_mask(cpu_pmu);
+> +	u64 pmovsr;
+kvm_pmu_host_counter_mask() is called from armv8pmu_handle_irq(). This
+interrupt fires in both host and guest contexts.
 
-Thanks for pointing this out. Findings 1 and 3 look like pre-existing
-issues. Finding 2, however, appears to be related to the error-path cleanup
-I added.
+However, kvm_pmu_host_counter_mask() dereferences
+host_data_ptr(nr_event_counters). This indirection requires
+kvm_arm_hyp_percpu_base[cpu] to be initialized, which only happens during
+KVM hypervisor setup. When the interrupt fires in a guest kernel where 
+KVM is
+compiled but not active, the per-CPU base is NULL and the dereference 
+faults.
 
-I will rework the patch so the notifier and irq_domain cleanup ordering is
-handled consistently.
+Thanks,
+Yifan
+
 
