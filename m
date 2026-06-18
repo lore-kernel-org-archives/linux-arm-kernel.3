@@ -4,91 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C087ACD98E4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 03:14:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D0B2CD98ED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 03:16:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WUiLNGPqh5xoaR1mbDbB7mwDPFmDNybYuGD8IeVqIGM=; b=ApXnnwnEveyLCGVZOjWpi6TgLr
-	q2ox+2Q00ymd/w9fM/Vpyt9rgLF4aw4U75VkqMniddTXuE+tlEQid2z26jyw4IKI0cLvLPkeAhYKB
-	/79XlWoAZSGXpzj0xnLNPiGQs7CcTh8vjfPOuBeF1M7+psq7tMtLT3eujMf4oKMjLxGmo7ac4nKWI
-	UovODBP9tNxSf6j/bqp5ZJVQaV67DHAqEmFDRGNsG9TLwhhtzmJAQMwyr7yp9kYHQUnt4VU5CKRSb
-	aj8AJhKMEKICh19fnfbMrgr8AATycXecJcuBBRoYPCLu1ytCoAycB/O0Xm6VYWba3eD7Xxt58OQ/2
-	kmzD4bcg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WJeVd6wgp5NlfXuahK3rlSnNBONy3R4PRTFly3AX62g=; b=SaCgC53AGZphyHHygMKdemGqb1
+	JFKBRYo1S79RL5812ksTr0AP07rkzG2f7/Lop776hQyqgV3MYs+adWKnsxO6nWYj/TaEFd1OXPWfh
+	n1mq7AwUbTrMbbR84Hd4oIxU1leWmSt8GDcpkK126DkJvFcnO6bBKC2I1z6M8BGRV2vtH5GdzUhV4
+	4Fo3AubXzNpX1NwkSEyeEhN2Pg1Fu1TrBrip3LEf2lDTfEBRnRFrkG1VIpcM1nNHYZ5EXUWusA4Ov
+	cOiTI6pJhrSO5DPhPzfh3gBGOrmuoag9QGnwpciljwrZl7CEmJWkB//GDnLyY96D7wOzxXAy7GyX+
+	sPc26WaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa3Cd-00000000YQJ-30hw;
-	Thu, 18 Jun 2026 03:14:03 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1wa3FB-00000000Yll-0dC0;
+	Thu, 18 Jun 2026 03:16:41 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa3CR-00000000YJu-40Tb
+	id 1wa3F7-00000000Ykw-14jK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 03:13:53 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-8452a597afcso197385b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 20:13:51 -0700 (PDT)
+	Thu, 18 Jun 2026 03:16:39 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-37cbcf49deaso176558a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Jun 2026 20:16:36 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1781752596; cv=none;
+        d=google.com; s=arc-20240605;
+        b=LfY8UB9a94waT0vJH276Piyl1EZ9vup3yvqvWcmGeMXU7VpxGOWl3X+JsNfP+32pNc
+         8/96qumtyDsq1LPn/CsIUYmIcSRkbZIvUW77/sjS37YnJstoMusVveczJbnD3gznzoZS
+         hQKJuRJt2ojfr+ZQrZAHbviW1W+4N2eFQay4B/YYYAi78vR1ZCc0pTQFKehw2avzbsh6
+         VlSXt+XCSzzR7R8A7Brta2A3qxLlKqTJAbLyd0TTpJMiqvw/HhcVKYhzhtm9A0NVZI8S
+         R/jf7tStir23rKV6cv23ZXTaLT/KheLO6pesOwMsLaLy+DVRkU/KDh+f7KrjPyadCQcM
+         UhWw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=WJeVd6wgp5NlfXuahK3rlSnNBONy3R4PRTFly3AX62g=;
+        fh=bqvAZScKbetYVilfhPXPRMRs1bTG5RqIL+Wypc99LYg=;
+        b=ENlUReUcJhzPI0giIAybzkviqq/39RxYkyKmRqgD5JXwzuMIlT2YIwhtbXqhQvBuT/
+         iehrygVbv8Z5dSOHjmy5Nkz9PS4Ob/AzHLbNY+USTIbkr+q7vDtX32T39W2jJ2Vb6x5R
+         D5njMyLt1kWS/kxw6gyCI5+YT49a52cEvl6sLdRHdQOviimgwvpCbaz/fKw3Zw6QyXLx
+         kykOoTqoSq6f+c4Ug2A6om+mf5OYpGydrDBaNXriN7tBp4l8i/GYcxgviHjKYcAXJMUZ
+         iLRzxxP9MkWSQkySbV60MqbOHqeFsUBUTDlFmRRXau+ivDbVHlw0TjI9EDyNu/JTxgqf
+         C69A==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1781752431; x=1782357231; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WUiLNGPqh5xoaR1mbDbB7mwDPFmDNybYuGD8IeVqIGM=;
-        b=hi1df22Gd9mIiUa2wYGUmmTRDTkbL1BPmtp+aH2oyLzhpm+JPC4OtbaZzeKMU7RaEC
-         qjEi2fI8u2RJpBHvX4JaKTpr8AOi//op8WFDeCet6USyCP1OuvtE0ASvhMjDPzCJppqt
-         +5Mb7liVFQ6s/xlcw97uAJbuZxKgi2N40Tzqs=
+        d=gmail.com; s=20251104; t=1781752596; x=1782357396; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=WJeVd6wgp5NlfXuahK3rlSnNBONy3R4PRTFly3AX62g=;
+        b=JoNqWAoKxZlOfURDKYuSwgvXjeGcrVWNKOax0U9fBOAFPgjl3Spn3hDeiuIBGlQzgO
+         QO8um4ayRD0iBD77MprauAhEyOhRoK6qRu5jpA8hwsmO4xACV/LmMuY2LtyAUYHwmFQU
+         mGZYDnVTXNMTZNWhfSBkg24EtfVuBdD09OLze5KWH0yUian1UeIs9JUiNqhh7i4V1X1N
+         GI4Xmva4ZpteFvr7jenHMH+FYniwZ3YrYHCoTcoDF+VeJwK8x5neyj4lmQfy/oyCvQ4B
+         kXeX1xfcWahoIu0waoZQC+qQmHREUBc3uc6dxG3VZJzx2RXrGxafQwBVPq1ot6RjkcaA
+         ZijA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781752431; x=1782357231;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=WUiLNGPqh5xoaR1mbDbB7mwDPFmDNybYuGD8IeVqIGM=;
-        b=AGP0rSTrjgYubUuM7sVTM2zKSnoJVlvvKN54Pi/pEnvqrQ6VC2IYfZ9GDzp/gBfUmH
-         xRbPowgPibSxObZmDcYg9kRj98OBm88RAVhsfIvx2sRioOu2rxVUE8em5ZGFTfuvEZE6
-         1MHe0A/6cJAPKMRMrp6qPjpuGwHMs73UdvSWJg/Z57xEJ41O6eUV3XEXe96mWCrexjdj
-         +3840MKA99HEll9gDGfkfHWBbK8p1dXJqM1TgoKdQhFHNm8M0vd0AKU6M5xHwK0cHNbd
-         Ci9uMhLQcZ1ZFtqSbnfR+BOTJ8knmV/BmMRWh2wmXN2jzChQ0oWmzYVBXbezfpkDSPcj
-         Zu+A==
-X-Forwarded-Encrypted: i=1; AFNElJ/Ilt9NZgJGOGZXqy0iLWUZ0OG3e+mMrwAkKcdoaLcAwwtOFHwwd64Kg8rB46PXN61BXuIHu3gtplpYBYDufpGE@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywa7Un1IsFRvUuhLWLxfpzIUGh623H/3acUvAVdotOcv4UCUIqw
-	9GDX0m1CfwtBiVNiZEncYBRP2u0h8Ugef6IlY91TdidyXgtCwlyRTk0LyI1NIqJUsA==
-X-Gm-Gg: AfdE7clRX3Ef5sClhfDfABPLN0aamGv5Qbj29g7y6xGuXMg0IboXXVQ2MZ8IHypibTq
-	9DRfMijgH0gkmPYO3QtbIRAHTZEC5rheDOb9e+lVLEoPVMfd7yDLDe1nxYYCwrMVHhYTvsoh71M
-	B6qNk+0HiOoisxos+4SGYw4xN7UFJ5ZQTJGLlAJPbd5Q+qnBF3gBMzLp5ntAtfQJl+5LIV9H+OG
-	Bwj+/Ree0++Q7WB95otJSHdyFA8OhvvyxlARmo2m68veqco6jOb1rQrvMRL2y0JOEwDdINez2Pd
-	oLqcYHxpuA2z8giV2DJ8WrM1SctgoHJNUaweOWKRS5/rfoTuZGmcUsZOHoHlWx0Wx8kpCMpCIpO
-	UZbUjjwoCEuOIaodP1h6VPWwdbFKNMCeykOjTyeaNiLFrsKDabzpGVKFFp9FlqGUjLQZ9TB/j63
-	m4rCjxLDywlm+2HhfU8KcSwXxswDLuijtI2ycPsvQb3aFmzhSw4i9xHFfHdL9X5dukflBy/5OWL
-	ok=
-X-Received: by 2002:a05:6a00:10cf:b0:842:708f:39be with SMTP id d2e1a72fcca58-84541991b98mr590884b3a.5.1781752431077;
-        Wed, 17 Jun 2026 20:13:51 -0700 (PDT)
-Received: from tigerii.tok.corp.google.com ([2a00:79e0:2031:6:20ef:efdb:f2c9:836f])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8434b046911sm17548232b3a.53.2026.06.17.20.13.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 17 Jun 2026 20:13:50 -0700 (PDT)
-From: Sergey Senozhatsky <senozhatsky@chromium.org>
-To: Marcel Holtmann <marcel@holtmann.org>,
-	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
-	Sean Wang <sean.wang@mediatek.com>
-Cc: Tomasz Figa <tfiga@chromium.org>,
-	linux-bluetooth@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Sergey Senozhatsky <senozhatsky@chromium.org>,
-	stable@vger.kernel.org
-Subject: [PATCH v4 2/2] Bluetooth: btmtksdio: call cancel_work_sync() out of host lock scope
-Date: Thu, 18 Jun 2026 12:13:22 +0900
-Message-ID: <20260618031338.1011410-3-senozhatsky@chromium.org>
-X-Mailer: git-send-email 2.54.0.1189.g8c84645362-goog
-In-Reply-To: <20260618031338.1011410-1-senozhatsky@chromium.org>
-References: <20260618031338.1011410-1-senozhatsky@chromium.org>
+        d=1e100.net; s=20251104; t=1781752596; x=1782357396;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=WJeVd6wgp5NlfXuahK3rlSnNBONy3R4PRTFly3AX62g=;
+        b=ZeUgv2A5n4dsqHU2cBvVVycU4PqSgeVh+xH+BaQUxNRaQ5KbOpuz0T0ECB1U0Yaaai
+         +6QvsKWxMLDS7tUOFfShuFnpqjyhN6MQPgtYhu8HvAKYxH4MS7cNEbHwDKdhlUTcbJwU
+         +U0nRMDwcW867KRXoUNA28nLJ3RjEl2HOOfslbtOalycTC3IWrlHQ2K7NwZrLTIBSGxy
+         hrtqJ6eMrmmLm4q5RoFujJFz8n9cf35p9QdWu1gkc8YVgilZ/RgKjD0+b/popdKd+M5y
+         Z0in9+wTuu5u6ZuutG/88hy0mIkXNkvYbfN7EZzHLzr0yzmN6x7eiFmCsDjTCQo4TTqF
+         3LXQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8HV/JqlDDbZHOVJnQCxcrAS24o0wyWTwQLnWl6XFzsyceYNEjQRvA0lWWbRu60Z/s1vVwaYUuy0K9h2h7z0WPS@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywgc2jjW0B1CT6gFEroolLzJ1lT5wV0vbqzvAbpW37AdH42fMHt
+	DIXEuwyBlgf3XYF/1vu0ASUVLZB9z5nekG2IC2kgs2EmcK7hcZuYVdFm/gJX1NhKC5cKi03/P6g
+	n1V4xJOagjIn4XqmWAQR1OQY6dYCnzRBymTEx
+X-Gm-Gg: AfdE7cn3ohCCWbQB1yWCZdeu5W2VjS6UR4bep9ESU0W+8mN4yAHNrgGf5soZVswbrPr
+	aHmKRiy+fNnJq7AgCDngE37AjofaufottLxBks5dSydgIGj9weXcttpAX7WcJxwhvrR3feGdUHK
+	77zR+/Fd1/G7HZjhiWcJwAwiS5MWCblInA+F2XWvgaFGYJIAvu1X5P/udKdP9YHogR7MJGhlf1B
+	y4gvS13GpSPUgA4BCJ+m9yMgedcjWKc/wykRowk2MI6X25/pzDugU7A6Eocb/0bmBrS0u9Igebu
+	169WabEL9d8Ck3elH/FPgsUWivo=
+X-Received: by 2002:a17:90a:fc4e:b0:36d:b680:3036 with SMTP id
+ 98e67ed59e1d1-37ce44ea15bmr1577620a91.4.1781752595950; Wed, 17 Jun 2026
+ 20:16:35 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260604033554.96996-1-phucduc.bui@gmail.com> <178120760640.484538.12942087225448845771.b4-ty@b4>
+ <mPIrpl-QRw6_Q9DZcTQ5xA@collabora.com>
+In-Reply-To: <mPIrpl-QRw6_Q9DZcTQ5xA@collabora.com>
+From: Bui Duc Phuc <phucduc.bui@gmail.com>
+Date: Thu, 18 Jun 2026 10:16:24 +0700
+X-Gm-Features: AVVi8Cfk3b_69bjEt4plPGyHkaTjXjkUe-hN2B8CF9dwTyCWWDnjf2lpRFKMcdk
+Message-ID: <CAABR9nGEHmy4YSqFSyh+gqXVwNgpaGOjqBeUZyHBmMibHwvMxA@mail.gmail.com>
+Subject: Re: [PATCH v2 0/3] ASoC: rockchip: Use guard() for spin locks
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Heiko Stuebner <heiko@sntech.de>, Liam Girdwood <lgirdwood@gmail.com>, 
+	Mark Brown <broonie@kernel.org>, Nicolas Frattaroli <frattaroli.nicolas@gmail.com>, 
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, linux-sound@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260617_201351_996806_1B0AB6B5 
-X-CRM114-Status: GOOD (  11.62  )
+X-CRM114-CacheID: sfid-20260617_201637_293141_84B867D1 
+X-CRM114-Status: GOOD (  23.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,80 +118,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-cancel_work_sync() should be called outside of host lock scope
-in order to avoid circular locking scenario:
+Hi Nicolas,
 
-CPU0                            CPU1
-                                close()/reset()
-                                  sdio_claim_host()
-txrx_work
-  sdio_claim_host() // sleeps
-                                  cancel_work_sync() // sleeps
+Thanks for the feedback.
 
-In addition, when txrx_work() runs concurrently with close()/reset()
-it better not to re-enable interrupts by testing for BTMTKSDIO_FUNC_ENABLED
-and not BTMTKSDIO_HW_RESET_ACTIVE before C_INT_EN_SET write.  However,
-btmtksdio_close() clears the BTMTKSDIO_FUNC_ENABLED too late (after
-cancel_work_sync() call).  Move BTMTKSDIO_FUNC_ENABLED bit-clear earlier
-so that txrx_work can see concurrent close().
+> FWIW, the SAI patch wasn't sent to the proper maintainer e-mail
+> for it which is why I didn't notice this series at all until now,
+> and the whole thing is pointless churn that wasn't even tested.
+>
+> From a cursory glance, whatever LLM was pointed at this and decided
+> to make the output my problem also didn't do a good job, the scoped
+> indentation of rockchip_sai_runtime_suspend seems pointless because
+> it could've been replaced by a pm guard followed by a spinlock guard,
+> without an additional level of indentation, and `if (ret == 0) {` is
+> not kernel style.
+>
+> It's not worth the revert but it sucks that I have to now set up a
+> new lei search for all the drivers I am supposed to receive mail for
+> because vibecoders can't be bothered to run get_maintainers as they
+> pad their CV with nonsense like this.
+>
+> >
+> > [1/3] ASoC: rockchip: rockchip_i2s: Use guard() for spin locks
+> >       https://git.kernel.org/broonie/sound/c/4bda5af16920
+> > [2/3] ASoC: rockchip: i2s-tdm: Use guard() for spin locks
+> >       https://git.kernel.org/broonie/sound/c/ec22437fc41a
+> > [3/3] ASoC: rockchip: rockchip_sai: Use guard() for spin locks
+> >       https://git.kernel.org/broonie/sound/c/f7fe9f707360
+> >
 
-Fixes: 26270bc189ea4 ("Bluetooth: btmtksdio: move interrupt service to work")
-Cc: stable@vger.kernel.org
-Signed-off-by: Sergey Senozhatsky <senozhatsky@chromium.org>
----
- drivers/bluetooth/btmtksdio.c | 12 ++++++++++--
- 1 file changed, 10 insertions(+), 2 deletions(-)
+Regarding the claim that the Rockchip SAI patch was not sent to the proper
+maintainer, I believe there may be a misunderstanding.
+Before sending the series, I ran get_maintainer.pl on the patch set and
+included all recipients reported by the script, including:
 
-diff --git a/drivers/bluetooth/btmtksdio.c b/drivers/bluetooth/btmtksdio.c
-index d8c8d2857527..207d04cc2282 100644
---- a/drivers/bluetooth/btmtksdio.c
-+++ b/drivers/bluetooth/btmtksdio.c
-@@ -625,7 +625,9 @@ static void btmtksdio_txrx_work(struct work_struct *work)
- 	} while (int_status && time_is_after_jiffies(txrx_timeout));
- 
- 	/* Enable interrupt */
--	if (bdev->func->irq_handler)
-+	if (bdev->func->irq_handler &&
-+	    test_bit(BTMTKSDIO_FUNC_ENABLED, &bdev->tx_state) &&
-+	    !test_bit(BTMTKSDIO_HW_RESET_ACTIVE, &bdev->tx_state))
- 		sdio_writel(bdev->func, C_INT_EN_SET, MTK_REG_CHLPCR, NULL);
- 
- 	sdio_release_host(bdev->func);
-@@ -741,6 +743,8 @@ static int btmtksdio_close(struct hci_dev *hdev)
- 	if (!test_bit(BTMTKSDIO_FUNC_ENABLED, &bdev->tx_state))
- 		return 0;
- 
-+	clear_bit(BTMTKSDIO_FUNC_ENABLED, &bdev->tx_state);
-+
- 	sdio_claim_host(bdev->func);
- 
- 	/* Disable interrupt */
-@@ -748,11 +752,12 @@ static int btmtksdio_close(struct hci_dev *hdev)
- 
- 	sdio_release_irq(bdev->func);
- 
-+	sdio_release_host(bdev->func);
- 	cancel_work_sync(&bdev->txrx_work);
-+	sdio_claim_host(bdev->func);
- 
- 	btmtksdio_fw_pmctrl(bdev);
- 
--	clear_bit(BTMTKSDIO_FUNC_ENABLED, &bdev->tx_state);
- 	sdio_disable_func(bdev->func);
- 
- 	sdio_release_host(bdev->func);
-@@ -1295,7 +1300,10 @@ static void btmtksdio_reset(struct hci_dev *hdev)
- 
- 	sdio_writel(bdev->func, C_INT_EN_CLR, MTK_REG_CHLPCR, NULL);
- 	skb_queue_purge(&bdev->txq);
-+
-+	sdio_release_host(bdev->func);
- 	cancel_work_sync(&bdev->txrx_work);
-+	sdio_claim_host(bdev->func);
- 
- 	gpiod_set_value_cansleep(bdev->reset, 1);
- 	msleep(100);
--- 
-2.54.0.1189.g8c84645362-goog
+Nicolas Frattaroli <frattaroli.nicolas@gmail.com>
 
+along with the relevant mailing lists.
+
+------------------------------------------
+phuc@phuc-desktop:~/work/linux$ ls ../patch/sound/rockchip/clean/
+0000-cover-letter.patch
+v2-0000-cover-letter.patch
+0001-ASoC-rockchip-rockchip_i2s-Use-guard-for-spin-locks.patch
+v2-0001-ASoC-rockchip-rockchip_i2s-Use-guard-for-spin-loc.patch
+0002-ASoC-rockchip-i2s-tdm-Use-guard-for-spin-locks.patch
+v2-0002-ASoC-rockchip-i2s-tdm-Use-guard-for-spin-locks.patch
+0003-ASoC-rockchip-rockchip_sai-Use-guard-for-spin-locks.patch
+v2-0003-ASoC-rockchip-rockchip_sai-Use-guard-for-spin-loc.patch
+phuc@phuc-desktop:~/work/linux$
+phuc@phuc-desktop:~/work/linux$
+phuc@phuc-desktop:~/work/linux$
+phuc@phuc-desktop:~/work/linux$ ./scripts/get_maintainer.pl
+../patch/sound/rockchip/clean/000*.patch
+./scripts/get_maintainer.pl: file
+'../patch/sound/rockchip/clean/0000-cover-letter.patch' doesn't appear
+to be a patch.  Add -f to options?
+Liam Girdwood <lgirdwood@gmail.com> (maintainer:SOUND - SOC LAYER /
+DYNAMIC AUDIO POWER MANAGEM...)
+Mark Brown <broonie@kernel.org> (maintainer:SOUND - SOC LAYER /
+DYNAMIC AUDIO POWER MANAGEM...)
+Jaroslav Kysela <perex@perex.cz> (maintainer:SOUND)
+Takashi Iwai <tiwai@suse.com> (maintainer:SOUND)
+Heiko Stuebner <heiko@sntech.de> (maintainer:ARM/Rockchip SoC support)
+Nicolas Frattaroli <frattaroli.nicolas@gmail.com> (maintainer:ROCKCHIP
+I2S TDM DRIVER)
+linux-sound@vger.kernel.org (open list:SOUND - SOC LAYER / DYNAMIC
+AUDIO POWER MANAGEM...)
+linux-arm-kernel@lists.infradead.org (moderated list:ARM/Rockchip SoC support)
+linux-rockchip@lists.infradead.org (open list:ARM/Rockchip SoC support)
+linux-kernel@vger.kernel.org (open list)
+SOUND - SOC LAYER / DYNAMIC AUDIO POWER MANAGEMENT (ASoC) status: Supported
+phuc@phuc-desktop:~/work/linux$
+phuc@phuc-desktop:~/work/linux$
+---------------------------------------------
+
+If there are additional maintainers or mailing lists that should receive these
+patches but are not currently reported by get_maintainer.pl, please let me know
+so I can include them in future submissions.
+I would also appreciate avoiding assumptions that the series was generated
+by an LLM. The patches were prepared manually and submitted as part of
+my ongoing effort to convert lock/unlock patterns to guard()/scoped_guard()
+helpers where appropriate.
+The series was build-tested before submission, so I do not believe it
+is accurate
+to describe it as "wasn't even tested".
+Whether a particular conversion is worthwhile is certainly open to
+technical discussion,
+but I do not think it is reasonable to conclude that a patch was AI-generated
+simply based on disagreements about the implementation details.
+I understand maintainers have different preferences regarding how aggressively
+such conversions should be applied, and I am happy to adjust the approach
+based on review feedback.
+
+Best regards,
+Phuc
 
