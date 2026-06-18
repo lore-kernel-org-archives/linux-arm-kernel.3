@@ -4,65 +4,188 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5964CD98ED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 05:01:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3912FCD98ED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 05:19:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kkYJRQCZSd9fkjyBntRgZwkCUGtOFSJhGqIN3frg468=; b=X/F49nKhr9i92ZOlMfLFiCTyeW
-	Inqy2oVUuIfXJsRa8XiFrEZhpTMsu1z4mz6lOPRNqdZfphAAFBwGzLf/7XJVd+56pGx9mBS9KOa2S
-	n1n2DiCNgVV5opYO4xIfTrB+sY5lcpGu3NRvXv1DrVT6MvydaGa42F9+3kZ0n+a9VhMK75+O8jkH6
-	TUk4WnZqGwZPBRfPgeAtCJqL6f5uC32xoIWzPHz4IqzkeuJRb6KY0DyUGIQHRRwwHebH0EfTRrgsR
-	F/4rlOKP7hypDalV+QCmF+iZJEOrkk+yLYspDCXxCBh2RU6WSVVoIrOACf92DlBqij08tt3tf6IaO
-	ys44ZtBw==;
+	bh=7q8Ynj1ghsKsLxANonRIrTbLPNK3rttoQD1RNsPatS4=; b=mxuFua7nImb+cD9AXjrBIApH0F
+	p8qDenc0YzQBWys6zeI+ApTYn2/FEQUqMZWStaOo6CCElC7rWlGkwuLfbuCqB7oXnq8eoMjPHVoZf
+	mgCygppX8jKXxURyJO3if6qTY/J+6W8fX44dZ8x24GGAcYvfrHILIGTfiAktUhxOz17u5soAc3qOG
+	pa+PK5NA22D29cNkHptuGLaCit7UgtgyZ+q8TwAC4J/uATw7Um8ernqQWhhEQUCzq1o7DSYVVcuyO
+	m5b0JPBjUZaW3nf22r/VH+x6s/IzhmhGA8USe9Nn8XLV89+JxXl/GOe4GgO9e4606unO03Ii0YL69
+	EOoTDdQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa4sq-00000000dkU-2l9W;
-	Thu, 18 Jun 2026 05:01:44 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wa5AI-00000000egi-0BOL;
+	Thu, 18 Jun 2026 05:19:46 +0000
+Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa4so-00000000dhq-10gp
+	id 1wa5AE-00000000egI-3fFn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 05:01:42 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id F3095433E3;
-	Thu, 18 Jun 2026 05:01:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6B231F00A3A;
-	Thu, 18 Jun 2026 05:01:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781758901;
-	bh=kkYJRQCZSd9fkjyBntRgZwkCUGtOFSJhGqIN3frg468=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=f7rqHq4KK128xp/WfbBeeNpsundDmSGw7FrkfzfQmhfV7GB1M7Kwxagmao2JrZy6j
-	 WtiEDBTtjjYhYy4EQYKSvFQDm8gTwUs7kRgiUf9cripjlZaE+mfzwi0mzlnkeQhgw5
-	 bL6n96iLemoJcqBhiw75nEGpKqtD3dCCtrdhjr46yq/Xn9mECQtERRqtp8d5dLPnNU
-	 3kRrf/v//lyDxp3MGCw3VUqacwSSRHHwtAngMWxfbG8Bb/Z7Hvm/Y85yMJK2jG2KrN
-	 cwdjxKf6YGdCHmfiUTBhG34XZiiea/OwfPm/ihwJL22u0v8p6elqLoNbIt/4h4u5ga
-	 9Ls7dY/t2OK4w==
-From: Linus Walleij <linusw@kernel.org>
-Date: Thu, 18 Jun 2026 07:00:57 +0200
-Subject: [PATCH 11/11] ARM: dts: ux500: Remove DB8500 EPOD regulators
+	Thu, 18 Jun 2026 05:19:44 +0000
+Received: from pps.filterd (m0374955.ppops.net [127.0.0.1])
+	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65I0ORpm3435889;
+	Thu, 18 Jun 2026 00:19:29 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=7q8Ynj1ghsKsLxANonRIrTbLPNK3rttoQD1RNsPat
+	S4=; b=GTeQjrg1xBisOB5uPhi6wqdpenNFYa+koVjOYuPuZ8OGWpSle4FkF2TGe
+	zkSKWH9FH38JRM8CHQ4P+C33GFbenFFejIynchpdkr0i2uNu9dJjAEdkmboYO78v
+	fHmz0wtbcewYVhMnNf6ffTuCiGyJOoggL9EQVZAGFlwHGPePPZW2Wvp48wKZaWuS
+	ramafHm3DEGxmeqYEowRFrwAGCaHVHAoOT5w7t4NQBlDUxRZk1Ix23SLLVvf7SX5
+	o4NGZOnH58v4KSZWafQFlbERlYjkLtZJJb12A2bKTh+4USdx8P6PXFzeEOsn8g45
+	yAyu3GaeSIca62e8nlO/9/dSX+eng==
+Received: from sj2pr03cu001.outbound.protection.outlook.com (mail-westusazon11012057.outbound.protection.outlook.com [52.101.43.57])
+	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4ev63rhcq0-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Thu, 18 Jun 2026 00:19:28 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=O3CvpTXeELUZLZBXadL1KH20EOQO/yGQvT1rUmL5fsRtgcU7xkG9zN36DYG8nR0k2+TlbLePCajf8UMsSB+rxcNvWv1/4fTt52NotGKx3BrUKSU3I+KN7FxeXehbmfoAskl2K8/toWf5yVjkuVOeOpkEgOjOhOZhris6Wcua+f6tYjuZBHKcI2K1kXxYwK6BzBRZDZi7umFLRIzx2mv4F0PbpNQoXzbFLX5nZLDj1vnkpSEv+09CD42+oOyrWkdWaBUhKlZN5Rof8HJwQK4aVLim08RsV40Jkmf5/JNwVlFlTzi5sUSBnhuW28M5Ulh2C/ShWW/HRsnSFqci2hlJIw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7q8Ynj1ghsKsLxANonRIrTbLPNK3rttoQD1RNsPatS4=;
+ b=wlsp4dF8ujq0XWDyZQ+2bKElVUgjtjwtorQZfoBDfcl5nERkYMHZJ6XoFSJAe5rGtKi/azOZdCKCNl8DYfH68jfI0s8jIjQIzvDEsY1Dqjmk2rWFKLmsrDUNIy0iRxtUHImiNRlIUJ4TO5mMUpf6rO1J5ZfJN0cfKHQ5+89MarxQy8z/ZLQxbtRTA0g4pjzaqzOPTfW3IbV5gn/kddWmDNqtBslaAX48C3sC3XMi60qvIPAD1OBB4Hmz1M9fsDGsimmrKTLeSc/xW6+UwSl9jy8thxyBEN97pA4Rs8Gp7wj6/xUXsqtU6dAj0gF9ke2WOb3MWcnO9wXMMKl+viZWwA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=nvidia.com smtp.mailfrom=ti.com; dmarc=pass
+ (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7q8Ynj1ghsKsLxANonRIrTbLPNK3rttoQD1RNsPatS4=;
+ b=QOci5uQQQ9VyGbpZxxHz6sd5HykhwKV/APPG5P+oYSyKBcxRGZsw/AWsUvxCKpwGDdAW2QstpR/Izn+Ks410txFCUaaUm2CJet67kxnUT0PCoo4PIsvYVz3wUF8/YAQhSxLkV+gG5V4vFpvwUXVWAK67Qs76mXXbn16OAOQFiWM=
+Received: from DS7P222CA0012.NAMP222.PROD.OUTLOOK.COM (2603:10b6:8:2e::15) by
+ DSVPR10MB244415.namprd10.prod.outlook.com (2603:10b6:8:37a::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.11; Thu, 18 Jun
+ 2026 05:19:26 +0000
+Received: from CH3PEPF00000015.namprd21.prod.outlook.com
+ (2603:10b6:8:2e:cafe::1b) by DS7P222CA0012.outlook.office365.com
+ (2603:10b6:8:2e::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.139.12 via Frontend Transport; Thu,
+ 18 Jun 2026 05:19:26 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ CH3PEPF00000015.mail.protection.outlook.com (10.167.244.120) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.159.0 via Frontend Transport; Thu, 18 Jun 2026 05:19:26 +0000
+Received: from DLEE201.ent.ti.com (157.170.170.76) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 18 Jun
+ 2026 00:19:23 -0500
+Received: from DLEE213.ent.ti.com (157.170.170.116) by DLEE201.ent.ti.com
+ (157.170.170.76) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 18 Jun
+ 2026 00:19:23 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE213.ent.ti.com
+ (157.170.170.116) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Thu, 18 Jun 2026 00:19:23 -0500
+Received: from [10.24.68.129] (a0507033-hp.dhcp.ti.com [10.24.68.129])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 65I5JHlV3292259;
+	Thu, 18 Jun 2026 00:19:17 -0500
+Message-ID: <667c890d-0bd1-49fc-a4d0-59e33980a0d1@ti.com>
+Date: Thu, 18 Jun 2026 10:49:16 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 2/4] PCI: Use standard wait times for PCIe link
+ monitoring
+To: Thierry Reding <thierry.reding@kernel.org>,
+        Bjorn Helgaas
+	<bhelgaas@google.com>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+        "Manivannan
+ Sadhasivam" <mani@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        "Thierry
+ Reding" <thierry.reding@gmail.com>,
+        Jonathan Hunter <jonathanh@nvidia.com>,
+        Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>,
+        Hou Zhiqiang
+	<Zhiqiang.Hou@nxp.com>,
+        Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+        =?UTF-8?Q?Pali_Roh=C3=A1r?= <pali@kernel.org>,
+        Michal Simek
+	<michal.simek@amd.com>,
+        Kevin Xie <kevin.xie@starfivetech.com>
+CC: <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-tegra@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>,
+        Thierry Reding <treding@nvidia.com>
+References: <20260617-tegra264-pcie-v7-0-eae7ae964629@nvidia.com>
+ <20260617-tegra264-pcie-v7-2-eae7ae964629@nvidia.com>
+Content-Language: en-US
+From: Aksh Garg <a-garg7@ti.com>
+In-Reply-To: <20260617-tegra264-pcie-v7-2-eae7ae964629@nvidia.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260618-ux500-power-domains-v7-1-v1-11-eb5e50b1a588@kernel.org>
-References: <20260618-ux500-power-domains-v7-1-v1-0-eb5e50b1a588@kernel.org>
-In-Reply-To: <20260618-ux500-power-domains-v7-1-v1-0-eb5e50b1a588@kernel.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulfh@kernel.org>, 
- Mark Brown <broonie@kernel.org>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
- Lee Jones <lee@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-pm@vger.kernel.org, dri-devel@lists.freedesktop.org, 
- dmaengine@vger.kernel.org, Linus Walleij <linusw@kernel.org>
-X-Mailer: b4 0.14.3
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PEPF00000015:EE_|DSVPR10MB244415:EE_
+X-MS-Office365-Filtering-Correlation-Id: fb6667e0-3bfe-4408-62b0-08deccf92a9c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|23010399003|376014|7416014|1800799024|36860700016|921020|56012099006|4143699003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: dqCRycxV/JHXT8IEfOgYMAqHtjp4Tu92RNZzc1pQ8SJu6s3wPAK9Ve7f1TN0LC2gUpHjsWxB0S5BKx08SIn8r5brRY84m99bz/zEfIFkbVvls+ttSsUTwCUfNNHgs1hFqsQoZqRLM8bKgB7zm4Ngtlks0k9ttmMZvhN8U5hKyl+nTb2NfpbKsKss2WkCqlE5cdKnWYdh3jmHL+SZ1xQWBWniTAwhjsJmriJ9TzhKoJ75JBhxA+mYlblXsf+OBAokIu5Bb50SZcTpS6Cu3lShQBYQBeRltwxQaabT9578vZH736ei0rsQKJlyhPOeSq3xGimCKJUj3EXNwHA+Qa6U0KksSII0BbRa8SQqL5iD76kablSak1XMQevSusmS8KoirjX0Ka/2120PDzb1fzTEJs3q9Axd+OoG3PI9PHZe3v8BFnLm0Cr/zt+CStNSGmjcxT597eRXK2yo68Og+hshkIpnd7yof3JYlZP5x4lUdlqVh/0XaI+/qYEJBgBnh7jKUAp8trPT9LKX9pgFqwYkWI/ltOIfoe3nJ3UvNKOwLzlfqy01v7FACgUnldNb8g7DE4/Z76coWowDEHATlWesjvRIuha9zg9+a638zAOA369DbroxlU0cMm8aXrwfFwGQXPYKxT+cBLWXPOLaJ1Nt/g+mifLN6UObJGigAcuZ60fwvvvBrSUZg+/Q9mGxXaHrmMmhLaJUDm3zH2sx9XPd/ENHQYjqyKLQFyT7b/oaSO5zRFofsi+i+0mE46DrVpWqRPwQ/x6cTuQ104DmEZTUUQ==
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(23010399003)(376014)(7416014)(1800799024)(36860700016)(921020)(56012099006)(4143699003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: hl0ojE8vQ2fnOS3ilgcfoqeokuRtXbwk9yR7zf8+cVlSPM5qGLKwqrhGJO5VVS1OFva3pdIuvPQ4xT2q0UHnyVDTmCdh/mcKwgFkOxeZFcVCqeBTytLeTCQGXXS9KGFxixPhLIyeV2qkQP+0Q1Gw76QTxHjWG/RPAmaKQcUnIBlnub8BR+fWoBRpc3nETj0oe8mGW1RU1XRfkn3QDQNHAB5QYaQXfwBAgdlp2kWdxH+hnNlEnxQqGi2dbPuEVSpErdaHV+PpVlkrLG0J0tC2avzbXy2Txxl6dZpMBGQMUBfUH7B8W64S+wKQ4jFGm1qDBKFRimd1E+K8rnNjb5rLi0hvvS5wuY7kfH04bresmcvoUgLNMgN2gD9d5PZPzZFbpw4i5P7k6VV7mhmSlIdStLESfKDzR4Ol6XAwlBO1Nob5RwprdswRqqTyGJSgXDsV
+X-Exchange-RoutingPolicyChecked: Gi9qVnQkeFvt7pKMAMcNWbMQBWZ94LP0PmWNMX7WxKac8WCgRaW8+xGp8fHL0XH4Td8mvpWsH4d3D+FgdVRqo60Ky3erY66qYuaHruzg3Fhut8lLyvyVrvU4VybDsIybUZnBjcUpiZuIvUcb/aOn18eluNlheSPbTwWEliCa+X0BHo+5ZOFQaJdcnEn+2LV+lF2nsCX4oDhssbI1aAuJCdyjxFQlmH7k92e44N8GCU8zYDceFLIuLf86/nx6F0Y3iSBx9YlAikRcSUxAsAgkZ76bU6B9Lgwu1uMrVkXaMO40dx2c98du5IShhqGefAmDckTC4e8lv8XtIJz1XUatzg==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Jun 2026 05:19:26.6014
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: fb6667e0-3bfe-4408-62b0-08deccf92a9c
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH3PEPF00000015.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DSVPR10MB244415
+X-Authority-Analysis: v=2.4 cv=LpqiDHdc c=1 sm=1 tr=0 ts=6a337fe0 cx=c_pps
+ a=Y/Y9x3HtMOqQL+YbCjVQEg==:117 a=f+v6EHfkeJbVwR46tk4DMg==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10
+ a=s63m1ICgrNkA:10 a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=Z8NIEmU8O1QQgoT56wFK:22 a=fPAWb5peG099m5CrUpKH:22 a=Ikd4Dj_1AAAA:8
+ a=sozttTNsAAAA:8 a=9pYv5q21Ckep_k857DUA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjE4MDA0NSBTYWx0ZWRfX7teoC0LZtLGW
+ gaDNsjjPXEv5qp9CvXlcalZz307caFIX2dJ6EyGrBffRfzOYfNLNQnu8e+/zAZ1PQ6IF57hKdJE
+ /UT+QJhI3sfwOSZJ+hJPb4wvw/SBNgkGFYKVRQQGb+Dke950BcM1US217t7hrBwOPFIGPuc3wrn
+ TvxAOxWp9hH5EySrGf1XYBfqi8Ew6AzFGEFJDS3nTukgo3gtjIbNZ6BnGaJ8ZQPtaSLUhyd59nc
+ /p0GPsYGPsvNQ+gU1CeUracFJsDxHbHQZzQ1ur9B/4YlUHGXcosNqL9SsEQoF1PBi+5ZnfFJHCC
+ Clx4PWISL0P/WDZwtSDHoTZ+P1REZlA2PEy9oqmTQx+hrMlySiY7baZPMImQ+LpUYd8eHUjrWQy
+ SZ+s7lPoaha9mDsafT1RwL+H/X3Ulsksmk0S6BOY7aP61EY4gNg6VsYoFZ6TGJGWB66gYLaQM0r
+ sdeWdN5UdUIRVogP2Kg==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNjE4MDA0NSBTYWx0ZWRfXxP8yNXbG8AMe
+ e/LyUJW0HEBPSVTVl2UBHAz5AXLj18TKofRUtoreN3LHBuesies96sCfuJT+KqGq41cNjIJpXjg
+ wiELW4SQF3vB8uVpIySR5SxIE9HnKd8=
+X-Proofpoint-GUID: Zj21siqmYkbrvvlcj3stp47wVA85BPtk
+X-Proofpoint-ORIG-GUID: Zj21siqmYkbrvvlcj3stp47wVA85BPtk
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-06-17_02,2026-06-17_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1011 suspectscore=0 malwarescore=0 impostorscore=0 spamscore=0
+ lowpriorityscore=0 priorityscore=1501 phishscore=0 adultscore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2606180045
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260617_221943_199747_0897E5A4 
+X-CRM114-Status: GOOD (  11.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,174 +200,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Delete the obsolete DB8500 EPOD regulator nodes.
 
-Keep the VAPE and VSMPS2 compatibility regulators.
 
-Assisted-by: Codex:gpt-5-5
-Signed-off-by: Linus Walleij <linusw@kernel.org>
----
- arch/arm/boot/dts/st/ste-dbx5x0.dtsi | 92 ------------------------------------
- 1 file changed, 92 deletions(-)
+On 17/06/26 21:31, Thierry Reding wrote:
+> From: Thierry Reding <treding@nvidia.com>
+> 
+> Instead of defining the wait values for each driver, use common values
+> defined in the core pci.h header file. Note that while most drivers use
+> the usleep_range(), it looks like these were mostly cargo culted and
+> msleep() is a better choice given the fixed delay that the specification
+> calls for. Convert all drivers to msleep() and use the existing
+> definition.
+> 
+> Signed-off-by: Thierry Reding <treding@nvidia.com>
+> ---
 
-diff --git a/arch/arm/boot/dts/st/ste-dbx5x0.dtsi b/arch/arm/boot/dts/st/ste-dbx5x0.dtsi
-index fd6a075e4c93..18727953a863 100644
---- a/arch/arm/boot/dts/st/ste-dbx5x0.dtsi
-+++ b/arch/arm/boot/dts/st/ste-dbx5x0.dtsi
-@@ -663,97 +663,17 @@ thermal: thermal@801573c0 {
- 				#thermal-sensor-cells = <0>;
- 			};
- 
--			/*
--			 * TODO: Delete these bogus regulators and replace with power
--			 * domains.
--			 */
- 			db8500-prcmu-regulators {
- 				compatible = "stericsson,db8500-prcmu-regulator";
- 
--				// DB8500_REGULATOR_VAPE
- 				db8500_vape_reg: db8500_vape {
- 					regulator-always-on;
- 					power-domains = <&pm_domains DOMAIN_VAPE>;
- 				};
- 
--				// DB8500_REGULATOR_VARM
--				db8500_varm_reg: db8500_varm {
--				};
--
--				// DB8500_REGULATOR_VMODEM
--				db8500_vmodem_reg: db8500_vmodem {
--				};
--
--				// DB8500_REGULATOR_VPLL
--				db8500_vpll_reg: db8500_vpll {
--				};
--
--				// DB8500_REGULATOR_VSMPS1
--				db8500_vsmps1_reg: db8500_vsmps1 {
--				};
--
--				// DB8500_REGULATOR_VSMPS2
- 				db8500_vsmps2_reg: db8500_vsmps2 {
- 					power-domains = <&pm_domains DOMAIN_VSMPS2>;
- 				};
--
--				// DB8500_REGULATOR_VSMPS3
--				db8500_vsmps3_reg: db8500_vsmps3 {
--				};
--
--				// DB8500_REGULATOR_VRF1
--				db8500_vrf1_reg: db8500_vrf1 {
--				};
--
--				// DB8500_REGULATOR_SWITCH_SVAMMDSP
--				db8500_sva_mmdsp_reg: db8500_sva_mmdsp {
--				};
--
--				// DB8500_REGULATOR_SWITCH_SVAMMDSPRET
--				db8500_sva_mmdsp_ret_reg: db8500_sva_mmdsp_ret {
--				};
--
--				// DB8500_REGULATOR_SWITCH_SVAPIPE
--				db8500_sva_pipe_reg: db8500_sva_pipe {
--				};
--
--				// DB8500_REGULATOR_SWITCH_SIAMMDSP
--				db8500_sia_mmdsp_reg: db8500_sia_mmdsp {
--				};
--
--				// DB8500_REGULATOR_SWITCH_SIAMMDSPRET
--				db8500_sia_mmdsp_ret_reg: db8500_sia_mmdsp_ret {
--				};
--
--				// DB8500_REGULATOR_SWITCH_SIAPIPE
--				db8500_sia_pipe_reg: db8500_sia_pipe {
--				};
--
--				// DB8500_REGULATOR_SWITCH_SGA
--				db8500_sga_reg: db8500_sga {
--					vin-supply = <&db8500_vape_reg>;
--				};
--
--				// DB8500_REGULATOR_SWITCH_B2R2_MCDE
--				db8500_b2r2_mcde_reg: db8500_b2r2_mcde {
--					vin-supply = <&db8500_vape_reg>;
--				};
--
--				// DB8500_REGULATOR_SWITCH_ESRAM12
--				db8500_esram12_reg: db8500_esram12 {
--				};
--
--				// DB8500_REGULATOR_SWITCH_ESRAM12RET
--				db8500_esram12_ret_reg: db8500_esram12_ret {
--				};
--
--				// DB8500_REGULATOR_SWITCH_ESRAM34
--				db8500_esram34_reg: db8500_esram34 {
--				};
--
--				// DB8500_REGULATOR_SWITCH_ESRAM34RET
--				db8500_esram34_ret_reg: db8500_esram34_ret {
--				};
- 			};
- 		};
- 
-@@ -1111,8 +1031,6 @@ msp0: msp@80123000 {
- 			compatible = "stericsson,ux500-msp-i2s";
- 			reg = <0x80123000 0x1000>;
- 			interrupts = <GIC_SPI 31 IRQ_TYPE_LEVEL_HIGH>;
--			/* TODO: delete and replace with power-domain handling */
--			v-ape-supply = <&db8500_vape_reg>;
- 			power-domains = <&pm_domains DOMAIN_VAPE>;
- 
- 			dmas = <&dma 31 0 0x12>, /* Logical - DevToMem - HighPrio */
-@@ -1130,8 +1048,6 @@ msp1: msp@80124000 {
- 			compatible = "stericsson,ux500-msp-i2s";
- 			reg = <0x80124000 0x1000>;
- 			interrupts = <GIC_SPI 62 IRQ_TYPE_LEVEL_HIGH>;
--			/* TODO: delete and replace with power-domain handling */
--			v-ape-supply = <&db8500_vape_reg>;
- 			power-domains = <&pm_domains DOMAIN_VAPE>;
- 
- 			/* This DMA channel only exist on DB8500 v1 */
-@@ -1150,8 +1066,6 @@ msp2: msp@80117000 {
- 			compatible = "stericsson,ux500-msp-i2s";
- 			reg = <0x80117000 0x1000>;
- 			interrupts = <GIC_SPI 98 IRQ_TYPE_LEVEL_HIGH>;
--			/* TODO: delete and replace with power-domain handling */
--			v-ape-supply = <&db8500_vape_reg>;
- 			power-domains = <&pm_domains DOMAIN_VAPE>;
- 
- 			dmas = <&dma 14 0 0x12>, /* Logical  - DevToMem - HighPrio */
-@@ -1170,8 +1084,6 @@ msp3: msp@80125000 {
- 			compatible = "stericsson,ux500-msp-i2s";
- 			reg = <0x80125000 0x1000>;
- 			interrupts = <GIC_SPI 62 IRQ_TYPE_LEVEL_HIGH>;
--			/* TODO: delete and replace with power-domain handling */
--			v-ape-supply = <&db8500_vape_reg>;
- 			power-domains = <&pm_domains DOMAIN_VAPE>;
- 
- 			/* This DMA channel only exist on DB8500 v2 */
-@@ -1215,8 +1127,6 @@ gpu@a0300000 {
- 			clocks = <&prcmu_clk PRCMU_ACLK>, <&prcmu_clk PRCMU_SGACLK>;
- 			clock-names = "bus", "core";
- 			power-domains = <&pm_domains DOMAIN_SGA>;
--			/* TODO: delete and replace with power-domain handling */
--			mali-supply = <&db8500_sga_reg>;
- 		};
- 
- 		mcde@a0350000 {
-@@ -1224,8 +1134,6 @@ mcde@a0350000 {
- 			reg = <0xa0350000 0x1000>;
- 			interrupts = <GIC_SPI 48 IRQ_TYPE_LEVEL_HIGH>;
- 			power-domains = <&pm_domains DOMAIN_B2R2_MCDE>;
--			/* TODO: delete and replace with power-domain handling */
--			epod-supply = <&db8500_b2r2_mcde_reg>;
- 			clocks = <&prcmu_clk PRCMU_MCDECLK>, /* Main MCDE clock */
- 				 <&prcmu_clk PRCMU_LCDCLK>, /* LCD clock */
- 				 <&prcmu_clk PRCMU_PLLDSI>; /* HDMI clock */
+Reviewed-by: Aksh Garg <a-garg7@ti.com>
 
--- 
-2.54.0
-
+> Changes in v7:
+> - rebase on top of next-20260615 (resolve pci-aardvark.c conflict)
+> 
+> Changes in v6:
+> - convert all drivers to use msleep() (Lukas Wunner)
+> 
+> Changes in v2:
+> - fix build for Cadence
+> ---
 
