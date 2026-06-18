@@ -4,81 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CF85CD98ED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 21:42:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C2CBCD98F0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 21:47:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V8j94fpKwfXbxZh5xLHwe7ucGfUmxazlRZU8sB7HYkU=; b=KcrouwnXXydUgGRCdz/XDO7ICz
-	5LdUuhuBL+pY41ElKKkkA2q861u6zMwVUUX0K7bG4evnaLlxparzVcviuaiYOntnmvp/mwApOvkc4
-	QqEZU0eZy24onig7WbhKwNVphYw++5roW01Ix16VFy5H1OKoOdyHYEKy1UXmbNAMgadP93UtboiUk
-	4u9LNOcXNwAhtd5m4wPKaZmLoUMa6emHnWPcGZB9pfrDVc+o2tV9uxZm8WbmceDjMy6Y7xijby4bO
-	ntq9J8dniO6B7rJZ8mH7ue7BaB3xdTmKP1mDaSXZRq1ekMisNBlUfhayxJ8WDXL8/U4vxG64fO8ZZ
-	8IXDgbiQ==;
+	bh=KGlMDnViUMkCsSlZJzDY1S0meEDS8qDd3hMSbZlQ96o=; b=ArHKB6tWGQIvsVxbx+FV5H6iAq
+	uAoZ1cYoIdTQCJaFM4ka8AJ3xkidtr+KGjHQQTjXiqSm+esgPngcgJMPZ4oOY87J6IP0+MqBEKtia
+	2HdaL+kWUwD8BIW9v3QjJ2CSp9qDxTWsfZ4dionU0wi+DuSdBKo9POfpbm6zNYUJ7N5T9VxrPbW/8
+	nSIVbQouTEr1KnF1oxEdXGlk/tY7Onku0I3u0s/04UeraGXV9nSyCmu03duHOAW0YM1iMd2gmBTsF
+	C7WHj0XJOlJV09pOeLyY8DreOSloEHs9n8HI4l7c+ZlWP476xhPzbxj+HmSZznoM4nLanI7WqElws
+	I5CPLctw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waKVT-00000001oFc-3Ssf;
-	Thu, 18 Jun 2026 21:42:39 +0000
-Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
+	id 1waKa4-00000001oSS-1ATP;
+	Thu, 18 Jun 2026 21:47:24 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waKVR-00000001oFG-0br4
+	id 1waKa2-00000001oRf-2572
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 21:42:38 +0000
-Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-84540c1fff4so1734098b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 14:42:35 -0700 (PDT)
+	Thu, 18 Jun 2026 21:47:23 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-bef47b1ac01so223668866b.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 14:47:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781818955; x=1782423755; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=V8j94fpKwfXbxZh5xLHwe7ucGfUmxazlRZU8sB7HYkU=;
-        b=lJkeLEuX1njMgOVQWid1iPLoaGrLuk8oZ4yEKfdK1bZpjPV/VmHRR6/6IbDnpE2CaG
-         2fOcWeCl6eFZYQcnO7qlh5wl/u/ieAc0TVoOXEFp8yyOoky91VlyDucLlZ5uDRLhF2Wt
-         hUKvRJ/IPBrmC/BkmzjM9BIPTg2jitCNBlxe6f0ouqR49sNIID77UaSbF1hihSABhm6L
-         MrQjzB8iHDUUFrHoU7gtzaNrB4pOcqWUMRWWSV4lNkf3taJYBOxGCXDGWDO2EKzJ5Mt2
-         sndiH1TGFBWzgivEyAO4GyqbcapJvpjSG3ATUsVv0mpBebFlxxtiffUUKsHF7u86hhd+
-         WJJw==
+        d=gmail.com; s=20251104; t=1781819240; x=1782424040; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=KGlMDnViUMkCsSlZJzDY1S0meEDS8qDd3hMSbZlQ96o=;
+        b=tNohuA46DkNPjEC95+SuovwFn70XUefceQwVvI9ijlMsXRLEJc2GaIrHv5IZnfULQI
+         hM5AFKKv+UxOb0WnUqHWXrtfJK5TB9zmWmdkQlOxbHXNjy72ckWOZP4ii1cvVi/RPNc6
+         cY+pzMRtbjKnQcDL/ZPfGlaS9bEEKzD+J6aasWL10QSl7AHvt9lk3ioNkgMAkDu+RC6E
+         FSO3Gxn4Tgot5Iy4VWlPiPgYha4EytnsxhPIaRo9i0jn+P7rkLakA4kxqxi9Hi3mSdeh
+         ihhcLiJ5tlz2klNLU2S+uqfj872FwmTinLMmPGYn16HT8+1zGNXCjDExBl9RbKxpIo2j
+         mkPQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781818955; x=1782423755;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=V8j94fpKwfXbxZh5xLHwe7ucGfUmxazlRZU8sB7HYkU=;
-        b=QvVoEstuhiCuc1fF/zi74Ek+N18E/opUl9sDkBOBkxlCYyn1dFskVoeJjMAF4My6Ob
-         JP+AtUHv8cmofwgENlof56hpzJSNmU+rxop26MyJDUEPGvkPpDJXRDXShErtN8SWD74X
-         aX66UcXbazZSk9amsiZUwGcuGFr8z/5XZT5c24H0/R0+qPUoWLC3Q7ioquioJwd/obQF
-         9GU4tmtOCC96oFNUydhTsscFPmMhh+gjLhYdWc3PBB3X66PDgJsMFXeY6mnN77GllJAT
-         7qYKDKcGYpOCyQMUG3//CM4ivc8k1eIFU3rJnXQxJ1jICnvDm0kZSqXAWsZa8SJ+/hQf
-         k+Uw==
-X-Forwarded-Encrypted: i=1; AFNElJ9iop5AEBrMdiOF7Dhl/P/oNlUEmj3HdZaBQzMobNI50gA+6t4rjeSdBDG2Z0IWEcdvdqZG3XPfEAifdtxxm5Ks@lists.infradead.org
-X-Gm-Message-State: AOJu0YzUx9qGXPtKsxIlPMcrs7eXHTjXKscL5TKFaDdRIZjTBq0NNkM4
-	ttTMYiSVM1w8XVGpcPouEsSqdb0bmpcj3K+5ZUG5n0mhXSBOQSbi/czJw+ydCrGn4G9OWc2OBxZ
-	TA+eUdw==
-X-Received: from pfbjc15.prod.google.com ([2002:a05:6a00:6c8f:b0:82f:20ed:8059])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:6c9c:b0:845:374f:4ee7
- with SMTP id d2e1a72fcca58-845507dabc4mr738565b3a.13.1781818954904; Thu, 18
- Jun 2026 14:42:34 -0700 (PDT)
-Date: Thu, 18 Jun 2026 14:42:34 -0700
-In-Reply-To: <ajRTZNum3u7oVdRa@google.com>
-Mime-Version: 1.0
-References: <20260613002031.745413-1-seanjc@google.com> <20260613002031.745413-10-seanjc@google.com>
- <ajRTZNum3u7oVdRa@google.com>
-Message-ID: <ajRmStVr-2-QgqGB@google.com>
-Subject: Re: [PATCH v7 09/20] KVM: selftests: Add VFIO device support to
- eventfd IRQ test
-From: Sean Christopherson <seanjc@google.com>
-To: David Matlack <dmatlack@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, Josh Hilke <jrhilke@google.com>
-Content-Type: text/plain; charset="us-ascii"
+        d=1e100.net; s=20251104; t=1781819240; x=1782424040;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=KGlMDnViUMkCsSlZJzDY1S0meEDS8qDd3hMSbZlQ96o=;
+        b=h7osm5exnI621Zk8wRqbZ6aolza4iuWzyCSNZAhm6Xbr4xybGuCG3eWXuM5yFS/3fN
+         Yxd1Bvq29W1TKtzt/ZXekdvqZi0n13IB8jkA8UoaKhTCtDG7Me8nFErh4Y1X7M4QUWZ3
+         4KlSDhTvgQKeUoFmfmJm1jX3zMVGQ0J5lo398bbr9hfPv/zu3pvTe4SzEBRESqRISW88
+         Tj9ntBkOV1JDMIh/54U4wpStiihvODDw4gTmIKlP15bW8bbRavHqbeRh9j6k4KYd3rUT
+         tPklgENpDXypTJyfK7rVynmwwM99y+WQbmIQp4ZWDa/79+7Q/ejPyOEHc/Q1Fa+6SLfX
+         JDPQ==
+X-Forwarded-Encrypted: i=1; AFNElJ98QB8Beo0+4RwvmFBUS4iGJFWOCbtavadGueWT3NkRqzu+HNWuKwjyOLYTEB4DWk2fSapNgLsVizeh2ARDyekm@lists.infradead.org
+X-Gm-Message-State: AOJu0YxQVQXPjHw4cJ/63u7SzmR4/1sGPNX08cuxyFwydLB0LbIc+bbX
+	WgS9TK/PWk1jm4TRxjRPRzLnq8OcHGybxLPe1Jrm4pQ8rIfFVorwXfrC
+X-Gm-Gg: AfdE7cnJREKpct/Sqyr0IsTQ97a1NQjVo+dgMXbPzjZFxmJF9z4+YBK3xV/2MPNF3HC
+	gMEeNMNVKUsw4jjK243cj9efg2l7mYyL7/o9TCwKq8o/ffEypq1svDuUxKQitfxJTse4RFsEnpH
+	wjkiKoFkIUjdBl2aigrhdix8Ol+KXqPdckQF0p9ItD4OmVi5rAO0H6YIypkk7xPH972OLAL5oYk
+	YxBzjn3z8cJ4KIl8AjwqmpgkZrxa2HepgJXv6Yzqc46D3saWBPuoTc+idnQh885aU8PLEnOnR4V
+	1HLz/HFA1w2mxuUeeFdZB/eAp7UBglw3OKk0VuioCKUwzS+dTd9s+0LR0Kyc1j1D2pehmOPa1AZ
+	XQBwul6QT5rKn3aA3VxN0nD2R6c+ZITtKa2fWuLQ3cN45Rs6fwPtkILuw4TzjU3RFEMSD17BO3l
+	TONNXvJGVWSw1xxe3PDvVubXm/5RQ=
+X-Received: by 2002:a17:906:9fca:b0:c08:49a4:c737 with SMTP id a640c23a62f3a-c097ae2ddd2mr58097066b.2.1781819239771;
+        Thu, 18 Jun 2026 14:47:19 -0700 (PDT)
+Received: from localhost (soda.int.kasm.eu. [2001:678:a5c:1202:4fb5:f16a:579c:6dcb])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c0a9a1568dcsm6914166b.51.2026.06.18.14.47.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 18 Jun 2026 14:47:19 -0700 (PDT)
+Date: Thu, 18 Jun 2026 23:47:18 +0200
+From: Klara Modin <klarasmodin@gmail.com>
+To: Rosen Penev <rosenp@gmail.com>
+Cc: linux-wireless@vger.kernel.org, Felix Fietkau <nbd@nbd.name>, 
+	Lorenzo Bianconi <lorenzo@kernel.org>, Ryder Lee <ryder.lee@mediatek.com>, 
+	Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	"open list:ARM/Mediatek SoC support" <linux-kernel@vger.kernel.org>, 
+	"moderated list:ARM/Mediatek SoC support" <linux-arm-kernel@lists.infradead.org>, 
+	"moderated list:ARM/Mediatek SoC support" <linux-mediatek@lists.infradead.org>
+Subject: Re: [PATCH wireless-next] wifi: mt76: fix of_get_mac_address error
+ handling
+Message-ID: <ajRmlyx_AEGybykL@soda.int.kasm.eu>
+References: <20260427051746.954704-1-rosenp@gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260427051746.954704-1-rosenp@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260618_144237_237948_60C62F97 
-X-CRM114-Status: GOOD (  23.12  )
+X-CRM114-CacheID: sfid-20260618_144722_541758_B13B16CD 
+X-CRM114-Status: GOOD (  23.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,45 +104,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 18, 2026, David Matlack wrote:
-> On 2026-06-12 05:20 PM, Sean Christopherson wrote:
-> > From: David Matlack <dmatlack@google.com>
-> > 
-> > Extend the eventfd IRQ test with a '-d' argument that takes a BDF (in the
-> > format segment:bus:device.function) of an interrupt-capable PCI(e) device
-> > bound to VFIO, and use said device to trigger interrupts instead of always
-> > synthesizing interrupts via direct writes to the eventfd.
-> > 
-> > Using a VFIO device to trigger interrupts validates the end-to-end delivery
-> > of IRQs for "real" devices, and when supported by hardware (and KVM), also
-> > validates interrupt delivery via IRQ bypass, i.e. via device posted IRQs.
-> > 
-> > Now that IOMMUFD is a thing, auto-probe IOMMUFD vs. "legacy" VFIO by
-> > temporarily opening /dev/iommufd, and skip the test if neither IOMMUFD nor
-> > legacy VFIO is available.  Add a '-t' option to the user override the probe
-> > logic, e.g. in case IOMMUFD is available but the system is configured for
-> > legacy usage.
-> > 
-> > Note, the device must have a VFIO selftest driver in order to work with
-> > the test.  A helper script to list supported devices will hopefully be
-> > available in the near future at
-> > tools/testing/selftests/vfio/scripts/list_supported_devices.sh[1].
-> 
-> > +static int vfio_setup_msi(struct vfio_pci_device *device)
-> > +{
-> > +	const int flags = MAP_SHARED | MAP_ANONYMOUS;
-> > +	const int prot = PROT_READ | PROT_WRITE;
-> > +	struct dma_region *region;
-> > +
-> > +	/* A driver is required to generate an MSI. */
-> > +	TEST_REQUIRE(device->driver.ops);
-> 
-> This series is probably going to race with merging another VFIO
-> selftests patch to make send_msi() optional [1]. Can you add a check for
-> that here?
-> 
->   TEST_REQUIRE(device->driver.ops);
->   TEST_REQUIRE(device->driver.ops->send_msi);
+Hi,
 
-Ya, will do.
+On 2026-04-26 22:17:46 -0700, Rosen Penev wrote:
+> Check return value instead of is_valid_ether_addr. The latter is handled
+> by the former.
+> 
+> Signed-off-by: Rosen Penev <rosenp@gmail.com>
+> ---
+>  drivers/net/wireless/mediatek/mt76/eeprom.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/net/wireless/mediatek/mt76/eeprom.c b/drivers/net/wireless/mediatek/mt76/eeprom.c
+> index 93d91264687f..0f6ccf6ed53d 100644
+> --- a/drivers/net/wireless/mediatek/mt76/eeprom.c
+> +++ b/drivers/net/wireless/mediatek/mt76/eeprom.c
+> @@ -93,7 +93,7 @@ mt76_eeprom_override(struct mt76_phy *phy)
+>  	if (err == -EPROBE_DEFER)
+>  		return err;
+>  
+> -	if (!is_valid_ether_addr(phy->macaddr)) {
+> +	if (err) {
+>  		eth_random_addr(phy->macaddr);
+>  		dev_info(dev->dev,
+>  			 "Invalid MAC address, using random address %pM\n",
+> -- 
+> 2.54.0
+> 
+
+Recently I have started to see randomized MAC-addresses on my x86 laptop
+with a MT7922 and the above message printed in the kernel log. I have
+CONFIG_OF turned on, but since this is an ACPI system the device is not
+described by any device tree and the earlier of_get_mac_address() likely
+fails with -ENODEV. Looking at the !CONFIG_OF stub for
+of_get_mac_address it always returns -ENODEV, meaning this will always
+randomize the mac in that case too.
+
+Reverting this patch fixes the issue and the correct MAC address is
+used. I'm not sure if there is any case where of_get_mac_addres() could
+fail in a way that results in a valid MAC address but it seems unlikely
+to me.
+
+Regards,
+Klara Modin
 
