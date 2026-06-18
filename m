@@ -4,67 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE718CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 15:17:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D924CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 15:21:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:To:From:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FcnhWkyO1wGk9YYSayyGesrPHSxn9xDSAmpQC/JH0nU=; b=ZOyxGAQLLJRoI1j3J66JtyfyKE
-	EysXGYGWdwvJe68NsOWnqzYSbVhAE+u1CESYLhHqDeWhxEjZKaNVYLXUtrJhN5OhBlY2pBsj4bb0C
-	WpxENm2LQDSglRmo6zEGbaFbNS92zCOf3/33wUuhB6bpNP4vfAqIvtaf62HNSiKPZnmF6hQKnFQC4
-	VHkWMHpQ4HpcKdaJ24SHFpv5XRrhSPkSTdDUROa6Y3tQsj4CFVhxeLNsTNuknTmYKYiuZ683C1Jpn
-	rM/rxKkktGIwzNl2tmR113xjPAIBF7DU2jnTZvAfSwnk2uYcPvcYX+nNkwEVpt1RGSe8RCrW93qW8
-	6t0apSJg==;
+	bh=lPaO85K8HsFpXgFwmm6JTmmtU9FLtX+v9bVLPsQDyqo=; b=QSLxaeL2GHw+7qUUbJ7svEP1bd
+	lr/JLCdUevRzk1kGQLksgkAVC+IY1ssiKNBFnmzIGQu4ewx9P1Y2o27C11bD5fzBp2ohPYgflEmkD
+	Tu2Bp2BEiE/Go5WLPXzDPm5RptF+SwBfxog8sl9S+Rk9sJLiK+GyfGlwlJLuZTpLPchslhdm8QP4D
+	/14YRl3jQdj2ixBbHzsdKDMz2Unfw+rGlIYatPfwYZjNTa1khlz5BbnLlaob+AHMzAHP8waqBgIXM
+	PYihmUMfuDV21qHFzu9UghKjBinulXZl3t1/DeM5leC51SNEtlpaRyN8oSRzKj/X9FHeJOakZw57U
+	DP4u+vwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waEUP-00000001Tls-1kof;
-	Thu, 18 Jun 2026 15:17:09 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waEUO-00000001TlI-0ful;
-	Thu, 18 Jun 2026 15:17:08 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 345C860018;
-	Thu, 18 Jun 2026 15:17:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E83B01F000E9;
-	Thu, 18 Jun 2026 15:17:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781795826;
-	bh=FcnhWkyO1wGk9YYSayyGesrPHSxn9xDSAmpQC/JH0nU=;
-	h=From:To:Subject:In-Reply-To:References:Date;
-	b=Kw5ZAvjikp4kCrXrajYE//oWC8BHzHzkpD6/cgf6/RN5sQClRuEN2kHaEsD8of4Zn
-	 spJ7grwLuiYTtFyvS6QX37eXs9bQeoy9yzVItprpWNUTPvnP1oS4PLZf8BjhYIGSpk
-	 TWbaczj4CHjjVRrLOcXgm4ZQxMX1g1xlddM/TMWJbeWtCF9E9TL8Ff2zYH9ff9JCLf
-	 P1gXuOmoexYnpljtiH2qFKYUX0/zwUCan6C+ZEnXllpCweOtHA5Yq0YLXOslIln3uR
-	 UHOjzPoagPE8cZs78+EsEKMqssXxQ9A3YjzTAdx2oMxECZ3hc+nEGbNHsbg4paHL2V
-	 IK9BUz5djY0NQ==
-From: Thomas Gleixner <tglx@kernel.org>
-To: Jinjie Ruan <ruanjinjie@huawei.com>, catalin.marinas@arm.com,
- will@kernel.org, tsbogend@alpha.franken.de, pjw@kernel.org,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
- hpa@zytor.com, peterz@infradead.org, kees@kernel.org, nathan@kernel.org,
- linusw@kernel.org, ojeda@kernel.org, ruanjinjie@huawei.com,
- david.kaplan@amd.com, lukas.bulwahn@redhat.com, ryan.roberts@arm.com,
- maz@kernel.org, timothy.hayes@arm.com, lpieralisi@kernel.org,
- thuth@redhat.com, oupton@kernel.org, yeoreum.yun@arm.com,
- miko.lenczewski@arm.com, broonie@kernel.org, kevin.brodsky@arm.com,
- james.clark@linaro.org, tabba@google.com, mrigendra.chaubey@gmail.com,
- arnd@arndb.de, anshuman.khandual@arm.com, x86@kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH RFC 1/3] cpu/hotplug: Introduce
- CONFIG_PARALLEL_SMT_PRIMARY_FIRST
-In-Reply-To: <20260611133809.3854977-2-ruanjinjie@huawei.com>
-References: <20260611133809.3854977-1-ruanjinjie@huawei.com>
- <20260611133809.3854977-2-ruanjinjie@huawei.com>
-Date: Thu, 18 Jun 2026 17:17:03 +0200
-Message-ID: <87a4srdgk0.ffs@fw13>
+	id 1waEYL-00000001U62-47aF;
+	Thu, 18 Jun 2026 15:21:13 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1waEYI-00000001U5V-3LFW
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 18 Jun 2026 15:21:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CA7DC478C;
+	Thu, 18 Jun 2026 08:21:04 -0700 (PDT)
+Received: from localhost (a079125.arm.com [10.164.21.37])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B5DC13F62B;
+	Thu, 18 Jun 2026 08:21:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1781796069; bh=oGgwF8aK/7rYqvc78U7lWrqC/B0wHzxcghfeIw54Foc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=E0lxLHFB4fRWfL3eM0siPVQkV8HiRRr+RALT3wAz3iGwfhhyCFg0xsK44FSjpCGFH
+	 1bTE1155UVzFhxgBHyKbujkwPDOe9koHGtsqsZSdqKUBtb167a0AAgUZXv4dSpFlRJ
+	 KafG3gPjYY38BjD7yJ3Cm1vg6U/j3em48dheHsdI=
+Date: Thu, 18 Jun 2026 20:51:05 +0530
+From: Linu Cherian <linu.cherian@arm.com>
+To: Sayali Kulkarni <sk@gentwo.org>
+Cc: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, will@kernel.org, ryan.roberts@arm.com,
+	yang@os.amperecomputing.com, cl@gentwo.org,
+	sskulkarni@amperecomputing.com
+Subject: Re: [PATCH v2] arm64: tlbflush: Reset active_cpu on ASID rollover
+Message-ID: <ajQM4bkKfWdPowpM@a079125.arm.com>
+References: <airWIxSd_a5kR65-@arm.com>
+ <20260612232254.2856649-1-sk@gentwo.org>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260612232254.2856649-1-sk@gentwo.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260618_082110_915756_8E79A1F0 
+X-CRM114-Status: GOOD (  26.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,160 +72,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 11 2026 at 21:38, Jinjie Ruan wrote:
+Hi,
 
-> During parallel CPU bringup, x86 requires primary SMT threads to boot
-> first to avoid siblings stopping during microcode updates. This constraint
-> is architecture-specific and unnecessary for other platforms
-> like arm64.
->
-> Introduce CONFIG_PARALLEL_SMT_PRIMARY_FIRST to decouple this constraint.
-> Platforms requiring this temporal order (e.g., x86) can select it
-> in Kconfig. Other architectures (e.g., arm64) can leave it unselected
-> to entirely bypass the SMT branch via the preprocessor.
->
-> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+On Fri, Jun 12, 2026 at 04:21:06PM -0700, Sayali Kulkarni wrote:
+> From: Sayali Kulkarni <sskulkarni@amperecomputing.com>
+> 
+> Hi Catalin,  
+> 
+> Thank you for the review. I’ve addressed your feedback in v2:  
+> 
+> - Moved `WRITE_ONCE(mm->context.active_cpu, ACTIVE_CPU_NONE)` from `check_and_switch_context()` to `new_context()` after the `set_asid` label. At this point, a brand new ASID has been allocated that no CPU has ever used, so the reset is safe even for multi-threaded processes where other CPUs may still be running with the old ASID via `reserved_asids`.  
+> - Updated the commit message to correct the safety reasoning: `flush_context()` only sets `tlb_flush_pending`; it does not issue a global TLB flush.  
+> 
+> Thanks,  
+> Sayali
+> 
+> 
+> Once active_cpu flips to ACTIVE_CPU_MULTIPLE it never resets, even if
+> the process settles back to one CPU. Reset it to ACTIVE_CPU_NONE in
+> new_context() after a new ASID is allocated at the set_asid label.
+> 
+> At this point a brand new ASID has been assigned that no CPU has ever
+> used, so ACTIVE_CPU_NONE accurately reflects reality. Any other threads
+> of the same process continue running with the old ASID via
+> reserved_asids and are unaffected.
+> 
+> This gives processes a fresh chance at the local-only flush fast path
+> after each ASID generation rollover.
+> 
+> Signed-off-by: Sayali Kulkarni <sskulkarni@amperecomputing.com> (Ampere)
 > ---
->  arch/Kconfig       | 4 ++++
->  arch/mips/Kconfig  | 1 +
->  arch/riscv/Kconfig | 1 +
->  arch/x86/Kconfig   | 1 +
->  kernel/cpu.c       | 6 +++++-
->  5 files changed, 12 insertions(+), 1 deletion(-)
->
-> diff --git a/arch/Kconfig b/arch/Kconfig
-> index e86880045158..0365d2df2659 100644
-> --- a/arch/Kconfig
-> +++ b/arch/Kconfig
-> @@ -102,6 +102,10 @@ config HOTPLUG_PARALLEL
->  	bool
->  	select HOTPLUG_SPLIT_STARTUP
->  
-> +config PARALLEL_SMT_PRIMARY_FIRST
+>  arch/arm64/mm/context.c | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/arch/arm64/mm/context.c b/arch/arm64/mm/context.c
+> index f34ed78393e0..46c7fd07b9bf 100644
+> --- a/arch/arm64/mm/context.c
+> +++ b/arch/arm64/mm/context.c
+> @@ -209,6 +209,7 @@ static u64 new_context(struct mm_struct *mm)
+>  set_asid:
+>  	__set_bit(asid, asid_map);
+>  	cur_idx = asid;
+> +	WRITE_ONCE(mm->context.active_cpu, ACTIVE_CPU_NONE);
 
-Proper namespaces are overrated, right?
+Can the above store race with the store to active_cpu in another thread,
+that updates it to ACTIVE_CPU_MULTIPLE ?
 
-All related options start with HOTPLUG_....
+Lets say we have two threads both initially running in CPU 0,
 
-> +	bool
-> +	depends on HOTPLUG_PARALLEL
-> +
->  config GENERIC_IRQ_ENTRY
->  	bool
->  
-> diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
-> index 4364f3dba688..84e11ac0cf71 100644
-> --- a/arch/mips/Kconfig
-> +++ b/arch/mips/Kconfig
-> @@ -642,6 +642,7 @@ config EYEQ
->  	select MIPS_CPU_SCACHE
->  	select MIPS_GIC
->  	select MIPS_L1_CACHE_SHIFT_7
-> +	select PARALLEL_SMT_PRIMARY_FIRST if HOTPLUG_PARALLEL
->  	select PCI_DRIVERS_GENERIC
->  	select SMP_UP if SMP
->  	select SWAP_IO_SPACE
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index d235396c4514..0cc49aecc841 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -210,6 +210,7 @@ config RISCV
->  	select OF
->  	select OF_EARLY_FLATTREE
->  	select OF_IRQ
-> +	select PARALLEL_SMT_PRIMARY_FIRST if HOTPLUG_PARALLEL
+Thread 1: Runs in CPU 0 
 
-Why does RISCV need this? It does not select HOTPLUG_SMT to begin with.
+Encounters a rollover, updates mm->context.active_cpu to ACTIVE_CPU_NONE and
+updates mm->context.id to new asid.
 
-> +#ifdef CONFIG_PARALLEL_SMT_PRIMARY_FIRST
->  #ifdef CONFIG_HOTPLUG_SMT
+Thread 2: Scheduled to run on CPU 1 for the first time
 
-More #ifdeffery is better, right?
+Observes the updated mm->context.id that belongs to the current
+generation(after the rollover) and hence proceeds to switch_mm_fastpath
+and ends up updating the active_cpu to ACTIVE_CPU_MULTIPLE. 
 
->  static inline bool cpuhp_smt_aware(void)
->  {
-> @@ -1811,7 +1812,8 @@ static inline const struct cpumask *cpuhp_get_primary_thread_mask(void)
->  {
->  	return cpu_none_mask;
->  }
-> -#endif
-> +#endif /* CONFIG_HOTPLUG_SMT */
-> +#endif /* CONFIG_PARALLEL_SMT_PRIMARY_FIRST */
->  
->  bool __weak arch_cpuhp_init_parallel_bringup(void)
->  {
-> @@ -1837,6 +1839,7 @@ static bool __init cpuhp_bringup_cpus_parallel(unsigned int ncpus)
->  	if (!__cpuhp_parallel_bringup)
->  		return false;
->  
-> +#ifdef CONFIG_PARALLEL_SMT_PRIMARY_FIRST
+If Thread 1 and Thread 2 races, then active_cpu can get corrupted ?
 
-Seriously?
+The reason this could be possible is that, write to active_cpu and
+mm->context.id can get reordered and we need to enforce ordering for
+correctness ? 
 
->  	if (cpuhp_smt_aware()) {
->  		const struct cpumask *pmask = cpuhp_get_primary_thread_mask();
->  		static struct cpumask tmp_mask __initdata;
-> @@ -1857,6 +1860,7 @@ static bool __init cpuhp_bringup_cpus_parallel(unsigned int ncpus)
->  		cpumask_andnot(&tmp_mask, mask, pmask);
->  		mask = &tmp_mask;
->  	}
-> +#endif /* CONFIG_PARALLEL_SMT_PRIMARY_FIRST */
+Do you see this as a valid scenario ?
 
-Something simple like the uncompiled below should just work, no?
+--
+Thanks,
+Linu Cherian.
 
----
---- a/arch/Kconfig
-+++ b/arch/Kconfig
-@@ -102,6 +102,10 @@ config HOTPLUG_PARALLEL
- 	bool
- 	select HOTPLUG_SPLIT_STARTUP
- 
-+config HOTPLUG_PARALLEL_SMT
-+	bool
-+	select HOTPLUG_PARALLEL
-+
- config GENERIC_IRQ_ENTRY
- 	bool
- 
---- a/arch/mips/Kconfig
-+++ b/arch/mips/Kconfig
-@@ -657,7 +657,7 @@ config EYEQ
- 	select USB_UHCI_BIG_ENDIAN_DESC if CPU_BIG_ENDIAN
- 	select USB_UHCI_BIG_ENDIAN_MMIO if CPU_BIG_ENDIAN
- 	select USE_OF
--	select HOTPLUG_PARALLEL if HOTPLUG_CPU
-+	select HOTPLUG_PARALLEL_SMT if HOTPLUG_CPU
- 	help
- 	  Select this to build a kernel supporting EyeQ SoC from Mobileye.
- 
-@@ -2295,7 +2295,6 @@ config MIPS_CPS
- 	select MIPS_CM
- 	select MIPS_CPS_PM if HOTPLUG_CPU
- 	select SMP
--	select HOTPLUG_SMT if HOTPLUG_PARALLEL
- 	select HOTPLUG_CORE_SYNC_DEAD if HOTPLUG_CPU
- 	select SYNC_R4K if (CEVT_R4K || CSRC_R4K)
- 	select SYS_SUPPORTS_HOTPLUG_CPU
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -304,7 +304,7 @@ config X86
- 	select HAVE_USER_RETURN_NOTIFIER
- 	select HAVE_GENERIC_VDSO
- 	select VDSO_GETRANDOM			if X86_64
--	select HOTPLUG_PARALLEL			if SMP && X86_64
-+	select HOTPLUG_PARALLEL_SMT		if SMP && X86_64
- 	select HOTPLUG_SMT			if SMP
- 	select HOTPLUG_SPLIT_STARTUP		if SMP && X86_32
- 	select IRQ_FORCED_THREADING
---- a/kernel/cpu.c
-+++ b/kernel/cpu.c
-@@ -1792,7 +1792,7 @@ static int __init parallel_bringup_parse
- }
- early_param("cpuhp.parallel", parallel_bringup_parse_param);
- 
--#ifdef CONFIG_HOTPLUG_SMT
-+#ifdef CONFIG_HOTPLUG_PARALLEL_SMT
- static inline bool cpuhp_smt_aware(void)
- {
- 	return cpu_smt_max_threads > 1;
+
+
+
+
+
+
+
+
 
