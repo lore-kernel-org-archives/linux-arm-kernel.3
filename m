@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3910CCD98F6
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DBDACD98FC
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 15:50:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5s6vN8OxTfaGTRXDJdSUgsnXca1rcHZgjWlrHAtspVw=; b=rV6ZUKVWVrGmXf+lSuA7Z3KRIe
-	1U7JsQF8ueQBBXOnIfT2mRRoAdwkTLWHtBa9OrQSWaxPSRdV5GSnI234tPJXFhCMroNojWLfl4mVA
-	Zs7D18CpwUbK9eGpng1enbFMm6mGOGy3e59zuwPwGch8ZRPw1SLQ+2FOXPRw2c2D2/5+fKf/1gOvi
-	d7cVZiCGioKsUQ8KO500G1AbTM+i6D37m8kJicild5Tz8KZWGXb1QE7egIPnxJgSm+P+i9t1MO3Cv
-	/vx0m8ag7ZTzC/0YeD0RLzfdCH1BZSJ0GMjIOiRphl3hX2p/wi2QqUiLElSp1Rep2BBtdUvcTNOGk
-	2pQtQDSg==;
+	bh=7yc6uliVWqW1OjdP16y1S23yC/xStyuBX2ncIz9WHYs=; b=vdpaKqUtuimgGP2Q/oPVafUqhk
+	QRfQSLnXjG57DOyvnxyPUFrEHeUPzuCXc7CKWJHtgAsflfYQdaj38vZgW+YEQsLW0XmSdNljlxkBw
+	FQdtN9A14JIKFYbAX2pHDxUruMS5E1E6XgpSOqaokhZtS2SXhUpTsZapagT940227a3AOmflP/LAp
+	Ee9cL2xp80nKri7TEAHbU/kHhQqFEwxCjhWFqu7jwyTe0U7A2eqngIcsp7jUf74X0T0eMqzN2HnvG
+	+s5OCQCfWHa327xmbs+87KOY5BpnWImgYTNOxlve9gmPxALw5FBHbM5ttdmVhb430kZleo8Lx36Rf
+	JxuCgToA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waF0w-00000001W6E-0h0h;
+	id 1waF0w-00000001W6f-1Phm;
 	Thu, 18 Jun 2026 15:50:46 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waF0p-00000001W2I-2srb
+	id 1waF0t-00000001W3x-1qBn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 15:50:42 +0000
+	Thu, 18 Jun 2026 15:50:44 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 046F8491B;
-	Thu, 18 Jun 2026 08:50:34 -0700 (PDT)
-Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 438273F632;
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 54DF248FF;
 	Thu, 18 Jun 2026 08:50:37 -0700 (PDT)
+Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9A2B13F62B;
+	Thu, 18 Jun 2026 08:50:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1781797838; bh=9hNsmJq6SLjzU6jtsTuH9b/BZQBolGiCo+qZXnf3dHU=;
+	t=1781797842; bh=BZrnvb+e+D1AKBEDPNGOe+Da6qi61H0n0AapNH7rhm4=;
 	h=From:To:Subject:Date:In-Reply-To:References:From;
-	b=tvc9do6pypNzDaQ/d3CWrhaHBerWBrVheTMP9Oh9NNBY9ry8wx80xKIskcH6NS/6v
-	 XHHls9scM0j73vDxv5ntApe5R3R7aks1Y+0fP90wtIUdkhfJqrFprMs19fUOm3187/
-	 AaZvDFyWNpIfVeZKvh9v3OKo3mOe4ir/uLiMwxts=
+	b=k4EQQ6A8WE/LEhNIkEyZFR/xPgQZ3aoFj51a7RAKI0846zddLKpsoIROxDqaT2n9n
+	 osDGxaerAFsQ1tv4x4jkGAj3SCFCidKYl5GJiisPUWLlcEvMphqLVUhHcsxB1tq3KC
+	 F54tOlauieebzc0Sd3qBvSOgd8w8JZH/6sOTfY4o=
 From: Alexandru Elisei <alexandru.elisei@arm.com>
 To: will@kernel.org,
 	julien.thierry.kdev@gmail.com,
@@ -50,18 +50,17 @@ To: will@kernel.org,
 	kvm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	kvmarm@lists.linux.dev
-Subject: [PATCH kvmtool v2 2/7] virtio: Do not modify const strings in virtio_9p_rootdir_parser()
-Date: Thu, 18 Jun 2026 16:49:56 +0100
-Message-ID: <20260618155001.226266-3-alexandru.elisei@arm.com>
+Subject: [PATCH kvmtool v2 4/7] arm64: Initialise the PMU after the GIC
+Date: Thu, 18 Jun 2026 16:49:58 +0100
+Message-ID: <20260618155001.226266-5-alexandru.elisei@arm.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260618155001.226266-1-alexandru.elisei@arm.com>
 References: <20260618155001.226266-1-alexandru.elisei@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260618_085039_779938_34B4F655 
-X-CRM114-Status: GOOD (  12.99  )
+X-CRM114-CacheID: sfid-20260618_085043_552877_2BC0D50D 
+X-CRM114-Status: GOOD (  17.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,68 +75,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Even though @arg is of type const char *, virtio_9p_rootdir_parser()
-modifies it it if a tag name is specified, leading to the following
-compilation error on an x86_64 machine with gcc 15.2.1:
+PMU initialisation is done in:
 
-virtio/9p.c:1503:18: error: assignment discards ‘const’ qualifier from pointer target type [-Werror=discarded-qualifiers]
- 1503 |         tag_name = strstr(arg, ",");
+setup_fdt()
+  vcpu->generate_fdt_nodes()
+    pmu__generate_fdt_nodes()
 
-Fix it by copying @arg to a local string, which can then be modified
-in-place.
+The PMU ioctl KVM_ARM_VCPU_PMU_V3_INIT requires that the GIC has been
+initialised, which is done in gic__init_gic().
 
-Also use die_perror() if realpath() fails, to provide more information to
-the user.
+gic__init_gic() and setup_fdt() are part of the same initialisation list.
+The relative order on the list depends on the order of compilation: gic.c
+is compiled after fdt.c and this places gic__init_gic() first on the
+initialisation list.
+
+If the compilation order changes and gic.c is compiled *before* fdt.c,
+gic__init_gic() will be executed *after* setup_fdt() and PMU initialisation
+will fail with an error message:
+
+PMU KVM_SET_DEVICE_ATTR: No such device
+
+This is fragile and hard to debug. Improve the situation by having
+gic__init_gic() explicitely initialize the PMU.
 
 Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
 ---
- virtio/9p.c | 21 ++++++++++++++-------
- 1 file changed, 14 insertions(+), 7 deletions(-)
+ arm64/gic.c             |  9 ++++++++-
+ arm64/include/asm/pmu.h |  3 +++
+ arm64/pmu.c             | 28 ++++++++++++++++++----------
+ 3 files changed, 29 insertions(+), 11 deletions(-)
 
-diff --git a/virtio/9p.c b/virtio/9p.c
-index e6f669c49895..cf3e547d3173 100644
---- a/virtio/9p.c
-+++ b/virtio/9p.c
-@@ -1491,25 +1491,32 @@ struct virtio_ops p9_dev_virtio_ops = {
+diff --git a/arm64/gic.c b/arm64/gic.c
+index b0be9e5766df..1e4009625595 100644
+--- a/arm64/gic.c
++++ b/arm64/gic.c
+@@ -9,6 +9,8 @@
+ #include <linux/kvm.h>
+ #include <linux/sizes.h>
  
- int virtio_9p_rootdir_parser(const struct option *opt, const char *arg, int unset)
- {
--	char *tag_name;
--	char tmp[PATH_MAX];
- 	struct kvm *kvm = opt->ptr;
-+	char *tag_name, *copy;
-+	char path[PATH_MAX];
++#include <asm/pmu.h>
++
+ #define IRQCHIP_GIC 0
  
-+	copy = strdup(arg);
-+	if (!copy)
-+		die_perror("strdup");
- 	/*
- 	 * 9p dir can be of the form dirname,tag_name or
- 	 * just dirname. In the later case we use the
- 	 * default tag name
- 	 */
--	tag_name = strstr(arg, ",");
-+	tag_name = strstr(copy, ",");
- 	if (tag_name) {
- 		*tag_name = '\0';
- 		tag_name++;
- 	}
--	if (realpath(arg, tmp)) {
--		if (virtio_9p__register(kvm, tmp, tag_name) < 0)
-+	if (realpath(copy, path)) {
-+		if (virtio_9p__register(kvm, path, tag_name) < 0)
- 			die("Unable to initialize virtio 9p");
--	} else
--		die("Failed resolving 9p path");
-+	} else {
-+		die_perror("Failed resolving 9p path");
-+	}
+ #define GIC_MAINT_IRQ	9
+@@ -355,7 +357,12 @@ static int gic__init_gic(struct kvm *kvm)
+ 
+ 	vgic_is_init = true;
+ 
+-	return irq__setup_irqfd_lines(kvm);
++	ret = irq__setup_irqfd_lines(kvm);
++	if (ret)
++		return ret;
 +
-+	free(copy);
-+
- 	return 0;
++	/* The PMU requires that the GIC has been initialized. */
++	return pmu__init(kvm);
  }
+ late_init(gic__init_gic)
  
+diff --git a/arm64/include/asm/pmu.h b/arm64/include/asm/pmu.h
+index 38e3154b11b7..74566943f355 100644
+--- a/arm64/include/asm/pmu.h
++++ b/arm64/include/asm/pmu.h
+@@ -3,6 +3,9 @@
+ 
+ #define KVM_ARM_PMUv3_PPI			23
+ 
++struct kvm;
++
+ void pmu__generate_fdt_nodes(void *fdt, struct kvm *kvm);
++int pmu__init(struct kvm *kvm);
+ 
+ #endif /* __ARM_PMU_H__ */
+diff --git a/arm64/pmu.c b/arm64/pmu.c
+index 5f31d6b6f346..92cacd62479e 100644
+--- a/arm64/pmu.c
++++ b/arm64/pmu.c
+@@ -193,21 +193,32 @@ static int find_pmu(struct kvm *kvm)
+ void pmu__generate_fdt_nodes(void *fdt, struct kvm *kvm)
+ {
+ 	const char compatible[] = "arm,armv8-pmuv3";
+-	int irq = KVM_ARM_PMUv3_PPI;
+-	struct kvm_cpu *vcpu;
+-	int pmu_id = -ENXIO;
+-	int i;
+-
+ 	u32 cpu_mask = gic__get_fdt_irq_cpumask(kvm);
+ 	u32 irq_prop[] = {
+ 		cpu_to_fdt32(GIC_FDT_IRQ_TYPE_PPI),
+-		cpu_to_fdt32(irq - 16),
++		cpu_to_fdt32(KVM_ARM_PMUv3_PPI - 16),
+ 		cpu_to_fdt32(cpu_mask | IRQ_TYPE_LEVEL_HIGH),
+ 	};
+ 
+ 	if (!kvm->cfg.arch.has_pmuv3)
+ 		return;
+ 
++	_FDT(fdt_begin_node(fdt, "pmu"));
++	_FDT(fdt_property(fdt, "compatible", compatible, sizeof(compatible)));
++	_FDT(fdt_property(fdt, "interrupts", irq_prop, sizeof(irq_prop)));
++	_FDT(fdt_end_node(fdt));
++}
++
++int pmu__init(struct kvm *kvm)
++{
++	int irq = KVM_ARM_PMUv3_PPI;
++	struct kvm_cpu *vcpu;
++	int pmu_id = -ENXIO;
++	int i;
++
++	if (!kvm->cfg.arch.has_pmuv3)
++		return 0;
++
+ 	if (pmu_has_attr(kvm->cpus[0], KVM_ARM_VCPU_PMU_V3_SET_PMU)) {
+ 		pmu_id = find_pmu(kvm);
+ 		if (pmu_id < 0) {
+@@ -228,8 +239,5 @@ void pmu__generate_fdt_nodes(void *fdt, struct kvm *kvm)
+ 		set_pmu_attr(vcpu, NULL, KVM_ARM_VCPU_PMU_V3_INIT);
+ 	}
+ 
+-	_FDT(fdt_begin_node(fdt, "pmu"));
+-	_FDT(fdt_property(fdt, "compatible", compatible, sizeof(compatible)));
+-	_FDT(fdt_property(fdt, "interrupts", irq_prop, sizeof(irq_prop)));
+-	_FDT(fdt_end_node(fdt));
++	return 0;
+ }
 -- 
 2.54.0
 
