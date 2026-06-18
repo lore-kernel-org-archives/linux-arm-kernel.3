@@ -4,79 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CD83CD98ED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 10:20:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83033CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 10:24:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/Q9pNoQqpYasS0QPJrxwGUqHBaVAY/3JYsy0RcdiRpI=; b=plbAm7dUJNAeWpuB3iZtz/H9qW
-	x50eZls7Tiuabwa6aH2dN14Var185TtmKxEeS97rdf258/rc2ChPbonlPKjXSQZhEow35GsNvT/qH
-	mVyGZ5tjatcIfUT6m77WRrYCxaRh9Xap1y01HRT4kxdQicTmye5hmGL3bHNZu83/ku6kpFz6FFKaL
-	Pe1uwFf+N+oYVuP4Y6d+fHg3xRlQ9ehgzlpg8uwGqVoA/E1TA7DzbApdUuNLsqOZTb5I+eELOv1Xt
-	3mOMqj87KtfKP8lLFASW/7iGnLfVEqDGMQgKfsenRwkXf9p69WEQQbA4lhxK4L7eMcoxOiEmMzWoC
-	didv3MRQ==;
+	bh=pdxvnHNhBcxBAvNVWg4iUTwWhk1g8ApNBvxiWkMn+Ak=; b=17XfhnnVTD+NsIPN6eeP/ZGm0J
+	UQivzZrPJIP5FijkIDPGPR9lGPy5IFd15dIhY674FJDYJw5Vz+9XqjVLBRiJ6sMiZ6HVF8CcKonxk
+	VUGpGDQAo/xWLcLyQgvUs4A4fTgCcszXosBN1glM7FCCAAPi9odc47C27fUnjRYIaJX7zDWczC0z/
+	IwSBBiCnK1jcaRSVob3aNJ+4D+tYE+QqFcOqfVomsgVteGtoUExBCLRThWoJOOky+rvKxYJXmP52K
+	LCB1aSysueXUoLfKTKBuNwC6u58Iof6r2nuP9Go5AWNB1s8Vdo475lr5kU8KqHNG+0AwO90+Fau3h
+	0PlfPysw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa9N8-000000010Sk-11JT;
-	Thu, 18 Jun 2026 09:49:18 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wa9v3-000000015t9-38Xd;
+	Thu, 18 Jun 2026 10:24:21 +0000
+Received: from mail-vk1-xa61.google.com ([2607:f8b0:4864:20::a61])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa9N6-000000010Rq-3bBp;
-	Thu, 18 Jun 2026 09:49:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 11B05438CD;
-	Thu, 18 Jun 2026 09:49:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id DC1EEC2BCB8;
-	Thu, 18 Jun 2026 09:49:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1781776155;
-	bh=c/PIQew4CIvgLc9UhZFMzJcfcY8E32gOzQD0mFhpcp0=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=Cz1RiDa5+NmjEzZjPADiMzZvBSuup9DT4s4XKLciISnlqiJEUplT1u6SPjkRvomts
-	 CFDYB+YFiDDuKhkRu0D0mSyOHtc+ILAfwEGtAfUzfOAdsWUPdhLe1Vfpto9IYap/dr
-	 sCyriCZrvHfuLStXf+W2fQ6/beoIsYs19rMvkCCAovq0fts92OFBmJ0DWBBJbrWBTB
-	 JjshT4gImLf4uqXAI5NDfVJsGixc4lIy6yjLSrMWGiQvHNwKmqJVXPDnwzsjCMMgAZ
-	 0BmdeFCa3msBiNUkQihfFmFWsX6UA21tsDimp95qMLc9QQ1vC88zggZ/mdnPT/kHJM
-	 a9q/37QQ6NtNw==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C14A5CD98F2;
-	Thu, 18 Jun 2026 09:49:15 +0000 (UTC)
-From: Jian Hu via B4 Relay <devnull+jian.hu.amlogic.com@kernel.org>
-Date: Thu, 18 Jun 2026 17:49:11 +0800
-Subject: [PATCH v4 1/2] dt-bindings: clock: Add Amlogic A9 AO clock
- controller
+	id 1wa9v1-000000015sd-2Ks5
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 18 Jun 2026 10:24:20 +0000
+Received: by mail-vk1-xa61.google.com with SMTP id 71dfb90a1353d-59ebf30a91dso234367e0c.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 03:24:17 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781778257; x=1782383057;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=pdxvnHNhBcxBAvNVWg4iUTwWhk1g8ApNBvxiWkMn+Ak=;
+        b=XHytWgWW807voFAjFijN1l8XL/r/45VbrerxPHOkeDIrVF0DWFjVlGvZmu6JknZ1KC
+         9um5GJjDSaQWdD4ImnOYFlWqRtcsdYdcYSF3NMZJ0v3ilQ88k1lzs6shtSKQ1V506Pay
+         rX+GguJDRy6GAYXzn3qz9DF/k/oxGY27/Ots2wPFofn7npuHa6gLB9KE9CaLZRJcj6N9
+         /sZcldxyoMCaUiQNp0ol+xI0Cyu3y68ILn3VYyW0oPkcTStUUzoDVpTOBYkVlgVJxrq/
+         nSRC35+DW4vExW9mtPj3Lq2aP5wH3ZvdHM9ECfFE3Z/hlFErQ3e77j8CJHObfP4jiMBP
+         wxag==
+X-Forwarded-Encrypted: i=1; AFNElJ8MUcOUZbPchQRo7rggsB9FWGHH2UEGrZMznZmm8LrubLxMrPu3+MxGfSrD7ZazYUIgA5O+knhBacQfVq1Y2p3/@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy1SyYVNDO/6+1C7SnZRbYTeEn579Kji62YAwoFr+PuAdIVPklw
+	KgIjwZTIS2UOOds0rt5uNS5mFpyN4qkmSU3OeEc5myJ86OONZhPWFtek2JVdxK3BXcpGm0q0p+b
+	+an4q/KeXZXEqUQY0VWgM34z/z6WPZibYzxGhpkpW1NPn9TxiEHtSc4iMAbbIZF3JYwZv8GCOcJ
+	GNSjSeoBvtTewTw6fyiemBnoe4Q8hGbwLZCwQuho0prCcGtpHkLPnV822sNvaI+Lbr1jp0wzPpA
+	41KO7klZc0Ohq75SbPUKlUDsEjAEyq7b1/KOQ==
+X-Gm-Gg: AfdE7clNNE00oHs7K8cC/JpWMZNGUZTlJUJ8dyd7pcUPEGTkW5JIS40OMe36DJrQQF3
+	Ybk6eAfClorifMCOgMc50kqg8gLM28tYXnHkkOcpyrYcW9sptOMrpCoQc2xR9tTThsYiGY9QG5r
+	JRLKpfEKaqPYALiIFozo0dfwpiSGQHAvEJ132BolFnElSG7eC9QhgSjZhsmki3h0llemUZeha3r
+	qGxKG/WAOhtfK5flBwdflxpZtEyTlF95AVEcmCo22KZfwPPxitOI6iQBPCWC8MiCB/Zos3inwzQ
+	b6CrO5hPwJNDI1aXVwI0DFDV0wW6FkZa59nMHLbG/uwo6FThnHIBvV3EHlqXOASKrx0uKqc0L1l
+	iucJMXtABKHgPkKcjJkUKpiCP2G6BOyibQVtXje2XPVNveg7qRf+uJsxQ/UdKZEpUU/ic2ajO6m
+	GV2PFWJ2gwvrnRfkRZsR+mJSOqauapE5sulNH9BRNb6RwuSR8rJQI=
+X-Received: by 2002:a05:6102:a54:b0:6f0:3c5c:6ad with SMTP id ada2fe7eead31-727c6b528bfmr1644188137.21.1781778256656;
+        Thu, 18 Jun 2026 03:24:16 -0700 (PDT)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-18.dlp.protect.broadcom.com. [144.49.247.18])
+        by smtp-relay.gmail.com with ESMTPS id ada2fe7eead31-72086c42916sm983758137.15.2026.06.18.03.24.15
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 18 Jun 2026 03:24:16 -0700 (PDT)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-490b61243easo8506765e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 03:24:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1781778254; x=1782383054; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=pdxvnHNhBcxBAvNVWg4iUTwWhk1g8ApNBvxiWkMn+Ak=;
+        b=AzPkwwKETmqTviJkI+muQ8VhgSmllWZGbdzDBEZS1yjCJceBlEvVZNuYH3ZeZso+wz
+         GD40kp04zImmKZ/20LIPs4uCEnlq0VwzrKWVRD3qveZ/Muxuthlgt53HgTqpzqSONl84
+         y6YT1/AxGC5bqtuW1U/q6TGOI+ivV9MZ3yk5A=
+X-Forwarded-Encrypted: i=1; AFNElJ97H32Q6PMtp/9H8001Pho3nlA+EtAk94noqVvK8ZducprOdd0yIP0H3yZB2T6M2DbJk8Ej/bVdQ9/B0EMW2AT4@lists.infradead.org
+X-Received: by 2002:a05:600c:3e1a:b0:490:e974:e01f with SMTP id 5b1f17b1804b1-492333ecb80mr132153645e9.28.1781778254343;
+        Thu, 18 Jun 2026 03:24:14 -0700 (PDT)
+X-Received: by 2002:a05:600c:3e1a:b0:490:e974:e01f with SMTP id 5b1f17b1804b1-492333ecb80mr132153045e9.28.1781778253884;
+        Thu, 18 Jun 2026 03:24:13 -0700 (PDT)
+Received: from [192.168.1.21] ([41.140.50.249])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49234daafc7sm117621445e9.10.2026.06.18.03.24.12
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 18 Jun 2026 03:24:12 -0700 (PDT)
+Message-ID: <4f4b2f95-e61b-4008-b54a-fdd3101dc492@broadcom.com>
+Date: Thu, 18 Jun 2026 11:24:11 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] pinctrl: Match DT helper types
+To: "Rob Herring (Arm)" <robh@kernel.org>, Linus Walleij <linusw@kernel.org>,
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+Cc: linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260612214939.1883911-1-robh@kernel.org>
+Content-Language: en-US
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <20260612214939.1883911-1-robh@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260618-a9_aoclk-v4-1-569d0425e50c@amlogic.com>
-References: <20260618-a9_aoclk-v4-0-569d0425e50c@amlogic.com>
-In-Reply-To: <20260618-a9_aoclk-v4-0-569d0425e50c@amlogic.com>
-To: Neil Armstrong <neil.armstrong@linaro.org>, 
- Jerome Brunet <jbrunet@baylibre.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Xianwei Zhao <xianwei.zhao@amlogic.com>, 
- Kevin Hilman <khilman@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Jian Hu <jian.hu@amlogic.com>, 
- Conor Dooley <conor.dooley@microchip.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1781776153; l=5339;
- i=jian.hu@amlogic.com; s=20260415; h=from:subject:message-id;
- bh=kwn+xLdvWcoIS5pumj6G8ysGe6h8qolt3jz+Yj+ZsB8=;
- b=9e9bmCtE//UGeabd/KdoMDTfkFcIC6EhixYjWLQZx3reKWeUiVgd9X8i65eoDC33/P45ObbVp
- CEDM8DJRiRPA8UTTPJtkxjasIH3PAq9KGzTyG5s9GYrAwfnN8JCLNKR
-X-Developer-Key: i=jian.hu@amlogic.com; a=ed25519;
- pk=zHUE+rNtH9z+Sb8au1/elWknjFQmy5QDVkBoxleuOIA=
-X-Endpoint-Received: by B4 Relay for jian.hu@amlogic.com/20260415 with
- auth_id=735
-X-Original-From: Jian Hu <jian.hu@amlogic.com>
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260618_032419_616562_0618C576 
+X-CRM114-Status: GOOD (  10.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,189 +147,26 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: jian.hu@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jian Hu <jian.hu@amlogic.com>
 
-Add the Always-On clock controller dt-bindings for the Amlogic A9
-SoC family.
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-Signed-off-by: Jian Hu <jian.hu@amlogic.com>
----
- .../bindings/clock/amlogic,a9-aoclkc.yaml          | 76 ++++++++++++++++++++++
- include/dt-bindings/clock/amlogic,a9-aoclkc.h      | 76 ++++++++++++++++++++++
- 2 files changed, 152 insertions(+)
+On 6/12/2026 2:49 PM, 'Rob Herring (Arm)' via 
+BCM-KERNEL-FEEDBACK-LIST,PDL wrote:
+> The affected pinctrl drivers either check for the presence of a standard
+> property or read a property documented with an 8-bit cell encoding.
+> Using boolean or u32 helpers for those cases disagrees with the binding.
+> 
+> Use a presence helper for "gpio-ranges" and read
+> "microchip,spi-present-mask" with the u8 helper documented by the
+> binding.
+> 
+> Assisted-by: Codex:gpt-5-5
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 
-diff --git a/Documentation/devicetree/bindings/clock/amlogic,a9-aoclkc.yaml b/Documentation/devicetree/bindings/clock/amlogic,a9-aoclkc.yaml
-new file mode 100644
-index 000000000000..1fa9b3a32fbb
---- /dev/null
-+++ b/Documentation/devicetree/bindings/clock/amlogic,a9-aoclkc.yaml
-@@ -0,0 +1,76 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+# Copyright (C) 2026 Amlogic, Inc. All rights reserved
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/clock/amlogic,a9-aoclkc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Amlogic A9 Series Always-On Clock Controller
-+
-+maintainers:
-+  - Neil Armstrong <neil.armstrong@linaro.org>
-+  - Jerome Brunet <jbrunet@baylibre.com>
-+  - Jian Hu <jian.hu@amlogic.com>
-+  - Xianwei Zhao <xianwei.zhao@amlogic.com>
-+
-+properties:
-+  compatible:
-+    const: amlogic,a9-aoclkc
-+
-+  reg:
-+    maxItems: 1
-+
-+  '#clock-cells':
-+    const: 1
-+
-+  clocks:
-+    minItems: 5
-+    items:
-+      - description: input oscillator
-+      - description: input fclk div 3
-+      - description: input fclk div 4
-+      - description: input fclk div 5
-+      - description: input sys clk
-+      - description: external fixed 32k (optional)
-+
-+  clock-names:
-+    minItems: 5
-+    items:
-+      - const: xtal
-+      - const: fdiv3
-+      - const: fdiv4
-+      - const: fdiv5
-+      - const: sys
-+      - const: ext_32k
-+
-+required:
-+  - compatible
-+  - reg
-+  - '#clock-cells'
-+  - clocks
-+  - clock-names
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    soc {
-+        #address-cells = <2>;
-+        #size-cells = <2>;
-+
-+        clock-controller@0 {
-+            compatible = "amlogic,a9-aoclkc";
-+            reg = <0x0 0x0 0x0 0x58>;
-+            #clock-cells = <1>;
-+            clocks = <&xtal>,
-+                     <&scmi_clk 14>,
-+                     <&scmi_clk 16>,
-+                     <&scmi_clk 18>,
-+                     <&scmi_clk 21>;
-+            clock-names = "xtal",
-+                          "fdiv3",
-+                          "fdiv4",
-+                          "fdiv5",
-+                          "sys";
-+        };
-+    };
-diff --git a/include/dt-bindings/clock/amlogic,a9-aoclkc.h b/include/dt-bindings/clock/amlogic,a9-aoclkc.h
-new file mode 100644
-index 000000000000..a7d704d4b58e
---- /dev/null
-+++ b/include/dt-bindings/clock/amlogic,a9-aoclkc.h
-@@ -0,0 +1,76 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-+/*
-+ * Copyright (C) 2026 Amlogic, Inc. All rights reserved.
-+ */
-+
-+#ifndef __AMLOGIC_A9_AO_CLKC_H
-+#define __AMLOGIC_A9_AO_CLKC_H
-+
-+#define CLKID_AO_XTAL_IN			0
-+#define CLKID_AO_XTAL				1
-+#define CLKID_AO_SYS				2
-+#define CLKID_AO_SYS_I3C			3
-+#define CLKID_AO_SYS_RTC_REG			4
-+#define CLKID_AO_SYS_CLKTREE			5
-+#define CLKID_AO_SYS_RST_CTRL			6
-+#define CLKID_AO_SYS_PAD			7
-+#define CLKID_AO_SYS_RTC_DIG			8
-+#define CLKID_AO_SYS_IRQ			9
-+#define CLKID_AO_SYS_PWRCTRL			10
-+#define CLKID_AO_SYS_PWM_A			11
-+#define CLKID_AO_SYS_PWM_B			12
-+#define CLKID_AO_SYS_PWM_C			13
-+#define CLKID_AO_SYS_PWM_D			14
-+#define CLKID_AO_SYS_PWM_E			15
-+#define CLKID_AO_SYS_PWM_F			16
-+#define CLKID_AO_SYS_PWM_G			17
-+#define CLKID_AO_SYS_I2C_A			18
-+#define CLKID_AO_SYS_I2C_B			19
-+#define CLKID_AO_SYS_I2C_C			20
-+#define CLKID_AO_SYS_I2C_D			21
-+#define CLKID_AO_SYS_SED			22
-+#define CLKID_AO_SYS_IR_CTRL			23
-+#define CLKID_AO_SYS_UART_B			24
-+#define CLKID_AO_SYS_UART_C			25
-+#define CLKID_AO_SYS_UART_D			26
-+#define CLKID_AO_SYS_UART_E			27
-+#define CLKID_AO_SYS_SPISG_0			28
-+#define CLKID_AO_SYS_RTC_SECURE			29
-+#define CLKID_AO_SYS_CEC			30
-+#define CLKID_AO_SYS_AOCPU			31
-+#define CLKID_AO_SYS_SRAM			32
-+#define CLKID_AO_SYS_SPISG_1			33
-+#define CLKID_AO_SYS_SPISG_2			34
-+#define CLKID_AO_PWM_A_SEL			35
-+#define CLKID_AO_PWM_A_DIV			36
-+#define CLKID_AO_PWM_A				37
-+#define CLKID_AO_PWM_B_SEL			38
-+#define CLKID_AO_PWM_B_DIV			39
-+#define CLKID_AO_PWM_B				40
-+#define CLKID_AO_PWM_C_SEL			41
-+#define CLKID_AO_PWM_C_DIV			42
-+#define CLKID_AO_PWM_C				43
-+#define CLKID_AO_PWM_D_SEL			44
-+#define CLKID_AO_PWM_D_DIV			45
-+#define CLKID_AO_PWM_D				46
-+#define CLKID_AO_PWM_E_SEL			47
-+#define CLKID_AO_PWM_E_DIV			48
-+#define CLKID_AO_PWM_E				49
-+#define CLKID_AO_PWM_F_SEL			50
-+#define CLKID_AO_PWM_F_DIV			51
-+#define CLKID_AO_PWM_F				52
-+#define CLKID_AO_PWM_G_SEL			53
-+#define CLKID_AO_PWM_G_DIV			54
-+#define CLKID_AO_PWM_G				55
-+#define CLKID_AO_RTC_DUALDIV_IN			56
-+#define CLKID_AO_RTC_DUALDIV_DIV		57
-+#define CLKID_AO_RTC_DUALDIV_SEL		58
-+#define CLKID_AO_RTC_DUALDIV			59
-+#define CLKID_AO_RTC				60
-+#define CLKID_AO_CEC_DUALDIV_IN			61
-+#define CLKID_AO_CEC_DUALDIV_DIV		62
-+#define CLKID_AO_CEC_DUALDIV_SEL		63
-+#define CLKID_AO_CEC_DUALDIV			64
-+#define CLKID_AO_CEC				65
-+
-+#endif  /* __AMLOGIC_A9_AO_CLKC_H */
-
+Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
 -- 
-2.47.1
-
+Florian
 
 
