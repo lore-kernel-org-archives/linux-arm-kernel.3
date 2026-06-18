@@ -4,73 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 264EECD98E2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 09:45:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE425CD98ED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 09:47:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5L07RvSiSHASSvQNMBo0JXRFsyjBU5+t/wDgLmETZPs=; b=pD34++xIi/rYwskwNMSYP4zSl6
-	EcKkji2WMaU2kIcOyBygtRByi9oYptkeib48b4h1Y8BVDMIoNIZ82DFKEt61O4mhALl2q4i9HidUg
-	+AyAaFubUMIo3Km0aUmALOzb6JhW5L4lRrMLdQw9vP4IRbo9Yzi7Sxa7FbESQJY00kzCTBlCEzgpr
-	J//KvvATbwUvVQk83d6f3Da92eSJhJAGLHLmgHOYOct+gx9m7qZelosAGZMTB03J1v7oKX030Umfx
-	ql8H7SdZkE3BrvOLYua8EqjSPeWY1IBzmAXBQr6F0zwxIu9bD2gwr3NXqk6vxrZMLMI8+oksJVHJA
-	cB93dvAQ==;
+	bh=3nOkEEN7ElYuC9x+a6xshp6SZdg9WydOxf9jhKoXMNQ=; b=byGDaJbeZCydUbmfMySKAnHX+f
+	BszUBdWp01mMWiJIq/lYppC+IpPyhcUj4CGG0KzkwvMQ4YNJhVzHpEYb+k3ihIcy5WlrhnNbV+pSg
+	C93UETqb9oj9cfkvoDADDl+AdMIllvZEZy/2eJlCMSH/tGHfkdRzTgGLhOyJ5/u4x0y/MMDSS/jyB
+	Y6Qjc26MkEG9fvInKnQ/2osbeaqlONLGupB5ZxmDYxVil2663YpEcV5R4Z+lO0Mrj1I3m1GCxiIh4
+	MWVzSrg1eVT8bjOJBvdAU7boA7GbCq7AZmb8IL5vDDlFVxovBH8i5kAP+M3xGRyD46SN0zCLa8jNH
+	zhqnLhvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa9JR-00000001011-2Gwo;
-	Thu, 18 Jun 2026 09:45:29 +0000
-Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
+	id 1wa9L8-000000010Co-34v5;
+	Thu, 18 Jun 2026 09:47:14 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa9JO-0000000100b-2X2p
+	id 1wa9L6-000000010CC-0CuB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 09:45:28 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
-	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id ABAD62002AA;
-	Thu, 18 Jun 2026 11:45:24 +0200 (CEST)
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1wa9JM-003PsA-20;
-	Thu, 18 Jun 2026 11:45:24 +0200
-Received: from pza by lupine with local (Exim 4.98.2)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1wa9JM-000000005Ev-2Glm;
-	Thu, 18 Jun 2026 11:45:24 +0200
-Message-ID: <0bec40ded4ca98136064c2f158551e4269d51944.camel@pengutronix.de>
-Subject: Re: [PATCH v4 3/5] dt-bindings: clock: cix,sky1-audss-clock: add
- audss clock controller
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Joakim Zhang <joakim.zhang@cixtech.com>, Conor Dooley <conor@kernel.org>
-Cc: "mturquette@baylibre.com" <mturquette@baylibre.com>, "sboyd@kernel.org"	
- <sboyd@kernel.org>, "bmasney@redhat.com" <bmasney@redhat.com>, 
- "robh@kernel.org"	 <robh@kernel.org>, "krzk+dt@kernel.org"
- <krzk+dt@kernel.org>,  "conor+dt@kernel.org"	 <conor+dt@kernel.org>, Gary
- Yang <Gary.Yang@cixtech.com>, cix-kernel-upstream	
- <cix-kernel-upstream@cixtech.com>, "linux-clk@vger.kernel.org"	
- <linux-clk@vger.kernel.org>, "devicetree@vger.kernel.org"	
- <devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"	
- <linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"	
- <linux-arm-kernel@lists.infradead.org>
-Date: Thu, 18 Jun 2026 11:45:24 +0200
-In-Reply-To: <SEYPR06MB6226B25BA7652287C752E4C782E32@SEYPR06MB6226.apcprd06.prod.outlook.com>
-References: <20260617060437.1474816-1-joakim.zhang@cixtech.com>
-		 <20260617060437.1474816-4-joakim.zhang@cixtech.com>
-		 <20260617-clinic-blank-61289f8fc1c2@spud>
-		 <SEYPR06MB62262C0F7823337CA9496DE982E32@SEYPR06MB6226.apcprd06.prod.outlook.com>
-	 <cd63c1ab9831fdfd39aad8d1a40c4702a9cbb158.camel@pengutronix.de>
-	 <SEYPR06MB6226B25BA7652287C752E4C782E32@SEYPR06MB6226.apcprd06.prod.outlook.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	Thu, 18 Jun 2026 09:47:13 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-5ad2abf31aeso4259e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 02:47:11 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1781776030; cv=none;
+        d=google.com; s=arc-20260327;
+        b=NHD+1k/xIeyij2wbp724wL6PmunD3xWJjmQYYqUiO3xtk4eeKBb8FEGptqtkcfPxCU
+         JGcosm2zYwagdXiZztmCgIKiAm8MQ+W09Dulmzy/m9cxFd/v9qgZuEzKrrRgBdoNSEwm
+         yRf53i2y2mcDSQM52Y3Enlkihs8njObcD7gQZ2lYki37Pp2VzKSQVTpHa0nDmbPy0gyW
+         s1cMB/yhViCUJUAexz0mt81zgT+vLLRzywGi5//70eOfem0ky4WOoj3PI9rjgrLYuRl9
+         NG/9qUQHuMDOYK+UnnU4CGCiwOa+pIp3V/Pc/6FyF9IW9ir9dGX7iHx5+d8uJyi41akJ
+         qtTQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=3nOkEEN7ElYuC9x+a6xshp6SZdg9WydOxf9jhKoXMNQ=;
+        fh=8VxovbEPYkfBgBvrG9I/0ia798Tv78yONu6tFazWafs=;
+        b=hfVloWM0L35OQWb5ZQbSRNDOSGf80ojP4VltSl31Dwas8hS0f1oxX6KY6Ds7/cD4jP
+         Ip3CMK/g76yqYgCinzr5YeZK2031oLgyFFQm7NDJrOsni+DYxEJKWTQVBFxcAGTcjnDe
+         m3s04EOEFIPfmAeqAv23ju5QlOURO51nB+R8yDib3zEw0ly1GEdnMB4xQ8kPJ0+2/Kx9
+         XKQIUrnWKeJLU9hS/y7epEjwRW9GVmvwW4tu6dXLZYfrhKfB8X5OQ/M6NjqsxX7JWYxN
+         yg3mH46R/W393k8gXJi22C0fiSewMNw2WarEB9JAOLdRTYSUH5rPz8KAuyIxJxSuX8Jy
+         F/KQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1781776030; x=1782380830; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=3nOkEEN7ElYuC9x+a6xshp6SZdg9WydOxf9jhKoXMNQ=;
+        b=q1hFH1OZUiO5bqFlLYLrAHvq7Uo8Q6K3bBc5qc1eQiUTavhmd+YPoN8NX2UQhTj0HK
+         T8l4pUibA+WPhFcgfAWjBjyDSqKKBWUfodOsBCKL9me8HM89xHPb/hYC1Z9t65QadFWZ
+         5fvCXKaKVAdDoiGoZKAMZvUPXUnmhKySBG4AJRR5SJM8Lg0suiAA6+ilUTb/QJtBxxuQ
+         Hx042OAWQ6nobPrfrs2ylZg7WYS8M0UEnHZBTStxdHGTjwQjDofKzXfy4XI14W1mmr5c
+         ft0BjEMDaKxEUFw84sIOFR3clMUimslp1uTuePfnFUvMU2baoNJ4xDUPPoUi9SlQvXrE
+         mKxA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781776030; x=1782380830;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=3nOkEEN7ElYuC9x+a6xshp6SZdg9WydOxf9jhKoXMNQ=;
+        b=U6IPs/6M+ROvmQbFbKkxdsQQ26y8QFulXMwru1Fm4RYauVQBPyLAzrX0bsnf/4g/uO
+         jl5uGkWfAijqcrrjvyuI8hpu3Exm/p0V6ekCa8WUikTRpBokMpl1RTjaLwuGReG4WJLQ
+         ZffWktm8dPwijIOMv3HSET0+IWxJzqqmcWQihjcnDfX+KxRUsdCBldRK6SAN51fq0waK
+         jfUBDyOmQZO/zDk5PxF+W9CkLEkN2ZUAqDvBcdLQ+MssFqwrPu+3ppgoW/tRc39bRTcV
+         LIZ2Wnw5HYXtrsByfUKt3Tr/HkCWd7dVmOvYcKDpeBUwZy3EfL0m8SlRBJRIbAf3+RAq
+         x3eA==
+X-Forwarded-Encrypted: i=1; AFNElJ87wIihzXzSqruAp/+iFp7OLuy5RnbI1QEf3ZVNOJQeS0EhjGRHPGfp2q9zzOoH+uyV3azJX9Ttb3R7eaAmEiYM@lists.infradead.org
+X-Gm-Message-State: AOJu0YyzIGaIfUNUdo8idI+8dcyKgzQUDlHXopBg/DacF1i1c9k6BEiD
+	opL0whZjGc6pbeJfAF7v0kZ3hrSFmSWjENxr2hFajyAu4nvt8ubu5BNahNzndqq9+sADpNdRqC0
+	z35DnnBpmTLhSQGNyK/gO1K1hy8CIBGAGBrUN52OJ
+X-Gm-Gg: AfdE7cnhC9OYXOco2UIBQT7gtrXggc1/jZA69kBbXJxB9w07ycDjC9b1s4GqQAckW03
+	gn/oKUVPp5aHbC0XuMoNdsaSrXScQpeV4xBteP1yqkA5vSvQglzOvfp8kBkMdufpYW33n0jcwau
+	nCYhCUoWVLPqfNRci48dXbZ6voVF+iVEaxSp3YjRCV9eQOgCoQsAcgjC1pj7HkJlvtx61QRk9Vk
+	RYbCqqR8wCevrxSS3p49Wu20ueIEtW6rqmv4OZbWd7gjSbYjB+pDMbJ+xyoVRav7mKo6dLYMQ==
+X-Received: by 2002:a05:6512:3b96:b0:5aa:883f:5da5 with SMTP id
+ 2adb3069b0e04-5ad4db8f3b5mr127738e87.12.1781776029259; Thu, 18 Jun 2026
+ 02:47:09 -0700 (PDT)
 MIME-Version: 1.0
+References: <20260612065925.755562-1-tabba@google.com> <20260612065925.755562-4-tabba@google.com>
+ <86jyrwrymb.wl-maz@kernel.org> <CA+EHjTz-+8M5oSh+7A2vkQ-zPmDkaKptYMoBhLz=rReufKsAHg@mail.gmail.com>
+ <86ik7grxrg.wl-maz@kernel.org>
+In-Reply-To: <86ik7grxrg.wl-maz@kernel.org>
+From: Fuad Tabba <tabba@google.com>
+Date: Thu, 18 Jun 2026 10:46:30 +0100
+X-Gm-Features: AVVi8Cdj3_cVvPSPYeXrneOqZ9vthmWKgulM3oMPHaqRW3tcDe5Y00kHjlerqkc
+Message-ID: <CA+EHjTytu_tKDK5+UHX0EWAweLTD-mKtMw32TiQxc0AU9D0x5g@mail.gmail.com>
+Subject: Re: [PATCH v1 03/11] KVM: arm64: Use guard()/scoped_guard() in arm64
+ KVM EL1 code
+To: Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oupton@kernel.org>, Will Deacon <will@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Quentin Perret <qperret@google.com>, 
+	Vincent Donnefort <vdonnefort@google.com>, Sebastian Ene <sebastianene@google.com>, 
+	Per Larsen <perlarsen@google.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Joey Gouly <joey.gouly@arm.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Mark Rutland <mark.rutland@arm.com>, 
+	Jonathan Cameron <jonathan.cameron@huawei.com>, Hyunwoo Kim <imv4bel@gmail.com>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260618_024526_794114_160E3CD0 
-X-CRM114-Status: GOOD (  21.99  )
+X-CRM114-CacheID: sfid-20260618_024712_106593_D7549CA4 
+X-CRM114-Status: GOOD (  23.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,78 +124,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Do, 2026-06-18 at 09:27 +0000, Joakim  Zhang wrote:
-> Hello,
->=20
->=20
-> > -----Original Message-----
-> > From: Philipp Zabel <p.zabel@pengutronix.de>
-> > Sent: Thursday, June 18, 2026 4:30 PM
-> > To: Joakim Zhang <joakim.zhang@cixtech.com>; Conor Dooley
-> > <conor@kernel.org>
-> > Cc: mturquette@baylibre.com; sboyd@kernel.org; bmasney@redhat.com;
-> > robh@kernel.org; krzk+dt@kernel.org; conor+dt@kernel.org; Gary Yang
-> > <Gary.Yang@cixtech.com>; cix-kernel-upstream <cix-kernel-
-> > upstream@cixtech.com>; linux-clk@vger.kernel.org;
-> > devicetree@vger.kernel.org; linux-kernel@vger.kernel.org; linux-arm-
-> > kernel@lists.infradead.org
-> > Subject: Re: [PATCH v4 3/5] dt-bindings: clock: cix,sky1-audss-clock: a=
-dd audss
-> > clock controller
-> >=20
-> > EXTERNAL EMAIL
-> >=20
-> > CAUTION: Suspicious Email from unusual domain.
-> >=20
-> > On Do, 2026-06-18 at 01:43 +0000, Joakim  Zhang wrote:
-> > > Hello,
-> > >=20
-> > >=20
-> > > > -----Original Message-----
-> > > > From: Conor Dooley <conor@kernel.org>
-> > > > Sent: Wednesday, June 17, 2026 11:56 PM
-> > > > To: Joakim Zhang <joakim.zhang@cixtech.com>
-> > > > Cc: mturquette@baylibre.com; sboyd@kernel.org; bmasney@redhat.com;
-> > > > robh@kernel.org; krzk+dt@kernel.org; conor+dt@kernel.org;
-> > > > p.zabel@pengutronix.de; Gary Yang <gary.yang@cixtech.com>;
-> > > > cix-kernel- upstream <cix-kernel-upstream@cixtech.com>;
-> > > > linux-clk@vger.kernel.org; devicetree@vger.kernel.org;
-> > > > linux-kernel@vger.kernel.org; linux-arm- kernel@lists.infradead.org
-> > > > Subject: Re: [PATCH v4 3/5] dt-bindings: clock:
-> > > > cix,sky1-audss-clock: add audss clock controller
-> > > >=20
-> > > > On Wed, Jun 17, 2026 at 02:04:35PM +0800, joakim.zhang@cixtech.com
-> > wrote:
-> > > > > From: Joakim Zhang <joakim.zhang@cixtech.com>
-> > > > >=20
-> > > > > The AUDSS CRU contains an internal clock tree of muxes, dividers
-> > > > > and gates for DSP, I2S, HDA, DMAC and related blocks. The clock
-> > > > > provider is a child node of the cix,sky1-audss-system-control
-> > > > > syscon and accesses registers through the parent MMIO region.
-> > > >=20
-> > > > Why can this not just be part of the parent syscon node?
-> > >=20
-> > > The clock and reset blocks are handled by different subsystems and
-> > maintainers (clk vs reset). Putting the clock provider on the parent sy=
-scon node
-> > would mean a single driver has to register both the reset controller an=
-d the
-> > clock provider on one device, which doesn't fit well.
-> >=20
-> > There are many examples of clock and reset drivers sharing the same nod=
-e, by
-> > using platform_driver for one (usually clk) and auxiliary_driver for th=
-e other
-> > (usually reset).
->=20
-> OK, I will have a look.  If you are also prefer to this, I will refactor =
-the patch.
+On Thu, 18 Jun 2026 at 10:41, Marc Zyngier <maz@kernel.org> wrote:
+>
+> On Thu, 18 Jun 2026 10:24:55 +0100,
+> Fuad Tabba <tabba@google.com> wrote:
+> >
+> > On Thu, 18 Jun 2026 at 10:23, Marc Zyngier <maz@kernel.org> wrote:
+> > >
+> > > On Fri, 12 Jun 2026 07:59:17 +0100,
+> > > tabba@google.com wrote:
+> > > >
+> > > > Convert the manual mutex_lock()/spin_lock() pairs in
+> > > > arch/arm64/kvm/{pkvm,arm,mmu,reset,psci}.c to guard(mutex),
+> > > > guard(spinlock) and scoped_guard(), dropping unlock-only goto labels in
+> > > > favour of direct returns. Centralised cleanup gotos that still serve
+> > > > other resources are preserved.
+> > > >
+> > > > reset.c uses scoped_guard() rather than guard() so the lock covers only
+> > > > the small read/update window inside kvm_reset_vcpu(), leaving the rest
+> > > > of the function outside the critical section.
+> > >
+> > > To be brutally honest, I don't think this sort of widespread changes
+> > > bring us anything. This is just churn.
+> > >
+> > > Sure, if you are reworking a particular bit of code that is goto-heavy
+> > > for the purpose of error handling, this has the potential to cleanup
+> > > the code *while you are changing it*.
+> > >
+> > > But doing it for the sake of doing it? I think we have bigger fish to
+> > > fry right now.
+> >
+> > I understand what you mean. Would you like me to drop all of the guard
+> > patches, or only those that go beyond the code changed in this series?
+>
+> The latter. I'm fine with conversion that happens while the code is
+> being reworked.
 
-The hardware should dictate this, not the driver/subsystem/maintainer
-boundaries. Looking at the register numbers used by the drivers, and
-assuming that the audss_cru label in the dts patch means the TRM also
-calls this a single Clock-Reset-Unit, I'd say Conor has a point.
+Sure, I'll do that on the respin.
 
-regards
-Philipp
+Cheers,
+/fuad
+
+>
+> Thanks,
+>
+>         M.
+>
+> --
+> Without deviation from the norm, progress is not possible.
 
