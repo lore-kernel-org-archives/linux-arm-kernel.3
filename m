@@ -4,112 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04D9BCD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 17:27:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88209CD98ED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 17:46:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q0JyIhzls2o9NpV0YiKpx0Z6g8U6hSYHt5wEzck3zpU=; b=LzY3783X+siicIzZva6W/Aztgy
-	ymBkggtwUKXlX5d1qkfcHSWdWZvnMXhkq9eSGHesMEDsiFjUMaWKlmKRbh6FOWCP+5fJlJjMbAif6
-	IJPg2fxlr9KxHIKWmdTE2NX0d9X7GN+sdpGJa9YO6LC4uVuAODMeS8XoU1L/A2yATQz9fvxzfSynG
-	KyKwcw0PVFlpTCwqhX/pvyq7x6eYijmhyWOTSZAKMwwwDiPMgNYVuGEnptTTQ3xarR4oLtCqEbQ2D
-	/2J3Y9c1CYy5Q+H3uawsacibkod+VtzmDiT7w/zgQ0VjQQm63hhXcEBcOW8vXZTNzCcyg+3Nm73Vb
-	UuCb35Cw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3TygbtODSEar3i6teL2rFv2YakiRuYcDGXtdCltmzc4=; b=1D1ONQYNMuYc57Aa1CAs5wIpU0
+	qtp5E8AAh3nCoxrXBha6niP3ScvOvWCmX1nAx9Eb5MW0T9dg5yOfIPtRHLq8IomPRF45X/GGmIrEb
+	CQULGaRphAwt1WXx+sS+dsjNiuK9lzTeyN65oQpSXtJmJZDbOfvHj4qrdfTApB3i7JOOzC1y4uALU
+	iT5SRW6FEcaj5YytVsyWWyAymgwnLIq6L1Pu6AB28j2hcLCNBS/axfVgP81vcAl0ZIovtm1nThCvd
+	rGJln+u0UfJwNPW0tWCsuEjhjdI3tJ5kT6YXKC6BlrrdOA3fCLC29zX4S6aKvtN8p7OHZ4HBbQghj
+	kqSfMyWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waGWU-00000001eEQ-3TcR;
-	Thu, 18 Jun 2026 17:27:26 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1waGoO-00000001esh-28Ea;
+	Thu, 18 Jun 2026 17:45:56 +0000
+Received: from mail-westus3azolkn19011095.outbound.protection.outlook.com ([52.103.23.95] helo=PH0PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waGWT-00000001eED-3QC1
+	id 1waGoM-00000001esK-1msN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 17:27:26 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B02D160008;
-	Thu, 18 Jun 2026 17:27:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AD521F000E9;
-	Thu, 18 Jun 2026 17:27:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781803644;
-	bh=q0JyIhzls2o9NpV0YiKpx0Z6g8U6hSYHt5wEzck3zpU=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To;
-	b=hU8BNc99dwbiyFLwMd82FbNlhn3CmuZX68VgNJonQ0dQXqb19ChArtf/C22bXl/3K
-	 ViZz18WKu+hr6xcecB8x8KecXX7myCeLdR3d72RRUbDVlOQeHVXqeT7XjOh1AepU0H
-	 LP3x2d/QmGlip+XU1iubVNXgoMznpg7TMAwKdD1oxWntyvCLZBb00G/x9T2XCZOwU4
-	 5r8Sk67NYmu3QRUrgyqxhl37n8QX0CR39cN5mxmhXr/6ZQphZ5n/Iq+8pEy4oCO+q0
-	 03loamBHrhwLpIjckoyaqRhnjGwS4zGi3BvyYvViWfTwu+PheEaIincqQjxTKqbCqs
-	 L+6LN0fOS4rCQ==
-Message-ID: <9f274251-e863-4661-bbd0-671512dd91e9@kernel.org>
-Date: Thu, 18 Jun 2026 19:27:15 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 00/31] Introduce SCMI Telemetry FS support
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-To: Cristian Marussi <cristian.marussi@arm.com>,
- Christian Brauner <brauner@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- arm-scmi@vger.kernel.org, linux-fsdevel@vger.kernel.org,
- linux-doc@vger.kernel.org, sudeep.holla@kernel.org,
- james.quinlan@broadcom.com, f.fainelli@gmail.com,
- vincent.guittot@linaro.org, etienne.carriere@st.com, peng.fan@oss.nxp.com,
- michal.simek@amd.com, d-gole@ti.com, jic23@kernel.org, elif.topuz@arm.com,
- lukasz.luba@arm.com, philip.radford@arm.com, souvik.chakravarty@arm.com,
- leitao@kernel.org, kas@kernel.org, puranjay@kernel.org,
- usama.arif@linux.dev, kernel-team@meta.com
-References: <20260612223802.1337232-1-cristian.marussi@arm.com>
- <20260617-waten-allabendlich-zueinander-93d4b1367b8c@brauner>
- <ajLVW1eHzbGDm4yn@pluto> <29a304f0-1e62-418a-b84f-aabdc4c0de8d@kernel.org>
+	Thu, 18 Jun 2026 17:45:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=hneP50YR6YDDhrgtFAbpvuJjvK6Fnftv/xpxym6FJTv+ZEh7YqJHXC+TLB44LBoCbQnyjYBZcOOusGHQYa/+MBtz25r1flKqJRoVb3BBdQUzBQfx+wtjjSvT0Kun/YrbxEdk0BP4SbQm8P0ERGNgNWW9oeIAAE7g13nm7CdrgqM9JiXtQymKKAUyB+cOd4Y5V4AvDOtEEnRIp1BOAILFL9gqCbeA1bzBo2M0fkjFp619BWNz+BYFYI8J+LI0BpI5OimIzuRAlR02Aiz7UoBo9gBFVb1cUG9SHEBmBUPQGyGu+rP7I9+qMrCGpwUK6HII2JM+/MH1oPK8fDyakszmXg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3TygbtODSEar3i6teL2rFv2YakiRuYcDGXtdCltmzc4=;
+ b=RsANAsRmStu23/lozJMMAgMLnHKoKoNRJr2xUaozzxyrvVlepgTqhh1KXEIW10PmhlbzJXXaNRg99DtLGLIOBjihjlEWZpyP5XdglpliFjGotdJ3zsFTn7u6iqmRMK5DABsHAOVezCXnGxA5J44eG2M8ZS59hP9El2TX/EwIj9tCEzGFkEj90/EWZQZJ6p/vnFOFhRGPirKgoa5jqUUmLNViEJME8YSs9InkVE0ndf/sbF+jZEmbyBmGVvR9vAmWCIfw1D378cl2XML4kra45xUk5xECabHU548UmpNC+vpxI0X1/H/MphO5JHMKo5MGVSyxX/tI6jXzppWdfr4FNg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3TygbtODSEar3i6teL2rFv2YakiRuYcDGXtdCltmzc4=;
+ b=dua1+vBTY/kerOWsXv1woiKmDK4WgH1GgzVyOpW2dxDxjnjh6/U+hNYgcRMFuqd9A+HioxfYaEn5F+dktR8PfoDX5FqYFte8HEeLF0qpOZf5P12lu6jLueNplJO20tOwt59+v0ifD4mYY7zZsQK6J97bhkN0wvfG1T4sFbrThw2BrWZWbWTHMCMi75VwD0seSpqq7hEX9ZNt03CK/Y32mLfYgFXObpZnZxct2F3rgM5zkykm1IwTlqKNNotMa+C+W7oFw+rSVqKnpa+7RWJxT/p6UfGOIl18Uwm2WkUTYB9YG4wjHXkz2y8Tr18wKsXbrSrjl0X0zD+XZTP7IoVL6w==
+Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
+ by SA6PR02MB10791.namprd02.prod.outlook.com (2603:10b6:806:440::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.18; Thu, 18 Jun
+ 2026 17:45:47 +0000
+Received: from SN6PR02MB4157.namprd02.prod.outlook.com
+ ([fe80::900:1ccf:2b1e:52b6]) by SN6PR02MB4157.namprd02.prod.outlook.com
+ ([fe80::900:1ccf:2b1e:52b6%3]) with mapi id 15.21.0139.009; Thu, 18 Jun 2026
+ 17:45:47 +0000
+From: Michael Kelley <mhklinux@outlook.com>
+To: Kameron Carr <kameroncarr@linux.microsoft.com>, "kys@microsoft.com"
+	<kys@microsoft.com>, "haiyangz@microsoft.com" <haiyangz@microsoft.com>,
+	"wei.liu@kernel.org" <wei.liu@kernel.org>, "decui@microsoft.com"
+	<decui@microsoft.com>, "longli@microsoft.com" <longli@microsoft.com>
+CC: "catalin.marinas@arm.com" <catalin.marinas@arm.com>, "will@kernel.org"
+	<will@kernel.org>, "mark.rutland@arm.com" <mark.rutland@arm.com>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, "sudeep.holla@kernel.org"
+	<sudeep.holla@kernel.org>, "arnd@arndb.de" <arnd@arndb.de>,
+	"thuth@redhat.com" <thuth@redhat.com>, "linux-hyperv@vger.kernel.org"
+	<linux-hyperv@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arch@vger.kernel.org"
+	<linux-arch@vger.kernel.org>, Michael Kelley <mhklinux@outlook.com>
+Subject: RE: [RFC PATCH 1/6] arm64: rsi: Add RSI host call structure and
+ helper function
+Thread-Topic: [RFC PATCH 1/6] arm64: rsi: Add RSI host call structure and
+ helper function
+Thread-Index: AQHc+DtPiPbW/N97YES0Gzl/nsT1VbZEpBwQ
+Date: Thu, 18 Jun 2026 17:45:47 +0000
+Message-ID: <SN6PR02MB4157C9AA6BA2DD14E7697F2BD4E32@SN6PR02MB4157.namprd02.prod.outlook.com>
+References: <20260609181030.2378391-1-kameroncarr@linux.microsoft.com>
+ <20260609181030.2378391-2-kameroncarr@linux.microsoft.com>
+In-Reply-To: <20260609181030.2378391-2-kameroncarr@linux.microsoft.com>
+Accept-Language: en-US
 Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <29a304f0-1e62-418a-b84f-aabdc4c0de8d@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|SA6PR02MB10791:EE_
+x-ms-office365-filtering-correlation-id: 3f31ca5f-1b7e-4a64-e36b-08decd616e26
+x-ms-exchange-slblob-mailprops: Cq7lScuPrnrlC5lHdFGci+YUsdS3F/CIf2MSGTwZoeDHz1TOtpKUsczNikK0Bi3Mm4SoDzVfNpaU9g3va/Z1OC2SWsrSOyfHOQuXBPZ5e2j2MQKWrICTAiF+djmNPNVcj5mZUJWYi3VFvjvgsOLUxD5EXVNkE+TE29Tmt+H0/YBP8w8anbDkq6LuIcY+LpNntoyMoWjt31eKBMgSFozKHiVh517HMkEl0W1p8S/Z/NwQ2XkxQYxeJVxTK5C3RubS1omJvrGaeTaat4NVLDnjVEqfWTroZUK9tgfXyoBZAVCXqR/2dgSaa6s8f/G70v+2zsaCS7xsXeHrvpsewG5p2+5hv4u/ZhqCdwaP+HtgzCMED/OcuOTiixWxIvjsfG5+h63jSHNsI7o73NsFNn+ShFHxR+eO/0GnACr5a1pEJV/F+Ghd/ij4bP/sUxXvRmHT/e/JI6Iw9oV1xfx7YOuC6Bk0UHczYsllZtc72Tv0R2MKXXIfzsbxlKVMVZCq07uG/bkzGLwEiEcw05VuiFS9Z+fRGbJ2TocPtsWVI/hvFAVh8O0B+eQN/Hl+/7+Foo3S7rwR62D6RoSNqSGnGAc3OSYu6Ttisun75e7PU6ROm84pUPZtmDaGujDxio9NT6eb0XiaUvjmtvDPYzSB+GkVTPDIXid8AA0dcPQBYiwePhAd3vOnByOPjDQvwk6TgiGxAH4SjCNfoAWyuPdX9dBorZwdZrHAX7TLIJqaVEPlMsVCxrkSRKgFRVfVF27MtB5vxCDlRUNJbJI=
+x-microsoft-antispam: BCL:0;ARA:14566002|37011999003|41001999006|31061999003|8060799015|8062599012|15080799012|19110799012|19101099003|13091999003|51005399006|102099032|40105399003|3412199025|440099028|1710799026;
+x-microsoft-antispam-message-info: =?us-ascii?Q?gSnCDaNJp9PNoJ6fLEpZpDqiuy6n/c2MMeg3P2wxNvo5JVd3e2KJzbat1OT5?=
+ =?us-ascii?Q?5Jl+N6gV+W3UhCVz9ep90ZQT+biGymJZZ54O+ClSVHeTS4TMrJU/6MrttXat?=
+ =?us-ascii?Q?Omgxr9P7lElwJAasHpWopiVGGANkVMl96sJUxxeYvBgeqOXR3+GGb1b6V0gb?=
+ =?us-ascii?Q?Kj2Ny/eZHvJOShKihwjJWR+RaT6N+jycZdWEc8jPF5b6jTCR1FXUHV0GEwJi?=
+ =?us-ascii?Q?l4M/prHiOKCS4P1SQF+wqbzvS0EBUrPubtOCHF1jqtLXXIogDTLHN/Hs0NxM?=
+ =?us-ascii?Q?Zqce8WvMhuWu7fKCd+GUPXKQGCgexZjol1N1vjVsj0/OAfcKJSRUqPRtsm7e?=
+ =?us-ascii?Q?aqQuJzJQ3sntqQ4lzWLCJAaB/qOU4p/09rM+i57YO3haaXnQLWhkw8A0JDTN?=
+ =?us-ascii?Q?XRQ2fmGGWCHWDBV4n1s+pLkuHbWnhEcaW58m+6FaHpSsRnHPvWfY1SR7MXkS?=
+ =?us-ascii?Q?lf63nvINBv6XZxSVKGDVfkIgJcn4ENf6qW7Vsejudh7gURrclJI5yAvm8Z9L?=
+ =?us-ascii?Q?4Sn6Srt9ZM/XiWPnnRDSe4sY/6a8ZGEGXufpGaj6706xZbuRFmiiJEG/ElQQ?=
+ =?us-ascii?Q?tUcPiOmhlS3S61dIhp3VS10ey0lDayXIzqVaoplPcqZUey773lB2ceDupFbx?=
+ =?us-ascii?Q?AmvcJnMYv+TiSjGxaN+hxQ3dIR4kGG3pfVgZnEt5UWTAJl96sKu65siXUsCj?=
+ =?us-ascii?Q?o8brZ8hJwGw4R8+NMhAkbAOG/lH10zk3Euyi7y1t1Q0D5ykjMCQt/idKQh4m?=
+ =?us-ascii?Q?XcaJdFM0u80kiHS9SlelZ8Rmr3huie//niWs4gwNSX6JMCTYYf1SC+TiKcSP?=
+ =?us-ascii?Q?ORsIbdAn4YL1kKdaHrkfKgFkAfFa+Wh14CGHB/uNB1lT8wHHG00auvxMmDKX?=
+ =?us-ascii?Q?oPv3XdqAV/o4Io6s2yRpfqEZSXI6J53j77L1pYcPZ8cnTf684+hqZ2Wq4h2L?=
+ =?us-ascii?Q?ObuGLK6Ykiz3knZ6KPH3npSBCenQSkCYSsKnfh/kFHCqNfBVBkKyn1gBBuyT?=
+ =?us-ascii?Q?ErTLnrDRfXKlPzuDznAJR4cxI03ieO7R/wfsSIV8URpGM8IaxISGsqDvBNqS?=
+ =?us-ascii?Q?FV402CVN?=
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?e3vHKZuaBRvaldSHkr3aV7j0PZJFHzU8+pTpkamxuLwHTxQDAqDtvEXuRsI6?=
+ =?us-ascii?Q?MZoM4ozZK1yZkM8/tbegAWZ6ShvDhJE+mnBwoQCrnQdzqcCxb+AMO4MhyCn0?=
+ =?us-ascii?Q?4N6It+FetEfr/m2WTcVzSsM2OFXjJf4IoYL4TtBT1um2J8T6UzoIPEzQGpAQ?=
+ =?us-ascii?Q?zpMuNeToK3WH8tyVzWkQJj1AdyePo4h9crJ2VeferC2l0PIRsMN33vTkFb72?=
+ =?us-ascii?Q?Ejs7GmdcGWdyYLDz2Es/s4WF0+zdmiNcgM0ZmQCLnzpkbF9oo5QyIlc+WzZO?=
+ =?us-ascii?Q?lhf2QbGhh5ipPGxi7iAU3Qj2d1eeECotrQjB9B6JOWNN+CsQlJrAOTMKhzCi?=
+ =?us-ascii?Q?AT1Pe5VCwouvWEkAZywRzXYX4BdD/t+w+yrGF0E6iM6Mygr6LPNhjHLj1mVm?=
+ =?us-ascii?Q?EiajervWtnrkVhSmP1+mBHJEfqEv+4/N/Qtf5dLI4KegQSue+Q1HZwfwouYe?=
+ =?us-ascii?Q?bixxNEj420Ofp/MdP1ZdmpRZy0Dni+sxWKmPGAL1Q0OE+JXn4w2tbsfV3eV7?=
+ =?us-ascii?Q?8MQM2KefWuoRyRJMSqb05DUNH8ypPstc79brB7V3V9f8U7C2prae+KaR6q2q?=
+ =?us-ascii?Q?9Vbi0kwX1l1Ftnw/44COJixnWJyOS0KwiJv4+AkVxHuSanOM3JnRfdDaYV87?=
+ =?us-ascii?Q?0GZQj3qTOnZ0SGP8nLNldkk82Yra6rTPQ6XagJyZV1ShgJRxgOuKwg4wO/II?=
+ =?us-ascii?Q?sJBk28FQLDhhytTLAto6HYsWHB/ir7XUlsHD/qmnacvL7nrjBcKPXeETAiuo?=
+ =?us-ascii?Q?ItoZ3z9dvl11WuB1ReIFkTMDNO+P+xrf2y47SP5WU7LaVO1Xdzz1RXlNJaC3?=
+ =?us-ascii?Q?lYNPLizfeFTfxKx7w99DoR1gEZ0lnQ1dPG7o2+3c6zm0nW0y2/+uAkfO/Viw?=
+ =?us-ascii?Q?ZDzXb824kbxrN+s1T0cdw8DajKm+FBLciTrs4ajYy1BWoSa037Mrtq70oX4H?=
+ =?us-ascii?Q?QGGXWGNOstPYOqLRg3MW8MJiNeZRp6JyBo37726w0QsbnhzWFlO104Ej76FB?=
+ =?us-ascii?Q?EC7IDJpfvmbo1htOTe7aoLWDDlqTB4PyOoDNj1HBE5aI5xCL7YMrG+qMMjjR?=
+ =?us-ascii?Q?gJ4buztEOXkQiaaz1O60QCac00uw+G8CkFYcdcCjJq7D33E46Ea9Lnfgzl6B?=
+ =?us-ascii?Q?kwob3gwd1FZS75b1njECZUpbSbTB8YENStae7K47wQ2qY53CPx6bFt/QhuOw?=
+ =?us-ascii?Q?kcApyaPrRyRYwjt0OPZNSbDVOGb/7Q8uOG+LaDzPDwvBnbltiildJcPmdBTb?=
+ =?us-ascii?Q?dcCxSZLc8WAD7Jc3wRcSBn/TnVnSPxIxZFHxWdNNc6uTh8WYQCJJBIF0Jmf9?=
+ =?us-ascii?Q?XpzKGCAcThbNzgDk0WYpHRH2wqkfbqljA8eoWnHD5WvgB6iJQEaEtwEPOPVD?=
+ =?us-ascii?Q?RpT2sNU=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3f31ca5f-1b7e-4a64-e36b-08decd616e26
+X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Jun 2026 17:45:47.6411
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA6PR02MB10791
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260618_104554_484329_D9ABBCFC 
+X-CRM114-Status: GOOD (  21.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,15 +158,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Maybe you have it in some of the patches here, but what does the typical
-> directory + file structure look like in the current implementation?
-> 
-> Do you have an example?
+From: Kameron Carr <kameroncarr@linux.microsoft.com> Sent: Tuesday, June 9,=
+ 2026 11:10 AM
+>=20
+> Add struct rsi_host_call to rsi_smc.h, which represents the host call
+> data structure used by the Realm Management Monitor (RMM) for the
+> RSI_HOST_CALL interface. The structure contains a 16-bit immediate field
+> and 31 general-purpose register values, aligned to 256 bytes as required
+> by the CCA RMM specification.
+>=20
+> Add rsi_host_call() static inline wrapper in rsi_cmds.h that invokes
+> SMC_RSI_HOST_CALL with the physical address of the host call structure.
+> This will be used by Hyper-V guest code to route hypercalls through the
+> RSI interface when running inside an Arm CCA Realm.
+>=20
+> Signed-off-by: Kameron Carr <kameroncarr@linux.microsoft.com>
+> ---
+>  arch/arm64/include/asm/rsi_cmds.h | 9 +++++++++
+>  arch/arm64/include/asm/rsi_smc.h  | 6 ++++++
+>  2 files changed, 15 insertions(+)
+>=20
+> diff --git a/arch/arm64/include/asm/rsi_cmds.h b/arch/arm64/include/asm/r=
+si_cmds.h
+> index 2c8763876dfb7..83b4b1f598454 100644
+> --- a/arch/arm64/include/asm/rsi_cmds.h
+> +++ b/arch/arm64/include/asm/rsi_cmds.h
+> @@ -159,4 +159,13 @@ static inline unsigned long
+> rsi_attestation_token_continue(phys_addr_t granule,
+>  	return res.a0;
+>  }
+>=20
+> +static inline long rsi_host_call(phys_addr_t host_call_struct)
+> +{
+> +	struct arm_smccc_res res;
+> +
+> +	arm_smccc_smc(SMC_RSI_HOST_CALL, host_call_struct, 0, 0, 0, 0, 0, 0,
+> +		      &res);
+> +	return res.a0;
+> +}
 
-Found it in patch #20! :)
+For consistent grouping, it seems like this inline function should
+be placed after rsi_set_addr_range_state() since it follows the
+same pattern. It's a bit different from the token functions.
 
--- 
-Cheers,
+> +
+>  #endif /* __ASM_RSI_CMDS_H */
+> diff --git a/arch/arm64/include/asm/rsi_smc.h b/arch/arm64/include/asm/rs=
+i_smc.h
+> index e19253f96c940..ffea93340ed7f 100644
+> --- a/arch/arm64/include/asm/rsi_smc.h
+> +++ b/arch/arm64/include/asm/rsi_smc.h
+> @@ -142,6 +142,12 @@ struct realm_config {
+>  	 */
+>  } __aligned(0x1000);
+>=20
+> +struct rsi_host_call {
+> +	u16 immediate;
 
-David
+I don't see the "immediate" used anywhere in this patch set.
+Is it always zero for the Hyper-V use cases?  Just curious ...
+
+> +	u64 gprs[31];
+> +} __aligned(256);
+> +static_assert(sizeof(struct rsi_host_call) =3D=3D 256);
+
+This struct defines an ABI with the RMM layer, so I'd suggest
+adding explicit padding of 6 bytes after the immediate so there's
+no implicit dependency on the compiler adding the padding.
+Sashiko had the same comment ....
+
+Michael
+
+> +
+>  #endif /* __ASSEMBLER__ */
+>=20
+>  /*
+> --
+> 2.45.4
+>=20
+
 
