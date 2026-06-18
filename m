@@ -4,80 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEABCCD98ED
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 08:38:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB68FCD98ED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 08:39:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BghaV0XJnds55dF2dgFuuXXCRlRZxRm1R2JFiOWPEcY=; b=Lb1KpOzXuHtrLqOc+4YBUMEPUw
-	v2s3xy5nRYX+3sNBhjJijBd2kJkJUxFHy9iYf+lLNQAyt+ajaRZAFmTvFF4GwFWPmNg5pICBukmwq
-	/56rKhmjO+Lr1azmN7C1e5UtY6i426ko+13tvVtnHQw+dkjOxfDzziyaXnMUvOEuI5oCAlkOA6C6x
-	qYzQNPhJQQPmToDciPRcH/DerjzlLLCBBRUygh9g0C3rTFof4Ycj2SyuqMCZQxdtQZt+R97obuuK2
-	Z/IB8+NvB2SUyvOePb7gFCchUTZtAC6iqus9Nxw2I2LCq1XZ3GsoG1xcjHiGxVgLTWCA4J5+rmyEH
-	XgYK9Iag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=p5v08WKNwGmYUGdtUiZ9afvSoR3TpkA2HvknteopE5Q=; b=oABmcxPdTW6hGEf4a80BYZM88u
+	b2SAGKXtq3+vEgxpOvIk4EJa6qmDYWTg98F/22UOjaKIiPmH+e3o8/kvxn3FVMNxN0F57+BQ6LZRv
+	O3m9PaZ4JdDpA8vlJkTs1p8RcLTMsxu5T5RaXHBpqFY7H94V7Nsf0RIm4v8WtFIfEAxm0HHDO+tvL
+	kDMQ4WqtbtqYH/pVp96jPtagjTScXzkVowX1ctzv8LC/CYzH43scAzRaHXTSxBGa9lAHY7Myuovy+
+	EBBmOILmh5Bfc1ztreVjWSLn8faO+VDB/btbsWEGuPLnkDVjD/QvIGpU6WSArkFMPLdGwfjgt+os6
+	BDHuS+uQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa8Gn-00000000rKe-2kRd;
-	Thu, 18 Jun 2026 08:38:41 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wa8HR-00000000rRA-3OBp;
+	Thu, 18 Jun 2026 08:39:21 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wa8Gm-00000000rKY-3n0g
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 08:38:41 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B41F66012A;
-	Thu, 18 Jun 2026 08:38:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63ADC1F000E9;
-	Thu, 18 Jun 2026 08:38:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781771919;
-	bh=BghaV0XJnds55dF2dgFuuXXCRlRZxRm1R2JFiOWPEcY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=nXhelwwdHIkf/sbE8QwEOS03rLt8fBTdIbsCZe07coYKQs4UXoUTDq6Bje6m8uGcu
-	 Dr5MQ0TVj1Uq22/CL5bZi9uGamNGVyuBE4uwrVOqxcsPlGhLbA8QEBhkZmWInPyMJ0
-	 o21G3I2bxvKtL/8BbxKnwjcZpGWTdpx4Egxa9y2kJpMJ0Zargl930VFJWaalzVrn6s
-	 aasDnOM0EZTrvAPxjCdPlJaFr7RqjMSZU0dBX35bXjzedGX+hbz6n808Af92WmSRFu
-	 Jd70COqSStxnjEVjQp7iIs9O/8kmUyPZ1VotsyFi+i48LOEwR+SpqD84Aw2cnWxJU6
-	 RW+fUzBeRRDAQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wa8Gj-0000000DvgM-0yNK;
-	Thu, 18 Jun 2026 08:38:37 +0000
-Date: Thu, 18 Jun 2026 09:38:36 +0100
-Message-ID: <86ldccs0oj.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Marek Vasut <marek.vasut@mailbox.org>
-Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
-	linux-pci@vger.kernel.org,	Yoshihiro Shimoda
- <yoshihiro.shimoda.uh@renesas.com>,	Krzysztof =?UTF-8?B?V2lsY3p5xYRza2k=?=
- <kwilczynski@kernel.org>,	Bjorn Helgaas <bhelgaas@google.com>,	Catalin
- Marinas <catalin.marinas@arm.com>,	Conor Dooley <conor+dt@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,	Krzysztof Kozlowski
- <krzk+dt@kernel.org>,	Lorenzo Pieralisi <lpieralisi@kernel.org>,	Manivannan
- Sadhasivam <mani@kernel.org>,	Rob Herring <robh@kernel.org>,
-	devicetree@vger.kernel.org,	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,	linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH 2/3] irqchip/gic-v3: Add Renesas R-Car Gen4 erratum workaround
-In-Reply-To: <0935eb67-83d2-49ea-89ab-0d0aa51ead8a@mailbox.org>
-References: <20260617030008.154449-1-marek.vasut+renesas@mailbox.org>
-	<20260617030008.154449-2-marek.vasut+renesas@mailbox.org>
-	<864ij1tyrj.wl-maz@kernel.org>
-	<0935eb67-83d2-49ea-89ab-0d0aa51ead8a@mailbox.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: marek.vasut@mailbox.org, marek.vasut+renesas@mailbox.org, linux-pci@vger.kernel.org, yoshihiro.shimoda.uh@renesas.com, kwilczynski@kernel.org, bhelgaas@google.com, catalin.marinas@arm.com, conor+dt@kernel.org, geert+renesas@glider.be, krzk+dt@kernel.org, lpieralisi@kernel.org, mani@kernel.org, robh@kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1wa8HP-00000000rQT-1RuN;
+	Thu, 18 Jun 2026 08:39:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1781771955;
+	bh=00Sh3h7guBWY5L2puvf4zlaEaH/SsYgyBTF6Tbvqf10=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=hzcvqf7GuKHpdHlXk2wp0uWxEnywUQE5XOLR4Qi5aLbyJU5+IpgYUYwTwNWqBRnr4
+	 lXDy+UR9gQb4JO5rI0JuckPmTPgC1ZhGImgZ1BrEZLq3BFNWOb8rH9LHUh6fYqSOWA
+	 AoTCuEB3aW8WJfm/O0fJdxn+24bVVqy3Mw+0ibEcrP5btrCOCYrjst8zWINPzouYsk
+	 uld2UHSmgRmuGyblJP51TUv784fFUvdhTDnK4GNVyg3VkGSiPRJIFTmyvH7xZkD+om
+	 4xXsiDMLuZ/SjppHamWcOXOFAXxvU9jbGJfMDjPDCFqFKocc8pSQLhZQNAXlREwnj4
+	 mAsGjpwQx0m8w==
+Received: from [100.64.0.241] (unknown [100.64.0.241])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id AC13917E05DE;
+	Thu, 18 Jun 2026 10:39:14 +0200 (CEST)
+Message-ID: <fe8038fe-940a-4c61-a551-082534ef9c51@collabora.com>
+Date: Thu, 18 Jun 2026 11:39:14 +0300
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/9] dt-bindings: display: vop2: Add missing reset
+ properties
+To: Diederik de Haas <diederik@cknow-tech.com>,
+ Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
+ <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: kernel@collabora.com, Andy Yan <andyshrk@163.com>,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260617-dw-hdmi-qp-yuv-v1-0-a665cfd06d7d@collabora.com>
+ <20260617-dw-hdmi-qp-yuv-v1-1-a665cfd06d7d@collabora.com>
+ <DJC0L3CRJ0WL.IZEYVLPROMM1@cknow-tech.com>
+Content-Language: en-US
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <DJC0L3CRJ0WL.IZEYVLPROMM1@cknow-tech.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260618_013919_541869_A4958064 
+X-CRM114-Status: GOOD (  14.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,80 +91,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 18 Jun 2026 03:50:29 +0100,
-Marek Vasut <marek.vasut@mailbox.org> wrote:
+Hi Diederik,
+
+On 6/18/26 10:58 AM, Diederik de Haas wrote:
+> Hi Cristian,
 > 
-> On 6/17/26 9:24 AM, Marc Zyngier wrote:
+> Thanks for this series :-) Just 1 nit (at the end) ...
 > 
-> Hello Marc,
+> On Wed Jun 17, 2026 at 8:52 PM CEST, Cristian Ciocaltea wrote:
+>> Document the VOP2 resets corresponding to the AXI, AHB and DCLK_VP0..2
+>> clocks, which are common to all supported SoCs, plus DCLK_VP3 which is
+>> provided only on RK3588.
+>>
+>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+>> ---
+>>  .../bindings/display/rockchip/rockchip-vop2.yaml   | 42 ++++++++++++++++++++++
+>>  1 file changed, 42 insertions(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
+>> index 93da1fb9adc4..d3bc5380f910 100644
+>> --- a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
+>> +++ b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
+[...]
+
+>> @@ -289,6 +321,16 @@ examples:
+>>                                "dclk_vp0",
+>>                                "dclk_vp1",
+>>                                "dclk_vp2";
+>> +                resets = <&cru SRST_A_VOP>,
+>> +                         <&cru SRST_H_VOP>,
+>> +                         <&cru SRST_VOP0>,
+>> +                         <&cru SRST_VOP1>,
+>> +                         <&cru SRST_VOP2>;
+>> +                reset-names = "axi",
+>> +                              "ahb",
+>> +                              "dclk_vp0",
+>> +                              "dclk_vp1",
+>> +                              "dclk_vp2";
+>>                  power-domains = <&power RK3568_PD_VO>;
 > 
-> >> Renesas R-Car S4/V4H/V4M GIC600 integration has address width for AXI
-> >> or APB interface configured to 32 bit, it can therefore access only
-> >> the first 4 GiB of physical address space. This information comes from
-> >> R-Car V4H Interface Specification sheet, there is currently no technical
-> >> update number assigned to this limitation. Further input from hardware
-> >> engineer indicates that this limitation also applies to R-Car S4 and V4M.
-> >> Name the limitation GEN4GICITS1, and add a driver quirk to mitigate this
-> >> limitation.
-> 
-> My concern is this ^ , I do not have an erratum number, because there
-> isn't one. I am in touch with the hardware engineer and I did get a
-> glimpse at internal details of the three SoC, which confirm the
-> limitations. Is this sufficient ?
+> Place reset* props below power-domains (like in patch 9) ?
+> So everyone who copies your example has the correct sorting order.
 
-To be honest, this is between you and the SoC vendor. I'll take
-whatever symbol you come up with at face value, and will assume that
-the vendor agrees with it. After all, they are on Cc and have their
-SoB on the patch.
+The example doesn't strictly follow that ordering either — see e.g. the iommus
+property — so I placed the resets right after the clocks, which keeps the
+related properties grouped together.
+
+That said, I don't have a strong preference. 
+
+Heiko, is there a convention you'd like the Rockchip bindings to follow here?
+Happy to reorder if so.
+
+Regards,
+Cristian
 
 > 
-> >> Note that the 0x0201743b GIC600 ID is not Renesas-specific, it is
-> >> common for many ARM GICv3 implementations. Therefore, add an extra
-> > 
-> > Not quite. It designates GIC600 unambiguously.
+> Cheers,
+>   Diederik
 > 
-> What I am trying to communicate is, that the 0x0201743b ID is not ID
-> of the Renesas GIC implementation, but it is a generic ARM GIC600
-> ID. That is why we cannot match the quirk on the ID (it is generic ARM
-> GIC600 ID), and instead we have to match the quirk on the [ ID
-> combined with of_machine_is_compatible("renesas,...") ].
-
-This is understood, and is no different from the other broken
-platforms in the tree.
-
+>>                  rockchip,grf = <&grf>;
+>>                  iommus = <&vop_mmu>;
 > 
-> > It is just that GIC600
-> > is integrated in zillions of SoCs, most of which don't have this
-> > problem (the machine I'm typing this from has a GIC600 *and* 96GB of
-> > RAM).
-> 
-> Right.
-> 
-> Shall I reword this paragraph somehow to make it clearer ?
-
-I'd simply say that the workaround is keyed on the combination of the
-GIC implementation and the platform identification in the device tree.
-
->
-> >> of_machine_is_compatible() check.
-> >> 
-> >> The GIC600 implementation in R-Car S4/V4H/V4M is r1p6.
-> > 
-> > Is this relevant?
-> 
-> I included it for the sake of completeness and to provide all relevant
-> information, based on previous discussions about similar limitations
-> that I could find on lore.k.o
-
-This information is already contained in the ID you quote (bits
-[19:12]), and can be decoded using the public TRM [1].
-
-Thanks,
-
-	M.
-
-[1] https://documentation-service.arm.com/static/5e7ddddacbfe76649ba53034
-
--- 
-Without deviation from the norm, progress is not possible.
 
