@@ -4,92 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5635CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 20:22:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E9C6CD98ED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 20:31:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R8xCK89QfRMaVvrkpnB5YO+Fnx8pGynYV6YoyF7gSgA=; b=KTIb08LyyXdnoK14IhGTYGLFgo
-	BmpkAP+sOVPiOcAChLoUF5iamXqg3Hi31BCnDCJINzQtmrfztsuwIgCisPKHVljvW2WiRHoCwGT0E
-	GUMksYmAULx2/BjVjeSoog6cu4cBetW9L/XQklMGvST6RZmDFsezwMecxI8x53psbmC+RpPlmhFwD
-	cXvOZLoIuEln+fhNRgjkY7insA6H/incywqf7TW+YyO1mg7P9ztKfe1V+snm3Rl++nJXlq3IChC5N
-	bVmqob76o8aXAyrd0gw1kh1oFjjrtXutYfQgxjR8TkRcpcIuA1I3ga2HIgKJP27XQkL/iNeASkXwZ
-	A7Zu14IQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mMV94ArRUWNb5oU3/kS47SDy5ZbaBXLZRnnNKRvZXFA=; b=X+anOnKDzwvoWA1v+3hxZ/OHFQ
+	P+ppgA3P50NJKJ+rROigQbaDHqrtL2bg7myF84b3Cbme5mY+JiJOpPPPZc8iGNasABNgwsqhipKRE
+	S6N1Ji0BijF9uxTytYP/jXtfTbAC7vG4d4RO0r5AvlQvi/ToBVJGuy3FlpyodVKXeNfO07Yyqs99l
+	bQN7k7ZE5DtvoJBNREr7jLnUrGtrdzQKaFZnv9JETNE3RbvxtY8AmixwQI/SQXXtdJCZ7dDdOKzOM
+	yBXPTxHtrfkuNSGCTa3ifg3uhHJzURCgMQVAKazQzN11yvPfIkCYsyziutzaCZYxB58YB+jJ66Zgq
+	0XQTDvTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waJFW-00000001lno-0MVP;
-	Thu, 18 Jun 2026 20:22:06 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1waJOT-00000001m45-3jvh;
+	Thu, 18 Jun 2026 20:31:21 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waJFT-00000001lnQ-3F2m
+	id 1waJOQ-00000001m3d-3jRV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 20:22:05 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-842307473b5so932737b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 13:22:02 -0700 (PDT)
+	Thu, 18 Jun 2026 20:31:20 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65IHtxa12476775
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 20:31:17 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	mMV94ArRUWNb5oU3/kS47SDy5ZbaBXLZRnnNKRvZXFA=; b=A9i66YWdpU6YBRKd
+	Y/MBdL3leGrrJahi74KTM4KDUukQ+j5qURMvDHv/h26fAMH3YQ7DGji15TAnMGwL
+	USEPfEP8AD8iQcYvd1iG1lfmSmz7UW+zAngX+q6y2E0CUnCSI7j/tqtfhJrqkhqe
+	Bb7YKc+I5KSThSi349qRKDQodq8XXrVZwF8jlfC8noswCAbuAmfFSXFNt6pILgF2
+	eX7GqmBqg+WDX9b4uCvVGCkgfKaMMi1FrJfZJo0n6j3P5s0uMfYxkHKqzunR9kjq
+	QH8VKdbeCj2Uku3j8+w1XmjnU3du0rg0dmLmftvJ50lp7ioEz2fD83urICNDRRJs
+	2WsO5Q==
+Received: from mail-vs1-f71.google.com (mail-vs1-f71.google.com [209.85.217.71])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4evm20h6j4-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 20:31:16 +0000 (GMT)
+Received: by mail-vs1-f71.google.com with SMTP id ada2fe7eead31-6cfd2a26ab0so576229137.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 13:31:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781814122; x=1782418922; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=R8xCK89QfRMaVvrkpnB5YO+Fnx8pGynYV6YoyF7gSgA=;
-        b=U/KHDdBgIcKnqgftfWqglBQXRDEt4lHcJu5rHv8k7I8GdsJrPNszeZdRAfEyY2KHtE
-         TsrLS6ghraWd/hGWMe8wrvJ4Ep3EHeuhQWUOsuwvxiI/uZcbhXbEvyeXdEjPvF2zrxkW
-         3YrEuXewbjW8XFtyxdeRyesSxM0wLsOHM1nP+IqYkhF6fYzTou+bd0RGDcSA2WvQDUb9
-         hZ3hopayep3PGxi7gh/8YuHRCSn2mgHbJpf/zVOS5fBgyj+nw/HnSthOH1G4PZZuih+5
-         BlNleasUPhmT2+wxRtHgBS3yIE4AIbVFLVLEdwjHklLTVFaj6BZoDWc9P3EqCC40oblt
-         U0uw==
+        d=oss.qualcomm.com; s=google; t=1781814676; x=1782419476; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=mMV94ArRUWNb5oU3/kS47SDy5ZbaBXLZRnnNKRvZXFA=;
+        b=Z4Q3N2/Z1zt0zUgLOP6M7H10IxpyOSPgMVrPGYVSVBnijjKDoh9F82Fw1quLnehla2
+         0V1IgzGLijNyBgxmEAWTuJw5d+v8COCJ6O/fjpqeqwGpt9Bpc/CZlz6lVgysqiECOTrb
+         2u6/MUnydPhzX44oe5OijM+QVNp6O9kpSHscAHsabH0u7Qr+WSggWAvxjNdihMdYSEgO
+         cTqaxlEwG/DFl3kpygGCuBvmk336Z1wszkPFDT/YXwNYJ5lI9A4vvzqex6bXO5ErFGxT
+         zsGajstIgSQHxnQHpF6ncZofckjorlq8fpKmdSl8+L+ByNGwrVW8YRTy/vKGXOvkrQTT
+         MsiQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781814122; x=1782418922;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=R8xCK89QfRMaVvrkpnB5YO+Fnx8pGynYV6YoyF7gSgA=;
-        b=UIeHOLXG6uIbb7djh0/u6RrebPi3ZIxxqbmwXJT1L4hFXz9gwOznKgsMMRB11Wwi9v
-         8quPvUXSzq7eR7J78yo54bfe6GZKP9zEcTiIa1kN1mmkwu/6r2KF6LgwhxKSjHRtrGf+
-         Jxb6612NT0hAq3EA90wnsslrBLNNt6NqelLYqSLSKTPz9mq1EnKUOxzCP1/Z5hahxLNM
-         LPUDe27WpOF2TuOMXQXAUyaRONXyHLy41E2G7vsyKAAeX7Fi30C8MqdgmxU5S0MAuj+C
-         kT7zlLE20JFr0CIuCJqQdJmMC9J/0QG3VF41Zo+n5Yc9kiLIVv8xz+BABNWHGqOghq1/
-         f7Mw==
-X-Forwarded-Encrypted: i=1; AFNElJ+1UZ/h4nItUTFeII8x6jJ6Z6JO8tU+7GC43H/958Hugf5A/FMC2cXhsjPSFo6Wu4LhhBvTDPX2jhQCmGKZ8NPj@lists.infradead.org
-X-Gm-Message-State: AOJu0YxeSxbdEuL6Z1bSlJaa8tMS381/50JHvTyQmVhow3Nts/xGJh4C
-	m4cwQdv+pajCd28Qq1vAkBIvRSH1Zu8nrFmxHThPxVDs1XEuJV+tXfcMSeeJYHCvDA==
-X-Gm-Gg: AfdE7cnedUSKkUO4VgYKY5i4ZmTJNZEpt2DnT5xvHm3jkn+8lVbMXS7a7oiEu6Uz7W5
-	leCZEe1gWVVRYqDz1P7NEdW3O6pFQ81dmJQuzG1DFZR0O4BUPBKPHvmw0mX+BpF46Wq97ELHA5a
-	5E1sfdj4Y37aTJedHxsiWQur9cnFRIl4Wdcnkgh9geWenaqwDqd+IPZf+TyFe84V1jlxXtCoMlb
-	w8ZDAeC0qb8TpkLA5VaLfVPJhkCDdVt7+MlXLpNzSyAx0drJu/z8LES9K8tGgKIioRsllACzU3h
-	mFH10MiwuqXDmUmSFsXIfsU3JLF8rSz/oRH4TJTaxntecIn2dLehTgjg1hXBRgNaw6GvMyipJdf
-	nFaK1t8XCUPSBQiK4XC3+RQxQM9T1fhFpKYoBv8Ilh22ScUGD4Pw1xo6TkNKW2wAfrGF9XFp39/
-	GE1sKKAaMrdGQU6n6OybnLQ45LI5aBopttCxtJw9NrXtbuyb21zEA=
-X-Received: by 2002:a05:6a00:4fd1:b0:845:17a6:5741 with SMTP id d2e1a72fcca58-8455079c80amr485384b3a.1.1781814121017;
-        Thu, 18 Jun 2026 13:22:01 -0700 (PDT)
-Received: from google.com (56.149.168.34.bc.googleusercontent.com. [34.168.149.56])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8453a8c9770sm3735614b3a.40.2026.06.18.13.22.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 18 Jun 2026 13:22:00 -0700 (PDT)
-Date: Thu, 18 Jun 2026 20:21:56 +0000
-From: David Matlack <dmatlack@google.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>, kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Josh Hilke <jrhilke@google.com>
-Subject: Re: [PATCH v7 09/20] KVM: selftests: Add VFIO device support to
- eventfd IRQ test
-Message-ID: <ajRTZNum3u7oVdRa@google.com>
-References: <20260613002031.745413-1-seanjc@google.com>
- <20260613002031.745413-10-seanjc@google.com>
+        d=1e100.net; s=20251104; t=1781814676; x=1782419476;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=mMV94ArRUWNb5oU3/kS47SDy5ZbaBXLZRnnNKRvZXFA=;
+        b=MWICEgTaSdigUabpla/q4H4Ln0/Wj2nDdqLdOMgPSKtWLwavXEdX3GhoHCsPsldJEK
+         nUVre++/vRB5tEtTIkK1QUovZwfP6Ww+KTwjgIX9uCr3HLXB7POLiPiSeuSiUpvkdDhe
+         An1zDie0DMgo9kDGc9GYAFDchbBQjGQUMv6jab34PSISSK385TbEt0mkztWD3HZLZ5fe
+         w/mQULHQu7OJb2IMqDBB0SN4K7h4SdmmV4qXzm4KWPxvzhSvsF55t4XkJs+vVc6+2kUE
+         VAhWbHo+USlPbKrcAyHjvEbl1n31JUnrg7plBDpFWLj7f8+71fNLbRBW3yh6ZMsnsKl3
+         P9Zw==
+X-Forwarded-Encrypted: i=1; AFNElJ+z2Fo4MS/v9P26HvtIt20KzDLjhaIyPUlfNgY5uwsfXCNinGad2OTpZMyeb1SepyFyhqYnO6KmVwXv8z1cNDEd@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy2dMkKnINr71+RYzKaoLQO++25SxBHNyViDgwEEdVA3QD1L1Qq
+	0m8HCHHfNOU/njz6Xz+jQAg63J+zFak+NkJQQLOZGAMrnh1dR2R9SU3o8qJ70IJvq96FcCVqUqt
+	jmsIu7IUhsoCGBV/rKmdAjYIH1iA3NqcyLizkcsc0nXcP/FX2j/D7SdJVrWnJHxlrYfcQndad4W
+	YKfg==
+X-Gm-Gg: AfdE7cm63ukyj1+gCXgX27C55t2vjicqm4HoKTN5uvDmlv/zAB+q4Lo/ij2oMiI2lNM
+	JO/KMX8Vzw++1N3o8kJNT7j5+p/W3EYYKCYilMRNXViG6+2OITEmzfQG8PyNEa08/zeStsS/Kka
+	FBy6HEe2n50A9UGyHKQXwq2AnwwyYtboBbhqTBoEHABsuRbhfPSM+8VFcQ/C4WqFiSyNkKFNnwQ
+	9OgKBE4p/ysp91iMVEPXxrOCHVM9cAL6+quIw9xF4p1R7VNWOQbZDEFudlr7XB1TF+gEqdaJwjx
+	fYLwNlXy7rTdyKFaJkvPzDONVxd7+QdwpuH1rDU2UCEDGdR7cSKaNTPsKveXd3gu1j34N721l6r
+	9ZjtmSIcdEgP11XE2HkvoO9j7CjOp1RwAPhqNy4bYmGfbXW6Am4LQ72imDhEC/GY+44UGedFfBn
+	pi8AF3t5+1j6XncnX3egFA7Ge5UiLVnsusVjZVAGhQKGI/kutO65QeOE3Nh1Kw3ZXdru6On4Mku
+	WLasA==
+X-Received: by 2002:a05:6102:448b:b0:650:aa33:5dd7 with SMTP id ada2fe7eead31-72a01884599mr1095681137.2.1781814676208;
+        Thu, 18 Jun 2026 13:31:16 -0700 (PDT)
+X-Received: by 2002:a05:6102:448b:b0:650:aa33:5dd7 with SMTP id ada2fe7eead31-72a01884599mr1095628137.2.1781814675743;
+        Thu, 18 Jun 2026 13:31:15 -0700 (PDT)
+Received: from ?IPV6:2001:1c00:c32:7800:5bfa:a036:83f0:f9ec? (2001-1c00-0c32-7800-5bfa-a036-83f0-f9ec.cable.dynamic.v6.ziggo.nl. [2001:1c00:c32:7800:5bfa:a036:83f0:f9ec])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c0a8490b104sm2351966b.14.2026.06.18.13.31.13
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 18 Jun 2026 13:31:14 -0700 (PDT)
+Message-ID: <8c2a4ae3-95cc-489a-a7a4-90a3ee2597e9@oss.qualcomm.com>
+Date: Thu, 18 Jun 2026 22:31:12 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260613002031.745413-10-seanjc@google.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/2] firmware: arm_scmi: Ensure automatic module
+ loading
+To: Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
+        Sudeep Holla <sudeep.holla@kernel.org>,
+        Cristian Marussi <cristian.marussi@arm.com>,
+        Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>,
+        Michael Turquette <mturquette@baylibre.com>
+Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-kbuild@vger.kernel.org,
+        Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
+        "Rafael J. Wysocki" <rafael@kernel.org>,
+        Viresh Kumar <viresh.kumar@linaro.org>, Frank Li <Frank.Li@nxp.com>,
+        Sascha Hauer <s.hauer@pengutronix.de>,
+        Pengutronix Kernel Team <kernel@pengutronix.de>,
+        Fabio Estevam <festevam@gmail.com>, Guenter Roeck <linux@roeck-us.net>,
+        Jyoti Bhayana <jbhayana@google.com>,
+        Jonathan Cameron <jic23@kernel.org>,
+        David Lechner <dlechner@baylibre.com>,
+        =?UTF-8?Q?Nuno_S=C3=A1?=
+ <nuno.sa@analog.com>,
+        Andy Shevchenko <andy@kernel.org>,
+        Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+        Ulf Hansson <ulfh@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
+        Mark Brown <broonie@kernel.org>,
+        Philipp Zabel <p.zabel@pengutronix.de>,
+        Alexandre Belloni <alexandre.belloni@bootlin.com>,
+        linux-clk@vger.kernel.org, linux-pm@vger.kernel.org,
+        imx@lists.linux.dev, linux-hwmon@vger.kernel.org,
+        linux-iio@vger.kernel.org, linux-input@vger.kernel.org,
+        linux-rtc@vger.kernel.org
+References: <20260618-scmi-modalias-v2-0-8c7547c1be21@oss.qualcomm.com>
+From: Hans de Goede <johannes.goede@oss.qualcomm.com>
+Content-Language: en-US, nl
+In-Reply-To: <20260618-scmi-modalias-v2-0-8c7547c1be21@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjE4MDE4NyBTYWx0ZWRfX2T+EoYd+C/IA
+ mmI63JVD/e3qj6jfFxWJvW26yOTjuvW2+FGeR7g9g8yhKE8XWn56jc9/arZ9wQk66FSMzHBK94q
+ KupEV6BC0vbXy8Iz+l8CDKP6C7Xrvx0pEvlJ3yQFdsKJggla/uotZ+SbUCb7AAVUDpQSVLpxHk0
+ ml6iDoW+vSFLad6IfVw6CN981J8F8yZH4Wt26vx/Mrr9wgD1PITmPaDNxi5v2/AhaPaDG7UnlXE
+ olOrDbQr3E/Fk7P8OiLt8/KzfaerPb0yLC0nOuDoRXKp5vZDLDjiGj5bNYzzB4JsD/WcdVUJFO+
+ 5l2dTgMgdXOkwugDT9TnBFqWTgmPudT2QGMShgncRVMNimphK8CHq/sc994jpPO6XB7lhIKP5yG
+ Ni500HeL/Cgn5DevK19R8lGo14fL8V/HE1loja7Ra8e8hUTAHvaQuGHmu3bFBM0JnwpfxiuzSli
+ mASX7DrOw7zEmfTSYgQ==
+X-Authority-Analysis: v=2.4 cv=GKw41ONK c=1 sm=1 tr=0 ts=6a345594 cx=c_pps
+ a=P2rfLEam3zuxRRdjJWA2cw==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22 a=bC-a23v3AAAA:8
+ a=EUspDBNiAAAA:8 a=VwQbUJbxAAAA:8 a=7CQSdrXTAAAA:8 a=IpJZQVW2AAAA:8
+ a=20KFwNOVAAAA:8 a=KKAkSRfTAAAA:8 a=8AirrxEcAAAA:8 a=pGLkceISAAAA:8
+ a=_jlGtV7tAAAA:8 a=1XWaLZrsAAAA:8 a=gAnH3GRIAAAA:8 a=P-IC7800AAAA:8
+ a=JfrnYn6hAAAA:8 a=5KGQkzpS6Bu23flkvY0A:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=ODZdjJIeia2B_SHc_B0f:22 a=FO4_E8m0qiDe52t0p3_H:22 a=a-qgeE7W1pNrGK8U0ZQC:22
+ a=IawgGOuG5U0WyFbmm1f5:22 a=cvBusfyB2V15izCimMoJ:22 a=ST-jHhOKWsTCqRlWije3:22
+ a=nlm17XC03S6CtCLSeiRr:22 a=d3PnA9EDa4IxuAV0gXij:22 a=1CNFftbPRP8L7MoqJWF3:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNjE4MDE4NyBTYWx0ZWRfXzTBiyWaVz7zo
+ XC73oX9V2Nc18gmEZO4tvtR36FxQm9hAFrwJKcGmOjiHmaiBUVfGVlPdiQTCMKSGG/DlMXO+JS9
+ U6Ryx3Om8qz5rQTHcJ3xd/NubmWNlOk=
+X-Proofpoint-GUID: WIIe_OEGFyd48iuRCjJmzu4TQYNd2eZJ
+X-Proofpoint-ORIG-GUID: WIIe_OEGFyd48iuRCjJmzu4TQYNd2eZJ
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-06-18_03,2026-06-18_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 spamscore=0 lowpriorityscore=0 clxscore=1015 adultscore=0
+ priorityscore=1501 bulkscore=0 impostorscore=0 phishscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2606180187
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260618_132203_855319_2D3D0999 
-X-CRM114-Status: GOOD (  19.02  )
+X-CRM114-CacheID: sfid-20260618_133119_081139_64D86943 
+X-CRM114-Status: GOOD (  27.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,44 +181,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-06-12 05:20 PM, Sean Christopherson wrote:
-> From: David Matlack <dmatlack@google.com>
-> 
-> Extend the eventfd IRQ test with a '-d' argument that takes a BDF (in the
-> format segment:bus:device.function) of an interrupt-capable PCI(e) device
-> bound to VFIO, and use said device to trigger interrupts instead of always
-> synthesizing interrupts via direct writes to the eventfd.
-> 
-> Using a VFIO device to trigger interrupts validates the end-to-end delivery
-> of IRQs for "real" devices, and when supported by hardware (and KVM), also
-> validates interrupt delivery via IRQ bypass, i.e. via device posted IRQs.
-> 
-> Now that IOMMUFD is a thing, auto-probe IOMMUFD vs. "legacy" VFIO by
-> temporarily opening /dev/iommufd, and skip the test if neither IOMMUFD nor
-> legacy VFIO is available.  Add a '-t' option to the user override the probe
-> logic, e.g. in case IOMMUFD is available but the system is configured for
-> legacy usage.
-> 
-> Note, the device must have a VFIO selftest driver in order to work with
-> the test.  A helper script to list supported devices will hopefully be
-> available in the near future at
-> tools/testing/selftests/vfio/scripts/list_supported_devices.sh[1].
+Hi,
 
-> +static int vfio_setup_msi(struct vfio_pci_device *device)
-> +{
-> +	const int flags = MAP_SHARED | MAP_ANONYMOUS;
-> +	const int prot = PROT_READ | PROT_WRITE;
-> +	struct dma_region *region;
-> +
-> +	/* A driver is required to generate an MSI. */
-> +	TEST_REQUIRE(device->driver.ops);
+On 18-Jun-26 17:56, Bjorn Andersson wrote:
+> SCMI drivers such as the Arm SCMI CPUfreq driver are allowed to built as
+> modules, but they are then not automatically loaded. Rework the SCMI
+> device table alias support to make modpost consume the information from
+> MODULE_DEVICE_TABLE(scmi, ...) and allow drivers to be loaded based on
+> this information, if known. Also add a protocol-based alias to also
+> trigger driver loading when only the SCMI protocol id is known.
+> 
+> Signed-off-by: Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>
 
-This series is probably going to race with merging another VFIO
-selftests patch to make send_msi() optional [1]. Can you add a check for
-that here?
+So I just gave this a test spin and unfortunately it does not work.
 
-  TEST_REQUIRE(device->driver.ops);
-  TEST_REQUIRE(device->driver.ops->send_msi);
+The problem with Fedora's kernel-config / setup is that the
+request_module() from patch 2/2 runs from the initramfs, but
+the scmi_cpufreq module is only available in the rootfs.
 
-[1] https://lore.kernel.org/kvm/20260609232855.3808971-4-rubind@nvidia.com/
+It does work if I explictly add the scmi_cpufreq module to
+the initramfs, then it does get autoloaded.
+
+We really need some place to put a uevent sysfs attr which then
+gets replayed when udev is restarted from the rootfs and then
+re-reads all the uevent files as part of its coldplug
+enumeration.
+
+I wonder if it is ok for a single uevent file to have
+multiple MODALIAS= lines in there.
+
+Regards,
+
+Hans
+
+
+
+> ---
+> Changes in v2:
+> - Use request_module_nowait()
+> - Drop #include <linux/mod_devicetable.h> from scmi_protocol.h
+> - Link to v1: https://patch.msgid.link/20260616-scmi-modalias-v1-0-662b8dd52ab2@oss.qualcomm.com
+> 
+> To: Sudeep Holla <sudeep.holla@kernel.org>
+> To: Cristian Marussi <cristian.marussi@arm.com>
+> To: Michael Turquette <mturquette@baylibre.com>
+> To: Nicolas Schier <nsc@kernel.org>
+> Cc: Stephen Boyd <sboyd@kernel.org>
+> Cc: Brian Masney <bmasney@redhat.com>
+> Cc: "Rafael J. Wysocki" <rafael@kernel.org>
+> Cc: Viresh Kumar <viresh.kumar@linaro.org>
+> Cc: Frank Li <Frank.Li@nxp.com>
+> Cc: Sascha Hauer <s.hauer@pengutronix.de>
+> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
+> Cc: Fabio Estevam <festevam@gmail.com>
+> Cc: Guenter Roeck <linux@roeck-us.net>
+> Cc: Jyoti Bhayana <jbhayana@google.com>
+> Cc: Jonathan Cameron <jic23@kernel.org>
+> Cc: David Lechner <dlechner@baylibre.com>
+> Cc: Nuno Sá <nuno.sa@analog.com>
+> Cc: Andy Shevchenko <andy@kernel.org>
+> Cc: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+> Cc: Ulf Hansson <ulfh@kernel.org>
+> Cc: Liam Girdwood <lgirdwood@gmail.com>
+> Cc: Mark Brown <broonie@kernel.org>
+> Cc: Philipp Zabel <p.zabel@pengutronix.de>
+> Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>
+> Cc: Nathan Chancellor <nathan@kernel.org>
+> Cc: arm-scmi@vger.kernel.org
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-clk@vger.kernel.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linux-pm@vger.kernel.org
+> Cc: imx@lists.linux.dev
+> Cc: linux-hwmon@vger.kernel.org
+> Cc: linux-iio@vger.kernel.org
+> Cc: linux-input@vger.kernel.org
+> Cc: linux-rtc@vger.kernel.org
+> Cc: linux-kbuild@vger.kernel.org
+> 
+> ---
+> Bjorn Andersson (2):
+>       module: add SCMI device table alias support
+>       firmware: arm_scmi: request modules for discovered protocols
+> 
+>  drivers/clk/clk-scmi.c                         |  1 +
+>  drivers/cpufreq/scmi-cpufreq.c                 |  1 +
+>  drivers/firmware/arm_scmi/bus.c                | 20 ++++++++++----------
+>  drivers/firmware/arm_scmi/driver.c             |  3 +++
+>  drivers/firmware/arm_scmi/scmi_power_control.c |  1 +
+>  drivers/firmware/imx/sm-cpu.c                  |  1 +
+>  drivers/firmware/imx/sm-lmm.c                  |  1 +
+>  drivers/firmware/imx/sm-misc.c                 |  1 +
+>  drivers/hwmon/scmi-hwmon.c                     |  1 +
+>  drivers/iio/common/scmi_sensors/scmi_iio.c     |  1 +
+>  drivers/input/keyboard/imx-sm-bbm-key.c        |  1 +
+>  drivers/pmdomain/arm/scmi_perf_domain.c        |  1 +
+>  drivers/pmdomain/arm/scmi_pm_domain.c          |  1 +
+>  drivers/powercap/arm_scmi_powercap.c           |  1 +
+>  drivers/regulator/scmi-regulator.c             |  1 +
+>  drivers/reset/reset-scmi.c                     |  1 +
+>  drivers/rtc/rtc-imx-sm-bbm.c                   |  1 +
+>  include/linux/mod_devicetable.h                | 12 ++++++++++++
+>  include/linux/scmi_protocol.h                  |  5 +----
+>  scripts/mod/devicetable-offsets.c              |  4 ++++
+>  scripts/mod/file2alias.c                       | 13 +++++++++++++
+>  21 files changed, 58 insertions(+), 14 deletions(-)
+> ---
+> base-commit: 8d6dbbbe3ba62de0a63e962ee004afb848c8e3ac
+> change-id: 20260616-scmi-modalias-0f32421bd452
+> 
+> Best regards,
+> --  
+> Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>
+> 
+> 
+
 
