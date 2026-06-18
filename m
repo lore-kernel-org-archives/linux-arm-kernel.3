@@ -4,60 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D924CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 15:21:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8E30CD98F6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Jun 2026 15:36:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lPaO85K8HsFpXgFwmm6JTmmtU9FLtX+v9bVLPsQDyqo=; b=QSLxaeL2GHw+7qUUbJ7svEP1bd
-	lr/JLCdUevRzk1kGQLksgkAVC+IY1ssiKNBFnmzIGQu4ewx9P1Y2o27C11bD5fzBp2ohPYgflEmkD
-	Tu2Bp2BEiE/Go5WLPXzDPm5RptF+SwBfxog8sl9S+Rk9sJLiK+GyfGlwlJLuZTpLPchslhdm8QP4D
-	/14YRl3jQdj2ixBbHzsdKDMz2Unfw+rGlIYatPfwYZjNTa1khlz5BbnLlaob+AHMzAHP8waqBgIXM
-	PYihmUMfuDV21qHFzu9UghKjBinulXZl3t1/DeM5leC51SNEtlpaRyN8oSRzKj/X9FHeJOakZw57U
-	DP4u+vwg==;
+	bh=bOaklr0Z8A7gtp1ktpsq7SgsTnp+Akvr7bZ3S4KWi2o=; b=YtSn682bLcgTAXvHz7OqdQihJ7
+	FQS+uG8BKs3qC+3avgyuxPuBmfWebHm1dsd63LYbgX/Uoti1ByJwjh/z/8r5JKozBsYqQMdFAWy4S
+	4hTj9gtKfW0KPCBDXlbz3qaTJWWDaNlDm9jfHpclhZrFmbzSwv+8XrHet5Qmwku48GcKzwZyE7Oy2
+	TVGKdFOuMSFGStx6jCbyVzQDP/+3nb93jpsKIREhZX6+XgikwHhRQDYSLvZAIZNImj/R6YUH/kWhq
+	b5JHeVl3hOP1t9AgmdkH+X0YwsTY+B0G3OIh+os4NuhUE7EPRI3XfHEgMgPw34vlsJw7OftekWAbK
+	f1CW8HJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waEYL-00000001U62-47aF;
-	Thu, 18 Jun 2026 15:21:13 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waEYI-00000001U5V-3LFW
+	id 1waEnC-00000001Ukc-06zt;
+	Thu, 18 Jun 2026 15:36:34 +0000
+Received: from mx0b-0016f401.pphosted.com ([67.231.156.173])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1waEn7-00000001UjK-2YhV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Jun 2026 15:21:12 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CA7DC478C;
-	Thu, 18 Jun 2026 08:21:04 -0700 (PDT)
-Received: from localhost (a079125.arm.com [10.164.21.37])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B5DC13F62B;
-	Thu, 18 Jun 2026 08:21:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1781796069; bh=oGgwF8aK/7rYqvc78U7lWrqC/B0wHzxcghfeIw54Foc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=E0lxLHFB4fRWfL3eM0siPVQkV8HiRRr+RALT3wAz3iGwfhhyCFg0xsK44FSjpCGFH
-	 1bTE1155UVzFhxgBHyKbujkwPDOe9koHGtsqsZSdqKUBtb167a0AAgUZXv4dSpFlRJ
-	 KafG3gPjYY38BjD7yJ3Cm1vg6U/j3em48dheHsdI=
-Date: Thu, 18 Jun 2026 20:51:05 +0530
-From: Linu Cherian <linu.cherian@arm.com>
-To: Sayali Kulkarni <sk@gentwo.org>
-Cc: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, will@kernel.org, ryan.roberts@arm.com,
-	yang@os.amperecomputing.com, cl@gentwo.org,
-	sskulkarni@amperecomputing.com
-Subject: Re: [PATCH v2] arm64: tlbflush: Reset active_cpu on ASID rollover
-Message-ID: <ajQM4bkKfWdPowpM@a079125.arm.com>
-References: <airWIxSd_a5kR65-@arm.com>
- <20260612232254.2856649-1-sk@gentwo.org>
+	Thu, 18 Jun 2026 15:36:33 +0000
+Received: from pps.filterd (m0431383.ppops.net [127.0.0.1])
+	by mx0b-0016f401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65IFHeqK4091336;
+	Thu, 18 Jun 2026 08:36:24 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pfpt0220; bh=bOaklr0Z8A7gtp1ktpsq7SgsT
+	np+Akvr7bZ3S4KWi2o=; b=NTQVyNNimkGEot8AfF2+FdRHV3+i2UVz+F7solWCn
+	1wInN7mDNRwLLJ78IXvCWaaLjM+IuXo3dvFGefcksAOd82AI7KI0KIVUPuaAKa9B
+	2kqjx1HqcJ7B/n8lp2WhKrjdr2fHNZ/5rkykdd7Lh8OBdZFW1jeSYb6T4XKYvOKI
+	syc6rKSr2tv+l50UrTSmr32i++7UabCAf085JonqYfGnMPFZQZvnpOHcZ9dwKHSW
+	hgCfQopDOOWRZ4who16WPWqVSp0b9IUVJIv00k/E2Zc2FjJuoanKUjBdzYtj33Ms
+	Ra1gyEALHfw+0eHLbsgyOkymm0V4kpPW4iT1V3JVPHE9A==
+Received: from dc6wp-exch02.marvell.com ([4.21.29.225])
+	by mx0b-0016f401.pphosted.com (PPS) with ESMTPS id 4ev59a2ep7-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 18 Jun 2026 08:36:24 -0700 (PDT)
+Received: from DC6WP-EXCH02.marvell.com (10.76.176.209) by
+ DC6WP-EXCH02.marvell.com (10.76.176.209) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.25; Thu, 18 Jun 2026 08:36:23 -0700
+Received: from maili.marvell.com (10.69.176.80) by DC6WP-EXCH02.marvell.com
+ (10.76.176.209) with Microsoft SMTP Server id 15.2.1544.25 via Frontend
+ Transport; Thu, 18 Jun 2026 08:36:23 -0700
+Received: from hyd1soter3.marvell.com (unknown [10.29.37.12])
+	by maili.marvell.com (Postfix) with ESMTP id CA5223F7041;
+	Thu, 18 Jun 2026 08:36:20 -0700 (PDT)
+From: Geetha sowjanya <gakula@marvell.com>
+To: <linux-perf-users@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>
+CC: <mark.rutland@arm.com>, <will@kernel.org>, <krzk+dt@kernel.org>,
+        <gakula@marvell.com>
+Subject: [PATCH v4 3/3] dt-bindings: perf: marvell: add CN20K TAD PMU support
+Date: Thu, 18 Jun 2026 21:06:10 +0530
+Message-ID: <20260618153610.13649-4-gakula@marvell.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20260618153610.13649-1-gakula@marvell.com>
+References: <20260618153610.13649-1-gakula@marvell.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260612232254.2856649-1-sk@gentwo.org>
+Content-Type: text/plain
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNjE4MDE0NSBTYWx0ZWRfXy0+FY5Xp8ls7
+ Spgu++BcNoX2r3ABUsAyRTgsS48AUMK7s2l1qCfgK6UPpWjGxR9O1raJI9LVA3JpRf4qF+Ae4n8
+ QoxH84+C+Put1fSfRrXlZ6SBam+3zxk=
+X-Proofpoint-ORIG-GUID: p0nmuOTMN99THA7enoDcyx0DPNtofk-b
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjE4MDE0NSBTYWx0ZWRfXxMXaEGQYwsmx
+ sbBt73BiTwZ6doudkjFeOU3D+gXiAbLOMHnoDb5WvUbUIhcExh3jVDxFed8qZlriRMS9YuRx2fH
+ 5S3et1SS+X3awGlWWSFOvKyBt6JsW7WlYHJ5zNYeGjUXwTxipLHZNGzuJawhGTH5tODMTYJKhnT
+ e4K2d8W6JEcD//LL2mehDoW7K+WIYw1Jm2ZvuyiYJncgMt7g/uSNMX4iRv+YvHijGp7cJYOu9D9
+ AjIMYJDhgWG6ODHQoVKCPYf9N+hGq6cEvs/A4SgGrGpgRzICdTDJOG3PT44C7WICzz3goXc40ka
+ vl7t3iEVyjPjb9kBtbMBC7iiwxcA99BT4sHfrTteR5GO0ZwUf2RnvHDFl7lawVza7xHznQ8oR/w
+ i7K6QKA1jYMRX5K65fEJSSCIwoFDBzthDjStgiEEL5bUBAmQbz+gGWON3XjIKa27xKKhjnm3XFH
+ rsKOa9Os3abUkJL5XhA==
+X-Proofpoint-GUID: p0nmuOTMN99THA7enoDcyx0DPNtofk-b
+X-Authority-Analysis: v=2.4 cv=GMQ41ONK c=1 sm=1 tr=0 ts=6a341078 cx=c_pps
+ a=gIfcoYsirJbf48DBMSPrZA==:117 a=gIfcoYsirJbf48DBMSPrZA==:17
+ a=FelO9ux0wxsA:10 a=VkNPw1HP01LnGYTKEx00:22 a=l0iWHRpgs5sLHlkKQ1IR:22
+ a=qit2iCtTFQkLgVSMPQTB:22 a=gEfo2CItAAAA:8 a=M5GUcnROAAAA:8 a=EUspDBNiAAAA:8
+ a=AeVSjtvhjGoncaazplIA:9 a=sptkURWiP4Gy88Gu7hUp:22 a=OBjm3rFKGHvpk9ecZwUJ:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-06-18_02,2026-06-18_03,2025-10-01_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260618_082110_915756_8E79A1F0 
-X-CRM114-Status: GOOD (  26.14  )
+X-CRM114-CacheID: sfid-20260618_083629_757179_59095390 
+X-CRM114-Status: GOOD (  15.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,83 +104,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Marvell CN20K SoCs integrate a Performance Monitoring Unit (PMU)
+associated with the LLC Tag-and-Data (TAD) blocks. The PMU provides
+hardware counters to monitor cache traffic and performance events
+via a dedicated MMIO region.
 
-On Fri, Jun 12, 2026 at 04:21:06PM -0700, Sayali Kulkarni wrote:
-> From: Sayali Kulkarni <sskulkarni@amperecomputing.com>
-> 
-> Hi Catalin,  
-> 
-> Thank you for the review. I’ve addressed your feedback in v2:  
-> 
-> - Moved `WRITE_ONCE(mm->context.active_cpu, ACTIVE_CPU_NONE)` from `check_and_switch_context()` to `new_context()` after the `set_asid` label. At this point, a brand new ASID has been allocated that no CPU has ever used, so the reset is safe even for multi-threaded processes where other CPUs may still be running with the old ASID via `reserved_asids`.  
-> - Updated the commit message to correct the safety reasoning: `flush_context()` only sets `tlb_flush_pending`; it does not issue a global TLB flush.  
-> 
-> Thanks,  
-> Sayali
-> 
-> 
-> Once active_cpu flips to ACTIVE_CPU_MULTIPLE it never resets, even if
-> the process settles back to one CPU. Reset it to ACTIVE_CPU_NONE in
-> new_context() after a new ASID is allocated at the set_asid label.
-> 
-> At this point a brand new ASID has been assigned that no CPU has ever
-> used, so ACTIVE_CPU_NONE accurately reflects reality. Any other threads
-> of the same process continue running with the old ASID via
-> reserved_asids and are unaffected.
-> 
-> This gives processes a fresh chance at the local-only flush fast path
-> after each ASID generation rollover.
-> 
-> Signed-off-by: Sayali Kulkarni <sskulkarni@amperecomputing.com> (Ampere)
-> ---
->  arch/arm64/mm/context.c | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/arch/arm64/mm/context.c b/arch/arm64/mm/context.c
-> index f34ed78393e0..46c7fd07b9bf 100644
-> --- a/arch/arm64/mm/context.c
-> +++ b/arch/arm64/mm/context.c
-> @@ -209,6 +209,7 @@ static u64 new_context(struct mm_struct *mm)
->  set_asid:
->  	__set_bit(asid, asid_map);
->  	cur_idx = asid;
-> +	WRITE_ONCE(mm->context.active_cpu, ACTIVE_CPU_NONE);
+The CN20K LLC-TAD PMU is largely similar to CN10K, but differs in the
+layout of PFC/PRF register offsets relative to each TAD base. These
+offsets are derived from the compatible string in the driver and are
+not described through Devicetree properties.
 
-Can the above store race with the store to active_cpu in another thread,
-that updates it to ACTIVE_CPU_MULTIPLE ?
+Because of this, using "marvell,cn10k-tad-pmu" as a fallback for CN20K
+would result in incorrect register programming. Therefore, add a
+separate compatible string:
 
-Lets say we have two threads both initially running in CPU 0,
+  "marvell,cn20k-tad-pmu"
 
-Thread 1: Runs in CPU 0 
+Update the binding to document CN20K alongside CN10K.
 
-Encounters a rollover, updates mm->context.active_cpu to ACTIVE_CPU_NONE and
-updates mm->context.id to new asid.
+Signed-off-by: Geetha sowjanya <gakula@marvell.com>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+---
+ .../bindings/perf/marvell-cn10k-tad.yaml      | 25 +++++++++++++------
+ 1 file changed, 17 insertions(+), 8 deletions(-)
 
-Thread 2: Scheduled to run on CPU 1 for the first time
-
-Observes the updated mm->context.id that belongs to the current
-generation(after the rollover) and hence proceeds to switch_mm_fastpath
-and ends up updating the active_cpu to ACTIVE_CPU_MULTIPLE. 
-
-If Thread 1 and Thread 2 races, then active_cpu can get corrupted ?
-
-The reason this could be possible is that, write to active_cpu and
-mm->context.id can get reordered and we need to enforce ordering for
-correctness ? 
-
-Do you see this as a valid scenario ?
-
---
-Thanks,
-Linu Cherian.
-
-
-
-
-
-
-
-
+diff --git a/Documentation/devicetree/bindings/perf/marvell-cn10k-tad.yaml b/Documentation/devicetree/bindings/perf/marvell-cn10k-tad.yaml
+index 362142252667..d11121a1e2c9 100644
+--- a/Documentation/devicetree/bindings/perf/marvell-cn10k-tad.yaml
++++ b/Documentation/devicetree/bindings/perf/marvell-cn10k-tad.yaml
+@@ -4,23 +4,32 @@
+ $id: http://devicetree.org/schemas/perf/marvell-cn10k-tad.yaml#
+ $schema: http://devicetree.org/meta-schemas/core.yaml#
+ 
+-title: Marvell CN10K LLC-TAD performance monitor
++title: Marvell CN10K / CN20K LLC-TAD performance monitor
+ 
+ maintainers:
+   - Bhaskara Budiredla <bbudiredla@marvell.com>
++  - Geetha sowjanya <gakula@marvell.com>
+ 
+ description: |
+-  The Tag-and-Data units (TADs) maintain coherence and contain CN10K
+-  shared on-chip last level cache (LLC). The tad pmu measures the
+-  performance of last-level cache. Each tad pmu supports up to eight
+-  counters.
++  The Tag-and-Data units (TADs) maintain coherence and contain the
++  shared on-chip last level cache (LLC) on Marvell CN10K and CN20K SoCs.
++  The TAD PMU measures last-level cache performance. Each TAD PMU
++  supports up to eight counters.
+ 
+-  The DT setup comprises of number of tad blocks, the sizes of pmu
+-  regions, tad blocks and overall base address of the HW.
++  The DT setup describes the number of TAD blocks, the sizes of PMU
++  regions and TAD pages, and the overall MMIO base of the hardware.
++
++  marvell,cn20k-tad-pmu is not a compatible fallback for
++  marvell,cn10k-tad-pmu (and vice versa): the driver selects different
++  PFC/PRF MMIO offsets from the compatible string, and those offsets are
++  not described by separate DT properties today.
+ 
+ properties:
+   compatible:
+-    const: marvell,cn10k-tad-pmu
++    items:
++      - enum:
++          - marvell,cn10k-tad-pmu
++          - marvell,cn20k-tad-pmu
+ 
+   reg:
+     maxItems: 1
+-- 
+2.25.1
 
 
