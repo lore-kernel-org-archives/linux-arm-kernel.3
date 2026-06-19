@@ -4,65 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16A9ACD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 13:06:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01337CD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 13:07:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B0QjJ0r3T1RYk1i9XytkOvWkCThvCLDC0VRduOm6DpQ=; b=Djzz+/ZGnSLbUhVBYJFbzSfjeO
-	Xs+3Z6zNBX6G2EEuzxWKEVloJsjU++ZaWSJkJo/BCvCwGD6DrgZxRa7fp23pnN8O2KzdCQ5nJIjYj
-	4dxrBOeHQMsXUZXUG70E3g7NH7l6WVXqaO2DLcDZSfVDB2mSiiNx0yWNNJVLi8MLTB1VAKFZTjRHF
-	WCFxMr/pEaz5GThCgjhQ4qUyrncRsCfJ2nSDPj3HSkVKXiP3eLNUJaDemDFI5myOA61FM2fsoMQ4B
-	q8dDt/JpQ8COl1DFX/d+UnKogYCDTc23XR2jJHXekNb6gxtKFhhWNOJOs7ZjIbS3wzbXuNEwnNQyE
-	/MmnPpbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gSHYTCxNGQXoIfDiS1eh7juHdjxY5jSddRLoKCl8XoQ=; b=DC/SzdOBgO5sQJFVES38BvN+Hv
+	4Zxx0CT6zEDdQLfa1LOx7U3E9kNzPz5VgLonSwzTKRkI73eILVMH9hampj533F4ATu4wiRTYnB2WL
+	hZiVLrsRPH0q3S0bSrohWDyy/iHQLuRPur70DtP7t9UF++KHMiVXepe1p37YMdLTbVWtg+xzRNWXY
+	aorpFT5kFdo6F2flWGdzHcmn2pjTNJTcv/HCw2fe9JQCZsg83I3ce5iG59sJo6RSFwWSqR9YRq2f3
+	c8li9n1wYSI2NRwEcgWUM3QYUjbGxejLZmTtKPNQKgbx2K3ZM7/3kSPAYf5qQjrwKMyvgqLIai8il
+	LpSOFCVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waYvX-00000002S0k-32p1;
-	Fri, 19 Jun 2026 13:06:31 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1waYJa-00000002Ohu-0CoJ;
+	Fri, 19 Jun 2026 12:27:18 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waYvV-00000002S0a-2KrS;
-	Fri, 19 Jun 2026 13:06:29 +0000
+	id 1waYJV-00000002Od1-1WMc;
+	Fri, 19 Jun 2026 12:27:13 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D26DD601E1;
-	Fri, 19 Jun 2026 13:06:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86E2F1F000E9;
-	Fri, 19 Jun 2026 13:06:28 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C81C8601F4;
+	Fri, 19 Jun 2026 12:27:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C9071F00A3A;
+	Fri, 19 Jun 2026 12:27:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781874388;
-	bh=B0QjJ0r3T1RYk1i9XytkOvWkCThvCLDC0VRduOm6DpQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=c8lS+RKpnAd1keGtLeakexrPve2/AQukDtnReKQWodsuTXoqc3RmD3YqH6q0lM1zn
-	 NVAaXx10iVv8pWPUkPoTxE4SH4JOvXxa8uwp5XMP4fOVkaXNfTZSM2bpG6/D4i0WTA
-	 heDp4lq5naMqkEao5PRUbl9xn9RHjZfgCj8uEMmUbOC44Djo7Q+IMfWi2jWfMFRMll
-	 kN7/Ur3tv+Slwilh/PhJeiQ+xebFleAod0+7JHdnWxDdxR1/QUVt3mx1WEXUO3D4iq
-	 BAUwTQmaOeVPvaTV2lXGR8JyLy7GiyX16HT2imNFvxb9qtjav04G/GCHaUpuJewbS2
-	 OG+jWtzJDxOOQ==
-Received: from mchehab by mail.kernel.org with local (Exim 4.99.4)
-	(envelope-from <mchehab+huawei@kernel.org>)
-	id 1waYvS-00000000uOT-18em;
-	Fri, 19 Jun 2026 15:06:26 +0200
-Date: Fri, 19 Jun 2026 15:06:26 +0200
-From: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
-To: Detlev Casanova <detlev.casanova@collabora.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, 
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>, Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
-	Heiko Stuebner <heiko@sntech.de>, linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, kernel@collabora.com, linux-arm-kernel@lists.infradead.org, 
-	Christopher Healy <healych@amazon.com>
-Subject: Re: [PATCH v2 2/5] docs: media: add documentation for media client
- usage stats
-Message-ID: <ajU9qkexEUtNqOng@foz.lan>
-References: <20260617-v4l2-add-fdinfo-v2-0-d298e98ce06a@collabora.com>
- <20260617-v4l2-add-fdinfo-v2-2-d298e98ce06a@collabora.com>
+	s=k20260515; t=1781872032;
+	bh=gSHYTCxNGQXoIfDiS1eh7juHdjxY5jSddRLoKCl8XoQ=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=f1b6jLmzdW8XCCYdLvK2dZ271w+4z9fu9mNa61fRe79Jw5dxsQwS5/zPHam6mIyb1
+	 OmBWv8rBctj5GBJeD253qkThlsstHJQVRxCbL+qdFC0JXAynJO9kW8cavoI3YsDMVo
+	 8QkQsKTP8VDHlbusSgZA71BPJL3l0atfr9n8HNBZwrQaydw4LohMwvUy5pwTBNuc5a
+	 5YlCxmp/9Bpf/7Nm1u/bs3/HmpkZTVeYWNSw6RMq7Zq3RuwpgTHO/3TRahSZQLPG10
+	 //2K4xqzy3XLviFQHzjXcx+om4nW6dKVZrA8LA2N4N7ftP3gS4Tp6jrd1I7WlhMyrj
+	 u2cC1r0YgVS2g==
+From: Maxime Ripard <mripard@kernel.org>
+Date: Fri, 19 Jun 2026 14:24:59 +0200
+Subject: [PATCH v3 54/78] drm/meson: encoder_cvbs: Switch to
+ atomic_create_state
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260617-v4l2-add-fdinfo-v2-2-d298e98ce06a@collabora.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260619-drm-no-more-bridge-reset-v3-54-ff399263111b@kernel.org>
+References: <20260619-drm-no-more-bridge-reset-v3-0-ff399263111b@kernel.org>
+In-Reply-To: <20260619-drm-no-more-bridge-reset-v3-0-ff399263111b@kernel.org>
+To: Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>
+Cc: Dmitry Baryshkov <lumag@kernel.org>, dri-devel@lists.freedesktop.org, 
+ Maxime Ripard <mripard@kernel.org>, Kevin Hilman <khilman@baylibre.com>, 
+ Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1623; i=mripard@kernel.org;
+ h=from:subject:message-id; bh=DCoZa+Vvybc1lvdBT65sYK+38dJUcwAPmYuROujwyq0=;
+ b=owGbwMvMwCmsHn9OcpHtvjLG02pJDFmmpozqJvMmHBdWmRhyZ173/WW1q2cYSu8ucDixK/ChV
+ tUsWaHyjqksDMKcDLJiiixPZMJOL29fXOVgv/IHzBxWJpAhDFycAjCRn5WM9QFBvw691L3C815P
+ bH5T0ST5VdudS0zTmVlEltZYqLx+sNOsw2g27/YrqyU89y5esWpyG2M1y/ZrK2+ZOc4x3hHfm+O
+ 86HpyhoJe/YlDPXzqvPM+akg9+22j8MRiwtRLp6IfLg1v3K0FAA==
+X-Developer-Key: i=mripard@kernel.org; a=openpgp;
+ fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,147 +87,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 17, 2026 at 02:10:57PM -0400, Detlev Casanova wrote:
-> From: Christopher Healy <healych@amazon.com>
-> 
-> Document the media fdinfo interface for per-file-descriptor usage
-> statistics exposed by stateless V4L2 codec drivers via
-> /proc/<pid>/fdinfo/<fd>.
-> 
-> This interface is designed for stateless (request API based) codec
-> devices where the kernel driver has per-job visibility into hardware
-> execution. Stateful codecs cannot support all of this because their
-> firmware manages job scheduling opaquely.
-> 
-> The specification defines media- prefixed keys for engine utilization
-> time, and operating frequency, following the same conventions as the DRM
-> fdinfo mechanism documented in drm-usage-stats.rst.
-> 
-> More fields can be added later.
-> 
-> Signed-off-by: Christopher Healy <healych@amazon.com>
-> Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
-> ---
->  .../userspace-api/media/drivers/index.rst          |  1 +
->  .../media/drivers/media-usage-stats.rst            | 85 ++++++++++++++++++++++
+The drm_bridge_funcs.atomic_reset callback and its
+drm_atomic_helper_bridge_reset() helper are deprecated.
 
-Please notice that sysfs/procfs APIs are usually documented at
-Documentation/ABI/, using a machine-readable format[1]. Still, we do want
-it also at media uAPI. So, please add it there as well on your next spin.
+Switch to the atomic_create_state callback and its
+drm_atomic_helper_bridge_create_state() counterpart.
 
-[1] As those are new, Documentation/ABI/testing/ is probably the best place.
+Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
+Signed-off-by: Maxime Ripard <mripard@kernel.org>
+---
+To: Neil Armstrong <neil.armstrong@linaro.org>
+To: Kevin Hilman <khilman@baylibre.com>
+Cc: Jerome Brunet <jbrunet@baylibre.com>
+Cc: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: dri-devel@lists.freedesktop.org
+Cc: linux-amlogic@lists.infradead.org
+Cc: linux-arm-kernel@lists.infradead.org
+---
+ drivers/gpu/drm/meson/meson_encoder_cvbs.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
->  2 files changed, 86 insertions(+)
-> 
-> diff --git a/Documentation/userspace-api/media/drivers/index.rst b/Documentation/userspace-api/media/drivers/index.rst
-> index 02967c9b18d6..61879738836c 100644
-> --- a/Documentation/userspace-api/media/drivers/index.rst
-> +++ b/Documentation/userspace-api/media/drivers/index.rst
-> @@ -34,6 +34,7 @@ For more details see the file COPYING in the source distribution of Linux.
->  	imx-uapi
->  	mali-c55
->  	max2175
-> +	media-usage-stats
->  	npcm-video
->  	omap3isp-uapi
->  	thp7312
-> diff --git a/Documentation/userspace-api/media/drivers/media-usage-stats.rst b/Documentation/userspace-api/media/drivers/media-usage-stats.rst
-> new file mode 100644
-> index 000000000000..d3dc07002f62
-> --- /dev/null
-> +++ b/Documentation/userspace-api/media/drivers/media-usage-stats.rst
-> @@ -0,0 +1,85 @@
-> +.. SPDX-License-Identifier: GPL-2.0
-> +
-> +.. _media-usage-stats:
-> +
-> +==========================
-> +Media client usage stats
-> +==========================
-> +
-> +Stateless V4L2 codec drivers can optionally expose per-file-descriptor usage
-> +statistics via ``/proc/<pid>/fdinfo/<fd>``. This is analogous to the DRM fdinfo
-> +mechanism documented in :ref:`drm-client-usage-stats`, but uses the ``media-``
-> +key prefix for V4L2 media devices.
-> +
-> +This interface is specific to stateless (request API based) codec devices,
-> +including both decoders and encoders. With stateless codecs, the kernel driver
-> +explicitly submits each frame to the hardware and receives a completion
-> +interrupt, providing a clean per-job boundary that can be attributed to the
-> +submitting file descriptor.
-> +
-> +Stateful codec devices cannot support this interface because their firmware
-> +manages job scheduling internally. The kernel driver submits bitstream data
-> +but has no visibility into per-frame hardware execution timing.
-> +
-> +Implementation
-> +==============
-> +
-> +The V4L2 core provides the plumbing: drivers implement the ``show_fdinfo``
-> +callback in ``struct v4l2_file_operations``, and the core wires it into the
-> +kernel ``struct file_operations`` so that ``/proc/<pid>/fdinfo/<fd>`` output
-> +includes the driver-provided keys.
-> +
-> +File format specification
-> +=========================
-> +
-> +- File shall contain one key value pair per one line of text.
-> +- Colon character (``:``) must be used to delimit keys and values.
-> +- All standardised keys shall be prefixed with ``media-``.
-> +- Driver-specific keys shall be prefixed with ``driver_name-``.
-> +
-> +Mandatory keys
-> +--------------
-> +
-> +- media-driver: <valstr>
-> +
-> +  String shall contain the name of the media driver.
-> +
-> +- media-type: <valstr>
-> +
-> +  String shall identify the type of media engine exposed through this file
-> +  descriptor. Standard values are ``decoder`` and ``encoder``.
-> +
-> +Utilization keys
-> +----------------
-> +
-> +- media-engine-usage: <uint> ns
-> +
-> +  Time in nanoseconds that the hardware engine spent busy processing work
-> +  belonging to this file descriptor. The engine being measured is identified
-> +  by the ``media-type`` key.
-> +
-> +  Values are not required to be constantly monotonic if it makes the driver
-> +  implementation easier, but are required to catch up with the previously
-> +  reported larger value within a reasonable period.
-> +
-> +Frequency keys
-> +--------------
-> +
-> +- media-maxfreq: <uint> Hz
-> +
-> +  Maximum operating frequency of the main engine clock.
-> +
-> +- media-curfreq: <uint> Hz
-> +
-> +  Current operating frequency of the main engine clock.
-> +
-> +Example output
-> +==============
-> +
-> +::
-> +
-> +  media-driver:           hantro-vpu
-> +  media-type:             decoder
-> +  media-engine-usage:     123456789 ns
-> +  media-maxfreq:          600000000 Hz
-> +  media-curfreq:          600000000 Hz
-> 
-> -- 
-> 2.54.0
-> 
+diff --git a/drivers/gpu/drm/meson/meson_encoder_cvbs.c b/drivers/gpu/drm/meson/meson_encoder_cvbs.c
+index 8b26a0031cde..22cacb1660c4 100644
+--- a/drivers/gpu/drm/meson/meson_encoder_cvbs.c
++++ b/drivers/gpu/drm/meson/meson_encoder_cvbs.c
+@@ -213,11 +213,11 @@ static const struct drm_bridge_funcs meson_encoder_cvbs_bridge_funcs = {
+ 	.atomic_enable = meson_encoder_cvbs_atomic_enable,
+ 	.atomic_disable = meson_encoder_cvbs_atomic_disable,
+ 	.atomic_check = meson_encoder_cvbs_atomic_check,
+ 	.atomic_duplicate_state = drm_atomic_helper_bridge_duplicate_state,
+ 	.atomic_destroy_state = drm_atomic_helper_bridge_destroy_state,
+-	.atomic_reset = drm_atomic_helper_bridge_reset,
++	.atomic_create_state = drm_atomic_helper_bridge_create_state,
+ };
+ 
+ int meson_encoder_cvbs_probe(struct meson_drm *priv)
+ {
+ 	struct drm_device *drm = priv->drm;
 
 -- 
-Thanks,
-Mauro
+2.54.0
+
 
