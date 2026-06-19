@@ -4,106 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CA7FCD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 08:21:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62BD7CD98F8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 08:26:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QiRZKCM1EqNiRsnzfvDpC39UOIdXQjIxqxCEPl5e4OU=; b=uM8ioAHmOTBfW2ueHijwRPaZgA
-	8wNHbfa7A1rhKJ710xOb9DllONnYRmroxSi4mP1nqVkjokicBC1XxcsW8kmwkgFCuk8g5pFbBR+lb
-	lQnObAIMVV3qZx4hVz7tSI4ZsnvfS/uqfRLRqnD3mRiJBJJoi6siseS8KD2H64I+stcqxGU051cyt
-	Bwc3WrNMJWqMN3f7H2H2PZ5uPcYRpCdt/IzT1kDV2ym+kl3P7Tu3qAhC1u+hZA9fIL//Vb062pSQk
-	ZqXPL9g2nqyfadap1HOViAuKcf3CgGeb405Da9NGPDa5DgFZxTH+zJATSU8P9NqgrnL2XV/1bDME+
-	XxuqlXdA==;
+	bh=AnFgb3/2Jb5tiWkBtABr85eDZSOOJMNFSVQRYJYjzOo=; b=wu7ZJWNTF9h63WvUtH/VAwZnUZ
+	WNU/QUQQ/TZAXJ0qnm8s2+EPqLYLfCtEGJXAjI0OM7MHd8UMnaPsCpcdXyJLLjC7meLsFLHbASMck
+	avtrIfb/ZVLhd+jwzJf8ofuhCo3U9eM3KxnQXXkbAAd5fq1Gg/oFsN03O8+PAjQs6UWz2mlO7wv3C
+	w3DUzFSKtIoay6IfJ+wWObl6/flYBKMaSNhj+G3HqLD/DiYe0x7TMAwqMSHaQTsZuonGUJ+wLZ3mB
+	zklJY9HYO5RYPNjqj98t16j1UB3hKHfaXp4tWobTFU4nDsc24c4ZUQ6kwwgNucoCq0wTgVHcKR8Jz
+	wMRpoITQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waUT5-000000029nB-3hbJ;
-	Fri, 19 Jun 2026 08:20:51 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1waUYY-00000002A5t-24Ez;
+	Fri, 19 Jun 2026 08:26:30 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waUT3-000000029mB-3M2X
+	id 1waUYU-00000002A5B-2nCH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Jun 2026 08:20:50 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-842338c18e0so1306130b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 01:20:49 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1781857249; cv=none;
+	Fri, 19 Jun 2026 08:26:29 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-37ce68a54f8so1176651a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 01:26:26 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1781857586; cv=none;
         d=google.com; s=arc-20240605;
-        b=IHoDINMBWEZOuYTk6+cdHm7C0PhtBUv6sNmUolzOa/q/hvecAro4mBVxThy13Ntsa8
-         IurH44YNyxVHNHXTY4EUTPWN2O7HRAWb7hXszgbu3CJ+DdcckZw6hTDZ/MPzNg7oVavP
-         /GxQQEY9AmLig3otXBpqx6DX+KAv6x8PsME+vTUW7a6Qh3BADUgv5JrSX9S6YsAA0Ahi
-         ibzVX25RC0mnu3tTF8Ladw/EKdAKY9/EaP98HnJDeLebtTaGczF5AEpLvmXS9Xw8BaUd
-         l0H/dgiFrdYuySVV0TE5VkCe4IztkOgGNqmiEObXWSMcpRyL5g1gGDucM4NRNnLAMcjj
-         VHyQ==
+        b=I39WHKfzt8C1yvFST+AkO83vRYVer6o/uy5221C5EIo5a19C9SQ1Nodzjr7n3GDNrm
+         v9CfQI6AyZmLf8eYb9Qia1+/+lQoNGIAoZblr7Jza2bEjPc8NKpXMtYxe2TnX1hk2psA
+         hBUWUI2LsNwOBNpR2e9hZEOsSYVp7lL4YqG+TduYc/h1tYFfaUnW0PU70QjA+8KXQAxL
+         CcjcMZjvSM6mgk905Sx2DEsLrlSI6sqZeN5QziB/qUgmOgM9ofzeHwEBOrC4SL2ZSG37
+         3OW74pRfE39YLb0YRrjSEHYSwWugPKa5pem1RllK/88XuIN+LC/per6zkWTR8OALqcKG
+         xqog==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=QiRZKCM1EqNiRsnzfvDpC39UOIdXQjIxqxCEPl5e4OU=;
-        fh=BkAj++S+KlV+VIVsC+P0gulfOUdifw7cfS5fyxA9LJo=;
-        b=ZaOOLeUxmKRolgMiYwTwcNcE+T75KixDFgRcMkHnEYE+Drck/LymPtddiKX4giep1s
-         kU/mWgReDzdYgFTIWEAuPC3xgKgE2auipZnetFBcmp+NdJTtk6aIfvVaVOAup32n/gcQ
-         q+Xw8HJCzeD7RbpKk2HOreetuO/MLGHX6eK6xsw+EFA8PlU1sAh/9SWxUHmwtaOxVI+s
-         Q62Vi1nlpVSeGJ2SXDl6pyV9j+pl9RV1pMk+ClymH/kj4lirH+LFPl/Q+iAOxcpIv/JZ
-         9/egHITPo2UHz0BnbQUnEBz1OY26ZzmiWSPtfr4U8NuM/o3Emg5PJ+lkzTQptrhOHBkp
-         pXGg==;
+        bh=AnFgb3/2Jb5tiWkBtABr85eDZSOOJMNFSVQRYJYjzOo=;
+        fh=LlN438IrnDxM0Eew6DgUE/xtN3GrkOwvoKI8tMckL2M=;
+        b=Sjk8U52h+EOASW78ccrpgggYrPkKegriscKeOrwD2se5AW9jEuiA9mQ9StI5PuSGPM
+         C2NRsYvKAKgzATavD+DLjXCPxq1d3iOugJjyD1soSqJ8vJ6G89mVpzYcDpuJQNjEPS0J
+         MXgsYaSP1tf4rSfQ76RzZSTvdy3d4K+KWxU1gyYPsnEmiGXP6KV2m+myQoRbzKp0dWbj
+         bkzmJ+gm2YpVnLCyKrCvTFDf0BqqJpYyE04YOivLCZqP1Vxzp4ObZh7TNR24nCK2SSfF
+         OA3fQBj75nkYt6ZvyAv9aAK1cjNppldTVqHmA5/BV5uDwaVkSqydcipcWol+UWg7EeMh
+         eG0w==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781857249; x=1782462049; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1781857586; x=1782462386; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=QiRZKCM1EqNiRsnzfvDpC39UOIdXQjIxqxCEPl5e4OU=;
-        b=bgmsX+6L6BaN3tbpdj6QFj/RONp5URMdTG9qMLYm8ayFT+3/xcjDQVJAtEnuCmKIQV
-         7sginPFn70T4WYORw+VcdPBDw7oT4XpYFJxbWU7Sz3I+cneub99naNd/hBLjKjWRJpnm
-         7r3katNMCDwBytLI3UGSr061rNqbftVIN3LkHqJ7wMgEPviEcFBcyG9rRY0eHJOqfILz
-         i9DYubwALuiSrrrnKNPtiAp0qs6uTKI3olsWUMO6KCrPC0thPHcxhJ4zM95E0+x3j7qn
-         MdOzXWERmizH+xN/eG0vpdMI8RRGWfYC1T1SPpx4kmfKb37dtKMD0QFU4rpUCAAgwKBz
-         Dmlw==
+        bh=AnFgb3/2Jb5tiWkBtABr85eDZSOOJMNFSVQRYJYjzOo=;
+        b=QE1ceRddATFlndeHoeSBODOL6K80L9Dd0FvFLawIXLrDBu9yWOqHPpWg64w0i8Y48W
+         OPzNHJ9h2SoqbMY2qOmwsxz4wd+JKufzqVf7O+Y5L/JOH7mAdjxAb1BO2FNahan+UX3U
+         bx26SHIAIAyLUdJHhVWN/625qdl5LZ4xOILzGxkfHpRPG/k8YiyKOYXQZJwxwJI7eOqR
+         EYvVQ1I+2NlICLa2SWT5opZrucCHMZH7dEMZxF1l5FhDWWiOTz+7g371vtNQ8RwcNn8r
+         +ARm97hZdZohrucdJKgInjzDuVHmntxE7bqTf9o4ps+Qj8fRMy9fO8rV7X84b5Z24JOf
+         wVDQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781857249; x=1782462049;
+        d=1e100.net; s=20251104; t=1781857586; x=1782462386;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=QiRZKCM1EqNiRsnzfvDpC39UOIdXQjIxqxCEPl5e4OU=;
-        b=iyK906BZc686wUOeaFbKLdRjvg1eqRzbx2XZ/MNGRVKHeNFR8eVVxpzitABGULDUi6
-         NQHzO1ie3aDPK9Ugt1oZdCffvXrgBtMIQA8IfIZBmqZTfHNnAxLBesig40StgIWpPHsN
-         dmgQe3NVTd3m6az+//0qlxUUxIBuKNoHFzuJ2P13pXyj6X1hhOvgMdYATYnBMoDusOGy
-         0dDRINjaVa/7Qnyu+yoefuWmpfxWemYCFP+w6eNCAAf8EuT8HJ2G94f6F7nE1gYnI8Go
-         C+ByO9joBhfX3AlPU4+FO914wkLFCSzjo7HjeItx5tlBOjeF/XYGLThTyqtRuVp9Kr0m
-         pcXw==
-X-Forwarded-Encrypted: i=1; AFNElJ8srEEx0MPgPnFYEGpOClPoWvoMnh71ZQC+WbeXuYmU8961n0bje95+3qdSQ+9X8Tj4t7O6xXVf0mi6eZR7vdVB@lists.infradead.org
-X-Gm-Message-State: AOJu0YzQsu0H8cdZv7VAfK2pL7dd6UdWBjZH15EC81VrnNzh3tczOMeH
-	QZEhCaMi+Ap7pzsMyeADpDaxTv00zDZj7Y0iFdNf6qIIQRF1CJHqNCjvAqAFoOIyPjMFXoaKSwT
-	/OXINGUk4wEV3IQSGn+rnEKqV9MS+K9k=
-X-Gm-Gg: AfdE7ckUI67Azu9w9m2GjJfWdmQ572C7jAjClWkOHHDHc9RWJrbi+il147JlchaeFjj
-	RkPuBoFR+Cvp6hN3xfWJa5TSE+Duig+YuAEZm8aZourVKvGLHacYbhD2CLSrQgw1nb6AXnJyiuZ
-	0+eHJTEpbc4Axy7QeL54VxLmGv6jVMUaCALs4G+5cqeSIvwypWR0O7WJxEujOtw1gJthf+/j7qy
-	fbsYwITUuXnsv8exIHToUKftNp9B76H+5X1eJHG+EpoRvrhsAnCi6KMycRYNgb9hBkPreclLD16
-	rRwaXhkXNGz/uL/1AgiOpg7mPh1RyaVHS8is+g==
-X-Received: by 2002:a05:6a00:3cc7:b0:842:6a97:52fb with SMTP id
- d2e1a72fcca58-845507cb50emr2639722b3a.18.1781857248942; Fri, 19 Jun 2026
- 01:20:48 -0700 (PDT)
+        bh=AnFgb3/2Jb5tiWkBtABr85eDZSOOJMNFSVQRYJYjzOo=;
+        b=WY/OmFxPXIVRzKH8lGcEbyxV5cgPUA574YHRRfXJoOdaOmY94TXJ73jUH0fk4XWvoy
+         w4VbE4kQIvYioXX91ygMUFsruIejkkmH58+Rb3g+wW1bdj+uZuXsh/xVPDqvFMVGqdHn
+         n8R5tPouGPMrQf0DZYV2shOrGEBgw4gFWRZcoGjQ3Z/v0ieDpss3IOexVpfFszhcKj7k
+         3HEY6Y6KYj8BVd7VYrjd49t9p0v9lgfw6P0yGrJF8otILuHGoljqWC2Sn2jVDS012CbL
+         /ZyWHrZsfKwJMEVfdeK3aOCFylDQ9dSl691qOsNKrgPp169kc5RbFeCnhr7sT7PwPgX+
+         WHxw==
+X-Forwarded-Encrypted: i=1; AFNElJ+BtEHCSZ7fX8DFfBaH8c/7c6EyrpKKgLKdf2uyxaM2sOTjxTji0JChOleO+0EPVrHx66+3FKzJTP+Z8k2nwpnG@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx83EfgE/R5enORRc0ZywSk44sIFMzgUbbXTPGdXT9/3JIEzmho
+	loqSrFyHIAhp7vVyy5kHSPK+2250B6DxMgik8qvi+tT6c2kl2yRgvzK4x5MFYj2u2ZxAOvaLCWj
+	6nxR5gOZT4fP11YPclb57INhh3NZ9hO4=
+X-Gm-Gg: AfdE7cly55ML4QPKzUT8VEJtiKQWp4ib5ipnxy9faHlYYMmir4JtXLs94AZ+NujFRhr
+	d9Pp8PoPdySUe8t1cDg1hIADwgEUErDk9bP3Lbd/7x4S61F8obeAq05btzWPs+wdbLDaNuUPrYT
+	w2aWw5KNc21IlqnzbMi9IusZtB2uvO1bLjylykDvaA1qyHTWM/ZDyxdH+MxNErMnkPiZ+05BUJO
+	Aj8rIQ81gGNStOHXjbYSALAU8UAMCvSOxj+E5CXQt+WDZYOJRW+AEW43SHdLH36ODmXcKwgpWfR
+	CluriFZ1XNkyu2wkkZWxmi8EXlM=
+X-Received: by 2002:a17:90b:35c4:b0:36d:cc9b:2f67 with SMTP id
+ 98e67ed59e1d1-37d1e8d2625mr1979109a91.19.1781857585816; Fri, 19 Jun 2026
+ 01:26:25 -0700 (PDT)
 MIME-Version: 1.0
 References: <20260617103235.449609-1-phucduc.bui@gmail.com>
- <20260617103235.449609-16-phucduc.bui@gmail.com> <ajJ9rbHTspXHo6Ou@opensource.cirrus.com>
- <20260617140209.3f89706c@pumpkin>
-In-Reply-To: <20260617140209.3f89706c@pumpkin>
+ <20260617103235.449609-12-phucduc.bui@gmail.com> <ajNud7QkwF369lBY@google.com>
+In-Reply-To: <ajNud7QkwF369lBY@google.com>
 From: Bui Duc Phuc <phucduc.bui@gmail.com>
-Date: Fri, 19 Jun 2026 15:20:37 +0700
-X-Gm-Features: AVVi8Ce6D0PT5nT0JZlv3l3sVJ8JLAPJbKAWX5-seLq2FMr-NiEk00n-taoSGeE
-Message-ID: <CAABR9nG+6gOj4KnWmTyykgGN93xy6jKQh+-_f8Xxn=Jkv28vBA@mail.gmail.com>
-Subject: Re: [PATCH 15/78] ASoC: codecs: cs42l43: Use guard() for mutex locks
-To: David Laight <david.laight.linux@gmail.com>
-Cc: Charles Keepax <ckeepax@opensource.cirrus.com>, Mark Brown <broonie@kernel.org>, 
-	Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Cheng-Yi Chiang <cychiang@chromium.org>, Tzung-Bi Shih <tzungbi@kernel.org>, 
+Date: Fri, 19 Jun 2026 15:26:14 +0700
+X-Gm-Features: AVVi8CddXW5ZNLmY1o-M3ykiX-yfQTjv2vw19gnq_6wH9bwOdl1r4oKcoEQ6Mfw
+Message-ID: <CAABR9nGVAiUpnmnoszLiNDC9ooXx8e9YFmMhv5aWLfaik8tjHg@mail.gmail.com>
+Subject: Re: [PATCH 11/78] ASoC: codecs: cros_ec_codec: Use guard() for mutex locks
+To: Tzung-Bi Shih <tzungbi@kernel.org>
+Cc: Mark Brown <broonie@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, 
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Cheng-Yi Chiang <cychiang@chromium.org>, 
 	Guenter Roeck <groeck@chromium.org>, Benson Leung <bleung@chromium.org>, 
 	David Rhodes <david.rhodes@cirrus.com>, Richard Fitzgerald <rf@opensource.cirrus.com>, 
-	povik+lin@cutebit.org, Support Opensource <support.opensource@diasemi.com>, 
-	Nick Li <nick.li@foursemi.com>, Herve Codina <herve.codina@bootlin.com>, 
-	Srinivas Kandagatla <srini@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	povik+lin@cutebit.org, Charles Keepax <ckeepax@opensource.cirrus.com>, 
+	Support Opensource <support.opensource@diasemi.com>, Nick Li <nick.li@foursemi.com>, 
+	Herve Codina <herve.codina@bootlin.com>, Srinivas Kandagatla <srini@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
 	Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>, Baojun Xu <baojun.xu@ti.com>, 
 	Sen Wang <sen@ti.com>, Oder Chiou <oder_chiou@realtek.com>, 
@@ -115,8 +114,9 @@ Cc: Charles Keepax <ckeepax@opensource.cirrus.com>, Mark Brown <broonie@kernel.o
 	linux-mediatek@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260619_012049_838278_3F31E024 
-X-CRM114-Status: GOOD (  17.54  )
+X-CRM114-CacheID: sfid-20260619_012627_836926_8D719F8D 
+X-CRM114-Status: UNSURE (   7.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,32 +131,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Charles, David,
+Hi Tzung-Bi,
 
-Thanks for the review.
+> Reviewed-by: Tzung-Bi Shih <tzungbi@kernel.org>
 
-> >
-> > I believe you have to use scoped_guard here, as there is a return
-> > from the function above, if memory serves it attempts to release
-> > the mutex on that path despite it being above the guard.
->
-> Indeed.
-> I believe clang will complain.
-> That makes these mechanical conversions of existing code dangerous churn.
->
-> While using guard() (etc) can make it easier to ensure the lock is released
-> when functions have multiple error exits, I'm not convinced it makes the
-> code any easier to read (other people may disagree).
->
 
-I built the code with both GCC and Clang and didn't see any warnings.
-
-My understanding was that the early return exits the function before
-the guard is instantiated, so it should not affect the guard's cleanup
-handling.
-
-Could you explain what issue you are referring to? I may be missing
-something.
+Thanks for reviewing the patch.
 
 Best regards,
 Phuc
