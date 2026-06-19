@@ -4,66 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EF97CD98F6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 07:07:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51355CD98E6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 07:07:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=PGcRBYs3Z9Uumpf23hDhMQDIQ6d9ZOsDwaNEYfVocws=; b=LbZpV++weT7fYtqg8k7B1tI92x
-	Q6rBMKs66joR7GnAHx2+o7leo3WEjtmhajXw42kLlV/wZDM//Y7McVlKo4oxzItAA8kn9v0um4N11
-	AYSXPvV5mBoaf2EUwuDBAA270SyLBpLZZ3UXq6kPyj9R2HRNNpze/t8orTJVYvD6fCdPlE+CdFDLi
-	6Hy8ysBEeYqKYNueBRdfZHkfrIvVG47wukczKkgXDthsDGvciIZ9+/qwfl1kBhKv4+EK/12rK0B3v
-	jzXsLSRlGuDJDqxt+FQXMp1LiNN/1s5s/ZseNkCbCSDHjVoac/oaLLFtRB6MVuoHL91FylsekLKqJ
-	qPhb1ikQ==;
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UbL9lwJzeVbN1iJUU9ZRwmA6X1IAE6tmxjMtgc8Iqwc=; b=XmQ3gr2txanADvGt2lbn2N9ybx
+	dkTLwsEXQCzErZIjTV1ltA1mu1i+9JZD20dbjAAYUR6vvJb+94ElfJksA1OLBTRaLYI83MPve5Kql
+	muKtSmcXI+wXgpGzWMrmW7HrkHTsfLtZe11MN8wja9JIOQl1bhPc/jGXT96WyomBpXkaZHr5pgMML
+	1DytUuq0OLgKZhhqpKchr5rVt3zWmyQRfZH5acxSXf2aLRKShHbq5wAus6YNd4d5P2lASnIAgDoQP
+	0wZuZu8OFA/zFhWfFtD3RxSjlOhq2ClcBvQjT/zoVFTg1ScCiniRvFfhuoh/seBVEr+pHy2F7n87r
+	E1chq1nA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waTK0-000000025EK-2Fmk;
-	Fri, 19 Jun 2026 07:07:24 +0000
-Received: from mail-ed1-x549.google.com ([2a00:1450:4864:20::549])
+	id 1waTK5-000000025I4-309e;
+	Fri, 19 Jun 2026 07:07:29 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waTJy-000000025Dk-3m0F
+	id 1waTK0-000000025Dq-3LTc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Jun 2026 07:07:24 +0000
-Received: by mail-ed1-x549.google.com with SMTP id 4fb4d7f45d1cf-697560b83f4so374930a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 00:07:22 -0700 (PDT)
+	Fri, 19 Jun 2026 07:07:26 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-490a767c7dcso11812845e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 00:07:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781852841; x=1782457641; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=PGcRBYs3Z9Uumpf23hDhMQDIQ6d9ZOsDwaNEYfVocws=;
-        b=HsyWu9dreyeceAI2yI6G3NMXfbmKjNjcvBrUhc90j6Cz9TQo3VSkWheY269YioBgNH
-         gHSKGSR4MeShR5i/LEYVmpuc4VKRF8L0/dKkeYII907kbmV2GTIP7ocqw9V/oEJFH1+i
-         jilIE8OtG4CrpwF1VvLilf+Wjy5Y7AmOa5gkgfG6EGI3y0Vi8ON4NQB5MEfmIcrIDyDB
-         w27EsVMCbCNVayskwhV4nb3rcOlPqhG4Czpllb6AqTPgbAG+sHFn4ntCr7gTc0dIoojB
-         MjYaPZD11sWRrm0xe9JEWMrjYNDhTW+/p8iSsB0rzyGMMj27zxVwwR3kZiPuc3kwC91X
-         QT8w==
+        d=google.com; s=20251104; t=1781852842; x=1782457642; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=UbL9lwJzeVbN1iJUU9ZRwmA6X1IAE6tmxjMtgc8Iqwc=;
+        b=hkkwKfCkCnNQ+Oh6azPskqh+jzN1Hv0YwWBEYRBz67lXtO9zHy6fO1svmWjpgqt6C1
+         lPNragQZTwUNvv4yw/5k/1Nu5IvTCt2wBDCjd2fNk7Oztf9pw1dBc5hUFATnsB8/DxzH
+         6VXw7W+WVGXXN4sYvQU86KTFXVbx1PfafpEuch3lNLL70e8jPt0RmEEGhQjO1P8aGceW
+         XE1G72qIhmAnrDRymkC6FVbukmhGcU4Z1uuBNd6E86tjDn03P/34OXFVwndpXHsfzoFX
+         K/mEIexFi+Y+WHup6Kw9dyo7PnHuuuvtnXOeAm2V0S8eJp5AUN5sn4OSW6ITWi3ne7+9
+         IDBQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781852841; x=1782457641;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=PGcRBYs3Z9Uumpf23hDhMQDIQ6d9ZOsDwaNEYfVocws=;
-        b=qXgFoQlYO7O2EFNnW4ZEu8NvgVbqcgkkYJ9Frpb/SDq8hBn2ABrn+Z0LnE7dytRRV+
-         vtXRLP8Ik9Koi/5+nJvwWbel2VLDk9DsScJbxVn5MRBESSxWVQhR0gQIGCguDEMhwczh
-         0V95iAX6Fb6bl/q7O9JxUXd5d4s2E9o6eY4tockS0h1cCsY0ffcT1l+huzeVYBzpgqqF
-         Ea5sgIxswenK9gbx0BG1eJb3vbtJ1qsNDb0v7Sd/e/6YAHu8EScfeZS9AZv6ffRKI+Zv
-         xjID5C8sHtVFo6EpbnApwlGPtKf1AWEk77WyUiuBHDMe9XNH7Zr0V6C75XLzkpj1oq2O
-         nbmQ==
-X-Forwarded-Encrypted: i=1; AFNElJ//arPIUW8ot/DCbZo08CCAS7CipMEYZfawgRJvIc31oZYq2zBKIG8x2RYGYm/ywuQHfu1Rh8LxJ9nWeg/+g4Mm@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzjfxy+vQw/GFA2tg0YSn3q4iFjcod8mYUlrxnd3dLMK/hVmiwe
-	jHYq15aNodHG6MFLtPdHMyBBViv6WTG1RbgcDP3OkRQAr29H9LEjoUxlB99AJ4wq2POjnFz5iJi
-	Nvg==
-X-Received: from edf28.prod.google.com ([2002:a05:6402:21dc:b0:692:3d87:5b0d])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6402:5288:b0:68b:ca3c:6bbb
- with SMTP id 4fb4d7f45d1cf-6973bcaa247mr932499a12.11.1781852840465; Fri, 19
- Jun 2026 00:07:20 -0700 (PDT)
-Date: Fri, 19 Jun 2026 08:07:11 +0100
+        d=1e100.net; s=20251104; t=1781852842; x=1782457642;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=UbL9lwJzeVbN1iJUU9ZRwmA6X1IAE6tmxjMtgc8Iqwc=;
+        b=Gq3YDKKONa036G6Bpn+kXFxzi2L2LeLtnmb3vK6TXjYdvWgqdFZ5ZoB6pElfCpv+Wj
+         di/nHSieaMfPpZUh32P/wasTknB7uX3wkmIPM5c8IgdWiMaHZgfEHfzFyD5Au3IGYIIs
+         VDmHZ/1zr7lBRj/r16WXbem2elDaVXNhPzSKTESZZGZqIj7F2q4k/Fa3hC7x2CBcPzZ0
+         V1xutiqwHU0fezXwWEjG0tWojI6L+d7A8wewlOoTWHS9moSvUoa/loN3fQBd/fK2HFes
+         Ga0wbwY+REVAVKleH5VuYDKGRXT2I6TvDZSJA5harL+Et8eH/BLlC3remDnZHTPVpakH
+         kyHQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+2uQv1KNAf9WibMd3o6r6yA+GZ2fHRgaFphGo0uwmioDw0dWCdKPScFmpXD1HIwzabJviKIyht1BxHxQmReZwR@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxd2rIr82DV0e8lt/HQ4OVxZZriKggsdtDVyHkSrgyjzkXjk+GC
+	heU1tDmBDQmECIYI6hBH13gEm6nK126sFTru3BS9ynyM/giI2MvNsGTkaP4Gm6EqbpOpnhEMpHQ
+	V+Q==
+X-Received: from wmsk6-n2.prod.google.com ([2002:a05:600d:8486:20b0:48d:1bc8:5961])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:3b17:b0:492:40a1:1e16
+ with SMTP id 5b1f17b1804b1-49240a11e34mr32742455e9.8.1781852841684; Fri, 19
+ Jun 2026 00:07:21 -0700 (PDT)
+Date: Fri, 19 Jun 2026 08:07:12 +0100
+In-Reply-To: <20260619070719.812227-1-tabba@google.com>
 Mime-Version: 1.0
+References: <20260619070719.812227-1-tabba@google.com>
 X-Mailer: git-send-email 2.55.0.rc0.738.g0c8ab3ebcc-goog
-Message-ID: <20260619070719.812227-1-tabba@google.com>
-Subject: [PATCH v2 0/8] KVM: arm64: Rework pKVM vCPU state synchronisation
+Message-ID: <20260619070719.812227-2-tabba@google.com>
+Subject: [PATCH v2 1/8] KVM: arm64: Extract MPIDR computation into a shared header
 From: Fuad Tabba <tabba@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, kvmarm@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
@@ -75,8 +77,8 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
 	Fuad Tabba <tabba@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260619_000722_948655_414950FE 
-X-CRM114-Status: GOOD (  12.62  )
+X-CRM114-CacheID: sfid-20260619_000724_849256_BF510EB8 
+X-CRM114-Status: GOOD (  13.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,79 +93,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi folks,
+Extract the vCPU MPIDR computation embedded in reset_mpidr() into a
+kvm_calculate_mpidr() inline in sys_regs.h, so it can be computed
+without duplicating the logic. A follow-up series reuses it to reset
+protected vCPUs at EL2.
 
-Changes since v1 [2]:
-  - Dropped the guard()/scoped_guard() conversion patches: standalone churn
-    on code this series does not otherwise rework. (Marc)
-  - Rebased onto kvmarm/next. The VGIC flush primitive now bounds used_lrs
-    using the cached hyp_gicv3_nr_lr instead of reading ICH_VTR_EL2 on every
-    entry. (Marc)
-  - Grouped the PKVM_HOST_STATE_DIRTY flag with the other iflags and
-    clarified its comment. (Marc)
-  - Sync PSTATE alongside PC on every non-protected exit, and sync+dirty
-    before host-side SError injection so the syndrome is not dropped. (sashiko)
-  - Various cleanups and tidying up. (Vincent)
+No functional change intended.
 
-Building on Will's pKVM infrastructure series [1], this series reworks
-how pKVM moves vCPU state between the host and EL2, and stops copying a
-non-protected guest's state on every world switch.
+Signed-off-by: Fuad Tabba <tabba@google.com>
+---
+ arch/arm64/kvm/sys_regs.c | 14 +-------------
+ arch/arm64/kvm/sys_regs.h | 19 +++++++++++++++++++
+ 2 files changed, 20 insertions(+), 13 deletions(-)
 
-EL2 gains proper primitives for the state it transfers: vCPU lookup
-helpers, and VGIC flush/sync that reduces how much host state EL2
-dereferences. The series also moves some preparatory code (such as sys
-reg access and PSCI helpers) to shared headers and HYP, and implements
-lazy copying of a non-protected guest's register state back to the host
-until the host actually needs it, instead of on every exit.
-
-This is the first of two series moving pKVM vCPU state management to
-EL2. The follow-up completes the job for protected VMs: state
-isolation, PSCI handling at EL2, and the resulting API behaviour.
-
-The series is structured as follows:
-
-  01-04:  Preparatory refactoring (MPIDR, sys reg access, vCPU reset, PSCI
-          helpers) to shared headers and HYP.
-  05:     Host and hypervisor vCPU lookup primitives.
-  06-07:  VGIC: reduce EL2's exposure to host state, add flush/sync primitives.
-  08:     Lazy state sync for non-protected guests.
-
-Based on kvmarm/next.
-
-[1] https://lore.kernel.org/all/20260105154939.11041-1-will@kernel.org/
-[2] https://lore.kernel.org/all/20260612065925.755562-1-tabba@google.com/
-
-Cheers,
-/fuad
-
-Fuad Tabba (5):
-  KVM: arm64: Extract MPIDR computation into a shared header
-  KVM: arm64: Make vcpu_{read,write}_sys_reg available to HYP code
-  KVM: arm64: Factor out reusable vCPU reset helpers
-  KVM: arm64: Move PSCI helper functions to a shared header
-  KVM: arm64: Implement lazy vCPU state sync for non-protected guests
-
-Marc Zyngier (3):
-  KVM: arm64: Add host and hypervisor vCPU lookup primitives
-  KVM: arm64: Minimise EL2's exposure of host VGIC state during world
-    switch
-  KVM: arm64: Add primitives to flush/sync the VGIC state at EL2
-
- arch/arm64/include/asm/kvm_arm.h     |  12 ++
- arch/arm64/include/asm/kvm_asm.h     |   1 +
- arch/arm64/include/asm/kvm_emulate.h |  79 +++++++-
- arch/arm64/include/asm/kvm_host.h    |   2 +
- arch/arm64/kvm/arm.c                 |   7 +
- arch/arm64/kvm/handle_exit.c         |  30 ++++
- arch/arm64/kvm/hyp/exception.c       |  34 +---
- arch/arm64/kvm/hyp/nvhe/hyp-main.c   | 258 +++++++++++++++++++++++----
- arch/arm64/kvm/psci.c                |  30 +---
- arch/arm64/kvm/reset.c               |  60 +------
- arch/arm64/kvm/sys_regs.c            |  14 +-
- arch/arm64/kvm/sys_regs.h            |  19 ++
- include/kvm/arm_psci.h               |  27 +++
- 13 files changed, 410 insertions(+), 163 deletions(-)
-
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 33c921df19b5..674fabe1d40d 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -976,21 +976,9 @@ static u64 reset_actlr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r)
+ 
+ static u64 reset_mpidr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r)
+ {
+-	u64 mpidr;
++	u64 mpidr = kvm_calculate_mpidr(vcpu);
+ 
+-	/*
+-	 * Map the vcpu_id into the first three affinity level fields of
+-	 * the MPIDR. We limit the number of VCPUs in level 0 due to a
+-	 * limitation to 16 CPUs in that level in the ICC_SGIxR registers
+-	 * of the GICv3 to be able to address each CPU directly when
+-	 * sending IPIs.
+-	 */
+-	mpidr = (vcpu->vcpu_id & 0x0f) << MPIDR_LEVEL_SHIFT(0);
+-	mpidr |= ((vcpu->vcpu_id >> 4) & 0xff) << MPIDR_LEVEL_SHIFT(1);
+-	mpidr |= ((vcpu->vcpu_id >> 12) & 0xff) << MPIDR_LEVEL_SHIFT(2);
+-	mpidr |= (1ULL << 31);
+ 	vcpu_write_sys_reg(vcpu, mpidr, MPIDR_EL1);
+-
+ 	return mpidr;
+ }
+ 
+diff --git a/arch/arm64/kvm/sys_regs.h b/arch/arm64/kvm/sys_regs.h
+index 2a983664220c..bd56a45abbf9 100644
+--- a/arch/arm64/kvm/sys_regs.h
++++ b/arch/arm64/kvm/sys_regs.h
+@@ -222,6 +222,25 @@ find_reg(const struct sys_reg_params *params, const struct sys_reg_desc table[],
+ 	return __inline_bsearch((void *)pval, table, num, sizeof(table[0]), match_sys_reg);
+ }
+ 
++static inline u64 kvm_calculate_mpidr(const struct kvm_vcpu *vcpu)
++{
++	u64 mpidr;
++
++	/*
++	 * Map the vcpu_id into the first three affinity level fields of
++	 * the MPIDR. We limit the number of VCPUs in level 0 due to a
++	 * limitation to 16 CPUs in that level in the ICC_SGIxR registers
++	 * of the GICv3 to be able to address each CPU directly when
++	 * sending IPIs.
++	 */
++	mpidr = (vcpu->vcpu_id & 0x0f) << MPIDR_LEVEL_SHIFT(0);
++	mpidr |= ((vcpu->vcpu_id >> 4) & 0xff) << MPIDR_LEVEL_SHIFT(1);
++	mpidr |= ((vcpu->vcpu_id >> 12) & 0xff) << MPIDR_LEVEL_SHIFT(2);
++	mpidr |= (1ULL << 31);
++
++	return mpidr;
++}
++
+ const struct sys_reg_desc *get_reg_by_id(u64 id,
+ 					 const struct sys_reg_desc table[],
+ 					 unsigned int num);
 -- 
 2.55.0.rc0.738.g0c8ab3ebcc-goog
 
