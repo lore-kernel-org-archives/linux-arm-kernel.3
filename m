@@ -4,66 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3C95CD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 16:36:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EB2BCD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 16:39:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1xhqGNsWnLwZPaj0pcMJoR83OBrixQwsUN/yCO5ZiV0=; b=xdkeFdPCcQGXyDk5hubTZvQbbg
-	3hDgKjNh8RKD+7mF6Ikc3eUjjHjIj7QO0TDJBB5QVeLYLJgoL7dEE63I89w4A4uFi7xGAS4yaiCrl
-	kzWZ1OVB/CuRk5j7UyXBSAD7IJJkTqEebzE/YxVTFmSQOAGIh13CNAwazHGGiBT1rjTSoxtBbC+21
-	QdbRKj4v7Wf+gyrFwT+hjcwrpxVTtggjgDOloulNNxVpvzSIixb5KZJVA9mGa694z/AOZdQe6gv9i
-	pB94z0fnezEigrfUIC956WqzDXurBLIKPIjyEKlRLAsdt69wy+qmfD3axCcXNQQHdSMmgSqOh0Z0r
-	G6L5erFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xGIUhLK2kjntcnS3eF32TJCm4Stv4lpd5OZ2JV9VDik=; b=TsAYJyU4HMLXj+cVilPBnQn8ul
+	jinaXYI08tKjkwGdZFWbo6LLtXnIH76zUJxka3gtk08QHWGuUu2SUl2km/q8Po5rzVXn03Eho08DC
+	LIXsz5/NOyWQxkIMi2ahBdiDFOge3r8wR0ynwsJHBG/sqLCDesZkQR3OTyUUWhu3fsFdsA+edkeGw
+	p48FFaCoGskBmmlkKx7CfbY0NNvun5uW9OwYROyXnfHCoesMRT3Cfdt/RmfesagjNO5H3xhUUl1IF
+	mMpC8Cq7w/HmGypLuIf4hn2Srhd8r6CIuBBtCcTA50UtkcuRNLK0LFN5RIu03xNwa4RFeOcdWb5go
+	2nxEpSSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wacCc-00000002mN7-24Us;
-	Fri, 19 Jun 2026 16:36:22 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wacFQ-00000002mbG-3QIk;
+	Fri, 19 Jun 2026 16:39:16 +0000
+Received: from mail-southcentralusazon11012057.outbound.protection.outlook.com ([40.93.195.57] helo=SN4PR2101CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wacCY-00000002mMK-2kNv
+	id 1wacFN-00000002mat-2tXN
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Jun 2026 16:36:18 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9916D601EF;
-	Fri, 19 Jun 2026 16:36:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E08DF1F00A3A;
-	Fri, 19 Jun 2026 16:36:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781886976;
-	bh=1xhqGNsWnLwZPaj0pcMJoR83OBrixQwsUN/yCO5ZiV0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=BHd+vfHMQzr+0RFkOzXvLyLSntCWYGfUuzo5Ka3pF2zX+r+6hGDvdf/UR8yRaPyJm
-	 TTHgQ6uT1Tu8uOFtS4x8nF6/pjkvq9vWkIafHYYeIxuxriW1MqcvqkldYSFnysPI4P
-	 NKl2IWHJ7ZgxJnTOXBfZQ+RIDF01SsO4CG0lN7OtlvB1VyIMi+TUrdQz5+S4UBSUNc
-	 kJhzNbZCrfmXFYamZGHERF4ujuUx0rGpPV9fRZjtltXVVDqL/bN0BkTQoKENbD4YWg
-	 VXvu8QBqNxoHjdUmK04IpaMzeKVV0q/TQPzHyRacO+rlSq1ogVvapdHGLGbUXJktdI
-	 RU/ilp4A4+zjQ==
-From: Will Deacon <will@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Pratyush Anand <panand@redhat.com>,
-	Breno Leitao <leitao@debian.org>
-Cc: kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	clm@meta.com,
-	leo.bras@arm.com,
-	kernel-team@meta.com
-Subject: Re: [PATCH v2] arm64/hw_breakpoint: reject unaligned watchpoints that would truncate BAS
-Date: Fri, 19 Jun 2026 17:36:05 +0100
-Message-ID: <178188509799.1161904.13699894903976335311.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260609-arm64_bas-v2-1-9f34dbbded88@debian.org>
-References: <20260609-arm64_bas-v2-1-9f34dbbded88@debian.org>
+	Fri, 19 Jun 2026 16:39:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=SUvDXNPbwYmw33ndM/+ZDJ8y8QvcWkP3ztnJ11YRcBqrE4u1vTs40zpsgAkBPgbaDGbnaij3/iUH9w9hdVk2o9jR6uUWUUVUdSQqxHuTW+HWz1V//TbCSIXBSMoyFu8+h2rtbDwM0CJvuQvZ2x3p809k5slTCnU3zID0diKp3ZTr04HqlJPp2ZLDjYlxZX0A8T9KHz7fzjS6iM1A7cJ+odL3i4hAUJwL5RivCZXVx8dTX4HkzH48pw/QV5V8gET408Mg7yQLAH1f3qqkLvMTiraQ4ikRJGD5fi1TzRfxvv7ByIiCOhxEd/ZhQj0QpitSJA6JuSVuvO752dAN298CRA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=xGIUhLK2kjntcnS3eF32TJCm4Stv4lpd5OZ2JV9VDik=;
+ b=aP1ancZZlX7aG78vZYyzCnWHccgfFih8WSt2mw+XNPN6tYDzz/CtKOxj3qKaG5vO24p4eAdmeRHN6RydSZAm0jh1JlQrzhJxGM4cwK8UVT1hPBCE8K+dVLsD7o9hy5tUBAjskCVnyXAM+xI9KtK2KLeUsa+t+o+LVfJYI4oz4DEpCANxjemSjbrR4TKS/RMRbPyAJLCYiIuon0PQCy7rJSMbSLG4rmU/7L6rFVdhubBH6tOxpZKhm0hYBdIrRXgxaUpvJzQt2XZkKZHuBkG/CinNohegFuS/MjhGnaLrw5Q8cL0lmCTobDuPKBSpL/ffceUDghTNOxKcwBxMUEa8pA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=xGIUhLK2kjntcnS3eF32TJCm4Stv4lpd5OZ2JV9VDik=;
+ b=472nyCkCcmCL6koazzM8IAnOECvMLYx18o2bsZ5dpLZJKOZJSc0rMctamSExDukSpAiu3k1QfNE1iaW59PcGPwgUlrY/MCP61+0+IqhiQG4hxVDkjCvFmUyI+5Lmt6+fxnVf7wLpiIlX0/UA/hP+ZLca4g4dzn3M2gT2Fl3Hwus=
+Received: from CH5PR03CA0014.namprd03.prod.outlook.com (2603:10b6:610:1f1::16)
+ by IA1PR12MB6188.namprd12.prod.outlook.com (2603:10b6:208:3e4::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.14; Fri, 19 Jun
+ 2026 16:39:05 +0000
+Received: from CH1PEPF0000AD76.namprd04.prod.outlook.com
+ (2603:10b6:610:1f1:cafe::45) by CH5PR03CA0014.outlook.office365.com
+ (2603:10b6:610:1f1::16) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.139.14 via Frontend Transport; Fri,
+ 19 Jun 2026 16:39:05 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ CH1PEPF0000AD76.mail.protection.outlook.com (10.167.244.53) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.139.8 via Frontend Transport; Fri, 19 Jun 2026 16:39:05 +0000
+Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Fri, 19 Jun
+ 2026 11:39:05 -0500
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb10.amd.com
+ (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Fri, 19 Jun
+ 2026 11:39:04 -0500
+Received: from xsjtanmays50.xilinx.com (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
+ Transport; Fri, 19 Jun 2026 11:39:04 -0500
+From: Tanmay Shah <tanmay.shah@amd.com>
+To: <michal.simek@amd.com>, <andersson@kernel.org>,
+	<mathieu.poirier@linaro.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-remoteproc@vger.kernel.org>, Tanmay Shah <tanmay.shah@amd.com>
+Subject: [PATCH] remoteproc: xlnx: refactor start & stop ops
+Date: Fri, 19 Jun 2026 09:38:54 -0700
+Message-ID: <20260619163854.410392-1-tanmay.shah@amd.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH1PEPF0000AD76:EE_|IA1PR12MB6188:EE_
+X-MS-Office365-Filtering-Correlation-Id: 674490fb-b428-4f6c-68ed-08dece2146f1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|82310400026|1800799024|36860700016|11063799006|56012099006|18002099003|6133799003;
+X-Microsoft-Antispam-Message-Info: s+yhdKGJ43YMTSOSMuNFGxSreP9EO8eKALZtF6zquP6hBP8veXYlAtiP/5LWyTm3VXgAHl7tQtnTjLtslVvPGlb9pbZ+Oasd6dazxeNp4oSuYlixjkqwbHPzmRX6jib3VAMUiGnM2WqZOpnJ99yGFSyNcG+iZqVb232pL9fqvjKOuXpVfnxNjt98AE0HhJa3I4TJ+SOOHBEGm2SnoaWuoxgPxX8xzdCRNYCl5jyqL7I1F4Y1RalmLJ7AuW6BkYsfpp8u0QrXVLyB3H3LOJL4d7MRMI8Sa14ppUuYd0lV/FyuCodAYzz/C2gWNtK3YaP2BWvyTuNisRvFmvTs18juKY9J4G2zfOTShbzuk40VCg9WHNNexGh8HG9puntmu4ms52hhMbnZ7vALB3FQjW7/cNgZzt81XBui1DnPXKJATbCkM1ja6i/0T9u7iwtn0c7FIPvjJ64q4P5t5rqd43SOdtiRn7WEujdunmlWt7l3nflNMOGMdDo7d8zI3OaNIblrwC27uM7PkWVE1n1BCS87EwsSLcVVZzdZU0S+tIarIg78ynyGhkSEbUZX/xGfZcWi38tqkvudgSuS4b1KmDjaBojDoB/H6gwHlqOph8uVeuBHJqJK310PMcxA4Qnbiatr67a1zWrnkDkDlkBQOejO4gUDpz9zWLCZWsp9/0FuyLfxGR8lj04lOLA3nvDCxARb56pAhGeFki8Zm67MeyFC4g==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(23010399003)(82310400026)(1800799024)(36860700016)(11063799006)(56012099006)(18002099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: VsvEc/rFhlkm3yBIyymV2m+q5rfkVpjEov1zEgVqVUE+90KUK0FXEBK5ZnK6SXBs6vZF8fm3EMG6mZz3OylaSfMMNWMLN3mALwRUp2EDDH2NkDiKZVjlMnOWRQvj+1UIsL50Q2D3o3s9IdzhJKPCEYWQUdTJfHSX8QziOH4UYcfrvjGIU81y22HwMJAJI3E2f399qTx46WR8hV3q7CmoORC5uQ+F5LTuMFrLtclVKkyBIY6OvUmG10SeKDNnlvgbWq/3vq8nVfn8RapV67iJ1QydDJidwMwAcPxrX3pVWwUteINS1r/NraWS3wI1HmnK6z40qm5tUMlUab0tBV7GSZTyrXvr+Ijq1ArxI+95HaNnHGc+u3w/qPcGWLtawr+/h0ZiMoe5SjrhJXnqN+uKfCH+KSyHjGcUKXGxAYg0768QPQo7i0ZxnaDx7O1QquDF
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Jun 2026 16:39:05.2378
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 674490fb-b428-4f6c-68ed-08dece2146f1
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH1PEPF0000AD76.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB6188
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260619_093913_846815_826904E2 
+X-CRM114-Status: GOOD (  21.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,36 +123,248 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 09 Jun 2026 06:15:53 -0700, Breno Leitao wrote:
-> hw_breakpoint_arch_parse() positions the BAS bit pattern in
-> hw->ctrl.len with
-> 
-> 	offset = hw->address & alignment_mask;	/* 0..7 */
-> 	hw->ctrl.len <<= offset;
-> 
-> ctrl.len is an 8-bit bitfield (struct arch_hw_breakpoint_ctrl::len is
-> u32 :8), so the shift silently drops any bits past bit 7.  For
-> non-compat AArch64 watchpoints the offset is unbounded relative to
-> ctrl.len: a perf_event_open(PERF_TYPE_BREAKPOINT) caller asking for
-> HW_BREAKPOINT_W with bp_addr=page+1 and bp_len=HW_BREAKPOINT_LEN_8
-> ends up with 0xff << 1 = 0x1fe, stored as 0xfe.  The kernel programs
-> WCR.BAS=0xfe and the hardware watches bytes [1..7] instead of the
-> requested [1..8] -- the eighth byte is silently dropped.  The
-> syscall still returns success, leaving userspace to discover the
-> gap by empirical probing.
-> 
-> [...]
+Current _start and _stop ops are implemented using various APIs from the
+platform management firmware driver. Instead provide respective RPU
+start and stop API in the firmware driver and move the logic to interact
+with the PM firmware in the firmware driver. The remoteproc driver doesn't
+need to know actual logic, but only the final result i.e. RPU start/stop
+was success or not. This refactor keeps the remoteproc driver simple and
+moves firmware interaction logic to the firmware driver.
 
-Applied to arm64 (for-next/core), thanks!
+Signed-off-by: Tanmay Shah <tanmay.shah@amd.com>
+---
+ drivers/firmware/xilinx/zynqmp.c        | 93 +++++++++++++++++++++++++
+ drivers/remoteproc/xlnx_r5_remoteproc.c | 68 ++----------------
+ include/linux/firmware/xlnx-zynqmp.h    | 12 ++++
+ 3 files changed, 110 insertions(+), 63 deletions(-)
 
-[1/1] arm64/hw_breakpoint: reject unaligned watchpoints that would truncate BAS
-      https://git.kernel.org/arm64/c/4cc70f75853b
+diff --git a/drivers/firmware/xilinx/zynqmp.c b/drivers/firmware/xilinx/zynqmp.c
+index af838b2dc327..f9a3a95b0638 100644
+--- a/drivers/firmware/xilinx/zynqmp.c
++++ b/drivers/firmware/xilinx/zynqmp.c
+@@ -1513,6 +1513,99 @@ int zynqmp_pm_request_wake(const u32 node,
+ }
+ EXPORT_SYMBOL_GPL(zynqmp_pm_request_wake);
+ 
++/**
++ * zynqmp_pm_start_rpu - Boot Real-time Processing Unit (Cortex-R) on SoC
++ *
++ * @node: power-domains id of the core
++ * @bootaddr: Boot address of elf
++ *
++ * Return: status, either success or error+reason
++ */
++int zynqmp_pm_start_rpu(const u32 node, const u64 bootaddr)
++{
++	enum rpu_boot_mem bootmem;
++	int ret;
++
++	/*
++	 * The exception vector pointers (EVP) refer to the base-address of
++	 * exception vectors (for reset, IRQ, FIQ, etc). The reset-vector
++	 * starts at the base-address and subsequent vectors are on 4-byte
++	 * boundaries.
++	 *
++	 * Exception vectors can start either from 0x0000_0000 (LOVEC) or
++	 * from 0xFFFF_0000 (HIVEC) which is mapped in the OCM (On-Chip Memory)
++	 *
++	 * Usually firmware will put Exception vectors at LOVEC.
++	 *
++	 * It is not recommend that you change the exception vector.
++	 * Changing the EVP to HIVEC will result in increased interrupt latency
++	 * and jitter. Also, if the OCM is secured and the Cortex-R5F processor
++	 * is non-secured, then the Cortex-R5F processor cannot access the
++	 * HIVEC exception vectors in the OCM.
++	 */
++	bootmem = (bootaddr >= 0xFFFC0000) ?
++		   PM_RPU_BOOTMEM_HIVEC : PM_RPU_BOOTMEM_LOVEC;
++
++	pr_debug("RPU boot addr 0x%llx from %s.", bootaddr,
++		 bootmem == PM_RPU_BOOTMEM_HIVEC ? "OCM" : "TCM");
++
++	/* Request node before starting RPU core if new version of API is supported */
++	if (zynqmp_pm_feature(PM_REQUEST_NODE) > PM_API_VERSION_1) {
++		ret = zynqmp_pm_request_node(node,
++					     ZYNQMP_PM_CAPABILITY_ACCESS, 0,
++					     ZYNQMP_PM_REQUEST_ACK_BLOCKING);
++		if (ret < 0) {
++			pr_err("failed to request 0x%x", node);
++			return ret;
++		}
++	}
++
++	ret = zynqmp_pm_request_wake(node, true,
++				     bootmem, ZYNQMP_PM_REQUEST_ACK_NO);
++	if (ret)
++		pr_err("failed to start RPU = 0x%x\n", node);
++	return ret;
++}
++EXPORT_SYMBOL_GPL(zynqmp_pm_start_rpu);
++
++/**
++ * zynqmp_pm_stop_rpu - Stop Real-time Processing Unit (Cortex-R) on SoC
++ *
++ * @node: power-domains id of the core
++ *
++ * Return: status, either success or error+reason
++ */
++int zynqmp_pm_stop_rpu(const u32 node)
++{
++	int ret;
++
++	/* Use release node API to stop core if new version of API is supported */
++	if (zynqmp_pm_feature(PM_RELEASE_NODE) > PM_API_VERSION_1) {
++		ret = zynqmp_pm_release_node(node);
++		if (ret)
++			pr_err("failed to stop remoteproc RPU %d\n", ret);
++		return ret;
++	}
++
++	/*
++	 * Check expected version of EEMI call before calling it. This avoids
++	 * any error or warning prints from firmware as it is expected that fw
++	 * doesn't support it.
++	 */
++	if (zynqmp_pm_feature(PM_FORCE_POWERDOWN) != PM_API_VERSION_1) {
++		pr_debug("EEMI interface %d ver 1 not supported\n",
++			 PM_FORCE_POWERDOWN);
++		return -EOPNOTSUPP;
++	}
++
++	/* maintain force pwr down for backward compatibility */
++	ret = zynqmp_pm_force_pwrdwn(node, ZYNQMP_PM_REQUEST_ACK_BLOCKING);
++	if (ret)
++		pr_err("core force power down failed\n");
++	return ret;
++}
++EXPORT_SYMBOL_GPL(zynqmp_pm_stop_rpu);
++
+ /**
+  * zynqmp_pm_set_requirement() - PM call to set requirement for PM slaves
+  * @node:		Node ID of the slave
+diff --git a/drivers/remoteproc/xlnx_r5_remoteproc.c b/drivers/remoteproc/xlnx_r5_remoteproc.c
+index 3349d1877751..dcd8a93f031c 100644
+--- a/drivers/remoteproc/xlnx_r5_remoteproc.c
++++ b/drivers/remoteproc/xlnx_r5_remoteproc.c
+@@ -364,49 +364,12 @@ static void zynqmp_r5_rproc_kick(struct rproc *rproc, int vqid)
+ static int zynqmp_r5_rproc_start(struct rproc *rproc)
+ {
+ 	struct zynqmp_r5_core *r5_core = rproc->priv;
+-	enum rpu_boot_mem bootmem;
+ 	int ret;
+ 
+-	/*
+-	 * The exception vector pointers (EVP) refer to the base-address of
+-	 * exception vectors (for reset, IRQ, FIQ, etc). The reset-vector
+-	 * starts at the base-address and subsequent vectors are on 4-byte
+-	 * boundaries.
+-	 *
+-	 * Exception vectors can start either from 0x0000_0000 (LOVEC) or
+-	 * from 0xFFFF_0000 (HIVEC) which is mapped in the OCM (On-Chip Memory)
+-	 *
+-	 * Usually firmware will put Exception vectors at LOVEC.
+-	 *
+-	 * It is not recommend that you change the exception vector.
+-	 * Changing the EVP to HIVEC will result in increased interrupt latency
+-	 * and jitter. Also, if the OCM is secured and the Cortex-R5F processor
+-	 * is non-secured, then the Cortex-R5F processor cannot access the
+-	 * HIVEC exception vectors in the OCM.
+-	 */
+-	bootmem = (rproc->bootaddr >= 0xFFFC0000) ?
+-		   PM_RPU_BOOTMEM_HIVEC : PM_RPU_BOOTMEM_LOVEC;
+-
+-	dev_dbg(r5_core->dev, "RPU boot addr 0x%llx from %s.", rproc->bootaddr,
+-		bootmem == PM_RPU_BOOTMEM_HIVEC ? "OCM" : "TCM");
+-
+-	/* Request node before starting RPU core if new version of API is supported */
+-	if (zynqmp_pm_feature(PM_REQUEST_NODE) > 1) {
+-		ret = zynqmp_pm_request_node(r5_core->pm_domain_id,
+-					     ZYNQMP_PM_CAPABILITY_ACCESS, 0,
+-					     ZYNQMP_PM_REQUEST_ACK_BLOCKING);
+-		if (ret < 0) {
+-			dev_err(r5_core->dev, "failed to request 0x%x",
+-				r5_core->pm_domain_id);
+-			return ret;
+-		}
+-	}
+-
+-	ret = zynqmp_pm_request_wake(r5_core->pm_domain_id, 1,
+-				     bootmem, ZYNQMP_PM_REQUEST_ACK_NO);
++	ret = zynqmp_pm_start_rpu(r5_core->pm_domain_id, rproc->bootaddr);
+ 	if (ret)
+-		dev_err(r5_core->dev,
+-			"failed to start RPU = 0x%x\n", r5_core->pm_domain_id);
++		dev_err(&rproc->dev, "failed to start RPU\n");
++
+ 	return ret;
+ }
+ 
+@@ -423,30 +386,9 @@ static int zynqmp_r5_rproc_stop(struct rproc *rproc)
+ 	struct zynqmp_r5_core *r5_core = rproc->priv;
+ 	int ret;
+ 
+-	/* Use release node API to stop core if new version of API is supported */
+-	if (zynqmp_pm_feature(PM_RELEASE_NODE) > 1) {
+-		ret = zynqmp_pm_release_node(r5_core->pm_domain_id);
+-		if (ret)
+-			dev_err(r5_core->dev, "failed to stop remoteproc RPU %d\n", ret);
+-		return ret;
+-	}
+-
+-	/*
+-	 * Check expected version of EEMI call before calling it. This avoids
+-	 * any error or warning prints from firmware as it is expected that fw
+-	 * doesn't support it.
+-	 */
+-	if (zynqmp_pm_feature(PM_FORCE_POWERDOWN) != 1) {
+-		dev_dbg(r5_core->dev, "EEMI interface %d ver 1 not supported\n",
+-			PM_FORCE_POWERDOWN);
+-		return -EOPNOTSUPP;
+-	}
+-
+-	/* maintain force pwr down for backward compatibility */
+-	ret = zynqmp_pm_force_pwrdwn(r5_core->pm_domain_id,
+-				     ZYNQMP_PM_REQUEST_ACK_BLOCKING);
++	ret = zynqmp_pm_stop_rpu(r5_core->pm_domain_id);
+ 	if (ret)
+-		dev_err(r5_core->dev, "core force power down failed\n");
++		dev_err(&rproc->dev, "failed to stop RPU\n");
+ 
+ 	return ret;
+ }
+diff --git a/include/linux/firmware/xlnx-zynqmp.h b/include/linux/firmware/xlnx-zynqmp.h
+index 7e27b0f7bf7e..347df66ee176 100644
+--- a/include/linux/firmware/xlnx-zynqmp.h
++++ b/include/linux/firmware/xlnx-zynqmp.h
+@@ -644,6 +644,8 @@ int zynqmp_pm_get_node_status(const u32 node, u32 *const status,
+ 			      u32 *const requirements, u32 *const usage);
+ int zynqmp_pm_get_rpu_node_status(const u32 node, u32 *const status,
+ 				  u32 *const requirements, u32 *const usage);
++int zynqmp_pm_start_rpu(const u32 node, const u64 bootaddr);
++int zynqmp_pm_stop_rpu(const u32 node);
+ int zynqmp_pm_set_sd_config(u32 node, enum pm_sd_config_type config, u32 value);
+ int zynqmp_pm_set_gem_config(u32 node, enum pm_gem_config_type config,
+ 			     u32 value);
+@@ -960,6 +962,16 @@ static inline int zynqmp_pm_get_rpu_node_status(const u32 node, u32 *const statu
+ 	return -ENODEV;
+ }
+ 
++static inline int zynqmp_pm_start_rpu(const u32 node, const u64 bootaddr)
++{
++	return -ENODEV;
++}
++
++static inline int zynqmp_pm_stop_rpu(const u32 node)
++{
++	return -ENODEV;
++}
++
+ static inline int zynqmp_pm_set_sd_config(u32 node,
+ 					  enum pm_sd_config_type config,
+ 					  u32 value)
 
-Cheers,
+base-commit: 721396afea31eac476d88f5db10ba111ba4b8382
 -- 
-Will
+2.34.1
 
-https://fixes.arm64.dev
-https://next.arm64.dev
-https://will.arm64.dev
 
