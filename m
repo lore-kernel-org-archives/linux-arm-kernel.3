@@ -4,87 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 461BFCD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 16:57:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32193CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 17:17:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RhDxX4cHuT4tfnpR0AipKseIEfBclnv+hzggOQhE2+U=; b=Pn8VHigNwmCs3Yr/Il+rVvtZbe
-	+OdTtJ7By09rX8IdoFVb2KZU2o9dUA+ueeU3rS8e8HVcCwL13iSsvcUR28OR2myO1vvL9hjq/fhCL
-	MXff6qoZHDaVuuHBM42V64limxuzdpwn+bDL2G2kLPrBsjltEFtAAWPmt6jHn8OlwQbG+Nh50o7H5
-	/5ZNfMy5ywKsnUHzNS985K7OlP2ZAauSIbVjH/FqkHDx+4lRz0sGj5Pr/AOxGDwuyy5DVHqNicCXZ
-	8U29kxlHaC36KZjZBhdsHJtRIg9YetJX+HD+Xnq+Ue6Ar1Kh8HJTdbVM1oa67bKe/khxsbQvKGtQH
-	785jbJkg==;
+	bh=VnBSc8UYlXwx9BnTwj6cOSisJHoWSOkPM10OKpYNjmo=; b=Qp8k9glE944cR9YrChsqgkYq8h
+	R5oVzMEfn2tfNFMYCQ7dIqOlUaKgi421aG1GVvMvZZBbWA+8AxNaJ0ULLHnfX7qE/k/bacMomdAeQ
+	nItvTYjy81YYYvCK/QL75Jp10hLQnPPlJTsyT14jgJOHjcqQtTeDZSteouAtXYGDJMsizH4E3SOPt
+	d+XsgPJvLBngzmIV/dh34dY+l7S319N/NPCdANaYn3AuojRRsnwCxc6p9oIlN4tWZuYTc2V5RBFpy
+	9DtZhsw9nskmh9+O8diQmoYcDLG9c/UwGa9/t49wii6VTkSfkZ/bzqkJ8pRC64nMXvZOE4Z41KKSq
+	Mk1GJ88g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wacWb-00000002njl-0CDL;
-	Fri, 19 Jun 2026 16:57:01 +0000
-Received: from mail-qt1-x82b.google.com ([2607:f8b0:4864:20::82b])
+	id 1wacqK-00000002oiq-0XEI;
+	Fri, 19 Jun 2026 17:17:24 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wacWZ-00000002niz-07Gg
+	id 1wacqG-00000002ohf-1CF5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Jun 2026 16:57:00 +0000
-Received: by mail-qt1-x82b.google.com with SMTP id d75a77b69052e-51780bbc560so29478871cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 09:56:58 -0700 (PDT)
+	Fri, 19 Jun 2026 17:17:22 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-464192ab2e1so1428342f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 10:17:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781888217; x=1782493017; darn=lists.infradead.org;
+        d=baylibre.com; s=google; t=1781889438; x=1782494238; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=RhDxX4cHuT4tfnpR0AipKseIEfBclnv+hzggOQhE2+U=;
-        b=d09vqytijNjdE+YZnbADkCa7VssXbNtHrfp068cAVgeYlLJ46y/tU8fRi1bs0IMHl5
-         VbBMB6rZ73/NsDP+RBE1VgleDAcFc0ZqV1hTyg+v4z09EhwaL8D5N1TVMaEvO2keWyEc
-         O4KDOaAnovlZbyicIpT4QOW0y9HaicUkFrnHV/mrU7wPUFk2vK5mgRfhlbKvhcIkm63/
-         hpaHxXT0KKxZewLFVKHmNHpzlQSMyk8FL81q5mfJhfMakS4qhwqOueo8/3b1hxMeA5M5
-         SAWjQbJGPHZPyJ4RNbvMqY5tQMDmNjp2IOz7rEZuNAN1GG2S9MYBgW4c9Ch+Bg/ejD3b
-         u0LQ==
+        bh=VnBSc8UYlXwx9BnTwj6cOSisJHoWSOkPM10OKpYNjmo=;
+        b=OVQFFTeRUrL7cAdnU4vC4JhneDtky7BDWc/ROTh+EZmWcUgKki/TnhXeVb1Xf2mnIE
+         UzVaz5rxm6T/uaMQB/C5aIQOiXxuoSrymfpkjw+pjAe/QdEkGSXnALBfnylh2P3TQ+lh
+         wZqJn9xUtGuyuStrKQydKatijo5Mk+8kct0Psso3KjCJxUsQn6bykKvimj+RI/4zSE5X
+         6XZBJH1USyk7WgfGETtWJ+T4LgmowyJSdURu7VrUoPXQcZWTqJlWZ2i/25XmWT9nVYYb
+         3qwYq7iVQmOnnCpzey6sw+1chTHSIt94JY17zUQklOx2g3UFAVVMDUOMtlLFz4cqTg4o
+         +7Og==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781888217; x=1782493017;
+        d=1e100.net; s=20251104; t=1781889438; x=1782494238;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=RhDxX4cHuT4tfnpR0AipKseIEfBclnv+hzggOQhE2+U=;
-        b=oQ2E0t57ifCa1qHXNTfmGR0r2N6nBcm9gRUuBeqVrAXCj9MJnyXMWfvb5nFF57JAyS
-         jbfW0TerkwKFEP98RXfLT1GzLbXyaH/6qVptgj67KQoG3TSJiuCd4oiWSyd6VsDmq7Np
-         Tvdn5JCcL8O4C7ba9KSkIf0qy2YtAw98Np/M75uPoS2SqQ2U7i29c7VLePovSBSkUsl7
-         zlTKCfFmi462hWxK1YDGdSp9mS1pkD0badvQMVAkFElh0IVfBR3lBRATluIzsxe4U8C7
-         EAAGclnOnsLvjwP8TfkMlNoVPfMhqlGSAKttj/GPpBPY4QTLt5Wf7A+vLKNFoBTJo3d7
-         Icgw==
-X-Forwarded-Encrypted: i=1; AFNElJ/36L3XMSXZhXBSjmwsR6Yp6+m41iMWX64iYPzAjB1c7VYRqOvJrFyO4dnKpgySwDPobshNVRKQHpRvks2sSlKJ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxx/m/ogNMz0TeefMB0TYX0ij+QVrQnZCIy0AeTDi6YXocM218/
-	b3uFV4sPEs9Kp3wYzV2KlgDoVnnhgd3aV8ymz5t8WFR179adBwVifpS9
-X-Gm-Gg: AfdE7cnA0bUyNRReCKoq7KL+9SxgKMmQEEF8xBVLgVxHyG3SXkRVJekghyBH6tUyU0T
-	VuVlNmISrHPRFGOuOVKltByukX9OHsqG/+7iLpK1w5OYa2I7zdOtxsqHKoQgoIDIjOgEFQj31Yx
-	gNKyh/fj80rc/dPaDUQsnFD+Mtfdnfh3gN9raf15FdBoz4feUP9ZKb5hxXT9uP40HyzXobtVMYM
-	9fGKWHZwve/fRPcukpPtfa/hzk72cfFIPpHmWD2wykTufNyzgjWjA5o7q6BizZn4+LSTtqY/Ffp
-	mHjziGiEfhqdREvr6CQ9ffFnApCmyHbpXgOxATli//M7GwcImf2orwY2i7CDYLZqWEbfwv+FZ7V
-	AixXLXmRe+eMPv6tp4faaxly78YWUMyfVfCnfnzyG3yXQfU+bgWGodOlMxuYgf9b5aZpCtxUYkL
-	YjaQ5DbXGy7cG6JfPqJRHfYJE4FD0pVQ==
-X-Received: by 2002:ac8:7fd5:0:b0:50f:b61c:ec4c with SMTP id d75a77b69052e-519e6618f84mr51242181cf.7.1781888217426;
-        Fri, 19 Jun 2026 09:56:57 -0700 (PDT)
-Received: from i4-gl-tmk5904.ad.psu.edu ([130.203.156.186])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-519e6127858sm24687081cf.27.2026.06.19.09.56.56
+        bh=VnBSc8UYlXwx9BnTwj6cOSisJHoWSOkPM10OKpYNjmo=;
+        b=n37ic261N9JPcT4VX/FEL+7tFaqm9da9vNNgAEe4iKBC8n8E5pCrucnMBi09Ry0sqS
+         whPIacVOTw7a23qnS8Dn+9z7G8IOTY0AG17YYIUQohTC0V667p/j44o3oLOgbd1BLj55
+         s0bInxu3ODdHDbSXHFaTsinaeEprcdT+Rd7QPr5D8q60dGzjplM0octkidvohQNFxZ03
+         zEL34BgROMBf1+m4FpEz6xSWpJNCsbyS+z0tGeBbC9R5Revs14sTk4+KqmVi3UTaZgDs
+         YohqHAMcztRqQaXfzfF9dI/UV4xYnMz7kLYEQJfgjZr60FSFqKNvTZQaaVIGxuDsw/Sl
+         oLiA==
+X-Forwarded-Encrypted: i=1; AFNElJ96w2sDogyHv2h6VoUzzzFiq3stpncUZf0yHh7FSAQ8DMMcNl88c5JQ67OF300fEbQtqu1/ZDJyoOHCOdohRWWx@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz4C+938ChBWGF0C9/89k8HhEeCI0uDH6Mgb3AGePaDpoM/899y
+	YzjgNqA8fvCud5O7DPD8m0Ui9QTTwWcrvXl7FEEglXPN9hCCN4Id6moTpuRgG48LyqQ=
+X-Gm-Gg: AfdE7clY48tUSc4wf2LSdCZ/xzDgvNtrSgc0NCpgdk/8zrF/VhEvcskcJno4m8sFoti
+	+2OS84937g03PPe894ed1YqxoFFI4tFjL4RRFSPsb+5qCKByW6/9vGaUA0nUWkKkRTJAqCt5ESo
+	f9ljEjYHTUgUntUnjv7GFczvE4jjajThh0jEYm5VbeHyPSBztR0HOh6oiA1H7+M8IlRQnrMoQ1B
+	D0/q+rfgbx7geyheUeJmFv7uDkJRLykC1SStQBr2pfQ4Bbep+I402uvLkSEdbBdc/ZaGeEeBeG3
+	aG22EWW0+Bhvi4CW6j55ERbvPA0fLF0fdNhaYRXXZm/Xww3dud8Y/r/glftJOZzSrfJx+DQtAxj
+	oj6adGx7+hSOLssVq/DWHBUvXY9/QL6ZOSCjWIQuAXkr29i7RvLorgqfLqjFwZlGPE+dtYUYkr3
+	jh8sRLyTFjXd0D626wMc2DW4aGrL3wUJtLiy9XzctJcZk2MiZ+DLlI8+QuLn1bbRcct8j6C1w2j
+	1o06T457EvoWQ==
+X-Received: by 2002:a05:6000:41ea:b0:464:5df5:332a with SMTP id ffacd0b85a97d-465026e230fmr8366571f8f.34.1781889438448;
+        Fri, 19 Jun 2026 10:17:18 -0700 (PDT)
+Received: from localhost (p200300f65f47db04359fc0e70763236f.dip0.t-ipconnect.de. [2003:f6:5f47:db04:359f:c0e7:763:236f])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-466643f563dsm518522f8f.3.2026.06.19.10.17.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 19 Jun 2026 09:56:56 -0700 (PDT)
-From: Yuho Choi <dbgh9129@gmail.com>
-To: Lee Jones <lee@kernel.org>,
+        Fri, 19 Jun 2026 10:17:17 -0700 (PDT)
+From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig=20=28The=20Capable=20Hub=29?= <u.kleine-koenig@baylibre.com>
+To: Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Woodrow Douglass <wdouglass@carnegierobotics.com>,
+	linux-kernel@vger.kernel.org,
+	Michael Hennerich <michael.hennerich@analog.com>,
+	Support Opensource <support.opensource@diasemi.com>,
+	Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Saravanan Sekar <sravanhome@gmail.com>,
 	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-kernel@vger.kernel.org,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Jagan Teki <jagan@amarulasolutions.com>,
+	Icenowy Zheng <icenowy@aosc.io>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Yuho Choi <dbgh9129@gmail.com>
-Subject: [PATCH v2] mfd: mt6397-irq: Fix PM notifier and IRQ domain teardown
-Date: Fri, 19 Jun 2026 12:56:49 -0400
-Message-ID: <20260619165649.1067266-1-dbgh9129@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH v3 0/2] regulator: Rework i2c_device_id initialisation
+Date: Fri, 19 Jun 2026 19:17:07 +0200
+Message-ID: <cover.1781888370.git.u.kleine-koenig@baylibre.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2725; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=9Hxww+IYRkWzBq6UrtXK6wGC7HxfepSCgDoSx52js3g=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBqNXmTefNhPuD/6XHRpNixylKSBFFFhgvNycV1p WE8x7Ep/KeJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCajV5kwAKCRCPgPtYfRL+ TuY7CACa1dxhd74TZtB/tZZHX6K2Lrx4mDNhsE4A0FooXFTdJt6q4pgQLbhwwQJhPo6OCebFBVO b3XlS8KMLn1rN2ZHBQtEdTK20n/jUOMfnozbwaRhcUMxKP3FIBDbNhuM0feMAltDwlkxrrkrTIV O8sNtfMkYR61W+t1XV7w1CH8A2losLj9lNWsCTt/AJuVcegfjOGUC+LuO8IzdOd37fCqSpjjZ8D /+2UAhNJ4pLGIQ3Rel/RAXLGmOa5NSsL8QFDxzXwW45NhHvUyVzP0z6nEmxPmWikKNAJllHLRGp 1FeDu+7sWxtbiO41mp2kEJAYM/PS1MUfuUt2M4FfSVDCPWnA
+X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260619_095659_077721_8D7B9CBB 
-X-CRM114-Status: GOOD (  19.29  )
+X-CRM114-CacheID: sfid-20260619_101720_352105_D39BDD46 
+X-CRM114-Status: GOOD (  11.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,198 +112,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-mt6397_irq_init() registers a PM notifier and creates an irq_domain. Both
-objects point back to the devm-managed mt6397_chip.
+Hello,
 
-The notifier was not unregistered on probe failure or unbind, so a later PM
-transition could dereference freed chip state. The irq_domain had the
-opposite lifetime problem: it could be removed while the devm-managed
-parent IRQ was still active, but it was leaked on successful unbind.
+v2 is available at https://lore.kernel.org/lkml/cover.1779184320.git.u.kleine-koenig@baylibre.com .
 
-Manage both lifetimes with devm actions. Register the domain cleanup before
-requesting the parent IRQ, so devres frees the parent IRQ before removing
-child mappings and the irq_domain. This keeps the domain alive while the
-parent IRQ handler can still run.
+The only change is that I rebased to next-20260619 and dropped the
+adaptions to the of_regulator_match arrays that Laurent pointed out to
+not belong into this patch set.
 
-Also serialize PM notifier mask writes with irqlock. While suspend is in
-progress, keep wake_mask programmed in hardware even if a concurrent IRQ
-sync updates irq_masks_cur in software.
+Best regards
+Uwe
 
-Fixes: a4872e80ce7d ("mfd: mt6397: Extract IRQ related code from core driver")
-Fixes: 4e2e7cfec13a ("mfd: mt6397: Modify suspend/resume behavior")
-Signed-off-by: Yuho Choi <dbgh9129@gmail.com>
----
-Changes in v2:
-- Use devm actions for PM notifier and irq_domain cleanup.
-- Remove direct irq_domain_remove() calls from failure paths.
-- Serialize PM notifier mask writes with irqlock.
----
- drivers/mfd/mt6397-core.c       |  4 +-
- drivers/mfd/mt6397-irq.c        | 85 +++++++++++++++++++++++----------
- include/linux/mfd/mt6397/core.h |  1 +
- 3 files changed, 63 insertions(+), 27 deletions(-)
+Uwe Kleine-König (The Capable Hub) (2):
+  regulator: Drop unused i2c driver data
+  regulator: Use named initializers for arrays of i2c_device_data
 
-diff --git a/drivers/mfd/mt6397-core.c b/drivers/mfd/mt6397-core.c
-index 1bdacda9a933..ff1e393202ee 100644
---- a/drivers/mfd/mt6397-core.c
-+++ b/drivers/mfd/mt6397-core.c
-@@ -389,10 +389,8 @@ static int mt6397_probe(struct platform_device *pdev)
- 	ret = devm_mfd_add_devices(&pdev->dev, PLATFORM_DEVID_NONE,
- 				   pmic_core->cells, pmic_core->cell_size,
- 				   NULL, 0, pmic->irq_domain);
--	if (ret) {
--		irq_domain_remove(pmic->irq_domain);
-+	if (ret)
- 		dev_err(&pdev->dev, "failed to add child devices: %d\n", ret);
--	}
- 
- 	return ret;
- }
-diff --git a/drivers/mfd/mt6397-irq.c b/drivers/mfd/mt6397-irq.c
-index 5d2e5459f744..4be74d8325cd 100644
---- a/drivers/mfd/mt6397-irq.c
-+++ b/drivers/mfd/mt6397-irq.c
-@@ -25,17 +25,23 @@ static void mt6397_irq_lock(struct irq_data *data)
- 	mutex_lock(&mt6397->irqlock);
- }
- 
-+static void mt6397_irq_write_masks(struct mt6397_chip *mt6397,
-+				   const u16 *masks)
-+{
-+	regmap_write(mt6397->regmap, mt6397->int_con[0], masks[0]);
-+	regmap_write(mt6397->regmap, mt6397->int_con[1], masks[1]);
-+	if (mt6397->int_con[2])
-+		regmap_write(mt6397->regmap, mt6397->int_con[2], masks[2]);
-+}
-+
- static void mt6397_irq_sync_unlock(struct irq_data *data)
- {
- 	struct mt6397_chip *mt6397 = irq_data_get_irq_chip_data(data);
-+	const u16 *masks;
- 
--	regmap_write(mt6397->regmap, mt6397->int_con[0],
--		     mt6397->irq_masks_cur[0]);
--	regmap_write(mt6397->regmap, mt6397->int_con[1],
--		     mt6397->irq_masks_cur[1]);
--	if (mt6397->int_con[2])
--		regmap_write(mt6397->regmap, mt6397->int_con[2],
--			     mt6397->irq_masks_cur[2]);
-+	masks = mt6397->irq_suspended ? mt6397->wake_mask :
-+					mt6397->irq_masks_cur;
-+	mt6397_irq_write_masks(mt6397, masks);
- 
- 	mutex_unlock(&mt6397->irqlock);
- }
-@@ -141,24 +147,20 @@ static int mt6397_irq_pm_notifier(struct notifier_block *notifier,
- 
- 	switch (pm_event) {
- 	case PM_SUSPEND_PREPARE:
--		regmap_write(chip->regmap,
--			     chip->int_con[0], chip->wake_mask[0]);
--		regmap_write(chip->regmap,
--			     chip->int_con[1], chip->wake_mask[1]);
--		if (chip->int_con[2])
--			regmap_write(chip->regmap,
--				     chip->int_con[2], chip->wake_mask[2]);
-+		mutex_lock(&chip->irqlock);
-+		chip->irq_suspended = true;
-+		mt6397_irq_write_masks(chip, chip->wake_mask);
-+		mutex_unlock(&chip->irqlock);
-+
- 		enable_irq_wake(chip->irq);
- 		break;
- 
- 	case PM_POST_SUSPEND:
--		regmap_write(chip->regmap,
--			     chip->int_con[0], chip->irq_masks_cur[0]);
--		regmap_write(chip->regmap,
--			     chip->int_con[1], chip->irq_masks_cur[1]);
--		if (chip->int_con[2])
--			regmap_write(chip->regmap,
--				     chip->int_con[2], chip->irq_masks_cur[2]);
-+		mutex_lock(&chip->irqlock);
-+		chip->irq_suspended = false;
-+		mt6397_irq_write_masks(chip, chip->irq_masks_cur);
-+		mutex_unlock(&chip->irqlock);
-+
- 		disable_irq_wake(chip->irq);
- 		break;
- 
-@@ -169,6 +171,29 @@ static int mt6397_irq_pm_notifier(struct notifier_block *notifier,
- 	return NOTIFY_DONE;
- }
- 
-+static void mt6397_irq_pm_notifier_unregister(void *data)
-+{
-+	struct mt6397_chip *chip = data;
-+
-+	unregister_pm_notifier(&chip->pm_nb);
-+}
-+
-+static void mt6397_irq_domain_remove(void *data)
-+{
-+	struct mt6397_chip *chip = data;
-+	unsigned int hwirq;
-+	unsigned int virq;
-+
-+	for (hwirq = 0; hwirq < MT6397_IRQ_NR; hwirq++) {
-+		virq = irq_find_mapping(chip->irq_domain, hwirq);
-+		if (virq)
-+			irq_dispose_mapping(virq);
-+	}
-+
-+	irq_domain_remove(chip->irq_domain);
-+	chip->irq_domain = NULL;
-+}
-+
- int mt6397_irq_init(struct mt6397_chip *chip)
- {
- 	int ret;
-@@ -223,16 +248,28 @@ int mt6397_irq_init(struct mt6397_chip *chip)
- 		return -ENOMEM;
- 	}
- 
-+	ret = devm_add_action_or_reset(chip->dev, mt6397_irq_domain_remove,
-+				       chip);
-+	if (ret)
-+		return ret;
-+
- 	ret = devm_request_threaded_irq(chip->dev, chip->irq, NULL,
- 					mt6397_irq_thread, IRQF_ONESHOT,
- 					"mt6397-pmic", chip);
- 	if (ret) {
- 		dev_err(chip->dev, "failed to register irq=%d; err: %d\n",
- 			chip->irq, ret);
--		irq_domain_remove(chip->irq_domain);
- 		return ret;
- 	}
- 
--	register_pm_notifier(&chip->pm_nb);
--	return 0;
-+	ret = register_pm_notifier(&chip->pm_nb);
-+	if (ret) {
-+		dev_err(chip->dev, "failed to register PM notifier: %d\n", ret);
-+		return ret;
-+	}
-+
-+	ret = devm_add_action_or_reset(chip->dev,
-+				       mt6397_irq_pm_notifier_unregister, chip);
-+
-+	return ret;
- }
-diff --git a/include/linux/mfd/mt6397/core.h b/include/linux/mfd/mt6397/core.h
-index 340fc72e22aa..f9c2cbd17c5c 100644
---- a/include/linux/mfd/mt6397/core.h
-+++ b/include/linux/mfd/mt6397/core.h
-@@ -66,6 +66,7 @@ struct mt6397_chip {
- 	int irq;
- 	struct irq_domain *irq_domain;
- 	struct mutex irqlock;
-+	bool irq_suspended;
- 	u16 wake_mask[3];
- 	u16 irq_masks_cur[3];
- 	u16 irq_masks_cache[3];
+ drivers/regulator/88pg86x.c            |  4 ++--
+ drivers/regulator/ad5398.c             |  4 ++--
+ drivers/regulator/da9121-regulator.c   | 20 ++++++++++----------
+ drivers/regulator/da9210-regulator.c   |  4 ++--
+ drivers/regulator/da9211-regulator.c   | 18 +++++++++---------
+ drivers/regulator/fan53880.c           |  4 ++--
+ drivers/regulator/isl9305.c            |  4 ++--
+ drivers/regulator/lp3971.c             |  2 +-
+ drivers/regulator/lp3972.c             |  2 +-
+ drivers/regulator/lp872x.c             |  4 ++--
+ drivers/regulator/lp8755.c             |  4 ++--
+ drivers/regulator/ltc3589.c            |  6 +++---
+ drivers/regulator/ltc3676.c            |  2 +-
+ drivers/regulator/max1586.c            |  2 +-
+ drivers/regulator/max20086-regulator.c |  8 ++++----
+ drivers/regulator/max20411-regulator.c |  2 +-
+ drivers/regulator/max77503-regulator.c |  2 +-
+ drivers/regulator/max77675-regulator.c |  2 +-
+ drivers/regulator/max77826-regulator.c |  2 +-
+ drivers/regulator/max77838-regulator.c |  2 +-
+ drivers/regulator/max77857-regulator.c |  8 ++++----
+ drivers/regulator/max8649.c            |  2 +-
+ drivers/regulator/max8893.c            |  2 +-
+ drivers/regulator/max8952.c            |  2 +-
+ drivers/regulator/mcp16502.c           |  2 +-
+ drivers/regulator/mp5416.c             |  6 +++---
+ drivers/regulator/mp8859.c             |  4 ++--
+ drivers/regulator/mp886x.c             |  6 +++---
+ drivers/regulator/mpq7920.c            |  4 ++--
+ drivers/regulator/mt6311-regulator.c   |  4 ++--
+ drivers/regulator/pf530x-regulator.c   |  8 ++++----
+ drivers/regulator/pf8x00-regulator.c   |  8 ++++----
+ drivers/regulator/pv88060-regulator.c  |  4 ++--
+ drivers/regulator/pv88080-regulator.c  |  8 ++++----
+ drivers/regulator/pv88090-regulator.c  |  4 ++--
+ drivers/regulator/slg51000-regulator.c |  4 ++--
+ drivers/regulator/sy8106a-regulator.c  |  2 +-
+ drivers/regulator/sy8824x.c            |  8 ++++----
+ drivers/regulator/sy8827n.c            |  4 ++--
+ drivers/regulator/tps6286x-regulator.c | 10 +++++-----
+ drivers/regulator/tps6287x-regulator.c | 10 +++++-----
+ 41 files changed, 104 insertions(+), 104 deletions(-)
+
+
+base-commit: 3ce97bd3c4f18608335e709c24d6a40e7036cab8
 -- 
-2.43.0
+2.47.3
 
 
