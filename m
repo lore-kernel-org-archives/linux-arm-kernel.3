@@ -4,92 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94C4ECD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 13:58:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E691CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 13:58:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YDBGFFmAFpsTzU7UDyTvMSWoP6bzsNKVuDtNoeT8GeY=; b=ZMMgf0Z6iJqoDUg7DpvJ/E5wof
-	XToHyKS2D6J6TI2HAawk8zCPCYQg/kPXaDAJQ4YidM/W96kAYPKaOlqBRy17gbVHKH1U0eya0J/KV
-	zmW8HnDxPg63YR2ExfxjRnuv5t1SXXvJ0jbf1pWpXAxATqWdxRfaIvwcO2e3thPgkLzVLWifZHAuO
-	RqVwX4/7vTzf5hcIJ1PlskPF8WerHl/QfCs6N970VRNnLO7UWzsP37hebEm+rPlfkpFX0Nj8Owx5L
-	GkqdBOHJDm8qen3dtKVswBSYbwb+qoE0PKK72qiCmrGRVb+u4oXdit9poWmmhyLeajUVEoxtJd6HG
-	LasgtwxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7dHy2IMy05uC+053rssZh9G3s8xhfJQUnJqurH+rkC8=; b=A0TjR5JNk9tdA0GhaW1XpvG/h+
+	Rj2z6g2+5ilh8OI8Q+GXRc/UGHjEGjh6r+nFacXU2lzgmAF1hxCcpF/V5H0slUmdqQ8tr8MuLDMPl
+	T3dqJytur3lfuzfJUJ2c0Gdx5OeG8C39aR1OhmxpQo0fWk9+pG7jKONr4kzAZbo62HA42+4hm4HO9
+	P63EDlhQoalEExHGi60+/UP14ku+5B96cJNpFfHzzSl3YcVSKEpQ92glegiDz93w9frhHwcbYUcEd
+	FjvvX3QgeyKwCldpQwJq/7ljOMw4NWwuWNhp/KD/d8QOATtOMxzhLWUeskNVYKIgHg8G+zx8QUN6b
+	PojdIpww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waZjU-00000002Vve-1p82;
-	Fri, 19 Jun 2026 13:58:08 +0000
-Received: from fanzine2.igalia.com ([213.97.179.56])
+	id 1waZk7-00000002W15-2mUN;
+	Fri, 19 Jun 2026 13:58:47 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waZjP-00000002Vuv-1FSn;
-	Fri, 19 Jun 2026 13:58:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:References:
-	Cc:To:From:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=YDBGFFmAFpsTzU7UDyTvMSWoP6bzsNKVuDtNoeT8GeY=; b=AUKaAQrX4mO9lunC7CbM4MvPR3
-	YZrHHtT9jGBUIHQuctZqJ6ZNkCAXtNdZbinF7VNl9MuRqVGT6oVFhg67xWwkyDI+mfh2AI1B431TR
-	qAcLn6PBoZp9jTdvUsNJ4Zm+6qrE9uPR7hj+4YKMjJb3CRiJEx5XkiWU4irfE8KDaFGNV96fZeprR
-	kEfWd8V3i2Gsud25LC5F9kZSXgRF4+rB2TSSzACvHPvYMZDl26TNdsX8gmdXY4UWwgZ1FoDTNARG0
-	oilb2dWUroKoT+l/ee8bP526hyaENBEd/8FkYr3/i4xp06l61VBU72TVScfVIz5lqNKLKkX6T58/d
-	BHI6/OiA==;
-Received: from [77.26.202.28] (helo=[10.0.20.253])
-	by fanzine2.igalia.com with esmtpsa 
-	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
-	id 1waZj6-002XhJ-Nk; Fri, 19 Jun 2026 15:57:44 +0200
-Message-ID: <4af63689-e08c-406e-9ec3-f56dcbfb6f91@igalia.com>
-Date: Fri, 19 Jun 2026 15:57:40 +0200
+	id 1waZk6-00000002W0R-22kN;
+	Fri, 19 Jun 2026 13:58:46 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id D8FAC40A01;
+	Fri, 19 Jun 2026 13:58:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4593C1F000E9;
+	Fri, 19 Jun 2026 13:58:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781877525;
+	bh=7dHy2IMy05uC+053rssZh9G3s8xhfJQUnJqurH+rkC8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=KKR6zHVNzHATTkVZSxjkH7R0nkURn4S4KcVzNVHCdvaZvzQwEVDiIzyWIFHY4LnCX
+	 k3mc7xPtvj824YeNJU4XbYWs4qAy9Kd0XZQaK4X4uwZLIQbV30Wb571M0Sul8LtV2H
+	 tSQVHWJfq9s+Tu0BSkUQ/JU/nsEOMlcnKJ4K0w+GawqLAToQgo0b2nPSuSmQJxLFVY
+	 6wUiA2JjI+TIdOK/1o/DETGPfcyFZkbnDV/q1qTsb4j/rN1jY8r0tViAqY/9H5MZY3
+	 1SyrTe9+oz2URRveEeNPkXpaO6dngHcTIaxgU4Nvb//KiiS2j9rSaieNzuA1ZNOoBm
+	 RJ4ji2RLZ4ELg==
+Date: Fri, 19 Jun 2026 15:58:43 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+	Sandy Huang <hjc@rock-chips.com>, Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, 
+	Andy Yan <andy.yan@rock-chips.com>, Daniel Stone <daniels@collabora.com>, 
+	Dave Stevenson <dave.stevenson@raspberrypi.com>, =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, 
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, kernel@collabora.com, dri-devel@lists.freedesktop.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v7 11/30] drm/display: bridge_connector: Wire up HDMI 2.0
+ scrambler callbacks
+Message-ID: <20260619-rough-jolly-poodle-bb7aed@houat>
+References: <20260602-dw-hdmi-qp-scramb-v7-0-445eb54ee1ed@collabora.com>
+ <20260602-dw-hdmi-qp-scramb-v7-11-445eb54ee1ed@collabora.com>
+ <20260612-attractive-dashing-mule-309598@houat>
+ <b14af457-0799-43cc-80b5-7ffff5901f24@collabora.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] pmdomain: bcm: bcm2835-power: Raise ASB poll timeout to
- 100us
-From: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
-To: Stefan Wahren <wahrenst@gmx.net>, Ulf Hansson <ulfh@kernel.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>,
- Scott Branden <sbranden@broadcom.com>
-Cc: linux-pm@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, kernel-dev@igalia.com
-References: <20260530204636.1115120-1-mcanal@igalia.com>
- <deecc409-02c1-4393-bc06-1852fc06e4d1@gmx.net>
- <eba66b9e-520e-4afc-8973-d54b22919d2c@igalia.com>
-Content-Language: en-US
-Autocrypt: addr=mcanal@igalia.com; keydata=
- xsBNBGcCwywBCADgTji02Sv9zjHo26LXKdCaumcSWglfnJ93rwOCNkHfPIBll85LL9G0J7H8
- /PmEL9y0LPo9/B3fhIpbD8VhSy9Sqz8qVl1oeqSe/rh3M+GceZbFUPpMSk5pNY9wr5raZ63d
- gJc1cs8XBhuj1EzeE8qbP6JAmsL+NMEmtkkNPfjhX14yqzHDVSqmAFEsh4Vmw6oaTMXvwQ40
- SkFjtl3sr20y07cJMDe++tFet2fsfKqQNxwiGBZJsjEMO2T+mW7DuV2pKHr9aifWjABY5EPw
- G7qbrh+hXgfT+njAVg5+BcLz7w9Ju/7iwDMiIY1hx64Ogrpwykj9bXav35GKobicCAwHABEB
- AAHNIE1hw61yYSBDYW5hbCA8bWNhbmFsQGlnYWxpYS5jb20+wsCRBBMBCAA7FiEE+ORdfQEW
- dwcppnfRP/MOinaI+qoFAmcCwywCGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgkQ
- P/MOinaI+qoUBQgAqz2gzUP7K3EBI24+a5FwFlruQGtim85GAJZXToBtzsfGLLVUSCL3aF/5
- O335Bh6ViSBgxmowIwVJlS/e+L95CkTGzIIMHgyUZfNefR2L3aZA6cgc9z8cfow62Wu8eXnq
- GM/+WWvrFQb/dBKKuohfBlpThqDWXxhozazCcJYYHradIuOM8zyMtCLDYwPW7Vqmewa+w994
- 7Lo4CgOhUXVI2jJSBq3sgHEPxiUBOGxvOt1YBg7H9C37BeZYZxFmU8vh7fbOsvhx7Aqu5xV7
- FG+1ZMfDkv+PixCuGtR5yPPaqU2XdjDC/9mlRWWQTPzg74RLEw5sz/tIHQPPm6ROCACFls7A
- TQRnAsMsAQgAxTU8dnqzK6vgODTCW2A6SAzcvKztxae4YjRwN1SuGhJR2isJgQHoOH6oCItW
- Xc1CGAWnci6doh1DJvbbB7uvkQlbeNxeIz0OzHSiB+pb1ssuT31Hz6QZFbX4q+crregPIhr+
- 0xeDi6Mtu+paYprI7USGFFjDUvJUf36kK0yuF2XUOBlF0beCQ7Jhc+UoI9Akmvl4sHUrZJzX
- LMeajARnSBXTcig6h6/NFVkr1mi1uuZfIRNCkxCE8QRYebZLSWxBVr3h7dtOUkq2CzL2kRCK
- T2rKkmYrvBJTqSvfK3Ba7QrDg3szEe+fENpL3gHtH6h/XQF92EOulm5S5o0I+ceREwARAQAB
- wsB2BBgBCAAgFiEE+ORdfQEWdwcppnfRP/MOinaI+qoFAmcCwywCGwwACgkQP/MOinaI+qpI
- zQf+NAcNDBXWHGA3lgvYvOU31+ik9bb30xZ7IqK9MIi6TpZqL7cxNwZ+FAK2GbUWhy+/gPkX
- it2gCAJsjo/QEKJi7Zh8IgHN+jfim942QZOkU+p/YEcvqBvXa0zqW0sYfyAxkrf/OZfTnNNE
- Tr+uBKNaQGO2vkn5AX5l8zMl9LCH3/Ieaboni35qEhoD/aM0Kpf93PhCvJGbD4n1DnRhrxm1
- uEdQ6HUjWghEjC+Jh9xUvJco2tUTepw4OwuPxOvtuPTUa1kgixYyG1Jck/67reJzMigeuYFt
- raV3P8t/6cmtawVjurhnCDuURyhUrjpRhgFp+lW8OGr6pepHol/WFIOQEg==
-In-Reply-To: <eba66b9e-520e-4afc-8973-d54b22919d2c@igalia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260619_065803_626437_EDC11D9C 
-X-CRM114-Status: GOOD (  32.04  )
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="sazsxitqywwstbp6"
+Content-Disposition: inline
+In-Reply-To: <b14af457-0799-43cc-80b5-7ffff5901f24@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,104 +82,195 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-On 31/05/26 09:18, Maíra Canal wrote:
-> Hi Stefan,
-> 
-> On 31/05/26 07:41, Stefan Wahren wrote:
->> Hi Maíra,
->>
->> Am 30.05.26 um 22:46 schrieb Maíra Canal:
->>> Commit 18605b1b936b ("pmdomain: bcm: bcm2835-power: Increase ASB control
->>> timeout") raised the ASB handshake polling budget from 1us to 5us.
->>> Surveying the pmdomain subsystem, 5us is still one of the smallest 
->>> polling
->>> budgets by a wide margin. Comparable handshakes in other drivers use:
->>>
->>>    - 100us : starfive jh71xx-pmu, apple pmgr-pwrstate
->>>    - 1ms   : renesas rcar-sysc, rmobile-sysc (power-on)
->>>    - 10ms  : renesas rcar-gen4-sysc, sunxi sun55i-pck600
->>>    - 1s    : mediatek mtk-pm-domains, mtk-scpsys
->>>
->>> Raise the BCM2835 timeout to 100us, matching analogous drivers. 100us is
->>> still negligible relative to a power-domain transition and gives the V3D
->>> master ASB substantially more headroom to drain under heavy workloads,
->>> assuring us that the timeout is enough for any scenario.
->> tbh I'm not convinced by this explanation. Starting with a timeout 
->> comparison across different pmdomain driver looks strange to me.
->>
->> My expectation that the reason for such a patch is that there is some 
->> kind of scenario to trigger unexpected timeouts.
->> If this is the case, please provide more information about the 
->> scenario (specific platform, scenario, link to the bug report).
-> 
-> The context: I was debugging this issue [1] and initially I had the
-> intuition that it could be related to a timeout in the ASB polling loop.
-> As I don't have access to the BCM2835 SoC datasheet (the public one
-> doesn't have PM information), I started to check other driver's
-> handshake timeout to see if ours was comparable to similar drivers. As
-> you can see, our timeout is much smaller.
-> 
-> In the end, issue [1] wasn't related to the pmdomain driver, so I don't
-> have a specific scenario to trigger this issue. Even though, I sent this
-> patch considering the comparison to other drivers with the goal to be
-> conservative and use a larger timeout that could accommodate an extreme
-> scenario. However, if you believe it's unreasonable, I'm okay dropping
-> this patch.
-> 
-> Ideally, it would be great to have information from Broadcom on what's
-> the largest possible time required to perform a power transition. Maybe
-> Florian could help us with that?
-> 
+--sazsxitqywwstbp6
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v7 11/30] drm/display: bridge_connector: Wire up HDMI 2.0
+ scrambler callbacks
+MIME-Version: 1.0
 
-Gentle ping, any ideas about this?
+On Fri, Jun 12, 2026 at 11:42:06PM +0300, Cristian Ciocaltea wrote:
+> On 6/12/26 11:52 AM, Maxime Ripard wrote:
+> > On Tue, Jun 02, 2026 at 01:44:11AM +0300, Cristian Ciocaltea wrote:
+> >> Connect the bridge connector's .scrambler_{enable|disable} callbacks to
+> >> the underlying bridge's .hdmi_scrambler_{enable|disable} funcs when
+> >> DRM_BRIDGE_OP_HDMI_SCRAMBLER is advertised.
+> >>
+> >> This completes the bridge connector plumbing so that the SCDC
+> >> scrambling helpers can control source-side scrambling through the
+> >> bridge chain.
+> >>
+> >> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> >> ---
+> >>  drivers/gpu/drm/display/drm_bridge_connector.c | 41 +++++++++++++++++=
+++++++++-
+> >>  1 file changed, 40 insertions(+), 1 deletion(-)
+> >>
+> >> diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/=
+gpu/drm/display/drm_bridge_connector.c
+> >> index 9d21b1b57b0d..d048ab49eade 100644
+> >> --- a/drivers/gpu/drm/display/drm_bridge_connector.c
+> >> +++ b/drivers/gpu/drm/display/drm_bridge_connector.c
+> >> @@ -555,6 +555,32 @@ static int drm_bridge_connector_write_spd_infofra=
+me(struct drm_connector *connec
+> >>  	return bridge->funcs->hdmi_write_spd_infoframe(bridge, buffer, len);
+> >>  }
+> >> =20
+> >> +static int drm_bridge_connector_scrambler_enable(struct drm_connector=
+ *connector)
+> >> +{
+> >> +	struct drm_bridge_connector *bridge_connector =3D
+> >> +		to_drm_bridge_connector(connector);
+> >> +	struct drm_bridge *bridge;
+> >> +
+> >> +	bridge =3D bridge_connector->bridge_hdmi;
+> >> +	if (!bridge)
+> >> +		return -EINVAL;
+> >> +
+> >> +	return bridge->funcs->hdmi_scrambler_enable(bridge);
+> >> +}
+> >> +
+> >> +static int drm_bridge_connector_scrambler_disable(struct drm_connecto=
+r *connector)
+> >> +{
+> >> +	struct drm_bridge_connector *bridge_connector =3D
+> >> +		to_drm_bridge_connector(connector);
+> >> +	struct drm_bridge *bridge;
+> >> +
+> >> +	bridge =3D bridge_connector->bridge_hdmi;
+> >> +	if (!bridge)
+> >> +		return -EINVAL;
+> >> +
+> >> +	return bridge->funcs->hdmi_scrambler_disable(bridge);
+> >> +}
+> >> +
+> >>  static const struct drm_edid *
+> >>  drm_bridge_connector_read_edid(struct drm_connector *connector)
+> >>  {
+> >> @@ -580,7 +606,7 @@ static const struct drm_connector_hdmi_funcs drm_b=
+ridge_connector_hdmi_funcs =3D {
+> >>  		.clear_infoframe =3D drm_bridge_connector_clear_hdmi_infoframe,
+> >>  		.write_infoframe =3D drm_bridge_connector_write_hdmi_infoframe,
+> >>  	},
+> >> -	/* audio, hdr_drm and spd are set dynamically during init */
+> >> +	/* scrambler, audio, hdr_drm and spd are set dynamically during init=
+ */
+> >>  };
+> >> =20
+> >>  static const struct drm_connector_infoframe_funcs drm_bridge_connecto=
+r_hdmi_audio_infoframe =3D {
+> >> @@ -886,6 +912,11 @@ struct drm_connector *drm_bridge_connector_init(s=
+truct drm_device *drm,
+> >>  			     !bridge->funcs->hdmi_clear_spd_infoframe))
+> >>  				return ERR_PTR(-EINVAL);
+> >> =20
+> >> +			if (bridge->ops & DRM_BRIDGE_OP_HDMI_SCRAMBLER &&
+> >> +			    (!bridge->funcs->hdmi_scrambler_enable ||
+> >> +			     !bridge->funcs->hdmi_scrambler_disable))
+> >> +				return ERR_PTR(-EINVAL);
+> >> +
+> >>  			bridge_connector->bridge_hdmi =3D drm_bridge_get(bridge);
+> >> =20
+> >>  			if (bridge->supported_formats)
+> >> @@ -990,6 +1021,14 @@ struct drm_connector *drm_bridge_connector_init(=
+struct drm_device *drm,
+> >>  			bridge_connector->hdmi_funcs.spd =3D
+> >>  				drm_bridge_connector_hdmi_spd_infoframe;
+> >> =20
+> >> +		if (bridge_connector->bridge_hdmi->ops & DRM_BRIDGE_OP_HDMI_SCRAMBL=
+ER) {
+> >> +			bridge_connector->hdmi_funcs.scrambler_enable =3D
+> >> +				drm_bridge_connector_scrambler_enable;
+> >> +			bridge_connector->hdmi_funcs.scrambler_disable =3D
+> >> +				drm_bridge_connector_scrambler_disable;
+> >> +			connector->hdmi.scrambler_supported =3D true;
+> >> +		}
+> >> +
+> >=20
+> > I think we're taking this backwards. The scrambler support isn't
+> > optional: either the controller supports HDMI < 2.0, and then it doesn't
+> > exist, or it supports >=3D 2.0 and then it's mandatory.
+> >=20
+> > You're considering it optional here, when it's never actually optional
+> > (unlike YUV420 for example)
+> >=20
+> > I still think we should list, somehow, the capabilities of the
+> > controller to the helpers, like max tmds rate supported, formats, etc.
+> > We've so far put everything as an argument to drmm_connector_hdmi_init
+> > but it becomes a bit overloaded, and I wonder if introducing a callback
+> > wouldn't solve this, kind of like what we have for planes and formats.
+>=20
+>=20
+> What about introducing something like:
+>=20
+> struct drm_connector_hdmi_caps {
+>     ...
+>     unsigned int supported_formats;
+>     enum hdmi_version supported_hdmi_ver;
+> };
+>=20
+> struct drm_connector_hdmi_funcs {
+>     ...
+>     int (*get_caps)(struct drm_connector *connector,
+>                     struct drm_connector_hdmi_caps *caps);
+>     ...
+> };
+>=20
+> int drmm_connector_hdmi_init(struct drm_device *dev, ...)
+> {
+>     ...
+>     if (hdmi_funcs->get_caps) {
+>         struct drm_connector_hdmi_caps caps =3D { };
+>=20
+>         ret =3D hdmi_funcs->get_caps(connector, &caps);
+>         if (ret)
+>             return ret;
+>=20
+>         connector->hdmi.supported_formats  =3D caps.supported_formats;
+>         ...
+>         if (caps.supported_hdmi_ver > HDMI_2_0)
+>             connector->hdmi.frl_supported =3D true;
+>         else if (caps.supported_hdmi_ver =3D=3D HDMI_2_0)
+>             connector->hdmi.scrambler_supported =3D true;
+>     }
+>     ...
+> }
 
-Best regards,
-- Maíra
+That's what I initially had in mind, but it feels a bit over-the-top
+when looking at it. I think I'd really like something that drivers
+cannot forget about, screw up and/or mess with, so for example report
+HDMI 2.1 but force disable FRL support, or report HDMI 1.4 but support
+YUV420.
 
-> [1] https://lore.kernel.org/dri-devel/20260530-v3d-fix-rpi4-freezes- 
-> v1-0-c2c8307da6ce@igalia.com/T/
-> 
->>
->> I'm not against the change in general, but please start your commit 
->> message with the problem and not with the solution.
->>
->> A related question, does it make sense to add an error message here 
->> for the timeout case just like in the rest of the driver?
-> 
-> Before commit 18605b1b936b, I was getting a "Failed to disable ASB
-> master for v3d" error message, so I believe the error message already
-> exists where the function is called.
-> 
-> Thanks for your feedback!
-> 
-> Best regards,
-> - Maíra
-> 
->>
->> Best regards
->>
->>>
->>> Signed-off-by: Maíra Canal <mcanal@igalia.com>
->>> ---
->>>   drivers/pmdomain/bcm/bcm2835-power.c | 2 +-
->>>   1 file changed, 1 insertion(+), 1 deletion(-)
->>>
->>> diff --git a/drivers/pmdomain/bcm/bcm2835-power.c b/drivers/pmdomain/ 
->>> bcm/bcm2835-power.c
->>> index b76d74e3849b..d507bb675e29 100644
->>> --- a/drivers/pmdomain/bcm/bcm2835-power.c
->>> +++ b/drivers/pmdomain/bcm/bcm2835-power.c
->>> @@ -175,7 +175,7 @@ static int bcm2835_asb_control(struct 
->>> bcm2835_power *power, u32 reg, bool enable
->>>       writel(PM_PASSWORD | val, base + reg);
->>>       if (readl_poll_timeout_atomic(base + reg, val,
->>> -                      !!(val & ASB_ACK) != enable, 0, 5))
->>> +                      !!(val & ASB_ACK) != enable, 0, 100))
->>>           return -ETIMEDOUT;
->>>       return 0;
->>
-> 
+Adding more arguments to drm_connector_hdmi_init could work I guess, but
+it won't scale to everything we need. Expecting the callers to fill
+drm_connector_hdmi won't work either. So I somewhat think a get_caps
+like we discussed is the less bad solution, but I'm definitely open to
+suggestions.
 
+> Not sure if max_tmds_char_rate should be listed as a capability, as we al=
+ready
+> have the .tmds_char_rate_valid() callback.
+
+I guess it would make sense to move it there and consolidate
+atomic_check / mode_valid checks, but I don't think it should be a
+prerequisite for this patch either.
+
+Maxime
+
+--sazsxitqywwstbp6
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCajVLDwAKCRAnX84Zoj2+
+dnCEAYCOgXcDF9Oq4SiWJxWRNVN7nHEoV/jZOzr6KKyq+NfMYAGB64FhxdI8Jlga
+EYRGPHsBfRfhXDC1fvjVdUW6o6PVMaHsji7GT+5Nw48HfxDiCeLFuXTvy/+wx5a2
+fMWcqXooFA==
+=w7pg
+-----END PGP SIGNATURE-----
+
+--sazsxitqywwstbp6--
 
