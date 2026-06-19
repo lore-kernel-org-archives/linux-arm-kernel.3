@@ -4,100 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DEEFCD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 13:52:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4ACECD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 13:54:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FozTM/GYLgmwFNfDI2cHx+3emSRhaWbZEhFRJAOgStI=; b=0v7Hd6bEPtUry8nrLWlzgTMRA5
-	SugdzN/Y8GFMtBPRjMDZD1CJieK44nyR0zzDCYjPkbKnO9sNiQwjI1q+r+XPlk0PwNzRE7PCXQ7IV
-	OAVUFoS2taO7/toBRwMIpMWMMz7gXTM/7Z/mjVnXbgIBQz8wFGJ1zsPuv+39S1frdQL0mmGJy+3A+
-	vdsq++68hia8Zyr+NcYq4Z6RoiklGByDTc4V/pxohr3+RvWBPRrDCxXaHm1kVMRAckLydcwGpoNqP
-	ndko8FBBzWbT3WYN/Yx8NBk6Hi0aD4l+bzP0mx3EskNHWf45KIp2wmts08WpZtJuOaYjKZVKojNhk
-	mK7PjrBw==;
+	bh=fGhiVMwPkreKp0vHZtTTCkMwKPr/e26nfYjRzDJCX+8=; b=b9Oi/ZR94zfNuwU11VNEkg8pBr
+	xbdz7t8yAtSebaGwwmkKTY1Qxs92JXapbJDCcGJBUzRK3rYZNg4vpBr+IPCufylSUlErvw+TuzPHs
+	gW0oYT7r5ezGnU2kP3PIROZe3HDK5pKpfieow00PGbRX6hEspFBdSIVCEQnLhikxWQFtmglCNyVf1
+	81OjVRj08yL1luEyREzAUvdiEVkmn7zZbuEx56EBjQhB2NUvBHeD/og2nJqCjEMCp4YqWOcjvJalO
+	iP6gbZTIMDmG3c+k1A69b727AYJlcSaSB0rkfzmXNJMN3B1DnPY8IaNFeXUqdOZbRKZTIAwQjlqFY
+	uXpYEjsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waZeI-00000002VVj-2cYf;
-	Fri, 19 Jun 2026 13:52:46 +0000
-Received: from fhigh-a4-smtp.messagingengine.com ([103.168.172.155])
+	id 1waZg8-00000002VbN-3gZJ;
+	Fri, 19 Jun 2026 13:54:40 +0000
+Received: from fout-a6-smtp.messagingengine.com ([103.168.172.149])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waZeF-00000002VVN-3jTn
+	id 1waZg6-00000002Vaz-0qqr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Jun 2026 13:52:45 +0000
+	Fri, 19 Jun 2026 13:54:39 +0000
 Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id C844A140011E;
-	Fri, 19 Jun 2026 09:52:40 -0400 (EDT)
+	by mailfout.phl.internal (Postfix) with ESMTP id A892DEC02DA;
+	Fri, 19 Jun 2026 09:54:36 -0400 (EDT)
 Received: from phl-imap-05 ([10.202.2.95])
-  by phl-compute-04.internal (MEProxy); Fri, 19 Jun 2026 09:52:40 -0400
+  by phl-compute-04.internal (MEProxy); Fri, 19 Jun 2026 09:54:36 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
 	:cc:content-transfer-encoding:content-type:content-type:date
 	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1781877160;
-	 x=1781963560; bh=FozTM/GYLgmwFNfDI2cHx+3emSRhaWbZEhFRJAOgStI=; b=
-	iKTunirmvI+4OklbO9Zulczl2+ZYCzHU+p5OkSx2JU3IINDiOLSyVobI9Rj2MIJH
-	lXKHpWc/xbQoMkpNRuBAR3kiaGNqo68cPsfkgOFp1Gy6RBAwfGH8km+R4dUMVZLU
-	ViFl5dvJNFWr7f5rey2qW8Jw8XoWcozYqJNmkzPKojJThjPrMz6zOGOe0nTuUFfR
-	9hHlCJ75ZnSf+UKwrEcdBDutFknBXaDCcNEnpad06efjnnzOKd/fnoR5uOvk4zeY
-	HVgJXeB6S3wp0eL4ZpS9Ho3IxqLoPWA6RJ7/5V6ylvUWlDdH8gzkPa4fzQhOozmx
-	a6H/JhBRUg7OEaJlnzuFaA==
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1781877276;
+	 x=1781963676; bh=fGhiVMwPkreKp0vHZtTTCkMwKPr/e26nfYjRzDJCX+8=; b=
+	X/Xb0wZeFaM0bGpYpDvP8pANEC2yjPKnVlSUr9ZgEgfo830lYuQBlPc6mGy16c+b
+	cilFtsdbYMh+KWTyasxrnwds6iVmOD41cvdWsMs2N61RgxuxaeKz097Bsq3ZRpxQ
+	wlTgKuSQMMC13oD4g99LI7G5pPYpB5UObLVvMG0Ir/zhiPIKTc72ASdVoBV9zr/3
+	qVn9SITEluBt3CcunzDMfKoX21EW5ZQFFZ/Os4J8tSNDvULGcYGUPn2DgJEOMjms
+	v/Nb79rNu+6cUPrYXC1Zss9Muo5Rer3nhxnaKh0LVKsEu5wDjhWqXt4ifQWQyTjI
+	vgI9YVgh/XUZM4kuWCc0dA==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:content-type:date:date:feedback-id:feedback-id
 	:from:from:in-reply-to:in-reply-to:message-id:mime-version
 	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1781877160; x=
-	1781963560; bh=FozTM/GYLgmwFNfDI2cHx+3emSRhaWbZEhFRJAOgStI=; b=e
-	rH7FzlMvCnz/C+lRZXTIw0i6XLi7PIwyX4uD0KYPSIGernYG6GhW1pAJCiRmTVqJ
-	/LmqR/6equVAmCcPwJDTu9Q/9drzC9OxxZqUQHIfMUzhW0yGV2CL0PhlTSXawdhM
-	eJaPi1227CeNooKpRb4s2s52GchO/M4eZJ1V83KU9Vb/xaJPPr/p2G3Q4Zpp25or
-	+d26U1k57F3ZSTOKkILwDruWGibMuB5v+kyGegT8jnYUvH36TjGz0yfZz5W9e4DM
-	KUN3zMdhiSLRcb5WjymqF58xW6cHRlzObOJY0en5C5NfEKV0oLtwIVLEUNXafg91
-	ftvEeGyLcLOJOdaIo6etw==
-X-ME-Sender: <xms:qEk1au_4iskxCmB0yLtLCzX6eozZrFZvlcoaUcStIl6EUopRa6RQag>
-    <xme:qEk1apiLtUWDfR4dNBU8idL-KxPm44pp1eyyB9ssZf4QKgxGw1FF2uUSbem2kgl0o
-    qbIrRc1JjUZ7nq1cfme4ohG-1t_c-6rqtkimGOdNbo-h-M90ZjMc6Q>
-X-ME-Proxy-Cause: dmFkZTFQUFt/7BhSYI/XwTEKSUFd5PK4AHv+bPoWdTbwmWAXwFaiVd67T6MG/znkP2pxvq
-    nBazpJjCQVyS2w52XDXPIndzegEZOvzcS9n3rqr6DHRmV4ssU/7VRzDCI/bfauez6jpLPj
-    jNBojBHMIKmsX9lNOwPbI/Riz9JbCZGGqjtp+0Gm5CVd+G6ps10TxqVehDFZqr3CSl5RCl
-    BWQpV/6uYmEUo/HEfZPm8iCLi2iGdxy/cHBJRYjAJlHK32Gx3Rrwi2NwFK57Q9nd6aVkBp
-    4XxZuwuHjvfPOjloDqyRUou3iieexynCev5UPU7Q/nBIxe07WOKYk9zI3TLCItigwpHvkp
-    ex6P6IFZFiSICuyOpTaGN8ufHucnqZ1kpfINBPRAJN9wCv6+p6LU0cETpvXA5HvdUgf09G
-    lbqx4ZPzHk7symrdhQabqD+RTpA68R//+D4Pd3D24AvcnY7BDUMKksZRnUr5fthrV1j3oQ
-    A3OwHWXA+KdlWWeseF3SQuHm+0rvHJsZRDQDWr2G0XxAEb7wQkHsSi89my6csLo+T+EBSl
-    GkMabbkeGZVJsw3qzRwrKhg1Nc9eZ+5bsJdaluyDL/bItNPBcuTWs3zwtx8i0mQLRs0jot
-    CaMIZp9HLyxEZBRnIKPQb9f5NGs8IPo6df9N8o05RvscYQvLLcr/r0R8dh5g
-X-ME-Proxy: <xmx:qEk1ag9UMoCZnGta0lRpb-GdBDrq0uVSx_VYsQ4FLw4IMtYgpxiXRw>
-    <xmx:qEk1alQrk8SThjCYV5ieJdGiLBYHGqxlwlCneera4ujkca93lasXFA>
-    <xmx:qEk1aqcjrSjCHw-hGxpeD6Cb0Jz5m1C7itMsAQgvIYi0ZSjhr1lMiQ>
-    <xmx:qEk1anQ5KcDk02pM2UspYl-XPB6lG8h5woat88q-q1FIlRAG9RGNKQ>
-    <xmx:qEk1avkrakdzWPb7F3M9fj-BO6i3roU2dQEBsETaKL2WxPAmX95Z4fBj>
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1781877276; x=
+	1781963676; bh=fGhiVMwPkreKp0vHZtTTCkMwKPr/e26nfYjRzDJCX+8=; b=S
+	CAYL4Cx+YVlyZleyr1bqqCCzpLzx42CRoZgnq2C6k1MOSmVZc4toOD/v4XSbQRVP
+	yn2v2ol8BTTuewgKl5FLLf4hqwM8sW3GO0GPJxO1gOAK1SN5xOuN8i2nBYDuA3It
+	V3qkcDU1t56PUlG4d4bQkP57M+ICYz6miKH/D/NUIV4kYspN/fcEELrxd/QZ4kf4
+	yrjCRJ2iTH6jo6p9Zx/OIsf0DxBpST02jrsllXyBonMwIG1VE5wup78TUQAiOPhd
+	0qY6n3eM1uTg4ShqOpsmWKc9cspiKMotXN/Hw/6dxtGUE/RWSS7lqCkM4IjTUz7a
+	CxBPsG/ObM7TTD8Bvl1RQ==
+X-ME-Sender: <xms:G0o1aoYysvl-fdnI-BXvdvagZEaqODokYW7Y1xV_5kZnARpQ7tN1vw>
+    <xme:G0o1auO6Wg0GCnV2GKK3XxLmXszdPhwIG83cp0eUv3c1HnSp5Za2ZoyLGEDCfKY0c
+    Yfe7IvX15_Ylzpb_0tMPSH1ZvIgNhHFPFY3K9L3LMCR1naz9fltXXk>
+X-ME-Proxy-Cause: dmFkZTEME0i7hFkUzbVaA8Blwt5lFCClrIVHk96pidkFC9CoLs+NZJibpKcjbdNBA/GqX8
+    OHotBRwN4B+uk6gSRtG+lr75wy4a+ISIQwYbSV/CmUPmE+2mpxozY6dZmXz/gERBe103Do
+    7+iYxl+TaJCGq0xHkKbuwM5nVV8WfGGE0KKSi1f5fNL1pgTP27kyDx5j63funhXxCCjvaK
+    V1enqJePl7rsfllgQ9spD886+NhEoX66pi/pIWtKFWKNKJQfHvvPSg1NrKc0qqSDSd+XoN
+    lvr6nqNjvbwteNjhLvaOhJ6szLcVXiA15ZIpT6RcNIBa3kzt5pz+HG3EOqK0HosibjZ1Py
+    oswmHTM7d7SEXsMQaCPrj1M/c2V0hy1ehtY8WHPF3NwtnWBaDJIdNsrTcNyqxsESLr2ygn
+    QAKne8sW2HU5WzygNyHY25puYkS1iXkaK1V1WfSaYwJYBl6CZgtvgJcpSmDY0CexOykhk0
+    wwHADwhoLi+09pnKWjwA2lG2grCL6GasZ7CWbz95S+jXVxA2fWT26WnFLFzv9dNXJD3wqt
+    3HodDyNM9nfYq9x4cIL6O3rO9a2QSBXK49vdy/OcAG7rvCYHPLbCJW0GuQVuxm8cK6an/A
+    1atTaIworsTj5eEpJcx1Lvs+5yNUgRktkdmyvyXkpCH4Tc/NaXXcbqPBvz5A
+X-ME-Proxy: <xmx:G0o1aqliEpSFMCeC89Vs9PfUKGS42VFMY4zD2oKDMjgtbTJ2sngMFQ>
+    <xmx:HEo1agFevHRJyitLqWnp2jlpQQ-zLSZbIiVhu47qb3NVzMDrRNaiOQ>
+    <xmx:HEo1ah8w42448NXmDmaNiwzo5cSfFStKqN5hzjX8j1XshJ_8y65lWw>
+    <xmx:HEo1ahkqcIlzM-ywGLrKFHohqI7tOpaHjG-L3HoXCPO3MVuNticokQ>
+    <xmx:HEo1ahoV06yv9yBqHeyXpjBFZxRFT2-iOLIOagdnfxLjelKQsweA3FVP>
 Feedback-ID: i56a14606:Fastmail
 Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 620891820082; Fri, 19 Jun 2026 09:52:40 -0400 (EDT)
+	id DF18E182007E; Fri, 19 Jun 2026 09:54:35 -0400 (EDT)
 X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-X-ThreadId: A0Y27BypNIT-
-Date: Fri, 19 Jun 2026 15:52:20 +0200
+X-ThreadId: A94YXJhgp2v7
+Date: Fri, 19 Jun 2026 15:54:15 +0200
 From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Will Deacon" <will@kernel.org>, linux-arm-kernel@lists.infradead.org
-Cc: "Nick Desaulniers" <nick.desaulniers+lkml@gmail.com>,
- "Steffen Eiden" <seiden@linux.ibm.com>,
- "Andreas Grapentin" <gra@linux.ibm.com>,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "Dave Martin" <dave.martin@arm.com>, "Mark Rutland" <mark.rutland@arm.com>,
- "Marc Zyngier" <maz@kernel.org>
-Message-Id: <8549526e-aff5-4448-b673-dbba7ed9065c@app.fastmail.com>
-In-Reply-To: <20260619130835.5678-1-will@kernel.org>
-References: <20260619130835.5678-1-will@kernel.org>
-Subject: Re: [PATCH] arm64: uapi: Use __u128 instead of __uint128_t in UAPI headers
+To: "Krzysztof Kozlowski" <krzysztof.kozlowski@oss.qualcomm.com>,
+ "Geert Uytterhoeven" <geert@linux-m68k.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>,
+ "Alexandre Belloni" <alexandre.belloni@bootlin.com>,
+ "Linus Walleij" <linusw@kernel.org>, "Drew Fustini" <fustini@kernel.org>,
+ soc@lists.linux.dev
+Message-Id: <b04972c7-2c5e-40fe-a8a6-7ade300cd4b2@app.fastmail.com>
+In-Reply-To: <ed070807-d2dd-4f0b-9ba1-8d2c8c93c30e@oss.qualcomm.com>
+References: <20260429-defconfig-v2-0-e4ed4186028b@oss.qualcomm.com>
+ <20260429-defconfig-v2-4-e4ed4186028b@oss.qualcomm.com>
+ <CAMuHMdVH6-5ZAjTyF3m=wF5-XiSDqwcgRhZWxJv6y0FoCnk4MA@mail.gmail.com>
+ <ed070807-d2dd-4f0b-9ba1-8d2c8c93c30e@oss.qualcomm.com>
+Subject: Re: [PATCH v2 4/5] arm64: defconfig: Drop unused Ethernet vendors
 Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260619_065244_450775_0C004B87 
-X-CRM114-Status: GOOD (  13.00  )
+X-CRM114-CacheID: sfid-20260619_065438_313001_C153959E 
+X-CRM114-Status: UNSURE (   9.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,34 +116,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 19, 2026, at 15:08, Will Deacon wrote:
-> The arm64 UAPI exposes '__uint128_t' types in the members of
-> 'struct user_fpsimd_state', 'struct user_pac_address_keys' and in the
-> signal frame via 'struct fpsimd_context'. Since the alignment of such
-> a type appears to be non-portable (16 bytes on arm64, 8 bytes on s390),
-> prefer the '__u128' typedef from uapi/linux/types.h, which makes the
-> alignment explicit and allows the definitions to be reused by other
-> host architectures.
+On Fri, Jun 19, 2026, at 15:11, Krzysztof Kozlowski wrote:
+> On 19/06/2026 12:12, Geert Uytterhoeven wrote:
+>>> +# CONFIG_NET_VENDOR_ACTIONS is not set
+>>> +# CONFIG_NET_VENDOR_ADAPTEC is not set
+>>> +# CONFIG_NET_VENDOR_AGERE is not set
+>>> +# CONFIG_NET_VENDOR_ALACRITECH is not set
+>>> +# CONFIG_NET_VENDOR_ALLWINNER is not set
+>> 
+>> [...]
+>> 
+>> I am not sure this new policy is a good idea: none of this affects
 >
-> Cc: Arnd Bergmann <arnd@arndb.de>
-> Cc: Nick Desaulniers <nick.desaulniers+lkml@gmail.com>
-> Cc: Steffen Eiden <seiden@linux.ibm.com>
-> Cc: Andreas Grapentin <gra@linux.ibm.com>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Dave Martin <dave.martin@arm.com>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: Marc Zyngier <maz@kernel.org>
-> Signed-off-by: Will Deacon <will@kernel.org>
+> I would not call it new policy. Just an idea which got accepted. :)
 
-Reviewed-by: Arnd Bergmann <arnd@arndb.de>
+I think when we originally added the CONFIG_NET_VENDOR_xxx symbols,
+the idea would be that we would one day change them to
+default-disabled, but that never happened, and generally causes
+more problems than it solves.
 
-> I think it's a straightforward change, but the only thing that makes me
-> pause for thought is whether there are toolchains out there which accept
-> __uint128_t but not __int128. Then again, if that crops up as an issue
-> we can probably just tweak the typedef we have in uapi/linux/types.h.
-
-clang-3.1 and gcc-4.6 support both and are 15 years old, older versions
-only do __uint128_t. I agree that this should be fine.
-
-     Arnd
+      Arnd
 
