@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8401CD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 15:41:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF9C8CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 15:41:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
 	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
 	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kuAK7DcUh2/5Xvpz7tMfepZg9bbL6VpHDu1cZTdhkhk=; b=rPvShuGFR2Gmkfw8hov4yKyFa/
-	busHalEQXXFO0YMs8FANEnnTJk4KxcuYumo7d//9wLCyoNRyGWzNApaPyy13DaEvONO2fEeCWwr+H
-	uo0kD9EGuD86/KCosZ0c6mZsOgTdMVlH6VjOp1azkrj/obxJ3wOZSOgYEU5Co+r79UyiHyaTlyOMP
-	bTaZ3NTbROmIQiQyrDlwfFzjyHnoG3geQGGmtXM9DzBuhwseA459/cXJpn/d4nd1gOn6M4tU2fvvJ
-	0cL1+2Tnor5Z0xy4amwd99YpeKRaM6XIz3pLIxOLVe2xN2TdpOeU/T6HoXUR3kDrCx5PZ+T5zqleH
-	JJV4UZ1g==;
+	bh=SsiVXEwiBM6N+Tds71cXRkdMEiXoDJaf1Sj+qctH51c=; b=XeIG5MBkgrLRrQZvHlVxHEQDjP
+	eSsbchw1r/NvEsYp+TTZu27DZUze6yD5sT4CbA72p78tcUsO4WS5BSf6XhZZZfcgeoADepbnq6ZjL
+	eWBZWnp3CwNKjgj/JLYQpuxH1Xhia3PpGCNe/lZtOP1p8rCtZwNPfRp0GXHs3p2II+0L8dxeL8Vd7
+	TD7i9uMlTr/5XvrtMqG56ztwUzxcKvpf0MqcRxNz6AXROz4YiE7DN2P4yeIV/tWZg40OxalG0aITz
+	N/qt86ckzHNyrwrQ+2eDGv/nCwsJp4qIQ0sT/h6zuYPkKMPrfHbEMGj/1v7J+TvDGi8W6+oPCSKkw
+	18jZqqlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wabLX-00000002hN6-0vwR;
-	Fri, 19 Jun 2026 15:41:31 +0000
-Received: from mail-northeuropeazon11011068.outbound.protection.outlook.com ([52.101.65.68] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1wabLh-00000002hRr-2GQK;
+	Fri, 19 Jun 2026 15:41:41 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wabLT-00000002hLU-1XPm
+	id 1wabLe-00000002hOV-3nyv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Jun 2026 15:41:28 +0000
+	Fri, 19 Jun 2026 15:41:40 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=a9RcYXX8MH9bMxmo2Cc5KioRjQuIoKgu3u9snWgB6kjR/iBUNcWpag1yGrc+I2ec0R+8MzczI67Mz2LD5hW3MnwCJir0bBNrpFFVQhIwRaSc1bI6+0WUSFyx0ZuGaP2MFdFTSzlBi5ffyJC6yHhLOxF66KY04iNSBteJiOTfMbnu8gO7y7+Hn1ojJZLBDo2hRor2GF2LG3Vfa6Il548ITaQ1/4SACbdK+CF6RHTXpLiqrpz60Ungdar63Nhnl6n4Ruh3HxfxE0RH1x0qYJnNb5OvNJH3uFabmF5QH5Hba06JuRMhFcPDrPxsvGpcWNboAKEhSh+PJtdh5kAkk9Jekw==
+ b=DK64cPBtkZGQH4zqOT//xo+Fdod2XuZ9W66qcngXGrHDj4wZIj4FOPvB2WPT31WdSnVCpQqgzB4qXP9xfoKKqgJyFgBcqCYpJ3XXVoSh0C75oNTlaXabOKEdU6AXDUFi+uWbfe/ty6k17ODjCu8uejsTnXUoLs5Q9oXsjDAgnFaYCDJW5WBtdV/hOCCpG9cVDFS8Kn7auxah/nhlXtY9n6AEmS/2ux3L63b/2VmXLNE2y63mtUkB6fTSM5BMTkKaQKLgzI0junySqmyplVKf10P/NeIaWRxdt68IYm4KTvLpeIUyc6UCqwEhrYhWAFxIz7Zkf49hwqCDGLy3cYJnDA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kuAK7DcUh2/5Xvpz7tMfepZg9bbL6VpHDu1cZTdhkhk=;
- b=fyYY0pnw1zPJZiGi2+Z1HbDATMZ9w3e9/TSM21VO8W4HXeN/rj61WAnKegw/R6Ugm9Nbnmb5MjXzj4wiOM++i9yw5HM410Po8gV9yrEKT3741gZK+r1E1IkMkt22DA2U4F+MJpEwrtKtLJbtbaYSY08rLwdIvd2+6EIE4LcnFKI/yxf7o3nMXu7DdBh8VAfnyG9IWbrvcEoWFcvN2JL8n534g1v3CSDL7/wxSZTGItOq/VmZbgTq7IAmsQlL2n4PHhmCri7dLQy3pP3KpPtwA2nqOvBqe7D/gcGifm7VwbBAzIyzvuufG7QYnCrIa2Fd5gs1U7ERmqsgFcrA/kMQCw==
+ bh=SsiVXEwiBM6N+Tds71cXRkdMEiXoDJaf1Sj+qctH51c=;
+ b=gGy/UTO/HWOvxYgZ+2ZVKnP6VqKTJghABAv0jOK1oHIFdCIZ3U2WOGNXrGtsw+8xY6L7kvbM9LxthjPwxdYn9X8jgp96n9RDKPghCtB3WEcQolb+qFoHSEJUna+yKpF14ik0iH/7jynKKWnHUsoqGm2AqIbab+tPe/CMqcmUZC+CfJqJ1aSWS9yWL5WDKF3zF03n915KHkBjy4cBJr8MGGlBFZOCwBfpgAg4XDSmZN9T8jtRDwibyXWu2hjBkgHbI6G2ILr8u3UtgWXa8lNPG7FHxb195oGMcUYYyBCMAP9G43v8DghYAHLuNJ37bd096ok1NR3qpi1xJfq22l2h2g==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
  dkim=pass header.d=oss.nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
  s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kuAK7DcUh2/5Xvpz7tMfepZg9bbL6VpHDu1cZTdhkhk=;
- b=MlBOj/VUOSF3RJlvL9BRLCDc4INfz2AUPvlQefavQkpV5prfD9zTEzU/CTw6xcrf23y3YNcQ27Sz65bw7LNus+YNxSJBb+vgJXckGjHL+cpmsUB7dlMygge/mNQUwlVzJOXj43fVWmKg8XTvNcjogjuKYMvt9FhOaV7uqiOL4fx6pTavBchR/NUWfOPOZZC2KECKPGZyDcYHo4it7Fa0syh+zdNf8k60gYXiGIkR2vHfj0nm+37iSd03OgA7WHWmgS/7Jz4N9AUXi/eC9JGlbNVwao0TgufuTKzVOUU28L3elELzY6nn4YbXdttNO3EavSoYdDw70yPHLv7R2OtiQg==
+ bh=SsiVXEwiBM6N+Tds71cXRkdMEiXoDJaf1Sj+qctH51c=;
+ b=rvROTQtRL0zDvrUpcLGZgWN6M5RTeVMu9IRXMbm+91tUzharFFEy1z0PEF5gbPgDCuYzLd9Uw85AyRwkK1mseg0POwWBuNjNAqIOJU1G5ZWps4M6f+phM/MKMe9qmflV3LpEerW5BRbRQiqV1/QclYeU9qnaGwAoFRdutDZfhM2mUeYVRLVze1JdPHgCxxBVX0EYV6NMGrlM9k94ku8+TAxSOaOxA0uy/pCKF87aIP0WJtIxByqf6ebw4slnB5Ukm/OhmMoQt59ffC1XfuysKK++UNhxpglhOyE48Qt9Ek1f9x7ivaOPrD8yloYwxwm1abpA8GnHqZSFVm9HKZvxjw==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=oss.nxp.com;
 Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by PAWPR04MB11550.eurprd04.prod.outlook.com (2603:10a6:102:50b::17) with
+ by AM0PR04MB6818.eurprd04.prod.outlook.com (2603:10a6:208:186::16) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.13; Fri, 19 Jun
- 2026 15:41:24 +0000
+ 2026 15:41:34 +0000
 Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
  ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
  ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0113.015; Fri, 19 Jun 2026
- 15:41:24 +0000
+ 15:41:34 +0000
 From: Frank.Li@oss.nxp.com
-Date: Fri, 19 Jun 2026 11:40:58 -0400
-Subject: [PATCH 01/11] ARM: dts: vf610m4: Remove NOMMU platform support
+Date: Fri, 19 Jun 2026 11:41:00 -0400
+Subject: [PATCH 03/11] ARM: imx: Remove NOMMU platform support
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260619-dts_cleanup_arm_mcore-v1-1-0101795a2662@nxp.com>
+Message-Id: <20260619-dts_cleanup_arm_mcore-v1-3-0101795a2662@nxp.com>
 References: <20260619-dts_cleanup_arm_mcore-v1-0-0101795a2662@nxp.com>
 In-Reply-To: <20260619-dts_cleanup_arm_mcore-v1-0-0101795a2662@nxp.com>
 To: Arnd Bergmann <arnd@arndb.de>, Sascha Hauer <s.hauer@pengutronix.de>, 
@@ -79,80 +79,80 @@ Cc: linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
  linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org, 
  linux-hardening@vger.kernel.org, Frank Li <Frank.Li@nxp.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1781883675; l=8118;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1781883675; l=2239;
  i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=9PEWFeenKOyS/pM6K1VMTPM2nnNefndAUaV/jyyMfYc=;
- b=n/u+rns477CAo4jvkRGeJD0adFZhxb1Oi8h0GeUGhEYYzTkWepioWNsl78wiIploZdNUsQZAZ
- lnwJzNeZz5ZBID6teSI/uaeltGd5m4l+bp5G9TF+qnqCENEPAlchvE/
+ bh=LrMBM37WUhrHDs66yYXpbmZOUrvvc1LWymdf9HjYd1o=;
+ b=uRiBVA0X8zL+4xCPJahoDuPO2SlLVCqSquKD9aoUD9cr6oLfSXbzWZWAGSEy0XEOOQ76RHkoW
+ l6iyREK8m68BlT8Cft/FW4VPpzhDXzu+hxo5uOpIEYr2uycjZyKF/RO
 X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
  pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: SA1PR04CA0005.namprd04.prod.outlook.com
- (2603:10b6:806:2ce::14) To GV2PR04MB11799.eurprd04.prod.outlook.com
+X-ClientProxiedBy: SA0PR11CA0198.namprd11.prod.outlook.com
+ (2603:10b6:806:1bc::23) To GV2PR04MB11799.eurprd04.prod.outlook.com
  (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PAWPR04MB11550:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0e555638-02ab-4f9c-436b-08dece193821
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM0PR04MB6818:EE_
+X-MS-Office365-Filtering-Correlation-Id: dcc9a785-54b7-4e3c-cab4-08dece193dc9
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|7416014|376014|366016|19092799006|3023799007|11063799006|5023799004|56012099006|18002099003|22082099003|921020;
-X-Microsoft-Antispam-Message-Info: 9zhtt0Cqs6t182p0OCyINTw6ky3M6OuB4yqlveONJcfpKUUVqZ7bhn/ifFnT/PYdE4lmC0hrLWsMVGU34XPoyCfwobOCnf5f70RlPQPeIH7p3/vp8p4cQO8XE6zfrCC+hcS3dESK/8jTmok30V3Kwyo8uxS15FBlPN59DhIYFbb92cVgEm9ihfQz6pbmaZejsZeeI9n0i3M9ZiMIwLYmtfXIECPbR62NarVrBw+Qv3rqQIiJHcv2mujzT8XdoRrW5fR2bwfBTxlQlg+eW16RmM/9sFluPZtvPwbNqun9z+Bz0xcnRHsLpXBX+Y9OWnuulCrM1ppNKp/wYGbLKsX4F/ryqfe/5KD4jZ2M/E8ZJ31sJrQFL8Gq7ydcPkyk7ekGRGxEN+kG5AXxlAY28R7EvgwADEASRQrMFHbuA8VTFpi+xKWTucUl9yKi+rzh0Fp3j357qYxd6G9rzlpBrp844JvNXG1/Zk18ryqCnXI1i/s1H29mPEBPdUgL2kKV/k1DumIIdsez3v+tsoTB24sUuLd09E6V6/z0q7u9s+G9TyyT4HccGPYcYVTeiTKKwiyNI2xa/xe/hvmYTlf6GFAG81erdxBUEqAeQhTN/3BxQ2JX1ZQ4FYJmI5Nf8oa/Z4iQX2/jqrx+eg8VSAxGh+rvPydpGKU01mQZgK+ed0QCMU4ASVyHnhAevbl8zbiORyiiuYYT31rVHOiyltO4/yrRQA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(7416014)(376014)(366016)(19092799006)(3023799007)(11063799006)(5023799004)(56012099006)(18002099003)(22082099003)(921020);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|7416014|376014|19092799006|56012099006|11063799006|22082099003|18002099003|921020;
+X-Microsoft-Antispam-Message-Info: MBi18BMPh6UvErbW5sjb3yiTqf+siAP40OQhTEW6IlALZ6+Ndn37KI2vHeEKCC/Kt6b7IzzTRTXNl0GlIcXvh8Z43C0JF2SLeypVFFkhxFxnloM0xow3Efq1za4yc6EwX9QVNNHxiYpev90pqrJHwiq+/CVlkuzuZ9eE/TgPmmEfjuhNQzRliPr/EoCjFZ2ANTXBewpw0JedN2LZCNiCJjWlvBGy2G3SgpUNTgdIM5umMu//XivcKh44/CA+fXm0L+i3GiNwiETcaHxsGJJF0Fctf9Tq8v7gZDw6dYUfJRRPckevoFt5YLDSDh+daAbJsNIqgN9XTBJQsK6CqM5fwqSCdpYzpQWAdfp467PFDcIA5d9YTYRjL1Z6DfvuO7OKZstqbxEpWE9rMf6/isjYqhWZPgWjiHM6jVPbIV7YDWaZbHR5ro1XOd1W8cbgngKTLZSkABaxgHGSaJRgoT2Gne5qohhm7ReS98su8EtE2fusaqDVqTLZ1UfMDWZY5oVuXpBTU9e5ikOoQCB9CDU8Qg/dxIkN5kH8aAV4cSpwl9cTw7qkREyQvmdREWODdXvMl4Q5Er6vQz/4eUzCvn5F480YntjImy6aK+WFrHuFqlJAywF1JiPJGlHJ6RZdcfbZIVKw+2AWMs9pFEltY3SAd+xXDlOu/YH2oZY6Urt4TTeESyaOO/qourjve/N4kc1LyjH5cJtM20UXyKBFnR2H6g==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(7416014)(376014)(19092799006)(56012099006)(11063799006)(22082099003)(18002099003)(921020);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ektGbFBLaHdGY1FPbjVoNUZKU25odTV2ZVI5bXY1TnJHZ0txNVg4eGdaTVlL?=
- =?utf-8?B?QWt6YVpXVFlPa1owMkhyWkRhSXlKZVVIZEYzcDRoTHNVcElISFd5cXhsM0Zo?=
- =?utf-8?B?cS9QazFBYm00NkJHWEFVckhpcDBnTEQ4OHpuSDNieXRMVEIvbGJxRWp4Y2hT?=
- =?utf-8?B?UXFCQUlZbnpXMFF5OWNLelI0VkQyWFVYVGUzWm1nc3B6V2tyN0xnM2UvQk1s?=
- =?utf-8?B?am5hU0huUFI4clVabzFtTVY4VkNaSU9TaEM2SUE5RlVXZjN6c3p2N0Y2K01s?=
- =?utf-8?B?S1dYc2tadWZkQm43U3JLWjduWVZvOTVkb2FUWjZTclZwRmJYeG9odGFDVUxM?=
- =?utf-8?B?VUtDM0dlVDlONkh3WmxDL0pxVXlFSUcxRVdCcVJKYmFyUGhiODdBbVNhTmdx?=
- =?utf-8?B?MzBGTGJTOFljMzRhZk9HSnFQSVVIcUttMklFNmZ1YnVaMGM5M09sMjZUMFFi?=
- =?utf-8?B?RklRSHNlOVB0Q0lOajNyVEVHTmFjRzVBTll2aHpqc0pYMVpYR1Q5UU1hM05p?=
- =?utf-8?B?STRNTHUyajJIb3U5dWVPcDlpWS9Ra2VNeW9VdmsyRVFuczFFbmQrR0tTSVJk?=
- =?utf-8?B?RnBRSHpmWGxhK3NhZWNjN2xRQy9rdUJNQUtOZUh5R244L0xYV1FDamR5dkRX?=
- =?utf-8?B?aUJZdnphWk42dFYxaWNRSzd0bmJOWC92ZWhVQ09iMENTNDQwSUxnTkoxQU50?=
- =?utf-8?B?NFFhVjZSNzJMUiswQlQxWjY4UERYZHZNYXl1cWowd1RiTCt5bWdPaUp0L3Fh?=
- =?utf-8?B?c1IwR2N4dUpDMCtKMUFRRUhDZU4yUlAyQ0Z0RFdJbXF3N1hEbXkwUE9ZOFVr?=
- =?utf-8?B?L1loQ0lxV0RvOFNxWlk1MHVMWHJjSy96UkhDMG5CZmdON3M5MVNOZUIxTnpG?=
- =?utf-8?B?dVBnNkM3Wk9MTkcyN0tzOXFWcjc2QXVPcXJjREhQZkM3MFA0ZkI3RC91cVhB?=
- =?utf-8?B?cXNmNFNHUTZXQWtJN1lSRldqbVk1OGpJUkNhdGJuVkhrY3JBSjErcXZUN25r?=
- =?utf-8?B?VEVNbENmdzJoZzAvSmQrNld4YTZmWUgzTnAxZzVxYUNLT2sybjdJWnI3azk3?=
- =?utf-8?B?MWZFWmEvQmFhQTErT29kNURUbFdTQWp1TTBwSkFoR24xNlpoMHRiMmxUd3o1?=
- =?utf-8?B?cjNuYXVpa1JxdW1OT1FQZ2ozNFJGOEtLbTNBU2xRUmdJa1dnSDVaVkVIU25W?=
- =?utf-8?B?bEtCOTFpalRxUmxQalNpa0pBWEk0Zm8xd3I4RkVJVEFXa2h6bnBMOEl5MWtt?=
- =?utf-8?B?U1BKT1VWZHpacmxYdlUxcVQrUlVMMXF1VjhEMVJWT2ZyaHNybytnQlRaQkcr?=
- =?utf-8?B?SE9salUyck1wbDZKcEhQNUQ2b0F5RWZ1LzZmbk1EbU1wUVh5czF0OTlxYTkw?=
- =?utf-8?B?NHJ2b1hQTmFaQStmTHZOY3VyMU8zRzBydVNNeVFuZXBKWnlRS0VzV1EwRjZu?=
- =?utf-8?B?Ujh6ZWNvT0VZdkVuSTJHcDNSN2haOGRJajNtc0p3RGFuNVZ0KzRXSnpXZUQ3?=
- =?utf-8?B?TEg2Z1dhNzFuT215V09TdW9mS3Jjd3ZmNjhub3dTRW1BVkJ5TXhyYlNJbjcz?=
- =?utf-8?B?VUhFT1VSZkxqZ2MyOHJLNEtJK0xlVUR4Y1oxdkJrR2ZsL09CV0FvUG0zQk1N?=
- =?utf-8?B?VE5EaWJXMXdDa25pc0xFbVR3SkUxRkQzWDl1aU5iTlkyaDJJZXpndXJleksx?=
- =?utf-8?B?OE1KdEpNMnp5RkMwUzJySUJlZnZTU1BhYlh5dzRDZmdFVVZzWkhYTFpVVjNX?=
- =?utf-8?B?WUJGUjJFeUYxdTY4dGZxTzZmYVA1cXZqYndJZTI1UCtQcG9VYTlqSmt5dUNz?=
- =?utf-8?B?VnBjREMzZ2s0bjBQbmNiczBZQ1lldTMxTTdEekxpWXJkOWR6M3FiU3NmM1Bk?=
- =?utf-8?B?R1pIVzczdnhUWHF6ZWZLd2J0YkRWVkFsMitpaW9RQWlJcEhRNGxNWGdmZDF2?=
- =?utf-8?B?ZVN3ckFFeWVIc1JmMHp4WDNFcTljaUNCM3QySTNvb2xyQnF3RVU1TnZ4cXE4?=
- =?utf-8?B?Y0VaQXIxQWJ6WFV6K29LQi83UkM1eGRWMG9LN0FQN2VxZ1dqVkNTME04ZnNF?=
- =?utf-8?B?Njd1dHRXTmdaUXdPNU1NMUxqemQwOGgzZVFSZHZ3R09JTzNuenpGd3ZaKzJJ?=
- =?utf-8?B?Q1orS3oxME4xK2V2bEFqWjRlUC9hUG9XbjlJR3pxbDd4QkRPcXV5RFFxZ1p5?=
- =?utf-8?B?YkdhcDBhT3l2OUtuMVVvcU4zalB2bUZkNGNWSEF2eHRubmhyVDkrSlp5N2ZK?=
- =?utf-8?B?b2NRV0cxNXpnSXlEM0ZveG94UzM1cTd4NXN1N200S1hLcjdmNmRPbGxvdHJ4?=
- =?utf-8?B?QjBtVXBnUFpEak85dnlHZFF6NDdMVGpkc2Z6cWJXOWN6ZVBqMkhxdG56dHhL?=
- =?utf-8?Q?1vtfRDs8tGDwIcIaLRsSJsA2FhtfeICibOeCt?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?OWtEY3pHcklZQ0hheS9qdU90NjZwT0ZVYmw0dStic0dSdmVQdTQ3VW9MVEdo?=
+ =?utf-8?B?RWQzeHFqM3UrRFhGdXVIQUcvb3NIakczR2N6dWZpUWpzd0FDRnRiR1huQytx?=
+ =?utf-8?B?N1ZnVXJMcmtpV0tVTU1PYTFmSE5CT3M4MEhpdFE2NmE1R0daZXl6L2REQnFh?=
+ =?utf-8?B?K1pNUnpJWkR5dFRlUThpcS96T002NER4cytkOG5xRTZkckN4VlhHZGU5clBU?=
+ =?utf-8?B?NWpoNTl5Q3pISGJnZFUrdUFYa2dpRHQzak9TNUE1QmZnRG4yM3FxNElqc3lW?=
+ =?utf-8?B?MXROeDBRQ2tnUXBxMmIzT29sM09IL0F6YWZLUmRPeCtXaU0yRnVpR1oxN3RH?=
+ =?utf-8?B?SHN1RnFHdWFoSzQvdzlzUlJsdE8vbHU3aEk4ZUhzWGdrSkpQRm5nMHpxcVJP?=
+ =?utf-8?B?RHhGYzV5MW1YeHM5eUZONjRiWUdLTGF1UXZyOWxPbkdJQi90MGhkWXRIVzB2?=
+ =?utf-8?B?dDBhVnNJWlpkejhleGJzdm91OGR3by9za3N1ODN5TkZaZHBCL2NNS0lQc1ov?=
+ =?utf-8?B?M1pKa1RvRWk0TFhhNXFnb0NlMkhNS1lmY05QR3Bpb0NOb2QvdGJNMkR0Yzhs?=
+ =?utf-8?B?ZjlPTVhGcXk5Q2hTYnAyQmx2N0ZmTENyeis3eTJsTU9KZWhJYjRTd0pjbTUw?=
+ =?utf-8?B?TExOVjA1cTIrSk1rVFI2RmJvK0hXd1hsc3luNUtsWXg1ZjB6RDE1R3EzMlI3?=
+ =?utf-8?B?VUtQY3lIcGlxbmxJSmhXQ0I5aWZPK0ZzM1FwNFljZkYySjFhYktvbEgxMDJi?=
+ =?utf-8?B?ZzZxNlYzSVU0K3ErM0YxSUZEZW9lNk82ZTcwZThXbmlpaUszZllEQzZxY2xU?=
+ =?utf-8?B?d01SWFRibTFqdlIydktpWjN5bHJObjlkRU1SOUVpVVIySFUzc1FTRyt4N0w2?=
+ =?utf-8?B?eU9oZ1JKaStWTlp1OUc5REdFK3BuYXh1aFRiVnZEL2tTZjUwdFJtdEpWMWV5?=
+ =?utf-8?B?ajcrSFhTN0h6eDh6eGhWUUVqL2dscnBHTmJZb29Pd1hIcDFWcW5Gc1Bld2Rq?=
+ =?utf-8?B?THB0R3AzdElWNUVYVFduM1dFMlBHYlJZbFhWN2U5dWdZa2Ntd0d4VytrbW5t?=
+ =?utf-8?B?bjBldXpBZ2RKby9FL0YrNnZMdDhGeEJKc3dFYzFQVytpUTdqRGpYcmNhTWJJ?=
+ =?utf-8?B?cFIvQ0x5em5MbjRkWXM5clRDS3F3Zzk0NUl2Mllmazk4UU4yWU5FUmdheEE4?=
+ =?utf-8?B?bC8zNCtvZEVrNk9yMzZ3UDlOZGVBc0ZFTWpFUVprd3VSMnhWc256S05ZSW9o?=
+ =?utf-8?B?SkVCWnUzQ0FpN3ZGbkE3NlVkQW1nM1hHby9pOXF2U3JWWGJPR1ZJTDcxQmEw?=
+ =?utf-8?B?OW1xSlUyRmtKT3p4VXVzWGkzREpIaDdURmFhMkpDdEpMK3VYeEhZb1J4ZXNF?=
+ =?utf-8?B?THJjTUZVcWNFTWJzYzM4ZVp3ZzF4NlpIcGFDTHRROXZvYkJiODJLZjArQU42?=
+ =?utf-8?B?eWgvL3U2RHozdEU2N0JiRW5lNkNmQzFJKzIvVmFWOVUrMjlKSnV3OG9wODll?=
+ =?utf-8?B?SXA1WkYrZkgrUDVvVDlpVUZMVFRWaEltdVFycUVIZVIvY0tZdDgvdTd1dVRO?=
+ =?utf-8?B?UFhvOGd2b05EL1VTVk5DeTNPSGFINDBJU21PSk9oNm4rL045QkMzVUdJL0R3?=
+ =?utf-8?B?MWpwYVJNNGNWMFB2MHo4TTdEM3h1eXZramk5cFpDTit0bVF6eTRGdjltZUhk?=
+ =?utf-8?B?dHRJR3NLRXI0NDFWaG5pWXY3MHRlT3pjQnp0bGVSY0JRTWdxNHRGdWpleHd6?=
+ =?utf-8?B?bTIwZmYzbi9rYysrVEg3YWhYR0FMbGpsWUphRjV5bjduRnpDY2lCNTdDT3V5?=
+ =?utf-8?B?Q3UyVUdMWE9COElCbmwyL3ZpUTBuV3IySm53b0VwL0tORUV5STB1TnQzQUhh?=
+ =?utf-8?B?UXQwRGJjOTRYT1B1N3dZOFNXMWc3V28zcWdyQjVrd3hZclBmdDYydEU1R3BJ?=
+ =?utf-8?B?WEhUYUNSRFNiY0VDSllUOTBIR3htaGV6dmpKcXd1VUsvOUNQWmM4MVNGcnlL?=
+ =?utf-8?B?b0FzRXBHSTZQT09CdkpzYXdtV2ZtQ1FKSW9qSnluRkIycTgxVmxEVG9ack0v?=
+ =?utf-8?B?OVc0TUVNdlIvVE52WnpHMGI2WXo5Nmx2M0VMVERITW5wajg0OUpGZ2JZYmdC?=
+ =?utf-8?B?RWdpKzRuOHpWQmxEZjZrT1JDdW8ydXNUM1J3QjZJL0R5K1hWSFhFN09OL3hs?=
+ =?utf-8?B?WnltOU5FQnpCMDNyL3NiZkF1UEsvUjl0TmEyUHZ5a2pubGJ1cTNqZ1BTV0ZW?=
+ =?utf-8?B?Szg2aG0zTk1ydjZiYmJPSGswbG5LMEUzOFowMEFXSWVwVVZmL1MzeDhPaEMv?=
+ =?utf-8?B?d1BaWGhYaWVOM3ZWVGZKVFpsRFpNejlZZTN6cHNNTXRKMStyYXVabFJ4Wmxm?=
+ =?utf-8?Q?cU7KYaWFOQ7y2j6ZwvtN3uCkG1dl8nd/8KnbB?=
 X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0e555638-02ab-4f9c-436b-08dece193821
+X-MS-Exchange-CrossTenant-Network-Message-Id: dcc9a785-54b7-4e3c-cab4-08dece193dc9
 X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Jun 2026 15:41:24.7255
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Jun 2026 15:41:34.0602
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 1nvBQOjjMPM68os9z8BzPNPNU0d5dB6A85kmi8K2046i0RIZpY78vEHuDTcziQMqKM+6Cn4h7C+IOMJM4HsxbEVP0dn5k73//B3xHQy6PfprsV1dMXeoB+iduvNyEpGR
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR04MB11550
+X-MS-Exchange-CrossTenant-UserPrincipalName: +btky+v4QT7b7RUaGFUuHXFHviS3FFEZiYbIHFtkuMv9bOtfNA+TVlb7jEKdTKCj5mc+5k+FsG04vIcTMpUnCzaEfABxQcgSRK5xwZ8xgizaYf56poUg/MILkS+72yN1
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB6818
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260619_084127_421822_E3E50181 
-X-CRM114-Status: GOOD (  21.66  )
+X-CRM114-CacheID: sfid-20260619_084138_961067_37160DC3 
+X-CRM114-Status: GOOD (  12.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,268 +169,76 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Frank Li <Frank.Li@nxp.com>
 
-The Vybrid M4 NOMMU platform support was added as a proof-of-concept and
-has not seen practical use in production systems.
-
 Commercial users and hardware vendors migrated to Zephyr or other RTOS
-solutions years ago, leaving the NOMMU platform support effectively
-unused and unmaintained.
+solutions years ago, leaving the NOMMU platform support effectively unused
+and unmaintained.
 
 Remove the obsolete support to reduce maintenance burden and simplify the
-code.
+i.MX platform code.
 
 Signed-off-by: Frank Li <Frank.Li@nxp.com>
 ---
-Cc: Stefan Agner <stefan@agner.ch>
----
- arch/arm/boot/dts/nxp/vf/Makefile            |  2 -
- arch/arm/boot/dts/nxp/vf/vf610m4-colibri.dts | 61 -------------------
- arch/arm/boot/dts/nxp/vf/vf610m4-cosmic.dts  | 88 ----------------------------
- arch/arm/boot/dts/nxp/vf/vf610m4.dtsi        | 61 -------------------
- 4 files changed, 212 deletions(-)
+ arch/arm/mach-imx/Kconfig      |  7 -------
+ arch/arm/mach-imx/Makefile     |  2 --
+ arch/arm/mach-imx/mach-imxrt.c | 19 -------------------
+ 3 files changed, 28 deletions(-)
 
-diff --git a/arch/arm/boot/dts/nxp/vf/Makefile b/arch/arm/boot/dts/nxp/vf/Makefile
-index 0a4a7f9dd43e4..1733506c0c725 100644
---- a/arch/arm/boot/dts/nxp/vf/Makefile
-+++ b/arch/arm/boot/dts/nxp/vf/Makefile
-@@ -3,9 +3,7 @@ dtb-$(CONFIG_SOC_VF610) += \
- 	vf500-colibri-eval-v3.dtb \
- 	vf610-bk4.dtb \
- 	vf610-colibri-eval-v3.dtb \
--	vf610m4-colibri.dtb \
- 	vf610-cosmic.dtb \
--	vf610m4-cosmic.dtb \
- 	vf610-twr.dtb \
- 	vf610-zii-cfu1.dtb \
- 	vf610-zii-dev-rev-b.dtb \
-diff --git a/arch/arm/boot/dts/nxp/vf/vf610m4-colibri.dts b/arch/arm/boot/dts/nxp/vf/vf610m4-colibri.dts
+diff --git a/arch/arm/mach-imx/Kconfig b/arch/arm/mach-imx/Kconfig
+index a361840d7a047..081f08bb01ae1 100644
+--- a/arch/arm/mach-imx/Kconfig
++++ b/arch/arm/mach-imx/Kconfig
+@@ -213,13 +213,6 @@ config SOC_IMX7ULP
+ 	help
+ 	  This enables support for Freescale i.MX7 Ultra Low Power processor.
+ 
+-config SOC_IMXRT
+-	bool "i.MXRT support"
+-	depends on ARM_SINGLE_ARMV7M
+-	select ARMV7M_SYSTICK if ARM_SINGLE_ARMV7M
+-	help
+-	  This enables support for Freescale i.MXRT Crossover processor.
+-
+ config SOC_VF610
+ 	bool "Vybrid Family VF610 support"
+ 	select ARM_GIC if ARCH_MULTI_V7
+diff --git a/arch/arm/mach-imx/Makefile b/arch/arm/mach-imx/Makefile
+index 5c650bf40e024..b14e9a0ec7501 100644
+--- a/arch/arm/mach-imx/Makefile
++++ b/arch/arm/mach-imx/Makefile
+@@ -60,8 +60,6 @@ obj-$(CONFIG_SOC_IMX50) += mach-imx50.o
+ obj-$(CONFIG_SOC_IMX51) += mach-imx51.o
+ obj-$(CONFIG_SOC_IMX53) += mach-imx53.o
+ 
+-obj-$(CONFIG_SOC_IMXRT) += mach-imxrt.o
+-
+ obj-$(CONFIG_SOC_VF610) += mach-vf610.o
+ 
+ obj-$(CONFIG_SOC_LS1021A) += mach-ls1021a.o
+diff --git a/arch/arm/mach-imx/mach-imxrt.c b/arch/arm/mach-imx/mach-imxrt.c
 deleted file mode 100644
-index 86d32f54c250f..0000000000000
---- a/arch/arm/boot/dts/nxp/vf/vf610m4-colibri.dts
+index 2063a3059c849..0000000000000
+--- a/arch/arm/mach-imx/mach-imxrt.c
 +++ /dev/null
-@@ -1,61 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0+ OR MIT
+@@ -1,19 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0
 -/*
-- * Device tree for Colibri VF61 Cortex-M4 support
-- *
-- * Copyright (C) 2015 Stefan Agner
+- * Copyright (C) 2019
+- * Author(s): Giulio Benetti <giulio.benetti@benettiengineering.com>
 - */
 -
--/dts-v1/;
--#include "vf610m4.dtsi"
+-#include <linux/kernel.h>
+-#include <asm/mach/arch.h>
+-#include <asm/v7m.h>
 -
--/ {
--	model = "VF610 Cortex-M4";
--	compatible = "fsl,vf610m4";
--
--	chosen {
--		bootargs = "clk_ignore_unused init=/linuxrc rw";
--		stdout-path = "serial2:115200";
--	};
--
--	memory@8c000000 {
--		device_type = "memory";
--		reg = <0x8c000000 0x3000000>;
--	};
+-static const char *const imxrt_compat[] __initconst = {
+-	"fsl,imxrt1050",
+-	NULL
 -};
 -
--&gpio0 {
--	status = "disabled";
--};
--
--&gpio1 {
--	status = "disabled";
--};
--
--&gpio2 {
--	status = "disabled";
--};
--
--&gpio3 {
--	status = "disabled";
--};
--
--&gpio4 {
--	status = "disabled";
--};
--
--&uart2 {
--	pinctrl-names = "default";
--	pinctrl-0 = <&pinctrl_uart2>;
--	status = "okay";
--};
--
--&iomuxc {
--	pinctrl_uart2: uart2grp {
--		fsl,pins = <
--			VF610_PAD_PTD0__UART2_TX		0x21a2
--			VF610_PAD_PTD1__UART2_RX		0x21a1
--			VF610_PAD_PTD2__UART2_RTS		0x21a2
--			VF610_PAD_PTD3__UART2_CTS		0x21a1
--		>;
--	};
--};
-diff --git a/arch/arm/boot/dts/nxp/vf/vf610m4-cosmic.dts b/arch/arm/boot/dts/nxp/vf/vf610m4-cosmic.dts
-deleted file mode 100644
-index 454b484368cb7..0000000000000
---- a/arch/arm/boot/dts/nxp/vf/vf610m4-cosmic.dts
-+++ /dev/null
-@@ -1,88 +0,0 @@
--/*
-- * Device tree for Cosmic+ VF6xx Cortex-M4 support
-- *
-- * Copyright (C) 2015
-- *
-- * Based on vf610m4 Colibri
-- *
-- * This file is dual-licensed: you can use it either under the terms
-- * of the GPL or the X11 license, at your option. Note that this dual
-- * licensing only applies to this file, and not this project as a
-- * whole.
-- *
-- *  a) This file is free software; you can redistribute it and/or
-- *     modify it under the terms of the GNU General Public License as
-- *     published by the Free Software Foundation; either version 2 of the
-- *     License, or (at your option) any later version.
-- *
-- *     This file is distributed in the hope that it will be useful,
-- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
-- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-- *     GNU General Public License for more details.
-- *
-- * Or, alternatively,
-- *
-- *  b) Permission is hereby granted, free of charge, to any person
-- *     obtaining a copy of this software and associated documentation
-- *     files (the "Software"), to deal in the Software without
-- *     restriction, including without limitation the rights to use,
-- *     copy, modify, merge, publish, distribute, sublicense, and/or
-- *     sell copies of the Software, and to permit persons to whom the
-- *     Software is furnished to do so, subject to the following
-- *     conditions:
-- *
-- *     The above copyright notice and this permission notice shall be
-- *     included in all copies or substantial portions of the Software.
-- *
-- *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-- *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-- *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-- *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-- *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-- *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-- *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-- *     OTHER DEALINGS IN THE SOFTWARE.
-- */
--
--/dts-v1/;
--#include "vf610m4.dtsi"
--
--/ {
--	model = "VF610 Cortex-M4";
--	compatible = "fsl,vf610m4";
--};
--
--&gpio0 {
--	status = "disabled";
--};
--
--&gpio1 {
--	status = "disabled";
--};
--
--&gpio2 {
--	status = "disabled";
--};
--
--&gpio3 {
--	status = "disabled";
--};
--
--&gpio4 {
--	status = "disabled";
--};
--
--&uart3 {
--	pinctrl-names = "default";
--	pinctrl-0 = <&pinctrl_uart3>;
--	status = "okay";
--};
--
--&iomuxc {
--	pinctrl_uart3: uart3grp {
--		fsl,pins = <
--			VF610_PAD_PTA20__UART3_TX		0x21a2
--			VF610_PAD_PTA21__UART3_RX		0x21a1
--		>;
--	};
--};
-diff --git a/arch/arm/boot/dts/nxp/vf/vf610m4.dtsi b/arch/arm/boot/dts/nxp/vf/vf610m4.dtsi
-deleted file mode 100644
-index 648d219e1d0ed..0000000000000
---- a/arch/arm/boot/dts/nxp/vf/vf610m4.dtsi
-+++ /dev/null
-@@ -1,61 +0,0 @@
--/*
-- * Device tree for VF6xx Cortex-M4 support
-- *
-- * Copyright (C) 2015 Stefan Agner
-- *
-- * This file is dual-licensed: you can use it either under the terms
-- * of the GPL or the X11 license, at your option. Note that this dual
-- * licensing only applies to this file, and not this project as a
-- * whole.
-- *
-- *  a) This file is free software; you can redistribute it and/or
-- *     modify it under the terms of the GNU General Public License as
-- *     published by the Free Software Foundation; either version 2 of the
-- *     License, or (at your option) any later version.
-- *
-- *     This file is distributed in the hope that it will be useful,
-- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
-- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-- *     GNU General Public License for more details.
-- *
-- * Or, alternatively,
-- *
-- *  b) Permission is hereby granted, free of charge, to any person
-- *     obtaining a copy of this software and associated documentation
-- *     files (the "Software"), to deal in the Software without
-- *     restriction, including without limitation the rights to use,
-- *     copy, modify, merge, publish, distribute, sublicense, and/or
-- *     sell copies of the Software, and to permit persons to whom the
-- *     Software is furnished to do so, subject to the following
-- *     conditions:
-- *
-- *     The above copyright notice and this permission notice shall be
-- *     included in all copies or substantial portions of the Software.
-- *
-- *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-- *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-- *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-- *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-- *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-- *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-- *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-- *     OTHER DEALINGS IN THE SOFTWARE.
-- */
--
--#include "../../armv7-m.dtsi"
--#include "vfxxx.dtsi"
--
--/ {
--	#address-cells = <1>;
--	#size-cells = <1>;
--	chosen { };
--	aliases { };
--};
--
--&mscm_ir {
--	interrupt-parent = <&nvic>;
--};
--
--&nvic {
--	arm,num-irq-priority-bits = <4>;
--};
+-DT_MACHINE_START(IMXRTDT, "IMXRT (Device Tree Support)")
+-	.dt_compat = imxrt_compat,
+-	.restart = armv7m_restart,
+-MACHINE_END
 
 -- 
 2.43.0
