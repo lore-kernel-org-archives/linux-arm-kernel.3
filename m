@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5392CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 13:31:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D91BCD98F6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 13:32:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3TpHNc6do1SKJbtgxSVn8RTCsd27hNGE1sd8vLk5+cE=; b=FZAKrsA+8Sc2CjyXqLjuCx/tP5
-	a7Oy0/7R1q/WUwFRQ9p4Qpcg8mLr0hRQqrMjo8zlWH6RdJq7IlArtYhm3vAvB395ZMCsrVCSJxcKm
-	5yV9Ut/NMi6lRoKMdheYoDsr1boXdDcsPPJKVOHIIajzGZB7bE8kwxEfjcnxWMDGNNkzDsz0Q5yvs
-	/+fFgHNc5GSgOG+LZ3iKh66t6lsAnMJ++xnHs+tD71votcCUPLEK3L/EaEfJcES9PFHlU8RDdw1YV
-	+cYrIrwci51Fsm0bSKQLlvFABOIGdmURvnDyWlCYpxuDzlUhLPvS7pWjgP1iyfjra+FYEhqUUz006
-	jak4fg6A==;
+	bh=IAgiiNcrQNm379JlHAgcT50PxnyZ9fON8VGxnlQuPrI=; b=gBolvYEwjp0BPODs5es3Xutucv
+	qs6es8qhxK6sK4VTHnBXpUvVpSTahuJonFVHHcSDUktdiCS/Y771xqysNC7x5OtCnjtqtDDwLUcxy
+	ukeWZA0tZJcgZ6cN8hOl9OQydEFQ5nAH/63+KN3Y8R+pYAqzxT0xe1QqYiUt8BZKK1NJclGsmY4yo
+	PnymFKe1csbDnA3bBmu/ppzbXXYIT5a2PQ0JFXg3QNlpMzXzkwKASLKpIHV/HrLn4cNqLNwzKBxSL
+	u7hWxEOkkE+qD+5o+zikvKLHXdi1JpGLMLUovShZWJxDZf+XR7bNMYBHZ6RZkKjq01v88HMA/MvKP
+	vgvZMKjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waZJD-00000002UGG-0SxJ;
-	Fri, 19 Jun 2026 13:30:59 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	id 1waZKJ-00000002UPS-34tZ;
+	Fri, 19 Jun 2026 13:32:07 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waZJA-00000002UFp-1UNc
+	id 1waZKH-00000002UP6-3G5a
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Jun 2026 13:30:57 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-c07fd4dc2c8so200490366b.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 06:30:55 -0700 (PDT)
+	Fri, 19 Jun 2026 13:32:06 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-490b1bbcf3aso13912605e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 06:32:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781875854; x=1782480654; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1781875924; x=1782480724; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=3TpHNc6do1SKJbtgxSVn8RTCsd27hNGE1sd8vLk5+cE=;
-        b=j/9+DUQ/tf/5FCrx0LorkpXOF1qbMDsRYXwisaRriAypKQfF9z2d6VRdvFSa2/3Lfi
-         vN3ONvQ4pw/cQmTAQo84hgWdehGRhZQ50ci9kmNYqIvRC7vyzlgjAvceMriQvoKh68nI
-         D4W4G2Ky3kaVAJ5+cw2qAtHtpPxvCFVLXsWF8gcEAG3/4TC4H+YCeDyfYjzEoqBGl9uu
-         QNiWqVlUHNVfVeASOCU7jFaMoy5Ehj0s4Ox7mny3HtWlXOcLHZ0yxhqGkgWGd0Rxnz+1
-         0LBGwd3pNaoZmYLn8YrSM7v9umFNJEUm7lyZm8ZKiUnE3ybl3POatsg3huNXmxj2f8qt
-         sDbg==
+        bh=IAgiiNcrQNm379JlHAgcT50PxnyZ9fON8VGxnlQuPrI=;
+        b=bZ38Jr//nZksOKhrKBzonBQ7cfe8uzEbA4uFQbYSGEE9d6niJQRDPX25CjMOVk0Vyg
+         Uxy9p6HXclBL8/zQWN6GyN5zKsndRw1HfIaY4BsHZNqc1ug+0wRTHQmN8TnfQXx8j0H8
+         oswQlG+CjfR8PSEkVzT68SvZ/G9kJKx5PqfiTIoj+8aX3qVQrJxIifbuT+K99qbCL8XI
+         dE6xuJipg73O7jcIbfbJiXzcAVUaUt/+QT9imey8pu0su8PM33Cztg0tyAwH41Awt1gs
+         sW4lvKJ50obUZXSioHdF4eQbc06MmvIgZABTye72dSpxu5lfcD7WEXq4Dpgfbbqr+y1k
+         GIZA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781875854; x=1782480654;
+        d=1e100.net; s=20251104; t=1781875924; x=1782480724;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=3TpHNc6do1SKJbtgxSVn8RTCsd27hNGE1sd8vLk5+cE=;
-        b=qc2L0US3/vLsk0Vvt4LX7LO2s4r8hoR6gZO2ow48n9rRnMLYLBB67E6GiZp7Ka1DaQ
-         SHC7zxLDtaMHUpRDLGuE218SmggYPH1MJRIaFwxecZjaTpthBXa1QLn/ZrtHlwnPcCQe
-         RuYIk0sI9/kj94bdSMMVSNhdKxTH+avl1cnvkbt1trF/slRhLEu60HcMnwHmNm/dJdmO
-         Pr3GFXHsNt7x0T+z54n0Dacqv97+QPBbqw662Rl6UOPoGNaqKGstKZMknfQcJRlgsndO
-         jhEBcMy/C5D1TqT+OAvMc8ZsCXm2GzA4tergsYFep63Ij8ubKIplMP2YVG3U3Bf5D4xL
-         mnBA==
-X-Forwarded-Encrypted: i=1; AFNElJ/q1kmNUZq9hCUfPsrByevULpVtIqb3T8oMQIozTa2cSmJEMAvKpLCXKcWAZt8/XxoClyOBNzuZGGTh6eNpl16H@lists.infradead.org
-X-Gm-Message-State: AOJu0YyZDZu7iTT7Vx8yioAZFQpEiowZRxRcVxkaUntBaDOgI2jRMQ3f
-	3DnpQwJNQu4e5YC1H9lglzWK2DwfVlKhKukUBiPHzG4N6YgZ9YnkF7eo2HRr3BPAgg==
-X-Gm-Gg: AfdE7cnrcfrNzOIInaJe4i24xiiFajneCqraYFutLklAyBjtxRYV9vRUvGUro7p3BO4
-	Qk3iiZKz7jxfthTjlnvojPLiT6K/7vDtKbW+hyIMaFsB7OcrbY13XIi4MbE36bFypdwsJtWciY+
-	NAImPbio5HOvg4JF+XPw2DbG8F3YU7G2bU10LZs0p3gv25GISn85YzHFX83ysvNX6JLe2FErVym
-	rhQV+y458dTwEskRGh1ezHI7qLnaAdSlNvfpY7guaudhVONJHrKJDD2h3fJqa37cxvd1HPwehlc
-	pM+CMKgynNI1ttWqfNE1V4k4YTGMRrb5+F1beYHCdskX9uN+Abc9c3HiF85lsRJtP1mZ+TFgNgB
-	gJX+GNfNn0btIh2vyEkaXu3UuWq9URR3HIuLjqd4XKwcq0zfXM5/apy++t1nzAZXDLXN9ed72OV
-	v2hla0h8zMplrVsi71rrH8AaDfoVPzkxebhLHv2Hvl4E1GixB9HJ9Aix1C
-X-Received: by 2002:a17:907:c1b:b0:bab:e742:aba with SMTP id a640c23a62f3a-c097ccbfcaamr195069766b.42.1781875853661;
-        Fri, 19 Jun 2026 06:30:53 -0700 (PDT)
+        bh=IAgiiNcrQNm379JlHAgcT50PxnyZ9fON8VGxnlQuPrI=;
+        b=q7FWiZAa+1QNvOMadhXhGBL3Ub9WRC5SVeRoFvE6QZfljNB6tLVyKQHbDr71ohAx/l
+         AIpW8yxF9CB80MinK9QXiZfBPILSqwu2I3+QGiSu4GPEKCp3ltnsOpwfQihMN2nCJEC/
+         5PlV0YvxECCyvi7dtUk4okhiCE0oIoVW+RQOQtfAoREFsywEoxYQyfAsldbHusOOsXoe
+         0MYEbHF2kdkKbkP2P4GXPAq3cmsF1u+AjgePIXzQyGmsk1BYmv/KsM6BsTi6wCzEQbER
+         trcyvEZjqRyCmC2hraWMgLBVPoXzl/geNVMFsL13/MGIc/ISOU4smKCl0nLi4DNjAnb+
+         F/fw==
+X-Forwarded-Encrypted: i=1; AFNElJ+BaEWRBMPa7q58yYkbVYO0IVaq9kmylKk/pMw7Q2/uQ0qKIEptW5J2I1sDoojU3qApkxw9XWfYbUjZ0hmRHkfC@lists.infradead.org
+X-Gm-Message-State: AOJu0YyLtLD1njetvlwks2osimZSe9J7RPcoKIYvQNuNr+D6xSELgkDw
+	sK8SbxRk6DmH6efSFWTgC+VJ07qcEmCkmqE5LXP4xNAgtU30Oyy5hKk3KZNg7NACGA==
+X-Gm-Gg: AfdE7cnqPt5OQ0rZ06CYhJLt+y02BG9v4XXMMouKfp3eJa7aY6wxCPnQQNTOICypVJd
+	nlQMxLIRUKFm8toC413g0FeTxCy2kKVkDyd50B7gZNTgfpopzloezQu/PYakn7dCBFYNKEre/+F
+	k3r3oz+HkJj19gvjg7Jz5uJkvJ0QqKz5mWTLQuhU6mtFlg2fg8OzWaZchWYqzh4EMIxCU0DbP0u
+	Ch8QqtNuiNLNzktzXqWJpTKWJaqFzV8X9vGDOC64cA7Zp16iXgilb2xIXJzNS6sgN2uDK6UNFL6
+	mkKJ4lKdYrjlfS36TM2Jfon8IpG22Oi/Gzw7iOslJ0S6UnUWQJEmKbTKUlO+QmQTvNuHckwrJ7p
+	0gBjjNWIlhYLuubXZq5EP99bA1CMD1FReMcByPJfO0BP4ekF0tGwUtPD0dp0jXTidRgLBvAvzI1
+	v39gWfWa+78hPDa6LniXOZ6WUJ4oOfY4nMvjTlQOUWiJD8PuyLAO4hq3At
+X-Received: by 2002:a05:600c:21c4:b0:490:ce99:d2ee with SMTP id 5b1f17b1804b1-4923f437203mr47993525e9.15.1781875923118;
+        Fri, 19 Jun 2026 06:32:03 -0700 (PDT)
 Received: from google.com (135.91.155.104.bc.googleusercontent.com. [104.155.91.135])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4650c115fd8sm8260734f8f.35.2026.06.19.06.30.51
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-46508a04b55sm8348813f8f.5.2026.06.19.06.32.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 19 Jun 2026 06:30:52 -0700 (PDT)
-Date: Fri, 19 Jun 2026 14:30:48 +0100
+        Fri, 19 Jun 2026 06:32:01 -0700 (PDT)
+Date: Fri, 19 Jun 2026 14:31:58 +0100
 From: Vincent Donnefort <vdonnefort@google.com>
 To: Fuad Tabba <tabba@google.com>
 Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
@@ -82,18 +82,18 @@ Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
 	Quentin Perret <qperret@google.com>,
 	Sebastian Ene <sebastianene@google.com>,
 	Hyunwoo Kim <imv4bel@gmail.com>
-Subject: Re: [PATCH v2 4/8] KVM: arm64: Move PSCI helper functions to a
- shared header
-Message-ID: <ajVEiM3QJfcEabbt@google.com>
+Subject: Re: [PATCH v2 5/8] KVM: arm64: Add host and hypervisor vCPU lookup
+ primitives
+Message-ID: <ajVEzllsP9OIswhS@google.com>
 References: <20260619070719.812227-1-tabba@google.com>
- <20260619070719.812227-5-tabba@google.com>
+ <20260619070719.812227-6-tabba@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260619070719.812227-5-tabba@google.com>
+In-Reply-To: <20260619070719.812227-6-tabba@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260619_063056_418524_CD22882C 
-X-CRM114-Status: GOOD (  25.23  )
+X-CRM114-CacheID: sfid-20260619_063205_848388_7FD8BF4D 
+X-CRM114-Status: GOOD (  26.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,124 +108,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 19, 2026 at 08:07:15AM +0100, Fuad Tabba wrote:
-> Move kvm_psci_valid_affinity() and kvm_psci_narrow_to_32bit() from
-> psci.c to include/kvm/arm_psci.h, and move psci_affinity_mask() there
-> too, renaming it kvm_psci_affinity_mask() now that it is no longer
-> file-local. A follow-up series handles some protected-guest PSCI calls
-> at EL2 using these helpers.
+On Fri, Jun 19, 2026 at 08:07:16AM +0100, Fuad Tabba wrote:
+> From: Marc Zyngier <maz@kernel.org>
+> 
+> The nVHE hypervisor repeatedly resolves a host vCPU into the EL2
+> address space and validates that the loaded hyp vCPU matches it, with
+> that logic open-coded in each handler.
+> 
+> Add __get_host_hyp_vcpus() and the get_host_hyp_vcpus() macro, which
+> translate the host vCPU into the hypervisor's address space and, when
+> pKVM is enabled, also return the loaded hyp vCPU if it matches. If pKVM
+> is enabled but the loaded hyp vCPU does not correspond to the requested
+> host vCPU, both the host and hyp vCPU are returned as NULL. Convert
+> handle___kvm_vcpu_run() to use it.
 > 
 > No functional change intended.
 > 
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> Co-developed-by: Fuad Tabba <tabba@google.com>
 > Signed-off-by: Fuad Tabba <tabba@google.com>
 
 Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
 
 > ---
->  arch/arm64/kvm/psci.c  | 30 +-----------------------------
->  include/kvm/arm_psci.h | 27 +++++++++++++++++++++++++++
->  2 files changed, 28 insertions(+), 29 deletions(-)
+>  arch/arm64/kvm/hyp/nvhe/hyp-main.c | 52 ++++++++++++++++++++++--------
+>  1 file changed, 38 insertions(+), 14 deletions(-)
 > 
-> diff --git a/arch/arm64/kvm/psci.c b/arch/arm64/kvm/psci.c
-> index 3b5dbe9a0a0e..e3db84400d1f 100644
-> --- a/arch/arm64/kvm/psci.c
-> +++ b/arch/arm64/kvm/psci.c
-> @@ -21,16 +21,6 @@
->   * as described in ARM document number ARM DEN 0022A.
->   */
->  
-> -#define AFFINITY_MASK(level)	~((0x1UL << ((level) * MPIDR_LEVEL_BITS)) - 1)
-> -
-> -static unsigned long psci_affinity_mask(unsigned long affinity_level)
-> -{
-> -	if (affinity_level <= 3)
-> -		return MPIDR_HWID_BITMASK & AFFINITY_MASK(affinity_level);
-> -
-> -	return 0;
-> -}
-> -
->  static unsigned long kvm_psci_vcpu_suspend(struct kvm_vcpu *vcpu)
->  {
->  	/*
-> @@ -51,12 +41,6 @@ static unsigned long kvm_psci_vcpu_suspend(struct kvm_vcpu *vcpu)
->  	return PSCI_RET_SUCCESS;
+> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> index 1d01c6e547f5..8923f594c264 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> @@ -212,14 +212,45 @@ static void handle___pkvm_vcpu_put(struct kvm_cpu_context *host_ctxt)
+>  		pkvm_put_hyp_vcpu(hyp_vcpu);
 >  }
 >  
-> -static inline bool kvm_psci_valid_affinity(struct kvm_vcpu *vcpu,
-> -					   unsigned long affinity)
-> -{
-> -	return !(affinity & ~MPIDR_HWID_BITMASK);
-> -}
-> -
->  static unsigned long kvm_psci_vcpu_on(struct kvm_vcpu *source_vcpu)
+> -static void handle___kvm_vcpu_run(struct kvm_cpu_context *host_ctxt)
+> +static struct kvm_vcpu *__get_host_hyp_vcpus(struct kvm_vcpu *arg,
+> +					     struct pkvm_hyp_vcpu **hyp_vcpup)
 >  {
->  	struct vcpu_reset_state *reset_state;
-> @@ -135,7 +119,7 @@ static unsigned long kvm_psci_vcpu_affinity_info(struct kvm_vcpu *vcpu)
->  		return PSCI_RET_INVALID_PARAMS;
+> -	DECLARE_REG(struct kvm_vcpu *, host_vcpu, host_ctxt, 1);
+> -	int ret;
+> +	struct kvm_vcpu *host_vcpu = kern_hyp_va(arg);
+> +	struct pkvm_hyp_vcpu *hyp_vcpu = NULL;
 >  
->  	/* Determine target affinity mask */
-> -	target_affinity_mask = psci_affinity_mask(lowest_affinity_level);
-> +	target_affinity_mask = kvm_psci_affinity_mask(lowest_affinity_level);
->  	if (!target_affinity_mask)
->  		return PSCI_RET_INVALID_PARAMS;
+>  	if (unlikely(is_protected_kvm_enabled())) {
+> -		struct pkvm_hyp_vcpu *hyp_vcpu = pkvm_get_loaded_hyp_vcpu();
+> +		hyp_vcpu = pkvm_get_loaded_hyp_vcpu();
 >  
-> @@ -220,18 +204,6 @@ static void kvm_psci_system_suspend(struct kvm_vcpu *vcpu)
->  	run->exit_reason = KVM_EXIT_SYSTEM_EVENT;
->  }
+> +		if (!hyp_vcpu || hyp_vcpu->host_vcpu != host_vcpu) {
+> +			hyp_vcpu = NULL;
+> +			host_vcpu = NULL;
+> +		}
+> +	}
+> +
+> +	*hyp_vcpup = hyp_vcpu;
+> +	return host_vcpu;
+> +}
+> +
+> +#define get_host_hyp_vcpus(ctxt, regnr, hyp_vcpup)			\
+> +	({								\
+> +		DECLARE_REG(struct kvm_vcpu *, __vcpu, ctxt, regnr);	\
+> +		__get_host_hyp_vcpus(__vcpu, hyp_vcpup);		\
+> +	})
+> +
+> +static void handle___kvm_vcpu_run(struct kvm_cpu_context *host_ctxt)
+> +{
+> +	struct pkvm_hyp_vcpu *hyp_vcpu;
+> +	struct kvm_vcpu *host_vcpu;
+> +	int ret;
+> +
+> +	host_vcpu = get_host_hyp_vcpus(host_ctxt, 1, &hyp_vcpu);
+> +
+> +	if (!host_vcpu) {
+> +		ret = -EINVAL;
+> +		goto out;
+> +	}
+> +
+> +	if (unlikely(hyp_vcpu)) {
+>  		/*
+>  		 * KVM (and pKVM) doesn't support SME guests for now, and
+>  		 * ensures that SME features aren't enabled in pstate when
+> @@ -231,23 +262,16 @@ static void handle___kvm_vcpu_run(struct kvm_cpu_context *host_ctxt)
+>  			goto out;
+>  		}
 >  
-> -static void kvm_psci_narrow_to_32bit(struct kvm_vcpu *vcpu)
-> -{
-> -	int i;
+> -		if (!hyp_vcpu) {
+> -			ret = -EINVAL;
+> -			goto out;
+> -		}
 > -
-> -	/*
-> -	 * Zero the input registers' upper 32 bits. They will be fully
-> -	 * zeroed on exit, so we're fine changing them in place.
-> -	 */
-> -	for (i = 1; i < 4; i++)
-> -		vcpu_set_reg(vcpu, i, lower_32_bits(vcpu_get_reg(vcpu, i)));
-> -}
+>  		flush_hyp_vcpu(hyp_vcpu);
+>  
+>  		ret = __kvm_vcpu_run(&hyp_vcpu->vcpu);
+>  
+>  		sync_hyp_vcpu(hyp_vcpu);
+>  	} else {
+> -		struct kvm_vcpu *vcpu = kern_hyp_va(host_vcpu);
 > -
->  static unsigned long kvm_psci_check_allowed_function(struct kvm_vcpu *vcpu, u32 fn)
->  {
->  	/*
-> diff --git a/include/kvm/arm_psci.h b/include/kvm/arm_psci.h
-> index cbaec804eb83..f86a006d6713 100644
-> --- a/include/kvm/arm_psci.h
-> +++ b/include/kvm/arm_psci.h
-> @@ -38,6 +38,33 @@ static inline int kvm_psci_version(struct kvm_vcpu *vcpu)
->  	return KVM_ARM_PSCI_0_1;
->  }
->  
-> +/* Narrow the PSCI register arguments (r1 to r3) to 32 bits. */
-> +static inline void kvm_psci_narrow_to_32bit(struct kvm_vcpu *vcpu)
-> +{
-> +	int i;
-> +
-> +	/*
-> +	 * Zero the input registers' upper 32 bits. They will be fully
-> +	 * zeroed on exit, so we're fine changing them in place.
-> +	 */
-> +	for (i = 1; i < 4; i++)
-> +		vcpu_set_reg(vcpu, i, lower_32_bits(vcpu_get_reg(vcpu, i)));
-> +}
-> +
-> +static inline bool kvm_psci_valid_affinity(struct kvm_vcpu *vcpu,
-> +					   unsigned long affinity)
-> +{
-> +	return !(affinity & ~MPIDR_HWID_BITMASK);
-> +}
-> +
-> +static inline unsigned long kvm_psci_affinity_mask(unsigned long affinity_level)
-> +{
-> +	if (affinity_level <= 3)
-> +		return MPIDR_HWID_BITMASK &
-> +			~((0x1UL << (affinity_level * MPIDR_LEVEL_BITS)) - 1);
-> +
-> +	return 0;
-> +}
->  
->  int kvm_psci_call(struct kvm_vcpu *vcpu);
->  
+>  		/* The host is fully trusted, run its vCPU directly. */
+> -		fpsimd_lazy_switch_to_guest(vcpu);
+> -		ret = __kvm_vcpu_run(vcpu);
+> -		fpsimd_lazy_switch_to_host(vcpu);
+> +		fpsimd_lazy_switch_to_guest(host_vcpu);
+> +		ret = __kvm_vcpu_run(host_vcpu);
+> +		fpsimd_lazy_switch_to_host(host_vcpu);
+>  	}
+>  out:
+>  	cpu_reg(host_ctxt, 1) =  ret;
 > -- 
 > 2.55.0.rc0.738.g0c8ab3ebcc-goog
 > 
