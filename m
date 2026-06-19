@@ -4,88 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB718CD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 14:09:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 391FACD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 14:09:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8zhw41Wj4vCH2abThiXQujr4lQRlosy+XBXOYfxLors=; b=FuGE07YWA7zRbhR5+MStSwLphy
-	uRAbEeKxZnsdteqjpINilXtleCwfV2f6utPGQlnzAqNUxNRYWymVyIL3POcmTVDdsnKsinmHmWRLl
-	vYGSD4ibmmZYXvdaLqQf+gp7sD3e747fHuei2w/eRBpVr+sTNUaHGRHnYemKihAGT2WYkuRmTrdIC
-	3Xj49XPHghHj5WpYFH6j/zwgqSVt6m97fySUewLcOLGL4PMWmoWLZwPAy9F3vy8RJ0juUZTL9ImGq
-	75Srqxtm+lEteKcJe2tz4r4ZMcQpNIiKrev8LGhkaOwud75sV3vWEs14Qm6JJgN7Pk83YSyqwu5Xj
-	+zV2v6eA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oX0zVzxOibG8jKkwq0Sogtzj/vI7u0kFJcdFT/IKKQU=; b=0mp6Mnay/QEJJeEw+bjJpE0DU0
+	Ohy5nonJkjytmb2s8uZXbcp4VQ19ippZ1K/QlRwKPlU2PT+dFFbMa02ayCPBbpnf025qsRnO+9fF0
+	MtPTb6CIcc/C5K3nKXJFd6XWHA2X059Eix8l9XSoIeFC9Bi7RXlNhgELk3Bv0cAgX+dT8+Jzrcm3S
+	8QkWmMPCK3MoTnELuI0+X90DwcMF0Wr5Qs19jBA8O3hZ+gWID7bgHt1U0EtziD1fBKvvQycgACoS2
+	ejKnLf7kXBujrTAiKRajGfxCHVoXSYOkwYUl1gRh3KqVPBXpC8YByPAcFbZMlhaJLDiJ6IU9hR4vF
+	pLNZ637Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waZuF-00000002XPq-01HY;
-	Fri, 19 Jun 2026 14:09:15 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1waZuV-00000002Xb2-0hay;
+	Fri, 19 Jun 2026 14:09:31 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waZu9-00000002XGI-0is2
+	id 1waZuU-00000002XZv-2PEA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Jun 2026 14:09:10 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 4C47FC06CDC;
-	Fri, 19 Jun 2026 14:09:13 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 6EBE8601AD;
-	Fri, 19 Jun 2026 14:09:07 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9A510106C88A8;
-	Fri, 19 Jun 2026 16:09:02 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1781878145; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=8zhw41Wj4vCH2abThiXQujr4lQRlosy+XBXOYfxLors=;
-	b=kiZ2AHRxwemniL/axdXQpGWkQMO6tJUJDELCW+DFK9ZKkXXaQdxEqkFNGLXDrm2ox3/Cxu
-	9mHtWNKn+nOv/H/8SvKQdP2m/0J7WgRYfuLktXZCWylmWZ94LHnDRjf6a2sDHelmMKcyzM
-	pnxZprH1bJKxX7zlAx1THNyAD9dVwpwZzEa8iLXjTSn1Qu0zcEBaHTpiMbWeEUCoAAJIks
-	CMuE8ArmR6M3bq+VLJpPsRQ9QMuUl7U0pXwz9KXle582cGhXXsXzSwotkaU697KUVLjnU3
-	f/35RBhBdw4uhl45nMlhCCeEE8Eraq/+1zFAJHEGSPLNjobb8OAhDvlvnoenSg==
-From: Kory Maincent <kory.maincent@bootlin.com>
-Date: Fri, 19 Jun 2026 16:08:46 +0200
-Subject: [PATCH RFC v2 4/4] drm/mediatek: Use dp_connector helpers to
- report link training state
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260619-feat_link_cap-v2-4-a3dec4c02ad9@bootlin.com>
-References: <20260619-feat_link_cap-v2-0-a3dec4c02ad9@bootlin.com>
-In-Reply-To: <20260619-feat_link_cap-v2-0-a3dec4c02ad9@bootlin.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Jani Nikula <jani.nikula@linux.intel.com>, 
- Rodrigo Vivi <rodrigo.vivi@intel.com>, 
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
- Tvrtko Ursulin <tursulin@ursulin.net>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Dmitry Baryshkov <lumag@kernel.org>, Daniel Stone <daniels@collabora.com>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- Mark Yacoub <markyacoub@google.com>, Sean Paul <seanpaul@google.com>, 
- Manasi Navare <navaremanasi@google.com>, 
- Drew Davenport <ddavenport@google.com>, 
- Louis Chauvet <louis.chauvet@bootlin.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, dri-devel@lists.freedesktop.org, 
- linux-kernel@vger.kernel.org, intel-gfx@lists.freedesktop.org, 
- intel-xe@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, 
- Kory Maincent <kory.maincent@bootlin.com>
-X-Mailer: b4 0.15.0
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260619_070909_543387_1A71FB29 
-X-CRM114-Status: GOOD (  15.59  )
+	Fri, 19 Jun 2026 14:09:30 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7EFAC601E3;
+	Fri, 19 Jun 2026 14:09:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3424C1F000E9;
+	Fri, 19 Jun 2026 14:09:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781878169;
+	bh=oX0zVzxOibG8jKkwq0Sogtzj/vI7u0kFJcdFT/IKKQU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=LnHUPopDtuhqRuMwlZSLepaA4bKicUJFN+aLJCxw07ZHHhTlLtoa6MjTgFdLM4oUt
+	 H1+rKV4KRoSmq41i6tNhS0YCwFKpWIY7vFIc7cNt60eFuf/6t3FlHL0n+XW5l3R+uA
+	 PtfAs8tK6QysuniWEpG2JVmZR6AA4OfxB/NAczfYwVj3lPRyjlpMcmgCOKXtmhwxin
+	 jbkski8s4LyfeYHYm9qPicIbglbbz9i2uXkSoNZLsxXjChR9X95UbvlwPJWrtQsZN0
+	 ocuzdtdmhMH7N8HNsTEfOz3U2YfqAobUgQRAcdHFR3Z9iAgyYkAb0KIgKoEwMh12UB
+	 VJ+Bd3eosjxuw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1waZuQ-0000000EL5P-3z09;
+	Fri, 19 Jun 2026 14:09:27 +0000
+Date: Fri, 19 Jun 2026 15:09:26 +0100
+Message-ID: <86a4sqsju1.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Arnd Bergmann <arnd@arndb.de>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Andreas Grapentin <gra@linux.ibm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Martin <dave.martin@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>
+Subject: Re: [PATCH] arm64: uapi: Use __u128 instead of __uint128_t in UAPI headers
+In-Reply-To: <20260619130835.5678-1-will@kernel.org>
+References: <20260619130835.5678-1-will@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: will@kernel.org, linux-arm-kernel@lists.infradead.org, arnd@arndb.de, nick.desaulniers+lkml@gmail.com, seiden@linux.ibm.com, gra@linux.ibm.com, catalin.marinas@arm.com, dave.martin@arm.com, mark.rutland@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,100 +86,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Set DRM_BRIDGE_OP_DP and populate dp_link_train_caps with the supported
-link rates, lane counts, voltage swing and pre-emphasis levels so the
-bridge connector uses drmm_connector_dp_init() and exposes the link
-training state properties to userspace.
+On Fri, 19 Jun 2026 14:08:34 +0100,
+Will Deacon <will@kernel.org> wrote:
+> 
+> The arm64 UAPI exposes '__uint128_t' types in the members of
+> 'struct user_fpsimd_state', 'struct user_pac_address_keys' and in the
+> signal frame via 'struct fpsimd_context'. Since the alignment of such
+> a type appears to be non-portable (16 bytes on arm64, 8 bytes on s390),
+> prefer the '__u128' typedef from uapi/linux/types.h, which makes the
+> alignment explicit and allows the definitions to be reused by other
+> host architectures.
+> 
+> Cc: Arnd Bergmann <arnd@arndb.de>
+> Cc: Nick Desaulniers <nick.desaulniers+lkml@gmail.com>
+> Cc: Steffen Eiden <seiden@linux.ibm.com>
+> Cc: Andreas Grapentin <gra@linux.ibm.com>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Dave Martin <dave.martin@arm.com>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Signed-off-by: Will Deacon <will@kernel.org>
 
-Store per-lane voltage swing and pre-emphasis values in
-mtk_dp_train_info and report the negotiated link parameters via
-drm_connector_dp_set_link_train_properties() on training completion.
-Clear them via drm_connector_dp_reset_link_train_properties() when a
-disconnect is detected in the HPD event thread.
+FWIW:
 
-Signed-off-by: Kory Maincent <kory.maincent@bootlin.com>
----
+Reviewed-by: Marc Zyngier <maz@kernel.org>
 
-This patch has still not been tested. I am in the process of finding the
-hardware for that.
-
-Changes in v2:
-- Remove voltage swing and pre emphasis properties.
----
- drivers/gpu/drm/mediatek/mtk_dp.c | 23 +++++++++++++++++++++++
- 1 file changed, 23 insertions(+)
-
-diff --git a/drivers/gpu/drm/mediatek/mtk_dp.c b/drivers/gpu/drm/mediatek/mtk_dp.c
-index eefbc7e0f9c8d..c1e7086104116 100644
---- a/drivers/gpu/drm/mediatek/mtk_dp.c
-+++ b/drivers/gpu/drm/mediatek/mtk_dp.c
-@@ -1789,6 +1789,8 @@ static int mtk_dp_parse_capabilities(struct mtk_dp *mtk_dp)
- 		}
- 	}
- 
-+	drm_dp_sink_set_link_caps(mtk_dp->conn, &mtk_dp->aux);
-+
- 	return 0;
- }
- 
-@@ -1812,6 +1814,17 @@ static void mtk_dp_train_change_mode(struct mtk_dp *mtk_dp)
- 	mtk_dp_reset_swing_pre_emphasis(mtk_dp);
- }
- 
-+static void mtk_dp_report_link_train(struct mtk_dp *mtk_dp)
-+{
-+	u32 rate, nlanes;
-+
-+	rate = drm_dp_bw_code_to_link_rate(mtk_dp->train_info.link_rate);
-+	nlanes = mtk_dp->train_info.lane_count;
-+
-+	drm_dp_set_cur_link_params(mtk_dp->conn, rate, nlanes, false);
-+	drm_dp_set_max_link_params(mtk_dp->conn, rate, nlanes);
-+}
-+
- static int mtk_dp_training(struct mtk_dp *mtk_dp)
- {
- 	int ret;
-@@ -1892,6 +1905,7 @@ static int mtk_dp_training(struct mtk_dp *mtk_dp)
- 	mtk_dp_training_set_scramble(mtk_dp, true);
- 	mtk_dp_set_enhanced_frame_mode(mtk_dp);
- 
-+	mtk_dp_report_link_train(mtk_dp);
- 	return 0;
- }
- 
-@@ -2004,6 +2018,7 @@ static irqreturn_t mtk_dp_hpd_event_thread(int hpd, void *dev)
- 			mtk_dp->need_debounce = false;
- 			mod_timer(&mtk_dp->debounce_timer,
- 				  jiffies + msecs_to_jiffies(100) - 1);
-+			drm_dp_sink_reset_link_caps(mtk_dp->conn);
- 		} else {
- 			mtk_dp_aux_panel_poweron(mtk_dp, true);
- 
-@@ -2742,6 +2757,12 @@ static int mtk_dp_edp_link_panel(struct drm_dp_aux *mtk_aux)
- 
- static int mtk_dp_probe(struct platform_device *pdev)
- {
-+	static const u32 dp_rates[] = {162000, 270000, 540000, 810000};
-+	static const struct drm_connector_dp_link_caps dp_link_caps = {
-+		.nlanes = 4,
-+		.nlink_rates = ARRAY_SIZE(dp_rates),
-+		.link_rates = dp_rates,
-+	};
- 	struct mtk_dp *mtk_dp;
- 	struct device *dev = &pdev->dev;
- 	int ret;
-@@ -2809,6 +2830,8 @@ static int mtk_dp_probe(struct platform_device *pdev)
- 
- 	mtk_dp->bridge.of_node = dev->of_node;
- 	mtk_dp->bridge.type = mtk_dp->data->bridge_type;
-+	mtk_dp->bridge.dp_link_caps = &dp_link_caps;
-+	mtk_dp->bridge.ops = DRM_BRIDGE_OP_DP;
- 
- 	if (mtk_dp->bridge.type == DRM_MODE_CONNECTOR_eDP) {
- 		/*
+	M.
 
 -- 
-2.43.0
-
+Without deviation from the norm, progress is not possible.
 
