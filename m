@@ -4,74 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05918CD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 12:58:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41349CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 13:05:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=FDh4HHbjHZ2n8XaRDG5EEV15xMZvHpl5z1eZvSUxfbw=; b=VimXFEj4iuOR+ErjRwXAiSVilj
-	o3XI96fNcVCOZV/rgn8GiZ8YJU2iX0kDH5RXRY/spshEd1iclXIofpme6nvBMvbYtFAxDjw1vT9iw
-	ftqhVGXm1V2DN8GtMXPc508NVgn8QIWpVvwP+D3f3GbFwqvft54+8fTFg/U3+TttRqcyOF9EqqF8Y
-	waCS8kUwnPYW4zeSgPCYRD6QRE5H6Oslc79oZlcPxMpD+nbefD4ODdfYKO6fUfU1zjvY42vUOzqRd
-	1e74iQRgoXesUBceuzUYaTTTK1/4uuWBfxt2jTMTIMNBaIfvBT5JQi5ECetls2ny2xWLI2qfFSROe
-	3UpFB2+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uvTg08fHdCJ2zWVngIJfipizxXJP2af00IlPHh9eNhU=; b=0HVNjzWqhzQwdHP2TcaGdYFiaR
+	oGeSK5MmFvaYpy4u98yCkcHdBkGLEUi8eOeYtUC397hSi5BCS6rdiaSa12r2jFSyFVKLNfzNpIpre
+	wzazoPRMW4YuVIzfx+xwev117mYFkTyWMoP0yXwIlW4K6r21t7fBxam9ctRBxljkbc0ttV+eXYzgW
+	kS96Jwljgl5Apq62jaT6iyNbt8z631OcrkEW6zlViBAF7MbjUbbwCDNpfcAcRlcLvACrY4MBmnNyv
+	8Ok9KLrCus4m2vvqw1FSSlwGyWWFuFwdOc0e3+19edguK813UPgEAJM5JQhpEsPC1P6IbNdanfGhv
+	G6GT4sZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waYo1-00000002R8Y-2i8o;
-	Fri, 19 Jun 2026 12:58:45 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waYnu-00000002R6S-0gpe
+	id 1waYu2-00000002Rfz-0t1O;
+	Fri, 19 Jun 2026 13:04:58 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1waYu0-00000002RfS-0Aw4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Jun 2026 12:58:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1781873916;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=FDh4HHbjHZ2n8XaRDG5EEV15xMZvHpl5z1eZvSUxfbw=;
-	b=i8zh7fP1VQYCgAmaGsnwV6R/gqQQxZ7Un/Vr6BLtOXzTUUCNHZzVh+SflIsjgQo3rmJBng
-	qKWiWT+R2swYGhKBP2HzkZIM9vw+bGWNXzDQK7/eKZ0pQ+S2rUtivuV77QlpVlDnv9gj/z
-	qHfwY3rnRYhno2jbKD19RQsgTiS/ZkY=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-662-uZUIwzWTMDqEiQWQ4I7aBg-1; Fri,
- 19 Jun 2026 08:58:34 -0400
-X-MC-Unique: uZUIwzWTMDqEiQWQ4I7aBg-1
-X-Mimecast-MFC-AGG-ID: uZUIwzWTMDqEiQWQ4I7aBg_1781873913
-Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 9A26D195DBA4;
-	Fri, 19 Jun 2026 12:58:32 +0000 (UTC)
-Received: from thuth-p1g4.redhat.corp (headnet05.pony-001.prod.iad2.dc.redhat.com [10.2.32.117])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id DBFED18005B6;
-	Fri, 19 Jun 2026 12:58:28 +0000 (UTC)
-From: Thomas Huth <thuth@redhat.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	linux-kernel@vger.kernel.org
-Cc: linux-samsung-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Russell King <linux@armlinux.org.uk>
-Subject: [PATCH] ARM: s3c: Replace __ASSEMBLY__ with __ASSEMBLER__ in header files
-Date: Fri, 19 Jun 2026 14:58:27 +0200
-Message-ID: <20260619125827.215977-1-thuth@redhat.com>
+	Fri, 19 Jun 2026 13:04:57 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E85D24A92;
+	Fri, 19 Jun 2026 06:04:48 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6E4AD3F763;
+	Fri, 19 Jun 2026 06:04:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1781874293; bh=e9pfEYbv59UVNvg5pd3j1Yh0i55qXWOlAw6aQXf2fiI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lQUOPpbAmN6Zr1EYJgextc9Lnki8Ehn68EA514fFROJG93hMv4r2Cfa/r8NEkWg3n
+	 w7/Zq2/WnP0TUUTs/hsA6wrxV4sm6R2stNIFSF+9iXhA2oqOiIZLzOIr6XQovIdoEu
+	 /E9iWQPaERn1E4Z9+FmbsevKh/DyS57CcpVOvJzY=
+Date: Fri, 19 Jun 2026 14:04:47 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Harry Yoo <harry@kernel.org>
+Cc: Dev Jain <dev.jain@arm.com>, ryabinin.a.a@gmail.com,
+	akpm@linux-foundation.org, corbet@lwn.net, glider@google.com,
+	andreyknvl@gmail.com, dvyukov@google.com, vincenzo.frascino@arm.com,
+	kasan-dev@googlegroups.com, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org, skhan@linuxfoundation.org,
+	workflows@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, ryan.roberts@arm.com,
+	anshuman.khandual@arm.com, kaleshsingh@google.com,
+	21cnbao@gmail.com, david@kernel.org, will@kernel.org
+Subject: Re: [RFC PATCH 0/2] kasan: hw_tags: Add option to tag only at
+ allocation time
+Message-ID: <ajU-b32dmwS7XOg4@arm.com>
+References: <20260612044425.763060-1-dev.jain@arm.com>
+ <b1502a60-09a1-4699-886b-93d041de7023@kernel.org>
+ <2a7d21fa-28c1-446c-97f5-2513f29157d3@kernel.org>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
-X-Mimecast-MFC-PROC-ID: zF4nyl6H3MFNFwtjfXC_H8Z_J_mD46fxsgiRbd7wRkI_1781873913
-X-Mimecast-Originator: redhat.com
-Content-Transfer-Encoding: 8bit
-content-type: text/plain; charset="US-ASCII"; x-default=true
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <2a7d21fa-28c1-446c-97f5-2513f29157d3@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260619_055838_282137_DFDCFA26 
-X-CRM114-Status: GOOD (  15.99  )
+X-CRM114-CacheID: sfid-20260619_060456_121921_C8A34F39 
+X-CRM114-Status: GOOD (  13.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,64 +78,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Thomas Huth <thuth@redhat.com>
+On Thu, Jun 18, 2026 at 11:05:43PM +0900, Harry Yoo wrote:
+> On 6/18/26 10:35 PM, Harry Yoo wrote:
+> > On 6/12/26 1:44 PM, Dev Jain wrote:
+> >> Introduce a boot option to tag only at allocation time of the objects. This
+> >> reduces KASAN MTE overhead, the tradeoff being reduced ability of
+> >> catching bugs.
+> > 
+> > I think most of overhead when enabling MTE comes from loading and
+> > validing tags for every memory access (either in SYNC or ASYNC mode),
+> > rather than from storing tags.
+> 
+> Is there any reason not to use STGM instead of STG + DC GVA when
+> setting/clearing tags for large sizes when we know they are properly
+> aligned?
 
-While the GCC and Clang compilers already define __ASSEMBLER__
-automatically when compiling assembly code, __ASSEMBLY__ is a
-macro that only gets defined by the Makefiles in the kernel.
-This can be very confusing when switching between userspace
-and kernelspace coding, or when dealing with uapi headers that
-rather should use __ASSEMBLER__ instead. So let's standardize now
-on the __ASSEMBLER__ macro that is provided by the compilers.
+STGM is intended for copying tags when paired with LDGM. Have you seen
+hardware where STGM is faster than STG or DC GVA? For properly aligned
+buffers, I'd expect DC GVA to behave at least on par with STGM.
 
-This is a completely mechanical patch (done with a simple "sed -i"
-statement).
-
-Signed-off-by: Thomas Huth <thuth@redhat.com>
----
- Note: This patch has been split from an earlier patch of mine
- to ease reviewing.
-
- arch/arm/mach-s3c/map-base.h | 2 +-
- include/linux/serial_s3c.h   | 4 ++--
- 2 files changed, 3 insertions(+), 3 deletions(-)
-
-diff --git a/arch/arm/mach-s3c/map-base.h b/arch/arm/mach-s3c/map-base.h
-index 463a995b399bc..beb58e6f12e16 100644
---- a/arch/arm/mach-s3c/map-base.h
-+++ b/arch/arm/mach-s3c/map-base.h
-@@ -20,7 +20,7 @@
- 
- #define S3C_ADDR_BASE	0xF6000000
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- #define S3C_ADDR(x)	((void __iomem __force *)S3C_ADDR_BASE + (x))
- #else
- #define S3C_ADDR(x)	(S3C_ADDR_BASE + (x))
-diff --git a/include/linux/serial_s3c.h b/include/linux/serial_s3c.h
-index 102aa33d956c4..f54cb6e23f85e 100644
---- a/include/linux/serial_s3c.h
-+++ b/include/linux/serial_s3c.h
-@@ -269,7 +269,7 @@
- #define APPLE_S5L_UTRSTAT_RXTO		BIT(9)
- #define APPLE_S5L_UTRSTAT_ALL_FLAGS	GENMASK(9, 3)
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <linux/serial_core.h>
- 
-@@ -294,7 +294,7 @@ struct s3c2410_uartcfg {
- 	unsigned long	   ufcon;	 /* value of ufcon for port */
- };
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #endif /* __ASM_ARM_REGS_SERIAL_H */
- 
 -- 
-2.54.0
-
+Catalin
 
