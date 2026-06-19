@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62B90CD98F8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 07:05:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0377CCD98E6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 07:05:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UbL9lwJzeVbN1iJUU9ZRwmA6X1IAE6tmxjMtgc8Iqwc=; b=sRRIKjRhKS89xIxlQVXuBCfOdF
-	dAf1B4YGCFMGhRGTF1p29Cuzq/6UCEJEUZSe92LJeHoajc4tN0lO2kYGenYe/igrfKNTogjULoWpX
-	iA7hb3jrM7UW/FtkkM6sHBk1PY5zotbkKDREqErjp27dA9CxiSaGYNwPYA1avSudwy++Enk+9lkwt
-	1lz7scDrUIRLOeqcr0oo4300k+aQdid7BZVw1vj0gZCvdUCbx0jXFp9m7LQMtpVhvxoCwLP4OQ3yY
-	Ztv9ChJpfJ1vdEzPyzkGJpIPPvaq7+f8P1WbyTibe72ri6MaFBbo2u26h7q4lrQNJJIbyMcNrROVV
-	rz2lhLCw==;
+	bh=9tQfxVsIaeS+jOhIrhpINETdsAt58seT+ojTMVLuce4=; b=KchFQlKWzsKcferRqebzk49Uw/
+	yoRFY3QN986N9GzcRvUyLuAxWq7PdE3SqNQym1I/TC1UEGBv9cfZ2HReFx8zYjUrImOSqb9rT9P54
+	qPXR6FidOdHfalTHM0npbpVvZrF6mTv7cpCfLMjFcWbhh8PWYhYfb8EGuFOR6HrKeE1i/Z9viK2pE
+	rJgfY06n7qcfS0AgfMCG4SMNKUQ5SUtoAfeCXCZ6zZhQdeImn89w1tfEh62v5mrpqWzdt6LA4jW6G
+	bVWtgSbFtWgBgDEYA3dcm6lz73nq9Vv78Fx2uBbtF5CQX3U1i1AOlhuOv6ntQ9ZYRTBNm0w0mxrxe
+	2UjS4USg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waTHy-000000024SF-2yEt;
-	Fri, 19 Jun 2026 07:05:18 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1waTIC-000000024bd-2Czf;
+	Fri, 19 Jun 2026 07:05:32 +0000
+Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waTHt-000000024Oy-1917
+	id 1waTHy-000000024R8-1Lxa
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Jun 2026 07:05:14 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-490e547f3cfso14342065e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 00:05:12 -0700 (PDT)
+	Fri, 19 Jun 2026 07:05:19 +0000
+Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-4629f312a67so1820299f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 00:05:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781852711; x=1782457511; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1781852716; x=1782457516; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=UbL9lwJzeVbN1iJUU9ZRwmA6X1IAE6tmxjMtgc8Iqwc=;
-        b=Lq7vA7yiec12w7JtCF/ay9W1XPf+dirj+vVGeP7thV+0KDqeby+JGaQy8krQvYaB5Z
-         1ZTdG3FtBKcHUN/DdCeAkGVDNHxRIOq41X5Rafxtubc11UyiDRGz2yLQ6MRG5Ap9lAIe
-         eovdz2Hom5KinCQTdeu+p0yyL4BeCoForr2iMqaUhKp1ygVfjboTanUDfhikSdcFuz++
-         sDKPjMCMUcMKH14egVroKls4wjbL2CYjr8ircvFMcpu9yHRV3qjD3zDSy/ZswNygjOe3
-         s2azlf2zEIbptDdSw+JAh5/euyNFIQkGeEFFdzcLKp920xz7UA4ysNUpiqGjsIIHhQ+L
-         B0/g==
+        bh=9tQfxVsIaeS+jOhIrhpINETdsAt58seT+ojTMVLuce4=;
+        b=QzLppSFNRNZgsG4OlmWiLZtedkxIsZ1m2N/vQNuk2A5A76U1Io0R6BY6L0MIaHhQc6
+         vcstgWCuomUtDUB9M2HquNCpoifDxTN/Qga18HEzOtYpZGc2K5JVSXTQduyMk26FEjZM
+         x8np8/ajvCoO93AErgxYhCaD5mi69iEIc6K+V9Fb2znnLJeaFMF/fGe6AL9AY7Ggqd7N
+         kdrP3KS/Hq0V3TiCaBX4SZesRhoOqaRa4LevJbdOrRueixkXpNad6RjfQR7H7yBDWh5G
+         DSeLOhCM26M/RldJEY8KwYC+jVspyAmQ3klJIXknMzIN0d2aZuJr8GLDxfytgzMkCM6P
+         FpOw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781852711; x=1782457511;
+        d=1e100.net; s=20251104; t=1781852716; x=1782457516;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=UbL9lwJzeVbN1iJUU9ZRwmA6X1IAE6tmxjMtgc8Iqwc=;
-        b=SXJx/5TLTx1ceS6dk5h0T6hAGSpelcr9tBLulTgA6mOsV1Ix27im5c0RLH6PPv7Vtd
-         ZmRb+eb9msJ/fbMyxEI7XrQNP7PkyoVu/T3KAA9D25tJAcVWpuhLnDl9QgW4TB68/btd
-         mEaC/OSuwZfzw6ESdnXJW82XuOGCHGJtDlwWFYhEeQOCbztZkz+lGCo5gkqIUNz3bflb
-         FcqOPA5qQi2Nl0Z/NcRB1GZOreFOlLI5qmHxl96pc3Dk8zcPk8eYetL1dfd32XNUURUi
-         Ms89b7dvMYlJ/wVB9rZq4o2oCc84ix854lGUmTneZiGUuKp33jZBXRKDgPuhpUO5zBcy
-         goAw==
-X-Forwarded-Encrypted: i=1; AFNElJ882YX3SJI372oCbKaaYauuDRWUIHuV5dWuR/GAnafPX0YIgogbS5E7aF0BErOlW8ipSMikAr/WafmBBbCjIwhH@lists.infradead.org
-X-Gm-Message-State: AOJu0YwW7Biyuu0137CT2O3SdIK/tLTMuSWY1+vEALAyNUP0J317c8AF
-	xq6JTVNG+o+7qG1qxkZJUt6nvr+XbmSnspUfo9SW7vCZvAqHJsd9cvDXYt0c7vQ26raed2mZU/N
-	FnA==
-X-Received: from wmbdr18.prod.google.com ([2002:a05:600c:6092:b0:490:9d65:494e])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:5493:b0:492:1ea2:6258
- with SMTP id 5b1f17b1804b1-49240e7b049mr31031545e9.33.1781852711056; Fri, 19
- Jun 2026 00:05:11 -0700 (PDT)
-Date: Fri, 19 Jun 2026 08:05:01 +0100
+        bh=9tQfxVsIaeS+jOhIrhpINETdsAt58seT+ojTMVLuce4=;
+        b=dtjRmLBa/jV/ULNNGO4DnWZJkYQQ2HjvpPCC775XYCiJMQmi/M9mBArgyNbv90oTK4
+         lYxWHimV3PfEJEIQToyzdmiNc7gq2BeXLMxhTwqCvRnNrg4u+ih2Zz/Moks/zxw0KMdx
+         ZQYtGraa5TscF4yex9c69AW2zatMsNofJpUuNmPwbgQcqQdM4eHUkPsQ3/GGllwGIiKI
+         2v0kKfrqFLFald7+jHEKpUXaLylv1mhMj6lvcrqpSugu7F2NPMdbFu4qOBXAVVKb0F2o
+         M/BXWw063RSpCuAsQtOpOnOTM7RQZZ5uzqzZOmXvhe4fIBOvldw9dSrv7csBcZ7OpnD8
+         Mybw==
+X-Forwarded-Encrypted: i=1; AFNElJ9vmMqTYo1LF43Yf4GTKcIyXm2x9F95AofO1qFMbgt+iVbMLqYwGYQmSKXJ8xj6If+yN3O4RJdAwrrkRcjCfpnt@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxr8s4hGRCkPBOttxLf3oBrDKUtLvis7VVhNCRYXHDjGNulgCty
+	ho3zPTBX1//ou8qIhxzD7fkTela5V2Eqxx8RbIwBJJHvLa7YTPkU9yrORxvMJGoli19WASe/Yio
+	37Q==
+X-Received: from wrup11.prod.google.com ([2002:a5d:638b:0:b0:462:5359:f2e5])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a5d:64e7:0:b0:45e:739b:3e43
+ with SMTP id ffacd0b85a97d-464fd2fdc18mr4912063f8f.0.1781852716104; Fri, 19
+ Jun 2026 00:05:16 -0700 (PDT)
+Date: Fri, 19 Jun 2026 08:05:05 +0100
 In-Reply-To: <20260619070508.802802-1-tabba@google.com>
 Mime-Version: 1.0
 References: <20260619070508.802802-1-tabba@google.com>
 X-Mailer: git-send-email 2.55.0.rc0.738.g0c8ab3ebcc-goog
-Message-ID: <20260619070508.802802-2-tabba@google.com>
-Subject: [PATCH 1/8] KVM: arm64: Extract MPIDR computation into a shared header
+Message-ID: <20260619070508.802802-6-tabba@google.com>
+Subject: [PATCH 5/8] KVM: arm64: Add host and hypervisor vCPU lookup primitives
 From: Fuad Tabba <tabba@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, kvmarm@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
@@ -77,8 +77,8 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
 	Fuad Tabba <tabba@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260619_000513_328471_4427C20E 
-X-CRM114-Status: GOOD (  13.45  )
+X-CRM114-CacheID: sfid-20260619_000518_379494_70FFD820 
+X-CRM114-Status: GOOD (  16.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,76 +93,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Extract the vCPU MPIDR computation embedded in reset_mpidr() into a
-kvm_calculate_mpidr() inline in sys_regs.h, so it can be computed
-without duplicating the logic. A follow-up series reuses it to reset
-protected vCPUs at EL2.
+From: Marc Zyngier <maz@kernel.org>
+
+The nVHE hypervisor repeatedly resolves a host vCPU into the EL2
+address space and validates that the loaded hyp vCPU matches it, with
+that logic open-coded in each handler.
+
+Add __get_host_hyp_vcpus() and the get_host_hyp_vcpus() macro, which
+translate the host vCPU into the hypervisor's address space and, when
+pKVM is enabled, also return the loaded hyp vCPU if it matches. If pKVM
+is enabled but the loaded hyp vCPU does not correspond to the requested
+host vCPU, both the host and hyp vCPU are returned as NULL. Convert
+handle___kvm_vcpu_run() to use it.
 
 No functional change intended.
 
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+Co-developed-by: Fuad Tabba <tabba@google.com>
 Signed-off-by: Fuad Tabba <tabba@google.com>
 ---
- arch/arm64/kvm/sys_regs.c | 14 +-------------
- arch/arm64/kvm/sys_regs.h | 19 +++++++++++++++++++
- 2 files changed, 20 insertions(+), 13 deletions(-)
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c | 52 ++++++++++++++++++++++--------
+ 1 file changed, 38 insertions(+), 14 deletions(-)
 
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 33c921df19b5..674fabe1d40d 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -976,21 +976,9 @@ static u64 reset_actlr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r)
+diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+index 1d01c6e547f5..8923f594c264 100644
+--- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
++++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+@@ -212,14 +212,45 @@ static void handle___pkvm_vcpu_put(struct kvm_cpu_context *host_ctxt)
+ 		pkvm_put_hyp_vcpu(hyp_vcpu);
+ }
  
- static u64 reset_mpidr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r)
+-static void handle___kvm_vcpu_run(struct kvm_cpu_context *host_ctxt)
++static struct kvm_vcpu *__get_host_hyp_vcpus(struct kvm_vcpu *arg,
++					     struct pkvm_hyp_vcpu **hyp_vcpup)
  {
--	u64 mpidr;
-+	u64 mpidr = kvm_calculate_mpidr(vcpu);
+-	DECLARE_REG(struct kvm_vcpu *, host_vcpu, host_ctxt, 1);
+-	int ret;
++	struct kvm_vcpu *host_vcpu = kern_hyp_va(arg);
++	struct pkvm_hyp_vcpu *hyp_vcpu = NULL;
  
--	/*
--	 * Map the vcpu_id into the first three affinity level fields of
--	 * the MPIDR. We limit the number of VCPUs in level 0 due to a
--	 * limitation to 16 CPUs in that level in the ICC_SGIxR registers
--	 * of the GICv3 to be able to address each CPU directly when
--	 * sending IPIs.
--	 */
--	mpidr = (vcpu->vcpu_id & 0x0f) << MPIDR_LEVEL_SHIFT(0);
--	mpidr |= ((vcpu->vcpu_id >> 4) & 0xff) << MPIDR_LEVEL_SHIFT(1);
--	mpidr |= ((vcpu->vcpu_id >> 12) & 0xff) << MPIDR_LEVEL_SHIFT(2);
--	mpidr |= (1ULL << 31);
- 	vcpu_write_sys_reg(vcpu, mpidr, MPIDR_EL1);
--
- 	return mpidr;
- }
+ 	if (unlikely(is_protected_kvm_enabled())) {
+-		struct pkvm_hyp_vcpu *hyp_vcpu = pkvm_get_loaded_hyp_vcpu();
++		hyp_vcpu = pkvm_get_loaded_hyp_vcpu();
  
-diff --git a/arch/arm64/kvm/sys_regs.h b/arch/arm64/kvm/sys_regs.h
-index 2a983664220c..bd56a45abbf9 100644
---- a/arch/arm64/kvm/sys_regs.h
-+++ b/arch/arm64/kvm/sys_regs.h
-@@ -222,6 +222,25 @@ find_reg(const struct sys_reg_params *params, const struct sys_reg_desc table[],
- 	return __inline_bsearch((void *)pval, table, num, sizeof(table[0]), match_sys_reg);
- }
- 
-+static inline u64 kvm_calculate_mpidr(const struct kvm_vcpu *vcpu)
-+{
-+	u64 mpidr;
++		if (!hyp_vcpu || hyp_vcpu->host_vcpu != host_vcpu) {
++			hyp_vcpu = NULL;
++			host_vcpu = NULL;
++		}
++	}
 +
-+	/*
-+	 * Map the vcpu_id into the first three affinity level fields of
-+	 * the MPIDR. We limit the number of VCPUs in level 0 due to a
-+	 * limitation to 16 CPUs in that level in the ICC_SGIxR registers
-+	 * of the GICv3 to be able to address each CPU directly when
-+	 * sending IPIs.
-+	 */
-+	mpidr = (vcpu->vcpu_id & 0x0f) << MPIDR_LEVEL_SHIFT(0);
-+	mpidr |= ((vcpu->vcpu_id >> 4) & 0xff) << MPIDR_LEVEL_SHIFT(1);
-+	mpidr |= ((vcpu->vcpu_id >> 12) & 0xff) << MPIDR_LEVEL_SHIFT(2);
-+	mpidr |= (1ULL << 31);
-+
-+	return mpidr;
++	*hyp_vcpup = hyp_vcpu;
++	return host_vcpu;
 +}
 +
- const struct sys_reg_desc *get_reg_by_id(u64 id,
- 					 const struct sys_reg_desc table[],
- 					 unsigned int num);
++#define get_host_hyp_vcpus(ctxt, regnr, hyp_vcpup)			\
++	({								\
++		DECLARE_REG(struct kvm_vcpu *, __vcpu, ctxt, regnr);	\
++		__get_host_hyp_vcpus(__vcpu, hyp_vcpup);		\
++	})
++
++static void handle___kvm_vcpu_run(struct kvm_cpu_context *host_ctxt)
++{
++	struct pkvm_hyp_vcpu *hyp_vcpu;
++	struct kvm_vcpu *host_vcpu;
++	int ret;
++
++	host_vcpu = get_host_hyp_vcpus(host_ctxt, 1, &hyp_vcpu);
++
++	if (!host_vcpu) {
++		ret = -EINVAL;
++		goto out;
++	}
++
++	if (unlikely(hyp_vcpu)) {
+ 		/*
+ 		 * KVM (and pKVM) doesn't support SME guests for now, and
+ 		 * ensures that SME features aren't enabled in pstate when
+@@ -231,23 +262,16 @@ static void handle___kvm_vcpu_run(struct kvm_cpu_context *host_ctxt)
+ 			goto out;
+ 		}
+ 
+-		if (!hyp_vcpu) {
+-			ret = -EINVAL;
+-			goto out;
+-		}
+-
+ 		flush_hyp_vcpu(hyp_vcpu);
+ 
+ 		ret = __kvm_vcpu_run(&hyp_vcpu->vcpu);
+ 
+ 		sync_hyp_vcpu(hyp_vcpu);
+ 	} else {
+-		struct kvm_vcpu *vcpu = kern_hyp_va(host_vcpu);
+-
+ 		/* The host is fully trusted, run its vCPU directly. */
+-		fpsimd_lazy_switch_to_guest(vcpu);
+-		ret = __kvm_vcpu_run(vcpu);
+-		fpsimd_lazy_switch_to_host(vcpu);
++		fpsimd_lazy_switch_to_guest(host_vcpu);
++		ret = __kvm_vcpu_run(host_vcpu);
++		fpsimd_lazy_switch_to_host(host_vcpu);
+ 	}
+ out:
+ 	cpu_reg(host_ctxt, 1) =  ret;
 -- 
 2.55.0.rc0.738.g0c8ab3ebcc-goog
 
