@@ -4,143 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0536CD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 14:36:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DBB3CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 14:38:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qruWLc1VrcWUcas3tXlIKr/hpjz262pfZoarsKMxK9k=; b=GbkJFSdfa6jJqNSoQXn1QXlduY
-	2J7C/tKmSyhEmSr879KRHNu+fSMZIaEZn2+uW/OKXOpeErwJUUV/OoiTFvby18RJyWXSoHEpTN85i
-	/q6dLfLmQZ57yoRK3/TxDZjQTwWzE8XsUyw5Gt3dUkFzrO0vsGQ0rM32BzgTLwZKmEb0WkZIS4grj
-	1yr+gnZRFEKDVnI67SV0ueU1RwG+9BHsqHXBlhN7UsHCDBwNlGS36axvk4FsWc6dvngo/lG/nx9vx
-	YvxOZH+GUsJd6ivpWNjZh4mMxE7NDBqXDwt/uNCvsqonW4YdlnQgmrvq9Mng2HRWfj3FXIqL2VesA
-	KAJ17DTA==;
+	bh=4VTiiOQPPFZ1ZED+8W3L25wQImaP/t6mbZOaw33wpzs=; b=Mg9R8QWUZiQrWXwPUiqlQyDv7I
+	wTYLTfXUo1cIO4J+nOTNw/1SdomBicFCjrEeeuz9UDvkyGlMv7JNsMhD6BU+zGPezppfTrmHXPPBs
+	NC0BTisvk87NmLtpM8RJyufbOUrmkRTj73HnrmXfbg01PRZEsFhgL+5hWdWWt716msWXGRreT5jGo
+	kL1AYUlt03rpGFWUz/t7W5a5s0hFY+uI/Go74uihxmnVp+VOZF+OdIFvPlAjZabOxmw/fk52IDp+T
+	m6wMUoqGH/GrcmDcEIboKUMi4vbdOQq0UcBfGJLEEKinqjg2BISWrqHF4wCdH4uxiTtg6f8WEv4oR
+	43Cc4qPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waaKB-00000002aH9-3lQ0;
-	Fri, 19 Jun 2026 14:36:03 +0000
-Received: from smtp-out1.suse.de ([195.135.223.130])
+	id 1waaMg-00000002aRN-19UI;
+	Fri, 19 Jun 2026 14:38:38 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waaK8-00000002aFi-2bCA
+	id 1waaMe-00000002aRF-3LR5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Jun 2026 14:36:02 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 7F91D6DBA3;
-	Fri, 19 Jun 2026 14:35:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1781879758; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=qruWLc1VrcWUcas3tXlIKr/hpjz262pfZoarsKMxK9k=;
-	b=tLnW9fynOO+N5fiDidU3T9yhwGmyZlcqWNLkGUFJbSix2evpC70DYBuXwNaxOXCVFXw3Ea
-	XJ2wNCxqd9LdI0N0bdEaFDPGVjW1N+Doo2Y4ZMu5D4/g70SRY7ut3vUGb5z+bAjcxasX34
-	N6U8N++DBkq/Gq1FccbtL/uCdbYhhoA=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1781879758;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=qruWLc1VrcWUcas3tXlIKr/hpjz262pfZoarsKMxK9k=;
-	b=Vl6HYejYPwel/QQoSGv02onV0eBKxF7H4jwja5tUkCJe+WBZqBCBNzcf7iytItWieounUm
-	nlokLYUjznwsyiCQ==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=tLnW9fyn;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=Vl6HYejY
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1781879758; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=qruWLc1VrcWUcas3tXlIKr/hpjz262pfZoarsKMxK9k=;
-	b=tLnW9fynOO+N5fiDidU3T9yhwGmyZlcqWNLkGUFJbSix2evpC70DYBuXwNaxOXCVFXw3Ea
-	XJ2wNCxqd9LdI0N0bdEaFDPGVjW1N+Doo2Y4ZMu5D4/g70SRY7ut3vUGb5z+bAjcxasX34
-	N6U8N++DBkq/Gq1FccbtL/uCdbYhhoA=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1781879758;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=qruWLc1VrcWUcas3tXlIKr/hpjz262pfZoarsKMxK9k=;
-	b=Vl6HYejYPwel/QQoSGv02onV0eBKxF7H4jwja5tUkCJe+WBZqBCBNzcf7iytItWieounUm
-	nlokLYUjznwsyiCQ==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 2FED4779A8;
-	Fri, 19 Jun 2026 14:35:58 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id 6OyMCs5TNWrIJAAAD6G6ig
-	(envelope-from <tiwai@suse.de>); Fri, 19 Jun 2026 14:35:58 +0000
-Date: Fri, 19 Jun 2026 16:35:57 +0200
-Message-ID: <87jyruiomq.wl-tiwai@suse.de>
-From: Takashi Iwai <tiwai@suse.de>
-To: Tomasz Figa <tfiga@chromium.org>
-Cc: Takashi Iwai <tiwai@suse.de>,
-	Sean Wang <sean.wang@kernel.org>,
-	Sergey Senozhatsky <senozhatsky@chromium.org>,
-	Marcel Holtmann <marcel@holtmann.org>,
-	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
-	Mark-yw Chen <mark-yw.chen@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	linux-bluetooth@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] Bluetooth: btmtksdio: fix infinite loop in btmtksdio_txrx_work()
-In-Reply-To: <CAAFQd5DyDQo9vBH80YYQBW7Bgf64F1m9q44-jhf1cc75XYpftA@mail.gmail.com>
-References: <20260609121329.1262170-1-senozhatsky@chromium.org>
-	<CAGp9LzpBUReZtrTEKgUr-+yvB+3tcs5hw7ziC4WaMRFNa2AYpg@mail.gmail.com>
-	<87tsqyirsn.wl-tiwai@suse.de>
-	<CAAFQd5DyDQo9vBH80YYQBW7Bgf64F1m9q44-jhf1cc75XYpftA@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/30.2 Mule/6.0
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Rspamd-Action: no action
-X-Spamd-Result: default: False [-2.01 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	ARC_NA(0.00)[];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	RCPT_COUNT_TWELVE(0.00)[13];
-	MIME_TRACE(0.00)[0:+];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	FREEMAIL_CC(0.00)[suse.de,kernel.org,chromium.org,holtmann.org,gmail.com,mediatek.com,vger.kernel.org,lists.infradead.org];
-	RCVD_TLS_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	DNSWL_BLOCKED(0.00)[2a07:de40:b281:104:10:150:64:97:from,2a07:de40:b281:106:10:150:64:167:received];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	TAGGED_RCPT(0.00)[];
-	DKIM_TRACE(0.00)[suse.de:+];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[chromium.org:email,imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns,suse.de:email,suse.de:dkim,suse.de:mid]
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Queue-Id: 7F91D6DBA3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260619_073600_854387_22F83486 
-X-CRM114-Status: GOOD (  36.22  )
+	Fri, 19 Jun 2026 14:38:36 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id E65CE601E2;
+	Fri, 19 Jun 2026 14:38:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00F481F000E9;
+	Fri, 19 Jun 2026 14:38:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781879915;
+	bh=4VTiiOQPPFZ1ZED+8W3L25wQImaP/t6mbZOaw33wpzs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=isBuugKc25Pd/ADQQ0fzwHiZh3E/l5Ebf3ulcZefIjWau/xFLL5tBScIkwLAEJZ5g
+	 gerrDg225TCLgSZBAmObbhBvrVhdSfFeAark0ldlRwlnbZucqSuKS59QY1Rrjjhm17
+	 yQ2ZCTIk9LvcSh8FAKv4VuaOWxUtjlfactb38NwbFfw0zsyOkNvuZs+a1u8Sd9o31p
+	 mplFQo6nsc2BxEbgr31NzFqSCnFr7TkZbY3P0vcZOR/XfgMW/t0xx8V9mf2r2h7Qh4
+	 +87oMQgUVQinRuIouPkNm5eFcNzdRfkJXJqlu7cAmEHcFIpDsnD7ry3uzvROxfbgW1
+	 TQyPHv2ENuK1A==
+Date: Fri, 19 Jun 2026 15:38:30 +0100
+From: Will Deacon <will@kernel.org>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: Robin Murphy <robin.murphy@arm.com>, joro@8bytes.org,
+	Jason Gunthorpe <jgg@nvidia.com>,
+	Shuai Xue <xueshuai@linux.alibaba.com>,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] iommu/arm-smmu-v3: Declare eats_s1chk and eats_trans as
+ host-endian u64
+Message-ID: <ajVUZkHcGp-PHkmO@willie-the-truck>
+References: <20260615194533.3290010-1-nicolinc@nvidia.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260615194533.3290010-1-nicolinc@nvidia.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,102 +72,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 19 Jun 2026 16:17:31 +0200,
-Tomasz Figa wrote:
+On Mon, Jun 15, 2026 at 12:45:33PM -0700, Nicolin Chen wrote:
+> arm_smmu_get_ste_update_safe() declares the eats_s1chk and eats_trans
+> locals as __le64, but initializes them from FIELD_PREP(), which returns a
+> host-endian value, and passes them through cpu_to_le64() at the use sites.
 > 
+> Sparse reports the following warnings:
 > 
-> On Fri, Jun 19, 2026 at 10:27 PM Takashi Iwai <tiwai@suse.de> wrote:
-> >
-> > On Wed, 10 Jun 2026 08:52:31 +0200,
-> > Sean Wang wrote:
-> > >
-> > > Hi,
-> > >
-> > > On Tue, Jun 9, 2026 at 7:19 AM Sergey Senozhatsky
-> > > <senozhatsky@chromium.org> wrote:
-> > > >
-> > > > Every once in a while we see a hung btmtksdio_flush() task:
-> > > >
-> > > >  INFO: task kworker/u17:0:189 blocked for more than 122 seconds.
-> > > >  __cancel_work_timer+0x3f4/0x460
-> > > >  cancel_work_sync+0x1c/0x2c
-> > > >  btmtksdio_flush+0x2c/0x40
-> > > >  hci_dev_open_sync+0x10c4/0x2190
-> > > >  [..]
-> > > >
-> > > > It all boils down to incorrect time_is_before_jiffies() usage in
-> > > > btmtksdio_txrx_work().  The btmtksdio_txrx_work() loop is expected
-> > > > to be terminated if running for longer than 5*HZ.  However the
-> > > > timeout check is twisted:  time_is_before_jiffies(old_jiffies + 5*HZ)
-> > > > evaluates to true when old_jiffies + 5*HZ is in the past i.e. when a
-> > > > timeout has occurred.  Using OR with time_is_before_jiffies
-> (txrx_timeout)
-> > > > means that:
-> > > > - before the 5-second timeout: the condition is `int_status || false`,
-> > > >   so it loops as long as there are pending interrupts.
-> > > > - after the 5-second timeout: the condition becomes `int_status || true
-> `,
-> > > >   which is always true.
-> > > >
-> > > > When the loop becomes infinite btmtksdio_txrx_work() loop never
-> > > > terminates and never releases the SDIO host.
-> > > >
-> > > > Fix loop termination condition to actually enforce a 5*HZ timeout.
-> > > >
-> > > > Fixes: 26270bc189ea4 ("Bluetooth: btmtksdio: move interrupt service to
-> work")
-> > > > Cc: stable@vger.kernel.org
-> > > > Signed-off-by: Sergey Senozhatsky <senozhatsky@chromium.org>
-> > > > ---
-> > > >  drivers/bluetooth/btmtksdio.c | 2 +-
-> > > >  1 file changed, 1 insertion(+), 1 deletion(-)
-> > > >
-> > > > diff --git a/drivers/bluetooth/btmtksdio.c b/drivers/bluetooth/
-> btmtksdio.c
-> > > > index 5b0fab7b89b5..c6f80c419e90 100644
-> > > > --- a/drivers/bluetooth/btmtksdio.c
-> > > > +++ b/drivers/bluetooth/btmtksdio.c
-> > > > @@ -620,7 +620,7 @@ static void btmtksdio_txrx_work(struct work_struct
-> *work)
-> > > >                         if (btmtksdio_rx_packet(bdev, rx_size) < 0)
-> > > >                                 bdev->hdev->stat.err_rx++;
-> > > >                 }
-> > > > -       } while (int_status || time_is_before_jiffies(txrx_timeout));
-> > > > +       } while (int_status && time_is_after_jiffies(txrx_timeout));
-> > >
-> > > yes, loop continues only while there is interrupt work and the timeout
-> > > deadline is still in the future
-> >
-> > I stumbled on this while backporting to distro kernels, and I wonder
-> > whether this change is correct.
-> >
-> > IIUC, this essentially makes the loop exiting right after the first
-> > cycle; the patch changed from time_is_before_jiffies() to *_after_*(),
-> > not only the logical OR to AND, and *_after_*() returns false, so the
-> > whole condition becomes false, too.
+> >> drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c:1122:38: sparse: sparse: cast from restricted __le64
+>    drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c:1124:33: sparse: sparse: cast from restricted __le64
 > 
-> The intention is for the loop to keep running as long as there is still an
-> interrupt left to handle (int_status != 0) and the timeout has not elapsed
-> (jiffies < txrx_timeout).
+> Declare both locals as u64 so the type matches FIELD_PREP() and the
+> existing cpu_to_le64() at the use sites performs the host-to-little-endian
+> conversion. No functional change.
 > 
-> Note that time_is_after_jiffies(x) returns true if x > jiffies (or jiffies <
-> x):
+> Fixes: 7cad80048595 ("iommu/arm-smmu-v3: Mark EATS_TRANS safe when computing the update sequence")
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes: https://lore.kernel.org/all/202606151017.QU0evpH9-lkp@intel.com/
+> Assisted-by: Claude:claude-opus-4-8
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> ---
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
 > 
->     /**
->      * time_is_after_jiffies - return true if a is after jiffies
->      * @a: time (unsigned long) to compare to jiffies
->      *
->      * Return: %true is time a is after jiffies, otherwise %false.
->      */
->     #define time_is_after_jiffies(a) time_before(jiffies, a)
-> 
-> Or am I missing something?
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> index 8ce3e801eda3b..4c0f7b17b1f37 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> @@ -1240,9 +1240,9 @@ VISIBLE_IF_KUNIT
+>  void arm_smmu_get_ste_update_safe(const __le64 *cur, const __le64 *target,
+>  				  __le64 *safe_bits)
+>  {
+> -	const __le64 eats_s1chk =
+> +	const u64 eats_s1chk =
+>  		FIELD_PREP(STRTAB_STE_1_EATS, STRTAB_STE_1_EATS_S1CHK);
+> -	const __le64 eats_trans =
+> +	const u64 eats_trans =
+>  		FIELD_PREP(STRTAB_STE_1_EATS, STRTAB_STE_1_EATS_TRANS);
 
-Doh, scratch my comment.  It's enough confusing about time_after() vs
-time_is_after_jiffies().  Too hot here to review something today :-<
+Aha, this is the fix for that sparse report from the kbuild robot. Thanks!
 
-Sorry for the noise!
-
-
-Takashi
+Will
 
