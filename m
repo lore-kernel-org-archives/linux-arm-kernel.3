@@ -4,101 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78CEECD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 18:38:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41330CD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 19:19:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7sd/b42PKGYPWc3g69c99WO1tcNR8oQqqaoqVKqNcok=; b=DaNjPpZiIvrIvBP1ANmx2DkZ/i
-	vOCXEr2EqLxXfyt4e/+loaP8XnIBKKDTXah79I8ZdD+9ATbjgWvKzmo55k7h42RaqG/ZzBbcjyYVY
-	5mjYEjIE7gk9+ammdBSdDID6Z+R7Aa2GQz+YMw4drlrwIRboPE3Q4mxToJC//5OVdI5SbL6CTSjIo
-	7m3xljrHMYbwXSEvpEj3IRrprmaIJa/25L9ZEGkKKcFYqHkzS251ZJv6/ne2XSvtOTxfyGGLdoCx0
-	mEXwuObpouj46JXlT6IB4TIGFIcyC43wTYKYjGlhSk81jA0QKkd2NbUVJoKH1DtDBk+ygQuDkKLV5
-	Yo4AMrqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WMmaYqcpj5qFPBbHXMKSxFB7Wq+hKotmwq9lR4Zk+sg=; b=eFuXvlndTBW/7DUaUkjVwVusW+
+	yZCcbbKcXU0omRbra5cHI6w4lWzzzvZ4LywUFepIBCp8IzU9XAXTSKGLqyaEMJk2q2Xyy0iN7DArp
+	u9xEndAWw51oWQ3IETl1BsMM8GttQMaZecKOlroeVNiZ9LCMdcmqURvIvhUoII/iCwqCaV+7lnqT+
+	9pw2OsfYE2mfcvupmNy4P+e9zJLPRvxLBzVCh+GGYQmB91h1D60Relg5FAQNwYIAYdLDiQ/OzyEl9
+	66i+qiZEJ9rhw96LBMOOY2VyW9YgDpUmwbm2nhf4iYEI3AUAwW2WtzfXsUIgtJBsHr15zRrRzl2WA
+	W9cu9Klg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wae74-00000002syt-0BHe;
-	Fri, 19 Jun 2026 18:38:46 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	id 1waejw-00000002uRU-3NTK;
+	Fri, 19 Jun 2026 19:18:56 +0000
+Received: from fout-b4-smtp.messagingengine.com ([202.12.124.147])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wae71-00000002syY-0NFt
+	id 1waejt-00000002uR9-0qJV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Jun 2026 18:38:44 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-c074142cf6dso363667366b.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 11:38:42 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1781894321; cv=none;
-        d=google.com; s=arc-20240605;
-        b=WSf+MPg65KBZd3YV8QMrqRr66MA9/ANiYfvNQHCdJTfOV/gJrizi+fxGZJYhBdhr1C
-         JjmRCbzjRVnoJbJdiaF9dQDsMZMqsC1QOYq7EenG/6bIyt0dcfI3y6mMHRnulCSf24Bf
-         gqTv5LM5lUw7XU0JSrexyAStybAOl2U5D7Ns3y9nL8H1LwyWrL7ZkgZJDQxmUCp99zgu
-         8xDI8kqmcAQ7+2XVIezirJ8st2UFDADV2EhesRfmK80NaVsTm1hajJXfNzjN1xI9ZZhU
-         TcjmD6g8ZgNVTUKS7t9/l65/nqJTSdY4HLCElSWq5aHRhXQhL7evAK3JoAMUfmFTIdQQ
-         Di5Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=7sd/b42PKGYPWc3g69c99WO1tcNR8oQqqaoqVKqNcok=;
-        fh=V0unrTljy4ZteuEMq7Pfhz/WYQYi0K4hAlaP0YsIzCc=;
-        b=FEgr2OL4NQb9tRFn4tCpZgmCx7J32xWfJCFfBLUhBgF3Caf/LH0ZZN7hUYAxwCuQL5
-         iwJfk+W0iD66OWK9+/8TUER11rGUMNtnuZ64T/tO+w5Ue0mjhVjI6oghXPptb5d+ZiRe
-         JbZlbRa1JC+O8vdO0fehvEKhn6A1Ua58GSIX1a21ToFuoWSohJgYqixwJJosi0eaCl2E
-         dl0P9phGFV1LOVI9CD1xnOIiAsTgOx0teWJ6NR5W8Sn3mRsaf/QrCAfLv3Hy//OleY1P
-         z1w31/vkUVsQEkUXwXvXRrWD2sZgDYtOnkhwlRUtizKaiAWFiZa0+xG1tUK43iArAcI2
-         IpRg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781894321; x=1782499121; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=7sd/b42PKGYPWc3g69c99WO1tcNR8oQqqaoqVKqNcok=;
-        b=h5gl1TfbToCE85zxwrc+y+KZhpt21aaDmbwVX0/9i5fCvSMGOBqdcU3pbO0u1mUdsV
-         BjYitfiiUuGDQu5i29kMvej0M0i9lcO/eQ4HB1kZwbZcEq4zjJefAr4rxaGHICSi6WFr
-         Ko0hgs4Q+wFby+RUdf+JxOJtoHvl6BYZ8NV/RdMORIUhS5IMGC0L+MBYK2nWhNsiBBex
-         mVabxaELs+isayEa6mCWwyHibtnfGkIvP3S+5mxhomcUv0pSfPPvnTnueh9ju+0TZo60
-         MeEdqB+CCczwXUPBNVf6Iurikuob04LyagTXo/wQYDcmOqayO6JnKgFtvRrgfaoi/gU2
-         lOtg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781894321; x=1782499121;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7sd/b42PKGYPWc3g69c99WO1tcNR8oQqqaoqVKqNcok=;
-        b=iYeP+HVVPBVdMuCEdnchpXvyZtVAgZwNo/j9KaeaAigtZ+mfB6gwJ1hCcB0Pp2eeoW
-         snQpfuIHdxedMQr/GojVgX8/FZ+h/F6SzRhtQt2utrRdgQROu0toN/PPkkVFILc8fwA6
-         l1r4ZynsMKANDTLDRalmFtITA+uwJdJlZ+Um+o7hIcqdCjSYrfGfOxgpEIfSg44jyqdD
-         DdcNNPs+SVRMRXhtmdZ99fraSC7SJ9FWwWf85p06eY14KkoN1Nn4oIF9xtlXcYAVubsU
-         cV0xIrAORqtuUFGShfYEJ3rC169OyWTYMxJvQAvqs3ZBVGVr7baO/r/eTNhI2B61i8Gt
-         DAsA==
-X-Gm-Message-State: AOJu0YwBcV9q5sKw9QA+EGUKYf6zSzqr6NNdxl7uygZ2PCbHZiPjBULG
-	zZLSUr1QD65UeZptVlh3YLnJTbsBil/qetuyzDHywOb5kwyeUXbffp/cYo3Deaq1eOA7CRGfY1D
-	JxE6wXOki1a1vGu7w6ulcPTeGf8IS0/eWVpdUigTbNA==
-X-Gm-Gg: AfdE7ckWrgKAY+Hx1Mp5yuEKqobVQjTOR6MiT/A9j5CRQIklO7HKaOUnSS0UvETfxJo
-	Toz75iDbO81OaKSJeKZyEp+r9yzC+OZOdrgBDluymC4QR9T6lur6uOfSet4R9AOdKjhV/zP016l
-	RatSV9e7ED3cHhcCXF1Y097bqzm6nu53WWdyUUIA77l/DKUJ9RhykxMmMJ0I2+kerF2kBJWbugS
-	A9m3bNSNK21yPq/I+PXBTqCcWnOvVO5LFdJmmfkMek+rlfwIKlNuq6jGXuTYPolXQ4j8MoNOX5Q
-	QODyYEpE
-X-Received: by 2002:a17:907:1caa:b0:bf8:6dc9:b319 with SMTP id
- a640c23a62f3a-c09b9c76917mr245634066b.24.1781894320897; Fri, 19 Jun 2026
- 11:38:40 -0700 (PDT)
+	Fri, 19 Jun 2026 19:18:55 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfout.stl.internal (Postfix) with ESMTP id 802641D000D2;
+	Fri, 19 Jun 2026 15:18:50 -0400 (EDT)
+Received: from phl-imap-05 ([10.202.2.95])
+  by phl-compute-04.internal (MEProxy); Fri, 19 Jun 2026 15:18:51 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1781896730;
+	 x=1781983130; bh=WMmaYqcpj5qFPBbHXMKSxFB7Wq+hKotmwq9lR4Zk+sg=; b=
+	MGWyBY0b2Vpa5SbeOoCaHd7LeP1XXkLZl2I0hco03NvQpBHKRGMqk9uaJu29E4ES
+	ZSptCouPNO3K1BbIITyL7tl81AVtIHMJOHBQbuCPgecXCKmv/yEnV/CS6HQ2PpCB
+	N3uXtZIgil16ogc+o/IpOKRjbWSuYXdxWecPR3BYMv+2s+fqQk6qveFmqFJvw2rD
+	EG6YLk2RCgOEcsVRV/MYGWmxzY2TnX439brV300W6EV3Udrc7fYgwAZcFnD4p4dX
+	k7ufO75RVLll3ql5jo9bfVm0BTgLYx7iCwFl4RJzdmegIOldoA+bpe4HUK7ljS2w
+	VSOUseCetYaNb6CdlnHn+Q==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1781896730; x=
+	1781983130; bh=WMmaYqcpj5qFPBbHXMKSxFB7Wq+hKotmwq9lR4Zk+sg=; b=a
+	AUb1mLnG3NRW+BTlcQ6gE7agaiElxEsjlSsOEFQv7TmStYThsonUub+Y9wmhq/UX
+	w5FQXavNfgOPLGScgIedj0P4L7cHMmK5U7dj7nZeHAF2Vch9ATME9FaUqt1rLzoG
+	BzpenwWYNt0HhJ7ClUQ5lS/QCD+6IViNV1GshFNAG/UFMRbcqTeygT2/PzEMxH35
+	75S5ahevfnRo+ANx4csygvKhYQcWly2+gJ9Q4gHTcNO8QpzQKs3QxhR7IoCDzV1u
+	TpwULVn0KQ+/bVlv11QAWjP1y9QKLFX74/Y9sqzzre5F6lnSdLj9mA7LNxedYlRV
+	RVy5Cr6YxHy9vEo8HIxKA==
+X-ME-Sender: <xms:GJY1ail0oQF4zqflss_nqWzFvweWbFuhrTHF-nZRwd7hhkaJBbkE-w>
+    <xme:GJY1akofdj9rdg4BYOVAoYiljcFLCywCTd-7p4hyKIyunbHUzvS-btKZVKRFAHNfM
+    Kdt1xksGs3OwM9ML3pflo65LyLAggQHqXFFT6QONswTfHcI_Ah9kJc>
+X-ME-Proxy-Cause: dmFkZTFxwm0eoO/ubQ6vEXwkN7gu9uih52cTPfdC2KKT/YbaCqdV74DUlwbxDlQ1eX/AJb
+    LKb64YTQgPoISp+PTWQdWzNil+OmtwAWnWyYjnoOczuy+3cPAlZux6RZHQSXuI/Lp4KgjK
+    vUGwLuxoK1IU5E412htHREbsHNYpd18q6ckMVLTC0jYuOf7BdKrn8fqXTW2QSUhnN0FoHN
+    vFues5Pfb92i6pWuaydZ/Uo/4AQp6Rq/0sAI5c02HEfElIpkJL80Of7lf9BTo3h4exQOxC
+    UjmlHkR5kc48/ma9mjCkyCStVFntqnJK+EKBJLZ5D0y9EiaAnIyl1w7s9xoryHn6uTXFhQ
+    TxDoRPTd4rLyrL1T2oMFZ5b4W4Iefc6tzVZtsT2VU/wqmt5WZin87Ho7gR+ktYrDsYAgmF
+    9/i9UaRN3uKxf3V4HhnlKsoOHyGA7QUii5kQGXVjcLwErJHdHDTgD6+4gTHPX9C9V9PCcv
+    Flr8I0ITlQWAMeH55hIqIfjDzHlE5pyLPDsZpmlKny3BojEHwDhdgt/iLyT7JnflRTGFlF
+    4Ee10aS1Viq8noR1nzW+Cs9T2IPvdmaRoeD0idLVGnvgIVi8JclG8MRxJ9ClSZdQtekUnq
+    W4lE2Q7q1ZSPjwDdxAzVyt/Tzo7IO5huzk//IKNJgVyUQyLK7ftY1V2pw8hg
+X-ME-Proxy: <xmx:GJY1apQVZQn0fUcUg_pMom8vHeGZJkSGXDUKzHwMPbGLRnxlHdz0bg>
+    <xmx:GJY1ascKauvynt-2QyEb_BVfCFip285HKqf535gjQf5J_sdu57LFwQ>
+    <xmx:GJY1auKhqgL-MEwStOIXYdL9FMrRYQXXXUSRus05CsUPS2CJIzZ37Q>
+    <xmx:GJY1apEXcbi2cM1z-xp4ZZYMsbvr2qayLkPROzh-xwsRcf1Cznogkg>
+    <xmx:GpY1auf-tP02Dc0COI_6I8-4aasP8pZuMJc-VIkKF2q0n_Vmi11zrxjR>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id CD722182007E; Fri, 19 Jun 2026 15:18:48 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-References: <20260525031312.1341109-1-dbgh9129@gmail.com>
-In-Reply-To: <20260525031312.1341109-1-dbgh9129@gmail.com>
-From: =?UTF-8?B?7LWc7Jyg7Zi4?= <dbgh9129@gmail.com>
-Date: Fri, 19 Jun 2026 14:38:29 -0400
-X-Gm-Features: AVVi8CednOIf8DbLQ5bp_77HmGEdIqo4B9MQoprCazQQ5QlMs5Ro9aH4nhy5Kio
-Message-ID: <CACrCO_WVp9oH8R3yi56X6p=ktmERaSLcKe35_puKCCRNJ1y0tw@mail.gmail.com>
-Subject: Re: [PATCH v1] ARM: highbank: Fix OF node refcount leaks
-To: Andre Przywara <andre.przywara@arm.com>, Russell King <linux@armlinux.org.uk>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+X-ThreadId: A7dmd8TY8zEF
+Date: Fri, 19 Jun 2026 21:17:58 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Vladimir Zapolskiy" <vz@kernel.org>, "Frank Li" <Frank.Li@oss.nxp.com>,
+ "Sascha Hauer" <s.hauer@pengutronix.de>,
+ "Pengutronix Kernel Team" <kernel@pengutronix.de>,
+ "Stefan Agner" <stefan@agner.ch>, "Fabio Estevam" <festevam@gmail.com>,
+ "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>, "Russell King" <linux@armlinux.org.uk>,
+ "Abel Vesa" <abelvesa@kernel.org>, "Peng Fan" <peng.fan@nxp.com>,
+ "Michael Turquette" <mturquette@baylibre.com>,
+ "Stephen Boyd" <sboyd@kernel.org>, "Brian Masney" <bmasney@redhat.com>,
+ "Aisheng Dong" <aisheng.dong@nxp.com>, "Jacky Bai" <ping.bai@nxp.com>,
+ "NXP S32 Linux Team" <s32@nxp.com>, "Linus Walleij" <linusw@kernel.org>,
+ "Piotr Wojtaszczyk" <piotr.wojtaszczyk@timesys.com>,
+ "Kees Cook" <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-clk@vger.kernel.org,
+ "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
+ linux-hardening@vger.kernel.org, "Frank Li" <Frank.Li@nxp.com>
+Message-Id: <06498d0e-662a-4c09-b1b0-2a70b6168acb@app.fastmail.com>
+In-Reply-To: <7d946861-c3cb-4512-9d5f-9f4cb9b7ee8a@kernel.org>
+References: <20260619-dts_cleanup_arm_mcore-v1-0-0101795a2662@nxp.com>
+ <7d946861-c3cb-4512-9d5f-9f4cb9b7ee8a@kernel.org>
+Subject: Re: [PATCH 00/11] ARM: NXP: Drop NOMMU platform support
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260619_113843_158139_600A9514 
-X-CRM114-Status: UNSURE (   8.28  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260619_121853_725632_D0C779AF 
+X-CRM114-Status: GOOD (  20.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,11 +124,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Fri, Jun 19, 2026, at 18:07, Vladimir Zapolskiy wrote:
+> On 6/19/26 18:40, Frank.Li@oss.nxp.com wrote:
+>> Commercial users and hardware vendors migrated to Zephyr or other RTOS
+>> solutions years ago, leaving the NOMMU platform support effectively
+>> unused and unmaintained.
+>> 
+>> Remove the obsolete support to reduce maintenance burden and simplify the
+>> Freescale/nxp platform code.
+>> 
+>> Some driver code still be kept and may clean up later since it is possible
+>> reused by other SoC.
 
-Just a gentle ping on this patch.
+Thanks a lot for going through these already!
+ 
+>> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+>
+> This change is a bit too early to happen, I prefer to get it orchestrated
+> by Arnd. So, as for today I NAK the change for its NXP LPC part.
 
-I would appreciate any feedback when you have a chance to review this.
+I am planning to post a series of deprecation notices for platforms
+that I would like to remove for one reason or another. Since it's only
+one more merge before the next (S)LTS kernel, my idea was to post
+the series once v7.2-rc1 is out, merge it into 7.3-LTS and remove
+the deprecated code early next year once the LTS release is announced.
 
-Thanks
+I have rebased uploaded my current draft to
+https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git/log/?h=rfc-arm-deprecation-7.2
+
+None of those are finalized of course, and we can do any part
+of it earlier or later (or not at all) if there is a good reason.
+
+If you to remove the vf610m4/imx7d-cm4/lpc43xx/lpc18xx portions
+earlier, that is definitely fine with me. For imxrt1050, there a
+slightly higher chance that this is still used, so I would
+prefer to wait for the LTS kernel on that one.
+
+>> Frank Li (11):
+>>        ARM: dts: vf610m4: Remove NOMMU platform support
+>>        ARM: dts: imxrt1050: Remove NOMMU platform support
+>>        ARM: imx: Remove NOMMU platform support
+>>        clk: imx: imxrt1050: Remove NOMMU platform support
+>>        pinctrl: freescale: IMXRT: Remove NOMMU platform support
+>>        ARM: imxrt_defconfig: Remove NOMMU platform support
+>>        ARM: dts: lpc: Remove NOMMU platform support
+>>        ARM: mach-lpc: Remove NOMMU platform support
+>>        ARM: configs: lpc*: Remove NOMMU platform support
+>>        clk: nxp: lpc: Remove NOMMU platform support
+>>        pinctrl: nxp: lpc: Remove NOMMU platform support
+
+>
+> NXP LPC32xx is ARMv5 and it has MMU, hence it's plainly out of scope of
+> the proposed "dropping NOMMU platform support".
+
+Agreed. There are a few more platforms with MMU that I would like
+to drop because they were never converted to devicetree support,
+but there is nothing wrong with lpc32xx. 
+
+      Arnd
 
