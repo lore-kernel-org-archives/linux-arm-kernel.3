@@ -4,57 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EC08CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 15:22:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AB82CD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 15:29:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gk/jkLabIKqrTeRTh6B8YkFY1Qzh0AGlpE1MH2mDe24=; b=n9lXF1BcdX0Qy0pIYkzy91ZY07
-	NeqQRe9uCA6efHqNNEky3g5Q7IncRgCfrBTYXDRMoYGgxtighPJGZi0CcIfwjzR+tX74CeOd9x8di
-	PW8iBrthHuQWotOZJhZZ7Z9lGxtPfa4EtqP/jkMtmeSnJ05J+/scP0rRyg3cKcAuK5lUy4n/OybUF
-	JCIFmwkz52Vw7YrFNvRi8yj5sdLaT4me/bqVPYBlEv3/93zCInLG4S2d3aUPCZLVT75BAyXH2lSnP
-	Zhd330SwBW3TcWnELy4thEHeE6eafiVq2q8YW/SvJojh1pgIDYskJ6+CRPraSdyi6St7dbM72G2gW
-	3GUeCIzw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gdtMGS69O9FQnvlMP/DHFOAlWIBmP1hs5y27IdCIClM=; b=vAjjuRMjidAZGe+wUIEBSKKj8K
+	siyOchQF0uL7VmRQVy2QSWP+EpJSARhEE/tmgIaY4tQOhWxV65AHjysK3p82XmaWdt7XmyMQNDpt9
+	nF91FaTasTwGE8cACcQWqubuDES9ga+W9pr0AwUeQxM3JEVG9rDiWUPpVxiVO67EemjaDCJ4JbUS5
+	QqFaIpGObAzxtepzFPMS7n48gmtbl4ow5WiFrORv3Tiygnx4mijdkji33JhlkcQ6vWDoc1a0gB6GT
+	OPkppyyYG0QC/p/VFNV6hgRxnPY6zRJz/Yuu/3fbj2Gm+Nf2W81KnVB6nBXjRvFfKdaJ5675G8JJt
+	9YOptnIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wab2k-00000002dHY-1Otf;
-	Fri, 19 Jun 2026 15:22:06 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wab2i-00000002dHE-0Zoy
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Jun 2026 15:22:05 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DECB32880;
-	Fri, 19 Jun 2026 08:21:57 -0700 (PDT)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 30DF83F763;
-	Fri, 19 Jun 2026 08:22:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1781882522; bh=700rRzW++BkEpbjiGVizQi/Qihc27GT0Bohwey/9ZG4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qlN6snVb8P7eI0UXTPA2dYPCbudUBmBu1zgwbkqd95YdDE4WiI2QCdEr95WOj0RQx
-	 2s54s/KD0gww3eDm5ZG0G4YFiCnQ+/7KtoFGELmV/fQT2XwT0Llvw/qNLZu3GiGE1h
-	 YZbP35uRHFcIwPxMizIje74j5dCtHkSufNKkfq7M=
-Date: Fri, 19 Jun 2026 16:21:53 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Rasmus Villemoes <linux@rasmusvillemoes.dk>
-Cc: linux-arm-kernel@lists.infradead.org, Ard Biesheuvel <ardb@kernel.org>,
-	Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] docs: arm64: Document that text_offset is always 0
-Message-ID: <ajVekauNroapwbtm@J2N7QTR9R3.cambridge.arm.com>
-References: <20260604140839.1930847-1-linux@rasmusvillemoes.dk>
+	id 1wab9V-00000002dXj-0mZJ;
+	Fri, 19 Jun 2026 15:29:05 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wab9S-00000002dVW-0XU2;
+	Fri, 19 Jun 2026 15:29:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1781882937;
+	bh=hH0QGrmLbuu/B4YZadFae3inm/JzWTkz0OQ7ld9Btpc=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=QK0pAz4Y/XG67ZKqHMfiYucx67zmnSe3b6NViHWKMV0IYWGFaN6Pf66BfkIiVAY9T
+	 QWeAGg2+22N3+EOenvGcAc2pi9JjXmEatsax0vDhYuiWVJGFo1IUR+f/ZAlh2v/SNk
+	 vMJC1E5f6DDhCnbwXZXzpAWfXmka4nvwtjO6moIAGiyevCY7bP4+cuMzsgcMtdYHPG
+	 larqwcmijd22uhaQrueqEQqM4+RlJY2BgnWBxBLnNKNRwxFeGNn/x6fNWLcmxSainG
+	 ZHC3CQK7Vixq++oe2VL8BZVl+FkaPkAwXzGHtoM71ugFg5CYNOxlehUB0BXuGHd3DT
+	 kBcJjRqGJL5pw==
+Received: from jupiter.universe (unknown [100.64.1.62])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: sre)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id D19AF17E0C91;
+	Fri, 19 Jun 2026 17:28:57 +0200 (CEST)
+Received: by jupiter.universe (Postfix, from userid 1000)
+	id 87968480026; Fri, 19 Jun 2026 17:28:57 +0200 (CEST)
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Fri, 19 Jun 2026 17:28:52 +0200
+Subject: [PATCH v6 01/23] dt-bindings: phy: rockchip-usbdp: add improved
+ ports scheme
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260604140839.1930847-1-linux@rasmusvillemoes.dk>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260619-rockchip-usbdp-cleanup-v6-1-3bb1f54b3f35@collabora.com>
+References: <20260619-rockchip-usbdp-cleanup-v6-0-3bb1f54b3f35@collabora.com>
+In-Reply-To: <20260619-rockchip-usbdp-cleanup-v6-0-3bb1f54b3f35@collabora.com>
+To: Vinod Koul <vkoul@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Heiko Stuebner <heiko@sntech.de>, Frank Wang <frank.wang@rock-chips.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: Andy Yan <andy.yan@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>, 
+ Yubing Zhang <yubing.zhang@rock-chips.com>, 
+ Alexey Charkov <alchark@gmail.com>, linux-phy@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, kernel@collabora.com, 
+ devicetree@vger.kernel.org, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2290;
+ i=sebastian.reichel@collabora.com; h=from:subject:message-id;
+ bh=hH0QGrmLbuu/B4YZadFae3inm/JzWTkz0OQ7ld9Btpc=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGo1YDeOrh9uSgYAF1Mpbu1zTe7i9tcKPTQ9v
+ pQFb4gZzgg6lIkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqNWA3AAoJENju1/PI
+ O/qaC1UQAIX71Q/v64Nck9Ke2YdrZtBYfXNDsL200gdRdsBPwLzwpb9GTohNav/ZxbIH36BhoX1
+ IGILLFIbpP4ix/Y6UAWlq+3MqYZYAD6sayGegLuT/y1g3TpegWRhYoZjo3jRprMYBJf695W1yLp
+ fW7PyBrsSzKBIDD3ndjYkyEDKB6zMygC+TbLtyjLsswMac1VHqPux2h1ppeFjAOMVKTRg25k0HZ
+ Q7useb119rBwv1CcZoO9TioaTQJ+gplRc3VN8116S1UvwFg3UWLxicpsNONa5XqDaL+Vz8SunoP
+ D5Paonqbc9UeU7mUFZgMjTzO8b/x6EqPd+/7tp7lxLagrU4c3FjUmHQbzIJgZaejmRUf+3tZhGp
+ Z2qfSbl6PQcCzFlP8b8TydksBIetFHD5+xdH27EsjH9FhoVuYbqe/jExW+1JamRVp4jvvHVm3Hi
+ yimRI2dpdQ8HWBak0KQn2JKEV2EohP1y9Vtj4NcK6rlXWgtiRbgeLh9Oct48zgJHsic3zdXt2hr
+ uGlUvaGKEeaxbKuu2irjm+p7ygziqpGEDwZ77R2/tz1nSHFfH0/Z8ko1/4hGwWGIav+iNguC8/h
+ WpPygvgocBILHluddY5mpqrhK+lYEIL/DTidk9pJNcPs+fKJ0ZkrZZU9NyT8JmfVi9PG48G8j2y
+ 8UTeB2yN3ZFdUwjHBkOUynw==
+X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
+ fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260619_082204_259195_F86C108A 
-X-CRM114-Status: GOOD (  39.10  )
+X-CRM114-CacheID: sfid-20260619_082902_326746_B638B8D0 
+X-CRM114-Status: GOOD (  12.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,133 +102,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 04, 2026 at 04:08:39PM +0200, Rasmus Villemoes wrote:
-> When trying to figure out where to place and call an arm64 Image in
-> memory, reading booting.rst should provide the answer. However, it
-> requires quite some digging to figure out that text_offset is set via
-> ".quad 0" in head.S and is thus actually always 0 since v5.10.
+Currently the Rockchip USBDP PHY is missing a documented port scheme.
+Meanwhile upstream RK3588 DTS files are a bit messy and use different
+port schemes. The upstream USBDP PHY Linux kernel driver does not yet
+parse the ports at all and thus does not create any implicit ABI either.
 
-What is the actual problem?
+But with the current mess it is not possible to properly support USB-C
+DP AltMode. Thus this introduces a proper port scheme following roughly
+the ports design of the Qualcomm QMP USB4-USB3-DP PHY controller binding
+with a slight difference that there is an additional port for the
+USB-C SBU port as the Rockchip USB-DP PHY also contains the SBU mux.
 
-The documentation in booting.rst is accurate; I don't see why it's
-necessary to read the source code to look at text_offset. Immediately
-above the text in your diff, the documentation has:
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ .../bindings/phy/phy-rockchip-usbdp.yaml           | 23 ++++++++++++++++++++++
+ 1 file changed, 23 insertions(+)
 
-| 4. Call the kernel image
-| ------------------------
-| 
-| Requirement: MANDATORY
-| 
-| The decompressed kernel image contains a 64-byte header as follows::
-| 
-|   u32 code0;                    /* Executable code */
-|   u32 code1;                    /* Executable code */
-|   u64 text_offset;              /* Image load offset, little endian */
-|   u64 image_size;               /* Effective Image size, little endian */
-|   u64 flags;                    /* kernel flags, little endian */
-|   u64 res2      = 0;            /* reserved */
-|   u64 res3      = 0;            /* reserved */
-|   u64 res4      = 0;            /* reserved */
-|   u32 magic     = 0x644d5241;   /* Magic number, little endian, "ARM\x64" */
-|   u32 res5;                     /* reserved (used for PE COFF offset) */
+diff --git a/Documentation/devicetree/bindings/phy/phy-rockchip-usbdp.yaml b/Documentation/devicetree/bindings/phy/phy-rockchip-usbdp.yaml
+index 8b7059d5b182..f728acf057e4 100644
+--- a/Documentation/devicetree/bindings/phy/phy-rockchip-usbdp.yaml
++++ b/Documentation/devicetree/bindings/phy/phy-rockchip-usbdp.yaml
+@@ -114,6 +114,29 @@ properties:
+       A port node to link the PHY to a TypeC controller for the purpose of
+       handling orientation switching.
+ 
++  ports:
++    $ref: /schemas/graph.yaml#/properties/ports
++    properties:
++      port@0:
++        $ref: /schemas/graph.yaml#/properties/port
++        description:
++          Output endpoint of the PHY for USB (or DP when configured into 4 lane
++          mode), which should point to the superspeed port of a USB connector.
++
++      port@1:
++        $ref: /schemas/graph.yaml#/properties/port
++        description: Incoming endpoint from the USB controller
++
++      port@2:
++        $ref: /schemas/graph.yaml#/properties/port
++        description: Incoming endpoint from the DisplayPort controller
++
++      port@3:
++        $ref: /schemas/graph.yaml#/properties/port
++        description:
++          Output endpoint of the PHY for DP, which should either point to the
++          SBU port of a USB-C connector or a DisplayPort connector input port.
++
+ required:
+   - compatible
+   - reg
 
-Can you explain the problem you're facing? e.g.
+-- 
+2.53.0
 
-* Is the documentation unclear, in a way that could be better?
-
-* Is there some aspect of the boot protocol that is hard for a
-  bootloader to follow?
-
-* Is there some problem with *testing* that bootloaders respect the
-  text_offset requirements?
-
-* Something else?
-
-> Update the documentation and make that explicit. Reword the 2MB
-> requirement accordingly, and remove the paragraphs that only apply to
-> the ancient versions where text_offset could be non-zero, as they only
-> confuse a current reader.
-> 
-> Fixes: 120dc60d0bdb ("arm64: get rid of TEXT_OFFSET")
-> Signed-off-by: Rasmus Villemoes <linux@rasmusvillemoes.dk>
-> ---
-> I've included a Fixes tag since I spent way too much time tracking
-> down where that text_offset might be defined. The mentioned commit did
-> get rid of all references to TEXT_OFFSET-the-macro, but not
-> text_offset-the-concept.
-
-Keeping text_offset as a concept was deliberate. That allows us to keep
-the documentation accruate for older kernel versions, and allows for the
-possiblity that a non-zero offset is introduced in future (though I
-admit that might be a tough sell).
-
->  Documentation/arch/arm64/booting.rst | 20 +++++---------------
->  1 file changed, 5 insertions(+), 15 deletions(-)
-> 
-> diff --git a/Documentation/arch/arm64/booting.rst b/Documentation/arch/arm64/booting.rst
-> index 13ef311dace8..f4cc25b1fd56 100644
-> --- a/Documentation/arch/arm64/booting.rst
-> +++ b/Documentation/arch/arm64/booting.rst
-> @@ -55,9 +55,6 @@ not exceed 2 megabytes in size. Since the dtb will be mapped cacheable
->  using blocks of up to 2 megabytes in size, it must not be placed within
->  any 2M region which must be mapped with any specific attributes.
->  
-> -NOTE: versions prior to v4.2 also require that the DTB be placed within
-> -the 512 MB region starting at text_offset bytes below the kernel Image.
-> -
->  3. Decompress the kernel image
->  ------------------------------
->  
-> @@ -93,6 +90,8 @@ Header notes:
->  
->  - As of v3.17, all fields are little endian unless stated otherwise.
->  
-> +- As of v5.10, text_offset is always 0.
-> +
->  - code0/code1 are responsible for branching to stext.
->  
->  - when booting through EFI, code0/code1 are initially skipped.
-> @@ -100,12 +99,6 @@ Header notes:
->    entry point (efi_stub_entry).  When the stub has done its work, it
->    jumps to code0 to resume the normal boot process.
->  
-> -- Prior to v3.17, the endianness of text_offset was not specified.  In
-> -  these cases image_size is zero and text_offset is 0x80000 in the
-> -  endianness of the kernel.  Where image_size is non-zero image_size is
-> -  little-endian and must be respected.  Where image_size is zero,
-> -  text_offset can be assumed to be 0x80000.
-> -
-
-So far we've tried to ensure that the documentation covers current *and*
-older kernel versions. If we're going to drop text covering older
-versions we'd need an explciit statemnt as to which kernel versions the
-document is accurate for.
-
-I would prefer that we retained documentation regarding the text_offset
-field in the header, even if it happens to be zero today.
-
-Mark.
-
->  - The flags field (introduced in v3.17) is a little-endian 64-bit field
->    composed as follows:
->  
-> @@ -135,12 +128,9 @@ Header notes:
->    end of the kernel image. The amount of space required will vary
->    depending on selected features, and is effectively unbound.
->  
-> -The Image must be placed text_offset bytes from a 2MB aligned base
-> -address anywhere in usable system RAM and called there. The region
-> -between the 2 MB aligned base address and the start of the image has no
-> -special significance to the kernel, and may be used for other purposes.
-> -At least image_size bytes from the start of the image must be free for
-> -use by the kernel.
-> +The Image must be placed at a 2MB aligned base address anywhere in
-> +usable system RAM and called there.  At least image_size bytes from
-> +the start of the image must be free for use by the kernel.
->  NOTE: versions prior to v4.6 cannot make use of memory below the
->  physical offset of the Image so it is recommended that the Image be
->  placed as close as possible to the start of system RAM.
-> -- 
-> 2.54.0
-> 
 
