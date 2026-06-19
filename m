@@ -4,71 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 857E3CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 12:52:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5182FCD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 12:58:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rft1bVhCOF94f9cRxhWpTIAQLYPJ7/0QQ6HPp0uW27E=; b=dqMvRl8rVLZWKx73QNb4PSSAoj
-	Y9WXh2fQyjdHrYRd56q6Jc6VxQbJK3yeYE2huzIlPSFTNRF2c0ZYXUmSzs+HPylSP0iKZBOfVetSC
-	FnWBrZBxJhKWvVwrR/D4SEghRKDvO4LzOUwblq0Ag7JOd2rxSUg9oVmnVqSouwT3qo80OunNLfjFT
-	aGWs+/rt/OSyOeMXzwawJ7LNCDGE2xdhzPUGJimriawcFggamsukfwk0pX1E64qtM3V4Hz5stKTp3
-	E8CBtZbWl9Ed5P5hgeFENXCd53A05vzCNXKhlh05+1y3icFTH0q9h0aj4sDxYLqITq7pb50W/wriy
-	JBycdk4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d0Pi+BMv6vNYyFoag1XFUtPquKbXVfT0i1yiV+bM+HU=; b=WZ8tGWgEtlnjVf94nNJJFgojta
+	ec9kYT6RvuWYLS19gJrC4aFcVvkP5QCMP/TVFhs8M4xYI8KtRoc4dUyYfVWI9qPtExEQdRLhuQHSH
+	glzVui0gtAHPSA3OmZq8UFogFbDRHA1ysheI8cabf+swBQYBworwi3IgJTQPmZnkaIYGI1OLg3Kso
+	YWkFzaF4MkzEQItSda2baC9Yy8cq1NUQjnbkOxeQr+ij8Y4GGpTlVmI+8wX1xIHq3EjbJDnzN5+SK
+	gNMMNMJUalNS9dLkt6Zy5Uq2CUxTqJG50cRyS1W9IdgwRucZ4+jL4TkmwNKbZA2uhvKabTT0LPFQ9
+	m5yYvtkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waYhX-00000002QmD-2pYK;
-	Fri, 19 Jun 2026 12:52:03 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waYhU-00000002QlY-48Fp
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Jun 2026 12:52:02 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BC8392936;
-	Fri, 19 Jun 2026 05:51:54 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B22F83F62B;
-	Fri, 19 Jun 2026 05:51:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1781873519; bh=vlt508OngfcR+AlEOvkl8S0fVWYMg2eEN/6ShAE1moI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=uhHiavHilkR8OcTBOY0TJKSGBxaoW08/UAVe/N1KNPtWhvkzKJ3SCBoM1/2SAFR0C
-	 0oLzkmazgQ3yCc4ZqSRcH/ZceO+kPRQDgRPvK7UThLUBZssa4yyyDdNRxtsgUYjOD0
-	 Pk3KPfkIqVDUSzfuWuVUbgGdAnDj83b4q7uQ8Uzs=
-Date: Fri, 19 Jun 2026 13:51:43 +0100
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	Christian Brauner <brauner@kernel.org>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org, linux-fsdevel@vger.kernel.org,
-	linux-doc@vger.kernel.org, sudeep.holla@kernel.org,
-	james.quinlan@broadcom.com, f.fainelli@gmail.com,
-	vincent.guittot@linaro.org, etienne.carriere@st.com,
-	peng.fan@oss.nxp.com, michal.simek@amd.com, d-gole@ti.com,
-	jic23@kernel.org, elif.topuz@arm.com, lukasz.luba@arm.com,
-	philip.radford@arm.com, souvik.chakravarty@arm.com,
-	leitao@kernel.org, kas@kernel.org, puranjay@kernel.org,
-	usama.arif@linux.dev, kernel-team@meta.com
-Subject: Re: [PATCH v4 00/31] Introduce SCMI Telemetry FS support
-Message-ID: <ajU7UqwPZBlwRGkf@pluto>
-References: <20260612223802.1337232-1-cristian.marussi@arm.com>
- <20260617-waten-allabendlich-zueinander-93d4b1367b8c@brauner>
- <ajLVW1eHzbGDm4yn@pluto>
- <29a304f0-1e62-418a-b84f-aabdc4c0de8d@kernel.org>
- <ajR_FBWOoXJKSeoH@pluto>
- <0025b907-27b9-4a51-b78f-f8ad413644d0@kernel.org>
+	id 1waYnv-00000002R6r-1wO5;
+	Fri, 19 Jun 2026 12:58:39 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1waYnu-00000002R6T-2Ckq;
+	Fri, 19 Jun 2026 12:58:38 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 88FDD601E3;
+	Fri, 19 Jun 2026 12:58:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D1A51F000E9;
+	Fri, 19 Jun 2026 12:58:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781873917;
+	bh=d0Pi+BMv6vNYyFoag1XFUtPquKbXVfT0i1yiV+bM+HU=;
+	h=Date:From:Subject:To:Cc:References:In-Reply-To;
+	b=PSqkhaxR3FQBweBoWpSc2EorY9Pez8SIDdeV3sC6lRA+WQgDMLdZA+W2gA/jtTjk6
+	 Ekiyp7acgu6TijirW2qXF2y9K6x5DYjccWRB1qYutK9TB9SpkY8pqSf95PdLaJhdxv
+	 P5f1YgY2ouHTHsw3CjKy5MoE4mQ13d1RVh47iHECGArbDe2eqUIWgJ5fValDrya85S
+	 tpAjHsJGrPe4YJhVtSDcMRrDjgy3FY4Rwgp4X7oIpo85wCXO9i/HHvvyVYHoIFYZFk
+	 UFfbHcyA/Hy1+atRYojuEQTbX4GA9O0X8cwj42q17bLMl6r3H/nGzCBWRMndIBLwRJ
+	 77oRCRWCJOa9g==
+Message-ID: <755cf7c1-6bcc-45d1-afea-192d393256af@kernel.org>
+Date: Fri, 19 Jun 2026 14:58:33 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <0025b907-27b9-4a51-b78f-f8ad413644d0@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260619_055201_158262_2EC1006D 
-X-CRM114-Status: GOOD (  81.07  )
+User-Agent: Mozilla Thunderbird
+From: Hans Verkuil <hverkuil+cisco@kernel.org>
+Subject: Re: [PATCH v2 2/5] docs: media: add documentation for media client
+ usage stats
+To: Detlev Casanova <detlev.casanova@collabora.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+ Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+ Heiko Stuebner <heiko@sntech.de>
+Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, kernel@collabora.com,
+ linux-arm-kernel@lists.infradead.org, Christopher Healy <healych@amazon.com>
+References: <20260617-v4l2-add-fdinfo-v2-0-d298e98ce06a@collabora.com>
+ <20260617-v4l2-add-fdinfo-v2-2-d298e98ce06a@collabora.com>
+Content-Language: en-US, nl
+In-Reply-To: <20260617-v4l2-add-fdinfo-v2-2-d298e98ce06a@collabora.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,308 +78,189 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 19, 2026 at 12:16:58PM +0200, David Hildenbrand (Arm) wrote:
+Hi Detlev,
+
+Interesting, I had never heard of fdinfo, so if nothing else, I learned something new!
+
+On 17/06/2026 20:10, Detlev Casanova wrote:
+> From: Christopher Healy <healych@amazon.com>
 > 
-> >> Is the configuration aspect limited to enabling selected events, or is there
-> >> more that can be configured?
-
-Hi,
-
-> >>
-> > 
-> > The needed configuration is:
-> > 
-> >  - global Telemetry enable (tlm_enable)
-> >  - global common update_interval (current_update_interval)
+> Document the media fdinfo interface for per-file-descriptor usage
+> statistics exposed by stateless V4L2 codec drivers via
+> /proc/<pid>/fdinfo/<fd>.
 > 
-> Okay, so simple global properties.
+> This interface is designed for stateless (request API based) codec
+> devices where the kernel driver has per-job visibility into hardware
+> execution. Stateful codecs cannot support all of this because their
+> firmware manages job scheduling opaquely.
 > 
-> >  - per-DE enable/disable (des/0x<NNNN>/enable)
-> >  - per-DE timestamping enable/disable (des/0x<NNNN>/tstamp_enable)
-> > 
-> >  ... then there are a couple of handy catch-all entries:
-> > 	all_des_enable, all_des_tstamp_enable
+> The specification defines media- prefixed keys for engine utilization
+> time, and operating frequency, following the same conventions as the DRM
+> fdinfo mechanism documented in drm-usage-stats.rst.
 > 
-> Okay, so fairly trivial configs.
-
-Yes mostly on/off switches or single values config.
-
-> > 
-> > Note that all the existent DEs are discovered at runtime dynamically via
-> > SCMI in the background at init/probe and then never change: i.e.
-> > the tree is statically created upon discovery, user cannot
-> > create/destroy or symlink files at will, nor the backend platform FW
-> > running the SCMI server can pop-up new DataEvents after the initial
-> > enumeration.
+> More fields can be added later.
 > 
-> That makes sense.
+> Signed-off-by: Christopher Healy <healych@amazon.com>
+> Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
+> ---
+>  .../userspace-api/media/drivers/index.rst          |  1 +
+>  .../media/drivers/media-usage-stats.rst            | 85 ++++++++++++++++++++++
+>  2 files changed, 86 insertions(+)
 > 
-> > 
-> > All the above configs can also be pre-defined in the FW (at built time)
-> > as being default boot-on with predefined values, like a specific
-> > boot-on update interval, so that you could have a system in which really
-> > you dont need to configure anything...everything is on and you just
-> > read data. (unless you want to change config of course...)
-> 
-> Okay, so the initial value of some parameters might not be "disabled" etc.
+> diff --git a/Documentation/userspace-api/media/drivers/index.rst b/Documentation/userspace-api/media/drivers/index.rst
+> index 02967c9b18d6..61879738836c 100644
+> --- a/Documentation/userspace-api/media/drivers/index.rst
+> +++ b/Documentation/userspace-api/media/drivers/index.rst
+> @@ -34,6 +34,7 @@ For more details see the file COPYING in the source distribution of Linux.
+>  	imx-uapi
+>  	mali-c55
+>  	max2175
+> +	media-usage-stats
+>  	npcm-video
+>  	omap3isp-uapi
+>  	thp7312
+> diff --git a/Documentation/userspace-api/media/drivers/media-usage-stats.rst b/Documentation/userspace-api/media/drivers/media-usage-stats.rst
+> new file mode 100644
+> index 000000000000..d3dc07002f62
+> --- /dev/null
+> +++ b/Documentation/userspace-api/media/drivers/media-usage-stats.rst
+> @@ -0,0 +1,85 @@
+> +.. SPDX-License-Identifier: GPL-2.0
+> +
+> +.. _media-usage-stats:
+> +
+> +==========================
+> +Media client usage stats
 
-Yes at the protocol layer I take care to lookup all of this states at
-init so that the initial states are consistent with what exposed...
+stats -> statistics
 
-> 
-> I guess, from a user space perspective, reading should be allowed by everyone
-> but writing should be limited to root?
->
+But are these really statistics? Isn't it just the current status?
+In many ways this feature looks to me similar to what VIDIOC_LOG_STATUS does,
+except in a nicer format. When VIDIOC_LOG_STATUS was first added, fdinfo
+didn't exist yet.
 
-Yes it is currently world readable and only root has write access by default,
-BUT in this latest V4 I added (as asked by some internal team) handling of the
-usual uid/gid/umask mount options so that a privileged user can change the ownership
-policy at mount time. (not supporting anyway FS_USERNS_MOUNT since it does not
-make sense to support containers for SCMI Telemetry)
+And I wouldn't call it 'Media client': it's specific to stateless V4L2
+codec drivers.
 
-> > 
-> > There is more stuff that indeed is configurable per the SCMI spec
-> > but these additional params are hidden into the SCMI Telemetry protocol
-> > layer (the initial patches in this series) and NOT made available to
-> > the driver/users of the protocol (like the SCMI FS driver that sits on
-> > top)
-> 
-> Do you assume that there will get significantly more config options added in the
-> future for user space to configure?
+> +==========================
+> +
+> +Stateless V4L2 codec drivers can optionally expose per-file-descriptor usage
+> +statistics via ``/proc/<pid>/fdinfo/<fd>``. This is analogous to the DRM fdinfo
+> +mechanism documented in :ref:`drm-client-usage-stats`, but uses the ``media-``
+> +key prefix for V4L2 media devices.
+> +
+> +This interface is specific to stateless (request API based) codec devices,
+> +including both decoders and encoders. With stateless codecs, the kernel driver
+> +explicitly submits each frame to the hardware and receives a completion
+> +interrupt, providing a clean per-job boundary that can be attributed to the
+> +submitting file descriptor.
+> +
+> +Stateful codec devices cannot support this interface because their firmware
+> +manages job scheduling internally. The kernel driver submits bitstream data
+> +but has no visibility into per-frame hardware execution timing.
+> +
+> +Implementation
+> +==============
+> +
+> +The V4L2 core provides the plumbing: drivers implement the ``show_fdinfo``
+> +callback in ``struct v4l2_file_operations``, and the core wires it into the
+> +kernel ``struct file_operations`` so that ``/proc/<pid>/fdinfo/<fd>`` output
+> +includes the driver-provided keys.
+> +
+> +File format specification
+> +=========================
+> +
+> +- File shall contain one key value pair per one line of text.
+> +- Colon character (``:``) must be used to delimit keys and values.
+> +- All standardised keys shall be prefixed with ``media-``.
+> +- Driver-specific keys shall be prefixed with ``driver_name-``.
+> +
+> +Mandatory keys
+> +--------------
+> +
+> +- media-driver: <valstr>
 
-No, I dont think so...the only planned extensions were to support more
-performant read access mechanisms, i.e. direct mmap'ability of FW/Kernel
-SCMI Telemetry shared memory areas...BUT that will immediately dump all
-the bulk of the lower layer protocol work into the tools domain...and
-we're not ready to do so...beside having one more thing, the tool, to keep
-in sync with possible future spec changes (unless exposing even more stuff
-like tlm mem-areas accessors to the UAPI...that would be painful kernel
-side and not desired AFAIU...)
+I'd pick 'v4l2-driver'. Since 'media-driver' is too generic for this
+since that encompasses also DVB/CEC/RC drivers.
 
-> 
-> > 
-> > IOW, this humonguos series (~8k lines) is only partially composed by
-> > the Filesystem driver (~3k): the bulk of the Telemetry logic and SCMI
-> > message exchanges are contained in the SCMI Protocol stack which has
-> > been extended to support the Telemerty protocol at first
-> > (the 'firmware: arm_scmi:' initial patches).
-> > 
-> > This latter common support is exposed by the SCMI stack for the SCMI
-> > drivers to use via custom per-protocol operations (not an orginal name :P)
-> > exposed in include/linux/scmi_protocol.h
-> > 
-> > So when you write into FS to configure smth, you end up calling an internal
-> > tlm_proto_ops that in turn will cause an SCMI message to be sent
-> > (in some cases say to enable a DE or set the update interval)
-> 
-> Makes sense.
-> 
-> > 
-> > When you read something, you end up calling another Telemetry operation
-> > that in turn returns you the DataEvent value you were looking for...how
-> > this is retrieved via SCMI in the background is transparent to the
-> > FS driver because, again, these details are buried into the protocol
-> > layer. Talking about reads, you can:
-> > 
-> >  - read a single value from des/0x<NNNN>/value
-> >  - read ALL the currently enabled DE in a bulk read via des_bulk_read
-> > 
-> > ...most of the other entries in the tree are simply RO properties of the DEs
-> > that have been discovered at enumeration time.
-> 
-> Is this bulk-reading relevant for performance or just a "nice to have" ?
-> 
+> +
+> +  String shall contain the name of the media driver.
 
-I suppose depends on your usage pattern: it is definitely relevant
-because the main collection mechanism are shared memory areas (SHMTIs)
-between the platform firmware and the Kernel: such areas being accessed
-from 2 differnt worlds concurrently come with a SCMI-specified
-synchro/consistency mechanism based simply on a pair of sequence numbers
-placed at the start and at the end of the SHMTI, so that the FW increases
-such magic numbers in a well-known way before and after updating the SHMTI
-values, so that the kernel can detect (without any interlocking mechanism)
-if a platform write happened in the middle of its reads...
+'V4L2 stateless codec driver'
 
-...so if you read one single DE 64bit value, under the hood the kernel
-would have had to really perform at leats 3 reads from the SHMTI to check
-the consistecy of that single read...
+> +
+> +- media-type: <valstr>
 
-... while if you do a bulk_read the overhead due to the consistecy
-checks gets 'spread' across a number of DEs because the kernel will snapshot
-the whole SHMTIs (potentially KBytes) between the 2 consistency reads
+Poor name.
 
-...the good side effect of all of this is that I can leverage such
-sequence number to optimize reads..i.e. do NOT even try to read anything
-if the new sequnce number is unchanged from the last one I cached on the
-last successfull read of this value...
+> +
+> +  String shall identify the type of media engine exposed through this file
+> +  descriptor. Standard values are ``decoder`` and ``encoder``.
 
-So at the end I would say it is NOT simply a nice to have BUT it is
-certainly only the first step towards a more performant alternative access
-(like with mmaps)...it depends on the usage pattern...I am not sure what
-mechanism is used by our tools more...
+I think I would use 'stateless-decoder' and 'stateless-encoder'. It's more
+specific than de/encoder since that can be stateful as well.
 
-> 
-> > 
-> > Given that walking a FS tree and issuing configuration as writes is NOT
-> > performant really (nor handy if you are not a human), currently, even
-> > in this FS-based series you can really perform all of the discovery AND
-> > the configuration tasks WITHOUT walking the filesystem tree, but instead
-> > issuing a bunch of IOCTLs issued on a special 'control' file that I
-> > embedded in the FS. Such UAPI IOCTLs described at:
-> 
-> Makes sense.
-> 
-> > 
-> > https://lore.kernel.org/arm-scmi/20260612223802.1337232-6-cristian.marussi@arm.com/T/#u
-> >  
-> > So my plan of action in order to get rid of the FS in-kenel implementation
-> > would be to drop this Filesystem in favour of simple character devices
-> > and move the existent IOCTLs interface (revisited where needed) on top of
-> > these devices: that way you will be able to use IOCTLs to enumerate the
-> > Telemetry sources and then configure them.
-> > 
-> > Read will then happen (probably) leveraging a number of chardev fops like:
-> > IOCTLs, .read and .mmap...up to the tool decide what to use.
-> > 
-> > After this porting to chardev is done, I would start optionally exposing
-> > again all of this in a human-readable alternative way by adding a layer
-> > of FUSE on top of this chardev interface.
-> 
-> Yes. How high-priority is the fs side? Or would a tool using a library to access
-> this information also work in the first step?
-> 
+So I am missing the big picture here: right now this patch adds support for
+this for stateless codecs, but what happens in the future if this is also
+added for regular video capture devices, ISPs, etc.?
 
-I have to sync with tools on this...because they are stiil probably
-using currently the FS, but it was already planned for the future to move to
-a more low level access (ioctl/mmap)...
+The naming here matters, it has to have some sort of scheme so it can be
+extended to other types of drivers. So a 'media' prefix is too generic,
+and it also looks like it refers to the /dev/mediaX device.
 
-...my aim would be, at this point, to favour this transition without sudden
-breaking their current world (and have to expatriate :P)
+> +
+> +Utilization keys
+> +----------------
+> +
+> +- media-engine-usage: <uint> ns
 
-..from my personal point of view, I would certainly like to still have the
-FUSE layer for ease of testing and verification on my side...but it is just
-a nice to have... 
+'Media Engine': very vague.
 
-> > 
-> > Basically my aim is to drop the FS implementation from the kernel, as
-> > advised, while trying to optionally make it still available via a userspace
-> > FUSE implementation...IOW the intention would be for the next V5 to expose
-> > the same interfaces as V4 but with the help of a tool instead that builds,
-> > if wanted, a FUSE mount built on top of the chardev interface.
+> +
+> +  Time in nanoseconds that the hardware engine spent busy processing work
 
-[snip]
+Cumulative since creating the file handle? Or since the last read?
 
-> >>
-> >> It's a good question how that could be done, if you need more information about
-> >> these events from user space.
-> > 
-> > I have NOT really delved into that, so as of know we do NOT fed any data
-> > to existing Kernel subsystems, not there is any available in-kernel
-> > interface to consume DE data (nobody asked), but, I can imagine 2 solution:
-> > 
-> >  - our beloved architects decide to 'architect' more DataEvents in the
-> >    next version of the spec.. i.e. they reserve some specific DE IDs to
-> >    represent some well defined entity (like it is done already in the spec
-> >    for a dozen IDs)...this avoids the needs of any new interface all
-> >    together
-> 
-> That would be the cleanest solution :)
+> +  belonging to this file descriptor. The engine being measured is identified
+> +  by the ``media-type`` key.
+> +
+> +  Values are not required to be constantly monotonic if it makes the driver
+> +  implementation easier, but are required to catch up with the previously
+> +  reported larger value within a reasonable period.
+
+Does this make sense for codecs?
+
+I can tell that this is heavily influenced by the drm documentation, but that
+does not necessarily translate to V4L2.
+
+> +
+> +Frequency keys
+> +--------------
+> +
+> +- media-maxfreq: <uint> Hz
+> +
+> +  Maximum operating frequency of the main engine clock.
+> +
+> +- media-curfreq: <uint> Hz
+> +
+> +  Current operating frequency of the main engine clock.
+
+'Main engine clock'?
+
+> +
+> +Example output
+> +==============
+> +
+> +::
+> +
+> +  media-driver:           hantro-vpu
+> +  media-type:             decoder
+> +  media-engine-usage:     123456789 ns
+> +  media-maxfreq:          600000000 Hz
+> +  media-curfreq:          600000000 Hz
 > 
 
-Definitely agree.
+Regards,
 
-> > 
-> > OR
-> > 
-> > - we open some sort of user-->kernel ABI channel 'somewhere' where the
-> >   userspace tool, interpreting the JSON description, can communicate something
-> >   like " on this platform ID 1,2,3,4 should be fed to the IIO sensors frmwk
-> >   too, while ID 39,8,76 can be fed to HWMON..." etc
-> > 
-> >>
-> >> [...]
-> >>
-> >>
-> >> That sounds reasonable.
-> >>
-> >> [...]
-> >>
-
-[snip]
-
-> > Regarding the user concurrency, I have already explicitly pushed back on
-> > this, our own tools team: any concurrent read or configuration write is
-> > allowed and properly handled in a consistent way, BUT on the configuration
-> > side the last write/ioctl wins: there is NO in-kernel OR userspace
-> > co-ordination provided out of the box: IOW if you use multiple tools
-> > concurrently to apply conflicting configurations, it is none of our problem
-> 
-> Would concurrent reading work? I assume so, right?
-> 
-
-Yes concurrent reading is not a problem, and concurrent writes are
-properly handled at the write/message level (i.e. no corruption) BUT
-no co-ordination is provided from the kernel on those config writes,
-last write wins.
-
-> > 
-> > ...similarly as if you have an actively running network configuration daemon
-> > and you try to set your IP manually...nobody will prevent you from doing this,
-> > the same netlink will be used freely by you on the shell and the daemon (if you
-> > have enough privilege), but you will gonna have unexpected result...
-> > 
-> > I dont either see the case to enforce exclusive access for Telemetry resources:
-> > co-ordination is up to the user in my view...I mean if you have 2 tools
-> > configuring concurrently SCMI telemetry in a conflicting way something has been
-> > misconfigured somewhere
-> > 
-> > .....having said that, I understand that the concurrency co-ordination
-> > issue can be particularly tricky to spot and solve in userspace, so I DO
-> > expose a generation counter entry that is updated on any configuration
-> > change, so that a userspace app using Telemetry can monitor (poll) this
-> > counter to spot if someone else on the system is quietly suddenly applying
-> > configuration changes...
-> 
-> Okay, so a single writer (admin) changing stuff could get picked up my possibly
-> many concurrent readers?
-
-Mmm...not sure what you mean here...
-
-If you configure your Telemetry as you desire and start collecting data via
-readers, BUT then some other process changes configs under your belt, that is
-allowed as said, and so your analisys could be impacted...(something turned off
-as an example, or update interval changed)...
-
-...so while this is NOT regulated/co-ordinated by the Kernel, in order to
-ease the detection of such events by your reading process, I provide a pollable
-entry that returns an integer and then blocks until such counter is next updated
-by an intervening under-the-hood configuration change...so you can configure,
-monitor the generatin counter and then starts reading you data, sure that you
-will detect any conflicting re-config issued by a rougue process...
-(and I have to still extend this event polling mechanism to use a user
-provided eventfd...since it was NOT strictly needed...but now with
-IOCTLs interface I will add that too...)
-
-> 
-> > 
-> >>>
-> >>> Should/could such a tool live in the kernel tree (tools/) at least for
-> >>> ease of development/deployment ?
-> >>
-> >> I think OOT.
-> >>
-> > 
-> > Ok.
-> > 
-> > Sorry for the long email..I hope I have clarified the situation, anyway
-> > I am already moving to get rid of the in-kernel interface as advised in
-> > favour of a chardev kernel interface and an optional FUSE based FS...
-> 
-> Yes, thank you a lot, I hope it also helps Christian to help push this into the
-> right direction!
->
-
-Thanks a lot, David !
-Cristian
-
+	Hans
 
