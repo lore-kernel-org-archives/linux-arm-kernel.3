@@ -4,80 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28D80CD98F8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 09:02:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95E88CD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 09:14:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:References:MIME-Version:
-	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y5VtAymxlLFEtb0U6jcGmlhzLhg//OIMtC8T2ioCYrc=; b=PbWUHYC4Kb/FEgmwTffP527svg
-	aSv7FGZG2h95MJc7IrmHNH1buBTjV2DpqmmdiAt4RpIQssV+0SmdHG7SsvSF+t5r3ix5woBjbyUCb
-	NjmtcJzfsP5FRNkjwuHAdXCU/B1WQHe3r3LrgK5NCQNJUinN5YeaEZUCNIg7o/wxo9GZqk8949eBj
-	kBV0BWTHUOElQ/nqHG3ZDhblt/jr+i88v4B7LpSnXEkSuy1OeQWm7lahyTOkVZp8KwdA8R58Neq4l
-	fpR+3Rwo80kJXwQMbto7FbtlqcQ+Cw3HRUgKEMSzNhnBLIWk1zqVvSEs24xyTwsThyACaE4JL+ql8
-	43Io2wCQ==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IsrGIaLO7MXNYwDCXl5rLdyTY6/tEE8Vl4Mj+GBAm/g=; b=2KvXDctZKzH3QqvO0JhCJflrJg
+	Uck13xfRUIm3r1O6FxMN5Nupxxij411KB/J/VyxCnglV+attOE3VeRG9KekVjaElrqG32BPTo/j6B
+	mEPzcU3SE1t4ns4krLkesbb1ID8SxsrwFMuUk3z9C5KEaIb0nJj5zarS3Kja3jq3NkBF5DY7fWu9e
+	YwpBchRDIbytVViZ4j2whWBmL6qleO2y6Y6hmYqzlf8hReIUGNzxVaFnIMxI4gutBpLTTWyt8CNE0
+	IpLmvE+2pDUevC4YBAEbF3+maQgWa1jyiHI8eDzfDWLWHNxA560HKZU0NXT0kjbt+blKwsR2JXevZ
+	rgP0G/Hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waV6l-00000002CY7-0bR2;
-	Fri, 19 Jun 2026 09:01:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1waVIP-00000002D0U-0vdn;
+	Fri, 19 Jun 2026 09:13:53 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waV6i-00000002CXw-43ua
+	id 1waVIN-00000002Czo-1i9y
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Jun 2026 09:01:49 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5EB9244265
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 09:01:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 289ED1F0155C
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 09:01:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781859708;
-	bh=Y5VtAymxlLFEtb0U6jcGmlhzLhg//OIMtC8T2ioCYrc=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=cFZb9JqSPtnh8VwXU7oKlMKiSPgRJmzZnIAd1QeGARdtrTOXzyFwBw8CQeMAKb/mO
-	 IlRLx9yBLuddW8AgBZ1+jHzpLszyAp1IVF1qhFE4LghsaJ+Uj1VwzjXYaJNo+kh5Zf
-	 KwrUJc13uiSw19BaVUia2ZfmmJuSAPBeVHmrqPfuFI9XfZOBYbheQpi2tVFzNLz4Lm
-	 3nukAGpY4S488Gaxjjcq4nYc8JVlj/PtPvSsjP6HJ87/p13zr8/xTgBkJnj1W3dO0x
-	 Ub60SWVqtpNCO9W+l2i1MpAFEXa6NrSPAEwIwxIY8buLyQHmPvhtl/EzH803l9LtcT
-	 XzezWFVGTNrnQ==
-Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-5aa68cd8dd3so1847070e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 02:01:48 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ8J+hOSf5Hg3lsjL/kp+y2G8UkXjLBtrD6IICr3E6ELUr7fLTs1xWQe8Ef0wAUzVPH8LyR2lqk03ETNNLtQrx9d@lists.infradead.org
-X-Gm-Message-State: AOJu0YzUjtv08mHRQvYjcCq5ZVKSAh/2tHuwSLn6LNp5KlmqKB0C3RSh
-	al/9SalfVULKi5bZP9YjqEMeLqY+9v28HeHy/A2iPQvWcFXuES+ZoCTDtXT70t/z6PJ6XVcv3h9
-	AVPy1o3AekscswH5zkOBKxN8az5lrnGrXQ0OKEq5WwQ==
-X-Received: by 2002:a05:6512:32cd:b0:5ad:5454:ce36 with SMTP id
- 2adb3069b0e04-5ad576e14f5mr699548e87.14.1781859706741; Fri, 19 Jun 2026
- 02:01:46 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Fri, 19 Jun 2026 04:01:44 -0500
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Fri, 19 Jun 2026 04:01:44 -0500
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <CAD++jLmW3vgTFryRAL24x2TbgbR1tbhjw-nFFH3askoZfSibaQ@mail.gmail.com>
+	Fri, 19 Jun 2026 09:13:52 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-464192ab2e1so1128725f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 02:13:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781860429; x=1782465229; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=IsrGIaLO7MXNYwDCXl5rLdyTY6/tEE8Vl4Mj+GBAm/g=;
+        b=WaWU+o/X2U0dvbQk5zTWKIcK8DLo5Ct9K9uA6ia7cd0O2z6UGs3DBT4qtIqfvHF6ci
+         JCihyDv0020iohq0wzBxA7/lbiCXiSeK+86N4MfGG8PsqrBTuzPtbLXZs1bz3EFlwqmI
+         ReV6qboGv9dbmvbrDTcyiNeT9mqeY3jUyKzXoR8MmCGlK+U6WMuBsv/7L1sWLSlcB0AC
+         Bt1R6OBSVYxZyzaLz8Cz0qmr6+JllByDLyE/XcwRz6tbX2eSc2DUVNlbQXXBWV4tSDTX
+         iFjjTq2gq0R2h9vXOCPz2tFOPwZ/qprccCNkoXu4sz291uQ4W9AMBssJyy4PKqz1jE70
+         biqQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781860429; x=1782465229;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=IsrGIaLO7MXNYwDCXl5rLdyTY6/tEE8Vl4Mj+GBAm/g=;
+        b=GmUG3Sc7iV9YYtHllOoL2pk5wgRReWyZSNlQ7zloac28mhMWCHuVGdPE8R2ld1xi9/
+         pi7CrwEjofJ2ow8V3Nzwc3u+EXheYKZglFhkbnHoyLaJC7YEl8kgLnwswi6WJlm2+Q8l
+         m41qf8unOVf7a34N6SzVQjqjbvQKKirWksP20B6B1tWUgLWibtrG72DsoLKurcY7EO+/
+         rs97K+89WKDsCRMr5ZuwoqZNtWJGhUWMMwWjvDRclNPpbeY2eQcNXGv/IgF9x7irQFUq
+         KLYxpWtA8vJg7FyUCiwBhTLW6oGe9kPZpuQJE9WfRj5hKTVzqRxmMJCwoSpmu22zCCQB
+         KRBQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/1eyTBK58YG+bM1tFP3R85thPy7PsHM7tS3aruw7OLYPY9XzijKyWRmXKZI2VdUAK7j64yNtdANzwTHMdRq3lb@lists.infradead.org
+X-Gm-Message-State: AOJu0YzaDIFSLYTqNoo8Cn8fE8Mhf/w9wsbtNmMFZqzcCDTSclQGpV0Z
+	SBmuD2RlMUp7c2NVRf2hv2UwWV+60lnKNjH562h/w7waFE15fxA8sIq3
+X-Gm-Gg: AfdE7cmAKMik7CjVVGvgbKSs7i5InkoBJd6xgWDdoErq5WISlDV7HhVqDAgMSwbHXIz
+	VE6JC5r/ZFgFV4ZZ5Bo26wu/BF5yL+MWlmfv4KiTWN1VogSZ9xIyPtdhW/x+XtWp8fhuMaxRijH
+	tqIBBXzjgxNal8lkTV2TJNOSHiQBU6kHCZXIKC5oLtQ5X31xvvhnJrSJhi0gTBFJG/XYLPdAKK5
+	A3qudVlZekiMh3CpWfpq7SMVgArSNjm2IWWmSnJUAXiWB1MYX0r8XnzvMSEBSlexfMOiE/1N1UB
+	wWpLNOV/fJrFwQaPR2VW3tQ+C5ekAqgl1EcvMoSmD5oMnv9StQ08vRC5MIzUlqVbr3jqYa8cxjh
+	xdzf7/q1H3tG4udkF+/Lrpsr2zaWHaDL2gs8Y0YsdTtYKSdz3+ZDxLuhJBtZnwiaioJiMAea9Yw
+	fnUdkSJMMBY/M8JcCXCs6WxPwJ4vTp41m9yIGHcqnp9m59rWBecw==
+X-Received: by 2002:a05:6000:41ea:b0:464:5df5:332a with SMTP id ffacd0b85a97d-465026e230fmr5178308f8f.34.1781860429313;
+        Fri, 19 Jun 2026 02:13:49 -0700 (PDT)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4650bc428d9sm6387329f8f.27.2026.06.19.02.13.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 19 Jun 2026 02:13:48 -0700 (PDT)
+Date: Fri, 19 Jun 2026 10:13:46 +0100
+From: David Laight <david.laight.linux@gmail.com>
+To: Bui Duc Phuc <phucduc.bui@gmail.com>
+Cc: Charles Keepax <ckeepax@opensource.cirrus.com>, Mark Brown
+ <broonie@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela
+ <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Cheng-Yi Chiang
+ <cychiang@chromium.org>, Tzung-Bi Shih <tzungbi@kernel.org>, Guenter Roeck
+ <groeck@chromium.org>, Benson Leung <bleung@chromium.org>, David Rhodes
+ <david.rhodes@cirrus.com>, Richard Fitzgerald <rf@opensource.cirrus.com>,
+ povik+lin@cutebit.org, Support Opensource <support.opensource@diasemi.com>,
+ Nick Li <nick.li@foursemi.com>, Herve Codina <herve.codina@bootlin.com>,
+ Srinivas Kandagatla <srini@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>, Shenghao Ding
+ <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>, Baojun Xu
+ <baojun.xu@ti.com>, Sen Wang <sen@ti.com>, Oder Chiou
+ <oder_chiou@realtek.com>, Lars-Peter Clausen <lars@metafoo.de>,
+ nuno.sa@analog.com, Steven Eckhoff <steven.eckhoff.opensource@gmail.com>,
+ patches@opensource.cirrus.com, chrome-platform@lists.linux.dev,
+ asahi@lists.linux.dev, linux-arm-msm@vger.kernel.org,
+ linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH 15/78] ASoC: codecs: cs42l43: Use guard() for mutex
+ locks
+Message-ID: <20260619101346.2ec49087@pumpkin>
+In-Reply-To: <CAABR9nG+6gOj4KnWmTyykgGN93xy6jKQh+-_f8Xxn=Jkv28vBA@mail.gmail.com>
+References: <20260617103235.449609-1-phucduc.bui@gmail.com>
+	<20260617103235.449609-16-phucduc.bui@gmail.com>
+	<ajJ9rbHTspXHo6Ou@opensource.cirrus.com>
+	<20260617140209.3f89706c@pumpkin>
+	<CAABR9nG+6gOj4KnWmTyykgGN93xy6jKQh+-_f8Xxn=Jkv28vBA@mail.gmail.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-References: <20260618053650.4053352-1-runyu.xiao@seu.edu.cn> <CAD++jLmW3vgTFryRAL24x2TbgbR1tbhjw-nFFH3askoZfSibaQ@mail.gmail.com>
-Date: Fri, 19 Jun 2026 04:01:44 -0500
-X-Gmail-Original-Message-ID: <CAMRc=McwAnoYXBB5hhTko5Om9=khOuxpVAvegSFQ7-VexNQMKw@mail.gmail.com>
-X-Gm-Features: AVVi8Cf8K9ux4cOtecot2S0VT6T3CGese0FIUj-6Z9fRYnLoXRYWJS40QkJmni8
-Message-ID: <CAMRc=McwAnoYXBB5hhTko5Om9=khOuxpVAvegSFQ7-VexNQMKw@mail.gmail.com>
-Subject: Re: Question: pinctrl-backed GPIO set_config and gpio_chip::can_sleep
-To: Linus Walleij <linusw@kernel.org>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@kernel.org>, 
-	Ludovic Desroches <ludovic.desroches@microchip.com>, 
-	Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	Antonio Borneo <antonio.borneo@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Chen-Yu Tsai <wens@csie.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, jianhao.xu@seu.edu.cn, 
-	Runyu Xiao <runyu.xiao@seu.edu.cn>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260619_021351_470173_7C6180E8 
+X-CRM114-Status: GOOD (  26.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,73 +121,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 18 Jun 2026 15:15:30 +0200, Linus Walleij <linusw@kernel.org> said:
-> Hi Runyu,
->
-> thanks for your analysis!
->
-> On Thu, Jun 18, 2026 at 7:42=E2=80=AFAM Runyu Xiao <runyu.xiao@seu.edu.cn=
-> wrote:
->
->> The path we are concerned about is:
->>
->>   gpiod_set_config()
->>     -> gpio_do_set_config()
->>        -> gpiochip_generic_config()
->>        -> pinctrl_gpio_set_config()
->>        -> pinctrl_get_device_gpio_range()
->>        -> mutex_lock(&pctldev->mutex)
->
-> That would be mutex_lock(&pinctrldev_list_mutex); would it not?
->
->> If gpiod_cansleep() returns false, a GPIO forwarder or another consumer
->> can choose an atomic carrier and call gpiod_set_config() while holding a
->> spinlock.
->
-> I see the problem.
->
->> The local draft I am considering marks only these controllers as
->> sleeping:
->>
->>   pinctrl: at91-pio4: mark the GPIO controller as sleeping
->>   pinctrl: stm32: mark the GPIO controller as sleeping
->>   pinctrl: sunxi: mark the GPIO controller as sleeping
->>
->> The reason is that all three expose gpiochip_generic_config() and can
->> therefore reach the pinctrl mutex from the GPIO set_config path, while
->> their current gpio_chip registration does not set can_sleep.
->
-> But that's not the right solution is it? These controllers can probably
-> just write a register and be done with it, they all look like they are
-> memory-mapped? That means we introduce sleep where not needed.
->
-> Can we simply replace pinctrldev_list_mutex with a spinlock?
+On Fri, 19 Jun 2026 15:20:37 +0700
+Bui Duc Phuc <phucduc.bui@gmail.com> wrote:
 
-Oh I've tried, I've give it a few attempts in the past. It's not a "simply"
-case this one! :)
+> Hi Charles, David,
+> 
+> Thanks for the review.
+> 
+> > >
+> > > I believe you have to use scoped_guard here, as there is a return
+> > > from the function above, if memory serves it attempts to release
+> > > the mutex on that path despite it being above the guard.  
+> >
+> > Indeed.
+> > I believe clang will complain.
+> > That makes these mechanical conversions of existing code dangerous churn.
+> >
+> > While using guard() (etc) can make it easier to ensure the lock is released
+> > when functions have multiple error exits, I'm not convinced it makes the
+> > code any easier to read (other people may disagree).
+> >  
+> 
+> I built the code with both GCC and Clang and didn't see any warnings.
+> 
+> My understanding was that the early return exits the function before
+> the guard is instantiated, so it should not affect the guard's cleanup
+> handling.
+> 
+> Could you explain what issue you are referring to? I may be missing
+> something.
 
-> The list isn't gonna be huge and all in-memory anyway.
-> If it takes too much time we need to think about putting the
-> ranges in a better data structure such as the maple tree.
->
+When a variable is defined (and initialised) part way down a block the
+compiler moves the definition to the top of the block but doesn't initialise
+it at all, the first assignment happens where the code contains the
+definition.
 
-FWIW radix tree provides some RCU synchronization IIRC.
+However the destructor is always called at the end of the block.
+So if you return from a function before the definition the destructor
+is called with an uninitialised argument.
 
-> mutex_lock(&pinctrldev_list_mutex); could then be turned
-> into spinlock_irqsave() or even better
-> guard(spinlock_irqsave)(&pinctrldev_list_lock) in
-> pinctrl_get_device_gpio_range().
->
+This has always been a problem with C++.
+It usually happens when you define a variable inside a switch statement.
 
-I recall running into places where a mutex would be taken in atomic context
-in that case.
+	David
 
-Bart
+> 
+> Best regards,
+> Phuc
 
-> This would mean we just take two different spinlocks in seqence
-> and save state in each so it should work just fine.
->
-> Yours,
-> Linus Walleij
->
 
