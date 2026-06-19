@@ -4,80 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 928C6CD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 07:55:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AEADCDB466
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 08:09:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1ZZlyfradZl+5Bcnl/kI9msiyohlupRsBccnKU6QuBU=; b=U+N5ce76koBiPbk78wXeCAbvrS
-	IP6RmZp0e4UvayoYWd9ff3KDPHBp/Er5U08X/NIiUyeSBHgeTTf8Bd9dwyuXDqPfQDCqZDO5n6bee
-	Xs+k3qAQlI6VvqgCZVwFIwCbKe181a6DVJbIlfOdNSfNtpk1K0nph9DKSEJ1uAwOdszXxms/H5JpR
-	ud9wFlNmQKkCv0nHgudqkXv7+YZBzWYeZULePxi/30vgjqjoAWB2G/oUo57B6NyXSJJMBpK7fY2d/
-	YEh33ArnjSFm6VZlNpptH0XY8ZF6h8ddp7vBEdaOsS3hPtV9T8A3dQLhq/QQSe5dGoKUREnxwjN24
-	bX3slrNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=I3WNaVa6u6+Nzfb3NV3ypwCQ74H2NIZsFLsn4sFU7yo=; b=B/yxSKRGykdwL0fIkZ8iMQthgS
+	geB13mS0UHA6Dk+v0hUPcKUKDof4gFB4XAQCFBB22xbwpS4xhkAB+U6Hn1pM8OQZWEdc0/HLfr1kb
+	bEO1alwU8dW4bCI4jJqpxC4osaq+97h/QgiGL8pSI1CrDZr4wfYN66fZM3FzsyIDCCsv3Q8Ll2LW/
+	+EQs3i4c0iCUZPWXeLsovKFFOWifbJSf78a88PgyxjmzzUu+uqx9r1eCThikf/Y6MMi84t+hHQvGY
+	XlixpnLIaA/j0Y46L+DK6dHQ5/c2PsZ9tc19oMTb0mBBl1FYGfb4jvJGeGgiyNeQneRqFqvcQtKP2
+	HbiVY5Yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waU4r-000000028Mv-3NBS;
-	Fri, 19 Jun 2026 07:55:49 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1waUHf-0000000295K-1r26;
+	Fri, 19 Jun 2026 08:09:03 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waU4p-000000028L9-2fez
+	id 1waUHd-0000000294e-08kb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Jun 2026 07:55:48 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2c69921bd15so9173395ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 00:55:47 -0700 (PDT)
+	Fri, 19 Jun 2026 08:09:02 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-46066e640easo1112258f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 01:09:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781855747; x=1782460547; darn=lists.infradead.org;
-        h=mime-version:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=1ZZlyfradZl+5Bcnl/kI9msiyohlupRsBccnKU6QuBU=;
-        b=C5Gn71qsqQrjM5WJ7kig7C44A4ogXM8Mgvq87P0DoeV+Jxs3b9NeB9wE5H3jg2Ehft
-         bu6ROgLCC/om1sNYmLrJJhX5kwxExnhS5YpYcyAXHckSSXa2RmoEmNhfliv97Ht2VeTF
-         5Zeg/a1bka0Y7VsAM/rhxDRrUUoOzSO94VuK/ubstazMysA+lxSI+sNitkVjpUcBrcOj
-         JynQS2mO1cEPKKxUktO1wYx026t+EraloX6cs4JwI8fM+atxymJLjyJy/BdteVGB9pB3
-         rHbpkj9jGL2++G/6L90TLrkuhOBhT1kFrYaZi+hi05xZbsEeXTrdkfamWNY5CmTHLCzO
-         PzOw==
+        d=baylibre.com; s=google; t=1781856539; x=1782461339; darn=lists.infradead.org;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=I3WNaVa6u6+Nzfb3NV3ypwCQ74H2NIZsFLsn4sFU7yo=;
+        b=jv6YVJc4dbr3ewR79vhPJ47FP4vTPNW6Kg31Q8I0p+o1DtiBYBFNR89dK/cZhNTvtB
+         mHz0WjPV21CCXwIxtzNko96p9NdQPm1HOatIFbiOu4e7OB1/tXD0Vq+mc1AbCdaISTuK
+         aqhQtOQ12T8LBesr1iEGwFv9utAqZCvkg7gRZEKiz6lrBjwNOJsWvg7r7mvNwQJiSKTD
+         97hcW9XTYIXzOpm9xIaPRZxzll1VIApjLfWiKLaZyudDOjp7YZocwUpsqMB4eCGY3hsc
+         +z6TxhPx6zXrHWJ094z7xjUae+0itz3JDyE74ievl4LdiJI4gXGT1rPGMoGkEIvj3fNU
+         QTsQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781855747; x=1782460547;
-        h=mime-version:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=1ZZlyfradZl+5Bcnl/kI9msiyohlupRsBccnKU6QuBU=;
-        b=iQAJuYWyZfitOcWf48l0Zy89Y9IIM3LWuAk0YAK+Ct7UdAw4k8+HAcKfYmhlY1slAf
-         Tx2mbkkPsE5tpSyN1eWKVOXW6vLcCJ0Z86J6FY2hLyYHG5uXtT0sj96gn5LaVb6bIM18
-         bPyinqp2FjGkv+jlM/6l8uD4knR38gzpYf3K1YlcdWRdHRdR+YiJwgFquTkv5jfcr8Ch
-         lcR72hZq+3g9+ZXAtINouHtAmaI8OA7D20DVe6Zftt2a0G6yFt1DTsublFEnvTvVp9hX
-         kGEcXO7+6n85o9oK8BST0ujX+HOHjMdSbCr7OshwJWSJwihGBS3rXq+qjjykro6+AvB3
-         qMSQ==
-X-Forwarded-Encrypted: i=1; AFNElJ8oQtY+Vkse5bnG8bvCUWg6dMItVvH46iwsHZ06I/HRc2l3P7qgPvpGA+vGydx+ud543VZFIgR4sag7ONpjPiXm@lists.infradead.org
-X-Gm-Message-State: AOJu0YzGgZr2UChSc+pq7Icq1TLsBF7dKXllnENrKQzSUO+qxV+i4XIE
-	883HTJCZ3VSfEqtVGz7SwoMHJ09xksjKYaBvYYSw8CBmB+W+aLyIC0Q/
-X-Gm-Gg: AfdE7cksoV2p7gjngQOCK5I/EykKtqLE5UbTy+DfId1dGpxEh/5JnUZeqgkv57Ra0+b
-	WeDeFftlRgEC9Rh4ziVyoooC9dOrPsIEht70POJL3qqaKqHa4LuGfMdAJ+aQwEvT5D+5aP60ur6
-	qIQHcWQYFng69Vw5SiVtL4XtrFqM90tDI4f7eAtcJ09fZ+I31DANlPsb09VoTSS6+ntNsePzmT0
-	agqk0UQ1iLhQyoPS018RrBd77Ee4j2XTJbjdBMxYJmHCNj9RaMIVRo27pgGEpDb1W3/7K22ZlPn
-	EdD9QRIDtrOX6q/V60b1PlCXf9DimRKwDxD9PUR63WOgF4yBOOph2gBvkVSaivodeIU79MsXyNs
-	7xOFzbHTNd3ajkr6edZK7zj5o0G4iD4jKj1cLncVDX2vnFZgg15N0ZaROVfToGd0Q+gnm+IBjXm
-	yA/fVsNMrV9eocSR8K
-X-Received: by 2002:a17:903:1ae4:b0:2c1:ed61:36ab with SMTP id d9443c01a7336-2c718fe57ffmr29966425ad.19.1781855746746;
-        Fri, 19 Jun 2026 00:55:46 -0700 (PDT)
-Received: from [127.0.1.1] ([47.253.114.73])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c720a1968bsm14892245ad.72.2026.06.19.00.55.42
+        d=1e100.net; s=20251104; t=1781856539; x=1782461339;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=I3WNaVa6u6+Nzfb3NV3ypwCQ74H2NIZsFLsn4sFU7yo=;
+        b=CAvcTJs5ZMQZseCLc6r2psHBWsIx9lZYpk6Ou2us9oCYgw11ukXvIsLi2GUZXId0bo
+         mykg9Q4OXOqUUkKaCT6zsq9rtLHyz4m4Y0zeNTkX5rVqA2WW5av3eu3uNsGqq7LnDyaC
+         3Lyj5x0fKycPJtJ81EKYVU0HkRmhg6qvkhdPSyaIA/riGwaTi469g8xGjCNEef8oYKQ5
+         dsJZR5brwx+v1x7WwSOtyRnHWq/kGPONRuPaTsiBa++vGy/6MevENYavJc4mboa7788N
+         tGihp1/9730D/D5XdW1dsWqsPjc3JBcx1wJL9rmzmbMoe/XeFsJKN54Cc7fwjNHNhbvm
+         iyFg==
+X-Forwarded-Encrypted: i=1; AFNElJ9eOIfwQmM2/n0+/gy6DXr05IQoHEoYcmJLbhC3azLn7pyPAnl8LMxtLD40zHghHpAnnPd7lUXdDZJJMPqpoEGc@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJngHJDR7UyOgt5iYG5tdhCtsc4eeKGumJbyCk4aPlUFOffGbZ
+	somWutOdL+oOq5sijRTVH3ffqgbojVI0szS3P8e+3Ei3bDMhUgsBzfI5Zg2M8Vzl8d4=
+X-Gm-Gg: AfdE7clkxZqNf/GoKLzHDZBZGutUDln5D9C4Rx+TffWAP5T4iGeaMn/yz86X4QExVRG
+	yIRj8zGMl8s3OMLPOW8O4K1saU5T9qlgMWy/L6DMYWHo92Z/KnoOfu+RbKsBcdvBZKzfzteZddf
+	hMrfYYhFCjv9QfyJMQ9nZOOpoiLTpLVUS7yva8N05o4uCAS1Rcwuv6lltxAcx07CfV8GG6YJEBG
+	eMgWxff3Xuc8xfEho6GyHnlp7TAM2J7OaMC0aIC+QCpuO7FjOR0OK/wVs1Eare+uunoribtrTaD
+	pg7xgyB37n3328hq3jn51+FWuw69VuH5i5ytZwjU/IqfoqNwQjEhlQ7fH4h31U9PIJnvYzruatw
+	O1zZPgZndW/AkaYbB3kQCtkzMYID1jTdPISL07l0Rx1/rmMFIahrqOfboBrWiGtOJiGOVYNtQr4
+	n7ruczoUdsMmRxsHwS5F5QmQ==
+X-Received: by 2002:a5d:5342:0:b0:461:946f:9bb4 with SMTP id ffacd0b85a97d-465097867ddmr3541283f8f.23.1781856538850;
+        Fri, 19 Jun 2026 01:08:58 -0700 (PDT)
+Received: from localhost ([2a01:e0a:3c5:5fb1:95ed:eac1:5731:4e21])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-4650b67a33csm5299452f8f.17.2026.06.19.01.08.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 19 Jun 2026 00:55:46 -0700 (PDT)
-From: Wayen Yan <win847@gmail.com>
-To: netdev@vger.kernel.org
-Cc: lorenzo@kernel.org, horms@kernel.org, pabeni@redhat.com, kuba@kernel.org, edumazet@google.com, andrew+netdev@lunn.ch, angelogioacchino.delregno@collabora.com, matthias.bgg@gmail.com, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Subject: [PATCH net v2] net: airoha: Fix TX scheduler queue mask loop upper bound
-Date: Fri, 19 Jun 2026 15:52:03 +0800
-Message-ID: <178185574223.2378148.13454900445528174929@gmail.com>
-Content-Type: text/plain; charset=utf-8
+        Fri, 19 Jun 2026 01:08:58 -0700 (PDT)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Julian Braha <julianbraha@gmail.com>
+Cc: jian.hu@amlogic.com,  Neil Armstrong <neil.armstrong@linaro.org>,
+  Michael Turquette <mturquette@baylibre.com>,  Stephen Boyd
+ <sboyd@kernel.org>,  Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski
+ <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,  Xianwei Zhao
+ <xianwei.zhao@amlogic.com>,  Kevin Hilman <khilman@baylibre.com>,  Martin
+ Blumenstingl <martin.blumenstingl@googlemail.com>,
+  linux-amlogic@lists.infradead.org,  linux-clk@vger.kernel.org,
+  devicetree@vger.kernel.org,  linux-kernel@vger.kernel.org,
+  linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v4 2/2] clk: amlogic: Add A9 AO clock controller driver
+In-Reply-To: <5af78bca-7c49-48b1-af8a-cfbe55ae26ba@gmail.com> (Julian Braha's
+	message of "Fri, 19 Jun 2026 08:48:49 +0100")
+References: <20260618-a9_aoclk-v4-0-569d0425e50c@amlogic.com>
+	<20260618-a9_aoclk-v4-2-569d0425e50c@amlogic.com>
+	<79b1a519-5723-4e0c-904c-b7fdf9564ee1@gmail.com>
+	<1jbjd7c7ip.fsf@starbuckisacylon.baylibre.com>
+	<5af78bca-7c49-48b1-af8a-cfbe55ae26ba@gmail.com>
+User-Agent: mu4e 1.12.9; emacs 30.1
+Date: Fri, 19 Jun 2026 10:08:56 +0200
+Message-ID: <1jqzm3ar53.fsf@starbuckisacylon.baylibre.com>
 MIME-Version: 1.0
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260619_005547_670407_95121227 
-X-CRM114-Status: GOOD (  12.81  )
+X-CRM114-CacheID: sfid-20260619_010901_068513_52F3FD74 
+X-CRM114-Status: GOOD (  11.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,58 +109,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In airoha_qdma_set_chan_tx_sched(), the loop clearing queue mask was
-using AIROHA_NUM_TX_RING (32) instead of AIROHA_NUM_QOS_QUEUES (8).
+On ven. 19 juin 2026 at 08:48, Julian Braha <julianbraha@gmail.com> wrote:
 
-Each channel has 8 queues, and TXQ_DISABLE_CHAN_QUEUE_MASK(channel, i)
-computes BIT(i + (channel * 8)). With i ranging 0..31, this causes:
-- channel 0: clears bit 0..31 (all 4 channels) instead of 0..7
-- channel 1: clears bit 8..31 (channels 1-3) instead of 8..15
-- channel 2: clears bit 16..31 (channels 2-3) instead of 16..23
-- channel 3: clears bit 24..31 (channel 3 only) - correct by accident
+> Hi Jerome,
+>
+> On 6/19/26 08:29, Jerome Brunet wrote:
+>> No, regmap clock are directly used so this is necessary.
+>> Relying on other module dependencies is not enough
+>
+> What do you mean it's "not enough"?
+>
+> Functionally, any user of COMMON_CLK_MESON_DUALDIV can also use
+> COMMON_CLK_MESON_REGMAP.
 
-While BIT(32+) on arm64 produces 64-bit values truncated to 0 in u32
-mask parameter, the loop still incorrectly clears queues within the
-same channel beyond queue 7.
+This driver directly use regmap clocks. This is a direct dependency,
+required for the build and stated as such. If the module needs it, it
+depends on it, simply.
 
-Even though this is functionally harmless (the register resets to 0
-and is only ever cleared, never set — so clearing extra bits is a
-no-op), the loop bound is semantically wrong and should be fixed for
-correctness and clarity.
+Relying on indirect dependencies is incorrect and fragile.
+If those dependencies ever change, the build breaks for no obvious reason.
 
-Fix by using AIROHA_NUM_QOS_QUEUES (8) as the loop upper bound.
+>
+> Unless you mean for documentation purposes?
+>
+> - Julian Braha
 
-Fixes: ef1ca9271313 ("net: airoha: Add sched HTB offload support")
-Acked-by: Lorenzo Bianconi <lorenzo@kernel.org>
-Signed-off-by: Wayen Yan <win847@gmail.com>
----
-Changes in v2:
-- Add Lorenzo's Acked-by tag.
-- Clarify in commit message that this is semantically wrong but
-  functionally harmless (register resets to 0, only cleared), as
-  Lorenzo pointed out in review.
-- Rebase on current net tree.
-
-Link: https://lore.kernel.org/netdev/ajJIWMs4dVbfkHZ5@lore-desk/
-Link: https://lore.kernel.org/netdev/CAL_ptrs6J3Ryw_4mVTq5VgzkB4RreF5S0huHyLvd9YwWr1m6jAA@mail.gmail.com/
-
- drivers/net/ethernet/airoha/airoha_eth.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index d0c0c0ec8a..ca77747b44 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -2212,7 +2212,7 @@ static int airoha_qdma_set_chan_tx_sched(struct net_device *dev,
- 	struct airoha_gdm_port *port = netdev_priv(dev);
- 	int i;
- 
--	for (i = 0; i < AIROHA_NUM_TX_RING; i++)
-+	for (i = 0; i < AIROHA_NUM_QOS_QUEUES; i++)
- 		airoha_qdma_clear(port->qdma, REG_QUEUE_CLOSE_CFG(channel),
- 				  TXQ_DISABLE_CHAN_QUEUE_MASK(channel, i));
- 
 -- 
-2.51.0
-
+Jerome
 
