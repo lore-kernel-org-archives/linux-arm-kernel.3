@@ -4,87 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 751EBCD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 16:25:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBB0CCD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 16:36:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xrx5VoO25eYm5EH6Wc6vNdgK+6vpuoEcmvN4eX6Cvok=; b=T+l0inJT4DEYMiN8FsZU42s4p8
-	NkGxr55qoPg+T0Wfhw5ydzAdnSvmGuJ7FyN+2NS+cCq+HUkjhV5/A/mSWS3yuH7ru8KMl5rRLXJQM
-	0JU6IiutKnGbIEqxTiGOtqnEaM3002VnwRVMG1Lipg4OWGo5kqU0VlKU8vSkTIcU5pF9xuJesHBnx
-	SiZEjm02cXzypxktGJ7jz1aAPT7xrML1po6NORDBsLG2N9h20UBbVaivFcz27IDptIPfzxUxncxQT
-	qhlxgpWshcpbwqCL+3GnAP0K0E+ywgp31BcBvGceJz7D6PlXoMvPrlXuz3WXLldsRarEU/6X+bK37
-	xAKJwNKw==;
+	bh=8P4uJwZMdHiu+M2xsL3q57qj8g/8y4qsbooRZc2XmjA=; b=cN83S38CKuY7rjidnUX0ZYZIRw
+	Ps08jH2RNrngtAg+lMbNtUzOXf5E5RsgAEneFM6qrKsAxLtNL8l31vkcvg3AO/8DHI941FrAZnQQU
+	zEfxngZVx0IwsWRjslDrWvC/7mFpxiAZonkczcir+2qapivO4C7jytSm5BA1sZzrMoanBx8QK9Wfl
+	4hxbk3h5shcXdYrQT2egr6iHhgHqvHYMPJov64c7GEvES+8RUMiYxBgB9wDZynA/WQB4ts+UatK+M
+	tm2NSwn9MvLtAqRSNkghHjCRV7h7VXIhjok078aObV+Rm34e+ds3AVGgPyt4kjt6eyCaQsHtT+aaD
+	EpyBzNag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wac1k-00000002m2P-1fXk;
-	Fri, 19 Jun 2026 16:25:08 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1wacCV-00000002mLl-1hX1;
+	Fri, 19 Jun 2026 16:36:15 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wac1g-00000002m1l-3lnq
+	id 1wacCU-00000002mLL-09B1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Jun 2026 16:25:07 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id BFDE34E42FCF;
-	Fri, 19 Jun 2026 16:25:01 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 6D0F4601AD;
-	Fri, 19 Jun 2026 16:25:01 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 08E5B106C81BC;
-	Fri, 19 Jun 2026 18:24:46 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1781886299; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=Xrx5VoO25eYm5EH6Wc6vNdgK+6vpuoEcmvN4eX6Cvok=;
-	b=jY8Egj58zUWOmsPwj9vynk2NQy9hCh/a+LGJvBDk3DqRfyL+FJQIuyDJQRRohvDhOBXcnW
-	//AvVJmy/V7tylN+21mDLl593BLUfcG3dz090WmD7UcN98JIRVRLQ/m5l7+EC2wkNUXoNu
-	OY3r/fPM8V0Ey5z04hzY+MHXR+FXcsckzsiV8jrezwluFXHT8MZBukmQNizYV+LllFdQFg
-	Nq8mjjsoK8DWc4IXuaLUWlBpL/WCM0pLIK5BmeG/ZousyZJb+/ny8SsYGoB3m1Nbz1HyNz
-	3bGNW8rAc8osqfVrmerKyh25ch/VkV9XZdD23tG58EnuIwQFtxnCNKSDDWhrYg==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Fri, 19 Jun 2026 18:24:46 +0200
-Message-Id: <DJD5YZ2K1047.3UJ5QMMLQO6UY@bootlin.com>
-Subject: Re: [PATCH v6 15/19] drm/connector: Add new atomic_create_state
- callback
-Cc: <dri-devel@lists.freedesktop.org>, <linux-doc@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, "Daniel Stone" <daniels@collabora.com>,
- <intel-gfx@lists.freedesktop.org>, <intel-xe@lists.freedesktop.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-sunxi@lists.linux.dev>,
- "Laurent Pinchart" <laurent.pinchart+renesas@ideasonboard.com>
-To: "Maxime Ripard" <mripard@kernel.org>, "Maarten Lankhorst"
- <maarten.lankhorst@linux.intel.com>, "Thomas Zimmermann"
- <tzimmermann@suse.de>, "David Airlie" <airlied@gmail.com>, "Simona Vetter"
- <simona@ffwll.ch>, "Jonathan Corbet" <corbet@lwn.net>, "Shuah Khan"
- <skhan@linuxfoundation.org>, "Dmitry Baryshkov"
- <dmitry.baryshkov@oss.qualcomm.com>, "Jyri Sarha" <jyri.sarha@iki.fi>,
- "Tomi Valkeinen" <tomi.valkeinen@ideasonboard.com>, "Andrzej Hajda"
- <andrzej.hajda@intel.com>, "Neil Armstrong" <neil.armstrong@linaro.org>,
- "Robert Foss" <rfoss@kernel.org>, "Laurent Pinchart"
- <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman" <jonas@kwiboo.se>,
- "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Simon Ser"
- <contact@emersion.fr>, "Harry Wentland" <harry.wentland@amd.com>, "Melissa
- Wen" <mwen@igalia.com>, "Sebastian Wick" <sebastian.wick@redhat.com>, "Alex
- Hung" <alex.hung@amd.com>, "Jani Nikula" <jani.nikula@linux.intel.com>,
- "Rodrigo Vivi" <rodrigo.vivi@intel.com>, "Joonas Lahtinen"
- <joonas.lahtinen@linux.intel.com>, "Tvrtko Ursulin" <tursulin@ursulin.net>,
- "Chen-Yu Tsai" <wens@kernel.org>, "Samuel Holland" <samuel@sholland.org>,
- "Dave Stevenson" <dave.stevenson@raspberrypi.com>,
- =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, "Raspberry Pi Kernel
- Maintenance" <kernel-list@raspberrypi.com>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-X-Mailer: aerc 0.21.0
-References: <20260526-drm-mode-config-init-v6-0-852346394200@kernel.org>
- <20260526-drm-mode-config-init-v6-15-852346394200@kernel.org>
-In-Reply-To: <20260526-drm-mode-config-init-v6-15-852346394200@kernel.org>
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260619_092505_227116_7D69AE74 
-X-CRM114-Status: GOOD (  29.92  )
+	Fri, 19 Jun 2026 16:36:14 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7093441964;
+	Fri, 19 Jun 2026 16:36:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BFF341F000E9;
+	Fri, 19 Jun 2026 16:36:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781886973;
+	bh=8P4uJwZMdHiu+M2xsL3q57qj8g/8y4qsbooRZc2XmjA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=DSNt//mzGvPcIYKrgnat8UNm/JbXrJJS6Ornk4q6346qxe5ScEZFTUgeVxnMx+lsB
+	 hv4J9uhbaNpSwOfS6M2XD74BKRxI2YpST4M3poEyKSTDxiheqkfsYviLHn+Ukih6h3
+	 XAKIJH0wRMuBjBU/MO006wlVnZHGTyte2Y3d+nW2/qWI+le4PRsI4noELp+W+PLy9i
+	 quWhCY6nQ6abSXnQTDaZztMUYpgizoT0BKLXXBC7FFqwKx+T8QppIXUM0WYULdJl+w
+	 fkldA32Js5EbtegwY5kByGBolvyeVfZXrNe78jREjZTPgZI1PixF4bolE8EVAc4Lkf
+	 +ZS7gPIPkHtEQ==
+From: Will Deacon <will@kernel.org>
+To: Peter Zijlstra <peterz@infradead.org>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Jason Baron <jbaron@akamai.com>,
+	Alice Ryhl <aliceryhl@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Arnd Bergmann <arnd@kernel.org>
+Cc: kernel-team@android.com,
+	Will Deacon <will@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: static_call: include asm/insns.h
+Date: Fri, 19 Jun 2026 17:36:04 +0100
+Message-ID: <178187925432.1029264.8176166898925529089.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260611132149.40873-1-arnd@kernel.org>
+References: <20260611132149.40873-1-arnd@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,126 +79,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Maxime, Dmitry, all,
+On Thu, 11 Jun 2026 15:21:44 +0200, Arnd Bergmann wrote:
+> I came a cross a missing declaration in a randconfig build:
+> 
+> arch/arm64/kernel/static_call.c:16:5: error: call to undeclared function 'aarch64_insn_adrp_get_offset'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+>    16 |                   aarch64_insn_adrp_get_offset(le32_to_cpup(tramp + 4)) +
+>       |                   ^
+> 
+> Include the header that contains this definition explicitly,
+> rather than relying on it to come indirectly through another
+> header.
+> 
+> [...]
 
-On Tue May 26, 2026 at 6:46 PM CEST, Maxime Ripard wrote:
-> Commit 47b5ac7daa46 ("drm/atomic: Add new atomic_create_state callback
-> to drm_private_obj") introduced a new pattern for allocating drm object
-> states.
->
-> Instead of relying on the reset() callback, it created a new
-> atomic_create_state hook. This is helpful because reset is a bit
-> overloaded: it's used to create the initial software state, reset it,
-> but also reset the hardware.
->
-> It can also be used either at probe time, to create the initial state
-> and possibly reset the hardware to an expected default, but also during
-> suspend/resume.
->
-> Both these cases come with different expectations too: during the
-> initialization, we want to initialize all states, but during
-> suspend/resume, drm_private_states for example are expected to be kept
-> around.
->
-> reset() also isn't fallible, which makes it harder to handle
-> initialization errors properly. This is only really relevant for some
-> drivers though, since all the helpers for reset only create a new
-> state, and don't touch the hardware at all.
->
-> It was thus decided to create a new hook that would allocate and
-> initialize a pristine state without any side effect:
-> atomic_create_state to untangle a bit some of it, and to separate the
-> initialization with the actual reset one might need during a
-> suspend/resume.
->
-> Continue the transition to the new pattern with connectors.
->
-> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-> Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
-> Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
-> Signed-off-by: Maxime Ripard <mripard@kernel.org>
+Applied to arm64 (for-next/core), thanks!
 
-As I'm rebasing another series on current drm-misc-next, which now includes
-this patch, I ran into troubles and I'm not sure what is the right thing to
-do. I hope you can help me clarify this. See below for my question.
+[1/1] arm64: static_call: include asm/insns.h
+      https://git.kernel.org/arm64/c/998d4d789d2d
 
-FTR the series I'm rebasing is "drm bridge hotplug", but the question is
-not specific to that series.
+Cheers,
+-- 
+Will
 
-> --- a/drivers/gpu/drm/drm_connector.c
-> +++ b/drivers/gpu/drm/drm_connector.c
-> @@ -616,11 +616,19 @@ int drmm_connector_hdmi_init(struct drm_device *dev=
-,
->
->  	/*
->  	 * drm_connector_attach_max_bpc_property() requires the
->  	 * connector to have a state.
->  	 */
-> -	if (connector->funcs->reset)
-> +	if (connector->funcs->atomic_create_state) {
-> +		struct drm_connector_state *state;
-> +
-> +		state =3D connector->funcs->atomic_create_state(connector);
-> +		if (IS_ERR(state))
-> +			return PTR_ERR(state);
-> +
-> +		connector->state =3D state;
-> +	} else if (connector->funcs->reset)
->  		connector->funcs->reset(connector);
-
-Here a state is added to connector->state, and that's fine.
-
-However non-HDMI connectors don't get a state created by default.
-
-I was hit by this with the drm_bridge_connector which it can add either an
-HDMI or a non-HDMI connector [0]. In the former case it calls
-drmm_connector_hdmi_init(), which creates the state (in the hunk quoted
-above). In the latter case, as I experienced at runtime and confirmed by
-code inspection, it does not create a state: no one calls
-connector->funcs->atomic_create_state.
-
-I suspect this is related to patch 19/19 which converted the
-drm_bridge_connector from drm_atomic_helper_connector_reset() to
-drm_atomic_helper_connector_create_state(), and only the former sets
-'connector->state =3D conn_state'.
-
-Generally speaking, looks like a state is created only for HDMI
-connectors.
-
-The hardware I have uses the drm_bridge_connector in the non-HDMI case, so
-the state is not created and this results in a NULL pointer deref later on,
-in my case it's in in drm_atomic_connector_get_property().
-
-Am I missing anything obvious?
-
-For now I've come up with a quick workaround, adding (roughly after
-connector init at [1]):
-
-        if (!connector->state)
-                connector->state =3D drm_bridge_connector_create_state(conn=
-ector);
-
-I'm not sure which would be the best solution. Maybe taking the whole
-atomic_create_state/reset state creation calls [2] from
-drmm_connector_hdmi_init() and hoist them up into
-drmm_connector_init(), so all connectors benefit?
-
-Let me know what you think.
-
-[0] https://gitlab.freedesktop.org/drm/misc/kernel/-/blob/7a921d11181065267=
-2e02c392b35fdcefa4d5030/drivers/gpu/drm/display/drm_bridge_connector.c#L995=
--1029
-[1] https://gitlab.freedesktop.org/drm/misc/kernel/-/blob/7a921d11181065267=
-2e02c392b35fdcefa4d5030/drivers/gpu/drm/display/drm_bridge_connector.c#L103=
-0
-[2] https://gitlab.freedesktop.org/drm/misc/kernel/-/blob/7a921d11181065267=
-2e02c392b35fdcefa4d5030/drivers/gpu/drm/drm_connector.c#L617-631
-
-Kind regards,
-Luca
-
---
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+https://fixes.arm64.dev
+https://next.arm64.dev
+https://will.arm64.dev
 
