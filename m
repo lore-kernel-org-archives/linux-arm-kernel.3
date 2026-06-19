@@ -4,100 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EEAACD98F6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 07:14:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3415DCD98F8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 07:30:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dO+UhVuzDjOR9Xal9erNoYHD+4hYeE1itAO+Ot7PglQ=; b=SKIL8hpsWxb1NhXi0RbU28bgy/
-	7Z7HT1NNhw+TPEpsoFO8AcKg/H+8es3XaviapLCcYoEyQT2ldRJn+WBgQBBKc/Kkgjw37dPXxOO8m
-	aoYepYjfnQECvEH25lhS8XG1o+niddr2AJqZ2EoK7nmH9ZDlEsx/44NNflZxehaX/qJGhygbjN9JF
-	csUuJiUEKUzC/mxKPbHwuxHsOIy981wLdgvws76H4EplUfSA6cydNp7QMu/hMcKSY1f3/zPx2GH0Y
-	KeAveOdOvB05U9gg+r33kXhFpUvp4R8q920FyoT/qI11CX6tFqV5niuAAkX1lhv3AgAIfbHZIjmeq
-	E5Aihh8w==;
+	bh=wPDHyNrMcgujLZEScT9ZWB7ZjuOqeA69xZgdQn0M0M4=; b=HwCpW/yM6zwL8tne4mZkWp9K4M
+	jyH0RQTSH0LkmvLp4+VwZmo4YZRyf9YVN3kCWaxGSBXFzObNsweW8aeQeFe/6lyi8VQgzQ9JETW0a
+	7bLaTugv4+4yxtSNAYZfhoj2RYCM5NUT83uvQN36dHhSj4qKjUj2KY5eZavdXyKgJn4X5YL526VJA
+	sGpu6PNizaLFMHMJqR5GFBW4jvBCwN2LLql/amm+LDeiWnmSm4EWXJGHpEzTjgew6pdT29A/BF1y/
+	xyk5vbpVML0Knc8ZeIkVxSAgsIGLmBcUvomQfdr+VZB7fAp+ITyIEhWHJy6tgo5BBeY8CbdH9GW0k
+	WGbvAAFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waTQn-000000026PT-286F;
-	Fri, 19 Jun 2026 07:14:25 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1waTfr-000000026rF-0bhz;
+	Fri, 19 Jun 2026 07:29:59 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waTQk-000000026Om-0s2a
+	id 1waTfn-000000026qO-1bhf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Jun 2026 07:14:24 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-464192ab2e1so1051198f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 00:14:20 -0700 (PDT)
+	Fri, 19 Jun 2026 07:29:57 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4908b92904fso22668085e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 00:29:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1781853260; x=1782458060; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:date:from:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=dO+UhVuzDjOR9Xal9erNoYHD+4hYeE1itAO+Ot7PglQ=;
-        b=UBvUxsExRuQ7ErB0hDYMJDYXvGrEBrme/65lQrM5PKcN3JQ3yHJmBZauJGOYJMC73D
-         Z6ZPSgWqawdtQi5jvikYUwkg6juzHpY2Wp+2iBIdmmTCmvPPPJjvOQx6vibSrxKtfG/q
-         DwOz/RMQKLLGGAuY96HwpN6+3meMztmszfObQPKBTgf7k1DTeeSyqJQSoZJuPp9dsgXS
-         IKiCDP6yYj67CWlPIjIzkXRWUS8Wsw/qIVtvIsxunZlyHFCHn0TIl07SvKHVAEq2wFSQ
-         wmSdXbKkpuG0u7mzoz0uglZ/IOlDLnZkVJTizVGIDgxwDeGg9+gGjWEb+QBcmgztDXjU
-         eTFA==
+        d=baylibre.com; s=google; t=1781854193; x=1782458993; darn=lists.infradead.org;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=wPDHyNrMcgujLZEScT9ZWB7ZjuOqeA69xZgdQn0M0M4=;
+        b=e6MCCajNoxZx9HaQbSvOPnpNxRPH8r9hiDEYulihHFhn2Tu62+3Y6OLTKdhgZPnB+v
+         mxJhLEZCP4W3JG5b1vZtVTTbAyQI4JKiXq1MY+nSgdjpGXaiFTfZfp2IKCg775pEwUUE
+         ftL/NYv7sTifq3lpenFVO+UbnqQgS4H+ZsCs7vLdkttqibo8VDYLNQyBFxWaEuSsMQz8
+         8V9FSlvo5icdxg19GgZnK3AvoxxH5gmSCPjcC22uxeAaMbI63Iz+4vz5VF/oz+r9vejy
+         b+x+5Pp041AQqQG1JyekkfSS/53SHqU0ADb3EfUBP1LIPfFEpp1/8tkfvPPYWpctZFT9
+         qIWQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781853260; x=1782458060;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=dO+UhVuzDjOR9Xal9erNoYHD+4hYeE1itAO+Ot7PglQ=;
-        b=EWJ1ShheTXiInZTLkwLcqWrzG129RcnzXKbGYrRpQvRf0tFjMzJTaD2CqEfPrY8jbS
-         kcGyPoAfWjAjIRrC8TMTyJ2qGvpjkAaFvIc9CXJ17/WnDPdt65SENDAbj8TPNl9HyWIF
-         CR4YSJid+rid7/0MlT1bsxzA6TR5kZa3NCkGoY3erJlZXhs84ZtadAO7ao5p4givl/ZM
-         bUSsv5v27VcAW2LqpYVq9d+JmaT8jmC9++GOT5EQtxjKXv/7WfYwMpjUw63Im7z7SuxG
-         4bDgz6v7fTz7CHmBJNRhR5rwvvixRQbI+whzDzzgb5u1PP3z8vE2LqUsfJS6HUNkQ8xF
-         vDQg==
-X-Forwarded-Encrypted: i=1; AFNElJ/cU0tpWI4biSS36e0coDqnSYaMelmev2RFLkY28GQVhOY0KGNcjPCHQ0OYpEmDuOwjT7X7zFJqDjxswNqIcMIo@lists.infradead.org
-X-Gm-Message-State: AOJu0YxgEn+EaE3bPjgC3GEeDsnSZyRHyp3RzLbe4XuHrII18cFknwh6
-	3Jsi+9bRSq4WdSmJZ5EQW7vghAFMrJFTdKSKGx7+4ulxxHxikMzslXNA8sSSuDXdxi8=
-X-Gm-Gg: AfdE7cmv9cssQolgs4RtNRNvnN9GJxufbegNJQE/LqS+3dHj2GPHqKrlI3PZPkFgFQi
-	zF0AI3//+oYwwc+/z/TZzyTz1zabJCh1sm4TOmVma8Yu9b0yfkGSB17/YvTiPVRf/HtJVvMWmQR
-	uMqYK9CNHLSPLRyn7XE2GhbJ8SkVcOfDLV0UKclH1/xrioe4N3vFdv2vzm0vVPU+Ivx/txBaE6c
-	eQRauNPYDeXU2E7zTsFxIoN0UrBBN00nbbIY/vAciWVQUWmRajjM128ann/O/G8Bc6o1fjxxrI+
-	g98yq+bEfa4VEW5cWIO6x5a1BQZFSH2mFRhkumrFIheBacdN/+XyFGUtrXr486QmnouKDvkW4XL
-	0mhPTFMkmVh1iy8G3AOTLwxjhtH6KgDrYa9C1DeXPf3/LvCqqdkzO2XQHX/WBR5gDW25dInOuxo
-	vslQaX0Y2OOA==
-X-Received: by 2002:a05:600c:8b24:b0:48a:93f8:dd02 with SMTP id 5b1f17b1804b1-4923f439be6mr49271215e9.14.1781853259707;
-        Fri, 19 Jun 2026 00:14:19 -0700 (PDT)
-Received: from localhost ([195.94.150.2])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4923fce9590sm46202215e9.4.2026.06.19.00.14.19
+        d=1e100.net; s=20251104; t=1781854193; x=1782458993;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=wPDHyNrMcgujLZEScT9ZWB7ZjuOqeA69xZgdQn0M0M4=;
+        b=l6VjD8CddQ46bmlHkgozqU4UzolyJQmIxIfeJq9aCOKFDR5UqC9CphNRb1KE/rL1J9
+         GkkNrcH2Xf4LZHSmszv36FjhnuRefZqrvrwlGReifmOEEWt/dGtp2nvWynIFAm2TNDs3
+         pn5WFlTzniam8AiFrYZsI+fWaCRwVrdbpF953g7qgIBMpKoDsFe7AgdlbceNV6YPyeuQ
+         nGutLLwJulDrNLW8STxXHKdvQ46HoaVxAB+u7X1xEheTwrd7qbsDuWnqrPRMzEE1kFzz
+         gj60YnxkGGohfhLV6B2NvpXh8KdIsLC7z9yaad7sr/XJ/IKdn+ovGj7twR8BwvewCi7R
+         W6aA==
+X-Forwarded-Encrypted: i=1; AFNElJ9Tt79Ietca9WNyjBV+Eki6GcKlnAk+V3jtb1wZ4hVpgIYkQqcHlzG0e6VueEMEwwmDjvvJ6ODuL9kzeAK2wvCE@lists.infradead.org
+X-Gm-Message-State: AOJu0YzbdqewX1D1TYPU4mSYlSwcDJUGrU9jInV6wytmbXMGWOEIc08N
+	Unxk17SVEO2FUOR98Cds7fQOvMlIpdQTfgvioka2Yv27zrY1/DqohTXYR8iSjA6WPqg=
+X-Gm-Gg: AfdE7cnS+LmjlMOEcYjrnfY5CA9uUD1Lc+f70jS6HUWQMyHPRGentu/oJ8kyP1Bdduy
+	LgYCacfcUgMAfU4UqoC5GC1bdsxCpRn63fVuZZh0wu2m+rBiJwjfBHCn73ec0TAsJQIdcPfaZhC
+	vaNPy73CVu6Vs9sJYDOewYkdXs2P2edLFYddXkaRwrkj7dMZdOcUm7dApcyMyZrVfG63vXBtQgn
+	EI75SMh0UqVKR64QBUW/lZGvkq1O9ooC2uBAW5vYeisyuiAn2mBHzB4IEzg3pHRjlkDZTf5+y2c
+	bk6Va042ks+SjMh6u/Pp4cAzevTfdPiXtqLGufGpNBwiXYh0W2hFivYxFbPMp6KAXA5LO5KdLRq
+	mYWb92+rvO+rC4/BItNxKcrjneaxZ0dmByc3gpQyJONxXkC7fCA+EK8+sOlYPeV+JifAWQlaACK
+	SBYgWaYeHqFdY=
+X-Received: by 2002:a05:600c:46d4:b0:490:b58b:a8ca with SMTP id 5b1f17b1804b1-4924257c483mr21687735e9.27.1781854193037;
+        Fri, 19 Jun 2026 00:29:53 -0700 (PDT)
+Received: from localhost ([2a01:e0a:3c5:5fb1:95ed:eac1:5731:4e21])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4923fd30078sm46219025e9.7.2026.06.19.00.29.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 19 Jun 2026 00:14:19 -0700 (PDT)
-From: Andrea della Porta <andrea.porta@suse.com>
-X-Google-Original-From: Andrea della Porta <aporta@suse.de>
-Date: Fri, 19 Jun 2026 09:17:43 +0200
-To: =?iso-8859-1?Q?Th=E9o?= Lebrun <theo.lebrun@bootlin.com>
-Cc: Andrea della Porta <andrea.porta@suse.com>, netdev@vger.kernel.org,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rpi-kernel@lists.infradead.org,
-	Nicolai Buchwitz <nb@tipi-net.de>,
-	Lukasz Raczylo <lukasz@raczylo.com>,
-	Steffen Jaeckel <sjaeckel@suse.de>
-Subject: Re: [PATCH v2] net: macb: add TX stall timeout callback to recover
- from lost TSTART write
-Message-ID: <ajTtF2xy3WS6NfBi@apocalypse>
-References: <468f480454a314303bac6a54780b153f689f2267.1781598350.git.andrea.porta@suse.com>
- <DJAKGHKZGUI2.29AHYNFX4LGBJ@bootlin.com>
+        Fri, 19 Jun 2026 00:29:52 -0700 (PDT)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Julian Braha <julianbraha@gmail.com>
+Cc: jian.hu@amlogic.com,  Neil Armstrong <neil.armstrong@linaro.org>,
+  Michael Turquette <mturquette@baylibre.com>,  Stephen Boyd
+ <sboyd@kernel.org>,  Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski
+ <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,  Xianwei Zhao
+ <xianwei.zhao@amlogic.com>,  Kevin Hilman <khilman@baylibre.com>,  Martin
+ Blumenstingl <martin.blumenstingl@googlemail.com>,
+  linux-amlogic@lists.infradead.org,  linux-clk@vger.kernel.org,
+  devicetree@vger.kernel.org,  linux-kernel@vger.kernel.org,
+  linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v4 2/2] clk: amlogic: Add A9 AO clock controller driver
+In-Reply-To: <79b1a519-5723-4e0c-904c-b7fdf9564ee1@gmail.com> (Julian Braha's
+	message of "Thu, 18 Jun 2026 19:56:12 +0100")
+References: <20260618-a9_aoclk-v4-0-569d0425e50c@amlogic.com>
+	<20260618-a9_aoclk-v4-2-569d0425e50c@amlogic.com>
+	<79b1a519-5723-4e0c-904c-b7fdf9564ee1@gmail.com>
+User-Agent: mu4e 1.12.9; emacs 30.1
+Date: Fri, 19 Jun 2026 09:29:50 +0200
+Message-ID: <1jbjd7c7ip.fsf@starbuckisacylon.baylibre.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <DJAKGHKZGUI2.29AHYNFX4LGBJ@bootlin.com>
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260619_001422_253360_FBC81A97 
-X-CRM114-Status: GOOD (  16.83  )
+X-CRM114-CacheID: sfid-20260619_002955_452795_FB83023E 
+X-CRM114-Status: UNSURE (   9.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,48 +108,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Theo,
+On jeu. 18 juin 2026 at 19:56, Julian Braha <julianbraha@gmail.com> wrote:
 
-On 17:07 Tue 16 Jun     , Théo Lebrun wrote:
-> Hello Andrea,
-> 
-> On Tue Jun 16, 2026 at 3:23 PM CEST, Andrea della Porta wrote:
-> > From: Lukasz Raczylo <lukasz@raczylo.com>
-> >
-> > The MACB found in the Raspberry Pi RP1 suffers from sporadic stalls on
-> > the TX queue.
-> > While the exact root cause is not yet fully understood, it is likely
-> > related to a hardware issue where a TSTART write to the NCR register
-> > is missed, preventing the transmission from being kicked off.
-> >
-> > Implement a timeout callback to handle TX queue stalls, triggering the
-> > existing restart mechanism to recover.
-> >
-> > Link: https://lore.kernel.org/all/20260514215459.36109-1-lukasz@raczylo.com/
-> > Fixes: dc110d1b23564 ("net: cadence: macb: Add support for Raspberry Pi RP1 ethernet controller")
-> > Signed-off-by: Lukasz Raczylo <lukasz@raczylo.com>
-> > Co-developed-by: Steffen Jaeckel <sjaeckel@suse.de>
-> > Signed-off-by: Steffen Jaeckel <sjaeckel@suse.de>
-> > Co-developed-by: Andrea della Porta <andrea.porta@suse.com>
-> > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-> 
-> Thanks for this V2.
-> 
-> Reviewed-by: Théo Lebrun <theo.lebrun@bootlin.com>
-> 
-> Any news from the Raspberry Pi community about this bug investigation?
+> Hi Jian,
+>
+> On 6/18/26 10:49, Jian Hu via B4 Relay wrote:
+>
+>> +config COMMON_CLK_A9_AO
+>> +	tristate "Amlogic A9 SoC AO clock controller support"
+>> +	depends on ARM64 || COMPILE_TEST
+>> +	default ARCH_MESON
+>> +	select COMMON_CLK_MESON_REGMAP
+>> +	select COMMON_CLK_MESON_CLKC_UTILS
+>> +	select COMMON_CLK_MESON_DUALDIV
+>
+> Selecting COMMON_CLK_MESON_REGMAP is unnecessary since you're already
+> selecting COMMON_CLK_MESON_DUALDIV here.
 
-Not from my side, unfortunately.
+No, regmap clock are directly used so this is necessary.
+Relying on other module dependencies is not enough
 
-Regards,
-Andrea
+>
+> - Julian Braha
 
-> 
-> Thanks,
-> 
-> --
-> Théo Lebrun, Bootlin
-> Embedded Linux and Kernel engineering
-> https://bootlin.com
-> 
+-- 
+Jerome
 
