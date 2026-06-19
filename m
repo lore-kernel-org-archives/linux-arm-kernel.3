@@ -4,94 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B26ECD98F8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 07:40:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABCFFCD98F8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 07:44:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q4qbPpfXKjwWf+Dt6pjhae0Fsogba7Qsk/94yaXvhXg=; b=Wc5l55h/1bB8/Dliqeywzfr/Pu
-	+rbP1mattVwI7nvLnjn6z0BsvkwcyJOT7/o97UOx0xbZto9pypz+P3owkaAaz76MmjBDK8t+/qriH
-	BzVHaY9vWDVj2aDtMiYC2M3dZIzvegVy+5aaL4cT6V3WS/pf3/3JjdzCh5T6gG3wD+t/Ps1grrTzT
-	1bvwKzz8XxiHNAigXhl9JKdGC1Alq5iWJlXusNA2njRHFxCx1XswczX9ZbsSYUPw3v70r3flzoEXZ
-	smpUEoPaEbEqnYpftKRgY8QNBmIAbYq/EKLjOxtmskTRfG3ZWvgXXUQRtxWUHSvDXd9UBtqCp5pql
-	Mgz0JX/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b07NeBKHmWEsMBrslV3njAnQXC0YyuL7comfc7gkAqs=; b=Toc1/ZrlrGBaI50ilv5ZssV/XB
+	mYmJu5bcyDVjvmdfu6MDcnBlI7OXwvHl5yd+He4glRQlUOwWA4Dwl7qIRVmVYsZFVdG06sW+1aInU
+	Z4+Rk3kGKV5YEFih6Ftsx7c7jUOgCJMTiIPnX28kIeu8GB6FCsueIRLY2F/1IgldTxnbt50gZN2ZT
+	eD9X+6aGyY1yu8UucmCqNARUNm38RtHTHu2GdER+wXTbvMaVPQRKNIVw8e8ltRLzP3Op7KTlZEvcb
+	3sVGO3I9UTBYgzOkqx6/UJQPGKCCnfaSSeo6d0mYq8gNfBJzk04Zk9dNKhQNTpwuJUlGVQCUMXv+a
+	e3EtMsPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waTpy-000000027K5-2Y7l;
-	Fri, 19 Jun 2026 07:40:26 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1waTtf-000000027Zn-0l0i;
+	Fri, 19 Jun 2026 07:44:15 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waTpr-000000027Ib-2dT0
+	id 1waTtd-000000027Zb-267Z
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Jun 2026 07:40:25 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-490bc6a7958so21703305e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 00:40:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1781854818; x=1782459618; darn=lists.infradead.org;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Q4qbPpfXKjwWf+Dt6pjhae0Fsogba7Qsk/94yaXvhXg=;
-        b=g7+hK+DVpMabaZwo/NnHqq7PfeuMfpOhkcZ4M+Yqvswg3Mu/dHWmX3nDImd9+FkCLY
-         /TdEdOsMb5od59fhzMypg2GvOLKNAjNQ5rlb9kSopd3U+vgzjK9y714vqgavM/dbvYpO
-         SKrlz6gD6t07ABsjHsk5c8HkqRrKzqIx72RTo5/z72Bp3OKIoyYoGQ4jyCgnoGBvj0a9
-         vE4clcFLMf7A5zKETmm56QsCOmtPa0JpTT2jbXl+jW4wiEfHXnkQw4/DLCY4u/ht76Y3
-         sJMYG2NbvwkQbZpFmq8AXEL3gnUgKXl9E6a7vr+XakC3fzqER3Nggjtdv7AaRPEPHWjc
-         L0IQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781854818; x=1782459618;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=Q4qbPpfXKjwWf+Dt6pjhae0Fsogba7Qsk/94yaXvhXg=;
-        b=BlH5OuwUIpf95y37nki2Dcl8WMSzQMVFy3sd5dnspTqKFXD2fhTM80yauzASH2JcKn
-         2nfJqG8yeaDGStZaot1w/qQ9+K3US54Jhe2IN9wJ/gMfnk+2onEKT5PU+IT5DeriWz7C
-         w5BFfyGJp7xjZbVIQS4+0eLZIQTmoFegPkDzh/0zT8+rvRmKvrPQn26WluqrNbTD12L0
-         8NKTawSt4hE1/IJTu6l2WHGmPjDki1/qoSPHB+V3a2zBDudta8nRovCmmw7THEbboo/o
-         8ocKD+Gl1ppcOrWu/L3oYkovKL4R67vorj/uHzDcStLjNQPjSSFXQKLGAYXhu5NkZ0IW
-         V92w==
-X-Forwarded-Encrypted: i=1; AFNElJ9pga+R9itCkpbWnT285pJ2jrk6ls4JNJ7Q98DAqTm5RUf6VT14VS0xv+zSMd8qAj5VsKj0hJ+6dPD2pA77YZHo@lists.infradead.org
-X-Gm-Message-State: AOJu0YzViI/1HnFxUKUQBmy7XBA/hlxjYgbSBD1FoYjCRdJ0ZRsPIka+
-	1k1dPGmsElKwsyWpyNSS1m30i04FhFruql4PMgMlPwIJ1cnjbIiOpf8JOe53DTtci/4=
-X-Gm-Gg: AfdE7cm5gP047RqHf4fwYy/2N+JoQ49qtVB86oDCd0A/6n9axYf8M3MZIAgHa+XaR05
-	0QIYu2OPzH80TPx+sVwBsQquS++eKrU25Ip0J0URe1OBp7g3wSBMhOQuRtSkGBsaxiNkpcUtTPq
-	zfA4yCQhvzkKXPqaTkm4ZC3SWJF+6r7bPtSNsldMiWH6UQWOcn5V63OpheST94tSZg6OvS9jCj9
-	+Uc89SYfRBzu+bfUEm4O0JI7WJ6kOE/r4mfLtxiibfoTnJN7Wl8xG4iz9i2nVTPK/pDD+WLdYtx
-	LaprL1g7KSl6Nf6QTYx/Ki63UqeuUC8EHQcW1KPJhIcnCGLcUDEy3VbtjS4U9rILaw7HWySBJFG
-	iHjxTRfEx84gCkqN7uUCgk0itT+QkJRq9LlEP0rMGdL3FzELoesHP1H94sYUnoj6I39m0eM11k2
-	ID2T3KOx8XpfcMKBveelU6tA==
-X-Received: by 2002:a05:600d:4448:20b0:489:32b:ac0b with SMTP id 5b1f17b1804b1-49240a09f71mr22313395e9.6.1781854817768;
-        Fri, 19 Jun 2026 00:40:17 -0700 (PDT)
-Received: from localhost ([2a01:e0a:3c5:5fb1:95ed:eac1:5731:4e21])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-4650bc422c0sm5324812f8f.26.2026.06.19.00.40.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 19 Jun 2026 00:40:17 -0700 (PDT)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Jian Hu via B4 Relay <devnull+jian.hu.amlogic.com@kernel.org>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,  Michael Turquette
- <mturquette@baylibre.com>,  Stephen Boyd <sboyd@kernel.org>,  Rob Herring
- <robh@kernel.org>,  Krzysztof Kozlowski <krzk+dt@kernel.org>,  Conor
- Dooley <conor+dt@kernel.org>,  Xianwei Zhao <xianwei.zhao@amlogic.com>,
-  Kevin Hilman <khilman@baylibre.com>,  Martin Blumenstingl
- <martin.blumenstingl@googlemail.com>,  jian.hu@amlogic.com,
-  linux-amlogic@lists.infradead.org,  linux-clk@vger.kernel.org,
-  devicetree@vger.kernel.org,  linux-kernel@vger.kernel.org,
-  linux-arm-kernel@lists.infradead.org,  Conor Dooley
- <conor.dooley@microchip.com>
-Subject: Re: [PATCH v4 0/2] clk: amlogic: Add A9 AO clock controller
-In-Reply-To: <20260618-a9_aoclk-v4-0-569d0425e50c@amlogic.com> (Jian Hu via's
-	message of "Thu, 18 Jun 2026 17:49:10 +0800")
-References: <20260618-a9_aoclk-v4-0-569d0425e50c@amlogic.com>
-User-Agent: mu4e 1.12.9; emacs 30.1
-Date: Fri, 19 Jun 2026 09:40:15 +0200
-Message-ID: <1jwlvvasgw.fsf@starbuckisacylon.baylibre.com>
+	Fri, 19 Jun 2026 07:44:13 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7F50E601E4
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 07:44:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 311FD1F00ACA
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 07:44:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781855052;
+	bh=b07NeBKHmWEsMBrslV3njAnQXC0YyuL7comfc7gkAqs=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=D4KlcMZWcEbII5o06cTlozauqpbocsERRnGTgzKHEJV6aSKOMbSzUrQD8DbLTwfxG
+	 Otfrd9/730NY49a3WLOuASWRZ3BY72X28GrB/Oj7Uoat7XK4ZjxL14U2O6I5MQcu5m
+	 o0rXWYiK5SmKwhdEhPpkNoTjIIWH4LnIYCnZylfr4jI3mtcM3VWTWbtfoG3h6sMiuy
+	 mJC4x3k/YfXEayDyEdHsX4QIOM6DXAvU/Q8wABxoOq+GJpSM4pIKRrMIe7opmczwbL
+	 XKmvnbTspGK/ohhzgFixJVPkRqP2K3U63L7ZnBQp4QR0Kkze+NzPA+wMJ+pSo4vsrd
+	 8RtZm9mSbQqpw==
+Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5ad4d262fc1so1513307e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 00:44:12 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ/K344oe3Ozfh4bTdfPfWcTNrtFXp3dSbwp8UGv9GObTWR7I2bDbcU5KLd7wmuPEvgRSWWshtMgGCe/QBsn7uD4@lists.infradead.org
+X-Gm-Message-State: AOJu0YwpX3rjs91oQSrM6252H6IE1wI720gGYpgcZNdQ/ImZKiyCjZhG
+	/1tnn5z8Ncx93w5WBBwBsAcK0lqchPrPGYEAalYfcnCOBlejh8zDGQOgn2afvkpYtz8fwwIbZr2
+	/ilQnAq3FAIi16ivdRYje0ddBLbdjsHw=
+X-Received: by 2002:ac2:51ce:0:b0:5aa:5f11:ddb9 with SMTP id
+ 2adb3069b0e04-5ad562dbb2bmr842962e87.40.1781855050988; Fri, 19 Jun 2026
+ 00:44:10 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260619_004019_687323_5A85F5EC 
-X-CRM114-Status: GOOD (  14.63  )
+References: <CAD++jLmW3vgTFryRAL24x2TbgbR1tbhjw-nFFH3askoZfSibaQ@mail.gmail.com>
+ <20260618151052.3984665-1-runyu.xiao@seu.edu.cn>
+In-Reply-To: <20260618151052.3984665-1-runyu.xiao@seu.edu.cn>
+From: Linus Walleij <linusw@kernel.org>
+Date: Fri, 19 Jun 2026 09:43:56 +0200
+X-Gmail-Original-Message-ID: <CAD++jLk4eByc6A4ovjvvOEE83RPA7AUcL5Cyvs6KXezVWSj1Hg@mail.gmail.com>
+X-Gm-Features: AVVi8CfR2bmTpQpCbDzuwjR-h7T2akz1CHyf0xAarqe_ynmYniODNtWUzZ11GCQ
+Message-ID: <CAD++jLk4eByc6A4ovjvvOEE83RPA7AUcL5Cyvs6KXezVWSj1Hg@mail.gmail.com>
+Subject: Re: Question: pinctrl-backed GPIO set_config and gpio_chip::can_sleep
+To: Runyu Xiao <runyu.xiao@seu.edu.cn>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@kernel.org>, 
+	Ludovic Desroches <ludovic.desroches@microchip.com>, 
+	Nicolas Ferre <nicolas.ferre@microchip.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+	Antonio Borneo <antonio.borneo@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, jianhao.xu@seu.edu.cn
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,54 +88,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On jeu. 18 juin 2026 at 17:49, Jian Hu via B4 Relay <devnull+jian.hu.amlogic.com@kernel.org> wrote:
+Hi Runyu,
 
-> This series adds Amlogic A9 AO clock support, including dt-binding and AO clock driver.
->
-> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
+On Thu, Jun 18, 2026 at 5:11=E2=80=AFPM Runyu Xiao <runyu.xiao@seu.edu.cn> =
+wrote:
 
-A part from the 2 minor problems found by sashiko, This looks good.
+> I agree that marking these memory-mapped controllers as can_sleep is too
+> broad if the only sleepable part is the pinctrl range lookup.  That would
+> make consumers treat otherwise MMIO-backed get/set paths as sleepable,
+> which is not the contract I want to change.
+>
+> I will hold back the at91-pio4/stm32/sunxi can_sleep series and look at
+> the pinctrl core direction instead, specifically whether
+> pinctrldev_list_mutex can be replaced by a non-sleeping lock for
+> pinctrl_get_device_gpio_range().  That should also line up with the GPIO
+> direction callback case discussed in the other thread.
 
-> ---
-> Changes in v4:
-> - Drop CLK_IS_CRITICAL for ao_xtal_in clock.
-> - Drop CLK_HW_INIT* and revert to explicit clock declarations.
-> - Link to v3: https://lore.kernel.org/r/20260610-a9_aoclk-v3-0-b7592d6c31e2@amlogic.com
->
-> Changes in v3:
-> - Move COMPILE_TEST after 'depends on ARM64' reported by sashiko-bot.
-> - Rename i2c3 to i3c reported by sashiko-bot.
-> - Reword the comment describing ao_xtal_in's flags.
-> - Use struct clk_init_data to describe ao_xtal_in's hw.init.
-> - Link to v2: https://lore.kernel.org/r/20260603-a9_aoclk-v2-0-f47ea616ee78@amlogic.com
->
-> Changes in v2:
-> - Split the A9 clock driver and send the AO clock separately.
-> - Rename aobus to soc.
-> - Use CLK_HW_INIT_FW_NAME to describe clk_init_data.
-> - Use CLK_HW_INIT_PARENTS_DATA to describe clk_init_data.
-> - Use a9_ao prefix for MESON_COMP_SEL.
-> - Correct duandiv name.
-> - Fix pwm b reg.
-> - Link to v1: https://lore.kernel.org/all/20260511-b4-a9_clk-v1-0-41cb4071b7c9@amlogic.com/
->
-> ---
-> Jian Hu (2):
->       dt-bindings: clock: Add Amlogic A9 AO clock controller
->       clk: amlogic: Add A9 AO clock controller driver
->
->  .../bindings/clock/amlogic,a9-aoclkc.yaml          |  76 ++++
->  drivers/clk/meson/Kconfig                          |  13 +
->  drivers/clk/meson/Makefile                         |   1 +
->  drivers/clk/meson/a9-aoclk.c                       | 488 +++++++++++++++++++++
->  include/dt-bindings/clock/amlogic,a9-aoclkc.h      |  76 ++++
->  5 files changed, 654 insertions(+)
-> ---
-> base-commit: ca89c88bcf69daca829044c638a8163d5ce47af0
-> change-id: 20260603-a9_aoclk-bbf531badc63
->
-> Best regards,
+Your replies look like those one would get from an AI agent,
+because they are repeating information (context) that I have just
+provided, just with other words.
 
--- 
-Jerome
+If this is the case you need to instruct your agent to be terse in
+mailing list replies: it needs to quote what I just said with >
+markers in the margin and just add the word "Agreed" after
+it.
+
+Yours,
+Linus Walleij
 
