@@ -4,60 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FFB5CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 11:47:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6613DCD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 11:58:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kpXWct/ksH4wphVNWjqFdoJ25adS8L/TJ0QkPKa90Ek=; b=2jk+kASMvcgxpk9e8GybYF1Lxx
-	P1uifStqLqPSJPu8rb+QK65aF4lnXRx2Pm8sjgxaloclOyjo5eVSfSergtQfhwFHnmA03KEWCkRNl
-	qd57XROK/u+S8PJuDH68e6g7lypbOb4r36OrLI93efZtwz4DoqHM4ryiXC20A7xXKBVk35mAfICHg
-	h+ng2/BVFaeKSCflIK7BWmwWmtJfZt9wfDgeNQNo7uJHMXK5o+M8ZLPEoAVRzDbZQ1AaS0qrCZ+ne
-	MuWLEl7ikQjpO9Ixp7gF/ExAW5W7wtGkx12m12rIffmYmLqcJMr4mi2hpPClP3TI8pqqsTNxSPRCT
-	VRqq5DXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Y1MHA3WSG+EmdxC49RdeJjFk6tA5YD/wWphvr816RWw=; b=1EmQBTOcVJrrOllOE2lPxagXTm
+	BFiaMamnmv/h4upVyOzc/vCvJeodndf19XOVaCFSLOOAdN9HYrL3XHduk80vHnD7otIcsNePUkjAV
+	610eK2KqmoNDUeg20jMsQnznHPctcgiVo4iAQwF3S0vETyh0s+uOgiPD41RgrcUAMMi+6jB/HNXO8
+	C8HJewjX7GpEIz2ojUoCX5MfrahY7XC3ipPstmxRUIM9aOwMi4HJSczj++9Mmqd5hIcLoQhFhMWcd
+	ffTkbcLvFh6vxDVMmgshKqcsUnUNQn3B6/g6RZI+M1H/yj75pPOpUaipIKZ89eLa+x3UvdxIzji2g
+	2b1tgAWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waXYw-00000002Lge-21Yz;
-	Fri, 19 Jun 2026 11:39:06 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1waXrn-00000002MIO-49Hn;
+	Fri, 19 Jun 2026 11:58:36 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waXYv-00000002LgV-1aLq;
-	Fri, 19 Jun 2026 11:39:05 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 18D31417B8;
-	Fri, 19 Jun 2026 11:39:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 714621F000E9;
-	Fri, 19 Jun 2026 11:39:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781869145;
-	bh=kpXWct/ksH4wphVNWjqFdoJ25adS8L/TJ0QkPKa90Ek=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=VVri5rZca1NYzdVF7Jk2qeqaI4yYUI0BXeAeXmut2STe8wqQJFkRnpLEf/EFNGJSm
-	 LrgMwA0gJfyKyWzXk/12Xbfd9gQUOBNd/TxjUgJiWhIdkvVheTKEzTLe7eXFnjx8Zp
-	 LmXli67akG+9oNCDvDyfJuay1MKL1Zy5xSQEagGa9c/sAjp3kCabCj7YqAgHZxb+jc
-	 3nLKwiQtgmbYX8OdmAhjdqzhZ2RC3KSYcCp5hMhwBrOQquEMVB7wVOgtvoOumfeBXf
-	 X9wsz+6xWKfvHgTEmw1v1/f/iREfnC1r+pWXxNlmgI7EYn6St5e1mwWnQmkPB7IKbT
-	 euLgifYEyXk6A==
-Date: Fri, 19 Jun 2026 13:39:02 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Wayen Yan <win847@gmail.com>
-Cc: netdev@vger.kernel.org, horms@kernel.org, pabeni@redhat.com,
-	kuba@kernel.org, edumazet@google.com, andrew+netdev@lunn.ch,
-	angelogioacchino.delregno@collabora.com, matthias.bgg@gmail.com,
+	id 1waXrl-00000002MHp-0rbH
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 19 Jun 2026 11:58:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1781870311;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=Y1MHA3WSG+EmdxC49RdeJjFk6tA5YD/wWphvr816RWw=;
+	b=FiBOPomYdJggDWf+Ex3mNHCuukDZ/aAE9wKkYaybniNV6x7aiMPCm6sychiS6Iln9Gi4qZ
+	RJ6MvTZCmspRLv2fN/EzKA7gqkUddJ5TutZ+8kiUkx7gi1H3Y+K84s5w8v1odtPAYFzomv
+	qXDIsIiz23K28oNL7X2ZqaUrnGQ0ufc=
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-168--00ZuXx9Mj-Np4TZTpkL1g-1; Fri,
+ 19 Jun 2026 07:56:57 -0400
+X-MC-Unique: -00ZuXx9Mj-Np4TZTpkL1g-1
+X-Mimecast-MFC-AGG-ID: -00ZuXx9Mj-Np4TZTpkL1g_1781870216
+Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id D5DD51977520;
+	Fri, 19 Jun 2026 11:56:55 +0000 (UTC)
+Received: from thuth-p1g4.redhat.corp (headnet05.pony-001.prod.iad2.dc.redhat.com [10.2.32.117])
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id CBC5E18005B6;
+	Fri, 19 Jun 2026 11:56:52 +0000 (UTC)
+From: Thomas Huth <thuth@redhat.com>
+To: Thierry Reding <thierry.reding@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>
+Cc: Russell King <linux@armlinux.org.uk>,
+	linux-tegra@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH net v2] net: airoha: Fix TX scheduler queue mask loop
- upper bound
-Message-ID: <ajUqVknmRq-4GHkJ@lore-desk>
-References: <178185574223.2378148.13454900445528174929@gmail.com>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] ARM: tegra: Replace __ASSEMBLY__ with __ASSEMBLER__
+Date: Fri, 19 Jun 2026 13:56:51 +0200
+Message-ID: <20260619115651.167376-1-thuth@redhat.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="wHUdDSUz+JkqUMMA"
-Content-Disposition: inline
-In-Reply-To: <178185574223.2378148.13454900445528174929@gmail.com>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
+X-Mimecast-MFC-PROC-ID: y1e1vFXgjnGA4iMTFS0kHOAfeOwJeK7ttFj-eeLzqvU_1781870216
+X-Mimecast-Originator: redhat.com
+Content-Transfer-Encoding: 8bit
+content-type: text/plain; charset="US-ASCII"; x-default=true
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260619_045833_323969_109615B9 
+X-CRM114-Status: GOOD (  15.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,86 +85,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Thomas Huth <thuth@redhat.com>
 
---wHUdDSUz+JkqUMMA
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+While the GCC and Clang compilers already define __ASSEMBLER__
+automatically when compiling assembly code, __ASSEMBLY__ is a
+macro that only gets defined by the Makefiles in the kernel.
+This can be very confusing when switching between userspace
+and kernelspace coding, or when dealing with uapi headers that
+rather should use __ASSEMBLER__ instead. So let's standardize now
+on the __ASSEMBLER__ macro that is provided by the compilers.
 
-> In airoha_qdma_set_chan_tx_sched(), the loop clearing queue mask was
-> using AIROHA_NUM_TX_RING (32) instead of AIROHA_NUM_QOS_QUEUES (8).
->=20
-> Each channel has 8 queues, and TXQ_DISABLE_CHAN_QUEUE_MASK(channel, i)
-> computes BIT(i + (channel * 8)). With i ranging 0..31, this causes:
-> - channel 0: clears bit 0..31 (all 4 channels) instead of 0..7
-> - channel 1: clears bit 8..31 (channels 1-3) instead of 8..15
-> - channel 2: clears bit 16..31 (channels 2-3) instead of 16..23
-> - channel 3: clears bit 24..31 (channel 3 only) - correct by accident
->=20
-> While BIT(32+) on arm64 produces 64-bit values truncated to 0 in u32
-> mask parameter, the loop still incorrectly clears queues within the
-> same channel beyond queue 7.
->=20
-> Even though this is functionally harmless (the register resets to 0
-> and is only ever cleared, never set =E2=80=94 so clearing extra bits is a
-> no-op), the loop bound is semantically wrong and should be fixed for
-> correctness and clarity.
->=20
-> Fix by using AIROHA_NUM_QOS_QUEUES (8) as the loop upper bound.
->=20
-> Fixes: ef1ca9271313 ("net: airoha: Add sched HTB offload support")
-> Acked-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> Signed-off-by: Wayen Yan <win847@gmail.com>
-> ---
-> Changes in v2:
-> - Add Lorenzo's Acked-by tag.
-> - Clarify in commit message that this is semantically wrong but
->   functionally harmless (register resets to 0, only cleared), as
->   Lorenzo pointed out in review.
-> - Rebase on current net tree.
->=20
-> Link: https://lore.kernel.org/netdev/ajJIWMs4dVbfkHZ5@lore-desk/
-> Link: https://lore.kernel.org/netdev/CAL_ptrs6J3Ryw_4mVTq5VgzkB4RreF5S0hu=
-HyLvd9YwWr1m6jAA@mail.gmail.com/
->=20
->  drivers/net/ethernet/airoha/airoha_eth.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->=20
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ether=
-net/airoha/airoha_eth.c
-> index d0c0c0ec8a..ca77747b44 100644
-> --- a/drivers/net/ethernet/airoha/airoha_eth.c
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-> @@ -2212,7 +2212,7 @@ static int airoha_qdma_set_chan_tx_sched(struct net=
-_device *dev,
->  	struct airoha_gdm_port *port =3D netdev_priv(dev);
+This is a completely mechanical patch (done with a simple "sed -i"
+statement).
 
-it seems you have not rebased on top of net tree.
+Signed-off-by: Thomas Huth <thuth@redhat.com>
+---
+ v2: Added changes to files in include/soc/tegra/
 
-Regards,
-Lorenzo
+ arch/arm/mach-tegra/reset.h  | 2 +-
+ arch/arm/mach-tegra/sleep.h  | 2 +-
+ include/soc/tegra/flowctrl.h | 4 ++--
+ include/soc/tegra/fuse.h     | 4 ++--
+ 4 files changed, 6 insertions(+), 6 deletions(-)
 
->  	int i;
-> =20
-> -	for (i =3D 0; i < AIROHA_NUM_TX_RING; i++)
-> +	for (i =3D 0; i < AIROHA_NUM_QOS_QUEUES; i++)
->  		airoha_qdma_clear(port->qdma, REG_QUEUE_CLOSE_CFG(channel),
->  				  TXQ_DISABLE_CHAN_QUEUE_MASK(channel, i));
-> =20
-> --=20
-> 2.51.0
->=20
+diff --git a/arch/arm/mach-tegra/reset.h b/arch/arm/mach-tegra/reset.h
+index 51265592cb1ae..92a89713d5e57 100644
+--- a/arch/arm/mach-tegra/reset.h
++++ b/arch/arm/mach-tegra/reset.h
+@@ -21,7 +21,7 @@
+ 
+ #define RESET_DATA(x)	((TEGRA_RESET_##x)*4)
+ 
+-#ifndef __ASSEMBLY__
++#ifndef __ASSEMBLER__
+ 
+ #include "irammap.h"
+ 
+diff --git a/arch/arm/mach-tegra/sleep.h b/arch/arm/mach-tegra/sleep.h
+index 4718a3cb45a16..e332d261c1dbd 100644
+--- a/arch/arm/mach-tegra/sleep.h
++++ b/arch/arm/mach-tegra/sleep.h
+@@ -38,7 +38,7 @@
+ #define TEGRA_FLUSH_CACHE_LOUIS	0
+ #define TEGRA_FLUSH_CACHE_ALL	1
+ 
+-#ifdef __ASSEMBLY__
++#ifdef __ASSEMBLER__
+ /* waits until the microsecond counter (base) is > rn */
+ .macro wait_until, rn, base, tmp
+ 	add	\rn, \rn, #1
+diff --git a/include/soc/tegra/flowctrl.h b/include/soc/tegra/flowctrl.h
+index 1aacc5c7a9dba..2a60bd4934c32 100644
+--- a/include/soc/tegra/flowctrl.h
++++ b/include/soc/tegra/flowctrl.h
+@@ -39,7 +39,7 @@
+ #define TEGRA30_FLOW_CTRL_CSR_WFE_BITMAP	(0xF << 4)
+ #define TEGRA30_FLOW_CTRL_CSR_WFI_BITMAP	(0xF << 8)
+ 
+-#ifndef __ASSEMBLY__
++#ifndef __ASSEMBLER__
+ #ifdef CONFIG_SOC_TEGRA_FLOWCTRL
+ u32 flowctrl_read_cpu_csr(unsigned int cpuid);
+ void flowctrl_write_cpu_csr(unsigned int cpuid, u32 value);
+@@ -67,5 +67,5 @@ static inline void flowctrl_cpu_suspend_exit(unsigned int cpuid)
+ {
+ }
+ #endif /* CONFIG_SOC_TEGRA_FLOWCTRL */
+-#endif /* __ASSEMBLY */
++#endif /* __ASSEMBLER__ */
+ #endif /* __SOC_TEGRA_FLOWCTRL_H__ */
+diff --git a/include/soc/tegra/fuse.h b/include/soc/tegra/fuse.h
+index 8f421b9f7585c..c4f7a1b97c547 100644
+--- a/include/soc/tegra/fuse.h
++++ b/include/soc/tegra/fuse.h
+@@ -24,7 +24,7 @@
+ #define TEGRA30_FUSE_SATA_CALIB	0x124
+ #define TEGRA_FUSE_USB_CALIB_EXT_0 0x250
+ 
+-#ifndef __ASSEMBLY__
++#ifndef __ASSEMBLER__
+ 
+ enum tegra_revision {
+ 	TEGRA_REVISION_UNKNOWN = 0,
+@@ -122,6 +122,6 @@ static inline int tegra194_miscreg_mask_serror(void)
+ 
+ struct device *tegra_soc_device_register(void);
+ 
+-#endif /* __ASSEMBLY__ */
++#endif /* __ASSEMBLER__ */
+ 
+ #endif /* __SOC_TEGRA_FUSE_H__ */
+-- 
+2.54.0
 
---wHUdDSUz+JkqUMMA
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCajUqVgAKCRA6cBh0uS2t
-rP/SAPoDG+CtUOFublyI3uoCmooVJ0WP3YmpXBkAY+jo5hzPLgEAh9y8M9BQpUwj
-MfPZagIteB1QEb+rf7nFp8POMPVnEAc=
-=Abaq
------END PGP SIGNATURE-----
-
---wHUdDSUz+JkqUMMA--
 
