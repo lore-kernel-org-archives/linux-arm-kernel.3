@@ -4,131 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C130CD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 14:19:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E024CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 14:20:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=unsTD+yY8xMePZ9l7eBQmNb0eEVXwIksUexlxmnw7og=; b=TkZV8UF+VHA0vHLSzcpLf2nWC2
-	t7rsOnJFXQ/Qi2ak4FvDqgSUFdQxX31q0TGzxO/57wr/KBM2NAqlOYgF4LlROWASQAJ3WnUsIS239
-	jskU//OH0pOonwfJBA7aZJKd7UFMPWgAB1pjg5ZOC5fUGMZWD4l+Gov/5/z922cw6pTlh2tEFA27i
-	aduh4WEhRDI8wEThWgM+H+GEwcLAJJMu5LPZAnnAC4e+MMlSh6Xot0HtL2YGecBECdNzrZqca9l0L
-	RhGtF6JoTSL8dqb/0q5QtR+X2yEV2B4wSD2W6543utt8ZIfD0wOk/atyUaBKqObv54T7xwc93FN9W
-	8Nqwr3KA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fbcGH9ITMmOI3YSas2gsikCqBTKnvtgdWwDyBNbyusg=; b=wpjRsNXKDk1Bd5SVFzm8vL7SAh
+	lilVvTwXL/StVkhNMHDGexiRnPKaNM5bwfsgPf3uu8vR9Ez6jdKafiCFHtnpFGsbrOG/Y/Cj0eBbV
+	gAZ+EgWfIQSbWF8k2yqYrQeChyAfFTFitAkcka4qwHcs1qk44s+f+ndBq27pjZszDJTTimdWhbos/
+	TDUOm2Z3FZDG1lWCvtkmC2ZUIcjvGotM0E4d8y7aPmdIcuv088d6t5XG+9wF62EoPw0s1pABaTlp6
+	AnrA7CiMMHklHNANbDgbcaQQ8WjOfgbAjpmLs1AiRt0Xxz3KC7jLCr1EIZQrn+hw611/LfxbYJgne
+	VsSHAVrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waa3t-00000002ZA4-0xFg;
-	Fri, 19 Jun 2026 14:19:13 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1waa5L-00000002ZMi-2V9V;
+	Fri, 19 Jun 2026 14:20:43 +0000
+Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waa3q-00000002Z9N-134X
+	id 1waa5J-00000002ZLy-2rsV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Jun 2026 14:19:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=X8Lbprkr7BI0fnqb2ksqKPeDKcIxov1lLB1ZL61ynMCLbmL+P9kWbfykuwBAn0MeetX0ys6xVoz6O6tAlHUUMsMMbtM737X0pr3onkiH0Q0CWWvzluIVI38kVFMS095M4SxzwJfpSNWtDrlCmHUy2EKFusspy/2iOQpS0P280p+jDXovlUvDnk30J21SY5La8nQ0nXmdlaTpR06T5lvPtmWWsWlDPd5/ZQSQP9IIdpTtspEWlHx2e7cg2/SQg1qdEEDGsCPsoLC0cYJkKkshbRnNZZPD5Dm+YMaOQQzM9vfxmB/upGkuOmd8gB9YGyKJWPGDU/7HM9MaS64ISgbQLw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=unsTD+yY8xMePZ9l7eBQmNb0eEVXwIksUexlxmnw7og=;
- b=m7H54Sd/dN35bvxO3zYHPTzLuOaYnuiB+yUbwv7JHAQ7nt6JD0seMeQoSRMrl+1pWvH4or6ThWe5W/x4sjQbn5xxSK717NQt0rur2P+xW+gatPuqMPbY/OhGgt1Kh6D8934h7FEnokMb5EXboByv2FCQCKoWMDl/ky14SP9rGJ9g2mNHQVA9j+KgHordinSoDzBGU/YJpg9whfdHIDCVTgd5MGNC+gqx2XBdlJpxU1x8xIcToTN/Yuon78eU3Qd3qEK4P5Z50MQv2skQnhvZuGsFrjFkJpYqt5QjPEoIW3DzGPrR5V8MfRox08mhnt9f5T09bHzWMafISJS3Hnib2g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=unsTD+yY8xMePZ9l7eBQmNb0eEVXwIksUexlxmnw7og=;
- b=D4sPYD3nZ6aCRnx1bMxcS53kXkhRDSUyIbIQ4sBxjtvOpcSirtZuh5JYqLtTwg3JmWkH4yj+FgRU4iT+225WO4MstNHcUj455aOl7tRe8yizCkPKia7BBwzhVyMPynWJpvwj9MipgnxnvO18qctj7exochcYUnpILR8uQ2J8e5j4pgTKb7rePs/BjDPytnkioZTWKpyaTDoTRtKfpR3xQ5XacdiH087dOX/gDbUZ/5g80LE9kTHZd0YglU7Dh+pz/Kcvjnxzcji3iS32NNhPALlJ1XUISg020FWBUOiEgHMyH1b4eCStKT4izECcdjyR7CXKflBUSVcNow/joYEKFw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by PR3PR04MB7211.eurprd04.prod.outlook.com (2603:10a6:102:93::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.11; Fri, 19 Jun
- 2026 14:19:05 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0113.015; Fri, 19 Jun 2026
- 14:19:05 +0000
-Date: Fri, 19 Jun 2026 09:18:54 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: robby.cai@oss.nxp.com
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	Frank.Li@nxp.com, s.hauer@pengutronix.de, festevam@gmail.com,
-	sebastian.krzyszkowiak@puri.sm, slongerbeam@gmail.com,
-	sakari.ailus@linux.intel.com, mchehab@kernel.org,
-	p.zabel@pengutronix.de, kieran.bingham@ideasonboard.com,
-	kernel@pengutronix.de, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 2/2] media: i2c: ov5640: Add reset controller support
- with GPIO fallback
-Message-ID: <ajVPzoWVBi1vsqRQ@SMW015318>
-References: <20260619100532.3779934-1-robby.cai@oss.nxp.com>
- <20260619100532.3779934-3-robby.cai@oss.nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260619100532.3779934-3-robby.cai@oss.nxp.com>
-X-ClientProxiedBy: PH8P222CA0028.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:510:2d7::9) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Fri, 19 Jun 2026 14:20:42 +0000
+Received: by mail-qt1-x830.google.com with SMTP id d75a77b69052e-519defad0d9so13125011cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 07:20:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1781878840; x=1782483640; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=fbcGH9ITMmOI3YSas2gsikCqBTKnvtgdWwDyBNbyusg=;
+        b=F9TQyuJOLI01hE1MVO3wbBsIdCx6fkXi0TplQKymOqIdHRblfr9lSViRXLckQoP6Hv
+         rFbv8y5mxBi/agAHapds4Osl5oIapjNSQ2RMglKXLpQBBFh0qH2RMPYiUeAE9lh0p3SI
+         cxjGO/RB+GwMMB4fFk72BJfrpeGRGUB5OUGNI=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781878840; x=1782483640;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=fbcGH9ITMmOI3YSas2gsikCqBTKnvtgdWwDyBNbyusg=;
+        b=G9eDZVW5hxvSkWeAexIasZI0jqM2G/6PfgDcLrdPHrjDq+f3Ic2eG++FE3zNAKALzV
+         VZalF+ALEJVUWbbVI6F7SCexawq7dBwQtidV+3Saz1WVDstkNKEi/VmrK6jxCwVng2lD
+         cyvfcrq0z+Vdgq++qLlkbiPgsbjCCbFIjCuCXzr1pDlE2NHgzZnautpCCFRrMnnpnQa1
+         WVpJWecOI45W8CRkFXoeYf0nMYAGGXWYe+bi2Pjx4CR0JS889Oc9HNdx7jS2N4Kxs/MR
+         zXNBsxwPGwGgTKLwDZyBgpedQYFOc5bXcTm0EppmxTx9Y3jd97+0WZVLIh9rKI2k/10v
+         fmeg==
+X-Forwarded-Encrypted: i=1; AFNElJ/nuZnljJVF2Z8EtHd3C14Az1EJS+2NH/i4/mwCZe4zJJN4LJ1/sHcJFZegK1pqjSEqs4rW1UIDKu1r7pjZT3gw@lists.infradead.org
+X-Gm-Message-State: AOJu0YyMh/O4m/g0dAqB1UhOvKT+OCwKUKWFAsnbmV/2wTubwDDJ6yon
+	M0efsnmg/mv5Si8ePXkVMXKhIM9Wn1Fg8CM+7hCo9fpKTcwobimzYKTCHd4k/zsQ+O93qOuEKip
+	vqQ049A==
+X-Gm-Gg: AfdE7clC8NDjdik93tgc97f5SxHVI5LpRGpeNBo5j+154kGBLXxMxRwDHgJT73opp7p
+	osGpAZ88Hykvs2NtwryMedu5NRNjmXzNeEhO8tGqFgXzxIx0Bqy5MzMcFBMpOBdMIzm1/bOp/wX
+	rP0yobAIRrPk/rjkZQWOWLqG9KsAeiC5Ptz9S+f60Wx0dPcMO+a4A8/cC8w6b3klxe2EoSnvxdc
+	No2PAenDCUsWhkARRif3McBSpks6fKuBrqDtwJ8p+RyNPjibJIGPFg50b/07r9M/lEnlmxuKaco
+	6+/fPd2FxA2YGdnWnABhahc4MHP1tAjOlLnDHkpOP/hQ46i3XrU39h02qa0IkE6+0yGW2T5jnzY
+	RweHLrqE1KhyGcIjWouJVacTw1qXoPN/F8wXYcKaCAHw3p9yNpd8U+DkXsxVdTivzrSZAK1DOu2
+	N8C9r+P0SP2t0QXqdDr02IOYyHjAX9LdQz6WWbAvq2ZAv3SsRSr5M/z/nq810jnA==
+X-Received: by 2002:a05:622a:3d0:b0:519:8953:ddc9 with SMTP id d75a77b69052e-519e4917301mr51957061cf.6.1781878840379;
+        Fri, 19 Jun 2026 07:20:40 -0700 (PDT)
+Received: from mail-qt1-f169.google.com (mail-qt1-f169.google.com. [209.85.160.169])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-519e6127858sm20461181cf.27.2026.06.19.07.20.39
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 19 Jun 2026 07:20:39 -0700 (PDT)
+Received: by mail-qt1-f169.google.com with SMTP id d75a77b69052e-519ed52bcc6so186231cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 07:20:39 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ/G0qTibmt/ViWP7SEZHWy/B4oFdkVuhOzi7O32tmWFWR4rsZ3u6IQg+CImMveU514I0BwQaJQNZhp5dM9gi+68@lists.infradead.org
+X-Received: by 2002:ac8:7d8e:0:b0:516:4f62:85ec with SMTP id
+ d75a77b69052e-519e8d1f14dmr7406931cf.17.1781878838041; Fri, 19 Jun 2026
+ 07:20:38 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PR3PR04MB7211:EE_
-X-MS-Office365-Filtering-Correlation-Id: f30348e5-360a-404b-0581-08dece0db801
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|366016|376014|7416014|19092799006|4143699003|11063799006|56012099006|6133799003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: yOXo7gzoyfg5h+fg2tp5zsXYl2qPC88mGO+3h6WpHfhPXo424hKuF1PKqYrC+ZaFqSPd83MVdDMjN88BlN7DNIWnvM1rc5Et7eEw61MYQh7OdC07hp5kiXTvn8WswNHhCux3jrT7a4x2aaUR40KcwVegGur+3wb2iDRanmfuZHmp/3iX52cxs4+UgWzHqX0upnVaINmwiEf4FrisfLAESRDgf1ElVL2UixPBpom9qAUZpcXR+T45XffkN9d0uDU8Dl8mNc8/BHa458PqTIWfCsdUPk/FWbIdli1lXsNWBCMbm6zXNXIUPANIahSMms9+FzPjRAUE6IJcZ/khxcbs8rPFSideKGMO9h1gvWGfUmPC0eQlMfczMsmDH8WZmFELYgOmuaxS+Wns7F6WKUuYvWq3oRcOVq/vq/IV6tzBN2XrMqGfkTy2t76FdHfwc3F8tUP5C+CyjNgUtyXpBNlpfUq9YYFWCgH6BBwndBbZyhMt8BAqHDT+3MtPeTa3+bQoqxv62SRxq1Ph84blGwq7fBgli7qDAxoSUFG0Tf5nSuGyHwMO9cBuvXPPxs2vmPvO17InmK+6cLhzXqiOW0sX80qr5b2awzla084r7TdsvxqG5pXSmnpRSxajWFc03dpI9WR7R11dgsDhwlTKd1AMXAs68rukMZmCV/KReHqosqg=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(366016)(376014)(7416014)(19092799006)(4143699003)(11063799006)(56012099006)(6133799003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?4CtQreGyH9c70/eDHwdD8fkucYCmRE3/VRbnep74shiMG9GNQNHnI2JPOOIl?=
- =?us-ascii?Q?m5uzq3KUgkRiqb0Fs1IF9CP5BedigkWoj7fN9bH0y+dfRWlo80j/UexZH+6C?=
- =?us-ascii?Q?LwctnaKnEjelr+GGd+FPab7gIDs4pnwI+USrMLiHSblTE1TBEg6nW3tcxzUh?=
- =?us-ascii?Q?6flWDu66sSiBcykYK2ZbDFVl2TfdhxNwI8Hu1r/EAEUVYQDzkwtCEHcM55Qm?=
- =?us-ascii?Q?gdarB01ebcbeqSvyYfqJbYkVYcXYD8R5AsjeTsbFFlSLydEhdjIjlxWjApHR?=
- =?us-ascii?Q?GLbEu8NFdetdml1i3r27ZyXVydSKCQhQUHtNpuOckbKh2UB8c3DF7Al4D44o?=
- =?us-ascii?Q?IgNi3CAL9kQNHJMYVaK+GUfErv+d3/DNQPs2ySV6WJ+4Yhi04l7kL9dOSo4E?=
- =?us-ascii?Q?FuN7welPJ/BJEnhKUZbumGGBVrZKyhexnxgbL6D1zRGf9ShIWoMHWgvQ8qvY?=
- =?us-ascii?Q?8Tu+i8GYxnDyMpKHBAnmmbf/PxaFNjm4uQ0/9nft6Vh4kMS3TC+bqLguHf9o?=
- =?us-ascii?Q?3qxXsZ3U8sF8Wxssgo7/K1UbvTvcrx/zCNdeYK4jvD5AYNl7iLs+UreHGrB9?=
- =?us-ascii?Q?yxxqTx7a3A7d06vVgVwZQ1C8COzwlq1kRdxhqN1l4X7uksgVC/c8mltRqwaZ?=
- =?us-ascii?Q?7bezlUPctls809xkN76gHn/tLgAkvIZFFwieIBYDG7a/+zVKXdBFGsdjs3ku?=
- =?us-ascii?Q?kg+NAAG3VGbdKcCDhttQFeEa8ExeG9rdqyKMkNo+4Dk9I0BbCo6gbioV9nEW?=
- =?us-ascii?Q?4zAGgjwLXpBqUNpZ3CBLz5T7FRcsgxIa0XnIOeJ8oVB0ZLpDJ4jpgxbb6ef0?=
- =?us-ascii?Q?T07u48Z2oMKuZaDe+BDY1Oguf8mrBhlI1yIZy3cUcc5EC0kz5ogA4xGub+AD?=
- =?us-ascii?Q?rIQ7/JfPQtsN2KDfAnfoBuNKaQ5immU2o25Bg597WRxhrrvV9/geqZ86wo6N?=
- =?us-ascii?Q?e4gVcKjyHpqw1R2ixy0zkUZx+1YdPkB4V5beBVU1KTjyAzmHPFqJUm1WFgH0?=
- =?us-ascii?Q?dyOmXyTy3c53Vj6KvTlHeKfDY+VHjhy37Celq216bgpJ8osidFnxEyJgFkDB?=
- =?us-ascii?Q?9+GEqkWbffp06BnV43Q19mbCBu18zXFfc6LKDLmo2bJjVLVhgKcKlHTMKCXQ?=
- =?us-ascii?Q?nYm2xAapLO4MYMhQ1gFVUurqhc1g9JKOe8ugwHCTRhmD88f13aApvCYJI9iC?=
- =?us-ascii?Q?WrRsIJLhiqUe/YPsrgzRn1JHE9QZzl+HM+6VQJQGcwU6SQUIJMDU3K/fcBgx?=
- =?us-ascii?Q?+cKv0ACy2eSeJdEmBX4smGg8Wga/YVu0UM6AArvjN9S54f2+/eVDHpQe2AC8?=
- =?us-ascii?Q?6JE7U0+tcSK8DXFPNp8gu3vx7QglLWlPFJUVBaTyZP4p+vyBbqOHQSfokPP9?=
- =?us-ascii?Q?NHRz9XcIu+KmwV50PDC3AdBnfzkNX4FRyFL3+8cCtsgumsKDUDTtpUyfkUBa?=
- =?us-ascii?Q?p44AilUOR5TB/mkcJtOqkxnWFHuGae+zlR3GVTb9aHKJnsa3tjPDKledOxJp?=
- =?us-ascii?Q?4Ihyjo0joHkMTAi1LQPVgaVTeWDGbXo+I+Mb3dkVJ6rou4c7UaSZE0XC1AJQ?=
- =?us-ascii?Q?0bCNZI7sfjaGlAfB9K/lCyr29mbUOKPL9LDd/NsACxGNpksm8VM3OovQjRSI?=
- =?us-ascii?Q?3CWubuQrf3U+ADWcBBAWGoTbPyFMo/+5GTF609fMhO+24gAgYCajhvaS//Cm?=
- =?us-ascii?Q?v2Bjuj1N2BAxiqp3SPiel5UU0B1B1eO7AEgR0p2a9aEBISa6r+q2gqBKfiNN?=
- =?us-ascii?Q?aEnAkNTAQPcOlBWO87dVZNfi7p86KmdAfioZgSQUgGWhDRNVIo+7?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f30348e5-360a-404b-0581-08dece0db801
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Jun 2026 14:19:05.3254
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: VBnau4JUfyb+OqPZqZS7GffE6MDQ7Kelyxs7MIMCgBH/pvxPxqLsGZaaTNpGax0wnSTdiFxfQ42gqxSZr70b4zxAa8FGtGz8ZfIM+SRI2Q/wg6O/10CLeu9XNdROsUIX
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR04MB7211
+References: <20260609121329.1262170-1-senozhatsky@chromium.org>
+ <CAGp9LzpBUReZtrTEKgUr-+yvB+3tcs5hw7ziC4WaMRFNa2AYpg@mail.gmail.com> <87tsqyirsn.wl-tiwai@suse.de>
+In-Reply-To: <87tsqyirsn.wl-tiwai@suse.de>
+From: Tomasz Figa <tfiga@chromium.org>
+Date: Fri, 19 Jun 2026 23:20:20 +0900
+X-Gmail-Original-Message-ID: <CAAFQd5BtO7vL_A2i84CoF1Dk7Bmp_DZQJgoNAB-HyGA89=XDUQ@mail.gmail.com>
+X-Gm-Features: AVVi8Cfvj7Tldb-rRHpdw6zA1vefldpMM6jJzOD0R18t-VmMpCoygqlJxAYuFRA
+Message-ID: <CAAFQd5BtO7vL_A2i84CoF1Dk7Bmp_DZQJgoNAB-HyGA89=XDUQ@mail.gmail.com>
+Subject: Re: [PATCH] Bluetooth: btmtksdio: fix infinite loop in btmtksdio_txrx_work()
+To: Takashi Iwai <tiwai@suse.de>
+Cc: Sean Wang <sean.wang@kernel.org>, Sergey Senozhatsky <senozhatsky@chromium.org>, 
+	Marcel Holtmann <marcel@holtmann.org>, Luiz Augusto von Dentz <luiz.dentz@gmail.com>, 
+	Mark-yw Chen <mark-yw.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+	linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260619_071910_430173_7954CCCF 
-X-CRM114-Status: GOOD (  31.92  )
+X-CRM114-CacheID: sfid-20260619_072041_747711_BEF166FC 
+X-CRM114-Status: GOOD (  33.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,193 +110,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 19, 2026 at 06:05:32PM +0800, robby.cai@oss.nxp.com wrote:
-> [You don't often get email from robby.cai@oss.nxp.com. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
->
-> From: Robby Cai <robby.cai@nxp.com>
->
-> Add support for the reset controller framework by acquiring the reset
-> line using devm_reset_control_get_optional_shared_deasserted(). This
-> allows the driver to handle reset lines provided by a reset controller,
-> including shared ones, while avoiding unbalanced deassert counts.
->
-> Retain support for legacy reset-gpios as a fallback when no reset
-> controller is defined. In that case, request the GPIO and keep it in the
-> deasserted state as the initial configuration.
->
-> This enables the driver to support both reset-controller-backed reset
-> lines and older GPIO-based descriptions while preserving the existing
-> power-up sequencing behavior.
->
-> Signed-off-by: Robby Cai <robby.cai@nxp.com>
-> ---
->  drivers/media/i2c/ov5640.c | 80 +++++++++++++++++++++++++++++++++-----
->  1 file changed, 70 insertions(+), 10 deletions(-)
->
-> diff --git a/drivers/media/i2c/ov5640.c b/drivers/media/i2c/ov5640.c
-> index 85ecc23b3587..5e6db8aacb11 100644
-> --- a/drivers/media/i2c/ov5640.c
-> +++ b/drivers/media/i2c/ov5640.c
-> @@ -17,6 +17,7 @@
->  #include <linux/module.h>
->  #include <linux/pm_runtime.h>
->  #include <linux/regulator/consumer.h>
-> +#include <linux/reset.h>
->  #include <linux/slab.h>
->  #include <linux/types.h>
->  #include <media/v4l2-async.h>
-> @@ -442,6 +443,7 @@ struct ov5640_dev {
->         u32 xclk_freq;
->
->         struct regulator_bulk_data supplies[OV5640_NUM_SUPPLIES];
-> +       struct reset_control *reset;
->         struct gpio_desc *reset_gpio;
->         struct gpio_desc *pwdn_gpio;
->         bool   upside_down;
-> @@ -2431,6 +2433,48 @@ static int ov5640_restore_mode(struct ov5640_dev *sensor)
->         return ov5640_set_framefmt(sensor, &sensor->fmt);
->  }
->
-> +static int ov5640_get_reset(struct device *dev, struct ov5640_dev *sensor)
-> +{
-> +       /* use deasserted version to avoid unbalanced deassert counts */
-> +       sensor->reset =
-> +           devm_reset_control_get_optional_shared_deasserted(dev, NULL);
-> +       if (IS_ERR(sensor->reset))
-> +               return dev_err_probe(dev, PTR_ERR(sensor->reset),
-> +                                    "Failed to get reset\n");
-> +       else if (sensor->reset)
-> +               return 0;
-> +
-> +       /*
-> +        * fallback to legacy reset-gpios
-> +        * GPIOD_OUT_HIGH ensures deasserted state for ACTIVE_LOW reset
-> +        */
-> +       sensor->reset_gpio = devm_gpiod_get_optional(dev, "reset",
-> +                                                    GPIOD_OUT_HIGH);
-> +       if (IS_ERR(sensor->reset_gpio))
-> +               return dev_err_probe(dev, PTR_ERR(sensor->reset_gpio),
-> +                                    "Failed to get reset gpio");
+[Resending without HTML... Damn Gmail]
 
-I think needn't fallback here, NO ABI change, just change to use reset-gpio
-driver.
+On Fri, Jun 19, 2026 at 10:27=E2=80=AFPM Takashi Iwai <tiwai@suse.de> wrote=
+:
+>
+> On Wed, 10 Jun 2026 08:52:31 +0200,
+> Sean Wang wrote:
+> >
+> > Hi,
+> >
+> > On Tue, Jun 9, 2026 at 7:19=E2=80=AFAM Sergey Senozhatsky
+> > <senozhatsky@chromium.org> wrote:
+> > >
+> > > Every once in a while we see a hung btmtksdio_flush() task:
+> > >
+> > >  INFO: task kworker/u17:0:189 blocked for more than 122 seconds.
+> > >  __cancel_work_timer+0x3f4/0x460
+> > >  cancel_work_sync+0x1c/0x2c
+> > >  btmtksdio_flush+0x2c/0x40
+> > >  hci_dev_open_sync+0x10c4/0x2190
+> > >  [..]
+> > >
+> > > It all boils down to incorrect time_is_before_jiffies() usage in
+> > > btmtksdio_txrx_work().  The btmtksdio_txrx_work() loop is expected
+> > > to be terminated if running for longer than 5*HZ.  However the
+> > > timeout check is twisted:  time_is_before_jiffies(old_jiffies + 5*HZ)
+> > > evaluates to true when old_jiffies + 5*HZ is in the past i.e. when a
+> > > timeout has occurred.  Using OR with time_is_before_jiffies(txrx_time=
+out)
+> > > means that:
+> > > - before the 5-second timeout: the condition is `int_status || false`=
+,
+> > >   so it loops as long as there are pending interrupts.
+> > > - after the 5-second timeout: the condition becomes `int_status || tr=
+ue`,
+> > >   which is always true.
+> > >
+> > > When the loop becomes infinite btmtksdio_txrx_work() loop never
+> > > terminates and never releases the SDIO host.
+> > >
+> > > Fix loop termination condition to actually enforce a 5*HZ timeout.
+> > >
+> > > Fixes: 26270bc189ea4 ("Bluetooth: btmtksdio: move interrupt service t=
+o work")
+> > > Cc: stable@vger.kernel.org
+> > > Signed-off-by: Sergey Senozhatsky <senozhatsky@chromium.org>
+> > > ---
+> > >  drivers/bluetooth/btmtksdio.c | 2 +-
+> > >  1 file changed, 1 insertion(+), 1 deletion(-)
+> > >
+> > > diff --git a/drivers/bluetooth/btmtksdio.c b/drivers/bluetooth/btmtks=
+dio.c
+> > > index 5b0fab7b89b5..c6f80c419e90 100644
+> > > --- a/drivers/bluetooth/btmtksdio.c
+> > > +++ b/drivers/bluetooth/btmtksdio.c
+> > > @@ -620,7 +620,7 @@ static void btmtksdio_txrx_work(struct work_struc=
+t *work)
+> > >                         if (btmtksdio_rx_packet(bdev, rx_size) < 0)
+> > >                                 bdev->hdev->stat.err_rx++;
+> > >                 }
+> > > -       } while (int_status || time_is_before_jiffies(txrx_timeout));
+> > > +       } while (int_status && time_is_after_jiffies(txrx_timeout));
+> >
+> > yes, loop continues only while there is interrupt work and the timeout
+> > deadline is still in the future
+>
+> I stumbled on this while backporting to distro kernels, and I wonder
+> whether this change is correct.
+>
+> IIUC, this essentially makes the loop exiting right after the first
+> cycle; the patch changed from time_is_before_jiffies() to *_after_*(),
+> not only the logical OR to AND, and *_after_*() returns false, so the
+> whole condition becomes false, too.
 
-> +
-> +       return 0;
-> +}
-> +
-> +static int ov5640_reset_assert(struct ov5640_dev *sensor)
-> +{
-> +       if (sensor->reset)
-> +               return reset_control_assert(sensor->reset);
+The intention is for the loop to keep running as long as there is
+still an interrupt left to handle (int_status !=3D 0) and the timeout
+has not elapsed (jiffies < txrx_timeout).
 
-needn't check sensor->reset, reset_control_assert() is no ops if NULL.
+Note that time_is_after_jiffies(x) returns true if x > jiffies (or jiffies =
+< x):
 
-> +
-> +       gpiod_set_value_cansleep(sensor->reset_gpio, 1);
+/**
+ * time_is_after_jiffies - return true if a is after jiffies
+ * @a: time (unsigned long) to compare to jiffies
+ *
+ * Return: %true is time a is after jiffies, otherwise %false.
+ */
+#define time_is_after_jiffies(a) time_before(jiffies, a)
 
-Needn't fallback, directly replace.
+Or am I missing something?
 
-Frank
-
-> +       return 0;
-> +}
-> +
-> +static int ov5640_reset_deassert(struct ov5640_dev *sensor)
-> +{
-> +       if (sensor->reset)
-> +               return reset_control_deassert(sensor->reset);
-> +
-> +       gpiod_set_value_cansleep(sensor->reset_gpio, 0);
-> +       return 0;
-> +}
-> +
->  static void ov5640_power(struct ov5640_dev *sensor, bool enable)
->  {
->         gpiod_set_value_cansleep(sensor->pwdn_gpio, enable ? 0 : 1);
-> @@ -2448,12 +2492,19 @@ static void ov5640_power(struct ov5640_dev *sensor, bool enable)
->   *
->   * In such cases, this gpio should be mapped to pwdn_gpio in the driver, and we
->   * should still toggle the pwdn_gpio below with the appropriate delays, while
-> - * the calls to reset_gpio will be ignored.
-> + * reset handling (via reset controller or GPIO) will be ignored.
->   */
-> -static void ov5640_powerup_sequence(struct ov5640_dev *sensor)
-> +static int ov5640_powerup_sequence(struct ov5640_dev *sensor)
->  {
-> +       int ret;
-> +
->         if (sensor->pwdn_gpio) {
-> -               gpiod_set_value_cansleep(sensor->reset_gpio, 1);
-> +               ret = ov5640_reset_assert(sensor);
-> +               if (ret) {
-> +                       dev_err(&sensor->i2c_client->dev,
-> +                               "Failed to assert reset: %d\n", ret);
-> +                       return ret;
-> +               }
->
->                 /* camera power cycle */
->                 ov5640_power(sensor, false);
-> @@ -2461,7 +2512,13 @@ static void ov5640_powerup_sequence(struct ov5640_dev *sensor)
->                 ov5640_power(sensor, true);
->                 usleep_range(1000, 2000);       /* t3 */
->
-> -               gpiod_set_value_cansleep(sensor->reset_gpio, 0);
-> +               ret = ov5640_reset_deassert(sensor);
-> +               if (ret) {
-> +                       dev_err(&sensor->i2c_client->dev,
-> +                               "Failed to deassert reset: %d\n", ret);
-> +                       ov5640_power(sensor, false);
-> +                       return ret;
-> +               }
->         } else {
->                 /* software reset */
->                 ov5640_write_reg(sensor, OV5640_REG_SYS_CTRL0,
-> @@ -2475,6 +2532,8 @@ static void ov5640_powerup_sequence(struct ov5640_dev *sensor)
->          */
->         ov5640_write_reg(sensor, OV5640_REG_SYS_CTRL0,
->                          OV5640_REG_SYS_CTRL0_SW_PWDN);
-> +
-> +       return 0;
->  }
->
->  static int ov5640_set_power_on(struct ov5640_dev *sensor)
-> @@ -2497,7 +2556,9 @@ static int ov5640_set_power_on(struct ov5640_dev *sensor)
->                 goto xclk_off;
->         }
->
-> -       ov5640_powerup_sequence(sensor);
-> +       ret = ov5640_powerup_sequence(sensor);
-> +       if (ret)
-> +               goto regulator_off;
->
->         ret = ov5640_init_slave_id(sensor);
->         if (ret)
-> @@ -2507,6 +2568,7 @@ static int ov5640_set_power_on(struct ov5640_dev *sensor)
->
->  power_off:
->         ov5640_power(sensor, false);
-> +regulator_off:
->         regulator_bulk_disable(OV5640_NUM_SUPPLIES, sensor->supplies);
->  xclk_off:
->         clk_disable_unprepare(sensor->xclk);
-> @@ -3914,11 +3976,9 @@ static int ov5640_probe(struct i2c_client *client)
->         if (IS_ERR(sensor->pwdn_gpio))
->                 return PTR_ERR(sensor->pwdn_gpio);
->
-> -       /* request optional reset pin */
-> -       sensor->reset_gpio = devm_gpiod_get_optional(dev, "reset",
-> -                                                    GPIOD_OUT_HIGH);
-> -       if (IS_ERR(sensor->reset_gpio))
-> -               return PTR_ERR(sensor->reset_gpio);
-> +       ret = ov5640_get_reset(dev, sensor);
-> +       if (ret)
-> +               return ret;
->
->         v4l2_i2c_subdev_init(&sensor->sd, client, &ov5640_subdev_ops);
->         sensor->sd.internal_ops = &ov5640_internal_ops;
-> --
-> 2.50.1
->
->
+Best,
+Tomasz
 
