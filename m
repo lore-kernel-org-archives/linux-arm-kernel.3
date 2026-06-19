@@ -4,75 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01337CD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 13:07:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BCDACD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 13:08:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gSHYTCxNGQXoIfDiS1eh7juHdjxY5jSddRLoKCl8XoQ=; b=DC/SzdOBgO5sQJFVES38BvN+Hv
-	4Zxx0CT6zEDdQLfa1LOx7U3E9kNzPz5VgLonSwzTKRkI73eILVMH9hampj533F4ATu4wiRTYnB2WL
-	hZiVLrsRPH0q3S0bSrohWDyy/iHQLuRPur70DtP7t9UF++KHMiVXepe1p37YMdLTbVWtg+xzRNWXY
-	aorpFT5kFdo6F2flWGdzHcmn2pjTNJTcv/HCw2fe9JQCZsg83I3ce5iG59sJo6RSFwWSqR9YRq2f3
-	c8li9n1wYSI2NRwEcgWUM3QYUjbGxejLZmTtKPNQKgbx2K3ZM7/3kSPAYf5qQjrwKMyvgqLIai8il
-	LpSOFCVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=91bj3zbz2/vIKGQJVyNyz451tVNIOSv8Rh2e1TczHs0=; b=KBGPFRRRXMW8w/EUCKemXy09On
+	iQadh0wvIybCXrqfUl6EaH3RVVSMFkykB0khi7UoVoG5grZOBKkDDAuLmHL8hL9ovd8BkRUNYuWgT
+	9HfmCVqtfNv7gRNUNoTh+0bYUcrD9gLXcawgiZhyDjjiA/2NymnVkLtsFq7jbqwY8Vu1wESOYRx/k
+	t5YBVVui85Vke/+j3ZC4nTJmednW3dFARxrvC/4u60Qpj3WoXF+lE+ZRtUjAUYVysGNjQxE0l4Ss6
+	Mfq3KOTFe+XVlWUeyxLODVzAKWzRzxpZDXtiujZoOxJvQ6gidX9WPJsi7PBjYV9AtpKqO6WG4V3YC
+	6E9kbP5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waYJa-00000002Ohu-0CoJ;
-	Fri, 19 Jun 2026 12:27:18 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1waYxf-00000002SKd-0Hl2;
+	Fri, 19 Jun 2026 13:08:43 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waYJV-00000002Od1-1WMc;
-	Fri, 19 Jun 2026 12:27:13 +0000
+	id 1waYxe-00000002SKT-2wWE
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 19 Jun 2026 13:08:42 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C81C8601F4;
-	Fri, 19 Jun 2026 12:27:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C9071F00A3A;
-	Fri, 19 Jun 2026 12:27:11 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3C20A4394F;
+	Fri, 19 Jun 2026 13:08:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 193241F000E9;
+	Fri, 19 Jun 2026 13:08:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781872032;
-	bh=gSHYTCxNGQXoIfDiS1eh7juHdjxY5jSddRLoKCl8XoQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=f1b6jLmzdW8XCCYdLvK2dZ271w+4z9fu9mNa61fRe79Jw5dxsQwS5/zPHam6mIyb1
-	 OmBWv8rBctj5GBJeD253qkThlsstHJQVRxCbL+qdFC0JXAynJO9kW8cavoI3YsDMVo
-	 8QkQsKTP8VDHlbusSgZA71BPJL3l0atfr9n8HNBZwrQaydw4LohMwvUy5pwTBNuc5a
-	 5YlCxmp/9Bpf/7Nm1u/bs3/HmpkZTVeYWNSw6RMq7Zq3RuwpgTHO/3TRahSZQLPG10
-	 //2K4xqzy3XLviFQHzjXcx+om4nW6dKVZrA8LA2N4N7ftP3gS4Tp6jrd1I7WlhMyrj
-	 u2cC1r0YgVS2g==
-From: Maxime Ripard <mripard@kernel.org>
-Date: Fri, 19 Jun 2026 14:24:59 +0200
-Subject: [PATCH v3 54/78] drm/meson: encoder_cvbs: Switch to
- atomic_create_state
+	s=k20260515; t=1781874522;
+	bh=91bj3zbz2/vIKGQJVyNyz451tVNIOSv8Rh2e1TczHs0=;
+	h=From:To:Cc:Subject:Date;
+	b=LMEQ/LitkAcPJUt9hlvxlO4t4Uz9zLcl49SG74+DgSlWEAYKCIWKvl2C2MCGhThkE
+	 oIWVZNqCs5Uk0y3xTp0NFIc1jhez4tjIiK4d0QdkNqodhA9s3lzk7X/16uWIhIn/pI
+	 5Vyjg+JaDB/pC9K6MnCDQRAglzAvghPm0E95f5ruoMYDkHomSI3jI0eM4Nc19Pohy3
+	 dE5g3EFzoYAxrIzwPF2Au9f7/5fcr/+Rf9287CMQbugo9QKQCS1tDPZtnL1Ih8fAXZ
+	 WCKdHwQ79YsPLdaw1JNQrwe8bC8UM+6dXIplAYnNWRto3KJFkX1VPBnX38I1+Z4+dM
+	 yKuLncbgStMaA==
+From: Will Deacon <will@kernel.org>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Will Deacon <will@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Andreas Grapentin <gra@linux.ibm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Martin <dave.martin@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Marc Zyngier <maz@kernel.org>
+Subject: [PATCH] arm64: uapi: Use __u128 instead of __uint128_t in UAPI headers
+Date: Fri, 19 Jun 2026 14:08:34 +0100
+Message-ID: <20260619130835.5678-1-will@kernel.org>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260619-drm-no-more-bridge-reset-v3-54-ff399263111b@kernel.org>
-References: <20260619-drm-no-more-bridge-reset-v3-0-ff399263111b@kernel.org>
-In-Reply-To: <20260619-drm-no-more-bridge-reset-v3-0-ff399263111b@kernel.org>
-To: Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>
-Cc: Dmitry Baryshkov <lumag@kernel.org>, dri-devel@lists.freedesktop.org, 
- Maxime Ripard <mripard@kernel.org>, Kevin Hilman <khilman@baylibre.com>, 
- Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1623; i=mripard@kernel.org;
- h=from:subject:message-id; bh=DCoZa+Vvybc1lvdBT65sYK+38dJUcwAPmYuROujwyq0=;
- b=owGbwMvMwCmsHn9OcpHtvjLG02pJDFmmpozqJvMmHBdWmRhyZ173/WW1q2cYSu8ucDixK/ChV
- tUsWaHyjqksDMKcDLJiiixPZMJOL29fXOVgv/IHzBxWJpAhDFycAjCRn5WM9QFBvw691L3C815P
- bH5T0ST5VdudS0zTmVlEltZYqLx+sNOsw2g27/YrqyU89y5esWpyG2M1y/ZrK2+ZOc4x3hHfm+O
- 86HpyhoJe/YlDPXzqvPM+akg9+22j8MRiwtRLp6IfLg1v3K0FAA==
-X-Developer-Key: i=mripard@kernel.org; a=openpgp;
- fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,45 +73,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The drm_bridge_funcs.atomic_reset callback and its
-drm_atomic_helper_bridge_reset() helper are deprecated.
+The arm64 UAPI exposes '__uint128_t' types in the members of
+'struct user_fpsimd_state', 'struct user_pac_address_keys' and in the
+signal frame via 'struct fpsimd_context'. Since the alignment of such
+a type appears to be non-portable (16 bytes on arm64, 8 bytes on s390),
+prefer the '__u128' typedef from uapi/linux/types.h, which makes the
+alignment explicit and allows the definitions to be reused by other
+host architectures.
 
-Switch to the atomic_create_state callback and its
-drm_atomic_helper_bridge_create_state() counterpart.
-
-Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
-Signed-off-by: Maxime Ripard <mripard@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>
+Cc: Nick Desaulniers <nick.desaulniers+lkml@gmail.com>
+Cc: Steffen Eiden <seiden@linux.ibm.com>
+Cc: Andreas Grapentin <gra@linux.ibm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Dave Martin <dave.martin@arm.com>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>
+Signed-off-by: Will Deacon <will@kernel.org>
 ---
-To: Neil Armstrong <neil.armstrong@linaro.org>
-To: Kevin Hilman <khilman@baylibre.com>
-Cc: Jerome Brunet <jbrunet@baylibre.com>
-Cc: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: dri-devel@lists.freedesktop.org
-Cc: linux-amlogic@lists.infradead.org
-Cc: linux-arm-kernel@lists.infradead.org
----
- drivers/gpu/drm/meson/meson_encoder_cvbs.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/meson/meson_encoder_cvbs.c b/drivers/gpu/drm/meson/meson_encoder_cvbs.c
-index 8b26a0031cde..22cacb1660c4 100644
---- a/drivers/gpu/drm/meson/meson_encoder_cvbs.c
-+++ b/drivers/gpu/drm/meson/meson_encoder_cvbs.c
-@@ -213,11 +213,11 @@ static const struct drm_bridge_funcs meson_encoder_cvbs_bridge_funcs = {
- 	.atomic_enable = meson_encoder_cvbs_atomic_enable,
- 	.atomic_disable = meson_encoder_cvbs_atomic_disable,
- 	.atomic_check = meson_encoder_cvbs_atomic_check,
- 	.atomic_duplicate_state = drm_atomic_helper_bridge_duplicate_state,
- 	.atomic_destroy_state = drm_atomic_helper_bridge_destroy_state,
--	.atomic_reset = drm_atomic_helper_bridge_reset,
-+	.atomic_create_state = drm_atomic_helper_bridge_create_state,
+This aims to help a little with the s390/arm64 KVM series at:
+
+https://lore.kernel.org/r/20260529155050.2902245-1-seiden@linux.ibm.com
+
+by allowing the relevant parts of the arm64 UAPI to be used directly by
+s390 rather than copied and modified.
+
+I think it's a straightforward change, but the only thing that makes me
+pause for thought is whether there are toolchains out there which accept
+__uint128_t but not __int128. Then again, if that crops up as an issue
+we can probably just tweak the typedef we have in uapi/linux/types.h.
+
+ arch/arm64/include/uapi/asm/ptrace.h     | 12 ++++++------
+ arch/arm64/include/uapi/asm/sigcontext.h |  6 +++---
+ 2 files changed, 9 insertions(+), 9 deletions(-)
+
+diff --git a/arch/arm64/include/uapi/asm/ptrace.h b/arch/arm64/include/uapi/asm/ptrace.h
+index 6fed93fb2536..15649a253a57 100644
+--- a/arch/arm64/include/uapi/asm/ptrace.h
++++ b/arch/arm64/include/uapi/asm/ptrace.h
+@@ -93,7 +93,7 @@ struct user_pt_regs {
  };
  
- int meson_encoder_cvbs_probe(struct meson_drm *priv)
- {
- 	struct drm_device *drm = priv->drm;
-
+ struct user_fpsimd_state {
+-	__uint128_t	vregs[32];
++	__u128		vregs[32];
+ 	__u32		fpsr;
+ 	__u32		fpcr;
+ 	__u32		__reserved[2];
+@@ -258,14 +258,14 @@ struct user_pac_mask {
+ /* pointer authentication keys (NT_ARM_PACA_KEYS, NT_ARM_PACG_KEYS) */
+ 
+ struct user_pac_address_keys {
+-	__uint128_t	apiakey;
+-	__uint128_t	apibkey;
+-	__uint128_t	apdakey;
+-	__uint128_t	apdbkey;
++	__u128	apiakey;
++	__u128	apibkey;
++	__u128	apdakey;
++	__u128	apdbkey;
+ };
+ 
+ struct user_pac_generic_keys {
+-	__uint128_t	apgakey;
++	__u128	apgakey;
+ };
+ 
+ /* ZA state (NT_ARM_ZA) */
+diff --git a/arch/arm64/include/uapi/asm/sigcontext.h b/arch/arm64/include/uapi/asm/sigcontext.h
+index e29bf3e2d0cc..d250ca7a1d46 100644
+--- a/arch/arm64/include/uapi/asm/sigcontext.h
++++ b/arch/arm64/include/uapi/asm/sigcontext.h
+@@ -78,7 +78,7 @@ struct fpsimd_context {
+ 	struct _aarch64_ctx head;
+ 	__u32 fpsr;
+ 	__u32 fpcr;
+-	__uint128_t vregs[32];
++	__u128 vregs[32];
+ };
+ 
+ /*
+@@ -266,8 +266,8 @@ struct gcs_context {
+  *	-	----				-----------
+  *	REGS					the entire SVE context
+  *
+- *	ZREGS	__uint128_t[SVE_NUM_ZREGS][vq]	all Z-registers
+- *	ZREG	__uint128_t[vq]			individual Z-register Zn
++ *	ZREGS	__u128[SVE_NUM_ZREGS][vq]	all Z-registers
++ *	ZREG	__u128[vq]			individual Z-register Zn
+  *
+  *	PREGS	uint16_t[SVE_NUM_PREGS][vq]	all P-registers
+  *	PREG	uint16_t[vq]			individual P-register Pn
 -- 
-2.54.0
+2.55.0.rc0.738.g0c8ab3ebcc-goog
 
 
