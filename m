@@ -4,88 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75438CD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 15:07:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EC08CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 15:22:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oPZXOE7HzbZRwhQ2roKChVh+HemRaSM3x5c/6x3sjjk=; b=30Ztkr5xjV1GoTFq4fztE5JKX1
-	oOB+SX2jvDQY86RK6XxLp6fL/CUMO/Vf5fgJZZOkIBdiKTP/kHIYhr2qWyXMHDnZJlkvlKhrZDztY
-	0cmaaKoADE3PE/+4SYvgpk7OIZCcyoLyfHYdlOsCY1uQYoX8i5g6qRYpTkWVDb+8lfO55hLTje0Hz
-	prpyk/GTR/WLZn1yCMVOA55SDlhsSMcpjJmHgEz1XWsmDCiqhNBHoco85eL6Ap/ioVmeJHQY8kSms
-	Dv1HdY+DyFCGVl9BGLYB+ypzguOkDdg3Lk8tavRgws1VJRE+/z+VT6ahYryCZTX46MASM2uoXRWgL
-	ZLmKWk5A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gk/jkLabIKqrTeRTh6B8YkFY1Qzh0AGlpE1MH2mDe24=; b=n9lXF1BcdX0Qy0pIYkzy91ZY07
+	NeqQRe9uCA6efHqNNEky3g5Q7IncRgCfrBTYXDRMoYGgxtighPJGZi0CcIfwjzR+tX74CeOd9x8di
+	PW8iBrthHuQWotOZJhZZ7Z9lGxtPfa4EtqP/jkMtmeSnJ05J+/scP0rRyg3cKcAuK5lUy4n/OybUF
+	JCIFmwkz52Vw7YrFNvRi8yj5sdLaT4me/bqVPYBlEv3/93zCInLG4S2d3aUPCZLVT75BAyXH2lSnP
+	Zhd330SwBW3TcWnELy4thEHeE6eafiVq2q8YW/SvJojh1pgIDYskJ6+CRPraSdyi6St7dbM72G2gW
+	3GUeCIzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waaoN-00000002ca8-3ng3;
-	Fri, 19 Jun 2026 15:07:15 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waaoM-00000002cZz-2hXZ
+	id 1wab2k-00000002dHY-1Otf;
+	Fri, 19 Jun 2026 15:22:06 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wab2i-00000002dHE-0Zoy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Jun 2026 15:07:14 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 409A743667;
-	Fri, 19 Jun 2026 15:07:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A65881F000E9;
-	Fri, 19 Jun 2026 15:07:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781881634;
-	bh=oPZXOE7HzbZRwhQ2roKChVh+HemRaSM3x5c/6x3sjjk=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=hZreIN0qAZbeamh+IPnH+oMIKpqMOTche9q9y0F6w/txfy85p4tRw4m3zjb3x812D
-	 mxwL15/3VYsi+RfmeOjykLsVftc3dL3ewp6ud6G3oro8OVTuXPF1v/kPcSgwBnhbYz
-	 6FBJsDsBdrfB3BzfVuSnGNE4gHefiDivI6MuPgDQsjZa0z4GRGwKLMY0Yj9eayy+NA
-	 CZjEJMhAiCz00ZPhUWrII1Vy7n5cVDI/MqmCIVyAdQslh/K0TMTgjLRCPxYgtboZjZ
-	 IDSn6Fshof7OaG+0mbuJKXUz2bgJYzK+D8wXQALAKdZT5h7aIVCsbUCaOX+BljLHhF
-	 LPoWj8xXCKuSA==
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfauth.phl.internal (Postfix) with ESMTP id EDBD9F40078;
-	Fri, 19 Jun 2026 11:07:12 -0400 (EDT)
-Received: from phl-imap-05 ([10.202.2.95])
-  by phl-compute-01.internal (MEProxy); Fri, 19 Jun 2026 11:07:12 -0400
-X-ME-Sender: <xms:IFs1anToSlkVBylIBo2noDIwOgXD-SCppugy85cFON2V8Nzgv5I4Ow>
-    <xme:IFs1ajkFPBCnlSddF2y2P3_-RGtnXgui4Xh8UjJaljPR7CZsmqIfsN8sp9v74tn9z
-    iyrl4mDOJ680lokbkbGGCgEmUxTcKIkuGWOu6yUlklA28wwKDB9Q9U>
-X-ME-Proxy-Cause: dmFkZTEie/9IPWkt41SsD8vNaHU0dLO84ItaelyjcUQEGa9wATz2GRPwGg1umeGjcJfPgt
-    HuKJsuM4mBkAkrgl2QTpcvtbjZ0MYMjWvn73wrF5pvH+WV+bvho8UIywoddQoGLttZYW4R
-    nntx4gR1sBA4UjMZ3vAq6jhg9ieCy/H1DMVs2tM1xxvS4mtY+PPAgOHFx/2jx0gKi4Oz/T
-    GHjE3KC8QFwDCF7ykYQoudjz8jrkaZXhUqYrFH0mACf4eONgkjiFoKOKzMz6AzglOL0Hxa
-    rXdo7QUnxyE7yYUIfc00rq3vDGW5PyP2XGUNixZYM7K+uH9J+IaQugnZ3LX0MWjIL16kbM
-    OK4tYE0e6KeuxhzSriO/6uqZ6jv9fQilDoDFw+0zq4Mel5zdTCBQFiBYYvyf4hcRkpb3Gv
-    VtzIA2dk7FvC+aphUX4nbc9zyjKnFU5/MlaOrFyLUHIM+Botkyqj1Cd1l4TBxkPbG4wRuR
-    48dyea7nsrLXYGPg6OOsgSFNUtqI7leFGGUf67lPoS+1QWFMYDBhYAKcjo5GtBBXwSsjAG
-    J5F2JNATmfEfRObiksWRbnd7uLO432+Q8OgghDHMHy6hOWKUqanHdn/Hh6n1clE/wk0823
-    ACamduzYYuuDd/LTQHjPFoCJUwUnnTnbIVroUuHHhH6Vnf4xqOl25N5dtZqw
-X-ME-Proxy: <xmx:IFs1atksMec-xvAheA6qUTKdO2qyDDaWKoZPlrCVqKE9ynA2eMg-cA>
-    <xmx:IFs1ai0sMJmTjI5ZP8TW4nJRdFNVVgRuTd4zBju77COEpm17owocJA>
-    <xmx:IFs1aqTL7WjWgidaotJvTFDy83hV3e3KDSF913EtL8VBs9xQNe45kg>
-    <xmx:IFs1arwKHSbh3Hz7lKq2r74bSLF5XZqQq6BYVktInYgZONbPlcXHKg>
-    <xmx:IFs1aqDKFcJ78ibMxOLEWF7hc4AYfxymdTUAZbiTChte02fm_jowrFRA>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id CC742182007E; Fri, 19 Jun 2026 11:07:12 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Fri, 19 Jun 2026 15:22:05 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DECB32880;
+	Fri, 19 Jun 2026 08:21:57 -0700 (PDT)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 30DF83F763;
+	Fri, 19 Jun 2026 08:22:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1781882522; bh=700rRzW++BkEpbjiGVizQi/Qihc27GT0Bohwey/9ZG4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qlN6snVb8P7eI0UXTPA2dYPCbudUBmBu1zgwbkqd95YdDE4WiI2QCdEr95WOj0RQx
+	 2s54s/KD0gww3eDm5ZG0G4YFiCnQ+/7KtoFGELmV/fQT2XwT0Llvw/qNLZu3GiGE1h
+	 YZbP35uRHFcIwPxMizIje74j5dCtHkSufNKkfq7M=
+Date: Fri, 19 Jun 2026 16:21:53 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Rasmus Villemoes <linux@rasmusvillemoes.dk>
+Cc: linux-arm-kernel@lists.infradead.org, Ard Biesheuvel <ardb@kernel.org>,
+	Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] docs: arm64: Document that text_offset is always 0
+Message-ID: <ajVekauNroapwbtm@J2N7QTR9R3.cambridge.arm.com>
+References: <20260604140839.1930847-1-linux@rasmusvillemoes.dk>
 MIME-Version: 1.0
-Date: Fri, 19 Jun 2026 17:06:52 +0200
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Fuad Tabba" <fuad.tabba@linux.dev>, "Will Deacon" <will@kernel.org>
-Cc: "Marc Zyngier" <maz@kernel.org>, "Mark Brown" <broonie@kernel.org>,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "Oliver Upton" <oupton@kernel.org>, Aishwarya.TCV@arm.com,
- linux-arm-kernel@lists.infradead.org
-Message-Id: <5b8a6848-f65e-4595-9926-fada16629ed2@app.fastmail.com>
-In-Reply-To: <CA+EHjTwymmZqNM9Yf+PQc+7GgmesDFL8UPj-eA2vdrGqrdAufA@mail.gmail.com>
-References: <aicVyebkEMs6w6UV@sirena.co.uk> <87tsrc946i.wl-maz@kernel.org>
- <8eac5e73-282d-4c72-b726-0c5c82fc81f0@app.fastmail.com>
- <aik_oVrNHUrh21MB@willie-the-truck>
- <CA+EHjTwymmZqNM9Yf+PQc+7GgmesDFL8UPj-eA2vdrGqrdAufA@mail.gmail.com>
-Subject: Re: -next boot failures during KVM setup
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260604140839.1930847-1-linux@rasmusvillemoes.dk>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260619_082204_259195_F86C108A 
+X-CRM114-Status: GOOD (  39.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,46 +69,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Fuad,
+On Thu, Jun 04, 2026 at 04:08:39PM +0200, Rasmus Villemoes wrote:
+> When trying to figure out where to place and call an arm64 Image in
+> memory, reading booting.rst should provide the answer. However, it
+> requires quite some digging to figure out that text_offset is set via
+> ".quad 0" in head.S and is thus actually always 0 since v5.10.
 
-On Fri, 19 Jun 2026, at 17:01, Fuad Tabba wrote:
-> Hi,
->
-> On Wed, 10 Jun 2026 at 11:42, Will Deacon <will@kernel.org> wrote:
->>
->> On Mon, Jun 08, 2026 at 10:56:12PM +0200, Ard Biesheuvel wrote:
->> > Given we're at -rc7, I'd lean towards dropping the whole branch for now, or
->> > alternatively, only drop/revert "arm64: mm: Unmap kernel data/bss entirely from the
->> > linear map" (and its followup fix "arm64: mm: Defer remap of linear alias of
->> > data/bss") so that the region always remains readable via the linear map.
->>
->> I've reverted those two locally, thanks! I'll push some new branches
->> shortly.
->
-> I hit an nVHE boot regression on v7.2 while testing Will's kvmtool
-> protected-VM series [1]. I found this thread while debugging, and
-> thought this might help. Note that Gemini helped me debug this (it's
-> pretty good at debugging).
->
-> f2ba877 (the read-only mapping you kept) still breaks nVHE, but only with
-> CONFIG_NVHE_EL2_DEBUG / CONFIG_NVHE_EL2_TRACING:
->
->   Unable to handle kernel write to read-only memory ... (ESR 0x9600004f)
->   pc : kvm_apply_hyp_relocations+0x80/0x8c
->
-> kvm_apply_hyp_relocations() writes the .hyp.reloc fixups via lm_alias().
-> Most are in .hyp.rodata (whose alias isn't made read-only until
-> mark_linear_text_alias_ro(), after the relocs), but five land in .hyp.data
-> and now fault. They're all debug-only: __kvm_nvhe_selftest_vm/_vcpu
-> (NVHE_EL2_DEBUG) and __kvm_nvhe_trace_buffer (NVHE_EL2_TRACING). A default
-> config has none in .hyp.data and boots, which is why this didn't show up
-> earlier. VHE skips the relocations entirely.
->
-> [1] https://lore.kernel.org/all/20260619115415.5475-1-will@kernel.org/
->
+What is the actual problem?
 
-Thanks for the report - I'll investigate. I imagine deferring the R/O remap
-should help, but I'll try to reproduce locally and see what we can do about
-this.
+The documentation in booting.rst is accurate; I don't see why it's
+necessary to read the source code to look at text_offset. Immediately
+above the text in your diff, the documentation has:
 
+| 4. Call the kernel image
+| ------------------------
+| 
+| Requirement: MANDATORY
+| 
+| The decompressed kernel image contains a 64-byte header as follows::
+| 
+|   u32 code0;                    /* Executable code */
+|   u32 code1;                    /* Executable code */
+|   u64 text_offset;              /* Image load offset, little endian */
+|   u64 image_size;               /* Effective Image size, little endian */
+|   u64 flags;                    /* kernel flags, little endian */
+|   u64 res2      = 0;            /* reserved */
+|   u64 res3      = 0;            /* reserved */
+|   u64 res4      = 0;            /* reserved */
+|   u32 magic     = 0x644d5241;   /* Magic number, little endian, "ARM\x64" */
+|   u32 res5;                     /* reserved (used for PE COFF offset) */
+
+Can you explain the problem you're facing? e.g.
+
+* Is the documentation unclear, in a way that could be better?
+
+* Is there some aspect of the boot protocol that is hard for a
+  bootloader to follow?
+
+* Is there some problem with *testing* that bootloaders respect the
+  text_offset requirements?
+
+* Something else?
+
+> Update the documentation and make that explicit. Reword the 2MB
+> requirement accordingly, and remove the paragraphs that only apply to
+> the ancient versions where text_offset could be non-zero, as they only
+> confuse a current reader.
+> 
+> Fixes: 120dc60d0bdb ("arm64: get rid of TEXT_OFFSET")
+> Signed-off-by: Rasmus Villemoes <linux@rasmusvillemoes.dk>
+> ---
+> I've included a Fixes tag since I spent way too much time tracking
+> down where that text_offset might be defined. The mentioned commit did
+> get rid of all references to TEXT_OFFSET-the-macro, but not
+> text_offset-the-concept.
+
+Keeping text_offset as a concept was deliberate. That allows us to keep
+the documentation accruate for older kernel versions, and allows for the
+possiblity that a non-zero offset is introduced in future (though I
+admit that might be a tough sell).
+
+>  Documentation/arch/arm64/booting.rst | 20 +++++---------------
+>  1 file changed, 5 insertions(+), 15 deletions(-)
+> 
+> diff --git a/Documentation/arch/arm64/booting.rst b/Documentation/arch/arm64/booting.rst
+> index 13ef311dace8..f4cc25b1fd56 100644
+> --- a/Documentation/arch/arm64/booting.rst
+> +++ b/Documentation/arch/arm64/booting.rst
+> @@ -55,9 +55,6 @@ not exceed 2 megabytes in size. Since the dtb will be mapped cacheable
+>  using blocks of up to 2 megabytes in size, it must not be placed within
+>  any 2M region which must be mapped with any specific attributes.
+>  
+> -NOTE: versions prior to v4.2 also require that the DTB be placed within
+> -the 512 MB region starting at text_offset bytes below the kernel Image.
+> -
+>  3. Decompress the kernel image
+>  ------------------------------
+>  
+> @@ -93,6 +90,8 @@ Header notes:
+>  
+>  - As of v3.17, all fields are little endian unless stated otherwise.
+>  
+> +- As of v5.10, text_offset is always 0.
+> +
+>  - code0/code1 are responsible for branching to stext.
+>  
+>  - when booting through EFI, code0/code1 are initially skipped.
+> @@ -100,12 +99,6 @@ Header notes:
+>    entry point (efi_stub_entry).  When the stub has done its work, it
+>    jumps to code0 to resume the normal boot process.
+>  
+> -- Prior to v3.17, the endianness of text_offset was not specified.  In
+> -  these cases image_size is zero and text_offset is 0x80000 in the
+> -  endianness of the kernel.  Where image_size is non-zero image_size is
+> -  little-endian and must be respected.  Where image_size is zero,
+> -  text_offset can be assumed to be 0x80000.
+> -
+
+So far we've tried to ensure that the documentation covers current *and*
+older kernel versions. If we're going to drop text covering older
+versions we'd need an explciit statemnt as to which kernel versions the
+document is accurate for.
+
+I would prefer that we retained documentation regarding the text_offset
+field in the header, even if it happens to be zero today.
+
+Mark.
+
+>  - The flags field (introduced in v3.17) is a little-endian 64-bit field
+>    composed as follows:
+>  
+> @@ -135,12 +128,9 @@ Header notes:
+>    end of the kernel image. The amount of space required will vary
+>    depending on selected features, and is effectively unbound.
+>  
+> -The Image must be placed text_offset bytes from a 2MB aligned base
+> -address anywhere in usable system RAM and called there. The region
+> -between the 2 MB aligned base address and the start of the image has no
+> -special significance to the kernel, and may be used for other purposes.
+> -At least image_size bytes from the start of the image must be free for
+> -use by the kernel.
+> +The Image must be placed at a 2MB aligned base address anywhere in
+> +usable system RAM and called there.  At least image_size bytes from
+> +the start of the image must be free for use by the kernel.
+>  NOTE: versions prior to v4.6 cannot make use of memory below the
+>  physical offset of the Image so it is recommended that the Image be
+>  placed as close as possible to the start of system RAM.
+> -- 
+> 2.54.0
+> 
 
