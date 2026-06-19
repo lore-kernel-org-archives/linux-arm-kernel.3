@@ -4,82 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 982FCCD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 15:30:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27001CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 15:31:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mLjNq3xGexi6hHuje2pZSSEVpO87sjjlxI3YsPJaXJs=; b=sFPp14e7Yn6h/Y/5UGN9s6rRrC
-	qfOWB+mVV61Lcdzy1nuf2F70DjcBgyCdr9Ch8CBNJlt2tPCNA42IbB5Y/4YxiE9fUqRSlKiZcIFFc
-	tLwlgjLeqAES914oh+hVbdBdnT3patyRFo37o0YAluHBHD8NdcFtbiKmw122S6fKt7se1O49BTlr3
-	8bjEGpzUMWkCCK/86WaYfbj6E2OUBfHRVfMi4f76rU+QAia+H4NyAR0rFkFaExOOLylTfZv4bJRzJ
-	nfDbL56SiROp+tdXiBsG+Qb4fR7VR5akFpw520tEPWEArzLGDqPwWouCeMb5TeaoBwkbCeR6tt6iq
-	vtTQhg2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GKYWa/kKv1FUIk4EMf+/2smVEZNT8x+DETzoP4RcXu0=; b=SrriF4RD22KnoLEIO3gTBVZJ0Q
+	GC4Fp//VJe0ol59WWgte2l8SzEQAg+V8TKa5dP5/cnI3GPp8/vuB4oIWwWZMZjnA8DkTZ0cFQkdoQ
+	8d/zrPQzYnM3Ti8XJBodzPvXa9ezgXlO6UcleDKWWlFnQM7WHFWaie8wYkRPdRNqhCAxg+lPC3zCO
+	8VxtOvCEIz/lHA79wa96AWGVqZH2HOnA9N1elxHrNS5yqZ4kmlOd54tTbBGSBlQm9XG8hw5bjAaNw
+	0+qMszh3pG8MqRVdtCYNSnPOyF03So60UPfTzfVxrxR9GfyZaj03K/uUqXcalnzTPBTwKOs++uzEx
+	gk9LcKpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wabAx-00000002fqL-2faF;
-	Fri, 19 Jun 2026 15:30:35 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wabBk-00000002g5q-04Yz;
+	Fri, 19 Jun 2026 15:31:24 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wabAw-00000002fox-2Y76;
-	Fri, 19 Jun 2026 15:30:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=mLjNq3xGexi6hHuje2pZSSEVpO87sjjlxI3YsPJaXJs=; b=AqWpTud5BjRUS92qPwk7YAOr1R
-	szVIaX3PaBCUuiHCASwj2HxTwYnnZyhjhL6Wy7UjSUHTfQ0TugGHSPp0Wxn6fbOxPbY0OtqVYMtgo
-	i7xh3Y5eCFmJ1QEaXZUo6bl1FcGM73cJS4xPPUWRy5MuoZbdfeYfvlGL/eNz6z8HYvRj2sT9AeeCD
-	JwZic95Iu7dfi5Tnut+G+tDLmhm5ZHk1vpEi+pZknLDYcIcsVcozt3bQA/7QWbl7SkCXIVbm2M0Mo
-	9AC9mAHlwm+9o2Sv/ppESVKRwj6mFCrvC4fhUs6VLo+B2ZUhqB06i7EOPnT8P/AXc7yWNU01D1bK2
-	Etkctj7g==;
-Received: from m16.mail.163.com ([117.135.210.4])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wabAs-0000000Egaw-2uLI;
-	Fri, 19 Jun 2026 15:30:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
-	Content-Type; bh=mLjNq3xGexi6hHuje2pZSSEVpO87sjjlxI3YsPJaXJs=;
-	b=WWZwTY0t6sGMtDRzCftyLiJoSnbU3TkUe4NHi7ZG3KIrX8KolrdkPh0UAL3K1W
-	lW6AQf0LMkjP0peGCZyAjFljpOTBkWy1sIO8MNWwQM7fezWKNvRZu7Dk2lDOUa2i
-	nFwBqidIOU2kkgDrAYeEUIh4YY6siwKDDGEwz2iBMqgA0=
-Received: from [IPV6:240e:b8f:91b3:d000:a264:4237:512f:7b1] (unknown [])
-	by gzga-smtp-mtada-g0-0 (Coremail) with SMTP id _____wD317VjYDVqjyOoEA--.54216S2;
-	Fri, 19 Jun 2026 23:29:40 +0800 (CST)
-Message-ID: <dae17d36-c7d2-467b-a621-3c55e08a67a8@163.com>
-Date: Fri, 19 Jun 2026 23:29:39 +0800
+	id 1wabBj-00000002g5j-0Yuz
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 19 Jun 2026 15:31:23 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 87D3840D88;
+	Fri, 19 Jun 2026 15:31:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 454DB1F000E9;
+	Fri, 19 Jun 2026 15:31:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781883082;
+	bh=GKYWa/kKv1FUIk4EMf+/2smVEZNT8x+DETzoP4RcXu0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=QlMgV1cE6tVSJJtcjO3IAoVO8QeR02Q1zvHqIiCw4J1DztrwmVSTyv/zvRTiVxJdp
+	 hYwxhhQfpaSUHeMYCHCvNefRO8iES/W8FA2MqXJgnfML08HePpIyek48scePYPLsEL
+	 VxJinvk+RJTDshiNIGF24cC4+tDTxOasXwUqdh4X+f49L3jX2qpOM7JiX6/yXZQByW
+	 BeTjqCGGUBIYKAzhnrSvtoiXQMvJf2yzD3q+s6cTzAddXbzAZuF0/wGoy6YJlpB/9O
+	 gB4ay+GChKVb68jzzvr4D+XugLsIBLp90wxt4s5eGH91yCA21YkGR+1y+Enj1AaWU3
+	 6x7G0ZRjAfhug==
+Date: Fri, 19 Jun 2026 16:31:14 +0100
+From: Will Deacon <will@kernel.org>
+To: Fredrik Markstrom <fredrik.markstrom@est.tech>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	James Clark <james.clark@linaro.org>,
+	Santosh Shilimkar <santosh.shilimkar@ti.com>,
+	Olof Johansson <olof@lixom.net>, Tony Lindgren <tony@atomide.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, linux-perf-users@vger.kernel.org,
+	Nicolas Pitre <nico@fluxnic.net>,
+	Ivar Holmqvist <ivar.holmqvist@est.tech>,
+	Malin Jonsson <malin.jonsson@est.tech>
+Subject: Re: [PATCH v2 0/3] arm64: perf: Skip device memory during user
+ callchain unwinding
+Message-ID: <ajVgwgSl1Pf7d_Z8@willie-the-truck>
+References: <20260430-master-with-pfix-v3-v2-0-bd526ec04a75@est.tech>
+ <agsq4wZMGth-T3BG@willie-the-truck>
+ <agweYAbxRWOs41BE@elx-5cg6022w5t>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 0/2] PCI: Configure Root Port MPS during host probing
-To: bhelgaas@google.com, Manivannan Sadhasivam <mani@kernel.org>,
- Bjorn Helgaas <helgaas@kernel.org>
-Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, heiko@sntech.de,
- yue.wang@amlogic.com, pali@kernel.org, neil.armstrong@linaro.org,
- robh@kernel.org, jingoohan1@gmail.com, khilman@baylibre.com,
- jbrunet@baylibre.com, martin.blumenstingl@googlemail.com, cassel@kernel.org,
- linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
- linux-rockchip@lists.infradead.org
-References: <20251127170908.14850-1-18255117159@163.com>
- <vpuzlzry7uulctur7kwtlogniuhogd5ybmrwjtos2v7yryf47v@yj2ocobbog6s>
-Content-Language: en-US
-From: Hans Zhang <18255117159@163.com>
-In-Reply-To: <vpuzlzry7uulctur7kwtlogniuhogd5ybmrwjtos2v7yryf47v@yj2ocobbog6s>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CM-TRANSID: _____wD317VjYDVqjyOoEA--.54216S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxZFWxurWrZw1xCrWrXF4DXFb_yoWrGw4rpF
-	WFganakF4xGr1fCa9Fgw1jkFyYqas7GF47JrW5GwnxZanxZF15XFZ29w1rZr9rXrWfC3WS
-	vFy2qa4xW3Wqva7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UIjgsUUUUU=
-X-Originating-IP: [240e:b8f:91b3:d000:a264:4237:512f:7b1]
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbCwwUZvGo1YGWHawAA3V
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260619_163031_349360_9AE8E8D5 
-X-CRM114-Status: GOOD (  17.73  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <agweYAbxRWOs41BE@elx-5cg6022w5t>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,108 +88,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 5/6/26 22:00, Manivannan Sadhasivam wrote:
-> On Fri, Nov 28, 2025 at 01:09:06AM +0800, Hans Zhang wrote:
->> Current PCIe initialization exhibits a key optimization gap: Root Ports
->> may operate with non-optimal Maximum Payload Size (MPS) settings. While
->> downstream device configuration is handled during bus enumeration, Root
->> Port MPS values inherited from firmware or hardware defaults often fail
->> to utilize the full capabilities supported by controller hardware. This
->> results in suboptimal data transfer efficiency throughout the PCIe
->> hierarchy.
->>
->> This patch series addresses this by:
->>
->> 1. Core PCI enhancement (Patch 1):
->> - Proactively configures Root Port MPS during host controller probing
->> - Sets initial MPS to hardware maximum (128 << dev->pcie_mpss)
->> - Conditional on PCIe bus tuning being enabled (PCIE_BUS_TUNE_OFF unset)
->>    and not in PCIE_BUS_PEER2PEER mode (which requires default 128 bytes)
->> - Maintains backward compatibility via PCIE_BUS_TUNE_OFF check
->> - Preserves standard MPS negotiation during downstream enumeration
->>
->> 2. Driver cleanup (Patch 2):
->> - Removes redundant MPS configuration from Meson PCIe controller driver
->> - Functionality is now centralized in PCI core
->> - Simplifies driver maintenance long-term
->>
+On Tue, May 19, 2026 at 10:25:04AM +0200, Fredrik Markstrom wrote:
+> On Mon, May 18, 2026 at 04:06:11PM +0100, Will Deacon wrote:
+> > On Thu, Apr 30, 2026 at 12:55:12PM +0200, Fredrik Markstrom wrote:
+> > > Perf callchain unwinding follows userspace frame pointers via
+> > > copy_from_user. A corrupted or malicious frame pointer can point
+> > > into device I/O memory mapped into the process (e.g. via UIO or
+> > > /dev/mem), causing the kernel to read from MMIO regions in PMU
+> > > interrupt context. Such reads can have side effects on hardware
+> > > (clearing status registers, advancing FIFOs, triggering DMA) and
+> > > on arm64 can produce a synchronous external abort that panics the
+> > > kernel.
+> > 
+> > Hmm, but why is unwinding special in this case? If userspace has access
+> > to sensitive MMIO/device mappings, it can presumably pass them to
+> > syscalls and trigger crashes all over the place?
 > 
-> For the series,
-> 
-> Reviewed-by: Manivannan Sadhasivam <mani@kernel.org>
-> 
-> Bjorn: Could you please take a look? This series has been floating for a
-> while...
+> You’re totally right, a broken app with access to hardware like this can
+> already cause chaos by passing bad pointers to syscalls etc. But the big
+> difference here is who is to blame when things crash.
+>  
+> If an app passes a bad pointer to a syscall, it’s self-inflicted.
 
-Hello Bjorn,
+So I was going to argue that building arm64 code without frame-pointers
+is self-inflicted, but it looks like that's the default in GCC for some
+bizarre reason.
 
-Any chance for this series to be applied?
+> Unwinding here is asynchronous and unrelated to the application.
+> Perf interrupts a perfectly healthy app at a random moment. If that app
+> is using the frame pointer as a normal register (totally legal in
+> optimized code), it might hold a junk value that points to MMIO memory.
+>
+> If the kernel blindly follows that junk pointer during an unwind, perf
+> causes the crash. I think it's acceptable that an app (with hardware
+> access) causes a crash if buggy, but I don't think it's acceptable that
+> a profiling tool is causing a crash just by looking at it.
 
-Best regards,
-Hans
+I can see your argument, but I'm also not hugely keen to add fastgup to
+our stack unwinder for each frame record. It's also not clear to me how
+you avoid the mapping changing between the check and the access, given
+that you still appear to use the user mapping for the unwind. Do other
+architectures have this issue and, if so, how do they solve it?
 
+If we could guarantee that the fault is synchronous, then we could
+presumably hook up the uaccess exception fixup handlers.
 
-> 
-> - Mani
-> 
->> ---
->> Changes in v7:
->> - Exclude PCIE_BUS_PEER2PEER mode from Root Port MPS configuration
->> - Remove redundant check for upstream bridge (Root Ports don't have one)
->> - Improve commit message and code comments as per Bjorn.
->>
->> Changes for v6:
->> https://patchwork.kernel.org/project/linux-pci/patch/20251104165125.174168-1-18255117159@163.com/
->>
->> - Modify the commit message and comments. (Bjorn)
->> - Patch 1/2 code logic: Add !bridge check to configure MPS only for Root Ports
->>    without an upstream bridge (root bridges), avoiding incorrect handling of
->>    non-root-bridge Root Ports (Niklas).
->>
->> Changes for v5:
->> https://patchwork.kernel.org/project/linux-pci/patch/20250620155507.1022099-1-18255117159@163.com/
->>
->> - Use pcie_set_mps directly instead of pcie_write_mps.
->> - The patch 1 commit message were modified.
->>
->> Changes for v4:
->> https://patchwork.kernel.org/project/linux-pci/patch/20250510155607.390687-1-18255117159@163.com/
->>
->> - The patch [v4 1/2] add a comment to explain why it was done this way.
->> - The patch [v4 2/2] have not been modified.
->> - Drop patch [v3 3/3]. The Maintainer of the pci-aardvark.c file suggests
->>    that this patch cannot be submitted. In addition, Mani also suggests
->>    dropping this patch until this series of issues is resolved.
->>
->> Changes for v3:
->> https://patchwork.kernel.org/project/linux-pci/patch/20250506173439.292460-1-18255117159@163.com/
->>
->> - The new split is patch 2/3 and 3/3.
->> - Modify the patch 1/3 according to Niklas' suggestion.
->>
->> Changes for v2:
->> https://patchwork.kernel.org/project/linux-pci/patch/20250425095708.32662-1-18255117159@163.com/
->>
->> - According to the Maintainer's suggestion, limit the setting of MPS
->>    changes to platforms with controller drivers.
->> - Delete the MPS code set by the SOC manufacturer.
->> ---
->>
->> Hans Zhang (2):
->>    PCI: Configure Root Port MPS during host probing
->>    PCI: dwc: Remove redundant MPS configuration
->>
->>   drivers/pci/controller/dwc/pci-meson.c | 17 -----------------
->>   drivers/pci/probe.c                    | 12 ++++++++++++
->>   2 files changed, 12 insertions(+), 17 deletions(-)
->>
->>
->> base-commit: 765e56e41a5af2d456ddda6cbd617b9d3295ab4e
->> -- 
->> 2.34.1
->>
-> 
-
+Will
 
