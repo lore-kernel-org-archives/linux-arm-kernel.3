@@ -4,69 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66475CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 14:58:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EC23CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 15:02:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kt5gfqyzeUam3ANkFxyr/b9wMEBxAdenPJCFwqOG2UA=; b=YrhFBLuTAKqON1ZmMAC0k7cdfz
-	f04QsvAhfL0G+nhWIWRc8nXRK2k1mLE6J2tw/aOEf89AX7OeNgeDnUlQZ85bU8RYQ24YntkqX8/ru
-	SCdJMWogkwEZaMhXiRvfL9CebMMDi20reU7xKGDYEBQZxBaLFwv0iD0/mE9ltkg9CTf9yjel6AkAJ
-	3yFuNaYUaTkGwWptGX7vzClLaV5OTheR0wA+/YjQDceKWB/TgFnYYVwbiZeioKcoXA/OxD3FRcgYA
-	bdLlnmKpg+mtC9+c212zrrCb5fem4x5ghzMD0pDdpeusgIkQju5pDw5sT2PhZ/8iLG8YEIKagJHre
-	oEHdiDZQ==;
+	bh=HnXI8TAIDlg0jH1qAf9FNl4PXBrwK/ooV2WoJ94aEs4=; b=bP8CqEJo/KJa7RE+UOr7uRoeap
+	pp6QpkwYNm17NDBKoSpHuoRgoslXj0vMxRxLtWXBpUgoeiqmOZc3yDwB0iNAKC+tQsr/8yTQyubuj
+	J3rPCfbDlkvdu9i7GZd+pzdB7UTw4VzdanHvnmKeLgrAafViX81QGsoKhumXFOLBSaXyJJ6Zg6fff
+	lu48dObwFvdc0trHFI/fcOHvh9E2xDIQRkBFS3omsJ27zcxj2jR11NI81zkIv85BndtkL4IRTO/dO
+	G32HpeEWQKPaf1s2sNpE1deQPooNOl6q/TQjeTdj/UJA8DFNLMGc9GaAgSJbO0YeF39klUMr2377a
+	Dv8l375w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waafj-00000002bdD-2wCw;
-	Fri, 19 Jun 2026 14:58:19 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1waajy-00000002cFO-1Qmi;
+	Fri, 19 Jun 2026 15:02:42 +0000
+Received: from out-185.mta0.migadu.com ([2001:41d0:1004:224b::b9])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waafi-00000002bd2-214A
+	id 1waaju-00000002cEj-35NE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Jun 2026 14:58:18 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D9B754167C;
-	Fri, 19 Jun 2026 14:58:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2FBB1F000E9;
-	Fri, 19 Jun 2026 14:58:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781881097;
-	bh=Kt5gfqyzeUam3ANkFxyr/b9wMEBxAdenPJCFwqOG2UA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=N6hxcns3KSAGulJMrmCCntDq2gj4FT2xe7UH9uLmY6BkSN8SoKoj9SyVckpTRxnvz
-	 BMvkD2FbUfuVF7YcliezwvJ6El2FzL4Kf9U3KukOt05SlgG5DCD7gdDQkaOxZSglXD
-	 L82+jnQye4xgafaNhd9g/80iNXN4FWj9w7KLkYsUOKCYFre+239EGLNVUhufyAku3F
-	 ivwSToXeWK1wCnFEsuJkfHivjEZpNH3UnvyzcrZV84IgXVjDLpQXAWb3KwF/H1LlOU
-	 IfQ0kVWgxkDq6qEn3RNKRkXAMdkOBd5l9V9BkK96a0VhyLQw6aOxBYR1ISyXpRRwNy
-	 l7Q9On3NB+UPw==
-Date: Fri, 19 Jun 2026 15:58:12 +0100
-From: Will Deacon <will@kernel.org>
-To: Shanker Donthineni <sdonthineni@nvidia.com>
-Cc: Jason Gunthorpe <jgg@nvidia.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Vladimir Murzin <vladimir.murzin@arm.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	Vikram Sethi <vsethi@nvidia.com>,
-	Jason Sequeira <jsequeira@nvidia.com>
-Subject: Re: [PATCH v3] arm64: errata: Workaround NVIDIA Olympus device
- store/load ordering erratum
-Message-ID: <ajVZBJgKn-5sxHD6@willie-the-truck>
-References: <20260610164822.4157248-1-sdonthineni@nvidia.com>
- <aiq5VigmtZq9GlAm@willie-the-truck>
- <IA1PR12MB6089049028A73A2078FC6831C71B2@IA1PR12MB6089.namprd12.prod.outlook.com>
- <851c4107-3f6d-46f3-b659-212ce4f69e6e@nvidia.com>
- <20260612124825.GF1962447@nvidia.com>
- <25495831-f32d-4332-a7c2-fb1463b96174@nvidia.com>
+	Fri, 19 Jun 2026 15:02:40 +0000
+X-Forwarded-Encrypted: i=1; AFNElJ/vI9HiZ6u+s1UZqcUqE+/CbkUuH09tH0usy1kEPGuU44JMpnhbZaQEafoKRpzWgNsETIGrR88dKf7dH4rY2S/k@lists.infradead.org
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1781881350;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=HnXI8TAIDlg0jH1qAf9FNl4PXBrwK/ooV2WoJ94aEs4=;
+	b=RFXGCht+jcemzLykNoYf9tPYm94vQydc8BpwuReH1HPfROnXJjzsskz9mx77NJjXsjpGL/
+	9FQ+0Rq26QR6XYbgwsqolo+7z1AqqKc4pn3JLfLhAnALXfQgBW/Qm/mR3SrPguChESr7aM
+	YfYzRwJ0TTpr63QeodDp16Xo64xbGrU=
+X-Gm-Message-State: AOJu0YxyrozLU5TNQpCezNUbqawcW4FXjLDP47ybytn7I3QVK4yvOvFw
+	EEQ8lLjKrsIpB8TGcbhsxUovgqx6wg8EEyZ8WUIcx6oewOOpROB7iN5z74nRDpW2E0w/t0YRFMx
+	1T42Z2RguBAYY7ZNPs63vKbR/y2w8uMUb6pl2N/W9
+X-Received: by 2002:a05:622a:580a:b0:516:4f62:85f1 with SMTP id
+ d75a77b69052e-519e4a744d4mr9182661cf.22.1781881344944; Fri, 19 Jun 2026
+ 08:02:24 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <25495831-f32d-4332-a7c2-fb1463b96174@nvidia.com>
+References: <aicVyebkEMs6w6UV@sirena.co.uk> <87tsrc946i.wl-maz@kernel.org>
+ <8eac5e73-282d-4c72-b726-0c5c82fc81f0@app.fastmail.com> <aik_oVrNHUrh21MB@willie-the-truck>
+In-Reply-To: <aik_oVrNHUrh21MB@willie-the-truck>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Fri, 19 Jun 2026 16:01:47 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTwymmZqNM9Yf+PQc+7GgmesDFL8UPj-eA2vdrGqrdAufA@mail.gmail.com>
+X-Gm-Features: AVVi8CdfY181qdXUuU8oy4vg1wehcKDqAsafIdw0xh70RbexrFtwO97zRvjZltk
+Message-ID: <CA+EHjTwymmZqNM9Yf+PQc+7GgmesDFL8UPj-eA2vdrGqrdAufA@mail.gmail.com>
+Subject: Re: -next boot failures during KVM setup
+To: Will Deacon <will@kernel.org>
+Cc: Ard Biesheuvel <ardb@kernel.org>, Marc Zyngier <maz@kernel.org>, Mark Brown <broonie@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Oliver Upton <oupton@kernel.org>, Aishwarya.TCV@arm.com, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260619_080239_362018_C02285A2 
+X-CRM114-Status: GOOD (  11.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,42 +77,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 16, 2026 at 08:22:39AM -0500, Shanker Donthineni wrote:
-> On 6/12/2026 7:48 AM, Jason Gunthorpe wrote:
-> > On Thu, Jun 11, 2026 at 08:13:48PM -0500, Shanker Donthineni wrote:
-> > 
-> > > For the scalar MMIO helpers, the workaround promotes the raw writes to
-> > > store-release on affected CPUs as v1/v2 shown below. For the memcpy-toIO
-> > > helpers, could you please clarify the specific reason for adding a dmb despite
-> > > the documented no-ordering contract? Is the concern that some drivers may
-> > > be relying on ordering across memcpy_toio_*() today even though the API
-> > > does not guarantee it, and that we should cover those cases defensively?
-> > I think given how arm implements them today the iocopy's are actually
-> > the _relaxed variations.. I wonder if this matters to any user?
-> 
-> Following Jason's observation that on arm64 the memcpy_toio()
-> /__iowrite{32,64}_copy() helpers are effectively the relaxed
-> (write-combining) variants, I'd like to settle one open point before posting
-> v4: should the workaround also promote dgh() > dmb on affected CPUs (now
-> Olympus core), or leave dgh() as a plain hint?
-> 
->        If you'd still prefer the dmb defensively, to cover drivers that may
-> rely on ordering across memcpy_toio() today despite the relaxed contract,
-> I'm happy to fold it into v4.
+Hi,
 
-The point is, you're going to have different behaviour to every other
-arm64 system out there. You may be able to find vague comments in the
-code that imply that you don't need to provide ordering, but at the end
-of the day it's a pretty cavalier attitude imo and if a driver ever shows
-up that relies on it then you're in trouble.
+On Wed, 10 Jun 2026 at 11:42, Will Deacon <will@kernel.org> wrote:
+>
+> On Mon, Jun 08, 2026 at 10:56:12PM +0200, Ard Biesheuvel wrote:
+> > Given we're at -rc7, I'd lean towards dropping the whole branch for now, or
+> > alternatively, only drop/revert "arm64: mm: Unmap kernel data/bss entirely from the
+> > linear map" (and its followup fix "arm64: mm: Defer remap of linear alias of
+> > data/bss") so that the region always remains readable via the linear map.
+>
+> I've reverted those two locally, thanks! I'll push some new branches
+> shortly.
 
-> Please let me know how you'd like me to proceed.
+I hit an nVHE boot regression on v7.2 while testing Will's kvmtool
+protected-VM series [1]. I found this thread while debugging, and
+thought this might help. Note that Gemini helped me debug this (it's
+pretty good at debugging).
 
-It's up to you. It's your broken CPU, not mine. You also haven't actually
-provided any performance data for others to assess the trade-off.
+f2ba877 (the read-only mapping you kept) still breaks nVHE, but only with
+CONFIG_NVHE_EL2_DEBUG / CONFIG_NVHE_EL2_TRACING:
 
-If it was up to _me_, I'd upgrade dgh() on these CPUs to that I don't
-need to worry about this again.
+  Unable to handle kernel write to read-only memory ... (ESR 0x9600004f)
+  pc : kvm_apply_hyp_relocations+0x80/0x8c
 
-Will
+kvm_apply_hyp_relocations() writes the .hyp.reloc fixups via lm_alias().
+Most are in .hyp.rodata (whose alias isn't made read-only until
+mark_linear_text_alias_ro(), after the relocs), but five land in .hyp.data
+and now fault. They're all debug-only: __kvm_nvhe_selftest_vm/_vcpu
+(NVHE_EL2_DEBUG) and __kvm_nvhe_trace_buffer (NVHE_EL2_TRACING). A default
+config has none in .hyp.data and boots, which is why this didn't show up
+earlier. VHE skips the relocations entirely.
+
+[1] https://lore.kernel.org/all/20260619115415.5475-1-will@kernel.org/
+
+Cheers,
+/fuad
+
+> Will
+>
+>
 
