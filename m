@@ -4,97 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AEADCDB466
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 08:09:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CA7FCD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 08:21:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I3WNaVa6u6+Nzfb3NV3ypwCQ74H2NIZsFLsn4sFU7yo=; b=B/yxSKRGykdwL0fIkZ8iMQthgS
-	geB13mS0UHA6Dk+v0hUPcKUKDof4gFB4XAQCFBB22xbwpS4xhkAB+U6Hn1pM8OQZWEdc0/HLfr1kb
-	bEO1alwU8dW4bCI4jJqpxC4osaq+97h/QgiGL8pSI1CrDZr4wfYN66fZM3FzsyIDCCsv3Q8Ll2LW/
-	+EQs3i4c0iCUZPWXeLsovKFFOWifbJSf78a88PgyxjmzzUu+uqx9r1eCThikf/Y6MMi84t+hHQvGY
-	XlixpnLIaA/j0Y46L+DK6dHQ5/c2PsZ9tc19oMTb0mBBl1FYGfb4jvJGeGgiyNeQneRqFqvcQtKP2
-	HbiVY5Yw==;
+	bh=QiRZKCM1EqNiRsnzfvDpC39UOIdXQjIxqxCEPl5e4OU=; b=uM8ioAHmOTBfW2ueHijwRPaZgA
+	8wNHbfa7A1rhKJ710xOb9DllONnYRmroxSi4mP1nqVkjokicBC1XxcsW8kmwkgFCuk8g5pFbBR+lb
+	lQnObAIMVV3qZx4hVz7tSI4ZsnvfS/uqfRLRqnD3mRiJBJJoi6siseS8KD2H64I+stcqxGU051cyt
+	Bwc3WrNMJWqMN3f7H2H2PZ5uPcYRpCdt/IzT1kDV2ym+kl3P7Tu3qAhC1u+hZA9fIL//Vb062pSQk
+	ZqXPL9g2nqyfadap1HOViAuKcf3CgGeb405Da9NGPDa5DgFZxTH+zJATSU8P9NqgrnL2XV/1bDME+
+	XxuqlXdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waUHf-0000000295K-1r26;
-	Fri, 19 Jun 2026 08:09:03 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1waUT5-000000029nB-3hbJ;
+	Fri, 19 Jun 2026 08:20:51 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waUHd-0000000294e-08kb
+	id 1waUT3-000000029mB-3M2X
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Jun 2026 08:09:02 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-46066e640easo1112258f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 01:09:00 -0700 (PDT)
+	Fri, 19 Jun 2026 08:20:50 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-842338c18e0so1306130b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 01:20:49 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1781857249; cv=none;
+        d=google.com; s=arc-20240605;
+        b=IHoDINMBWEZOuYTk6+cdHm7C0PhtBUv6sNmUolzOa/q/hvecAro4mBVxThy13Ntsa8
+         IurH44YNyxVHNHXTY4EUTPWN2O7HRAWb7hXszgbu3CJ+DdcckZw6hTDZ/MPzNg7oVavP
+         /GxQQEY9AmLig3otXBpqx6DX+KAv6x8PsME+vTUW7a6Qh3BADUgv5JrSX9S6YsAA0Ahi
+         ibzVX25RC0mnu3tTF8Ladw/EKdAKY9/EaP98HnJDeLebtTaGczF5AEpLvmXS9Xw8BaUd
+         l0H/dgiFrdYuySVV0TE5VkCe4IztkOgGNqmiEObXWSMcpRyL5g1gGDucM4NRNnLAMcjj
+         VHyQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=QiRZKCM1EqNiRsnzfvDpC39UOIdXQjIxqxCEPl5e4OU=;
+        fh=BkAj++S+KlV+VIVsC+P0gulfOUdifw7cfS5fyxA9LJo=;
+        b=ZaOOLeUxmKRolgMiYwTwcNcE+T75KixDFgRcMkHnEYE+Drck/LymPtddiKX4giep1s
+         kU/mWgReDzdYgFTIWEAuPC3xgKgE2auipZnetFBcmp+NdJTtk6aIfvVaVOAup32n/gcQ
+         q+Xw8HJCzeD7RbpKk2HOreetuO/MLGHX6eK6xsw+EFA8PlU1sAh/9SWxUHmwtaOxVI+s
+         Q62Vi1nlpVSeGJ2SXDl6pyV9j+pl9RV1pMk+ClymH/kj4lirH+LFPl/Q+iAOxcpIv/JZ
+         9/egHITPo2UHz0BnbQUnEBz1OY26ZzmiWSPtfr4U8NuM/o3Emg5PJ+lkzTQptrhOHBkp
+         pXGg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1781856539; x=1782461339; darn=lists.infradead.org;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=I3WNaVa6u6+Nzfb3NV3ypwCQ74H2NIZsFLsn4sFU7yo=;
-        b=jv6YVJc4dbr3ewR79vhPJ47FP4vTPNW6Kg31Q8I0p+o1DtiBYBFNR89dK/cZhNTvtB
-         mHz0WjPV21CCXwIxtzNko96p9NdQPm1HOatIFbiOu4e7OB1/tXD0Vq+mc1AbCdaISTuK
-         aqhQtOQ12T8LBesr1iEGwFv9utAqZCvkg7gRZEKiz6lrBjwNOJsWvg7r7mvNwQJiSKTD
-         97hcW9XTYIXzOpm9xIaPRZxzll1VIApjLfWiKLaZyudDOjp7YZocwUpsqMB4eCGY3hsc
-         +z6TxhPx6zXrHWJ094z7xjUae+0itz3JDyE74ievl4LdiJI4gXGT1rPGMoGkEIvj3fNU
-         QTsQ==
+        d=gmail.com; s=20251104; t=1781857249; x=1782462049; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=QiRZKCM1EqNiRsnzfvDpC39UOIdXQjIxqxCEPl5e4OU=;
+        b=bgmsX+6L6BaN3tbpdj6QFj/RONp5URMdTG9qMLYm8ayFT+3/xcjDQVJAtEnuCmKIQV
+         7sginPFn70T4WYORw+VcdPBDw7oT4XpYFJxbWU7Sz3I+cneub99naNd/hBLjKjWRJpnm
+         7r3katNMCDwBytLI3UGSr061rNqbftVIN3LkHqJ7wMgEPviEcFBcyG9rRY0eHJOqfILz
+         i9DYubwALuiSrrrnKNPtiAp0qs6uTKI3olsWUMO6KCrPC0thPHcxhJ4zM95E0+x3j7qn
+         MdOzXWERmizH+xN/eG0vpdMI8RRGWfYC1T1SPpx4kmfKb37dtKMD0QFU4rpUCAAgwKBz
+         Dmlw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781856539; x=1782461339;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=I3WNaVa6u6+Nzfb3NV3ypwCQ74H2NIZsFLsn4sFU7yo=;
-        b=CAvcTJs5ZMQZseCLc6r2psHBWsIx9lZYpk6Ou2us9oCYgw11ukXvIsLi2GUZXId0bo
-         mykg9Q4OXOqUUkKaCT6zsq9rtLHyz4m4Y0zeNTkX5rVqA2WW5av3eu3uNsGqq7LnDyaC
-         3Lyj5x0fKycPJtJ81EKYVU0HkRmhg6qvkhdPSyaIA/riGwaTi469g8xGjCNEef8oYKQ5
-         dsJZR5brwx+v1x7WwSOtyRnHWq/kGPONRuPaTsiBa++vGy/6MevENYavJc4mboa7788N
-         tGihp1/9730D/D5XdW1dsWqsPjc3JBcx1wJL9rmzmbMoe/XeFsJKN54Cc7fwjNHNhbvm
-         iyFg==
-X-Forwarded-Encrypted: i=1; AFNElJ9eOIfwQmM2/n0+/gy6DXr05IQoHEoYcmJLbhC3azLn7pyPAnl8LMxtLD40zHghHpAnnPd7lUXdDZJJMPqpoEGc@lists.infradead.org
-X-Gm-Message-State: AOJu0YwJngHJDR7UyOgt5iYG5tdhCtsc4eeKGumJbyCk4aPlUFOffGbZ
-	somWutOdL+oOq5sijRTVH3ffqgbojVI0szS3P8e+3Ei3bDMhUgsBzfI5Zg2M8Vzl8d4=
-X-Gm-Gg: AfdE7clkxZqNf/GoKLzHDZBZGutUDln5D9C4Rx+TffWAP5T4iGeaMn/yz86X4QExVRG
-	yIRj8zGMl8s3OMLPOW8O4K1saU5T9qlgMWy/L6DMYWHo92Z/KnoOfu+RbKsBcdvBZKzfzteZddf
-	hMrfYYhFCjv9QfyJMQ9nZOOpoiLTpLVUS7yva8N05o4uCAS1Rcwuv6lltxAcx07CfV8GG6YJEBG
-	eMgWxff3Xuc8xfEho6GyHnlp7TAM2J7OaMC0aIC+QCpuO7FjOR0OK/wVs1Eare+uunoribtrTaD
-	pg7xgyB37n3328hq3jn51+FWuw69VuH5i5ytZwjU/IqfoqNwQjEhlQ7fH4h31U9PIJnvYzruatw
-	O1zZPgZndW/AkaYbB3kQCtkzMYID1jTdPISL07l0Rx1/rmMFIahrqOfboBrWiGtOJiGOVYNtQr4
-	n7ruczoUdsMmRxsHwS5F5QmQ==
-X-Received: by 2002:a5d:5342:0:b0:461:946f:9bb4 with SMTP id ffacd0b85a97d-465097867ddmr3541283f8f.23.1781856538850;
-        Fri, 19 Jun 2026 01:08:58 -0700 (PDT)
-Received: from localhost ([2a01:e0a:3c5:5fb1:95ed:eac1:5731:4e21])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-4650b67a33csm5299452f8f.17.2026.06.19.01.08.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 19 Jun 2026 01:08:58 -0700 (PDT)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Julian Braha <julianbraha@gmail.com>
-Cc: jian.hu@amlogic.com,  Neil Armstrong <neil.armstrong@linaro.org>,
-  Michael Turquette <mturquette@baylibre.com>,  Stephen Boyd
- <sboyd@kernel.org>,  Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski
- <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,  Xianwei Zhao
- <xianwei.zhao@amlogic.com>,  Kevin Hilman <khilman@baylibre.com>,  Martin
- Blumenstingl <martin.blumenstingl@googlemail.com>,
-  linux-amlogic@lists.infradead.org,  linux-clk@vger.kernel.org,
-  devicetree@vger.kernel.org,  linux-kernel@vger.kernel.org,
-  linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v4 2/2] clk: amlogic: Add A9 AO clock controller driver
-In-Reply-To: <5af78bca-7c49-48b1-af8a-cfbe55ae26ba@gmail.com> (Julian Braha's
-	message of "Fri, 19 Jun 2026 08:48:49 +0100")
-References: <20260618-a9_aoclk-v4-0-569d0425e50c@amlogic.com>
-	<20260618-a9_aoclk-v4-2-569d0425e50c@amlogic.com>
-	<79b1a519-5723-4e0c-904c-b7fdf9564ee1@gmail.com>
-	<1jbjd7c7ip.fsf@starbuckisacylon.baylibre.com>
-	<5af78bca-7c49-48b1-af8a-cfbe55ae26ba@gmail.com>
-User-Agent: mu4e 1.12.9; emacs 30.1
-Date: Fri, 19 Jun 2026 10:08:56 +0200
-Message-ID: <1jqzm3ar53.fsf@starbuckisacylon.baylibre.com>
+        d=1e100.net; s=20251104; t=1781857249; x=1782462049;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=QiRZKCM1EqNiRsnzfvDpC39UOIdXQjIxqxCEPl5e4OU=;
+        b=iyK906BZc686wUOeaFbKLdRjvg1eqRzbx2XZ/MNGRVKHeNFR8eVVxpzitABGULDUi6
+         NQHzO1ie3aDPK9Ugt1oZdCffvXrgBtMIQA8IfIZBmqZTfHNnAxLBesig40StgIWpPHsN
+         dmgQe3NVTd3m6az+//0qlxUUxIBuKNoHFzuJ2P13pXyj6X1hhOvgMdYATYnBMoDusOGy
+         0dDRINjaVa/7Qnyu+yoefuWmpfxWemYCFP+w6eNCAAf8EuT8HJ2G94f6F7nE1gYnI8Go
+         C+ByO9joBhfX3AlPU4+FO914wkLFCSzjo7HjeItx5tlBOjeF/XYGLThTyqtRuVp9Kr0m
+         pcXw==
+X-Forwarded-Encrypted: i=1; AFNElJ8srEEx0MPgPnFYEGpOClPoWvoMnh71ZQC+WbeXuYmU8961n0bje95+3qdSQ+9X8Tj4t7O6xXVf0mi6eZR7vdVB@lists.infradead.org
+X-Gm-Message-State: AOJu0YzQsu0H8cdZv7VAfK2pL7dd6UdWBjZH15EC81VrnNzh3tczOMeH
+	QZEhCaMi+Ap7pzsMyeADpDaxTv00zDZj7Y0iFdNf6qIIQRF1CJHqNCjvAqAFoOIyPjMFXoaKSwT
+	/OXINGUk4wEV3IQSGn+rnEKqV9MS+K9k=
+X-Gm-Gg: AfdE7ckUI67Azu9w9m2GjJfWdmQ572C7jAjClWkOHHDHc9RWJrbi+il147JlchaeFjj
+	RkPuBoFR+Cvp6hN3xfWJa5TSE+Duig+YuAEZm8aZourVKvGLHacYbhD2CLSrQgw1nb6AXnJyiuZ
+	0+eHJTEpbc4Axy7QeL54VxLmGv6jVMUaCALs4G+5cqeSIvwypWR0O7WJxEujOtw1gJthf+/j7qy
+	fbsYwITUuXnsv8exIHToUKftNp9B76H+5X1eJHG+EpoRvrhsAnCi6KMycRYNgb9hBkPreclLD16
+	rRwaXhkXNGz/uL/1AgiOpg7mPh1RyaVHS8is+g==
+X-Received: by 2002:a05:6a00:3cc7:b0:842:6a97:52fb with SMTP id
+ d2e1a72fcca58-845507cb50emr2639722b3a.18.1781857248942; Fri, 19 Jun 2026
+ 01:20:48 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain
+References: <20260617103235.449609-1-phucduc.bui@gmail.com>
+ <20260617103235.449609-16-phucduc.bui@gmail.com> <ajJ9rbHTspXHo6Ou@opensource.cirrus.com>
+ <20260617140209.3f89706c@pumpkin>
+In-Reply-To: <20260617140209.3f89706c@pumpkin>
+From: Bui Duc Phuc <phucduc.bui@gmail.com>
+Date: Fri, 19 Jun 2026 15:20:37 +0700
+X-Gm-Features: AVVi8Ce6D0PT5nT0JZlv3l3sVJ8JLAPJbKAWX5-seLq2FMr-NiEk00n-taoSGeE
+Message-ID: <CAABR9nG+6gOj4KnWmTyykgGN93xy6jKQh+-_f8Xxn=Jkv28vBA@mail.gmail.com>
+Subject: Re: [PATCH 15/78] ASoC: codecs: cs42l43: Use guard() for mutex locks
+To: David Laight <david.laight.linux@gmail.com>
+Cc: Charles Keepax <ckeepax@opensource.cirrus.com>, Mark Brown <broonie@kernel.org>, 
+	Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	Cheng-Yi Chiang <cychiang@chromium.org>, Tzung-Bi Shih <tzungbi@kernel.org>, 
+	Guenter Roeck <groeck@chromium.org>, Benson Leung <bleung@chromium.org>, 
+	David Rhodes <david.rhodes@cirrus.com>, Richard Fitzgerald <rf@opensource.cirrus.com>, 
+	povik+lin@cutebit.org, Support Opensource <support.opensource@diasemi.com>, 
+	Nick Li <nick.li@foursemi.com>, Herve Codina <herve.codina@bootlin.com>, 
+	Srinivas Kandagatla <srini@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>, Baojun Xu <baojun.xu@ti.com>, 
+	Sen Wang <sen@ti.com>, Oder Chiou <oder_chiou@realtek.com>, 
+	Lars-Peter Clausen <lars@metafoo.de>, nuno.sa@analog.com, 
+	Steven Eckhoff <steven.eckhoff.opensource@gmail.com>, patches@opensource.cirrus.com, 
+	chrome-platform@lists.linux.dev, asahi@lists.linux.dev, 
+	linux-arm-msm@vger.kernel.org, linux-sound@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260619_010901_068513_52F3FD74 
-X-CRM114-Status: GOOD (  11.94  )
+X-CRM114-CacheID: sfid-20260619_012049_838278_3F31E024 
+X-CRM114-Status: GOOD (  17.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,31 +131,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On ven. 19 juin 2026 at 08:48, Julian Braha <julianbraha@gmail.com> wrote:
+Hi Charles, David,
 
-> Hi Jerome,
->
-> On 6/19/26 08:29, Jerome Brunet wrote:
->> No, regmap clock are directly used so this is necessary.
->> Relying on other module dependencies is not enough
->
-> What do you mean it's "not enough"?
->
-> Functionally, any user of COMMON_CLK_MESON_DUALDIV can also use
-> COMMON_CLK_MESON_REGMAP.
+Thanks for the review.
 
-This driver directly use regmap clocks. This is a direct dependency,
-required for the build and stated as such. If the module needs it, it
-depends on it, simply.
-
-Relying on indirect dependencies is incorrect and fragile.
-If those dependencies ever change, the build breaks for no obvious reason.
-
+> >
+> > I believe you have to use scoped_guard here, as there is a return
+> > from the function above, if memory serves it attempts to release
+> > the mutex on that path despite it being above the guard.
 >
-> Unless you mean for documentation purposes?
+> Indeed.
+> I believe clang will complain.
+> That makes these mechanical conversions of existing code dangerous churn.
 >
-> - Julian Braha
+> While using guard() (etc) can make it easier to ensure the lock is released
+> when functions have multiple error exits, I'm not convinced it makes the
+> code any easier to read (other people may disagree).
+>
 
--- 
-Jerome
+I built the code with both GCC and Clang and didn't see any warnings.
+
+My understanding was that the early return exits the function before
+the guard is instantiated, so it should not affect the guard's cleanup
+handling.
+
+Could you explain what issue you are referring to? I may be missing
+something.
+
+Best regards,
+Phuc
 
