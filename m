@@ -4,66 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0070DCD98E6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 05:27:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B886BCD98F6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 05:48:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pr1B47ZDYVTNO1mucHTi/oDDeAttuidzJwZBPrU9ZaI=; b=Tpaj/PrQNtemzpibV5BmDfzqaO
-	FNFQ8NWk5udqbPTC3IAPMdkrbjyyIpsBd5MWHEUXT7noJy3INXexqrnD+gnXNnm1zXEUY7KtYWysV
-	GtVB+XlpquBJFlf8WD5YcU4JHjy5jrdqfzwLXCHRDzxGOPFT7jCW07Eklf68Zjj/iVgzSSw+IL+aQ
-	+6ea+MRNWug6sZRy2ytzzXmOmn5B574mDKqD5+zMm0PMUc++wWoFQL/jLCG/KTD4LsFQX59M3HO/t
-	I6E/L2DqDTjhkpgiea8Pot+yyJA7sRvjAj9O3Jnb85Tw9Lu3qHhdrS6SXygJ7+s7OZIzkB0a/baBs
-	C9vOO36Q==;
+	bh=Q55XUG3Ko0ecxcUOCYiIDN/X4N3ed40r7B6RThXSSPU=; b=O1dIB5J8sR5IBEWkwgx/xkgV5l
+	PCQaup3XFEW3mop54kbzwIQ2dy0cCEghEUiiWa+q+0kFZwf2zAQeYE22U1FoGzPLKZ21yjr1Wkxu3
+	E0GVm0uVvc+ZoxiAKxsUCSMib2P2YUDndrL1ueN4s1165GgK9XJtN+NOSiel1M2Qyy93aWxzmIdem
+	Ne+FwZ1h0qP+pYNoRCNxbKpEljsbNMdJuCmGQ5wnc8Ndly49KeY54zp4oBCSDPXulwGOWMCIbvliA
+	tMhj6HR0piXYToxADbqFcPCQ1ZWBzTLUXx5AOoeJ3XX2MwOGee1Bc8qA2EjRXoFM0zgi1bqcNyNwx
+	d8CrZaTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waRlM-000000020as-0rQJ;
-	Fri, 19 Jun 2026 05:27:32 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1waRFT-00000001z5G-3pUe;
+	Fri, 19 Jun 2026 04:54:35 +0000
+Received: from mail-qk1-x72d.google.com ([2607:f8b0:4864:20::72d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waRlI-000000020UG-1sVa;
-	Fri, 19 Jun 2026 05:27:30 +0000
-Received: from neptunite.hamster-moth.ts.net (unknown [IPv6:2404:7a81:160:2100:327:f131:c148:b7f8])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 3E393251C;
-	Fri, 19 Jun 2026 07:26:47 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1781846811;
-	bh=gkRGUjurZMyVodKs46qfbS1YBfsxg48y4/aGyquQHxo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=MxXmI7zB05P+O9VYq77EnhgMWXOEw4U6fflhJkV7iZAPJna4xlLgsYh2id55lw9bN
-	 Y0sLk+7gYFOBEkWc+bNrHM0AquX0O4zZ7xDX1TgMcvcSIOKH2sQQzowZ3ne6exO1Ni
-	 MouBfADGMcK/z2WYVNABFw1z8mSNAr3dpgY/6ejM=
-From: Paul Elder <paul.elder@ideasonboard.com>
-To: laurent.pinchart@ideasonboard.com
-Cc: Paul Elder <paul.elder@ideasonboard.com>,
-	michael.riesch@collabora.com,
-	xuhf@rock-chips.com,
-	stefan.klug@ideasonboard.com,
-	kieran.bingham@ideasonboard.com,
-	dan.scally@ideasonboard.com,
-	jacopo.mondi@ideasonboard.com,
-	linux-media@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	hverkuil+cisco@kernel.org,
-	nicolas.dufresne@collabora.com,
-	ribalda@chromium.org,
-	sakari.ailus@linux.intel.com
-Subject: [RFC PATCH 6/6] media: rkisp2: Implement inline mode
-Date: Fri, 19 Jun 2026 14:26:33 +0900
-Message-ID: <20260619052637.1110672-7-paul.elder@ideasonboard.com>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20260619052637.1110672-1-paul.elder@ideasonboard.com>
-References: <20260619052637.1110672-1-paul.elder@ideasonboard.com>
+	id 1waRFR-00000001z3V-2nRI
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 19 Jun 2026 04:54:34 +0000
+Received: by mail-qk1-x72d.google.com with SMTP id af79cd13be357-9157b949fc7so188962685a.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Jun 2026 21:54:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781844872; x=1782449672; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Q55XUG3Ko0ecxcUOCYiIDN/X4N3ed40r7B6RThXSSPU=;
+        b=hg0Y/1cDj3eb3WAn1ik3EJKFy84i09dLoztt1dKigoy+O+wgJV0ulzTjIV2DM5gbrV
+         zuInQMixGa/p5ThfNgYXTvdc54nhWsEcFq/EGI8S2BjDI94AHbFJkKpo1H84tMiRK8NO
+         LyV538z2T4zFCEWU+LuxpeIzI/6cs0VyfF7N7BnjOf4Fvm864gUJTRtX1gW0lSGxz2hG
+         yV8s6fdPIYO+e5hevYr8IubGcwKPoFI7M5U+VXRxZP7PUgAycRHZadRmXVgEckIT54dz
+         WCIm8DXmrzq64hjssyDBkL1VqZCMN4yoaPk0Nkvk1UPdu2GbBMqrB3Khbvqru/WJZYor
+         hR6Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781844872; x=1782449672;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=Q55XUG3Ko0ecxcUOCYiIDN/X4N3ed40r7B6RThXSSPU=;
+        b=d4JIqU82HJWeajJP0JnmZVfuPu8AgB+aAgfRIG3jCGDIHaWT1yUluk9kQwbqKs5Hfn
+         VLYTQkVL3GAJ1Xo78xefJrltszO1+Y9WgGmOrK/uwTTPRg3+ry9He3pGpp7cnTkas7M5
+         UnEUbfUzH+UaK5fXiNH09KXdCpoFpVTR33h5knx0C06/qmAmy4jQDaf7f1oyFRy3bjjZ
+         NJoPsa/zGDZo/zFGCCaV3qsX6LtOcA/LQ/EsiRWa/2MHU+eI2Pey2w4DI8KfRY2RD9wz
+         DIWFJsXyDpOSkEQRqGyc50OzOF+6BXiQuhzJ0xE5dJlzuzaJUa/Df2iAYL0JsISfxaBI
+         OOzg==
+X-Forwarded-Encrypted: i=1; AFNElJ9gbui1n3R6KLramqcy9/rBO/1735wrdcr1XYTk5U8bLS1uSMt9eh7gb+GbLHW03NM3ZDZoE9rf/jJXYfGel83s@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzm/EdvVf3PFGMR3MWI4PflwOE6sFdzv4XrGAN/kZuHQwYrjN4f
+	gyL3rZQKsATXm+lClJLJJW7VutqyR9byiLCAiVKLs3SL+nchNx7RnG9n
+X-Gm-Gg: AfdE7cnPwo42Y6JE0uBXvic0PJKPBDjkgC8xD85gxKvSq1k9mIBwQNaWIqqigteIBTm
+	u0acAmckNHSZAzyn8yBp50BqWJlpxrD/fRVIodJQ2BIUMQwnII8FbGvzzhNZbNVTVq620yAWNW1
+	9Y+2bfmS3u8dwh3vUaxOwnW+m8r9ZBtusXkhMciRbQYX+VO8j4PQmoimpogbvVvmPWi7+m5mL00
+	Q3QxQrOR0c/ydRNk8nWnp++ifBauNfS4CJg5HvK+uj4lXp/E3xSnBSn4yyrk2liMEfgoA0IhRln
+	xSuQv7NFYE7dXRB+AajoxAYUIMexmLujnChZzxXS+MUGMU2R8gONV8twh3cuTxpwKQzAJIRy5mz
+	pW31YMvJD1J1Mwd4lvgA69hqVzjCMpF2BZpzjpTJL4N+U9ClNN5dRoGVaia3efYJei2PW0kwhYB
+	avsv7bEt4QDagXUA==
+X-Received: by 2002:a05:620a:298c:b0:915:afa5:754 with SMTP id af79cd13be357-9208e982356mr322872985a.2.1781844872251;
+        Thu, 18 Jun 2026 21:54:32 -0700 (PDT)
+Received: from [172.17.0.2] ([138.28.231.64])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-920a425448asm134464485a.23.2026.06.18.21.54.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 18 Jun 2026 21:54:31 -0700 (PDT)
+From: Yuanshen Cao <alex.caoys@gmail.com>
+Date: Fri, 19 Jun 2026 04:53:32 +0000
+Subject: [PATCH 3/5] dmaengine: sun6i-dma: Add num_channels_per_reg for
+ flexible interrupt mapping
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260619-sun60i-a733-dma-v1-3-da4b649fc72a@gmail.com>
+References: <20260619-sun60i-a733-dma-v1-0-da4b649fc72a@gmail.com>
+In-Reply-To: <20260619-sun60i-a733-dma-v1-0-da4b649fc72a@gmail.com>
+To: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
+ Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Maxime Ripard <mripard@kernel.org>
+Cc: dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, Yuanshen Cao <alex.caoys@gmail.com>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260618_222728_843830_B0E442F9 
-X-CRM114-Status: GOOD (  27.06  )
+X-CRM114-CacheID: sfid-20260618_215433_735738_966BCD62 
+X-CRM114-Status: GOOD (  19.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,405 +105,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support to rkisp2 for inline mode. Switching between offline mode
-and inline mode is done by disabling/enabling the link between the
-rkisp2 and rkcif.
+The previous implementation of `sun6i-dma` had some implicit assumptions
+about the number of channels per interrupt register. Specifically,
+functions like `sun6i_kill_tasklet` were hardcoded to only disable
+interrupts for IRQ 0 and 1. `DMA_MAX_CHANNELS` is also not in used in
+the past, and the old SoCs never has more than 16 channels.
 
-As the link is on a sink pad on rkisp2-isp, rkisp2-dmarx is bypassed in
-inline mode, because the v4l2_subdev_call() on the source will go to rkcif
-instead of rkisp2-dmarx. Also DMA read only needs to be configured in
-offline mode, while in inline mode there is no configuration necessary,
-so the change to implement inline mode for rkisp2 is fairly lean.
+The A733 has a different interrupt structure where the number of
+channels per register may differ. This patch introduces
+`num_channels_per_reg` to the `sun6i_dma_config`, similar to BSP, to
+make the interrupt handling logic hardware-agnostic. It also sets
+`DMA_MAX_CHANNELS` to 16 to align with the new BSP code and ensure loops
+over interrupts are correctly bounded.
 
-Signed-off-by: Paul Elder <paul.elder@ideasonboard.com>
+Changes:
+- Change `DMA_MAX_CHANNELS` definition to 16.
+- Added `num_channels_per_reg` to `struct sun6i_dma_config`.
+- Replaced hardcoded IRQ register calculations with values from
+  `sdev->cfg->num_channels_per_reg`.
+- Updated `sun6i_kill_tasklet` to loop through all possible interrupt
+  registers based on `DMA_MAX_CHANNELS` and the configuration.
 
+Signed-off-by: Yuanshen Cao <alex.caoys@gmail.com>
 ---
-Although this patch is meant to serve as an example of how one might
-implement inline mode, I think the actual implementation may very well
-resemble this. The API for switching between inline mode and offline
-is likely to be heavily debated, though that is not a topic for this
-series.
+ drivers/dma/sun6i-dma.c | 25 ++++++++++++++++++-------
+ 1 file changed, 18 insertions(+), 7 deletions(-)
 
-Despite it being "just an example", it has been tested and
-captures properly, including loading rkcif and rkisp2 in differing
-orders, and swapping between offline mode and inline mode (though
-capturing in the wrong mode is still a bit problematic).
-
-The shared media graph that was added in an earlier patch has made
-media graph manipulation trivial.
----
- .../platform/rockchip/rkisp2/rkisp2-common.h  |   3 +-
- .../platform/rockchip/rkisp2/rkisp2-dev.c     |   6 +-
- .../platform/rockchip/rkisp2/rkisp2-isp.c     | 155 ++++++++++++++----
- 3 files changed, 124 insertions(+), 40 deletions(-)
-
-diff --git a/drivers/media/platform/rockchip/rkisp2/rkisp2-common.h b/drivers/media/platform/rockchip/rkisp2/rkisp2-common.h
-index ecf0f5e22064..91ccb84b5a7a 100644
---- a/drivers/media/platform/rockchip/rkisp2/rkisp2-common.h
-+++ b/drivers/media/platform/rockchip/rkisp2/rkisp2-common.h
-@@ -88,10 +88,11 @@ enum rkisp2_fmt_raw_pat_type {
+diff --git a/drivers/dma/sun6i-dma.c b/drivers/dma/sun6i-dma.c
+index 059455425e19..fb1c1a28744b 100644
+--- a/drivers/dma/sun6i-dma.c
++++ b/drivers/dma/sun6i-dma.c
+@@ -41,7 +41,7 @@
+ #define DMA_STAT		0x30
  
- /* enum for the isp pads */
- enum rkisp2_isp_pad {
--	RKISP2_ISP_PAD_SINK_VIDEO,
-+	RKISP2_ISP_PAD_SINK_VIDEO_DMA,
- 	RKISP2_ISP_PAD_SINK_PARAMS,
- 	RKISP2_ISP_PAD_SOURCE_VIDEO,
- 	RKISP2_ISP_PAD_SOURCE_STATS,
-+	RKISP2_ISP_PAD_SINK_VIDEO_CIF,
- 	RKISP2_ISP_PAD_MAX
+ /* Offset between DMA_IRQ_EN and DMA_IRQ_STAT limits number of channels */
+-#define DMA_MAX_CHANNELS	(DMA_IRQ_CHAN_NR * 0x10 / 4)
++#define DMA_MAX_CHANNELS	16
+ 
+ /*
+  * sun8i specific registers
+@@ -151,6 +151,7 @@ struct sun6i_dma_config {
+ 	u32 src_addr_widths;
+ 	u32 dst_addr_widths;
+ 	bool has_mbus_clk;
++	u32 num_channels_per_reg;
  };
  
-diff --git a/drivers/media/platform/rockchip/rkisp2/rkisp2-dev.c b/drivers/media/platform/rockchip/rkisp2/rkisp2-dev.c
-index f74b7aae3159..2b6b7ee31f1d 100644
---- a/drivers/media/platform/rockchip/rkisp2/rkisp2-dev.c
-+++ b/drivers/media/platform/rockchip/rkisp2/rkisp2-dev.c
-@@ -117,12 +117,12 @@ static int rkisp2_create_links(struct rkisp2_device *rkisp2)
- 		if (i == RKISP2_RAWRD0) {
- 			ret = media_create_pad_link(
- 				source, 0, &rkisp2->isp.sd.entity,
--				RKISP2_ISP_PAD_SINK_VIDEO,
-+				RKISP2_ISP_PAD_SINK_VIDEO_DMA,
- 				MEDIA_LNK_FL_ENABLED);
- 		} else {
- 			ret = media_create_pad_link(source, 0,
- 						    &rkisp2->isp.sd.entity,
--						    RKISP2_ISP_PAD_SINK_VIDEO,
-+						    RKISP2_ISP_PAD_SINK_VIDEO_DMA,
- 						    0);
- 		}
+ /*
+@@ -481,8 +482,8 @@ static int sun6i_dma_start_desc(struct sun6i_vchan *vchan)
  
-@@ -150,7 +150,7 @@ static int rkisp2_create_links(struct rkisp2_device *rkisp2)
+ 	sun6i_dma_dump_lli(vchan, pchan->desc->v_lli, pchan->desc->p_lli);
  
- 	ret = media_device_shared_join_link_sink(rkisp2->media_dev, rkisp2->dev,
- 						 &rkisp2->isp.sd.entity,
--						 RKISP2_ISP_PAD_SINK_VIDEO, 0);
-+						 RKISP2_ISP_PAD_SINK_VIDEO_CIF, 0);
- 	if (ret)
- 		return ret;
+-	irq_reg = pchan->idx / DMA_IRQ_CHAN_NR;
+-	irq_offset = pchan->idx % DMA_IRQ_CHAN_NR;
++	irq_reg = pchan->idx / sdev->cfg->num_channels_per_reg;
++	irq_offset = pchan->idx % sdev->cfg->num_channels_per_reg;
  
-diff --git a/drivers/media/platform/rockchip/rkisp2/rkisp2-isp.c b/drivers/media/platform/rockchip/rkisp2/rkisp2-isp.c
-index 36c1aeed272f..9be5fb4cbd14 100644
---- a/drivers/media/platform/rockchip/rkisp2/rkisp2-isp.c
-+++ b/drivers/media/platform/rockchip/rkisp2/rkisp2-isp.c
-@@ -24,6 +24,27 @@
+ 	vchan->irq_type = vchan->cyclic ? DMA_IRQ_PKG : DMA_IRQ_QUEUE;
  
- #define RKISP2_ISP_DEV_NAME	RKISP2_DRIVER_NAME "_isp"
+@@ -574,7 +575,7 @@ static irqreturn_t sun6i_dma_interrupt(int irq, void *dev_id)
+ 	int i, j, ret = IRQ_NONE;
+ 	u32 status;
  
-+static u16 rkisp2_isp_get_active_sink_pad(struct rkisp2_isp *isp)
-+{
-+	struct media_entity *entity = &isp->sd.entity;
-+	struct media_link *link;
-+
-+	list_for_each_entry(link, &entity->links, list) {
-+		if (link->sink->entity != entity ||
-+		    (link->sink->index != RKISP2_ISP_PAD_SINK_VIDEO_DMA &&
-+		     link->sink->index != RKISP2_ISP_PAD_SINK_VIDEO_CIF))
-+			continue;
-+
-+		if (link->flags & MEDIA_LNK_FL_ENABLED) {
-+			dev_dbg(isp->rkisp2->dev, "%s: active link is %d\n",
-+				__func__, link->sink->index);
-+			return link->sink->index;
-+		}
-+	}
-+
-+	/* Default to DMA if neither link is active */
-+	return RKISP2_ISP_PAD_SINK_VIDEO_DMA;
-+}
+-	for (i = 0; i < sdev->num_pchans / DMA_IRQ_CHAN_NR; i++) {
++	for (i = 0; i < sdev->num_pchans / sdev->cfg->num_channels_per_reg; i++) {
+ 		status = sdev->cfg->read_irq_stat(sdev, i);
+ 		if (!status)
+ 			continue;
+@@ -584,7 +585,7 @@ static irqreturn_t sun6i_dma_interrupt(int irq, void *dev_id)
  
- /* ----------------------------------------------------------------------------
-  * Camera Interface registers configurations
-@@ -70,9 +91,9 @@ static int rkisp2_config_isp(struct rkisp2_isp *isp,
- 	const struct v4l2_rect *sink_crop;
+ 		sdev->cfg->write_irq_stat(sdev, i, status);
  
- 	sink_frm = v4l2_subdev_state_get_format(sd_state,
--						RKISP2_ISP_PAD_SINK_VIDEO);
-+						rkisp2_isp_get_active_sink_pad(isp));
- 	sink_crop = v4l2_subdev_state_get_crop(sd_state,
--					       RKISP2_ISP_PAD_SINK_VIDEO);
-+					       rkisp2_isp_get_active_sink_pad(isp));
- 	src_frm = v4l2_subdev_state_get_format(sd_state,
- 					       RKISP2_ISP_PAD_SOURCE_VIDEO);
+-		for (j = 0; (j < DMA_IRQ_CHAN_NR) && status; j++) {
++		for (j = 0; (j < sdev->cfg->num_channels_per_reg) && status; j++) {
+ 			pchan = sdev->pchans + j;
+ 			vchan = pchan->vchan;
+ 			if (vchan && (status & vchan->irq_type)) {
+@@ -1108,9 +1109,11 @@ static struct dma_chan *sun6i_dma_of_xlate(struct of_phandle_args *dma_spec,
  
-@@ -116,6 +137,12 @@ static int rkisp2_config_isp(struct rkisp2_isp *isp,
- 	rkisp2_write(rkisp2, RKISP2_CIF_ISP_OUT_H_SIZE, sink_crop->width);
- 	rkisp2_write(rkisp2, RKISP2_CIF_ISP_OUT_V_SIZE, sink_crop->height);
- 
-+	/*
-+	 * I think we don't need to configure cif source here because it seems
-+	 * like offline mode needs to explicitly configure CSI2RX in offline
-+	 * mode, but the default (all zero) is inline mode
-+	 */
-+
- 	irq_mask |= RKISP2_CIF_ISP_FRAME | RKISP2_CIF_ISP_V_START |
- 		    RKISP2_CIF_ISP_PIC_SIZE_ERROR;
- 	rkisp2_write(rkisp2, RKISP2_CIF_ISP_IMSC, irq_mask);
-@@ -273,7 +300,8 @@ static int rkisp2_isp_enum_mbus_code(struct v4l2_subdev *sd,
- 	unsigned int i, dir;
- 	int pos = 0;
- 
--	if (code->pad == RKISP2_ISP_PAD_SINK_VIDEO) {
-+	if (code->pad == RKISP2_ISP_PAD_SINK_VIDEO_DMA ||
-+	    code->pad == RKISP2_ISP_PAD_SINK_VIDEO_CIF) {
- 		dir = RKISP2_ISP_SD_SINK;
- 	} else if (code->pad == RKISP2_ISP_PAD_SOURCE_VIDEO) {
- 		dir = RKISP2_ISP_SD_SRC;
-@@ -322,7 +350,8 @@ static int rkisp2_isp_enum_frame_size(struct v4l2_subdev *sd,
- 		return -EINVAL;
- 
- 	if (!(mbus_info->direction & RKISP2_ISP_SD_SINK) &&
--	    fse->pad == RKISP2_ISP_PAD_SINK_VIDEO)
-+	     (fse->pad == RKISP2_ISP_PAD_SINK_VIDEO_DMA ||
-+	      fse->pad == RKISP2_ISP_PAD_SINK_VIDEO_CIF))
- 		return -EINVAL;
- 
- 	if (!(mbus_info->direction & RKISP2_ISP_SD_SRC) &&
-@@ -337,15 +366,14 @@ static int rkisp2_isp_enum_frame_size(struct v4l2_subdev *sd,
- 	return 0;
- }
- 
--static int rkisp2_isp_init_state(struct v4l2_subdev *sd,
--				 struct v4l2_subdev_state *sd_state)
-+static void rkisp2_isp_init_state_sink(struct v4l2_subdev_state *sd_state,
-+				       u16 pad)
+ static inline void sun6i_kill_tasklet(struct sun6i_dma_dev *sdev)
  {
--	struct v4l2_mbus_framefmt *sink_fmt, *src_fmt;
--	struct v4l2_rect *sink_crop, *src_crop;
-+	struct v4l2_mbus_framefmt *sink_fmt;
-+	struct v4l2_rect *sink_crop;
++	int i;
 +
-+	sink_fmt = v4l2_subdev_state_get_format(sd_state, pad);
+ 	/* Disable all interrupts from DMA */
+-	writel(0, sdev->base + DMA_IRQ_EN(0));
+-	writel(0, sdev->base + DMA_IRQ_EN(1));
++	for (i = 0; i < DMA_MAX_CHANNELS / sdev->cfg->num_channels_per_reg; i++)
++		sdev->cfg->write_irq_en(sdev, i, 0);
  
--	/* Video. */
--	sink_fmt = v4l2_subdev_state_get_format(sd_state,
--						RKISP2_ISP_PAD_SINK_VIDEO);
- 	sink_fmt->width = RKISP2_DEFAULT_WIDTH;
- 	sink_fmt->height = RKISP2_DEFAULT_HEIGHT;
- 	sink_fmt->field = V4L2_FIELD_NONE;
-@@ -355,13 +383,27 @@ static int rkisp2_isp_init_state(struct v4l2_subdev *sd,
- 	sink_fmt->ycbcr_enc = V4L2_YCBCR_ENC_601;
- 	sink_fmt->quantization = V4L2_QUANTIZATION_FULL_RANGE;
- 
--	sink_crop = v4l2_subdev_state_get_crop(sd_state,
--					       RKISP2_ISP_PAD_SINK_VIDEO);
-+	sink_crop = v4l2_subdev_state_get_crop(sd_state, pad);
- 	sink_crop->width = RKISP2_DEFAULT_WIDTH;
- 	sink_crop->height = RKISP2_DEFAULT_HEIGHT;
- 	sink_crop->left = 0;
- 	sink_crop->top = 0;
-+}
-+
-+static int rkisp2_isp_init_state(struct v4l2_subdev *sd,
-+				 struct v4l2_subdev_state *sd_state)
-+{
-+	struct v4l2_mbus_framefmt *sink_fmt, *src_fmt;
-+	struct v4l2_rect *sink_crop, *src_crop;
-+
-+	/* Video. */
-+	rkisp2_isp_init_state_sink(sd_state, RKISP2_ISP_PAD_SINK_VIDEO_DMA);
-+	rkisp2_isp_init_state_sink(sd_state, RKISP2_ISP_PAD_SINK_VIDEO_CIF);
- 
-+	sink_fmt = v4l2_subdev_state_get_format(sd_state,
-+						RKISP2_ISP_PAD_SINK_VIDEO_DMA);
-+	sink_crop = v4l2_subdev_state_get_crop(sd_state,
-+					       RKISP2_ISP_PAD_SINK_VIDEO_DMA);
- 	src_fmt = v4l2_subdev_state_get_format(sd_state,
- 					       RKISP2_ISP_PAD_SOURCE_VIDEO);
- 	*src_fmt = *sink_fmt;
-@@ -390,7 +432,7 @@ static void rkisp2_isp_set_src_fmt(struct rkisp2_isp *isp,
- 	bool set_csc;
- 
- 	sink_fmt = v4l2_subdev_state_get_format(sd_state,
--						RKISP2_ISP_PAD_SINK_VIDEO);
-+						rkisp2_isp_get_active_sink_pad(isp));
- 	src_fmt = v4l2_subdev_state_get_format(sd_state,
- 					       RKISP2_ISP_PAD_SOURCE_VIDEO);
- 	src_crop = v4l2_subdev_state_get_crop(sd_state,
-@@ -490,7 +532,7 @@ static void rkisp2_isp_set_src_crop(struct rkisp2_isp *isp,
- 	src_crop = v4l2_subdev_state_get_crop(sd_state,
- 					      RKISP2_ISP_PAD_SOURCE_VIDEO);
- 	sink_crop = v4l2_subdev_state_get_crop(sd_state,
--					       RKISP2_ISP_PAD_SINK_VIDEO);
-+					       rkisp2_isp_get_active_sink_pad(isp));
- 
- 	src_crop->left = ALIGN(r->left, 2);
- 	src_crop->width = ALIGN(r->width, 2);
-@@ -508,15 +550,13 @@ static void rkisp2_isp_set_src_crop(struct rkisp2_isp *isp,
- 
- static void rkisp2_isp_set_sink_crop(struct rkisp2_isp *isp,
- 				     struct v4l2_subdev_state *sd_state,
--				     struct v4l2_rect *r)
-+				     struct v4l2_rect *r, u16 pad)
- {
- 	struct v4l2_rect *sink_crop, *src_crop;
- 	const struct v4l2_mbus_framefmt *sink_fmt;
- 
--	sink_crop = v4l2_subdev_state_get_crop(sd_state,
--					       RKISP2_ISP_PAD_SINK_VIDEO);
--	sink_fmt = v4l2_subdev_state_get_format(sd_state,
--						RKISP2_ISP_PAD_SINK_VIDEO);
-+	sink_crop = v4l2_subdev_state_get_crop(sd_state, pad);
-+	sink_fmt = v4l2_subdev_state_get_format(sd_state, pad);
- 
- 	sink_crop->left = ALIGN(r->left, 2);
- 	sink_crop->width = ALIGN(r->width, 2);
-@@ -534,15 +574,14 @@ static void rkisp2_isp_set_sink_crop(struct rkisp2_isp *isp,
- 
- static void rkisp2_isp_set_sink_fmt(struct rkisp2_isp *isp,
- 				    struct v4l2_subdev_state *sd_state,
--				    struct v4l2_mbus_framefmt *format)
-+				    struct v4l2_mbus_framefmt *format, u16 pad)
- {
- 	const struct rkisp2_mbus_info *mbus_info;
- 	struct v4l2_mbus_framefmt *sink_fmt;
- 	struct v4l2_rect *sink_crop;
- 	bool is_yuv;
- 
--	sink_fmt = v4l2_subdev_state_get_format(sd_state,
--						RKISP2_ISP_PAD_SINK_VIDEO);
-+	sink_fmt = v4l2_subdev_state_get_format(sd_state, pad);
- 	sink_fmt->code = format->code;
- 	mbus_info = rkisp2_mbus_info_get_by_code(sink_fmt->code);
- 	if (!mbus_info || !(mbus_info->direction & RKISP2_ISP_SD_SINK)) {
-@@ -590,9 +629,8 @@ static void rkisp2_isp_set_sink_fmt(struct rkisp2_isp *isp,
- 	*format = *sink_fmt;
- 
- 	/* Propagate to in crop */
--	sink_crop = v4l2_subdev_state_get_crop(sd_state,
--					       RKISP2_ISP_PAD_SINK_VIDEO);
--	rkisp2_isp_set_sink_crop(isp, sd_state, sink_crop);
-+	sink_crop = v4l2_subdev_state_get_crop(sd_state, pad);
-+	rkisp2_isp_set_sink_crop(isp, sd_state, sink_crop, pad);
- }
- 
- static int rkisp2_isp_set_fmt(struct v4l2_subdev *sd,
-@@ -601,8 +639,9 @@ static int rkisp2_isp_set_fmt(struct v4l2_subdev *sd,
- {
- 	struct rkisp2_isp *isp = to_rkisp2_isp(sd);
- 
--	if (fmt->pad == RKISP2_ISP_PAD_SINK_VIDEO)
--		rkisp2_isp_set_sink_fmt(isp, sd_state, &fmt->format);
-+	if (fmt->pad == RKISP2_ISP_PAD_SINK_VIDEO_DMA ||
-+	    fmt->pad == RKISP2_ISP_PAD_SINK_VIDEO_CIF)
-+		rkisp2_isp_set_sink_fmt(isp, sd_state, &fmt->format, fmt->pad);
- 	else if (fmt->pad == RKISP2_ISP_PAD_SOURCE_VIDEO)
- 		rkisp2_isp_set_src_fmt(isp, sd_state, &fmt->format);
- 	else
-@@ -619,12 +658,14 @@ static int rkisp2_isp_get_selection(struct v4l2_subdev *sd,
- 	int ret = 0;
- 
- 	if (sel->pad != RKISP2_ISP_PAD_SOURCE_VIDEO &&
--	    sel->pad != RKISP2_ISP_PAD_SINK_VIDEO)
-+	    sel->pad != RKISP2_ISP_PAD_SINK_VIDEO_DMA &&
-+	    sel->pad != RKISP2_ISP_PAD_SINK_VIDEO_CIF)
- 		return -EINVAL;
- 
- 	switch (sel->target) {
- 	case V4L2_SEL_TGT_CROP_BOUNDS:
--		if (sel->pad == RKISP2_ISP_PAD_SINK_VIDEO) {
-+		if (sel->pad == RKISP2_ISP_PAD_SINK_VIDEO_DMA ||
-+		    sel->pad == RKISP2_ISP_PAD_SINK_VIDEO_CIF) {
- 			struct v4l2_mbus_framefmt *fmt;
- 
- 			fmt = v4l2_subdev_state_get_format(sd_state, sel->pad);
-@@ -634,7 +675,7 @@ static int rkisp2_isp_get_selection(struct v4l2_subdev *sd,
- 			sel->r.top = 0;
- 		} else {
- 			sel->r = *v4l2_subdev_state_get_crop(sd_state,
--							     RKISP2_ISP_PAD_SINK_VIDEO);
-+							     RKISP2_ISP_PAD_SINK_VIDEO_DMA);
- 		}
- 		break;
- 
-@@ -663,8 +704,9 @@ static int rkisp2_isp_set_selection(struct v4l2_subdev *sd,
- 	dev_dbg(isp->rkisp2->dev, "%s: pad: %d sel(%d,%d)/%ux%u\n", __func__,
- 		sel->pad, sel->r.left, sel->r.top, sel->r.width, sel->r.height);
- 
--	if (sel->pad == RKISP2_ISP_PAD_SINK_VIDEO)
--		rkisp2_isp_set_sink_crop(isp, sd_state, &sel->r);
-+	if (sel->pad == RKISP2_ISP_PAD_SINK_VIDEO_DMA ||
-+	    sel->pad == RKISP2_ISP_PAD_SINK_VIDEO_CIF)
-+		rkisp2_isp_set_sink_crop(isp, sd_state, &sel->r, sel->pad);
- 	else if (sel->pad == RKISP2_ISP_PAD_SOURCE_VIDEO)
- 		rkisp2_isp_set_src_crop(isp, sd_state, &sel->r);
- 	else
-@@ -678,6 +720,46 @@ static int rkisp2_subdev_link_validate(struct media_link *link)
- 	return v4l2_subdev_link_validate(link);
- }
- 
-+static int rkisp2_subdev_link_setup(struct media_entity *entity,
-+				    const struct media_pad *local_pad,
-+				    const struct media_pad *remote_pad, u32 flags)
-+{
-+	struct v4l2_subdev *sd = media_entity_to_v4l2_subdev(entity);
-+	struct rkisp2_isp *isp = to_rkisp2_isp(sd);
-+	struct media_link *link;
-+	u16 other_sink_pad_index; 
-+
-+	dev_dbg(isp->rkisp2->dev, "link setup %s -> %s\n", remote_pad->entity->name,
-+		local_pad->entity->name);
-+
-+	/* We only care about links being created on a sink pad */
-+	if (!(flags & MEDIA_LNK_FL_ENABLED) ||
-+	    !(local_pad->flags & MEDIA_PAD_FL_SINK) ||
-+	    (local_pad->index != RKISP2_ISP_PAD_SINK_VIDEO_DMA &&
-+	     local_pad->index != RKISP2_ISP_PAD_SINK_VIDEO_CIF))
-+		return 0;
-+
-+	other_sink_pad_index =
-+		local_pad->index == RKISP2_ISP_PAD_SINK_VIDEO_DMA ?
-+				    RKISP2_ISP_PAD_SINK_VIDEO_CIF :
-+				    RKISP2_ISP_PAD_SINK_VIDEO_DMA;
-+
-+	list_for_each_entry(link, &entity->links, list) {
-+		if (link->sink->entity != local_pad->entity ||
-+		    link->sink->index != other_sink_pad_index)
-+			continue;
-+
-+		/*
-+		 * If we are trying to enable DMA sink pad but the CIF
-+		 * sink pad (and vice versa) has an enabled link then return
-+		 * error
-+		 */
-+		return link->flags & MEDIA_LNK_FL_ENABLED ? -EBUSY : 0;
-+	}
-+
-+	return 0;
-+}
-+
- static const struct v4l2_subdev_pad_ops rkisp2_isp_pad_ops = {
- 	.enum_mbus_code = rkisp2_isp_enum_mbus_code,
- 	.enum_frame_size = rkisp2_isp_enum_frame_size,
-@@ -709,7 +791,7 @@ static int rkisp2_isp_s_stream(struct v4l2_subdev *sd, int enable)
- 		return 0;
- 	}
- 
--	sink_pad = &isp->pads[RKISP2_ISP_PAD_SINK_VIDEO];
-+	sink_pad = &isp->pads[rkisp2_isp_get_active_sink_pad(isp)];
- 	source_pad = media_pad_remote_pad_unique(sink_pad);
- 	if (IS_ERR(source_pad)) {
- 		dev_dbg(rkisp2->dev, "Failed to get source for ISP: %ld\n",
-@@ -769,6 +851,7 @@ static int rkisp2_isp_subs_evt(struct v4l2_subdev *sd, struct v4l2_fh *fh,
- 
- static const struct media_entity_operations rkisp2_isp_media_ops = {
- 	.link_validate = rkisp2_subdev_link_validate,
-+	.link_setup = rkisp2_subdev_link_setup,
+ 	/* Prevent spurious interrupts from scheduling the tasklet */
+ 	atomic_inc(&sdev->tasklet_shutdown);
+@@ -1171,6 +1174,7 @@ static struct sun6i_dma_config sun6i_a31_dma_cfg = {
+ 	.dst_addr_widths   = BIT(DMA_SLAVE_BUSWIDTH_1_BYTE) |
+ 			     BIT(DMA_SLAVE_BUSWIDTH_2_BYTES) |
+ 			     BIT(DMA_SLAVE_BUSWIDTH_4_BYTES),
++	.num_channels_per_reg = DMA_IRQ_CHAN_NR,
  };
  
- static const struct v4l2_subdev_video_ops rkisp2_isp_video_ops = {
-@@ -808,8 +891,8 @@ int rkisp2_isp_register(struct rkisp2_device *rkisp2)
- 	sd->owner = THIS_MODULE;
- 	strscpy(sd->name, RKISP2_ISP_DEV_NAME, sizeof(sd->name));
+ /*
+@@ -1200,6 +1204,7 @@ static struct sun6i_dma_config sun8i_a23_dma_cfg = {
+ 	.dst_addr_widths   = BIT(DMA_SLAVE_BUSWIDTH_1_BYTE) |
+ 			     BIT(DMA_SLAVE_BUSWIDTH_2_BYTES) |
+ 			     BIT(DMA_SLAVE_BUSWIDTH_4_BYTES),
++	.num_channels_per_reg = DMA_IRQ_CHAN_NR,
+ };
  
--	pads[RKISP2_ISP_PAD_SINK_VIDEO].flags = MEDIA_PAD_FL_SINK |
--						MEDIA_PAD_FL_MUST_CONNECT;
-+	pads[RKISP2_ISP_PAD_SINK_VIDEO_DMA].flags = MEDIA_PAD_FL_SINK;
-+	pads[RKISP2_ISP_PAD_SINK_VIDEO_CIF].flags = MEDIA_PAD_FL_SINK;
- 	pads[RKISP2_ISP_PAD_SINK_PARAMS].flags = MEDIA_PAD_FL_SINK;
- 	pads[RKISP2_ISP_PAD_SOURCE_VIDEO].flags = MEDIA_PAD_FL_SOURCE;
- 	pads[RKISP2_ISP_PAD_SOURCE_STATS].flags = MEDIA_PAD_FL_SOURCE;
+ static struct sun6i_dma_config sun8i_a83t_dma_cfg = {
+@@ -1224,6 +1229,7 @@ static struct sun6i_dma_config sun8i_a83t_dma_cfg = {
+ 	.dst_addr_widths   = BIT(DMA_SLAVE_BUSWIDTH_1_BYTE) |
+ 			     BIT(DMA_SLAVE_BUSWIDTH_2_BYTES) |
+ 			     BIT(DMA_SLAVE_BUSWIDTH_4_BYTES),
++	.num_channels_per_reg = DMA_IRQ_CHAN_NR,
+ };
+ 
+ /*
+@@ -1257,6 +1263,7 @@ static struct sun6i_dma_config sun8i_h3_dma_cfg = {
+ 			     BIT(DMA_SLAVE_BUSWIDTH_2_BYTES) |
+ 			     BIT(DMA_SLAVE_BUSWIDTH_4_BYTES) |
+ 			     BIT(DMA_SLAVE_BUSWIDTH_8_BYTES),
++	.num_channels_per_reg = DMA_IRQ_CHAN_NR,
+ };
+ 
+ /*
+@@ -1284,6 +1291,7 @@ static struct sun6i_dma_config sun50i_a64_dma_cfg = {
+ 			     BIT(DMA_SLAVE_BUSWIDTH_2_BYTES) |
+ 			     BIT(DMA_SLAVE_BUSWIDTH_4_BYTES) |
+ 			     BIT(DMA_SLAVE_BUSWIDTH_8_BYTES),
++	.num_channels_per_reg = DMA_IRQ_CHAN_NR,
+ };
+ 
+ /*
+@@ -1311,6 +1319,7 @@ static struct sun6i_dma_config sun50i_a100_dma_cfg = {
+ 			     BIT(DMA_SLAVE_BUSWIDTH_2_BYTES) |
+ 			     BIT(DMA_SLAVE_BUSWIDTH_4_BYTES) |
+ 			     BIT(DMA_SLAVE_BUSWIDTH_8_BYTES),
++	.num_channels_per_reg = DMA_IRQ_CHAN_NR,
+ 	.has_mbus_clk = true,
+ };
+ 
+@@ -1339,6 +1348,7 @@ static struct sun6i_dma_config sun50i_h6_dma_cfg = {
+ 			     BIT(DMA_SLAVE_BUSWIDTH_2_BYTES) |
+ 			     BIT(DMA_SLAVE_BUSWIDTH_4_BYTES) |
+ 			     BIT(DMA_SLAVE_BUSWIDTH_8_BYTES),
++	.num_channels_per_reg = DMA_IRQ_CHAN_NR,
+ 	.has_mbus_clk = true,
+ };
+ 
+@@ -1369,6 +1379,7 @@ static struct sun6i_dma_config sun8i_v3s_dma_cfg = {
+ 	.dst_addr_widths   = BIT(DMA_SLAVE_BUSWIDTH_1_BYTE) |
+ 			     BIT(DMA_SLAVE_BUSWIDTH_2_BYTES) |
+ 			     BIT(DMA_SLAVE_BUSWIDTH_4_BYTES),
++	.num_channels_per_reg = DMA_IRQ_CHAN_NR,
+ };
+ 
+ static const struct of_device_id sun6i_dma_match[] = {
+
 -- 
-2.47.2
+2.54.0
 
 
