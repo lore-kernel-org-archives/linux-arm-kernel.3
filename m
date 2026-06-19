@@ -4,72 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A53B9CD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 19:52:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB9A5CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 20:01:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jFbJaXWwIsRqXcz6nmiZlI6mm/dyIqaatsWv+mX0WuQ=; b=30xwJg5NxbihJHHsFO3UO6j1rf
-	RBqAY8stejJ/fFVUTBvgWSX3FO9R32x16Qgc2+mVhdGrL9UBZswSNYI4TC7eRMl7Q+qCqIA4zVUT2
-	5rVc9G8dv6bjgbsZ0XcSWCDjWG7UJDXGQIgce1OKnIv+sqb1oKAW6F0D3Hwps59AFlJFbhmAJ/l/A
-	p2BNJROb/ypAraiU4DpJrG9zknNRP9MX211TMxPBqhn5qm1eyi2qldFQXQufcFqcrZs0fL083aT6g
-	lXPJ5W36uyavRieeG9e9Jwr09gp3OM6DD8sA5EJvp6Ov6LlrrPhihqHjwFPoco5nYFzQjFYAcxAP/
-	kLPLssjA==;
+	bh=VMizGUh+POPbF7otugfIKTfkSOnb6axk8qMjbvMG90U=; b=DbnKHp/u6RtXD2WTDU7TEbw5nR
+	v1344dOOfoQX15vVTCIoT1DbFCDeMrtUT9iqDRmGlEXUWAjoE30xUSzD36g4z66CZr4XlNDENt9z7
+	F1tqRrzp9cvmVWH0TkUnO7KVOTuoWcvMHVT3rUj3lyX+G0Qh8kkSdyp8LPm9m+bUFxsFb2TwNItBj
+	gkyxcz4WOtT/7TtcOi9P6Qvg60i6D8iyydWVz6RhNQ9Rlc9crVRVqKNHOIVTYqaoStHqSFebCZZRU
+	Vv8pu33mWcqDWA6xEVTTsEeMrfatortwKJiwkPb3n4lLCpAU0sLFLBh/C/vCjLQKjAj55sxjDZuVX
+	KFUXwrfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wafGD-00000002vy7-2dpN;
-	Fri, 19 Jun 2026 19:52:17 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1waePz-00000002tfV-3yyb;
+	Fri, 19 Jun 2026 18:58:19 +0000
+Received: from mail-qk1-x734.google.com ([2607:f8b0:4864:20::734])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wafGA-00000002vxn-3FOB
+	id 1waePx-00000002tf7-0rJR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Jun 2026 19:52:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1781898731;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=jFbJaXWwIsRqXcz6nmiZlI6mm/dyIqaatsWv+mX0WuQ=;
-	b=UuuExTSJZBAOYVQxtQEzcKSLcahASqGU3qffOPgfoZ3mCADvJVIPtaHrWrKeq67ye6zL8o
-	su3g5yD5qdxMvfx8pp3qwSIhxX7J1Fwke7Jx07bqcXlPo+Gi1jun83etBq/uWg0jBGZksB
-	jG0Ff16639ROimULzxSv5nYrgdhScgQ=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-230-E56N6WpqM_OcSeC8czqd0g-1; Fri,
- 19 Jun 2026 15:52:08 -0400
-X-MC-Unique: E56N6WpqM_OcSeC8czqd0g-1
-X-Mimecast-MFC-AGG-ID: E56N6WpqM_OcSeC8czqd0g_1781898727
-Received: from mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.95])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 5F8BD195604D;
-	Fri, 19 Jun 2026 19:52:07 +0000 (UTC)
-Received: from [172.20.107.180] (unknown [10.30.44.89])
-	by mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 801E8414;
-	Fri, 19 Jun 2026 19:52:05 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4p2M?= FAIL: Test report for for-kernelci (7.1.0-rc7,
- upstream-arm-next, 92e3f6ef)
-Date: Fri, 19 Jun 2026 19:52:05 -0000
-To: will@kernel.org, catalin.marinas@arm.com,
- linux-arm-kernel@lists.infradead.org, fs-test@redhat.com
+	Fri, 19 Jun 2026 18:58:18 +0000
+Received: by mail-qk1-x734.google.com with SMTP id af79cd13be357-91587626a3eso276146285a.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 11:58:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781895496; x=1782500296; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=VMizGUh+POPbF7otugfIKTfkSOnb6axk8qMjbvMG90U=;
+        b=k3VbAGmG43t1AS8eoFfeDYL9P0J/jONiYxxRz2SJcWOMh4AYIqv6qobH9Bz+4t4kZq
+         gKZaeo61IUtS711HICBlxyEgav4jhYtJesHOB0hWCkODiZ5521xu7oCGJfDccDUZSYYJ
+         fkwe7AkUOi/+Rze5By7AOB8IzeUwlcGgZYFQVyRhUt+kucWtmM+E0iwHqsA2dezVlClD
+         dgwwTi9Esv+4w707+SuNMF0AsOlamLsXQOM/2BOAq56fXe8nAhkci3DfOn+CqDgsoBeA
+         oC9kioLWCcIWXvPyk2Jivnt/1QobkCineEPeVQSbG3YNaoKTfjbbZKutPrZNnSaSAiQ+
+         IuoQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781895496; x=1782500296;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=VMizGUh+POPbF7otugfIKTfkSOnb6axk8qMjbvMG90U=;
+        b=cVsqmflMWv5JPUtG2zx5ykHwcmPGIC0D2muFv//jShnrRHjI0BAJaP5PmWxo9kAoiR
+         5DH2BAAElEA8RzVFBVAZbQTKLRJ9l6XKlOGuOdbSgeTEaGG/2QKLg9xECCQ83prff9rX
+         w/nDH0oAbkAJTDL3O8JwNG3RfVictNtf46I4+WBaVhB2Ecxkwz3I31xJF9I1l3+RNp0w
+         Al99J5SEGiuHdPQbpGjV43PXJAQOHSbG0jMZ/m18cTIhoxCH0BpGbraGigguqh/0awKu
+         BH+M8VGbo9QGhG/Hv0I7NxS/cpoBTybdlRPfMVgiYhagWc6y8PwqHqNia/8Gv8bgWYkI
+         Tlgg==
+X-Gm-Message-State: AOJu0YyS8cB/TspUnIyZep9yu6O6QyTCX3gDRn6QgYsuXuQrMavd8Nnj
+	TqzwFqXGPYCpelz/xp3xypuR18/JOb5tZn+2TmxD+qoZ6v15Nh9C23fv
+X-Gm-Gg: AfdE7clNiLBJ45e++mlZEX2M08Gv+vmj1gXwMcVO0cgZSrPvaUbqq7o3bMvzDeQ17Xr
+	oDXd5JRCtAZGWBK0uGLFxC9L3QA0Eb+6Lt69ze9vpJ1dG0geJgx8QEg232qUtuB+7LQl4F7fWWO
+	WWbvBWT/nxtMZ9LCcn63Lm4m4SuW5Dw+0Uk64kocADpA2R20jxDX1+TtFAAsWhPdKinpab2c2jp
+	vBxBr/jm5UdZ0HkJH0cRGRH66cbiFLL8UtWaXFE6nnhUwRiamROarSoi4hubL4E7hFrfWm31Aqh
+	KcBfNRmc96Ndnvl4U4zmcJFsTfTxIKLw7qEkAJ5TlPGjUqsyqqndSH8awWDqzJBRCqUTXkN9bgQ
+	OZ8zP64ShiBnWbmtSWyQUtGPXvKCMe4XQxFXMtpr/e8uboiknneRbWS3OpfMvMnUSGQaFmX58/q
+	s647yl252fUEiULWO/V8kAjG7gXxQeIA==
+X-Received: by 2002:a05:620a:4483:b0:915:cda5:2805 with SMTP id af79cd13be357-920d53d1cf8mr573961085a.52.1781895495737;
+        Fri, 19 Jun 2026 11:58:15 -0700 (PDT)
+Received: from i4-gl-tmk5904.ad.psu.edu ([130.203.156.186])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-921d7f46046sm75947185a.15.2026.06.19.11.58.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 19 Jun 2026 11:58:15 -0700 (PDT)
+From: Yuho Choi <dbgh9129@gmail.com>
+To: Marc Zyngier <maz@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Yuho Choi <dbgh9129@gmail.com>
+Subject: [PATCH v1] irqchip/gic-v3-its: Fix OF node reference leak
+Date: Fri, 19 Jun 2026 14:58:08 -0400
+Message-ID: <20260619185808.1090575-1-dbgh9129@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.6 on 10.30.177.95
-Message-Id: <91438.126061915520801117@us-mta-230.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 2yOaWj8ukgLd_olefnYKlq-oxLVjzbC4skTXdPgmmwM_1781898727
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260619_125214_895952_7487FCC3 
-X-CRM114-Status: UNSURE (   6.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260619_115817_250178_59317FA4 
+X-CRM114-Status: GOOD (  12.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,55 +96,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+of_get_cpu_node() returns a referenced device node. In
+its_cpu_init_collection(), the node is only used to get the CPU NUMA
+node for the Cavium 23144 workaround, but the reference is never
+dropped.
 
-    Overall result: FAILED
-             Merge: OK
-           Compile: OK
-              Test: FAILED
+Store the NUMA node locally and call of_node_put() before either
+continuing with collection setup or returning early for a NUMA mismatch.
 
+Fixes: 920181ce8469 ("irqchip/gic-v3-its: Add ability to resend MAPC on resume")
+Signed-off-by: Yuho Choi <dbgh9129@gmail.com>
+---
+ drivers/irqchip/irq-gic-v3-its.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-Kernel information:
-    Commit message: Merge branch 'for-next/core' into for-kernelci
-
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2615019607
-
-One or more kernel tests failed:
-    Unrecognized or new issues:
-        xfstests - btrfs
-             aarch64
-                   Logs: https://datawarehouse.cki-project.org/kcidb/tests/=
-redhat:2615019607_aarch64_kernel_kcidb_tool_21495614_9
-                   Non-passing ran subtests:
-                       =E2=9D=8C FAIL generic/301
-
-    We also see the following known issues which are not related to your ch=
-anges:
-        Issue: [upstream] Hardware - Firmware test suite - auto-waive failu=
-res
-            URL: https://gitlab.com/cki-project/infrastructure/-/issues/779
-            Affected tests:
-                Hardware - Firmware test suite [aarch64]
-
-
-
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
-
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
-
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
+diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+index b57d81ad33a0..f82035eb77e5 100644
+--- a/drivers/irqchip/irq-gic-v3-its.c
++++ b/drivers/irqchip/irq-gic-v3-its.c
+@@ -3291,10 +3291,14 @@ static void its_cpu_init_collection(struct its_node *its)
+ 	/* avoid cross node collections and its mapping */
+ 	if (its->flags & ITS_FLAGS_WORKAROUND_CAVIUM_23144) {
+ 		struct device_node *cpu_node;
++		int cpu_nid;
+ 
+ 		cpu_node = of_get_cpu_node(cpu, NULL);
++		cpu_nid = of_node_to_nid(cpu_node);
++		of_node_put(cpu_node);
++
+ 		if (its->numa_node != NUMA_NO_NODE &&
+-			its->numa_node != of_node_to_nid(cpu_node))
++		    its->numa_node != cpu_nid)
+ 			return;
+ 	}
+ 
+-- 
+2.43.0
 
 
