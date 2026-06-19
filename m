@@ -4,119 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51050CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 14:06:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABE71CDB471
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 14:09:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rSB/t2vnZpwaKaBmIo7hL1ql2I4ostuStLW/up58Wu8=; b=P8ZCdIg1CqG4e8aO9mEFeL1q8f
-	g56myGJ9iW6YFH7IfLjAn814PLJcLbdEtHM+e5cKvd4BUDynKYrhCsdPT++THHSTBPH5ler1AuSXq
-	gI6znZSs1kglTvAEYfZJFZH1SBhNqsTxNqDEl+9cRJH6rP4hEZNfsyv2cy2Kyeo8uZIRpqf1uEZ4a
-	JvwTa2vFfKCnxD6V8SDw2CJ4fluNOy5mTDVdLSUVSNaUvlrSxGsbBxCy2oP5CgeWT6N5nelmJtUwh
-	5nSRJjLXyHiKL72XMePjL8JRlCF5mXdNsdoHoceEv0BuAwRynLLDu3sboSD+RixEKno6qVBkeYwoA
-	ReF6hVjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=XDkYpT+SCUd0m5Nj+gLnQpV+dZe6iTEpcMwnamD4vLs=; b=mz2lyWbzGISODd
+	Qznb40JYFPs0cBSjhova3y4GOFYFGUlEftYvZV5pJqIBWekx07+I21/hOOj8j53s4xeW8FMudP6DB
+	EP1giMAE2T6HU1sb+kVqduIpRA/7PB1vfHSKqiEl9MFKdUtNv99hitC3m0nbadqywUDLADIhm2tIe
+	SK6l2EYtmXt1bvNlfh9SqnCM13DnG4U/yhCKCZ+ZtRIk8p0o25rt/4VhSCE9IOG2ZlqdFNx2igome
+	BDd8pkBE+8qHDIwW5JtUeTvlE1BbXN1w0bdTiDOcDiots2GsDejR3KRJk/DkmxX+cp3X+CTlo6JzC
+	oyXjxemDa9jJhIa/hOWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waZrS-00000002Wnf-0Jmw;
-	Fri, 19 Jun 2026 14:06:22 +0000
-Received: from mail-qk1-x72c.google.com ([2607:f8b0:4864:20::72c])
+	id 1waZu3-00000002XEH-0KB1;
+	Fri, 19 Jun 2026 14:09:03 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waZrP-00000002WnK-2FMN
+	id 1waZty-00000002XBU-1KPO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Jun 2026 14:06:20 +0000
-Received: by mail-qk1-x72c.google.com with SMTP id af79cd13be357-9159477c893so250070185a.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 07:06:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1781877978; x=1782482778; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=rSB/t2vnZpwaKaBmIo7hL1ql2I4ostuStLW/up58Wu8=;
-        b=Si33svVuzREUzz/LNEv5t1aSiuXBMyXXPpzP/capNHPQxrEf5iFet4kZhJS0ECArQz
-         lcNtolzrVl9L/vBSlrhJ+LPK5v8K8PZ8JPYW6C+RA4SWBv/+N1rkFCsBfNhkBhnjWIb9
-         ELV217SGImUKax/f5LqnSmoWBtJ70bruio19WcaVqQ8KMseaRF3VDMoF/2T3EuJxGn0h
-         CnLhobqOXndilFpO572ijCsy9kstcaF1Uwfqe7uVaiNp4P97ehi44bxgEQl7hgII4jjk
-         7K4PmKk2KwT0DLO05ZY8e+xT8efGK6hFYZpVuzC68LdGQCGj6jm9R6fiN8FmEvE5V0Hp
-         sfig==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781877978; x=1782482778;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=rSB/t2vnZpwaKaBmIo7hL1ql2I4ostuStLW/up58Wu8=;
-        b=L9w84H1JeGjFwCGxMYfn47jBcfBvuadX6lOvipGoksmgrza6fxWsGsAiDOGFQbzhQC
-         Q6Z6MxMgnZxWAdS8j9A7ABPvHlzcF0kmwRvIEeh0XrPK/JMgaow7HthhSoqlyP620VNw
-         6Ahjo8d1kYfCkrGWt+V4lHr+vknLPFqho9sUWspPF/70uckyLRsy+Zgi2kPNYHCBFx3s
-         11RmkFizcL9aG3htDi3nobjPcqMrCKnFvdMYkstf4waZBgCbUu10KapcuwtsD6PhBnWX
-         3iaDQmIi0b+0JEnDFNUDVxknd+v2N89ySaq//ob9V7LnwZ0PXOLODPA6SPqCTC8IsACr
-         XTxg==
-X-Forwarded-Encrypted: i=1; AFNElJ92iqaeq2hP9XQVfTLb8px8+0JUwpvxsLXD0j5Wftk6xgOfsZC4vlrH9LsSZ0noRf+BxtMvXPwmdyMjegEMkZXY@lists.infradead.org
-X-Gm-Message-State: AOJu0YxWIXYzeXHekxbtj/rgPuJ2u+GFCJK4524RFGsq5Yg67c/QW+EU
-	foE4C0HBCiRoMrAxwZDAnEBtYFqhcyceMj9LxV5B28szjT3ljT0pfRlahEcQBArzF8k=
-X-Gm-Gg: AfdE7cm9vU7GqJTWyECy1F8P8rfaZv5BqNxwvxVrXg+ypNIsQCT4NTZzEzRdpzFd19l
-	7UvkxkMFjv8a5ra/gOuCu2GifpEPOqGpWEq/kj97JzVVf1VqgN2wQD6UtsHb5hqzEihXD/+bibT
-	q7L38PUAwaN4/cyM7uqeWKbgDtlRtInMAb1nUM+DGvDaA1izuRNJZlBjiL3Hkf3SSpfAjv0I6F3
-	rpAh++d/aBA1DnLpGeM53HqbfG4BpHU1UsN7dmM2YpHTPiATqKSJhwXkGtGw2qPwSTp4vfLRAX8
-	TpW7ceHMnbsjOlI9CpUo5ZfULlhVTRwIn4iZRtlB8olo7VhWIfd3PxPuauC21F9u/eGXvts6/ul
-	1u6A2e0EaopooMUPungxlk6irB/2JJ0rnXQXm95a8+Y7ctrkxF3B+x5y/js7+NvVWl+CjXVP1Qi
-	3Gh0tGJfvwx4JM2LqKu4UX2+CV7nlOJQIPzWeWmp+AyLo02ETeN7IzU4+S8pg1zVkGqnA=
-X-Received: by 2002:a05:620a:6842:b0:914:ac45:a98 with SMTP id af79cd13be357-9208f6479eamr503398085a.17.1781877977966;
-        Fri, 19 Jun 2026 07:06:17 -0700 (PDT)
-Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-920a142f50asm250739785a.12.2026.06.19.07.06.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 19 Jun 2026 07:06:17 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1waZrM-00000004cLp-3AI9;
-	Fri, 19 Jun 2026 11:06:16 -0300
-Date: Fri, 19 Jun 2026 11:06:16 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
-Cc: Alexey Kardashevskiy <aik@amd.com>,
-	Catalin Marinas <catalin.marinas@arm.com>, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-coco@lists.linux.dev, Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>, Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
-Subject: Re: [PATCH v6 00/20] dma-mapping: Use DMA_ATTR_CC_SHARED through
- direct, pool and swiotlb paths
-Message-ID: <20260619140616.GB1068655@ziepe.ca>
-References: <20260604083959.1265923-1-aneesh.kumar@kernel.org>
- <aigYbK12D8uKQvJF@arm.com>
- <20260609144746.GL2764304@ziepe.ca>
- <2ecfa1a8-6202-4319-9692-a6ffeb5a3dbf@amd.com>
- <yq5aqzm4dz25.fsf@kernel.org>
- <20260618153705.GH231643@ziepe.ca>
- <yq5ao6h6enhm.fsf@kernel.org>
- <20260619122148.GL231643@ziepe.ca>
- <yq5aldcaejos.fsf@kernel.org>
+	Fri, 19 Jun 2026 14:09:02 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 06D694E42FC2;
+	Fri, 19 Jun 2026 14:08:54 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id C20C9601AD;
+	Fri, 19 Jun 2026 14:08:53 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6A8E2106C8254;
+	Fri, 19 Jun 2026 16:08:43 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1781878132; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=XDkYpT+SCUd0m5Nj+gLnQpV+dZe6iTEpcMwnamD4vLs=;
+	b=dH0ACJymmzk11uAEx0D/J4vHZvgWP2WRKaYt4kTgXxDW2J3XCzlxS87GEGm1sUB0RVH2tG
+	d7UUkCyA8yhn0Rf9PkBvbtQcy8/paxGCX2NvAEY/vg2ovUkBmhEKPzHK9awWaFYFMuS9u5
+	+7fERE7deqvf++LWoXM5rX6Pw1gCnm2PtMSZgCzd4s5LZRGjnzkyCjCPjdMABUf7xe5FvR
+	CoONM4e3FywLalg4CkKyQnTQew9N6yIxOu9KbsYyCGBpRYXMt17LEJ3iIcKemJFv9fzeZt
+	2Rw2CsviOe+YdT7MHWmGJAaEmMaBTWaTKQK1hBaw+Tm2XwSXBsiugUbFOwcRVA==
+From: Kory Maincent <kory.maincent@bootlin.com>
+Subject: [PATCH RFC v2 0/4] Add support for DisplayPort link training
+ information report
+Date: Fri, 19 Jun 2026 16:08:42 +0200
+Message-Id: <20260619-feat_link_cap-v2-0-a3dec4c02ad9@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <yq5aldcaejos.fsf@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAGpNNWoC/12NwQrCMBBEf6Xs2chmLdF4EgQ/wKuU0qZbXdSmJ
+ KUopf9uyNHjzGPeLBA5CEc4FgsEniWKH1KgTQHu0Qx3VtKlDIRkkMionpupfsnwrF0zKkLXtqb
+ f6a5ESJsxcC+f7LvB9XKGKpUPiZMP3/wx64yyrkT7p5u1QrVHY/mgrXVMp9b7KeGt82+o1nX9A
+ biHlSaxAAAA
+X-Change-ID: 20260226-feat_link_cap-20cbb6f31d40
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Jani Nikula <jani.nikula@linux.intel.com>, 
+ Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+ Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
+ Tvrtko Ursulin <tursulin@ursulin.net>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Dmitry Baryshkov <lumag@kernel.org>, Daniel Stone <daniels@collabora.com>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Mark Yacoub <markyacoub@google.com>, Sean Paul <seanpaul@google.com>, 
+ Manasi Navare <navaremanasi@google.com>, 
+ Drew Davenport <ddavenport@google.com>, 
+ Louis Chauvet <louis.chauvet@bootlin.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, dri-devel@lists.freedesktop.org, 
+ linux-kernel@vger.kernel.org, intel-gfx@lists.freedesktop.org, 
+ intel-xe@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Kory Maincent <kory.maincent@bootlin.com>
+X-Mailer: b4 0.15.0
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260619_070619_588898_1F1BA2A6 
-X-CRM114-Status: GOOD (  37.01  )
+X-CRM114-CacheID: sfid-20260619_070858_634219_DA7B7A55 
+X-CRM114-Status: GOOD (  16.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,93 +102,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 19, 2026 at 02:36:19PM +0100, Aneesh Kumar K.V wrote:
-> >> Agreed. If the device can do encrypted DMA and requires bouncing, it
-> >> should bounce through encrypted pools. We don't support encrypted pools
-> >> now and that means, we mark the option ("mem_encrypt=on iommu=pt
-> >> swiotlb=force") not supported for now? 
-> >
-> > ?? if you don't have a CC system then the swiotlb is "encrypted"
-> > meaning ordinary struct page system memory.
-> >
-> > The hypervisor should not be triggering any CC special stuff here, it
-> > is not a CC guest.
-> >
-> > Agree we don't need to worry about swiotlb=force with a trusted device
-> > in the GUEST for now, but it should be something to fix eventually.
-> >
-> 
-> If i understand this correctly, the setup Alexey is referring to here is
-> bare metal system with memory encryption enabled and dma address doesn't
-> need C bit cleared because it is handled in iommu.
+DisplayPort link training negotiates the physical-layer parameters needed
+for a reliable connection: lane count, link rate, and optionally Display
+Stream Compression (DSC). Currently, each driver exposes this state in
+its own way, often through driver-specific debugfs entries, with no
+standard interface for userspace diagnostic and monitoring tools.
 
-This is how I understand it too, if the iommu is turned on then it can
-take the high PA with the C bit set and map it to an IOVA that matches
-the device's dma limit.
+This series introduces generic, managed and unmanaged DisplayPort
+connector initialization helpers, for exposing DP link capabilities and
+state as standard sysfs entries, modeled after the existing HDMI helper
+drmm_connector_hdmi_init().
 
-> ( I consider this as memory encryption that is handled
-> transparently, device can access any address because that encryption
-> details are now managed by iommu).
+The aim of such development is to guide users to select the most suitable
+DisplayPort connector for their needs. For example, if you have a USB-C
+hub with lesser capabilities than your computer’s native DisplayPort
+connector (such as HBR2 versus HBR3 support), the system could recommend
+connecting high-resolution displays directly to the computer’s port
+instead of through the hub to ensure optimal performance.
 
-Compared to the guest side there are some important host side differences:
+These new drmm_connector_dp_init() and drm_connector_dp_init_with_ddc()
+helpers initialize a DP connector and expose link training capabilities
+and state to userspace via sysfs attributes under dp_link.
 
- - On the host the iommu can fix it because this is only a matter of
-   IOVA range not access control. On a guest even a IOMMU cannot
-   permit access to private memory
- - On the host the state of the device is driven by the dma limit
-   which is not set until after the driver probes. On guest the state is
-   set by the tsm and device security level before the driver
-   probes
- - Both flows end up using pgprot_decrypted and set_memory_decrypted()
-   to create their special pools, but for completely different
-   reasons.
- - The memory coming from the special swiotlb pool must NOT be used by
-   a trusted device on a CC guest, while there is no problem for any
-   device to use it on the host.
+Additional helpers are provided to manage link capabilities and parameters
+at runtime.
 
-> Thinking about this more, I guess we should mark the swiotlb as
-> cc_shared only with  CC_ATTR_GUEST_MEM_ENCRYPT instead of
-> CC_ATTR_MEM_ENCRYPT as we have below.
+Two drivers are updated as reference implementations: i915 (direct
+connector path) and MediaTek (via the bridge connector framework using a
+new DRM_BRIDGE_OP_DP flag).
 
-The name cc_shared should be used for GUEST scenarios only.
+The changes updating the i915 driver to use DRM managed resources have been
+removed due to cleanup path issues. The core problem is that some functions
+do not consistently propagate errors through their call paths (whether this
+is intentional or not) making it difficult to properly handle cleanup of
+DRM objects (planes, encoders, connectors). A potential solution would be
+to implement something similar to devres_group for each DRM object type,
+but this represents a substantial undertaking that falls outside the scope
+of this patch series.
 
-I guess there is some merit in keeping swiotlb using "decrypted" to
-mean it usinig pgprot_decrypted and set_memory_decyped() which AMD
-gives meaning to on both host and guest.
+The MST case in i915 driver is not supported yet.
 
-IDK what AMD should do on the host by default. I guess it should setup
-a swiotlb pool of low dma addrs "unencrypted", but not "cc_shared"?
+Patch 1: Introduce the core drmm_connector_dp_init() framework
+Patch 2: Wire the i915 DP connector to use the new helpers
+Patch 3: Introduce DRM_BRIDGE_OP_DP and wire bridge connectors
+Patch 4: Wire the MediaTek DP bridge to the new helpers [untested]
 
-But if we are operating on the host then this pool is not limited to
-only T=0 devices, every device can "safely" use it. (ignoring this
-destroys the security memory encryption on bare metal was supposed to
-provide)
+Signed-off-by: Kory Maincent <kory.maincent@bootlin.com>
+---
+Changes in v2:
+- Removed work converting i915 to DRM managed resource
+- Remove voltage swing and pre-emphasis properties
+- Expose link training state via sysfs dp_link/ group instead of
+  connector properties
+- Add comprehensive sysfs attributes for both source and sink capabilities
+- Add new helpers for managing sink capabilities and for current link
+  parameters
+- Link to v1: https://lore.kernel.org/r/20260409-feat_link_cap-v1-0-7069e8199ce2@bootlin.com
 
-> Now we have the case of host memory encryption where the C-bit needs to
-> be cleared in dma_addr_t. That requires special handling in the kernel, and
-> I believe we need to mark swiotlb as unencrypted in this configuration.
+---
+Kory Maincent (4):
+      drm: Introduce DisplayPort connector helpers with link training state
+      drm/i915/display/dp: Adopt dp_connector helpers to expose link training state
+      drm/bridge: Wire drmm_connector_dp_init() via new DRM_BRIDGE_OP_DP flag
+      drm/mediatek: Use dp_connector helpers to report link training state
 
-I think we need to split the two things up, they have different
-behaviors and need different flags and labels to make it all work
-right.
+ drivers/gpu/drm/display/drm_bridge_connector.c     |  24 ++++
+ drivers/gpu/drm/display/drm_dp_helper.c            | 144 +++++++++++++++++++++
+ drivers/gpu/drm/drm_connector.c                    | 122 +++++++++++++++++
+ drivers/gpu/drm/drm_sysfs.c                        | 100 ++++++++++++++
+ drivers/gpu/drm/i915/display/intel_dp.c            |  26 +++-
+ .../gpu/drm/i915/display/intel_dp_link_training.c  |  17 +++
+ drivers/gpu/drm/mediatek/mtk_dp.c                  |  23 ++++
+ include/drm/display/drm_dp_helper.h                |   7 +
+ include/drm/drm_bridge.h                           |  13 ++
+ include/drm/drm_connector.h                        | 105 +++++++++++++++
+ 10 files changed, 577 insertions(+), 4 deletions(-)
+---
+base-commit: 4d75f8bd845c10f126e0e66bcdd264e1f9772bde
+change-id: 20260226-feat_link_cap-20cbb6f31d40
 
-> I am still not clear whether there is a config option or runtime check
-> we can use to identify this case.
+Best regards,
+--  
+Köry Maincent, Bootlin
+Embedded Linux and kernel engineering
+https://bootlin.com
 
-The dma api has to detect, after the driver sets the dma limit, that
-none of system memory is usable when:
- - The direct path is being used
- - phys to dma for 0 is outside the dma limit
-
-Then it should assume the arch has setup a swiotlb pool for it to use
-to fix the high memory problem.
-
-Similar hackery would be needed in the dma alloc path to know that
-decrypted can be used to fix the high memory problem like for GUEST.
-
-I guess some 'dev_cannot_reach_memory(dev)' sort of test in a
-few key places? Setup with a static branch to be a nop on everything
-but AMD, compiled out on every other arch.
-
-Jason
 
