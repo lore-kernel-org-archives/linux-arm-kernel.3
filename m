@@ -4,87 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 426EDCD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 14:21:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBE47CD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 14:26:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oy4khWhmG8SG6J19dWJnQfN4DUKYCIX4D5weoKLMQgs=; b=W3WvJZyj4YfY9l4tQZWSNPtBO/
-	EYqad3zbCGiKoTSGpvMl2LJUrOWsyc0wjrqp8riyugFD1m2qn9Jda2d7bj3HiYznQz3Pa3g/lnB4/
-	bnHJhbo+e12cB1p8eLs9U6J3eH174SqorFPrkfT5yqatktSD+4SBR+CdfyVL2kitW5pRkfurSMDZ/
-	3txrUjydqkrBIx5APRa1ouahKLGLkLultOd1cDiwfSimsx0xPOn8355HQBasAY5XWWcMMl0eCne9h
-	J5514Ee3hvyujzHEwGSbanwwFE0VQMrCCYrS/YOV6PUchjMB2inYFF318eCuuhgxOeWEc8QWo3SPg
-	yJva9BCA==;
+	bh=bQopk2nLC00ieCYyPypfM07LSfdvG93z8e3u+EoauY8=; b=g9et5olGaQXb9bvU3dIwdNnalS
+	sEtkL4rumcxq+KLCJzLxqVUmEbBpDpYlD+FIe7ypK4XT4FIexCarUYNn2BPiee8FSNvHEXr98GRvw
+	fNbYqgzGT+Sch1GqbnjPtwZdiLLrAbMdr5hk00N+uS/ce+OgLaWsL3jBRzkmBKOj7OXu5/6hmVhz6
+	+cdsc+x2Lu/xUZWLu2f+fLlwgWlo0PRHqgQtHJwczpkE5IMh8IfHW75ewAd1S1QX+725H/S0lRdjE
+	W4MSp6gayE4uy2SbmkYWGYNujPjhPk8YytktV6OcWTJ9mVeiYdQBvujj1VcfEs9Sf1ATguInXWqij
+	Is1sa6oA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waa6C-00000002ZWi-3bWy;
-	Fri, 19 Jun 2026 14:21:36 +0000
-Received: from mail-vk1-f170.google.com ([209.85.221.170])
+	id 1waaAt-00000002Zln-27Wl;
+	Fri, 19 Jun 2026 14:26:27 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waa68-00000002ZVk-38Vo
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Jun 2026 14:21:35 +0000
-Received: by mail-vk1-f170.google.com with SMTP id 71dfb90a1353d-5bbe617d624so1245885e0c.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 07:21:32 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781878891; x=1782483691;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=oy4khWhmG8SG6J19dWJnQfN4DUKYCIX4D5weoKLMQgs=;
-        b=iB6qsBb5O4GXwnsqLc1P2E3etrNpD/DAi4fq+w89JstsqH+TOwqdtRm9MCARuNAN/R
-         /2uoKTx1xtVIym91U/8XSdLWQGtin6jOXsMpkUmAz60wpYHQeAiP6FLyn2/nFnadnsBK
-         dXF4wCqKCZYt7Z0mHY+FEMUovrq5S8/pWj17OrfC+kR2TCmaABAM4tTTXWP/K1CYYgft
-         EEPG58LonDMRq3kdGYie4LiRn1H58Qm79FuKex53HsfzCdeWFcPH5JG1wW0RPm31LC95
-         x4o7a+NKY+QdAN9WETivjb/zPegZfqWPXDlCIausPEhb5x0yZ6KpZb9gU7LFMTjZrWhe
-         Xf8Q==
-X-Forwarded-Encrypted: i=1; AFNElJ9ax4eRgs45ErUkRfUpLmaSMPWOxXqJlfC0b7VIy/22/9ejNv8T8I2QbtzEeOlhhquMmMTYdDrMEzulmSqEVbVI@lists.infradead.org
-X-Gm-Message-State: AOJu0YxTk04gsIlTbyPQStLjredKdRdz/FbF24Rzzv9Elr+uYEmO9a5H
-	jCWB92a6J7HkRMQEoZTdUKr3Wa6o5uMIjwfzdhD9KqTWhERH61/pKSsHUlMp83SC
-X-Gm-Gg: AfdE7ck+wqyN3V/c5fRwQJq7hZ8csz8bSDzEzS/qcrgq4ULRmedu8WvBHZBTosaicux
-	QNNU+LkSpU9TV6fAC7rrySVmt76yOggAAWeP2NACYDiC4Eyzy6rcvMek89CnImMo5wSfq3w4TEZ
-	9QPyCK7gJoRHqSSPeGGH2Mwey0q4CceoXkOG8CtPY1Mjr/S55WPyoVEvsxPsBNEnrx5auskmePx
-	nWw9L0fNwxVeSKZV6GqQudHJGBuwer6OX8ybYj42qSwEZS4Wp4L4T8/rSEgvfFhLdsgH0WAy2CE
-	ETYjxwQHafjqjJ8VDh3prxhWZpYMgdNFFlhJgZj3KPaD3im1gzMLScACy0/lRV8CWP/DI0L375Q
-	dSKg5m36D5MUyFgeclgaAHZnP/hfX02JjYSalfeS614VtpBpTxB6AC4Gkjcu0tX9RAJ4oEkb70j
-	RyWjAzvMC3lbwa+zCGsIu41I8ZlifnTQcumt6vW80/XlqhinRPpw==
-X-Received: by 2002:ac5:c9a4:0:b0:59e:2a50:39ab with SMTP id 71dfb90a1353d-5bbeaecd481mr1147071e0c.2.1781878891079;
-        Fri, 19 Jun 2026 07:21:31 -0700 (PDT)
-Received: from mail-ua1-f41.google.com (mail-ua1-f41.google.com. [209.85.222.41])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5bbea3ce355sm1955147e0c.15.2026.06.19.07.21.30
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 19 Jun 2026 07:21:30 -0700 (PDT)
-Received: by mail-ua1-f41.google.com with SMTP id a1e0cc1a2514c-966db0b76daso1996835241.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 07:21:30 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ9K/rhVlHIxG9gaAc7NyIu7CTa0IJAZUfZZYlv+/QiNe4j6VFxBlstrhUYm+khFlXCBlKnB7r3OMtVDUOhafhdj@lists.infradead.org
-X-Received: by 2002:a05:6102:ad1:b0:6c9:d9f3:1e20 with SMTP id
- ada2fe7eead31-72a293dfd7emr1104952137.15.1781878890690; Fri, 19 Jun 2026
- 07:21:30 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260429-defconfig-v2-0-e4ed4186028b@oss.qualcomm.com>
- <20260429-defconfig-v2-4-e4ed4186028b@oss.qualcomm.com> <CAMuHMdVH6-5ZAjTyF3m=wF5-XiSDqwcgRhZWxJv6y0FoCnk4MA@mail.gmail.com>
- <ed070807-d2dd-4f0b-9ba1-8d2c8c93c30e@oss.qualcomm.com> <b04972c7-2c5e-40fe-a8a6-7ade300cd4b2@app.fastmail.com>
-In-Reply-To: <b04972c7-2c5e-40fe-a8a6-7ade300cd4b2@app.fastmail.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 19 Jun 2026 16:21:19 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdXnR38X-Baqzb0Dm+Mq3=LH6RFt+7=wU46DrkP2gqiWbQ@mail.gmail.com>
-X-Gm-Features: AVVi8CcX7ozhPh8JhyNR7a8r_7a1qss6QfZz7-KfzrH_7gCDXRho6nLaKkb4lJo
-Message-ID: <CAMuHMdXnR38X-Baqzb0Dm+Mq3=LH6RFt+7=wU46DrkP2gqiWbQ@mail.gmail.com>
-Subject: Re: [PATCH v2 4/5] arm64: defconfig: Drop unused Ethernet vendors
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Linus Walleij <linusw@kernel.org>, 
-	Drew Fustini <fustini@kernel.org>, soc@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260619_072133_138777_4B3083D6 
-X-CRM114-Status: GOOD (  24.18  )
+	id 1waaAr-00000002ZlZ-1wto;
+	Fri, 19 Jun 2026 14:26:25 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 84916601E1;
+	Fri, 19 Jun 2026 14:26:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 352EC1F000E9;
+	Fri, 19 Jun 2026 14:26:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781879184;
+	bh=bQopk2nLC00ieCYyPypfM07LSfdvG93z8e3u+EoauY8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=YXg9rxdyQw5KhPv6Z1WHhF9Hn/vGFplna790SFlA8QGz4ka1fL5KHiuhdI5GmuwYw
+	 z0lvQ6efm3WvTHRAhJFaE1TzyDwd1ZghWqYHl1N3wXeLlLK5uj/NdKCe6Jcbi90wMk
+	 Xt3ixNHnCM/CPjvE1OWFPLKw+SE+Reg3cp1rXRQapdTEuOTnI0yvDwG2rwpt+HkO1h
+	 eslzCZdWHV9nbrhdz5oYeiJpPK/rRBhDeKe/uB2GGOCo9N3zcNatu572qaO//xt5y8
+	 y9FdvPrfYlT7Ib/s3WdinN4eWuCdOqexggGwmBz5IzVNsEaodLO525HxcIE4Hzeokg
+	 DzmXG8dTcsnGA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1waaAn-0000000ELL4-2qrx;
+	Fri, 19 Jun 2026 14:26:21 +0000
+Date: Fri, 19 Jun 2026 15:26:21 +0100
+Message-ID: <868q8asj1u.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Kiryl Shutsemau <kirill@shutemov.name>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Doug Anderson <dianders@chromium.org>,
+	Petr Mladek <pmladek@suse.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Baoquan He <bhe@redhat.com>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Usama Arif <usama.arif@linux.dev>,
+	Breno Leitao <leitao@debian.org>,
+	Julien Thierry <julien.thierry.kdev@gmail.com>,
+	Lecopzer Chen <lecopzer@gmail.com>,
+	Sumit Garg <sumit.garg@kernel.org>,
+	kernel-team@meta.com,
+	kexec@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	"Kiryl Shutsemau (Meta)" <kas@kernel.org>
+Subject: Re: [PATCH v4 0/4] arm64: cross-CPU NMI via SDEI
+In-Reply-To: <ajVLeseWOZn0XXY2@arm.com>
+References: <cover.1781709543.git.kas@kernel.org>
+	<ajVLeseWOZn0XXY2@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: catalin.marinas@arm.com, kirill@shutemov.name, will@kernel.org, james.morse@arm.com, mark.rutland@arm.com, dianders@chromium.org, pmladek@suse.com, tglx@linutronix.de, akpm@linux-foundation.org, bhe@redhat.com, puranjay@kernel.org, usama.arif@linux.dev, leitao@debian.org, julien.thierry.kdev@gmail.com, lecopzer@gmail.com, sumit.garg@kernel.org, kernel-team@meta.com, kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kas@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,39 +98,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Arnd,
+On Fri, 19 Jun 2026 15:00:26 +0100,
+Catalin Marinas <catalin.marinas@arm.com> wrote:
+> 
+> Hi Kiryl,
+> 
+> On Wed, Jun 17, 2026 at 08:20:01PM +0100, Kiryl Shutsemau wrote:
+> >   - GICv3 pseudo-NMI (interrupt priority masking). Its cost is on the
+> >     interrupt mask/unmask hot path: local_irq_enable() becomes an
+> >     ICC_PMR_EL1 write plus a synchronising barrier, and exception
+> >     entry/exit save and restore the PMR, paid on every CPU whether or not
+> >     an NMI is ever delivered. In our measurements, enabling pseudo-NMI
+> >     costs up to ~5% on real workloads, and ~66% on a syscall-in-a-loop
+> >     microbenchmark. A fleet-wide ~5% regression is not acceptable, so
+> >     these systems run with pseudo-NMI disabled.
+> 
+> Does your firmware set ICC_CTLR_EL1.PMHE? I'd be curious to see the
+> numbers if the DSB was omitted on the enable path.
 
-On Fri, 19 Jun 2026 at 15:54, Arnd Bergmann <arnd@arndb.de> wrote:
-> On Fri, Jun 19, 2026, at 15:11, Krzysztof Kozlowski wrote:
-> > On 19/06/2026 12:12, Geert Uytterhoeven wrote:
-> >>> +# CONFIG_NET_VENDOR_ACTIONS is not set
-> >>> +# CONFIG_NET_VENDOR_ADAPTEC is not set
-> >>> +# CONFIG_NET_VENDOR_AGERE is not set
-> >>> +# CONFIG_NET_VENDOR_ALACRITECH is not set
-> >>> +# CONFIG_NET_VENDOR_ALLWINNER is not set
-> >>
-> >> [...]
-> >>
-> >> I am not sure this new policy is a good idea: none of this affects
-> >
-> > I would not call it new policy. Just an idea which got accepted. :)
->
-> I think when we originally added the CONFIG_NET_VENDOR_xxx symbols,
-> the idea would be that we would one day change them to
-> default-disabled, but that never happened, and generally causes
-> more problems than it solves.
+I certainly don't observe this sort of overhead on the HW I have
+access to, and would like to understand where this is coming from with
+actual profiling data.
 
-Yeah. While "make oldconfig" would handle that fine, all defconfigs would
-need an update.
-
-Gr{oetje,eeting}s,
-
-                        Geert
+	M.
 
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Without deviation from the norm, progress is not possible.
 
