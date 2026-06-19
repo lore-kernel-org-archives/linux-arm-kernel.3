@@ -4,53 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B198FCD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 14:09:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2324BCDB466
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 14:09:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TO+8vf61kNju4PwtuIv9SwXy8zceN+AIryuGq2GsET8=; b=VLMqhxUxTDM9PdKzR5RQGHY70n
-	MXlNv0GacY92caDC3+x0UPKUEEFh1ropDlmsCVDrFjasB54qM1BI+v/FquBPixz0oka2RTYEG6BZX
-	9MpApqbIKXuoZtzNOSTXYo2O34efLhgVp2/EKP9v3rcRgRDWT30xofLdgtUXzwRTnEA6VpT/bE9Zm
-	4f1L+gOvWnvAZVrWEHNuLAyn9999mWCYeD2+ef8Nrtl0K7VGLdzGNAGfNR+MlM4ucg5rkm88ROIL3
-	Qjf9iJHD+d088ZEzbpw6MBGQty2fEHsZlTc/1tz/vOxZRmeoxUbJS61yOM7koOCAviqo5T7xJ03+g
-	9LIAeV3w==;
+	bh=zOYYJPklu04PZMZfm5Ef9NDDIqIa+F6TOAI/xPV/Nnk=; b=GZw6raq6b7FUvacTL9qY//UWwG
+	RF1l12ymXXCU6kzClhvsVQAkWdphRUesLb7Ys0mMf0huGZSJozyq4YQQ5QykQc+uXv5iIUHWSYwa5
+	ZHMLJnZZ2n9nC6crz1xcrEX5qDxDTdkEOqgVfQIz+vgqsipwFdCihnNb4rfNiJoN0RgfyTc6qGrsP
+	cqwvFb/AI2UBnh5RFtSjdL3ZW+9Nz3iY9TuxXqBeAY9tRvbceDaI46emKg9h78x8rB7O7+ZGA9UVN
+	7yle/ywzaDUx4YlmKxgTxroOc31GZjHSgXrknMo+K5nwXDIaYuoTCqkkevbMxFLtKvhS/3m/0KzcU
+	I88s7bWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waZu8-00000002XHU-2zBF;
+	id 1waZu8-00000002XGP-0qL8;
 	Fri, 19 Jun 2026 14:09:08 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waZu5-00000002XEr-2sH2;
-	Fri, 19 Jun 2026 14:09:06 +0000
+	id 1waZtz-00000002XCI-0hG7
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 19 Jun 2026 14:09:02 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 15E6C1A3A20;
-	Fri, 19 Jun 2026 14:09:04 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 9C1274E42FCB;
+	Fri, 19 Jun 2026 14:08:57 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id DD1DA601AD;
-	Fri, 19 Jun 2026 14:09:03 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 51781106C8234;
-	Fri, 19 Jun 2026 16:08:59 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 6DC61601AD;
+	Fri, 19 Jun 2026 14:08:57 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BFF76106C8234;
+	Fri, 19 Jun 2026 16:08:52 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1781878142; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1781878135; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=TO+8vf61kNju4PwtuIv9SwXy8zceN+AIryuGq2GsET8=;
-	b=ZncerNAwoGtviiVsHNj7vZKGV3N7lfq5zDOhto3C1/blrMQ53z2GWeVHoX7vP7+4dIPbC/
-	+Jeyo+IJzxumTF1XTcTSfOrZ6f1DBrPQJBDPdepkjWx8QF5FfT8sHPIZaOCo0AFL0Oa+nB
-	yqft7kAqpDUipMtTE7sOx5MMRPMhHrV5RRhHB3leE485rWqbyZxMMh5XLn6ohPAnKBZC2A
-	/w7Sh5kA5TrE37Xqkwgeai/pWQz3QKwgQYY/MN12t4Ihw2bLsKtMvp2XDsnE6ddMCD5Yxd
-	M/+xKmasavxYoc75xlouIbBOGat6wmKDUaJrQdxs3n/5ZmDvAn52p8Sj+WzMaw==
+	bh=zOYYJPklu04PZMZfm5Ef9NDDIqIa+F6TOAI/xPV/Nnk=;
+	b=XzhY3MNk88CI/RoVwEVhMA7XPAq2X+dTMGEV9japMDjDXA/jOSHdPf3+6AB1/IqKC9Q8Xp
+	rXW6YufVR9L49GYpKXeWdQZXjQq9SAH2rQaTppAy/xf27bpPZg/EvsbgAN2qlBDPjfBN9m
+	F+8UXMOtHeahODGRlcbSNm5Ie2u9IfinQ1Y762dgNRszAW9drN9w3IW0SOabdrMGuFZalY
+	59e+zH9PqsXs+qXrLcNJd3RZ1iFOIVM/Zi9UCJc+myi87qNR+UzVZdcQz9NPmfnNu5KthX
+	G9YeLLazdxhioTP2wzancqM0tGSKzEli/NUSabwe67JcTThXPxNqC9IifykvMg==
 From: Kory Maincent <kory.maincent@bootlin.com>
-Date: Fri, 19 Jun 2026 16:08:45 +0200
-Subject: [PATCH RFC v2 3/4] drm/bridge: Wire drmm_connector_dp_init() via
- new DRM_BRIDGE_OP_DP flag
+Date: Fri, 19 Jun 2026 16:08:43 +0200
+Subject: [PATCH RFC v2 1/4] drm: Introduce DisplayPort connector helpers
+ with link training state
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260619-feat_link_cap-v2-3-a3dec4c02ad9@bootlin.com>
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260619-feat_link_cap-v2-1-a3dec4c02ad9@bootlin.com>
 References: <20260619-feat_link_cap-v2-0-a3dec4c02ad9@bootlin.com>
 In-Reply-To: <20260619-feat_link_cap-v2-0-a3dec4c02ad9@bootlin.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -83,8 +84,8 @@ Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
 X-Mailer: b4 0.15.0
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260619_070905_877109_FB1B026C 
-X-CRM114-Status: GOOD (  14.69  )
+X-CRM114-CacheID: sfid-20260619_070859_499360_C5EF3BED 
+X-CRM114-Status: GOOD (  24.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,109 +100,619 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce DRM_BRIDGE_OP_DP, a new bridge operation flag for bridges
-that provide DisplayPort connector operations with link training support.
-Bridges advertising this flag must fill the dp_link_caps field in
-struct drm_bridge with their link capabilities.
+Add managed and unmanaged DisplayPort connector initialization helpers,
+drmm_connector_dp_init() and drm_connector_dp_init_with_ddc(), modeled
+after the existing HDMI counterpart drmm_connector_hdmi_init().
 
-In drm_bridge_connector_init(), when a bridge sets DRM_BRIDGE_OP_DP,
-use drmm_connector_dp_init() instead of the generic drmm_connector_init()
-so the connector exposes link training state properties to userspace.
-This mirrors the existing pattern used for HDMI bridges.
+These helpers initialize DP-specific connector state and expose link
+training capabilities and state to userspace via sysfs attributes under
+dp_link:
+
+  - source_link_rates_caps: Array of source-supported link rates
+  - source_max_lane_count_caps: Source maximum lane count capability
+  - source_dsc_caps: Source Display Stream Compression support
+  - sink_max_link_rate_caps: Sink maximum link rate capability
+  - sink_max_lane_count_caps: Sink maximum lane count capability
+  - sink_dsc_caps: Sink DSC support
+  - cur_link_rate: Current negotiated link rate
+  - cur_lane_count: Current negotiated lane count
+  - dsc_en: DSC enabled in current link training
+  - max_link_rate: Maximum achievable link rate (limited by source/sink)
+  - max_lane_count: Maximum achievable lane count (limited by source/sink)
+
+Link rates are passed by the driver in deca-kbps, following the DRM
+convention, but exposed to userspace in kbps for clarity.
+
+Additional helpers are provided to manage link capabilities and parameters
+at runtime:
+  - drm_dp_sink_set_link_caps(): Set sink capabilities after DPCD read
+  - drm_dp_sink_reset_link_caps(): Reset sink capabilities on disconnect
+  - drm_dp_set_cur_link_params(): Update current link training parameters
+  - drm_dp_set_max_link_params(): Update maximum achievable parameters
+
+The aim of such development is to guide users to select the most suitable
+DisplayPort connector for their needs. For example, if you have a USB-C
+hub with lesser capabilities than your computer’s native DisplayPort
+connector (such as HBR2 versus HBR3 support), the system could recommend
+connecting high-resolution displays directly to the computer’s port
+instead of through the hub to ensure optimal performance.
 
 Signed-off-by: Kory Maincent <kory.maincent@bootlin.com>
 ---
- drivers/gpu/drm/display/drm_bridge_connector.c | 24 ++++++++++++++++++++++++
- include/drm/drm_bridge.h                       | 13 +++++++++++++
- 2 files changed, 37 insertions(+)
 
-diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
-index cafa498c38482..6ea4d45e3146b 100644
---- a/drivers/gpu/drm/display/drm_bridge_connector.c
-+++ b/drivers/gpu/drm/display/drm_bridge_connector.c
-@@ -108,6 +108,13 @@ struct drm_bridge_connector {
- 	 * HDMI Audio infrastructure, if any (see &DRM_BRIDGE_OP_HDMI_AUDIO).
- 	 */
- 	struct drm_bridge *bridge_hdmi_audio;
-+	/**
-+	 * @bridge_dp:
-+	 *
-+	 * The bridge in the chain that implements necessary support for the
-+	 * DisplayPort connector infrastructure, if any (see &DRM_BRIDGE_OP_DP).
-+	 */
-+	struct drm_bridge *bridge_dp;
- 	/**
- 	 * @bridge_dp_audio:
- 	 *
-@@ -773,6 +780,7 @@ static void drm_bridge_connector_put_bridges(struct drm_device *dev, void *data)
- 	drm_bridge_put(bridge_connector->bridge_hdmi_audio);
- 	drm_bridge_put(bridge_connector->bridge_dp_audio);
- 	drm_bridge_put(bridge_connector->bridge_hdmi_cec);
-+	drm_bridge_put(bridge_connector->bridge_dp);
+Changes in v2:
+- Remove voltage swing and pre-emphasis properties
+- Expose link training state via sysfs dp_link/ group instead of
+  connector properties
+- Rename variables from link_train to link as they relate directly to
+  the link capabilities
+- Add comprehensive sysfs attributes for both source and sink capabilities
+- Add separate helpers for managing sink capabilities and for current and
+  maximum link parameters
+---
+ drivers/gpu/drm/display/drm_dp_helper.c | 144 ++++++++++++++++++++++++++++++++
+ drivers/gpu/drm/drm_connector.c         | 122 +++++++++++++++++++++++++++
+ drivers/gpu/drm/drm_sysfs.c             | 100 ++++++++++++++++++++++
+ include/drm/display/drm_dp_helper.h     |   7 ++
+ include/drm/drm_connector.h             | 105 +++++++++++++++++++++++
+ 5 files changed, 478 insertions(+)
+
+diff --git a/drivers/gpu/drm/display/drm_dp_helper.c b/drivers/gpu/drm/display/drm_dp_helper.c
+index 9c31e14cc413b..bd0e1eb657412 100644
+--- a/drivers/gpu/drm/display/drm_dp_helper.c
++++ b/drivers/gpu/drm/display/drm_dp_helper.c
+@@ -4900,3 +4900,147 @@ int drm_dp_max_dprx_data_rate(int max_link_rate, int max_lanes)
+ 				  1000000 * 8);
  }
- 
- /**
-@@ -908,6 +916,15 @@ struct drm_connector *drm_bridge_connector_init(struct drm_device *drm,
- 			bridge_connector->bridge_hdmi_audio = drm_bridge_get(bridge);
- 		}
- 
-+		if (bridge->ops & DRM_BRIDGE_OP_DP) {
-+			if (bridge_connector->bridge_dp)
-+				return ERR_PTR(-EBUSY);
-+			if (!bridge->dp_link_caps)
-+				return ERR_PTR(-EINVAL);
+ EXPORT_SYMBOL(drm_dp_max_dprx_data_rate);
 +
-+			bridge_connector->bridge_dp = drm_bridge_get(bridge);
-+		}
++static int drm_dp_dpcd_read_link_rate_caps(struct drm_dp_aux *aux)
++{
++	u8 data;
++	int ret;
 +
- 		if (bridge->ops & DRM_BRIDGE_OP_DP_AUDIO) {
- 			if (bridge_connector->bridge_dp_audio)
- 				return ERR_PTR(-EBUSY);
-@@ -996,6 +1013,13 @@ struct drm_connector *drm_bridge_connector_init(struct drm_device *drm,
- 					       max_bpc);
- 		if (ret)
- 			return ERR_PTR(ret);
-+	} else if (bridge_connector->bridge_dp) {
-+		ret = drmm_connector_dp_init(drm, connector,
-+					     &drm_bridge_connector_funcs,
-+					     bridge_connector->bridge_dp->dp_link_caps,
-+					     connector_type, ddc);
-+		if (ret)
-+			return ERR_PTR(ret);
- 	} else {
- 		ret = drmm_connector_init(drm, connector,
- 					  &drm_bridge_connector_funcs,
-diff --git a/include/drm/drm_bridge.h b/include/drm/drm_bridge.h
-index 4ba3a5deef9a6..02411e0b71c35 100644
---- a/include/drm/drm_bridge.h
-+++ b/include/drm/drm_bridge.h
-@@ -1092,6 +1092,14 @@ enum drm_bridge_ops {
- 	 * &drm_bridge_funcs->hdmi_clear_spd_infoframe callbacks.
- 	 */
- 	DRM_BRIDGE_OP_HDMI_SPD_INFOFRAME = BIT(10),
-+	/**
-+	 * @DRM_BRIDGE_OP_DP: The bridge provides DisplayPort connector
-+	 * operations, including link training support. Bridges that set
-+	 * this flag must provide DisplayPort-related information and
-+	 * fill the &drm_bridge->dp_link_train_caps link training
-+	 * capabilities.
-+	 */
-+	DRM_BRIDGE_OP_DP = BIT(11),
++	ret = drm_dp_dpcd_read_byte(aux, DP_DP13_DPCD_REV + DP_MAIN_LINK_CHANNEL_CODING, &data);
++	if (ret < 0)
++		return ret;
++
++	if (data & DP_CAP_ANSI_128B132B) {
++		ret = drm_dp_dpcd_read_byte(aux, DP_128B132B_SUPPORTED_LINK_RATES, &data);
++		if (ret < 0)
++			return ret;
++
++		if (data & DP_UHBR20)
++			return 20000000;
++		if (data & DP_UHBR13_5)
++			return 13500000;
++		if (data & DP_UHBR10)
++			return 10000000;
++	}
++
++	ret = drm_dp_dpcd_read_byte(aux, DP_MAX_LINK_RATE, &data);
++	if (ret < 0)
++		return ret;
++
++	return data * 270000;
++}
++
++/**
++ * drm_dp_sink_set_link_caps - Set DisplayPort sink link capabilities
++ * @connector: DisplayPort connector
++ * @aux: The DP AUX channel to use
++ *
++ * This function sets the DisplayPort sink (monitor) link training capabilities
++ * for the given connector. These capabilities are typically read from the
++ * sink's DPCD registers during HPD processing.
++ */
++void drm_dp_sink_set_link_caps(struct drm_connector *connector,
++			       struct drm_dp_aux *aux)
++{
++	u32 lane_count, link_rate;
++	u8 data;
++	int ret;
++
++	if (!connector)
++		return;
++
++	WARN_ON(!drm_modeset_is_locked(&connector->dev->mode_config.connection_mutex));
++
++	ret = drm_dp_dpcd_read_byte(aux, DP_MAX_LANE_COUNT, &data);
++	if (ret < 0)
++		return;
++
++	lane_count = data & DP_MAX_LANE_COUNT_MASK;
++
++	ret = drm_dp_dpcd_read_link_rate_caps(aux);
++	if (ret < 0)
++		return;
++
++	link_rate = ret;
++
++	ret = drm_dp_dpcd_read_byte(aux, DP_DSC_SUPPORT, &data);
++	if (ret < 0)
++		return;
++
++	connector->dp.sink_max_lane_count_caps = lane_count;
++	connector->dp.sink_max_link_rate_caps = link_rate;
++	connector->dp.sink_dsc_caps = ret & DP_DSC_DECOMPRESSION_IS_SUPPORTED;
++}
++EXPORT_SYMBOL_GPL(drm_dp_sink_set_link_caps);
++
++/**
++ * drm_dp_set_cur_link_params - Set current DisplayPort link parameters
++ * @connector: DisplayPort connector
++ * @link_rate: Current link rate in deca-kbps
++ * @lane_count: Current lane count
++ * @dsc_en: Display Stream Compression enabled
++ *
++ * This function sets the current active DisplayPort link parameters after
++ * link training has completed. These parameters represent the actual link
++ * configuration being used for display output.
++ */
++void drm_dp_set_cur_link_params(struct drm_connector *connector,
++				u32 link_rate, u32 lane_count, bool dsc_en)
++{
++	if (!connector)
++		return;
++
++	WARN_ON(!drm_modeset_is_locked(&connector->dev->mode_config.connection_mutex));
++
++	/* Convert deca-kbps in kbps */
++	connector->dp.cur_link_rate = link_rate * 10;
++	connector->dp.cur_lane_count = lane_count;
++	connector->dp.dsc_en = dsc_en;
++}
++EXPORT_SYMBOL_GPL(drm_dp_set_cur_link_params);
++
++/**
++ * drm_dp_set_max_link_params - Set maximum DisplayPort link parameters
++ * @connector: DisplayPort connector
++ * @link_rate: Maximum link rate in kbps
++ * @lane_count: Maximum lane count
++ *
++ * This function sets the maximum achievable DisplayPort link parameters,
++ * which represent the intersection of source and sink capabilities. These
++ * values are the upper bounds for link training attempts.
++ */
++void drm_dp_set_max_link_params(struct drm_connector *connector, u32 link_rate,
++				u32 lane_count)
++{
++	if (!connector)
++		return;
++
++	WARN_ON(!drm_modeset_is_locked(&connector->dev->mode_config.connection_mutex));
++
++	connector->dp.max_link_rate = link_rate;
++	connector->dp.max_lane_count = lane_count;
++}
++EXPORT_SYMBOL_GPL(drm_dp_set_max_link_params);
++
++/**
++ * drm_dp_sink_reset_link_caps - Reset DisplayPort sink capabilities
++ * @connector: DisplayPort connector
++ *
++ * This function resets all DisplayPort sink link capabilities and parameters
++ * to their default state. This should be called when a sink is disconnected
++ * to clear stale capability information.
++ */
++void drm_dp_sink_reset_link_caps(struct drm_connector *connector)
++{
++	if (!connector)
++		return;
++
++	WARN_ON(!drm_modeset_is_locked(&connector->dev->mode_config.connection_mutex));
++
++	drm_dp_set_cur_link_params(connector, 0, 0, false);
++	drm_dp_set_max_link_params(connector, 0, 0);
++	connector->dp.sink_max_link_rate_caps = 0;
++	connector->dp.sink_max_lane_count_caps = 0;
++	connector->dp.sink_dsc_caps = false;
++}
++EXPORT_SYMBOL_GPL(drm_dp_sink_reset_link_caps);
+diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connector.c
+index a5d13b92b665c..259af3240c057 100644
+--- a/drivers/gpu/drm/drm_connector.c
++++ b/drivers/gpu/drm/drm_connector.c
+@@ -489,6 +489,128 @@ int drm_connector_init_with_ddc(struct drm_device *dev,
+ }
+ EXPORT_SYMBOL(drm_connector_init_with_ddc);
+ 
++static int drm_dp_source_set_link_caps(struct drm_connector *connector,
++				       const struct drm_connector_dp_link_caps *link_caps)
++{
++	u32 *_link_rates;
++
++	_link_rates = devm_kmemdup_array(connector->dev->dev,
++					 link_caps->link_rates,
++					 link_caps->nlink_rates,
++					 sizeof(*link_caps->link_rates),
++					 GFP_KERNEL);
++	if (!_link_rates)
++		return -ENOMEM;
++
++	for (int i = 0; i < link_caps->nlink_rates; i++)
++		/* Convert deca-kbps in kbps */
++		_link_rates[i] *= 10;
++
++	connector->dp.source_link_rates_caps = _link_rates;
++	connector->dp.source_num_link_rates_caps = link_caps->nlink_rates;
++	connector->dp.source_max_lane_count_caps = link_caps->nlanes;
++	connector->dp.source_dsc_caps = link_caps->dsc;
++
++	return 0;
++}
++
++/**
++ * drmm_connector_dp_init - Init a preallocated DisplayPort connector
++ * @dev: DRM device
++ * @connector: A pointer to the DisplayPort connector to init
++ * @funcs: callbacks for this connector
++ * @dp_link_caps: DisplayPort link training capabilities. The pointer
++ *		  is not kept by the DRM core
++ * @connector_type: user visible type of the connector
++ * @ddc: optional pointer to the associated ddc adapter
++ *
++ * Initialises a preallocated DisplayPort connector. Connectors can be
++ * subclassed as part of driver connector objects.
++ *
++ * Cleanup is automatically handled with a call to
++ * drm_connector_cleanup() in a DRM-managed action.
++ *
++ * The connector structure should be allocated with drmm_kzalloc().
++ *
++ * The @drm_connector_funcs.destroy hook must be NULL.
++ *
++ * Returns:
++ * Zero on success, error code on failure.
++ */
++int drmm_connector_dp_init(struct drm_device *dev,
++			   struct drm_connector *connector,
++			   const struct drm_connector_funcs *funcs,
++			   const struct drm_connector_dp_link_caps *dp_link_caps,
++			   int connector_type,
++			   struct i2c_adapter *ddc)
++{
++	int ret;
++
++	if (!(connector_type == DRM_MODE_CONNECTOR_DisplayPort ||
++	      connector_type == DRM_MODE_CONNECTOR_eDP))
++		return -EINVAL;
++
++	if (!dp_link_caps)
++		return -EINVAL;
++
++	ret = drmm_connector_init(dev, connector, funcs, connector_type, ddc);
++	if (ret)
++		return ret;
++
++	return drm_dp_source_set_link_caps(connector, dp_link_caps);
++}
++EXPORT_SYMBOL(drmm_connector_dp_init);
++
++/**
++ * drm_connector_dp_init_with_ddc - Init a preallocated DisplayPort connector
++ * @dev: DRM device
++ * @connector: A pointer to the DisplayPort connector to init
++ * @funcs: callbacks for this connector
++ * @dp_link_caps: DisplayPort link training capabilities. The pointer
++ *		  is not kept by the DRM core
++ * @connector_type: user visible type of the connector
++ * @ddc: optional pointer to the associated ddc adapter
++ *
++ * Initialises a preallocated connector. Connectors should be
++ * subclassed as part of driver connector objects.
++ *
++ * At driver unload time the driver's &drm_connector_funcs.destroy hook
++ * should call drm_connector_cleanup() and free the connector structure.
++ * The connector structure should not be allocated with devm_kzalloc().
++ *
++ * Ensures that the ddc field of the connector is correctly set.
++ *
++ * Note: consider using drmm_connector_dp_init() instead of
++ * drm_connector_dp_init_with_ddc() to let the DRM managed resource
++ * infrastructure take care of cleanup and deallocation.
++ *
++ * Returns:
++ * Zero on success, error code on failure.
++ */
++int drm_connector_dp_init_with_ddc(struct drm_device *dev,
++				   struct drm_connector *connector,
++				   const struct drm_connector_funcs *funcs,
++				   const struct drm_connector_dp_link_caps *dp_link_caps,
++				   int connector_type,
++				   struct i2c_adapter *ddc)
++{
++	int ret;
++
++	if (!(connector_type == DRM_MODE_CONNECTOR_DisplayPort ||
++	      connector_type == DRM_MODE_CONNECTOR_eDP))
++		return -EINVAL;
++
++	if (!dp_link_caps)
++		return -EINVAL;
++
++	ret = drm_connector_init_with_ddc(dev, connector, funcs, connector_type, ddc);
++	if (ret)
++		return ret;
++
++	return drm_dp_source_set_link_caps(connector, dp_link_caps);
++}
++EXPORT_SYMBOL(drm_connector_dp_init_with_ddc);
++
+ static void drm_connector_cleanup_action(struct drm_device *dev,
+ 					 void *ptr)
+ {
+diff --git a/drivers/gpu/drm/drm_sysfs.c b/drivers/gpu/drm/drm_sysfs.c
+index ef4e923a87284..653fecf23d717 100644
+--- a/drivers/gpu/drm/drm_sysfs.c
++++ b/drivers/gpu/drm/drm_sysfs.c
+@@ -340,6 +340,95 @@ static const struct attribute_group *connector_dev_groups[] = {
+ 	NULL
  };
  
- /**
-@@ -1267,6 +1275,11 @@ struct drm_bridge {
- 	 */
- 	void *hpd_data;
- 
-+	/**
-+	 * @dp_link_caps: DisplayPort link capabilities
-+	 */
-+	const struct drm_connector_dp_link_caps *dp_link_caps;
++static ssize_t drm_link_rates_show(u32 num_link_rates, const u32 *link_rates, char *buf)
++{
++	int size = 0;
 +
- 	/**
- 	 * @next_bridge: Pointer to the following bridge, automatically put
- 	 * when this bridge is freed (i.e. at destroy time). This is for
++	if (!num_link_rates)
++		return 0;
++
++	size += sysfs_emit_at(buf, size, "%d", link_rates[0]);
++	for (int i = 1; i < num_link_rates; i++)
++		size += sysfs_emit_at(buf, size, " %d", link_rates[i]);
++
++	size += sysfs_emit_at(buf, size, "\n");
++	return size;
++}
++
++static ssize_t source_link_rates_caps_show(struct device *device,
++					   struct device_attribute *attr,
++					   char *buf)
++{
++	struct drm_connector *connector = to_drm_connector(device);
++	ssize_t size;
++
++	drm_modeset_lock(&connector->dev->mode_config.connection_mutex, NULL);
++	size = drm_link_rates_show(connector->dp.source_num_link_rates_caps,
++				   connector->dp.source_link_rates_caps, buf);
++	drm_modeset_unlock(&connector->dev->mode_config.connection_mutex);
++	return size;
++}
++
++#define DRM_CONNECTOR_DP_ATTR_SHOW_SIMPLE(_name) \
++static ssize_t _name##_show(struct device *device, \
++			    struct device_attribute *attr, \
++			    char *buf) \
++{ \
++	struct drm_connector *connector = to_drm_connector(device); \
++	int ret; \
++	drm_modeset_lock(&connector->dev->mode_config.connection_mutex, NULL); \
++	if (!connector->dp._name) { \
++		drm_modeset_unlock(&connector->dev->mode_config.connection_mutex); \
++		return 0; \
++	} \
++	ret = sysfs_emit(buf, "%d\n", connector->dp._name); \
++	drm_modeset_unlock(&connector->dev->mode_config.connection_mutex); \
++	return ret; \
++}
++
++DRM_CONNECTOR_DP_ATTR_SHOW_SIMPLE(source_max_lane_count_caps);
++DRM_CONNECTOR_DP_ATTR_SHOW_SIMPLE(source_dsc_caps);
++DRM_CONNECTOR_DP_ATTR_SHOW_SIMPLE(sink_dsc_caps);
++DRM_CONNECTOR_DP_ATTR_SHOW_SIMPLE(sink_max_link_rate_caps);
++DRM_CONNECTOR_DP_ATTR_SHOW_SIMPLE(sink_max_lane_count_caps);
++DRM_CONNECTOR_DP_ATTR_SHOW_SIMPLE(cur_link_rate);
++DRM_CONNECTOR_DP_ATTR_SHOW_SIMPLE(cur_lane_count);
++DRM_CONNECTOR_DP_ATTR_SHOW_SIMPLE(dsc_en);
++DRM_CONNECTOR_DP_ATTR_SHOW_SIMPLE(max_link_rate);
++DRM_CONNECTOR_DP_ATTR_SHOW_SIMPLE(max_lane_count);
++
++static DEVICE_ATTR_RO(source_link_rates_caps);
++static DEVICE_ATTR_RO(source_max_lane_count_caps);
++static DEVICE_ATTR_RO(source_dsc_caps);
++static DEVICE_ATTR_RO(sink_max_link_rate_caps);
++static DEVICE_ATTR_RO(sink_max_lane_count_caps);
++static DEVICE_ATTR_RO(sink_dsc_caps);
++static DEVICE_ATTR_RO(cur_link_rate);
++static DEVICE_ATTR_RO(cur_lane_count);
++static DEVICE_ATTR_RO(dsc_en);
++static DEVICE_ATTR_RO(max_link_rate);
++static DEVICE_ATTR_RO(max_lane_count);
++
++static struct attribute *connector_dp_link_attrs[] = {
++	&dev_attr_source_link_rates_caps.attr,
++	&dev_attr_source_max_lane_count_caps.attr,
++	&dev_attr_source_dsc_caps.attr,
++	&dev_attr_sink_max_link_rate_caps.attr,
++	&dev_attr_sink_max_lane_count_caps.attr,
++	&dev_attr_sink_dsc_caps.attr,
++	&dev_attr_cur_link_rate.attr,
++	&dev_attr_cur_lane_count.attr,
++	&dev_attr_dsc_en.attr,
++	&dev_attr_max_link_rate.attr,
++	&dev_attr_max_lane_count.attr,
++	NULL
++};
++
++static const struct attribute_group connector_dp_link_group = {
++	.name = "dp_link",
++	.attrs = connector_dp_link_attrs,
++};
++
+ int drm_sysfs_connector_add(struct drm_connector *connector)
+ {
+ 	struct drm_device *dev = connector->dev;
+@@ -376,6 +465,15 @@ int drm_sysfs_connector_add(struct drm_connector *connector)
+ 
+ 	connector->kdev = kdev;
+ 
++	if (connector->connector_type == DRM_MODE_CONNECTOR_DisplayPort ||
++	    connector->connector_type == DRM_MODE_CONNECTOR_eDP) {
++		r = sysfs_create_group(&connector->kdev->kobj, &connector_dp_link_group);
++		if (r) {
++			drm_err(dev, "failed to create DP connector sysfs: %d\n", r);
++			goto err_dp_sysfs;
++		}
++	}
++
+ 	if (dev_fwnode(kdev)) {
+ 		r = component_add(kdev, &typec_connector_ops);
+ 		if (r)
+@@ -384,6 +482,8 @@ int drm_sysfs_connector_add(struct drm_connector *connector)
+ 
+ 	return 0;
+ 
++err_dp_sysfs:
++	device_del(kdev);
+ err_free:
+ 	put_device(kdev);
+ 	return r;
+diff --git a/include/drm/display/drm_dp_helper.h b/include/drm/display/drm_dp_helper.h
+index 8c2d77a032f06..e7620ecb2380a 100644
+--- a/include/drm/display/drm_dp_helper.h
++++ b/include/drm/display/drm_dp_helper.h
+@@ -1031,4 +1031,11 @@ ssize_t drm_dp_vsc_sdp_pack(const struct drm_dp_vsc_sdp *vsc, struct dp_sdp *sdp
+ int drm_dp_link_symbol_cycles(int lane_count, int pixels, int dsc_slice_count,
+ 			      int bpp_x16, int symbol_size, bool is_mst);
+ 
++void drm_dp_sink_set_link_caps(struct drm_connector *connector, struct drm_dp_aux *aux);
++void drm_dp_sink_reset_link_caps(struct drm_connector *connector);
++void drm_dp_set_cur_link_params(struct drm_connector *connector, u32 link_rate,
++				u32 lane_count, bool dsc_en);
++void drm_dp_set_max_link_params(struct drm_connector *connector, u32 link_rate,
++				u32 lane_count);
++
+ #endif /* _DRM_DP_HELPER_H_ */
+diff --git a/include/drm/drm_connector.h b/include/drm/drm_connector.h
+index 529755c2e8620..a08b8e9766abe 100644
+--- a/include/drm/drm_connector.h
++++ b/include/drm/drm_connector.h
+@@ -2003,6 +2003,93 @@ struct drm_connector_cec {
+ 	void *data;
+ };
+ 
++/**
++ * struct drm_connector_dp_link_caps - DRM DisplayPort link capabilities
++ */
++struct drm_connector_dp_link_caps {
++	/**
++	 * @nlanes: Maximum number of lanes number supported
++	 */
++	u8 nlanes;
++
++	/**
++	 * @nlink_rates: Number of link rates supported
++	 */
++	u32 nlink_rates;
++
++	/**
++	 * @link_rates: Array listing the supported link rates in deca-kbps
++	 */
++	const u32 *link_rates;
++
++	/**
++	 * @dsc: Display Stream Compression supported
++	 */
++	bool dsc;
++};
++
++/**
++ * struct drm_connector_dp - DRM Connector DisplayPort-related structure
++ */
++struct drm_connector_dp {
++	/**
++	 * @source_link_rates_caps: Array of supported link rates by the
++	 * source in kbps
++	 */
++	const u32 *source_link_rates_caps;
++	/**
++	 * @source_num_link_rates_caps: Number of link rates in
++	 * @source_link_rates_caps array
++	 */
++	u32 source_num_link_rates_caps;
++	/**
++	 * @source_max_lane_count_caps: Maximum number of lanes supported by
++	 * the source
++	 */
++	u32 source_max_lane_count_caps;
++	/**
++	 * @source_dsc_caps: Display Stream Compression capability of the
++	 * source
++	 */
++	bool source_dsc_caps;
++	/**
++	 * @sink_max_link_rate_caps: Maximum link rate supported by the sink
++	 * in kbps
++	 */
++	u32 sink_max_link_rate_caps;
++	/**
++	 * @sink_max_lane_count_caps: Maximum number of lanes supported by the
++	 * sink
++	 */
++	u32 sink_max_lane_count_caps;
++	/**
++	 * @sink_dsc_caps: Display Stream Compression capability of the sink
++	 */
++	bool sink_dsc_caps;
++	/**
++	 * @cur_link_rate: Current negotiated link rate in kbps
++	 */
++	u32 cur_link_rate;
++	/**
++	 * @cur_lane_count: Current negotiated number of lanes
++	 */
++	u32 cur_lane_count;
++	/**
++	 * @dsc_en: Display Stream Compression enabled status
++	 */
++	bool dsc_en;
++	/**
++	 * @max_link_rate: Maximum achievable link rate considering both
++	 * source and sink capabilities in deca-kbps
++	 */
++	u32 max_link_rate;
++	/**
++	 * @max_lane_count: Maximum achievable lane count considering both
++	 * source and sink capabilities
++	 */
++	u32 max_lane_count;
++};
++
+ /**
+  * struct drm_connector - central DRM connector control structure
+  *
+@@ -2426,6 +2513,11 @@ struct drm_connector {
+ 	 * @cec: CEC-related data.
+ 	 */
+ 	struct drm_connector_cec cec;
++
++	/**
++	 * @dp: DisplayPort-related variable and properties.
++	 */
++	struct drm_connector_dp dp;
+ };
+ 
+ #define obj_to_connector(x) container_of(x, struct drm_connector, base)
+@@ -2458,6 +2550,19 @@ int drmm_connector_hdmi_init(struct drm_device *dev,
+ 			     struct i2c_adapter *ddc,
+ 			     unsigned long supported_formats,
+ 			     unsigned int max_bpc);
++int drm_connector_dp_init_with_ddc(struct drm_device *dev,
++				   struct drm_connector *connector,
++				   const struct drm_connector_funcs *funcs,
++				   const struct drm_connector_dp_link_caps *dp_link_caps,
++				   int connector_type,
++				   struct i2c_adapter *ddc);
++
++int drmm_connector_dp_init(struct drm_device *dev,
++			   struct drm_connector *connector,
++			   const struct drm_connector_funcs *funcs,
++			   const struct drm_connector_dp_link_caps *dp_link_caps,
++			   int connector_type,
++			   struct i2c_adapter *ddc);
+ void drm_connector_attach_edid_property(struct drm_connector *connector);
+ int drm_connector_register(struct drm_connector *connector);
+ int drm_connector_dynamic_register(struct drm_connector *connector);
 
 -- 
 2.43.0
