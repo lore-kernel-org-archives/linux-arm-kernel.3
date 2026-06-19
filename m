@@ -4,104 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4ACECD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 13:54:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94C4ECD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 13:58:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fGhiVMwPkreKp0vHZtTTCkMwKPr/e26nfYjRzDJCX+8=; b=b9Oi/ZR94zfNuwU11VNEkg8pBr
-	xbdz7t8yAtSebaGwwmkKTY1Qxs92JXapbJDCcGJBUzRK3rYZNg4vpBr+IPCufylSUlErvw+TuzPHs
-	gW0oYT7r5ezGnU2kP3PIROZe3HDK5pKpfieow00PGbRX6hEspFBdSIVCEQnLhikxWQFtmglCNyVf1
-	81OjVRj08yL1luEyREzAUvdiEVkmn7zZbuEx56EBjQhB2NUvBHeD/og2nJqCjEMCp4YqWOcjvJalO
-	iP6gbZTIMDmG3c+k1A69b727AYJlcSaSB0rkfzmXNJMN3B1DnPY8IaNFeXUqdOZbRKZTIAwQjlqFY
-	uXpYEjsw==;
+	bh=YDBGFFmAFpsTzU7UDyTvMSWoP6bzsNKVuDtNoeT8GeY=; b=ZMMgf0Z6iJqoDUg7DpvJ/E5wof
+	XToHyKS2D6J6TI2HAawk8zCPCYQg/kPXaDAJQ4YidM/W96kAYPKaOlqBRy17gbVHKH1U0eya0J/KV
+	zmW8HnDxPg63YR2ExfxjRnuv5t1SXXvJ0jbf1pWpXAxATqWdxRfaIvwcO2e3thPgkLzVLWifZHAuO
+	RqVwX4/7vTzf5hcIJ1PlskPF8WerHl/QfCs6N970VRNnLO7UWzsP37hebEm+rPlfkpFX0Nj8Owx5L
+	GkqdBOHJDm8qen3dtKVswBSYbwb+qoE0PKK72qiCmrGRVb+u4oXdit9poWmmhyLeajUVEoxtJd6HG
+	LasgtwxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waZg8-00000002VbN-3gZJ;
-	Fri, 19 Jun 2026 13:54:40 +0000
-Received: from fout-a6-smtp.messagingengine.com ([103.168.172.149])
+	id 1waZjU-00000002Vve-1p82;
+	Fri, 19 Jun 2026 13:58:08 +0000
+Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waZg6-00000002Vaz-0qqr
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Jun 2026 13:54:39 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfout.phl.internal (Postfix) with ESMTP id A892DEC02DA;
-	Fri, 19 Jun 2026 09:54:36 -0400 (EDT)
-Received: from phl-imap-05 ([10.202.2.95])
-  by phl-compute-04.internal (MEProxy); Fri, 19 Jun 2026 09:54:36 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1781877276;
-	 x=1781963676; bh=fGhiVMwPkreKp0vHZtTTCkMwKPr/e26nfYjRzDJCX+8=; b=
-	X/Xb0wZeFaM0bGpYpDvP8pANEC2yjPKnVlSUr9ZgEgfo830lYuQBlPc6mGy16c+b
-	cilFtsdbYMh+KWTyasxrnwds6iVmOD41cvdWsMs2N61RgxuxaeKz097Bsq3ZRpxQ
-	wlTgKuSQMMC13oD4g99LI7G5pPYpB5UObLVvMG0Ir/zhiPIKTc72ASdVoBV9zr/3
-	qVn9SITEluBt3CcunzDMfKoX21EW5ZQFFZ/Os4J8tSNDvULGcYGUPn2DgJEOMjms
-	v/Nb79rNu+6cUPrYXC1Zss9Muo5Rer3nhxnaKh0LVKsEu5wDjhWqXt4ifQWQyTjI
-	vgI9YVgh/XUZM4kuWCc0dA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1781877276; x=
-	1781963676; bh=fGhiVMwPkreKp0vHZtTTCkMwKPr/e26nfYjRzDJCX+8=; b=S
-	CAYL4Cx+YVlyZleyr1bqqCCzpLzx42CRoZgnq2C6k1MOSmVZc4toOD/v4XSbQRVP
-	yn2v2ol8BTTuewgKl5FLLf4hqwM8sW3GO0GPJxO1gOAK1SN5xOuN8i2nBYDuA3It
-	V3qkcDU1t56PUlG4d4bQkP57M+ICYz6miKH/D/NUIV4kYspN/fcEELrxd/QZ4kf4
-	yrjCRJ2iTH6jo6p9Zx/OIsf0DxBpST02jrsllXyBonMwIG1VE5wup78TUQAiOPhd
-	0qY6n3eM1uTg4ShqOpsmWKc9cspiKMotXN/Hw/6dxtGUE/RWSS7lqCkM4IjTUz7a
-	CxBPsG/ObM7TTD8Bvl1RQ==
-X-ME-Sender: <xms:G0o1aoYysvl-fdnI-BXvdvagZEaqODokYW7Y1xV_5kZnARpQ7tN1vw>
-    <xme:G0o1auO6Wg0GCnV2GKK3XxLmXszdPhwIG83cp0eUv3c1HnSp5Za2ZoyLGEDCfKY0c
-    Yfe7IvX15_Ylzpb_0tMPSH1ZvIgNhHFPFY3K9L3LMCR1naz9fltXXk>
-X-ME-Proxy-Cause: dmFkZTEME0i7hFkUzbVaA8Blwt5lFCClrIVHk96pidkFC9CoLs+NZJibpKcjbdNBA/GqX8
-    OHotBRwN4B+uk6gSRtG+lr75wy4a+ISIQwYbSV/CmUPmE+2mpxozY6dZmXz/gERBe103Do
-    7+iYxl+TaJCGq0xHkKbuwM5nVV8WfGGE0KKSi1f5fNL1pgTP27kyDx5j63funhXxCCjvaK
-    V1enqJePl7rsfllgQ9spD886+NhEoX66pi/pIWtKFWKNKJQfHvvPSg1NrKc0qqSDSd+XoN
-    lvr6nqNjvbwteNjhLvaOhJ6szLcVXiA15ZIpT6RcNIBa3kzt5pz+HG3EOqK0HosibjZ1Py
-    oswmHTM7d7SEXsMQaCPrj1M/c2V0hy1ehtY8WHPF3NwtnWBaDJIdNsrTcNyqxsESLr2ygn
-    QAKne8sW2HU5WzygNyHY25puYkS1iXkaK1V1WfSaYwJYBl6CZgtvgJcpSmDY0CexOykhk0
-    wwHADwhoLi+09pnKWjwA2lG2grCL6GasZ7CWbz95S+jXVxA2fWT26WnFLFzv9dNXJD3wqt
-    3HodDyNM9nfYq9x4cIL6O3rO9a2QSBXK49vdy/OcAG7rvCYHPLbCJW0GuQVuxm8cK6an/A
-    1atTaIworsTj5eEpJcx1Lvs+5yNUgRktkdmyvyXkpCH4Tc/NaXXcbqPBvz5A
-X-ME-Proxy: <xmx:G0o1aqliEpSFMCeC89Vs9PfUKGS42VFMY4zD2oKDMjgtbTJ2sngMFQ>
-    <xmx:HEo1agFevHRJyitLqWnp2jlpQQ-zLSZbIiVhu47qb3NVzMDrRNaiOQ>
-    <xmx:HEo1ah8w42448NXmDmaNiwzo5cSfFStKqN5hzjX8j1XshJ_8y65lWw>
-    <xmx:HEo1ahkqcIlzM-ywGLrKFHohqI7tOpaHjG-L3HoXCPO3MVuNticokQ>
-    <xmx:HEo1ahoV06yv9yBqHeyXpjBFZxRFT2-iOLIOagdnfxLjelKQsweA3FVP>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id DF18E182007E; Fri, 19 Jun 2026 09:54:35 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1waZjP-00000002Vuv-1FSn;
+	Fri, 19 Jun 2026 13:58:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:References:
+	Cc:To:From:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=YDBGFFmAFpsTzU7UDyTvMSWoP6bzsNKVuDtNoeT8GeY=; b=AUKaAQrX4mO9lunC7CbM4MvPR3
+	YZrHHtT9jGBUIHQuctZqJ6ZNkCAXtNdZbinF7VNl9MuRqVGT6oVFhg67xWwkyDI+mfh2AI1B431TR
+	qAcLn6PBoZp9jTdvUsNJ4Zm+6qrE9uPR7hj+4YKMjJb3CRiJEx5XkiWU4irfE8KDaFGNV96fZeprR
+	kEfWd8V3i2Gsud25LC5F9kZSXgRF4+rB2TSSzACvHPvYMZDl26TNdsX8gmdXY4UWwgZ1FoDTNARG0
+	oilb2dWUroKoT+l/ee8bP526hyaENBEd/8FkYr3/i4xp06l61VBU72TVScfVIz5lqNKLKkX6T58/d
+	BHI6/OiA==;
+Received: from [77.26.202.28] (helo=[10.0.20.253])
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
+	id 1waZj6-002XhJ-Nk; Fri, 19 Jun 2026 15:57:44 +0200
+Message-ID: <4af63689-e08c-406e-9ec3-f56dcbfb6f91@igalia.com>
+Date: Fri, 19 Jun 2026 15:57:40 +0200
 MIME-Version: 1.0
-X-ThreadId: A94YXJhgp2v7
-Date: Fri, 19 Jun 2026 15:54:15 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Krzysztof Kozlowski" <krzysztof.kozlowski@oss.qualcomm.com>,
- "Geert Uytterhoeven" <geert@linux-m68k.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>,
- "Alexandre Belloni" <alexandre.belloni@bootlin.com>,
- "Linus Walleij" <linusw@kernel.org>, "Drew Fustini" <fustini@kernel.org>,
- soc@lists.linux.dev
-Message-Id: <b04972c7-2c5e-40fe-a8a6-7ade300cd4b2@app.fastmail.com>
-In-Reply-To: <ed070807-d2dd-4f0b-9ba1-8d2c8c93c30e@oss.qualcomm.com>
-References: <20260429-defconfig-v2-0-e4ed4186028b@oss.qualcomm.com>
- <20260429-defconfig-v2-4-e4ed4186028b@oss.qualcomm.com>
- <CAMuHMdVH6-5ZAjTyF3m=wF5-XiSDqwcgRhZWxJv6y0FoCnk4MA@mail.gmail.com>
- <ed070807-d2dd-4f0b-9ba1-8d2c8c93c30e@oss.qualcomm.com>
-Subject: Re: [PATCH v2 4/5] arm64: defconfig: Drop unused Ethernet vendors
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] pmdomain: bcm: bcm2835-power: Raise ASB poll timeout to
+ 100us
+From: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
+To: Stefan Wahren <wahrenst@gmx.net>, Ulf Hansson <ulfh@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>,
+ Scott Branden <sbranden@broadcom.com>
+Cc: linux-pm@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, kernel-dev@igalia.com
+References: <20260530204636.1115120-1-mcanal@igalia.com>
+ <deecc409-02c1-4393-bc06-1852fc06e4d1@gmx.net>
+ <eba66b9e-520e-4afc-8973-d54b22919d2c@igalia.com>
+Content-Language: en-US
+Autocrypt: addr=mcanal@igalia.com; keydata=
+ xsBNBGcCwywBCADgTji02Sv9zjHo26LXKdCaumcSWglfnJ93rwOCNkHfPIBll85LL9G0J7H8
+ /PmEL9y0LPo9/B3fhIpbD8VhSy9Sqz8qVl1oeqSe/rh3M+GceZbFUPpMSk5pNY9wr5raZ63d
+ gJc1cs8XBhuj1EzeE8qbP6JAmsL+NMEmtkkNPfjhX14yqzHDVSqmAFEsh4Vmw6oaTMXvwQ40
+ SkFjtl3sr20y07cJMDe++tFet2fsfKqQNxwiGBZJsjEMO2T+mW7DuV2pKHr9aifWjABY5EPw
+ G7qbrh+hXgfT+njAVg5+BcLz7w9Ju/7iwDMiIY1hx64Ogrpwykj9bXav35GKobicCAwHABEB
+ AAHNIE1hw61yYSBDYW5hbCA8bWNhbmFsQGlnYWxpYS5jb20+wsCRBBMBCAA7FiEE+ORdfQEW
+ dwcppnfRP/MOinaI+qoFAmcCwywCGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgkQ
+ P/MOinaI+qoUBQgAqz2gzUP7K3EBI24+a5FwFlruQGtim85GAJZXToBtzsfGLLVUSCL3aF/5
+ O335Bh6ViSBgxmowIwVJlS/e+L95CkTGzIIMHgyUZfNefR2L3aZA6cgc9z8cfow62Wu8eXnq
+ GM/+WWvrFQb/dBKKuohfBlpThqDWXxhozazCcJYYHradIuOM8zyMtCLDYwPW7Vqmewa+w994
+ 7Lo4CgOhUXVI2jJSBq3sgHEPxiUBOGxvOt1YBg7H9C37BeZYZxFmU8vh7fbOsvhx7Aqu5xV7
+ FG+1ZMfDkv+PixCuGtR5yPPaqU2XdjDC/9mlRWWQTPzg74RLEw5sz/tIHQPPm6ROCACFls7A
+ TQRnAsMsAQgAxTU8dnqzK6vgODTCW2A6SAzcvKztxae4YjRwN1SuGhJR2isJgQHoOH6oCItW
+ Xc1CGAWnci6doh1DJvbbB7uvkQlbeNxeIz0OzHSiB+pb1ssuT31Hz6QZFbX4q+crregPIhr+
+ 0xeDi6Mtu+paYprI7USGFFjDUvJUf36kK0yuF2XUOBlF0beCQ7Jhc+UoI9Akmvl4sHUrZJzX
+ LMeajARnSBXTcig6h6/NFVkr1mi1uuZfIRNCkxCE8QRYebZLSWxBVr3h7dtOUkq2CzL2kRCK
+ T2rKkmYrvBJTqSvfK3Ba7QrDg3szEe+fENpL3gHtH6h/XQF92EOulm5S5o0I+ceREwARAQAB
+ wsB2BBgBCAAgFiEE+ORdfQEWdwcppnfRP/MOinaI+qoFAmcCwywCGwwACgkQP/MOinaI+qpI
+ zQf+NAcNDBXWHGA3lgvYvOU31+ik9bb30xZ7IqK9MIi6TpZqL7cxNwZ+FAK2GbUWhy+/gPkX
+ it2gCAJsjo/QEKJi7Zh8IgHN+jfim942QZOkU+p/YEcvqBvXa0zqW0sYfyAxkrf/OZfTnNNE
+ Tr+uBKNaQGO2vkn5AX5l8zMl9LCH3/Ieaboni35qEhoD/aM0Kpf93PhCvJGbD4n1DnRhrxm1
+ uEdQ6HUjWghEjC+Jh9xUvJco2tUTepw4OwuPxOvtuPTUa1kgixYyG1Jck/67reJzMigeuYFt
+ raV3P8t/6cmtawVjurhnCDuURyhUrjpRhgFp+lW8OGr6pepHol/WFIOQEg==
+In-Reply-To: <eba66b9e-520e-4afc-8973-d54b22919d2c@igalia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260619_065438_313001_C153959E 
-X-CRM114-Status: UNSURE (   9.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260619_065803_626437_EDC11D9C 
+X-CRM114-Status: GOOD (  32.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,24 +104,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 19, 2026, at 15:11, Krzysztof Kozlowski wrote:
-> On 19/06/2026 12:12, Geert Uytterhoeven wrote:
->>> +# CONFIG_NET_VENDOR_ACTIONS is not set
->>> +# CONFIG_NET_VENDOR_ADAPTEC is not set
->>> +# CONFIG_NET_VENDOR_AGERE is not set
->>> +# CONFIG_NET_VENDOR_ALACRITECH is not set
->>> +# CONFIG_NET_VENDOR_ALLWINNER is not set
->> 
->> [...]
->> 
->> I am not sure this new policy is a good idea: none of this affects
->
-> I would not call it new policy. Just an idea which got accepted. :)
+Hi,
 
-I think when we originally added the CONFIG_NET_VENDOR_xxx symbols,
-the idea would be that we would one day change them to
-default-disabled, but that never happened, and generally causes
-more problems than it solves.
+On 31/05/26 09:18, Maíra Canal wrote:
+> Hi Stefan,
+> 
+> On 31/05/26 07:41, Stefan Wahren wrote:
+>> Hi Maíra,
+>>
+>> Am 30.05.26 um 22:46 schrieb Maíra Canal:
+>>> Commit 18605b1b936b ("pmdomain: bcm: bcm2835-power: Increase ASB control
+>>> timeout") raised the ASB handshake polling budget from 1us to 5us.
+>>> Surveying the pmdomain subsystem, 5us is still one of the smallest 
+>>> polling
+>>> budgets by a wide margin. Comparable handshakes in other drivers use:
+>>>
+>>>    - 100us : starfive jh71xx-pmu, apple pmgr-pwrstate
+>>>    - 1ms   : renesas rcar-sysc, rmobile-sysc (power-on)
+>>>    - 10ms  : renesas rcar-gen4-sysc, sunxi sun55i-pck600
+>>>    - 1s    : mediatek mtk-pm-domains, mtk-scpsys
+>>>
+>>> Raise the BCM2835 timeout to 100us, matching analogous drivers. 100us is
+>>> still negligible relative to a power-domain transition and gives the V3D
+>>> master ASB substantially more headroom to drain under heavy workloads,
+>>> assuring us that the timeout is enough for any scenario.
+>> tbh I'm not convinced by this explanation. Starting with a timeout 
+>> comparison across different pmdomain driver looks strange to me.
+>>
+>> My expectation that the reason for such a patch is that there is some 
+>> kind of scenario to trigger unexpected timeouts.
+>> If this is the case, please provide more information about the 
+>> scenario (specific platform, scenario, link to the bug report).
+> 
+> The context: I was debugging this issue [1] and initially I had the
+> intuition that it could be related to a timeout in the ASB polling loop.
+> As I don't have access to the BCM2835 SoC datasheet (the public one
+> doesn't have PM information), I started to check other driver's
+> handshake timeout to see if ours was comparable to similar drivers. As
+> you can see, our timeout is much smaller.
+> 
+> In the end, issue [1] wasn't related to the pmdomain driver, so I don't
+> have a specific scenario to trigger this issue. Even though, I sent this
+> patch considering the comparison to other drivers with the goal to be
+> conservative and use a larger timeout that could accommodate an extreme
+> scenario. However, if you believe it's unreasonable, I'm okay dropping
+> this patch.
+> 
+> Ideally, it would be great to have information from Broadcom on what's
+> the largest possible time required to perform a power transition. Maybe
+> Florian could help us with that?
+> 
 
-      Arnd
+Gentle ping, any ideas about this?
+
+Best regards,
+- Maíra
+
+> [1] https://lore.kernel.org/dri-devel/20260530-v3d-fix-rpi4-freezes- 
+> v1-0-c2c8307da6ce@igalia.com/T/
+> 
+>>
+>> I'm not against the change in general, but please start your commit 
+>> message with the problem and not with the solution.
+>>
+>> A related question, does it make sense to add an error message here 
+>> for the timeout case just like in the rest of the driver?
+> 
+> Before commit 18605b1b936b, I was getting a "Failed to disable ASB
+> master for v3d" error message, so I believe the error message already
+> exists where the function is called.
+> 
+> Thanks for your feedback!
+> 
+> Best regards,
+> - Maíra
+> 
+>>
+>> Best regards
+>>
+>>>
+>>> Signed-off-by: Maíra Canal <mcanal@igalia.com>
+>>> ---
+>>>   drivers/pmdomain/bcm/bcm2835-power.c | 2 +-
+>>>   1 file changed, 1 insertion(+), 1 deletion(-)
+>>>
+>>> diff --git a/drivers/pmdomain/bcm/bcm2835-power.c b/drivers/pmdomain/ 
+>>> bcm/bcm2835-power.c
+>>> index b76d74e3849b..d507bb675e29 100644
+>>> --- a/drivers/pmdomain/bcm/bcm2835-power.c
+>>> +++ b/drivers/pmdomain/bcm/bcm2835-power.c
+>>> @@ -175,7 +175,7 @@ static int bcm2835_asb_control(struct 
+>>> bcm2835_power *power, u32 reg, bool enable
+>>>       writel(PM_PASSWORD | val, base + reg);
+>>>       if (readl_poll_timeout_atomic(base + reg, val,
+>>> -                      !!(val & ASB_ACK) != enable, 0, 5))
+>>> +                      !!(val & ASB_ACK) != enable, 0, 100))
+>>>           return -ETIMEDOUT;
+>>>       return 0;
+>>
+> 
+
 
