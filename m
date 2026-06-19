@@ -4,85 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D858CD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 13:44:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DEEFCD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 13:52:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NOlJ0qkWwGjqOtI46GdlsCxvHcFNK9S64rnZbC57zPI=; b=RrBGS1M+0vY57Mv2A+mXsav1Gj
-	kDaKTEHaEQjqbu7+XsTXXumVX0xXl05DNbbNt2H1n76AR3jYjD1fcf87qAiGfm9OX2omFv+h48apW
-	6GpshMd4IbOLlcnSun9wM/7rqBo+OkzkyH8ak91LZ18fG8Uwp2wmuWjYxN4TAelsOpgmokfJHj8Oq
-	kjopcZ1noUpSUm1olX51CYiljRgMI+dUHPZP9kBUg/DWAnA3qojizbc+i07Q7w2VeOK5RW9clv9Ok
-	/NjkzKqwbJa9j7Zq01s/iV9N31VSPYyvS7Zj80D+u03tzCCj6DbJndEWAS10ym+dO8b6zaFZtyMDV
-	hNPw/WAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FozTM/GYLgmwFNfDI2cHx+3emSRhaWbZEhFRJAOgStI=; b=0v7Hd6bEPtUry8nrLWlzgTMRA5
+	SugdzN/Y8GFMtBPRjMDZD1CJieK44nyR0zzDCYjPkbKnO9sNiQwjI1q+r+XPlk0PwNzRE7PCXQ7IV
+	OAVUFoS2taO7/toBRwMIpMWMMz7gXTM/7Z/mjVnXbgIBQz8wFGJ1zsPuv+39S1frdQL0mmGJy+3A+
+	vdsq++68hia8Zyr+NcYq4Z6RoiklGByDTc4V/pxohr3+RvWBPRrDCxXaHm1kVMRAckLydcwGpoNqP
+	ndko8FBBzWbT3WYN/Yx8NBk6Hi0aD4l+bzP0mx3EskNHWf45KIp2wmts08WpZtJuOaYjKZVKojNhk
+	mK7PjrBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waZWM-00000002V3L-3AAS;
-	Fri, 19 Jun 2026 13:44:34 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1waZeI-00000002VVj-2cYf;
+	Fri, 19 Jun 2026 13:52:46 +0000
+Received: from fhigh-a4-smtp.messagingengine.com ([103.168.172.155])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waZWL-00000002V3F-1w9F
+	id 1waZeF-00000002VVN-3jTn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Jun 2026 13:44:33 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E51A344168;
-	Fri, 19 Jun 2026 13:44:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 449711F000E9;
-	Fri, 19 Jun 2026 13:44:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781876672;
-	bh=NOlJ0qkWwGjqOtI46GdlsCxvHcFNK9S64rnZbC57zPI=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=lQzkkU4Fajz1t5MDntjr+eBXOgH/kqWDGPbPnNEl6OlP4DsAaE0JKuqovdDh57WYY
-	 I/6ltpFvRt56sqvzdXsVfD5NofYwR/VqfDXfNqNt77Yx03Hf0sOR6e/Q6ZJSfeD9GO
-	 MmbYnKiDy6yTiZjdCMwqi+8UMVqLgh0oXCGBXinMAlZ1DP4u2+GGJzF27w5GUsgnCT
-	 Af+NzJvNa18t/AFT8LNiUDtN+85DcWRyilFlXUGHfHNM1wTlz4AIvIFrWjmsrrYPJ0
-	 wqYIMCBqen+y6u04gcv4qb2+QSFkFebPKCBt/9BLwnbVHBt66NMmfUQHW+KW7B7/Ka
-	 vLTBA3dhzOVKQ==
-X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: Jason Gunthorpe <jgg@ziepe.ca>,
-	Alexey Kardashevskiy <aik@amd.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
-	Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>,
-	Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>,
-	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
-Subject: Re: [PATCH v6 00/20] dma-mapping: Use DMA_ATTR_CC_SHARED through
- direct, pool and swiotlb paths
-In-Reply-To: <20260619120309.GI231643@ziepe.ca>
-References: <20260604083959.1265923-1-aneesh.kumar@kernel.org>
- <aigYbK12D8uKQvJF@arm.com> <20260609144746.GL2764304@ziepe.ca>
- <2ecfa1a8-6202-4319-9692-a6ffeb5a3dbf@amd.com>
- <yq5aqzm4dz25.fsf@kernel.org> <20260618153705.GH231643@ziepe.ca>
- <d4ef9a9f-18d9-40e1-9d02-87aeb9cb6540@amd.com>
- <20260619120309.GI231643@ziepe.ca>
-Date: Fri, 19 Jun 2026 14:44:22 +0100
-Message-ID: <yq5aik7eejbd.fsf@kernel.org>
+	Fri, 19 Jun 2026 13:52:45 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id C844A140011E;
+	Fri, 19 Jun 2026 09:52:40 -0400 (EDT)
+Received: from phl-imap-05 ([10.202.2.95])
+  by phl-compute-04.internal (MEProxy); Fri, 19 Jun 2026 09:52:40 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1781877160;
+	 x=1781963560; bh=FozTM/GYLgmwFNfDI2cHx+3emSRhaWbZEhFRJAOgStI=; b=
+	iKTunirmvI+4OklbO9Zulczl2+ZYCzHU+p5OkSx2JU3IINDiOLSyVobI9Rj2MIJH
+	lXKHpWc/xbQoMkpNRuBAR3kiaGNqo68cPsfkgOFp1Gy6RBAwfGH8km+R4dUMVZLU
+	ViFl5dvJNFWr7f5rey2qW8Jw8XoWcozYqJNmkzPKojJThjPrMz6zOGOe0nTuUFfR
+	9hHlCJ75ZnSf+UKwrEcdBDutFknBXaDCcNEnpad06efjnnzOKd/fnoR5uOvk4zeY
+	HVgJXeB6S3wp0eL4ZpS9Ho3IxqLoPWA6RJ7/5V6ylvUWlDdH8gzkPa4fzQhOozmx
+	a6H/JhBRUg7OEaJlnzuFaA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1781877160; x=
+	1781963560; bh=FozTM/GYLgmwFNfDI2cHx+3emSRhaWbZEhFRJAOgStI=; b=e
+	rH7FzlMvCnz/C+lRZXTIw0i6XLi7PIwyX4uD0KYPSIGernYG6GhW1pAJCiRmTVqJ
+	/LmqR/6equVAmCcPwJDTu9Q/9drzC9OxxZqUQHIfMUzhW0yGV2CL0PhlTSXawdhM
+	eJaPi1227CeNooKpRb4s2s52GchO/M4eZJ1V83KU9Vb/xaJPPr/p2G3Q4Zpp25or
+	+d26U1k57F3ZSTOKkILwDruWGibMuB5v+kyGegT8jnYUvH36TjGz0yfZz5W9e4DM
+	KUN3zMdhiSLRcb5WjymqF58xW6cHRlzObOJY0en5C5NfEKV0oLtwIVLEUNXafg91
+	ftvEeGyLcLOJOdaIo6etw==
+X-ME-Sender: <xms:qEk1au_4iskxCmB0yLtLCzX6eozZrFZvlcoaUcStIl6EUopRa6RQag>
+    <xme:qEk1apiLtUWDfR4dNBU8idL-KxPm44pp1eyyB9ssZf4QKgxGw1FF2uUSbem2kgl0o
+    qbIrRc1JjUZ7nq1cfme4ohG-1t_c-6rqtkimGOdNbo-h-M90ZjMc6Q>
+X-ME-Proxy-Cause: dmFkZTFQUFt/7BhSYI/XwTEKSUFd5PK4AHv+bPoWdTbwmWAXwFaiVd67T6MG/znkP2pxvq
+    nBazpJjCQVyS2w52XDXPIndzegEZOvzcS9n3rqr6DHRmV4ssU/7VRzDCI/bfauez6jpLPj
+    jNBojBHMIKmsX9lNOwPbI/Riz9JbCZGGqjtp+0Gm5CVd+G6ps10TxqVehDFZqr3CSl5RCl
+    BWQpV/6uYmEUo/HEfZPm8iCLi2iGdxy/cHBJRYjAJlHK32Gx3Rrwi2NwFK57Q9nd6aVkBp
+    4XxZuwuHjvfPOjloDqyRUou3iieexynCev5UPU7Q/nBIxe07WOKYk9zI3TLCItigwpHvkp
+    ex6P6IFZFiSICuyOpTaGN8ufHucnqZ1kpfINBPRAJN9wCv6+p6LU0cETpvXA5HvdUgf09G
+    lbqx4ZPzHk7symrdhQabqD+RTpA68R//+D4Pd3D24AvcnY7BDUMKksZRnUr5fthrV1j3oQ
+    A3OwHWXA+KdlWWeseF3SQuHm+0rvHJsZRDQDWr2G0XxAEb7wQkHsSi89my6csLo+T+EBSl
+    GkMabbkeGZVJsw3qzRwrKhg1Nc9eZ+5bsJdaluyDL/bItNPBcuTWs3zwtx8i0mQLRs0jot
+    CaMIZp9HLyxEZBRnIKPQb9f5NGs8IPo6df9N8o05RvscYQvLLcr/r0R8dh5g
+X-ME-Proxy: <xmx:qEk1ag9UMoCZnGta0lRpb-GdBDrq0uVSx_VYsQ4FLw4IMtYgpxiXRw>
+    <xmx:qEk1alQrk8SThjCYV5ieJdGiLBYHGqxlwlCneera4ujkca93lasXFA>
+    <xmx:qEk1aqcjrSjCHw-hGxpeD6Cb0Jz5m1C7itMsAQgvIYi0ZSjhr1lMiQ>
+    <xmx:qEk1anQ5KcDk02pM2UspYl-XPB6lG8h5woat88q-q1FIlRAG9RGNKQ>
+    <xmx:qEk1avkrakdzWPb7F3M9fj-BO6i3roU2dQEBsETaKL2WxPAmX95Z4fBj>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 620891820082; Fri, 19 Jun 2026 09:52:40 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
+X-ThreadId: A0Y27BypNIT-
+Date: Fri, 19 Jun 2026 15:52:20 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Will Deacon" <will@kernel.org>, linux-arm-kernel@lists.infradead.org
+Cc: "Nick Desaulniers" <nick.desaulniers+lkml@gmail.com>,
+ "Steffen Eiden" <seiden@linux.ibm.com>,
+ "Andreas Grapentin" <gra@linux.ibm.com>,
+ "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Dave Martin" <dave.martin@arm.com>, "Mark Rutland" <mark.rutland@arm.com>,
+ "Marc Zyngier" <maz@kernel.org>
+Message-Id: <8549526e-aff5-4448-b673-dbba7ed9065c@app.fastmail.com>
+In-Reply-To: <20260619130835.5678-1-will@kernel.org>
+References: <20260619130835.5678-1-will@kernel.org>
+Subject: Re: [PATCH] arm64: uapi: Use __u128 instead of __uint128_t in UAPI headers
 Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260619_065244_450775_0C004B87 
+X-CRM114-Status: GOOD (  13.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,45 +112,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Jason Gunthorpe <jgg@ziepe.ca> writes:
+On Fri, Jun 19, 2026, at 15:08, Will Deacon wrote:
+> The arm64 UAPI exposes '__uint128_t' types in the members of
+> 'struct user_fpsimd_state', 'struct user_pac_address_keys' and in the
+> signal frame via 'struct fpsimd_context'. Since the alignment of such
+> a type appears to be non-portable (16 bytes on arm64, 8 bytes on s390),
+> prefer the '__u128' typedef from uapi/linux/types.h, which makes the
+> alignment explicit and allows the definitions to be reused by other
+> host architectures.
+>
+> Cc: Arnd Bergmann <arnd@arndb.de>
+> Cc: Nick Desaulniers <nick.desaulniers+lkml@gmail.com>
+> Cc: Steffen Eiden <seiden@linux.ibm.com>
+> Cc: Andreas Grapentin <gra@linux.ibm.com>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Dave Martin <dave.martin@arm.com>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Signed-off-by: Will Deacon <will@kernel.org>
 
-> On Fri, Jun 19, 2026 at 12:05:45PM +1000, Alexey Kardashevskiy wrote:
->
->> > > > > IMHO that's an AMD issue, not with the design of this series..
->> > > > > 
->> > > > > The series is right, a device that is !force_dma_decrypted() must be
->> > > > > considerd to be a trusted device and we must never place any DMA
->> > > > > mappings for a trusted device into shared memory.
->> > > > 
->> > > > swiotlb=force forces swiotlb, not decryption.
->> > 
->> > If force_dma_decrypted() == true then swiotlb must allocate from a
->> > decrypted memory pool. It is right there in the name!
->> > 
->> > The hypervisor environment should *never* set force_dma_decrypted()
->> > because all devices can access all hypervisor memory, up to their IOVA
->> > limits.
->> 
->> True. But we do not have encrypted swiotlb pool today, right?
->
-> "encrypted" is just normal struct page memory, that's the default for
-> swiotlb.
->
-> I think it was a big mistake for the AMD SME stuff to overload the
-> decrypted/encrypted CC stuff which should mean shared/private in a
-> guest context to also mean things about physical memory encryption in
-> the host. It is really confusing.
->
-> The SME side is just a bad arch choice, the real world doesn't work
-> well if you set high address bits in your dma_addr_t. I think AMD
-> needs to use those restricted swiotlb pool where it allocates this
-> very special "SME Disabled" memory that will have a low
-> dma_addr_t. Then alloc and bouncing will get memory with a suitable
-> dma_addr_t. This has nothing to do with force_dma_unencrypted() which
-> is only a CC guest concept and nothing else in the OS should ever
-> touch decrypted memory.
+Reviewed-by: Arnd Bergmann <arnd@arndb.de>
 
-Agreed. This would make the code much simpler.
+> I think it's a straightforward change, but the only thing that makes me
+> pause for thought is whether there are toolchains out there which accept
+> __uint128_t but not __int128. Then again, if that crops up as an issue
+> we can probably just tweak the typedef we have in uapi/linux/types.h.
 
--aneesh
+clang-3.1 and gcc-4.6 support both and are 15 years old, older versions
+only do __uint128_t. I agree that this should be fine.
+
+     Arnd
 
