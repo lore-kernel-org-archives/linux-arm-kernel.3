@@ -4,97 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 002C8CD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 13:27:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36A13CD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 13:27:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/xtJLMfFE0UEqJ7Wmjx1QUTy4olzjIaKVy5B7F/r2gI=; b=l1OB8AkGrsdyexWWK7BBxcp8C9
-	T6Tx1k17qIZqUJEkf4jL4wpFEHpLFsvwekfPvAymeB6wNbgqZ3zVg7km0dAnuMKiaWjdesyqeNFP+
-	j5hj+jdNA6ScEEfzQwDsUYka1VpYmUnI4sS8iIPGZ6383iYpTnB+01jGJn+2Y3dNIH9z5G4oC9py3
-	JYj/8dv+7F6GbAlrIpu1xZ70grZnm53mLJEAeRXxJh6prav7gKTBbenkbXcNxJc0REgCQcAPdcrEI
-	dmLoMt/xoE2CdXlAcPhaxJbsPrDT+TOVb650N2CPUnWdF8BuPvlkCPta31uPqh3Dk1TPXQEZXvNjk
-	TYCMznmg==;
+	bh=DRyLfeX9sXJHktJSeQPbzw+etVyvD+njKQjlfKOE5So=; b=em4BTi0hfr/pLX60gieDQvR0Kq
+	hzMRBB+9nAR0FChEyAeTBo/+lmrE8lsuT1PG9iopo3kg4fx6GP/Cwtx7dHFS0xU1jroQz1+TVEiE6
+	s2+yb5yLdZ1EK2UtCWSHqtxTDXAH0v0AzvOax3654xUnUYYArNc1XHAKRjqT3MbJdNxSXa5nqXbFw
+	16Vgb3/wCel0x4nXJm+29gvh7ZH671MbUX5WaAe1L+QtO4T0wGwDI99hMOKMBXmJ2GY3RBaMnDTfm
+	3DIKrihs6lTRj8YeuxAoSRiL+/9Y3KXnEcbJqL1zh2qi2zU9bvO3ueBPQnimb1cbW0mHiXPL/EKB2
+	WvGG1ccw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waZFJ-00000002TtG-08cK;
-	Fri, 19 Jun 2026 13:26:57 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	id 1waZG4-00000002U0B-1zC4;
+	Fri, 19 Jun 2026 13:27:44 +0000
+Received: from smtp-out2.suse.de ([195.135.223.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waZFG-00000002Tsv-2iBa
+	id 1waZFz-00000002Tyb-0WsT
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Jun 2026 13:26:55 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-c074142cf6dso322265566b.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 06:26:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781875613; x=1782480413; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=/xtJLMfFE0UEqJ7Wmjx1QUTy4olzjIaKVy5B7F/r2gI=;
-        b=szqMkJNmBoqjquR7SdCR+GVHGQ/BC0lD281441EUzp8KsPWoWy0XOLr0qCAspNVK0j
-         Cr+DIwELqDPBgD8svoxD8vXbrNqcOOrhZZ/xyrMllnWBRM4SKL84eVEsZDr3qJKP4lQN
-         kijnywGwRuA0c6sc8GK7BtU3qvmGnk74t3lKg82xajNmuDiWBQ4jfpwd8AYVykvA56Hn
-         c+FsFo/ArJU+9h5VRYftqCar6P8r1XPw31Ivi/ZOTvMfLHiD9cGmN4rDqBmfKPnPiMnG
-         z0/fnqDwb9xPspYnbFQvc0OzDO0Q34/X6EWsEzAUEv9TBKkeIBscZmWt2AoTFSQSi0XX
-         QAyQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781875613; x=1782480413;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=/xtJLMfFE0UEqJ7Wmjx1QUTy4olzjIaKVy5B7F/r2gI=;
-        b=kBIoGJe9MIcYLntL/U5VUbxOwhtIM9HhCrxSAJOoTuKIXmpmKPlC9TtuJaaW2WWq+S
-         QME3iEeCE/r1TBTBTA5J4t8KH/1HoImxRZLSdbLYvdIjrZlRfjdg2PT8Vw8vu/Jmg2et
-         CYYQ++TyAqmC+EZsueTkKAhnNqpKu/6HCHjqetQic/PZxHlDW+LCCltVymafP72Xu3m/
-         h3w7jwBYuLSOaBlUSid2fitGovdCdAxLzcfE3KNUsRb9nYisLM1IneC+KikWxwHSNlsD
-         c2uQyJTZfWB3Xo/WXFpKYA7hmozm3JHBfKtb0300wFFeLATeIh4zAj8loDoQiRnNlmwU
-         FFig==
-X-Forwarded-Encrypted: i=1; AFNElJ86xAwlWOjP6h7LK7S02jgaOvMwgRiUtzhpOuJW5YJoDMUSmVD2M+twjadD+aOtbjMhgspnHpbIfGIskwYzpZ3w@lists.infradead.org
-X-Gm-Message-State: AOJu0YwLUam4lzzZn7JmEzAUlXiFCkue9a+2KzHLofqBrSM0YU4JwzYu
-	V85llfNPVYouf4shpJNy02v+fvbtou2tlTymbh/fUhe82t9cexzou8ZCJNxgTTfjObITaKWOxxX
-	OF05KRA==
-X-Gm-Gg: AfdE7cmm+1Z/5znkwwe84cTiguZmLrgcUMdLHNwRUWIJduh09tqI57D8nIL9WurlYEB
-	2KRgaqlLYVDhnVw+ulkWY1EcjcI04FWTai6XZtmhn/oci8AnunaMRR99w590NZXO1yrjDZPfVvC
-	xqV+HUqdEjU4fbYH6wygIbB0AZilp1I4SKImyYI1resqOHkRJ+vbzQ7kcvZYtQJIHKt3/ej6TsV
-	U0Bw8x+SbHVA6EkKgOyqwnlERY2HHnFZcX7vkxe4rK4H9QCE+DMsuzC19IFoF/3Upc+UNkgsmRs
-	Yu1+7WyScae5/hN1I48VR6AJzwJhoNTTFsC1865+tAykCRbI2Y+W4y5Thor41ytWAg877xbcnr/
-	JeYX/+1UvnfpuiUEXQMCHsZaBYn7wODoc1RBxIfJOYmmqPZJpw4a3pzN+qIRNUVjmJjP6lTRz7I
-	l4dhWAuzP/lMzk1RWjDOjaI2u3hoEQzIavzYDKKLM87rcVfjt0txIiCq2/
-X-Received: by 2002:a05:600c:3f18:b0:490:4b89:5372 with SMTP id 5b1f17b1804b1-49240a34529mr47337995e9.11.1781875601104;
-        Fri, 19 Jun 2026 06:26:41 -0700 (PDT)
-Received: from google.com (135.91.155.104.bc.googleusercontent.com. [104.155.91.135])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49240f054e3sm57555245e9.2.2026.06.19.06.26.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 19 Jun 2026 06:26:38 -0700 (PDT)
-Date: Fri, 19 Jun 2026 14:26:34 +0100
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Fuad Tabba <tabba@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Fri, 19 Jun 2026 13:27:43 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 1054875D51;
+	Fri, 19 Jun 2026 13:27:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1781875657; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=DRyLfeX9sXJHktJSeQPbzw+etVyvD+njKQjlfKOE5So=;
+	b=hsbCKW8Dk24fM6G321A2c4/+2Lu02enbkrUyCq5SegvdhYa9kZ3tEPBm/6bbfa8ypBjTwo
+	LCkAbJsFGVZL8K4gmip0Jq6EfcuMbZnFXhLw4kA0lZorf1I0SATpP+uLmRzMmR5oEGX9oy
+	mDRp/GE9cyzB342djhrh+V8tn4AxW9s=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1781875657;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=DRyLfeX9sXJHktJSeQPbzw+etVyvD+njKQjlfKOE5So=;
+	b=jcAsV996fZUR6Ggf9VHOmJtSP3SDX5IC4w32xyYm1uuhRTHMzfRp/Y3RNSPW61OCwrV/O1
+	xxD9zohT3xr402Dg==
+Authentication-Results: smtp-out2.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1781875657; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=DRyLfeX9sXJHktJSeQPbzw+etVyvD+njKQjlfKOE5So=;
+	b=hsbCKW8Dk24fM6G321A2c4/+2Lu02enbkrUyCq5SegvdhYa9kZ3tEPBm/6bbfa8ypBjTwo
+	LCkAbJsFGVZL8K4gmip0Jq6EfcuMbZnFXhLw4kA0lZorf1I0SATpP+uLmRzMmR5oEGX9oy
+	mDRp/GE9cyzB342djhrh+V8tn4AxW9s=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1781875657;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=DRyLfeX9sXJHktJSeQPbzw+etVyvD+njKQjlfKOE5So=;
+	b=jcAsV996fZUR6Ggf9VHOmJtSP3SDX5IC4w32xyYm1uuhRTHMzfRp/Y3RNSPW61OCwrV/O1
+	xxD9zohT3xr402Dg==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id B4C53779A8;
+	Fri, 19 Jun 2026 13:27:36 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id EF3QKshDNWpYXwAAD6G6ig
+	(envelope-from <tiwai@suse.de>); Fri, 19 Jun 2026 13:27:36 +0000
+Date: Fri, 19 Jun 2026 15:27:36 +0200
+Message-ID: <87tsqyirsn.wl-tiwai@suse.de>
+From: Takashi Iwai <tiwai@suse.de>
+To: Sean Wang <sean.wang@kernel.org>
+Cc: Sergey Senozhatsky <senozhatsky@chromium.org>,
+	Marcel Holtmann <marcel@holtmann.org>,
+	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
+	Mark-yw Chen <mark-yw.chen@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Tomasz Figa <tfiga@chromium.org>,
+	linux-bluetooth@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Quentin Perret <qperret@google.com>,
-	Sebastian Ene <sebastianene@google.com>,
-	Hyunwoo Kim <imv4bel@gmail.com>
-Subject: Re: [PATCH v2 2/8] KVM: arm64: Make vcpu_{read,write}_sys_reg
- available to HYP code
-Message-ID: <ajVDijsleEVAV-ss@google.com>
-References: <20260619070719.812227-1-tabba@google.com>
- <20260619070719.812227-3-tabba@google.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260619070719.812227-3-tabba@google.com>
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] Bluetooth: btmtksdio: fix infinite loop in btmtksdio_txrx_work()
+In-Reply-To: <CAGp9LzpBUReZtrTEKgUr-+yvB+3tcs5hw7ziC4WaMRFNa2AYpg@mail.gmail.com>
+References: <20260609121329.1262170-1-senozhatsky@chromium.org>
+	<CAGp9LzpBUReZtrTEKgUr-+yvB+3tcs5hw7ziC4WaMRFNa2AYpg@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/30.2 Mule/6.0
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Spamd-Result: default: False [-1.80 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	MID_CONTAINS_FROM(1.00)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[12];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	FREEMAIL_CC(0.00)[chromium.org,holtmann.org,gmail.com,mediatek.com,vger.kernel.org,lists.infradead.org];
+	RCVD_TLS_ALL(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	TAGGED_RCPT(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:mid,chromium.org:email,imap1.dmz-prg2.suse.org:helo]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260619_062654_709573_B84DC0F7 
-X-CRM114-Status: GOOD (  23.18  )
+X-CRM114-CacheID: sfid-20260619_062739_314754_B3B49E08 
+X-CRM114-Status: GOOD (  27.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,152 +144,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 19, 2026 at 08:07:13AM +0100, Fuad Tabba wrote:
-> The vcpu_{read,write}_sys_reg() accessors are host-only, so helpers
-> built on them such as kvm_vcpu_set_be()/kvm_vcpu_is_be() cannot be
-> shared with hyp code. exception.c already wraps them in
-> __vcpu_{read,write}_sys_reg(), which pick the host- or hyp-side accessor
-> via has_vhe() and so are valid in any context.
+On Wed, 10 Jun 2026 08:52:31 +0200,
+Sean Wang wrote:
 > 
-> Move those wrappers to kvm_emulate.h as kvm_vcpu_{read,write}_sys_reg()
-> and switch the callers over, so a follow-up series can share that
-> emulation code at EL2.
+> Hi,
 > 
-> No functional change intended.
+> On Tue, Jun 9, 2026 at 7:19 AM Sergey Senozhatsky
+> <senozhatsky@chromium.org> wrote:
+> >
+> > Every once in a while we see a hung btmtksdio_flush() task:
+> >
+> >  INFO: task kworker/u17:0:189 blocked for more than 122 seconds.
+> >  __cancel_work_timer+0x3f4/0x460
+> >  cancel_work_sync+0x1c/0x2c
+> >  btmtksdio_flush+0x2c/0x40
+> >  hci_dev_open_sync+0x10c4/0x2190
+> >  [..]
+> >
+> > It all boils down to incorrect time_is_before_jiffies() usage in
+> > btmtksdio_txrx_work().  The btmtksdio_txrx_work() loop is expected
+> > to be terminated if running for longer than 5*HZ.  However the
+> > timeout check is twisted:  time_is_before_jiffies(old_jiffies + 5*HZ)
+> > evaluates to true when old_jiffies + 5*HZ is in the past i.e. when a
+> > timeout has occurred.  Using OR with time_is_before_jiffies(txrx_timeout)
+> > means that:
+> > - before the 5-second timeout: the condition is `int_status || false`,
+> >   so it loops as long as there are pending interrupts.
+> > - after the 5-second timeout: the condition becomes `int_status || true`,
+> >   which is always true.
+> >
+> > When the loop becomes infinite btmtksdio_txrx_work() loop never
+> > terminates and never releases the SDIO host.
+> >
+> > Fix loop termination condition to actually enforce a 5*HZ timeout.
+> >
+> > Fixes: 26270bc189ea4 ("Bluetooth: btmtksdio: move interrupt service to work")
+> > Cc: stable@vger.kernel.org
+> > Signed-off-by: Sergey Senozhatsky <senozhatsky@chromium.org>
+> > ---
+> >  drivers/bluetooth/btmtksdio.c | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> >
+> > diff --git a/drivers/bluetooth/btmtksdio.c b/drivers/bluetooth/btmtksdio.c
+> > index 5b0fab7b89b5..c6f80c419e90 100644
+> > --- a/drivers/bluetooth/btmtksdio.c
+> > +++ b/drivers/bluetooth/btmtksdio.c
+> > @@ -620,7 +620,7 @@ static void btmtksdio_txrx_work(struct work_struct *work)
+> >                         if (btmtksdio_rx_packet(bdev, rx_size) < 0)
+> >                                 bdev->hdev->stat.err_rx++;
+> >                 }
+> > -       } while (int_status || time_is_before_jiffies(txrx_timeout));
+> > +       } while (int_status && time_is_after_jiffies(txrx_timeout));
 > 
-> Signed-off-by: Fuad Tabba <tabba@google.com>
+> yes, loop continues only while there is interrupt work and the timeout
+> deadline is still in the future
 
-Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
+I stumbled on this while backporting to distro kernels, and I wonder
+whether this change is correct.
 
-> ---
->  arch/arm64/include/asm/kvm_emulate.h | 22 +++++++++++++++---
->  arch/arm64/kvm/hyp/exception.c       | 34 ++++++++--------------------
->  2 files changed, 28 insertions(+), 28 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-> index 5bf3d7e1d92c..80b30fead3d1 100644
-> --- a/arch/arm64/include/asm/kvm_emulate.h
-> +++ b/arch/arm64/include/asm/kvm_emulate.h
-> @@ -506,6 +506,22 @@ static inline unsigned long kvm_vcpu_get_mpidr_aff(struct kvm_vcpu *vcpu)
->  	return __vcpu_sys_reg(vcpu, MPIDR_EL1) & MPIDR_HWID_BITMASK;
->  }
->  
-> +static inline u64 kvm_vcpu_read_sys_reg(const struct kvm_vcpu *vcpu, int reg)
-> +{
-> +	if (has_vhe())
-> +		return vcpu_read_sys_reg(vcpu, reg);
-> +
-> +	return __vcpu_sys_reg(vcpu, reg);
-> +}
-> +
-> +static inline void kvm_vcpu_write_sys_reg(struct kvm_vcpu *vcpu, u64 val, int reg)
-> +{
-> +	if (has_vhe())
-> +		vcpu_write_sys_reg(vcpu, val, reg);
-> +	else
-> +		__vcpu_assign_sys_reg(vcpu, reg, val);
-> +}
-> +
->  static inline void kvm_vcpu_set_be(struct kvm_vcpu *vcpu)
->  {
->  	if (vcpu_mode_is_32bit(vcpu)) {
-> @@ -516,9 +532,9 @@ static inline void kvm_vcpu_set_be(struct kvm_vcpu *vcpu)
->  
->  		r = vcpu_has_nv(vcpu) ? SCTLR_EL2 : SCTLR_EL1;
->  
-> -		sctlr = vcpu_read_sys_reg(vcpu, r);
-> +		sctlr = kvm_vcpu_read_sys_reg(vcpu, r);
->  		sctlr |= SCTLR_ELx_EE;
-> -		vcpu_write_sys_reg(vcpu, sctlr, r);
-> +		kvm_vcpu_write_sys_reg(vcpu, sctlr, r);
->  	}
->  }
->  
-> @@ -533,7 +549,7 @@ static inline bool kvm_vcpu_is_be(struct kvm_vcpu *vcpu)
->  	r = is_hyp_ctxt(vcpu) ? SCTLR_EL2 : SCTLR_EL1;
->  	bit = vcpu_mode_priv(vcpu) ? SCTLR_ELx_EE : SCTLR_EL1_E0E;
->  
-> -	return vcpu_read_sys_reg(vcpu, r) & bit;
-> +	return kvm_vcpu_read_sys_reg(vcpu, r) & bit;
->  }
->  
->  static inline unsigned long vcpu_data_guest_to_host(struct kvm_vcpu *vcpu,
-> diff --git a/arch/arm64/kvm/hyp/exception.c b/arch/arm64/kvm/hyp/exception.c
-> index bef40ddb16db..2cb68dc7d441 100644
-> --- a/arch/arm64/kvm/hyp/exception.c
-> +++ b/arch/arm64/kvm/hyp/exception.c
-> @@ -20,22 +20,6 @@
->  #error Hypervisor code only!
->  #endif
->  
-> -static inline u64 __vcpu_read_sys_reg(const struct kvm_vcpu *vcpu, int reg)
-> -{
-> -	if (has_vhe())
-> -		return vcpu_read_sys_reg(vcpu, reg);
-> -
-> -	return __vcpu_sys_reg(vcpu, reg);
-> -}
-> -
-> -static inline void __vcpu_write_sys_reg(struct kvm_vcpu *vcpu, u64 val, int reg)
-> -{
-> -	if (has_vhe())
-> -		vcpu_write_sys_reg(vcpu, val, reg);
-> -	else
-> -		__vcpu_assign_sys_reg(vcpu, reg, val);
-> -}
-> -
->  static void __vcpu_write_spsr(struct kvm_vcpu *vcpu, unsigned long target_mode,
->  			      u64 val)
->  {
-> @@ -101,14 +85,14 @@ static void enter_exception64(struct kvm_vcpu *vcpu, unsigned long target_mode,
->  
->  	switch (target_mode) {
->  	case PSR_MODE_EL1h:
-> -		vbar = __vcpu_read_sys_reg(vcpu, VBAR_EL1);
-> -		sctlr = __vcpu_read_sys_reg(vcpu, SCTLR_EL1);
-> -		__vcpu_write_sys_reg(vcpu, *vcpu_pc(vcpu), ELR_EL1);
-> +		vbar = kvm_vcpu_read_sys_reg(vcpu, VBAR_EL1);
-> +		sctlr = kvm_vcpu_read_sys_reg(vcpu, SCTLR_EL1);
-> +		kvm_vcpu_write_sys_reg(vcpu, *vcpu_pc(vcpu), ELR_EL1);
->  		break;
->  	case PSR_MODE_EL2h:
-> -		vbar = __vcpu_read_sys_reg(vcpu, VBAR_EL2);
-> -		sctlr = __vcpu_read_sys_reg(vcpu, SCTLR_EL2);
-> -		__vcpu_write_sys_reg(vcpu, *vcpu_pc(vcpu), ELR_EL2);
-> +		vbar = kvm_vcpu_read_sys_reg(vcpu, VBAR_EL2);
-> +		sctlr = kvm_vcpu_read_sys_reg(vcpu, SCTLR_EL2);
-> +		kvm_vcpu_write_sys_reg(vcpu, *vcpu_pc(vcpu), ELR_EL2);
->  		break;
->  	default:
->  		/* Don't do that */
-> @@ -185,7 +169,7 @@ static void enter_exception64(struct kvm_vcpu *vcpu, unsigned long target_mode,
->   */
->  static unsigned long get_except32_cpsr(struct kvm_vcpu *vcpu, u32 mode)
->  {
-> -	u32 sctlr = __vcpu_read_sys_reg(vcpu, SCTLR_EL1);
-> +	u32 sctlr = kvm_vcpu_read_sys_reg(vcpu, SCTLR_EL1);
->  	unsigned long old, new;
->  
->  	old = *vcpu_cpsr(vcpu);
-> @@ -281,7 +265,7 @@ static void enter_exception32(struct kvm_vcpu *vcpu, u32 mode, u32 vect_offset)
->  {
->  	unsigned long spsr = *vcpu_cpsr(vcpu);
->  	bool is_thumb = (spsr & PSR_AA32_T_BIT);
-> -	u32 sctlr = __vcpu_read_sys_reg(vcpu, SCTLR_EL1);
-> +	u32 sctlr = kvm_vcpu_read_sys_reg(vcpu, SCTLR_EL1);
->  	u32 return_address;
->  
->  	*vcpu_cpsr(vcpu) = get_except32_cpsr(vcpu, mode);
-> @@ -305,7 +289,7 @@ static void enter_exception32(struct kvm_vcpu *vcpu, u32 mode, u32 vect_offset)
->  	if (sctlr & (1 << 13))
->  		vect_offset += 0xffff0000;
->  	else /* always have security exceptions */
-> -		vect_offset += __vcpu_read_sys_reg(vcpu, VBAR_EL1);
-> +		vect_offset += kvm_vcpu_read_sys_reg(vcpu, VBAR_EL1);
->  
->  	*vcpu_pc(vcpu) = vect_offset;
->  }
-> -- 
-> 2.55.0.rc0.738.g0c8ab3ebcc-goog
-> 
+IIUC, this essentially makes the loop exiting right after the first
+cycle; the patch changed from time_is_before_jiffies() to *_after_*(),
+not only the logical OR to AND, and *_after_*() returns false, so the
+whole condition becomes false, too.
+
+
+thanks,
+
+Takashi
 
