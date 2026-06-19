@@ -4,98 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E024CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 14:20:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37A88CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 14:21:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fbcGH9ITMmOI3YSas2gsikCqBTKnvtgdWwDyBNbyusg=; b=wpjRsNXKDk1Bd5SVFzm8vL7SAh
-	lilVvTwXL/StVkhNMHDGexiRnPKaNM5bwfsgPf3uu8vR9Ez6jdKafiCFHtnpFGsbrOG/Y/Cj0eBbV
-	gAZ+EgWfIQSbWF8k2yqYrQeChyAfFTFitAkcka4qwHcs1qk44s+f+ndBq27pjZszDJTTimdWhbos/
-	TDUOm2Z3FZDG1lWCvtkmC2ZUIcjvGotM0E4d8y7aPmdIcuv088d6t5XG+9wF62EoPw0s1pABaTlp6
-	AnrA7CiMMHklHNANbDgbcaQQ8WjOfgbAjpmLs1AiRt0Xxz3KC7jLCr1EIZQrn+hw611/LfxbYJgne
-	VsSHAVrQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5Yav20qmzpeHHx75MlYOhiPBGRPjfQ1kbgKpmZEQP7g=; b=a4rd5nswxzkg1wsGHxbyYUrZG1
+	Usefdg713fEd9IYQ9uIVdsp+xwi1SEnSgYan2WGf09Xgf2cHRijJ71IKm1yfqE9tynfB47ucVRzuZ
+	dyAlbcqE/xCpwN7huGCcLm8nyR0hT153cLah89e3ut5sy6gYC01ksI4IjF5Y4BHouFHJZ7q9oELqy
+	1zvGuSsAwwl6DaaodxoJOYzD+Xu3HHOBx6WHws3QqYe8HI5Arw7FHNQz5jCLzhw+X57ggHZZ61bHf
+	7vlFcIOuD9tkQnY9bz30qXTpa05B2hXgNLoNkUsryCY54QSNUTadri+TIsFl8MjMA1ok6KLg6b5QV
+	K/bEPAyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waa5L-00000002ZMi-2V9V;
-	Fri, 19 Jun 2026 14:20:43 +0000
-Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
+	id 1waa5b-00000002ZQ2-2z6D;
+	Fri, 19 Jun 2026 14:20:59 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waa5J-00000002ZLy-2rsV
+	id 1waa5Z-00000002ZPK-2Dns
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Jun 2026 14:20:42 +0000
-Received: by mail-qt1-x830.google.com with SMTP id d75a77b69052e-519defad0d9so13125011cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 07:20:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1781878840; x=1782483640; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=fbcGH9ITMmOI3YSas2gsikCqBTKnvtgdWwDyBNbyusg=;
-        b=F9TQyuJOLI01hE1MVO3wbBsIdCx6fkXi0TplQKymOqIdHRblfr9lSViRXLckQoP6Hv
-         rFbv8y5mxBi/agAHapds4Osl5oIapjNSQ2RMglKXLpQBBFh0qH2RMPYiUeAE9lh0p3SI
-         cxjGO/RB+GwMMB4fFk72BJfrpeGRGUB5OUGNI=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781878840; x=1782483640;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=fbcGH9ITMmOI3YSas2gsikCqBTKnvtgdWwDyBNbyusg=;
-        b=G9eDZVW5hxvSkWeAexIasZI0jqM2G/6PfgDcLrdPHrjDq+f3Ic2eG++FE3zNAKALzV
-         VZalF+ALEJVUWbbVI6F7SCexawq7dBwQtidV+3Saz1WVDstkNKEi/VmrK6jxCwVng2lD
-         cyvfcrq0z+Vdgq++qLlkbiPgsbjCCbFIjCuCXzr1pDlE2NHgzZnautpCCFRrMnnpnQa1
-         WVpJWecOI45W8CRkFXoeYf0nMYAGGXWYe+bi2Pjx4CR0JS889Oc9HNdx7jS2N4Kxs/MR
-         zXNBsxwPGwGgTKLwDZyBgpedQYFOc5bXcTm0EppmxTx9Y3jd97+0WZVLIh9rKI2k/10v
-         fmeg==
-X-Forwarded-Encrypted: i=1; AFNElJ/nuZnljJVF2Z8EtHd3C14Az1EJS+2NH/i4/mwCZe4zJJN4LJ1/sHcJFZegK1pqjSEqs4rW1UIDKu1r7pjZT3gw@lists.infradead.org
-X-Gm-Message-State: AOJu0YyMh/O4m/g0dAqB1UhOvKT+OCwKUKWFAsnbmV/2wTubwDDJ6yon
-	M0efsnmg/mv5Si8ePXkVMXKhIM9Wn1Fg8CM+7hCo9fpKTcwobimzYKTCHd4k/zsQ+O93qOuEKip
-	vqQ049A==
-X-Gm-Gg: AfdE7clC8NDjdik93tgc97f5SxHVI5LpRGpeNBo5j+154kGBLXxMxRwDHgJT73opp7p
-	osGpAZ88Hykvs2NtwryMedu5NRNjmXzNeEhO8tGqFgXzxIx0Bqy5MzMcFBMpOBdMIzm1/bOp/wX
-	rP0yobAIRrPk/rjkZQWOWLqG9KsAeiC5Ptz9S+f60Wx0dPcMO+a4A8/cC8w6b3klxe2EoSnvxdc
-	No2PAenDCUsWhkARRif3McBSpks6fKuBrqDtwJ8p+RyNPjibJIGPFg50b/07r9M/lEnlmxuKaco
-	6+/fPd2FxA2YGdnWnABhahc4MHP1tAjOlLnDHkpOP/hQ46i3XrU39h02qa0IkE6+0yGW2T5jnzY
-	RweHLrqE1KhyGcIjWouJVacTw1qXoPN/F8wXYcKaCAHw3p9yNpd8U+DkXsxVdTivzrSZAK1DOu2
-	N8C9r+P0SP2t0QXqdDr02IOYyHjAX9LdQz6WWbAvq2ZAv3SsRSr5M/z/nq810jnA==
-X-Received: by 2002:a05:622a:3d0:b0:519:8953:ddc9 with SMTP id d75a77b69052e-519e4917301mr51957061cf.6.1781878840379;
-        Fri, 19 Jun 2026 07:20:40 -0700 (PDT)
-Received: from mail-qt1-f169.google.com (mail-qt1-f169.google.com. [209.85.160.169])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-519e6127858sm20461181cf.27.2026.06.19.07.20.39
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 19 Jun 2026 07:20:39 -0700 (PDT)
-Received: by mail-qt1-f169.google.com with SMTP id d75a77b69052e-519ed52bcc6so186231cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 07:20:39 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ/G0qTibmt/ViWP7SEZHWy/B4oFdkVuhOzi7O32tmWFWR4rsZ3u6IQg+CImMveU514I0BwQaJQNZhp5dM9gi+68@lists.infradead.org
-X-Received: by 2002:ac8:7d8e:0:b0:516:4f62:85ec with SMTP id
- d75a77b69052e-519e8d1f14dmr7406931cf.17.1781878838041; Fri, 19 Jun 2026
- 07:20:38 -0700 (PDT)
+	Fri, 19 Jun 2026 14:20:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=THsDmCYTRLgHKy4aouIDqW7bzmWI/E2NfKwBXkzBPuqK5V8gPpsB/u58bPQWNLpe6J/XCgzy4bqQb/mVyBACJryYJlTcaUCobzKlvQ0dyT2E9N00FmN+yyXMleOBkN+Zk+MqvS2alASFQWUXvsa2aTnQxEKUf6U192/6w6tipP8XgM8u73x406xl+GIEu19I2gTA/DXLXuu6ZJKlb8jjZRunkXWxpJhI4sAdN+ABcvkb7x1OyZF7os7X6rhfWXw2EQK0jOwY/U0OsS5303TSz4bSEdddNkuJ8KysVwBRJnP7o4Bz5+wZSm39Sapx/DfvBXOXxdBmYxyWsYBS5dJsvw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=5Yav20qmzpeHHx75MlYOhiPBGRPjfQ1kbgKpmZEQP7g=;
+ b=uBjTH15XB5L5YKp4gOl09sGGjKnH2ziJrkJG9Iu2Er8+2zTJgjjqzc8WRV/ZO8tC+zK8lOsKFc2b+K9wdWMQcH+MQOB6G8LjEn49bSHpf8IGP9flQrQA6ykrtm2IsRWd1xl1d93pzwO6shtuU7VRQ77iPcIPlq+HaShoFzJ4aHi8HKP/s9Pb1sIFkEBOYaMcXY3cqt7Og8rQdh6t4an3XhF+1L9m7//3WIcFFvHrY/1Zl2SzyX2HXhT7sSJqC0HNQ2dJHn/h57whCE9M3JoxkdZ3cY1D4rFzq2BKFxl1xTmPn9ZbVZYc7ackVVB6HEGI3v+nkWAxwerCZVvPZ1tSrQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=5Yav20qmzpeHHx75MlYOhiPBGRPjfQ1kbgKpmZEQP7g=;
+ b=dwYt4C1pNcCpr9HH+FVh5QH4llOGvkykCAlssOslHSmJKtJSAyB++cfddusj/8qPWXbBs+da+40cE5ihnFlA1KmqSXsODwwG1RNvOPZjgyPHNTOw4D9jZlBroFgp7L5RJIzI1DlhR8z0NtFjz/HKxeQi1/WaM1XeQKIgiI7INKtnWFDPsZ0cMKgfKZmkB+hfGFhf4gZZ/lme2yUL5TIrdbyUGmu9oIUrQkCuJXb/cTHOFlhWnzIMhtBimD+EJ7WA2tPRzWtDUvIm6kRxLk8jp4Lj0qP3VpbFfTZFNpxIWGVgGfKZ8FWxiUdVugHaq7YYWpjPyzHLNgj8EcsneE2WTA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by PR3PR04MB7211.eurprd04.prod.outlook.com (2603:10a6:102:93::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.11; Fri, 19 Jun
+ 2026 14:20:52 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0113.015; Fri, 19 Jun 2026
+ 14:20:52 +0000
+Date: Fri, 19 Jun 2026 09:20:43 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: robby.cai@oss.nxp.com
+Cc: p.zabel@pengutronix.de, Frank.Li@nxp.com, s.hauer@pengutronix.de,
+	festevam@gmail.com, krzk+dt@kernel.org, andrew.smirnov@gmail.com,
+	kernel@pengutronix.de, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	aisheng.dong@nxp.com, guoniu.zhou@nxp.com
+Subject: Re: [PATCH v3 1/1] reset: imx7: Correct polarity of MIPI CSI resets
+ on i.MX8MQ
+Message-ID: <ajVQO0nbZdpn6xE1@SMW015318>
+References: <20260619073115.3778313-1-robby.cai@oss.nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260619073115.3778313-1-robby.cai@oss.nxp.com>
+X-ClientProxiedBy: SA9PR13CA0124.namprd13.prod.outlook.com
+ (2603:10b6:806:27::9) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-References: <20260609121329.1262170-1-senozhatsky@chromium.org>
- <CAGp9LzpBUReZtrTEKgUr-+yvB+3tcs5hw7ziC4WaMRFNa2AYpg@mail.gmail.com> <87tsqyirsn.wl-tiwai@suse.de>
-In-Reply-To: <87tsqyirsn.wl-tiwai@suse.de>
-From: Tomasz Figa <tfiga@chromium.org>
-Date: Fri, 19 Jun 2026 23:20:20 +0900
-X-Gmail-Original-Message-ID: <CAAFQd5BtO7vL_A2i84CoF1Dk7Bmp_DZQJgoNAB-HyGA89=XDUQ@mail.gmail.com>
-X-Gm-Features: AVVi8Cfvj7Tldb-rRHpdw6zA1vefldpMM6jJzOD0R18t-VmMpCoygqlJxAYuFRA
-Message-ID: <CAAFQd5BtO7vL_A2i84CoF1Dk7Bmp_DZQJgoNAB-HyGA89=XDUQ@mail.gmail.com>
-Subject: Re: [PATCH] Bluetooth: btmtksdio: fix infinite loop in btmtksdio_txrx_work()
-To: Takashi Iwai <tiwai@suse.de>
-Cc: Sean Wang <sean.wang@kernel.org>, Sergey Senozhatsky <senozhatsky@chromium.org>, 
-	Marcel Holtmann <marcel@holtmann.org>, Luiz Augusto von Dentz <luiz.dentz@gmail.com>, 
-	Mark-yw Chen <mark-yw.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
-	linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PR3PR04MB7211:EE_
+X-MS-Office365-Filtering-Correlation-Id: 800d987a-2487-4333-909d-08dece0df7fd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|366016|376014|19092799006|11063799006|56012099006|6133799003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: xXQBLFQIs6USrKSwRjryvIbdfvZvQ54WgfobPS/U+q/bhguS9sbGXvS1Vv/WMmy2q5We4sAHo2n3xeX/SINvlUNov+yy+OHD/KuDE9OnRm/SA1Eop4YuEi9eJKLycIfA7zgahzCSFRyyOdcu10W7LQgbymy+0Is0iRfiowKFQQFwSpCcwO8is+uS3wSgpyeqRstgT9lcnCGixyfc2bP2wWHyQaw0t2kHx7fIXxddaa4fW4P9xPzRV7jkO9YFvB9uB4PPaEmek4PtEgXFVo2U6g/K9iz7nJccCio9kddC2pYjS66Eromc5TfToyTCKhwuYpKT8O3HgMwoywT3qsj6Q6pc/rY4X9jNI6V9kiocOp915bq/Ixd6dggW7gHo2CeeKE8pzT2h6sL7YXZTQVZfm+JtFRmbFg68W6dzG9kZWLR68UBuSRHtsIyEFoKGa3OrDIAn6mgEpczOVsA2QrIyU76C+0z5c5ke9eB2QQyyHBrnEtmdtnx8prmS2Lupp2RbampDZoLa/owb2HUoMC6d9lJNTN9bjsvoIfbRDv1JRc2L9b1uu+92KO9yIV3TDn3pB4+psvMP8ck1XJgSwLe+rCnkok34/qeX4QV/ZTX+vB4/aCs2dHXJK9xbXbdCUhoyJjsAEuaTlQmBcD1bf663rbSbU5DL86NIg6DiiI03Hck=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(366016)(376014)(19092799006)(11063799006)(56012099006)(6133799003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?gZ99BPLwDF0xbGmZJ2ky+MM9LOdmT1Xr7DTZUaxqZWb8iFQ6gAY53uLmTzQZ?=
+ =?us-ascii?Q?MIpyepbEX8ROjZhtzCrZJWxSkdEvIjQgi/mggcjW9f+svDOWzykYX8P//R6r?=
+ =?us-ascii?Q?q691HCkKRnOCUrNa5ewCCpjyR82EmUF5JA+e27T4OIsxetJQezXsGYpKJsKd?=
+ =?us-ascii?Q?s9lw3C897106NtOiKHe5K5Tbgx73DUzSCwbdmEK0UUckiv80OjjZLXVz4Crv?=
+ =?us-ascii?Q?I0XIZ8Gk2OqB5IbyJU01rXSG25fhdje3Olc7GPZwj9cVGUBRJORPtbVHn6XF?=
+ =?us-ascii?Q?uo8ccvNsNuQPKQzib8KXoZ7umGt07L27p23CuszWrZ0AeUOOz7gPiol0y+S+?=
+ =?us-ascii?Q?0jKDip6nRdxZsG+w9tE9GeQ+nvTY0EOxugB6GUaGh4duk5p/cuEfZWFjswFY?=
+ =?us-ascii?Q?3YOpRBYKKkKGUR/5VjrXEacen02hTypCD5Hmxfdvpo8LkUjpQLD8j5hVeCBD?=
+ =?us-ascii?Q?Kd00ie14YqI/cfXMs6nNYEfWa3SmrELt4xic0tjmXDzT3IqvbwVGZAm4Rfbn?=
+ =?us-ascii?Q?KWo9r/4eqqFIgfYFOQ7agIPLjXrhdL8/gOU1WEKK3yFHY++jwDi+OXRtyMMn?=
+ =?us-ascii?Q?rtszSkHS/wRzw/+Zy+xK8k843hnczQjcbxf9pwri4ld7QfWk6iwu+KhpgW4L?=
+ =?us-ascii?Q?BGN1Qrsm3ULrFzXbIYshQ6eoL4fcuxoeCz22t6vkgCJ3F2a08nOv5NIoFcZA?=
+ =?us-ascii?Q?E498HXt/SW7zCgF/k9SmaVJVop6aDPShGD0Hc14iUeXfBy+Yu0ST3gRh/x8Q?=
+ =?us-ascii?Q?C/xFCFszCimMeLbpLFyU6KfmLe2Vr4sAVsgRj65GLea9ZEWE2o35T9XKjJUk?=
+ =?us-ascii?Q?LhWR01kEjcQWjDvBApBWzr2/GgIxrMplPGlXsHpZtSrqB2SP5kbTnHRZGw4a?=
+ =?us-ascii?Q?GD2T3FMjAxiVCpz7TlSFmbp3Ou51ao/93FMXm/rDtC4EiALGu29xKAct7Avh?=
+ =?us-ascii?Q?MFo5JmzoQLBUH0rNryY3vC9dGKoIVz684itIAeD5hLCdhOkj91nGAAlNl21h?=
+ =?us-ascii?Q?xwjagkvFWxdXGzVu4uTc3C12zFLMApbUkXnAjqIUqbkHzbuvASFFy4uDX0yP?=
+ =?us-ascii?Q?igv1J+nH/0ceNwujfdj4R+TX95nChxZ0VQHi9MwdGh3dm78ieUf1IrE6sOLc?=
+ =?us-ascii?Q?t8FudkdwIcSfnNo8pMjbtJzxIQjRB6GQjBBq0l9WGqGmG+4gSVC3b6OUmOiL?=
+ =?us-ascii?Q?Q2zwuKYKOKq0mCbsnMizxwA0nDEhkRwOKEik+LsgU8mDeFESF5hUndjQs1tV?=
+ =?us-ascii?Q?Q4rpkUUHoFrVKXYIHaSKs5zW3hlUxSQP1poTaVYayGqV1cLttrykEwVG4uep?=
+ =?us-ascii?Q?cmAzRarBsRaC5N5Q+4cGXuf0ACvnipYMt6En/OSSlE5fJFWFbuEJH8S69F0h?=
+ =?us-ascii?Q?4dDltF+5AkOTBfPP+appsF8oGr5HxUrL21GY3qNan7vMhq6SA0tmp2Ak8S3z?=
+ =?us-ascii?Q?+00sTY1p1yuVTYm7HboXlCe+YZ630QhblOXXAj9FeCwxmyJVZ1LJ7yfv6q49?=
+ =?us-ascii?Q?WnxMFIgDly3okiKgIx2rdutzCiXrIovVvntrH/J4h5k7j07Gz8dpflOEkYa/?=
+ =?us-ascii?Q?gAfUqkM0X6ktjBnrCUW3gClryfhA46TDEanVJK057OlZ9DD9wwdxFJLBvWBm?=
+ =?us-ascii?Q?EL874wRNjCa94JPHPyzR/LQUfYLnJHCm58LbTc85WwBKVPmPWAuAuvURATV3?=
+ =?us-ascii?Q?DkSPDQ6Hg9zWl3NPIut+ogsxdiIbAbh0AmSRDV3onJhigFVtkgd+5kDFc9qR?=
+ =?us-ascii?Q?g8wK01puAPRuQc9LNN2f0EUG0I3a1mkwP0ujyuzteIAFMQs6wbH+?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 800d987a-2487-4333-909d-08dece0df7fd
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Jun 2026 14:20:52.5493
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: IKq8Me7wt4+ue+wxULEsr/yFVtk/uLfMG07n+b5/iUJHA9zAay4kqkg1MtSNv7t9EastpVY9sueHiMUpC/KA9Eucly/C50J7CABpkpcWMPJHRjluxEcfmMSAY1msX0hO
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR04MB7211
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260619_072041_747711_BEF166FC 
-X-CRM114-Status: GOOD (  33.34  )
+X-CRM114-CacheID: sfid-20260619_072057_576200_4C08D4F7 
+X-CRM114-Status: GOOD (  20.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,97 +139,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[Resending without HTML... Damn Gmail]
-
-On Fri, Jun 19, 2026 at 10:27=E2=80=AFPM Takashi Iwai <tiwai@suse.de> wrote=
-:
+On Fri, Jun 19, 2026 at 03:31:15PM +0800, robby.cai@oss.nxp.com wrote:
+> [You don't often get email from robby.cai@oss.nxp.com. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
 >
-> On Wed, 10 Jun 2026 08:52:31 +0200,
-> Sean Wang wrote:
-> >
-> > Hi,
-> >
-> > On Tue, Jun 9, 2026 at 7:19=E2=80=AFAM Sergey Senozhatsky
-> > <senozhatsky@chromium.org> wrote:
-> > >
-> > > Every once in a while we see a hung btmtksdio_flush() task:
-> > >
-> > >  INFO: task kworker/u17:0:189 blocked for more than 122 seconds.
-> > >  __cancel_work_timer+0x3f4/0x460
-> > >  cancel_work_sync+0x1c/0x2c
-> > >  btmtksdio_flush+0x2c/0x40
-> > >  hci_dev_open_sync+0x10c4/0x2190
-> > >  [..]
-> > >
-> > > It all boils down to incorrect time_is_before_jiffies() usage in
-> > > btmtksdio_txrx_work().  The btmtksdio_txrx_work() loop is expected
-> > > to be terminated if running for longer than 5*HZ.  However the
-> > > timeout check is twisted:  time_is_before_jiffies(old_jiffies + 5*HZ)
-> > > evaluates to true when old_jiffies + 5*HZ is in the past i.e. when a
-> > > timeout has occurred.  Using OR with time_is_before_jiffies(txrx_time=
-out)
-> > > means that:
-> > > - before the 5-second timeout: the condition is `int_status || false`=
-,
-> > >   so it loops as long as there are pending interrupts.
-> > > - after the 5-second timeout: the condition becomes `int_status || tr=
-ue`,
-> > >   which is always true.
-> > >
-> > > When the loop becomes infinite btmtksdio_txrx_work() loop never
-> > > terminates and never releases the SDIO host.
-> > >
-> > > Fix loop termination condition to actually enforce a 5*HZ timeout.
-> > >
-> > > Fixes: 26270bc189ea4 ("Bluetooth: btmtksdio: move interrupt service t=
-o work")
-> > > Cc: stable@vger.kernel.org
-> > > Signed-off-by: Sergey Senozhatsky <senozhatsky@chromium.org>
-> > > ---
-> > >  drivers/bluetooth/btmtksdio.c | 2 +-
-> > >  1 file changed, 1 insertion(+), 1 deletion(-)
-> > >
-> > > diff --git a/drivers/bluetooth/btmtksdio.c b/drivers/bluetooth/btmtks=
-dio.c
-> > > index 5b0fab7b89b5..c6f80c419e90 100644
-> > > --- a/drivers/bluetooth/btmtksdio.c
-> > > +++ b/drivers/bluetooth/btmtksdio.c
-> > > @@ -620,7 +620,7 @@ static void btmtksdio_txrx_work(struct work_struc=
-t *work)
-> > >                         if (btmtksdio_rx_packet(bdev, rx_size) < 0)
-> > >                                 bdev->hdev->stat.err_rx++;
-> > >                 }
-> > > -       } while (int_status || time_is_before_jiffies(txrx_timeout));
-> > > +       } while (int_status && time_is_after_jiffies(txrx_timeout));
-> >
-> > yes, loop continues only while there is interrupt work and the timeout
-> > deadline is still in the future
+> From: Robby Cai <robby.cai@nxp.com>
 >
-> I stumbled on this while backporting to distro kernels, and I wonder
-> whether this change is correct.
+> On i.MX8MQ, the MIPI CSI reset lines are active-low and not self-clearing.
+> Writing '0' asserts reset and it remains asserted until explicitly
+> deasserted by software.
 >
-> IIUC, this essentially makes the loop exiting right after the first
-> cycle; the patch changed from time_is_before_jiffies() to *_after_*(),
-> not only the logical OR to AND, and *_after_*() returns false, so the
-> whole condition becomes false, too.
+> This driver previously treated the MIPI CSI reset signals as active-high,
+> which led to incorrect reset assert/deassert sequencing. This issue was
+> exposed by commit 6d79bb8fd2aa ("media: imx8mq-mipi-csi2: Explicitly
+> release reset").
+>
+> Fix this by reflecting the correct reset polarity and ensuring proper
+> reset handling.
+>
+> Fixes: c979dbf59987 ("reset: imx7: Add support for i.MX8MQ IP block variant")
+> Cc: <stable@vger.kernel.org> # 6d79bb8fd2aa: media: imx8mq-mipi-csi2: Explicitly release reset
+> Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
+> Signed-off-by: Robby Cai <robby.cai@nxp.com>
 
-The intention is for the loop to keep running as long as there is
-still an interrupt left to handle (int_status !=3D 0) and the timeout
-has not elapsed (jiffies < txrx_timeout).
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-Note that time_is_after_jiffies(x) returns true if x > jiffies (or jiffies =
-< x):
-
-/**
- * time_is_after_jiffies - return true if a is after jiffies
- * @a: time (unsigned long) to compare to jiffies
- *
- * Return: %true is time a is after jiffies, otherwise %false.
- */
-#define time_is_after_jiffies(a) time_before(jiffies, a)
-
-Or am I missing something?
-
-Best,
-Tomasz
+>
+> ---
+>
+> Changes in v3:
+>  - Add Cc tag as suggested by Philipp Zabel
+>  - Add R-b tag from Philipp Zabel
+>
+> Link to v2: https://lore.kernel.org/imx/20260417080851.489303-1-robby.cai@nxp.com/
+>
+> Changes in v2:
+>  - Drop the naming change in response to feedback from Krzysztof Kozlowski
+>  - Refine the patch subject and commit message
+>
+> Link to v1: https://lore.kernel.org/imx/20260331101331.1405588-1-robby.cai@nxp.com/
+>
+> ---
+>  drivers/reset/reset-imx7.c | 6 ++++++
+>  1 file changed, 6 insertions(+)
+>
+> diff --git a/drivers/reset/reset-imx7.c b/drivers/reset/reset-imx7.c
+> index dd01fe11c5cb..a3cb8244d76a 100644
+> --- a/drivers/reset/reset-imx7.c
+> +++ b/drivers/reset/reset-imx7.c
+> @@ -236,6 +236,12 @@ static int imx8mq_reset_set(struct reset_controller_dev *rcdev,
+>
+>         case IMX8MQ_RESET_PCIE_CTRL_APPS_EN:
+>         case IMX8MQ_RESET_PCIE2_CTRL_APPS_EN:
+> +       case IMX8MQ_RESET_MIPI_CSI1_CORE_RESET:
+> +       case IMX8MQ_RESET_MIPI_CSI1_PHY_REF_RESET:
+> +       case IMX8MQ_RESET_MIPI_CSI1_ESC_RESET:
+> +       case IMX8MQ_RESET_MIPI_CSI2_CORE_RESET:
+> +       case IMX8MQ_RESET_MIPI_CSI2_PHY_REF_RESET:
+> +       case IMX8MQ_RESET_MIPI_CSI2_ESC_RESET:
+>         case IMX8MQ_RESET_MIPI_DSI_PCLK_RESET_N:
+>         case IMX8MQ_RESET_MIPI_DSI_ESC_RESET_N:
+>         case IMX8MQ_RESET_MIPI_DSI_DPI_RESET_N:
+> --
+> 2.50.1
+>
+>
 
