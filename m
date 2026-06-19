@@ -4,132 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD795CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 15:54:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FB02CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 15:54:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AgF9AashnHuzUk/JMxMjTbCL+cw5W+tJK5pwXckFz00=; b=WH4Ri21+3rmezqTbJpdDzIk5Kc
-	ytTRcY4118jFDhG9vgDTbUqxlmJcUeSHLYNS/CtygYrlxMsgMk7+25aOQRRp1NVef7qf4xXImXy5z
-	omNC9+6M7OnbLbXjhowD6xRM0S7huJFBXUkSvqONwudRSJMQRJpBVBIxGwOnfbG71vcne2+i5Ij9n
-	IsMGHB/L3VEGr74o50ly0djljjlHcuoPerVOvkCOwoLpk7+aEJ8IwSorOm2nmYLagWpb2BJRb58kn
-	KXoHbZ9L+EOrBwPsRSjhGOEOFbIx6knyXYuxfHU2B5ntP7pECMI2Wrxl6elKmGnNrQsRRmSfBI2tW
-	OhiXzmAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xHnuIxkuusA/4wSFpFP+bEyWJpUG3LAtoVZgWvXCCFE=; b=KWh3qGfF+MGIjjPEpcuCWzO4/w
+	ld607ccSJryB3UV983iY0KIuG5N+oqrMjfKDIvi9p9dgZgiWlcAQix6C+RWuoIx5ytCT91LVn1gAI
+	F9wmU73iN3qRhlnlKrg740Xrf0UXS2i+zXhkkYlZJyqRD4Y377k+kE7i1G/3c+nVtd/iJxGFuIt0m
+	UNOXKenfemGjx+l7bEV/a7vdVsX+nBLMQT8q83FW6Ez2Pml51nkFQeBVPHnXHh+G/qAJnK7z4zTBY
+	le2XwUJpPoKwZKd4ovlRF+dEPjSmzBug6QnkPJ+XcKtuyJPqtbptNmC0/I7zoAyyoTPH75q5+6/mR
+	MkbrP1WQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wabXj-00000002jJq-2gG6;
-	Fri, 19 Jun 2026 15:54:07 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wabXg-00000002jJI-3GHP
+	id 1wabYB-00000002jPH-3DeR;
+	Fri, 19 Jun 2026 15:54:35 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wabY7-00000002jNy-1tuK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Jun 2026 15:54:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Sr+OeNdJLOoVJyhwSgls//vSxJMKF/erJSK6uCGKl2tbACqfj3Qk7daO+BpLgdKYuXVQgvCNt/miEw+o1LAE6+9I80I9HcPjAYzWgydxF08Us3IzuJbUr95CCWGELEFjtsOUcniuUsr7HzHwSf1fdRciTfhW6vTywIXqO5Z4T5GiZuHxSEKBI7YP1AUtC6x+BtXlnmnOY2BSyo9CwhEUquOrFn//MR3QujwutJmJqyRUQ7rHTVcxDSf4meJX590BPqHX6F8gKt21P/S1dfrfMYKZ6BUBTSnNfiqbaVFSw/3BS4TOPKPdUG9WZPJmXZslUIvpvbVrlgK8QolXXc2EBg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=AgF9AashnHuzUk/JMxMjTbCL+cw5W+tJK5pwXckFz00=;
- b=O5p33OOWOw4XcK7VGnH0NBNyOiQwxic5AuUOXyxkj/4MLfSUVbDQENSQphVH1qs04Lbq0nKQSat58eiXBTx8Nc+XrLBV0xIjsqJWW4VU+mu4f+LCaFXqh5LGq0KcsjNqE8TEf6krTmCGeihr5NzPcuz/GZHIqI3odFB9BxaMVsZPwpF13jsfZqjfxubhRyU3vmgoTsqnNdlmicJbhkmT+JjLY0u8ZCXeTP8/gZAeBAEFKCh4tcZi0rFNjqEoSkH7aBOdTXFaVZNMAm1a867TnE98T5X3uWfjcbSDzmGNg9M/hO5k66fH1tYQnmro0dBt4cYBxNRrCvT1wOFfYgHYpA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=AgF9AashnHuzUk/JMxMjTbCL+cw5W+tJK5pwXckFz00=;
- b=HXQS/s45zUaVfZdvA5V8vt9t9VGZabJPdGOo4HNaAd9AMMwUMqC3S/g5OlWPuNFr+7NjBuihpEVMGpfdM4h3ya+CtnufQKMO8LRwqzjomXketBobylq9EVZBpgKWdR8GIEjKWYV6eCXGMKXFYArnhm2VLnWvMOuPR37QctWCZAqt3lT+hVo0kkKVDUS04/3iRgT2TE0DwlCGzNHDz432XLmLCfG5x6jqGZDs5m7uewZKcup7Cr9INIMEt/XFnI4yjTHaMMGZuhPzHqwIK3OQ6nPwo/FW86zrPdrc30nM10ndZFMEEHj+5ACvDcbcAIH8M8pJPWNOAxNrDM+FvE5tGQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by PA4PR04MB9223.eurprd04.prod.outlook.com (2603:10a6:102:2a2::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.13; Fri, 19 Jun
- 2026 15:54:00 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0113.015; Fri, 19 Jun 2026
- 15:54:00 +0000
-Date: Fri, 19 Jun 2026 10:53:50 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Yuanshen Cao <alex.caoys@gmail.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Ripard <mripard@kernel.org>, dmaengine@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH 5/5] dt-bindings: dma: sun50i-a64-dma: Update device tree
- bindings documentation for A733
-Message-ID: <ajVmDiWqk_5MXTdL@SMW015318>
-References: <20260619-sun60i-a733-dma-v1-0-da4b649fc72a@gmail.com>
- <20260619-sun60i-a733-dma-v1-5-da4b649fc72a@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260619-sun60i-a733-dma-v1-5-da4b649fc72a@gmail.com>
-X-ClientProxiedBy: SA9PR10CA0024.namprd10.prod.outlook.com
- (2603:10b6:806:a7::29) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Fri, 19 Jun 2026 15:54:32 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 707A627DC;
+	Fri, 19 Jun 2026 08:54:22 -0700 (PDT)
+Received: from [10.57.95.87] (unknown [10.57.95.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 058763F763;
+	Fri, 19 Jun 2026 08:54:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1781884467; bh=ScdVpAAEUlglKYhgblarj/aY1vlSzcXqZZn90JqHVRM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=rR92kd0glh5jwf0W8S7Wqiqwjztn+fRhmKmRwPc3S+2HAgi1boPfF3AuGtiPFL1vX
+	 uOMimRzA2/2zRo1kD9pc4PEivvcaAc6rkJYFahOhX1yleErXUOnHOwRpLaslbE3cSz
+	 sBuDw7MRB76zlX9hagYVCosKb/Wmf3PfE0eTjlS8=
+Message-ID: <b4e02fed-0f52-47ec-8e52-ad390c61bbcd@arm.com>
+Date: Fri, 19 Jun 2026 16:54:22 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PA4PR04MB9223:EE_
-X-MS-Office365-Filtering-Correlation-Id: 02507baf-e201-46f2-9f7c-08dece1afa56
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|7416014|19092799006|56012099006|11063799006|18002099003|22082099003|4143699003;
-X-Microsoft-Antispam-Message-Info: kQJgjsWDRZIm4++wFcbmcMt604MtRMjE17M7T17xUKcv/KK/lhaFzukCkMjKoC5NZVfLk1TOfKQZQUQW74zVEiKsTj3EYUH3RT0feNdpvbLsAFQc+PRQDh7Gv3eBbJDMgds1enEt29a9dqRabhIFW+4S/rkAWS/jzAhGoqn3JVgNUiATZ+y2doeqrQwOAKmTVDMJPorZQPhjpKwjOdHzwsqani5CwW3EYT/B94f2gTJZTTEu6taqGVw+7ZirAvJAd3ScXjS61GmzHrWQmwU5QcBldZw4Vol8kz5+ylMuXF4a9JRT1/vnf7qbqHWKBR+QbVE5O7IVIviLCwIJauzvuIqXKz7nozXkpM3MDgSsqbBTV0/zn7mgc01NlWAOkI/pIiyde7GMpAgsUN2cuVYrh3swrUrudFbgDSBQo5DXVFjO2dVQTxDXzWAt4YcauyaTzltsoaDBk45fr92eOBOT9x706BMO9Jqb0L/6oErW8biZikLa6lLNeouYDEp3Z2pcTPoB5kCI3dJ0IerAY4rOO0KOg6MTrpxQEG8PVr8Z37C3rFKPUqeZ7AScTXTKue1MFMvZzdgOggNcNE0L44vB5cfEOJDnAMqzoKrKSoljxAao08gZZe1aezkNuWHlO+2UuymZsIL6lkBqpMZhqQ57ghHFHLdUsGbdIsBkDHmrtI4=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(7416014)(19092799006)(56012099006)(11063799006)(18002099003)(22082099003)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ZrpIGPvUFMH2v6S/cw8RMtYNrm8cdGNOgAYf4QQfCFEFOImnCJlEtzEdjS57?=
- =?us-ascii?Q?Xg42xZcvnTeE0LhRbV0qyrweYaDcTPtKVz8Rwj4MCXMIKp5BT6/5aVwzxpbo?=
- =?us-ascii?Q?sQJHszwz+8RkSr1rsrlNgzFI75VOlb9g6WVTT5bXF13JjWKBDMdFufUzHspj?=
- =?us-ascii?Q?c1f+5QpqhSSirX0EBMvpMt6QlvS3LS8bUgYhRfX8yXC3gxSVkDNTIKRO04He?=
- =?us-ascii?Q?jxLY2XV77QXQfq5L6ZBvOako5nQYOd8eUgMyaRUHLoSZk1CmZhM0tI/X43y8?=
- =?us-ascii?Q?jDa9V93qrAgAyU1zaD38N6Rm0xkYmTCE2RYSR2Sx43i/IXkuf2bOAp61Irue?=
- =?us-ascii?Q?UJl835loM9Wyp5KrzxBcak+aCX0mEuVBZ1/fSsfHEgtjVDUVqRiH1MJITsEC?=
- =?us-ascii?Q?4sxq/GIvAv8act+LxTNq6Xkve5tvCxqBd3n/TwtZSrJEQzN+fmTU8ltwEypb?=
- =?us-ascii?Q?uLsoAsjMaV3x98E5Vob/zqEeDfZ8gE8gcAgu9OG/1Ku1fKr9gBtub081z9CO?=
- =?us-ascii?Q?Iz1QQ1TjFFoZEwtnUXPIWjDnW6cdh4P9BM7N06E7vSi4arhKmDT7AN+jdgix?=
- =?us-ascii?Q?ByX1n93cG2imeck0FSeA0ztHJL1ratdO4escU7RNS+wflq3oD7TnLtlgGdfo?=
- =?us-ascii?Q?MLUnw2L6ORXVFSGHiqo3YnYgNwQiI7mzo3IltTwlVgzw5si+zjLSHGO7PCc1?=
- =?us-ascii?Q?YYDwriskfj+2QLKb7PDDMx/dkpijCzawcKFOvZbPK8eepywTcGF58LuIezFA?=
- =?us-ascii?Q?F9BBAbQB+48xXxEOahA9JNpFqSRW/GWGyBtpSqLbNCmFJysG7RAUjdNIEcN7?=
- =?us-ascii?Q?B1zmAF2bXR63gF5/FLCxpz4rP6HrMQTRFi6KzHYwMeaBkt0Mhb2GOSbQzSiK?=
- =?us-ascii?Q?FdG3yt/2G3iJZRcHBEsddqVltavxjZEAsk2m6whXQZCu1mN4TmJlWORy29Fy?=
- =?us-ascii?Q?O0stMcFxFRzVUjR/QfxnunRRUbyuhgOIanTzEjhE+UHR519WssKVthPiMd1H?=
- =?us-ascii?Q?pXzzvcBhSCSRtcoKC0ZpoHPxMsLkj4y/u8qGJTnksCRb6iGEILYvqClaJ4cf?=
- =?us-ascii?Q?sgz4vgAy/gWgyJ8DFVQaWF8nkaPG2djUa17f3465rviQwAk+85l+8241v4Vv?=
- =?us-ascii?Q?6og/5o57rnZlEPJH5oTcs9MQSr7DYmp0PEM6xFE5Ou2HgtSI37l6LO3sESFh?=
- =?us-ascii?Q?1tfMOOoWW9k98RYrJTMVa6Jp7KBg/v984iziQXnVBD+FOVj7LmA9qPQUBYrz?=
- =?us-ascii?Q?GaivjSF+58sL4JdPD+y4YLRGUkMs0LM6nb89Lfm3Q7uBDyvymHAkkAMtSZrV?=
- =?us-ascii?Q?yRkAXClyxZGNPWgxMMoMPEkn5c5xtHy2M3fvSXwH3Q2QZ2JOt+6527lgD2cR?=
- =?us-ascii?Q?YnuRjMsklp160c+T5xnwh1LVMZR76SLF7IuEBv4f0a2l5oS2VyyUo4cBadpq?=
- =?us-ascii?Q?SSK4/KzVkVoKHfJejFmH2BJwVfZ40SdS+pyztkJFyxtMuI/zzjReLvBLZ41N?=
- =?us-ascii?Q?psxf67Ripx7Pzr+TeGIwk8zU+1qNzNiFP/em/sYdmKSVyZCmYBz2YJp9WTxJ?=
- =?us-ascii?Q?xpDW8U0ZfxomkDzmzubHLVANEUAs21KY3YTq+H77LdNJaPMUilKEhLrNNM9A?=
- =?us-ascii?Q?qOBEtTdfWfj+7V1NeDBvK5uEuTeKK+fh65KgtQ1DxTalxz469UP/9z2alSUo?=
- =?us-ascii?Q?Fj/HkjMEDSVM9Mw/SWX1ef7Rm9HniV5EPMOZtd/+K7184qT4sbK95yHVUSNS?=
- =?us-ascii?Q?euxyEJEiqN7eEddQYRM14adqg00Sc9VMey+pQ5jOYGFSxD/hruYD?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 02507baf-e201-46f2-9f7c-08dece1afa56
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Jun 2026 15:54:00.0162
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Wh98tBuo+MRV9Hl96mrzdrV9a2cOf8ZCwSM7yMHzeOgld5gm4Iv0EKlIIZ7+1hZ9lxrRoqYfkf4CfhWr4el9uGpX6zl5BygRO25oDyU5uDn9FI9a48Bl0vG7kbd7bFjS
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB9223
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] arm64: tlbflush: Don't broadcast if mm was only active
+ on local cpu
+Content-Language: en-GB
+To: Will Deacon <will@kernel.org>
+Cc: Linu Cherian <linu.cherian@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Kevin Brodsky <kevin.brodsky@arm.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Yang Shi <yang@os.amperecomputing.com>, Mark Rutland <mark.rutland@arm.com>,
+ Huang Ying <ying.huang@linux.alibaba.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ shameerali.kolothum.thodi@huawei.com
+References: <20260523134710.3827956-1-linu.cherian@arm.com>
+ <ai6KzFgfMAxqplcr@willie-the-truck>
+ <bfc8803d-b375-477e-bba7-806edaf86578@arm.com>
+ <ajAPnahwTe1OHQDp@willie-the-truck>
+ <4aa78619-5a79-4fd0-aaac-a990b8c3fd05@arm.com>
+ <ajVhiCXYmbDq-qTi@willie-the-truck>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <ajVhiCXYmbDq-qTi@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260619_085404_818371_9113A0F8 
-X-CRM114-Status: GOOD (  15.02  )
+X-CRM114-CacheID: sfid-20260619_085431_662134_5469D1D3 
+X-CRM114-Status: GOOD (  17.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,50 +82,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 19, 2026 at 04:53:34AM +0000, Yuanshen Cao wrote:
+On 19/06/2026 16:34, Will Deacon wrote:
+> On Mon, Jun 15, 2026 at 04:41:04PM +0100, Ryan Roberts wrote:
+>> On 15/06/2026 15:43, Will Deacon wrote:
+>>> On Mon, Jun 15, 2026 at 12:21:19PM +0100, Ryan Roberts wrote:
+>>>>>> +	self = smp_processor_id();
+>>>>>> +
+>>>>>> +	/*
+>>>>>> +	 * The load of mm->context.active_cpu must not be reordered before the
+>>>>>> +	 * store to the pgtable that necessitated this flush. This ensures that
+>>>>>> +	 * if the value read is our cpu id, then no other cpu can have seen the
+>>>>>> +	 * old pgtable value and therefore does not need this old value to be
+>>>>>> +	 * flushed from its tlb. But we don't want to upgrade the dsb(ishst),
+>>>>>> +	 * needed to make the pgtable updates visible to the walker, to a
+>>>>>> +	 * dsb(ish) by default. So speculatively load without a barrier and if
+>>>>>> +	 * it indicates our cpu id, then upgrade the barrier and re-load.
+>>>>>> +	 */
+>>>>>> +	active = READ_ONCE(mm->context.active_cpu);
+>>>>>> +	if (active == self) {
+>>>>>> +		dsb(ish);
+>>>>>> +		active = READ_ONCE(mm->context.active_cpu);
+>>>>>> +	} else {
+>>>>>> +		dsb(ishst);
+>>>>>> +	}
+>>>>>
+>>>>> Why can't you just do:
+>>>>>
+>>>>> 	dsb(ishst);
+>>>>> 	active = READ_ONCE(mm->context.active_cpu);
+>>>>>
+>>>>> ?
+>>>>
+>>>> Prior to this optimization, we always issued a dsb(ishst) here. Catalin
+>>>> suggested the same simplification against the RFC. I believe Linu tried it but
+>>>> saw regressions; Hopefully Linu can provide the details.
+>>>
+>>> I don't follow...
+>>>
+>>> The old code always did dsb(ishst). The proposed code here does either
+>>> dsb(ish) or dsb(ishst). How can that possibly be faster?
+>>
+>> Ugh, sorry - I read your suggestion as unconditionally issuing a dsb(ish).
+>>
+>> Ignore my previous answer, and now I'll demonstrate my total lack of
+>> understanding of barriers instead...
+>>
+>> As the comment says, "The load of mm->context.active_cpu must not be reordered
+>> before the store to the pgtable that necessitated this flush". I thought that a
+>> dsb(ishst) would only provide ordering between stores. Don't we need the
+>> dsb(ish) to prevent the load from being reordered before the store?
+> 
+> dsb(ishst) orders prior stores -> everything later. That's why it works
+> today for ordered a PTE write before a TLBI (which isn't a store).
 
-Subject needn't talk about binding twice
+Ahh, that simplifies things then!
 
-dma: sun50i-a64-dma: Add a733 support
+> 
+> Will
 
->
-> To complete the support for the A733 DMA controller, added
-> `allwinner,sun60i-a733-dma` to the list of compatible strings for
-> `allwinner,sun50i-a64-dma` dt-binding documentations..
-
-Add allwinner,sun60i-a733-dma compatible string.  And list some differene
-here to show why need it.
-
-Frank
-
->
-> Signed-off-by: Yuanshen Cao <alex.caoys@gmail.com>
-> ---
->  Documentation/devicetree/bindings/dma/allwinner,sun50i-a64-dma.yaml | 2 ++
->  1 file changed, 2 insertions(+)
->
-> diff --git a/Documentation/devicetree/bindings/dma/allwinner,sun50i-a64-dma.yaml b/Documentation/devicetree/bindings/dma/allwinner,sun50i-a64-dma.yaml
-> index c3e14eb6cfff..1cc3304b7414 100644
-> --- a/Documentation/devicetree/bindings/dma/allwinner,sun50i-a64-dma.yaml
-> +++ b/Documentation/devicetree/bindings/dma/allwinner,sun50i-a64-dma.yaml
-> @@ -25,6 +25,7 @@ properties:
->            - allwinner,sun50i-a64-dma
->            - allwinner,sun50i-a100-dma
->            - allwinner,sun50i-h6-dma
-> +          - allwinner,sun60i-a733-dma
->        - items:
->            - const: allwinner,sun8i-r40-dma
->            - const: allwinner,sun50i-a64-dma
-> @@ -70,6 +71,7 @@ if:
->            - allwinner,sun20i-d1-dma
->            - allwinner,sun50i-a100-dma
->            - allwinner,sun50i-h6-dma
-> +          - allwinner,sun60i-a733-dma
->
->  then:
->    properties:
->
-> --
-> 2.54.0
->
 
