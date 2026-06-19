@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 841F2CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 12:44:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 857E3CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 12:52:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kWmg+Z3iyFDK7g60i8LQZgyj/s+Ri6gCBeStElOsXdo=; b=KX4bjG/hoCavjF5Yl9WeRMq4oe
-	Xq6QzR9/4/o4eRlKaCzc/9vnidTDM4giOrFCFO2pnC3izUAb+8km9hefVHGtuwUOPhwSsagLq8Aix
-	2nK1AoyfMjBnelJJplBpd8BF3TtEzlKzyrn8Jn0oVahDHtuHwvflxBRVkfH3jsrTCgqNOEtoDlg9A
-	CpyvAEhGNSNhwCyDTKSHLOIHXN4DUOTgZEkvd/uFX0omPF61LDYqxKrwh3/yivoqmjU04mXhl1wkR
-	zUloZ4i8GnDdaplGjHLQZF+2IJYlFO0SOqc+cFPBZn+fCS2N7yBxTgCGXVl84+xWxtz13I+VYLrcw
-	yG6tB4ow==;
+	bh=Rft1bVhCOF94f9cRxhWpTIAQLYPJ7/0QQ6HPp0uW27E=; b=dqMvRl8rVLZWKx73QNb4PSSAoj
+	Y9WXh2fQyjdHrYRd56q6Jc6VxQbJK3yeYE2huzIlPSFTNRF2c0ZYXUmSzs+HPylSP0iKZBOfVetSC
+	FnWBrZBxJhKWvVwrR/D4SEghRKDvO4LzOUwblq0Ag7JOd2rxSUg9oVmnVqSouwT3qo80OunNLfjFT
+	aGWs+/rt/OSyOeMXzwawJ7LNCDGE2xdhzPUGJimriawcFggamsukfwk0pX1E64qtM3V4Hz5stKTp3
+	E8CBtZbWl9Ed5P5hgeFENXCd53A05vzCNXKhlh05+1y3icFTH0q9h0aj4sDxYLqITq7pb50W/wriy
+	JBycdk4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waYZz-00000002QHb-3Udq;
-	Fri, 19 Jun 2026 12:44:15 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waYZy-00000002QHQ-0xuh;
-	Fri, 19 Jun 2026 12:44:14 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9FC9D40696;
-	Fri, 19 Jun 2026 12:44:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 114E41F00A3A;
-	Fri, 19 Jun 2026 12:44:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781873053;
-	bh=kWmg+Z3iyFDK7g60i8LQZgyj/s+Ri6gCBeStElOsXdo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=eWJ1awcEsj0kwKPYAZGBemEb4pVgNzNGndskM/AendSEIszbYPmclEhGr43mm/JQr
-	 PXaBWJKNVyYOCr2ARKQF30BWlL00GafGIxWsVeEQ936ttytRaDacRdAlyNLRZp/dBa
-	 w6Q5PKwEZw1RGa20MvbQVkvlW1BJ8zHrcvYxcGOFDgpAhi2raWQqwmkTp3ktFXmuAj
-	 Bwsi6sPZidxy/F3hMM/ibts5K7LqEt53LIdIKA5t0KwlWJzn/EH+ALemKsEZuj0sMs
-	 WvRhrT+Un9WtC340t9NEiMKlwenvGNZbmZywpAg3TQaaVN++C/6KbMiYUpmQb/+j4u
-	 0ABLU57/ixc/g==
-Date: Fri, 19 Jun 2026 14:44:11 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
-	Sandy Huang <hjc@rock-chips.com>, Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, 
-	Andy Yan <andy.yan@rock-chips.com>, Daniel Stone <daniels@collabora.com>, 
-	Dave Stevenson <dave.stevenson@raspberrypi.com>, =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, 
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, kernel@collabora.com, dri-devel@lists.freedesktop.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v7 02/30] drm/connector: Add HDMI 2.0 scrambler
- infrastructure
-Message-ID: <20260619-tentacled-chupacabra-of-discussion-aaed1e@houat>
-References: <20260602-dw-hdmi-qp-scramb-v7-0-445eb54ee1ed@collabora.com>
- <20260602-dw-hdmi-qp-scramb-v7-2-445eb54ee1ed@collabora.com>
- <20260612-subtle-shapeless-rattlesnake-4b6af8@houat>
- <7b19b243-ad6a-4d1f-b34e-684e8bfe500c@collabora.com>
+	id 1waYhX-00000002QmD-2pYK;
+	Fri, 19 Jun 2026 12:52:03 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1waYhU-00000002QlY-48Fp
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 19 Jun 2026 12:52:02 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BC8392936;
+	Fri, 19 Jun 2026 05:51:54 -0700 (PDT)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B22F83F62B;
+	Fri, 19 Jun 2026 05:51:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1781873519; bh=vlt508OngfcR+AlEOvkl8S0fVWYMg2eEN/6ShAE1moI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=uhHiavHilkR8OcTBOY0TJKSGBxaoW08/UAVe/N1KNPtWhvkzKJ3SCBoM1/2SAFR0C
+	 0oLzkmazgQ3yCc4ZqSRcH/ZceO+kPRQDgRPvK7UThLUBZssa4yyyDdNRxtsgUYjOD0
+	 Pk3KPfkIqVDUSzfuWuVUbgGdAnDj83b4q7uQ8Uzs=
+Date: Fri, 19 Jun 2026 13:51:43 +0100
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: Cristian Marussi <cristian.marussi@arm.com>,
+	Christian Brauner <brauner@kernel.org>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+	linux-doc@vger.kernel.org, sudeep.holla@kernel.org,
+	james.quinlan@broadcom.com, f.fainelli@gmail.com,
+	vincent.guittot@linaro.org, etienne.carriere@st.com,
+	peng.fan@oss.nxp.com, michal.simek@amd.com, d-gole@ti.com,
+	jic23@kernel.org, elif.topuz@arm.com, lukasz.luba@arm.com,
+	philip.radford@arm.com, souvik.chakravarty@arm.com,
+	leitao@kernel.org, kas@kernel.org, puranjay@kernel.org,
+	usama.arif@linux.dev, kernel-team@meta.com
+Subject: Re: [PATCH v4 00/31] Introduce SCMI Telemetry FS support
+Message-ID: <ajU7UqwPZBlwRGkf@pluto>
+References: <20260612223802.1337232-1-cristian.marussi@arm.com>
+ <20260617-waten-allabendlich-zueinander-93d4b1367b8c@brauner>
+ <ajLVW1eHzbGDm4yn@pluto>
+ <29a304f0-1e62-418a-b84f-aabdc4c0de8d@kernel.org>
+ <ajR_FBWOoXJKSeoH@pluto>
+ <0025b907-27b9-4a51-b78f-f8ad413644d0@kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="4ewvgxcfsnr2oshm"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <7b19b243-ad6a-4d1f-b34e-684e8bfe500c@collabora.com>
+In-Reply-To: <0025b907-27b9-4a51-b78f-f8ad413644d0@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260619_055201_158262_2EC1006D 
+X-CRM114-Status: GOOD (  81.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,225 +83,308 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Jun 19, 2026 at 12:16:58PM +0200, David Hildenbrand (Arm) wrote:
+> 
+> >> Is the configuration aspect limited to enabling selected events, or is there
+> >> more that can be configured?
 
---4ewvgxcfsnr2oshm
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v7 02/30] drm/connector: Add HDMI 2.0 scrambler
- infrastructure
-MIME-Version: 1.0
+Hi,
 
-On Fri, Jun 12, 2026 at 09:11:54PM +0300, Cristian Ciocaltea wrote:
-> Hi Maxime,
->=20
-> Thanks for taking the time to review this!
->=20
-> On 6/12/26 3:06 PM, Maxime Ripard wrote:
-> > On Tue, Jun 02, 2026 at 01:44:02AM +0300, Cristian Ciocaltea wrote:
-> >> Add the connector-level infrastructure to support HDMI 2.0 scrambling:
 > >>
-> >> - A scrambler_supported flag to indicate whether the source supports t=
-he
-> >>   scrambling capability, in which case the newly introduced
-> >>   .scrambler_{enable|disable}() callbacks in drm_connector_hdmi_funcs
-> >>   are mandatory
-> >> - A scrambler_needed flag to be managed by the hdmi state helpers based
-> >>   on the negotiated TMDS character rate and the source/sink scrambling
-> >>   capabilities
-> >> - A scrambler_enabled flag to track whether scrambling is currently
-> >>   active
-> >> - A delayed work item (scdc_work) with an associated callback (scdc_cb)
-> >>   to monitor sink-side scrambling status and retry the setup if the si=
-nk
-> >>   resets it
+> > 
+> > The needed configuration is:
+> > 
+> >  - global Telemetry enable (tlm_enable)
+> >  - global common update_interval (current_update_interval)
+> 
+> Okay, so simple global properties.
+> 
+> >  - per-DE enable/disable (des/0x<NNNN>/enable)
+> >  - per-DE timestamping enable/disable (des/0x<NNNN>/tstamp_enable)
+> > 
+> >  ... then there are a couple of handy catch-all entries:
+> > 	all_des_enable, all_des_tstamp_enable
+> 
+> Okay, so fairly trivial configs.
+
+Yes mostly on/off switches or single values config.
+
+> > 
+> > Note that all the existent DEs are discovered at runtime dynamically via
+> > SCMI in the background at init/probe and then never change: i.e.
+> > the tree is statically created upon discovery, user cannot
+> > create/destroy or symlink files at will, nor the backend platform FW
+> > running the SCMI server can pop-up new DataEvents after the initial
+> > enumeration.
+> 
+> That makes sense.
+> 
+> > 
+> > All the above configs can also be pre-defined in the FW (at built time)
+> > as being default boot-on with predefined values, like a specific
+> > boot-on update interval, so that you could have a system in which really
+> > you dont need to configure anything...everything is on and you just
+> > read data. (unless you want to change config of course...)
+> 
+> Okay, so the initial value of some parameters might not be "disabled" etc.
+
+Yes at the protocol layer I take care to lookup all of this states at
+init so that the initial states are consistent with what exposed...
+
+> 
+> I guess, from a user space perspective, reading should be allowed by everyone
+> but writing should be limited to root?
+>
+
+Yes it is currently world readable and only root has write access by default,
+BUT in this latest V4 I added (as asked by some internal team) handling of the
+usual uid/gid/umask mount options so that a privileged user can change the ownership
+policy at mount time. (not supporting anyway FS_USERNS_MOUNT since it does not
+make sense to support containers for SCMI Telemetry)
+
+> > 
+> > There is more stuff that indeed is configurable per the SCMI spec
+> > but these additional params are hidden into the SCMI Telemetry protocol
+> > layer (the initial patches in this series) and NOT made available to
+> > the driver/users of the protocol (like the SCMI FS driver that sits on
+> > top)
+> 
+> Do you assume that there will get significantly more config options added in the
+> future for user space to configure?
+
+No, I dont think so...the only planned extensions were to support more
+performant read access mechanisms, i.e. direct mmap'ability of FW/Kernel
+SCMI Telemetry shared memory areas...BUT that will immediately dump all
+the bulk of the lower layer protocol work into the tools domain...and
+we're not ready to do so...beside having one more thing, the tool, to keep
+in sync with possible future spec changes (unless exposing even more stuff
+like tlm mem-areas accessors to the UAPI...that would be painful kernel
+side and not desired AFAIU...)
+
+> 
+> > 
+> > IOW, this humonguos series (~8k lines) is only partially composed by
+> > the Filesystem driver (~3k): the bulk of the Telemetry logic and SCMI
+> > message exchanges are contained in the SCMI Protocol stack which has
+> > been extended to support the Telemerty protocol at first
+> > (the 'firmware: arm_scmi:' initial patches).
+> > 
+> > This latter common support is exposed by the SCMI stack for the SCMI
+> > drivers to use via custom per-protocol operations (not an orginal name :P)
+> > exposed in include/linux/scmi_protocol.h
+> > 
+> > So when you write into FS to configure smth, you end up calling an internal
+> > tlm_proto_ops that in turn will cause an SCMI message to be sent
+> > (in some cases say to enable a DE or set the update interval)
+> 
+> Makes sense.
+> 
+> > 
+> > When you read something, you end up calling another Telemetry operation
+> > that in turn returns you the DataEvent value you were looking for...how
+> > this is retrieved via SCMI in the background is transparent to the
+> > FS driver because, again, these details are buried into the protocol
+> > layer. Talking about reads, you can:
+> > 
+> >  - read a single value from des/0x<NNNN>/value
+> >  - read ALL the currently enabled DE in a bulk read via des_bulk_read
+> > 
+> > ...most of the other entries in the tree are simply RO properties of the DEs
+> > that have been discovered at enumeration time.
+> 
+> Is this bulk-reading relevant for performance or just a "nice to have" ?
+> 
+
+I suppose depends on your usage pattern: it is definitely relevant
+because the main collection mechanism are shared memory areas (SHMTIs)
+between the platform firmware and the Kernel: such areas being accessed
+from 2 differnt worlds concurrently come with a SCMI-specified
+synchro/consistency mechanism based simply on a pair of sequence numbers
+placed at the start and at the end of the SHMTI, so that the FW increases
+such magic numbers in a well-known way before and after updating the SHMTI
+values, so that the kernel can detect (without any interlocking mechanism)
+if a platform write happened in the middle of its reads...
+
+...so if you read one single DE 64bit value, under the hood the kernel
+would have had to really perform at leats 3 reads from the SHMTI to check
+the consistecy of that single read...
+
+... while if you do a bulk_read the overhead due to the consistecy
+checks gets 'spread' across a number of DEs because the kernel will snapshot
+the whole SHMTIs (potentially KBytes) between the 2 consistency reads
+
+...the good side effect of all of this is that I can leverage such
+sequence number to optimize reads..i.e. do NOT even try to read anything
+if the new sequnce number is unchanged from the last one I cached on the
+last successfull read of this value...
+
+So at the end I would say it is NOT simply a nice to have BUT it is
+certainly only the first step towards a more performant alternative access
+(like with mmaps)...it depends on the usage pattern...I am not sure what
+mechanism is used by our tools more...
+
+> 
+> > 
+> > Given that walking a FS tree and issuing configuration as writes is NOT
+> > performant really (nor handy if you are not a human), currently, even
+> > in this FS-based series you can really perform all of the discovery AND
+> > the configuration tasks WITHOUT walking the filesystem tree, but instead
+> > issuing a bunch of IOCTLs issued on a special 'control' file that I
+> > embedded in the FS. Such UAPI IOCTLs described at:
+> 
+> Makes sense.
+> 
+> > 
+> > https://lore.kernel.org/arm-scmi/20260612223802.1337232-6-cristian.marussi@arm.com/T/#u
+> >  
+> > So my plan of action in order to get rid of the FS in-kenel implementation
+> > would be to drop this Filesystem in favour of simple character devices
+> > and move the existent IOCTLs interface (revisited where needed) on top of
+> > these devices: that way you will be able to use IOCTLs to enumerate the
+> > Telemetry sources and then configure them.
+> > 
+> > Read will then happen (probably) leveraging a number of chardev fops like:
+> > IOCTLs, .read and .mmap...up to the tool decide what to use.
+> > 
+> > After this porting to chardev is done, I would start optionally exposing
+> > again all of this in a human-readable alternative way by adding a layer
+> > of FUSE on top of this chardev interface.
+> 
+> Yes. How high-priority is the fs side? Or would a tool using a library to access
+> this information also work in the first step?
+> 
+
+I have to sync with tools on this...because they are stiil probably
+using currently the FS, but it was already planned for the future to move to
+a more low level access (ioctl/mmap)...
+
+...my aim would be, at this point, to favour this transition without sudden
+breaking their current world (and have to expatriate :P)
+
+..from my personal point of view, I would certainly like to still have the
+FUSE layer for ease of testing and verification on my side...but it is just
+a nice to have... 
+
+> > 
+> > Basically my aim is to drop the FS implementation from the kernel, as
+> > advised, while trying to optionally make it still available via a userspace
+> > FUSE implementation...IOW the intention would be for the next V5 to expose
+> > the same interfaces as V4 but with the help of a tool instead that builds,
+> > if wanted, a FUSE mount built on top of the chardev interface.
+
+[snip]
+
 > >>
-> >> These are intended to be used by SCDC scrambling helpers to coordinate
-> >> scrambling setup and teardown between the source driver and the DRM
-> >> core.
+> >> It's a good question how that could be done, if you need more information about
+> >> these events from user space.
+> > 
+> > I have NOT really delved into that, so as of know we do NOT fed any data
+> > to existing Kernel subsystems, not there is any available in-kernel
+> > interface to consume DE data (nobody asked), but, I can imagine 2 solution:
+> > 
+> >  - our beloved architects decide to 'architect' more DataEvents in the
+> >    next version of the spec.. i.e. they reserve some specific DE IDs to
+> >    represent some well defined entity (like it is done already in the spec
+> >    for a dozen IDs)...this avoids the needs of any new interface all
+> >    together
+> 
+> That would be the cleanest solution :)
+> 
+
+Definitely agree.
+
+> > 
+> > OR
+> > 
+> > - we open some sort of user-->kernel ABI channel 'somewhere' where the
+> >   userspace tool, interpreting the JSON description, can communicate something
+> >   like " on this platform ID 1,2,3,4 should be fed to the IIO sensors frmwk
+> >   too, while ID 39,8,76 can be fed to HWMON..." etc
+> > 
 > >>
-> >> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-> >> ---
-> >>  drivers/gpu/drm/drm_connector.c | 18 +++++++++
-> >>  include/drm/drm_connector.h     | 81 ++++++++++++++++++++++++++++++++=
-+++++++++
-> >>  2 files changed, 99 insertions(+)
+> >> [...]
 > >>
-> >> diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_con=
-nector.c
-> >> index a5d13b92b665..526dc2931b8a 100644
-> >> --- a/drivers/gpu/drm/drm_connector.c
-> >> +++ b/drivers/gpu/drm/drm_connector.c
-> >> @@ -220,6 +220,19 @@ void drm_connector_free_work_fn(struct work_struc=
-t *work)
-> >>  	}
-> >>  }
-> >> =20
-> >> +static void drm_connector_hdmi_scdc_work(struct work_struct *work)
-> >> +{
-> >> +	struct drm_connector *connector;
-> >> +	struct drm_connector_hdmi *hdmi;
-> >> +
-> >> +	hdmi =3D container_of(to_delayed_work(work), struct drm_connector_hd=
-mi,
-> >> +			    scdc_work);
-> >> +	connector =3D container_of(hdmi, struct drm_connector, hdmi);
-> >> +
-> >> +	if (hdmi->scdc_cb)
-> >> +		hdmi->scdc_cb(connector);
-> >> +}
-> >> +
-> >>  static int drm_connector_init_only(struct drm_device *dev,
-> >>  				   struct drm_connector *connector,
-> >>  				   const struct drm_connector_funcs *funcs,
-> >> @@ -285,6 +298,7 @@ static int drm_connector_init_only(struct drm_devi=
-ce *dev,
-> >>  	mutex_init(&connector->edid_override_mutex);
-> >>  	mutex_init(&connector->hdmi.infoframes.lock);
-> >>  	mutex_init(&connector->hdmi_audio.lock);
-> >> +	INIT_DELAYED_WORK(&connector->hdmi.scdc_work, drm_connector_hdmi_scd=
-c_work);
-> >>  	connector->edid_blob_ptr =3D NULL;
-> >>  	connector->epoch_counter =3D 0;
-> >>  	connector->tile_blob_ptr =3D NULL;
-> >> @@ -606,6 +620,10 @@ int drmm_connector_hdmi_init(struct drm_device *d=
-ev,
-> >>  	    !hdmi_funcs->hdmi.write_infoframe)
-> >>  		return -EINVAL;
-> >> =20
-> >> +	if (connector->hdmi.scrambler_supported &&
-> >> +	    (!hdmi_funcs->scrambler_enable || !hdmi_funcs->scrambler_disable=
-))
-> >> +		return -EINVAL;
-> >> +
-> >>  	ret =3D drmm_connector_init(dev, connector, funcs, connector_type, d=
-dc);
-> >>  	if (ret)
-> >>  		return ret;
-> >> diff --git a/include/drm/drm_connector.h b/include/drm/drm_connector.h
-> >> index 529755c2e862..f1c5c15a6cce 100644
-> >> --- a/include/drm/drm_connector.h
-> >> +++ b/include/drm/drm_connector.h
-> >> @@ -28,6 +28,7 @@
-> >>  #include <linux/ctype.h>
-> >>  #include <linux/hdmi.h>
-> >>  #include <linux/notifier.h>
-> >> +#include <linux/workqueue.h>
-> >>  #include <drm/drm_mode_object.h>
-> >>  #include <drm/drm_util.h>
-> >>  #include <drm/drm_property.h>
-> >> @@ -1057,6 +1058,19 @@ struct drm_connector_hdmi_state {
-> >>  	 * @tmds_char_rate: TMDS Character Rate, in Hz.
-> >>  	 */
-> >>  	unsigned long long tmds_char_rate;
-> >> +
-> >> +	/**
-> >> +	 * @scrambler_needed: Whether HDMI 2.0 SCDC scrambling is required
-> >> +	 * for the negotiated mode/bpc/format.
-> >> +	 *
-> >> +	 * Computed by drm_atomic_helper_connector_hdmi_check() from
-> >> +	 * @tmds_char_rate and the source/sink scrambling capabilities.
-> >> +	 *
-> >> +	 * Per HDMI 2.0, scrambling is mandatory above 340 MHz TMDS
-> >> +	 * character rate. Optional scrambling at lower rates is
-> >> +	 * deliberately not requested by the helper.
-> >> +	 */
-> >> +	bool scrambler_needed;
-> >>  };
-> >> =20
-> >>  /**
-> >> @@ -1358,6 +1372,36 @@ struct drm_connector_hdmi_funcs {
-> >>  	 */
-> >>  	const struct drm_edid *(*read_edid)(struct drm_connector *connector);
-> >> =20
-> >> +	/**
-> >> +	 * @scrambler_enable:
-> >> +	 *
-> >> +	 * This callback is invoked through @drm_scdc_start_scrambling during
-> >> +	 * a commit to setup SCDC scrambling and high TMDS clock ratio on
-> >> +	 * source side.
-> >> +	 *
-> >> +	 * The @scrambler_enable callback is mandatory if HDMI 2.0 is to be
-> >> +	 * supported.
-> >> +	 *
-> >> +	 * Returns:
-> >> +	 * 0 on success, a negative error code otherwise
-> >> +	 */
-> >> +	int (*scrambler_enable)(struct drm_connector *connector);
-> >> +
-> >> +	/**
-> >> +	 * @scrambler_disable:
-> >> +	 *
-> >> +	 * This callback is invoked through @drm_scdc_stop_scrambling during
-> >> +	 * a commit to disable SCDC scrambling and high TMDS clock ratio on
-> >> +	 * source side.
-> >> +	 *
-> >> +	 * The @scrambler_disable callback is mandatory if HDMI 2.0 is to be
-> >> +	 * supported.
-> >> +	 *
-> >> +	 * Returns:
-> >> +	 * 0 on success, a negative error code otherwise
-> >> +	 */
-> >> +	int (*scrambler_disable)(struct drm_connector *connector);
-> >> +
-> >>  	/**
-> >>  	 * @avi:
-> >>  	 *
-> >> @@ -1960,6 +2004,43 @@ struct drm_connector_hdmi {
-> >>  	 */
-> >>  	unsigned long supported_formats;
-> >> =20
-> >> +	/**
-> >> +	 * @scrambler_supported: Indicates whether the HDMI controller
-> >> +	 * (source) supports HDMI 2.0 SCDC scrambling.
-> >> +	 *
-> >> +	 * When true, @drm_connector_hdmi_funcs.scrambler_enable and
-> >> +	 * @drm_connector_hdmi_funcs.scrambler_disable are mandatory.
-> >> +	 * This is enforced by drmm_connector_hdmi_init().
-> >> +	 *
-> >> +	 * For HDMI bridge based drivers using drm_bridge_connector_init(),
-> >> +	 * this is propagated automatically from bridges that set the
-> >> +	 * DRM_BRIDGE_OP_HDMI_SCRAMBLER flag in their &drm_bridge->ops.
-> >> +	 * Other drivers must set this field on @connector->hdmi before call=
-ing
-> >> +	 * drmm_connector_hdmi_init().
-> >> +	 */
-> >> +	bool scrambler_supported;
-> >> +
-> >> +	/**
-> >> +	 * @scrambler_enabled: Tracks whether HDMI 2.0 scrambler is currentl=
-y enabled.
-> >> +	 */
-> >> +	bool scrambler_enabled;
-> >=20
-> > This is already in the state. Why do you need to copy it over here, and
->=20
-> This was supposed to be used exclusively by drm_scdc_{start,stop}_scrambl=
-ing()
-> and drm_scdc_sync_status() helpers to control the work item and condition=
-ally
-> trigger CRTC resets.  However, it's now also set by vc4_hdmi_connector_in=
-it() to
-> force disable the scrambler in the vc4_crtc_disable_at_boot() execution p=
-ath.
+> >>
+> >> That sounds reasonable.
+> >>
+> >> [...]
+> >>
 
-Oh, my bad, I misread. I thought it was meant to be a copy of
-scrambler_needed, but yeah, you're right it makes sense to keep it as is
-and you can ignore this comment.
+[snip]
 
-Maxime
+> > Regarding the user concurrency, I have already explicitly pushed back on
+> > this, our own tools team: any concurrent read or configuration write is
+> > allowed and properly handled in a consistent way, BUT on the configuration
+> > side the last write/ioctl wins: there is NO in-kernel OR userspace
+> > co-ordination provided out of the box: IOW if you use multiple tools
+> > concurrently to apply conflicting configurations, it is none of our problem
+> 
+> Would concurrent reading work? I assume so, right?
+> 
 
---4ewvgxcfsnr2oshm
-Content-Type: application/pgp-signature; name="signature.asc"
+Yes concurrent reading is not a problem, and concurrent writes are
+properly handled at the write/message level (i.e. no corruption) BUT
+no co-ordination is provided from the kernel on those config writes,
+last write wins.
 
------BEGIN PGP SIGNATURE-----
+> > 
+> > ...similarly as if you have an actively running network configuration daemon
+> > and you try to set your IP manually...nobody will prevent you from doing this,
+> > the same netlink will be used freely by you on the shell and the daemon (if you
+> > have enough privilege), but you will gonna have unexpected result...
+> > 
+> > I dont either see the case to enforce exclusive access for Telemetry resources:
+> > co-ordination is up to the user in my view...I mean if you have 2 tools
+> > configuring concurrently SCMI telemetry in a conflicting way something has been
+> > misconfigured somewhere
+> > 
+> > .....having said that, I understand that the concurrency co-ordination
+> > issue can be particularly tricky to spot and solve in userspace, so I DO
+> > expose a generation counter entry that is updated on any configuration
+> > change, so that a userspace app using Telemetry can monitor (poll) this
+> > counter to spot if someone else on the system is quietly suddenly applying
+> > configuration changes...
+> 
+> Okay, so a single writer (admin) changing stuff could get picked up my possibly
+> many concurrent readers?
 
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCajU5mgAKCRAnX84Zoj2+
-di3yAX9/gHx3Xb+KKlXx8LiIXAWY9ki/m/hUvFFOXASDGlXk59XC1KG43J/yEJr0
-S+acjC0Bf0XXkICkBdxlSp/wUDxhPlCSrNdaH+Intm6VjbB1lt0lzNbE/TcVgwcg
-Gbq15g7kVQ==
-=cBwC
------END PGP SIGNATURE-----
+Mmm...not sure what you mean here...
 
---4ewvgxcfsnr2oshm--
+If you configure your Telemetry as you desire and start collecting data via
+readers, BUT then some other process changes configs under your belt, that is
+allowed as said, and so your analisys could be impacted...(something turned off
+as an example, or update interval changed)...
+
+...so while this is NOT regulated/co-ordinated by the Kernel, in order to
+ease the detection of such events by your reading process, I provide a pollable
+entry that returns an integer and then blocks until such counter is next updated
+by an intervening under-the-hood configuration change...so you can configure,
+monitor the generatin counter and then starts reading you data, sure that you
+will detect any conflicting re-config issued by a rougue process...
+(and I have to still extend this event polling mechanism to use a user
+provided eventfd...since it was NOT strictly needed...but now with
+IOCTLs interface I will add that too...)
+
+> 
+> > 
+> >>>
+> >>> Should/could such a tool live in the kernel tree (tools/) at least for
+> >>> ease of development/deployment ?
+> >>
+> >> I think OOT.
+> >>
+> > 
+> > Ok.
+> > 
+> > Sorry for the long email..I hope I have clarified the situation, anyway
+> > I am already moving to get rid of the in-kernel interface as advised in
+> > favour of a chardev kernel interface and an optional FUSE based FS...
+> 
+> Yes, thank you a lot, I hope it also helps Christian to help push this into the
+> right direction!
+>
+
+Thanks a lot, David !
+Cristian
+
 
