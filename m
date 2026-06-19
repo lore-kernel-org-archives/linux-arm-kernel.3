@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC06BCD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 15:42:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCFCACD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 15:42:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
 	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
 	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2zeoyPgg1pLQy6SDUrpuRmPYHEZN6yNgpmetPoyyQoA=; b=HqIvjmX5JHd8Zti2eGr10bjdJV
-	ULXdHFO2k1JcslwBVxdKenmBQd6ambxqwv5yT4P/HtgrJESmA9/JrQn2St2dTrYmF7l9O5s10pEGg
-	rxm87L1an34bxspFuOS9vVFvvEQKiRBbyGBQ0ku1BxsodVtAw6IKMTSM1LIG78lukAMUeLwIDD3zv
-	BxQhJ/f8/SrUcR9yNoVPLtyrSFxdASiLfnFf6qZZcE6Twki0BmSc8a5QSnJvKyxuanx/2NXOpK/oF
-	7JwKPt8iD6rOCxjZGyPleSZWeW27OkTeAtKaqz76RAl+IvZTw1lh9YLI5a8zcvCoJWcO/FthsIUab
-	kFdp3+Ng==;
+	bh=62gaRsocs8I4yuT/iF57uhqsF1rdgbKbbMsgUqG5+fk=; b=kmChK0LuM+dY73EKtfgGDpinL+
+	sxq+PyQjkuNviB9pxwuVQCNoC7mh5FkuqXe+MhuBO+vDU/17+gxVB0b4a4gwCo59mBfo0lPbFZb+/
+	YBoXzHHDENXTSNAtJxcbV5LNlB+CXohCrJ0NPiBInr1tj9pwzsGIS1vd31CGR3m0bi9mTksAj2QO2
+	tOTXDsoOtVnmK6WaHm+Kb0ajJDJSN6pmgm/hni1/ThspRvfL1P4EY6jDJRKReMWQxMQv1EsHEkGWB
+	KqZbN6JwAQeoK1I33I0Hc6H70LIsy+iCiWwYmF8b/ckijmi7yW6B1reWButtwoKRvi/Xa5YSHq4PO
+	f6Mu50Tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wabLw-00000002hc2-18iv;
-	Fri, 19 Jun 2026 15:41:56 +0000
-Received: from mail-westeuropeazon11010033.outbound.protection.outlook.com ([52.101.69.33] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1wabMD-00000002hpk-06yW;
+	Fri, 19 Jun 2026 15:42:13 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wabLt-00000002hYO-01u8
+	id 1wabM6-00000002hjZ-0fiX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Jun 2026 15:41:54 +0000
+	Fri, 19 Jun 2026 15:42:08 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uWJ3Trp80Qa7VXuMpOS/k7KPddmzeOEoF3fiLxBjJXjwisy8HNvjsNMGhflFrJ0Jm5lSGW7cbkpVVepnpI9udbHZ1Ql54iM33+8KwiLQxv+ulxLxfxEHKTl8I0EzG4HWtIixqol9ZhzqmkmWJcFoTsgiGAGuGM+PKHMznfaZndFZ92FtQr7NxLcfdq+ndkadPoCdD6odtgFYFKaDklWawjTHTHL3TlzdONYlCWNtA+qbNmnQT+w3RTLqkNtMkP1OzStpGUh1YuG8MdKhmD94bFMJab4D+x9VTaxkf+mCXfsQ5Id9tg4D4O5ispAoRbpAwjbWJgk5ZCkos4/X4EuVvw==
+ b=TA8/hmqe4DYNgxivrAs47XT0++6Inef13n8NxS+TTDcULDRvvHWVHSw35cc16/ifDQo/K+FW7KMhyToe41ooj8ESViMTQeDEAnf2kgOVDhwUnilE6hOUydDr06ua/0SXbDsiWg35KUqR+pqYqmBQM4v5vdDSwq0VFODG0U5MO4cKC8hgYtq/3EQtU+cScHHWSj78gUJziAoksdPImKO8NNIwdWGox1g1Dw83F1fF77hjTG4+yavCh1Ug/84dpJFUHIehmMIzrFYjcSLkGosKoeN2Nf9rEuv0NZ6zQ6vRUrX5Apj/uSz61Dt1le3LbZWtzrbPgAdbJ/988swTvkWgqA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2zeoyPgg1pLQy6SDUrpuRmPYHEZN6yNgpmetPoyyQoA=;
- b=Lsryca2g//XDqH0f1x6rq1qdXs6oBBaGwtKdJjP3FJHFf+cVdSYPa+hwh+Em7nSxfsuH5qAkpPp5meMK2KKKaE5s0f/xOI3fA78D5PG16rmLyh60/RgAg+QedsJC2zDYW5v/jwDZS6LVug0tRN3wnzH8mLNjoMn2OBgEGuOvKOtfT7C25uh3CjEBW6/rFnL6rrJvXSTk3eaIpBHqqpxAkQXghv7C+SV3kZqZbSr+Faiuk0PjhISh1dEgf5TmWbYVH/4ye7sJbMaMDBFydKrb+K+AnkzzbTSJAOhLRx7xUfTM6M3BAleEGTfOzjj8By0IEzfeQiWwQLWg9bsG7hmOlg==
+ bh=62gaRsocs8I4yuT/iF57uhqsF1rdgbKbbMsgUqG5+fk=;
+ b=GHHAi+1RDnbgDvHJ5754NvszzdhwJQc3mNQFbWZF8yhrzwmCdz+15DSkNotA3fo0r+8Z4l1LSsgtGt2TZwyNxKi++P6K/wZURewEuXXYRQWpBtJv3odGe8f9LjEK47yRjD4l+98u4Y7h0vzLcQRKyGuoiOTm61MN967dMiaL84N0VbzE/0LMm+iP1niu1cgzLzl78Dky1b4jkZrEwZZSXlnBJnw2iwqEg2cTyR9+Ctu4nSzgqj9CGdiVgmQcnQ4VXrOddyWTwddzNnl9FcDDrWc4y3tFi+AL/ekbKd19LxesUC61H61PRjQYhZW8Ydbuw2HRBpRP8tdaERMDj6r9QA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
  dkim=pass header.d=oss.nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
  s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2zeoyPgg1pLQy6SDUrpuRmPYHEZN6yNgpmetPoyyQoA=;
- b=SVnmmEDmkOgRff7asQy+GrbK5/DTt6sK7jEVBSQEpljC/3pgPXw/jMHC53ZDi8r1kETB/qxjR+AmPBy/X7aXZUBgX3Rzl29RBz/CNWhi+KRYv6DZ3ptBmlBW70DFfIoUXpuDpNEgQyyT+Vrs/BHg2iI8x9/U1IbcVcwC0pwOroh9cApNaCtYX5RpHYVtmrbUSLcn3XusXhVZprvS++3BjC4B6jOzecLoFe3aTJWO4S5cYFEFDXJaOnAMbUdRYcqqmYmh/ieY3GHI1dc+7dp/HpTb/OLi8++10Gfi497K/J+UjaoVxQde3Uv/zrNfAr+dua4YATJSUuDLL05eFtH8FA==
+ bh=62gaRsocs8I4yuT/iF57uhqsF1rdgbKbbMsgUqG5+fk=;
+ b=T7tgsrF7N2C4lM75PVpkz7PensfFv5NYaLiUUPmUHiEH7luLA47h26Yp2b9ICEgfYNm5NI59Kwdkb7UWUu2Gc1j1gETP9Lm4BzvaWqhfHzY3VwqYrSVBMxt3OZU8ls84CXf+i0PhegJluWf5djBDBUE6m+fiDKdisRUzdzL0X+5B0UKO80oLiYg2uPwdVaCnTs4GxcEKdFbDsvM6PjjYlvRf0UuwzMbYu8+9cfn18vl7FXDg+LFKHV0WWgEggfAbWaqWtMQYDYI7/+rXt+IPyL6kN3uqMVZGPoXk2ONZDsazAzqfoR5itSCnmPR3uoyxoHJfW4iO9EcFCqFchzLflQ==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=oss.nxp.com;
 Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by PAWPR04MB11550.eurprd04.prod.outlook.com (2603:10a6:102:50b::17) with
+ by DB9PR04MB8430.eurprd04.prod.outlook.com (2603:10a6:10:24f::10) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.13; Fri, 19 Jun
- 2026 15:41:48 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.11; Fri, 19 Jun
+ 2026 15:42:01 +0000
 Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
  ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
  ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0113.015; Fri, 19 Jun 2026
- 15:41:48 +0000
+ 15:42:01 +0000
 From: Frank.Li@oss.nxp.com
-Date: Fri, 19 Jun 2026 11:41:03 -0400
-Subject: [PATCH 06/11] ARM: imxrt_defconfig: Remove NOMMU platform support
+Date: Fri, 19 Jun 2026 11:41:06 -0400
+Subject: [PATCH 09/11] ARM: configs: lpc*: Remove NOMMU platform support
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260619-dts_cleanup_arm_mcore-v1-6-0101795a2662@nxp.com>
+Message-Id: <20260619-dts_cleanup_arm_mcore-v1-9-0101795a2662@nxp.com>
 References: <20260619-dts_cleanup_arm_mcore-v1-0-0101795a2662@nxp.com>
 In-Reply-To: <20260619-dts_cleanup_arm_mcore-v1-0-0101795a2662@nxp.com>
 To: Arnd Bergmann <arnd@arndb.de>, Sascha Hauer <s.hauer@pengutronix.de>, 
@@ -79,80 +79,80 @@ Cc: linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
  linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org, 
  linux-hardening@vger.kernel.org, Frank Li <Frank.Li@nxp.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1781883675; l=1530;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1781883675; l=10422;
  i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=Fg2/EEkj9US4bov//rUzpLGGqwn+OjqVDgwWuLVahMk=;
- b=N3KcD9rYtWNAg/R7PlCb7Fx/XJiVDBIqcl5bNcQyCwbvQryquGJkFPrU2VuEOdqpFNACpkf3j
- KPI3Z/FVXk6CIj//jHE8XwYdTDXZGG/YLXlXUL/7UpN2y0JdTE931YQ
+ bh=8QQdzB0Kpi2yoxZ2AcEyZZPocd/aO6l9/XYi47iKzw0=;
+ b=Bmun7nmvaVTTEY2xSTYkz3Xm6WP6MqRIMh0p3eRZ8P99+tHQDcFMjXqJKRSPgbRSp3C7JMzDy
+ LFqcrqDmXgICXdaHjG38QLbSd9yQnyLuuoO/qy8L9eRu8xVncTlnmn7
 X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
  pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: SA1P222CA0116.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:806:3c5::20) To GV2PR04MB11799.eurprd04.prod.outlook.com
+X-ClientProxiedBy: SA0PR11CA0010.namprd11.prod.outlook.com
+ (2603:10b6:806:d3::15) To GV2PR04MB11799.eurprd04.prod.outlook.com
  (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PAWPR04MB11550:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9ce36b8d-9eb0-42f8-b4ed-08dece194608
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DB9PR04MB8430:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2cc50e5e-454e-47e0-b05e-08dece194e13
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|7416014|376014|366016|19092799006|11063799006|56012099006|18002099003|22082099003|921020;
-X-Microsoft-Antispam-Message-Info: 6VCgrxOPead6zXZpzkSG5AsVMKJRjVtrG5Nzy6aJLUCjo7FNEkCDqkmTZqPkWvOIAN5Sd6G4SMOO473x8kvU/P28nxWjtAqVh81y9zCJWzYrpJaIXuaeq7/xCZ8BNXi7ZWrey6eqz+GI1tiYL5a1/k4tNCXBxAWPwadQpmMiyouCe/L81WGSjfkuATfZ14fuKoFJiWEGKHiBNNBOjIW4tzn5IAhdK35oagcCxEWNZ7yt/cV1goev3+lEGkYaXFGnJRpvrSw86B9VIXCs2ZUmUiRJiY8+X87rWZWBxycstIFXSJ4dCeD9hhpN0wVOgVXv5g6GyzGY37hzY8CpElp23dXT7t7gwxde5tXq50QiA/Jw+UHeSHEPPQDakD7UBT03TFx3xeSKogO0CQcD7QjIRbO5K//NAy7A7KvoCsICCs9UJm78Ui+4gTPXR2RoXeBo447yDqs5oBG16BrwisBaP9KaRdgyYV8zdkencfJVc2NWYrpIa8bxUGHcJrPZst6RlPOxAAlDGFnwVxGfiXshQ2nrrcCRJg6qxmUfx2WkJu50Y3Qg931ATRGBf8O+OLZYVFUJ0Fyc7+Rt+R6uJ27MJ7I3Cmu8aYZQAg2RcDSpJkiBwhbaQssysLnOn/RH21jhQIOtJBOFqkNwH+uQDok/iuFGvlUB/B7DK6XOko34+IW5Jzduc1naJGacHrrgncAHCpbsRqZSIEVooMfspnyxbA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(7416014)(376014)(366016)(19092799006)(11063799006)(56012099006)(18002099003)(22082099003)(921020);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|376014|366016|7416014|19092799006|11063799006|921020|56012099006|6133799003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: a3ltJjUFAE+iLcgrQZQHw/t8aHG8AUnF9FI0w9AuDpcwXzQwOYxA+RJhHP70iDSHwGqOgd73HaiN7YXE7BTybKCeXmsBVel0/XTS30PGu6LaM1HLxy3p2idDLLoXnL0CLJ/3k+YUEJU3btMtTMGyDIRYLzXBKnLNmTmOGEBU6nIdxEVGQpGG/18K1AqE9cYww4AW22ZPcEGzlQwwq8To6b52V/RyUKv4DVDqUkJm1ipQviCX+FqWodjO2ozEppom6SpGKATlelgI5LLy4m2rTl3qKXV0te2RuZoOVmZTMv+OuouNqkVkfsDcW17b3XKLu9w2lRPOGeT8FuAWcbCOUK5wPM/bK8XhEOWjpI8wRMIgi8wyfugbaAM5sMsY+bQEKdQq8Mly/iiE9I2tpoXK1jvXpNRxMTAovEeOasyxcc4H15nrhX44e/kcmshAipOr9lZlFf3j4MZ/HBOkAin+ZgsEFhsB0Jdg4XzKG34qORYRuclSHKpQHJ1Efac35MQ+6lqycWcLW827FD6MBjqkvnAxXP6OiXxxCmQWpR8VebVkVu2XCcaptds1pi2nuLHiFsI8kVU4tpcWPReEStbVQleL1ALmyZmFN2orivuEeqe0XOr4SBR7QxPvyV+bsbBJ3KVWFu2JgmQXb62YOwTBdCwvPNwQJa64oMU1Czyo9ZnxiVCgaw154XRjheELjzZt4V87iVcSdoNcmyuApwiAdQ==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(366016)(7416014)(19092799006)(11063799006)(921020)(56012099006)(6133799003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Y2hvZ3ZPaGVVUEpZSEpIcmU1NnZPSzVLKzlXT291M0s0OUovMEQ0d09VaGoz?=
- =?utf-8?B?VHVpWi83eHZBUWVzYWsza1h4OU93azZZOFY5a2RaZlpnSDNLU3Q0N2tsYU9G?=
- =?utf-8?B?dGluSUlkeXkvcXRrOVVseElaamRKYzNhaW9tSStIMVRtWmRJbSt3MmxNbUVk?=
- =?utf-8?B?VDRrUUhUSE1va3VJeGEweGY5cng0dkZ0YWZ1R2R1SnpSUDFiNDR4Y2FUY2Jo?=
- =?utf-8?B?aGFLaGlsbHFuTUpGVVhVRmlLcEdleWFNM01RMGp1SytlT1d5SVE2RzBmZFU2?=
- =?utf-8?B?eVhHcS9uenVKREYyVzJoVy9PbG1QWXRwYlYxeWFaaURXOHBzVGw3aTdXcjNE?=
- =?utf-8?B?SUdOUkpRNUNiZThUaVAvN2IyNmpCZlUzSFlZNHFNWjBqSlhiSysyczRDTHd2?=
- =?utf-8?B?aXBWbDk0dzlTdmtBc21aS1RsVTdnRFFqenNaTTlpY1ptMkNZTlJBSlVYT2oy?=
- =?utf-8?B?K0VFcWdwMHh2blEwWWFPM1NONDlVOHNEYkVSazFUb05nZUYrdFVvZ2pTem83?=
- =?utf-8?B?WER0NXVVUy9sTTNjN2RaemRTY29od1RlVGNSZmI1ZW43emNWZUdjSWw1NjBX?=
- =?utf-8?B?aXI2QXRvbWgrWWgzZTFEbWNMcU1LOWlhemFkdFo5SnV5MGhFdi9GMlgra01Y?=
- =?utf-8?B?NWVodWdML0phTlBGUXV1VzVJb3NlUHhNNzB4Uys1Zmo3ODhMU1VoOThzVnM3?=
- =?utf-8?B?YkVnM1F0QVJzemh4bWNjQnVuQ2svNThqL1Nickd1akNoUC9nbHN4bVdOWWlQ?=
- =?utf-8?B?cm9lSS8yWm1NVXBwa0IwcDc5dTZrazRaK21IenFjb21KRXhUS1JNdGpDZEM2?=
- =?utf-8?B?YlV1am9Sb3ZZZ1AyaFdERG1zbUVlYm9ReGxPUXlieDBFamlVRDdVRnpXZ0xk?=
- =?utf-8?B?ai9zL0QxSnRaMzBTSzlIVmpqVml0SlBVemhaK3phMnkyNjBPQTYyUEZLSnRh?=
- =?utf-8?B?UGpBSi94UllLb0p3ZzZEL2k0c3BzSHFIMUVROXROL1dwbHRWRVN6UEQrU0ZG?=
- =?utf-8?B?bXkxc3RwNjlpSGZ4OVk2WDdZR2Z0NkNqRFIvcFJBUVc2djIrS2NaQnpURU1L?=
- =?utf-8?B?NXhsTFBMSUxRdVpRUXlEZUZ5MC80UW5FZ1RZbTBsanV5bmF2UGpvbUk5bnk0?=
- =?utf-8?B?VDR0RTZkdURuZkk1ZWk2czlGT00wSVVISkZHZzhzYUx1eXpBTlVWV0NRT0dJ?=
- =?utf-8?B?MHdpZUNlUDgzRDRnT0JNOXBJRzZubWQvSkZZM2lSVEpmaWtpTVlSMktoaVQr?=
- =?utf-8?B?VVhjdEZMUnRmcTZMVUltUmt1bGsyd0dQNE5sREw1T2tLNExlOWM1L3ZuRjN3?=
- =?utf-8?B?clBTMGpHY0cvemVyeTRyS1AvYVRsbjRudHdqVU1LS205SXNLdW9jWC9QRkFH?=
- =?utf-8?B?UGxTS1pnQmVKYXRLS1hJbDhtVnVmcDZsNHpyRHpRd3F5Nkw4RFFvTENCREF5?=
- =?utf-8?B?eHdXZ3RJem9POU9FaHA4NEoxWmZvZUVoSWRiV2ZMKzlNMGd3dE5lcHNrOUFR?=
- =?utf-8?B?UDc3S2NzSVlJZDVCaEFqRE1Kb0NQMytsdWMwcm1uRFpwQlVIYWFmeGV5a0Nq?=
- =?utf-8?B?bkVET0w5STlYclMwRDJsU3lla2tvVjd2bDBMQTFzdHNjN0ZNZDFqbU14SDRK?=
- =?utf-8?B?NjVrRHV1UTRkRHF1WXlyanJ5TU5vd0paRFFsSkVESENCSS9VQkdDZFZWZGFx?=
- =?utf-8?B?SnlCSkNJbmdiRDRiUXRLOFl3UWduQ1YyMkFvS1FPeWt4aFRJbzlkYnUrRWhj?=
- =?utf-8?B?djdyY0pwRXJuMTFNa0NrQ3BaYVJrbTR0MVlvZ1J5WitNUDZGQTFkRWE0cHJp?=
- =?utf-8?B?bllFYnIyN2tRcW9jN0tUdXU5aW05b0w2TUk4Z2V6VTNBcDVwdzZ1R3RFQ0lO?=
- =?utf-8?B?dWdkTW1BMTk1SWJiV2Q1NFQ1RnBmOFhZQ3puYnF3cjZQZWZleCtjK0toVkUv?=
- =?utf-8?B?cjRyalgxZnJGb09VdHRxUUFCTVBsaHgvZkIxSTlkdGtuSmlqd0hOUXBPUWJk?=
- =?utf-8?B?bkdVWXcra2kxRlRqVVc4WWpmK0p6Uy83TktRSEFoNUViR1p3Sld5Q3RDQmY3?=
- =?utf-8?B?WU05UUlMZjVFZzllZytNUjhTcFh2MU5FbjJ2bmZLYmdPaWhPOWI0MkVCVVly?=
- =?utf-8?B?d3A2dElTWkV5UlZXUnJUWWJGVVEvVVNoVStzYnUvS05hOWxFQkFJUURidS9R?=
- =?utf-8?B?MElEWTkvQkx0TGdwdjV5NkM4OW11YjdLUjRUdU5ZL2RTa0ZMVTVScU03OExu?=
- =?utf-8?B?ZTltUnA4MXpSTytYczNZWHpxV1orNDY5MjNKaUdIc0ZzYTU5bitzcVM0TTdC?=
- =?utf-8?B?WEN2NWs3U2UyWldRNE81MkxUaFlxVVpZVmh4Vzl2QllPVGhhcEc3UmI1eEJV?=
- =?utf-8?Q?rL8q/JLIwDqKo3VwiVWCH74ZmGX+0FxcknDJf?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?T3l5c29nY3M4MzRVMFBMWUl0TlBnaERwVExOaVNLMHJQTWdFd3NIaVJnVE82?=
+ =?utf-8?B?VlYrNG1MZ25DZmJmVHduMTRZUU0wdFJidGM4UUtQTGlqYWVwb1p4T1FVeENy?=
+ =?utf-8?B?NWNwNmRSMFZibG1oaitaYlUxNFRWQmtHQTlqSXhWME9WVHlVVDVpaWRuenlK?=
+ =?utf-8?B?Nkd3Umt3Z0dVY3JRYnZCbVVmOWxzS2k1a3RiU3BtMW0zVGNGUGlhOTlsTjVH?=
+ =?utf-8?B?K0swTVBUNU5Cd2hQMW4zUWhwQ2dqZ1dEUTJ5RVBIN0VqUEE2eW9iMVNUbnNu?=
+ =?utf-8?B?cXhQQk9UMFd4T25TcDFSUDk3TVRwVVpLOEVHeGkrdThkTllrREZpdm1wcnpw?=
+ =?utf-8?B?WXdxT2dIbjBEeG5MbEhNdk5uRFRrcDNJUXVlUEZGaVkvVCtOc0V6UXd6Qmlp?=
+ =?utf-8?B?TStrMlVySlAwN2lTR2FQYUFHeWs5a2M5bFYxaHRmcmpWNU1tTGt0K1lBVmJm?=
+ =?utf-8?B?SitXU2NUZlJIaGg5VTM1RkY1UUcrTGVVYjc0N093WXpNWTR0Q0VWSE5ZMUFW?=
+ =?utf-8?B?N1dYQWdrSUFVMmsyMktxZm0wTlZqTVdnK2FrajFIK1YyZlNLZ3R0eU92N0JT?=
+ =?utf-8?B?ajhlMEpCTlpTRDJzVGdIamljYUxnTDNvWWxJZk1mTzFPdEQ3RUt2SDBKQnZ6?=
+ =?utf-8?B?WFlVaVFpOHg4VGsySE1Qc3hLNEdFSUlGK3BQdjlhbHBJTlB6dGcwZ0tPNUdQ?=
+ =?utf-8?B?elRTdU4rdzlUYW00SHJLSm9jUFRmU3dTdVJ6Q0habGhTSVRoR0ExVVZ1Ykl1?=
+ =?utf-8?B?YmwvUkJRNGk4RktVMmltcmdXMG81V1RlckFLQTAyK0JTa1ZUNVNCRmdsRXEw?=
+ =?utf-8?B?aHhHQ0dta0I4K2x0cENxb2FuZ2ZOZjZjZUtDZFphZitESms3K0VSS05xUVZo?=
+ =?utf-8?B?LzZHZlQ4Y3JabW1rT1BPaTZHS2wyU0JSSU53MklmbiszSTNmbnNvSHlRS2Fo?=
+ =?utf-8?B?UFdqWktnRWdwQ2RHenloQ3dkYWFYNSs1RkpMUmdIYUxZSm8rMW5UL2JNTVZj?=
+ =?utf-8?B?dlpRQzhaeTEvS2ZyVStFeHFlQVVuSzhnbE1IQnNvUjR6S0Vab3Rza3ZBOFln?=
+ =?utf-8?B?cGZVdENPU0RweENEOXE2TG9lcGtnamV3ZHJrNWhqWUhtb01VblhiWktVSVE1?=
+ =?utf-8?B?L1grQlpUYVNTQTE0MUpZNWFsQmZCT0RGTnpINEd0WmFxbGR3VmF3S2dXL2xW?=
+ =?utf-8?B?bVNXNktBRWwzU09Hb0JrblhpNktzNTJBV1A4TCsxOEtSQ2xYbzJIMWM4M0wy?=
+ =?utf-8?B?STJLYTVBakZlNVBsbFY0WlJNVUwwTHpkNm0xREp4WTFkbEJrUi9TVXY5WHZy?=
+ =?utf-8?B?M2d1Q2NkVDJkQ09DMFIzQk0xbkR2Y1NIMEdtcWxYNEs0UnVrbU5iVitzYjdZ?=
+ =?utf-8?B?dlJBcHUxMXdIOHZkMXUvVzhnT2VoM0ZNaTZwM3BmZnRnS296UHZrQlNTTmNG?=
+ =?utf-8?B?dWNFMGkycHRDckNHM0I2Uzdkdm1tSDJnemplSkpNelFueXFMVTJidXhWRW9T?=
+ =?utf-8?B?WFNpTm94UmM0aGJWaVdsQVJpenZUTkVFU0pWcVF3WXF0bFdiR0VjMnprOFQr?=
+ =?utf-8?B?VHVvbHZwUEdXUHUwVzd6OUVUWGV0dXQ0LzVmcEJoQ3UzL1RsdTBraER4NHFm?=
+ =?utf-8?B?alRiSTg1UWNLRkRjSjJCL0dPczBScGFvSzQ2Y056WGJidTNaek1GTi8rbUVa?=
+ =?utf-8?B?Z053Snd3cW0yNVMyOEFNRDhLWUtrd0YxUWhucWJGbTM2dTlBYjlpVURSajlP?=
+ =?utf-8?B?U3F5aSt2MVB0cGVPTnpBSjRpdE1sdWE4bEM4TGRsNnZYMXpLMU9VY1IzeDhX?=
+ =?utf-8?B?QnFkOW45Z1ZSNHdlM2FwZ0MraUEweW5VbktELzB4RG9DdUNqV1Y4Qncyc3pW?=
+ =?utf-8?B?SUd6UEM2SGNuZS82UUpqU3NhbUpSdHhGMmI2S25Ld2VxMTlDWkNia1JRbDU3?=
+ =?utf-8?B?UjlPOWlKdS9uSnFrcTJldEZaQXFWM3pYUjlSZVZLL1VadFIxZWhoaXZrVGps?=
+ =?utf-8?B?c0xNbWdKQU1IUUZYOE5PVE5icnJaekMrZDFBRWxmQTByMllGTnVEeUswaVFE?=
+ =?utf-8?B?cWhqVm9MencrM2RSUStnWDJWWEtJemo0bkxXQ0FCc2FxZDZ6TGp2SHNjRHdp?=
+ =?utf-8?B?Y3BrT3l3WS9ybHRJZmFGNU1pU3dQN0x5bW9DSENUT3hIYnlNbmVtczF6VDBl?=
+ =?utf-8?B?L25RNXZVajZyYnlUWDN5ZVI4dkZpdmlZK1ZBTEJKRExKeU1GNDBybzBqajBL?=
+ =?utf-8?B?QThGMmQ3L240ZnV6THplY3g0ZEpNMk1xMFdCQzVZcDhPd0l6Yk5aSU9JQUJP?=
+ =?utf-8?B?cnRNdVF4Z0pDcXhkR2E1THE5R2RwcUsrSGNrWlBMOWJ5S2lBZEFueUt1NzJD?=
+ =?utf-8?Q?SEF6Fy9IzzSPyPy8t+kZ8FadwHC/m1xqSgmUJ?=
 X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9ce36b8d-9eb0-42f8-b4ed-08dece194608
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2cc50e5e-454e-47e0-b05e-08dece194e13
 X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Jun 2026 15:41:48.0264
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Jun 2026 15:42:01.5108
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: g9/rrK5sCk4qswfnmPxtLCKT8Nv8DA4Nw1BgFOI/MSm0fBgfHqXyr27ouJDolHKwawMV2TtgTdhgHH6VI9qW7bajFItv4jurZtPSH0UAi8P1Zwn3hLthU6mutdY65Ljh
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR04MB11550
+X-MS-Exchange-CrossTenant-UserPrincipalName: sAcvvE0YsAwKBnCNmi6oN/+tVPkZLU67aeD+nMdLjc9+s1tWl6KnYV+CrW6Ms5Xzwm8PTdcIdfEPATGNlMpwYdJA5GId7wKRzExF61SQO/88NF7TkaMz34nVQ2HVbiB8
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8430
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260619_084153_080880_600A56A6 
-X-CRM114-Status: UNSURE (   9.47  )
+X-CRM114-CacheID: sfid-20260619_084206_406635_B7C33458 
+X-CRM114-Status: UNSURE (   9.63  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -175,54 +175,376 @@ solutions years ago, leaving the NOMMU platform support effectively
 unused and unmaintained.
 
 Remove the obsolete support to reduce maintenance burden and simplify the
-i.MX platform code.
+NXP/Freescale platform code.
 
 Signed-off-by: Frank Li <Frank.Li@nxp.com>
 ---
- arch/arm/configs/imxrt_defconfig | 35 -----------------------------------
- 1 file changed, 35 deletions(-)
+ arch/arm/configs/lpc18xx_defconfig | 158 ------------------------------
+ arch/arm/configs/lpc32xx_defconfig | 192 -------------------------------------
+ 2 files changed, 350 deletions(-)
 
-diff --git a/arch/arm/configs/imxrt_defconfig b/arch/arm/configs/imxrt_defconfig
+diff --git a/arch/arm/configs/lpc18xx_defconfig b/arch/arm/configs/lpc18xx_defconfig
 deleted file mode 100644
-index 52dba3762996c..0000000000000
---- a/arch/arm/configs/imxrt_defconfig
+index f142a6637edee..0000000000000
+--- a/arch/arm/configs/lpc18xx_defconfig
 +++ /dev/null
-@@ -1,35 +0,0 @@
--# CONFIG_LOCALVERSION_AUTO is not set
--CONFIG_BPF_SYSCALL=y
--CONFIG_SCHED_AUTOGROUP=y
+@@ -1,158 +0,0 @@
+-CONFIG_HIGH_RES_TIMERS=y
+-CONFIG_PREEMPT=y
+-CONFIG_BLK_DEV_INITRD=y
+-# CONFIG_RD_BZIP2 is not set
+-# CONFIG_RD_LZMA is not set
+-# CONFIG_RD_XZ is not set
+-# CONFIG_RD_LZO is not set
+-# CONFIG_RD_LZ4 is not set
+-CONFIG_CC_OPTIMIZE_FOR_SIZE=y
+-# CONFIG_UID16 is not set
+-CONFIG_BASE_SMALL=y
+-# CONFIG_FUTEX is not set
+-# CONFIG_EPOLL is not set
+-# CONFIG_SIGNALFD is not set
+-# CONFIG_EVENTFD is not set
+-# CONFIG_AIO is not set
+-CONFIG_EXPERT=y
 -# CONFIG_MMU is not set
--CONFIG_ARCH_MXC=y
--CONFIG_SOC_IMXRT=y
+-CONFIG_ARCH_LPC18XX=y
 -CONFIG_SET_MEM_PARAM=y
--CONFIG_DRAM_BASE=0x80000000
+-CONFIG_DRAM_BASE=0x28000000
 -CONFIG_DRAM_SIZE=0x02000000
+-CONFIG_FLASH_MEM_BASE=0x1b000000
+-CONFIG_FLASH_SIZE=0x00080000
+-CONFIG_ARM_APPENDED_DTB=y
 -CONFIG_BINFMT_FLAT=y
--CONFIG_UEVENT_HELPER=y
+-CONFIG_BINFMT_ZFLAT=y
+-# CONFIG_COREDUMP is not set
+-# CONFIG_VM_EVENT_COUNTERS is not set
+-CONFIG_NET=y
+-CONFIG_PACKET=y
+-CONFIG_UNIX=y
+-CONFIG_INET=y
+-# CONFIG_INET_XFRM_MODE_TRANSPORT is not set
+-# CONFIG_INET_XFRM_MODE_TUNNEL is not set
+-# CONFIG_INET_XFRM_MODE_BEET is not set
+-# CONFIG_INET_DIAG is not set
+-# CONFIG_IPV6 is not set
+-# CONFIG_WIRELESS is not set
 -CONFIG_DEVTMPFS=y
 -CONFIG_DEVTMPFS_MOUNT=y
--CONFIG_IMX_WEIM=y
--CONFIG_LEGACY_PTY_COUNT=2
--CONFIG_SERIAL_FSL_LPUART=y
--CONFIG_SERIAL_FSL_LPUART_CONSOLE=y
--CONFIG_SERIAL_DEV_BUS=y
--CONFIG_PINCTRL_IMXRT1050=y
--CONFIG_GPIO_MXC=y
+-# CONFIG_FW_LOADER is not set
+-CONFIG_MTD=y
+-CONFIG_MTD_BLOCK=y
+-CONFIG_MTD_CFI=y
+-CONFIG_MTD_CFI_INTELEXT=y
+-CONFIG_MTD_CFI_AMDSTD=y
+-CONFIG_MTD_CFI_STAA=y
+-CONFIG_MTD_PHYSMAP=y
+-CONFIG_MTD_PHYSMAP_OF=y
+-CONFIG_MTD_SPI_NOR=y
+-# CONFIG_MTD_SPI_NOR_USE_4K_SECTORS is not set
+-CONFIG_SPI_NXP_SPIFI=y
+-CONFIG_BLK_DEV_RAM=y
+-CONFIG_SRAM=y
+-CONFIG_EEPROM_AT24=y
+-CONFIG_SCSI=y
+-CONFIG_BLK_DEV_SD=y
+-# CONFIG_BLK_DEV_BSG is not set
+-# CONFIG_SCSI_LOWLEVEL is not set
+-CONFIG_NETDEVICES=y
+-# CONFIG_NET_VENDOR_ARC is not set
+-# CONFIG_NET_VENDOR_BROADCOM is not set
+-# CONFIG_NET_VENDOR_CIRRUS is not set
+-# CONFIG_NET_VENDOR_FARADAY is not set
+-# CONFIG_NET_VENDOR_HISILICON is not set
+-# CONFIG_NET_VENDOR_INTEL is not set
+-# CONFIG_NET_VENDOR_MARVELL is not set
+-# CONFIG_NET_VENDOR_MICREL is not set
+-# CONFIG_NET_VENDOR_MICROCHIP is not set
+-# CONFIG_NET_VENDOR_NATSEMI is not set
+-# CONFIG_NET_VENDOR_QUALCOMM is not set
+-# CONFIG_NET_VENDOR_ROCKER is not set
+-# CONFIG_NET_VENDOR_SAMSUNG is not set
+-# CONFIG_NET_VENDOR_SEEQ is not set
+-# CONFIG_NET_VENDOR_SMSC is not set
+-CONFIG_STMMAC_ETH=y
+-# CONFIG_NET_VENDOR_VIA is not set
+-# CONFIG_NET_VENDOR_WIZNET is not set
+-CONFIG_SMSC_PHY=y
+-# CONFIG_USB_NET_DRIVERS is not set
+-# CONFIG_WLAN is not set
+-CONFIG_INPUT_EVDEV=y
+-# CONFIG_KEYBOARD_ATKBD is not set
+-CONFIG_KEYBOARD_GPIO=y
+-CONFIG_KEYBOARD_GPIO_POLLED=y
+-# CONFIG_INPUT_MOUSE is not set
+-# CONFIG_SERIO is not set
+-# CONFIG_VT is not set
+-# CONFIG_UNIX98_PTYS is not set
+-# CONFIG_LEGACY_PTYS is not set
+-CONFIG_SERIAL_8250=y
+-CONFIG_SERIAL_8250_CONSOLE=y
+-CONFIG_SERIAL_OF_PLATFORM=y
+-CONFIG_SERIAL_NONSTANDARD=y
+-# CONFIG_HW_RANDOM is not set
+-CONFIG_I2C_LPC2K=y
+-CONFIG_SPI=y
+-CONFIG_SPI_PL022=y
+-CONFIG_GPIOLIB=y
+-CONFIG_GPIO_SYSFS=y
+-CONFIG_GPIO_74XX_MMIO=y
+-CONFIG_GPIO_PCF857X=y
+-CONFIG_SENSORS_JC42=y
+-CONFIG_SENSORS_LM75=y
+-CONFIG_WATCHDOG=y
+-CONFIG_LPC18XX_WATCHDOG=y
+-CONFIG_REGULATOR=y
+-CONFIG_REGULATOR_FIXED_VOLTAGE=y
+-CONFIG_DRM=y
+-CONFIG_DRM_PL111=y
+-CONFIG_FB_MODE_HELPERS=y
+-CONFIG_USB=y
+-CONFIG_USB_EHCI_HCD=y
+-CONFIG_USB_EHCI_ROOT_HUB_TT=y
+-CONFIG_USB_EHCI_HCD_PLATFORM=y
+-CONFIG_USB_STORAGE=y
 -CONFIG_MMC=y
--CONFIG_MMC_SDHCI=y
--CONFIG_MMC_SDHCI_PLTFM=y
--CONFIG_MMC_SDHCI_ESDHC_IMX=y
+-CONFIG_MMC_DW=y
+-CONFIG_NEW_LEDS=y
+-CONFIG_LEDS_CLASS=y
+-CONFIG_LEDS_PCA9532=y
+-CONFIG_LEDS_PCA9532_GPIO=y
+-CONFIG_LEDS_GPIO=y
+-CONFIG_LEDS_TRIGGERS=y
+-CONFIG_LEDS_TRIGGER_HEARTBEAT=y
+-CONFIG_RTC_CLASS=y
+-CONFIG_RTC_DRV_LPC24XX=y
 -CONFIG_DMADEVICES=y
--CONFIG_FSL_EDMA=y
--CONFIG_CLK_IMXRT1050=y
--CONFIG_EXT4_FS=y
--CONFIG_EXT4_FS_POSIX_ACL=y
--CONFIG_EXT4_FS_SECURITY=y
+-CONFIG_AMBA_PL08X=y
+-CONFIG_LPC18XX_DMAMUX=y
+-CONFIG_MEMORY=y
+-CONFIG_ARM_PL172_MPMC=y
+-CONFIG_IIO=y
+-CONFIG_MMA7455_I2C=y
+-CONFIG_LPC18XX_ADC=y
+-CONFIG_LPC18XX_DAC=y
+-CONFIG_IIO_SYSFS_TRIGGER=y
+-CONFIG_PWM=y
+-CONFIG_PWM_LPC18XX_SCT=y
+-CONFIG_PHY_LPC18XX_USB_OTG=y
+-CONFIG_NVMEM_LPC18XX_EEPROM=y
+-CONFIG_EXT2_FS=y
+-# CONFIG_FILE_LOCKING is not set
+-# CONFIG_DNOTIFY is not set
+-# CONFIG_INOTIFY_USER is not set
+-CONFIG_JFFS2_FS=y
+-# CONFIG_NETWORK_FILESYSTEMS is not set
+-CONFIG_PRINTK_TIME=y
+-# CONFIG_ENABLE_MUST_CHECK is not set
+-# CONFIG_DEBUG_BUGVERBOSE is not set
+-CONFIG_DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT=y
+-CONFIG_MAGIC_SYSRQ=y
+-CONFIG_DEBUG_FS=y
+-# CONFIG_SLUB_DEBUG is not set
+-# CONFIG_SCHED_DEBUG is not set
+-CONFIG_DEBUG_LL=y
+-CONFIG_EARLY_PRINTK=y
+diff --git a/arch/arm/configs/lpc32xx_defconfig b/arch/arm/configs/lpc32xx_defconfig
+deleted file mode 100644
+index b9e2e603cd95e..0000000000000
+--- a/arch/arm/configs/lpc32xx_defconfig
++++ /dev/null
+@@ -1,192 +0,0 @@
+-CONFIG_SYSVIPC=y
+-CONFIG_NO_HZ_IDLE=y
+-CONFIG_HIGH_RES_TIMERS=y
+-CONFIG_PREEMPT=y
+-CONFIG_IKCONFIG=y
+-CONFIG_IKCONFIG_PROC=y
+-CONFIG_LOG_BUF_SHIFT=16
+-CONFIG_BLK_DEV_INITRD=y
+-CONFIG_CC_OPTIMIZE_FOR_SIZE=y
+-CONFIG_EXPERT=y
+-# CONFIG_ARCH_MULTI_V7 is not set
+-CONFIG_ARCH_LPC32XX=y
+-CONFIG_AEABI=y
+-CONFIG_ARM_APPENDED_DTB=y
+-CONFIG_ARM_ATAG_DTB_COMPAT=y
+-CONFIG_CMDLINE="console=ttyS0,115200n81 root=/dev/ram0"
+-CONFIG_CPU_IDLE=y
+-CONFIG_VFP=y
+-CONFIG_JUMP_LABEL=y
+-CONFIG_MODULES=y
+-CONFIG_MODULE_UNLOAD=y
+-CONFIG_PARTITION_ADVANCED=y
+-# CONFIG_CORE_DUMP_DEFAULT_ELF_HEADERS is not set
+-CONFIG_NET=y
+-CONFIG_PACKET=y
+-CONFIG_UNIX=y
+-CONFIG_INET=y
+-CONFIG_IP_MULTICAST=y
+-CONFIG_IP_PNP=y
+-CONFIG_IP_PNP_DHCP=y
+-CONFIG_IP_PNP_BOOTP=y
+-# CONFIG_INET_XFRM_MODE_TRANSPORT is not set
+-# CONFIG_INET_XFRM_MODE_TUNNEL is not set
+-# CONFIG_INET_XFRM_MODE_BEET is not set
+-# CONFIG_INET_DIAG is not set
+-# CONFIG_WIRELESS is not set
+-CONFIG_DEVTMPFS=y
+-CONFIG_DEVTMPFS_MOUNT=y
+-# CONFIG_FW_LOADER is not set
+-CONFIG_MTD=y
+-CONFIG_MTD_CMDLINE_PARTS=y
+-CONFIG_MTD_BLOCK=y
+-CONFIG_MTD_RAW_NAND=y
+-CONFIG_MTD_NAND_SLC_LPC32XX=y
+-CONFIG_MTD_NAND_MLC_LPC32XX=y
+-CONFIG_MTD_UBI=y
+-CONFIG_BLK_DEV_LOOP=y
+-CONFIG_BLK_DEV_CRYPTOLOOP=y
+-CONFIG_BLK_DEV_RAM=y
+-CONFIG_BLK_DEV_RAM_COUNT=1
+-CONFIG_BLK_DEV_RAM_SIZE=16384
+-CONFIG_SRAM=y
+-CONFIG_EEPROM_AT24=y
+-CONFIG_EEPROM_AT25=y
+-CONFIG_SCSI=y
+-CONFIG_BLK_DEV_SD=y
+-# CONFIG_BLK_DEV_BSG is not set
+-CONFIG_NETDEVICES=y
+-# CONFIG_NET_VENDOR_BROADCOM is not set
+-# CONFIG_NET_VENDOR_CIRRUS is not set
+-# CONFIG_NET_VENDOR_FARADAY is not set
+-# CONFIG_NET_VENDOR_INTEL is not set
+-# CONFIG_NET_VENDOR_MARVELL is not set
+-# CONFIG_NET_VENDOR_MICREL is not set
+-# CONFIG_NET_VENDOR_MICROCHIP is not set
+-# CONFIG_NET_VENDOR_NATSEMI is not set
+-CONFIG_LPC_ENET=y
+-# CONFIG_NET_VENDOR_SEEQ is not set
+-# CONFIG_NET_VENDOR_SMSC is not set
+-# CONFIG_NET_VENDOR_STMICRO is not set
+-CONFIG_SMSC_PHY=y
+-# CONFIG_WLAN is not set
+-CONFIG_INPUT_EVDEV=y
+-# CONFIG_KEYBOARD_ATKBD is not set
+-CONFIG_KEYBOARD_GPIO=y
+-CONFIG_KEYBOARD_GPIO_POLLED=y
+-CONFIG_KEYBOARD_LPC32XX=y
+-# CONFIG_INPUT_MOUSE is not set
+-CONFIG_INPUT_TOUCHSCREEN=y
+-CONFIG_TOUCHSCREEN_LPC32XX=y
+-CONFIG_SERIO_LIBPS2=y
+-# CONFIG_LEGACY_PTYS is not set
+-CONFIG_SERIAL_8250=y
+-CONFIG_SERIAL_8250_CONSOLE=y
+-CONFIG_SERIAL_OF_PLATFORM=y
+-CONFIG_SERIAL_HS_LPC32XX=y
+-CONFIG_SERIAL_HS_LPC32XX_CONSOLE=y
+-# CONFIG_HW_RANDOM is not set
+-CONFIG_I2C_CHARDEV=y
+-CONFIG_I2C_PNX=y
+-CONFIG_SPI=y
+-CONFIG_SPI_PL022=y
+-CONFIG_GPIO_SYSFS=y
+-CONFIG_GPIO_GENERIC_PLATFORM=y
+-CONFIG_GPIO_LPC32XX=y
+-CONFIG_GPIO_PCA953X=y
+-CONFIG_GPIO_PCF857X=y
+-CONFIG_SENSORS_DS620=y
+-CONFIG_SENSORS_MAX6639=y
+-CONFIG_WATCHDOG=y
+-CONFIG_PNX4008_WATCHDOG=y
+-CONFIG_REGULATOR=y
+-CONFIG_REGULATOR_FIXED_VOLTAGE=y
+-CONFIG_DRM=y
+-CONFIG_DRM_PANEL_SIMPLE=y
+-CONFIG_DRM_PANEL_EDP=y
+-CONFIG_DRM_PL111=y
+-CONFIG_FB_MODE_HELPERS=y
+-CONFIG_BACKLIGHT_CLASS_DEVICE=y
+-CONFIG_FRAMEBUFFER_CONSOLE=y
+-CONFIG_LOGO=y
+-# CONFIG_LOGO_LINUX_MONO is not set
+-# CONFIG_LOGO_LINUX_VGA16 is not set
+-CONFIG_SOUND=y
+-CONFIG_SND=y
+-# CONFIG_SND_VERBOSE_PROCFS is not set
+-CONFIG_SND_DEBUG=y
+-CONFIG_SND_DEBUG_VERBOSE=y
+-CONFIG_SND_SEQUENCER=y
+-# CONFIG_SND_DRIVERS is not set
+-# CONFIG_SND_ARM is not set
+-# CONFIG_SND_SPI is not set
+-CONFIG_SND_SOC=y
+-CONFIG_USB=y
+-CONFIG_USB_OHCI_HCD=y
+-CONFIG_USB_STORAGE=y
+-CONFIG_USB_GADGET=y
+-CONFIG_USB_LPC32XX=y
+-CONFIG_USB_MASS_STORAGE=m
+-CONFIG_USB_G_SERIAL=m
+-CONFIG_MMC=y
+-CONFIG_MMC_ARMMMCI=y
+-CONFIG_MMC_SPI=y
+-CONFIG_NEW_LEDS=y
+-CONFIG_LEDS_CLASS=y
+-CONFIG_LEDS_PCA9532=y
+-CONFIG_LEDS_PCA9532_GPIO=y
+-CONFIG_LEDS_GPIO=y
+-CONFIG_LEDS_PWM=y
+-CONFIG_LEDS_TRIGGERS=y
+-CONFIG_LEDS_TRIGGER_TIMER=y
+-CONFIG_LEDS_TRIGGER_HEARTBEAT=y
+-CONFIG_LEDS_TRIGGER_BACKLIGHT=y
+-CONFIG_LEDS_TRIGGER_GPIO=y
+-CONFIG_LEDS_TRIGGER_DEFAULT_ON=y
+-CONFIG_RTC_CLASS=y
+-CONFIG_RTC_INTF_DEV_UIE_EMUL=y
+-CONFIG_RTC_DRV_DS1374=y
+-CONFIG_RTC_DRV_PCF8563=y
+-CONFIG_RTC_DRV_LPC32XX=y
+-CONFIG_DMADEVICES=y
+-CONFIG_AMBA_PL08X=y
+-CONFIG_STAGING=y
+-CONFIG_MEMORY=y
+-CONFIG_ARM_PL172_MPMC=y
+-CONFIG_IIO=y
+-CONFIG_LPC32XX_ADC=y
+-CONFIG_MAX517=y
+-CONFIG_PWM=y
+-CONFIG_PWM_LPC32XX=y
+-CONFIG_EXT2_FS=y
+-CONFIG_AUTOFS_FS=y
+-CONFIG_MSDOS_FS=y
 -CONFIG_VFAT_FS=y
--CONFIG_FAT_DEFAULT_UTF8=y
--CONFIG_EXFAT_FS=y
+-CONFIG_TMPFS=y
+-CONFIG_JFFS2_FS=y
+-CONFIG_JFFS2_FS_WBUF_VERIFY=y
+-CONFIG_UBIFS_FS=y
+-CONFIG_CRAMFS=y
+-CONFIG_NFS_FS=y
+-CONFIG_NFS_V4=y
+-CONFIG_NFS_V4_1=y
+-CONFIG_NFS_V4_2=y
+-CONFIG_ROOT_NFS=y
+-CONFIG_NLS_CODEPAGE_437=y
 -CONFIG_NLS_ASCII=y
+-CONFIG_NLS_ISO8859_1=y
 -CONFIG_NLS_UTF8=y
+-# CONFIG_CRYPTO_HW is not set
+-CONFIG_PRINTK_TIME=y
+-CONFIG_DYNAMIC_DEBUG=y
+-CONFIG_DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT=y
+-CONFIG_GDB_SCRIPTS=y
+-CONFIG_MAGIC_SYSRQ=y
+-CONFIG_DEBUG_FS=y
+-CONFIG_PANIC_ON_OOPS=y
+-CONFIG_PANIC_TIMEOUT=5
+-# CONFIG_SCHED_DEBUG is not set
+-# CONFIG_DEBUG_PREEMPT is not set
+-# CONFIG_FTRACE is not set
+-CONFIG_DEBUG_LL=y
+-CONFIG_EARLY_PRINTK=y
 
 -- 
 2.43.0
