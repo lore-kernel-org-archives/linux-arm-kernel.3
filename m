@@ -4,76 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABCFFCD98F8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 07:44:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5101DCD98F8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 07:49:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b07NeBKHmWEsMBrslV3njAnQXC0YyuL7comfc7gkAqs=; b=Toc1/ZrlrGBaI50ilv5ZssV/XB
-	mYmJu5bcyDVjvmdfu6MDcnBlI7OXwvHl5yd+He4glRQlUOwWA4Dwl7qIRVmVYsZFVdG06sW+1aInU
-	Z4+Rk3kGKV5YEFih6Ftsx7c7jUOgCJMTiIPnX28kIeu8GB6FCsueIRLY2F/1IgldTxnbt50gZN2ZT
-	eD9X+6aGyY1yu8UucmCqNARUNm38RtHTHu2GdER+wXTbvMaVPQRKNIVw8e8ltRLzP3Op7KTlZEvcb
-	3sVGO3I9UTBYgzOkqx6/UJQPGKCCnfaSSeo6d0mYq8gNfBJzk04Zk9dNKhQNTpwuJUlGVQCUMXv+a
-	e3EtMsPQ==;
+	bh=I6R+gu+o5IzsxtPriiBLelNCO8cHEeri4kwg6Cqk+r4=; b=jvebeAvGbw3Twmlua0HrEgfM4Z
+	vvvFBdLkUC8zNOvOIi0bZ+7lFQdPmFHvOUS0RDyyr7FjVyl6BMgqbXLAMlTnGM2eNX3LXGK8EZeCP
+	oBvAyCahg2bhNOABek+9ABWW2iL07/mk2uLTcWUWv2DslEcnm2GeaAaswhIJt2eCJyiJy2PV7d3uT
+	346PiOO+48zyYcJaLioiNZyUITUghXmR4ZXWcMjPcjz0hpPEnT9grQIBlfsw1lWaRDPgh6ov+O6t+
+	J4ItsmR+7POorQQ56VtUrpsQxX21lMj+T29Wd72X0CditIBcf7JwmCtLlZBp2RV+lbDsoGfmgk7Rb
+	wH1MykaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waTtf-000000027Zn-0l0i;
-	Fri, 19 Jun 2026 07:44:15 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1waTyE-000000027sl-3Rc7;
+	Fri, 19 Jun 2026 07:48:58 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waTtd-000000027Zb-267Z
+	id 1waTyA-000000027rT-2jEq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Jun 2026 07:44:13 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7F50E601E4
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 07:44:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 311FD1F00ACA
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 07:44:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781855052;
-	bh=b07NeBKHmWEsMBrslV3njAnQXC0YyuL7comfc7gkAqs=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=D4KlcMZWcEbII5o06cTlozauqpbocsERRnGTgzKHEJV6aSKOMbSzUrQD8DbLTwfxG
-	 Otfrd9/730NY49a3WLOuASWRZ3BY72X28GrB/Oj7Uoat7XK4ZjxL14U2O6I5MQcu5m
-	 o0rXWYiK5SmKwhdEhPpkNoTjIIWH4LnIYCnZylfr4jI3mtcM3VWTWbtfoG3h6sMiuy
-	 mJC4x3k/YfXEayDyEdHsX4QIOM6DXAvU/Q8wABxoOq+GJpSM4pIKRrMIe7opmczwbL
-	 XKmvnbTspGK/ohhzgFixJVPkRqP2K3U63L7ZnBQp4QR0Kkze+NzPA+wMJ+pSo4vsrd
-	 8RtZm9mSbQqpw==
-Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5ad4d262fc1so1513307e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 00:44:12 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ/K344oe3Ozfh4bTdfPfWcTNrtFXp3dSbwp8UGv9GObTWR7I2bDbcU5KLd7wmuPEvgRSWWshtMgGCe/QBsn7uD4@lists.infradead.org
-X-Gm-Message-State: AOJu0YwpX3rjs91oQSrM6252H6IE1wI720gGYpgcZNdQ/ImZKiyCjZhG
-	/1tnn5z8Ncx93w5WBBwBsAcK0lqchPrPGYEAalYfcnCOBlejh8zDGQOgn2afvkpYtz8fwwIbZr2
-	/ilQnAq3FAIi16ivdRYje0ddBLbdjsHw=
-X-Received: by 2002:ac2:51ce:0:b0:5aa:5f11:ddb9 with SMTP id
- 2adb3069b0e04-5ad562dbb2bmr842962e87.40.1781855050988; Fri, 19 Jun 2026
- 00:44:10 -0700 (PDT)
+	Fri, 19 Jun 2026 07:48:56 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-45fd464d51fso1055311f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 00:48:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781855333; x=1782460133; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :sender:from:to:cc:subject:date:message-id:reply-to;
+        bh=I6R+gu+o5IzsxtPriiBLelNCO8cHEeri4kwg6Cqk+r4=;
+        b=AlMs7twMMvlI7GxjP2q8UtGaqTycz26hSJB6Wg6LcUBM6lcF8BVWAHqBLlNTzslTvf
+         3jtZXH95oZXjltxNwXPAGTg5X+w1ygQ6DR6/Jxlp1JABniSnEtPj5WmBwPC/pT7aZb4v
+         CcEEMxvBT3Qqif+dy/qCBgXpPjCC4nNzUz3dLJU8WUGyzdzIrJy1/P2MwbyQaqXu0CR6
+         bRj+cKf5nYA0nh24K4wnl0sc57ay3oPPIT+A6LxPCjlxecjgmOGB3D0dn4/IhtP6mWrn
+         bu35Z8AlIJNFSM10oj0J76AOMpoEHLRxnIb4WrK0uU/SK0ibvpjWg2pMsl8sSFCbxc/4
+         VT+g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781855333; x=1782460133;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :sender:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=I6R+gu+o5IzsxtPriiBLelNCO8cHEeri4kwg6Cqk+r4=;
+        b=Qq6YzOeLPlQE/KdhVjf6kCF5Y8q66hpVT3rUiXg32nC9Zm71ff8hJQVMlfeUBuVf6Q
+         PI5zNn5tG4cyiQdZUiBTw+7QqYdxz0jmXONviUCLaz+Ei925BI62EuE2NJygqVtPGPPM
+         ZWw1YEScCnAE8Gsh1icLs7X46Aic5kd5scoicoRnqh8FuvsCxvnKSFLOqkJPF4r5tfJj
+         fayI6gmqwkrGJVTFL2XI9MOf9T9PesUn0+K143SEHzKKdsRBAx4Iecsa/X9+VmCrWarl
+         P4Jz+GTsE4DMMcqnb4ioogKdSHMZN46gsRuNzRFSP67gya8n2TK7Hc6xpSSnOJsColTC
+         VUhA==
+X-Forwarded-Encrypted: i=1; AFNElJ/ktM6p5Z2HZbHX6wF+QOuGW0MtFAuIzRLdznxuuX123lPKzmodZX1B3FIziPh45XbdqwxR8WPxwKA+62XvBsXd@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy4sol7eyjT+Rbr4294m+fZtHPtyX74Rfqj3s7lyvA/8XuSv0eI
+	bf98TS/58I0p2zjIsekTre0n/Ci650QMPabR32txIuwUrdDXhMDXHFp/h5D9ITyvZkk=
+X-Gm-Gg: AfdE7clAvABBdYLdee9hPaKAYm18MXaOnbdOKwzHfVQURmSI+HBFPmJTasoxd3RAp6H
+	fS0lYm46M2ewEB0JSIi4vWHYqBWyBJeCsLArfJrsGrHHvJkKN7NTmwENTpN/YRXmNtVqJgXbaEU
+	VN16cu/X3w2a5vT6YNuOJCDrIKNykSyglTTNbn+clhSpivAaNRLJJg/NcZIBlyx/3FqR45DD9dD
+	S86wrV70qcipjHGHckDIx9Idh1kGN9Gj4GwTQ1fso6J3cyLsbWQDXct739v9RV1yiJ8/1q+GJ7X
+	Jiqe7BR5KpBXD02TTfr8swmNSkolqUFswBLbqVYc5yKalVW9ps1FKe1sw5xP2I93tAYWy4od5kD
+	k3T3D/QSy/bLny3JQYSQCAVhnUcuGrEXEiTzJRkQc0bKAI3iv+l2dXlEOfB8yP4tzvq+sZ1Ozq6
+	bnIDTPvDHHjUhxhuBOgm1FcHpaWwsduHIiW6YhSU1r8NK6Ccm2AtGDojnwSpNk2QF63LpmKgWmf
+	425zFgUMkjsjLhYZF/YF4w=
+X-Received: by 2002:a5d:6684:0:b0:43c:fc5c:a9fe with SMTP id ffacd0b85a97d-46502bb15a1mr3018694f8f.20.1781855332519;
+        Fri, 19 Jun 2026 00:48:52 -0700 (PDT)
+Received: from ?IPV6:2001:8a0:e962:d100:f83d:6b5c:de84:5311? ([2001:8a0:e962:d100:f83d:6b5c:de84:5311])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4650bc41d01sm5719051f8f.25.2026.06.19.00.48.51
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 19 Jun 2026 00:48:52 -0700 (PDT)
+Message-ID: <5af78bca-7c49-48b1-af8a-cfbe55ae26ba@gmail.com>
+Date: Fri, 19 Jun 2026 08:48:49 +0100
 MIME-Version: 1.0
-References: <CAD++jLmW3vgTFryRAL24x2TbgbR1tbhjw-nFFH3askoZfSibaQ@mail.gmail.com>
- <20260618151052.3984665-1-runyu.xiao@seu.edu.cn>
-In-Reply-To: <20260618151052.3984665-1-runyu.xiao@seu.edu.cn>
-From: Linus Walleij <linusw@kernel.org>
-Date: Fri, 19 Jun 2026 09:43:56 +0200
-X-Gmail-Original-Message-ID: <CAD++jLk4eByc6A4ovjvvOEE83RPA7AUcL5Cyvs6KXezVWSj1Hg@mail.gmail.com>
-X-Gm-Features: AVVi8CfR2bmTpQpCbDzuwjR-h7T2akz1CHyf0xAarqe_ynmYniODNtWUzZ11GCQ
-Message-ID: <CAD++jLk4eByc6A4ovjvvOEE83RPA7AUcL5Cyvs6KXezVWSj1Hg@mail.gmail.com>
-Subject: Re: Question: pinctrl-backed GPIO set_config and gpio_chip::can_sleep
-To: Runyu Xiao <runyu.xiao@seu.edu.cn>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@kernel.org>, 
-	Ludovic Desroches <ludovic.desroches@microchip.com>, 
-	Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	Antonio Borneo <antonio.borneo@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Chen-Yu Tsai <wens@csie.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, jianhao.xu@seu.edu.cn
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/2] clk: amlogic: Add A9 AO clock controller driver
+To: Jerome Brunet <jbrunet@baylibre.com>
+Cc: jian.hu@amlogic.com, Neil Armstrong <neil.armstrong@linaro.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Xianwei Zhao <xianwei.zhao@amlogic.com>,
+ Kevin Hilman <khilman@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260618-a9_aoclk-v4-0-569d0425e50c@amlogic.com>
+ <20260618-a9_aoclk-v4-2-569d0425e50c@amlogic.com>
+ <79b1a519-5723-4e0c-904c-b7fdf9564ee1@gmail.com>
+ <1jbjd7c7ip.fsf@starbuckisacylon.baylibre.com>
+Content-Language: en-US
+From: Julian Braha <julianbraha@gmail.com>
+In-Reply-To: <1jbjd7c7ip.fsf@starbuckisacylon.baylibre.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260619_004854_692686_E647DFFA 
+X-CRM114-Status: UNSURE (   7.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,31 +114,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Runyu,
+Hi Jerome,
 
-On Thu, Jun 18, 2026 at 5:11=E2=80=AFPM Runyu Xiao <runyu.xiao@seu.edu.cn> =
-wrote:
+On 6/19/26 08:29, Jerome Brunet wrote:
+> No, regmap clock are directly used so this is necessary.
+> Relying on other module dependencies is not enough
 
-> I agree that marking these memory-mapped controllers as can_sleep is too
-> broad if the only sleepable part is the pinctrl range lookup.  That would
-> make consumers treat otherwise MMIO-backed get/set paths as sleepable,
-> which is not the contract I want to change.
->
-> I will hold back the at91-pio4/stm32/sunxi can_sleep series and look at
-> the pinctrl core direction instead, specifically whether
-> pinctrldev_list_mutex can be replaced by a non-sleeping lock for
-> pinctrl_get_device_gpio_range().  That should also line up with the GPIO
-> direction callback case discussed in the other thread.
+What do you mean it's "not enough"?
 
-Your replies look like those one would get from an AI agent,
-because they are repeating information (context) that I have just
-provided, just with other words.
+Functionally, any user of COMMON_CLK_MESON_DUALDIV can also use
+COMMON_CLK_MESON_REGMAP.
 
-If this is the case you need to instruct your agent to be terse in
-mailing list replies: it needs to quote what I just said with >
-markers in the margin and just add the word "Agreed" after
-it.
+Unless you mean for documentation purposes?
 
-Yours,
-Linus Walleij
+- Julian Braha
 
