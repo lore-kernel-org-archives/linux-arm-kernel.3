@@ -4,60 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DBB3CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 14:38:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABA7BCD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 14:43:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4VTiiOQPPFZ1ZED+8W3L25wQImaP/t6mbZOaw33wpzs=; b=Mg9R8QWUZiQrWXwPUiqlQyDv7I
-	wTYLTfXUo1cIO4J+nOTNw/1SdomBicFCjrEeeuz9UDvkyGlMv7JNsMhD6BU+zGPezppfTrmHXPPBs
-	NC0BTisvk87NmLtpM8RJyufbOUrmkRTj73HnrmXfbg01PRZEsFhgL+5hWdWWt716msWXGRreT5jGo
-	kL1AYUlt03rpGFWUz/t7W5a5s0hFY+uI/Go74uihxmnVp+VOZF+OdIFvPlAjZabOxmw/fk52IDp+T
-	m6wMUoqGH/GrcmDcEIboKUMi4vbdOQq0UcBfGJLEEKinqjg2BISWrqHF4wCdH4uxiTtg6f8WEv4oR
-	43Cc4qPQ==;
+	bh=EIlNsIQj0kEdipfyw8JGQsqqTUPEkGp3JCVuP8lQoQ0=; b=CkUhEKf8U0yDy6A8uzMrzSbdSc
+	uJMBBVZfqYb/LrDXIYTai9NUfvri5xfNXtGnICkOLz3ZVIzH5ALgI6FwjzWwBGzZsNd+/6J7g46lx
+	JqLOepx1XVJc8wLrvaX9vFxxyAWhyEd82fmb6gxCOMbJ6xuq+XLqGMGHCKbKKU1IB9wBUmyeghSEK
+	wi0QxLAY8OgCUPHpj/5bROdmwYLrZ3zCWDhYuRJptH5maIBTrVpaLF9W00raWmOb+Lxy+IqtMcx39
+	f/3fLNulCbt0gk8ZR1beSnFophP87xwc2q26TyCsILNnYTMR3NxQM786/taEQae1Jkz7EUZFjH/k7
+	5xpaD7fQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waaMg-00000002aRN-19UI;
-	Fri, 19 Jun 2026 14:38:38 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1waaRA-00000002ae6-3Lxg;
+	Fri, 19 Jun 2026 14:43:16 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waaMe-00000002aRF-3LR5
+	id 1waaRA-00000002adz-1ego
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Jun 2026 14:38:36 +0000
+	Fri, 19 Jun 2026 14:43:16 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E65CE601E2;
-	Fri, 19 Jun 2026 14:38:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00F481F000E9;
-	Fri, 19 Jun 2026 14:38:33 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7E793601E2;
+	Fri, 19 Jun 2026 14:43:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDDD31F000E9;
+	Fri, 19 Jun 2026 14:43:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781879915;
-	bh=4VTiiOQPPFZ1ZED+8W3L25wQImaP/t6mbZOaw33wpzs=;
+	s=k20260515; t=1781880195;
+	bh=EIlNsIQj0kEdipfyw8JGQsqqTUPEkGp3JCVuP8lQoQ0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=isBuugKc25Pd/ADQQ0fzwHiZh3E/l5Ebf3ulcZefIjWau/xFLL5tBScIkwLAEJZ5g
-	 gerrDg225TCLgSZBAmObbhBvrVhdSfFeAark0ldlRwlnbZucqSuKS59QY1Rrjjhm17
-	 yQ2ZCTIk9LvcSh8FAKv4VuaOWxUtjlfactb38NwbFfw0zsyOkNvuZs+a1u8Sd9o31p
-	 mplFQo6nsc2BxEbgr31NzFqSCnFr7TkZbY3P0vcZOR/XfgMW/t0xx8V9mf2r2h7Qh4
-	 +87oMQgUVQinRuIouPkNm5eFcNzdRfkJXJqlu7cAmEHcFIpDsnD7ry3uzvROxfbgW1
-	 TQyPHv2ENuK1A==
-Date: Fri, 19 Jun 2026 15:38:30 +0100
+	b=buwtobMkHr0DOLNc9UZX4q/YAVNcCwXujLYAR3XthpBhEGfYbwZnA/ZnRvByeDUES
+	 2FCVOCqelalG++ypX+KppY6r5T4wrNrqDpKDEDyHT8O4d9kbDWwEV6BWYtFdqGB5+L
+	 Y9p/IAYmPnDONSJdyy3hwExxSJyNe0jGjPsge2iCeI7w2lGGX7GR+EG5sOOUU+5DZ5
+	 rmKHM7/ge3QmAvWr6PdYejC90q4QKcohKhFbzMCCo5IxI1TWEpa2Rl53TYKWXN04xs
+	 S2vh6jPiCEnJfLmS3KoAu9b+i63HX0wbKeaAp7k0ZIHSYSkc2JcrrK+nPsFOpclvJd
+	 UBXYkbGvDG2qA==
+Date: Fri, 19 Jun 2026 15:43:10 +0100
 From: Will Deacon <will@kernel.org>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: Robin Murphy <robin.murphy@arm.com>, joro@8bytes.org,
-	Jason Gunthorpe <jgg@nvidia.com>,
-	Shuai Xue <xueshuai@linux.alibaba.com>,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] iommu/arm-smmu-v3: Declare eats_s1chk and eats_trans as
- host-endian u64
-Message-ID: <ajVUZkHcGp-PHkmO@willie-the-truck>
-References: <20260615194533.3290010-1-nicolinc@nvidia.com>
+To: Yu Peng <pengyu@kylinos.cn>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, linux-acpi@vger.kernel.org,
+	Andrew Morton <akpm@linux-foundation.org>, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org, lpieralisi@kernel.org,
+	guohanjun@huawei.com, sudeep.holla@kernel.org
+Subject: Re: [RFC] arm64: early_ioremap fails to map ACPI MADT on 64K pages
+Message-ID: <ajVVfnGIq_6zt2jC@willie-the-truck>
+References: <20260617060110.2846851-1-pengyu@kylinos.cn>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260615194533.3290010-1-nicolinc@nvidia.com>
+In-Reply-To: <20260617060110.2846851-1-pengyu@kylinos.cn>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,45 +73,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 15, 2026 at 12:45:33PM -0700, Nicolin Chen wrote:
-> arm_smmu_get_ste_update_safe() declares the eats_s1chk and eats_trans
-> locals as __le64, but initializes them from FIELD_PREP(), which returns a
-> host-endian value, and passes them through cpu_to_le64() at the use sites.
-> 
-> Sparse reports the following warnings:
-> 
-> >> drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c:1122:38: sparse: sparse: cast from restricted __le64
->    drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c:1124:33: sparse: sparse: cast from restricted __le64
-> 
-> Declare both locals as u64 so the type matches FIELD_PREP() and the
-> existing cpu_to_le64() at the use sites performs the host-to-little-endian
-> conversion. No functional change.
-> 
-> Fixes: 7cad80048595 ("iommu/arm-smmu-v3: Mark EATS_TRANS safe when computing the update sequence")
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes: https://lore.kernel.org/all/202606151017.QU0evpH9-lkp@intel.com/
-> Assisted-by: Claude:claude-opus-4-8
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-> ---
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> index 8ce3e801eda3b..4c0f7b17b1f37 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -1240,9 +1240,9 @@ VISIBLE_IF_KUNIT
->  void arm_smmu_get_ste_update_safe(const __le64 *cur, const __le64 *target,
->  				  __le64 *safe_bits)
->  {
-> -	const __le64 eats_s1chk =
-> +	const u64 eats_s1chk =
->  		FIELD_PREP(STRTAB_STE_1_EATS, STRTAB_STE_1_EATS_S1CHK);
-> -	const __le64 eats_trans =
-> +	const u64 eats_trans =
->  		FIELD_PREP(STRTAB_STE_1_EATS, STRTAB_STE_1_EATS_TRANS);
++arm64 ACPI maintainers
 
-Aha, this is the fix for that sparse report from the kbuild robot. Thanks!
+On Wed, Jun 17, 2026 at 02:01:10PM +0800, Yu Peng wrote:
+> I hit an early boot failure on an arm64 system built with 64K pages while
+> parsing the ACPI MADT.
+> 
+> The failing system reports:
+> 
+>   PAGE_SIZE: 64K
+>   MADT physical address: 0x5a7ae018
+>   MADT length: 0x32094
+
+The MADT isn't even 4k aligned, so why does the page size matter in this
+case?
+
+> The failure happens when acpi_table_parse_madt() calls into early_memremap()
+> via __acpi_map_table(). The MADT itself is smaller than 256K, but its
+> placement causes the early mapping to require 5 64K pages:
+> 
+>   offset within 64K page = 0x5a7ae018 & 0xffff = 0xe018
+>   mapped range           = PAGE_ALIGN(0xe018 + 0x32094)
+>                          = PAGE_ALIGN(0x400ac)
+>                          = 0x50000
+>   nrpages                = 0x50000 / 0x10000 = 5
+> 
+> On arm64, NR_FIX_BTMAPS is currently derived from a 256K per-slot budget:
+> 
+>   #define NR_FIX_BTMAPS        (SZ_256K / PAGE_SIZE)
+> 
+> So for 64K pages, NR_FIX_BTMAPS is 4. The mapping therefore fails the
+> early_ioremap() check:
+> 
+>   if (WARN_ON(nrpages > NR_FIX_BTMAPS))
+>           return NULL;
+> 
+> After that, MADT parsing fails and the boot continues with symptoms such as:
+> 
+>   ACPI: APIC not present
+>   missing boot CPU MPIDR, not enabling secondaries
+>   Kernel panic - not syncing: No interrupt controller found.
+> 
+> A firmware change can avoid this by placing MADT so that:
+> 
+>   (madt_phys & 0xffff) + madt_length <= SZ_256K
+> 
+> However, I do not think ACPI requires such placement, so this looks like a
+> kernel-side robustness issue as well, especially on large arm64 systems where
+> MADT can grow with CPU topology.
+> 
+> One possible kernel-side change is to increase the boot-time mapping budget for
+> CONFIG_ARM64_64K_PAGES, for example using a 512K per-slot budget only in that
+> configuration. I do not think this should be applied unconditionally to all
+> page sizes, since the arm64 early fixmap code expects the boot-ioremap range
+> to stay within one PMD.
+> 
+> Has anyone seen similar failures on arm64 64K systems?
+> 
+> Would maintainers prefer treating this as a firmware layout issue, or would
+> increasing the early_ioremap budget for 64K pages be acceptable?
+
+It think it boils down to what ACPI says about the alignment of the MADT.
+
+Lorenzo?
 
 Will
 
