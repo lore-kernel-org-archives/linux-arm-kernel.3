@@ -4,132 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36A13CD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 13:27:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DB49CD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 13:29:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DRyLfeX9sXJHktJSeQPbzw+etVyvD+njKQjlfKOE5So=; b=em4BTi0hfr/pLX60gieDQvR0Kq
-	hzMRBB+9nAR0FChEyAeTBo/+lmrE8lsuT1PG9iopo3kg4fx6GP/Cwtx7dHFS0xU1jroQz1+TVEiE6
-	s2+yb5yLdZ1EK2UtCWSHqtxTDXAH0v0AzvOax3654xUnUYYArNc1XHAKRjqT3MbJdNxSXa5nqXbFw
-	16Vgb3/wCel0x4nXJm+29gvh7ZH671MbUX5WaAe1L+QtO4T0wGwDI99hMOKMBXmJ2GY3RBaMnDTfm
-	3DIKrihs6lTRj8YeuxAoSRiL+/9Y3KXnEcbJqL1zh2qi2zU9bvO3ueBPQnimb1cbW0mHiXPL/EKB2
-	WvGG1ccw==;
+	bh=DFtqEUJwr/FxLj+oB4yh/uuwM4uyDihUAVSs/6dx5t0=; b=cCwLAJucpd1aHREy06bmEbk/k5
+	3kd/lTgj2mtWnmU+IgMHpglV1LkGY9MtR79cM/kunqCugT4L6qEcR9t7Y7Z7OjQ8Bn0NdWqZbTD1n
+	/cN1tbwgIcZTLZfvscVfxCxhGyIpy9lbboa3cmpvJN9n+XkKv8vNfiypHAREM1zT2oKupxQCLtiEF
+	CKqfBZrauQiss6oZGTynfxp0kXIfkfgpcTnLdMqNJt6CKuKl12NhTDa1TT2nh43w4ZtoSVPL9nQmC
+	bS3K3nf50gs32hZ13zt6Uj9fKwY0WnlhiYiluJtzAQ40digJpRsf3kjR4OTtiUkwRjBkQz90nrf4K
+	fJmDSHlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waZG4-00000002U0B-1zC4;
-	Fri, 19 Jun 2026 13:27:44 +0000
-Received: from smtp-out2.suse.de ([195.135.223.131])
+	id 1waZHk-00000002U92-39Qi;
+	Fri, 19 Jun 2026 13:29:28 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waZFz-00000002Tyb-0WsT
+	id 1waZHi-00000002U8g-1ZLh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Jun 2026 13:27:43 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 1054875D51;
-	Fri, 19 Jun 2026 13:27:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1781875657; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=DRyLfeX9sXJHktJSeQPbzw+etVyvD+njKQjlfKOE5So=;
-	b=hsbCKW8Dk24fM6G321A2c4/+2Lu02enbkrUyCq5SegvdhYa9kZ3tEPBm/6bbfa8ypBjTwo
-	LCkAbJsFGVZL8K4gmip0Jq6EfcuMbZnFXhLw4kA0lZorf1I0SATpP+uLmRzMmR5oEGX9oy
-	mDRp/GE9cyzB342djhrh+V8tn4AxW9s=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1781875657;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=DRyLfeX9sXJHktJSeQPbzw+etVyvD+njKQjlfKOE5So=;
-	b=jcAsV996fZUR6Ggf9VHOmJtSP3SDX5IC4w32xyYm1uuhRTHMzfRp/Y3RNSPW61OCwrV/O1
-	xxD9zohT3xr402Dg==
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1781875657; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=DRyLfeX9sXJHktJSeQPbzw+etVyvD+njKQjlfKOE5So=;
-	b=hsbCKW8Dk24fM6G321A2c4/+2Lu02enbkrUyCq5SegvdhYa9kZ3tEPBm/6bbfa8ypBjTwo
-	LCkAbJsFGVZL8K4gmip0Jq6EfcuMbZnFXhLw4kA0lZorf1I0SATpP+uLmRzMmR5oEGX9oy
-	mDRp/GE9cyzB342djhrh+V8tn4AxW9s=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1781875657;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=DRyLfeX9sXJHktJSeQPbzw+etVyvD+njKQjlfKOE5So=;
-	b=jcAsV996fZUR6Ggf9VHOmJtSP3SDX5IC4w32xyYm1uuhRTHMzfRp/Y3RNSPW61OCwrV/O1
-	xxD9zohT3xr402Dg==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id B4C53779A8;
-	Fri, 19 Jun 2026 13:27:36 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id EF3QKshDNWpYXwAAD6G6ig
-	(envelope-from <tiwai@suse.de>); Fri, 19 Jun 2026 13:27:36 +0000
-Date: Fri, 19 Jun 2026 15:27:36 +0200
-Message-ID: <87tsqyirsn.wl-tiwai@suse.de>
-From: Takashi Iwai <tiwai@suse.de>
-To: Sean Wang <sean.wang@kernel.org>
-Cc: Sergey Senozhatsky <senozhatsky@chromium.org>,
-	Marcel Holtmann <marcel@holtmann.org>,
-	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
-	Mark-yw Chen <mark-yw.chen@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Tomasz Figa <tfiga@chromium.org>,
-	linux-bluetooth@vger.kernel.org,
+	Fri, 19 Jun 2026 13:29:27 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-490ac357c55so20555485e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 06:29:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1781875764; x=1782480564; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=DFtqEUJwr/FxLj+oB4yh/uuwM4uyDihUAVSs/6dx5t0=;
+        b=ScWshhhrC9Hp5ngPmzPFXU4VOZdWwZtDVQffxkiokF5t3i9zFuOGGUUX2A61C7G/nk
+         XAQ5/QVX8y+wAKWyL9XuOLf58YNSn+4FkrPICs4B4r6nPe/NdYOViAZdxy07fFoaGV0i
+         V34MumyB9t5ZdbN5t4K5zmQJNNkaOz7shhzIIjcjQAB3TFyWvJg8YzOleb6zLhAHtOUE
+         8Ae0axfkXbb0z8BYuN0DK71isPIWtLgbdig9Mxo5NL8D95nOANsErOPtnNbin1NrC5KF
+         MmPdigKBRTzCOB/0PESf5eQiabpcWDordTseDJXzHF4pgnYozVXd5GM/+VOMJKkD7Yhs
+         Jv8Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781875764; x=1782480564;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=DFtqEUJwr/FxLj+oB4yh/uuwM4uyDihUAVSs/6dx5t0=;
+        b=IJ7Q/yd1RFfAPb2KKLgCIN5dx0ul9WBITywDbfx94axWx4VI8l9C065M7vNiYz5uYd
+         HqrnU27qTxGXSuSJlQExwGpygKZrb7eQedS2Wt2CAj0buPuGv0rpPLbbuTAlS3r7QUUA
+         KSER8JI7/f+QeptepksW1DfIfG+i2t7V6E2kwPyN8Y4NNmNsCMqjOz0PJ5vTqkmXrfFW
+         5mXEuXCP4ExSaSpp81CyprG9YhUX8Ts/a3bDR5+XPVXSO15Y3PXPn+jnHh4MQd2nIQbH
+         Hp42CO2xD+kY8UaetjB8VX8oZqS+hwA3v41CFxY5t6U7MaJAkdieSZ8Fgivz9P4sq0Yz
+         Q+qA==
+X-Forwarded-Encrypted: i=1; AFNElJ/6jj4xRB2Fo6Lemw0hTiw0RVid5vrPi1UQEeieFjQfI43k6Rc15vMx7yRILAgovi7WWurKWZ1IFMMxVpUYbKpc@lists.infradead.org
+X-Gm-Message-State: AOJu0YzDxjEDg0tHhH3LVE7DAFFjQDHTD2i+VTLc+D/F0siEIXpVyhhU
+	Fvg2/GNLuOIttaB+qG1ShDOmEkmFpbcTVDSmVCL2rPhcVB95KWcyFo2UAnEljiGL3Q==
+X-Gm-Gg: AfdE7ckt/j7Psy5lfdI3N41lxidpwy/IdLL5T+aewnAUg/FgzML4JVfEnXXvDBmzHmK
+	iSg5dqUWy1u1geLacMjEv/LETbKd9lJHRoqJ1s3denXfCiFi+xtiz+ADFUwLK0c+OMmAAw61k7u
+	OaIMqEUC4ErqA3ILZFZEW1SmQMGK1DevLXbjIthbTUVma0KmJU2K9ACPW7Ey2bOCOsR28sLcaZr
+	3jxK5lyexd6h0pjQyeWvtsPU2rShX7GaiHqp0wmiFQrr8Yv5u/CPx+clBh6W45v93LwbUpkrd6i
+	Kyo6ksYEUxc19wlJxPnj38VPYgXD6rK8p2UX+EGjaup/fIZ9XFVqugcOPf9kpunTUHKj3lEVGIj
+	Xtq+F4TTpG8kEoqAZ7BmnDDIiezGZmUQifBgCXJ4jTSMCrqFRoXra/IQzJDYeOaY+n5JtQ9vwY6
+	f/Fd2//m/IcdL02kaUVMNbIZnujjhMAeAZAGDwInxTBborhj85TTpii07T
+X-Received: by 2002:a05:600c:203:b0:490:c7dd:7cc2 with SMTP id 5b1f17b1804b1-49240e61101mr42977915e9.24.1781875763891;
+        Fri, 19 Jun 2026 06:29:23 -0700 (PDT)
+Received: from google.com (135.91.155.104.bc.googleusercontent.com. [104.155.91.135])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4650c11693dsm8318152f8f.37.2026.06.19.06.29.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 19 Jun 2026 06:29:22 -0700 (PDT)
+Date: Fri, 19 Jun 2026 14:29:18 +0100
+From: Vincent Donnefort <vdonnefort@google.com>
+To: Fuad Tabba <tabba@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] Bluetooth: btmtksdio: fix infinite loop in btmtksdio_txrx_work()
-In-Reply-To: <CAGp9LzpBUReZtrTEKgUr-+yvB+3tcs5hw7ziC4WaMRFNa2AYpg@mail.gmail.com>
-References: <20260609121329.1262170-1-senozhatsky@chromium.org>
-	<CAGp9LzpBUReZtrTEKgUr-+yvB+3tcs5hw7ziC4WaMRFNa2AYpg@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/30.2 Mule/6.0
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-1.80 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[12];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	FREEMAIL_CC(0.00)[chromium.org,holtmann.org,gmail.com,mediatek.com,vger.kernel.org,lists.infradead.org];
-	RCVD_TLS_ALL(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	TAGGED_RCPT(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:mid,chromium.org:email,imap1.dmz-prg2.suse.org:helo]
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Quentin Perret <qperret@google.com>,
+	Sebastian Ene <sebastianene@google.com>,
+	Hyunwoo Kim <imv4bel@gmail.com>
+Subject: Re: [PATCH v2 3/8] KVM: arm64: Factor out reusable vCPU reset helpers
+Message-ID: <ajVELlJ4hMnXVFMR@google.com>
+References: <20260619070719.812227-1-tabba@google.com>
+ <20260619070719.812227-4-tabba@google.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260619070719.812227-4-tabba@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260619_062739_314754_B3B49E08 
-X-CRM114-Status: GOOD (  27.39  )
+X-CRM114-CacheID: sfid-20260619_062926_452622_BAA3D9B6 
+X-CRM114-Status: GOOD (  28.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,71 +107,205 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 10 Jun 2026 08:52:31 +0200,
-Sean Wang wrote:
+On Fri, Jun 19, 2026 at 08:07:14AM +0100, Fuad Tabba wrote:
+> Pull the reusable pieces out of kvm_reset_vcpu(): expose the reset
+> PSTATE values in kvm_arm.h, and split the core register reset and the
+> PSCI-driven reset into kvm_reset_vcpu_core() and kvm_reset_vcpu_psci().
+> A follow-up series reuses these to reset protected vCPUs at EL2.
 > 
-> Hi,
+> No functional change intended.
 > 
-> On Tue, Jun 9, 2026 at 7:19 AM Sergey Senozhatsky
-> <senozhatsky@chromium.org> wrote:
-> >
-> > Every once in a while we see a hung btmtksdio_flush() task:
-> >
-> >  INFO: task kworker/u17:0:189 blocked for more than 122 seconds.
-> >  __cancel_work_timer+0x3f4/0x460
-> >  cancel_work_sync+0x1c/0x2c
-> >  btmtksdio_flush+0x2c/0x40
-> >  hci_dev_open_sync+0x10c4/0x2190
-> >  [..]
-> >
-> > It all boils down to incorrect time_is_before_jiffies() usage in
-> > btmtksdio_txrx_work().  The btmtksdio_txrx_work() loop is expected
-> > to be terminated if running for longer than 5*HZ.  However the
-> > timeout check is twisted:  time_is_before_jiffies(old_jiffies + 5*HZ)
-> > evaluates to true when old_jiffies + 5*HZ is in the past i.e. when a
-> > timeout has occurred.  Using OR with time_is_before_jiffies(txrx_timeout)
-> > means that:
-> > - before the 5-second timeout: the condition is `int_status || false`,
-> >   so it loops as long as there are pending interrupts.
-> > - after the 5-second timeout: the condition becomes `int_status || true`,
-> >   which is always true.
-> >
-> > When the loop becomes infinite btmtksdio_txrx_work() loop never
-> > terminates and never releases the SDIO host.
-> >
-> > Fix loop termination condition to actually enforce a 5*HZ timeout.
-> >
-> > Fixes: 26270bc189ea4 ("Bluetooth: btmtksdio: move interrupt service to work")
-> > Cc: stable@vger.kernel.org
-> > Signed-off-by: Sergey Senozhatsky <senozhatsky@chromium.org>
-> > ---
-> >  drivers/bluetooth/btmtksdio.c | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> >
-> > diff --git a/drivers/bluetooth/btmtksdio.c b/drivers/bluetooth/btmtksdio.c
-> > index 5b0fab7b89b5..c6f80c419e90 100644
-> > --- a/drivers/bluetooth/btmtksdio.c
-> > +++ b/drivers/bluetooth/btmtksdio.c
-> > @@ -620,7 +620,7 @@ static void btmtksdio_txrx_work(struct work_struct *work)
-> >                         if (btmtksdio_rx_packet(bdev, rx_size) < 0)
-> >                                 bdev->hdev->stat.err_rx++;
-> >                 }
-> > -       } while (int_status || time_is_before_jiffies(txrx_timeout));
-> > +       } while (int_status && time_is_after_jiffies(txrx_timeout));
+> Signed-off-by: Fuad Tabba <tabba@google.com>
+
+Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
+
+> ---
+>  arch/arm64/include/asm/kvm_arm.h     | 12 ++++++
+>  arch/arm64/include/asm/kvm_emulate.h | 57 ++++++++++++++++++++++++++
+>  arch/arm64/kvm/reset.c               | 60 ++--------------------------
+>  3 files changed, 72 insertions(+), 57 deletions(-)
 > 
-> yes, loop continues only while there is interrupt work and the timeout
-> deadline is still in the future
-
-I stumbled on this while backporting to distro kernels, and I wonder
-whether this change is correct.
-
-IIUC, this essentially makes the loop exiting right after the first
-cycle; the patch changed from time_is_before_jiffies() to *_after_*(),
-not only the logical OR to AND, and *_after_*() returns false, so the
-whole condition becomes false, too.
-
-
-thanks,
-
-Takashi
+> diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
+> index 3f9233b5a130..aba4ec09acd2 100644
+> --- a/arch/arm64/include/asm/kvm_arm.h
+> +++ b/arch/arm64/include/asm/kvm_arm.h
+> @@ -348,4 +348,16 @@
+>  	{ PSR_AA32_MODE_UND,	"32-bit UND" },	\
+>  	{ PSR_AA32_MODE_SYS,	"32-bit SYS" }
+>  
+> +/*
+> + * ARMv8 Reset Values
+> + */
+> +#define VCPU_RESET_PSTATE_EL1	(PSR_MODE_EL1h | PSR_A_BIT | PSR_I_BIT | \
+> +				 PSR_F_BIT | PSR_D_BIT)
+> +
+> +#define VCPU_RESET_PSTATE_EL2	(PSR_MODE_EL2h | PSR_A_BIT | PSR_I_BIT | \
+> +				 PSR_F_BIT | PSR_D_BIT)
+> +
+> +#define VCPU_RESET_PSTATE_SVC	(PSR_AA32_MODE_SVC | PSR_AA32_A_BIT | \
+> +				 PSR_AA32_I_BIT | PSR_AA32_F_BIT)
+> +
+>  #endif /* __ARM64_KVM_ARM_H__ */
+> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+> index 80b30fead3d1..2385d8855fcf 100644
+> --- a/arch/arm64/include/asm/kvm_emulate.h
+> +++ b/arch/arm64/include/asm/kvm_emulate.h
+> @@ -704,4 +704,61 @@ static inline void vcpu_set_hcrx(struct kvm_vcpu *vcpu)
+>  			vcpu->arch.hcrx_el2 |= HCRX_EL2_EnASR;
+>  	}
+>  }
+> +
+> +/* Reset a vcpu's core registers. */
+> +static inline void kvm_reset_vcpu_core(struct kvm_vcpu *vcpu)
+> +{
+> +	u32 pstate;
+> +
+> +	if (vcpu_el1_is_32bit(vcpu))
+> +		pstate = VCPU_RESET_PSTATE_SVC;
+> +	else if (vcpu_has_nv(vcpu))
+> +		pstate = VCPU_RESET_PSTATE_EL2;
+> +	else
+> +		pstate = VCPU_RESET_PSTATE_EL1;
+> +
+> +	/* Reset core registers */
+> +	memset(vcpu_gp_regs(vcpu), 0, sizeof(*vcpu_gp_regs(vcpu)));
+> +	memset(&vcpu->arch.ctxt.fp_regs, 0, sizeof(vcpu->arch.ctxt.fp_regs));
+> +	vcpu->arch.ctxt.spsr_abt = 0;
+> +	vcpu->arch.ctxt.spsr_und = 0;
+> +	vcpu->arch.ctxt.spsr_irq = 0;
+> +	vcpu->arch.ctxt.spsr_fiq = 0;
+> +	vcpu_gp_regs(vcpu)->pstate = pstate;
+> +}
+> +
+> +/* PSCI reset handling for a vcpu. */
+> +static inline void kvm_reset_vcpu_psci(struct kvm_vcpu *vcpu,
+> +				       struct vcpu_reset_state *reset_state)
+> +{
+> +	unsigned long target_pc = reset_state->pc;
+> +
+> +	/* Gracefully handle Thumb2 entry point */
+> +	if (vcpu_mode_is_32bit(vcpu) && (target_pc & 1)) {
+> +		target_pc &= ~1UL;
+> +		vcpu_set_thumb(vcpu);
+> +	}
+> +
+> +	/* Propagate caller endianness */
+> +	if (reset_state->be)
+> +		kvm_vcpu_set_be(vcpu);
+> +
+> +	*vcpu_pc(vcpu) = target_pc;
+> +
+> +	/*
+> +	 * We may come from a state where either a PC update was
+> +	 * pending (SMC call resulting in PC being increpented to
+> +	 * skip the SMC) or a pending exception. Make sure we get
+> +	 * rid of all that, as this cannot be valid out of reset.
+> +	 *
+> +	 * Note that clearing the exception mask also clears PC
+> +	 * updates, but that's an implementation detail, and we
+> +	 * really want to make it explicit.
+> +	 */
+> +	vcpu_clear_flag(vcpu, PENDING_EXCEPTION);
+> +	vcpu_clear_flag(vcpu, EXCEPT_MASK);
+> +	vcpu_clear_flag(vcpu, INCREMENT_PC);
+> +	vcpu_set_reg(vcpu, 0, reset_state->r0);
+> +}
+> +
+>  #endif /* __ARM64_KVM_EMULATE_H__ */
+> diff --git a/arch/arm64/kvm/reset.c b/arch/arm64/kvm/reset.c
+> index b963fd975aac..10eb7249aa9e 100644
+> --- a/arch/arm64/kvm/reset.c
+> +++ b/arch/arm64/kvm/reset.c
+> @@ -34,18 +34,6 @@
+>  static u32 __ro_after_init kvm_ipa_limit;
+>  unsigned int __ro_after_init kvm_host_sve_max_vl;
+>  
+> -/*
+> - * ARMv8 Reset Values
+> - */
+> -#define VCPU_RESET_PSTATE_EL1	(PSR_MODE_EL1h | PSR_A_BIT | PSR_I_BIT | \
+> -				 PSR_F_BIT | PSR_D_BIT)
+> -
+> -#define VCPU_RESET_PSTATE_EL2	(PSR_MODE_EL2h | PSR_A_BIT | PSR_I_BIT | \
+> -				 PSR_F_BIT | PSR_D_BIT)
+> -
+> -#define VCPU_RESET_PSTATE_SVC	(PSR_AA32_MODE_SVC | PSR_AA32_A_BIT | \
+> -				 PSR_AA32_I_BIT | PSR_AA32_F_BIT)
+> -
+>  unsigned int __ro_after_init kvm_sve_max_vl;
+>  
+>  int __init kvm_arm_init_sve(void)
+> @@ -191,7 +179,6 @@ void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
+>  {
+>  	struct vcpu_reset_state reset_state;
+>  	bool loaded;
+> -	u32 pstate;
+>  
+>  	spin_lock(&vcpu->arch.mp_state_lock);
+>  	reset_state = vcpu->arch.reset_state;
+> @@ -210,21 +197,8 @@ void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
+>  		kvm_vcpu_reset_sve(vcpu);
+>  	}
+>  
+> -	if (vcpu_el1_is_32bit(vcpu))
+> -		pstate = VCPU_RESET_PSTATE_SVC;
+> -	else if (vcpu_has_nv(vcpu))
+> -		pstate = VCPU_RESET_PSTATE_EL2;
+> -	else
+> -		pstate = VCPU_RESET_PSTATE_EL1;
+> -
+>  	/* Reset core registers */
+> -	memset(vcpu_gp_regs(vcpu), 0, sizeof(*vcpu_gp_regs(vcpu)));
+> -	memset(&vcpu->arch.ctxt.fp_regs, 0, sizeof(vcpu->arch.ctxt.fp_regs));
+> -	vcpu->arch.ctxt.spsr_abt = 0;
+> -	vcpu->arch.ctxt.spsr_und = 0;
+> -	vcpu->arch.ctxt.spsr_irq = 0;
+> -	vcpu->arch.ctxt.spsr_fiq = 0;
+> -	vcpu_gp_regs(vcpu)->pstate = pstate;
+> +	kvm_reset_vcpu_core(vcpu);
+>  
+>  	/* Reset system registers */
+>  	kvm_reset_sys_regs(vcpu);
+> @@ -233,36 +207,8 @@ void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
+>  	 * Additional reset state handling that PSCI may have imposed on us.
+>  	 * Must be done after all the sys_reg reset.
+>  	 */
+> -	if (reset_state.reset) {
+> -		unsigned long target_pc = reset_state.pc;
+> -
+> -		/* Gracefully handle Thumb2 entry point */
+> -		if (vcpu_mode_is_32bit(vcpu) && (target_pc & 1)) {
+> -			target_pc &= ~1UL;
+> -			vcpu_set_thumb(vcpu);
+> -		}
+> -
+> -		/* Propagate caller endianness */
+> -		if (reset_state.be)
+> -			kvm_vcpu_set_be(vcpu);
+> -
+> -		*vcpu_pc(vcpu) = target_pc;
+> -
+> -		/*
+> -		 * We may come from a state where either a PC update was
+> -		 * pending (SMC call resulting in PC being increpented to
+> -		 * skip the SMC) or a pending exception. Make sure we get
+> -		 * rid of all that, as this cannot be valid out of reset.
+> -		 *
+> -		 * Note that clearing the exception mask also clears PC
+> -		 * updates, but that's an implementation detail, and we
+> -		 * really want to make it explicit.
+> -		 */
+> -		vcpu_clear_flag(vcpu, PENDING_EXCEPTION);
+> -		vcpu_clear_flag(vcpu, EXCEPT_MASK);
+> -		vcpu_clear_flag(vcpu, INCREMENT_PC);
+> -		vcpu_set_reg(vcpu, 0, reset_state.r0);
+> -	}
+> +	if (reset_state.reset)
+> +		kvm_reset_vcpu_psci(vcpu, &reset_state);
+>  
+>  	/* Reset timer */
+>  	kvm_timer_vcpu_reset(vcpu);
+> -- 
+> 2.55.0.rc0.738.g0c8ab3ebcc-goog
+> 
 
