@@ -4,64 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 084B8CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 12:09:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D770CD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 12:14:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bIeF4o+oA+QhvxgydThWOk8fYvHRjOwSBeoChr1ofj0=; b=2O9vdTnhZvUWYo35ZtR7t6P826
-	3s9E7btku0Uz+bBESmYciVCX96mdTXQA5Qs5SaU9X3xdCH/fF/tFHsFSpB3RvlaqiI0OtA/q5KWri
-	RDSHJBViaH9QhiXiVNbAbrC99sl9f7LlyMhgKRz6B6t9VmgUBfMRtA2B3wZySC02wIp9poZr2ggum
-	gOTDOnY44UVU7h+xdAIMnVXtYrM1yFy20CfHByCy2XnkEtG1hO3FDOgtPZfp2TD7grN0q/LaAO54d
-	x/7iBWdgKmsWdRf4qCs2iOw2slN0LBeTC3hNZ4mObi3f5FP6CGpIN1uUoIMvxOiSl7ElpNKayawmE
-	DMU74U4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KrOJsDp07RvjHOd4cMkZps4YSuiVy126p7RvYOPP0A8=; b=ZuxdN0IYSGuOTF/RCLDs5FkTJl
+	eTK/e0prSsGJGICZ+Hc4LSJjs1Dl1N7FAeGKVOc0F1KZsU6jyeyetb1AaKRI/kuNyM+3RbKYXktre
+	ic3qcyuf+rz4iPqngfq8SCpFMIjVdQl57mbQrMmwHRijPDLJcEbbcY9808ppLwmnrurZ+9VNLAdZw
+	j7vrTNyrvLG2s47ukJZYKwCaCgjCRaEa9WNd01JXb0hav53sBfh3XOLkxCpY5WoDhY0iiag48UA4N
+	a44Fhb2YrRY/p+9eSj3TxQ8J1N3nqy8nu1PVbR4CJCWz0TUy+4W6sGF1Ea5ynh/Gj4FP3mezhf+9G
+	RGnaQ3QA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waY2S-00000002N9c-19LM;
-	Fri, 19 Jun 2026 12:09:36 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waY2P-00000002N9H-0TW2
+	id 1waY76-00000002NMo-3suL;
+	Fri, 19 Jun 2026 12:14:24 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1waY75-00000002NMa-3dfJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Jun 2026 12:09:34 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 769B43541;
-	Fri, 19 Jun 2026 05:09:26 -0700 (PDT)
-Received: from [10.57.95.87] (unknown [10.57.95.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F0D863F62B;
-	Fri, 19 Jun 2026 05:09:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1781870971; bh=CbvyzZMEqP1i/XApNRquWzgwjAyHus7dVHSaqyWp4bk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Ag2I8MaZkwum7i4EHVhEwH48PbsBZo253L7NHnIqhmZ4lxMHgo2ziLEGuxVL/0kGE
-	 uomZ83C+vrC+QPKfU5VHK+3ps78o0ZD7f/3qoAsQM7XmsK+536oAp48IKm1KqprHw3
-	 U8pLutdMMFihL80+1nxiriPkxyS9IsyP+OQCeKJo=
-Message-ID: <ff82a5b0-fe52-4b33-852c-10f3923999d5@arm.com>
-Date: Fri, 19 Jun 2026 13:09:23 +0100
+	Fri, 19 Jun 2026 12:14:23 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4482243F15;
+	Fri, 19 Jun 2026 12:14:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D9471F000E9;
+	Fri, 19 Jun 2026 12:14:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781871263;
+	bh=KrOJsDp07RvjHOd4cMkZps4YSuiVy126p7RvYOPP0A8=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=Rt0NaddySWLItBMWeGU37cEP6ghBwAiCgFoVL/yDeYKFrgWjjOXw5fnpeRkuQFogY
+	 CLQbZdwDh+aShieCJXxvlci/ACzTq16EHZ6mSrAk3gTro6XT5InFDGLxT0cVRcEqfb
+	 FihgVAzw/GPJ10OXjcrRrP/594+fy9kNP/aeuNTCXdZBvKOKjXYtpHsmL/+1mwrFLv
+	 oVkEnkNi8gubNsQu/SLW3F9g7CDV8OKpc/DTxyw/Rmn+RCGXkd42YTjCTaq4zmSo9u
+	 5ej1hm8jG9aoxWXPIhtGGBmT2MJcNjAicaMSdL3a0XPTJmSSxFB09c0n1Sp7+9yfRg
+	 /ADZdG2vuqkog==
+X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Alexey Kardashevskiy <aik@amd.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
+	Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>,
+	Mostafa Saleh <smostafa@google.com>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>,
+	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
+Subject: Re: [PATCH v6 00/20] dma-mapping: Use DMA_ATTR_CC_SHARED through
+ direct, pool and swiotlb paths
+In-Reply-To: <20260618153705.GH231643@ziepe.ca>
+References: <20260604083959.1265923-1-aneesh.kumar@kernel.org>
+ <aigYbK12D8uKQvJF@arm.com> <20260609144746.GL2764304@ziepe.ca>
+ <2ecfa1a8-6202-4319-9692-a6ffeb5a3dbf@amd.com>
+ <yq5aqzm4dz25.fsf@kernel.org> <20260618153705.GH231643@ziepe.ca>
+Date: Fri, 19 Jun 2026 13:14:13 +0100
+Message-ID: <yq5ao6h6enhm.fsf@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 5/6] arm64: execmem: enable EXECMEM_ROX_CACHE on
- supported CPUs
-Content-Language: en-GB
-To: =?UTF-8?Q?Adrian_Barna=C5=9B?= <abarnas@google.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: linux-mm@kvack.org, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, David Hildenbrand <david@kernel.org>,
- "Mike Rapoport (Microsoft)" <rppt@kernel.org>,
- Ard Biesheuvel <ardb@kernel.org>, Christoph Lameter <cl@gentwo.org>,
- Yang Shi <yang@os.amperecomputing.com>, Brendan Jackman <jackmanb@google.com>
-References: <20260611130144.1385343-1-abarnas@google.com>
- <20260611130144.1385343-6-abarnas@google.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20260611130144.1385343-6-abarnas@google.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260619_050933_352687_840B26D6 
-X-CRM114-Status: GOOD (  21.27  )
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,106 +95,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/06/2026 14:01, Adrian Barnaś wrote:
-> Enable EXECMEM_ROX_CACHE support for ARM64 systems that implement
-> the bbml2_no_abort CPU feature.
-> 
-> Using the ROX cache brings a performance boost by reducing linear region
-> fragmentation caused by strict memory permissions (e.g., W^X enforcement).
-> Grouping executable code (which is read-only in the linear region alias)
-> into PMD-sized block mappings reduces TLB pressure and page table size.
+Jason Gunthorpe <jgg@ziepe.ca> writes:
 
-Do you have any data on fragmentation reduction and/or performance improvement
-in practice due to this change?
+> On Thu, Jun 18, 2026 at 09:37:22AM +0100, Aneesh Kumar K.V wrote:
+>> Alexey Kardashevskiy <aik@amd.com> writes:
+>> 
+>> > On 10/6/26 00:47, Jason Gunthorpe wrote:
+>> >> On Tue, Jun 09, 2026 at 02:43:08PM +0100, Catalin Marinas wrote:
+>> >>> On Thu, Jun 04, 2026 at 02:09:39PM +0530, Aneesh Kumar K.V (Arm) wrote:
+>> >>>> This series propagates DMA_ATTR_CC_SHARED through the dma-direct,
+>> >>>> dma-pool, and swiotlb paths so that encrypted and decrypted DMA buffers
+>> >>>> are handled consistently.
+>> >>>>
+>> >>>> Today, the direct DMA path mostly relies on force_dma_unencrypted() for
+>> >>>> shared/decrypted buffer handling. This series consolidates the
+>> >>>> force_dma_unencrypted() checks in the top-level functions and ensures
+>> >>>> that the remaining DMA interfaces use DMA attributes to make the correct
+>> >>>> decisions.
+>> >>>
+>> >>> Please check Sashiko's reports, it has some good points:
+>> >>>
+>> >>> https://sashiko.dev/#/patchset/20260604083959.1265923-1-aneesh.kumar@kernel.org
+>> >>>
+>> >>> I think the main one is the swiotlb_tbl_map_single() changes which break
+>> >>> AMD SME host support. There cc_platform_has(CC_ATTR_MEM_ENCRYPT) is true
+>> >>> but force_dma_unencrypted() is false. Normally you'd not end up on this
+>> >>> path but you can have swiotlb=force.
+>> >> 
+>> >> IMHO that's an AMD issue, not with the design of this series..
+>> >> 
+>> >> The series is right, a device that is !force_dma_decrypted() must be
+>> >> considerd to be a trusted device and we must never place any DMA
+>> >> mappings for a trusted device into shared memory.
+>> >
+>> > swiotlb=force forces swiotlb, not decryption.
+>
+> If force_dma_decrypted() == true then swiotlb must allocate from a
+> decrypted memory pool. It is right there in the name!
+>
+> The hypervisor environment should *never* set force_dma_decrypted()
+> because all devices can access all hypervisor memory, up to their IOVA
+> limits.
+>
+>> > So when I try "mem_encrypt=on iommu=pt swiotlb=force" with this
+>> > patchset, it fails to boot. But it boots with a hack like this:
+>
+> On the host side I expect this to cause swiotlb to allocate encrypted
+> memory and bounce to it.
+>
+>>  		u64 dma_enc_mask = DMA_BIT_MASK(__ffs64(sme_me_mask));
+>>  		u64 dma_dev_mask = min_not_zero(dev->coherent_dma_mask,
+>>  						dev->bus_dma_limit);
+>> +		/*
+>> +		 * With memory encryption enabled, SWIOTLB is marked decrypted.
+>> +		 * If SWIOTLB bouncing is forced, treat the device as requiring
+>> +		 * decrypted DMA.
+>> +		 */
+>
+> And this is more insane logic. The right fix is to allocate the
+> swiotlb bounce from the *encrypted* pools when running on the
+> hypervisor which requires undoing this abuse of force_dma_decrypted().
+>
 
-> 
-> This is only enabled on systems with bbml2_no_abort, as splitting
-> these large blocks to make pages writable during module loading would
-> otherwise risk triggering TLB Conflict Aborts.
-> > Signed-off-by: Adrian Barnaś <abarnas@google.com>
-> ---
->  arch/arm64/Kconfig   |  1 +
->  arch/arm64/mm/init.c | 22 +++++++++++++++++++++-
->  2 files changed, 22 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index 38dba5f7e4d2..79c347ab841e 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -285,6 +285,7 @@ config ARM64
->  	select USER_STACKTRACE_SUPPORT
->  	select VDSO_GETRANDOM
->  	select VMAP_STACK
-> +	select ARCH_HAS_EXECMEM_ROX
+Agreed. If the device can do encrypted DMA and requires bouncing, it
+should bounce through encrypted pools. We don't support encrypted pools
+now and that means, we mark the option ("mem_encrypt=on iommu=pt
+swiotlb=force") not supported for now? 
 
-nit: This list is sorted in alphabetical order; please maintain that ordering.
-
->  	help
->  	  ARM 64-bit (AArch64) Linux support.
->  
-> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-> index 71aa745e0bef..8269d7747b84 100644
-> --- a/arch/arm64/mm/init.c
-> +++ b/arch/arm64/mm/init.c
-> @@ -420,6 +420,12 @@ void execmem_fill_trapping_insns(void *ptr, size_t size)
->  
->  	flush_icache_range((unsigned long)ptr, (unsigned long)ptr + size);
->  }
-> +
-> +#define MODULE_TEXT_FLAG	EXECMEM_ROX_CACHE
-> +#define MODULE_TEXT_PGPROT	PAGE_KERNEL_ROX
-> +#else
-> +#define MODULE_TEXT_FLAG	(0)
-> +#define MODULE_TEXT_PGPROT	PAGE_KERNEL
->  #endif
->  
->  static u64 module_direct_base __ro_after_init = 0;
-> @@ -511,6 +517,8 @@ struct execmem_info __init *execmem_arch_setup(void)
->  {
->  	unsigned long fallback_start = 0, fallback_end = 0;
->  	unsigned long start = 0, end = 0;
-> +	enum execmem_range_flags module_text_flags = 0;
-> +	pgprot_t module_text_pgprot = PAGE_KERNEL;
->  
->  	module_init_limits();
->  
-> @@ -531,12 +539,24 @@ struct execmem_info __init *execmem_arch_setup(void)
->  		end = module_plt_base + SZ_2G;
->  	}
->  
-> +	/*
-> +	 * The ROX Cache requires bbml2_no_abort because it uses large block
-> +	 * mappings. On systems without this guarantee, splitting these blocks
-> +	 * to make pages writable for module loading can trigger TLB Conflict
-> +	 * Aborts.
-> +	 */
-> +	if (system_supports_bbml2_noabort()) {
-> +		module_text_flags = MODULE_TEXT_FLAG;
-> +		module_text_pgprot = MODULE_TEXT_PGPROT;
-> +	}
-
-Perhaps this is a bit clearer? Then you don't need the MODULE_TEXT_* macros:
-
-	if (IS_ENABLED(CONFIG_ARCH_HAS_EXECMEM_ROX) &&
-	    system_supports_bbml2_noabort()) {
-		module_text_flags = EXECMEM_ROX_CACHE;
-		module_text_pgprot = PAGE_KERNEL_ROX;
-	}
-
-Thanks,
-Ryan
-
-> +
->  	execmem_info = (struct execmem_info){
->  		.ranges = {
->  			[EXECMEM_MODULE_TEXT] = {
->  				.start	= start,
->  				.end	= end,
-> -				.pgprot	= PAGE_KERNEL,
-> +				.flags = module_text_flags,
-> +				.pgprot	= module_text_pgprot,
->  				.alignment = 1,
->  				.fallback_start	= fallback_start,
->  				.fallback_end	= fallback_end,
-
+-aneesh
 
