@@ -4,66 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41349CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 13:05:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5AFBCDB46D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 13:05:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uvTg08fHdCJ2zWVngIJfipizxXJP2af00IlPHh9eNhU=; b=0HVNjzWqhzQwdHP2TcaGdYFiaR
-	oGeSK5MmFvaYpy4u98yCkcHdBkGLEUi8eOeYtUC397hSi5BCS6rdiaSa12r2jFSyFVKLNfzNpIpre
-	wzazoPRMW4YuVIzfx+xwev117mYFkTyWMoP0yXwIlW4K6r21t7fBxam9ctRBxljkbc0ttV+eXYzgW
-	kS96Jwljgl5Apq62jaT6iyNbt8z631OcrkEW6zlViBAF7MbjUbbwCDNpfcAcRlcLvACrY4MBmnNyv
-	8Ok9KLrCus4m2vvqw1FSSlwGyWWFuFwdOc0e3+19edguK813UPgEAJM5JQhpEsPC1P6IbNdanfGhv
-	G6GT4sZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fH/tWCYzp6t0Nqxfus1gFaX/ZUZOJR4U1u65xMeXIOA=; b=XSE4z6QLmQDhtNaZcUMtDsHtL9
+	oo/Fm6MICzxgW0BKg+AxWrpC7TiFkS9Ns+L36pYx5YbWGBOd8xw3/MpjTOLAEKJfeFGuLC4zoZOG1
+	ahYVBYXscDBfLw0WnPVTRw5ZIFsWVMl7HXgm+sjCcOtME1MMS+52xkkhA3MwWT/cGcN5CeBYM0j5Z
+	tgAq20q3gIEWeTiT1verdcyculhvo3mBsLLaGxE6LhhWFjkDuhmQ85YW6KVn/jwqkAHOaLAQDZD5d
+	TrthR5zfZ5G3jIbvaXaiW/CBIq39vhje21RfuzVwMsFw9e8IjTpJK/2K6696syOUYWQbg4SqRUvfX
+	msF6rl1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waYu2-00000002Rfz-0t1O;
-	Fri, 19 Jun 2026 13:04:58 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waYu0-00000002RfS-0Aw4
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Jun 2026 13:04:57 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E85D24A92;
-	Fri, 19 Jun 2026 06:04:48 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6E4AD3F763;
-	Fri, 19 Jun 2026 06:04:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1781874293; bh=e9pfEYbv59UVNvg5pd3j1Yh0i55qXWOlAw6aQXf2fiI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lQUOPpbAmN6Zr1EYJgextc9Lnki8Ehn68EA514fFROJG93hMv4r2Cfa/r8NEkWg3n
-	 w7/Zq2/WnP0TUUTs/hsA6wrxV4sm6R2stNIFSF+9iXhA2oqOiIZLzOIr6XQovIdoEu
-	 /E9iWQPaERn1E4Z9+FmbsevKh/DyS57CcpVOvJzY=
-Date: Fri, 19 Jun 2026 14:04:47 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Harry Yoo <harry@kernel.org>
-Cc: Dev Jain <dev.jain@arm.com>, ryabinin.a.a@gmail.com,
-	akpm@linux-foundation.org, corbet@lwn.net, glider@google.com,
-	andreyknvl@gmail.com, dvyukov@google.com, vincenzo.frascino@arm.com,
-	kasan-dev@googlegroups.com, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org, skhan@linuxfoundation.org,
-	workflows@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, ryan.roberts@arm.com,
-	anshuman.khandual@arm.com, kaleshsingh@google.com,
-	21cnbao@gmail.com, david@kernel.org, will@kernel.org
-Subject: Re: [RFC PATCH 0/2] kasan: hw_tags: Add option to tag only at
- allocation time
-Message-ID: <ajU-b32dmwS7XOg4@arm.com>
-References: <20260612044425.763060-1-dev.jain@arm.com>
- <b1502a60-09a1-4699-886b-93d041de7023@kernel.org>
- <2a7d21fa-28c1-446c-97f5-2513f29157d3@kernel.org>
+	id 1waYub-00000002Rmv-1U9G;
+	Fri, 19 Jun 2026 13:05:33 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1waYuZ-00000002RmZ-2lsC;
+	Fri, 19 Jun 2026 13:05:31 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 14C94401A4;
+	Fri, 19 Jun 2026 13:05:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1B9F1F000E9;
+	Fri, 19 Jun 2026 13:05:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781874331;
+	bh=fH/tWCYzp6t0Nqxfus1gFaX/ZUZOJR4U1u65xMeXIOA=;
+	h=Date:From:Subject:To:Cc:References:In-Reply-To;
+	b=ZvXN0zRLiORKEjO5zii2FZ7fJlZNhnrpuFfnA4niFWBrP08J0jxQT+oVKQFHqaRvZ
+	 VLgIin2AB+TQng7C69JYtM7wPBhGeEds/66FzMiHamuglkUKOAdNiUo3Ye8xyV8CtY
+	 Hm0PYYr6zMRG0uf0SagO4dZL3LgKK2PkzZY6e4xLqB6/a7Di36rIeYKYIwUDPIdODL
+	 U9VcbwHFjr11k2pGcdWaqbMyX8qeAo9np0E8IRkyjgyjZAQIFaM+wVLOlS3NYPhjo4
+	 mqQ6x4gPCkHZCkksx6tAxMEcuegV4qOqajXq1hE+C5xLThLWR45cysHaBtM8EI/J+r
+	 K5hrPM8ilSPuw==
+Message-ID: <0d2576f8-7773-419e-be0f-0bb37a776bc0@kernel.org>
+Date: Fri, 19 Jun 2026 15:05:27 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <2a7d21fa-28c1-446c-97f5-2513f29157d3@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260619_060456_121921_C8A34F39 
-X-CRM114-Status: GOOD (  13.05  )
+User-Agent: Mozilla Thunderbird
+From: Hans Verkuil <hverkuil+cisco@kernel.org>
+Subject: Re: [PATCH v2 3/5] media: v4l2-core: Add v4l2-stats interface
+To: Detlev Casanova <detlev.casanova@collabora.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+ Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+ Heiko Stuebner <heiko@sntech.de>
+Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, kernel@collabora.com,
+ linux-arm-kernel@lists.infradead.org
+References: <20260617-v4l2-add-fdinfo-v2-0-d298e98ce06a@collabora.com>
+ <20260617-v4l2-add-fdinfo-v2-3-d298e98ce06a@collabora.com>
+Content-Language: en-US, nl
+In-Reply-To: <20260617-v4l2-add-fdinfo-v2-3-d298e98ce06a@collabora.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,25 +77,252 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 18, 2026 at 11:05:43PM +0900, Harry Yoo wrote:
-> On 6/18/26 10:35 PM, Harry Yoo wrote:
-> > On 6/12/26 1:44 PM, Dev Jain wrote:
-> >> Introduce a boot option to tag only at allocation time of the objects. This
-> >> reduces KASAN MTE overhead, the tradeoff being reduced ability of
-> >> catching bugs.
-> > 
-> > I think most of overhead when enabling MTE comes from loading and
-> > validing tags for every memory access (either in SYNC or ASYNC mode),
-> > rather than from storing tags.
+On 17/06/2026 20:10, Detlev Casanova wrote:
+> Provide helpers for media drivers to set fdinfo data and print the
+> key:value pairs in a standard way.
 > 
-> Is there any reason not to use STGM instead of STG + DC GVA when
-> setting/clearing tags for large sizes when we know they are properly
-> aligned?
+> User drivers can set stats values with helpers like:
+>  - v4l2_stats_update_hw_usage
+>  - v4l2_stats_set_media_dev_type
+> 
+> And also call the show helpers from their show_fdinfo callback with:
+>  - v4l2_stats_show -- Shows the values set previously
+>  - v4l2_stats_show_clock -- Shows the main clock state.
+> 
+> The show_clock helper is used instead of updating a clock value in
+> v4l2_stats for the following reasons:
+>  - Clocks are at the device level, this is not a per-fd information
+>  - This avoids having clock references in v4l2-core
+>  - Drivers can use different approaches to manage clocks
+>    (e.g.: bulk_data or not: A set helper wouldn't please all drivers)
+>  - Arguably, clocks could be exposed elsewhere (like a debugfs), but we
+>    want something close to what DRM does and centralizing information has
+>    its advantages for userspace tooling.
+> 
+> In DRM the key:value pair format for clocks is documented and each driver
+> can write them directly based on that.
+> In this case, provide a helper and document the format.
+> 
+> Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
+> ---
+>  drivers/media/v4l2-core/Makefile     |  2 +-
+>  drivers/media/v4l2-core/v4l2-dev.c   |  2 ++
+>  drivers/media/v4l2-core/v4l2-fh.c    |  3 ++
+>  drivers/media/v4l2-core/v4l2-stats.c | 65 ++++++++++++++++++++++++++++++++++++
+>  include/media/v4l2-fh.h              |  2 ++
+>  include/media/v4l2-stats.h           | 44 ++++++++++++++++++++++++
+>  6 files changed, 117 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/media/v4l2-core/Makefile b/drivers/media/v4l2-core/Makefile
+> index 329f0eadce99..20e1ab74ac09 100644
+> --- a/drivers/media/v4l2-core/Makefile
+> +++ b/drivers/media/v4l2-core/Makefile
+> @@ -9,7 +9,7 @@ ccflags-y += -I$(srctree)/drivers/media/tuners
+>  tuner-objs	:=	tuner-core.o
+>  
+>  videodev-objs	:=	v4l2-dev.o v4l2-ioctl.o v4l2-device.o v4l2-fh.o \
+> -			v4l2-event.o v4l2-subdev.o v4l2-common.o \
+> +			v4l2-event.o v4l2-subdev.o v4l2-common.o v4l2-stats.o \
+>  			v4l2-ctrls-core.o v4l2-ctrls-api.o \
+>  			v4l2-ctrls-request.o v4l2-ctrls-defs.o
+>  
+> diff --git a/drivers/media/v4l2-core/v4l2-dev.c b/drivers/media/v4l2-core/v4l2-dev.c
+> index 3878fa2ff73e..3e7a6876dffd 100644
+> --- a/drivers/media/v4l2-core/v4l2-dev.c
+> +++ b/drivers/media/v4l2-core/v4l2-dev.c
+> @@ -486,6 +486,8 @@ static void v4l2_show_fdinfo(struct seq_file *m, struct file *filp)
+>  {
+>  	struct video_device *vdev = video_devdata(filp);
+>  
+> +	seq_printf(m, "media-driver:\t%s\n", vdev->v4l2_dev->name);
+> +
+>  	if (vdev->fops->show_fdinfo)
+>  		vdev->fops->show_fdinfo(m, filp);
+>  }
+> diff --git a/drivers/media/v4l2-core/v4l2-fh.c b/drivers/media/v4l2-core/v4l2-fh.c
+> index b184bed8aca9..1b655672c718 100644
+> --- a/drivers/media/v4l2-core/v4l2-fh.c
+> +++ b/drivers/media/v4l2-core/v4l2-fh.c
+> @@ -17,6 +17,7 @@
+>  #include <media/v4l2-event.h>
+>  #include <media/v4l2-ioctl.h>
+>  #include <media/v4l2-mc.h>
+> +#include <media/v4l2-stats.h>
+>  
+>  void v4l2_fh_init(struct v4l2_fh *fh, struct video_device *vdev)
+>  {
+> @@ -38,6 +39,7 @@ void v4l2_fh_init(struct v4l2_fh *fh, struct video_device *vdev)
+>  	INIT_LIST_HEAD(&fh->subscribed);
+>  	fh->sequence = -1;
+>  	mutex_init(&fh->subscribe_lock);
+> +	v4l2_stats_init(&fh->stats);
+>  }
+>  EXPORT_SYMBOL_GPL(v4l2_fh_init);
+>  
+> @@ -88,6 +90,7 @@ void v4l2_fh_exit(struct v4l2_fh *fh)
+>  	v4l2_event_unsubscribe_all(fh);
+>  	mutex_destroy(&fh->subscribe_lock);
+>  	fh->vdev = NULL;
+> +	v4l2_stats_exit(&fh->stats);
+>  }
+>  EXPORT_SYMBOL_GPL(v4l2_fh_exit);
+>  
+> diff --git a/drivers/media/v4l2-core/v4l2-stats.c b/drivers/media/v4l2-core/v4l2-stats.c
+> new file mode 100644
+> index 000000000000..93e64ef2e7bb
+> --- /dev/null
+> +++ b/drivers/media/v4l2-core/v4l2-stats.c
+> @@ -0,0 +1,65 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * v4l2-stats.c
+> + *
+> + * V4L2 statistics management.
+> + *
+> + * Maintain a per-file handle list of statistics about the hardware and handle
+> + * exposing it in the fdinfo.
+> + *
+> + * Copyright (C) 2026 Collabora.
+> + *
+> + * Contact: Detlev Casanova <detlev.casanova@collabora.com>
+> + */
+> +
+> +#include <linux/types.h>
+> +#include <linux/seq_file.h>
+> +#include <linux/clk.h>
+> +#include <media/v4l2-stats.h>
+> +
+> +static const char * const dev_type_name[] = {
+> +	[MEDIA_DEV_TYPE_V4L2] = "media",
+> +	[MEDIA_DEV_TYPE_V4L2_STATELESS_ENCODER] = "encoder",
+> +	[MEDIA_DEV_TYPE_V4L2_STATELESS_DECODER] = "decoder",
+> +};
+> +
+> +void v4l2_stats_init(struct v4l2_stats *stats)
+> +{
+> +	stats->hw_usage_time = 0;
+> +	stats->media_dev_type = MEDIA_DEV_TYPE_V4L2;
+> +}
+> +
+> +void v4l2_stats_exit(struct v4l2_stats *stats)
+> +{
+> +}
+> +
+> +void v4l2_stats_update_hw_usage(struct v4l2_stats *stats, u64 usage_time)
+> +{
+> +	stats->hw_usage_time += usage_time;
+> +}
+> +EXPORT_SYMBOL_GPL(v4l2_stats_update_hw_usage);
+> +
+> +void v4l2_stats_set_media_dev_type(struct v4l2_stats *stats, enum v4l2_media_dev_type type)
+> +{
+> +	if (type >= MEDIA_DEV_TYPE_COUNT)
+> +		return;
+> +
+> +	stats->media_dev_type = type;
+> +}
+> +EXPORT_SYMBOL_GPL(v4l2_stats_set_media_dev_type);
+> +
+> +void v4l2_stats_show(struct v4l2_stats *stats, struct seq_file *m)
+> +{
+> +	seq_printf(m, "media-type:\t%s\n", dev_type_name[stats->media_dev_type]);
+> +	seq_printf(m, "media-engine-usage:\t%llu ns\n", stats->hw_usage_time);
+> +}
+> +EXPORT_SYMBOL_GPL(v4l2_stats_show);
+> +
+> +void v4l2_stats_show_clock(struct seq_file *m, struct clk *clk)
+> +{
+> +	seq_printf(m, "media-maxfreq:\t%lu Hz\n",
+> +		   clk_get_rate(clk));
+> +	seq_printf(m, "media-curfreq:\t%lu Hz\n",
+> +		   clk_get_rate(clk));
+> +}
+> +EXPORT_SYMBOL_GPL(v4l2_stats_show_clock);
+> diff --git a/include/media/v4l2-fh.h b/include/media/v4l2-fh.h
+> index aad4b3689d7e..ae6688722bee 100644
+> --- a/include/media/v4l2-fh.h
+> +++ b/include/media/v4l2-fh.h
+> @@ -17,6 +17,7 @@
+>  #include <linux/kconfig.h>
+>  #include <linux/list.h>
+>  #include <linux/videodev2.h>
+> +#include <media/v4l2-stats.h>
+>  
+>  struct video_device;
+>  struct v4l2_ctrl_handler;
+> @@ -43,6 +44,7 @@ struct v4l2_fh {
+>  	struct list_head	list;
+>  	struct video_device	*vdev;
+>  	struct v4l2_ctrl_handler *ctrl_handler;
+> +	struct v4l2_stats	stats;
+>  	enum v4l2_priority	prio;
+>  
+>  	/* Events */
+> diff --git a/include/media/v4l2-stats.h b/include/media/v4l2-stats.h
+> new file mode 100644
+> index 000000000000..d580933c4181
+> --- /dev/null
+> +++ b/include/media/v4l2-stats.h
+> @@ -0,0 +1,44 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * v4l2-stats.h
+> + *
+> + * V4L2 statistics management.
+> + *
+> + * Maintain a per-file handle list of statistics about the hardware and handle
+> + * exposing it in the fdinfo.
+> + *
+> + * Copyright (C) 2026 Collabora.
+> + *
+> + * Contact: Detlev Casanova <detlev.casanova@collabora.com>
+> + */
+> +#ifndef V4L2_STATS_H
+> +#define V4L2_STATS_H
+> +
+> +#include <linux/types.h>
+> +
+> +struct clk;
+> +struct seq_file;
+> +
+> +enum v4l2_media_dev_type {
+> +	MEDIA_DEV_TYPE_V4L2 = 0,
+> +	MEDIA_DEV_TYPE_V4L2_STATELESS_ENCODER,
+> +	MEDIA_DEV_TYPE_V4L2_STATELESS_DECODER,
+> +
+> +	MEDIA_DEV_TYPE_COUNT,
 
-STGM is intended for copying tags when paired with LDGM. Have you seen
-hardware where STGM is faster than STG or DC GVA? For properly aligned
-buffers, I'd expect DC GVA to behave at least on par with STGM.
+I'm a bit unhappy about introducing yet another type. Do we need it?
 
--- 
-Catalin
+> +};
+> +
+> +struct v4l2_stats {
+
+Poor name, and it conflicts with ISP statistics.
+
+How about v4l2_pdinfo? And v4l2-fdinfo.h etc. That avoids any confusion and
+also clearly says what this is about.
+
+> +	u64 hw_usage_time;
+> +	enum v4l2_media_dev_type media_dev_type;
+
+This should be the first field.
+
+> +};
+> +
+> +void v4l2_stats_init(struct v4l2_stats *stats);
+> +void v4l2_stats_exit(struct v4l2_stats *stats);
+> +
+> +void v4l2_stats_update_hw_usage(struct v4l2_stats *stats, u64 usage_time);
+> +void v4l2_stats_set_media_dev_type(struct v4l2_stats *stats, enum v4l2_media_dev_type type);
+> +
+> +void v4l2_stats_show(struct v4l2_stats *stats, struct seq_file *m);
+> +void v4l2_stats_show_clock(struct seq_file *m, struct clk *clk);
+> +
+> +#endif /* V4L2_STATS_H */
+> 
+
+Regards,
+
+	Hans
 
