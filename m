@@ -4,80 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C339CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 16:40:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CCD7CD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 16:42:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/fDThUXERwUUEs/z9ucajXv7UAnqFyxEUTJ+qPyvpvk=; b=ap3qYPc+Rm2fM/xui+cb6wk3BV
-	hyGNspSQm6TeoK8oiTfZHcon3O1up55E+C5HTIaNUvIT2YhckQps4zhwhTt86WzxpNXKLYVTzuPfo
-	ziJsz5NaqIzD6+/OsYgRdUX7rEbU1NPs+54Tx6NEXMb2aHLJXtcRH/wYSUTi/GEsQsH81DlDtF5s9
-	+zlqs+ui1YTnhga2DkL3Q/StcSDUMo2F7j79j64CIB80FNjPI+D3TKrV87e4Z7p93cIvfH/HMMK+F
-	Qvwkbd8YM+a2Ulz4QPV+sQraZOBDhaWIWtBQmTXIDankIHsPAtaDL7FsupmPJvube1v3C2YCc95Ro
-	Rn3w0sUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=W9jXSUCXwLqMfz03x3rWaIwLOnreZZae42JwqWFDgZo=; b=wjAcMGdRSqMR36rDFsEU65+huE
+	aLbcmzKPIku270amPSbuKhUuKjBIgmI3LOrIOTmsVwXX6C/JABU162ap3uzc9u+4ZSdN9g7+KUKOV
+	t+knF3Xs30Wc0ToGEeoxvlNWeNWHIgW6p0ER3exv6DHQHBw6LgMnIJ6NMe4VvmP4r9F9CAqH+iHx7
+	U9KKsJXRzbdz3ez6M0I6ZpH/J8ZIXtoWAIyQKwAQirie2ezVGO8VTNGJWbNvteFg23V/tZX5heDZM
+	ix+cQflqBnWOsYKtjZVJlKbu/5Aj3PSSxb1Afu55Y6f6eBL9AFVOFwBfVoAdtaeBSHrO3XUE7mleV
+	I7OdIsJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wacGX-00000002mmL-0r8x;
-	Fri, 19 Jun 2026 16:40:25 +0000
-Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
+	id 1wacIK-00000002mx4-2Z4t;
+	Fri, 19 Jun 2026 16:42:16 +0000
+Received: from mail-qt1-x831.google.com ([2607:f8b0:4864:20::831])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wacGS-00000002mkz-0lHs
+	id 1wacIH-00000002mwM-3MDE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Jun 2026 16:40:23 +0000
-Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-463dd955dafso1438167f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 09:40:19 -0700 (PDT)
+	Fri, 19 Jun 2026 16:42:15 +0000
+Received: by mail-qt1-x831.google.com with SMTP id d75a77b69052e-51765531803so337831cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 09:42:12 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1781887331; cv=none;
+        d=google.com; s=arc-20260327;
+        b=ECFMizL0avGZ5nlhQl6iE21NM7hKdO2crmwyXm9GiBeX2rXOJ6Y0NsIygNAT/+/IeQ
+         x2jjXIJUxmwfZ7KgGcjbYwWccsG82Y2SUgggCL46boXtdPa29DAARnyO2s++wGeIRMCa
+         qJfeV3XNaaLAJvNph+xaHa/iQUtXDw3Bh4LjLZ/MWoRX0x4EC1sVLFFGW+0dL7cMQ8VK
+         pYPwvQB1Rh/Hi0felvjtIIULsQp5URJQ+QEJ20fOtCB8Bk8laSjnbav3rq5A7WkngOXi
+         YVuC3YqByYDwofYTW+7Ta4EREURrCgJsAIrvaX+CB4Q/pqt5VlclkdbiOpSRfcl0BweS
+         67JQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=W9jXSUCXwLqMfz03x3rWaIwLOnreZZae42JwqWFDgZo=;
+        fh=ZTq//PwPDDNJN/+vddTAIfEn6zNT1SRpp7zO7VD0FTg=;
+        b=J/eZ1Etj/C8cbPLFEu8c/Q5A9W7cAHUVteQq2XymVwf1qpb9m61ETZCzEKG9I27AnR
+         xNdpLwXw0MJJwKNiupw1Yrxu+sGRUScFoSMONx+M8v7RnYqPueUYBgG4MyKrPlPRsbrc
+         0PyOowHp/qK91yB+0Ki382lgaEBK1wrrkTdhB44hr0TqI7rQpXhXOz7eY9Oy9ZE/U2JD
+         Uk/4i9kLW5Jzbe+3p7xzrQZHvzqusuRSUYRbK2xiOEYejaFVMMSQkgq6uoDLB83HJO/X
+         9NC3Y0v+fV8FFJoT0KhZcCxgltnCOlwuclxNYGcgaGhqT7gwBRRgzsVvqWGE//q8YyyS
+         75ag==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781887218; x=1782492018; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=/fDThUXERwUUEs/z9ucajXv7UAnqFyxEUTJ+qPyvpvk=;
-        b=t1MCCyT/DL+/eA1Jgr6vJGi/TW641H/R8a9REhU6xLJ/csZkdEkIl5DCDYfGd1/qj1
-         pBbhQGpAnD6CW5igMOenX7po8B7t3xD5jhunUe0LLtqQ+jeAi02UjoYTZj7v86AuAyoO
-         ktcFfynt2Nc9aYPIrHZaH8SbVor4CIABL4Kg75QimoNrTYEHNvZg3wAJ6ksATAJoMRU1
-         noMq980l2MP2TLBH5nE+1heLkb3J2FMInkndtcHhOg1jXBc2g7p24X/UHN1z9bRbmaLo
-         Zos7vpyhIUsW/rC0kjDoXQlY9XLIxrMtNzDoPi0lqUt4UP04FGuPvwYjS7wIbQD0he2H
-         Ut5Q==
+        d=google.com; s=20251104; t=1781887331; x=1782492131; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=W9jXSUCXwLqMfz03x3rWaIwLOnreZZae42JwqWFDgZo=;
+        b=L92gkJm6bwIU4xWrnPg33MyYWIHMUYpDqFLrNvr35eIlTf2rHM1psmlcedHl9KBzIv
+         4nHlWqMH0zFyCQkl6oKouvxugHhtGnl4VkxV6cKVc7IBFr2Wm46gMXjEnDfnF3hEwDvD
+         2tRGMXDA/sZa5koeRvLLJpCXG8aZsJYUY3Y6e7/jZcHOPgFipEHDyDVH3sUWpGCNnLKI
+         vRIRmL8YRWEl2SWM6b1TVL/xNzmbwdxLjA43wl2DUv8S6XAspLiFC3z1Trwhz6muwOFG
+         PlBpmgeQXrrAFcCjdQCd61givxjXTgc/uArBuGpzzuhweKkm5yRhCxHgQK+Ye8r+blrW
+         dwDA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781887218; x=1782492018;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=/fDThUXERwUUEs/z9ucajXv7UAnqFyxEUTJ+qPyvpvk=;
-        b=So8TetL4R/7E+mW3iBfrdxAQSZ1eoxEJ8yVbl79ntdSwvw6gQsLa0My/COat0nWQ5y
-         yNXVHOJUA37uxhKB7BTqDYLsLjLAceOZxSpvrfED8erzHlSc6GVPyWuA7o9l3lycSyM/
-         F9W8C+xerNxqo5gD4lCMwz8JcLsqWNx2T/XwRwV1qaxRp1vKxAd1SzaZ8MOfkmA6a1Ox
-         jacU8zM9JFUlMp1qwcKXCSdz3BMa2tZDYz39RWA60uBjo9ssOhUPm1Ot8mkoeVi8vgJ6
-         5S76/vpZ3bD4vT17Lmp0SaGAynXLVOj16fTir8l2l0mDgMFeWTzMByXTfXOMzP5qgZXZ
-         FX+w==
-X-Gm-Message-State: AOJu0YznxlBaKpm6FsVbdVE103/Z1/GOCefQJDB2I5ztikIIpqLDTVXl
-	zdnOdeXN1pFeB1Nw/y1ZoyTHHmuFVBLTwjUdGqSSu1aMqcB2YVVwvDD6yVum9kbOFHVMZwmx+g+
-	MAhh2kvTcHECGpTJwV3MNsTaYdDFhHnDNKJYSCOueJSJ3xZnoliJCPB7BCrJ5IYrwX8auZVSikT
-	WF2pwpS/lEAQOGtbG57G7Z95tOpsLG5Sz+rG3GzsJCG8Nk
-X-Received: from wmbiw8.prod.google.com ([2002:a05:600c:54c8:b0:48f:de4f:a90])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:8b21:b0:490:bd66:e523
- with SMTP id 5b1f17b1804b1-4923f5721d3mr84433615e9.20.1781887217523; Fri, 19
- Jun 2026 09:40:17 -0700 (PDT)
-Date: Fri, 19 Jun 2026 18:39:41 +0200
-Mime-Version: 1.0
-X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2051; i=ardb@kernel.org;
- h=from:subject; bh=FiCLQUGsKnSPIAZDP2PiOA1tidCSE9QccB+wefg2gW0=;
- b=owGbwMvMwCVmkMcZplerG8N4Wi2JIcu04KxD+RSxUHeV+d9vrZH98iZmT4NDZ8rTTuYd5ht1T
- wuqvVToKGVhEONikBVTZBGY/ffdztMTpWqdZ8nCzGFlAhnCwMUpABP5sYGR4Xdd39bnqz4zR3Jf
- PDA1r/CE3uEnmgKp/CL5mf7yV4TX8TL899aL8+PcZXatfqLm3JMKa99+r5r6aJZn2fVyj50Lv1u JswAA
-X-Mailer: git-send-email 2.55.0.rc0.738.g0c8ab3ebcc-goog
-Message-ID: <20260619163940.3185308-2-ardb+git@google.com>
-Subject: [PATCH] arm64: mm: Defer read-only remap of data/bss linear alias
-From: Ard Biesheuvel <ardb+git@google.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org, 
-	Ard Biesheuvel <ardb@kernel.org>, Fuad Tabba <fuad.tabba@linux.dev>
+        d=1e100.net; s=20251104; t=1781887331; x=1782492131;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=W9jXSUCXwLqMfz03x3rWaIwLOnreZZae42JwqWFDgZo=;
+        b=HLjBvraL7sm8ECQS6YOXIyz+fzfEcVXI3Zo3qGnNzqHv+0sGXi2fpeCXDBF9whs958
+         GPrN6KuWZNqBkpT5owt7bLHFC4/njNNMLM9JIBRou0RIAO2toAfUtXnvjQ3pmBhoDV8K
+         e50tDB5kn0BS41NvjwiyR7Q2xKEUSdjK2kLDH6XNfqRQ8WwN3iOO5NEMybFNbHIY+9w3
+         yV3Fxa/AsRpH0rkQSGbo6sLpvX70bwiA1eGNatXSo/6toMu7EIopHvVmXRRGtcGu96MC
+         OyOmWmJRp3PIXljw6aZSE/QG1WCs80ovlhf+N/iQe5oY0KU+vsLjSxCkV+BIkLadFLDP
+         ppKA==
+X-Forwarded-Encrypted: i=1; AFNElJ/+SSaJvH/0x79FPMJV1oxYAxwyy3YrPwrK9SXtO7r2Fhi7cGaAj4IqSxJuXPUAl7QV6220eeKzqfiu0l+e2PI1@lists.infradead.org
+X-Gm-Message-State: AOJu0YzmtUt8TXwDlE4b8kQiwRfHsn8VEfoRoC0rDde11kDTvhw8C1+I
+	LMhQ9FOEIUafCuOKYqsVyXrlyVLW61wDijODKgxx6+b3Kj66yu1ERcvSxfB6TUx7tWm/UwAAAuN
+	M6WOAPmQuzm9Dl8DmVR/qTX79PZAWBxU7FAX8EmZO
+X-Gm-Gg: AfdE7ck4OPaoK2VezoBi1iWaB+fz0rAOxXPnOwllp+5JQ9XVPdrDknqclslHt8XHzDa
+	UM2nFEA+OwLoKqAvPULO1Uea3FoyPsLyLncstyFBEn80VtMHLqGXqyWlJxUrxqv/0Rwch0PEJ9Z
+	mYQkSXgFl8/dr1+Wq+76DzFlkCe7xJtPPL4xC9+5LpLo/HX1vyJtsQS6uVg2TLaDDhvwgAyDYQU
+	4leTH8wlw2ASE6aWAyLqbc+iTIEnK6fLhP6UTmhaIbz9YQeR0IzFEmxMBk+nfLrldr0xph7Eg==
+X-Received: by 2002:a05:622a:2489:b0:519:56a8:2693 with SMTP id
+ d75a77b69052e-519e4a7350amr9673821cf.24.1781887330415; Fri, 19 Jun 2026
+ 09:42:10 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260619070719.812227-1-tabba@google.com> <20260619070719.812227-9-tabba@google.com>
+ <ajVAV5ct0xdLn1KX@google.com>
+In-Reply-To: <ajVAV5ct0xdLn1KX@google.com>
+From: Fuad Tabba <tabba@google.com>
+Date: Fri, 19 Jun 2026 17:41:00 +0100
+X-Gm-Features: AVVi8CeugYeoJkxJ2s1vDW8ayydzdG5A6SaipfjAzjFSd_ia6mU672oeVjPkVZw
+Message-ID: <CA+EHjTz13obYHAZYCW+zpH1RB953FseP9koXydeoLqmn6UONHQ@mail.gmail.com>
+Subject: Re: [PATCH v2 8/8] KVM: arm64: Implement lazy vCPU state sync for
+ non-protected guests
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Quentin Perret <qperret@google.com>, Sebastian Ene <sebastianene@google.com>, 
+	Hyunwoo Kim <imv4bel@gmail.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260619_094020_270100_DB91789C 
-X-CRM114-Status: GOOD (  14.22  )
+X-CRM114-CacheID: sfid-20260619_094213_873111_02EE0E0C 
+X-CRM114-Status: GOOD (  40.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,59 +121,177 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ard Biesheuvel <ardb@kernel.org>
+On Fri, 19 Jun 2026 at 14:13, Vincent Donnefort <vdonnefort@google.com> wrote:
+>
+> On Fri, Jun 19, 2026 at 08:07:19AM +0100, Fuad Tabba wrote:
+> > pKVM copies a non-protected guest's register context between the host
+> > and the hypervisor on every world switch, even when the host never
+> > inspects it. Defer the copy: on entry, flush the host context into the
+> > hyp vCPU only when the host marked it dirty (PKVM_HOST_STATE_DIRTY); on
+> > exit, leave it in the hyp vCPU and copy it back only when the host needs
+> > it, via a __pkvm_vcpu_sync_state hypercall on trap handling or at vcpu
+> > put. A protected guest's context is copied as before, since lazy sync
+> > only helps where the host is trusted to see the guest's registers.
+> >
+> > PC and PSTATE are the exception: they are copied back on every exit so
+> > the kvm_exit tracepoint reports the guest's real exit PC, and the run
+> > loop's vcpu_mode_is_bad_32bit() and SError-masking checks evaluate the
+> > guest's current PSTATE rather than the value left by the previous sync.
+> >
+> > handle_exit_early() can also inject an SError, which writes the guest
+> > context (ESR_EL1) outside the trap-handling path. For a non-protected
+> > guest it therefore syncs the context from the hyp vCPU and marks it
+> > dirty, as handle_trap_exceptions() does, so the injection reaches the
+> > hyp vCPU on re-entry rather than being dropped.
+> >
+> > Signed-off-by: Fuad Tabba <tabba@google.com>
+> > ---
+> >  arch/arm64/include/asm/kvm_asm.h   |  1 +
+> >  arch/arm64/include/asm/kvm_host.h  |  2 +
+> >  arch/arm64/kvm/arm.c               |  7 +++
+> >  arch/arm64/kvm/handle_exit.c       | 30 +++++++++++
+> >  arch/arm64/kvm/hyp/nvhe/hyp-main.c | 86 ++++++++++++++++++++++++++++--
+> >  5 files changed, 121 insertions(+), 5 deletions(-)
+> >
+> > diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
+> > index 043495f7fc78..6e1135b3ded4 100644
+> > --- a/arch/arm64/include/asm/kvm_asm.h
+> > +++ b/arch/arm64/include/asm/kvm_asm.h
+> > @@ -113,6 +113,7 @@ enum __kvm_host_smccc_func {
+> >       __KVM_HOST_SMCCC_FUNC___pkvm_finalize_teardown_vm,
+> >       __KVM_HOST_SMCCC_FUNC___pkvm_vcpu_load,
+> >       __KVM_HOST_SMCCC_FUNC___pkvm_vcpu_put,
+> > +     __KVM_HOST_SMCCC_FUNC___pkvm_vcpu_sync_state,
+> >       __KVM_HOST_SMCCC_FUNC___pkvm_tlb_flush_vmid,
+> >
+> >       MARKER(__KVM_HOST_SMCCC_FUNC_MAX)
+> > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> > index 2faa60df847d..caa39ee5125f 100644
+> > --- a/arch/arm64/include/asm/kvm_host.h
+> > +++ b/arch/arm64/include/asm/kvm_host.h
+> > @@ -1068,6 +1068,8 @@ struct kvm_vcpu_arch {
+> >  #define INCREMENT_PC         __vcpu_single_flag(iflags, BIT(1))
+> >  /* Target EL/MODE (not a single flag, but let's abuse the macro) */
+> >  #define EXCEPT_MASK          __vcpu_single_flag(iflags, GENMASK(3, 1))
+> > +/* Host-set: the hyp flushes the non-protected vCPU state in on entry */
+> > +#define PKVM_HOST_STATE_DIRTY        __vcpu_single_flag(iflags, BIT(4))
+> >
+> >  /* Helpers to encode exceptions with minimum fuss */
+> >  #define __EXCEPT_MASK_VAL    unpack_vcpu_flag(EXCEPT_MASK)
+> > diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> > index 3732ee9eb0d4..4e89558d8027 100644
+> > --- a/arch/arm64/kvm/arm.c
+> > +++ b/arch/arm64/kvm/arm.c
+> > @@ -733,6 +733,10 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
+> >       if (is_protected_kvm_enabled()) {
+> >               kvm_call_hyp(__vgic_v3_save_aprs, &vcpu->arch.vgic_cpu.vgic_v3);
+> >               kvm_call_hyp_nvhe(__pkvm_vcpu_put);
+> > +
+> > +             /* __pkvm_vcpu_put implies a sync of the state */
+> > +             if (!kvm_vm_is_protected(vcpu->kvm))
+> > +                     vcpu_set_flag(vcpu, PKVM_HOST_STATE_DIRTY);
+> >       }
+> >
+> >       kvm_vcpu_put_debug(vcpu);
+> > @@ -964,6 +968,9 @@ int kvm_arch_vcpu_run_pid_change(struct kvm_vcpu *vcpu)
+> >               return ret;
+> >
+> >       if (is_protected_kvm_enabled()) {
+> > +             /* Start with the vcpu in a dirty state */
+> > +             if (!kvm_vm_is_protected(vcpu->kvm))
+> > +                     vcpu_set_flag(vcpu, PKVM_HOST_STATE_DIRTY);
+> >               ret = pkvm_create_hyp_vm(kvm);
+> >               if (ret)
+> >                       return ret;
+> > diff --git a/arch/arm64/kvm/handle_exit.c b/arch/arm64/kvm/handle_exit.c
+> > index 54aedf93c78b..8963621bcdd1 100644
+> > --- a/arch/arm64/kvm/handle_exit.c
+> > +++ b/arch/arm64/kvm/handle_exit.c
+> > @@ -422,6 +422,20 @@ static int handle_trap_exceptions(struct kvm_vcpu *vcpu)
+> >  {
+> >       int handled;
+> >
+> > +     /*
+> > +      * If we run a non-protected VM when protection is enabled
+> > +      * system-wide, resync the state from the hypervisor and mark
+> > +      * it as dirty on the host side if it wasn't dirty already
+> > +      * (which could happen if preemption has taken place).
+> > +      */
+> > +     if (is_protected_kvm_enabled() && !kvm_vm_is_protected(vcpu->kvm)) {
+> > +             guard(preempt)();
+> > +             if (!(vcpu_get_flag(vcpu, PKVM_HOST_STATE_DIRTY))) {
+> > +                     kvm_call_hyp_nvhe(__pkvm_vcpu_sync_state);
+> > +                     vcpu_set_flag(vcpu, PKVM_HOST_STATE_DIRTY);
+> > +             }
+> > +     }
+> > +
+>
+> Could we remove this update here and let handle_exit_early() do the sync
+> regardless of the SError injection? One of the main point of handle_exit_early()
+> is to do things under !prempt().
 
-Fuad reports that in some cases, the KVM init code may apply relocations
-to variables that reside in .data, and does so via the linear map. This
-means that remapping .data read-only beforehand is a bad idea, and
-results in an early boot crash.
+Agreed on the move: handle_exit_early() is already preempt-off, so the
+guard() goes away. Not on every exit though. handle_exit_early() runs
+on every exit, and sync_hyp_vcpu() only copies PC/PSTATE/fault back
+for a non-protected guest; the GPRs and sysregs cross solely via
+__pkvm_vcpu_sync_state. Syncing unconditionally would pull the full
+context back on plain IRQ exits, which is the copy this patch avoids.
+So I will gate it on trap-or-SError and drop the
+handle_trap_exceptions() block.
 
-These variables in .data are only present when CONFIG_NVHE_EL2_DEBUG or
-CONFIG_NVHE_EL2_TRACING are enabled, which is why it was not spotted in
-testing.
+>
+>
+> >       /*
+> >        * See ARM ARM B1.14.1: "Hyp traps on instructions
+> >        * that fail their condition code check"
+> > @@ -489,6 +503,22 @@ int handle_exit(struct kvm_vcpu *vcpu, int exception_index)
+> >  /* For exit types that need handling before we can be preempted */
+> >  void handle_exit_early(struct kvm_vcpu *vcpu, int exception_index)
+> >  {
+> > +     bool inject_serror = ARM_SERROR_PENDING(exception_index) ||
+> > +             ARM_EXCEPTION_CODE(exception_index) == ARM_EXCEPTION_EL1_SERROR;
+> > +
+> > +     /*
+> > +      * An SError injected below writes the host ctxt; for a non-protected
+> > +      * guest, sync from the hyp vCPU and keep it dirty so it isn't dropped.
+> > +      */
+> > +     if (is_protected_kvm_enabled()) {
+>
+> Should we test !kvm_vm_is_protected(vcpu->kvm) here, as the
+> PKVM_HOST_STATE_DIRTY is only updated for p-guests everywhere else?
 
-So move the remap to mark_rodata_ro(), which is a reasonable place to
-put this, and ensures that it happens much later during the boot. It
-also means that rodata=off is now taken into account, and so the linear
-alias will remain writable in that case.
+Yes. The flag is only ever set for non-protected guests, so clearing it
+for a protected one is a no-op, but gating it matches the invariant.
 
-Cc: Fuad Tabba <fuad.tabba@linux.dev>
-Fixes: f2ba877402e5 ("arm64: mm: Map the kernel data/bss read-only in the linear map")
-Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
----
- arch/arm64/mm/mmu.c | 11 ++++++-----
- 1 file changed, 6 insertions(+), 5 deletions(-)
+Both fold into one block in handle_exit_early():
 
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index 9f354971b7e4..1f7eca86b5c1 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -1198,11 +1198,6 @@ static void __init map_mem(void)
- 		__map_memblock(start, end, pgprot_tagged(PAGE_KERNEL),
- 			       flags);
- 	}
--
--	/* Map the kernel data/bss read-only in the linear map */
--	__map_memblock(init_end, kernel_end, PAGE_KERNEL_RO, flags);
--	flush_tlb_kernel_range((unsigned long)lm_alias(__init_end),
--			       (unsigned long)lm_alias(__bss_stop));
- }
- 
- void mark_rodata_ro(void)
-@@ -1221,6 +1216,12 @@ void mark_rodata_ro(void)
- 	update_mapping_prot(__pa_symbol(_text), (unsigned long)_text,
- 			    (unsigned long)_stext - (unsigned long)_text,
- 			    PAGE_KERNEL_RO);
-+
-+	/* Map the kernel data/bss read-only in the linear map */
-+	update_mapping_prot(__pa_symbol(__init_end),
-+			    (unsigned long)lm_alias(__init_end),
-+			    (unsigned long)__bss_stop - (unsigned long)__init_end,
-+			    PAGE_KERNEL_RO);
- }
- 
- static void __init declare_vma(struct vm_struct *vma,
--- 
-2.55.0.rc0.738.g0c8ab3ebcc-goog
+      if (is_protected_kvm_enabled() && !kvm_vm_is_protected(vcpu->kvm)) {
+              if (inject_serror ||
+                  ARM_EXCEPTION_CODE(exception_index) == ARM_EXCEPTION_TRAP) {
+                      kvm_call_hyp_nvhe(__pkvm_vcpu_sync_state);
+                      vcpu_set_flag(vcpu, PKVM_HOST_STATE_DIRTY);
+              } else {
+                      vcpu_clear_flag(vcpu, PKVM_HOST_STATE_DIRTY);
+              }
+      }
 
+I will fold this into the next respin.
+
+Thanks for the reviews!
+/fuad
+
+>
+> > +             vcpu_clear_flag(vcpu, PKVM_HOST_STATE_DIRTY);
+> > +
+> > +             if (inject_serror && !kvm_vm_is_protected(vcpu->kvm)) {
+> > +                     kvm_call_hyp_nvhe(__pkvm_vcpu_sync_state);
+> > +                     vcpu_set_flag(vcpu, PKVM_HOST_STATE_DIRTY);
+> > +             }
+> > +     }
+> > +
+> >       if (ARM_SERROR_PENDING(exception_index)) {
+> >               if (this_cpu_has_cap(ARM64_HAS_RAS_EXTN)) {
+> >                       u64 disr = kvm_vcpu_get_disr(vcpu);
+>
+> [...]
 
