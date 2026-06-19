@@ -4,118 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0C2BCD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 12:03:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 084B8CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 12:09:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=StlCUTUicQISJ/bWwbWkmSHhXapLgWFJJHXk0oHb5Ig=; b=tpPOhIwhQinVKbjDQDprcxvmMf
-	hwndu5itoum7DrUxa4a3zhFvcDc/tfWXY8nll/pLHJBZq6gtlE0LAKrtnrHxDIeCa3pQl3JdXwVoj
-	YOVInT8d1edVjI0uFFsArBnKcHVOooBAIA1i4EJ+EE0naEVxWa+4MYA49YVHoRtVRBxtR/vVuXz0Y
-	muEM1BSEwj/2B66+xrTUpoUqhHabyLftVbUrBJGvfRidZmweRLuq6+FW83cFTVnL1jvQ8gO+Y44MD
-	aClgxQdZA4LskiT7ANqrzGg/19l7EDUOWG/e0y8mZNRl7JlM1lW8hTb4yh5gKHTCrwkeNiKfJYzCp
-	5DN3PJ+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bIeF4o+oA+QhvxgydThWOk8fYvHRjOwSBeoChr1ofj0=; b=2O9vdTnhZvUWYo35ZtR7t6P826
+	3s9E7btku0Uz+bBESmYciVCX96mdTXQA5Qs5SaU9X3xdCH/fF/tFHsFSpB3RvlaqiI0OtA/q5KWri
+	RDSHJBViaH9QhiXiVNbAbrC99sl9f7LlyMhgKRz6B6t9VmgUBfMRtA2B3wZySC02wIp9poZr2ggum
+	gOTDOnY44UVU7h+xdAIMnVXtYrM1yFy20CfHByCy2XnkEtG1hO3FDOgtPZfp2TD7grN0q/LaAO54d
+	x/7iBWdgKmsWdRf4qCs2iOw2slN0LBeTC3hNZ4mObi3f5FP6CGpIN1uUoIMvxOiSl7ElpNKayawmE
+	DMU74U4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waXwK-00000002Mda-3jwu;
-	Fri, 19 Jun 2026 12:03:16 +0000
-Received: from mail-vs1-xe2c.google.com ([2607:f8b0:4864:20::e2c])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waXwH-00000002Md1-3hEd
+	id 1waY2S-00000002N9c-19LM;
+	Fri, 19 Jun 2026 12:09:36 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1waY2P-00000002N9H-0TW2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Jun 2026 12:03:15 +0000
-Received: by mail-vs1-xe2c.google.com with SMTP id ada2fe7eead31-728e2e57e27so1041549137.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 05:03:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1781870592; x=1782475392; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=StlCUTUicQISJ/bWwbWkmSHhXapLgWFJJHXk0oHb5Ig=;
-        b=Sa2Urls0kw9UQc49tky/qxRplzd68FKzXvt/Ht+j2i2V/ycJ1yirOl0wwFgXSlF5mU
-         rm7OE7+J3StwGv/vUnoXm9BczMd2xj5DdtvQfbdC75LYHUl6n5c2q4ejhMxgLEOcYtv+
-         Hy+N0MXfa8esg8jrBOF90EFha2EzzIW6QwUN6b0bHV/l6OrluDQZW1U27sgkAMzNkAum
-         Rba8MGShhMqQL8+CmnFc1ct1NqT0LAK5zXtM++5iqosP0tIgWdTqY+VI7/RKbcLr/T4s
-         xU16xp/ZEupbSWEUg6g1tgcdTKyKlElJUIStmweNoc6St0RXBmqoatjW1bzvgXPf55Fy
-         0TFQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781870592; x=1782475392;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=StlCUTUicQISJ/bWwbWkmSHhXapLgWFJJHXk0oHb5Ig=;
-        b=nD7dGzuRH4biHFPWazzimIIwVfZknO4dkdDrGI1qthmdrVCvArD9MBrv+6r0FDPG0d
-         z50KKfg/kLi/yEBUAxpOKv27NP47Mv14P4ANV++J5fFigu4DFZCOwy20mITXLMhrY/Aq
-         adsUH8voYVWxjqaCPgoOG/9twToqMwOu4Q+q6Jnj2vhL1gWNJI0n55zalnbIyvwHk4vw
-         pQuAjfXr2MYiMEJZXhDBnAI+TCggrFWMjpnRWx/faMFwQ+fnj3veAU/S3XdRagHdyVi8
-         GNLjK0uAOdi419O29ImCzG/PI00oYo7fhyxxE6KORIG8DGcW/hWPyBl5YwpEgu47IahC
-         t4iw==
-X-Forwarded-Encrypted: i=1; AFNElJ8qCzOwS9cSsmoQS+bttwo0fF2fEtJyWpBeL5MWnYJ/6hwl+oVSIo6GFEI0TT/tjb13sK7/pnHaJkReHsI/VaY6@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy/gpWpdn7kNOFkB0HvwVHWp1BQrZKm3hWww8fhd/0wu5GHfNTU
-	evzHE3Vu4GeTZhm6lE7DDLMtO+s+D6rlY3gJ4RduC/vMZGZ8eyvT5SVo7sn2w/4R5b0=
-X-Gm-Gg: AfdE7clrzCEHMty40r80tJMz8lxMVxphS0nTZD2MBYaOgdiFMmLvmpdyAMaI4VNxrBN
-	1RclE829NT2sxnOeWcD/f0H4DciMP9b6V0GO0FpJ026dhY7icJQRWtufVTEq7qWhxA2hIgM14AQ
-	PWGh6yXhf3RvCrkXKo7zCwqI3bEaWx05aEZ8x4N1C7IAVNZVixjmyye/NEtbPwvzSZsQCN0fN9w
-	1lDbhIjZzgnBlP4JJX3GrAmreypbtAw9KkC3XZBzDgmt/vxi6R3pM4UgQNjsWIvg5Ua8VqhpxB1
-	07gIT4iwWw6HwYAct9gHDsu96geEU8Hixx3sLSVT5R2Y6uXpHymML3m8daSedgOLihspJrmJGrT
-	VpbQcGStPg3ytjfKjuo1fgWJogu8Hae4qeEmkWyaHgKwTJbhi3gsD5tHEmA/IrcIH8Y6tCnrw5o
-	Aju8al6xjwaf5gi2s2S45T061F40rrQTuSzmW87U4REbgNflmMPrdr35jOECikT9yZKK2KYRVvo
-	zR2hQ==
-X-Received: by 2002:a05:6102:c89:b0:729:213f:76ca with SMTP id ada2fe7eead31-72a20215eaamr1999509137.29.1781870591985;
-        Fri, 19 Jun 2026 05:03:11 -0700 (PDT)
-Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-920a424f817sm215731985a.22.2026.06.19.05.03.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 19 Jun 2026 05:03:10 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1waXwD-00000004SQK-4AfU;
-	Fri, 19 Jun 2026 09:03:09 -0300
-Date: Fri, 19 Jun 2026 09:03:09 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Alexey Kardashevskiy <aik@amd.com>
-Cc: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-coco@lists.linux.dev, Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>, Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
-Subject: Re: [PATCH v6 00/20] dma-mapping: Use DMA_ATTR_CC_SHARED through
- direct, pool and swiotlb paths
-Message-ID: <20260619120309.GI231643@ziepe.ca>
-References: <20260604083959.1265923-1-aneesh.kumar@kernel.org>
- <aigYbK12D8uKQvJF@arm.com>
- <20260609144746.GL2764304@ziepe.ca>
- <2ecfa1a8-6202-4319-9692-a6ffeb5a3dbf@amd.com>
- <yq5aqzm4dz25.fsf@kernel.org>
- <20260618153705.GH231643@ziepe.ca>
- <d4ef9a9f-18d9-40e1-9d02-87aeb9cb6540@amd.com>
+	Fri, 19 Jun 2026 12:09:34 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 769B43541;
+	Fri, 19 Jun 2026 05:09:26 -0700 (PDT)
+Received: from [10.57.95.87] (unknown [10.57.95.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F0D863F62B;
+	Fri, 19 Jun 2026 05:09:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1781870971; bh=CbvyzZMEqP1i/XApNRquWzgwjAyHus7dVHSaqyWp4bk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Ag2I8MaZkwum7i4EHVhEwH48PbsBZo253L7NHnIqhmZ4lxMHgo2ziLEGuxVL/0kGE
+	 uomZ83C+vrC+QPKfU5VHK+3ps78o0ZD7f/3qoAsQM7XmsK+536oAp48IKm1KqprHw3
+	 U8pLutdMMFihL80+1nxiriPkxyS9IsyP+OQCeKJo=
+Message-ID: <ff82a5b0-fe52-4b33-852c-10f3923999d5@arm.com>
+Date: Fri, 19 Jun 2026 13:09:23 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <d4ef9a9f-18d9-40e1-9d02-87aeb9cb6540@amd.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 5/6] arm64: execmem: enable EXECMEM_ROX_CACHE on
+ supported CPUs
+Content-Language: en-GB
+To: =?UTF-8?Q?Adrian_Barna=C5=9B?= <abarnas@google.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: linux-mm@kvack.org, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, David Hildenbrand <david@kernel.org>,
+ "Mike Rapoport (Microsoft)" <rppt@kernel.org>,
+ Ard Biesheuvel <ardb@kernel.org>, Christoph Lameter <cl@gentwo.org>,
+ Yang Shi <yang@os.amperecomputing.com>, Brendan Jackman <jackmanb@google.com>
+References: <20260611130144.1385343-1-abarnas@google.com>
+ <20260611130144.1385343-6-abarnas@google.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20260611130144.1385343-6-abarnas@google.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260619_050314_117880_C3139435 
-X-CRM114-Status: GOOD (  27.96  )
+X-CRM114-CacheID: sfid-20260619_050933_352687_840B26D6 
+X-CRM114-Status: GOOD (  21.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,67 +76,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 19, 2026 at 12:05:45PM +1000, Alexey Kardashevskiy wrote:
-
-> > > > > IMHO that's an AMD issue, not with the design of this series..
-> > > > > 
-> > > > > The series is right, a device that is !force_dma_decrypted() must be
-> > > > > considerd to be a trusted device and we must never place any DMA
-> > > > > mappings for a trusted device into shared memory.
-> > > > 
-> > > > swiotlb=force forces swiotlb, not decryption.
-> > 
-> > If force_dma_decrypted() == true then swiotlb must allocate from a
-> > decrypted memory pool. It is right there in the name!
-> > 
-> > The hypervisor environment should *never* set force_dma_decrypted()
-> > because all devices can access all hypervisor memory, up to their IOVA
-> > limits.
+On 11/06/2026 14:01, Adrian Barnaś wrote:
+> Enable EXECMEM_ROX_CACHE support for ARM64 systems that implement
+> the bbml2_no_abort CPU feature.
 > 
-> True. But we do not have encrypted swiotlb pool today, right?
+> Using the ROX cache brings a performance boost by reducing linear region
+> fragmentation caused by strict memory permissions (e.g., W^X enforcement).
+> Grouping executable code (which is read-only in the linear region alias)
+> into PMD-sized block mappings reduces TLB pressure and page table size.
 
-"encrypted" is just normal struct page memory, that's the default for
-swiotlb.
+Do you have any data on fragmentation reduction and/or performance improvement
+in practice due to this change?
 
-I think it was a big mistake for the AMD SME stuff to overload the
-decrypted/encrypted CC stuff which should mean shared/private in a
-guest context to also mean things about physical memory encryption in
-the host. It is really confusing.
-
-The SME side is just a bad arch choice, the real world doesn't work
-well if you set high address bits in your dma_addr_t. I think AMD
-needs to use those restricted swiotlb pool where it allocates this
-very special "SME Disabled" memory that will have a low
-dma_addr_t. Then alloc and bouncing will get memory with a suitable
-dma_addr_t. This has nothing to do with force_dma_unencrypted() which
-is only a CC guest concept and nothing else in the OS should ever
-touch decrypted memory.
-
-> > And this is more insane logic. The right fix is to allocate the
-> > swiotlb bounce from the *encrypted* pools when running on the
-> > hypervisor which requires undoing this abuse of force_dma_decrypted().
 > 
-> +1.
+> This is only enabled on systems with bbml2_no_abort, as splitting
+> these large blocks to make pages writable during module loading would
+> otherwise risk triggering TLB Conflict Aborts.
+> > Signed-off-by: Adrian Barnaś <abarnas@google.com>
+> ---
+>  arch/arm64/Kconfig   |  1 +
+>  arch/arm64/mm/init.c | 22 +++++++++++++++++++++-
+>  2 files changed, 22 insertions(+), 1 deletion(-)
 > 
-> But how does the kernel decide if it is this swiotlb pool or just
-> some page which happens to be below the IOVA limit?
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index 38dba5f7e4d2..79c347ab841e 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -285,6 +285,7 @@ config ARM64
+>  	select USER_STACKTRACE_SUPPORT
+>  	select VDSO_GETRANDOM
+>  	select VMAP_STACK
+> +	select ARCH_HAS_EXECMEM_ROX
 
-You mean in swiotlb_tbl_unmap_single() ? It checks the address against
-the pool's range?
+nit: This list is sorted in alphabetical order; please maintain that ordering.
 
-> swiotlb can be for bouncing (with all these dma_sync_single_for_cpu)
-> or, if dev->dma_io_tlb_mem->for_alloc = true, for coherent
-> allocation (no need in dma_sync_single_for_cpu).
-> 
-> I am looking for a way to set up my "sev-guest" device such as when
+>  	help
+>  	  ARM 64-bit (AArch64) Linux support.
+>  
+> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+> index 71aa745e0bef..8269d7747b84 100644
+> --- a/arch/arm64/mm/init.c
+> +++ b/arch/arm64/mm/init.c
+> @@ -420,6 +420,12 @@ void execmem_fill_trapping_insns(void *ptr, size_t size)
+>  
+>  	flush_icache_range((unsigned long)ptr, (unsigned long)ptr + size);
+>  }
+> +
+> +#define MODULE_TEXT_FLAG	EXECMEM_ROX_CACHE
+> +#define MODULE_TEXT_PGPROT	PAGE_KERNEL_ROX
+> +#else
+> +#define MODULE_TEXT_FLAG	(0)
+> +#define MODULE_TEXT_PGPROT	PAGE_KERNEL
+>  #endif
+>  
+>  static u64 module_direct_base __ro_after_init = 0;
+> @@ -511,6 +517,8 @@ struct execmem_info __init *execmem_arch_setup(void)
+>  {
+>  	unsigned long fallback_start = 0, fallback_end = 0;
+>  	unsigned long start = 0, end = 0;
+> +	enum execmem_range_flags module_text_flags = 0;
+> +	pgprot_t module_text_pgprot = PAGE_KERNEL;
+>  
+>  	module_init_limits();
+>  
+> @@ -531,12 +539,24 @@ struct execmem_info __init *execmem_arch_setup(void)
+>  		end = module_plt_base + SZ_2G;
+>  	}
+>  
+> +	/*
+> +	 * The ROX Cache requires bbml2_no_abort because it uses large block
+> +	 * mappings. On systems without this guarantee, splitting these blocks
+> +	 * to make pages writable for module loading can trigger TLB Conflict
+> +	 * Aborts.
+> +	 */
+> +	if (system_supports_bbml2_noabort()) {
+> +		module_text_flags = MODULE_TEXT_FLAG;
+> +		module_text_pgprot = MODULE_TEXT_PGPROT;
+> +	}
 
-Whats a "sev-guest" device?
+Perhaps this is a bit clearer? Then you don't need the MODULE_TEXT_* macros:
 
-> dma_alloc_attrs(snp_dev->dev,...) happens, it allocates a page from
-> the shared swiotlb pool (with no actual bouncing) and there is no
-> obvious way to trick the DMA layer into doing that.
+	if (IS_ENABLED(CONFIG_ARCH_HAS_EXECMEM_ROX) &&
+	    system_supports_bbml2_noabort()) {
+		module_text_flags = EXECMEM_ROX_CACHE;
+		module_text_pgprot = PAGE_KERNEL_ROX;
+	}
 
-Why do you need this?
+Thanks,
+Ryan
 
-Jason
+> +
+>  	execmem_info = (struct execmem_info){
+>  		.ranges = {
+>  			[EXECMEM_MODULE_TEXT] = {
+>  				.start	= start,
+>  				.end	= end,
+> -				.pgprot	= PAGE_KERNEL,
+> +				.flags = module_text_flags,
+> +				.pgprot	= module_text_pgprot,
+>  				.alignment = 1,
+>  				.fallback_start	= fallback_start,
+>  				.fallback_end	= fallback_end,
+
 
