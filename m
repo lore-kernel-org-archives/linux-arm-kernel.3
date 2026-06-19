@@ -4,70 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FB02CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 15:54:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 609F1CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 15:55:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xHnuIxkuusA/4wSFpFP+bEyWJpUG3LAtoVZgWvXCCFE=; b=KWh3qGfF+MGIjjPEpcuCWzO4/w
-	ld607ccSJryB3UV983iY0KIuG5N+oqrMjfKDIvi9p9dgZgiWlcAQix6C+RWuoIx5ytCT91LVn1gAI
-	F9wmU73iN3qRhlnlKrg740Xrf0UXS2i+zXhkkYlZJyqRD4Y377k+kE7i1G/3c+nVtd/iJxGFuIt0m
-	UNOXKenfemGjx+l7bEV/a7vdVsX+nBLMQT8q83FW6Ez2Pml51nkFQeBVPHnXHh+G/qAJnK7z4zTBY
-	le2XwUJpPoKwZKd4ovlRF+dEPjSmzBug6QnkPJ+XcKtuyJPqtbptNmC0/I7zoAyyoTPH75q5+6/mR
-	MkbrP1WQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+JirTmQmlSgc4jir1v2XirqWQnmllRjVHuEutEx8HpE=; b=yWVLRURQU3qfUNqYUbFi2n57Fd
+	A6ZzUwWeWv8ZWzCrOlR82ODQafSj+J8MCf+G237TJHsGxYmvq3JmZ5SfHU4LNrIQ77e6BYJtym7dz
+	C2Ss+x8IyHQV70V+DJZMr7RWQuNwvYTlhi4QQaYlmb30PuoP1T3LQ7ThmfpjAE9cDRCjvmtvox0eO
+	mIXNQS5sTazX5RSBDIDS9pMPVRyvoUct0J0T/j6e0iXGTEI5bGtnj5GFXh/TBBHNTONDZEHvu5lu3
+	Ji9buobyUL8h7dZKMy2BHBGV/kHAOP8wTvs9PSd6PyVkbczMFPi0CLgwoYlmmiyGPIqtPrEAnaFhj
+	j5JbM1JA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wabYB-00000002jPH-3DeR;
-	Fri, 19 Jun 2026 15:54:35 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wabY7-00000002jNy-1tuK
+	id 1wabYx-00000002jdI-0LDe;
+	Fri, 19 Jun 2026 15:55:23 +0000
+Received: from mail-francecentralazon11013008.outbound.protection.outlook.com ([40.107.162.8] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wabYt-00000002jcG-2jP9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Jun 2026 15:54:32 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 707A627DC;
-	Fri, 19 Jun 2026 08:54:22 -0700 (PDT)
-Received: from [10.57.95.87] (unknown [10.57.95.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 058763F763;
-	Fri, 19 Jun 2026 08:54:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1781884467; bh=ScdVpAAEUlglKYhgblarj/aY1vlSzcXqZZn90JqHVRM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=rR92kd0glh5jwf0W8S7Wqiqwjztn+fRhmKmRwPc3S+2HAgi1boPfF3AuGtiPFL1vX
-	 uOMimRzA2/2zRo1kD9pc4PEivvcaAc6rkJYFahOhX1yleErXUOnHOwRpLaslbE3cSz
-	 sBuDw7MRB76zlX9hagYVCosKb/Wmf3PfE0eTjlS8=
-Message-ID: <b4e02fed-0f52-47ec-8e52-ad390c61bbcd@arm.com>
-Date: Fri, 19 Jun 2026 16:54:22 +0100
+	Fri, 19 Jun 2026 15:55:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=cGDVCcRI+g9yda0uCjQUq+/44s5cGyE/5rc5U+E9geOYmo9nHQ1e9x8MuojwYdhajhS+UEdCK62brUb8GI544A66gqQUXkyA1c7HzbmKUclvqtBVUVg9NCr52JsJajbyYbNZpI6mylmE0pnwbd1ygN9EXASr7xoGdLa6QJ3ujdxCOwpdxhaPNLiyyJEk+Hp+KMgFnKVh/2ck7HtQMOG7wkyx4UBmgbRwMSiX7EuE7MQUbrVSld/ptt45Jlg+EpWLai7VwILpZtu/JIvKR/iWPZqwzetZx94X3SGMmaAy8K6Lc9SkTcbVDPvj93XfM58h+D5grRtpMmXUKJRHsZGbvA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+JirTmQmlSgc4jir1v2XirqWQnmllRjVHuEutEx8HpE=;
+ b=rpCRIDCg5pVI2QKqtuYgV4/5GwW5erKRqYGLhWm8mTu9EfT3v6oxwl3Fj5FIbF6qSZn0/1JZg8DojEqi7SXUJj2bAtmyitdhGr3noere/IA4GjFagYE6HNeMHT00ku7IeZ9QZIsp3v/cj9KPCI6lrsUe8vE4ofzPI+R3Xkn5ISq0H6w6nQgnxoNXmNdRj/Mzf47zLPZdDWE/S3R2wNkSbToFHkAxdwXhjhKIgux393ioRv3cnfK8oxIXP8vREdeje/rMNZQkBd/CiUIhekv4PVfvWol2hP+5QGm6YUZpbfST0sVTEAngrHPCU/LbH8EQjfdDbSN2rP9gveoQHsiFFw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+JirTmQmlSgc4jir1v2XirqWQnmllRjVHuEutEx8HpE=;
+ b=I4BNs9XtK4K/63np3wPoeyEqhgQXiPzG6cIFk9plp9O5IIZ45H9ZehHwxNjgABuPTjfQwXjon4fDSgfXGaNbBnDc7gWpcheCtb27XFH09BgxvkQ9JFXelV0qAUD8LWSGvbDDgMZ0moyQnMunMIneOwimSw8j4IOefTsld37sqJRbm4L6yshpFu2jN0xoXyXRvBlpimSj2Uk6zi9abiMJfEZMLhJfCwXxrfTV573rnJSJwbz9r+IwmEUJaen7JikskfbCt+ooVnMO4v8uVBqHm3fAGYLRbna9HmTsE3Vg24Ew7/GRHnH9YmRTa3FXHO9Xdz56qSNLL/dI1rhydHdsRA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by PA4PR04MB9223.eurprd04.prod.outlook.com (2603:10a6:102:2a2::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.13; Fri, 19 Jun
+ 2026 15:55:15 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0113.015; Fri, 19 Jun 2026
+ 15:55:15 +0000
+Date: Fri, 19 Jun 2026 10:55:05 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Yuanshen Cao <alex.caoys@gmail.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Ripard <mripard@kernel.org>, dmaengine@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH 5/5] dt-bindings: dma: sun50i-a64-dma: Update device tree
+ bindings documentation for A733
+Message-ID: <ajVmWar3_5DBWFw9@SMW015318>
+References: <20260619-sun60i-a733-dma-v1-0-da4b649fc72a@gmail.com>
+ <20260619-sun60i-a733-dma-v1-5-da4b649fc72a@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260619-sun60i-a733-dma-v1-5-da4b649fc72a@gmail.com>
+X-ClientProxiedBy: PH8P221CA0058.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:349::7) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: tlbflush: Don't broadcast if mm was only active
- on local cpu
-Content-Language: en-GB
-To: Will Deacon <will@kernel.org>
-Cc: Linu Cherian <linu.cherian@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Kevin Brodsky <kevin.brodsky@arm.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Yang Shi <yang@os.amperecomputing.com>, Mark Rutland <mark.rutland@arm.com>,
- Huang Ying <ying.huang@linux.alibaba.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- shameerali.kolothum.thodi@huawei.com
-References: <20260523134710.3827956-1-linu.cherian@arm.com>
- <ai6KzFgfMAxqplcr@willie-the-truck>
- <bfc8803d-b375-477e-bba7-806edaf86578@arm.com>
- <ajAPnahwTe1OHQDp@willie-the-truck>
- <4aa78619-5a79-4fd0-aaac-a990b8c3fd05@arm.com>
- <ajVhiCXYmbDq-qTi@willie-the-truck>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <ajVhiCXYmbDq-qTi@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PA4PR04MB9223:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1e0529c9-b989-46ca-32d0-08dece1b2716
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|7416014|19092799006|56012099006|11063799006|18002099003|22082099003|4143699003;
+X-Microsoft-Antispam-Message-Info: pFKnhjph7KNvhwdJiRAXRPmjuktu2K2Bgc1gcr1cjsE7Gsn4rl7REmt+cMUZEktAzMmWOAopGRWwDM5q2IvagksBUA73qAXj5Jdg/36rK5GwCGlXA0zvujux7LrA5FuFrNf1z3aCRxqc812qvUXImhfGwnzk69NAneki5OOmiOyX4EBizFCOEaFAWiI6p1rOby2zrFfs6mFpDlc1ni79aKcX33yiTL6tujuipKqWLswttTb4/J47lYyoGD17mBJJ4u/yfEzkKpwltfrzSCMBow4/8IZ+5LRl3fPZOrSSmm+/fEQqsBYDxlCNNKSykKSC+yqkJWtUPiSZR35SyDIUzNnM+Xmy+9q8UjQogdyAhR14BU0iG+z5SrEVkxVk9Z2VLpX7bSCSQdlDFvsJlW1JEy+abKHYWNBq3VeaJwSmLWHroPZM1J8Ass5Je5SgwP9cRX3bOFx+zDAG52kAuqjWkIcEKiht8pGk+SjMVJYSE9hZHirJf9lIQd4mgeHUuL3tgPhyT9pt7W3tMC1D6MzoKzB9IehZA6NHnPkCq1L+GNk+/E2CoK2auTRK94Nr9IBl+7c8oUurXD4pUtU++Jnq+m8DoPaTI86qjwzdekvGgmVIi1KwhjcZ7Os5UHD6yOW/3lBs8Q5+utCtIkak8uZ4ezNQ0xQ7KAtpfNLzsfn+B8A=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(7416014)(19092799006)(56012099006)(11063799006)(18002099003)(22082099003)(4143699003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?0mrLyyGu1NJX2xckC1f57OdWohvrWIbsws64i4wyS+eOhR0558X3kG+EnXgJ?=
+ =?us-ascii?Q?pUdDd4vI/aEJ7qc9N6vouzLH7esfBltSkFQqkJv2aiG6Mwn8moA1+nDGSWDU?=
+ =?us-ascii?Q?VEUd0odhnn3RgTSnM5efteOVzjSW5VbFj3t+vrpCBVhzMBHPpcQsZy9HNJs7?=
+ =?us-ascii?Q?o6ACmZ2wfoBzxnuNcCer8Zq5oJGt3gWCBwxDv8BLLlNTPZuMWS+8SW5coDh3?=
+ =?us-ascii?Q?bibKfzPv+tpdWoD2aXEdCA5n44ay7y9S0EnEJt3Bg5FoCCPLyelxaxrRwGxy?=
+ =?us-ascii?Q?duNqU5FCVebcAThhu7o2OYCAWygu+e6UZJ5oP4iX6Ih9KiIciBPhKDQ/oBxF?=
+ =?us-ascii?Q?tqp/wsj70gu6EnSNpPVbwsWSN4Kw4dXTQMiliLa8S3vFKukLzodw49hUPy49?=
+ =?us-ascii?Q?YXjneEpSnVZTBwxDB6f2Rz7M1Si/Go0xopKf0h7zi1PFX5dfnvhLLqDFTtvW?=
+ =?us-ascii?Q?9FQ6pzn5Y9sTq4CAX3sqhvlTLmLUdD8VeKY/Do8PJTM7APyIDdfIZLSCulMm?=
+ =?us-ascii?Q?f1ETtCpvoXXkajISXWh1s7jMJ6rZXAIDP3xFkzztMYE5p7UE6T+MJpuDh+ls?=
+ =?us-ascii?Q?QtRj7x7f1Ft3wtGSd2SS7NYgifBcj5NLUvdlbsUKddtiyfCvaHvtXOnvnUqa?=
+ =?us-ascii?Q?mE1jpN7EzT87C1zTMPPmBsZpaZOc3aMCOOhBe84eEj/08bx291+GQxVhQf9/?=
+ =?us-ascii?Q?E/ASdh333ICMKDIyrNpfFRFyTAYsXl6wIDRZDFDrB9P5f5GNqhLZH2ISQQRn?=
+ =?us-ascii?Q?2z7oksQx9J7lfCsW8bAK5ZksrpCa9G4PxWuo6sMtGwpOtxWIhb4K11LMn24K?=
+ =?us-ascii?Q?KF5Dc5KoywUsWxG/qbODaPS7S5M6iWSsQcCKW9QY4ZjIJOCOiDr2OjvhWFRJ?=
+ =?us-ascii?Q?jrrtmOVhl4dyMcG4zYJh7M57o0QRnr+dL0Glt/2+UsZ4rZkrp6WSMRrWKfz6?=
+ =?us-ascii?Q?/agUG4lDSXxmd6ayZnbup2QoGhibogLcV82uqhJm1Y+phEk961nqERppFbaN?=
+ =?us-ascii?Q?lFgcZrKe6lmYxfMVQdzlB3rA3sbTzn67vmliJwfk4TV6xcHCW55pI5bZKlIG?=
+ =?us-ascii?Q?9B5vV++RE+njTqM3FbZDOShK0bBoSfdLi5tSCrIcHmEGZvUuPIU0a5wpIcsE?=
+ =?us-ascii?Q?N7xFfO1+sAt5tc88Ehdt9fedwqXsRBEYR3M3w8fYzh9PvszQQAIn8Eq/HMeu?=
+ =?us-ascii?Q?5t0EcqHylV36IqnwKDysTl9f4XF9C6slfIctybc7we1VKtZR9eH202R0Xrf8?=
+ =?us-ascii?Q?3um8XLGA3HzME+7U85lQyqIpXOy+Un1R/oulQpeUTrTaQ9t9+F1/f3LQkaPy?=
+ =?us-ascii?Q?6Q8/M5AO71VEmeVn8CcxANoo6/wlspaMVUsesKoqDXLqneLJKeow9V0Vc1bi?=
+ =?us-ascii?Q?uat84lia75SQBJu+XB3rOsSDlvG7yL7jwWFpB6+n3zbWH3ybL1yw19g71bOK?=
+ =?us-ascii?Q?N5I3C3rm35GqgIxydsjCiBRW1ETkPui7dsJBGldTnA/OLposrnaNo+AAGnbj?=
+ =?us-ascii?Q?tr/uJ7wJ6HUViIaqY6JvXO0xJ4HzKBXJcloJQQJmlEaWJiB51y5q8KUeIzhV?=
+ =?us-ascii?Q?S9iIuSAiWsCuylOy0No2VypiwJ8VFef95f1AQgDyyeAgwb2fHOs3pPhbXUzw?=
+ =?us-ascii?Q?atbYgHNjNrD/g9hF7ty23oKQy5i8qYE6d604l74RT8aN2X2HjkY68lmJdljx?=
+ =?us-ascii?Q?VifS+BMP6LEe2hBDcEouCIV9yICoBJx03pnkYH7FTWJJ/EDlqMBeaakiR77Z?=
+ =?us-ascii?Q?DMAB05PeQyWEhvwA/Jksj2283M/zeJe3WLrSyBbO9qWpjhgW5Ch+?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1e0529c9-b989-46ca-32d0-08dece1b2716
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Jun 2026 15:55:15.1026
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: cJDJ6hO6SFargB9/vOA8LEyYfQt63TxywIXPhL59jgnpayUi6BhllQ1Xf7NTHcjtAjcrfO3fKRTd8EN2tmJZsyl/9krULM4CiKnE3y9mzaJHbeElfN3ACY5OsM3hDQ2n
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB9223
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260619_085431_662134_5469D1D3 
-X-CRM114-Status: GOOD (  17.22  )
+X-CRM114-CacheID: sfid-20260619_085520_483587_7A9B41D5 
+X-CRM114-Status: GOOD (  15.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,62 +144,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/06/2026 16:34, Will Deacon wrote:
-> On Mon, Jun 15, 2026 at 04:41:04PM +0100, Ryan Roberts wrote:
->> On 15/06/2026 15:43, Will Deacon wrote:
->>> On Mon, Jun 15, 2026 at 12:21:19PM +0100, Ryan Roberts wrote:
->>>>>> +	self = smp_processor_id();
->>>>>> +
->>>>>> +	/*
->>>>>> +	 * The load of mm->context.active_cpu must not be reordered before the
->>>>>> +	 * store to the pgtable that necessitated this flush. This ensures that
->>>>>> +	 * if the value read is our cpu id, then no other cpu can have seen the
->>>>>> +	 * old pgtable value and therefore does not need this old value to be
->>>>>> +	 * flushed from its tlb. But we don't want to upgrade the dsb(ishst),
->>>>>> +	 * needed to make the pgtable updates visible to the walker, to a
->>>>>> +	 * dsb(ish) by default. So speculatively load without a barrier and if
->>>>>> +	 * it indicates our cpu id, then upgrade the barrier and re-load.
->>>>>> +	 */
->>>>>> +	active = READ_ONCE(mm->context.active_cpu);
->>>>>> +	if (active == self) {
->>>>>> +		dsb(ish);
->>>>>> +		active = READ_ONCE(mm->context.active_cpu);
->>>>>> +	} else {
->>>>>> +		dsb(ishst);
->>>>>> +	}
->>>>>
->>>>> Why can't you just do:
->>>>>
->>>>> 	dsb(ishst);
->>>>> 	active = READ_ONCE(mm->context.active_cpu);
->>>>>
->>>>> ?
->>>>
->>>> Prior to this optimization, we always issued a dsb(ishst) here. Catalin
->>>> suggested the same simplification against the RFC. I believe Linu tried it but
->>>> saw regressions; Hopefully Linu can provide the details.
->>>
->>> I don't follow...
->>>
->>> The old code always did dsb(ishst). The proposed code here does either
->>> dsb(ish) or dsb(ishst). How can that possibly be faster?
->>
->> Ugh, sorry - I read your suggestion as unconditionally issuing a dsb(ish).
->>
->> Ignore my previous answer, and now I'll demonstrate my total lack of
->> understanding of barriers instead...
->>
->> As the comment says, "The load of mm->context.active_cpu must not be reordered
->> before the store to the pgtable that necessitated this flush". I thought that a
->> dsb(ishst) would only provide ordering between stores. Don't we need the
->> dsb(ish) to prevent the load from being reordered before the store?
-> 
-> dsb(ishst) orders prior stores -> everything later. That's why it works
-> today for ordered a PTE write before a TLBI (which isn't a store).
+On Fri, Jun 19, 2026 at 04:53:34AM +0000, Yuanshen Cao wrote:
+>
+> To complete the support for the A733 DMA controller, added
+> `allwinner,sun60i-a733-dma` to the list of compatible strings for
+> `allwinner,sun50i-a64-dma` dt-binding documentations..
+>
+> Signed-off-by: Yuanshen Cao <alex.caoys@gmail.com>
+> ---
 
-Ahh, that simplifies things then!
+Sorry, this patch should be moved to where before your driver, which use it
 
-> 
-> Will
-
+Frank
+>  Documentation/devicetree/bindings/dma/allwinner,sun50i-a64-dma.yaml | 2 ++
+>  1 file changed, 2 insertions(+)
+>
+> diff --git a/Documentation/devicetree/bindings/dma/allwinner,sun50i-a64-dma.yaml b/Documentation/devicetree/bindings/dma/allwinner,sun50i-a64-dma.yaml
+> index c3e14eb6cfff..1cc3304b7414 100644
+> --- a/Documentation/devicetree/bindings/dma/allwinner,sun50i-a64-dma.yaml
+> +++ b/Documentation/devicetree/bindings/dma/allwinner,sun50i-a64-dma.yaml
+> @@ -25,6 +25,7 @@ properties:
+>            - allwinner,sun50i-a64-dma
+>            - allwinner,sun50i-a100-dma
+>            - allwinner,sun50i-h6-dma
+> +          - allwinner,sun60i-a733-dma
+>        - items:
+>            - const: allwinner,sun8i-r40-dma
+>            - const: allwinner,sun50i-a64-dma
+> @@ -70,6 +71,7 @@ if:
+>            - allwinner,sun20i-d1-dma
+>            - allwinner,sun50i-a100-dma
+>            - allwinner,sun50i-h6-dma
+> +          - allwinner,sun60i-a733-dma
+>
+>  then:
+>    properties:
+>
+> --
+> 2.54.0
+>
 
