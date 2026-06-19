@@ -4,74 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0159CD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 21:04:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82E99CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 21:08:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r2f6hjSGMoH572lM/Ykcj4QH+SisNj10wZbZJgrsaP8=; b=V9at7ac0IZhh5C0AaDqsTWd5sq
-	0gRyvonZKc67fDhUVLK8FjhuKdXQTdMZjrVkvkUsas4HWazEm5QddDMvN3SBDNtoAcQaaUB1wp411
-	fOvRTHSxVjeXXZhcXB2wpcD8U4kbP+7akZAdBahbLmzmIi0PX2dMwQDxmfy+jNw9aPvIR2YIx4kIN
-	dK3Mm2efVnxXWYMplhpUhbT5sYQha6QnARL5jOVk/nfI0umGqGM67iOsGV1qLr9wW2GCkvozUPZQI
-	ts+c+RPDvonZTh1cktaqYIabQUU4W+VFEoh8P0VVNOuqRjPwKku1YiHUQy6v+c4vXWUExVC4fDw+c
-	X76l7qFw==;
+	bh=FMSWI+gloufB0h0HTiPPqBp7P4ZIS2lTWu/Igajet9s=; b=S4U1wAYsta4b4cBBHs2Lmd17JL
+	1Lz6OpWi1yb9Tm0BlGwRqBRi25YnJ/dEyzOuzqljET4zawe8oUounwRAp2lm+kF74D7RA995lrXZU
+	o1z5lkx0aXxZFStcOkcbYqTOjBziHwLpMvlyCadA8RoQCLDh9J+HxFZ0/HAcm1+wjQ/HypcYkTXvH
+	i8ue0/49EbIGZyZZISfpi3KC6hMnekiOoZFTmuY03eh/I0ZHb8SH65EtUtCMPyInjj3zLThlOROb+
+	b3OmBw0jPernt3w9yEsh+gPDtczJ8MCSGabnUPHPcH55ow90MrjkQOnbTkr1FOGuZI2OZTKj0oBp0
+	ZMUaiPWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wagO7-0000000323X-2EHr;
-	Fri, 19 Jun 2026 21:04:31 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1wagSF-000000032bZ-0DaY;
+	Fri, 19 Jun 2026 21:08:47 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wagO1-0000000321F-358r
+	id 1wagSD-000000032bO-3I7L
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Jun 2026 21:04:30 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260619210417euoutp029cc73eee19a70bdea484dd2a74eebbd0~6l2PeRuVS0955009550euoutp02K
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 21:04:17 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260619210417euoutp029cc73eee19a70bdea484dd2a74eebbd0~6l2PeRuVS0955009550euoutp02K
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1781903057;
-	bh=r2f6hjSGMoH572lM/Ykcj4QH+SisNj10wZbZJgrsaP8=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=p0UJKPfXVK6bJAFirGdROBBCyRh8cFOmDclU1jj1NJMQhLXJlVREv7tNMnCzRmIR5
-	 Y4IM1AzG2ho53qxtueDBs7dHbM/8TLMARshQRPnwJxfbEyk8IHqyR8BZBz8/kqculg
-	 zvwHiHpDga1gayxLmMKU0OxHSvbMmFTgqxzqVM6k=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20260619210417eucas1p10453b07959c6efc6ef5ab9e0520a600a~6l2OwsEDK1265012650eucas1p1V;
-	Fri, 19 Jun 2026 21:04:16 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20260619210416eusmtip1c42ab3e53832f224de29ef4a70a27b6b~6l2OMSZ6b2659126591eusmtip1D;
-	Fri, 19 Jun 2026 21:04:16 +0000 (GMT)
-Message-ID: <f9fe4a59-c6f6-4388-a823-fc7bc6b9fd6d@samsung.com>
-Date: Fri, 19 Jun 2026 23:04:14 +0200
+	Fri, 19 Jun 2026 21:08:45 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8C88A445D8
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 21:08:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E9C01F0155A
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 21:08:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781903324;
+	bh=FMSWI+gloufB0h0HTiPPqBp7P4ZIS2lTWu/Igajet9s=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=cMmbUbYfwQO5CI8iSeh+6t2SUNKHya5glLSJCb8DV6CntMMsxIktcwYeUmvlKQvmO
+	 ybB8ISM0w+kC9HyTbwLa3hR8N8oPyCXMMxYGJGAiV7pG7cRvGlNmk/oM+gZQ0C7IqG
+	 VFgAGvVR0MMXgLVZKqm2tfLtf7KYNqnzBOd6lNvphwkuSLkrZuKbfwzhVKfDWh8Jin
+	 +qFWl5S01GulWeCaSveSolV7YyO8Mm4k8Zqag5H1SPHluISqIep7t8/+5DRRKL5u8R
+	 HD0uaF/HZibyqylXS6ZVwDwDuUOnQSO+bUVjQvD+rNyE50XfyOX95o1K9oWDnB4LpI
+	 ZAwBSrYj+sajw==
+Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-5ad58351784so947252e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 14:08:44 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ9jovqfWqImt2pA+cRjS3iWRd9c216UsAfPIzsu2OFtSxdNfg2UJ2BQqmCrsffmozcLWKmwJT2WW6sOU1i5laDF@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywaw9CqjOAJyP7aO6oDpinxqrd4wdEh+Ux6q9uzexKgJgTNZvRU
+	Z29XovC5PQ2FzwHRtxYbP/7866AdcFHPTxTxm9G1+h/Q9hTkh8CfG36waGiBRFFE0KhjtZsBJZn
+	/0itYnFuksmDKHomJ6znat7rqsJgLNTg=
+X-Received: by 2002:a05:6512:239d:b0:5ad:4eac:f6d2 with SMTP id
+ 2adb3069b0e04-5ad58f3506amr1312078e87.23.1781903323139; Fri, 19 Jun 2026
+ 14:08:43 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH] arm64: dts: broadcom: bcm2712: Remove non-functional
- EL2 virtual timer
-To: Daniel Drake <dan@reactivated.net>, maz@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, florian.fainelli@broadcom.com,
-	bcm-kernel-feedback-list@broadcom.com
-Cc: devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, andrea.porta@suse.com
-Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <20260619204832.586079-1-dan@reactivated.net>
-Content-Transfer-Encoding: 7bit
-X-CMS-MailID: 20260619210417eucas1p10453b07959c6efc6ef5ab9e0520a600a
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20260619204921eucas1p1c4a9fe8e8a41f552d4637dee2b26f4e4
-X-EPHeader: CA
-X-CMS-RootMailID: 20260619204921eucas1p1c4a9fe8e8a41f552d4637dee2b26f4e4
-References: <CGME20260619204921eucas1p1c4a9fe8e8a41f552d4637dee2b26f4e4@eucas1p1.samsung.com>
-	<20260619204832.586079-1-dan@reactivated.net>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260619_140426_402916_24580EDB 
-X-CRM114-Status: GOOD (  18.26  )
+References: <20260512033317.1602537-1-eleanor.lin@realtek.com>
+ <20260512033317.1602537-3-eleanor.lin@realtek.com> <agMM9soiqpG-TRSb@ashevche-desk.local>
+ <adff3a2d21a64d3ea3b408d62157ee1e@realtek.com> <ah92oEavMu4QRn8y@ashevche-desk.local>
+ <CAMRc=MdA24z-tB_D8CTw68Di8e4OVQJ1QH4+rDskFzq=xjJ5BQ@mail.gmail.com> <DJ3QVMZ6XLW9.1M9W541O92QWJ@kernel.org>
+In-Reply-To: <DJ3QVMZ6XLW9.1M9W541O92QWJ@kernel.org>
+From: Linus Walleij <linusw@kernel.org>
+Date: Fri, 19 Jun 2026 23:08:30 +0200
+X-Gmail-Original-Message-ID: <CAD++jLncD2ZjH3aedOkGNYP3FyZ=i7Pb0OcKKZKuMOPGNjM_nQ@mail.gmail.com>
+X-Gm-Features: AVVi8CciIShnYrkvWiar3ZeR88iI32EVeKlpP07bMr3Ga2S3qThBGTGjlcJfumA
+Message-ID: <CAD++jLncD2ZjH3aedOkGNYP3FyZ=i7Pb0OcKKZKuMOPGNjM_nQ@mail.gmail.com>
+Subject: Re: [PATCH v3 2/7] gpio: regmap: add gpio_regmap_get_gpiochip() accessor
+To: Michael Walle <mwalle@kernel.org>
+Cc: Bartosz Golaszewski <brgl@kernel.org>, Andy Shevchenko <andriy.shevchenko@intel.com>, 
+	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>, 
+	"conor+dt@kernel.org" <conor+dt@kernel.org>, "afaerber@suse.com" <afaerber@suse.com>, 
+	"wbg@kernel.org" <wbg@kernel.org>, 
+	"mathieu.dubois-briand@bootlin.com" <mathieu.dubois-briand@bootlin.com>, "lars@metafoo.de" <lars@metafoo.de>, 
+	"Michael.Hennerich@analog.com" <Michael.Hennerich@analog.com>, "jic23@kernel.org" <jic23@kernel.org>, 
+	"nuno.sa@analog.com" <nuno.sa@analog.com>, "andy@kernel.org" <andy@kernel.org>, 
+	"dlechner@baylibre.com" <dlechner@baylibre.com>, =?UTF-8?B?VFlfQ2hhbmdb5by15a2Q6YC4XQ==?= <tychang@realtek.com>, 
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>, 
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"linux-realtek-soc@lists.infradead.org" <linux-realtek-soc@lists.infradead.org>, 
+	"linux-iio@vger.kernel.org" <linux-iio@vger.kernel.org>, =?UTF-8?B?Q1lfSHVhbmdb6buD6Ymm5pmPXQ==?= <cy.huang@realtek.com>, 
+	=?UTF-8?B?U3RhbmxleSBDaGFuZ1vmmIzogrLlvrdd?= <stanley_chang@realtek.com>, 
+	=?UTF-8?B?SmFtZXMgVGFpIFvmiLTlv5fls7Bd?= <james.tai@realtek.com>, 
+	=?UTF-8?B?WXUtQ2h1biBMaW4gW+ael+elkOWQm10=?= <eleanor.lin@realtek.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,54 +97,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19.06.2026 22:48, Daniel Drake wrote:
-> Commit d87773de9efe1 ("clocksource/drivers/arm_arch_timer: Default to
-> EL2 virtual timer when running VHE") causes boot to hang on
-> Raspberry Pi 5. The newly-selected EL2 virtual timer does not generate
-> any interrupts, even though the GIC_DIST_ENABLE_SET flag has been
-> confirmed set via readback.
->
-> The reasons for this failure are unknown, however it is likely that
-> this timer was never tested. Raspberry Pi's original devicetree did
-> not include this timer interrupt; it was only introduced via a
-> suggestion[1] made in code review as part of the upstreaming process.
-> (Current RPi firmware versions do include this timer, but only because
-> they rebased on top of the upstreamed devicetree starting with
-> Linux 6.12)
->
-> Until more is known about this non-firing timer interrupt, remove
-> the devicetree entry to enable RPi5 devices to boot.
->
-> [1] https://lore.kernel.org/all/12363be5b11c752b7155cc0c416fdfd2@kernel.org/
->
-> Reported-by: Marek Szyprowski <m.szyprowski@samsung.com>
-> Closes: https://lore.kernel.org/all/ea15cce1-b393-43f6-8d58-3d6f90f0c0cd@samsung.com/
-> Signed-off-by: Daniel Drake <dan@reactivated.net>
+On Mon, Jun 8, 2026 at 4:41=E2=80=AFPM Michael Walle <mwalle@kernel.org> wr=
+ote:
 
-Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
-
-
-> ---
->  arch/arm64/boot/dts/broadcom/bcm2712.dtsi | 2 --
->  1 file changed, 2 deletions(-)
+> >>> Without an accessor like gpio_regmap_get_gpiochip(), we cannot retrie=
+ve the
+> >>> gpio_chip instantiated inside gpio-regmap.c to fulfill these requirem=
+ents in our
+> >>> map() function.
 >
-> diff --git a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
-> index 761c59d90ffc..09ff5e9959d3 100644
-> --- a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
-> +++ b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
-> @@ -678,8 +678,6 @@ IRQ_TYPE_LEVEL_LOW)>,
->  			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(4) |
->  					  IRQ_TYPE_LEVEL_LOW)>,
->  			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(4) |
-> -					  IRQ_TYPE_LEVEL_LOW)>,
-> -			     <GIC_PPI 12 (GIC_CPU_MASK_SIMPLE(4) |
->  					  IRQ_TYPE_LEVEL_LOW)>;
->  	};
->  
+> Why is gpiochip_irq_reqres() called in the first place? Isn't that
+> only called if the irq handling is set up via gc->irq.chip and not
+> via gpiochip_irqchip_add_domain() like in gpio-regmap?
 
-Best regards
--- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
+Not really, the gpiochip_irq_reqres() is called to mark that a
+GPIO line is used for IRQ, so the gpiolib cannot turn this
+GPIO into an output line, gpiod_direction_out() will fail
+on lines used for IRQ. So it's a failsafe.
 
+You can live without it of course, but then you don't get
+this failsafe.
+
+Yours,
+Linus Walleij
 
