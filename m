@@ -4,62 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E942CD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 12:40:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 841F2CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 12:44:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rOBaUSm33VpCqiY2t4y4oxN3NFma2nf9WA0jw5TShzk=; b=J9TX0x1OpyNMFH+RDNhosvHXfk
-	ynhbC2eg3yczFiZBviY+WpvnsF21bvj6gRXy5+/gloHxpJ1bV59LiOmCrEcr+I6ps+lvYPj/+04Vt
-	FfD7k8C6cuo5GEql1hPyqG9f8wapXTi819OTRfwZUtGSr9xpPkONIHrYRac1w584zAg3eeZ5PgyQu
-	wB8Mrg8ObLX5H23VgLWZ+w0NST0Eqelxfkfc8LsmJlyAmNghN3uMTXRicwP9YkENtvz6TP4gKUzOQ
-	Yo8GBpman/jDt9kgOMQt1Uqs4xXSzIkyEHaLdXOKbFKw6T/NP9FUipE+oVQhTO4AJH3NO1dRN8BrN
-	rK22eFWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kWmg+Z3iyFDK7g60i8LQZgyj/s+Ri6gCBeStElOsXdo=; b=KX4bjG/hoCavjF5Yl9WeRMq4oe
+	Xq6QzR9/4/o4eRlKaCzc/9vnidTDM4giOrFCFO2pnC3izUAb+8km9hefVHGtuwUOPhwSsagLq8Aix
+	2nK1AoyfMjBnelJJplBpd8BF3TtEzlKzyrn8Jn0oVahDHtuHwvflxBRVkfH3jsrTCgqNOEtoDlg9A
+	CpyvAEhGNSNhwCyDTKSHLOIHXN4DUOTgZEkvd/uFX0omPF61LDYqxKrwh3/yivoqmjU04mXhl1wkR
+	zUloZ4i8GnDdaplGjHLQZF+2IJYlFO0SOqc+cFPBZn+fCS2N7yBxTgCGXVl84+xWxtz13I+VYLrcw
+	yG6tB4ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waYWK-00000002QA5-1EGl;
-	Fri, 19 Jun 2026 12:40:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1waYZz-00000002QHb-3Udq;
+	Fri, 19 Jun 2026 12:44:15 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waYWJ-00000002Q9x-0zkD
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Jun 2026 12:40:27 +0000
+	id 1waYZy-00000002QHQ-0xuh;
+	Fri, 19 Jun 2026 12:44:14 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1D1FB601F0;
-	Fri, 19 Jun 2026 12:40:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 289751F00A3F;
-	Fri, 19 Jun 2026 12:40:23 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9FC9D40696;
+	Fri, 19 Jun 2026 12:44:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 114E41F00A3A;
+	Fri, 19 Jun 2026 12:44:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781872825;
-	bh=rOBaUSm33VpCqiY2t4y4oxN3NFma2nf9WA0jw5TShzk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=gC9ulqpz0uaCD850OKmHaouCJxZTZ3JKNmvg5he4r4YKSBKv4Shi1dCDP+xGSN4Ez
-	 lqZU4COkz48vcwlWGXuIcBEYeFZ9z0vE6cdcgzTkeIuMSi+/lgVmJIgX2ExVRNG2RD
-	 bjPyaDsUrkMy9kCCVV7PaSwUqVwwSPi3w2l8/ePbT6hx4KHZgj0pHbBiL2LjJJjoJL
-	 MGnz9bixozCSNSXHshyxbxaKevLtVCMVHbTwVJjm+p56hNJgHsAYI8q5VU2Jlbc5Zc
-	 baoq1URKHCJu9v6Ig5/oTqlXfrX4lInB6yQQ0b0eHaPHEj1YQN+0wL/x8z17O5rFm1
-	 RpWLffNvRt3fQ==
-Message-ID: <c13d95d0-911f-48f6-b4ca-8a5e9aacef6c@kernel.org>
-Date: Fri, 19 Jun 2026 14:40:22 +0200
+	s=k20260515; t=1781873053;
+	bh=kWmg+Z3iyFDK7g60i8LQZgyj/s+Ri6gCBeStElOsXdo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=eWJ1awcEsj0kwKPYAZGBemEb4pVgNzNGndskM/AendSEIszbYPmclEhGr43mm/JQr
+	 PXaBWJKNVyYOCr2ARKQF30BWlL00GafGIxWsVeEQ936ttytRaDacRdAlyNLRZp/dBa
+	 w6Q5PKwEZw1RGa20MvbQVkvlW1BJ8zHrcvYxcGOFDgpAhi2raWQqwmkTp3ktFXmuAj
+	 Bwsi6sPZidxy/F3hMM/ibts5K7LqEt53LIdIKA5t0KwlWJzn/EH+ALemKsEZuj0sMs
+	 WvRhrT+Un9WtC340t9NEiMKlwenvGNZbmZywpAg3TQaaVN++C/6KbMiYUpmQb/+j4u
+	 0ABLU57/ixc/g==
+Date: Fri, 19 Jun 2026 14:44:11 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+	Sandy Huang <hjc@rock-chips.com>, Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, 
+	Andy Yan <andy.yan@rock-chips.com>, Daniel Stone <daniels@collabora.com>, 
+	Dave Stevenson <dave.stevenson@raspberrypi.com>, =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, 
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, kernel@collabora.com, dri-devel@lists.freedesktop.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v7 02/30] drm/connector: Add HDMI 2.0 scrambler
+ infrastructure
+Message-ID: <20260619-tentacled-chupacabra-of-discussion-aaed1e@houat>
+References: <20260602-dw-hdmi-qp-scramb-v7-0-445eb54ee1ed@collabora.com>
+ <20260602-dw-hdmi-qp-scramb-v7-2-445eb54ee1ed@collabora.com>
+ <20260612-subtle-shapeless-rattlesnake-4b6af8@houat>
+ <7b19b243-ad6a-4d1f-b34e-684e8bfe500c@collabora.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: errata: Handle Apple WFI State Loss
-To: Mark Rutland <mark.rutland@arm.com>, Yureka Lilian <yureka@cyberchaos.dev>
-Cc: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- asahi@lists.linux.dev, Sasha Finkelstein <k@chaosmail.tech>
-References: <20260615-wfi-erratum-v2-1-59a73467f70d@cyberchaos.dev>
- <ajAT9fWgOd9HY7ei@willie-the-truck>
- <e105c7b2-a5eb-4b5d-955f-685058143e9d@cyberchaos.dev>
- <ajUbcv75FuSPPi9o@J2N7QTR9R3>
-Content-Language: en-US
-From: Sven Peter <sven@kernel.org>
-In-Reply-To: <ajUbcv75FuSPPi9o@J2N7QTR9R3>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="4ewvgxcfsnr2oshm"
+Content-Disposition: inline
+In-Reply-To: <7b19b243-ad6a-4d1f-b34e-684e8bfe500c@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,89 +83,224 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+--4ewvgxcfsnr2oshm
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v7 02/30] drm/connector: Add HDMI 2.0 scrambler
+ infrastructure
+MIME-Version: 1.0
 
-On 6/19/26 12:38, Mark Rutland wrote:
-> On Wed, Jun 17, 2026 at 09:23:03PM +0200, Yureka Lilian wrote:
->> On 6/15/26 17:02, Will Deacon wrote:
->>> On Mon, Jun 15, 2026 at 02:21:36PM +0200, Yureka Lilian wrote:
->>>> Apple Silicon CPUs can lose register state in WFI, leading to crashes
->>>> in the idle loop early in the boot process.
->>>> This applies to any previous Apple Silicon CPUs too, but is worked
->>>> around by configuring the WFI mode in SYS_IMP_APL_CYC_OVRD sysreg
->>>> during m1n1's chickens setup.
->>>> This workaround no longer exists since M4.
-> 
-> Are we *certain* that there's no equivalent control elsewhere? i.e. this
-> hasn't just moved?
+On Fri, Jun 12, 2026 at 09:11:54PM +0300, Cristian Ciocaltea wrote:
+> Hi Maxime,
+>=20
+> Thanks for taking the time to review this!
+>=20
+> On 6/12/26 3:06 PM, Maxime Ripard wrote:
+> > On Tue, Jun 02, 2026 at 01:44:02AM +0300, Cristian Ciocaltea wrote:
+> >> Add the connector-level infrastructure to support HDMI 2.0 scrambling:
+> >>
+> >> - A scrambler_supported flag to indicate whether the source supports t=
+he
+> >>   scrambling capability, in which case the newly introduced
+> >>   .scrambler_{enable|disable}() callbacks in drm_connector_hdmi_funcs
+> >>   are mandatory
+> >> - A scrambler_needed flag to be managed by the hdmi state helpers based
+> >>   on the negotiated TMDS character rate and the source/sink scrambling
+> >>   capabilities
+> >> - A scrambler_enabled flag to track whether scrambling is currently
+> >>   active
+> >> - A delayed work item (scdc_work) with an associated callback (scdc_cb)
+> >>   to monitor sink-side scrambling status and retry the setup if the si=
+nk
+> >>   resets it
+> >>
+> >> These are intended to be used by SCDC scrambling helpers to coordinate
+> >> scrambling setup and teardown between the source driver and the DRM
+> >> core.
+> >>
+> >> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> >> ---
+> >>  drivers/gpu/drm/drm_connector.c | 18 +++++++++
+> >>  include/drm/drm_connector.h     | 81 ++++++++++++++++++++++++++++++++=
++++++++++
+> >>  2 files changed, 99 insertions(+)
+> >>
+> >> diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_con=
+nector.c
+> >> index a5d13b92b665..526dc2931b8a 100644
+> >> --- a/drivers/gpu/drm/drm_connector.c
+> >> +++ b/drivers/gpu/drm/drm_connector.c
+> >> @@ -220,6 +220,19 @@ void drm_connector_free_work_fn(struct work_struc=
+t *work)
+> >>  	}
+> >>  }
+> >> =20
+> >> +static void drm_connector_hdmi_scdc_work(struct work_struct *work)
+> >> +{
+> >> +	struct drm_connector *connector;
+> >> +	struct drm_connector_hdmi *hdmi;
+> >> +
+> >> +	hdmi =3D container_of(to_delayed_work(work), struct drm_connector_hd=
+mi,
+> >> +			    scdc_work);
+> >> +	connector =3D container_of(hdmi, struct drm_connector, hdmi);
+> >> +
+> >> +	if (hdmi->scdc_cb)
+> >> +		hdmi->scdc_cb(connector);
+> >> +}
+> >> +
+> >>  static int drm_connector_init_only(struct drm_device *dev,
+> >>  				   struct drm_connector *connector,
+> >>  				   const struct drm_connector_funcs *funcs,
+> >> @@ -285,6 +298,7 @@ static int drm_connector_init_only(struct drm_devi=
+ce *dev,
+> >>  	mutex_init(&connector->edid_override_mutex);
+> >>  	mutex_init(&connector->hdmi.infoframes.lock);
+> >>  	mutex_init(&connector->hdmi_audio.lock);
+> >> +	INIT_DELAYED_WORK(&connector->hdmi.scdc_work, drm_connector_hdmi_scd=
+c_work);
+> >>  	connector->edid_blob_ptr =3D NULL;
+> >>  	connector->epoch_counter =3D 0;
+> >>  	connector->tile_blob_ptr =3D NULL;
+> >> @@ -606,6 +620,10 @@ int drmm_connector_hdmi_init(struct drm_device *d=
+ev,
+> >>  	    !hdmi_funcs->hdmi.write_infoframe)
+> >>  		return -EINVAL;
+> >> =20
+> >> +	if (connector->hdmi.scrambler_supported &&
+> >> +	    (!hdmi_funcs->scrambler_enable || !hdmi_funcs->scrambler_disable=
+))
+> >> +		return -EINVAL;
+> >> +
+> >>  	ret =3D drmm_connector_init(dev, connector, funcs, connector_type, d=
+dc);
+> >>  	if (ret)
+> >>  		return ret;
+> >> diff --git a/include/drm/drm_connector.h b/include/drm/drm_connector.h
+> >> index 529755c2e862..f1c5c15a6cce 100644
+> >> --- a/include/drm/drm_connector.h
+> >> +++ b/include/drm/drm_connector.h
+> >> @@ -28,6 +28,7 @@
+> >>  #include <linux/ctype.h>
+> >>  #include <linux/hdmi.h>
+> >>  #include <linux/notifier.h>
+> >> +#include <linux/workqueue.h>
+> >>  #include <drm/drm_mode_object.h>
+> >>  #include <drm/drm_util.h>
+> >>  #include <drm/drm_property.h>
+> >> @@ -1057,6 +1058,19 @@ struct drm_connector_hdmi_state {
+> >>  	 * @tmds_char_rate: TMDS Character Rate, in Hz.
+> >>  	 */
+> >>  	unsigned long long tmds_char_rate;
+> >> +
+> >> +	/**
+> >> +	 * @scrambler_needed: Whether HDMI 2.0 SCDC scrambling is required
+> >> +	 * for the negotiated mode/bpc/format.
+> >> +	 *
+> >> +	 * Computed by drm_atomic_helper_connector_hdmi_check() from
+> >> +	 * @tmds_char_rate and the source/sink scrambling capabilities.
+> >> +	 *
+> >> +	 * Per HDMI 2.0, scrambling is mandatory above 340 MHz TMDS
+> >> +	 * character rate. Optional scrambling at lower rates is
+> >> +	 * deliberately not requested by the helper.
+> >> +	 */
+> >> +	bool scrambler_needed;
+> >>  };
+> >> =20
+> >>  /**
+> >> @@ -1358,6 +1372,36 @@ struct drm_connector_hdmi_funcs {
+> >>  	 */
+> >>  	const struct drm_edid *(*read_edid)(struct drm_connector *connector);
+> >> =20
+> >> +	/**
+> >> +	 * @scrambler_enable:
+> >> +	 *
+> >> +	 * This callback is invoked through @drm_scdc_start_scrambling during
+> >> +	 * a commit to setup SCDC scrambling and high TMDS clock ratio on
+> >> +	 * source side.
+> >> +	 *
+> >> +	 * The @scrambler_enable callback is mandatory if HDMI 2.0 is to be
+> >> +	 * supported.
+> >> +	 *
+> >> +	 * Returns:
+> >> +	 * 0 on success, a negative error code otherwise
+> >> +	 */
+> >> +	int (*scrambler_enable)(struct drm_connector *connector);
+> >> +
+> >> +	/**
+> >> +	 * @scrambler_disable:
+> >> +	 *
+> >> +	 * This callback is invoked through @drm_scdc_stop_scrambling during
+> >> +	 * a commit to disable SCDC scrambling and high TMDS clock ratio on
+> >> +	 * source side.
+> >> +	 *
+> >> +	 * The @scrambler_disable callback is mandatory if HDMI 2.0 is to be
+> >> +	 * supported.
+> >> +	 *
+> >> +	 * Returns:
+> >> +	 * 0 on success, a negative error code otherwise
+> >> +	 */
+> >> +	int (*scrambler_disable)(struct drm_connector *connector);
+> >> +
+> >>  	/**
+> >>  	 * @avi:
+> >>  	 *
+> >> @@ -1960,6 +2004,43 @@ struct drm_connector_hdmi {
+> >>  	 */
+> >>  	unsigned long supported_formats;
+> >> =20
+> >> +	/**
+> >> +	 * @scrambler_supported: Indicates whether the HDMI controller
+> >> +	 * (source) supports HDMI 2.0 SCDC scrambling.
+> >> +	 *
+> >> +	 * When true, @drm_connector_hdmi_funcs.scrambler_enable and
+> >> +	 * @drm_connector_hdmi_funcs.scrambler_disable are mandatory.
+> >> +	 * This is enforced by drmm_connector_hdmi_init().
+> >> +	 *
+> >> +	 * For HDMI bridge based drivers using drm_bridge_connector_init(),
+> >> +	 * this is propagated automatically from bridges that set the
+> >> +	 * DRM_BRIDGE_OP_HDMI_SCRAMBLER flag in their &drm_bridge->ops.
+> >> +	 * Other drivers must set this field on @connector->hdmi before call=
+ing
+> >> +	 * drmm_connector_hdmi_init().
+> >> +	 */
+> >> +	bool scrambler_supported;
+> >> +
+> >> +	/**
+> >> +	 * @scrambler_enabled: Tracks whether HDMI 2.0 scrambler is currentl=
+y enabled.
+> >> +	 */
+> >> +	bool scrambler_enabled;
+> >=20
+> > This is already in the state. Why do you need to copy it over here, and
+>=20
+> This was supposed to be used exclusively by drm_scdc_{start,stop}_scrambl=
+ing()
+> and drm_scdc_sync_status() helpers to control the work item and condition=
+ally
+> trigger CRTC resets.  However, it's now also set by vc4_hdmi_connector_in=
+it() to
+> force disable the scrambler in the vc4_crtc_disable_at_boot() execution p=
+ath.
 
-We are as certain as we can be short of Apple confirming this which 
-isn't going to happen.
-XNU has a helper function to "force wfi to use clock gating only" [1] 
-which is how we learned about this control originally on M1.
-This has been disabled starting with M4 using the "NO_CPU_OVRD" define 
-which they describe as "CPU_OVRD register accesses are banned" [2]. If 
-there was an equivalent control elsewhere I would expect them to just 
-use that one instead.
+Oh, my bad, I misread. I thought it was meant to be a copy of
+scrambler_needed, but yeah, you're right it makes sense to keep it as is
+and you can ignore this comment.
 
-In addition most non-architectural sysregs are read-only starting with 
-M4 in the non-Apple-entitled boot mode so even if there was such a 
-control we would likely not be able to access it.
+Maxime
 
+--4ewvgxcfsnr2oshm
+Content-Type: application/pgp-signature; name="signature.asc"
 
-[1] 
-https://github.com/apple-oss-distributions/xnu/blob/f6217f891ac0bb64f3d375211650a4c1ff8ca1ea/osfmk/arm64/machine_routines_asm.s#L1129
-[2] 
-https://github.com/apple-oss-distributions/xnu/blob/f6217f891ac0bb64f3d375211650a4c1ff8ca1ea/pexpert/pexpert/arm64/board_config.h#L197
+-----BEGIN PGP SIGNATURE-----
 
-> 
->>>> Add a workaround capability for replacing wfi and wfit with nop, and
->>>> an erratum to enable it on the affected CPUs if the workaround using the
->>>> sysreg is not already applied. Leave the decision whether the sysreg
-[...]
->>>> +	} while (0)
->>> How can you guarantee that we don't run one of these prior to patching?
->>
->> We can't, but there are a few points to our advantage, namely the boot cpu
->> isn't actually affected by this (when the CYC_OVRD bits are not configured
->> or not supported), and first round of patching happens quite early before
->> the other cpus are started.
-> 
-> I think you're saying that:
-> 
-> * On the boot CPU, WFI *never* loses register state.
-> 
-> * On other CPUs, WFI *might* lose register state (and this cannot be
->    inhibited).
-> 
-> Is that understanding correct, or are there other conditions where a WFI
-> on the boot CPU can lose register state?
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCajU5mgAKCRAnX84Zoj2+
+di3yAX9/gHx3Xb+KKlXx8LiIXAWY9ki/m/hUvFFOXASDGlXk59XC1KG43J/yEJr0
+S+acjC0Bf0XXkICkBdxlSp/wUDxhPlCSrNdaH+Intm6VjbB1lt0lzNbE/TcVgwcg
+Gbq15g7kVQ==
+=cBwC
+-----END PGP SIGNATURE-----
 
-Those are our current observations, yes. We don't know why the boot CPU 
-behaves differently and there no differences in any Apple sysregs that 
-would explain it.
-
-But looking at all wfis in the kernel there are bunch in head.S and 
-similar for infinite loops where we don't care if register state is 
-lost. The only two that currently matter are a wfit in __delay and the 
-wfi in the idle loop.
-The __delay one gets enabled after arm64_features are found which 
-happens just before arm64_errata from setup_boot_cpu_features() and 
-there's no __delay call inbetween that and when alternatives are 
-applied. If we follow Will's suggestion with an early_param that happens 
-much earlier as well.
-My understanding is that the idle loop won't be reached before 
-sched_init() and that also happens much later.
-
-> 
-> IIRC kdump doesn't ensure the new kernel is started on the boot CPU, so
-> I think that would be broken. I guess you can't kexec generally due to a
-> lack of offlining of secondary CPUs.
-
-Next to that, kexec also runs into issues with all the various 
-co-processors which we can't easily reset or shut down once they've been 
-brought up once.
-
-
-Sven
-
+--4ewvgxcfsnr2oshm--
 
