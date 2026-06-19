@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB915CDB467
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91F76CD98F8
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 07:05:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,61 +12,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HiUT5ABfb1SzLS+/NM78To0mA4a5Z1HMNy+YIWkerC4=; b=Cc+B+J2H0xKYM5a1oBFV7ViEMM
-	BdiS8XTwS+T79rIYI+BMOdr0yi/vMdZJPuNJCnxCLRsVd3VKwFsJzQQbe4CYbKU8VodcOXJlCgKf3
-	8bIAA4JN3ByZ1d9kr2Acrz5AnuqAyFuFkF7ol7Ta+/SlTCfp+EUGFUJ78JNDVg59ZcZ01tqs0KwJj
-	7WiW+kw8r/aJWT2UyLAiEWsTPjgYJfq27cGSiMejWoaqs0/WfIp89ZiXio80ogVhNbXx5nLHjsz81
-	TKjoUGf0pYRRm1WKPdCax3gWZpOYsiDu7LgrCPef5weZcAqcvmJCvy7wxi/WvyrT05Y38jlfIjJ4B
-	CV8Dd/TQ==;
+	bh=S1QUYcee151+QuSJM7wM7vpmF/sftjcL7x2ymejauNs=; b=nWya9BdqY7qzfU097n7kmJTDJb
+	cENv4GmF1Yaa4V2a2/cKhBdePySqXl5nF7Tai4SOa/8EejsNLMwg3KeUiMuhb5etAfux8S/uhqEj8
+	9/E8KlTjGu/jdTwQh1vO5t/zwrRhzftplN+CC59mvnbO6aNsvQpm8QBZq8AmMQb7j8K2kLLOelnBl
+	o7L5HSxmRx/Q8TxC6qlmo4iyDVMW0pZEbDv5ElaNySM1VwGsIIPc6H+4JOzppOE+aCD/uLFX5x7Bu
+	R2HRRdL4Xnttezwxk4lvsQzeLrMSPQ0DHo+gQL0YsPbjAAbHAcddwnLjCFh1cPJA0IAJj+Vuu1jNK
+	A1DZzO5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waTIC-000000024cB-3GYC;
+	id 1waTIC-000000024bN-1odH;
 	Fri, 19 Jun 2026 07:05:32 +0000
-Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
+Received: from mail-ed1-x549.google.com ([2a00:1450:4864:20::549])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waTI1-000000024Te-1HRa
+	id 1waTHx-000000024QQ-2wXq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Jun 2026 07:05:22 +0000
-Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-463dd955dafso1080312f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 00:05:20 -0700 (PDT)
+	Fri, 19 Jun 2026 07:05:18 +0000
+Received: by mail-ed1-x549.google.com with SMTP id 4fb4d7f45d1cf-695837464bcso2199557a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 00:05:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781852719; x=1782457519; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1781852715; x=1782457515; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=HiUT5ABfb1SzLS+/NM78To0mA4a5Z1HMNy+YIWkerC4=;
-        b=MMSj4vmMa0h+k7+9apm4OdIP4MJKZUtdVFDsKe7rp39+WsgJymGFNmdRY4qKLyHUH/
-         PoHyU/idCUWXxAOLxDX6D0dRCmTInVvqnDlqNEL751mv18VlbfmEJ7AIJPdSWcWLd4kq
-         iHQa0XBuPxBkG6Zwjh8ZCWlgFD0MBJzmPwmE/oH1Ao0yObQ7bsARx84enqKfkuw4eJPP
-         h5ne2UyToyrJu1rux2QLmPNKQYzG5dso7Y4AtsElaf9KZfQGQV3CQ5eUYZ19Pl30kMvz
-         Q/feLrf1vY8m3/hiV9SgD+QcZxbLwgcz6tu7DnnQQOugrFJU+GAqLYFZtwxoF8SL9yy/
-         8fzg==
+        bh=S1QUYcee151+QuSJM7wM7vpmF/sftjcL7x2ymejauNs=;
+        b=Ut6oIBmDz5YhPjTLZdN0UiyYWwhmUCxOINd4QFghWj/A0/t59RSkhqfkD6s0Pj34g/
+         Xhdd0diwM2l/2UIxVdpgnluUKf/arWWMA2OFBxC6J08JnBdHY3htfFRu+d2ZY5fZoIrm
+         gBNvGWrY9vhzW2h+uKzb6fI5ZwtCVoO5Cx1mwISW1fXBaCoysGOQmcqPwUsI1H9tsSN5
+         plHE9/iTi4XdBDYWZDbJPF8T6mDYYrb4mKUNzjzCes4/yDlARK9hP+Sfe10TeJC/npuO
+         /Fu68YiwIxuNKBSBUCDbyKI8Ecc821Jlh9lrWZCSdgKGe/Yt1hOULedEgpo4t8hFlsLR
+         gVuQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781852719; x=1782457519;
+        d=1e100.net; s=20251104; t=1781852715; x=1782457515;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=HiUT5ABfb1SzLS+/NM78To0mA4a5Z1HMNy+YIWkerC4=;
-        b=nZCSXSz/g5pBRcUpIP9M7cyOqJJudwWmTGX88Iq3LNpE4vPu+zbX4tRmmxCR7n+Qhz
-         e8f/yDEQHti0MMRU+eRPbWJB4dSayJnA0+jZtP8ItiHqWhcUE5OhZZM6jG7dGXs3eTsI
-         MXpyagWUuEBx7W6GHKAwMHhnTnV2nNBChlKQNZVNrizK6t5gic6gHnPdJOmf2dCJHYoN
-         YTL+DtacJG977z9d/Npe6rOWkW1ymt+bs+W9NXSvVMR99wjKC0sYKdNSicMX/3Ul2TTm
-         e4t+Xwx6OoFNTPfNrIPIfFMsyFvGH2ZugWzzPUYsjiua+nvM/3R+N4IlWKG/DFpl4Njd
-         Zeug==
-X-Forwarded-Encrypted: i=1; AFNElJ8i5c+ZL2GfzcS9K0hLNtkD/e52kB/xjE0Nid18my+2vsaA4tBgcO86H6Ju/bATF9dvsOgQJ35FozkfC4l2wrUW@lists.infradead.org
-X-Gm-Message-State: AOJu0YxuOhBCnMrrNSZqWMTt6VJ/EtzIH1AtuujVd3aV5uvkrg0Ynw/o
-	sAGevHyaLkeM2MsppHE3sfsyK7pkUBAAwcReeQ9ioPmXijZMZurIODu5isJCAkgYhZMU1MEIF8y
-	r3w==
-X-Received: from wmfv3.prod.google.com ([2002:a05:600c:15c3:b0:492:4352:4fc7])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:c48e:b0:490:b0e0:3de2
- with SMTP id 5b1f17b1804b1-4923f5a8fd6mr40569085e9.33.1781852718385; Fri, 19
- Jun 2026 00:05:18 -0700 (PDT)
-Date: Fri, 19 Jun 2026 08:05:07 +0100
+        bh=S1QUYcee151+QuSJM7wM7vpmF/sftjcL7x2ymejauNs=;
+        b=gmmeOAdj2PY29lzdEiWAZ48tJFkdt11fy3bw542HjkEUar/Da6V7Ic8/w7sYg2hpQU
+         fDxk1ACFEdoxjlnt3K8d07WOB3XmRnT127SzuXTG4kplFmBoFMZjHVKdk0Bp2LRLjOSA
+         8B5VGM5wNVNzfWyBe6Oxgs7WKKHNrttgo7E5lgMhH9TDYUpXU5xuP65alFBfHkmeZPtZ
+         N3U9gsqj8QkyRs8IqzAVASXZk7K/pleUzn8VukeyP4lYVWQgv+Usly/VPCTwsUIybsc4
+         13/JewVqW4Rdb2VPKqXPIICpbCZQAPlBw7/GL34bifiOwtDFmbaVQ4nhpzny9xHvun+l
+         lZqQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+mSuFaQYhrclM0tPX+qD2uhXjF5EnkBATXrtFlzJba7RaCS91lrT+RmF9RSyCltc/p0f69oby/9ZrygK2l40IW@lists.infradead.org
+X-Gm-Message-State: AOJu0YxhXRYeeY03+Br6mxW9OtHAn38AEeMRvUbkdehJ8gqow/adWWTi
+	tFfupDE5URGSdKQhVt7cg2oJbYtDdTFZFO4A2ZDB/fl8p/JU+ht6mgwbEv3tlJLQu1+1H8wuyxM
+	hIQ==
+X-Received: from edrl9.prod.google.com ([2002:aa7:c3c9:0:b0:696:1db4:76f8])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6402:274c:b0:693:ed2:3f7a
+ with SMTP id 4fb4d7f45d1cf-696e52367dfmr1182084a12.25.1781852714655; Fri, 19
+ Jun 2026 00:05:14 -0700 (PDT)
+Date: Fri, 19 Jun 2026 08:05:04 +0100
 In-Reply-To: <20260619070508.802802-1-tabba@google.com>
 Mime-Version: 1.0
 References: <20260619070508.802802-1-tabba@google.com>
 X-Mailer: git-send-email 2.55.0.rc0.738.g0c8ab3ebcc-goog
-Message-ID: <20260619070508.802802-8-tabba@google.com>
-Subject: [PATCH 7/8] KVM: arm64: Add primitives to flush/sync the VGIC state
- at EL2
+Message-ID: <20260619070508.802802-5-tabba@google.com>
+Subject: [PATCH 4/8] KVM: arm64: Move PSCI helper functions to a shared header
 From: Fuad Tabba <tabba@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, kvmarm@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
@@ -78,8 +77,8 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
 	Fuad Tabba <tabba@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260619_000521_373270_FAEF5CD7 
-X-CRM114-Status: GOOD (  14.81  )
+X-CRM114-CacheID: sfid-20260619_000517_780696_CB6F57D1 
+X-CRM114-Status: GOOD (  15.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,117 +93,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Marc Zyngier <maz@kernel.org>
+Move kvm_psci_valid_affinity() and kvm_psci_narrow_to_32bit() from
+psci.c to include/kvm/arm_psci.h, and move psci_affinity_mask() there
+too, renaming it kvm_psci_affinity_mask() now that it is no longer
+file-local. A follow-up series handles some protected-guest PSCI calls
+at EL2 using these helpers.
 
-pKVM performs its own world switch for protected VMs but has no
-primitives to move the per-vCPU VGIC state between the host and
-hypervisor vCPU contexts.
+No functional change intended.
 
-Add flush_hyp_vgic_state() and sync_hyp_vgic_state(). Flush copies
-vgic_hcr, the in-use list registers and used_lrs from the host into the
-hyp vCPU and pins vgic_sre to a fixed value; sync copies vgic_hcr,
-vgic_vmcr and the in-use list registers back. The active priority
-registers are handled separately by the save/restore-aprs path.
-
-Bound used_lrs by hyp_gicv3_nr_lr, the cached implemented-LR count,
-instead of reading ICH_VTR_EL2 on each entry. That clamps the
-host-supplied value and avoids a per-entry sysreg read that is costly
-under NV.
-
-Signed-off-by: Marc Zyngier <maz@kernel.org>
-Co-developed-by: Fuad Tabba <tabba@google.com>
 Signed-off-by: Fuad Tabba <tabba@google.com>
 ---
- arch/arm64/kvm/hyp/nvhe/hyp-main.c | 55 ++++++++++++++++++++++--------
- 1 file changed, 41 insertions(+), 14 deletions(-)
+ arch/arm64/kvm/psci.c  | 30 +-----------------------------
+ include/kvm/arm_psci.h | 27 +++++++++++++++++++++++++++
+ 2 files changed, 28 insertions(+), 29 deletions(-)
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-index f25ee3971528..0194965930e6 100644
---- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-+++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-@@ -102,6 +102,45 @@ static void fpsimd_sve_sync(struct kvm_vcpu *vcpu)
- 	*host_data_ptr(fp_owner) = FP_STATE_HOST_OWNED;
- }
+diff --git a/arch/arm64/kvm/psci.c b/arch/arm64/kvm/psci.c
+index 3b5dbe9a0a0e..e3db84400d1f 100644
+--- a/arch/arm64/kvm/psci.c
++++ b/arch/arm64/kvm/psci.c
+@@ -21,16 +21,6 @@
+  * as described in ARM document number ARM DEN 0022A.
+  */
  
-+static void flush_hyp_vgic_state(struct pkvm_hyp_vcpu *hyp_vcpu)
-+{
-+	struct kvm_vcpu *host_vcpu = hyp_vcpu->host_vcpu;
-+	struct vgic_v3_cpu_if *host_cpu_if, *hyp_cpu_if;
-+	unsigned int used_lrs, i;
-+
-+	host_cpu_if	= &host_vcpu->arch.vgic_cpu.vgic_v3;
-+	hyp_cpu_if	= &hyp_vcpu->vcpu.arch.vgic_cpu.vgic_v3;
-+
-+	used_lrs	= host_cpu_if->used_lrs;
-+	used_lrs	= min(used_lrs, hyp_gicv3_nr_lr);
-+
-+	hyp_cpu_if->vgic_hcr	= host_cpu_if->vgic_hcr;
-+	/* Should be a one-off */
-+	hyp_cpu_if->vgic_sre	= (ICC_SRE_EL1_DIB |
-+				   ICC_SRE_EL1_DFB |
-+				   ICC_SRE_EL1_SRE);
-+	hyp_cpu_if->used_lrs	= used_lrs;
-+
-+	for (i = 0; i < used_lrs; i++)
-+		hyp_cpu_if->vgic_lr[i] = host_cpu_if->vgic_lr[i];
-+}
-+
-+static void sync_hyp_vgic_state(struct pkvm_hyp_vcpu *hyp_vcpu)
-+{
-+	struct kvm_vcpu *host_vcpu = hyp_vcpu->host_vcpu;
-+	struct vgic_v3_cpu_if *host_cpu_if, *hyp_cpu_if;
-+	unsigned int i;
-+
-+	host_cpu_if	= &host_vcpu->arch.vgic_cpu.vgic_v3;
-+	hyp_cpu_if	= &hyp_vcpu->vcpu.arch.vgic_cpu.vgic_v3;
-+
-+	host_cpu_if->vgic_hcr = hyp_cpu_if->vgic_hcr;
-+	host_cpu_if->vgic_vmcr = hyp_cpu_if->vgic_vmcr;
-+
-+	for (i = 0; i < hyp_cpu_if->used_lrs; i++)
-+		host_cpu_if->vgic_lr[i] = hyp_cpu_if->vgic_lr[i];
-+}
-+
- static void flush_debug_state(struct pkvm_hyp_vcpu *hyp_vcpu)
- {
- 	struct kvm_vcpu *host_vcpu = hyp_vcpu->host_vcpu;
-@@ -150,13 +189,7 @@ static void flush_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
- 
- 	hyp_vcpu->vcpu.arch.vsesr_el2	= host_vcpu->arch.vsesr_el2;
- 
--	hyp_vcpu->vcpu.arch.vgic_cpu.vgic_v3 = host_vcpu->arch.vgic_cpu.vgic_v3;
+-#define AFFINITY_MASK(level)	~((0x1UL << ((level) * MPIDR_LEVEL_BITS)) - 1)
 -
--	/* Bound used_lrs by the number of implemented list registers. */
--	hyp_vcpu->vcpu.arch.vgic_cpu.vgic_v3.used_lrs =
--		min_t(unsigned int,
--		      hyp_vcpu->vcpu.arch.vgic_cpu.vgic_v3.used_lrs,
--		      hyp_gicv3_nr_lr);
-+	flush_hyp_vgic_state(hyp_vcpu);
- 
- 	hyp_vcpu->vcpu.arch.pid = host_vcpu->arch.pid;
- }
-@@ -164,9 +197,6 @@ static void flush_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
- static void sync_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
+-static unsigned long psci_affinity_mask(unsigned long affinity_level)
+-{
+-	if (affinity_level <= 3)
+-		return MPIDR_HWID_BITMASK & AFFINITY_MASK(affinity_level);
+-
+-	return 0;
+-}
+-
+ static unsigned long kvm_psci_vcpu_suspend(struct kvm_vcpu *vcpu)
  {
- 	struct kvm_vcpu *host_vcpu = hyp_vcpu->host_vcpu;
--	struct vgic_v3_cpu_if *hyp_cpu_if = &hyp_vcpu->vcpu.arch.vgic_cpu.vgic_v3;
--	struct vgic_v3_cpu_if *host_cpu_if = &host_vcpu->arch.vgic_cpu.vgic_v3;
--	unsigned int i;
- 
- 	fpsimd_sve_sync(&hyp_vcpu->vcpu);
- 	sync_debug_state(hyp_vcpu);
-@@ -179,10 +209,7 @@ static void sync_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
- 
- 	host_vcpu->arch.iflags		= hyp_vcpu->vcpu.arch.iflags;
- 
--	host_cpu_if->vgic_hcr		= hyp_cpu_if->vgic_hcr;
--	host_cpu_if->vgic_vmcr		= hyp_cpu_if->vgic_vmcr;
--	for (i = 0; i < hyp_cpu_if->used_lrs; ++i)
--		host_cpu_if->vgic_lr[i] = hyp_cpu_if->vgic_lr[i];
-+	sync_hyp_vgic_state(hyp_vcpu);
+ 	/*
+@@ -51,12 +41,6 @@ static unsigned long kvm_psci_vcpu_suspend(struct kvm_vcpu *vcpu)
+ 	return PSCI_RET_SUCCESS;
  }
  
- static void handle___pkvm_vcpu_load(struct kvm_cpu_context *host_ctxt)
+-static inline bool kvm_psci_valid_affinity(struct kvm_vcpu *vcpu,
+-					   unsigned long affinity)
+-{
+-	return !(affinity & ~MPIDR_HWID_BITMASK);
+-}
+-
+ static unsigned long kvm_psci_vcpu_on(struct kvm_vcpu *source_vcpu)
+ {
+ 	struct vcpu_reset_state *reset_state;
+@@ -135,7 +119,7 @@ static unsigned long kvm_psci_vcpu_affinity_info(struct kvm_vcpu *vcpu)
+ 		return PSCI_RET_INVALID_PARAMS;
+ 
+ 	/* Determine target affinity mask */
+-	target_affinity_mask = psci_affinity_mask(lowest_affinity_level);
++	target_affinity_mask = kvm_psci_affinity_mask(lowest_affinity_level);
+ 	if (!target_affinity_mask)
+ 		return PSCI_RET_INVALID_PARAMS;
+ 
+@@ -220,18 +204,6 @@ static void kvm_psci_system_suspend(struct kvm_vcpu *vcpu)
+ 	run->exit_reason = KVM_EXIT_SYSTEM_EVENT;
+ }
+ 
+-static void kvm_psci_narrow_to_32bit(struct kvm_vcpu *vcpu)
+-{
+-	int i;
+-
+-	/*
+-	 * Zero the input registers' upper 32 bits. They will be fully
+-	 * zeroed on exit, so we're fine changing them in place.
+-	 */
+-	for (i = 1; i < 4; i++)
+-		vcpu_set_reg(vcpu, i, lower_32_bits(vcpu_get_reg(vcpu, i)));
+-}
+-
+ static unsigned long kvm_psci_check_allowed_function(struct kvm_vcpu *vcpu, u32 fn)
+ {
+ 	/*
+diff --git a/include/kvm/arm_psci.h b/include/kvm/arm_psci.h
+index cbaec804eb83..f86a006d6713 100644
+--- a/include/kvm/arm_psci.h
++++ b/include/kvm/arm_psci.h
+@@ -38,6 +38,33 @@ static inline int kvm_psci_version(struct kvm_vcpu *vcpu)
+ 	return KVM_ARM_PSCI_0_1;
+ }
+ 
++/* Narrow the PSCI register arguments (r1 to r3) to 32 bits. */
++static inline void kvm_psci_narrow_to_32bit(struct kvm_vcpu *vcpu)
++{
++	int i;
++
++	/*
++	 * Zero the input registers' upper 32 bits. They will be fully
++	 * zeroed on exit, so we're fine changing them in place.
++	 */
++	for (i = 1; i < 4; i++)
++		vcpu_set_reg(vcpu, i, lower_32_bits(vcpu_get_reg(vcpu, i)));
++}
++
++static inline bool kvm_psci_valid_affinity(struct kvm_vcpu *vcpu,
++					   unsigned long affinity)
++{
++	return !(affinity & ~MPIDR_HWID_BITMASK);
++}
++
++static inline unsigned long kvm_psci_affinity_mask(unsigned long affinity_level)
++{
++	if (affinity_level <= 3)
++		return MPIDR_HWID_BITMASK &
++			~((0x1UL << (affinity_level * MPIDR_LEVEL_BITS)) - 1);
++
++	return 0;
++}
+ 
+ int kvm_psci_call(struct kvm_vcpu *vcpu);
+ 
 -- 
 2.55.0.rc0.738.g0c8ab3ebcc-goog
 
