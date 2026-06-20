@@ -4,129 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C10ACD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Jun 2026 14:10:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 853C0CD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Jun 2026 14:31:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tLHhte5QUVyT08IVmnmDcOMU38Iu165K7b6l/LoQiX4=; b=R6hYNMGKEyJsXX6Qfe7qiyR9vn
-	kltStvp0g712zUhekevy7gtgf1j/YRG8mouMx+J4BNUFCc+KEguIZoq6apsEsZUXP1QS6preuZxqK
-	bFH7p+Kf8GLzJjrUcOgxPwKyk7uIFiov6MWRP5ST/DPr0tNUeMjDKEfON39ciF8E4jTMb5qvV+J7n
-	jZ12UZLUNIRcFfnVhDwXYawx8I9jZ4DA6wmdPQtD3HFNBy29+OZ34Cjue3sg8qj8/1XpGRu0ZBJFn
-	5u5lmiZvmk/dzjyEy80TDrfGyHRM3eBhDznmMzsUpOTAWZ+TW/V/Rg/ukiYaBUNyW6Lrdk+3foULn
-	4+fQFZlw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yoAOMy3f2Itr67+DkmQlpGnqzcUNVVNmM/LFKYJbM+k=; b=BKeYMxJCCpz+NGpEcnVMfjy9A6
+	okLR3tif9cax9Xka8Zb3z8ZrTUOWlyTdwwAXRdcqbqYiGBWzAYWjAwUqvygJ2Dusm9yuzqnPA3cyC
+	vWVNhr6AQ3tKzJ4gzp0VlzKmwraI/zB3dVWk6+p0Zjv7UiUt3oWSOMYH8ze2cpqXGDuvWudoTJaGh
+	dwCaTsGPzuzNSIClOAtq2Tjh9ULDqkWntacWM9b2cwqxfftZHGTbHs0+E0CH+pd1FcO+Js/RYcgrh
+	WpYQ5OpfMylSX3XSKN7M+NGBzzSWwjLfk06FlyhKtH4hm59oZPBpd93rewimWUvBbj0XZUTnwcWiR
+	HGYdGyuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wawOZ-00000003OzB-0f73;
-	Sat, 20 Jun 2026 14:10:03 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1wawjf-00000003PYA-0VQC;
+	Sat, 20 Jun 2026 14:31:51 +0000
+Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wawOW-00000003OyU-0UQc
+	id 1wawjc-00000003PXM-0ybV
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 20 Jun 2026 14:10:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GqSokA5lflAHGR54iIWPgFiht/SoQJbz/AOPW3Hs4gr0snZy7UAICXLDI92vSPt8YfGNqJRcb9OZlBZWS+5qQ+nxYUl3+c7wYuq1vsxnPVL1H+b70Gx32lqIrH1epldHhZscy8eNNtjO5LQeZ3XXNEP5kaGMSW1aGXLWjIxXHYxyeK8lb5F2MoCUQ0ldt/5o4drlTMKXMoM4iWQ7aQRIuU5k9CNTfdAyzWTPVH0/MYlqvQWE554aEC6cHgeoIIuiEWH3gE/35OW8MIkWKaavuHHBUg/IyUw8W8jcYD5gdP1kzcSw+EY1WDwzZdH3fvLCsKIfIVaYYUqY+H+txIMpKw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=tLHhte5QUVyT08IVmnmDcOMU38Iu165K7b6l/LoQiX4=;
- b=ll/S27fpRtTj6q7l3fGMckEbP7ufr0dQ6wyhJvmXYjhtEfAWyuSSHkKhOs/ddR97nLAB1eEgrD13u6dQ7MsA6wKYUzUTJIC3W2d+bl6/uH0YqgOiQ6Lu/74qO0NtCIT8o0MZSPrbVc/vEY36c0nTjMorek2ehr7cKPI/2gckK2BWWvMI8ehTcUR8BMos2YdpU6+kBV+unrCkT4eJSi9O1HRAlvhyH/D7CgPz6DuTgMnhF4TAu6gNu8yWtXf+2CLZsB+wGEh7z5wDmxcEN6WPDKHTijJn4Gf2Bs7gWIQVhSNgU5CdSKq5CbmvEMHaJMaJfyMAUUQ0x8aGkf68caaC5Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=tLHhte5QUVyT08IVmnmDcOMU38Iu165K7b6l/LoQiX4=;
- b=j/FX9Zy6THoKBPDMC0VC/oY60rTnz9leEM82OjIeKIXngxFWQzG3NU1fvvRMM3fPvF98BQTBdEC89zIntnlQzZCd7+X4Wpcu5P/aOKVAhYY6ENQ2erTndfNBuJabIc6Zlia956nLyGW3qKUpaYfPSx41ocBsOSYv94BMkuDAgdvwbH4wsJpzHYnaYgSQXbh4+zRnDzkDsliNwxbwKuoahDyi06IpdNW1emCP+gfcz2bYeqtzm+WqA4dts/txuuZYpHH87GoRjorn/b1Rog0acpACCi1AAfjMj1OUqIX67jFORWttgZxyaw2JiXkYf7BSw/9lS9iYtl1MuQ8PtgtNtw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AM9PR04MB8524.eurprd04.prod.outlook.com (2603:10a6:20b:433::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.18; Sat, 20 Jun
- 2026 14:09:54 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0139.018; Sat, 20 Jun 2026
- 14:09:54 +0000
-Date: Sat, 20 Jun 2026 09:09:40 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Jiawen Liu <1298662399@qq.com>
-Cc: broonie@kernel.org, cl634@andestech.com, william.zhang@broadcom.com,
-	kursad.oney@broadcom.com, jonas.gorski@gmail.com,
-	bcm-kernel-feedback-list@broadcom.com, anand.gore@broadcom.com,
-	f.fainelli@gmail.com, rafal@milecki.pl, olteanv@gmail.com,
-	han.xu@nxp.com, haibo.chen@nxp.com, yogeshgaur.83@gmail.com,
-	linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev
-Subject: Re: [PATCH 4/4] spi: nxp-fspi: disable runtime PM on probe failures
-Message-ID: <ajafJIPNBOiaISgk@SMW015318>
-References: <20260620083931.1120616-1-1298662399@qq.com>
- <tencent_8FC0B8DFAF4AE67AEBA20548045D53A77707@qq.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <tencent_8FC0B8DFAF4AE67AEBA20548045D53A77707@qq.com>
-X-ClientProxiedBy: PH7P220CA0147.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:327::21) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Sat, 20 Jun 2026 14:31:50 +0000
+Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-36baeec21dcso1570242a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 20 Jun 2026 07:31:47 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1781965907; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Tikjl7/LMyQoy1VFv7tb+zAz4V4xiaTsBL/QQs/KxlsQtiQT3xAwxd8Ud9L0CGgfrL
+         w8+/UYiIzjLQmzRhMYo2yYPpSbZj4mEtpj8z5FyOBvutfdhEol1CRVXorLTIiw5lwqi/
+         5NzuT27kolgtenG0C2d3EhmsvkZBAn8uDjWUq41pxZCQhYM38xMpbbDIVnsMhIYEpNxz
+         ++bfYtVQ2JLMyz+RIP7cu0jtp1baIfuDBRRTiIXa/V4HlMQVb88ni7zQWl9bCQvzxbXx
+         WNGr8jE4EZQTF1bEU1iz9SmJG7LKTTvW98Pnjx9yVWLgfB7ete6wTA4rZJVq2H9hczxY
+         HYJg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=yoAOMy3f2Itr67+DkmQlpGnqzcUNVVNmM/LFKYJbM+k=;
+        fh=0m6GqiPhu8OgB+hKVHwASYK5CE0agMYYIO485AifdV4=;
+        b=Nv77oyLkYaC1511Wa5HInXWQ8W6Q6C4QUHFb5Foz/gJymSrB9gFwzxc3fu/JgDEJAN
+         cCg9ntKkkB87iVDXWS3tSzCCQk6IMsYhbpPyKEbEy8fj0CcT/fbTukkTlH21i9jup+zn
+         5sblV0qPf1aDIr92yBmzCA/8wTuzo/Cz53CY/S70s2KRSS17i5ZN7b5x5uBDuhjBT+D5
+         amLR/I5HAjYWVqJhjGkxI1uGvbvdbQaOvgXC7IRmgo19n35I2CNIouJHsx5TVu9qJabh
+         pO5l2uLLADg6zCeeAnZ2Bd71k6PB+ReeMM8Sh6UsLrvR+sNLOyNZJS1l1Lju+PvuesPE
+         /2RA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1781965907; x=1782570707; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=yoAOMy3f2Itr67+DkmQlpGnqzcUNVVNmM/LFKYJbM+k=;
+        b=Yg3/AkYUOM4lUZTqTkoWc6P749C+3aaOvWJkgyy5i50NlD3xKtIEHFAmBcPepJU7/4
+         GCvSbReRH/AIoWK/H6S37hinzgV4utHsZhtAXBiK4FVBGLO/eXmynuQY5xh44vOsiONH
+         3oOO6BrAS05Jjqr1x6iMVs6nO1R6QSHtLCcUc6jhghdG1176rSLxvheFjOSgP9s2eXAu
+         MWWkpgqel8MVmXqJq1FtCUV2CBYuqJokk5SD7kQOp38lkd3BF+b9VT6Eg0D/FDMK6pBb
+         0IL5DPswQ5jXIItKoYc6ZJeU1iRqyCN5a3/uHNQgJhBRCqZ41Pa30pXqqb+RwGvofGpJ
+         ijKQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781965907; x=1782570707;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=yoAOMy3f2Itr67+DkmQlpGnqzcUNVVNmM/LFKYJbM+k=;
+        b=I8RZvtkdbxxSc8loW2rs1SOLOu9FnxuaXyUSzKn8+DxnC7mY8wQEWgLz8ZIkWe5cQb
+         zcUgvvCwMRz13PH5g3JDUlpXhygsdg0HSq7GYYjsBXTXYAsuhezT69BZ0yICU1vA4cz7
+         jjqctWAjSRHAt9HKcixE05zhvFCfYkUQuMTG/fisD9CcBOKbiBYlqP3EQc06h3XioJvn
+         g+C+AROLWGwL1kel6JNzn1QxssznayvLClPYD53jRxu2WmA8Iee3lMaRHeyCoG37Bs/h
+         Pfy87nmg5mTofjPsk363XmYdFXTEuZq8Jv5MYZIDaJJVKuukxSd3+MfFoNDP/O/yyenj
+         gXBw==
+X-Forwarded-Encrypted: i=1; AFNElJ+6CA8EbUAnXrtHpll7SaBC4ivGVQKyGyBm8oHlF3JR07QY61F189+HixbRkNBj1GnTpUGQewQ8NYG3XfT3UjaV@lists.infradead.org
+X-Gm-Message-State: AOJu0YyHYKoywIDwkfU9kshI9wQNkEiN75TZxJStSXRTHCMmxqs73D1X
+	iS7ojeetANM8DzoxvhT2sftJjtGLpE+GTDtZ0Ul1kOmgoX72p10tfAM5piI+Uy/mgtD7PcVuiSG
+	imwxJGvqqreydIEp8gKPPWoOTK6oMvac=
+X-Gm-Gg: AfdE7cla6lcFuSEK1OhUKCIm9T6Ku10de9B9F0zTT4QjHd1EvX0EXyjN6rODg+tOhH1
+	4njcasjCwwRPzKzh4fa/0zRVgpXWhJYCFqTP7BuAazrYVgqL4eCecHH4jVYBF80fZONix0REU6K
+	vNYynB1pwwcAQjQR5X+aXfQldko7s68v+Yz8h1yzKXHLK5JP0VsUC4uE+r/+RufjdRaCT25a2Qq
+	/o1Oe0/eCEk602YapN3cpY0ZzlnlPI92v7+3OdbxZSAb8WR54Qe0YOQ8+ZvdG8uzEPVMMtWY7GY
+	jJcdBXfP10JanQb+BXiRanUokxQF7FszXaIhHatc9NclJ7fHk7iKMNLf6Plw1g==
+X-Received: by 2002:a17:902:c40f:b0:2b2:4d36:7ba with SMTP id
+ d9443c01a7336-2c7252a8057mr74037005ad.0.1781965906891; Sat, 20 Jun 2026
+ 07:31:46 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM9PR04MB8524:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9c6be700-1fce-47c6-12e6-08deced599c8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|19092799006|376014|366016|7416014|1800799024|18002099003|4143699003|11063799006|56012099006|22082099003;
-X-Microsoft-Antispam-Message-Info: pGjGpLDLki03V+dxaRbswTNv34+vgLICVcSF7YWf67xJm+TVfMipRkHSgwTlvAQfz776rvB4/z3TsJkgytZZWra4BR/r0updKwEVtqHV9wFHml3+HTYWPIjc7eqytX+glh4tKE5sokwXA/aK4AsvvZGna0KBwYHnnt4PjVs70ER5OP9JXJsRbCwi158cPh7mMEDpqzJOXjBAUYj0JCw9PU1OmEAvEKCRQTaPxUCda8sJeaaXa+CgoXEEvBZOz2DRFs53F9VBLtX17PSYzqX8SmXKOLdZRjjZnPwu8E3Pw9PPgJ0Herz9yZ8pSmjqY5WhvyUs+dJGTFQlAPU5FUsst0BFw2qOgKicaM4oAFZ73hPb3xhoOHmKiW6hh+DbRPftYU7iIgHsl2v98gEB6FQzQRyVsikOZ0X2mXsKEd6mRTq+l/Bc5s0xhoBnE45b3ebt6PtQhVXJHOIvEXtohHXftU/zMtuk8702wJvLkRu4izzXKxon2KTZLUVHwcixRNr5bVhoArMnlkTwD4xxFvJLEWHaFR2kuD45kCHUiCxRT0DFWzoqfPQfWUI+D1tUy4107hWcmcbD/stjSydm5yie9IUfF/1K6VwHHSw+e67Hhxmyq97mr6SYZjH+2w0U4z05CTsr5uayQ8/sVwota4rnFZ7J7mR1nUMGVLob+sSFTpU=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(19092799006)(376014)(366016)(7416014)(1800799024)(18002099003)(4143699003)(11063799006)(56012099006)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Ifq97yKp7/BdDZHkNeHB5Xma4drU01ZpZ4GaWLnLyL3kVBd36Wuh7eoPJ8tL?=
- =?us-ascii?Q?sHyou2XY8PRol8qxu0KX9u6p56n8nVH88PiMg8/868Uf9SAVNMy5rFk4L8IE?=
- =?us-ascii?Q?DNrixzNEMYJV9y/3cHi1HQz6J4Qh8mh+F+ix395zvEF1cu2nU3WsOF5K4+cZ?=
- =?us-ascii?Q?CucdxI3AfLLrAJ2QVdZ0wHokN4/MYEsP+0Bgw6eimFZFFyCKhtxzuxtWNvKR?=
- =?us-ascii?Q?GCoT4cG181svo8QRTsEU6QABeyoee/T5nXx3Zrn7+nz7j+qJBju1VpSBhypB?=
- =?us-ascii?Q?xq9+ehXm0ovso3fAGYXZtWNPq8H8W4MhkD0xwBFfDK9SrJLx9WCAE0ISjNzL?=
- =?us-ascii?Q?3K3pxqkwNzBnk8D7GNMW9lEITzuNXLo9KiNzlZnKPaeDrFQr0n1b4Pdb0WXi?=
- =?us-ascii?Q?38Itc0mQmuY9g+gOSNn0q5oXdUkl6GYnlhDEaBT2iQnlP4QySm9osz2tjaVM?=
- =?us-ascii?Q?C+HT389hN8AlYDmkxNZCaJYRGjPhWT21Ruq2J2ax+MPjIA2zXmHgXRjjuhY9?=
- =?us-ascii?Q?J/2ZuJHCnhgbnWzTcQ1I8gpamSJ/3BTfqUs5DGai/XOkCXX8op13X4amM2E2?=
- =?us-ascii?Q?ZzaDj+4evVj+fHSYfv2vTF0L6Cakzzp4x3GGtWK0TZSpKh9pxg0/2M2KREk7?=
- =?us-ascii?Q?go2hAh/AYrkLkc6QAdAtl22J84EPOU1dB1XuOXXD5PZMEra//rgkia5Vs8N3?=
- =?us-ascii?Q?RVKqH1t/1aX7hPHRJaDX44MA0dt8+A//5l+bsYMf0huH5Ua+k3EfhaCL43sc?=
- =?us-ascii?Q?Ve5DwGXRoGpvkINkeYOV/idnbFQAjX6Odbbaba8X8u7WiY/llWYeULM6tCaT?=
- =?us-ascii?Q?8fyTjDq++IcuyJi081JiFuvIlnlOsuWy4/X6NQWx4RmlkqdfrwfvvKtQXyeD?=
- =?us-ascii?Q?JUnptaMHHSymbfdng2bVgHszbUlPATz3Gl6jZ8k0O7K3TK3oGtcKHWr2gQrw?=
- =?us-ascii?Q?XxL+eTUzpXN8uaKq/fy88uskG9WaQD4m+p5nbBsMhTFgTAZIaje7M+tgaqfY?=
- =?us-ascii?Q?bcXoPEKoEq//PL7vzdgZtYiSk+qJFyDnwaqr2rnaDKnMI9yA1/L/2rpdYhtO?=
- =?us-ascii?Q?eW0VmKFAYEz5lrjyWfzCRamJPQlhpQeJ10b465+ed7skIMW3AByJzTDVKHvM?=
- =?us-ascii?Q?cIGsejS/aZjrI4ckRYU7zyLagOvkdJ2j+X6KuMMBnDFXBAH+VQAvPfy3Dh1y?=
- =?us-ascii?Q?AiHJKIMLYOkwq3soCV5hTNSxuTP2yKUzTVh33lve/pKAbLhYFc5k74CbmZji?=
- =?us-ascii?Q?D+3zL+BRVO+oGSRW5IJ+fuFdRRs3C1zbx3RcD116xVF8M7eSqA5fmHFQDMpw?=
- =?us-ascii?Q?5Fta7ztpD8Cp1OK6NuqfkKKiPbZv5ffO0xkNvJ5uQVp90A6tIE5wv57IZ9jK?=
- =?us-ascii?Q?VPEV+IFGsap5gPe75lA/X2T3Vb+EwlvEOE/fw4z2ym/JwvM9zeXa9jYqkGmi?=
- =?us-ascii?Q?QYy5fLw2h/KTDzb6XSLHSmWCuAN1NnXBZ/h6FZ2yUY0A7pYjqI75YlPYrFoC?=
- =?us-ascii?Q?sF9Fow/62d8BkO8cHq7p3o6gIwQ24xAjlMu4ox8GbxdKBaMrXqXz/cVrxgjD?=
- =?us-ascii?Q?Pg2qKCAyqJ1sqXzOzmzjFde0wTT7rUBKI6boI53M2aasBjbTMM2fvkQaLlFf?=
- =?us-ascii?Q?9+elqVHiET/GEhySVoT96boLoPF7OmrPcVSs0Y/1FG/0LJqiHw0eNoAjo+bP?=
- =?us-ascii?Q?G+Ay/m35RB1+jQkcqUok445YQA1lk2W2mo8bzIcrkL+6dQc8NAAJpMvSggYU?=
- =?us-ascii?Q?U8gq4SK714vuAeGrIgU7K5is9lAOqDQB+gEdfO2yyYGo2jFtAzxN?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9c6be700-1fce-47c6-12e6-08deced599c8
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Jun 2026 14:09:54.0174
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: hSLAbrWy16vV0c/faOz1IUlp/OlqlQpUDEF+D0g6wMHwdpcKcBAklk/DHCH36zplvzWRaKVO5cmBKQ+V0in/0ySaIkCar55pjrrjUsOQkycL4aVHP46U8ZAU2ZGxSxIj
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8524
+References: <20260617103235.449609-1-phucduc.bui@gmail.com>
+ <20260617103235.449609-16-phucduc.bui@gmail.com> <ajJ9rbHTspXHo6Ou@opensource.cirrus.com>
+ <20260617140209.3f89706c@pumpkin> <CAABR9nG+6gOj4KnWmTyykgGN93xy6jKQh+-_f8Xxn=Jkv28vBA@mail.gmail.com>
+ <20260619101346.2ec49087@pumpkin> <ajUcTfG3vSGz3n3d@opensource.cirrus.com>
+ <CAABR9nGRCZ1zv0cyBGc3yuM8MeFNqBB1MkGUL7bTbtC_LcKKzA@mail.gmail.com> <871pe2kcif.wl-tiwai@suse.de>
+In-Reply-To: <871pe2kcif.wl-tiwai@suse.de>
+From: Bui Duc Phuc <phucduc.bui@gmail.com>
+Date: Sat, 20 Jun 2026 21:31:34 +0700
+X-Gm-Features: AVVi8CdmzIZOlmsJ02kZGuh_kzjdhPUos4g5dG2tFnwGhCYx2Sp6G_przK0DiY8
+Message-ID: <CAABR9nEdHwXpg8+6J5L9Af1PvybGt3KSfRy=LnMHXSQSHnd25w@mail.gmail.com>
+Subject: Re: [PATCH 15/78] ASoC: codecs: cs42l43: Use guard() for mutex locks
+To: Takashi Iwai <tiwai@suse.de>
+Cc: Charles Keepax <ckeepax@opensource.cirrus.com>, 
+	David Laight <david.laight.linux@gmail.com>, Mark Brown <broonie@kernel.org>, 
+	Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	Cheng-Yi Chiang <cychiang@chromium.org>, Tzung-Bi Shih <tzungbi@kernel.org>, 
+	Guenter Roeck <groeck@chromium.org>, Benson Leung <bleung@chromium.org>, 
+	David Rhodes <david.rhodes@cirrus.com>, Richard Fitzgerald <rf@opensource.cirrus.com>, 
+	povik+lin@cutebit.org, Support Opensource <support.opensource@diasemi.com>, 
+	Nick Li <nick.li@foursemi.com>, Herve Codina <herve.codina@bootlin.com>, 
+	Srinivas Kandagatla <srini@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>, Baojun Xu <baojun.xu@ti.com>, 
+	Sen Wang <sen@ti.com>, Oder Chiou <oder_chiou@realtek.com>, 
+	Lars-Peter Clausen <lars@metafoo.de>, nuno.sa@analog.com, 
+	Steven Eckhoff <steven.eckhoff.opensource@gmail.com>, patches@opensource.cirrus.com, 
+	chrome-platform@lists.linux.dev, asahi@lists.linux.dev, 
+	linux-arm-msm@vger.kernel.org, linux-sound@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260620_071000_168352_DFBF7D1E 
-X-CRM114-Status: GOOD (  18.72  )
+X-CRM114-CacheID: sfid-20260620_073148_283496_18D70C51 
+X-CRM114-Status: GOOD (  42.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,92 +136,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jun 20, 2026 at 12:39:31PM +0400, Jiawen Liu wrote:
-> [You don't often get email from 1298662399@qq.com. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+On Fri, Jun 19, 2026 at 6:14=E2=80=AFPM Takashi Iwai <tiwai@suse.de> wrote:
 >
-> nxp_fspi_probe() enables runtime PM and autosuspend before
-> several operations that can fail.
+> On Fri, 19 Jun 2026 12:57:57 +0200,
+> Bui Duc Phuc wrote:
+> >
+> > Hi Charles, David,
+> >
+> >
+> >
+> > > > > > > I believe you have to use scoped_guard here, as there is a re=
+turn
+> > > > > > > from the function above, if memory serves it attempts to rele=
+ase
+> > > > > > > the mutex on that path despite it being above the guard.
+> > > > > >
+> > > > > > Indeed.
+> > > > > > I believe clang will complain.
+> > > > > > That makes these mechanical conversions of existing code danger=
+ous churn.
+> > > > > >
+> > > > > > While using guard() (etc) can make it easier to ensure the lock=
+ is released
+> > > > > > when functions have multiple error exits, I'm not convinced it =
+makes the
+> > > > > > code any easier to read (other people may disagree).
+> > > > >
+> > > > > I built the code with both GCC and Clang and didn't see any warni=
+ngs.
+> > > > >
+> > > > > My understanding was that the early return exits the function bef=
+ore
+> > > > > the guard is instantiated, so it should not affect the guard's cl=
+eanup
+> > > > > handling.
+> > > >
+> > > > When a variable is defined (and initialised) part way down a block =
+the
+> > > > compiler moves the definition to the top of the block but doesn't i=
+nitialise
+> > > > it at all, the first assignment happens where the code contains the
+> > > > definition.
+> > > >
+> > > > However the destructor is always called at the end of the block.
+> > > > So if you return from a function before the definition the destruct=
+or
+> > > > is called with an uninitialised argument.
+> > >
+> > > My understanding was exactly as your David, but it seems that isn't
+> > > the whole story and indeed I had to fix a bug in our SDCA code
+> > > that hit this.  However testing this out, results in some things I
+> > > find very hard to explain.
+> > >
+> > > It seems as far as I have managed to test, the code below works
+> > > fine as Phuc suggests. It does not appear to run the mutex_unlock
+> > > on the error path.
+> > >
+> > > int function()
+> > > {
+> > >         if (error)
+> > >                 return;
+> > >
+> > >         guard(mutex)(&mutex);
+> > >
+> > >         stuff();
+> > >
+> > >         return;
+> > > }
+> > >
+> >
+> > Thanks both for the clarification.
+> >
+> > > The situation I hit this in before that doesn't work was actually
+> > > this:
+> > >
+> > > int function()
+> > > {
+> > >         if (error)
+> > >                 goto error_label;
+> > >
+> > >         guard(mutex)(&mutex);
+> > >
+> > >         stuff();
+> > >
+> > > error_label;
+> > >         return;
+> > > }
+> > >
+> > > Which in this case it does run the mutex_unlock and NULL pointer.
+> > > Will try to find sometime to look at the generated assembly, but
+> > > this basically totally blows my mind. Very unclear as to if this
+> > > is supposed to work this way or just does by pure luck.
+> > >
+> >
+> > As stated in cleanup.h, mixing goto-based cleanup and scope-based
+> > cleanup helpers in the same function is not expected, so I think
+> > we should keep a consistent approach here.
 >
-> Some failure paths returned directly before the devm cleanup
-> action was installed, leaving runtime PM enabled.
+> Right, and IIRC, clang would complain the mixed goto case at least
+> with W=3D1.
 >
-> Route those failures through a common runtime PM cleanup path.
-> Use pm_runtime_resume_and_get() for the initial clock enable.
 >
-> Signed-off-by: Jiawen Liu <1298662399@qq.com>
-> ---
->  drivers/spi/spi-nxp-fspi.c | 31 ++++++++++++++++++++++---------
->  1 file changed, 22 insertions(+), 9 deletions(-)
->
-> diff --git a/drivers/spi/spi-nxp-fspi.c b/drivers/spi/spi-nxp-fspi.c
-> index 1e36ae084dd8..d94a2a7b98d4 100644
-> --- a/drivers/spi/spi-nxp-fspi.c
-> +++ b/drivers/spi/spi-nxp-fspi.c
-> @@ -1350,9 +1350,11 @@ static int nxp_fspi_probe(struct platform_device *pdev)
->         pm_runtime_use_autosuspend(dev);
->
->         /* enable clock */
-> -       ret = pm_runtime_get_sync(f->dev);
-> -       if (ret < 0)
-> -               return dev_err_probe(dev, ret, "Failed to enable clock");
-> +       ret = pm_runtime_resume_and_get(f->dev);
-> +       if (ret < 0) {
-> +               ret = dev_err_probe(dev, ret, "Failed to enable clock");
-> +               goto err_disable_pm;
-> +       }
+> Takashi
 
-Use PM_RUNTIME_ACQUIRE help macro to avoid all goto
+Thank you all.
 
-Frank
+In fact, I have only been using GCC for building and testing. It was
+only after David mentioned Clang that I decided to give it a try, and
+this is actually the first time I have used it.
 
->
->         /* Clear potential interrupts */
->         reg = fspi_readl(f, f->iobase + FSPI_INTR);
-> @@ -1362,18 +1364,24 @@ static int nxp_fspi_probe(struct platform_device *pdev)
->         nxp_fspi_default_setup(f);
->
->         ret = pm_runtime_put_sync(dev);
-> -       if (ret < 0)
-> -               return dev_err_probe(dev, ret, "Failed to disable clock");
-> +       if (ret < 0) {
-> +               ret = dev_err_probe(dev, ret, "Failed to disable clock");
-> +               goto err_disable_pm;
-> +       }
->
->         init_completion(&f->c);
->         ret = devm_request_irq(dev, irq,
->                         nxp_fspi_irq_handler, 0, pdev->name, f);
-> -       if (ret)
-> -               return dev_err_probe(dev, ret, "Failed to request irq\n");
-> +       if (ret) {
-> +               ret = dev_err_probe(dev, ret, "Failed to request irq\n");
-> +               goto err_disable_pm;
-> +       }
->
->         ret = devm_mutex_init(dev, &f->lock);
-> -       if (ret)
-> -               return dev_err_probe(dev, ret, "Failed to initialize lock\n");
-> +       if (ret) {
-> +               ret = dev_err_probe(dev, ret, "Failed to initialize lock\n");
-> +               goto err_disable_pm;
-> +       }
->
->         ctlr->bus_num = -1;
->         ctlr->num_chipselect = NXP_FSPI_MAX_CHIPSELECT;
-> @@ -1389,6 +1397,11 @@ static int nxp_fspi_probe(struct platform_device *pdev)
->                 return ret;
->
->         return devm_spi_register_controller(&pdev->dev, ctlr);
-> +
-> +err_disable_pm:
-> +       pm_runtime_dont_use_autosuspend(dev);
-> +       pm_runtime_disable(dev);
-> +       return ret;
->  }
->
->  static int nxp_fspi_runtime_suspend(struct device *dev)
-> --
-> 2.34.1
->
->
+Also, thanks to Takashi-san for adding the W=3D1 build option. It helped
+me catch and address warnings more easily.
+
+I will send a v2 to address a few remaining goto cases that slipped through=
+.
+In addition, I will switch to using guards for PM runtime to reduce
+indentation and improve code readability.
+
+Best regards,
+Phuc
 
