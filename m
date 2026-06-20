@@ -4,56 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F104CD98E4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Jun 2026 08:40:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22ED2CDB46B
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Jun 2026 08:40:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=DSpD8SrbGJSSt47g+ep/HUhaAmDAdDice/9Pn7cUpNg=; b=oGcvgg7HDw8NookfK+bjvr2l52
-	8HpCPQLgXmI7pd/sQmCndbbJm/BtqMko+q7vpQIGnexueekhkP0D0s2/gtVOejEcRzWBtqz1eXfvX
-	1RcZ30kqotvrIJW7NNsqiA5sR+zcRXE2Wn9D9bOsFCP3d3y+9d4MLC2OIKiVBfRoy5Yx3nTjDB8BG
-	7MVx77XtVqQM2wIvnrStq6DzP1wUB+a1RKwEppBYwJqrh2G/Ko3z8T9iEpNMfFD4KUpGnkmWzUC4F
-	CQEkXVx+c6+uNf0WiKQy1AHlye2/ZMSc04uyESIG7w/CC8AHPwc25MOKEqcfcwcgAw1EF1btTmNvG
-	AsnLY5qA==;
+	MIME-Version:References:In-Reply-To:Date:Subject:Cc:To:From:Message-ID:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=D03O6ATATGrr3scsFYQ1Lrg2abyiiRBzhuWJ6hFuinM=; b=lyohguF9s0R5zr7vnzWqK5yo1c
+	e90XVKDBsBMyGzeof6nI00LRMvuSliIgTfvFbSCLh06uvplRw5b1+S9A4VQhVwzGQTYhUiDC3zcKR
+	EraeIoJeTtbtJKRCNdf0TZKnhLO1V2NLjSasGdjDsw8BY2lB7jFSNYjGjDd3IdPl/f5NW8EIbua2u
+	aY+IKCwc8b33bXUK/Hz49e63hKg670CZ2K/eiDImTI1a9Qurzult2sVidekWyRfHc0V89TpyFaOvs
+	VzA7IjDBaqdM+YlHuWPgfaTCEqHi/Msup0CaZOUN2dF/LRCrppfJ5O4WRHwFTRJw8BKk4yI+pyFGl
+	/rNvfXcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1warFA-00000003GJx-3S48;
-	Sat, 20 Jun 2026 08:40:00 +0000
-Received: from xmbghk7.mail.qq.com ([43.163.128.43])
+	id 1warFE-00000003GKo-3ok1;
+	Sat, 20 Jun 2026 08:40:04 +0000
+Received: from xmbghk7.mail.qq.com ([43.163.128.48])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1warF6-00000003GIN-0deG
+	id 1warFA-00000003GJa-3asq
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 20 Jun 2026 08:39:59 +0000
+	Sat, 20 Jun 2026 08:40:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1781944787; bh=DSpD8SrbGJSSt47g+ep/HUhaAmDAdDice/9Pn7cUpNg=;
-	h=From:To:Cc:Subject:Date;
-	b=ho0pY7wfIKWGeqcNMeywAT+vn/gSMP/QmAFDlP9bPm/I/veydmhElZDZvnClns8zV
-	 H5iOpLt0/TqkZDIbsuQ6Gby7Rh3eO5ODxKgxLVeDaAwyGut9weQ2LQoUi6AVQJsCaP
-	 5gBjVtAFcZ8MN/y6aOzegmwUGqjx/uCRbTU6f9qY=
+	t=1781944798; bh=D03O6ATATGrr3scsFYQ1Lrg2abyiiRBzhuWJ6hFuinM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=z5rJ1FuVOWi3rG8bDXvmKrMMmNqeUA4FPKXQvRwitWoYfKi+lGIA43Hwf4nnxLNDs
+	 jVAamLYS6C9cxOJOf+Tsus1LuIfqPXgROzhbaRxOHQ3Dhj5lD//ChU3d7bKKAPmKRn
+	 g7k1Suihzx3f3l2Paig7C3E2NZFoVZGUfUBglKYg=
 Received: from ws006419.mbzu.ae ([5.195.0.150])
 	by newxmesmtplogicsvrsza53-0.qq.com (NewEsmtp) with SMTP
 	id 9E3A1AF0; Sat, 20 Jun 2026 16:39:35 +0800
-X-QQ-mid: xmsmtpt1781944775ti7z7fdcv
-Message-ID: <tencent_5169A5493D56510D24B06E86D31960E0AF06@qq.com>
-X-QQ-XMAILINFO: OVFdYp27KdlJxg2POt1M8rOE/F0jF6WoYwRM2fNOQEiTuWLToIkRC+gTp4Mr3W
-	 jJxouHgRpdMgSNyIPYbfq4fvQmMpqM9GMdRB6R9p61aIW0MVRlfvPPmk9zHMfgh8/RLcH37CXZe+
-	 ygT0BrECpmuVpiBaFacYbGUocBgeCpL8PxRlcdq2VD27/cdjMy5itlJRlPfhxf36TaTTAK6e6rPf
-	 Bj5urCQYj22UwVA6bfMd1m3NPlbRdns5b5yaEyhmjMqsmQBJWJtUcJCSumo2wuRkiDHE68HvPDmU
-	 Bd5quvZeWihBUhxuxahdVdknkVZW0cwprd83LYmQu7FoI9vCy1AbafCNTwnQRzcYLZoY824fCDbr
-	 P7/oeQqnjlXEQhPO5k5v3+cdLltQ4TeWnkCyqI+vG+NQAgetfulk2rUbmKc4XBRzq72VzwEKeiKh
-	 b2+gRWpgWWd44yuGTh3zeQrYy5kK5ycBtTDceOcdUipwqlXhRxPbh5E1BlINE0tBJQJ5+qNPyeH/
-	 GclEnQhBl7kCg/3ExGJPvNIy54RZFFOQWKQy+UJqQbjCEC9/cCJ7dA1+LY13VjtaPwQxS2DKn77R
-	 AOvox2u8iWqezI5fOmyXMrV+5X7v/p1fFECKHRPnvH4suML4yzf5C102uzbt2z9E1k+VZyo3nhkf
-	 O8H8RJVABEmVIohrGsCJ2P/ugLRwmALeV0QnoGBs5wupUanB8xk/0BQSj1E6qx+t1wEz1JszTLyd
-	 iarubmxWSNqxXnvJ2n5hkDCRSot6OzVjMr1XDZIaqdpruP6SC5JpFVzDu0+UgvDsOz5sbL2svaSa
-	 RsbDJRQYp1Nw2axWB9j80+/keDcaewzuNyOWF9U3TDKPX9aQInM9vQZm7A5pd2SDXBDOuXuQ4kIn
-	 RIo7yFhEWBRKrb+gH5fh772fFsMi5MwA2w6YhbDPHsO8Xsx885LemIxxaJswkBYwXnmEwiD1x6xS
-	 7t1UtTpBKxllTvFQcYgGzW3VXPuHpjE9M8897EKypvaFujwkKSbUvbXzbX9pJp4cd8Rn7eMnoxTi
-	 bEGOWA0TKn47V5DMY6a/76XJDq4+5OFlNcCG95dg==
-X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
+X-QQ-mid: xmsmtpt1781944785tosn3rekl
+Message-ID: <tencent_306FA547FD68D10EE4B2AE9C132060F12F06@qq.com>
+X-QQ-XMAILINFO: NXDkzr13SnKZvhEbCsrtLcb2CGzyO42zywHjolfeRYCQG1N5xSOFYyKmLxXViE
+	 v6GA40KEV5EIZOQiqirml0yl9V7jJok19BPNpZhsHKzUWbZtTbFe1UtFl9G1clbOJDnN+Ee1797O
+	 LF4m5pjt1em/uP9PGcOiZ76YbLJfKHZLC91vIdD2pPJlNiyl+5Munih3GruclPJGAlvPldNivcE7
+	 9HbjLL6D2n0sCaMgulo9JvbTdHYsTcs9uxx5ia4OHFffwlp4qOLXY4ZFrQ0eQjmviXkyouEpCF++
+	 vEPtqh0H9ABlksa3SKUkCS58N5tGqeLOObJFM5cp+r/S3fKhs5m63aofa7maYmv+8V7TL0L8TO3P
+	 EfU53JWDNacJqT7ib73P7zoDyig9p2/XE3ssvYYYz3uBE/FV3qDyFl2MxpOIOMBiq4I74ZkGnD4Q
+	 vd2J99di6wseSiNiYdlNLPQlC8FICltWRycpeThqk6/me6dXZOho/FU2JCxt9shySpkoF+G3K8Kc
+	 xwRTU6KVm98BJX6iXleassTfDM+B+rLpqIRql3d7Z3geJp7AMvB8kj72+44B4GrrA1ABAxOOuLSa
+	 HVGbgLXM1xbwm/TU8eeauCvOdc+17jC3TwwZ2/N3FB2hB7ZAQXqKt3Jp48t7ESuWGmpeoqGBIYR2
+	 VC9+KbKhlFQZ6sSJFjWZeCGxaCQmSyulL9DztchGIZM+cX+YYsGdcuUpHXX5I5xq5P+Bt6/+4cfM
+	 GainmLbceOasnX9Zn9Zzy6x0AnGaAyZsrvOYb8f8ql5f2SeKOGvCKK9m5p4i4Km5kA55MKTAT8hn
+	 x4hrVMsZgvPvRimOk6IcTenoh2rnSPKnYypPgik+VhEvjDYqqMIYtbLWQx9rtVizhgmxgMBeufpb
+	 Gaz2IUd3HRkZTIkmnK0P98rcR3vIaB4K/Khbjay9Wx5cd9m7lYdCoqca//qn/cXe+/9wywtflYg9
+	 CAmmX/cy/Gv/+PWuvogn+vKhlzXAmhXI14Goe8alWwJu6u/lvY0O7eu/lnl9XrsyTjC86Up5bL6O
+	 w8u0j5L7Vhk6N0pfEmvFm12HHDkQcEu2e0Rltu1mzpJWaCgjTQw4iTEC2Lz9YgFv1sFzXzvd+cNR
+	 hk4DnKvXW9HKtUjYvJk63b6Lc5FXSqhUB5xE1VgALYE1hGi4O/ThEfeHqH11O5vroMOT1f91HQ8k
+	 lamQXI4TBaCOfKGw==
+X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
 From: Jiawen Liu <1298662399@qq.com>
 To: broonie@kernel.org
 Cc: cl634@andestech.com,
@@ -73,16 +75,17 @@ Cc: cl634@andestech.com,
 	linux-arm-kernel@lists.infradead.org,
 	imx@lists.linux.dev,
 	Jiawen Liu <1298662399@qq.com>
-Subject: [PATCH 0/4] spi: fix PM error handling in several drivers
-Date: Sat, 20 Jun 2026 12:39:27 +0400
-X-OQ-MSGID: <20260620083931.1120616-1-1298662399@qq.com>
+Subject: [PATCH 1/4] spi: atcspi200: return error from failed controller suspend
+Date: Sat, 20 Jun 2026 12:39:28 +0400
+X-OQ-MSGID: <20260620083931.1120616-2-1298662399@qq.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260620083931.1120616-1-1298662399@qq.com>
+References: <20260620083931.1120616-1-1298662399@qq.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260620_013956_861420_F7A462A6 
-X-CRM114-Status: UNSURE (   5.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260620_014001_222107_AC86FB76 
+X-CRM114-Status: GOOD (  10.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,27 +100,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series fixes several SPI PM error paths where drivers continued
-tearing down or reported success after a controller suspend or runtime PM
-operation failed.
+spi_controller_suspend() can fail when the SPI core cannot stop the
+controller. atcspi_suspend() ignored that error and disabled the
+controller clock anyway.
 
-The patches are independent and only touch the local error paths in each
-driver.
+Return the error before disabling the clock.
 
-Jiawen Liu (4):
-  spi: atcspi200: return error from failed controller suspend
-  spi: bcmbca-hsspi: return error from failed controller suspend
-  spi: fsl-dspi: clean up after failed suspend and resume
-  spi: nxp-fspi: disable runtime PM on probe failures
+Signed-off-by: Jiawen Liu <1298662399@qq.com>
+---
+ drivers/spi/spi-atcspi200.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
- drivers/spi/spi-atcspi200.c    |  5 ++++-
- drivers/spi/spi-bcmbca-hsspi.c |  6 +++++-
- drivers/spi/spi-fsl-dspi.c     | 21 ++++++++++++++++++---
- drivers/spi/spi-nxp-fspi.c     | 31 ++++++++++++++++++++++---------
- 4 files changed, 49 insertions(+), 14 deletions(-)
-
-
-base-commit: 9e7e6633458362db72427b48effad8d759131c35
+diff --git a/drivers/spi/spi-atcspi200.c b/drivers/spi/spi-atcspi200.c
+index 6d4b6aeb3f5b..e0fd101a62bc 100644
+--- a/drivers/spi/spi-atcspi200.c
++++ b/drivers/spi/spi-atcspi200.c
+@@ -599,8 +599,11 @@ static int atcspi_suspend(struct device *dev)
+ {
+ 	struct spi_controller *host = dev_get_drvdata(dev);
+ 	struct atcspi_dev *spi = spi_controller_get_devdata(host);
++	int ret;
+ 
+-	spi_controller_suspend(host);
++	ret = spi_controller_suspend(host);
++	if (ret)
++		return ret;
+ 
+ 	clk_disable_unprepare(spi->clk);
+ 
 -- 
 2.34.1
 
