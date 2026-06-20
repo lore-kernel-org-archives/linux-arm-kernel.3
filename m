@@ -4,85 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82E99CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Jun 2026 21:08:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D8E8CD98F8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Jun 2026 02:31:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FMSWI+gloufB0h0HTiPPqBp7P4ZIS2lTWu/Igajet9s=; b=S4U1wAYsta4b4cBBHs2Lmd17JL
-	1Lz6OpWi1yb9Tm0BlGwRqBRi25YnJ/dEyzOuzqljET4zawe8oUounwRAp2lm+kF74D7RA995lrXZU
-	o1z5lkx0aXxZFStcOkcbYqTOjBziHwLpMvlyCadA8RoQCLDh9J+HxFZ0/HAcm1+wjQ/HypcYkTXvH
-	i8ue0/49EbIGZyZZISfpi3KC6hMnekiOoZFTmuY03eh/I0ZHb8SH65EtUtCMPyInjj3zLThlOROb+
-	b3OmBw0jPernt3w9yEsh+gPDtczJ8MCSGabnUPHPcH55ow90MrjkQOnbTkr1FOGuZI2OZTKj0oBp0
-	ZMUaiPWA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:Cc:
+	To:From:Subject:Content-Transfer-Encoding:MIME-Version:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sXImjckqEB8D0g/Or96GavQyrNf4YhZov4lo7C+jfuA=; b=scSFUEotPDoIZj/oveAJ6rMh+o
+	S6bV0YDrWjRzvX17DCOQLUxsemar1OKYoOtG5CqVrA5cCTFRCp8u0YF1ZbYAiRVrMOGBqGaFZfxT3
+	GVA9ivO5voErRtApt70XxkYwg6cysYDDdlCnzxfqyt2w43eX0fV3hkT1Pa3cNGtNLi1Nj5C9PjobV
+	KGRPWb8npw8BN8R8xa2JWzYZpRCE+LMrvN81cutwtxR1gvrH5B1PC3qPF9pNQQvXqF2g3AHVmQ+8T
+	Ji4+JhoUWi4q/atn4nzQ5V7z/IAbH0TPru0Vmp8hz18vgPC/mtZAyxslQ+yhatiIMCwaaQKGOrEkU
+	KqMBsb8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wagSF-000000032bZ-0DaY;
-	Fri, 19 Jun 2026 21:08:47 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1walTr-0000000381a-1nwv;
+	Sat, 20 Jun 2026 02:30:47 +0000
+Received: from mail-dl1-x122b.google.com ([2607:f8b0:4864:20::122b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wagSD-000000032bO-3I7L
+	id 1walTn-0000000381H-2KgP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Jun 2026 21:08:45 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8C88A445D8
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 21:08:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E9C01F0155A
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 21:08:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1781903324;
-	bh=FMSWI+gloufB0h0HTiPPqBp7P4ZIS2lTWu/Igajet9s=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=cMmbUbYfwQO5CI8iSeh+6t2SUNKHya5glLSJCb8DV6CntMMsxIktcwYeUmvlKQvmO
-	 ybB8ISM0w+kC9HyTbwLa3hR8N8oPyCXMMxYGJGAiV7pG7cRvGlNmk/oM+gZQ0C7IqG
-	 VFgAGvVR0MMXgLVZKqm2tfLtf7KYNqnzBOd6lNvphwkuSLkrZuKbfwzhVKfDWh8Jin
-	 +qFWl5S01GulWeCaSveSolV7YyO8Mm4k8Zqag5H1SPHluISqIep7t8/+5DRRKL5u8R
-	 HD0uaF/HZibyqylXS6ZVwDwDuUOnQSO+bUVjQvD+rNyE50XfyOX95o1K9oWDnB4LpI
-	 ZAwBSrYj+sajw==
-Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-5ad58351784so947252e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 14:08:44 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ9jovqfWqImt2pA+cRjS3iWRd9c216UsAfPIzsu2OFtSxdNfg2UJ2BQqmCrsffmozcLWKmwJT2WW6sOU1i5laDF@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywaw9CqjOAJyP7aO6oDpinxqrd4wdEh+Ux6q9uzexKgJgTNZvRU
-	Z29XovC5PQ2FzwHRtxYbP/7866AdcFHPTxTxm9G1+h/Q9hTkh8CfG36waGiBRFFE0KhjtZsBJZn
-	/0itYnFuksmDKHomJ6znat7rqsJgLNTg=
-X-Received: by 2002:a05:6512:239d:b0:5ad:4eac:f6d2 with SMTP id
- 2adb3069b0e04-5ad58f3506amr1312078e87.23.1781903323139; Fri, 19 Jun 2026
- 14:08:43 -0700 (PDT)
+	Sat, 20 Jun 2026 02:30:45 +0000
+Received: by mail-dl1-x122b.google.com with SMTP id a92af1059eb24-1397e093f90so6721059c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Jun 2026 19:30:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=kernelci.org; s=google; t=1781922641; x=1782527441; darn=lists.infradead.org;
+        h=message-id:date:reply-to:cc:to:from:subject
+         :content-transfer-encoding:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=sXImjckqEB8D0g/Or96GavQyrNf4YhZov4lo7C+jfuA=;
+        b=Sk4Thg6HnJmibGlnV7xGLLsIHIqYXyt949Hvn1xoMhOBgJbYwzx0+KlpUqvJhJalxu
+         oR6fKlDdX/gESB0Chm5rHfNajv3pLojradiBBgI1q/S5KXnho8ge3O5t52KBxmQCkj5m
+         jYwwXZ8UgB/jzMihvq8+cnv2GUSx8n5XVR08z+0mUL9VIC1ID14PJa6qZy+OXt44ye/S
+         +rZvI6I73gbkuj/5duTPu1VUJipWZS5vcx7BxahmvFRapt3Bj0D0jdfp6mU7VZPxc76q
+         cEBy2GJjT9LNnK5zls/aQ9StNmnIgzqmgY1dXZZLnG3oWIr70n9/IZzPcQ+AwKES1JwU
+         INWw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781922641; x=1782527441;
+        h=message-id:date:reply-to:cc:to:from:subject
+         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=sXImjckqEB8D0g/Or96GavQyrNf4YhZov4lo7C+jfuA=;
+        b=i0AwCK92H1yOt4BGPNA61iX5IF1EOdk77nIV8Mpkds4LqKHWPzXAJnV575CGKnqyfm
+         eeR24oHarGxHKJeUYfait0ffS+ZQUuS1t1PYf0zwM0UzfKgnhYzRiVNgyR9vGqzYegmq
+         RK88feXHs+iFY5kgr4wJhrFdEU/TEc1BprgMkHao7nqUtF+orb1Fd2Pfi3dnumr36wLJ
+         E6JxoeXUJm83DUzqRqSyl7wl1njiyN9Wu8GEhy+PsltOb4lz3PaDsqtuDnd52Fl+YS7R
+         v0fAmM9S/whA1vNO9LJNGWoXTRua1iDQ61kJmIATeKWSOEuqEA87z03dmp8rrpeNlJ8t
+         2uOw==
+X-Forwarded-Encrypted: i=1; AFNElJ+d8wxJQJrK2qXTZ8DgRgMPPggxCQOplT4RVZcUN3lv/7q1LQ8WJFp4QTZl9TJkB+HgM/SH60iucyRnJLpCd9Qh@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz8lgNy7186MmVrSRfz2aEPn9PYnw4cRlBvPuQXSxTso/pYNegl
+	bSkEiZdhUtxAr1aVFnFmn7UfK/ywSP7IgqNIqoElyJBeuK1yheNkNGSpqLWU6uL0d6UNz94/Wq1
+	t1C3M
+X-Gm-Gg: AfdE7cndXLBFeshZOWcNe/SwmV65xqDb/1HXpXUQlxVcakT1vchNvbcuBa2ctHy5Ze3
+	iQiME/NORbsn9GhyGZXMbqKCvmhwU4pQQm8ztinUPUY9Yb0GCki2pjws+kymfT6gVgof2zTHWTB
+	9EicbPkTgEdHkITpqNvHhtgimnOBXDgOPj5V6yD6gLDrKzbR8GaUeqpy++6DrssteC8fZ1zNOW+
+	B9piPm5LWJZ9nytrmaP7d5BLbBVZKqCyl4ozZeYXNCJr6HwhMabe2qz46eS6H8DbpL/EpkQ9+Bh
+	Rm4JXluScgcpipvjz45cmvHtZgNf8xc4iRQv+DxVXoFX1Dl/UOqxcwIErsZxy4NLC+pX8R7vc4q
+	nCoWjDdcG93HsjvnrvTGcXjdAleu6MaB23XofYMnNi6tYP+377tpJKi6+C5QLeoqSfPc7w9pDl3
+	31mPh8Aw==
+X-Received: by 2002:a05:7300:8c95:b0:2ea:5057:a304 with SMTP id 5a478bee46e88-30c06e03f03mr3890958eec.2.1781922641039;
+        Fri, 19 Jun 2026 19:30:41 -0700 (PDT)
+Received: from 330cfa3079ca ([20.38.40.137])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-30c1be5c5desm1988067eec.28.2026.06.19.19.30.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 19 Jun 2026 19:30:40 -0700 (PDT)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-References: <20260512033317.1602537-1-eleanor.lin@realtek.com>
- <20260512033317.1602537-3-eleanor.lin@realtek.com> <agMM9soiqpG-TRSb@ashevche-desk.local>
- <adff3a2d21a64d3ea3b408d62157ee1e@realtek.com> <ah92oEavMu4QRn8y@ashevche-desk.local>
- <CAMRc=MdA24z-tB_D8CTw68Di8e4OVQJ1QH4+rDskFzq=xjJ5BQ@mail.gmail.com> <DJ3QVMZ6XLW9.1M9W541O92QWJ@kernel.org>
-In-Reply-To: <DJ3QVMZ6XLW9.1M9W541O92QWJ@kernel.org>
-From: Linus Walleij <linusw@kernel.org>
-Date: Fri, 19 Jun 2026 23:08:30 +0200
-X-Gmail-Original-Message-ID: <CAD++jLncD2ZjH3aedOkGNYP3FyZ=i7Pb0OcKKZKuMOPGNjM_nQ@mail.gmail.com>
-X-Gm-Features: AVVi8CciIShnYrkvWiar3ZeR88iI32EVeKlpP07bMr3Ga2S3qThBGTGjlcJfumA
-Message-ID: <CAD++jLncD2ZjH3aedOkGNYP3FyZ=i7Pb0OcKKZKuMOPGNjM_nQ@mail.gmail.com>
-Subject: Re: [PATCH v3 2/7] gpio: regmap: add gpio_regmap_get_gpiochip() accessor
-To: Michael Walle <mwalle@kernel.org>
-Cc: Bartosz Golaszewski <brgl@kernel.org>, Andy Shevchenko <andriy.shevchenko@intel.com>, 
-	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>, 
-	"conor+dt@kernel.org" <conor+dt@kernel.org>, "afaerber@suse.com" <afaerber@suse.com>, 
-	"wbg@kernel.org" <wbg@kernel.org>, 
-	"mathieu.dubois-briand@bootlin.com" <mathieu.dubois-briand@bootlin.com>, "lars@metafoo.de" <lars@metafoo.de>, 
-	"Michael.Hennerich@analog.com" <Michael.Hennerich@analog.com>, "jic23@kernel.org" <jic23@kernel.org>, 
-	"nuno.sa@analog.com" <nuno.sa@analog.com>, "andy@kernel.org" <andy@kernel.org>, 
-	"dlechner@baylibre.com" <dlechner@baylibre.com>, =?UTF-8?B?VFlfQ2hhbmdb5by15a2Q6YC4XQ==?= <tychang@realtek.com>, 
-	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>, 
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
-	"linux-realtek-soc@lists.infradead.org" <linux-realtek-soc@lists.infradead.org>, 
-	"linux-iio@vger.kernel.org" <linux-iio@vger.kernel.org>, =?UTF-8?B?Q1lfSHVhbmdb6buD6Ymm5pmPXQ==?= <cy.huang@realtek.com>, 
-	=?UTF-8?B?U3RhbmxleSBDaGFuZ1vmmIzogrLlvrdd?= <stanley_chang@realtek.com>, 
-	=?UTF-8?B?SmFtZXMgVGFpIFvmiLTlv5fls7Bd?= <james.tai@realtek.com>, 
-	=?UTF-8?B?WXUtQ2h1biBMaW4gW+ael+elkOWQm10=?= <eleanor.lin@realtek.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Subject: [STATUS] arm64/for-kernelci -
+ 92e3f6ef4ffb1f65e7774f4611c27fb764b3bc14
+From: KernelCI bot <bot@kernelci.org>
+To: kernelci-results@groups.io
+Cc: will@kernel.org, linux-arm-kernel@lists.infradead.org
+Date: Sat, 20 Jun 2026 02:30:40 -0000
+Message-ID: <178192264021.17323.9854948270991678156@330cfa3079ca>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260619_193043_601900_D9C768E3 
+X-CRM114-Status: UNSURE (   5.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,30 +95,58 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: kernelci@lists.linux.dev
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 8, 2026 at 4:41=E2=80=AFPM Michael Walle <mwalle@kernel.org> wr=
-ote:
 
-> >>> Without an accessor like gpio_regmap_get_gpiochip(), we cannot retrie=
-ve the
-> >>> gpio_chip instantiated inside gpio-regmap.c to fulfill these requirem=
-ents in our
-> >>> map() function.
->
-> Why is gpiochip_irq_reqres() called in the first place? Isn't that
-> only called if the irq handling is set up via gc->irq.chip and not
-> via gpiochip_irqchip_add_domain() like in gpio-regmap?
 
-Not really, the gpiochip_irq_reqres() is called to mark that a
-GPIO line is used for IRQ, so the gpiolib cannot turn this
-GPIO into an output line, gpiod_direction_out() will fail
-on lines used for IRQ. So it's a failsafe.
 
-You can live without it of course, but then you don't get
-this failsafe.
 
-Yours,
-Linus Walleij
+Hello,
+
+Status summary for arm64/for-kernelci
+
+Dashboard:
+https://d.kernelci.org/c/arm64/for-kernelci/92e3f6ef4ffb1f65e7774f4611c27fb764b3bc14/
+
+giturl: https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git
+branch: for-kernelci
+commit hash: 92e3f6ef4ffb1f65e7774f4611c27fb764b3bc14
+origin: maestro
+test start time: 2026-06-19 17:25:47.988000+00:00
+
+Builds:	    8 ✅    0 ❌    0 ⚠️
+Boots: 	   24 ✅    0 ❌    1 ⚠️
+Tests: 	10579 ✅   84 ❌   93 ⚠️
+
+### POSSIBLE REGRESSIONS
+
+  No possible regressions observed.
+
+
+### FIXED REGRESSIONS
+
+  No fixed regressions observed.
+
+
+### UNSTABLE TESTS
+    
+Hardware: bcm2711-rpi-4-b
+  > Config: defconfig+lab-setup+kselftest
+    - Architecture/compiler: arm64/gcc-14
+      - boot
+      last run: https://d.kernelci.org/test/maestro:6a3587e0ec8c023893a36461
+      history:  > ✅  > ✅  > ⚠️  > ✅  > ✅  
+            
+
+
+Sent every day if there were changes in the past 24 hours.
+Legend: ✅ PASS   ❌ FAIL  ⚠️ INCONCLUSIVE
+
+--
+This is an experimental report format. Please send feedback in!
+Talk to us at kernelci@lists.linux.dev
+
+Made with love by the KernelCI team - https://kernelci.org
 
