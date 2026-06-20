@@ -4,80 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43716CD98E4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Jun 2026 08:54:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BC49CD98E4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Jun 2026 08:58:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=uZHSWLvj9OPXqYMo+gcDi1m2qcLBOu8zkp0WPfo48s8=; b=Q7Po2uBX+juw3TVsSyepWh8/yT
-	dkRKgwUDP7jWWAJ+7M/IK1hoPhnWjxxBrdG0rQ9iCSlJQ2LkYgaSk7r+fBSnCnX5BodsEOFVLIh+c
-	+d9T9eWug9tdBDOsS3Hl0KaUmyVYQ5c+ffRv8gYTSP8e3EjmKA4HBmObOKClUaKjbUOcRkYYMjhmo
-	7QlBN+cE14qyci+U42KEOviHuwygz5v2Et7J+/HaJFMM1amSQAo2UzGtYMyR7NHCJv4yLoblMcq3v
-	OuHZ1ULgQlkeuM9+axHgc9WXjw0v36NYKMBwWd1hkPpWVwbJYjV1nXYjO1DIf6eSw08GjE6IXU+Mv
-	OdPSWOpQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fmHBGKXtvGpA1nsaRuGHY0rfMBcfLnEextl+zb4B0cA=; b=pVFdK2H4o/3vACujANtzx1HEio
+	gQIVDNdjragvyNwU2rQVqwr03C2xDcWDZgamrs9zyYZbIxhWQf03DxRjs8OY/tKRfY0z5XYmek8bF
+	U2MkDfSrVYmPET0iLX0Uh3m8OYhhwJ91WOcJ/G/14M3ZdjnmaP6JDqNryIcpAaLiSzH7Hxt2NoXwY
+	bgVTtoCwtpCLnAJ7DT1cFau3TOozQbPILycW0ROYmRL708FbpTfTW/7TcoFWEVoDJvIuWxVJaoplN
+	2ek69SJb6NdQXXIDNcimBZCsDMiRRHPy7O69Q+Jm12rUGQtmOwnsOvKhepM0mexB2iCYgsSSNNq8r
+	i3pS/XhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waqx2-00000003F5d-1t9f;
-	Sat, 20 Jun 2026 08:21:16 +0000
-Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	id 1warWa-00000003HpV-2Fq4;
+	Sat, 20 Jun 2026 08:58:00 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1waqwz-00000003F4v-2NH6
+	id 1warWZ-00000003HpO-3GVN
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 20 Jun 2026 08:21:15 +0000
-Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-36b8d414666so1519969a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 20 Jun 2026 01:21:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781943672; x=1782548472; darn=lists.infradead.org;
-        h=mime-version:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=uZHSWLvj9OPXqYMo+gcDi1m2qcLBOu8zkp0WPfo48s8=;
-        b=CcU6pgmds+apkAPRorY3CsdIEFjMLAnUKYog7wI9rSCobHLICRJGoNAETQszUtAovJ
-         py1+jc3w8JcLeGk//EPo/7U0/CyZJq0V2D5fQdSwhDsPX1OGHxA9Y+y0juhBNdhjipj1
-         bfdu9v2lnU+b/rOW0NY5NxdPdv4HpPPWj5ZtgopEFN1Sb7QVWnuIuJhQq58BOGg+ow0J
-         Xa9I7r5JRZensClrsZPp51U88ldsGLDIk/Bd3hIQ1IWgn+3+dhjdESX9SKeJYqCzJy6V
-         FBXLOgB3UWGgyu59IgAxO+JV8wMMKF9qnkx5dPZzhARRLuNPpuooYJjFLW/nIvT1OFYJ
-         zadg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781943673; x=1782548473;
-        h=mime-version:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=uZHSWLvj9OPXqYMo+gcDi1m2qcLBOu8zkp0WPfo48s8=;
-        b=LVgZmDovk7GdQ3hzd5hAKRKKaGt0Sl2ODNaAS4c2FLqmOxtw3HKxtGVZcESOcMqoeo
-         JvJcfSHYjEItPsEwvUdMWrWYPGWpUcoXx1QP3aet2wenVAJfWywN88fKab4q70BG44it
-         C//aWrbsAD/9IbIjKmaIoieR7xrVE/yBXDpriIDJ+23Kh9Qjk3HCE9ncn3p+T7FXYnVE
-         H5wohpvsl2v5eoPfu6Un/bGPuqnidoON0jzm+0pEqU2nhUZYNlsqsF1C1kzUBtklq49H
-         zVPztLEmv6wJT0h6qtnXP7JzttshFvEXen71iYD7oGTR41mgzMABOiOKNIuJFUyebEI/
-         Zw5w==
-X-Forwarded-Encrypted: i=1; AFNElJ9VofySrvPTncwGun2GVr3imOe1fsPdaygyaGrv96Bl+jaFDEpNnWH+314h8EDmMqmlNvNvNBIVvQcsUIfV7DO5@lists.infradead.org
-X-Gm-Message-State: AOJu0YxJPH2O/hNbfzF1C/MtWyVupPNAn//Rv7CoL0otizY9Fue3/BLy
-	Raur7FymK0BBvg0v7F4vxsOW0q1QRhzm2Lq5+sxeGi+EywoaCOJBZ0hj
-X-Gm-Gg: AfdE7cmx7wQKtnzoYXBU3FVYHSOgYNzMtLNcEDlvoEWLBlVf6NV4lmJZD4CW7sP8GxI
-	XXHZNGbTABvQa16WeBt7cawhVDYgtr8qk7o2hvg21gwkTTjsmS2GbgkYqz8IUS6I1G7iA8iqJwv
-	FJ3tZhx8nFQME8DQzPWUW4pm+Zc+Lnq/FQUJwwegDJtBpJd06UnhJiz6xxIhrBjcgqnYSS2BOLJ
-	cXBpJd7SYrnTUqQT18CMGhK70aNyyUQUMSJe3nRfSFjP3T3bZUGROi6tlAsIEOhYvEuvdzysjob
-	rD8r0PwZLN8qNmBwvhci6ldivXEX2kYyJDjob/LhgMeCkA4jIRM0mLBOF5CKkEcqJHkQIZss0DG
-	gasVDskwIAdvPYb41bnivvDve7rCA4/9QjRNnPIpZczev+hP4UroGxwFOQVocrpnpn1yqEYFegR
-	2dQoWPtQ==
-X-Received: by 2002:a17:90b:5884:b0:37c:806b:3ca7 with SMTP id 98e67ed59e1d1-37d4d71d969mr2357014a91.3.1781943672584;
-        Sat, 20 Jun 2026 01:21:12 -0700 (PDT)
-Received: from [127.0.1.1] ([47.253.114.73])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c8bbffc2329sm1786971a12.0.2026.06.20.01.21.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 20 Jun 2026 01:21:11 -0700 (PDT)
-From: Wayen Yan <win847@gmail.com>
-To: netdev@vger.kernel.org
-Cc: lorenzo@kernel.org, horms@kernel.org, pabeni@redhat.com, kuba@kernel.org, edumazet@google.com, andrew+netdev@lunn.ch, angelogioacchino.delregno@collabora.com, matthias.bgg@gmail.com, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, Joe Damato <joe@dama.to>
-Subject: [PATCH net v5] net: airoha: Fix skb->priority underflow in airoha_dev_select_queue()
-Date: Sat, 20 Jun 2026 16:17:44 +0800
-Message-ID: <178194366700.2485734.5368768965976693502@gmail.com>
-Content-Type: text/plain; charset=utf-8
-MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260620_012113_639395_48E58099 
-X-CRM114-Status: GOOD (  10.56  )
+	Sat, 20 Jun 2026 08:57:59 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3F891600AE;
+	Sat, 20 Jun 2026 08:57:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E85AE1F000E9;
+	Sat, 20 Jun 2026 08:57:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1781945878;
+	bh=fmHBGKXtvGpA1nsaRuGHY0rfMBcfLnEextl+zb4B0cA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=FlZF3pr/qsb1qGAxsh0Ud8PKxE3rRCRwNMbEWzZy9eUvd69+2QJAdesZLH64aMzd7
+	 JYm1JIAGvs/OgmsN0ds/urwDf8DMiwoUWBD23XB4nF9cB3epB4fxNwvAuTDmgvrVec
+	 hPFTDNmElhWuLxyti71rgQon0Z0Xz6zpEAqjMk2jWTw6qiWMtgrh16b4sA6T0V7ZJF
+	 lKvrV1VqWZguTFG3dVlhmNY926nfkmZn/AMPkJBxYUWOk2eguODQVGKUo6IYmojgDV
+	 5Xa3SXy+NR5mUnhK26yMlIln16Ha0XtchnnodveePi9bNQFowaKtWcmJaZn/TiyonY
+	 DUfM5Rnd+zz1g==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1warWV-0000000EUVl-3j2J;
+	Sat, 20 Jun 2026 08:57:56 +0000
+Date: Sat, 20 Jun 2026 09:59:03 +0100
+Message-ID: <877bnt8u5k.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Yuho Choi <dbgh9129@gmail.com>
+Cc: Thomas Gleixner <tglx@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1] irqchip/gic-v3-its: Fix OF node reference leak
+In-Reply-To: <20260619185808.1090575-1-dbgh9129@gmail.com>
+References: <20260619185808.1090575-1-dbgh9129@gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: dbgh9129@gmail.com, tglx@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,55 +81,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In airoha_dev_select_queue(), the expression:
+On Fri, 19 Jun 2026 19:58:08 +0100,
+Yuho Choi <dbgh9129@gmail.com> wrote:
+> 
+> of_get_cpu_node() returns a referenced device node. In
+> its_cpu_init_collection(), the node is only used to get the CPU NUMA
+> node for the Cavium 23144 workaround, but the reference is never
+> dropped.
+> 
+> Store the NUMA node locally and call of_node_put() before either
+> continuing with collection setup or returning early for a NUMA mismatch.
+> 
+> Fixes: 920181ce8469 ("irqchip/gic-v3-its: Add ability to resend MAPC on resume")
+> Signed-off-by: Yuho Choi <dbgh9129@gmail.com>
+> ---
+>  drivers/irqchip/irq-gic-v3-its.c | 6 +++++-
+>  1 file changed, 5 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+> index b57d81ad33a0..f82035eb77e5 100644
+> --- a/drivers/irqchip/irq-gic-v3-its.c
+> +++ b/drivers/irqchip/irq-gic-v3-its.c
+> @@ -3291,10 +3291,14 @@ static void its_cpu_init_collection(struct its_node *its)
+>  	/* avoid cross node collections and its mapping */
+>  	if (its->flags & ITS_FLAGS_WORKAROUND_CAVIUM_23144) {
+>  		struct device_node *cpu_node;
+> +		int cpu_nid;
+>  
+>  		cpu_node = of_get_cpu_node(cpu, NULL);
+> +		cpu_nid = of_node_to_nid(cpu_node);
+> +		of_node_put(cpu_node);
+> +
+>  		if (its->numa_node != NUMA_NO_NODE &&
+> -			its->numa_node != of_node_to_nid(cpu_node))
+> +		    its->numa_node != cpu_nid)
+>  			return;
+>  	}
+>
 
-  queue = (skb->priority - 1) % AIROHA_NUM_QOS_QUEUES;
+Please consider using the cleanup infrastructure instead, something
+like the untested hack below.
 
-implicitly converts to unsigned arithmetic: when skb->priority is 0
-(the default for unclassified traffic), (0u - 1u) wraps to UINT_MAX,
-and UINT_MAX % 8 = 7, routing default best-effort packets to the
-highest-priority QoS queue. This causes QoS inversion where the
-majority of traffic on a PON gateway starves actual high-priority
-flows (VoIP, gaming, etc.).
+Thanks,
 
-The "- 1" offset was a leftover from the ETS offload implementation
-that has since been removed. The correct mapping is a direct modulo:
+	M.
 
-  queue = skb->priority % AIROHA_NUM_QOS_QUEUES;
-
-This maps priority 0 → queue 0 (lowest), priority 7 → queue 7
-(highest), with higher priorities wrapping around. This is the
-standard Linux sk_prio → HW queue mapping used by other drivers.
-
-Fixes: 2b288b81560b ("net: airoha: Introduce ndo_select_queue callback")
-Link: https://lore.kernel.org/netdev/178185573207.2378135.3729126358670287878@gmail.com/
-Acked-by: Lorenzo Bianconi <lorenzo@kernel.org>
-Reviewed-by: Joe Damato <joe@dama.to>
----
-Changes in v5:
-- Rebase on net/main (previous version was incorrectly based on
-  net-next/origin/master, causing Patchwork CI apply failure).
-
-Signed-off-by: Wayen Yan <win847@gmail.com>
----
- drivers/net/ethernet/airoha/airoha_eth.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 64dde6464f3f..3370c3df7c10 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -2110,7 +2110,7 @@ static u16 airoha_dev_select_queue(struct net_device *netdev,
- 	 */
- 	channel = netdev_uses_dsa(netdev) ? skb_get_queue_mapping(skb) : port->id;
- 	channel = channel % AIROHA_NUM_QOS_CHANNELS;
--	queue = (skb->priority - 1) % AIROHA_NUM_QOS_QUEUES; /* QoS queue */
-+	queue = skb->priority % AIROHA_NUM_QOS_QUEUES;
- 	queue = channel * AIROHA_NUM_QOS_QUEUES + queue;
+diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+index 291d7668cc8da..947a15bb42012 100644
+--- a/drivers/irqchip/irq-gic-v3-its.c
++++ b/drivers/irqchip/irq-gic-v3-its.c
+@@ -3290,11 +3290,10 @@ static void its_cpu_init_collection(struct its_node *its)
  
- 	return queue < netdev->num_tx_queues ? queue : 0;
+ 	/* avoid cross node collections and its mapping */
+ 	if (its->flags & ITS_FLAGS_WORKAROUND_CAVIUM_23144) {
+-		struct device_node *cpu_node;
++		struct device_node *cpu_node __free(device_node) = of_get_cpu_node(cpu, NULL);
+ 
+-		cpu_node = of_get_cpu_node(cpu, NULL);
+ 		if (its->numa_node != NUMA_NO_NODE &&
+-			its->numa_node != of_node_to_nid(cpu_node))
++		    its->numa_node != of_node_to_nid(cpu_node))
+ 			return;
+ 	}
+ 
+
 -- 
-2.51.0
-
-
+Jazz isn't dead. It just smells funny.
 
