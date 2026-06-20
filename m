@@ -4,100 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8BFCCD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Jun 2026 21:45:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECD9DCDB466
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Jun 2026 23:49:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=kyy19G3UAGpqNpZJRFtz4WPWcaaqaP4tOOJJnrBVNEo=; b=PNsjWe65zd87HrUSTVsgCXSpyr
-	m5GBMHDb45Tx9/+sggv1gYJvzehJsePWcFAF4jCtRB3dbR5HYoTF1I9znUv2u/+jXfXmxd09cdbOS
-	lfB/vGN5epx/L+BAi8xOBncCHbCp3AYhpzdn4ztqEi3S4aOhXnvR84he+ZBfAIRGvIrNX6TOuCRcM
-	J1/4iasDG/30MmguxG24wr/R/pyHUUna5ZjH879JvTkqoK2NixiUNyIMbP10xA7CRkgRvv+piKE2z
-	xYEFoCsram/jheA8UkfX+grE/TJTxLv/srRi4BRRgiup9LNa1xU6Ctcd62DrduXN7yeBhZ4Fv1tuX
-	atLzCKOw==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LVrIryE2VF1sDSS46HMWn0Px6aDg+06V1VeyZcyjwRw=; b=NzkCc3qRNTOlL0B65bZpLffAUQ
+	zwfA5U2YfNyDZL/GlZQwQpYTVZF8ua3UOfMAyPuGD/MiVzEmW3XfV+uKrrHVd/Fn6nEOvP0hILNf2
+	SGeORCeukmUzaU0BNC6O39B8VTW5VxzmlS8bBfy8x03sz64S7bawlav4Y1HK0SqL1e02eaOzaMGWp
+	EIuMlylrkZ40kEyLNXQRJOqB0/UREWH0ipr13thQHkBNRbW0VLqfwFycpyu7UyF7IO9RSAiMdKfUX
+	fRlwYOEdsE4Kan6prHUZOFLr4ARWEQ9ycjDJJeCzknhUOZh3gTt2IRAamCs9MYCrNKQeCM0HXwV+i
+	9BFqOLNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wb3OA-00000003a2B-2n0O;
-	Sat, 20 Jun 2026 21:38:06 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1wb5R3-00000003dcO-3Iat;
+	Sat, 20 Jun 2026 23:49:13 +0000
+Received: from mail-qt1-x834.google.com ([2607:f8b0:4864:20::834])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wb3O7-00000003a1q-3SHu
+	id 1wb5R1-00000003dbi-2bUL
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 20 Jun 2026 21:38:04 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-4645995069bso1761114f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 20 Jun 2026 14:38:03 -0700 (PDT)
+	Sat, 20 Jun 2026 23:49:12 +0000
+Received: by mail-qt1-x834.google.com with SMTP id d75a77b69052e-519ed52bcc6so339701cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 20 Jun 2026 16:49:10 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1781999349; cv=none;
+        d=google.com; s=arc-20260327;
+        b=bI2Yg3QZKrM9UCMlUVTd6LxW4UnSzIV213/Hm3/y+6vU5/SICmQ0ViQ/RfxUa7KPBn
+         YdZDeOhqZQ2lY2t6iHWfvJ7tD80JxoR4MXml74tHLzwjmx0VvLKe8OkUktzQvu/bgG6m
+         OMjr8s2aSAH5as62Gp28hdHKDp1w/L8c/seCyt7Cxl3phbO8onFfhZe3e2n4kWq88Xk3
+         ZBOjjwawYEoC42wInWekDdN1y9KFl5fjmwa81T3KhHqW+gTsvmEdeW5ntz3sEdPXYa+M
+         lI9OsjXL4T58/uYwMQxjCC8IUrRCm7mg/ymNrx+pSLgIjeTK+MjocSJ5frEedqKogY32
+         DFLw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=LVrIryE2VF1sDSS46HMWn0Px6aDg+06V1VeyZcyjwRw=;
+        fh=uBfgXLmk/88heXxZgxLqwgkmFUvnlVPkRtQbq6pDsEo=;
+        b=fnXwgiKzGiowY5i30GM57YXVBErQiu6ArQJm5NGmqLT3m1hW7OMp9onucpcn34Ug0V
+         BZ65KqdsIKxKbGZCC7UKfTFdlynl8C5ekHQV6CkW64dvLNepuvJ3KZqXD1KXQAssn8mo
+         EsDI52tcEGvoLVooGibTa1N+D0zcGsZDf4x3F9PP5Vi1Jd7vI+nqZ0XkhDTG0rQegibt
+         Uwx8MZMlajxB+gekmkVrIUYO3Ec9DYGeuE8ugnxN8Zm388w4yOra9Su2rz4R9taUU6IB
+         X3foks11OfAtZWn1yJPsDFeyqihuUJaHqAqYtWgps94Io5u33kej7o1KO4dp5Kiz6m2K
+         ffTg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781991482; x=1782596282; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=kyy19G3UAGpqNpZJRFtz4WPWcaaqaP4tOOJJnrBVNEo=;
-        b=j4Mqf17vWqMTiBWiThHA254BP+AS+LEPImehgC1E7NVm3JnQaOOenk+j0LlJfHq96o
-         y+8i55mU+Zc8v9JAXwMUFUddR9QtN1xwQV2fgMiMWxXV3lC+ZMXnZHbop815sfsSlYPT
-         pJ9kNpWr82CeMMZnDUwYmMgx6FXW4swVF5D/N3wH2tw9PtSigdYNv99cdNxvIJRq0zuh
-         5fey1TtrhZYDpWFD3oY97IclmqTlIXDare+TxSLo4QDphanN/l9ywYVv7ru5YytZGGJ2
-         +QJ+bwn6VpLJwuOu4kOmkt7fUZF1N03w+e7ub7YYt0biYBXAf6F7WBfqs08JM6HqATRY
-         Ob7A==
+        d=google.com; s=20251104; t=1781999349; x=1782604149; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=LVrIryE2VF1sDSS46HMWn0Px6aDg+06V1VeyZcyjwRw=;
+        b=Fe4pOa8bc2NXC+p3ak8QibgTjeiaOSXqIXt7XuZIVcFtlQwErXnhKgP3O4V53OSHtx
+         EebT3b6h1sS/AAM/weXKOjzvIRgnkV3GteIb8gPkgjbA59NoRf0t3pDWIwALIxe0tf0X
+         W4OxU+SXcFzl8jSyJYz77XnZqwU5hRPkJ7RTrPD5JtOt34lwMeSzq06vncwgtJZ8jgz4
+         cZNT1DyRouP1HlTXHB/gbf/hp5q4WgIk3Ap6OTJllMN4xpiLzbWi8vsijwWR8JKPPMlk
+         YJJ7Jwm3AABOSoHdL7qxtQlZh0LjBB4moe9Bqw65yU5HypHr6x1X3tU2ONvdK31EhP7E
+         dHWA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781991482; x=1782596282;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=kyy19G3UAGpqNpZJRFtz4WPWcaaqaP4tOOJJnrBVNEo=;
-        b=bO/46WLbTkqrl2R3cR20/P+Y1VmWwdPSQe5jQgCjrZCyS2lNluINP6lB04Et6tpjXw
-         qFBv2djruxHn5v3Ozr8SDBzjaW1TEPmAX3ZbJB8EGqUep2975FD2AxxPYky+jGKI8can
-         4mUqpZjGxwLRZeLUcM5J0ShcLGY2ZLo6rZvb7uFwhEBp9qaNJBOOxOgQ7bb24yYejCNJ
-         H6TgB0b/K2VHdWrXo9JozzAeVwORCZ/tfwKbUFVYYyY3FZ5NaoVhip00AkNxmgtVs5sY
-         YjbDbYNWBGT4ndxYuP5hx7Oaz9Xx9pBZjSDIMXCT2rLVBsEw6q5biRaxVrYWdI3sfhqt
-         E8zw==
-X-Forwarded-Encrypted: i=1; AHgh+Roa5B8XeJBz+/58HXqYy7SX8IQErOpQFO7j3b6Vl2lUBUtjWO6cJhmAn6RQZ1UPLdvjYd8JOaVwTCUC2OmwcsLe@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy0RQ88hJXY0eJHHA2jWQ2blRT/Z6xUWrsjKXQ08fR7s2hf0YTj
-	o4fk5JtQFKV3GzW+kaWdVTVj0OzLxfOPkw0fwvvckk5SWFJVwGxP+trV
-X-Gm-Gg: AfdE7cnlRZ9459SUBRPjQUX3R8ERnir3ktQQsOSvAByHhKKhsNRhmqSWjzYu1rdmXqW
-	tbk0bbauGm0OaeTkrFepzGZfo0obBbqGTcRI0a3gRg5D+QGf2YIFU0h/uCa257JOFbvBIMxomxR
-	hqVvP5l75eGG5ql5pTk5QWfCBdmgXRLqSqygbO1rx1ZY6Ml1IDtJ5r30cQaRIly+i+20FPDW9h6
-	cKSQx8ZhxPVFzHFjz7ac1CZtqeGvpoeR1tayqsM5LY2r+fY6GCc3LDDJS4LSb0ZehWLLayl9oon
-	vZB4b4/YUfELVbD8uABOxhk25tyaTcloo6RKY20sXBRFos75Ipdnr9SR1L2ZBP7xCPMgpwfUxPo
-	MNDN1cbo75LRu0QpUEvIVLMlk3Qy5bBQrUr3AEdxb6ZWkg266/TIO6x2cGvrwWMPIZbtUTzu6Ku
-	EC2SnWEjSCpu6DxwQ3f4Zim9/2P4RjXTUY1Fd3anfsIyTubD6m0UwTES5aFhwtJdosTGUR3RNw
-X-Received: by 2002:a05:6000:2b01:b0:45e:e1a4:c4c3 with SMTP id ffacd0b85a97d-4650043b85amr9392338f8f.15.1781991481496;
-        Sat, 20 Jun 2026 14:38:01 -0700 (PDT)
-Received: from dohko.chello.ie (188-141-5-72.dynamic.upc.ie. [188.141.5.72])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-466648c698dsm12128189f8f.16.2026.06.20.14.38.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 20 Jun 2026 14:38:01 -0700 (PDT)
-From: David Carlier <devnexen@gmail.com>
-To: danishanwar@ti.com,
-	rogerq@kernel.org,
-	andrew+netdev@lunn.ch,
-	netdev@vger.kernel.org
-Cc: davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	m-malladi@ti.com,
-	hawk@kernel.org,
-	john.fastabend@gmail.com,
-	sdf@fomichev.me,
-	ast@kernel.org,
-	daniel@iogearbox.net,
-	bpf@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	David Carlier <devnexen@gmail.com>
-Subject: [PATCH net] net: ti: icssg-prueth: fix XDP_TX from the AF_XDP zero-copy RX path
-Date: Sat, 20 Jun 2026 22:37:56 +0100
-Message-ID: <20260620213756.87499-1-devnexen@gmail.com>
-X-Mailer: git-send-email 2.53.0
+        d=1e100.net; s=20251104; t=1781999349; x=1782604149;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=LVrIryE2VF1sDSS46HMWn0Px6aDg+06V1VeyZcyjwRw=;
+        b=MpX81NR3JQX8maSCtRe/fuin4VlnU91kZ/L1lTnr2+54rDYHdvkA+C1mFrPmGEeBCa
+         QC0RH+gGRWyqoCzu2879E8es+FzUtsU3Ks3DVUdDgf084xR2U503EtPzky0DWMuNeECz
+         gN6gpGfQYBjiD0blez1H+FsWFgodfL/MyqEgfajYtXvsq9UxFs6cJxk5OaqjjIzZUB3O
+         QMUG8kWoFPP0d0rqARaNhL8CL5ob6QZBXmMA5Hc/xeIIWACkd+hKzE5x493+3uYKWNzc
+         vNeIndJ1i43WVyCkOQN2k22CNKufKQj+jpUhExsN+kbCvIAd5Ht4DmD6+gyaxinvn3oQ
+         ySWg==
+X-Forwarded-Encrypted: i=1; AFNElJ84+t0pD+sdke6EhmPTQjcZyLn1EAtneRPjCAKCmXf9Gyc1F/E3t0zdQ4tRu0EFHs9+ttDluErZ4/LVIUcQbcvl@lists.infradead.org
+X-Gm-Message-State: AOJu0YwoA/sP5rXCM9qFfHoD16mt8tAecdAQwtOpTwHhvzTrTbVNlGKt
+	9C/Jz71MyjjZg9GU7kOmp80Cxu2+8jtd8JzK20oC1rYuwSXalGyUZQtbH0//8k4h4R2Su1KCgKZ
+	fshnOkLpW85jEqGDcELWkrZzrSO4SO2z0h1H4Mr/V
+X-Gm-Gg: AfdE7ckyinDeEiiyc1KiaY06n9FSNGaMOph05lwheGOnSOAAxKCDNn2OYC/eH0iDMMb
+	vnuTNZM6zqkOgzZU5z6XIyli3njUOhBh6XVnxH/oUA9680uf3RGq1vVVxdraV36LluBWVZPFODB
+	ChjkOpTszaDkFCCK8P/X4h9f/B4JO5AXfhGkfTnOwIwSNL1BCJJ1wFGXBLqhUGLU0HA8t/qLwr/
+	GRK5KcGBaL6Uh7XAKIcc01K7Zn/JU93bZC7GHOYwzRnnd/m6PrN/t1CF0V+SJ6AAcPvblQaBtkU
+	ejm5yA==
+X-Received: by 2002:a05:622a:580a:b0:516:4f62:85f1 with SMTP id
+ d75a77b69052e-519e4a744d4mr15890001cf.22.1781999348457; Sat, 20 Jun 2026
+ 16:49:08 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <CAGsJ_4zqLfdWoTH9s7FFaqWWj0mESfikYgr7=GcV64qcuXrPxA@mail.gmail.com>
+ <CAJuCfpE0WQrB3zJp9qn3jvn5DthS=ttpX7gJJvyEhA_BJGrp5g@mail.gmail.com>
+ <CAGsJ_4zgeE3ebEJ+j7GJFzWVoVYHeiOn4dOoOsmWCLA6s=oECQ@mail.gmail.com>
+ <5zdaa5uv5oj27q3taopl3amops57ouxgyfsdveudz4ovmbdw7z@6lwrlyvmhcp2>
+ <CAGsJ_4yKxg1QugcsJi3WD0KVGJKe-zXycgm5D6cRi9vWtNcpDQ@mail.gmail.com>
+ <ag4h87CBd-gph9zX@casper.infradead.org> <CAGsJ_4zA8afu0xXy0WS+tMe-eesDX1W6UBmfAsuouUpcAgK8JQ@mail.gmail.com>
+ <ag4kj84EcKqamdB-@casper.infradead.org> <3be9475b-0e8a-4df8-a130-4262f993973d@kernel.org>
+ <CAGsJ_4xC5LdhuoWV1=tK-RZ5rkjc8aOKOkmb1L_8BG_3gtJhDg@mail.gmail.com>
+ <ahB6QyHgYq8ksj65@lucifer> <CAGsJ_4zxLvZ01i19vdo0xA47T1hxa1VRYvxLmiDhy5q1GDKPRg@mail.gmail.com>
+In-Reply-To: <CAGsJ_4zxLvZ01i19vdo0xA47T1hxa1VRYvxLmiDhy5q1GDKPRg@mail.gmail.com>
+From: Suren Baghdasaryan <surenb@google.com>
+Date: Sat, 20 Jun 2026 16:48:57 -0700
+X-Gm-Features: AVVi8CdrqLszoGfh6nxxBjM6ZU4jlgAaXlfN0swetCJNc_4l9-uU6mX0T8CUJHo
+Message-ID: <CAJuCfpHTxaU4KdNmefU7C7cWZSLCFDLPdUrnqV6yzxzN+8RQ0Q@mail.gmail.com>
+Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
+ fault performance
+To: Barry Song <baohua@kernel.org>
+Cc: Lorenzo Stoakes <ljs@kernel.org>, "David Hildenbrand (Arm)" <david@kernel.org>, 
+	Matthew Wilcox <willy@infradead.org>, "Liam R. Howlett" <liam@infradead.org>, akpm@linux-foundation.org, 
+	linux-mm@kvack.org, vbabka@kernel.org, rppt@kernel.org, mhocko@suse.com, 
+	jack@suse.cz, pfalcato@suse.de, wanglian@kylinos.cn, chentao@kylinos.cn, 
+	lianux.mm@gmail.com, kunwu.chan@gmail.com, liyangouwen1@oppo.com, 
+	chrisl@kernel.org, kasong@tencent.com, shikemeng@huaweicloud.com, 
+	nphamcs@gmail.com, bhe@redhat.com, youngjun.park@lge.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	Nanzhe Zhao <nzzhao@126.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260620_143803_902836_10715D97 
-X-CRM114-Status: GOOD (  13.13  )
+X-CRM114-CacheID: sfid-20260620_164911_705550_E1C35826 
+X-CRM114-Status: GOOD (  26.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,61 +135,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On XDP_TX from the zero-copy RX path, emac_run_xdp() converts the xsk
-buffer via xdp_convert_zc_to_xdp_frame(), which clones the data into a
-fresh MEM_TYPE_PAGE_ORDER0 page that is not DMA mapped. Transmitting it
-as PRUETH_TX_BUFF_TYPE_XDP_TX derives the DMA address with
-page_pool_get_dma_addr(), reading an uninitialized page->dma_addr, so
-the device DMAs from a bogus address (corrupt TX, or an IOMMU fault).
+On Fri, May 22, 2026 at 2:31=E2=80=AFPM Barry Song <baohua@kernel.org> wrot=
+e:
+>
+> >
+> > Again this is making me want to sit outside and sip on some lemonade an=
+d
+> > ice :)
+> >
+> > Yes - android processes are aggressively multi-threaded, sure of course=
+.
+> >
+> > The missing bit here is the forking - what, where, why, when?
+> >
+>
+> I really want to know the what, where, why, and when
+> as well. But since most applications are not
+> open-source, it is basically a black hole for anyone
+> other than the owners of those apps.
+>
+> Let me try to do more investigation to understand what
+> is going on, although it is really hard.
+> To be honest, I would rather the Android framework
+> completely prohibit apps from calling fork(), if
+> possible.
+>
+> > And then you say zygote is sometimes multi-threaded but sometimes
+> > single-threaded, which is adding a whole bunch of confusion on top of a=
+ll
+> > that.
+> >
+> > I don't find these stack trace dumps all that useful (though thanks of
+> > course for taking the time to gather them), I think we'd be better off =
+with
+> > specific data on forking, in some _concise_ _summarised_ form, ideally =
+with
+> > numbers.
+> >
+> > There's such a thing as too much information :))
+>
+> This trace shows PF I/O in one thread overlapping
+> with a fork() call in another thread.
+> But as I explained, I really do not know what kind of
+> user behavior is behind it.
+>
+> >
+> > Anyway, again, please let's see a new _RFC_ with the approach proposed =
+by
+> > Suren, with some _succinct_ data demonstrating _exactly_ what the probl=
+em
+> > is, so we can make some headway here.
+>
+> Okay, sure. Thanks for your patience.
 
-Pick the TX buffer type from the frame's memory type: keep
-PRUETH_TX_BUFF_TYPE_XDP_TX for page_pool frames and use
-PRUETH_TX_BUFF_TYPE_XDP_NDO for the cloned zero-copy frame. The
-completion path already unmaps PRUETH_SWDATA_XDPF buffers.
+Just checking in on the followup plans. IIUC the RFC mentioned will
+try to implement the solution we discussed at LSFMM: splitting
+VM_FAULT_RETRY into two flags - one for retrying under per-VMA locks
+and another one to fallback to mmap_lock.
 
-Fixes: 7a64bb388df3 ("net: ti: icssg-prueth: Add AF_XDP zero copy for RX")
-Cc: stable@vger.kernel.org
-Signed-off-by: David Carlier <devnexen@gmail.com>
----
- drivers/net/ethernet/ti/icssg/icssg_common.c | 13 ++++++++++++-
- 1 file changed, 12 insertions(+), 1 deletion(-)
+Barry, if you need any help or clarification, please do not hesitate
+to contact me.
+Thanks,
+Suren.
 
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_common.c b/drivers/net/ethernet/ti/icssg/icssg_common.c
-index 82ddef9c17d5..302e700ea17d 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_common.c
-+++ b/drivers/net/ethernet/ti/icssg/icssg_common.c
-@@ -804,6 +804,7 @@ EXPORT_SYMBOL_GPL(emac_xmit_xdp_frame);
-  */
- static u32 emac_run_xdp(struct prueth_emac *emac, struct xdp_buff *xdp, u32 *len)
- {
-+	enum prueth_tx_buff_type tx_buff_type;
- 	struct net_device *ndev = emac->ndev;
- 	struct netdev_queue *netif_txq;
- 	int cpu = smp_processor_id();
-@@ -826,11 +827,21 @@ static u32 emac_run_xdp(struct prueth_emac *emac, struct xdp_buff *xdp, u32 *len
- 			goto drop;
- 		}
- 
-+		/* In AF_XDP zero-copy mode xdp_convert_buff_to_frame()
-+		 * clones the xsk buffer into a fresh MEM_TYPE_PAGE_ORDER0
-+		 * page that is not DMA mapped. Such a frame must be mapped
-+		 * via the NDO path; only a page pool-backed frame already
-+		 * carries a usable page_pool DMA address.
-+		 */
-+		tx_buff_type = xdpf->mem_type == MEM_TYPE_PAGE_POOL ?
-+				PRUETH_TX_BUFF_TYPE_XDP_TX :
-+				PRUETH_TX_BUFF_TYPE_XDP_NDO;
-+
- 		q_idx = cpu % emac->tx_ch_num;
- 		netif_txq = netdev_get_tx_queue(ndev, q_idx);
- 		__netif_tx_lock(netif_txq, cpu);
- 		result = emac_xmit_xdp_frame(emac, xdpf, q_idx,
--					     PRUETH_TX_BUFF_TYPE_XDP_TX);
-+					     tx_buff_type);
- 		__netif_tx_unlock(netif_txq);
- 		if (result == ICSSG_XDP_CONSUMED) {
- 			ndev->stats.tx_dropped++;
--- 
-2.53.0
-
+>
+> >
+> > And now I'm off for a cornetto! :)
+>
+> Sounds good :) Enjoy your cornetto!
+>
+> Best Regards
+> Barry
 
