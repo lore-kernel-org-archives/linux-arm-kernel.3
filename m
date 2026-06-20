@@ -4,92 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C8CCCD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Jun 2026 13:45:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C10ACD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Jun 2026 14:10:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f1gzIf8fgHb7Ze/dJb/40ZOzqNvNSD6l3yJqC/XWnEI=; b=yTLEuuPgSwXJkTv+XYawpML58k
-	fVUU4AbTHSrukx+Kq/Kj4qOb2xDqjja9CAMnUlc4LwcdFXwwMkbI4i5OTqqPY95LWjYGoOlfD+j0y
-	vmBfbObUZ4eajI1l7q94yQCYnlHtEzC9Ev5GlUvKiaAz712B/VGBM5dGWSIomjEkW1jMcxTOy8TnO
-	UMQrgAZYrJoN+7+6mE8QjD6kTeBpJ46LFIcNy+B+ZsVGvYfIVOcDJwFKqWfB/bDCSUQS9/ZC9IeT+
-	wWzKkRfRU6o0sMc6bJ2okWQR1mej6G0aXok0PVI4xN58yNgReCJQvDK5gxQl7x2Aj7oPxB7IDLQ4x
-	pepnLXnQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tLHhte5QUVyT08IVmnmDcOMU38Iu165K7b6l/LoQiX4=; b=R6hYNMGKEyJsXX6Qfe7qiyR9vn
+	kltStvp0g712zUhekevy7gtgf1j/YRG8mouMx+J4BNUFCc+KEguIZoq6apsEsZUXP1QS6preuZxqK
+	bFH7p+Kf8GLzJjrUcOgxPwKyk7uIFiov6MWRP5ST/DPr0tNUeMjDKEfON39ciF8E4jTMb5qvV+J7n
+	jZ12UZLUNIRcFfnVhDwXYawx8I9jZ4DA6wmdPQtD3HFNBy29+OZ34Cjue3sg8qj8/1XpGRu0ZBJFn
+	5u5lmiZvmk/dzjyEy80TDrfGyHRM3eBhDznmMzsUpOTAWZ+TW/V/Rg/ukiYaBUNyW6Lrdk+3foULn
+	4+fQFZlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wavUQ-00000003Ncd-3PGr;
-	Sat, 20 Jun 2026 13:12:02 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1wawOZ-00000003OzB-0f73;
+	Sat, 20 Jun 2026 14:10:03 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wavUN-00000003NcG-3cFc
+	id 1wawOW-00000003OyU-0UQc
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 20 Jun 2026 13:12:01 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2c0c1e0d00bso32340865ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 20 Jun 2026 06:11:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1781961118; x=1782565918; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=f1gzIf8fgHb7Ze/dJb/40ZOzqNvNSD6l3yJqC/XWnEI=;
-        b=EXAw0kpeYZMCjcCsrnxPwpJbqNvVHOqMMxP4JpTB8iAMbDpXMF+7LqWkrQzJfLf+sS
-         M45/vlCNfE4ZzRjKPv5D5sXq74LdZY9SiqH+X/sUu75+0OrhcKWw/D5zGNzu7IK4i4jw
-         +sFoyCXpy5Ogfes4iJkIllkZjk206V8WVCTiUkbppIRnb3SbJqkibe3kytL3zcMgTZUt
-         c8djwMlUCNsBznOzaBzIa7mWqdgUjHz1gTqrvN2fKKX8otMDlh2P+tSbwc/i7e8Tg6Fo
-         F/oHV59xBQVdP5fq6NIgaOnRLi+SPGWTKPh5Umk1esYtZgvczp76OM7MzPCk1zfAmMgn
-         ewUQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781961118; x=1782565918;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=f1gzIf8fgHb7Ze/dJb/40ZOzqNvNSD6l3yJqC/XWnEI=;
-        b=k/SNA5uqMk3SL7MMgGblNjSQIvq455mBuVYcCY1N1NnZc/rwn8iQBpKuTjAMykJW+I
-         iskOJz2fG7uvMujev2Z2SObkkJ6ZNPQ3nFrHM2dnPex6GjFIrrk6FY2XviHBU+7UiV8V
-         yTTBbeK86USF3tAO+exmRHi0rWtLvJkzf2H0mtQUQvjceJFy46gv8dselXLcb+wTMGbE
-         bae5mZJdOKuuJmxHFOiEjBPDi+1CCUonrYANLGHzXQP4bB/ejfkmbheXH0SPfZXU/9r4
-         SGqCVCCf6lZ5EsjpmnldwlnTiJKDC4TWpkZI3jaqq5+jnEAsU6jcmlw3RkhTkASJAfIE
-         sIrQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/5Xd0cjTRZg8t/2QDo8fI0Ev3fUqmZCfxjrlIrrTLoHE+L/ypqrRQwRnXFQqAYKJr5YxrWG2seM6I0M6Yvf/AT@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyier+HL10j9lZL1wGneUS2J03MjYGfW5mUrv8JGu7k1G5x/gRm
-	vqe6Wj6KfE3yymTc6f+grEknfdJ+xaBVtLOhYF3IxlCUNxzNP6V/x42X
-X-Gm-Gg: AfdE7cneeLrP8nBHzfHnehn34ipIUz1IatvXp+IKHTCyjtIr8riUg0OsfsWKhzboWha
-	vmG0o+YF3vd/4ySzqA1daMWgMSGVTmPJzZSExDF1jVX5T8Qtzn9X8bxy/ujevRrvT3S4zYGQEdy
-	ncWmkpXbUnbCr3rohl246Ijr0gXEqd7n8WlepoDJCUJTy6nXnl18XN8Iqir4Gkmx0vhX/r07e5G
-	O1STTxJKrC4ylNgzIjUD/HiGFAVq7Q9+1DbijNdYQVjsbJYpmYcW19UzvoJmnFkTbvCLK5/cyGn
-	0wgeXs2nUKnNGw9muaxB8RVx6d7sN5auenC1QIDXwF92G7ZMPmxuDzyh463WK+SX0AyONC/Q9HD
-	YVZw4pJtg0cB6OHbGFheqk9FhUoovM7A2LL9t4G9KlAHKcTI0w3278+w5LuPJZWDBiPxXxKXC/w
-	H6DzK0mbVS73Ih3FbHqqfXtvJrTg/fkSyH9ltctTRTv/0bIQ==
-X-Received: by 2002:a17:903:234c:b0:2bf:356f:4e0c with SMTP id d9443c01a7336-2c725ba685amr74009065ad.1.1781961118146;
-        Sat, 20 Jun 2026 06:11:58 -0700 (PDT)
-Received: from LAPTOP-97G9G880.domain.name ([106.222.202.139])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c743bfea46sm23206645ad.69.2026.06.20.06.11.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 20 Jun 2026 06:11:57 -0700 (PDT)
-From: Karthikeyan KS <karthiproffesional@gmail.com>
-To: andrew@codeconstruct.com.au
-Cc: joel@jms.id.au,
-	andrew@aj.id.au,
-	Kees Cook <kees@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org,
-	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v6] soc: aspeed: lpc-snoop: Fix usercopy overflow in snoop_file_read
-Date: Sat, 20 Jun 2026 13:11:50 +0000
-Message-ID: <20260620131150.184838-1-karthiproffesional@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <033f2657ae6a94ad13d22f717a2900afb75d892d.camel@codeconstruct.com.au>
-References: <033f2657ae6a94ad13d22f717a2900afb75d892d.camel@codeconstruct.com.au>
+	Sat, 20 Jun 2026 14:10:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=GqSokA5lflAHGR54iIWPgFiht/SoQJbz/AOPW3Hs4gr0snZy7UAICXLDI92vSPt8YfGNqJRcb9OZlBZWS+5qQ+nxYUl3+c7wYuq1vsxnPVL1H+b70Gx32lqIrH1epldHhZscy8eNNtjO5LQeZ3XXNEP5kaGMSW1aGXLWjIxXHYxyeK8lb5F2MoCUQ0ldt/5o4drlTMKXMoM4iWQ7aQRIuU5k9CNTfdAyzWTPVH0/MYlqvQWE554aEC6cHgeoIIuiEWH3gE/35OW8MIkWKaavuHHBUg/IyUw8W8jcYD5gdP1kzcSw+EY1WDwzZdH3fvLCsKIfIVaYYUqY+H+txIMpKw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=tLHhte5QUVyT08IVmnmDcOMU38Iu165K7b6l/LoQiX4=;
+ b=ll/S27fpRtTj6q7l3fGMckEbP7ufr0dQ6wyhJvmXYjhtEfAWyuSSHkKhOs/ddR97nLAB1eEgrD13u6dQ7MsA6wKYUzUTJIC3W2d+bl6/uH0YqgOiQ6Lu/74qO0NtCIT8o0MZSPrbVc/vEY36c0nTjMorek2ehr7cKPI/2gckK2BWWvMI8ehTcUR8BMos2YdpU6+kBV+unrCkT4eJSi9O1HRAlvhyH/D7CgPz6DuTgMnhF4TAu6gNu8yWtXf+2CLZsB+wGEh7z5wDmxcEN6WPDKHTijJn4Gf2Bs7gWIQVhSNgU5CdSKq5CbmvEMHaJMaJfyMAUUQ0x8aGkf68caaC5Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=tLHhte5QUVyT08IVmnmDcOMU38Iu165K7b6l/LoQiX4=;
+ b=j/FX9Zy6THoKBPDMC0VC/oY60rTnz9leEM82OjIeKIXngxFWQzG3NU1fvvRMM3fPvF98BQTBdEC89zIntnlQzZCd7+X4Wpcu5P/aOKVAhYY6ENQ2erTndfNBuJabIc6Zlia956nLyGW3qKUpaYfPSx41ocBsOSYv94BMkuDAgdvwbH4wsJpzHYnaYgSQXbh4+zRnDzkDsliNwxbwKuoahDyi06IpdNW1emCP+gfcz2bYeqtzm+WqA4dts/txuuZYpHH87GoRjorn/b1Rog0acpACCi1AAfjMj1OUqIX67jFORWttgZxyaw2JiXkYf7BSw/9lS9iYtl1MuQ8PtgtNtw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AM9PR04MB8524.eurprd04.prod.outlook.com (2603:10a6:20b:433::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.18; Sat, 20 Jun
+ 2026 14:09:54 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0139.018; Sat, 20 Jun 2026
+ 14:09:54 +0000
+Date: Sat, 20 Jun 2026 09:09:40 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Jiawen Liu <1298662399@qq.com>
+Cc: broonie@kernel.org, cl634@andestech.com, william.zhang@broadcom.com,
+	kursad.oney@broadcom.com, jonas.gorski@gmail.com,
+	bcm-kernel-feedback-list@broadcom.com, anand.gore@broadcom.com,
+	f.fainelli@gmail.com, rafal@milecki.pl, olteanv@gmail.com,
+	han.xu@nxp.com, haibo.chen@nxp.com, yogeshgaur.83@gmail.com,
+	linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev
+Subject: Re: [PATCH 4/4] spi: nxp-fspi: disable runtime PM on probe failures
+Message-ID: <ajafJIPNBOiaISgk@SMW015318>
+References: <20260620083931.1120616-1-1298662399@qq.com>
+ <tencent_8FC0B8DFAF4AE67AEBA20548045D53A77707@qq.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <tencent_8FC0B8DFAF4AE67AEBA20548045D53A77707@qq.com>
+X-ClientProxiedBy: PH7P220CA0147.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:327::21) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM9PR04MB8524:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9c6be700-1fce-47c6-12e6-08deced599c8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|19092799006|376014|366016|7416014|1800799024|18002099003|4143699003|11063799006|56012099006|22082099003;
+X-Microsoft-Antispam-Message-Info: pGjGpLDLki03V+dxaRbswTNv34+vgLICVcSF7YWf67xJm+TVfMipRkHSgwTlvAQfz776rvB4/z3TsJkgytZZWra4BR/r0updKwEVtqHV9wFHml3+HTYWPIjc7eqytX+glh4tKE5sokwXA/aK4AsvvZGna0KBwYHnnt4PjVs70ER5OP9JXJsRbCwi158cPh7mMEDpqzJOXjBAUYj0JCw9PU1OmEAvEKCRQTaPxUCda8sJeaaXa+CgoXEEvBZOz2DRFs53F9VBLtX17PSYzqX8SmXKOLdZRjjZnPwu8E3Pw9PPgJ0Herz9yZ8pSmjqY5WhvyUs+dJGTFQlAPU5FUsst0BFw2qOgKicaM4oAFZ73hPb3xhoOHmKiW6hh+DbRPftYU7iIgHsl2v98gEB6FQzQRyVsikOZ0X2mXsKEd6mRTq+l/Bc5s0xhoBnE45b3ebt6PtQhVXJHOIvEXtohHXftU/zMtuk8702wJvLkRu4izzXKxon2KTZLUVHwcixRNr5bVhoArMnlkTwD4xxFvJLEWHaFR2kuD45kCHUiCxRT0DFWzoqfPQfWUI+D1tUy4107hWcmcbD/stjSydm5yie9IUfF/1K6VwHHSw+e67Hhxmyq97mr6SYZjH+2w0U4z05CTsr5uayQ8/sVwota4rnFZ7J7mR1nUMGVLob+sSFTpU=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(19092799006)(376014)(366016)(7416014)(1800799024)(18002099003)(4143699003)(11063799006)(56012099006)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Ifq97yKp7/BdDZHkNeHB5Xma4drU01ZpZ4GaWLnLyL3kVBd36Wuh7eoPJ8tL?=
+ =?us-ascii?Q?sHyou2XY8PRol8qxu0KX9u6p56n8nVH88PiMg8/868Uf9SAVNMy5rFk4L8IE?=
+ =?us-ascii?Q?DNrixzNEMYJV9y/3cHi1HQz6J4Qh8mh+F+ix395zvEF1cu2nU3WsOF5K4+cZ?=
+ =?us-ascii?Q?CucdxI3AfLLrAJ2QVdZ0wHokN4/MYEsP+0Bgw6eimFZFFyCKhtxzuxtWNvKR?=
+ =?us-ascii?Q?GCoT4cG181svo8QRTsEU6QABeyoee/T5nXx3Zrn7+nz7j+qJBju1VpSBhypB?=
+ =?us-ascii?Q?xq9+ehXm0ovso3fAGYXZtWNPq8H8W4MhkD0xwBFfDK9SrJLx9WCAE0ISjNzL?=
+ =?us-ascii?Q?3K3pxqkwNzBnk8D7GNMW9lEITzuNXLo9KiNzlZnKPaeDrFQr0n1b4Pdb0WXi?=
+ =?us-ascii?Q?38Itc0mQmuY9g+gOSNn0q5oXdUkl6GYnlhDEaBT2iQnlP4QySm9osz2tjaVM?=
+ =?us-ascii?Q?C+HT389hN8AlYDmkxNZCaJYRGjPhWT21Ruq2J2ax+MPjIA2zXmHgXRjjuhY9?=
+ =?us-ascii?Q?J/2ZuJHCnhgbnWzTcQ1I8gpamSJ/3BTfqUs5DGai/XOkCXX8op13X4amM2E2?=
+ =?us-ascii?Q?ZzaDj+4evVj+fHSYfv2vTF0L6Cakzzp4x3GGtWK0TZSpKh9pxg0/2M2KREk7?=
+ =?us-ascii?Q?go2hAh/AYrkLkc6QAdAtl22J84EPOU1dB1XuOXXD5PZMEra//rgkia5Vs8N3?=
+ =?us-ascii?Q?RVKqH1t/1aX7hPHRJaDX44MA0dt8+A//5l+bsYMf0huH5Ua+k3EfhaCL43sc?=
+ =?us-ascii?Q?Ve5DwGXRoGpvkINkeYOV/idnbFQAjX6Odbbaba8X8u7WiY/llWYeULM6tCaT?=
+ =?us-ascii?Q?8fyTjDq++IcuyJi081JiFuvIlnlOsuWy4/X6NQWx4RmlkqdfrwfvvKtQXyeD?=
+ =?us-ascii?Q?JUnptaMHHSymbfdng2bVgHszbUlPATz3Gl6jZ8k0O7K3TK3oGtcKHWr2gQrw?=
+ =?us-ascii?Q?XxL+eTUzpXN8uaKq/fy88uskG9WaQD4m+p5nbBsMhTFgTAZIaje7M+tgaqfY?=
+ =?us-ascii?Q?bcXoPEKoEq//PL7vzdgZtYiSk+qJFyDnwaqr2rnaDKnMI9yA1/L/2rpdYhtO?=
+ =?us-ascii?Q?eW0VmKFAYEz5lrjyWfzCRamJPQlhpQeJ10b465+ed7skIMW3AByJzTDVKHvM?=
+ =?us-ascii?Q?cIGsejS/aZjrI4ckRYU7zyLagOvkdJ2j+X6KuMMBnDFXBAH+VQAvPfy3Dh1y?=
+ =?us-ascii?Q?AiHJKIMLYOkwq3soCV5hTNSxuTP2yKUzTVh33lve/pKAbLhYFc5k74CbmZji?=
+ =?us-ascii?Q?D+3zL+BRVO+oGSRW5IJ+fuFdRRs3C1zbx3RcD116xVF8M7eSqA5fmHFQDMpw?=
+ =?us-ascii?Q?5Fta7ztpD8Cp1OK6NuqfkKKiPbZv5ffO0xkNvJ5uQVp90A6tIE5wv57IZ9jK?=
+ =?us-ascii?Q?VPEV+IFGsap5gPe75lA/X2T3Vb+EwlvEOE/fw4z2ym/JwvM9zeXa9jYqkGmi?=
+ =?us-ascii?Q?QYy5fLw2h/KTDzb6XSLHSmWCuAN1NnXBZ/h6FZ2yUY0A7pYjqI75YlPYrFoC?=
+ =?us-ascii?Q?sF9Fow/62d8BkO8cHq7p3o6gIwQ24xAjlMu4ox8GbxdKBaMrXqXz/cVrxgjD?=
+ =?us-ascii?Q?Pg2qKCAyqJ1sqXzOzmzjFde0wTT7rUBKI6boI53M2aasBjbTMM2fvkQaLlFf?=
+ =?us-ascii?Q?9+elqVHiET/GEhySVoT96boLoPF7OmrPcVSs0Y/1FG/0LJqiHw0eNoAjo+bP?=
+ =?us-ascii?Q?G+Ay/m35RB1+jQkcqUok445YQA1lk2W2mo8bzIcrkL+6dQc8NAAJpMvSggYU?=
+ =?us-ascii?Q?U8gq4SK714vuAeGrIgU7K5is9lAOqDQB+gEdfO2yyYGo2jFtAzxN?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9c6be700-1fce-47c6-12e6-08deced599c8
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Jun 2026 14:09:54.0174
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: hSLAbrWy16vV0c/faOz1IUlp/OlqlQpUDEF+D0g6wMHwdpcKcBAklk/DHCH36zplvzWRaKVO5cmBKQ+V0in/0ySaIkCar55pjrrjUsOQkycL4aVHP46U8ZAU2ZGxSxIj
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8524
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260620_061159_932890_30CF9586 
-X-CRM114-Status: UNSURE (   8.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260620_071000_168352_DFBF7D1E 
+X-CRM114-Status: GOOD (  18.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,16 +141,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2026-06-17 at 13:10 +0000, Andrew Jeffery wrote:
-> Can you confirm you have tested on hardware a backport of this
-> patch to your BSP kernel?
+On Sat, Jun 20, 2026 at 12:39:31PM +0400, Jiawen Liu wrote:
+> [You don't often get email from 1298662399@qq.com. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+>
+> nxp_fspi_probe() enables runtime PM and autosuspend before
+> several operations that can fail.
+>
+> Some failure paths returned directly before the devm cleanup
+> action was installed, leaving runtime PM enabled.
+>
+> Route those failures through a common runtime PM cleanup path.
+> Use pm_runtime_resume_and_get() for the initial clock enable.
+>
+> Signed-off-by: Jiawen Liu <1298662399@qq.com>
+> ---
+>  drivers/spi/spi-nxp-fspi.c | 31 ++++++++++++++++++++++---------
+>  1 file changed, 22 insertions(+), 9 deletions(-)
+>
+> diff --git a/drivers/spi/spi-nxp-fspi.c b/drivers/spi/spi-nxp-fspi.c
+> index 1e36ae084dd8..d94a2a7b98d4 100644
+> --- a/drivers/spi/spi-nxp-fspi.c
+> +++ b/drivers/spi/spi-nxp-fspi.c
+> @@ -1350,9 +1350,11 @@ static int nxp_fspi_probe(struct platform_device *pdev)
+>         pm_runtime_use_autosuspend(dev);
+>
+>         /* enable clock */
+> -       ret = pm_runtime_get_sync(f->dev);
+> -       if (ret < 0)
+> -               return dev_err_probe(dev, ret, "Failed to enable clock");
+> +       ret = pm_runtime_resume_and_get(f->dev);
+> +       if (ret < 0) {
+> +               ret = dev_err_probe(dev, ret, "Failed to enable clock");
+> +               goto err_disable_pm;
+> +       }
 
-Not until yesterday, done now. Backported the fix to
-the BSP kernel (5.4.x) on the AST2600 BMC where the original failure
-was observed. Tested under continuous host reboot cycles with concurrent
-userspace reads on /dev/aspeed-lpc-snoop0. no panic, no usercopy
-splat. Same workload on the unpatched BSP reproduced reliably.
+Use PM_RUNTIME_ACQUIRE help macro to avoid all goto
 
-Thanks,
-Karthikeyan
+Frank
+
+>
+>         /* Clear potential interrupts */
+>         reg = fspi_readl(f, f->iobase + FSPI_INTR);
+> @@ -1362,18 +1364,24 @@ static int nxp_fspi_probe(struct platform_device *pdev)
+>         nxp_fspi_default_setup(f);
+>
+>         ret = pm_runtime_put_sync(dev);
+> -       if (ret < 0)
+> -               return dev_err_probe(dev, ret, "Failed to disable clock");
+> +       if (ret < 0) {
+> +               ret = dev_err_probe(dev, ret, "Failed to disable clock");
+> +               goto err_disable_pm;
+> +       }
+>
+>         init_completion(&f->c);
+>         ret = devm_request_irq(dev, irq,
+>                         nxp_fspi_irq_handler, 0, pdev->name, f);
+> -       if (ret)
+> -               return dev_err_probe(dev, ret, "Failed to request irq\n");
+> +       if (ret) {
+> +               ret = dev_err_probe(dev, ret, "Failed to request irq\n");
+> +               goto err_disable_pm;
+> +       }
+>
+>         ret = devm_mutex_init(dev, &f->lock);
+> -       if (ret)
+> -               return dev_err_probe(dev, ret, "Failed to initialize lock\n");
+> +       if (ret) {
+> +               ret = dev_err_probe(dev, ret, "Failed to initialize lock\n");
+> +               goto err_disable_pm;
+> +       }
+>
+>         ctlr->bus_num = -1;
+>         ctlr->num_chipselect = NXP_FSPI_MAX_CHIPSELECT;
+> @@ -1389,6 +1397,11 @@ static int nxp_fspi_probe(struct platform_device *pdev)
+>                 return ret;
+>
+>         return devm_spi_register_controller(&pdev->dev, ctlr);
+> +
+> +err_disable_pm:
+> +       pm_runtime_dont_use_autosuspend(dev);
+> +       pm_runtime_disable(dev);
+> +       return ret;
+>  }
+>
+>  static int nxp_fspi_runtime_suspend(struct device *dev)
+> --
+> 2.34.1
+>
+>
 
