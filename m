@@ -4,74 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD01BCD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Jun 2026 16:59:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45C5ACD98F0
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Jun 2026 17:00:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=626Pu+3MWCl6GFK1K+rzSFPcpCcWzeny/X+/kz7vSpQ=; b=BTKIeSHi4XlRCAgtFx0GGmTXqd
-	xw+kGR377UePXpeVhMHHornsRIyAVzjqFkaFfgSA9/AOJcU7s3QGfFFdoCG4ckIiYTGYF1Ndxd9C+
-	uZzU1r2dk2bNA0hZA8UORZDeVG2Mx/FqwaFllyTnhZBoNwcgGDbkEsLo+9a9UIFzOFrHuwTYAc/d5
-	QRiUawZLSr4X7uAxa+Gk0iIGIuKCYJ/ORHHp2sgYJeJK7IraZqjubK0cDcfzZ5sZzFSRvUEGJLQlh
-	g49y3HkZ3WJGG3UPONL8C0xssr64TvhZNRnpXOugFZe317aVRsaGWlxrepqnd5yaWaxtNJZvjLdNE
-	cyGlW/mg==;
+	bh=LT13Elo8cXGba8BqA/kWfaMrSK5k41Vck1P+Ko1QHQQ=; b=o0W3H4n+96e0Rv/NfgWOKzP9t0
+	c+8ouQ1uxtfY2ercsoj7SKZD1u45NqOPURDoDDcKgeSMg6o8kYTJDSxqNinunkpDaY/v8E92uEOyO
+	O54p4PCBSRICoe3dQkZMQvXjxWUVaA5iZYALKeeRxJxIfZXuHpaHyEQhW0uJTqnOn92+vU4eWsfoO
+	YkPDQ19pydwqVXMGGpQxCyRpJpfbThoejO0nUIKh6/2hN+iR8tcz7zmzz7RSa8hRCmz3rdZqltsaO
+	VqA2SRKlOlwHwJupApRPU0lvvPQGlx/KcoyMQXFtBbEH2NE9F07hT17dtACkmMpEy20jyJzMvI1uy
+	gAqDDWwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbLW5-000000044QI-1pjN;
-	Sun, 21 Jun 2026 16:59:29 +0000
+	id 1wbLWs-000000044U7-2T4r;
+	Sun, 21 Jun 2026 17:00:18 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbLW3-000000044QC-395d
+	id 1wbLWq-000000044Tu-2OnZ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 21 Jun 2026 16:59:27 +0000
+	Sun, 21 Jun 2026 17:00:16 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C325140AB4;
-	Sun, 21 Jun 2026 16:59:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 864D91F000E9;
-	Sun, 21 Jun 2026 16:59:26 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5739E41B6F;
+	Sun, 21 Jun 2026 17:00:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 34D011F000E9;
+	Sun, 21 Jun 2026 17:00:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782061166;
-	bh=626Pu+3MWCl6GFK1K+rzSFPcpCcWzeny/X+/kz7vSpQ=;
+	s=k20260515; t=1782061216;
+	bh=LT13Elo8cXGba8BqA/kWfaMrSK5k41Vck1P+Ko1QHQQ=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=DDc2XvPmtDQ78cpXHp1Z6mVjoSBTaPWJsYxTEQXZWc85iHEImIMtvkmXIQKnOr4nB
-	 5KHLtbYoqVV8nl+jUB7bW1CPI820m9xeXMPOYMXEpGjQpsIi/NVaMG1d/Vqth23kqz
-	 Af34NOc+7WjDgZDF/dLzKMdS2Fk6SXtHVAgB5lDJ1oGkwIBdqzxEfU0DNsMe9sn86t
-	 pqyr9YF88w5BS68RmrKxHIjPnT9DZ5fl770dB6lV7ju7WPGatXZr4dOUM9SWBYnviD
-	 gBsIOBLbgXcG80Up8WPPC1B/jirPoQG77yzu79b4JCVpLBORzOMGZxtH9nA1dZaBor
-	 c5dv/J/tHM8yQ==
+	b=Pa4xl7tol/v63GF2T8ASzF+LpWLJtVcR3Yy69o2uBgQXgzRWk2oU4dfPtVwTuZvsr
+	 /gLPHtRzbhhJp41xZhV5E/xTPDsHQ37rAdjOQ7rmei4vXA9ylcw7K7D6qxwwUHJsA/
+	 XTcR/7QqGEwUBWzQM+LEbP5aMIBhb5ePryNvP+uWn83JF4aF/sa7YDrPRi6Wk30eNb
+	 IOSnC7sxHOZxdLiWc3ab4jWf7r9DGMObQ3Ow5CS2ALtbPpWpUDdEm38CNx0HLrpiQH
+	 75wFdU1TKXNSS4cN5jVtP8QrexbyQzp9vO9Ugt80skNx0RwINYLAYKFgSVV82dKWc2
+	 uBgbkEZXlKuXQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wbLW0-0000000EhrH-1Gue;
-	Sun, 21 Jun 2026 16:59:24 +0000
-Date: Sun, 21 Jun 2026 17:59:23 +0100
-Message-ID: <865x3bsuc4.wl-maz@kernel.org>
+	id 1wbLWo-0000000EhsC-1O7v;
+	Sun, 21 Jun 2026 17:00:14 +0000
+Date: Sun, 21 Jun 2026 18:00:13 +0100
+Message-ID: <864iivsuaq.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
 To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-pci@vger.kernel.org,	Krzysztof =?UTF-8?B?V2lsY3p5xYRza2k=?=
+Cc: linux-pci@vger.kernel.org,	Yoshihiro Shimoda
+ <yoshihiro.shimoda.uh@renesas.com>,	Krzysztof =?UTF-8?B?V2lsY3p5xYRza2k=?=
  <kwilczynski@kernel.org>,	Bjorn Helgaas <bhelgaas@google.com>,	Catalin
  Marinas <catalin.marinas@arm.com>,	Conor Dooley <conor+dt@kernel.org>,
 	Geert Uytterhoeven <geert+renesas@glider.be>,	Krzysztof Kozlowski
  <krzk+dt@kernel.org>,	Lorenzo Pieralisi <lpieralisi@kernel.org>,	Manivannan
- Sadhasivam <mani@kernel.org>,	Rob Herring <robh@kernel.org>,	Yoshihiro
- Shimoda <yoshihiro.shimoda.uh@renesas.com>,	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,	linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH v2 2/4] irqchip/gic-v3: Refactor GIC600 limited to 32bit PA erratum handling
-In-Reply-To: <20260618220427.14325-3-marek.vasut+renesas@mailbox.org>
+ Sadhasivam <mani@kernel.org>,	Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org,	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,	linux-kernel@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH v2 3/4] irqchip/gic-v3: Add Renesas R-Car Gen4 erratum workaround
+In-Reply-To: <20260618220427.14325-4-marek.vasut+renesas@mailbox.org>
 References: <20260618220427.14325-1-marek.vasut+renesas@mailbox.org>
-	<20260618220427.14325-3-marek.vasut+renesas@mailbox.org>
+	<20260618220427.14325-4-marek.vasut+renesas@mailbox.org>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=US-ASCII
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: marek.vasut+renesas@mailbox.org, linux-pci@vger.kernel.org, kwilczynski@kernel.org, bhelgaas@google.com, catalin.marinas@arm.com, conor+dt@kernel.org, geert+renesas@glider.be, krzk+dt@kernel.org, lpieralisi@kernel.org, mani@kernel.org, robh@kernel.org, yoshihiro.shimoda.uh@renesas.com, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+X-SA-Exim-Rcpt-To: marek.vasut+renesas@mailbox.org, linux-pci@vger.kernel.org, yoshihiro.shimoda.uh@renesas.com, kwilczynski@kernel.org, bhelgaas@google.com, catalin.marinas@arm.com, conor+dt@kernel.org, geert+renesas@glider.be, krzk+dt@kernel.org, lpieralisi@kernel.org, mani@kernel.org, robh@kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -88,20 +89,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 18 Jun 2026 23:02:00 +0100,
+On Thu, 18 Jun 2026 23:02:01 +0100,
 Marek Vasut <marek.vasut+renesas@mailbox.org> wrote:
 > 
-> The GIC600 implementation is now known to be used on multiple 64-bit
-> SoCs, where it has address width for AXI or APB interface configured
-> to 32 bit, and it can access only the first 4GiB of physical address
-> space.
+> Renesas R-Car S4/V4H/V4M GIC600 integration has address width for AXI
+> or APB interface configured to 32 bit, it can therefore access only
+> the first 4 GiB of physical address space. This information comes from
+> R-Car V4H Interface Specification sheet, there is currently no technical
+> update number assigned to this limitation. Further input from hardware
+> engineer indicates that this limitation also applies to R-Car S4 and V4M.
+> Name the limitation GEN4GICITS1, and add a driver quirk to mitigate this
+> limitation.
 > 
-> Rework the handling of the quirk to work around this limitation such
-> that new entries can be added purely as new compatible strings, with
-> no need to add additional functions or new its_quirk array entries.
+> The quirk is keyed on the combination of the GIC implementation
+> and the platform identification in the device tree.
 > 
-> Suggested-by: Marc Zyngier <maz@kernel.org>
+> Signed-off-by: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
 > Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+
+With the SoB chain issue addressed:
 
 Acked-by: Marc Zyngier <maz@kernel.org>
 
