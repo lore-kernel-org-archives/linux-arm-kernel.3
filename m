@@ -4,94 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF5D8CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Jun 2026 14:59:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EA0BCD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Jun 2026 15:02:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4NxAn67EllZLJlW9mqBx7c+aiyuMdE0tLJsEwrVt4YI=; b=CiyOgiK9ynZeVh5hr+ZPFLNkVN
-	XLugZcND7kyWKEgbmB0HbCGAyiUPyfEOgb7ulqAxD24ReVhzCe+rxAcRIPOBrYWG8sAfGNFfHhoFY
-	Wof4JwMbrKQmKRpMqs52yCoUlN4d9WRrPeIAzIZV+tpxkKsxfYwzvi/1sSmJb92wUdIlu5jGzhaI4
-	E8EmURNGkQmKeiL8HqrsgDAR7+fxPZcoJponZV0USl4xSWPBkZLIEJwydgUlSTLG6uETVmcO0TBrd
-	cr9Sb81OatEKT49aO8O26u7i9h42aO9F/Ssuy+rqjcHul4j3K+vuNBNRe6g2sFDtmlxtecFdnfyto
-	4wa9caGw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tqjaIKN/ITi/ng4qRGgg8EmQat4Chb+UQbqBdglSMeI=; b=iU3XQwf38ktY1lUS4NzbyiJhjQ
+	ZxTcxrzH+gsD1jInezNh4eSq+dsJJ08YWSzlVOnD4F9V8y9us+KHHX/zOQLcgTntcqp6N4RNRugs/
+	6ZZRGtnZIDUAaBfUd5IRqsqYUN5Rl8d4ifyn3LmR0lMArfLpvKSJ2WqdfXn1CqrM0ww6I4E7SvpUz
+	Z+vdZSBlW6aSL6bgU3gYft/KYSKAXFr3WcwdN8XoaUNnWh13Cc3i75NT2DepqAXJxyehSKvsT2S0g
+	nNvfndYvli4KV5eeDReEvsOKwL5HuO+g95hRrQX7EfVLXXcfsOwuoFM6y61l/+yBBdMk1rLYwe1bf
+	GVUFcsVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbJe4-000000040hj-3jFy;
-	Sun, 21 Jun 2026 14:59:36 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	id 1wbJh7-000000041L2-14ks;
+	Sun, 21 Jun 2026 15:02:45 +0000
+Received: from maynard.decadent.org.uk ([65.21.191.19])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbJe2-000000040gY-0a4B
+	id 1wbJh5-000000041KZ-22EA
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 21 Jun 2026 14:59:35 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-37ce68a54f8so2099863a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 21 Jun 2026 07:59:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782053973; x=1782658773; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=4NxAn67EllZLJlW9mqBx7c+aiyuMdE0tLJsEwrVt4YI=;
-        b=VMtlseO2cjFQrLcOG2lDu2prNbmI24Z686+fgao7LNQwIdOCki3n1PLPvN6V23GI1T
-         vN8vPhy26o0c2rYDRxHpsx2kYeEKnTI8hTszs+rL3kf3EronaWe7peRMP62kcjGxPjDM
-         xgGWKiNC963XY1QeLN+3C0Cr4snAumi95JOje5o6b+Bv4IRVp/ppUEoFiuSt9M9p+psN
-         +swGZ0BbyNfLGMj+3zFqHTOxaFIzk4OMs1LbrxGX+oSAnqikDuU8yBQNhrZfZI1z8pPn
-         6z+jqi9eU4YNpAbXdt2UZPeDnbKpfCrhcy6P47kXJ4NeYbBYSCjRUxPOTFR8OrQEOIEX
-         nj1g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782053973; x=1782658773;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=4NxAn67EllZLJlW9mqBx7c+aiyuMdE0tLJsEwrVt4YI=;
-        b=YsZiV7bt1pxh51wvfiTY5KtkeNv5ZBJ5xIIDPbuUb7rdKig3CyV5F9BVUzJaGME4cT
-         jfnuYai2POJxs8P3DpgayogOvCwb8kLK9QEEDvRvQ72QvZ+t+1rjLm1wfjjl6CY0+wN7
-         4up/+1kxofEhRRKrLGfD6hsGedWyEHnGZZq1zZwCZf2CZO/7+v5rDRSl3Pit3lWo81iU
-         +78I5l8sWkEffdEGyRBK+Bv2mOyTsn1U+y/5tND6Xf57zQfYVnAhCxhJXq24y/nsnDcD
-         kQwsRMmOYpdIZ+cuiG0i3YPtAGfiTtU6Ta542zVt+rogF/7Z1ZSwpx2euj5I/OZufosa
-         sHTw==
-X-Forwarded-Encrypted: i=1; AHgh+Rrh6Y/7cFEQ4h4eIxyr7HnmyjZY+2s7wjgx7YQUhYqDSBhgAmnzQxWaDsXW6Fds4p3ldJiFGVjNBGuSbtZ+Il0m@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw4DNjtp+bEOZKMkMg5LkjFNgnqXqmZLP+R/7fmKvrHKc3qNFGI
-	UGLRafH5qZVT9QLTz/OoF3A/jYh+WtpPFt8oNFD5FvSLby76wMnhxhwq5J/gMv0M
-X-Gm-Gg: AfdE7cmC9MtNkRlgi1C3pDKK9/fedNCbuy+g+Bv4+70EeC66beRU1VOJnYt8wIiu1MX
-	+Qx3rtygBDTUcHLUHWu8yFuh8uKrbCQfTybaAkK7eboM7nuFUFuWu8l+HPdJxfcTefksrOAdq+Z
-	A4rSYu2q6G/d3QuOreZe3t+sJQTh9a6bVWmrYIMW16cVAVPelhRaYN3lyPNFaeoR/pSIfikJ42+
-	QUvBWnccc4rb4FVu9XP+41uE6HG62nZFhZTlf/BSKE6OGuolOsIIREGPY5ovh1hJ3tdI9H/WzF3
-	liE1mu+3Afyi95eir24jb321ulef8gtgs3J+49SnUUlvmwAZHrWpravjDeTh7wfqZW2y138uZug
-	I99CW0Y2is4HmO5+b7ecgwLSAARo2dfNG9NZxAIHYft9tG8o7n5GIJHY4iqCBXZqEmBByn/aEJJ
-	pkgsQqPh8=
-X-Received: by 2002:a17:90b:4f8b:b0:366:3517:1aa2 with SMTP id 98e67ed59e1d1-37d1e5a3889mr10118559a91.0.1782053973142;
-        Sun, 21 Jun 2026 07:59:33 -0700 (PDT)
-Received: from ubuntu.. ([110.9.142.4])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-37d4f225870sm4544896a91.8.2026.06.21.07.59.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 21 Jun 2026 07:59:32 -0700 (PDT)
-From: Sang-Heon Jeon <ekffu200098@gmail.com>
-To: Andrey Ryabinin <ryabinin.a.a@gmail.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: Sang-Heon Jeon <ekffu200098@gmail.com>,
-	Alexander Potapenko <glider@google.com>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	kasan-dev@googlegroups.com,
-	linux-arm-kernel@lists.infradead.org,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>
-Subject: [PATCH 1/6] arm64: mm: remove unreachable invalid range check in kasan_init_shadow()
-Date: Sun, 21 Jun 2026 23:59:11 +0900
-Message-ID: <20260621145919.1453-2-ekffu200098@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260621145919.1453-1-ekffu200098@gmail.com>
-References: <20260621145919.1453-1-ekffu200098@gmail.com>
+	Sun, 21 Jun 2026 15:02:44 +0000
+Received: from [2a02:578:851f:1502:391e:c5f5:10e2:b9a3] (helo=deadeye)
+	by maynard with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <ben@decadent.org.uk>)
+	id 1wbJgy-003aIM-0V;
+	Sun, 21 Jun 2026 15:02:36 +0000
+Received: from ben by deadeye with local (Exim 4.99.3)
+	(envelope-from <ben@decadent.org.uk>)
+	id 1wbJgw-00000007GXD-2yyJ;
+	Sun, 21 Jun 2026 17:02:34 +0200
+Message-ID: <b0d5836032ce3135bfc473f6bff791306d086925.camel@decadent.org.uk>
+Subject: Re: [PATCH 6.1 337/522] arm64/mm: Enable batched TLB flush in
+ unmap_hotplug_range()
+From: Ben Hutchings <ben@decadent.org.uk>
+To: Anshuman Khandual <anshuman.khandual@arm.com>, Catalin Marinas
+	 <catalin.marinas@arm.com>, "David Hildenbrand (Arm)" <david@kernel.org>, 
+ Ryan Roberts <ryan.roberts@arm.com>
+Cc: patches@lists.linux.dev, Will Deacon <will@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Sasha
+ Levin	 <sashal@kernel.org>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, stable	 <stable@vger.kernel.org>
+Date: Sun, 21 Jun 2026 17:02:27 +0200
+In-Reply-To: <20260616145141.584613180@linuxfoundation.org>
+References: <20260616145125.307082728@linuxfoundation.org>
+	 <20260616145141.584613180@linuxfoundation.org>
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-y3J05c+vgPYhtoDB2K3t"
+User-Agent: Evolution 3.56.2-9 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 2a02:578:851f:1502:391e:c5f5:10e2:b9a3
+X-SA-Exim-Mail-From: ben@decadent.org.uk
+X-SA-Exim-Scanned: No (on maynard); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260621_075934_197180_D1D57206 
-X-CRM114-Status: UNSURE (   9.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260621_080243_541887_028EB8CC 
+X-CRM114-Status: GOOD (  17.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,34 +76,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-kasan_init_shadow() maps each memblock region with for_each_mem_range()
-and breaks the loop when start >= end. for_each_mem_range() never returns
-an invalid range, so start < end always.
 
-Therefore the start >= end check is unreachable, so remove it.
+--=-y3J05c+vgPYhtoDB2K3t
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-No functional change.
+On Tue, 2026-06-16 at 20:28 +0530, Greg Kroah-Hartman wrote:
+> 6.1-stable review patch.  If anyone has any objections, please let me kno=
+w.
+>=20
+> ------------------
+>=20
+> From: Anshuman Khandual <anshuman.khandual@arm.com>
+>=20
+> [ Upstream commit 48478b9f791376b4b89018d7afdfd06865498f65 ]
+[...]
+> @@ -949,15 +953,14 @@ static void unmap_hotplug_pmd_range(pud_
+>  		WARN_ON(!pmd_present(pmd));
+>  		if (pmd_sect(pmd)) {
+>  			pmd_clear(pmdp);
+> -
+> -			/*
+> -			 * One TLBI should be sufficient here as the PMD_SIZE
+> -			 * range is mapped with a single block entry.
+> -			 */
+> -			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+> -			if (free_mapped)
+> +			if (free_mapped) {
+> +				/* CONT blocks are not supported in the vmemmap */
+> +				WARN_ON(pmd_cont(pmd));
+> +				flush_tlb_kernel_range(addr, addr + PMD_SIZE);
 
-Signed-off-by: Sang-Heon Jeon <ekffu200098@gmail.com>
----
- arch/arm64/mm/kasan_init.c | 3 ---
- 1 file changed, 3 deletions(-)
+It wasn't clear to me from the commit message why this now adds PMD_SIZE
+rather than PAGE_SIZE.  It seems like this change is fine for Linux
+6.13+ with a CPU that supports TLB range flushing, but otherwise results
+in unnecessarily executing multiple TLB invalidations at intervals of
+the base page size.
 
-diff --git a/arch/arm64/mm/kasan_init.c b/arch/arm64/mm/kasan_init.c
-index 3fcad956fdf7..45fbdce684c8 100644
---- a/arch/arm64/mm/kasan_init.c
-+++ b/arch/arm64/mm/kasan_init.c
-@@ -353,9 +353,6 @@ static void __init kasan_init_shadow(void)
- 		void *start = (void *)__phys_to_virt(pa_start);
- 		void *end = (void *)__phys_to_virt(pa_end);
- 
--		if (start >= end)
--			break;
--
- 		kasan_map_populate((unsigned long)kasan_mem_to_shadow(start),
- 				   (unsigned long)kasan_mem_to_shadow(end),
- 				   early_pfn_to_nid(virt_to_pfn(start)));
--- 
-2.43.0
+>  				free_hotplug_page_range(pmd_page(pmd),
+>  							PMD_SIZE, altmap);
+> +			}
+> +			/* unmap_hotplug_range() flushes TLB for !free_mapped */
+>  			continue;
+>  		}
+>  		WARN_ON(!pmd_table(pmd));
+> @@ -982,15 +985,12 @@ static void unmap_hotplug_pud_range(p4d_
+>  		WARN_ON(!pud_present(pud));
+>  		if (pud_sect(pud)) {
+>  			pud_clear(pudp);
+> -
+> -			/*
+> -			 * One TLBI should be sufficient here as the PUD_SIZE
+> -			 * range is mapped with a single block entry.
+> -			 */
+> -			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+> -			if (free_mapped)
+> +			if (free_mapped) {
+> +				flush_tlb_kernel_range(addr, addr + PUD_SIZE);
+[...]
 
+Similarly here, but this is effectively flush_tlb_all() instead.
+
+Ben.
+
+--=20
+Ben Hutchings
+No political challenge can be met by shopping. - George Monbiot
+
+--=-y3J05c+vgPYhtoDB2K3t
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEErCspvTSmr92z9o8157/I7JWGEQkFAmo3/QMACgkQ57/I7JWG
+EQnOORAAwi0dEpNPAe2/DhmuUrnEJymCCPR62cFYxp4C5G1M4TDy1TVbrr9sJXTB
+VJKQ3SW44b1t7f36h3pnCqcA3ceDfjFkPr6Mca9OabfxerxX0LGe7SCAFlMCAhqC
+nkM1iRJ6x2jzkCExZe2A+V3fIElM/QNzQaviy0g4t479/RLbRWtZCSGD1+1L+G//
+BC9HvehneiyHmf/FbxmCyvceniexwRUnXRXWf7HVxn6JNCWgS0Y4qTVT1mYgqXej
+GUuFtZPei0MuiOz/hJEVsJ/P8mFwsb6XWaVr5B1NyFLDdIMDpKuZWBgxaohCOMrt
+xcj8GVCBCtvwA7wpz9yeI+0aCTkQuSwbvdgOm40lP/hwuA742FiIarsKBrCNbIfN
+U+yFWOM8qmz/qPbaLslTENXUVMIt+2NBGugrLm0aeyNHvmMlyukO5RJagU7NIYyK
+Iz8UVpNAxB7CbcBV9VHWl1MC1aHf3innDFmkDL6y+VPJ03SfE1cFONF1nL0IEwSg
+UT+6TWIW+863nkHc2eTQ4KEhjFFmcbM2RkgdFP/A8LeYhxMqSFhyjESymGIsS+ox
+LoR/xhRfXddxOiPVIQtFBBEH7C58OrDU5dWJl5zmYHf3khc342CcolzS4/21Ua/J
+mWvMGYveWNU4fe/MPeU289MyTsroe0c2P+ysyEcKtB+3yIjPWQQ=
+=lNMR
+-----END PGP SIGNATURE-----
+
+--=-y3J05c+vgPYhtoDB2K3t--
 
