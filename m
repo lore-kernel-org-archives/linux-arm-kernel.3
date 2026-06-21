@@ -4,58 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D664DCD98F0
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Jun 2026 15:18:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD01BCD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Jun 2026 16:59:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bmM+1wEfF/WAJ5tf+v/LsFKI13F7EOzAierbj0hp3Hk=; b=UQNL+XQBdt+BRMMOXmrcqFJTD2
-	Clcsz4E6LiTxqJOpkll95NovyRzhhUR7aB5U+VudtKwfZXhRAXzzRdAAS+xX7ArcZ54MKgCerHUAc
-	0ZINatnN3xjgtG2jnGv/ZJ3j2/DxNUiECy0cSaJrpwnOh8n9r4GNecFgSXgQkT+UmG8GRdxIgRbGJ
-	RHQTWBk+oECfZ1Q0e9YDeOz3QrbfTe9x2LWHTqWspzz8/spg6/vDrbF/A/cgkr2tPuqt/LnJp46s/
-	9d96TMg+5iOwd0aeuO7O+xgbMbbMtQlGKpcHBXRqFVwJrAQHWu3J3WR5Z5VOiUhdjrJE4coFAgVTY
-	qpurdoAQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=626Pu+3MWCl6GFK1K+rzSFPcpCcWzeny/X+/kz7vSpQ=; b=BTKIeSHi4XlRCAgtFx0GGmTXqd
+	xw+kGR377UePXpeVhMHHornsRIyAVzjqFkaFfgSA9/AOJcU7s3QGfFFdoCG4ckIiYTGYF1Ndxd9C+
+	uZzU1r2dk2bNA0hZA8UORZDeVG2Mx/FqwaFllyTnhZBoNwcgGDbkEsLo+9a9UIFzOFrHuwTYAc/d5
+	QRiUawZLSr4X7uAxa+Gk0iIGIuKCYJ/ORHHp2sgYJeJK7IraZqjubK0cDcfzZ5sZzFSRvUEGJLQlh
+	g49y3HkZ3WJGG3UPONL8C0xssr64TvhZNRnpXOugFZe317aVRsaGWlxrepqnd5yaWaxtNJZvjLdNE
+	cyGlW/mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbJvr-000000042A4-1pGI;
-	Sun, 21 Jun 2026 15:17:59 +0000
-Received: from out-188.mta0.migadu.com ([91.218.175.188])
+	id 1wbLW5-000000044QI-1pjN;
+	Sun, 21 Jun 2026 16:59:29 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbJvp-00000004299-0KRw
+	id 1wbLW3-000000044QC-395d
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 21 Jun 2026 15:17:58 +0000
-Message-ID: <24e2da5b-82a4-4889-8b62-5f445cec9657@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1782055072;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=bmM+1wEfF/WAJ5tf+v/LsFKI13F7EOzAierbj0hp3Hk=;
-	b=BZC7j9DITI1xLCVWoBIvCK5EuEZevgBor8K76v2O1UjAq1aRGu5/KRlSk0OUQ4F12k7kBp
-	4AeXJCGXazHmZyZymo2XIMm4OplOMWgA4oRdlY+1FclDVgsX70ATiLMZV26qayMTEsOWn5
-	EuNeFfloggg6xmFSCDwhNUjrvSJnfc4=
-Date: Sun, 21 Jun 2026 23:17:32 +0800
-MIME-Version: 1.0
-Subject: Re: [PATCH v1] irqchip/gic-v3-its: Fix OF node reference leak
-To: Marc Zyngier <maz@kernel.org>
-Cc: Yuho Choi <dbgh9129@gmail.com>, Thomas Gleixner <tglx@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260619185808.1090575-1-dbgh9129@gmail.com>
- <877bnt8u5k.wl-maz@kernel.org>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Zenghui Yu <zenghui.yu@linux.dev>
-In-Reply-To: <877bnt8u5k.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260621_081757_476538_78102882 
-X-CRM114-Status: GOOD (  20.52  )
+	Sun, 21 Jun 2026 16:59:27 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id C325140AB4;
+	Sun, 21 Jun 2026 16:59:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 864D91F000E9;
+	Sun, 21 Jun 2026 16:59:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782061166;
+	bh=626Pu+3MWCl6GFK1K+rzSFPcpCcWzeny/X+/kz7vSpQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=DDc2XvPmtDQ78cpXHp1Z6mVjoSBTaPWJsYxTEQXZWc85iHEImIMtvkmXIQKnOr4nB
+	 5KHLtbYoqVV8nl+jUB7bW1CPI820m9xeXMPOYMXEpGjQpsIi/NVaMG1d/Vqth23kqz
+	 Af34NOc+7WjDgZDF/dLzKMdS2Fk6SXtHVAgB5lDJ1oGkwIBdqzxEfU0DNsMe9sn86t
+	 pqyr9YF88w5BS68RmrKxHIjPnT9DZ5fl770dB6lV7ju7WPGatXZr4dOUM9SWBYnviD
+	 gBsIOBLbgXcG80Up8WPPC1B/jirPoQG77yzu79b4JCVpLBORzOMGZxtH9nA1dZaBor
+	 c5dv/J/tHM8yQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wbLW0-0000000EhrH-1Gue;
+	Sun, 21 Jun 2026 16:59:24 +0000
+Date: Sun, 21 Jun 2026 17:59:23 +0100
+Message-ID: <865x3bsuc4.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-pci@vger.kernel.org,	Krzysztof =?UTF-8?B?V2lsY3p5xYRza2k=?=
+ <kwilczynski@kernel.org>,	Bjorn Helgaas <bhelgaas@google.com>,	Catalin
+ Marinas <catalin.marinas@arm.com>,	Conor Dooley <conor+dt@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,	Krzysztof Kozlowski
+ <krzk+dt@kernel.org>,	Lorenzo Pieralisi <lpieralisi@kernel.org>,	Manivannan
+ Sadhasivam <mani@kernel.org>,	Rob Herring <robh@kernel.org>,	Yoshihiro
+ Shimoda <yoshihiro.shimoda.uh@renesas.com>,	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,	linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH v2 2/4] irqchip/gic-v3: Refactor GIC600 limited to 32bit PA erratum handling
+In-Reply-To: <20260618220427.14325-3-marek.vasut+renesas@mailbox.org>
+References: <20260618220427.14325-1-marek.vasut+renesas@mailbox.org>
+	<20260618220427.14325-3-marek.vasut+renesas@mailbox.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: marek.vasut+renesas@mailbox.org, linux-pci@vger.kernel.org, kwilczynski@kernel.org, bhelgaas@google.com, catalin.marinas@arm.com, conor+dt@kernel.org, geert+renesas@glider.be, krzk+dt@kernel.org, lpieralisi@kernel.org, mani@kernel.org, robh@kernel.org, yoshihiro.shimoda.uh@renesas.com, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,74 +88,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/20/26 4:59 PM, Marc Zyngier wrote:
-> On Fri, 19 Jun 2026 19:58:08 +0100,
-> Yuho Choi <dbgh9129@gmail.com> wrote:
-> >
-> > of_get_cpu_node() returns a referenced device node. In
-> > its_cpu_init_collection(), the node is only used to get the CPU NUMA
-> > node for the Cavium 23144 workaround, but the reference is never
-> > dropped.
-> >
-> > Store the NUMA node locally and call of_node_put() before either
-> > continuing with collection setup or returning early for a NUMA mismatch.
-> >
-> > Fixes: 920181ce8469 ("irqchip/gic-v3-its: Add ability to resend MAPC on resume")
-
-It looks to me that this issue was introduced in fbf8f40e1658
-("irqchip/gicv3-its: numa: Enable workaround for Cavium thunderx erratum
-23144"). What am I missing?
-
-> > Signed-off-by: Yuho Choi <dbgh9129@gmail.com>
-> > ---
-> >  drivers/irqchip/irq-gic-v3-its.c | 6 +++++-
-> >  1 file changed, 5 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-> > index b57d81ad33a0..f82035eb77e5 100644
-> > --- a/drivers/irqchip/irq-gic-v3-its.c
-> > +++ b/drivers/irqchip/irq-gic-v3-its.c
-> > @@ -3291,10 +3291,14 @@ static void its_cpu_init_collection(struct its_node *its)
-> >  	/* avoid cross node collections and its mapping */
-> >  	if (its->flags & ITS_FLAGS_WORKAROUND_CAVIUM_23144) {
-> >  		struct device_node *cpu_node;
-> > +		int cpu_nid;
-> >  
-> >  		cpu_node = of_get_cpu_node(cpu, NULL);
-> > +		cpu_nid = of_node_to_nid(cpu_node);
-> > +		of_node_put(cpu_node);
-> > +
-> >  		if (its->numa_node != NUMA_NO_NODE &&
-> > -			its->numa_node != of_node_to_nid(cpu_node))
-> > +		    its->numa_node != cpu_nid)
-> >  			return;
-> >  	}
-> >
+On Thu, 18 Jun 2026 23:02:00 +0100,
+Marek Vasut <marek.vasut+renesas@mailbox.org> wrote:
 > 
-> Please consider using the cleanup infrastructure instead, something
-> like the untested hack below.
+> The GIC600 implementation is now known to be used on multiple 64-bit
+> SoCs, where it has address width for AXI or APB interface configured
+> to 32 bit, and it can access only the first 4GiB of physical address
+> space.
 > 
-> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-> index 291d7668cc8da..947a15bb42012 100644
-> --- a/drivers/irqchip/irq-gic-v3-its.c
-> +++ b/drivers/irqchip/irq-gic-v3-its.c
-> @@ -3290,11 +3290,10 @@ static void its_cpu_init_collection(struct its_node *its)
->  
->  	/* avoid cross node collections and its mapping */
->  	if (its->flags & ITS_FLAGS_WORKAROUND_CAVIUM_23144) {
-> -		struct device_node *cpu_node;
-> +		struct device_node *cpu_node __free(device_node) = of_get_cpu_node(cpu, NULL);
->  
-> -		cpu_node = of_get_cpu_node(cpu, NULL);
->  		if (its->numa_node != NUMA_NO_NODE &&
-> -			its->numa_node != of_node_to_nid(cpu_node))
-> +		    its->numa_node != of_node_to_nid(cpu_node))
->  			return;
->  	}
->  
+> Rework the handling of the quirk to work around this limitation such
+> that new entries can be added purely as new compatible strings, with
+> no need to add additional functions or new its_quirk array entries.
+> 
+> Suggested-by: Marc Zyngier <maz@kernel.org>
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 
-Reviewed-by: Zenghui Yu <zenghui.yu@linux.dev>
+Acked-by: Marc Zyngier <maz@kernel.org>
 
-Thanks,
-Zenghui
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
