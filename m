@@ -4,129 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E28CCDB466
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Jun 2026 22:32:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F02ECD98F0
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Jun 2026 22:46:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KqIDM7eNMGf/sbZQigp/QdCXOuqojD+pqn2BS3MF40s=; b=nBzixdoT4vusH/XplUIscJDX1i
-	z4tPUAQPerbJrJq51LJ8trm0xAaIl5Z/g+PhsudQl6FC13p0W3bCjE8wTQ0WYSUtsU81Z/i6mHabX
-	2syqY+3IJuW2nXXyoJkHNM7j6bnfOHKp9yiKbPo1ndb/Y9puERYBBv6l5Z6IEHgc6qONoQxSn47f0
-	MUvC29mwYrjHy5FHqMq4fPMbHDRxknSHQXUbGOdaOgc85cGi5Kl9xckjzV+jfb4U2F1MDoTI8MDfN
-	NxiSMt40x8tucR9uwYfBq4L+O+Nz7YEjI6SvhD4bOc3iWUaIrXEMmcnxui7R4NwXFOtdFoPNuktq8
-	qnqlQwGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gEt6DTuBzI0+FzGS8r7ZT6Ohyc5Y63Le4qa6MCGvfow=; b=cfha6lw6BCboY2c+cpIs+X9sxD
+	4roXNWyQVmEtyRXw2NWrdfrEuFH+xbTSnsFcdNWjDMoxmdYxMfydNZia1KCN0aotxVdQO0rCnzKj5
+	Amn2wEJ2fVrCnqOu+q4Eo/Z1+stT9SamJKaYCjDnfBcNLYN/WlENFrjGu+Pl1+dbkAPWZlM3x78H+
+	akxrFl3UNaLtSjNK4KqhjHiYwWm+giRoV/cNEIJy8ynd+T9Ok7ez4EmE7Z/nTYvzKoJUghJG0wjsr
+	dX5NmJ2jCTI4tQhwhKWbecBXGoyoTPKDvbibC5M3w+/5+RKrNwny2zXG3GX9WdyhWl/7zP7E87kIQ
+	zZ5/ua+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbQhz-00000004DI4-1dQ6;
-	Sun, 21 Jun 2026 22:32:07 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1wbQw3-00000004Da0-2DEY;
+	Sun, 21 Jun 2026 22:46:39 +0000
+Received: from mout-p-103.mailbox.org ([80.241.56.161])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbQhw-00000004DHi-3jM1
+	id 1wbQw0-00000004DZM-30s7
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 21 Jun 2026 22:32:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=b9WNMcvJtWtll9Ci8ww3YqVnn8/zBsKvtTol3yABBYDg0gMq5z5hVEYs1O+vMy9BFu+a9V/TRmz9D7fiSgbmE+fOUpIzKgZDZ8uh2mffiTNw7rUxegw5Sl8TNQ7S6ul7g0mb1oQWlCx7PcTJ9H0bk3Hy61t02EuZMKvdxvRtj430lBZyLgkk1uJ4Ba705APMlBbaW3Wkt1CvKFYJu0LfEAbpJGOWWG7GiUM9/b0qEsrJ9mBjE8BfkpSv/+F+jRzWBgMTnKHvkn+LKTq5I1JmP4wAJkKqSlNcd6MoRriuk/RJdYNKRck9USMYayX8JAJM6rvoXre3XWJOEfNcVxz1nw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KqIDM7eNMGf/sbZQigp/QdCXOuqojD+pqn2BS3MF40s=;
- b=xiLttUZZwkEWVVLD2icbA7WIZM+FQJkMftJkNiKfMxwslU+NoFjqxzu7yWHvomQROLN6RdY9M5+hpGL18K/sx1pgqMzRcEt5R/48WvkrlTDlL/gBqNqezLyZVbPE7WBO7SYBMU5UBIVefJUVVKsglALQoyyWdyJNFrvEcqseF3TlF7lN8WTNHkJ7U3IoDZZvBzIp72q3WYqovlsY50YAwu9RtT6kEMCZHSvy6T0wzbV6QePaCGTOg07mBKaIBuctj1QGjwVaM5+wSb+wipwpqaFDvxX6l165+yc6KBtBwptsTbhRGzBhKNH2BfJQ0WQ1MUgzUgHAuJBmtL9ziKtNSw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KqIDM7eNMGf/sbZQigp/QdCXOuqojD+pqn2BS3MF40s=;
- b=RsSclkQyoxbRYKQyZd18U2tK19wQG/mqICbQJIuN0IEnw7UP2RuBjW+M1ARk9O6Az2JnQ6rU4xDSprd/4dhhQPAANd+TePxlnE/oQ8RynzIVbytOI3Ca14DSCmga05EYPTaqY8YPXUDITsGOAVlSs4Svu8ag4kjbfMTkGn/rWyvz5d52qhuNEgrkT48v/rPqjCZ6dtcu9nnHCPX35XkDdMPITR1+fMCKeL1i/HE05FDIlZ5dZCYLzaTHjh8oBYkqv40EKGSFZJeSmVblDYLA/r960C02C4IyicJ1X6xeouuDbYn5tfLyJs/3Ax7uLvB5pcqFspuzFoR5O4UII0mmUQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AS8PR04MB8530.eurprd04.prod.outlook.com (2603:10a6:20b:421::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.18; Sun, 21 Jun
- 2026 22:32:00 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0139.018; Sun, 21 Jun 2026
- 22:32:00 +0000
-Date: Sun, 21 Jun 2026 17:31:50 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Thorsten Blum <thorsten.blum@linux.dev>
-Cc: Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Marek Vasut <marex@denx.de>,
-	stable@vger.kernel.org, linux-crypto@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] crypto: mxs-dcp - fix source scatterlist length access
-Message-ID: <ajhmVvEz6n-eRuGN@SMW015318>
-References: <20260621192615.277957-2-thorsten.blum@linux.dev>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260621192615.277957-2-thorsten.blum@linux.dev>
-X-ClientProxiedBy: SN7PR04CA0105.namprd04.prod.outlook.com
- (2603:10b6:806:122::20) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Sun, 21 Jun 2026 22:46:38 +0000
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [10.196.197.102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4gk5zT6T4Vz9tnx;
+	Mon, 22 Jun 2026 00:46:29 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1782081989;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=gEt6DTuBzI0+FzGS8r7ZT6Ohyc5Y63Le4qa6MCGvfow=;
+	b=YuKr0L4wCdBvR6PEHbJBHWgcBIr4EUYEj7DgkSyARftTpwWKTcttWJue4QRFTnT2XLRw8F
+	URVVqNoAXGTy82KmgEGt6GxYxqyjn88uvd9jzQSc8K7xXasz9G3QRWBP8At6u3Asu6RZUK
+	34ceq07SUILwfmMA9sTLigAJLFIroByMbhHUq0i5a4P/yhl/B/tXlyml7gOhkZTeQrShnm
+	3Af+2x0NxVL5aS27Ll+AGlpAcP+qPaQ+vj3paPetTDn9pK7a8ohT6sTYOfqMlccUSXzlYm
+	LI3/pPLB23QBVV3bejKFgZMeXsHDFPOGglROgwUPRMXftSFdzSs4lOvewbHbaw==
+Message-ID: <d6fce333-4353-4e49-873f-eb3187a631e4@mailbox.org>
+Date: Mon, 22 Jun 2026 00:46:25 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AS8PR04MB8530:EE_
-X-MS-Office365-Filtering-Correlation-Id: b941d7c2-6b80-4464-440b-08decfe4e8b6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|23010399003|366016|1800799024|19092799006|56012099006|11063799006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: snQ7T6iQWuyio4gGjDkhr1DXDfAJQB6G71TYVHQK/IAT3DXFEwGTs2Xp+gqRAi5QcLQ1da1/ZmFuY2bh7JxXgmd7gQWmwYu2oWZZsvY6f4SaHFn844PqfnSppYJ734vfbob8S+fRUAN6AT1IZQFl1Hz6ic0MlWHmazviqK/UX0L13sCZdiXFXQ1XfwAnHWB5cH6GaqlOftrdSiafeYYMaPp5iQrWAQyP4Q/xH0g5M+EB3hrw06OjGLILKck1CRW8NY9qtSk73XapfCpPS8+yfLNhKkOenByehBr3QTl7d1OehNKCcSomI1ng0jBFmvUgIxBtVxiB57N7nDay6xfj4hAq+JYM5mulBrH+idLsWukJ3sXCw6QPyxpvqC7Cu5o4ZW4cTf+JQUsSeVkC73FCsFwqwkXFVkjV1qV0IPlZN7cElC4Vz32PfU9dm2BCHCYHz0B1zKjtXiTPcgZVqelFsxBjhpJFPk6bJWXqRZOBU3S+EM8D0pXjDL/nUOuDrXpvdHha/NrGtND9AEJxEp9jPhFiZbb7J/Mtoe5ZvBndSSisXkErlpjdyq552XVnqMEmrN7WQhxcOxC8b3RzRvAX7qX+Tsx3ISoLAWGwM04lmlZmy1Vv7V6UZCl5EUnW+zboRKgIYUZu4JdHPlukrWsNWWNFbX3bqvWKqIQY7KWU9X0=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(23010399003)(366016)(1800799024)(19092799006)(56012099006)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?EQKIhbDdqjCOQ01OKhIdOWxwcyz2NFwR6EcQERYNs+vFmy4Xeyb8FJ7w1fTW?=
- =?us-ascii?Q?vhjtK/0VBjWLjf9R/5wMJsa8aimHSymBhksVPD9JiTthP4N0wX5ZyZYHwvfT?=
- =?us-ascii?Q?l9acRKflom8MXGzt+G1NHkAqv3E3KoekEdDhBlpob3rilgS4DcqIKPKA1UBj?=
- =?us-ascii?Q?YvLePJGD1duVDr/ACulDM+OX8jPpVFKRKEx+3t5DzBZ5l2T9k40EPKSOOdTn?=
- =?us-ascii?Q?sbsCLJcYpFUi/hH14yCR/yRrWb9+EW0agn7i/pWF5RV/mP44NmYQ9R7+aR83?=
- =?us-ascii?Q?A6YIPzflXAsjI+oDuQF0XvdjSNVumgHHxiPuurb8O95lZadQwIPgYTVkIxqK?=
- =?us-ascii?Q?Uh6i0UHRAl0z89sqYJtNyZka9W6ZL4rMh1+xDYm1fzzIX/ChYnE3L3jVmJem?=
- =?us-ascii?Q?kTVSFI8S0Hne+L/EAyn2bhVjVyAqHhdgqu+ODHKFKSaWr/a37wZ70X9mM6oZ?=
- =?us-ascii?Q?1HQcFYUJ1LKtA9P2nr1C6IlKN9sj1xKwYvnW5cFCcD/USBtT9e+88JUf3/EB?=
- =?us-ascii?Q?dvX5RR05D3NUN5jRaLc0cNuUQH4kNubzigoCKcqdLZuOuwSReSGU75GgqIvt?=
- =?us-ascii?Q?jMA1/ozGLkbaQXVYkf4feZsVZwrKHQ9C9w3HvwCTrBnaHld2Xo8YTesxTWKz?=
- =?us-ascii?Q?Tm6KGoYEdBTGA4ll1y2Nj+auQBkFmuNImi/1IvYSee485mhdoBzaUSS3x5sM?=
- =?us-ascii?Q?4cqVqSgoxwMfJ39luek6y8h9JBTyT9mphtZcwJ9aje8EmGf2fUK5U9D/V9cB?=
- =?us-ascii?Q?GLlDYr5YsIRYiuZZk6CHpqt+cTTfiImsfbznqsQiSvWhRUCiYUE5JaJvCE8w?=
- =?us-ascii?Q?W+w/K58XNQMyfQ/7yrVFgbRBsn6ADf6cQWLFBkolSmA/2QPpvf/pupdtnmNe?=
- =?us-ascii?Q?UFuY0DamcivuYLsRW9D1ka2hdrtMCx5OQBWKNHw+BSFTbOExphm+wgoHeO7K?=
- =?us-ascii?Q?zQIqH6sbw2aooS+T3AhV2gxEMb/7EtPZWwo+39dEcFaKu29awnl0iDTnOwQ1?=
- =?us-ascii?Q?1aWZhY9Z/xA/cg/6j1sl3tjzrrUPJE3br4+LHywLTBaZf6WtyFb2a842P2qH?=
- =?us-ascii?Q?Y4JZSQYa4yTAukx9ht0ggw8SYlVVH+iulAB7iHcR8/qF5RSBDsauUyvBxcB2?=
- =?us-ascii?Q?JQd4Ih8DYsfcEOT7673dRA036v1P+umXNOE9lr3ToLbvVd2EYQTxyWZKUGvX?=
- =?us-ascii?Q?97spmUvlKOPd4NGszizeCTqysrhC4jP1quzkOSrlzffPLWW6Brm7q0UMsMgV?=
- =?us-ascii?Q?qy1JQyyfAeZUEZcMdfspOcz3/A+FWwqYP/fg34a9p+Eh6E8MXbtsXo3N9Ny+?=
- =?us-ascii?Q?zoRaHbQKyR8662Ta5eYtu3mBnzKvsC4mn0xLK6sg2xAb9ryzHF73hePDLV9a?=
- =?us-ascii?Q?k+0GF1tKHZBKz4mma66lnSwLMS8MwQ4M9KDicyPyfNyTo1fLBPquvduN7Izx?=
- =?us-ascii?Q?eIEU6/AxbwlVplVlPyqvN7zxWyHiweW6r+UMQPa8YWaXeDgS8w6ptNl+kOV9?=
- =?us-ascii?Q?Tsqw5vyiXkyFJqBzB4RwBM3slSXxlxgNUmsB9C87JD4REWKMXl1JdLSBTvfP?=
- =?us-ascii?Q?k+tYRT4x6fQm44+Z7pg2XK7vvA24J8Tf84szXUcqwB/h6kjtTGMsEiimEbqU?=
- =?us-ascii?Q?nOwGQ+eST84EY+HzKYSNTUSXFWsOMJ/HDvuthKm2r7H9yYEhJDtLFbOVw81P?=
- =?us-ascii?Q?0BUtqt/7jjoVi8UdU+GPIQHs+0CLyeAh8Vc/e5qjFO4AWEy1YEFqcUlNt6rL?=
- =?us-ascii?Q?l2DsaJyWOPyVdnp4iMh+abI4Cyx/EJ9xyrJ1NQYLjoQUbZ8x7HYf?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b941d7c2-6b80-4464-440b-08decfe4e8b6
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Jun 2026 22:31:59.9799
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 3z9AxOeCz1e/7xBCsvXZyGv/nqS1XJVIBA0IM1uC2HQelaN5Sgf8+2x5qbV7a1faL42defpxKvKhRD8og5QGCbntH8uSvQrdqUOrUpOYPOmgWM3ftjcqG30MPgCyJoqa
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8530
+Subject: Re: [PATCH v2 3/4] irqchip/gic-v3: Add Renesas R-Car Gen4 erratum
+ workaround
+To: Thomas Gleixner <tglx@kernel.org>, linux-pci@vger.kernel.org
+Cc: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+ Bjorn Helgaas <bhelgaas@google.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Conor Dooley
+ <conor+dt@kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Marc Zyngier <maz@kernel.org>,
+ Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+References: <20260618220427.14325-1-marek.vasut+renesas@mailbox.org>
+ <20260618220427.14325-4-marek.vasut+renesas@mailbox.org>
+ <87cxxkma5p.ffs@fw13>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <87cxxkma5p.ffs@fw13>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-MBO-RS-META: n8czsugnw3z1ybb5adzw75f9b7bgn1xy
+X-MBO-RS-ID: 9459b256e9c9aa6c616
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260621_153204_954846_2F2CF595 
-X-CRM114-Status: GOOD (  15.62  )
+X-CRM114-CacheID: sfid-20260621_154636_910124_F40558AB 
+X-CRM114-Status: GOOD (  12.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,40 +89,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
->
-> mxs_dcp_aes_block_crypt() uses sg_dma_len() without mapping the source
-> scatterlist with dma_map_sg() first. Therefore, sg_dma_len() is invalid
-> and could return zero or a stale DMA length, causing encryption and
-> decryption to process the wrong number of bytes when
-> CONFIG_NEED_SG_DMA_LENGTH=y.
->
-> Use the original scatterlist length instead.
+On 6/21/26 12:59 PM, Thomas Gleixner wrote:
+> On Fri, Jun 19 2026 at 00:02, Marek Vasut wrote:
+>> Renesas R-Car S4/V4H/V4M GIC600 integration has address width for AXI
+>> or APB interface configured to 32 bit, it can therefore access only
+>> the first 4 GiB of physical address space. This information comes from
+>> R-Car V4H Interface Specification sheet, there is currently no technical
+>> update number assigned to this limitation. Further input from hardware
+>> engineer indicates that this limitation also applies to R-Car S4 and V4M.
+>> Name the limitation GEN4GICITS1, and add a driver quirk to mitigate this
+>> limitation.
+>>
+>> The quirk is keyed on the combination of the GIC implementation
+>> and the platform identification in the device tree.
+>>
+>> Signed-off-by: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
+>> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+> 
+> This SOB chain is broken.
 
-It'd beter add some description about copy sg to a bounce buffer to do
-descrytpion, needn't map sg firstly and direct use the original
-scatterlist length.
+Broken ? I don't understand , could you please elaborate ?
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
->
-> Fixes: 15b59e7c3733 ("crypto: mxs - Add Freescale MXS DCP driver")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
-> ---
->  drivers/crypto/mxs-dcp.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/drivers/crypto/mxs-dcp.c b/drivers/crypto/mxs-dcp.c
-> index 133ebc998236..595b2fd84667 100644
-> --- a/drivers/crypto/mxs-dcp.c
-> +++ b/drivers/crypto/mxs-dcp.c
-> @@ -353,7 +353,7 @@ static int mxs_dcp_aes_block_crypt(struct crypto_async_request *arq)
->
->         for_each_sg(req->src, src, sg_nents(req->src), i) {
->                 src_buf = sg_virt(src);
-> -               len = sg_dma_len(src);
-> +               len = src->length;
->                 tlen += len;
->                 limit_hit = tlen > req->cryptlen;
->
->
+Should I sort this alphabetically or is that something else ?
+
+Thank you for your help !
 
