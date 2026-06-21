@@ -4,110 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90A3FCD98F0
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Jun 2026 08:19:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C7C4CDB466
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Jun 2026 09:38:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iVyCXR0GBeSupYN2T5Gv0/aCNSD3o/MI5RFA+1IIzVE=; b=ds1rHSpqyjI4RW9XW4H37dHGrf
-	yQriJsLXvEgpAvaPJaeieuhn4EsjRgn0W/5xx2baAZ6uoPcKs0850Ykfv23Z3R+QDJI+mheDtWx7B
-	Q9t4HRroWAd8GphlBUAN2vA0RBpzveMmR76RgL4HjophcLdhNrqYkLyNNWnZvxSAiDbHQOWgwI0iD
-	J9L64iZgz/YQ+wN0U0gl1yMbd8KgVrG9JJ65Hsj98xes837KpoC5CPQGn5vL/a9iqCIiEqLUyb3w1
-	nr2wjfE7lb4WY/d+T9JnU2AKDoMM32aobapTlooK0IGFnW0CSCmPMq4p4wfLmpy2oeVJ0aI0vD7JC
-	aLN7g5gg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:
+	Message-ID:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3PM2SwKGUgQ1Wfor83rkZsilDOPTMWeMgpO7Hmp6Coc=; b=y1GUOurrM3aaytd9R/sfVi3uJ4
+	JrIegfBWlGqND18KoAgDtA6/g0GNKwPBHgyxYBjLEgsJurVG0KdgXldZ5g+9PZO3Xp7h7tm1ft45b
+	T/J2V6/iPpE1ETr6ZCLcaZ1jJ4Bg0UQgJXuLZVu1nVSKTv1s/QNkavCPjOPmhtsVXFaB43Bs05hkG
+	1mNJwYZ8MzmovJ1sqKbS3fZJnxoriABBlB5nOVSFNGGzgRLS7lCWVMf0sUW3Pl/1D4MMLinMBLhcA
+	VNTybpHeSiwgqEJW3uDoJ7Y38cAbs+f9S6kkrgC8zcGUdr6kTXUYcldYIuKLhlbhauccG22itBGaC
+	8rLvO4Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbDOS-00000003qV2-3gwr;
-	Sun, 21 Jun 2026 08:19:04 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1wbEcm-00000003sm4-10x9;
+	Sun, 21 Jun 2026 09:37:56 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbDOP-00000003qRY-3Jxq
+	id 1wbEck-00000003sld-2Gm7
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 21 Jun 2026 08:19:03 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-490ac357c55so36385525e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 21 Jun 2026 01:19:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782029940; x=1782634740; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=iVyCXR0GBeSupYN2T5Gv0/aCNSD3o/MI5RFA+1IIzVE=;
-        b=RTySa0LrjwDwszBuDIw2Z8+C5gH8vAPUdYQX3AjefJVQ1aAsvul9hc8HE+Hj6ntxW5
-         F1v8YhTW5H0qeeUfIgyXuG140JMJWNgA7vYXADm2r7v7s0zcFD3enjlWqZfd2HKzhdm3
-         ZTqTzNWggr5pyQCqvHH4hFLSVy6/RAH+JuhMXtnDvj7u2GF74BL0tAXyq/4O2FHkkZUB
-         uqZpEjPM64TcnVYkUulvw4rk23p1yG3nXCDkqne/Ezjvq/+Kp8T3d5KiM83N9sS1v8SE
-         CIFN+zEeUnTKTYjEvXxv7ZUmJ23WBbFe2iJeyU/g0y+PkWr8HrRC2HfTesZxeQ3zclEE
-         vTzg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782029940; x=1782634740;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=iVyCXR0GBeSupYN2T5Gv0/aCNSD3o/MI5RFA+1IIzVE=;
-        b=jqzD2VDtH/TVjiyZEsL8i7mw+yroVaoBIx5+9wY1Tm+xEydoo8mOfHNAVUwTA83Bf+
-         VTKKVMo9sgDmbcCJibpOTSnzD/Sp9aVmcSXXBP/NGulMZb31n1kzrlke4Ahmqhgh9v0R
-         ttpwId7STps1b9ZwuV6jtXIRSZY6dluZXlTeS75DcTNBrKd6vVKqqbbLETPMmu0zYg5C
-         Z0jqI0ciGgEJrtxnujLjGl2oGr/spkdlXhWqBON9J6f/JIj1ZM0qum4Se0Ykb02Ebuye
-         eDKpKg7L0swYzjnAaJptQwglp5vFgZjNyKAIlIThBE+/tUtaHx5Dy/bTEaZJfCVm6Hho
-         6krg==
-X-Forwarded-Encrypted: i=1; AFNElJ8/WIVLaMunt/Vt0HqLxEERNHLVN95qdILoqUCFW+gXy2eza52odYQwwxy6TEyPNl7IRZ98Fll0/5MlsptXrWQ+@lists.infradead.org
-X-Gm-Message-State: AOJu0YxuNwR2TKnW6xdcUIcwiPOhAa2/9MgJjPIzzQ3CQDNRNjDkR2kQ
-	LLvbiTJw+x4I/L4OXE65oiB5ymrpQ1/k6zrCIgTDSWNCfHV1JYZAO0n/
-X-Gm-Gg: AfdE7ckQ2hBk26ITToE2ennpzBp8b8Kd4agNHEOZop9MDnkw9aW6fvpGqVTiFqXY2iM
-	QLd3GV+tkjRMQhSAsBzaBKXhW1wGpQB+IpNWwamNT6DwGKn5N2y6ISnkPNuso0Pw4Jundz2m81R
-	3QLR66TpDS04UGk0hcMTbjFKIlO8aLPMyMneC+exNk4BgjCNGlRD1PVmglACava9T6amfa2IPQq
-	yXEWCZwNPeoPDwrQBepbU9kNWMPx9vRNUttdk5pv5gD6KbhbiUarKzhHUw+m5N+gB/VjJxYxTcw
-	4RNi5QsR1HRWYVndFBv3kqUI0aLwVAv0VkqvjH9moLlayZnzphGLV3NTQvXsUnxr8WZvYE9Dcss
-	rf8VfnE+VlwNhMmGP7nPrVuw/dLuISPf9RaLjg/zNh6YXIH4JeWQSaTuI8ypYFrdFn4SgLHmQVS
-	BbsG+o3xHccafD9JrV
-X-Received: by 2002:a05:600c:6990:b0:492:490b:a604 with SMTP id 5b1f17b1804b1-492490ba610mr85395625e9.37.1782029939962;
-        Sun, 21 Jun 2026 01:18:59 -0700 (PDT)
-Received: from luca-vm.. ([81.56.18.151])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4923fe7b9e5sm194100445e9.10.2026.06.21.01.18.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 21 Jun 2026 01:18:59 -0700 (PDT)
-From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-To: linux-mediatek@lists.infradead.org
-Cc: Val Packett <val@packett.cool>,
-	Luca Leonardo Scorcia <l.scorcia@gmail.com>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sen Chu <sen.chu@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Macpaul Lin <macpaul.lin@mediatek.com>,
-	Lee Jones <lee@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
-	Julien Massot <julien.massot@collabora.com>,
-	Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
-	Fabien Parent <parent.f@gmail.com>,
-	Akari Tsuyukusa <akkun11.open@gmail.com>,
-	Chen Zhong <chen.zhong@mediatek.com>,
-	linux-input@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org
-Subject: [PATCH v9 9/9] arm64: dts: mediatek: Add MediaTek MT6392 PMIC dtsi
-Date: Sun, 21 Jun 2026 10:13:34 +0200
-Message-ID: <20260621081634.467858-10-l.scorcia@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260621081634.467858-1-l.scorcia@gmail.com>
-References: <20260621081634.467858-1-l.scorcia@gmail.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260621_011901_862024_81312DE4 
-X-CRM114-Status: GOOD (  17.82  )
+	Sun, 21 Jun 2026 09:37:54 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 99C0F60051;
+	Sun, 21 Jun 2026 09:37:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44EEE1F000E9;
+	Sun, 21 Jun 2026 09:37:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782034672;
+	bh=3PM2SwKGUgQ1Wfor83rkZsilDOPTMWeMgpO7Hmp6Coc=;
+	h=Date:From:To:Cc:Subject;
+	b=CPvoIDGL14sCX5ylLaYUAhDC9lMcMiJh12IJzutGSGQKhhN/j3P7fMe1lw15m5Roc
+	 tHpoEk8Aby4R7yyQzmUbl4hKAdLn06DdHEiYs3o1201v2up+FU7xKvnepQ/nPPwDCI
+	 WFkQeLslfQ8Kj6y7aV8P00hG40B3FZDEvni22GswCCp3bAgMXKZfMgiJsONy+BOgVi
+	 k0p/zCAiBS0MY4A0IhU6SDokj6lXppltL7JA3pcuCP15DKxW8Mk4X/xfQ3c3P97y2z
+	 c5uOUbqO06EeOjVenm17mc5XrEaYLlP7aug5hC/9nFo5DtP/NtxZmsipMAfim8Ib+w
+	 nCbGOugNardpA==
+Received: from rostedt by gandalf with local (Exim 4.99.3)
+	(envelope-from <rostedt@kernel.org>)
+	id 1wbEd0-00000001qTd-46mY;
+	Sun, 21 Jun 2026 05:38:10 -0400
+Message-ID: <20260621093430.264983361@kernel.org>
+User-Agent: quilt/0.69
+Date: Sun, 21 Jun 2026 05:34:30 -0400
+From: Steven Rostedt <rostedt@kernel.org>
+To: linux-kernel@vger.kernel.org,
+ linux-trace-kernel@vger.kernel.org
+Cc: Masami Hiramatsu <mhiramat@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Linus Torvalds <torvalds@linux-foundation.org>,
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+ John Ogness <john.ogness@linutronix.de>,
+ Thomas Gleixner <tglx@kernel.org>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Julia Lawall <julia.lawall@inria.fr>,
+ Yury Norov <yury.norov@gmail.com>,
+ linux-doc@vger.kernel.org,
+ linux-kbuild@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org,
+ dri-devel@lists.freedesktop.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org,
+ linux-rdma@vger.kernel.org,
+ linux-usb@vger.kernel.org,
+ linux-ext4@vger.kernel.org,
+ linux-nfs@vger.kernel.org,
+ kvm@vger.kernel.org,
+ intel-gfx@lists.freedesktop.org
+Subject: [PATCH 0/2] tracing: Move trace_printk.h out of kernel.h
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,198 +90,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Val Packett <val@packett.cool>
+There's been complaints about trace_printk() being defined in kernel.h as it
+can increase the compilation time. As it is only used by some developers for
+debugging purposes, it should not be in kernel.h causing lots of wasted CPU
+cycles for those that do not ever care about it.
 
-Add the dtsi to be included by all boards using the MT6392 PMIC,
-providing support for regulator, keys, pinctrl and RTC.
+Instead, add a CONFIG_TRACE_PRINTK_DEBUGGING option that developers that do
+use it can set and not have to always remember to add #include <linux/trace_printk.h>
+to the files they add trace_printk() while debugging. It also means that
+those that do not have that config set will not have to worry about wasted
+CPU cycles as it is only include in the CFLAGS when the option is set, and
+its completely ignored otherwise.
 
-Import the new file in the shared device tree for the Pumpkin boards.
+Steven Rostedt (2):
+      tracing: Move non-trace_printk prototypes back to kernel.h
+      tracing: Add CONFIG_TRACE_PRINTK_DEBUGGING to clean up kernel.h
 
-Signed-off-by: Val Packett <val@packett.cool>
-Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
----
- arch/arm64/boot/dts/mediatek/mt6392.dtsi      | 145 ++++++++++++++++++
- .../boot/dts/mediatek/pumpkin-common.dtsi     |   7 +
- 2 files changed, 152 insertions(+)
- create mode 100644 arch/arm64/boot/dts/mediatek/mt6392.dtsi
-
-diff --git a/arch/arm64/boot/dts/mediatek/mt6392.dtsi b/arch/arm64/boot/dts/mediatek/mt6392.dtsi
-new file mode 100644
-index 000000000000..69d63c153d9e
---- /dev/null
-+++ b/arch/arm64/boot/dts/mediatek/mt6392.dtsi
-@@ -0,0 +1,145 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (c) 2019 MediaTek Inc.
-+ * Copyright (c) 2024 Val Packett <val@packett.cool>
-+ * Copyright (c) 2026 Luca Leonardo Scorcia <l.scorcia@gmail.com>
-+ */
-+
-+#include <dt-bindings/input/input.h>
-+#include <dt-bindings/regulator/mediatek,mt6392-regulator.h>
-+
-+&pwrap {
-+	pmic: pmic {
-+		compatible = "mediatek,mt6392", "mediatek,mt6323";
-+		interrupt-controller;
-+		#interrupt-cells = <2>;
-+
-+		mt6392keys: keys {
-+			compatible = "mediatek,mt6392-keys";
-+
-+			key-power {
-+				linux,keycodes = <KEY_POWER>;
-+				wakeup-source;
-+			};
-+
-+			key-home {
-+				linux,keycodes = <KEY_HOME>;
-+				wakeup-source;
-+			};
-+		};
-+
-+		mt6392pio: pinctrl {
-+			compatible = "mediatek,mt6392-pinctrl";
-+
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+		};
-+
-+		mt6392regulators: regulators {
-+			compatible = "mediatek,mt6392-regulator";
-+
-+			/* Fixed supply defined in the data sheet */
-+			avddldo-supply = <&mt6392_vsys_reg>;
-+
-+			mt6392_vcore_reg: vcore {
-+				regulator-allowed-modes = <MT6392_REGULATOR_MODE_NORMAL
-+							   MT6392_BUCK_MODE_FORCE_PWM>;
-+			};
-+			mt6392_vproc_reg: vproc {
-+				regulator-allowed-modes = <MT6392_REGULATOR_MODE_NORMAL
-+							   MT6392_BUCK_MODE_FORCE_PWM>;
-+			};
-+			mt6392_vsys_reg: vsys {
-+				regulator-allowed-modes = <MT6392_REGULATOR_MODE_NORMAL
-+							   MT6392_BUCK_MODE_FORCE_PWM>;
-+			};
-+			mt6392_vaud28_reg: vaud28 {
-+				regulator-allowed-modes = <MT6392_REGULATOR_MODE_NORMAL
-+							   MT6392_LDO_MODE_LP>;
-+			};
-+			mt6392_vxo22_reg: vxo22 {
-+				regulator-allowed-modes = <MT6392_REGULATOR_MODE_NORMAL
-+							   MT6392_LDO_MODE_LP>;
-+			};
-+			mt6392_vaud22_reg: vaud22 {
-+				regulator-allowed-modes = <MT6392_REGULATOR_MODE_NORMAL
-+							   MT6392_LDO_MODE_LP>;
-+			};
-+			mt6392_vadc18_reg: vadc18 {
-+				regulator-allowed-modes = <MT6392_REGULATOR_MODE_NORMAL
-+							   MT6392_LDO_MODE_LP>;
-+			};
-+			mt6392_vcama_reg: vcama { };
-+			mt6392_vcn35_reg: vcn35 {
-+				regulator-allowed-modes = <MT6392_REGULATOR_MODE_NORMAL
-+							   MT6392_LDO_MODE_LP>;
-+			};
-+			mt6392_vio28_reg: vio28 {
-+				regulator-allowed-modes = <MT6392_REGULATOR_MODE_NORMAL
-+							   MT6392_LDO_MODE_LP>;
-+			};
-+			mt6392_vusb_reg: vusb {
-+				regulator-allowed-modes = <MT6392_REGULATOR_MODE_NORMAL
-+							   MT6392_LDO_MODE_LP>;
-+			};
-+			mt6392_vmc_reg: vmc {
-+				regulator-allowed-modes = <MT6392_REGULATOR_MODE_NORMAL
-+							   MT6392_LDO_MODE_LP>;
-+			};
-+			mt6392_vmch_reg: vmch {
-+				regulator-allowed-modes = <MT6392_REGULATOR_MODE_NORMAL
-+							   MT6392_LDO_MODE_LP>;
-+			};
-+			mt6392_vemc3v3_reg: vemc3v3 {
-+				regulator-allowed-modes = <MT6392_REGULATOR_MODE_NORMAL
-+							   MT6392_LDO_MODE_LP>;
-+			};
-+			mt6392_vcamaf_reg: vcamaf {
-+				regulator-allowed-modes = <MT6392_REGULATOR_MODE_NORMAL
-+							   MT6392_LDO_MODE_LP>;
-+			};
-+			mt6392_vgp1_reg: vgp1 {
-+				regulator-allowed-modes = <MT6392_REGULATOR_MODE_NORMAL
-+							   MT6392_LDO_MODE_LP>;
-+			};
-+			mt6392_vgp2_reg: vgp2 {
-+				regulator-allowed-modes = <MT6392_REGULATOR_MODE_NORMAL
-+							   MT6392_LDO_MODE_LP>;
-+			};
-+			mt6392_vefuse_reg: vefuse {
-+				regulator-allowed-modes = <MT6392_REGULATOR_MODE_NORMAL
-+							   MT6392_LDO_MODE_LP>;
-+			};
-+			mt6392_vm25_reg: vm25 {
-+				regulator-allowed-modes = <MT6392_REGULATOR_MODE_NORMAL
-+							   MT6392_LDO_MODE_LP>;
-+			};
-+			mt6392_vdig18_reg: vdig18 { };
-+			mt6392_vm_reg: vm {
-+				regulator-allowed-modes = <MT6392_REGULATOR_MODE_NORMAL
-+							   MT6392_LDO_MODE_LP>;
-+			};
-+			mt6392_vio18_reg: vio18 {
-+				regulator-allowed-modes = <MT6392_REGULATOR_MODE_NORMAL
-+							   MT6392_LDO_MODE_LP>;
-+			};
-+			mt6392_vcn18_reg: vcn18 {
-+				regulator-allowed-modes = <MT6392_REGULATOR_MODE_NORMAL
-+							   MT6392_LDO_MODE_LP>;
-+			};
-+			mt6392_vcamd_reg: vcamd {
-+				regulator-allowed-modes = <MT6392_REGULATOR_MODE_NORMAL
-+							   MT6392_LDO_MODE_LP>;
-+			};
-+			mt6392_vcamio_reg: vcamio {
-+				regulator-allowed-modes = <MT6392_REGULATOR_MODE_NORMAL
-+							   MT6392_LDO_MODE_LP>;
-+			};
-+			mt6392_vrtc_reg: vrtc { };
-+		};
-+
-+		mt6392rtc: rtc {
-+			compatible = "mediatek,mt6392-rtc", "mediatek,mt6323-rtc";
-+		};
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/mediatek/pumpkin-common.dtsi b/arch/arm64/boot/dts/mediatek/pumpkin-common.dtsi
-index 805fb82138a8..b19d5792bd89 100644
---- a/arch/arm64/boot/dts/mediatek/pumpkin-common.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/pumpkin-common.dtsi
-@@ -6,6 +6,8 @@
- 
- #include <dt-bindings/gpio/gpio.h>
- 
-+#include "mt6392.dtsi"
-+
- / {
- 	aliases {
- 		serial0 = &uart0;
-@@ -160,6 +162,11 @@ &i2c2 {
- 	status = "okay";
- };
- 
-+&pmic {
-+	interrupt-parent = <&pio>;
-+	interrupts = <28 IRQ_TYPE_LEVEL_HIGH>;
-+};
-+
- &uart0 {
- 	status = "okay";
- };
--- 
-2.43.0
-
+----
+ .../driver_development_debugging_guide.rst         |  2 +-
+ Makefile                                           |  5 +++++
+ arch/powerpc/kvm/book3s_xics.c                     |  1 +
+ drivers/gpu/drm/i915/gt/intel_gtt.h                |  1 +
+ drivers/gpu/drm/i915/i915_gem.h                    |  1 +
+ drivers/hwtracing/stm/dummy_stm.c                  |  4 ++++
+ drivers/infiniband/hw/hfi1/trace_dbg.h             |  1 +
+ drivers/usb/early/xhci-dbc.c                       |  1 +
+ fs/ext4/inline.c                                   |  1 +
+ include/linux/kernel.h                             | 19 ++++++++++++++++++-
+ include/linux/sunrpc/debug.h                       |  1 +
+ include/linux/trace_printk.h                       | 22 +++-------------------
+ kernel/trace/Kconfig                               | 10 ++++++++++
+ kernel/trace/ring_buffer_benchmark.c               |  1 +
+ kernel/trace/trace.h                               |  1 +
+ samples/fprobe/fprobe_example.c                    |  1 +
+ samples/ftrace/ftrace-direct-modify.c              |  1 +
+ samples/ftrace/ftrace-direct-multi-modify.c        |  1 +
+ samples/ftrace/ftrace-direct-multi.c               |  2 +-
+ samples/ftrace/ftrace-direct-too.c                 |  2 +-
+ samples/ftrace/ftrace-direct.c                     |  2 +-
+ 21 files changed, 56 insertions(+), 24 deletions(-)
 
