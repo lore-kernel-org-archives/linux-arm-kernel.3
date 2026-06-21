@@ -4,64 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EA0BCD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Jun 2026 15:02:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D664DCD98F0
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Jun 2026 15:18:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tqjaIKN/ITi/ng4qRGgg8EmQat4Chb+UQbqBdglSMeI=; b=iU3XQwf38ktY1lUS4NzbyiJhjQ
-	ZxTcxrzH+gsD1jInezNh4eSq+dsJJ08YWSzlVOnD4F9V8y9us+KHHX/zOQLcgTntcqp6N4RNRugs/
-	6ZZRGtnZIDUAaBfUd5IRqsqYUN5Rl8d4ifyn3LmR0lMArfLpvKSJ2WqdfXn1CqrM0ww6I4E7SvpUz
-	Z+vdZSBlW6aSL6bgU3gYft/KYSKAXFr3WcwdN8XoaUNnWh13Cc3i75NT2DepqAXJxyehSKvsT2S0g
-	nNvfndYvli4KV5eeDReEvsOKwL5HuO+g95hRrQX7EfVLXXcfsOwuoFM6y61l/+yBBdMk1rLYwe1bf
-	GVUFcsVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bmM+1wEfF/WAJ5tf+v/LsFKI13F7EOzAierbj0hp3Hk=; b=UQNL+XQBdt+BRMMOXmrcqFJTD2
+	Clcsz4E6LiTxqJOpkll95NovyRzhhUR7aB5U+VudtKwfZXhRAXzzRdAAS+xX7ArcZ54MKgCerHUAc
+	0ZINatnN3xjgtG2jnGv/ZJ3j2/DxNUiECy0cSaJrpwnOh8n9r4GNecFgSXgQkT+UmG8GRdxIgRbGJ
+	RHQTWBk+oECfZ1Q0e9YDeOz3QrbfTe9x2LWHTqWspzz8/spg6/vDrbF/A/cgkr2tPuqt/LnJp46s/
+	9d96TMg+5iOwd0aeuO7O+xgbMbbMtQlGKpcHBXRqFVwJrAQHWu3J3WR5Z5VOiUhdjrJE4coFAgVTY
+	qpurdoAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbJh7-000000041L2-14ks;
-	Sun, 21 Jun 2026 15:02:45 +0000
-Received: from maynard.decadent.org.uk ([65.21.191.19])
+	id 1wbJvr-000000042A4-1pGI;
+	Sun, 21 Jun 2026 15:17:59 +0000
+Received: from out-188.mta0.migadu.com ([91.218.175.188])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbJh5-000000041KZ-22EA
+	id 1wbJvp-00000004299-0KRw
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 21 Jun 2026 15:02:44 +0000
-Received: from [2a02:578:851f:1502:391e:c5f5:10e2:b9a3] (helo=deadeye)
-	by maynard with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <ben@decadent.org.uk>)
-	id 1wbJgy-003aIM-0V;
-	Sun, 21 Jun 2026 15:02:36 +0000
-Received: from ben by deadeye with local (Exim 4.99.3)
-	(envelope-from <ben@decadent.org.uk>)
-	id 1wbJgw-00000007GXD-2yyJ;
-	Sun, 21 Jun 2026 17:02:34 +0200
-Message-ID: <b0d5836032ce3135bfc473f6bff791306d086925.camel@decadent.org.uk>
-Subject: Re: [PATCH 6.1 337/522] arm64/mm: Enable batched TLB flush in
- unmap_hotplug_range()
-From: Ben Hutchings <ben@decadent.org.uk>
-To: Anshuman Khandual <anshuman.khandual@arm.com>, Catalin Marinas
-	 <catalin.marinas@arm.com>, "David Hildenbrand (Arm)" <david@kernel.org>, 
- Ryan Roberts <ryan.roberts@arm.com>
-Cc: patches@lists.linux.dev, Will Deacon <will@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Sasha
- Levin	 <sashal@kernel.org>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, stable	 <stable@vger.kernel.org>
-Date: Sun, 21 Jun 2026 17:02:27 +0200
-In-Reply-To: <20260616145141.584613180@linuxfoundation.org>
-References: <20260616145125.307082728@linuxfoundation.org>
-	 <20260616145141.584613180@linuxfoundation.org>
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-y3J05c+vgPYhtoDB2K3t"
-User-Agent: Evolution 3.56.2-9 
+	Sun, 21 Jun 2026 15:17:58 +0000
+Message-ID: <24e2da5b-82a4-4889-8b62-5f445cec9657@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1782055072;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=bmM+1wEfF/WAJ5tf+v/LsFKI13F7EOzAierbj0hp3Hk=;
+	b=BZC7j9DITI1xLCVWoBIvCK5EuEZevgBor8K76v2O1UjAq1aRGu5/KRlSk0OUQ4F12k7kBp
+	4AeXJCGXazHmZyZymo2XIMm4OplOMWgA4oRdlY+1FclDVgsX70ATiLMZV26qayMTEsOWn5
+	EuNeFfloggg6xmFSCDwhNUjrvSJnfc4=
+Date: Sun, 21 Jun 2026 23:17:32 +0800
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a02:578:851f:1502:391e:c5f5:10e2:b9a3
-X-SA-Exim-Mail-From: ben@decadent.org.uk
-X-SA-Exim-Scanned: No (on maynard); SAEximRunCond expanded to false
+Subject: Re: [PATCH v1] irqchip/gic-v3-its: Fix OF node reference leak
+To: Marc Zyngier <maz@kernel.org>
+Cc: Yuho Choi <dbgh9129@gmail.com>, Thomas Gleixner <tglx@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260619185808.1090575-1-dbgh9129@gmail.com>
+ <877bnt8u5k.wl-maz@kernel.org>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Zenghui Yu <zenghui.yu@linux.dev>
+In-Reply-To: <877bnt8u5k.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260621_080243_541887_028EB8CC 
-X-CRM114-Status: GOOD (  17.94  )
+X-CRM114-CacheID: sfid-20260621_081757_476538_78102882 
+X-CRM114-Status: GOOD (  20.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,93 +70,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 6/20/26 4:59 PM, Marc Zyngier wrote:
+> On Fri, 19 Jun 2026 19:58:08 +0100,
+> Yuho Choi <dbgh9129@gmail.com> wrote:
+> >
+> > of_get_cpu_node() returns a referenced device node. In
+> > its_cpu_init_collection(), the node is only used to get the CPU NUMA
+> > node for the Cavium 23144 workaround, but the reference is never
+> > dropped.
+> >
+> > Store the NUMA node locally and call of_node_put() before either
+> > continuing with collection setup or returning early for a NUMA mismatch.
+> >
+> > Fixes: 920181ce8469 ("irqchip/gic-v3-its: Add ability to resend MAPC on resume")
 
---=-y3J05c+vgPYhtoDB2K3t
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+It looks to me that this issue was introduced in fbf8f40e1658
+("irqchip/gicv3-its: numa: Enable workaround for Cavium thunderx erratum
+23144"). What am I missing?
 
-On Tue, 2026-06-16 at 20:28 +0530, Greg Kroah-Hartman wrote:
-> 6.1-stable review patch.  If anyone has any objections, please let me kno=
-w.
->=20
-> ------------------
->=20
-> From: Anshuman Khandual <anshuman.khandual@arm.com>
->=20
-> [ Upstream commit 48478b9f791376b4b89018d7afdfd06865498f65 ]
-[...]
-> @@ -949,15 +953,14 @@ static void unmap_hotplug_pmd_range(pud_
->  		WARN_ON(!pmd_present(pmd));
->  		if (pmd_sect(pmd)) {
->  			pmd_clear(pmdp);
-> -
-> -			/*
-> -			 * One TLBI should be sufficient here as the PMD_SIZE
-> -			 * range is mapped with a single block entry.
-> -			 */
-> -			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
-> -			if (free_mapped)
-> +			if (free_mapped) {
-> +				/* CONT blocks are not supported in the vmemmap */
-> +				WARN_ON(pmd_cont(pmd));
-> +				flush_tlb_kernel_range(addr, addr + PMD_SIZE);
+> > Signed-off-by: Yuho Choi <dbgh9129@gmail.com>
+> > ---
+> >  drivers/irqchip/irq-gic-v3-its.c | 6 +++++-
+> >  1 file changed, 5 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+> > index b57d81ad33a0..f82035eb77e5 100644
+> > --- a/drivers/irqchip/irq-gic-v3-its.c
+> > +++ b/drivers/irqchip/irq-gic-v3-its.c
+> > @@ -3291,10 +3291,14 @@ static void its_cpu_init_collection(struct its_node *its)
+> >  	/* avoid cross node collections and its mapping */
+> >  	if (its->flags & ITS_FLAGS_WORKAROUND_CAVIUM_23144) {
+> >  		struct device_node *cpu_node;
+> > +		int cpu_nid;
+> >  
+> >  		cpu_node = of_get_cpu_node(cpu, NULL);
+> > +		cpu_nid = of_node_to_nid(cpu_node);
+> > +		of_node_put(cpu_node);
+> > +
+> >  		if (its->numa_node != NUMA_NO_NODE &&
+> > -			its->numa_node != of_node_to_nid(cpu_node))
+> > +		    its->numa_node != cpu_nid)
+> >  			return;
+> >  	}
+> >
+> 
+> Please consider using the cleanup infrastructure instead, something
+> like the untested hack below.
+> 
+> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+> index 291d7668cc8da..947a15bb42012 100644
+> --- a/drivers/irqchip/irq-gic-v3-its.c
+> +++ b/drivers/irqchip/irq-gic-v3-its.c
+> @@ -3290,11 +3290,10 @@ static void its_cpu_init_collection(struct its_node *its)
+>  
+>  	/* avoid cross node collections and its mapping */
+>  	if (its->flags & ITS_FLAGS_WORKAROUND_CAVIUM_23144) {
+> -		struct device_node *cpu_node;
+> +		struct device_node *cpu_node __free(device_node) = of_get_cpu_node(cpu, NULL);
+>  
+> -		cpu_node = of_get_cpu_node(cpu, NULL);
+>  		if (its->numa_node != NUMA_NO_NODE &&
+> -			its->numa_node != of_node_to_nid(cpu_node))
+> +		    its->numa_node != of_node_to_nid(cpu_node))
+>  			return;
+>  	}
+>  
 
-It wasn't clear to me from the commit message why this now adds PMD_SIZE
-rather than PAGE_SIZE.  It seems like this change is fine for Linux
-6.13+ with a CPU that supports TLB range flushing, but otherwise results
-in unnecessarily executing multiple TLB invalidations at intervals of
-the base page size.
+Reviewed-by: Zenghui Yu <zenghui.yu@linux.dev>
 
->  				free_hotplug_page_range(pmd_page(pmd),
->  							PMD_SIZE, altmap);
-> +			}
-> +			/* unmap_hotplug_range() flushes TLB for !free_mapped */
->  			continue;
->  		}
->  		WARN_ON(!pmd_table(pmd));
-> @@ -982,15 +985,12 @@ static void unmap_hotplug_pud_range(p4d_
->  		WARN_ON(!pud_present(pud));
->  		if (pud_sect(pud)) {
->  			pud_clear(pudp);
-> -
-> -			/*
-> -			 * One TLBI should be sufficient here as the PUD_SIZE
-> -			 * range is mapped with a single block entry.
-> -			 */
-> -			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
-> -			if (free_mapped)
-> +			if (free_mapped) {
-> +				flush_tlb_kernel_range(addr, addr + PUD_SIZE);
-[...]
-
-Similarly here, but this is effectively flush_tlb_all() instead.
-
-Ben.
-
---=20
-Ben Hutchings
-No political challenge can be met by shopping. - George Monbiot
-
---=-y3J05c+vgPYhtoDB2K3t
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEErCspvTSmr92z9o8157/I7JWGEQkFAmo3/QMACgkQ57/I7JWG
-EQnOORAAwi0dEpNPAe2/DhmuUrnEJymCCPR62cFYxp4C5G1M4TDy1TVbrr9sJXTB
-VJKQ3SW44b1t7f36h3pnCqcA3ceDfjFkPr6Mca9OabfxerxX0LGe7SCAFlMCAhqC
-nkM1iRJ6x2jzkCExZe2A+V3fIElM/QNzQaviy0g4t479/RLbRWtZCSGD1+1L+G//
-BC9HvehneiyHmf/FbxmCyvceniexwRUnXRXWf7HVxn6JNCWgS0Y4qTVT1mYgqXej
-GUuFtZPei0MuiOz/hJEVsJ/P8mFwsb6XWaVr5B1NyFLDdIMDpKuZWBgxaohCOMrt
-xcj8GVCBCtvwA7wpz9yeI+0aCTkQuSwbvdgOm40lP/hwuA742FiIarsKBrCNbIfN
-U+yFWOM8qmz/qPbaLslTENXUVMIt+2NBGugrLm0aeyNHvmMlyukO5RJagU7NIYyK
-Iz8UVpNAxB7CbcBV9VHWl1MC1aHf3innDFmkDL6y+VPJ03SfE1cFONF1nL0IEwSg
-UT+6TWIW+863nkHc2eTQ4KEhjFFmcbM2RkgdFP/A8LeYhxMqSFhyjESymGIsS+ox
-LoR/xhRfXddxOiPVIQtFBBEH7C58OrDU5dWJl5zmYHf3khc342CcolzS4/21Ua/J
-mWvMGYveWNU4fe/MPeU289MyTsroe0c2P+ysyEcKtB+3yIjPWQQ=
-=lNMR
------END PGP SIGNATURE-----
-
---=-y3J05c+vgPYhtoDB2K3t--
+Thanks,
+Zenghui
 
