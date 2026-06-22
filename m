@@ -4,106 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E7C7CDB46F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 13:12:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9724FCD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 13:12:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XkaEWxUJkCuHp/17+ud4oWXJ3qqAKnltzqopfMTtFIs=; b=4Nrwa907qaA3fChbhWg+nuU+Os
-	RSRd2JGZqcoeRmxECLep+M0e9cgDq9OFkhEeznigvFapWa8OFT3La2dO7m+gBgNtx8emVltzXg7oq
-	SbBIcyD2SMClyOrdPR+IwbBcis1wcLMPT6bdeeztPpYy+cS5tNK8E24vCjoJaBzOgpYeWMzgC659i
-	c4cHe6sOk5rNXOxVprQR3qxfvMYTbaVx7ejQ/e1l3vgPLni5gYKDgpnYaPymxnqHY4hWRnVTA9Z6G
-	d+27UQk2UP2aHMQPlcEMvGck+1NDRg+6sHCf1ysRqU+XjIYgvoiTZCaKHBoS1JPbph8cKSwgJ1fiv
-	6C8qmRqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cNdjL00WBqqYfozOsasxypzA3JammtyHrJgX4pryvkQ=; b=1qx4KJfNN48q9zZXAt4vkOlyTP
+	i7sgzOzpZmi0jw2meqG0WoiVSgyfl6sueaISdwme2GIpJ67fYc7yXg8bUvh15W+qmx3t7YEwRhZbe
+	K8oJaZQeVLZY2OfNNjSxDwtjBAPoggGIIaAKsuriLCma8LTp3u+6okySRxncD+BDdKXt1lsYXSXgc
+	oWDpVErL7sXZ0ykO5RZp+5Ub212YD/vk1TUQJj4IgODlUJZHck5rP5z3b3ahS0TtjbJu13OfLuZ59
+	Rtf9JV31oxPf9ymqfAr7xASzNn0Cz62aWqGFO3Z4mD/NzszwSki5n6QMD7KK0iD4nnZyG2GNXEyDB
+	a3bFvXAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbeRP-000000050GD-0W3M;
-	Mon, 22 Jun 2026 13:11:55 +0000
-Received: from mail-yx1-xb131.google.com ([2607:f8b0:4864:20::b131])
+	id 1wbeS5-000000050PC-1EKU;
+	Mon, 22 Jun 2026 13:12:37 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbeRM-000000050Ea-10NY
+	id 1wbeS0-000000050OK-1IdR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Jun 2026 13:11:53 +0000
-Received: by mail-yx1-xb131.google.com with SMTP id 956f58d0204a3-66077e888b2so4125546d50.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Jun 2026 06:11:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782133911; x=1782738711; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=XkaEWxUJkCuHp/17+ud4oWXJ3qqAKnltzqopfMTtFIs=;
-        b=JbtEBP5BWeNKUdRxKo/6qpPKqHyA1vWYOMclRc/kkaIGRtStwawsWKPKQ4g/Eg1lTQ
-         QmYdTfI88yEC/TYji98nrIhjHtwPMc7oMWXHh2kGEup92oAVEycNjRuYZs5iQ/PXH7I+
-         83Yg6oCqmoK26TOD6u7aVqGmpY5r+ih2QfdJ4EXf6TFtukrWEQ+JJnbwdvVUUUtMG58W
-         XUiioHgLwYNUvbNIPqnRltXg6duV3SMDztArK4j/SfbDyhdJxYfGdCjYlOtREY0gQusa
-         96fMXO/A1Rt42Qn5IoYmkEOiZWO7yyzzidfYG7mxjYXIf0QZAQ4m8dB2SN60x/eDvwWK
-         cRDg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782133911; x=1782738711;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=XkaEWxUJkCuHp/17+ud4oWXJ3qqAKnltzqopfMTtFIs=;
-        b=VF09kjZsCZpaf5vlP59zRo0eS96kKhCKQ32TGHq6OSSQd63ypriwPwAajKVitfcpEO
-         eYyJPIdkI5HvMxptIcOXC1tuCvL2ZKxNMAr8JrXaO82JN+7B3hKV2rlNCt9cOmi3k5eQ
-         uyRckHH2wtZrGI3B16/Pb3/HV28VL/ZHaU44arR39T27DvCAOg8uqaYBKPV10SZ4Kht4
-         ZSgsS/RpsWKGX7RvwB7nrIHXnkZqyIl9GAWYooUhA1u6HqHv/1/E6B56GjjDrJhyMzDw
-         YUDgKz12mMKhOBZlMPzZeJ1OLnYrbT+kYTfZ5CZjhgHmuKh0haxqkx2eO8Lw2rGv2sBP
-         bxPg==
-X-Forwarded-Encrypted: i=1; AHgh+Ros9pqEQ8w1JoxjSassCK6JKpHtp6o5LreqrWJLFtJYGTlu4UnCaQwFhEmTQZWbr0WgaSDABPZfU8LqGxbG9NLH@lists.infradead.org
-X-Gm-Message-State: AOJu0YxWANZXEE4q/gSPFJzEIY4UlA9aget6RWte6Jrt+f5VmEW8CKkV
-	dIMy+sE7/dCl0lQV0z4/m0OpGxXYaV4rSmAZ/v1xpe2W28/Xv4ZCNM0X
-X-Gm-Gg: AfdE7ckCP00nUWd8A9qEBvJo5kraYRqng1TiYxbetxRh2XPIL2lUlQI1PZjy7LdOIRB
-	gf3hLhZbcxHxDNtxdj56WjXSC8d5jBb4nvMVZi9CysK0nq/rCyudyz8jjcD8MbmxH+DB8Qx58Me
-	xw1VR6VdjFxRtCYRyUs/nCd4HSIX3IkoBOUtCc8iJoeDIRdMmlm0WDowvzei3mUdWLZ2kbS3nry
-	BPrV0BYuK7FiDr7iI1Dc1Vg4w+NkXizo8K5t5+Y++Ox1NYTFCgWvJb+K8CG8XPmXtM5D7uLD7p5
-	fX9tvT2PraWcpJJAU9R28iotDKklScWDoAx0b4eR/gWrMJZc0x9yJabv2g24ooHolMIfKNdrZ4t
-	Mm9W56kKmsVXTLFEnQGDUEk/jNaykctOTbJv4xb15zca3PGFxmRmZ6JQyJbAoqOlwpYnnDXjjDX
-	yFFj2Rm9k=
-X-Received: by 2002:a05:690e:120c:b0:660:54e4:5dd1 with SMTP id 956f58d0204a3-6630333ac1bmr11505521d50.44.1782133910591;
-        Mon, 22 Jun 2026 06:11:50 -0700 (PDT)
-Received: from localhost ([38.101.158.131])
-        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-66314ac3f96sm3600882d50.1.2026.06.22.06.11.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 22 Jun 2026 06:11:50 -0700 (PDT)
-From: Yury Norov <yury.norov@gmail.com>
-X-Google-Original-From: Yury Norov <ynorov@nvidia.com>
-Date: Mon, 22 Jun 2026 09:11:49 -0400
-To: Steven Rostedt <rostedt@kernel.org>
-Cc: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	John Ogness <john.ogness@linutronix.de>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Julia Lawall <julia.lawall@inria.fr>,
-	Yury Norov <yury.norov@gmail.com>, linux-doc@vger.kernel.org,
-	linux-kbuild@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	dri-devel@lists.freedesktop.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-rdma@vger.kernel.org,
-	linux-usb@vger.kernel.org, linux-ext4@vger.kernel.org,
-	linux-nfs@vger.kernel.org, kvm@vger.kernel.org,
-	intel-gfx@lists.freedesktop.org
-Subject: Re: [PATCH 0/2] tracing: Move trace_printk.h out of kernel.h
-Message-ID: <ajk0lT9P0SeuD94j@yury>
-References: <20260621093430.264983361@kernel.org>
- <dbb5915e-6587-4de9-87f3-76bea5024da8@kernel.org>
- <20260622090826.20efadb3@fedora>
+	Mon, 22 Jun 2026 13:12:32 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id B162C601F3;
+	Mon, 22 Jun 2026 13:12:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C5F41F000E9;
+	Mon, 22 Jun 2026 13:12:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782133951;
+	bh=cNdjL00WBqqYfozOsasxypzA3JammtyHrJgX4pryvkQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=TE1Xg9xv0dMhSVDV5EGq5eKodXJMYui/TMChcbqljfUPdkceLsZtHN6K+Uy5lz6oN
+	 XV0PADg1y3LvGChpVWDNFSTtWWzamFznR92drIVfrEgXfi3MpEmCf9xv20yM5NizZ1
+	 g4U4MQ9YSV+Wrz17Li4BGRcxeeHtVK2H8lOnrzlhniSq/luzXn2VRMLRS/OMnP/ZkR
+	 0J6YjaNvUS4tRewTPiHJZ7kRDgkHEYrimS6S/FAZAczQIxAa3ExY8khWQ0tdX3Wxkg
+	 hDa43bZZJccGs/ETsTtxqBKm5VLK+NqpD4VqdSRQ3keP+s0CVVpNWm6fUIQoxxLltR
+	 rIPwzvfusfodw==
+Message-ID: <30e02780-52c7-4a71-9d4f-4b7a20494161@kernel.org>
+Date: Mon, 22 Jun 2026 15:12:23 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260622090826.20efadb3@fedora>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260622_061152_299581_CB67D359 
-X-CRM114-Status: GOOD (  18.36  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/9] dt-bindings: nvmem: imx-ocotp: Add support for
+ secure-enclave
+To: Frieder Schrempf <frieder.schrempf@kontron.de>,
+ Frieder Schrempf <frieder@fris.de>
+Cc: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260616-upstreaming-next-20260609-imx-ocotp-ele-v1-0-cb7f3698c3e6@kontron.de>
+ <20260616-upstreaming-next-20260609-imx-ocotp-ele-v1-1-cb7f3698c3e6@kontron.de>
+ <20260617-prodigious-private-inchworm-beae1e@quoll>
+ <085262ba-32e5-4011-8df3-5a677575b2db@kontron.de>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <085262ba-32e5-4011-8df3-5a677575b2db@kontron.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,19 +124,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 22, 2026 at 09:08:26AM -0400, Steven Rostedt wrote:
-> On Mon, 22 Jun 2026 10:05:13 +0200
-> "Christophe Leroy (CS GROUP)" <chleroy@kernel.org> wrote:
+On 17/06/2026 13:36, Frieder Schrempf wrote:
+> On 17.06.26 12:49, Krzysztof Kozlowski wrote:
+>> On Tue, Jun 16, 2026 at 01:52:16PM +0200, Frieder Schrempf wrote:
+>>> From: Frieder Schrempf <frieder.schrempf@kontron.de>
+>>>
+>>> Some SoCs like the i.MX9 family allow full access to the fuses only
+>>> through the secure enclave firmware API. Add a property to reference
+>>> the secure enclave node and let the driver use the API.
+>>>
+>>> Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
+>>> ---
+>>>  Documentation/devicetree/bindings/nvmem/imx-ocotp.yaml | 4 ++++
+>>>  1 file changed, 4 insertions(+)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/nvmem/imx-ocotp.yaml b/Documentation/devicetree/bindings/nvmem/imx-ocotp.yaml
+>>> index a8076d0e2737..14a6429f4a4c 100644
+>>> --- a/Documentation/devicetree/bindings/nvmem/imx-ocotp.yaml
+>>> +++ b/Documentation/devicetree/bindings/nvmem/imx-ocotp.yaml
+>>> @@ -53,6 +53,10 @@ properties:
+>>>    reg:
+>>>      maxItems: 1
+>>>  
+>>> +  secure-enclave:
+>>> +    $ref: /schemas/types.yaml#/definitions/phandle
+>>> +    description: A phandle to the secure enclave node
+>>
+>> Two things here:
+>> 1. Here you describe what for is that phandle, how it is used by the
+>> hardware. Currently the description repeats the property name and type,
+>> so not much useful.
 > 
-> > > There's been complaints about trace_printk() being defined in kernel.h as it
-> > > can increase the compilation time. As it is only used by some developers for
-> > > debugging purposes, it should not be in kernel.h causing lots of wasted CPU
-> > > cycles for those that do not ever care about it.  
-> > 
-> > Do we have a measurement of the increased compilation time ?
+> Ok, agree.
 > 
-> I believe Yury does.
+>>
+>> 2. If you access OTP via firmware, then this is completely different
+>> interface than MMIO, thus:
+>> A. reg is not appropriate
+>> B. Device is very different thus it has different compatible and I even
+>> claim should be in different binding. Devices having completely
+>> different SW interface should not be in the same binding, at least
+>> usually.
+>>
+>> If any of above is not accurate, then your commit msg should answer why
+>> and give some background.
+> 
+> Thanks for the feedback!
+> 
+> The driver currently uses the limited MMIO (FSB) interface to access the
+> OTPs. The intention is to support the firmware interface alongside the
+> MMIO interface so the driver can pick the interface that is available
+> (firmware might not be loaded) and fallback to MMIO.
+> 
+> Following your argument would mean a driver deciding by itself which
+> interface to use at runtime is not something we want to have in general,
+> right?
 
-I re-run compilation is a more strict environment, and the difference
-is negligible.
+No, the property fits DT, but above information should be in commit msg.
+If this SoC has indeed both interfaces - MMIO and firmware calls - then
+everything is in general fine. I assumed that is not the case and MMIO
+is not really working.
+
+What was confusing is that it feels like you are changing existing
+interface, but why wasn't all this documented in the beginning? There is
+imx9 in this binding already, so was it working? Was it not working at
+all? Commit msg must clarify that.
+
+> 
+> In turn this would mean we need two drivers, or at least two
+> compatibles/bindings for something that is effectively the same hardware.
+
+Driver design is orthogonal choice here.
+
+It can reside in separate binding, if MMIO is still valid, but till
+everything is not yet too complex can be also this binding file.
+
+If it stays in this binding, then you need to restrict properties per
+variant, so add if:then: block which will disallow the phandle for other
+variants.
+Best regards,
+Krzysztof
 
