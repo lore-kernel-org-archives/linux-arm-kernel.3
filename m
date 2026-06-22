@@ -4,83 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F992CD98F0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 00:53:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E52C5CDB466
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 00:56:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IHIwIiKiSPJeb13YpcTgfxJcsK09+PRa0/JU1j/CnWg=; b=iYWabjh1t+ZxEasdB6kJaj+9Xk
-	ANfehBHGNyBTXOAYgtjBly0o+wospk7UlFhqBg21+6IAXgYMHAuGEpCc5ro9M7Jhpq5hpEQgYIepO
-	C0zqTkY3HjHS3msQuTBX38heqf2HivXDRLg4aluxamsMoqnDIViyVoT8KuZHxlQ2q/AqZEnPiQ3/s
-	wSoE2HBJMTKQqdmo8K5s/3KutqYUYAnZyVNm0N8WSvx5CdYp20IOvJqm1rQPx70VHH8QEc5S+k/Rg
-	XND1q0bpObAfFypXQyQ1BC0tCdNSUQbzhoMVK6VBuzlj9nbFq2uupvYNAI0mvCIYS+gXeWBl6j4zX
-	TlUR9ehg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vca/CKDASMzwEknu94jkYwLr91umSwU/eeXq3GdHWUE=; b=ONuy44bfJg8Eprliq5lZGbn0uL
+	5rmY3jO4bBHmlW00YAX7xRw3cU5Jx9F15sPkW05S6FCFGojXkJRDIs06tq8JEQjJY1K4KGpOAdGDR
+	xv4vQOzwRy7Z3bT/p++iYoss1kGzd6l6wu7Yt/xYyd3uCWbJBbYmGPFPIWxoYKW+ITjfCeyctW83B
+	zDXoryXLWvE9aX3t/dxzj4uQSxaEpaUCU0JFhuQVmcOirFDvNiwO9CJqlmyeaVoTcgCt1rdJ/IvG+
+	icpjZbPs812VDF22BAKx1Yrfmvaz2ExHyXJsb1ZIYOv485wRNpqqWwG803S0DfjrVg+tJ7bYyi/Cx
+	LMp7qocA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbSKg-00000004FFW-0CGw;
-	Mon, 22 Jun 2026 00:16:10 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wbSxp-00000004G37-1Zlx;
+	Mon, 22 Jun 2026 00:56:37 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbSKe-00000004FFH-1owk
+	id 1wbSxm-00000004G2R-2txf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Jun 2026 00:16:08 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B1C4A444BF
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Jun 2026 00:16:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9862C1F00A3A
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Jun 2026 00:16:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782087367;
-	bh=IHIwIiKiSPJeb13YpcTgfxJcsK09+PRa0/JU1j/CnWg=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=cMLhsAttTe8dyYAVQ5ButgRPTCNVZUjJ+rFUJS/Nb+BEGqhTUydcs0LU3Lix/Z3ek
-	 KD0MCI/yAPBWlN6wb7sqDiwlAttozmfCiUFWz9O3jE4hYXuyhq8p1QaOAF9Rxm+bPp
-	 zboU9r+goMAm9xbYv8LFtKEEZ5j6ZLteAPSQZ6OcSh5MIs/62zPpZIj5oiIaFmvUDR
-	 QC6ZRHtySEUkXZIEInSyph82+HpL4LpnJ7gqwRc/Aciq0eNZH9YLMUThL9XzXyeqjI
-	 Rm0VjsR1+yxuogHe+HIFTcJ5KRUzQnReJU7/nUzkEoFcP0eQK2LX+MLHdOMaRBfjL5
-	 BYH2jN1C6LQGQ==
-Received: by mail-qt1-f180.google.com with SMTP id d75a77b69052e-517863a2edfso29922911cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 21 Jun 2026 17:16:07 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ8XgmH4AnuksmW0MH0boJGARt18n2jQPOAu4RZEijgsOhQgDisAma1Pfsay+5JFoQbG4aDrR3J5GvDoC+GC1WTE@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy+gk09Yo76MsN9cBwf74fhBP3rgVS6jX2tSbe8eC8OIaO3hpXW
-	3l1U/v1ODd3+UtK97125f9SP9JniRpbWmaZRzpkdwvspSfPgxPWGpha2FsYi8UdRLkG/IMomDan
-	oo+Kgbznrra0pFdp75KhLcHW/X574rq0=
-X-Received: by 2002:a05:620a:2991:b0:920:bc4a:6d9f with SMTP id
- af79cd13be357-921d185ff31mr1291391485a.25.1782087366553; Sun, 21 Jun 2026
- 17:16:06 -0700 (PDT)
+	Mon, 22 Jun 2026 00:56:36 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-37c6cd1ac98so3325820a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 21 Jun 2026 17:56:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782089793; x=1782694593; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=vca/CKDASMzwEknu94jkYwLr91umSwU/eeXq3GdHWUE=;
+        b=ToKLPfU30MrnN1E2zQJit7c36bE3o6q50TswbNpfHziSytbtyUG/1+FDB0qPXPBNf/
+         ARSurhl1DK+DlKAwu9k04F3vX7DPIOf5klCLBc9h+WSzs3fZTwfsc101lsUI+2B2qgcy
+         U6kFXLkPfH+bHT/YsL7Vbg68mRM9Q6mNIxkrvNqTgd2LAT9+dovaaOWwBHAsXSXFSr2X
+         XDYnVgxHIa06+iVDk5IT4QuKm0zRwfFL7GuwOX0x9y0V/VeUMFkM0jp3btSELvPolHxB
+         xK1FAX5vXPvE0n6bXxFYgUDkwspTrAIjoAO6p4wEaw/YtoQCNqYlpd8iAKZGunrHtIGO
+         w+kA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782089793; x=1782694593;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=vca/CKDASMzwEknu94jkYwLr91umSwU/eeXq3GdHWUE=;
+        b=ck9aa1Bsn0u7MmUw+qC9y6EQw3eu90xvmbdflrwuCOhzNBbSkYatYcoM87ngEMQYmd
+         m/c68AFcp4Iu3kTZWZ13xijpDRDch68ZDJSilnFCeC41c+YohzJcG8TV4rNedUGeqVj3
+         jVuROtJloapPLRu3UdrTbb8VZBV0mjZPE3J8OytDD8tt28WS6L0Zf1qvprFnoEDmcFt1
+         VhR5GtrGDWpewt5PTZSCJNOQlinq8EweR21rkGvHt80cN8/hTI4KbeRaOJ1CdXmiIYTV
+         Mqo6hg9zMytsrh9DqRZJLh/3CJqRIoSugJRtm1TtEU17C8tcA24cLtKd3J1sIvOOHFm8
+         tLhA==
+X-Forwarded-Encrypted: i=1; AHgh+RrQDQkMsm6nezbKhJvg9kQ8bLwyEVPY1nPkN064rjqlvqfMS67MPyFLtGZYP6yQ9c7Buqw8x2lz88rmCZOIUl1R@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw1GNgycB4tiPocB9uG8qNtMVD/8srj+LkN3LsyvUmX43VECU0Z
+	XGSGJjNq8nftyhsZOwIMxilAvdlY/tKHkeT+piQ83UhQ+fcvvWRuSESUU5FLJA==
+X-Gm-Gg: AfdE7clXFuqe/DDt6QtlQ+b5gUj6MMZ+h0F65jGbJmpHBtbjeHkrYuhf8MFgCTG1QJn
+	GHOrQGrNOGvNP0XtJzYIR0QcpoABoGx4KqksQEw42CrjtkzVHaq+AwkXKmk82328OOiDopah8cl
+	BeYvjjRj+dUKV+qFY6DYnSAqO5RPvrmE38jibESgOx8pyxxMhXgIJbQ7FRz9eThUTk5FDTJ1Zpu
+	i3RlRtFi+ss9aa2lnmJjWl/P99IKY/oyhNoBdVByOZkjNvnfrsYX/0bnjMFtoEtmbvguFUo1Fzh
+	PuPGnbbi3alqTQLywvaBZDcSMS3LyFKNUIcTD4/A5xsdwX2NlNzcUMSIU55TwcSh4VI8U1Z5mIj
+	kFtezpDbSu9QbQJPU0I2kUnYivoaNoL1uNrHFIc0nikbfJJPftO/wLc0V5DtN5QDtgYrpBFIhoL
+	I0+6bDHNnljJIhdv+g0THWdiYgPyMlLmngywhNXhv+eA0Kf/Y=
+X-Received: by 2002:a17:90b:1d4c:b0:36d:ae6a:22f4 with SMTP id 98e67ed59e1d1-37d1e8c9b8fmr11813445a91.15.1782089793457;
+        Sun, 21 Jun 2026 17:56:33 -0700 (PDT)
+Received: from phuc-desktop.. ([183.91.15.56])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c8bc2c8d829sm5441326a12.1.2026.06.21.17.56.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 21 Jun 2026 17:56:33 -0700 (PDT)
+From: phucduc.bui@gmail.com
+To: Heiko Stuebner <heiko@sntech.de>,
+	Mark Brown <broonie@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>
+Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	linux-sound@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	bui duc phuc <phucduc.bui@gmail.com>
+Subject: [PATCH] ASoC: rockchip: rockchip_sai: Hand over hclk control exclusively to Runtime PM
+Date: Mon, 22 Jun 2026 07:56:13 +0700
+Message-ID: <20260622005613.21870-1-phucduc.bui@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <5zdaa5uv5oj27q3taopl3amops57ouxgyfsdveudz4ovmbdw7z@6lwrlyvmhcp2>
- <CAGsJ_4yKxg1QugcsJi3WD0KVGJKe-zXycgm5D6cRi9vWtNcpDQ@mail.gmail.com>
- <ag4h87CBd-gph9zX@casper.infradead.org> <CAGsJ_4zA8afu0xXy0WS+tMe-eesDX1W6UBmfAsuouUpcAgK8JQ@mail.gmail.com>
- <ag4kj84EcKqamdB-@casper.infradead.org> <3be9475b-0e8a-4df8-a130-4262f993973d@kernel.org>
- <CAGsJ_4xC5LdhuoWV1=tK-RZ5rkjc8aOKOkmb1L_8BG_3gtJhDg@mail.gmail.com>
- <ahB6QyHgYq8ksj65@lucifer> <CAGsJ_4zxLvZ01i19vdo0xA47T1hxa1VRYvxLmiDhy5q1GDKPRg@mail.gmail.com>
- <CAJuCfpHTxaU4KdNmefU7C7cWZSLCFDLPdUrnqV6yzxzN+8RQ0Q@mail.gmail.com> <ajhOUdbWsswgQyl2@casper.infradead.org>
-In-Reply-To: <ajhOUdbWsswgQyl2@casper.infradead.org>
-From: Barry Song <baohua@kernel.org>
-Date: Mon, 22 Jun 2026 08:15:55 +0800
-X-Gmail-Original-Message-ID: <CAGsJ_4ybg5LGYopTUJTh5R2rN6X3uR9xoJSL+RdTYVtm1-xqLg@mail.gmail.com>
-X-Gm-Features: AVVi8CfKzSAPaNgcIJCxOHQBAHV_wanqXUmTigM-8i98Bk0ci-4XCgmSQNzZol4
-Message-ID: <CAGsJ_4ybg5LGYopTUJTh5R2rN6X3uR9xoJSL+RdTYVtm1-xqLg@mail.gmail.com>
-Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
- fault performance
-To: Matthew Wilcox <willy@infradead.org>
-Cc: Suren Baghdasaryan <surenb@google.com>, Lorenzo Stoakes <ljs@kernel.org>, 
-	"David Hildenbrand (Arm)" <david@kernel.org>, "Liam R. Howlett" <liam@infradead.org>, akpm@linux-foundation.org, 
-	linux-mm@kvack.org, vbabka@kernel.org, rppt@kernel.org, mhocko@suse.com, 
-	jack@suse.cz, pfalcato@suse.de, wanglian@kylinos.cn, chentao@kylinos.cn, 
-	lianux.mm@gmail.com, kunwu.chan@gmail.com, liyangouwen1@oppo.com, 
-	chrisl@kernel.org, kasong@tencent.com, shikemeng@huaweicloud.com, 
-	nphamcs@gmail.com, bhe@redhat.com, youngjun.park@lge.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-	Nanzhe Zhao <nzzhao@126.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260621_175634_743383_A323D04D 
+X-CRM114-Status: GOOD (  17.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,78 +104,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 22, 2026 at 4:49=E2=80=AFAM Matthew Wilcox <willy@infradead.org=
-> wrote:
->
-> On Sat, Jun 20, 2026 at 04:48:57PM -0700, Suren Baghdasaryan wrote:
-> > Just checking in on the followup plans. IIUC the RFC mentioned will
-> > try to implement the solution we discussed at LSFMM: splitting
-> > VM_FAULT_RETRY into two flags - one for retrying under per-VMA locks
-> > and another one to fallback to mmap_lock.
->
-> I continue to hate this idea.  I don't believe that those who were
-> pushing for it have ever tried to understand the whole fault path.
-> It's utterly byzantine.
->
-> I defy anyone to make sense of this:
->
->         /*
->          * NOTE! This will make us return with VM_FAULT_RETRY, but with
->          * the fault lock still held. That's how FAULT_FLAG_RETRY_NOWAIT
->          * is supposed to work. We have way too many special cases..
->          */
->         if (vmf->flags & FAULT_FLAG_RETRY_NOWAIT)
->                 return 0;
->
->         *fpin =3D maybe_unlock_mmap_for_io(vmf, *fpin);
->         if (vmf->flags & FAULT_FLAG_KILLABLE) {
->                 if (__folio_lock_killable(folio)) {
->                         /*
->                          * We didn't have the right flags to drop the
->                          * fault lock, but all fault_handlers only check
->                          * for fatal signals if we return VM_FAULT_RETRY,
->                          * so we need to drop the fault lock here and
->                          * return 0 if we don't have a fpin.
->                          */
->                         if (*fpin =3D=3D NULL)
->                                 release_fault_lock(vmf);
->                         return 0;
->                 }
->
-> Wed need to simplify the fault path, not add additional complexity.
-> Josef has said he wouldn't've done the lock dropping had we had per-VMA
-> locks.  We should rip it out.
+From: bui duc phuc <phucduc.bui@gmail.com>
 
-I think you have agreed that, at least for anon vma, we can
-keep the current policy, since anon vma is much more volatile
-than file vma.
-Concurrent page faults and VMA modifications can happen more
-often than with file VMAs.
+Although switching to devm_clk_get_enabled() in a previous patch was
+tested successfully, it introduces overlapping ownership of the clock
+lifecycle. Since the driver requires early register access to read the
+device version during probe(), enabling hclk at that point is mandatory.
+However, relying on devres for automatic disabling at unbind, while calling
+clk_disable_unprepare() manually at the end of probe() alongside Runtime
+PM's autosuspend, creates redundant and overlapping clock management.
 
-For file vmas, how much code can we actually remove, given that
-the first page fault might already be holding mmap_lock?
-It could be the case that lock_vma_under_rcu() fails, and then
-on the first page fault we end up holding mmap_lock before
-retrying. So are we also going to rip out the lock release,
-even if it risks holding mmap_lock for a long time?
+While this mixed approach might not trigger errors under normal test
+conditions, it is architecturally sub-optimal. As stated in the code
+comments, Runtime PM should exclusively own the clock for register
+accesses after the initial configuration phase.
 
-        vma =3D lock_vma_under_rcu(mm, addr);
-        if (!vma)
-                goto lock_mmap;
-       ...
-lock_mmap:
+Clean up the design by:
 
-        vma =3D lock_mm_and_find_vma(mm, addr, regs);
-        if (unlikely(!vma)) {
-                fault =3D 0;
-                si_code =3D SEGV_MAPERR;
-                goto bad_area;
-        }
+   1 Reverting back to devm_clk_get() to remove the implicit devres
+     enable/disable behavior.
+   2 Manually enabling and disabling hclk explicitly only around the
+     early register access before Runtime PM takes over.
+   3 Dropping the stray clk_disable_unprepare() at the end of probe()
+     so Runtime PM solely owns hclk afterward.
 
-If we still need to keep the page fault retry code there, it
-doesn't seem like "ripping out" really reduces complexity in
-the page fault code?
+Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
+---
 
-Best Regards
-Barry
+Links: 
+1 This change is based on the discussion around manual hclk handing during probe(),
+  as raised by Krysztof:
+  https://lore.kernel.org/all/20e4754b-ea9a-404d-b529-ec44a7263cbf@kernel.org/#t
+2 Background for the earlier devm_clk_get_enbabled() conversion:
+  https://lore.kernel.org/all/2818018.CQOukoFCf9@workhorse/
+
+An alternative approach would be use devm_regmap_init_mmio_clk() and let regmap
+manage clock enablement around register accesses. If preferred, I can rework the 
+driver accordingly.
+
+ sound/soc/rockchip/rockchip_sai.c | 27 ++++++++++++++++++++-------
+ 1 file changed, 20 insertions(+), 7 deletions(-)
+
+diff --git a/sound/soc/rockchip/rockchip_sai.c b/sound/soc/rockchip/rockchip_sai.c
+index a195e96fed0a..ebb491fac77d 100644
+--- a/sound/soc/rockchip/rockchip_sai.c
++++ b/sound/soc/rockchip/rockchip_sai.c
+@@ -1438,20 +1438,30 @@ static int rockchip_sai_probe(struct platform_device *pdev)
+ 		return dev_err_probe(&pdev->dev, PTR_ERR(sai->mclk),
+ 				     "Failed to get mclk\n");
+ 
+-	sai->hclk = devm_clk_get_enabled(&pdev->dev, "hclk");
++	sai->hclk = devm_clk_get(&pdev->dev, "hclk");
+ 	if (IS_ERR(sai->hclk))
+ 		return dev_err_probe(&pdev->dev, PTR_ERR(sai->hclk),
+ 				     "Failed to get hclk\n");
+ 
++	ret = clk_prepare_enable(sai->hclk);
++	if (ret)
++		return dev_err_probe(&pdev->dev, ret, "Failed to enable hclk\n");
++
+ 	regmap_read(sai->regmap, SAI_VERSION, &sai->version);
+ 
+ 	ret = rockchip_sai_init_dai(sai, res, &dai);
+-	if (ret)
+-		return dev_err_probe(&pdev->dev, ret, "Failed to initialize DAI\n");
++	if (ret) {
++		ret = dev_err_probe(&pdev->dev, ret, "Failed to initialize DAI\n");
++		goto err_disable_hclk;
++	}
+ 
+ 	ret = rockchip_sai_parse_paths(sai, node);
+-	if (ret)
+-		return dev_err_probe(&pdev->dev, ret, "Failed to parse paths\n");
++	if (ret) {
++		ret = dev_err_probe(&pdev->dev, ret, "Failed to parse paths\n");
++		goto err_disable_hclk;
++	}
++
++	clk_disable_unprepare(sai->hclk);
+ 
+ 	/*
+ 	 * From here on, all register accesses need to be wrapped in
+@@ -1482,8 +1492,6 @@ static int rockchip_sai_probe(struct platform_device *pdev)
+ 	pm_runtime_use_autosuspend(&pdev->dev);
+ 	pm_runtime_put(&pdev->dev);
+ 
+-	clk_disable_unprepare(sai->hclk);
+-
+ 	return 0;
+ 
+ err_runtime_suspend:
+@@ -1493,6 +1501,11 @@ static int rockchip_sai_probe(struct platform_device *pdev)
+ 		rockchip_sai_runtime_suspend(&pdev->dev);
+ 
+ 	return ret;
++
++err_disable_hclk:
++	clk_disable_unprepare(sai->hclk);
++
++	return ret;
+ }
+ 
+ static void rockchip_sai_remove(struct platform_device *pdev)
+-- 
+2.43.0
+
 
