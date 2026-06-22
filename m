@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5672CDB46F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 17:17:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70F27CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 17:47:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YGkyB08LSwfG3jOi5aBUi+D7lklfNHZo+RPl42buynE=; b=bmQChQvQoLmifjLN9vR5PJ7ZHU
-	BKhzeNlBCmyf4dz92cpUYymvllYG9Tm6o1Ohcb8hnX8q7JnV8HhE8xsSy+e4p0wZM9oXQCwaPlLqr
-	gfuKfUavXU9uylf81314fjaRNWNtzokRvjEv5ktfgnz3S4hmK1EXOVG0SZtJxPzI/jqztCFZb53qy
-	879wBBgueQZLuhiwjdsijMlGJGtJbOX4WeLIoOqZx6XoaP9xdDzrZkUQ1apFp6RkG5D5ZC0GBH8X5
-	RrBSK9XJNGQkKM+6MeGPgilnCHCeEXmbIHsP0LA46YIpZfOIiCV24sDHieSLTXyyV2aF13Rwk5DIe
-	erhNmjmw==;
+	bh=MhF+Z7QvSyF8SFiHgEa+zx62DspglqwUqFsjrg9vB+A=; b=ak9gd2PB/2JqPW84NSLnLeqsAu
+	tOz6Pv611Q/fluaTwftXSYnf6cY79ESoQy8y8n39tXdx9tahMjlm8qC8cXuEkIV7uOf9lgtIvDupx
+	94UDtXdNe+UM0g08yY1s8h28OGiXOxJxLN6B8Q2bFC7yN0DgNDz2wA0kWmzu37YfUd3WcB9Yfbev0
+	e8utO8K773GyxFgRF6q8P7GuKYGwYBxiHsQkdGEIzhSvkBtBA5+VcBYmkRE2cM9/oRnHJLZxW3YS0
+	FjA1QF1f8esRZr1M6rKdwF/SgJPQM0inGGtktClfR/l1aJ3Pzt1vqeeSEYxFA6LrqcWAm8KbX/QPC
+	awMTpF6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbiGx-00000005Fey-1e3H;
-	Mon, 22 Jun 2026 17:17:23 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbiGw-00000005Fer-2MMq
+	id 1wbiDB-00000005FDg-3IJP;
+	Mon, 22 Jun 2026 17:13:29 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wbiD9-00000005FCM-0RHZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Jun 2026 17:17:22 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C01D0601F8;
-	Mon, 22 Jun 2026 17:17:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 204171F000E9;
-	Mon, 22 Jun 2026 17:17:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782148641;
-	bh=YGkyB08LSwfG3jOi5aBUi+D7lklfNHZo+RPl42buynE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ZTlltqDvqyJYG3a03TZfHyc2f2P+tyf/JRiGuG4Eyfc7c/c0Dzw8NRSq0hGFoemVg
-	 WjiZuXiLGZ0waoPpYAgvA5ao/Fj2Mwn7Exj2OcpMXlrumETsnsaTWK7lPkRNWpM/1D
-	 dxd9KfBplpaR1w7KCjE9jLsuHt1JUV4H1dgHnTPcDMGKdsFNkhDS4AahTbcrP04OoK
-	 IV3ZXBhPT0epaX2jfgMSE9hG9CNJKqxGOy3G2+0vIKvPVja+ip/moFMbCXeNGpqrWG
-	 ULccuLsK33waAlSJVkGacIL5dPc/5bH0OaOb8Zv20m24n+guDjNw0lgfuGT6wP6aL+
-	 VOWETkloHTafQ==
-Date: Mon, 22 Jun 2026 18:17:15 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Linus Walleij <linusw@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-	Lee Jones <lee@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-pm@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, dmaengine@vger.kernel.org
-Subject: Re: [PATCH 10/11] regulator: db8500: Add power domain regulators
-Message-ID: <68c010de-8716-45c7-9d2c-71bd7dcb2410@sirena.org.uk>
-References: <20260618-ux500-power-domains-v7-1-v1-0-eb5e50b1a588@kernel.org>
- <20260618-ux500-power-domains-v7-1-v1-10-eb5e50b1a588@kernel.org>
+	Mon, 22 Jun 2026 17:13:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1F0191A00;
+	Mon, 22 Jun 2026 10:13:19 -0700 (PDT)
+Received: from arm.com (RQ4T19M611-7.cambridge.arm.com [10.1.32.69])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3EAF23F62B;
+	Mon, 22 Jun 2026 10:13:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1782148403; bh=RnwiQypkRLn7P8qYZseBV6Ihj32aR3RId+p6z4H6xw0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=cB1cmzMzT+YCCg7NorZIa+KSxvTRYpIbv/SMaoP0VaMTLqKhCnwscEnPUCC+jZb+/
+	 gaRLYTCzh177urdLiaRvwUNvASV/HdLMAMWqfK5gWm4lR38lQmrPWtcwc4xEt/s8Y+
+	 xzl5xklVxQ8HOQlcmaoggGEB00Xm26zmkx0NmFW4=
+Date: Mon, 22 Jun 2026 18:13:17 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Harry Yoo <harry@kernel.org>
+Cc: Dev Jain <dev.jain@arm.com>, ryabinin.a.a@gmail.com,
+	akpm@linux-foundation.org, corbet@lwn.net, glider@google.com,
+	andreyknvl@gmail.com, dvyukov@google.com, vincenzo.frascino@arm.com,
+	kasan-dev@googlegroups.com, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org, skhan@linuxfoundation.org,
+	workflows@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, ryan.roberts@arm.com,
+	anshuman.khandual@arm.com, kaleshsingh@google.com,
+	21cnbao@gmail.com, david@kernel.org, will@kernel.org
+Subject: Re: [RFC PATCH 0/2] kasan: hw_tags: Add option to tag only at
+ allocation time
+Message-ID: <ajltLd6FQg1aMge_@arm.com>
+References: <20260612044425.763060-1-dev.jain@arm.com>
+ <b1502a60-09a1-4699-886b-93d041de7023@kernel.org>
+ <ajVByfkLbetzA8bB@arm.com>
+ <2208123f-8a51-483b-aa93-c35d8d053d25@kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="b4s6q5sc4PEIczEO"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260618-ux500-power-domains-v7-1-v1-10-eb5e50b1a588@kernel.org>
-X-Cookie: Now I am depressed ...
+In-Reply-To: <2208123f-8a51-483b-aa93-c35d8d053d25@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260622_101327_322802_9A346545 
+X-CRM114-Status: GOOD (  22.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,39 +79,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Harry,
 
---b4s6q5sc4PEIczEO
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+On Mon, Jun 22, 2026 at 09:42:10PM +0900, Harry Yoo wrote:
+> On 6/19/26 10:19 PM, Catalin Marinas wrote:
+> > On Thu, Jun 18, 2026 at 10:35:15PM +0900, Harry Yoo wrote:
+> >> On 6/12/26 1:44 PM, Dev Jain wrote:
+> >>> Now, when a memory object will be freed, it will retain the random tag it
+> >>> had at allocation time. This compromises on catching UAF bugs, till the
+> >>> time the object is not reallocated, at which point it will have a new
+> >>> random tag.
+> >>>
+> >>> Hence, not catching "use-after-free-before-reallocation" and not catching
+> >>> "double-free" will be the compromise for reduced KASAN overhead.
+> >>
+> >> I doubt users who care about security enough to enable HW_TAGS KASAN
+> >> are willing to compromise on security just to save a few instructions
+> >> to store tags in the free path.
+> >>
+> >> To me, it looks like too much of a compromise on security for little
+> >> performance gain.
+> > 
+> > I don't think there's much compromise on security for use-after-free.
+> 
+> I think it depends... OH, WAIT! I see what you mean.
+> 
+> You mean use-after-free before reallocation does not lead to much
+> compromise on security because objects are initialized after allocation?
+> 
+> You're probably right.
+> 
+> Hmm, but stores to e.g.) free pointer, fields initialized by
+> constructor or accessed by SLAB_TYPESAFE_BY_RCU semantics after free
+> will be undiscovered if they happen before reallocation.
 
-On Thu, Jun 18, 2026 at 07:00:56AM +0200, Linus Walleij wrote:
+Even with SLAB_TYPESAFE_BY_RCU, the object isn't tagged on free either
+(or realloc, only if the actual slab page ends up freed). But we don't
+get type confusion for such slab.
 
-> +static int db8500_regulator_get_voltage(struct regulator_dev *rdev)
-> +{
-> +	struct db8500_regulator_info *info = rdev_get_drvdata(rdev);
-> +
-> +	if (!info->desc.fixed_uV)
-> +		return -EINVAL;
-> +
-> +	return info->desc.fixed_uV;
-> +}
+However, without tagging on free, one could argue that it reduces
+security for cases where the page is re-allocated as untagged - e.g. all
+user pages mapped without PROT_MTE. Currently we have a deterministic
+tag check fault if the page is coloured as KASAN_TAG_INVALID. I think
+for this patch, it might be better to only do such skip on free in
+kasan_poison_slab() rather than kasan_poison(). Freed pages would then
+be tagged.
 
-The core supports single fixed voltages, set desc->fixed_uV.
+An alternative would be tagging on free only with a new tag and skipping
+it on re-alloc. But we'd need to track when it's a completely new
+allocation or a reused object (I haven't looked I'm pretty sure it's
+doable).
 
---b4s6q5sc4PEIczEO
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmo5bhoACgkQJNaLcl1U
-h9CpRQf/dOhQq9/GU7zTV3JsdHIbbJMAd7F3IoT2PBCjFzrNdXng1yds9DFZYkyO
-DK8dDx608Y0kOUwZ2q0tKuuKniQ9hzyVJqvdJ93s9XvP18H08nbcVULBETg2EtBj
-HnznimPSnu2TYLd1PffHpG3qzK3VZV8U2tO5ui2iu8H76IpkadTxARyvBPDFTW7B
-4zzPy6zZxBCPrJz0kXzRtDEUDxVeMmgxMjgkfpYeFVrZI5Hl2G024Hww/oMODKb5
-rbQZcNj5U4lKmTNdtWuozV35pk6SeARJgJhy0zyGTVU2slW/ByHUO6opXL51m/rL
-1XVzYaLz8lpJkfkMjZu/YQBQKrRQ4w==
-=CpDw
------END PGP SIGNATURE-----
-
---b4s6q5sc4PEIczEO--
+-- 
+Catalin
 
