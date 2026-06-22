@@ -4,62 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0258ECDB470
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 13:04:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80207CDB46F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 13:06:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9uJLyNreVTlbr1SNYZGicUMtN2H427gOySX/h3LnkcI=; b=X+9L1cvHtMxHVRCE1Nn/FA6Yzz
-	pubEZTmyZHE59QWNGoOxQZECH51ajAvYTWuPf23CkV/dT1SLZg487BmafsnvoBpvP5BcElJ+9lX/E
-	OdBwBN0SDwLwDUsPDKnU3UqoQ00VjLFMxvs5BEdJCgkTZ1UCVVuBKdcebdnUSdIiY9+d2K5qojX9R
-	ReBHsrEJOfSDw4OzPaX9Qneyab3A/caiSq/D9e7eoVWrqYybULeRXVm3L7NgeJFrcg91nZv2H5jkH
-	dO6SgNOEgEqvh3xdAgY0b8Lf8Ex3oM7MWY58Y63suH91q6AoQ4AwYmq6jyMKHtjHeHw4UHrfuv9EE
-	3JjBDNOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sLW3835ooF/gyASPq4HfcxuD4xTqS9E83di9vyQnNuU=; b=b/oqdcP57roBu9OT86GILO035L
+	NJuIVkBlRVHMLYa9r39bUD2AIDts8Cfpr5jNZeiKjCdS8oz7K8hrNMxUtoOqCH9P4Ix1FH/X9DGAN
+	13ePCpHIkeBg9HKx98kkwdWg2JktRda7lPx5fjLfSmTVjAdqrpi2FStwnB9HoR1lED9F88kfGjsA8
+	RuHRZ4hMxlZuZ1CVu7OBUQAYe8c2zQ7Xvabv8qvF/hUtx3NHCvKeQeMSFXFiql7Y0U/JuabTKNiSB
+	2VO2pDWflV80iLfmHmtxtUJRO/WvlC1yxa5c0Vj1jZrNeameQeXbrA71lH8VZc4hWIxkiaQgjNxOs
+	MBiNkw7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbeJz-00000004zbv-2XSM;
-	Mon, 22 Jun 2026 13:04:15 +0000
+	id 1wbeMG-00000004zkC-08Zs;
+	Mon, 22 Jun 2026 13:06:36 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbeJy-00000004zbl-39HT;
-	Mon, 22 Jun 2026 13:04:14 +0000
+	id 1wbeMF-00000004zk5-0KtX
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 22 Jun 2026 13:06:35 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D2C6C601F0;
-	Mon, 22 Jun 2026 13:04:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59A521F000E9;
-	Mon, 22 Jun 2026 13:04:11 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8465C601F0;
+	Mon, 22 Jun 2026 13:06:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF82F1F000E9;
+	Mon, 22 Jun 2026 13:06:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782133453;
-	bh=9uJLyNreVTlbr1SNYZGicUMtN2H427gOySX/h3LnkcI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=jH7lhj1EqyIwd+vhCsjC43yNRV5CTq3QC5YsPrfJaOYXH/R7pF+l/oZOTKBCfbVpT
-	 V7xNLLAgmtFd0+G4BfktMEAJ4iilOuSjdn9sNJ/y7wqXPHaPkQLZbynQj0H9dDteuN
-	 62fpUdATTz1rBkqB10X/12gPWFcaJT1Yv4H6c2MPvCcSwJAVzw4l88f4AgB/M9ve4u
-	 QKU605Qa+x+AVvNUKODHvj1DWMIgK0KSDOop5uxasdLeY5YT2679RapPTF6ZLdtnL7
-	 gacSIBp20D3ZCBGK3Yi1UK6RmmgMG4UaWEob0j6qgGD30N2Sy65D+DUG1vw/Ahzjnl
-	 X9uYwPpy/bEGA==
-Date: Mon, 22 Jun 2026 14:04:08 +0100
-From: Mark Brown <broonie@kernel.org>
-To: phucduc.bui@gmail.com
-Cc: Heiko Stuebner <heiko@sntech.de>, Liam Girdwood <lgirdwood@gmail.com>,
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	linux-sound@vger.kernel.org, linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] ASoC: rockchip: rockchip_sai: Hand over hclk control
- exclusively to Runtime PM
-Message-ID: <229ba136-66eb-4a30-a316-58377836b4dc@sirena.org.uk>
-References: <20260622005613.21870-1-phucduc.bui@gmail.com>
+	s=k20260515; t=1782133594;
+	bh=sLW3835ooF/gyASPq4HfcxuD4xTqS9E83di9vyQnNuU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=EVO3TrLz+bQjQqozayKpjazPXBGIy5tAHLEgjkJc5yRgHhuigoWiPudPbB7kB3uSE
+	 UtOB7y4258R1S8pmCtLnbYcOTWEOgS1mobD4Vp2ge358defYkyY8pQXmxRNwU15rV1
+	 Ei+5Bo4/bRcahmSXjuouj9qFQs4cAbI2gW6BpP00CZ7W46vU8vs/AUyBRerlYuhUeb
+	 lN3nggcejKli1r/PdVvLluVgSkDo1kSQNWtxN6jdlzE5spv02okcBDbYdiSjyKf7Z4
+	 J49g9/QL5cjv9luKHEhmdvKOLNQpWYbz9+abchACeNQfHOHgZoBWOmOgLYVDgLwj++
+	 y8z5oo4KQuOuw==
+Message-ID: <c42354f7-4add-4f56-bb7e-d33000db1f1b@kernel.org>
+Date: Mon, 22 Jun 2026 15:06:24 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="cKNKF0zS5mQrCs4i"
-Content-Disposition: inline
-In-Reply-To: <20260622005613.21870-1-phucduc.bui@gmail.com>
-X-Cookie: Now I am depressed ...
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC v8 03/24] arm64: mm: Enable overlays for all EL1
+ indirect permissions
+To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-hardening@vger.kernel.org
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ Andy Lutomirski <luto@kernel.org>, Catalin Marinas
+ <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>,
+ Ira Weiny <ira.weiny@intel.com>, Jann Horn <jannh@google.com>,
+ Jeff Xu <jeffxu@chromium.org>, Joey Gouly <joey.gouly@arm.com>,
+ Kees Cook <kees@kernel.org>, Linus Walleij <linusw@kernel.org>,
+ Marc Zyngier <maz@kernel.org>, Mark Brown <broonie@kernel.org>,
+ Matthew Wilcox <willy@infradead.org>, Maxwell Bland <mbland@motorola.com>,
+ "Mike Rapoport (IBM)" <rppt@kernel.org>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Pierre Langlois <pierre.langlois@arm.com>,
+ Quentin Perret <qperret@google.com>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, Vlastimil Babka <vbabka@kernel.org>,
+ Will Deacon <will@kernel.org>, Yang Shi <yang@os.amperecomputing.com>,
+ Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
+ linux-mm@kvack.org, x86@kernel.org, Lorenzo Stoakes <ljs@kernel.org>,
+ Thomas Gleixner <tglx@kernel.org>
+References: <20260526-kpkeys-v8-0-eaaacdacc67c@arm.com>
+ <20260526-kpkeys-v8-3-eaaacdacc67c@arm.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20260526-kpkeys-v8-3-eaaacdacc67c@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,86 +132,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 5/26/26 13:15, Kevin Brodsky wrote:
+> In preparation of using POE inside the kernel, enable "Overlay
+> applied" for kernel memory types in PIR_EL1. This ensures that the
+> permissions set in POR_EL1 affect all kernel mappings.
+> 
+> User memory types must be left untouched (overlays not applied)
+> because any privileged access to user memory (e.g. futex atomic
+> without FEAT_LSUI) would then be mistakenly checked against POR_EL1.
 
---cKNKF0zS5mQrCs4i
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+That makes sense. Still learning the architecture, but ... leaving the user bits
+as is sounds good to me (and unrelated to using overlays for kernel memory).
 
-On Mon, Jun 22, 2026 at 07:56:13AM +0700, phucduc.bui@gmail.com wrote:
+Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
 
-> Although switching to devm_clk_get_enabled() in a previous patch was
-> tested successfully, it introduces overlapping ownership of the clock
-> lifecycle. Since the driver requires early register access to read the
-> device version during probe(), enabling hclk at that point is mandatory.
+> 
+> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+> ---
+>  arch/arm64/include/asm/pgtable-prot.h | 8 ++++----
+>  1 file changed, 4 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/pgtable-prot.h b/arch/arm64/include/asm/pgtable-prot.h
+> index 212ce1b02e15..d4d45ab86a5a 100644
+> --- a/arch/arm64/include/asm/pgtable-prot.h
+> +++ b/arch/arm64/include/asm/pgtable-prot.h
+> @@ -183,9 +183,9 @@ static inline bool __pure lpa2_is_enabled(void)
+>  	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_SHARED_EXEC),   PIE_RW)     | \
+>  	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_READONLY),      PIE_R)      | \
+>  	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_SHARED),        PIE_RW)     | \
+> -	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_KERNEL_ROX),    PIE_RX)     | \
+> -	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_KERNEL_EXEC),   PIE_RWX)    | \
+> -	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_KERNEL_RO),     PIE_R)      | \
+> -	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_KERNEL),        PIE_RW))
+> +	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_KERNEL_ROX),    PIE_RX_O)   | \
+> +	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_KERNEL_EXEC),   PIE_RWX_O)  | \
+> +	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_KERNEL_RO),     PIE_R_O)    | \
+> +	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_KERNEL),        PIE_RW_O))
+>  
+>  #endif /* __ASM_PGTABLE_PROT_H */
+> 
 
-> Clean up the design by:
 
->    1 Reverting back to devm_clk_get() to remove the implicit devres
->      enable/disable behavior.
->    2 Manually enabling and disabling hclk explicitly only around the
->      early register access before Runtime PM takes over.
->    3 Dropping the stray clk_disable_unprepare() at the end of probe()
->      so Runtime PM solely owns hclk afterward.
+-- 
+Cheers,
 
-Note that runtime PM can be disabled at build time so we might not have
-runtime PM at all...
-
-> Links:=20
-> 1 This change is based on the discussion around manual hclk handing durin=
-g probe(),
->   as raised by Krysztof:
->   https://lore.kernel.org/all/20e4754b-ea9a-404d-b529-ec44a7263cbf@kernel=
-=2Eorg/#t
-> 2 Background for the earlier devm_clk_get_enbabled() conversion:
->   https://lore.kernel.org/all/2818018.CQOukoFCf9@workhorse/
-
-> An alternative approach would be use devm_regmap_init_mmio_clk() and let =
-regmap
-> manage clock enablement around register accesses. If preferred, I can rew=
-ork the=20
-> driver accordingly.
-
-> -	sai->hclk =3D devm_clk_get_enabled(&pdev->dev, "hclk");
-> +	sai->hclk =3D devm_clk_get(&pdev->dev, "hclk");
->  	if (IS_ERR(sai->hclk))
->  		return dev_err_probe(&pdev->dev, PTR_ERR(sai->hclk),
->  				     "Failed to get hclk\n");
-> =20
-> +	ret =3D clk_prepare_enable(sai->hclk);
-> +	if (ret)
-> +		return dev_err_probe(&pdev->dev, ret, "Failed to enable hclk\n");
-> +
-
-> @@ -1482,8 +1492,6 @@ static int rockchip_sai_probe(struct platform_devic=
-e *pdev)
->  	pm_runtime_use_autosuspend(&pdev->dev);
->  	pm_runtime_put(&pdev->dev);
-> =20
-> -	clk_disable_unprepare(sai->hclk);
-> -
->  	return 0;
-
-Are you sure that the runtime PM state there is such that it knows a
-reference is held?  The driver used pm_runtime_get_noresume() so the
-device didn't have RPM_ACTIVE set I think?
-
-The runtime PM API really is a miserable collection of landmines :(
-
---cKNKF0zS5mQrCs4i
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmo5MscACgkQJNaLcl1U
-h9CQYQf/adqv8RJKgMokC1NRZh4uUXUMaQXveY6Q+MCWIdNoRHiASHqgFrTG9Pxd
-e7ai470vl9oHiWIgbD5/JmyvhvA/qRMeyl2rTW0dvGddQ2QIpcHGCXe5Q4+iZpnz
-puv6Y3f5+oheBWibcvRji8Iujgv6Lau795A/Nru4W23LbqbUhmmKkHpIQTOeCqK/
-5gW5gPobVrHrlI7GiZVNmtXgOAcbVN0SarwowDibZVU6/a/RFL4fYohXOarhx92z
-PGH6Pu+Ga1e19CAXZD97Rl/tG4Yeye7uMm52FdKYOucHzzu8jNnriptlU4OVom3b
-U+kSp5Fz3tWtqIKtTpspBv01TcoAAA==
-=XgUn
------END PGP SIGNATURE-----
-
---cKNKF0zS5mQrCs4i--
+David
 
