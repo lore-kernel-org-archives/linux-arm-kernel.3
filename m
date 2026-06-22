@@ -4,134 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9971CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 11:40:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 355F8CDB46F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 12:20:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Sc/B6wiF0kc9SOOcKX9/mC30ZDmPvdOcQYxylCdpoDk=; b=DRPvTxW6dtaFF3CUNEON7w72vQ
-	npjrzQZmsySOTVJULiaPkFaz27F+CVnjrhwhQul2T5HItM97vsAii5LOD+sxBRdNo9L+eCOZ1ejVL
-	jevQ948gkphb5x7maYfEuoYhpYcxjDxpaexub/wQXgYS1WP9DTVRK/6MO++2xUbLNUgCsX36VLNDZ
-	0icPTNOVvwjuESQXEPG0278HqTDGhyO/zeHkOBc6VPMbGj8yD8wG2iol0c8BzDxB596ikhcvDlpq+
-	yC8k5Mnkq+GMlNcUxEoMZPBLMfXupsOjL1pnVdYksmAzXJlqSzPVxTyOttYyqkT1dPGgKiIhBER68
-	gdQb2c/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z+jtKgtQRID1XboOt93fMS9cJd+U+n9q6G3fzyc6a1M=; b=A8irXV+dqxnorsTg7NKMXCBREW
+	QNwD2YMd3OncY+OwIBMFhWBuAhwQvkU7NDa+0XBknKidEgQ/tnpcCUbha3RLbLIbTeGpRuri2o6hg
+	iSkDQHdAee0KqYD0/3d1HdAF6KfwLPVlu4L1aiQ01trs+6KaAsXUqzcmpAk3b/YHrUtaYNO0UX72C
+	1KULqRO7k+dyISwHOEDsIxWYXm1W3lPDcoWRHyA4rFeWfq7I4p68MUnTLFkfEeWSusYIvaYp3sXxN
+	QUArhLFyNUaOh5lLNX0nDXA4cdingqhsXYAalzDdU/LVuTrLKHN95xTZP4XTjj8jK5HRYHk5NuGMC
+	Erniq3bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbchv-00000004tUV-05Ui;
-	Mon, 22 Jun 2026 11:20:51 +0000
-Received: from mail-westeuropeazon11011043.outbound.protection.outlook.com ([52.101.70.43] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1wbddR-00000004xT8-1n5m;
+	Mon, 22 Jun 2026 12:20:17 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbchs-00000004tU7-47Wt
+	id 1wbddP-00000004xT2-44gJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Jun 2026 11:20:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VV2wlfccEIAM23k+k4GlYWznyG40QMN6Zu8wVVlmp3vbvxMXkZVVAJNDOeZsxJ7D2PMmNYDcVoerWwhuWt0z6dbBCN7dYs1WGG3UsYC8MkNP8JvFIwhjtKHcCOrKepdDJQlL/A2vt3RG4kYz4b6E5gfrBIKFcaXZKFKIk/Oc4Wz7F1LIVxe1UztxpuLuJerDK1Rp+yMQxHm6Sxu7rrb1SCgFwKybW8UO3jY0U7MV1CvwcdtTdN0m07cqOwZHpEb2dNy4r8CARtrDySAVhQ+bx9ZWU1K0dpRQHwlPWoJ7RWTfNRlG/5H9UTcEZAZot0uO7ODZt3lLHfiuzd94Q+lZ0w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Sc/B6wiF0kc9SOOcKX9/mC30ZDmPvdOcQYxylCdpoDk=;
- b=LbnnclhAmNBwL/xfiE5Nhxsf0VrBqp3Dai9OY9WEI8NlkA5dfzaHNpXGa2aeeexvFrShSm/cIyCfQ2ILWnHyijMTwLGDYqwbd8Uc92xlPRna8VlK0tHDAUj7xa0bZIy2mXdjR/DKxlbvY+qCRWhTvRGExCAc6kDRnQS0PDP3Jc4yp20Q7h5t5i7c61B3rbsQXO6c1j2jM46cuWzY32P2x4SAuXeunSgf6UYzh4MlbIFq10+R1kS2Qf0vkfSNxIWVKn0W3qF4lgDLokLemWpRkEs1w4kC30K/z3B0OeZ8hZNPF7VzF1FZ92H+OHF2/CxUmJ7z6V7dan184MrOoD4Xlg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Sc/B6wiF0kc9SOOcKX9/mC30ZDmPvdOcQYxylCdpoDk=;
- b=kE1dwQKZpYE/uavqI2U9G9ulN1l8rSKRUI91JQ69/Re2WswLOf+ePOSwbZlTiRTzZA8rgm+fcgBCN2uDh3mqWX9Xmo6rdOxpUfUlsKyts47FSXteqQ8vyUljbIbBGgKC33WVXZAlrPYC6PCTwl1vxpv1epwClHbgGlcwPvjZ5+a7dQDvsNy3Mlp2Dzv9F5rauqFJ8aPGUGP285TpoaM6jpi653INcg7Yy6IUBTYxr8PBjZkFQRv9AVzygdGZAUrE0usMb8jdDtG5VE65OCqCHJa1YZF2vSVpq4LdD+7GUlB6FdYxeDmIakmV6vZjJtR7ahw4YZBu7ZeeJHWhuEjUjw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
- by PA4PR04MB9709.eurprd04.prod.outlook.com (2603:10a6:102:26b::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.19; Mon, 22 Jun
- 2026 11:20:41 +0000
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9%3]) with mapi id 15.21.0139.009; Mon, 22 Jun 2026
- 11:20:41 +0000
-Date: Mon, 22 Jun 2026 19:24:00 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Cc: linux-remoteproc@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rt-devel@lists.linux.dev,
-	Bjorn Andersson <andersson@kernel.org>,
-	Clark Williams <clrkwllms@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
-	Jassi Brar <jassisinghbrar@gmail.com>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Steven Rostedt <rostedt@goodmis.org>
-Subject: Re: [PATCH v3 01/10] mailbox: imx: Forward the timeout/ error in
- imx_mu_generic_tx()
-Message-ID: <ajkbUNkn6MSw8txc@shlinux89>
-References: <20260617-imx_mbox_rproc-v3-0-77948112defc@linutronix.de>
- <20260617-imx_mbox_rproc-v3-1-77948112defc@linutronix.de>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260617-imx_mbox_rproc-v3-1-77948112defc@linutronix.de>
-X-ClientProxiedBy: SI1PR02CA0014.apcprd02.prod.outlook.com
- (2603:1096:4:1f7::9) To AM8PR04MB7874.eurprd04.prod.outlook.com
- (2603:10a6:20b:24d::9)
+	Mon, 22 Jun 2026 12:20:16 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B506541665;
+	Mon, 22 Jun 2026 12:20:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB6F11F000E9;
+	Mon, 22 Jun 2026 12:20:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782130815;
+	bh=z+jtKgtQRID1XboOt93fMS9cJd+U+n9q6G3fzyc6a1M=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=luy7boXgMRCgMq/tUfI1wfzfmcive9UU4DJ19R0fpFwYoTGnBsq5p3nIGX0jldpNc
+	 K/c9+uIFkBZ2omHr3NfuqAtxFqEZN0jOM7dZ9zTcuiGyCcqlc3d3vrBY+1RRJed3hN
+	 mmk5vfNWLv/rYyQ8H0qL4YECc+9MbWqyAcSvZvmQXn/fqcPFrvKJMNLkmec8T5txn3
+	 8DY/Rz+CW0FFmcgT/+lFVsKiId+KAayti49xdhx5dbmNbctn8GZqnzf10H//k2Cj+z
+	 gC1VZdvIlST0XPAf5x2PnBGkx3FJ/yHGvurnCBNWbPnrLfLSjLf94IX0ZCuyGoYk6V
+	 Meo+f/Q8gtkPg==
+Message-ID: <eba18827-5ef5-464c-90f0-2444a996acac@kernel.org>
+Date: Mon, 22 Jun 2026 14:20:07 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|PA4PR04MB9709:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0b9c75ab-c532-49a2-4374-08ded0504b4e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|19092799006|23010399003|4143699003|56012099006|11063799006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: /UYkdyHatYGRdfyBiQD3WnrhV1p36cmaDl7U0QwU6Vu4SRIU78cjfozom/ucZsa3/nzHvF+YWxft6eePsK4FcPSYCwRt+ROEpfMwpftzZdN4dL6UnebwgpyO8zfi1Hm+TTGkerT6XXeHLLRe7E/zEMSFg3bDdCfAqonO0zjb9KkBLpR28z9vzpbp4W6Ess8LroLe/tRKZgO7cKjd3iATxrtKHXt/16NDKeXUUEPNf6G3tAzsna3wMLc5Vd5dUKXkT7Jxfzl1R09QdmZDDvNGGKfIA+f3DRO21f+7VKGpFpsoct+vucO7tclDwSigza/IJx4AXlljl3z3D/OqQdqd0RasvsTAqf1+xkviNEdYv5mCiuWnHENCdKmco3X1YKiBRFxH74KY27ufIe/6l8/uTNrfe9hOU2uB6pU1U5bf8/TdtaK1q/7aViYOYGfw/ETKe1JqmNKnBDudqAssxWYkx/VvzIP/3YDL/m0ujNLY/lfOBahN83Ka737jHkts1Pi9JhKAutzoS5HvWuUm3/Zt7ws3uS0lKiaB2zCcoljw1oXLwBeZt3qB638nrWos2vIF4Gndww3RQtFJRL6SmD97vIDO68Li/r47vV6VjiH5k8gCV/CzxwpFwXF+VfedMXpcnPcAW9QJ6HhP2uXt3rQBu4AzAK+oBS8hVbFEtfuAjkQ=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(19092799006)(23010399003)(4143699003)(56012099006)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?EOXCED7ejezImvXJQnNmb8gHJhiKd2cxDca3uouBezyP6ts9r0knS5KAKodL?=
- =?us-ascii?Q?WCOammnetLmcUSeHUtCBq6qWwcfULCI8pJwMufU1WbZTbKyTTKReJV5dTpse?=
- =?us-ascii?Q?mckcbFLggudZgism1fBe7cn5mw3vUxhUQjHwUfvTVdqZHyI4CeANP6QE8aoN?=
- =?us-ascii?Q?/iMHGahGVh32uMc19wNsnLCGAw34haLg55uVuqJ3HIBukJjdzetkj8ctIMsH?=
- =?us-ascii?Q?OZtKuSCi5Wlw79G+QaHzJyBQej/NJYheu6ChCg4NmLjRSS1U8B/Ig832+NNX?=
- =?us-ascii?Q?y3IhM0Eg6OSnlY70Mzj8UzBeIDUf1H3zPV0l0rKSo2Cg5ikWiqzhhlVDpy8P?=
- =?us-ascii?Q?Ar4shSlK629vRJ9sbvd5FQsGMTX0WnDiPPbxrNsTLZg+6IY1ng8AyfNlF9Ia?=
- =?us-ascii?Q?xEqtYeVW9vYg+E/+8eVz+hN6JNlCe2khbXaSGmyTRJB0Mt3DH9A9LuyQmLaY?=
- =?us-ascii?Q?JkZN5R2eYshwp9QGOSlo4fYmLG+XdxIXjyjXlVxiQMMY2pBhu11mpJGgLpoZ?=
- =?us-ascii?Q?6cLNcShQO6QU8Lp/bletpBhKgTUCcz7r3KM0wdqJha5vxg/XZ40cLd4FW5sV?=
- =?us-ascii?Q?eTo4USpFkX2hMyf1UH8a+pSArhTd858QohaejImuKd+IinhGEo7bg3F1SEWt?=
- =?us-ascii?Q?izlFXSF8gnKxnLrjtaeixQGe1F7+JLekFaORs6U1J6CPP9WmVDTd8JckJbPe?=
- =?us-ascii?Q?NGVcS8F6l+A3Xp4cJYgGf3McfiuD6foH3BVCGmEylxcL8vhw2eB2cPeAtcNj?=
- =?us-ascii?Q?QuxGBbiaXz24n8YNxTSYukoc5Nf7JQHAQB96D49Ugqy+dXZddNuUmJH15uI9?=
- =?us-ascii?Q?fZL32gHWdPbP2WK1DlVA+fPpa9g7V4/99gA2g5HFmS24ReGYdw7N4EyGscBe?=
- =?us-ascii?Q?TJzQsYnxR8/0rSiNi1qA/vn2mqSRC0gBLzSe+vWvF2UYcnqPagPCCL2TpcJK?=
- =?us-ascii?Q?8/ZuPbgjfyEcyM5mqnca/xaeGW6gcvKMmS6gNaAQnn6+p//dNAnvblsKBh4i?=
- =?us-ascii?Q?714Gpn9ZPWTdMa1zxCs1ozGWjcRCcTDJ57eLgkc8PIutYUqo+Vc5w0SZJWAz?=
- =?us-ascii?Q?rWZxrzpLv1hBSjAQm4J1pydYZbf+2UGmsJmhjufyLpJzdHb60ZJNOGnbuStg?=
- =?us-ascii?Q?3BIt0kd9CjhbqyjDSwtqadUmt56IX5GTKo7vsEiu2Wk8/LceS1ARvtyTb8MR?=
- =?us-ascii?Q?M6/CBT1gfQf9Mgr80hc/MUUSNaFI2APfs/mtcOOn3QhUxwSssVl7Vx0gJZ9T?=
- =?us-ascii?Q?8YFltED4SPYcgy8zhdgegy0/c46V8iP0ihWiIBq/L0G7kJxGaV3LWfkj6I7y?=
- =?us-ascii?Q?3YbRYG+wAJLObWAetgw9KPiJcUpqoqSSP3o9uwbTkD73QP75/0mDVfmNHwqL?=
- =?us-ascii?Q?Fagx+9n44Cm1RWSClkdwrWzUJzfHyMVpW8T/6jdlILUTHgIunjBZNtnGxMcN?=
- =?us-ascii?Q?5ew77MvQdug2kdcO6bOsFRJK4DRdVanExf2++SSsi4JFJCQj72bItbxESlvc?=
- =?us-ascii?Q?bmrsnfrCZEkLB8R5g9KRUJE9SylAq5YxjIzIv1dXAznAscQbp73M3ojjCNj3?=
- =?us-ascii?Q?wHds4MCLlzYrTbHYdZ39N0IO5d9iLbgAAZ85RJqANTxe2ZsTphBGeGVjk5Jf?=
- =?us-ascii?Q?8A2zrQGvbdu1rl+9LO86iVNnoHa19ie5/5OMKzFQHZ2BH8PW11NmIQGr5C7B?=
- =?us-ascii?Q?0E+38FRK7asXX2TRe1Kcz0VmqP5yCjapAUBdmrjmevvtl1xFDkSGqiVYffMk?=
- =?us-ascii?Q?7KBEi13bC0LsPKd2xlMfppeEsMXfrGAgmdwj0cAhDm1iXHjeA2lU?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0b9c75ab-c532-49a2-4374-08ded0504b4e
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jun 2026 11:20:41.4751
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: gNiVLXLxLdPCXU4gweL8xSkgitkvWtUuJER/3mI8PTuqkpu+xvUOHeB/qUoaZ2BXdQwXs+exvN3uYPXCDDd1i75cZ8k5b63JcoQiZMqUgi5OITe9S8P4EUatoLMqwS+B
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB9709
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260622_042049_047238_2C139DFA 
-X-CRM114-Status: GOOD (  12.61  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 00/31] Introduce SCMI Telemetry FS support
+To: Cristian Marussi <cristian.marussi@arm.com>
+Cc: Christian Brauner <brauner@kernel.org>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, arm-scmi@vger.kernel.org,
+ linux-fsdevel@vger.kernel.org, linux-doc@vger.kernel.org,
+ sudeep.holla@kernel.org, james.quinlan@broadcom.com, f.fainelli@gmail.com,
+ vincent.guittot@linaro.org, etienne.carriere@st.com, peng.fan@oss.nxp.com,
+ michal.simek@amd.com, d-gole@ti.com, jic23@kernel.org, elif.topuz@arm.com,
+ lukasz.luba@arm.com, philip.radford@arm.com, souvik.chakravarty@arm.com,
+ leitao@kernel.org, kas@kernel.org, puranjay@kernel.org,
+ usama.arif@linux.dev, kernel-team@meta.com
+References: <20260612223802.1337232-1-cristian.marussi@arm.com>
+ <20260617-waten-allabendlich-zueinander-93d4b1367b8c@brauner>
+ <ajLVW1eHzbGDm4yn@pluto> <29a304f0-1e62-418a-b84f-aabdc4c0de8d@kernel.org>
+ <ajR_FBWOoXJKSeoH@pluto> <0025b907-27b9-4a51-b78f-f8ad413644d0@kernel.org>
+ <ajU7UqwPZBlwRGkf@pluto>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <ajU7UqwPZBlwRGkf@pluto>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,48 +125,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 17, 2026 at 08:55:26AM +0200, Sebastian Andrzej Siewior wrote:
->imx_mu_generic_tx() for the IMX_MU_TYPE_TXDB_V2 type polls on a register
->which may timeout and is recognized as an error. This error is siltently
->dropped and not dropped to the caller.
->
->Forward the error to the caller.
->
->Fixes: b5ef17917f3a7 ("mailbox: imx: fix TXDB_V2 channel race condition")
->Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
->---
-> drivers/mailbox/imx-mailbox.c | 3 ++-
-> 1 file changed, 2 insertions(+), 1 deletion(-)
->
->diff --git a/drivers/mailbox/imx-mailbox.c b/drivers/mailbox/imx-mailbox.c
->index 246a9a9e39520..0028073be4a71 100644
->--- a/drivers/mailbox/imx-mailbox.c
->+++ b/drivers/mailbox/imx-mailbox.c
->@@ -227,6 +227,7 @@ static int imx_mu_generic_tx(struct imx_mu_priv *priv,
-> 	u32 val;
-> 	int ret, count;
+>>>
+>>> There is more stuff that indeed is configurable per the SCMI spec
+>>> but these additional params are hidden into the SCMI Telemetry protocol
+>>> layer (the initial patches in this series) and NOT made available to
+>>> the driver/users of the protocol (like the SCMI FS driver that sits on
+>>> top)
+>>
+>> Do you assume that there will get significantly more config options added in the
+>> future for user space to configure?
 > 
->+	ret = 0;
-> 	switch (cp->type) {
-> 	case IMX_MU_TYPE_TX:
-> 		imx_mu_write(priv, *arg, priv->dcfg->xTR + cp->idx * 4);
->@@ -259,7 +260,7 @@ static int imx_mu_generic_tx(struct imx_mu_priv *priv,
-> 		return -EINVAL;
-> 	}
+> No, I dont think so...the only planned extensions were to support more
+> performant read access mechanisms, i.e. direct mmap'ability of FW/Kernel
+> SCMI Telemetry shared memory areas...BUT that will immediately dump all
+> the bulk of the lower layer protocol work into the tools domain...and
+
+Right. I guess you would hide that in library code, and provide a stable API
+towards tools such that they won't have to worry about the implementation
+details regarding how the values are obtained exactly.
+
+[...]
+
+>>>
+>>> ...most of the other entries in the tree are simply RO properties of the DEs
+>>> that have been discovered at enumeration time.
+>>
+>> Is this bulk-reading relevant for performance or just a "nice to have" ?
+>>
 > 
->-	return 0;
->+	return ret;
+> I suppose depends on your usage pattern: it is definitely relevant
+> because the main collection mechanism are shared memory areas (SHMTIs)
+> between the platform firmware and the Kernel: such areas being accessed
+> from 2 differnt worlds concurrently come with a SCMI-specified
+> synchro/consistency mechanism based simply on a pair of sequence numbers
+> placed at the start and at the end of the SHMTI, so that the FW increases
+> such magic numbers in a well-known way before and after updating the SHMTI
+> values, so that the kernel can detect (without any interlocking mechanism)
+> if a platform write happened in the middle of its reads...
 
-We may need to use atomic API for TXDB_V2. For the patchset itself, it
-looks good to me.
+Okay, so sequence counters to detect concurrent changes and retry.
 
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
-
-> }
 > 
-> static int imx_mu_generic_rx(struct imx_mu_priv *priv,
->
->-- 
->2.53.0
->
+> ...so if you read one single DE 64bit value, under the hood the kernel
+> would have had to really perform at leats 3 reads from the SHMTI to check
+> the consistecy of that single read...
+> 
+> ... while if you do a bulk_read the overhead due to the consistecy
+> checks gets 'spread' across a number of DEs because the kernel will snapshot
+> the whole SHMTIs (potentially KBytes) between the 2 consistency reads
+
+That makes sense.
+
+I guess a user space library could implement some kind of caching (bulk-read,
+then provide clean access to individual DEs) to hide the details from the tools?
+
+> 
+> ...the good side effect of all of this is that I can leverage such
+> sequence number to optimize reads..i.e. do NOT even try to read anything
+> if the new sequnce number is unchanged from the last one I cached on the
+> last successfull read of this value...
+
+Right.
+
+> 
+> So at the end I would say it is NOT simply a nice to have BUT it is
+> certainly only the first step towards a more performant alternative access
+> (like with mmaps)...it depends on the usage pattern...I am not sure what
+> mechanism is used by our tools more...
+
+Okay.
+
+>>
+>> Yes. How high-priority is the fs side? Or would a tool using a library to access
+>> this information also work in the first step?
+>>
+> 
+> I have to sync with tools on this...because they are stiil probably
+> using currently the FS, but it was already planned for the future to move to
+> a more low level access (ioctl/mmap)...
+> 
+> ...my aim would be, at this point, to favour this transition without sudden
+> breaking their current world (and have to expatriate :P)
+> 
+> ..from my personal point of view, I would certainly like to still have the
+> FUSE layer for ease of testing and verification on my side...but it is just
+> a nice to have... 
+
+Okay, what I thought. I assume the most important part is to be able to grab
+telemetry data in an efficient way on a system to then share it with some
+monitoring agent. Manually digging through the FS to inspect data (debugging,
+..) is probably less relevant for the target use case.
+
+>> Okay, so a single writer (admin) changing stuff could get picked up my possibly
+>> many concurrent readers?
+> 
+> Mmm...not sure what you mean here...
+> 
+> If you configure your Telemetry as you desire and start collecting data via
+> readers, BUT then some other process changes configs under your belt, that is
+> allowed as said, and so your analisys could be impacted...(something turned off
+> as an example, or update interval changed)...
+
+I was rather wondering about "turning on more" concurrently. But yeah, makes sense.
+
+(it's the same situation other system-wide settings. If one app enables KSM and
+the another one disables KSM, inconsistency is unavoidable)
+
+>>
+> 
+> Thanks a lot, David !
+
+Let's hope for some guidance regarding the FS side soon.
+
+But yeah, avoiding the in-kernel FS sounds completely reasonable at this point.
+
+-- 
+Cheers,
+
+David
 
