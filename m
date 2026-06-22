@@ -4,67 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98FA0CDB471
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 06:52:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 493E2CDB471
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 06:55:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K9yXc4y5TjSK3lJ8YLzi5eKybWJ0QmDtjiJE8WrpXYk=; b=S2Ej4ltF2Ic6/7VEnMKTofiq44
-	q8uXkh37123a/E+aaRpzjTgheZVF5/3sQcwPdEwMKzNnNJthQ5SJygpwTFEzy5EFLgMQziQeQq/am
-	oU/aa1pPlm2geBdp67ZmpUVcoMm9ADLQYSZJzB2stzq/vBGJDKM3HpjM72YInYdkzZZxyJRM+kSLb
-	ATKewbTaJN1r4H0KqS8Y4NoYx5KVmJK9nLYcXEjcYZGORmCpnFFZJavCNGS/KHq78S6t08VDAo2F1
-	FNIkceSQHSAUAJF1fBwafZSPdVgWYGT3cXAHdz4yCclrTjupeqrMXImSrwYzxlIg2wyD05VLCCk+z
-	tFFXV8xw==;
+	bh=ZG+FlhsVlEBxS0bsxSZ646KiQA9erOt9LJfgN0fiaPY=; b=GYQNr+REsg2gad/mTCZScVhkzH
+	NW+DEKF/YjbiwcGwA0+r758aCui5m0OmxsQeoJKXkfZbd3lmHZu486W2yGeu7sJgMI/eoqeeB3cCp
+	YOaLr7OS3q51equvd1jJRKlY5STpQLBxJWZ2ztwJQrihxfWucVyKWMl0SFjO4saX5OF1mMkcLH/GH
+	fUWG57RjwicNKMrAZsIOXZYhHix1ShGjkvHpXDy+T+ZuE0mhZWtq01SUUN1bPdxRFY/vEd3G2LeFd
+	8oUn18hO3yfvSMp4UbknxMEY6y2jQOkno9ku1iGk45lfqtvTYHB2RafkTQ1iC9YAn2U65NYXdLWtU
+	MsdlM2Mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbYWF-00000004VUD-1vnZ;
-	Mon, 22 Jun 2026 06:52:31 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wbYYl-00000004VpW-3YlK;
+	Mon, 22 Jun 2026 06:55:07 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbYWE-00000004VU1-2mz3;
-	Mon, 22 Jun 2026 06:52:30 +0000
+	id 1wbYYk-00000004VpM-2thZ
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 22 Jun 2026 06:55:06 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1F7FC6008A;
-	Mon, 22 Jun 2026 06:52:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D021F1F000E9;
-	Mon, 22 Jun 2026 06:52:28 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 21EAD42A7E;
+	Mon, 22 Jun 2026 06:55:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F15EE1F000E9;
+	Mon, 22 Jun 2026 06:55:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782111149;
-	bh=K9yXc4y5TjSK3lJ8YLzi5eKybWJ0QmDtjiJE8WrpXYk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=F1V+JVAD9trv53sLLNI0iV+YhGCMKyzDcpRbwvmYVkSrS0sStVnE0N/AVl+aU9J6C
-	 k6IGomCbSWF/kXzQh/+Ajm5ON4aU/DE0hoL46Xmoccvz1Xl6HFq7LC5mSHofd6x/Sw
-	 F5Q1Ftzug8RO+ROJSUDM0GekGn83GU0hKcG3kNMMWClzSew0eDhJf/S4nrEAJ+ls25
-	 aKZe3b45rW9FUW1/4gwW/w6QyHMr8Aeb5nOQBqoQB3JnTlDG7iNsBYnm3mK2V+2hIf
-	 P1n72+fSuu6ih+qkkCgzm0UnOVOhITITjXCuIdF4sG3j5S9VyFlCwa/0WS51ZtwJIU
-	 6TH1T3MdhNojA==
-Date: Mon, 22 Jun 2026 08:52:25 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-Cc: linux-mediatek@lists.infradead.org, 
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
-	Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Liam Girdwood <lgirdwood@gmail.com>, 
-	Mark Brown <broonie@kernel.org>, Linus Walleij <linusw@kernel.org>, 
-	Val Packett <val@packett.cool>, Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, 
-	Julien Massot <julien.massot@collabora.com>, Fabien Parent <parent.f@gmail.com>, 
-	Akari Tsuyukusa <akkun11.open@gmail.com>, Chen Zhong <chen.zhong@mediatek.com>, 
-	linux-input@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org
-Subject: Re: [PATCH v9 1/9] dt-bindings: mfd: mt6397: Add MT6392 PMIC
-Message-ID: <20260622-independent-auspicious-saluki-f9e6bb@quoll>
-References: <20260621081634.467858-1-l.scorcia@gmail.com>
- <20260621081634.467858-2-l.scorcia@gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260621081634.467858-2-l.scorcia@gmail.com>
+	s=k20260515; t=1782111306;
+	bh=ZG+FlhsVlEBxS0bsxSZ646KiQA9erOt9LJfgN0fiaPY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=ikvFlJzfxPPr76gMlDohagJy/DrSM6dLOR9BUHjD9G0RlR3hEa/g/2fUQcQEwt2PL
+	 jnWQ/jY+QzuqD2tq3Bp5W8di53S5nymamNb6+hFxKbqFMW7zKKwBtRwE/EUmtvk8U/
+	 U0Kyl7gvnK7IxqRugBzijQKJ+Y2fHY4TFHp5aMk2+I8e+hDRz41pHzCHtnLzOsY9Y0
+	 9SkXxa5PR4ui/1mpyc9X7OsOqe/5k5J1i7uD6Ku/+UjW1pAxjQCeGl/Y97F6xtAXbK
+	 L1Ey1C0rtMmfFaAuoRvyhkO3ttBhk3UvLuOj4kimTYHrUK6zVLFxFvyBe1uGdjcOG3
+	 tRbxbrmxL4N/A==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wbYYh-0000000EoYq-2tzO;
+	Mon, 22 Jun 2026 06:55:03 +0000
+Date: Mon, 22 Jun 2026 07:55:03 +0100
+Message-ID: <8633yfrrnc.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Marek Vasut <marek.vasut@mailbox.org>
+Cc: Thomas Gleixner <tglx@kernel.org>,	linux-pci@vger.kernel.org,	Yoshihiro
+ Shimoda <yoshihiro.shimoda.uh@renesas.com>,	Krzysztof =?UTF-8?B?V2lsY3p5?=
+ =?UTF-8?B?xYRza2k=?= <kwilczynski@kernel.org>,	Bjorn Helgaas
+ <bhelgaas@google.com>,	Catalin Marinas <catalin.marinas@arm.com>,	Conor
+ Dooley <conor+dt@kernel.org>,	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,	Lorenzo Pieralisi
+ <lpieralisi@kernel.org>,	Manivannan Sadhasivam <mani@kernel.org>,	Rob
+ Herring <robh@kernel.org>,	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,	linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH v2 3/4] irqchip/gic-v3: Add Renesas R-Car Gen4 erratum workaround
+In-Reply-To: <d6fce333-4353-4e49-873f-eb3187a631e4@mailbox.org>
+References: <20260618220427.14325-1-marek.vasut+renesas@mailbox.org>
+	<20260618220427.14325-4-marek.vasut+renesas@mailbox.org>
+	<87cxxkma5p.ffs@fw13>
+	<d6fce333-4353-4e49-873f-eb3187a631e4@mailbox.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: marek.vasut@mailbox.org, tglx@kernel.org, linux-pci@vger.kernel.org, yoshihiro.shimoda.uh@renesas.com, kwilczynski@kernel.org, bhelgaas@google.com, catalin.marinas@arm.com, conor+dt@kernel.org, geert+renesas@glider.be, krzk+dt@kernel.org, lpieralisi@kernel.org, mani@kernel.org, robh@kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,37 +91,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jun 21, 2026 at 10:13:26AM +0200, Luca Leonardo Scorcia wrote:
->                - enum:
->                    - mediatek,mt6359-rtc
-> @@ -99,6 +107,7 @@ properties:
->                - mediatek,mt6331-regulator
->                - mediatek,mt6358-regulator
->                - mediatek,mt6359-regulator
-> +              - mediatek,mt6392-regulator
->                - mediatek,mt6397-regulator
->            - items:
->                - enum:
-> @@ -663,3 +672,69 @@ examples:
->              compatible = "mediatek,mt6397-rtc";
->          };
->      };
-> +
-> +  - |
-> +    #include <dt-bindings/input/input.h>
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +
-> +    pmic {
-> +        compatible = "mediatek,mt6392", "mediatek,mt6323";
+On Sun, 21 Jun 2026 23:46:25 +0100,
+Marek Vasut <marek.vasut@mailbox.org> wrote:
+> 
+> On 6/21/26 12:59 PM, Thomas Gleixner wrote:
+> > On Fri, Jun 19 2026 at 00:02, Marek Vasut wrote:
+> >> Renesas R-Car S4/V4H/V4M GIC600 integration has address width for AXI
+> >> or APB interface configured to 32 bit, it can therefore access only
+> >> the first 4 GiB of physical address space. This information comes from
+> >> R-Car V4H Interface Specification sheet, there is currently no technical
+> >> update number assigned to this limitation. Further input from hardware
+> >> engineer indicates that this limitation also applies to R-Car S4 and V4M.
+> >> Name the limitation GEN4GICITS1, and add a driver quirk to mitigate this
+> >> limitation.
+> >> 
+> >> The quirk is keyed on the combination of the GIC implementation
+> >> and the platform identification in the device tree.
+> >> 
+> >> Signed-off-by: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
+> >> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+> > 
+> > This SOB chain is broken.
+> 
+> Broken ? I don't understand , could you please elaborate ?
 
-You already have three examples, that's rather close to max expected
-number of them. I suggest dropping.
+Either Shimoda-san is the sole author of the change and you are
+posting their work, then the first line of the patch should say:
 
-Anyway,
+ From: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+with your own SoB immediately following their SoB (see [1]).
 
-Best regards,
-Krzysztof
+Or this has been co-developed, and both of you should be credited as
+authors. then Shimoda-san's SoB should be preceded by their
+Co-developed-by: tag (see [2]).
 
+ Co-developed-by: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
+ Signed-off-by: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
+ Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+
+This shows exactly who did what, who forwarded whose patch, and forms
+the base of the DCO which is documented at [3].
+
+Thanks,
+
+	M.
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/process/submitting-patches.rst#n449
+[2] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/process/submitting-patches.rst#n503
+[3] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/process/submitting-patches.rst#n396
+
+-- 
+Without deviation from the norm, progress is not possible.
 
