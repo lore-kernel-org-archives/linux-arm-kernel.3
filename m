@@ -4,66 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0437FCDB46B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 08:33:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A18E0CDB475
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 08:34:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LMlv5sWG4rQ4mDu/88J9tsbgaPKRoMu6C9AqGqZiHXo=; b=gRmXTdDONyMumW/8QimywSNrth
-	XCUVGzdepnyZQpTH4e6Xed/GJqjDIQABpdJwJMbuEAVa5+bYNUrrtBAYfh/aavpG3tgXRXSY1FWtw
-	uoTton/7UrzRl7htQPUGwvEFtI0IiasRak5t3FsVPK7Z6f2DPmaiMtYXZMOaXvWFK2zKC/8UMm1Oq
-	OENZe6KjBzOMAwhU9J7ywlAV/E9uBaDWNggXtcXpQeBp9Wje8LCwcb/Xo9aFgTY61dnHWctHWJF4K
-	MdcU2hBVtAtgMErlxJIIfv9V4iZ+g0A80DoAmP4av1woxgLs1Me0lhCNS49AR29xIeKAIM2imUatT
-	qC8wg4VA==;
+	bh=y2+mOP/j6lYd9qVyAamBJsy1djQW4CKGJJUDwRnuyXs=; b=QnQuVojKgeeTSPDzigVq0+EXak
+	r2b3KtAxFJEGoXutP2ONIrjC7hhr3v6L8JT++5cB87stWCnEDDf2LfXd+peA18eo+CdqW3GmnZrbv
+	RSadZpzdD3uizYlWnmELYN9txKKZbOMtPoPSBp2LQRNAbN1xS/06AIKa1EAlo2EbeuRzJmw+996oa
+	51rsQnpcRD+QmTunNNFQpZdlDSBir+XDiM9r01fgkwJGpy3Ew71JyxrRo3ryA8bni/KC0UIbhesYv
+	cUCSLluGAK5P6Kvofa2WaAjIS7I7g10YlFFU+7e6VdFQyBbjfjlu6sTmWlbG2HEgg0BuO0LXvCTyK
+	eeQFjc8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wba65-00000004fu9-2x5n;
-	Mon, 22 Jun 2026 08:33:37 +0000
-Received: from out-185.mta0.migadu.com ([91.218.175.185])
+	id 1wba7B-00000004g3N-3vsQ;
+	Mon, 22 Jun 2026 08:34:45 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wba62-00000004fsn-31h3
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Jun 2026 08:33:36 +0000
-X-Forwarded-Encrypted: i=1; AFNElJ9Hg3ilj7WRIL0dJ1FH2JRYUsRKoOadWVA0YIhtTADBYQj+ZwvR8KMS+07ZwTh6VINBq1v9e1EY4LwVlUT/yNqB@lists.infradead.org
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1782117210;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=LMlv5sWG4rQ4mDu/88J9tsbgaPKRoMu6C9AqGqZiHXo=;
-	b=E/kSRl/w9MIZAvnJpp0HrlTDa7dtVtHHgrOW6zr7LqXBwA7tysYYpPHlLPK9Z4r6Qbtufz
-	VtX0lCQ/v6iw1Lj4r4DOM8N1L36fvpK1TCIafj8yDmrUx3hMIT40DiKo50GEI0tVwpPbAB
-	UHfKb2tlEqiaZejmr71DHyZbxdW7Uhg=
-X-Gm-Message-State: AOJu0YwxT5D9aeImMBr3Qd7U4o5BbtoYWBpwvRBf6Vjg7uoP3/0bJE62
-	M26MhpTWpVuvwr9Ju5/jNhYpYtx/w7ppCpLWEg7mUiTLi2KrPvZsff3WbX8c0TndLqh8DD+lWJY
-	I4yHv99cfFhu47TlMlT5fPtlwZ883lWz3LV5G4FqH
-X-Received: by 2002:ac8:5812:0:b0:50e:38f0:ccb2 with SMTP id
- d75a77b69052e-519e8937418mr20106801cf.15.1782117202105; Mon, 22 Jun 2026
- 01:33:22 -0700 (PDT)
+	id 1wba7A-00000004g2v-0Fua
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 22 Jun 2026 08:34:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=y2+mOP/j6lYd9qVyAamBJsy1djQW4CKGJJUDwRnuyXs=; b=TuPlTRCUatJuuJgUUAwvzHwMKv
+	dWwVfsTqUjTJh9SX5fPBCQGdiQcrZu7Ws4gSZKgN7rA0kNKxui7b5LEtKWEEQDe4V7j5A8N0jYuRY
+	uas/iKoJjFjR3gKpo0uOWWxjsbSNbU4N4b8MGJpMvU190ZELYDlzfAoftHa96t+aSCVqbpoMUbpfL
+	uOWtb+WeGCTtTYOdcuf3kQ/LcfWhZsQK+C/ri3C/zOHCtiyE1n8uDvDi3TDA+Xy225DqvitJuIeN0
+	RneapmfngTU0PhOUCG9gkRpGwiGc3BAbq6jkG1ZvAJCnP1chuakPaLn4PyoFg+CyhHRv/kOJ0Ywl3
+	cXoCNRYg==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wba77-00000003u7U-1iUV;
+	Mon, 22 Jun 2026 08:34:42 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 52395300B5F; Mon, 22 Jun 2026 10:34:40 +0200 (CEST)
+Date: Mon, 22 Jun 2026 10:34:40 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Steven Rostedt <rostedt@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	John Ogness <john.ogness@linutronix.de>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Julia Lawall <julia.lawall@inria.fr>,
+	Yury Norov <yury.norov@gmail.com>, linux-doc@vger.kernel.org,
+	linux-kbuild@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	dri-devel@lists.freedesktop.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-rdma@vger.kernel.org,
+	linux-usb@vger.kernel.org, linux-ext4@vger.kernel.org,
+	linux-nfs@vger.kernel.org, kvm@vger.kernel.org,
+	intel-gfx@lists.freedesktop.org
+Subject: Re: [PATCH 0/2] tracing: Move trace_printk.h out of kernel.h
+Message-ID: <20260622083440.GX49951@noisy.programming.kicks-ass.net>
+References: <20260621093430.264983361@kernel.org>
 MIME-Version: 1.0
-References: <20260621213155.6019-1-include@grrlz.net>
-In-Reply-To: <20260621213155.6019-1-include@grrlz.net>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Mon, 22 Jun 2026 09:32:45 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTztL4O6NH-sNpPywchgER6SswetOCgmaaSGjtKaRtL8XA@mail.gmail.com>
-X-Gm-Features: AVVi8CeGmftOBXIGaXfHmUYTToXb3vtN5VWYlAu0NuHDiDaZP2CXGjkjPm4EAHs
-Message-ID: <CA+EHjTztL4O6NH-sNpPywchgER6SswetOCgmaaSGjtKaRtL8XA@mail.gmail.com>
-Subject: Re: [PATCH] KVM: arm64: account pKVM reclaim against the VM mm
-To: Bradley Morgan <include@grrlz.net>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260622_013334_913421_F9F32E16 
-X-CRM114-Status: GOOD (  17.29  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260621093430.264983361@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,51 +85,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 21 Jun 2026 at 22:32, Bradley Morgan <include@grrlz.net> wrote:
->
-> Protected guest faults charge long term pins to the VM's mm. Teardown
-> can run later from file release, where current->mm may be unrelated.
->
-> Drop the charge from kvm->mm instead.
->
-> Fixes: 4e6e03f9eadd ("KVM: arm64: Hook up reclaim hypercall to pkvm_pgtable_stage2_destroy()")
-> Signed-off-by: Bradley Morgan <include@grrlz.net>
+On Sun, Jun 21, 2026 at 05:34:30AM -0400, Steven Rostedt wrote:
+> There's been complaints about trace_printk() being defined in kernel.h as it
+> can increase the compilation time. As it is only used by some developers for
+> debugging purposes, it should not be in kernel.h causing lots of wasted CPU
+> cycles for those that do not ever care about it.
+> 
+> Instead, add a CONFIG_TRACE_PRINTK_DEBUGGING option that developers that do
+> use it can set and not have to always remember to add #include <linux/trace_printk.h>
+> to the files they add trace_printk() while debugging. It also means that
+> those that do not have that config set will not have to worry about wasted
+> CPU cycles as it is only include in the CFLAGS when the option is set, and
+> its completely ignored otherwise.
 
-Reproduced by creating a protected VM, running the vCPU to fault in a
-page, then forking and having the child close the last fd reference.
-Without the fix, the parent's VmLck leaks (the reclaim decrements the
-child's mm, which is freed on exit). With the fix the parent's VmLck
-returns to zero.
+Did you forget your C 101 class? If you use a function, you gotta
+include the relevant header.
 
-One minor observation: account_locked_vm() also passes `current` as
-the task pointer to __account_locked_vm(), but on the decrement path
-that is only used in the pr_debug log line, so it is technically wrong
-but functionally harmless.
+You don't see userspace saying: 'Hey, you know what, perhaps we should
+add stdio.h to every other header, just in case someone wants to
+printf()' either.
 
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
-Tested-by: Fuad Tabba < fuad.tabba@linux.dev>
-
-Cheers,
-/fuad
-
-> ---
->  arch/arm64/kvm/pkvm.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-> index 053e4f733e4b..428723b1b0f5 100644
-> --- a/arch/arm64/kvm/pkvm.c
-> +++ b/arch/arm64/kvm/pkvm.c
-> @@ -352,7 +352,7 @@ static int __pkvm_pgtable_stage2_reclaim(struct kvm_pgtable *pgt, u64 start, u64
->                 page = pfn_to_page(mapping->pfn);
->                 WARN_ON_ONCE(mapping->nr_pages != 1);
->                 unpin_user_pages_dirty_lock(&page, 1, true);
-> -               account_locked_vm(current->mm, 1, false);
-> +               account_locked_vm(kvm->mm, 1, false);
->                 pkvm_mapping_remove(mapping, &pgt->pkvm_mappings);
->                 kfree(mapping);
->         }
-> --
-> 2.53.0
->
+I really don't understand your argument. Yes, maybe someone will forget
+and then either their editor (if they have a halfway modern setup with
+LSP enabled) or their build will complain, but so what? This is all
+trivial stuff, surely we have more pressing matters to concern outselves
+with?
 
