@@ -4,72 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88161CDB475
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 08:05:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9AD1CDB46B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 08:05:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FAbpiNhKVqoEfhFmUfUdlxgESW8QuGiY+lhl+lA+T60=; b=xQNUf9o5ek/mLcVU1yQkcEFxzf
-	mUDNb0vKPjIBb+8UHCmlPDnUkcSusuk1Hj+NOSJ+35fT+LIX8cFzh/2yha5u9tfoBM43uiXO2rCTO
-	CVpvbJqOg6xLTzpd1/NZhhMnHgo1ni1cWQaNedR3c1MCthh9PpLog0ouTwIBTbgYStzmyFTtzT0XE
-	5Jx8Wt6nQT9Pe5RXGE+wYxaJVmVa1O6sMXyQmIC6r8JMrlDrbYd+0K0DKn4IKkKDydVKGA+fhvJMJ
-	0bFQTdZdYZlMIqk4h7e2mMVogFKZVG04WopumXFBeMUvHPH2TNBDz27lQRxLOXXaJjXc/i6a1xgpP
-	XGB3Alhw==;
+	bh=g0CMNWEqrDOucVLL8KJozQojI6+LfSI56XzYeVMxjRY=; b=lVUDj8bwH8cdZopx8ZW4QP68Zy
+	VNQUVQoZNS0B/Hiy7XLsEClEWt8m7E0W3+fqRIAuY9nifZr6Ax6hCtO4gwIO1rXVS25BdAdrQ7UtP
+	QhEDKFVVy8YB13ll6XaFi+4qtLEkdilsnitvW8KvSIwVgg5Ej1gC36kjI7ohqnjZwQul5eyyog29r
+	pgUjEvm+JNuihKV+QrSOuzHVVh8ParicGWz+PCi4mm9vO27I1uxAxlEXOf3bH/rCV/6Xby/jyPD0X
+	8O0LAMado0FfTsQzJ0qHgPdImiOMci+jPXbwQAj0n1TKNxj6iRLyKE0xg3F7G7bf9fBX0Qg7C2ETz
+	sbaz73jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbZek-00000004bX3-0vt1;
-	Mon, 22 Jun 2026 08:05:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wbZeq-00000004beG-2Myu;
+	Mon, 22 Jun 2026 08:05:28 +0000
+Received: from out-177.mta1.migadu.com ([2001:41d0:203:375::b1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbZej-00000004bVX-1ZFk
+	id 1wbZej-00000004bV6-43IG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Jun 2026 08:05:21 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1913F6001A;
-	Mon, 22 Jun 2026 08:05:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B84C1F000E9;
-	Mon, 22 Jun 2026 08:05:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782115519;
-	bh=FAbpiNhKVqoEfhFmUfUdlxgESW8QuGiY+lhl+lA+T60=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=WKhiDDUdL0KRgYXfe2WI9TPD1Fcz4Jm9ZEs4TCvppOjXgUFC4H1afMQFw+2v6sbYC
-	 wyKQOW94sIC2JrNxh5T1XMUYBWAlDKC18spHzcXcYSeSIENbdvnOdBeIFeCRHU0wcr
-	 GXhaSILwuzYrxIUKMomqoVtJ32rfzWA7jVghDLmfnz+BZrvg16SiSZpHTKMbep/4WK
-	 cTRFBl6B2TwAUd1X5OjJrSj8wdRtwPxWGGAsp+lGM7jfcHoi8eTosbKCizRmGWHd0+
-	 cQFh5OCUybibOIb31BzksIWMYD20OkhiGIxmv8Z+opVm7KScIv+rhlWvQYzzdL9N23
-	 S4BwD770Utgzw==
-Message-ID: <dbb5915e-6587-4de9-87f3-76bea5024da8@kernel.org>
-Date: Mon, 22 Jun 2026 10:05:13 +0200
+	Mon, 22 Jun 2026 08:05:23 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1782115519;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=g0CMNWEqrDOucVLL8KJozQojI6+LfSI56XzYeVMxjRY=;
+	b=BbckfiSj80Rht+Nf9jqt/XwTMVumBwaHDRfewa+cDZ/WOYT2EO4UENrDNP/T0vDycPhOB1
+	yTmfkLCUhWi6XfHdjfL5fYzga81DU7Fmp86hV31bJZ9alKrMWiPT+Q+GR9L0BG64SvV4km
+	rEKxYuBaQPHXGntKmqxDRAcC7PwKHIU=
+From: Atish Patra <atish.patra@linux.dev>
+Date: Mon, 22 Jun 2026 01:04:18 -0700
+Subject: [PATCH v7 06/22] RISC-V: Add Smcntrpmf extension parsing
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] tracing: Move trace_printk.h out of kernel.h
-To: Steven Rostedt <rostedt@kernel.org>, linux-kernel@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org
-Cc: Masami Hiramatsu <mhiramat@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Linus Torvalds <torvalds@linux-foundation.org>,
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
- John Ogness <john.ogness@linutronix.de>, Thomas Gleixner <tglx@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>, Julia Lawall <julia.lawall@inria.fr>,
- Yury Norov <yury.norov@gmail.com>, linux-doc@vger.kernel.org,
- linux-kbuild@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- dri-devel@lists.freedesktop.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-rdma@vger.kernel.org,
- linux-usb@vger.kernel.org, linux-ext4@vger.kernel.org,
- linux-nfs@vger.kernel.org, kvm@vger.kernel.org,
- intel-gfx@lists.freedesktop.org
-References: <20260621093430.264983361@kernel.org>
-Content-Language: fr-FR
-From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-In-Reply-To: <20260621093430.264983361@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+Message-Id: <20260622-counter_delegation-v7-6-0ba2fd34614e@meta.com>
+References: <20260622-counter_delegation-v7-0-0ba2fd34614e@meta.com>
+In-Reply-To: <20260622-counter_delegation-v7-0-0ba2fd34614e@meta.com>
+To: Jiri Olsa <jolsa@kernel.org>, James Clark <james.clark@linaro.org>, 
+ Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>, 
+ Arnaldo Carvalho de Melo <acme@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Ian Rogers <irogers@google.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
+ Atish Patra <atish.patra@linux.dev>, Namhyung Kim <namhyung@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-perf-users@vger.kernel.org, 
+ Conor Dooley <conor@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260622_010522_180421_A6479995 
+X-CRM114-Status: UNSURE (   9.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,53 +75,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Atish Patra <atishp@rivosinc.com>
 
+Smcntrpmf extension allows M-mode to enable privilege mode filtering
+for cycle/instret counters. However, the cyclecfg/instretcfg CSRs are
+only available only in Ssccfg only Smcntrpmf is present.
 
-Le 21/06/2026 à 11:34, Steven Rostedt a écrit :
-> There's been complaints about trace_printk() being defined in kernel.h as it
-> can increase the compilation time. As it is only used by some developers for
-> debugging purposes, it should not be in kernel.h causing lots of wasted CPU
-> cycles for those that do not ever care about it.
+That's why, kernel needs to detect presence of Smcntrpmf extension and
+enable privilege mode filtering for cycle/instret counters.
 
-Do we have a measurement of the increased compilation time ?
+Reviewed-by: Clément Léger <cleger@rivosinc.com>
+Signed-off-by: Atish Patra <atishp@rivosinc.com>
+---
+ arch/riscv/include/asm/hwcap.h | 1 +
+ arch/riscv/kernel/cpufeature.c | 1 +
+ 2 files changed, 2 insertions(+)
 
-Christophe
+diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+index d4a7b90e2d78..51ad55b9677a 100644
+--- a/arch/riscv/include/asm/hwcap.h
++++ b/arch/riscv/include/asm/hwcap.h
+@@ -114,6 +114,7 @@
+ #define RISCV_ISA_EXT_ZICFISS		105
+ #define RISCV_ISA_EXT_SSCSRIND		106
+ #define RISCV_ISA_EXT_SMCSRIND		107
++#define RISCV_ISA_EXT_SMCNTRPMF		108
+ 
+ #define RISCV_ISA_EXT_XLINUXENVCFG	127
+ 
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index 3fa0a563fb21..1452521d740a 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -576,6 +576,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
+ 	__RISCV_ISA_EXT_BUNDLE_VALIDATE(zvksg, riscv_zvksg_bundled_exts, riscv_ext_vector_crypto_validate),
+ 	__RISCV_ISA_EXT_DATA_VALIDATE(zvkt, RISCV_ISA_EXT_ZVKT, riscv_ext_vector_crypto_validate),
+ 	__RISCV_ISA_EXT_DATA(smaia, RISCV_ISA_EXT_SMAIA),
++	__RISCV_ISA_EXT_DATA(smcntrpmf, RISCV_ISA_EXT_SMCNTRPMF),
+ 	__RISCV_ISA_EXT_DATA(smcsrind, RISCV_ISA_EXT_SMCSRIND),
+ 	__RISCV_ISA_EXT_DATA(smmpm, RISCV_ISA_EXT_SMMPM),
+ 	__RISCV_ISA_EXT_SUPERSET(smnpm, RISCV_ISA_EXT_SMNPM, riscv_xlinuxenvcfg_exts),
 
-> 
-> Instead, add a CONFIG_TRACE_PRINTK_DEBUGGING option that developers that do
-> use it can set and not have to always remember to add #include <linux/trace_printk.h>
-> to the files they add trace_printk() while debugging. It also means that
-> those that do not have that config set will not have to worry about wasted
-> CPU cycles as it is only include in the CFLAGS when the option is set, and
-> its completely ignored otherwise.
-> 
-> Steven Rostedt (2):
->        tracing: Move non-trace_printk prototypes back to kernel.h
->        tracing: Add CONFIG_TRACE_PRINTK_DEBUGGING to clean up kernel.h
-> 
-> ----
->   .../driver_development_debugging_guide.rst         |  2 +-
->   Makefile                                           |  5 +++++
->   arch/powerpc/kvm/book3s_xics.c                     |  1 +
->   drivers/gpu/drm/i915/gt/intel_gtt.h                |  1 +
->   drivers/gpu/drm/i915/i915_gem.h                    |  1 +
->   drivers/hwtracing/stm/dummy_stm.c                  |  4 ++++
->   drivers/infiniband/hw/hfi1/trace_dbg.h             |  1 +
->   drivers/usb/early/xhci-dbc.c                       |  1 +
->   fs/ext4/inline.c                                   |  1 +
->   include/linux/kernel.h                             | 19 ++++++++++++++++++-
->   include/linux/sunrpc/debug.h                       |  1 +
->   include/linux/trace_printk.h                       | 22 +++-------------------
->   kernel/trace/Kconfig                               | 10 ++++++++++
->   kernel/trace/ring_buffer_benchmark.c               |  1 +
->   kernel/trace/trace.h                               |  1 +
->   samples/fprobe/fprobe_example.c                    |  1 +
->   samples/ftrace/ftrace-direct-modify.c              |  1 +
->   samples/ftrace/ftrace-direct-multi-modify.c        |  1 +
->   samples/ftrace/ftrace-direct-multi.c               |  2 +-
->   samples/ftrace/ftrace-direct-too.c                 |  2 +-
->   samples/ftrace/ftrace-direct.c                     |  2 +-
->   21 files changed, 56 insertions(+), 24 deletions(-)
-> 
+-- 
+2.53.0-Meta
 
 
