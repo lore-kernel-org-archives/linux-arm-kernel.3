@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4488ECDB46F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 09:34:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07BE4CDB471
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 09:34:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JAvMWp3yV0UTP12dgfv3/z2EdSGGYSGEiFSysn5LsLY=; b=RFStxvgUx+VmZ17/KIPTPugdkr
-	GMqYV5epiTcdq7+KPRbcIzsx2logjZGrP/JGRpcrFxJPGs5CHNN2+PRG/HIrKzu3jzE9aKX9bzu0z
-	uNwkGQyWEQ2O7NMFbud6b848yvb5XV6QnU6LaFeEH1ArhKjewl/RoEVgldalIu8OKzPNB3LS00C2B
-	bInIvWfEEp2HwCxIX+RCq1TPNkis5yaictHa7KJSkhb+WhB5OX32bQnosjhJWmW/P9nag5jzvnV3O
-	VkJS1rMjqG++4zzcTUcO16AicuM97KDICyfXOf1XCQYwtRrSyKl0CF+zED9PfyEZFhUK4V9zRbXmU
-	csvKbYLQ==;
+	bh=/4AVKz8f+R639rx7LDr1PRp6s69BqIQcB4MQrGB0kr4=; b=HqeJ6x+EmAkfTotwJ6/qBOqbL1
+	RBH5LtZcpGRk74XjYUQuykf8XHNH+/ERbBLLOi9yJs4NoxZK99A/5IQbofNXwzftKubn0vtLJY+5+
+	1IEo2L3v91f4exsJGQ+mWd94oGvTFfGRv/UwQgUTZGnhnNE/ewQFO8ca9AB0T3myvomfpiPBMl49o
+	r8ykg0LGib5N+MqiCi+PRG1cMFcmVQ3a74MdoO5JXb5Jf2qvsJ5gDZDiawcpnlGLh4JwgFDGd6+8I
+	DTeW1WVfKQLZHfGW6kMCzvVmUjbBus+e265sNs/gpLvmqzyfcAWWplTCtWHwcZ+HSo786Hk/lK13U
+	llCzNjQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbb2s-00000004lIN-34ez;
+	id 1wbb2s-00000004lIC-2flS;
 	Mon, 22 Jun 2026 09:34:22 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbb2r-00000004lHf-0VxF;
+	id 1wbb2r-00000004lHg-0WW0;
 	Mon, 22 Jun 2026 09:34:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
 	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=JAvMWp3yV0UTP12dgfv3/z2EdSGGYSGEiFSysn5LsLY=; b=nkheuwtjzVX5Tgpxy8nWFyFX58
-	UOSYlZG31/m42dt933nCqGEY5WyVbTHfCMznImPTueY+gxwCmKfZ2+zmqJ97u6FwA/eDYq8C0s9y7
-	eblaYKnha/Nsijm+a4B+Mqp9uL0inCo7XRuWDCOaOMYVE9achhf2qkRYTOIs1P5XYcsI+O2Ifl274
-	d8lgD3r9Qud91SSsy8NBFOStGSNi2xsJCi6JGzbnMJYCyAHhHLsZReKBBA3D3LI0R6Foty5IKFGFh
-	CbscxkG6VlbQ/BS2DzADI3ZRR2GYgfY7w+8anoifIR9rWyVrF6PZnsIWFR1/OB7pLf6fx+U8ONMso
-	6DmJ9VDg==;
+	bh=/4AVKz8f+R639rx7LDr1PRp6s69BqIQcB4MQrGB0kr4=; b=R9Or/ug58ZnD8TdaaI3xSWoraJ
+	x1Kf4fx0Q6qwephoeo0PWaG989m9L1usA6dAd7kZU48hywHWzbmnu83b33TsvdrzGQIbCHVHk3hOf
+	GS95IAiKs6IiZ5PdVALPjNoEIyxQvmQitsT7VizXypuC7rtPsj+Dsi01eTM23Ar29s62FqQffmCxP
+	/mIzlmLWJah+lL7QhdpnkRc405wen39AzlPXqkiwbNdFPsocAIMiossjR8wzLHysgo4cKuNxkk/7F
+	gTWBTUb2Dx9JIYkcphEGOscSGF6PJOecPiHLUc9DPci1Ou8ki/dBy6jjkY4N/lrtDvT6X3uG7utTo
+	mKPr+P/Q==;
 Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wbb2n-0000000HHPF-3Mqg;
+	id 1wbb2n-0000000HHPD-3ech;
 	Mon, 22 Jun 2026 09:34:20 +0000
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 65M9NbEkA2430969, This message is accepted by code: ctloc85258
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 65M9Nb0D22430975, This message is accepted by code: ctloc85258
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1782120217; bh=JAvMWp3yV0UTP12dgfv3/z2EdSGGYSGEiFSysn5LsLY=;
+	t=1782120218; bh=/4AVKz8f+R639rx7LDr1PRp6s69BqIQcB4MQrGB0kr4=;
 	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding:Content-Type;
-	b=CKXEtWzLLLYhjKHD7r1SKkJ+3IAGbLPs+QJLE2jeouEb3+MmdQwSLZwS/LzZKm/ZW
-	 fKikilddzEuDwVE9LoJFqbIb3wp3b9uiL29QgvtilD3ih3N7yHff2zUHXy5LMQyJH7
-	 ko5zahpSNrwksFBJWnmqAgQoqC0EnIAYg9gRbVervhpQGJCjdTZLcv19sfAqNrIdCj
-	 P9svMI6OnWiyfRYo14hCwjykdS8x5QSvNIrO5Ol3MjxecyzcIEWy/WnznxjQjdPpvs
-	 hCOey+Rxr8ENC8jD/M6UIClDvgMs82ssVY4A5JUR3eBiFE7FRa0y4C3lz7TstO+wTQ
-	 j83HVPFxqauKA==
-Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 65M9NbEkA2430969
+	b=HDB9NJOj99YO0/k31ZH/Fm4inbuWnDbJWb1zIrB+SXQHOYc7KqQxhaKXKKZmYXuNi
+	 YzWDST9jnQEo1S0FOTfvte1ARCSllMX3B/rjx3vzZWkqHkdQuPLMuf8J6hRkyNzM2Q
+	 aGRpClurbqtoLcbTDWEfdox88XINE20Ymlscf5u71oGM/1aQbWGr+r5RckE8xyjr6L
+	 Ivqo6M8MSdVtXExXy4Z3PPsro2/GJu+0GsK2xuE31RzFfSz92dJIVivly0VCYhU8oD
+	 ALRzgeFL6eI6imPPNecbEc5x2bSCfsyqJFpdmfrAt9IVZv5j+9WOV3DWlEPM+oMcbD
+	 T3G3I4mvnXGGg==
+Received: from mail.realtek.com (rtkexhmbs03.realtek.com.tw[10.21.1.53])
+	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 65M9Nb0D22430975
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 22 Jun 2026 17:23:37 +0800
+	Mon, 22 Jun 2026 17:23:38 +0800
 Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
- RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
+ RTKEXHMBS03.realtek.com.tw (10.21.1.53) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.17; Mon, 22 Jun 2026 17:23:37 +0800
+ 15.2.2562.17; Mon, 22 Jun 2026 17:23:38 +0800
 Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
  RTKEXHMBS05.realtek.com.tw (10.21.1.55) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
@@ -74,10 +74,11 @@ CC: <linux-gpio@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-realtek-soc@lists.infradead.org>, <cy.huang@realtek.com>,
 	<stanley_chang@realtek.com>, <eleanor.lin@realtek.com>,
-	<james.tai@realtek.com>
-Subject: [PATCH v4 2/4] gpio: Replace "default y" with "default ARCH_REALTEK" in Kconfig
-Date: Mon, 22 Jun 2026 17:23:33 +0800
-Message-ID: <20260622092335.1166876-3-eleanor.lin@realtek.com>
+	<james.tai@realtek.com>, Bartosz Golaszewski
+	<bartosz.golaszewski@oss.qualcomm.com>
+Subject: [PATCH v4 4/4] arm64: dts: realtek: Add GPIO support for RTD1625
+Date: Mon, 22 Jun 2026 17:23:35 +0800
+Message-ID: <20260622092335.1166876-5-eleanor.lin@realtek.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20260622092335.1166876-1-eleanor.lin@realtek.com>
 References: <20260622092335.1166876-1-eleanor.lin@realtek.com>
@@ -85,8 +86,9 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260622_103418_250175_ABB63049 
-X-CRM114-Status: GOOD (  10.65  )
+X-CRM114-CacheID: sfid-20260622_103418_507919_DC80ADFB 
+X-CRM114-Status: UNSURE (   8.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,30 +103,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace "default y" with "default ARCH_REALTEK" to avoid bloating the build
-for non-Realtek platforms when COMPILE_TEST is enabled on other platforms.
+Add the GPIO node for the Realtek RTD1625 SoC.
 
+Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
 ---
 Changes in v4:
 - None.
 ---
- drivers/gpio/Kconfig | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm64/boot/dts/realtek/kent.dtsi | 39 +++++++++++++++++++++++++++
+ 1 file changed, 39 insertions(+)
 
-diff --git a/drivers/gpio/Kconfig b/drivers/gpio/Kconfig
-index 28cf6d2e83c2..ed2bc3113374 100644
---- a/drivers/gpio/Kconfig
-+++ b/drivers/gpio/Kconfig
-@@ -646,7 +646,7 @@ config GPIO_ROCKCHIP
- config GPIO_RTD
- 	tristate "Realtek DHC GPIO support"
- 	depends on ARCH_REALTEK || COMPILE_TEST
--	default y
-+	default ARCH_REALTEK
- 	select GPIOLIB_IRQCHIP
- 	help
- 	  This option enables support for GPIOs found on Realtek DHC(Digital
+diff --git a/arch/arm64/boot/dts/realtek/kent.dtsi b/arch/arm64/boot/dts/realtek/kent.dtsi
+index 8d4293cd4c03..228b82dfdb7a 100644
+--- a/arch/arm64/boot/dts/realtek/kent.dtsi
++++ b/arch/arm64/boot/dts/realtek/kent.dtsi
+@@ -151,6 +151,37 @@ uart0: serial@7800 {
+ 				status = "disabled";
+ 			};
+ 
++			gpio: gpio@31000 {
++				compatible = "realtek,rtd1625-iso-gpio";
++				reg = <0x31000 0x398>;
++				gpio-controller;
++				gpio-ranges = <&isom_pinctrl 0 0 2>,
++					      <&ve4_pinctrl 2 0 6>,
++					      <&iso_pinctrl 8 0 4>,
++					      <&ve4_pinctrl 12 6 2>,
++					      <&main2_pinctrl 14 0 2>,
++					      <&ve4_pinctrl 16 8 4>,
++					      <&main2_pinctrl 20 2 3>,
++					      <&ve4_pinctrl 23 12 3>,
++					      <&iso_pinctrl 26 4 2>,
++					      <&isom_pinctrl 28 2 2>,
++					      <&ve4_pinctrl 30 15 6>,
++					      <&main2_pinctrl 36 5 6>,
++					      <&ve4_pinctrl 42 21 3>,
++					      <&iso_pinctrl 45 6 6>,
++					      <&ve4_pinctrl 51 24 1>,
++					      <&iso_pinctrl 52 12 1>,
++					      <&ve4_pinctrl 53 25 11>,
++					      <&main2_pinctrl 64 11 28>,
++					      <&ve4_pinctrl 92 36 2>,
++					      <&iso_pinctrl 94 13 19>,
++					      <&iso_pinctrl 128 32 4>,
++					      <&ve4_pinctrl 132 38 13>,
++					      <&iso_pinctrl 145 36 19>,
++					      <&ve4_pinctrl 164 51 2>;
++				#gpio-cells = <2>;
++			};
++
+ 			iso_pinctrl: pinctrl@4e000 {
+ 				compatible = "realtek,rtd1625-iso-pinctrl";
+ 				reg = <0x4e000 0x1a4>;
+@@ -161,6 +192,14 @@ main2_pinctrl: pinctrl@4f200 {
+ 				reg = <0x4f200 0x50>;
+ 			};
+ 
++			iso_m_gpio: gpio@89100 {
++				compatible = "realtek,rtd1625-isom-gpio";
++				reg = <0x89100 0x30>;
++				gpio-controller;
++				gpio-ranges = <&isom_pinctrl 0 0 4>;
++				#gpio-cells = <2>;
++			};
++
+ 			isom_pinctrl: pinctrl@146200 {
+ 				compatible = "realtek,rtd1625-isom-pinctrl";
+ 				reg = <0x146200 0x34>;
 -- 
 2.43.0
 
