@@ -4,77 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56CA5CDB46B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 07:50:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12CF2CDB471
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 07:51:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DjhxJIXwZtlu+S1mzuRLvpGJ+I0yWr65Zu0vmWK+UsM=; b=rUjlbGaYojeeByrxBsymDmaVbv
-	8WNJU+l+tD16gNsXzv9wsVtmBErRpWHzBGqjr50481ysYllBS9fa20EgTB7SR2rNVtK25C5sYAudV
-	JiDZpxCLmYWSXuF8zrN0ug+x1DDrG7oHMPXzsn+2KZ49P/tPmODW8Vc9TdO9dh0cptZJ2+wfrStO9
-	awlIVcPYeEd9Qy59t7uu1Q/7K3FgoF/UvTPSNU1ZsPAbaA8Lw5Jc8JOp+jcYWT8WVMW3EKietxGR0
-	APtO26BP8BtZqChxUt6DbHJpuSoxAk0GV8Utb0RWqN7JwYYpXxEduqEFARvd3J6FUOhOjyCNe6sL1
-	MBX6zKTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oMaYIYFNkj4KGSaKf7D8Lg7sbkJf1Fb4UhKjt8H7dP4=; b=mvss9gISW8U+5qBH1d4NiKtuCs
+	tepV/WgNbkONddaI0sr1tuS2YuyBasZylWcO5P056tL1sxRB+XOpUe/iFyCnuCKnxYPsPNHAWiw45
+	unzDwFW5RWTSRA1dmLvuvA4BCvheP33syHuRWTo8mPB03nA1UPUpbjV4swgutDFUOQwRaJxvNXszJ
+	d6jPgKU89WYxNc4Blm1kFL7ZpbKVvQhbHZoYJwi2SIOaALasbtQZzIY01DFqB0ipQWdT0NdDmZ0zO
+	cuVVknHretKeNugXhZRT0lhRZtno3O4pNaEtIw1QAZokRVcbOimihUufk/OxCJ1Rio9vQfCbQlorT
+	SdJIcy9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbZQL-00000004ZWl-4Ayp;
-	Mon, 22 Jun 2026 07:50:29 +0000
-Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
+	id 1wbZQw-00000004ZiF-1M3p;
+	Mon, 22 Jun 2026 07:51:06 +0000
+Received: from mail-northeuropeazon11011067.outbound.protection.outlook.com ([52.101.65.67] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbZQI-00000004ZUR-3ACI;
-	Mon, 22 Jun 2026 07:50:28 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=DjhxJIXwZtlu+S1mzuRLvpGJ+I0yWr65Zu0vmWK+UsM=;
-	b=dTXHI5OT3kJg6ZwKeZ7l+1YDr6b1hpRbY8s8z0T12kaOnMUVi+FGyMWPDPdkApaBuVatBA7uC
-	Z0GKJFORdTMX2Azn6tNgGnMd1iV5ZufaianvsXLsU15PMBLIB0HzyaukESDfsIE8SzVz6SZBDp5
-	/oThe3zRYAqwKkDmxGgBWFo=
-Received: from mail.maildlp.com (unknown [172.19.163.0])
-	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4gkKrn1qmxz12LDT;
-	Mon, 22 Jun 2026 15:41:29 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 8201240561;
-	Mon, 22 Jun 2026 15:50:17 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 22 Jun 2026 15:50:14 +0800
-Message-ID: <49895e73-0fab-4410-93ba-f850f0586b1d@huawei.com>
-Date: Mon, 22 Jun 2026 15:50:13 +0800
+	id 1wbZQt-00000004ZgM-2qIN
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 22 Jun 2026 07:51:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=S9QXNKthAiGPTkhoNNodvssIJdUblHOXXMzgwluX1o6v/GSgBKwKdTTg0QORjL08HljWGnlLT5bU1QHb33GmyGMh2Fy5JNs8GWJuAa68Wh512U0rLQ4C6/MUMmyZNVlcJSaDVr29tHnhcQy5N9NKWLitw1GEzPX3kRmhUhoo+zmRtQ+nXovK4UsN5AfNt9RA1aSV2w3Xc2MSKIDl52S/ZRpTiDqRKZh9jf5wJl76RvHYZmfWiwVBixPV7KEAah2iZ1iZ8cstsK18B6/CIv4ivzVCAlTSDsb/wTDei6IcFfRgpx+N8W+EHaIUiZgIouzWKgUbNp8LnNCbCRXO2dom2A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=oMaYIYFNkj4KGSaKf7D8Lg7sbkJf1Fb4UhKjt8H7dP4=;
+ b=XW6WiLDEbPse9TuTMkwp+tMIKHISRZjGFQFCUwGjBzmJL+/l0aIGRblojDr9l3Z3gFsHdeGg2iRF1rWiF7G2XVGml6W5aqIoeZK3XY2o6ObaSKmeZz8rsRuBsbfs8tHT3nU9g/dRpuPNU9TlkT7Yjp03N82hFBpLZ8qt1BgPd/B68HCLOg6YHmU/BeKL8s0Xu8qKMvXkg8s3AFdFKctuCDepPuO2beJCDBrw035K/AFJQ1SCXHFjRN0Fy0GOvSGXkdflLdrE6R0bsvIzC5c1Bz1bpfgrfPpe41XWouwM5kSrogKJ1IUbDThhIA58FCkiTHeGVDRp1TippLwltPS4Mw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=oMaYIYFNkj4KGSaKf7D8Lg7sbkJf1Fb4UhKjt8H7dP4=;
+ b=JIlvAYEyBY7EXSWU639+6EdcKZboPpOsSUzZn/m9tkfXI2kaYQ9JFueOEdl1UggsfY493wgoTnPIx9cK/bzyAktn6TG63O3RYrb+Pb1HbObUxObFkMhUuMu4TiZGy6EvQLk4iZlsmVLOwnYBiSBm/qk9z+BQzqh7XI6oEfGJSQqTvoIeeODMBPVMRVfvl02PSSLPP0DiCyKOaeFZOyKXNZvCoNgXaqgT1+o/tWR2EHqHzh55xx3/L406tewMjUSTWBCIZ6QwAGd7D55TLk3MJY5+Er2njwAFitY49MHMgL1wI0Tv2uv0OfpqCZA30yJKOsrHgRks+xb7N9TQlcmsyg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS1PR04MB9287.eurprd04.prod.outlook.com (2603:10a6:20b:4dd::8)
+ by AM9PR04MB7681.eurprd04.prod.outlook.com (2603:10a6:20b:286::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.11; Mon, 22 Jun
+ 2026 07:50:57 +0000
+Received: from AS1PR04MB9287.eurprd04.prod.outlook.com
+ ([fe80::6f30:763d:17d2:b79c]) by AS1PR04MB9287.eurprd04.prod.outlook.com
+ ([fe80::6f30:763d:17d2:b79c%3]) with mapi id 15.21.0139.009; Mon, 22 Jun 2026
+ 07:50:56 +0000
+Date: Mon, 22 Jun 2026 15:52:26 +0800
+From: Liu Ying <victor.liu@nxp.com>
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3] drm/bridge: imx93-mipi-dsi: Fix mode validation
+Message-ID: <ajjpuroFPI_U2Fw6@raspi>
+References: <20260515-imx93-mipi-dsi-fix-mode-validation-v3-1-91f7d22b2fe4@nxp.com>
+ <DJD6I8NMLN3W.3LVT4L17HT5TU@bootlin.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <DJD6I8NMLN3W.3LVT4L17HT5TU@bootlin.com>
+X-ClientProxiedBy: SI1PR02CA0031.apcprd02.prod.outlook.com
+ (2603:1096:4:1f6::11) To AS1PR04MB9287.eurprd04.prod.outlook.com
+ (2603:10a6:20b:4dd::8)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 1/3] cpu/hotplug: Introduce
- CONFIG_PARALLEL_SMT_PRIMARY_FIRST
-To: Thomas Gleixner <tglx@kernel.org>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <tsbogend@alpha.franken.de>, <pjw@kernel.org>,
-	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>,
-	<mingo@redhat.com>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
-	<hpa@zytor.com>, <peterz@infradead.org>, <kees@kernel.org>,
-	<nathan@kernel.org>, <linusw@kernel.org>, <ojeda@kernel.org>,
-	<david.kaplan@amd.com>, <lukas.bulwahn@redhat.com>, <ryan.roberts@arm.com>,
-	<maz@kernel.org>, <timothy.hayes@arm.com>, <lpieralisi@kernel.org>,
-	<thuth@redhat.com>, <oupton@kernel.org>, <yeoreum.yun@arm.com>,
-	<miko.lenczewski@arm.com>, <broonie@kernel.org>, <kevin.brodsky@arm.com>,
-	<james.clark@linaro.org>, <tabba@google.com>, <mrigendra.chaubey@gmail.com>,
-	<arnd@arndb.de>, <anshuman.khandual@arm.com>, <x86@kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mips@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-References: <20260611133809.3854977-1-ruanjinjie@huawei.com>
- <20260611133809.3854977-2-ruanjinjie@huawei.com> <87a4srdgk0.ffs@fw13>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <87a4srdgk0.ffs@fw13>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS1PR04MB9287:EE_|AM9PR04MB7681:EE_
+X-MS-Office365-Filtering-Correlation-Id: d9c8e6f9-a223-499f-d3a2-08ded032fe23
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|366016|376014|19092799006|1800799024|23010399003|18002099003|22082099003|3023799007|4143699003|56012099006|6133799003|11063799006;
+X-Microsoft-Antispam-Message-Info: 570S1L6PQMLL4NsV8qpS7lw49IzQcdKm142+OFkYgeYyY0l7MHFzRLEGtuyI2o+uQyYkmMmkpAPdjTsFYtfVrN7xDEMEdWQFLVTkPKxpU0pEnRHC4G4OPWd8et//0i3AGRhg1ItXKltERnsxZWOLhnTyOjUMGCn5Un4eLOX52MMcIuI3sclL3Zep9I4cIbHldJUBb7TbiNLMRvOwX9DTfLG2HYSXXZGeOXuV5y7kVbd30q5m9bP9mZE3TXSsWTbayrKgi615KonQi7btBpbWwRgaN/8D9UkeV1VUL8X8iYvziXUHzqwHPtpxbfveWb8YsceNoE0v2DYGr7/A49RRdBDfihVQ6ZGo5EE9Z17hatJBLEUjiOf2lNAWovx6Qo/9kP98kebMV56H2FOhSESJUGVcjCfj90iIkXgozYp0BlES4Bvabysr8ApnpBgs1qBY2o6my9ywRgFsDDQnORlTNXJ9cU/QB/+ihqdpZN+81Ngr/Psz+wS1dxXE78US6/MivToVaRdskzOrsYiyidYR9/kweGAF2nhqTvQSH2hTC+O9ZH/nKxKVt9J4wzMGlMyqMIEYvChZH5zpbI/haciSAgnEO69cjXQM/U+7sb4Mi7E=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS1PR04MB9287.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(376014)(19092799006)(1800799024)(23010399003)(18002099003)(22082099003)(3023799007)(4143699003)(56012099006)(6133799003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Wp5MyLw4ECUJvOODTAtPA3h6KD/cq6kPTFBs10mwy31XhJWGtD5h2gPuJZkw?=
+ =?us-ascii?Q?5CWjmR+leWtLbeKLnzhiTCu70zVY8IZBzsnkQeAgnTzMfbn4euavlw+mi7ol?=
+ =?us-ascii?Q?oif/TyzrwGqeQCqRSMEkpo0Kzc/m5bO/Kqjm3MgXFiacfcOKJkie8+sXUhXZ?=
+ =?us-ascii?Q?g93obqby6Q7piIr9yZNRV5fqWLIAFeCMz9UWF0jdX6X10VsUFg8ziuqypHTL?=
+ =?us-ascii?Q?LrK/Y6ZMsVH6Cm2gceqS823KoKiDDz9mC/YWoqIGcVg4G6yYV5hqXjDkis1T?=
+ =?us-ascii?Q?IGQG1Pk/JwrB24kEitMHd+JwVM9LiXv/yDZQdTNzTm9kipVyrnw1nXZjthII?=
+ =?us-ascii?Q?B/bSvbVhZrKkzWfWcHauGENAidorV5NXDS9jWh8MQI5W4/nvNhPBawxnlL3B?=
+ =?us-ascii?Q?20l7Y9DJkELGk3e4NFS8lh/8zI5YoMppVk9JH9Y1ll7EBUoj/wHGnZZwvJEC?=
+ =?us-ascii?Q?VCrtobrRauxz5XjGzPWKDFbICW84Dhn1z2hSGkiW+fJtdUpNkc0cFfUXTo2S?=
+ =?us-ascii?Q?+1MxfuNJ149kNBNuteTxemfPf2+d7sMbuDWaWoLZhS57T3carhsCCgrZFGXD?=
+ =?us-ascii?Q?kBQ3TNmWAsaLymYitfEgo4i4wb/oKtbkqmT24XbdspRF8w/SeCquA0SbqUca?=
+ =?us-ascii?Q?S9bD2HrSwZekwruxfGIdrm9BPACv75FNwUS2IhUEg3RXlvK2rbbBkZIY33l6?=
+ =?us-ascii?Q?gTT9MI04o0P+xF/AtJIe+kMxoEBIGipMbn/YBsWRF1GPXSugxXUAAnhz6fCk?=
+ =?us-ascii?Q?FqAgxE1QbSqMjSpQ0hSWrucMUFJw3a0GDC5CXv041AOCitc0S03h9DwlZMnd?=
+ =?us-ascii?Q?CA2uFD8D9tOvnP5FOaCg0XccKESpIVsMKzp3M4+OMIK0R3G6lXI1QnnMjJlD?=
+ =?us-ascii?Q?IQj6DwBSA0rRMnyGtNww4w3b55RDeprGJQ0ixXUGTIPYpJ8dkP8tIWYTfER9?=
+ =?us-ascii?Q?msy5MFuJZGUrOGAtdcQY8uQzRYDUnzcSUne2dpO/j1+V2wCMlaG0UGD8N9e4?=
+ =?us-ascii?Q?nMuqogQY5f34vIgOLuioftGNiQ9hckLcHMlE0+cUfZgbyOGhzcUf9pzL3zGR?=
+ =?us-ascii?Q?8OZ3MQiwco6Wrdz2/loDVsyBVVeq4nmKjpvjur9lFgC9wIYJSFtyHUqDi4kZ?=
+ =?us-ascii?Q?DRtw4Li8k5Sg6HQMG53W6IbtCjYiM9HP1j/YpkfeYbL/pol/sKPWjCOay6vx?=
+ =?us-ascii?Q?c5/MyTp/Loi031VSIhIu2Si+e0+4h8VA3c6hZVkP9WZu0org9CJxFDfqJoZ5?=
+ =?us-ascii?Q?DZ3r9Sw4qepjMLUqQHZQ1CFrxsnLRCoYC/8lHm5D+lyh+7nRkRx7a4O2ijQS?=
+ =?us-ascii?Q?aJUCIcVGz6zmBZ1xF6Od6iKEcUUAqnRhzKLw/wkF/WI2HbQQY1YrLvWI0WVs?=
+ =?us-ascii?Q?u2blDB+b5eUETF9EXqGDLakrlzySFPae/GYU8z5EWENynK5vz+PXD74rXLeJ?=
+ =?us-ascii?Q?FjSybIxhBhSRMj9qxIpzL0Gqi3RGVENwXjq0ZpeHmw+PDsZjT2Lb7FK/mqOd?=
+ =?us-ascii?Q?s2jVfA0DnO1J0bGZzELnKLe2sxi7sqnio9mLsoD0b3wp2HP6un4uGz4HSBAV?=
+ =?us-ascii?Q?A2f5OtAvbUkImLPR8v5IVDXq/1Nnw27bXzDrHOLhgjlIYNiz/19sc78fD9Ji?=
+ =?us-ascii?Q?O2HGssr90eZ6368xejYlvMDPomN56KjPO5Sp+1Zja9w4CCWNwXx56+S7sifW?=
+ =?us-ascii?Q?lZYz/pRSFydrPmWQS1aKAtd01nbwLwZBTH+PgSZ3fJP2uYtR+i208GxuC+LJ?=
+ =?us-ascii?Q?ZCU+zt+CdA=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d9c8e6f9-a223-499f-d3a2-08ded032fe23
+X-MS-Exchange-CrossTenant-AuthSource: AS1PR04MB9287.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jun 2026 07:50:56.8855
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: eUIOEH6wejSMYZgIL7+QKV8KcgK4hs0k52WU6p9pZh0x4ubTSUeIUpODHlBBfzsLuIdT9yDZzVM3ex1GvmRvVA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB7681
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260622_005027_132202_591CE4C9 
-X-CRM114-Status: GOOD (  21.47  )
+X-CRM114-CacheID: sfid-20260622_005103_885021_A25D5CD0 
+X-CRM114-Status: GOOD (  35.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,184 +150,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Jun 19, 2026 at 06:49:55PM +0200, Luca Ceresoli wrote:
+> Hello Liu,
 
-
-On 6/18/2026 11:17 PM, Thomas Gleixner wrote:
-> On Thu, Jun 11 2026 at 21:38, Jinjie Ruan wrote:
-> 
->> During parallel CPU bringup, x86 requires primary SMT threads to boot
->> first to avoid siblings stopping during microcode updates. This constraint
->> is architecture-specific and unnecessary for other platforms
->> like arm64.
->>
->> Introduce CONFIG_PARALLEL_SMT_PRIMARY_FIRST to decouple this constraint.
->> Platforms requiring this temporal order (e.g., x86) can select it
->> in Kconfig. Other architectures (e.g., arm64) can leave it unselected
->> to entirely bypass the SMT branch via the preprocessor.
->>
->> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
->> ---
->>  arch/Kconfig       | 4 ++++
->>  arch/mips/Kconfig  | 1 +
->>  arch/riscv/Kconfig | 1 +
->>  arch/x86/Kconfig   | 1 +
->>  kernel/cpu.c       | 6 +++++-
->>  5 files changed, 12 insertions(+), 1 deletion(-)
->>
->> diff --git a/arch/Kconfig b/arch/Kconfig
->> index e86880045158..0365d2df2659 100644
->> --- a/arch/Kconfig
->> +++ b/arch/Kconfig
->> @@ -102,6 +102,10 @@ config HOTPLUG_PARALLEL
->>  	bool
->>  	select HOTPLUG_SPLIT_STARTUP
->>  
->> +config PARALLEL_SMT_PRIMARY_FIRST
-> 
-> Proper namespaces are overrated, right?
-> 
-> All related options start with HOTPLUG_....
-
-Sure, will update to `HOTPLUG_PARALLEL_SMT`		
+Hi Luca,
 
 > 
->> +	bool
->> +	depends on HOTPLUG_PARALLEL
->> +
->>  config GENERIC_IRQ_ENTRY
->>  	bool
->>  
->> diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
->> index 4364f3dba688..84e11ac0cf71 100644
->> --- a/arch/mips/Kconfig
->> +++ b/arch/mips/Kconfig
->> @@ -642,6 +642,7 @@ config EYEQ
->>  	select MIPS_CPU_SCACHE
->>  	select MIPS_GIC
->>  	select MIPS_L1_CACHE_SHIFT_7
->> +	select PARALLEL_SMT_PRIMARY_FIRST if HOTPLUG_PARALLEL
->>  	select PCI_DRIVERS_GENERIC
->>  	select SMP_UP if SMP
->>  	select SWAP_IO_SPACE
->> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
->> index d235396c4514..0cc49aecc841 100644
->> --- a/arch/riscv/Kconfig
->> +++ b/arch/riscv/Kconfig
->> @@ -210,6 +210,7 @@ config RISCV
->>  	select OF
->>  	select OF_EARLY_FLATTREE
->>  	select OF_IRQ
->> +	select PARALLEL_SMT_PRIMARY_FIRST if HOTPLUG_PARALLEL
+> On Fri May 15, 2026 at 8:54 AM CEST, Liu Ying wrote:
+> > i.MX93 MIPI DPHY PLL has limitation for matching with some pixel clock
+> > rates, e.g., the best DPHY PLL frequency is 445.333333MHz for a typical
+> > 1920x1080p@60Hz CEA/DMT display mode with a pixel clock rate running
+> > at 148.5MHz with 4 data lanes + RGB888 pixel in MIPI DSI sync pulse mode,
+> > while the expected PLL frequency is (148.5 * 24) / 4 / 2 MHz = 445.5MHz.
+> > Fortunately, VESA Display Monitor Timing Standard allows +/-0.5% pixel
+> > clock rate deviation for timings.  So, for those display modes read
+> > from EDID through a bridge with DRM_BRIDGE_OP_DETECT and DRM_BRIDGE_OP_EDID
+> > operation bit masks set, pixel clock rate could be adjusted to match
+> > with the PLL frequency(for the above example, the pixel clock rate is
+> > adjusted to be 148.444444MHz with about -0.03% deviation from the 148.5MHz
+> > nominal rate so that the adjusted rate matches with the 445.333333MHz PLL
+> > frequency).
+> >
+> > Instead of checking the last bridge's operation bit masks against
+> > DRM_BRIDGE_OP_DETECT and DRM_BRIDGE_OP_EDID to determine if allowing
+> > +/-0.5% pixel clock rate deviation, check any bridge after this bridge,
+> > because the last bridge is usually a display connector bridge without
+> > any operation bit mask when the clock rate deviation is allowed.
+> >
+> > Fixes: ce62f8ea7e3f ("drm/bridge: imx: Add i.MX93 MIPI DSI support")
+> > Fixes: 5849eff7f067 ("drm/bridge: imx93-mipi-dsi: use drm_bridge_chain_get_last_bridge()")
+> > Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> > Signed-off-by: Liu Ying <victor.liu@nxp.com>
 > 
-> Why does RISCV need this? It does not select HOTPLUG_SMT to begin with.
+> I'm perhaps not the most qualified to review this change, but let me try.
 
-You are right, this was initially done to keep in line with the legacy
-implementation.
+Thanks for your review.
 
 > 
->> +#ifdef CONFIG_PARALLEL_SMT_PRIMARY_FIRST
->>  #ifdef CONFIG_HOTPLUG_SMT
+> > --- a/drivers/gpu/drm/bridge/imx/imx93-mipi-dsi.c
+> > +++ b/drivers/gpu/drm/bridge/imx/imx93-mipi-dsi.c
+> > @@ -489,25 +489,43 @@ static int imx93_dsi_get_phy_configure_opts(struct imx93_dsi *dsi,
+> >  	return 0;
+> >  }
+> >
+> > +static inline struct drm_bridge *
+> > +imx93_dsi_get_next_bridge_in_chain(struct drm_bridge *bridge)
+> > +{
+> > +	struct drm_bridge *next = drm_bridge_get_next_bridge(bridge);
+> > +
+> > +	drm_bridge_put(bridge);
+> > +
+> > +	return next;
+> > +}
+> > +
+> >  static enum drm_mode_status
+> >  imx93_dsi_validate_mode(struct imx93_dsi *dsi, const struct drm_display_mode *mode)
+> >  {
+> >  	struct drm_bridge *dmd_bridge = dw_mipi_dsi_get_bridge(dsi->dmd);
+> > -	struct drm_bridge *last_bridge __free(drm_bridge_put) =
+> > -		drm_bridge_chain_get_last_bridge(dmd_bridge->encoder);
+> > +	struct drm_bridge *bridge;
+> >
+> > -	if ((last_bridge->ops & DRM_BRIDGE_OP_DETECT) &&
+> > -	    (last_bridge->ops & DRM_BRIDGE_OP_EDID)) {
+> > -		unsigned long pixel_clock_rate = mode->clock * 1000;
+> > -		unsigned long rounded_rate;
+> > +	for (bridge = drm_bridge_get_next_bridge(dmd_bridge);
+> > +	     bridge;
+> > +	     bridge = imx93_dsi_get_next_bridge_in_chain(bridge)) {
+> > +		if ((bridge->ops & DRM_BRIDGE_OP_DETECT) &&
+> > +		    (bridge->ops & DRM_BRIDGE_OP_EDID)) {
+> > +			unsigned long pixel_clock_rate = mode->clock * 1000;
+> > +			unsigned long rounded_rate;
+> >
+> > -		/* Allow +/-0.5% pixel clock rate deviation */
+> > -		rounded_rate = clk_round_rate(dsi->clk_pixel, pixel_clock_rate);
+> > -		if (rounded_rate < pixel_clock_rate * 995 / 1000 ||
+> > -		    rounded_rate > pixel_clock_rate * 1005 / 1000) {
+> > -			dev_dbg(dsi->dev, "failed to round clock for mode " DRM_MODE_FMT "\n",
+> > -				DRM_MODE_ARG(mode));
+> > -			return MODE_NOCLOCK;
+> > +			/* Allow +/-0.5% pixel clock rate deviation */
+> > +			rounded_rate = clk_round_rate(dsi->clk_pixel, pixel_clock_rate);
+> > +			if (rounded_rate < pixel_clock_rate * 995 / 1000 ||
+> > +			    rounded_rate > pixel_clock_rate * 1005 / 1000) {
+> > +				dev_dbg(dsi->dev,
+> > +					"failed to round clock for mode " DRM_MODE_FMT "\n",
+> > +					DRM_MODE_ARG(mode));
+> > +				drm_bridge_put(bridge);
+> > +				return MODE_NOCLOCK;
+> > +			}
+> > +
+> > +			drm_bridge_put(bridge);
+> > +			break;
+> >  		}
+> >  	}
 > 
-> More #ifdeffery is better, right?
-> 
->>  static inline bool cpuhp_smt_aware(void)
->>  {
->> @@ -1811,7 +1812,8 @@ static inline const struct cpumask *cpuhp_get_primary_thread_mask(void)
->>  {
->>  	return cpu_none_mask;
->>  }
->> -#endif
->> +#endif /* CONFIG_HOTPLUG_SMT */
->> +#endif /* CONFIG_PARALLEL_SMT_PRIMARY_FIRST */
->>  
->>  bool __weak arch_cpuhp_init_parallel_bringup(void)
->>  {
->> @@ -1837,6 +1839,7 @@ static bool __init cpuhp_bringup_cpus_parallel(unsigned int ncpus)
->>  	if (!__cpuhp_parallel_bringup)
->>  		return false;
->>  
->> +#ifdef CONFIG_PARALLEL_SMT_PRIMARY_FIRST
-> 
-> Seriously?
-> 
->>  	if (cpuhp_smt_aware()) {
->>  		const struct cpumask *pmask = cpuhp_get_primary_thread_mask();
->>  		static struct cpumask tmp_mask __initdata;
->> @@ -1857,6 +1860,7 @@ static bool __init cpuhp_bringup_cpus_parallel(unsigned int ncpus)
->>  		cpumask_andnot(&tmp_mask, mask, pmask);
->>  		mask = &tmp_mask;
->>  	}
->> +#endif /* CONFIG_PARALLEL_SMT_PRIMARY_FIRST */
-> 
-> Something simple like the uncompiled below should just work, no?
+> Is this logic specific to the imx93 MIPI DSI host only? Or should it be
+> made generic for all dw-hdmi users, or even every DSI host?
 
-Yes, everything looks good, except for a minor compilation issue.
+I think it's kind of specific to the i.MX93 MIPI DSI host only, because
+1) the i.MX93 MIPI DPHY PLL(integrated into i.MX93 MIPI DPHY IP) supports
+the best DPHY PLL frequency @445.333333MHz for the typical 1920x1080p@60Hz
+display mode, which is lower than the expected/nominal frequency @445.5MHz
+and 2) the generic DW MIPI DSI driver(dw-mipi-dsi.c) is PHY-agnostic, which
+means vendors may attach different MIPI DPHY IPs to the common MIPI DSI host
+IP and likely there would be no frequency mismatch between the pixel clock
+and the PLL like i.MX93 has.
 
 > 
-> ---
-> --- a/arch/Kconfig
-> +++ b/arch/Kconfig
-> @@ -102,6 +102,10 @@ config HOTPLUG_PARALLEL
->  	bool
->  	select HOTPLUG_SPLIT_STARTUP
->  
-> +config HOTPLUG_PARALLEL_SMT
-> +	bool
-> +	select HOTPLUG_PARALLEL
-> +
+> Also, iterating over the bridge chain is not very clean. I'm working on
+> bridge hotplug (not upstream yet) and bad things would happen if a bridge
+> were hot-unplugged during this loop.
 
-+config HOTPLUG_PARALLEL_SMT
-+       bool
-+       select HOTPLUG_PARALLEL
-+       select HOTPLUG_SMT
+The iterating is essentially the same to drm_for_each_bridge_in_chain_from()
+except that bridge_chain_mutex is not taken(since it's already taken) and
+the starting bridge is fixed to be the next bridge.  A few bridge core APIs
+like drm_bridge_chain_mode_valid() call drm_for_each_bridge_in_chain_from().
+So, the iterating looks clean to me and I'm not aware of any bad things which
+would happen when bridge hotplug is considered.
 
-We should select HOTPLUG_SMT here to prevent the compilation issue where
-HOTPLUG_PARALLEL_SMT is enabled without HOTPLUG_SMT.
+> If the core did this sort of algorithm
+> it would be able to be more robust.
 
->  config GENERIC_IRQ_ENTRY
->  	bool
->  
-> --- a/arch/mips/Kconfig
-> +++ b/arch/mips/Kconfig
-> @@ -657,7 +657,7 @@ config EYEQ
->  	select USB_UHCI_BIG_ENDIAN_DESC if CPU_BIG_ENDIAN
->  	select USB_UHCI_BIG_ENDIAN_MMIO if CPU_BIG_ENDIAN
->  	select USE_OF
-> -	select HOTPLUG_PARALLEL if HOTPLUG_CPU
-> +	select HOTPLUG_PARALLEL_SMT if HOTPLUG_CPU
->  	help
->  	  Select this to build a kernel supporting EyeQ SoC from Mobileye.
->  
-> @@ -2295,7 +2295,6 @@ config MIPS_CPS
->  	select MIPS_CM
->  	select MIPS_CPS_PM if HOTPLUG_CPU
->  	select SMP
-> -	select HOTPLUG_SMT if HOTPLUG_PARALLEL
->  	select HOTPLUG_CORE_SYNC_DEAD if HOTPLUG_CPU
->  	select SYNC_R4K if (CEVT_R4K || CSRC_R4K)
->  	select SYS_SUPPORTS_HOTPLUG_CPU
-> --- a/arch/x86/Kconfig
-> +++ b/arch/x86/Kconfig
-> @@ -304,7 +304,7 @@ config X86
->  	select HAVE_USER_RETURN_NOTIFIER
->  	select HAVE_GENERIC_VDSO
->  	select VDSO_GETRANDOM			if X86_64
-> -	select HOTPLUG_PARALLEL			if SMP && X86_64
-> +	select HOTPLUG_PARALLEL_SMT		if SMP && X86_64
->  	select HOTPLUG_SMT			if SMP
->  	select HOTPLUG_SPLIT_STARTUP		if SMP && X86_32
->  	select IRQ_FORCED_THREADING
-> --- a/kernel/cpu.c
-> +++ b/kernel/cpu.c
-> @@ -1792,7 +1792,7 @@ static int __init parallel_bringup_parse
->  }
->  early_param("cpuhp.parallel", parallel_bringup_parse_param);
->  
-> -#ifdef CONFIG_HOTPLUG_SMT
-> +#ifdef CONFIG_HOTPLUG_PARALLEL_SMT
->  static inline bool cpuhp_smt_aware(void)
->  {
->  	return cpu_smt_max_threads > 1;
+Is the core dw-mipi-dsi.c?
+If yes, do you think it's worth doing that even if the frequency mismatch
+between the pixel clock and the PLL is kind of specific to the i.MX93 MIPI
+DSI host?
+
 > 
+> Finally, out of my utter ignorance on the subject, is the VESA +/-0.5%
+> margin generic enough that this driver can always rely on it?
 
+I see several upstream drivers rely on it, see "git grep '0.5%' drivers/gpu/"
+output.  And every display mode allows -/+ 0.5% pixel clock rate deviation
+according to VESA Display Monitor Timing Standard [1], though [1] is a found
+by a random Google search.
+
+[1] https://glenwing.github.io/docs/VESA-DMT-1.13.pdf
+
+> 
+> Luca
+> 
+> --
+> Luca Ceresoli, Bootlin
+> Embedded Linux and Kernel engineering
+> https://bootlin.com
+
+-- 
+Regards,
+Liu Ying
 
