@@ -4,60 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85F78CDB46F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 16:39:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32143CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 16:40:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QUZD+emMQ2xlB4a05ZZK2Z1/2LYgrrwvQo0kKAM+qPg=; b=DbpxC/GNZRy9ri2w9x7Y93xDLC
-	euvhRABt1M0LzPE/OlV1OxaC1A892+wSP2AkGMtZ4+z59j/LwyQDkbhPSGX2gEmhDbpgD2GIpbz8R
-	FvSte71W39N9Dx1Uhk7JGe8FCU7hR82cl0OzwiHYWhx/s9TsPTD2NNuB6Iifg49OO+wpy+HjBAbMD
-	Wc5wKeqVM2LyEOmwkFYLfhGy6Mw9qL4eXDZHTLxlKbxBv6SzgRKjkipwiJ0eDLsScU7EYVzy6soav
-	XgdWGfeFBIwgFDusKhPEv5lXcBTearVhHrAHxfBE5l42OEQ633nw+fX9eJiaHTcgaDqzdm6E73liX
-	wG/lfGoA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=c5UMhYqzW3FXITWipN5SHhAQOB1P9YUKBIDy0r3xPQw=; b=Z4HVtReOS70Qbuf9k55eWqgXZi
+	4zfoaD21y8nSY3sb65ny7yvQswsus6GVMIY9WZ4E2iDpTM6Oofmh98p9mnUhpTGx2F/QHopXhoxX2
+	x3swlO2YQRjSIibLySmIwV9Z4EqBFZjbmW1Pfwi1sG55NudOkxgysCfGf9QFV406xRmqZ2J5MIaDp
+	G8sUXfJq3xU+G/CW0sYnAlFEv0IMGFkjXecrMkkEQsjtSA7vKpahURtWZ/+DOlsmZ+vlB5teoQZ2D
+	VZSBFQVvsq6pCqBpPKOdVk6ATSgBU7Pt7Bn4afmdeEha8iPgWpnN3OonXFr+l+8s+QvtDb7GIvrSm
+	JOYQIqLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbhgV-00000005C6s-0rbv;
-	Mon, 22 Jun 2026 16:39:43 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbhgU-00000005C6f-0Eu9;
-	Mon, 22 Jun 2026 16:39:42 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6C5D8402A2;
-	Mon, 22 Jun 2026 16:39:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B5871F000E9;
-	Mon, 22 Jun 2026 16:39:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782146381;
-	bh=QUZD+emMQ2xlB4a05ZZK2Z1/2LYgrrwvQo0kKAM+qPg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=A7u0TWl4NdgWXkAMlDQhZA9OVkFj9CDXRLeJ0IQJ1e6symrrmYwzLrCZ9FCEQ1/0e
-	 pTA9PwpEaO53WqkDwx1TwQCkOhWhjypPk7KItRuXW4LG/nQpwuXE3zY1WjjdtkNmte
-	 vk2U6VFIx+0aF9JPW1LZNTfzxGNPaSSa2MLJM1jEr/5SaWO7bdszv48UNu4h1WKBTg
-	 lm/JubDjaM+vFcSBV5BWvoVkKxTUDNEQOWgERHxVasD8jFOzzSqLytg8y39E3d0IQU
-	 zxeEh7xUCvsNa92YKvqBSUCtnuS3OWhsBWxRuQ++Cvt8sZLR9XZtAQJZWXGMbtwpeM
-	 ZVftYS3FjcX2Q==
-Date: Mon, 22 Jun 2026 17:39:37 +0100
-From: Simon Horman <horms@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Wayen Yan <win847@gmail.com>, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-Subject: Re: [PATCH net v3] net: airoha: fix BQL underflow in shared QDMA TX
- ring
-Message-ID: <20260622163937.GH827683@horms.kernel.org>
-References: <20260620-airoha-bql-fixes-v3-1-76b95374e63e@kernel.org>
+	id 1wbhhZ-00000005CGS-1niq;
+	Mon, 22 Jun 2026 16:40:49 +0000
+Received: from [50.53.43.113] (helo=[192.168.254.34])
+	by bombadil.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wbhhW-00000005CFj-0vuV;
+	Mon, 22 Jun 2026 16:40:46 +0000
+Message-ID: <08b3c961-18bb-43d9-8d7f-8a87bcad0afa@infradead.org>
+Date: Mon, 22 Jun 2026 09:40:45 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260620-airoha-bql-fixes-v3-1-76b95374e63e@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/2] tracing: Move trace_printk.h out of kernel.h
+To: Peter Zijlstra <peterz@infradead.org>, Steven Rostedt <rostedt@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+ Masami Hiramatsu <mhiramat@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Linus Torvalds <torvalds@linux-foundation.org>,
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+ John Ogness <john.ogness@linutronix.de>, Thomas Gleixner <tglx@kernel.org>,
+ Julia Lawall <julia.lawall@inria.fr>, Yury Norov <yury.norov@gmail.com>,
+ linux-doc@vger.kernel.org, linux-kbuild@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, dri-devel@lists.freedesktop.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-rdma@vger.kernel.org,
+ linux-usb@vger.kernel.org, linux-ext4@vger.kernel.org,
+ linux-nfs@vger.kernel.org, kvm@vger.kernel.org,
+ intel-gfx@lists.freedesktop.org
+References: <20260621093430.264983361@kernel.org>
+ <20260622083440.GX49951@noisy.programming.kicks-ass.net>
+Content-Language: en-US
+From: Randy Dunlap <rdunlap@infradead.org>
+In-Reply-To: <20260622083440.GX49951@noisy.programming.kicks-ass.net>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,42 +68,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jun 20, 2026 at 05:04:51PM +0200, Lorenzo Bianconi wrote:
-> When multiple netdevs share a QDMA TX ring and one device is stopped,
-> netdev_tx_reset_subqueue() zeroes that device's BQL counters while its
-> pending skbs remain in the shared HW TX ring. When NAPI later completes
-> those skbs via netdev_tx_completed_queue(), the already-zeroed
-> dql->num_queued counter underflows.
-> 
-> Fix the issue:
-> - Remove netdev_tx_reset_subqueue() from airoha_dev_stop() so pending
->   skbs are completed naturally by NAPI with proper BQL accounting.
-> - Rework airoha_qdma_tx_cleanup() to disable TX DMA, flush BQL
->   counters, DMA-unmap and free all pending skbs while skb->dev
->   references are still valid. Use a per-queue flushing flag checked
->   under q->lock in airoha_dev_xmit() to prevent races between teardown
->   and transmit. Call airoha_qdma_stop_napi() before
->   airoha_qdma_tx_cleanup() at the call sites.
-> - Move DMA engine start into probe. Split DMA teardown so TX DMA is
->   disabled in airoha_qdma_tx_cleanup() and RX DMA in
->   airoha_qdma_cleanup().
-> - Remove qdma->users counter since DMA lifetime is now tied to
->   probe/cleanup rather than per-netdev open/stop.
-> 
-> Fixes: a9c2ca61fec7 ("net: airoha: Support multiple net_devices for a single FE GDM port")
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> ---
-> Changes in v3:
-> - Remove airoha_qdma users counter.
-> - Drop DEV_STATE_FLUSH bit and add per-queue flushing bool to avoid any
->   race between airoha_qdma_tx_flush() and airoha_dev_xmit().
-> - Refactor airoha_qdma_cleanup_tx_queue().
-> - Rename airoha_qdma_cleanup_tx_queue() in airoha_qdma_tx_cleanup().
-> - Link to v2: https://lore.kernel.org/r/20260619-airoha-bql-fixes-v2-1-4351d6a24484@kernel.org
-> 
 
-Thanks for the updates.
 
-Reviewed-by: Simon Horman <horms@kernel.org>
+On 6/22/26 1:34 AM, Peter Zijlstra wrote:
+> On Sun, Jun 21, 2026 at 05:34:30AM -0400, Steven Rostedt wrote:
+>> There's been complaints about trace_printk() being defined in kernel.h as it
+>> can increase the compilation time. As it is only used by some developers for
+>> debugging purposes, it should not be in kernel.h causing lots of wasted CPU
+>> cycles for those that do not ever care about it.
+>>
+>> Instead, add a CONFIG_TRACE_PRINTK_DEBUGGING option that developers that do
+>> use it can set and not have to always remember to add #include <linux/trace_printk.h>
+>> to the files they add trace_printk() while debugging. It also means that
+>> those that do not have that config set will not have to worry about wasted
+>> CPU cycles as it is only include in the CFLAGS when the option is set, and
+>> its completely ignored otherwise.
+> 
+> Did you forget your C 101 class? If you use a function, you gotta
+> include the relevant header.
+
+Also item #1 in Documentation/process/submit-checklist.rst.
+
+> You don't see userspace saying: 'Hey, you know what, perhaps we should
+> add stdio.h to every other header, just in case someone wants to
+> printf()' either.
+> 
+> I really don't understand your argument. Yes, maybe someone will forget
+> and then either their editor (if they have a halfway modern setup with
+> LSP enabled) or their build will complain, but so what? This is all
+> trivial stuff, surely we have more pressing matters to concern outselves
+> with?
+
+
+
+-- 
+~Randy
 
 
