@@ -4,58 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1519CDB46F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 15:23:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A76D9CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 15:29:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wRapthCt0yOgwFbx+/99xHU1xe3RavpTCg9WymtIaGw=; b=QQF7qGpB2jDH9s/YsvqX6PaIwM
-	oVFPp7f45Q2cz1UylOMQ60mtnurAD3w3vlGWZfrMukfU76KLiL7JrogxpFWaqwrhED6IM5CQ4zzjH
-	jC48s6P6e4Eh0cdy4dl8zDKLLOIgifwNfarGyFcMDFGhoeHGLrtc32qmMox5+sSIcSYrD9DNxnGB7
-	QieI0O5/rnUiJwGlr0cLpyFJfELF0gzPbVz47j3ZGJmxtRoiMXpwYxLU++ZA93nTdZqzmIE6IVSms
-	oAZCEJrllnYIIC5Pn+DveT43+oEfQc1PknL1454Sw+y+2+LBGfXVMBN0sz4Jlo8Vqif5EinvDn/zH
-	40yOh6YA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JZv8lf2HlFMbPq29wrkvMcL46ITw+rgkk0A4gwUgT7k=; b=xXGFI7rY8W/tEiuxEy08IWs4z6
+	Ifl/qQC8hzlhqwg7UWUVjro67oGW4IwjUIcrOHApe3FFKBS6pLAw5M8QK+heeNhHqn1Df34NG0CSD
+	3OHPWbfF7PeErOQ6i/Ys4ThIltdbDmeT/li0m7jTDnXXDKdTosTLRCsEM6Gzh6SAXwskUhI29gBYm
+	irA8EjQUFlLZpWfGE6+0mJSE+EaUGf8TF41evOkN34eqRzyc/3eniajptHFqXnrse9im12ODcrBP2
+	JpzMkeNhwBRt3nuGZTZfeTeaelXW4RrLhiIeUqNppCYoCQmb3kP3xnPnOkZwI4teYMH5ZmwvbmFX5
+	ZKWcLKHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbgV2-000000057wd-0eAS;
-	Mon, 22 Jun 2026 15:23:48 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbgUz-000000057wD-1qlD
+	id 1wbgam-000000058HF-3DyY;
+	Mon, 22 Jun 2026 15:29:44 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wbgak-000000058Gh-06LC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Jun 2026 15:23:47 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 423921BCB;
-	Mon, 22 Jun 2026 08:23:37 -0700 (PDT)
-Received: from [10.57.95.184] (unknown [10.57.95.184])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C95833F62B;
-	Mon, 22 Jun 2026 08:23:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782141821; bh=yCffkQovzvs4v9GagD78FMN0QtZEotX8qJKYNIKpzL4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=OekL3WjSP4roVpk0NM4g4AfyI1Mp3kAZfJ4DR5wnNKyB1etrO85W4ZiPertDj+/B2
-	 Dc5Hl3twFRSBVPWwDYxvUz4Td/I0WT6eekJj7FJvdbw7z/Kc/BHAGOJuAD3JKsms9/
-	 KTclsJ1wUwoMh3qhKg9MY83YsxLPH1cdiO0mr4nI=
-Message-ID: <2deff570-0497-4438-94ba-a9691881a016@arm.com>
-Date: Mon, 22 Jun 2026 17:23:37 +0200
+	Mon, 22 Jun 2026 15:29:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1782142179;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=JZv8lf2HlFMbPq29wrkvMcL46ITw+rgkk0A4gwUgT7k=;
+	b=Ve7CaDdV6Y79JyAHW3MwStgv6eqVizn7mNiEFNbkG82lYPvo2syGs6/XGpy4hKnVOWGPHU
+	e+Ih2xBbEL3vJ1jaLNeKBH0nFGPzsjIttWsEi8jnGntW/qpWGprEK6QpJ3o2RsNOENIiMe
+	k7puCzE+uJ5tTkpGth1CtKDsN0/mcoQ=
+Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com
+ [209.85.160.198]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-249-yLfbJzkFOpyIABmB5ULuMQ-1; Mon, 22 Jun 2026 11:29:37 -0400
+X-MC-Unique: yLfbJzkFOpyIABmB5ULuMQ-1
+X-Mimecast-MFC-AGG-ID: yLfbJzkFOpyIABmB5ULuMQ_1782142177
+Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-517d766e05aso244261cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Jun 2026 08:29:37 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782142177; x=1782746977;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=JZv8lf2HlFMbPq29wrkvMcL46ITw+rgkk0A4gwUgT7k=;
+        b=Zt4buGG4ypFZoKUu1EFxCVnEEHAJ5c1umWqpE8/j+Fsfb8HEDac/OMO2qNISxwZsU1
+         pz2cH2t2a5UwRX3Ovnrvwg13OVc10dSHyuHnNyCPlK/ePPvMjZC22tx9524mtOgijbKe
+         4/BmO3c3soCnexLDWPWDRNek1JfrfGDLyFc57EjRcLq01xuNX3cz4Qj6HJJm38PwAINY
+         gt0mfTkSZK+2BwUjMwug1YLh40knV/3YgYURXsKFn/92tjoQ0Iuf6MH32peoqJtRRujl
+         atH+KT5+Qqc8xzNz736hdf/5gDESRZDDRbA3TR98nLZ8CN2OD8hRwjnHbgspKVtRg2O5
+         FGtA==
+X-Forwarded-Encrypted: i=1; AFNElJ8yS8QZacpLosps4X/rmCqAfyRVkZ+ihfasb161J09W0NrpB5dcVxZ1F0bXbQ9T5hjGM+jqSIabL3MFHWfsr6rN@lists.infradead.org
+X-Gm-Message-State: AOJu0YzdeyO1ohOSDIjOm3SsWtEAU2D+8sDAnVwFGmQP2R7rwhj1K/XI
+	3Sft/+phkvKpHcEVIOUuNaYn08ZLvRDVEwyeaMseFnFS8H8uwEfEPogGbwgx7iwE6wMbAThTFys
+	bjHBcLCpBVk86K8uhPSzrCKRyITlIyPGXHSeTbNc3GuUc0JWhyKlNlUTvM+nvB2sGAX9xWajQTw
+	VG9vgxv7BH
+X-Gm-Gg: AfdE7ckSdRNiYnZbAQe5lGPX9+7wJRSbWXQNqfYBjT5N43WFMZTovFPHC6S8gXGi8UR
+	yuf1anTxGtqDTGrQNiPiZyDl8FkwnDeLOyfwz1l98ynVzPqdsdeOJlZKW1LuqnF+aKwHP8pINlM
+	ICxz/2aGUurqAYjtOcb0BHoATOh+36Hfg+b9GP2Ihz4N31HtBVip9oBzk8CHkxFt2VT/yGLJAxh
+	H+lEB2xrwBiINUPSa5Klh9UzLfty28XG0WpCT9DQupym0Yfm+iEot6bvgtN+3bvQwN8rvJ92fAo
+	Y/b24+To+5opOaRI/nphJMbU495X5j4HaoabJBpYiq6exN6RUAF7rIgf8PXORjc3f282H6reOgd
+	C4VF6hEasHqRb3BEsB3O1iv9nWptf9+G75XcoE5hqi+Lp8w==
+X-Received: by 2002:a05:622a:946:20b0:517:2a93:474a with SMTP id d75a77b69052e-51a514b9349mr336121cf.0.1782142176782;
+        Mon, 22 Jun 2026 08:29:36 -0700 (PDT)
+X-Received: by 2002:a05:622a:946:20b0:517:2a93:474a with SMTP id d75a77b69052e-51a514b9349mr335711cf.0.1782142176280;
+        Mon, 22 Jun 2026 08:29:36 -0700 (PDT)
+Received: from redhat.com (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-51a0984da98sm70349361cf.15.2026.06.22.08.29.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 22 Jun 2026 08:29:35 -0700 (PDT)
+Date: Mon, 22 Jun 2026 11:29:32 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Linus Walleij <linusw@kernel.org>
+Cc: Russell King <linux@armlinux.org.uk>, Ulf Hansson <ulfh@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Christian Loehle <christian.loehle@arm.com>,
+	Lee Jones <lee@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
+	Lukasz Luba <lukasz.luba@arm.com>,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+	linux-pm@vger.kernel.org, linux-watchdog@vger.kernel.org,
+	linux-sound@vger.kernel.org, kernel test robot <lkp@intel.com>
+Subject: Re: [PATCH] mfd: db8500-prcmu: Fold dbx500 header into db8500
+Message-ID: <ajlU3AsNUeviLuj8@redhat.com>
+References: <20260619-mfd-prcmu-merge-headers-v1-1-8ea0ee23b4d6@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: mm: Defer read-only remap of data/bss linear alias
-To: Ard Biesheuvel <ardb+git@google.com>, linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org,
- Ard Biesheuvel <ardb@kernel.org>, Fuad Tabba <fuad.tabba@linux.dev>
-References: <20260619163940.3185308-2-ardb+git@google.com>
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20260619163940.3185308-2-ardb+git@google.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+In-Reply-To: <20260619-mfd-prcmu-merge-headers-v1-1-8ea0ee23b4d6@kernel.org>
+User-Agent: Mutt/2.3.2 (2026-04-26)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: Idx6yczEiEbRSulPhIt2D0Z15pzMXn9K7T0ByTfFJPI_1782142177
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260622_082345_785389_E751F487 
-X-CRM114-Status: GOOD (  25.25  )
+X-CRM114-CacheID: sfid-20260622_082942_141846_76E31048 
+X-CRM114-Status: GOOD (  16.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,77 +121,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/06/2026 18:39, Ard Biesheuvel wrote:
-> From: Ard Biesheuvel <ardb@kernel.org>
->
-> Fuad reports that in some cases, the KVM init code may apply relocations
-> to variables that reside in .data, and does so via the linear map. This
-> means that remapping .data read-only beforehand is a bad idea, and
-> results in an early boot crash.
->
-> These variables in .data are only present when CONFIG_NVHE_EL2_DEBUG or
-> CONFIG_NVHE_EL2_TRACING are enabled, which is why it was not spotted in
-> testing.
->
-> So move the remap to mark_rodata_ro(), which is a reasonable place to
-> put this, and ensures that it happens much later during the boot. It
-> also means that rodata=off is now taken into account, and so the linear
-> alias will remain writable in that case.
->
-> Cc: Fuad Tabba <fuad.tabba@linux.dev>
-> Fixes: f2ba877402e5 ("arm64: mm: Map the kernel data/bss read-only in the linear map")
-> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-> ---
->  arch/arm64/mm/mmu.c | 11 ++++++-----
->  1 file changed, 6 insertions(+), 5 deletions(-)
->
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index 9f354971b7e4..1f7eca86b5c1 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -1198,11 +1198,6 @@ static void __init map_mem(void)
->  		__map_memblock(start, end, pgprot_tagged(PAGE_KERNEL),
->  			       flags);
->  	}
-> -
-> -	/* Map the kernel data/bss read-only in the linear map */
-> -	__map_memblock(init_end, kernel_end, PAGE_KERNEL_RO, flags);
-> -	flush_tlb_kernel_range((unsigned long)lm_alias(__init_end),
-> -			       (unsigned long)lm_alias(__bss_stop));
->  }
->  
->  void mark_rodata_ro(void)
-> @@ -1221,6 +1216,12 @@ void mark_rodata_ro(void)
->  	update_mapping_prot(__pa_symbol(_text), (unsigned long)_text,
->  			    (unsigned long)_stext - (unsigned long)_text,
->  			    PAGE_KERNEL_RO);
-> +
-> +	/* Map the kernel data/bss read-only in the linear map */
-> +	update_mapping_prot(__pa_symbol(__init_end),
-> +			    (unsigned long)lm_alias(__init_end),
-> +			    (unsigned long)__bss_stop - (unsigned long)__init_end,
-> +			    PAGE_KERNEL_RO);
+On Fri, Jun 19, 2026 at 10:27:10PM +0200, Linus Walleij wrote:
+> Move the DBx500 PRCMU definitions into the DB8500 PRCMU
+> header and delete the wrapper header.
+> 
+> Convert users of simple PRCMU wrappers to call the DB8500 helpers
+> directly.
+> 
+> The dbx500-prcmu.h header was the result of an earlier attempt to
+> abstract several DBx5x SoC PRCMU units to use the same abstract
+> header. They are deleted from the kernel and this is not just
+> causing maintenance burden and build errors.
+> 
+> The stub code is using -ENOSYS in a way checkpatch complains about
+> so replace these with -EINVAL while we're at it.
+> 
+> Assisted-by: Codex:gpt-5-5
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes: https://lore.kernel.org/oe-kbuild-all/202606180825.vUSQntkJ-lkp@intel.com/
+> Signed-off-by: Linus Walleij <linusw@kernel.org>
 
-I was rather confused by this patch until I saw in master:
+For clk:
 
-f102131c842d Revert "arm64: mm: Unmap kernel data/bss entirely from the
-linear map"
-81479b6888f8 Revert "arm64: mm: Defer remap of linear alias of data/bss"
+Acked-by: Brian Masney <bmasney@redhat.com>
 
-... which explains the diff, but it looks like there are multiple issues
-here. Is my understanding correct that these reverts fix kvm_arm_init()
-because it needs to *read* from the linear map, while this new patch
-fixes some KVM configurations that need to *write* to the linear map?
-
-If so it might be good to give a recap in the commit message, because
-the reverts are easy to miss.
-
-It would also be good to explain why we can't do this in
-mark_linear_text_alias_ro() (presumably because this is too early). I do
-agree that honouring rodata=off is a good thing, though.
-
-BTW, if only kvm_arm_init() needs to read the data/bss via the linear
-map, maybe we can still unmap it later?
-
-- Kevin
 
