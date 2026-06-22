@@ -4,101 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 800C8CDB46F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 16:53:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE812CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 16:55:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w6dSGNMNY3+ZesnmZlBI1fLv0Njp9eIxZ3gGAGJvWuE=; b=a/De98xRfjNoXbNnRJG3L7dLST
-	t7CPnXwzcPzhDRy3CuUSHodaAQP/J9IFw5HsrISdEen/u6DZnaO4pM4/MUcgNrBC6TbTbhiFx8Mm/
-	iOQRxWDla7cjjQSsLxw2o6YZVsUYeokNPxY6dzgW4KZdqxCHe6jJrM+rqyQ6gqcn9yz22jyA/eFjs
-	g3K1rdPLxDS+5VMsQrBr1YhAFoQ9ebBAmJFyAtwb0Vg5JfGKKtXyzy4iDFqYnh/rcF2Bxh04DCIhb
-	UxmPPtqcqBh9YFj7rnaabRmS20oCml4wsaplueYt9IBWju4Ks+iVyd6FCbF6hMvqannnDkA0750yz
-	y8/HY4Hw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tkrUBunzzSd0lpNk16EVteU8HoOMNZNuJe8m7GqVJPA=; b=Fk60NuibexH8D+e48oT2ZZSKtA
+	lykHy1fqLV0yo4+r3AvVHjK2r5qSTn3CHAJRfl2a4em6KwaTC3c7ZIpDpyj1IbT7JcUe3NXY6MCAe
+	PIUNFfwYWnYsboii3u4RkVbRjQdLM1hlU4ndi226NB1hP2JifuoNhbmja/X/Ym35pKbprD/4wAGBQ
+	QSfFX1K1OP9AX5L3QZeiB8AKY/f4I7kcF++Hgv3LIeaM+hOuKG1U6sSvphnpdebM/t4MLKat3o5FT
+	NggN6fZ7dKhaDXz7As/KDJdmQmxedqxGKD0clYgIAasKDe948JKGcuJe3oDNKI1XUGChHWEeYGd8G
+	VTQKU8Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbhtL-00000005DNM-2f3U;
-	Mon, 22 Jun 2026 16:52:59 +0000
-Received: from mail-vk1-xa2e.google.com ([2607:f8b0:4864:20::a2e])
+	id 1wbhvT-00000005DmO-1VTt;
+	Mon, 22 Jun 2026 16:55:11 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbhtI-00000005DM8-3Eic
+	id 1wbhvR-00000005DmD-48kB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Jun 2026 16:52:58 +0000
-Received: by mail-vk1-xa2e.google.com with SMTP id 71dfb90a1353d-59ccf81e74bso1753016e0c.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Jun 2026 09:52:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1782147175; x=1782751975; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=w6dSGNMNY3+ZesnmZlBI1fLv0Njp9eIxZ3gGAGJvWuE=;
-        b=Ok8rqyYDNULSVIm5CeTnY5dWgNGZf1oEj3lgpqAtMOt7jQBAzMSJO2hJHuF9JZpRQL
-         Vs37Z1lBVz+5qjC5bh8bJRyBQaXxNXs30fEOw1pRCDZF8t01Txn2H2qVHksIy4wpEKfe
-         gbY8d6Uu9cbZ10dqxQlNrI1SyrGhEBpT+u/w8=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782147175; x=1782751975;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=w6dSGNMNY3+ZesnmZlBI1fLv0Njp9eIxZ3gGAGJvWuE=;
-        b=IiJDN7HvEdT9JMTdOB7iuTuqMlrAe4D3VEFUWnwHb83yqrBso3EDgcuhGf7H4S+mgg
-         oCzjVoWAp02nBVGd9QYrELgxM/yLscgONXz5yT6rbS+ro7iwYDOBfqAdHsbjPqbQNRh1
-         eV6QUoHT4u7gryYXr21QE6hTknUanngoZQKSXJcjlUwIYWKpg40boez56XwzC4O+f3UC
-         VUOLhZ75ibIk1NwZ3+apZPXI9iPMW8nIq82txAMZ1CekNQk+kMe4Kesv7vzamF7pQG55
-         hIuVQbKFYpAgVIJqzWVpEw7AJ2tQvwUOZvh5LihK9Qvb9c8IGblRaARFDpDT4F2IzT1f
-         ytnw==
-X-Forwarded-Encrypted: i=1; AFNElJ9TEo6vdz8+w+2Z0VtAxnADdkxNgC/DieqATiWFxtt9I3QFCL7YuzmFMMnjx3hjHIt+jLfErOoHUehE8//RmUzt@lists.infradead.org
-X-Gm-Message-State: AOJu0YyjptGs3tYAzJkin1HEo9qKPfV0Rs6JyGDROCXHsxdboFmJi8U+
-	y1m/wd0lpcnjKiHjL1KXV2QLc29p6XxR3vJRYv82pefpgf3sjaj0byUb/q6ppI4LC7wkzCVEnm8
-	2v1E=
-X-Gm-Gg: AfdE7cmf9gKuBOSIdBUzjq5FH4j+KCLH8FXasUAUGf0xvquP7mfPl3bI6Rfk7ez33sq
-	7kD1wof6oCUoKJtkJJYOYo45vK1DN8za9yh0+dNaKYMkSXjPHjzLU4HmKeDA27a9bWj+1T0hZyn
-	I8r4yac61WmrJrZX2w3aL1xqnCJYChLmlU+s2MvVIB6xBkOzeUgv1HOhg93ssxd7l4FBnO++152
-	4uFNOnd2Wrw0I53rfW4UY1TPlwa4GRvWmeJ7OTj9oexJv7wtFotSJSfrQfCD82OTfqZtjZn1Nli
-	85m+nQmYWO0Nvv8928MkrPvL7XRMd+zib3jx58yChuFZkKpEDm9yAvQIO+/854opsZkJRjJQwsx
-	57Chd6nfv7LufWVHYUh9gyrSa+tREYlgK9x+RwS/hzyXa5poFAP/Zk3GpjgxUpPTd8+j42I0NNu
-	K2cbxrzvlxP03392kf2j92CZtb4BYKg4pb3YwOEEVX1zuVDiYhz+4=
-X-Received: by 2002:a05:6102:5491:b0:720:81d5:92dd with SMTP id ada2fe7eead31-72a78a86867mr7351508137.22.1782147174787;
-        Mon, 22 Jun 2026 09:52:54 -0700 (PDT)
-Received: from mail-ua1-f50.google.com (mail-ua1-f50.google.com. [209.85.222.50])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-9670c0e9590sm6933949241.3.2026.06.22.09.52.52
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 22 Jun 2026 09:52:52 -0700 (PDT)
-Received: by mail-ua1-f50.google.com with SMTP id a1e0cc1a2514c-966f003be09so970380241.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Jun 2026 09:52:52 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ+nFZqLh15KoMGZlBo32Oid/2kPyDDrD8LWmo8+3XpCa7fPUHdQ6L2qCI9OBFLGk/ySWOkC53TIMXb/j6XFzv33@lists.infradead.org
-X-Received: by 2002:a05:6102:f88:b0:636:46ee:2f0b with SMTP id
- ada2fe7eead31-72a768114c3mr7575649137.12.1782147171526; Mon, 22 Jun 2026
- 09:52:51 -0700 (PDT)
+	Mon, 22 Jun 2026 16:55:10 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B85E3417EA;
+	Mon, 22 Jun 2026 16:55:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D3F51F000E9;
+	Mon, 22 Jun 2026 16:55:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782147309;
+	bh=tkrUBunzzSd0lpNk16EVteU8HoOMNZNuJe8m7GqVJPA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Zx4jUC0aWCq9VEBJoN0kOOYcuNOKSkjJSz+tdDvzkInO8/80PWmPij3R6QgCfsqJA
+	 Ks+EYHJ2O+Idv5Oydi4cbp6Qq2+eowtNM3er63+S+6oUoAJfF4agBpyZU3i+PAvTGK
+	 eiwCTwJslDKypU2fvhBUL0rKyUA+CRnjyzkXCNqyjtdETxDlJIMmJfJMFKXGUbX/XB
+	 Cvrff97ZJ5ppUCNUOuQIYsUEihP9KZduCey39sBUCp9G1Qn285RDMJHjJqEjUi0i4U
+	 ERu5PkCov6Dtbb6QmTDloCC60FozrSeBxYOvf76gCS/TPR8BpGPvj5j325lbBbUbrY
+	 WRSuhKLQ9d9Ng==
+Date: Mon, 22 Jun 2026 09:55:08 -0700
+From: Oliver Upton <oupton@kernel.org>
+To: Alexandru Elisei <alexandru.elisei@arm.com>
+Cc: will@kernel.org, julien.thierry.kdev@gmail.com, maz@kernel.org,
+	jean-philippe.brucker@arm.com, andre.przywara@arm.com,
+	suzuki.poulose@arm.com, kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+Subject: Re: [PATCH kvmtool v2 7/7] arm64: Improve KVM_ARM_VCPU_PMU_V3_CTRL
+ diagnostics
+Message-ID: <ajlo7Arpi7XrGjFs@kernel.org>
+References: <20260618155001.226266-1-alexandru.elisei@arm.com>
+ <20260618155001.226266-8-alexandru.elisei@arm.com>
+ <ajRBpMnlcNkhWzQL@kernel.org>
+ <ajj6oGxytFm2NE4T@raptor>
 MIME-Version: 1.0
-References: <cover.1781709543.git.kas@kernel.org> <ajVLeseWOZn0XXY2@arm.com>
- <868q8asj1u.wl-maz@kernel.org> <ajk-Vge2qhaY-TwJ@thinkstation>
-In-Reply-To: <ajk-Vge2qhaY-TwJ@thinkstation>
-From: Doug Anderson <dianders@chromium.org>
-Date: Mon, 22 Jun 2026 09:52:40 -0700
-X-Gmail-Original-Message-ID: <CAD=FV=UTcL1NVkvR8Fw_BXvHHk-vBtLSGoJrU-RFSt0yvGUjxA@mail.gmail.com>
-X-Gm-Features: AVVi8CfGHrJjtsTwjSYF25Ig4REGll-mWwkEm8aTUXbr2Wvoj2jvWteIYcEcXB8
-Message-ID: <CAD=FV=UTcL1NVkvR8Fw_BXvHHk-vBtLSGoJrU-RFSt0yvGUjxA@mail.gmail.com>
-Subject: Re: [PATCH v4 0/4] arm64: cross-CPU NMI via SDEI
-To: Kiryl Shutsemau <kirill@shutemov.name>
-Cc: Marc Zyngier <maz@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Petr Mladek <pmladek@suse.com>, 
-	Thomas Gleixner <tglx@linutronix.de>, Andrew Morton <akpm@linux-foundation.org>, 
-	Baoquan He <bhe@redhat.com>, Puranjay Mohan <puranjay@kernel.org>, Usama Arif <usama.arif@linux.dev>, 
-	Breno Leitao <leitao@debian.org>, Julien Thierry <julien.thierry.kdev@gmail.com>, 
-	Lecopzer Chen <lecopzer@gmail.com>, Sumit Garg <sumit.garg@kernel.org>, kernel-team@meta.com, 
-	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260622_095256_863499_86684CB0 
-X-CRM114-Status: GOOD (  26.30  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ajj6oGxytFm2NE4T@raptor>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,64 +74,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Mon, Jun 22, 2026 at 10:04:32AM +0100, Alexandru Elisei wrote:
+> Hi Oliver,
+> 
+> On Thu, Jun 18, 2026 at 12:06:12PM -0700, Oliver Upton wrote:
+> > The whole if (ret) die_perror(...) thing is a bit repetetive IMO. A
+> > treewide cleanup replacing this with macros would be nice, then you could
+> > stringize the ioctl under the hood.
+> 
+> Thank you for having a look, that's a great idea, it will avoid out of bounds
+> array access if KVM gets a new PMU ioctl and the name array is not updated at
+> the same time - that's quite possible since ioctl numbers are pulled by running
+> update_headers.sh, and the dependency is not obvious.
+> 
+> I think the compilation errors are a bit higher priority than this, and a
+> treewide change would more involved, possibly involving a change in behaviour
+> (the gic seems to propagate the error instead of calling die_perror(), for
+> example), would you mind if for this series I'll only introduce the macro for
+> the pmu and convert the rest of the code in a separate series?
 
-On Mon, Jun 22, 2026 at 6:56=E2=80=AFAM Kiryl Shutsemau <kirill@shutemov.na=
-me> wrote:
->
-> The ratio is flat across the whole 1-to-72 sweep, so -- relevant to the
-> scalability question -- it's a constant per-syscall tax, not a contention
-> effect. The impact tracks syscall/exception density: page_fault1, a more
-> realistic workload, stays within ~5%.
+Fine by me, thanks Alex :)
 
-FWIW, I'm not sure 5% is truly a "realistic" measure of the overhead
-here. While it cannot be denied that pseudo-NMI has some overhead,
-every time I've seen someone study it in "real world" scenarios it
-ends up being fairly negligible. Not zero, mind you. ...but some
-amount below 1%.  ...and by this, I mean put real-world workloads on a
-system with pseudo NMI enabled and pick your favorite metric. Perhaps
-measure the amount of work completed in a given time. I dunno if this
-is possible for you to do in this case.
-
-
-> > The direction of travel is to deprecate SDEI. I wouldn't add more stuff
-> > on top of this interface.
->
-> I understand FEAT_NMI is the long-term answer, and I'm not arguing agains=
-t
-> deprecating SDEI. My concern is the gap in between. By our estimate it's
-> 10+ years before the last non-FEAT_NMI machine retires from the fleet --
-> for scale, we're still running Skylake today. So there's roughly a
-> decade where a large installed base has neither FEAT_NMI nor affordable
-> pseudo-NMI, and no way to reach a DAIF-masked CPU for an all-CPU
-> backtrace or to capture a wedged CPU in a crash dump. That's the
-> functional gap this series tries to cover.
->
-> Given the deprecation direction, I deliberately kept the SDEI footprint a=
-s
-> small as I could. The series adds no new firmware interface and no vendor
-> SMC -- it uses only the standard software-signalled event (event 0) via
-> SDEI_EVENT_SIGNAL, which is already present on these systems for
-> firmware-first RAS (APEI/GHES). And SDEI is only ever invoked in a "bad
-> state": to deliver a backtrace signal to a CPU that a normal IPI can't
-> reach, or to stop a CPU that ignored the stop IPIs. Nothing on any hot or
-> steady-state path touches it.
->
-> If even that minimal use is unacceptable on a deprecated interface, I'd
-> rather know now and redirect the effort -- but I'd appreciate a pointer t=
-o
-> what should cover this gap for existing silicon in the meantime.
-
-FWIW, despite the fact that pseudo-NMI (in my experience) ends up
-being mostly negligible, personally I'd be in favor of landing Kiryl's
-patches. I dunno how many times I've had the discussion of pseudo-NMI
-overhead over the years and it's certainly very easy to show that
-there is _some_ overhead and that in pathological cases there is a lot
-of overhead. As Kiryl says, the patches don't add a ton of extra
-complexity and they even combine some of the stop/crash-stop code,
-which is nice. Having them as a stop-gap until true NMI is available
-seems nice to me. ...of course, I'm not an ARM maintainer, so it's
-obviously not up to me. :-)
-
--Doug
+Best,
+Oliver
 
