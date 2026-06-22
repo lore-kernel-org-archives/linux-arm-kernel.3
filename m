@@ -4,96 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ABF8CDB46B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 09:56:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B636CDB46B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 10:02:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P0E0JBlSRaUIEWVL2hII2Z9BSAc+EUsy9g19G1CKGLw=; b=CDCutiwcgEHzmzyhLxBtqrNtKd
-	nQHT5mfiz3wk6rx5zzMVcBE0Ro21sEIdIfZP7Gta7rFbCWUHxj+VEIn+84XoZzl89GuLvGQLmYg+N
-	+EzGZbWcGn1E7+6Scv6tSDj6n68ZBpXVgqKwe/gzk3DM9cO6YzNYcB848Ajf6CuRxJkbqq0az5mwg
-	bZUo1TYMkEA4WLjCq4ZSmrd067L4AemR6w3tRVjyIvGFWiIASFeTB6Gf4ZNgRhFCytbDiSjV985/l
-	0FxjH2S//k4vWVkutpwahHuVtUUtdWcn4TLMeGfZZ55IkfaByU/3kh2m4kjVtcKooKaKfIgDLw7yy
-	HCYJT+rQ==;
+	bh=ogGOxnJk3KR/bX75jN7D4WY6r2fkYbCdNtHYLbjUBEk=; b=b95UT6ycerNS+5fQ0hRMX0svbZ
+	FxIUt3l6BrJ1j9aful5K6aEY26WGrirPgJfH1khb2CH1kqbzAlRVhAtgCo6HPmwByrbIcWmigvS29
+	cvkKWq69/uPHDWpWHq8Y4gU1uTeQOnKhEpwK5NLezBbv6nt6brvqRythTr7KGR8S60oNzCDYUff7v
+	5wLO4mpGixnUMFkcwcgbcDdI9LarSr5DUncWM0QyAnGu9bQczp+XOpZbZnT9qeB5TB75pYgx5oTSf
+	jacSzxu+VpAqdr45Cv2ci8Pbew+Fln4bKhtW93/FMn1MZy5keT1USV5qKG/J21kpScFRG5yN0pwta
+	3W0tFyRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbbNq-00000004nBr-2jMB;
-	Mon, 22 Jun 2026 09:56:02 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1wbbU6-00000004nXX-1GDo;
+	Mon, 22 Jun 2026 10:02:30 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbbNl-00000004nBX-3xFz
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Jun 2026 09:56:01 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-490b613a17bso33948785e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Jun 2026 02:55:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782122154; x=1782726954; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=P0E0JBlSRaUIEWVL2hII2Z9BSAc+EUsy9g19G1CKGLw=;
-        b=F2w0ZAFdT8x1M9FkykepmltF/dEbEOfeIkom8c8tTt7oxpinoPL9AWEHJOhI0k/kFJ
-         w0rvyLKyuyLLWaTX5ww14Xb99YQG4a9EW6bU/tmHE7L/cafhgd+zr7LKOXKZ4Zpy4hO0
-         /p/rI0JIiPPtr98/2scMa6r0oNUZwHywfZFj2QLGq/GdpPHM/EmFITARnrVF3eNcElcc
-         /y55A9geHwjWWvWWOsw+IO6f9GR1dzcwwlo5xuvJhtSwmmACZy2N2SnJ+3hR2yOJ0Gvj
-         h9/Bu80ulCctT4zzbbGF4duqcm4WA4OAFoqiKc6UyfdZPLRTxkXqhgZZ5FRGha/TOlGH
-         ib8g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782122154; x=1782726954;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=P0E0JBlSRaUIEWVL2hII2Z9BSAc+EUsy9g19G1CKGLw=;
-        b=O8WfGw3lGYrGa7xomYUM9Zwi0FIOWbCSPL0yNMEmtWZkh43Wl+eeh66N3GAzni9TOa
-         Ey3Xi8GA07+mKyEgcm8oAFbkgbbjI98oJoqJY63SWolfh27zmfo9sWjxR2m279/xV/yR
-         S26e3bkEZOd8vlk8QivCbMXOInrRiC/4Vx2Cp1yHuX4y55uhBorvJe0b+NDgX/bVtILD
-         Ifmy2yj5rWPZCOkDXahS4caFduCYfUFVuNWUChS7SzSTy6oqU7BURk4+gJFlxJb8PxxO
-         5Iy1cchvvopVJuwBYUmHBxwjf5UH9ujNS04qhDCVDAiuG0rFRIYc6tp6RyO/Dv0bv45s
-         leRg==
-X-Forwarded-Encrypted: i=1; AFNElJ/DF65jRtnGzCNP15FtewOW1f93IlqdJFp/Wvd5wN2e8/XoLY5wid9LMKwpTC1ZUCq1Vo+3ISPQgy8J5+Se2iTb@lists.infradead.org
-X-Gm-Message-State: AOJu0YzM7+hOJ1J7/PsE/EumznLlNS4zMP3eEQWq22OeV1R0g0732yYi
-	BnW20quBDXKQ5lQgDZaFb4ssIwCBI2QHHBv+LzGNE+5K4c0deeRQQ9JF
-X-Gm-Gg: AfdE7clp5G79IsQYzCxmyaJU2xmi62vJszliAWmhoIGPp7wexDfIdPfBE0IEocKqpAb
-	3TGP1liCSw54OTHBpgMlC6VkEYL4KtmFvauvhRPoPuEhKE5tWx33ElW6wNkHocRfDKRY+cfL9Tz
-	JYFCL4eNXTUWGKSAk6PlgSNJBrtXYZRdzw7OnOsMSzVKZ61OGhKFt4ufy+zRlx9Letc+6W5pdIe
-	VDO7oB3qD2hwfGKdimIeO88OFBOjxM7f6rvvRQn1gtoVxv5ceKmFjuBukLX0vS3AzDgmN8dNKUe
-	x/2kuUaGd+QWdc+g2aau6W8zSZFhdud1u/49ESSyL7j+mhkioI5yQrEDb24PC1LkJIvJPHLy5rm
-	Af/ezpOfYvMX/M8I38mJUq9AkASLJJ4fgHj4cH2sjtmf167tonbylFmfDdKU/G2kxRmLAcU/8Zl
-	yQyiG/hKv5mN4/P9PVNdyf8DA6engTtdpNY800aZV62SLrMzZIEBIEX9YOGBQwsKY+g6W7qthGz
-	WcH1XWZo7+z2PKVzgD1HME7D+Ws50LsBP8iq9yruSIXtQF4rs9ATx/bt0tA3xxiKQCTpv9KgJuN
-	LGT/om4GtrFC3HDx+D1T0IzpZBxg2GSHbtyuokTyp8ayF14IEFeWAnQ=
-X-Received: by 2002:a05:600c:6288:b0:490:e18f:d108 with SMTP id 5b1f17b1804b1-492490a7778mr137140915e9.19.1782122154243;
-        Mon, 22 Jun 2026 02:55:54 -0700 (PDT)
-Received: from localhost (90-182-112-124.rcp.o2.cz. [90.182.112.124])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4923fd15535sm313817465e9.3.2026.06.22.02.55.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 22 Jun 2026 02:55:53 -0700 (PDT)
-Date: Mon, 22 Jun 2026 11:55:54 +0200
-From: Joshua Crofts <joshua.crofts1@gmail.com>
-To: Petar Stepanovic <pstepanovic@axiado.com>
-Cc: Akhila Kavi <akavi@axiado.com>, Prasad Bolisetty
- <pbolisetty@axiado.com>, Jonathan Cameron <jic23@kernel.org>, David Lechner
- <dlechner@baylibre.com>, Nuno =?ISO-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
- Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Harshit
- Shah <hshah@axiado.com>, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/2] iio: adc: add Axiado SARADC driver
-Message-ID: <20260622115554.000036a9@gmail.com>
-In-Reply-To: <20260622-axiado-ax3000-ax3005-saradc-v3-2-e57c7c7ae675@axiado.com>
-References: <20260622-axiado-ax3000-ax3005-saradc-v3-0-e57c7c7ae675@axiado.com>
-	<20260622-axiado-ax3000-ax3005-saradc-v3-2-e57c7c7ae675@axiado.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
+	id 1wbbU4-00000004nX8-0zjl;
+	Mon, 22 Jun 2026 10:02:28 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 91DBD40C2F;
+	Mon, 22 Jun 2026 10:02:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8872F1F00A3A;
+	Mon, 22 Jun 2026 10:02:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782122547;
+	bh=ogGOxnJk3KR/bX75jN7D4WY6r2fkYbCdNtHYLbjUBEk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=RuU21bDvD4zmuAag0rX45fLaeGE0rdORK1zDEZ4mzlk5cSClE+YuyCL2b7tuMxSfS
+	 RTWAzxS+Kja4TXEk0BedLZ1iocmvCtYZU22iOIgQmPBH1rgRk0Hx11VZardAoRUj/1
+	 P2h0OGQ3eqH+kNtx2HVOpt4bUVvQOz7CNwDsr0yYbRIJKR0XMjri7AK1LRElPi6Rbn
+	 vROH4ZGLhmRSkwrDE5EiFogmPCiJBft9rU9MozczaW2tlMVryZA4eW3NNq6y5vDw3G
+	 u9fVdl6w+OkKMKchmKb4r+EfaZTCazjChwyod8Tg6R0CtjKO0BLyYU/kdfKoQ1bQAb
+	 zWhuOXOnm3dUQ==
+Message-ID: <2e2a93c7-6bf9-49f2-95ed-f44cf767e9fd@kernel.org>
+Date: Mon, 22 Jun 2026 12:02:18 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 1/8] dt-bindings: thermal: amlogic: Add support for T7
+To: linux-kernel-dev@aliel.fr, Guillaume La Roque <glaroque@baylibre.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
+ Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-pm@vger.kernel.org, linux-amlogic@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ Conor Dooley <conor.dooley@microchip.com>
+References: <20260424-add-thermal-t7-vim4-v5-0-9040ca36afe2@aliel.fr>
+ <20260424-add-thermal-t7-vim4-v5-1-9040ca36afe2@aliel.fr>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20260424-add-thermal-t7-vim4-v5-1-9040ca36afe2@aliel.fr>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260622_025559_754934_587FB7B4 
-X-CRM114-Status: GOOD (  17.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,37 +122,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 22 Jun 2026 00:47:28 -0700
-Petar Stepanovic <pstepanovic@axiado.com> wrote:
+On 24/04/2026 17:45, Ronald Claveau via B4 Relay wrote:
+> +  - |
+> +    temperature-sensor@20000 {
+> +        compatible = "amlogic,t7-thermal";
+> +        reg = <0x0 0x20000 0x0 0x50>;
+> +        interrupts = <GIC_SPI 31 IRQ_TYPE_LEVEL_HIGH>;
 
-> Add support for the SARADC controller found on Axiado AX3000 and
-> AX3005 SoCs.
-> 
-> The driver supports single-shot voltage reads through the IIO
-> subsystem. The number of available input channels is selected from
-> the SoC match data, allowing AX3000 and AX3005 variants to use the
-> same driver.
-> 
-> Signed-off-by: Petar Stepanovic <pstepanovic@axiado.com>
-> ---
-> +	info->clk_rate = clk_get_rate(info->clk);
-> +	if (!info->clk_rate)
-> +		return dev_err_probe(dev, -EINVAL, "invalid clock rate\n");
-> +
-> +	ret = devm_regulator_get_enable_read_voltage(dev, "vref");
-> +	if (ret < 0)
-> +		return dev_err_probe(dev, info->vref_uV,
-> +				     "failed to get vref voltage\n");
 
-Sashiko raised an issue that I've missed on previous reads - why
-are you using info->vref_uV in dev_err_probe()? The info struct
-is not zeroed out on initialization, which means that dev_err_probe
-will return a different value each time when read_voltage() fails.
-It was designed to accept the retval from whatever function we're
-checking. 
+This wasn't ever even built! Really, it fails immediately. I will send
+fixes, but quite disappointing that contributor does not test its own code.-
 
--- 
-Kind regards
-
-CJD
+Best regards,
+Krzysztof
 
