@@ -4,92 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E52C5CDB466
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 00:56:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA140CDB466
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 00:58:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vca/CKDASMzwEknu94jkYwLr91umSwU/eeXq3GdHWUE=; b=ONuy44bfJg8Eprliq5lZGbn0uL
-	5rmY3jO4bBHmlW00YAX7xRw3cU5Jx9F15sPkW05S6FCFGojXkJRDIs06tq8JEQjJY1K4KGpOAdGDR
-	xv4vQOzwRy7Z3bT/p++iYoss1kGzd6l6wu7Yt/xYyd3uCWbJBbYmGPFPIWxoYKW+ITjfCeyctW83B
-	zDXoryXLWvE9aX3t/dxzj4uQSxaEpaUCU0JFhuQVmcOirFDvNiwO9CJqlmyeaVoTcgCt1rdJ/IvG+
-	icpjZbPs812VDF22BAKx1Yrfmvaz2ExHyXJsb1ZIYOv485wRNpqqWwG803S0DfjrVg+tJ7bYyi/Cx
-	LMp7qocA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YaGyQ9yh8csbwApDJxSVr9q03p5Lu/Ktj4l8kTToqMA=; b=C2Z22LdcQO/T/9wdoQTGhRQHgH
+	LAq211eMVJ0uq0pC2o6I2clCFxfR4WhiT77ZFJcuFs7l6QK3U3yjFQO4sRUSht6c+akAWEF2abhnk
+	d53VJic1+hYTB7qJpBKvRP6PepCkRbu3tDpgBdP+oTyXs9gYqewA+ou0ZrmSHZRjz1T2vWMSfblR3
+	SwRZ0pW2KkJ5SyMCDhknEyoLTZsza8/Us5VqHgLiUpRoK8tLNppitMC1vrnIv4uwwB/rpl+ZvcBnr
+	5U3Yo9yvaJsH0FdW4LiXApAUOAzGEeCtF/9l5imzcVYGIqvxGsynmD2k3TDqaTDessR/yfy76r7bj
+	ijuaRdTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbSxp-00000004G37-1Zlx;
-	Mon, 22 Jun 2026 00:56:37 +0000
-Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
+	id 1wbSzq-00000004GD7-34oL;
+	Mon, 22 Jun 2026 00:58:42 +0000
+Received: from mail-westus2azon11010017.outbound.protection.outlook.com ([52.101.46.17] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbSxm-00000004G2R-2txf
+	id 1wbSzo-00000004GCk-1k8z
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Jun 2026 00:56:36 +0000
-Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-37c6cd1ac98so3325820a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 21 Jun 2026 17:56:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782089793; x=1782694593; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=vca/CKDASMzwEknu94jkYwLr91umSwU/eeXq3GdHWUE=;
-        b=ToKLPfU30MrnN1E2zQJit7c36bE3o6q50TswbNpfHziSytbtyUG/1+FDB0qPXPBNf/
-         ARSurhl1DK+DlKAwu9k04F3vX7DPIOf5klCLBc9h+WSzs3fZTwfsc101lsUI+2B2qgcy
-         U6kFXLkPfH+bHT/YsL7Vbg68mRM9Q6mNIxkrvNqTgd2LAT9+dovaaOWwBHAsXSXFSr2X
-         XDYnVgxHIa06+iVDk5IT4QuKm0zRwfFL7GuwOX0x9y0V/VeUMFkM0jp3btSELvPolHxB
-         xK1FAX5vXPvE0n6bXxFYgUDkwspTrAIjoAO6p4wEaw/YtoQCNqYlpd8iAKZGunrHtIGO
-         w+kA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782089793; x=1782694593;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vca/CKDASMzwEknu94jkYwLr91umSwU/eeXq3GdHWUE=;
-        b=ck9aa1Bsn0u7MmUw+qC9y6EQw3eu90xvmbdflrwuCOhzNBbSkYatYcoM87ngEMQYmd
-         m/c68AFcp4Iu3kTZWZ13xijpDRDch68ZDJSilnFCeC41c+YohzJcG8TV4rNedUGeqVj3
-         jVuROtJloapPLRu3UdrTbb8VZBV0mjZPE3J8OytDD8tt28WS6L0Zf1qvprFnoEDmcFt1
-         VhR5GtrGDWpewt5PTZSCJNOQlinq8EweR21rkGvHt80cN8/hTI4KbeRaOJ1CdXmiIYTV
-         Mqo6hg9zMytsrh9DqRZJLh/3CJqRIoSugJRtm1TtEU17C8tcA24cLtKd3J1sIvOOHFm8
-         tLhA==
-X-Forwarded-Encrypted: i=1; AHgh+RrQDQkMsm6nezbKhJvg9kQ8bLwyEVPY1nPkN064rjqlvqfMS67MPyFLtGZYP6yQ9c7Buqw8x2lz88rmCZOIUl1R@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw1GNgycB4tiPocB9uG8qNtMVD/8srj+LkN3LsyvUmX43VECU0Z
-	XGSGJjNq8nftyhsZOwIMxilAvdlY/tKHkeT+piQ83UhQ+fcvvWRuSESUU5FLJA==
-X-Gm-Gg: AfdE7clXFuqe/DDt6QtlQ+b5gUj6MMZ+h0F65jGbJmpHBtbjeHkrYuhf8MFgCTG1QJn
-	GHOrQGrNOGvNP0XtJzYIR0QcpoABoGx4KqksQEw42CrjtkzVHaq+AwkXKmk82328OOiDopah8cl
-	BeYvjjRj+dUKV+qFY6DYnSAqO5RPvrmE38jibESgOx8pyxxMhXgIJbQ7FRz9eThUTk5FDTJ1Zpu
-	i3RlRtFi+ss9aa2lnmJjWl/P99IKY/oyhNoBdVByOZkjNvnfrsYX/0bnjMFtoEtmbvguFUo1Fzh
-	PuPGnbbi3alqTQLywvaBZDcSMS3LyFKNUIcTD4/A5xsdwX2NlNzcUMSIU55TwcSh4VI8U1Z5mIj
-	kFtezpDbSu9QbQJPU0I2kUnYivoaNoL1uNrHFIc0nikbfJJPftO/wLc0V5DtN5QDtgYrpBFIhoL
-	I0+6bDHNnljJIhdv+g0THWdiYgPyMlLmngywhNXhv+eA0Kf/Y=
-X-Received: by 2002:a17:90b:1d4c:b0:36d:ae6a:22f4 with SMTP id 98e67ed59e1d1-37d1e8c9b8fmr11813445a91.15.1782089793457;
-        Sun, 21 Jun 2026 17:56:33 -0700 (PDT)
-Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c8bc2c8d829sm5441326a12.1.2026.06.21.17.56.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 21 Jun 2026 17:56:33 -0700 (PDT)
-From: phucduc.bui@gmail.com
-To: Heiko Stuebner <heiko@sntech.de>,
-	Mark Brown <broonie@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>
-Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	linux-sound@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH] ASoC: rockchip: rockchip_sai: Hand over hclk control exclusively to Runtime PM
-Date: Mon, 22 Jun 2026 07:56:13 +0700
-Message-ID: <20260622005613.21870-1-phucduc.bui@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Mon, 22 Jun 2026 00:58:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=vMAqy/0MFsA2psc6ReWgWqyzA8l3jj0ISXznOvxaHg2/H9uBkHnybw88v0Wt/M5nJUZXNMAhzHPCglo8/ZJTnYeZCNZyCVL/NfYg8aY17Y9XlyTONxNXDq5R+I6H7bvHS47ISupe7yV+qL/e/lLeM9fU01zNjfW6qKhLgMzqiOQ8pib0dcs7aD6NqLakhE310fO0VLfLFhH415JWgBcI/rxy+fd5iKfazcOuX4V3GdfMPOWHBZOmzakt4DJwsucSHZ38okGzjOLdtd9nlBrN8ubjX5/F46tf7McNlyGJwfkSzGOLyQK0oCXnnMNp5As/+L5K/EKAyHxZACT62dDLHg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=YaGyQ9yh8csbwApDJxSVr9q03p5Lu/Ktj4l8kTToqMA=;
+ b=G7Hlsp5f3wHDcr8FnKcEYsB70y/LV6s/Y8EM0JsrrUuQNS5y7gm4AfbCU0CnwzxSMNnH8NXjq0m22ppw2VsMFaGDZmlzaSNN4J8p5mPU2QRERXFY1RfDwVTrhjJl62KAWF+BnxpNLOgY6IPzfWqHNi6ylihMnyzFl3lz4ZXJpcdjBPXiWTWj5GDWAbhSUgw6//HXNihbgwj25YQrP4Ndupmpc3INk4s50LtnpxgmgxTDmN986OF3rEHODGy05Z9hS8Y75ZpdDsw/d5GBxmwqSx32YokIBsU7ysYA1VyUpoqRvzRTze4eOKT2UN97NADLI08o19X/Vpt1usy4Gl/WMA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=YaGyQ9yh8csbwApDJxSVr9q03p5Lu/Ktj4l8kTToqMA=;
+ b=rrRfZOxZ/w4HP2kJoN3LIjfMGeisZjIbWMzF1bTr40Hr68H/5gU/oRToK1Qz+CFA0231FXnOa6FfCNrDzpavekcy7qnVLA7xjjaoDhSzp96E5BO+m7tiCCRUathASNumfzR7NfT34qLX2Nntt02T9Q7Qr8GrbelMz5JXGu2ruG0=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from SA1PR12MB999228.namprd12.prod.outlook.com
+ (2603:10b6:806:4db::10) by SJ2PR12MB9161.namprd12.prod.outlook.com
+ (2603:10b6:a03:566::20) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.18; Mon, 22 Jun
+ 2026 00:58:32 +0000
+Received: from SA1PR12MB999228.namprd12.prod.outlook.com
+ ([fe80::4dba:119e:8e7c:37b3]) by SA1PR12MB999228.namprd12.prod.outlook.com
+ ([fe80::4dba:119e:8e7c:37b3%4]) with mapi id 15.21.0113.015; Mon, 22 Jun 2026
+ 00:58:32 +0000
+Message-ID: <9f20ce61-1edd-411e-a7c3-be541fb89cb4@amd.com>
+Date: Mon, 22 Jun 2026 10:58:23 +1000
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 00/20] dma-mapping: Use DMA_ATTR_CC_SHARED through
+ direct, pool and swiotlb paths
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, iommu@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-coco@lists.linux.dev, Robin Murphy <robin.murphy@arm.com>,
+ Marek Szyprowski <m.szyprowski@samsung.com>, Will Deacon <will@kernel.org>,
+ Marc Zyngier <maz@kernel.org>, Steven Price <steven.price@arm.com>,
+ Suzuki K Poulose <Suzuki.Poulose@arm.com>, Jiri Pirko <jiri@resnulli.us>,
+ Mostafa Saleh <smostafa@google.com>, Petr Tesarik <ptesarik@suse.com>,
+ Dan Williams <dan.j.williams@intel.com>, Xu Yilun
+ <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
+ linux-s390@vger.kernel.org, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
+References: <20260604083959.1265923-1-aneesh.kumar@kernel.org>
+ <aigYbK12D8uKQvJF@arm.com> <20260609144746.GL2764304@ziepe.ca>
+ <2ecfa1a8-6202-4319-9692-a6ffeb5a3dbf@amd.com> <yq5aqzm4dz25.fsf@kernel.org>
+ <20260618153705.GH231643@ziepe.ca>
+ <d4ef9a9f-18d9-40e1-9d02-87aeb9cb6540@amd.com>
+ <20260619120309.GI231643@ziepe.ca>
+Content-Language: en-US
+From: Alexey Kardashevskiy <aik@amd.com>
+In-Reply-To: <20260619120309.GI231643@ziepe.ca>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SY5PR01CA0128.ausprd01.prod.outlook.com
+ (2603:10c6:10:246::26) To SA1PR12MB999228.namprd12.prod.outlook.com
+ (2603:10b6:806:4db::10)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA1PR12MB999228:EE_|SJ2PR12MB9161:EE_
+X-MS-Office365-Filtering-Correlation-Id: 184e9de2-6718-48ea-6866-08decff96151
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|23010399003|366016|22082099003|4143699003|3023799007|56012099006|5023799004|11063799006|18002099003;
+X-Microsoft-Antispam-Message-Info: TrkR5OBkj0SFTEYRg7Dlw3r7mkTXiPngouKmV2hEXVeMlX4t4cS8uxsh41YeS6ACueT8l0e0YcjZkck6kJomHhl7HQncARXHB4lN3/AISDZBkhBBzG420AK0pFe/6HwEHu+PryfpAu1ifoNxk+HnxpyTVZNFyCf389pKj2dcPlXAkbZ9eHXea/zwpN7sBDq9vRXG1HbTxeBMff7dxFBqhmAgYSLBEVLz2lkTuASSOloxXLRI1kbQqgTuRsHL2j1JQ5C3kQKr/4kLVSjdjB0szYQ1z3ohm+tLj+BCb2Inx91x8Y+DqkaLfxhb4ZU7lwMaJnfmKgJwmR6suNWR+y+kQKn8x83vhlBOe3gHK0R4FRDOwIrzvaomo/K+E4xeeOcE8N0raRS0P4MjUAPkMycuzudICEzYnhXYgEW5mNmcMg67b8tRMQbHmXSxucr1ZtbLfbio+pvCvrsFRubTwud5N6ogkGtb6nshyz/zvITx5XCUuLfBhYSzYdBzPeqf7L7sepzn6R/P+kvjY8otwpMCvUvERTpESx2Lr8QD9nzgZsW88dQZvAwLN3ge8PN/BcY1QrMiOPlEd4OPfCD+lqYS41Ktachn6oiP2Y2g48wTpXejmGnPxkDl6zzKUt/m2e0+xNQn/BM9preC1VtSFHeFqCyLIvmjQRTXzXRSHuCP0Lw=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR12MB999228.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(23010399003)(366016)(22082099003)(4143699003)(3023799007)(56012099006)(5023799004)(11063799006)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dVFVYlhRMnQyaUhLNUIxRlUyTEk5Mm5iNEpkbnlyRmJETGUwSmJVSjNDVjNF?=
+ =?utf-8?B?Wm1jTHhQR3IrMHlwb0szOFFZTXdZMVFLMGd1Ly8rZmNYb2pISzlOSEdFWUcx?=
+ =?utf-8?B?QVNmYjM4V3VyK3lIcW1NSER4MWNHTnRPZW5BMDN5NDlWWDQwbm8wR3o4ZTNi?=
+ =?utf-8?B?QzIwblpsZ0ZJMHZWeWdJd3pPVXdqNThDd0tLTW85eTBXZWwyTHlzV05hWHNk?=
+ =?utf-8?B?bmZGMVpsTkYzYWdTdStsc1FMd21rbDZuL3lmdUtDUlV5dlNDRVlPNUF3dWF4?=
+ =?utf-8?B?VDVSL2JZejRxNUFLMldrSmxIa21PSzhjN1crTUMraWFzUG5yMEdiNkhodUdT?=
+ =?utf-8?B?YXVWR2hvaS9KSHRPdnV1dkNyZFBLblhPUGFBeVBWbEtqOTZPRFFNMUpDelpa?=
+ =?utf-8?B?MlVCcXdVS1FxR29VaU1PNXE5aDIzL0V6WmRRZzdGNHJHZTV2OUNkajRDcnZa?=
+ =?utf-8?B?SGdPcFlLcmpGMlRYck12Qm9jdE5uRDR5TjlDb3BrNEZDYVZrNjE3WTg5V1BV?=
+ =?utf-8?B?eWswcnFwY3pwdXZYQlV0M0tWQWdNL0NFT2owTTZuT1FWOWVUdnE5cnUzTXFN?=
+ =?utf-8?B?UGZvdnFQYlB1SVFUVDhUS2hwNzJhY3B4dDU1WjJNVkRNV2RZTjh1blhRd3Nj?=
+ =?utf-8?B?LzVqN1NOZjFMUzUrcnU5bW05WUtKL2JhNGluejhKWmxnSWdSc2dMSDdrMzZP?=
+ =?utf-8?B?YnpVNkJnYmcyakRvTjlFL2FNeUFvTkVKcjMyQ2lVYW15aUlscmpZTmI1WDNu?=
+ =?utf-8?B?RkVacnRVekIvTjRERjhVcDl1WEZjcmFKejhHcnVXUjZnMi9iRXloSHRYYkJo?=
+ =?utf-8?B?ZmRIM1hVQXlHaDRrc0JFWXAvYzFQbGd2cmxwTjBGRytIdTBYSDUyTVd2UzU0?=
+ =?utf-8?B?Y3h2QkxNcmwrS3RVb3dMMGJOai9rZ0MvZlRSSFpxYlhnQkRJMGVuNitQNmwx?=
+ =?utf-8?B?OTVJNGtQWEVEc0NWQVN2ZmlyM3RNdU5UY1dnaDdDc2tRTnV4VDBvSGpwUmEv?=
+ =?utf-8?B?aEtjZUM0NndxTGEzeXlrMXZnQ2FUNjc1cEFHQ3h5QXJadnhUT3AzdkdLbDJS?=
+ =?utf-8?B?enJNRzRuZE9KOTc0YThEcldjaHFUbVZNQXREdklhcnlHTXhUZWR3cmxmWGgz?=
+ =?utf-8?B?WFlWcldEcXBEbkg4aXVmbjVjUHJFQmZPZmRSUW1XamUyMlNLcFZRWHIvUHVP?=
+ =?utf-8?B?cVc0dmtaM0pzOWN2aEMyTWttdjM0S09lVHArcFRRcW9IZlh0M2VUVHl1bWw3?=
+ =?utf-8?B?dW9kSTF4Sk1sdmJIM1E5cHk1RVo1Z0lkRXhod1RYa05BekI2TTdZbnhiTUpZ?=
+ =?utf-8?B?YUlWOXVUamlUMzkydDVVdEZsNVpDRUtUTWtCY1hlTjAzRU5Kb3daYVprbkh1?=
+ =?utf-8?B?dC8vR0dmVXc4OUUyblJ0Y2xrTmNDY3RNZHRXWnplLzIzME90azB4eVFzOEVF?=
+ =?utf-8?B?anUzalBvZXd0aE9zaVBIaWdmY2V6TStjL1NWRTNydHBUWEtJV0xraU1JaUls?=
+ =?utf-8?B?MkJrTVh4Q09aTXBMcGtadi9Lc0xZTjd5dUg0Q3MrWVRkanFSdExHZ0ZrK0Vq?=
+ =?utf-8?B?V1pnQ2drVEtGekdJbnpLcm9BV0p3bk1ubitxNFhoZlk5RTlobzVLaGZWNVBo?=
+ =?utf-8?B?OG5mL0pRbi81b2thcXMxRjVCMHdpa1B2WTh4eTNoUGo5U2lVcTY4YVViREJa?=
+ =?utf-8?B?VWFGb0NZVjhveHpPME43VngvZEtFbmxmS0Jkc0lLRDNTOFhLcTNsMWd5MU5w?=
+ =?utf-8?B?SHcwaFZZV0RkamZoS0xuSVJPMDBSS2xISmE4cXJHNFJjQ29VZlgvYlltZHdD?=
+ =?utf-8?B?clBJWG04NEoydFBMVDh0Qnl5cHJrYkUrVmxJSEloaFcvSVk3U21HazJWYlp1?=
+ =?utf-8?B?SWpEaGxZNWxRaTZlQ05wS0QyOFJoNGVCMStCR1FIS1hZU0tHYk1CVFBsemlq?=
+ =?utf-8?B?NldISlVOWkhnWmI3dVBZYkhjRG41RWs0WndqZ0duZkdjUGRrcW5jMGlhcG41?=
+ =?utf-8?B?ZFBYaVg4TTBpR1lsc2RpNklOSDJJZURjcVBlWThVNmwwelZ2QU9ML3I3NDJq?=
+ =?utf-8?B?YWpPOFgvY3ZubklWUkM3T0Y0Y1QwTWRyNkFIbDBaK1lIVWJ6OUNpZGhhMmFE?=
+ =?utf-8?B?TW90MUc4QVBMWWpQMGNMWGU2TnFoVCtiWTZ3RXVNRlc1SkM3WDZmS0RhVnZB?=
+ =?utf-8?B?RktmMFpEN2NGRTcyN0E5YzRpOG5vNk1mN2xKT2J4dGVua3FVTElDZ2QxdDdY?=
+ =?utf-8?B?VVZtZFVhTk1GZGZWSFlZQVo1K0dza0IyaU5Hb1dvVWZIeW9Fb2NpbTIrYzhn?=
+ =?utf-8?Q?TL2SSsgsh3IWEi4JiQ?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 184e9de2-6718-48ea-6866-08decff96151
+X-MS-Exchange-CrossTenant-AuthSource: SA1PR12MB999228.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jun 2026 00:58:32.0636
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: GhrF+egcCsB2mea8FAdBg1CvwoFWgJBugB4e2B0lmgz3HQD8vqAGQaVKnTXhk737w2VFIODShNcg901Z8+jJlA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB9161
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260621_175634_743383_A323D04D 
-X-CRM114-Status: GOOD (  17.14  )
+X-CRM114-CacheID: sfid-20260621_175840_527366_E6DD8E5D 
+X-CRM114-Status: GOOD (  34.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,109 +167,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: bui duc phuc <phucduc.bui@gmail.com>
 
-Although switching to devm_clk_get_enabled() in a previous patch was
-tested successfully, it introduces overlapping ownership of the clock
-lifecycle. Since the driver requires early register access to read the
-device version during probe(), enabling hclk at that point is mandatory.
-However, relying on devres for automatic disabling at unbind, while calling
-clk_disable_unprepare() manually at the end of probe() alongside Runtime
-PM's autosuspend, creates redundant and overlapping clock management.
 
-While this mixed approach might not trigger errors under normal test
-conditions, it is architecturally sub-optimal. As stated in the code
-comments, Runtime PM should exclusively own the clock for register
-accesses after the initial configuration phase.
+On 19/6/26 22:03, Jason Gunthorpe wrote:
+> On Fri, Jun 19, 2026 at 12:05:45PM +1000, Alexey Kardashevskiy wrote:
+> 
+>>>>>> IMHO that's an AMD issue, not with the design of this series..
+>>>>>>
+>>>>>> The series is right, a device that is !force_dma_decrypted() must be
+>>>>>> considerd to be a trusted device and we must never place any DMA
+>>>>>> mappings for a trusted device into shared memory.
+>>>>>
+>>>>> swiotlb=force forces swiotlb, not decryption.
+>>>
+>>> If force_dma_decrypted() == true then swiotlb must allocate from a
+>>> decrypted memory pool. It is right there in the name!
+>>>
+>>> The hypervisor environment should *never* set force_dma_decrypted()
+>>> because all devices can access all hypervisor memory, up to their IOVA
+>>> limits.
+>>
+>> True. But we do not have encrypted swiotlb pool today, right?
+> 
+> "encrypted" is just normal struct page memory, that's the default for
+> swiotlb.
+>
+> I think it was a big mistake for the AMD SME stuff to overload the
+> decrypted/encrypted CC stuff which should mean shared/private in a
+> guest context to also mean things about physical memory encryption in
+> the host. It is really confusing.
+It is a bit in the PTE which says "encrypted", what do you mean by overloaded?...
 
-Clean up the design by:
+> The SME side is just a bad arch choice, the real world doesn't work
+> well if you set high address bits in your dma_addr_t. I think AMD
+> needs to use those restricted swiotlb pool where it allocates this
+> very special "SME Disabled" memory that will have a low
+> dma_addr_t.
 
-   1 Reverting back to devm_clk_get() to remove the implicit devres
-     enable/disable behavior.
-   2 Manually enabling and disabling hclk explicitly only around the
-     early register access before Runtime PM takes over.
-   3 Dropping the stray clk_disable_unprepare() at the end of probe()
-     so Runtime PM solely owns hclk afterward.
+The generic __init iommu_subsys_init(void) calls iommu_set_default_translated() if CC_ATTR_MEM_ENCRYPT (==force the use of IOMMU) and eliminates the bouncing by default, pretty much. We (AMD) do not really want to force Cbit in DMA handles and it is not happening unless "iommu=pt".
 
-Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
----
+> Then alloc and bouncing will get memory with a suitable
+> dma_addr_t. This has nothing to do with force_dma_unencrypted() which
+> is only a CC guest concept and nothing else in the OS should ever
+> touch decrypted memory.
 
-Links: 
-1 This change is based on the discussion around manual hclk handing during probe(),
-  as raised by Krysztof:
-  https://lore.kernel.org/all/20e4754b-ea9a-404d-b529-ec44a7263cbf@kernel.org/#t
-2 Background for the earlier devm_clk_get_enbabled() conversion:
-  https://lore.kernel.org/all/2818018.CQOukoFCf9@workhorse/
+True.
 
-An alternative approach would be use devm_regmap_init_mmio_clk() and let regmap
-manage clock enablement around register accesses. If preferred, I can rework the 
-driver accordingly.
+Although, with "iommu=pt" enabled, dma handles from swiotlb should not have Cbit so these swiotlb pages  have to be unencrypted.
 
- sound/soc/rockchip/rockchip_sai.c | 27 ++++++++++++++++++++-------
- 1 file changed, 20 insertions(+), 7 deletions(-)
+As you mentioned in another mail in the thread, DMAing to unencrypted memory with mem_encrypt=on make no sense security wise. May be enforce either mem_encrypt=on or iommu=pt is allowed at the same time but not both? I am worried though that some weirdo still has a use case for it.
 
-diff --git a/sound/soc/rockchip/rockchip_sai.c b/sound/soc/rockchip/rockchip_sai.c
-index a195e96fed0a..ebb491fac77d 100644
---- a/sound/soc/rockchip/rockchip_sai.c
-+++ b/sound/soc/rockchip/rockchip_sai.c
-@@ -1438,20 +1438,30 @@ static int rockchip_sai_probe(struct platform_device *pdev)
- 		return dev_err_probe(&pdev->dev, PTR_ERR(sai->mclk),
- 				     "Failed to get mclk\n");
- 
--	sai->hclk = devm_clk_get_enabled(&pdev->dev, "hclk");
-+	sai->hclk = devm_clk_get(&pdev->dev, "hclk");
- 	if (IS_ERR(sai->hclk))
- 		return dev_err_probe(&pdev->dev, PTR_ERR(sai->hclk),
- 				     "Failed to get hclk\n");
- 
-+	ret = clk_prepare_enable(sai->hclk);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret, "Failed to enable hclk\n");
-+
- 	regmap_read(sai->regmap, SAI_VERSION, &sai->version);
- 
- 	ret = rockchip_sai_init_dai(sai, res, &dai);
--	if (ret)
--		return dev_err_probe(&pdev->dev, ret, "Failed to initialize DAI\n");
-+	if (ret) {
-+		ret = dev_err_probe(&pdev->dev, ret, "Failed to initialize DAI\n");
-+		goto err_disable_hclk;
-+	}
- 
- 	ret = rockchip_sai_parse_paths(sai, node);
--	if (ret)
--		return dev_err_probe(&pdev->dev, ret, "Failed to parse paths\n");
-+	if (ret) {
-+		ret = dev_err_probe(&pdev->dev, ret, "Failed to parse paths\n");
-+		goto err_disable_hclk;
-+	}
-+
-+	clk_disable_unprepare(sai->hclk);
- 
- 	/*
- 	 * From here on, all register accesses need to be wrapped in
-@@ -1482,8 +1492,6 @@ static int rockchip_sai_probe(struct platform_device *pdev)
- 	pm_runtime_use_autosuspend(&pdev->dev);
- 	pm_runtime_put(&pdev->dev);
- 
--	clk_disable_unprepare(sai->hclk);
--
- 	return 0;
- 
- err_runtime_suspend:
-@@ -1493,6 +1501,11 @@ static int rockchip_sai_probe(struct platform_device *pdev)
- 		rockchip_sai_runtime_suspend(&pdev->dev);
- 
- 	return ret;
-+
-+err_disable_hclk:
-+	clk_disable_unprepare(sai->hclk);
-+
-+	return ret;
- }
- 
- static void rockchip_sai_remove(struct platform_device *pdev)
+
+>>> And this is more insane logic. The right fix is to allocate the
+>>> swiotlb bounce from the *encrypted* pools when running on the
+>>> hypervisor which requires undoing this abuse of force_dma_decrypted().
+>>
+>> +1.
+>>
+>> But how does the kernel decide if it is this swiotlb pool or just
+>> some page which happens to be below the IOVA limit?
+> 
+> You mean in swiotlb_tbl_unmap_single() ? It checks the address against
+> the pool's range?
+> 
+>> swiotlb can be for bouncing (with all these dma_sync_single_for_cpu)
+>> or, if dev->dma_io_tlb_mem->for_alloc = true, for coherent
+>> allocation (no need in dma_sync_single_for_cpu).
+>>
+>> I am looking for a way to set up my "sev-guest" device such as when
+> 
+> Whats a "sev-guest" device?
+
+It is a platform device, presented in SNP VMs as /dev/sev-guest and the guest userspace calls ioctls on it when it needs VM attestation report/certificates/etc.
+
+The sev-guest driver makes calls to the HV (GHCB protocol) to:
+1) get report/certificates/measurements from the HV <- this is done via shared memory as the HV writes to it;
+2) asks the HV to get the digests from the PSP <- this is done via encrypted memory (buuuut it is software encrypted and as far as the hw is concerned - it is shared - no Cbit, no RMP - these buffers contain plaintext headers of the PSP requests and cyphertext of the request/response body).
+
+>> dma_alloc_attrs(snp_dev->dev,...) happens, it allocates a page from
+>> the shared swiotlb pool (with no actual bouncing) and there is no
+>> obvious way to trick the DMA layer into doing that.
+> 
+> Why do you need this?
+
+/dev/sev-guest uses only shared memory (from the HW standpoint), and it is normally lot less than 1MB. If hugepages are used, then today it allocates 4K pages (they come encrypted and likely backed with a 2M page), the driver converts them to shared to make that GHCB call. The conversion smashes backing 2M page to 4K pages (+RMP +IOPDE as there is possible ongoing DMA), which is a problem (I have mentioned it as "TMPM" before - a hw/fw helper to do the smashing).
+
+The idea here is that if swiotlb is already shared, the sev-guest could use that memory pool.
+
+Thanks,
+
+
+> 
+> Jason
+
 -- 
-2.43.0
+Alexey
 
 
