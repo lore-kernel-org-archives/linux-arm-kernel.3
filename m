@@ -4,73 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43338CDB46B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 07:08:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE6C0CDB46B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 07:11:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=beobdeLA078ZywcdAgiB7cOPpo0vyrxZDf37c+YeMTI=; b=LEQ5s6HS9XGTRIt/gFTLn0Nr6+
-	5r0a3cXlQ0/6Ly17uM/Jx0KFEGn88SlEU193oghGM/c3I2TvWNZU8yzGvFJMnHK7Zu67wVnGTC7I8
-	ce7UM6QZgxk4kc/yMWioB9qNaNbhc4KjhJ52UxP2VizJF1R2pUxAfCaxQq6kpdTWvv6kxUbb3RUaH
-	jZg8r9fGde8vdVW2q7L+eor62V4hUI33A8OAsr+rK0bWLzjXnsOpYnAWy2QSGx2tenojqaq2wTWIZ
-	F1lTuFqjVTFxC+HeoQ2qhOIEzdXTN2lyKQtKOBaTKCialNECwBmamlp9UKpn7zmREVVgKoX6hVYVY
-	Wh4bnzrg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PKKpVdrDqnA2ZI2QQYb9QpGJK08L53pkl9uf3Eglr+E=; b=XHTP3WUhcXafaivp+RQwEs1bYk
+	2uM+FVoZD1MFgLMqEhQ0QGYALh0xIHkw2UqRtH+brf4T7C92WS7+88I3LUGvqe2QgdZpMuVnJFF6S
+	TChvZN6yhK1p0liiorNQA6czQM+DSq6htTbbcGDRwGVJ5AUlfKqeDSRyrqk454SP8kOSCWO0qAYOo
+	cdX3rTTvtMuC/AHeHlrxDv/qP2NrthMaBpVy2s3KCcTeWpxaR4CJvZmtT6ifEWpwE1TZMAaN+j4Yh
+	pxRWGLMAYlBjAdOuSWVG8W1UO8KooQi7O8JT1g1MpOicYJQwq1DZYXkm44k2WOC1Dz2ZKSQqcuaq5
+	iO0WhSOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbYlR-00000004WX2-1zj6;
-	Mon, 22 Jun 2026 07:08:13 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wbYo5-00000004Wj9-3ckj;
+	Mon, 22 Jun 2026 07:10:57 +0000
+Received: from m16.mail.163.com ([220.197.31.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbYlQ-00000004WWb-1R5b;
-	Mon, 22 Jun 2026 07:08:12 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 78ACC40650;
-	Mon, 22 Jun 2026 07:08:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59FA81F000E9;
-	Mon, 22 Jun 2026 07:08:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782112091;
-	bh=beobdeLA078ZywcdAgiB7cOPpo0vyrxZDf37c+YeMTI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=Rq7e74KtoBai5W325epYnwYy/tzfmDERursQpKmxa3k9e0t0yAJor2V/TlCJeJC+S
-	 9h/KKNZeLPj6dgVDCBWM6usVxfcb5F6bO6KMo27lnkTYcI0AF8WCKomL3aL9EfwlhI
-	 sYDPcuPilbKk+AcOTJ568l1OE+R08gQlRMDJdZDlHpzUmg6Pq7gnmU+r2GfDaY0gvp
-	 khrsyMmtmD0a5Tr6PwwTviexGlKA8g9D4S/jeUYpFWQ/H1XM0ND9tPxZ+op7VjPDFz
-	 GAPcaHZuv7MINUm6YMegex1+sGn1QMe5xc8xI6CMB8DkoeFkiZkOmslhRemnZMtVGD
-	 n9Yo1RMsVPhtg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wbYlM-0000000Eojj-3s84;
-	Mon, 22 Jun 2026 07:08:09 +0000
-Date: Mon, 22 Jun 2026 08:08:08 +0100
-Message-ID: <861pdzrr1j.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: muhammad.nazim.amirul.nazle.asmade@altera.com
-Cc: tglx@kernel.org,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	heiko@sntech.de,
+	id 1wbYo2-00000004Wih-2NAc
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 22 Jun 2026 07:10:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=PK
+	KpVdrDqnA2ZI2QQYb9QpGJK08L53pkl9uf3Eglr+E=; b=Mc61r6eoBo3Zj2fSog
+	DbAenP3c1ATyZb8YielV5V/QhtIZNPmWDLsD+VRT4q7KPOcwTWLLdnj9fn3t7u0w
+	qBI5dHDFGnqdP9OE/1Z0QMucpqt2VmnKU2cH15FOpje5KP5QscdN4nejk63+IgRZ
+	iCC3ak4ikwPQWJmYZiXILHZqg=
+Received: from ubuntu.. (unknown [])
+	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wA3RArQ3zhq4SzfEw--.24449S4;
+	Mon, 22 Jun 2026 15:10:15 +0800 (CST)
+From: Ma Ke <make_ruc2021@163.com>
+To: suzuki.poulose@arm.com,
+	mike.leach@arm.com,
+	james.clark@linaro.org,
+	leo.yan@arm.com,
+	alexander.shishkin@linux.intel.com,
+	mathieu.poirier@linaro.org
+Cc: coresight@lists.linaro.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	adrian.ho.yin.ng@altera.com
-Subject: Re: [PATCH] irqchip/gic-v3-its: Add Altera Agilex5 DMA workaround
-In-Reply-To: <20260622024945.21354-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
-References: <20260622024945.21354-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: muhammad.nazim.amirul.nazle.asmade@altera.com, tglx@kernel.org, catalin.marinas@arm.com, will@kernel.org, heiko@sntech.de, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, adrian.ho.yin.ng@altera.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	akpm@linux-foundation.org,
+	Ma Ke <make_ruc2021@163.com>,
+	stable@vger.kernel.org
+Subject: [RESEND PATCH v3] coresight: etm-perf: Fix reference count leak in etm_setup_aux
+Date: Mon, 22 Jun 2026 15:10:07 +0800
+Message-ID: <20260622071007.691231-1-make_ruc2021@163.com>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wA3RArQ3zhq4SzfEw--.24449S4
+X-Coremail-Antispam: 1Uf129KBjvJXoW7Kw4UAr17uF43tr4kJF48Crg_yoW8ZFyrpF
+	4jkws0yF98Gr40vws7Jr18Zay5uw4SvF4agFyfKw4DuF4YqFWfZFyjgryFyrn3urZ5Gas0
+	g3WxtF48uFWUXaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0p_miiDUUUUU=
+X-Originating-IP: [202.112.113.208]
+X-CM-SenderInfo: 5pdnvshuxfjiisr6il2tof0z/xtbC0xfV4Go439cCMAAA3Z
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260622_001054_997631_052F9B6E 
+X-CRM114-Status: GOOD (  14.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,32 +79,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 22 Jun 2026 03:49:45 +0100,
-muhammad.nazim.amirul.nazle.asmade@altera.com wrote:
-> 
-> From: Adrian Ng Ho Yin <adrianhoyin.ng@altera.com>
-> 
-> Altera Agilex5 GIC600 integration has DDR addressing limitation where
-> only the first 40 bits of physical address can be accessible. Extend
-> existing dma32 quirk in driver to support Agilex5.
-> 
-> Signed-off-by: Adrian Ng Ho Yin <adrianhoyin.ng@altera.com>
-> Signed-off-by: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
+bus_find_device() returns a device with its reference count
+incremented. When a user-selected sink is obtained through
+coresight_get_sink_by_id(), etm_setup_aux() keeps using the returned
+sink while building the path and allocating the sink buffer.
 
-I like the fact that you waited another *year*[1] to post a fixed
-version of this change, and couldn't even be bothered to tag this as a
-new version, not to mention the lack of Suggested-by: tag for code
-that was provided for your perusal.
+Therefore the lookup reference must remain valid while etm_setup_aux()
+is still using the sink, otherwise the sink could be removed under the
+caller. Drop the lookup reference on the common exit path, after
+etm_setup_aux() no longer directly uses the user-selected sink.
 
-So you're late to the party, and someone else is doing actual work [2].
+The CoreSight path code takes the references it needs for built paths,
+so the initial lookup reference from coresight_get_sink_by_id() is no
+longer needed after setup_aux finishes.
 
-Please synchronise with them.
+Found by code review.
 
-	M.
+Signed-off-by: Ma Ke <make_ruc2021@163.com>
+Cc: stable@vger.kernel.org
+Fixes: 0e6c20517596 ("coresight: etm-perf: Allow an event to use different sinks")
+---
+Changes in v3:
+- do not drop the lookup reference in coresight_get_sink_by_id(), as 
+that would return a sink pointer without keeping the device reference 
+while etm_setup_aux() is still using it.
+- dropped the lookup reference in etm_setup_aux on the common exit path, 
+as suggested by Suzuki.
+- updated the commit message to describe why the reference is kept 
+until etm_setup_aux() finishes using the sink.
+Changes in v2:
+- modified the patch as suggestions.
+---
+ drivers/hwtracing/coresight/coresight-etm-perf.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-[1] https://lore.kernel.org/linux-arm-kernel/6a44509ca0edaabc17e59d2e27fef1c782183456.1751618484.git.adrianhoyin.ng@altera.com/
-[2] https://lore.kernel.org/r/20260618220427.14325-3-marek.vasut+renesas@mailbox.org
-
+diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
+index f85dedf89a3f..d5116177c1b9 100644
+--- a/drivers/hwtracing/coresight/coresight-etm-perf.c
++++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
+@@ -456,6 +456,11 @@ static void *etm_setup_aux(struct perf_event *event, void **pages,
+ 		goto err;
+ 
+ out:
++	if (user_sink) {
++		put_device(&user_sink->dev);
++		user_sink = NULL;
++	}
++
+ 	return event_data;
+ 
+ err:
 -- 
-Without deviation from the norm, progress is not possible.
+2.43.0
+
 
