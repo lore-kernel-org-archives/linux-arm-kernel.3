@@ -4,66 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE164CD98F6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 04:22:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26CB4CD98F6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 04:31:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nVE/CETE6XJ69E1d+hXZBaTooyvpB4+dChpZFA7ZoMk=; b=CJK4D7WHx3h5VXXOuohLTxlqS2
-	n3YjotJQ6sVjjq7EfkE7fsyXftkaD6at+7+5lFHXiXulQkbALJTBUa7vjz4V72chIIoy+dy2Pp+78
-	RDeu52d8mzsP7QNpCtgpGKFFP2aC7icJttuLvIvvXuYxz4Ik90SfxvICjQPouJYrbMhcttl9roeFr
-	MaK01nsDe2wu184t0SOlCjSHv8m0DbHFQ+Ar1B4B3rlFCS3hpstUdnUq9MsEyC9FXeIQ8E+VJo2lb
-	/KAj9VELuSpNyyOD4AVaEU+8Y1jzQXNAzFMmtFhS4tu22sB8XQzGOvYN2Vd0ueTHiVhrCEyv803kJ
-	YLnjkchg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+4kKS6YbqvXGesLSVmWh/l08m/IHxwWlJ+sqDAtc6CE=; b=sNqjgTF0di3o/lle538u27lztf
+	dENuZYXE6L570ss0YjE1Tmy9aGCdiI+r62jEpk6NGJbirRvOW4u0SN3RRRgF8hletYnAP6G4ZmSzn
+	CLsuCCGdSCNLxK21HTxw5IcrNkdRiPlwajeyKu8grgmdyY0qGkoJC/Po5bwo2Jm8RPgt+NORAZSnG
+	Xa719ZlKBNiFON/39Xo+e9qmDuUDUTMvVwL+7M5AYzJ/RPIUcelqDiHkpnV24wo7ZS3kpQzGBSz2O
+	to3gzg60Pcqzbmz1YpN2omlx7r5U+nCDNpR0DUl0mz848fs57coDETklEz/K7RAeOreD9KUw0UMIy
+	c2AMTkKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbWAa-00000004Opm-3WxH;
-	Mon, 22 Jun 2026 04:22:00 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbWAY-00000004OpQ-1pAT
+	id 1wbWJP-00000004PDC-0w5L;
+	Mon, 22 Jun 2026 04:31:07 +0000
+Received: from m16.mail.163.com ([117.135.210.5])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wbWJM-00000004PBz-1zA1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Jun 2026 04:21:59 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A93661BF3;
-	Sun, 21 Jun 2026 21:21:49 -0700 (PDT)
-Received: from [10.164.148.39] (unknown [10.164.148.39])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E65393F632;
-	Sun, 21 Jun 2026 21:21:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782102114; bh=MeoUdRHU+a8GHZTXWy3AhV6g6+tAIm18618t9DJUnCg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=IbRtbVJCoc0dwm5V7cKHFiVgZ9iYADrT13EoROHmpvgAovU/LJpHhIzFFEEl6wvdM
-	 sqhoZFbiyg75byqaF55UYJsFFAzQzT3bHs4+SK65T1LwpyBS8gpIjggXYF5AnxBoTM
-	 TidnUlP4peozlYOQ8q/TqZUfm8jNfOWpCBAjjo5M=
-Message-ID: <69b316bf-7163-4040-8682-e3d200b7d7c6@arm.com>
-Date: Mon, 22 Jun 2026 09:51:26 +0530
+	Mon, 22 Jun 2026 04:31:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=+4
+	kKS6YbqvXGesLSVmWh/l08m/IHxwWlJ+sqDAtc6CE=; b=f1nHMOCiBxzxEfyJJi
+	aOrE4z/kR0g3YkYGMFiwNmVCd0u6s4O1fK/wXhYGDjjwnZxQz/ZSYudNq03JQ6tv
+	CpjqkrDKI1SZKxJvt4naOFBDi5/0Vgx0uuzAAcV0eTKb64FPnsfD+5/RRjzmLyPD
+	mAo9iOM4Sams5mP8Y8YfFNCTY=
+Received: from localhost.localdomain (unknown [])
+	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wDHz8xYujhq80jwEw--.53742S2;
+	Mon, 22 Jun 2026 12:30:18 +0800 (CST)
+From: Haoxiang Li <haoxiang_li2024@163.com>
+To: linusw@kernel.org,
+	kaloz@openwrt.org,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	huangguangbin2@huawei.com,
+	lipeng321@huawei.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Haoxiang Li <haoxiang_li2024@163.com>,
+	stable@vger.kernel.org
+Subject: [PATCH] net: ixp4xx_hss: fix duplicate HDLC netdev allocation
+Date: Mon, 22 Jun 2026 12:30:15 +0800
+Message-Id: <20260622043015.643637-1-haoxiang_li2024@163.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 0/2] kasan: hw_tags: Add option to tag only at
- allocation time
-To: Isaac Manjarres <isaacmanjarres@google.com>
-Cc: ryabinin.a.a@gmail.com, akpm@linux-foundation.org, corbet@lwn.net,
- glider@google.com, andreyknvl@gmail.com, dvyukov@google.com,
- vincenzo.frascino@arm.com, kasan-dev@googlegroups.com, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, skhan@linuxfoundation.org,
- workflows@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, ryan.roberts@arm.com,
- anshuman.khandual@arm.com, kaleshsingh@google.com, 21cnbao@gmail.com,
- david@kernel.org, will@kernel.org, catalin.marinas@arm.com
-References: <20260612044425.763060-1-dev.jain@arm.com>
- <aiyhb2XwMMJE3st7@google.com>
-Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <aiyhb2XwMMJE3st7@google.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wDHz8xYujhq80jwEw--.53742S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7Kr4rWF4ktFWDCF1rJw43Wrg_yoW8ArW8pa
+	n8Ka4fKF95W3W3JwnrWF48uFy5Gw48JryUC34jq3sY9345JF1Fk3s5WFy2vFyUCrZxXF4a
+	vr43AFZ2vayfZ3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pRlPfPUUUUU=
+X-Originating-IP: [240e:604:311:e68d:9586:9dd0:bd4b:6902]
+X-CM-SenderInfo: xkdr5xpdqjszblsqjki6rwjhhfrp/xtbCxhpt22o4ulrK-AAA3u
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260621_212158_606315_3B864A3C 
-X-CRM114-Status: GOOD (  17.46  )
+X-CRM114-CacheID: sfid-20260621_213104_977393_67759880 
+X-CRM114-Status: GOOD (  15.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,54 +81,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+ixp4xx_hss_probe() allocates two HDLC netdevs. The first one is stored
+in ndev, initialized, and registered with register_hdlc_device(). The
+second one is stored in port->netdev and later used by the remove path
+for unregister_hdlc_device() and free_netdev().
 
+This means that the registered netdev is not the same object that is
+unregistered and freed on remove. It also leaks the first allocation if
+the second alloc_hdlcdev() call fails, and the first allocation is not
+checked before ndev is used.
 
-On 13/06/26 5:46 am, Isaac Manjarres wrote:
-> On Fri, Jun 12, 2026 at 04:44:22AM +0000, Dev Jain wrote:
->> Introduce a boot option to tag only at allocation time of the objects. This
->> reduces KASAN MTE overhead, the tradeoff being reduced ability of
->> catching bugs.
->>
->> Now, when a memory object will be freed, it will retain the random tag it
->> had at allocation time. This compromises on catching UAF bugs, till the
->> time the object is not reallocated, at which point it will have a new
->> random tag.
->>
->> Hence, not catching "use-after-free-before-reallocation" and not catching
->> "double-free" will be the compromise for reduced KASAN overhead.
->>
->> This is an RFC because we are not clear about the performance benefit.
->>
->> Android folks, please help with testing!
->>
->> ---
->> Applies on Linus master (9716c086c8e8).
->>
->> Dev Jain (2):
->>   kasan: hw_tags: Use KASAN_PAGE_REDZONE for vmalloc redzoning
->>   kasan: hw_tags: Add boot option to elide free time poisoning
->>
->>  Documentation/dev-tools/kasan.rst |  4 +++
->>  mm/kasan/hw_tags.c                | 45 +++++++++++++++++++++++++++++--
->>  mm/kasan/kasan.h                  | 23 +++++++++++++++-
->>  3 files changed, 69 insertions(+), 3 deletions(-)
->>
->> -- 
->> 2.43.0
-> 
-> I tested out this series on one of our devices that has MTE support,
-> and didn't see any functional issues.
+Older code allocated the HDLC netdev only once and stored the same object
+in both the local variable and port->netdev. The buggy conversion split
+this into two alloc_hdlcdev() calls. A later rename changed the local
+variable name to ndev, but the underlying mismatch remained.
 
-Thanks for testing Isaac! Do you have the bandwidth to carry out some
-performance tests? We want to see whether this patchset gets perf boost
-on some HW.
+Fix this by allocating the HDLC netdev only once and assigning the same
+object to port->netdev.
 
-> 
-> One thing I did notice though, and it's independent of this patch, is
-> that the vmalloc_oob is failing, but that happens even if these patches
-> aren't present.
-> 
-> Thanks,
-> Isaac
+Fixes: 99ebe65eb9c0 ("net: ixp4xx_hss: move out assignment in if condition")
+Cc: stable@vger.kernel.org
+Signed-off-by: Haoxiang Li <haoxiang_li2024@163.com>
+---
+ drivers/net/wan/ixp4xx_hss.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/net/wan/ixp4xx_hss.c b/drivers/net/wan/ixp4xx_hss.c
+index 720c5dc889ea..7f4645ff90aa 100644
+--- a/drivers/net/wan/ixp4xx_hss.c
++++ b/drivers/net/wan/ixp4xx_hss.c
+@@ -1487,11 +1487,11 @@ static int ixp4xx_hss_probe(struct platform_device *pdev)
+ 				     "unable to get CLK internal GPIO\n");
+ 
+ 	ndev = alloc_hdlcdev(port);
+-	port->netdev = alloc_hdlcdev(port);
+-	if (!port->netdev) {
++	if (!ndev) {
+ 		err = -ENOMEM;
+ 		goto err_plat;
+ 	}
++	port->netdev = ndev;
+ 
+ 	SET_NETDEV_DEV(ndev, &pdev->dev);
+ 	hdlc = dev_to_hdlc(ndev);
+-- 
+2.25.1
 
 
