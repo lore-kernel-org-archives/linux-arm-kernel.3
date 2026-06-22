@@ -4,67 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 062C8CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 17:00:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2559CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 17:14:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FBPNSe4CPrmYI7tdrVEFFESNM2AQv28THAVOyYtFOEU=; b=pw5jo+7ywWFyrlSStQuWCToCH5
-	LvzNrgLeQsjzIIh6VO2m+aE/9ja9boPsLQHYw74Znt86jG4bwWGG7JV8EHFysauDY65whzDZqO2GL
-	rh8HlIwDvGry82lnGMe5UPK9ejP/1vm0fohgM6wHT/YgH2hmJh94Ce2/sBxm48vwDJLh9r5qy2HZJ
-	PgDiT7cuYYcUFb3oBpN0uxNWGsbSZT7HRVMHhMH+D8gWCQtn0PX6ptcNZeTgaKg36WRkuhfKGQnBj
-	LOMBKbKDD4S20lmY1SdytSWbHZXX2dqIfT/2SbjkQcvC17d6KJG10mHaTBtAbhBAsfsTW7oAOyFm8
-	0sQRN/Zg==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=qjzQ4WwEP4S9tC3oy8nVsiVMsWH0bk2/jHATvq8YN7g=; b=AjwkIBsyCh6qhJ
+	IUJn3lGJp5qpSUr5Qj9J2t5At48tBgbC16pPkn0vWEfVWS1pZSUpBfpvWA/uW7YpLRg5bxFaJfJCV
+	av1RD+E35xaWf7FzhoE0PVEwX7EWQ2s972fafUCqonYMM6hBM2VoNVQLX/Lbl0eFMoHd7zA3jZ3WT
+	yGXOsyJ6QmAd65iMH31vdYt+RDaD0szZDKgAXngqCZ3JslDM5kNM8ivKWcD8A8krFGFDwdlA1dgSD
+	gLWcKdrqsaiFKSjuz7qgUG5yVPNE/HJHahAheY/SJpjPoGMe34NLOdgMgfLgPz7lq5eQ+ezRwtfXo
+	R/JrXZW+5odnGCUJI44w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbi0n-00000005ECs-1ARc;
-	Mon, 22 Jun 2026 17:00:41 +0000
+	id 1wbiEW-00000005FQf-0Kpk;
+	Mon, 22 Jun 2026 17:14:52 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbi0l-00000005ECj-3O8l
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Jun 2026 17:00:39 +0000
+	id 1wbiEU-00000005FQN-2PF0;
+	Mon, 22 Jun 2026 17:14:50 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id BDB766020A;
-	Mon, 22 Jun 2026 17:00:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 179101F00A3A;
-	Mon, 22 Jun 2026 17:00:34 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E147B601F3;
+	Mon, 22 Jun 2026 17:14:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C7771F000E9;
+	Mon, 22 Jun 2026 17:14:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782147638;
-	bh=FBPNSe4CPrmYI7tdrVEFFESNM2AQv28THAVOyYtFOEU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=n7sNwPJLODKiRXF3ckMys9a0madlZ0QlBOjYZTx2GavzrrW3/QRmV3JeyB24/EZv3
-	 BRHFAExyTS2FzXigFI8UDWdLfavBXWAuhHMrapEic0JLHIohNnMHnohCRjYK3PUPLC
-	 4Rl5EYkYprfryDf3jF89EjjuImusXvrM9H0WgPgEacIMbCPAxH7oPXuWbvPZrFUBVu
-	 GwWHT/ScgXSiGewELPxVxuIfWHGkNtWAVyT11/AJf0F/5CJIqeonNdRebDGYbCo6I9
-	 /AClqSuz6/0yFBwwPcQVSgR49SkKXOGd0x2fQ1S9mPE6/v767IrCuv0/SsYC25QLxd
-	 VRKBj0ZycUhpQ==
-Date: Mon, 22 Jun 2026 18:00:32 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Linus Walleij <linusw@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-	Lee Jones <lee@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-pm@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, dmaengine@vger.kernel.org
-Subject: Re: [PATCH 09/11] regulator: db8500-prcmu: Remove EPOD regulators
-Message-ID: <70dd1974-3360-4169-8b3a-36e7e1cc4460@sirena.org.uk>
-References: <20260618-ux500-power-domains-v7-1-v1-0-eb5e50b1a588@kernel.org>
- <20260618-ux500-power-domains-v7-1-v1-9-eb5e50b1a588@kernel.org>
+	s=k20260515; t=1782148489;
+	bh=qjzQ4WwEP4S9tC3oy8nVsiVMsWH0bk2/jHATvq8YN7g=;
+	h=Date:From:To:Cc:Subject:In-Reply-To;
+	b=T3jVb1nMf3BVbMVzJIa3+l8FyxOasvux+i+g5elRWyUJ3tKyCOVRbENnhNuQwA6G0
+	 FaCXRZLUMsP7g3wqBRZyeXRqk4SRnQygKqCA44f5/gxdv+1xK/Vck+IP3MsWtA25OA
+	 rJp/w7XbBoo+T8vxg2tIJ/F/KWFVM+RSjRSNvMv9kIk9a2jTGK7P3KIo9sqfSu+6FN
+	 ZFyN+bVCG2aKNadAlcX+gXiN1ZMIjucS486ERjyxJIA0O5BmVKvcVF018PKmYwbOHi
+	 39raliXBg05jeLL/fiXWcGJYzFqGfnepGprhNMbAwiue7GLqLTOuQUERN18GpEWh2Z
+	 WiLWFooYByexQ==
+Date: Mon, 22 Jun 2026 12:14:48 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Hans Zhang <18255117159@163.com>
+Cc: bhelgaas@google.com, Manivannan Sadhasivam <mani@kernel.org>,
+	lpieralisi@kernel.org, kwilczynski@kernel.org, heiko@sntech.de,
+	yue.wang@amlogic.com, pali@kernel.org, neil.armstrong@linaro.org,
+	robh@kernel.org, jingoohan1@gmail.com, khilman@baylibre.com,
+	jbrunet@baylibre.com, martin.blumenstingl@googlemail.com,
+	cassel@kernel.org, linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v7 0/2] PCI: Configure Root Port MPS during host probing
+Message-ID: <20260622171448.GA678675@bhelgaas>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="rGlF+30zJ9UqBxku"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260618-ux500-power-domains-v7-1-v1-9-eb5e50b1a588@kernel.org>
-X-Cookie: Now I am depressed ...
+In-Reply-To: <dae17d36-c7d2-467b-a621-3c55e08a67a8@163.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,30 +73,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Jun 19, 2026 at 11:29:39PM +0800, Hans Zhang wrote:
+> On 5/6/26 22:00, Manivannan Sadhasivam wrote:
+> > On Fri, Nov 28, 2025 at 01:09:06AM +0800, Hans Zhang wrote:
+> > > Current PCIe initialization exhibits a key optimization gap: Root Ports
+> > > may operate with non-optimal Maximum Payload Size (MPS) settings. While
+> > > downstream device configuration is handled during bus enumeration, Root
+> > > Port MPS values inherited from firmware or hardware defaults often fail
+> > > to utilize the full capabilities supported by controller hardware. This
+> > > results in suboptimal data transfer efficiency throughout the PCIe
+> > > hierarchy.
+> > > 
+> > > This patch series addresses this by:
+> > > 
+> > > 1. Core PCI enhancement (Patch 1):
+> > > - Proactively configures Root Port MPS during host controller probing
+> > > - Sets initial MPS to hardware maximum (128 << dev->pcie_mpss)
+> > > - Conditional on PCIe bus tuning being enabled (PCIE_BUS_TUNE_OFF unset)
+> > >    and not in PCIE_BUS_PEER2PEER mode (which requires default 128 bytes)
+> > > - Maintains backward compatibility via PCIE_BUS_TUNE_OFF check
+> > > - Preserves standard MPS negotiation during downstream enumeration
+> > > 
+> > > 2. Driver cleanup (Patch 2):
+> > > - Removes redundant MPS configuration from Meson PCIe controller driver
+> > > - Functionality is now centralized in PCI core
+> > > - Simplifies driver maintenance long-term
+> > > 
+> > 
+> > For the series,
+> > 
+> > Reviewed-by: Manivannan Sadhasivam <mani@kernel.org>
+> > 
+> > Bjorn: Could you please take a look? This series has been floating for a
+> > while...
+> 
+> Hello Bjorn,
+> 
+> Any chance for this series to be applied?
 
---rGlF+30zJ9UqBxku
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-On Thu, Jun 18, 2026 at 07:00:55AM +0200, Linus Walleij wrote:
-> Remove the obsolete DB8500 PRCMU regulator drivers.
-
-Acked-by: Mark Brown <broonie@kernel.org>
-
---rGlF+30zJ9UqBxku
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmo5ai8ACgkQJNaLcl1U
-h9BaJwf/cE6zFilqlprukQbzoS9v80E9/7Y2JJSaiLnvW6JjSjMvkSnz7MwKRKjV
-5YmmCXijisVfGbkgQLL3ad/7NkhLD//cJnPh11Mp4W8IA1IGV41qH9W5gUgwo7QE
-MHb+IChEB+Ba8VSWtCqsktqI6O3TNmd/SKnnheO8g88/ldpZ+keIlYk6Ox8zVVf4
-JmMuWMMFBJR2ybHy/L2ok0OshjgcUKGaQS0QpAhPBJTQ2/+NJYGliH322Y/irXhe
-exF9MfFUEJDjCI6RxKMOqAp+IChlNd2l9/5zJ4xG+1jPtgdCd8g8P/WMGjdebbhB
-mELR4oOXs2c5uPurZH8ILur5P+kN8w==
-=UUpz
------END PGP SIGNATURE-----
-
---rGlF+30zJ9UqBxku--
+It's too late for v7.2; we're already more than halfway through the
+merge window.  We can look again for v7.3 after v7.2-rc1.
 
