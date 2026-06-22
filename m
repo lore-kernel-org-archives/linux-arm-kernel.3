@@ -4,113 +4,178 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 355F8CDB46F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 12:20:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78C29CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 12:26:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z+jtKgtQRID1XboOt93fMS9cJd+U+n9q6G3fzyc6a1M=; b=A8irXV+dqxnorsTg7NKMXCBREW
-	QNwD2YMd3OncY+OwIBMFhWBuAhwQvkU7NDa+0XBknKidEgQ/tnpcCUbha3RLbLIbTeGpRuri2o6hg
-	iSkDQHdAee0KqYD0/3d1HdAF6KfwLPVlu4L1aiQ01trs+6KaAsXUqzcmpAk3b/YHrUtaYNO0UX72C
-	1KULqRO7k+dyISwHOEDsIxWYXm1W3lPDcoWRHyA4rFeWfq7I4p68MUnTLFkfEeWSusYIvaYp3sXxN
-	QUArhLFyNUaOh5lLNX0nDXA4cdingqhsXYAalzDdU/LVuTrLKHN95xTZP4XTjj8jK5HRYHk5NuGMC
-	Erniq3bw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lAwNolHbKVPrV/vuIaVUYafaXZfUGEk40LFWQPRf1C0=; b=J3wYiQy44vVP1DaK9ysNU0bRbR
+	ZtO2RAd2oNS4hevcX5BW5BBj6Ianr3JUwK5Ilxn93xARbUp+5D0+YD4EyYpCSpxXScjratiyg0fRG
+	kqAoYkkpWbLJIsqphc+CoY43LvigD5ri71qKHEh1TaZnf3+M75UYK5nnD136VxStKE6ejSmeELVO8
+	puSoDc8IWfIFpy32ZamvQ44FtI5idQr84/78PCLzlspHp/xyJxyjfdLX8zH8aYBe9G5TpmOtT+1t2
+	RBpA/GOV7aSsyIKxOcsBUWl7XTwkDQFhkefmTpM5fJuFoNJJHnKgu5nbWUiRXqxVfogg3o/LcJZl7
+	YeXVDLnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbddR-00000004xT8-1n5m;
-	Mon, 22 Jun 2026 12:20:17 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wbdjB-00000004xit-2UUM;
+	Mon, 22 Jun 2026 12:26:13 +0000
+Received: from mail-westusazon11012004.outbound.protection.outlook.com ([52.101.43.4] helo=SJ2PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbddP-00000004xT2-44gJ
+	id 1wbdj7-00000004xhn-3wS5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Jun 2026 12:20:16 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B506541665;
-	Mon, 22 Jun 2026 12:20:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB6F11F000E9;
-	Mon, 22 Jun 2026 12:20:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782130815;
-	bh=z+jtKgtQRID1XboOt93fMS9cJd+U+n9q6G3fzyc6a1M=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=luy7boXgMRCgMq/tUfI1wfzfmcive9UU4DJ19R0fpFwYoTGnBsq5p3nIGX0jldpNc
-	 K/c9+uIFkBZ2omHr3NfuqAtxFqEZN0jOM7dZ9zTcuiGyCcqlc3d3vrBY+1RRJed3hN
-	 mmk5vfNWLv/rYyQ8H0qL4YECc+9MbWqyAcSvZvmQXn/fqcPFrvKJMNLkmec8T5txn3
-	 8DY/Rz+CW0FFmcgT/+lFVsKiId+KAayti49xdhx5dbmNbctn8GZqnzf10H//k2Cj+z
-	 gC1VZdvIlST0XPAf5x2PnBGkx3FJ/yHGvurnCBNWbPnrLfLSjLf94IX0ZCuyGoYk6V
-	 Meo+f/Q8gtkPg==
-Message-ID: <eba18827-5ef5-464c-90f0-2444a996acac@kernel.org>
-Date: Mon, 22 Jun 2026 14:20:07 +0200
-MIME-Version: 1.0
+	Mon, 22 Jun 2026 12:26:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=G1TVgfuNpqnFfad7dqLIh543jm/RiSyxIy6FT+7i0CjdMcSu5DAp1zoAoefUNb/6HFmkX0BD3gbM4HekwX7uDMjG2Ji1kJiUQeI8BMI9f3gl5pVTyqSA+8Kgx4WNBQ4dRkzeoNDt2I3h1G8xhkpmS3huWc7OTCcMJkd51W+q49atqmPmTKApbjOrNBLXff9Y0TQnlWj4I+JOVwKjlF5RtmHSIpEnBnSvzouba+la08Ad1mSOqZ8noN2HNPzn1sjf/tKYl89gVpwyXtX+YI5TsJQBaM3qY0WY12F+/gXcmCDOl7eVYJ+/1djP4rY+w3BSy6bPw+9g4HFYGahkEnaxTA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=lAwNolHbKVPrV/vuIaVUYafaXZfUGEk40LFWQPRf1C0=;
+ b=HPT2z/ym4Imy77cZCFewV4WDhpTa/YNEs6rzrsY0yw/ZfAKUmvnv5CDrOSiQzJwkgt9mEC/YHWzlYfMGjoQTEnhkVixhexk5bxOQAV2Vp40Txq7kAvnZWr66/m3PuR4w9zZ8jR4/HVKUaNbHanL9GPklei2g2TcfLMt+/1YA4YXRdpbMEqAg5GS5y2negfZ7+qo/zAEEn4cv53JUPzitLa6zl6RMsr57f+K7kj9SDbaP+0gjF4g4vl3s1AoacVBZTwnkJnvf0oBorHn87sEUL3yQZoOsGaRnUQY09WBXcvCai+BIBZSJlY0ZzfZnXQtwe7t8wD5zTor+Wl7n4ynrCA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=lAwNolHbKVPrV/vuIaVUYafaXZfUGEk40LFWQPRf1C0=;
+ b=nnbVQeSth6bYJCCQxnLH/nDhUOzPRXSgTfGC1XCI8CZpVl8RY6fNyDmgtvQn9cYfYv8KdirI28TCc+z//hvpqOxCw5OypcM3RKnqrCqXxQCMvC4WClwrK3p6MFG//7LXltmr/GYg+2cJ3fYV52XH9Q57HUXgy6A2x6cddwziRrk=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from LV5PR12MB9779.namprd12.prod.outlook.com (2603:10b6:408:301::14)
+ by MW3PR12MB4396.namprd12.prod.outlook.com (2603:10b6:303:59::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.20; Mon, 22 Jun
+ 2026 12:26:00 +0000
+Received: from LV5PR12MB9779.namprd12.prod.outlook.com
+ ([fe80::8ac8:e862:8ae9:9287]) by LV5PR12MB9779.namprd12.prod.outlook.com
+ ([fe80::8ac8:e862:8ae9:9287%3]) with mapi id 15.21.0139.018; Mon, 22 Jun 2026
+ 12:26:00 +0000
+Message-ID: <4a4e518a-61e6-4beb-aaeb-5056fbe2a07a@amd.com>
+Date: Mon, 22 Jun 2026 14:25:52 +0200
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 00/31] Introduce SCMI Telemetry FS support
-To: Cristian Marussi <cristian.marussi@arm.com>
-Cc: Christian Brauner <brauner@kernel.org>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, arm-scmi@vger.kernel.org,
- linux-fsdevel@vger.kernel.org, linux-doc@vger.kernel.org,
- sudeep.holla@kernel.org, james.quinlan@broadcom.com, f.fainelli@gmail.com,
- vincent.guittot@linaro.org, etienne.carriere@st.com, peng.fan@oss.nxp.com,
- michal.simek@amd.com, d-gole@ti.com, jic23@kernel.org, elif.topuz@arm.com,
- lukasz.luba@arm.com, philip.radford@arm.com, souvik.chakravarty@arm.com,
- leitao@kernel.org, kas@kernel.org, puranjay@kernel.org,
- usama.arif@linux.dev, kernel-team@meta.com
-References: <20260612223802.1337232-1-cristian.marussi@arm.com>
- <20260617-waten-allabendlich-zueinander-93d4b1367b8c@brauner>
- <ajLVW1eHzbGDm4yn@pluto> <29a304f0-1e62-418a-b84f-aabdc4c0de8d@kernel.org>
- <ajR_FBWOoXJKSeoH@pluto> <0025b907-27b9-4a51-b78f-f8ad413644d0@kernel.org>
- <ajU7UqwPZBlwRGkf@pluto>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
+Subject: Re: [PATCH] remoteproc: xlnx: refactor start & stop ops
+To: Tanmay Shah <tanmay.shah@amd.com>, andersson@kernel.org,
+ mathieu.poirier@linaro.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-remoteproc@vger.kernel.org
+References: <20260619163854.410392-1-tanmay.shah@amd.com>
 Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <ajU7UqwPZBlwRGkf@pluto>
-Content-Type: text/plain; charset=UTF-8
+From: Michal Simek <michal.simek@amd.com>
+Autocrypt: addr=michal.simek@amd.com; keydata=
+ xsFNBFFuvDEBEAC9Amu3nk79+J+4xBOuM5XmDmljuukOc6mKB5bBYOa4SrWJZTjeGRf52VMc
+ howHe8Y9nSbG92obZMqsdt+d/hmRu3fgwRYiiU97YJjUkCN5paHXyBb+3IdrLNGt8I7C9RMy
+ svSoH4WcApYNqvB3rcMtJIna+HUhx8xOk+XCfyKJDnrSuKgx0Svj446qgM5fe7RyFOlGX/wF
+ Ae63Hs0RkFo3I/+hLLJP6kwPnOEo3lkvzm3FMMy0D9VxT9e6Y3afe1UTQuhkg8PbABxhowzj
+ SEnl0ICoqpBqqROV/w1fOlPrm4WSNlZJunYV4gTEustZf8j9FWncn3QzRhnQOSuzTPFbsbH5
+ WVxwDvgHLRTmBuMw1sqvCc7CofjsD1XM9bP3HOBwCxKaTyOxbPJh3D4AdD1u+cF/lj9Fj255
+ Es9aATHPvoDQmOzyyRNTQzupN8UtZ+/tB4mhgxWzorpbdItaSXWgdDPDtssJIC+d5+hskys8
+ B3jbv86lyM+4jh2URpnL1gqOPwnaf1zm/7sqoN3r64cml94q68jfY4lNTwjA/SnaS1DE9XXa
+ XQlkhHgjSLyRjjsMsz+2A4otRLrBbumEUtSMlPfhTi8xUsj9ZfPIUz3fji8vmxZG/Da6jx/c
+ a0UQdFFCL4Ay/EMSoGbQouzhC69OQLWNH3rMQbBvrRbiMJbEZwARAQABzSlNaWNoYWwgU2lt
+ ZWsgKEFNRCkgPG1pY2hhbC5zaW1la0BhbWQuY29tPsLBlAQTAQgAPgIbAwULCQgHAgYVCgkI
+ CwIEFgIDAQIeAQIXgBYhBGc1DJv1zO6bU2Q1ajd8fyH+PR+RBQJn8lwDBQkaRgbLAAoJEDd8
+ fyH+PR+RCNAP/iHkKbpP0XXfgfWqf8yyrFHjGPJSknERzxw0glxPztfC3UqeusQ0CPnbI85n
+ uQdm5/zRgWr7wi8H2UMqFlfMW8/NH5Da7GOPc26NMTPA2ZG5S2SG2SGZj1Smq8mL4iueePiN
+ x1qfWhVm7TfkDHUEmMAYq70sjFcvygyqHUCumpw36CMQSMyrxyEkbYm1NKORlnySAFHy2pOx
+ nmXKSaL1yfof3JJLwNwtaBj76GKQILnlYx9QNnt6adCtrZLIhB3HGh4IRJyuiiM0aZi1G8ei
+ 2ILx2n2LxUw7X6aAD0sYHtNKUCQMCBGQHzJLDYjEyy0kfYoLXV2P6K+7WYnRP+uV8g77Gl9a
+ IuGvxgEUITjMakX3e8RjyZ5jmc5ZAsegfJ669oZJOzQouw/W9Qneb820rhA2CKK8BnmlkHP+
+ WB5yDks3gSHE/GlOWqRkVZ05sUjVmq/tZ1JEdOapWQovRQsueDjxXcMjgNo5e8ttCyMo44u1
+ pKXRJpR5l7/hBYWeMlcKvLwByep+FOGtKsv0xadMKr1M6wPZXkV83jMKxxRE9HlqWJLLUE1Q
+ 0pDvn1EvlpDj9eED73iMBsrHu9cIk8aweTEbQ4bcKRGfGkXrCwle6xRiKSjXCdzWpOglNhjq
+ 1g8Ak+G+ZR6r7QarL01BkdE2/WUOLHdGHB1hJxARbP2E3l46zsFNBFFuvDEBEACXqiX5h4IA
+ 03fJOwh+82aQWeHVAEDpjDzK5hSSJZDE55KP8br1FZrgrjvQ9Ma7thSu1mbr+ydeIqoO1/iM
+ fZA+DDPpvo6kscjep11bNhVa0JpHhwnMfHNTSHDMq9OXL9ZZpku/+OXtapISzIH336p4ZUUB
+ 5asad8Ux70g4gmI92eLWBzFFdlyR4g1Vis511Nn481lsDO9LZhKyWelbif7FKKv4p3FRPSbB
+ vEgh71V3NDCPlJJoiHiYaS8IN3uasV/S1+cxVbwz2WcUEZCpeHcY2qsQAEqp4GM7PF2G6gtz
+ IOBUMk7fjku1mzlx4zP7uj87LGJTOAxQUJ1HHlx3Li+xu2oF9Vv101/fsCmptAAUMo7KiJgP
+ Lu8TsP1migoOoSbGUMR0jQpUcKF2L2jaNVS6updvNjbRmFojK2y6A/Bc6WAKhtdv8/e0/Zby
+ iVA7/EN5phZ1GugMJxOLHJ1eqw7DQ5CHcSQ5bOx0Yjmhg4PT6pbW3mB1w+ClAnxhAbyMsfBn
+ XxvvcjWIPnBVlB2Z0YH/gizMDdM0Sa/HIz+q7JR7XkGL4MYeAM15m6O7hkCJcoFV7LMzkNKk
+ OiCZ3E0JYDsMXvmh3S4EVWAG+buA+9beElCmXDcXPI4PinMPqpwmLNcEhPVMQfvAYRqQp2fg
+ 1vTEyK58Ms+0a9L1k5MvvbFg9QARAQABwsF8BBgBCAAmAhsMFiEEZzUMm/XM7ptTZDVqN3x/
+ If49H5EFAmfyXCkFCRpGBvgACgkQN3x/If49H5GY5xAAoKWHRO/OlI7eMA8VaUgFInmphBAj
+ fAgQbW6Zxl9ULaCcNSoJc2D0zYWXftDOJeXyVk5Gb8cMbLA1tIMSM/BgSAnT7As2KfcZDTXQ
+ DJSZYWgYKc/YywLgUlpv4slFv5tjmoUvHK9w2DuFLW254pnUuhrdyTEaknEM+qOmPscWOs0R
+ dR6mMTN0vBjnLUeYdy0xbaoefjT+tWBybXkVwLDd3d/+mOa9ZiAB7ynuVWu2ow/uGJx0hnRI
+ LGfLsiPu47YQrQXu79r7RtVeAYwRh3ul7wx5LABWI6n31oEHxDH+1czVjKsiozRstEaUxuDZ
+ jWRHq+AEIq79BTTopj2dnW+sZAsnVpQmc+nod6xR907pzt/HZL0WoWwRVkbg7hqtzKOBoju3
+ hftqVr0nx77oBZD6mSJsxM/QuJoaXaTX/a/QiB4Nwrja2jlM0lMUA/bGeM1tQwS7rJLaT3cT
+ RBGSlJgyWtR8IQvX3rqHd6QrFi1poQ1/wpLummWO0adWes2U6I3GtD9vxO/cazWrWBDoQ8Da
+ otYa9+7v0j0WOBTJaj16LFxdSRq/jZ1y/EIHs3Ysd85mUWXOB8xZ6h+WEMzqAvOt02oWJVbr
+ ZLqxG/3ScDXZEUJ6EDJVoLAK50zMk87ece2+4GWGOKfFsiDfh7fnEMXQcykxuowBYUD0tMd2
+ mpwx1d8=
+In-Reply-To: <20260619163854.410392-1-tanmay.shah@amd.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: VI1PR02CA0055.eurprd02.prod.outlook.com
+ (2603:10a6:802:14::26) To LV5PR12MB9779.namprd12.prod.outlook.com
+ (2603:10b6:408:301::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV5PR12MB9779:EE_|MW3PR12MB4396:EE_
+X-MS-Office365-Filtering-Correlation-Id: f3227f4b-ded7-47b3-c0fc-08ded0596b3b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|23010399003|1800799024|22082099003|18002099003|11063799006|5023799004|56012099006|6133799003;
+X-Microsoft-Antispam-Message-Info: QJUqenALDwkCsjd0Ikf3QDpznUCjX0G+Bwaek5L88nOpF24htXZDDdbw9szx1gvKR+ZiQpJYmWyMx3bB5KjUWH04G5h2Zh1TNQKiBt/gvFbEE0kNeKAduci/SnCmOLC2pHMhbs8wpv7yumbYWIWyDe3O9bo/q19WVJUoL6LDTpiqb2bxmytEB7WE5bJQrEYN9iB3nbPPODiCbuRepT77fsNWZvnlMNX5s2oX9RWYBe5hhxIxjxSitj1CVomr3/wV8CG0WGoHWxMvTnvkVQthKduYdLsQDR4lED3Ulm45ZkBVh2yXNyNxnFdiZmjVDhg3je3dS+mghUJTF/f6yQdHBz2CaVlIs0MYINChFJGoUMS5bqnhQ7mjKwMO6mKy5Ttt6kicAXrbeWBAC7lB6cAJLE0iJ2G9/eAhaiiTLL82n84McKLEeyidX3pBAC6fEZfcBfdK22c/rqTD6Rj9587JxH0Qaz/m2upldSwGauvVOjRT6P2+8rdMOKUMhsr+6LVoDtaPCBvmncwk5gYDI9VSBwlUILAs2NuqqA2MUxmRgdUCEtnzLLMgKWNxcUojDlk0nsVwFPK3zSk/CjxhePv2Plu81un5zNfjs4csCSHre0p11jK/yb6QzK5AEsGvfn414IbeuMBpaRs0CcCHXDsb80JsHtVNXeqIIUiqhfREKjw=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV5PR12MB9779.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(23010399003)(1800799024)(22082099003)(18002099003)(11063799006)(5023799004)(56012099006)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?b25IdXFYaEx1cHJIaUVvZTRza3dnNkV3Q3VMK2N1RUl5V05MUHgyK2xjQlBY?=
+ =?utf-8?B?cVBYVFJqRVhCOTZKSEN0cW1UeWdabzh3V1lRUitPOXNMRUczMUhOb25VdXRj?=
+ =?utf-8?B?clNGMFF4YUgrNWY1Ulo5UXdOTjl4bXFGSkVsWkhGQkVQSVVhTVZPbG1sanNM?=
+ =?utf-8?B?YUd6akRUSHZFVGlVMGx6RHVQNy9yVGhoR1FiSlRDL0R0TWVEYjVJRXR5dUtC?=
+ =?utf-8?B?cmtEWlplbTlkbDJVZzZRbE9STmRtY2ZqNUs1Q1BjSHViMTlMQ0dNcDhXUUdm?=
+ =?utf-8?B?M2s2UW9lKzAzNSttREgrRWlLTm1IT0tZSzl4bFdwaGVzcnJQUDJ6MUREMTdE?=
+ =?utf-8?B?QUJObDFBb2lmTkJ0Yys4ZGg0WkkvTmFLUDlOQ0dsNEdHRWE2cE1CUVhUYUhT?=
+ =?utf-8?B?UlFLNk96dFNDcm9JVVdDai9KK3czSHBFOWhkY3RNTzZ3cVJsc2xxNzl2MlJ1?=
+ =?utf-8?B?QmlJRks1Nmo0dVV4c2VyMEtSYkhGQ0VDeDg5Rk9rRFkxemh5RUF3NlBCNzhR?=
+ =?utf-8?B?U3IxUWNxcThKVCt3V1lkVE9KNkhkRGppK2FnZWR0NGZWb2Y4bjAram1tVGs4?=
+ =?utf-8?B?dTNhMzJZY3V0TE9BcnlWVlNTdEZnL2pMT3lxdE9HMjV5eno3N1NlT2s2V21S?=
+ =?utf-8?B?RGZZd3VuQzF6REhOM0Nod1ZtOHhnQzg5QllBUmN3MzFibmlUa2R5TjM1c0JT?=
+ =?utf-8?B?RmlZSlc0R3YxbHFLZ0lyaGlBWkFUbXNFdVNsVkM4NDlTNm9MRU1Cd0Z3UG5Y?=
+ =?utf-8?B?aE10b1RnL2YxNUVKbURyOEt3bmlGbmtUSXkvbUxQNTE5SkJhK1ViUVFTbk5C?=
+ =?utf-8?B?d2IyTmRSem4weGh4UjhBOWVnbkdDejdHQVh4c0thMkV5c3pxemJ6QWZwdVBu?=
+ =?utf-8?B?YjJoS3JCSWZpcHR0ZUk3WXJ2WWhhYlhmUFdOVmRpUnV2eDJIN09uVmx4ZHFI?=
+ =?utf-8?B?UUgxZWxMenpJYVVGVTRXV3ZtSVkyODJpQWlRclI5L3ZnTUd4WXAyZEJSWjZL?=
+ =?utf-8?B?cDdwUFNGb2lsMVhkT1pYK29kb1BTWlJhMi92QW5sVG5ScXhmdkpicHZ4MFRw?=
+ =?utf-8?B?a1VFc29vVERsb2c5NzJlNjRnU2lWczJzazM0SXpOM0VBL2xGQytlRUtIOE03?=
+ =?utf-8?B?ZXZ4ZmNSQmdNT3d1c1JMNG9OYUttZDhMYjk1S1JaYTFXMGtLcmlCY09mZ2tV?=
+ =?utf-8?B?Wmk1aHRETDcyMTdaMmxTbTlzT1h0bmFIQndrMGlDczhoRE13N1VUUmMwRkNo?=
+ =?utf-8?B?YkJCSCtaUmUyWWVSbWxWQS9uSENHc09FSFVrMmF4MWt3QXNtV1QwZituUlF5?=
+ =?utf-8?B?dTQ3dEs1RSt6Mk96UkxxckpqZDZ4QWlHcW9ndUlWb3lkeWI0RGM4ZXd4RGs1?=
+ =?utf-8?B?K2VNQ1l1YTBVS01aN1lpTjkzTlFTUWNicGhKd2QyOXowWVV2R09hTHh0Ulkx?=
+ =?utf-8?B?U1NJaW1kMnhQRHNVQ1YyK3Vqdzd0WWNQRGVXdHF5L04rRHR0NlVMczVON3Zt?=
+ =?utf-8?B?VVArbnNHa3d1WWlqRkt4YXhPNUdjeEJweFNJMmR4UnZiVWFzRTV3STlJbGF0?=
+ =?utf-8?B?RmVFTVBxT0lzSlVkN1lzUEphRUJZMENTZkpCUmpyS1VGaEhSRThFUWtkT2ZX?=
+ =?utf-8?B?dlBSVndxUEU4aDEyR3pQQTlodklpTFZMSUxJaWNiTGpLWldibWEyc0QwdGkw?=
+ =?utf-8?B?Yk9UazNEZy9WODdRenFRUlZHSjVtbkM1ZzlVRmp4VGtOaUZKUndHVFRUUzdz?=
+ =?utf-8?B?QWJFd2RCcUhuNFhXcUhTazU4N1c0VXpVajZJaWdJSXp4ZXAvc2NUWlRzR3lu?=
+ =?utf-8?B?UHF1M1NYeHd5TXB3bDdnaHdZZ1k5ZndXNEtEUVhkUTNTOWx1WlVDWFBRZzY1?=
+ =?utf-8?B?WHpnWHl3Z3JBODFaODRJMEVkTWsxVUZjZUxEbG4xbFB5eGV6aHZLd3FOWDhY?=
+ =?utf-8?B?WHZLS1h1TGlpOExLQXFuWFArL29hdktkVFFuS0pON1NCVDMyTGIvZVZwVmhY?=
+ =?utf-8?B?YXZsOFNaUjdtVGM5QnNGeG9hSDc3RG9CZ0MrY1QrS2tiemJjQ3lUaDg4a3cw?=
+ =?utf-8?B?ejZnS3dLY3lTTWRaTTBpdEdjckdrUnNTN09KY3VmY1pwS0dpS29vc2JwS2F5?=
+ =?utf-8?B?RkJHMzdFbGZEaDh4NmpKNGhEWFM2MTBRaTlPQ2QxQ2FYMHk2ZkdpTllTNHU3?=
+ =?utf-8?B?MDdHRTIwSjFXN21rbHRUYkExa2FkdGFrUlZiQkZvUzhhTWFkTHhIR3JOeFpR?=
+ =?utf-8?B?RnRYL01YcDc4dExlU1RLWUlKMUUyL3F2MEpFUW9PV1ltd05hcWFOdnpxd20w?=
+ =?utf-8?B?aisyYUFaaTM3ZE5lZXhzOVNDcGM1NllnQTdON1c3K1dGdHlRdndPUT09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f3227f4b-ded7-47b3-c0fc-08ded0596b3b
+X-MS-Exchange-CrossTenant-AuthSource: LV5PR12MB9779.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jun 2026 12:26:00.4609
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: NIh4OFoSkBb/fMRPzE06cUJ3zmvw/3hh/+61QGj3XOCETF/JNZBfCj7rvkREggp9
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW3PR12MB4396
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260622_052609_999929_32BFB5B3 
+X-CRM114-Status: GOOD (  21.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,122 +190,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
->>>
->>> There is more stuff that indeed is configurable per the SCMI spec
->>> but these additional params are hidden into the SCMI Telemetry protocol
->>> layer (the initial patches in this series) and NOT made available to
->>> the driver/users of the protocol (like the SCMI FS driver that sits on
->>> top)
->>
->> Do you assume that there will get significantly more config options added in the
->> future for user space to configure?
+
+
+On 6/19/26 18:38, Tanmay Shah wrote:
+> Current _start and _stop ops are implemented using various APIs from the
+> platform management firmware driver. Instead provide respective RPU
+> start and stop API in the firmware driver and move the logic to interact
+> with the PM firmware in the firmware driver. The remoteproc driver doesn't
+> need to know actual logic, but only the final result i.e. RPU start/stop
+> was success or not. This refactor keeps the remoteproc driver simple and
+> moves firmware interaction logic to the firmware driver.
 > 
-> No, I dont think so...the only planned extensions were to support more
-> performant read access mechanisms, i.e. direct mmap'ability of FW/Kernel
-> SCMI Telemetry shared memory areas...BUT that will immediately dump all
-> the bulk of the lower layer protocol work into the tools domain...and
-
-Right. I guess you would hide that in library code, and provide a stable API
-towards tools such that they won't have to worry about the implementation
-details regarding how the values are obtained exactly.
-
-[...]
-
->>>
->>> ...most of the other entries in the tree are simply RO properties of the DEs
->>> that have been discovered at enumeration time.
->>
->> Is this bulk-reading relevant for performance or just a "nice to have" ?
->>
+> Signed-off-by: Tanmay Shah <tanmay.shah@amd.com>
+> ---
+>   drivers/firmware/xilinx/zynqmp.c        | 93 +++++++++++++++++++++++++
+>   drivers/remoteproc/xlnx_r5_remoteproc.c | 68 ++----------------
+>   include/linux/firmware/xlnx-zynqmp.h    | 12 ++++
+>   3 files changed, 110 insertions(+), 63 deletions(-)
 > 
-> I suppose depends on your usage pattern: it is definitely relevant
-> because the main collection mechanism are shared memory areas (SHMTIs)
-> between the platform firmware and the Kernel: such areas being accessed
-> from 2 differnt worlds concurrently come with a SCMI-specified
-> synchro/consistency mechanism based simply on a pair of sequence numbers
-> placed at the start and at the end of the SHMTI, so that the FW increases
-> such magic numbers in a well-known way before and after updating the SHMTI
-> values, so that the kernel can detect (without any interlocking mechanism)
-> if a platform write happened in the middle of its reads...
+> diff --git a/drivers/firmware/xilinx/zynqmp.c b/drivers/firmware/xilinx/zynqmp.c
+> index af838b2dc327..f9a3a95b0638 100644
+> --- a/drivers/firmware/xilinx/zynqmp.c
+> +++ b/drivers/firmware/xilinx/zynqmp.c
+> @@ -1513,6 +1513,99 @@ int zynqmp_pm_request_wake(const u32 node,
+>   }
+>   EXPORT_SYMBOL_GPL(zynqmp_pm_request_wake);
+>   
+> +/**
+> + * zynqmp_pm_start_rpu - Boot Real-time Processing Unit (Cortex-R) on SoC
+> + *
+> + * @node: power-domains id of the core
+> + * @bootaddr: Boot address of elf
+> + *
+> + * Return: status, either success or error+reason
+> + */
+> +int zynqmp_pm_start_rpu(const u32 node, const u64 bootaddr)
+> +{
+> +	enum rpu_boot_mem bootmem;
+> +	int ret;
+> +
+> +	/*
+> +	 * The exception vector pointers (EVP) refer to the base-address of
+> +	 * exception vectors (for reset, IRQ, FIQ, etc). The reset-vector
+> +	 * starts at the base-address and subsequent vectors are on 4-byte
+> +	 * boundaries.
+> +	 *
+> +	 * Exception vectors can start either from 0x0000_0000 (LOVEC) or
+> +	 * from 0xFFFF_0000 (HIVEC) which is mapped in the OCM (On-Chip Memory)
 
-Okay, so sequence counters to detect concurrent changes and retry.
+here
 
-> 
-> ...so if you read one single DE 64bit value, under the hood the kernel
-> would have had to really perform at leats 3 reads from the SHMTI to check
-> the consistecy of that single read...
-> 
-> ... while if you do a bulk_read the overhead due to the consistecy
-> checks gets 'spread' across a number of DEs because the kernel will snapshot
-> the whole SHMTIs (potentially KBytes) between the 2 consistency reads
+> +	 *
+> +	 * Usually firmware will put Exception vectors at LOVEC.
+> +	 *
+> +	 * It is not recommend that you change the exception vector.
+> +	 * Changing the EVP to HIVEC will result in increased interrupt latency
+> +	 * and jitter. Also, if the OCM is secured and the Cortex-R5F processor
+> +	 * is non-secured, then the Cortex-R5F processor cannot access the
+> +	 * HIVEC exception vectors in the OCM.
+> +	 */
+> +	bootmem = (bootaddr >= 0xFFFC0000) ?
 
-That makes sense.
+and here you have different values without any explanation why.
 
-I guess a user space library could implement some kind of caching (bulk-read,
-then provide clean access to individual DEs) to hide the details from the tools?
+The rest looks good to me. It is a step in a right direction.
 
-> 
-> ...the good side effect of all of this is that I can leverage such
-> sequence number to optimize reads..i.e. do NOT even try to read anything
-> if the new sequnce number is unchanged from the last one I cached on the
-> last successfull read of this value...
+Thanks,
+Michal
 
-Right.
-
-> 
-> So at the end I would say it is NOT simply a nice to have BUT it is
-> certainly only the first step towards a more performant alternative access
-> (like with mmaps)...it depends on the usage pattern...I am not sure what
-> mechanism is used by our tools more...
-
-Okay.
-
->>
->> Yes. How high-priority is the fs side? Or would a tool using a library to access
->> this information also work in the first step?
->>
-> 
-> I have to sync with tools on this...because they are stiil probably
-> using currently the FS, but it was already planned for the future to move to
-> a more low level access (ioctl/mmap)...
-> 
-> ...my aim would be, at this point, to favour this transition without sudden
-> breaking their current world (and have to expatriate :P)
-> 
-> ..from my personal point of view, I would certainly like to still have the
-> FUSE layer for ease of testing and verification on my side...but it is just
-> a nice to have... 
-
-Okay, what I thought. I assume the most important part is to be able to grab
-telemetry data in an efficient way on a system to then share it with some
-monitoring agent. Manually digging through the FS to inspect data (debugging,
-..) is probably less relevant for the target use case.
-
->> Okay, so a single writer (admin) changing stuff could get picked up my possibly
->> many concurrent readers?
-> 
-> Mmm...not sure what you mean here...
-> 
-> If you configure your Telemetry as you desire and start collecting data via
-> readers, BUT then some other process changes configs under your belt, that is
-> allowed as said, and so your analisys could be impacted...(something turned off
-> as an example, or update interval changed)...
-
-I was rather wondering about "turning on more" concurrently. But yeah, makes sense.
-
-(it's the same situation other system-wide settings. If one app enables KSM and
-the another one disables KSM, inconsistency is unavoidable)
-
->>
-> 
-> Thanks a lot, David !
-
-Let's hope for some guidance regarding the FS side soon.
-
-But yeah, avoiding the in-kernel FS sounds completely reasonable at this point.
-
--- 
-Cheers,
-
-David
 
