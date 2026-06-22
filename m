@@ -4,119 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2FD2CDB46B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 07:47:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56CA5CDB46B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 07:50:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NRDEWcSOgK7JbfcuCAf7bIpcR9Bk9mRJ7je4veQugYs=; b=Uor82WZp4H0+2k1qP3QtzdycdN
-	4mX4UNrpDkC8iGUvmWhxuV0uM/BaZbAiOfRiUWShlD8gG+NBezD2CMyS7mqvpBKnVubfB86ZdTKiY
-	EABbPng+yCfeJthQjm4vPb+eT1xgBX5dMNwvXa+hqQBY+h6yag507VQWRHzzXRf5Nxi1VOJl7ibXC
-	g/+gW9AU93Y5UDcAk9NtFvJ8970aDl5rPYUI6qZmW/XblAMVgy8JEXxKaWk2vigvfYxKlmZ47kB2V
-	51m5PesHgc+RG/oBNewtiBw0OggefFLc7cNth0BmbLNOL0z1fpWSt6mxZYu+OmCWv3GsutBvME6OZ
-	DLQtLXEg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DjhxJIXwZtlu+S1mzuRLvpGJ+I0yWr65Zu0vmWK+UsM=; b=rUjlbGaYojeeByrxBsymDmaVbv
+	8WNJU+l+tD16gNsXzv9wsVtmBErRpWHzBGqjr50481ysYllBS9fa20EgTB7SR2rNVtK25C5sYAudV
+	JiDZpxCLmYWSXuF8zrN0ug+x1DDrG7oHMPXzsn+2KZ49P/tPmODW8Vc9TdO9dh0cptZJ2+wfrStO9
+	awlIVcPYeEd9Qy59t7uu1Q/7K3FgoF/UvTPSNU1ZsPAbaA8Lw5Jc8JOp+jcYWT8WVMW3EKietxGR0
+	APtO26BP8BtZqChxUt6DbHJpuSoxAk0GV8Utb0RWqN7JwYYpXxEduqEFARvd3J6FUOhOjyCNe6sL1
+	MBX6zKTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbZNk-00000004Yyg-1Tv2;
-	Mon, 22 Jun 2026 07:47:48 +0000
-Received: from mail-northcentralusazon11023096.outbound.protection.outlook.com ([40.107.201.96] helo=CH4PR04CU002.outbound.protection.outlook.com)
+	id 1wbZQL-00000004ZWl-4Ayp;
+	Mon, 22 Jun 2026 07:50:29 +0000
+Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbZNe-00000004Yw0-2MfC
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Jun 2026 07:47:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nL15VnundLpkrkjz0798blBcT/0B6/u7XnHGBbLvlA8Mj8gtj98eagGvyLdrd4sSc07ZiK1J7dYnke0l1LaywguBcH2JGYQ2Lu/uQKQt9j7EWmNjSM2fu9AkRjpGbBWfgOyljEg+eBuCz3Poi3pA4fwsgibUqMXd4SLYUuvWxeb0IIZd9yAvbox6NK2oHQBQye6Flq0+RUGY9HdDZdvB0Xhjcgjl9h543PmMPnT9Plu8MDwiDVuZIpvr3rLnNKh2ieN5x+/veSSm21fvurDWURYNv05FeMkvSY5BLUZGtMVp/Fex75Fe9g7ILrKSQDUL2aH7l+bfE1IbZjDmt4OuUw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NRDEWcSOgK7JbfcuCAf7bIpcR9Bk9mRJ7je4veQugYs=;
- b=lq+fhYIgczqIbN6xOv0JDbu/7qs6jwpLMStTJf19QB/qX7FPJ0k+5drlY/XH46GFIKtR6EwaKo8t5lFgtSZYoALaICJb/IkG/v4wtjSLerOhTxftvIqpOgW6CjTQ0/ClaXIGuVMmxNvTdI/h6MT7S0ojqMdLr62e8tSXFOu8iuEKvFnYWiidSzNokWoMWs4sHgiAXhYehcq/dqJ4jQPfxsR1/QHyterx50ZydB/iWFdIsCldB0twa8W91xKUM/1xpO1xFcNagbREpgZppWQBkQGOB5sd0dQGhjKdCVy8UUDtMdoWIdh7Ev6+Z7txYGu/xRhcAuu8Rn+wrLV0PDGKYg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 64.62.143.114) smtp.rcpttodomain=analog.com smtp.mailfrom=axiado.com;
- dmarc=none action=none header.from=axiado.com; dkim=none (message not
- signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NRDEWcSOgK7JbfcuCAf7bIpcR9Bk9mRJ7je4veQugYs=;
- b=lEP8UW2qcy0piv+EcRNSOrRsiQd6eLsvza3GgAF19btB+UlcrGFFvv/TdyxP6uwClRFnfg7wEvs2/q4U2jgTYBVmt3NCuFO1u9tgYhnm++w61RXBDosI9rm2UBMpDDPKRy+krA6LKxduxGIgmwZHeiL4LVAp25p1DHxkhNLTRcyBtzjPzlRd+oQqVt5Sz8P/uidBYOIWoD/eT+xurj1mhKW3W5XvObEPT0oH98sJ6/rdbuYM7GFR/PnlbMK2oEyrc941Kh5Aegh22kQQoj7PLz9P0g+RCgyqD6AbjWRM4ZpSW4of2Nt7wEhp4C2JcEKytMdB1MxnXP9gSkjuqevipg==
-Received: from CY8PR19CA0032.namprd19.prod.outlook.com (2603:10b6:930:6::23)
- by CO6PR18MB4451.namprd18.prod.outlook.com (2603:10b6:303:138::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.20; Mon, 22 Jun
- 2026 07:47:34 +0000
-Received: from CH2PEPF00000140.namprd02.prod.outlook.com
- (2603:10b6:930:6:cafe::27) by CY8PR19CA0032.outlook.office365.com
- (2603:10b6:930:6::23) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.139.20 via Frontend Transport; Mon,
- 22 Jun 2026 07:47:33 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 64.62.143.114)
- smtp.mailfrom=axiado.com; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=axiado.com;
-Received-SPF: Fail (protection.outlook.com: domain of axiado.com does not
- designate 64.62.143.114 as permitted sender) receiver=protection.outlook.com;
- client-ip=64.62.143.114; helo=smtp.corp.axiado.com;
-Received: from smtp.corp.axiado.com (64.62.143.114) by
- CH2PEPF00000140.mail.protection.outlook.com (10.167.244.72) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.139.8
- via Frontend Transport; Mon, 22 Jun 2026 07:47:33 +0000
-Received: from axz-uw1-build-vm02.corp.axiado.com (unknown [10.14.1.22])
-	by smtp.corp.axiado.com (Postfix) with ESMTP id EBE054186B5B;
-	Mon, 22 Jun 2026 00:44:48 -0700 (PDT)
-From: Petar Stepanovic <pstepanovic@axiado.com>
-Date: Mon, 22 Jun 2026 00:47:28 -0700
-Subject: [PATCH v3 2/2] iio: adc: add Axiado SARADC driver
+	id 1wbZQI-00000004ZUR-3ACI;
+	Mon, 22 Jun 2026 07:50:28 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=DjhxJIXwZtlu+S1mzuRLvpGJ+I0yWr65Zu0vmWK+UsM=;
+	b=dTXHI5OT3kJg6ZwKeZ7l+1YDr6b1hpRbY8s8z0T12kaOnMUVi+FGyMWPDPdkApaBuVatBA7uC
+	Z0GKJFORdTMX2Azn6tNgGnMd1iV5ZufaianvsXLsU15PMBLIB0HzyaukESDfsIE8SzVz6SZBDp5
+	/oThe3zRYAqwKkDmxGgBWFo=
+Received: from mail.maildlp.com (unknown [172.19.163.0])
+	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4gkKrn1qmxz12LDT;
+	Mon, 22 Jun 2026 15:41:29 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 8201240561;
+	Mon, 22 Jun 2026 15:50:17 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Mon, 22 Jun 2026 15:50:14 +0800
+Message-ID: <49895e73-0fab-4410-93ba-f850f0586b1d@huawei.com>
+Date: Mon, 22 Jun 2026 15:50:13 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC 1/3] cpu/hotplug: Introduce
+ CONFIG_PARALLEL_SMT_PRIMARY_FIRST
+To: Thomas Gleixner <tglx@kernel.org>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <tsbogend@alpha.franken.de>, <pjw@kernel.org>,
+	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>,
+	<mingo@redhat.com>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
+	<hpa@zytor.com>, <peterz@infradead.org>, <kees@kernel.org>,
+	<nathan@kernel.org>, <linusw@kernel.org>, <ojeda@kernel.org>,
+	<david.kaplan@amd.com>, <lukas.bulwahn@redhat.com>, <ryan.roberts@arm.com>,
+	<maz@kernel.org>, <timothy.hayes@arm.com>, <lpieralisi@kernel.org>,
+	<thuth@redhat.com>, <oupton@kernel.org>, <yeoreum.yun@arm.com>,
+	<miko.lenczewski@arm.com>, <broonie@kernel.org>, <kevin.brodsky@arm.com>,
+	<james.clark@linaro.org>, <tabba@google.com>, <mrigendra.chaubey@gmail.com>,
+	<arnd@arndb.de>, <anshuman.khandual@arm.com>, <x86@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mips@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+References: <20260611133809.3854977-1-ruanjinjie@huawei.com>
+ <20260611133809.3854977-2-ruanjinjie@huawei.com> <87a4srdgk0.ffs@fw13>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <87a4srdgk0.ffs@fw13>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260622-axiado-ax3000-ax3005-saradc-v3-2-e57c7c7ae675@axiado.com>
-References: <20260622-axiado-ax3000-ax3005-saradc-v3-0-e57c7c7ae675@axiado.com>
-In-Reply-To: <20260622-axiado-ax3000-ax3005-saradc-v3-0-e57c7c7ae675@axiado.com>
-To: Akhila Kavi <akavi@axiado.com>, 
- Prasad Bolisetty <pbolisetty@axiado.com>, 
- Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>, 
- =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
- Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>
-Cc: linux-iio@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Petar Stepanovic <pstepanovic@axiado.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1782114452; l=9920;
- i=pstepanovic@axiado.com; s=20250916; h=from:subject:message-id;
- bh=ob7UmcvWdjODcIVfADvv1oJTdUcpidx/+0/h3/jmwJI=;
- b=Vz7EQYj6JeaB/YoTJI5dM2Xsyco/5DIH4SBsJq3YkPdnuncI1s4uzk/r7cHOgtH4lK4KxXptw
- cn0dcXQKnk9DjtBaWT+zx8QE3H2HAv6QKDvjoTddrFHoMgGfYhZSc3w
-X-Developer-Key: i=pstepanovic@axiado.com; a=ed25519;
- pk=70f1UJOGT9U11ZK6o+ENXtv0I5wBE3e+Y9YWODzRsdI=
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PEPF00000140:EE_|CO6PR18MB4451:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6ba9673c-6d81-4e51-f0ce-08ded032854b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|7416014|82310400026|23010399003|1800799024|921020|6133799003|56012099006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: yCKltXDsTCIeuovyYDD9n1b6Yhx2iX94A7M5JWU3yDI751zt1yuTUaikHTagyx3wPGNFPGcdZvOrL3SLuuf3iXKRFCpiOrufxnvAIApbYY0BXFk1jKFynB89+tWYu11UD0F+heS8Jwif1XkVGKu2aASPl3SlB7qpRASxOHtU1qtxICoRNovTQ25kMSl7rTNteLB4MzsbOMOT4Xqo8COM2uhf7gSZvCmyTtYGM4c/13ZR06A0QpgnEl9XbGvCjo9CflNrd09q7ENvbDtCP6BZx+4Y7qxFvhVQ/2xj1cITt3X0TgwYyD8Denaornpictbqr1/mJtM0fzNEbtEMcgOHM1HG2R9iAXrQblCZdD/UrJA8XD5LtROHP/+JKYowIXl79OKIhQ1kx/waQHGAc4kJBJNzk2KniLAdUC0DuyGPOORLMqCztORwDlzB284YSE7ZYpFh2HsQwiCtVPwhVuAqjURNH6uktUaLHVFqn1R3TqS53BxJoNIgOAHvUiE6H8KQRq/mTWLj/lh+SAG9qCVMO8Si3wfeSz1jcAB9A2Xbhwhs22nq4TGgquMbEka6LjeLcCUHL5iKQw4ekwdK2IpWmkWqaLP682VzvbXfYlREHbdFrTCQFonlDWdWAgHI3k0ttgn7gpg73z5LD7aWSH8S+sfMS6aOMfR2dWAe646n1odO1jvKiuHWqTLF4DI2yD55+/b0G2R9OoZiA2F8uJCynGPcb3rAxECf4NH/Ku3tNR89QqabyMpr+Aw07Yw8D7S3
-X-Forefront-Antispam-Report: CIP:64.62.143.114;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtp.corp.axiado.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(7416014)(82310400026)(23010399003)(1800799024)(921020)(6133799003)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: p7uiYp3S7an9rF2diMFAuPAB5so2qfM8bwZztQd/LML6rkOxGg3cZUTVAdZxgZBipk4rKkbHI6uNeLz5GSP4A3XIo08SYCKrSNW+UKMeKz48aItOjOcX1CfKTt5zk5y0uCmNGr1eCBxwovebk8St0QPhRcc7gJ7J2NJ5hSLlI2BU9jU+wliEcSsYnNrxKPsf9OFJ1vd4biCa6RgzqoQXybfxtfC955JhaPW6+hDPyh2va/FTf/CxqLZ9Rupue6fGGaAUY9cz7Gj+s9CiJCQ/qvZx/PbRnLhLIPBKC0kl+58x94868Lh/bsXNHW7gAh07zaoMuP4LqRwDwc3eZTvntuFQd6x/OnOj0GymcShFnYBvMLFUYnQ1UzOvi/70Pc6RCzETjiWNaJ3lhRScL03IUfvmI/11YbgsrlwkMkmjgF3sa5qXl1WPHj00Iq0AZ2Bq
-X-OriginatorOrg: axiado.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jun 2026 07:47:33.3110
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6ba9673c-6d81-4e51-f0ce-08ded032854b
-X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=ff2db17c-4338-408e-9036-2dee8e3e17d7;Ip=[64.62.143.114];Helo=[smtp.corp.axiado.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF00000140.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO6PR18MB4451
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260622_004742_660815_E1E55728 
-X-CRM114-Status: GOOD (  21.52  )
+X-CRM114-CacheID: sfid-20260622_005027_132202_591CE4C9 
+X-CRM114-Status: GOOD (  21.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,320 +89,184 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the SARADC controller found on Axiado AX3000 and
-AX3005 SoCs.
 
-The driver supports single-shot voltage reads through the IIO
-subsystem. The number of available input channels is selected from
-the SoC match data, allowing AX3000 and AX3005 variants to use the
-same driver.
 
-Signed-off-by: Petar Stepanovic <pstepanovic@axiado.com>
----
- MAINTAINERS                     |   1 +
- drivers/iio/adc/Kconfig         |  10 ++
- drivers/iio/adc/Makefile        |   1 +
- drivers/iio/adc/axiado_saradc.c | 245 ++++++++++++++++++++++++++++++++++++++++
- 4 files changed, 257 insertions(+)
+On 6/18/2026 11:17 PM, Thomas Gleixner wrote:
+> On Thu, Jun 11 2026 at 21:38, Jinjie Ruan wrote:
+> 
+>> During parallel CPU bringup, x86 requires primary SMT threads to boot
+>> first to avoid siblings stopping during microcode updates. This constraint
+>> is architecture-specific and unnecessary for other platforms
+>> like arm64.
+>>
+>> Introduce CONFIG_PARALLEL_SMT_PRIMARY_FIRST to decouple this constraint.
+>> Platforms requiring this temporal order (e.g., x86) can select it
+>> in Kconfig. Other architectures (e.g., arm64) can leave it unselected
+>> to entirely bypass the SMT branch via the preprocessor.
+>>
+>> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+>> ---
+>>  arch/Kconfig       | 4 ++++
+>>  arch/mips/Kconfig  | 1 +
+>>  arch/riscv/Kconfig | 1 +
+>>  arch/x86/Kconfig   | 1 +
+>>  kernel/cpu.c       | 6 +++++-
+>>  5 files changed, 12 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/arch/Kconfig b/arch/Kconfig
+>> index e86880045158..0365d2df2659 100644
+>> --- a/arch/Kconfig
+>> +++ b/arch/Kconfig
+>> @@ -102,6 +102,10 @@ config HOTPLUG_PARALLEL
+>>  	bool
+>>  	select HOTPLUG_SPLIT_STARTUP
+>>  
+>> +config PARALLEL_SMT_PRIMARY_FIRST
+> 
+> Proper namespaces are overrated, right?
+> 
+> All related options start with HOTPLUG_....
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 932bba890780..e6dadfa65ee0 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -4318,6 +4318,7 @@ M:	Akhila Kavi <akavi@axiado.com>
- M:	Prasad Bolisetty <pbolisetty@axiado.com>
- S:	Maintained
- F:	Documentation/devicetree/bindings/iio/adc/axiado,ax3000-saradc.yaml
-+F:	drivers/iio/adc/axiado_saradc.c
- 
- AXIS ARTPEC ARM64 SoC SUPPORT
- M:	Jesper Nilsson <jesper.nilsson@axis.com>
-diff --git a/drivers/iio/adc/Kconfig b/drivers/iio/adc/Kconfig
-index a9dedbb8eb46..a9ba600a5f64 100644
---- a/drivers/iio/adc/Kconfig
-+++ b/drivers/iio/adc/Kconfig
-@@ -631,6 +631,16 @@ config AT91_SAMA5D2_ADC
- 	  To compile this driver as a module, choose M here: the module will be
- 	  called at91-sama5d2_adc.
- 
-+config AXIADO_SARADC
-+	tristate "Axiado SARADC driver"
-+	depends on ARCH_AXIADO || COMPILE_TEST
-+	help
-+	  Say yes here to build support for the SARADC found in Axiado
-+	  SoCs.
-+
-+	  To compile this driver as a module, choose M here: the module
-+	  will be called axiado_saradc.
-+
- config AXP20X_ADC
- 	tristate "X-Powers AXP20X and AXP22X ADC driver"
- 	depends on MFD_AXP20X
-diff --git a/drivers/iio/adc/Makefile b/drivers/iio/adc/Makefile
-index 097357d146ba..96de0ce1d90a 100644
---- a/drivers/iio/adc/Makefile
-+++ b/drivers/iio/adc/Makefile
-@@ -54,6 +54,7 @@ obj-$(CONFIG_ADI_AXI_ADC) += adi-axi-adc.o
- obj-$(CONFIG_ASPEED_ADC) += aspeed_adc.o
- obj-$(CONFIG_AT91_ADC) += at91_adc.o
- obj-$(CONFIG_AT91_SAMA5D2_ADC) += at91-sama5d2_adc.o
-+obj-$(CONFIG_AXIADO_SARADC) += axiado_saradc.o
- obj-$(CONFIG_AXP20X_ADC) += axp20x_adc.o
- obj-$(CONFIG_AXP288_ADC) += axp288_adc.o
- obj-$(CONFIG_BCM_IPROC_ADC) += bcm_iproc_adc.o
-diff --git a/drivers/iio/adc/axiado_saradc.c b/drivers/iio/adc/axiado_saradc.c
-new file mode 100644
-index 000000000000..12efe814318c
---- /dev/null
-+++ b/drivers/iio/adc/axiado_saradc.c
-@@ -0,0 +1,245 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * Copyright (c) 2021-2026 Axiado Corporation
-+ */
-+
-+#include <linux/bitfield.h>
-+#include <linux/bits.h>
-+#include <linux/clk.h>
-+#include <linux/cleanup.h>
-+#include <linux/delay.h>
-+#include <linux/device.h>
-+#include <linux/err.h>
-+#include <linux/io.h>
-+#include <linux/mod_devicetable.h>
-+#include <linux/module.h>
-+#include <linux/mutex.h>
-+#include <linux/platform_device.h>
-+#include <linux/property.h>
-+#include <linux/regulator/consumer.h>
-+#include <linux/units.h>
-+
-+#include <linux/iio/iio.h>
-+
-+/* Register offsets */
-+#define AX_SARADC_GLOBAL_CTRL_REG 0x0004
-+#define AX_SARADC_MANUAL_CTRL_REG 0x0008
-+#define AX_SARADC_DOUT_REG 0x001C
-+
-+/* GLOBAL_CTRL register fields */
-+#define AX_SARADC_GLOBAL_CTRL_CH_EN_MASK	GENMASK(31, 16)
-+#define AX_SARADC_GLOBAL_CTRL_SAMPLE_MASK	GENMASK(6, 5)
-+#define AX_SARADC_GLOBAL_CTRL_MODE_MASK		GENMASK(4, 3)
-+#define AX_SARADC_GLOBAL_CTRL_PD		BIT(2)
-+#define AX_SARADC_GLOBAL_CTRL_ENABLE		BIT(0)
-+
-+/* GLOBAL_CTRL register values */
-+#define AX_SARADC_GLOBAL_CTRL_SAMPLE_16	\
-+	FIELD_PREP(AX_SARADC_GLOBAL_CTRL_SAMPLE_MASK, 0)
-+
-+#define AX_SARADC_GLOBAL_CTRL_MODE_MANUAL	\
-+	FIELD_PREP(AX_SARADC_GLOBAL_CTRL_MODE_MASK, 1)
-+
-+/* MANUAL_CTRL register fields */
-+#define AX_SARADC_MANUAL_CTRL_ENABLE           BIT(0)
-+#define AX_SARADC_MANUAL_CTRL_CH_SEL_MASK      GENMASK(4, 1)
-+
-+#define AX_SARADC_MANUAL_CTRL_EN(ch)	\
-+	(AX_SARADC_MANUAL_CTRL_ENABLE |	\
-+	FIELD_PREP(AX_SARADC_MANUAL_CTRL_CH_SEL_MASK, ch))
-+
-+#define AX_RESOLUTION_BITS 10
-+#define AX_SARADC_CONV_CYCLES 13
-+#define AX_SARADC_CONV_DELAY_MARGIN_US 10
-+
-+struct axiado_saradc {
-+	void __iomem *regs;
-+	struct clk *clk;
-+	struct mutex lock; /* Serializes ADC conversions. */
-+	unsigned long clk_rate;
-+	int vref_uV;
-+};
-+
-+static int axiado_saradc_conversion(struct axiado_saradc *info,
-+				    struct iio_chan_spec const *chan, int *val)
-+{
-+	unsigned long usecs;
-+
-+	guard(mutex)(&info->lock);
-+
-+	/* Select the channel to be used and trigger conversion */
-+	writel(AX_SARADC_MANUAL_CTRL_EN(chan->channel),
-+	       info->regs + AX_SARADC_MANUAL_CTRL_REG);
-+
-+	/* Hardware requires 13 conversion cycles at clk_rate */
-+	usecs = DIV_ROUND_UP(AX_SARADC_CONV_CYCLES * USEC_PER_SEC,
-+			     info->clk_rate);
-+	fsleep(usecs + AX_SARADC_CONV_DELAY_MARGIN_US);
-+
-+	*val = readl(info->regs + AX_SARADC_DOUT_REG) &
-+		     GENMASK(AX_RESOLUTION_BITS - 1, 0);
-+
-+	/* Stop manual conversion */
-+	writel(0, info->regs + AX_SARADC_MANUAL_CTRL_REG);
-+
-+	return 0;
-+}
-+
-+static int axiado_saradc_read_raw(struct iio_dev *indio_dev,
-+				  struct iio_chan_spec const *chan, int *val,
-+				  int *val2, long mask)
-+{
-+	struct axiado_saradc *info = iio_priv(indio_dev);
-+	int ret;
-+
-+	switch (mask) {
-+	case IIO_CHAN_INFO_RAW:
-+		ret = axiado_saradc_conversion(info, chan, val);
-+		if (ret)
-+			return ret;
-+		return IIO_VAL_INT;
-+	case IIO_CHAN_INFO_SCALE:
-+		*val = info->vref_uV / (MICRO / MILLI);
-+		*val2 = AX_RESOLUTION_BITS;
-+		return IIO_VAL_FRACTIONAL_LOG2;
-+
-+	default:
-+		return -EINVAL;
-+	}
-+}
-+
-+static const struct iio_info axiado_saradc_iio_info = {
-+	.read_raw = axiado_saradc_read_raw,
-+};
-+
-+struct axiado_saradc_soc_data {
-+	const char *name;
-+	unsigned int num_channels;
-+};
-+
-+static const struct axiado_saradc_soc_data ax3000_saradc_data = {
-+	.name = "ax3000_saradc",
-+	.num_channels = 16,
-+};
-+
-+static const struct axiado_saradc_soc_data ax3005_saradc_data = {
-+	.name = "ax3005_saradc",
-+	.num_channels = 8,
-+};
-+
-+#define AX_SARADC_CH(_index, _id)                                       \
-+	{                                                               \
-+		.type = IIO_VOLTAGE,                                    \
-+		.indexed = 1,                                           \
-+		.channel = (_index),                                    \
-+		.info_mask_separate = BIT(IIO_CHAN_INFO_RAW),           \
-+		.info_mask_shared_by_type = BIT(IIO_CHAN_INFO_SCALE),   \
-+		.datasheet_name = (_id),                                \
-+	}
-+
-+static const struct iio_chan_spec axiado_saradc_iio_channels[] = {
-+	AX_SARADC_CH(0, "adc0"),   AX_SARADC_CH(1, "adc1"),
-+	AX_SARADC_CH(2, "adc2"),   AX_SARADC_CH(3, "adc3"),
-+	AX_SARADC_CH(4, "adc4"),   AX_SARADC_CH(5, "adc5"),
-+	AX_SARADC_CH(6, "adc6"),   AX_SARADC_CH(7, "adc7"),
-+	AX_SARADC_CH(8, "adc8"),   AX_SARADC_CH(9, "adc9"),
-+	AX_SARADC_CH(10, "adc10"), AX_SARADC_CH(11, "adc11"),
-+	AX_SARADC_CH(12, "adc12"), AX_SARADC_CH(13, "adc13"),
-+	AX_SARADC_CH(14, "adc14"), AX_SARADC_CH(15, "adc15"),
-+};
-+
-+static void axiado_saradc_disable(void *data)
-+{
-+	struct axiado_saradc *info = data;
-+
-+	writel(AX_SARADC_GLOBAL_CTRL_PD, info->regs + AX_SARADC_GLOBAL_CTRL_REG);
-+}
-+
-+static int axiado_saradc_probe(struct platform_device *pdev)
-+{
-+	const struct axiado_saradc_soc_data *soc_data;
-+	struct device *dev = &pdev->dev;
-+	struct axiado_saradc *info;
-+	struct iio_dev *indio_dev;
-+	u32 regval;
-+	int ret;
-+
-+	indio_dev = devm_iio_device_alloc(dev, sizeof(*info));
-+	if (!indio_dev)
-+		return -ENOMEM;
-+
-+	info = iio_priv(indio_dev);
-+
-+	info->regs = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(info->regs))
-+		return PTR_ERR(info->regs);
-+
-+	info->clk = devm_clk_get_enabled(dev, NULL);
-+	if (IS_ERR(info->clk))
-+		return PTR_ERR(info->clk);
-+
-+	info->clk_rate = clk_get_rate(info->clk);
-+	if (!info->clk_rate)
-+		return dev_err_probe(dev, -EINVAL, "invalid clock rate\n");
-+
-+	ret = devm_regulator_get_enable_read_voltage(dev, "vref");
-+	if (ret < 0)
-+		return dev_err_probe(dev, info->vref_uV,
-+				     "failed to get vref voltage\n");
-+	info->vref_uV = ret;
-+
-+	soc_data = device_get_match_data(dev);
-+	if (!soc_data)
-+		return dev_err_probe(dev, -EINVAL, "failed to get match data\n");
-+
-+	ret = devm_mutex_init(dev, &info->lock);
-+	if (ret)
-+		return ret;
-+
-+	regval = FIELD_PREP(AX_SARADC_GLOBAL_CTRL_CH_EN_MASK,
-+			    GENMASK(soc_data->num_channels - 1, 0)) |
-+		 AX_SARADC_GLOBAL_CTRL_SAMPLE_16 |
-+		 AX_SARADC_GLOBAL_CTRL_MODE_MANUAL |
-+		 AX_SARADC_GLOBAL_CTRL_ENABLE;
-+
-+	writel(AX_SARADC_GLOBAL_CTRL_PD, info->regs + AX_SARADC_GLOBAL_CTRL_REG);
-+	writel(regval, info->regs + AX_SARADC_GLOBAL_CTRL_REG);
-+
-+	ret = devm_add_action_or_reset(dev, axiado_saradc_disable, info);
-+	if (ret)
-+		return ret;
-+
-+	indio_dev->name = soc_data->name;
-+	indio_dev->info = &axiado_saradc_iio_info;
-+	indio_dev->modes = INDIO_DIRECT_MODE;
-+	indio_dev->channels = axiado_saradc_iio_channels;
-+	indio_dev->num_channels = soc_data->num_channels;
-+
-+	return devm_iio_device_register(dev, indio_dev);
-+}
-+
-+static const struct of_device_id axiado_saradc_match[] = {
-+	{
-+		.compatible = "axiado,ax3000-saradc",
-+		.data = &ax3000_saradc_data,
-+	},
-+	{
-+		.compatible = "axiado,ax3005-saradc",
-+		.data = &ax3005_saradc_data,
-+	},
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, axiado_saradc_match);
-+
-+static struct platform_driver axiado_saradc_driver = {
-+	.driver = {
-+		.name =  "axiado-saradc",
-+		.of_match_table = axiado_saradc_match,
-+	},
-+	.probe = axiado_saradc_probe,
-+};
-+module_platform_driver(axiado_saradc_driver);
-+
-+MODULE_AUTHOR("AXIADO CORPORATION");
-+MODULE_DESCRIPTION("AXIADO SARADC driver");
-+MODULE_LICENSE("GPL");
+Sure, will update to `HOTPLUG_PARALLEL_SMT`		
 
--- 
-2.34.1
+> 
+>> +	bool
+>> +	depends on HOTPLUG_PARALLEL
+>> +
+>>  config GENERIC_IRQ_ENTRY
+>>  	bool
+>>  
+>> diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
+>> index 4364f3dba688..84e11ac0cf71 100644
+>> --- a/arch/mips/Kconfig
+>> +++ b/arch/mips/Kconfig
+>> @@ -642,6 +642,7 @@ config EYEQ
+>>  	select MIPS_CPU_SCACHE
+>>  	select MIPS_GIC
+>>  	select MIPS_L1_CACHE_SHIFT_7
+>> +	select PARALLEL_SMT_PRIMARY_FIRST if HOTPLUG_PARALLEL
+>>  	select PCI_DRIVERS_GENERIC
+>>  	select SMP_UP if SMP
+>>  	select SWAP_IO_SPACE
+>> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+>> index d235396c4514..0cc49aecc841 100644
+>> --- a/arch/riscv/Kconfig
+>> +++ b/arch/riscv/Kconfig
+>> @@ -210,6 +210,7 @@ config RISCV
+>>  	select OF
+>>  	select OF_EARLY_FLATTREE
+>>  	select OF_IRQ
+>> +	select PARALLEL_SMT_PRIMARY_FIRST if HOTPLUG_PARALLEL
+> 
+> Why does RISCV need this? It does not select HOTPLUG_SMT to begin with.
+
+You are right, this was initially done to keep in line with the legacy
+implementation.
+
+> 
+>> +#ifdef CONFIG_PARALLEL_SMT_PRIMARY_FIRST
+>>  #ifdef CONFIG_HOTPLUG_SMT
+> 
+> More #ifdeffery is better, right?
+> 
+>>  static inline bool cpuhp_smt_aware(void)
+>>  {
+>> @@ -1811,7 +1812,8 @@ static inline const struct cpumask *cpuhp_get_primary_thread_mask(void)
+>>  {
+>>  	return cpu_none_mask;
+>>  }
+>> -#endif
+>> +#endif /* CONFIG_HOTPLUG_SMT */
+>> +#endif /* CONFIG_PARALLEL_SMT_PRIMARY_FIRST */
+>>  
+>>  bool __weak arch_cpuhp_init_parallel_bringup(void)
+>>  {
+>> @@ -1837,6 +1839,7 @@ static bool __init cpuhp_bringup_cpus_parallel(unsigned int ncpus)
+>>  	if (!__cpuhp_parallel_bringup)
+>>  		return false;
+>>  
+>> +#ifdef CONFIG_PARALLEL_SMT_PRIMARY_FIRST
+> 
+> Seriously?
+> 
+>>  	if (cpuhp_smt_aware()) {
+>>  		const struct cpumask *pmask = cpuhp_get_primary_thread_mask();
+>>  		static struct cpumask tmp_mask __initdata;
+>> @@ -1857,6 +1860,7 @@ static bool __init cpuhp_bringup_cpus_parallel(unsigned int ncpus)
+>>  		cpumask_andnot(&tmp_mask, mask, pmask);
+>>  		mask = &tmp_mask;
+>>  	}
+>> +#endif /* CONFIG_PARALLEL_SMT_PRIMARY_FIRST */
+> 
+> Something simple like the uncompiled below should just work, no?
+
+Yes, everything looks good, except for a minor compilation issue.
+
+> 
+> ---
+> --- a/arch/Kconfig
+> +++ b/arch/Kconfig
+> @@ -102,6 +102,10 @@ config HOTPLUG_PARALLEL
+>  	bool
+>  	select HOTPLUG_SPLIT_STARTUP
+>  
+> +config HOTPLUG_PARALLEL_SMT
+> +	bool
+> +	select HOTPLUG_PARALLEL
+> +
+
++config HOTPLUG_PARALLEL_SMT
++       bool
++       select HOTPLUG_PARALLEL
++       select HOTPLUG_SMT
+
+We should select HOTPLUG_SMT here to prevent the compilation issue where
+HOTPLUG_PARALLEL_SMT is enabled without HOTPLUG_SMT.
+
+>  config GENERIC_IRQ_ENTRY
+>  	bool
+>  
+> --- a/arch/mips/Kconfig
+> +++ b/arch/mips/Kconfig
+> @@ -657,7 +657,7 @@ config EYEQ
+>  	select USB_UHCI_BIG_ENDIAN_DESC if CPU_BIG_ENDIAN
+>  	select USB_UHCI_BIG_ENDIAN_MMIO if CPU_BIG_ENDIAN
+>  	select USE_OF
+> -	select HOTPLUG_PARALLEL if HOTPLUG_CPU
+> +	select HOTPLUG_PARALLEL_SMT if HOTPLUG_CPU
+>  	help
+>  	  Select this to build a kernel supporting EyeQ SoC from Mobileye.
+>  
+> @@ -2295,7 +2295,6 @@ config MIPS_CPS
+>  	select MIPS_CM
+>  	select MIPS_CPS_PM if HOTPLUG_CPU
+>  	select SMP
+> -	select HOTPLUG_SMT if HOTPLUG_PARALLEL
+>  	select HOTPLUG_CORE_SYNC_DEAD if HOTPLUG_CPU
+>  	select SYNC_R4K if (CEVT_R4K || CSRC_R4K)
+>  	select SYS_SUPPORTS_HOTPLUG_CPU
+> --- a/arch/x86/Kconfig
+> +++ b/arch/x86/Kconfig
+> @@ -304,7 +304,7 @@ config X86
+>  	select HAVE_USER_RETURN_NOTIFIER
+>  	select HAVE_GENERIC_VDSO
+>  	select VDSO_GETRANDOM			if X86_64
+> -	select HOTPLUG_PARALLEL			if SMP && X86_64
+> +	select HOTPLUG_PARALLEL_SMT		if SMP && X86_64
+>  	select HOTPLUG_SMT			if SMP
+>  	select HOTPLUG_SPLIT_STARTUP		if SMP && X86_32
+>  	select IRQ_FORCED_THREADING
+> --- a/kernel/cpu.c
+> +++ b/kernel/cpu.c
+> @@ -1792,7 +1792,7 @@ static int __init parallel_bringup_parse
+>  }
+>  early_param("cpuhp.parallel", parallel_bringup_parse_param);
+>  
+> -#ifdef CONFIG_HOTPLUG_SMT
+> +#ifdef CONFIG_HOTPLUG_PARALLEL_SMT
+>  static inline bool cpuhp_smt_aware(void)
+>  {
+>  	return cpu_smt_max_threads > 1;
+> 
 
 
