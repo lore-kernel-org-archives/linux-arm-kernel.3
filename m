@@ -4,117 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C035BCD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 20:52:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 984C7CDB470
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 21:35:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P77wt6FdAz9SgVTfL6FTmZm9Ot3WjHVJ7/IbTsCFRSc=; b=DK0sCOGC8OCIMTbGi9i5DPsGB4
-	TQZulRi1CY1RDFlnX6p0fmX8xhnKrDDDO2nUinbj3uIXTfZgnS4CNhBNwKnvO+IUm9LpMbpoc2gLo
-	w59lXXPRL5v1ST0V+u5QzqTGK2Db24IvddBN4Jv5YrWk+bCmdWZrAOkB91BAmEVJsGnjuwd71VpOL
-	JuAALENDJy/Ikm8ct45opTYCJugg1HInbwRnP2hJ3IdvONcShmQqycxoIQ42cuHZ1qkRauFv1AgTH
-	hMBGBPgPsZljOCfW1s/EkrxiLTiDYLyhdP5CJ4KIMNk9uz57heJIr6jUAa9Qm3/GHKgxWCB+JFTqA
-	vbO4n10g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HgImYFkLyD1hj/g9jIukArDdySmWi+kCTAd6Z7Own3s=; b=R34RicDUD++2Nq1hH0QO7JD0HD
+	o550VUzhYFVa4PXncsNAlJgZxxDLjGmaukCkWs40GOE2NOni6x6uzdyseysjnvUjKWWMMAkJPT14a
+	lqMW6xCm5U+Tk54BjtoUSWN7w67BRanUMOfU8DM/o3yfmbRBYdlwLPNLn6TJFyppLZEsz62t3ZkFW
+	KtbmiYLAm854ap0skB8jMjEX+UsswEentFtmrVUxgBQSGYkmuZgZI0ElTYhACVtGqGHx/6UTkalS6
+	E3Ebe+h93pQ+1nHYu2ubgJUXtF7C7Is4BUPxBXDNWJdVn8M6iY4mHpIimsF/EbZVC+4eDpwTpSglQ
+	8ZY5BpSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wblcy-00000005NZa-18Rh;
-	Mon, 22 Jun 2026 20:52:20 +0000
-Received: from mail-eastusazon11011050.outbound.protection.outlook.com ([52.101.52.50] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	id 1wbmIm-00000005PUl-1MCP;
+	Mon, 22 Jun 2026 21:35:32 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wblcr-00000005NYm-3bgy
+	id 1wbmIk-00000005PUZ-2Z69
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Jun 2026 20:52:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LNt0hnsnvybauxg4w/AfyMmnxLtl+6+j0yVrFQOWNnxrj9uXBb6aAgHd83HxyIUtEciEmXHT1OQNP1ZDQ23rGr8qq1VIFFCqERP8t+xsB8dVEkUUbOZUw6QbvLSab3bE8ZdA++LOwpgPqBBKuK8MClfEBARtHKHniUpO+KzEva8lkKqmchdBwNm+PZ1J16Nf3etSEgw9a5raH6KwaWeo29A5/Vg0+cumEmEX45vo75ti5uEGEGpOhHzVnQudLo0AiuQSG2nbIDM8kzOipQU0r9T7UldF6dX6UWPKhTKIJvNaQow0IVQOoeSnAgx7HQRqkkI4FaA8Gq/euwSLhIwOhQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=P77wt6FdAz9SgVTfL6FTmZm9Ot3WjHVJ7/IbTsCFRSc=;
- b=UWmnvEoZzN/WRqS7ryoIucwwtsBDjsJsV1l2o0jLc7NEnDTzy43btrHM6qJHgu5RjcmaP5LQFz9z+XrZIhrIvtSfqy7f804nvSh0QOYTMmeixZUWnPE27ddT5KloYhVRr6wO1wZA18Lu+qzMyCrqeCUp7IM0kAUt51KU+DmTpO8C3z6Nu/+m1x/rAXy+ETAqWoUaS8cjozy/oPSx5BZDUr6qwmhhF2l87iSvLNaCdmuyJlA2Pfb7ygtdRQP7DYaU1txw6QNbd+0ITALWrdGmcddahSlunNvBZeYKrZlYf2EZ3i8G4A4Q6njR9NDITi3YipjcxbW9rg1iGWLiE9MG0g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=debian.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=P77wt6FdAz9SgVTfL6FTmZm9Ot3WjHVJ7/IbTsCFRSc=;
- b=W+siVevaJR5ATqKasWCfJBw8cZ18TWPQraBW++G4KKwV95/hO3PGmzVHYW4uq2nIa8cSbpjKmbg9mHOp/wrzH+Iv1PH/hoMtWd8gqE4dHPWMmBKZoAKwniVg+AWPJKU/UuoAZ68srLfKzmYNbFcLrHzuiV//4FzcNJMU98nCRiRV6jEhgcaU0fOECsbpcpW9gzSFNUnhGqT1bZz4MPB/L9Dca7Vzh4O3CVmyorptFahFsxbBJySvXyCfvr2seKMSsrdMnYk0RbuvLyHCQD87nBLK1/qaCWajqdhK24ajzMKAd+eVZEfmAMooHLDEjdfcRKYbaZKRgu6R/lBtBK8uzQ==
-Received: from BLAPR05CA0012.namprd05.prod.outlook.com (2603:10b6:208:36e::21)
- by BY5PR12MB4195.namprd12.prod.outlook.com (2603:10b6:a03:200::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.20; Mon, 22 Jun
- 2026 20:51:48 +0000
-Received: from BL02EPF0001A105.namprd05.prod.outlook.com
- (2603:10b6:208:36e:cafe::1d) by BLAPR05CA0012.outlook.office365.com
- (2603:10b6:208:36e::21) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.159.12 via Frontend Transport; Mon,
- 22 Jun 2026 20:51:48 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- BL02EPF0001A105.mail.protection.outlook.com (10.167.241.137) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.159.10 via Frontend Transport; Mon, 22 Jun 2026 20:51:48 +0000
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 22 Jun
- 2026 13:51:29 -0700
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail202.nvidia.com
- (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 22 Jun
- 2026 13:51:28 -0700
-Received: from nvidia.com (10.127.8.9) by mail.nvidia.com (10.129.68.10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Mon, 22 Jun 2026 13:51:26 -0700
-Date: Mon, 22 Jun 2026 13:51:24 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Breno Leitao <leitao@debian.org>
-CC: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, "Joerg
- Roedel (AMD)" <joro@8bytes.org>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>, <rmikey@meta.com>,
-	<rneu@meta.com>, <kernel-team@meta.com>
-Subject: Re: [PATCH] iommu/arm-smmu-v3: Disable PRI when no priq IRQ is
- available
-Message-ID: <ajmgTMrCUGqnBLiI@nvidia.com>
-References: <20260622-smmu_pri-v1-1-14ad92b6043f@debian.org>
+	Mon, 22 Jun 2026 21:35:30 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 06308443E3
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Jun 2026 21:35:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2B4A1F00ADB
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Jun 2026 21:35:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782164129;
+	bh=HgImYFkLyD1hj/g9jIukArDdySmWi+kCTAd6Z7Own3s=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=FDO4wxCceO99ohP1/DFe16yqc13aAhyLtsANUMoZJaX7e4BN8T4H0dkpqjjugodGy
+	 Txa5lG/gOuD6AqiT51VHSE3PxN+QAzVHy9GcXAGrKyIOdKpJ/Jof1EU0UeaDz/GyYs
+	 J07GqksE/VR0z/Vu4s2PiQiIdj3gI84epywArnyq80LgwUJekrx0AD1KXG7ugHe1uv
+	 56sIsexmvNJFOFZy2cTq6YRjz5dnKSRaY54cJMDkac7sjtnfv3A7BKEGdq4vwzdd/3
+	 oDqkfNSkiytSqmY05D7nIH0dcBmhNJPoFxVubsTZKaso7jAHBcCq1/aCN74pAcjQ2b
+	 ZEj7BseReSOZw==
+Received: by mail-vs1-f49.google.com with SMTP id ada2fe7eead31-6c6507549c3so212523137.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Jun 2026 14:35:29 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ8lkn1AI9wCCNYBGqOOuR9QeNfzQidyNjyttl5IFzW6ZfayOYV5fjIGLoMV2GFpHcIS4bIo7dTwXwbxzzHerwZR@lists.infradead.org
+X-Gm-Message-State: AOJu0YyLHMhDaBNaU+z2YzR5TGXcR6GovQmwNHkaRosM0ZYtWYTGCJ4g
+	JX9jYNTIi4jutRvp2SV2dym5MGnIaoV0WH563Rm0X29wBVni+/D5+h0BcHaDugZGHJO8yaRxcG1
+	i5LtsnWVosYbZSRLaAqo+p95XxdOQW2g=
+X-Received: by 2002:a05:6102:3254:10b0:6cc:e6b1:7f84 with SMTP id
+ ada2fe7eead31-72f85be19c5mr499665137.17.1782164129165; Mon, 22 Jun 2026
+ 14:35:29 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20260622-smmu_pri-v1-1-14ad92b6043f@debian.org>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL02EPF0001A105:EE_|BY5PR12MB4195:EE_
-X-MS-Office365-Filtering-Correlation-Id: a86c933d-63a8-4cfb-ba1e-08ded0a01401
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|7416014|36860700016|1800799024|82310400026|18002099003|22082099003|13003099007|11063799006|5023799004|56012099006;
-X-Microsoft-Antispam-Message-Info: Gf3jU11BG7BkxWhWUm0PXxsGtSMXcBa8fK5VwwxMjzdiy/mQ+Ng3zJbHwtUXpf770hMVTF3n55Mdfm1RZSxULqkNfKY83zo804HEEYpbdfI9OA3lKbPzzJp6wVUAvMpVjSvh1LF9Vh06tXiXuuMBZyTwoBxIP+PlehbaTjNSVd0TzsQG2oXT6Wqd6iAxLzToBOQqndj7b1tXjUlHPbJUJLjYjruFfo8gBsaSHcrIsTtSmKayCA2uNiAy1UGtBDKsxJIRIzFMDUKg5v4DyjckyQBH9q6JwORZnEA4xU1SHz0IBhZ6gR78RkqsG+boOK6qJ0W6/UXiRHqkjb9zbqFGp1kRF0LgWnT8mZ91SzitsNyZIORIBU142vnOGXB7quWV6OZJ0tg6/NQd0SGbjU9Q3dwYCehOb0ZHVp66EfTTGtttyD0pc+0tIh7FNQvME+67cULEUqGc41lFIaofAERweKA5QnMZz9JPaUpkPnUbYqsogxW3aLpgvYI1LDsuPuGGw5fgJkpBtWn5Dw5Ee6241yzQKcG3mvwi6tGaN/YUioRm7N2Jy0RsTKfFIbBPsJ4X6mpFCA0Mk5dTcVoI1KQNLZMK1gs6hVJh4iK5RqZkA3dSuUh1ZqYS1HfXGTmlbhtyFtcur5RQuIDG+s0LrdimgFqxM4hxS34cZy+/EVQbTJy3edGs8s7a0ZVvaA7sfsCIZwCflfnpai5izexgQCcz2w==
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(23010399003)(7416014)(36860700016)(1800799024)(82310400026)(18002099003)(22082099003)(13003099007)(11063799006)(5023799004)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: Aj3W2Uo7pDm6kGHTcRYlSWmWTwFlDjZUl+lvasTlCCjTKq1ssbCyO3P1M1luoe8lGQL3NGB3jFfjQShx4DSjTieQ6F7l2zvycIlt80mrYZCBZeqmGAtjvhrp2mBhoCayoC61jTm5NNWGSXUe7n0dCKEUvBWar6nWivKHzgdD8+l6cucGmRRW1qAczaxVcsih2/b67vAXWyTRykBWHTVb/GWA3O5XxafO11XHLYu2KCzxIEeiOKq2kYAkJz+svtVwWfIMn56yh6/hlHgaFQQU/w9XZgCV1Vc6ggkR+5+k8kZslRWpziBhJsDCfjHKWrFJc5aKAn3ehWpf7e0OtX0Z921S9f3URr9CxrLYQhKjK/vqTPx8ZZKMsLu6Xto7YBiz7vhZLQNjNk75LfG77YskyGpPod7OujIbahbrukvOaXiGTqNF1amofh4MkDQTQDCA
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jun 2026 20:51:48.0799
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a86c933d-63a8-4cfb-ba1e-08ded0a01401
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL02EPF0001A105.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR12MB4195
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260622_135213_930651_E09B2ACB 
-X-CRM114-Status: GOOD (  17.52  )
+References: <ag4h87CBd-gph9zX@casper.infradead.org> <CAGsJ_4zA8afu0xXy0WS+tMe-eesDX1W6UBmfAsuouUpcAgK8JQ@mail.gmail.com>
+ <ag4kj84EcKqamdB-@casper.infradead.org> <3be9475b-0e8a-4df8-a130-4262f993973d@kernel.org>
+ <CAGsJ_4xC5LdhuoWV1=tK-RZ5rkjc8aOKOkmb1L_8BG_3gtJhDg@mail.gmail.com>
+ <ahB6QyHgYq8ksj65@lucifer> <CAGsJ_4zxLvZ01i19vdo0xA47T1hxa1VRYvxLmiDhy5q1GDKPRg@mail.gmail.com>
+ <CAJuCfpHTxaU4KdNmefU7C7cWZSLCFDLPdUrnqV6yzxzN+8RQ0Q@mail.gmail.com>
+ <ajhOUdbWsswgQyl2@casper.infradead.org> <CAGsJ_4ybg5LGYopTUJTh5R2rN6X3uR9xoJSL+RdTYVtm1-xqLg@mail.gmail.com>
+ <c5soxcu245cerfljr2ddto4h7xqksfxzxti47mq6sqn6pnmnxh@th5kxapvnaj3>
+In-Reply-To: <c5soxcu245cerfljr2ddto4h7xqksfxzxti47mq6sqn6pnmnxh@th5kxapvnaj3>
+From: Barry Song <baohua@kernel.org>
+Date: Tue, 23 Jun 2026 05:35:16 +0800
+X-Gmail-Original-Message-ID: <CAGsJ_4xeRmi_EtcLUpZm49zNO3pxscd1shDcO-wbBAZheyN9jQ@mail.gmail.com>
+X-Gm-Features: AVVi8CfVr0XrKkWqf7CvIbBvspzJJaewjz-ymsw_zXuVPurYIavkpzh5F1y4IKg
+Message-ID: <CAGsJ_4xeRmi_EtcLUpZm49zNO3pxscd1shDcO-wbBAZheyN9jQ@mail.gmail.com>
+Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
+ fault performance
+To: "Liam R. Howlett" <liam@infradead.org>
+Cc: Matthew Wilcox <willy@infradead.org>, Suren Baghdasaryan <surenb@google.com>, 
+	Lorenzo Stoakes <ljs@kernel.org>, "David Hildenbrand (Arm)" <david@kernel.org>, akpm@linux-foundation.org, 
+	linux-mm@kvack.org, vbabka@kernel.org, rppt@kernel.org, mhocko@suse.com, 
+	jack@suse.cz, pfalcato@suse.de, wanglian@kylinos.cn, chentao@kylinos.cn, 
+	lianux.mm@gmail.com, kunwu.chan@gmail.com, liyangouwen1@oppo.com, 
+	chrisl@kernel.org, kasong@tencent.com, shikemeng@huaweicloud.com, 
+	nphamcs@gmail.com, bhe@redhat.com, youngjun.park@lge.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	Nanzhe Zhao <nzzhao@126.com>, Hongru Zhang <zhanghongru06@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,43 +95,225 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 22, 2026 at 09:17:03AM -0700, Breno Leitao wrote:
-> When platform firmware advertises an SMMU as PRI-capable in IDR0.PRI
-> but does not assign a GSIV for its priq, arm_smmu_setup_unique_irqs()
-> warns and continues. ARM_SMMU_FEAT_PRI remains set, so the driver
-> still allocates the PRI queue, programs PRIQ_BASE/PROD/CONS, enables
-> IRQ_CTRL_PRIQ_IRQEN, and lets IOMMU_DEV_FEAT_IOPF be advertised to
-> upper layers. Page Request messages from devices land in a queue no
-> one drains, and SVA binds appear to succeed while silently dropping
-> every page fault.
-> 
-> Clear ARM_SMMU_FEAT_PRI in the missing-IRQ path so every PRI-gated
-> site in the driver consistently treats the SMMU as PRI-less, instead of
-> the half-baked stated.
-> 
-> Signed-off-by: Breno Leitao <leitao@debian.org>
-> ---
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> index a10affb483a4f..44bafbb38e242 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -4659,7 +4659,8 @@ static void arm_smmu_setup_unique_irqs(struct arm_smmu_device *smmu)
->  				dev_warn(smmu->dev,
->  					 "failed to enable priq irq\n");
->  		} else {
-> -			dev_warn(smmu->dev, "no priq irq - PRI will be broken\n");
-> +			dev_warn(smmu->dev, "no priq irq - disabling PRI\n");
-> +			smmu->features &= ~ARM_SMMU_FEAT_PRI;
+On Mon, Jun 22, 2026 at 10:50=E2=80=AFPM Liam R. Howlett <liam@infradead.or=
+g> wrote:
+>
+> On 26/06/22 08:15AM, Barry Song wrote:
+> > On Mon, Jun 22, 2026 at 4:49=E2=80=AFAM Matthew Wilcox <willy@infradead=
+.org> wrote:
+> > >
+> > > On Sat, Jun 20, 2026 at 04:48:57PM -0700, Suren Baghdasaryan wrote:
+> > > > Just checking in on the followup plans. IIUC the RFC mentioned will
+> > > > try to implement the solution we discussed at LSFMM: splitting
+> > > > VM_FAULT_RETRY into two flags - one for retrying under per-VMA lock=
+s
+> > > > and another one to fallback to mmap_lock.
+> > >
+> > > I continue to hate this idea.  I don't believe that those who were
+> > > pushing for it have ever tried to understand the whole fault path.
+> > > It's utterly byzantine.
+> > >
+> > > I defy anyone to make sense of this:
+> > >
+> > >         /*
+> > >          * NOTE! This will make us return with VM_FAULT_RETRY, but wi=
+th
+> > >          * the fault lock still held. That's how FAULT_FLAG_RETRY_NOW=
+AIT
+> > >          * is supposed to work. We have way too many special cases..
+> > >          */
+> > >         if (vmf->flags & FAULT_FLAG_RETRY_NOWAIT)
+> > >                 return 0;
+> > >
+> > >         *fpin =3D maybe_unlock_mmap_for_io(vmf, *fpin);
+> > >         if (vmf->flags & FAULT_FLAG_KILLABLE) {
+> > >                 if (__folio_lock_killable(folio)) {
+> > >                         /*
+> > >                          * We didn't have the right flags to drop the
+> > >                          * fault lock, but all fault_handlers only ch=
+eck
+> > >                          * for fatal signals if we return VM_FAULT_RE=
+TRY,
+> > >                          * so we need to drop the fault lock here and
+> > >                          * return 0 if we don't have a fpin.
+> > >                          */
+> > >                         if (*fpin =3D=3D NULL)
+> > >                                 release_fault_lock(vmf);
+> > >                         return 0;
+> > >                 }
+> > >
+> > > Wed need to simplify the fault path, not add additional complexity.
+> > > Josef has said he wouldn't've done the lock dropping had we had per-V=
+MA
+> > > locks.  We should rip it out.
+> >
+> > I think you have agreed that, at least for anon vma, we can
+> > keep the current policy, since anon vma is much more volatile
+> > than file vma.
+>
+> I don't think any of the above has to do with anon vmas.  Does any anon
+> vma handling have anything to do with your problem?
 
-This is covered by PATCH-7 in my PRI series:
-https://lore.kernel.org/linux-iommu/cover.1779944354.git.nicolinc@nvidia.com/
+Hi Liam,
 
-FWIW, changing arm_smmu_setup_unique_irqs() alone isn't complete,
-as Sashiko pointed it out:
-https://sashiko.dev/#/patchset/20260622-smmu_pri-v1-1-14ad92b6043f%40debian.org
+I think there may be a misunderstanding about the motivation behind
+this series.
 
-Nicolin
+Currently, for both file-backed and anonymous VMAs, when a page fault
+cannot lock the required folios=E2=80=94for example, because a folio is und=
+er
+I/O during a major fault=E2=80=94the fault handler drops any locks it is
+holding (either per-VMA locks or the mmap lock) and retries the fault
+under the mmap_lock. This page-fault retry pattern requiring the
+mmap_lock can lead to significant mmap_lock contention.
+
+The entire purpose of this series is to avoid reacquiring the mmap_lock
+where possible, while ensuring that the implementation does not
+introduce new priority inversion issues or unnecessary complexity.
+
+We have two possible approaches:
+
+1. Keep the page-fault retry path, but retry under the per-VMA lock
+whenever possible. In this case, we would need a flag to indicate
+whether the retry should be performed under the per-VMA lock or the
+mmap_lock.
+
+2. Remove the page-fault retry path entirely. Instead, wait for the
+folio to become lockable while retaining the locks currently held,
+and continue the fault handling without retrying the page fault.
+
+Approach 1 is the direction taken by both the current patch and the
+RFC that was suggested.
+
+Approach 2 is a potential alternative, but I have never posted an RFC
+proposing it.
+
+For Approach 1, the primary concern seems to be the added complexity.
+
+For Approach 2, my concern is the increased risk of priority
+inversion. With this approach, we may end up holding a lock while
+waiting for I/O completion, potentially for a considerable amount of
+time. As a result, a concurrent VMA writer, along with any subsequent
+mmap_lock acquirers blocked behind it, could be stalled for an
+extended period.
+
+If there is an approach 3, it could be:
+for file VMAs, we take approach 2; for anonymous VMAs, we take
+approach 1.
+
+>
+> This would be needed if anon vmas were being faulted while being
+> unmapped or merged?  Do we really need a fast path for that?  Note that
+> anon vmas cannot be merged if the vma chain... you know what, I wonder
+> how many people know what I'm talking about here... Let's just say that
+> they can't be merged if they were around for a fork.
+
+In terms of fork(), this is the concern I raised when considering
+approach 2=E2=80=94holding the VMA lock while performing I/O, since a
+concurrent fork would need to acquire the VMA write lock.
+
+I had Hongru add some tracing code and run it against the top 200
+Android applications in the China market. All of them are heavily
+multi-threaded. Unfortunately, we found that 82 of these 200 Android
+applications call fork(), and some even call fork() from multiple
+threads.
+
+So, although it may be technically a bad idea to call fork() in a
+multi-threaded application, it appears that in practice it is still
+widely used in real-world applications.
+
+I guess Hongru (Cc-ed) will share his observations later today or
+tomorrow.
+
+>
+> So, then, we're looking at anon vmas taking the mmap lock on:
+> 1. single task anon vmas being expanded and faulted at the same time
+> 2. single task anon vmas being unmapped and faulted at the same time
+>
+> I think that's it?
+
+Yes and no. It could also include mprotect, UFFDIO_REGISTER,
+UFFDIO_UNREGISTER, and setting VMA names, etc.
+
+Note that Java GC may also invoke UFFDIO_REGISTER and
+UFFDIO_UNREGISTER on Java heaps.
+
+Note that priority inversion can still occur between threads that are
+not operating on the same VMA if we take approach 2.
+
+For example:
+
+Thread A: page fault in vma1, holding the VMA lock and waiting for I/O.
+
+Thread B: concurrent write on vma1 (takes mmap_lock and then waits for
+the VMA write lock);
+
+Thread C: concurrent write on vma2 or do VMA iteration (acquires
+mmap_lock).
+
+In this scenario, Thread C may end up indirectly waiting for Thread A.
+
+>
+> But maybe I missed something critical about your use case here?
+>
+> I don't understand why you are involving anon vmas in this discussion,
+> so I must have missed something with your IO completion issue.  Is there
+> an anon vma causing your priority inversion?
+
+As explained, the primary goal is to reduce mmap_lock contention by
+avoiding taking the mmap_lock whenever possible, while ensuring that
+the implementation does not introduce new priority inversion issues.
+
+>
+> > Concurrent page faults and VMA modifications can happen more
+> > often than with file VMAs.
+>
+> But it's only a problem for anon vmas with per-vma locking if it's the
+> same vma (or the vma lock sequence counter overflows, but let's say
+> that's a statistically insignificant non-zero value).
+>
+> >
+> > For file vmas, how much code can we actually remove, given that
+> > the first page fault might already be holding mmap_lock?
+>
+> How much complexity can we remove and maintain the performance, might be
+> a better question.
+
+Right, thanks for improving the question.
+
+>
+> > It could be the case that lock_vma_under_rcu() fails, and then
+> > on the first page fault we end up holding mmap_lock before
+> > retrying. So are we also going to rip out the lock release,
+> > even if it risks holding mmap_lock for a long time?
+> >
+> >         vma =3D lock_vma_under_rcu(mm, addr);
+> >         if (!vma)
+> >                 goto lock_mmap;
+> >        ...
+> > lock_mmap:
+> >
+> >         vma =3D lock_mm_and_find_vma(mm, addr, regs);
+> >         if (unlikely(!vma)) {
+> >                 fault =3D 0;
+> >                 si_code =3D SEGV_MAPERR;
+> >                 goto bad_area;
+> >         }
+> >
+> > If we still need to keep the page fault retry code there, it
+> > doesn't seem like "ripping out" really reduces complexity in
+> > the page fault code?
+>
+> This seems unrelated to be above complexity that might be the target of
+> removal?
+
+I think it is highly related. If we take approach 2=E2=80=94holding locks t=
+o
+perform I/O and removing the page-fault retry path=E2=80=94we need to
+consider whether the same behavior should also apply when we are
+already holding the mmap_lock. We should understand the full picture
+before focusing on a specific part in isolation.
+
+Thanks
+Barry
 
