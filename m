@@ -4,66 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C828CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 19:07:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF3BBCD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 20:39:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H/ptLYDoNYECHV8Av4vKOACJyHkEJSNp/4xAFTlNvYU=; b=QdJ99/mnEymFa59WZ0UuHja896
-	F9T3khDdaPey40/1F5zw+7yscA9A8iJhN/H4LXFHYrbQD5WPrhXnfyvhNMTJ2Xdm52VD4kd/kRAeb
-	wct1YlNaQhzy9X+tSCpL4ZVn9wwi/BPwrPZTGJVBP/yXUqW7tjMIsIxQ39JZA5ENHfys+0eWqn4OG
-	Wf26QSpT6K1pdNHL50LediK/CwFvMLPourQCqHh2ve9Rt0dSQ8Fw4WfUItFSn+lgjahe+46lGANwc
-	Z+Wnh+KZM+9zmiWuaIbWmoSkSG4f7FT2rhPk/XAHtSk6+vXqiM6CWW0aaV4M9I5EgUUQP+fFHgcNQ
-	tWDMtaEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=f/eI1igp0jhTQQcKbkxniVkr0wAf2k+Z91+811cqNa0=; b=wXIdNpcIEGLF2z7he+QJL3YTPi
+	ZpnciWu7euBafsuOhkoUbrx+Fi8eGL8j5a8QeKUh0lheFj5WUoJp+QqaEbX3cMVm5g3jKJj5rU0fl
+	uCfpLBGgnS0JPuIIb8i4XSf2SyqXqz6u5ipXJ6sXwcL3F/uoKxdHIujiRFgO3p7BD4011+pw5seLZ
+	c14LdcIQX/yFZIdw2tW5/BH+FEnrfL/6U+Nie/Z4iryJDr4aH8G522XdbeM/Bwvt1p11iyGZ4ZIAI
+	/SLDbXfA4rt3uqP3GfjPrHooha6y5fL4Wq0ULGmrdwEX8MhxaesCm89PfA4dQKTrfXV4wIb4D/l8E
+	7aJAoDgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbjzH-00000005Kkn-45Ys;
-	Mon, 22 Jun 2026 19:07:15 +0000
-Received: from out-171.mta0.migadu.com ([91.218.175.171])
+	id 1wblQ0-00000005N2a-2P74;
+	Mon, 22 Jun 2026 20:38:56 +0000
+Received: from mail-yx1-xb161.google.com ([2607:f8b0:4864:20::b161])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbjzD-00000005KjE-1ppI
+	id 1wblPx-00000005N2E-1l2K
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Jun 2026 19:07:12 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1782155229;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=H/ptLYDoNYECHV8Av4vKOACJyHkEJSNp/4xAFTlNvYU=;
-	b=ukkLvB7XmLFD+E8YKhTqcZli2nlA0iadBQfzNjh2oOCZmaHjboqos1B9yGGBJMNZtuMCvp
-	B6NZV1Fl6iWvGbIhTO0lS8t+OuuQ0svpobXhcjIZzEEcUL24/aXJkpL4c4rcv37f6UD0WM
-	f1oF+UmZgxkBjjCCQq0hsSsK3VHCP5A=
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Shuah Khan <shuah@kernel.org>,
-	Christoffer Dall <christoffer.dall@linaro.org>,
-	Victor Kamensky <victor.kamensky@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/2] KVM: arm64: selftests: Add MMIO sign-extending load test
-Date: Mon, 22 Jun 2026 20:07:01 +0100
-Message-Id: <20260622190701.2039766-3-fuad.tabba@linux.dev>
-In-Reply-To: <20260622190701.2039766-1-fuad.tabba@linux.dev>
-References: <20260622190701.2039766-1-fuad.tabba@linux.dev>
+	Mon, 22 Jun 2026 20:38:55 +0000
+Received: by mail-yx1-xb161.google.com with SMTP id 956f58d0204a3-6611669cd16so5806690d50.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Jun 2026 13:38:52 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782160731; x=1782765531;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=f/eI1igp0jhTQQcKbkxniVkr0wAf2k+Z91+811cqNa0=;
+        b=dKgr+dvHxgypI9zZvJL8vId1P1+bq9D4Pi53tJ6N3uP/5Y6n3OeA2WNHg8hvQmvPzS
+         eo/UrcDQnG38fC7PhffFXPgWPVxJu45J8Be4VB6QtYRt6WQ6KzhW5wOzQYsoWoW+V3Mg
+         1UlO6IhFYHyZyOXvvfVXsJhgGR9MJo4g8GDmCFOhPr5p/ZB1q+sPNKnb8xXp+RimyA2F
+         3vDDX5KyR7Zh2+fG2ZdoVTAKjp3J4BXQnMHziblvcR2UXnDd33bLFPc+CpQlTMbJXooX
+         DjupMpE0Xu1WGRiqXdPcezWxU5mZFFjL8ZesoM9tA4yWoCJtwCELC3uutafjmUhTnYQf
+         ypHw==
+X-Forwarded-Encrypted: i=1; AHgh+RpDMl3w4L2VaPN2y4sM4IwI07Zy5YO1aZktE63oKTFkGshikubUD4KddYC9ZUTQBEV/aqlzW3ij6D0911Ccs1XJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YzNbO6bvKykwWVPM8pp+OWraZJV4Z9ZNTUoOjdlakxQjpmiOEwp
+	nj4PgB3MyHEflUG1HYqhF1JSwBG1x4rGTnUvvsg18O4Wu8Dkwrp0OJ8eAuu+EMhkIX6KOL8asvi
+	92ogzE6bSMuAFzSGZ76/1IAL8zQs0rSQHx/P38Oz5kPDSpLM7qot7PQm2q9MTlu5Jm0N+hXp+6j
+	Tb5mjEJ63C2sVFf2kSftMcYsDCb0yPucJ/WEUJCn7T2dy2WdIddnTGagrvs4laslcMMXwhMwOxH
+	YGctfZZ4IgG90dVjvO+yYTOuIbln7U6
+X-Gm-Gg: AfdE7ckh2Ig+oBP5EJxAgCFs8+NsCFCR/zu7i3EiJl4J/OR/dP96WWRzKYVKFQEWSqE
+	cD8OiM4qZCKCgqkGYgFDdOrs3NUKniUDPGFXw0nDfMsJt3esIWZj7GV4Rpeh/EeXQSgjkBl1xfc
+	Dt0STbgLoK/yb18X8eqH/D0SX3/ltdFStwN06OZwk/aqm7k7Ju8FUa5GT4Hud4csOhZMQ2KDBBW
+	1CgEdAjhBL9ovftSVqBhCcHklLm6fvsDiyWpBwJ0uD6WiOaCEjTc3SznrCg78YTtP6r6uRTPeEh
+	nBdip+M9dASD+bOVbQ2d0uhyYjtuO4JVk/6q3IUlBgGZHXU5Z5S8Mg+ik/TxDYiX8pvv03s6IxH
+	5HCzk9sQXpjbSA8FO8diXPDL2Spw4F53Nc7R9N3dvLLMmNCeo/bNv96UVCE1AQ9n1nJLhlstP1i
+	VgwkNn+t3h3h5t/WNgyx7dzS6tIYOQxeCFdWNMpfHCedtE1sgQ
+X-Received: by 2002:a53:e046:0:b0:660:4936:95d5 with SMTP id 956f58d0204a3-662ffed721bmr11095929d50.40.1782160730888;
+        Mon, 22 Jun 2026 13:38:50 -0700 (PDT)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-117.dlp.protect.broadcom.com. [144.49.247.117])
+        by smtp-relay.gmail.com with ESMTPS id 956f58d0204a3-66314ce3621sm541259d50.26.2026.06.22.13.38.50
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 22 Jun 2026 13:38:50 -0700 (PDT)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-ej1-f69.google.com with SMTP id a640c23a62f3a-bfa400102d9so511576166b.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Jun 2026 13:38:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1782160729; x=1782765529; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=f/eI1igp0jhTQQcKbkxniVkr0wAf2k+Z91+811cqNa0=;
+        b=FQRdMhLYn/LF3kl/zUuQWCTfRHJW7KSBOpHkCTZWETC/MqqoJgTvJ1kNDNm8LaiEEi
+         ww8xzB0110ciJO5dA36glPx67uiSkDd/aInaWfLJK7kZ4LgkQ3wGZMcp8te9s5XgkviK
+         g4OXF2ga3avESTuo9ZSsA97HPUbeD9htU0iE8=
+X-Forwarded-Encrypted: i=1; AFNElJ+Jr4r56oVETjveQ0lAy2FGwbNumceZFztzRHD+YQFpB53m2WTl747h4sHti9Mjm6ZmgB1/F3e9WsLjNgZq/ty6@lists.infradead.org
+X-Received: by 2002:a17:907:60c9:b0:c07:6a7e:3a4c with SMTP id a640c23a62f3a-c097cbc92c0mr971238366b.40.1782160729197;
+        Mon, 22 Jun 2026 13:38:49 -0700 (PDT)
+X-Received: by 2002:a17:907:60c9:b0:c07:6a7e:3a4c with SMTP id
+ a640c23a62f3a-c097cbc92c0mr971236666b.40.1782160728684; Mon, 22 Jun 2026
+ 13:38:48 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+References: <20231205184741.3092376-1-mmayer@broadcom.com> <20231205184741.3092376-4-mmayer@broadcom.com>
+ <e63906cf-9f76-4fed-91b0-1a9168b179bd@linaro.org> <12f3c515-71cf-46a5-ad92-15bf6c4c2f2c@broadcom.com>
+ <c483e962-a565-45b0-91e2-41f47e2cf4bb@linaro.org> <CAGt4E5smwohGsPkvFOY8o270mNQnTkSWz8UKh3un2=XtEibzAg@mail.gmail.com>
+ <CAGt4E5tGHJFXswic6vTx-ThN2K9xBtO8oA4ybrXg+q5cA6GYCA@mail.gmail.com>
+In-Reply-To: <CAGt4E5tGHJFXswic6vTx-ThN2K9xBtO8oA4ybrXg+q5cA6GYCA@mail.gmail.com>
+From: Markus Mayer <mmayer@broadcom.com>
+Date: Mon, 22 Jun 2026 13:38:36 -0700
+X-Gm-Features: AVVi8Cdf8blAzch-m_uqCV7tC2oS17aknTGmI48yeh3qAuFBG7a4R9Q-ey1Q_vU
+Message-ID: <CAGt4E5vemtkfpdz8k8mS5LeZF4SzZSgm0d7OORtDonagF=hwYA@mail.gmail.com>
+Subject: Re: [PATCH 3/4] memory: brcmstb_dpfe: support DPFE API v4
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>, Rob Herring <robh+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, 
+	Linux ARM Kernel List <linux-arm-kernel@lists.infradead.org>, 
+	Device Tree Mailing List <devicetree@vger.kernel.org>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260622_120711_765830_698BDCEA 
-X-CRM114-Status: GOOD (  16.40  )
+X-CRM114-CacheID: sfid-20260622_133853_540591_B60D00D6 
+X-CRM114-Status: GOOD (  24.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,169 +115,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a test for sign-extending MMIO loads (LDRSB, LDRSH, LDRSW) into Xt
-and Wt destinations, with and without the sign bit set. The host supplies
-the MMIO data and checks the guest register holds the sign-extended value.
+On Thu, 28 May 2026 at 14:45, Markus Mayer <mmayer@broadcom.com> wrote:
 
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
----
- tools/testing/selftests/kvm/Makefile.kvm      |   1 +
- .../selftests/kvm/arm64/mmio_sign_ext.c       | 133 ++++++++++++++++++
- 2 files changed, 134 insertions(+)
- create mode 100644 tools/testing/selftests/kvm/arm64/mmio_sign_ext.c
+> > > Thanks for providing justification, quite reasonable. A pity that none
+> > > of the commit msgs answered this way.
+> >
+> > The real pity is how this API was designed, making all of this
+> > necessary in the first place.
+> >
+> > We can definitely spell out more clearly in the commit messages what
+> > is going on and why all of this is needed. I'll pull all the pieces
+> > together from the various responses. As long as there's a way we can
+> > reasonably implement what we need, we'll be happy.
+>
+> It has been a minute, but we'd like to resume this effort[1] to
+> upstream these changes or some variation thereof.
+>
+> What are the best steps to resume this undertaking? There are still a
+> few topics where I am not entirely clear on how to better explain
+> things or how to address the feedback provided. My apologies for that.
+> I will do my best to address whatever concerns there are.
+>
+> Should I put together a new pull request that contains improved commit
+> messages and addresses some of the feedback and we hash out whatever
+> questions remain on the new thread? Or would it be better for me to
+> reply to the old thread with some of the questions that remain before
+> sending a revised series?
 
-diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
-index 9118a5a51b89f..0f5803a1092e1 100644
---- a/tools/testing/selftests/kvm/Makefile.kvm
-+++ b/tools/testing/selftests/kvm/Makefile.kvm
-@@ -171,6 +171,7 @@ TEST_GEN_PROGS_arm64 += arm64/hello_el2
- TEST_GEN_PROGS_arm64 += arm64/host_sve
- TEST_GEN_PROGS_arm64 += arm64/hypercalls
- TEST_GEN_PROGS_arm64 += arm64/external_aborts
-+TEST_GEN_PROGS_arm64 += arm64/mmio_sign_ext
- TEST_GEN_PROGS_arm64 += arm64/page_fault_test
- TEST_GEN_PROGS_arm64 += arm64/psci_test
- TEST_GEN_PROGS_arm64 += arm64/sea_to_user
-diff --git a/tools/testing/selftests/kvm/arm64/mmio_sign_ext.c b/tools/testing/selftests/kvm/arm64/mmio_sign_ext.c
-new file mode 100644
-index 0000000000000..d1efbccd1603a
---- /dev/null
-+++ b/tools/testing/selftests/kvm/arm64/mmio_sign_ext.c
-@@ -0,0 +1,133 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * mmio_sign_ext - Test sign-extending MMIO load emulation (LDRSB/LDRSH/LDRSW)
-+ *
-+ * Copyright (c) 2026 Google LLC
-+ */
-+
-+#include "processor.h"
-+#include "test_util.h"
-+
-+#define MMIO_ADDR	0x8000000ULL
-+
-+struct mmio_test {
-+	const char *name;
-+	uint64_t data;
-+	uint8_t len;
-+	uint64_t expected;
-+};
-+
-+/* Paired 1:1, in order, with the loads in guest_code() below. */
-+static const struct mmio_test tests[] = {
-+	/* LDRSB Xt: byte sign-extended to 64 bits */
-+	{ "LDRSB Xt 0xFF",	0xFF,		1, 0xFFFFFFFFFFFFFFFFULL },
-+	{ "LDRSB Xt 0x7F",	0x7F,		1, 0x7FULL },
-+
-+	/* LDRSB Wt: byte sign-extended to 32 bits, upper 32 bits zeroed */
-+	{ "LDRSB Wt 0xFF",	0xFF,		1, 0xFFFFFFFFULL },
-+	{ "LDRSB Wt 0x7F",	0x7F,		1, 0x7FULL },
-+
-+	/* LDRSH Xt: halfword sign-extended to 64 bits */
-+	{ "LDRSH Xt 0x8001",	0x8001,		2, 0xFFFFFFFFFFFF8001ULL },
-+	{ "LDRSH Xt 0x7FFF",	0x7FFF,		2, 0x7FFFULL },
-+
-+	/* LDRSH Wt: halfword sign-extended to 32 bits, upper 32 bits zeroed */
-+	{ "LDRSH Wt 0x8001",	0x8001,		2, 0xFFFF8001ULL },
-+	{ "LDRSH Wt 0x7FFF",	0x7FFF,		2, 0x7FFFULL },
-+
-+	/* LDRSW Xt: word sign-extended to 64 bits (no Wt form) */
-+	{ "LDRSW Xt 0x80000001", 0x80000001,	4, 0xFFFFFFFF80000001ULL },
-+	{ "LDRSW Xt 0x7FFFFFFF", 0x7FFFFFFF,	4, 0x7FFFFFFFULL },
-+};
-+
-+static void guest_code(void)
-+{
-+	uint64_t val;
-+
-+	asm volatile("ldrsb %0, [%1]" : "=r"(val) : "r"(MMIO_ADDR) : "memory");
-+	GUEST_SYNC(val);
-+
-+	asm volatile("ldrsb %0, [%1]" : "=r"(val) : "r"(MMIO_ADDR) : "memory");
-+	GUEST_SYNC(val);
-+
-+	asm volatile("ldrsb %w0, [%1]" : "=r"(val) : "r"(MMIO_ADDR) : "memory");
-+	GUEST_SYNC(val);
-+
-+	asm volatile("ldrsb %w0, [%1]" : "=r"(val) : "r"(MMIO_ADDR) : "memory");
-+	GUEST_SYNC(val);
-+
-+	asm volatile("ldrsh %0, [%1]" : "=r"(val) : "r"(MMIO_ADDR) : "memory");
-+	GUEST_SYNC(val);
-+
-+	asm volatile("ldrsh %0, [%1]" : "=r"(val) : "r"(MMIO_ADDR) : "memory");
-+	GUEST_SYNC(val);
-+
-+	asm volatile("ldrsh %w0, [%1]" : "=r"(val) : "r"(MMIO_ADDR) : "memory");
-+	GUEST_SYNC(val);
-+
-+	asm volatile("ldrsh %w0, [%1]" : "=r"(val) : "r"(MMIO_ADDR) : "memory");
-+	GUEST_SYNC(val);
-+
-+	asm volatile("ldrsw %0, [%1]" : "=r"(val) : "r"(MMIO_ADDR) : "memory");
-+	GUEST_SYNC(val);
-+
-+	asm volatile("ldrsw %0, [%1]" : "=r"(val) : "r"(MMIO_ADDR) : "memory");
-+	GUEST_SYNC(val);
-+
-+	GUEST_DONE();
-+}
-+
-+static void handle_mmio(struct kvm_run *run, const struct mmio_test *t)
-+{
-+	TEST_ASSERT_EQ(run->mmio.phys_addr, MMIO_ADDR);
-+	TEST_ASSERT(!run->mmio.is_write, "Expected MMIO read for %s", t->name);
-+	TEST_ASSERT_EQ(run->mmio.len, t->len);
-+
-+	memset(run->mmio.data, 0, sizeof(run->mmio.data));
-+	/* Works because arm64 KVM hosts are always little-endian. */
-+	memcpy(run->mmio.data, &t->data, t->len);
-+}
-+
-+int main(void)
-+{
-+	struct kvm_vcpu *vcpu;
-+	struct kvm_vm *vm;
-+	struct ucall uc;
-+	unsigned int i;
-+
-+	vm = vm_create_with_one_vcpu(&vcpu, guest_code);
-+	virt_map(vm, MMIO_ADDR, MMIO_ADDR, 1);
-+
-+	ksft_print_header();
-+	ksft_set_plan(ARRAY_SIZE(tests));
-+
-+	for (i = 0; i < ARRAY_SIZE(tests); i++) {
-+		const struct mmio_test *t = &tests[i];
-+
-+		vcpu_run(vcpu);
-+		TEST_ASSERT_KVM_EXIT_REASON(vcpu, KVM_EXIT_MMIO);
-+
-+		handle_mmio(vcpu->run, t);
-+		vcpu_run(vcpu);
-+
-+		switch (get_ucall(vcpu, &uc)) {
-+		case UCALL_SYNC:
-+			TEST_ASSERT_EQ(uc.args[1], t->expected);
-+			break;
-+		case UCALL_ABORT:
-+			REPORT_GUEST_ASSERT(uc);
-+			break;
-+		default:
-+			TEST_FAIL("Unexpected ucall for %s", t->name);
-+		}
-+
-+		ksft_test_result_pass("%s\n", t->name);
-+	}
-+
-+	vcpu_run(vcpu);
-+	TEST_ASSERT(get_ucall(vcpu, &uc) == UCALL_DONE, "Expected UCALL_DONE");
-+
-+	kvm_vm_free(vm);
-+
-+	ksft_finished();
-+}
--- 
-2.39.5
+Any advice on how to best proceed from here?
 
+Thanks,
+-Markus
+
+> [1] https://lore.kernel.org/all/20231205184741.3092376-1-mmayer@broadcom.com/
 
