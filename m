@@ -4,100 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1378CDB466
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 02:30:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58803CDB46C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 02:50:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ipKRVPzkC3/bLO3loiWzGU9J/nN5jU3SnxMn7jqpCwk=; b=zkbtTmf2RQlq++Twqn0IJPuxSz
-	pAS+7VDKUNO3meScySihldoaF9/SlG+61rFJ9MuUQ+uQl0H04Hck1+q1nAcMWPmHtN47yEkGnrGeS
-	JvXY80HSpGOvmUWtdeXNkVBuwxqa/XucFLbkNZcwh/PIBYQCItMlJN+NIC9UwRmOQCbDJfst32duH
-	Z7KSfMyomhiJFXYA8Fpm4D80InAoMpyoMx6/NwzpDP55Ln2hbRDqiI0Ou5xeDR6qbCYzA5KVZbKTc
-	EVdJcBj/pNqDZcYE2YBAwDSKoaq3K2wWQ0nWqK12O0eKPRoMeolKcHkM/z8WolW03YNowHvWcZHmZ
-	uX+h6MVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Ofysx+fsC9tVEMKyLOfEg0zuK/17sjgt+cnP5U+s21E=; b=niRncy4gXr5423t6LU+DVCEWWE
+	+KAGPV8kX4J26XrTDXNLGG/9AnYQItpeb4cG7kUY+Gf6IFxd1hDGJv8h0H5xlCTUB4NbYSqai1fFP
+	7T86c/Szb8e2hMiGQMnb6Uba2Dpn+49sfNSrCn7827688Vu9k3850gGLG6dC1fXvHxZVjNdWRCHOQ
+	cRxRuGmfk763/TgJG20a+wvwART53sFjg4Na6BbAJYTgVRCMxkYMdFTRujZq7hiWHgzFSjz9YLOJj
+	LrKy0jhhVEQ/7lnh6xlaRjjzcK96+XROgxDY2Bb/yKHFe7o0aNpnf+Dqo+uE5xKV8hoSBYj0nbGdL
+	WeG68eyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbUQy-00000004JSc-0HhW;
-	Mon, 22 Jun 2026 02:30:48 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1wbUjS-00000004K8w-35mX;
+	Mon, 22 Jun 2026 02:49:54 +0000
+Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbUQu-00000004JRg-3Heo
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Jun 2026 02:30:46 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2c6be9cd7afso15846255ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 21 Jun 2026 19:30:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782095444; x=1782700244; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=ipKRVPzkC3/bLO3loiWzGU9J/nN5jU3SnxMn7jqpCwk=;
-        b=eFeiF9sPj2IAOng1Fs2rSpxrZ1G8GCLLOpb+nt7PNsVvstNXaa+cNGiVAmGDh2PZT/
-         hiK+UGGtlhPJIK6xYxPGZf3/Yq0jAiV5K8AOu8dTmAaBHiexYRJt/aBLrIXMJL0W7I4v
-         swQB1R9/MHyR3KSCbYzmtrQ/l2lTdzy0D2XDddFe4sEHJBeBKwHaVgife/60qy2FWZeL
-         uKz5Y3ucJmJns0MS94T0Hmig+mC4f3tODC12dzl6ph1MwF5+QPr6nsek92Db1FdXrWea
-         1vesDaQBXu1WcEHttsbS6AaAvpsnyliMrrqRGHPX+jGKkVe+O8gR5qG8frtCCzVQanqt
-         7VKg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782095444; x=1782700244;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ipKRVPzkC3/bLO3loiWzGU9J/nN5jU3SnxMn7jqpCwk=;
-        b=bqrptY6H18NcvgXZooOTBXaYpejpkNLQah8CE2qILhNwyIKT8EukOYoBm55gnnXvHW
-         nRdRMmKfRa0mqu8EqctWauJcwBeLLBnJ5JW+fNe11ZAWHKzIGKKdiPIGalHM+2mY86Xp
-         9NzuUso2pKYAi0lf4crewxIzeiDvhVteXclc2wF6ZG9+fzfix/jkioxmidexA3T4Lq0G
-         Opyo7+8VWG4ua1r578mK2vMFBqmVDqgtxJB8oxjf8kwltrzvWJaW/9gyKOFn8ek2TrNV
-         x2TjAFnk36uX9Szax5YWE4B2bqUc/az9LanWXXC8DLi5wn5qq7oMFA7jkRal8IIGzid+
-         Vfdg==
-X-Forwarded-Encrypted: i=1; AHgh+RobdMXCr8X5wiNkT33CYiWQppRdcgrSBZFP+GFN9+PACu6Trp60Xd0xu2C8lZG7YO7qGIPa1syVznaWp8Xx4E1K@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyy5scbwEn9P3PP+DN5kdfzzX/wXRKBzkpc1by3T1Gu8IFvshmx
-	VIbsbjUXcrg1t+XRilDmewAPpbFutGNLPrbnFL7G+J6wQTaDLONi5/Fo
-X-Gm-Gg: AfdE7cmEoJu7Tuj3+6bajlR+VSe+LGd8qApTDfj7KKWSvadrrczSuHpQaDuD4YCYio6
-	fvLIuqMw1b5tGtZ+sIbXgYBDh+htpNZdfYKB0AHAwPqOtMChBB/iT6VXiJ7TOvkonASHYE6I5I0
-	xnVnVrAMpaKryPg3uLjyoio0iU15uLHO9YkCrlaBufHwYznxPFidV6cBDlmdVDbxnDgUYRYbqsz
-	0zVXYZPJx9bOx58pifbLVjdsF8FxFOXZ3tukOp9zQFaXeuvJmLOo1JOfrYqCII1oGCowcSDxdsO
-	WTRhxNdusKiLYPvvcES4kZGOGjm7qLHy55bhHTLp6sY9i/bC4W97V3iKywptRMREqdw52XsVaVD
-	at6sb5q+WxG24wIjCwMitpZOMC+FSq6hUX9GXN2MPAikzR12UxJQwJZUshM79dGFu0aTChBiQ3X
-	Q9h65LNTFu/jKn3YY2YphWGxV85VvDRBT/l0DXYQ1YeUwfu1SKf0BptLp0oTEyD2JyOw==
-X-Received: by 2002:a17:903:b47:b0:2c6:a487:f431 with SMTP id d9443c01a7336-2c718fe2eb1mr137529215ad.23.1782095443621;
-        Sun, 21 Jun 2026 19:30:43 -0700 (PDT)
-Received: from [192.168.0.100] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c742fdd411sm64398555ad.0.2026.06.21.19.30.39
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 21 Jun 2026 19:30:43 -0700 (PDT)
-Message-ID: <6d6dd8d0-292a-43f6-a94a-dedebe22c582@gmail.com>
-Date: Mon, 22 Jun 2026 10:30:39 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 4/6] drm/verisilicon: add DC8000 (DCUltraLite) display
- controller support
-To: Icenowy Zheng <zhengxingda@iscas.ac.cn>,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
- airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>
-Cc: ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-clk@vger.kernel.org
-References: <20260615065003.76661-1-a0987203069@gmail.com>
- <20260615065003.76661-5-a0987203069@gmail.com>
- <d5df0e9df3a9a68aae982f2fce830a4b10468476.camel@iscas.ac.cn>
- <df7363be-0e3f-4459-be4a-43ffb0a5366c@gmail.com>
- <0bb460aefb97e44cc0890a7841b8d217349143de.camel@iscas.ac.cn>
-Content-Language: en-US
-From: Joey Lu <a0987203069@gmail.com>
-In-Reply-To: <0bb460aefb97e44cc0890a7841b8d217349143de.camel@iscas.ac.cn>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+	id 1wbUjP-00000004K8N-36tm;
+	Mon, 22 Jun 2026 02:49:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=u7TQM9WyuR90m+078EJFP0pG8eAJ4BIZtjIACipDpojYtWfV0Dra5EXDdBwTb4FWhzZ44D0vCGroSMx2hSd4hUdYVdZ2gL9kNDtc6G4TkJUHGj28ZJcW++qNE7gpE46dneZ8zraDM+DJ/hFswgMdYx7+6lxpoBCpL02W0O5/RnYXh0oT4T/yOBVB++iwNJRbpGez/X5AxhUjb+4Qd3Aba60t4McsXTLjO1FbMtMxLZyWOunz3E42lWqNeu1aGrb3sUFwoQAdvg7AP1Uq1RFvg0xYSB1YKlPf1d31vQ32KsfsJu9oj4RY9yLET+BDr92o+YkKjDvGT7ssekB/GP6Zhg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Ofysx+fsC9tVEMKyLOfEg0zuK/17sjgt+cnP5U+s21E=;
+ b=iKLr1G0No90NaVRVGRoNXMcjsz+XGh0qO/G2EoUUWO2dzs/qSyMCpezlmNk7kelHNZue3fbtAFTKWtXiL/pfjCXfihv0UX8EWFiYeoXTYnmbpm20Um/G4y8Pm5GYYnHvNvWjIEYtRSinmurK9GVJR/PZQNyuOmBkvp9GhIexd9rO8PZ/T8N/iZrqZWMM4PAhaR9bAxQANWjQpaY0AbXUxyvQS2ZbmOA5giA8y39QihING4o2bqowlhDWmwFGVqfgUJQlE72bCFoAQR9vnJzETGf+T9WefFYydzkYAFFyNNQzee4Y5elHzFh39wwqV39wjb45BWBNqEx/J4OFsGsZYA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
+ dkim=pass header.d=altera.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Ofysx+fsC9tVEMKyLOfEg0zuK/17sjgt+cnP5U+s21E=;
+ b=LWzc41XPs2k9UJNG0X5lpRGOKWc22RnnNS/o20DflOPunwdKvoG2Ey35Yhhvy/mefrc9dwkDfRqGs8usbEZCVSnqG2lwFsD1o5/F6sKINHohm4gtIduX1k4UHlkg5IZIqMVh1h8A6l3aOX/s94jrvzNybR/YfJ1GiIeRSB3y7DNh7APZlF+kcUlC1RwF0LZJ30OnumfJItGs6zr47oq5DHFylPRiGB1V0UtlkvxJvOaMmLqNjwfhqtydV2bH2FNwAORlpre44YBHNkYC/+k3xKjEb5VM61bcyS2HjhlDhWmS2eKGjPGQ/WIEFfiExvc1BKyQ1G64SvQi718Lylyp9A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=altera.com;
+Received: from SJ0PR03MB6964.namprd03.prod.outlook.com (2603:10b6:a03:432::18)
+ by SA1PR03MB989246.namprd03.prod.outlook.com (2603:10b6:806:4f8::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.19; Mon, 22 Jun
+ 2026 02:49:47 +0000
+Received: from SJ0PR03MB6964.namprd03.prod.outlook.com
+ ([fe80::b965:bfa8:58fb:e775]) by SJ0PR03MB6964.namprd03.prod.outlook.com
+ ([fe80::b965:bfa8:58fb:e775%4]) with mapi id 15.21.0139.018; Mon, 22 Jun 2026
+ 02:49:47 +0000
+From: muhammad.nazim.amirul.nazle.asmade@altera.com
+To: maz@kernel.org,
+	tglx@kernel.org
+Cc: catalin.marinas@arm.com,
+	will@kernel.org,
+	heiko@sntech.de,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	adrian.ho.yin.ng@altera.com
+Subject: [PATCH] irqchip/gic-v3-its: Add Altera Agilex5 DMA workaround
+Date: Sun, 21 Jun 2026 19:49:45 -0700
+Message-ID: <20260622024945.21354-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
+X-Mailer: git-send-email 2.43.7
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SJ0PR13CA0099.namprd13.prod.outlook.com
+ (2603:10b6:a03:2c5::14) To SJ0PR03MB6964.namprd03.prod.outlook.com
+ (2603:10b6:a03:432::18)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ0PR03MB6964:EE_|SA1PR03MB989246:EE_
+X-MS-Office365-Filtering-Correlation-Id: 62330099-b3d9-413d-911c-08ded008ebbd
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|366016|1800799024|55112099003|18002099003|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info: e20vdtWzlI6z5aP6Osm0IXIrMAWV4VBAClsf5qEqgdmxiACjqoetug+K7RYmPm4741lWb0ndkVJ4KMBr2Tad1o2MS9Q6KU5uAgziNjo9Af4q57prbdgoWV5LXMIGmQH36ANxb0RPPxc7s/AyliTcUqU96b8ZimRmxXz+qd1Dkn5PJW/64VEB22E3Ax3E5YLujHKGDNMolJq7EAzAuZRcWVSctxlOZKjjLeY5mllQcV+C5+rkAlzn1uXo3zaROPEPzqMfxlY3Fo0F6BSe4yKvAm+uwMzUlwIn7s41ZdZEOd25Htn4qmzimYK7fsb3Zse4Ua8tbVnAbaWirA6eTVqeIzgd6k0StQZHMntpJKnC2FQ8cGNZH8HXmO6d1ey1lkjTfSn737s0FpJID4lrNTtbcSNfS24kHK2Y1ZSpgo1VJ+8Sr3+OA9vV0ZrO0cjgFjN9Pqq6F9L+Itij4DXYyRMco9jV7SqYbaYYR74dXMrMan56lEyx8upM/WX5cv/y1fBAkPmFvaI4Omx6nqzOacojLkdnuq07BEM9bdWe2El+HaI7QCyENBut3Y79n7t/cfPQuczbLFc/gLPtptTRKQ/BME1DBs490e/zaMJyY2/rfQmy319YMZgg5odP8a2I9nJWuBxl7UDtTZ7mej79Z3/Vd3VQd3X3jOCoAvt/8rTkEts=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR03MB6964.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(366016)(1800799024)(55112099003)(18002099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?lrag8HYgSTwUsvx4Eo755k5JxbXnWJFy2mL3M94cvW6WAi6D2XV2PYtXtA5s?=
+ =?us-ascii?Q?dHh56IYRe/ZWtbhuU1G3IW6UNCS+qEkzubd1KjozudJuf40gqtxu5LvgETko?=
+ =?us-ascii?Q?bkDjFEo5vKHt7Sc/O73AqMPVslOHT04c4VxIwS8ip6KFdL/zLI1Eu2Jg84kj?=
+ =?us-ascii?Q?h8i5j9CFBZK0imHaCEJslOQJiuRevS7UY9AANhgyPhdNXSGkwOa9ZE3c/Mvy?=
+ =?us-ascii?Q?8nrQL2jn6uiCKQAdn15CCI3OVcsWTZeaUC3ddM72gI+J6zPPOetMl+6M8BDV?=
+ =?us-ascii?Q?dVYNqXReKjR49frnfHmZWvRJRZh28n2KyfyRm8HnJDgQX2u0znUNmVgrPpe5?=
+ =?us-ascii?Q?EzxNZSgTtBgPQpN8YvfLBbGIF85HmRPq5j50duj7U/1gBsP6/NZVpE52QVk3?=
+ =?us-ascii?Q?zFAkLMts6Xt+rTViHeVF2dIUxT+KNh+e85t/FOf5tgVdtXTwOUfEooQ3ItUq?=
+ =?us-ascii?Q?HFJk/B4A4Uwdx0gKHMUVO2oYvKYLKPnjOQ+0/E/lptMVnjqniOFw2YOP42E2?=
+ =?us-ascii?Q?R0z5triBUEW5GpSIX5YjQrY/zszMOha7/miKAZLjdI7lXsmSPO3z0k1oW7Fa?=
+ =?us-ascii?Q?TkQwgRI0LsP6tUWMDmugvMRJMEG0sQ7NdP/e3DkOy7d4y7c1sxQnSmgCnkxO?=
+ =?us-ascii?Q?f+z8IYF/lezmKY1ex2ZNrLR1E/EQQA4cr5loxUheo3E+njcH/xqZrxgdjMi3?=
+ =?us-ascii?Q?yiJ/8LglKIspUdTPZXyIO6q9JHzrr643vn9EMrG78pvBgutaJpaK7WwRFuT9?=
+ =?us-ascii?Q?O3LHSYfDcKen86mzMUQL3FrS8HPAUmGHQl71+V+o9CVCpGZ/aDNbCh2ol+lt?=
+ =?us-ascii?Q?QBkMCckwXmY0kNTyefsntnQiiFqmqpJzWO7UJgF+Cf8jXbTFDF+FH05mz0wV?=
+ =?us-ascii?Q?w/qM9pyQHwwC6sXhP6gpzN07LTLdIoqGZJaqC7fK4WkcCcxuj+SddvSFv3qy?=
+ =?us-ascii?Q?wtQsYjKLbGFYFMSyCnhTxc6rWps1CTr7XoRMZ7RJS0k9fdoFu8dyhYcVTVym?=
+ =?us-ascii?Q?Zl1jDAb5f3VjJX8qF44+JlHdAlO3LtYxWik/cqHRpQYYbIzRDo7UGYbv02Mh?=
+ =?us-ascii?Q?fmrmwhfAEQ0E+QWSz89imRNw9c7YGjRcj0jXTAGRO7+XJWo6Y1c1lU0bf7IM?=
+ =?us-ascii?Q?bwVihMV2injmxH57UN0iXCivxg/h5OPSz2lk9jllA+UhD63+TrQKyPs02Mn5?=
+ =?us-ascii?Q?WNBcVKy7o2U540Ydf0Vn0oz0BA9U2xKFMp4X0BHAexj4kXl0iUAq5OStOjQX?=
+ =?us-ascii?Q?roV+ILDOffpkqabK5ose7MegSXhDldAvbezhL718PqYEeq1kfns81MN4Mv1o?=
+ =?us-ascii?Q?pIMFFrQIlnKVGd+iUg9w3NHkSbb0bWtfjiB8AF129n9WbHPjAVAZXaC5gvuf?=
+ =?us-ascii?Q?TvkSKNn9N1gf964wRugw7MkohJJIMQ7fd7IEbN+geKqsZMVTAWUgVDHkTQ3s?=
+ =?us-ascii?Q?hh5sMQIU+tw1VwtY30mFT8PQWEsxHW9OjDzSPTqJUPtxC1nXDElU7vpULXgG?=
+ =?us-ascii?Q?r7gsngyM3iWwlUISbN2TURjCd/mKFzdvraVI7vWeBZhTVtGOi/Vk7CMvZdz6?=
+ =?us-ascii?Q?CCjaiEuIArFnJy284SvQVszLQ5x+sQkoBIAG0YHmmiJgMenPoZsHUhPRlN/1?=
+ =?us-ascii?Q?90Vg2QcYKxDERLVWH1mq/0UvuVMSSfWH3k069BzZdHGNBHvCC99cUbRbGnUs?=
+ =?us-ascii?Q?k69AwRZsU6/MJ6wpRVbMikUb4r0gW3almwGxKXbG9RVpD2NQaM8nLajzVmhx?=
+ =?us-ascii?Q?vGbpa/RTNTDwkKvD/BihjwQPpRlO+5MLj7Yk9bov6mNlB61A3ywqYd7c3QPh?=
+X-MS-Exchange-AntiSpam-MessageData-1: uSdbXjGVw1DKgA==
+X-OriginatorOrg: altera.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 62330099-b3d9-413d-911c-08ded008ebbd
+X-MS-Exchange-CrossTenant-AuthSource: SJ0PR03MB6964.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jun 2026 02:49:47.0484
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: fbd72e03-d4a5-4110-adce-614d51f2077a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: HWJSbTvEBkG2DvRsHPMBl/rw3Cx0tZDEIeFeCPNaf2c0KaUKeXnT6Lj5vfXpVI9ZUto+FafFfxIVWGx3IwN/RCWtnSjrsgmhplkytY5TDQ9o1HoiIRnuaaBpxEUahan64lezqPldYU5z6fiW6pcnmw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR03MB989246
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260621_193045_593897_A432689F 
-X-CRM114-Status: GOOD (  22.73  )
+X-CRM114-CacheID: sfid-20260621_194951_791462_A0D04568 
+X-CRM114-Status: GOOD (  11.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,158 +141,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Adrian Ng Ho Yin <adrianhoyin.ng@altera.com>
 
-On 6/18/2026 6:33 PM, Icenowy Zheng wrote:
-> (CC'ed clk maintainers for weird clock gate bit)
->
-> 在 2026-06-17三的 18:35 +0800，Joey Lu写道：
->> On 6/15/2026 4:51 PM, Icenowy Zheng wrote:
->>> 在 2026-06-15一的 14:50 +0800，Joey Lu写道：
->>>> The Nuvoton MA35D1 SoC integrates a Verisilicon DCUltraLite
->>>> display
->>>> controller whose register layout differs from the DC8200 in
->>>> several
->>>> important ways:
->>>>
->>>> 1. No CONFIG_EX commit path: framebuffer updates use the enable
->>>> (bit
->>>> 0)
->>>>      and reset (bit 4) bits in FB_CONFIG instead of the DC8200
->>>> staging
->>>>      registers (FB_CONFIG_EX, FB_TOP_LEFT, FB_BOTTOM_RIGHT,
->>>>      FB_BLEND_CONFIG, PANEL_CONFIG_EX).
->>>>
->>>> 2. No PANEL_START register: panel output starts when
->>>>      PANEL_CONFIG.RUNNING is set; there is no multi-display sync
->>>> start
->>>>      register.
->>>>
->>>> 3. Different IRQ registers: DCUltraLite uses DISP_IRQ_STA
->>>> (0x147C) /
->>>>      DISP_IRQ_EN (0x1480) versus DC8200's TOP_IRQ_ACK (0x0010) /
->>>>      TOP_IRQ_EN (0x0014).
->>>>
->>>> 4. Per-frame commit cycle: DCUltraLite requires the VALID bit in
->>>>      FB_CONFIG to be set at the start of each atomic commit
->>>> (crtc_begin)
->>>>      and cleared after (crtc_flush).
->>>>
->>>> 5. Simpler clock topology: only 'core' (bus gate) and 'pix0'
->>>> (pixel
->>>>      divider) clocks; no axi or ahb clocks required.  Make axi_clk
->>>> and
->>>>      ahb_clk optional (devm_clk_get_optional_enabled) so DC8000
->>>> nodes
->>>>      without those clocks are handled gracefully.
->>>>
->>>> Add vs_dc8000.c implementing the vs_dc_funcs vtable for the above
->>>> differences.  The probe now selects vs_dc8000_funcs when the
->>>> identified
->>>> generation is VSDC_GEN_DC8000 (DCUltraLite reads model 0x0,
->>>> revision 0x5560, customer_id 0x305).
->>>>
->>>> Signed-off-by: Joey Lu <a0987203069@gmail.com>
->>>> ---
->>>>    drivers/gpu/drm/verisilicon/Makefile    |  2 +-
->>>>    drivers/gpu/drm/verisilicon/vs_dc.c     |  9 ++-
->>>>    drivers/gpu/drm/verisilicon/vs_dc.h     |  1 +
->>>>    drivers/gpu/drm/verisilicon/vs_dc8000.c | 78
->>>> +++++++++++++++++++++++++
->>>>    4 files changed, 86 insertions(+), 4 deletions(-)
->>>>    create mode 100644 drivers/gpu/drm/verisilicon/vs_dc8000.c
->>>>
->>>> diff --git a/drivers/gpu/drm/verisilicon/Makefile
->>>> b/drivers/gpu/drm/verisilicon/Makefile
->>>> index 9d4cd16452fa..d2fd8e4dff24 100644
->>>> --- a/drivers/gpu/drm/verisilicon/Makefile
->>>> +++ b/drivers/gpu/drm/verisilicon/Makefile
->>>> @@ -1,6 +1,6 @@
->>>>    # SPDX-License-Identifier: GPL-2.0-only
->>>>    
->>>> -verisilicon-dc-objs := vs_bridge.o vs_crtc.o vs_dc.o vs_dc8200.o
->>>> vs_drm.o vs_hwdb.o \
->>>> +verisilicon-dc-objs := vs_bridge.o vs_crtc.o vs_dc.o vs_dc8200.o
->>>> vs_dc8000.o vs_drm.o vs_hwdb.o \
->>>>    	vs_plane.o vs_primary_plane.o vs_cursor_plane.o
->>>>    
->>>>    obj-$(CONFIG_DRM_VERISILICON_DC) += verisilicon-dc.o
->>>> diff --git a/drivers/gpu/drm/verisilicon/vs_dc.c
->>>> b/drivers/gpu/drm/verisilicon/vs_dc.c
->>>> index 9729b693d360..9499fffbca58 100644
->>>> --- a/drivers/gpu/drm/verisilicon/vs_dc.c
->>>> +++ b/drivers/gpu/drm/verisilicon/vs_dc.c
->>>> @@ -90,13 +90,13 @@ static int vs_dc_probe(struct platform_device
->>>> *pdev)
->>>>    		return PTR_ERR(dc->core_clk);
->>>>    	}
->>>>    
->>>> -	dc->axi_clk = devm_clk_get_enabled(dev, "axi");
->>>> +	dc->axi_clk = devm_clk_get_optional_enabled(dev, "axi");
->>>>    	if (IS_ERR(dc->axi_clk)) {
->>>>    		dev_err(dev, "can't get axi clock\n");
->>>>    		return PTR_ERR(dc->axi_clk);
->>>>    	}
->>>>    
->>>> -	dc->ahb_clk = devm_clk_get_enabled(dev, "ahb");
->>>> +	dc->ahb_clk = devm_clk_get_optional_enabled(dev, "ahb");
->>> Please make the clock change a separated patch for atomicity.
->>>
->>> BTW the MA35D1 manual's clock tree shows that DCUltra appears on
->>> AXI2
->>> ACLK, AHB_HCLK2, behind a mux of SYS-PLL/EPLL-DIV2 (which seems to
->>> be
->>> the core clock), and behind a divider (which seems to be the pixel
->>> clock).
->>>
->>> However it's weird that only one DCUltra Clock Enable Bit exists
->>> despite both bus clocks have "ICG" (I think it means "Integrated
->>> Clock
->>> Gating"). In addition the linux clk-ma35d1 driver assigns
->>> "dcu_gate" as
->>> a downstream of "dcu_mux", although the Figure 6.5-2 in the TRM
->>> shows
->>> no ICG after the "Display core CLK" mux.
->>>
->>> Is the two bus clocks controlled by a single gate bit, and is the
->>> bit
->>> also gating DC core clock?
->>>
->>> Thanks,
->>> Icenowy
->> I will split the axi/ahb optional-clock change into its own patch in
->> v5
->> for atomicity.
->> Regarding the MA35D1 clock tree: from the TRM, the single "dcu_gate"
->> bit
->> gates both bus clocks (AXI ACLK and AHB HCLK) together with the
->> display
->> core clock through the same ICG cell. The clk-ma35d1 driver exposes
->> only
->> "dcu_gate" (downstream of "dcu_mux") and does not provide separate
-> Then it's one of the case that the clock tree doesn't properly
-> represent the hardware, which is bad. However, as three gates share the
-> same bit, I am not sure how to represent such kind of thing in the
-> common clk framework.
->
->> axi/ahb clock entries. Therefore the MA35D1 DT binding will use only
->> two
->> clocks ("core" and "pix0"); making axi and ahb optional in the driver
->> is the correct approach, and this will be stated clearly in the
->>   split-out patch.
-> I agree to make them optional, although these two clocks do exist in
-> the hardware of MA35D1.
->
-> Thanks,
-> Icenowy
-As mentioned in the DT binding reply, the absence of separate AXI/AHB 
-clock entries for DCU in clk driver is due to the hardware design 
-constraint of a single shared enable bit, not a driver oversight. In v5, 
-the axi and ahb clock fetches in `vs_dc_probe` will be split into their 
-own patch and made optional via `devm_clk_get_optional_enabled`, with a 
-comment explaining that on MA35D1 the AXI and AHB bus clocks share the 
-single `dcu_gate` enable bit and are therefore not separately exposed by 
-the clock driver.
->>>>    	if (IS_ERR(dc->ahb_clk)) {
->>>>    		dev_err(dev, "can't get ahb clock\n");
->>>>    		return PTR_ERR(dc->ahb_clk);
+Altera Agilex5 GIC600 integration has DDR addressing limitation where
+only the first 40 bits of physical address can be accessible. Extend
+existing dma32 quirk in driver to support Agilex5.
+
+Signed-off-by: Adrian Ng Ho Yin <adrianhoyin.ng@altera.com>
+Signed-off-by: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
+---
+ arch/arm64/Kconfig               | 11 +++++++++++
+ drivers/irqchip/irq-gic-v3-its.c | 22 +++++++++++++++-------
+ 2 files changed, 26 insertions(+), 7 deletions(-)
+
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index b3afe0688919..5d3216b718fe 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -1391,6 +1391,17 @@ config ROCKCHIP_ERRATUM_3568002
+ 
+ 	  If unsure, say Y.
+ 
++config ALTERA_SOCFPGA_AGILEX5_ERRATUM
++	bool "Altera SoCFPGA Agilex5: GIC600 can not access physical addresses higher than 4GB"
++	default y
++	help
++	  On SoCFPGA Agilex5 platforms, the integrated GIC600 is limited to
++	  32-bit AXI addressing and cannot access memory above 4GB. As a
++	  result, any GIC-visible resources placed outside this range may
++	  not be accessible and can lead to incorrect operation.
++
++	  If unsure, say Y.
++
+ config ROCKCHIP_ERRATUM_3588001
+ 	bool "Rockchip 3588001: GIC600 can not support shareability attributes"
+ 	default y
+diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+index b57d81ad33a0..db69e6ec98d8 100644
+--- a/drivers/irqchip/irq-gic-v3-its.c
++++ b/drivers/irqchip/irq-gic-v3-its.c
+@@ -4890,10 +4890,20 @@ static bool __maybe_unused its_enable_quirk_hip09_162100801(void *data)
+ 	return true;
+ }
+ 
+-static bool __maybe_unused its_enable_rk3568002(void *data)
++static bool __maybe_unused its_enable_dma32_quirk(void *data)
+ {
+-	if (!of_machine_is_compatible("rockchip,rk3566") &&
+-	    !of_machine_is_compatible("rockchip,rk3568"))
++	static const char * const compatible[] = {
++#ifdef CONFIG_ROCKCHIP_ERRATUM_3568002
++		"rockchip,rk3566",
++		"rockchip,rk3568",
++#endif
++#ifdef CONFIG_ALTERA_SOCFPGA_AGILEX5_ERRATUM
++		"intel,socfpga-agilex5",
++#endif
++		NULL
++	};
++
++	if (!of_machine_compatible_match(compatible))
+ 		return false;
+ 
+ 	gfp_flags_quirk |= GFP_DMA32;
+@@ -4968,14 +4978,12 @@ static const struct gic_quirk its_quirks[] = {
+ 		.property = "dma-noncoherent",
+ 		.init   = its_set_non_coherent,
+ 	},
+-#ifdef CONFIG_ROCKCHIP_ERRATUM_3568002
+ 	{
+-		.desc   = "ITS: Rockchip erratum RK3568002",
++		.desc   = "ITS: GIC600 integration limited to 32bit",
+ 		.iidr   = 0x0201743b,
+ 		.mask   = 0xffffffff,
+-		.init   = its_enable_rk3568002,
++		.init   = its_enable_dma32_quirk,
+ 	},
+-#endif
+ 	{
+ 	}
+ };
+-- 
+2.43.7
+
 
