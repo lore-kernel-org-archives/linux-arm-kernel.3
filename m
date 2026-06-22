@@ -4,63 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D48FDCDB46B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 09:49:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B99FCDB46F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 09:53:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jiUK4zqlgPufMf5KeLuWGqbjOdMtUleMUc6fesqkDDY=; b=0v7uuOYMp6a5RD7w1zLnlq6byb
-	t+CqCWqlbMco2ZKDskp0+WCLU/RYsjsJeCexxtLjYbx4CC3E+u830nf0VeSL82iwizTqFPPGrXqMC
-	gE0FJmVjyz2q+lD5/FepyL80sF0j5vwSydQvGWRz0O1k0YoIhUOCRj2EyyA8EP8Qm+ks9QoV/Zq6J
-	z8c7Y3GdwDx3cTOpaO8KJF6KDOBswzHgeQlPGvEVh9FtShdbge4KiB+WYqn9wp4jFapOpyxbdgwqY
-	hreQzFbIx8VAyy59led8wq1y7k2mJsU709OmATcCsAXq25i0jn4C5xwnj6EVmPWAegCniW3fe1YIA
-	iv6TStfA==;
+	bh=LTo0C41gBRbYARs5bY4lNZzY8eziG+D7rVsU/ecROJ0=; b=SBlTJir77eMHGoiPiOTNNqLg7a
+	dzaxCQFZKbT4kFZuFVrftA9/piVqqzY9J+JM9AIORIEITD34BhWPkYVbTrUxr9Ov5MnsROxqWeH54
+	yE41ziZ+uTWE7OxY1xkKAlzqp6Kdu7HmLcfRkvXbzXgolJNzOTyZLTKMOLGua52F8B8VOLOBMIf7N
+	TlzIcfZHvIwYVqT4T8M4PKtxLuLaI5GeWQGHpW72QxWmK4T1yWftL3umkkdLX+pwtUod3NjFQ2DKq
+	3HowcLSfSIIihuCvnkjJoNnaSoet5N3VAXJfkSnzfpTrEs9mwPFKR7HB/RPuNxUTYiONDfl4eaBcL
+	pN6R/EHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbbHH-00000004mcZ-2e6u;
-	Mon, 22 Jun 2026 09:49:15 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wbbL1-00000004msb-0uNG;
+	Mon, 22 Jun 2026 09:53:07 +0000
+Received: from mail-vk1-f180.google.com ([209.85.221.180])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbbHF-00000004mcI-4AAg
+	id 1wbbKy-00000004ms1-3CyI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Jun 2026 09:49:14 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7459C40720;
-	Mon, 22 Jun 2026 09:49:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69E281F00A3A;
-	Mon, 22 Jun 2026 09:49:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782121753;
-	bh=jiUK4zqlgPufMf5KeLuWGqbjOdMtUleMUc6fesqkDDY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Ro+wwemIX5Rnl9nAhj+phv88wYwnNld218ormKKPUv87BSnNLRpu9D4ciAcUA/9aV
-	 kV4TvSmy+7jhFDP2oTR+Exc2QVRYoubH/yPD+VaTIMWT8VS/+p61VDFEaJPz++o8ne
-	 kE9+3EKuoxURhelikJG9QDtIfxSkA0IT0eQUNH3RkoSTQU2Zt2RTfro5W1PVopTbiG
-	 o41jD0WHJSDAZsV0Qj/arNHOdzJ2xoX9m2yvWfcQ8esxEH4ixQZ71B46G1ovm8h7h/
-	 jVkEtJYrAXXnNEVq2SI1M44qgHwVIrCtuDv1A8wENZIgx2URMumPdgLlDT6YI543Sf
-	 g4qAHZKxjQLsg==
-Date: Mon, 22 Jun 2026 11:49:07 +0200
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Hanjun Guo <guohanjun@huawei.com>
-Cc: Will Deacon <will@kernel.org>, Yu Peng <pengyu@kylinos.cn>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>, linux-acpi@vger.kernel.org,
-	Andrew Morton <akpm@linux-foundation.org>, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org, sudeep.holla@kernel.org
-Subject: Re: [RFC] arm64: early_ioremap fails to map ACPI MADT on 64K pages
-Message-ID: <ajkFE6TmwW6B/huP@lpieralisi>
-References: <20260617060110.2846851-1-pengyu@kylinos.cn>
- <ajVVfnGIq_6zt2jC@willie-the-truck>
- <3cceb66d-4496-1a46-60ab-f43b0669fb71@huawei.com>
+	Mon, 22 Jun 2026 09:53:06 +0000
+Received: by mail-vk1-f180.google.com with SMTP id 71dfb90a1353d-5bc22d9977cso181884e0c.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Jun 2026 02:53:03 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782121983; x=1782726783;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=LTo0C41gBRbYARs5bY4lNZzY8eziG+D7rVsU/ecROJ0=;
+        b=fdO9w9VRLW0xjDY3jy/zRGfx1Dk9G0uoTMxfOL6QMZ+prdr24gX0MaEtd09dtWli0M
+         4VTHjEiTCg0rC9G5KBOrHUtEZpQC1Bj2Oh9fciMKYp5Yj/3eroUbc5bHE2D1756Efu+n
+         B8qTJesrl1f8l6ZPtAADlP5srvkrdLMa7LZlnhWvRCofPqxyKYBesPI9zg+kinz0TO/A
+         dhXDHTC3Ld2EXM5KAD/6uWtF4aKkhP2hb+XP6uCiIm10Nk3g1tyDDQOwaWqNHIxDRRIG
+         YyoAjzaAPS+Q8xn/HRhcCQY/d4lTjVpLFzepbYlovWnN0N83FdDUOLea8jTQcggpBfo5
+         QYUQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9phc9lNSI/ZEMzKjcE8n3zjBmpCYcW9uBp5j/CBp03sNsLRJGkxBzhCjNN0anlgc0TceE3f65SyILWL3W+QOQx@lists.infradead.org
+X-Gm-Message-State: AOJu0YzrSbDxtKuM7GBqrRdL34vnW0tzNSqohjnysjyMKd6Nriuuxmy4
+	xLrZ9xIDTFFSS3Gbjj+NMVbgeOmpInMiK6bjkTV1GAUdqJsgImo2ttcipID+BGiT
+X-Gm-Gg: AfdE7ckHZuTzHAPJm7VFI6sfDuRwEL9x5/BiwnEUIShCIuz86s5lftlWzSsryqACb9C
+	+BoYd2dTeLaFj1YgBoFLDwKopmHHiST610ibbuDS5W7p7yhbPgkeKvp2Nw9zi4/ownXxSihqCRg
+	KhYhhoHphMxgE0V/yjdPkobRXbIsTuoHwdVkC2440+oSjeZwgkwmCLDF6p92RQtLnSM4rW+nhpB
+	F0lKvOuqTCzVwrK/9rJLRoTrPnOuXEeXkVH7ejDGUlR907N1wZ8MPvuJylD91TYGetgojBvTshm
+	+Bgcc10/xh/QSb4VSrZ2Tgoeb9/ZKrPosI5AVkjnTZ6HuCJCazlwG90yy9BLL9vd5wb6ZbDq062
+	nbBQopZoMCUqnwrjwJu/F+Bi2ZJOkjqUKFvx3lXIMCEv/aQkA0mSI7c9Jk3h/8NrSN9l6G5SPSO
+	e3yOnGWOAcN4zcAOTucl6UAK1wu25PpJAaLN5viHeqtWh8eYaZKzUuEW0ZizyY
+X-Received: by 2002:a05:6122:608c:b0:59d:ac8d:e130 with SMTP id 71dfb90a1353d-5bbebb8650fmr7940384e0c.9.1782121982822;
+        Mon, 22 Jun 2026 02:53:02 -0700 (PDT)
+Received: from mail-ua1-f47.google.com (mail-ua1-f47.google.com. [209.85.222.47])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5bbfc00dd02sm6185080e0c.17.2026.06.22.02.53.01
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 22 Jun 2026 02:53:02 -0700 (PDT)
+Received: by mail-ua1-f47.google.com with SMTP id a1e0cc1a2514c-96387efc30aso3245215241.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Jun 2026 02:53:01 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ8xYOfNpGy6x5OqNTSo+cbNpPPdy9YGa4qG1SNPsbhUzo98L6mn6BRDZNSJ9Rf8xlOm0+OErzLBOdRALtqRUsy3@lists.infradead.org
+X-Received: by 2002:a05:6102:c03:b0:729:affa:70fd with SMTP id
+ ada2fe7eead31-72a1d8282d2mr7518654137.8.1782121981650; Mon, 22 Jun 2026
+ 02:53:01 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <3cceb66d-4496-1a46-60ab-f43b0669fb71@huawei.com>
+References: <20260618220427.14325-1-marek.vasut+renesas@mailbox.org> <20260618220427.14325-3-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20260618220427.14325-3-marek.vasut+renesas@mailbox.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Mon, 22 Jun 2026 11:52:50 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdUxT87M1oQvPP_h4YX4vXFaVbbG+LCG8EdmuLTuHNtybQ@mail.gmail.com>
+X-Gm-Features: AVVi8CeD0QzByTLrjVPd1X2DDUj0G8mjwUUWpPVDpYqqWicL4mNi4MB1Xhj4X1I
+Message-ID: <CAMuHMdUxT87M1oQvPP_h4YX4vXFaVbbG+LCG8EdmuLTuHNtybQ@mail.gmail.com>
+Subject: Re: [PATCH v2 2/4] irqchip/gic-v3: Refactor GIC600 limited to 32bit
+ PA erratum handling
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-pci@vger.kernel.org, Marc Zyngier <maz@kernel.org>, 
+	=?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Conor Dooley <conor+dt@kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260622_025304_808266_9968853D 
+X-CRM114-Status: GOOD (  25.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,91 +102,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 22, 2026 at 04:55:29PM +0800, Hanjun Guo wrote:
-> On 2026/6/19 22:43, Will Deacon wrote:
-> > +arm64 ACPI maintainers
-> > 
-> > On Wed, Jun 17, 2026 at 02:01:10PM +0800, Yu Peng wrote:
-> > > I hit an early boot failure on an arm64 system built with 64K pages while
-> > > parsing the ACPI MADT.
-> > > 
-> > > The failing system reports:
-> > > 
-> > >    PAGE_SIZE: 64K
-> > >    MADT physical address: 0x5a7ae018
-> > >    MADT length: 0x32094
-> > 
-> > The MADT isn't even 4k aligned, so why does the page size matter in this
-> > case?
-> > 
-> > > The failure happens when acpi_table_parse_madt() calls into early_memremap()
-> > > via __acpi_map_table(). The MADT itself is smaller than 256K, but its
-> > > placement causes the early mapping to require 5 64K pages:
-> > > 
-> > >    offset within 64K page = 0x5a7ae018 & 0xffff = 0xe018
-> > >    mapped range           = PAGE_ALIGN(0xe018 + 0x32094)
-> > >                           = PAGE_ALIGN(0x400ac)
-> > >                           = 0x50000
-> > >    nrpages                = 0x50000 / 0x10000 = 5
-> > > 
-> > > On arm64, NR_FIX_BTMAPS is currently derived from a 256K per-slot budget:
-> > > 
-> > >    #define NR_FIX_BTMAPS        (SZ_256K / PAGE_SIZE)
-> > > 
-> > > So for 64K pages, NR_FIX_BTMAPS is 4. The mapping therefore fails the
-> > > early_ioremap() check:
-> > > 
-> > >    if (WARN_ON(nrpages > NR_FIX_BTMAPS))
-> > >            return NULL;
-> > > 
-> > > After that, MADT parsing fails and the boot continues with symptoms such as:
-> > > 
-> > >    ACPI: APIC not present
-> > >    missing boot CPU MPIDR, not enabling secondaries
-> > >    Kernel panic - not syncing: No interrupt controller found.
-> > > 
-> > > A firmware change can avoid this by placing MADT so that:
-> > > 
-> > >    (madt_phys & 0xffff) + madt_length <= SZ_256K
-> > > 
-> > > However, I do not think ACPI requires such placement, so this looks like a
-> > > kernel-side robustness issue as well, especially on large arm64 systems where
-> > > MADT can grow with CPU topology.
-> > > 
-> > > One possible kernel-side change is to increase the boot-time mapping budget for
-> > > CONFIG_ARM64_64K_PAGES, for example using a 512K per-slot budget only in that
-> > > configuration. I do not think this should be applied unconditionally to all
-> > > page sizes, since the arm64 early fixmap code expects the boot-ioremap range
-> > > to stay within one PMD.
-> > > 
-> > > Has anyone seen similar failures on arm64 64K systems?
+Hi Marek,
 
-First bug report I am aware of, perhaps this was papered over in FW,
-MADT parsing failure is the first thing you would notice in bootstrapping
-an ACPI system (FADT is not that big).
+On Fri, 19 Jun 2026 at 00:04, Marek Vasut
+<marek.vasut+renesas@mailbox.org> wrote:
+> The GIC600 implementation is now known to be used on multiple 64-bit
+> SoCs, where it has address width for AXI or APB interface configured
+> to 32 bit, and it can access only the first 4GiB of physical address
+> space.
+>
+> Rework the handling of the quirk to work around this limitation such
+> that new entries can be added purely as new compatible strings, with
+> no need to add additional functions or new its_quirk array entries.
+>
+> Suggested-by: Marc Zyngier <maz@kernel.org>
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 
-> > > 
-> > > Would maintainers prefer treating this as a firmware layout issue, or would
-> > > increasing the early_ioremap budget for 64K pages be acceptable?
-> > 
-> > It think it boils down to what ACPI says about the alignment of the MADT.
-> 
-> I checked the ACPI spec and it didn't require the alignment for ACPI
-> tables, but in UEFI spec, it says (for aarch64):
-> 
-> ACPI Tables loaded at boot time can be contained in memory of type
-> EfiACPIReclaimMemory (recommended) or EfiACPIMemoryNVS.
-> 
-> EFI memory descriptors of type EfiACPIReclaimMemory and EfiACPIMemoryNVS
-> must be aligned on a 4 KiB boundary and must be a multiple of 4 KiB in
-> size.
-> 
-> It only requires EfiACPIReclaimMemory type to be 4K aligned, not
-> for each ACPI table, because ACPI tables can be packed into the
-> allocated EfiACPIReclaimMemory type, correct me if I'm wrong!
+Thanks for your patch!
 
-I am afraid you are not wrong - we can't blame firmware (yet), this
-has to be addressed.
+> --- a/drivers/irqchip/irq-gic-v3-its.c
+> +++ b/drivers/irqchip/irq-gic-v3-its.c
+> @@ -4890,10 +4890,17 @@ static bool __maybe_unused its_enable_quirk_hip09_162100801(void *data)
+>         return true;
+>  }
+>
+> -static bool __maybe_unused its_enable_rk3568002(void *data)
+> +static const char * const dma_32bit_impaired_platforms[] = {
+> +#ifdef CONFIG_ROCKCHIP_ERRATUM_3568002
+> +       "rockchip,rk3566",
+> +       "rockchip,rk3568",
+> +#endif
+> +       NULL,
+> +};
+> +
+> +static bool __maybe_unused its_enable_dma32(void *data)
 
-Lorenzo
+__maybe_unused can be dropped...
+
+>  {
+> -       if (!of_machine_is_compatible("rockchip,rk3566") &&
+> -           !of_machine_is_compatible("rockchip,rk3568"))
+> +       if (!of_machine_compatible_match(dma_32bit_impaired_platforms))
+>                 return false;
+>
+>         gfp_flags_quirk |= GFP_DMA32;
+> @@ -4968,14 +4975,12 @@ static const struct gic_quirk its_quirks[] = {
+>                 .property = "dma-noncoherent",
+>                 .init   = its_set_non_coherent,
+>         },
+> -#ifdef CONFIG_ROCKCHIP_ERRATUM_3568002
+
+... as the #ifdef is removed.
+
+>         {
+> -               .desc   = "ITS: Rockchip erratum RK3568002",
+> +               .desc   = "ITS: Broken GIC600 integration limited to 32bit PA",
+>                 .iidr   = 0x0201743b,
+>                 .mask   = 0xffffffff,
+> -               .init   = its_enable_rk3568002,
+> +               .init   = its_enable_dma32,
+>         },
+> -#endif
+>         {
+>         }
+>  };
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
