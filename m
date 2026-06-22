@@ -4,93 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33E35CDB471
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 07:28:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 328FECDB471
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 07:31:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oP3EC6sgK7zJ7xWtXJcDnj3pgjRmu/060XGMI0EwiSE=; b=sWYvFZIx9pPY/+zg4ZWOqaehd/
-	ddf365K+iENnDh9hujHBtZUrYB/z/YJhkq71gh3veuzpnE+vSb0k5zd4gjfkuzqv5F7+JyLJ/jHN3
-	Mj+TFGpZitLNG3k444rxdO+Ahlk3oE447bbDNGAAVCKhNUl1US6w8uVorbtO5XNC5rmVrfcLVPxyf
-	gRLoLe5uY7oYKVIZLKcjwima9oBHBMvq3ikLg5ZxggPK2yggYkVnXl6KhRYGueaT6+2ry55Kq/wOw
-	BHSklDvcYidU/sES0Xvd0dRLpDRJf7TMEOkr6a01uYCFSiTvkZUMG30pSwoW5xZCLHuKnO7vB9Trb
-	/E3fDhjA==;
+	bh=Npcy15CwlFGqUCqFvVVzRgWDhCtiKeLW9P9x7xp4f78=; b=jaCyFpPA8PQRXozoRaMNfHMAAo
+	9+5bdSGmakHTSa8YKKhLbU+24MEof5FdKok3bI7iNN5CQjL09Nr8NsGdhNrsJC/BC1QbL5xl83c3i
+	YvCbKAS9Vy/wIJZaeNlkBn5CozhC2bWKhtEetccKe6AcjEw08KTJrsWl2HZWOnARp6urrtRaEy77U
+	9VRDbOf+d0AsWbuALEf8wOlxjRbZPw6hgOV0n+AUXQTZpKGZ6/z7ZbyBRdp71tdEFee7mNB2asqmL
+	AgBLSH0uXoReQhBSedXcg/VMOlGqOt4hvTmNieiY/b0NXO5J54PSSaT1N4mt/gkDhbMYnyxNwLPsm
+	Lf+lYokA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbZ5D-00000004XWo-0nR5;
-	Mon, 22 Jun 2026 07:28:39 +0000
-Received: from mgamail.intel.com ([192.198.163.12])
+	id 1wbZ7t-00000004XgP-2csg;
+	Mon, 22 Jun 2026 07:31:25 +0000
+Received: from mail-japanwestazon11022092.outbound.protection.outlook.com ([40.107.75.92] helo=OS8PR02CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbZ59-00000004XWM-3GDa;
-	Mon, 22 Jun 2026 07:28:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1782113316; x=1813649316;
-  h=from:to:cc:subject:in-reply-to:references:date:
-   message-id:mime-version;
-  bh=oYpjZdXEXlbswEz5tTfmaOPHrTKzTbw/rXrTF2N68Cg=;
-  b=Xqr53oWiyJ+8OaNGM3KdEqX6VTIYBWknae6QVC82h/EPGW8ZXj7CKtDT
-   1lgHVVRp5weS6inkTdk++QG807V0SAotyAjySLLrPucrPVhi6puRzz09e
-   6eJveL1DgODXQo7B80Kbk6FgoF/pyMn8Y369qZ7AtUEJJSTsVeEZJgeoB
-   fXJqafjOKLjHBUgPLMYsLJA605Xjgp0iL9TL0dJpGgP48n9rljXAhu8vu
-   5SCleDHAk0nEUDRcoieOsPY3VQmqWzi4e50FAdjNZO98lsoXtpsQf78VG
-   dt7TeCCg1ElCDfQqp82S9rXTqkveHmHm/NU72qOOPbil7qlexiKBgzNC3
-   Q==;
-X-CSE-ConnectionGUID: 29uADRrzTG2UgvklxfRDnQ==
-X-CSE-MsgGUID: PVvkTO2eR32+ngiGKbQKUw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11824"; a="86680477"
-X-IronPort-AV: E=Sophos;i="6.24,218,1774335600"; 
-   d="scan'208";a="86680477"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Jun 2026 00:28:35 -0700
-X-CSE-ConnectionGUID: hM89HPSTQcyrm42Ee4Purw==
-X-CSE-MsgGUID: XAqf2eLXTHaUZkYmxE5gcg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.24,218,1774335600"; 
-   d="scan'208";a="254150821"
-Received: from abityuts-desk.ger.corp.intel.com (HELO localhost) ([10.245.245.82])
-  by orviesa005-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Jun 2026 00:28:23 -0700
-From: Jani Nikula <jani.nikula@linux.intel.com>
-To: Kory Maincent <kory.maincent@bootlin.com>, Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Rodrigo Vivi <rodrigo.vivi@intel.com>,
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin
- <tursulin@ursulin.net>, Andrzej Hajda <andrzej.hajda@intel.com>, Neil
- Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
- <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Luca
- Ceresoli <luca.ceresoli@bootlin.com>, Chun-Kuang Hu
- <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
- Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>, Dmitry Baryshkov
- <lumag@kernel.org>, Daniel Stone <daniels@collabora.com>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Mark Yacoub
- <markyacoub@google.com>, Sean Paul <seanpaul@google.com>, Manasi Navare
- <navaremanasi@google.com>, Drew Davenport <ddavenport@google.com>, Louis
- Chauvet <louis.chauvet@bootlin.com>, Luca Ceresoli
- <luca.ceresoli@bootlin.com>, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, intel-gfx@lists.freedesktop.org,
- intel-xe@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, Kory Maincent
- <kory.maincent@bootlin.com>
-Subject: Re: [PATCH RFC v2 2/4] drm/i915/display/dp: Adopt dp_connector
- helpers to expose link training state
-In-Reply-To: <20260619-feat_link_cap-v2-2-a3dec4c02ad9@bootlin.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park,
- 6 krs Bertel Jungin Aukio 5, 02600 Espoo, Finland
-References: <20260619-feat_link_cap-v2-0-a3dec4c02ad9@bootlin.com>
- <20260619-feat_link_cap-v2-2-a3dec4c02ad9@bootlin.com>
-Date: Mon, 22 Jun 2026 10:28:19 +0300
-Message-ID: <97cb159654547b937a882c67bc9986dfd77eb620@intel.com>
+	id 1wbZ7q-00000004Xfo-2FTi
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 22 Jun 2026 07:31:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Jja8DADvNDP57z42fOpe51dNOz3t14Lihy9vaEKNzwafMIbPGz7aDOqeMEZsvAPqv1JzpVUQ7+eQ7cmZbviZ49J/KmyWkrRK34Mg32HavwueELwCb1sQySSktWuUpgK3WmeTFrl9Z9UCKhfCfgp5cK+iqJv2xWbjbkpeT809/wLrc2YQE1znuawuD0+KsiSbCod0CG0LvjIUwygADY5diRsWzPjYSST0pTmBMvRYYpUq5V80Utr1Ac1ZQY3C7KL0jlJ3wBmN7CiGZkgkSMEif1rH3rsUlV+38V/KhaJHS9k/rgl1fV4VzyD6XWY0TZK+W76Ci8aCyV/NMXfZ8+6/fg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Npcy15CwlFGqUCqFvVVzRgWDhCtiKeLW9P9x7xp4f78=;
+ b=lrZ9FMoiVN7uusv4zyEa+93r/9YEAmvJcMlbWdaYu6pjZzuLJGwRhq57dPOV0lDZEhOMI7j8cdxRGFNu5/MtTS/F2t+L7+rWRkNP1kEKOb/oNtALbgKRURE985DExHfBswvLui4i25aOCZd3QfeHdg2CqARGwS5mqDeAoRHQP8SLIxlr27GpytVnwmR0lumxENvYiATfhP/z4n9jq3ZYEZ3NTPTIUVoHyHf0+R0hH/flZBdjJ7UbRZivKnNZwR9VOtdFKGIraRJ12WDhfKjhgCRNYrf1q3yLyglnjiWiM/ewla2uiNkeyrCFX0dalEwWK6u4nKPYBqwvAlvyrK1Msg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
+ header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Npcy15CwlFGqUCqFvVVzRgWDhCtiKeLW9P9x7xp4f78=;
+ b=Q0TPEMFckrfXfA8pDXM2Ia4yFv5QMrxSqIvKNKQxqbl4poyCcO3b+0uKF7vyCN7/1EwNQMjindcG1vw+12t+3ZWv5LylsZV7F1TSd4cm9v3QPuI7tCET86VEv8G8aAo4T2tyZp0F/NiQ4NdoMTnEsiDNqI52X7ODZu9b0FvxKMjW/Sg8YKaD4hJZ0kbq1cB1XYeSy4fOsu0UWum5lb1l8Oup2LNNLatT4uIuVsQg0xGza32EEzEPxeoKxsRX2hHH8BoSRJeH1n8hf110kVqtKstMZkEADBBVblPpeHJJf4FelIKjbFtBnWCXgpfffXA69mPFzNBxvCe5ZYDpKCEMPw==
+Received: from KL1PR0601MB4276.apcprd06.prod.outlook.com
+ (2603:1096:820:78::12) by TYZPR06MB5907.apcprd06.prod.outlook.com
+ (2603:1096:400:339::12) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.19; Mon, 22 Jun
+ 2026 07:31:01 +0000
+Received: from KL1PR0601MB4276.apcprd06.prod.outlook.com
+ ([fe80::b7f3:3c41:fd0e:e3f6]) by KL1PR0601MB4276.apcprd06.prod.outlook.com
+ ([fe80::b7f3:3c41:fd0e:e3f6%7]) with mapi id 15.21.0139.011; Mon, 22 Jun 2026
+ 07:31:01 +0000
+From: YH Chung <yh_chung@aspeedtech.com>
+To: YH Chung <yh_chung@aspeedtech.com>, "Shulzhenko, Oleksandr"
+	<oleksandr.shulzhenko@linux.intel.com>, Arnd Bergmann <arnd@arndb.de>, Andrew
+ Jeffery <andrew@codeconstruct.com.au>, Conor Dooley <conor@kernel.org>
+CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Ryan Chen
+	<ryan_chen@aspeedtech.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
+	<linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "openbmc@lists.ozlabs.org"
+	<openbmc@lists.ozlabs.org>, "maciej.lawniczak@intel.com"
+	<maciej.lawniczak@intel.com>, Mark Brown <broonie@kernel.org>
+Subject: RE: [PATCH 0/7] soc: aspeed: Add AST2600 eSPI controller support
+Thread-Topic: [PATCH 0/7] soc: aspeed: Add AST2600 eSPI controller support
+Thread-Index: AQHcstFOqEOl3ItXl0mr3midS8GMZLWsphAAgABXFACAA7sEAIAAT9LAgAF5RgCADH1X4IAAILCAgAK7OMCAEYY3UIAvrvqAgADtghCABnSAgIACyQAAgB+RCFA=
+Date: Mon, 22 Jun 2026 07:31:00 +0000
+Message-ID: <KL1PR0601MB4276452D09689C90B04209C190EF2@KL1PR0601MB4276.apcprd06.prod.outlook.com>
+References: <20260313-upstream_espi-v1-0-9504428e1f43@aspeedtech.com>
+ <20260313-energy-casket-ca8adc1f1fd1@spud>
+ <23909400-4e7f-49c9-a982-14036372af98@app.fastmail.com>
+ <c3b28ee92fa46700887d0c68b23045b2418358a7.camel@codeconstruct.com.au>
+ <KL1PR0601MB4276ED93723F0B1F42349AD89041A@KL1PR0601MB4276.apcprd06.prod.outlook.com>
+ <0f7f0f96-a918-47d5-a0bd-bbde494c8fed@app.fastmail.com>
+ <KL1PR0601MB4276B5BE3B96C18E3A66AD709049A@KL1PR0601MB4276.apcprd06.prod.outlook.com>
+ <14870d17-2471-4522-b8b5-03cb9002a4f7@app.fastmail.com>
+ <KL1PR0601MB42763DAD359305DEBA4B769D9057A@KL1PR0601MB4276.apcprd06.prod.outlook.com>
+ <KL1PR0601MB427603A6A5768D6A537CAFCB905AA@KL1PR0601MB4276.apcprd06.prod.outlook.com>
+ <b1d56feb-9847-41b1-8bba-733963055cae@linux.intel.com>
+ <KL1PR0601MB4276AB799EC03BB00C4C0E5490392@KL1PR0601MB4276.apcprd06.prod.outlook.com>
+ <be4f662a-b986-4b4c-8263-2fd7b63c238a@linux.intel.com>
+ <KL1PR0601MB427604A7136947D020CF272D90002@KL1PR0601MB4276.apcprd06.prod.outlook.com>
+In-Reply-To: <KL1PR0601MB427604A7136947D020CF272D90002@KL1PR0601MB4276.apcprd06.prod.outlook.com>
+Accept-Language: zh-TW, en-US
+Content-Language: zh-TW
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=aspeedtech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: KL1PR0601MB4276:EE_|TYZPR06MB5907:EE_
+x-ms-office365-filtering-correlation-id: 6a74edef-10cd-4630-58ec-08ded03035b5
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|42112799006|1800799024|366016|376014|7416014|23010399003|4143699003|56012099006|6133799003|18002099003|22082099003|38070700021;
+x-microsoft-antispam-message-info: UQRfA+8ggx+i9yo6mXhxSeYhh+7sko0ajLSBUmasNoNoJnjMEjvPTM4A82C21EjA3BS2jgTboP7C65TNQ2y9HDA2ICkplF+hMdGmibWrNUboBgd15bFzJcDWHwS59Zl28KQhJc8BqGNNlSIbIjYwPKEJvqNy7OXtPfdC4Yuf43AkqXUS3RnfSveLAfZGPHyOQkk/BYH9dlJErp6pyW1zw2/XYW1qZzyZavDOAE8B3sBIiwVTZmDAtSQr3av9HjrgLfX3nRWymwlK+cvzNy/G+jI31+4g9YM6UA1lWSHn9v6jBMTJKvpX3pbkAyyhcTcVux66EsSs+lntQzQzW2G7ARW9rFyu4Fx+L1gKazPgUOlAd+j7cGqTd08uQX+YX5ql/1u7XJHRe8mM7YPw7lylLPOSympdN/5Se4cF5rIlfG+wC3XBeMEUekJFei0I+YoM9F8UMU2JXdrPMD9pReJJIfRFN8/VN75aCTGuvqFsI8e6FVqDF3ENqhBdKrqiTK+40ToMB3rYoNvNCXZScyLxAYV0Ipc1onxSNatarnly26CoF6HI9kbYN992XEVL4Ih6PV2GVv2YdL68JD9yT/FyQeV0ujD5+u+0CScFc/Kl/xaU0cFy/Z6U0QWG8vE60/JYV8Ogj8wnX0C91ocd3zyCat2oAobm8cSMt+n+zRC9L1xsBQqkMGghMU6KmHh6JRQ+xpMw7pz412qperZC5koG/Q==
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-tw;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR0601MB4276.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(42112799006)(1800799024)(366016)(376014)(7416014)(23010399003)(4143699003)(56012099006)(6133799003)(18002099003)(22082099003)(38070700021);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?dzdudkM2a1kvVkpCMHdqMzY0VnI4YnphQ3gwdHE4bldMcUFxYXArSG5jOHht?=
+ =?utf-8?B?Z1lsbVdqazAwZzZaeTAxeENBblNPYlh1NEJPUDNiMnBoMUZBODNYRXVyTFYv?=
+ =?utf-8?B?OXAvMUFxcnovTnFnTEFadGc0Qmp2TnNqMTBOK3FoVUJVaFhCQUJhM2NrdzBF?=
+ =?utf-8?B?UzV0TExEZ29rOHNkT0hyOEszQUw4Vi9ILzNLb3o2OHVFU2VMM3hhb1g4ZVZS?=
+ =?utf-8?B?TGRoT3V0ZXVXeUpuUThydlMwa3ZnQkVSMjdGSGt4bjd4YmloaXQzUUpVOGtJ?=
+ =?utf-8?B?YnUyYlM5ejRCdkg0WUNaa2o4RG9qSjZwVEltdnFZVDZ2TFR4RTlZTktUVGt1?=
+ =?utf-8?B?dWt6eFlJa2xrQkZBZXZ0MTV4N2ZBNDFybmw1UTg5NWljbDgxanhZcGQrZW5p?=
+ =?utf-8?B?d2pCb2xDWTQ1ek1KRUxIV3A3cjUvM3BqOEpLL0VQQlkxSjZrMmV5aHNWb1kr?=
+ =?utf-8?B?SjlNcmlsNTdOR0hNVHNHZU8zbExOQlgweDdjM0EzNndlRUlKSWMrbFFKL0tH?=
+ =?utf-8?B?OEYwdE5OdDVwSnMzL1NEa1hrY2FESnZudmVVQ01tWEVVQS8wLzR2M2kvdzMz?=
+ =?utf-8?B?SlBGdGdyT3grMCtEcmoxZTFCN3BiNG1WeTlvR09VM0w1WERIdy9XVWdCcXRk?=
+ =?utf-8?B?RVRGaTcrQys5N0Y2WjBMRCs5SkZROTIvK1M4aUR5bzFudlFQQ3dzL3ZFbFlP?=
+ =?utf-8?B?SzdabDJJeTdYZ3NFR1IycnFLZWR3OXAyMmZqeUltQnJFdlZzbFJiSGtuQ2ZT?=
+ =?utf-8?B?aUVLUzU4bTlqUHNDTS9ocy9TejhUTmxQN1ZMRGVUT0tUeEpuNVhndm5VRktZ?=
+ =?utf-8?B?Wk5lT2lFUXlFU3NWMnFWZXlCWUFqamx0N3UvOHR1dVNaZGU1OUszcC9KT1Mr?=
+ =?utf-8?B?Nm9GTGFSOUN6b1JJTzY5Sk5raFBYWndFM1N0NHFIdHZKTjV2MnpSd3JyZGpQ?=
+ =?utf-8?B?dGwzdVc5aVdMMTBvWXo5d2lDQ2ZsL2RLeW4wYXUzSTlYMXFETGhkTUxSSXFJ?=
+ =?utf-8?B?Wnk4ZnhMZXBTbVlpRUF1VHFVcmRtTVpENllXS21RQTdaRTcxWjkyNXBzTDlj?=
+ =?utf-8?B?RkQ1Y1J3QzZMSFk4S1YwdkZ3aUlUMHVwTFJGOGN6aldyTm0vOGNWSWRXVkxJ?=
+ =?utf-8?B?a0lwMnVWaWE4UFlJNncyUS9EVGhNVk1qdW1pdHBEUmxsTUtZbU1nVWVxY0xv?=
+ =?utf-8?B?NklETnpYMFY4djFsb0Z3NVAxczgwc0pMeTFKc3pwb0U5NVBZVjFiOFZxSHV2?=
+ =?utf-8?B?VkFKM1NtMW1wdG5NSVpCZFo5dWtYWDIyMVVKd2IrcUh1V0FYNWlzaGN2RTdn?=
+ =?utf-8?B?dlR0eHdkOHM5Qkd6Qm9sVTQ0UEF4K3c4Z2pQd2tWUlJnWkc2S3VicDZCOHNi?=
+ =?utf-8?B?czlqajBoUkFpcWNVK3Z1dlk3VXFscktsYzJwcjR0ZTZKUkFzT0xkdDJwWkRo?=
+ =?utf-8?B?OTlDZVpxVk94TWpzS0NoVmhSZisxV21rbWc5elpYd3ZNalFJQUVlVXMwRUNl?=
+ =?utf-8?B?bmd3Sm1jQ1hyck1rdWtsdkkyUFdIZnpIL1pzNldyMWJCbCtCVHF4QkRHbUpz?=
+ =?utf-8?B?T3U5WEQxMUZRSG1CODZxcndsY0gwYXVZM2x5MTdQN3Y2TjNkQWM5cHZYaE91?=
+ =?utf-8?B?d2xOb0JYSE9XZDEwMFVNSTd3bFZCclpSUGNNWloyazVkQm1SQ3NNc0JYOEZ6?=
+ =?utf-8?B?a0MrUFM5YWNmNi9mRlJObjFGcnUwUnFxZUM4cE1uMmFaaG84aDRrMGVUMkFE?=
+ =?utf-8?B?dGNqMFdNblBQdFB4N2NCS0h5UUJVQVFYcVRUZHo0elNtVFlkZ1k5cXFDMU5C?=
+ =?utf-8?B?NENsQTVUbHA4bnNXMytWa05IWHhSZENYWlVENkt4TlA2ZFlYVlUxZm5xVTE1?=
+ =?utf-8?B?dEN0MEhBVzVqaGNKZDFEYkF1UUd1eExYVklOR3ZMVHVlRUhLUHp0STYwRy81?=
+ =?utf-8?B?bDdmaVZMYnlVZVJ5RXJzNlZyRE5uVitnMFQ1V0I0S0FBeFR4VVNYbnBvem9I?=
+ =?utf-8?B?b0hiOEViZmZWTUsvdGsyK3pQL0c4T0twQUV3VFNEZTVOSzRwOUY0TXZmVU81?=
+ =?utf-8?B?ZW1uT3pRVmhRQ0lRQ3pqOW9ST2cwVldqeEIwaHBZQmUrYWt1S3daeEU1alFv?=
+ =?utf-8?B?K251aTc5elRHNGo2cWgvQ3dYeTVicVR0LyswVU1wY05QSmRuc2hTT3l2V21l?=
+ =?utf-8?B?UUxLNW01cFFId05lbk9xVVNiYjNmcjNCZWo1Tzk1UFMrRUV3amhUWXF1cWZ0?=
+ =?utf-8?B?TXJNYjkvcXVoVTNVNkRtdWxtR3V3cFNFU3ljSW1MOXl2WFVRdXlyWDlGMXZn?=
+ =?utf-8?B?dDdXVzU5aWVMUVpnaXVzRW5JejVLZWgzaGJEMEp1NUNzbjFCZmVjUT09?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Type: text/plain
+X-OriginatorOrg: aspeedtech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: KL1PR0601MB4276.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6a74edef-10cd-4630-58ec-08ded03035b5
+X-MS-Exchange-CrossTenant-originalarrivaltime: 22 Jun 2026 07:31:01.0858
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: gRnEgylKLu2huyzOJiH9UNDgLPQXn3H+qnDwx3GNmcBsTV4CJeMzc/0bWAorknNx1dvH2XXxlqUMZ0DxvszErQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR06MB5907
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260622_002835_886886_A2C300C9 
-X-CRM114-Status: GOOD (  24.61  )
+X-CRM114-CacheID: sfid-20260622_003122_890648_04EEC9F8 
+X-CRM114-Status: GOOD (  15.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,171 +170,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 19 Jun 2026, Kory Maincent <kory.maincent@bootlin.com> wrote:
-> Switch the i915 DP connector initialization from
-> drm_connector_init_with_ddc() to drm_connector_dp_init_with_ddc(),
-> providing the source link capabilities (supported lane counts, link rates
-> and DSC support).
->
-> Add intel_dp_report_link_train() to collect the negotiated link
-> parameters (rate, lane count and DSC enable) and report them via
-> drm_dp_set_max_link_params() and drm_dp_set_cur_link_params() once
-> link training completes successfully.
->
-> Reset the link properties via drm_dp_reset_link_params()
-> when the connector is reported as disconnected or when the display device
-> is disabled, so the exposed state always reflects the current link status.
->
-> Signed-off-by: Kory Maincent <kory.maincent@bootlin.com>
-> ---
->
-> Changes in v2:
-> - Remove voltage swing and pre emphasis properties.
-> ---
->  drivers/gpu/drm/i915/display/intel_dp.c            | 26 ++++++++++++++++++----
->  .../gpu/drm/i915/display/intel_dp_link_training.c  | 17 ++++++++++++++
->  2 files changed, 39 insertions(+), 4 deletions(-)
->
-> diff --git a/drivers/gpu/drm/i915/display/intel_dp.c b/drivers/gpu/drm/i915/display/intel_dp.c
-> index f01a6eed38395..46c06c76952e0 100644
-> --- a/drivers/gpu/drm/i915/display/intel_dp.c
-> +++ b/drivers/gpu/drm/i915/display/intel_dp.c
-> @@ -6414,8 +6414,10 @@ intel_dp_detect(struct drm_connector *_connector,
->  	drm_WARN_ON(display->drm,
->  		    !drm_modeset_is_locked(&display->drm->mode_config.connection_mutex));
->  
-> -	if (!intel_display_device_enabled(display))
-> +	if (!intel_display_device_enabled(display)) {
-> +		drm_dp_sink_reset_link_caps(_connector);
-
-Gut feeling is that the sprinkling of these around is error prone.
-
->  		return connector_status_disconnected;
-> +	}
->  
->  	if (!intel_display_driver_check_access(display))
->  		return connector->base.status;
-> @@ -6465,6 +6467,8 @@ intel_dp_detect(struct drm_connector *_connector,
->  
->  		intel_dp_tunnel_disconnect(intel_dp);
->  
-> +		drm_dp_sink_reset_link_caps(_connector);
-> +
->  		goto out_unset_edid;
->  	}
->  
-> @@ -7240,10 +7244,12 @@ intel_dp_init_connector(struct intel_digital_port *dig_port,
->  			struct intel_connector *connector)
->  {
->  	struct intel_display *display = to_intel_display(dig_port);
-> +	struct drm_connector_dp_link_caps link_caps;
->  	struct intel_dp *intel_dp = &dig_port->dp;
->  	struct intel_encoder *encoder = &dig_port->base;
->  	struct drm_device *dev = encoder->base.dev;
->  	enum port port = encoder->port;
-> +	u32 *rates;
->  	int type;
->  
->  	if (drm_WARN(dev, dig_port->max_lanes < 1,
-> @@ -7291,8 +7297,21 @@ intel_dp_init_connector(struct intel_digital_port *dig_port,
->  		    type == DRM_MODE_CONNECTOR_eDP ? "eDP" : "DP",
->  		    encoder->base.base.id, encoder->base.name);
->  
-> -	drm_connector_init_with_ddc(dev, &connector->base, &intel_dp_connector_funcs,
-> -				    type, &intel_dp->aux.ddc);
-> +	intel_dp_set_source_rates(intel_dp);
-> +	link_caps.nlanes = 4;
-> +	link_caps.nlink_rates = intel_dp->num_source_rates;
-> +	rates = kmemdup_array(intel_dp->source_rates, intel_dp->num_source_rates,
-> +			      sizeof(*rates), GFP_KERNEL);
-> +	if (!rates)
-> +		goto fail;
-> +
-> +	link_caps.link_rates = rates;
-> +	link_caps.dsc = HAS_DSC(display);
-> +
-> +	drm_connector_dp_init_with_ddc(dev, &connector->base, &intel_dp_connector_funcs,
-> +				       &link_caps, type, &intel_dp->aux.ddc);
-> +	kfree(rates);
-> +
-
-All of the above feels a bit clumsy in the middle of an already too long
-function.
-
->  	drm_connector_helper_add(&connector->base, &intel_dp_connector_helper_funcs);
->  
->  	if (!HAS_GMCH(display) && DISPLAY_VER(display) < 12)
-> @@ -7315,7 +7334,6 @@ intel_dp_init_connector(struct intel_digital_port *dig_port,
->  		goto fail;
->  	}
->  
-> -	intel_dp_set_source_rates(intel_dp);
->  	intel_dp_set_common_rates(intel_dp);
->  	intel_dp_reset_link_params(intel_dp);
->  
-> diff --git a/drivers/gpu/drm/i915/display/intel_dp_link_training.c b/drivers/gpu/drm/i915/display/intel_dp_link_training.c
-> index a26094223f780..25e0e957fe36d 100644
-> --- a/drivers/gpu/drm/i915/display/intel_dp_link_training.c
-> +++ b/drivers/gpu/drm/i915/display/intel_dp_link_training.c
-> @@ -1231,6 +1231,18 @@ intel_dp_128b132b_intra_hop(struct intel_dp *intel_dp,
->  	return sink_status & DP_INTRA_HOP_AUX_REPLY_INDICATION ? 1 : 0;
->  }
->  
-> +static void intel_dp_report_link_train(struct intel_dp *intel_dp)
-> +{
-> +	struct intel_connector *connector = intel_dp->attached_connector;
-> +
-> +	drm_dp_set_max_link_params(&connector->base, intel_dp->link_rate,
-> +				   intel_dp->lane_count);
-> +
-> +	drm_dp_set_cur_link_params(&connector->base, intel_dp->link_rate,
-> +				   intel_dp->lane_count,
-> +				   connector->dp.dsc_decompression_enabled);
-> +}
-> +
->  /**
->   * intel_dp_stop_link_train - stop link training
->   * @intel_dp: DP struct
-> @@ -1259,6 +1271,9 @@ void intel_dp_stop_link_train(struct intel_dp *intel_dp,
->  	intel_dp_program_link_training_pattern(intel_dp, crtc_state, DP_PHY_DPRX,
->  					       DP_TRAINING_PATTERN_DISABLE);
->  
-> +	if (!intel_dp->is_mst)
-> +		intel_dp_report_link_train(intel_dp);
-> +
->  	if (intel_dp_is_uhbr(crtc_state)) {
->  		ret = poll_timeout_us(ret = intel_dp_128b132b_intra_hop(intel_dp, crtc_state),
->  				      ret == 0,
-> @@ -1772,6 +1787,8 @@ void intel_dp_start_link_train(struct intel_atomic_state *state,
->  	 */
->  	int lttpr_count;
->  
-> +	drm_dp_sink_set_link_caps(&intel_dp->attached_connector->base, &intel_dp->aux);
-
-This is not okay.
-
-We've already figured out all the information needed, and this call goes
-ahead and reads the same information out again.
-
-Moreover, some sinks are fragile when it comes to reading the info and
-starting link training. The CTS might complain about redundant reads as
-well.
-
-drm_dp_sink_set_link_caps() as a name implies something about link,
-i.e. the thing between the source and the sink. But this only sets sink
-capabilities. Which also means it should not happen at link training
-time at all. We figure the information out at detect, which means it's
-available *before* modeset.
-
-The more I think about the function, the more I question it. Like, if
-the source doesn't support UHBR at all, or not on this connector, what's
-the point of reading the sink UHBR rates?
-
-> +
->  	intel_hpd_block(encoder);
->  
->  	lttpr_count = intel_dp_init_lttpr_and_dprx_caps(intel_dp);
-
--- 
-Jani Nikula, Intel
+SGkgU2h1bHpoZW5rbywgQXJuZCwgQW5kcmV3DQoNClBsZWFzZSBhbGxvdyBtZSB0byBzdW1tYXJp
+emUgdGhlIHBvdGVudGlhbCBhcHByb2FjaGVzIHdlIGhhdmUgZGlzY3Vzc2VkIHNvDQpmYXIgZm9y
+IHVwc3RyZWFtaW5nIHRoZSBlU1BJIGRyaXZlcjoNCg0KKDEpIFJldXNlIHRoZSBleGlzdGluZyBT
+UEkgc3Vic3lzdGVtIGFuZCB0cmVhdCBlU1BJIHBhY2tldHMgYXMgcHVyZSBzaWduYWxzLg0KKDIp
+IE1haW50YWluIHRoZSBkcml2ZXIgdW5kZXIgdGhlIFNvQyBzdWJzeXN0ZW0sIHNpbmNlIHRoZXJl
+IGlzIGN1cnJlbnRseSBubw0KICAgIGVTUEkgc3Vic3lzdGVtLg0KKDMpIENyZWF0ZSBhIG5ldyBl
+U1BJIHN1YnN5c3RlbSBhbmQgcmV3cml0ZSB0aGUgZVNQSSBkcml2ZXIgYWNjb3JkaW5nbHkuDQoN
+CkZvciBvcHRpb24gMSwgd2UgZG8gbm90IHRoaW5rIHRoaXMgd291bGQgYmUgYSBnb29kIGZpdCwg
+YmVjYXVzZSBlU1BJIGhhcw0KY2xlYXJseSBkZWZpbmVkIHNlbWFudGljcyBmb3IgZWFjaCBjaGFu
+bmVsLCBhbmQgb3VyIGhhcmR3YXJlIGV4cG9zZXMNCmRpZmZlcmVudCBzZXRzIG9mIHJlZ2lzdGVy
+cyBmb3IgZWFjaCBvZiB0aGVtLg0KDQpGb3Igb3B0aW9uIDIsIHdlIHRoaW5rIHRoaXMgd291bGQg
+YmUgYSBwcmFjdGljYWwgc2hvcnQtdGVybSBzb2x1dGlvbiwgYW5kIHdlDQpjYW4gZXhwb3NlIHRo
+ZSBwZXItY2hhbm5lbCBmdW5jdGlvbmFsaXR5IHRocm91Z2ggdGhlIGV4aXN0aW5nIEdQSU8sIE1D
+VFAsIGFuZA0KTVREIHN1YnN5c3RlbXMgZm9yIHRoZSBWVywgT09CLCBhbmQgZmxhc2ggY2hhbm5l
+bHMsIHJlc3BlY3RpdmVseS4NCkhvd2V2ZXIsIHRoaXMgbWF5IG5lZWQgdG8gYmUgcmV2aXNpdGVk
+IG9uY2UgYW4gZVNQSSBzdWJzeXN0ZW0gYmVjb21lcw0KYXZhaWxhYmxlIGluLXRyZWUuDQoNCkZv
+ciBvcHRpb24gMywgb3VyIGNvbmNlcm4gaXMgdGhhdCB0aGVyZSBpcyBjdXJyZW50bHkgbm8gb3Ro
+ZXIgZVNQSSBoYXJkd2FyZQ0Kb3IgZHJpdmVyIGluLXRyZWUgdGhhdCBjb3VsZCBzZXJ2ZSBhcyBh
+IHJlZmVyZW5jZSBmb3IgZGVmaW5pbmcgYSBtb3JlIGdlbmVyaWMNCmludGVyZmFjZS4gQ3JlYXRp
+bmcgYSBuZXcgc3Vic3lzdGVtIGF0IHRoaXMgc3RhZ2UgbWF5IHRoZXJlZm9yZSBiZSBzb21ld2hh
+dA0Kb3Zlci1lbmdpbmVlcmVkLCBzaW5jZSBpdCB3b3VsZCBvbmx5IGhhdmUgb25lIHVzZXIuDQoN
+CldlIHVuZGVyc3RhbmQgdGhhdCBOdXZvdG9uIG1heSBiZSB0aGUgbmV4dCBsaWtlbHkgdmVuZG9y
+IHRvIHN1cHBvcnQgZVNQSSBpbg0KdGhlaXIgQk1DIFNvQ3MuIFNpbmNlIGRyaXZlcnMvc29jIHBh
+dGNoZXMgZm9yIE51dm90b24gQk1DcyBhbHNvIGdvIHRocm91Z2gNCnRoZSBCTUMgdHJlZSwgd2Ug
+ZXhwZWN0IHRoZXJlIHdvdWxkIGJlIGFuIG9wcG9ydHVuaXR5IHRvIHJlY29uc2lkZXIgd2hldGhl
+cg0KYW4gaW5kZXBlbmRlbnQgZVNQSSBzdWJzeXN0ZW0gaXMgbmVlZGVkIG9uY2UgYW5vdGhlciB1
+c2VyIGFwcGVhcnMuDQoNCkJhc2VkIG9uIHRoZSBhYm92ZSwgd2Ugd291bGQgbGlrZSB0byBwcmVw
+YXJlIGFuZCBzdWJtaXQgdGhlIG5leHQgcmV2aXNpb24NCndpdGggdGhlIGRyaXZlciBsb2NhdGVk
+IHVuZGVyIGRyaXZlcnMvc29jLg0KDQpDb3VsZCB5b3UgcGxlYXNlIGxldCB1cyBrbm93IGlmIHRo
+ZXJlIGFyZSBhbnkgY29uY2VybnMgb3Igc3VnZ2VzdGlvbnMgdGhhdCB3ZQ0KaGF2ZSBub3QgY292
+ZXJlZCwgb3Igd2hldGhlciB3ZSBjb3VsZCBzZW5kIHRoZSBuZXh0IHJldmlzaW9uIGZvciByZXZp
+ZXc/DQoNCg==
 
