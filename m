@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 070F3CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 10:41:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4173FCDB46F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 10:57:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UiliuuOVjwYb2973zyov9AYHPa1hvkQkF2eaAVJrrMk=; b=srce4OcFkbRPHQCZk2ZiOiKD7+
-	q71sdyRcP9+l6kIgjGTfRUqxNXElvQzQebgkbOhzjjvrtFb6jD/JB9fStN233Zru1VZxz1PtAqQtO
-	5k0K/dShP28WOdo9GE7nYgB1KfKPDWQ89yRBslq4Q3+Xx/ZSO8nI0UYHopsAw7jn8IDfXzHa8FJCB
-	zIW14y05jqg1QRsAygNoaF819qYtoUdgN5y89jRE91xN+ksbusiuGDf1ZZ+/oG8Au7/ceTH8N3H55
-	u6bq2Vd6Ycd0NBl+C5T+jlFyd4rVepIfOUp3bpd8+UtbIUPmugaMVKjTkQL4HLIs1npor38h9Vo3b
-	1T0nJaTA==;
+	bh=BeHcTS/z7AXMwiJASQFJXorWiTpaBk9eiyGNMafLTr8=; b=2ooNl3LcV9hlY0I9W2knZ7f00J
+	7OwBVOiSm/LIEK+JcA7n90U17CPwi5UVC+K1EtN0ihxDZUV4WtxI8SIVCYhyLsiL3GxtuGXAZPbbg
+	zBcEyOS7p/PPGiBLe3FDZh7qCT+6ghKHOgsPLnxyPlc90MAsYyc7141K/E4SW196CUhgjzbCqqRXt
+	+sTf9ddzn9QO2T64LZFgiAeJOGSH3JON/N3Sjjf6yJs9IHGpfN2NLl819vgWNRv//yxsORyi5P6v4
+	e9yS+xL4jjGZY7eio1llyIJ6ygqlQVkLsgnGU2O7G61gfXBg/WsBSLQPj9da/t5Pulz7KlosXokdK
+	rrstfQJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbc61-00000004qez-3QtI;
-	Mon, 22 Jun 2026 10:41:41 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wbcLR-00000004ri1-0WaR;
+	Mon, 22 Jun 2026 10:57:37 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbc60-00000004qer-40NI
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Jun 2026 10:41:40 +0000
+	id 1wbcLP-00000004rhm-1Obg;
+	Mon, 22 Jun 2026 10:57:35 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5E19741844;
-	Mon, 22 Jun 2026 10:41:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BC591F000E9;
-	Mon, 22 Jun 2026 10:41:39 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B12704354C;
+	Mon, 22 Jun 2026 10:57:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FA041F000E9;
+	Mon, 22 Jun 2026 10:57:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782124900;
-	bh=UiliuuOVjwYb2973zyov9AYHPa1hvkQkF2eaAVJrrMk=;
+	s=k20260515; t=1782125854;
+	bh=BeHcTS/z7AXMwiJASQFJXorWiTpaBk9eiyGNMafLTr8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=a05AeJ2P5OTFGfve6EbbPxM5WUlF9yDZGZasSRH7idEdKv7LonTJwuOxaQKO/G8sU
-	 FXW0FUDlgUCllct3Qv/WsefJcj5Q/eyB+3Z+RWD0WTXOFHz9ihTHU5KX+v+LROfSiT
-	 G8gVyYfo45YxbyJvS4zITqMGN7jQDsSZrb6MBdCKM2YxqW/3WGMdEu4XPzAPkiRLjW
-	 IoIfP/NnnL+YHjXUNq2VgUMX5reMy9ZOlVrNEc2xvEkTgqX+Un9CBTECh+Z3IMFzlB
-	 pvozdIcjO7pMyo4lgflnXLL8BedQAtKeimsmKj2dLkFMROSxb69km9fGn/MSTJgKw7
-	 XSJZMXQwBjSmg==
-Date: Mon, 22 Jun 2026 12:41:36 +0200
+	b=Sn7jRwKYodQnEtNuXEzdY0BHPGq+TWV+tnYZMBNkkotfzIp8krj8T+jcHMC0ZmrhN
+	 UWbHcpIXdDwpEkuf7d34w8jDD2bNkfP4xUAaoR22ZFRYtKL7qNsOHIFlWEUOezGiFw
+	 +1c+SQ1y3+q6K9cLu3mhnCNzX0Dh8jP21lvACK85aEmrkqI/HbsCCWIVuKs0D4ztNl
+	 OPoW3rNuNwPkLxYPfAcyvx1Wvb9E+zJb7NjVeY7GsxTSVUu8FB2z9aMbZ01uGHuGMI
+	 A6JJrSfZtwDa8dm5w0o7vhMQKehDT4+sxylTg35NG0QE335rWgC5b4SsR39vxsQL3f
+	 z16vM3ONKeSxw==
+Date: Mon, 22 Jun 2026 12:57:30 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Yuanshen Cao <alex.caoys@gmail.com>
-Cc: conor+dt@kernel.org, mripard@kernel.org, krzk+dt@kernel.org, 
-	robh@kernel.org, samuel@sholland.org, wens@kernel.org, jernej.skrabec@gmail.com, 
-	Frank.Li@kernel.org, vkoul@kernel.org, dmaengine@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Frank Li <Frank.Li@nxp.com>
-Subject: Re: [PATCH v3 4/5] dt-bindings: dmaengine: sun50i-a64-dma: Add
- allwinner,sun60i-a733-dma compatible string
-Message-ID: <20260622-fragrant-aquamarine-porcupine-4a3ebf@quoll>
-References: <20260622-sun60i-a733-dma-v3-0-f697ef296cbc@gmail.com>
- <20260622-sun60i-a733-dma-v3-4-f697ef296cbc@gmail.com>
+To: Zakariya Hadrami <zkh1@proton.me>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Sean Wang <sean.wang@mediatek.com>, Wim Van Sebroeck <wim@linux-watchdog.org>, 
+	Guenter Roeck <linux@roeck-us.net>, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-watchdog@vger.kernel.org
+Subject: Re: [PATCH v2 2/5] dt-bindings: arm: mediatek: Add MT8127 Amazon ford
+Message-ID: <20260622-holistic-scarlet-bison-23e25b@quoll>
+References: <20260617-mt8127-amazon-ford-basic-v2-0-6859e29e72a8@proton.me>
+ <20260617-mt8127-amazon-ford-basic-v2-2-6859e29e72a8@proton.me>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260622-sun60i-a733-dma-v3-4-f697ef296cbc@gmail.com>
+In-Reply-To: <20260617-mt8127-amazon-ford-basic-v2-2-6859e29e72a8@proton.me>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,23 +73,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 22, 2026 at 01:36:26AM +0000, Yuanshen Cao wrote:
-> Add `allwinner,sun60i-a733-dma` to the list of compatible strings for the
-> `sun50i-a64-dma` dtbinding documentation.
+On Wed, Jun 17, 2026 at 10:37:00PM +0900, Zakariya Hadrami wrote:
+> Add entry for the MT8127 based Amazon ford tablet.
 > 
-> While the A733 DMA controller shares many similarities with the sun50i-a64
-> DMA controller, it requires a specific configuration due to differences in:
-> - Interrupt register layout and mapping.
-> - Number of channels per interrupt register.
-> - Support for higher (32G) address widths in LLI parameters.
-> 
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> Signed-off-by: Yuanshen Cao <alex.caoys@gmail.com>
+> Signed-off-by: Zakariya Hadrami <zkh1@proton.me>
 > ---
->  Documentation/devicetree/bindings/dma/allwinner,sun50i-a64-dma.yaml | 2 ++
->  1 file changed, 2 insertions(+)
+>  Documentation/devicetree/bindings/arm/mediatek.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
 Best regards,
 Krzysztof
