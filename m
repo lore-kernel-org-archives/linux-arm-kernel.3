@@ -4,111 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB913CD98F0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 02:26:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23088CD98F0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 02:29:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SxtEYDnBUJoGo23/F5MRhG8LhraBayRFeMoWvdfV6UM=; b=Q/t+RvqyeXYPaJmOo3o2cL8Q4V
-	sazEAUK5At2MEhC7zEv2y7otuBVmNoy+nq8RW13SDFPAFAHRDhbD1mBwXYHcUiPVlVwF8Gexycj1l
-	YfB+K76ip2A5nO0Gq0mGv9Hnm/jED2myZC8tX+dp5FZul3Q912deELOUvp0TOKykMoO7tNjNUPE5K
-	2XPU47z0lJPQ8FVouoKt+POPvJAp0r/oWkVzA93H8Lgz/PEvfw4+XVbVu2sTihLBVywPcwgR57lCk
-	KK6CDJq08ssz7ah2htLCJkz4N4p5UM7Ri8Oo0PXsgKz4h0F3pC3d/Mdpo9KLp9ptftqAhX3zXOFhw
-	op+wd2nw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gu0ES1O9klC+0ewrJmA1SFEVoTTP2kjyfbea71Glr8c=; b=ADWBzR67H+sVitqs9kQZaYmur2
+	wucaSyIcafuklAOxiUupmHqykXpzwKcshEIPohrQ3ePwRApU39tRxveaAbTDYP5RgZzAhbnIIO780
+	U5GzNuG6HUFe2Y883J2zGxOUHueBbcx3aU7MYYWYleGLXSSMZL//4GwHF8nZhmu0ckkQedSh3Dn9M
+	ppKixyU9B5dtwizjDKVHD1THBQad3BdNtOAFUUO6ggXztA81RQYhV8L1Gpmgzs+VqYY3cg88l1vpz
+	6cFcOa2sBTJgdOGYRTyONy9AMqe0LVxmC/0fuc9LVhT5J+4bBzpBvd8SFiGieK0yGol0J8giZgZIG
+	m61MB7Uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbUMK-00000004Ivb-1Jpm;
-	Mon, 22 Jun 2026 02:26:00 +0000
-Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
+	id 1wbUPC-00000004JJ6-2pLQ;
+	Mon, 22 Jun 2026 02:28:58 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbUMH-00000004It1-1s5V
+	id 1wbUPA-00000004JIk-11GI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Jun 2026 02:25:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=oXr8rbk/alaUJ4c0T8SnjCOkSj5BX1PUPsD1UiK8WpHRbx0leevyAQX5e+4dAQiyA/PotbAn2jIkGQq1MONyLoAcNgkFDZfq/AZstPCVMR4i6/7cIjjKZVdO9DaGVnhH/9Slpjg7tAN1BLHvQoTEw5ACHdcf4nCgoid8C/LC4EHRhAVjJomofwaXqGmHvU6ob3uGrJetDkh9idaekfzICWRACEgdy6FOJjLTZUpMesvllMJoSMt/36OsybiPnrKUlSvzTlO/Hh/fthAC/dybxjwGAaGqN4qYIEAFqD5+x9Oy/J34ynK0qvqAEz/Zv4qMcx81cPMEQoTQhxI4MHyRsA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=SxtEYDnBUJoGo23/F5MRhG8LhraBayRFeMoWvdfV6UM=;
- b=Q/8F7oQ3FDZAAK4yopd5NH9LXPcPs2fxKMTvV5o6cL4Eqor2FdVbbhatn4rd5V4NnxV6k9HQQQu5eA4mdqArINrGfnaofw07WSJcLOf407lK4Oa3ZVvGpUYHoXKEl3et68VN1zMUgWK3IPhNU4+7C8vXjVC/MsC70ladq/9RpjUymyzUHJ+UhLo3l0h0edGOr75MhYrsS/A9MLRX+cSGHXmshFWbheL1UJ7HlQTS//KpvIMHkdT22KiR1AYmg9zIxZUB4m2R/X6ZDim6Q80K4QnkG26F1Pq/lCH0WNBniwKetJgs2ZfVY5tJymJDe89ewyV43Su3b475dGcicFOHKQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=baylibre.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from SI2PR06CA0002.apcprd06.prod.outlook.com (2603:1096:4:186::10)
- by KU2PPFDF24F4212.apcprd06.prod.outlook.com (2603:1096:d18::4b0) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.19; Mon, 22 Jun
- 2026 02:25:30 +0000
-Received: from OSA0EPF000000C7.apcprd02.prod.outlook.com
- (2603:1096:4:186:cafe::79) by SI2PR06CA0002.outlook.office365.com
- (2603:1096:4:186::10) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.139.14 via Frontend Transport; Mon,
- 22 Jun 2026 02:25:29 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
- smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- OSA0EPF000000C7.mail.protection.outlook.com (10.167.240.53) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.159.10 via Frontend Transport; Mon, 22 Jun 2026 02:25:29 +0000
-Received: from cix (unknown [172.18.64.61])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 3532C40E7F92;
-	Mon, 22 Jun 2026 10:25:27 +0800 (CST)
-From: joakim.zhang@cixtech.com
-To: mturquette@baylibre.com,
-	sboyd@kernel.org,
-	bmasney@redhat.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	p.zabel@pengutronix.de,
-	gary.yang@cixtech.com
-Cc: cix-kernel-upstream@cixtech.com,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Joakim Zhang <joakim.zhang@cixtech.com>
-Subject: [PATCH v5 3/4] reset: cix: add sky1 audss auxiliary reset driver
-Date: Mon, 22 Jun 2026 10:25:19 +0800
-Message-ID: <20260622022520.3127103-4-joakim.zhang@cixtech.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20260622022520.3127103-1-joakim.zhang@cixtech.com>
-References: <20260622022520.3127103-1-joakim.zhang@cixtech.com>
+	Mon, 22 Jun 2026 02:28:57 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-8453bcf7276so2064543b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 21 Jun 2026 19:28:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782095335; x=1782700135; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=gu0ES1O9klC+0ewrJmA1SFEVoTTP2kjyfbea71Glr8c=;
+        b=rCPh8lEEnL0MZoeomtfEiNxyk3G80rhEEDiMlniO4VHesTAthpLSyVtZabUpYNGSSr
+         VariWua6+fFLwQ8ZGNQsd0xRhykAamGGqkJS7LvSnX7O6rTX83BWnPdyha8J2fkgkOJc
+         Z+2FmX7S44JJHfdO/rHidhs4lXyEY8ZnOV79yPY296xmJ2+/LztzWQANKZieS70jDGRj
+         u/hhJ90CDDUbbrblREWjSLgH/hORkf4SMp0u9QC4RTvRk4ZHztz7k7z3grfJMguCemgt
+         gWIhZTW/U3KR6VNFxbgcqi3UQ2fs+iFxBoznXz1NgX96nZ19sY3cU10wh93eVEQHh2ct
+         NbAQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782095335; x=1782700135;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=gu0ES1O9klC+0ewrJmA1SFEVoTTP2kjyfbea71Glr8c=;
+        b=ckeLt2UQApZsV71zMB1cf6Zo7bX9rjW+Dt82c6GiwwcYNt+tzVCmiv3vOimeLQKkcR
+         w2hiYDWb3ubFaf3RHY5HLm7DFSARqDQ1UyoQ2y6ehNuk2GSBPizvXKhvhEbPsKH2Aeu9
+         CNRAMmUfnKWOfK+USq49mhaXchexztU4p2WHtJW7jjaE5QEmvGy1c/QE0OGdgTN+pNaz
+         Q4D7qwBKvTEzKZb0TvcGNT9RvUvErCcgSf5qTqn/374LTlJJadVUR2uWKvggaMDzO5/d
+         fIpPnKt3t6pMOvRAQ+idb/f6aG2u0Ja0src71jUxdMsLFiywV2eMsYg2zzan4XlQEWoH
+         bufA==
+X-Forwarded-Encrypted: i=1; AFNElJ/JwYDBpnhx+de0UB9Kzg6CkGcWHmwW/KcI3kHhkJGpnRTKtpug/akdFGpzfE0Ht6BlGsEXMuvleU3rCGdvk4t3@lists.infradead.org
+X-Gm-Message-State: AOJu0YwPMeuaHSMBNn0pi7S1f2lMTvs5rqhwk4qCBCwbM5SBW/RuwHtU
+	uCkDX0kyu9Y+WeGRYFAxzbiAnZPX5+8uv8zqVbhbvy/gCohA93FLC193
+X-Gm-Gg: AfdE7ckdUGNnCRCz6F3Ea+9s0DwwUGapdA7M1mYhMAs0CMcMUBn3y9Di25HFCtYXGVB
+	/Yx7e7GZpw3cgIAMf0SD9zFhSCN1R2eaTrvlGY/HC6GR1TIxXkQ1xk4G4BiBb23tMWNwUOKCqE4
+	f0WYs0Jo12iv1YEpDjIP4RI7wt5a/xPdhSHTg4wjmWspTXbBpPrgdVDaWsflp4PSNVH8llPjAXe
+	UxvsRWNWrGbT71vlmgJ2UdOP03LuVDdiDTIE5m6pRD6c99TOYy+6WcjF7vigoy6hIaUbbUP13pb
+	RfcqQduqni9B5d4ibxOjD1WB+H3QpRslMilVaaNl2aHKHdf0MCm4C/aUdxjG6ZIJ3CWa5/XOi9a
+	r4t684pTWs5CniHvtZ1ggIaIH44sceCP+vshU7D6ZpDV/GWp1IGSKv4FHWaTzXXSVlQ4REXHB76
+	AZlO4GCqCi/20wVuMe1joqnqtdAfQ5kNyS+BMWFzXrgzO2rGK6OIz7P3sgMzlMlwunMc26vCT87
+	tU4
+X-Received: by 2002:a05:6a00:4104:b0:845:33e1:9664 with SMTP id d2e1a72fcca58-845508ff81bmr13600889b3a.40.1782095334770;
+        Sun, 21 Jun 2026 19:28:54 -0700 (PDT)
+Received: from [192.168.0.100] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84564ee3dc2sm5573489b3a.58.2026.06.21.19.28.51
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 21 Jun 2026 19:28:54 -0700 (PDT)
+Message-ID: <98725dea-9bfd-43bb-8bce-e314f821d081@gmail.com>
+Date: Mon, 22 Jun 2026 10:28:46 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 1/6] dt-bindings: display: verisilicon, dc: generalize
+ for single-output variants
+To: Icenowy Zheng <zhengxingda@iscas.ac.cn>,
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
+ airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org
+Cc: ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260615065003.76661-1-a0987203069@gmail.com>
+ <20260615065003.76661-2-a0987203069@gmail.com>
+ <3683c5c617324f5835529617325745ef48fa1943.camel@iscas.ac.cn>
+ <6d3e3121-22f2-4c59-9678-df2f57ff4d31@gmail.com>
+ <b08277e8a9350f6c68c9774b1b6185b1eb71cd1e.camel@iscas.ac.cn>
+Content-Language: en-US
+From: Joey Lu <a0987203069@gmail.com>
+In-Reply-To: <b08277e8a9350f6c68c9774b1b6185b1eb71cd1e.camel@iscas.ac.cn>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: OSA0EPF000000C7:EE_|KU2PPFDF24F4212:EE_
-Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: 8945e471-2d38-4179-13f0-08ded005871e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|23010399003|36860700016|82310400026|56012099006|5023799004|22082099003|18002099003|3023799007;
-X-Microsoft-Antispam-Message-Info: NFPDexi66r2W8J36qgfUF6iwpM8tHLiY/i26Mx+sByebnoUDhS3d2uLd404qrdk7RMkLwpliw4Q1gDxGn/UFMkhIw4MPC8cIwgrSlKFuRaLUW9AJjtAsXg/bLEeHHiVeGJ6qZ4KYNalzfTSU9T4OHbFWYjyTsNu9KY4dp4LfTJ1Htv5mYdujZsZEOm5tukZpyeeG79+0EymvNDEle5vV18ppT3ZluvXsAQf1q8CrYFnWu/NC5APczlwmcDlatDhtgejxmxcl3VthA+VEgoQpNmPl0n7j53glotkblgiYumTMuB5jOiApzpIFXo7d5YBosjfkELJ3jXGEQJ2MCJGaCCHI0smXraAtWjEKIU3nt/m009sNXF3Vbwjk/F4BN4IC7yRMtZ/Mj4TDCma2CrHbNKFHBvWdjXaiOfvML2bF8oYB+P8ZSJIR6IV9Ob+y9TfdsQY2q/xsLXVO3UX1EReYYd88cFzZhjoLUzja2H6U4jnWDt5AwF3RiBeNkkf+AmsOoXkBXWd72u7CtumCG6BiRpIHhdfv8A33gEH+5Y+1o9TaOePGJ6kNhvCDIN4fHVp5GK8ppvJ9jHAPTsVj8i12YyrEY5skLDwsXJ71iH2IXb6uDmM3A0x1Om5vwampVSfZ2irv+1rAyWBDrIShzCHaGqROlZcu1f8UUxt9q1nciDqfg3qCEdt3n2rHZmIMI8F4QC8hdARO8yIj1AYAkfAWkw==
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(23010399003)(36860700016)(82310400026)(56012099006)(5023799004)(22082099003)(18002099003)(3023799007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: rv8ixmot27SdUQBUNCRKRf0RxYCJG7PiVIMTfKtx+cFPufalXm3e2qnonOi65ZBdfE0KLU68PhThKvUarrPzLSU80L4nNZjZqKrLCsyY5xDUfEkkzWKEzizFbobmYELdhJ41ylxGRK4jxzl2Zvqad6eTYp5inXp6qWF4Eh3rh1NGldIvLCRSTe7yk19dEtTRDFLFhFZWuB0jz7zWEiBz4HxHegDa5zYTHu79QRDe2lyMNt32pGuM+sZxjr22aOk4rBK4wrtWiot96knDnD9X+HoBgWce5NKeudVyDCWXGskSziK2ZsGcQeKyrfG74D3ksNKhbmvtitsu4xxg/zcYS/+K3qhqdpbYja+V4MZr5qLMrjDY2qxuAuf+c7ZyUZSkaLJESp5bLN5oc9tirpp4cdJmi6EtJPAMSrAwobZz8SmjOWsRimCQ1z+of+REG8U6
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jun 2026 02:25:29.0842
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8945e471-2d38-4179-13f0-08ded005871e
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: OSA0EPF000000C7.apcprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: KU2PPFDF24F4212
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260621_192557_604294_64CA4E89 
-X-CRM114-Status: GOOD (  19.99  )
+X-CRM114-CacheID: sfid-20260621_192856_311015_159455A7 
+X-CRM114-Status: GOOD (  19.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,259 +111,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Joakim Zhang <joakim.zhang@cixtech.com>
 
-Add an auxiliary reset controller driver for the AUDSS CRU. Sixteen
-software reset lines for audio subsystem peripherals are controlled
-through one register in the CRU register map.
+On 6/18/2026 6:24 PM, Icenowy Zheng wrote:
+> 在 2026-06-17三的 18:25 +0800，Joey Lu写道：
+>> On 6/15/2026 4:19 PM, Icenowy Zheng wrote:
+>>> 在 2026-06-15一的 14:49 +0800，Joey Lu写道：
+>>>> The existing schema hard-codes the five-clock/three-reset/dual-
+>>>> port
+>>>> topology of the DC8200 IP block, preventing reuse for single-
+>>>> output
+>>>> variants such as the Verisilicon DCUltraLite used in the Nuvoton
+>>>> MA35D1
+>>>> SoC.
+>>>>
+>>>> Rework the schema so that variant-specific constraints are
+>>>> expressed
+>>>> via
+>>>> allOf/if blocks:
+>>>>
+>>>> - Add nuvoton,ma35d1-dcu to the SoC-specific compatible enum.
+>>>> The
+>>>>     generic verisilicon,dc fallback remains the driver-binding
+>>>> string.
+>>>> - Move clock and reset items descriptions into the per-variant
+>>>> allOf/if
+>>>>     blocks; keep only minItems/maxItems at the top level so the
+>>>> base
+>>>> schema
+>>>>     accepts all variants.
+>>>> - Restore full items lists for clock-names and reset-names at the
+>>>> top
+>>>>     level with minItems so the names are validated against the
+>>>> descriptions.
+>>>> - Keep ports in the global required list and keep
+>>>> additionalProperties: false.
+>>>> - Add an allOf/if block for thead,th1520-dc8200: five-clock
+>>>> (core,
+>>>> axi,
+>>>>     ahb, pix0, pix1), three-reset (core, axi, ahb), required
+>>>> resets.
+>>>> - Add an allOf/if block for nuvoton,ma35d1-dcu: two-clock (core,
+>>>> pix0),
+>>>>     one-reset (core), required resets.
+>>>>
+>>>> Signed-off-by: Joey Lu <a0987203069@gmail.com>
+>>>> ---
+>>>>    .../bindings/display/verisilicon,dc.yaml      | 80
+>>>> +++++++++++++++++--
+>>>>    1 file changed, 73 insertions(+), 7 deletions(-)
+>>>>
+>>>> diff --git
+>>>> a/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+>>>> b/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+>>>> index 9dc35ab973f2..0c41286b8223 100644
+>>>> ---
+>>>> a/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+>>>> +++
+>>>> b/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+>>>> @@ -17,6 +17,7 @@ properties:
+>>>>        items:
+>>>>          - enum:
+>>>>              - thead,th1520-dc8200
+>>>> +          - nuvoton,ma35d1-dcu
+>>>>          - const: verisilicon,dc # DC IPs have discoverable
+>>>> ID/revision
+>>>> registers
+>>>>    
+>>>>      reg:
+>>>> @@ -26,14 +27,12 @@ properties:
+>>>>        maxItems: 1
+>>>>    
+>>>>      clocks:
+>>>> -    items:
+>>>> -      - description: DC Core clock
+>>>> -      - description: DMA AXI bus clock
+>>>> -      - description: Configuration AHB bus clock
+>>>> -      - description: Pixel clock of output 0
+>>>> -      - description: Pixel clock of output 1
+>>> Clock descriptions should still be in the global part instead of
+>>> the
+>>> per-compatible part.
+>>>
+>>> In the per-compatible part, clock-names should be constraint for
+>>> SoCs.
+>> I will move the `items:` clock descriptions back into the global
+>> `clocks:` property, covering all five possible clocks. In the
+>> per-compatible sections I will remove the description items and only
+>> constrain `clocks: minItems/maxItems` and `clock-names:
+>> minItems/maxItems`; for nuvoton,ma35d1-dcu I will additionally
+>> override
+>> `clock-names: items:` to the two names actually used (core, pix0).
+> Yes, this should be the correct practice, although I wonder whether the
+> minItems and maxItems properties are needed globally (because these two
+> seem to have default implicit value).
+>
+> BTW the MA35D1 manual in fact shows 4 clocks for "DCUltra" in the clock
+> tree, maybe the DT binding needs to be reconsidered?
+>
+> Thanks,
+> Icenowy
+I will drop the global `minItems`/`maxItems` on `clocks` and 
+`clock-names` in v5, as they are redundant with the implicit defaults.
 
-The driver is created by the AUDSS clock platform driver and registers
-the reset controller on the CRU device node.
+Regarding the 4-clock question: the TRM clock tree diagram does show 
+four paths reaching DCUltra (display core mux/gate, AXI ACLK, AHB HCLK, 
+and the pixel clock divider). However, the MA35D1 hardware provides only 
+one software-controllable enable bit (SYSCLK0[26]) that gates the core 
+clock together with the AXI and AHB bus clocks through shared ICG cells; 
+there are no separate register bits for the bus clocks alone. Due to 
+this hardware design constraint, the `clk-ma35d1` driver is 
+intentionally designed to register only three DCU-related CCF nodes: 
+`dcu_mux` (ID 61, an internal routing mux), `dcu_gate` (ID 62, the 
+single gate at SYSCLK0 bit 26), and `dcup_div` (ID 63, the pixel divider 
+from VPLL at CLKDIV0[18:16]), with no independent AXI or AHB gate 
+entries for DCU. Since the DT binding can only reference clock handles 
+that the platform clock driver actually provides, the MA35D1 binding 
+will remain at two clock entries: "core" mapped to `DCU_GATE` and "pix0" 
+mapped to `DCUP_DIV`.
 
-Signed-off-by: Joakim Zhang <joakim.zhang@cixtech.com>
----
- drivers/reset/Kconfig            |  14 +++
- drivers/reset/Makefile           |   1 +
- drivers/reset/reset-sky1-audss.c | 192 +++++++++++++++++++++++++++++++
- 3 files changed, 207 insertions(+)
- create mode 100644 drivers/reset/reset-sky1-audss.c
+Thanks.
 
-diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
-index d009eb0849a3..f74859b292ae 100644
---- a/drivers/reset/Kconfig
-+++ b/drivers/reset/Kconfig
-@@ -300,6 +300,20 @@ config RESET_SKY1
- 	help
- 	  This enables the reset controller for Cix Sky1.
- 
-+config RESET_SKY1_AUDSS
-+	tristate "Cix Sky1 Audio Subsystem reset controller"
-+	depends on ARCH_CIX || COMPILE_TEST
-+	select AUXILIARY_BUS
-+	select REGMAP_MMIO
-+	default CLK_SKY1_AUDSS
-+	help
-+	  Support for block-level software reset lines in the Cix Sky1
-+	  Audio Subsystem (AUDSS) Clock and Reset Unit. Sixteen reset
-+	  outputs for audio peripherals are controlled through the CRU
-+	  register map. The driver binds as an auxiliary device from
-+	  the AUDSS clock driver. Say M or Y here if you want to build
-+	  this driver.
-+
- config RESET_SOCFPGA
- 	bool "SoCFPGA Reset Driver" if COMPILE_TEST && (!ARM || !ARCH_INTEL_SOCFPGA)
- 	default ARM && ARCH_INTEL_SOCFPGA
-diff --git a/drivers/reset/Makefile b/drivers/reset/Makefile
-index 3e52569bd276..e81407ea3e29 100644
---- a/drivers/reset/Makefile
-+++ b/drivers/reset/Makefile
-@@ -39,6 +39,7 @@ obj-$(CONFIG_RESET_RZV2H_USB2PHY) += reset-rzv2h-usb2phy.o
- obj-$(CONFIG_RESET_SCMI) += reset-scmi.o
- obj-$(CONFIG_RESET_SIMPLE) += reset-simple.o
- obj-$(CONFIG_RESET_SKY1) += reset-sky1.o
-+obj-$(CONFIG_RESET_SKY1_AUDSS) += reset-sky1-audss.o
- obj-$(CONFIG_RESET_SOCFPGA) += reset-socfpga.o
- obj-$(CONFIG_RESET_SUNPLUS) += reset-sunplus.o
- obj-$(CONFIG_RESET_SUNXI) += reset-sunxi.o
-diff --git a/drivers/reset/reset-sky1-audss.c b/drivers/reset/reset-sky1-audss.c
-new file mode 100644
-index 000000000000..f29fe3554ec1
---- /dev/null
-+++ b/drivers/reset/reset-sky1-audss.c
-@@ -0,0 +1,192 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Cix Sky1 Audio Subsystem reset controller driver
-+ *
-+ * Copyright 2026 Cix Technology Group Co., Ltd.
-+ */
-+
-+#include <dt-bindings/reset/cix,sky1-audss-reset.h>
-+
-+#include <linux/auxiliary_bus.h>
-+#include <linux/delay.h>
-+#include <linux/device.h>
-+#include <linux/io.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/of_address.h>
-+#include <linux/regmap.h>
-+#include <linux/reset-controller.h>
-+
-+#define SKY1_RESET_SLEEP_MIN_US		50
-+#define SKY1_RESET_SLEEP_MAX_US		100
-+
-+#define AUDSS_SW_RST			0x78
-+
-+struct sky1_audss_reset_map {
-+	unsigned int offset;
-+	unsigned int mask;
-+};
-+
-+struct sky1_audss_reset {
-+	struct reset_controller_dev rcdev;
-+	struct regmap *regmap;
-+	const struct sky1_audss_reset_map *map;
-+};
-+
-+static const struct sky1_audss_reset_map sky1_audss_reset_map[] = {
-+	[AUDSS_I2S0_SW_RST]   = { AUDSS_SW_RST, BIT(0) },
-+	[AUDSS_I2S1_SW_RST]   = { AUDSS_SW_RST, BIT(1) },
-+	[AUDSS_I2S2_SW_RST]   = { AUDSS_SW_RST, BIT(2) },
-+	[AUDSS_I2S3_SW_RST]   = { AUDSS_SW_RST, BIT(3) },
-+	[AUDSS_I2S4_SW_RST]   = { AUDSS_SW_RST, BIT(4) },
-+	[AUDSS_I2S5_SW_RST]   = { AUDSS_SW_RST, BIT(5) },
-+	[AUDSS_I2S6_SW_RST]   = { AUDSS_SW_RST, BIT(6) },
-+	[AUDSS_I2S7_SW_RST]   = { AUDSS_SW_RST, BIT(7) },
-+	[AUDSS_I2S8_SW_RST]   = { AUDSS_SW_RST, BIT(8) },
-+	[AUDSS_I2S9_SW_RST]   = { AUDSS_SW_RST, BIT(9) },
-+	[AUDSS_WDT_SW_RST]    = { AUDSS_SW_RST, BIT(10) },
-+	[AUDSS_TIMER_SW_RST]  = { AUDSS_SW_RST, BIT(11) },
-+	[AUDSS_MB0_SW_RST]    = { AUDSS_SW_RST, BIT(12) },
-+	[AUDSS_MB1_SW_RST]    = { AUDSS_SW_RST, BIT(13) },
-+	[AUDSS_HDA_SW_RST]    = { AUDSS_SW_RST, BIT(14) },
-+	[AUDSS_DMAC_SW_RST]   = { AUDSS_SW_RST, BIT(15) },
-+};
-+
-+static struct sky1_audss_reset *to_sky1_audss_reset(struct reset_controller_dev *rcdev)
-+{
-+	return container_of(rcdev, struct sky1_audss_reset, rcdev);
-+}
-+
-+static int sky1_audss_reset_set(struct reset_controller_dev *rcdev,
-+				unsigned long id, bool assert)
-+{
-+	struct sky1_audss_reset *priv = to_sky1_audss_reset(rcdev);
-+	const struct sky1_audss_reset_map *signal = &priv->map[id];
-+	unsigned int value = assert ? 0 : signal->mask;
-+
-+	return regmap_update_bits(priv->regmap, signal->offset, signal->mask, value);
-+}
-+
-+static int sky1_audss_reset_assert(struct reset_controller_dev *rcdev,
-+				   unsigned long id)
-+{
-+	sky1_audss_reset_set(rcdev, id, true);
-+	usleep_range(SKY1_RESET_SLEEP_MIN_US, SKY1_RESET_SLEEP_MAX_US);
-+	return 0;
-+}
-+
-+static int sky1_audss_reset_deassert(struct reset_controller_dev *rcdev,
-+				     unsigned long id)
-+{
-+	sky1_audss_reset_set(rcdev, id, false);
-+	usleep_range(SKY1_RESET_SLEEP_MIN_US, SKY1_RESET_SLEEP_MAX_US);
-+	return 0;
-+}
-+
-+static int sky1_audss_reset(struct reset_controller_dev *rcdev,
-+			    unsigned long id)
-+{
-+	sky1_audss_reset_assert(rcdev, id);
-+	sky1_audss_reset_deassert(rcdev, id);
-+	return 0;
-+}
-+
-+static int sky1_audss_reset_status(struct reset_controller_dev *rcdev,
-+				   unsigned long id)
-+{
-+	struct sky1_audss_reset *priv = to_sky1_audss_reset(rcdev);
-+	const struct sky1_audss_reset_map *signal = &priv->map[id];
-+	unsigned int value;
-+
-+	regmap_read(priv->regmap, signal->offset, &value);
-+	return !!(value & signal->mask);
-+}
-+
-+static const struct reset_control_ops sky1_audss_reset_ops = {
-+	.reset    = sky1_audss_reset,
-+	.assert   = sky1_audss_reset_assert,
-+	.deassert = sky1_audss_reset_deassert,
-+	.status   = sky1_audss_reset_status,
-+};
-+
-+static const struct regmap_config sky1_audss_regmap_config = {
-+	.reg_bits = 32,
-+	.val_bits = 32,
-+	.reg_stride = 4,
-+};
-+
-+static void sky1_audss_reset_iounmap(void *data)
-+{
-+	iounmap(data);
-+}
-+
-+static int sky1_audss_reset_get_regmap(struct sky1_audss_reset *priv)
-+{
-+	struct device *dev = priv->rcdev.dev;
-+	void __iomem *base;
-+	int ret;
-+
-+	priv->regmap = dev_get_regmap(dev->parent, NULL);
-+	if (priv->regmap)
-+		return 0;
-+
-+	base = of_iomap(dev->parent->of_node, 0);
-+	if (!base)
-+		return dev_err_probe(dev, -ENOMEM, "failed to iomap address space\n");
-+
-+	ret = devm_add_action_or_reset(dev, sky1_audss_reset_iounmap, base);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to register iounmap action\n");
-+
-+	priv->regmap = devm_regmap_init_mmio(dev, base, &sky1_audss_regmap_config);
-+	if (IS_ERR(priv->regmap))
-+		return dev_err_probe(dev, PTR_ERR(priv->regmap),
-+				     "failed to initialize regmap\n");
-+
-+	return 0;
-+}
-+
-+static int sky1_audss_reset_probe(struct auxiliary_device *adev,
-+				  const struct auxiliary_device_id *id)
-+{
-+	struct sky1_audss_reset *priv;
-+	struct device *dev = &adev->dev;
-+	int ret;
-+
-+	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
-+	if (!priv)
-+		return -ENOMEM;
-+
-+	priv->map = sky1_audss_reset_map;
-+	priv->rcdev.owner = THIS_MODULE;
-+	priv->rcdev.nr_resets = ARRAY_SIZE(sky1_audss_reset_map);
-+	priv->rcdev.ops = &sky1_audss_reset_ops;
-+	priv->rcdev.of_node = dev->parent->of_node;
-+	priv->rcdev.dev = dev;
-+	priv->rcdev.of_reset_n_cells = 1;
-+
-+	dev_set_drvdata(dev, priv);
-+
-+	ret = sky1_audss_reset_get_regmap(priv);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to get regmap\n");
-+
-+	return devm_reset_controller_register(dev, &priv->rcdev);
-+}
-+
-+static const struct auxiliary_device_id sky1_audss_reset_ids[] = {
-+	{ .name = "clk_sky1_audss.reset" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(auxiliary, sky1_audss_reset_ids);
-+
-+static struct auxiliary_driver sky1_audss_reset_driver = {
-+	.probe = sky1_audss_reset_probe,
-+	.id_table = sky1_audss_reset_ids,
-+};
-+
-+module_auxiliary_driver(sky1_audss_reset_driver);
-+
-+MODULE_AUTHOR("Joakim Zhang <joakim.zhang@cixtech.com>");
-+MODULE_DESCRIPTION("Cix Sky1 Audio Subsystem reset driver");
-+MODULE_LICENSE("GPL");
--- 
-2.50.1
-
+>
+>>>> +    minItems: 2
+>>>> +    maxItems: 5
+>>>>    
+>>>>      clock-names:
+>>>> +    minItems: 2
+>>>> +    maxItems: 5
+>>>>        items:
+>>>>          - const: core
+>>>>          - const: axi
 
