@@ -4,157 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31AE4CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 14:31:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21342CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 14:35:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XNOSn7PtCv2NxWPzhnkH+bkeTKkNe4agPjoTfo2xHYg=; b=MObhrijRLQLSLvyzvNksqAS8Cy
-	16SUNmYPMQiBXGMGN+Wik1eHIVkRaKeWtfThJ9XoOZAvIBmf0+EIQM2/prrHwYm5B1QTnZZcJa4b6
-	X3O52IbeZGkOdCKoGAp5wCs6cFaAemu5amHTkwUhs15HtT+p3Vv25dLoIMy1McBjWpWs4wmuRD9Nt
-	Bn4xKaNmto1wvhfnZVbpNHuvTr5juOhNh2lb4Zmy/PEgo4xCEYP21sGMX0UD3c2MEdPnHFSu2KH1q
-	jcFQ6tDdmEUlYMGBDmXMKAaDBTGPUX2t3r6XFesnILOHxhr5WjWacsGYrRCBpCULIAc2hl3zoNrW4
-	NzOwZqyA==;
+	bh=69KndXKzUOqKyPGigwi4mP17g46k7wk7JWL7PxcvU0k=; b=xXHPLVYwGSl7URiYeExAvzDOXX
+	adGO2s6tPoxTMfV2N9Lzlj7Tp3XsXbgzqVxAgMG3oOCB4lhzqEuKHv5AmAPaLUd8pUqrwYuBB139C
+	PIMMZQ8jEK3zhlXPtVjcCMCIif7jJ8TTq7B8N9APs8OWxvsItHgD6DgqCNWVBOtU8upGPIRI5YsH4
+	ui3dL103RtbkE1ABPIkp8RATjBjeKCHmsOiAhBe0B+GQPFhbnmWFA728a+qkQPirn7gyGqssU6M3t
+	AzzW2WpA301MARLDqbCf5W0xN1MQ8vdfR1nmlnNvB0PGPbEpR5gat/Ksj9IgkDeJWcvzu03R1CpE3
+	tabR6IDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbfg1-000000054c8-2VjT;
-	Mon, 22 Jun 2026 14:31:05 +0000
+	id 1wbfkW-00000005553-1847;
+	Mon, 22 Jun 2026 14:35:44 +0000
 Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbffv-000000054VW-1Jq7;
-	Mon, 22 Jun 2026 14:31:01 +0000
+	id 1wbfkS-0000000554Q-2Chr
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 22 Jun 2026 14:35:42 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=T3lbptzlH85/XJxoY4ZwBwkCzsVolg8KX49OF2FBLLEgcpC6h83QZVW1DGKUubK8tPG5cTGZRb4TPFHWdoKtadp70m91FZdQQxDYbwiohAJeoTDlhUhZbsX0OJUVjQxnwtNFZLQWF7mDovHyfURtzCeTiBl1rxy7L3Wu4BZMi5lsVVwh4SOh+Ri/5wC3CLf8aTmtvF+dOdCpSt7qaDuopuhF1QHSLtejGB/x1j+Goxl3QVgLYpZjmrNTeN5L1LWwdIqqnNr9x8f+lYKjJpJOGBE7s36A9YmOHtk7UMz2NPH1NE4NLmn9MqbkG2UlPh+34xlvEvpCNdCunNjA4UCLnA==
+ b=Q3xdSiRu9zvNieewsT1zhyD8VG4GZxltHgx/keawI494YgBOWUn4R+RHot6XO7UNiedIaEMHzf78oDsm3jovEA3YDYAoKe/GTmvaAD35Smuiif8iwf6ER7LN9cVHBVE09A3BSwh+rfb5vfNhzwhPlNbXIH0pZgPJVEawwX5wFdeHalVe9HIsGhgWuLVNn5MQoefHnfB5EqHSLYRIELeVIBSTOYBq9HAAdAy0mbfmkN5FPluT36sKr3EUIolgd1DDK8YwGI+WWll5dleKn1yYTMEkJ0AiQvbZxmZDq1FqkLKFJbS9oOf7PFYmlsIzcddE73RiQpk39m0m5XsEW8JXZg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XNOSn7PtCv2NxWPzhnkH+bkeTKkNe4agPjoTfo2xHYg=;
- b=hAmiaALeG+GpFACiEw23UFGKCbzr+5rPXx8ql3UjKNAI00hXRHI+7Nfv2Fo9UW5/ts4wgKu4edIsV7aWI4Dt4gjfswKqFVflHOLXSh0wEXyaXMmGHKC5AnJofZn6zNSuZVLqEGKx+b5yt4+JtWj25G6YEUzUTdJEH01s8vI6huJGEYHE8k38sM3udcRC7NF4QNFee4SsjKS3gcDp96OcE7vqYBHZaWaNn8r/PZ4+szMp4ZQtMScPS1FKgfQzHI8Y7ZJaTdLqZKjWXxqC1leuL2PFEq9Ky/FWXMTITl0UaJelP6t/G3bO6PI2vyRZt+x9Yb/ohSZZ3x9HUZQj+8YIkA==
+ bh=69KndXKzUOqKyPGigwi4mP17g46k7wk7JWL7PxcvU0k=;
+ b=w194ZJ4/uCqcHxlq8pTpJLWLzCHHKvXfRZjPclbviok6F7kpe20nL6bii0WZRZLgq4GlPhBda5uRoZ5CSozpg+6BSHzxCCXp3EkVDmZhMxRJebUNa+a8VHRa0zMYaIPUBHVgubi2cUHS5XBnmktMhXdUWLa67oYzCHO0DsaELgvrfQ6f/dvUiMmxlMxMwc8dTy2ilwaLkXX0ke0stwuK+WVFnC57Haflv/I54WCZise7U4zbNpy4DDgm3EFG96wK2j58omHgnd3VaPeD6n32X6cZDhqG6RIvSy5xjqT0fSlXKSuIEMsrxDj85RvScYab06/adJREwA3mplxcf+Do4w==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
  dkim=pass header.d=oss.nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
  s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XNOSn7PtCv2NxWPzhnkH+bkeTKkNe4agPjoTfo2xHYg=;
- b=GVs3HBCVL9PbaI8qpipuvvdwOkSAZ9iCxcuAkfs1DPvply27QpuhNp0ASa5+E9bFxkA2UVGje5Am8+BVRezsYcw0OHWwYXTH4RI3+wFVkmVTH7hApfsAmxXoL4idGftZLQMmFSgAU8jaDRgHh3StHuhE5riD/H5r4cyH25r5bME/2lQ3rB59Gg8OQvoq8KWHggehbMS41CnflOkvPSGZieFlAXWAQa4KpsuFBXWI0Qcn7n6c/rjUQwCBHo/ctP3UHA9pS8lczv8S7wUvp2RC0wjlNSAM5K6S4iPfL6KcMwP1yN/Tc4jn4pquwaoJb7poNTxu0wZtHNzty4CQGB/UhQ==
+ bh=69KndXKzUOqKyPGigwi4mP17g46k7wk7JWL7PxcvU0k=;
+ b=jvPCXo+8PaL+ewihehBeM31pjxT0eqck7IppdQlIH0pbLBJm+AbZ6DF1U9Yupnwizs707z68TXB7SOuAEr47hSjhDjPrgpsQZoDxd+zOmxb4FkaeUJ5BE8nXVbwTcyoP3bdwIAcQ8QSP96Q12fEq3d9tUXytIZmb/o8VJ8NBZaFY/xaVEagvMWDVoiPer/5eULPj9MQF0SPYFDKYSUad3Y0nWOOCoT1RVnPfCFU6+q+caFKFJ6Dgq41mCDhxXniWY8/Wjwj70rRAGmGaNqlmRdLL9uAQaZ4Bob1EXfcBUVMT6G60OOZF+lXj03MN9qi992PmrO8wNx/XE5+6cDaxYA==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=oss.nxp.com;
 Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by PAXPR04MB8389.eurprd04.prod.outlook.com (2603:10a6:102:1bf::6) with
+ by GV1PR04MB11038.eurprd04.prod.outlook.com (2603:10a6:150:211::7) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.19; Mon, 22 Jun
- 2026 14:30:54 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.20; Mon, 22 Jun
+ 2026 14:35:33 +0000
 Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
  ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
  ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0139.018; Mon, 22 Jun 2026
- 14:30:54 +0000
-From: Frank.Li@oss.nxp.com
-Date: Mon, 22 Jun 2026 10:30:14 -0400
-Subject: [PATCH 4/4] media: qcom: camss: use
- fwnode_graph_for_each_endpoint_scoped() to simpifly code
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260622-fw_scoped-v1-4-a37d0aac0a68@nxp.com>
-References: <20260622-fw_scoped-v1-0-a37d0aac0a68@nxp.com>
-In-Reply-To: <20260622-fw_scoped-v1-0-a37d0aac0a68@nxp.com>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
- Daniel Scally <djrscally@gmail.com>, 
- Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
- Sakari Ailus <sakari.ailus@linux.intel.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Dafna Hirschfeld <dafna@fastmail.com>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Heiko Stuebner <heiko@sntech.de>, 
- Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
- Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>, 
- Loic Poulain <loic.poulain@oss.qualcomm.com>
-Cc: driver-core@lists.linux.dev, linux-acpi@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-arm-msm@vger.kernel.org, imx@lists.linux.dev, 
- Guoniu Zhou <guoniu.zhou@nxp.com>, Frank Li <Frank.Li@nxp.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1782138630; l=1377;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=vS1Saviq156Hsarb8tnP0Q9S86W1eT38WwRH5+2bsg8=;
- b=6mAYCQDt0zdl9Qc486/DwTyJkzaqTlAflxZ2FBE5MULGWwogzrOIUuh7Y9zGbSbs+jzPibDnC
- YUGbJ+SiBG4BiDdAMd6Z+fkxzhN8Yg/hbFa6AjpT75uq/onOc1+H4T5
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: SN7PR04CA0151.namprd04.prod.outlook.com
- (2603:10b6:806:125::6) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ 14:35:33 +0000
+Date: Mon, 22 Jun 2026 09:35:21 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Yuanshen Cao <alex.caoys@gmail.com>
+Cc: conor+dt@kernel.org, mripard@kernel.org, krzk+dt@kernel.org,
+	robh@kernel.org, samuel@sholland.org, wens@kernel.org,
+	jernej.skrabec@gmail.com, Frank.Li@kernel.org, vkoul@kernel.org,
+	dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 5/5] dmaengine: sun6i-dma: Add support for Allwinner
+ A733 DMA controller
+Message-ID: <ajlIKQeGY-iJg2sc@SMW015318>
+References: <20260622-sun60i-a733-dma-v3-0-f697ef296cbc@gmail.com>
+ <20260622-sun60i-a733-dma-v3-5-f697ef296cbc@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260622-sun60i-a733-dma-v3-5-f697ef296cbc@gmail.com>
+X-ClientProxiedBy: PH1PEPF000132EE.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:518:1::36) To GV2PR04MB11799.eurprd04.prod.outlook.com
  (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PAXPR04MB8389:EE_
-X-MS-Office365-Filtering-Correlation-Id: 42d8dffc-09ea-4645-be06-08ded06addcc
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GV1PR04MB11038:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7b6bd9d7-8e5f-456c-25db-08ded06b8454
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|376014|7416014|366016|19092799006|921020|18002099003|22082099003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: /YxZFh2vvhRqi7pbMx4+Ofo99juM7BPqHSbJBAo5qAqHO3/G421A9gieBOkK0fnaF8RAx+eLZQezf88Dz9OrNwRxZodcYZb32Vxjd64zd5bJMMWU0a6IRWkcy2sae5dyNeIfdg1heK3ll3jWIWdxAMXjPW8iej6F/dB6viZj4zJJfsOlBMbJ49aP9GoC4clKdCqQzSSok34KrOCoMOEDfElFiFnHI3esb3UkkAv5WhrQwVmXx9f7m1ZUKSPoxwCb7N9r1Vvl6cMjwirnBN5Op111il+R9HlRiK2iHQoyy4JkSLaIo4d9+gYv8CQN/tqk2YvRiRrLlTe4K31/ebq+1NSNsxVY8e/D6oHjapIhfriEPRvSJHpk0hnssnQrUHaaXaLH9ktT/atvHTxMnJ33o8afCetmDBzEKQe4g4LqV0IMtimhEO+tKPuX4iffjeuxsVhDXma3xjUr4VjCZwwUUBCS+WY3EG0VIO/Fhh15meaDIn0fV7OdriW9YIf35x52r1sNBEzBufIcTXXJZoC3PgqYsxszjOQoaxtfvoeEPZmyrb8YaKpDW3moO0rsldLKFTyxRjrLPBL4lEKBvYuPqT5S6dY7t/E+YNNb24k45dBMA9Bbj6n2xMQvwqfyOsodhrVswhz6v507wn9+h+mJBCJ1D7Ael4XH4nkA9RDbcayhxkcoiy56leqNOMKfv10zrNKhp0SAdxSJ3dSlf6zEow==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(7416014)(366016)(19092799006)(921020)(18002099003)(22082099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|23010399003|7416014|376014|18002099003|22082099003|6133799003|56012099006|4143699003|11063799006;
+X-Microsoft-Antispam-Message-Info: qEw/0yZ1ep+3Jw56w9/jWkBtGtfeUNg7oOyf6mAoPbNTFo1PsGSWYfXvL9Q8RiDW6rpdlkXPC7jglhCXeSKUeE7BV6hcF07X+jKDAiGhhqrBR308mv/fpzOqHKL6vdbMMvpQ9UvotsAMcTaKg11e8eWdEah9E20NMDIjQTqY6ssIQtU8p6nS0U941XXQF9jLdWA2cJHIYWzpr0Rc172oFMTGp4gAHBM1wR+6PRh4RFCWYcoBWJ/RvhUh03tUwl+wVyHIiI11eHXPmZAHMDbZ30Ngs9Yw8Be5y1lKo1YeNrztFNgtlCqjuDBnVyqThKhr8/L/xVv6DnpKIQkRufHcCJPDylnhQS8S+wsPEikT+DE5nNkZLJDKvnjos/lkl5Z3q5Y3E2huXcdeVkdqASXa1kezzPEuvJQwGWyfgFJ/Wn8eS9Gn7UChj9VeL9FuuYKuJKyAiar/KdKgMBTEzNj8Z8DD2H6xcANyUB474hERVV+hYC8sVlStKIgT9Ih29Bfv3Ou+jnqtNTaINi1tV/0Wr7zps/1b0L2eh35oCJwIG+wpHkXspFEEFbkmSYiMs7wgCy6TzYMeLP8HlWkPuZiUBLHlYZjqnBEFZJPhDtbURGFXib+8K+U97C0apIaldeKAuTjIBIChdIjdMaaJoNWCXs/kcq4pvzEFN5BoAXHtaEA=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(23010399003)(7416014)(376014)(18002099003)(22082099003)(6133799003)(56012099006)(4143699003)(11063799006);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MHBUKzBLMUhaWEk4K294eWsrUXVJS29saFF4b2NIdThOZ3NiUjJsamFaTEpU?=
- =?utf-8?B?U3VDZWFad1pacEpTZDRaR29JRUoyTjdNRkpUaTdzckYvZXJZY0V3SXh2YjBF?=
- =?utf-8?B?Vy9xTmh5R0xKbUxvajYvYktydk5qUXI0YmdEZDZ4dEQ5RXBoQkhBNWhLVmxs?=
- =?utf-8?B?UFB0Wjl1TjNsRi92SXFHMEZUbHcycHJKZ3JyUkQrSTBseUhOU2FRRkcvejlQ?=
- =?utf-8?B?Z1hYK2FoZFJDTlN1bWdoYzJGemlDdW14SEpoMGFuVG9ZMFFJRVJYUkpTbFYz?=
- =?utf-8?B?Y0IwZXYzNWpnSkFna2x4dVJNdU00M1lvZC9ueVpFOXN0aVN5SGpNSURyU1ZQ?=
- =?utf-8?B?VWdTV3lxTkM5dFAxaUxQMFM3RVB4LzRhRnJjTjdsTzJTclY1OFUyYXorVEJy?=
- =?utf-8?B?bGRIVVB1SjdUZU5uaU1ya1ZqampoaGI1d2UvWHNyRTNaQ1pnSkV4YnF5NVlu?=
- =?utf-8?B?OFY5Rlp1ZzlEemxjb0RlZ215VUZSVTZUVW9UVHNYWEkyU2ZlWDVneDliTUlm?=
- =?utf-8?B?WGw5NWF5clh4TDBONVFVMFZpbHNWRkl2dkdweHl0S0VtTEtpc1lHREIvcXVZ?=
- =?utf-8?B?VWY4UzFYTjYwNytlVmRTbThhNkh6TFRHdXlOREFaWGh4NlBGVlM5QVlsUkRR?=
- =?utf-8?B?REpLaUpjSmZCYzhHcjEzUjdpamlCNU5xY3loalFEMGUwcXFKNU9SUmRCdjIz?=
- =?utf-8?B?U0pRV3paSmYxZnZMVy85N1pmWGs1MFNPUVJlZmhNNHhUT2JnYXhNb0M1NjhT?=
- =?utf-8?B?RTZqWEpvUlhCa2tlc0RscG50YmczcVJ0emh2cStUbm5paC9aS1I2MlM5Qm5N?=
- =?utf-8?B?Y3NBeWJIbEdZYXNNVFI0MjdxVW5qeERwandLdEJBVHBWYmdTRlVONkVrenB5?=
- =?utf-8?B?b2hHSDZFUFBkaXBkUnB3dWdwdnd6QWZGWHV3c3hCRy9WOVlFcHJ4c0NjeS9W?=
- =?utf-8?B?K252Z2dQMm5uWkwzWnI5NUdUT0VEaU11UThXbDlzR0F6ZDBNem5uUWRkOUM1?=
- =?utf-8?B?T1oyZ3VxNEQ4K0RZVjk2Mk1qanhsdzAyc00wTVJRUi8yUURLU1ZiS1hRdWxM?=
- =?utf-8?B?U0pPbDZGZE4zUytvdU5wUVc4Z1ZiUDE3dTdvL3RiL2hhM0VTakFKOVFaQjZY?=
- =?utf-8?B?N0NhMWNkaWFPQ25WV2gvSHpKenNMdTNNUTQzUkxFdWIzNmFZY0tHOXJrc1VN?=
- =?utf-8?B?eGQ0aElnTUR6bDRPTCtyS0x6VUFnVkQ3bGhvMlpkVXBpV3BsTm1oV054eGE0?=
- =?utf-8?B?VXYxQ3hlUlNuYUpRQXdEWGNGYkFjQk0yYVhnMnpMSlFUbDFQL1lVL0ljdVRs?=
- =?utf-8?B?azJmcUk5MTFoTXRnUXBOMFdqTXZPQ09JOG1oSnkwWEEyVHQ5akw2L1F6UHZP?=
- =?utf-8?B?WEFQZkw1RjFIOXRNUDBXMWlwUUpTS1RYSUx5NW1sQmhGNFRuSXRWaVFZUlYy?=
- =?utf-8?B?RDV1eXdoWU1lWDVRcmdCNTFtVmVYcVM0aytZMjNnUGtjN0RWMkYwWW80eDNp?=
- =?utf-8?B?ZGZLT29vOGxUTlZxeE83Nnh6N3cvQ1YzVFZtNXhvdHo4Z2pnN0hVTHhETjhw?=
- =?utf-8?B?Ni84RVBkL2xwK1lKVVpwTGhaWVF6cEJzVytrNXN1QjV2Y2VRUWJ3ZlhKWXhU?=
- =?utf-8?B?cHFKUW9MZkFwNnMrZGZMRVh1ejVHdjQyVmsyczFLTDdmdXpOY1ExM1M1L0ZN?=
- =?utf-8?B?MWVFSzR1cnBRNU9SYUtxQng3V1YvaGRQazhBOFI4c3VjejVLNHpOSFZkQzhG?=
- =?utf-8?B?UlVDaUUrZ1hIUzNYNTQ0ZlRxbDFPWXJCRk1zV1JxL2lBZUdxQnlFTTVOTHB2?=
- =?utf-8?B?eHdGNWRKMktiNmYwbzNqcXFYeGk5R0dzcTVjM0Q5Wm5nU2ZjcGlCZFV6TTB2?=
- =?utf-8?B?cHBNZXpTcUFuODd3WG5NS3VLbndob3VHcFZFcXdnOWtlK0Zhbnl4V2dSVEh2?=
- =?utf-8?B?Mm82ZER5alRSaEl0NzBGSDBiZEFBanY4SEZBR1RsSVd0NUdvZmpPZ1I0clhU?=
- =?utf-8?B?djBIZ2RZL00yZG9DNHU5bndEUVY3R3pwWjc1eVY1eVZaOXRzSE1sbm1QYXgv?=
- =?utf-8?B?QmJKcUxBcjl2VnhhZ2RTTy9NdEV5YU1NeWw3QURHRUMxNGwvMnRqTzVqd01U?=
- =?utf-8?B?MjhvR0RnMmlDQWFJSjAvd2hrR20zNEF6bUlzZE40UDZZTklrSXFIVTl2QWtK?=
- =?utf-8?B?dnVBZ1N3SVltaldnNkJhV3JwTTU4eFJjRE54SUc0NjJWcmVsRDJKUmlwZDRz?=
- =?utf-8?B?dnFzREtwTFJPNDk1YWFaM0FQdmg0K2tWSUNJRDY3Z2U2bWxaN2NNZjIvZVkz?=
- =?utf-8?B?Z2tQUFk5VUd0UFdDbHEvS0xLWXNlK2FsWHN1TFVKV05VSnNJbW4ycXlVait4?=
- =?utf-8?Q?oPAx0lav/WdulruQ8YKERN3ByE9oZk3pV4KPa?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?LFzyG0QbzWKMgj6+xJ5bT//kK+j3p2ng3OFcJiJVPHBLI0wxfA5eKqlIGGK7?=
+ =?us-ascii?Q?luRNYxgDuE5gN8Ie/gbc4rT5ypM1NzJ5wModBn/YmjzXVmsCfMUmHvECYnLX?=
+ =?us-ascii?Q?pBH2TfLxxe5pqmxYHk98DoTOJahAtXx84wpEpkEY0VKlrNLg3Epj/KQ+WnUy?=
+ =?us-ascii?Q?a6DeaqhM3z5gzc3Ux0ersnzqhh6ZuVXIGuOp39s4ftnO7ZtfSLZ7V4RzLzit?=
+ =?us-ascii?Q?tR+eehFX1+/BJRV+OWoOZigKO5QzXDR2+GSbUT+95sFtDY6Sql79c9+uXRre?=
+ =?us-ascii?Q?zNLOrNUoik/iC+cqI6/n80wPaF6Pd2R9giYEosd2WUEk18NgSvS/1VARo6xx?=
+ =?us-ascii?Q?uG7bGfUjCEpIKzmLulV5ImMNqFHsttiIfVOYh+qRTaiibnvXmZQ0dhq4IFED?=
+ =?us-ascii?Q?R5rxvYJExtKAyviR2GhrhGLbjgdd59zRjpcDIahg0U77QN5fee5EQlzqrmA5?=
+ =?us-ascii?Q?KmxFt+RJd9urAL6xyOzADn65PN5jIi3SVaONJO81Ea3VojwtYYt5c1T9+mmK?=
+ =?us-ascii?Q?Kw20OljwW9kNw2ORsiwT8arbM5C7TgbmgwXNT3t752jJ6Qbm2PKiJ+Tx+8Jz?=
+ =?us-ascii?Q?xN501mR0ikljTInxcuG32c5KhjQDN+yMRXgHOHGvLE38ounuTM0q/JPK1rPB?=
+ =?us-ascii?Q?vMKTLjKYWcT+iROL6+WhYiKKSAxHrwODb51CMW8BEkYGIapjS9ony/YslrwY?=
+ =?us-ascii?Q?xZvQcczru+F/4H35BKpvFi8wWSkCCkHhUuTnMpGnQsR4H/pWY/knkkJuYz0g?=
+ =?us-ascii?Q?R/bltuZEKL0KuhyPghrhm1EfDNaP4MPm9dvlQzoE+RM9Q6MhwfV0TruOZLhN?=
+ =?us-ascii?Q?kp9oYw7PSJlHwsAwlWzqvi0CfYER0AXA/O14e1qzcCTcU7Kb4XgQ8Ajs2Q5p?=
+ =?us-ascii?Q?shxlSsjO0vTj9sKr7FY0RGTDFniRk41KsgegzJVxMWkbr1otDgh77/xvP38k?=
+ =?us-ascii?Q?GEWXTy+AT3wduAH3oYciK+uLEXHI1V8tnhj1qzp5nGA4G19LWfls8vdUlKxp?=
+ =?us-ascii?Q?rXk9CHJWrVNJviicCw/AkqP7TemFKvmkwGjey85jtFsW5WEeDik8hbjRmHs6?=
+ =?us-ascii?Q?zjCQLn3uwQInRkWypjGthJZsIMbyfA158wqTkXzuAAIqxC7fGi6fkMUFjrix?=
+ =?us-ascii?Q?PpFwII6EJ76l5AjH4CMedzxZFR6gjsP0fcYV7XYs77qZJhrAydIlc39rad57?=
+ =?us-ascii?Q?WpMkF4ZSlLS1XGZSEdVKQkgTGyZvYHweVLjQ/z/971+oYxufOkqMo4C+oC8c?=
+ =?us-ascii?Q?FkmDUybI7ZDquzTUXzaIH9HhgbyxWOheDBLcCeyJ57KMLNkauRuDkWn/tMfO?=
+ =?us-ascii?Q?YzswEF5SV6OJT9wkmvZJCYmk3pRJ9RKVIgLJdDHiChj/2G5RFWnFUksqy5aC?=
+ =?us-ascii?Q?Ppuhj3Rp6FDKOkjetoIkculOq0Su8GXHhoGwzfPBmLwPrPt/XdZiBb53oKXf?=
+ =?us-ascii?Q?BekDRjZxrbMeZkM0pbtb0FqK5iEKdq8rfe9VcleuAEAb2cmzY3uvIysxKDhU?=
+ =?us-ascii?Q?eemI9nbC0PBD1PI8PTwJtYOTrOrG+N+84ugcP2y95e3ijth6d0tbe68cB+o2?=
+ =?us-ascii?Q?396Rp10eA+bZpKVsBArZT3wka9I12+AUQXQqFh9Rqnh49WFYxP4jxmbz+S10?=
+ =?us-ascii?Q?s8cpwAkb0sBZlwHKUw50/vGCaI8KmR0NIPSlmJFHJbdZopeJiU7+4YcZXTKO?=
+ =?us-ascii?Q?jwaz0Szmvc+Xj38zij7y18q3skDXzgmqcSYWJIP9z7RgOo/CTPaXK8pgGgBV?=
+ =?us-ascii?Q?Zw5PPEurEz71SpjS1+16exFYW64E+HZH+ZZcx5HRU3iQoPeCAHer?=
 X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 42d8dffc-09ea-4645-be06-08ded06addcc
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7b6bd9d7-8e5f-456c-25db-08ded06b8454
 X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jun 2026 14:30:54.1809
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jun 2026 14:35:33.6519
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /+HYV3GapAu7aE2W/qNzXXOfDwZA6WhKP8iKffp1NEN/qkSE13+lYDsUVRYGyvZ6gRH01V3My7jioVAEx8JYnszW+NS31uA6diMUPaRM67iKNXhMq5qfBv+NCIDcoK/B
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8389
+X-MS-Exchange-CrossTenant-UserPrincipalName: 4JYHvApvkcczfj2G6SIyY4Pt1EYYpktXqPDOzyrV5GKA22g3ItQr8rxD5XSfhtrLk7iCIKGhoSja9Wg7TK46n4IWcw/ihtmKkrFr12iG3cCPcofcmbTtrQKhCBrYmGrb
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB11038
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260622_073059_375198_F389BB5C 
-X-CRM114-Status: GOOD (  11.63  )
+X-CRM114-CacheID: sfid-20260622_073541_632114_D7C77209 
+X-CRM114-Status: GOOD (  26.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,59 +141,188 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
+On Mon, Jun 22, 2026 at 01:36:27AM +0000, Yuanshen Cao wrote:
+> Support Allwinner A733 DMA controller. Define new register offsets,
+> bitfield mappings and dma_config required for the A733, which slightly
+> differs from the older `sun6i` DMA controllers.
+>
+> Changes:
+> - New register macros for A733 interrupt enable `DMA_IRQ_EN_A733`,
+>   status `DMA_IRQ_STAT_A733`, and channel count `DMA_IRQ_CHAN_NR_A733`.
+> - New `SRC_HIGH_ADDR_32G` and `DST_HIGH_ADDR_32G` macro to handle the
+>   32G high-address field in the LLI.
+> - Implemented `sun6i_dma_set_addr_a733` and A733-specific interrupt
+>   register accessors.
+> - Added `sun60i_a733_dma_cfg`, which ties all the refactored
+>   functionality together for this specific hardware.
+>
+> Signed-off-by: Yuanshen Cao <alex.caoys@gmail.com>
+> ---
+>  drivers/dma/sun6i-dma.c | 87 +++++++++++++++++++++++++++++++++++++++++++++++++
+>  1 file changed, 87 insertions(+)
+>
+> diff --git a/drivers/dma/sun6i-dma.c b/drivers/dma/sun6i-dma.c
+> index 196a0d73b221..4808015934cc 100644
+> --- a/drivers/dma/sun6i-dma.c
+> +++ b/drivers/dma/sun6i-dma.c
+> @@ -52,6 +52,15 @@
+>  #define SUNXI_H3_SECURE_REG		0x20
+>  #define SUNXI_H3_DMA_GATE		0x28
+>  #define SUNXI_H3_DMA_GATE_ENABLE	0x4
+> +
+> +/*
+> + * sun60i specific registers
+> + */
+> +#define DMA_IRQ_EN_A733(x)		((x) * 0x40 + 0x134)
+> +#define DMA_IRQ_STAT_A733(x)		((x) * 0x40 + 0x138)
+> +
+> +#define DMA_IRQ_CHAN_NR_A733		1
+> +
+>  /*
+>   * Channels specific registers
+>   */
+> @@ -100,6 +109,8 @@
+>   */
+>  #define SRC_HIGH_ADDR(x)		(((x) & 0x3U) << 16)
+>  #define DST_HIGH_ADDR(x)		(((x) & 0x3U) << 18)
+> +#define SRC_HIGH_ADDR_32G(x)	(((x) & 0x7U) << 11)
+> +#define DST_HIGH_ADDR_32G(x)	(((x) & 0x7U) << 15)
 
-Use fwnode_graph_for_each_endpoint_scoped() to simpifly code.
+Because the previous code use this pattern, I provide my reviewed-by tags.
+I suggest change to use GEN_MASK and FIELD_PREP macro in future.
 
-No functional changes.
-
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
- drivers/media/platform/qcom/camss/camss.c | 17 +++++------------
- 1 file changed, 5 insertions(+), 12 deletions(-)
-
-diff --git a/drivers/media/platform/qcom/camss/camss.c b/drivers/media/platform/qcom/camss/camss.c
-index 2123f6388e3d7..23f3cc30a15a5 100644
---- a/drivers/media/platform/qcom/camss/camss.c
-+++ b/drivers/media/platform/qcom/camss/camss.c
-@@ -4793,30 +4793,23 @@ static int camss_parse_endpoint_node(struct device *dev,
- static int camss_parse_ports(struct camss *camss)
- {
- 	struct device *dev = camss->dev;
--	struct fwnode_handle *fwnode = dev_fwnode(dev), *ep;
-+	struct fwnode_handle *fwnode = dev_fwnode(dev);
- 	int ret;
- 
--	fwnode_graph_for_each_endpoint(fwnode, ep) {
-+	fwnode_graph_for_each_endpoint_scoped(fwnode, ep) {
- 		struct camss_async_subdev *csd;
- 
- 		csd = v4l2_async_nf_add_fwnode_remote(&camss->notifier, ep,
- 						      typeof(*csd));
--		if (IS_ERR(csd)) {
--			ret = PTR_ERR(csd);
--			goto err_cleanup;
--		}
-+		if (IS_ERR(csd))
-+			return PTR_ERR(csd);
- 
- 		ret = camss_parse_endpoint_node(dev, ep, csd);
- 		if (ret < 0)
--			goto err_cleanup;
-+			return ret;
- 	}
- 
- 	return 0;
--
--err_cleanup:
--	fwnode_handle_put(ep);
--
--	return ret;
- }
- 
- /*
-
--- 
-2.43.0
-
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+>
+>  /*
+>   * Various hardware related defines
+> @@ -257,6 +268,23 @@ static inline void sun6i_dma_dump_com_regs(struct sun6i_dma_dev *sdev)
+>  		DMA_STAT, readl(sdev->base + DMA_STAT));
+>  }
+>
+> +static inline void sun6i_dma_dump_com_regs_a733(struct sun6i_dma_dev *sdev)
+> +{
+> +	int i;
+> +
+> +	for (i = 0; i < sdev->num_pchans / sdev->cfg->num_channels_per_reg; i++) {
+> +		dev_dbg(sdev->slave.dev, "Common register:\n"
+> +			"chan num %d\n"
+> +			"\tmask(%04x): 0x%08x\n"
+> +			"\tpend(%04x): 0x%08x\n"
+> +			"\tstats(%04x): 0x%08x\n",
+> +			i,
+> +			DMA_IRQ_EN_A733(i), readl(sdev->base + DMA_IRQ_EN_A733(i)),
+> +			DMA_IRQ_STAT_A733(i), readl(sdev->base + DMA_IRQ_STAT_A733(i)),
+> +			DMA_STAT, readl(sdev->base + DMA_STAT));
+> +	}
+> +}
+> +
+>  static inline void sun6i_dma_dump_chan_regs(struct sun6i_dma_dev *sdev,
+>  					    struct sun6i_pchan *pchan)
+>  {
+> @@ -360,21 +388,41 @@ static u32 sun6i_read_irq_en(struct sun6i_dma_dev *sdev, u32 irq_reg)
+>  	return readl(sdev->base + DMA_IRQ_EN(irq_reg));
+>  }
+>
+> +static u32 sun6i_read_irq_en_a733(struct sun6i_dma_dev *sdev, u32 irq_reg)
+> +{
+> +	return readl(sdev->base + DMA_IRQ_EN_A733(irq_reg));
+> +}
+> +
+>  static void sun6i_write_irq_en(struct sun6i_dma_dev *sdev, u32 irq_reg, u32 irq_val)
+>  {
+>  	writel(irq_val, sdev->base + DMA_IRQ_EN(irq_reg));
+>  }
+>
+> +static void sun6i_write_irq_en_a733(struct sun6i_dma_dev *sdev, u32 irq_reg, u32 irq_val)
+> +{
+> +	writel(irq_val, sdev->base + DMA_IRQ_EN_A733(irq_reg));
+> +}
+> +
+>  static u32 sun6i_read_irq_stat(struct sun6i_dma_dev *sdev, u32 irq_reg)
+>  {
+>  	return readl(sdev->base + DMA_IRQ_STAT(irq_reg));
+>  }
+>
+> +static u32 sun6i_read_irq_stat_a733(struct sun6i_dma_dev *sdev, u32 irq_reg)
+> +{
+> +	return readl(sdev->base + DMA_IRQ_STAT_A733(irq_reg));
+> +}
+> +
+>  static void sun6i_write_irq_stat(struct sun6i_dma_dev *sdev, u32 irq_reg, u32 status)
+>  {
+>  	writel(status, sdev->base + DMA_IRQ_STAT(irq_reg));
+>  }
+>
+> +static void sun6i_write_irq_stat_a733(struct sun6i_dma_dev *sdev, u32 irq_reg, u32 status)
+> +{
+> +	writel(status, sdev->base + DMA_IRQ_STAT_A733(irq_reg));
+> +}
+> +
+>  static size_t sun6i_get_chan_size(struct sun6i_pchan *pchan)
+>  {
+>  	struct sun6i_desc *txd = pchan->desc;
+> @@ -695,6 +743,17 @@ static void sun6i_dma_set_addr_a100(struct sun6i_dma_dev *sdev,
+>  				DST_HIGH_ADDR(upper_32_bits(dst));
+>  }
+>
+> +static void sun6i_dma_set_addr_a733(struct sun6i_dma_dev *sdev,
+> +				      struct sun6i_dma_lli *v_lli,
+> +				      dma_addr_t src, dma_addr_t dst)
+> +{
+> +	v_lli->src = lower_32_bits(src);
+> +	v_lli->dst = lower_32_bits(dst);
+> +
+> +	v_lli->para |= SRC_HIGH_ADDR_32G(upper_32_bits(src)) |
+> +				DST_HIGH_ADDR_32G(upper_32_bits(dst));
+> +}
+> +
+>  static inline void sun6i_dma_set_addr(struct sun6i_dma_dev *sdev,
+>  				      struct sun6i_dma_lli *v_lli,
+>  				      dma_addr_t src, dma_addr_t dst)
+> @@ -1339,6 +1398,33 @@ static struct sun6i_dma_config sun50i_h6_dma_cfg = {
+>  	SUN6I_DMA_IRQ_A31_COMMON_OPS
+>  };
+>
+> +/*
+> + * The A733 binding uses the number of dma channels from the
+> + * device tree node.
+> + */
+> +static struct sun6i_dma_config sun60i_a733_dma_cfg = {
+> +	.clock_autogate_enable = sun6i_enable_clock_autogate_h3,
+> +	.set_burst_length = sun6i_set_burst_length_h3,
+> +	.set_drq          = sun6i_set_drq_h6,
+> +	.set_mode         = sun6i_set_mode_h6,
+> +	.set_addr         = sun6i_dma_set_addr_a733,
+> +	.dump_com_regs    = sun6i_dma_dump_com_regs_a733,
+> +	.read_irq_en      = sun6i_read_irq_en_a733,
+> +	.write_irq_en     = sun6i_write_irq_en_a733,
+> +	.read_irq_stat    = sun6i_read_irq_stat_a733,
+> +	.write_irq_stat   = sun6i_write_irq_stat_a733,
+> +	.src_burst_lengths = BIT(1) | BIT(4) | BIT(8) | BIT(16),
+> +	.dst_burst_lengths = BIT(1) | BIT(4) | BIT(8) | BIT(16),
+> +	.src_addr_widths   = BIT(DMA_SLAVE_BUSWIDTH_1_BYTE) |
+> +			     BIT(DMA_SLAVE_BUSWIDTH_2_BYTES) |
+> +			     BIT(DMA_SLAVE_BUSWIDTH_4_BYTES),
+> +	.dst_addr_widths   = BIT(DMA_SLAVE_BUSWIDTH_1_BYTE) |
+> +			     BIT(DMA_SLAVE_BUSWIDTH_2_BYTES) |
+> +			     BIT(DMA_SLAVE_BUSWIDTH_4_BYTES),
+> +	.num_channels_per_reg = DMA_IRQ_CHAN_NR_A733,
+> +	.has_mbus_clk = true,
+> +};
+> +
+>  /*
+>   * The V3s have only 8 physical channels, a maximum DRQ port id of 23,
+>   * and a total of 24 usable source and destination endpoints.
+> @@ -1375,6 +1461,7 @@ static const struct of_device_id sun6i_dma_match[] = {
+>  	{ .compatible = "allwinner,sun50i-a64-dma", .data = &sun50i_a64_dma_cfg },
+>  	{ .compatible = "allwinner,sun50i-a100-dma", .data = &sun50i_a100_dma_cfg },
+>  	{ .compatible = "allwinner,sun50i-h6-dma", .data = &sun50i_h6_dma_cfg },
+> +	{ .compatible = "allwinner,sun60i-a733-dma", .data = &sun60i_a733_dma_cfg },
+>  	{ /* sentinel */ }
+>  };
+>  MODULE_DEVICE_TABLE(of, sun6i_dma_match);
+>
+> --
+> 2.54.0
+>
 
