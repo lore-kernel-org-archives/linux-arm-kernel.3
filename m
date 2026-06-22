@@ -4,146 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56D6DCDB46B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 09:47:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D48FDCDB46B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 09:49:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date
-	:References:In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w6JdPaWl+53YAxFhYqmRCWXgsA4rJ8LVl5GSZ9HSrZs=; b=3n0HA2iZTxFvWiXDR+isWgcATL
-	F68MWFfMhUGQ4WzPcFFcXn3guK9nn4S5SZJ5WfuaHdn6IfmqWnH04IWeaQocmUqbxu2j3lBRPZW8S
-	A7LpqEpL9XrgxUphEdR37qXgRoTTyYfqJ3QhXqFjCK2GIo8rj+5SN0fwdfnw3rQezZ2qBSNLGyjKg
-	y0YmdA88ce7ZC47oc5QPQHO/vv8JDhgk15PICfeqkdMSFfX6347iF7tNCvuCgADfQjumuCH7rwiYM
-	AzPtuuNNyI3TV37PD6nRQP790qkAwPvMtp91EtmgfwT89fnb9uFyLhaBNb3kqPGXfnqEJmcHOXIH8
-	HBR5Bo4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jiUK4zqlgPufMf5KeLuWGqbjOdMtUleMUc6fesqkDDY=; b=0v7uuOYMp6a5RD7w1zLnlq6byb
+	t+CqCWqlbMco2ZKDskp0+WCLU/RYsjsJeCexxtLjYbx4CC3E+u830nf0VeSL82iwizTqFPPGrXqMC
+	gE0FJmVjyz2q+lD5/FepyL80sF0j5vwSydQvGWRz0O1k0YoIhUOCRj2EyyA8EP8Qm+ks9QoV/Zq6J
+	z8c7Y3GdwDx3cTOpaO8KJF6KDOBswzHgeQlPGvEVh9FtShdbge4KiB+WYqn9wp4jFapOpyxbdgwqY
+	hreQzFbIx8VAyy59led8wq1y7k2mJsU709OmATcCsAXq25i0jn4C5xwnj6EVmPWAegCniW3fe1YIA
+	iv6TStfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbbFM-00000004mQo-19cp;
-	Mon, 22 Jun 2026 09:47:16 +0000
-Received: from mail-swedencentralazon11013051.outbound.protection.outlook.com ([52.101.83.51] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1wbbHH-00000004mcZ-2e6u;
+	Mon, 22 Jun 2026 09:49:15 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbbFJ-00000004mQQ-329k
+	id 1wbbHF-00000004mcI-4AAg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Jun 2026 09:47:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ad5t12SsI6aLlKPMGxS2NQcpEjtA9SlH0Z0M9vNbtQEXbeZ+Rl67vmVJYeux2bn3408GjMg2xRp5hA5XvEiQIEvb46WPlxbn+782APEHwMh5KtE2WOiHzrRvQsXE3AWeVlxH02eu+pq+HflqBVjWtXuEVNe73ZQXQd+cl5wGgymMbNXB39CGvuULjyMPvhjNWfr3W3LMHd4PfEtnwsktxuxMu/n+ah1TVdXKauzODp4u48jz40RfIZHyZyXAN9uYZAOKXTZUkGV/EQvzsftNbbaDiFcEFOHVfMsBlqTCryo4xuN2H/TQ20Qp8WBry6HDBNeFDJcR2Ynh09c8ZFAEKw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=w6JdPaWl+53YAxFhYqmRCWXgsA4rJ8LVl5GSZ9HSrZs=;
- b=J9cAugS5Ddw0453bigtJk5w/aau8BpFPKmgv8BWtxho7WwfY0t2moRowVsvB3PdekqYPQLO1+O4WMaEoRZx2RmE22YCFfaJ/fR46V3tD8yxKTrdIIXaS6YrpUsP7vgjr9SlSN7EpUVUBSQ9e2RY3OaLv3yazbA1HJWdqG+ju3LtLvUjtHX7FHj3vt60Rpqconcw5DxAW49qjUjdHodqAcTINPzWF9hR3vp/13xQ9bTushLUHpf4srzHjLMcMnAjM296w9U4v95Hh+LosjzTvEx9uFqT/FomQ1n4XFXcm+e3GaUMjCQU9DlF7UjYheKSbqJZASONPEAyimu2Cy1v7CQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=w6JdPaWl+53YAxFhYqmRCWXgsA4rJ8LVl5GSZ9HSrZs=;
- b=fbNfDwOxJG9qnSYAmzIimU03D0Y/GmexZU77AiEPrQ+Syy471bPd6o7CPeCRhZUndmewvTS9WJbOfZZ/chXbBE5H34GBQ58shLBG7h++w0Gv0K6Ax9mPT4vWogV90HIgmv2SfIJFj429XsuP2OrJnvqqoLa1UCusuTyditkcOlOiilt6FICf13PSOtbrcNOHbgrGOXpYDZtNZf5YF6yPfS7+RyGS+GEea3+eFEofvS8+pu6wWSv0klswmvQ6WPZ4JYCKyTtn2SOKJiqiFevMvw0oQyKW8OOD8j72FIWOeSmTa1KSRcaKwIj8d+wHbnrGoGsNYvHjpPQUxvJJQ/JyGw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV1PR04MB11513.eurprd04.prod.outlook.com (2603:10a6:150:284::9)
- by AS8PR04MB8724.eurprd04.prod.outlook.com (2603:10a6:20b:42b::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.19; Mon, 22 Jun
- 2026 09:47:08 +0000
-Received: from GV1PR04MB11513.eurprd04.prod.outlook.com
- ([fe80::29e0:98a1:4577:2cc7]) by GV1PR04MB11513.eurprd04.prod.outlook.com
- ([fe80::29e0:98a1:4577:2cc7%3]) with mapi id 15.21.0139.018; Mon, 22 Jun 2026
- 09:47:07 +0000
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v3 1/1] reset: imx7: Correct polarity of MIPI CSI
- resets on i.MX8MQ
-From: guoniu.zhou@oss.nxp.com
-To: robby.cai@oss.nxp.com
-Cc: p.zabel@pengutronix.de, Frank.Li@nxp.com, s.hauer@pengutronix.de, 
- festevam@gmail.com, krzk+dt@kernel.org, andrew.smirnov@gmail.com, 
- kernel@pengutronix.de, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- aisheng.dong@nxp.com, guoniu.zhou@nxp.com
-In-Reply-To: <20260619073115.3778313-1-robby.cai@oss.nxp.com>
-References: <20260619073115.3778313-1-robby.cai@oss.nxp.com>
-Date: Mon, 22 Jun 2026 17:50:22 +0800
-Message-Id: <178212182278.110038.98055754053534783.b4-review@b4>
-X-Mailer: b4 0.15-dev-0e760
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1782121825; l=253;
- i=guoniu.zhou@oss.nxp.com; s=20250815; h=from:subject:message-id;
- bh=tj5wTDmvC8EfDtoV3jFH/6yHTJ9QBY7H72U3ZcLK/G0=;
- b=KJtI4Xc3egRrkYHdmPqqIcfdcySsg7CY4Nsxy8rUxtOLR4IhsWdNHKwXjWV4axydop7IxScsh
- ONxABFiPvcsDQYs4t/+AtqBryWcyFhmMRNrn00+YXqfi8GeugGKrg70
-X-Developer-Key: i=guoniu.zhou@oss.nxp.com; a=ed25519;
- pk=MM+/XICg5S78/gs+f9wtGP6yIvkyjTdZwfaxXeu5rlo=
-X-ClientProxiedBy: MA5PR01CA0028.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:178::6) To GV1PR04MB11513.eurprd04.prod.outlook.com
- (2603:10a6:150:284::9)
+	Mon, 22 Jun 2026 09:49:14 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7459C40720;
+	Mon, 22 Jun 2026 09:49:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69E281F00A3A;
+	Mon, 22 Jun 2026 09:49:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782121753;
+	bh=jiUK4zqlgPufMf5KeLuWGqbjOdMtUleMUc6fesqkDDY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Ro+wwemIX5Rnl9nAhj+phv88wYwnNld218ormKKPUv87BSnNLRpu9D4ciAcUA/9aV
+	 kV4TvSmy+7jhFDP2oTR+Exc2QVRYoubH/yPD+VaTIMWT8VS/+p61VDFEaJPz++o8ne
+	 kE9+3EKuoxURhelikJG9QDtIfxSkA0IT0eQUNH3RkoSTQU2Zt2RTfro5W1PVopTbiG
+	 o41jD0WHJSDAZsV0Qj/arNHOdzJ2xoX9m2yvWfcQ8esxEH4ixQZ71B46G1ovm8h7h/
+	 jVkEtJYrAXXnNEVq2SI1M44qgHwVIrCtuDv1A8wENZIgx2URMumPdgLlDT6YI543Sf
+	 g4qAHZKxjQLsg==
+Date: Mon, 22 Jun 2026 11:49:07 +0200
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Hanjun Guo <guohanjun@huawei.com>
+Cc: Will Deacon <will@kernel.org>, Yu Peng <pengyu@kylinos.cn>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, linux-acpi@vger.kernel.org,
+	Andrew Morton <akpm@linux-foundation.org>, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org, sudeep.holla@kernel.org
+Subject: Re: [RFC] arm64: early_ioremap fails to map ACPI MADT on 64K pages
+Message-ID: <ajkFE6TmwW6B/huP@lpieralisi>
+References: <20260617060110.2846851-1-pengyu@kylinos.cn>
+ <ajVVfnGIq_6zt2jC@willie-the-truck>
+ <3cceb66d-4496-1a46-60ab-f43b0669fb71@huawei.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV1PR04MB11513:EE_|AS8PR04MB8724:EE_
-X-MS-Office365-Filtering-Correlation-Id: e2dde627-1ca1-45d4-159b-08ded04338d9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|376014|23010399003|1800799024|22082099003|18002099003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: ZStDxcFfWS8p9BLGaQkQ1WtRXi4SAlM6mY3KUHN1qmSGAe1JlsfZm+JgAx+SBf0oM7U3xqzzZrZxMVIH078IZNkuojEe9iFOvhMIpBb5IdCjRFnAqpkg/18jV7v7a/qTHT+9VcY1PG8MMfHUFZQNZbRD+26MZ/CAm/Ri/Z89J9hDHlViapHdpfYU8+n4mLidMAh2RAae64DRtKw8lDE3UuN+1KbFixTrlH9xAK+b5WsZPfysk8eJbKCaMAPvzjUD9q8RgsNx5Tz+SLR9ta9VoFrF6PaHgoXOJDCjMu/+e6ZnYz3U2IeeyoVinqpNvAJqV+bSHWz2dnd+WBwj0TX00ejVc7oRXxNpTgkuQuU5i8WKrzkwuqTQ+43FjoB7sdi/5reSN9RkwC0B7z6B6fn+M49E35+g0rTkwJKd1lyJRPrB9WNWlV0wtvuBoqKR+tmVMNMK3LgVJcqCLGG6AToUnXerxgzvDISidU3to6S2zTp8o6uNrAHb3vvq8VTarLm9BykCPymi3C1/0qPEPHDvQ/duy4Dvdh5JZtZ8Eiu7qEi3UUTzx8WFhrj0e5tPkQJZFisUeFLu2xv6uvgD4lRcWCuvGYIfR9nU/pZaIj3znmxSDRpLdTXunExujDXPfT5qehv/DbJFswuYO5R0MxgD+AlJWk0zae6M6pqpKHhDG5U=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR04MB11513.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(376014)(23010399003)(1800799024)(22082099003)(18002099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RmtuTndtaHJjek1ZU0xSa0FRMDVTQXBzK2pQQ002OHN5WDFJVmw5U1NOWmtm?=
- =?utf-8?B?ZVFvczhQS1RkcW9uU1ZTdGlLRnpuMEdOL3FzVnJ2Ulg4MkF4VjNBbGdlRjRr?=
- =?utf-8?B?eFdmQjdPWmpSTVZLSXlDR2VSeUlocGtsazhLUDlzT3BmNENCeGJmbjNDRmNz?=
- =?utf-8?B?d2VWcnNNcFN5Yi9UN09PVERHSmhGNkM4eFNDQ0Y1VndNUkhmMFp3OEVWblE4?=
- =?utf-8?B?blkwVEhJTENXa0ZUeU9GZ2hMRnF5cVBidHZXcGtFRGRvSUlFWjR4L1RoZ1dE?=
- =?utf-8?B?OHVQWjV1R255Y0ZjcXBpVWZLVW5NcFYxcVg2QXZ2VEpBdlFJdXQvamYvaWRv?=
- =?utf-8?B?SVE1a3BhNm16TDFYcUZXYXRjdUwxT3NyNndvR2VJTFlaL2RrMWMzMDFDMnQw?=
- =?utf-8?B?dGZnejN5aVRmb2lTblkzUHFwNzhZTXVqTU5COFFPdWN6djcreEhjZXg0RzZl?=
- =?utf-8?B?YUFsZGtmNWZOb0svQ3RSTVZ2NFdNSFBhTTlFOFJhZnlFOC9BbzhNYUlCSkhR?=
- =?utf-8?B?NkVIenZxOVpnWnprZkhKQ2tFV1o2L0FRZzkxSHdVY1piYnQ0dndtWXlmSFVp?=
- =?utf-8?B?bnRCU1VPaGR3TW0wQTkvOU52VVV1VlRzWDlKZTg1MG1WeGI2cjd5UFYwUG5x?=
- =?utf-8?B?R3F2ektXaERJa1A2Uys3RThQM2pHZ2tMOXFFZUtsbUZIZkZ3cGdJOVBjWUo4?=
- =?utf-8?B?b1NldzF5UVd3MnR2THRUbjdMQ0NqMTNGWEd5RHgvYjFQc29odDVKNlZUV2k2?=
- =?utf-8?B?K3Q2cFpWSjJpclBwd2FKUnJTYjM0cDVnQ2gxQjlkTjI0RnBYa09VREFlV201?=
- =?utf-8?B?TE1PTWMwb0xRL2RWKzJKMndFRXhrL1psZ1crNHdpUzJ2WlEvcXRlbnBGdGlI?=
- =?utf-8?B?ZXVIOWtaR3RMM1VKV0t2bEdiY1JDTWF3NzJZYXFrR3N3b0ZNbU1ieWZhMVNj?=
- =?utf-8?B?d2JNTGpxVnEzY3NKaXhFSXZPdUxGeHZBNjI0VEt1V1loYzIrSDBtQVNscUh4?=
- =?utf-8?B?Qmxsb2RYYmFld0pjUmE1SWp4RUR4aExzY1JjaDlrQkJxRlEzYWhlcnRVY1JN?=
- =?utf-8?B?QVp5cnJXendoWnJrM3E0LzZGRlFpZnoxVEhDVnhuVVQ5TFh3cG52SWRkZXdy?=
- =?utf-8?B?ZzFsNDZUTjVDby9vSENVTkdYQytrZ3RpL2xXbUQ1VXdnOFhEOFlsNHY5NTl3?=
- =?utf-8?B?ZTlmaGNWaWR0Z1MrN3J6UExZcXdxZWU3ZzhJaGx6NVJDSEtGUTdZYW41U0tY?=
- =?utf-8?B?WFplbVhBT0h6TEU5cURpWFhkazdLemdkTURWNno3S1VBNWpYcXlhK3NIa1c2?=
- =?utf-8?B?RnFhUUZMTGU1OG5UM29XVXNINzZjcFd1Z2JsaWlQdHRoaCtRTTNOcjRrTDBr?=
- =?utf-8?B?ZE1rU2pZdG12RGNMbnR4NlFsK1B2QkhYUENVZWxqdmg5WXZ5UTZuQTZUYUxW?=
- =?utf-8?B?VXhFNGh2eTRGUzVoOFdzcDZOT2FjblBmUElVb2J3MGJJQ3pPWGZ3MGJJREh4?=
- =?utf-8?B?VGY3bEFoQ3dRZUI0cWRXUUgwUE9XNTNRa2V4aFMycHJVaDhlOFhReXZQeUVz?=
- =?utf-8?B?V1FzczJLS1lDdUJZMmh6RkNodWJWSnFKTWZJbWJacTk0RkRQNkNTb0NrTXpC?=
- =?utf-8?B?RlBjTG05UWdORzF5RkN6cGRPeUdmWUlaRmt2YnFQQkZQaTZLQm1ieWIrSFM4?=
- =?utf-8?B?TkY3cTB0aEgwZGZwdjJSY1JFNDFHZExvWnh1bTI0dFVGZGFTV0RnQlpwMUph?=
- =?utf-8?B?VVg3NU1mczR2eHpvdS9JYndVcmorbExDZHoyQTcwcm1TMFRMS3FQaDIwU3l6?=
- =?utf-8?B?d3JnOWx0VEdXVmUyNzUvUnZ2clJzM0dTOGNsVVMvZEJOWUh4WWpOME41cTRE?=
- =?utf-8?B?OHdML1crN1poeEl6ZExmelNGTlVhNnlxbjVwVjg4WkorVWJENHVnRVJidjVN?=
- =?utf-8?B?ZGxmakdDVXh4NTBFa0E4YXlPeXQ0QzV2TDVhcjc4bWY4bkNQNjdDejBnUFhp?=
- =?utf-8?B?ZHptU2FVUndFOUltM2VSTkkwampiNGV4eC9hTTlJdVRab0IwMGNJRFRRTmdm?=
- =?utf-8?B?T3BYdHVxRWI3a2dVWTBCMHFxWUpWV1djUGY0Zzk3bGJ6SExuSVRYbFFXOTA5?=
- =?utf-8?B?NG43MmpINUhEcVRwY2FQVHU0Yy9Sc25WSXUrWWwxcllET2IwRmk2R2JTTHNE?=
- =?utf-8?B?TFh3Nmo1em9BV21ZVTFQVEdDTHQrZ3RjTVZuMFRSLy93T0dTK1FlV3MrM1ZL?=
- =?utf-8?B?TXhVWVdhWDRZSHBaeUVmZkVrdTVHTEw3emxwak1WVlhqMi9Nc28xekUxZ01P?=
- =?utf-8?B?VFlhdkxYcm1ibWowcXg0WUVIcDBwTkF1bDVpNGhGanRNbk5HZjJPY2plY09K?=
- =?utf-8?Q?k83yO+DbUdk9bcjlFjaE4tkB7SxZ0aqebY0pK?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e2dde627-1ca1-45d4-159b-08ded04338d9
-X-MS-Exchange-CrossTenant-AuthSource: GV1PR04MB11513.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jun 2026 09:47:07.1932
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: eQ0y/IL9o0FaRpsAurd7JYM5WbI+LE4GlgTaCQjp2u2hyVy1AGSjgYWKdhwlp7EGPTSnL82I39PIMlrDddJSAbx0N2FtXJptWJ6LwWrAuO79LUh/IkHo9xSd1CfBnNjt
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8724
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260622_024713_766321_594B11EA 
-X-CRM114-Status: UNSURE (   4.96  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <3cceb66d-4496-1a46-60ab-f43b0669fb71@huawei.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,11 +75,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 19 Jun 2026 15:31:15 +0800, robby.cai@oss.nxp.com <robby.cai@oss.nxp.com> wrote:
-> reset: imx7: Correct polarity of MIPI CSI resets on i.MX8MQ
+On Mon, Jun 22, 2026 at 04:55:29PM +0800, Hanjun Guo wrote:
+> On 2026/6/19 22:43, Will Deacon wrote:
+> > +arm64 ACPI maintainers
+> > 
+> > On Wed, Jun 17, 2026 at 02:01:10PM +0800, Yu Peng wrote:
+> > > I hit an early boot failure on an arm64 system built with 64K pages while
+> > > parsing the ACPI MADT.
+> > > 
+> > > The failing system reports:
+> > > 
+> > >    PAGE_SIZE: 64K
+> > >    MADT physical address: 0x5a7ae018
+> > >    MADT length: 0x32094
+> > 
+> > The MADT isn't even 4k aligned, so why does the page size matter in this
+> > case?
+> > 
+> > > The failure happens when acpi_table_parse_madt() calls into early_memremap()
+> > > via __acpi_map_table(). The MADT itself is smaller than 256K, but its
+> > > placement causes the early mapping to require 5 64K pages:
+> > > 
+> > >    offset within 64K page = 0x5a7ae018 & 0xffff = 0xe018
+> > >    mapped range           = PAGE_ALIGN(0xe018 + 0x32094)
+> > >                           = PAGE_ALIGN(0x400ac)
+> > >                           = 0x50000
+> > >    nrpages                = 0x50000 / 0x10000 = 5
+> > > 
+> > > On arm64, NR_FIX_BTMAPS is currently derived from a 256K per-slot budget:
+> > > 
+> > >    #define NR_FIX_BTMAPS        (SZ_256K / PAGE_SIZE)
+> > > 
+> > > So for 64K pages, NR_FIX_BTMAPS is 4. The mapping therefore fails the
+> > > early_ioremap() check:
+> > > 
+> > >    if (WARN_ON(nrpages > NR_FIX_BTMAPS))
+> > >            return NULL;
+> > > 
+> > > After that, MADT parsing fails and the boot continues with symptoms such as:
+> > > 
+> > >    ACPI: APIC not present
+> > >    missing boot CPU MPIDR, not enabling secondaries
+> > >    Kernel panic - not syncing: No interrupt controller found.
+> > > 
+> > > A firmware change can avoid this by placing MADT so that:
+> > > 
+> > >    (madt_phys & 0xffff) + madt_length <= SZ_256K
+> > > 
+> > > However, I do not think ACPI requires such placement, so this looks like a
+> > > kernel-side robustness issue as well, especially on large arm64 systems where
+> > > MADT can grow with CPU topology.
+> > > 
+> > > One possible kernel-side change is to increase the boot-time mapping budget for
+> > > CONFIG_ARM64_64K_PAGES, for example using a 512K per-slot budget only in that
+> > > configuration. I do not think this should be applied unconditionally to all
+> > > page sizes, since the arm64 early fixmap code expects the boot-ioremap range
+> > > to stay within one PMD.
+> > > 
+> > > Has anyone seen similar failures on arm64 64K systems?
 
-Reviewed-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+First bug report I am aware of, perhaps this was papered over in FW,
+MADT parsing failure is the first thing you would notice in bootstrapping
+an ACPI system (FADT is not that big).
 
--- 
-Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+> > > 
+> > > Would maintainers prefer treating this as a firmware layout issue, or would
+> > > increasing the early_ioremap budget for 64K pages be acceptable?
+> > 
+> > It think it boils down to what ACPI says about the alignment of the MADT.
+> 
+> I checked the ACPI spec and it didn't require the alignment for ACPI
+> tables, but in UEFI spec, it says (for aarch64):
+> 
+> ACPI Tables loaded at boot time can be contained in memory of type
+> EfiACPIReclaimMemory (recommended) or EfiACPIMemoryNVS.
+> 
+> EFI memory descriptors of type EfiACPIReclaimMemory and EfiACPIMemoryNVS
+> must be aligned on a 4 KiB boundary and must be a multiple of 4 KiB in
+> size.
+> 
+> It only requires EfiACPIReclaimMemory type to be 4K aligned, not
+> for each ACPI table, because ACPI tables can be packed into the
+> allocated EfiACPIReclaimMemory type, correct me if I'm wrong!
+
+I am afraid you are not wrong - we can't blame firmware (yet), this
+has to be addressed.
+
+Lorenzo
 
