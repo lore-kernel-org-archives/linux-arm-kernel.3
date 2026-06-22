@@ -4,181 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B05CCDB46F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 13:16:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F5F6CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 13:16:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EAph1O3z9xAfjyT+g8aJSecL/XoSiDHgNv3rjIwaIK0=; b=Jj1z58YkDo7mwiERybN7Ch0knO
-	EK997vcdbX4Y0Ikaaz1DsCW/DfNbpbReGuexlvO43lY3r273j4RRqEKtLY5Wz3GTyCGXVEydyq4ik
-	2S60tq0Eo9nduMVOKaGFZ8PqaouSZAaHXsiucXd9DGWui+rlySLXOtNSrWqqlnztys/btyrDW8ove
-	ntXO1+yeTVhguRIrejro1lG5mDbvZJchJCrxUrS/SSrFi2Zf0XblIc2hwdRIln3wSIoqZwj/7GrXG
-	yyuwgX5uR4vdggsXlMdhGpl1rLlFag7sZSePbKrgu5vnfsBgKeAylInfSgf0STvxMkvFDoGTNA3g2
-	Wtr6V+Xg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lgvQzYjbMrpc1MMyior1P3ZPdYtIuPkBiGx7cWNFLN4=; b=L/bBT+kv8JLrwrlZi4h9d3E3+s
+	MC070fwrTrzLm4JKCB/m1y1dX5mRbI4E2O1+UKd4qgW7nHkty/CxfvVDIzGNSswR8VkPD4LAJA7B5
+	PIEkpV3++OaJauk3h0cKODGW+mN5Ls0ev/1B7wOJJnlOXeNScRd9GDdZnzMO+6DoU1pnvuHYg68N3
+	HqjGo7PGz6oVVLSCWexuk0qsJrQYftzRt6Rp1ecouQMFa9K0UY9PSbiHZgz6Tc/xxDcqDuRn4bWEo
+	L7rmgup7RTRPFhEVKqD3gDIsn2kt/hEZLRS6fSlArWRpVa/jGtGWlwPv9jFRGZ6cVEnSSuFg4V/hB
+	mYF6Pjdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbeVV-000000050g3-3Rzy;
-	Mon, 22 Jun 2026 13:16:09 +0000
-Received: from mail-southcentralusazon11012033.outbound.protection.outlook.com ([40.93.195.33] helo=SN4PR2101CU001.outbound.protection.outlook.com)
+	id 1wbeVh-000000050hZ-432h;
+	Mon, 22 Jun 2026 13:16:21 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbeVR-000000050fV-1J45
+	id 1wbeVg-000000050hL-2tFZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Jun 2026 13:16:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=seu9/xfEyBH4AHZQzHlsyi2Ib2EH0eM0B65FHlPFQyqNV//DB7KfeRvxMXC8eUkCenh0kom+QzDKqp94dOx9B6i22Kfjn1aCZMlFvzkNt4bkVST3ToYLxCYQpB6fNRW8MNp+RpPYVcbr7Gpw0J3udPXbfcoIVOPw4NR4IhGJEt6AuBbQAY5U6Auq4iW8I6uW3V2Y2lrwWlQ9RJVcgW84qq6cJID16DFFflnUiY+KfnlX+frIzsr9FcFHfhvZKNyn6WtLeTtt4x6LXS3mUGL5ybzsbAS/AHintn8FRa00T8WwLavpWDwiVG7rEpx3f0i2rHw1gyPkPB5yZJ39SgrqSw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=EAph1O3z9xAfjyT+g8aJSecL/XoSiDHgNv3rjIwaIK0=;
- b=mqyB4Ddv3uIaW6MO3ZDtU2kLS6ly1AxZ3T6C5jMy7alskGzt3RfGxENxxKqwkeB6fPEsDfMFLRjhnZzxVhavVlcc/r4uLYlFYoA3vepCeYR/NO9pFwYpXnl0TkAQEy/Y3OKYFbwRU9/Yz4E5wypfgiv6YAAcAaxlJO0rdXJvZ6xyiVroVrgOV1EWY0qgM4AIk0c84VWtkW5Wc0qEPqV0bvZ9pHzq1wcWQBgo55sU1OmJghTpegQfWGiJVHmuh58nrwvQzhCVM/9pRj71PYNbDI/mrZ8HNPwnbbMh3wh5DU5Pjfq7ZR640E5FqW3HbU4waqZdvlsyHgEpw/XuHQirBA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=EAph1O3z9xAfjyT+g8aJSecL/XoSiDHgNv3rjIwaIK0=;
- b=j6hE6QVM24SWlfyNXt1JoP8jUGJCHc4G2lPqvvUuDix7E2oZuNpUl23SWZ8e9QK7j16HpoZNxq3XqUJMTrcbjEHdUtyjrCNH90RyG6DTTFrl5I22nYq9qlAvnNR0yn4KCTENt4bIrq7uTok54vQQxUrCP62TmqjxJTXZgvs23Lk=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from LV5PR12MB9779.namprd12.prod.outlook.com (2603:10b6:408:301::14)
- by LV8PR12MB9133.namprd12.prod.outlook.com (2603:10b6:408:188::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.18; Mon, 22 Jun
- 2026 13:16:00 +0000
-Received: from LV5PR12MB9779.namprd12.prod.outlook.com
- ([fe80::8ac8:e862:8ae9:9287]) by LV5PR12MB9779.namprd12.prod.outlook.com
- ([fe80::8ac8:e862:8ae9:9287%3]) with mapi id 15.21.0139.018; Mon, 22 Jun 2026
- 13:15:58 +0000
-Message-ID: <7a21e206-c9c3-4299-a26d-f23abcf38b6b@amd.com>
-Date: Mon, 22 Jun 2026 15:15:49 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] arm: dts: xilinx: Add support for MYIR
- MYS-7Z020-V2 board
-To: Liu Yu <f78fk@live.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260619102214.223121-1-f78fk@live.com>
- <20260619132355.1776-1-f78fk@live.com>
- <SY3PPF19552C60735AFA1041A0183DCA07CC7E22@SY3PPF19552C607.AUSP300.PROD.OUTLOOK.COM>
-Content-Language: en-US
-From: Michal Simek <michal.simek@amd.com>
-Autocrypt: addr=michal.simek@amd.com; keydata=
- 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
- mpwx1d8=
-In-Reply-To: <SY3PPF19552C60735AFA1041A0183DCA07CC7E22@SY3PPF19552C607.AUSP300.PROD.OUTLOOK.COM>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: VI1PR0202CA0023.eurprd02.prod.outlook.com
- (2603:10a6:803:14::36) To LV5PR12MB9779.namprd12.prod.outlook.com
- (2603:10b6:408:301::14)
+	Mon, 22 Jun 2026 13:16:20 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 75BB5601F6;
+	Mon, 22 Jun 2026 13:16:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC02A1F00A3E;
+	Mon, 22 Jun 2026 13:16:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782134179;
+	bh=lgvQzYjbMrpc1MMyior1P3ZPdYtIuPkBiGx7cWNFLN4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=LVFFHQd1hVV3xyaHdbvqy1IUptTyefGIMhFmpKHheR2hHi6h8Pupkh+49sWuI7kTB
+	 PRd5VH4p0hJ8/a+656aexGPb9vnMnVEhMzYMigNWoV/vj/BFqdF/hmRFySwJJcj+ix
+	 TxzLge8swBRCE3yYyAyZ7mSR16RlNyj6gb04oPEb02rgmljsIcP3fU+hgoQLycwk7y
+	 38rtzXCtQk/nPDAW1c+OaHFUfiOotUYFisfnzyk46xCBG3mSBC6r97s9nCD0U40zNa
+	 tQEOsfzjDo5uayhGH/KCENJxRX+DngaoamEa08AwIJ0JlqEVCOaNIE+BbmJJPHEUoj
+	 eDeFxlZqAgW/Q==
+Message-ID: <e334c595-92ab-4eb9-a096-35602d57ae6d@kernel.org>
+Date: Mon, 22 Jun 2026 15:16:09 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV5PR12MB9779:EE_|LV8PR12MB9133:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1b5aa7d3-9c73-4524-bf9c-08ded0606607
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|23010399003|1800799024|56012099006|22082099003|18002099003|4143699003|11063799006;
-X-Microsoft-Antispam-Message-Info: f+DNEgXZeQjOvThVaFmrqmv607ihlXIFa76nIU3YSw0W+3difHJLizwaOLAbFC9gR/usuQ9GEJ/PWG7KIGfDWdZ/HhtZv8G57+6XXLWG52AzEFgiJns+a+HQL+11Kz0sOaxH6A2wLOMt/IkttYr15r4uiRv8JxBeDPfWK4eFr1OEoCy/ePNgxqPsV/BHFHTXkjn5qMUbhvLgcj3bSfG0eBn2odSNL4eeK4aKwz836yFbEx7YaqWXnt97nuy/eipYdkrw0tL2Nxvtmi9ld3dYMgtHYbkgOJ2WdI/u94vcGYb54MZ9HlGHO7p7qGFTsNHzHGI67VSLb1PauwHyEGvzUZxyyNkbNjd8WvAjgsuM5CcXV9eYKpa611gkPeKYLmsQ8b7sW/AfPHsLqi5v+/G0DmbtXu7524oInxd86dMae2BrMMhkm8fDrvuwlZU1jL4/aGnB5uJX8jDjcOyhwAKRQNni4Fkevn8xyxsAwwTTvJXAD/ZD/6dIrEPzwWxwewlFQpaOWyUyozekRf41ZfSzT5fL2J6VXWd1ykonuUS2BdwNNGxwV2dqOemn6e2xPzc2eqsfhBBx0VSRLL3JcQHiwc3Elh2bP5cVEqlZ0DQiwEmccvjfojreEu3oRgYdYMoZ
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV5PR12MB9779.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(23010399003)(1800799024)(56012099006)(22082099003)(18002099003)(4143699003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?d0JiSklobXVaSkxwSU14WCtqS2I3RXBBaHFOYzRDK3ltYWhPcDVDaDBjNVlu?=
- =?utf-8?B?Y2VXRUU3TXRmUFFOemRXSGl6YVBGMStuTGpLd1lwdXVmeUliNU9vN1dxVnpG?=
- =?utf-8?B?T2VCbC9ELzdHT2hvWlZpaFhHaUN5cUYzSnRaYjdkRDNrRXphVmRrOW5FUXY3?=
- =?utf-8?B?Yk9OempPU0NoMG5RR045M0hrOW13ZmZSeGhiZkhTTXhtdisycmhyajZpaDdO?=
- =?utf-8?B?dXlPQ1E5SlBWOFE0MnZVQ1hUZU1OZ3VRVFZrZ3lNcFNyL2Z0Q1lIZklXQWF6?=
- =?utf-8?B?WTNtcWF0dXFZVDBoc1FOdk16ZFZmMktBcHdxRDBIbVp6WTRkZyt6SEdjS2JI?=
- =?utf-8?B?SXkybUcrVDlWRjI0cVZRQWhuNWJwK3RkYlRqaWdyT0FnRHcwYWJTbHRTWkVY?=
- =?utf-8?B?NTlrek9DOWdPVkRhTGVETC9XOWtFcVhLRXJ0aTFpSDFvdW4zR01wcGpMNjM5?=
- =?utf-8?B?SnZ0R2s3WitCWUdSY2pZMnVYN2QzWU9HWk1iVmxPS2JFWWtKUXJpRTZYZUFk?=
- =?utf-8?B?ZzFGSXNwdVoySWgxLzhFK1o2eFN1ck5ucm04YklDdzlsdmRCNEorNnBDSkhO?=
- =?utf-8?B?SHBmRWRYR1hHakgwbDUxSnRBVWUveFZBdnM2MDRZVFI3eG1TSjN1UmV2WFRP?=
- =?utf-8?B?b3liV1pXWEpyTVZBUG9KSUxmODBwdjJPMDZlY2pFSkcvTGdlNVVpU1labWhm?=
- =?utf-8?B?MERrTldINXdTSG11NXp0REIvSTAxcEtDbzJtMFRzcGxXZmRaVkdJMHpOOGta?=
- =?utf-8?B?M0MwSXJ5MkliUzY0SE05blBBOUx0bzIxd295ZmhPaEY2ZVU5QSthOW00ZDhC?=
- =?utf-8?B?VlJpbGlXRUNqNHR5YXk3eWVuVGVZOWhKa1hoSHU3S3VWRWUvYzZGdDJId1pp?=
- =?utf-8?B?dWhzS0IvVnRjc2NOR0tzdGxoa1J5Rk1mZFRFUnJqRFVYN0dwRSt0WUJLTHpV?=
- =?utf-8?B?cllwOTJtNnNFY2RmUlU3d2RyMWdTVlZhYkJzcHZTWGNTdXZldEM2MFV1dURt?=
- =?utf-8?B?cTlPZUV4N015ZWVIQStlMDJVQVFjTE0yVEhMdTNXUlNCdTlyK3N0QSt0eDRp?=
- =?utf-8?B?RlJNaWRnNjhEM0w5ZGVjeWNhRXZNQXhnd1AyMFM4UEd0MkpGbThqR3ViZURr?=
- =?utf-8?B?UmNscWFYTFFQaUloc0NiVUd5K0lTbWppV05uS3pqZFV5bVJVMjh1dFkrMnFm?=
- =?utf-8?B?aE5kbVNqK1pPdW1DWXNLbHlmNU5JMHZndEM0eCtDaU9xWEcrU1R6Zm5wQ3A0?=
- =?utf-8?B?dHcxTUJlQVJsZGRQeldMaFdhejZJc2l5VWw1bkxaaHRIQmVzelVRUjBhYlM2?=
- =?utf-8?B?RFhPcVdsQ1RmQVN3VCtVTmF2dHRpdU8yNGlYOTVZZGlWN2h2Mk9KQmtCcGpm?=
- =?utf-8?B?b0RnUk1NcldRanIrYzNzOU1ZLytVSHU4cVpRMFNwczFQejA4MGNlZDRKdkc3?=
- =?utf-8?B?bkIxNHhkdmFGSXBNbGdoQmdLL2NNTDFpRTNKTHhHay9PU2NWUy9qZDRDT3Z5?=
- =?utf-8?B?UENOU1JJd3NWTDNkR1lreXpRK1F6UjhML2JlTitGU1hSRG03UTJsdTgxRmRu?=
- =?utf-8?B?eHJoOVM1WmpsMmQzZGM2TEZqVjg2bXVaZ0g2UWpYdExwQVBHSDRxdGFKc3hh?=
- =?utf-8?B?MVNOMUlqV1hDa2VHNHJjTlloTVBnT2NMWEhybXBMWW0yeFZEK1VIb2VIZUwr?=
- =?utf-8?B?bG53Nm5Yb1JOUW13VWFsSzdTa1ZramowdE01dmRFMzI4WFN3L2tDR2RkdlhW?=
- =?utf-8?B?MWpqNEZXeW9oejdjQVkraHdCNmIySktLTjZOd0hpREQ2TThZbDMvTGNudUlo?=
- =?utf-8?B?Tk1IamdkMzF4S2VDUGx5LzBQcFpSNTlPSHdCZm9FZnV2a1VKcVRsZi9IVyt1?=
- =?utf-8?B?RzFxbU91Rk00WGo4SHhmeWViQzY4aG5xR0x1aDZNU0JiUE83QnJHQ2l0TWJk?=
- =?utf-8?B?L09ueTVReGxxcnZsbG1ScXdZeHJRWFMraVRBUDlMZDE4a3lhYk16TWFldENH?=
- =?utf-8?B?a1ZlcC9QZU9OTzY1U1J2Tk0ycHRVU2hZbGowUkcyWG1MQ21TTWJrRjBJVWNm?=
- =?utf-8?B?QTJHNFc0cVBpUlYvdEIwK1VPQTVKNW84SnJjYXVxd2VmazloV05uWWZEZDcx?=
- =?utf-8?B?ZGRGdGNJNnZrQU5KNWNJR1VYbEdUSm9UdWxKUXpaS3FpU2Z6S2YxeTBaWW1s?=
- =?utf-8?B?T2paUndYUzdRdWEvOGlUd3BsaTU2dlRGckFBSlU1TEpQeTYxRFZ3SmNpVm9q?=
- =?utf-8?B?Z1NKZjczQWtybTUxMUpEbEFRVGNsYTVwdVNWYnZOakhrbm5kWVFDYksyWkI2?=
- =?utf-8?B?RCtaN3FiN0ZobElMZnF3ODVJSHdkNE9OODVYTjJKUDQwejJVVzR1UT09?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1b5aa7d3-9c73-4524-bf9c-08ded0606607
-X-MS-Exchange-CrossTenant-AuthSource: LV5PR12MB9779.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jun 2026 13:15:58.2266
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: OZdcLgxcw+A4loXLh9EN0gJgsDJlhMFhxwk+cjiuOXGBv+MQs+zfj2CSh9CUlPpB
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR12MB9133
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260622_061605_386085_2FECD7F5 
-X-CRM114-Status: GOOD (  10.88  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC v8 04/24] arm64: Introduce por_elx_set_pkey_perms()
+ helper
+To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-hardening@vger.kernel.org
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ Andy Lutomirski <luto@kernel.org>, Catalin Marinas
+ <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>,
+ Ira Weiny <ira.weiny@intel.com>, Jann Horn <jannh@google.com>,
+ Jeff Xu <jeffxu@chromium.org>, Joey Gouly <joey.gouly@arm.com>,
+ Kees Cook <kees@kernel.org>, Linus Walleij <linusw@kernel.org>,
+ Marc Zyngier <maz@kernel.org>, Mark Brown <broonie@kernel.org>,
+ Matthew Wilcox <willy@infradead.org>, Maxwell Bland <mbland@motorola.com>,
+ "Mike Rapoport (IBM)" <rppt@kernel.org>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Pierre Langlois <pierre.langlois@arm.com>,
+ Quentin Perret <qperret@google.com>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, Vlastimil Babka <vbabka@kernel.org>,
+ Will Deacon <will@kernel.org>, Yang Shi <yang@os.amperecomputing.com>,
+ Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
+ linux-mm@kvack.org, x86@kernel.org, Lorenzo Stoakes <ljs@kernel.org>,
+ Thomas Gleixner <tglx@kernel.org>
+References: <20260526-kpkeys-v8-0-eaaacdacc67c@arm.com>
+ <20260526-kpkeys-v8-4-eaaacdacc67c@arm.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20260526-kpkeys-v8-4-eaaacdacc67c@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -193,30 +132,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 6/19/26 15:23, Liu Yu wrote:
-> Add device tree support for the MYIR MYS-7Z020-V2 board based on
-> the Xilinx Zynq-7000 XC7Z020 SoC.
+On 5/26/26 13:15, Kevin Brodsky wrote:
+> Introduce a helper that sets the permissions of a given pkey
+> (POIndex) in the POR_ELx format, and make use of it in
+> arch_set_user_pkey_access().
 > 
-> The board supports:
-> - UART serial console
-> - MicroSD card interface
-> - Gigabit Ethernet
-> - QSPI NOR flash
-> - GPIO-based user LEDs and push-button
+> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+> ---
+>  arch/arm64/include/asm/por.h |  7 +++++++
+>  arch/arm64/mm/mmu.c          | 26 ++++++++++----------------
+>  2 files changed, 17 insertions(+), 16 deletions(-)
 > 
-> Link: https://www.myirtech.com/list.asp?id=708
+> diff --git a/arch/arm64/include/asm/por.h b/arch/arm64/include/asm/por.h
+> index d913d5b529e4..bffb4d2b1246 100644
+> --- a/arch/arm64/include/asm/por.h
+> +++ b/arch/arm64/include/asm/por.h
+> @@ -31,4 +31,11 @@ static inline bool por_elx_allows_exec(u64 por, u8 pkey)
+>  	return perm & POE_X;
+>  }
+>  
+> +static inline u64 por_elx_set_pkey_perms(u64 por, u8 pkey, u64 perms)
+> +{
+> +	u64 shift = POR_ELx_PERM_SHIFT(pkey);
+> +
+> +	return (por & ~(POE_MASK << shift)) | (perms << shift);
+> +}
+> +
+>  #endif /* _ASM_ARM64_POR_H */
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index dd85e093ffdb..493310cf0486 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -2339,8 +2339,8 @@ void __cpu_replace_ttbr1(pgd_t *pgdp, bool cnp)
+>  #ifdef CONFIG_ARCH_HAS_PKEYS
+>  int arch_set_user_pkey_access(int pkey, unsigned long init_val)
+>  {
+> -	u64 new_por;
+> -	u64 old_por;
+> +	u64 new_perms;
 
+You should spell out the renaming of the variable.
 
-this is pointing to Z-turn Board V2 and above you are using MYS-7Z020-V2
-which is not available on this link.
+Given that perms is 4bit per key, should we use a u8 for it instead?
 
-Why should this be merged? What's so special about this board?
+> +	u64 por;
+>  
+>  	if (!system_supports_poe())
+>  		return -ENOSPC;
+> @@ -2354,25 +2354,19 @@ int arch_set_user_pkey_access(int pkey, unsigned long init_val)
+>  		return -EINVAL;
+>  
+>  	/* Set the bits we need in POR:  */
+> -	new_por = POE_RWX;
+> +	new_perms = POE_RWX;
+>  	if (init_val & PKEY_DISABLE_WRITE)
+> -		new_por &= ~POE_W;
+> +		new_perms &= ~POE_W;
+>  	if (init_val & PKEY_DISABLE_ACCESS)
+> -		new_por &= ~POE_RW;
+> +		new_perms &= ~POE_RW;
+>  	if (init_val & PKEY_DISABLE_READ)
+> -		new_por &= ~POE_R;
+> +		new_perms &= ~POE_R;
+>  	if (init_val & PKEY_DISABLE_EXECUTE)
+> -		new_por &= ~POE_X;
+> +		new_perms &= ~POE_X;
+>  
+> -	/* Shift the bits in to the correct place in POR for pkey: */
+> -	new_por = POR_ELx_PERM_PREP(pkey, new_por);
+> -
+> -	/* Get old POR and mask off any old bits in place: */
+> -	old_por = read_sysreg_s(SYS_POR_EL0);
+> -	old_por &= ~(POE_MASK << POR_ELx_PERM_SHIFT(pkey));
+> -
+> -	/* Write old part along with new part: */
+> -	write_sysreg_s(old_por | new_por, SYS_POR_EL0);
+> +	por = read_sysreg_s(SYS_POR_EL0);
+> +	por = por_elx_set_pkey_perms(por, pkey, new_perms);
+> +	write_sysreg_s(por, SYS_POR_EL0);
 
-Zynq went to production in 2013. Why should we merge description for "unknown" 
-board using 13 years old chip?
+Was wondering whether to move reading+writing of the register into the same
+helper, but you cannot reuse this exactly the same way for SYS_POR_EL1 as it seems.
 
-Thanks,
-Michal
+Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
+
+-- 
+Cheers,
+
+David
 
