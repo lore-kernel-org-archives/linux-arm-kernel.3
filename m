@@ -4,94 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21504CDB466
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 01:45:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3995CD98F0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 02:20:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=+utPNMRVTmNzPHuEyrqqa9jsDCRNXUwMgRtH5CJYOFY=; b=qQHlYUj8QJFzjL
-	A1GEAWiioW0UshTHJ39uL/TkbxkVuGnUXB9no5sjGLvMgffmRQuP0R9c/wyPUHMKD9mhaF2VEamOO
-	nzl7d+CEWtAwQ3ZxlOvx9ZP61NHe4p3i8nYzL0uxM0JANRamvBKdQVAausGuJEpFja22uV9VyK1Zm
-	D6zIjwnQ55Kui3Sh+c6I6zLnysZWKS86xA3eQ2q3B0Vy43pwXTWMzG78iKbWnzxEgsnBAa3d6QR1+
-	JEd7E5jNb92PXmjGmq9QsdE62KW4Ela7QN7brBNID4aKmjfdLdLJQjSa3WE72XtGMTuRGNOj/J8V4
-	KCqsxcTmhUVSTnAYJZhw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
+	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zNzXLGPbgjHjVIZkEPXI0gjusig9YVEFyMRzgKCkUvc=; b=2Lt4veRe17Shc9XEwimOz4/UZB
+	RmaoCEcCXgOQKUyjgkqW2NjH1UuMJlQluK+bVEyCxSER4CzoF072lR/LykyIYd9Ta7xW7fOMUKveV
+	uqSO5pHM93LqsziX04t0k1AmenIuIZcXk2aTiwo5gcquyjYL2CFWUGsHWvN6kQhLqSSeKTUnlmguy
+	+SlGR48R9tK5xBKKH0Tnq077ztQ1Yy22/hmzjElvaTpbBh0JlB3KtwT8OEcRKONPC2/EjcLuLMzFT
+	T4DOIEAyUTX8JLS543wmxC3OoJndML1YgFIGNxdgO5nsw9Oxi1OkjkWOgveK0r58BOBtUy5TqsMhK
+	MsYThdgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbTcX-00000004H3I-0Met;
-	Mon, 22 Jun 2026 01:38:41 +0000
-Received: from mail-qt1-x82c.google.com ([2607:f8b0:4864:20::82c])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbTcT-00000004H2c-3qRl
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Jun 2026 01:38:39 +0000
-Received: by mail-qt1-x82c.google.com with SMTP id d75a77b69052e-5176fc0cc72so41368791cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 21 Jun 2026 18:38:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782092316; x=1782697116; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=+utPNMRVTmNzPHuEyrqqa9jsDCRNXUwMgRtH5CJYOFY=;
-        b=SetdrCkbum/9zlXligiI6tcq966nV9IOi0UQYRMC2XO9K6Ql1S7P3F1jdMnWtiS085
-         vJn81DPtF+1QAW+USWfSmEvgwurlLXMb8qkZPmVvR/IRN2/kS8/NVeGWx1Fyv8kxVFzT
-         YS2RzSK0Lex/mwjF2j6b5gLCdH4+HU6j//tKumQ4LcS86LML9zk0obmgnPkN3HIPw3Yp
-         lsmjJFQC16fwzUqBNFGUodQUklSTdAhfU/X+q4VxOHVs1T7kHks9UxKjDx/4l2P/WHm8
-         CqLukPZCntjhR+YAEBaBFGyOG7z3qWwop54vOyxLGR7Z7vTzNOm+i66BOfG/WIdKqE8+
-         THww==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782092316; x=1782697116;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+utPNMRVTmNzPHuEyrqqa9jsDCRNXUwMgRtH5CJYOFY=;
-        b=ckG509D4Xz+R4l8p5OjYjSvxOehAmvPCpDKR2pMlzQub80IF57cSYWJNhHmUxinb+x
-         AhJHqU2/8bfq48eWP9swJiiXKcSPzKbEF/eGwtOJZy48yPK+uTa6FEwA4y1SvdI2ZL4l
-         5qbhDugZUFGAHwtW86SK8ef4VBcbuO4MVNNXOYP2SlggxZpLawAUYwJ1QTOXAXXT1W/p
-         EmS4rdoXATe3+wX/HMZS5WnTIFbzrXkOHTBjN4iX0B25jw7xKgLoAPO9P5INccT8sugK
-         2fkTWh3O/0zWKJug1FfZashoWDvNH0cpknt2twQzi8spOwHOxl6VcleLT7q6zIl/Fo7L
-         d2MA==
-X-Forwarded-Encrypted: i=1; AFNElJ9GpMpeujtvYj1Ijm0lQBqCzX12k+Ej+n8IHglNohLgxUNdODYR4LIZ4Bj2LSez5YJVEWk9+OVsmBKBImiINpRq@lists.infradead.org
-X-Gm-Message-State: AOJu0YzpZ47kK8z50cTkEu/1dkEyR4wRWlK8zluonFMQW87c1RFIPiJJ
-	hMAKQUyonMSuyBk58DWB9vv16XcbEKBkXQmCrqN87rpn6KvneovSMPfbp9N6kH0G4jM=
-X-Gm-Gg: AfdE7clhccwSnRiOV6pgGdEPaLqU+KOfKPicKOhOt9WW1Sn6Q7tYhalDyrvUShiNZOx
-	u32vzLqeDV6jmmyJclUVuBfQOEkuhO0JtLMR4cv/aqdiAvplcXSgRbOZgERigJ8w6G3xrVOsImd
-	0gpbJxNJCa1FDxBMSDawlVEUIF2BkJljIlAyxAloJZo2LKYN2qaKvBBmVJxhGBPdtfy12Z6CIXn
-	XSdWIryThKvEdc2vEf77yWULlUfj0lMD4mkKe5qn4lETj65nv9+9nwz2WhDmLXrIuFmRajHRL8c
-	5p2SOUtXyP7IVOafZIXs4KbGWbryJuQFgJcLfGrbuqnVVpHifuzTxRMRnA0MKPEOH2qtPwASL+g
-	SWxhYXGKlcUw3TyG6ZqAi7NezuDSqMee+SmNqi6zjR/2HgdgvWWmeN8vEjYQLfCZnFb4lArv0ux
-	YGFBSdKFwhFiXPMg==
-X-Received: by 2002:a05:622a:a04e:b0:519:f2bb:1036 with SMTP id d75a77b69052e-519f2bb1203mr115543741cf.36.1782092316301;
-        Sun, 21 Jun 2026 18:38:36 -0700 (PDT)
-Received: from [172.17.0.2] ([138.28.231.64])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-51a098e287csm55778831cf.29.2026.06.21.18.38.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 21 Jun 2026 18:38:35 -0700 (PDT)
-From: Yuanshen Cao <alex.caoys@gmail.com>
-Subject: [PATCH v3 0/5] dmaengine: sun6i-dma: Add support for Allwinner
- A733 DMA controller
-Date: Mon, 22 Jun 2026 01:36:22 +0000
-Message-Id: <20260622-sun60i-a733-dma-v3-0-f697ef296cbc@gmail.com>
+	id 1wbUH3-00000004IUp-2csK;
+	Mon, 22 Jun 2026 02:20:33 +0000
+Received: from azure-sdnproxy.icoremail.net ([13.75.44.102])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wbUGv-00000004IUJ-2xSh;
+	Mon, 22 Jun 2026 02:20:31 +0000
+Received: from lizhi2$eswincomputing.com ( [10.11.96.26] ) by
+ ajax-webmail-app1 (Coremail) ; Mon, 22 Jun 2026 10:19:50 +0800 (GMT+08:00)
+X-Originating-IP: [10.11.96.26]
+Date: Mon, 22 Jun 2026 10:19:50 +0800 (GMT+08:00)
+X-CM-HeaderCharset: UTF-8
+From: =?UTF-8?B?5p2O5b+X?= <lizhi2@eswincomputing.com>
+To: "Andrew Lunn" <andrew@lunn.ch>
+Cc: "Maxime Chevallier" <maxime.chevallier@bootlin.com>,
+	devicetree@vger.kernel.org, andrew+netdev@lunn.ch,
+	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	netdev@vger.kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
+	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	ningyu@eswincomputing.com, linmin@eswincomputing.com,
+	pinkesh.vaghela@einfochips.com, pritesh.patel@einfochips.com,
+	weishangjuan@eswincomputing.com, horms@kernel.org, lee@kernel.org
+Subject: Re: Re: [PATCH net-next v8 3/6] net: stmmac: eic7700: make RGMII
+ delay properties optional
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2024.2-cmXT6 build
+ 20241203(6b039d88) Copyright (c) 2002-2026 www.mailtech.cn
+ mispb-72143050-eaf5-4703-89e0-86624513b4ce-eswincomputing.com
+In-Reply-To: <30229cfe-b395-4d0f-81ef-eb780ac26599@lunn.ch>
+References: <20260610012727.848-1-lizhi2@eswincomputing.com>
+ <20260610012937.911-1-lizhi2@eswincomputing.com>
+ <eaa645fc-be06-4a15-8c2f-6e82129c4715@bootlin.com>
+ <30229cfe-b395-4d0f-81ef-eb780ac26599@lunn.ch>
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=UTF-8
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3WNTQ6CMBgFr0K6tqb9+oO48h7GRWkL1AiYFhoN4
- e62uCExLid5M29BwXpnAzoXC/I2uuDGIQE7FEh3amgtdiYxAgKSSFrhMA+SOKxKxrDpFdbAhaC
- 8olIYlKynt417bcXr7cthru9WTzmTF50L0+jf22Wkefe/Hikm2CheS141ugR1aXvlHkc99ijXI
- +x8oL8+JJ9x0gARp4pqvffXdf0AaAIbAQABAAA=
-X-Change-ID: 20260619-sun60i-a733-dma-c2455149165d
-To: conor+dt@kernel.org, mripard@kernel.org, krzk+dt@kernel.org, 
- robh@kernel.org, samuel@sholland.org, wens@kernel.org, 
- jernej.skrabec@gmail.com, Frank.Li@kernel.org, vkoul@kernel.org
-Cc: Yuanshen Cao <alex.caoys@gmail.com>, dmaengine@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Frank Li <Frank.Li@nxp.com>
-X-Mailer: b4 0.15.2
+Message-ID: <512b77d5.993b.19eed207fc9.Coremail.lizhi2@eswincomputing.com>
+X-Coremail-Locale: en_US
+X-CM-TRANSID: TAJkCgDHW3DHmzhqEvksAA--.8326W
+X-CM-SenderInfo: xol2xx2s6h245lqf0zpsxwx03jof0z/1tbiAgEGDGo4EpcWfAACs2
+X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VWxJw
+	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
+	daVFxhVjvjDU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260621_183837_993559_22DFF412 
-X-CRM114-Status: GOOD (  12.84  )
+X-CRM114-CacheID: sfid-20260621_192025_916163_D9166919 
+X-CRM114-Status: GOOD (  24.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,71 +84,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi everyone,
-
-This patch series introduces support for the Allwinner A733 DMA
-controller in the `sun6i-dma` driver.
-
-The A733 DMA controller differs from previous generations in several key
-ways:
-1. It supports higher address (up to 32G).
-2. It uses a different interrupt register layout and mapping.
-3. It has a different number of channels per interrupt register.
-
-To support these differences without introducing complex conditional
-logic throughout the driver, this series first refactors the
-`sun6i_dma_config` structure. By moving interrupt handling, register
-dumping, and address configuration into function pointers within the
-configuration structure. This allows the driver to support the A733
-and future hardware revisions. It also aligns with the DMA drivers in
-Radxa BSP Package[1].
-
-The series is organized as follows:
-- Refactors the configuration structure to include function pointers for
-  interrupt and register operations.
-- Moves address setting logic into the configuration structure to handle
-  varying address widths.
-- Adds support for variable channels per interrupt register.
-- Updates the device tree bindings documentation.
-- Implements the A733-specific configuration and register mappings.
-
-Tested on Radxa Cubie A7Z.
-
-[1] https://github.com/radxa/allwinner-bsp/blob/cubie-aiot-v1.4.8/drivers/dma/sunxi-dma.c
-
-Thanks!
-
-Signed-off-by: Yuanshen Cao <alex.caoys@gmail.com>
----
-Changes in v3:
-- Reword patches for clarity.
-- Link to v2: https://patch.msgid.link/20260621-sun60i-a733-dma-v2-0-340f205891cc@gmail.com
----
-Changes in v2:
-- Implement SUN6I_DMA_IRQ_A31_COMMON_OPS macro to avoid duplicate.
-- Move set_addr into helper function and revert back sun6i_dma_set_addr.
-- Rename chan_num to irq_req to avoid misleading name as suggested by
-  sashiko.
-- Reorder and reword the dtbinding patch for more clarity.
-- Link to v1: https://patch.msgid.link/20260619-sun60i-a733-dma-v1-0-da4b649fc72a@gmail.com
-
----
-Yuanshen Cao (5):
-      dmaengine: sun6i-dma: Refactor to support A733 interrupt and register handling
-      dmaengine: sun6i-dma: Add set_addr function pointer for variable address widths
-      dmaengine: sun6i-dma: Add num_channels_per_reg for flexible interrupt mapping
-      dt-bindings: dmaengine: sun50i-a64-dma: Add allwinner,sun60i-a733-dma compatible string
-      dmaengine: sun6i-dma: Add support for Allwinner A733 DMA controller
-
- .../bindings/dma/allwinner,sun50i-a64-dma.yaml     |   2 +
- drivers/dma/sun6i-dma.c                            | 197 +++++++++++++++++++--
- 2 files changed, 181 insertions(+), 18 deletions(-)
----
-base-commit: 8cd9520d35a6c38db6567e97dd93b1f11f185dc6
-change-id: 20260619-sun60i-a733-dma-c2455149165d
-
-Best regards,
---  
-Yuanshen Cao <alex.caoys@gmail.com>
-
+CgoKPiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2VzLS0tLS0KPiBGcm9tOiAiQW5kcmV3IEx1bm4iIDxh
+bmRyZXdAbHVubi5jaD4KPiBTZW5kIHRpbWU6U2F0dXJkYXksIDEzLzA2LzIwMjYgMTU6NDg6NDYK
+PiBUbzogIk1heGltZSBDaGV2YWxsaWVyIiA8bWF4aW1lLmNoZXZhbGxpZXJAYm9vdGxpbi5jb20+
+Cj4gQ2M6IGxpemhpMkBlc3dpbmNvbXB1dGluZy5jb20sIGRldmljZXRyZWVAdmdlci5rZXJuZWwu
+b3JnLCBhbmRyZXcrbmV0ZGV2QGx1bm4uY2gsIGRhdmVtQGRhdmVtbG9mdC5uZXQsIGVkdW1hemV0
+QGdvb2dsZS5jb20sIGt1YmFAa2VybmVsLm9yZywgcm9iaEBrZXJuZWwub3JnLCBrcnprK2R0QGtl
+cm5lbC5vcmcsIGNvbm9yK2R0QGtlcm5lbC5vcmcsIG5ldGRldkB2Z2VyLmtlcm5lbC5vcmcsIHBh
+YmVuaUByZWRoYXQuY29tLCBtY29xdWVsaW4uc3RtMzJAZ21haWwuY29tLCBhbGV4YW5kcmUudG9y
+Z3VlQGZvc3Muc3QuY29tLCBybWsra2VybmVsQGFybWxpbnV4Lm9yZy51aywgcGp3QGtlcm5lbC5v
+cmcsIHBhbG1lckBkYWJiZWx0LmNvbSwgYW91QGVlY3MuYmVya2VsZXkuZWR1LCBhbGV4QGdoaXRp
+LmZyLCBsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnLCBsaW51eC1zdG0zMkBzdC1tZC1t
+YWlsbWFuLnN0b3JtcmVwbHkuY29tLCBsaW51eC1hcm0ta2VybmVsQGxpc3RzLmluZnJhZGVhZC5v
+cmcsIGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmcsIG5pbmd5dUBlc3dpbmNvbXB1dGluZy5j
+b20sIGxpbm1pbkBlc3dpbmNvbXB1dGluZy5jb20sIHBpbmtlc2gudmFnaGVsYUBlaW5mb2NoaXBz
+LmNvbSwgcHJpdGVzaC5wYXRlbEBlaW5mb2NoaXBzLmNvbSwgd2Vpc2hhbmdqdWFuQGVzd2luY29t
+cHV0aW5nLmNvbSwgaG9ybXNAa2VybmVsLm9yZywgbGVlQGtlcm5lbC5vcmcKPiBTdWJqZWN0OiBS
+ZTogW1BBVENIIG5ldC1uZXh0IHY4IDMvNl0gbmV0OiBzdG1tYWM6IGVpYzc3MDA6IG1ha2UgUkdN
+SUkgZGVsYXkgcHJvcGVydGllcyBvcHRpb25hbAo+IAo+IE9uIFdlZCwgSnVuIDEwLCAyMDI2IGF0
+IDEwOjI2OjUwQU0gKzAyMDAsIE1heGltZSBDaGV2YWxsaWVyIHdyb3RlOgo+ID4gSGksCj4gPiAK
+PiA+IE9uIDYvMTAvMjYgMDM6MjksIGxpemhpMkBlc3dpbmNvbXB1dGluZy5jb20gd3JvdGU6Cj4g
+PiA+IEZyb206IFpoaSBMaSA8bGl6aGkyQGVzd2luY29tcHV0aW5nLmNvbT4KPiA+ID4gCj4gPiA+
+IE1ha2UgcngtaW50ZXJuYWwtZGVsYXktcHMgYW5kIHR4LWludGVybmFsLWRlbGF5LXBzIG9wdGlv
+bmFsIGluIHRoZQo+ID4gPiBFSUM3NzAwIERXTUFDIGRyaXZlci4KPiA+ID4gCj4gPiA+IFRoZSBk
+cml2ZXIgcHJldmlvdXNseSByZXF1aXJlZCBib3RoIHByb3BlcnRpZXMgdG8gYmUgcHJlc2VudCBh
+bmQgd291bGQKPiA+ID4gZmFpbCBwcm9iZSB3aGVuIHRoZXkgd2VyZSBtaXNzaW5nLiBUaGlzIHJl
+c3RyaWN0cyB2YWxpZCBoYXJkd2FyZQo+ID4gPiBjb25maWd1cmF0aW9ucyB3aGVyZSBSR01JSSB0
+aW1pbmcgaXMgaW5zdGVhZCBwcm92aWRlZCBieSB0aGUgUEhZIG9yCj4gPiA+IGJvYXJkIGRlc2ln
+bi4KPiA+ID4gCj4gPiA+IFVwZGF0ZSB0aGUgZHJpdmVyIHRvIHRyZWF0IG1pc3NpbmcgZGVsYXkg
+cHJvcGVydGllcyBhcyB6ZXJvIGRlbGF5LAo+ID4gPiBhbGxvd2luZyBzeXN0ZW1zIHdpdGhvdXQg
+ZXhwbGljaXQgTUFDLXNpZGUgZGVsYXkgdHVuaW5nIHRvIG9wZXJhdGUKPiA+ID4gY29ycmVjdGx5
+Lgo+ID4gPiAKPiA+ID4gVGhpcyBhbGlnbnMgdGhlIGRyaXZlciBiZWhhdmlvciB3aXRoIHRoZSB1
+cGRhdGVkIGRldmljZSB0cmVlIGJpbmRpbmcKPiA+ID4gYW5kIHByb3ZpZGVzIGEgc2FmZSBkZWZh
+dWx0IGNvbmZpZ3VyYXRpb24gd2hlbiBNQUMtc2lkZSBkZWxheQo+ID4gPiBwcm9ncmFtbWluZyBp
+cyBub3QgcmVxdWlyZWQuCj4gPiA+IAo+ID4gPiBTaWduZWQtb2ZmLWJ5OiBaaGkgTGkgPGxpemhp
+MkBlc3dpbmNvbXB1dGluZy5jb20+Cj4gPiA+IC0tLQo+ID4gPiAgZHJpdmVycy9uZXQvZXRoZXJu
+ZXQvc3RtaWNyby9zdG1tYWMvZHdtYWMtZWljNzcwMC5jIHwgNiAtLS0tLS0KPiA+ID4gIDEgZmls
+ZSBjaGFuZ2VkLCA2IGRlbGV0aW9ucygtKQo+ID4gPiAKPiA+ID4gZGlmZiAtLWdpdCBhL2RyaXZl
+cnMvbmV0L2V0aGVybmV0L3N0bWljcm8vc3RtbWFjL2R3bWFjLWVpYzc3MDAuYyBiL2RyaXZlcnMv
+bmV0L2V0aGVybmV0L3N0bWljcm8vc3RtbWFjL2R3bWFjLWVpYzc3MDAuYwo+ID4gPiBpbmRleCA0
+YWM5NzlkODc0ZDYuLmVjOTliNTk3YWVhZiAxMDA2NDQKPiA+ID4gLS0tIGEvZHJpdmVycy9uZXQv
+ZXRoZXJuZXQvc3RtaWNyby9zdG1tYWMvZHdtYWMtZWljNzcwMC5jCj4gPiA+ICsrKyBiL2RyaXZl
+cnMvbmV0L2V0aGVybmV0L3N0bWljcm8vc3RtbWFjL2R3bWFjLWVpYzc3MDAuYwo+ID4gPiBAQCAt
+MTY1LDkgKzE2NSw2IEBAIHN0YXRpYyBpbnQgZWljNzcwMF9kd21hY19wcm9iZShzdHJ1Y3QgcGxh
+dGZvcm1fZGV2aWNlICpwZGV2KQo+ID4gPiAgCQlkd2NfcHJpdi0+ZXRoX2Nsa19kbHlfcGFyYW0g
+Jj0gfkVJQzc3MDBfRVRIX1JYX0FESl9ERUxBWTsKPiA+ID4gIAkJZHdjX3ByaXYtPmV0aF9jbGtf
+ZGx5X3BhcmFtIHw9Cj4gPiA+ICAJCQkJIEZJRUxEX1BSRVAoRUlDNzcwMF9FVEhfUlhfQURKX0RF
+TEFZLCB2YWwpOwo+ID4gPiAtCX0gZWxzZSB7Cj4gPiA+IC0JCXJldHVybiBkZXZfZXJyX3Byb2Jl
+KCZwZGV2LT5kZXYsIC1FSU5WQUwsCj4gPiA+IC0JCQkibWlzc2luZyByZXF1aXJlZCBwcm9wZXJ0
+eSByeC1pbnRlcm5hbC1kZWxheS1wc1xuIik7Cj4gPiA+ICAJfQo+ID4gPiAgCj4gPiA+ICAJLyog
+UmVhZCB0eC1pbnRlcm5hbC1kZWxheS1wcyBhbmQgdXBkYXRlIHR4X2NsayBkZWxheSAqLwo+ID4g
+PiBAQCAtMTg3LDkgKzE4NCw2IEBAIHN0YXRpYyBpbnQgZWljNzcwMF9kd21hY19wcm9iZShzdHJ1
+Y3QgcGxhdGZvcm1fZGV2aWNlICpwZGV2KQo+ID4gPiAgCQlkd2NfcHJpdi0+ZXRoX2Nsa19kbHlf
+cGFyYW0gJj0gfkVJQzc3MDBfRVRIX1RYX0FESl9ERUxBWTsKPiA+ID4gIAkJZHdjX3ByaXYtPmV0
+aF9jbGtfZGx5X3BhcmFtIHw9Cj4gPiA+ICAJCQkJIEZJRUxEX1BSRVAoRUlDNzcwMF9FVEhfVFhf
+QURKX0RFTEFZLCB2YWwpOwo+ID4gPiAtCX0gZWxzZSB7Cj4gPiA+IC0JCXJldHVybiBkZXZfZXJy
+X3Byb2JlKCZwZGV2LT5kZXYsIC1FSU5WQUwsCj4gPiA+IC0JCQkibWlzc2luZyByZXF1aXJlZCBw
+cm9wZXJ0eSB0eC1pbnRlcm5hbC1kZWxheS1wc1xuIik7Cj4gPiA+ICAJfQo+ID4gCj4gPiBJIHRo
+aW5rIHRoZW4geW91IG5lZWQgdG8gaGFuZGxlIFJHTUlJLCBSR01JSV9JRCwgUkdNSUlfUlhJRCBh
+bmQgUkdNSUlfVFhJRCwKPiA+IGJ5IHVzaW5nIGRlZmF1bHQgZGVsYXlzIGZvciB0aGVzZSAodXN1
+YWxseSBhcm91bmQgMm5zKSwgYXMgaGVyZSBhbGwgZGVsYXlzCj4gPiB3aWxsIGJlIHNldCB0byAw
+LCByZWdhcmRsZXNzIG9mIHRoZSBSR01JSSBtb2RlIGluIHVzZS4KPiAKPiBOby4gQnkgZGVmYXVs
+dCwgdGhlIE1BQyBhZGRzIDBucyBkZWxheSwgYW5kIHBhc3NlcyB0aGUgcGh5LW1vZGUgdG8gdGhl
+Cj4gUEhZLiBJdCB3aWxsIHRoZW4gYWRkIHRoZSAybnMgZGVsYXkuIEl0IGlzIHBvc3NpYmxlIHRv
+IHVzZSB0aGUKPiB0eC1pbnRlcm5hbC1kZWxheS1wcyBhbmQgcngtaW50ZXJuYWwtZGVsYXktcHMg
+aW4gdGhlIE1BQyB0byBhZGQgc21hbGwKPiB0dW5pbmcgZGVsYXlzLCBidXQgbm90IHRoZSBmdWxs
+IDJucy4KPiAKPiBodHRwczovL2VsaXhpci5ib290bGluLmNvbS9saW51eC92Ni4xNS9zb3VyY2Uv
+RG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL25ldC9ldGhlcm5ldC1jb250cm9sbGVy
+LnlhbWwjTDI4Nwo+IAoKVGhhbmtzIGZvciB0aGUgZWFybGllciBkaXNjdXNzaW9uIGFuZCBmb3Ig
+aGVscGluZyBjbGFyaWZ5IHRoZSBldGgwCmRlc2lnbi4KCkknbSBwcmVwYXJpbmcgYSB2OSBvZiB0
+aGUgc2VyaWVzLiBUaGUgbmV4dCByZXZpc2lvbiB3aWxsIGFkZHJlc3MgdGhlCmlzc3VlcyByZXBv
+cnRlZCBieSBTYXNoaWtvIHJldmlldywgbWFpbmx5IERUIGJpbmRpbmcgc2NoZW1hIGFuZCBEVFMK
+d2FybmluZ3MuCgpCZWZvcmUgSSBwb3N0IHY5LCBJJ2QgbGlrZSB0byBjaGVjayB3aGV0aGVyIHlv
+dSBoYXZlIGFueSBjb25jZXJucyBvcgpzdWdnZXN0aW9ucyByZWdhcmRpbmcgdGhlIGRyaXZlciBj
+aGFuZ2VzLgoKVGhhbmtzLApaaGkK
 
