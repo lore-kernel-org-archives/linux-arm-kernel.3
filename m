@@ -4,59 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCE50CDB470
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 14:50:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32BEDCDB46F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 14:52:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5FxiXI2Cp5YdtBkdSD+qNScBXccHcZeYoAW8t2qi+Yc=; b=1GOXA8+z2WnFzM2EbbRAryt/Yx
-	hMxW5mg/pTxgevm9PReu6E044DmKSsqQaLaUDF8QoG1hGCVVDSb7Pd0eeJZ+tNCVGxnzxXB+Yf+4c
-	qJvC81nFgHvQ8Q7p9ws0BKKEJmH9LHYVNMIfNNY0YBAFWT0bnXR+gPVjS86ZPl7vBW61C83ulMQo6
-	bAViRFhqvx/3n7vQxCzpPeqyGouQnRexZRt0X4nibI2v8LWX2wG1xvuKbwgW1+87k0l455+vlpnqd
-	4Z4db5vkiiiETvbcid+Vv0ltiPzKKbwsidTYukBcJ0N4w8Ue+zpkpK43HudSaOxlsEpMpZulf8fdy
-	wQ03haNA==;
+	bh=MRk82QwwQ0h9J0y/PqCawImukpeJnfRLpbydiH898bk=; b=j6qCAUaAY+rWGWt6eeMZcN+nm2
+	GVH7C0SH31rtFS7zdLKWxGvrs2fMio/nAgcCQsN1wlv5WbKMquAMpoS8OCjuLx7e+8PHve14hy7Zi
+	xguLl81ouB+MTqpdKU2R39ALdSoa+vcVBjSOa1FsrsnsCnxenYZ88j4CJalevLdrlTP2g56Vv0Fsm
+	Y4ZBHRIskWOvm32YaisoN91EmSe+yNPBOohefeK/CJ7PsqdB72HIPRR/nQBhssu/0n+U3Ga50DKGK
+	8xHRXtLXB3VGiNfgLyHqNX+9tNx4oMhwSJQO/wieFAU4iYZXeaJ9HXeEK4DoCQtiu7MQvdTG7yhGT
+	1xm1K8eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbfyY-000000056An-25Vr;
-	Mon, 22 Jun 2026 14:50:14 +0000
-Received: from [38.23.173.23] (helo=localhost)
-	by bombadil.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbfyR-00000005693-3OS3;
-	Mon, 22 Jun 2026 14:50:07 +0000
-Date: Mon, 22 Jun 2026 10:50:02 -0400
-From: "Liam R. Howlett" <liam@infradead.org>
-To: Barry Song <baohua@kernel.org>
-Cc: Matthew Wilcox <willy@infradead.org>, 
-	Suren Baghdasaryan <surenb@google.com>, Lorenzo Stoakes <ljs@kernel.org>, 
-	"David Hildenbrand (Arm)" <david@kernel.org>, akpm@linux-foundation.org, linux-mm@kvack.org, vbabka@kernel.org, 
-	rppt@kernel.org, mhocko@suse.com, jack@suse.cz, pfalcato@suse.de, 
-	wanglian@kylinos.cn, chentao@kylinos.cn, lianux.mm@gmail.com, kunwu.chan@gmail.com, 
-	liyangouwen1@oppo.com, chrisl@kernel.org, kasong@tencent.com, shikemeng@huaweicloud.com, 
-	nphamcs@gmail.com, bhe@redhat.com, youngjun.park@lge.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, loongarch@lists.linux.dev, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-	Nanzhe Zhao <nzzhao@126.com>
-Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
- fault performance
-Message-ID: <c5soxcu245cerfljr2ddto4h7xqksfxzxti47mq6sqn6pnmnxh@th5kxapvnaj3>
-References: <ag4h87CBd-gph9zX@casper.infradead.org>
- <CAGsJ_4zA8afu0xXy0WS+tMe-eesDX1W6UBmfAsuouUpcAgK8JQ@mail.gmail.com>
- <ag4kj84EcKqamdB-@casper.infradead.org>
- <3be9475b-0e8a-4df8-a130-4262f993973d@kernel.org>
- <CAGsJ_4xC5LdhuoWV1=tK-RZ5rkjc8aOKOkmb1L_8BG_3gtJhDg@mail.gmail.com>
- <ahB6QyHgYq8ksj65@lucifer>
- <CAGsJ_4zxLvZ01i19vdo0xA47T1hxa1VRYvxLmiDhy5q1GDKPRg@mail.gmail.com>
- <CAJuCfpHTxaU4KdNmefU7C7cWZSLCFDLPdUrnqV6yzxzN+8RQ0Q@mail.gmail.com>
- <ajhOUdbWsswgQyl2@casper.infradead.org>
- <CAGsJ_4ybg5LGYopTUJTh5R2rN6X3uR9xoJSL+RdTYVtm1-xqLg@mail.gmail.com>
+	id 1wbg0a-000000056RM-3cKd;
+	Mon, 22 Jun 2026 14:52:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wbg0Z-000000056R9-0BLT
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 22 Jun 2026 14:52:19 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 32672601F9;
+	Mon, 22 Jun 2026 14:52:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 712C31F000E9;
+	Mon, 22 Jun 2026 14:52:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782139937;
+	bh=MRk82QwwQ0h9J0y/PqCawImukpeJnfRLpbydiH898bk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=fk+J5dKxpVVgzAXe6D1AdzHmgmKcPTAaJwagi9u3JUEXbDisXafMljRrDSGoRU+wZ
+	 BzNN4F5v7MROrdY8FH9XqMlqpryp46qr4gC2yjuFvDjHOJbFWusxhHi8uIdT5ep1c2
+	 QDyJ/Hd78JpUorLWiTMuSn1Zz3v6vQcWvdSH36E/brYyixAqCArZ9tGdfb1W2gVuIH
+	 5GznVxwGtRg1LMLWPS06eQFqCmgg5SCu7rZIG7CVkH+FIsxA+aT0bcdw9qzygdDbZ8
+	 xHmnFogFtq6gtRxFe7vDHjS+NR2xfB1mU3wrIG+X8OxkyN6jUbaCYaNVLJUVaeypVW
+	 +0SK0nUK3gVqA==
+Date: Mon, 22 Jun 2026 16:52:08 +0200
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Aksh Garg <a-garg7@ti.com>
+Cc: linux-pci@vger.kernel.org, vigneshr@ti.com, s-vadapalli@ti.com, 
+	lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, bhelgaas@google.com, 
+	mpillai@cadence.com, unicorn_wang@outlook.com, me@ziyao.cc, 18255117159@163.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, danishanwar@ti.com
+Subject: Re: [PATCH] PCI: cadence: skip the link polling when endpoint not
+ connected
+Message-ID: <4lijgllolvtbvmzmluuslhkc7empdpizxhva6ysau7kssuqd5z@drkzb5afd4ba>
+References: <20260605071922.1724499-1-a-garg7@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAGsJ_4ybg5LGYopTUJTh5R2rN6X3uR9xoJSL+RdTYVtm1-xqLg@mail.gmail.com>
+In-Reply-To: <20260605071922.1724499-1-a-garg7@ti.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,113 +72,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/06/22 08:15AM, Barry Song wrote:
-> On Mon, Jun 22, 2026 at 4:49 AM Matthew Wilcox <willy@infradead.org> wrote:
-> >
-> > On Sat, Jun 20, 2026 at 04:48:57PM -0700, Suren Baghdasaryan wrote:
-> > > Just checking in on the followup plans. IIUC the RFC mentioned will
-> > > try to implement the solution we discussed at LSFMM: splitting
-> > > VM_FAULT_RETRY into two flags - one for retrying under per-VMA locks
-> > > and another one to fallback to mmap_lock.
-> >
-> > I continue to hate this idea.  I don't believe that those who were
-> > pushing for it have ever tried to understand the whole fault path.
-> > It's utterly byzantine.
-> >
-> > I defy anyone to make sense of this:
-> >
-> >         /*
-> >          * NOTE! This will make us return with VM_FAULT_RETRY, but with
-> >          * the fault lock still held. That's how FAULT_FLAG_RETRY_NOWAIT
-> >          * is supposed to work. We have way too many special cases..
-> >          */
-> >         if (vmf->flags & FAULT_FLAG_RETRY_NOWAIT)
-> >                 return 0;
-> >
-> >         *fpin = maybe_unlock_mmap_for_io(vmf, *fpin);
-> >         if (vmf->flags & FAULT_FLAG_KILLABLE) {
-> >                 if (__folio_lock_killable(folio)) {
-> >                         /*
-> >                          * We didn't have the right flags to drop the
-> >                          * fault lock, but all fault_handlers only check
-> >                          * for fatal signals if we return VM_FAULT_RETRY,
-> >                          * so we need to drop the fault lock here and
-> >                          * return 0 if we don't have a fpin.
-> >                          */
-> >                         if (*fpin == NULL)
-> >                                 release_fault_lock(vmf);
-> >                         return 0;
-> >                 }
-> >
-> > Wed need to simplify the fault path, not add additional complexity.
-> > Josef has said he wouldn't've done the lock dropping had we had per-VMA
-> > locks.  We should rip it out.
+On Fri, Jun 05, 2026 at 12:49:22PM +0530, Aksh Garg wrote:
+> cdns_pcie_host_wait_for_link() polls on link-up for 10 retries with a
+> delay of 90-100ms each (~1 second). A call to cdns_pcie_host_link_setup()
+> during the resume operation blocks the resume operation unnecessarily for
+> ~1s even when no endpoint device is connected.
 > 
-> I think you have agreed that, at least for anon vma, we can
-> keep the current policy, since anon vma is much more volatile
-> than file vma.
-
-I don't think any of the above has to do with anon vmas.  Does any anon
-vma handling have anything to do with your problem?
-
-This would be needed if anon vmas were being faulted while being
-unmapped or merged?  Do we really need a fast path for that?  Note that
-anon vmas cannot be merged if the vma chain... you know what, I wonder
-how many people know what I'm talking about here... Let's just say that
-they can't be merged if they were around for a fork.
-
-So, then, we're looking at anon vmas taking the mmap lock on:
-1. single task anon vmas being expanded and faulted at the same time
-2. single task anon vmas being unmapped and faulted at the same time
-
-I think that's it?
-
-But maybe I missed something critical about your use case here?
-
-I don't understand why you are involving anon vmas in this discussion,
-so I must have missed something with your IO completion issue.  Is there
-an anon vma causing your priority inversion?
-
-> Concurrent page faults and VMA modifications can happen more
-> often than with file VMAs.
-
-But it's only a problem for anon vmas with per-vma locking if it's the
-same vma (or the vma lock sequence counter overflows, but let's say
-that's a statistically insignificant non-zero value).
-
+> Add skip_link_polling flag to track link state across suspend/resume
+> cycles. If link was down before suspend, skip the expensive polling
+> in resume since no endpoint was present.
 > 
-> For file vmas, how much code can we actually remove, given that
-> the first page fault might already be holding mmap_lock?
 
-How much complexity can we remove and maintain the performance, might be
-a better question.
+Won't you need the delay if a device gets plugged while the host was suspended?
+We had this same concern with the DWC drivers and we left the delay as-is as
+nothing prevents an user to connect a device when the host was suspended.
 
-> It could be the case that lock_vma_under_rcu() fails, and then
-> on the first page fault we end up holding mmap_lock before
-> retrying. So are we also going to rip out the lock release,
-> even if it risks holding mmap_lock for a long time?
+- Mani
+
+> Signed-off-by: Aksh Garg <a-garg7@ti.com>
+> ---
+>  drivers/pci/controller/cadence/pci-j721e.c             | 5 +++++
+>  drivers/pci/controller/cadence/pcie-cadence-host-hpa.c | 3 +++
+>  drivers/pci/controller/cadence/pcie-cadence-host.c     | 3 +++
+>  drivers/pci/controller/cadence/pcie-cadence.h          | 3 +++
+>  4 files changed, 14 insertions(+)
 > 
->         vma = lock_vma_under_rcu(mm, addr);
->         if (!vma)
->                 goto lock_mmap;
->        ...
-> lock_mmap:
+> diff --git a/drivers/pci/controller/cadence/pci-j721e.c b/drivers/pci/controller/cadence/pci-j721e.c
+> index bfdfe98d5aba..849eb8bb9e45 100644
+> --- a/drivers/pci/controller/cadence/pci-j721e.c
+> +++ b/drivers/pci/controller/cadence/pci-j721e.c
+> @@ -686,6 +686,11 @@ static int j721e_pcie_suspend_noirq(struct device *dev)
+>  	struct j721e_pcie *pcie = dev_get_drvdata(dev);
+>  
+>  	if (pcie->mode == PCI_MODE_RC) {
+> +		struct cdns_pcie_rc *rc = cdns_pcie_to_rc(pcie->cdns_pcie);
+> +
+> +		/* If link is down before suspend, skip polling in resume */
+> +		rc->skip_link_polling = !j721e_pcie_link_up(pcie->cdns_pcie);
+> +
+>  		gpiod_set_value_cansleep(pcie->reset_gpio, 0);
+>  		clk_disable_unprepare(pcie->refclk);
+>  	}
+> diff --git a/drivers/pci/controller/cadence/pcie-cadence-host-hpa.c b/drivers/pci/controller/cadence/pcie-cadence-host-hpa.c
+> index 0f540bed58e8..d78c1282a5ee 100644
+> --- a/drivers/pci/controller/cadence/pcie-cadence-host-hpa.c
+> +++ b/drivers/pci/controller/cadence/pcie-cadence-host-hpa.c
+> @@ -301,6 +301,9 @@ int cdns_pcie_hpa_host_link_setup(struct cdns_pcie_rc *rc)
+>  		return ret;
+>  	}
+>  
+> +	if (rc->skip_link_polling)
+> +		return 0;
+> +
+>  	ret = cdns_pcie_host_wait_for_link(pcie, cdns_pcie_hpa_link_up);
+>  	if (ret)
+>  		dev_dbg(dev, "PCIe link never came up\n");
+> diff --git a/drivers/pci/controller/cadence/pcie-cadence-host.c b/drivers/pci/controller/cadence/pcie-cadence-host.c
+> index 0bc9e6e90e0e..026414c21ee1 100644
+> --- a/drivers/pci/controller/cadence/pcie-cadence-host.c
+> +++ b/drivers/pci/controller/cadence/pcie-cadence-host.c
+> @@ -352,6 +352,9 @@ int cdns_pcie_host_link_setup(struct cdns_pcie_rc *rc)
+>  		return ret;
+>  	}
+>  
+> +	if (rc->skip_link_polling)
+> +		return 0;
+> +
+>  	ret = cdns_pcie_host_start_link(rc, cdns_pcie_link_up);
+>  	if (ret)
+>  		dev_dbg(dev, "PCIe link never came up\n");
+> diff --git a/drivers/pci/controller/cadence/pcie-cadence.h b/drivers/pci/controller/cadence/pcie-cadence.h
+> index 574e9cf4d003..01e49ecccc7b 100644
+> --- a/drivers/pci/controller/cadence/pcie-cadence.h
+> +++ b/drivers/pci/controller/cadence/pcie-cadence.h
+> @@ -117,6 +117,8 @@ struct cdns_pcie {
+>   * @no_inbound_map: Whether inbound mapping is supported
+>   * @quirk_broken_aspm_l0s: Disable ASPM L0s support as quirk
+>   * @quirk_broken_aspm_l1: Disable ASPM L1 support as quirk
+> + * @skip_link_polling: Skip link polling in resume if link was down before
+> + *		       suspend, to avoid long delay in resume
+>   */
+>  struct cdns_pcie_rc {
+>  	struct cdns_pcie	pcie;
+> @@ -131,6 +133,7 @@ struct cdns_pcie_rc {
+>  	unsigned int            no_inbound_map:1;
+>  	unsigned int            quirk_broken_aspm_l0s:1;
+>  	unsigned int            quirk_broken_aspm_l1:1;
+> +	unsigned int		skip_link_polling:1;
+>  };
+>  
+>  /**
+> -- 
+> 2.34.1
 > 
->         vma = lock_mm_and_find_vma(mm, addr, regs);
->         if (unlikely(!vma)) {
->                 fault = 0;
->                 si_code = SEGV_MAPERR;
->                 goto bad_area;
->         }
-> 
-> If we still need to keep the page fault retry code there, it
-> doesn't seem like "ripping out" really reduces complexity in
-> the page fault code?
 
-This seems unrelated to be above complexity that might be the target of
-removal?
-
-Thanks,
-Liam
-
+-- 
+மணிவண்ணன் சதாசிவம்
 
