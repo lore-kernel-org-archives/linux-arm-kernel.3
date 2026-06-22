@@ -4,61 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4173FCDB46F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 10:57:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 110CFCDB46F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 11:03:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BeHcTS/z7AXMwiJASQFJXorWiTpaBk9eiyGNMafLTr8=; b=2ooNl3LcV9hlY0I9W2knZ7f00J
-	7OwBVOiSm/LIEK+JcA7n90U17CPwi5UVC+K1EtN0ihxDZUV4WtxI8SIVCYhyLsiL3GxtuGXAZPbbg
-	zBcEyOS7p/PPGiBLe3FDZh7qCT+6ghKHOgsPLnxyPlc90MAsYyc7141K/E4SW196CUhgjzbCqqRXt
-	+sTf9ddzn9QO2T64LZFgiAeJOGSH3JON/N3Sjjf6yJs9IHGpfN2NLl819vgWNRv//yxsORyi5P6v4
-	e9yS+xL4jjGZY7eio1llyIJ6ygqlQVkLsgnGU2O7G61gfXBg/WsBSLQPj9da/t5Pulz7KlosXokdK
-	rrstfQJA==;
+	bh=soCCb/qqcor7YOsqcDgZpD4kqOQExcgQHIU/hxZoPnY=; b=o5JcCKbGZ/iDkDd5PaCbeM9/Mj
+	TUfxElawu9mG2GxerG6F3qCpYfqTIbSZ9FnOkxHydvCvuBmhjVE+JR/0yLaS0MwA71dfdkuyfHEry
+	AD0CqbyzqKeEvywsdHYPSnWs6HQVqEEQmVMnni0/nhRVqo517JvGN6XnKkh0ru5h9/WYa4DzQbpMR
+	VEIRpNUknUWOIgo52PMPnb4pJ2NAkStx8Rd2igMp5hbtSsNDAYO0RisxI85NWeA4KTpDqK3Qes7tb
+	NGsmZ2WmPNQ+tnfe+mxkWTSDUubUvKRnmW9cvd3axJ+Dwc8T5zQMDM02kJffdXrxtb2zyIU4ITJTW
+	FyBLVSsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbcLR-00000004ri1-0WaR;
-	Mon, 22 Jun 2026 10:57:37 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wbcQi-00000004s4F-3LgK;
+	Mon, 22 Jun 2026 11:03:04 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbcLP-00000004rhm-1Obg;
-	Mon, 22 Jun 2026 10:57:35 +0000
+	id 1wbcQh-00000004s3x-41Hw
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 22 Jun 2026 11:03:04 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B12704354C;
-	Mon, 22 Jun 2026 10:57:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FA041F000E9;
-	Mon, 22 Jun 2026 10:57:33 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id F1DCD6001A;
+	Mon, 22 Jun 2026 11:03:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3BBF1F000E9;
+	Mon, 22 Jun 2026 11:03:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782125854;
-	bh=BeHcTS/z7AXMwiJASQFJXorWiTpaBk9eiyGNMafLTr8=;
+	s=k20260515; t=1782126182;
+	bh=soCCb/qqcor7YOsqcDgZpD4kqOQExcgQHIU/hxZoPnY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Sn7jRwKYodQnEtNuXEzdY0BHPGq+TWV+tnYZMBNkkotfzIp8krj8T+jcHMC0ZmrhN
-	 UWbHcpIXdDwpEkuf7d34w8jDD2bNkfP4xUAaoR22ZFRYtKL7qNsOHIFlWEUOezGiFw
-	 +1c+SQ1y3+q6K9cLu3mhnCNzX0Dh8jP21lvACK85aEmrkqI/HbsCCWIVuKs0D4ztNl
-	 OPoW3rNuNwPkLxYPfAcyvx1Wvb9E+zJb7NjVeY7GsxTSVUu8FB2z9aMbZ01uGHuGMI
-	 A6JJrSfZtwDa8dm5w0o7vhMQKehDT4+sxylTg35NG0QE335rWgC5b4SsR39vxsQL3f
-	 z16vM3ONKeSxw==
-Date: Mon, 22 Jun 2026 12:57:30 +0200
+	b=cUuWXWvvFScX3vy2Lk1wKqpow2Zs9ZYXoikPy5C6W5tbFCu2SRdG3YnaiOsAKg//4
+	 dFIXSXeDBzxwCXrwPWi3qwz6kSEubHpik5M5VKneb/zCcrPxN+TSkxFwQtyZDNKsm1
+	 BjDXupe4EH+0dGL16Uswz8RZEhLUykLy2DZfzM8GOGO1H6vKgjLoI7ZYmdWteS91wU
+	 ZMn+js6raYOT38MILewRnhqvRolEEx5pXyTFirmMo/7mz6q0BM7ozBTIfFSOvEjE2P
+	 2gykRRSsR53SGY2kuppFumaSUUwwgA4KjBULaOjWk8EDiswboRD83xZa9moml+6dzs
+	 NGtjRRVVjCyPA==
+Date: Mon, 22 Jun 2026 13:02:58 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Zakariya Hadrami <zkh1@proton.me>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Sean Wang <sean.wang@mediatek.com>, Wim Van Sebroeck <wim@linux-watchdog.org>, 
-	Guenter Roeck <linux@roeck-us.net>, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-watchdog@vger.kernel.org
-Subject: Re: [PATCH v2 2/5] dt-bindings: arm: mediatek: Add MT8127 Amazon ford
-Message-ID: <20260622-holistic-scarlet-bison-23e25b@quoll>
-References: <20260617-mt8127-amazon-ford-basic-v2-0-6859e29e72a8@proton.me>
- <20260617-mt8127-amazon-ford-basic-v2-2-6859e29e72a8@proton.me>
+To: Golla Nagendra <nagendra.golla@amd.com>
+Cc: vkoul@kernel.org, Frank.Li@kernel.org, michal.simek@amd.com, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	jay.buddhabhatti@amd.com, harini.katakam@amd.com, m.tretter@pengutronix.de, 
+	radhey.shyam.pandey@amd.com, abin.joseph@amd.com, kees@kernel.org, 
+	sakari.ailus@linux.intel.com, git@amd.com, dmaengine@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH V2 1/3] dt-bindings: dma: xilinx: Add optional resets
+ property for ZDMA
+Message-ID: <20260622-ubiquitous-emerald-manul-daa5bb@quoll>
+References: <20260618071056.2024286-1-nagendra.golla@amd.com>
+ <20260618071056.2024286-2-nagendra.golla@amd.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260617-mt8127-amazon-ford-basic-v2-2-6859e29e72a8@proton.me>
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20260618071056.2024286-2-nagendra.golla@amd.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,15 +76,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 17, 2026 at 10:37:00PM +0900, Zakariya Hadrami wrote:
-> Add entry for the MT8127 based Amazon ford tablet.
-> 
-> Signed-off-by: Zakariya Hadrami <zkh1@proton.me>
-> ---
->  Documentation/devicetree/bindings/arm/mediatek.yaml | 1 +
->  1 file changed, 1 insertion(+)
+On Thu, Jun 18, 2026 at 12:40:54PM +0530, Golla Nagendra wrote:
+> From: Jay Buddhabhatti <jay.buddhabhatti@amd.com>
+>=20
+> Newer SoCs such as Versal Gen2 and Versal=E2=80=91Net expose a reset line
+> for ZDMA. Older SoCs do not have this provision. Add an optional
+> resets property to describe this reset.
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+It should be then restricted further per each variant/device in
+allOf:if:then: (see example-schema for syntax - ": false").
+
+>=20
+> Signed-off-by: Jay Buddhabhatti <jay.buddhabhatti@amd.com>
+> Co-developed-by: Golla Nagendra <nagendra.golla@amd.com>
+> Signed-off-by: Golla Nagendra <nagendra.golla@amd.com>
 
 Best regards,
 Krzysztof
