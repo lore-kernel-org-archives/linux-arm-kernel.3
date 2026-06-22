@@ -4,64 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2454ECDB46F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 09:35:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73CE6CDB46F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 09:35:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=OBdMhJJ0Y7gIABwR1q/8w26Nesukt0v7qHvKC0K0k5c=; b=CmpSwtERNgid/pZWIEXA3h8bub
-	3hWCWnttBD0aeRLajWGxLrD8FHzvKmGF75cKFxpq3eYY4nSmiG2Gpb2cPhWHxgGHVC/HAPCGFqPN8
-	MKsJA99XxLGDDzJ8wTSSL55Vmre2b+vsM2ivOVz/sY+Yt8LBOtsSwto24/FO/WNN7ZE5zYqfYzS1H
-	TgEbAC8/3Hd8JhfatNql7NZ5ENydQ4BlIauc4JToKnu8KvrI5t/tG/GIaon6rAFCUOaAOfv685u3e
-	FPx6aAwJKNJtL8Q6HF+QUD8wU5I85MtL5H4toUSDkGN7yUJz98siTom8H5rI9PE5p5ECsGuolWwsi
-	YqECizvg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=QDh8cyCuG0BvRFs/KskkYUXoHG61lWt4Q8mGTanX63I=; b=TMdosz7c1emDp9Wg8bNpfKFoxk
+	YtZNkln2CeeLLkazADFuPXJnwCUT/VmSItWedGqUci4wMOCWijO5cBkPyf/IjuQvkJ2ug/TI2ulnR
+	zdq37QR+V1wBkvyeKFufHSO4kr2t5nsD4YcR6bCysXNTekU2z0tVuYf9bWknscVf/hCQnkfr1J6li
+	X1vX4UZXLY4V1gTaZ2T583/U+7qFgqbWXgAXi4n2FRHLMAVKH46W6Oz29IG5rAbFmcUd6c5bxLLzl
+	6Y5ellk4RUH6FELc2P7HgYxGNDi8d1I3hOk0oNRZy0dmUjJJrKiMst7mvk31jNSdA+PEC+4SshVrs
+	n/x0MRsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbb3w-00000004lfP-0cYI;
-	Mon, 22 Jun 2026 09:35:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wbb41-00000004li4-1GsE;
+	Mon, 22 Jun 2026 09:35:33 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbb3v-00000004lf7-0FTM;
-	Mon, 22 Jun 2026 09:35:27 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8152D60051;
-	Mon, 22 Jun 2026 09:35:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B10B31F00A3A;
-	Mon, 22 Jun 2026 09:35:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782120926;
-	bh=OBdMhJJ0Y7gIABwR1q/8w26Nesukt0v7qHvKC0K0k5c=;
-	h=From:Date:Subject:To:Cc;
-	b=ESGrJIF2eQfsXySEQ1mH/Yr5U6gKvtDjbJbUD1pfHwSPS1P/07NVe66c+WqLyfvZv
-	 Y11VRoAQKqjPfbCifvtqeV4qxwVWfP3iIueZciWP3CylDRwoL7Xat7B8didP6AKBUL
-	 mIPk18XkrYB9YbuhblaEft+uGJTFgJ3qJ8+KZn3b5MDwoCD/bsC9NaCLBH0iYVdC3l
-	 mXkY5ifmOZK6nWqlBH6t2vUJTQRSBCqFeM9GogYthIMZUDE9nkxjpbMwvvLjfZy2ET
-	 ivBnwCqITnAr+sBqig407umXp/J8YsYYQRi5nLjx3hq7/WRxhpVdYDBOpvTUTe05e3
-	 7tYOA4g3dNNmg==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Mon, 22 Jun 2026 11:35:07 +0200
-Subject: [PATCH net v2] net: airoha: Add retry mechanism to
- airoha_qdma_set_trtcm_param()
+	id 1wbb3v-00000004ler-108c
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 22 Jun 2026 09:35:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=QDh8cyCuG0BvRFs/KskkYUXoHG61lWt4Q8mGTanX63I=; b=lY6lhD8+9iShnRd5x0Bp/gKAfV
+	zZaR9SYiAJw4szbZ0hJmENOE5KDVvpnJS24ho9svbYBbqO1dZZRF+F2OB8+Rr8Y33dK2JInV6MX9o
+	6R3t73Kwhj6ASDcCZBtcRIsreqomOXGvf+uTHugp6sclHWb7y4LF1NgJCVQwkKLA26i2YHvTBVMy/
+	33nPHAbz1xeZbAyAaY8GmYplFiZQOYDR5XU8+wYnWZQvEKsG+9KNo2zUDY9QYqfxWNK/VeZOB5nMO
+	80kjdq1CW2bun6ZfJ7YY/tHl5oWwVLZymf8toein5cfH4DutS/cF0qXKq2t+UsVZC0LQSzY9joNPp
+	ZGjZIaWA==;
+Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wbb3r-0000000HHY7-1XM7
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 22 Jun 2026 09:35:25 +0000
+Received: from francesco-nb.. (xcpe-178-82-120-96.dyn.res.sunrise.net [178.82.120.96])
+	by mail11.truemail.it (Postfix) with ESMTPA id B0C2E1FE54;
+	Mon, 22 Jun 2026 11:35:15 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1782120916;
+	bh=QDh8cyCuG0BvRFs/KskkYUXoHG61lWt4Q8mGTanX63I=; h=From:To:Subject;
+	b=lMpDLwRto8FVTIVQFZ5qHScNPQEX4h6jcz7YL6kReq40+Yahq+8YmrBihWAQfbc0X
+	 Y0kUQZAI29s7i3gqQkWUGmtfxMcryYE2MLUpykI20cHVAAQTwdXq5+Tx4QQYTuyRr0
+	 DTv2yvV2l+kIYdonILIpiw8j6GLKURnHalAXJ34PAmF+omiLK9cnLR1PrKYYXvLp6/
+	 kKvjlNzYSq2dloEwDUkh68UVzuLPUS2n9e/E5ypjgvzyUwMCyUvv3uGPhT9MQmxntg
+	 zD6kYYtK7s0aP1JoRasSuqZ+G6aYel95NNNycys5atONlV8L88uQeDpTyCbKR9W7Vm
+	 UJhZYA0tdBdLQ==
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1] arm64: dts: freescale: imx95-toradex-smarc: add alias for lpuart5
+Date: Mon, 22 Jun 2026 11:35:06 +0200
+Message-ID: <20260622093507.44132-1-francesco@dolcini.it>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260622-airoha_qdma_set_trtcm_param-retry-fix-v2-1-95a83ac99dbd@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/42NWwqDMBBFtyLz3ZQY6qtf7qNIiGaioTWxkyAVc
- e8N0gX085wL9+wQkCwGuGc7EK42WO8SiEsGw6TciMzqxCC4KHnJC6Ys+UnJt56VDBhlpDjMclG
- kZkYYaWPGfphqtGiKsm96YSB9LYRJn50HOIzQJTnZED1tZ3vNz+mXqf/MrDnLmeFVxW+G63oo2
- ieSw9fV0wjdcRxfNIRUzuAAAAA=
-X-Change-ID: 20260605-airoha_qdma_set_trtcm_param-retry-fix-a9d2956b9b2f
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Leto Liu <leto.liu@airoha.com>, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
- Brown Huang <brown.huang@airoha.com>
-X-Mailer: b4 0.14.3
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260622_103523_870906_3481D2B5 
+X-CRM114-Status: UNSURE (   8.10  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,75 +91,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Brown Huang <brown.huang@airoha.com>
+From: Francesco Dolcini <francesco.dolcini@toradex.com>
 
-CPU accesses QDMA via the bus. When multiple modules are using the bus
-simultaneously, CPU access to QDMA may encounter bus timeouts and fails,
-resulting in QDMA configuration failures and potentially causing packet
-transmission issues. In order to mitigate the issue, introduce a retry
-mechanism to airoha_qdma_set_trtcm_param routine in order to ensure the
-configuration is correctly applied to the hardware.
+Add alias for lpuart5 so the UART gets a stable line number.
+Without this alias, the lpuart driver fails:
 
-Fixes: ef1ca9271313b ("net: airoha: Add sched HTB offload support")
-Signed-off-by: Brown Huang <brown.huang@airoha.com>
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+  fsl-lpuart 42590000.serial: failed to get alias id, errno -19
+
+This prevents the Bluetooth controller connected to this UART from
+working.
+
+Fixes: 104a391bb6ff ("arm64: dts: freescale: imx95-toradex-smarc: Enable bluetooth on lpuart5")
+Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
 ---
-Changes in v2:
-- Wait for write configuration to be completed before running
-  airoha_qdma_get_trtcm_param() in airoha_qdma_set_trtcm_param().
-- Link to v1: https://lore.kernel.org/r/20260608-airoha_qdma_set_trtcm_param-retry-fix-v1-1-f07704f0d8c5@kernel.org
----
- drivers/net/ethernet/airoha/airoha_eth.c | 28 ++++++++++++++++++++++------
- 1 file changed, 22 insertions(+), 6 deletions(-)
+ arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 3370c3df7c10..bb5c0599a4ee 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -2673,14 +2673,30 @@ static int airoha_qdma_set_trtcm_param(struct airoha_qdma *qdma, int channel,
- 		     FIELD_PREP(TRTCM_METER_GROUP_MASK, group) |
- 		     FIELD_PREP(TRTCM_PARAM_INDEX_MASK, idx) |
- 		     FIELD_PREP(TRTCM_PARAM_RATE_TYPE_MASK, mode);
-+	int i;
+diff --git a/arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi b/arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi
+index 7d760470201f..a6c5398a81e3 100644
+--- a/arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi
+@@ -24,6 +24,7 @@ aliases {
+ 		serial1 = &lpuart1;
+ 		serial2 = &lpuart6;
+ 		serial3 = &lpuart3;
++		serial4 = &lpuart5;
+ 	};
  
--	airoha_qdma_wr(qdma, REG_TRTCM_DATA_LOW(addr), val);
--	airoha_qdma_wr(qdma, REG_TRTCM_CFG_PARAM(addr), config);
-+	for (i = 0; i < 100; i++) {
-+		u32 data;
- 
--	return read_poll_timeout(airoha_qdma_rr, val,
--				 val & TRTCM_PARAM_RW_DONE_MASK,
--				 USEC_PER_MSEC, 10 * USEC_PER_MSEC, true,
--				 qdma, REG_TRTCM_CFG_PARAM(addr));
-+		airoha_qdma_wr(qdma, REG_TRTCM_DATA_LOW(addr), val);
-+		wmb();
-+		airoha_qdma_wr(qdma, REG_TRTCM_CFG_PARAM(addr), config);
-+
-+		if (read_poll_timeout(airoha_qdma_rr, data,
-+				      data & TRTCM_PARAM_RW_DONE_MASK,
-+				      USEC_PER_MSEC, 10 * USEC_PER_MSEC,
-+				      true, qdma, REG_TRTCM_CFG_PARAM(addr)))
-+			return -ETIMEDOUT;
-+
-+		if (airoha_qdma_get_trtcm_param(qdma, channel, addr, param,
-+						mode, &data, NULL))
-+			continue;
-+
-+		if (data == val)
-+			return 0;
-+	}
-+
-+	return -EBUSY;
- }
- 
- static int airoha_qdma_set_trtcm_config(struct airoha_qdma *qdma, int channel,
-
----
-base-commit: d07d80b6a129a44538cda1549b7acf95154fb197
-change-id: 20260605-airoha_qdma_set_trtcm_param-retry-fix-a9d2956b9b2f
-
-Best regards,
+ 	chosen {
 -- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+2.47.3
 
 
