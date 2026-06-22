@@ -4,60 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FAD2CDB46B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 09:03:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F3ADCDB46F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 09:04:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=37JW7K3sg07SL4BlJiD2RoB54WDCii+ode2jFNVJxNo=; b=hmPivHl8XnVI7wJ5eZm+MyRYE6
-	hSlfpWUOPloBAxsxPjZnib2jp1359wiCmw+DqgHPTjlIKaEpYluGG6L8Cq90VeWZ0QcDJkammiSrO
-	TDij8fXrvFTGiJC+VFAEcWrjDjiNSa85WpXKuViQEDT4dautVAimGIhasQRTm44JTYmwKaLyH19on
-	D+EEBqMSU/D03vr4zcQwnJYtgSGnFvh8RF2HqNdLAfwaMefQOgBly+8T1AHJR6/tTsBszny1/Y5L8
-	Fza6ImSwX6EUQ0k9gx0kkMgcbl1/PInep/IEB2syZ4SmVnLyF6DMw724N9TcNJxtR5FnWg0uECH8H
-	ibsEJKoQ==;
+	bh=zycFDAwEBzI/T6mHbP1oYmPi04MAC9JUt36rsCSQiMY=; b=OrqGjzKv6ehdgql4SDQXQ3zzGN
+	8rQlZT8d2YrUh37rcUU1muL1OYHJtG1XDUrf6HaSv2MRZnQVXevCp1B8mEtp2QqczXDMcf9y9Q02N
+	IgY0CPmPpMZTC+1Jawn70DOBmMiV8bI/ZdH1VrRGhsgEu895Xf82poq7/O2O6sYg0IjCLCKb7z8UO
+	q7LojUWtE7qNmLg4DNOPqeC0vQsT/7WEtQ1mqG7D4Wk7dyDkPfEqYXzgmyLpJSIwaOQl+OdGO7pi/
+	G8GrHXY4GCRTCF7iZZI5qHxdAyPR2w0uNfwJzifmnmKiHUXIGC/alONCNGKXZc1hYdQse2vMZHhDh
+	oLMIy+Dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbaYT-00000004iNw-1dPa;
-	Mon, 22 Jun 2026 09:02:57 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbaYR-00000004iNq-4BCu
+	id 1wbaaB-00000004iW5-2fHp;
+	Mon, 22 Jun 2026 09:04:43 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wbaa8-00000004iVi-3Icr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Jun 2026 09:02:56 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8F38940644;
-	Mon, 22 Jun 2026 09:02:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F8061F000E9;
-	Mon, 22 Jun 2026 09:02:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782118975;
-	bh=37JW7K3sg07SL4BlJiD2RoB54WDCii+ode2jFNVJxNo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=k2zzXMRbaAgtx4A9VTmvyk+GhkLCzkMlCr6+OXPPplDlPFcqL2XHR9tBZW8Vwazty
-	 ihfQXyTKWaxxIn7Wx9qxA6RkKgO2VY4SPbwCxP+kE8hzBZgWnfvr0kIZOvZznfk+as
-	 qjijR9aaZPZpY7J9wYgjhaIs0L0qGbJ+wi/1+qdFyCMClpeHUh2pt1V9IWps/MBoB0
-	 LLE54H8slDEVL3JlZVAnW/08m6oEKuFva/dJBe0GaI6+MvYYtcv1xWqLNg5u3hV/cR
-	 MBn0nbBxaaRcMBT6iaLT2FV9FfhVAqHr4wvPRQJaL4LDs5hJb43gejFx85KQAScnpC
-	 SXg+TcGUpEwwA==
-Date: Mon, 22 Jun 2026 11:02:51 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: joakim.zhang@cixtech.com
-Cc: mturquette@baylibre.com, sboyd@kernel.org, bmasney@redhat.com, 
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, p.zabel@pengutronix.de, 
-	gary.yang@cixtech.com, cix-kernel-upstream@cixtech.com, linux-clk@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v5 4/4] arm64: dts: cix: sky1: add audss cru
-Message-ID: <20260622-dramatic-worm-of-radiance-adf731@quoll>
-References: <20260622022520.3127103-1-joakim.zhang@cixtech.com>
- <20260622022520.3127103-5-joakim.zhang@cixtech.com>
+	Mon, 22 Jun 2026 09:04:42 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 444D81BF3;
+	Mon, 22 Jun 2026 02:04:32 -0700 (PDT)
+Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4F8853F62B;
+	Mon, 22 Jun 2026 02:04:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1782119076; bh=HgiOx3Gxk7v+YKyg+0NTf2l18tte0N14NUCjjhZytL8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=PxbboRwpE2vS964Ehc5mDpWLSytaoETOaqhnaSQgQLz44uCl6YrGFOX3uhGIgcLsD
+	 RdxoMznAxnesiwlOTbTdRyqfY2n29clRiaQkWGw4b6Ne78MxEtPSnbHMbsGTjt58U0
+	 mN2wMTADr7F/T+x6DLmQUKJw3mWIMxkAumkIuj2w=
+Date: Mon, 22 Jun 2026 10:04:32 +0100
+From: Alexandru Elisei <alexandru.elisei@arm.com>
+To: Oliver Upton <oupton@kernel.org>
+Cc: will@kernel.org, julien.thierry.kdev@gmail.com, maz@kernel.org,
+	jean-philippe.brucker@arm.com, andre.przywara@arm.com,
+	suzuki.poulose@arm.com, kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+Subject: Re: [PATCH kvmtool v2 7/7] arm64: Improve KVM_ARM_VCPU_PMU_V3_CTRL
+ diagnostics
+Message-ID: <ajj6oGxytFm2NE4T@raptor>
+References: <20260618155001.226266-1-alexandru.elisei@arm.com>
+ <20260618155001.226266-8-alexandru.elisei@arm.com>
+ <ajRBpMnlcNkhWzQL@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260622022520.3127103-5-joakim.zhang@cixtech.com>
+In-Reply-To: <ajRBpMnlcNkhWzQL@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260622_020441_032952_67A3BAE0 
+X-CRM114-Status: GOOD (  29.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,29 +73,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 22, 2026 at 10:25:20AM +0800, joakim.zhang@cixtech.com wrote:
+Hi Oliver,
+
+On Thu, Jun 18, 2026 at 12:06:12PM -0700, Oliver Upton wrote:
+> On Thu, Jun 18, 2026 at 04:50:01PM +0100, Alexandru Elisei wrote:
+> > kvmtool issues several ioctls when configuring the PMU, and each of them
+> > can fail for different reasons. Be more specific about the ioctl that
+> > failed when that happens.
+> > 
+> > Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
+> > ---
+> >  arm64/pmu.c | 31 ++++++++++++++++++++++++-------
+> >  1 file changed, 24 insertions(+), 7 deletions(-)
+> > 
+> > diff --git a/arm64/pmu.c b/arm64/pmu.c
+> > index 92cacd62479e..78c15f153fad 100644
+> > --- a/arm64/pmu.c
+> > +++ b/arm64/pmu.c
+> > @@ -12,6 +12,24 @@
+> >  
+> >  #include "asm/pmu.h"
+> >  
+> > +static const char *pmu_attr_names[] = {
+> > +	[KVM_ARM_VCPU_PMU_V3_IRQ]	= "KVM_ARM_VCPU_PMU_V3_IRQ",
+> > +	[KVM_ARM_VCPU_PMU_V3_INIT]	= "KVM_ARM_VCPU_PMU_V3_INIT",
+> > +	[KVM_ARM_VCPU_PMU_V3_FILTER]	= "KVM_ARM_VCPU_PMU_V3_FILTER",
+> > +	[KVM_ARM_VCPU_PMU_V3_SET_PMU]	= "KVM_ARM_VCPU_PMU_V3_SET_PMU",
+> > +	[KVM_ARM_VCPU_PMU_V3_SET_NR_COUNTERS] = "KVM_ARM_VCPU_PMU_V3_SET_NR_COUNTER",
+> > +};
+> > +
+> > +static const char *pmu_get_attr_name(u64 attr)
+> > +{
+> > +	switch (attr) {
+> > +	case KVM_ARM_VCPU_PMU_V3_IRQ ... KVM_ARM_VCPU_PMU_V3_SET_NR_COUNTERS:
+> > +		return pmu_attr_names[attr];
+> > +	default:
+> > +		return "UNKNOWN";
+> > +	}
+> > +}
+> > +
+> >  static bool pmu_has_attr(struct kvm_cpu *vcpu, u64 attr)
+> >  {
+> >  	struct kvm_device_attr pmu_attr = {
+> > @@ -32,13 +50,12 @@ static void set_pmu_attr(struct kvm_cpu *vcpu, void *addr, u64 attr)
+> >  	};
+> >  	int ret;
+> >  
+> > -	if (pmu_has_attr(vcpu, attr)) {
+> > -		ret = ioctl(vcpu->vcpu_fd, KVM_SET_DEVICE_ATTR, &pmu_attr);
+> > -		if (ret)
+> > -			die_perror("PMU KVM_SET_DEVICE_ATTR");
+> > -	} else {
+> > -		die_perror("PMU KVM_HAS_DEVICE_ATTR");
+> > -	}
+> > +	if (!pmu_has_attr(vcpu, attr))
+> > +		die_perror("KVM_HAS_DEVICE_ATTR(%s)", pmu_get_attr_name(attr));
+> > +
+> > +	ret = ioctl(vcpu->vcpu_fd, KVM_SET_DEVICE_ATTR, &pmu_attr);
+> > +	if (ret)
+> > +		die_perror("KVM_SET_DEVICE_ATTR(%s)", pmu_get_attr_name(attr));
+> >  }
+> 
+> The whole if (ret) die_perror(...) thing is a bit repetetive IMO. A
+> treewide cleanup replacing this with macros would be nice, then you could
+> stringize the ioctl under the hood.
+
+Thank you for having a look, that's a great idea, it will avoid out of bounds
+array access if KVM gets a new PMU ioctl and the name array is not updated at
+the same time - that's quite possible since ioctl numbers are pulled by running
+update_headers.sh, and the dependency is not obvious.
+
+I think the compilation errors are a bit higher priority than this, and a
+treewide change would more involved, possibly involving a change in behaviour
+(the gic seems to propagate the error instead of calling die_perror(), for
+example), would you mind if for this series I'll only introduce the macro for
+the pmu and convert the rest of the code in a separate series?
+
+Thanks,
+Alex
+
+> 
+> diff --git a/arm64/pmu.c b/arm64/pmu.c
+> index 5f31d6b..0d9f3df 100644
+> --- a/arm64/pmu.c
+> +++ b/arm64/pmu.c
+> @@ -23,23 +23,19 @@ static bool pmu_has_attr(struct kvm_cpu *vcpu, u64 attr)
+>  	return ret == 0;
+>  }
 >  
-> +		audss_cru: clock-controller@7110000 {
-> +			compatible = "cix,sky1-audss-cru";
-> +			reg = <0x0 0x07110000 0x0 0x10000>;
-> +			#clock-cells = <1>;
-> +			#reset-cells = <1>;
-> +			clocks = <&scmi_clk CLK_TREE_AUDIO_CLK0>,
-> +				 <&scmi_clk CLK_TREE_AUDIO_CLK2>,
-> +				 <&scmi_clk CLK_TREE_AUDIO_CLK4>,
-> +				 <&scmi_clk CLK_TREE_AUDIO_CLK5>;
-> +			clock-names = "x8k", "x11k", "sys", "48m";
-> +			power-domains = <&smc_devpd SKY1_PD_AUDIO>;
-> +			resets = <&s5_syscon SKY1_AUDIO_HIFI5_NOC_RESET_N>;
-
-> +			status = "okay";
-
-Drop.
-
-> +		};
+> -static void set_pmu_attr(struct kvm_cpu *vcpu, void *addr, u64 attr)
+> -{
+> -	struct kvm_device_attr pmu_attr = {
+> -		.group	= KVM_ARM_VCPU_PMU_V3_CTRL,
+> -		.addr	= (u64)addr,
+> -		.attr	= attr,
+> -	};
+> -	int ret;
+> -
+> -	if (pmu_has_attr(vcpu, attr)) {
+> -		ret = ioctl(vcpu->vcpu_fd, KVM_SET_DEVICE_ATTR, &pmu_attr);
+> -		if (ret)
+> -			die_perror("PMU KVM_SET_DEVICE_ATTR");
+> -	} else {
+> -		die_perror("PMU KVM_HAS_DEVICE_ATTR");
+> -	}
+> -}
+> +#define kvm_set_device_attr(fd, _group, _attr, _addr)					\
+> +do {											\
+> +	struct kvm_device_attr __attr = {						\
+> +		.group	= (_group),							\
+> +		.attr	= (_attr),							\
+> +		.addr	= (u64)(_addr),							\
+> +	};										\
+> +	int r;										\
+> +											\
+> +	r = ioctl((fd), KVM_SET_DEVICE_ATTR, &__attr);					\
+> +	if (r)										\
+> +		die_perror("KVM_SET_DEVICE_ATTR(group:"#_group", attr:"#_attr")");	\
+> +} while (0)
+>  
+>  #define SYS_EVENT_SOURCE	"/sys/bus/event_source/devices/"
+>  /*
+> @@ -218,14 +214,18 @@ void pmu__generate_fdt_nodes(void *fdt, struct kvm *kvm)
+>  
+>  	for (i = 0; i < kvm->nrcpus; i++) {
+>  		vcpu = kvm->cpus[i];
+> -		set_pmu_attr(vcpu, &irq, KVM_ARM_VCPU_PMU_V3_IRQ);
+> +		kvm_set_device_attr(vcpu->vcpu_fd, KVM_ARM_VCPU_PMU_V3_CTRL,
+> +				    KVM_ARM_VCPU_PMU_V3_IRQ, &irq);
+>  		/*
+>  		 * PMU IDs 0-5 are reserved; a positive value means a PMU was
+>  		 * found.
+>  		 */
+>  		if (pmu_id > 0)
+> -			set_pmu_attr(vcpu, &pmu_id, KVM_ARM_VCPU_PMU_V3_SET_PMU);
+> -		set_pmu_attr(vcpu, NULL, KVM_ARM_VCPU_PMU_V3_INIT);
+> +			kvm_set_device_attr(vcpu->vcpu_fd, KVM_ARM_VCPU_PMU_V3_CTRL,
+> +					    KVM_ARM_VCPU_PMU_V3_SET_PMU, &pmu_id);
 > +
-
-Best regards,
-Krzysztof
-
+> +		kvm_set_device_attr(vcpu->vcpu_fd, KVM_ARM_VCPU_PMU_V3_CTRL,
+> +				    KVM_ARM_VCPU_PMU_V3_INIT, NULL);
+>  	}
+>  
+>  	_FDT(fdt_begin_node(fdt, "pmu"));
 
