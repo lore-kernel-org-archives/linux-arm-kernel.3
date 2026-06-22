@@ -4,67 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70F27CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 17:47:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4938CDB46F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 17:52:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MhF+Z7QvSyF8SFiHgEa+zx62DspglqwUqFsjrg9vB+A=; b=ak9gd2PB/2JqPW84NSLnLeqsAu
-	tOz6Pv611Q/fluaTwftXSYnf6cY79ESoQy8y8n39tXdx9tahMjlm8qC8cXuEkIV7uOf9lgtIvDupx
-	94UDtXdNe+UM0g08yY1s8h28OGiXOxJxLN6B8Q2bFC7yN0DgNDz2wA0kWmzu37YfUd3WcB9Yfbev0
-	e8utO8K773GyxFgRF6q8P7GuKYGwYBxiHsQkdGEIzhSvkBtBA5+VcBYmkRE2cM9/oRnHJLZxW3YS0
-	FjA1QF1f8esRZr1M6rKdwF/SgJPQM0inGGtktClfR/l1aJ3Pzt1vqeeSEYxFA6LrqcWAm8KbX/QPC
-	awMTpF6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=S5YU1ek1hKhtc/CewB+hEaa4quwElWgeX+xAF+JI5qg=; b=wSwpksxbQ73pvaxWhFfiqk4ay7
+	JWcjnMunU4RiA6JMdtX/Xkyyitu9uERxq5Vx1uaEsUv4wiwWgJCkaSvwRgNysbHaB4R9A/X1YCuT5
+	LCAInHGPoYaAVOn9Ucguzgzi8Opq9sOa9XRB/g2m85OXzTPotSzekNTsZZF5kUyqUdODJ42dPSuJ3
+	lnwCKvY4pwD+tHxTDS++RIHsyM0JqHWiPpwZakIsrJaSWbUmw91OKwjtaG58zYFDziPISxWSKHM71
+	S7UevxWvPdG1bthhaum1ex4eZB92yCPbdh2dzDC+jZZqlnGOgScnFYv271h8NhlR05olI8hG6lCue
+	SQZt/7Iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbiDB-00000005FDg-3IJP;
-	Mon, 22 Jun 2026 17:13:29 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbiD9-00000005FCM-0RHZ
+	id 1wbioT-00000005HAL-1RqC;
+	Mon, 22 Jun 2026 17:52:01 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wbioL-00000005H9n-2yln
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Jun 2026 17:13:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1F0191A00;
-	Mon, 22 Jun 2026 10:13:19 -0700 (PDT)
-Received: from arm.com (RQ4T19M611-7.cambridge.arm.com [10.1.32.69])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3EAF23F62B;
-	Mon, 22 Jun 2026 10:13:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782148403; bh=RnwiQypkRLn7P8qYZseBV6Ihj32aR3RId+p6z4H6xw0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cB1cmzMzT+YCCg7NorZIa+KSxvTRYpIbv/SMaoP0VaMTLqKhCnwscEnPUCC+jZb+/
-	 gaRLYTCzh177urdLiaRvwUNvASV/HdLMAMWqfK5gWm4lR38lQmrPWtcwc4xEt/s8Y+
-	 xzl5xklVxQ8HOQlcmaoggGEB00Xm26zmkx0NmFW4=
-Date: Mon, 22 Jun 2026 18:13:17 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Harry Yoo <harry@kernel.org>
-Cc: Dev Jain <dev.jain@arm.com>, ryabinin.a.a@gmail.com,
-	akpm@linux-foundation.org, corbet@lwn.net, glider@google.com,
-	andreyknvl@gmail.com, dvyukov@google.com, vincenzo.frascino@arm.com,
-	kasan-dev@googlegroups.com, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org, skhan@linuxfoundation.org,
-	workflows@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, ryan.roberts@arm.com,
-	anshuman.khandual@arm.com, kaleshsingh@google.com,
-	21cnbao@gmail.com, david@kernel.org, will@kernel.org
-Subject: Re: [RFC PATCH 0/2] kasan: hw_tags: Add option to tag only at
- allocation time
-Message-ID: <ajltLd6FQg1aMge_@arm.com>
-References: <20260612044425.763060-1-dev.jain@arm.com>
- <b1502a60-09a1-4699-886b-93d041de7023@kernel.org>
- <ajVByfkLbetzA8bB@arm.com>
- <2208123f-8a51-483b-aa93-c35d8d053d25@kernel.org>
+	Mon, 22 Jun 2026 17:51:59 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 20BD11A07C5;
+	Mon, 22 Jun 2026 17:51:48 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id D1B1A601BB;
+	Mon, 22 Jun 2026 17:51:47 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 88B5D106C89C5;
+	Mon, 22 Jun 2026 19:51:39 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1782150706; h=from:subject:date:message-id:to:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=S5YU1ek1hKhtc/CewB+hEaa4quwElWgeX+xAF+JI5qg=;
+	b=bjPgB5lx1B2g1DC1fdAc26ERdrpILHyBKZ/vz7hWq4rjx81UACjgdxgnp4MysBAJiBXDKC
+	UWEpN8G1MT1EZWyQnSKIiA8giPvjQETsoZ0kzs9XdnW4csn9Ai6mnx4dPZKwjsG5RVi16v
+	6OtbV3S6hxkz+gnmaMp3cILta5hbTOjFwklOhRM4OuUC9ohDnF7V6Kns4nE0hxeWo1c1Mk
+	0D1uQbn+zWUo1YUYx6PeAKLsECC78QYEFQbO33F1jpFgq+iptY48QaC25FM7Q5uLg6w2RZ
+	+UAmmDl3pVd60pM35c+JFMS6ZmIR8lwAovj/4EPiaWFzZBrLoaiV1oWFmDSVsg==
+Message-ID: <b375d36c-112e-4662-b538-fd10fa927ecc@bootlin.com>
+Date: Mon, 22 Jun 2026 19:51:39 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <2208123f-8a51-483b-aa93-c35d8d053d25@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] net: stmmac: fix missed le32_to_cpu()
+To: Ben Dooks <ben.dooks@codethink.co.uk>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>,
+ "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+ netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260622143707.497198-1-ben.dooks@codethink.co.uk>
+Content-Language: en-US
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <20260622143707.497198-1-ben.dooks@codethink.co.uk>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260622_101327_322802_9A346545 
-X-CRM114-Status: GOOD (  22.33  )
+X-CRM114-CacheID: sfid-20260622_105153_899648_6D8A5012 
+X-CRM114-Status: GOOD (  13.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,57 +82,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Harry,
+Hi Ben,
 
-On Mon, Jun 22, 2026 at 09:42:10PM +0900, Harry Yoo wrote:
-> On 6/19/26 10:19 PM, Catalin Marinas wrote:
-> > On Thu, Jun 18, 2026 at 10:35:15PM +0900, Harry Yoo wrote:
-> >> On 6/12/26 1:44 PM, Dev Jain wrote:
-> >>> Now, when a memory object will be freed, it will retain the random tag it
-> >>> had at allocation time. This compromises on catching UAF bugs, till the
-> >>> time the object is not reallocated, at which point it will have a new
-> >>> random tag.
-> >>>
-> >>> Hence, not catching "use-after-free-before-reallocation" and not catching
-> >>> "double-free" will be the compromise for reduced KASAN overhead.
-> >>
-> >> I doubt users who care about security enough to enable HW_TAGS KASAN
-> >> are willing to compromise on security just to save a few instructions
-> >> to store tags in the free path.
-> >>
-> >> To me, it looks like too much of a compromise on security for little
-> >> performance gain.
-> > 
-> > I don't think there's much compromise on security for use-after-free.
+On 6/22/26 16:37, Ben Dooks wrote:
+> The print in ndesc_display_ring() sends the des2 and des3
+> to the pr_info() without passing them through the relevant
+> conversion to cpu order.
 > 
-> I think it depends... OH, WAIT! I see what you mean.
+> Fix the (prototype) sparse warnings by using le32_to_cpu():
+> drivers/net/ethernet/stmicro/stmmac/norm_desc.c:258:17: warning: incorrect type in argument 6 (different base types)
+> drivers/net/ethernet/stmicro/stmmac/norm_desc.c:258:17:    expected unsigned int
+> drivers/net/ethernet/stmicro/stmmac/norm_desc.c:258:17:    got restricted __le32 [usertype] des2
+> drivers/net/ethernet/stmicro/stmmac/norm_desc.c:258:17: warning: incorrect type in argument 7 (different base types)
+> drivers/net/ethernet/stmicro/stmmac/norm_desc.c:258:17:    expected unsigned int
+> drivers/net/ethernet/stmicro/stmmac/norm_desc.c:258:17:    got restricted __le32 [usertype] des3
 > 
-> You mean use-after-free before reallocation does not lead to much
-> compromise on security because objects are initialized after allocation?
+> Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
+
+I agree on the principle, but this isn't a fix so this'll have to wait
+until net-next re-opens :)
+
+Thanks,
+
+Maxime
+
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/norm_desc.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> You're probably right.
-> 
-> Hmm, but stores to e.g.) free pointer, fields initialized by
-> constructor or accessed by SLAB_TYPESAFE_BY_RCU semantics after free
-> will be undiscovered if they happen before reallocation.
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/norm_desc.c b/drivers/net/ethernet/stmicro/stmmac/norm_desc.c
+> index c4b613564f87..74c9b7b1fe8f 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/norm_desc.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/norm_desc.c
+> @@ -258,7 +258,7 @@ static void ndesc_display_ring(void *head, unsigned int size, bool rx,
+>  		pr_info("%03d [%pad]: 0x%x 0x%x 0x%x 0x%x",
+>  			i, &dma_addr,
+>  			(unsigned int)x, (unsigned int)(x >> 32),
+> -			p->des2, p->des3);
+> +			le32_to_cpu(p->des2), le32_to_cpu(p->des3));
+>  		p++;
+>  	}
+>  	pr_info("\n");
 
-Even with SLAB_TYPESAFE_BY_RCU, the object isn't tagged on free either
-(or realloc, only if the actual slab page ends up freed). But we don't
-get type confusion for such slab.
-
-However, without tagging on free, one could argue that it reduces
-security for cases where the page is re-allocated as untagged - e.g. all
-user pages mapped without PROT_MTE. Currently we have a deterministic
-tag check fault if the page is coloured as KASAN_TAG_INVALID. I think
-for this patch, it might be better to only do such skip on free in
-kasan_poison_slab() rather than kasan_poison(). Freed pages would then
-be tagged.
-
-An alternative would be tagging on free only with a new tag and skipping
-it on re-alloc. But we'd need to track when it's a completely new
-allocation or a reused object (I haven't looked I'm pretty sure it's
-doable).
-
--- 
-Catalin
 
