@@ -4,97 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C18BCDB466
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 18:38:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1E8FCD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 18:38:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=rQ06gSt4q7f+tIOn1Us71LqGpF/6q5qCpZwpowAdy1Y=; b=c9cTQ0otQv0uGvX5/V4F0b2xOY
-	VvNZwXvI8t6QIVy0qzXRafvJkPaiW4OVRhNUZaIRLGvncyF+EU1QJMRhk+NtVUDQuwssnSsRHpYO3
-	9kVAd7n4rOTkm34iPi/YIAZYGa7P+HgwADbWrvyehfp9sZtCdPUzn9Up0iMw31Ks7lOieYrENokkr
-	CcrWdcsCqwQY1tPXxB7/cgBUR3RzietwjsmmSZRxBcXa4q6/xtGdyN2lRQqAx09n+LsDF6ZlfMwGX
-	YwSwSsNOw9eR89kGs4xi04RRUm6qbugWkYv9ytNctzTqOqAUen2AM8bsTZKODS5flf/SSoaWlsRfG
-	1pmYSA2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4gJOKgrcFuTUCEHQYsdjEclgb7VeirQAcn5Q0EzveSk=; b=brKS6x7UXcQoL3TkFdMZxWUayQ
+	/MlaH8sRJCu/HwV3oByP7O2UdXKstFSqAR+t67deN0iBY3JeReE53bQpwJcOCiGaRwJ8MkCf5aDdu
+	n8fEE6ro+Xs8AXNAFCbe4Fi6RtvwftfvnrGq0v5VoCsgUnInxQw+5U8w+KIB2QGcVrQ2s1/TvTekS
+	PzNuLDD7QtswOjT4Yocb+EmFs11xUoLxpTVaNt38/lWMPLL+HkpN5FNwjoEy5xqSQQDuhd2P4zQ8+
+	wkx73x4rdTbiNoYI7aXiK3s1fYVYYmT3e3+OccxF5Ew5MiJlBtSKWmQmtrC1GX2Cf8qsjszBdAx4P
+	xFvmDJGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbjXB-00000005IeT-13CA;
-	Mon, 22 Jun 2026 18:38:13 +0000
-Received: from mail-oo1-xc30.google.com ([2607:f8b0:4864:20::c30])
+	id 1wbjXn-00000005IiX-1aMO;
+	Mon, 22 Jun 2026 18:38:51 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbjX8-00000005Ie8-1kRd
+	id 1wbjXl-00000005IiL-3XHR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Jun 2026 18:38:11 +0000
-Received: by mail-oo1-xc30.google.com with SMTP id 006d021491bc7-69ec2ebec61so3126884eaf.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Jun 2026 11:38:09 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1782153488; cv=none;
-        d=google.com; s=arc-20240605;
-        b=J0BdCvGcAxsq7GgHJHC9WPJogPoJYIm5pifnSDzOIr00+m1LaUaAYbAUqBYQ4SuQVE
-         jXsxqLI5jDNlxyzjp+WapFN6mK10+GJa/haS16KZ7jns9qq0jvxKTfORqs6rDtGcBR1x
-         1W6BjWpS9pjYw3k/VktFAuflUGggj8nxeaV7Vd4M8yVACAN+4Zd2S0NjIY2xllXToI4H
-         wqmvgNbDB3EwpqYYFw5CMVyIbirhgOVZ8Tf/IaPgbX7wFdWAKBlErMQ/+sa1AAcowkH6
-         VX2N1BE6moW2uUtSkX7YRDRwjmBhYJaJ8dOu39Yomg4cRx7VNQ3rKCL+guQOAYp7rQw1
-         XQiw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
-        bh=rQ06gSt4q7f+tIOn1Us71LqGpF/6q5qCpZwpowAdy1Y=;
-        fh=c6ZUD/4Y231P0LbSGNp7cC2/P7Vu3fxLAv6eXwBy8Kw=;
-        b=Q1QxOIhUvgIOmJeASST39aKCnVvsm6BIXUePMRlCYLGRhcSF/5xJxiZdbtbFlZRhhV
-         GMlMEhoLfR/MxtEJ5iOUbDmHHezk4TW6zJaGZ85BtbUJ4UQqEkQIIT8RiXIMXXJXqpdm
-         LIcFw7t6xMBgsyfXk90RlYQvhClA9EMm4+mVQtVhfSwGjtol9taU4xV6lIZAZYKVUqcr
-         PE1JsfhHA+BRWeuD7DyExfVNRCjxw+VDcq4ArpS1faOgZFmbRX7URqOeLqvSIXu3Ct8p
-         WMQemQjDsEjCiEHLpFwpodrsn32ItwNKhr651H54S5BsejITb5egtLoOOUjNwJsZ6gY5
-         ztTg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782153488; x=1782758288; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=rQ06gSt4q7f+tIOn1Us71LqGpF/6q5qCpZwpowAdy1Y=;
-        b=PgQIMKxwsd+b1iEYGi2ws6oef8s1qXgcgbYe4gYifWG/Kj0yb4tuoXiaJ4e2q5UOcY
-         /y95T1MwCSlE7XqTK529jtsKdiDhTYQT9nsfNW4dB9JaxP/HVxSQumutedk67VgAXvM+
-         0TL00BIh/lxel/FFOyvoqNXnvFDqSzG/GU2NBloJ2aeusRbHbLNoy9esVM7x7dFQENv8
-         nPVVrtBiBwTG1XX9/1Ajl1Ey11KJH/XaLtNQ9IB8gyZY2726gmOBrjnB/J2OKrGZDw6R
-         XquCZtulHMNxantXhrNxWHzkHOiQprsrqvSUciG316H0PEHFEKqjDPeMNtBt86f/r3Cx
-         WXvg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782153488; x=1782758288;
-        h=cc:to:subject:message-id:date:from:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=rQ06gSt4q7f+tIOn1Us71LqGpF/6q5qCpZwpowAdy1Y=;
-        b=HpAX3MhGYSu1rXCdqwR6vruRejn21NGT/uGEdIJcpPE+GBGSWeVTT0r6GyHVhKmEkJ
-         So3GjRamFo7ycyKoMBnsso9bHtOZE9wU+L/yBtbarVCetLQXr4EhWoZWqKAX3dmxjwP9
-         3xKtPZpHuJF6Xt3aEN1C0xk6Xpf5ZOrdPttfsRXh5M5AbctHtm3tIjSv5cjfj25OokCS
-         bo3liwvEyIbW6l9P74WLkVud4GXnaIBhyheS2kfymQ32HhVooYxIiCUpLZsFvsmYfn8q
-         69gkzV5ucG/IENe1Ua1+hMYc29O2egR8bzPjsW3wIfQbdxbv+OBfAcKqBRbYQJHN0RfE
-         WXww==
-X-Forwarded-Encrypted: i=1; AFNElJ+gm51iuBBAa3xnBFEjuDDWEiQDzUcn6BuFySLmIZdtmiyt7cKG3izqmJGpsWH32tTM8lIvMqv9F//pxnWt9JGm@lists.infradead.org
-X-Gm-Message-State: AOJu0YyA86jHofH0J9kve2hIJJNHtN6xss0ONg6hQox7Zj9K1WG9FkO4
-	KM9Ek9SWWIzsw0I7zGXpRNcZ+omJeWtG19NBsnSuPRdZW+n4Dz9Bd38DqFizs4Da2lRLGUkAZS6
-	qsNRJbTPMOw50maimzTk25YJGm1DIqtk=
-X-Gm-Gg: AfdE7cmwu3OIOqkEceV9HgSbZcZUejRDje4mbJB+cEQAga/Tey9zEcBCvZvGDLvnu6a
-	3wgR4gK0qPzDUKO09aQQTdEWPTM/8xIWExEZCWIu+pVZBY57BFbdA7vWBJVntntI8XjiUuyavM8
-	6Lke5o/o96RvjcNWcYxQUBZ2DigXHXXAQxeQEFNDxUBSlllAG40VkIQdw0CTEutQRrFZ99zxe8I
-	ibkwEA5QtF/flqzJ7HOrqF8yGWCSmKJFZpOUz4ZbbizTKoKXmJ765U8tLLuhnMrSiM7G7a5VA==
-X-Received: by 2002:a05:6820:290a:b0:69e:31c6:2e9b with SMTP id
- 006d021491bc7-6a0d8d0e062mr12485004eaf.47.1782153488563; Mon, 22 Jun 2026
- 11:38:08 -0700 (PDT)
+	Mon, 22 Jun 2026 18:38:49 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 48CFC43867;
+	Mon, 22 Jun 2026 18:38:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A1491F000E9;
+	Mon, 22 Jun 2026 18:38:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782153529;
+	bh=4gJOKgrcFuTUCEHQYsdjEclgb7VeirQAcn5Q0EzveSk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=Sg5UF9aie4Ukwen70Q8bPYsBeApogmGwATui9tQVae/fexhlT5kYmGLg8fxvTeArN
+	 w8EOuFXHrLlJIJvVB84baaswRBrAYrg/I3+Mprn09zh5nd81M6QecMD8KASof9wpbJ
+	 BdED5l6LbFG43rI8xEQ9W+bvFA8HF56J6enOXWuAcMW1HheE64fkyhwtsz1f39jrFJ
+	 Mr4kcqUvy2AGsoiDTUQMu9d9OC8E/92lndJfTvhkxx2xPOZan8DzlImQ3s+Z1wbedO
+	 pPmlXXCDGIShDXYZqqLkt7OVeMJxOovawYoFHkj00l9DPCX7JBLCKHEsuB6x4ayzCR
+	 m03K3XGq6qW1g==
+Message-ID: <9b11b0c0-dfc7-45ba-934e-19cd053e5635@kernel.org>
+Date: Mon, 22 Jun 2026 20:38:37 +0200
 MIME-Version: 1.0
-From: Jassi Brar <jassisinghbrar@gmail.com>
-Date: Mon, 22 Jun 2026 13:37:57 -0500
-X-Gm-Features: AVVi8CdYIwbckN9ZFZVg4uvYkxA2i-4_kD2d5aza1TPQSYswdzSQXtcCBknTmFY
-Message-ID: <CABb+yY3Tns7SmNU+_iSKcnrg+Muy5eOTNHn49nj+uv73VHNgTw@mail.gmail.com>
-Subject: [GIT PULL] Mailbox changes for v7.2
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260622_113810_472330_D04DE8DD 
-X-CRM114-Status: GOOD (  13.37  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC v8 01/24] mm: Introduce kpkeys
+To: Linus Walleij <linusw@kernel.org>
+Cc: Kevin Brodsky <kevin.brodsky@arm.com>, linux-hardening@vger.kernel.org,
+ Andrew Morton <akpm@linux-foundation.org>, Andy Lutomirski
+ <luto@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, Ira Weiny <ira.weiny@intel.com>,
+ Jann Horn <jannh@google.com>, Jeff Xu <jeffxu@chromium.org>,
+ Joey Gouly <joey.gouly@arm.com>, Kees Cook <kees@kernel.org>,
+ Marc Zyngier <maz@kernel.org>, Mark Brown <broonie@kernel.org>,
+ Matthew Wilcox <willy@infradead.org>, Maxwell Bland <mbland@motorola.com>,
+ "Mike Rapoport (IBM)" <rppt@kernel.org>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Pierre Langlois <pierre.langlois@arm.com>,
+ Quentin Perret <qperret@google.com>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, Vlastimil Babka <vbabka@kernel.org>,
+ Will Deacon <will@kernel.org>, Yang Shi <yang@os.amperecomputing.com>,
+ Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
+ linux-mm@kvack.org, x86@kernel.org, Lorenzo Stoakes <ljs@kernel.org>,
+ Thomas Gleixner <tglx@kernel.org>
+References: <20260526-kpkeys-v8-0-eaaacdacc67c@arm.com>
+ <20260526-kpkeys-v8-1-eaaacdacc67c@arm.com>
+ <70f4dcdf-c45f-47d3-91df-a7897bd86ff4@kernel.org>
+ <CAD++jL=km9hqTuTMFUhyx_QPuMEwWqmnUVQtPtMXnp8paHH1_A@mail.gmail.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <CAD++jL=km9hqTuTMFUhyx_QPuMEwWqmnUVQtPtMXnp8paHH1_A@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,92 +133,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Linus,
-The following changes since commit 5200f5f493f79f14bbdc349e402a40dfb32f23c8:
+On 6/18/26 15:22, Linus Walleij wrote:
+> On Tue, Jun 16, 2026 at 5:19 PM David Hildenbrand (Arm)
+> <david@kernel.org> wrote:
+> 
+>> Looking at this, and wondering about "why do we get registers involved in this
+>> API" I would probably have an interface like:
+>>
+>>         arch_kpkeys_enter_context()
+>>         arch_kpkeys_leave_context()
+>>
+>> Whereby you return a "struct kpkeys_state" or sth like that.
+> 
+> This is close to what I was looking for as well.
 
-  Linux 7.1-rc4 (2026-05-17 13:59:58 -0700)
+Cool :)
 
-are available in the Git repository at:
+> 
+> enter/leave makes the code look more like generic entry.
+> 
+> Passing some kind of state cookie around is inevitable in
+> this design and IIUC Kevin argued that it would be inefficient
+> (another level of abstraction) as opposed to just hammering
+> in the context we want, where we want it.
+> 
+> But I think the compiler will optimize that out by constant
+> propagation if the backing architecture implementation is
+> simple.
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/jassibrar/mailbox.git
-tags/mailbox-v7.2
+Yes, it should be wrapped somehow. I don't think this will be a problem
+performance-wise that cannot be solved differently.
 
-for you to fetch changes up to 36cac4b5101f8ecbc851356df175b99543c84ec6:
+Returning an u64 ("register") here is really arm64-sepcific and should be
+abstracted.
 
-  mailbox: imx: Don't force-thread the primary handler (2026-06-20
-21:18:39 -0500)
+-- 
+Cheers,
 
-----------------------------------------------------------------
-mailbox: updates for v7.2
-
-- core: add debugfs support for used channels, fix resource leak on
-startup failure, propagate tx error codes, and clarify blocking mode
-thread support
-- exynos: remove unused register definitions
-- imx: refactor IRQ handlers, migrate to devm helpers, and other minor
-improvements
-- mpfs: fix syscon presence check in inbox ISR
-- mtk-adsp: fix use-after-free during device teardown
-- qcom: add dt-bindings for QCOM Maili, Hawi, Shikra APCS, and Nord
-CPUCP platform support
-
-----------------------------------------------------------------
-Chunkai Deng (1):
-      dt-bindings: mailbox: qcom: Add IPCC support for Maili Platform
-
-Conor Dooley (1):
-      mailbox: mpfs: fix check for syscon presence in mpfs_mbox_inbox_isr()
-
-Deepti Jaggi (2):
-      dt-bindings: mailbox: qcom: Document Nord CPUCP mailbox controller
-      mailbox: qcom-cpucp: Add support for Nord CPUCP mailbox controller
-
-Joonwon Kang (2):
-      mailbox: Clarify multi-thread is not supported in blocking mode
-      mailbox: Make mbox_send_message() return error code when tx fails
-
-Komal Bajaj (1):
-      dt-bindings: mailbox: qcom: Add Shikra APCS compatible
-
-Krzysztof Kozlowski (1):
-      mailbox: qcom: Unify user-visible "Qualcomm" name
-
-Mukesh Ojha (2):
-      dt-bindings: mailbox: qcom,cpucp-mbox: Add Hawi compatible
-      dt-bindings: mailbox: qcom: Add IPCC support for Hawi Platform
-
-Sebastian Andrzej Siewior (9):
-      mailbox: imx: Forward the timeout/ error in imx_mu_generic_tx()
-      mailbox: imx: Add a channel shutdown field
-      mailbox: imx: Use devm_pm_runtime_enable()
-      mailbox: imx: use devm_of_platform_populate()
-      mailbox: imx: Use channel index instead of zero in imx_mu_specific_rx()
-      mailbox: imx: Start splitting the IRQ handler in primary and
-threaded handler
-      mailbox: imx: Move the RX part of the mailbox into the threaded handler
-      mailbox: imx: Move the RXDB part of the mailbox into the threaded handler
-      mailbox: imx: Don't force-thread the primary handler
-
-Sergey Senozhatsky (1):
-      mailbox: mtk-adsp: fix UAF during device teardown
-
-Tudor Ambarus (1):
-      mailbox: exynos: Drop unused register definitions
-
-Wolfram Sang (2):
-      mailbox: don't free the channel if the startup callback failed
-      mailbox: add list of used channels to debugfs
-
- .../bindings/mailbox/qcom,apcs-kpss-global.yaml    |   1 +
- .../bindings/mailbox/qcom,cpucp-mbox.yaml          |   2 +
- .../devicetree/bindings/mailbox/qcom-ipcc.yaml     |   2 +
- drivers/mailbox/Kconfig                            |   4 +-
- drivers/mailbox/exynos-mailbox.c                   |   7 --
- drivers/mailbox/imx-mailbox.c                      | 117 +++++++++++++++------
- drivers/mailbox/mailbox-mpfs.c                     |   2 +-
- drivers/mailbox/mailbox.c                          | 101 +++++++++++++++---
- drivers/mailbox/mtk-adsp-mailbox.c                 |   9 +-
- drivers/mailbox/qcom-cpucp-mbox.c                  |  35 +++++-
- include/linux/mailbox_controller.h                 |   2 +
- 11 files changed, 224 insertions(+), 58 deletions(-)
+David
 
