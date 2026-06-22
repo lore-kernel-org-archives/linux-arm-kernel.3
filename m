@@ -4,65 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26456CDB46F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 16:56:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 062C8CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 17:00:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=DQbNJy77aiHlOEUx0BhEwnElSK5v5gnbGHzxyE7TxfI=; b=YDcD/kh2CFExng
-	J9H87/rC8XzimNIs/lfeFGf4907hcP51uUPNtJQRr1POCAUY0NwfuwKjZEybDyyaKYioQN+0lIpFD
-	GHmI34a3rG3VuiHURyl2d2c98pP7ETetAnL7e/L+zuyyPxYM6D3BsEh0XBwenr5iwQfbAhghYpORH
-	nmSxHBSyOo/br4zkCZTsj+c+7mGn8LwVe2sWJKp5FCcPqnUqoKNZhg2Tq72u3sycjmBta+7P/NB54
-	rxVaPMk4qrXJVLK/sD5b71Jde6oTgh000/3OE2zr9ZZWhCmHmgjSV20jMVym7M7e9KyTJQhsiivGb
-	c4R/o+e9+WHac2NgWJJw==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FBPNSe4CPrmYI7tdrVEFFESNM2AQv28THAVOyYtFOEU=; b=pw5jo+7ywWFyrlSStQuWCToCH5
+	LvzNrgLeQsjzIIh6VO2m+aE/9ja9boPsLQHYw74Znt86jG4bwWGG7JV8EHFysauDY65whzDZqO2GL
+	rh8HlIwDvGry82lnGMe5UPK9ejP/1vm0fohgM6wHT/YgH2hmJh94Ce2/sBxm48vwDJLh9r5qy2HZJ
+	PgDiT7cuYYcUFb3oBpN0uxNWGsbSZT7HRVMHhMH+D8gWCQtn0PX6ptcNZeTgaKg36WRkuhfKGQnBj
+	LOMBKbKDD4S20lmY1SdytSWbHZXX2dqIfT/2SbjkQcvC17d6KJG10mHaTBtAbhBAsfsTW7oAOyFm8
+	0sQRN/Zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbhwl-00000005DtA-2oNX;
-	Mon, 22 Jun 2026 16:56:31 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wbi0n-00000005ECs-1ARc;
+	Mon, 22 Jun 2026 17:00:41 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbhwj-00000005Dsx-3m1o
+	id 1wbi0l-00000005ECj-3O8l
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Jun 2026 16:56:29 +0000
+	Mon, 22 Jun 2026 17:00:39 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3FF45601F3;
-	Mon, 22 Jun 2026 16:56:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B30DE1F000E9;
-	Mon, 22 Jun 2026 16:56:28 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BDB766020A;
+	Mon, 22 Jun 2026 17:00:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 179101F00A3A;
+	Mon, 22 Jun 2026 17:00:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782147388;
-	bh=DQbNJy77aiHlOEUx0BhEwnElSK5v5gnbGHzxyE7TxfI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To;
-	b=caqU7l76HM7PHpCBqNI3xy0/3Hc1WnA1uqCGPHuPfx3oZp1u45KA48y2kOVfhoY0L
-	 Ql/HFEHbJZpSbspcCyvjcwFPacHNDpK4IbG+3kyCLxs2XExlt6Xj550GAiz+Zc+U8l
-	 9FUxzMzAqBk2yWkI/jScrNBar11vrAW1cdXiwm48ZDNcRSsiUmoXwguDW42I9Ifpjr
-	 alzYIEa0TB7s2V8/2VnWfkxUgIfscYLR0q3BS+Ro88Viw70omC/KIUSprLIiOppBxU
-	 bTeDIIGi1mOH22lPSAjOKno59iPEFiCvNvo3vu7Tn9ELbvejZtrz74apeXqjgeUIV/
-	 MHA4K6+OhnBmA==
-Date: Mon, 22 Jun 2026 11:56:27 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Ratheesh Kannoth <rkannoth@marvell.com>
-Cc: "bjorn@helgaas.com" <bjorn@helgaas.com>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"bhelgaas@google.com" <bhelgaas@google.com>,
-	"will@kernel.org" <will@kernel.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"kwilczynski@kernel.org" <kwilczynski@kernel.org>,
-	"mani@kernel.org" <mani@kernel.org>,
-	"robh@kernel.org" <robh@kernel.org>,
-	"vidyas@nvidia.com" <vidyas@nvidia.com>
-Subject: Re: Re: Re: [PATCH v2] PCI: host-common: Request bus reassignment
- when not probe-only
-Message-ID: <20260622165627.GA668215@bhelgaas>
+	s=k20260515; t=1782147638;
+	bh=FBPNSe4CPrmYI7tdrVEFFESNM2AQv28THAVOyYtFOEU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=n7sNwPJLODKiRXF3ckMys9a0madlZ0QlBOjYZTx2GavzrrW3/QRmV3JeyB24/EZv3
+	 BRHFAExyTS2FzXigFI8UDWdLfavBXWAuhHMrapEic0JLHIohNnMHnohCRjYK3PUPLC
+	 4Rl5EYkYprfryDf3jF89EjjuImusXvrM9H0WgPgEacIMbCPAxH7oPXuWbvPZrFUBVu
+	 GwWHT/ScgXSiGewELPxVxuIfWHGkNtWAVyT11/AJf0F/5CJIqeonNdRebDGYbCo6I9
+	 /AClqSuz6/0yFBwwPcQVSgR49SkKXOGd0x2fQ1S9mPE6/v767IrCuv0/SsYC25QLxd
+	 VRKBj0ZycUhpQ==
+Date: Mon, 22 Jun 2026 18:00:32 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Linus Walleij <linusw@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+	Lee Jones <lee@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-pm@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, dmaengine@vger.kernel.org
+Subject: Re: [PATCH 09/11] regulator: db8500-prcmu: Remove EPOD regulators
+Message-ID: <70dd1974-3360-4169-8b3a-36e7e1cc4460@sirena.org.uk>
+References: <20260618-ux500-power-domains-v7-1-v1-0-eb5e50b1a588@kernel.org>
+ <20260618-ux500-power-domains-v7-1-v1-9-eb5e50b1a588@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="rGlF+30zJ9UqBxku"
 Content-Disposition: inline
-In-Reply-To: <MN0PR18MB584758C9286C78B6EE947FE7D3182@MN0PR18MB5847.namprd18.prod.outlook.com>
+In-Reply-To: <20260618-ux500-power-domains-v7-1-v1-9-eb5e50b1a588@kernel.org>
+X-Cookie: Now I am depressed ...
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,19 +79,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 12, 2026 at 04:03:25AM +0000, Ratheesh Kannoth wrote:
-> ...
 
-> Kindly advise if there are any outstanding action items required
-> from my side. I see that the patch is not available in net-next yet
-> or backported to stable versions. I want to ensure I haven't missed
-> a step, so please excuse my impatience if it is simply a matter of
-> the usual release cycle.
+--rGlF+30zJ9UqBxku
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-This is queued on pci/controller/host-common and is in pci/next for
-v7.2.  I will ask Linus to pull that branch sometime this week.  This
-is separate from net-next, so it won't appear there.  Backports to
-stable will happen after Linus pulls the branch.
+On Thu, Jun 18, 2026 at 07:00:55AM +0200, Linus Walleij wrote:
+> Remove the obsolete DB8500 PRCMU regulator drivers.
 
-Bjorn
+Acked-by: Mark Brown <broonie@kernel.org>
+
+--rGlF+30zJ9UqBxku
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmo5ai8ACgkQJNaLcl1U
+h9BaJwf/cE6zFilqlprukQbzoS9v80E9/7Y2JJSaiLnvW6JjSjMvkSnz7MwKRKjV
+5YmmCXijisVfGbkgQLL3ad/7NkhLD//cJnPh11Mp4W8IA1IGV41qH9W5gUgwo7QE
+MHb+IChEB+Ba8VSWtCqsktqI6O3TNmd/SKnnheO8g88/ldpZ+keIlYk6Ox8zVVf4
+JmMuWMMFBJR2ybHy/L2ok0OshjgcUKGaQS0QpAhPBJTQ2/+NJYGliH322Y/irXhe
+exF9MfFUEJDjCI6RxKMOqAp+IChlNd2l9/5zJ4xG+1jPtgdCd8g8P/WMGjdebbhB
+mELR4oOXs2c5uPurZH8ILur5P+kN8w==
+=UUpz
+-----END PGP SIGNATURE-----
+
+--rGlF+30zJ9UqBxku--
 
