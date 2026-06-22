@@ -4,109 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5DFFCDB46B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 09:17:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99BC0CDB46B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 09:19:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gz16ZH9DYGPBkD+pXEoFxanVGNLD5CokSPREwvD3FzM=; b=gAHr9ceY+joBnQItiCY13BVWEk
-	TtTsKp9ezdttV7bdFBadU6IJ8yvSs/pgAxEAsZsp/6hOcNHbbrEsVr5iMZnYhInqZLZq+qgcmhSvB
-	HQZSN6za7iPYr0UIBwfwur943xqrlMZIelKzyVI4Tu2MzeZo4pT0oy72pi6Ld3BlCMUlSAcLGRqBv
-	3ZN6+FOrOY6jjKlX9dK/zvhmDVQVFW5ks9PDlVpIVIfYzMmR17UPiQyVfOoUqSNdnuYzOLziiOBPP
-	re9/FAp7Virgp4HmGkXDDzHLnAN0RhkQo1ZCZXb2PQUoqWGe6cgSk2fOUHxDAX+E2IVvtzC7wR4Xt
-	lGBBi0+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rNXWhIqCnCiuZjgJcEM9gRULbQI8ONKE9bL7itt2wxE=; b=hDjUdbUQhHDUYyH979+/Z+qcR4
+	loAnlXq8ZZQZZhpTAtudQ/wckg5J4XkYWUA1F/vOYakfjkaQfawjLp6wktptGyshE4WyrjpFq12ak
+	evF0fcrU1OrToyY6Fpx3uolKIuOHoTZfZQ43nsybV+6l5uM2usH6CQZS9vgUc7onY16zW+uFqL2RT
+	kITL+pghQVUcNslcbWcQ19qKac8iRmRuCoFlu/wD5Xanu4bP04JnL9Ap/kBhGU1eLll7hOduEshPY
+	FEjMBBmlu+AO8ISoGCmj2cKgMwfkPTWks1FahXU6CJBwOjvjFaW9MGPC+U7kMggwhQy9TEOHSJBmq
+	3fqakEfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbam6-00000004jny-2cH0;
-	Mon, 22 Jun 2026 09:17:02 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wbany-00000004k6K-1wEp;
+	Mon, 22 Jun 2026 09:18:58 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbam4-00000004jni-3vng;
-	Mon, 22 Jun 2026 09:17:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=gz16ZH9DYGPBkD+pXEoFxanVGNLD5CokSPREwvD3FzM=; b=bXjPBVnwKoVgWdR23Vv0nGMq7K
-	eft/IvzlSMxbhuWTyvk4G6JmK1L5/zz2MTahwNL3TJr1Zj3FMMxALMlL3WhufZfJU2G+xaNkWPiyG
-	677biAtYhJFxO5f/5GjAdcN6y5wk3SovkcwkRDxeKGudBJU7I0UkNw1u9ocBpKkKmZRbgNyQotQ+V
-	JPZ1VxZ4UgpgWp+Hg1cg8a27vJ600XRizU9iaKoy7mcKofGfGw+jhYLH1qitaDDQeX9Q40bQCDkBp
-	4jKUTOI3m0JZxfls4k/fl4QCPtwVHynQDDkYnIQXyd7bbDcF5rlYFLFM+vcPFO7hDt1tAaLqYxn+B
-	gxEgPfDQ==;
-Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wbalz-0000000HFuF-0mtw;
-	Mon, 22 Jun 2026 09:16:59 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=gz16ZH9DYGPBkD+pXEoFxanVGNLD5CokSPREwvD3FzM=;
-	b=iDpQu2YAQjuV/tnUvSFc/IfA/QHC+chs6j95gLPcVQDfxvY/K61tKJpDenU9U7gsY/W785auK
-	9ejn1uywZpaNZ7Vj+jKp5Dm6tlLP0o/tzv2/8bC1jUjx+iZd7VRGgxpVFtAPXBYiMcWzdJ9+MZB
-	kEGLm0Rldmi+TYDWir3I0uo=
-Received: from mail.maildlp.com (unknown [172.19.163.15])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4gkMm12tWrzmVD1;
-	Mon, 22 Jun 2026 17:07:29 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id AA77E40539;
-	Mon, 22 Jun 2026 17:16:33 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 22 Jun 2026 17:16:31 +0800
-Message-ID: <b828dd7a-0363-46cf-aad0-e4962e299338@huawei.com>
-Date: Mon, 22 Jun 2026 17:16:30 +0800
+	id 1wbanx-00000004k69-3ltO
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 22 Jun 2026 09:18:57 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4425E600AF;
+	Mon, 22 Jun 2026 09:18:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B789B1F000E9;
+	Mon, 22 Jun 2026 09:18:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782119937;
+	bh=rNXWhIqCnCiuZjgJcEM9gRULbQI8ONKE9bL7itt2wxE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=LEkQ9XtmIrZkFEhkooQbXgFQHG77Bd28aPmHUdYP5v2g93YlcLZxCQ2vX3rE+JXxB
+	 ntQuYtwCXa9ZLKEX5W7dqzMS2dYd3zAkOHcWQq2cjbibjSw2BuwNsnhrJ96pfG8/da
+	 /wM19OEfkOlPNCqm49mh0XV5/7e6MNE6SC43y6cPNqT6n+NDEB8LMTXxtSzB1FhCIA
+	 7x4hQ8EtRWM8vFQpvVZlN0MS5TeqcxZ8moesBkezQEfKe6gnLp6Vw/1LlFeyYCBHon
+	 xe1+Hk19xFNbMcBRriFpD9vSyaiQOSz/cpvV7QrNmBKd2xZNGBfW4Ly4Q8RfyMlis+
+	 1K4mhSYXuW4gA==
+Date: Mon, 22 Jun 2026 10:18:49 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Linus Walleij <linusw@kernel.org>
+Cc: Russell King <linux@armlinux.org.uk>, Ulf Hansson <ulfh@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Christian Loehle <christian.loehle@arm.com>,
+	Lee Jones <lee@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+	linux-pm@vger.kernel.org, linux-watchdog@vger.kernel.org,
+	linux-sound@vger.kernel.org, kernel test robot <lkp@intel.com>
+Subject: Re: [PATCH] mfd: db8500-prcmu: Fold dbx500 header into db8500
+Message-ID: <6a1c6e6f-b2a4-4953-878c-2f2f3744d320@sirena.org.uk>
+References: <20260619-mfd-prcmu-merge-headers-v1-1-8ea0ee23b4d6@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 3/3] arm64: Add HOTPLUG_PARALLEL support for secondary
- CPUs
-To: Will Deacon <will@kernel.org>
-CC: Michael Kelley <mhklinux@outlook.com>, "catalin.marinas@arm.com"
-	<catalin.marinas@arm.com>, "tsbogend@alpha.franken.de"
-	<tsbogend@alpha.franken.de>, "pjw@kernel.org" <pjw@kernel.org>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>, "aou@eecs.berkeley.edu"
-	<aou@eecs.berkeley.edu>, "alex@ghiti.fr" <alex@ghiti.fr>, "tglx@kernel.org"
-	<tglx@kernel.org>, "mingo@redhat.com" <mingo@redhat.com>, "bp@alien8.de"
-	<bp@alien8.de>, "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
-	"hpa@zytor.com" <hpa@zytor.com>, "peterz@infradead.org"
-	<peterz@infradead.org>, "kees@kernel.org" <kees@kernel.org>,
-	"nathan@kernel.org" <nathan@kernel.org>, "linusw@kernel.org"
-	<linusw@kernel.org>, "ojeda@kernel.org" <ojeda@kernel.org>,
-	"david.kaplan@amd.com" <david.kaplan@amd.com>, "lukas.bulwahn@redhat.com"
-	<lukas.bulwahn@redhat.com>, "ryan.roberts@arm.com" <ryan.roberts@arm.com>,
-	"maz@kernel.org" <maz@kernel.org>, "timothy.hayes@arm.com"
-	<timothy.hayes@arm.com>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"thuth@redhat.com" <thuth@redhat.com>, "oupton@kernel.org"
-	<oupton@kernel.org>, "yeoreum.yun@arm.com" <yeoreum.yun@arm.com>,
-	"miko.lenczewski@arm.com" <miko.lenczewski@arm.com>, "broonie@kernel.org"
-	<broonie@kernel.org>, "kevin.brodsky@arm.com" <kevin.brodsky@arm.com>,
-	"james.clark@linaro.org" <james.clark@linaro.org>, "tabba@google.com"
-	<tabba@google.com>, "mrigendra.chaubey@gmail.com"
-	<mrigendra.chaubey@gmail.com>, "arnd@arndb.de" <arnd@arndb.de>,
-	"anshuman.khandual@arm.com" <anshuman.khandual@arm.com>, "x86@kernel.org"
-	<x86@kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-mips@vger.kernel.org"
-	<linux-mips@vger.kernel.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>
-References: <20260611133809.3854977-1-ruanjinjie@huawei.com>
- <20260611133809.3854977-4-ruanjinjie@huawei.com>
- <SN6PR02MB41575306521E6223561F476FD4182@SN6PR02MB4157.namprd02.prod.outlook.com>
- <e96a2579-c010-4198-a2a3-6ba35b14aef0@huawei.com>
- <ajPitENEHWa8lDfC@willie-the-truck>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <ajPitENEHWa8lDfC@willie-the-truck>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- dggpemf500011.china.huawei.com (7.185.36.131)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260622_101658_140655_2049E536 
-X-CRM114-Status: GOOD (  25.19  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="F21+nkoAYpsrTplW"
+Content-Disposition: inline
+In-Reply-To: <20260619-mfd-prcmu-merge-headers-v1-1-8ea0ee23b4d6@kernel.org>
+X-Cookie: Now I am depressed ...
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,92 +83,30 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+--F21+nkoAYpsrTplW
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-On 6/18/2026 8:21 PM, Will Deacon wrote:
-> Hi Jinjie,
-> 
-> On Mon, Jun 15, 2026 at 04:51:48PM +0800, Jinjie Ruan wrote:
->> On 6/12/2026 11:45 PM, Michael Kelley wrote:
->>> From: Jinjie Ruan <ruanjinjie@huawei.com> Sent: Thursday, June 11, 2026 6:38 AM
->>>>
->>>> Support for parallel secondary CPU bringup is already utilized by x86,
->>>> MIPS, and RISC-V. This patch brings this capability to the arm64
->>>> architecture.
->>>>
->>>> Rework the global `secondary_data` accessed during early boot into
->>>> a per-CPU array. This array maps logical CPU IDs to MPIDR_EL1 values,
->>>> enabling the early boot code in head.S to resolve each secondary CPU's
->>>> logical ID concurrently.
->>>>
->>>> To fully enable HOTPLUG_PARALLEL, this patch implements:
->>>> 1) An arm64-specific arch_cpuhp_kick_ap_alive() handler.
->>>> 2) Callbacks to cpuhp_ap_sync_alive() inside secondary_start_kernel().
->>>>
->>>> Successfully tested on QEMU ARM64 virt machine (KVM on, 128 vCPUs).
->>>>
->>>> |     test kernel	   | secondary CPUs boot time |
->>>> |  ---------------------   |	--------------------  |
->>>> |   Without this patch     |		155.672	      |
->>>> |   cpuhp.parallel=0	   |		62.897	      |
->>>> |   cpuhp.parallel=1	   |		166.703	      |
->>>
->>> The last two rows seem mixed up. I would expect parallel=0 to
->>> result in a longer boot time.
->>
->> Hi, Michael,
->>
->> The results are correct and not mixed up.
->>
->> Compared to the original non‑HOTPLUG_PARALLEL approach, the advantage of
->> cpuhp.parallel=0 lies in its use of cpu_relax(`yield` on arm64) instead
->> of the wait_for_completion_timeout() mechanism (which may cause sleep
->> and context switching). This significantly reduces the overhead of VM
->> exits and context switches in a KVM guest, thereby cutting the secondary
->> CPU boot time by more than half.
-> 
-> I don't think that's a particularly compelling reason to enable this for
-> arm64, in all honesty. The yield instruction typically doesn't do
-> anything on actual arm64 silicon, so this probably means that you're
-> introducing busy-loops which tend to be bad for power and scalability.
-> 
-> I implemented this a while ago [1] but didn't manage to see much in terms
-> of performance improvement and so I didn't bother to send the patches out
-> after talking about it at KVM forum [2]. However, as mentioned at the end
-> of that talk, it _is_ still useful for confidential VMs using PSCI so
-> let me dust off my old series and send it out to see what you think.
+On Fri, Jun 19, 2026 at 10:27:10PM +0200, Linus Walleij wrote:
+> Move the DBx500 PRCMU definitions into the DB8500 PRCMU
+> header and delete the wrapper header.
 
-Hi Will,
+Acked-by: Mark Brown <broonie@kernel.org>
 
-Thanks for the insights! Your point about using PSCI v0.2's Context ID
-to avoid the NR_CPUS array for input parameters (like
-secondary_data.task) is incredibly elegant.
+--F21+nkoAYpsrTplW
+Content-Type: application/pgp-signature; name="signature.asc"
 
-However, if I understand your series correctly, it seems your approach
-primarily targets preventing the concurrent use of secondary_data.task,
-but it doesn't seem to account for the potential data trampling on
-secondary_data.status when multiple secondary CPUs are brought up
-simultaneously.
+-----BEGIN PGP SIGNATURE-----
 
-update_cpu_boot_status()
-  -> WRITE_ONCE(secondary_data.status.flags[val], 1)
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmo4/fkACgkQJNaLcl1U
+h9BceAf+JnRRZo3CC7dY7ixwk7zpLhaOOcYrfPWC7UPLCHezOGDW4mYKWhJCKed4
+opIBNonasXPS4Q3MuElsJo8eLwxS5HhDkmVX7k0CoEoPdeTGkbqih/6ZLU0vk0e/
+PTbTPGGJFQj6ewMSK6TZMnor3CNuqVSYDhYD++Wtkpy2Bc+HM46Pj2xGADsWkAk5
+rJTCldPiov2ztl7LN5YsUax/+xulcuqnxvw1yXrS1AExqFqnkLX3AEFdC1p3ycoh
+Lbwo5s6c+lChx+Owkt5DeYeDJ9CQ3qrmiZRZUtHKLb1yd120zbWEXa7CXk5mk8e1
+EGKSYIKOunlL6yCr6AOb+fsg9njECA==
+=27Qz
+-----END PGP SIGNATURE-----
 
-arch_cpuhp_cleanup_kick_cpu()
-  -> status = READ_ONCE(secondary_data.status)
-
-Best regards,
-Jinjie
-
-> 
-> It relies on PSCI v0.2, which means we don't need the NR_CPUS size array
-> for secondary_data and I also have some support for error handling (it
-> doesn't look like you handle __early_cpu_boot_status properly).
-> 
-> It looks like I could include your first patch, though!
-> 
-> Will
-> 
-> [1] https://git.kernel.org/pub/scm/linux/kernel/git/will/linux.git/log/?h=cpu-hotplug
-> [2] https://www.youtube.com/watch?v=Q6kOshnnQuE
-> 
-
+--F21+nkoAYpsrTplW--
 
