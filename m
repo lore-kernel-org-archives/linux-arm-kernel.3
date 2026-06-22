@@ -4,77 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F02ECD98F0
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Jun 2026 22:46:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F992CD98F0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 00:53:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gEt6DTuBzI0+FzGS8r7ZT6Ohyc5Y63Le4qa6MCGvfow=; b=cfha6lw6BCboY2c+cpIs+X9sxD
-	4roXNWyQVmEtyRXw2NWrdfrEuFH+xbTSnsFcdNWjDMoxmdYxMfydNZia1KCN0aotxVdQO0rCnzKj5
-	Amn2wEJ2fVrCnqOu+q4Eo/Z1+stT9SamJKaYCjDnfBcNLYN/WlENFrjGu+Pl1+dbkAPWZlM3x78H+
-	akxrFl3UNaLtSjNK4KqhjHiYwWm+giRoV/cNEIJy8ynd+T9Ok7ez4EmE7Z/nTYvzKoJUghJG0wjsr
-	dX5NmJ2jCTI4tQhwhKWbecBXGoyoTPKDvbibC5M3w+/5+RKrNwny2zXG3GX9WdyhWl/7zP7E87kIQ
-	zZ5/ua+A==;
+	bh=IHIwIiKiSPJeb13YpcTgfxJcsK09+PRa0/JU1j/CnWg=; b=iYWabjh1t+ZxEasdB6kJaj+9Xk
+	ANfehBHGNyBTXOAYgtjBly0o+wospk7UlFhqBg21+6IAXgYMHAuGEpCc5ro9M7Jhpq5hpEQgYIepO
+	C0zqTkY3HjHS3msQuTBX38heqf2HivXDRLg4aluxamsMoqnDIViyVoT8KuZHxlQ2q/AqZEnPiQ3/s
+	wSoE2HBJMTKQqdmo8K5s/3KutqYUYAnZyVNm0N8WSvx5CdYp20IOvJqm1rQPx70VHH8QEc5S+k/Rg
+	XND1q0bpObAfFypXQyQ1BC0tCdNSUQbzhoMVK6VBuzlj9nbFq2uupvYNAI0mvCIYS+gXeWBl6j4zX
+	TlUR9ehg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbQw3-00000004Da0-2DEY;
-	Sun, 21 Jun 2026 22:46:39 +0000
-Received: from mout-p-103.mailbox.org ([80.241.56.161])
+	id 1wbSKg-00000004FFW-0CGw;
+	Mon, 22 Jun 2026 00:16:10 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbQw0-00000004DZM-30s7
+	id 1wbSKe-00000004FFH-1owk
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 21 Jun 2026 22:46:38 +0000
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [10.196.197.102])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4gk5zT6T4Vz9tnx;
-	Mon, 22 Jun 2026 00:46:29 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1782081989;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=gEt6DTuBzI0+FzGS8r7ZT6Ohyc5Y63Le4qa6MCGvfow=;
-	b=YuKr0L4wCdBvR6PEHbJBHWgcBIr4EUYEj7DgkSyARftTpwWKTcttWJue4QRFTnT2XLRw8F
-	URVVqNoAXGTy82KmgEGt6GxYxqyjn88uvd9jzQSc8K7xXasz9G3QRWBP8At6u3Asu6RZUK
-	34ceq07SUILwfmMA9sTLigAJLFIroByMbhHUq0i5a4P/yhl/B/tXlyml7gOhkZTeQrShnm
-	3Af+2x0NxVL5aS27Ll+AGlpAcP+qPaQ+vj3paPetTDn9pK7a8ohT6sTYOfqMlccUSXzlYm
-	LI3/pPLB23QBVV3bejKFgZMeXsHDFPOGglROgwUPRMXftSFdzSs4lOvewbHbaw==
-Message-ID: <d6fce333-4353-4e49-873f-eb3187a631e4@mailbox.org>
-Date: Mon, 22 Jun 2026 00:46:25 +0200
+	Mon, 22 Jun 2026 00:16:08 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B1C4A444BF
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Jun 2026 00:16:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9862C1F00A3A
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Jun 2026 00:16:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782087367;
+	bh=IHIwIiKiSPJeb13YpcTgfxJcsK09+PRa0/JU1j/CnWg=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=cMLhsAttTe8dyYAVQ5ButgRPTCNVZUjJ+rFUJS/Nb+BEGqhTUydcs0LU3Lix/Z3ek
+	 KD0MCI/yAPBWlN6wb7sqDiwlAttozmfCiUFWz9O3jE4hYXuyhq8p1QaOAF9Rxm+bPp
+	 zboU9r+goMAm9xbYv8LFtKEEZ5j6ZLteAPSQZ6OcSh5MIs/62zPpZIj5oiIaFmvUDR
+	 QC6ZRHtySEUkXZIEInSyph82+HpL4LpnJ7gqwRc/Aciq0eNZH9YLMUThL9XzXyeqjI
+	 Rm0VjsR1+yxuogHe+HIFTcJ5KRUzQnReJU7/nUzkEoFcP0eQK2LX+MLHdOMaRBfjL5
+	 BYH2jN1C6LQGQ==
+Received: by mail-qt1-f180.google.com with SMTP id d75a77b69052e-517863a2edfso29922911cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 21 Jun 2026 17:16:07 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ8XgmH4AnuksmW0MH0boJGARt18n2jQPOAu4RZEijgsOhQgDisAma1Pfsay+5JFoQbG4aDrR3J5GvDoC+GC1WTE@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy+gk09Yo76MsN9cBwf74fhBP3rgVS6jX2tSbe8eC8OIaO3hpXW
+	3l1U/v1ODd3+UtK97125f9SP9JniRpbWmaZRzpkdwvspSfPgxPWGpha2FsYi8UdRLkG/IMomDan
+	oo+Kgbznrra0pFdp75KhLcHW/X574rq0=
+X-Received: by 2002:a05:620a:2991:b0:920:bc4a:6d9f with SMTP id
+ af79cd13be357-921d185ff31mr1291391485a.25.1782087366553; Sun, 21 Jun 2026
+ 17:16:06 -0700 (PDT)
 MIME-Version: 1.0
-Subject: Re: [PATCH v2 3/4] irqchip/gic-v3: Add Renesas R-Car Gen4 erratum
- workaround
-To: Thomas Gleixner <tglx@kernel.org>, linux-pci@vger.kernel.org
-Cc: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- Bjorn Helgaas <bhelgaas@google.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Conor Dooley
- <conor+dt@kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Marc Zyngier <maz@kernel.org>,
- Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-References: <20260618220427.14325-1-marek.vasut+renesas@mailbox.org>
- <20260618220427.14325-4-marek.vasut+renesas@mailbox.org>
- <87cxxkma5p.ffs@fw13>
-Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <87cxxkma5p.ffs@fw13>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-MBO-RS-META: n8czsugnw3z1ybb5adzw75f9b7bgn1xy
-X-MBO-RS-ID: 9459b256e9c9aa6c616
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260621_154636_910124_F40558AB 
-X-CRM114-Status: GOOD (  12.20  )
+References: <5zdaa5uv5oj27q3taopl3amops57ouxgyfsdveudz4ovmbdw7z@6lwrlyvmhcp2>
+ <CAGsJ_4yKxg1QugcsJi3WD0KVGJKe-zXycgm5D6cRi9vWtNcpDQ@mail.gmail.com>
+ <ag4h87CBd-gph9zX@casper.infradead.org> <CAGsJ_4zA8afu0xXy0WS+tMe-eesDX1W6UBmfAsuouUpcAgK8JQ@mail.gmail.com>
+ <ag4kj84EcKqamdB-@casper.infradead.org> <3be9475b-0e8a-4df8-a130-4262f993973d@kernel.org>
+ <CAGsJ_4xC5LdhuoWV1=tK-RZ5rkjc8aOKOkmb1L_8BG_3gtJhDg@mail.gmail.com>
+ <ahB6QyHgYq8ksj65@lucifer> <CAGsJ_4zxLvZ01i19vdo0xA47T1hxa1VRYvxLmiDhy5q1GDKPRg@mail.gmail.com>
+ <CAJuCfpHTxaU4KdNmefU7C7cWZSLCFDLPdUrnqV6yzxzN+8RQ0Q@mail.gmail.com> <ajhOUdbWsswgQyl2@casper.infradead.org>
+In-Reply-To: <ajhOUdbWsswgQyl2@casper.infradead.org>
+From: Barry Song <baohua@kernel.org>
+Date: Mon, 22 Jun 2026 08:15:55 +0800
+X-Gmail-Original-Message-ID: <CAGsJ_4ybg5LGYopTUJTh5R2rN6X3uR9xoJSL+RdTYVtm1-xqLg@mail.gmail.com>
+X-Gm-Features: AVVi8CfKzSAPaNgcIJCxOHQBAHV_wanqXUmTigM-8i98Bk0ci-4XCgmSQNzZol4
+Message-ID: <CAGsJ_4ybg5LGYopTUJTh5R2rN6X3uR9xoJSL+RdTYVtm1-xqLg@mail.gmail.com>
+Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
+ fault performance
+To: Matthew Wilcox <willy@infradead.org>
+Cc: Suren Baghdasaryan <surenb@google.com>, Lorenzo Stoakes <ljs@kernel.org>, 
+	"David Hildenbrand (Arm)" <david@kernel.org>, "Liam R. Howlett" <liam@infradead.org>, akpm@linux-foundation.org, 
+	linux-mm@kvack.org, vbabka@kernel.org, rppt@kernel.org, mhocko@suse.com, 
+	jack@suse.cz, pfalcato@suse.de, wanglian@kylinos.cn, chentao@kylinos.cn, 
+	lianux.mm@gmail.com, kunwu.chan@gmail.com, liyangouwen1@oppo.com, 
+	chrisl@kernel.org, kasong@tencent.com, shikemeng@huaweicloud.com, 
+	nphamcs@gmail.com, bhe@redhat.com, youngjun.park@lge.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	Nanzhe Zhao <nzzhao@126.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,28 +95,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/21/26 12:59 PM, Thomas Gleixner wrote:
-> On Fri, Jun 19 2026 at 00:02, Marek Vasut wrote:
->> Renesas R-Car S4/V4H/V4M GIC600 integration has address width for AXI
->> or APB interface configured to 32 bit, it can therefore access only
->> the first 4 GiB of physical address space. This information comes from
->> R-Car V4H Interface Specification sheet, there is currently no technical
->> update number assigned to this limitation. Further input from hardware
->> engineer indicates that this limitation also applies to R-Car S4 and V4M.
->> Name the limitation GEN4GICITS1, and add a driver quirk to mitigate this
->> limitation.
->>
->> The quirk is keyed on the combination of the GIC implementation
->> and the platform identification in the device tree.
->>
->> Signed-off-by: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
->> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
-> 
-> This SOB chain is broken.
+On Mon, Jun 22, 2026 at 4:49=E2=80=AFAM Matthew Wilcox <willy@infradead.org=
+> wrote:
+>
+> On Sat, Jun 20, 2026 at 04:48:57PM -0700, Suren Baghdasaryan wrote:
+> > Just checking in on the followup plans. IIUC the RFC mentioned will
+> > try to implement the solution we discussed at LSFMM: splitting
+> > VM_FAULT_RETRY into two flags - one for retrying under per-VMA locks
+> > and another one to fallback to mmap_lock.
+>
+> I continue to hate this idea.  I don't believe that those who were
+> pushing for it have ever tried to understand the whole fault path.
+> It's utterly byzantine.
+>
+> I defy anyone to make sense of this:
+>
+>         /*
+>          * NOTE! This will make us return with VM_FAULT_RETRY, but with
+>          * the fault lock still held. That's how FAULT_FLAG_RETRY_NOWAIT
+>          * is supposed to work. We have way too many special cases..
+>          */
+>         if (vmf->flags & FAULT_FLAG_RETRY_NOWAIT)
+>                 return 0;
+>
+>         *fpin =3D maybe_unlock_mmap_for_io(vmf, *fpin);
+>         if (vmf->flags & FAULT_FLAG_KILLABLE) {
+>                 if (__folio_lock_killable(folio)) {
+>                         /*
+>                          * We didn't have the right flags to drop the
+>                          * fault lock, but all fault_handlers only check
+>                          * for fatal signals if we return VM_FAULT_RETRY,
+>                          * so we need to drop the fault lock here and
+>                          * return 0 if we don't have a fpin.
+>                          */
+>                         if (*fpin =3D=3D NULL)
+>                                 release_fault_lock(vmf);
+>                         return 0;
+>                 }
+>
+> Wed need to simplify the fault path, not add additional complexity.
+> Josef has said he wouldn't've done the lock dropping had we had per-VMA
+> locks.  We should rip it out.
 
-Broken ? I don't understand , could you please elaborate ?
+I think you have agreed that, at least for anon vma, we can
+keep the current policy, since anon vma is much more volatile
+than file vma.
+Concurrent page faults and VMA modifications can happen more
+often than with file VMAs.
 
-Should I sort this alphabetically or is that something else ?
+For file vmas, how much code can we actually remove, given that
+the first page fault might already be holding mmap_lock?
+It could be the case that lock_vma_under_rcu() fails, and then
+on the first page fault we end up holding mmap_lock before
+retrying. So are we also going to rip out the lock release,
+even if it risks holding mmap_lock for a long time?
 
-Thank you for your help !
+        vma =3D lock_vma_under_rcu(mm, addr);
+        if (!vma)
+                goto lock_mmap;
+       ...
+lock_mmap:
+
+        vma =3D lock_mm_and_find_vma(mm, addr, regs);
+        if (unlikely(!vma)) {
+                fault =3D 0;
+                si_code =3D SEGV_MAPERR;
+                goto bad_area;
+        }
+
+If we still need to keep the page fault retry code there, it
+doesn't seem like "ripping out" really reduces complexity in
+the page fault code?
+
+Best Regards
+Barry
 
