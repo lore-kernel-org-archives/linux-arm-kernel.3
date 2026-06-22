@@ -4,149 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE042CDB471
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 08:12:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C63C5CDB46B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 08:17:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OxilF9rFrtVB++gIkAJRRGi7VZIs0dRBc1wyQuYlo6w=; b=DDEhNHKiCZJS/xU4bCZeISixEz
-	RciKzhZu6ARrq8wJrJ9Waz6PTrYzyCIGBFsohwT9BxHtCNITNSUuyzu35ZUf21ukh7De/ZyYxXEsD
-	rM8Zio7lblsro4TaCwKhUlyPQneBLe0tue9TrTKzcmleJtCdtNFTB3YJx9BibKmtn18onBi2wWUta
-	vIolGE/N672uSkNpKdTCMG8QUTsCNttwCY+1UamInR4kutSyyq0XR/0DEZ3GHmXxzCOecdMogO5Ys
-	PkrOEwpxfkanEwBlPl0upYZ8thWswLD3sF7nWgQ1S0p8KsyIPd8WZaJE5ZsZP6n0kpyV/Jx5+WG8d
-	zPvK36mw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zzVaDuY6/n0O0qjK4FnrYeXHbf9up1LtzyGheGeNC8k=; b=A0FFwjpEJaZimw5aiPadO7Ek5M
+	D7PBIe6eT4Tf7eQcyu0pcgie95nnx2+XuTL+aYIhczRal0bWrJe2x2D0UQbFtbKYLRv0Kf3tkPIMq
+	Jod7dwUjUkV65tabAaK+ZST5hzaT+59AgM3Fs38Ojzgp11rUVlSEsVVYdeQXDMopMLQu7yCmfgwOn
+	rrpT9QGyx+JgRnjjbh6XzZE/4NDs11C4lmJfNlOdQgd+4cIz87vnXV4ykj+2juYbKIyst3bnQZI/E
+	L1g5xmhOSlel7rjbPT4IN7UqIvDPTNNtlpPnkaJOV3GZsRFe+9IHm7t0d4Wodfcr4YpiHJK9bJtFv
+	Dx9nSNnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbZlW-00000004eiQ-09xz;
-	Mon, 22 Jun 2026 08:12:22 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wbZq9-00000004f1I-2NkY;
+	Mon, 22 Jun 2026 08:17:09 +0000
+Received: from canpmsgout11.his.huawei.com ([113.46.200.226])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbZlU-00000004ehy-0fns
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 22 Jun 2026 08:12:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:Content-Type:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=OxilF9rFrtVB++gIkAJRRGi7VZIs0dRBc1wyQuYlo6w=; b=NInNpMgikvje1IfHPZ52+6Y+FT
-	wQJk/+UxejKVW1ixEcej71EE0fF69/9ZVLyk4o4B3PAFaH7N3IB32evhTRDVf93/Y2gMZD8EJVqRm
-	uJ4yd6YQm2ZoztKWJNL3wC5A4sJopzv6AjUi206E6dRRq5BNVstzFXWfErt5b2bnL1+OdHKo380Qa
-	eyZK+YWolkX0xr80brWiSn5d3EMseOBO3VfQXhTjaudSneqVYeZe4idiZHJMMmE1Ie+dDo8Zd420v
-	id056uCP/LI8f/eMKLAbVE9W1kW/8VnVVPBAHC35hlLZrfDdqzRFj5Eeeo6J7OYVjKLJsgn67AVKy
-	HHC+HWdQ==;
-Received: from mail-westeuropeazon11010007.outbound.protection.outlook.com ([52.101.69.7] helo=AM0PR83CU005.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wbZlQ-0000000HB4k-2tr7
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Jun 2026 08:12:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NOPTOWKva7kWrHCXx4hZbaDIFMmIWOxLLDhXIi9tTTioGu8QTQ+hHlW9V1bqXhaReemdmq39eZmJvsZOq26asAHudOQleQPKHScSGkZrMTrL43zP8Z6Tk5SyCpOarpVqGqIjZm8UWvdrrAAhvLzGNse7hW7WmX+as4PmwRBImddBJCo0YyaIx9kQXpLPkkYE4irXYVXNTkpf2TAR5CheBv+gbFuI7NACzY9r1+drmAc1oEIiTdVGByuE4T9tbtUp/wBVFshgCbHB8QwYW6zf0JI81nZjOOuDH3pQHFDIg1IwDISOOLAIvXvvzv1hwVyE6xfouXnWrXsuxQHbc5qaIQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OxilF9rFrtVB++gIkAJRRGi7VZIs0dRBc1wyQuYlo6w=;
- b=keNA/2kxnkRrk+s4zxvqp5q11IBQU+0lZqZMykVyOFPDH38TGDTIa1RCrUXvZ1vdadaOsB34V8+u93KBpT1/G6HQ73EYuRWfGplgbNFlzYVxMYKqh+tsqK+HpIPjX4FOoQJOy0JXz7j88EXUdkib9cAJpd1B5cgVuwK3YmfgTk2XpjAgf8v/V0YFDxrQbiMUyuxJjlmOtTTSIXYW590lxgzxjqhMqMjD6t6FkrFGeoQyZ4c63TTgEjbKyJWbNVySXtSprc5YsS7J9RXlxbKYnDauOPgDY44X4fK3YSxxeRYwPGv2VUGNaHz/LdVEv/uYohQqY76Eh+y+foF+B+o/GQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OxilF9rFrtVB++gIkAJRRGi7VZIs0dRBc1wyQuYlo6w=;
- b=N+IRGJ3gN450toRjlr+OFHx5OIdiGEnpGAKP6RSYzR2VU09iBHYBb6oFawKy3oIf1Yhpimcg69VD+lhQyGNX1uy0oAWYDIhqIrEkpjoSbT8Es8MUpJhaHxf2V0KYlDUWIfE073QQJkNBooMbHyH+EhkpBz4eHKswYYG9Xb7EzCHxOON6v75oN5s13VZEPzvZVCPMEGPao6uXnmwYIbZE2XO/K4FSTaSA05F8Zaz9mmilgKqeWijA3cG3Otqt73hylyKh2i3LBsRAIscvKRhgv8QCzfQjX4b+j8xDkGmyYL7LtMvUo02kx5KdSM/c+Q+nkZd25p/vwM1sETV+Zrcjew==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS1PR04MB9287.eurprd04.prod.outlook.com (2603:10a6:20b:4dd::8)
- by AS5PR04MB11322.eurprd04.prod.outlook.com (2603:10a6:20b:6c7::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.19; Mon, 22 Jun
- 2026 08:12:12 +0000
-Received: from AS1PR04MB9287.eurprd04.prod.outlook.com
- ([fe80::6f30:763d:17d2:b79c]) by AS1PR04MB9287.eurprd04.prod.outlook.com
- ([fe80::6f30:763d:17d2:b79c%3]) with mapi id 15.21.0139.009; Mon, 22 Jun 2026
- 08:12:11 +0000
-Date: Mon, 22 Jun 2026 16:13:42 +0800
-From: Liu Ying <victor.liu@nxp.com>
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Hui Pu <Hui.Pu@gehealthcare.com>,
-	Ian Ray <ian.ray@gehealthcare.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] drm/mxsfb/lcdif: don't hide lcdif_attach_bridge()
- deferral messages
-Message-ID: <ajjutrHp0SNbq2lV@raspi>
-References: <20260619-drm-lcdif-deferral-msg-v1-1-ce2392dca985@bootlin.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260619-drm-lcdif-deferral-msg-v1-1-ce2392dca985@bootlin.com>
-X-ClientProxiedBy: MA5P287CA0037.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:175::17) To AS1PR04MB9287.eurprd04.prod.outlook.com
- (2603:10a6:20b:4dd::8)
+	id 1wbZq4-00000004ezq-06np;
+	Mon, 22 Jun 2026 08:17:08 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=zzVaDuY6/n0O0qjK4FnrYeXHbf9up1LtzyGheGeNC8k=;
+	b=32UN6GCjhoiPh5jiznhE4KR2w6F+lHYHPuOytVHe2MGRiN/2O6cuXOuJKC2z2lriAm2tQ2MV3
+	Wxvktg+w16Ys4wEbB4+0vM7gBzgVXJOWIKye9HASaGUG9+kABPGYatXJQfkhXzZMGJlX6JsCp6H
+	tmr5AyRpgzFkzpzn/HjvVHM=
+Received: from mail.maildlp.com (unknown [172.19.163.127])
+	by canpmsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4gkLSL2bzKzKm5L;
+	Mon, 22 Jun 2026 16:08:50 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 67C0240572;
+	Mon, 22 Jun 2026 16:16:54 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Mon, 22 Jun 2026 16:16:52 +0800
+Message-ID: <c3eaf1da-c1c3-413e-8f86-cb42faff309f@huawei.com>
+Date: Mon, 22 Jun 2026 16:16:51 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS1PR04MB9287:EE_|AS5PR04MB11322:EE_
-X-MS-Office365-Filtering-Correlation-Id: dbbd606e-9a2b-4589-7ab7-08ded035f639
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|19092799006|1800799024|376014|366016|7416014|18002099003|22082099003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: GFJuABGVmMz09a/CVPBHa93uSI9QJMQeVYXuJf2lC8daDNCgg300znHQ4MopZi1l2OPMep8CJC86IQa8JQwd/Ikp3hn+FE/aqMq+SG/FkYbNGHCaZt6mN7ZrA3XHXblVUC7tp6zAUuDoC6Y5zazubFcl8dCpXqfI3V+dwmuzmfOKXPlxE3zckv/S+CQPnUpdO/XHQD3WE1ET/P37z9yzYR7Ur/RgEHAbEYfW9qc72D7s4EJptOB16WJcsUmpWb2bbON6nzruFUQ37fj8XsAMYMgx3xJW7ioRaOdMvREHfLCCN/y0eyBUpS+jyH78Fhl+HPDXLDzbsAKI4CQydlCUT4VPyOWULPwN5e0QwmGM6RtJlwhOJdZvtXuMVZGObOKr0K2DFW7Fu4UzBfjNOl1XNhkovUwbiAAqCI0F63pePj82QEBhlKPZyleZVa1MjH5JDqbiV+pDR9GBDAym95+DrIOMRE5Ji/kDYE4n958F87kArY9VRHY070mQ3//FJ/Y1F3AZKcL6dQWufyIW4cNJbU0EkPFmnOm9GhklMlKDerfTT0zG9QRyAa2ELjY5+Cdtp2AbE8YCwxGB5pjS7TPhNFIirChov7vp0ehO2PYc45Xz21i2ENf/oQsdcQ3hzhFsaBk/2d0yGMf/W3zCJFtoOg99Jtb3RB8PJh81HvM3zPg=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS1PR04MB9287.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(19092799006)(1800799024)(376014)(366016)(7416014)(18002099003)(22082099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fN7eP9YST25KqiAMdgilagntQEXqj7JvMyHDjFUygxHeFUkSZSM9nZdgb5DY?=
- =?us-ascii?Q?hb1JMlmG/nukQPTpZuNyfYeSywnV1hdr1ndHNpLjc/jOFamX6e5fWs6Aspug?=
- =?us-ascii?Q?AhQpN5VGCah0g/M8zQatQe8+TKQK/rA7LniXOwJHwf6pgVeU7sJ5SDEtSPk0?=
- =?us-ascii?Q?9900/z9AJkCIYX3SvUu/42fIFxiyojc3WrE5pOSQsxB5QNMayrIL5CvV9P8m?=
- =?us-ascii?Q?P4kCTMqe0Nyoo5/D5i6cynLsyGeyo2oP6XWywcMwfY5yiKnwEzfdqQd0Ar3B?=
- =?us-ascii?Q?NMUVA7D+YV1BYJfHj909YYYRB2H23D66xZD6AXo9G5dFXgW2HAESQpaeU+86?=
- =?us-ascii?Q?lNKFr1rELfqOzelUpcBaB/7eS+nPNkBXQmxR6gySfAR1WhfU5YjOmHDdqfm7?=
- =?us-ascii?Q?YAU3jSW7MR1A3542b+DmQ9kuRBdBjqJrWxbUG+2xTnVDY6KH+4q9QBahOtzC?=
- =?us-ascii?Q?GL7tBkQUImhV4rKj15pQyvJYV18oj13Zfkm1KVVwsIz4UouErPlz6pdsxeEK?=
- =?us-ascii?Q?IjcCN7/+wQqogDvEjy9uu+cpCfmCoEzQ6JyTOg5wZmoC34MWhfU6zSJcVeJL?=
- =?us-ascii?Q?4ooqAfCS4XkmQh74fxHOW5LpW1qhPtwSiXDko2TmRwd+lfdcvsa/sE045rso?=
- =?us-ascii?Q?f4qZJyyH91ANEiHwcco0JzhRvu+WyGLUgzupXf7Z+cBVu1+ClIezoENaF0oi?=
- =?us-ascii?Q?Tj0sVwvTc+KxGmaiwn/J9jha3UonsgOPGV6BDdvbyOs/qf39S8QH0zvmwE0+?=
- =?us-ascii?Q?L/5sp0phU5DHlGH0tg4GyWGLriNXqaX+O1TDhNtKwGknK3kOxXsnAHjSmTSf?=
- =?us-ascii?Q?fLA9zIMi47FxPfSuLh8PORx759X1rScnC06spV5MFFq9qriVS56vBGA0/fl6?=
- =?us-ascii?Q?SfNH53yFQzrcRgT7dXA4USH56p+CM+J9PQX5nCUdmZRfzMpXLI8xEWcG4lL5?=
- =?us-ascii?Q?TGKnFtaux0KU8v01uJyh9Whnf9GRWYA2uTRyvUIbxH6hNFkQop0dzu5CUtYK?=
- =?us-ascii?Q?74dJmHL4R/OWiAPvJfcdmoTWONlAncKv21LdCRhm3rUFYCROmY/cin9YxXpg?=
- =?us-ascii?Q?9eZxgKuk2McrYDC0s2GeBSzDOAMGy4Xpl5MqeIfdO7954C20P0sCO+KnORss?=
- =?us-ascii?Q?yKLnjFj3l0CMY1q5GbklekdABigcbd4L7VPq1fedvkfpWvCxULxMPuUqCEPe?=
- =?us-ascii?Q?dhGOPKQyr3DYZu0/xjpZC7wNHkAKGeNg+qpcQOMIrygBYWG7z/YNh+kKbOjG?=
- =?us-ascii?Q?V/kIoVaukbv429k61GB28tCtiqGathp+JAb3EtZ2CIh1ztzds7KmYLgOl1AY?=
- =?us-ascii?Q?9r/oGUrakRS9DErISwNSqKngcJu+4H3vKcz7iM2KZiGQuurPb0KR5G1oIwA/?=
- =?us-ascii?Q?ktiOKk6R2Tmpbs01LGFvnKDRVnKHeNrtucIejjJbd8//AOcAhuBYvMS+JdNa?=
- =?us-ascii?Q?6frw06QO1q6aFXnBuJPmTMwJ+FzbECZ0vGY3hHg5W0a0VULSbq5SRe+2cd/f?=
- =?us-ascii?Q?1DajDZMWczUPb291IxIfQZXhfxBbadNRYzanGnxxCf7Rf3x01sSLwN6vGW9X?=
- =?us-ascii?Q?CJOlbDRdRo+D8XMABUAreE80NWRGcdNDQ0kWwxkjeY08ftRq6weDMItpJB2L?=
- =?us-ascii?Q?bdhSzzdZh6udQVCwY93ZVWy7SFvOBeU2nNeRbj+AFEbDygzKtymQLjhrfCUG?=
- =?us-ascii?Q?YABd/yzdGsm0MlBTKmluUCl0WvROJxQFARuoBHj9lVsRIFmASStv0ZALE9cE?=
- =?us-ascii?Q?WK79m9UVNA=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: dbbd606e-9a2b-4589-7ab7-08ded035f639
-X-MS-Exchange-CrossTenant-AuthSource: AS1PR04MB9287.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jun 2026 08:12:11.8801
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /dqBPC0ItIhblIP1ZQrS7TTqa5kKfxO4vfgw/wofGElcTd50fPvHxX332URMbk1pmJH9D83fX+DF0GHRN0WWhg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB11322
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC 3/3] arm64: Add HOTPLUG_PARALLEL support for secondary
+ CPUs
+To: Thomas Gleixner <tglx@kernel.org>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <tsbogend@alpha.franken.de>, <pjw@kernel.org>,
+	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>,
+	<mingo@redhat.com>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
+	<hpa@zytor.com>, <peterz@infradead.org>, <kees@kernel.org>,
+	<nathan@kernel.org>, <linusw@kernel.org>, <ojeda@kernel.org>,
+	<david.kaplan@amd.com>, <lukas.bulwahn@redhat.com>, <ryan.roberts@arm.com>,
+	<maz@kernel.org>, <timothy.hayes@arm.com>, <lpieralisi@kernel.org>,
+	<thuth@redhat.com>, <oupton@kernel.org>, <yeoreum.yun@arm.com>,
+	<miko.lenczewski@arm.com>, <broonie@kernel.org>, <kevin.brodsky@arm.com>,
+	<james.clark@linaro.org>, <tabba@google.com>, <mrigendra.chaubey@gmail.com>,
+	<arnd@arndb.de>, <anshuman.khandual@arm.com>, <x86@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mips@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+References: <20260611133809.3854977-1-ruanjinjie@huawei.com>
+ <20260611133809.3854977-4-ruanjinjie@huawei.com> <877bnvdf1a.ffs@fw13>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <877bnvdf1a.ffs@fw13>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260622_091216_875828_B2F4EBFB 
-X-CRM114-Status: GOOD (  14.32  )
+X-CRM114-CacheID: sfid-20260622_011704_730839_F3930F82 
+X-CRM114-Status: GOOD (  17.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,21 +89,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 19, 2026 at 09:02:13AM +0200, Luca Ceresoli wrote:
-> lcdif_attach_bridge() uses dev_err_probe() on all its error returns to
-> store a specific deferral message.
-> 
-> However its caller lcdif_load() calls dev_err_probe() again on error,
-> overwriting the specific deferral messages with a unique, unavoidably
-> generic, message.
-> 
-> Make the specific deferral message visible by using a plain 'return ret' on
-> the caller.
-> 
-> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-> ---
->  drivers/gpu/drm/mxsfb/lcdif_drv.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
 
-Acked-by: Liu Ying <victor.liu@nxp.com>
+
+On 6/18/2026 11:49 PM, Thomas Gleixner wrote:
+> On Thu, Jun 11 2026 at 21:38, Jinjie Ruan wrote:
+>> --- a/arch/arm64/Kconfig
+>> +++ b/arch/arm64/Kconfig
+>> @@ -113,6 +113,7 @@ config ARM64
+>>  	select CPUMASK_OFFSTACK if NR_CPUS > 256
+>>  	select DCACHE_WORD_ACCESS
+>>  	select HAVE_EXTRA_IPI_TRACEPOINTS
+>> +	select HOTPLUG_PARALLEL if SMP && HOTPLUG_CPU
+> 
+> Why do you tie that to HOTPLUG_CPU? HOTPLUG_CPU lets you unplug/plug
+> CPUs at runtime, but if its disabled then a SMP system still has to
+> bring up the APs. So why should that fall back to the existing variant?
+
+That's a very good point. Parallel bringup of APs during early boot
+should indeed benefit SMP systems even if runtime CPU hotplug
+(HOTPLUG_CPU) is disabled. I will decouple this optimization from
+HOTPLUG_CPU and tie it strictly to SMP. Thanks for catching this!
+
+> 
+>> +#ifdef CONFIG_HOTPLUG_PARALLEL
+>> +extern struct secondary_data cpu_boot_data[NR_CPUS];
+>> +#endif
+>> +
+>>  extern struct secondary_data secondary_data;
+>>  extern long __early_cpu_boot_status;
+>>  extern void secondary_entry(void);
+>> @@ -124,7 +128,11 @@ static inline void __noreturn cpu_park_loop(void)
+>>  
+>>  static inline void update_cpu_boot_status(unsigned int cpu, int val)
+>>  {
+>> +#ifdef CONFIG_HOTPLUG_PARALLEL
+>> +	WRITE_ONCE(cpu_boot_data[cpu].status, val);
+>> +#else
+>>  	WRITE_ONCE(secondary_data.status, val);
+>> +#endif
+> 
+> You're really a great fan of #ifdefs, right?
+> 
+> Just convert it over to the parallel mode unconditionally and get rid of
+> the existing cruft.
+
+Converting this unconditionally to use cpu_boot_data makes the code so
+much cleaner. Thanks for the guidance!
+
+> 
+>>  	/*
+>>  	 * TTBR0 is only used for the identity mapping at this stage. Make it
+>>  	 * point to zero page to avoid speculatively fetching new entries.
+>> @@ -254,7 +276,9 @@ asmlinkage notrace void secondary_start_kernel(void)
+>>  					 read_cpuid_id());
+>>  	update_cpu_boot_status(cpu, CPU_BOOT_SUCCESS);
+>>  	set_cpu_online(cpu, true);
+>> +#ifndef CONFIG_HOTPLUG_PARALLEL
+>>  	complete(&cpu_running);
+>> +#endif
+> 
+> Just for the record. You can get rid of this completion w/o PARALLEL
+> hotplug by selecting HOTPLUG_SPLIT_STARTUP and implementing the
+> kick/sync parts.
+
+I will look into selecting HOTPLUG_SPLIT_STARTUP and cleaning up this
+completion mechanism either as a prerequisite cleanup patch. For now, I
+will make sure to eliminate the ugly #ifndef as suggested earlier.
+
+>   
+> Thanks,
+> 
+>         tglx
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
 
