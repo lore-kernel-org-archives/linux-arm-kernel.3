@@ -4,121 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1E8FCD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 18:38:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE897CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 18:45:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4gJOKgrcFuTUCEHQYsdjEclgb7VeirQAcn5Q0EzveSk=; b=brKS6x7UXcQoL3TkFdMZxWUayQ
-	/MlaH8sRJCu/HwV3oByP7O2UdXKstFSqAR+t67deN0iBY3JeReE53bQpwJcOCiGaRwJ8MkCf5aDdu
-	n8fEE6ro+Xs8AXNAFCbe4Fi6RtvwftfvnrGq0v5VoCsgUnInxQw+5U8w+KIB2QGcVrQ2s1/TvTekS
-	PzNuLDD7QtswOjT4Yocb+EmFs11xUoLxpTVaNt38/lWMPLL+HkpN5FNwjoEy5xqSQQDuhd2P4zQ8+
-	wkx73x4rdTbiNoYI7aXiK3s1fYVYYmT3e3+OccxF5Ew5MiJlBtSKWmQmtrC1GX2Cf8qsjszBdAx4P
-	xFvmDJGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=IR6fQ5lxbbd6noh81fKunB8bdAIwH/+Zw5g3Od9T+p0=; b=PdFmK2Bpjksrzv4S5PzUlGwob/
+	PkH8G+zpgp17hQYEjr8XINOh9hyLY9yeoZoDtjEvATDDxW0vh4tKfmb0/6mbjax6bZ9YIFG7BjDip
+	MrYAJAw0BiCuV0qdZPRgyeuepvbvYppn51LO1e8P63JXuMv7smxOLztvcERLlCGxvowpad55HHVv7
+	pvycNmj5nZAV0EOAY7b+YiRA/wCj17/qVX9yIWTkeTtQpj0+0GHtFR/UvNi3eBJdVA1Op753SwLx7
+	MTE+kVl7ydwKD6br7zTMWseYy1KIX9VlQF6Cl6Akh/z8p1HipT9yqlzq9HC9ATvokLTXEWl5gGkyn
+	EgZ13Zew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbjXn-00000005IiX-1aMO;
-	Mon, 22 Jun 2026 18:38:51 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wbjdf-00000005IwV-02ah;
+	Mon, 22 Jun 2026 18:44:55 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbjXl-00000005IiL-3XHR
+	id 1wbjdb-00000005IwC-48uF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Jun 2026 18:38:49 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 48CFC43867;
-	Mon, 22 Jun 2026 18:38:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A1491F000E9;
-	Mon, 22 Jun 2026 18:38:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782153529;
-	bh=4gJOKgrcFuTUCEHQYsdjEclgb7VeirQAcn5Q0EzveSk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=Sg5UF9aie4Ukwen70Q8bPYsBeApogmGwATui9tQVae/fexhlT5kYmGLg8fxvTeArN
-	 w8EOuFXHrLlJIJvVB84baaswRBrAYrg/I3+Mprn09zh5nd81M6QecMD8KASof9wpbJ
-	 BdED5l6LbFG43rI8xEQ9W+bvFA8HF56J6enOXWuAcMW1HheE64fkyhwtsz1f39jrFJ
-	 Mr4kcqUvy2AGsoiDTUQMu9d9OC8E/92lndJfTvhkxx2xPOZan8DzlImQ3s+Z1wbedO
-	 pPmlXXCDGIShDXYZqqLkt7OVeMJxOovawYoFHkj00l9DPCX7JBLCKHEsuB6x4ayzCR
-	 m03K3XGq6qW1g==
-Message-ID: <9b11b0c0-dfc7-45ba-934e-19cd053e5635@kernel.org>
-Date: Mon, 22 Jun 2026 20:38:37 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC v8 01/24] mm: Introduce kpkeys
+	Mon, 22 Jun 2026 18:44:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1782153892; x=1813689892;
+  h=date:from:to:cc:subject:message-id;
+  bh=n5k7KeuH1MhX3lHxkT2dnx9v8gAqKPg2u6LPMluRvyE=;
+  b=D5tr6k6CHAjApqa50inzaC4aZCwJpL/q1qfiyqv9pT1DFou/hIImqpW7
+   asF+pd7GnWNJRCXcVWw1p304DHzaigEOfyjpYzSVLllJCd8kjLTBwods8
+   0ccH2sS++B0bLpeKkZCDC8Uduv4S8u+bS5axLgWGj2K46yZSBZMYD91no
+   vt6CMPeRvtFfkh3NncuRLNJVsQGTD6sMyUJnuxknjQFEqDQCxuuqeXhvh
+   e4OmDeBXIXWK7ePpUNUVADKHYSMlcd/zTQBU74P4jWMDWcMNUr+njoSoN
+   +/eBobslhIpUfr3VZAmIwpEndPgQKgjV7bZw6NtN1aRlHRZaaYa5UvE4W
+   g==;
+X-CSE-ConnectionGUID: bf2tGv2ITx+s+NqilPOALg==
+X-CSE-MsgGUID: CATMJfFRQZKSCsnJpXbZXg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11825"; a="83003289"
+X-IronPort-AV: E=Sophos;i="6.24,219,1774335600"; 
+   d="scan'208";a="83003289"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Jun 2026 11:44:51 -0700
+X-CSE-ConnectionGUID: AA2ifrgkRaGQqLRwBXoj8w==
+X-CSE-MsgGUID: 8RIypeH+Qy6OyN51JvUZBw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.24,219,1774335600"; 
+   d="scan'208";a="245165278"
+Received: from lkp-server02.sh.intel.com (HELO ea128546eb3d) ([10.239.97.151])
+  by fmviesa010.fm.intel.com with ESMTP; 22 Jun 2026 11:44:50 -0700
+Received: from kbuild by ea128546eb3d with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wbjdB-000000001jT-2PZy;
+	Mon, 22 Jun 2026 18:44:42 +0000
+Date: Tue, 23 Jun 2026 02:42:17 +0800
+From: kernel test robot <lkp@intel.com>
 To: Linus Walleij <linusw@kernel.org>
-Cc: Kevin Brodsky <kevin.brodsky@arm.com>, linux-hardening@vger.kernel.org,
- Andrew Morton <akpm@linux-foundation.org>, Andy Lutomirski
- <luto@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>, Ira Weiny <ira.weiny@intel.com>,
- Jann Horn <jannh@google.com>, Jeff Xu <jeffxu@chromium.org>,
- Joey Gouly <joey.gouly@arm.com>, Kees Cook <kees@kernel.org>,
- Marc Zyngier <maz@kernel.org>, Mark Brown <broonie@kernel.org>,
- Matthew Wilcox <willy@infradead.org>, Maxwell Bland <mbland@motorola.com>,
- "Mike Rapoport (IBM)" <rppt@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>,
- Pierre Langlois <pierre.langlois@arm.com>,
- Quentin Perret <qperret@google.com>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>,
- Ryan Roberts <ryan.roberts@arm.com>, Vlastimil Babka <vbabka@kernel.org>,
- Will Deacon <will@kernel.org>, Yang Shi <yang@os.amperecomputing.com>,
- Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
- linux-mm@kvack.org, x86@kernel.org, Lorenzo Stoakes <ljs@kernel.org>,
- Thomas Gleixner <tglx@kernel.org>
-References: <20260526-kpkeys-v8-0-eaaacdacc67c@arm.com>
- <20260526-kpkeys-v8-1-eaaacdacc67c@arm.com>
- <70f4dcdf-c45f-47d3-91df-a7897bd86ff4@kernel.org>
- <CAD++jL=km9hqTuTMFUhyx_QPuMEwWqmnUVQtPtMXnp8paHH1_A@mail.gmail.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <CAD++jL=km9hqTuTMFUhyx_QPuMEwWqmnUVQtPtMXnp8paHH1_A@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Cc: linux-arm-kernel@lists.infradead.org
+Subject: [linusw-nomadik:ux500-power-domains-v7.1] BUILD REGRESSION
+ 10278e18bc5a61397cb538310a6388075a4f21dd
+Message-ID: <202606230255.rEhNEYL4-lkp@intel.com>
+User-Agent: s-nail v14.9.25
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260622_114452_052806_3F57E314 
+X-CRM114-Status: UNSURE (   4.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,42 +83,329 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/18/26 15:22, Linus Walleij wrote:
-> On Tue, Jun 16, 2026 at 5:19 PM David Hildenbrand (Arm)
-> <david@kernel.org> wrote:
-> 
->> Looking at this, and wondering about "why do we get registers involved in this
->> API" I would probably have an interface like:
->>
->>         arch_kpkeys_enter_context()
->>         arch_kpkeys_leave_context()
->>
->> Whereby you return a "struct kpkeys_state" or sth like that.
-> 
-> This is close to what I was looking for as well.
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-nomadik.git ux500-power-domains-v7.1
+branch HEAD: 10278e18bc5a61397cb538310a6388075a4f21dd  ARM: dts: ux500: Remove DB8500 EPOD regulators
 
-Cool :)
+Error/Warning (recently discovered and may have been fixed):
 
-> 
-> enter/leave makes the code look more like generic entry.
-> 
-> Passing some kind of state cookie around is inevitable in
-> this design and IIUC Kevin argued that it would be inefficient
-> (another level of abstraction) as opposed to just hammering
-> in the context we want, where we want it.
-> 
-> But I think the compiler will optimize that out by constant
-> propagation if the backing architecture implementation is
-> simple.
+    https://lore.kernel.org/oe-kbuild-all/202606180825.vUSQntkJ-lkp@intel.com
 
-Yes, it should be wrapped somehow. I don't think this will be a problem
-performance-wise that cannot be solved differently.
+    include/linux/mfd/dbx500-prcmu.h:408:19: error: redefinition of 'prcmu_abb_read'
+    include/linux/mfd/dbx500-prcmu.h:413:19: error: redefinition of 'prcmu_abb_write'
+    include/linux/mfd/dbx500-prcmu.h:424:19: error: redefinition of 'prcmu_config_clkout'
+    include/linux/mfd/dbx500-prcmu.h:486:19: error: redefinition of 'prcmu_ac_wake_req'
+    include/linux/mfd/dbx500-prcmu.h:491:20: error: redefinition of 'prcmu_ac_sleep_req'
 
-Returning an u64 ("register") here is really arm64-sepcific and should be
-abstracted.
+Error/Warning ids grouped by kconfigs:
 
--- 
-Cheers,
+recent_errors
+|-- arc-allmodconfig
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_read
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_write
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_sleep_req
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_wake_req
+|   `-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_config_clkout
+|-- arc-allyesconfig
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_read
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_write
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_sleep_req
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_wake_req
+|   `-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_config_clkout
+|-- arm-randconfig-004-20260622
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_read
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_write
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_sleep_req
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_wake_req
+|   `-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_config_clkout
+|-- arm64-allmodconfig
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_read
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_write
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_sleep_req
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_wake_req
+|   `-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_config_clkout
+|-- i386-allmodconfig
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_read
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_write
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_sleep_req
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_wake_req
+|   `-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_config_clkout
+|-- i386-allyesconfig
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_read
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_write
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_sleep_req
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_wake_req
+|   `-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_config_clkout
+|-- loongarch-allmodconfig
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_read
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_write
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_sleep_req
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_wake_req
+|   `-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_config_clkout
+|-- loongarch-randconfig-001-20260622
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_read
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_write
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_sleep_req
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_wake_req
+|   `-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_config_clkout
+|-- loongarch-randconfig-002-20260622
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_read
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_write
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_sleep_req
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_wake_req
+|   `-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_config_clkout
+|-- mips-allmodconfig
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_read
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_write
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_sleep_req
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_wake_req
+|   `-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_config_clkout
+|-- mips-allyesconfig
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_read
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_write
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_sleep_req
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_wake_req
+|   `-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_config_clkout
+|-- powerpc-allmodconfig
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_read
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_write
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_sleep_req
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_wake_req
+|   `-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_config_clkout
+|-- powerpc-randconfig-002-20260622
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_read
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_write
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_sleep_req
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_wake_req
+|   `-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_config_clkout
+|-- powerpc64-randconfig-001-20260622
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_read
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_write
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_sleep_req
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_wake_req
+|   `-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_config_clkout
+|-- riscv-allmodconfig
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_read
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_write
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_sleep_req
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_wake_req
+|   `-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_config_clkout
+|-- riscv-allyesconfig
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_read
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_write
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_sleep_req
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_wake_req
+|   `-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_config_clkout
+|-- sh-allmodconfig
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_read
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_write
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_sleep_req
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_wake_req
+|   `-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_config_clkout
+|-- sh-allyesconfig
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_read
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_write
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_sleep_req
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_wake_req
+|   `-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_config_clkout
+|-- sparc64-allmodconfig
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_read
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_write
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_sleep_req
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_wake_req
+|   `-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_config_clkout
+|-- um-allmodconfig
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_read
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_write
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_sleep_req
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_wake_req
+|   `-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_config_clkout
+|-- um-allyesconfig
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_read
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_write
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_sleep_req
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_wake_req
+|   `-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_config_clkout
+|-- x86_64-allmodconfig
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_read
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_write
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_sleep_req
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_wake_req
+|   `-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_config_clkout
+|-- x86_64-allyesconfig
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_read
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_write
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_sleep_req
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_wake_req
+|   `-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_config_clkout
+|-- xtensa-allyesconfig
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_read
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_write
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_sleep_req
+|   |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_wake_req
+|   `-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_config_clkout
+`-- xtensa-randconfig-001-20260622
+    |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_read
+    |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_abb_write
+    |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_sleep_req
+    |-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_ac_wake_req
+    `-- include-linux-mfd-dbx500-prcmu.h:error:redefinition-of-prcmu_config_clkout
 
-David
+elapsed time: 952m
+
+configs tested: 148
+configs skipped: 2
+
+tested configs:
+alpha                             allnoconfig    gcc-16.1.0
+alpha                            allyesconfig    gcc-16.1.0
+alpha                               defconfig    gcc-16.1.0
+arc                              allmodconfig    gcc-16.1.0
+arc                               allnoconfig    gcc-16.1.0
+arc                              allyesconfig    gcc-16.1.0
+arc                                 defconfig    gcc-16.1.0
+arc                   randconfig-001-20260622    gcc-15.2.0
+arc                   randconfig-002-20260622    gcc-9.5.0
+arm                               allnoconfig    clang-23
+arm                              allyesconfig    gcc-16.1.0
+arm                                 defconfig    clang-23
+arm                   randconfig-001-20260622    gcc-13.4.0
+arm                   randconfig-002-20260622    clang-23
+arm                   randconfig-003-20260622    gcc-8.5.0
+arm                   randconfig-004-20260622    gcc-15.2.0
+arm64                            allmodconfig    clang-23
+arm64                             allnoconfig    gcc-16.1.0
+arm64                               defconfig    gcc-16.1.0
+arm64                 randconfig-001-20260622    gcc-8.5.0
+arm64                 randconfig-002-20260622    gcc-13.4.0
+arm64                 randconfig-003-20260622    gcc-8.5.0
+arm64                 randconfig-004-20260622    clang-22
+csky                             allmodconfig    gcc-16.1.0
+csky                              allnoconfig    gcc-16.1.0
+csky                                defconfig    gcc-16.1.0
+csky                  randconfig-001-20260622    gcc-13.4.0
+csky                  randconfig-002-20260622    gcc-11.5.0
+hexagon                          allmodconfig    clang-23
+hexagon                           allnoconfig    clang-23
+hexagon                             defconfig    clang-23
+hexagon               randconfig-001-20260622    clang-23
+hexagon               randconfig-002-20260622    clang-23
+i386                             allmodconfig    gcc-14
+i386                              allnoconfig    gcc-14
+i386                             allyesconfig    gcc-14
+i386        buildonly-randconfig-001-20260622    gcc-14
+i386        buildonly-randconfig-002-20260622    clang-22
+i386        buildonly-randconfig-003-20260622    gcc-14
+i386        buildonly-randconfig-004-20260622    gcc-12
+i386        buildonly-randconfig-005-20260622    gcc-14
+i386        buildonly-randconfig-006-20260622    gcc-14
+i386                                defconfig    clang-22
+i386                  randconfig-011-20260622    gcc-14
+i386                  randconfig-012-20260622    clang-22
+i386                  randconfig-013-20260622    gcc-14
+i386                  randconfig-014-20260622    clang-22
+i386                  randconfig-015-20260622    clang-22
+i386                  randconfig-016-20260622    clang-22
+i386                  randconfig-017-20260622    clang-22
+loongarch                        allmodconfig    clang-19
+loongarch                         allnoconfig    clang-20
+loongarch                           defconfig    clang-23
+loongarch             randconfig-001-20260622    clang-18
+loongarch             randconfig-002-20260622    clang-18
+m68k                             allmodconfig    gcc-16.1.0
+m68k                              allnoconfig    gcc-16.1.0
+m68k                             allyesconfig    gcc-16.1.0
+m68k                                defconfig    gcc-16.1.0
+microblaze                        allnoconfig    gcc-16.1.0
+microblaze                       allyesconfig    gcc-16.1.0
+microblaze                          defconfig    gcc-16.1.0
+mips                             allmodconfig    gcc-16.1.0
+mips                              allnoconfig    gcc-16.1.0
+mips                             allyesconfig    gcc-16.1.0
+nios2                            allmodconfig    gcc-11.5.0
+nios2                             allnoconfig    gcc-11.5.0
+nios2                               defconfig    gcc-11.5.0
+nios2                 randconfig-001-20260622    gcc-8.5.0
+nios2                 randconfig-002-20260622    gcc-8.5.0
+openrisc                         allmodconfig    gcc-16.1.0
+openrisc                          allnoconfig    gcc-16.1.0
+openrisc                            defconfig    gcc-16.1.0
+parisc                           allmodconfig    gcc-16.1.0
+parisc                            allnoconfig    gcc-16.1.0
+parisc                           allyesconfig    gcc-16.1.0
+parisc                              defconfig    gcc-16.1.0
+parisc                randconfig-001-20260622    gcc-14.3.0
+parisc                randconfig-002-20260622    gcc-12.5.0
+parisc64                            defconfig    gcc-16.1.0
+powerpc                          allmodconfig    gcc-16.1.0
+powerpc                           allnoconfig    gcc-16.1.0
+powerpc               randconfig-001-20260622    gcc-8.5.0
+powerpc               randconfig-002-20260622    gcc-8.5.0
+powerpc64             randconfig-001-20260622    clang-21
+powerpc64             randconfig-002-20260622    clang-20
+riscv                            allmodconfig    clang-23
+riscv                             allnoconfig    gcc-16.1.0
+riscv                            allyesconfig    clang-23
+riscv                               defconfig    clang-23
+riscv                 randconfig-001-20260622    clang-23
+s390                             allmodconfig    clang-23
+s390                              allnoconfig    clang-23
+s390                             allyesconfig    gcc-16.1.0
+s390                                defconfig    clang-18
+s390                  randconfig-001-20260622    gcc-14.3.0
+s390                  randconfig-002-20260622    clang-23
+sh                               allmodconfig    gcc-16.1.0
+sh                                allnoconfig    gcc-16.1.0
+sh                               allyesconfig    gcc-16.1.0
+sh                                  defconfig    gcc-16.1.0
+sh                    randconfig-001-20260622    gcc-13.4.0
+sh                    randconfig-002-20260622    gcc-15.2.0
+sparc                             allnoconfig    gcc-16.1.0
+sparc                               defconfig    gcc-16.1.0
+sparc                          randconfig-001    gcc-16.1.0
+sparc                 randconfig-001-20260622    gcc-16.1.0
+sparc                          randconfig-002    gcc-11.5.0
+sparc                 randconfig-002-20260622    gcc-8.5.0
+sparc64                          allmodconfig    clang-20
+sparc64                             defconfig    clang-23
+sparc64                        randconfig-001    gcc-12.5.0
+sparc64               randconfig-001-20260622    gcc-16.1.0
+sparc64                        randconfig-002    clang-20
+sparc64               randconfig-002-20260622    clang-23
+um                               allmodconfig    clang-23
+um                                allnoconfig    clang-16
+um                               allyesconfig    gcc-14
+um                                  defconfig    clang-23
+um                             i386_defconfig    gcc-14
+um                             randconfig-001    clang-23
+um                    randconfig-001-20260622    gcc-14
+um                             randconfig-002    clang-23
+um                    randconfig-002-20260622    gcc-14
+x86_64                           allmodconfig    clang-22
+x86_64                            allnoconfig    clang-22
+x86_64                           allyesconfig    clang-22
+x86_64      buildonly-randconfig-001-20260622    clang-22
+x86_64      buildonly-randconfig-002-20260622    clang-22
+x86_64      buildonly-randconfig-003-20260622    clang-22
+x86_64      buildonly-randconfig-004-20260622    clang-22
+x86_64      buildonly-randconfig-005-20260622    gcc-14
+x86_64      buildonly-randconfig-006-20260622    clang-22
+x86_64                              defconfig    gcc-14
+x86_64                randconfig-002-20260622    gcc-14
+x86_64                randconfig-011-20260622    clang-22
+x86_64                randconfig-012-20260622    clang-22
+x86_64                randconfig-013-20260622    gcc-14
+x86_64                randconfig-014-20260622    gcc-14
+x86_64                randconfig-015-20260622    clang-22
+x86_64                randconfig-016-20260622    clang-22
+x86_64                          rhel-9.4-rust    clang-22
+xtensa                            allnoconfig    gcc-16.1.0
+xtensa                           allyesconfig    gcc-16.1.0
+xtensa                         randconfig-001    gcc-8.5.0
+xtensa                randconfig-001-20260622    gcc-16.1.0
+xtensa                         randconfig-002    gcc-13.4.0
+xtensa                randconfig-002-20260622    gcc-8.5.0
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
