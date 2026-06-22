@@ -4,69 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42032CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 14:37:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCE50CDB470
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 14:50:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=byJmp20ozUXMyoKY5EOWJZujkHr16poyflFSxhdQvxg=; b=TkMlhKw07CwsHr5UaCy3VBEbq9
-	nXTX7XqxKRqMX+nq1fqHoN/5dGO8NrIg0Y6sKnNlc9BphU2STbW05rG4mHrEm7tBSnqQj7kkXoSsY
-	wCh9TM9w0u/vox1XwR8N+I478ceMcZuE0zHSqt9UdDk60DZNu9MEZ3bASAIv+MSCb7Aramb7GFwgB
-	0IJ6Z9SuBtx57nNOo/7sGitatDhXXWaAtsJVqdeHVnvyIUB+tjWdvYkIGqmpXkihuGNyBKLPMiWS2
-	aF71dnnSUuT7xKWlqd3t44LrTdaRneoHdrqHMQ4B7qj1HGFHPeHG9rpjA+XdHggFffIEnnFflAPMt
-	r57yQ6Ag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5FxiXI2Cp5YdtBkdSD+qNScBXccHcZeYoAW8t2qi+Yc=; b=1GOXA8+z2WnFzM2EbbRAryt/Yx
+	hMxW5mg/pTxgevm9PReu6E044DmKSsqQaLaUDF8QoG1hGCVVDSb7Pd0eeJZ+tNCVGxnzxXB+Yf+4c
+	qJvC81nFgHvQ8Q7p9ws0BKKEJmH9LHYVNMIfNNY0YBAFWT0bnXR+gPVjS86ZPl7vBW61C83ulMQo6
+	bAViRFhqvx/3n7vQxCzpPeqyGouQnRexZRt0X4nibI2v8LWX2wG1xvuKbwgW1+87k0l455+vlpnqd
+	4Z4db5vkiiiETvbcid+Vv0ltiPzKKbwsidTYukBcJ0N4w8Ue+zpkpK43HudSaOxlsEpMpZulf8fdy
+	wQ03haNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbfmN-000000055Lt-3fu9;
-	Mon, 22 Jun 2026 14:37:39 +0000
-Received: from imap4.hz.codethink.co.uk ([188.40.203.114])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbfmK-000000055KY-2urv
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Jun 2026 14:37:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=codethink.co.uk; s=imap4-20230908; h=Sender:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:In-Reply-To:
-	References; bh=byJmp20ozUXMyoKY5EOWJZujkHr16poyflFSxhdQvxg=; b=nWTKzmrd4iK95s
-	PDDmh2o+j1xgFfJJKO8SOtPNODbt39YHDkQunnC/Szi8IjIUfQmLP4J5lMC1W62l95nWo6ce/nHHH
-	+s1QAQcRoFOgkeIZIAo05FBsGdL1pM50bMAsQ34a0e3i6o3d30avo/cT9DRzjosUZXpBYx5m9IXTO
-	ODvXdNhXY/gZ5y6nzMnwsARJI3tZf6Gd0uQPpiQORYDuIMCs5M1gDjuxUy/ydxoS31CcU8FbJskV4
-	sDuBmcWL+4cn7J5W0+ARrFfrkyXrydZ1jguzI+OsgQuJ9NMgRiXp0LXgiZdYQYOT6wRV3htGM/XJs
-	pfRdirhSLo68+Xzw7VdA==;
-Received: from [167.98.27.226] (helo=rainbowdash)
-	by imap4.hz.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
-	id 1wbflu-00EqWl-D2; Mon, 22 Jun 2026 15:37:10 +0100
-Received: from ben by rainbowdash with local (Exim 4.99.4)
-	(envelope-from <ben@rainbowdash>)
-	id 1wbfls-000000025LX-32iL;
-	Mon, 22 Jun 2026 15:37:08 +0100
-From: Ben Dooks <ben.dooks@codethink.co.uk>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	"Russell King \(Oracle\)" <rmk+kernel@armlinux.org.uk>,
-	Ben Dooks <ben.dooks@codethink.co.uk>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] net: stmmac: fix missed le32_to_cpu()
-Date: Mon, 22 Jun 2026 15:37:07 +0100
-Message-Id: <20260622143707.497198-1-ben.dooks@codethink.co.uk>
-X-Mailer: git-send-email 2.37.2.352.g3c44437643
+	id 1wbfyY-000000056An-25Vr;
+	Mon, 22 Jun 2026 14:50:14 +0000
+Received: from [38.23.173.23] (helo=localhost)
+	by bombadil.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wbfyR-00000005693-3OS3;
+	Mon, 22 Jun 2026 14:50:07 +0000
+Date: Mon, 22 Jun 2026 10:50:02 -0400
+From: "Liam R. Howlett" <liam@infradead.org>
+To: Barry Song <baohua@kernel.org>
+Cc: Matthew Wilcox <willy@infradead.org>, 
+	Suren Baghdasaryan <surenb@google.com>, Lorenzo Stoakes <ljs@kernel.org>, 
+	"David Hildenbrand (Arm)" <david@kernel.org>, akpm@linux-foundation.org, linux-mm@kvack.org, vbabka@kernel.org, 
+	rppt@kernel.org, mhocko@suse.com, jack@suse.cz, pfalcato@suse.de, 
+	wanglian@kylinos.cn, chentao@kylinos.cn, lianux.mm@gmail.com, kunwu.chan@gmail.com, 
+	liyangouwen1@oppo.com, chrisl@kernel.org, kasong@tencent.com, shikemeng@huaweicloud.com, 
+	nphamcs@gmail.com, bhe@redhat.com, youngjun.park@lge.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, loongarch@lists.linux.dev, 
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	Nanzhe Zhao <nzzhao@126.com>
+Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
+ fault performance
+Message-ID: <c5soxcu245cerfljr2ddto4h7xqksfxzxti47mq6sqn6pnmnxh@th5kxapvnaj3>
+References: <ag4h87CBd-gph9zX@casper.infradead.org>
+ <CAGsJ_4zA8afu0xXy0WS+tMe-eesDX1W6UBmfAsuouUpcAgK8JQ@mail.gmail.com>
+ <ag4kj84EcKqamdB-@casper.infradead.org>
+ <3be9475b-0e8a-4df8-a130-4262f993973d@kernel.org>
+ <CAGsJ_4xC5LdhuoWV1=tK-RZ5rkjc8aOKOkmb1L_8BG_3gtJhDg@mail.gmail.com>
+ <ahB6QyHgYq8ksj65@lucifer>
+ <CAGsJ_4zxLvZ01i19vdo0xA47T1hxa1VRYvxLmiDhy5q1GDKPRg@mail.gmail.com>
+ <CAJuCfpHTxaU4KdNmefU7C7cWZSLCFDLPdUrnqV6yzxzN+8RQ0Q@mail.gmail.com>
+ <ajhOUdbWsswgQyl2@casper.infradead.org>
+ <CAGsJ_4ybg5LGYopTUJTh5R2rN6X3uR9xoJSL+RdTYVtm1-xqLg@mail.gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260622_073736_755327_4F740E37 
-X-CRM114-Status: GOOD (  11.22  )
+In-Reply-To: <CAGsJ_4ybg5LGYopTUJTh5R2rN6X3uR9xoJSL+RdTYVtm1-xqLg@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,37 +71,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The print in ndesc_display_ring() sends the des2 and des3
-to the pr_info() without passing them through the relevant
-conversion to cpu order.
+On 26/06/22 08:15AM, Barry Song wrote:
+> On Mon, Jun 22, 2026 at 4:49 AM Matthew Wilcox <willy@infradead.org> wrote:
+> >
+> > On Sat, Jun 20, 2026 at 04:48:57PM -0700, Suren Baghdasaryan wrote:
+> > > Just checking in on the followup plans. IIUC the RFC mentioned will
+> > > try to implement the solution we discussed at LSFMM: splitting
+> > > VM_FAULT_RETRY into two flags - one for retrying under per-VMA locks
+> > > and another one to fallback to mmap_lock.
+> >
+> > I continue to hate this idea.  I don't believe that those who were
+> > pushing for it have ever tried to understand the whole fault path.
+> > It's utterly byzantine.
+> >
+> > I defy anyone to make sense of this:
+> >
+> >         /*
+> >          * NOTE! This will make us return with VM_FAULT_RETRY, but with
+> >          * the fault lock still held. That's how FAULT_FLAG_RETRY_NOWAIT
+> >          * is supposed to work. We have way too many special cases..
+> >          */
+> >         if (vmf->flags & FAULT_FLAG_RETRY_NOWAIT)
+> >                 return 0;
+> >
+> >         *fpin = maybe_unlock_mmap_for_io(vmf, *fpin);
+> >         if (vmf->flags & FAULT_FLAG_KILLABLE) {
+> >                 if (__folio_lock_killable(folio)) {
+> >                         /*
+> >                          * We didn't have the right flags to drop the
+> >                          * fault lock, but all fault_handlers only check
+> >                          * for fatal signals if we return VM_FAULT_RETRY,
+> >                          * so we need to drop the fault lock here and
+> >                          * return 0 if we don't have a fpin.
+> >                          */
+> >                         if (*fpin == NULL)
+> >                                 release_fault_lock(vmf);
+> >                         return 0;
+> >                 }
+> >
+> > Wed need to simplify the fault path, not add additional complexity.
+> > Josef has said he wouldn't've done the lock dropping had we had per-VMA
+> > locks.  We should rip it out.
+> 
+> I think you have agreed that, at least for anon vma, we can
+> keep the current policy, since anon vma is much more volatile
+> than file vma.
 
-Fix the (prototype) sparse warnings by using le32_to_cpu():
-drivers/net/ethernet/stmicro/stmmac/norm_desc.c:258:17: warning: incorrect type in argument 6 (different base types)
-drivers/net/ethernet/stmicro/stmmac/norm_desc.c:258:17:    expected unsigned int
-drivers/net/ethernet/stmicro/stmmac/norm_desc.c:258:17:    got restricted __le32 [usertype] des2
-drivers/net/ethernet/stmicro/stmmac/norm_desc.c:258:17: warning: incorrect type in argument 7 (different base types)
-drivers/net/ethernet/stmicro/stmmac/norm_desc.c:258:17:    expected unsigned int
-drivers/net/ethernet/stmicro/stmmac/norm_desc.c:258:17:    got restricted __le32 [usertype] des3
+I don't think any of the above has to do with anon vmas.  Does any anon
+vma handling have anything to do with your problem?
 
-Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
----
- drivers/net/ethernet/stmicro/stmmac/norm_desc.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+This would be needed if anon vmas were being faulted while being
+unmapped or merged?  Do we really need a fast path for that?  Note that
+anon vmas cannot be merged if the vma chain... you know what, I wonder
+how many people know what I'm talking about here... Let's just say that
+they can't be merged if they were around for a fork.
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/norm_desc.c b/drivers/net/ethernet/stmicro/stmmac/norm_desc.c
-index c4b613564f87..74c9b7b1fe8f 100644
---- a/drivers/net/ethernet/stmicro/stmmac/norm_desc.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/norm_desc.c
-@@ -258,7 +258,7 @@ static void ndesc_display_ring(void *head, unsigned int size, bool rx,
- 		pr_info("%03d [%pad]: 0x%x 0x%x 0x%x 0x%x",
- 			i, &dma_addr,
- 			(unsigned int)x, (unsigned int)(x >> 32),
--			p->des2, p->des3);
-+			le32_to_cpu(p->des2), le32_to_cpu(p->des3));
- 		p++;
- 	}
- 	pr_info("\n");
--- 
-2.37.2.352.g3c44437643
+So, then, we're looking at anon vmas taking the mmap lock on:
+1. single task anon vmas being expanded and faulted at the same time
+2. single task anon vmas being unmapped and faulted at the same time
+
+I think that's it?
+
+But maybe I missed something critical about your use case here?
+
+I don't understand why you are involving anon vmas in this discussion,
+so I must have missed something with your IO completion issue.  Is there
+an anon vma causing your priority inversion?
+
+> Concurrent page faults and VMA modifications can happen more
+> often than with file VMAs.
+
+But it's only a problem for anon vmas with per-vma locking if it's the
+same vma (or the vma lock sequence counter overflows, but let's say
+that's a statistically insignificant non-zero value).
+
+> 
+> For file vmas, how much code can we actually remove, given that
+> the first page fault might already be holding mmap_lock?
+
+How much complexity can we remove and maintain the performance, might be
+a better question.
+
+> It could be the case that lock_vma_under_rcu() fails, and then
+> on the first page fault we end up holding mmap_lock before
+> retrying. So are we also going to rip out the lock release,
+> even if it risks holding mmap_lock for a long time?
+> 
+>         vma = lock_vma_under_rcu(mm, addr);
+>         if (!vma)
+>                 goto lock_mmap;
+>        ...
+> lock_mmap:
+> 
+>         vma = lock_mm_and_find_vma(mm, addr, regs);
+>         if (unlikely(!vma)) {
+>                 fault = 0;
+>                 si_code = SEGV_MAPERR;
+>                 goto bad_area;
+>         }
+> 
+> If we still need to keep the page fault retry code there, it
+> doesn't seem like "ripping out" really reduces complexity in
+> the page fault code?
+
+This seems unrelated to be above complexity that might be the target of
+removal?
+
+Thanks,
+Liam
 
 
