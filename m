@@ -4,56 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32143CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 16:40:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CC81CDB46F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 16:42:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c5UMhYqzW3FXITWipN5SHhAQOB1P9YUKBIDy0r3xPQw=; b=Z4HVtReOS70Qbuf9k55eWqgXZi
-	4zfoaD21y8nSY3sb65ny7yvQswsus6GVMIY9WZ4E2iDpTM6Oofmh98p9mnUhpTGx2F/QHopXhoxX2
-	x3swlO2YQRjSIibLySmIwV9Z4EqBFZjbmW1Pfwi1sG55NudOkxgysCfGf9QFV406xRmqZ2J5MIaDp
-	G8sUXfJq3xU+G/CW0sYnAlFEv0IMGFkjXecrMkkEQsjtSA7vKpahURtWZ/+DOlsmZ+vlB5teoQZ2D
-	VZSBFQVvsq6pCqBpPKOdVk6ATSgBU7Pt7Bn4afmdeEha8iPgWpnN3OonXFr+l+8s+QvtDb7GIvrSm
-	JOYQIqLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jS5vzTWiFCVV3CCvTa86S3rAsEqBDW1fk6YNyU4jtpg=; b=dcRspdVGkktBE6Ce96r9Y+dxnz
+	6vqaLk5QFYlnPbSGa3+fVHL9FEQYoVzNvWoVPZ7/CDr+yna92IRkNmUMuB5JjzAy3J7IRb1DzlQB9
+	y95eBpvYyuR3xOg/OyGgZrlbnkVwS7iI+//Q/L+j+kzlwhuErMRorF4yReutiHujJCCWwCE6BNgJ5
+	F6oYWgWuJdPhWwBwlI9fpiq3wjAbBzIF4HSijt7LdDG2FE6g62ks1y52clnqNfx7spqW1PzWA4Go7
+	YqPhM3r+L33FeATTAj9HBN6dPw42f4mexY7I43zJydDDy3np3iF0xLMUtv1sxYRjt0JfKjKWd5CKN
+	xCEQvHTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbhhZ-00000005CGS-1niq;
-	Mon, 22 Jun 2026 16:40:49 +0000
-Received: from [50.53.43.113] (helo=[192.168.254.34])
-	by bombadil.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbhhW-00000005CFj-0vuV;
-	Mon, 22 Jun 2026 16:40:46 +0000
-Message-ID: <08b3c961-18bb-43d9-8d7f-8a87bcad0afa@infradead.org>
-Date: Mon, 22 Jun 2026 09:40:45 -0700
+	id 1wbhjK-00000005CT9-0I3N;
+	Mon, 22 Jun 2026 16:42:38 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wbhjI-00000005CSs-0Frt
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 22 Jun 2026 16:42:36 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id C30A8436D7;
+	Mon, 22 Jun 2026 16:42:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF8BD1F000E9;
+	Mon, 22 Jun 2026 16:42:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782146555;
+	bh=jS5vzTWiFCVV3CCvTa86S3rAsEqBDW1fk6YNyU4jtpg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=mnCi4B8VwCOumOVFdE2j3qraJ+BMRPUyrJLX+cqoIfqHyopKQI6tLQekmRsdKz5l2
+	 ilk0NICDuqMs3c3zvNmCpv4/4+2yJtwSpWqHiqBgyFyIqt8W4qqIpLGsNaLE1KsY7x
+	 qryAzD8JC4dl8lCdOquSuuNbl1lffu93AX0BFtqXnJhYCGxGjYe91Sr25ScFiqXszL
+	 BV0X8eCrCUA1zX+lUB/UBK6hWED22CyK935uy2+IN0wVzvDj/uWdPPWko3caBOQqvs
+	 m9jvSZG9IMlhtEFZuc0/jTVYoQUIdOePQgAM6jRNeGSr0fZqTO/SZZT27oxCDYdEll
+	 K65MrslhGSJAA==
+Date: Mon, 22 Jun 2026 17:42:30 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: Yuanshen Cao <alex.caoys@gmail.com>, Vinod Koul <vkoul@kernel.org>,
+	Frank Li <Frank.Li@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Ripard <mripard@kernel.org>, dmaengine@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v2 4/5] dt-bindings: dma: sun50i-a64-dma: Add
+ allwinner,sun60i-a733-dma compatible string
+Message-ID: <20260622-line-underrate-af8018529dbe@spud>
+References: <20260621-sun60i-a733-dma-v2-0-340f205891cc@gmail.com>
+ <20260621-sun60i-a733-dma-v2-4-340f205891cc@gmail.com>
+ <ajhjj7FLn136qMmt@SMW015318>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] tracing: Move trace_printk.h out of kernel.h
-To: Peter Zijlstra <peterz@infradead.org>, Steven Rostedt <rostedt@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
- Masami Hiramatsu <mhiramat@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Linus Torvalds <torvalds@linux-foundation.org>,
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
- John Ogness <john.ogness@linutronix.de>, Thomas Gleixner <tglx@kernel.org>,
- Julia Lawall <julia.lawall@inria.fr>, Yury Norov <yury.norov@gmail.com>,
- linux-doc@vger.kernel.org, linux-kbuild@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, dri-devel@lists.freedesktop.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-rdma@vger.kernel.org,
- linux-usb@vger.kernel.org, linux-ext4@vger.kernel.org,
- linux-nfs@vger.kernel.org, kvm@vger.kernel.org,
- intel-gfx@lists.freedesktop.org
-References: <20260621093430.264983361@kernel.org>
- <20260622083440.GX49951@noisy.programming.kicks-ass.net>
-Content-Language: en-US
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <20260622083440.GX49951@noisy.programming.kicks-ass.net>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="peIRuF7CVWCE39IV"
+Content-Disposition: inline
+In-Reply-To: <ajhjj7FLn136qMmt@SMW015318>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,39 +80,86 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+--peIRuF7CVWCE39IV
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On 6/22/26 1:34 AM, Peter Zijlstra wrote:
-> On Sun, Jun 21, 2026 at 05:34:30AM -0400, Steven Rostedt wrote:
->> There's been complaints about trace_printk() being defined in kernel.h as it
->> can increase the compilation time. As it is only used by some developers for
->> debugging purposes, it should not be in kernel.h causing lots of wasted CPU
->> cycles for those that do not ever care about it.
->>
->> Instead, add a CONFIG_TRACE_PRINTK_DEBUGGING option that developers that do
->> use it can set and not have to always remember to add #include <linux/trace_printk.h>
->> to the files they add trace_printk() while debugging. It also means that
->> those that do not have that config set will not have to worry about wasted
->> CPU cycles as it is only include in the CFLAGS when the option is set, and
->> its completely ignored otherwise.
-> 
-> Did you forget your C 101 class? If you use a function, you gotta
-> include the relevant header.
+On Sun, Jun 21, 2026 at 05:19:59PM -0500, Frank Li wrote:
+> On Sun, Jun 21, 2026 at 09:40:57PM +0000, Yuanshen Cao wrote:
+>=20
+> subject dt-bindings: dmaengine: ....
+>=20
+> > Add `allwinner,sun60i-a733-dma` to the list of compatible strings for t=
+he
+> > `sun50i-a64-dma` dtbinding documentation.
+> >
+> > While the A733 DMA controller shares many similarities with the sun50i-=
+a64
+> > DMA controller, it requires a specific configuration due to differences=
+ in:
+> > - Interrupt register layout and mapping.
+> > - Number of channels per interrupt register.
+> > - Support for higher (32G) address widths in LLI parameters.
+> >
+> > Signed-off-by: Yuanshen Cao <alex.caoys@gmail.com>
+> > ---
+>=20
+> After fix subject tags,
 
-Also item #1 in Documentation/process/submit-checklist.rst.
+Do not change this unless you're respinning for another reason. dma v
+dmaengine is not worth resubmission, especially since dma is far more
+commonly used and is the directory name.
 
-> You don't see userspace saying: 'Hey, you know what, perhaps we should
-> add stdio.h to every other header, just in case someone wants to
-> printf()' either.
-> 
-> I really don't understand your argument. Yes, maybe someone will forget
-> and then either their editor (if they have a halfway modern setup with
-> LSP enabled) or their build will complain, but so what? This is all
-> trivial stuff, surely we have more pressing matters to concern outselves
-> with?
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
 
+>=20
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+>=20
+> >  Documentation/devicetree/bindings/dma/allwinner,sun50i-a64-dma.yaml | =
+2 ++
+> >  1 file changed, 2 insertions(+)
+> >
+> > diff --git a/Documentation/devicetree/bindings/dma/allwinner,sun50i-a64=
+-dma.yaml b/Documentation/devicetree/bindings/dma/allwinner,sun50i-a64-dma.=
+yaml
+> > index c3e14eb6cfff..1cc3304b7414 100644
+> > --- a/Documentation/devicetree/bindings/dma/allwinner,sun50i-a64-dma.ya=
+ml
+> > +++ b/Documentation/devicetree/bindings/dma/allwinner,sun50i-a64-dma.ya=
+ml
+> > @@ -25,6 +25,7 @@ properties:
+> >            - allwinner,sun50i-a64-dma
+> >            - allwinner,sun50i-a100-dma
+> >            - allwinner,sun50i-h6-dma
+> > +          - allwinner,sun60i-a733-dma
+> >        - items:
+> >            - const: allwinner,sun8i-r40-dma
+> >            - const: allwinner,sun50i-a64-dma
+> > @@ -70,6 +71,7 @@ if:
+> >            - allwinner,sun20i-d1-dma
+> >            - allwinner,sun50i-a100-dma
+> >            - allwinner,sun50i-h6-dma
+> > +          - allwinner,sun60i-a733-dma
+> >
+> >  then:
+> >    properties:
+> >
+> > --
+> > 2.54.0
+> >
 
+--peIRuF7CVWCE39IV
+Content-Type: application/pgp-signature; name=signature.asc
 
--- 
-~Randy
+-----BEGIN PGP SIGNATURE-----
 
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCajll9gAKCRB4tDGHoIJi
+0l4hAP47PVrBv7GeDeVOvJgI2ZJy5w1r98XvDUdIdvTX634bFwD/aLHVuG6enEsl
+VyC9c36IFrvNVMK1iB5+10sOdmY9vQU=
+=O0oF
+-----END PGP SIGNATURE-----
+
+--peIRuF7CVWCE39IV--
 
