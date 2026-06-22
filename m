@@ -4,67 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A20C6CDB46B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 09:05:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E66FDCDB46B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 09:08:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zSJLssmZdEOX/zGucC3pwqt9Dq/W1NDmqgn/3V659l0=; b=rbV27u18B0T/XFYJRPO7woZ4t0
-	W0tozYF0cRyA/B/anQ2e9fIbteEuz6cRx8eARi8rTDmK/Kbkr/AV2dJbLuBTGyYQEw6Qu3Xqm6FW0
-	T5acTYua3r09W25fVcWSsveKKDkJVKG/elU4rALKvbvjnaXfp+3KjqRl/72bZ0tPwcMTrVvEcF4Ow
-	LT/2KijtOEnX9PzHAVIPGx28Y78u+URKqgpV+QWOts4h0sGVx0NfjDV1M17NJKwL9nljAEEYiIxNT
-	lgaLVUxKW78AYh1B18xz/DOftvbQQdliXYxNvLPJyZUuDhHonYI73NC2TM629MJHhZ0rDjWHWTfII
-	CN80aGmQ==;
+	bh=oMLg+Sr/y5FDapu46bskmirKujQ32N1+2dZN0r1E5GY=; b=T/L3Opzrt34wLBCyLoHIvAbclP
+	2uQ9QAWFjP+OLhUUqcUSTcTsw1NBUZheAbouX15m+Bcf0oftvOho3vibhWPwHJ5kGRhgMhfJ6COdF
+	9L0rApl58RNQG6cOKQ3+S0q5Tl7tRhOAPRTlqYPN42nkEsvta+yUXGyWHaDblv0zrq0Pn3viWdhl6
+	uhsJD8dSkGyZto1IdLJB6q8wQsDER9lGuvxX0wu1BRuC29yYCi18DzYZywgUQMSrKxHpM9OZOcD4J
+	bNQojtT/nd1yKeGlXNClwQ6hAFcSvOESgJ3GgzEua2oCN7Xyw0M6+rYA8HX1FCqDaoK2kbbkzb4Dy
+	38oWWHLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbab6-00000004ie5-3zSb;
-	Mon, 22 Jun 2026 09:05:40 +0000
-Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
+	id 1wbadc-00000004iqd-2WfP;
+	Mon, 22 Jun 2026 09:08:16 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbab4-00000004idO-06wS
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Jun 2026 09:05:39 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
-	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 64BAA200669;
-	Mon, 22 Jun 2026 11:05:34 +0200 (CEST)
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1wbab0-0043kt-13;
-	Mon, 22 Jun 2026 11:05:34 +0200
-Received: from pza by lupine with local (Exim 4.98.2)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1wbab0-000000008iF-0wHT;
-	Mon, 22 Jun 2026 11:05:34 +0200
-Message-ID: <7ee62b699c5cabb00cd7706ea42573da81c5bc84.camel@pengutronix.de>
-Subject: Re: [PATCH v4 2/2] media: i2c: ov5640: Add reset controller support
- with GPIO fallback
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Frank Li <Frank.li@oss.nxp.com>, robby.cai@oss.nxp.com
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- Frank.Li@nxp.com, 	s.hauer@pengutronix.de, festevam@gmail.com,
- sebastian.krzyszkowiak@puri.sm, 	slongerbeam@gmail.com,
- sakari.ailus@linux.intel.com, mchehab@kernel.org, 
-	kieran.bingham@ideasonboard.com, kernel@pengutronix.de, 
-	devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Mon, 22 Jun 2026 11:05:34 +0200
-In-Reply-To: <ajVPzoWVBi1vsqRQ@SMW015318>
-References: <20260619100532.3779934-1-robby.cai@oss.nxp.com>
-	 <20260619100532.3779934-3-robby.cai@oss.nxp.com>
-	 <ajVPzoWVBi1vsqRQ@SMW015318>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	id 1wbadb-00000004iqD-2ONs;
+	Mon, 22 Jun 2026 09:08:15 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id D9AA260051;
+	Mon, 22 Jun 2026 09:08:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64B0F1F000E9;
+	Mon, 22 Jun 2026 09:08:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782119294;
+	bh=oMLg+Sr/y5FDapu46bskmirKujQ32N1+2dZN0r1E5GY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=G1B1K+pL0YgcSkF9lt16MUlpIGOSpE0OQoc0ejByA1kBy6EcYPpmvpPFyxXW3QQGd
+	 XTS9JJ7Ilhxkl/7oE1Eqwjfm44/Lttayqjg1LGCnT0BDoXkzx5S6aqO397J7jwBfO4
+	 GqtnM/kB5xJlj8Uft0y12T+3mj5j5lzy6gWaxb4noi6kk0yU4KYyLD5UBXfS1eC0dd
+	 xXDtlemnG1rfWAtd5v0Bok/1PkbZua4Qwb428rve79Xe5kWLE3GKufXsY3iXa2hNuK
+	 s/ugVOYZXOhO48oiuNPRFwm0dq9UIW2sKyeIihaeX5KpAap5diinMI3aL4VvntcfgD
+	 5v0XqsW51cxxg==
+Date: Mon, 22 Jun 2026 11:08:10 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Heiner Kallweit <hkallweit1@gmail.com>
+Cc: ricardo@pardini.net, nic_swsd@realtek.com, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Sebastian Reichel <sebastian.reichel@collabora.com>, 
+	netdev@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v4 1/3] dt-bindings: net: add Realtek RTL8125 PCIe
+ Ethernet
+Message-ID: <20260622-sympathetic-inscrutable-macaque-f3bffc@quoll>
+References: <20260617-rk3588-dts-rtl-eth-describe-dt-alias-v4-0-2bd38922d129@pardini.net>
+ <20260617-rk3588-dts-rtl-eth-describe-dt-alias-v4-1-2bd38922d129@pardini.net>
+ <876a38f8-75ea-4b32-bb65-216cb3adb436@gmail.com>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260622_020538_216330_289AF4CB 
-X-CRM114-Status: GOOD (  27.72  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <876a38f8-75ea-4b32-bb65-216cb3adb436@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,107 +76,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fr, 2026-06-19 at 09:18 -0500, Frank Li wrote:
-> On Fri, Jun 19, 2026 at 06:05:32PM +0800, robby.cai@oss.nxp.com wrote:
-> > [You don't often get email from robby.cai@oss.nxp.com. Learn why this i=
-s important at https://aka.ms/LearnAboutSenderIdentification ]
-> >=20
-> > From: Robby Cai <robby.cai@nxp.com>
-> >=20
-> > Add support for the reset controller framework by acquiring the reset
-> > line using devm_reset_control_get_optional_shared_deasserted(). This
-> > allows the driver to handle reset lines provided by a reset controller,
-> > including shared ones, while avoiding unbalanced deassert counts.
-> >=20
-> > Retain support for legacy reset-gpios as a fallback when no reset
-> > controller is defined. In that case, request the GPIO and keep it in th=
-e
-> > deasserted state as the initial configuration.
-> >=20
-> > This enables the driver to support both reset-controller-backed reset
-> > lines and older GPIO-based descriptions while preserving the existing
-> > power-up sequencing behavior.
-> >=20
-> > Signed-off-by: Robby Cai <robby.cai@nxp.com>
+On Wed, Jun 17, 2026 at 06:43:42PM +0200, Heiner Kallweit wrote:
+> On 17.06.2026 14:58, Ricardo Pardini via B4 Relay wrote:
+> > From: Ricardo Pardini <ricardo@pardini.net>
+> > 
+> > Add a binding for fixed/soldered Realtek RTL8125 PCIe Ethernet
+> > controller.
+> > 
+> > The "pciVVVV,DDDD" compatibles are the Open Firmware PCI Bus Binding
+> > spelling, auto-derived from PCI-SIG vendor/device IDs, but they still
+> > need a binding when used in a board DT - analogous to "usbVVVV,PPPP"
+
+Ricardo,
+
+No, they do not need. They are already documented, they already have a
+binding, see: dtschema/schemas/pci/pci-device.yaml
+
+
+> > compatibles documented in their own bindings (e.g. microchip,lan95xx)
+> > so board DTs attaching properties (fixed MAC, nvmem cell, ...) to
+> > these PCI function nodes can be validated.
+> > 
+> > Suggested-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+> > Signed-off-by: Ricardo Pardini <ricardo@pardini.net>
 > > ---
-> >  drivers/media/i2c/ov5640.c | 80 +++++++++++++++++++++++++++++++++-----
-> >  1 file changed, 70 insertions(+), 10 deletions(-)
-> >=20
-> > diff --git a/drivers/media/i2c/ov5640.c b/drivers/media/i2c/ov5640.c
-> > index 85ecc23b3587..5e6db8aacb11 100644
-> > --- a/drivers/media/i2c/ov5640.c
-> > +++ b/drivers/media/i2c/ov5640.c
-> > @@ -17,6 +17,7 @@
-> >  #include <linux/module.h>
-> >  #include <linux/pm_runtime.h>
-> >  #include <linux/regulator/consumer.h>
-> > +#include <linux/reset.h>
-> >  #include <linux/slab.h>
-> >  #include <linux/types.h>
-> >  #include <media/v4l2-async.h>
-> > @@ -442,6 +443,7 @@ struct ov5640_dev {
-> >         u32 xclk_freq;
-> >=20
-> >         struct regulator_bulk_data supplies[OV5640_NUM_SUPPLIES];
-> > +       struct reset_control *reset;
-> >         struct gpio_desc *reset_gpio;
-> >         struct gpio_desc *pwdn_gpio;
-> >         bool   upside_down;
-> > @@ -2431,6 +2433,48 @@ static int ov5640_restore_mode(struct ov5640_dev=
- *sensor)
-> >         return ov5640_set_framefmt(sensor, &sensor->fmt);
-> >  }
-> >=20
-> > +static int ov5640_get_reset(struct device *dev, struct ov5640_dev *sen=
-sor)
-> > +{
-> > +       /* use deasserted version to avoid unbalanced deassert counts *=
-/
-> > +       sensor->reset =3D
-> > +           devm_reset_control_get_optional_shared_deasserted(dev, NULL=
-);
-> > +       if (IS_ERR(sensor->reset))
-> > +               return dev_err_probe(dev, PTR_ERR(sensor->reset),
-> > +                                    "Failed to get reset\n");
-> > +       else if (sensor->reset)
-> > +               return 0;
+> >  .../devicetree/bindings/net/realtek,rtl8125.yaml   | 43 ++++++++++++++++++++++
+> >  MAINTAINERS                                        |  1 +
+> >  2 files changed, 44 insertions(+)
+> > 
+> > diff --git a/Documentation/devicetree/bindings/net/realtek,rtl8125.yaml b/Documentation/devicetree/bindings/net/realtek,rtl8125.yaml
+> > new file mode 100644
+> > index 0000000000000..eee13fbc1e6a6
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/net/realtek,rtl8125.yaml
+> > @@ -0,0 +1,43 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/net/realtek,rtl8125.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > > +
-> > +       /*
-> > +        * fallback to legacy reset-gpios
-> > +        * GPIOD_OUT_HIGH ensures deasserted state for ACTIVE_LOW reset
-> > +        */
-> > +       sensor->reset_gpio =3D devm_gpiod_get_optional(dev, "reset",
-> > +                                                    GPIOD_OUT_HIGH);
-> > +       if (IS_ERR(sensor->reset_gpio))
-> > +               return dev_err_probe(dev, PTR_ERR(sensor->reset_gpio),
-> > +                                    "Failed to get reset gpio");
->=20
-> I think needn't fallback here, NO ABI change, just change to use reset-gp=
-io
-> driver.
-
-Please keep the gpiod fallback, the reset-gpio driver may not be
-available on all platforms using ov5640.
-
+> > +title: Realtek RTL8125 2.5 Gigabit PCIe Ethernet Controller
 > > +
-> > +       return 0;
-> > +}
+> > +maintainers:
+> > +  - Heiner Kallweit <hkallweit1@gmail.com>
 > > +
-> > +static int ov5640_reset_assert(struct ov5640_dev *sensor)
-> > +{
-> > +       if (sensor->reset)
-> > +               return reset_control_assert(sensor->reset);
->=20
-> needn't check sensor->reset, reset_control_assert() is no ops if NULL.
->=20
+> > +description:
+> > +  The Realtek RTL8125 is a 2.5GBASE-T Ethernet controller with a PCIe host
+> > +  interface.
 > > +
-> > +       gpiod_set_value_cansleep(sensor->reset_gpio, 1);
->=20
-> Needn't fallback, directly replace.
+> > +allOf:
+> > +  - $ref: ethernet-controller.yaml#
+> > +
+> > +properties:
+> > +  compatible:
+> > +    const: pci10ec,8125
+> 
+> IIRC we came to the conclusion that the compatible string isn't used in the
+> relevant code path. Then why add it here? Is there an alignment on this?
 
-See above.
+Heiner, it is used - in the DTS.
 
+> If it should be added here, then an explaining comment would be helpful.
 
-regards
-Philipp
+Commit msg should explain that.  The compatible is used, so it
+must be documented and in fact already is, so you need to specify them
+ONLY if device nodes have some other properties, like being an ethernet
+controller.
+
+I assume that this is the case here, although that should be mentioned
+in the commit msg.
+
+Best regards,
+Krzysztof
+
 
