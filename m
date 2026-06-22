@@ -4,61 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F3ADCDB46F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 09:04:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A20C6CDB46B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 09:05:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zycFDAwEBzI/T6mHbP1oYmPi04MAC9JUt36rsCSQiMY=; b=OrqGjzKv6ehdgql4SDQXQ3zzGN
-	8rQlZT8d2YrUh37rcUU1muL1OYHJtG1XDUrf6HaSv2MRZnQVXevCp1B8mEtp2QqczXDMcf9y9Q02N
-	IgY0CPmPpMZTC+1Jawn70DOBmMiV8bI/ZdH1VrRGhsgEu895Xf82poq7/O2O6sYg0IjCLCKb7z8UO
-	q7LojUWtE7qNmLg4DNOPqeC0vQsT/7WEtQ1mqG7D4Wk7dyDkPfEqYXzgmyLpJSIwaOQl+OdGO7pi/
-	G8GrHXY4GCRTCF7iZZI5qHxdAyPR2w0uNfwJzifmnmKiHUXIGC/alONCNGKXZc1hYdQse2vMZHhDh
-	oLMIy+Dg==;
+	bh=zSJLssmZdEOX/zGucC3pwqt9Dq/W1NDmqgn/3V659l0=; b=rbV27u18B0T/XFYJRPO7woZ4t0
+	W0tozYF0cRyA/B/anQ2e9fIbteEuz6cRx8eARi8rTDmK/Kbkr/AV2dJbLuBTGyYQEw6Qu3Xqm6FW0
+	T5acTYua3r09W25fVcWSsveKKDkJVKG/elU4rALKvbvjnaXfp+3KjqRl/72bZ0tPwcMTrVvEcF4Ow
+	LT/2KijtOEnX9PzHAVIPGx28Y78u+URKqgpV+QWOts4h0sGVx0NfjDV1M17NJKwL9nljAEEYiIxNT
+	lgaLVUxKW78AYh1B18xz/DOftvbQQdliXYxNvLPJyZUuDhHonYI73NC2TM629MJHhZ0rDjWHWTfII
+	CN80aGmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbaaB-00000004iW5-2fHp;
-	Mon, 22 Jun 2026 09:04:43 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbaa8-00000004iVi-3Icr
+	id 1wbab6-00000004ie5-3zSb;
+	Mon, 22 Jun 2026 09:05:40 +0000
+Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wbab4-00000004idO-06wS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Jun 2026 09:04:42 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 444D81BF3;
-	Mon, 22 Jun 2026 02:04:32 -0700 (PDT)
-Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4F8853F62B;
-	Mon, 22 Jun 2026 02:04:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782119076; bh=HgiOx3Gxk7v+YKyg+0NTf2l18tte0N14NUCjjhZytL8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PxbboRwpE2vS964Ehc5mDpWLSytaoETOaqhnaSQgQLz44uCl6YrGFOX3uhGIgcLsD
-	 RdxoMznAxnesiwlOTbTdRyqfY2n29clRiaQkWGw4b6Ne78MxEtPSnbHMbsGTjt58U0
-	 mN2wMTADr7F/T+x6DLmQUKJw3mWIMxkAumkIuj2w=
-Date: Mon, 22 Jun 2026 10:04:32 +0100
-From: Alexandru Elisei <alexandru.elisei@arm.com>
-To: Oliver Upton <oupton@kernel.org>
-Cc: will@kernel.org, julien.thierry.kdev@gmail.com, maz@kernel.org,
-	jean-philippe.brucker@arm.com, andre.przywara@arm.com,
-	suzuki.poulose@arm.com, kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
-Subject: Re: [PATCH kvmtool v2 7/7] arm64: Improve KVM_ARM_VCPU_PMU_V3_CTRL
- diagnostics
-Message-ID: <ajj6oGxytFm2NE4T@raptor>
-References: <20260618155001.226266-1-alexandru.elisei@arm.com>
- <20260618155001.226266-8-alexandru.elisei@arm.com>
- <ajRBpMnlcNkhWzQL@kernel.org>
+	Mon, 22 Jun 2026 09:05:39 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
+	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 64BAA200669;
+	Mon, 22 Jun 2026 11:05:34 +0200 (CEST)
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1wbab0-0043kt-13;
+	Mon, 22 Jun 2026 11:05:34 +0200
+Received: from pza by lupine with local (Exim 4.98.2)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1wbab0-000000008iF-0wHT;
+	Mon, 22 Jun 2026 11:05:34 +0200
+Message-ID: <7ee62b699c5cabb00cd7706ea42573da81c5bc84.camel@pengutronix.de>
+Subject: Re: [PATCH v4 2/2] media: i2c: ov5640: Add reset controller support
+ with GPIO fallback
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Frank Li <Frank.li@oss.nxp.com>, robby.cai@oss.nxp.com
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ Frank.Li@nxp.com, 	s.hauer@pengutronix.de, festevam@gmail.com,
+ sebastian.krzyszkowiak@puri.sm, 	slongerbeam@gmail.com,
+ sakari.ailus@linux.intel.com, mchehab@kernel.org, 
+	kieran.bingham@ideasonboard.com, kernel@pengutronix.de, 
+	devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Date: Mon, 22 Jun 2026 11:05:34 +0200
+In-Reply-To: <ajVPzoWVBi1vsqRQ@SMW015318>
+References: <20260619100532.3779934-1-robby.cai@oss.nxp.com>
+	 <20260619100532.3779934-3-robby.cai@oss.nxp.com>
+	 <ajVPzoWVBi1vsqRQ@SMW015318>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ajRBpMnlcNkhWzQL@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260622_020441_032952_67A3BAE0 
-X-CRM114-Status: GOOD (  29.48  )
+X-CRM114-CacheID: sfid-20260622_020538_216330_289AF4CB 
+X-CRM114-Status: GOOD (  27.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,147 +79,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Oliver,
-
-On Thu, Jun 18, 2026 at 12:06:12PM -0700, Oliver Upton wrote:
-> On Thu, Jun 18, 2026 at 04:50:01PM +0100, Alexandru Elisei wrote:
-> > kvmtool issues several ioctls when configuring the PMU, and each of them
-> > can fail for different reasons. Be more specific about the ioctl that
-> > failed when that happens.
-> > 
-> > Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
+On Fr, 2026-06-19 at 09:18 -0500, Frank Li wrote:
+> On Fri, Jun 19, 2026 at 06:05:32PM +0800, robby.cai@oss.nxp.com wrote:
+> > [You don't often get email from robby.cai@oss.nxp.com. Learn why this i=
+s important at https://aka.ms/LearnAboutSenderIdentification ]
+> >=20
+> > From: Robby Cai <robby.cai@nxp.com>
+> >=20
+> > Add support for the reset controller framework by acquiring the reset
+> > line using devm_reset_control_get_optional_shared_deasserted(). This
+> > allows the driver to handle reset lines provided by a reset controller,
+> > including shared ones, while avoiding unbalanced deassert counts.
+> >=20
+> > Retain support for legacy reset-gpios as a fallback when no reset
+> > controller is defined. In that case, request the GPIO and keep it in th=
+e
+> > deasserted state as the initial configuration.
+> >=20
+> > This enables the driver to support both reset-controller-backed reset
+> > lines and older GPIO-based descriptions while preserving the existing
+> > power-up sequencing behavior.
+> >=20
+> > Signed-off-by: Robby Cai <robby.cai@nxp.com>
 > > ---
-> >  arm64/pmu.c | 31 ++++++++++++++++++++++++-------
-> >  1 file changed, 24 insertions(+), 7 deletions(-)
-> > 
-> > diff --git a/arm64/pmu.c b/arm64/pmu.c
-> > index 92cacd62479e..78c15f153fad 100644
-> > --- a/arm64/pmu.c
-> > +++ b/arm64/pmu.c
-> > @@ -12,6 +12,24 @@
-> >  
-> >  #include "asm/pmu.h"
-> >  
-> > +static const char *pmu_attr_names[] = {
-> > +	[KVM_ARM_VCPU_PMU_V3_IRQ]	= "KVM_ARM_VCPU_PMU_V3_IRQ",
-> > +	[KVM_ARM_VCPU_PMU_V3_INIT]	= "KVM_ARM_VCPU_PMU_V3_INIT",
-> > +	[KVM_ARM_VCPU_PMU_V3_FILTER]	= "KVM_ARM_VCPU_PMU_V3_FILTER",
-> > +	[KVM_ARM_VCPU_PMU_V3_SET_PMU]	= "KVM_ARM_VCPU_PMU_V3_SET_PMU",
-> > +	[KVM_ARM_VCPU_PMU_V3_SET_NR_COUNTERS] = "KVM_ARM_VCPU_PMU_V3_SET_NR_COUNTER",
-> > +};
-> > +
-> > +static const char *pmu_get_attr_name(u64 attr)
+> >  drivers/media/i2c/ov5640.c | 80 +++++++++++++++++++++++++++++++++-----
+> >  1 file changed, 70 insertions(+), 10 deletions(-)
+> >=20
+> > diff --git a/drivers/media/i2c/ov5640.c b/drivers/media/i2c/ov5640.c
+> > index 85ecc23b3587..5e6db8aacb11 100644
+> > --- a/drivers/media/i2c/ov5640.c
+> > +++ b/drivers/media/i2c/ov5640.c
+> > @@ -17,6 +17,7 @@
+> >  #include <linux/module.h>
+> >  #include <linux/pm_runtime.h>
+> >  #include <linux/regulator/consumer.h>
+> > +#include <linux/reset.h>
+> >  #include <linux/slab.h>
+> >  #include <linux/types.h>
+> >  #include <media/v4l2-async.h>
+> > @@ -442,6 +443,7 @@ struct ov5640_dev {
+> >         u32 xclk_freq;
+> >=20
+> >         struct regulator_bulk_data supplies[OV5640_NUM_SUPPLIES];
+> > +       struct reset_control *reset;
+> >         struct gpio_desc *reset_gpio;
+> >         struct gpio_desc *pwdn_gpio;
+> >         bool   upside_down;
+> > @@ -2431,6 +2433,48 @@ static int ov5640_restore_mode(struct ov5640_dev=
+ *sensor)
+> >         return ov5640_set_framefmt(sensor, &sensor->fmt);
+> >  }
+> >=20
+> > +static int ov5640_get_reset(struct device *dev, struct ov5640_dev *sen=
+sor)
 > > +{
-> > +	switch (attr) {
-> > +	case KVM_ARM_VCPU_PMU_V3_IRQ ... KVM_ARM_VCPU_PMU_V3_SET_NR_COUNTERS:
-> > +		return pmu_attr_names[attr];
-> > +	default:
-> > +		return "UNKNOWN";
-> > +	}
+> > +       /* use deasserted version to avoid unbalanced deassert counts *=
+/
+> > +       sensor->reset =3D
+> > +           devm_reset_control_get_optional_shared_deasserted(dev, NULL=
+);
+> > +       if (IS_ERR(sensor->reset))
+> > +               return dev_err_probe(dev, PTR_ERR(sensor->reset),
+> > +                                    "Failed to get reset\n");
+> > +       else if (sensor->reset)
+> > +               return 0;
+> > +
+> > +       /*
+> > +        * fallback to legacy reset-gpios
+> > +        * GPIOD_OUT_HIGH ensures deasserted state for ACTIVE_LOW reset
+> > +        */
+> > +       sensor->reset_gpio =3D devm_gpiod_get_optional(dev, "reset",
+> > +                                                    GPIOD_OUT_HIGH);
+> > +       if (IS_ERR(sensor->reset_gpio))
+> > +               return dev_err_probe(dev, PTR_ERR(sensor->reset_gpio),
+> > +                                    "Failed to get reset gpio");
+>=20
+> I think needn't fallback here, NO ABI change, just change to use reset-gp=
+io
+> driver.
+
+Please keep the gpiod fallback, the reset-gpio driver may not be
+available on all platforms using ov5640.
+
+> > +
+> > +       return 0;
 > > +}
 > > +
-> >  static bool pmu_has_attr(struct kvm_cpu *vcpu, u64 attr)
-> >  {
-> >  	struct kvm_device_attr pmu_attr = {
-> > @@ -32,13 +50,12 @@ static void set_pmu_attr(struct kvm_cpu *vcpu, void *addr, u64 attr)
-> >  	};
-> >  	int ret;
-> >  
-> > -	if (pmu_has_attr(vcpu, attr)) {
-> > -		ret = ioctl(vcpu->vcpu_fd, KVM_SET_DEVICE_ATTR, &pmu_attr);
-> > -		if (ret)
-> > -			die_perror("PMU KVM_SET_DEVICE_ATTR");
-> > -	} else {
-> > -		die_perror("PMU KVM_HAS_DEVICE_ATTR");
-> > -	}
-> > +	if (!pmu_has_attr(vcpu, attr))
-> > +		die_perror("KVM_HAS_DEVICE_ATTR(%s)", pmu_get_attr_name(attr));
+> > +static int ov5640_reset_assert(struct ov5640_dev *sensor)
+> > +{
+> > +       if (sensor->reset)
+> > +               return reset_control_assert(sensor->reset);
+>=20
+> needn't check sensor->reset, reset_control_assert() is no ops if NULL.
+>=20
 > > +
-> > +	ret = ioctl(vcpu->vcpu_fd, KVM_SET_DEVICE_ATTR, &pmu_attr);
-> > +	if (ret)
-> > +		die_perror("KVM_SET_DEVICE_ATTR(%s)", pmu_get_attr_name(attr));
-> >  }
-> 
-> The whole if (ret) die_perror(...) thing is a bit repetetive IMO. A
-> treewide cleanup replacing this with macros would be nice, then you could
-> stringize the ioctl under the hood.
+> > +       gpiod_set_value_cansleep(sensor->reset_gpio, 1);
+>=20
+> Needn't fallback, directly replace.
 
-Thank you for having a look, that's a great idea, it will avoid out of bounds
-array access if KVM gets a new PMU ioctl and the name array is not updated at
-the same time - that's quite possible since ioctl numbers are pulled by running
-update_headers.sh, and the dependency is not obvious.
+See above.
 
-I think the compilation errors are a bit higher priority than this, and a
-treewide change would more involved, possibly involving a change in behaviour
-(the gic seems to propagate the error instead of calling die_perror(), for
-example), would you mind if for this series I'll only introduce the macro for
-the pmu and convert the rest of the code in a separate series?
 
-Thanks,
-Alex
-
-> 
-> diff --git a/arm64/pmu.c b/arm64/pmu.c
-> index 5f31d6b..0d9f3df 100644
-> --- a/arm64/pmu.c
-> +++ b/arm64/pmu.c
-> @@ -23,23 +23,19 @@ static bool pmu_has_attr(struct kvm_cpu *vcpu, u64 attr)
->  	return ret == 0;
->  }
->  
-> -static void set_pmu_attr(struct kvm_cpu *vcpu, void *addr, u64 attr)
-> -{
-> -	struct kvm_device_attr pmu_attr = {
-> -		.group	= KVM_ARM_VCPU_PMU_V3_CTRL,
-> -		.addr	= (u64)addr,
-> -		.attr	= attr,
-> -	};
-> -	int ret;
-> -
-> -	if (pmu_has_attr(vcpu, attr)) {
-> -		ret = ioctl(vcpu->vcpu_fd, KVM_SET_DEVICE_ATTR, &pmu_attr);
-> -		if (ret)
-> -			die_perror("PMU KVM_SET_DEVICE_ATTR");
-> -	} else {
-> -		die_perror("PMU KVM_HAS_DEVICE_ATTR");
-> -	}
-> -}
-> +#define kvm_set_device_attr(fd, _group, _attr, _addr)					\
-> +do {											\
-> +	struct kvm_device_attr __attr = {						\
-> +		.group	= (_group),							\
-> +		.attr	= (_attr),							\
-> +		.addr	= (u64)(_addr),							\
-> +	};										\
-> +	int r;										\
-> +											\
-> +	r = ioctl((fd), KVM_SET_DEVICE_ATTR, &__attr);					\
-> +	if (r)										\
-> +		die_perror("KVM_SET_DEVICE_ATTR(group:"#_group", attr:"#_attr")");	\
-> +} while (0)
->  
->  #define SYS_EVENT_SOURCE	"/sys/bus/event_source/devices/"
->  /*
-> @@ -218,14 +214,18 @@ void pmu__generate_fdt_nodes(void *fdt, struct kvm *kvm)
->  
->  	for (i = 0; i < kvm->nrcpus; i++) {
->  		vcpu = kvm->cpus[i];
-> -		set_pmu_attr(vcpu, &irq, KVM_ARM_VCPU_PMU_V3_IRQ);
-> +		kvm_set_device_attr(vcpu->vcpu_fd, KVM_ARM_VCPU_PMU_V3_CTRL,
-> +				    KVM_ARM_VCPU_PMU_V3_IRQ, &irq);
->  		/*
->  		 * PMU IDs 0-5 are reserved; a positive value means a PMU was
->  		 * found.
->  		 */
->  		if (pmu_id > 0)
-> -			set_pmu_attr(vcpu, &pmu_id, KVM_ARM_VCPU_PMU_V3_SET_PMU);
-> -		set_pmu_attr(vcpu, NULL, KVM_ARM_VCPU_PMU_V3_INIT);
-> +			kvm_set_device_attr(vcpu->vcpu_fd, KVM_ARM_VCPU_PMU_V3_CTRL,
-> +					    KVM_ARM_VCPU_PMU_V3_SET_PMU, &pmu_id);
-> +
-> +		kvm_set_device_attr(vcpu->vcpu_fd, KVM_ARM_VCPU_PMU_V3_CTRL,
-> +				    KVM_ARM_VCPU_PMU_V3_INIT, NULL);
->  	}
->  
->  	_FDT(fdt_begin_node(fdt, "pmu"));
+regards
+Philipp
 
