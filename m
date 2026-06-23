@@ -4,93 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8346CCDB479
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 13:20:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D83C6CDB46F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 13:24:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/Y6PphOb9ZABROa1QGn6/qy2YxlaF9xxkPzHynumORE=; b=h3RU0dQGf88JB6TpYWVEigLYS/
-	rc80e69KdiRyr1xVBzNowy/IKu/5lxmIRtdoP4ySSLiVd4GGYiQA7rc48m3FUOZpSLu+dO1aDklMp
-	LUAlV1Kqbm6re4jL7f0TdqjA9GzEco5NRQg9NDFX3Pxjb5wlytSPDiNV7ZpE0e5yJn6qE5HH5wVIB
-	bNMSgb/H2n3kmPoRxNlgqNAFafEOB9lrT6PJ3divdW/vmF5xp3+XVVSH+e/ROLto5dGyqV/etLiLE
-	sLDCslw5N4FDj9L69gYJM1JOOinDb4N4xAHqqLAXAt/VhbYPRX9FngEh4odHRq8u2ExVzufJIfZ+U
-	VjzEXYeA==;
+	bh=PVy4S/eNaNAAxNj9kHLDxwcgqSAw69kke2AJz1Kb9pY=; b=PjelX9L1GoM+EJmU2Bnz1p52vK
+	y0UtrUAlxMatZQyP7Hcikj9eoduEynhlSDx4FjkzoMPuGtGM3xFyMnfDL6LLr4mx0kLzLrdbF8CCW
+	L9qrwwm0BEccNSc9Hvt7cTzZxBn8qd47sFxqpJZsYDXBU3Iu+Pvn7eztizUU0uNA9KPFOO6ihA8MY
+	xPFGs+u2sFJpGLUtd/HymOVSyqdPioOk0JFGRUhBCYaDdA26tufQ5euL+9afvZAEtnvqyO0pkwFBg
+	MJ3YmQc31ZMmEjLOS5nmMf7x3HJus++6PppDOFSiVf15bsowqyF68v9yIKtrHCqDqN8GtHvdiD9aA
+	OSH49C+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc12r-00000006Kcw-10Nf;
-	Tue, 23 Jun 2026 13:20:05 +0000
-Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
+	id 1wc16c-00000006L0i-3EMf;
+	Tue, 23 Jun 2026 13:23:58 +0000
+Received: from fr5000-r.dnsiaas.com ([92.42.104.18])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc12k-00000006Kab-0A6N
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 13:20:02 +0000
-Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-697cd68d7adso2756976a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 06:19:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782220796; x=1782825596; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=/Y6PphOb9ZABROa1QGn6/qy2YxlaF9xxkPzHynumORE=;
-        b=fZ7VQnENiY+MUp/cj2Wk1mvUTlaWzvCxGEgs1bhmzwSe/MBZTSlm8pASY+iPs0XnmY
-         GB4LmhmINNMop16CuD931Y07m4DhFcy1Bbgd09AYVBDqrzntqbxJIVTHQ7wBKuopFca8
-         y3DW4CsGpr28dmOXB2mcZC33kvUu41w3uKCntjDrdVFvBkKQ8btbyUAnLrRbvB9uqx8X
-         WJ0yR2gMQqOBlTA5nuetL4KIEzjyA9ejnpwIXUrhlEIrK8ZccCH1AKkDGEo+Fe6G6zKI
-         dr07wYqadfLxrAWjSDVlPMYwNWmpMuJuEBaBoGLaG8q2EBGsjAqFMmiIkL2Ro17Bevc6
-         ZK8Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782220796; x=1782825596;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=/Y6PphOb9ZABROa1QGn6/qy2YxlaF9xxkPzHynumORE=;
-        b=YsKKlhhI3WHnKWdDFVbXOzgIJ3LVNgT8usfNAQXkcl5adquGDEZpPXvElTC0EfZQ+o
-         X3hoD1z08sPvtJ/Z4ZcC0yrZ5OQbVKtji5tGByLOUSBR1Ut0+2mt7yuaiceNIvUScBNM
-         6/uD4vk3NsA4zdazDxg3ub1HP5mJtoNFCt2K/aGXf8Dus0Wygp9GowhjoBjJ5Oi1oEFG
-         QjHE/DVuMG4ReBCfhQjV+uBms/v6epgwIDNlo+24sFIFuvVBJSLOrNIriW0Uzkoi810b
-         u4HqfxqRLfCJeV9SF7TQbYa3eJh9rfbvvz+23XhzdV4wq+2AtAwx/XOJIM2g2sHAiX3j
-         4CRg==
-X-Forwarded-Encrypted: i=1; AFNElJ8ZQ9zbg9TTsCcNcWPOji50oxiu4wNv3QBH6ZArcoNrXX321Av9Egb99kLjS6cXm9G7r3+VpWY4z9ytdw2LXK7V@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx+jGfYwjswiCmCfA0ZnEotXuYFiRMUoy2y/o/xLR1m97zMw4x2
-	4JJu0oPcpmO0h3Y8ZpT9rhBkJeEtiAkfW0frTJmtipbwk7BX5QF0OrHX
-X-Gm-Gg: AfdE7clOYCg28UYQO2XNehncLuoxkml/MF6+Cttf10mIMTjgSTdQA0d3Ybn/XoGO1M0
-	cRu/FrCuDszhWx6SWc8nekn3bpE1PJ8Le+yHf0NT8NjgptcyoaGDiQVs4Pkg11GKQpuokAun7gb
-	cv9IFr1tsFSIUm4NVKbEAv7Ey+PDq0fp9i163S1EX0NPD/nLBpVLIHtHF/Dv70eyl5zCDXPJ5LL
-	+F4pbTD+oS+pgfKSfDMN8u11VMtwyeGCeqv936clUbllNgRbOCgND4i5rT8Wcgi5ot5g9yOAPGe
-	1I7twKriGpvQxBYOMR89EqEmg0XWAHTIC07gWeazmV7JivCLUraotjUi0WTJeVTy88sGAFji+I1
-	d9jAx20Tckn6o4L+fz2lkRE1An2RhVIhFdY/SuN6ihMmf4FD22GNrWczBSu+QWDYlChrIjTDPmG
-	r23bmVkJZ7+yc0GTuA55Yp
-X-Received: by 2002:a05:6402:2345:b0:697:d4ec:15ed with SMTP id 4fb4d7f45d1cf-697dbad10c0mr1435510a12.14.1782220796124;
-        Tue, 23 Jun 2026 06:19:56 -0700 (PDT)
-Received: from [127.0.0.2] ([194.35.121.133])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6977b82f95dsm5060107a12.3.2026.06.23.06.19.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 23 Jun 2026 06:19:55 -0700 (PDT)
-From: Diogo Silva <diogompaissilva@gmail.com>
-Date: Tue, 23 Jun 2026 15:19:31 +0200
-Subject: [PATCH v2 2/2] drm/exynos: Add error handling to
- drm_encoder_init()
+	id 1wc16a-00000006L0L-0RES;
+	Tue, 23 Jun 2026 13:23:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=superkali.me; s=default; h=Content-Transfer-Encoding:Content-Type:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=PVy4S/eNaNAAxNj9kHLDxwcgqSAw69kke2AJz1Kb9pY=; b=YKi5a7gjyQM1wxwm+vvyuvL6+m
+	o/dL7T7k53Z0zxFUgYtLOThwC8F7dF1IT0TDRj/R88bJu588o0gzioJEZVMqmNdOG4NJMjb1Zk38a
+	9KCxA48kSac8oPHZJlKEOJbxsjTQBWzMKM7FIsQtv6ZkwMM5enI6BpRmLfTzi2ddbRIs8XuvBfLT5
+	Yu8ZGfXW/Fo1MTzrwD01i+QNA5d7aQB8JAqrNCt3HFPjVGG0MDZqmyh/8bjt9UEaW2vrNfKCeUcg4
+	134O5NTk2LBdItF1XzsEinqSxwtpRYoAbMUFOVFn/iZ2RM5+HrCjBt8L/XhQSBgV75yS/cr3XQhJg
+	VGyp0ESA==;
+Received: from [81.57.40.39] (port=52518 helo=superkali.me)
+	by fr5000-r.dnsiaas.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.99.4)
+	(envelope-from <hello@superkali.me>)
+	id 1wc16a-00000006qSa-0t0n;
+	Tue, 23 Jun 2026 15:23:53 +0200
+From: Daniele Briguglio <hello@superkali.me>
+To: Diederik de Haas <diederik@cknow-tech.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Ricardo Pardini <ricardo@pardini.net>
+Subject: Re: [PATCH v4 5/5] clk: rockchip: rk3588: add GATE_GRF clocks for I2S MCLK output to IO
+Date: Tue, 23 Jun 2026 15:23:51 +0200
+Message-ID: <20260623132351.4144457-1-hello@superkali.me>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <DJGG8DEAKSPK.1GJ8FARAHXPXM@cknow-tech.com>
+References: <20260419-rk3588-mclk-gate-grf-v4-0-513a42dd1dcc@superkali.me> <20260419-rk3588-mclk-gate-grf-v4-5-513a42dd1dcc@superkali.me> <DJGDSS875DDO.22TYPVYK5X8KZ@cknow-tech.com> <2100447.PIDvDuAF1L@diego> <20260623123316.4111002-1-hello@superkali.me> <DJGG8DEAKSPK.1GJ8FARAHXPXM@cknow-tech.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260623-exynos-drm-simple-v2-2-a8d59678b7d2@gmail.com>
-References: <20260623-exynos-drm-simple-v2-0-a8d59678b7d2@gmail.com>
-In-Reply-To: <20260623-exynos-drm-simple-v2-0-a8d59678b7d2@gmail.com>
-To: Jingoo Han <jingoohan1@gmail.com>, Inki Dae <inki.dae@samsung.com>, 
- Seung-Woo Kim <sw0312.kim@samsung.com>, 
- Kyungmin Park <kyungmin.park@samsung.com>, David Airlie <airlied@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>, Krzysztof Kozlowski <krzk@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Diogo Silva <diogompaissilva@gmail.com>
-X-Mailer: b4 0.14.3
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - fr5000-r.dnsiaas.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - superkali.me
+X-Get-Message-Sender-Via: fr5000-r.dnsiaas.com: authenticated_id: hello@superkali.me
+X-Authenticated-Sender: fr5000-r.dnsiaas.com: hello@superkali.me
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_062000_857851_B9A97574 
-X-CRM114-Status: GOOD (  13.93  )
+X-CRM114-CacheID: sfid-20260623_062356_308349_C916877F 
+X-CRM114-Status: UNSURE (   5.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,118 +96,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Not handling the return code on drm_encoder_init can lead to silent
-failure and/or a drm_encoder_cleanup on a non-initialized encoder.
-This patch adds error handling to the drm_encoder_init calls to prevent
-that from happening.
+Hi Diederik,
 
-Signed-off-by: Diogo Silva <diogompaissilva@gmail.com>
----
- drivers/gpu/drm/exynos/exynos_dp.c       | 8 ++++++--
- drivers/gpu/drm/exynos/exynos_drm_dpi.c  | 9 +++++++--
- drivers/gpu/drm/exynos/exynos_drm_dsi.c  | 6 ++++--
- drivers/gpu/drm/exynos/exynos_drm_vidi.c | 9 +++++++--
- drivers/gpu/drm/exynos/exynos_hdmi.c     | 9 +++++++--
- 5 files changed, 31 insertions(+), 10 deletions(-)
+> md.l 0xfd58c318
+> fd58c318: 00000600
 
-diff --git a/drivers/gpu/drm/exynos/exynos_dp.c b/drivers/gpu/drm/exynos/exynos_dp.c
-index a2095fb43483..1598892c602b 100644
---- a/drivers/gpu/drm/exynos/exynos_dp.c
-+++ b/drivers/gpu/drm/exynos/exynos_dp.c
-@@ -99,8 +99,12 @@ static int exynos_dp_bind(struct device *dev, struct device *master, void *data)
- 
- 	dp->drm_dev = drm_dev;
- 
--	drm_encoder_init(drm_dev, encoder, &exynos_dp_encoder_funcs,
--			 DRM_MODE_ENCODER_TMDS, NULL);
-+	ret = drm_encoder_init(drm_dev, encoder, &exynos_dp_encoder_funcs,
-+			       DRM_MODE_ENCODER_TMDS, NULL);
-+	if (ret) {
-+		dev_err(dp->dev, "Failed to initialize encoder\n");
-+		return ret;
-+	}
- 
- 	drm_encoder_helper_add(encoder, &exynos_dp_encoder_helper_funcs);
- 
-diff --git a/drivers/gpu/drm/exynos/exynos_drm_dpi.c b/drivers/gpu/drm/exynos/exynos_drm_dpi.c
-index 4a3d443a15e6..4e42a1da81d1 100644
---- a/drivers/gpu/drm/exynos/exynos_drm_dpi.c
-+++ b/drivers/gpu/drm/exynos/exynos_drm_dpi.c
-@@ -198,8 +198,13 @@ int exynos_dpi_bind(struct drm_device *dev, struct drm_encoder *encoder)
- {
- 	int ret;
- 
--	drm_encoder_init(dev, encoder, &exynos_dpi_encoder_funcs,
--			 DRM_MODE_ENCODER_TMDS, NULL);
-+	ret = drm_encoder_init(dev, encoder, &exynos_dpi_encoder_funcs,
-+			       DRM_MODE_ENCODER_TMDS, NULL);
-+	if (ret) {
-+		DRM_DEV_ERROR(encoder_to_dpi(encoder)->dev,
-+			      "failed to create encoder ret = %d\n", ret);
-+		return ret;
-+	}
- 
- 	drm_encoder_helper_add(encoder, &exynos_dpi_encoder_helper_funcs);
- 
-diff --git a/drivers/gpu/drm/exynos/exynos_drm_dsi.c b/drivers/gpu/drm/exynos/exynos_drm_dsi.c
-index 25c438cdc744..6b7561ac9bb0 100644
---- a/drivers/gpu/drm/exynos/exynos_drm_dsi.c
-+++ b/drivers/gpu/drm/exynos/exynos_drm_dsi.c
-@@ -83,8 +83,10 @@ static int exynos_dsi_bind(struct device *dev, struct device *master, void *data
- 	struct drm_device *drm_dev = data;
- 	int ret;
- 
--	drm_encoder_init(drm_dev, encoder, &exynos_drm_dsi_encoder_funcs,
--			 DRM_MODE_ENCODER_TMDS, NULL);
-+	ret = drm_encoder_init(drm_dev, encoder, &exynos_drm_dsi_encoder_funcs,
-+			       DRM_MODE_ENCODER_TMDS, NULL);
-+	if (ret)
-+		return ret;
- 
- 	ret = exynos_drm_set_possible_crtcs(encoder, EXYNOS_DISPLAY_TYPE_LCD);
- 	if (ret < 0)
-diff --git a/drivers/gpu/drm/exynos/exynos_drm_vidi.c b/drivers/gpu/drm/exynos/exynos_drm_vidi.c
-index d905dc703c06..59dea853d364 100644
---- a/drivers/gpu/drm/exynos/exynos_drm_vidi.c
-+++ b/drivers/gpu/drm/exynos/exynos_drm_vidi.c
-@@ -449,8 +449,13 @@ static int vidi_bind(struct device *dev, struct device *master, void *data)
- 		return PTR_ERR(ctx->crtc);
- 	}
- 
--	drm_encoder_init(drm_dev, encoder, &exynos_vidi_encoder_funcs,
--			 DRM_MODE_ENCODER_TMDS, NULL);
-+	ret = drm_encoder_init(drm_dev, encoder, &exynos_vidi_encoder_funcs,
-+			       DRM_MODE_ENCODER_TMDS, NULL);
-+	if (ret) {
-+		DRM_DEV_ERROR(dev, "failed to initialize encoder ret = %d\n",
-+			      ret);
-+		return ret;
-+	}
- 
- 	drm_encoder_helper_add(encoder, &exynos_vidi_encoder_helper_funcs);
- 
-diff --git a/drivers/gpu/drm/exynos/exynos_hdmi.c b/drivers/gpu/drm/exynos/exynos_hdmi.c
-index 26baf5357997..f44586ce0fdf 100644
---- a/drivers/gpu/drm/exynos/exynos_hdmi.c
-+++ b/drivers/gpu/drm/exynos/exynos_hdmi.c
-@@ -1867,8 +1867,13 @@ static int hdmi_bind(struct device *dev, struct device *master, void *data)
- 
- 	hdata->phy_clk.enable = hdmiphy_clk_enable;
- 
--	drm_encoder_init(drm_dev, encoder, &exynos_hdmi_encoder_funcs,
--			 DRM_MODE_ENCODER_TMDS, NULL);
-+	ret = drm_encoder_init(drm_dev, encoder, &exynos_hdmi_encoder_funcs,
-+			       DRM_MODE_ENCODER_TMDS, NULL);
-+	if (ret) {
-+		DRM_DEV_ERROR(dev, "failed to initialize encoder ret = %d\n",
-+			      ret);
-+		return ret;
-+	}
- 
- 	drm_encoder_helper_add(encoder, &exynos_hdmi_encoder_helper_funcs);
- 
+Thanks. Bit 0 is clear there, so the I2S0 gate is open at the U-Boot
+prompt, after BL31 and before Linux. That matches the symptom: the
+firmware on your T6 leaves it open, and the kernel closes it once nothing
+references it.
 
--- 
-2.51.2
+Given that, I think Heiko's suggestion makes sense here. Marking the four
+gates CLK_IGNORE_UNUSED keeps the kernel from disabling what the firmware
+already left open, and boards that reference _TO_IO still drive it through
+the consumer.
 
+Could you test that change if you get a chance? Just set the flag on the
+I2S0/1/2/3 _TO_IO gates in clk-rk3588.c and check your analog audio comes
+back. The series is already merged, so I'll send the fix as a separate
+follow-up patch, this evening if Heiko is fine with the approach.
+
+Best regards,
+Daniele
 
