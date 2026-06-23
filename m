@@ -4,68 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A657CDB46F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 15:04:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD60FCDB46F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 15:10:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bLiOvdfBu1LQGrT07aeKL9SEbEIREO7O5xToFkLfyUE=; b=3iNA51ANK2Hz6i+0mYfASRzIUJ
-	fAyCUuddzknc/jWFICtRr8OlPyv+YTPNtxr01+IAPeNVhSC0p/kmYjJIS11P6tkGNYzxg1BqbEQlF
-	RGIFliucCsa9SP0SMD/g67XoAwMMrikQiMtxQEzuC2MV/8JZhJmP0zwgwwjjF+y8bc0zxzv4j1Mp9
-	BIIih2yQpkpgwAqv/nRElQ+zQmvgKPlw7C0DpYa7MwUQJjRwep6Tok/cvDL/fhqiMb8womQwzOMp1
-	3Cn9pT4Hu6aL9sDDX6U7eLiJbwtBpFp0SReL5iBRmt/omzBqwAbJPB4dLkUB0dNRo5DqNa0HKQGR7
-	Ujq7S9+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JbnEvt1HYbMhxvD0ZUEB9Wz8ezFMKa7Yiz789jn378Q=; b=L+R9pVha5DnfabtKIGDCyxBzUc
+	u+6LCe675n4GTvNVk8izgNd8dmMaI66VgqJJmiVF+0BLnT1wgs3c1JLStb0a5Z8usbXaB4DKPtl7M
+	RFLHQ6A+79DmY25pTig4WcgWQETdcVhc6tI0JG5Q1gVvU5H7ScZyUgx6e7b6jYLQPl1QEMolyu7DQ
+	JD6QGdqhGBMpyZ0MY/dhTsjvf/dlycKbU/CX0KIxEX5mzCWB88X0put8d0Gy2/w59g6jCvCvOw6BE
+	i4AzJTqB9bASLt6ncpX4lvUtTXxee/Qd+kmf2JRUkARPfMwRbF6IniRmqvho/aLEuwnhY5rFOUl0O
+	3+LDQwsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc2fr-00000006VAv-2Wth;
-	Tue, 23 Jun 2026 15:04:27 +0000
-Received: from out-174.mta0.migadu.com ([91.218.175.174])
+	id 1wc2m1-00000006VbK-2LTG;
+	Tue, 23 Jun 2026 15:10:49 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc2fo-00000006VAM-0wXl
+	id 1wc2m0-00000006VbE-2uO2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 15:04:26 +0000
-X-Forwarded-Encrypted: i=1; AFNElJ9yFNJJBFmhIh06ktA/oUQGpPvGt5aEBYSG8o3L43A06KmfucafDcl7TZv6zDxBn5S6gr8uzBnyYEPppraTiwdy@lists.infradead.org
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1782227060;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=bLiOvdfBu1LQGrT07aeKL9SEbEIREO7O5xToFkLfyUE=;
-	b=ILYIFQcQjciTLKVdTt+GAvr12f+EQFAhssnQMCMpnZW1GFEbY2KErXQcvH3R7aPtDcQr7e
-	GOm21WcnhiFGP1s93cmLZUkgCgpvoThPhWEVgszdZ5xNIPO4T+x7u7IT5iKHHjgJPQPtDM
-	lkQjPkrY8rn5dbEUNXVoupRBX7GPz5w=
-X-Gm-Message-State: AOJu0Yy0+ecXl6CY7jla4o0TZuCakwob9UtoW61ZploR8ao0/Vpwb2Tw
-	xek/VvMdoW8tEidug+RNM3BZLClGwu08W/Iw2Jcjdc2nK41qsgG3rCYel1nm26MAvU700cDONe0
-	FThw6eImUS+nX+OTRWIayd2o7v5jD0uJSQ53uwq+7
-X-Received: by 2002:ac8:5c8f:0:b0:516:4f62:85e6 with SMTP id
- d75a77b69052e-51a53db1948mr9720661cf.17.1782227047172; Tue, 23 Jun 2026
- 08:04:07 -0700 (PDT)
+	Tue, 23 Jun 2026 15:10:48 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 219F0419A4;
+	Tue, 23 Jun 2026 15:10:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 705741F00A3A;
+	Tue, 23 Jun 2026 15:10:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782227448;
+	bh=JbnEvt1HYbMhxvD0ZUEB9Wz8ezFMKa7Yiz789jn378Q=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=kR56Wa5RrjGIycvuXt4DdZ+TTHnp16yTDBAq8s2nyvOzJ1vTF3bi4uB02BN0S38sG
+	 kyChjWVQRlOI1eKTzdBc2obuYnPEN+kAiZAw9YUDragqBJs8TfdcKboC4dAyhRPAI0
+	 HR6j5obPwvpVx/rXNFh6TFvCRkueIuJXsuavEZ7COBAPg7oM24IZtZjarCuTXftaQc
+	 VXxqKMFWfH1SqoGossGvrdGGCu2FzrXbE358FI6gDIXBxMrea5BajbqDXmKoSj6Euf
+	 +c0kAIc2VcU9Wnz+6s33xSm9MGiwUMFa6gDMP/1git4w55pWNK4zyDWmsurANgzAzy
+	 DVQ+HEJYsHaDg==
+Date: Tue, 23 Jun 2026 16:10:38 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: Olivier MOYSAN <olivier.moysan@foss.st.com>, "Rob Herring (Arm)"
+ <robh@kernel.org>, David Lechner <dlechner@baylibre.com>, Nuno
+ =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, linux-iio@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] iio: stm32-dfsdm: Treat flags as booleans
+Message-ID: <20260623161038.6429c3d7@jic23-huawei>
+In-Reply-To: <ajpX3E2zHYh2e8FG@ashevche-desk.local>
+References: <20260612215151.1886851-1-robh@kernel.org>
+	<ai1dhJWb9vKqxEEe@ashevche-desk.local>
+	<20260621151026.69714694@jic23-huawei>
+	<46fce99d-9dd5-435b-95cd-86ed4771aa83@foss.st.com>
+	<ajpX3E2zHYh2e8FG@ashevche-desk.local>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-References: <20260621213155.6019-1-include@grrlz.net> <178222278590.523236.18181071715501850418.b4-ty@kernel.org>
- <CE64C9AC-32D5-495E-B713-552921468FB9@grrlz.net>
-In-Reply-To: <CE64C9AC-32D5-495E-B713-552921468FB9@grrlz.net>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Tue, 23 Jun 2026 16:03:30 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTz+oNerTD3Ygj3EzOA4zm4BKfQYM45ydwVO=2amErkBAQ@mail.gmail.com>
-X-Gm-Features: AVVi8CdKu39AfvQ4xyTggnIFcw_6d9wFkc4c5a-xa35cOd03y-_YXnLsNNh7uWk
-Message-ID: <CA+EHjTz+oNerTD3Ygj3EzOA4zm4BKfQYM45ydwVO=2amErkBAQ@mail.gmail.com>
-Subject: Re: [PATCH] KVM: arm64: account pKVM reclaim against the VM mm
-To: Bradley Morgan <include@grrlz.net>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_080424_823286_328EE7B7 
-X-CRM114-Status: UNSURE (   9.75  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,35 +78,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 23 Jun 2026 at 16:01, Bradley Morgan <include@grrlz.net> wrote:
->
-> On June 23, 2026 2:53:11 PM GMT+01:00, Marc Zyngier <maz@kernel.org> wrote:
-> >On Sun, 21 Jun 2026 21:31:55 +0000, Bradley Morgan wrote:
-> >> Protected guest faults charge long term pins to the VM's mm. Teardown
-> >> can run later from file release, where current->mm may be unrelated.
-> >>
-> >> Drop the charge from kvm->mm instead.
-> >>
-> >>
-> >
-> >Applied to fixes, thanks!
-> >
-> >[1/1] KVM: arm64: account pKVM reclaim against the VM mm
-> >      commit: d098bb75d14fde2f12155f1a95ec0168160867ce
-> >
-> >Cheers,
-> >
-> >       M.
-> >
->
->
-> Hey, which tree did you apply it to?
+On Tue, 23 Jun 2026 12:54:36 +0300
+Andy Shevchenko <andriy.shevchenko@intel.com> wrote:
 
-https://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git/log/?h=fixes
+> On Tue, Jun 23, 2026 at 11:43:49AM +0200, Olivier MOYSAN wrote:
+> > On 6/21/26 16:10, Jonathan Cameron wrote:  
+> > > On Sat, 13 Jun 2026 16:39:16 +0300
+> > > Andy Shevchenko <andriy.shevchenko@intel.com> wrote:  
+> > > > On Fri, Jun 12, 2026 at 04:51:50PM -0500, Rob Herring (Arm) wrote:  
+> 
+> ...
+> 
+> > > > > -	ret = of_property_read_u32_index(indio_dev->dev.of_node,
+> > > > > -					 "st,adc-alt-channel", chan_idx,
+> > > > > -					 &df_ch->alt_si);  
+> > > >   
+> > > > > +	df_ch->alt_si = of_property_present(indio_dev->dev.of_node,  
+> > > > 
+> > > > I believe it still has another (serious?) issue. We usually don't use indio_dev
+> > > > for device properties. It's not a device that is described in DT.
+> > > > It seems the only driver in IIO that does that. Note, I haven't conducted any
+> > > > deeper research, it might be (however I'm quite in doubt) that this is correct
+> > > > use and one device registers a few indio_dev:s.  
+> > > 
+> > > It is curious.  The registration sequence in this driver is complex, but I'm not
+> > > seeing anything that sets the fwnode for the struct iio_dev->dev before calling
+> > > the init() callbacks that end up in this code.  It is set later by iio_device_register()
+> > > (iirc that has something to do with consumers turning up later).
+> > > 
+> > > St folk could you take a look at this and see what we are missing
+> > > if it does currently work?
+> > > 
+> > > For now I'll apply this patch but might need to drop it if a fix clashes
+> > > with it.  
+> > 
+> > I confirm that the current legacy path is functional
+> > (With the st,adc-alt-channel property fix applied)  
+> 
+> Yeah, it's here
+> https://elixir.bootlin.com/linux/v7.1.1/source/drivers/iio/adc/stm32-dfsdm-adc.c#L1772
+> and should gone. Basically one wants to replace all these to use device and
+> fwnode propery APIs and proper device node, without that hack.
 
-/fuad
+If we 'were' going to keep this it should have been using the helper
+to set that. I thought all those had been cleaned up so didn't check
+for it being directly written :(  Obviously this comment is irrelevant
+given the code is going away!
 
->
->
-> Thanks!
+Jonathan
+
+> 
+> > It currently works because the driver initializes np from dev->of_node in
+> > probe, and that value is then used in init callbacks.
+> > 
+> > I agree that this approach is not robust, as it depends on initialization
+> > sequencing and on using an IIO object that is not the DT owner object. I
+> > will prepare a patch to use the DT device directly as the single source for
+> > DT properties.
+> > 
+> > I also suggest keeping a fallback path for st,adc-alt-channel so we do not
+> > break legacy DTs that have not yet migrated to the new binding.
+> > I prepare this also.  
+> 
+
 
