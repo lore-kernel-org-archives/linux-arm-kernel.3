@@ -4,134 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 857D8CDB470
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 08:52:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AED36CDB470
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 08:56:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zfMUMzU1RF+WDR1ZaUyRVDL9zp3SnqsjfGf7c+h7ADg=; b=bNOHA1/CJB/oLoPRsHLRpIGUse
-	r+ctU++zckj/ezxyPZD4xot6TPh0rE08isov/mav6Twzp/NUEhhn2f/5atAeT7GwP/6g6YTZOfek4
-	F9+e1noI4Tcy0HlnOVKKejwMEvXXE/zCNVNdIxhoz7StRzxKYjekigAo6+Cb2p6fI2GlUXawa7ju1
-	wgYflMHZ4a65gSSu51khQeEKQASdxUltOtEzB4AIOcW5r/GlYvb/lImmPdMuhnVmNaSbJdaCPXeIN
-	9fnq2Ul5dKsMsh2NXxYeDdcH532rAOANzU2ON2AxL/SdbNZIPaS5LEzLrDGZPCVgC3FUh79wrK8Rc
-	5liEM8qQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qoN/N/zV0mOtK+wxHpTPr+tV86a/2egova16++2Y83E=; b=EGa3RQB8CrCv6CiT46vE5jtIew
+	C6Y8C4TTNTOXBxIMv2hqSd2xEqwqsZ/EzEbcBdxhnncM9ryysl4HEbzYevDwqlGeCW8WoUH1KFaT3
+	ktikxv3jB7z6BXeR9uMZjc1ez3MLzWFJYEj4XiFgNYOG6lhYTquW7Pf8wYsdtckI3faQjXbomWazj
+	3+MEc99ncl+jlPLHF6dvDupFrLGBy19OhymNjH5AH7HNvcU7ul6xHzBkVfKBR7Bkx3LBjuKGnHMSK
+	TXIrJp59IkYzF+/mCDcXMdEKNMpEdqchsEVRRisi88dBW54K8ZVPI6pEoNrHmn1iw5U86C/JkYcEY
+	XRqBR8gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbwrS-00000005wEJ-2PvH;
-	Tue, 23 Jun 2026 08:52:02 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wbwvW-00000005wgF-1Fus;
+	Tue, 23 Jun 2026 08:56:14 +0000
+Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbwrO-00000005wDZ-2Tli
+	id 1wbwvT-00000005web-1Gte
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 08:52:01 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65N7kn8u3228424
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 08:51:58 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=zfMUMzU1RF+WDR1ZaUyRVDL9
-	zp3SnqsjfGf7c+h7ADg=; b=asT6MglxIIq0cO6EQ0OLdb0VTdZMJllLKn72jxy5
-	5p4wE5k3xs0FcNi3TtlH3UMCV+zEaEK0/0wN4TMbz7+96y1xiYQ0ceokAWMc2efx
-	ovbH5y4LvnBoHYQmwud/X2vSRPHWmAv0xFmNJN4hmifnJ2j3OMZxnGAsNcjCcfpB
-	NgI1EsIoXkSi+qFN3nikBxo+NYSQ12fkGVL5Wf3F1OLtLxYj5EtO2xOo7N8rCa7V
-	sFuSPrGPCySm/ciYUCPX67GdLEwszssOJEgir8HM0awGaNub6hlkGW23ixJ3krGR
-	/7JohAZgsj6semAAKGYjyJbQioZ+xeI12SyIqoXRqv+GVg==
-Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com [209.85.216.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4eyp29g7tw-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 08:51:57 +0000 (GMT)
-Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-36b9d265308so3573704a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 01:51:57 -0700 (PDT)
+	Tue, 23 Jun 2026 08:56:12 +0000
+Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-845369f60faso3192652b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 01:56:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1782204717; x=1782809517; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=zfMUMzU1RF+WDR1ZaUyRVDL9zp3SnqsjfGf7c+h7ADg=;
-        b=TudEmlk8nZlQXCLzp1Cvhahn0YMdBBvnnxiQZQHbHulWau96fWKABotENMQPz10yFB
-         tx2cxyovi90mru0SaCepwqVoBmTVBvNlnmi6FquiJuRmi1NjpZIKETccuJytYIzdrnac
-         unhNvjM/zvd9S0VQ17b3ZmrvR9l9+Uet4Xcq1enBghq3ixOCQ1fuUSfZP+qFLclESAJO
-         xwQybQr1aMvQOsNn48RVZ3nnKI8ypa6esMxl623yeo0hP0hRyqtvgqtibI0EAB26soSQ
-         NFd9eSEvFW4ePdiyAbvfdTu3WyOGPy9ryVZL5VUyFU29cW/uxMCMRO8oele2APDYao+b
-         fG4Q==
+        d=gmail.com; s=20251104; t=1782204970; x=1782809770; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=qoN/N/zV0mOtK+wxHpTPr+tV86a/2egova16++2Y83E=;
+        b=DJGKEuROcq7QvgWJJU4aa5pzwT0ajc86D53+idQfJ/467D/LEgGfJzus3nxLa3Xd7g
+         Y1cDuwXUPkEmtZInq99imvmaGUS081JcqznY79h5TmUU97QnCYPXG1OeWM9g4ahdvVsk
+         o9j8eMLcfTuaKkTwM9cNt/6ar7qMFpXxEWDrLeAvcf6yxxdu7ZafcZZLDc3cUi+dtoVy
+         jJWnz/XanZp+IB1bdrV1w87UpNlUZFitozOcrNBhDWR4VTqm9hwXx5eAOSvY58/MMHZx
+         afH/SrdzRsgWg0GHU/lKYYP3HdLDloCD8r6/VJ7FXf6WrBhGq6GsOKvpSiwJLqy044Vy
+         4xwA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782204717; x=1782809517;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=zfMUMzU1RF+WDR1ZaUyRVDL9zp3SnqsjfGf7c+h7ADg=;
-        b=HHOfCqxq2gCD37qvlEYwBPJPJqEwXrlWxiASCG/zT5TRusIS9ayW2arD0ImZ/FIgWz
-         onQv/AmUieMgPsG9Jz2fJSz0+YFJCc+5fUwSTMRh3ePzPfoGvug11mKzB/nV/mSKnHd4
-         XvG1sNg6673qWIs/Nx6adT+tKzHX9OEBxasF2wy35BZS8FFDVvCgGIFnNmh6W2fMgLDY
-         anXVAJ1VwK3ZejSlENr5rE8SVuTHCq6puvaoh86jklvnxoxMKT/8/SNDTFph31p9AIdb
-         lIwqdlEhsyPMz3dhHCnqzDZJJ60B+1GBxQHAd0xz1HqFhigJGoPCEIazxbm8HCxpeznn
-         VDrw==
-X-Forwarded-Encrypted: i=1; AHgh+RoWcI22Grt0FMs7uUxRyDenGX3/Lc4VuFOm5nYObAsL/kmhX2XUf7nDy9PjPJBnGtBRmXMiTA4/4R3OhZ0aoYDT@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy0fYoN+o5BWiBjtrSoAnX9aJpNq/hFP6J6IspT+lzLRwLCL/eK
-	c3QZw4hVGdfp5NIgsZf4T8L9Jf3zp96RPqY5GjOMkPCTw9E0VaJMH9V5bbURucGJ0ZGK4Hqr/0j
-	Ex5HJ72MHh+RJHVrQKk9PkbFucPa21q8CNonYrf2pDFOwniH198lyYIlixQPHob4Q5i+gTti73K
-	wLtA==
-X-Gm-Gg: AfdE7ckQEz0HrcDXxXylipIycB0xe5QCc5CKRb/90HpqhB40SGDOieDZP+MzVonV75i
-	EsaDSCUc+fXIjZb7cF2Lv3BGVCTnYhR4Kbn6NDkiyNAwN3Dc65I2/UWXwDlsNVDlRrjLIMbX9T9
-	uYsGSJPnsLrHqUqf7rNJDr3aHMwguG2MobC2Z5cGwx0XBp5n2I+30XPDFgI9h2ITkMIyekWed86
-	HxXns2FZ0OE5Hr9p8pK9FIsZaiz1tIPKMyrVfuQgHsKjPNNz16gyZc7ySPmwfrdvzR0jD3XV9Dy
-	aJTVq2EYZQA9HzTjqrhJdh0H/ytt13OZbG8JAlPiaWbnIm3yYNqX+TICQyH+ItlYoqelRPVcAKL
-	Ibq3DhfI2H+H6lo5t03RkblLpbgYZ++i464JsxA==
-X-Received: by 2002:a17:90b:3d43:b0:36a:5d1f:7b6 with SMTP id 98e67ed59e1d1-37dd16b5af1mr1870938a91.2.1782204717206;
-        Tue, 23 Jun 2026 01:51:57 -0700 (PDT)
-X-Received: by 2002:a17:90b:3d43:b0:36a:5d1f:7b6 with SMTP id 98e67ed59e1d1-37dd16b5af1mr1870920a91.2.1782204716687;
-        Tue, 23 Jun 2026 01:51:56 -0700 (PDT)
-Received: from hu-mojha-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-37d15f92d5bsm3246843a91.0.2026.06.23.01.51.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 23 Jun 2026 01:51:56 -0700 (PDT)
-Date: Tue, 23 Jun 2026 14:21:50 +0530
-From: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
-To: Haoxiang Li <haoxiang_li2024@163.com>
-Cc: robin.clark@oss.qualcomm.com, will@kernel.org, robin.murphy@arm.com,
-        joro@8bytes.org, jroedel@suse.de, iommu@lists.linux.dev,
-        linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] iommu/qcom: Remove sysfs device on probe failure path
-Message-ID: <20260623085150.nr45mbu4225lpaom@hu-mojha-hyd.qualcomm.com>
-References: <20260623071245.1985938-1-haoxiang_li2024@163.com>
+        d=1e100.net; s=20251104; t=1782204970; x=1782809770;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=qoN/N/zV0mOtK+wxHpTPr+tV86a/2egova16++2Y83E=;
+        b=qFYKIYus95UfNfw5XHg70Lmt+1pbIBBL8BhJBB6EbpWgilhF16si4oduB6pd8MW0OD
+         /qG9Ocu9yMRZ2c8P0SfIRNaQpu1g2mq9AiU+5aFrj0Ljtk3/33W4yDaJwlQxe80dLeFR
+         Rd2dS3z68JWfeDpJbukTxU6hvJX37uufYfYJ3QMsLe3UQE80QcHaHPA17FKtB9lYHQvL
+         yi0C1Oh3EShda1Y0GDvEpGvv8MP0M6CjOdH+SW8/Ae4pGwR9sd5exrRgybxOl/W0Vipr
+         p/MaS/0Mku+26L9q9wEcYL/mlxQ5B01KwG9LLenAG1bz+FQfmb/PtKneX0zEMOv+YkSG
+         IAtw==
+X-Forwarded-Encrypted: i=1; AFNElJ/QWItqcTIde/r2VEfcp5HeeYcrZwuNY14bqdN1D4brmtspvWkNfDmAx6uZAU3cskdcuwKMd9K8FLrkiC/+CX/B@lists.infradead.org
+X-Gm-Message-State: AOJu0YxOfxtWg2f+EBcXxVOmqIPkGid8nna9uN0G0w0/og74WHPbcVZU
+	Enc0YkwA3qIwoRua5Cvqcy0xmR7AMvlW4McKVm0OtPbncKaHQUXgdE4=
+X-Gm-Gg: AfdE7cke7cSS2frMJBsFgF0O8ZuukkQfnnBQaFa/Xji2diQCheqmpjRkwtA3ZmGBOvC
+	V7XGviAY0T+xsGFqepR49rbWw2mhM+WV8D92EnhzJV+SHndKRg5kbuQamxEpPtMkNS7XRa9atnK
+	KNE+7MQY8JkZNWgdRkX4srHCvqauJXm+s+v5Okf+lGinVA2VJvZcmH1am3mQqnWAtIjRFBo2BNz
+	D9PfHzUHyiFQ09ayiHVuA+23IwZgYFsPW8YSFZ+15bHchmo20bfnG+1MAN8XfswppeNnl5PgEMp
+	zvll6NCXsdSra9NOi/g6wve6vknUk2QpuNfDGCyR0qPCJE5yyN4aQhvrQk6m4/5z0CTeeBqDktQ
+	1pFf9qDxZnqR6IkFPQmYlU0nJFzgiANApd3ifozkrj3VO2IFRo9DXwcQO+JbB3x6RMY0t65rl5m
+	KRJBSemK927CAXzW3vBfEAOf+XM7D+BWfnC9aPwdFjmiq8h3Ml67rzbVId+8bViUrn
+X-Received: by 2002:a05:6a00:cc8:b0:845:4b4b:8836 with SMTP id d2e1a72fcca58-8455088cec4mr18905236b3a.28.1782204970192;
+        Tue, 23 Jun 2026 01:56:10 -0700 (PDT)
+Received: from localhost.localdomain ([14.5.152.27])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84571784ad0sm7757315b3a.24.2026.06.23.01.56.07
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Tue, 23 Jun 2026 01:56:09 -0700 (PDT)
+From: Myeonghun Pak <mhun512@gmail.com>
+To: Arnd Bergmann <arnd@arndb.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Michal Simek <michal.simek@amd.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Myeonghun Pak <mhun512@gmail.com>,
+	Ijae Kim <ae878000@gmail.com>
+Subject: [PATCH] char: xilinx_hwicap: unregister class on init errors
+Date: Tue, 23 Jun 2026 17:55:55 +0900
+Message-ID: <20260623085604.89284-1-mhun512@gmail.com>
+X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260623071245.1985938-1-haoxiang_li2024@163.com>
-X-Authority-Analysis: v=2.4 cv=LdAMLDfi c=1 sm=1 tr=0 ts=6a3a492d cx=c_pps
- a=RP+M6JBNLl+fLTcSJhASfg==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=kj9zAlcOel0A:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
- a=Byx-y9mGAAAA:8 a=EUspDBNiAAAA:8 a=pQidVZ3N1npoo1zWM9kA:9 a=CjuIK1q_8ugA:10
- a=iS9zxrgQBfv6-_F4QbHw:22
-X-Proofpoint-GUID: 181PrFwmj3ASu48vKYDTFYCGlSIwEW8F
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNjIzMDA3MCBTYWx0ZWRfXx/IWvaVKyyiV
- KiaXo9Ygk5Uyb4nQkPs58JgiK8CJA1YV+hwIINJGvfBJR8jmAWzO8QU4IQomqa7sC1xzVH18emp
- b09rf6uk76g7LE/QX9/VNn0IfBKSVPw=
-X-Proofpoint-ORIG-GUID: 181PrFwmj3ASu48vKYDTFYCGlSIwEW8F
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjIzMDA3MCBTYWx0ZWRfX+ZQ0Ste+NUfm
- kU1cWP7ndTLwU/4S1CkAarcD7IEVzOiWYDagT6n6u/tgpvoLkids4XjLtA6s/ZEQA1grND+uFQM
- hZgaXHWnDocGuWBNMHDXFBtQIslun7QgrcILDZmf9U2oLyzKmJLwLlDlET7YmjVJPqpga5I2FC2
- SdtJ8LVvQjuN94NegnNdya/prM/2rkEakHlmBKxDujWsfRyDYW2xkUozx6OGw7uu2pSJEABolTr
- Em0qhdZgUS5a0LtoQ0/mYRBFSQBOgNWfXpquctVslCDNT9K1noxKjUugGcvlq4shGUH2SL8vs+E
- Y5EEQGri9q8Rt3UauGB4seecRappmFe810Qsp7Mv9tlrkjI4CcAYk8cbCR8gD3TXr13LFecqp/U
- Vb8u06YU/CShJHu5gkJy+lc/zGfft5HP5ImJ4t+nHokKfpNrfCtimAj4E0BRjwzdB2mKejbXv2c
- Qe1+0wXpszLgJiyms1w==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-23_02,2026-06-22_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 priorityscore=1501 impostorscore=0 lowpriorityscore=0
- suspectscore=0 malwarescore=0 clxscore=1015 spamscore=0 phishscore=0
- bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2606230070
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_015158_638062_1A2560CF 
-X-CRM114-Status: GOOD (  23.66  )
+X-CRM114-CacheID: sfid-20260623_015611_361646_82E04AC1 
+X-CRM114-Status: GOOD (  12.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,52 +99,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 23, 2026 at 03:12:45PM +0800, Haoxiang Li wrote:
-> In qcom_iommu_device_probe(), if iommu_device_register()
+hwicap_module_init() registers icap_class before reserving the
+character-device region and registering the platform driver.  If either
+of those later steps fails, the init path must undo the successful class
+registration before returning an error.
 
-You can take space till col 65..
+Route the chrdev registration failure through a class unwind label, and
+let the platform-driver registration failure fall through the existing
+chrdev unwind before unregistering the class.  The normal module exit path
+is unchanged.
 
-> fails, the sysfs device created by iommu_device_sysfs_add()
-> is not released. Add a goto label to do the cleanup.
-> 
-> Fixes: 0ae349a0f33f ("iommu/qcom: Add qcom_iommu")
-> Signed-off-by: Haoxiang Li <haoxiang_li2024@163.com>
+This issue was identified during our ongoing static-analysis research while
+reviewing kernel code.
 
-Not related to this change,  but there are some more issue in this
-driver..
+Fixes: ef141a0bb0dc ("[POWERPC] Xilinx: hwicap driver")
+Co-developed-by: Ijae Kim <ae878000@gmail.com>
+Signed-off-by: Ijae Kim <ae878000@gmail.com>
+Signed-off-by: Myeonghun Pak <mhun512@gmail.com>
 
-Reviewed-by: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
+---
+ drivers/char/xilinx_hwicap/xilinx_hwicap.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-> ---
->  drivers/iommu/arm/arm-smmu/qcom_iommu.c | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/iommu/arm/arm-smmu/qcom_iommu.c b/drivers/iommu/arm/arm-smmu/qcom_iommu.c
-> index a1e8cf29f594..32efef69e72d 100644
-> --- a/drivers/iommu/arm/arm-smmu/qcom_iommu.c
-> +++ b/drivers/iommu/arm/arm-smmu/qcom_iommu.c
-> @@ -855,7 +855,7 @@ static int qcom_iommu_device_probe(struct platform_device *pdev)
->  	ret = iommu_device_register(&qcom_iommu->iommu, &qcom_iommu_ops, dev);
->  	if (ret) {
->  		dev_err(dev, "Failed to register iommu\n");
-> -		goto err_pm_disable;
-> +		goto err_sysfs_remove;
->  	}
->  
->  	if (qcom_iommu->local_base) {
-> @@ -866,6 +866,8 @@ static int qcom_iommu_device_probe(struct platform_device *pdev)
->  
->  	return 0;
->  
-> +err_sysfs_remove:
-> +	iommu_device_sysfs_remove(&qcom_iommu->iommu);
->  err_pm_disable:
->  	pm_runtime_disable(dev);
->  	return ret;
-> -- 
-> 2.25.1
-> 
-
+diff --git a/drivers/char/xilinx_hwicap/xilinx_hwicap.c b/drivers/char/xilinx_hwicap/xilinx_hwicap.c
+index 34a345dc5e..9bb5fa642f 100644
+--- a/drivers/char/xilinx_hwicap/xilinx_hwicap.c
++++ b/drivers/char/xilinx_hwicap/xilinx_hwicap.c
+@@ -760,7 +760,7 @@ static int __init hwicap_module_init(void)
+ 					HWICAP_DEVICES,
+ 					DRIVER_NAME);
+ 	if (retval < 0)
+-		return retval;
++		goto failed_class;
+ 
+ 	retval = platform_driver_register(&hwicap_platform_driver);
+ 	if (retval)
+@@ -771,6 +771,9 @@ static int __init hwicap_module_init(void)
+  failed:
+ 	unregister_chrdev_region(devt, HWICAP_DEVICES);
+ 
++ failed_class:
++	class_unregister(&icap_class);
++
+ 	return retval;
+ }
+ 
 -- 
--Mukesh Ojha
+2.47.1
 
