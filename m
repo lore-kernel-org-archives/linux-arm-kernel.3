@@ -4,66 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8036CDB47C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 14:25:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68486CDB479
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 14:29:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eNf4OkT8UUn3NXk3xFshcPGWprm7WXzNQ/X1998bOkc=; b=3yL4k/Tu+7DpXfiKsNYR7PFOHP
-	NnMOec84jYsOrlYuPauW7y1gUy8Et6KOXbKLQg5BrVO75eIP90QB2S8agw1n/0Nqk3k0UKkgU14I6
-	8zPqGPMq0z5p2NleL6nT3JpCwajAof9jWtqVcb3mFYPUPBVYtGSQ89YEa5tqI7Jblyd350H0e5K73
-	xgTTSzBh9Be0dySGybyhdshmr5Ivhu2sB5Q6G8KveY/Qge+0y89sAbI0M+QZ1ht9t8DM5qSGEycsV
-	yP7VXeBcmlwSZkP6dqrqqCBQq8CvucdTSreiExut/3V/CaSoRqISXWbn7RjNSDlLeWu52z33BG2RY
-	6KQcCXuA==;
+	bh=H10VUnmTOcSqsdtPCuQYnfKlpPMwS75wksj7BtxL1Y4=; b=lGGst2hM6N/AM3izuNIsKE6G3V
+	A8nfawrDKbjYs4YvIUZhrG82GUvuyPXhZgo6ESnmNkYFYj6QMFNCRhRbEFJxuDptckaI+ZMvDgAWl
+	9CSjh7MNN6b6SYwXk2EVYXC2FjoYwvZo6J+6dC3+3wK/wi2Ao976wYo9Fg1LEOKN+smT+z7zHhfl1
+	Td792NxYVtGo6uRrXluRrVxPFniX3AqV5dKqRpK/lfO3fissI+VXvaE7M3RlFRDUYiJS/OYgjMjgW
+	cfgYn08yuXuQOBDetQXk04qoMx3uulTetaQ0b5b+W2Z3zrQ4+R5BmfC6zXRCnBOCTg6CT4/q28HCz
+	OSrw7ReQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc24N-00000006Qxw-0W3k;
-	Tue, 23 Jun 2026 14:25:43 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc24G-00000006Quu-1NJS
+	id 1wc287-00000006ROn-0noD;
+	Tue, 23 Jun 2026 14:29:35 +0000
+Received: from mail-wm1-x341.google.com ([2a00:1450:4864:20::341])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wc282-00000006ROO-1ecS
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 14:25:37 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C72B72944;
-	Tue, 23 Jun 2026 07:25:30 -0700 (PDT)
-Received: from workstation-e142269.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 80A613F632;
-	Tue, 23 Jun 2026 07:25:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782224735; bh=UVDBB/PFZ+rCc87A5TGXQBbpqJel6EHhTHznacF/Mlk=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=XR7Vk+/jaRs57jaTsA5HJYUNSnm30eHxNENAKEOuJz5zzvNClDqOXcoxJzWNYcTID
-	 fmJwJ6HfJfJ4SJgbqGLbllC+FeO52BTK8VoBCVoRaNhyWsLmMZ34jFlHtf0XHzSoZy
-	 SEiPB2P8Q6D1157qE4WCyB56Yd6Mm5VBi+rX/yO4=
-From: Wei-Lin Chang <weilin.chang@arm.com>
-To: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Cc: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Itaru Kitayama <itaru.kitayama@fujitsu.com>,
-	Wei-Lin Chang <weilin.chang@arm.com>
-Subject: [PATCH 3/3] KVM: arm64: nv: Move to per nested mmu ptdump files
-Date: Tue, 23 Jun 2026 15:24:43 +0100
-Message-ID: <20260623142443.648972-4-weilin.chang@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260623142443.648972-1-weilin.chang@arm.com>
-References: <20260623142443.648972-1-weilin.chang@arm.com>
+	Tue, 23 Jun 2026 14:29:33 +0000
+Received: by mail-wm1-x341.google.com with SMTP id 5b1f17b1804b1-490cdae130cso28635415e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 07:29:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=9elements.com; s=google; t=1782224967; x=1782829767; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=H10VUnmTOcSqsdtPCuQYnfKlpPMwS75wksj7BtxL1Y4=;
+        b=AG2Y1wwhuUT2sEccMEYPKaDOMZYx2lVW/0MATa4Vts/wjZZeQ5p4lI7k3f+fOIAJF3
+         pmdo50uAYyCQ8NbmDLhU5bJ7c3oGgiZlL31qdesv9qE48GeqSDyLv/+liLN/xgWXug0d
+         lKvbWXFYqvHYt94lrc4vl161AjaxECUBY3zZT9RwkoYb7Dx5Gpc4NtuunBHQfAvSP2Ba
+         pDJskoR/sNz7V/QHH+r7nR5vEG+9jAg45AuwnjXyf6guYNuLzysPTMesQ9lPovvPfLiq
+         iy8/D2yJRTz9p4kHubfoxXrZADzD8Ctnv6Q9UYea/Tg+/bVL4WxiV6fGK5e4I/TUDk1Z
+         XZzQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782224967; x=1782829767;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=H10VUnmTOcSqsdtPCuQYnfKlpPMwS75wksj7BtxL1Y4=;
+        b=ReaIjoApv7BUR8OcyFQRYGS2aSGiq2x6NJIF+NDY4qRlwViLcxPGc72IEIw04+T98O
+         7sEaVsVNsHoDVr+CmMYgJFvhYT9ouPg3WuO7OTK37dEArrEpViuCeOpNC+V5BhPt7ZUE
+         AUR3S4fBJZmxN9Oy+oAG6Z+tqMCeSYAlXpiNIt8dZvyPtTo2MNc3zbwfajO8nssnIWgh
+         eJnrBVLtP3VPHgF3qd6ImB7vGJR9FT/8lmiEsKem8wR5qodyNy3qWC47wJKmUgs5PeTt
+         oiDP6tdHXgTlc8l9vDu/kyixy1CgDZwOg0FLT38/j8Ao9ysIaP41vF82219PmBZahKDQ
+         Fa7Q==
+X-Forwarded-Encrypted: i=1; AFNElJ/f8eqo/iQjsUHBhu1PVjHPGPunxgGqqGcfey8PQIk7bMo7k86EyN2V4WYPbzyS/HS4F5qF8LplcDajwTp6WTo3@lists.infradead.org
+X-Gm-Message-State: AOJu0YyulCimuVXDoD1s4b9652LU2JPm83yrAKGnPubBn7ukclDFr8U3
+	nCDw1a5JJEhDcnz/Cs3/vxOIehJIfu3f32gxr80XQ1cEkB7nnYSQJcFnijsqgdWU5go=
+X-Gm-Gg: AfdE7cnAi5U7OgHytcGaTq5aZCGnyjK/eq62evu1+RHKGaiTlY80s1yJzs6g7Sqp/cl
+	rnufm/elzbDHjjr45vMo8nF2BLCgNMqEDd9CrlThHovgL+sfXikiSn8WyrwUTbWyujvTW5XXaPQ
+	dZYcmvCSghFZBiP+/N0gldYPqgcQn9TyWS6y5v4NaBL1Quhmo8d1a202HfgbYnEqYCKYHntkdRV
+	VKRb5t2R8fU74qfE8dy0Ev7djdf+m3wFLoXdNuA8giE9oTLAOcsoGZczzRZvKvXps1g9i9ieiHE
+	CD8l8rNBTsCBnBmRbHUaQMHKvqC58glu2OmUzFO445IUCt3SAoC8umUUZFJn5IBwcVVd9ef69YC
+	3MOHAibE3rLFyFq9s1m/J8GKvEmCUQxYSamc1U1Jnb8Ii8dQp8ke2PnLqXvkXQOpI5dnBcBqhKH
+	OQkhe0QYXw+kdQx4ClEKdDZsVYutVQcneW4lVxTxD6KyWEUO0eW/HBJHIa8p5JQiXFUYn1M1549
+	8JdPOtoziXeXgIgMWD8x2DlrcYJ
+X-Received: by 2002:a05:600c:8b2c:b0:490:ba0a:1178 with SMTP id 5b1f17b1804b1-4925b3b1732mr44333735e9.28.1782224967252;
+        Tue, 23 Jun 2026 07:29:27 -0700 (PDT)
+Received: from gregwork.sec.9e.network ([188.111.3.154])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49240efc160sm362507805e9.2.2026.06.23.07.29.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 23 Jun 2026 07:29:26 -0700 (PDT)
+From: =?UTF-8?q?Gr=C3=A9goire=20Layet?= <gregoire.layet@9elements.com>
+To: joel@jms.id.au,
+	andrew@codeconstruct.com.au,
+	lkundrak@v3.sk,
+	devicetree@vger.kernel.org,
+	gregkh@linuxfoundation.org,
+	jirislaby@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: andrew@lunn.ch,
+	jacky_chou@aspeedtech.com,
+	yh_chung@aspeedtech.com,
+	ninad@linux.ibm.com,
+	anirudhsriniv@gmail.com,
+	linux-serial@vger.kernel.org,
+	linux-aspeed@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	=?UTF-8?q?Gr=C3=A9goire=20Layet?= <gregoire.layet@9elements.com>
+Subject: [PATCH v3 0/7] soc: aspeed: Add BMC and host driver for PCIe BMC device
+Date: Tue, 23 Jun 2026 14:25:38 +0000
+Message-ID: <cover.1782224059.git.gregoire.layet@9elements.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <cover.1780929570.git.gregoire.layet@9elements.com>
+References: <cover.1780929570.git.gregoire.layet@9elements.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_072536_443334_08E603D4 
-X-CRM114-Status: GOOD (  17.48  )
+X-CRM114-CacheID: sfid-20260623_072931_133022_70705151 
+X-CRM114-Status: GOOD (  29.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,115 +116,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The previous way of exposing shadow page tables was creating a debugfs
-ptdump file whenever a nested mmu instance gets bound to a new context,
-and deleting the debugfs file whose context was getting unbound.
+This is a v3 for upstreaming the VUART over PCIe BMC device driver.
+The initial driver is from the ASPEED kernel SDK (master-v6.18) [1].
 
-This turned out to be buggy, as the instance<->context binding process
-is done with the mmu_lock held, and debugfs creation/deletion can sleep.
+There are two drivers: a BMC-side driver and a host-side driver.
+Together they enable host<->BMC VUART communication via PCIe.
 
-Instead, create a debugfs file for each nested mmu instance, and show
-different information based on what the nested mmu instance is holding
-at the moment, which can be either invalid, or VTCR + VTTBR + whether s2
-enabled + ptdump.
+The host cannot access the BMC's memory. Only the enabled features are
+accessible. These are the KCS4 channel and 2 VUARTs. There is also some
+mailbox register functionality also exist for a communication between
+the host and the BMC. More information can be found here [2].
 
-Fixes: 19e15dc73f0f ("KVM: arm64: nv: Expose shadow page tables in debugfs")
-Reported-by: Itaru Kitayama <itaru.kitayama@fujitsu.com>
-Closes: https://lore.kernel.org/kvmarm/aiuF0KSvvv-ZozI1@sm-arm-grace07/
-Suggested-by: Marc Zyngier <maz@kernel.org>
-Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
----
- arch/arm64/kvm/nested.c | 16 +++++++++++-----
- arch/arm64/kvm/ptdump.c |  9 +++------
- 2 files changed, 14 insertions(+), 11 deletions(-)
+This v3 mainly modifies the BMC driver and focuses on VUART.
+The BMC driver is now incorporated into the '8250_aspeed_vuart' driver.
+A specific flag can be set to indicate that the VUART should be used
+over PCI. Several changes have been made to the 8250 device tree binding
+and the 'aspeed-g6.dtsi'.
 
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index bdf12b2ae097..2aaf6c123a20 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -110,6 +110,11 @@ int kvm_vcpu_init_nested(struct kvm_vcpu *vcpu)
- 
- 		write_unlock(&kvm->mmu_lock);
- 
-+		for (int i = 0; i < kvm->arch.nested_mmus_size; i++) {
-+			kvm_nested_s2_ptdump_remove_debugfs(&tmp[i]);
-+			kvm_nested_s2_ptdump_create_debugfs(&kvm->arch.nested_mmus[i]);
-+		}
-+
- 		kvfree(tmp);
- 	}
- 
-@@ -126,6 +131,9 @@ int kvm_vcpu_init_nested(struct kvm_vcpu *vcpu)
- 		return ret;
- 	}
- 
-+	for (int i = kvm->arch.nested_mmus_size; i < num_mmus; i++)
-+		kvm_nested_s2_ptdump_create_debugfs(&kvm->arch.nested_mmus[i]);
-+
- 	kvm->arch.nested_mmus_size = num_mmus;
- 
- 	return 0;
-@@ -817,10 +825,8 @@ static struct kvm_s2_mmu *get_s2_mmu_nested(struct kvm_vcpu *vcpu)
- 	kvm->arch.nested_mmus_next = (i + 1) % kvm->arch.nested_mmus_size;
- 
- 	/* Make sure we don't forget to do the laundry */
--	if (kvm_s2_mmu_valid(s2_mmu)) {
--		kvm_nested_s2_ptdump_remove_debugfs(s2_mmu);
-+	if (kvm_s2_mmu_valid(s2_mmu))
- 		s2_mmu->pending_unmap = true;
--	}
- 
- 	/*
- 	 * The virtual VMID (modulo CnP) will be used as a key when matching
-@@ -834,8 +840,6 @@ static struct kvm_s2_mmu *get_s2_mmu_nested(struct kvm_vcpu *vcpu)
- 	s2_mmu->tlb_vtcr = vcpu_read_sys_reg(vcpu, VTCR_EL2);
- 	s2_mmu->nested_stage2_enabled = vcpu_read_sys_reg(vcpu, HCR_EL2) & HCR_VM;
- 
--	kvm_nested_s2_ptdump_create_debugfs(s2_mmu);
--
- out:
- 	atomic_inc(&s2_mmu->refcnt);
- 
-@@ -1275,6 +1279,8 @@ void kvm_arch_flush_shadow_all(struct kvm *kvm)
- 	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
- 		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
- 
-+		kvm_nested_s2_ptdump_remove_debugfs(mmu);
-+
- 		if (!WARN_ON(atomic_read(&mmu->refcnt)))
- 			kvm_free_stage2_pgd(mmu);
- 	}
-diff --git a/arch/arm64/kvm/ptdump.c b/arch/arm64/kvm/ptdump.c
-index a089e87ea366..2a1cbef2375b 100644
---- a/arch/arm64/kvm/ptdump.c
-+++ b/arch/arm64/kvm/ptdump.c
-@@ -17,7 +17,7 @@
- 
- #define MARKERS_LEN		2
- #define KVM_PGTABLE_MAX_LEVELS	(KVM_PGTABLE_LAST_LEVEL + 1)
--#define S2FNAMESZ		sizeof("0x0123456789abcdef-0x0123456789abcdef-s2-disabled")
-+#define S2FNAMESZ		sizeof("nested_mmu_9999")
- 
- /*
-  * Nested mmus could be freed when .release() is called, so also keep the kvm
-@@ -287,14 +287,11 @@ static const struct file_operations kvm_pgtable_levels_fops = {
- 
- void kvm_nested_s2_ptdump_create_debugfs(struct kvm_s2_mmu *mmu)
- {
-+	int idx = mmu - mmu->arch->nested_mmus;
- 	struct dentry *dent;
- 	char file_name[S2FNAMESZ];
- 
--	snprintf(file_name, sizeof(file_name), "0x%016llx-0x%016llx-s2-%sabled",
--		 mmu->tlb_vttbr,
--		 mmu->tlb_vtcr,
--		 mmu->nested_stage2_enabled ? "en" : "dis");
--
-+	snprintf(file_name, sizeof(file_name), "nested_mmu_%d", idx);
- 	dent = debugfs_create_file(file_name, 0400,
- 				   mmu->arch->debugfs_nv_dentry, mmu,
- 				   &kvm_ptdump_guest_fops);
+Changes since v2 [3]:
+- Add the aspeed,ast2600-vuart compatible entry to the '8250' DT binding
+- Add the aspeed,ast2600-vuart compatible property in 'aspeed-g6.dtsi'
+- Add the aspeed,vuart-over-pci boolean property to the '8250' DT binding,
+  only for the aspeed,ast2600-vuart
+- Add the aspeed,vuart-over-pci flag to the vuart3 and vuart4 
+- Add the aspeed,ast2600-vuart compatible property to the 
+  '8250_aspeed_vuart' driver
+- Add the VUART over PCI code to the '8250_aspeed_vuart' driver
+- The v2 review of the host-side BMC driver has been applied.
+
+The host-side driver is still in /soc/aspeed/, as it is very specific to
+this SoC for me. I didn't receive any feedback on where to put this
+driver. I can, of course, change this to the relevant location.
+
+It's important to consider that the host driver will do multiple
+functions. The AST2600 also supports LPC over PCI, with a specific KCS
+channel (KCS4). This driver should also be used to enable the IPMI
+automatically via this KCS channel. The UART and the IPMI will depend on
+the same PCI resource (BAR1), so this must be configured in one driver.
+
+As with v2, VUART data flow and MSI interrupts have been verified 
+working on the test hardware.
+
+Tested on:
+BMC:
+- Asus IPMI Kommando Card R1.01, AST2600 A3.
+- OpenBMC
+Host:
+- Linux kernel v7.0.0
+
+This v3 only supports AST2600; the AST2700 is not supported by this series.
+
+I would like to know whether I should add the 'lpc-io-reg' and
+'lpc-interrupt' values to the vuart3 and vuart4 nodes directly in the
+'aspeed-g6.dtsi'. The host driver is not capable of finding the vuart
+address on his own, so they are hardcoded to 0x3f8 and 0x2f8. It will
+not work with other adresses, so perhaps they should be in the .dtsi to
+ensure the correct configuration for the 2 vuart over PCI.
+
+For the interrupt number, my test is working with interrupt = 0
+for vuart3 and interrupt = 1 for vuart4. I don't fully understand how
+the silicon routes MSI numbers to the VUART but the following
+combination is working :
+       | host MSI idx | BMC lpc-interrupts |
+VUART3 |      16      |       0            |
+VUART4 |      17      |       1            |
+
+The original ASPEED driver used MSI index 15 for the VUART4.
+I tested every lpc-interrupts on the BMC from 0 to 15, but none of them
+worked with the host MSI index set to 15.
+
+For me, the silicon only routes the MSI index 16 to VUART3 and 17 to 
+VUART4, and the lpc-interrupt needs to match the 4 least significant bits.
+I might be wrong on this explanation but the data path is working with 
+those numbers. There is no explanation for any of this in the datasheet.
+
+[1]: https://github.com/AspeedTech-BMC/linux/tree/aspeed-master-v6.18/drivers/soc/aspeed
+[2]: https://lore.kernel.org/linux-aspeed/CAFi2wKYOAotiezepDqaR5PZDqDaPKKDfAEnpx5EHC0mL39hy6w@mail.gmail.com/
+[3]: https://lore.kernel.org/linux-aspeed/cover.1780929570.git.gregoire.layet@9elements.com/
+
+Grégoire Layet (7):
+  dt-bindings: serial: 8250: aspeed: add compatible string for ast2600
+  dt-bindings: serial: 8250: aspeed: add aspeed,vuart-over-pci bool prop
+  serial: 8250_aspeed_vuart: add aspeed,ast2600-vuart compatible string
+  serial: 8250_aspeed_vuart: add VUART over PCI
+  soc: aspeed: add host-side PCIe BMC device driver
+  ARM: dts: aspeed: g6: Change vuart compatible string for ast2600
+  ARM: dts: aspeed: g6: add aspeed,vuart-over-pci prop to vuart3 and 4
+
+ .../devicetree/bindings/serial/8250.yaml      |  35 +++-
+ arch/arm/boot/dts/aspeed/aspeed-g6.dtsi       |  10 +-
+ drivers/soc/aspeed/Kconfig                    |   8 +
+ drivers/soc/aspeed/Makefile                   |   1 +
+ drivers/soc/aspeed/aspeed-host-bmc-dev.c      | 183 ++++++++++++++++++
+ drivers/tty/serial/8250/8250_aspeed_vuart.c   |  87 +++++++++
+ 6 files changed, 312 insertions(+), 12 deletions(-)
+ create mode 100644 drivers/soc/aspeed/aspeed-host-bmc-dev.c
+
 -- 
-2.43.0
+2.54.0
 
 
