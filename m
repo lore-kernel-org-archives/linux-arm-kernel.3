@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDECCCDB470
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 21:18:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15F4BCDB470
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 21:23:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nKSzb6vgfh2Bcqwz8N01dWU91MpxEjvrnQ9zVlxcUJk=; b=s4AkTPEppwYSHvOqhfJYfKy/I4
-	e0QRM+BSyqeJ3Y+dM3rvDV7Xnu0c+guhlrrljVdUsQUYCgdNofwWMUQR0TxRVQO7xIkjESqgiV60/
-	XuzxHIEbFv8wQUL5p0r+Hc7l4e8YYpDHyj+l4+5TCVZ2epwbKH60K6U7gm7IWaUnGyRxULMDBRmzV
-	Rz9ffJbIAPW7ESWS2+IOsZn6/8/oGHv/8J8FiNKcTTdGd0ojbG37dFgp16KoW/t30WnqewVz2ngq5
-	7HSX/pi6Wvz9N2RaM1gelg5gh9WS9H8pHYD6spVaqOYAJs6SbGojgJHSI56xQ9ULIA0ReTpSjnKvG
-	9eNlnFVA==;
+	bh=p/ZT38oJwe9SvdRsKZa4b9hkalZ8gnq+XcMgdaJ8tn8=; b=hPv8bVu4HQljajgE7ow1up06HG
+	9EcZh+isJlbILrg+dZrZYKaVb7Mdzcvk82ZsmIMuiU18688j7rsqsqukOT5t84U3GK8oNsutmqfTk
+	9ToXDRztoZHXQ31Rc7ClfQljaEqKGhUf1BSh4gOW4QwJ4loDlKVchokVJ2CcCA6B/D6QD0k6ytXt7
+	5sbNcEBkqW4c5XHRdn2oG4Bz9UbTymWR33dztIhl8cVyHJuJ7tRbfcFUfS5COCizgWDkFp6BC+fyn
+	tOqd9DafkIFqMEPA+jHrwP94vl34GzIgo5yUoFuK2a0a1oBqvjlY2Uhx11NpfahpGlwy0+JJKrMXk
+	PvcHUGJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc8W6-00000006uAa-41Yt;
-	Tue, 23 Jun 2026 21:18:46 +0000
-Received: from mgamail.intel.com ([198.175.65.13])
+	id 1wc8aE-00000006uP1-1k7e;
+	Tue, 23 Jun 2026 21:23:02 +0000
+Received: from mgamail.intel.com ([192.198.163.14])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc8W3-00000006uAA-4A2N
+	id 1wc8aB-00000006uOg-09rE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 21:18:45 +0000
+	Tue, 23 Jun 2026 21:23:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1782249524; x=1813785524;
+  t=1782249779; x=1813785779;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=PXOMq887K9FXPyqsb4vi8gGbLEYnXMywB+78wZBK9dY=;
-  b=W3LPt/ejLwv5D0uC+4Tfetl/hBdc0bOPFIMXsh4jZhladsl2gBd8SF7A
-   eS+3DPC9jCMPOKSzxYOVVfdXtR2exhJQe1GYZBARkQIZVqbE+ixvwOT2n
-   q8UET7WhIwIoDQ/X4d7fnSV+23oqT+gBtR3dY5ZalOTLO2+0rNYVws5C1
-   U4bJDoValdhJmR7leUZJfo7t2pKuVNP33BojMgCJcL0TA50VSyGVLFbJf
-   VCV16CjVhKj8nmAJ3tXnisIJXcNqRrRqq5Zur/rydnipOo7kVkWbIFtyy
-   feC5L5vj5ocCXsYZHSwa7hPOzvptr+PZbO5PhETCRx3V1pRTHwWOOpQYK
-   w==;
-X-CSE-ConnectionGUID: Zn+k1avVQ7S0uSQLKbkWng==
-X-CSE-MsgGUID: +CP3npuWRiuUCAMsWDzW9w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11826"; a="94121916"
+  bh=AKXV4muuFBAbGj4jCPBZwKR37ivYTelH5ksj5TS5Clg=;
+  b=EWnzwOg9/hYDCLq2TX8rWtSp3jMy6Jc2/A0pmHuV+BwyDbOBsVcZPxvo
+   4OMQkmbCaYYxlPmB5AVaVC83mHZ0whLTqC0ivQstWV0kQnmUZ24Mwmu2W
+   mGSCOkThW51Xhxdzit0Q3SGRc95P0wLf8ihpCBMFYCpZtJQ1H9THamrAa
+   zY9q3ZyPWOc1zbm5Wniv6p+5h0nqHnGbF6B4nJKh+DcZScZU+4gDwppyj
+   WzYTCi1myhMkIyaBSiN76qFzwS2NWVuUusHdH2aMKYBlE3FXaxZtMy2G9
+   0xpL2XEa3VUQXzAPn2fJh+NRQnjIf0EyIc7vDUqslST/BHJ62aNyETBZz
+   g==;
+X-CSE-ConnectionGUID: Z7NkcDvFTvmoHvJFfkiANA==
+X-CSE-MsgGUID: GwwAm72iSXi7U5EuSmupuQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11826"; a="83044949"
 X-IronPort-AV: E=Sophos;i="6.24,221,1774335600"; 
-   d="scan'208";a="94121916"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jun 2026 14:18:43 -0700
-X-CSE-ConnectionGUID: NKkjQdtURQ+vCzlz1PrRGg==
-X-CSE-MsgGUID: 1QLw5JC5RqmGz1M/tKJ1sA==
+   d="scan'208";a="83044949"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jun 2026 14:22:56 -0700
+X-CSE-ConnectionGUID: +O/5Yu9XRy2OyPRl9TD3QA==
+X-CSE-MsgGUID: kJADlDnMQamLWZjchZ8MYw==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.24,221,1774335600"; 
-   d="scan'208";a="247287657"
+   d="scan'208";a="287753248"
 Received: from klitkey1-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.7])
-  by fmviesa008-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jun 2026 14:18:40 -0700
-Date: Wed, 24 Jun 2026 00:18:38 +0300
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jun 2026 14:22:53 -0700
+Date: Wed, 24 Jun 2026 00:22:50 +0300
 From: Andy Shevchenko <andriy.shevchenko@intel.com>
 To: Angelo Dureghello <adureghello@baylibre.com>
 Cc: Jonathan Cameron <jic23@kernel.org>,
@@ -68,18 +68,19 @@ Cc: Jonathan Cameron <jic23@kernel.org>,
 	linux-m68k@lists.linux-m68k.org,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v6 0/2] add mcf54415 DAC driver
-Message-ID: <ajr4LvdPZKHrqDVp@ashevche-desk.local>
+Subject: Re: [PATCH v6 1/2] iio: dac: add mcf54415 DAC
+Message-ID: <ajr5Kj1GH-z9x2_k@ashevche-desk.local>
 References: <20260618-wip-stmark2-dac-v6-0-48761dbb96d7@baylibre.com>
+ <20260618-wip-stmark2-dac-v6-1-48761dbb96d7@baylibre.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260618-wip-stmark2-dac-v6-0-48761dbb96d7@baylibre.com>
+In-Reply-To: <20260618-wip-stmark2-dac-v6-1-48761dbb96d7@baylibre.com>
 Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
  krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_141844_094339_20D00CCB 
-X-CRM114-Status: GOOD (  14.87  )
+X-CRM114-CacheID: sfid-20260623_142259_093273_DD09E334 
+X-CRM114-Status: GOOD (  11.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,43 +95,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 18, 2026 at 11:04:14PM +0200, Angelo Dureghello wrote:
-> This patchset adds a minimalistic DAC driver for the NXP mcf54415/6/7/8
-> builtin DACs.
-> 
-> Currently the driver enables the raw write only. Feature as dma, sync, or
-> format are not supoprted for this version.
-> 
-> Additional options suppoerted by the DAC module will be added to the driver
-> later on, as needed.
-> 
-> The same patchset prepares the m68k/coldfire architecture to support
-> the driver.
-> 
-> Below some basic tests done on stmark2 mcf54415-based board, voltage check
-> on DAC0 and DAC1:
-> 
-> ~ # cd /sys/bus/iio/devices/iio:device0/
-> /sys/bus/iio/devices/iio:device0 # ls
-> name               out_voltage_scale  uevent
-> out_voltage_raw    subsystem
-> /sys/bus/iio/devices/iio:device0 # cat name
-> mcf54415
-> /sys/bus/iio/devices/iio:device0 # echo 4095 > out_voltage_raw 
-> /sys/bus/iio/devices/iio:device0 # echo 2048 > out_voltage_raw 
-> /sys/bus/iio/devices/iio:device0 # echo 4096 > out_voltage_raw 
-> sh: write error: Invalid argument
-> /sys/bus/iio/devices/iio:device0 # cat out_voltage_raw 
-> 2048
-> /sys/bus/iio/devices/iio:device0 # 
-> 
-> Same behavior for /sys/bus/iio/devices/iio:device1.
-> 
-> Generated a sine wave by shell script, sine shape is good.
+On Thu, Jun 18, 2026 at 11:04:15PM +0200, Angelo Dureghello wrote:
 
-Heard a presentation (Embedded Recipes IIRC) where one tried sine and real
-sound (it was about sound DAC) was really awful. So, Can you try a bit more
-sophisticated signal?
+> Add basic version of mcf54415 DAC driver. DAC is embedded in the SoC and
+> DAC configuration registers are mapped in the internal IO address space.
+> 
+> The DAC accepts a 12-bit digital signal and creates a monotonic 12-bit
+> analog output varying from DAC_VREFL to DAC_VREFH. The DAC module
+> consists of a conversion unit, an output amplifier, and the associated
+> digital control blocks. Default register values for DAC_VREFL and DAC_VREFH
+> are respectively 0 and 0xfff, left untouched in this initial version.
+> 
+> This initial version of the driver is minimalistic, "output raw" only, to
+> be extended in the future. DMA and external sync are disabled, default mode
+> is high speed, default format is right-justified 12-bit on 16-bit word.
+
+...
+
+> +#include <linux/bitfield.h>
+> +#include <linux/bits.h>
+> +#include <linux/clk.h>
+> +#include <linux/delay.h>
+> +#include <linux/err.h>
+
+> +#include <linux/io.h>
+
+Is it used now?
+
+> +#include <linux/mod_devicetable.h>
+> +#include <linux/module.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/regmap.h>
+> +#include <linux/types.h>
+
+...
+
+> +	platform_set_drvdata(pdev, indio_dev);
+
+Is it used?
+
+...
+
+Otherwise LGTM,
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
 
 -- 
 With Best Regards,
