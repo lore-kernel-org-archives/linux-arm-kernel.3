@@ -4,67 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD7B7CDB46F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 15:17:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 285E7CDB46F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 15:23:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ISOV/k912KZYAhFG4p9U2tD/XPQ+DCUutG+J3uNU9k8=; b=WyZ6rnCbqiXPVRv9YYDalGwrVX
-	3Fs1GJXuifp3fVLQlKL+h8zzjpXvCLyBUQOex+j5P9DxlQEzf/CscbYpGNKi2EMkEb1GHVJiT2b/q
-	TJkIlai5/E7OH54MGb2aIyuuNAJYAlempbbBMOMCRS0hqxPLz2ZysRoeXfFsx0xsgeNcf26opvZF5
-	Fnt0XqyA4oSDni9ohx2rS6vcYlqUYQyoCyKDDBpQstl01ccWv4i2/8E15mI+x6ImCWnVjSk9SkPjq
-	56EPcAYO+AzdJ4n/0ZZsjOBlX3FCQGlbNTVcAof3bfxzOBb8uY9JAq1V3HBJYOH7Zv8/2mjUkYmLb
-	TkRr+V1g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=KTQndh5EWhkqDmZmwB0OKhZyQvnI7PXjv9A+hnMrJew=; b=odv/XFAcU70d1o
+	2z30OX2rTD8DCXwDaViQ1q/+BvNpFIFgSkN5UtJb07wE1ZXHZmYCi/tVSff7lgzoLob+iQfBfReF6
+	XHlGp304J4bxafQ1aKKL36Iq6wc82cLTbCeEKV0Ct+yU3QyQ4jkGZorXIP23cZZlEnY3O52DtFGOr
+	NEiY4CQl8HVXdFeokz9OR0fvW+VKXoS11FfXtHk3TClfIx20RSJBxoV/4HV0Gd7DvY1YmmKCwnmpT
+	uYyzGn2V6RWqQeoGT07spcTMpPS9K/OMUsaA+eAC99VvWx880x4nD0EvQZG+ua0c3cyGFaUmk5NlU
+	91dniBaV4pWXe/vEs6/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc2sC-00000006WS9-2i8A;
-	Tue, 23 Jun 2026 15:17:12 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc2s9-00000006WQs-17dF;
-	Tue, 23 Jun 2026 15:17:10 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 00D041A00;
-	Tue, 23 Jun 2026 08:17:00 -0700 (PDT)
-Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1C5383F62B;
-	Tue, 23 Jun 2026 08:17:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782227824; bh=95oYhnwJjow7KcN3v08zC/1DlUFrdeFuCxK1iUP8SJU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=JUvMZgGlP4HRty3ryEVXkuOhRN9ySLzZNcIXnxPZvcV05cwAHn/EBq9aWDFdc96Oe
-	 p3njUnNRxo6cjMwkCYAQhYYjgL8IWLfycVFDuwvOjRZ8kdq+JxpgD6ovDmRH/3GjU1
-	 k7Saym62kS/LxX/5nZy4jEiPkjOx+K2V1+J2ETRA=
-Message-ID: <112d2563-e650-4881-bba0-335f6a3fcb8a@arm.com>
-Date: Tue, 23 Jun 2026 16:16:44 +0100
+	id 1wc2yM-00000006WxO-3ah9;
+	Tue, 23 Jun 2026 15:23:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wc2yL-00000006Wx6-2Cdc
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 23 Jun 2026 15:23:33 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id C4C1160207
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 15:23:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C46A1F00ACF
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 15:23:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782228212;
+	bh=KTQndh5EWhkqDmZmwB0OKhZyQvnI7PXjv9A+hnMrJew=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
+	b=Hki6YJhi28GASZHqwwCkhhXl3skcmPrBO9cxVQXJyt0GTu8NZ3ld1tHZV5uAcHFrH
+	 PBW1IT/3SPjJIdgE2Abt3y4ywURZuNjtb3VwUBL1SEspfjUbA0nXXQqEg1Ip4ZBqh0
+	 VTmcZdEqRm9JiqF6perVrk8acOQwPQD/FfluKIP7zylSA5m/8Rl6cgztYYOVAntNbG
+	 VlZeBMLZzRhgCGFx6SbhVvCcy1Enre6GVOSAgVTiAJmwfYpTT4gGBxf+2aUAjMftL3
+	 BOJhy1bkUBgq9V7aoF/qhk3JiEY4wrGGEYhWW/xa9KFgXm/2jkYd3eB/CZ6LL1+jBY
+	 Fm13Neg9+4MZQ==
+Received: by mail-lj1-f170.google.com with SMTP id 38308e7fff4ca-399f5e574b0so11153961fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 08:23:32 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ+KFazKCZoXY6sNRPB0i/u/+z2CDrsh6/OccHKFALqBTc37J9l/oHBF7ul+bjwvmB6hP3sCaqvG5Kt8cFxuHmSF@lists.infradead.org
+X-Gm-Message-State: AOJu0YwunEK8UxGhWbkk87m9kCKFMjPcIzPDGbkPdlCOQiInNUW6VL5h
+	TcySd+gdIF649VwK0OOC+LCUZA6TH6ojuOkNudOfLrBqbZohpFWyFMg/eZNQ+QP9lqfjULd2FaU
+	dTjMk0obGSRbsG5nJv02D6TIkUwNKHQA=
+X-Received: by 2002:a05:6512:4388:b0:5a8:86a8:2e09 with SMTP id
+ 2adb3069b0e04-5ae3616553amr944685e87.7.1782228210964; Tue, 23 Jun 2026
+ 08:23:30 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] gpio: fix sleeping-in-atomic in shared-proxy; restore
- meson non-sleeping
-To: Marek Szyprowski <m.szyprowski@samsung.com>,
- Viacheslav Bocharov <v@baodeep.com>, Linus Walleij <linusw@kernel.org>,
- Bartosz Golaszewski <brgl@kernel.org>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Diederik de Haas <diederik@cknow-tech.com>, linux-gpio@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
- Heiko Stuebner <heiko@sntech.de>
-References: <CGME20260610153425eucas1p29d20a835114a28b15cb12ea00534e074@eucas1p2.samsung.com>
- <20260610153329.937833-1-v@baodeep.com>
- <184d315b-a0a1-4792-8a40-1b4967025916@samsung.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <184d315b-a0a1-4792-8a40-1b4967025916@samsung.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_081709_518698_0C58EA01 
-X-CRM114-Status: GOOD (  16.52  )
+References: <20260121-a733-rtc-v1-0-d359437f23a7@pigmoral.tech>
+ <20260121-a733-rtc-v1-7-d359437f23a7@pigmoral.tech> <CAGb2v64euL+QNXiJdTn0JygYLXg0WoguPSprKT4sKGZGVZbwug@mail.gmail.com>
+ <1jv7bjd6wi.fsf@starbuckisacylon.baylibre.com>
+In-Reply-To: <1jv7bjd6wi.fsf@starbuckisacylon.baylibre.com>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Tue, 23 Jun 2026 23:23:17 +0800
+X-Gmail-Original-Message-ID: <CAGb2v67eqHz3LxyLwk2_+RR_ucc8hxBLfk=iLcSN3hdsnsmPXQ@mail.gmail.com>
+X-Gm-Features: AVVi8Cd45Q12_JEAbrGeRNR4K9bnBVwQtAKYrj4bVtPHJ3Sm3pX_iR5U5sy4IUU
+Message-ID: <CAGb2v67eqHz3LxyLwk2_+RR_ucc8hxBLfk=iLcSN3hdsnsmPXQ@mail.gmail.com>
+Subject: Re: [PATCH 7/7] clk: sunxi-ng: Add Allwinner A733 RTC CCU support
+To: Jerome Brunet <jbrunet@baylibre.com>
+Cc: Junhui Liu <junhui.liu@pigmoral.tech>, Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Maxime Ripard <mripard@kernel.org>, linux-clk@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, linux-rtc@vger.kernel.org, 
+	devicetree@vger.kernel.org, =?UTF-8?Q?Andr=C3=A9_Przywara?= <andre.przywara@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,69 +84,92 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/06/2026 9:26 am, Marek Szyprowski wrote:
-> Hi Viachesla,
-> 
-> On 10.06.2026 17:32, Viacheslav Bocharov wrote:
->> gpio-shared-proxy chooses its descriptor lock (mutex vs spinlock) from
->> the underlying chip's can_sleep, but under that lock it calls config and
->> direction ops that reach sleeping pinctrl paths. On a controller with
->> non-sleeping MMIO value ops the lock is a spinlock, so a sleeping call
->> runs from atomic context:
->>
->>    BUG: sleeping function called from invalid context
->>      ... pinctrl_gpio_set_config <- gpiochip_generic_config
->>      <- gpio_shared_proxy_set_config (voting spinlock held)
->>      <- ... <- mmc_pwrseq_simple_probe
->>
->> This was reported on Khadas VIM3 and worked around for Amlogic by
->> commit 28f240683871 ("pinctrl: meson: mark the GPIO controller as
->> sleeping"), which marked the whole meson controller sleeping. That
->> workaround broke atomic value-path consumers: w1-gpio (1-Wire bitbang)
->> no longer detects devices, because its IRQ-disabled read slot calls the
->> non-cansleep gpiod_*_value() and now hits WARN_ON(can_sleep) per bit.
->>
->> Patch 1 fixes the proxy locking generically (always a sleeping mutex).
->> Patch 2 then restores meson can_sleep=false, fixing 1-Wire.
->>
->> Patch 1 has a trade-off: a proxied GPIO becomes sleeping, so consumers
->> gating on gpiod_cansleep() change behaviour. No current device needs
->> atomic (non-cansleep) value access on a shared GPIO -- every report
->> (Khadas VIM3, ODROID-M1, my test on JetHub D1+) is a shared reset line
->> (eMMC/SDIO pwrseq or PCIe reset) driven through the cansleep accessors,
->> which is what the proxy exists to vote on. An alternative that keeps
->> atomic value access (split locking) is possible but adds a second lock
->> and new race windows. I went with the simpler, verified approach and
->> would appreciate guidance on whether the atomic value path must be
->> preserved.
->>
->> The two are a unit: patch 2 must not be applied without patch 1,
->> otherwise the original VIM3 splat returns on boards that share a meson
->> GPIO -- please keep the order. I have not Cc'd stable; I will request
->> stable backports separately once both patches have landed.
->>
->> Viacheslav Bocharov (2):
->>    gpio: shared-proxy: always serialize with a sleeping mutex
->>    pinctrl: meson: restore non-sleeping GPIO access
-> 
-> Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
-> 
-> This probably also affects the similar changes in Rockchip GPIO driver done
-> by the following commits:
-> 20cf2aed89ac ("gpio: rockchip: mark the GPIO controller as sleeping")
-> 7ca497be0016 ("gpio: rockchip: Stop calling pinctrl for set_direction")
-> 
-> I've checked this patchset with these two reverted and no warning was reported.
+On Tue, Jun 16, 2026 at 1:56=E2=80=AFAM Jerome Brunet <jbrunet@baylibre.com=
+> wrote:
+>
+> On sam. 28 mars 2026 at 22:41, Chen-Yu Tsai <wens@kernel.org> wrote:
+>
+> > On Wed, Jan 21, 2026 at 7:04=E2=80=AFPM Junhui Liu <junhui.liu@pigmoral=
+.tech> wrote:
+> >>
+> >> Add support for the internal CCU found in the RTC module of the Allwin=
+ner
+> >> A733 SoC. While the basic 16MHz (IOSC) and 32kHz logic remains compati=
+ble
+> >> with older SoCs like the sun6i, the A733 introduces several new featur=
+es.
+> >>
+> >> The A733 RTC CCU supports choosing one of three external crystal
+> >> frequencies: 19.2MHz, 24MHz, and 26MHz. It features hardware detection
+> >> logic to automatically identify the frequency used on the board and
+> >> exports this DCXO signal as the "hosc" clock.
+> >>
+> >> Furthermore, the driver implements logic to derive a 32kHz reference
+> >> from the HOSC. This is achieved through a muxed clock path using fixed
+> >> pre-dividers to normalize the different crystal frequencies to ~32kHz.
+> >
+> > Have you tested whether the actually normalizes the frequency, i.e.
+> > selects a different divider based on the DCXO frequency? Otherwise
+> > we're just lying about the frequency.
+> >
+> >> This path reuses the same hardware mux registers as the HOSC clock.
+> >>
+> >> Additionally, this CCU provides several gate clocks for specific
+> >> peripherals, including SerDes, HDMI, and UFS. The driver is implemente=
+d
+> >> as an auxiliary driver to be bound to the sun6i-rtc driver.
+> >>
+> >> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
+> >> ---
+>
+> [...]
+>
+> >> +};
+> >> +
+> >> +static const struct clk_parent_data hosc_parents[] =3D {
+> >> +       { .fw_name =3D "osc24M" },
+> >> +       { .fw_name =3D "osc19M" },
+> >> +       { .fw_name =3D "osc26M" },
+> >> +       { .fw_name =3D "osc24M" },
+> >> +};
+> >
+> > As mentioned in my reply to the binding, this is wrong. There is only
+> > one input.
+> >
+> > The most you can do is check the rate of the parent clock against the
+> > detected one, and _scream_ that the DT is wrong. And maybe override
+> > the reported frequency.
+> >
+> > If you want to do the latter, you could add a new fixed rate gated
+> > clock type to our library. You would fill in the rate before the
+> > clocks get registered. I probably wouldn't go that far. We want people
+> > to have correct hardware descriptions.
+> >
+> > Funnily enough Allwinner's BSP actually implements a fixed rate gate
+> > for the next 24M-to-32k divider clock.
+>
+> What about implementing the register bellow as a read-only (and
+> non-cached) divider using the factors provided by Junhui ? That would be
+> an accurate description of the HW I think.
+>
+> The oscillator gets set in DT and if the output reported past the
+> divider is not 32728Hz, you know you've got a problem (bad DT or HW gone
+> bad)
+>
+> With a fixed-rate gate, you may actually end up lying about what
+> actually happen, if the HW does not behave as expected.
+>
+> Do you prefer a fixed-rate gate still or should I try the RO divider
+> approach ?
 
-If it hadn't already been fixed, then indeed I guess this might make 
-20cf2aed89ac redundant. However, 7ca497be0016 is still an objective 
-improvement either way, since that driver never needed to call pinctrl 
-at all (it was seemingly just an artefact of how the GPIO code was 
-originally implemented within the pinctrl driver itself).
+I think either one would work. The RO divider is probably more accurate.
 
-Thanks,
-Robin.
+Sorry for the late reply.
+
+
+ChenYu
 
