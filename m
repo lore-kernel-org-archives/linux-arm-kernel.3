@@ -4,91 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1A30CDB46F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 10:09:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1441FCDB470
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 10:10:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=osWb8VPpirSTRgDBWbtKsZxOcarD8TaWy2PYjaB8LLg=; b=I9MFkN3Q5FjC8JxOpwdsiUHogs
-	Js2TQbBpDWzUcQcoYWpQJR6J015uVh8ZCELXgYugDL7hVYTjrjlFtGYsmRPAvPA9Qrk9l4zmxoQwp
-	xbpD1Vajzgruget1WHkay2wC3JxOidKVixjPRYReh4CZevczdEgDEpuVuHPWa2LEfXimLtqqhMKFk
-	KEbWY1Z8VKlmICMh/3yR074Mt5qPfGX8etynBYr1sQbkxN3CD1GrCcTqx9QsLA+vYRuUWzbM0Zhx/
-	7xXBIPpnXxdTilaipRRU3wf1Heg8986C0LZw3KFJH71MIVCoL0alRoGDH5HZzY7YzbCWGPYQ6UqRC
-	nu6upG5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q9xRyN5mmtNm+QB3YIDVLwBheiPW9GTxijNSPRoIWhA=; b=Fyf9WpFyAVFzGZPgIJF1lypQjx
+	6S2dl5XnH7oCxbSHjOwG7cR452aF2R7BNQGegr4vqMrCWtKF3Ia4Fja8rhlkapP1WhbJZWB3jVT+u
+	AZsm3w4BrDvu9CxKF7CvOEsCNxIWiG8gNiRMbkBIt3U1IiHmxpCbwoihwFOjfIOBCxFPbAsZiClG3
+	S60ZfTUk+r4TYyTeHLZS3Ygte+SofxAt8hLoCBM87NL5k1YSE/6SVnCgvY0eGudGaB7ODAEG3zPsp
+	HwYrI9w5PGdCRb1Tr0bnXFrGbQTkMGAgTAEYE5+uLnfX/wv+cdupRcI+LaKptYAW3qKS4wYowIRu0
+	GBf68y3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wby4W-000000063xN-2JmI;
-	Tue, 23 Jun 2026 10:09:36 +0000
-Received: from mgamail.intel.com ([198.175.65.10])
+	id 1wby5g-000000064CQ-3mvC;
+	Tue, 23 Jun 2026 10:10:48 +0000
+Received: from mail-pj1-x1044.google.com ([2607:f8b0:4864:20::1044])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wby4T-000000063wo-3OLs;
-	Tue, 23 Jun 2026 10:09:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1782209374; x=1813745374;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=xv4r6u0rAfI0XXJ7Y3S0NT2YfyY0CONMP/ImwPkH8bw=;
-  b=iXalQzkY0cXapvobAqgPXti24h3js13Q8qAjccWfZXJ+atDxfIl6uRr9
-   JUh6rlKF8Xs9reLfmpxb7HydGoygfBgFEiX/gLAF5N+4WlaCAd9LU3ciS
-   jPvbjUgMvNnEJTLVUfs0OWENKbkiz1OgPYVDEqQuoZC0v6SZVfjTFIoP8
-   /eIyQANaCzQkcpivpbOjzwDb2bOYN18e+iJYkq0Q67Qgf+wPL2+xU/1yG
-   JIT3DJg9QLRImQCfttockVmcotktlLMhqYkXhb7N82i+rvPz6ML5kSxOH
-   aKh2WxANOzAQlH888ET4kov0JstOu+GhxeFY3pWurNI5ES/y3x7itiOtn
-   A==;
-X-CSE-ConnectionGUID: 03vEpxKqTlCeFP7sTII19Q==
-X-CSE-MsgGUID: 4GKr2iCZTJujHsFdssLmXw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11825"; a="100376404"
-X-IronPort-AV: E=Sophos;i="6.24,220,1774335600"; 
-   d="scan'208";a="100376404"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jun 2026 03:09:33 -0700
-X-CSE-ConnectionGUID: fO295pNvSEiHBZM9FO5beA==
-X-CSE-MsgGUID: +viiu0Y0Q+aDKjP2Rb+XuA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.24,220,1774335600"; 
-   d="scan'208";a="251411103"
-Received: from klitkey1-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.7])
-  by fmviesa004-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jun 2026 03:09:26 -0700
-Date: Tue, 23 Jun 2026 13:09:24 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Frank.Li@oss.nxp.com
-Cc: Daniel Scally <djrscally@gmail.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Dafna Hirschfeld <dafna@fastmail.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
-	Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
-	Loic Poulain <loic.poulain@oss.qualcomm.com>,
-	driver-core@lists.linux.dev, linux-acpi@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	imx@lists.linux.dev, Guoniu Zhou <guoniu.zhou@nxp.com>,
-	Frank Li <Frank.Li@nxp.com>
-Subject: Re: [PATCH 1/4] device property: Introduce
- fwnode_graph_for_each_endpoint_scoped()
-Message-ID: <ajpbVCGGKchNa2rd@ashevche-desk.local>
-References: <20260622-fw_scoped-v1-0-a37d0aac0a68@nxp.com>
- <20260622-fw_scoped-v1-1-a37d0aac0a68@nxp.com>
+	id 1wby5d-000000064BG-2Acv
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 23 Jun 2026 10:10:47 +0000
+Received: by mail-pj1-x1044.google.com with SMTP id 98e67ed59e1d1-37cb36ca63bso2798577a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 03:10:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782209444; x=1782814244; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=q9xRyN5mmtNm+QB3YIDVLwBheiPW9GTxijNSPRoIWhA=;
+        b=iOwLq3A9Mk34emsysJYnX2KmkczzdGk8zhrLdDhQfnK1Qly+Ie81pIOTxw7nOJlxYR
+         mi0iKcK8WrHPYxbABg7UYS3hh7cJfgsTw11zBIA+A/Hh6ovtJFcqn5EALRCDBA9vBcK1
+         IUAiyMCaUP5695mM+NIhUz6ohLro4hsswD7Bsz6EoVKrM7hd1YWhCq8rjWf5R4dcfUJG
+         nH4tiuKCWyH32DVZoMxx9SlSZ1MMdN+217zNrI3/ARU2Xpdg0FmFsIxoyQsgwzCFpsmn
+         kAh8KlKhHuToGHi2kdxdZXdLjxV3UwqX7RIuetwpwpYkz353CvEaMAAnxpurbm5jxuUP
+         BATg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782209444; x=1782814244;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=q9xRyN5mmtNm+QB3YIDVLwBheiPW9GTxijNSPRoIWhA=;
+        b=gss+XVNjs9j5RrG/btk8+xnoVkzvcDWLaM1c47f6J57MVLYHVGotyB/WFbT2G94doa
+         VHq8udeRmDEnmLbm81SaO1Vi2yCAz6EdiUoMsjufJhPozJ1TiPQ8CQIiLZXYmEiOhORL
+         X8NNbaXw5JlELpwwFIyyn8+M6osTuIK24zTCzVzIdvIyZk4jTGe85Py8yC6eeNlHzidf
+         bPgwBcCR82JVhlnrlfvKT2B/y7/o9CdV57cGyghrYA3IArgvqaPnAWffEjt4FKRCw3Yx
+         hkoOXv+0t0W7Ps5Q90rk+uBbY9CW8gDljk36CVN052SZvGFCplbMEhKmxSC+VaCD+rJO
+         jO8w==
+X-Forwarded-Encrypted: i=1; AHgh+RrslBtOKp5p9qYfZbnKB7A630QDf4ZpEcExUHPPoL/H+O3V3RG9sd8QZKLjIFF2yFB6FjChrl+07GTSHKH+8jWR@lists.infradead.org
+X-Gm-Message-State: AOJu0YyoRxSeDlVGtl+BElTpz33CbhNu7B2jic9xGiqC6nn34Mqzqlz4
+	yBcFMHd8mFTjAVwJ4f6RCnYxFF+Z/kMh8ux/GUaH5NLf7RLUH/NS8zu9
+X-Gm-Gg: AfdE7clCrMcKF2cSEpo06PlzhtIgt0Ae472/h2V35750AhDDAqOjKfQI4MgXyGOO56r
+	mCvYXwomuQZWK5HoAtT6BHln1E1NoEeTO5YNBeotxy02rKrNlyh36tlitLYOfgb0Ne9f5L2os2c
+	Ih07qw/aJpMcWDIUYDi5GQgvp7a8BF4OYBQ7QtW1K1eW35cNFD6bkFTmh9qcjnZvah/AWB/xuCj
+	WLT/jBpGNXmemTfCG4JNWg8tkXi2IWMuW/kcTpUhd+N9QEkL7CGOKLshvGPW/mRDw/j6fVlY8HB
+	lLcd0+XKZ6EzphECnJyiKIjYmgTwg1CKc/OzAWIQb8xY/q/uBML2rxK0t9mLO4J7CNw/WalnpN+
+	KegARVBoccaQSyC8s4t6ZCcYy0wHuQnXoMnAv7Ic9O9L6RYb3jr2kwrBGjAkwvrBSWrYA7uP7vl
+	VADDGS5EzQLtqYlmMXLiHds4pBiGtRpZXjXCJJAS2y
+X-Received: by 2002:a17:902:ec8f:b0:2c0:e5ee:f56c with SMTP id d9443c01a7336-2c7c99def24mr17988445ad.20.1782209444473;
+        Tue, 23 Jun 2026 03:10:44 -0700 (PDT)
+Received: from zhr-ThinkStation-K.mioffice.cn ([2408:8607:1b00:8:ede9:3e72:37cf:55a2])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c7436f7e0asm118059125ad.30.2026.06.23.03.10.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 23 Jun 2026 03:10:44 -0700 (PDT)
+From: Hongru Zhang <zhanghongru06@gmail.com>
+X-Google-Original-From: Hongru Zhang <zhanghongru@xiaomi.com>
+To: david@kernel.org
+Cc: akpm@linux-foundation.org,
+	baohua@kernel.org,
+	bhe@redhat.com,
+	chentao@kylinos.cn,
+	chrisl@kernel.org,
+	jack@suse.cz,
+	kasong@tencent.com,
+	kunwu.chan@gmail.com,
+	liam@infradead.org,
+	lianux.mm@gmail.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	liyangouwen1@oppo.com,
+	ljs@kernel.org,
+	loongarch@lists.linux.dev,
+	mhocko@suse.com,
+	nphamcs@gmail.com,
+	nzzhao@126.com,
+	pfalcato@suse.de,
+	rppt@kernel.org,
+	shikemeng@huaweicloud.com,
+	surenb@google.com,
+	vbabka@kernel.org,
+	wanglian@kylinos.cn,
+	willy@infradead.org,
+	youngjun.park@lge.com,
+	zhanghongru06@gmail.com
+Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page fault performance
+Date: Tue, 23 Jun 2026 18:10:09 +0800
+Message-ID: <20260623101009.522775-1-zhanghongru@xiaomi.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <d04f745d-eb3e-4d2c-8ea2-5fdcf2cf27b8@kernel.org>
+References: <d04f745d-eb3e-4d2c-8ea2-5fdcf2cf27b8@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260622-fw_scoped-v1-1-a37d0aac0a68@nxp.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_030933_887634_9FE97BCD 
-X-CRM114-Status: GOOD (  15.57  )
+X-CRM114-CacheID: sfid-20260623_031045_554509_61FD49FB 
+X-CRM114-Status: UNSURE (   8.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,44 +129,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 22, 2026 at 10:30:11AM -0400, Frank.Li@oss.nxp.com wrote:
-> From: Frank Li <Frank.Li@nxp.com>
-> 
-> Similar to recently propose for_each_child_of_node_scoped() this new
-> version of the loop macro instantiates a new local struct fwnode_handle *
-> that uses the __free(fwnode_handle) auto cleanup handling so that if a
-> reference to a node is held on early exit from the loop the reference will
-> be released. If the loop runs to completion, the child pointer will be NULL
-> and no action will be taken.
-> 
-> The reason this is useful is that it removes the need for
-> fwnode_handle_put() on early loop exits.  If there is a need to retain the
-
-Just be consistent with 1-space versus 2-spaces gaps in the same text.
-
-> reference, then return_ptr(child) or no_free_ptr(child) may be used to
-> safely disable the auto cleanup.
-
-No objections from me.
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-See one nit-pick below.
-
-But you will need driver core maintainers to Ack this.
-
-...
-
-> +#define fwnode_graph_for_each_endpoint_scoped(fwnode, child)			\
-> +	for (struct fwnode_handle *child __free(fwnode_handle) =		\
-> +			fwnode_graph_get_next_endpoint(fwnode, NULL);		\
-
-You should follow the existing style, the 'f' in fwnode should be under 'u' in
-struct.
-
-> +	     child; child = fwnode_graph_get_next_endpoint(fwnode, child))
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+On 6/23/26 10:02, David Hildenbrand wrote:=0D
+> I know that especially browser usually use fork servers: a tiny=0D
+> (single-threaded) process just to create new child processes. Any informa=
+tion=0D
+> regarding the apps above that use fork() on small vs. large processes?=0D
+=0D
+I wrote a second BPF tool (fork_info) that captures nr_threads and=0D
+map_count (VMA count) from the calling process at the exact moment=0D
+fork() is triggered. Results from 3 representative apps:=0D
+=0D
+  App (category)          Fork caller        Threads   VMAs=0D
+  -----------------------------------------------------------=0D
+  Taobao (shopping)       DaemonThread-6        526    8,987=0D
+  Amap (navigation)       DaemonThread-6        289    7,120=0D
+  UC Browser (browser)    OneNativeThread       350    8,144=0D
+=0D
+These are all heavyweight multi-threaded processes (hundreds of threads,=0D
+7,000-9,000 VMAs), not fork servers.=0D
+=0D
+> Above you write "some call fork() from multiple threads". Any further=0D
+> information on that?=0D
+=0D
+Xiaohongshu (com.xingin.xhs, social media) is a clear example. In just=0D
+tens of seconds of normal usage, fork() was called 22 times from 4=0D
+different threads:=0D
+=0D
+  PID     COMM            THREADS    VMAS=0D
+  4206    com.xingin.xhs       85    4,140=0D
+  4216    Thread-2208          85    4,157=0D
+  4208    Thread-2208          90    4,211=0D
+  5200    Thread-3200         337    6,519=0D
+  5200    Thread-3200         343    6,563=0D
+  5200    Thread-3200         361    6,769=0D
+  5200    Thread-3200         453    7,793=0D
+  5200    Thread-3200         450    7,779=0D
+  5202    Thread-2219         459    7,846=0D
+  5202    Thread-2219         462    7,875=0D
+  5202    Thread-2219         465    7,899=0D
+  4219    Thread-2219         465    7,903=0D
+  4219    Thread-2219         468    7,922=0D
+  5202    Thread-2219         467    7,917=0D
+  4219    Thread-2219         467    7,921=0D
+  4219    Thread-2219         468    7,929=0D
+  5202    Thread-2219         464    7,909=0D
+  5202    Thread-2219         460    7,889=0D
+  5202    Thread-2219         459    7,884=0D
+  4219    Thread-2219         433    7,771=0D
+  4219    Thread-2219         433    7,771=0D
+  4219    Thread-2219         434    7,778=0D
+=0D
+The process grew from 85 threads / 4,140 VMAs at first fork to=0D
+434 threads / 7,778 VMAs at last fork, showing these are long-lived=0D
+heavyweight processes that fork repeatedly throughout their lifecycle.=0D
+=0D
+Tracing tool:=0D
+  https://gist.github.com/zhr250/ba7725d0ea55594bcafd3cd4806eed98=0D
+=0D
+Hongru=0D
 
