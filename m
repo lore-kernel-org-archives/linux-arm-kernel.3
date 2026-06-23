@@ -4,148 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 156CECDB466
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 03:06:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24763CDB46B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 03:08:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f48RV4ofvmwfRHkoXli/oMlDLzN76hal50VkdpUe5W0=; b=qNwNhiHk6inlv6PRTDDRTa1i+l
-	JjOodSvEOjWfAPGH8VC7yTKB2wygo6fOxnfQ9WwAhw5DwmpNg+Ms0/8yWpK89d62Z39dYocXCx8D5
-	rHCtobM9p8ldrjc8c7kpqm3ZU5BGShzWHsE2XYpDaJxC5qIJiXked1w512i2IzCWrWEH/j0gCv0XQ
-	3wfTycdIqabKWayIVRHsAInrJi5I+rsmq+EgeOLsVIimYRbZBSb/XpWNLnnpQvEN5JUMEXFl6u0eg
-	GY/LSu9TPFfY0nFLt8u1rS4DcFIkHuipKsB+9LoBsR67fc0LLz749szQCHHeE2sQ4TWab+AucMkth
-	/bJgRiHQ==;
+	bh=b+q7XDPn4WHRjK2ULR+7wzhaQI1VPfhoH+J7E8mDoGk=; b=SuVIF2DjzzLgSa2gx5dRv/FAF+
+	ECgLdyJE1oa5ekXYAXHbEuJJDiX1352UvNx5P8eCnRp2vi8IH6U+Lo6QFEYb00FerowYH20t6yQmD
+	0aXMdo48FoTUr+sQ3x/5Q8ZUKC14OnwYFOOlUrwWy936S7vjVU8e6jDcpHROJ2YpEYtaCFNpsgZzc
+	U6m/shyQ5hKiL4FFO2mC6I5iy0jB3u5rYMo9Poc2g6+IBFx+k57Fomb30Yx3ouUCiyJnl1O4aW3LF
+	JFrPl1118Zc6Obe733leT+50wn8ARYyyxNrNgqsb1UV3A1zzF436awrGB6UW+RxMu12E7+FVOJ3+R
+	k054QL9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbrSr-00000005d4E-1qTp;
-	Tue, 23 Jun 2026 03:06:17 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1wbr6i-00000005bNq-3PM8;
+	Tue, 23 Jun 2026 02:43:24 +0000
+Received: from mail-yx1-xb12a.google.com ([2607:f8b0:4864:20::b12a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbrSp-00000005d1e-3WK0
+	id 1wbr6f-00000005bMz-2bZl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 03:06:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Rt+kQTf7g9lG3vuQuDluR50+o7uzWJ5aOJeDYGh5jGbsCjaDdzhW3T7ABHU2pZBiyzg3Yo7kenCmT1s1DmtQ4RYF4jt2YwpVhW5o7J6BNtB4/JydBU/pqzNL+492gmfaMJnPrKz0MTW0MjcEKpAemI17Gwgf4skKajosP1ZdjOjYit0gH+1NQ0BQJdziT1VoqMSFFIyW6lvOn0O377G622y6889vTQVbdu+KwuAMHZErEe0mvUWRxXszrFTPXtddjypMsG1a6+ZmxngV+pFAIHfpgOGSkio4SAOmGorVM00YXHSOEbG2MXk/aEyMQbciO5DUHy07aPsQJuZvF7ddOA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=f48RV4ofvmwfRHkoXli/oMlDLzN76hal50VkdpUe5W0=;
- b=GOw6Xq5TLuQ85P8TbqC42qCfXIDngJ4hp+dGO3F4YcHaj1BDY1wsOQ8rZoKCXt673VDg1Xk/ilnpbzyu9/ycmhpRUpXwMCOH8X8Lr6rCXCwHCyiD6yUlttVRmNKBIn1laGZHwbYg3p/nG8f7Fdcaru/OY/k0lKbcu6juIGGsr9vLn6zMkB60j3mdk4kJOaO1kp+KxkR4AkRRIKqXnIeC7kdBoueteERteMcNcoqmyFq166/VI+CYmPDxeHYUjkoqUgfOGTFM6JVLL5zOiF5arnS/+ufM7019zywVX0zrRmWPOxeGoxVKUIM2oaj+S9Sej8+dRQVjretEJ/JSFEJO/Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=f48RV4ofvmwfRHkoXli/oMlDLzN76hal50VkdpUe5W0=;
- b=s1AI/YkhL+uDOXvg7XGGXy+3Ygz5GjH7ifdLyEi0RR7vYWy57r+j241SjhO31HTDKuC0ilkCVnVhcShjtcB+i3ZZ6NLRbKTbXbFs/Dh8yeeLttdjO9GdYMVrxEXQSQJW0OlUTcqI5/ioYevPLXxoNbusZoZ6vY1b4zdI3cGghlCZWdx44i52QpkR25hp/dVCq3Cvk7+STD2kP07TphBVMfJ3tWHN0sc+76rG+gcpzqjsBWpfEFA6eoVDd6cEXsbjMmW/5timflgvw9DoxQhUczwEmJUABGW8W5wV6KJUnNicUbBx22lx4e7RGijD7KdxITg+tGfTW19xmPChA8WDeA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from VI2PR04MB11276.eurprd04.prod.outlook.com (2603:10a6:800:296::7)
- by VI0PR04MB12188.eurprd04.prod.outlook.com (2603:10a6:800:332::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.18; Tue, 23 Jun
- 2026 03:06:11 +0000
-Received: from VI2PR04MB11276.eurprd04.prod.outlook.com
- ([fe80::60d7:a8e5:eb88:9be]) by VI2PR04MB11276.eurprd04.prod.outlook.com
- ([fe80::60d7:a8e5:eb88:9be%5]) with mapi id 15.21.0139.018; Tue, 23 Jun 2026
- 03:06:11 +0000
-From: "Sherry Sun (OSS)" <sherry.sun@oss.nxp.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	Frank.Li@nxp.com,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	amitkumar.karwar@nxp.com,
-	neeraj.sanjaykale@nxp.com,
-	marcel@holtmann.org,
-	luiz.dentz@gmail.com,
-	hongxing.zhu@nxp.com,
-	l.stach@pengutronix.de,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	bhelgaas@google.com,
-	brgl@kernel.org
-Cc: imx@lists.linux.dev,
-	linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-bluetooth@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	sherry.sun@nxp.com
-Subject: [PATCH V2 8/8] arm64: dts: imx8qxp-mek: Describe the PCIe M.2 Key E connector
-Date: Tue, 23 Jun 2026 11:07:35 +0800
-Message-ID: <20260623030736.1421537-9-sherry.sun@oss.nxp.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20260623030736.1421537-1-sherry.sun@oss.nxp.com>
-References: <20260623030736.1421537-1-sherry.sun@oss.nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI1PR02CA0014.apcprd02.prod.outlook.com
- (2603:1096:4:1f7::9) To VI2PR04MB11276.eurprd04.prod.outlook.com
- (2603:10a6:800:296::7)
+	Tue, 23 Jun 2026 02:43:23 +0000
+Received: by mail-yx1-xb12a.google.com with SMTP id 956f58d0204a3-6611689dc10so6247450d50.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Jun 2026 19:43:20 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1782182600; cv=none;
+        d=google.com; s=arc-20240605;
+        b=OU7wo+OmhroGy65BWsidAacZYJknG9V/FOHwOS81p5GfbPktCOZTpUlUrpmPxMRQEZ
+         8902bsMm3mdo043pTmtTOWjfBJOsGZikG1s+EiK0dsZqwkcuEdON2IacnClEiaUZZ3K/
+         bkaf74TNt5w24j4Fpy6ccDBiPhcScLremwtGY9ALsjX+gDudxZYwvFwqPk32DBcBbaxU
+         LldF2RQ4WEZ7EXb0r5PhOLYcDiM1JdmtlwUNEOdbjkCNPJjxZKY36kvGG6XNDEe5A4X+
+         frEuz60PjdLhh4KRYzNZH4+Ij5NNbjFZkt7/o06tafns8PGSMhM+066X0oWh0XpSUWaI
+         eQ/g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=b+q7XDPn4WHRjK2ULR+7wzhaQI1VPfhoH+J7E8mDoGk=;
+        fh=l8dJF9+4FzhEOmSu8RISZngCkFR25YecOGDYq7urL2Q=;
+        b=HrcFzUq5c9OfiGRo6ltMgtvwZjvw/nrJj9hPQ5IILC29GQjbsDTL3yyFZjdYwjd9Wf
+         o/JP//5wz802jL2rDvLmOqAzbEV4pX79b6aEDMYwU/tSVK9KJz0GAT9hOEi5tWMP8SVa
+         qTsEcY5ZP2+Qm4k4oLmqkbgyujEAj0VtdQKmdM7nmA8D2fpzM48AEThLjt5hd3jgZ1CJ
+         A3L4vEjjib9nYjOwFNFFIClPxnxGxx9cbYJAjhX4/iicq7MbzNC0zYUbodmt2W+W4s+v
+         mskTPO8PDi5Vb180v9HxwhRWaj2bOAPnvp3PYjokU0RN5d9SCfYltYZQLD9QgHSQVo0V
+         bnFQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1782182600; x=1782787400; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=b+q7XDPn4WHRjK2ULR+7wzhaQI1VPfhoH+J7E8mDoGk=;
+        b=cDaMC14trOztdnYk9VabKmOYaSpDMoGXeG7oOnQK+kk8dxxI5bZJUKvQ48TehgOrM4
+         4PgRGDRmJEJM/2IcDezrlgfjXx8U+acBuJtR06mEPLxncyu9WPhlVRqkrKk6HjnS2C88
+         LgiuucEokS+HA4fSz8VEACrtvmfrsjEO3jx0o=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782182600; x=1782787400;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=b+q7XDPn4WHRjK2ULR+7wzhaQI1VPfhoH+J7E8mDoGk=;
+        b=kQK+9eiGbZCo0BOx9B5DrEQC03Ruio91d1qfwYzHNPlbXqYzftOlMXm68ZoiKhJs+t
+         1mOuiOtGRBaev2peG0yJVRm98gpi4x4KlkN8o6UYEfyWNIsjaHJKsrtomY9ctDzPqb16
+         EJL6nIP9Pg3xdmSev9rchdc5LTzihLOlgzGuj9L60Q8DO6t2rq26AGPne0tFuBaSLJWB
+         8FnnRN9IkKU/Y1DDaQWuGJ/sYar31qj7qHfdJfOZ5a/+V7k7Ju/qrfTmy6UIY63j7vmW
+         cLO3+9aNDreOb8IjvTDMTL1UrxmAcKI1ZRcWVidlIpqe5VC8QYFsAkoPmuDaKflRosID
+         ROxA==
+X-Forwarded-Encrypted: i=1; AHgh+RqB8qSCLZtNmykn5aXxej1JBJlKcNSaYpVwqeVxo7EG1QjU3KYyHnx7VX9JQJiqhs+XxjDRT0ymRHHktSRJ+unn@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw57ZHQZMeoDwJbqM+makGJodEizdgIzU40BsXOh1qJo+FDAebm
+	NQgD0w5V4t9rkUsJGF/hbWCk+/4XBp6fDxvT5L7+X16E6ANWhJ57S0L/IboGlvMTq16T2Pt3boT
+	sDRuj7/hjyP11RXBOyxx4vKthCgXH+iCC9GX24Gc/
+X-Gm-Gg: AfdE7cmiNy4a9eutFsfJbmdVCd1KbuR7VH7tTb6o7KEceR0PFx2p9qYhTdlcpAhd4Ke
+	yVYqcQZvw6RROzrTMdH3Cwafw70z3xjbNLPn0DeDqwXWLsclI2nXdKONTy5vT8GS23qMTAH06/4
+	4pm+SNsaO1DMp6sfXo1Qlp5DR9iZrA1xybIjEsT52WZTc/Aq3zH4r8lXncswdOaoJ1bqFFrhLN2
+	1Vr/+9tkj2VAdM12Hz1DdkvrFdDZInIeopOcxy8LTKFiXYF5TB4T+5FaCpfvuklUJ/qwBGq4WBL
+	Ljc143ibowSr6JL3zgKImGu9MrQ=
+X-Received: by 2002:a05:690e:11c4:b0:662:eb42:dc36 with SMTP id
+ 956f58d0204a3-6635a0ee70bmr952581d50.53.1782182599767; Mon, 22 Jun 2026
+ 19:43:19 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: VI2PR04MB11276:EE_|VI0PR04MB12188:EE_
-X-MS-Office365-Filtering-Correlation-Id: 59864ad8-0b7a-466b-aa3f-08ded0d460ee
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|366016|19092799006|23010399003|921020|22082099003|18002099003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: rNpZuzN9SikXXqaeyfbDPjRwGOZO4nJbwnpGVzDotDCPCi6rdw+b6OVgN7z+PdpsXf/HXNNqcFGKHJjBfBPNUg7H77AMbyZGWzmowG4GnbgYA5PBjCzQ4mVlq5glGhj0GGRpcGfoQpiCRpod0tg33F13Zp2IYfgtYeHLxDdyGzQUTC5S0FP69ZjKGudZ3a6ilIOOj7IjQrp/Wup8f3bdkXfPWwYSctvus9g4NSBmImrC+9lIsLkYjQ5Ifar+cDUPGIAwrpW4rdygzHuE9c5AGUwcl2oC8AdzlAc5x1dmZmb89/OO1ZfHLPmgzFPJsL9D/ijOh5YLI07n+wzVOBKumJETeH8MW0YY0r7jWmsKGbTzuLbqJg4aflm5FpoYWNwpA8SV4XmOd9PQmabT4aQ42Z2LZ/Z3oB/Fnuu7OPXnqTStHw/JjZFLTwI7/mVglZ/tVGOVCayUDS0Snm+8SMTNgBNGmecRXqo2oEAESwkGtU6ma+hm5k+ug0h1e/NTfQ5BkK5ChMRUfYmKqAhj5erVE87ZSo1vDnD0DLe2zvB4qs+/782IfXPphq9sjHOSAEqsDlNenEDBUufdycDRf3ZJAxXot8YmHEAlr8Ym4zYQMCHyPan/T6+Rdy/AyyUXxFk0o45IxThIgsfCRJhfYduOA2aDYN3UHl3TcQcusOnhJnn+Uqf6fWtwbLHYD4vxys0inRbrTMEQVi8CwFNj+HBDmw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI2PR04MB11276.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(366016)(19092799006)(23010399003)(921020)(22082099003)(18002099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?JU/aGD20U4FYc+QlUcnu/iO0ox4Wmz71D7wd+6yo74vI/qn9zaxMzxVy0z+s?=
- =?us-ascii?Q?wyMuCw7dEg5o0juAtABvvdMJ+3Xcg20JG9bc+OwRc94B4tmxx58S0uDNPmSk?=
- =?us-ascii?Q?JbSWxTTxpRIkxywn8NDV33gmHAHNxj8KKncC3sIzc+UcsL/+S4zpW3tXOevk?=
- =?us-ascii?Q?UaRDvKr2TGtgaRsqOqULjlEkjEY5UsRwMKU9YQ0X13YBdDlynDdIGAqFVRxZ?=
- =?us-ascii?Q?vLClS0E4Jf5+aDOZOGFx7MrZrf/1+LGZ1PZD7O+eUUm5kRkmEvU1gY7lRPD1?=
- =?us-ascii?Q?KtWv8EB9Y1LgAtA6IQhXDkOsfZo2uJ01/pkEJz8HiC1QpOmaPeVzWGcVHqbS?=
- =?us-ascii?Q?jq/XqxCo7blY8KXt9NFtQ2FiVh7oHXxAyQsK8F2tmayENTgzLsSHwNZu/cdV?=
- =?us-ascii?Q?VEIBC1ItZ3aL4CMmVTiOR7qgyb60VkjYsqFiz9VJELb06Gy5GuMHbBRCMs6/?=
- =?us-ascii?Q?2xlrv5iYG3Fz952as48KnkWHiJqA+C+oxGMDdfn3bvxZgQcpd87gHC7w9sB6?=
- =?us-ascii?Q?KG6NSSD/2GEcpZPpoBtR1q4WHY7om5rXxWpuyiXYhDE4U+G1aQLdj/a2cao/?=
- =?us-ascii?Q?5s/5P9ufrnpFTKFI+kvznQI39/xj2nR5Ph+C8Mf+qeC9xsKdSmZjVN1GKGSU?=
- =?us-ascii?Q?SReJaIpFzaFXrlV491uq6JbTBCHgzTHDhp6lHKKAZSKlBex76O0KzxoBYiO+?=
- =?us-ascii?Q?7pakVj24wAhj6PlrNnjELoMOvbvZSS78SuOufMBH29QcgNYvMHFWJgjtwOvZ?=
- =?us-ascii?Q?ZpivCFk+1oy0eCvye9N8JX2MEs5d9x8tROMrCdVzRiN785z7tNb7KEOYOl4g?=
- =?us-ascii?Q?Jm7agpCUaE7tBKg+omH+xwIAEZlzTO+GOWLsumN3lc20B9AVsYYb+uD3ZJxy?=
- =?us-ascii?Q?FR28muQfJUy+qXQd54/2YJfqUsJANEA0nw7PiqVFhLHhSmYVQWonrkv/YUqe?=
- =?us-ascii?Q?r7XzZuARP77azWC79CDl0JrZx0JKPj6ZdmXvAcHdd7aIG7VSi31hB9jTsDOg?=
- =?us-ascii?Q?7crgHM3yS3VBXs73H+6LXgWvu6lO1a4xWK0uPodi+O5ItlPgaLz+gtOwrrO2?=
- =?us-ascii?Q?xCiFI8z99jpaSwYeiyHqC17Y7seGAD3ckSCWr5DNpeTjVLx9ZU0x/E6Gh4/Z?=
- =?us-ascii?Q?8XldfzNGBf5CYDcoqR9OiM+AXlIXkx/TQAr4x+/Ax1Lr4pUqzu3gh/2+96DR?=
- =?us-ascii?Q?LASevAE8YlR8uSFHoUXXibjk0bsc6GNA/BzXNjHpUFSfQEw/8K6lFCQaj9hM?=
- =?us-ascii?Q?jwYl3kB48+XBYYFOLDSkaWE0El9ZxtZJcYSjIn/F0JtPmUgkBZ9Z3X1eFE2U?=
- =?us-ascii?Q?5Mmxkwz0Fbpg4Y1ODhVOq1fj/r0LnxG3uCgVjYNjTIoCxogi1uudFgQQFAD0?=
- =?us-ascii?Q?smTNdr16oO6sn5UEFVyuOQnhSB7M06IJRvE4gT3gjyxSyHfx8a9EF1XzqUHY?=
- =?us-ascii?Q?N3TP8fzB/hUtTUU0/dC9EUI4fxlR2GSCt1kfMUDZ4KuzKQnAaS4IqksCQQW7?=
- =?us-ascii?Q?UqtCS6nWFz27quyqEkd5L6LDgEqnB7eoGB3IGQqxKfDdBU53+cTL67swdsGr?=
- =?us-ascii?Q?nwwyV151EkUyJf8hfQUX6RRlRexzKuAwN83jGixmCx2x/xmy8OFdQPtPqUAn?=
- =?us-ascii?Q?P/Ci1KDMwm9ra+HlBuvVwNPGhhZKnrYC6xFdrNrdgpujmGxwS0TxRaZChlyI?=
- =?us-ascii?Q?pYZJplORTbDgwkEhbqmEEDumlLfhlg32q+CpQGDvYOOSMxGX6ImXLb6sdPMI?=
- =?us-ascii?Q?a2xS7i0OvbDfIHB2ZN+t0EX1MLt7n/Q0a+Hm1loXpP0FyRLpfeay?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 59864ad8-0b7a-466b-aa3f-08ded0d460ee
-X-MS-Exchange-CrossTenant-AuthSource: VI2PR04MB11276.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jun 2026 03:06:11.3883
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: sFpcJaECiJLC7JjzkbDj1lMO5ADgTUkOgbhWeScXNqBQ5jxwMQgxaDtrTRzk+GLFBCTzZKTAg4pJdqn4THOq6VaLjeTFyxTESweloI//CnKeed8d2IC7/aSyKHEi2B66
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB12188
+References: <20260623020648.112623-1-fffsqian@163.com>
+In-Reply-To: <20260623020648.112623-1-fffsqian@163.com>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Tue, 23 Jun 2026 10:43:08 +0800
+X-Gm-Features: AVVi8CebahkQKZb2FdRCklbGMPNxHTzKHNXd3WHfoR4Viwxi8rANQUWPZkq4K0k
+Message-ID: <CAGXv+5E-QDOH4AT-QTp4+Gq1iNAY3DebG91MigUfasViLBRfRA@mail.gmail.com>
+Subject: Re: [PATCH 1/1] PCI: mediatek-gen3: fix unreachable error message in probe
+To: fffsqian@163.com
+Cc: Ryder Lee <ryder.lee@mediatek.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	kwilczynski@kernel.org, Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, linux-kernel@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	Qingshuang Fu <fuqingshuang@kylinos.cn>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260622_200615_878134_393DE054 
-X-CRM114-Status: UNSURE (   8.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260622_194321_707804_76D2C9E7 
+X-CRM114-Status: GOOD (  19.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,108 +118,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sherry Sun <sherry.sun@nxp.com>
+Hi,
 
-The i.MX8QXP-MEK has the PCIe M.2 Mechanical Key E connector to connect
-wireless connectivity cards over PCIe and UART interfaces. Hence,
-describe the connector node and link it with the PCIe b Root Port and
-LPUART1 nodes through graph port/endpoint.
+On Tue, Jun 23, 2026 at 10:07=E2=80=AFAM <fffsqian@163.com> wrote:
+>
+> From: Qingshuang Fu <fuqingshuang@kylinos.cn>
+>
+> In mtk_pcie_probe(), the error handling for pci_pwrctrl_create_devices()
+> has the goto statement before the dev_err_probe() call, making the error
+> message completely unreachable. When this function fails, no diagnostic
+> message is ever printed.
+>
+> Reorder so that dev_err_probe() is called before jumping to the cleanup
+> label, restoring the intended error reporting.
+>
+> Fixes: 1a152e21940a ("PCI: mediatek-gen3: Integrate new pwrctrl API")
+> Signed-off-by: Qingshuang Fu <fuqingshuang@kylinos.cn>
 
-The M.2 Key E connector is powered by a 3.3V fixed regulator
-(reg_3v3) on board.
+A fix was supposedly already merged:
 
-Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx8qxp-mek.dts | 54 ++++++++++++++-----
- 1 file changed, 41 insertions(+), 13 deletions(-)
+https://lore.kernel.org/all/20260512103347.1751080-1-wenst@chromium.org/
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts b/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts
-index a9b967d0a9be..c9fe4034cc2d 100644
---- a/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts
-@@ -40,6 +40,37 @@ memory@80000000 {
- 		reg = <0x00000000 0x80000000 0 0x40000000>;
- 	};
- 
-+	m2-connector {
-+		compatible = "pcie-m2-e-connector";
-+		vpcie3v3-supply = <&reg_3v3>;
-+		w-disable1-gpios = <&pca9557_a 2 GPIO_ACTIVE_LOW>;
-+
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			port@0 {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+				reg = <0>;
-+				m2_e_pcie_ep: endpoint@0 {
-+					reg = <0>;
-+					remote-endpoint = <&pcieb_port0_ep>;
-+				};
-+			};
-+
-+			port@3 {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+				reg = <3>;
-+				m2_e_uart_ep: endpoint@0 {
-+					reg = <0>;
-+					remote-endpoint = <&lpuart1_ep>;
-+				};
-+			};
-+		};
-+	};
-+
- 	reg_usdhc2_vmmc: usdhc2-vmmc {
- 		compatible = "regulator-fixed";
- 		regulator-name = "SD1_SPWR";
-@@ -157,15 +188,6 @@ reg_3v3: regulator-3v3 {
- 		regulator-max-microvolt = <3300000>;
- 	};
- 
--	reg_pcieb: regulator-pcie {
--		compatible = "regulator-fixed";
--		regulator-max-microvolt = <3300000>;
--		regulator-min-microvolt = <3300000>;
--		regulator-name = "mpcie_3v3";
--		gpio = <&pca9557_a 2 GPIO_ACTIVE_HIGH>;
--		enable-active-high;
--	};
--
- 	reg_audio: regulator-audio {
- 		compatible = "regulator-fixed";
- 		regulator-max-microvolt = <3300000>;
-@@ -696,8 +718,10 @@ &lpuart1 {
- 	pinctrl-0 = <&pinctrl_lpuart1>;
- 	status = "okay";
- 
--	bluetooth {
--		compatible = "nxp,88w8987-bt";
-+	port {
-+		lpuart1_ep: endpoint {
-+			remote-endpoint = <&m2_e_uart_ep>;
-+		};
- 	};
- };
- 
-@@ -746,8 +770,12 @@ &pcie0_ep {
- 
- &pcieb_port0 {
- 	reset-gpios = <&lsio_gpio4 0 GPIO_ACTIVE_LOW>;
--	vpcie-supply = <&reg_pcieb>;
--	vpcie3v3aux-supply = <&reg_pcieb>;
-+
-+	port {
-+		pcieb_port0_ep: endpoint {
-+			remote-endpoint = <&m2_e_pcie_ep>;
-+		};
-+	};
- };
- 
- &scu_key {
--- 
-2.50.1
+ChenYu
 
+> ---
+>  drivers/pci/controller/pcie-mediatek-gen3.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/co=
+ntroller/pcie-mediatek-gen3.c
+> index b0accd828589..5d7cfed44637 100644
+> --- a/drivers/pci/controller/pcie-mediatek-gen3.c
+> +++ b/drivers/pci/controller/pcie-mediatek-gen3.c
+> @@ -1222,8 +1222,8 @@ static int mtk_pcie_probe(struct platform_device *p=
+dev)
+>
+>         err =3D pci_pwrctrl_create_devices(pcie->dev);
+>         if (err) {
+> -               goto err_tear_down_irq;
+>                 dev_err_probe(dev, err, "failed to create pwrctrl devices=
+\n");
+> +               goto err_tear_down_irq;
+>         }
+>
+>         err =3D mtk_pcie_setup(pcie);
+>
+> base-commit: 4708cac0e22cfd217f48f7cec3c35e5922efcccd
+> --
+> 2.25.1
+>
 
