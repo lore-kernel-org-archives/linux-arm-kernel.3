@@ -4,83 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F30DACD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 09:54:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8699DCDB46F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 10:06:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZKFdCB2wZNv95BnFtdwGhXUwjN9oGo5H15q3Af+UsUE=; b=oVo2NuLymw+FCmKNFr6Pyv62g5
-	l8OQPHGfe+SUgRdFP7616NFhwzYbgZwZ/eQJHMdxDuYob9g/Ud+FCTh8fcdaeRba+7M9AJnKkrzAP
-	xNFWE8RChL64MjUm3s0ITUHB8z7lYdnjHGJVwd/B72/biBZRbrL87qQVraWUzMHQESJFyoI8dAPUB
-	hXxcZdOjjEGfWpdm+EXo2FiTqNd19h0PH7RR3+qzsfI88b5FSnrn5X7VBIs+JNc+6FVVD+L1+uvzN
-	55EVNpLR2R6xAkw4mHpf/LATdJ5QHlN2v1aJpfDUaXs2dID6WeLanvglWN5dnCuRTfFhZ10uRVdKF
-	kWsQ+RLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=U8DX8ABQ7qEn6eMBhQWfrDMVdr4PIabaB9tSDvLMkrc=; b=nRmStzZ9IqHHrv0hUXW+AmTTMG
+	SrIIH4d+V3ifD2HCSWXfCUFbNlaSnyQl6NMcBXxrm5AN9+pXzy16/4U2dy2Khb8VXaEeOVcZNO4Xd
+	aFHbTX1dxOrHYpcEDuqO43endBp/slmQUvwDYRdYhtYoE/N2VfpzmTfq2yyRtVDsdGxgD+j14P0L5
+	3gaRbSzhOGUsbxsNkP9iB4x5BnR49bporoJ9cNFSee3eeREU/8VCx9iGYZhYSKukotJNjxUbwykT3
+	GuReWtDz9cohQQW4JKvKQmKDl2Kl2ApOyrM2q/v1vBeB+Ub16Sglf7AmH+EUOEF76ew/XcwKdejiB
+	zHAPIF8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbxq8-000000062nw-48wg;
-	Tue, 23 Jun 2026 09:54:44 +0000
-Received: from mgamail.intel.com ([192.198.163.11])
+	id 1wby1A-000000063cO-1b2i;
+	Tue, 23 Jun 2026 10:06:08 +0000
+Received: from imap4.hz.codethink.co.uk ([188.40.203.114])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbxq6-000000062nS-2DfP
+	id 1wby17-000000063bm-3eQk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 09:54:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1782208483; x=1813744483;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=vkFETun7c0Vx4s11aeriB3dobfV+C7MaHaRn0CTIr/s=;
-  b=C+9taZSLjnPwV95MSZDaxcSNc9LBDjQpQrBz6zgSam/SYq6YPhmMOhiZ
-   s2xZVSX+7PrWtql5B0F47yqDuZIRi3WxsH4harVgQzH5qcL72GHrFXZhE
-   bs6QDpn6ZUCntjwxTsZqTWRbnV6ukwDWE/SYJlFces/Fz5nGbMdAly4h4
-   eHGPzt6MYdBb/RZQ1D532okIr3yJkNgCljYd7IlUqmuJMV84GPOkRvxx5
-   tsV2j+AlgOdWK5HeypDkruytlrgfAhUxp0CiTYvJIqOXAT0jb65FPW0Ne
-   A19hb7fCl5VkvWIQBYqrMHbnBopxut6CB/W5dtakM7GGsvRoJFSrHkxfA
-   Q==;
-X-CSE-ConnectionGUID: nDYVXfrQTCi/NCPNz6ZcIQ==
-X-CSE-MsgGUID: ASI96ms7R1+iTgaXcthtew==
-X-IronPort-AV: E=McAfee;i="6800,10657,11825"; a="93537213"
-X-IronPort-AV: E=Sophos;i="6.24,220,1774335600"; 
-   d="scan'208";a="93537213"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jun 2026 02:54:42 -0700
-X-CSE-ConnectionGUID: q3/WUKbKSVmUc1Zi61eWcg==
-X-CSE-MsgGUID: ufxCW/2fRTqRcD7q5+9NWg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.24,220,1774335600"; 
-   d="scan'208";a="248326947"
-Received: from klitkey1-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.7])
-  by orviesa006-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jun 2026 02:54:39 -0700
-Date: Tue, 23 Jun 2026 12:54:36 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Olivier MOYSAN <olivier.moysan@foss.st.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	"Rob Herring (Arm)" <robh@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	linux-iio@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] iio: stm32-dfsdm: Treat flags as booleans
-Message-ID: <ajpX3E2zHYh2e8FG@ashevche-desk.local>
-References: <20260612215151.1886851-1-robh@kernel.org>
- <ai1dhJWb9vKqxEEe@ashevche-desk.local>
- <20260621151026.69714694@jic23-huawei>
- <46fce99d-9dd5-435b-95cd-86ed4771aa83@foss.st.com>
+	Tue, 23 Jun 2026 10:06:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=codethink.co.uk; s=imap4-20230908; h=Sender:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:In-Reply-To:
+	References; bh=U8DX8ABQ7qEn6eMBhQWfrDMVdr4PIabaB9tSDvLMkrc=; b=ylsiPimPOwKJiT
+	5+gyQXzXVnqJ+2A9S9ECUPFMMs8HKRkw2Duw0HC3kcY5CNFVu5mOzakJ/FQUBN6gZAMPyvASbVqRG
+	mSbz/6DPDZgxnTQlKmdu8cQ8m08whyKT7QkI4gMBKHGiPLPU8oZ++jLCuo8CROrwlkRlDMND/0W5g
+	uPXhL+BfVAeQM2iILdEFfW/Ekio1hvyXqQdVJ8R6JtIKFObIIOdDTaKIuBMMI1ZQYOIlTbAAiHlo2
+	0iJSW2mII1oof7pjYZdxTqMlbYtDA8KeF+i791o5KQcPmS9GSNXCWakw9AZADhArS3z3DWVZlRTTY
+	xgZETfszf1ufcqDYmHeg==;
+Received: from [167.98.27.226] (helo=rainbowdash)
+	by imap4.hz.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
+	id 1wby0x-00FsUA-9N; Tue, 23 Jun 2026 11:05:55 +0100
+Received: from ben by rainbowdash with local (Exim 4.99.4)
+	(envelope-from <ben@rainbowdash>)
+	id 1wby0w-000000035EL-47kk;
+	Tue, 23 Jun 2026 11:05:54 +0100
+From: Ben Dooks <ben.dooks@codethink.co.uk>
+To: Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	linux-usb@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Ben Dooks <ben.dooks@codethink.co.uk>
+Subject: [PATCH] usb: dwc3: imx8mp: make dwc3_imx_glue_ops static and rename to imx8mp
+Date: Tue, 23 Jun 2026 11:05:54 +0100
+Message-Id: <20260623100554.735080-1-ben.dooks@codethink.co.uk>
+X-Mailer: git-send-email 2.37.2.352.g3c44437643
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <46fce99d-9dd5-435b-95cd-86ed4771aa83@foss.st.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_025442_577988_EE9F517C 
-X-CRM114-Status: GOOD (  34.33  )
+X-CRM114-CacheID: sfid-20260623_030605_905472_0C224B39 
+X-CRM114-Status: GOOD (  13.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,60 +78,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 23, 2026 at 11:43:49AM +0200, Olivier MOYSAN wrote:
-> On 6/21/26 16:10, Jonathan Cameron wrote:
-> > On Sat, 13 Jun 2026 16:39:16 +0300
-> > Andy Shevchenko <andriy.shevchenko@intel.com> wrote:
-> > > On Fri, Jun 12, 2026 at 04:51:50PM -0500, Rob Herring (Arm) wrote:
+The dwc3_imx_glue_ops is not used outside this file, and technically this
+is the dwc3-imx8mp driver so whilst making this static to avoid the
+following warning, rename it dwc3_imx8mp_glue_ops to distinguish it from
+the other driver which also has dwc3_imx_glue_ops.
 
-...
+Fixes:
+drivers/usb/dwc3/dwc3-imx8mp.c:176:22: warning: symbol 'dwc3_imx_glue_ops' was not declared. Should it be static?
 
-> > > > -	ret = of_property_read_u32_index(indio_dev->dev.of_node,
-> > > > -					 "st,adc-alt-channel", chan_idx,
-> > > > -					 &df_ch->alt_si);
-> > > 
-> > > > +	df_ch->alt_si = of_property_present(indio_dev->dev.of_node,
-> > > 
-> > > I believe it still has another (serious?) issue. We usually don't use indio_dev
-> > > for device properties. It's not a device that is described in DT.
-> > > It seems the only driver in IIO that does that. Note, I haven't conducted any
-> > > deeper research, it might be (however I'm quite in doubt) that this is correct
-> > > use and one device registers a few indio_dev:s.
-> > 
-> > It is curious.  The registration sequence in this driver is complex, but I'm not
-> > seeing anything that sets the fwnode for the struct iio_dev->dev before calling
-> > the init() callbacks that end up in this code.  It is set later by iio_device_register()
-> > (iirc that has something to do with consumers turning up later).
-> > 
-> > St folk could you take a look at this and see what we are missing
-> > if it does currently work?
-> > 
-> > For now I'll apply this patch but might need to drop it if a fix clashes
-> > with it.
-> 
-> I confirm that the current legacy path is functional
-> (With the st,adc-alt-channel property fix applied)
+Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
+---
+ drivers/usb/dwc3/dwc3-imx8mp.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-Yeah, it's here
-https://elixir.bootlin.com/linux/v7.1.1/source/drivers/iio/adc/stm32-dfsdm-adc.c#L1772
-and should gone. Basically one wants to replace all these to use device and
-fwnode propery APIs and proper device node, without that hack.
-
-> It currently works because the driver initializes np from dev->of_node in
-> probe, and that value is then used in init callbacks.
-> 
-> I agree that this approach is not robust, as it depends on initialization
-> sequencing and on using an IIO object that is not the DT owner object. I
-> will prepare a patch to use the DT device directly as the single source for
-> DT properties.
-> 
-> I also suggest keeping a fallback path for st,adc-alt-channel so we do not
-> break legacy DTs that have not yet migrated to the new binding.
-> I prepare this also.
-
+diff --git a/drivers/usb/dwc3/dwc3-imx8mp.c b/drivers/usb/dwc3/dwc3-imx8mp.c
+index 1cf96540b66e..bc61a89b66b1 100644
+--- a/drivers/usb/dwc3/dwc3-imx8mp.c
++++ b/drivers/usb/dwc3/dwc3-imx8mp.c
+@@ -173,8 +173,8 @@ static void dwc3_imx_pre_set_role(struct dwc3 *dwc, enum usb_role role)
+ 		pm_runtime_use_autosuspend(dwc->dev);
+ }
+ 
+-struct dwc3_glue_ops dwc3_imx_glue_ops = {
+-	.pre_set_role   = dwc3_imx_pre_set_role,
++statc struct dwc3_glue_ops dwc3_imx8mp_glue_ops = {
++	.pre_set_role   = dwc3_imx8mp_pre_set_role,
+ };
+ 
+ static int dwc3_imx8mp_probe(struct platform_device *pdev)
+@@ -266,7 +266,7 @@ static int dwc3_imx8mp_probe(struct platform_device *pdev)
+ 		goto put_dwc3;
+ 	}
+ 
+-	dwc3->glue_ops = &dwc3_imx_glue_ops;
++	dwc3->glue_ops = &dwc3_imx8mp_glue_ops;
+ 
+ 	if (dwc3->dr_mode == USB_DR_MODE_HOST)
+ 		pm_runtime_dont_use_autosuspend(dwc3->dev);
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.37.2.352.g3c44437643
 
 
