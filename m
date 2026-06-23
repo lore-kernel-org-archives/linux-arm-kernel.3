@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 624E9CDB476
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 02:02:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFEAECDB466
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 02:02:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1wvPi9o2h27d1qNkqD1UOs9XglIJZza+/IZF2+QLeZE=; b=PcIetgy6jXWXrhpM+X8BW0qE20
-	UgFVIh8zV3DhoEfP//nqz3GlLa7p60kDMBEkXpFSbKLu/Q1Gwt6TrsK0mOMRVUgQYZ/8DQfy5yNyX
-	0Uh7YTdwVgWMo/3BBLdbTNtdhvqFfNkFQdNxN1SV6k5lhGFM78pkQcHDLd32xHRnTguRcGPjdlgKR
-	4nHuC+h5OW4QkLA3SdVaq0/vZECS+Jg8VV5hHpYaNkydG/FmqzuzP1SLCxT2qZLPxMpNO67GuT9l1
-	Z32aGeSHz/IPD5PhV4jN6Fcj4D1MaRPYxWVGaFljthXE8d16uYQgU9CoI5IeiJM2YKWa7Jy+3XmsA
-	tOqe1PUQ==;
+	bh=oljw/We0kfymxfUYl4LWwNzvJIapE71JijbasPraL50=; b=2B5EBO6dAyiVBCNPxy1N6RzSkO
+	IDW5jvD6BHQpIquGvG1WLsbCXQKOkdwirTn8DaRZo333X1QeW2XxNzDDbbAJGQjBDhcAJ/glsHMjK
+	eOT2TdfoggZMAzMqzR2whz3CCcBpyfqL3pAaWd7nmCkbCT/PXfszP6sBkquet7KC9J+7n0s6SucBz
+	NMTsYmHLT3pe+xVtk3gLCHF6iXSuQIBOYftgN2KMP9ekyltwvc8xNtwW8cw9dhgyDe2CuM4KTFuOB
+	djqCwf4fo6hvP//JshcgOJsIlNNpqrpDhFYFDS15EZkrke3X4cwXcwt7Qnid/aHEjLLD0fvIHigtz
+	TkuyR8jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbqSd-00000005Zk7-1BP1;
+	id 1wbqSd-00000005Zjn-0f4K;
 	Tue, 23 Jun 2026 02:01:59 +0000
 Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbqSR-00000005Zet-4B1W
+	id 1wbqSS-00000005Zeu-1Fr1
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 23 Jun 2026 02:01:50 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.170])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4gkpFS4QJRzYQtwh
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 10:01:00 +0800 (CST)
+Received: from mail.maildlp.com (unknown [172.19.163.198])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4gkpFQ63PKzYQtw6
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 10:00:58 +0800 (CST)
 Received: from mail02.huawei.com (unknown [10.116.40.112])
-	by mail.maildlp.com (Postfix) with ESMTP id A3A154056F
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 10:01:40 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTP id DCEE84058B
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 10:01:38 +0800 (CST)
 Received: from huaweicloud.com (unknown [10.166.163.161])
-	by APP1 (Coremail) with SMTP id cCh0CgCHiD0A6TlqxaQZCw--.5730S8;
-	Tue, 23 Jun 2026 10:01:40 +0800 (CST)
+	by APP1 (Coremail) with SMTP id cCh0CgCHiD0A6TlqxaQZCw--.5730S3;
+	Tue, 23 Jun 2026 10:01:38 +0800 (CST)
 From: Kemeng Shi <shikemeng@huaweicloud.com>
 To: maz@kernel.org,
 	tglx@kernel.org
 Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	shikemeng@huaweicloud.com
-Subject: [PATCH v3 6/6] irqchip/gic-v3-its: Remove redundant check in its_vpe_db_proxy_unmap_locked()
-Date: Tue, 23 Jun 2026 10:01:35 +0800
-Message-Id: <20260623020135.3584-7-shikemeng@huaweicloud.com>
+Subject: [PATCH v3 1/6] irqchip/gic-v3-its: Fix memleak in its_probe_one()
+Date: Tue, 23 Jun 2026 10:01:30 +0800
+Message-Id: <20260623020135.3584-2-shikemeng@huaweicloud.com>
 X-Mailer: git-send-email 2.36.1
 In-Reply-To: <20260623020135.3584-1-shikemeng@huaweicloud.com>
 References: <20260623020135.3584-1-shikemeng@huaweicloud.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: cCh0CgCHiD0A6TlqxaQZCw--.5730S8
-X-Coremail-Antispam: 1UD129KBjvdXoWruF4rCryfKw1UJr13Zw1kXwb_yoWfCrg_Cr
-	WrWFs7GF4fCw4UCw1xtr4jvF9Fya1kZF9rur4SkFy5Jw1Iq3W7JrW7X3s3ZF4DWFyUJFnx
-	AFZY9r4xCr1xAjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUb6AFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUAVCq3wA2048vs2
-	IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxSw2x7M28E
-	F7xvwVC0I7IYx2IY67AKxVWDJVCq3wA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxVW8Jr0_Cr
-	1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s0D
-	M2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjx
-	v20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1l
-	F7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7MxkF7I0En4kS14v26r126r
-	1DMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_
-	Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUAVWUtwCIc40Y0x
-	0EwIxGrwCI42IY6xIIjxv20xvE14v26r1I6r4UMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8
-	JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIx
-	AIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUbx9NDUUUUU=
-	=
+X-CM-TRANSID: cCh0CgCHiD0A6TlqxaQZCw--.5730S3
+X-Coremail-Antispam: 1UD129KBjvdXoWruF43Jw4fXw4kZr17KF1rWFg_yoWfAFX_C3
+	4rWan7GFWI9r18GwnrJw4fZFy7Ga1v9r1kZF1Fya45tryxZw1DCFZrXF98AF4UWF4jva4f
+	Aa9Y9r1I9r1xAjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbhAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI8067AKxVWUGwA2048vs2IY02
+	0Ec7CjxVAFwI0_Jrv_JF4l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxSw2x7M28EF7xv
+	wVC0I7IYx2IY67AKxVWDJVCq3wA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxVW8Jr0_Cr1UM2
+	8EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s0DM2AI
+	xVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20x
+	vE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xv
+	r2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7MxkF7I0En4kS14v26r126r1DMx
+	AIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_
+	Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUAVWUtwCIc40Y0x0EwI
+	xGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWUJVW8
+	JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcV
+	C2z280aVCY1x0267AKxVWUJVW8JbIYCTnIWIevJa73UjIFyTuYvjfUYvtCUUUUU
 X-CM-SenderInfo: 5vklyvpphqwq5kxd4v5lfo033gof0z/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260622_190148_214762_01AB1C3E 
-X-CRM114-Status: GOOD (  10.26  )
+X-CRM114-CacheID: sfid-20260622_190148_520948_AEFF79D3 
+X-CRM114-Status: UNSURE (   9.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,30 +86,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The high level functions already ensure that gic_rdists->has_rvpeid
-is false before calling its_vpe_db_proxy_unmap_locked(), so we can
-remove the redundant check in its_vpe_db_proxy_unmap_locked()
+Fix collection leak when its_init_domain() failed in its_probe_one().
 
 Signed-off-by: Kemeng Shi <shikemeng@huaweicloud.com>
 ---
- drivers/irqchip/irq-gic-v3-its.c | 4 ----
- 1 file changed, 4 deletions(-)
+ drivers/irqchip/irq-gic-v3-its.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-index 120f6f29e978..b0069fbe1e69 100644
+index 291d7668cc8d..d721b6101e0a 100644
 --- a/drivers/irqchip/irq-gic-v3-its.c
 +++ b/drivers/irqchip/irq-gic-v3-its.c
-@@ -3801,10 +3801,6 @@ static const struct irq_domain_ops its_domain_ops = {
-  */
- static void its_vpe_db_proxy_unmap_locked(struct its_vpe *vpe)
- {
--	/* GICv4.1 doesn't use a proxy, so nothing to do here */
--	if (gic_rdists->has_rvpeid)
--		return;
--
- 	/* Already unmapped? */
- 	if (vpe->vpe_proxy_event == -1)
- 		return;
+@@ -5326,7 +5326,7 @@ static int __init its_probe_one(struct its_node *its)
+ 
+ 	err = its_init_domain(its);
+ 	if (err)
+-		goto out_free_tables;
++		goto out_free_col;
+ 
+ 	raw_spin_lock(&its_lock);
+ 	list_add(&its->entry, &its_nodes);
+@@ -5334,6 +5334,8 @@ static int __init its_probe_one(struct its_node *its)
+ 
+ 	return 0;
+ 
++out_free_col:
++	kfree(its->collections);
+ out_free_tables:
+ 	its_free_tables(its);
+ out_free_cmd:
 -- 
 2.36.1
 
