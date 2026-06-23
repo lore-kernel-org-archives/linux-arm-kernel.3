@@ -4,81 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53442CDB46F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 02:56:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2B26CDB46B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 03:05:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qUYM0fvCys1DhwZOfgo6JvraFuhO8RYE/fa+9uu2BfY=; b=DmJGX+bhoWjyPW/qEs5WnqJ++I
-	uMJBMpHlK8m2kGs1+d4aY4KW3vKFSXMB5tkKasgVxtqiZPKuYs0OQPTV0oM8q8BI8lLOIT1hN6733
-	MGWppsqjpZiW/lRxPTQNr731sPGNW6NCJQQyJxeV3yTod/5fYHWvQqoeNiUBVruVnWW6+eeQw/ZTH
-	mPD0bmhGEB+9o2j4Be0cMNdyNRzoFA4sDMRk66jcJef6m+oici1LmgJls2TdLhbso7LzLvEanEevK
-	lxTKPDPXOarYtkRziAsvWfhSnJwaRDaU7eVyg5lMmv/nGJvDZlMz5oUkr5wz91lH7535u0k0kG9ja
-	MtqqNrpA==;
+	bh=En/yUf9IZBkB4xKITEIDv9ReMxigCkNcRMhPkyzBuZU=; b=dIDm3uododUva3AZMaMiyMbSa+
+	o+751p0JYjqr8MuwQ3Edx+OgTQZYnPERf6qjzL10PdvhSy9sALeeuoMZICBW3CrDTsqmf1RdSnWk4
+	nIzMwR4gyJifX87Za489SY42eNuRyGIdMMlay+eNHNcynsH/SqRJrTG2W3z8eKVoPi27Vix/muvdW
+	Ktn9UiYs4ZL3ffrIS8IidVI9o605yRquY1EtII72GCd+KuD9cfcxQMQbXUEVa0VVhW9fIVhP2qLAR
+	szED2uL7gpUcRmdU6YVTmpWvPakowQ4Gd96WIzbMqx3WTBkQzySw7WxQMy+hZsrx1zVlwuBCeM6o7
+	/zM8aERg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbrIq-00000005c5x-0wC6;
-	Tue, 23 Jun 2026 02:55:56 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wbrS3-00000005cd4-1PDr;
+	Tue, 23 Jun 2026 03:05:27 +0000
+Received: from mail-francesouthazon11011011.outbound.protection.outlook.com ([40.107.130.11] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbrIo-00000005c5D-1h9x;
-	Tue, 23 Jun 2026 02:55:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2434B6001D;
-	Tue, 23 Jun 2026 02:55:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id C22EDC2BCB4;
-	Tue, 23 Jun 2026 02:55:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1782183352;
-	bh=hTKmrhhlidg806logJAbmCAaNns/K6kFJIOELIiijRg=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=KX1DkqKldKKZsZ1Pcf/UW+N0hV2g6bMrTfHbwcSuUtA9Gaf4R1rMul8sDA6nFDNWA
-	 AbaCMTbahK3D7nNzL3FXm8fMFFyhYtQ2UIcduS6mHtbpQcXNC8IGKtDzIZQn3rA4Ob
-	 p9pbcz890Eru/NR8CKPsDYBq8moar32n6/QbAQYyxulKSFNbYbToBsB5IE+1ctBYeN
-	 YPEEvC0TJ3Cm/LeoKlrmy+7NIrKeUTYrwoSKqMPVfa8ouB12YT/afcpuCqavtfki8e
-	 j1dnOZ8nqXABB1erSrw0grgCIitW1Snl9/0u13DVOAtgNrmjvSeppOFVNtt25twUsF
-	 l9z3TQuyVETZA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A7286CDB46F;
-	Tue, 23 Jun 2026 02:55:52 +0000 (UTC)
-From: Jian Hu via B4 Relay <devnull+jian.hu.amlogic.com@kernel.org>
-Subject: [PATCH v5 0/2] clk: amlogic: Add A9 AO clock controller
-Date: Tue, 23 Jun 2026 10:55:32 +0800
-Message-Id: <20260623-a9_aoclk-v5-0-c7cb1ff9ebf1@amlogic.com>
+	id 1wbrS0-00000005ccM-1409
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 23 Jun 2026 03:05:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=V5EMHQ4FZHV4zZKL+OSlH/akGI5ujc3LMBKQ47JBiyay/AsO0vwAfvIaoJUrtVqvZa2jqYP+VeXSyhDjSDZUObHWylkBQWmr7xJzCYuoaCPFlZlbGUGhJ4qz45jkK9DqL9WQsiLjy+EoO2AlrG3A3C6eQHwy+rSuZo/6b9HdPNoDlhSWuhWor8mQzTyPKu55dkIkzAJav5vn0CzGUtL6ix71D9h/U25Ri1RX3FHJTvxnl5nRyAP26/Fg3WkwzVvcXKiFj6yCjaVzvZdCm9v80+S7ESkZ3N92S/myG8ne/LORdAn6ruAvehwIeIy4pgxYh6PRsHzYMhvWGHB63fbSfQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=En/yUf9IZBkB4xKITEIDv9ReMxigCkNcRMhPkyzBuZU=;
+ b=dQ2AV1lqAi+taWTcwosbEG3ojTSOcC3kPD9D2YHnnnfGJTdQ48SZ2MUZ94xH4CL9MFT40UTaxzWrMgyllivghFQxR8fR9CRX5KCYvDjpMCIulRLkLgNaaEsN9OmeBAIRob16ZSUYyncjUtdODHGv8JEt8le1wkYko4Qp65GkhzQaVzD6cvXzr9j20p7niMSCIljM7jokIY0g1eSqs/0H9653cPNAG9ajMAcOCQTwUBQ8NnvAZnNs009wRF4cUMyRLP3X39V1Lukrx2tKZOTbghW3XduM/WPGmzbTO4QRCTtaUuTpxYKelzYLVXvwfT/VAR0gaRX32OXb15/L673n1w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=En/yUf9IZBkB4xKITEIDv9ReMxigCkNcRMhPkyzBuZU=;
+ b=V0mLOuNkc2I1wU9VdLfawoe5rXP2Xg8RbmE2IqdXocPBp9Zqw09lRYfxTOUvMDydU+RgMfk6X5WG1Vn29VnaWHKnbXiVJz4XdEHviLmhmQelKpQB8bcuMn/ATIxgYBHqWx2k88t90TYhMIwndFeqZF1i5Us73ocW3QYZgTxQIej6ST3oR11C7EUujxUWNmSBLOwkwjZ/RqmGWqpQa4lm6lrY2iipP2W9HjM+niocHRKi+ZT6Be9UrKBhyM5AojEm7DAtI+lrTXqgwkVR0uBD9Kvc5VJbh5qlFCdGX5jmzjfS7C2F3snqIf3TSMDKCWsl0aEvwJgvXk9zZd6BB989mw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from VI2PR04MB11276.eurprd04.prod.outlook.com (2603:10a6:800:296::7)
+ by VI0PR04MB12188.eurprd04.prod.outlook.com (2603:10a6:800:332::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.18; Tue, 23 Jun
+ 2026 03:05:15 +0000
+Received: from VI2PR04MB11276.eurprd04.prod.outlook.com
+ ([fe80::60d7:a8e5:eb88:9be]) by VI2PR04MB11276.eurprd04.prod.outlook.com
+ ([fe80::60d7:a8e5:eb88:9be%5]) with mapi id 15.21.0139.018; Tue, 23 Jun 2026
+ 03:05:15 +0000
+From: "Sherry Sun (OSS)" <sherry.sun@oss.nxp.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	Frank.Li@nxp.com,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	amitkumar.karwar@nxp.com,
+	neeraj.sanjaykale@nxp.com,
+	marcel@holtmann.org,
+	luiz.dentz@gmail.com,
+	hongxing.zhu@nxp.com,
+	l.stach@pengutronix.de,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	bhelgaas@google.com,
+	brgl@kernel.org
+Cc: imx@lists.linux.dev,
+	linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-bluetooth@vger.kernel.org,
+	linux-pm@vger.kernel.org,
+	sherry.sun@nxp.com
+Subject: [PATCH V2 0/8] Add PCIe M.2 Key E connector support for NXP i.MX boards
+Date: Tue, 23 Jun 2026 11:07:27 +0800
+Message-ID: <20260623030736.1421537-1-sherry.sun@oss.nxp.com>
+X-Mailer: git-send-email 2.50.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI1PR02CA0056.apcprd02.prod.outlook.com
+ (2603:1096:4:1f5::7) To VI2PR04MB11276.eurprd04.prod.outlook.com
+ (2603:10a6:800:296::7)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAKT1OWoC/23MSw6CMBSF4a2Qjq3pG3DkPowxfVygEagB02gIe
- 7cwqtHhubnfv6AZJg8zOhULmiD62YcxDXkokO302AL2Lm3ECFNEEY51fdPB9ndsTCM5NdpZxVF
- 6f0zQ+NeeulzT7vz8DNN7L0e2Xf9EIsMEN6IEragCKKuzHvrQenu0YUBbJvKMUpJRnqgpZc2cs
- pwC+6Uip1VGRaJS1Y4IJkES+03Xdf0A4g99gxgBAAA=
-X-Change-ID: 20260603-a9_aoclk-bbf531badc63
-To: Neil Armstrong <neil.armstrong@linaro.org>, 
- Jerome Brunet <jbrunet@baylibre.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Xianwei Zhao <xianwei.zhao@amlogic.com>, 
- Kevin Hilman <khilman@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Jian Hu <jian.hu@amlogic.com>, 
- Conor Dooley <conor.dooley@microchip.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1782183350; l=1916;
- i=jian.hu@amlogic.com; s=20260415; h=from:subject:message-id;
- bh=hTKmrhhlidg806logJAbmCAaNns/K6kFJIOELIiijRg=;
- b=jJjPS3zddbBehGs303rgybAFS1kns9gRA3zFjqikT3LQs3XwlfXMxlleEnKZhtltGN3udEO1x
- ZvvCnYqKb+KC2U8DgTRXShEt3aIH59ZwT5ONiYh64Z78msRD1vfa8+y
-X-Developer-Key: i=jian.hu@amlogic.com; a=ed25519;
- pk=zHUE+rNtH9z+Sb8au1/elWknjFQmy5QDVkBoxleuOIA=
-X-Endpoint-Received: by B4 Relay for jian.hu@amlogic.com/20260415 with
- auth_id=735
-X-Original-From: Jian Hu <jian.hu@amlogic.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: VI2PR04MB11276:EE_|VI0PR04MB12188:EE_
+X-MS-Office365-Filtering-Correlation-Id: 56b59244-ed90-4f61-3467-08ded0d43f3c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|366016|19092799006|23010399003|921020|6133799003|18002099003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: IO7dFASUo5b1ndMWaemCSw4iZEmRklo9n7K2lzzFMJS9sjj9fmqWPfoYmH6BdpJMtDuub1gtr9b2gg2jbL0ipo5X8WCLyRr4mYU3oRVL9ULUWqoaiBMKXtShMo0FTPVBnTYniZ31j1EkxpGkpBQ39AKcTrhcOdhljc5LBfKLDN6bm5Z9+FQRREukC11QyYoZa30THRtsNdCYt8XuO3N/Bk0/BmZ/Ve2yONUrDq9V04CinOIzTe0I811Lpqa5S06z+KEXwv+bHI8Wc98zv7C9V1Lvi0MhTtg+PytAH+Sf8tzaymElCeSWjLXIYMdBv4FAiZOwlte5hQJbxe6LbtIF/mvRKr78Ma0WeuO7NGbWRX0hF2GoEBNnSXzAWWB8hgsXj2T8+E7UvyxQnLx+exiQxyLqeT5XVPcK9x/BqCa+ikzL7y6+cS06L2B52S3IhLohKsm/I1GH/tYvhOlgs+7p8ASN+f6J+mX/BnfN5cKp7geYoHr8w82uREri02CRMqMRztDuJfqAcS05E1+N4mMKZrxWlBtM5MzsgLs/dDZzhwxvqlrnjOPH5FBGvv8vtAjnsT2/zjqqZa04sVwdkSm/+keCHzbbz+8onAEQnFvqv7A99IL8QA1RsqmIP7e7RuQVMbsGIIOMogMEgRZldjhFjtw4nJv8zH0mmcPngmU1pRGOkpRkvBJZ9Hu37IfqvAP28EL76tKWSr5dgdqMVKzddg==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI2PR04MB11276.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(366016)(19092799006)(23010399003)(921020)(6133799003)(18002099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Jj3pdV/uwL0ocbKrEu0zzvFlCDumwV32dQxyrWaAgN5tY5yMwrOboruzRUvU?=
+ =?us-ascii?Q?k1/ngtLB3DTc2cg51yhyaZR24Y2sJ0ydqdWnBTGFqarVaUsVLI2e1y3c7QX1?=
+ =?us-ascii?Q?rJdRxft6Sa874icaOfCaYup0biDoyk/uBRTX7pWzJiLzbtBmxDbAfcLyvvY5?=
+ =?us-ascii?Q?nRca/7d2hak80ODtQVGcg+E8EIrDDa5CvDaJiCjGeNJU4VvBNK147sHZipxU?=
+ =?us-ascii?Q?TNfX6BS+yo8Q9t8hFb69m9lXUjgUxp9oKfEhYodD4JFb3wvGVgENToiiP0h/?=
+ =?us-ascii?Q?9hs8J6gqQubkLscR6TFCv7bDRnHz3tEb/kEqoIcoavPT6JqJikMIA2NtOyS5?=
+ =?us-ascii?Q?6EEhpo/NrNkk1vOv3MHeW8qIZA5sniUF/3eRKh9Sx99TxEmsL0T38qUA9oJQ?=
+ =?us-ascii?Q?UMRLre+QwD4j/3TntE9IPfenIpe8u++c5mN2ItU/5nTWcVYQvoiKVTfmKwIF?=
+ =?us-ascii?Q?O3E17UQsnLKDaW2AgjQ6j+qntFUMu9bOdcnMcuAv7H+SvJG2oO6dhk1SRKtU?=
+ =?us-ascii?Q?l+SaNlCLhnB4nc4+ojSmvVv29y8O2tnLx0M5Ob77AI4Y4NGbSAIkXZe3rTB+?=
+ =?us-ascii?Q?WvVeM3JECBHhtjlBhoyEwAbA4SS143576GHoNT/xL6O61tbmaQhnjBEed+MB?=
+ =?us-ascii?Q?Q1hqlqrRXFl5jcLOvSml95zp1ORinyJQg3vNgq4qJ9SD/ewKa5/kprS9S5qB?=
+ =?us-ascii?Q?V0P0qFE63D84YXSvt5og9I7EaMb1FQPuxk6nkmvF5os2JD/iA5C52Xzf06jy?=
+ =?us-ascii?Q?aAeDx9MzAULYyiuAZo4zlF4q2+ztKyILCon661uFBiZ1uJIJH8hAR6LYVukN?=
+ =?us-ascii?Q?V152VxVEPPPlqXEyN40o3lbId8sn705j4MLiajJA96hVjvnHS+nWj4YioUc4?=
+ =?us-ascii?Q?PD4gkARgsvn8f9hULgyrUNZ/VqbYWDSA1vGV+G5a29joDXQ/KN8e1nJ6d7Ct?=
+ =?us-ascii?Q?JSIVGjAjUvu3AMd0YjQb/UhQi9qRnU8Gevme0Nf+mYj3EP2YtGFedCjzeIo6?=
+ =?us-ascii?Q?3IO+A682PdRQ7qjNChvyicySzZ0g3vDS37cMP6LQj+Tk+GuDUSTCoGuIubMb?=
+ =?us-ascii?Q?x0DCxWRPsT45u3qArbRaYFlcjqMQE1vFfX6AOr0r3BzN01NmdqlENEVvF35Z?=
+ =?us-ascii?Q?//yzaruHFZWWiWbbHdTvaXs8rGPyumOFc/iIibNgjgrErQndNzGgi+HiTwwF?=
+ =?us-ascii?Q?g3RHB2P7NZBWrzxjlL2cB0gmfZGHTa8XJJw6GDMdBRRgSq2J/yUOmYRr9V1L?=
+ =?us-ascii?Q?dCgMfg+OnQCJC7cYbrnISTELzfACnGXpYTQdwoIC7XZNBKz4KRGZB8/pgFIP?=
+ =?us-ascii?Q?8YDKEhyHGmeFJhqm4rcE2ymgDpMXmJsbO/ijZLhvgoEXyZAfvhW+C2B8oUPW?=
+ =?us-ascii?Q?dSrptLqlwMTVuhCEiFCUjaeSISAZynXBqRfb7PO+fEKjE4UKtOWpMSAC3tm1?=
+ =?us-ascii?Q?UpJa+g189Ml4OceHl5AfZRBE94awzxBG1oHeePL0ochlcbhI5zhgmYBIZzyG?=
+ =?us-ascii?Q?b6ajnex+J9zHPDkqoesK9hV4mQ61eYLrvqqzxNNKv8GmCfrRcxkw+WrZtzbu?=
+ =?us-ascii?Q?qO5peFoELugotwD7LcVYBMSBViD4K5Y6TENMxvJHS9+aEmzfSY8jwFUAOaxj?=
+ =?us-ascii?Q?yKFueLd69KkrMY+u2sMMJaTWfNnpTqoWn4TV0RpG9xWjMw7IBSf7XJPPxfaT?=
+ =?us-ascii?Q?eIio6YFyam0Rpv2J9vXCVjoLW2DNFJMZlIwOAL8jLBgsP3f0oXjYGUrhCzHN?=
+ =?us-ascii?Q?3djb6DAH6WdrSK9U3aWpLldEH3Ia7X/SdJ7SFhXJ7ASfJ+FR5uz8?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 56b59244-ed90-4f61-3467-08ded0d43f3c
+X-MS-Exchange-CrossTenant-AuthSource: VI2PR04MB11276.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jun 2026 03:05:14.9895
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 6mZx8MekaLWZbhbgHiQ1DzWRw2moGbCw3mkoW73wWsGzhFdPnFK867nofdsXTKVsizOHRBlTyhD7neoH6MVDHCltIX42JKp4fyYOh3BMJdc5PWrzeZdHax+DLl4CqCgv
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB12188
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260622_200524_327090_DA790C3B 
+X-CRM114-Status: UNSURE (   9.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,59 +155,57 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: jian.hu@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds Amlogic A9 AO clock support, including dt-binding and AO clock driver.
+From: Sherry Sun <sherry.sun@nxp.com>
 
-Signed-off-by: Jian Hu <jian.hu@amlogic.com>
----
-Changes in v5:
-- Include <linux/module.h>.
-- Correct duandiv name.
-- Link to v4: https://lore.kernel.org/r/20260618-a9_aoclk-v4-0-569d0425e50c@amlogic.com
+This series adds support for NXP Wi-Fi/BT combo chips (88W9098, AW693)
+inserted into PCIe M.2 Key E connectors on several i.MX EVK/MEK boards.
 
-Changes in v4:
-- Drop CLK_IS_CRITICAL for ao_xtal_in clock.
-- Drop CLK_HW_INIT* and revert to explicit clock declarations.
-- Link to v3: https://lore.kernel.org/r/20260610-a9_aoclk-v3-0-b7592d6c31e2@amlogic.com
+For M.2 cards that rely on PCIe L2 link state and wake-up mechanisms, the
+card must remain powered during suspend. Patch #1 uses the existing
+dw_pcie_rp::skip_pwrctrl_off flag to skip power-off during suspend and skip
+power-on during the init path.
 
-Changes in v3:
-- Move COMPILE_TEST after 'depends on ARM64' reported by sashiko-bot.
-- Rename i2c3 to i3c reported by sashiko-bot.
-- Reword the comment describing ao_xtal_in's flags.
-- Use struct clk_init_data to describe ao_xtal_in's hw.init.
-- Link to v2: https://lore.kernel.org/r/20260603-a9_aoclk-v2-0-f47ea616ee78@amlogic.com
+Also the btnxpuart driver is extended to obtain a pwrseq descriptor via the
+OF graph on the UART controller device in patch #3.
 
-Changes in v2:
-- Split the A9 clock driver and send the AO clock separately.
-- Rename aobus to soc.
-- Use CLK_HW_INIT_FW_NAME to describe clk_init_data.
-- Use CLK_HW_INIT_PARENTS_DATA to describe clk_init_data.
-- Use a9_ao prefix for MESON_COMP_SEL.
-- Correct duandiv name.
-- Fix pwm b reg.
-- Link to v1: https://lore.kernel.org/all/20260511-b4-a9_clk-v1-0-41cb4071b7c9@amlogic.com/
+Note: Patch #4-8 in this patch set depends on the following [1] and [2]
+DTS patches.
+[1] https://lore.kernel.org/all/20260616105201.3214395-1-sherry.sun@oss.nxp.com/
+[2] https://lore.kernel.org/all/20260520084904.2424253-1-sherry.sun@oss.nxp.com/
 
 ---
-Jian Hu (2):
-      dt-bindings: clock: Add Amlogic A9 AO clock controller
-      clk: amlogic: Add A9 AO clock controller driver
-
- .../bindings/clock/amlogic,a9-aoclkc.yaml          |  76 ++++
- drivers/clk/meson/Kconfig                          |  13 +
- drivers/clk/meson/Makefile                         |   1 +
- drivers/clk/meson/a9-aoclk.c                       | 489 +++++++++++++++++++++
- include/dt-bindings/clock/amlogic,a9-aoclkc.h      |  76 ++++
- 5 files changed, 655 insertions(+)
+Changes in V2:
+1. Rebased on top of 7.1.0.
+2. Removed the power_off error handling in patch #3 because pwrseq_put()
+   would call pwrseq_power_off() to automatically clean.
+3. Collected the tags.
 ---
-base-commit: ca89c88bcf69daca829044c638a8163d5ce47af0
-change-id: 20260603-a9_aoclk-bbf531badc63
 
-Best regards,
+Sherry Sun (8):
+  PCI: imx6: Add skip_pwrctrl_off flag support
+  power: sequencing: pcie-m2: Add PCI ID for NXP 88W9098 and AW693
+    Bluetooth
+  Bluetooth: btnxpuart: Add M.2 Bluetooth device support using pwrseq
+  arm64: dts: imx8mq-evk: Describe the PCIe M.2 Key E connector
+  arm64: dts: imx95-19x19-evk: Describe the PCIe M.2 Key E connector
+  arm64: dts: imx8dxl-evk: Describe the PCIe M.2 Key E connector
+  arm64: dts: imx8qm-mek: Describe the PCIe M.2 Key E connector
+  arm64: dts: imx8qxp-mek: Describe the PCIe M.2 Key E connector
+
+ arch/arm64/boot/dts/freescale/imx8dxl-evk.dts | 56 +++++++++++++-----
+ arch/arm64/boot/dts/freescale/imx8mq-evk.dts  | 44 ++++++++++++--
+ arch/arm64/boot/dts/freescale/imx8qm-mek.dts  | 58 ++++++++++++++-----
+ arch/arm64/boot/dts/freescale/imx8qxp-mek.dts | 54 ++++++++++++-----
+ .../boot/dts/freescale/imx95-19x19-evk.dts    | 55 +++++++++++++-----
+ drivers/bluetooth/btnxpuart.c                 | 14 +++++
+ drivers/pci/controller/dwc/pci-imx6.c         | 36 +++++++-----
+ drivers/power/sequencing/pwrseq-pcie-m2.c     |  4 ++
+ 8 files changed, 248 insertions(+), 73 deletions(-)
+
 -- 
-Jian Hu <jian.hu@amlogic.com>
-
+2.50.1
 
 
