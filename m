@@ -4,79 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52D05CDB470
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 08:34:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5107CDB470
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 08:47:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y0a7WddgUQ/5f5obr2F/RzKsHSRjgorUSTkuUO5qnKs=; b=R/su5+z7xRUw4+JIC/ZInLDy62
-	ISgCMEZvPPKcFpqnXqDvgdvOHI1zTVed71VrsnXLSI6B+RXEeCY1Ayh7P6ZmdI3y2/z3xn2EXEgqk
-	ICedkLqCznbniNMg/m9rGf7NV6U1/Xakta0x0M+sj+Rs3Vt2+wXuH8EgvVwrrTgZH1UHpeubLqu6n
-	FEaGboEx2T947I1rdnW6ML+oKuumgCsguvoD+4/QoWAndsVY/e+QdOtCCTZVvY2H1HDGhjIUGa9iH
-	fDP1N8TPMDv1UHndJ7liBfuk6NjuVZqG2Mr1b54+qmqGSvabEBOehSitvtv4oFyANQ4BoaCknucWu
-	tK4xsctw==;
+	bh=WIwTC0VHw0jMFTXrlPYu0EBk9AhpcmV7JfkqaZxHCBE=; b=4bJAgFxczoA3rtVw1+bpNNAFkb
+	/1vFG0QjKSVIO5/iE3WECThcIYWTdZsBWRINvthTadzTeR5HAm3buKzuLaM04Atzshnp4ii/Ch9fY
+	9faAvxrIOhxyo8UHFYAl7t+2gpX1KqMjJz2xY0V384AL1T59QwbMxnOjMwPbd9cIwQJO4NQc/Lgwp
+	gKy2Qy7UWsXNB8hrYwLNuT5x7rpR+GX5o9T0/BYpRwtxsVx3qvWLOwtkQKAWcYyb3kYv4i3VyCVw5
+	zke/lV66TBlLz7Y0iS9In61D/+xKVcBWvqd5rOakHtCUdz4Sex0UZoV1gur7HX71ylmXks7JnETYS
+	9l9ty1JA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbwaZ-00000005v3i-3XwY;
-	Tue, 23 Jun 2026 08:34:35 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wbwmd-00000005vmw-461o;
+	Tue, 23 Jun 2026 08:47:04 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbwaY-00000005v3N-0Osl
+	id 1wbwmc-00000005vme-30Bg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 08:34:34 +0000
+	Tue, 23 Jun 2026 08:47:02 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7E9C9434DD
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 08:34:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6166D1F000E9
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 08:34:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 11D5540199;
+	Tue, 23 Jun 2026 08:47:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0538E1F000E9;
+	Tue, 23 Jun 2026 08:47:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782203673;
-	bh=Y0a7WddgUQ/5f5obr2F/RzKsHSRjgorUSTkuUO5qnKs=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=Kt2HkJH49eUMpNp44hmnOsa/cj6zhemVuoKImAOY34KH6f9vjiJzR4lc64xOMI395
-	 pROr+wwCuXnTUxcAUy96A3/+dC8P5yx/s1evQTV0qPDP47yl1XE+oTBdKF4+v6kJdD
-	 x91TxytHaTJPncL654CBHV/3vxCbzT0KwOic99hwZ2ys+w++j9Zg+H2rwzYT8Torku
-	 1dNDaZoDAMYqiCvp0U2xdynE0G4rqJnfeUBtJBBoFbQx5CTs2VhtWrK0hx/DUz6hDI
-	 j6+KqqA7WF4tuITdQAiyAMzgZu2/0RAzFvojQakjwCzfGglcDjEqb+ULCi9n5SbeZg
-	 5TdZbr0BUDOrQ==
-Received: by mail-dl1-f44.google.com with SMTP id a92af1059eb24-139aff562e1so3084245c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 01:34:33 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ/TfDTFpHrLqPnJ9ytRvn7SxnbnvRfI5d3fWv/YttYxCLZSqneAQ1TWMjuA8cXEeA4aJCDZL3O0BCKAi6lYbe1c@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyh9XJIzdDvYRzyKo7uloFJVHNI1dXhc4XSGOWt2ExJoBdrB0Si
-	Aoh9+aYaB4rZzrLn/anvEzAHBXooXQVJzuRDSc/hmOyNtpPM8CtCiRqN3FnoOOY4uO8XayxjJ/V
-	yVrFdgpBrQnM4iNdP4vKQinzcB4B+A+9aSoeUakl28w==
-X-Received: by 2002:a05:7022:439d:b0:139:90ab:36c8 with SMTP id
- a92af1059eb24-139c6ebeb63mr1076352c88.1.1782203672876; Tue, 23 Jun 2026
- 01:34:32 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 23 Jun 2026 01:34:28 -0700
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 23 Jun 2026 01:34:28 -0700
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260623030736.1421537-4-sherry.sun@oss.nxp.com>
+	s=k20260515; t=1782204421;
+	bh=WIwTC0VHw0jMFTXrlPYu0EBk9AhpcmV7JfkqaZxHCBE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=jYxRw6uwNPYdz2dtcmIZFKkjSmnce0AkzA2cipbsc8XfB7+QQrrLm9S3oXC3rR2He
+	 4+JUClOGBhD684EXgDlTruzwYKbBNBwS0fr2on/Ik4F5iHhGidQ/a6jLHJ1Ik2UclH
+	 5O5c1XcsbmFL9/1NEmzqwfVClgVUnUUHHUvM/Y26f74bZYVDdNoSLWzODeIqcVchHV
+	 rcVqwq/zWumw/mNQ+m3R1QQ9k+1Em/hi/DsP8BLjFIqwXq2evXe+5/FVqUhcSFaw2e
+	 KdxXZzxudLMBrS1boAHEUv8hs0863UZrsaDIgBNeNw+kMFuLkM6nYyBe/dOBVAX9+y
+	 H3zgr4szmz/0g==
+Date: Tue, 23 Jun 2026 10:46:57 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Linus Walleij <linusw@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Ulf Hansson <ulfh@kernel.org>, Mark Brown <broonie@kernel.org>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
+	Lee Jones <lee@kernel.org>, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-pm@vger.kernel.org, dri-devel@lists.freedesktop.org, dmaengine@vger.kernel.org
+Subject: Re: [PATCH 02/11] dt-bindings: Add the actual power domains on U8500
+Message-ID: <20260623-just-grinning-peccary-d661ca@quoll>
+References: <20260618-ux500-power-domains-v7-1-v1-0-eb5e50b1a588@kernel.org>
+ <20260618-ux500-power-domains-v7-1-v1-2-eb5e50b1a588@kernel.org>
 MIME-Version: 1.0
-References: <20260623030736.1421537-1-sherry.sun@oss.nxp.com> <20260623030736.1421537-4-sherry.sun@oss.nxp.com>
-Date: Tue, 23 Jun 2026 01:34:28 -0700
-X-Gmail-Original-Message-ID: <CAMRc=McH-x5Td=60pMNUOmT-rZ3Xz4PvvKFK=8CMwESMOm4iag@mail.gmail.com>
-X-Gm-Features: AVVi8CdbY5Iy4YQ3Oz-eyh9mfYSh4JWVxu6-pYJlwg1EFWjmAS3iyrKv35O8gr4
-Message-ID: <CAMRc=McH-x5Td=60pMNUOmT-rZ3Xz4PvvKFK=8CMwESMOm4iag@mail.gmail.com>
-Subject: Re: [PATCH V2 3/8] Bluetooth: btnxpuart: Add M.2 Bluetooth device
- support using pwrseq
-To: "Sherry Sun (OSS)" <sherry.sun@oss.nxp.com>
-Cc: imx@lists.linux.dev, linux-pci@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-bluetooth@vger.kernel.org, 
-	linux-pm@vger.kernel.org, sherry.sun@nxp.com, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, Frank.Li@nxp.com, 
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
-	amitkumar.karwar@nxp.com, neeraj.sanjaykale@nxp.com, marcel@holtmann.org, 
-	luiz.dentz@gmail.com, hongxing.zhu@nxp.com, l.stach@pengutronix.de, 
-	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org, 
-	bhelgaas@google.com, brgl@kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260618-ux500-power-domains-v7-1-v1-2-eb5e50b1a588@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,19 +75,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 23 Jun 2026 05:07:30 +0200, "Sherry Sun (OSS)"
-<sherry.sun@oss.nxp.com> said:
-> From: Sherry Sun <sherry.sun@nxp.com>
->
-> Power supply to the M.2 Bluetooth device attached to the host using M.2
-> connector is controlled using the 'uart' pwrseq device. So add support for
-> getting the pwrseq device if the OF graph link is present. Once obtained,
-> pwrseq_power_on() is called to power up the M.2 Bluetooth card. The power
-> sequencer descriptor is obtained via devm_pwrseq_get(), so the power-off
-> and cleanup are handled automatically when the device is unbound.
->
-> Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
-> ---
+On Thu, Jun 18, 2026 at 07:00:48AM +0200, Linus Walleij wrote:
+> This file has been left in an unfinished state just defining
+> the root power domain for the U8500 SoC. Fix it up by adding
+> the actual existing power domains in this SoC.
+> 
+> The PRCMU code and old regulator driver is mentioning some
+> *_RET domains, this means "retention" and is a state in the
+> domain and not a domain of its own.
+> 
+> Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
 
-Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+From/SoB mismatch.
+
+> ---
+>  include/dt-bindings/arm/ux500_pm_domains.h | 17 ++++++++++++++++-
+>  1 file changed, 16 insertions(+), 1 deletion(-)
+> 
+> diff --git a/include/dt-bindings/arm/ux500_pm_domains.h b/include/dt-bindings/arm/ux500_pm_domains.h
+> index 9bd764f0c9e6..1c168e59ac90 100644
+> --- a/include/dt-bindings/arm/ux500_pm_domains.h
+> +++ b/include/dt-bindings/arm/ux500_pm_domains.h
+> @@ -8,8 +8,23 @@
+>  #define _DT_BINDINGS_ARM_UX500_PM_DOMAINS_H
+>  
+>  #define DOMAIN_VAPE		0
+> +#define DOMAIN_VARM		1
+> +#define DOMAIN_VMODEM		2
+> +#define DOMAIN_VPLL		3
+> +#define DOMAIN_VSMPS1		4
+> +#define DOMAIN_VSMPS2		5
+> +#define DOMAIN_VSMPS3		6
+> +#define DOMAIN_VRF1		7
+> +#define DOMAIN_SVA_MMDSP	8
+> +#define DOMAIN_SVA_PIPE		9
+> +#define DOMAIN_SIA_MMDSP	10
+> +#define DOMAIN_SIA_PIPE		11
+> +#define DOMAIN_SGA		12
+> +#define DOMAIN_B2R2_MCDE	13
+> +#define DOMAIN_ESRAM_12		14
+> +#define DOMAIN_ESRAM_34		15
+>  
+>  /* Number of PM domains. */
+> -#define NR_DOMAINS		(DOMAIN_VAPE + 1)
+> +#define NR_DOMAINS		(DOMAIN_ESRAM_34 + 1)
+
+In a separate commit, instead you need to drop NR_DOMAINS and move them
+to driver. If this changes, then it is not ABI. We did similarly for
+many clock bindings/drivers.
+
+Best regards,
+Krzysztof
+
 
