@@ -4,62 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10378CDB470
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 20:27:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CF00CDB470
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 20:28:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ie03j2TujfKNZ9SmiUM47+g20ngBeN5app0Z2aJgO5o=; b=QWjO99iVnYTOVe209f3+gjpTC2
-	D2H5FCpSidoWeGPb1Xa7MTXXomKXpoFuMmFmn28HOmBGFC0TMNHPwzF2CmWOs+SOQqeYEYBtK0bVs
-	dV9dk5gycBAMOVABD1U0vc1Ow6OylUrzAjy3SXapYx5Nagwvnz2ZMKEz6G1MpK5xjknsfUXwuls1D
-	VkdhwG6e3KYZnk0izBvczNl32R9x+6Im9r6SimxwZ8eVwV4PSM3U81I9K879C8hVQovDh+u3JUdCj
-	Q8+eZv9LD9iB3D5VtAvKOpuaLY775mRGeU2d4a2TXvvCm409nWau69MON46r5P+K5tJyfKOHZUt+A
-	Hcw26xBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=egV2Cj27OGtBaELQk+zCjLaNq17lbZGojv4n+pNUxY4=; b=FxKViWiQCesV7iMx9D7WFDNREq
+	wU5WNyYc37rXwN64xKYm/vnHsKRVWTmeJPNGyHyYD6RL+4SBRFVWeUFu5kLWdIXZyiVWYfdwcUf0Z
+	VX1vfuy67Y6r3f+fv0VYmp05h/RADErU7zvzJoHSrfA/8D4WsOph/fNyBYblgf5KiceXfPSeYyiJP
+	rYIUpMBEKcwDzS9DqeGJ6epgU8SVxJcZm/T81MO/e9CBg8towyHFrGagUmYO6bm0k0sqPBbHZ46Ow
+	uwRVZonISdtSxoavIl/1vE6k+pnUHEvJ9cF/Okszh0HMO/yc5HjNrdmO7UzQTZJ5Ar91JCw52qeyT
+	wVEboW1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc7hw-00000006qT5-3ofe;
-	Tue, 23 Jun 2026 20:26:57 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wc7jT-00000006qf1-0QCS;
+	Tue, 23 Jun 2026 20:28:31 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc7hu-00000006qSk-42as;
-	Tue, 23 Jun 2026 20:26:55 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 291BE60008;
-	Tue, 23 Jun 2026 20:26:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3FEB11F000E9;
-	Tue, 23 Jun 2026 20:26:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782246413;
-	bh=ie03j2TujfKNZ9SmiUM47+g20ngBeN5app0Z2aJgO5o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=SdV3vIl1abrSY17gzTT9hztTEbhwquYA6Vs7OUZpc94JI6ISBgsnmR1vFRzYAbNF7
-	 9Tr2FIHpVBlYa6NElHKrnxsvp4Pi62ZRiu6ZcNK/Ddnb9d+0N55yg70A7Sc3OAmmuo
-	 gGH+W4Rk+ut9YdHxepJ2JBs3Fgot++hdLbyAB+Ue1wEYl/JBrUyiS4KBsgbj99LLj1
-	 JuKTNkbso/iyDMuwzRNmR+ilwZL9W66z6iWVP0IYIXe4oSGIeh+mhOSbn0eoQ0BsNF
-	 pWx8lZpIIBAwvItYGkl8IE2xb8GXHH9TV3F1Zon8KTDKEA9NP2ugzAVfCv6XE10pKo
-	 tuRPBdR9JzcXw==
-Date: Tue, 23 Jun 2026 22:26:50 +0200
-From: Andi Shyti <andi.shyti@kernel.org>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	freedreno@lists.freedesktop.org, linux-i2c@vger.kernel.org, linux-pm@vger.kernel.org, 
-	linux-leds@vger.kernel.org, linux-media@vger.kernel.org, linux-mmc@vger.kernel.org, 
-	linux-phy@lists.infradead.org, linux-gpio@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	linux-serial@vger.kernel.org, linux-sound@vger.kernel.org, linux-usb@vger.kernel.org
-Subject: Re: [PATCH v2 2/2] dt-bindings: Drop incorrect usage of double '::'
-Message-ID: <ajrr5pWNSmx4K-Dc@zenone.zhora.eu>
-References: <20260623054842.21831-3-krzysztof.kozlowski@oss.qualcomm.com>
- <20260623054842.21831-4-krzysztof.kozlowski@oss.qualcomm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-15
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260623054842.21831-4-krzysztof.kozlowski@oss.qualcomm.com>
+	id 1wc7jQ-00000006qeV-11mT
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 23 Jun 2026 20:28:29 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-490b2f22ea2so1960875e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 13:28:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1782246505; x=1782851305; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=egV2Cj27OGtBaELQk+zCjLaNq17lbZGojv4n+pNUxY4=;
+        b=HWhPxKQqzHf/e0ta9q3TcvL9Kf9/ulxNL5LJc0dmDDzb2jTdPJGGRop80uLnxNew+/
+         3OZvao3+1mLTaI2FSJUkVZrd8NPWi6H11PDLkLxAPhjtgiAwfsMcLqeCBBCJDulrZlNu
+         yANBZ5W7m+i3u57F+ZiNFr3Xetpf+xaLpURgDbc1ZQ0Ky3lnSXl914Kd1jP/VZ6wWuAr
+         zoPCsfP1tSjknm20y8+BCPtjbvx5blavgyQgRlfqtEVrVAz9R0CuiDCEL9lPnCcZ+jj+
+         KcBEQ94Yj/6C+LdJQT2hn7Qr2ND/4IOTstqe7QtASHJFQLT1051yUpAwLgXtCUqSssAb
+         DCaw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782246505; x=1782851305;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=egV2Cj27OGtBaELQk+zCjLaNq17lbZGojv4n+pNUxY4=;
+        b=fNtSL9AmAzouENLcWVjsQdS+jFmdQFIBl/blvYE9BCRQ9ydaOfV/0nMivZ9ajGj9xY
+         8BnEZ5A13J8Iu5BTZVvbiby8aCmycrVgBRP2zpVu36LIZfixEyS+2HBuIuEeSIIEMGYi
+         eodEZrAzb2DlyKckGZRYGUUjT7jT/675LQi0abI4NikQ/wGC0A1zkr5//DlRmVjSnsMH
+         EOw2pY8OexVAFRwxfhbRZvl6/wxNPIH6XDZSQqLS7HPijaqlpBeQjZA/yDc/jGn7FMFA
+         8YhGJgUSLMWyioyBs25Iv1uRDxUF+qxW0zNaG2p3lgB/p+wOYTPdWNapvUXaod92G/k7
+         3V4Q==
+X-Gm-Message-State: AOJu0YxAJbj36ZKRZe4GXIFv/LiOoVdWPXcpDnjx8GvzajwP8gYiyuKH
+	v/AIjwk5YGY4tmUvnCGgZ0TBs1myvJkHGM6jdsvDrh5DOJKeOMyj8WeuEwOOMoCgGbO3VPxlQNZ
+	Qmne5rK89OfctR649BHMkyq0NHo8sWtn+6bgJ3HFsetho5mv1YOuRCCSFn6MBO++TAPzuawaUDs
+	4Lvd0JGBxcIMSk7oErGbv2G3B42tYB8XTRFmOXI9Ps1xEe
+X-Received: from wrbfr5.prod.google.com ([2002:a05:6000:2a85:b0:468:7f36:9f66])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:4ec8:b0:492:5e21:458b
+ with SMTP id 5b1f17b1804b1-4926084aad6mr3025575e9.8.1782246505129; Tue, 23
+ Jun 2026 13:28:25 -0700 (PDT)
+Date: Tue, 23 Jun 2026 22:28:18 +0200
+Mime-Version: 1.0
+X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2520; i=ardb@kernel.org;
+ h=from:subject; bh=BHcLpzq4nDfnEcAf94/iXBUylDTH/0C5UUQpTrqyW+8=;
+ b=owGbwMvMwCVmkMcZplerG8N4Wi2JIcvqTVLFl+23LVfnaEyRF9F2EeHYcvTqYZmm10vfTRLb2
+ 9fLfrexo5SFQYyLQVZMkUVg9t93O09PlKp1niULM4eVCWQIAxenAEzE5SfDL+Y/zRfe1rCmTZDa
+ zsymlaP37MDNHXd2zBZ6FfZr3c+SlGsM/xMuHo8+J67xUso/ztnrklrR7ykPKla8ZkkpuBJ3bS9 7GxcA
+X-Mailer: git-send-email 2.55.0.rc0.799.gd6f94ed593-goog
+Message-ID: <20260623202817.2225495-2-ardb+git@google.com>
+Subject: [PATCH v2] arm64: mm: Defer read-only remap of data/bss linear alias
+From: Ard Biesheuvel <ardb+git@google.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org, 
+	Kevin Brodsky <kevin.brodsky@arm.com>, Ard Biesheuvel <ardb@kernel.org>, 
+	Fuad Tabba <fuad.tabba@linux.dev>
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260623_132828_302758_855DBEDB 
+X-CRM114-Status: GOOD (  15.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,28 +93,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+From: Ard Biesheuvel <ardb@kernel.org>
 
-On Tue, Jun 23, 2026 at 07:48:44AM +0200, Krzysztof Kozlowski wrote:
-> There is no use of double colon '::' in YAML. OTOH, the literal style
-> block, e.g. using '|' treats all characters as content [1] therefore
-> single use of ':' in descriptions is perfectly fine, whenever '|' is
-> used.
-> 
-> Cleanup existing code, so the confusing style won't be re-used in new
-> contributions.
-> 
-> Link: https://yaml.org/spec/1.2.2/#literal-style [1]
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> Acked-by: Alim Akhtar <alim.akhtar@samsung.com>
-> Acked-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-> Acked-by: Niklas Söderlund <niklas.soderlund+renesas@ragnatech.se>
-> Acked-by: Mark Brown <broonie@kernel.org>
-> Acked-by: Geert Uytterhoeven <geert+renesas@glider.be> # renesas
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Since commit
 
-Acked-by: Andi Shyti <andi.shyti@kernel.org>
+  f2ba877402e5 ("arm64: mm: Map the kernel data/bss read-only in the linear map")
 
-Thanks,
-Andi
+the linear alias of the .data and .bss regions is remapped read-only
+early during the boot. (Note that a subsequent patch to unmap this
+region entirely was reverted just before the v7.2 merge window, and will
+be brought back in an improved form for the v7.3 cycle)
+
+Fuad reports that in some cases, the KVM init code may apply relocations
+to variables that reside in .data, and does so via the linear map. This
+means that remapping .data read-only beforehand is a bad idea, and
+results in an early boot crash.
+
+These variables in .data are only present when CONFIG_NVHE_EL2_DEBUG or
+CONFIG_NVHE_EL2_TRACING are enabled, which is why it was not spotted in
+testing.
+
+So move the remap to mark_rodata_ro(), which is a reasonable place to
+put this, and ensures that it happens much later during the boot. It
+also means that rodata=off is now taken into account, and so the linear
+alias will remain writable in that case.
+
+Fixes: f2ba877402e5 ("arm64: mm: Map the kernel data/bss read-only in the linear map")
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+Tested-by: Fuad Tabba < fuad.tabba@linux.dev>
+Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+---
+v2: improve changelog, add Fuad's R-b
+
+ arch/arm64/mm/mmu.c | 11 ++++++-----
+ 1 file changed, 6 insertions(+), 5 deletions(-)
+
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index 9f354971b7e4..1f7eca86b5c1 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -1198,11 +1198,6 @@ static void __init map_mem(void)
+ 		__map_memblock(start, end, pgprot_tagged(PAGE_KERNEL),
+ 			       flags);
+ 	}
+-
+-	/* Map the kernel data/bss read-only in the linear map */
+-	__map_memblock(init_end, kernel_end, PAGE_KERNEL_RO, flags);
+-	flush_tlb_kernel_range((unsigned long)lm_alias(__init_end),
+-			       (unsigned long)lm_alias(__bss_stop));
+ }
+ 
+ void mark_rodata_ro(void)
+@@ -1221,6 +1216,12 @@ void mark_rodata_ro(void)
+ 	update_mapping_prot(__pa_symbol(_text), (unsigned long)_text,
+ 			    (unsigned long)_stext - (unsigned long)_text,
+ 			    PAGE_KERNEL_RO);
++
++	/* Map the kernel data/bss read-only in the linear map */
++	update_mapping_prot(__pa_symbol(__init_end),
++			    (unsigned long)lm_alias(__init_end),
++			    (unsigned long)__bss_stop - (unsigned long)__init_end,
++			    PAGE_KERNEL_RO);
+ }
+ 
+ static void __init declare_vma(struct vm_struct *vma,
+-- 
+2.55.0.rc0.799.gd6f94ed593-goog
+
 
