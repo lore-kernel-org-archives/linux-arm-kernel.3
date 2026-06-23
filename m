@@ -4,65 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F19CCDB46F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E68BACDB479
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 14:25:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0QUJYWhSEioK+JAt/rckl71sDnr4lEuTQt7CEdx+e3o=; b=pfmXubGUbJWF7xH1FtKJGaRmxK
-	IK0cmb7tSTKtXi10mYwSAoH2DWl2yka1LzBADy9oYhEdeTWBXgx1jpDM9BrEXh3fXrK8P9yYqLsKo
-	mC0lvj2RHIN0BWCaDl1JkSkyD51vA3x+798BQ0JFhMHi7rHCdNj+VnazBFuILgSmHV7Ab7r1rPHSq
-	qD/xKaDlQomReToP1XAnESI3d7NxXuriEkSau3IUn+EvTA0r+dvRvAjJxo2fP7qe/Jn/gMNeJZE02
-	EJiVlMoPbjAHRTKGi/D89JsXvUP6lU4zUMCbTRi1Gxkp+EuEDfPyuJOH1G79QrhYmHiVd8UIneEK9
-	LF/IQh2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lu2CeWA+VPPS4JHI33aOrNdB+BaAOcR/Yw43TnwCPxs=; b=Dtb0cNN9OXxgi7rtsoliUAN+nr
+	Y55Yfa2zxNM7SP0U5igNgkaGen1d6e75HoF7KnwVzrcs/Xx7MzBiRDRKUx4k33lmLJQD+6TnnyAr8
+	BqDwa9SWCDkO+ISfJU/yWp9e76mHac0+vGpLozPBiEfvHhQI4/mSazWljAi+uGWQ4EBFHW+PnuF3A
+	/wp2njpryG16XgGzVjKQfx//+3noK1lcGczKTzNzLScR6wegtof4T3FMt9zn9RbgyFhuQ46fXP/yV
+	UTBmZyMMyCKbnTbv9JGOpYLQGx5eupKa1YeGfksEFravt33tySUO26C/LF8i5sTF10gbVdp18w/r3
+	pFVubXkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc24M-00000006QxZ-4AGP;
+	id 1wc24M-00000006QxH-3gMN;
 	Tue, 23 Jun 2026 14:25:42 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc24G-00000006Qus-2rt5
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wc24E-00000006QtZ-2YCS
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 14:25:36 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id EE0EC445E5;
-	Tue, 23 Jun 2026 14:25:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86B3C1F000E9;
-	Tue, 23 Jun 2026 14:25:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782224735;
-	bh=0QUJYWhSEioK+JAt/rckl71sDnr4lEuTQt7CEdx+e3o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=dEOl01gseLaYw5LEJsqiq7nPWzVvX7ahq/VzUohcNBiL8espLOdZ/6knQJdxJbIkJ
-	 OvKmz/HE5v06KqCWRCD1DRbOHiGJwKAqirEZdHQuIh9ICzEHghsRVKSK8TOOEhe6OQ
-	 UPKPeHfzw5fT+WucHX0EyyJ5pqHicns8ucgFmKaYH52dMIpTe6raxAIho/5EJyGJEc
-	 QhaIZp/FOV3OkclPTANdLJFA9kY8KgVmhhXl2YggRUrKjFeXkKPx3O+4nsvhO8FeAr
-	 0qmMSANtBpHNG86K2zv2P3AKPLFgrSnhXi/YoJUQBa9oxwZQ40Jo1y1ht2rTBFVc/B
-	 Oqh3Zklq1bTHQ==
-Date: Tue, 23 Jun 2026 15:25:30 +0100
-From: Will Deacon <will@kernel.org>
-To: Ben Hutchings <ben@decadent.org.uk>
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+	Tue, 23 Jun 2026 14:25:35 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 97CF328FA;
+	Tue, 23 Jun 2026 07:25:28 -0700 (PDT)
+Received: from workstation-e142269.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4D7913F632;
+	Tue, 23 Jun 2026 07:25:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1782224733; bh=fS10gyJD6hNVDlRCTCWqDlUxTE/CIecxG3GG47Iz4Hc=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=qybuawIiH4rO53oExfEHonQMUk6QW6NJ0OAPdfw6j/19po5bj0q9g4rkA7jwcZ1e1
+	 l3C6DbUardHveWQwDovZqlkiUpPUPDBS4ORBbTWAFN7beN9dojQ3TaGCvKFKRxtO7a
+	 QFMVKC8zbRqiQQtDErdFGijSLITt6U4RKXzqkxwo=
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Cc: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	"David Hildenbrand (Arm)" <david@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>, patches@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Sasha Levin <sashal@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	stable <stable@vger.kernel.org>, mark.rutland@arm.com
-Subject: Re: [PATCH 6.1 337/522] arm64/mm: Enable batched TLB flush in
- unmap_hotplug_range()
-Message-ID: <ajqXWqiAol6Shdd6@willie-the-truck>
-References: <20260616145125.307082728@linuxfoundation.org>
- <20260616145141.584613180@linuxfoundation.org>
- <b0d5836032ce3135bfc473f6bff791306d086925.camel@decadent.org.uk>
+	Will Deacon <will@kernel.org>,
+	Itaru Kitayama <itaru.kitayama@fujitsu.com>,
+	Wei-Lin Chang <weilin.chang@arm.com>
+Subject: [PATCH 2/3] KVM: arm64: ptdump: Store both mmu and kvm pointers in kvm_ptdump_guest_state
+Date: Tue, 23 Jun 2026 15:24:42 +0100
+Message-ID: <20260623142443.648972-3-weilin.chang@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260623142443.648972-1-weilin.chang@arm.com>
+References: <20260623142443.648972-1-weilin.chang@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <b0d5836032ce3135bfc473f6bff791306d086925.camel@decadent.org.uk>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260623_072534_699162_336E4D6D 
+X-CRM114-Status: GOOD (  13.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,44 +78,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jun 21, 2026 at 05:02:27PM +0200, Ben Hutchings wrote:
-> On Tue, 2026-06-16 at 20:28 +0530, Greg Kroah-Hartman wrote:
-> > 6.1-stable review patch.  If anyone has any objections, please let me know.
-> > 
-> > ------------------
-> > 
-> > From: Anshuman Khandual <anshuman.khandual@arm.com>
-> > 
-> > [ Upstream commit 48478b9f791376b4b89018d7afdfd06865498f65 ]
-> [...]
-> > @@ -949,15 +953,14 @@ static void unmap_hotplug_pmd_range(pud_
-> >  		WARN_ON(!pmd_present(pmd));
-> >  		if (pmd_sect(pmd)) {
-> >  			pmd_clear(pmdp);
-> > -
-> > -			/*
-> > -			 * One TLBI should be sufficient here as the PMD_SIZE
-> > -			 * range is mapped with a single block entry.
-> > -			 */
-> > -			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
-> > -			if (free_mapped)
-> > +			if (free_mapped) {
-> > +				/* CONT blocks are not supported in the vmemmap */
-> > +				WARN_ON(pmd_cont(pmd));
-> > +				flush_tlb_kernel_range(addr, addr + PMD_SIZE);
-> 
-> It wasn't clear to me from the commit message why this now adds PMD_SIZE
-> rather than PAGE_SIZE.  It seems like this change is fine for Linux
-> 6.13+ with a CPU that supports TLB range flushing, but otherwise results
-> in unnecessarily executing multiple TLB invalidations at intervals of
-> the base page size.
+In the nested case, the nested mmu could be freed when .release() is
+called, e.g. another process closes the ptdump debugfs file after the VM
+is destroyed. This causes a UAF when the nested mmu is accessed to reach
+kvm for kvm_put_kvm(). Store the kvm pointer in kvm_ptdump_guest_state
+so that it can be reached without going through the nested mmu.
 
-Hmm, the commit message also makes very little sense to me and so I don't
-understand why this patch has us doing multiple TLB invalidations when
-we run into a !cont, block mapping at the PMD level. The old comment
-(which this patch removes) should still apply afaict.
+Fixes: 204f7c018d76 ("KVM: arm64: ptdump: Make KVM ptdump code s2 mmu aware")
+Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+---
+ arch/arm64/kvm/ptdump.c | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
 
-Anshuman, Ryan, any ideas what's going on here?
+diff --git a/arch/arm64/kvm/ptdump.c b/arch/arm64/kvm/ptdump.c
+index 2a6afe67646a..a089e87ea366 100644
+--- a/arch/arm64/kvm/ptdump.c
++++ b/arch/arm64/kvm/ptdump.c
+@@ -19,7 +19,12 @@
+ #define KVM_PGTABLE_MAX_LEVELS	(KVM_PGTABLE_LAST_LEVEL + 1)
+ #define S2FNAMESZ		sizeof("0x0123456789abcdef-0x0123456789abcdef-s2-disabled")
+ 
++/*
++ * Nested mmus could be freed when .release() is called, so also keep the kvm
++ * pointer for kvm_put_kvm().
++ */
+ struct kvm_ptdump_guest_state {
++	struct kvm		*kvm;
+ 	struct kvm_s2_mmu	*mmu;
+ 	struct ptdump_pg_state	parser_state;
+ 	struct addr_marker	ipa_marker[MARKERS_LEN];
+@@ -133,6 +138,7 @@ static struct kvm_ptdump_guest_state *kvm_ptdump_parser_create(struct kvm_s2_mmu
+ 	st->ipa_marker[1].start_address = BIT(pgtable->ia_bits);
+ 
+ 	st->mmu				= mmu;
++	st->kvm				= kvm_s2_mmu_to_kvm(mmu);
+ 	return st;
+ }
+ 
+@@ -197,11 +203,10 @@ static int kvm_ptdump_guest_open(struct inode *m, struct file *file)
+ 
+ static int kvm_ptdump_guest_close(struct inode *m, struct file *file)
+ {
+-	struct kvm *kvm = kvm_s2_mmu_to_kvm(m->i_private);
+ 	void *st = ((struct seq_file *)file->private_data)->private;
+ 
++	kvm_put_kvm(((struct kvm_ptdump_guest_state *)st)->kvm);
+ 	kfree(st);
+-	kvm_put_kvm(kvm);
+ 
+ 	return single_release(m, file);
+ }
+-- 
+2.43.0
 
-Will
 
