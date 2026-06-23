@@ -4,142 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27C74CDB46F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 16:36:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97333CDB471
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 16:38:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xA0Pw5Ltim7xa7TG+yFu6in4RZDMahQ0O7HSJsSCKNo=; b=nY9e+roc2mIlpacvogXuuTeCr9
-	DNMUlcXJo6zOpZ8Ef0hYz1vpjduBXV5mH/ZNN2PBNi1CddIIQfeBGHjsWTGS6DSdMXOT3tTOlL7ZL
-	aYWi9w0kTZbN/anmfoD1eJChxGc7RmBTkrlzbZ0yojH9ekvl6sMwmmkvcsJAbBoLM/PHFtL6vDWWo
-	cblV5eK0NBgy3wd1N3bP3mycFWBIhdhbCw6LllhuHkaHX1QqhiAflpfSD373xqFnAfvOGsAgF0Efr
-	zjcfNwMTqiF/hLa8HHIKh8ceZqTI617d0roEdMVjk/Eet998kJYcL8w4Z3jF5028qewC0SCzOOZQQ
-	dzyKrlxQ==;
+	bh=ew/LlPLw3Lt+f/j01bC1s7trU+R/AxgJa4nxqXWW84s=; b=y/OTbUdNOBVMj1HDaTk1LTWs9Y
+	+bI+8ZFQkHXz3E93HxtPUmYQ6Vyp7XvLVS2bZCtH7ngIxSZ527wWzzWXAJpFdRdunEeN+GDTRQJm1
+	7I4sQwFiJk4TZ2EvopJmd0t6++OcCfCaPLwxOrzjZQJ1CAlKw17YQTbIf8Qoy2+hRW0Yab6HND3+O
+	+fyNTqwyHyDC5IJJ0UvXWT4OkRrhMcuygZGQE/h9Zj+m62Qt0M6qit1CFvORa0xpMCj+8CKy0AA4F
+	2grmfUgibhM8CLU5f1y9Smf5155Uro4mag/bWbTbTxZDD1fWKdd1lP7zNPnch5ehese97L1jsj/ke
+	vrgvF0Bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc46i-00000006dmi-13AW;
-	Tue, 23 Jun 2026 16:36:16 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wc48T-00000006e3B-30wp;
+	Tue, 23 Jun 2026 16:38:05 +0000
+Received: from confino.investici.org ([93.190.126.19])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc46g-00000006dmI-2JtC
+	id 1wc48R-00000006e2L-3426
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 16:36:15 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65NBZZUw134206
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 16:36:13 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	xA0Pw5Ltim7xa7TG+yFu6in4RZDMahQ0O7HSJsSCKNo=; b=hBFwZWrJs9byP+c6
-	hYYxGCrOpcZvXsOg28ZB6vszdjmOpDg5xjYrgaWLAB2QRTDOU08+5R/jYG5PW4FS
-	oxjsRSNDoQUVy12asRr0bOypqvLuU6vrk6G47EpAVfFk8HLlyP686H+77ABbEEYA
-	CcxHT/jCVFeID3l5ZwEIzPeOxzdL8PlqaFaPe+NsskCv+8g5VF+O3L0wumSlg+dE
-	KtVB6yhhIIBls4mTfu2atPJbChIapUxE/rqVXgMsopdhWqe6SclBORTCeYvs1uyJ
-	MLDiUDeHXl8Rn/zAi6anLruZIogLZQUt//ltG0ncMJjjmUWxg347N1RjLaDIdZdy
-	xIcNVA==
-Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com [209.85.219.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4eyr321ksk-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 16:36:13 +0000 (GMT)
-Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-8d37bc61dc2so318276d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 09:36:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1782232573; x=1782837373; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=xA0Pw5Ltim7xa7TG+yFu6in4RZDMahQ0O7HSJsSCKNo=;
-        b=EAirTk+8hMWSypgJ7Hu1BOGGfSOyBhCHHNgGOHzx8zhJnO2XQvHg0I5aAVKVT7SjA6
-         9JWfAtXOMstjOmLSGCFlKg6FfL6CEpDPAzJY7wGNUQ6IZPL3HhqAghoQvF547SiQYDYS
-         fAw98He38Kx6GvtGPXrjNy6AKrWu9gN1ZgWDLi2ag54HYu3CEpPacD42n1sC+Iyyg1pn
-         mjVsr7+ofsskIDaXSFw62BmSXOWHs6zcI6+H0PVKDE/NCMRCo1cqPclEVTtvrnI/unoS
-         G8MGW+ftFZw4RD5OoFbaASf596xx5GNura9Ft4YVHCFZR27Z/DTZy6S6CkS/lv66Viq3
-         TqNQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782232573; x=1782837373;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=xA0Pw5Ltim7xa7TG+yFu6in4RZDMahQ0O7HSJsSCKNo=;
-        b=PIbjyZ74ouUQEuA7F9qljQrpyvU/QC4MZUcbI3vRbYEYNvW/nM/hZbcMLYP6yMfgcU
-         +ymabKKmTUeolfdpl0K4YrrEd5fvFovQanMjIrNMKN7dLipIJCZlvhTsIAVejSuu2dC8
-         zDw3gMa61QCEeQjN8aFzrrb+8QbX0Y8td8zp3yTbNIuAEH2LOwCNcDuFdcpnasQwxIU3
-         4r2uBuA6b4K0f34vYNTLN/gtNtDaPoqVsovg7CYqM20KC2/kuRFx9Ch9Mk8/caT1EyZ3
-         E/Eh1Yrj87vqi8RzIO97q59GnVdJ085c+kmFl3AYWX8u8/ZMsdqXK1Ybh6AhNZ2lqpJ1
-         aTAw==
-X-Forwarded-Encrypted: i=1; AFNElJ8dyoIOfZKRDSgITKCvWGiLbm9bKN2r4oVojfAPYupKZyhTvzJ2rB1flTb/QpVrP39/W6P4O3pUlcvDy9zZh45X@lists.infradead.org
-X-Gm-Message-State: AOJu0YzEA5GrZ1MYmn7HnKS2Cgv+ZbFqmmg5aecog/qJ5O+qTMzEUyLd
-	0j4Ya8YsJLA+99o+LGQ56x0dd1tkxjVtvmPDmCu+4OThu1z8pBcdT0maChn8aKwc2mTD6Ypy7QL
-	KTZxCYmfgOJhkrEoGwcM00JmsgLQBdhEd+QPxiPVnRv4wKfPhJMiaRMMLgtC5EfDIN5D43aAhGX
-	jUSw==
-X-Gm-Gg: AfdE7clzuJGTyHFfG2emR/Ly09X39e0Ye4RSDd41PbDMdY+CUQxaBQ4srtnAu6EFfrt
-	W0r531PGPzgSHa663lZpMtNI96BobSkEnyCAwWhdPFYdGrjdC2AMLPa8X/V/G/joc3gACohclBL
-	vsOuvaLaDvyCNZZXqeCx743P9SfYa7DqLjef6C3gngla5ZZ7gK4HhC03BzjFZTkOvd6LxPmnSZh
-	246BAX2373CjyNF1Ai8m6N9rJU9+v/djuxCqqAymW2d04VGs3o9cUUQbKgc/0x742bIaxM3+hTY
-	6HSqRWngUVzuQGPmegC6PfItvcC4Maj3VmVmn1HIJJ0YHyM2eRn83x+uVjNJqGNXsRLY/7bS+6C
-	jx23e3pDVVh15bbaVhPHBwINRvm8miyDFHBQ=
-X-Received: by 2002:a05:620a:6781:b0:926:e8e6:3c28 with SMTP id af79cd13be357-926e8e65d56mr123258785a.7.1782232572839;
-        Tue, 23 Jun 2026 09:36:12 -0700 (PDT)
-X-Received: by 2002:a05:620a:6781:b0:926:e8e6:3c28 with SMTP id af79cd13be357-926e8e65d56mr123255785a.7.1782232572407;
-        Tue, 23 Jun 2026 09:36:12 -0700 (PDT)
-Received: from [192.168.120.170] ([178.235.128.140])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5ad69555c45sm943642e87.36.2026.06.23.09.36.10
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 23 Jun 2026 09:36:11 -0700 (PDT)
-Message-ID: <45794082-0c86-416c-a2b1-76ab4f20d82d@oss.qualcomm.com>
-Date: Tue, 23 Jun 2026 18:36:09 +0200
+	Tue, 23 Jun 2026 16:38:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=grrlz.net;
+	s=stigmate; t=1782232681;
+	bh=ew/LlPLw3Lt+f/j01bC1s7trU+R/AxgJa4nxqXWW84s=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=SOUjBCpRFJEBDCvpTKdlmUMx771wapPNm6YSGdCtwMiaY+dxe2a26oik5hWlSYj+d
+	 8mG5IsXmotNVJiQcPgStBJr+2uU2HpQ2J572izQknyn8RDKpF6cdXSImocThXlxTT/
+	 5v1tndf+BiDSt/jOHeSsg2ymmR3K+C4LsT7yKblA=
+Received: from mx1.investici.org (unknown [127.0.0.1])
+	by confino.investici.org (Postfix) with ESMTP id 4gl9jP4zf7z110k;
+	Tue, 23 Jun 2026 16:38:01 +0000 (UTC)
+Received: by mx1.investici.org (Postfix) id 4gl9jN59Clz10xM;
+	Tue, 23 Jun 2026 16:38:00 +0000 (UTC)
+From: Bradley Morgan <include@grrlz.net>
+To: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	kvmarm@lists.linux.dev
+Cc: Fuad Tabba <tabba@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Quentin Perret <qperret@google.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Bradley Morgan <include@grrlz.net>,
+	stable@vger.kernel.org
+Subject: [PATCH v2 1/2] KVM: arm64: skip pKVM cache flushes for non cacheable mappings
+Date: Tue, 23 Jun 2026 16:37:55 +0000
+Message-ID: <20260623163756.4591-1-include@grrlz.net>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260623160339.15143-1-include@grrlz.net>
+References: <20260623160339.15143-1-include@grrlz.net>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 7/8] iommu/qcom: Enable clocks before hardware access in
- qcom_iommu_ctx_probe()
-To: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-        Rob Clark <robin.clark@oss.qualcomm.com>,
-        Will Deacon <will@kernel.org>, "Joerg Roedel (AMD)" <joro@8bytes.org>
-Cc: Robin Murphy <robin.murphy@arm.com>, iommu@lists.linux.dev,
-        linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org
-References: <20260623122034.1166295-1-mukesh.ojha@oss.qualcomm.com>
- <20260623122034.1166295-8-mukesh.ojha@oss.qualcomm.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20260623122034.1166295-8-mukesh.ojha@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNjIzMDEzNiBTYWx0ZWRfX9+s3L0GAzvkD
- ut1pqY8LotoqeN78CxNOMyRZ3Q2oHsGrYoK1CDFpeogJZsX9pHL1pz6DqBtVkzawLTVm01g0riU
- kr2KKxDv8M16P/fftXuXx9XZxWVzej0=
-X-Proofpoint-ORIG-GUID: Gt-3XCjICJxPmAowCwVwIgg0a2CRJMKq
-X-Authority-Analysis: v=2.4 cv=HrxG3UTS c=1 sm=1 tr=0 ts=6a3ab5fd cx=c_pps
- a=wEM5vcRIz55oU/E2lInRtA==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
- a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
- a=EUspDBNiAAAA:8 a=Yd-jd7UEqWDYs8h9-TIA:9 a=QEXdDO2ut3YA:10 a=zZCYzV9kfG8A:10
- a=OIgjcC2v60KrkQgK7BGD:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjIzMDEzNiBTYWx0ZWRfX3mOSTHGX3QT+
- 5UExavBk4meUtBD+PS6n6toxu20xsODkCE/DG2EeGKeeJJB6dC1SmqCWRZbInmvgKGFvxm263ws
- genGAxxpTtgOKpt76KHstgcNiJyXIg8+yA7J6x1GCjIOtQIBJNOTnFdFlz3RwZOdVOF6SIy5hak
- eK0xg7cr23k6jR3ZMUDU1kd+NeRCMrrUJqgi9rKzLceg/E67cZEEUalnjFfnLOkGaUFu0P8ZVVq
- Hj6XN8ctz6TAsWAiKHmR/Lqrd4WlMGTU8NLmBRcTTtckEgfguq8E0tK8bRkO00aExZf6xpng4nW
- 3W3mMl3rsrpF/JX7pDUyDifW2xaU11M38hI4GdxjO8I9JItc+3ey/YIlYqCCgH7q1ZKhHU3dtln
- 9rCf8bQ0Aq9F1wNOEPzfV2W1X7L8rW2bq2XPkkhjWOlIZYd1WOfAUtLkn0xxKv4YdeDwSWwyXeB
- ZW9CFNCH+rlOZgC96Nw==
-X-Proofpoint-GUID: Gt-3XCjICJxPmAowCwVwIgg0a2CRJMKq
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-23_03,2026-06-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 spamscore=0 phishscore=0 priorityscore=1501 malwarescore=0
- adultscore=0 bulkscore=0 impostorscore=0 clxscore=1015 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2606230136
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_093614_716917_A2FEFD7B 
-X-CRM114-Status: GOOD (  13.84  )
+X-CRM114-CacheID: sfid-20260623_093803_919556_7DEC71DC 
+X-CRM114-Status: GOOD (  13.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,22 +81,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/23/26 2:20 PM, Mukesh Ojha wrote:
-> qcom_iommu_ctx_probe() reads and writes the CB_FSR register to clear any
-> stale IRQ left by the bootloader. This happens during
-> devm_of_platform_populate() which is called from the parent device's
-> probe before any pm_runtime_get(). The parent's clocks (iface, bus, tbu)
-> are therefore not guaranteed to be on, making the register access
-> unreliable on rebind or after a suspend cycle.
-> 
-> Use pm_runtime_resume_and_get() on the parent device to ensure clocks
-> are enabled before the register access, and release the reference
-> immediately after.
-> 
-> Signed-off-by: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
-> ---
+pKVM keeps its own mapping list for stage 2 operations. Its flush path
+uses that list directly, so it lost the PTE attribute check done by the
+generic stage 2 walker.
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Record whether a mapping is cacheable and skip cache maintenance for
+mappings that are not cacheable.
 
-Konrad
+Fixes: e912efed485a ("KVM: arm64: Introduce the EL1 pKVM MMU")
+Cc: stable@vger.kernel.org
+Signed-off-by: Bradley Morgan <include@grrlz.net>
+---
+Changes in v2:
+- Add patch 2 for the pKVM permission fault mapping cache bug.
+
+ arch/arm64/include/asm/kvm_pkvm.h | 1 +
+ arch/arm64/kvm/pkvm.c             | 8 +++++++-
+ 2 files changed, 8 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
+index 74fedd9c5ff0..d9dd8239910d 100644
+--- a/arch/arm64/include/asm/kvm_pkvm.h
++++ b/arch/arm64/include/asm/kvm_pkvm.h
+@@ -196,6 +196,7 @@ struct pkvm_mapping {
+ 	u64 gfn;
+ 	u64 pfn;
+ 	u64 nr_pages;
++	bool cacheable;
+ 	u64 __subtree_last;	/* Internal member for interval tree */
+ };
+ 
+diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+index 428723b1b0f5..105ab1258066 100644
+--- a/arch/arm64/kvm/pkvm.c
++++ b/arch/arm64/kvm/pkvm.c
+@@ -473,6 +473,8 @@ int pkvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size,
+ 	mapping->gfn = gfn;
+ 	mapping->pfn = pfn;
+ 	mapping->nr_pages = size / PAGE_SIZE;
++	mapping->cacheable = !(prot & (KVM_PGTABLE_PROT_DEVICE |
++				       KVM_PGTABLE_PROT_NORMAL_NC));
+ 	pkvm_mapping_insert(mapping, &pgt->pkvm_mappings);
+ 
+ 	return ret;
+@@ -517,9 +519,13 @@ int pkvm_pgtable_stage2_flush(struct kvm_pgtable *pgt, u64 addr, u64 size)
+ 	struct pkvm_mapping *mapping;
+ 
+ 	lockdep_assert_held(&kvm->mmu_lock);
+-	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping)
++	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping) {
++		if (!mapping->cacheable)
++			continue;
++
+ 		__clean_dcache_guest_page(pfn_to_kaddr(mapping->pfn),
+ 					  PAGE_SIZE * mapping->nr_pages);
++	}
+ 
+ 	return 0;
+ }
+-- 
+2.53.0
 
