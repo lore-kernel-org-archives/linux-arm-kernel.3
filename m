@@ -4,64 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB077CDB46F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 16:32:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B2F7CDB471
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 16:32:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=aohL6hDoCgWJdXA9xgE/yy8KPWEbQukKh/gs00uM5EU=; b=12kbR2cR9fDWTN
-	tH5xS+SP/MCcLcuKXYBPOqeapMJ2PNZ285f556FBUjwlu/K2KxF9j2IpwBJHrAPQK7xXUJS0ugEV4
-	9KkEDrkJCNOevGl7IMuyE/mpqLP7sYmBQTq/p6WrzatfO6u9Uxoj3PNjuFxB4zjkbVXYa0/41rLNZ
-	m2/+FIMytg+jxmlSQSPBbhqF81U5dqX+83+O/NobIKDrCpVY+6g51DJ7ZOUdRHZaO+kgvap2rBgAB
-	ViJaIEnL4xI91ApUZbmsvrZRElAHCiZCjcDNJkdpGWsAnRPN5a0Tf6+odX83ioPyCcXxVBt/8fYgN
-	7TSCSKkDztqfmQifHrpQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OEq0EOHHDB/A8I1h6skybvUc3bgObsWmJL8PW5rSB08=; b=dv+9TtfxMnCa3HHzU1Mp+3vhz4
+	Iq2wfMbnRyhyPQEoFoVXfjb7qabwb8ppy3ztIqulLSwEiJJppKLO9pZu/bVae4rc32ypKyDA9IW5t
+	c2wNSkeFXkINo8ddjpCO0Hv0BdebGJEZ6n3920Evdl3QaBVROGqqk9YuoGbwYXHGZRzWe0z+J+2Tl
+	ioilqqwzc3SUQpvKDyf4WSeCZXbzK/VwMJAIfVw5NuJpeLs6yuRRMpI2A4VqvvhcHFzxNcFf4gL9H
+	bjUxI3hpQ9vU4AJJxAHFnOHnfJY4jXVQhYaXMHK4/OhfLdhtoWjinzRbGKJSY6AjZWCYf8ToQ03+k
+	Gd3c6fUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc431-00000006d2Q-2zf9;
+	id 1wc431-00000006d2b-3oGT;
 	Tue, 23 Jun 2026 16:32:27 +0000
-Received: from esa2.hc555-34.eu.iphmx.com ([23.90.104.147])
+Received: from esa4.hc555-34.eu.iphmx.com ([207.54.77.171])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc42x-00000006cyj-3Oi4
+	id 1wc42z-00000006cza-0TZ1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 16:32:25 +0000
+	Tue, 23 Jun 2026 16:32:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
   d=mobileye.com; i=@mobileye.com; q=dns/txt; s=MoEyIP;
-  t=1782232343; x=1813768343;
-  h=from:subject:date:message-id:mime-version:
-   content-transfer-encoding:to:cc;
-  bh=7D9n4G2VjlN0quJaHg5EJso3RvCYIN2+BPYWUvKiBhE=;
-  b=rTdcenS1EI4I3yk7p4zSFKs8sppwOXtsDLuUou/cHOhHI+KjgIfgQX17
-   Pns5NIlF2De8+E56mY/xWbzAw4P+4EJ1W6uosjxGgbQpS6aKSOjz6+ZN4
-   vVLS3hlfJI1AWWjuGh/wfxva6T8pQsbHdsXGjf8NamncqWbDE7WrNidBQ
-   eCL8lGhmYz75oPTZf8VGKl+z1wxpCYYEcKuVECjTNLWV1ysrIIr4fsCqg
-   oZcEPgwDXnHfox5B8330EBUc9SLvtK/p2uJAmoZwqOL486Taxys2uAUUw
-   ezSWJZhMGrMMQIe4Fd4+H15R38/DfYZIURBBltVuHS+jhzwOPT0oOj3IB
+  t=1782232345; x=1813768345;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:references:in-reply-to:to:cc;
+  bh=abiK5M9SqmKOeUi773fAhbaXyma8I8MJl0G28FSla+E=;
+  b=sB/181WDZfckft3lLDhGalDlWrEFL9JMgeOYklUhPFZugyt+Drrt8Sfv
+   UfyJySq96zbKQoAqEJ2kfrzgpVwB2zkeTy75XEwDtBSzSWmjq1culpE49
+   KtDyxQbllqUrfDYLogLqS15ygAsQDAZrB2Cf7FESVOP+wnQh0ENuiaWx7
+   86Lhs6ukXj7D14+ls2uVrVw3TUZKzOgWalLf3NT05njQQK9d5PdbHa/Xg
+   hTX7fSVSjYoh2Cc71sQZJil9zVibjr633ladGG4einmgFY+a6TxNi2qql
+   jLDMMoZLcFypft8zTGlqtd8nP7KOLD4jrd3DzO+8Jpt44TZeNeb4fChQP
    w==;
-X-CSE-ConnectionGUID: nFvDdvEHSKuJi7qhGz+91g==
-X-CSE-MsgGUID: 4oC86uQcQ/GxIKpIoWdS0A==
+X-CSE-ConnectionGUID: s62FF0PXRX+Uy03EMz7jaA==
+X-CSE-MsgGUID: 9LcZjEvyQ6Ctvf50TfLSOw==
 X-Amp-Result: SKIPPED(no attachment in message)
 X-Amp-File-Uploaded: False
-Received: from unknown (HELO ces04_data.me-crop.lan) ([146.255.191.134])
-  by esa2.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jun 2026 19:32:19 +0300
-X-CSE-ConnectionGUID: QoDWkqHUTOuIdYE3NPUUvw==
-X-CSE-MsgGUID: DSID08ozSY2lIAbbZOkm2Q==
+Received: from unknown (HELO ces02_data.me-corp.lan) ([146.255.191.134])
+  by esa4.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jun 2026 19:32:21 +0300
+X-CSE-ConnectionGUID: 7WgFv90rTkCko6acKTvoTA==
+X-CSE-MsgGUID: qdZ6EPPlRHWkQeWOry9Zyg==
 Received: from unknown (HELO epgd056.me-corp.lan) ([10.154.54.2])
-  by ces04_data.me-crop.lan with SMTP; 23 Jun 2026 19:37:27 +0300
-Received: by epgd056.me-corp.lan (sSMTP sendmail emulation); Tue, 23 Jun 2026 19:32:18 +0300
+  by ces02_data.me-corp.lan with SMTP; 23 Jun 2026 19:37:31 +0300
+Received: by epgd056.me-corp.lan (sSMTP sendmail emulation); Tue, 23 Jun 2026 19:32:20 +0300
 From: Dmitry Guzman <Dmitry.Guzman@mobileye.com>
-Subject: [PATCH 0/7] I2C - detailed transfer reporting in case of a fault
-Date: Tue, 23 Jun 2026 19:31:47 +0300
-Message-Id: <20260623-i2c-fault-reporting-v1-0-6db1a8aabf18@mobileye.com>
+Date: Tue, 23 Jun 2026 19:31:49 +0300
+Subject: [PATCH 2/7] i2c: nomadik: optimize layout of struct nmk_i2c_dev
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAPS0OmoC/x3MMQqAMAxA0atIZgMaoVCvIg6lTWtAqqQqgnh3i
- +Mb/n+gsAoXGJsHlC8psuWKvm3ALy4nRgnVQB2ZztCAQh6jO9cDlfdND8kJLQ3GWxejpwC13JW
- j3P91mt/3A5KDRu9lAAAA
-X-Change-ID: 20260623-i2c-fault-reporting-9236c9affc2d
+Message-Id: <20260623-i2c-fault-reporting-v1-2-6db1a8aabf18@mobileye.com>
+References: <20260623-i2c-fault-reporting-v1-0-6db1a8aabf18@mobileye.com>
+In-Reply-To: <20260623-i2c-fault-reporting-v1-0-6db1a8aabf18@mobileye.com>
 To: Andi Shyti <andi.shyti@kernel.org>, 
  Steven Rostedt <rostedt@goodmis.org>, 
  Masami Hiramatsu <mhiramat@kernel.org>, 
@@ -72,8 +70,8 @@ Cc: linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
  Dmitry Guzman <Dmitry.Guzman@mobileye.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_093224_347533_1C93AE09 
-X-CRM114-Status: GOOD (  17.79  )
+X-CRM114-CacheID: sfid-20260623_093225_443105_DA610D98 
+X-CRM114-Status: GOOD (  13.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,65 +86,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The existing API has function `i2c_xfer` that transfers one or more
-messages, and it only returns a single error code if the transfer was
-failed. It doesn't allow to know how many of the messages were
-transferred successfully, neither how many bytes were transferred in the
-message that caused the fault, and also it drops all data received from
-target device before the fault. There is a comment about this in
-drivers/i2c/i2c-core-base.c: "REVISIT the fault reporting model here is
-weak".
-
-This patch series implements new API function `i2c_xfer_v2` that does
-the same as `i2c_xfer` but also returns detailed transfer report, including
-number of messages and bytes transferred before the fault. This also allows
-client to get the bytes read from the target before the fault occurred.
-
-For user space clients, new ioctl `I2C_RDWR_V2` is introduced.
-
-In this patchset, the introduced functionality is implemented in
-`i2c-nomadik` driver. Several other improvements in this driver related
-to fault handling are also included in this patchset. It has been tested
-on EyeQ6H-EPM6 board.
-
-The implementation is split up into patches:
-
-Patch #1 Introduce callback `xfer_v2` in struct `i2c_algorithm`,
-	 function `i2c_xfer_v2`, ioctl `I2C_RDWR_V2`, structures for I2C
-	 transfer reporting and implement all driver-independent functionality.
-Patch #2 Optimize struct layout in `i2c-nomadik`.
-Patch #3 Remove automatic retransfer in `i2c-nomadik`.
-Patch #4 Fix error codes returned by `xfer` callback in `i2c-nomadik`.
-Patch #5 Replace `dev_err` with `dev_dbg` on I2C faults in `i2c-nomadik`.
-Patch #6 Add quirks that describe some limitations of `i2c-nomadik`.
-Patch #7 Add support for `xfer_v2` in `i2c-nomadik`.
+Put two bool variables `xfer_done` and `has_32b_bus` and two char
+variables `tft` and `rft` together in order to reduce struct size
+wasted for padding.
 
 Signed-off-by: Dmitry Guzman <Dmitry.Guzman@mobileye.com>
 ---
-Dmitry Guzman (7):
-      i2c: add I2C_XFER_V2 - support for detailed transfer reporting
-      i2c: nomadik: optimize layout of struct nmk_i2c_dev
-      i2c: nomadik: do not try to retransmit I2C message series on errors
-      i2c: nomadik: return proper fault codes
-      i2c: nomadik: change print level for fault messages to debug
-      i2c: nomadik: add quirks max_len=2047 and no_zero_len_read
-      i2c: nomadik: add support for I2C_XFER_V2 - detailed fault reporting
+ drivers/i2c/busses/i2c-nomadik.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
- Documentation/i2c/dev-interface.rst |  46 ++++++++++++++++
- drivers/i2c/busses/i2c-nomadik.c    | 105 ++++++++++++++++++++++++-----------
- drivers/i2c/i2c-core-base.c         | 107 +++++++++++++++++++++++++-----------
- drivers/i2c/i2c-dev.c               |  79 ++++++++++++++++++++++----
- include/linux/i2c.h                 |  12 ++++
- include/trace/events/i2c.h          |   6 +-
- include/uapi/linux/i2c-dev.h        |   9 +++
- include/uapi/linux/i2c.h            |  21 +++++++
- 8 files changed, 306 insertions(+), 79 deletions(-)
----
-base-commit: 502d801f0ab03e4f32f9a33d203154ce84887921
-change-id: 20260623-i2c-fault-reporting-9236c9affc2d
+diff --git a/drivers/i2c/busses/i2c-nomadik.c b/drivers/i2c/busses/i2c-nomadik.c
+index b63ee51c1652080e414f4302bee16905914c1288..e4e5c6943c66144058fba857d7bf6c0be79ed5bd 100644
+--- a/drivers/i2c/busses/i2c-nomadik.c
++++ b/drivers/i2c/busses/i2c-nomadik.c
+@@ -187,13 +187,13 @@ struct i2c_nmk_client {
+  * @clk_freq: clock frequency for the operation mode
+  * @tft: Tx FIFO Threshold in bytes
+  * @rft: Rx FIFO Threshold in bytes
++ * @xfer_done: xfer done boolean.
++ * @has_32b_bus: controller is on a bus that only supports 32-bit accesses.
+  * @timeout_usecs: Slave response timeout
+  * @sm: speed mode
+  * @stop: stop condition.
+  * @xfer_wq: xfer done wait queue.
+- * @xfer_done: xfer done boolean.
+  * @result: controller propogated result.
+- * @has_32b_bus: controller is on a bus that only supports 32-bit accesses.
+  */
+ struct nmk_i2c_dev {
+ 	struct i2c_vendor_data		*vendor;
+@@ -206,13 +206,13 @@ struct nmk_i2c_dev {
+ 	u32				clk_freq;
+ 	unsigned char			tft;
+ 	unsigned char			rft;
++	bool				xfer_done;
++	bool				has_32b_bus;
+ 	u32				timeout_usecs;
+ 	enum i2c_freq_mode		sm;
+ 	int				stop;
+ 	struct wait_queue_head		xfer_wq;
+-	bool				xfer_done;
+ 	int				result;
+-	bool				has_32b_bus;
+ };
+ 
+ /* controller's abort causes */
 
-Best regards,
 -- 
-Dmitry Guzman <Dmitry.Guzman@mobileye.com>
+2.43.0
 
 
