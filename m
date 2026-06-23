@@ -4,65 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30107CD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 05:41:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A59AFCD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 05:46:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UsklUiDfmK9iaunr/gPFUp7u6fnB/rBKqPmk8gmUckE=; b=X3xuWX5q6kecfTtP7GZZK6UzXv
-	eBztNzCfaqT3rOcbOqQm9Yt0b2eia3F6/P6tTXGYB5Nte/3xGARWcbQd4RNpe6BayOpTO1TLqXmec
-	u/pExcHy88PnH7dcwEGDYVuC6oh7a5oBO1Jsr8Z+BGZJKh6/6FEDwU9E0hoTcOFa3canzJ2WcVMDQ
-	SBZK7+YztU/CTqQgHNEa/FTC/ZdvCpTfqwHNcKjftGW9CUZYyWXcpd8Fo59aX3YSMyFN2Q6ejniJI
-	8BpS0yUT/Fc01wgy8m4HGKm5nWFpUI9YQspX2qzYdvZ/sMUuD7KY+1sUZmFhlrtuKUuDzka68gdO1
-	nrfhrCEw==;
+	bh=dWLz/zW9pGxu4MmyMeLIaL8QlovD/EAbOQwnVjK0tNk=; b=rRYJBN9eU8+Swu0EfN60dnpDBs
+	iCDxtU6MPrmabqDsLCsj4Zrd2M1B9VxYZPmevLTmbM/as8A/j84dUBOHGekE1Jt4VxeQxx+7Ix/lk
+	RVTI2UfOPBUWr8uyayO3I4nRgTh/82bNZfj6Wy48KKaNMyjJBPj7wphGLBAlEC/sb9grWpCZnmEok
+	bFqD1YxEm9GL9mFYNENDnmeLZ/a+YXk25beJmxQ+ye/pW2teo6nqEq9EsIutTKbicw+y/U/bB7zdT
+	nXSgzl5u9NyC3XFpNKjYpgAixe9gSdwsh8u6mIjbg+/yvwLMl0XUwS1lMsp08qOCo1t6Zplbba8oq
+	7v8GPOBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbtt6-00000005jZ4-3fiR;
-	Tue, 23 Jun 2026 05:41:32 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wbtxL-00000005jiC-1WLk;
+	Tue, 23 Jun 2026 05:45:55 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbtt6-00000005jYy-1b8N
+	id 1wbtxK-00000005ji1-17K3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 05:41:32 +0000
+	Tue, 23 Jun 2026 05:45:54 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B64456001D;
-	Tue, 23 Jun 2026 05:41:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F18A1F000E9;
-	Tue, 23 Jun 2026 05:41:30 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0DD2F40124;
+	Tue, 23 Jun 2026 05:45:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A91C1F000E9;
+	Tue, 23 Jun 2026 05:45:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782193291;
-	bh=UsklUiDfmK9iaunr/gPFUp7u6fnB/rBKqPmk8gmUckE=;
+	s=k20260515; t=1782193552;
+	bh=dWLz/zW9pGxu4MmyMeLIaL8QlovD/EAbOQwnVjK0tNk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ZAMeygWbsv7CpFdY5KyofiGjr0H8WL2rJO65QchDYVO5+FyXHcw+iy4knsory8B3t
-	 fje9IlAFmpI7t+WMLUi8sUo4NGX92JBEKzqrWdp5MoeOlCJqcyTV9PF70Rwf4k+WOa
-	 RT0aPtoVm18rOmK5Uq84dRse73WN2oclNQw6LKZeS/73jolM6j6GpxBmplojJCTQ2B
-	 aHy+36as+uHS64EuZ1/BayQm83wyDkWypDUx06hdUiXLjc/QmAgwZCc8udt/WVsfaj
-	 s6gxX8iMDhWi92XzGkYdVVITjBQ39X/M+WSxgPrufegEhPBykVwxDA181A96sKcNn8
-	 AgbGW3kbT2Eiw==
-Date: Tue, 23 Jun 2026 07:41:27 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: guoniu.zhou@oss.nxp.com
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
-	Frank Li <frank.li@nxp.com>, Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, imx@lists.linux.dev, 
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, Guoniu Zhou <guoniu.zhou@nxp.com>
-Subject: Re: [PATCH v11 2/3] dt-bindings: clock: imx95-blk-ctl: Define
- formatter child node schema
-Message-ID: <20260623-influential-space-inchworm-17a7ea@quoll>
-References: <20260623-csi_formatter-v11-0-a792fe9c1502@oss.nxp.com>
- <20260623-csi_formatter-v11-2-a792fe9c1502@oss.nxp.com>
+	b=Qa/BeaHWnD+OP69bjLycHVUVXra6sZJV5iK9JntBBfOuED5JtAVeCw58o6uJnrRvi
+	 cULVIyuOAAsRkkC/COasS2mMKt4NE3XmNDak8jO/Bw0lNczHMM+qJValCE2JZ3UH23
+	 tbbhVdKC5KhO/ti5OsMLaP9L06YZk4UApZKs0s0HtUYWEvFx7AzgZyIMki7VJfv6kY
+	 6kjr2LW7g4r4cEVSvzePZ9gIXjI3Ia3n9hVtwYPJpUll1IXCzatilu1XfKHVlMOmUX
+	 qAsmTzfyaBFYkT5542j0KI8Hf0Suwxd2l4pClW6VvsWvGow0J/dPFgnIuBxejSLL4t
+	 ZQ8POrFrSNMmw==
+Date: Tue, 23 Jun 2026 07:45:42 +0200
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Aksh Garg <a-garg7@ti.com>
+Cc: linux-pci@vger.kernel.org, vigneshr@ti.com, s-vadapalli@ti.com, 
+	lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, bhelgaas@google.com, 
+	mpillai@cadence.com, unicorn_wang@outlook.com, me@ziyao.cc, 18255117159@163.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, danishanwar@ti.com
+Subject: Re: [PATCH] PCI: cadence: skip the link polling when endpoint not
+ connected
+Message-ID: <pocwd4v7iqlixcpaikjo6vqmnwsb7rfjt42qvlmxsn6xnvtrpf@zgch2iwu7itw>
+References: <20260605071922.1724499-1-a-garg7@ti.com>
+ <4lijgllolvtbvmzmluuslhkc7empdpizxhva6ysau7kssuqd5z@drkzb5afd4ba>
+ <1ad01870-e2f9-485c-9206-23ee6de1d1ba@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260623-csi_formatter-v11-2-a792fe9c1502@oss.nxp.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <1ad01870-e2f9-485c-9206-23ee6de1d1ba@ti.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,25 +74,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 23, 2026 at 11:56:32AM +0800, guoniu.zhou@oss.nxp.com wrote:
-> From: Guoniu Zhou <guoniu.zhou@nxp.com>
+On Tue, Jun 23, 2026 at 10:53:48AM +0530, Aksh Garg wrote:
 > 
-> The Camera CSR contains control registers for multiple CSI formatter IPs
-> at different register offsets. Each formatter is an independent hardware
-> block with its own clock input and media pipeline connection.
 > 
-> Define schema to allow formatter child nodes under nxp,imx95-camera-csr,
-> with 'reg' property specifying the formatter's register offset within the
-> CSR address space.
+> On 22/06/26 20:22, Manivannan Sadhasivam wrote:
+> > On Fri, Jun 05, 2026 at 12:49:22PM +0530, Aksh Garg wrote:
+> > > cdns_pcie_host_wait_for_link() polls on link-up for 10 retries with a
+> > > delay of 90-100ms each (~1 second). A call to cdns_pcie_host_link_setup()
+> > > during the resume operation blocks the resume operation unnecessarily for
+> > > ~1s even when no endpoint device is connected.
+> > > 
+> > > Add skip_link_polling flag to track link state across suspend/resume
+> > > cycles. If link was down before suspend, skip the expensive polling
+> > > in resume since no endpoint was present.
+> > > 
+> > 
+> > Won't you need the delay if a device gets plugged while the host was suspended?
+> > We had this same concern with the DWC drivers and we left the delay as-is as
+> > nothing prevents an user to connect a device when the host was suspended.
 > 
-> Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
-> ---
-> Changes in v11:
-> - Move properties to top-level and use if:then:else (Krzysztof/Frank)
+> Yes, that is true. However, the platforms that do not support hot-plug can
+> skip the delay during resume since no device could have been connected while
+> suspended (only those platform's driver would be expected to set
+> 'rc->skip_link_polling) just like what Tegra264 PCIe driver tries to do at
+> [1], where the driver sets "pcie->link_up = false" if the link is down
+> during the probe and if the controller doesn't support hot-plug.
+> 
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+If the platform doesn't support hotplug, then it is perfectly fine to skip the
+delay. But you need to name the flag as like 'no_hotplug' or something
+relevant, not 'skip_link_polling'.
 
-Best regards,
-Krzysztof
+> Even if a user connects a device (when the host was suspended) to a platform
+> which doesn't support hotplug, the user is expected to run a bus rescan,
+> which doesn't call cdns_pcie_host_link_setup() anyway, hence the flag
+> 'skip_link_polling' is not taken into account in that case.
+> 
 
+This is not about running the rescan, but about initializing the device. The 1s
+delay in cdns_pcie_host_wait_for_link() is mandated by the PCIe spec after
+starting LTSSM and before issuing the config read to the device. If this delay
+is skipped and if a config read is issued to the device, then the device may not
+respond and the failure may lead to PCI stack assuming that the device is dead.
+
+- Mani
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
