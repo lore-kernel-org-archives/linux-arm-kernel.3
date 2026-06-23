@@ -4,69 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C006CDB47C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 22:35:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9CC6CD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 23:38:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oOrvEPgVQJ/jdeaFCbiFOH+3YX/7jM+3h5Opanbx+U8=; b=dpUfu4jV+B5hNuUwdUCfYBDqiN
-	769YaevWmS5fgSaLuGb7p5ZfgdDo8MRMVc9q9VYC7oK8l9mR0967tE4siSAbDL3L50ODDoxOETORn
-	+pMzZJbxrDHI1o/dXRHzvNXyhHhz2kL5/s2dcMpY58K9XP0ydp9QlMUUXaigaeYRzPP2dF0rR7PBC
-	EQF6+Hy+3CE2iD4ZjxIu2vt5P4bcpRmA2ZYiH4muqAjtHppVd1g8ac/x62m1+YFLsNLsbrRHFQWyK
-	20pzL1tiJKJ+ppkBRwtyemLiavNho9YC2bjRlqLjKFzE0Jm/laTuXznV9pNSawJA5gNrVNQZJN7/h
-	u5M5d4sA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bXj89P8NQOP2nCPmWd3Wk/nGOtJ4OpsodS1IQuNYTks=; b=Hgbz6xqyFdSeOoJI9C42hz0gE6
+	k+OfQYa0d+bJj0AQhpOibR5YBcZofh/T0NhpYEmzAW6Ysfl2u57VyeG09WAkumjgtf23Zx/h5C0oM
+	JtyOg9ZoaXDaQjeOkVtXsIJPrW9oFTe2+g1359qqB3vWbbHuzP+bKraeTyK2+G1oJhph7nV7RuKSF
+	YO/M9znM1FT4evQIRWM2L+9DChNssVJ5lnzkparmhsv0guWYq1XMgY/gsk6A7NR6cNHLXiylFgnUd
+	6FcZ92gRlSf6k12VMlkbcEArZ83eXPvc/xc2QL55RpXLI2mKUrPBOiXY8QO83ce2TKkZBdXgEtvkQ
+	CqxJw8hQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc9iB-00000006wyE-10wy;
-	Tue, 23 Jun 2026 22:35:19 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc9i7-00000006wxk-0wSt;
-	Tue, 23 Jun 2026 22:35:17 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6B3EC1713;
-	Tue, 23 Jun 2026 15:35:07 -0700 (PDT)
-Received: from [10.43.8.246] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B3D423F632;
-	Tue, 23 Jun 2026 15:35:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782254112; bh=SRPt/Z1N9zfS5tVZtHc1Ym/DJpa09C6NIWLnEJarli8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=G5flbO5JtjY2PHGG2ojKGXX8SqI+2MRfa+r6LYez6kIYWrMO5mYm3Z02byPITyVx5
-	 yIv7eGXrRte6UNWeKzB1Oryv66h5vXQEk1IcivwwfWgcjoIuMI/XRYk4euGrcbvraI
-	 pTYpub3JKKI8VTcq9p5Y59S2sQJTxCa6efj4jEfE=
-Message-ID: <138b5b54-7e2a-45fd-9c3f-eb4b4e04d954@arm.com>
-Date: Tue, 23 Jun 2026 23:35:00 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 5/8] clk: sunxi-ng: a733: Add bus clocks support
-To: Junhui Liu <junhui.liu@pigmoral.tech>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Philipp Zabel
- <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Richard Cochran <richardcochran@gmail.com>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- netdev@vger.kernel.org
-References: <20260310-a733-clk-v1-0-36b4e9b24457@pigmoral.tech>
- <20260310-a733-clk-v1-5-36b4e9b24457@pigmoral.tech>
+	id 1wcAgt-00000006yob-0Dr7;
+	Tue, 23 Jun 2026 23:38:03 +0000
+Received: from mail-southcentralusazlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c10d::1] helo=SN4PR2101CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wcAgo-00000006yoB-2rET
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 23 Jun 2026 23:38:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bN7OuGqblXWSxF06KzSMYSByhbs31ex6WQ7Gj4QdIxfzwkdUl8VQpyH7venTQahV9KDFwWNCX9FIaHS0iOylPuaQ5WX4JVtNSF/ZMBMVGuQ8kiquuYez5hhlZ7lMWXnUY1/nt9NtwvHGwNqWpNP/ikYXh47njjzPILxkYT01/jF/AxqLnKt7Sca9yuN51W60lhbX8Oec+UKu2R32Xc00CMEuENyLemhoT2J2Z7dd0pkxzKh1AwuzVvt7paVAIC0PhcNO68SsPD2WWNOEeKlIoXXs2ao4M2vP56Iz0V8uXCzgr3FYfRRbIInCralNeIogRkvpcWrd8yclxKZCCFRV6A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=bXj89P8NQOP2nCPmWd3Wk/nGOtJ4OpsodS1IQuNYTks=;
+ b=fwjbo3asj0ea7W8Gkwt7XXUpil0I25aK2xLHmEw6r9jn5XaOsLDndWnau/PcWc/7QG8yo/GhvCZxoUwBboVBQ+KdeHhTG2V5hG1gJMdCElNLoeimzvFP/QB3niAi+ZOsGS+driWs/5pK64hMzQ1quLcgiG2HA8qqZnwV+WBLH3HxtxtlvKuIX2t99HePV0mYdLwM8i8bVto8pW7mE6cDZWeatA3Hm0q0PyCmBj4JLQ4Jtuei956n4478ZdKyBxyEnUII3RdTNb2uQEZKgz7YWk8M3nxtx64LQxg0MrXxEKjGYl+EghYRVVRijV2DZ7DcvIYoNCi/2pOglF1xN0yg1Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=bXj89P8NQOP2nCPmWd3Wk/nGOtJ4OpsodS1IQuNYTks=;
+ b=aQRVMAO1JIYoRrSg7zXf4yKF7fBd5sD/1jC5I8yG5ezVoPx34A3DYs2vrNkqXMUQEPpEyKSpFqKokQPtfnnFMDaOMB0Ef4bb+R1eNclJTZNZfggiA890SJNVIOZmyxZ9r7QC3rVM295s1eGJA4Dwt4U6xWVD3sjxdDwk+gauuIQnOGwExjqhvWFvi74GWY5do2gD/IEMaWg3m+NWgjZ6JmIDpW6xifbfftn+bOyjfdnVRYw8Pi39k1HCLQa6AmuCJg1MQSYaKb3U+3YE0jJjili8YQUMpETAXcTO1FSTCxo7Qb+4B4VJCbDYHPXLNbI9mzeJ+w94Xj+EnOmy7daBUw==
+Received: from DS7PR12MB9474.namprd12.prod.outlook.com (2603:10b6:8:252::17)
+ by PH7PR12MB7331.namprd12.prod.outlook.com (2603:10b6:510:20e::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.13; Tue, 23 Jun
+ 2026 23:37:49 +0000
+Received: from DS7PR12MB9474.namprd12.prod.outlook.com
+ ([fe80::31ad:931:ef07:8ad7]) by DS7PR12MB9474.namprd12.prod.outlook.com
+ ([fe80::31ad:931:ef07:8ad7%6]) with mapi id 15.21.0159.012; Tue, 23 Jun 2026
+ 23:37:49 +0000
+From: Srirangan Madhavan <smadhavan@nvidia.com>
+To: Mark Rutland <mark.rutland@arm.com>, Lorenzo Pieralisi
+	<lpieralisi@kernel.org>, Sudeep Holla <sudeep.holla@kernel.org>, Conor Dooley
+	<conor@kernel.org>, Jonathan Cameron <jic23@kernel.org>
+CC: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+	Dan Williams <djbw@kernel.org>, Thierry Reding <treding@nvidia.com>, Jon
+ Hunter <jonathanh@nvidia.com>, Vikram Sethi <vsethi@nvidia.com>, Souvik
+ Chakravarty <Souvik.Chakravarty@arm.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-tegra@vger.kernel.org"
+	<linux-tegra@vger.kernel.org>
+Subject: Re: [PATCH v2 0/2] Add SMCCC cache clean/invalidate provider
+Thread-Topic: [PATCH v2 0/2] Add SMCCC cache clean/invalidate provider
+Thread-Index: AQHc95MpdVuc7Bm9ck23f3rlDLIKzLZM4jlF
+Date: Tue, 23 Jun 2026 23:37:48 +0000
+Message-ID: <DS7PR12MB9474657F83D9FB7A3036ABCEC3EE2@DS7PR12MB9474.namprd12.prod.outlook.com>
+References: <20260608220709.1300245-1-smadhavan@nvidia.com>
+In-Reply-To: <20260608220709.1300245-1-smadhavan@nvidia.com>
+Accept-Language: en-US
 Content-Language: en-US
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <20260310-a733-clk-v1-5-36b4e9b24457@pigmoral.tech>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: DS7PR12MB9474:EE_|PH7PR12MB7331:EE_
+x-ms-office365-filtering-correlation-id: 96ac2265-7873-4c48-c285-08ded1806f7b
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|7416014|376014|38070700021|22082099003|18002099003|56012099006|11063799006|6133799003;
+x-microsoft-antispam-message-info: MEyMt7GkDqpx4Os7sKTwdNDQe7NbguezbwInR6L7HQGnCMYmUv8TqUoyE0T6QNkujz4t+Qk3sELq3OlXCHm7QP+rNCTEpW52nowqHHnyMOm8fabtdnLnExA68t0b0FlG/zNBY6twMd/F13+Y6LG0hnU6J33VTWPb6YuauIBnRlI/cGTWMgHw+GvhG839gOEU09hvzuH7UuxQUKkiv1M7lpz/VBSuZQdkaTARS0a4q2ulaXlNvvb57rkQYxnwTivlzATcHA3NI4KwFsETJ/XLrPma3/Nw6+MWiJmqLhYlPIxx+RNTtU62MhPmDtPB0ol2TiUPO1ycEXWnA9dLerlS/vzDC9iytWsyPeyEXUfRjz3vso+9MuOCv+KvCakEP06TWy9yjwCE8fIy0b1j2DDNed3e5PNmSp0h6z9RRPDd+G5BVY5ZU+Iyp+S7j0Pl8GMCZDwikceDb2fl4Jjo/PdBaL1lHhJt0hj9SpcGwg25qtUmCiHl7wlnC2hPVepVtfCI2X8BkDey2PW3pUN2Bi/lmUzsB+VSyI0TCOgDVRT+gj+cjNZ2H2AY9r9EoIC9p9MhL5bzLOAsuRBWy/Wg1p/pBy4BRm94+xMZShDZOHlLksIN7N4cMUszJCzIOqh8Iohk366AFqHBgnXVZZluNwqS3D3W+j15M5ZGizZpXVBF5AZyutUPMZG+uAPr2mMmkrVFWwisPZE6MDdaWXXORVS2VSC+nGn4Hyff75F4Fm6nous=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR12MB9474.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(7416014)(376014)(38070700021)(22082099003)(18002099003)(56012099006)(11063799006)(6133799003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?W+HlPFNk+vfjHPmyLyBu6Cf3Xa4t+nZG5e3vuHfkkDNQxPSUzFBEABOmvH7M?=
+ =?us-ascii?Q?TxVHjRTrspX1BaaUdHZHvQUWICa/KRNxxIlYPJXW/zSDucy6tiKgmZFacDp1?=
+ =?us-ascii?Q?ZqEBCgbiWfwomTN92qh6TJJwClqGeU6FBIsIXNYXrbCK6g68lIWaGZcYRjM/?=
+ =?us-ascii?Q?Rvj8b174oP5nWs3Yfzq8z0L4yZtlE4v9eUjvoAr8M7n+rtyo7VEGLiClzgPC?=
+ =?us-ascii?Q?4pZrL1vPfI4T6GHIh4jmV4FHHmJgiaPA4Tq658NMvo41EsaUUd6k/Ww0GGVy?=
+ =?us-ascii?Q?5987umd4+NJO3eYh96Ws9Zh6iQxHcgiHMgpbijcP6nIIwcAqTAfNcP2N58t5?=
+ =?us-ascii?Q?nuWUc5yV0MuIjmQLwEnMpE5UObUj/8Rp9m9+wX+Z/4dfVaQmW0En6uM49dyw?=
+ =?us-ascii?Q?mS+6qLo9o7h2vcTGDLNiIArxRwFPr031XhxLVfDxF8lmcBOnyq+RNGlEX8wS?=
+ =?us-ascii?Q?CPtckURgAROG/VUyLHF2MyiWOXlZsxZbkoja2He7WULcoLjP460syo+X2cyo?=
+ =?us-ascii?Q?FloqX8uewqch2ZlKThsyEphwZKp4ZkBR97DoI7UKVfcP3roZlwmN5V510nQy?=
+ =?us-ascii?Q?MQ/MvOFMBWKfD9VMbD7x6ju0pFXLWEYxd1f31JqoXgahVdKajAdi6wWsz6q1?=
+ =?us-ascii?Q?O1/UPNXCy7xmFxpA60SN3l13VuFgBrWsDLI7rDt1ub6Meb7h3+q1YYb8hwAL?=
+ =?us-ascii?Q?c5PlYIyiCIHvpI5dOZusejNHKJAauvwofeVre3/dl94O182df3d9LKoCRW8A?=
+ =?us-ascii?Q?9NfI4KLHR9OuyBq0CaXu6h9rRV+Xz+kaEbG4DLSdsMfpm/ErGOWVzNwnSJgu?=
+ =?us-ascii?Q?V5roqJkYlEWdPN+l4jIYuJJfiIWR9Jqlr7gslnppCIEu2b5Evb7ubxEPHYq2?=
+ =?us-ascii?Q?pNoswHf+pHkDGPnhOObL9pOqrvNTyTKL2/3toAaixm/Oy7gaIlv2pJ0E8I99?=
+ =?us-ascii?Q?FoN0U4NOpium1Lz4rKBVRy0Bjm6SMlyU9nIDjDNNHyg3fnzMdECy6BlG/7P3?=
+ =?us-ascii?Q?Xjj8cPhOzCs4B/Ohndq9GX3le5V15uYBEqI95zgPf57fnimjSq1dbttPgys+?=
+ =?us-ascii?Q?HZW/YuHchERgrLtxsxY/Wq/WCrWEWbrsZ1QSgzbF0ZCGH7OJX2oqnXnxmh/B?=
+ =?us-ascii?Q?ERfEiBEIJn6R5CLutFB9EzVOCwfJ5P84YWN9TBnb0BXQAmV2PlwI9Im2XWBP?=
+ =?us-ascii?Q?wdS9pXV6QW8+9Fq2I0hMo4sGU+YgOxgLYYAxxbo6ovKYh12uRLt3esbiBFvx?=
+ =?us-ascii?Q?tqwCLbDzWyg4F0RyiD5hFe3WPUiGHDFJiWB8NIWJ3J+OBcijrZiCCAuQ8X1p?=
+ =?us-ascii?Q?E2yU/Tq4bnmlqe4Kfy8SRf1UQTZFJYkBB/6u3BeqEOGAsFjijO7QPDk8ZJG0?=
+ =?us-ascii?Q?nf7juaAWaQNWX5WydmW+WizDvRPms+bLgJlyRZqipU3hxxogFCWdY6dYAL40?=
+ =?us-ascii?Q?XixhlqEnTVfzCeeizs0PVdzFo/ZC/9INmY7ZhBlT4KNqZ4xCLg8lmuJsGZw+?=
+ =?us-ascii?Q?GzslPdV8Y9t/rPcVBkNulChnf3W1Xg7wJN+KJh0wr2C8CwjhvrjFoA51ecA0?=
+ =?us-ascii?Q?/+lxig4cTvrAj7wFXFp/E1QPYYUnvYWZJ9Yqz2f7Mh2UNxVk2diCc9+/iDfT?=
+ =?us-ascii?Q?41CD7mumiuCKrf3PU2wv5fUahXipQ7iMLluMwpMitRKTeqgoWzG/sqSXZdY8?=
+ =?us-ascii?Q?UGz/WoEr546L77hSgRpr/RukQ3puiXydl5wDHC9m2UiYik6T?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: DS7PR12MB9474.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 96ac2265-7873-4c48-c285-08ded1806f7b
+X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Jun 2026 23:37:48.9472
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: y+LwTNCQgwt2L5CvpD2XCUBqYZPuNfXThU/VI3tHc1/3ESQZLncHc2BFWTq8NQkMfMC283XYMGORINRwb3PiSA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB7331
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_153515_433916_0EB914FD 
-X-CRM114-Status: GOOD (  26.79  )
+X-CRM114-CacheID: sfid-20260623_163758_739354_869D0857 
+X-CRM114-Status: GOOD (  18.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,219 +146,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi all,
 
-On 3/10/26 08:33, Junhui Liu wrote:
-> Add the essential bus clocks in the Allwinner A733 CCU, including AHB,
-> APB0, APB1, APB_UART, NSI, and MBUS. These buses are necessary for many
-> other functional modules. Additionally clocks such as trace, gic and
-> cpu_peri are also added as they fall within the register address range
-> of the bus clocks, even though they are not strictly bus clocks.
-> 
-> The MBUS clock is marked as critical to ensure the memory bus remains
-> operational at all times. For the NSI and MBUS clocks, the hardware
-> requires an update bit (bit 27) to be set so that the configuration
-> takes effect and the updated parameters can be correctly read back.
-> 
-> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
-> ---
->   drivers/clk/sunxi-ng/ccu-sun60i-a733.c | 131 +++++++++++++++++++++++++++++++++
->   1 file changed, 131 insertions(+)
-> 
-> diff --git a/drivers/clk/sunxi-ng/ccu-sun60i-a733.c b/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
-> index cf819504c51f..68457813dbbb 100644
-> --- a/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
-> +++ b/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
-> @@ -19,6 +19,7 @@
->   #include "ccu_common.h"
->   
->   #include "ccu_div.h"
-> +#include "ccu_mp.h"
->   #include "ccu_mult.h"
->   #include "ccu_nkmp.h"
->   #include "ccu_nm.h"
-> @@ -65,6 +66,16 @@ static const struct clk_hw *pll_ref_hws[] = {
->   	&pll_ref_clk.common.hw
->   };
->   
-> +/*
-> + * There is a non-software-configurable mux selecting between the DCXO and the
-> + * PLL_REF in hardware, whose output is fed to the sys-24M clock. Although both
-> + * sys-24M and pll-ref are fixed at 24 MHz, define a 1:1 fixed factor clock to
-> + * provide logical separation:
-> + * - pll-ref is dedicated to feeding other PLLs
-> + * - sys-24M serves as reference clock for downstream functional modules
-> + */
-> +static CLK_FIXED_FACTOR_HWS(sys_24M_clk, "sys-24M", pll_ref_hws, 1, 1, 0);
-> +
->   #define SUN60I_A733_PLL_DDR_REG		0x020
->   static struct ccu_nkmp pll_ddr_clk = {
->   	.enable		= BIT(27),
-> @@ -371,6 +382,107 @@ static SUNXI_CCU_M_HWS(pll_de_4x_clk, "pll-de-4x", pll_de_hws,
->   static SUNXI_CCU_M_HWS(pll_de_3x_clk, "pll-de-3x", pll_de_hws,
->   		       SUN60I_A733_PLL_DE_REG, 16, 3, 0);
->   
-> +/**************************************************************************
-> + *                           bus clocks                                   *
-> + **************************************************************************/
-> +
-> +static const struct clk_parent_data ahb_apb_parents[] = {
-> +	{ .hw = &sys_24M_clk.hw },
-> +	{ .fw_name = "losc" },
-> +	{ .fw_name = "iosc" },
-> +	{ .hw = &pll_periph0_600M_clk.hw },
-> +};
-> +
-> +static SUNXI_CCU_M_DATA_WITH_MUX(ahb_clk, "ahb", ahb_apb_parents, 0x500,
-> +				 0, 5,		/* M */
-> +				 24, 2,		/* mux */
-> +				 0);
-> +
-> +static SUNXI_CCU_M_DATA_WITH_MUX(apb0_clk, "apb0", ahb_apb_parents, 0x510,
-> +				 0, 5,		/* M */
-> +				 24, 2,		/* mux */
-> +				 0);
-> +
-> +static SUNXI_CCU_M_DATA_WITH_MUX(apb1_clk, "apb1", ahb_apb_parents, 0x518,
-> +				 0, 5,		/* M */
-> +				 24, 2,		/* mux */
-> +				 0);
-> +
-> +static const struct clk_parent_data apb_uart_parents[] = {
-> +	{ .hw = &sys_24M_clk.hw },
-> +	{ .fw_name = "losc" },
-> +	{ .fw_name = "iosc" },
-> +	{ .hw = &pll_periph0_600M_clk.hw },
-> +	{ .hw = &pll_periph0_480M_clk.common.hw },
-> +};
-> +static SUNXI_CCU_M_DATA_WITH_MUX(apb_uart_clk, "apb-uart", apb_uart_parents, 0x538,
-> +				 0, 5,		/* M */
-> +				 24, 3,		/* mux */
-> +				 0);
-> +
-> +static const struct clk_parent_data trace_parents[] = {
-> +	{ .hw = &sys_24M_clk.hw },
-> +	{ .fw_name = "losc" },
-> +	{ .fw_name = "iosc" },
-> +	{ .hw = &pll_periph0_300M_clk.hw },
-> +	{ .hw = &pll_periph0_400M_clk.hw },
-> +};
-> +static SUNXI_CCU_M_DATA_WITH_MUX_GATE(trace_clk, "trace", trace_parents, 0x540,
-> +				 0, 5,		/* M */
-> +				 24, 3,		/* mux */
-> +				 BIT(31),	/* gate */
-> +				 0);
-> +
-> +static const struct clk_parent_data gic_cpu_peri_parents[] = {
-> +	{ .hw = &sys_24M_clk.hw },
-> +	{ .fw_name = "losc" },
-> +	{ .hw = &pll_periph0_600M_clk.hw },
-> +	{ .hw = &pll_periph0_480M_clk.common.hw },
-> +	{ .hw = &pll_periph0_400M_clk.hw },
-> +};
-> +static SUNXI_CCU_M_DATA_WITH_MUX_GATE(gic_clk, "gic", gic_cpu_peri_parents, 0x560,
+  Gentle ping on this v2.
 
-Do we really want to model the GIC clock? The A523 has one as well, as 
-we don't describe it there. And while the GICv3 binding describes a 
-clock property, the Linux driver completely ignores that.
-So if I see this correctly, this clock would become unused, and would be 
-turned off, killing the GIC? So we would at least need a CLK_IS_CRITICAL 
-flag?
+  This version includes Jonathan's Reviewed-by tags and addresses the v1
+  comments around the Kconfig wording, Makefile ordering/comment, and retry
+  loop handling.
 
-But it's a good reminder to lift this clock to something PLL based, in 
-U-Boot's SPL, because I guess the 24MHz are rather slow.
+  The main open question from v1 was whether DEN0028 v1.7 BET0 is sufficien=
+t
+  for merging these SMCCC cache maintenance definitions/provider. Could one
+  of the Arm/SMCCC maintainers please confirm whether this is acceptable fo=
+r
+  merge, or whether the series should wait for a non-beta spec revision?
 
-> +				      0, 5,	/* M */
-> +				      24, 3,	/* mux */
-> +				      BIT(31),	/* gate */
-> +				      0);
-> +
-> +static SUNXI_CCU_M_DATA_WITH_MUX_GATE(cpu_peri_clk, "cpu-peri", gic_cpu_peri_parents, 0x568,
+  If the spec status is acceptable, please let me know if there are any
+  remaining concerns with v2.
 
-What is this clock about? I don't see it referenced by any peripheral in 
-the manual.
+  Thanks,
+  Srirangan
 
-> +				      0, 5,	/* M */
-> +				      24, 3,	/* mux */
-> +				      BIT(31),	/* gate */
-> +				      0);
-> +
-> +static const struct clk_parent_data nsi_parents[] = {
-> +	{ .hw = &sys_24M_clk.hw },
-> +	{ .hw = &pll_ddr_clk.common.hw },
-> +	{ .hw = &pll_periph0_800M_clk.common.hw },
-> +	{ .hw = &pll_periph0_600M_clk.hw },
-> +	{ .hw = &pll_periph0_480M_clk.common.hw },
-> +	{ .hw = &pll_de_3x_clk.common.hw },
-> +};
-> +static SUNXI_CCU_MP_DATA_WITH_MUX_GATE_FEAT(nsi_clk, "nsi", nsi_parents, 0x580,
+________________________________________
+From: Srirangan Madhavan
+Sent: Monday, June 8, 2026 3:07 PM
+To: Mark Rutland; Lorenzo Pieralisi; Sudeep Holla; Conor Dooley; Jonathan C=
+ameron
+Cc: Catalin Marinas; Will Deacon; Dan Williams; Thierry Reding; Jon Hunter;=
+ Souvik Chakravarty; linux-arm-kernel@lists.infradead.org; linux-kernel@vge=
+r.kernel.org; linux-tegra@vger.kernel.org; Srirangan Madhavan
+Subject: [PATCH v2 0/2] Add SMCCC cache clean/invalidate provider
 
-Similar question like for the GIC: do we need this in the kernel, and do 
-we need to prevent this from being turned off?
+This series adds an arm64 backend for memregion cache invalidation users
+based on the Arm SMCCC cache clean+invalidate interface.
 
-> +					    0, 5,	/* M */
-> +					    0, 0,	/* no P */
-> +					    24, 3,	/* mux */
-> +					    BIT(31),	/* gate */
-> +					    0, CCU_FEATURE_UPDATE_BIT);
-> +
-> +static const struct clk_parent_data mbus_parents[] = {
-> +	{ .hw = &sys_24M_clk.hw },
-> +	{ .hw = &pll_periph1_600M_clk.hw },
-> +	{ .hw = &pll_ddr_clk.common.hw },
-> +	{ .hw = &pll_periph1_480M_clk.common.hw },
-> +	{ .hw = &pll_periph1_400M_clk.hw },
-> +	{ .hw = &pll_npu_clk.common.hw },
-> +};
-> +static SUNXI_CCU_MP_DATA_WITH_MUX_GATE_FEAT(mbus_clk, "mbus", mbus_parents, 0x588,
-> +					    0, 5,	/* M */
-> +					    0, 0,	/* no P */
-> +					    24, 3,	/* mux */
-> +					    BIT(31),	/* gate */
-> +					    CLK_IS_CRITICAL,
-> +					    CCU_FEATURE_UPDATE_BIT);
-> +
->   /*
->    * Contains all clocks that are controlled by a hardware register. They
->    * have a (sunxi) .common member, which needs to be initialised by the common
-> @@ -407,11 +519,21 @@ static struct ccu_common *sun60i_a733_ccu_clks[] = {
->   	&pll_de_clk.common,
->   	&pll_de_4x_clk.common,
->   	&pll_de_3x_clk.common,
-> +	&ahb_clk.common,
-> +	&apb0_clk.common,
-> +	&apb1_clk.common,
-> +	&apb_uart_clk.common,
-> +	&trace_clk.common,
-> +	&gic_clk.common,
-> +	&cpu_peri_clk.common,
-> +	&nsi_clk.common,
-> +	&mbus_clk.common,
->   };
->   
->   static struct clk_hw_onecell_data sun60i_a733_hw_clks = {
->   	.hws	= {
->   		[CLK_PLL_REF]		= &pll_ref_clk.common.hw,
-> +		[CLK_SYS_24M]		= &sys_24M_clk.hw,
->   		[CLK_PLL_DDR]		= &pll_ddr_clk.common.hw,
->   		[CLK_PLL_PERIPH0_4X]	= &pll_periph0_4x_clk.common.hw,
->   		[CLK_PLL_PERIPH0_2X]	= &pll_periph0_2x_clk.common.hw,
-> @@ -453,6 +575,15 @@ static struct clk_hw_onecell_data sun60i_a733_hw_clks = {
->   		[CLK_PLL_DE]		= &pll_de_clk.common.hw,
->   		[CLK_PLL_DE_4X]		= &pll_de_4x_clk.common.hw,
->   		[CLK_PLL_DE_3X]		= &pll_de_3x_clk.common.hw,
-> +		[CLK_AHB]		= &ahb_clk.common.hw,
-> +		[CLK_APB0]		= &apb0_clk.common.hw,
-> +		[CLK_APB1]		= &apb1_clk.common.hw,
-> +		[CLK_APB_UART]		= &apb_uart_clk.common.hw,
-> +		[CLK_TRACE]		= &trace_clk.common.hw,
-> +		[CLK_GIC]		= &gic_clk.common.hw,
-> +		[CLK_CPU_PERI]		= &cpu_peri_clk.common.hw,
-> +		[CLK_NSI]		= &nsi_clk.common.hw,
-> +		[CLK_MBUS]		= &mbus_clk.common.hw,
->   	},
->   	.num	= CLK_FANOUT3 + 1,
->   };
-> 
+Per DEN0028, this interface targets systems where a Normal Cacheable
+memory region can be modified in ways that are not handled by usual PE
+coherency mechanisms, and where VA-based CMOs may be too slow or
+insufficient for large ranges and/or system-cache implementations.
 
+Representative use cases include device-backed memory state transitions
+where stale CPU/system cache lines must be invalidated reliably (for
+example secure erase, reset/offline flows, and dynamic memory
+reconfiguration).
+
+Patch 1 introduces the Arm SMCCC cache clean/invalidate function IDs and
+transient return codes needed by callers [1].
+
+Patch 2 adds a cache maintenance provider that:
+- discovers SMCCC support and attributes at init time
+- registers with the generic cache coherency framework used by
+  cpu_cache_invalidate_memregion()
+- handles transient BUSY/RATE_LIMITED responses with bounded retries
+
+This patch set does not add a software fallback path; when firmware does
+not implement the SMCCC cache maintenance interface, the provider is not
+registered and existing behavior is preserved.
+
+Reference:
+[1] https://developer.arm.com/documentation/den0028/latest
+
+Note: Jonathan Cameron raised whether DEN0028 v1.7 BET0 is sufficient
+for merge. Input from Arm maintainers / SMCCC spec owners on that point
+would be appreciated.
+
+Changes since v1:
+- Added Jonathan Cameron's Reviewed-by tags.
+- Clarified the ARM_SMCCC_CACHE Kconfig help text.
+- Added a Makefile comment identifying the providers that depend on
+  CACHEMAINT_FOR_HOTPLUG.
+- Dropped the final-backoff-sleep skip in the retry loop.
+
+Changes since RFC:
+- Dropped the RFC tag.
+- Moved the provider from arch/arm64/mm to drivers/cache.
+- Added a dedicated CONFIG_ARM_SMCCC_CACHE option under the existing
+  CACHEMAINT_FOR_HOTPLUG menu.
+- Dropped the global-operation coalescing optimization.
+- Dropped provider handling for SMCCC_RET_NOT_REQUIRED.
+- Removed the unnecessary global provider pointer.
+- Removed arm64_ prefixes from static provider-local names.
+- Documented why these SMCCC Arch cache maintenance calls use SMC64.
+- Anchored the SMCCC return-code comment to DEN0028 v1.7.
+- Used fsleep() for retry backoff.
+- Used unsigned long for retry delay values passed to fsleep().
+- Skipped the final backoff sleep when no retry remains.
+- Documented the bounded mutex hold time across the serialized retry
+  sequence.
+- Added mutex_destroy() on the registration failure path.
+
+Srirangan Madhavan (2):
+  arm64: smccc: add cache clean/invalidate IDs and return codes
+  cache: add SMCCC-backed cache invalidate provider
+
+ drivers/cache/Kconfig           |  11 +++
+ drivers/cache/Makefile          |   2 +
+ drivers/cache/arm_smccc_cache.c | 157 ++++++++++++++++++++++++++++++++
+ include/linux/arm-smccc.h       |  21 ++++-
+ tools/include/linux/arm-smccc.h |  21 ++++-
+ 5 files changed, 208 insertions(+), 4 deletions(-)
+ create mode 100644 drivers/cache/arm_smccc_cache.c
+
+
+base-commit: 3b3bea6d4b9c162f9e555905d96b8c1da67ecd5b
+--
+2.43.0
 
