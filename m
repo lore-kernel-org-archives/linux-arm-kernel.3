@@ -4,83 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBA12CDB479
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 12:34:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDED1CDB46F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 12:50:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nR20EzcDT4t2nivRzb6lw/7RBw/UqVCDNCfiihXYmsY=; b=zBjH5J+vsZ0voRhszX+zT15eSc
-	+6tMIxuzZBb9I1kYQFcWVoLKKgA6fISrTjxWWyhQh1sD6JTSVhdVpNlUsxHHt8Y06RW2lLjbbW/aX
-	8CP5ouCuB1POKCQmjWnkQxKwJirAJQDFy7wPyw76O0hR6ssbmCAJEWWdlCmcq3Wu7JRGuDP79Ajtn
-	J7qWpWcsC7+Zsjl3eaqFasXIVOzJ2aBo3HOfEoJ2ObufaCGsJPo1OwPyfSoKYOUaelhwMuRqdN1IG
-	GpsO0iqAi8hLnHJ7ouPv2IQRNAg4XwEJKBoltfGyM25N3VaQg/vnMtR+fCcMTYPhEWoFLJyvwnRzM
-	lga1K7Rw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=wuxR7/cwC5PXnlH9Ywf/Xu94uq2eGxYSfkkCZirEJFQ=; b=y7xuDiQ8Ae24Ny
+	U6niKMewiubnvpX57AKxhgY1TFK2eFQcDz5DNYIiNRLMc6U45zGAMMFUAOjU09Po1GQ7onKU44mKP
+	3Pw45IzdXNPzpGfigJwxucI2Ms35v/e1LPAJ5ezaHgDDecNFISs8I3Ytkq13rsVsMM5+CR0xMdA0l
+	NrytECr9+3fzx+VvZMEu2OmnMY0tvwHF7m3jIiQc2Du+H9ODhApIfr/jQ8hz22NMLCQRNAIfiJJjj
+	TH2VYczC3rSp3O0I4vTO4XPOQpH5JwUme6gpjS7NX2tbOWIhdmf+h25NfEyv7SBGq5+AEk7owF3/F
+	h/0WcTFWBeHNBbYGgfwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc0KM-00000006Gvk-2ekY;
-	Tue, 23 Jun 2026 12:34:06 +0000
-Received: from fr5000-r.dnsiaas.com ([92.42.104.18])
+	id 1wc0a8-00000006HgC-195E;
+	Tue, 23 Jun 2026 12:50:24 +0000
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc0KJ-00000006GuP-2yx6;
-	Tue, 23 Jun 2026 12:34:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=superkali.me; s=default; h=Content-Transfer-Encoding:Content-Type:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=nR20EzcDT4t2nivRzb6lw/7RBw/UqVCDNCfiihXYmsY=; b=VIr2/FaCMzauloImmfwifrMDq/
-	W2dgBHQydMdMowI/yfTeU9QtHOTGoTmRHcVeQlZMFKUVc/f5bcTHIAYfNxsnXOnMTbjEYoW++84fD
-	P5BKuoOuzRzDnbTCtNGTPwRj+rDdNJSEZkYkJYBzMx/Z5My6DilCM/YeWxUvrwEmsYdQqVpSLn9nR
-	nEyEaG1vR6uzcmnqYO6EXlRPeMqSXNZBbpmx/i95FjWI7fA0W+Z70B+0TcfZX/S6evJD7iBftUcCm
-	HrF6+nIuexUo76vahOZKzgL+n/QLuagA8xA4Y9Fcv/t+3bOdvxI6soaRw0K7tpg0U0W9OQipizUhJ
-	zVis/yNg==;
-Received: from [81.57.40.39] (port=36064 helo=superkali.me)
-	by fr5000-r.dnsiaas.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.99.4)
-	(envelope-from <hello@superkali.me>)
-	id 1wc0Jd-00000002P8z-1GKJ;
-	Tue, 23 Jun 2026 14:33:18 +0200
-From: Daniele Briguglio <hello@superkali.me>
-To: Heiko Stuebner <heiko@sntech.de>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Diederik de Haas <diederik@cknow-tech.com>
-Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Ricardo Pardini <ricardo@pardini.net>
-Subject: Re: [PATCH v4 5/5] clk: rockchip: rk3588: add GATE_GRF clocks for I2S MCLK output to IO
-Date: Tue, 23 Jun 2026 14:33:16 +0200
-Message-ID: <20260623123316.4111002-1-hello@superkali.me>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <2100447.PIDvDuAF1L@diego>
-References: <20260419-rk3588-mclk-gate-grf-v4-0-513a42dd1dcc@superkali.me> <20260419-rk3588-mclk-gate-grf-v4-5-513a42dd1dcc@superkali.me> <DJGDSS875DDO.22TYPVYK5X8KZ@cknow-tech.com> <2100447.PIDvDuAF1L@diego>
+	id 1wc0a5-00000006HfY-3SkK
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 23 Jun 2026 12:50:22 +0000
+Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-6870ad8072eso1133006a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 05:50:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782219020; x=1782823820; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=wuxR7/cwC5PXnlH9Ywf/Xu94uq2eGxYSfkkCZirEJFQ=;
+        b=AlQttLm6d+xo0z+RsKikbI7Ds4wu5N80a3JiS0OKH0Y2ccucTFa/rESasIjQhY1W4W
+         yhUOE8kOJddrjpR9VioJq7N1Pd3q0xINn0D0DJtkzjF3nf9lY6sJfOS9vP4XSUJQKAwN
+         dI1FayI4WfAeSlyvhmT8QI8kMTge9r8kd89NqujFNMORqmC6q1RzxcBvGsg13xScNaSJ
+         /L8QpVF254TwWCeSBTtPY3K0OvQq6r6X/kQVVwwT8e+M7SBwStDVifQvNN6CeMd0/pDc
+         j5iMjHouMprjnRQB888HCGOlV1lN+JD61U0ZYw61FrFowP1CLaImolO83JEt0dgqRe+2
+         vhtQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782219020; x=1782823820;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=wuxR7/cwC5PXnlH9Ywf/Xu94uq2eGxYSfkkCZirEJFQ=;
+        b=NEiwYk5c/MhA9lpeEQyfQAE+U59/DHz0W21MOs036ZFX3vgBitbwuQSHr5VtQ0p6gi
+         AOvBf+q3sr7E+IMfeyX7Cso5kNFZc5SDNvTRoqZB1pSJXTPYlMPUM3lnPvnJm8WPxK4A
+         DwNYr/WS2QXZGO384uvbdb8aA/LEJRGR3lXWqbQd0pCRyYu/E9D4FUj1IjTCOD7eE6Jd
+         iEzv820nYLgEO6BwSMHWU555DwaD8k7B3SLnRYj/s9/8sKuQXIifdOK59pmgSqw9Ekqb
+         l/mAzeblDHQS3UrSo8d91LQGJWRV8OgdhNS5Y1srUMlh3m0g/FTMtgTp3wuIDsKrQ9qE
+         N4eA==
+X-Forwarded-Encrypted: i=1; AFNElJ9U5Qk9mvuA3zDD7VQnc9aH1qrYu+Tv5hXBg0pDpEY5Fca2Jqsxuqewph9Lq3SxX1MILyTFIlZ2ra711nB+Q3fn@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzr0Eq28D8w/9zgIJWevVJAVtKtOQxLwe2dKO8AFl6hoirPj44A
+	m8DmNuFwIMK0NwAMANGQJsOQItRlXi8vvmWjkH8wW9cL4ZzggXFAGrDU
+X-Gm-Gg: AfdE7ckCCI91IavIO6s9JC534gb4wE7/POZlF6+oQkyyRmGewW5aqj3QRcT/kLiSyoN
+	AFel0rAa0/7uaCzaFi4rRWrmocCSAfw/AjfJu5CT9pxqOcd1QG+y4hP5y977wIEvz5pegST+8G0
+	tutoQ6Pvu2kqmpcOQNuOFyw0xI5lqUl1Mi82xw4tyHhomkuFEtZ2eTI4Taq5BhxMqszc+GcISzK
+	hgSrg+ILUtBbfbAPkt6Aq8L0uFUIEPODAVkFNDsBf1foM464AVKUNSGBTFOTY0Hw9z3VPxNyL9m
+	0GK9BpN+mYvXjrb58qBIRk5hkQnm2TSL+BrbKXGbNXG8AiGFCHivWr1Fkwt3Q8Xf11QTgkjsgbp
+	rdQPkbzZrJN8U7uZQVw7mLo8J+yrx0mc5fWl94AZ22lBvYdvrJZ/uH7gzDuQiW/ba3I1RqfPjPO
+	4ySuqrDZWB2ZccuJovO8Cb
+X-Received: by 2002:a05:6402:52d4:b0:695:defe:bad with SMTP id 4fb4d7f45d1cf-697d4315842mr2072027a12.9.1782219019350;
+        Tue, 23 Jun 2026 05:50:19 -0700 (PDT)
+Received: from [127.0.0.2] ([194.35.121.133])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6977b82fd6fsm5153967a12.2.2026.06.23.05.50.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 23 Jun 2026 05:50:18 -0700 (PDT)
+From: Diogo Silva <diogompaissilva@gmail.com>
+Subject: [PATCH 0/2] drm/exynos: DRM encoder improvements for Exynos
+ devices
+Date: Tue, 23 Jun 2026 14:49:42 +0200
+Message-Id: <20260623-exynos-drm-simple-v1-0-bb52f098b1ee@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - fr5000-r.dnsiaas.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - superkali.me
-X-Get-Message-Sender-Via: fr5000-r.dnsiaas.com: authenticated_id: hello@superkali.me
-X-Authenticated-Sender: fr5000-r.dnsiaas.com: hello@superkali.me
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAOaAOmoC/x3MTQ5AMBBA4avIrE1SRf1cRSzQwSSUdBIhjbtrL
+ L/FewGEPJNAmwTwdLHw4SKyNIFpHdxCyDYatNJGGZ0j3Y87BK3fUXg/N8JxLPPaWFOUTQWxOz3
+ NfP/Prn/fD3HAptRjAAAA
+X-Change-ID: 20260623-exynos-drm-simple-bb5386d64597
+To: Jingoo Han <jingoohan1@gmail.com>, Inki Dae <inki.dae@samsung.com>, 
+ Seung-Woo Kim <sw0312.kim@samsung.com>, 
+ Kyungmin Park <kyungmin.park@samsung.com>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Diogo Silva <diogompaissilva@gmail.com>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_053403_934621_AEE9103F 
-X-CRM114-Status: UNSURE (   9.08  )
+X-CRM114-CacheID: sfid-20260623_055021_872548_6D196B4A 
+X-CRM114-Status: UNSURE (   7.75  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -96,28 +107,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Heiko,
+This series does two things:
+	- Open-code drm_simple_encoder_init() since it is deprecated
+	- Handle the error code from drm_encoder_init (previously
+	  drm_simple_encoder_init) to prevent silent failures and
+	  cleanup of uninitialized encoders
 
-> can you check if adding CLK_IGNORE_UNUSED changes the situation for you?
-> What I assume is happening is that when the clocks were not declared they were
-> just left running, while now the kernel turns off unused (but defined) clocks.
+Signed-off-by: Diogo Silva <diogompaissilva@gmail.com>
+---
+Diogo Silva (2):
+      drm/exynos: Remove dependency on DRM simple helpers
+      drm/exynos: Add error handling to drm_encoder_init()
 
-That lines up with what I see. The gates are set-to-disable and reset to
-open, so before the series the bit just kept whatever the boot firmware
-left it at.
-
-Diederik, the cleanest way to confirm is to read SOC_CON6 before Linux
-touches it, e.g. md.l 0xfd58c318 at the U-Boot prompt (bit 0 is I2S0). If
-it comes up clear there, the gate is open, and if audio then breaks once
-the kernel is up, that points at clk_disable_unused turning it off because
-nothing references it.
-
-If that turns out to be the case, CLK_IGNORE_UNUSED on the gates is a
-reasonable way to stop the kernel from closing a gate the firmware already
-left open, for boards that would rather not switch their DTS to _TO_IO.
-Where a board does reference _TO_IO the consumer holds it open anyway, so
-that path is unaffected either way.
+ drivers/gpu/drm/exynos/exynos_dp.c       | 13 +++++++++++--
+ drivers/gpu/drm/exynos/exynos_drm_dpi.c  | 14 ++++++++++++--
+ drivers/gpu/drm/exynos/exynos_drm_dsi.c  | 11 +++++++++--
+ drivers/gpu/drm/exynos/exynos_drm_vidi.c | 14 ++++++++++++--
+ drivers/gpu/drm/exynos/exynos_hdmi.c     | 15 +++++++++++++--
+ 5 files changed, 57 insertions(+), 10 deletions(-)
+---
+base-commit: 60326b17f877e12846167bf8ef83680b9875218a
+change-id: 20260623-exynos-drm-simple-bb5386d64597
 
 Best regards,
-Daniele
+-- 
+Diogo Silva <diogompaissilva@gmail.com>
+
 
