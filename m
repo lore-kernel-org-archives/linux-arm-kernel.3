@@ -4,134 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3567CCDB46F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 12:21:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D13C1CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 12:26:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JBzpNmWrMK77dv+oRp9gwFSkRedXf34HcCV2tGd28wc=; b=WITbkSwXPTgiuRd/A8rVkFHSFh
-	ZVj142mITEFEEK2mUcyIqpBuXE0KbWIyGHbv6tH5NikyCuNRBuN7ubjcHvjV2OfT4YjLzetMhgoyl
-	+3e76kpLXTb5nALjyMxYMllF+uxwhf1XFjGHs/XaqjSHlTwbDSdA3z5jzYLyUcSIUkFeC4kMUozV9
-	qPcQ6fchLQ+HzEDKx1n3gqILvzwBilqsXVXGKKxK4QDqgMLZxNFUDQTY1aEMyDgc9JNrO6Vgk0lK3
-	k9P2ue4MXZz0RARyG10cVMlcZvVdNbPtuSepp3MdhgRR0sQihKWjdcDyN0kPZGAatBrD1K9h1PBHb
-	pZiObviA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lh7RG7L/K5/iTPw6I1mEZt6mlOVhGls73p+pB9Hmsf4=; b=oeh99Y3sFnPfY3DHg0si6C+wrI
+	p7w1ZlPaVQdk3WcQx7yZzP/s4irLs5CajeeO3Qf3isvGbvZ0hcDfeDegtet0yLe5etV6h0Cf2S7Dv
+	qWhqDlXAy70tTuXp3YDMpYQwGtSgkqZERm+yOreZkJxHIM+RxMZaR/EGW0eoCN92vmMGT60aX0QnS
+	yLhmm+r4BlfzLe/yVukuiOWiDN82bj2k/DI93Z3mxnwnBjYH/HswHt/ihWbncb8kCAb7kxwcTQNyl
+	DWPsOCNQ/99Rkmy2ZejywZz0LSy3FXkVolCjPUhbR3IiSUHmzos3cwTb2vXlKYMMrJQCItPphNN3x
+	uxk8H/7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc08F-00000006Fsv-3Yuk;
-	Tue, 23 Jun 2026 12:21:35 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wc0Cv-00000006GWe-2z9a;
+	Tue, 23 Jun 2026 12:26:25 +0000
+Received: from mail-centralusazon11010055.outbound.protection.outlook.com ([52.101.61.55] helo=DM1PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc088-00000006FmO-0Goq
+	id 1wc0Ct-00000006GVS-1C9Q
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 12:21:29 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65NBXT5f3744677
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 12:21:27 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=JBzpNmWrMK7
-	7dv+oRp9gwFSkRedXf34HcCV2tGd28wc=; b=TYZQL9E8iFOu/LED/EVmRVaQnqM
-	kltxe15x145sds5k3qvCjnnnbPX+49+ggmv2QX1KCaqUNgYIvbaE2R17t/aT9nLu
-	1Q24L4rFnRQhE/uZY8tEQSqd0i6W/7vSlhV/qDRZTSeo6AWxSznmbRCJUnzq0AcT
-	bOwxIZ/9uKDGJOfkqEmkJz2+2iTeQGYkivkeHzwSlitvorn/ldk/jRIKOeDRnaT1
-	n+fIrMQZrhI+QEw/WZCgQ9psRRuIGDLV3s0HzWwPXP7lNaFd0o8vNElsC1xT+ffL
-	VClykvintZVJI88aqR0BQtJLyaEIjV/TEGuN5+QbgTL872HOk6eRVBRk/nA==
-Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com [209.85.210.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4eypx38v5q-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 12:21:27 +0000 (GMT)
-Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-84256bee9a9so3952057b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 05:21:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1782217287; x=1782822087; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=JBzpNmWrMK77dv+oRp9gwFSkRedXf34HcCV2tGd28wc=;
-        b=EbIDYx4Ujl2VsZjkXZdJ/7Wse85oZJAKGy2jt82ZMIk47Vhm5kRaTuwBBffPSOMQWC
-         ylpUgeIWxCw3aaWjlJPTagRsTueebRhFPPACHsWcRdQKQmeqxvpOK+a16BV20xG1vTM/
-         Uazf9lMbkphvbbS19ZmjjtugS+vjDTskB8S9fhqmcsaBY9v2TfkS9B39DKR8LFsGGeNK
-         NuGpAN0UUYsT23x7iISa/3K8ehanZFsw4S4//M6vrLsmXBN/NfqjaYl2SH1rE6BgJF4s
-         Sny1fAE8gQ5lFMqq4WP4LvpQMTZskKJl1JSkQuk3cE46JY2O4WfLvwpToSianM7V5WZc
-         1c2g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782217287; x=1782822087;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=JBzpNmWrMK77dv+oRp9gwFSkRedXf34HcCV2tGd28wc=;
-        b=U5xLNem+3wwq/dhix1T2UaC/8ti7+oZjo9cNs7L8hsaNNtjHqkrXcihIdQ+DYahsKn
-         qIeSXDuNlh4AnAcSpibfDcM8a+h1zhnZIrsCHwvxougVhynH6BJ2BSv68qGJuFTaVItV
-         vZum7okTiY5fAI6ehYjnauqoKzZaCs3germJr9I2tuXPMbflvihOfR86nU1+iDOT3l65
-         Z8gBODaeQYFGbk8fwlVPf9Ekp9E+2Db0mLB7Qap3QwseDFDjcFgPPeHLevmIxGDMDrLH
-         MZoyrENMoj5KE/wcvWA1oLb+EQRPHLfJlJNd3263YIcacOTu2ScmodSTavSXbeCsNS5d
-         M7Qw==
-X-Forwarded-Encrypted: i=1; AFNElJ8xysLPhK6FnO83G21CvhSesiHF4eLo72PL9zWD/CT/1rQxBkcJi+kh51w0ySkw5N7Yhui6674x6vCD4D2xFcR/@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywdpv/G3bbi21yLDKCS6VOT4hrO4FoYNTRX4uq1N4HDLrzCuIiv
-	FxhFNG0kUDNOK34gLCyAsffpzE4emaiOfbiImfVIBdOshurM21Xm5sNQVNmqXhn0DN/gOSfHI7I
-	Gd/EWX3/nJ0Cbh/8nzwBMrO5BTs95Pmryw8x5/wHQwMhOZtyl6pMbTFJ1quCq3GYgtseY/QCBnF
-	YnLg==
-X-Gm-Gg: AfdE7cmjyVnjIOgnxHwC9HQRCUCrCPkZ3siH2Sn9OT54cPF5FVcHbBapXBeRCJ1quyW
-	xar+mVWNlLr3lRQHJnglH4ObIQG/VaMa3liiBWpweRkegA56lrZr8IbDhj+H6ZTKjIWxMzMDHZM
-	hv5H9+T/e3zneYACPg+dRc4ZcGAviKhXLw83Sis4RjTqk+QYey8gJ9rhvphBCF/DjImle0gHCQV
-	EynkZZdTslAyogu/s7hI5q00tOiMIpLi1nkm7m9Q95aZR6l1TAiIpeKgPHxNGAlSRUmqdNqpjko
-	y/HN1nhu7lC03t9ShOoBQFqF0OTalV4hUyqskHoPBhWm74NnM47ciNJlhF3Tr2Ye09ycpmxuVvI
-	9PNTio56n0mJwsMyhDxEja7ReTkmY5HxF/PuV0g==
-X-Received: by 2002:a05:6a00:2e22:b0:82f:abc8:ae0 with SMTP id d2e1a72fcca58-84597066cb7mr2782733b3a.17.1782217286762;
-        Tue, 23 Jun 2026 05:21:26 -0700 (PDT)
-X-Received: by 2002:a05:6a00:2e22:b0:82f:abc8:ae0 with SMTP id d2e1a72fcca58-84597066cb7mr2782687b3a.17.1782217286206;
-        Tue, 23 Jun 2026 05:21:26 -0700 (PDT)
-Received: from hu-mojha-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84564e74646sm10171856b3a.29.2026.06.23.05.21.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 23 Jun 2026 05:21:25 -0700 (PDT)
-From: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
-To: Rob Clark <robin.clark@oss.qualcomm.com>, Will Deacon <will@kernel.org>,
-        "Joerg Roedel (AMD)" <joro@8bytes.org>
-Cc: Robin Murphy <robin.murphy@arm.com>, iommu@lists.linux.dev,
-        linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org,
-        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
-Subject: [PATCH 8/8] iommu/qcom: Document why sec_ptbl allocated flag needs no locking
-Date: Tue, 23 Jun 2026 17:50:34 +0530
-Message-ID: <20260623122034.1166295-9-mukesh.ojha@oss.qualcomm.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260623122034.1166295-1-mukesh.ojha@oss.qualcomm.com>
-References: <20260623122034.1166295-1-mukesh.ojha@oss.qualcomm.com>
+	Tue, 23 Jun 2026 12:26:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XZgicAtVKbQTYG9HfXLhlhNVXpIm7gKdKLwGgrev6ukeY/drhnv6n1DU6yrk8V2NLtFHNM9FndcbDboWr745fTCVqbt+8+gvVTrWryjPCTAN8/dlJ4x62dGA4xWy29oyunzvUkGtsUiQ/haL7aOvvwicYCZf/LD9Ml0FCYzCuEFqx/i+hf3XM0Y9CnmT4AcDWvBCMEjiMNADSm2L8rf6zR1LCBEBB6j0Gv4UeHDtrE5EQcavuirfT8HitEKbJI69KANEK3sQUMLptQVsdhOe5bORbE83WjqnI178CbxhQC0F7vMi8TAzupXxjQZU+2u0CbBNOELiyD6dy21ikrzjyw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=lh7RG7L/K5/iTPw6I1mEZt6mlOVhGls73p+pB9Hmsf4=;
+ b=Kp65c6ryN0TSRJjyyM8PYGgv4Tz0ciD/P3DT2/m/Pf2Oy9qJ7+gRih00Cp//ggS3W6rO/Yhovy8+uNN+X6zVLO0QiDWg7gC6viER66BcFdDq6YKtW4pLQNocnt/1HfjoqobPbV3P3UfwUlArzFAma6kXhOBxZCfa7YrzwmS13lMkbIg9iEkgGDIv6fJSHaas2qFhVQ64L6g0MonsUavCe3zViO8oMGPO8TqDAhk1ijGs8cz+Bu5lW1Pwn86/wmz/aFLwnEbCoGRLV5U6GSEcyrPPPfZ1HDMUPoxkoA9dlJ0DaH1+nmhhPj44zAud0xh8kZ0JTa20LW1lZF2gteMYtQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=lh7RG7L/K5/iTPw6I1mEZt6mlOVhGls73p+pB9Hmsf4=;
+ b=xU9+JChpPC1Sw0xShOJDv6OkDUhKyDxmcX8iIEvsyv7kxyx4qHn+H+dZJhF9sfB7fTCy+G4WBmvtjJyzzVFSOEqG4jdjClXLOeu8v3rO6+4TH9HK7t03uegUZJOmj5GGFYT/gWM5O9S2+WqgGJEyNaAGGAXrrbpQZrWYLzuGgeQ=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from CY1PR12MB9697.namprd12.prod.outlook.com (2603:10b6:930:107::6)
+ by LV8PR12MB9713.namprd12.prod.outlook.com (2603:10b6:408:2a1::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.20; Tue, 23 Jun
+ 2026 12:26:16 +0000
+Received: from CY1PR12MB9697.namprd12.prod.outlook.com
+ ([fe80::3a41:55a0:8203:596d]) by CY1PR12MB9697.namprd12.prod.outlook.com
+ ([fe80::3a41:55a0:8203:596d%5]) with mapi id 15.21.0139.018; Tue, 23 Jun 2026
+ 12:26:16 +0000
+Message-ID: <ddc6210a-303c-44ec-881f-d902946eb6a6@amd.com>
+Date: Tue, 23 Jun 2026 17:56:09 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] char: xilinx_hwicap: unregister class on init errors
+To: Myeonghun Pak <mhun512@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Michal Simek <michal.simek@amd.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Ijae Kim <ae878000@gmail.com>
+References: <20260623085604.89284-1-mhun512@gmail.com>
+Content-Language: en-US
+From: "Pandey, Radhey Shyam" <radheys@amd.com>
+In-Reply-To: <20260623085604.89284-1-mhun512@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: PN2PR01CA0143.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:c01:6::28) To CY1PR12MB9697.namprd12.prod.outlook.com
+ (2603:10b6:930:107::6)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=EsfiaycA c=1 sm=1 tr=0 ts=6a3a7a47 cx=c_pps
- a=m5Vt/hrsBiPMCU0y4gIsQw==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22 a=EUspDBNiAAAA:8
- a=KL97T5h_q3IXvoetim4A:9 a=IoOABgeZipijB_acs4fv:22
-X-Proofpoint-ORIG-GUID: PBdqhyphsJsgjvOcRkO94cMXVgxmKLet
-X-Proofpoint-GUID: PBdqhyphsJsgjvOcRkO94cMXVgxmKLet
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNjIzMDEwMSBTYWx0ZWRfX8gSq5LiTYry0
- oh5D1aCEkFC9XnWDEXedW+GUa+/6AYWOp7XXLS6se+6OoQ5WL5QDTGRSUlK50VMfLqSuZMG6F9t
- XSErAxn6hQBPLZTdZZtI0fdldGbNHGI=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjIzMDEwMSBTYWx0ZWRfX3Taxl37+yMpC
- IsrfpEdjRkCKUFrtAhzr4hjROjHV9k0EnpAWNGgr2AQ8hxPsc08+5Vn/Rm5Ov2JHGetJs0xWt58
- jFMuXIaQ0coQietctwPXxFUXm391kEfXTPbcFc6b9Tdu9mTHDjVFMQRTZbcw+lk3bPPn49GN+LF
- jIMgg1tVskqtjxmDLOHznw3tjjcphO9g3UnEL8uELLCF2M20E3wZxuhZZ0cQ+xMnYqab/g9IThB
- JNGBnys+r4qY1OrOl2SDOEGoz2q+9YirDTM+X1O8kVUKK49qDJFJSs6q2zI/KY2Gq5UBNgSQanE
- JzKoyFlX8tt4V7VAyiNRY49CXqWyuA3CNZW4DAPFnS1J3VdqBhGTsV4rWrfiIhtqCjwHIpGYUbl
- ZA5iaIA2ITeVe8s4kv+eGL1VsIvV/YfkB1JZSdKp/nvcOXNQaKRqti5qb61FWNcwS502toPLVLM
- WmUIzKU7WoFpRH0Ikag==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-23_03,2026-06-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 bulkscore=0 impostorscore=0 lowpriorityscore=0 malwarescore=0
- suspectscore=0 spamscore=0 adultscore=0 priorityscore=1501 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2606230101
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY1PR12MB9697:EE_|LV8PR12MB9713:EE_
+X-MS-Office365-Filtering-Correlation-Id: 27a56ce8-77ba-4244-7f7a-08ded1229ede
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|376014|1800799024|56012099006|18002099003|22082099003|11063799006;
+X-Microsoft-Antispam-Message-Info: 0m8wS8NA8Swf1t1uFMAXM9sGZDY9qsJD3PBwaWgOElN0dmkUh5wHu/+OapDZU8NK3uon1noqQV918wBfuQHk6M2xHZTFYvcvxfGtX6sjAVi0t/IyT1ytGMWnwGwed0jE/4zcZLkeBKPBYRAFCGiEQsmmnW9yfZHAponCiXXCg+Ziq+9sxMHo/NmS8s/FkiI0PXs5gGadHAvi3iC/PVU23s6ec2MSGWoIbHAFC62UzRyC1rTTEMnWZnwHVUpGY42WdmhEdqT5KtJR1LNJUnlNU9fWQb2folVDCLKiNxF88bzkGBVoRP3rG5Q3teRgNyJBXdkVDlms/8hkmp8mN66C/CFaH/4+UBX7EiFcnDQ+hdKxDB9cWAk4bPXPPL6UCpoS2p8fGlaUMlBtEVuKNCcYAMEvbuiMre6it5C4lV3LnU0NXVKddJjVAURIa3XKoTKoVaGYEKzYoSQasZqAiQ/MCY3j/dOp2/il7dMsT/HeCF1FAY4vpNwmRMkyE25iz2OyNFaD7Us7os/KHcUyN31mFRRzJ2zfwlBdz9WAWa0a4Gg8SfZondoS0fkgTBQ/CDtsLhCX+oM+PVZN0TwwAkbnGXaRtMliBeaoI4Fpgs8GQf4+9+GnZqUVpA5BGLXn9wo6DdtU57Dobv1ZU2TYJ+64wOyzcmr5lYtgkLTZhITa1+k=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY1PR12MB9697.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(376014)(1800799024)(56012099006)(18002099003)(22082099003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?LzBMQTNoZU9NSm5xRFV2ZjZIWmswY2llQUd6d295dVZhL081ajZMSGU0UlZv?=
+ =?utf-8?B?SWgrT0orMnpnUVB0U2s2OG53U3R3NUZCUW1vYVNKbzNTaWcvSE9hYzAza3E3?=
+ =?utf-8?B?eWg5cGwzTnlKYjZnOHVnL0pkYXcycWFHSXhLR0kyaGEvek1vSVI0cTAweUhw?=
+ =?utf-8?B?SDJkamtLNDZPbFdwUEJZTVNnNW54WGpqQ2tFMG1obVhxMXhPODkvTXZQZ0N5?=
+ =?utf-8?B?NVEycFJVRk5DTWdIY1hvY3A0aTFtN2FnZXh2c2VpNmVjQ2haUVpMK1IwQXc5?=
+ =?utf-8?B?QjZRQml4WXZQbVpNSHYxR1JPbmhvTjVRNlRYTlFIamJ1TVl6a3NxbFBZSThF?=
+ =?utf-8?B?MHo4Ykt5TFpXcitEaFNDVytHTEZyNzdhVDFBa2lDL0dwL3lWV0I0T0V5TzVZ?=
+ =?utf-8?B?a1VVa2x1alhFMTRVc2d3cmlFd0tURWN2Uk9ZL0cxRFBLK2hrNzFnZzlGTWpO?=
+ =?utf-8?B?Wk1uMElBQ2xJY3lIWnhIdTNvN0lya1JkaGhFQjVZT2pWcUtEcXA3ZDJpeW05?=
+ =?utf-8?B?dGVkb2pPRXphOTExZFBVaTQxWlJ3RU9Hc1A2OHBEdnNEUFN0MVlWR3BON3FX?=
+ =?utf-8?B?d0g2SEwrZWZnZTdsNHZIbkl4L3NiU1NTNWswTE9tT1orTERRcWV4ejlQU1p0?=
+ =?utf-8?B?TkxRUC9iV3dsWkRHYXVLRjQ1dk95eS96MmQyYnRYM2hUQlloMkU3TGJNTHpv?=
+ =?utf-8?B?RnBoOG9wMkVySFpyZGdpNkFoR3BtWFUwTHNrUGVFbldxSGNPK1R3Mmh3TTlK?=
+ =?utf-8?B?M1FUMXAwQ2syWEFDM1hPSjVrR1o0RWFnQWxiNHBUMmNIZEEyb0k5NytmQnd3?=
+ =?utf-8?B?YVpyczhNWjRuWWxacmJaSFMxTkJQNms4ZHNqMDRKN05nTkQvTUtjNm8yQldK?=
+ =?utf-8?B?QlorWXc4OTdIMVhSdnk4SWhYL09RQlVtV1dXYUNyQ1FpR0EzS1dvZDFpTTFq?=
+ =?utf-8?B?a0kzeVZqUm5KS1NldVg0MGZHQy9tbEU5Uk1TWjFUVHYySFE5ejJhemQ1Sk4v?=
+ =?utf-8?B?eWVYSXpNOFBqUGRNOVVSTjFnM0NwaVhRUDdQSWNsYnpkczN3STk5Wjl4Zmlm?=
+ =?utf-8?B?Ty9DSXphMHN5UlFHY3VuSkJBK0wvdzNxR2JYZ20yZ3VVMWp2YjFib2d0RStj?=
+ =?utf-8?B?WkFMOWpGaTlyNllKZFptQWpiNldBMzY1U2RUUFFUeThUeUF0Ulg4aTV2RGJs?=
+ =?utf-8?B?dWpxem02SlhqNkZvNVpJSzJIK0tHamc4aXNNQ2h5TTc4VVRodkxOd3lzY25y?=
+ =?utf-8?B?UjhFbUpwM1dzaFpQNkl5eEs1MkUvTnBOZkFzUVRqYmZQcklaVUoxVmZlbDN4?=
+ =?utf-8?B?ZHEwNHY5THV2SmJqdEhDSUpIbkpsRk5aQ0FaWXlkMTFqKzFUa3FOL05lYjVv?=
+ =?utf-8?B?RHJWaExpVWh0Ukc3cFhzWVlOVUh5WkxFRXVOUmExU1pUY2hyLzJ0M0xlMWNz?=
+ =?utf-8?B?bGFiQlFhTUZWSUNSaU1ZYnNXamZuVVkxSVNMRUxLMUxEUDMrZkRyOS9Namtz?=
+ =?utf-8?B?djVJRWVUVXphNC8xLzN3QWxyYThpOFpoWG01R0t4bXpjelBjbEhTYk1WK0k4?=
+ =?utf-8?B?VjZiRkVUV1dsTTVtbU80ZkVoTktrSmtnbXpRaE04VE5BODJJVVBvUTV4Q0Mr?=
+ =?utf-8?B?YnMzYnVVb2I5d0I5MzFpNWdSWUp6RThyUnBEM0Y3Qmh2U3NRR3ZGYWt4WVNw?=
+ =?utf-8?B?UE0xQTJWcHY0WkVKTHE2clpCazBXVTZmanFyV05TMFBPejgybVpCYTBXd3VM?=
+ =?utf-8?B?VWlEODNmaFl3MXZvS1hRZjc4Nlh2ZFVKTmpydmdMUENZSHVUZzUzRHRGRGxm?=
+ =?utf-8?B?ZzFNU3Vvb0RweXZqQ2tLZW94azhSR3QzNzJ0NlBkbVJTTHFQL3g2cHYyL2dx?=
+ =?utf-8?B?WlBtU1pNTTg0VjlOL1dBbEJ4U0FiT0pSYTFNZldSdVVtM2ZqV1J4SlU5Um0w?=
+ =?utf-8?B?bEpQbUg0SjBSWjkwY0JscHBFSkdlbEUvNUorRVo5TlNuV0RnWFo5akd1VkV6?=
+ =?utf-8?B?Sk50NjNNWWk1L3NsNFNDUEVSTXRXeU5MYVVnN3Y3ZFlJNFZvbmlyNTBQWG1Y?=
+ =?utf-8?B?b1pkSTBsYi9wRFFoaFRzTzIvdjc5a3NYenBleXJRTHVpVHRXeVZpN1lWUHhQ?=
+ =?utf-8?B?MTNTa0Q3ZEIxVzBBdWVkdzdUbEFLdmtVb21Oeiswam5sR0hFckxpYUlObUxl?=
+ =?utf-8?B?RWJiK2lqeTBrSmtRMEZwY0h4MVRKSjl1dGdoM1BwWHJDRUxzQ0dhaUZIczd4?=
+ =?utf-8?B?NDNhcDltUTUyZm9HSFFGYXJWeVNXd2t6NjFuMFNGOEVXN0llV0M4c0dXNE96?=
+ =?utf-8?B?R3dOOXZQZityTG8rYlIxNUd1V05HWkNKQXo3TXVCK29CYkFYMmJ6dz09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 27a56ce8-77ba-4244-7f7a-08ded1229ede
+X-MS-Exchange-CrossTenant-AuthSource: CY1PR12MB9697.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jun 2026 12:26:16.0825
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: jpmjyxsBba8CoCsgLXAo4gAoZucibZcXfwAS/BluNCdMpndCGO/xoeEkQVhHyAVM
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR12MB9713
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_052128_110070_82369503 
-X-CRM114-Status: GOOD (  15.58  )
+X-CRM114-CacheID: sfid-20260623_052623_561923_16D52E3E 
+X-CRM114-Status: GOOD (  15.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,56 +147,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-qcom_iommu_sec_ptbl_init() uses a function-static bool to track whether
-the secure page table has been initialized, with no locking around it.
+> hwicap_module_init() registers icap_class before reserving the
+> character-device region and registering the platform driver.  If either
+> of those later steps fails, the init path must undo the successful class
+> registration before returning an error.
+> 
+> Route the chrdev registration failure through a class unwind label, and
+> let the platform-driver registration failure fall through the existing
+> chrdev unwind before unregistering the class.  The normal module exit path
+> is unchanged.
+> 
+> This issue was identified during our ongoing static-analysis research while
+> reviewing kernel code.
+> 
+> Fixes: ef141a0bb0dc ("[POWERPC] Xilinx: hwicap driver")
+> Co-developed-by: Ijae Kim <ae878000@gmail.com>
+> Signed-off-by: Ijae Kim <ae878000@gmail.com>
+> Signed-off-by: Myeonghun Pak <mhun512@gmail.com>
+> 
+> ---
 
-Only one IOMMU device per SoC has secure context banks (the others have
-only non-secure context banks), and platform devices probe serially since
-the driver does not set PROBE_PREFER_ASYNCHRONOUS. Concurrent calls to
-this function are therefore not reachable. Add a comment to make the
-absence of locking intentional rather than an oversight.
+Reviewed-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+Thanks!
 
-Signed-off-by: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
----
- drivers/iommu/arm/arm-smmu/qcom_iommu.c | 13 +++++++------
- 1 file changed, 7 insertions(+), 6 deletions(-)
-
-diff --git a/drivers/iommu/arm/arm-smmu/qcom_iommu.c b/drivers/iommu/arm/arm-smmu/qcom_iommu.c
-index 0df8c2af8eed..bcf5ab049aed 100644
---- a/drivers/iommu/arm/arm-smmu/qcom_iommu.c
-+++ b/drivers/iommu/arm/arm-smmu/qcom_iommu.c
-@@ -624,7 +624,11 @@ static int qcom_iommu_sec_ptbl_init(struct device *dev)
- 	void *cpu_addr;
- 	dma_addr_t paddr;
- 	unsigned long attrs;
--	static bool allocated = false;
-+	/*
-+	 * Only one IOMMU device per SoC has secure context banks, and
-+	 * platform devices probe serially, so no locking is needed here.
-+	 */
-+	static bool allocated;
- 	int ret;
- 
- 	if (allocated)
-@@ -651,15 +655,12 @@ static int qcom_iommu_sec_ptbl_init(struct device *dev)
- 	ret = qcom_scm_iommu_secure_ptbl_init(paddr, psize, spare);
- 	if (ret) {
- 		dev_err(dev, "failed to init iommu pgtable (%d)\n", ret);
--		goto free_mem;
-+		dma_free_attrs(dev, psize, cpu_addr, paddr, attrs);
-+		return ret;
- 	}
- 
- 	allocated = true;
- 	return 0;
--
--free_mem:
--	dma_free_attrs(dev, psize, cpu_addr, paddr, attrs);
--	return ret;
- }
- 
- static int get_asid(const struct device_node *np)
--- 
-2.53.0
+>   drivers/char/xilinx_hwicap/xilinx_hwicap.c | 5 ++++-
+>   1 file changed, 4 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/char/xilinx_hwicap/xilinx_hwicap.c b/drivers/char/xilinx_hwicap/xilinx_hwicap.c
+> index 34a345dc5e..9bb5fa642f 100644
+> --- a/drivers/char/xilinx_hwicap/xilinx_hwicap.c
+> +++ b/drivers/char/xilinx_hwicap/xilinx_hwicap.c
+> @@ -760,7 +760,7 @@ static int __init hwicap_module_init(void)
+>   					HWICAP_DEVICES,
+>   					DRIVER_NAME);
+>   	if (retval < 0)
+> -		return retval;
+> +		goto failed_class;
+>   
+>   	retval = platform_driver_register(&hwicap_platform_driver);
+>   	if (retval)
+> @@ -771,6 +771,9 @@ static int __init hwicap_module_init(void)
+>    failed:
+>   	unregister_chrdev_region(devt, HWICAP_DEVICES);
+>   
+> + failed_class:
+> +	class_unregister(&icap_class);
+> +
+>   	return retval;
+>   }
+>   
 
 
