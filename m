@@ -4,100 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 021FDCD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 13:58:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E306ACD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 14:00:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qm9QBhEQ0YB2AXes3jM+Kp4ITvGr2+JfvL/tfEuQ2tI=; b=CfU42qiJC8BvSXCIFD3vd9DWUr
-	8FRn3j/YdzWYe8TKLedLfP15O3s36S6x8PI5QPGQDUmhPrmnC7GczTFhDH/egC2ufrIZ7VPxw5/aR
-	8bGyozt7knVUNDKAJ7UONejIchar5za0VOoX27pOI0gWqFEuY7SE8E1mJT5CijNnp4xeIZp/wQhDl
-	m88JbMcBaWCPDsQIwYWOPcag9tuzt16CnqBLDQNL+YSOEdYg22v8/yzfjGCq+Um/UqL8bFz7obxh1
-	h2sE7veHPOw+jxcQ8ZdJ6V2nmoUHb/y0EqKX6D9Z912xHG4L49pdih1OP7wMepN/zjrFcogjSw3R/
-	Uz1HvAOA==;
+	bh=0Png7tQyLUQFYNFzr2PzUoci03vEvfXVSoXXMaUas74=; b=IbSfsHQUcaMY4whR5QOY44WtJN
+	ggR2qOccUDEv/+ygCheC9ll8FIZ+WtZN/Vtj1zxM7+VRQjHdLsJDvgFtUQ+5IHjaeDaibvY+MUgI6
+	omi7U5NIdbTKOlujrxFAA8u9vRU2HRbEDfuO3b20csHrLLKNR1jtfih7nEAhBeQAkYQhiZJV8At4e
+	I7faY9qeozeMWDlAAj1bUi3mpWulPBOdvuxx8ZKbXr4tmJMSx1RN9LEQbZX7VrJINEZRSOwtsnPSc
+	tPaTrep6mplCn6tWr8AKFLrHOiycIc/TuLNuEKN8DBJmTIxcTP2aSsF/ey3PQStkwP6Wex01uNEFl
+	XD9eE39A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc1di-00000006O2M-44DJ;
-	Tue, 23 Jun 2026 13:58:10 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1wc1fQ-00000006OJP-2Xxz;
+	Tue, 23 Jun 2026 13:59:56 +0000
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc1dg-00000006O1L-3Gpg
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 13:58:09 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4908b92904fso80758745e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 06:58:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782223086; x=1782827886; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=qm9QBhEQ0YB2AXes3jM+Kp4ITvGr2+JfvL/tfEuQ2tI=;
-        b=j3g3hqiONa7DsLffh1cx5ZFSed6f+K6r+P/ildEyyhMyP5QdV52XVYXVazfLRYnmrS
-         PimThzWpKsSvOxDwKKXEb81zjcj8+qvi9do5IpY0v8/JHYSgmRboaPNoH/QQPXvfRMgK
-         tSLGCnpzHsqhjwGvVdoNF7Mo25IkLy3PCJ98xrQPsiNwjJUYJ88BPIm7jOrBHC9q7Izx
-         Aw/j0Kc59msvPkUCoxDq9JGOTEHx8S6dmkPfK2s3sYGWmVl8mqNikiUiJGJgT0tPrwBI
-         TYl3319wEjPr+gaqI0HTBG9hxX1jDcRUN8/wg/xPJVFneAgibGfZUdEbdNmwT6y3h52A
-         4Vvw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782223086; x=1782827886;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qm9QBhEQ0YB2AXes3jM+Kp4ITvGr2+JfvL/tfEuQ2tI=;
-        b=FddwJiqj/LMbxAo8m6t7MlGEE9fHWgvQbn1QzPgoK20or3A5uHxLlnxDbOSapR9did
-         genlVEsZvuET4NBB8qFLi+TVhOk9gUfNU7ootyLwpirBgLo4RspTbCH+gdTslshINAK1
-         fHeI2Y9xE6vwVqTpMp9vKCmA4a65HqFMAiFLaYfqt3hSFzAszrR73MrJCpeXkzxHNiWF
-         o9kU9GqNrkpSj0Gk7pHrmNo0wrKsUPpXsFamVWNGZbDGyWxVN+MVsR0APtmDL4+wlAVb
-         wxTnA2dOQuyDtU1xPtTRbzu6QLMqolzhyV0tpky2SSUgQb8Yr9oa1/nDYPs6kZEDG4Rl
-         OlUw==
-X-Forwarded-Encrypted: i=1; AFNElJ9jw0BT4dbH8LgLf1EIk/hofZUZDdXhlHOqf0vOD+INn50qfog1xVtLX7pzu27ed6kOJdpjcGvdAAPeXBUV+7UC@lists.infradead.org
-X-Gm-Message-State: AOJu0YzcPnXTqrrdM7fPLDt0B61GcEPjTsI5cBCj+jklxaloNd3MYr2b
-	uv2ANtAIvBtkuKwp3YE1dINdw7Xq3YFyG+CrAl6xCBuvjB7Lf4Is+Xbx
-X-Gm-Gg: AfdE7cnhh4f2HQoFRlyk7DZNr5rzB+FIKlA72sf1ztDH1OAS/3lZw79+YmoWcwufJQ5
-	HS8g04eGIoCQR3ex7puzKaYEqmZ0QrH+ZmLO7d7iz62Wd98pI1m9/qqQJGFdQM+3oMNdnBwDVqV
-	WuAVsybKi96AUlhGqaOjvrd8rALc+Zca3oDHJ2v4WN0UQ52+LctaegMeKb+3ofoGitduHsoSCNq
-	fqMFENgJ8kPBNxUBTABxNOiHn/0AooHgXX5x3pet2AneFDGcqUWgWqtXRVIIodyYl7M1v+fhcTA
-	NiuTa6OYWRGTjvme4OP1Q/EduLxiyGsvPNUxJ+GQ/sAk7DLu3tnevetgvNQbbTtLNutyX8rEP+Z
-	YcM4jWAOsUvncJA7Ti7qkp9sCB7oChBlm2fa4WGbz3Z5+4K23ASdmmJwGqnCsDS76SW8lYcSE79
-	17uR2PHA==
-X-Received: by 2002:a05:600c:3110:b0:492:463d:b2af with SMTP id 5b1f17b1804b1-4925b38ca04mr38947105e9.31.1782223086132;
-        Tue, 23 Jun 2026 06:58:06 -0700 (PDT)
-Received: from luca-vm.. ([81.56.18.151])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-466643f56aasm35145716f8f.6.2026.06.23.06.58.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 23 Jun 2026 06:58:05 -0700 (PDT)
-From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-To: linux-mediatek@lists.infradead.org
-Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
-	Chun-Kuang Hu <chunkuang.hu@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	CK Hu <ck.hu@mediatek.com>,
-	Jitao shi <jitao.shi@mediatek.com>,
-	dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] dt-bindings: mediatek: cec: Correct the compatibles for mt7623-mt8167
-Date: Tue, 23 Jun 2026 15:57:53 +0200
-Message-ID: <20260623135757.5111-1-l.scorcia@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	id 1wc1fN-00000006OIq-0Yqe;
+	Tue, 23 Jun 2026 13:59:54 +0000
+Received: from localhost.localdomain (unknown [111.196.245.140])
+	by APP-05 (Coremail) with SMTP id zQCowAD3Z+tJkTpqtUvYFA--.33813S2;
+	Tue, 23 Jun 2026 21:59:38 +0800 (CST)
+From: Pengpeng Hou <pengpeng@iscas.ac.cn>
+To: Ulf Hansson <ulf.hansson@linaro.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	=?UTF-8?q?Ma=C3=ADra=20Canal?= <mcanal@igalia.com>,
+	Stanimir Varbanov <svarbanov@suse.de>,
+	Eric Anholt <eric@anholt.net>,
+	Rob Herring <robh@kernel.org>
+Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>,
+	linux-pm@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] pmdomain: bcm: bcm2835: handle genpd provider registration errors
+Date: Tue, 23 Jun 2026 21:59:37 +0800
+Message-ID: <20260623135937.60740-1-pengpeng@iscas.ac.cn>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: zQCowAD3Z+tJkTpqtUvYFA--.33813S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7Zr1xKFyktF1rKFWDWF1fCrg_yoW8Jw17pa
+	ykXayay3y8WF15W3WYv3Z5uFyrG3say3W8GayUGwn7Zry5XrWvg34aq398Zrs3Zr40krW2
+	qF1rA345A3WfCFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9F14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
+	6r4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
+	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
+	I7IYx2IY67AKxVWUAVWUtwAv7VC2z280aVAFwI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r1j6r
+	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
+	n2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7x
+	kEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E
+	67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUCVW8Jw
+	CI42IY6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWU
+	CwCI42IY6I8E87Iv67AKxVW8JVWxJwCI42IY6I8E87Iv6xkF7I0E14v26r4UJVWxJrUvcS
+	sGvfC2KfnxnUUI43ZEXa7VUbo5l5UUUUU==
+X-Originating-IP: [111.196.245.140]
+X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_065808_836125_6A487183 
-X-CRM114-Status: GOOD (  10.40  )
+X-CRM114-CacheID: sfid-20260623_065953_542478_6F812D00 
+X-CRM114-Status: GOOD (  10.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,41 +87,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The HDMI CEC driver for both mt7623 and mt8167 is actually the same as
-mt8173-cec and the mt7623n.dtsi board include file already uses mt8173-cec
-compatible as a fallback, but the documentation lists them as separate
-entries. Correct the binding by adding the correct fallback.
+bcm2835_power_probe() initializes all power domains and then registers
+the onecell genpd provider, but ignores of_genpd_add_provider_onecell()
+failures. Probe can therefore return success even though no provider was
+published.
 
-This change fixes a dtbs_check error.
+Check the provider registration return value and jump to the existing
+cleanup path on failure.
 
-Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+Fixes: 670c672608a1 ("soc: bcm: bcm2835-pm: Add support for power domains under a new binding.")
+Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
 ---
- .../bindings/display/mediatek/mediatek,cec.yaml       | 11 +++++++----
- 1 file changed, 7 insertions(+), 4 deletions(-)
+ drivers/pmdomain/bcm/bcm2835-power.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,cec.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,cec.yaml
-index 080cf321209e..4d741ba415e8 100644
---- a/Documentation/devicetree/bindings/display/mediatek/mediatek,cec.yaml
-+++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,cec.yaml
-@@ -15,10 +15,13 @@ description: |
+diff --git a/drivers/pmdomain/bcm/bcm2835-power.c b/drivers/pmdomain/bcm/bcm2835-power.c
+index b76d74e38..68a0a7a8c 100644
+--- a/drivers/pmdomain/bcm/bcm2835-power.c
++++ b/drivers/pmdomain/bcm/bcm2835-power.c
+@@ -677,7 +677,12 @@ static int bcm2835_power_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		goto fail;
  
- properties:
-   compatible:
--    enum:
--      - mediatek,mt7623-cec
--      - mediatek,mt8167-cec
--      - mediatek,mt8173-cec
-+    oneOf:
-+      - const: mediatek,mt8173-cec
-+      - items:
-+        - enum:
-+          - mediatek,mt7623-cec
-+          - mediatek,mt8167-cec
-+        - const: mediatek,mt8173-cec
+-	of_genpd_add_provider_onecell(dev->parent->of_node, &power->pd_xlate);
++	ret = of_genpd_add_provider_onecell(dev->parent->of_node,
++					    &power->pd_xlate);
++	if (ret) {
++		dev_err_probe(dev, ret, "failed to add genpd provider\n");
++		goto fail;
++	}
  
-   reg:
-     maxItems: 1
+ 	dev_info(dev, "Broadcom BCM2835 power domains driver");
+ 	return 0;
 -- 
-2.43.0
+2.50.1 (Apple Git-155)
 
 
