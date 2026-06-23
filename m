@@ -4,75 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1804ECDB471
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 22:10:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C006CDB47C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 22:35:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=N+YGotLM1BtFTWXvgF/J3FUJ54i0TghGIKlvykmHBcc=; b=swCm7+i9BSHSYu2jESWdJ6CKXK
-	aYOnhgH73ruyOhY3/jxIgg/y+rb431HjdcD+V5NRVUEnM0SiAZMz7Astl0TjXgHPQjt0C87mAsDq6
-	42dyZV/arE7ji403nw+wFF664Rf7nQL+j6Rg3/Q+2QeBNNTgRbv/T/ENMrx2kuhNc4MrbCYyNjUEx
-	Xr+ajFSxYK0/vNeaBWmYyH9JLRCJfineNfaF8tCAQX+LYu/SB0mobjzhJ2sQ0LwKLFWtf6b3NaN9w
-	SQU2n8pyfXz6YI5SSHBOHA591bfDul3oFMgyT7/klPsAaLMhpZvnzMC9gqhjTrZ7Y72FKgfGgY+nA
-	sve4mOLw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oOrvEPgVQJ/jdeaFCbiFOH+3YX/7jM+3h5Opanbx+U8=; b=dpUfu4jV+B5hNuUwdUCfYBDqiN
+	769YaevWmS5fgSaLuGb7p5ZfgdDo8MRMVc9q9VYC7oK8l9mR0967tE4siSAbDL3L50ODDoxOETORn
+	+pMzZJbxrDHI1o/dXRHzvNXyhHhz2kL5/s2dcMpY58K9XP0ydp9QlMUUXaigaeYRzPP2dF0rR7PBC
+	EQF6+Hy+3CE2iD4ZjxIu2vt5P4bcpRmA2ZYiH4muqAjtHppVd1g8ac/x62m1+YFLsNLsbrRHFQWyK
+	20pzL1tiJKJ+ppkBRwtyemLiavNho9YC2bjRlqLjKFzE0Jm/laTuXznV9pNSawJA5gNrVNQZJN7/h
+	u5M5d4sA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc8qv-00000006v7S-2mZv;
-	Tue, 23 Jun 2026 21:40:17 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc8qu-00000006v7G-2Q0J;
-	Tue, 23 Jun 2026 21:40:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 55E3B60008;
-	Tue, 23 Jun 2026 21:40:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 026D5C2BCB8;
-	Tue, 23 Jun 2026 21:40:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1782250815;
-	bh=JI38z1jaLCsFKYh18Ni5/rwQP2sXh0iFI1mRBa14wxs=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=cGbVvCP3pMcadM9zoMn7NyrmKKSP6GInXyGoHbfW/jMrb5154+VimaxpH2CmZ2GMa
-	 D6Zwe3t/DwOqg0M9R/hMOvxV2vfLvFae+IDWt7ecFUIBxLqN1UtDpW/YuLLH3C7N4p
-	 kwmSUkF3b2q8jqxUIex3fDO1Su1U57PbVyMQSrRqXV2/wlg/3tomenj8+PmwHG2IS2
-	 YeJRNsZCtOpgHQGOWz1x65CyN+jgxHdBSbGpYgXJQ23GxIwkSdF0rFmmwtnZpJYZ+k
-	 01zFwaC2xk2a4jOpF7jfQp+on8WiaRSe3tDZ0qv/03+A8O4u0/OuUN/Y6ihfmBe91M
-	 tSBOh8kQksQ3g==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DA58DCDB47C;
-	Tue, 23 Jun 2026 21:40:14 +0000 (UTC)
-From: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
-Date: Wed, 24 Jun 2026 00:40:13 +0300
-Subject: [PATCH] i2c: mediatek: fix WRRD for SoCs without auto_restart
- option
+	id 1wc9iB-00000006wyE-10wy;
+	Tue, 23 Jun 2026 22:35:19 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wc9i7-00000006wxk-0wSt;
+	Tue, 23 Jun 2026 22:35:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6B3EC1713;
+	Tue, 23 Jun 2026 15:35:07 -0700 (PDT)
+Received: from [10.43.8.246] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B3D423F632;
+	Tue, 23 Jun 2026 15:35:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1782254112; bh=SRPt/Z1N9zfS5tVZtHc1Ym/DJpa09C6NIWLnEJarli8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=G5flbO5JtjY2PHGG2ojKGXX8SqI+2MRfa+r6LYez6kIYWrMO5mYm3Z02byPITyVx5
+	 yIv7eGXrRte6UNWeKzB1Oryv66h5vXQEk1IcivwwfWgcjoIuMI/XRYk4euGrcbvraI
+	 pTYpub3JKKI8VTcq9p5Y59S2sQJTxCa6efj4jEfE=
+Message-ID: <138b5b54-7e2a-45fd-9c3f-eb4b4e04d954@arm.com>
+Date: Tue, 23 Jun 2026 23:35:00 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC 5/8] clk: sunxi-ng: a733: Add bus clocks support
+To: Junhui Liu <junhui.liu@pigmoral.tech>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, Philipp Zabel
+ <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Richard Cochran <richardcochran@gmail.com>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ netdev@vger.kernel.org
+References: <20260310-a733-clk-v1-0-36b4e9b24457@pigmoral.tech>
+ <20260310-a733-clk-v1-5-36b4e9b24457@pigmoral.tech>
+Content-Language: en-US
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <20260310-a733-clk-v1-5-36b4e9b24457@pigmoral.tech>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260624-6572-6595-i2c-v1-1-9155cebaae20@protonmail.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDMyNjXTNTcyMgYWmqm2mUrGuWmmyZbJJqlgiESkA9BUWpaZkVYPOiYyH
- 84tKkrNTkEpAhSrW1AIYrn0FxAAAA
-X-Change-ID: 20260623-6572-6595-i2c-6ec9c4e6a6a6
-To: Qii Wang <qii.wang@mediatek.com>, Andi Shyti <andi.shyti@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Roman Vivchar <rva333@protonmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1782250813; l=1767;
- i=rva333@protonmail.com; s=20260510; h=from:subject:message-id;
- bh=TG2emG/PCj4Coy27v6ImKi08qxfg+rKakjADtWBifso=;
- b=MuDkLvPkgVRxiqfkdn6qowJfHL5BjKXog1KYCzBl6lSkA60ha518SEnL4W5DoJjBD4Idz6x8Z
- SUQMLDg76jfBE+L8FJc9UxV+vq91u4HSMSUjKXmtKe7KS9p2cwApUpi
-X-Developer-Key: i=rva333@protonmail.com; a=ed25519;
- pk=zww/nWjBGoQ4POXCG0BV6fx2iuXK6jx77rsKPA5YK5Y=
-X-Endpoint-Received: by B4 Relay for rva333@protonmail.com/20260510 with
- auth_id=777
-X-Original-From: Roman Vivchar <rva333@protonmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260623_153515_433916_0EB914FD 
+X-CRM114-Status: GOOD (  26.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,66 +78,222 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: rva333@protonmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Roman Vivchar <rva333@protonmail.com>
+Hi,
 
-MediaTek mt65xx family SoCs have no auto restart, however, they still
-support the WRRD mode in the hardware. Because auto_restart is set to 0,
-the WRRD mode will be never enabled, leading to read errors.
+On 3/10/26 08:33, Junhui Liu wrote:
+> Add the essential bus clocks in the Allwinner A733 CCU, including AHB,
+> APB0, APB1, APB_UART, NSI, and MBUS. These buses are necessary for many
+> other functional modules. Additionally clocks such as trace, gic and
+> cpu_peri are also added as they fall within the register address range
+> of the bus clocks, even though they are not strictly bus clocks.
+> 
+> The MBUS clock is marked as critical to ensure the memory bus remains
+> operational at all times. For the NSI and MBUS clocks, the hardware
+> requires an update bit (bit 27) to be set so that the configuration
+> takes effect and the updated parameters can be correctly read back.
+> 
+> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
+> ---
+>   drivers/clk/sunxi-ng/ccu-sun60i-a733.c | 131 +++++++++++++++++++++++++++++++++
+>   1 file changed, 131 insertions(+)
+> 
+> diff --git a/drivers/clk/sunxi-ng/ccu-sun60i-a733.c b/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
+> index cf819504c51f..68457813dbbb 100644
+> --- a/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
+> +++ b/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
+> @@ -19,6 +19,7 @@
+>   #include "ccu_common.h"
+>   
+>   #include "ccu_div.h"
+> +#include "ccu_mp.h"
+>   #include "ccu_mult.h"
+>   #include "ccu_nkmp.h"
+>   #include "ccu_nm.h"
+> @@ -65,6 +66,16 @@ static const struct clk_hw *pll_ref_hws[] = {
+>   	&pll_ref_clk.common.hw
+>   };
+>   
+> +/*
+> + * There is a non-software-configurable mux selecting between the DCXO and the
+> + * PLL_REF in hardware, whose output is fed to the sys-24M clock. Although both
+> + * sys-24M and pll-ref are fixed at 24 MHz, define a 1:1 fixed factor clock to
+> + * provide logical separation:
+> + * - pll-ref is dedicated to feeding other PLLs
+> + * - sys-24M serves as reference clock for downstream functional modules
+> + */
+> +static CLK_FIXED_FACTOR_HWS(sys_24M_clk, "sys-24M", pll_ref_hws, 1, 1, 0);
+> +
+>   #define SUN60I_A733_PLL_DDR_REG		0x020
+>   static struct ccu_nkmp pll_ddr_clk = {
+>   	.enable		= BIT(27),
+> @@ -371,6 +382,107 @@ static SUNXI_CCU_M_HWS(pll_de_4x_clk, "pll-de-4x", pll_de_hws,
+>   static SUNXI_CCU_M_HWS(pll_de_3x_clk, "pll-de-3x", pll_de_hws,
+>   		       SUN60I_A733_PLL_DE_REG, 16, 3, 0);
+>   
+> +/**************************************************************************
+> + *                           bus clocks                                   *
+> + **************************************************************************/
+> +
+> +static const struct clk_parent_data ahb_apb_parents[] = {
+> +	{ .hw = &sys_24M_clk.hw },
+> +	{ .fw_name = "losc" },
+> +	{ .fw_name = "iosc" },
+> +	{ .hw = &pll_periph0_600M_clk.hw },
+> +};
+> +
+> +static SUNXI_CCU_M_DATA_WITH_MUX(ahb_clk, "ahb", ahb_apb_parents, 0x500,
+> +				 0, 5,		/* M */
+> +				 24, 2,		/* mux */
+> +				 0);
+> +
+> +static SUNXI_CCU_M_DATA_WITH_MUX(apb0_clk, "apb0", ahb_apb_parents, 0x510,
+> +				 0, 5,		/* M */
+> +				 24, 2,		/* mux */
+> +				 0);
+> +
+> +static SUNXI_CCU_M_DATA_WITH_MUX(apb1_clk, "apb1", ahb_apb_parents, 0x518,
+> +				 0, 5,		/* M */
+> +				 24, 2,		/* mux */
+> +				 0);
+> +
+> +static const struct clk_parent_data apb_uart_parents[] = {
+> +	{ .hw = &sys_24M_clk.hw },
+> +	{ .fw_name = "losc" },
+> +	{ .fw_name = "iosc" },
+> +	{ .hw = &pll_periph0_600M_clk.hw },
+> +	{ .hw = &pll_periph0_480M_clk.common.hw },
+> +};
+> +static SUNXI_CCU_M_DATA_WITH_MUX(apb_uart_clk, "apb-uart", apb_uart_parents, 0x538,
+> +				 0, 5,		/* M */
+> +				 24, 3,		/* mux */
+> +				 0);
+> +
+> +static const struct clk_parent_data trace_parents[] = {
+> +	{ .hw = &sys_24M_clk.hw },
+> +	{ .fw_name = "losc" },
+> +	{ .fw_name = "iosc" },
+> +	{ .hw = &pll_periph0_300M_clk.hw },
+> +	{ .hw = &pll_periph0_400M_clk.hw },
+> +};
+> +static SUNXI_CCU_M_DATA_WITH_MUX_GATE(trace_clk, "trace", trace_parents, 0x540,
+> +				 0, 5,		/* M */
+> +				 24, 3,		/* mux */
+> +				 BIT(31),	/* gate */
+> +				 0);
+> +
+> +static const struct clk_parent_data gic_cpu_peri_parents[] = {
+> +	{ .hw = &sys_24M_clk.hw },
+> +	{ .fw_name = "losc" },
+> +	{ .hw = &pll_periph0_600M_clk.hw },
+> +	{ .hw = &pll_periph0_480M_clk.common.hw },
+> +	{ .hw = &pll_periph0_400M_clk.hw },
+> +};
+> +static SUNXI_CCU_M_DATA_WITH_MUX_GATE(gic_clk, "gic", gic_cpu_peri_parents, 0x560,
 
-Fix this by removing auto_restart check from the WRRD enable path.
+Do we really want to model the GIC clock? The A523 has one as well, as 
+we don't describe it there. And while the GICv3 binding describes a 
+clock property, the Linux driver completely ignores that.
+So if I see this correctly, this clock would become unused, and would be 
+turned off, killing the GIC? So we would at least need a CLK_IS_CRITICAL 
+flag?
 
-Signed-off-by: Roman Vivchar <rva333@protonmail.com>
----
-This is a preparation for the mt6572/6595 upstreaming.
+But it's a good reminder to lift this clock to something PLL based, in 
+U-Boot's SPL, because I guess the 24MHz are rather slow.
 
-mt65xx family SoCs don't have auto restart, but vendor kernels keep using
-WRRD mode. Lack of the WRRD mode makes i2c reads impossible from both
-userspace and kernel drivers.
+> +				      0, 5,	/* M */
+> +				      24, 3,	/* mux */
+> +				      BIT(31),	/* gate */
+> +				      0);
+> +
+> +static SUNXI_CCU_M_DATA_WITH_MUX_GATE(cpu_peri_clk, "cpu-peri", gic_cpu_peri_parents, 0x568,
 
-Without patch (mt6595, da9210 buck at 0x68):
-~ # i2cget -y 1 0x68 0x00
-Error: Read failed
-~ # i2cget -y 1 0x68 0x01
-Error: Read failed
+What is this clock about? I don't see it referenced by any peripheral in 
+the manual.
 
-With patch:
-~ # i2cget -y 1 0x68 0x00
-0x80
-~ # i2cget -y 1 0x68 0x01
-0x00
+> +				      0, 5,	/* M */
+> +				      24, 3,	/* mux */
+> +				      BIT(31),	/* gate */
+> +				      0);
+> +
+> +static const struct clk_parent_data nsi_parents[] = {
+> +	{ .hw = &sys_24M_clk.hw },
+> +	{ .hw = &pll_ddr_clk.common.hw },
+> +	{ .hw = &pll_periph0_800M_clk.common.hw },
+> +	{ .hw = &pll_periph0_600M_clk.hw },
+> +	{ .hw = &pll_periph0_480M_clk.common.hw },
+> +	{ .hw = &pll_de_3x_clk.common.hw },
+> +};
+> +static SUNXI_CCU_MP_DATA_WITH_MUX_GATE_FEAT(nsi_clk, "nsi", nsi_parents, 0x580,
 
-Same behavior observed on mt6572 devices.
+Similar question like for the GIC: do we need this in the kernel, and do 
+we need to prevent this from being turned off?
 
-This change doesn't affect SoCs with auto restart option.
----
- drivers/i2c/busses/i2c-mt65xx.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/i2c/busses/i2c-mt65xx.c b/drivers/i2c/busses/i2c-mt65xx.c
-index 126040ca05f1..307925fb78e3 100644
---- a/drivers/i2c/busses/i2c-mt65xx.c
-+++ b/drivers/i2c/busses/i2c-mt65xx.c
-@@ -1258,7 +1258,7 @@ static int mtk_i2c_transfer(struct i2c_adapter *adap,
- 	i2c->auto_restart = i2c->dev_comp->auto_restart;
- 
- 	/* checking if we can skip restart and optimize using WRRD mode */
--	if (i2c->auto_restart && num == 2) {
-+	if (num == 2) {
- 		if (!(msgs[0].flags & I2C_M_RD) && (msgs[1].flags & I2C_M_RD) &&
- 		    msgs[0].addr == msgs[1].addr) {
- 			i2c->auto_restart = 0;
-
----
-base-commit: 8cd9520d35a6c38db6567e97dd93b1f11f185dc6
-change-id: 20260623-6572-6595-i2c-6ec9c4e6a6a6
-
-Best regards,
---  
-Roman Vivchar <rva333@protonmail.com>
-
+> +					    0, 5,	/* M */
+> +					    0, 0,	/* no P */
+> +					    24, 3,	/* mux */
+> +					    BIT(31),	/* gate */
+> +					    0, CCU_FEATURE_UPDATE_BIT);
+> +
+> +static const struct clk_parent_data mbus_parents[] = {
+> +	{ .hw = &sys_24M_clk.hw },
+> +	{ .hw = &pll_periph1_600M_clk.hw },
+> +	{ .hw = &pll_ddr_clk.common.hw },
+> +	{ .hw = &pll_periph1_480M_clk.common.hw },
+> +	{ .hw = &pll_periph1_400M_clk.hw },
+> +	{ .hw = &pll_npu_clk.common.hw },
+> +};
+> +static SUNXI_CCU_MP_DATA_WITH_MUX_GATE_FEAT(mbus_clk, "mbus", mbus_parents, 0x588,
+> +					    0, 5,	/* M */
+> +					    0, 0,	/* no P */
+> +					    24, 3,	/* mux */
+> +					    BIT(31),	/* gate */
+> +					    CLK_IS_CRITICAL,
+> +					    CCU_FEATURE_UPDATE_BIT);
+> +
+>   /*
+>    * Contains all clocks that are controlled by a hardware register. They
+>    * have a (sunxi) .common member, which needs to be initialised by the common
+> @@ -407,11 +519,21 @@ static struct ccu_common *sun60i_a733_ccu_clks[] = {
+>   	&pll_de_clk.common,
+>   	&pll_de_4x_clk.common,
+>   	&pll_de_3x_clk.common,
+> +	&ahb_clk.common,
+> +	&apb0_clk.common,
+> +	&apb1_clk.common,
+> +	&apb_uart_clk.common,
+> +	&trace_clk.common,
+> +	&gic_clk.common,
+> +	&cpu_peri_clk.common,
+> +	&nsi_clk.common,
+> +	&mbus_clk.common,
+>   };
+>   
+>   static struct clk_hw_onecell_data sun60i_a733_hw_clks = {
+>   	.hws	= {
+>   		[CLK_PLL_REF]		= &pll_ref_clk.common.hw,
+> +		[CLK_SYS_24M]		= &sys_24M_clk.hw,
+>   		[CLK_PLL_DDR]		= &pll_ddr_clk.common.hw,
+>   		[CLK_PLL_PERIPH0_4X]	= &pll_periph0_4x_clk.common.hw,
+>   		[CLK_PLL_PERIPH0_2X]	= &pll_periph0_2x_clk.common.hw,
+> @@ -453,6 +575,15 @@ static struct clk_hw_onecell_data sun60i_a733_hw_clks = {
+>   		[CLK_PLL_DE]		= &pll_de_clk.common.hw,
+>   		[CLK_PLL_DE_4X]		= &pll_de_4x_clk.common.hw,
+>   		[CLK_PLL_DE_3X]		= &pll_de_3x_clk.common.hw,
+> +		[CLK_AHB]		= &ahb_clk.common.hw,
+> +		[CLK_APB0]		= &apb0_clk.common.hw,
+> +		[CLK_APB1]		= &apb1_clk.common.hw,
+> +		[CLK_APB_UART]		= &apb_uart_clk.common.hw,
+> +		[CLK_TRACE]		= &trace_clk.common.hw,
+> +		[CLK_GIC]		= &gic_clk.common.hw,
+> +		[CLK_CPU_PERI]		= &cpu_peri_clk.common.hw,
+> +		[CLK_NSI]		= &nsi_clk.common.hw,
+> +		[CLK_MBUS]		= &mbus_clk.common.hw,
+>   	},
+>   	.num	= CLK_FANOUT3 + 1,
+>   };
+> 
 
 
