@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97333CDB471
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 16:38:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F7D0CDB471
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 16:38:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ew/LlPLw3Lt+f/j01bC1s7trU+R/AxgJa4nxqXWW84s=; b=y/OTbUdNOBVMj1HDaTk1LTWs9Y
-	+bI+8ZFQkHXz3E93HxtPUmYQ6Vyp7XvLVS2bZCtH7ngIxSZ527wWzzWXAJpFdRdunEeN+GDTRQJm1
-	7I4sQwFiJk4TZ2EvopJmd0t6++OcCfCaPLwxOrzjZQJ1CAlKw17YQTbIf8Qoy2+hRW0Yab6HND3+O
-	+fyNTqwyHyDC5IJJ0UvXWT4OkRrhMcuygZGQE/h9Zj+m62Qt0M6qit1CFvORa0xpMCj+8CKy0AA4F
-	2grmfUgibhM8CLU5f1y9Smf5155Uro4mag/bWbTbTxZDD1fWKdd1lP7zNPnch5ehese97L1jsj/ke
-	vrgvF0Bg==;
+	bh=RdA+tt6udTEt4Fk49QJIhcJwNDLh2tJtFcBL+wwe0sQ=; b=Kc1PB5YrKJ8YnvUYMTPooDV0qx
+	jLv/WXaN4rrRK3AgXsA8wkoSW9MISRfQj/n46NVHZf9Upv8sVWb4A2Puqus9kAc8YELmu8lnoCrQO
+	EUdq8HVhDk4Gzp3GB86piLUDpygzvxP3Etd0esUCNIAvAKxphFLDRqOZXlZWqjsGvktRUGYIdjglJ
+	os5TVjVP+/5hvuuU9uJG4tRtCokggz8yt/wqUfCPf1Yr4PSbUr8y7H1sdwahPsHV5qsBbxIHCjD6A
+	0h+0Ubo/I0VM0EbV7zmEB4hnsuCcMdzIm3m2Wg0ardKatdJQwXsbcDtChsylbBWpmkUI2Z2pE+Wf1
+	YnktYG5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc48T-00000006e3B-30wp;
-	Tue, 23 Jun 2026 16:38:05 +0000
+	id 1wc48Y-00000006e4y-3Qmj;
+	Tue, 23 Jun 2026 16:38:10 +0000
 Received: from confino.investici.org ([93.190.126.19])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc48R-00000006e2L-3426
+	id 1wc48S-00000006e2P-1xbD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 16:38:04 +0000
+	Tue, 23 Jun 2026 16:38:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=grrlz.net;
-	s=stigmate; t=1782232681;
-	bh=ew/LlPLw3Lt+f/j01bC1s7trU+R/AxgJa4nxqXWW84s=;
+	s=stigmate; t=1782232682;
+	bh=RdA+tt6udTEt4Fk49QJIhcJwNDLh2tJtFcBL+wwe0sQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=SOUjBCpRFJEBDCvpTKdlmUMx771wapPNm6YSGdCtwMiaY+dxe2a26oik5hWlSYj+d
-	 8mG5IsXmotNVJiQcPgStBJr+2uU2HpQ2J572izQknyn8RDKpF6cdXSImocThXlxTT/
-	 5v1tndf+BiDSt/jOHeSsg2ymmR3K+C4LsT7yKblA=
+	b=ExT/Z7YP3YU2JyOSNY+wfEgfr1FclDxQhziKlNhcpUHbxY8mcWfOjjq4YzjPuHw5Y
+	 hccwO75cxy5vP5bEMPwh1tBvMV53kOMb2b7y+DDGVcBnSDTpwJa61p5thIDifzVmov
+	 nFS/JLf8aAZoIks+RfDfn3ZTcujMEOwvnyDRUPZs=
 Received: from mx1.investici.org (unknown [127.0.0.1])
-	by confino.investici.org (Postfix) with ESMTP id 4gl9jP4zf7z110k;
+	by confino.investici.org (Postfix) with ESMTP id 4gl9jQ64Lwz110l;
+	Tue, 23 Jun 2026 16:38:02 +0000 (UTC)
+Received: by mx1.investici.org (Postfix) id 4gl9jP69RNz10xM;
 	Tue, 23 Jun 2026 16:38:01 +0000 (UTC)
-Received: by mx1.investici.org (Postfix) id 4gl9jN59Clz10xM;
-	Tue, 23 Jun 2026 16:38:00 +0000 (UTC)
 From: Bradley Morgan <include@grrlz.net>
 To: Marc Zyngier <maz@kernel.org>,
 	Oliver Upton <oupton@kernel.org>,
@@ -56,17 +56,18 @@ Cc: Fuad Tabba <tabba@google.com>,
 	linux-kernel@vger.kernel.org,
 	Bradley Morgan <include@grrlz.net>,
 	stable@vger.kernel.org
-Subject: [PATCH v2 1/2] KVM: arm64: skip pKVM cache flushes for non cacheable mappings
-Date: Tue, 23 Jun 2026 16:37:55 +0000
-Message-ID: <20260623163756.4591-1-include@grrlz.net>
+Subject: [PATCH v2 2/2] KVM: arm64: top up pKVM mapping cache for permission faults
+Date: Tue, 23 Jun 2026 16:37:56 +0000
+Message-ID: <20260623163756.4591-2-include@grrlz.net>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260623160339.15143-1-include@grrlz.net>
+In-Reply-To: <20260623163756.4591-1-include@grrlz.net>
 References: <20260623160339.15143-1-include@grrlz.net>
+ <20260623163756.4591-1-include@grrlz.net>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_093803_919556_7DEC71DC 
-X-CRM114-Status: GOOD (  13.49  )
+X-CRM114-CacheID: sfid-20260623_093804_655565_A3362CF9 
+X-CRM114-Status: GOOD (  17.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,64 +82,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-pKVM keeps its own mapping list for stage 2 operations. Its flush path
-uses that list directly, so it lost the PTE attribute check done by the
-generic stage 2 walker.
+Permission faults normally only relax an existing leaf, so the fault path
+does not top up the memcache.
 
-Record whether a mapping is cacheable and skip cache maintenance for
-mappings that are not cacheable.
+With pKVM, a permission fault can also replace page mappings with a
+PMD mapping. That path needs a fresh pkvm_mapping object, and can
+dereference a NULL cache->mapping if the cache was not topped up.
 
-Fixes: e912efed485a ("KVM: arm64: Introduce the EL1 pKVM MMU")
+Allocate just that object for pKVM permission faults.
+
+The issue was discovered [1] by Sashiko.
+
+Link: https://lore.kernel.org/all/20260623161545.EA08E1F000E9@smtp.kernel.org/ [1]
+
+Fixes: db14091d8f75 ("KVM: arm64: Stage-2 huge mappings for np-guests")
 Cc: stable@vger.kernel.org
 Signed-off-by: Bradley Morgan <include@grrlz.net>
 ---
 Changes in v2:
-- Add patch 2 for the pKVM permission fault mapping cache bug.
+- New patch.
 
- arch/arm64/include/asm/kvm_pkvm.h | 1 +
- arch/arm64/kvm/pkvm.c             | 8 +++++++-
- 2 files changed, 8 insertions(+), 1 deletion(-)
+ arch/arm64/kvm/mmu.c | 29 ++++++++++++++++++++++-------
+ 1 file changed, 22 insertions(+), 7 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
-index 74fedd9c5ff0..d9dd8239910d 100644
---- a/arch/arm64/include/asm/kvm_pkvm.h
-+++ b/arch/arm64/include/asm/kvm_pkvm.h
-@@ -196,6 +196,7 @@ struct pkvm_mapping {
- 	u64 gfn;
- 	u64 pfn;
- 	u64 nr_pages;
-+	bool cacheable;
- 	u64 __subtree_last;	/* Internal member for interval tree */
- };
- 
-diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-index 428723b1b0f5..105ab1258066 100644
---- a/arch/arm64/kvm/pkvm.c
-+++ b/arch/arm64/kvm/pkvm.c
-@@ -473,6 +473,8 @@ int pkvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size,
- 	mapping->gfn = gfn;
- 	mapping->pfn = pfn;
- 	mapping->nr_pages = size / PAGE_SIZE;
-+	mapping->cacheable = !(prot & (KVM_PGTABLE_PROT_DEVICE |
-+				       KVM_PGTABLE_PROT_NORMAL_NC));
- 	pkvm_mapping_insert(mapping, &pgt->pkvm_mappings);
- 
- 	return ret;
-@@ -517,9 +519,13 @@ int pkvm_pgtable_stage2_flush(struct kvm_pgtable *pgt, u64 addr, u64 size)
- 	struct pkvm_mapping *mapping;
- 
- 	lockdep_assert_held(&kvm->mmu_lock);
--	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping)
-+	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping) {
-+		if (!mapping->cacheable)
-+			continue;
-+
- 		__clean_dcache_guest_page(pfn_to_kaddr(mapping->pfn),
- 					  PAGE_SIZE * mapping->nr_pages);
-+	}
- 
- 	return 0;
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 6c941aaa10c6..3f57f6825a33 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -1177,17 +1177,26 @@ void free_hyp_memcache(struct kvm_hyp_memcache *mc)
+ 	__free_hyp_memcache(mc, hyp_mc_free_fn, kvm_host_va, mc);
  }
+ 
++static int topup_hyp_memcache_mapping(struct kvm_hyp_memcache *mc)
++{
++	if (mc->mapping)
++		return 0;
++
++	mc->mapping = kzalloc_obj(struct pkvm_mapping,
++				  GFP_KERNEL_ACCOUNT);
++	return mc->mapping ? 0 : -ENOMEM;
++}
++
+ int topup_hyp_memcache(struct kvm_hyp_memcache *mc, unsigned long min_pages)
+ {
++	int ret;
++
+ 	if (!is_protected_kvm_enabled())
+ 		return 0;
+ 
+-	if (!mc->mapping) {
+-		mc->mapping = kzalloc_obj(struct pkvm_mapping,
+-					  GFP_KERNEL_ACCOUNT);
+-		if (!mc->mapping)
+-			return -ENOMEM;
+-	}
++	ret = topup_hyp_memcache_mapping(mc);
++	if (ret)
++		return ret;
+ 
+ 	return __topup_hyp_memcache(mc, min_pages, hyp_mc_alloc_fn,
+ 				    kvm_host_pa, mc);
+@@ -2113,7 +2122,9 @@ static int user_mem_abort(const struct kvm_s2_fault_desc *s2fd)
+ 	 * Permission faults just need to update the existing leaf entry,
+ 	 * and so normally don't require allocations from the memcache. The
+ 	 * only exception to this is when dirty logging is enabled at runtime
+-	 * and a write fault needs to collapse a block entry into a table.
++	 * and a write fault needs to collapse a block entry into a table. With
++	 * pKVM, they may still need a fresh mapping object if the fault turns
++	 * page entries into a block entry.
+ 	 */
+ 	memcache = get_mmu_memcache(s2fd->vcpu);
+ 	if (!perm_fault || (memslot_is_logging(s2fd->memslot) &&
+@@ -2121,6 +2132,10 @@ static int user_mem_abort(const struct kvm_s2_fault_desc *s2fd)
+ 		ret = topup_mmu_memcache(s2fd->vcpu, memcache);
+ 		if (ret)
+ 			return ret;
++	} else if (is_protected_kvm_enabled()) {
++		ret = topup_hyp_memcache_mapping(memcache);
++		if (ret)
++			return ret;
+ 	}
+ 
+ 	/*
 -- 
 2.53.0
 
