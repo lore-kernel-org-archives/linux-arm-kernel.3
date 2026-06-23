@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60A0ECDB46F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 041D2CDB47C
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 14:25:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=wOfkdJxswNNw2pIbisTFSNukr53i0Qpeu0PJzEGLdQE=; b=JVVpQFS3ryFfCfHIjQvAWM606x
-	vnvfjsn1bZDp5rjX6xczobglLzBvvR2ALeBFF8nfhbWCWt62qLgrs+G+geZETFvm0eq+weEQ441hS
-	hH0GjpnRGkP14izvjjUqQib6NhsTQDpv9H3m9WCZtpWgtnLycNQ8we0IogGezdSxrePTOTMTOroMn
-	6Og72k0oGIATHVMCnitqMsx+pHzFaWHWeiTU4luGNOCSeYvahxaTD/aOnc0ojrcfJ3VS+XRho95bT
-	facYphNWtiv+ZyxvChOTG8XDw8bEO4T5DVSECtom3M+P4PuXJCbFtCB8r76rHbk2z6MJJq1nky/do
-	C8KMj//w==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YblfJ9iaDEmuXmVSiW5lRC34BnwsfybOT0/taYuff6M=; b=V3I8DSuZ/IJZeyEE1gg5mYyv/I
+	TBMH6KG5iVT8Lkrkn0fekpc1Ob6kjcgmRCp//qQXrZoY1wDntKAq4F+JsGwF9KKdNOdoWv6Kr3/Sw
+	mOtvLGkdk+dRS1a9Edpafxh7gTg4XzDcpErbZ53ybIEkqchaybWC6eHbD9Kzz0ibUUb0/j5CS/Oix
+	3JSYJarmiBatesW5m01qa37AAZ1lZdt4dsNwcKYPVIRee0LDZDnP28MdjH9cq8VMBp8qvt9KlKTGQ
+	jR35qmBkzwWCMRy3T4FBwXtZ9HHDijNNZ+gJWYiIskkGbwxdR73woePAtv8cMCKtpeJ9F6U0jWL7A
+	0r9mQtcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc24E-00000006Qtl-2pMV;
+	id 1wc24E-00000006Qta-2Syi;
 	Tue, 23 Jun 2026 14:25:34 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc24C-00000006QsT-2zZ0
+	id 1wc24C-00000006Qsk-31cj
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 23 Jun 2026 14:25:34 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3618F1A25;
-	Tue, 23 Jun 2026 07:25:24 -0700 (PDT)
-Received: from workstation-e142269.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DA1DC3F632;
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5FC7E244C;
 	Tue, 23 Jun 2026 07:25:26 -0700 (PDT)
+Received: from workstation-e142269.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1B3603F632;
+	Tue, 23 Jun 2026 07:25:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782224728; bh=LBWa5Jp4DhEhEVDG8ihtH0XxusDpbA3AA6OlXqWyKho=;
-	h=From:To:Cc:Subject:Date:From;
-	b=SJmQEgLH5U9RQdbJYCkovfhbzDasHaRE9FsbntJMNcwgvQCky5e7VUgq1d+hPK2HZ
-	 3NcVyZNGijG/IQEMwZeUwdEYyuh4fzVraPbgTZDvYI7w3G+4YsijwVpDbVgYOEfn3T
-	 w5QAYDNzAIp/QSFqwjk8GogU3EXv+bjMc2wBKDFE=
+	t=1782224731; bh=8l579QzwifHqIylgwlzSwwRSPuALvfSk4I4hKWN5ClY=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=RrYOia/Eyt+n2Yawt4WsHI1PoYwuLZnwyyNCz6lkO8yyo5MLIGyXTTZoz6JpyTrDw
+	 mI9BBDm8cbwtNTmIgyaHD1cPx6UYDdrrkrXvWW7ZSUH9TFkrxfbtlpFxBmCc8Y2e7k
+	 DDT+rLstWSHB9IHuHWtqXi3hJ2mLXoFJJzBzwATE=
 From: Wei-Lin Chang <weilin.chang@arm.com>
 To: linux-arm-kernel@lists.infradead.org,
 	kvmarm@lists.linux.dev,
@@ -53,16 +53,17 @@ Cc: Marc Zyngier <maz@kernel.org>,
 	Will Deacon <will@kernel.org>,
 	Itaru Kitayama <itaru.kitayama@fujitsu.com>,
 	Wei-Lin Chang <weilin.chang@arm.com>
-Subject: [PATCH 0/3] KVM: arm64: nv: Shadow ptdump fixes
-Date: Tue, 23 Jun 2026 15:24:40 +0100
-Message-ID: <20260623142443.648972-1-weilin.chang@arm.com>
+Subject: [PATCH 1/3] KVM: arm64: nv: Print nested mmu info in kvm_ptdump_guest_show()
+Date: Tue, 23 Jun 2026 15:24:41 +0100
+Message-ID: <20260623142443.648972-2-weilin.chang@arm.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260623142443.648972-1-weilin.chang@arm.com>
+References: <20260623142443.648972-1-weilin.chang@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_072532_880215_A2A21C26 
-X-CRM114-Status: UNSURE (   9.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260623_072532_880419_19D682DC 
+X-CRM114-Status: GOOD (  10.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,47 +78,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+To prepare for creating per nested mmu ptdump file, extend
+kvm_ptdump_guest_show() so that it differentiates canonical and nested
+mmus. If the mmu is nested and valid, print VTCR, VTTBR, s2 enabled
+information in addition to the ptdump.
 
-This series fixes two bugs regarding the shadow ptdump debugfs files.
-It is based on kvmarm/fixes + [1] ("KVM: arm64: Reassign nested_mmus
-array behind mmu_lock").
+Also switch to a lock guard for mmu_lock.
 
-The first is a UAF. A nested mmu can still be accessed when the debugfs
-file is being closed, after the nested mmus are freed. I can observe
-this by turning on CONFIG_KASAN and closing the file after the VM is
-destroyed. To fix this, mmu access is avoided in the .release()
-callback.
+Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+---
+ arch/arm64/kvm/ptdump.c | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
 
-The second is sleeping in atomic context, found by Itaru [2] (thanks).
-Originally the code creates a debugfs file whenever a context gets bound
-to an s2 mmu instance, and deletes it when it gets unbound. Problem is
-the bind/unbind is done with the mmu_lock held, and debugfs file
-creation and deletion can sleep. This is observable by using
-CONFIG_DEBUG_ATOMIC_SLEEP. The new approach is just have one debugfs
-file for each s2 mmu instance, and show their state + information when
-requested, which can be invalid, or VTCR + VTTBR + whether s2 enabled +
-ptdump.
-
-The fixes are tested with CONFIG_PROVE_LOCKING,
-CONFIG_DEBUG_ATOMIC_SLEEP, and CONFIG_KASAN.
-
-Thanks!
-Wei-Lin Chang
-
-[1]: https://lore.kernel.org/kvmarm/aiKIVVeIr1aAB1yp@v4bel/
-[2]: https://lore.kernel.org/kvmarm/aiuF0KSvvv-ZozI1@sm-arm-grace07/
-
-Wei-Lin Chang (3):
-  KVM: arm64: nv: Print nested mmu info in kvm_ptdump_guest_show()
-  KVM: arm64: ptdump: Store both mmu and kvm pointers in
-    kvm_ptdump_guest_state
-  KVM: arm64: nv: Move to per nested mmu ptdump files
-
- arch/arm64/kvm/nested.c | 16 +++++++++++-----
- arch/arm64/kvm/ptdump.c | 29 +++++++++++++++++++----------
- 2 files changed, 30 insertions(+), 15 deletions(-)
-
+diff --git a/arch/arm64/kvm/ptdump.c b/arch/arm64/kvm/ptdump.c
+index c9140e22abcf..2a6afe67646a 100644
+--- a/arch/arm64/kvm/ptdump.c
++++ b/arch/arm64/kvm/ptdump.c
+@@ -155,9 +155,16 @@ static int kvm_ptdump_guest_show(struct seq_file *m, void *unused)
+ 		.seq		= m,
+ 	};
+ 
+-	write_lock(&kvm->mmu_lock);
++	guard(write_lock)(&kvm->mmu_lock);
++	if (kvm_is_nested_s2_mmu(kvm, mmu)) {
++		if (!kvm_s2_mmu_valid(mmu)) {
++			seq_puts(m, "invalid nested mmu\n");
++			return 0;
++		}
++		seq_printf(m, "0x%016llx 0x%016llx %d\n", mmu->tlb_vttbr,
++			   mmu->tlb_vtcr, mmu->nested_stage2_enabled ? 1 : 0);
++	}
+ 	ret = kvm_pgtable_walk(mmu->pgt, 0, BIT(mmu->pgt->ia_bits), &walker);
+-	write_unlock(&kvm->mmu_lock);
+ 
+ 	return ret;
+ }
 -- 
 2.43.0
 
