@@ -4,127 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 501C2CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 13:08:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87D46CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 13:08:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SfgpZo6Y5ANCLoVc5TGnHq3BRr9T8ihgpuD903bKqx4=; b=zfgn+y8lOoOySVkZ4vfaM70rwa
-	Y+V3nLpD2TBUiPpfRWs8+9S3wJ80kE47EJPc6D5BnliA5Z6DjvO3RYSZSoNvUM62j6Lp3JjoA//cm
-	UsLI9IQARCfRIcPVSb291KSB9ECbbVs4A38iYooUXj8KA8KMHuJolCPzxKNAtEV0LL8M3n+gzO2/t
-	lAuASsDuzzWE9lrWM9zX2L0kUiBiFIOefJLPaExpGk4n1DKk14qdmv+OdBfvFvpRSjeMTxbTI+hyA
-	8Caecibg2kntdq5LQMmq9mjMQiv+PLR11n7LbPGGaEac5QLTBt/ZbCfCIEWGHs7uuFsTOfRyNfqQo
-	09USHHLg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Z8sTU+8G5Nx/47JjD+XoYdzr54hu2EhVfKCrwOv3fY8=; b=Hc/8IpG5GKg+AVG6pRAw04sBJe
+	LR/MHb2vyRhiYzU8F1dI4dLviEBqaorbx6y/EPP/OMDfDVlHVL75jHG0MkWCUCC6ogvMLp3rsx84k
+	rxAHW3ne3kG5nNGx2lvdPeDXnXob22OgoUwii3QgM3ZF7m+cYURQ+Z8M3S5Geu1p8LawYyWJYHedf
+	Ubp33lnH1sfNVF+PPHjM8xqjmpRm873a7RCDpdx6Dgfe/K+FVRfBw/dfuTopH0EomMrSBbtyRBQ9f
+	bXkcaRAIYlqKrBXNo+DMfExaqgYL20e80U9FpYM6BZo0abhGOo+kBbjE0A7h4vSjVqe5T6Avep3he
+	i585+fbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc0r4-00000006Jl2-2uIn;
-	Tue, 23 Jun 2026 13:07:54 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1wc0rQ-00000006Jor-427R;
+	Tue, 23 Jun 2026 13:08:16 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc0r2-00000006JkQ-1Z1d
+	id 1wc0rQ-00000006Jod-24Ve
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 13:07:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=pTMO/FG9Cn50/Aont4l8/G/qGkRvvrMnUlvq6/XRgKLY9AmbMRb8V+qTjs+hbvdfO3ByKqMvx+EzCPZdcGs2tXEeGqrcV5Yn/G7Arrt3psGk6Xb3l2O6E7sXAIrOf894PNQbsMz4YDOhpM1eVRSCAc0bYC6pakEys3t2P06d7QBsJw3brP4kv1uiQGjXZn0hRecNh9H85IPfKGDYvU7tjC7c1QpiYpWNgZjG8gbxU+4NtlADE86bAjnFfQ+0NWAAGJ0f4m8N3FW8KsWdkwrbe5IFBpVo3FThNnfHfnurHoznyTFhHqZ6wqxiFCqFd+hYF7VtGR5wThi7AL5cNVtgPw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ns9Ek4aF6Ng3YVfN+W6PJhQledgm2BpaEN56NpeAG7o=;
- b=ajX+HSY6l7aAz0TV7Q2skbfloFsYwIKWzWXYPkRoIOyiRJiitOYkDGoPvL/fFf3a/KR3Ws5vxikP0ueybyg4pj8AiRLTfJq8WfEO2bqZ2FVfrEc2ErvZNr+GmO3tTZUvC2LVoLe+Xzu6FFyp7X6P9mGokbVj8EC08xUKYgTJ2pJSdfDo2KLrJIMGSmP0zxuBKWCb0kqVlUkcA8nwlGqC8y3nJJtqCKtSNAgL88oaCP+2VEV9VoJoN9znpu7W+njew4CHDNviPZEnBB34fBQ1t3NwITmt5iQr0CgixBVYjpFJWYCzGH9gxQTa0gAwmT96OR4Nek/53KftyzjR9LooGg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ns9Ek4aF6Ng3YVfN+W6PJhQledgm2BpaEN56NpeAG7o=;
- b=lcXifF32vqtutGA3TVXtD0gp+mZa7xevmfZ3UX5TNj95KEWreea24Ihv9gVp7YtzjBtneeleg737TfAbaAVSD2X6pxNp3TpX6PvuPC89tMpXfv/3OzXIH+bHZ111gUOELeSNzYp3hAOvfjtlKCEBtlj7DOJ9btE45BqsIe/mchMtyhiShUBNVmjFMaN9CLlsJerhFPc1x/kMqqaYP2KuhQ5XF+HysDqKI0i8LDNIXwIYlHX+9sdgwMLQOe7+zNQC8yQWiMzwBG3T6WB9ywQ96r8DkDKgfFReQSpWY3X+Ib7dDhdTRdCkCWW0RJKjsHYiRHmE4EAj19HGIzs6cTyzyw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AM7PR04MB7064.eurprd04.prod.outlook.com (2603:10a6:20b:118::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.20; Tue, 23 Jun
- 2026 13:07:45 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Tue, 23 Jun 2026
- 13:07:45 +0000
-Date: Tue, 23 Jun 2026 08:07:37 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>
-Cc: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev
-Subject: Re: [PATCH] ARM: imx: Drop obsolte stuff from common.h
-Message-ID: <ajqFGWp3XKqDhPpE@SMW015318>
-References: <20260623104557.1801727-2-u.kleine-koenig@baylibre.com>
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260623104557.1801727-2-u.kleine-koenig@baylibre.com>
-X-ClientProxiedBy: SN7PR04CA0181.namprd04.prod.outlook.com
- (2603:10b6:806:126::6) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM7PR04MB7064:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5de7cbce-9c18-4dd6-2313-08ded1286ab0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016|23010399003|19092799006|22082099003|18002099003|56012099006|5023799004|11063799006|6133799003;
-X-Microsoft-Antispam-Message-Info: QP7izLDX3VVLVYYttB8w0jSd1/H769xVBVASDt1O30aVTb1TUJ0VU5wEViy7BKBF1OM9TpAGQVe8y/Ic9rlng1IfNoUv/OBwlJIy7NgB92Ci7vpGxc8VYZyzZL0whCOkmpVMhdwdWtDApXSA1I5TQ+0BvOyy2qTW2xO0VvkPgr98XhiN5P35cSdFOXqLkC6iEOvRSoUMv7ZEOn8TD5La3pCXo3WNsDugMlEj8n6CKMLVNRphN+5u3pvSmORc+oT+0PNcTfLjBfpMbX7uCt0o46KCBMtVOEOiSE9sUrvK5s9bl+CDxbxHfqb2GSK6MrGUywn1uGIRmb5v51L40yTE8bXDqWcCL3af0Emn8AP8VDjv6UTJpb9hPtO+qNk+qbCrc3b/nD2Jr0nFYcu3bHJd7RoKnacCrJ2XkCGVbNWLHtfRE7SxGU8TpJXpf4DDj0wR6vFFuyWsxTXpwEZqg08S53kSdHq0TfhieuzIoHgM4mGR4H1w+fu14WGqFZ2NzR9GGCRn0nC8WPInupMYlMTsgFJSv6uzO5JURd4cwqu3cYxL+Whs0wDnMGeJjytOU79LO80UDnOnCUPYzwu6eYahZnZUzp5j6cok0tTYzM1ZRlFlmc69LE43FgAk8cOKzJoxh14VCfRKrvr4Dz+BUL67oHObCIwsBd5hUYiofLVbjhE=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(23010399003)(19092799006)(22082099003)(18002099003)(56012099006)(5023799004)(11063799006)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?REGoCckN7M1tgYbiK9w/IJqKfspQ5qE1tV1O/6lAT+T0ZGgf8/HZZSv/cJ?=
- =?iso-8859-1?Q?liOGASGxBb7yO894KR3cHTHMiQrHNO9dowHFqKv2wLvu/Y6t+Fz9Ae4S6V?=
- =?iso-8859-1?Q?6iFm/2S5jENyWsZCoUMnTx9oyJ0xSJgxhJCWuE7tOIsucJAtNGPmjgMFUf?=
- =?iso-8859-1?Q?WaToqYLlhwghY2fPV10DbA0OLlUcWO059GFW1S/E9kOzzT73FFAXjwGkcB?=
- =?iso-8859-1?Q?HuWZPiw0q27srNq7Lbf11JQ4Mm9smtrv/fngiJ9kdupPSz4eBdfqL4VQkr?=
- =?iso-8859-1?Q?SuR6PfRd3EnhEpwQ+VIxDHtcIJH6hmqGQJLZ1Er1b3Md4l+g7DyOf/9DiB?=
- =?iso-8859-1?Q?laPmSNrvYjd+a3azCl6L9IWoKJ5fBJpjoXJmSVvIaKH3NjJ2P7lF09kRQS?=
- =?iso-8859-1?Q?f9mj0xWIf82UwIWcNWzigEpeDbNEHe8LKFO5+Eav419tp1xkD9etNNE+jh?=
- =?iso-8859-1?Q?A//NQMcRv7xwN5UHgStZXumVGSsmvQoqiPglKoXa2gGR8RktbJE7lm0daa?=
- =?iso-8859-1?Q?Ne3iHWHc0iIciiDSCXs5tlhVb7eWn1YK4h1n7M9vEr7WtLAq3UXS3m3Xkz?=
- =?iso-8859-1?Q?zMfcXfcQfxBvjpMV8XM2RbtpHm9O713/7HlwemkaGxWLuSvpmsO0z5hsiV?=
- =?iso-8859-1?Q?fDp+74ZhVwhDolpcTx751nuslZfKc53G1Yoel8WdhXAWyZ8Lm9iwQBpo7f?=
- =?iso-8859-1?Q?cvRkr8cw5+CwFhpZmyTpPIanEhOLPBVdYamst1i7myozp/+xhvT4YEw2G0?=
- =?iso-8859-1?Q?4Ebq8Zp/nzxJuusbPfymFCFAAwAuxNoxkcBBEx0tYrCvZy2LnA3NFaWRXM?=
- =?iso-8859-1?Q?r81ftzud7vXFSjYvtlmFNabkgyI1h4p2w+/N/3zDkOvv3CCmKDtphjxgVi?=
- =?iso-8859-1?Q?f+leUp6QzLzTEMNLTuTjPofKPs6Noz/S9sDMrKVIo8tihaKYCs3UPZdzyU?=
- =?iso-8859-1?Q?ngIs0b9rl0ubUgXqtDMZU4yox/XLWl9LhS7GurgRWrWHraQoJc1kTMnsKP?=
- =?iso-8859-1?Q?XOUi15JSDW2G/fKR3eui3+7rXKUPDeYVFypYnFKxtrdgwLZzRkYTv+ZQtF?=
- =?iso-8859-1?Q?7xhhgCGzwhojFf0X4DAdrYu7iRHmTvyudeIUDJCIw5mDgaqYpUfm8dYsUs?=
- =?iso-8859-1?Q?tLj4mFdIzIQvXWmDkPt5u5a+cENPQGANQ7X1ifAFvXIqC7fnZ8iMCEMhmm?=
- =?iso-8859-1?Q?FGVkpdZPp6fKJhd6x3MVZmRMSz9PvPNBnLk5CJfZuYG3BKOCqw1MRDsjDU?=
- =?iso-8859-1?Q?RLPt9QLdTFdzJMG7rTxr6LqMQehOammhglF4IBMFFWxEQQjgBsliLyJ+rn?=
- =?iso-8859-1?Q?pSaXTNhHLo2ykNjB/x0AeIDNFWIvxMNypPLCllUlToFUt74uSd0H1t10s0?=
- =?iso-8859-1?Q?VnkD9AXxJMHtpfFspqTIfCndkZkP4iNGnvDuzm3KEN3W3BwV9o5KrayQfv?=
- =?iso-8859-1?Q?Dq/mhCtWS/WteSE4x6w0e68qimSotx+be738HgRnD3ezdIHKxWG7H5XH+z?=
- =?iso-8859-1?Q?wlJ3IIeoQAPDxHZvhzhbOAWJJYlNXYB/mSDlX5EnsyILpVJJIR9Z65Ktj0?=
- =?iso-8859-1?Q?Q2k2UkGv7azAfWvVS6hxIgSFKg6MKcQIKqInEF8pSeG134KYmKZFM3Vu//?=
- =?iso-8859-1?Q?fPI2suS4pPlYbG81ZpexaX8UfEZ92Vp7dHnQieoErvGIKHMuIy9FhmeeuR?=
- =?iso-8859-1?Q?85ja42Mh/ayn9gBsha03yyt0KHfLUWqUGOg/8fqACfG8idAdBrjfN8/xR1?=
- =?iso-8859-1?Q?HYd0U03/Gtqx9wwBn6lxBZqUX71GJpTIDB+wFesIMVxHZJqoIQP4Q29MLP?=
- =?iso-8859-1?Q?lU4Zb8TvvhNvJpYa1sA29Zt0y0HtqzivXX3MEdxyTaLEiMo+Ci48?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5de7cbce-9c18-4dd6-2313-08ded1286ab0
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jun 2026 13:07:45.6525
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: x3VqMQIDq3CW8DzTYtZ5zR+pfB2St2uV/zkOcwh/ys/I6y1jmLNAOOOV6H08uLoEb+xJfbiapYZUBmQ4gZNVhZbKunFigxnxKsY/Tbvv2hXD9rGNQ7ch9cKa/ubxqYWq
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB7064
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_060752_437652_9FCC0C50 
-X-CRM114-Status: GOOD (  17.86  )
+	Tue, 23 Jun 2026 13:08:16 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2078F42B38;
+	Tue, 23 Jun 2026 13:08:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 012441F000E9;
+	Tue, 23 Jun 2026 13:08:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782220096;
+	bh=Z8sTU+8G5Nx/47JjD+XoYdzr54hu2EhVfKCrwOv3fY8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=IKdtfNpthkRsIZNECjJYBclOhDXwhnotLrdCTAhR5DMuhpxIayAjQ4CNj+rqwVf3r
+	 Z5zDiQ5W5UbbmG/IZSTC+Tlg6KTxRtzouWnSGnDxnXWNkBFlqleoqWymQrnLw+gZ+z
+	 hIeBv821mJ9qswsDBUI+SgHxT4AcjK5FbmCk59zU6IKIfuALcJI9EPeJeHdagJDy/i
+	 U1Up6/JsISCwWIb+jPyBJuTHsXxzRFvMjPunOOW5sx50K6TCL1Drw/pSy3xxPon0Nv
+	 higzH/g5EIioQim1dIuaIRm5+prm3NeNnxbepWxBJIoNYut+07nO/i4qTHIwFV+MfA
+	 HdJPvqBLCNJHg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wc0rN-0000000FIFR-1tPY;
+	Tue, 23 Jun 2026 13:08:13 +0000
+Date: Tue, 23 Jun 2026 14:08:13 +0100
+Message-ID: <86tsqtqu9u.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Shuah Khan <shuah@kernel.org>,
+	Christoffer Dall <christoffer.dall@linaro.org>,
+	Victor Kamensky <victor.kamensky@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] KVM: arm64: Fix sign-extension of MMIO loads
+In-Reply-To: <20260622190701.2039766-2-fuad.tabba@linux.dev>
+References: <20260622190701.2039766-1-fuad.tabba@linux.dev>
+	<20260622190701.2039766-2-fuad.tabba@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, seiden@linux.ibm.com, catalin.marinas@arm.com, will@kernel.org, shuah@kernel.org, christoffer.dall@linaro.org, victor.kamensky@linaro.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,95 +92,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 23, 2026 at 12:45:57PM +0200, Uwe Kleine-König (The Capable Hub) wrote:
-> i.MX21 (and thus imx21_init_early()) is gone since v5.10-rc1 (commit
-> 4b563a066611 ("ARM: imx: Remove imx21 support")).
->
-> The init_irq() functions are gone since v5.12-rc5 (commit e2c1b0ff38c9
-> ("ARM: imx: avic: Convert to using IRQCHIP_DECLARE")).
->
-> And mxc_device_init() was removed for v5.10-rc1 (in commit 8485adf17a15
-> ("ARM: imx: Remove imx device directory")).
->
-> The last user of imx1_reset_init() is gone since v4.9-rc1 (commit
-> e1291cffcc50 ("ARM: i.MX: Remove i.MX1 non-DT support")).
->
-> Drop declaration of enum mxc_cpu_pwr_mode, the actual definition follows
-> later in common.h without a usage in-between.
->
-> All users of of_device_id also include <linux/of.h>,
-> <linux/of_address.h> or <linux/of_platform.h> which is enough to not
-> need the forward declaration.
->
-> Signed-off-by: Uwe Kleine-König (The Capable Hub) <u.kleine-koenig@baylibre.com>
+On Mon, 22 Jun 2026 20:07:00 +0100,
+Fuad Tabba <fuad.tabba@linux.dev> wrote:
+> 
+> A sign-extending load from MMIO (LDRSB, LDRSH, LDRSW) delivers a
+> zero-extended value: in kvm_handle_mmio_return(), vcpu_data_host_to_guest()
+> masks the data to the access width after sign-extension, stripping the
+> sign bits.
+> 
+> Move vcpu_data_host_to_guest() ahead of sign-extension so the width mask
+> runs first. trace_kvm_mmio() moves with it and keeps reporting the raw
+> access-width data.
+> 
+> Fixes: b30070862edbd ("ARM64: KVM: MMIO support BE host running LE code")
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 > ---
-> Hello,
->
-> found while working on *_device_id.
->
-> Best regards
-> Uwe
->
->  arch/arm/mach-imx/common.h | 7 -------
->  arch/arm/mach-imx/system.c | 8 --------
->  2 files changed, 15 deletions(-)
->
-> diff --git a/arch/arm/mach-imx/common.h b/arch/arm/mach-imx/common.h
-> index 45c1a2a7b35f..d7ecaa822adb 100644
-> --- a/arch/arm/mach-imx/common.h
-> +++ b/arch/arm/mach-imx/common.h
-> @@ -14,23 +14,16 @@ struct platform_device;
->  struct pt_regs;
->  struct clk;
->  struct device_node;
-> -enum mxc_cpu_pwr_mode;
-> -struct of_device_id;
->
->  void mx31_map_io(void);
->  void mx35_map_io(void);
-> -void imx21_init_early(void);
->  void imx31_init_early(void);
->  void imx35_init_early(void);
-> -void mx31_init_irq(void);
-> -void mx35_init_irq(void);
+>  arch/arm64/kvm/mmio.c | 7 ++++---
+>  1 file changed, 4 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/mmio.c b/arch/arm64/kvm/mmio.c
+> index e2285ed8c91de..d1c3a352d5a22 100644
+> --- a/arch/arm64/kvm/mmio.c
+> +++ b/arch/arm64/kvm/mmio.c
+> @@ -126,6 +126,10 @@ int kvm_handle_mmio_return(struct kvm_vcpu *vcpu)
+>  		len = kvm_vcpu_dabt_get_as(vcpu);
+>  		data = kvm_mmio_read_buf(run->mmio.data, len);
+>  
+> +		trace_kvm_mmio(KVM_TRACE_MMIO_READ, len, run->mmio.phys_addr,
+> +			       &data);
+> +		data = vcpu_data_host_to_guest(vcpu, data, len);
 
-which commit remove above two functions?
+This helper is in charge of the endianness of the read from the
+guest's PoV. How can the sign-extension (which happens from the host's
+perspective) correctly work if it takes place after the byte swapping?
 
-Frank
+To me, the real issue appears to be in the that helper, which swaps
+the data based on the size of the access instead of the width of the
+register.
 
->  void mxc_set_cpu_type(unsigned int type);
->  void mxc_restart(enum reboot_mode, const char *);
->  void mxc_arch_reset_init(void __iomem *);
-> -void imx1_reset_init(void __iomem *);
->  void imx_set_aips(void __iomem *);
->  void imx_aips_allow_unprivileged_access(const char *compat);
-> -int mxc_device_init(void);
->  void imx_set_soc_revision(unsigned int rev);
->  void imx_init_revision_from_anatop(void);
->  void imx6_enable_rbc(bool enable);
-> diff --git a/arch/arm/mach-imx/system.c b/arch/arm/mach-imx/system.c
-> index e88ca027129d..1afae485f203 100644
-> --- a/arch/arm/mach-imx/system.c
-> +++ b/arch/arm/mach-imx/system.c
-> @@ -74,14 +74,6 @@ void __init mxc_arch_reset_init(void __iomem *base)
->  		clk_prepare(wdog_clk);
->  }
->
-> -#ifdef CONFIG_SOC_IMX1
-> -void __init imx1_reset_init(void __iomem *base)
-> -{
-> -	wcr_enable = (1 << 0);
-> -	mxc_arch_reset_init(base);
-> -}
-> -#endif
-> -
->  #ifdef CONFIG_CACHE_L2X0
->  void __init imx_init_l2cache(void)
->  {
->
-> base-commit: ef0c9f75a19532d7675384708fc8621e10850104
-> --
-> 2.47.3
->
->
+Or am I once more completely confused with the endianness crap?
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
