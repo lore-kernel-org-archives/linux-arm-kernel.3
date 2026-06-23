@@ -4,74 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA358CDB46F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 02:02:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52BAFCDB46B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 02:07:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rPTD/8zSUu5VkcrXL6yx21QDb4jTwvzquTnjTr88gc4=; b=ne05djzbAXkIfSNzguRVyzWdNc
-	AVz5HlefHw3dhXXYFaJgAlvx698dbYsGGJyfJ5kReQdTJlNc1bO3XDQNpNjzZHyKSz+/mDUN4Wvrt
-	E5rkQD0QPjslvbEuW3Lums+GjYpWvgzfchYvOi7ZIj7Jrd/IzVnGwOHUlJAjILV2iZ8BUx1GE1YLv
-	SkXVKPoPJ39ai71xxVDOXriP3SPhmpVtI+qF0PgUurI3xk0SNeLkFPE/W9qGsS0/5okEJ5gBWukce
-	wz/ngXNfO6IR0teGEhKp5nYwnEUgpImmgsicHMs4lJyx3EdnWIsrcHM8bu6Csy7kkAC0if+0ZRM8X
-	Ubal0orA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=CthWdMNq9JCpMJG/+tGCru7j6+DzXpWUhKMLM+JWrZ4=; b=Si9uwHLRTfsk5X7y9L9Mx2o4J5
+	rfWMh9BwKhQB2piiWC25ijK5W1+cM2fEm1NheogWoG7E3IV7uSb9GTKjwIg5jehQ+y7cTyMEuuTnM
+	49s9+oseQXFKuR8yFm6m8z8GUS1jMQs/eKXLRzZ0QWNyhifY6e9FikChWRHCqtlXv38mzPKZqDXJP
+	HSRiqifbbThLitUFDNYgh03Wo1gn7HlqrAG7BdZQJYO5v10vHCulKCw1mRUG8TbC/fQyCDTGMWN1i
+	OlaCeBOzSHfP2buMtlHjqJgPJGP1fntWbNSrw2luHQRmOYq9XOVmBdPEkvXrkzUEpZzyipIcm175+
+	HHondNlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbqSd-00000005ZjT-0GKd;
-	Tue, 23 Jun 2026 02:01:59 +0000
-Received: from dggsgout12.his.huawei.com ([45.249.212.56])
+	id 1wbqY4-00000005aOj-0VRl;
+	Tue, 23 Jun 2026 02:07:36 +0000
+Received: from m16.mail.163.com ([117.135.210.2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbqSR-00000005Zew-35e3
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 02:01:50 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.170])
-	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4gkpF643MpzKHMZT
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 10:00:42 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.112])
-	by mail.maildlp.com (Postfix) with ESMTP id E380C4056E
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 10:01:39 +0800 (CST)
-Received: from huaweicloud.com (unknown [10.166.163.161])
-	by APP1 (Coremail) with SMTP id cCh0CgCHiD0A6TlqxaQZCw--.5730S6;
-	Tue, 23 Jun 2026 10:01:39 +0800 (CST)
-From: Kemeng Shi <shikemeng@huaweicloud.com>
-To: maz@kernel.org,
-	tglx@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	shikemeng@huaweicloud.com
-Subject: [PATCH v3 4/6] irqchip/gic-v3-its: Add ITS address info in more error logs
-Date: Tue, 23 Jun 2026 10:01:33 +0800
-Message-Id: <20260623020135.3584-5-shikemeng@huaweicloud.com>
-X-Mailer: git-send-email 2.36.1
-In-Reply-To: <20260623020135.3584-1-shikemeng@huaweicloud.com>
-References: <20260623020135.3584-1-shikemeng@huaweicloud.com>
+	id 1wbqY0-00000005aOA-3DhH;
+	Tue, 23 Jun 2026 02:07:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=Ct
+	hWdMNq9JCpMJG/+tGCru7j6+DzXpWUhKMLM+JWrZ4=; b=SGp/dcwcfCDc71R212
+	f2d+WJ6kgweXhVwK3WoGF3f/R63Uu7WKE6eAj4Tckq0VCqL6B8D69e7v3v7P0/js
+	pUdp7KNHHugSKK52TH+5WMzraA62YqP8GXyLCQOX01g2FyaO3HPRQ5H9zkpEm6WX
+	fOqzBDs/qYay9GZepM5JlRPWE=
+Received: from localhost.localdomain (unknown [])
+	by gzga-smtp-mtada-g0-4 (Coremail) with SMTP id _____wAnM8c+6jlqfZp1FQ--.32290S2;
+	Tue, 23 Jun 2026 10:06:54 +0800 (CST)
+From: fffsqian@163.com
+To: Ryder Lee <ryder.lee@mediatek.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	kwilczynski@kernel.org,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Chen-Yu Tsai <wenst@chromium.org>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Cc: linux-kernel@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	Qingshuang Fu <fuqingshuang@kylinos.cn>
+Subject: [PATCH 1/1] PCI: mediatek-gen3: fix unreachable error message in probe
+Date: Tue, 23 Jun 2026 10:06:48 +0800
+Message-Id: <20260623020648.112623-1-fffsqian@163.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: cCh0CgCHiD0A6TlqxaQZCw--.5730S6
-X-Coremail-Antispam: 1UD129KBjvJXoW7ZFWxCFy5GFyfJF4ftFyrZwb_yoW8tw1kpF
-	45W3yfZrn3X3yUXFs8Zr4DZrn3tw4kKas7G342ga9IgrsxAFykWan2yF9YvF1fA3Z7Ja12
-	qF4UKa1vkanrJaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBE14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JF0E3s1l82xGYI
-	kIc2x26xkF7I0E14v26r4j6ryUM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2
-	z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F
-	4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oVCq
-	3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7
-	IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4U
-	M4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwCY1x0262kKe7AKxVWUAV
-	WUtwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v2
-	6r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_JF0_Jw1lIxkGc2
-	Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_
-	Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMI
-	IF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUr9N3UUUUU
-	=
-X-CM-SenderInfo: 5vklyvpphqwq5kxd4v5lfo033gof0z/
+X-CM-TRANSID: _____wAnM8c+6jlqfZp1FQ--.32290S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7uw47GrWUZw13uF1UtryxZrb_yoW8Jw4fpF
+	ZrWasayFZ5JFn8Zr47A3Wfu3WF9wn3CrW8Jws7Ww1xZFn3CFyDt343K34rt3y7KFs7Xw13
+	X3Wqqa48GasrGF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jna93UUUUU=
+X-Originating-IP: [116.128.244.169]
+X-CM-SenderInfo: 5iii21xldqqiywtou0bp/xtbCwh+yfWo56j8H7AAA3-
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260622_190148_134592_D8D5F930 
-X-CRM114-Status: GOOD (  10.81  )
+X-CRM114-CacheID: sfid-20260622_190733_280255_22F7541A 
+X-CRM114-Status: GOOD (  12.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,68 +80,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We have a lot of logs containing ITS address info which is helpful to
-distiguish which ITS occurs error. Just add ITS address info into more
-exsiting error logs.
+From: Qingshuang Fu <fuqingshuang@kylinos.cn>
 
-Signed-off-by: Kemeng Shi <shikemeng@huaweicloud.com>
+In mtk_pcie_probe(), the error handling for pci_pwrctrl_create_devices()
+has the goto statement before the dev_err_probe() call, making the error
+message completely unreachable. When this function fails, no diagnostic
+message is ever printed.
+
+Reorder so that dev_err_probe() is called before jumping to the cleanup
+label, restoring the intended error reporting.
+
+Fixes: 1a152e21940a ("PCI: mediatek-gen3: Integrate new pwrctrl API")
+Signed-off-by: Qingshuang Fu <fuqingshuang@kylinos.cn>
 ---
- drivers/irqchip/irq-gic-v3-its.c | 13 +++++++------
- 1 file changed, 7 insertions(+), 6 deletions(-)
+ drivers/pci/controller/pcie-mediatek-gen3.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-index 8968bedefdba..244509701070 100644
---- a/drivers/irqchip/irq-gic-v3-its.c
-+++ b/drivers/irqchip/irq-gic-v3-its.c
-@@ -1120,7 +1120,7 @@ static struct its_cmd_block *its_allocate_entry(struct its_node *its)
- 	while (its_queue_full(its)) {
- 		count--;
- 		if (!count) {
--			pr_err_ratelimited("ITS queue not draining\n");
-+			pr_err_ratelimited("ITS@%pa queue not draining\n", &its->phys_base);
- 			return NULL;
- 		}
- 		cpu_relax();
-@@ -1196,8 +1196,8 @@ static int its_wait_for_range_completion(struct its_node *its,
+diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/controller/pcie-mediatek-gen3.c
+index b0accd828589..5d7cfed44637 100644
+--- a/drivers/pci/controller/pcie-mediatek-gen3.c
++++ b/drivers/pci/controller/pcie-mediatek-gen3.c
+@@ -1222,8 +1222,8 @@ static int mtk_pcie_probe(struct platform_device *pdev)
  
- 		count--;
- 		if (!count) {
--			pr_err_ratelimited("ITS queue timeout (%llu %llu)\n",
--					   to_idx, linear_idx);
-+			pr_err_ratelimited("ITS@%pa queue timeout (%llu %llu)\n",
-+					   &its->phys_base, to_idx, linear_idx);
- 			return -1;
- 		}
- 		prev_idx = rd_idx;
-@@ -1244,7 +1244,7 @@ post:									\
- 	raw_spin_unlock_irqrestore(&its->lock, flags);			\
- 									\
- 	if (its_wait_for_range_completion(its, rd_idx, next_cmd))	\
--		pr_err_ratelimited("ITS cmd %ps failed\n", builder);	\
-+		pr_err_ratelimited("ITS@%pa cmd %ps failed\n", &its->phys_base, &builder);	\
- }
- 
- static void its_build_sync_cmd(struct its_node *its,
-@@ -2411,7 +2411,8 @@ static int its_setup_baser(struct its_node *its, struct its_baser *baser,
- 
- 		/* 52bit PA is supported only when PageSize=64K */
- 		if (psz != SZ_64K) {
--			pr_err("ITS: no 52bit PA support when psz=%d\n", psz);
-+			pr_err("ITS@%pa: no 52bit PA support when psz=%d\n",
-+				   &its->phys_base, psz);
- 			its_free_pages(base, order);
- 			return -ENXIO;
- 		}
-@@ -5183,7 +5184,7 @@ static int its_init_vpe_domain(void)
- 	vpe_proxy.dev = its_create_device(its, devid, entries, false);
- 	if (!vpe_proxy.dev) {
- 		kfree(vpe_proxy.vpes);
--		pr_err("ITS: Can't allocate GICv4 proxy device\n");
-+		pr_err("ITS@%pa: Can't allocate GICv4 proxy device\n", &its->phys_base);
- 		return -ENOMEM;
+ 	err = pci_pwrctrl_create_devices(pcie->dev);
+ 	if (err) {
+-		goto err_tear_down_irq;
+ 		dev_err_probe(dev, err, "failed to create pwrctrl devices\n");
++		goto err_tear_down_irq;
  	}
  
+ 	err = mtk_pcie_setup(pcie);
+
+base-commit: 4708cac0e22cfd217f48f7cec3c35e5922efcccd
 -- 
-2.36.1
+2.25.1
 
 
