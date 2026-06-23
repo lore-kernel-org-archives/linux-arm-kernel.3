@@ -4,75 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 285E7CDB46F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 15:23:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7761CDB46F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 15:31:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KTQndh5EWhkqDmZmwB0OKhZyQvnI7PXjv9A+hnMrJew=; b=odv/XFAcU70d1o
-	2z30OX2rTD8DCXwDaViQ1q/+BvNpFIFgSkN5UtJb07wE1ZXHZmYCi/tVSff7lgzoLob+iQfBfReF6
-	XHlGp304J4bxafQ1aKKL36Iq6wc82cLTbCeEKV0Ct+yU3QyQ4jkGZorXIP23cZZlEnY3O52DtFGOr
-	NEiY4CQl8HVXdFeokz9OR0fvW+VKXoS11FfXtHk3TClfIx20RSJBxoV/4HV0Gd7DvY1YmmKCwnmpT
-	uYyzGn2V6RWqQeoGT07spcTMpPS9K/OMUsaA+eAC99VvWx880x4nD0EvQZG+ua0c3cyGFaUmk5NlU
-	91dniBaV4pWXe/vEs6/g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1UFmKBMmHDZNNfnvZdVAmY9qZv1wTufNTvob56m+tHE=; b=IYhRSchgP21Ufmnniuh1uAK4v0
+	NZ1xmT5DenMnyld/CwRTAz2yJKaXys/ntt0nyBm4xV2CK2fZruF3QqcKoUnUCGW60m5WaesmHQjag
+	wHXF1KsMtCKExji0Io7NzhJyKzDjX7WmadiRSW+NxvrtDOK61ULuo5hfQU/kxunZHSp18oNKa00sH
+	obbN95GHTDL1tTBPzcLpwuOSHLmDQVxGAkjRoRfyZASl1YpVejE+bZC6gSv4ZCCCnSwkwdMxzLUEN
+	LFGyWAweMoCrAgewuzN2G2fEFv6jCrgEyg1KYt+cVgDbeAjn/F8T/UroSwrwcOZd+3jcgte3LUaie
+	nhT23sJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc2yM-00000006WxO-3ah9;
-	Tue, 23 Jun 2026 15:23:34 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc2yL-00000006Wx6-2Cdc
+	id 1wc36C-00000006XUu-3oAU;
+	Tue, 23 Jun 2026 15:31:40 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wc369-00000006XUK-47sc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 15:23:33 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C4C1160207
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 15:23:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C46A1F00ACF
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 15:23:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782228212;
-	bh=KTQndh5EWhkqDmZmwB0OKhZyQvnI7PXjv9A+hnMrJew=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
-	b=Hki6YJhi28GASZHqwwCkhhXl3skcmPrBO9cxVQXJyt0GTu8NZ3ld1tHZV5uAcHFrH
-	 PBW1IT/3SPjJIdgE2Abt3y4ywURZuNjtb3VwUBL1SEspfjUbA0nXXQqEg1Ip4ZBqh0
-	 VTmcZdEqRm9JiqF6perVrk8acOQwPQD/FfluKIP7zylSA5m/8Rl6cgztYYOVAntNbG
-	 VlZeBMLZzRhgCGFx6SbhVvCcy1Enre6GVOSAgVTiAJmwfYpTT4gGBxf+2aUAjMftL3
-	 BOJhy1bkUBgq9V7aoF/qhk3JiEY4wrGGEYhWW/xa9KFgXm/2jkYd3eB/CZ6LL1+jBY
-	 Fm13Neg9+4MZQ==
-Received: by mail-lj1-f170.google.com with SMTP id 38308e7fff4ca-399f5e574b0so11153961fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 08:23:32 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ+KFazKCZoXY6sNRPB0i/u/+z2CDrsh6/OccHKFALqBTc37J9l/oHBF7ul+bjwvmB6hP3sCaqvG5Kt8cFxuHmSF@lists.infradead.org
-X-Gm-Message-State: AOJu0YwunEK8UxGhWbkk87m9kCKFMjPcIzPDGbkPdlCOQiInNUW6VL5h
-	TcySd+gdIF649VwK0OOC+LCUZA6TH6ojuOkNudOfLrBqbZohpFWyFMg/eZNQ+QP9lqfjULd2FaU
-	dTjMk0obGSRbsG5nJv02D6TIkUwNKHQA=
-X-Received: by 2002:a05:6512:4388:b0:5a8:86a8:2e09 with SMTP id
- 2adb3069b0e04-5ae3616553amr944685e87.7.1782228210964; Tue, 23 Jun 2026
- 08:23:30 -0700 (PDT)
+	Tue, 23 Jun 2026 15:31:39 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 240541476;
+	Tue, 23 Jun 2026 08:31:32 -0700 (PDT)
+Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AC6773F62B;
+	Tue, 23 Jun 2026 08:31:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1782228696; bh=Xx7ALwuJ6fTtnyFrqu5uJjnXocUd+HCS4pgJJo0KEBw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Oi7uJrGbWhAFX+smidbuzAqnhvtxjpaa3jXcB4wIn2Q0CllZ4+m2XDB6cFBw+kTrQ
+	 5R/QCaiNs7PUBJtsm8AYAnN6mbeKxrHznbqFfXefaeqk/Ai2WoUEkQsMexnnkawXuD
+	 22clrn5tqBVQYUeG6NNoRKfI49hZ1Xp5WcN+5d1g=
+Message-ID: <59c283b1-0436-4ea1-8feb-996dba617b6d@arm.com>
+Date: Tue, 23 Jun 2026 16:31:33 +0100
 MIME-Version: 1.0
-References: <20260121-a733-rtc-v1-0-d359437f23a7@pigmoral.tech>
- <20260121-a733-rtc-v1-7-d359437f23a7@pigmoral.tech> <CAGb2v64euL+QNXiJdTn0JygYLXg0WoguPSprKT4sKGZGVZbwug@mail.gmail.com>
- <1jv7bjd6wi.fsf@starbuckisacylon.baylibre.com>
-In-Reply-To: <1jv7bjd6wi.fsf@starbuckisacylon.baylibre.com>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Tue, 23 Jun 2026 23:23:17 +0800
-X-Gmail-Original-Message-ID: <CAGb2v67eqHz3LxyLwk2_+RR_ucc8hxBLfk=iLcSN3hdsnsmPXQ@mail.gmail.com>
-X-Gm-Features: AVVi8Cd45Q12_JEAbrGeRNR4K9bnBVwQtAKYrj4bVtPHJ3Sm3pX_iR5U5sy4IUU
-Message-ID: <CAGb2v67eqHz3LxyLwk2_+RR_ucc8hxBLfk=iLcSN3hdsnsmPXQ@mail.gmail.com>
-Subject: Re: [PATCH 7/7] clk: sunxi-ng: Add Allwinner A733 RTC CCU support
-To: Jerome Brunet <jbrunet@baylibre.com>
-Cc: Junhui Liu <junhui.liu@pigmoral.tech>, Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Maxime Ripard <mripard@kernel.org>, linux-clk@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-rtc@vger.kernel.org, 
-	devicetree@vger.kernel.org, =?UTF-8?Q?Andr=C3=A9_Przywara?= <andre.przywara@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] iommu/arm-smmu-v3: Add tracepoint for EVTQ events
+To: Chen Jun <chenjun102@huawei.com>, will@kernel.org, joro@8bytes.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: zhangyuwei20@huawei.com
+References: <20260613130007.18563-1-chenjun102@huawei.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20260613130007.18563-1-chenjun102@huawei.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260623_083138_197680_9EAD30BB 
+X-CRM114-Status: GOOD (  22.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,92 +67,147 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 16, 2026 at 1:56=E2=80=AFAM Jerome Brunet <jbrunet@baylibre.com=
-> wrote:
->
-> On sam. 28 mars 2026 at 22:41, Chen-Yu Tsai <wens@kernel.org> wrote:
->
-> > On Wed, Jan 21, 2026 at 7:04=E2=80=AFPM Junhui Liu <junhui.liu@pigmoral=
-.tech> wrote:
-> >>
-> >> Add support for the internal CCU found in the RTC module of the Allwin=
-ner
-> >> A733 SoC. While the basic 16MHz (IOSC) and 32kHz logic remains compati=
-ble
-> >> with older SoCs like the sun6i, the A733 introduces several new featur=
-es.
-> >>
-> >> The A733 RTC CCU supports choosing one of three external crystal
-> >> frequencies: 19.2MHz, 24MHz, and 26MHz. It features hardware detection
-> >> logic to automatically identify the frequency used on the board and
-> >> exports this DCXO signal as the "hosc" clock.
-> >>
-> >> Furthermore, the driver implements logic to derive a 32kHz reference
-> >> from the HOSC. This is achieved through a muxed clock path using fixed
-> >> pre-dividers to normalize the different crystal frequencies to ~32kHz.
-> >
-> > Have you tested whether the actually normalizes the frequency, i.e.
-> > selects a different divider based on the DCXO frequency? Otherwise
-> > we're just lying about the frequency.
-> >
-> >> This path reuses the same hardware mux registers as the HOSC clock.
-> >>
-> >> Additionally, this CCU provides several gate clocks for specific
-> >> peripherals, including SerDes, HDMI, and UFS. The driver is implemente=
-d
-> >> as an auxiliary driver to be bound to the sun6i-rtc driver.
-> >>
-> >> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
-> >> ---
->
-> [...]
->
-> >> +};
-> >> +
-> >> +static const struct clk_parent_data hosc_parents[] =3D {
-> >> +       { .fw_name =3D "osc24M" },
-> >> +       { .fw_name =3D "osc19M" },
-> >> +       { .fw_name =3D "osc26M" },
-> >> +       { .fw_name =3D "osc24M" },
-> >> +};
-> >
-> > As mentioned in my reply to the binding, this is wrong. There is only
-> > one input.
-> >
-> > The most you can do is check the rate of the parent clock against the
-> > detected one, and _scream_ that the DT is wrong. And maybe override
-> > the reported frequency.
-> >
-> > If you want to do the latter, you could add a new fixed rate gated
-> > clock type to our library. You would fill in the rate before the
-> > clocks get registered. I probably wouldn't go that far. We want people
-> > to have correct hardware descriptions.
-> >
-> > Funnily enough Allwinner's BSP actually implements a fixed rate gate
-> > for the next 24M-to-32k divider clock.
->
-> What about implementing the register bellow as a read-only (and
-> non-cached) divider using the factors provided by Junhui ? That would be
-> an accurate description of the HW I think.
->
-> The oscillator gets set in DT and if the output reported past the
-> divider is not 32728Hz, you know you've got a problem (bad DT or HW gone
-> bad)
->
-> With a fixed-rate gate, you may actually end up lying about what
-> actually happen, if the HW does not behave as expected.
->
-> Do you prefer a fixed-rate gate still or should I try the RO divider
-> approach ?
+On 13/06/2026 2:00 pm, Chen Jun wrote:
+> Events reported by the SMMU can severely impact accelerator
+> performance. Currently, only events that the SMMU fails to handle are
+> printed to the kernel log, leaving most events invisible to users.
+> To analyze and optimize accelerator performance, complete visibility
+> into all SMMU-reported events is required.
 
-I think either one would work. The RO divider is probably more accurate.
+What events, exactly? AFAICS the only events we should expect to handle 
+"invisibly", without being some unexpected error condition worth 
+screaming about, would be stalls for SVA page faults, and if SVA isn't 
+generically accounting page faults itself then I would imagine it 
+probably should.
 
-Sorry for the late reply.
+Thanks,
+Robin.
 
+> Add a tracepoint in the EVTQ interrupt handler to capture every
+> event record reported by the SMMU. This allows users to collect all
+> event information via ftrace/perf for further analysis, complementing
+> the existing event decoder and error dump which only cover a subset
+> of events.
+> 
+> Signed-off-by: Chen Jun <chenjun102@huawei.com>
+> ---
+>   drivers/iommu/arm/arm-smmu-v3/Makefile      |  2 +-
+>   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c |  3 ++
+>   drivers/iommu/arm/arm-smmu-v3/trace.c       |  9 ++++
+>   drivers/iommu/arm/arm-smmu-v3/trace.h       | 53 +++++++++++++++++++++
+>   4 files changed, 66 insertions(+), 1 deletion(-)
+>   create mode 100644 drivers/iommu/arm/arm-smmu-v3/trace.c
+>   create mode 100644 drivers/iommu/arm/arm-smmu-v3/trace.h
+> 
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/Makefile b/drivers/iommu/arm/arm-smmu-v3/Makefile
+> index 493a659cc66b..63a8d71bfc93 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/Makefile
+> +++ b/drivers/iommu/arm/arm-smmu-v3/Makefile
+> @@ -1,6 +1,6 @@
+>   # SPDX-License-Identifier: GPL-2.0
+>   obj-$(CONFIG_ARM_SMMU_V3) += arm_smmu_v3.o
+> -arm_smmu_v3-y := arm-smmu-v3.o
+> +arm_smmu_v3-y := arm-smmu-v3.o trace.o
+>   arm_smmu_v3-$(CONFIG_ARM_SMMU_V3_IOMMUFD) += arm-smmu-v3-iommufd.o
+>   arm_smmu_v3-$(CONFIG_ARM_SMMU_V3_SVA) += arm-smmu-v3-sva.o
+>   arm_smmu_v3-$(CONFIG_TEGRA241_CMDQV) += tegra241-cmdqv.o
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> index e8d7dbe495f0..85e6c25b73ed 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> @@ -34,6 +34,8 @@
+>   #include "arm-smmu-v3.h"
+>   #include "../../dma-iommu.h"
+>   
+> +#include "trace.h"
+> +
+>   static bool disable_msipolling;
+>   module_param(disable_msipolling, bool, 0444);
+>   MODULE_PARM_DESC(disable_msipolling,
+> @@ -2271,6 +2273,7 @@ static irqreturn_t arm_smmu_evtq_thread(int irq, void *dev)
+>   
+>   	do {
+>   		while (!queue_remove_raw(q, evt)) {
+> +			trace_smmu_evtq_event(smmu, evt);
+>   			arm_smmu_decode_event(smmu, evt, &event);
+>   			if (arm_smmu_handle_event(smmu, evt, &event))
+>   				arm_smmu_dump_event(smmu, evt, &event, &rs);
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/trace.c b/drivers/iommu/arm/arm-smmu-v3/trace.c
+> new file mode 100644
+> index 000000000000..77378698b1a3
+> --- /dev/null
+> +++ b/drivers/iommu/arm/arm-smmu-v3/trace.c
+> @@ -0,0 +1,9 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * ARM SMMUv3 trace support
+> + *
+> + * Copyright (c) 2026 OpenCloudOS / openEuler
+> + */
+> +
+> +#define CREATE_TRACE_POINTS
+> +#include "trace.h"
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/trace.h b/drivers/iommu/arm/arm-smmu-v3/trace.h
+> new file mode 100644
+> index 000000000000..7cec8d41745e
+> --- /dev/null
+> +++ b/drivers/iommu/arm/arm-smmu-v3/trace.h
+> @@ -0,0 +1,53 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * ARM SMMUv3 trace support
+> + *
+> + * Copyright (c) 2026 OpenCloudOS / openEuler
+> + */
+> +
+> +#undef TRACE_SYSTEM
+> +#define TRACE_SYSTEM arm_smmu_v3
+> +
+> +#if !defined(_TRACE_ARM_SMMU_V3_H) || defined(TRACE_HEADER_MULTI_READ)
+> +#define _TRACE_ARM_SMMU_V3_H
+> +
+> +#include <linux/tracepoint.h>
+> +
+> +#include "arm-smmu-v3.h"
+> +
+> +TRACE_EVENT(smmu_evtq_event,
+> +
+> +	TP_PROTO(struct arm_smmu_device *smmu, u64 *evt),
+> +
+> +	TP_ARGS(smmu, evt),
+> +
+> +	TP_STRUCT__entry(
+> +		__string(iommu, dev_name(smmu->dev))
+> +		__field(u64, evt0)
+> +		__field(u64, evt1)
+> +		__field(u64, evt2)
+> +		__field(u64, evt3)
+> +	),
+> +
+> +	TP_fast_assign(
+> +		__assign_str(iommu);
+> +		__entry->evt0 = evt[0];
+> +		__entry->evt1 = evt[1];
+> +		__entry->evt2 = evt[2];
+> +		__entry->evt3 = evt[3];
+> +	),
+> +
+> +	TP_printk("%s evt: 0x%016llx 0x%016llx 0x%016llx 0x%016llx",
+> +		__get_str(iommu),
+> +		__entry->evt0, __entry->evt1,
+> +		__entry->evt2, __entry->evt3)
+> +);
+> +
+> +#endif /* _TRACE_ARM_SMMU_V3_H */
+> +
+> +/* This part must be outside protection */
+> +#undef TRACE_INCLUDE_PATH
+> +#undef TRACE_INCLUDE_FILE
+> +#define TRACE_INCLUDE_PATH ../../drivers/iommu/arm/arm-smmu-v3/
+> +#define TRACE_INCLUDE_FILE trace
+> +#include <trace/define_trace.h>
 
-ChenYu
 
