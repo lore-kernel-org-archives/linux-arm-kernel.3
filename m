@@ -4,106 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0975DCDB46F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 10:53:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CC96CDB47C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 10:55:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0t8B9KiaKml1jWkv/ehgW2nxgxFMiIhxgi2j8Q8oeTs=; b=hzpESuqApyHW+IyWcxYS0rFzHy
-	fVpOR/FWzy8IZhsYaZSIUsZiz1vW/pMLdp/e5Hn55Az6EBNj65nLdogiXCQU3rDjAeGh9g3QZoega
-	LgnakIQhDGbrDxoigRN/qx+IaeB4jrLvQq0bOfHk1hL5l5h9xPp7fMpeTNHNZtu7KcdD/h2EPAvsx
-	/Grxsy2C/isVml5/0hq/yGap3QbSygxZzUVhq+0rrd6ZDUhqVkD7cSYUIndMINzJ/GVmMu3PVJElu
-	yEruxEpFeOIytjoswuE6FybyvWsQiZbhHzk/dWqfL6UwRjsqa0yOgFOGNQgqR/PVpbJjfU6F0E4VA
-	RyyEtm4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lAKwacoVI7uad9g+jIiH9ookXbWgdh+4rlS83ehVIsw=; b=R1M79mSliaGYy4sdfXUyZyCHeQ
+	FyK+uHOmQuI7b40QoWvADVd6Csqunj9we+rrLH9YL3G1GP18UivORC9W6gnw/iCmO+9pj9kSfufT5
+	zr1n+WnzPVulYVe4NwtSq1XTf8OHpTZBaDHHkKDJKcPsFqDfiPvQb5GoO6XRKEri15qMngB72aMNT
+	644/jhA7jq9V20pdmaLY9AQ1tgPWVTc31oxNjUkJYgoNynr1WrJDOpaozS338NuvIIXumMfEIeffM
+	u8rUvHcCMMjAjtnAP3TY/V0SB805jsge5SS61gR6D0dAmK+wOf01HdnwXOpANptBPizVX04yUBSmi
+	ZG7LvceA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbylD-000000067Ce-1lmt;
-	Tue, 23 Jun 2026 10:53:43 +0000
-Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
+	id 1wbyn0-000000067Sd-08N3;
+	Tue, 23 Jun 2026 10:55:34 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbylB-000000067Bx-098L
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 10:53:42 +0000
-Received: by mail-pg1-x536.google.com with SMTP id 41be03b00d2f7-c86307c4e6bso2055516a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 03:53:40 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1782212020; cv=none;
-        d=google.com; s=arc-20240605;
-        b=USCTfmN6vxo+KIN6f9HBqEYQJyYRiqyvddzFCAoSH1e2610TgE1GR3NYHGkNd4U9aG
-         neZwAUivhMDXXx07TRu4KDETFktOT6W4d8OK60GS8LyJkPIRAU9xrtbI4DewjJcxfBPY
-         oy7Eg5geovuALiHE7urKgp2oa63vq/RaP9I6AesrLqam8i0LdLCaGYIPqrpqun+Uv3pI
-         sIn67lZG8L9H0dJ08IKIrwtZxbNzWCO2Wiu5UyU0Gdz3iv56DL3XwCa8ErD0n6uCoPp6
-         j610MYk6hXtP0fequIf4uRutRJZdavUDxn+qKEPRTI/dMXVleYc2UmTPoY8wx55uX0QO
-         pg6w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=0t8B9KiaKml1jWkv/ehgW2nxgxFMiIhxgi2j8Q8oeTs=;
-        fh=LIHZNankeqr0xq9Yii8BjJ6+sNRF1DAXMtqcXoaI5Ys=;
-        b=dxltUXuoOXp0VGOZF00Lg8Ia8b2ZiwcMxfJzCWTkfV853i54IemP3u4pUQ5bxrdr/w
-         oZamqISa3CVWzaZzXIQuN9gKA2KwqwMJeAPBkxbj0p0fqCn26hCdbXjudhjfHFnj6byT
-         DHGmIgGenBvkX4YRSdutOute7RQpec01pW8z7uM+U1qWD7hXAbTijb+OFSHNwmEgU5vy
-         yvvYP9ka81vDBkmLPlVwk7RgYPKkbIm2NvB1p4fOvO/IAy0jv9hA/IZ0Ice+abad+PbF
-         yI7ATftsKytAVJFIysLNqP0fiX0c9W5xKliURykPhAN75erSo0RPgNh5QRXkn9RvnJQv
-         EUmA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782212020; x=1782816820; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=0t8B9KiaKml1jWkv/ehgW2nxgxFMiIhxgi2j8Q8oeTs=;
-        b=jvJtctBFMlxY6TxNpL0jkiOw5Eh6o71lGCg++ZuuL0bA2wDHqTJEEXpzfgcZu5oE43
-         RsMb0f7YUrmmHWrb2vqpl9+8BHXAW3zgaIVzk1Hum4FRA/KYh/JxAPtKR6P+f7VmF8k8
-         3XVOZL4KjsRR5jrzSTVbxicT394JF29cCkxjMMUZvaVAyfAQhFSxST5kZ8V340rVKIOu
-         t2Yx6/ua7EkZ6CSQptE8V0PcUbvL7UA2N0Dews3jDl+O6NG9W6D2rkM/PEcX1lRE1dix
-         h3FGmz5/ZUCTF81M4GTuBsOOXZObd/vkYPItx7H/RhPhkmTy/KbImeHNUM+f6F9OW69K
-         4gFA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782212020; x=1782816820;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0t8B9KiaKml1jWkv/ehgW2nxgxFMiIhxgi2j8Q8oeTs=;
-        b=OO3Hx5UCMfTlwlhGLspKpzTCW9a6hgaYvukMJpzVJSK893tznJNP/u7X4kyJy7NIB3
-         Mi4APPxFwyJ0s+odRZMMx/5llhcmYkRa6ApnnpHVZvq6/QqR7euAXLQCZLcYOE58/das
-         DcjkvkaDs3UJqrsbeZZH8IUsrihEU7+QpILT8i6GYCQZVY7y4uQDcaY5jui46KeoLg6M
-         v5oqB3cG0fHEllanAL2msJ7O6uPMa7OgPCZiYIhsE/Ue3fzk1tgNS8bU7Sbz/uc9f9yJ
-         kkPKr0PHsykYGeusUUUrjIfMffjR/04mmSwdkCI1llci3kQJBeTnyCC0LbZBisrmMuGL
-         5qYg==
-X-Forwarded-Encrypted: i=1; AFNElJ+XMibDTbg/e+KE1M/5GYK/pysnsiJByFSqUaBIS74o6xo+GFXYAIGOVhZ59O/kc637e1+hT2qw9QRAaR6jdGlp@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxfiqt4pM0WlK7OfVc9lSdAqDsjfJhtZ6tewIG50NytQlrFo0n0
-	0Ll7ycQKSZ6JrlgMP5ga0VPVUtEWOABKHiMl7e+ZQ7qTDsqWpfHOCP6JKCGNTHgXhmHqd5p2YE2
-	5u7KTM0q/ym8zHUU7cQ3K3KmDNnPyzm0=
-X-Gm-Gg: AfdE7cn9tJUrR/dkirp5VUcB6t9ovvwSpHNVU/TwPIT+8NI263vCggiO6gMlrNunoBM
-	sxJc1hS1SIuOqkKXP21f25I60KpNHvg35JfpkotDJd8XPnXG1o08hZ0kpV/f4Q3GlrfZ1zMS5h4
-	+pYbbIFRFNwBPHaRjtvfMyA8/NW3Z3kQQPsRdSfph6PWRbaLpdRlC83EYkSMcBTiWxz36Z7xzdA
-	xCBUlyAH4jv8nXTH6sYloGIIY1gUinjMAHPtD3G+h6GzrT76QE0qSg5p6eg3dP+ZkGs8NP2sWVK
-	hRQ33dRyTMoXzPnalGXWszVsHs93wk6rXpovRg==
-X-Received: by 2002:a05:6a20:d045:b0:3b4:904f:c9cd with SMTP id
- adf61e73a8af0-3bc5181907emr16930605637.6.1782212019669; Tue, 23 Jun 2026
- 03:53:39 -0700 (PDT)
+	id 1wbymy-000000067SL-0alp;
+	Tue, 23 Jun 2026 10:55:32 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8745C405A9;
+	Tue, 23 Jun 2026 10:55:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45DA01F000E9;
+	Tue, 23 Jun 2026 10:55:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782212131;
+	bh=lAKwacoVI7uad9g+jIiH9ookXbWgdh+4rlS83ehVIsw=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=Nd6H/AKBBiphRBm1G0fYBB/P+tJDY3EthHSrSuOOIqxHa6P2zbJvBNW94bt7wq4BM
+	 rcllD8dhyskNiOvyEehpiUPLIwJ3tjjuuVyc+NmGA1tuO2mAYiL0zclDwVkartqoWh
+	 JBUmRhr6KcBb2z1TaCUVlUkV4kaoAjkb+4ajB48qoXaU1vF/SGzxVybKk7d/xjSX9X
+	 DbKFzsyU/r7eKd4RVUehBiutUMpt+UdwJ70k1ZZzm3JxfNyBXGe9cFNk6BLz+1/D8O
+	 W/0IqzZAHxFalUAivpxEFo1eso1fU+u/AZ6PfMIUYMwr6PI3gHIfXWrRcC3NHBcGG7
+	 dQmTtiXdafUwA==
+From: Simon Horman <horms@kernel.org>
+To: lorenzo@kernel.org
+Cc: Simon Horman <horms@kernel.org>,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	leto.liu@airoha.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	netdev@vger.kernel.org,
+	brown.huang@airoha.com
+Subject: Re: [PATCH net v2] net: airoha: Add retry mechanism to airoha_qdma_set_trtcm_param()
+Date: Tue, 23 Jun 2026 11:53:42 +0100
+Message-ID: <20260623105341.1076863-3-horms@kernel.org>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260622-airoha_qdma_set_trtcm_param-retry-fix-v2-1-95a83ac99dbd@kernel.org>
+References: <20260622-airoha_qdma_set_trtcm_param-retry-fix-v2-1-95a83ac99dbd@kernel.org>
 MIME-Version: 1.0
-References: <20260622005613.21870-1-phucduc.bui@gmail.com> <229ba136-66eb-4a30-a316-58377836b4dc@sirena.org.uk>
-In-Reply-To: <229ba136-66eb-4a30-a316-58377836b4dc@sirena.org.uk>
-From: Bui Duc Phuc <phucduc.bui@gmail.com>
-Date: Tue, 23 Jun 2026 17:53:28 +0700
-X-Gm-Features: AVVi8CfJTdkORwgI_XliseheOLtan_Kjx0p8qfbLbr6t29reUwoDQB9fLtkHz3Q
-Message-ID: <CAABR9nG6BL+-urEg0qDzJHYmowm7O=du_0T4+K2ogdrcD30CXA@mail.gmail.com>
-Subject: Re: [PATCH] ASoC: rockchip: rockchip_sai: Hand over hclk control
- exclusively to Runtime PM
-To: Mark Brown <broonie@kernel.org>
-Cc: Heiko Stuebner <heiko@sntech.de>, Liam Girdwood <lgirdwood@gmail.com>, 
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, linux-sound@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_035341_087510_0C09C6D6 
-X-CRM114-Status: GOOD (  27.90  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,84 +76,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mark,
+This is an AI-generated review of your patch. The human sending this
+email has considered the AI review valid, or at least plausible.
+Full review at: https://sashiko.dev
 
-Thank you for your review.
+Simon says: I'd appreciate it if you could look over the first two issues
+            flagged below in the context of this patch. While the third
+	    and final issue looks like it is in possible separate follow-up
+	    territory.
 
-> >    1 Reverting back to devm_clk_get() to remove the implicit devres
-> >      enable/disable behavior.
-> >    2 Manually enabling and disabling hclk explicitly only around the
-> >      early register access before Runtime PM takes over.
-> >    3 Dropping the stray clk_disable_unprepare() at the end of probe()
-> >      so Runtime PM solely owns hclk afterward.
->
-> Note that runtime PM can be disabled at build time so we might not have
-> runtime PM at all...
->
+---
+net: airoha: Add retry mechanism to airoha_qdma_set_trtcm_param()
+    
+This patch introduces a retry loop to airoha_qdma_set_trtcm_param() to mitigate
+bus timeouts when configuring QDMA parameters. It attempts to verify that the
+configuration is correctly applied to the hardware.
 
-Thanks for pointing this out. You're right that with !CONFIG_PM, the
-driver only relies on the
-two manual calls to rokchip_sai_runtime_resume() / suspend(), so hclk
-stays enabled the
-whole time. I understand this is unvavoidable in that configuration,
-throgh, since there's no
-Runtime PM to re-enable the clock when it's needed.
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+> index 3370c3df7c107..bb5c0599a4eed 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+> @@ -2673,14 +2673,30 @@ static int airoha_qdma_set_trtcm_param(struct airoha_qdma *qdma, int channel,
+>  		     FIELD_PREP(TRTCM_METER_GROUP_MASK, group) |
+>  		     FIELD_PREP(TRTCM_PARAM_INDEX_MASK, idx) |
+>  		     FIELD_PREP(TRTCM_PARAM_RATE_TYPE_MASK, mode);
+> +	int i;
+>  
+> -	airoha_qdma_wr(qdma, REG_TRTCM_DATA_LOW(addr), val);
+> -	airoha_qdma_wr(qdma, REG_TRTCM_CFG_PARAM(addr), config);
+> +	for (i = 0; i < 100; i++) {
+> +		u32 data;
+>  
+> -	return read_poll_timeout(airoha_qdma_rr, val,
+> -				 val & TRTCM_PARAM_RW_DONE_MASK,
+> -				 USEC_PER_MSEC, 10 * USEC_PER_MSEC, true,
+> -				 qdma, REG_TRTCM_CFG_PARAM(addr));
+> +		airoha_qdma_wr(qdma, REG_TRTCM_DATA_LOW(addr), val);
+> +		wmb();
+> +		airoha_qdma_wr(qdma, REG_TRTCM_CFG_PARAM(addr), config);
+> +
+> +		if (read_poll_timeout(airoha_qdma_rr, data,
+> +				      data & TRTCM_PARAM_RW_DONE_MASK,
+> +				      USEC_PER_MSEC, 10 * USEC_PER_MSEC,
+> +				      true, qdma, REG_TRTCM_CFG_PARAM(addr)))
+> +			return -ETIMEDOUT;
 
-I'll update the commit message to reflect that the driver uses a
-combination of Runtime PM
-and explicit manual enable/disable, rather than relying on Runtime PM alone.
+[Severity: High]
+If a bus timeout causes the write phase's read_poll_timeout() in
+airoha_qdma_set_trtcm_param() to fail, this immediately returns -ETIMEDOUT,
+aborting the 100-iteration retry loop.
 
-> > Links:
-> > 1 This change is based on the discussion around manual hclk handing during probe(),
-> >   as raised by Krysztof:
-> >   https://lore.kernel.org/all/20e4754b-ea9a-404d-b529-ec44a7263cbf@kernel.org/#t
-> > 2 Background for the earlier devm_clk_get_enbabled() conversion:
-> >   https://lore.kernel.org/all/2818018.CQOukoFCf9@workhorse/
->
-> > An alternative approach would be use devm_regmap_init_mmio_clk() and let regmap
-> > manage clock enablement around register accesses. If preferred, I can rework the
-> > driver accordingly.
->
-> > -     sai->hclk = devm_clk_get_enabled(&pdev->dev, "hclk");
-> > +     sai->hclk = devm_clk_get(&pdev->dev, "hclk");
-> >       if (IS_ERR(sai->hclk))
-> >               return dev_err_probe(&pdev->dev, PTR_ERR(sai->hclk),
-> >                                    "Failed to get hclk\n");
-> >
-> > +     ret = clk_prepare_enable(sai->hclk);
-> > +     if (ret)
-> > +             return dev_err_probe(&pdev->dev, ret, "Failed to enable hclk\n");
-> > +
->
-> > @@ -1482,8 +1492,6 @@ static int rockchip_sai_probe(struct platform_device *pdev)
-> >       pm_runtime_use_autosuspend(&pdev->dev);
-> >       pm_runtime_put(&pdev->dev);
-> >
-> > -     clk_disable_unprepare(sai->hclk);
-> > -
-> >       return 0;
->
-> Are you sure that the runtime PM state there is such that it knows a
-> reference is held?  The driver used pm_runtime_get_noresume() so the
-> device didn't have RPM_ACTIVE set I think?
+Doesn't this defeat the mitigation?
 
+> +
+> +		if (airoha_qdma_get_trtcm_param(qdma, channel, addr, param,
+> +						mode, &data, NULL))
+> +			continue;
 
-You are right, pm_runtime_get_noresume() doesn't set RPM_ACTIVE. I
-think we need to add
-pm_runtime_set_active() before pm_runtime_enable(). Otherwise, with CONFIG_PM,
-the pm_runtime_put() at the end of probe() might skip the suspend,
-since the core still considers
-the device suspended .
+[Severity: High]
+If airoha_qdma_get_trtcm_param() times out during the verification phase, it
+indicates the hardware hasn't finished the read command (DONE bit is still 0).
 
->
-> The runtime PM API really is a miserable collection of landmines :(
+The continue statement then immediately starts the next iteration, writing new
+commands to DATA_LOW and CFG_PARAM.
 
-Yeah, plenty of landmines indeed :(
-I checked, and rockchip_spdif.c does use devm_regmap_init_mmio_clk() for hclk,
-rather than wrapping every register access in pm_runtime_get_sync() /
-pm_runtime_put()
-the way rockchip_sai does.
+Can writing to command registers while the hardware state machine is actively
+busy violate hardware protocols and lead to unrecoverable lockups?
 
-Best regards,
-Phuc
+> +
+> +		if (data == val)
+> +			return 0;
+
+[Severity: High]
+This isn't a bug introduced by this patch, but if the bus drops the command
+write to REG_TRTCM_CFG_PARAM, the hardware never executes the command and the
+TRTCM_PARAM_RW_DONE_MASK bit remains set from the previous operation.
+
+Consequently, read_poll_timeout() returns an immediate false success.
+
+If both the set and get command writes are dropped by the bus, the get
+operation will read back the newly written DATA_LOW register value.
+
+Will the data == val check evaluate to true and falsely report success without
+the hardware ever processing the configuration?
+
+> +	}
+> +
+> +	return -EBUSY;
+>  }
+>  
+
+[ ... ]
+
+>  static int airoha_qdma_set_trtcm_config(struct airoha_qdma *qdma, int channel,
+>  					u32 addr, enum trtcm_mode_type mode,
+>  					bool enable, u32 enable_mask)
+>  {
+>  	u32 val;
+>  
+>  	if (airoha_qdma_get_trtcm_param(qdma, channel, addr, TRTCM_MISC_MODE,
+>  					mode, &val, NULL))
+>  		return -EINVAL;
+
+[Severity: High]
+Standalone calls to airoha_qdma_get_trtcm_param(), like this one in
+airoha_qdma_set_trtcm_config(), lack a retry loop entirely.
+
+Does this leave read-modify-write cycles fully vulnerable to the same bus
+timeouts the patch attempts to mitigate?
+
+[Severity: High]
+This isn't a bug introduced by this patch, but the patch mitigates bus
+timeouts in airoha_qdma_set_trtcm_param() while entirely missing
+airoha_qdma_set_rl_param().
+
+The latter performs the exact same write-and-poll sequence on identical QDMA
+configuration registers:
+
+drivers/net/ethernet/airoha/airoha_eth.c:airoha_qdma_set_rl_param() {
+    ...
+    return read_poll_timeout(..., val & RATE_LIMIT_PARAM_RW_DONE_MASK, ...);
+}
+
+If bus timeouts affect QDMA access broadly as stated in the commit message, are
+the rate-limiting configuration paths randomly vulnerable to the same failures?
+
+[Severity: High]
+This isn't a bug introduced by this patch, but in airoha_tc_remove_htb_queue(),
+hardware teardown incorrectly uses queue + 1 instead of queue:
+
+drivers/net/ethernet/airoha/airoha_eth.c:airoha_tc_remove_htb_queue() {
+    ...
+    airoha_qdma_set_tx_rate_limit(netdev, queue + 1, 0, 0);
+    ...
+}
+
+Does this leave the removed queue's hardware limits permanently active
+(resource leak) and inadvertently disable the rate limits for queue + 1,
+corrupting the QoS state of another active channel?
 
