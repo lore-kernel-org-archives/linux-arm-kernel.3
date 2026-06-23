@@ -4,58 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7761CDB46F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 15:31:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76F19CDB46F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 15:34:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1UFmKBMmHDZNNfnvZdVAmY9qZv1wTufNTvob56m+tHE=; b=IYhRSchgP21Ufmnniuh1uAK4v0
-	NZ1xmT5DenMnyld/CwRTAz2yJKaXys/ntt0nyBm4xV2CK2fZruF3QqcKoUnUCGW60m5WaesmHQjag
-	wHXF1KsMtCKExji0Io7NzhJyKzDjX7WmadiRSW+NxvrtDOK61ULuo5hfQU/kxunZHSp18oNKa00sH
-	obbN95GHTDL1tTBPzcLpwuOSHLmDQVxGAkjRoRfyZASl1YpVejE+bZC6gSv4ZCCCnSwkwdMxzLUEN
-	LFGyWAweMoCrAgewuzN2G2fEFv6jCrgEyg1KYt+cVgDbeAjn/F8T/UroSwrwcOZd+3jcgte3LUaie
-	nhT23sJA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=N30jbjOnhkJGD+w2i+qI4kPeZO6t3rjCiUISLMQpg/Y=; b=HDuO7vPCku/4DdgCo9WGrLcV3e
+	wVA24f4o/EKYeuh9eZ7JIBte/jRRzwHy356PQlRVyI6pt/nClZfFTT/3z6s5Q6ql2gXenlroolw5x
+	gwob0AshjTqpSVBOv/UrSZiouaCyL8wqSq1LzPNlmGm/T4FoJ+lRIuaLv2pgYXTP4Z71hdXRXLWfe
+	bo3siinaBXctiRklBgtuVj1zTGBTLKYClJlymfPKMn/HkhNQD7mqCY3HT1rNHtv2VMy5H9Y98rd6Y
+	5X4vfLaToSP4I7S1/NjQngMTXEHL0pDjrGqSKnAJRuL1x1FTmQfM73zZWCJ7juGDohUE81v9Qt1mZ
+	5/uYf0Rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc36C-00000006XUu-3oAU;
-	Tue, 23 Jun 2026 15:31:40 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc369-00000006XUK-47sc
+	id 1wc38a-00000006Xlx-1Hbk;
+	Tue, 23 Jun 2026 15:34:08 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wc38X-00000006Xl4-1lYV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 15:31:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 240541476;
-	Tue, 23 Jun 2026 08:31:32 -0700 (PDT)
-Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AC6773F62B;
-	Tue, 23 Jun 2026 08:31:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782228696; bh=Xx7ALwuJ6fTtnyFrqu5uJjnXocUd+HCS4pgJJo0KEBw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Oi7uJrGbWhAFX+smidbuzAqnhvtxjpaa3jXcB4wIn2Q0CllZ4+m2XDB6cFBw+kTrQ
-	 5R/QCaiNs7PUBJtsm8AYAnN6mbeKxrHznbqFfXefaeqk/Ai2WoUEkQsMexnnkawXuD
-	 22clrn5tqBVQYUeG6NNoRKfI49hZ1Xp5WcN+5d1g=
-Message-ID: <59c283b1-0436-4ea1-8feb-996dba617b6d@arm.com>
-Date: Tue, 23 Jun 2026 16:31:33 +0100
+	Tue, 23 Jun 2026 15:34:06 +0000
+From: Javier Fernandez Pastrana <javier.pastrana@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1782228841;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=N30jbjOnhkJGD+w2i+qI4kPeZO6t3rjCiUISLMQpg/Y=;
+	b=C3IRwOiQtcpvsVAXb/J4HCQe6YYuqkJ0a9x/ZqB62wtZiuua1EtBqS6a6mSsewv/iIw3wg
+	qXpZvPAdiY/4ADCuzjnCyvQNAYZUSkqJbD2dUHpzDQOmB94pVD/cEJZR1nwE1X0jYFcvZN
+	I8/H33sDQRS5p/Ss+xDz9Hqbu5LC7Ni52VKRSPYb1bQ8a09kKDoCPynJlSZ0lADDaWpsKo
+	eDeSI0d/DGLxmKtsXOAEPfLMZA8I1lxkaE/5MxTo+OHvRxXd4e073Cw4QJ1q3VvqTCBcbO
+	/hD5Zt5IbKo1vfLykZMxNVjquEglFlgiKkj7rWyo7W5EQ1qzMa3gFVtQJ7MY0w==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1782228841;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=N30jbjOnhkJGD+w2i+qI4kPeZO6t3rjCiUISLMQpg/Y=;
+	b=iYBITV530mQ9xs4Cce8uZdb+PRKKV2fEmKxx4HXTfeKCY8IE6i1sCVGaPUIDl518yWd6p9
+	FaNEnf0Ia87RpLCg==
+To: Mark Brown <broonie@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Carlos Song <carlos.song@nxp.com>,
+	linux-spi@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: javier.pastrana@linutronix.de,
+	stable@vger.kernel.org
+Subject: [PATCH] spi: imx: reconfigure for PIO when DMA cannot be started
+Date: Tue, 23 Jun 2026 17:32:39 +0200
+Message-ID: <20260623153240.57185-1-javier.pastrana@linutronix.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] iommu/arm-smmu-v3: Add tracepoint for EVTQ events
-To: Chen Jun <chenjun102@huawei.com>, will@kernel.org, joro@8bytes.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: zhangyuwei20@huawei.com
-References: <20260613130007.18563-1-chenjun102@huawei.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20260613130007.18563-1-chenjun102@huawei.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_083138_197680_9EAD30BB 
-X-CRM114-Status: GOOD (  22.54  )
+X-CRM114-CacheID: sfid-20260623_083405_605838_8E0F5975 
+X-CRM114-Status: GOOD (  10.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,144 +81,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/06/2026 2:00 pm, Chen Jun wrote:
-> Events reported by the SMMU can severely impact accelerator
-> performance. Currently, only events that the SMMU fails to handle are
-> printed to the kernel log, leaving most events invisible to users.
-> To analyze and optimize accelerator performance, complete visibility
-> into all SMMU-reported events is required.
+When spi_imx_can_dma() selects DMA, the ECSPI is configured for DMA:
+spi_imx_setupxfer() sets CTRL.SMC and clears dynamic_burst, and
+spi_imx_dma_transfer() programs the dynamic-burst BURST_LENGTH and the
+SDMA watermarks.
 
-What events, exactly? AFAICS the only events we should expect to handle 
-"invisibly", without being some unexpected error condition worth 
-screaming about, would be stalls for SVA page faults, and if SVA isn't 
-generically accounting page faults itself then I would imagine it 
-probably should.
+If the DMA descriptor cannot be prepared (dmaengine_prep_slave_single()
+returns NULL), the transfer is failed with SPI_TRANS_FAIL_NO_START and
+falls back to PIO. The dynamic-burst DMA path uses its own bounce
+buffers instead of the SPI core's mapping, so xfer->{tx,rx}_sg_mapped
+are not set and the core's DMA->PIO retry is skipped; the driver falls
+back to PIO internally. But none of the DMA-mode configuration is
+undone, so the PIO transfer runs with CTRL.SMC set, the wrong burst
+length and dynamic_burst cleared, and the transferred data is corrupted.
 
-Thanks,
-Robin.
+This is easily hit on i.MX8MP boards that describe ECSPI DMA in the
+device tree but run SDMA on ROM firmware (no external sdma-imx7d.bin):
+every ECSPI DMA prepare fails. An Infineon SLB9670 TPM on ECSPI1 then
+returns shifted TPM2_GetCapability data, is flagged "field failure
+mode", /dev/tpmrm0 is never created.
 
-> Add a tracepoint in the EVTQ interrupt handler to capture every
-> event record reported by the SMMU. This allows users to collect all
-> event information via ftrace/perf for further analysis, complementing
-> the existing event decoder and error dump which only cover a subset
-> of events.
-> 
-> Signed-off-by: Chen Jun <chenjun102@huawei.com>
-> ---
->   drivers/iommu/arm/arm-smmu-v3/Makefile      |  2 +-
->   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c |  3 ++
->   drivers/iommu/arm/arm-smmu-v3/trace.c       |  9 ++++
->   drivers/iommu/arm/arm-smmu-v3/trace.h       | 53 +++++++++++++++++++++
->   4 files changed, 66 insertions(+), 1 deletion(-)
->   create mode 100644 drivers/iommu/arm/arm-smmu-v3/trace.c
->   create mode 100644 drivers/iommu/arm/arm-smmu-v3/trace.h
-> 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/Makefile b/drivers/iommu/arm/arm-smmu-v3/Makefile
-> index 493a659cc66b..63a8d71bfc93 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/Makefile
-> +++ b/drivers/iommu/arm/arm-smmu-v3/Makefile
-> @@ -1,6 +1,6 @@
->   # SPDX-License-Identifier: GPL-2.0
->   obj-$(CONFIG_ARM_SMMU_V3) += arm_smmu_v3.o
-> -arm_smmu_v3-y := arm-smmu-v3.o
-> +arm_smmu_v3-y := arm-smmu-v3.o trace.o
->   arm_smmu_v3-$(CONFIG_ARM_SMMU_V3_IOMMUFD) += arm-smmu-v3-iommufd.o
->   arm_smmu_v3-$(CONFIG_ARM_SMMU_V3_SVA) += arm-smmu-v3-sva.o
->   arm_smmu_v3-$(CONFIG_TEGRA241_CMDQV) += tegra241-cmdqv.o
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> index e8d7dbe495f0..85e6c25b73ed 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -34,6 +34,8 @@
->   #include "arm-smmu-v3.h"
->   #include "../../dma-iommu.h"
->   
-> +#include "trace.h"
-> +
->   static bool disable_msipolling;
->   module_param(disable_msipolling, bool, 0444);
->   MODULE_PARM_DESC(disable_msipolling,
-> @@ -2271,6 +2273,7 @@ static irqreturn_t arm_smmu_evtq_thread(int irq, void *dev)
->   
->   	do {
->   		while (!queue_remove_raw(q, evt)) {
-> +			trace_smmu_evtq_event(smmu, evt);
->   			arm_smmu_decode_event(smmu, evt, &event);
->   			if (arm_smmu_handle_event(smmu, evt, &event))
->   				arm_smmu_dump_event(smmu, evt, &event, &rs);
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/trace.c b/drivers/iommu/arm/arm-smmu-v3/trace.c
-> new file mode 100644
-> index 000000000000..77378698b1a3
-> --- /dev/null
-> +++ b/drivers/iommu/arm/arm-smmu-v3/trace.c
-> @@ -0,0 +1,9 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * ARM SMMUv3 trace support
-> + *
-> + * Copyright (c) 2026 OpenCloudOS / openEuler
-> + */
-> +
-> +#define CREATE_TRACE_POINTS
-> +#include "trace.h"
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/trace.h b/drivers/iommu/arm/arm-smmu-v3/trace.h
-> new file mode 100644
-> index 000000000000..7cec8d41745e
-> --- /dev/null
-> +++ b/drivers/iommu/arm/arm-smmu-v3/trace.h
-> @@ -0,0 +1,53 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +/*
-> + * ARM SMMUv3 trace support
-> + *
-> + * Copyright (c) 2026 OpenCloudOS / openEuler
-> + */
-> +
-> +#undef TRACE_SYSTEM
-> +#define TRACE_SYSTEM arm_smmu_v3
-> +
-> +#if !defined(_TRACE_ARM_SMMU_V3_H) || defined(TRACE_HEADER_MULTI_READ)
-> +#define _TRACE_ARM_SMMU_V3_H
-> +
-> +#include <linux/tracepoint.h>
-> +
-> +#include "arm-smmu-v3.h"
-> +
-> +TRACE_EVENT(smmu_evtq_event,
-> +
-> +	TP_PROTO(struct arm_smmu_device *smmu, u64 *evt),
-> +
-> +	TP_ARGS(smmu, evt),
-> +
-> +	TP_STRUCT__entry(
-> +		__string(iommu, dev_name(smmu->dev))
-> +		__field(u64, evt0)
-> +		__field(u64, evt1)
-> +		__field(u64, evt2)
-> +		__field(u64, evt3)
-> +	),
-> +
-> +	TP_fast_assign(
-> +		__assign_str(iommu);
-> +		__entry->evt0 = evt[0];
-> +		__entry->evt1 = evt[1];
-> +		__entry->evt2 = evt[2];
-> +		__entry->evt3 = evt[3];
-> +	),
-> +
-> +	TP_printk("%s evt: 0x%016llx 0x%016llx 0x%016llx 0x%016llx",
-> +		__get_str(iommu),
-> +		__entry->evt0, __entry->evt1,
-> +		__entry->evt2, __entry->evt3)
-> +);
-> +
-> +#endif /* _TRACE_ARM_SMMU_V3_H */
-> +
-> +/* This part must be outside protection */
-> +#undef TRACE_INCLUDE_PATH
-> +#undef TRACE_INCLUDE_FILE
-> +#define TRACE_INCLUDE_PATH ../../drivers/iommu/arm/arm-smmu-v3/
-> +#define TRACE_INCLUDE_FILE trace
-> +#include <trace/define_trace.h>
+Mark the controller PIO-only (controller->fallback) and re-run
+spi_imx_setupxfer() before falling back, so the ECSPI is reconfigured
+exactly like a normal PIO transfer.
+
+Fixes: faa8e404ad8e ("spi: imx: support dynamic burst length for ECSPI DMA =
+mode")
+Cc: stable@vger.kernel.org
+Signed-off-by: Javier Fernandez Pastrana <javier.pastrana@linutronix.de>
+---
+ drivers/spi/spi-imx.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/drivers/spi/spi-imx.c b/drivers/spi/spi-imx.c
+index 480d1e8b281f..64c78bd79d7d 100644
+--- a/drivers/spi/spi-imx.c
++++ b/drivers/spi/spi-imx.c
+@@ -2153,6 +2153,8 @@ static int spi_imx_transfer_one(struct spi_controller=
+ *controller,
+ 		ret =3D spi_imx_dma_transfer(spi_imx, transfer);
+ 		if (transfer->error & SPI_TRANS_FAIL_NO_START) {
+ 			spi_imx->usedma =3D false;
++			controller->fallback =3D true;
++			spi_imx_setupxfer(spi, transfer);
+ 			if (spi_imx->target_mode)
+ 				return spi_imx_pio_transfer_target(spi, transfer);
+ 			else
+--=20
+2.47.3
 
 
