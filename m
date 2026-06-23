@@ -4,64 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7431CDB470
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 09:04:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 110C3CDB470
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 09:05:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N62L5MySoLDe9DnE0AwRgvg51Fn01HXyH8vRI2MXe0E=; b=wHP0h+ldPKacq45uaC5fgqJItg
-	fwiz/cNqLd2Srwbd3b342iR2MLMXVgkIrFYpOXDPYB6JQqfdpXfboQ8OL4wpdxTws6VnNlbJY/08S
-	O3EJihpNqpHqUbANvpoWRfuw1ohcf6r5Bl/28bKCKpqv+LiFyb3VgT4TDO+z7M2e1+s/34ekg9jJv
-	+VPbCrAVKt0j8kZoJxLZ/eF4AO/inwAlobIalrn6qJa1NJA1VsOl1ThbbmBoLpKA4TebCsa2ZJUFr
-	k/y5RgZCo1pBRSDmRs6ABm0+kXGSitzz3BmyD4CjrvkmgRB42cwNOYfmZlnD6doeMokq3vosb/qnR
-	cbMuFV1Q==;
+	bh=wgTiUtsWfJTzG5+jBv6t25W/zs/ISNn2aRtz1RmdzP8=; b=iJXOCBV93ZsZfBNZGEGjiGWkUf
+	eirt0o6fzooEm8pGmMITsNnJTSSqxSshCBiQoxrZohKIUeJSA6DRaKSXYc/a+7IWWvGk/w/kzsMTk
+	nNZC5YImLXfKQ1Zyj13TpAAXIQb2unADSO0X4WJlKuP6lUDqf+znvB9/5+UPBpt+A6GqcPPvoqBdU
+	PE9d41hG19zxlGiVPJiUAdgZFs8C686NoQPIC97iyOxtoeLhQeHSrKD1w2ckhxQNSf+lmS58DlgNH
+	1e0EIT+pJQbwj/jrbXqoZlQTkX7brVOynn6JlC2npLyJ0tDRIEjmDroB52j7jeP73wPBl4VKmf++1
+	fPeBfB8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbx3f-00000005xen-0s5X;
-	Tue, 23 Jun 2026 09:04:39 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbx3c-00000005xdt-2vOU
+	id 1wbx4O-00000005xo7-1QUn;
+	Tue, 23 Jun 2026 09:05:24 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wbx4M-00000005xnr-3Whl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 09:04:38 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B13A51A25;
-	Tue, 23 Jun 2026 02:04:30 -0700 (PDT)
-Received: from localhost (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E1C083F62B;
-	Tue, 23 Jun 2026 02:04:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782205475; bh=gw3gZeekv8xyI4T6op9F8Q8ETcLNgRNqHoHyyoQXOiE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cqU1NEFbkXN4nrHizhDMdUF8okxq1C69v6atEHWnKEBSviSUk/7/0fWC73RKf9f6e
-	 F4TlqP2vzM64eE+RotXYUHmjphkvON9GYZv7L8UN2tstCt3SwifkshqE26FlUhGvyF
-	 8YSAb2BUS8uT1jDjbaaP1rjNpUImglLpAnD+TQPc=
-Date: Tue, 23 Jun 2026 10:04:32 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, quic_yingdeng@quicinc.com,
-	tingwei.zhang@oss.qualcomm.com,
-	Jinlong Mao <jinlong.mao@oss.qualcomm.com>,
-	jie.gan@oss.qualcomm.com
-Subject: Re: [PATCH v10 0/5] Add Qualcomm extended CTI support
-Message-ID: <20260623090432.GG31870@e132581.arm.com>
-References: <20260615-extended_cti-v10-0-1c1694b6d8ed@oss.qualcomm.com>
+	Tue, 23 Jun 2026 09:05:23 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3608E43F41;
+	Tue, 23 Jun 2026 09:05:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DE2E1F000E9;
+	Tue, 23 Jun 2026 09:05:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782205522;
+	bh=wgTiUtsWfJTzG5+jBv6t25W/zs/ISNn2aRtz1RmdzP8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=HnLqzqqzAxCFLIo0VlgNpDfkkjM3B/uuj1gem6x12sl0NIMAPN+1KeENIZX/YDZ87
+	 TgFre1MHioXlUsLu+DGNskaBT57qBaG3DxQzL6LW/c2OZwcF7YbFd5qMbfhLme05FT
+	 IejheBxlsYP28FQdAOdkmCp6Sxp84K/vMrfv53EkkOXQOZ1sBBS0dcdwIUe9fKuKA1
+	 WrxV9YLSuGmKo97KMOhwPMzE7I6qhzb6i3VY8sxTEwA5KgYGmyLUKlmKaDHNoKmTOu
+	 8rMHFu5MmgEpSjO3AKIhtTEUAhvl+ua4o0V0BSiExsTdHPalGmKKVMw4Gi/ntjlri2
+	 3WO+0QJj2yp/A==
+Date: Tue, 23 Jun 2026 10:05:18 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Cristian Marussi <cristian.marussi@arm.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Ulf Hansson <ulfh@kernel.org>, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] pmdomain: arm: Grammar s/may needed/may be needed/
+Message-ID: <20260623-neat-booby-of-amplitude-f0fd93@sudeepholla>
+References: <a9a082c25e4bda4d73b261eee951efecab20612d.1780499882.git.geert+renesas@glider.be>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260615-extended_cti-v10-0-1c1694b6d8ed@oss.qualcomm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_020436_856566_911BC030 
-X-CRM114-Status: GOOD (  13.99  )
+In-Reply-To: <a9a082c25e4bda4d73b261eee951efecab20612d.1780499882.git.geert+renesas@glider.be>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,35 +71,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 15, 2026 at 08:32:28PM +0800, Yingchao Deng wrote:
-> The Qualcomm extended CTI is a heavily parameterized version of ARM’s
-> CSCTI. It allows a debugger to send to trigger events to a processor or to
-> send a trigger event to one or more processors when a trigger event occurs
-> on another processor on the same SoC, or even between SoCs.
+On Wed, Jun 03, 2026 at 05:18:43PM +0200, Geert Uytterhoeven wrote:
+> Fix grammar in the help text for the ARM_SCMI_POWER_DOMAIN symbol.
 > 
-> Qualcomm extended CTI supports up to 128 triggers. And some of the register
-> offsets are changed.
+
+Acked-by: Sudeep Holla <sudeep.holla@kernel.org>
+
+I assume Ulf will pick this up.
+
+> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> ---
+>  drivers/pmdomain/arm/Kconfig | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> The commands to configure CTI triggers are the same as ARM's CTI.
+> diff --git a/drivers/pmdomain/arm/Kconfig b/drivers/pmdomain/arm/Kconfig
+> index afed10d382ad7f66..ba0b190a63d6bb18 100644
+> --- a/drivers/pmdomain/arm/Kconfig
+> +++ b/drivers/pmdomain/arm/Kconfig
+> @@ -21,7 +21,7 @@ config ARM_SCMI_POWER_DOMAIN
+>  	  enabled or disabled via the SCP firmware
+>  
+>  	  This driver can also be built as a module. If so, the module
+> -	  will be called scmi_pm_domain. Note this may needed early in boot
+> +	  will be called scmi_pm_domain. Note this may be needed early in boot
+>  	  before rootfs may be available.
+>  
+>  config ARM_SCPI_POWER_DOMAIN
+> -- 
+> 2.43.0
+> 
+> 
 
-This series looks good to me and I tested:
-
-  - Confirmed no any change for standard CTI;
-  - Perf command;
-  - Build bisection.
-
-Tested-by: Leo Yan <leo.yan@arm.com>
-
-Mike may also want to take a look in case there is any overlap with his
-claim tags init patch [1]. I don't have a strong preference on which
-series goes in first, as the claim tag handling in this series looks
-clean enough to me.
-
-@Yingchao, just a small suggestion: rc1–rc4 is usually the best window
-for getting patches merged. If you receive comments and are able to
-address them quickly, it may be worth respin patches during that
-period to try catching the next merge window. This is no guarantees,
-just thought it might be useful to share as a general tip :)
-
-[1] https://lore.kernel.org/linux-arm-kernel/20260619160148.499223-2-mike.leach@arm.com/
+-- 
+Regards,
+Sudeep
 
