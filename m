@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6BDFCDB476
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 00:56:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C262CDB466
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 00:56:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kH6XOXaUkoXBybFA1DnjFzkAgNaIfL+d8sfDFTGpe2A=; b=XvBpcLgBunMFdeMcdxb15XSr7b
-	qdQFUMsvowhZ9Ju2HjvqGr8gyjxrJ2d/uMKJlMxzs385dYOOFkBAmoTo/y5K7swewndyZai7+9ClM
-	BzWs4XsEc1j1HSu9VqLIqcULZiAmPHXrU+HSliFGGZ6wlZMMS1n8CmJRKnpgCpLDIqKvXfU9DwtGf
-	FWvTsvzWYmyQddy8lW+TfDI8eRdmqt0TrpaNgMQVoueywDRlQW5hHIZDG2SvS70uoRw8UDdvFTSg2
-	i0KtRgZVZG4+kVV1lwiaDYAeFrRUP80udreL/AR4ovN+nkOmxBT/8mPozKDJPozh0Vk2UaOGfcYdk
-	froEC2cA==;
+	bh=YAd7uMTY8hvLxJ9BJRfunQhuoZTcdrDy4NJ6JeY4BLg=; b=B6wCoqAgNTLWEcXAhFf/zdWvz4
+	pMMV29MwcOSEo9wAC2Il/BZIHicWBPwhQkCjnvgkHZGcW/Oi7LNNEI2QMQbI2x6H1eXLaj3JP9S4q
+	w9WfdzSG/veigje/FbKNl25PgiFvwwTiHeDO+zkMyb7OWmfO7FInvxUq55ptJKN6RiLvLCqVdRa/s
+	p4zPA22Q0OXXTJAqGOvluX5qQ4IQg/yVWHy+sixdxysEG+Esvsbu4WgcQfJ7xW5juBmdAZhQBqeVh
+	vCymmrS+TYpJidGk4bCvOdqV+Qr1ERiSZavNx0lVkwR8lGnA6G4pZx86inLimi+zPBlStoD1toTL7
+	L44BwYNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbpQp-00000005VSX-1siU;
-	Tue, 23 Jun 2026 00:56:03 +0000
+	id 1wbpQn-00000005VOp-2wth;
+	Tue, 23 Jun 2026 00:56:01 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbpQm-00000005VNK-489G;
-	Tue, 23 Jun 2026 00:56:01 +0000
+	id 1wbpQm-00000005VNK-2FUS;
+	Tue, 23 Jun 2026 00:56:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1669244605;
-	Tue, 23 Jun 2026 00:56:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id A1945C4AF52;
+	by sea.source.kernel.org (Postfix) with ESMTP id BE824445D3;
+	Tue, 23 Jun 2026 00:55:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 6D66AC2BCF6;
 	Tue, 23 Jun 2026 00:55:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1782176159;
-	bh=1g64L8/SrBqId9q3KIZ6p2+e6E7DhsIhWfkLiC3FzPs=;
+	bh=jsqvH759yuuhvhDxAQ6gfBb7WpPEVTvTwxN6m/znzWc=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=nRMSK61RV5rGq6Q1ITpoA4Bx2Mp56Ze7MOzlYXpNK69SlgJPGtulCP1wBue/SB0oM
-	 6LD6sCclYSvM+MljLSuhl+h2jvMxLLl+N0w8u0B8r9gZd83A4pD49TEXneizsm1F9T
-	 3pjxJ7k4foNorxLzGW9g8fEe0CSQFBhrFJ5Yyad1yexNcVa6WMWUOQ294lzvRt1KSb
-	 yTlJca2VJpc09kjIkupZAkdil8GfFGpcN2opKfF4RJzvxwsB1gDzGIgiJzgEKOxC/4
-	 cSEVgwpdCor+hRaOTDSxxkUnu8txfvuDicOOSYuUv+Ll8zvxufkEEo4HLTa75AsPd0
-	 E/erRaj5AtjdA==
+	b=krGm2H3mKSLOiRJwutVYMayFaax5O30niEPEOrUVAWnfjEyuEriS8aUj4B1cZwZPp
+	 ZNsP53++12AtIjoWixc5XrK304bCq4i/INxt7yXIdW8FI20guIVAsF5RrclptNwmwq
+	 xaxUrxQ3mfBBJqiXs1+L7eXDJ4vlI0NQDLtVhQRtMcRm9YsYa8hewGRqyzosivsnUe
+	 xriuAORUPdD5CYZ7Si5BiNYIDs336j7aqHlOGfmIqq25pOHP+qx3B/dqTx2gAaAW9U
+	 m33G2wMfaXq+CuNfhEc18W4oBXfx1+R+DKX+Es2i+WaphTRxCM+OULi80EV/KglMa9
+	 RX0f8vKK9Zlow==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 970BECDB46F;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5D63FCDB471;
 	Tue, 23 Jun 2026 00:55:59 +0000 (UTC)
 From: Esteban Urrutia via B4 Relay <devnull+esteuwu.proton.me@kernel.org>
-Date: Mon, 22 Jun 2026 20:54:29 -0400
-Subject: [PATCH 8/8] arm64: defconfig: Add SM8450 camcc
+Date: Mon, 22 Jun 2026 20:54:25 -0400
+Subject: [PATCH 4/8] arm64: dts: qcom: sm8450: Add missing PCM_OUT port
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260622-sm8450-qol-v1-8-37e2ee8df9da@proton.me>
+Message-Id: <20260622-sm8450-qol-v1-4-37e2ee8df9da@proton.me>
 References: <20260622-sm8450-qol-v1-0-37e2ee8df9da@proton.me>
 In-Reply-To: <20260622-sm8450-qol-v1-0-37e2ee8df9da@proton.me>
 To: Bjorn Andersson <andersson@kernel.org>, 
@@ -67,11 +67,11 @@ Cc: linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
  iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  linux-phy@lists.infradead.org, Esteban Urrutia <esteuwu@proton.me>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1782176157; l=617;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782176157; l=2081;
  i=esteuwu@proton.me; s=20260622; h=from:subject:message-id;
- bh=tJTk/lG/kNTnUjOLpx+gWVzUbilr34jSWya5odqqhqs=;
- b=qSquq9luNtdbeWsRumnnqskxOKb6XsFmPQk/wqQyMxMqshJHpQq5fAYeBMGjGEGP/BW3Zq/30
- KQKqkVP7EE1BbZmsUl2lhoH3RDA25jfGC+mzxoned9J0JrGpVs7snP3
+ bh=OrJOz9UX4k6KmMtNljEzpauAqT9chi789O6PWbCCR9A=;
+ b=8ZrQA/bfSoXVwph2etq7CCG/xh90OvmKglxlcOKnQ6xMzR5oOwV8/Zv7t2tqO7ibSosAfie/H
+ mDD4TCZCCX5BDvldcFOyPud4ZsuuTi2J5BmEn4KNL1vGLDynVxzZTaK
 X-Developer-Key: i=esteuwu@proton.me; a=ed25519;
  pk=wToFt4mOAWkzbqb15Ye1hrhevI13vK9BcMUFiQ/me1M=
 X-Endpoint-Received: by B4 Relay for esteuwu@proton.me/20260622 with
@@ -94,25 +94,50 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Esteban Urrutia <esteuwu@proton.me>
 
-Add SM8450 camcc as a module since it's enabled in SM8450 dtsi.
+An error in dmesg shows there is a mismatch between controller and DT
+dout-ports.
+Add PCM_OUT port to fix this.
 
 Signed-off-by: Esteban Urrutia <esteuwu@proton.me>
 ---
- arch/arm64/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm64/boot/dts/qcom/sm8450.dtsi | 20 ++++++++++----------
+ 1 file changed, 10 insertions(+), 10 deletions(-)
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index f2e6ae93e533..8c50c16ee0b8 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -1541,6 +1541,7 @@ CONFIG_SDX_GCC_75=y
- CONFIG_SM_CAMCC_6350=m
- CONFIG_SM_CAMCC_MILOS=m
- CONFIG_SM_CAMCC_8250=m
-+CONFIG_SM_CAMCC_8450=m
- CONFIG_SM_CAMCC_8550=m
- CONFIG_SM_CAMCC_8650=m
- CONFIG_SM_CAMCC_8750=m
+diff --git a/arch/arm64/boot/dts/qcom/sm8450.dtsi b/arch/arm64/boot/dts/qcom/sm8450.dtsi
+index 5e331a25e22a..8fc58a02e5c5 100644
+--- a/arch/arm64/boot/dts/qcom/sm8450.dtsi
++++ b/arch/arm64/boot/dts/qcom/sm8450.dtsi
+@@ -2914,20 +2914,20 @@ swr1: soundwire@3210000 {
+ 			clock-names = "iface";
+ 			label = "RX";
+ 			qcom,din-ports = <0>;
+-			qcom,dout-ports = <5>;
++			qcom,dout-ports = <6>;
+ 
+ 			pinctrl-0 = <&rx_swr_active>;
+ 			pinctrl-names = "default";
+ 
+-			qcom,ports-sinterval-low =	/bits/ 8 <0x03 0x1f 0x1f 0x07 0x00>;
+-			qcom,ports-offset1 =		/bits/ 8 <0x00 0x00 0x0b 0x01 0x00>;
+-			qcom,ports-offset2 =		/bits/ 8 <0x00 0x00 0x0b 0x00 0x00>;
+-			qcom,ports-hstart =		/bits/ 8 <0xff 0x03 0xff 0xff 0xff>;
+-			qcom,ports-hstop =		/bits/ 8 <0xff 0x06 0xff 0xff 0xff>;
+-			qcom,ports-word-length =	/bits/ 8 <0x01 0x07 0x04 0xff 0xff>;
+-			qcom,ports-block-pack-mode =	/bits/ 8 <0xff 0x00 0x01 0xff 0xff>;
+-			qcom,ports-block-group-count =	/bits/ 8 <0xff 0xff 0xff 0xff 0x00>;
+-			qcom,ports-lane-control =	/bits/ 8 <0x01 0x00 0x00 0x00 0x00>;
++			qcom,ports-sinterval =		/bits/ 16 <0x03 0x3f 0x1f 0x07 0x00 0x18f>;
++			qcom,ports-offset1 =		/bits/ 8 <0x00 0x00 0x0b 0x01 0x00 0x00>;
++			qcom,ports-offset2 =		/bits/ 8 <0x00 0x00 0x0b 0x00 0x00 0x00>;
++			qcom,ports-hstart =		/bits/ 8 <0xff 0x03 0xff 0xff 0xff 0x08>;
++			qcom,ports-hstop =		/bits/ 8 <0xff 0x06 0xff 0xff 0xff 0x08>;
++			qcom,ports-word-length =	/bits/ 8 <0x01 0x07 0x04 0xff 0xff 0x0f>;
++			qcom,ports-block-pack-mode =	/bits/ 8 <0xff 0x00 0x01 0xff 0xff 0x00>;
++			qcom,ports-block-group-count =	/bits/ 8 <0xff 0xff 0xff 0xff 0x00 0x00>;
++			qcom,ports-lane-control =	/bits/ 8 <0x01 0x00 0x00 0x00 0x00 0x00>;
+ 
+ 			#address-cells = <2>;
+ 			#size-cells = <0>;
 
 -- 
 2.54.0
