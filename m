@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D32BECDB479
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 16:32:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F708CDB47F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 16:32:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZaqhUv6DYkD+NK9mDEt9K8F9Lv6LckzDqKYbDXQI4Qk=; b=N1zbYIwNj9iXxrvkh7a6qSL9nM
-	YEAqUB0+DaaHt0dHe0qvGWAu+LfLHoVcSrddr7aCMGeNpFF/RfmMJqW7L1m0MVgEpZmmVnF5sGrKJ
-	ksk67xsZ5lFq5mBc/JuIWCvkN2nSvn+2QGPGwmmVVUSO3UEF1ZWhAN1w9q5Z1k94F1QEW1rp4IZ/q
-	aBZUHyG6OLk6AueIGPWTwBOndA0MXFWJ7yMY4JE+g38SJYe9yytXjhjtgYet4pMBtOb9MrzDjgG45
-	RBFkpKXpmDe8CG6a5bgN+rEk8+JqP4QRSkN2eNGi9oS+X50w+iaecjiIKNBvrEL9qAgGqfjorTF+w
-	NSUgFNQg==;
+	bh=kB7D6KHyCBUYlacFYYDlub4VInhZCVu06qSke5FRG0A=; b=L8eAsqbwVS70W8rdkLtmfgoraN
+	ZCCGYTqyD2uKu1wglxWhPm/4qsMG7iiZhl8drdLxabme5/zYDLTR4SeK3bbMzUfplrL423DIzUwiW
+	VaFrJnvH+kGSJ5yr9xafXyyQzmbmSSWy6HMkRxEnhJlo5bZdUrV9N7RdMLPwWmPKTbKYkGGa5/eD0
+	5g7t2pCo1KwTNT/C5hXytWGx74rd5jsAUruHES/dB5/RvmAxzoyZCMbrK40cZ+zCCJM0npAnHenh6
+	GzpaCtjM+29j18Xsm8VSVn45AB+298z4a0LaFGLNfuAbWMuoO7ZGP68Ca8Bk+JRSvKy0U6KMf4Qbl
+	hW5mATvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc43D-00000006d8e-0Vx1;
+	id 1wc43D-00000006d9p-27YZ;
 	Tue, 23 Jun 2026 16:32:39 +0000
 Received: from esa1.hc555-34.eu.iphmx.com ([23.90.104.144])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc42z-00000006czR-0FXI
+	id 1wc431-00000006czR-2zuh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 16:32:27 +0000
+	Tue, 23 Jun 2026 16:32:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
   d=mobileye.com; i=@mobileye.com; q=dns/txt; s=MoEyIP;
-  t=1782232344; x=1813768344;
+  t=1782232347; x=1813768347;
   h=from:date:subject:mime-version:content-transfer-encoding:
    message-id:references:in-reply-to:to:cc;
-  bh=gTrRTdtLS8baBdybUjfIaCTg6YqV6Q88loNVflxOmBA=;
-  b=hvFRecfe2QdzfChCB5lsXWeExYn4ksDuJGW4RKkqslLFPUVx4Lz8pZcm
-   gkiYBu8moCwK+Bd7ppAViQfbsEX/9dsdUz4MKduNa4Vs4+EgRqhDurjJe
-   8xNKayfmBaiqUzCX5c85dXoEMFsMFrrkFOLuh063cxU43nKyBIpvayZNR
-   ujA6R/6WgMitpFiet9xHAVruipqlCVjazNm3aCDdRg0mS9EIw5zm4uugs
-   qPKh8AYw2DbYsw3skUOzcXj1wXvmm9DsWtRFVTgQ1kZRmEdiLcBxnT+0J
-   S180rvrP4U6oJsod3E4zmlJCs8Ugb+BtQnA/VPwWZS8dW/K1DAkWpKGMd
-   g==;
+  bh=C/vv+Wd+jN0eObHLm0dfYoxQnpT01lrFMvaEEaQBakM=;
+  b=mdb0W0kalZsQ25DVYrR5itJGXQJ+yPkYr+iSxYbeg0/MTKEpcWTBMs/B
+   aeiNtN+ddqq3h5l/10ItoOOK+QnjYV1IAPQyTtkJ6iMhjCqtGgwm8rvLL
+   3VW7G/pdUt0gRjmDXE4e8kPCkONH574P8enpvUW+ZlkcefN+v9c7Ghs09
+   5awMX9a8wY3BwTmso5h2ti8jkbd0VZY7GytlHEZ2CwTksmdCgOKlVX8i9
+   5PWY8yeiBC05FpHCAXLW5AlonsqZ53HfM9R7MiTQTaRyER2+sv557NoaD
+   1PdtZuEqRb26L5YYRHS9N2HpXmzXG20jjT2iaDaBoPMDdPVhGqQ2S1Iel
+   Q==;
 X-CSE-ConnectionGUID: CYtpn2YERS2anpd+v6aZDA==
-X-CSE-MsgGUID: kwJRCjTdShicsj6zdFjQtA==
+X-CSE-MsgGUID: 2+auQYgERQePBghN1a2rXw==
 X-Amp-Result: SKIPPED(no attachment in message)
 X-Amp-File-Uploaded: False
 Received: from unknown (HELO ces03_data.me-corp.lan) ([146.255.191.134])
-  by esa1.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jun 2026 19:32:22 +0300
-X-CSE-ConnectionGUID: 5UkoFnxtT+ajORjDtGw7yA==
-X-CSE-MsgGUID: 4nQu2gUfRFS94rakXpXx0g==
+  by esa1.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jun 2026 19:32:26 +0300
+X-CSE-ConnectionGUID: n6p33+ChQhK1KrZJ32EwkQ==
+X-CSE-MsgGUID: uHMMXYjgTTmw41CIMvGwVA==
 Received: from unknown (HELO epgd056.me-corp.lan) ([10.154.54.2])
-  by ces03_data.me-corp.lan with SMTP; 23 Jun 2026 19:37:22 +0300
-Received: by epgd056.me-corp.lan (sSMTP sendmail emulation); Tue, 23 Jun 2026 19:32:21 +0300
+  by ces03_data.me-corp.lan with SMTP; 23 Jun 2026 19:37:27 +0300
+Received: by epgd056.me-corp.lan (sSMTP sendmail emulation); Tue, 23 Jun 2026 19:32:25 +0300
 From: Dmitry Guzman <Dmitry.Guzman@mobileye.com>
-Date: Tue, 23 Jun 2026 19:31:50 +0300
-Subject: [PATCH 3/7] i2c: nomadik: do not try to retransmit I2C message
- series on errors
+Date: Tue, 23 Jun 2026 19:31:54 +0300
+Subject: [PATCH 7/7] i2c: nomadik: add support for I2C_XFER_V2 - detailed
+ fault reporting
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260623-i2c-fault-reporting-v1-3-6db1a8aabf18@mobileye.com>
+Message-Id: <20260623-i2c-fault-reporting-v1-7-6db1a8aabf18@mobileye.com>
 References: <20260623-i2c-fault-reporting-v1-0-6db1a8aabf18@mobileye.com>
 In-Reply-To: <20260623-i2c-fault-reporting-v1-0-6db1a8aabf18@mobileye.com>
 To: Andi Shyti <andi.shyti@kernel.org>, 
@@ -71,8 +71,8 @@ Cc: linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
  Dmitry Guzman <Dmitry.Guzman@mobileye.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_093225_417491_6BE3658C 
-X-CRM114-Status: GOOD (  16.66  )
+X-CRM114-CacheID: sfid-20260623_093228_076517_7D51A076 
+X-CRM114-Status: GOOD (  25.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,62 +87,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-i2c-nomadik driver of I2C bus controller in `xfer` callback retransmits
-the whole message series in cause of any fault, and returns fault only
-after third failed attempt. This behavior contradicts with API because
-not only it hides hardware faults, but also re-sends messages, while
-they are not guaranteed to be idempotent.
+I2C_XFER_V2 is a new API that allows I2C clients to get the detailed
+report in case of transmission failure. Previously, the only information
+returned by I2C bus controller was the error code; there was no way to
+find out how many messages or bytes in a certain message have been sent
+or received until the fault condition occurred.
 
-Remove the triple attempt to send messages in `xfer` callback.
+This commit introduces support of this feature in i2c-nomadik driver.
 
 Signed-off-by: Dmitry Guzman <Dmitry.Guzman@mobileye.com>
 ---
- drivers/i2c/busses/i2c-nomadik.c | 30 ++++++++++++------------------
- 1 file changed, 12 insertions(+), 18 deletions(-)
+ drivers/i2c/busses/i2c-nomadik.c | 37 +++++++++++++++++++++++++++++++------
+ 1 file changed, 31 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/i2c/busses/i2c-nomadik.c b/drivers/i2c/busses/i2c-nomadik.c
-index e4e5c6943c66144058fba857d7bf6c0be79ed5bd..3eb06988c026e5c573fcf55d83de7136b5ca7ac9 100644
+index 9cff0c2757fafeaf809395e02a5e754570f65e08..1cf03d634fdc856dc335a58597e0fd31ab077078 100644
 --- a/drivers/i2c/busses/i2c-nomadik.c
 +++ b/drivers/i2c/busses/i2c-nomadik.c
-@@ -716,27 +716,21 @@ static int nmk_i2c_xfer(struct i2c_adapter *i2c_adap,
+@@ -197,6 +197,7 @@ struct i2c_nmk_client {
+  * @stop: stop condition.
+  * @xfer_wq: xfer done wait queue.
+  * @result: controller propogated result.
++ * @bytes_cplt: number of bytes completed in the message that caused a fault.
+  */
+ struct nmk_i2c_dev {
+ 	struct i2c_vendor_data		*vendor;
+@@ -216,6 +217,7 @@ struct nmk_i2c_dev {
+ 	int				stop;
+ 	struct wait_queue_head		xfer_wq;
+ 	int				result;
++	int				bytes_cplt;
+ };
+ 
+ /* controller's abort causes */
+@@ -529,6 +531,8 @@ static int read_i2c(struct nmk_i2c_dev *priv, u16 flags)
+ 	int status = 0;
+ 	bool xfer_done;
+ 
++	priv->cli.xfer_bytes = 0;
++
+ 	mcr = load_i2c_mcr_reg(priv, flags);
+ 	writel(mcr, priv->virtbase + I2C_MCR);
+ 
+@@ -653,6 +657,7 @@ static int nmk_i2c_xfer_one(struct nmk_i2c_dev *priv, u16 flags)
+ {
+ 	int status;
+ 
++	priv->bytes_cplt = 0;
+ 	if (flags & I2C_M_RD) {
+ 		/* read operation */
+ 		priv->cli.operation = I2C_READ;
+@@ -678,6 +683,16 @@ static int nmk_i2c_xfer_one(struct nmk_i2c_dev *priv, u16 flags)
+ 			status = priv->result;
+ 		}
+ 
++		if (flags & I2C_M_RD) {
++			/* For READ messages, return the number of bytes read from FIFO */
++			priv->bytes_cplt = priv->cli.xfer_bytes;
++		} else {
++			/* For WRITE messages, return the number of bytes sent on bus */
++			priv->bytes_cplt = FIELD_GET(I2C_SR_LENGTH, i2c_sr);
++			/* LENGTH value includes the last byte that has not been sent or ACKed */
++			if (priv->bytes_cplt > 0)
++				priv->bytes_cplt--;
++		}
+ 		init_hw(priv);
+ 
+ 		status = status ? status : priv->result;
+@@ -687,10 +702,11 @@ static int nmk_i2c_xfer_one(struct nmk_i2c_dev *priv, u16 flags)
+ }
+ 
+ /**
+- * nmk_i2c_xfer() - I2C transfer function used by kernel framework
++ * nmk_i2c_xfer_v2() - I2C transfer function used by kernel framework
+  * @i2c_adap: Adapter pointer to the controller
+  * @msgs: Pointer to data to be written.
+  * @num_msgs: Number of messages to be executed
++ * @report: Pointer to transfer report to be written.
+  *
+  * This is the function called by the generic kernel i2c_transfer()
+  * or i2c_smbus...() API calls. Note that this code is protected by the
+@@ -733,14 +749,16 @@ static int nmk_i2c_xfer_one(struct nmk_i2c_dev *priv, u16 flags)
+  * please use the i2c_smbus_read_i2c_block_data()
+  * or i2c_smbus_write_i2c_block_data() API
+  */
+-static int nmk_i2c_xfer(struct i2c_adapter *i2c_adap,
+-		struct i2c_msg msgs[], int num_msgs)
++static int nmk_i2c_xfer_v2(struct i2c_adapter *i2c_adap,
++		struct i2c_msg msgs[], int num_msgs,
++		struct i2c_transfer_report *report)
+ {
  	int status = 0;
  	int i;
  	struct nmk_i2c_dev *priv = i2c_get_adapdata(i2c_adap);
--	int j;
  
  	pm_runtime_get_sync(&priv->adev->dev);
++	priv->bytes_cplt = 0;
  
--	/* Attempt three times to send the message queue */
--	for (j = 0; j < 3; j++) {
--		/* setup the i2c controller */
--		setup_i2c_controller(priv);
--
--		for (i = 0; i < num_msgs; i++) {
--			priv->cli.slave_adr	= msgs[i].addr;
--			priv->cli.buffer		= msgs[i].buf;
--			priv->cli.count		= msgs[i].len;
--			priv->stop = (i < (num_msgs - 1)) ? 0 : 1;
--			priv->result = 0;
--
--			status = nmk_i2c_xfer_one(priv, msgs[i].flags);
--			if (status != 0)
--				break;
--		}
--		if (status == 0)
-+	/* setup the i2c controller */
-+	setup_i2c_controller(priv);
-+
-+	for (i = 0; i < num_msgs; i++) {
-+		priv->cli.slave_adr	= msgs[i].addr;
-+		priv->cli.buffer		= msgs[i].buf;
-+		priv->cli.count		= msgs[i].len;
-+		priv->stop = (i < (num_msgs - 1)) ? 0 : 1;
-+		priv->result = 0;
-+
-+		status = nmk_i2c_xfer_one(priv, msgs[i].flags);
-+		if (status != 0)
- 			break;
- 	}
+ 	/* setup the i2c controller */
+ 	setup_i2c_controller(priv);
+@@ -760,10 +778,17 @@ static int nmk_i2c_xfer(struct i2c_adapter *i2c_adap,
+ 	pm_runtime_put_sync(&priv->adev->dev);
+ 
+ 	/* return the no. messages processed */
+-	if (status)
++	if (status) {
++		report->msgs_cplt = i;
++		report->bytes_cplt = priv->bytes_cplt;
++		report->fault_msg_idx = i;
+ 		return status;
+-	else
++	} else {
++		report->msgs_cplt = num_msgs;
++		report->bytes_cplt = 0;
++		report->fault_msg_idx = num_msgs;
+ 		return num_msgs;
++	}
+ }
+ 
+ /**
+@@ -1014,7 +1039,7 @@ static unsigned int nmk_i2c_functionality(struct i2c_adapter *adap)
+ }
+ 
+ static const struct i2c_algorithm nmk_i2c_algo = {
+-	.xfer = nmk_i2c_xfer,
++	.xfer_v2 = nmk_i2c_xfer_v2,
+ 	.functionality = nmk_i2c_functionality
+ };
  
 
 -- 
