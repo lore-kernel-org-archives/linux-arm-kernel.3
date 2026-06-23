@@ -4,63 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90CC4CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 13:41:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D1F1CDB46F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 13:45:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kLocRZtgJQrXu8puX2IARJTbaE2vJiBP6Inefq8Js9U=; b=ETL4yibi3UmySppIkFQbE1HZwm
-	yfydeOMDlGB/yXHwAaNyKfN6t9mT5cHwAPJpKjkKyNHHM8np9PzENodePfqqxBeY2GQpwFslqStja
-	hX1SR7ZdEH0OneSbN3jjZp7jUANC5bUZi4am4WQMeb2vBTdSi8/zbjnHpFE9sQfQnfloxw+5xiPEw
-	vwGHvB9ErzD4J+POMOEVG3PbSLL3SNr7P3VTMxjjY/HN4rDZIRQ2d2y/L5uGIK0nmhei+lBT6fvP8
-	J973HqMZde+DMXDuuB/G99U4MwVwTgJguRweF+Uw/3PGogONCLIHNxfkzYb/Mq82UH2HovF5I9Pl5
-	VJeK0xWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UZ4++YxJXc/6SFIqw2u6ldCc2haTxcSXXUeS9bd2ENM=; b=THeOYKVUmipPYLUiXALfUWfLlL
+	YT3Rrpj1W/mqlDDUxCeuT1lSKfT2IaLUgi1ui7g76o201UQsySqwIzkpiP1MJyW1OHiOkVQ+EvkJu
+	NJwyyhjdioWXxHokU1n2ZtO+wn2XnmWSD5ofTR7Y2IWRDw+kJQhCFd6Xi8TbRpvYcrCf5YEnb09L5
+	rFm/eNKEz7BFlELr4DZPzO5V4Acj0+uAm+C1rlfjdwAaJu1Kl5AABaJrZDW+WWRhF/IP7Mc9jWe36
+	c7GQrJj6UlJFrL2o6T5FGzHiyRe7w7JqAOf1LowRh9d8iV+dhOro4Vuc4SG/8Z99pO43q/NnYwn0S
+	+1NdLvtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc1NY-00000006MEl-44ER;
-	Tue, 23 Jun 2026 13:41:29 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wc1Ri-00000006MVJ-3y5D;
+	Tue, 23 Jun 2026 13:45:46 +0000
+Received: from out-178.mta0.migadu.com ([91.218.175.178])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc1NX-00000006MDz-1alz
+	id 1wc1Rg-00000006MUH-483t
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 13:41:27 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 92F42601F5;
-	Tue, 23 Jun 2026 13:41:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14B6D1F000E9;
-	Tue, 23 Jun 2026 13:41:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782222086;
-	bh=kLocRZtgJQrXu8puX2IARJTbaE2vJiBP6Inefq8Js9U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=XXbopI0WMvFSOjNicyQp1LnWaauZ6NqDakJ+P3eOgS9o3Hz2ORPTemdjngrG9k6gX
-	 f+BqBl6JMkIaMmjrsHDa+vD2LlgrT402yrETUBwfGKjULMDZHa0os6w5Ha3bv8eUDT
-	 QX4Olm+gSOhh639G74c8wcRSRMCuRkqKrchM+jeQGpQqfe/294UMEy6KjSfwWeTXfL
-	 kKCWyqwatfCW9gFEjsyxj05pVCCgYeNmRN0/3L8q1bJm4L8RQu5rSRICGGRC0HB65L
-	 ZvLQGL2WXOAbo8+Z8DoSjVlZY+kZNChrFET3Gyt+WELKRzuk5TM1sLscYwhnqnTiD8
-	 8CUjY6VN1xTvQ==
-Date: Tue, 23 Jun 2026 14:41:20 +0100
-From: Will Deacon <will@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Bradley Morgan <include@grrlz.net>, Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <tabba@google.com>, Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: account pKVM reclaim against the VM mm
-Message-ID: <ajqNANUBCamSjfHM@willie-the-truck>
-References: <20260621213155.6019-1-include@grrlz.net>
- <86zf0nq8ki.wl-maz@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <86zf0nq8ki.wl-maz@kernel.org>
+	Tue, 23 Jun 2026 13:45:46 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
+	s=key1; t=1782222332;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=UZ4++YxJXc/6SFIqw2u6ldCc2haTxcSXXUeS9bd2ENM=;
+	b=Xvt2WwtmOY6PYw8fMMtaKUPwhp00TjzdQIEHqcqaypIosTEKgcmztrkWySTKWpaBWtZTCA
+	1L4m4hU0BAGVvOjQ+nMVV0yHMl39CI6/NJfo8JrXcGL71Gtfc2bxxcCIpcQ1/NHm0YSScq
+	VixU+qrUJNYvHsjEUT/yHEAyQjSidSJOszChjXClbXTCVq1nBsFVsdfkEQ3XlUrvRKI7Co
+	QdXQtaOX2kRLeEiv6rBCwXc0J7rhVqhqtw7KvAZ3ArRpIPUeJEG9l7IjUTcel/3bweDh7B
+	moSJILJFXOBN0NCfuwE0orLdYnOz0zgWN6FG/xVbLACwjwdu2UIz6BWcHfUQWw==
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Tue, 23 Jun 2026 15:45:23 +0200
+Message-Id: <DJGH34DVKL0W.3T6UB4G4WYYUJ@cknow-tech.com>
+Cc: "Nicolas Frattaroli" <nicolas.frattaroli@collabora.com>,
+ <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ "Ricardo Pardini" <ricardo@pardini.net>
+Subject: Re: [PATCH v4 5/5] clk: rockchip: rk3588: add GATE_GRF clocks for
+ I2S MCLK output to IO
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <diederik@cknow-tech.com>
+To: "Daniele Briguglio" <hello@superkali.me>, "Diederik de Haas"
+ <diederik@cknow-tech.com>, "Heiko Stuebner" <heiko@sntech.de>, "Michael
+ Turquette" <mturquette@baylibre.com>, "Stephen Boyd" <sboyd@kernel.org>,
+ "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
+ <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>
+References: <20260419-rk3588-mclk-gate-grf-v4-0-513a42dd1dcc@superkali.me>
+ <20260419-rk3588-mclk-gate-grf-v4-5-513a42dd1dcc@superkali.me>
+ <DJGDSS875DDO.22TYPVYK5X8KZ@cknow-tech.com> <2100447.PIDvDuAF1L@diego>
+ <20260623123316.4111002-1-hello@superkali.me>
+ <DJGG8DEAKSPK.1GJ8FARAHXPXM@cknow-tech.com>
+ <20260623132351.4144457-1-hello@superkali.me>
+In-Reply-To: <20260623132351.4144457-1-hello@superkali.me>
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260623_064545_168774_A3F1B4BA 
+X-CRM114-Status: GOOD (  15.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,52 +83,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 22, 2026 at 09:32:29AM +0100, Marc Zyngier wrote:
-> On Sun, 21 Jun 2026 22:31:55 +0100,
-> Bradley Morgan <include@grrlz.net> wrote:
-> > 
-> > Protected guest faults charge long term pins to the VM's mm. Teardown
-> > can run later from file release, where current->mm may be unrelated.
-> >
-> > Drop the charge from kvm->mm instead.
-> > 
-> > Fixes: 4e6e03f9eadd ("KVM: arm64: Hook up reclaim hypercall to pkvm_pgtable_stage2_destroy()")
-> > Signed-off-by: Bradley Morgan <include@grrlz.net>
-> > ---
-> >  arch/arm64/kvm/pkvm.c | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> > 
-> > diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-> > index 053e4f733e4b..428723b1b0f5 100644
-> > --- a/arch/arm64/kvm/pkvm.c
-> > +++ b/arch/arm64/kvm/pkvm.c
-> > @@ -352,7 +352,7 @@ static int __pkvm_pgtable_stage2_reclaim(struct kvm_pgtable *pgt, u64 start, u64
-> >  		page = pfn_to_page(mapping->pfn);
-> >  		WARN_ON_ONCE(mapping->nr_pages != 1);
-> >  		unpin_user_pages_dirty_lock(&page, 1, true);
-> > -		account_locked_vm(current->mm, 1, false);
-> > +		account_locked_vm(kvm->mm, 1, false);
-> >  		pkvm_mapping_remove(mapping, &pgt->pkvm_mappings);
-> >  		kfree(mapping);
-> >  	}
-> 
-> Seems correct to me, as the final mmdrop(kvm->mm) occurs after S2
-> teardown.
-> 
-> Will, what do you think?
+Hi Daniele,
 
-Thanks, this looks correct to me.
+On Tue Jun 23, 2026 at 3:23 PM CEST, Daniele Briguglio wrote:
+>> md.l 0xfd58c318
+>> fd58c318: 00000600
+>
+> Thanks. Bit 0 is clear there, so the I2S0 gate is open at the U-Boot
+> prompt, after BL31 and before Linux. That matches the symptom: the
+> firmware on your T6 leaves it open, and the kernel closes it once nothing
+> references it.
+>
+> Given that, I think Heiko's suggestion makes sense here. Marking the four
+> gates CLK_IGNORE_UNUSED keeps the kernel from disabling what the firmware
+> already left open, and boards that reference _TO_IO still drive it throug=
+h
+> the consumer.
 
-While I was thinking about it, I also started looking at the use of
-'current->mm' in kvm_arch_prepare_memory_region() in case that should
-also be 'kvm->mm'. However, I then realised that I don't really grok
-that code at all because it does a bunch of checking on the VMAs with
-mmap_read_lock(current->mm) held, but then that lock is dropped
-immediately after doing the checks so I'm not really sure what they
-are protected against. Presumably, the address space could be modified
-as soon as the lock is dropped?
+My suspicion that more RK3588 based boards would be broken is because NONE =
+use
+I2S0_8CH_MCLKOUT_TO_IO; they all use I2S0_8CH_MCLKOUT.
+(And the testing was only done on not (yet?) upstreamed boards)
 
-But it's hot, so I'm probably missing something here.
+> Could you test that change if you get a chance? Just set the flag on the
+> I2S0/1/2/3 _TO_IO gates in clk-rk3588.c and check your analog audio comes
+> back. The series is already merged, so I'll send the fix as a separate
+> follow-up patch, this evening if Heiko is fine with the approach.
 
-Will
+I'm going to build a new kernel where I did ``s/0/CLK_IGNORE_UNUSED/`` 4 ti=
+mes
+and I adjusted my NanoPC-T6 Plus board dts to use I2S0_8CH_MCLKOUT_TO_IO, w=
+hile
+I keep the LTS board dts to I2S0_8CH_MCLKOUT.
+So IIUC that means I'd be testing both variants.
+
+Cheers,
+  Diederik
 
