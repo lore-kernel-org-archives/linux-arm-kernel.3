@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F1CCCDB470
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 20:15:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0F62CDB480
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 20:20:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=PApkcFbTCnyRYxUfeFOnQfHUO+BQWYgzQ1hqLVaTxfY=; b=ms83hdKTEPAymvaU2uHTadgc4I
-	Nc4JnlJzS/7o/PTI3V4ZmITalQI5rzTylf8YjhaVcA7rf4zjYRkmwZ1WMyRy7HD4bwFusJXtaJI/a
-	6YYuL3/VArttfh3/YMcwzlqQYA9tNM6TLJE1Ru7t9wMVcLEpsAnsfEmXVFe+RN4dO+hi3IKqb1V0/
-	mVmPSWXhMEqyrGGVsLH5jXm8bQJyJTvhDajL8yeN6lh8W6GIeG6SNcXTvcpwZYSlGQc/6lsyYApds
-	441svUsNMVYGjQ9NISSK8xfxImJ95kCqQjlcENVNvfq1D/waBuO7GfhuJCT50GseCtIeG/mftFrHO
-	rFQcUSOg==;
+	bh=LuzHGLvmYUwhc8I6yyvP2EEo7aup8Z3LHV+PsMNUuA8=; b=prf+tZJoLDY626H1PXrO7vgJRk
+	wAa6MZ/0m5GGYNod3btKdthOBmGYXUqv2qOiJpytCWZTnrtRnmMuPM1OyT2dlVUto8lR7C0CwyPL/
+	5uehyfOEhwDV4SV5NddA1ColfrOAKeN7Ci7BL7ZvJ40EWtfVWHBiRqxsGg+woP+Rxo+eCKu2j3/XD
+	sdk09yGTibVvGLWvU52xaqutq8nIXeLE057DHx8Pulv2/l4cY6Ie1OyRmhExDUR4hjt/FxzuYMzZG
+	At4XzfK2t3wIX8wzaaV0whbnordkpKCkPsi2EdP1Xs1jqYXeFUjq1hDx8VsscN/5lLRLSgmxeLZ8G
+	4fTWEFFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc7XA-00000006pqm-2e2S;
-	Tue, 23 Jun 2026 20:15:48 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1wc7bL-00000006q7p-1ya7;
+	Tue, 23 Jun 2026 20:20:07 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc7X7-00000006ppd-1iti
+	id 1wc7bI-00000006q6v-1rZw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 20:15:47 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-490b9318997so1590785e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 13:15:44 -0700 (PDT)
+	Tue, 23 Jun 2026 20:20:06 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-45fe59255beso181815f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 13:20:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20251104; t=1782245743; x=1782850543; darn=lists.infradead.org;
+        d=googlemail.com; s=20251104; t=1782246003; x=1782850803; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=PApkcFbTCnyRYxUfeFOnQfHUO+BQWYgzQ1hqLVaTxfY=;
-        b=SCgSt63zEqECDmhFC46iu0SVJXjGMpRntiBSn9mOg+4yfw0dj3PKGolEmJpkRaL3d7
-         ZhChx6l0IUa6nQafgPTzCoOrEGjOQiJZhAmgq1aQ5jDE9ps0wMHqk/ldeS0rJ6oTTdLV
-         IdBf9/sn2XKI0aVJWlVznfVJDOPm1VLm3GDPE5Pgp1vrR953G9oJVddS4Vt01QPIH5N0
-         3mtxz/8wkFkvxS0eqd7+JS7Ausq7L616CiiQq9Z/60PAlclp1gTMBCXBrYh+s5o2zCNk
-         fHtpH4vadg3+N4YMq/hezQIip40Hk68KF7ZQT+dCirpAHrTydhVLyOUhdA+CZ7ZQ4R0j
-         /Ilg==
+        bh=LuzHGLvmYUwhc8I6yyvP2EEo7aup8Z3LHV+PsMNUuA8=;
+        b=G1WW3fD1bJQgTbWgxgA4y+oOftpuBhX5oj42MgCySpgfXabxIZlKtNjY2/+YnUDoPr
+         bIuZZkAKC0cVdk9cpfMWo/tmfr2CmI5BX4RV6vTzZG6NbRLbn14a0J2s8k+bhjfLW115
+         q+3vL7qbp1lvpefWksHPR1AYpcxcQPH2SmWOzkMNxO2+WmL5kbqmkF8ePQbO/RrV7a++
+         8F9rgS2I+zObvlDhCPrAXpMdVxErUgMMzXf7YPZPMFxjOPxTVPCf8dqhXc6S9wEvHTBV
+         rOBi4ScDHmXrbO88wBS+3vba1ewvRx+dplz7I1kRKGboNihqA36xn2CDZGua9Z8qRIWB
+         cMCQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782245743; x=1782850543;
+        d=1e100.net; s=20251104; t=1782246003; x=1782850803;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=PApkcFbTCnyRYxUfeFOnQfHUO+BQWYgzQ1hqLVaTxfY=;
-        b=dCgfgCidNHNlaWnMC+LgI/fN25IKWgjPKl1MZ8XvcdZy5jAv6jaAeIkY0NZ5NEzkmJ
-         AW8SuJiWyialxm/P8nU6kfcgIOAbDvXZkIL/RiZ9f40JEJryKQGJeEK6Eczz5eghueFX
-         WpDtDMZbrvyTYC2veOND3FVDBCFt7rlJHeQXAlPoQRFc87VszZ4RQX2SH78MZaIoI7Tx
-         Fh8qydltt9fzBK2+Rnz97PgKXfoAtytBc9MA6RSvYRqIePogs4yCD4RBkbfh79aoc3Wa
-         WY0gJYFA8tumJIxJv92sylw/1HHEW0gdgb3uRHgcbbT7PPNhySJM1xrPvTCgwnBfYk6D
-         ctAg==
-X-Forwarded-Encrypted: i=1; AFNElJ9nxKmVcUAIi/RUZYTUjGsooW4du1WRe4CGhYBS4A5/kOlbF5fUy583t8wIF+mk90noUxPw7fd9MogjtzQcICxp@lists.infradead.org
-X-Gm-Message-State: AOJu0YyVnGXsqTlMHOVOrNhTUxrpb5yHKtN8wAQz4txxN8NKUCL6ujnx
-	MO56WbQi2VVI00hcsfrudRcojjA6nojhB/66D9/HojK3t7YsJQqDqUUA
-X-Gm-Gg: AfdE7ckhGfzOvXAIZ40IH+XviqpFuzdTsmCaqygMWPy4kVbvS5H8NkunJrxzhk1yFwL
-	elNbhaREA4FD6ff/+4MhGaNZ/SZU7TfSPy3vVHNwFNlDetJI4X7y7CczkcQ6khgk2lm7l4RA239
-	Ln6LnCCY/eUCsFuCF7aIXLRsFpjHGuL3kT24dG1PvdKwyM1e5yt2s3NBpB/FjiqNONE0OE+e7/j
-	Blm8FZ3zWxfkHkc2RAJVmXHmM555eUMlHzbSlsCAvG8OBMVOHttOPeHN2Md8LA11oz8yTJv8iXq
-	lySj7b0GqiKUxhQHZtBo+rSszCkpwZTjwSWcn7czu0uy7ik/zfjf+d6SclKDYDD3bpGaWeDriA0
-	fflFP1Qh5xEFe6vWvUNBowYrghnidRnCjQ5xX9o3PzBbb6B6k4nNARxEw+J2JnWRH3EpOD7Jb3M
-	LJGdUDsAvNXwuDqHRqDiaSuPU1TFZ9/0VHZs1yGzg5n+ywYVN36oCrY3Ry0KEB64LHBXy2mUCwf
-	eex99Yx4pCK0FewGyXjWWUrtsvOBOIZ4Rhrvjhi7Uk=
-X-Received: by 2002:a05:600c:820e:b0:491:7325:39c4 with SMTP id 5b1f17b1804b1-4926087f7f8mr1421665e9.34.1782245743299;
-        Tue, 23 Jun 2026 13:15:43 -0700 (PDT)
+        bh=LuzHGLvmYUwhc8I6yyvP2EEo7aup8Z3LHV+PsMNUuA8=;
+        b=a2PGotZnhl+c5nYMeyOPAf0hPi2XguPCX47Pb+wBm1lRy0mgoVk7NT9sLY/jmrrCC9
+         5LUmarXFguZsfo01MEvr50XZPFYOLvmAacWeiZfUFpU/EtZL4UnWmDS3hAaPrU2gDzLk
+         FuzWEwGh98Cah79lZ5AOLWRXPiy2DxQwr/RXTnUS0hWnjjH8TmQnd6WArlaUPjDNnWvh
+         GLVSOtsflLOHU0FWINZtjFs+gDYkU4wVQcBXVSkvh2rMpbDBDuY9CTDQ1HCQm4m0tmWX
+         6e9xfV3FDMK2t43bneY299B4xgrbmvrCWXuZPMAGqinR0IxJKGrW1YRGRe2f89/yq7ba
+         ztlQ==
+X-Forwarded-Encrypted: i=1; AHgh+RodccDKJCj3SE1NnpU7RaM7QFUvNcDtn0cdT5dpvGqEbQ+ZIqnP5Dff61Q3Gf1y392BXBsrDfs/oESGSLFveiIM@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz0QIjI54DB6vI3i5jHkFJWM12yJcC/xC9Z6GmLGJchXDI8vNUO
+	CR9GfjsYLDTzSBHwroXsYr3kjTQWJi0oOvk2yIuH9XsNBrKp05/9vD5G+L52mw==
+X-Gm-Gg: AfdE7ckTkW1597RUQ/yz/LuhQ13ofZNxgX2GT55LCq3cwMpkJXsW0pHaEEDuBkHdq2n
+	BneKrLDLMcwejfemHjB60CLa4tvMkKrWgLu9BD6bxh4Fe9ruZWL72m444aQ7O1OtjrZJRpyp2RF
+	wOq3pku1E3Dj6ufnqrCTllxI/jx1okydqprvrV5iAaCduXlcHWaVnDZWvCvZ3Tn22cfxxWzSzGD
+	NFlDRkLnhgx684B1AXe/YfILkyWnDd51ushmZes6d+b5lRfDTi/BWzWpIEpI7gBUPksvS6cmM3R
+	c6r5jaq/jjsl1JGRZQDo5+J1FHBN1r25AtT3kQpHUe5w+UXpRQqSs558Y4KYc/DquMQyy8FQEFD
+	rCQ1h7LALAbysBQTpXN4atVeKBDatevbR0ZW7SCdWyXRnkW+70Lmf5PUUh4xTQ5E1DM5rj97srp
+	bgAlFZErqoWQMUvqvS/vuPwrFTE/fWynSNcDqmNDjNbz3l2crBUuBADt+MUZ3DJEdxHlze6mJtK
+	wnlEsH9IF4T1Hp2Fxk9IJEz4lCT6I5OfbXP5RvzdTg=
+X-Received: by 2002:a05:6000:2507:b0:43f:dbbf:6d93 with SMTP id ffacd0b85a97d-46adadd2122mr7876270f8f.27.1782246002550;
+        Tue, 23 Jun 2026 13:20:02 -0700 (PDT)
 Received: from blackbox (dynamic-2a02-3100-a9b8-8b00-f22f-74ff-fe21-0725.310.pool.telefonica.de. [2a02:3100:a9b8:8b00:f22f:74ff:fe21:725])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4923fd1f886sm374378335e9.4.2026.06.23.13.15.42
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-46c1ee01c3bsm189460f8f.10.2026.06.23.13.19.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 23 Jun 2026 13:15:42 -0700 (PDT)
+        Tue, 23 Jun 2026 13:20:02 -0700 (PDT)
 From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
 To: jbrunet@baylibre.com,
 	linux-amlogic@lists.infradead.org
@@ -78,18 +78,18 @@ Cc: mturquette@baylibre.com,
 	linux-clk@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Martin Blumenstingl <martin.blumentstingl@googlemail.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
 	Christian Hewitt <christianshewitt@gmail.com>,
 	stable@vger.kernel.org
-Subject: [PATCH] clk: meson: align gxbb_32k_clk_sel number of parents with actual count
-Date: Tue, 23 Jun 2026 22:15:22 +0200
-Message-ID: <20260623201522.1322463-1-martin.blumenstingl@googlemail.com>
+Subject: [PATCH v2] clk: meson: align gxbb_32k_clk_sel number of parents with actual count
+Date: Tue, 23 Jun 2026 22:19:56 +0200
+Message-ID: <20260623201956.1324992-1-martin.blumenstingl@googlemail.com>
 X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_131545_493388_CCC80711 
-X-CRM114-Status: GOOD (  15.40  )
+X-CRM114-CacheID: sfid-20260623_132004_502892_C88AC9A0 
+X-CRM114-Status: GOOD (  15.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,8 +103,6 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
-
-From: Martin Blumenstingl <martin.blumentstingl@googlemail.com>
 
 The following out-of-bounds read has been observed by Christian on a
 GXBB WeTek Hub:
@@ -165,8 +163,15 @@ Fixes: 7915d7d5407c ("clk: amlogic: gxbb: drop non existing 32k clock parent")
 Reported-by: Christian Hewitt <christianshewitt@gmail.com>
 Cc: stable@vger.kernel.org
 Tested-by: Christian Hewitt <christianshewitt@gmail.com>
-Signed-off-by: Martin Blumenstingl <martin.blumentstingl@googlemail.com>
+Signed-off-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
 ---
+Changes since v1 at [0]:
+- fix typo in my own email address (apologies for the noise)
+
+
+[0] https://lore.kernel.org/linux-amlogic/20260623201522.1322463-1-martin.blumenstingl@googlemail.com/T/#u
+
+
  drivers/clk/meson/gxbb.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
