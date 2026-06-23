@@ -4,83 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D83C6CDB46F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 13:24:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C774CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 13:39:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PVy4S/eNaNAAxNj9kHLDxwcgqSAw69kke2AJz1Kb9pY=; b=PjelX9L1GoM+EJmU2Bnz1p52vK
-	y0UtrUAlxMatZQyP7Hcikj9eoduEynhlSDx4FjkzoMPuGtGM3xFyMnfDL6LLr4mx0kLzLrdbF8CCW
-	L9qrwwm0BEccNSc9Hvt7cTzZxBn8qd47sFxqpJZsYDXBU3Iu+Pvn7eztizUU0uNA9KPFOO6ihA8MY
-	xPFGs+u2sFJpGLUtd/HymOVSyqdPioOk0JFGRUhBCYaDdA26tufQ5euL+9afvZAEtnvqyO0pkwFBg
-	MJ3YmQc31ZMmEjLOS5nmMf7x3HJus++6PppDOFSiVf15bsowqyF68v9yIKtrHCqDqN8GtHvdiD9aA
-	OSH49C+w==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=lhYDY/oGh1x20M8STDeHhSgFj7e0F2TfJzpcUG3q/j8=; b=kgTkFbzjfPEiESvgucurfpbAjb
+	xyDBIYt6oigNItcjhUWsiA7IEKNHYI4UVHwgVauNHMnj5j/vxJLqjf2dUOfIUQkKkK3MkVfdjFsXD
+	IOkXBviH73YfUet/Yy2JwbDsU6//lkZl0wx8KhKJFSNkN/Qg7vG6+r4/bSI8jhX/INtYId2dusc1T
+	g26/IdfCpVEsslwaAvAZ4w5uQtr4rxGBKl4LI7sHS90h5eQtKmbdmzNzyFoxJBoe7URETx+F86+qY
+	RfxLiN+C8W7Zxa8eI74vpcXAoaRdvCqtTLnzGb+wfHZdjPwT+3aNjq8iBIcr6ttKw1yu2MKWwXqJE
+	mbBfcFNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc16c-00000006L0i-3EMf;
-	Tue, 23 Jun 2026 13:23:58 +0000
-Received: from fr5000-r.dnsiaas.com ([92.42.104.18])
+	id 1wc1LU-00000006LnN-170Z;
+	Tue, 23 Jun 2026 13:39:20 +0000
+Received: from m16.mail.163.com ([220.197.31.2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc16a-00000006L0L-0RES;
-	Tue, 23 Jun 2026 13:23:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=superkali.me; s=default; h=Content-Transfer-Encoding:Content-Type:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=PVy4S/eNaNAAxNj9kHLDxwcgqSAw69kke2AJz1Kb9pY=; b=YKi5a7gjyQM1wxwm+vvyuvL6+m
-	o/dL7T7k53Z0zxFUgYtLOThwC8F7dF1IT0TDRj/R88bJu588o0gzioJEZVMqmNdOG4NJMjb1Zk38a
-	9KCxA48kSac8oPHZJlKEOJbxsjTQBWzMKM7FIsQtv6ZkwMM5enI6BpRmLfTzi2ddbRIs8XuvBfLT5
-	Yu8ZGfXW/Fo1MTzrwD01i+QNA5d7aQB8JAqrNCt3HFPjVGG0MDZqmyh/8bjt9UEaW2vrNfKCeUcg4
-	134O5NTk2LBdItF1XzsEinqSxwtpRYoAbMUFOVFn/iZ2RM5+HrCjBt8L/XhQSBgV75yS/cr3XQhJg
-	VGyp0ESA==;
-Received: from [81.57.40.39] (port=52518 helo=superkali.me)
-	by fr5000-r.dnsiaas.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.99.4)
-	(envelope-from <hello@superkali.me>)
-	id 1wc16a-00000006qSa-0t0n;
-	Tue, 23 Jun 2026 15:23:53 +0200
-From: Daniele Briguglio <hello@superkali.me>
-To: Diederik de Haas <diederik@cknow-tech.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
+	id 1wc1LR-00000006Ln1-3iS8;
+	Tue, 23 Jun 2026 13:39:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=lh
+	YDY/oGh1x20M8STDeHhSgFj7e0F2TfJzpcUG3q/j8=; b=cA2ZtEN36qzmUHUBYS
+	rgGGDT+6icfpsvztBXkCTVfmpSQPsTFZkLcHNWgFfqPM56nn6I4cUhxRq7kPgjVE
+	f34ZiBu9nd7LVRi/izIGo/qh+Po0iqdl3VJfXJHCg2D1gZkTutVnYVmvqFCzlkz/
+	bZUuNyduUDJBgXIaQIU/JnMmM=
+Received: from localhost.localdomain (unknown [])
+	by gzga-smtp-mtada-g0-4 (Coremail) with SMTP id _____wD3H5FkjDpqLOjlFQ--.48199S2;
+	Tue, 23 Jun 2026 21:38:46 +0800 (CST)
+From: Haoxiang Li <haoxiang_li2024@163.com>
+To: andersson@kernel.org,
+	mathieu.poirier@linaro.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	olivia.wen@mediatek.com
+Cc: linux-remoteproc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Ricardo Pardini <ricardo@pardini.net>
-Subject: Re: [PATCH v4 5/5] clk: rockchip: rk3588: add GATE_GRF clocks for I2S MCLK output to IO
-Date: Tue, 23 Jun 2026 15:23:51 +0200
-Message-ID: <20260623132351.4144457-1-hello@superkali.me>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <DJGG8DEAKSPK.1GJ8FARAHXPXM@cknow-tech.com>
-References: <20260419-rk3588-mclk-gate-grf-v4-0-513a42dd1dcc@superkali.me> <20260419-rk3588-mclk-gate-grf-v4-5-513a42dd1dcc@superkali.me> <DJGDSS875DDO.22TYPVYK5X8KZ@cknow-tech.com> <2100447.PIDvDuAF1L@diego> <20260623123316.4111002-1-hello@superkali.me> <DJGG8DEAKSPK.1GJ8FARAHXPXM@cknow-tech.com>
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Haoxiang Li <haoxiang_li2024@163.com>
+Subject: [PATCH] remoteproc: mediatek: Unregister init IPI on share buffer failure
+Date: Tue, 23 Jun 2026 21:38:44 +0800
+Message-Id: <20260623133844.2255072-1-haoxiang_li2024@163.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - fr5000-r.dnsiaas.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - superkali.me
-X-Get-Message-Sender-Via: fr5000-r.dnsiaas.com: authenticated_id: hello@superkali.me
-X-Authenticated-Sender: fr5000-r.dnsiaas.com: hello@superkali.me
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+X-CM-TRANSID: _____wD3H5FkjDpqLOjlFQ--.48199S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7Zr4rCryUCryUXF1xtFW5ZFb_yoW8XF13pa
+	43Kay3Kr48KFsrXrsrC3W8Z3W3ua18G3y29w4fJwnFvw1UJr92qas5tFyjvFWDCFWxXFW3
+	ZFWaqrWruFWUCaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0piMGQDUUUUU=
+X-Originating-IP: [240e:604:311:e68d:298a:1bbc:177b:53c8]
+X-CM-SenderInfo: xkdr5xpdqjszblsqjki6rwjhhfrp/xtbC7gZl02o6jGbYUgAA3u
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_062356_308349_C916877F 
-X-CRM114-Status: UNSURE (   5.09  )
+X-CRM114-CacheID: sfid-20260623_063918_332998_04655EB1 
+X-CRM114-Status: UNSURE (   9.73  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -96,26 +77,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Diederik,
+scp_rproc_init() registers the SCP init IPI before allocating the IPI
+share buffer. If the share buffer allocation fails, the error path jumps
+directly to release_dev_mem and leaves the init IPI registered.
 
-> md.l 0xfd58c318
-> fd58c318: 00000600
+Route that error path through the IPI unregister label so the registered
+handler is cleared before unwinding the remaining resources.
 
-Thanks. Bit 0 is clear there, so the I2S0 gate is open at the U-Boot
-prompt, after BL31 and before Linux. That matches the symptom: the
-firmware on your T6 leaves it open, and the kernel closes it once nothing
-references it.
+Fixes: c08a82494500 ("remoteproc: mediatek: Support setting DRAM and IPI shared buffer sizes")
+Signed-off-by: Haoxiang Li <haoxiang_li2024@163.com>
+---
+ drivers/remoteproc/mtk_scp.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-Given that, I think Heiko's suggestion makes sense here. Marking the four
-gates CLK_IGNORE_UNUSED keeps the kernel from disabling what the firmware
-already left open, and boards that reference _TO_IO still drive it through
-the consumer.
+diff --git a/drivers/remoteproc/mtk_scp.c b/drivers/remoteproc/mtk_scp.c
+index 85a74c9ec521..648b69f96624 100644
+--- a/drivers/remoteproc/mtk_scp.c
++++ b/drivers/remoteproc/mtk_scp.c
+@@ -1227,7 +1227,7 @@ static struct mtk_scp *scp_rproc_init(struct platform_device *pdev,
+ 	if (!scp->share_buf) {
+ 		dev_err(dev, "Failed to allocate IPI share buffer\n");
+ 		ret = -ENOMEM;
+-		goto release_dev_mem;
++		goto unregister_ipi;
+ 	}
+ 
+ 	init_waitqueue_head(&scp->run.wq);
+@@ -1248,9 +1248,10 @@ static struct mtk_scp *scp_rproc_init(struct platform_device *pdev,
+ 
+ remove_subdev:
+ 	scp_remove_rpmsg_subdev(scp);
+-	scp_ipi_unregister(scp, SCP_IPI_INIT);
+ 	kfree(scp->share_buf);
+ 	scp->share_buf = NULL;
++unregister_ipi:
++	scp_ipi_unregister(scp, SCP_IPI_INIT);
+ release_dev_mem:
+ 	scp_unmap_memory_region(scp);
+ 	for (i = 0; i < SCP_IPI_MAX; i++)
+-- 
+2.25.1
 
-Could you test that change if you get a chance? Just set the flag on the
-I2S0/1/2/3 _TO_IO gates in clk-rk3588.c and check your analog audio comes
-back. The series is already merged, so I'll send the fix as a separate
-follow-up patch, this evening if Heiko is fine with the approach.
-
-Best regards,
-Daniele
 
