@@ -4,120 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A807CD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 09:44:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AAECCDB46F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 09:47:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fzwEa75SVblGykfagU1zVBLhxmcBKPZum3qY/q9Q3pE=; b=DvJrqNHIK4YkS/uJTZ5XrnbLl6
-	x8UrKEKwPMYtVGvg8fJdABYBeArPVU0B01ydepBM9Hpl1ZGOu32dBbVlc72YpxnSNLOwyyl7ykB6j
-	OZXOjk8izSaTNSUuTezXpauxChOg1vk9maS0RxRfGx/lsjjd8MTJ9m4kFQdu4IqD4uh3VwKZ+BuUA
-	yCUsFkc/sIIzs3w+nMCvUAahgmWAH0pIkz57sL8PuEzS990DYD3sm3i/TuS6zPRWMqNAQ7EvXOvsV
-	/U57Igx/mwW9mddCSi5V2VU2XAEwL4zegfrFkqRZQo9fHvCEViUFMupGDTIqlgWYfW+iHc78D1Jp9
-	53S+J/ag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=svsFrqtxSjp3C0yInI8YXCcDmQTS9+zcNrmpSt8j/lA=; b=sayogVcRtLrb/NpHcf0/W9k5cU
+	WpncYz3DS1en+WE52lVGZ/ubG+n2XBmcvmUuO0UG1XBkl18yBVmsd5PNjbj2Z7NfgiEkB3EG6ezYJ
+	lR8woXIbqchP8n/9t3A7a/ec3XClzrBsZsUJVlLJw9DYVMKq35v8h2kHrGuaIhNaBq7SJyysFvj4Y
+	VbW8fN6THS5icZ/sZHGw9/b76yDPhWg0YH7hPRx3d4kxMMgPZVaUjLRcIuPLT/tCzfBRuBtQnVSgA
+	gVI9NJPio+4brYcZx30FJ6uBhdCZcbV4m3/u7b64ykhgY06mCS30WY0kdO9OIbs0oeZPdtIy7nHwy
+	8xIlKTRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbxfm-000000061yl-1XNX;
-	Tue, 23 Jun 2026 09:44:02 +0000
-Received: from mail-westeuropeazon11010049.outbound.protection.outlook.com ([52.101.69.49] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1wbxjC-000000062Bh-3rdV;
+	Tue, 23 Jun 2026 09:47:34 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbxfj-000000061yL-1ZJP
+	id 1wbxj8-000000062AY-2ubT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 09:44:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nlInPGPB+ZfxRDfBWkJ34xZ5aMK66Za2SdFfBM20lfQh7kL0IkLf/vJQPdjmtgG7xfUt9tvZBSu9epmCUjgRm16ufr7+482I1owC3HNujNGQqDH8y7cfFskxWUqpRx6XKDGFmRccLk1B8z4YbKVfe0gbfQqsdfWYT8E7HylWbEXMt2AW5PGx5QYC4VbbDe46qOWOh+AJowo7v9MtmR8JDk0Rs5Voul1OhCLWCYkfXRT7sjvO67pxBz6ufWFGsEnSFyJscqOMRdGfWJjpXKZJvfP7JLqP0VPd5+0R2xNr3JdzEsKlNY9pRD+RtOOaDbJ+LqddqEybWvwCzZGMASr0dg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fzwEa75SVblGykfagU1zVBLhxmcBKPZum3qY/q9Q3pE=;
- b=e5KcQHP7NY3d/Y8i+3RFLhs7MlmcrspFP8dYm2ClsGF51ngEe2JS0hYnMHk8JvwSWICt1WUZR5A0V4rpW8xfBhzjQ+VwJ4DKNBIq31lXyNmFwvu7JNXsmbKYq865ZZwWWnkbMhs7TbNyMEod7vvMrme9gAaiWXto+XBLehz9AtQ7+W9UUaOsyAlB86aOlda6pbhOv8QFq7Cwq95mL5J9DxeOwHXPDxIzBRwnlTcfomnMUQz+PpS8x1kmwH3YcEEYwO61bgSE0YWlyXYtTQMjn7bkf0ueusgaSXlJyDcXS2TGIITz4FWCHdQIcM+R8v0vEJKOX/38WL8oT5yaZHXvuw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=fzwEa75SVblGykfagU1zVBLhxmcBKPZum3qY/q9Q3pE=;
- b=GQyioHy+c1A4xRDtR4HXv7otANck9wU7ttfGPQo9ALvWGuVSlq1WhkWQ5hivAawnUn0qQDK50Mbosqe8pulQZsQiQ0F2WOeGgA+rI0hHFNysiLs+sFMqoXV8WLoibmEpyW/1k/7ebjaZyn66kZZuFHMRn0drIBz5RYO54LSlWWbOse0gSwJkNUR3SnwC1kHbSyI9E60VSDKGv14xODHP6xPrFxYVaAiUEIIqhbTshdzJIxpjWUt300597K48Y/aicKK5cJAxJEUzO19c3cAD5pKXgT+dq8kVIwja8TN5oXo4HGEaKOEuL1QmzgkI0reLtMfAQwoyvGBsMUQD8e7Eaw==
-Received: from CW1P302CA0027.GBRP302.PROD.OUTLOOK.COM (2603:10a6:400:297::15)
- by AM0PR10MB3587.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:144::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.20; Tue, 23 Jun
- 2026 09:43:52 +0000
-Received: from AM1PEPF000252DA.eurprd07.prod.outlook.com
- (2603:10a6:400:297:cafe::4b) by CW1P302CA0027.outlook.office365.com
- (2603:10a6:400:297::15) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.71.16 via Frontend Transport; Tue, 23
- Jun 2026 09:43:52 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- AM1PEPF000252DA.mail.protection.outlook.com (10.167.16.52) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.159.10 via Frontend Transport; Tue, 23 Jun 2026 09:43:52 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.35; Tue, 23 Jun
- 2026 11:48:31 +0200
-Received: from [10.48.87.64] (10.48.87.64) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.35; Tue, 23 Jun
- 2026 11:43:51 +0200
-Message-ID: <46fce99d-9dd5-435b-95cd-86ed4771aa83@foss.st.com>
-Date: Tue, 23 Jun 2026 11:43:49 +0200
+	Tue, 23 Jun 2026 09:47:33 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id A7C32C6B382;
+	Tue, 23 Jun 2026 09:47:33 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 305EC601C2;
+	Tue, 23 Jun 2026 09:47:26 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 58FFE106C836A;
+	Tue, 23 Jun 2026 11:47:21 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1782208045; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=svsFrqtxSjp3C0yInI8YXCcDmQTS9+zcNrmpSt8j/lA=;
+	b=ZJQAUj4WYpKiXwM1Lh2zuSl2zjVUGkvlGUi/hINcYDl3nq3od6Mmqm5kaaTReqwnadylXd
+	4rNL8iat8yqlgv+EWAMnsMk3F1baN9K8fRS4pk+yZ4UXMohTlII+F25TwL4Nu9YSrJAMWD
+	CebgLxa/7ZZqIQB7h7dHuCAjo7kcP+2hmiGfZ6Y82rSkJYDV/ADGDelifIOVGyQi5Yb3ed
+	lMYCwnNnknuFADiHDBry/gDZpsrp5FRm1nRk38lh15FsOA4FbffKDKqhtwM5SsTeynUXCG
+	qt8ze3+n0Xgost3SqnXjFO/w2gDc/UA2FNvJ+PszAXIkRBYcbOiNkpy8KqwbyA==
+Date: Tue, 23 Jun 2026 11:47:20 +0200
+From: Alexandre Belloni <alexandre.belloni@bootlin.com>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, kernel@collabora.com,
+	linux-input@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Subject: Re: [PATCH v3 0/4] ROCK 4D audio enablement
+Message-ID: <202606230947201406cc92@mail.local>
+References: <20260408-rock4d-audio-v3-0-49e43c3c2a68@collabora.com>
+ <wE1x9P2vQlC8kihOSm9uOA@collabora.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] iio: stm32-dfsdm: Treat flags as booleans
-To: Jonathan Cameron <jic23@kernel.org>, Andy Shevchenko
-	<andriy.shevchenko@intel.com>
-CC: "Rob Herring (Arm)" <robh@kernel.org>, David Lechner
-	<dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, "Andy
- Shevchenko" <andy@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, <linux-iio@vger.kernel.org>,
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20260612215151.1886851-1-robh@kernel.org>
- <ai1dhJWb9vKqxEEe@ashevche-desk.local> <20260621151026.69714694@jic23-huawei>
-Content-Language: en-US
-From: Olivier MOYSAN <olivier.moysan@foss.st.com>
-In-Reply-To: <20260621151026.69714694@jic23-huawei>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.87.64]
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM1PEPF000252DA:EE_|AM0PR10MB3587:EE_
-X-MS-Office365-Filtering-Correlation-Id: cb799532-a9d2-4ac0-1d61-08ded10bef4f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|36860700016|23010399003|82310400026|1800799024|6133799003|56012099006|11063799006|4143699003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: uTgiYrW5OMUhs76rdxWHgh8vqjeDQbgJ85zYMhglDPz6nC+zFow7ah7JFHMjk3Cvw9CADuKshjfqEE0p9AWiYj8rpyNI2ihkimT0M4X04WX2DnKIzM9X711qQNw+NCGTmGNA17V2BmyD4DBHuRTsf67IyQ5L3YiiOIHqD3yf7IXJwofESlk9kLtjomki4c5to4lVMIiwZbtkpviUfiim4FUDjQ0JGGG4fs6AYGlfT+WVuaH3rHExrNJKxFtQTrPng0uoDNkJy4kb4VIpy9HIR0hSFyJCrcVmfWz0BUcxfjbxIUvaQkOZI3DpK67jKh40qUCcA6ssm8G5gJQPYy9xPZZyW+/w75Mc7siSbm+BNuhVukQ+7Cz153yi0c5fWeCS/2MpZJrRD4+KYLXQPfUh4Tvc5CbTHgbccR4Li0bmZ0dpkVGq9EDWzlaXem95U3IGbWRSU+ut39hgd2XLy4byQTq3yF6mz7920W1uI2ZVz0ytUq3ekehA8Hpj7zUAVWshO3CLmbbYxOPxvzt+kWDvswBQSjSZeKEDXuztAE2DfIboD2kVplS8XTeFINnm3AOOuFDcC5BylmXqS/uxuxebDsLZ31zrVhk9IQJXItcYfpZhf2suXh85ZoBpmIZMnlYrud4B+ae/Jwneiix428ofeBm2at0NdgiVdeDcUq7KFmJpCYFOe2eB57NR8hFycBVEvrsat0Mk1iR04f0Ec20FNg==
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(36860700016)(23010399003)(82310400026)(1800799024)(6133799003)(56012099006)(11063799006)(4143699003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: eYFI6jQmZ7osDd8wtC/j+X1GK/PhcCscAawF6J0uyab6o8gxPTYBmfv2FBw6AZ9cYqqPTwUBj/KIoUTM+IXS8oqjQYHUUcOOG9gyisg14Qh+v+sqgch7/5yO3Cm1NOgHbwjHez99ZTkW74x2OYLRG9yerAvxiiAX6CCJrqVZLxSPv6zCNgJA+wO2Dg/LfFQ5R2tS+jRFBmdmNyqFJ4uYewLxH47qxzGJbxaYgLjxPne4iTdZ0UE6ua/Z8lm/Q9luRpfrQr8GCxGny8CorU64l86Sx3MBT31+b0wo2khEPJ24j19YrHqDMJYHO+BFFZLwHZWQ8SllXJBTvqRVDErj/B8LUQms2WtZKnwzZHiVYdI3SBTMK8yuEzJhL0WZZp70HrO64oIp3IafJikDa8ED6FV5ar4rvvIX/AJB439X27gg+x9DaXUimpTI8LwlMHxj
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jun 2026 09:43:52.2098
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: cb799532-a9d2-4ac0-1d61-08ded10bef4f
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM1PEPF000252DA.eurprd07.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR10MB3587
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <wE1x9P2vQlC8kihOSm9uOA@collabora.com>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_024359_828576_BEC30B6F 
-X-CRM114-Status: GOOD (  26.13  )
+X-CRM114-CacheID: sfid-20260623_024730_902996_4AAEE1D0 
+X-CRM114-Status: GOOD (  33.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,82 +82,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andy, Jonathan,
+Hello Nicolas,
 
-Sorry for the late answer.
+I guess Dmitry is the one that would take patches 1 to 3. You should
+probably resend once the merge window has closed.
 
-On 6/21/26 16:10, Jonathan Cameron wrote:
-> On Sat, 13 Jun 2026 16:39:16 +0300
-> Andy Shevchenko <andriy.shevchenko@intel.com> wrote:
+On 11/05/2026 18:21:40+0200, Nicolas Frattaroli wrote:
+> Hi Alexandre, and other maintainers,
 > 
->> On Fri, Jun 12, 2026 at 04:51:50PM -0500, Rob Herring (Arm) wrote:
->>> The "st,adc-alt-channel" and "st,filter0-sync" properties are
->>> documented as boolean flags. The legacy parser read them as integer
->>> cells, unlike the child-node parser which already checks only for
->>> presence.
->>>
->>> Use presence and boolean helpers so both parsers follow the binding and
->>> the property type checker no longer reports the flags.
->>
->> For the patch
->> Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
->>
->> However one interesting remark below.
->>
->> ...
->>
->>> -	ret = of_property_read_u32_index(indio_dev->dev.of_node,
->>> -					 "st,adc-alt-channel", chan_idx,
->>> -					 &df_ch->alt_si);
->>
->>> +	df_ch->alt_si = of_property_present(indio_dev->dev.of_node,
->>
->> I believe it still has another (serious?) issue. We usually don't use indio_dev
->> for device properties. It's not a device that is described in DT.
->> It seems the only driver in IIO that does that. Note, I haven't conducted any
->> deeper research, it might be (however I'm quite in doubt) that this is correct
->> use and one device registers a few indio_dev:s.
+> On Wednesday, 8 April 2026 19:49:38 Central European Summer Time Nicolas Frattaroli wrote:
+> > The ROCK 4D uses an ADC input to distinguish between a headphone (i.e.,
+> > no mic) and a headset (i.e., with mic). After some searching, it appears
+> > that the closest we can get to modelling this is by sending a particular
+> > switch input event.
+> > 
+> > So this series modifies the adc-keys bindings, extends the adc-keys
+> > driver to allow sending other input types as well, and then adds the
+> > analog audio nodes to ROCK 4D's device tree.
+> > 
+> > It should be noted that analog capture from the TRRS jack currently
+> > results in completely digitally silent audio for me, i.e. no data other
+> > than 0xFF. There's a few reasons why this could happen, chief among them
+> > that my SAI driver is broken or that the ES8328 codec driver is once
+> > again broken. The DAPM routes when graphed out look fine though. So the
+> > DTS part is correct, and I can fix the broken capture in a separate
+> > follow-up patch that doesn't have to include DT people.
+> > 
+> > Another possibility is that my phone headset, despite being 4 rings and
+> > having a little pin hole at the back of the volume doodad, does not
+> > actually have a microphone, but in that case I'd still expect some noise
+> > in the PCM. Maybe it's just shy.
+> > 
+> > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> > ---
+> > Changes in v3:
+> > - bindings: use unevaluatedProperties instead of explicitly mentioning
+> >   linux,input-type.
+> > - Link to v2: https://lore.kernel.org/r/20251215-rock4d-audio-v2-0-82a61de39b4c@collabora.com
+> > 
+> > Changes in v2:
+> > - Drop HDMI audio patch, as it was already merged.
+> > - adc-keys: rename "keycode" to "code".
+> > - adc-keys: make the keycode (now "code") local a u32 instead of an int
+> > - adc-keys: only allow EV_KEY and EV_SW for now. Rename patch
+> >   accordingly.
+> > - adc-keys: Add another patch to rework probe function error logging.
+> > - Link to v1: https://lore.kernel.org/r/20250630-rock4d-audio-v1-0-0b3c8e8fda9c@collabora.com
+> > 
+> > ---
+> > Nicolas Frattaroli (4):
+> >       dt-bindings: input: adc-keys: allow all input properties
+> >       Input: adc-keys - support EV_SW as well, not just EV_KEY.
+> >       Input: adc-keys - Use dev_err_probe in probe function
+> >       arm64: dts: rockchip: add analog audio to ROCK 4D
+> > 
+> >  .../devicetree/bindings/input/adc-keys.yaml        | 17 ++--
+> >  arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts    | 90 ++++++++++++++++++++++
+> >  drivers/input/keyboard/adc-keys.c                  | 88 ++++++++++-----------
+> >  3 files changed, 147 insertions(+), 48 deletions(-)
+> > ---
+> > base-commit: 8de395f35e79d9168a78504fed495578ec7bac52
+> > change-id: 20250627-rock4d-audio-cfc07f168a08
+> > 
+> > Best regards,
+> > --  
+> > Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> > 
+> > 
 > 
-> It is curious.  The registration sequence in this driver is complex, but I'm not
-> seeing anything that sets the fwnode for the struct iio_dev->dev before calling
-> the init() callbacks that end up in this code.  It is set later by iio_device_register()
-> (iirc that has something to do with consumers turning up later).
+> What's the path forward here? All the patches are reviewed, but it
+> has been almost a month without them being applied now.
 > 
-> St folk could you take a look at this and see what we are missing
-> if it does currently work?
+> Which tree(s) would this be applied to, and who should I poke?
 > 
-> For now I'll apply this patch but might need to drop it if a fix clashes
-> with it.
+> Thanks :)
 > 
-> Thanks,
+> Kind regards,
+> Nicolas Frattaroli
 > 
-> Jonathan
 > 
 > 
 
-I confirm that the current legacy path is functional
-(With the st,adc-alt-channel property fix applied)
-
-It currently works because the driver initializes np from dev->of_node 
-in probe, and that value is then used in init callbacks.
-
-I agree that this approach is not robust, as it depends on 
-initialization sequencing and on using an IIO object that is not the DT 
-owner object. I will prepare a patch to use the DT device directly as 
-the single source for DT properties.
-
-I also suggest keeping a fallback path for st,adc-alt-channel so we do 
-not break legacy DTs that have not yet migrated to the new binding.
-I prepare this also.
-
-BRs
-Olivier
-
-> 
->>
->>> +					    "st,adc-alt-channel");
->>
-> 
-> 
-
+-- 
+Alexandre Belloni, co-owner and COO, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
