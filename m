@@ -4,69 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8686ECDB46F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 13:52:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCB37CDB46F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 13:53:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F77g4j7YjD5E5qC6B2ZdRa5uX5Miz2j/ZR1CSt9++g4=; b=XEv1KXEE3f1srQ2gtU/b+HuZJK
-	6bWWK0lbMmUVPNc3Vv3X+V0nqyxxCH4qfw/0cb/K2eCH5ApAzr/TEENypx4HBe2Y0igSaCNaexnsv
-	gVzcbWPRrc4pbtzelPT3MaATsNQ6epjCb9oI822Ih1wYqRagQAAoaA6dj78391KKSA6zl0oLgWLM2
-	usxyTNr3phPZuScYlzY13zTmMn1sbz/PlHzgR/c115QUMCSkn31KvpPkMNygoCSnbDwUrtMZfYGIf
-	ExJwtRJPsPZta7yqhmsVYmnxMADTi6lbm/96IPQ9H3C0OmEtJFmokIeBKKEWF90zfg5OF1PGwxMPl
-	gRN5smSQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qZG8O0FTKMGqPVn5P9rMKTqMAVjS5M0CRnVpJwaU138=; b=Ht/gysFHdrhSrVcDoEcK7W/wFM
+	+teyNaODmesjXBNjnpZFB7ZQXiHK8LJT6gxniklFue7eDTc8DKO+MZ6hYP0tJPjxl/eC57G2vJGaQ
+	fCHuBgmfD9udAGmNPX0T317ZLbUDllM0gy41g3kTpdhEY8E0hSuKsY60QjWZIkrXqFWweVYMyRCGa
+	u3d3G0Wu1DzQYJia3iaQN8AeSh3x6HiALFSgRcomdTXtc+f8mXA9S3av90FGbDHfKrD8eDj7HmBBa
+	6o0vdV+yxsZk8YSAYro+z7IrakBxf0/MhBKssmNPJGKN+KUblMZKmZeh9GXlouXnreri4ROZXHGSn
+	kW7AcoiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc1YL-00000006NEU-3ezX;
-	Tue, 23 Jun 2026 13:52:37 +0000
-Received: from out-180.mta0.migadu.com ([2001:41d0:1004:224b::b4])
+	id 1wc1Z1-00000006NKY-0Mik;
+	Tue, 23 Jun 2026 13:53:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc1YI-00000006NDx-3aOm
+	id 1wc1Yz-00000006NJR-07uW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 13:52:36 +0000
-X-Forwarded-Encrypted: i=1; AFNElJ9zs/itlzuDMkDZXRkoij1P1FgHBb6ZbRAbxf1d3Hlm9fjQtLUwEX44hQHwvEM6t1CQ82RM3AsugpVN6HekDAnT@lists.infradead.org
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1782222750;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=F77g4j7YjD5E5qC6B2ZdRa5uX5Miz2j/ZR1CSt9++g4=;
-	b=gVzTRPNu0aFxDov8CPyoT60I5VkmkLabRcx+yCJKozDsCzoDT3lImRJbXkBdBFxD6g20ec
-	nXylqyBNKIONfXXI7vC7MofWMzEy7fiwDRtWEKlF6XDyvmes7kcv/IC+1wr5/gCB2sk5Ks
-	OSjAFt9z9nDDmo2UmpQbH/009zw7Ufc=
-X-Gm-Message-State: AOJu0YwdnZqosNlbCk3B3lH2S6FjdTJeuPzcB7E8S4D08HwOn8q0Eb+i
-	o2SHrRUSzw+du3H7Fjpcxk30brNGiuPspFrLmGr+8phyC15fFYlhKUUbuv//RHLzzFHrYj0axoQ
-	Iwi0FRy+ahrfw+lC9MTZ1ouUphFu96FfNlxiIFz0U
-X-Received: by 2002:a05:622a:411b:b0:519:df4f:6c93 with SMTP id
- d75a77b69052e-51a5255375emr10017941cf.20.1782222746042; Tue, 23 Jun 2026
- 06:52:26 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260622190701.2039766-1-fuad.tabba@linux.dev>
- <20260622190701.2039766-2-fuad.tabba@linux.dev> <86tsqtqu9u.wl-maz@kernel.org>
-In-Reply-To: <86tsqtqu9u.wl-maz@kernel.org>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Tue, 23 Jun 2026 14:51:49 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTxn8W=KYqTeqs-ZTw-SBD9tH0zUz_O9rTHsq3M7ELXn_w@mail.gmail.com>
-X-Gm-Features: AVVi8CebMVsOKX8XmdbtdzDxdkE6ig5bh0MmMzjJbv-f8yL8AKg1mgeDyXjOPkk
-Message-ID: <CA+EHjTxn8W=KYqTeqs-ZTw-SBD9tH0zUz_O9rTHsq3M7ELXn_w@mail.gmail.com>
-Subject: Re: [PATCH 1/2] KVM: arm64: Fix sign-extension of MMIO loads
-To: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>, 
-	Christoffer Dall <christoffer.dall@linaro.org>, Victor Kamensky <victor.kamensky@linaro.org>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	Tue, 23 Jun 2026 13:53:17 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3FCD460208;
+	Tue, 23 Jun 2026 13:53:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E98421F000E9;
+	Tue, 23 Jun 2026 13:53:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782222796;
+	bh=qZG8O0FTKMGqPVn5P9rMKTqMAVjS5M0CRnVpJwaU138=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=hz4o+8P53m6+5g1JZ/3AuhJv/7iMNsCH85Zb4nEg1DjSbRjCU0fShKQUk4cBkcy6W
+	 wd0HNKQCA+qW6koNGTgXcZORbcdJShW2eVUyZCD9FVUKiMU0T1VP2ko9ZGJw68zyKt
+	 628nJfgWvilWdw2QOK9DOOuFVBUR0ez4PapBv3aFomirgVJeuczRlp3SmO+WSiW29k
+	 zcMTFaECteLYPl3KfIeFxV2nF545OPIIHq8wGOineeggkXP8lx4O03+p61eRaw2yeY
+	 pgm9HOW91sEHQ5qaZ5RvWlo8+RZooUXFjH6haJb42nV1QDfGcSOY+69GkniSoruJuP
+	 Bqt9Cl7Voe5cA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wc1Yw-0000000FJ27-043g;
+	Tue, 23 Jun 2026 13:53:14 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: Oliver Upton <oupton@kernel.org>,
+	Bradley Morgan <include@grrlz.net>
+Cc: Fuad Tabba <tabba@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_065235_627917_3A6925C1 
-X-CRM114-Status: GOOD (  23.96  )
+Subject: Re: [PATCH] KVM: arm64: account pKVM reclaim against the VM mm
+Date: Tue, 23 Jun 2026 14:53:11 +0100
+Message-ID: <178222278590.523236.18181071715501850418.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260621213155.6019-1-include@grrlz.net>
+References: <20260621213155.6019-1-include@grrlz.net>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: oupton@kernel.org, include@grrlz.net, tabba@google.com, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,75 +88,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 23 Jun 2026 at 14:08, Marc Zyngier <maz@kernel.org> wrote:
->
-> On Mon, 22 Jun 2026 20:07:00 +0100,
-> Fuad Tabba <fuad.tabba@linux.dev> wrote:
-> >
-> > A sign-extending load from MMIO (LDRSB, LDRSH, LDRSW) delivers a
-> > zero-extended value: in kvm_handle_mmio_return(), vcpu_data_host_to_guest()
-> > masks the data to the access width after sign-extension, stripping the
-> > sign bits.
-> >
-> > Move vcpu_data_host_to_guest() ahead of sign-extension so the width mask
-> > runs first. trace_kvm_mmio() moves with it and keeps reporting the raw
-> > access-width data.
-> >
-> > Fixes: b30070862edbd ("ARM64: KVM: MMIO support BE host running LE code")
-> > Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
-> > ---
-> >  arch/arm64/kvm/mmio.c | 7 ++++---
-> >  1 file changed, 4 insertions(+), 3 deletions(-)
-> >
-> > diff --git a/arch/arm64/kvm/mmio.c b/arch/arm64/kvm/mmio.c
-> > index e2285ed8c91de..d1c3a352d5a22 100644
-> > --- a/arch/arm64/kvm/mmio.c
-> > +++ b/arch/arm64/kvm/mmio.c
-> > @@ -126,6 +126,10 @@ int kvm_handle_mmio_return(struct kvm_vcpu *vcpu)
-> >               len = kvm_vcpu_dabt_get_as(vcpu);
-> >               data = kvm_mmio_read_buf(run->mmio.data, len);
-> >
-> > +             trace_kvm_mmio(KVM_TRACE_MMIO_READ, len, run->mmio.phys_addr,
-> > +                            &data);
-> > +             data = vcpu_data_host_to_guest(vcpu, data, len);
->
-> This helper is in charge of the endianness of the read from the
-> guest's PoV. How can the sign-extension (which happens from the host's
-> perspective) correctly work if it takes place after the byte swapping?
->
-> To me, the real issue appears to be in the that helper, which swaps
-> the data based on the size of the access instead of the width of the
-> register.
->
-> Or am I once more completely confused with the endianness crap?
+On Sun, 21 Jun 2026 21:31:55 +0000, Bradley Morgan wrote:
+> Protected guest faults charge long term pins to the VM's mm. Teardown
+> can run later from file release, where current->mm may be unrelated.
+> 
+> Drop the charge from kvm->mm instead.
+> 
+> 
 
-Endianess always confuses me too :D
+Applied to fixes, thanks!
 
-My reading of the ARM ARM is that the byte reversal is keyed on the access
-size there too. It lives in Mem{size}, with the register width handled
-separately by SignExtend(regsize):
-
-    data = Mem[address, 2];        // byte-reversed by the access size, BE
-    X[t] = SignExtend(data, regsize);
-
-So vcpu_data_host_to_guest(..., len) swapping by len matches the Mem-side
-reversal. Swapping by the register width would reorder bytes that were never
-loaded. An LDRSH into Wt reads 2 bytes but would bswap 4: the halfword
-reaches the helper as 0x0180 host-native, cpu_to_be32 turns it into
-0x80010000 instead of the 0x8001 cpu_to_be16 gives, and it never sign-extends
-to 0xffff8001.
-
-If that reading holds, none of the helper's ops are individually wrong, and
-the only bug was the order, with the sign-extend running before the swap and
-the width mask then dropping it. But I've gone round in circles on endianness
-before (to say the least), so please say if I've done it again.
+[1/1] KVM: arm64: account pKVM reclaim against the VM mm
+      commit: d098bb75d14fde2f12155f1a95ec0168160867ce
 
 Cheers,
-/fuad
 
->
->         M.
->
-> --
-> Without deviation from the norm, progress is not possible.
+	M.
+-- 
+Without deviation from the norm, progress is not possible.
+
+
 
