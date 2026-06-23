@@ -4,73 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DF4FCD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 11:57:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00128CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 11:59:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=JyqaO8kPsSCsSS6QqHxsmEpq9UNz19yAQVVRi9X8TRg=; b=lXG9RLnyJ10TABccYSj+c2+5A5
-	2F1LJdby0XYsY9D2NAesVJi7F2CZ7aocUBLCkM4UYw86z4TEXj4sOKb8WBpcupeYCF2fcLL6CBjen
-	BLN+opi4cWeAsEDWc27xEe5xF2MHFh4DB4bTM7coTRmJzneF55cVPi766U68+1qTJG/wTR5YUqaP8
-	sH/W2ZO0KPPsWSWCHyYFbkLzO+L/byDojwVXAA1r5JfQVMtMzQJHOWKXBWRO0YUKjjLYeTOSTkQiJ
-	ZNsrjepUvmoInGzn/E02T8fOLBwxKCHnOSumhtlo5x4TW8cUNhuELVi+snf5k0VFb2KgGQNkM6s5l
-	NqGOMUxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rmqc6zox7kUPN0doI4Ei7Wa2736WYuekcTFYBkdGOa4=; b=4jEmK9OvL5PxsbRSCZ2bw05Oya
+	oPd3z/a/Fhzl5VsBsnxZLUaJa8qLFZ763OvVEcg+t8er13CyRrJjr/+J5xCrshtl7uyhVSRgSUQGc
+	mVEVxSEXk+W492P80VX9JhnE0/B1gW6ixerIMci9/G1NtcvZfzE+sWuz6Hs0lk75DIUeZRuL5wLEu
+	TwUHC56Oh72Ub0okFOl1kBTFlNtaBG6n3QkcOhGm/cmeMBHA/3H70OMnOWiDm1jgksb6f0rqBnSYK
+	G8hwn+wR32cEqCou7lcDVED8icwXzKl9tY0IvNjQx4pBc9alTXsh0+pajTcOV+OuXwtpBtGAisISx
+	Wkg7hm1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbzlD-00000006Dyk-1XPS;
-	Tue, 23 Jun 2026 11:57:47 +0000
-Received: from m16.mail.163.com ([220.197.31.3])
+	id 1wbzmW-00000006EAd-2ajP;
+	Tue, 23 Jun 2026 11:59:08 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbzlB-00000006Dxt-0Zoe
+	id 1wbzmV-00000006EA7-3GR7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 11:57:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=Jy
-	qaO8kPsSCsSS6QqHxsmEpq9UNz19yAQVVRi9X8TRg=; b=P6OoiXkLr9gihEQiB4
-	tUtBNanoJzvJcaXZ0p8MyTjMR94VKYZLHu/xfWkkqHLr4MkweRWwkp9ZkLbE07rL
-	jyfCG5SZXhoLoW7XO3iqbqVvSM5A+MLbjPYQnsL26rhkXrnDmRwp4h25TZpfr22T
-	W6BTsvZ4ehEcJsrh6Zpa3SBLI=
-Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wDXvxObdDpqHqw_FQ--.64734S2;
-	Tue, 23 Jun 2026 19:57:17 +0800 (CST)
-From: Haoxiang Li <haoxiang_li2024@163.com>
-To: andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	Steen.Hegelund@microchip.com,
-	daniel.machon@microchip.com,
-	UNGLinuxDriver@microchip.com,
-	kees@kernel.org,
-	horms@kernel.org,
-	bjarni.jonasson@microchip.com,
-	lars.povlsen@microchip.com
-Cc: netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Haoxiang Li <haoxiang_li2024@163.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] net: sparx5: unregister blocking notifier on init failure
-Date: Tue, 23 Jun 2026 19:57:14 +0800
-Message-Id: <20260623115714.2192074-1-haoxiang_li2024@163.com>
-X-Mailer: git-send-email 2.25.1
+	Tue, 23 Jun 2026 11:59:07 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 396D542A8A;
+	Tue, 23 Jun 2026 11:59:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53C4D1F00A3A;
+	Tue, 23 Jun 2026 11:59:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782215947;
+	bh=rmqc6zox7kUPN0doI4Ei7Wa2736WYuekcTFYBkdGOa4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=P7KgAgew4Eyd8hZXRVB/BXrmiiQlM+/aVpMM0o1iDz0XZFHsUZoAPZFWtx541OekW
+	 KXc4X3HeHxHtM+WH+Rb71Uf54xSC0/PJpnYF8u0KpicR7Jypsu1P39kfywjvBY70Da
+	 FEXqkUnUxRQ/qlQFAGNW7nWDfNOauenYvELgwVD0Y3uffYxLT0MbKeNx0gJRSiCyLN
+	 UPh3fle4WCT2ejc34rZbtGkHGfDNm1uCiarb40SXRxGf2zQ5mTBmVc27M4YVni+8zg
+	 vUXJwQ4wNioWBTrxgjk/diwdikj+Lrhqt7pBlOWuAEnco66x3flVAxpIU4+aEn28h6
+	 xinZUqbFblAxg==
+Date: Tue, 23 Jun 2026 12:59:03 +0100
+From: Will Deacon <will@kernel.org>
+To: Joshua Liu <josliu@google.com>
+Cc: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] arm64: Avoid eager DVMSync reclaim batches with C1-Pro
+ SME erratum
+Message-ID: <ajp1B0FIhtQsOitz@willie-the-truck>
+References: <20260610104829.1157497-1-catalin.marinas@arm.com>
+ <20260622125227.877198-1-josliu@google.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wDXvxObdDpqHqw_FQ--.64734S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7Wry3Gr4rZr13GF13AFWxCrg_yoW8XF43pa
-	y5uFykCr18Kr45u3Wjkw18AFyDWw17KrWUur1ft3s0ga45KFZ3Ca4UtFyYqr10k3sruasI
-	qayDZa48u3yDC3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0zibdbUUUUUU=
-X-Originating-IP: [240e:604:311:e68d:298a:1bbc:177b:53c8]
-X-CM-SenderInfo: xkdr5xpdqjszblsqjki6rwjhhfrp/xtbCxR1t22o6dJ2TwAAA3E
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_045745_595089_9FCBC11B 
-X-CRM114-Status: UNSURE (   9.11  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260622125227.877198-1-josliu@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,41 +69,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-sparx5_register_notifier_blocks() registers the switchdev blocking
-notifier before allocating the ordered workqueue. If the workqueue
-allocation fails, the error path unregisters the switchdev and netdevice
-notifiers, but leaves the blocking notifier registered.
+On Mon, Jun 22, 2026 at 12:52:27PM +0000, Joshua Liu wrote:
+> On Wed, Jun 10, 2026 at 11:37 AM Catalin Marinas <catalin.marinas@arm.com> wrote:
+> > Introduce the sme_active_cpus mask tracking which CPUs run in user-space
+> > with SME enabled and use it for batch flushing instead of accumulating
+> > the mm_cpumask() of the unmapped pages.
+> > [...]
+> > The dsb() in arch_tlbbatch_add_pending() -> sme_dvmsync_add_pending()
+> > did introduce a performance regression for kswapd. This patch restores
+> > the original behaviour with the barrier only issued when the TLB batch
+> > is flushed. The trade-off is that the IPIs are now sent to all CPUs
+> > running with SME enabled at EL0 even if the reclaimed pages do not
+> > belong to SME tasks. This is acceptable for current SME deployments.
+> 
+> Profiling shows this solution has robust performance for common
+> workloads and is the best among a few approaches we tested with Catalin,
+> so we are happy to go with this solution.
+> 
+> Some sidenotes: for certain edge cases we still observe performance
+> regression, specifically when a workload pegs multiple cores with SME
+> status threads.
+>
+> Tested-by: Joshua Liu <josliu@google.com>
 
-Add a separate error label for the workqueue allocation failure path and
-unregister the switchdev blocking notifier there.
+Thanks, Joshua, I'll pick this up at -rc1.
 
-Fixes: d6fce5141929 ("net: sparx5: add switching support")
-Cc: stable@vger.kernel.org
-Signed-off-by: Haoxiang Li <haoxiang_li2024@163.com>
----
- drivers/net/ethernet/microchip/sparx5/sparx5_switchdev.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_switchdev.c b/drivers/net/ethernet/microchip/sparx5/sparx5_switchdev.c
-index 644458108dd2..dac4dd833127 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_switchdev.c
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_switchdev.c
-@@ -765,11 +765,13 @@ int sparx5_register_notifier_blocks(struct sparx5 *s5)
- 	sparx5_owq = alloc_ordered_workqueue("sparx5_order", 0);
- 	if (!sparx5_owq) {
- 		err = -ENOMEM;
--		goto err_switchdev_blocking_nb;
-+		goto err_alloc_workqueue;
- 	}
- 
- 	return 0;
- 
-+err_alloc_workqueue:
-+	unregister_switchdev_blocking_notifier(&s5->switchdev_blocking_nb);
- err_switchdev_blocking_nb:
- 	unregister_switchdev_notifier(&s5->switchdev_nb);
- err_switchdev_nb:
--- 
-2.25.1
-
+Will
 
