@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BDCCCD4F26
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDACACDB470
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 08:06:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,58 +12,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dw5fW7mPp1mZa6nLnYAvn5e0kvkO1A/ra0LkKGeobuU=; b=VD74/hJ/9r9/Axidl1DGJxWlA6
-	lDOVVepQE37Coul8Wr4EW8BSIWS/N3NV9q9zoPEfcE35ii5KmhGDXo1m2gZf+lLUW7eUsOCIVDlo2
-	dc2x2vv86zbc06T/IZ7ZQOcJDgG0g1KZlk5QntpsSfJhHoiwkmpdqKP+f0n3/GPkHownrgOROOJ6O
-	+PAbAAE36InYb31xkrcz3kqurbRC81djA9IFN7cDW9BKlceY56GxK2J2R5x4WYBAKZOkY/4Fz2gib
-	xJk6S8DPcUA6+/kAdVRsKqy5KNgpNbv0oFLBcLB3PAL/TeklpD8QKbkk69Dwe7JYPjNDaH2pobSYZ
-	KCIIaMEQ==;
+	bh=qb/0L+XWevZKmJgu62aG/pLlK7I7Cy/I4R4hq95xPRg=; b=t0lB79YZNsK+0EVTtYyW2osi4h
+	XJ/XkMrj0qRNpA/OiAsH9GNUC2UxNzLkJE4KX+cYfnp7vQ0dBbO7icc7wixWCjAbX8aPtPiqaBmxD
+	MLngotajp7wtIWllY81PxRg//hOpAA4vk7hBOdX2Due7/BhWNUWC0w2dhO/uSk5bdGPqcxnltj91F
+	aXENccFzCHhwEbG3xNRSpfnrHYioDouy2KSjUYeYwBwkGCTaRrYTRZO5j6x/lAsEICFg57LJ3KkQQ
+	uAZ337D15ah4rpIwcYYEs+uiXSOJ3y1SHPTJ1HeIJFHfqpWEMF0MfAnfwTMJH710Y2TAkeOztLyle
+	cFylQFzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbw9b-00000005saX-2bSa;
+	id 1wbw9b-00000005saD-1zRe;
 	Tue, 23 Jun 2026 08:06:43 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbw9Z-00000005sZ6-1EZ2;
-	Tue, 23 Jun 2026 08:06:42 +0000
+	id 1wbw9Y-00000005sZ4-2KHd;
+	Tue, 23 Jun 2026 08:06:41 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1782201998;
-	bh=2ModYSRenKENVNmwQIj/emlMitTe1H/N34OtBHiupCw=;
+	s=mail; t=1782201997;
+	bh=CFLoo+JElQcgGHIJ+5atyHGSTdHrRYHY0TXbGVskXGE=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=DMNcKRebgTvdvGNXIb4BUldrfwuq9bfEaX3+xBZ/8/IIdOXYhMgdriWi/BPF0EBym
-	 s/iFQsUsyLwkwPgjMSJPdcUYMNx/E+J/CNcPQopJvfqcn80J8fDBShN9U2xvvo33tK
-	 ACE3yMrIyZCopEKVkAEbjqAZ18EuKM45KLOZu7hxm+8B1o+GWDO/Ks57CM4TdopDdP
-	 tj24t/J6WdHg4Axc8i7b3HBjHEVZzTo7fqtHlzpS2m9qjDTc3ECR1LhQLGut3n/d11
-	 Bn05pJt5IWODSUrNVQnh39TJV78cWXHUiIqCdE790xUoamf6z5ph0FJi4vydC1Sqsp
-	 iL9Oe1JTagVzQ==
+	b=ATvV7J3PTiZSoi1eS2Z0yf2PLjDqV+7SoTJH2wfImUJxkhPq9Mt6uh5KaKTYMpil8
+	 EX2II1oU//x4nZgLUJot2ljtla8+/IJDMG0jypRnQDgN7cqk6g6e4nRMw+ulk2V67/
+	 i42quZxP9GleHrukZo+loXRmxHOmE2MtnkhWWY2dJ5X9bGIMoLm033l10nxS/qwkoG
+	 1vJfRl4HvceYfi5bGNEUGqmw1AJSbSNVo4et+8w/Mh13hA3jDcpGPIZMfv8H2NWO7g
+	 4Ids1AOXreutLps+CXnaDBAv1ScEPR+K9oRBuNkxRzoRt3Abvf9yNOpfGdnSavP48x
+	 KBlwfOwPgANsw==
 Received: from [100.64.1.21] (unknown [100.64.1.21])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8A3D317E0E64;
-	Tue, 23 Jun 2026 10:06:38 +0200 (CEST)
-Message-ID: <719d4716-8123-43cd-a646-118684565c6e@collabora.com>
-Date: Tue, 23 Jun 2026 10:06:38 +0200
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B91AE17E023C;
+	Tue, 23 Jun 2026 10:06:36 +0200 (CEST)
+Message-ID: <74f3eec2-278a-417e-b2af-42cb4c38fa94@collabora.com>
+Date: Tue, 23 Jun 2026 10:06:36 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] soc: mediatek: mtk-infracfg: Export symbols for DDK
- modules
-To: Justin Yeh <justin.yeh@mediatek.com>,
+Subject: Re: [PATCH 0/2] pmdomain: mediatek: Enable module support for
+ mtk-scpsys
+To: Justin Yeh <justin.yeh@mediatek.com>, Ulf Hansson <ulfh@kernel.org>,
  Matthias Brugger <matthias.bgg@gmail.com>
 Cc: Project_Global_Chrome_Upstream_Group@mediatek.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-References: <20260529101613.55697-1-justin.yeh@mediatek.com>
- <20260529101613.55697-3-justin.yeh@mediatek.com>
+ linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20260603051200.1163226-1-justin.yeh@mediatek.com>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <20260529101613.55697-3-justin.yeh@mediatek.com>
+In-Reply-To: <20260603051200.1163226-1-justin.yeh@mediatek.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_010641_489397_EF9CDFC4 
-X-CRM114-Status: GOOD (  19.90  )
+X-CRM114-CacheID: sfid-20260623_010640_792283_AA72544B 
+X-CRM114-Status: GOOD (  21.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,89 +77,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/29/26 12:16, Justin Yeh wrote:
-> Export mtk_infracfg functions to allow other DDK modules (like
-> mtk-scpsys) to use bus protection APIs.
+On 6/3/26 07:11, Justin Yeh wrote:
+> This series enables the MTK_SCPSYS driver to be built as a loadable
+> module for GKI (Generic Kernel Image) compliance.
 > 
-> Changes:
-> - Add EXPORT_SYMBOL_GPL for set/clear bus_protection and init functions
-> - Remove static and __init qualifiers from mtk_infracfg_init
-> - Add mtk_infracfg_init() declaration to header
-> - Remove postcore_initcall, let dependent modules call init explicitly
-> - Add #include <linux/module.h> for export macros
-> - Add MODULE_LICENSE("GPL") metadata
+> This series depends on the following patches currently under review:
+>    - soc: mediatek: Allow MTK_INFRACFG to be built as module
+>    - soc: mediatek: mtk-infracfg: Export symbols for DDK modules
 > 
-> This allows mtk-infracfg to be built as a DDK module (.ko) and its
-> functions to be used by other modules like mtk-scpsys for power domain
-> management.
+> The MTK_SCPSYS driver depends on MTK_INFRACFG being available as a
+> module, which is enabled by these prerequisite patches.
 > 
-> Signed-off-by: Justin Yeh <justin.yeh@mediatek.com>
-> ---
->   drivers/soc/mediatek/mtk-infracfg.c   | 9 +++++++--
->   include/linux/soc/mediatek/infracfg.h | 1 +
->   2 files changed, 8 insertions(+), 2 deletions(-)
+> Patch 1 converts the Kconfig option from bool to tristate, allowing
+> the driver to be built as either built-in or as a module.
 > 
-> diff --git a/drivers/soc/mediatek/mtk-infracfg.c b/drivers/soc/mediatek/mtk-infracfg.c
-> index 2acf19676af2..8a88805468cc 100644
-> --- a/drivers/soc/mediatek/mtk-infracfg.c
-> +++ b/drivers/soc/mediatek/mtk-infracfg.c
-> @@ -7,6 +7,7 @@
->   #include <linux/jiffies.h>
->   #include <linux/regmap.h>
->   #include <linux/mfd/syscon.h>
-> +#include <linux/module.h>
->   #include <linux/soc/mediatek/infracfg.h>
->   #include <asm/processor.h>
->   
-> @@ -43,6 +44,7 @@ int mtk_infracfg_set_bus_protection(struct regmap *infracfg, u32 mask,
->   
->   	return ret;
->   }
-> +EXPORT_SYMBOL_GPL(mtk_infracfg_set_bus_protection);
->   
->   /**
->    * mtk_infracfg_clear_bus_protection - disable bus protection
-> @@ -73,8 +75,9 @@ int mtk_infracfg_clear_bus_protection(struct regmap *infracfg, u32 mask,
->   
->   	return ret;
->   }
-> +EXPORT_SYMBOL_GPL(mtk_infracfg_clear_bus_protection);
+> Patch 2 adds MODULE_DESCRIPTION() and converts to module_platform_driver()
+> to complete the modularization and silence modpost warnings.
+> 
+> Together these changes allow the MediaTek SCPSYS power domain driver
+> to support modern Android GKI/vendor_dlkm module loading requirements
+> while maintaining backward compatibility with the traditional built-in
+> configuration.
+> 
 
-Those two are ok, but I'd prefer to use namespaces (EXPORT_SYMBOL_NS_GPL) and to
-import the namespace in the relevant drivers.
+The mtk-scpsys driver should disappear, really.
+This is something that was rewritten entirely and is called mtk-pm-domains now.
 
->   
-> -static int __init mtk_infracfg_init(void)
-> +int mtk_infracfg_init(void)
->   {
->   	struct regmap *infracfg;
->   
-> @@ -90,4 +93,6 @@ static int __init mtk_infracfg_init(void)
->   				MT8192_INFRA_CTRL_DISABLE_MFG2ACP);
->   	return 0;
->   }
-> -postcore_initcall(mtk_infracfg_init);
-> +EXPORT_SYMBOL_GPL(mtk_infracfg_init);
+This driver still contains support for some very old SoCs that were not migrated
+to the new mtk-pm-domains driver, but seriously, the strategy here should be to
+migrate those and let the mtk-scpsys driver be there just as a legacy one to not
+break the ABI for older devicetrees.
 
-Sorry, but that makes little sense.
+Converting this as a module is probably a bad idea, because this one didn't get
+any real update for years now, and I'm not sure what is going to break by doing
+so - neither I have any way of testing it.
 
-Check the mtk_infracfg_init() function: if you avoid the postcore_initcall() there,
-what's going to happen with MT8192?! :-)
+I can say Reviewed-by if you can test booting MT2701, MT2712, MT7622, MT7623A
+(all of them, really) on a build that has this driver as module and check that
+all functionality is ok... but I guess you may also have difficulties in doing
+that (do you even have access to old devices with those SoCs?).
 
 Cheers,
 Angelo
 
-> +
-> +MODULE_LICENSE("GPL");
-> diff --git a/include/linux/soc/mediatek/infracfg.h b/include/linux/soc/mediatek/infracfg.h
-> index 9956e18c5ffa..847431a7b967 100644
-> --- a/include/linux/soc/mediatek/infracfg.h
-> +++ b/include/linux/soc/mediatek/infracfg.h
-> @@ -454,4 +454,5 @@ int mtk_infracfg_set_bus_protection(struct regmap *infracfg, u32 mask,
->   		bool reg_update);
->   int mtk_infracfg_clear_bus_protection(struct regmap *infracfg, u32 mask,
->   		bool reg_update);
-> +int mtk_infracfg_init(void);
->   #endif /* __SOC_MEDIATEK_INFRACFG_H */
+> Justin Yeh (2):
+>    pmdomain: mediatek: Convert MTK_SCPSYS to tristate
+>    pmdomain: mediatek: Add MODULE_DESCRIPTION to mtk-scpsys
+> 
+>   drivers/pmdomain/mediatek/Kconfig      | 2 +-
+>   drivers/pmdomain/mediatek/mtk-scpsys.c | 5 ++++-
+>   2 files changed, 5 insertions(+), 2 deletions(-)
+> 
 
 
