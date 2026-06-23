@@ -4,69 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7C30CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 13:05:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 501C2CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 13:08:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qvZLtxCTdmfsl/KnIY8j8wP9YXfnB9dj4Qz35L9iEGk=; b=1H/ReQnW5EvND5R4CZPY40XqAE
-	BUjfg3eCoSUSBGYThALwwX3DxjU4AFxJVeGT0zEdMOnrwMjXOvPBOlPcfCkY85VhwgOzd2keqz/Xm
-	B2Q3JmThLKAMUmwsFlXU2nrBVepFMEuYv9YCy8CYZeXSXeABKN9ELuDkrj9K2sQq6rXbxkO+b+wsJ
-	GQghft6LcBRDarDYpZOJOV6mX2GACtoNF81LYpOpc8ip05S7lFtHhD3QSKHCLJj4bSiHoa8JK34Qg
-	23CM9F5VD8I6LjsP9hXD++Rn7Q1GOnxXVhtzDqNc3ZWCbcQaKU8AvCig3KnTF/BmGK7hjaqy9vz9u
-	hKX/GhQw==;
+	bh=SfgpZo6Y5ANCLoVc5TGnHq3BRr9T8ihgpuD903bKqx4=; b=zfgn+y8lOoOySVkZ4vfaM70rwa
+	Y+V3nLpD2TBUiPpfRWs8+9S3wJ80kE47EJPc6D5BnliA5Z6DjvO3RYSZSoNvUM62j6Lp3JjoA//cm
+	UsLI9IQARCfRIcPVSb291KSB9ECbbVs4A38iYooUXj8KA8KMHuJolCPzxKNAtEV0LL8M3n+gzO2/t
+	lAuASsDuzzWE9lrWM9zX2L0kUiBiFIOefJLPaExpGk4n1DKk14qdmv+OdBfvFvpRSjeMTxbTI+hyA
+	8Caecibg2kntdq5LQMmq9mjMQiv+PLR11n7LbPGGaEac5QLTBt/ZbCfCIEWGHs7uuFsTOfRyNfqQo
+	09USHHLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc0oq-00000006JXd-140i;
-	Tue, 23 Jun 2026 13:05:36 +0000
-Received: from out-187.mta1.migadu.com ([95.215.58.187])
+	id 1wc0r4-00000006Jl2-2uIn;
+	Tue, 23 Jun 2026 13:07:54 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc0on-00000006JUh-2clN
+	id 1wc0r2-00000006JkQ-1Z1d
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 13:05:35 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
-	s=key1; t=1782219929;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=qvZLtxCTdmfsl/KnIY8j8wP9YXfnB9dj4Qz35L9iEGk=;
-	b=lfKcgXYP11Ij1m7jRAJceFdxnHCCvXitNhoys7MqLpzeBWipajjIJ+EQnmbNKEghXqw155
-	e4h1XiTRjemhrpX8NXm15y+JgkkqH88slcIoqc7aIlrPdBHidFQSylQIPzxkYwvg8DJXBF
-	QFUfCEPmm3izh2FAd7Mb1iwMejK2eXD7w1GdurYFhjjh4aazDa3JAevcn0vSuoAbk9nIB8
-	HumdTXNDXWuBiGnq69EGjQ3LHR6eTsA1+MnCXeMwlMd4QqUlbz4XpiRYQcuqbzf3IaUBPx
-	u79ZE4J17GzJcK7g48qHJfkEzdkL+0GbxVr8veQPNDHYLxOiWHYblvlRkVK2YQ==
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 23 Jun 2026 15:05:13 +0200
-Message-Id: <DJGG8DEAKSPK.1GJ8FARAHXPXM@cknow-tech.com>
-Cc: "Nicolas Frattaroli" <nicolas.frattaroli@collabora.com>,
- <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- "Ricardo Pardini" <ricardo@pardini.net>
-Subject: Re: [PATCH v4 5/5] clk: rockchip: rk3588: add GATE_GRF clocks for
- I2S MCLK output to IO
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <diederik@cknow-tech.com>
-To: "Daniele Briguglio" <hello@superkali.me>, "Heiko Stuebner"
- <heiko@sntech.de>, "Michael Turquette" <mturquette@baylibre.com>, "Stephen
- Boyd" <sboyd@kernel.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
- "Diederik de Haas" <diederik@cknow-tech.com>
-References: <20260419-rk3588-mclk-gate-grf-v4-0-513a42dd1dcc@superkali.me>
- <20260419-rk3588-mclk-gate-grf-v4-5-513a42dd1dcc@superkali.me>
- <DJGDSS875DDO.22TYPVYK5X8KZ@cknow-tech.com> <2100447.PIDvDuAF1L@diego>
- <20260623123316.4111002-1-hello@superkali.me>
-In-Reply-To: <20260623123316.4111002-1-hello@superkali.me>
-X-Migadu-Flow: FLOW_OUT
+	Tue, 23 Jun 2026 13:07:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=pTMO/FG9Cn50/Aont4l8/G/qGkRvvrMnUlvq6/XRgKLY9AmbMRb8V+qTjs+hbvdfO3ByKqMvx+EzCPZdcGs2tXEeGqrcV5Yn/G7Arrt3psGk6Xb3l2O6E7sXAIrOf894PNQbsMz4YDOhpM1eVRSCAc0bYC6pakEys3t2P06d7QBsJw3brP4kv1uiQGjXZn0hRecNh9H85IPfKGDYvU7tjC7c1QpiYpWNgZjG8gbxU+4NtlADE86bAjnFfQ+0NWAAGJ0f4m8N3FW8KsWdkwrbe5IFBpVo3FThNnfHfnurHoznyTFhHqZ6wqxiFCqFd+hYF7VtGR5wThi7AL5cNVtgPw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ns9Ek4aF6Ng3YVfN+W6PJhQledgm2BpaEN56NpeAG7o=;
+ b=ajX+HSY6l7aAz0TV7Q2skbfloFsYwIKWzWXYPkRoIOyiRJiitOYkDGoPvL/fFf3a/KR3Ws5vxikP0ueybyg4pj8AiRLTfJq8WfEO2bqZ2FVfrEc2ErvZNr+GmO3tTZUvC2LVoLe+Xzu6FFyp7X6P9mGokbVj8EC08xUKYgTJ2pJSdfDo2KLrJIMGSmP0zxuBKWCb0kqVlUkcA8nwlGqC8y3nJJtqCKtSNAgL88oaCP+2VEV9VoJoN9znpu7W+njew4CHDNviPZEnBB34fBQ1t3NwITmt5iQr0CgixBVYjpFJWYCzGH9gxQTa0gAwmT96OR4Nek/53KftyzjR9LooGg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ns9Ek4aF6Ng3YVfN+W6PJhQledgm2BpaEN56NpeAG7o=;
+ b=lcXifF32vqtutGA3TVXtD0gp+mZa7xevmfZ3UX5TNj95KEWreea24Ihv9gVp7YtzjBtneeleg737TfAbaAVSD2X6pxNp3TpX6PvuPC89tMpXfv/3OzXIH+bHZ111gUOELeSNzYp3hAOvfjtlKCEBtlj7DOJ9btE45BqsIe/mchMtyhiShUBNVmjFMaN9CLlsJerhFPc1x/kMqqaYP2KuhQ5XF+HysDqKI0i8LDNIXwIYlHX+9sdgwMLQOe7+zNQC8yQWiMzwBG3T6WB9ywQ96r8DkDKgfFReQSpWY3X+Ib7dDhdTRdCkCWW0RJKjsHYiRHmE4EAj19HGIzs6cTyzyw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AM7PR04MB7064.eurprd04.prod.outlook.com (2603:10a6:20b:118::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.20; Tue, 23 Jun
+ 2026 13:07:45 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Tue, 23 Jun 2026
+ 13:07:45 +0000
+Date: Tue, 23 Jun 2026 08:07:37 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>
+Cc: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev
+Subject: Re: [PATCH] ARM: imx: Drop obsolte stuff from common.h
+Message-ID: <ajqFGWp3XKqDhPpE@SMW015318>
+References: <20260623104557.1801727-2-u.kleine-koenig@baylibre.com>
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260623104557.1801727-2-u.kleine-koenig@baylibre.com>
+X-ClientProxiedBy: SN7PR04CA0181.namprd04.prod.outlook.com
+ (2603:10b6:806:126::6) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM7PR04MB7064:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5de7cbce-9c18-4dd6-2313-08ded1286ab0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016|23010399003|19092799006|22082099003|18002099003|56012099006|5023799004|11063799006|6133799003;
+X-Microsoft-Antispam-Message-Info: QP7izLDX3VVLVYYttB8w0jSd1/H769xVBVASDt1O30aVTb1TUJ0VU5wEViy7BKBF1OM9TpAGQVe8y/Ic9rlng1IfNoUv/OBwlJIy7NgB92Ci7vpGxc8VYZyzZL0whCOkmpVMhdwdWtDApXSA1I5TQ+0BvOyy2qTW2xO0VvkPgr98XhiN5P35cSdFOXqLkC6iEOvRSoUMv7ZEOn8TD5La3pCXo3WNsDugMlEj8n6CKMLVNRphN+5u3pvSmORc+oT+0PNcTfLjBfpMbX7uCt0o46KCBMtVOEOiSE9sUrvK5s9bl+CDxbxHfqb2GSK6MrGUywn1uGIRmb5v51L40yTE8bXDqWcCL3af0Emn8AP8VDjv6UTJpb9hPtO+qNk+qbCrc3b/nD2Jr0nFYcu3bHJd7RoKnacCrJ2XkCGVbNWLHtfRE7SxGU8TpJXpf4DDj0wR6vFFuyWsxTXpwEZqg08S53kSdHq0TfhieuzIoHgM4mGR4H1w+fu14WGqFZ2NzR9GGCRn0nC8WPInupMYlMTsgFJSv6uzO5JURd4cwqu3cYxL+Whs0wDnMGeJjytOU79LO80UDnOnCUPYzwu6eYahZnZUzp5j6cok0tTYzM1ZRlFlmc69LE43FgAk8cOKzJoxh14VCfRKrvr4Dz+BUL67oHObCIwsBd5hUYiofLVbjhE=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(23010399003)(19092799006)(22082099003)(18002099003)(56012099006)(5023799004)(11063799006)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?REGoCckN7M1tgYbiK9w/IJqKfspQ5qE1tV1O/6lAT+T0ZGgf8/HZZSv/cJ?=
+ =?iso-8859-1?Q?liOGASGxBb7yO894KR3cHTHMiQrHNO9dowHFqKv2wLvu/Y6t+Fz9Ae4S6V?=
+ =?iso-8859-1?Q?6iFm/2S5jENyWsZCoUMnTx9oyJ0xSJgxhJCWuE7tOIsucJAtNGPmjgMFUf?=
+ =?iso-8859-1?Q?WaToqYLlhwghY2fPV10DbA0OLlUcWO059GFW1S/E9kOzzT73FFAXjwGkcB?=
+ =?iso-8859-1?Q?HuWZPiw0q27srNq7Lbf11JQ4Mm9smtrv/fngiJ9kdupPSz4eBdfqL4VQkr?=
+ =?iso-8859-1?Q?SuR6PfRd3EnhEpwQ+VIxDHtcIJH6hmqGQJLZ1Er1b3Md4l+g7DyOf/9DiB?=
+ =?iso-8859-1?Q?laPmSNrvYjd+a3azCl6L9IWoKJ5fBJpjoXJmSVvIaKH3NjJ2P7lF09kRQS?=
+ =?iso-8859-1?Q?f9mj0xWIf82UwIWcNWzigEpeDbNEHe8LKFO5+Eav419tp1xkD9etNNE+jh?=
+ =?iso-8859-1?Q?A//NQMcRv7xwN5UHgStZXumVGSsmvQoqiPglKoXa2gGR8RktbJE7lm0daa?=
+ =?iso-8859-1?Q?Ne3iHWHc0iIciiDSCXs5tlhVb7eWn1YK4h1n7M9vEr7WtLAq3UXS3m3Xkz?=
+ =?iso-8859-1?Q?zMfcXfcQfxBvjpMV8XM2RbtpHm9O713/7HlwemkaGxWLuSvpmsO0z5hsiV?=
+ =?iso-8859-1?Q?fDp+74ZhVwhDolpcTx751nuslZfKc53G1Yoel8WdhXAWyZ8Lm9iwQBpo7f?=
+ =?iso-8859-1?Q?cvRkr8cw5+CwFhpZmyTpPIanEhOLPBVdYamst1i7myozp/+xhvT4YEw2G0?=
+ =?iso-8859-1?Q?4Ebq8Zp/nzxJuusbPfymFCFAAwAuxNoxkcBBEx0tYrCvZy2LnA3NFaWRXM?=
+ =?iso-8859-1?Q?r81ftzud7vXFSjYvtlmFNabkgyI1h4p2w+/N/3zDkOvv3CCmKDtphjxgVi?=
+ =?iso-8859-1?Q?f+leUp6QzLzTEMNLTuTjPofKPs6Noz/S9sDMrKVIo8tihaKYCs3UPZdzyU?=
+ =?iso-8859-1?Q?ngIs0b9rl0ubUgXqtDMZU4yox/XLWl9LhS7GurgRWrWHraQoJc1kTMnsKP?=
+ =?iso-8859-1?Q?XOUi15JSDW2G/fKR3eui3+7rXKUPDeYVFypYnFKxtrdgwLZzRkYTv+ZQtF?=
+ =?iso-8859-1?Q?7xhhgCGzwhojFf0X4DAdrYu7iRHmTvyudeIUDJCIw5mDgaqYpUfm8dYsUs?=
+ =?iso-8859-1?Q?tLj4mFdIzIQvXWmDkPt5u5a+cENPQGANQ7X1ifAFvXIqC7fnZ8iMCEMhmm?=
+ =?iso-8859-1?Q?FGVkpdZPp6fKJhd6x3MVZmRMSz9PvPNBnLk5CJfZuYG3BKOCqw1MRDsjDU?=
+ =?iso-8859-1?Q?RLPt9QLdTFdzJMG7rTxr6LqMQehOammhglF4IBMFFWxEQQjgBsliLyJ+rn?=
+ =?iso-8859-1?Q?pSaXTNhHLo2ykNjB/x0AeIDNFWIvxMNypPLCllUlToFUt74uSd0H1t10s0?=
+ =?iso-8859-1?Q?VnkD9AXxJMHtpfFspqTIfCndkZkP4iNGnvDuzm3KEN3W3BwV9o5KrayQfv?=
+ =?iso-8859-1?Q?Dq/mhCtWS/WteSE4x6w0e68qimSotx+be738HgRnD3ezdIHKxWG7H5XH+z?=
+ =?iso-8859-1?Q?wlJ3IIeoQAPDxHZvhzhbOAWJJYlNXYB/mSDlX5EnsyILpVJJIR9Z65Ktj0?=
+ =?iso-8859-1?Q?Q2k2UkGv7azAfWvVS6hxIgSFKg6MKcQIKqInEF8pSeG134KYmKZFM3Vu//?=
+ =?iso-8859-1?Q?fPI2suS4pPlYbG81ZpexaX8UfEZ92Vp7dHnQieoErvGIKHMuIy9FhmeeuR?=
+ =?iso-8859-1?Q?85ja42Mh/ayn9gBsha03yyt0KHfLUWqUGOg/8fqACfG8idAdBrjfN8/xR1?=
+ =?iso-8859-1?Q?HYd0U03/Gtqx9wwBn6lxBZqUX71GJpTIDB+wFesIMVxHZJqoIQP4Q29MLP?=
+ =?iso-8859-1?Q?lU4Zb8TvvhNvJpYa1sA29Zt0y0HtqzivXX3MEdxyTaLEiMo+Ci48?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5de7cbce-9c18-4dd6-2313-08ded1286ab0
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jun 2026 13:07:45.6525
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: x3VqMQIDq3CW8DzTYtZ5zR+pfB2St2uV/zkOcwh/ys/I6y1jmLNAOOOV6H08uLoEb+xJfbiapYZUBmQ4gZNVhZbKunFigxnxKsY/Tbvv2hXD9rGNQ7ch9cKa/ubxqYWq
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB7064
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_060534_070044_7FDBB074 
-X-CRM114-Status: GOOD (  16.42  )
+X-CRM114-CacheID: sfid-20260623_060752_437652_9FCC0C50 
+X-CRM114-Status: GOOD (  17.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,66 +139,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue Jun 23, 2026 at 2:33 PM CEST, Daniele Briguglio wrote:
->> can you check if adding CLK_IGNORE_UNUSED changes the situation for you?
->> What I assume is happening is that when the clocks were not declared the=
-y were
->> just left running, while now the kernel turns off unused (but defined) c=
-locks.
+On Tue, Jun 23, 2026 at 12:45:57PM +0200, Uwe Kleine-König (The Capable Hub) wrote:
+> i.MX21 (and thus imx21_init_early()) is gone since v5.10-rc1 (commit
+> 4b563a066611 ("ARM: imx: Remove imx21 support")).
 >
-> That lines up with what I see. The gates are set-to-disable and reset to
-> open, so before the series the bit just kept whatever the boot firmware
-> left it at.
+> The init_irq() functions are gone since v5.12-rc5 (commit e2c1b0ff38c9
+> ("ARM: imx: avic: Convert to using IRQCHIP_DECLARE")).
 >
-> Diederik, the cleanest way to confirm is to read SOC_CON6 before Linux
-> touches it, e.g. md.l 0xfd58c318 at the U-Boot prompt (bit 0 is I2S0). If
-> it comes up clear there, the gate is open, and if audio then breaks once
-> the kernel is up, that points at clk_disable_unused turning it off becaus=
-e
-> nothing references it.
-
-NanoPC-T6 LTS
-U-Boot: 2026.04-00003-g723f0da896bc
-
-The 0003 comes from me adding patches for NanoPC-T6 Plus support, but
-otherwise it's plain upstream U-Boot.
-
-=3D> md.l 0xfd58c318
-fd58c318: 00000600 00000a00 00000000 00000000  ................
-fd58c328: 00000300 00092820 0fd58c338: 00000000 00000000 00000000 00000000 =
- ................
-fd58c348: 00000000 00000000 00000000 00000000  ................c358: 000000=
-00 00000000 00000000 00000000  ................
-fd58c368: 00000000 00000000 00000008: 00000000 00000000 00001000 00000240  =
-............@...
-fd58c388: 0000003f 0000fefe 00000000 000000000 00000000 00000000 00000000  =
-................
-fd58c3a8: 00000000 00000000 00000000 00000000 00000000 00000000 00000000  .=
-...............
-fd58c3c8: 00000000 00000000 00000000 000000000 00000000 00000000 00000000  =
-................
-fd58c3e8: 00000000 00000000 00000000 00000000  .0000000 00000000 00000000  =
-................
-fd58c408: 00000000 00000000 00000000 00000000  ....
-
-I'll let interpreting it up to you.
-
-> If that turns out to be the case, CLK_IGNORE_UNUSED on the gates is a
-> reasonable way to stop the kernel from closing a gate the firmware alread=
-y
-> left open, for boards that would rather not switch their DTS to _TO_IO.
-
-I'm not so sure I agree that CLK_IGNORE_UNUSED is reasonable, but I'll leav=
-e
-judgement up to others. I'll do the test regardless, though.
-
-Cheers,
-  Diederik
-
-> Where a board does reference _TO_IO the consumer holds it open anyway, so
-> that path is unaffected either way.
+> And mxc_device_init() was removed for v5.10-rc1 (in commit 8485adf17a15
+> ("ARM: imx: Remove imx device directory")).
 >
-> Best regards,
-> Daniele
+> The last user of imx1_reset_init() is gone since v4.9-rc1 (commit
+> e1291cffcc50 ("ARM: i.MX: Remove i.MX1 non-DT support")).
+>
+> Drop declaration of enum mxc_cpu_pwr_mode, the actual definition follows
+> later in common.h without a usage in-between.
+>
+> All users of of_device_id also include <linux/of.h>,
+> <linux/of_address.h> or <linux/of_platform.h> which is enough to not
+> need the forward declaration.
+>
+> Signed-off-by: Uwe Kleine-König (The Capable Hub) <u.kleine-koenig@baylibre.com>
+> ---
+> Hello,
+>
+> found while working on *_device_id.
+>
+> Best regards
+> Uwe
+>
+>  arch/arm/mach-imx/common.h | 7 -------
+>  arch/arm/mach-imx/system.c | 8 --------
+>  2 files changed, 15 deletions(-)
+>
+> diff --git a/arch/arm/mach-imx/common.h b/arch/arm/mach-imx/common.h
+> index 45c1a2a7b35f..d7ecaa822adb 100644
+> --- a/arch/arm/mach-imx/common.h
+> +++ b/arch/arm/mach-imx/common.h
+> @@ -14,23 +14,16 @@ struct platform_device;
+>  struct pt_regs;
+>  struct clk;
+>  struct device_node;
+> -enum mxc_cpu_pwr_mode;
+> -struct of_device_id;
+>
+>  void mx31_map_io(void);
+>  void mx35_map_io(void);
+> -void imx21_init_early(void);
+>  void imx31_init_early(void);
+>  void imx35_init_early(void);
+> -void mx31_init_irq(void);
+> -void mx35_init_irq(void);
 
+which commit remove above two functions?
+
+Frank
+
+>  void mxc_set_cpu_type(unsigned int type);
+>  void mxc_restart(enum reboot_mode, const char *);
+>  void mxc_arch_reset_init(void __iomem *);
+> -void imx1_reset_init(void __iomem *);
+>  void imx_set_aips(void __iomem *);
+>  void imx_aips_allow_unprivileged_access(const char *compat);
+> -int mxc_device_init(void);
+>  void imx_set_soc_revision(unsigned int rev);
+>  void imx_init_revision_from_anatop(void);
+>  void imx6_enable_rbc(bool enable);
+> diff --git a/arch/arm/mach-imx/system.c b/arch/arm/mach-imx/system.c
+> index e88ca027129d..1afae485f203 100644
+> --- a/arch/arm/mach-imx/system.c
+> +++ b/arch/arm/mach-imx/system.c
+> @@ -74,14 +74,6 @@ void __init mxc_arch_reset_init(void __iomem *base)
+>  		clk_prepare(wdog_clk);
+>  }
+>
+> -#ifdef CONFIG_SOC_IMX1
+> -void __init imx1_reset_init(void __iomem *base)
+> -{
+> -	wcr_enable = (1 << 0);
+> -	mxc_arch_reset_init(base);
+> -}
+> -#endif
+> -
+>  #ifdef CONFIG_CACHE_L2X0
+>  void __init imx_init_l2cache(void)
+>  {
+>
+> base-commit: ef0c9f75a19532d7675384708fc8621e10850104
+> --
+> 2.47.3
+>
+>
 
