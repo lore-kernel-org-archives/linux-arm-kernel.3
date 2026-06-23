@@ -4,116 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1BDDCD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 09:02:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5E2DCDB470
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 09:04:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=EdlaDW1rY1rZErwxB1HGnYFNRg5JjM3w+I1SGSwz1BE=; b=xfM3sH39U3lstz+vp5Qrnd3Db9
-	UAGESlF3nq6napioQA5pHcMR47z4uTKjz3/ZEjLdZryHL7QUPTYLz3INCXT+eK1s+wjsR2aDK0VDy
-	m5+0KEOpi1OeEBQAj9vIRIrGunT6QK83XX9JW5mFirYrQNX81c/BfpQdgdJzGCJhHm/31ssJy7d6O
-	dy9GbQTuDNpyuSlUSfUpo2LsO3ekdgxXOzumVfR5mjdGEANqig6fy7Q6VMtQ3DAGMtSVspOF5S4cH
-	8lk0EtbQ6CYj8t4N0h+M887tJDu23Ub0OpNxXOmbLJUy3tWArVKhsiKySiOktwY3ltqF1SU2EU0L0
-	QHNIasGA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QASVcb39guPqWBVEepYuN9mgTvMydSxWLKCcERU+Jik=; b=worrjSJvOLvikst5yTY6nVC7y8
+	IxsjuSyxZxuGLAAxQ260k0bpJgm9u7jxSUNVoswQ46bBIPNSZOTMDdiilTJw52wA0okNCn17v6h8f
+	A1pXCWDnnPj3d1yNrRdBojCfm+XPqrYpSLwSzZQWjGCXjhgwAYQbyd458q4uijBd7aJV3ZQRC10ax
+	nwDxUvL1oRLYmNAvj0olr3//8h5bbKmoLNV5xiBJIkhCU+Lyr/GrxWuPAtQKZt8y3zjRbVZSVtt46
+	ixNGC7Nds95kpKxM6Pmv8l2tPjWBxvY9u2JOzvHbruyv426dE7gFK7ua9W8p33c7XptnsuyGAFO8/
+	1osBVAMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbx1M-00000005xPm-3bEu;
-	Tue, 23 Jun 2026 09:02:16 +0000
-Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
+	id 1wbx3S-00000005xbf-0N8N;
+	Tue, 23 Jun 2026 09:04:26 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbx1J-00000005xPJ-0yGL
+	id 1wbx3Q-00000005xbQ-0vag
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 09:02:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=AU54zTDVcC0h/AEMDVx206/e0Dr17uj4I6mAYIl/FshfbM/fyXbBIGq7ZutGUwjtS+6zGZC6OCxx4t9Ey20tHVEiVPwPjkGONtXMj1Erkc5a+YJmK1bNEzun7JuyJlPb/wn6SW8kS1qrPhr0rRnO6vgVxh5iP/a8yomlgXwEle2tHyVCnem383soCwVl2k5vOt0d05JsQPtJSl5lQxAk4AU3FSnV2HL/NRc0Ewzaemq3qed+rbn9ntkHdrU+ouzblOm7Cvjmv0eYngdiYx300Kj7SdiZ+sknIgtzPwMQFIPseYxKklRajnwhv9sqYp6gyDyIsl2WicabFxHz4rS7JA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=EdlaDW1rY1rZErwxB1HGnYFNRg5JjM3w+I1SGSwz1BE=;
- b=Q6LD92AZ2Z6lJuljdNXEqkHpcLbDTU8nhdvJIrVSCnzzSwsAlX8hhHCKhboGh4xxfagdrexvXbIwpD6Qo23hT/HGjkC4TEUOmWYtYKyr3Zh1wLKYqWuB9+wy43Uzr77PCC/7Buuc2Y/JHguhjS0XUfI/7XPqu3vBZE5VECIiWbsCCwAt7a1gINheXh1bKYru/qKs0Gb4/d2Y9Bb1l2126oplakaGRAMLY7wjGSYwxcPzD89B4XfEVN/m+1FiYtN3ny9wekr7DJyjX6bqwiQUFeA1yvfZy9aru6itRi0ewJjDa8w483DWfZR97P49IlxPl+Mncgfh7L4eqUL8/6pJYg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=EdlaDW1rY1rZErwxB1HGnYFNRg5JjM3w+I1SGSwz1BE=;
- b=H7twu6/NSXUhtQsTzVUhRmVimLenY0pMbCBxoPbaAn/eE8YEPIEOA5vRsgUyh/4dZn6v8CsQiEdJSNFF4EgMP/KIjFAu495cadESm+M63zmFug8AZ/a06RueMdA2K08OKspWrSi8RTjnJneqJhHv17nS1azdHPcK8ZvwEVoNhd0=
-Received: from SJ0PR13CA0103.namprd13.prod.outlook.com (2603:10b6:a03:2c5::18)
- by PH7PR12MB6787.namprd12.prod.outlook.com (2603:10b6:510:1ad::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.20; Tue, 23 Jun
- 2026 09:02:04 +0000
-Received: from MWH0EPF000A6733.namprd04.prod.outlook.com
- (2603:10b6:a03:2c5:cafe::26) by SJ0PR13CA0103.outlook.office365.com
- (2603:10b6:a03:2c5::18) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.159.12 via Frontend Transport; Tue,
- 23 Jun 2026 09:02:04 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- MWH0EPF000A6733.mail.protection.outlook.com (10.167.249.25) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.159.10 via Frontend Transport; Tue, 23 Jun 2026 09:02:04 +0000
-Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Tue, 23 Jun
- 2026 04:01:43 -0500
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb10.amd.com
- (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Tue, 23 Jun
- 2026 04:01:37 -0500
-Received: from localhost (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41 via Frontend
- Transport; Tue, 23 Jun 2026 04:01:37 -0500
-From: Michal Simek <michal.simek@amd.com>
-To: <linux-kernel@vger.kernel.org>, <monstr@monstr.eu>,
-	<michal.simek@amd.com>, <git@amd.com>
-CC: Moritz Fischer <mdf@kernel.org>, Tom Rix <trix@redhat.com>, Xu Yilun
-	<yilun.xu@intel.com>, "moderated list:ARM/ZYNQ ARCHITECTURE"
-	<linux-arm-kernel@lists.infradead.org>, "open list:FPGA MANAGER FRAMEWORK"
-	<linux-fpga@vger.kernel.org>
-Subject: [PATCH] fpga: xilinx-pr-decoupler: Use devm_clk_get_prepared()
-Date: Tue, 23 Jun 2026 11:01:27 +0200
-Message-ID: <8ca8ee5ba720b608a41f842d2b743302e5500ad0.1782205286.git.michal.simek@amd.com>
-X-Mailer: git-send-email 2.43.0
+	Tue, 23 Jun 2026 09:04:24 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id A4108400DA;
+	Tue, 23 Jun 2026 09:04:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6DE5C1F000E9;
+	Tue, 23 Jun 2026 09:04:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782205463;
+	bh=QASVcb39guPqWBVEepYuN9mgTvMydSxWLKCcERU+Jik=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=mHB5Ejg+Viii+8jUkefpm1WrbDEIcfchy/MGXIvp8GfK17z+iT/MEPTkYrsWE3aR0
+	 ShVdeVy6eqe1cMK34KZOul7TVGZzM3B01gh2JyhSeB71fboUmYRft/h6p3M0iDPkQZ
+	 uzwe5HQXTrtBSHAOziJIXgYNOQ2WKSkLbMU4SxugFOx9KbNJPJV0UWPYw27pYOLNdX
+	 Z0d6Kw1cdmCZMwgb/hPgvMkQIYvSje1VnpSokGb+xc/gA/c4TNKd+evZitIdaBQE0q
+	 PwP+ra+C9rna92YzrzgkGxT9QbgZccT6NHa63kYQtDf9NB1bNtI8xk7IXYnhhqDi+b
+	 sz4hcTj2V9S7Q==
+Date: Tue, 23 Jun 2026 10:04:20 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Cristian Marussi <cristian.marussi@arm.com>, arm-scmi@vger.kernel.org,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] firmware: arm_scmi: Grammar s/may needed/may be needed/
+Message-ID: <20260623-bizarre-optimistic-jackrabbit-dac4a0@sudeepholla>
+References: <5180d04abfb8e3074a321e2eb73bacfdd61c30c5.1780499850.git.geert+renesas@glider.be>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2405; i=michal.simek@amd.com; h=from:subject:message-id; bh=dkI1s0OOO76khw3c+oeECBXIe2DMS/KN/JEHC0DGVss=; b=owGbwMvMwCG2mv3fB7+vgl8ZT6slMWRZeWeHsLn8Kn0eZ+G/d97N33OCHbiyZ3y6xZqs9vLQT Ye6Y4EOHaUsDGIcDLJiiizTmXQc1ny7tlRseWQ+zBxWJpAhDFycAjARaxFGhi0/vLf7TDdV8z09 y+eG159X91eF7b2iyb2ysXLteuYFE/UZGVrv+Ykvzqh3qarqcpKuY+Eq5PwkxPmk58Hcnjfrr4Y bMQEA
-X-Developer-Key: i=michal.simek@amd.com; a=openpgp; fpr=67350C9BF5CCEE9B5364356A377C7F21FE3D1F91
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MWH0EPF000A6733:EE_|PH7PR12MB6787:EE_
-X-MS-Office365-Filtering-Correlation-Id: 926063d4-e1d1-4d90-bf75-08ded106185f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|36860700016|23010399003|1800799024|11063799006|18002099003|56012099006;
-X-Microsoft-Antispam-Message-Info: +1vpjZ311h9CktFtUihF3BCyAQXsDLnrQRyp9US14YAddy+JEWAhmvHUwXE1Kjp+aX0WefvaySobU+U5em78AI4jDiPcva6rvwdyfC1AOihePpkVC6gciSn646tw+PZgK9wjMBRfeH5Z5SN6a00qfzyZVp2J7i3XcJ8J0SHrr6ATir/i3EuDFogLMGAWgnPHehmaIVY86HURpQPl1cN/4aaQH0zPSUYGW2/2aNHXprNxAh5gLwCKZHXq5Eba1aGBIxsaH8nO4E6ZJXjFTZ3cPpUXfM7T0x49wD3VNcUX6NPagv2+N+FWDEihqjQHde6JobNkPFFTSoF0U4emEI1G4K2OtQZRfXHt7g1lvO0B9X++G9rQhz4V6nsWnumcQh8l4shzuDu7Ean/MLUz0o27b9AjtyDBhSehVcagNyjKEeTwZvDiyK+jhIu6uZKzUfAv9lZJ33J/5ybd8/2JMoUGImYV9V3g4NynHPBwq76XRNG4S1NtDAQuQQbR+LRfzyYDuQJDyHqi/rzlIfalFO0h/S9lCQPpsJV3RaFTll73tcXAb+kHmVSetST1r29Oq/kHbJPZWl3wSXQvlC0NEqk84hJl4TFhJVVbHTSKIYFCLa7ZUKTtqzs+Ejjj+XxjSNFGNtPaGC4SwUBh+aiSWcLMiervCGpcOftO3zISE3ruEPsHVYBjz17YurssZZslPGowPKVn7qdEJJP4+xsn23hyrg==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(82310400026)(36860700016)(23010399003)(1800799024)(11063799006)(18002099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: e6PLkJnjLYguvSphlyLjnW3pQSA9UtBC9JInpShMjxYKybGar12PtiFAoGjoXKMkb3z7KWMOjVP6sQQNXAe2Gl9BPJ99kdeUM8pUUfFp53ofqyk1ej3YGT1VOLCoF4c90ZX/VpdQ2wlbjZv3GbYr8W1Z53FY0oGMagseIhWJuHz5r60iibdZ5Qg6aReThMaXdm+Ac1BLW2HjesWC+TPbmqFj+JToPj/N25FxhtqOxVzhybNOhCwZO2hLSisCHKlD6zr2AjloBNya1xFFzbUhbPDOjn2bFv7yqx9hUTzqVZ40MY9RtFhvAtfPT48EkTYZxmYT0tES5LDbR41zAoIHK22aGhchnTlwQJKxkjkBE/byiB/04MjnSgcHM6O88GiyjWiIzsjeFYFxz6AgazBiwplqjRCBomnl1Fhp5xcG0eoG4g5aDpB5q7SNLDWwSee5
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jun 2026 09:02:04.1309
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 926063d4-e1d1-4d90-bf75-08ded106185f
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000A6733.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB6787
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_020213_272228_F0CB1AAD 
-X-CRM114-Status: GOOD (  13.78  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <5180d04abfb8e3074a321e2eb73bacfdd61c30c5.1780499850.git.geert+renesas@glider.be>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,84 +69,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The driver keeps the "aclk" clock prepared but disabled in its idle
-state, toggling only the atomic clk_enable()/clk_disable() around
-register accesses in the bridge enable_set/enable_show callbacks.
+On Wed, Jun 03, 2026 at 05:17:51PM +0200, Geert Uytterhoeven wrote:
+> Fix grammar in the help text for the ARM_SCMI_POWER_CONTROL symbol.
+> 
+> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> ---
+>  drivers/firmware/arm_scmi/Kconfig | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/firmware/arm_scmi/Kconfig b/drivers/firmware/arm_scmi/Kconfig
+> index e3fb36825978ed6f..783c24a20e29190f 100644
+> --- a/drivers/firmware/arm_scmi/Kconfig
+> +++ b/drivers/firmware/arm_scmi/Kconfig
+> @@ -96,7 +96,7 @@ config ARM_SCMI_POWER_CONTROL
+>  	  firmware.
+>  
+>  	  This driver can also be built as a module.  If so, the module will be
+> -	  called scmi_power_control. Note this may needed early in boot to catch
+> -	  early shutdown/reboot SCMI requests.
+> +	  called scmi_power_control. Note this may be needed early in boot to
+> +	  catch early shutdown/reboot SCMI requests.
+>  
+>  endmenu
+> -- 
+> 2.43.0
+> 
 
-At probe time this was open-coded as clk_prepare_enable() immediately
-followed by clk_disable(), leaving the clock prepared, with a matching
-clk_unprepare() in the error path and in remove().
-
-devm_clk_get_prepared() expresses exactly this: it gets and prepares the
-clock and unprepares it automatically on driver detach.
-
-Use it to drop the manual prepare/disable dance, the error-path
-unprepare, and the now-empty clock teardown in remove().
-
-Signed-off-by: Michal Simek <michal.simek@amd.com>
----
-
- drivers/fpga/xilinx-pr-decoupler.c | 20 ++------------------
- 1 file changed, 2 insertions(+), 18 deletions(-)
-
-diff --git a/drivers/fpga/xilinx-pr-decoupler.c b/drivers/fpga/xilinx-pr-decoupler.c
-index 6994d68e9036..45b65a3264af 100644
---- a/drivers/fpga/xilinx-pr-decoupler.c
-+++ b/drivers/fpga/xilinx-pr-decoupler.c
-@@ -118,46 +118,30 @@ static int xlnx_pr_decoupler_probe(struct platform_device *pdev)
- 	if (IS_ERR(priv->io_base))
- 		return PTR_ERR(priv->io_base);
- 
--	priv->clk = devm_clk_get(&pdev->dev, "aclk");
-+	priv->clk = devm_clk_get_prepared(&pdev->dev, "aclk");
- 	if (IS_ERR(priv->clk))
- 		return dev_err_probe(&pdev->dev, PTR_ERR(priv->clk),
- 				     "input clock not found\n");
- 
--	err = clk_prepare_enable(priv->clk);
--	if (err) {
--		dev_err(&pdev->dev, "unable to enable clock\n");
--		return err;
--	}
--
--	clk_disable(priv->clk);
--
- 	br = fpga_bridge_register(&pdev->dev, priv->ipconfig->name,
- 				  &xlnx_pr_decoupler_br_ops, priv);
- 	if (IS_ERR(br)) {
- 		err = PTR_ERR(br);
- 		dev_err(&pdev->dev, "unable to register %s",
- 			priv->ipconfig->name);
--		goto err_clk;
-+		return err;
- 	}
- 
- 	platform_set_drvdata(pdev, br);
- 
- 	return 0;
--
--err_clk:
--	clk_unprepare(priv->clk);
--
--	return err;
- }
- 
- static void xlnx_pr_decoupler_remove(struct platform_device *pdev)
- {
- 	struct fpga_bridge *bridge = platform_get_drvdata(pdev);
--	struct xlnx_pr_decoupler_data *p = bridge->priv;
- 
- 	fpga_bridge_unregister(bridge);
--
--	clk_unprepare(p->clk);
- }
- 
- static struct platform_driver xlnx_pr_decoupler_driver = {
----
-base-commit: 502d801f0ab03e4f32f9a33d203154ce84887921
-branch: xnext/pr-decoupler
+I will apply this at -rc1.
 
 -- 
-2.43.0
-
+Regards,
+Sudeep
 
