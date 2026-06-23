@@ -4,73 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C5DDCD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 16:54:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7009FCD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 17:02:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V0GuOlYRzJM4pDQWpmA6usQcahnlbuw1Vm/ChjlY/AI=; b=ddQL5HWDY96yR7wO8BdbvnI06r
-	NGbd2qvhc/275Imj8a3Vki/nPfNxoC+jSvSCZQyMSuoKuRE6g048fvqY1t2/00LgRWOn9gNztx04L
-	kwfS/LOLdLujlnvSimi6UvmShShgv4HVH4grUL93JG62rZFKYX8pnnZNSH4FjCmRlqjM8Uf4ip9ry
-	MDnF6UKic5gPAfVZCNP9zlLMdtMfadzGfQ2ufcOW1k4H/B5M4Otap/YX6yPBcTGJjg8LmISEx90jr
-	pC2mVXHGcUyo6scluVF1z55/WoBHs5kmrTIgBEeVoB/W1EdgnbPmK+Om9bd+1y6kRaC1N9AJ4YPHr
-	ucO8dSNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aBU6pCnOCTlrKDDQo5rEGB3OdGcEdLqLcPo64Ew0+ZM=; b=ZAkMgtGisnf+zwvL6zX+6GiCEF
+	DnUVNQ7RORI+lebm2r7JufWiwRumzYRicnw47/YzkpllPLSIo598MOm7hCDrNbjUwVcbnnFdUaPBQ
+	7NFmHf5hrU7qGgYxXrr7k3wJwQtysa9D6eydQSpQdyvVkWIDWn9uy+Q6BrDsjOQq286Gdvj4zp1JQ
+	/PAqtfKenIaKIWxoJZz134b1hKCc04/nthKf2hhnsxNRgkLTn3JkiWOmohdHqQ0/U1pBDz3UC/blC
+	0b1cGJdBG9Onj5oJlvvmSpzQtvOdR05QZ5IdagagmxMqsP7iISDJUxz2Z+TKQBFuH5FiKUOv4kei4
+	jl6oJvYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc4OT-00000006fBS-0xY0;
-	Tue, 23 Jun 2026 16:54:37 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1wc4WM-00000006flC-0rSF;
+	Tue, 23 Jun 2026 17:02:46 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc4OQ-00000006fA6-0FJs
+	id 1wc4WK-00000006fkv-2xdi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 16:54:35 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id D2D66C6B397;
-	Tue, 23 Jun 2026 16:54:39 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 3FB72601C2;
-	Tue, 23 Jun 2026 16:54:32 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A4181106C8382;
-	Tue, 23 Jun 2026 18:54:28 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1782233671; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=V0GuOlYRzJM4pDQWpmA6usQcahnlbuw1Vm/ChjlY/AI=;
-	b=aVAhQo1Dl8B067G6c6X1YlKSceYxNORBwII2/tFPIRcS3+FcEBJ9ix/7L1fpUQ3e74MNjA
-	iWV4EKuSIDPyTGlSiuvg76b0/1onRG+MJFEDF0ZrHf2ePk28OJArBYcUMIZhmUuQRd/DD3
-	wsq50D8mKAob+JsOdHGnJFiBQRfJ4A7yLmvl/pVbISU2has5sBS8ZvNra9M0vKwoKVF3Tq
-	rWFrp+kRbHaYwKygVplxYTDreeAm3B7FAf+0Pi8SAjC65WqFVpXpMpeOU2SRqLAx+Kl+mu
-	4yTMA9wtb1o5+lcslnUa9EvsU6oHd1l6P3M9u8trBHvenKcQkuYqGurScb7yRg==
-Message-ID: <143145af-5846-4a7b-9953-33c51b1dbef3@bootlin.com>
-Date: Tue, 23 Jun 2026 18:54:28 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v2 2/2] net: stmmac: dwmac-spacemit: Fix wrong irq
- definition
-To: Inochi Amaoto <inochiama@gmail.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, Yixun Lan
- <dlan@kernel.org>, "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
- Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
-References: <20260623074637.503864-1-inochiama@gmail.com>
- <20260623074637.503864-3-inochiama@gmail.com>
-Content-Language: en-US
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <20260623074637.503864-3-inochiama@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_095434_270474_A27FDFD2 
-X-CRM114-Status: GOOD (  11.42  )
+	Tue, 23 Jun 2026 17:02:44 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id BA12960018;
+	Tue, 23 Jun 2026 17:02:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E8201F000E9;
+	Tue, 23 Jun 2026 17:02:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782234163;
+	bh=aBU6pCnOCTlrKDDQo5rEGB3OdGcEdLqLcPo64Ew0+ZM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=LlI9FAR3V2CgWMRUYHx/Pp9RazmkuGtTnZYI9Uvf8uIWjc4H9Wo+izN90npoglUMQ
+	 yQt6RhXDyYsdwpNlP6XSA4s/hzUYUZ6pbIix9ox+bYTbj4PhkFq8rNJyaBPzdBl1ky
+	 k00ceYbUFinHQ3/PJsMyWmjGF4jlqJcpAjCjnlpUqejzM3SgcnG5w+IcVc6EDcZfA/
+	 zYwLkikMu+Urz8T5fVKecSXBDE9L9leseBpv74ZXGgEW3gQrleJQosDm1qb/3ba3UH
+	 ZdbAetHjTGTU38VLT5TqtbA90HD+VHu4h5wceBO9OHldpMimKX7hepTQE3DZilrI4V
+	 UoNo7Fk98M9PQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wc4WH-0000000FMe4-12PY;
+	Tue, 23 Jun 2026 17:02:41 +0000
+Date: Tue, 23 Jun 2026 18:02:40 +0100
+Message-ID: <86qzlxqjf3.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Bradley Morgan <include@grrlz.net>
+Cc: Oliver Upton <oupton@kernel.org>,
+	kvmarm@lists.linux.dev,
+	Fuad Tabba <tabba@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Quentin Perret <qperret@google.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] KVM: arm64: skip pKVM cache flushes for non cacheable mappings
+In-Reply-To: <20260623163756.4591-1-include@grrlz.net>
+References: <20260623160339.15143-1-include@grrlz.net>
+	<20260623163756.4591-1-include@grrlz.net>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: include@grrlz.net, oupton@kernel.org, kvmarm@lists.linux.dev, tabba@google.com, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, qperret@google.com, vdonnefort@google.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,37 +93,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Bradley,
 
-On 6/23/26 09:46, Inochi Amaoto wrote:
-> The current irq definition of the wake irq and the lpi irq
-> is wrong, replace them with the right number and name.
+Just a few things to keep in mind for your next contributions:
+
+- If you are sending more than a single patch, add a cover letter.
+
+- Don't send a v2 in reply to a v1. It messes the threading we are
+  relying on, and makes it hard to ignore replies to an older version.
+  Always send new series standalone.
+
+- Don't immediately send a V2, even if (especially if!) a bot is
+  pestering you. 34 minutes between versions is way too short (at
+  least a few days is the norm).
+
+On Tue, 23 Jun 2026 17:37:55 +0100,
+Bradley Morgan <include@grrlz.net> wrote:
 > 
-> Fixes: 30f0ba420ed3 ("net: stmmac: Add glue layer for Spacemit K3 SoC")
-> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> pKVM keeps its own mapping list for stage 2 operations. Its flush path
+> uses that list directly, so it lost the PTE attribute check done by the
+> generic stage 2 walker.
+> 
+> Record whether a mapping is cacheable and skip cache maintenance for
+> mappings that are not cacheable.
+> 
+> Fixes: e912efed485a ("KVM: arm64: Introduce the EL1 pKVM MMU")
+> Cc: stable@vger.kernel.org
 
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+What device memory gets mapped in an upstream pKVM guest that would
+require a backport to stable?
 
-Maxime
-
+> Signed-off-by: Bradley Morgan <include@grrlz.net>
 > ---
->  drivers/net/ethernet/stmicro/stmmac/dwmac-spacemit.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-spacemit.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-spacemit.c
-> index 3bfb6d49be6c..322bdf167a4a 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-spacemit.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-spacemit.c
-> @@ -22,8 +22,8 @@
->  #define CTRL_PHY_INTF_RMII		FIELD_PREP(CTRL_PHY_INTF_MODE, 0)
->  #define CTRL_PHY_INTF_RGMII		FIELD_PREP(CTRL_PHY_INTF_MODE, 1)
->  #define CTRL_PHY_INTF_MII		FIELD_PREP(CTRL_PHY_INTF_MODE, 3)
-> -#define CTRL_WAKE_IRQ_EN		BIT(9)
-> -#define CTRL_PHY_IRQ_EN			BIT(12)
-> +#define CTRL_LPI_IRQ_EN			BIT(9)
-> +#define CTRL_WAKE_IRQ_EN		BIT(12)
->  
->  /* dline register bits */
->  #define RGMII_RX_DLINE_EN		BIT(0)
+> Changes in v2:
+> - Add patch 2 for the pKVM permission fault mapping cache bug.
 
+This is the sort of information that goes in the cover letter.
+
+> 
+>  arch/arm64/include/asm/kvm_pkvm.h | 1 +
+>  arch/arm64/kvm/pkvm.c             | 8 +++++++-
+>  2 files changed, 8 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
+> index 74fedd9c5ff0..d9dd8239910d 100644
+> --- a/arch/arm64/include/asm/kvm_pkvm.h
+> +++ b/arch/arm64/include/asm/kvm_pkvm.h
+> @@ -196,6 +196,7 @@ struct pkvm_mapping {
+>  	u64 gfn;
+>  	u64 pfn;
+>  	u64 nr_pages;
+> +	bool cacheable;
+
+Errr, no. That's a terrible idea.
+
+This thing is already big enough, let's not add a bool right in the
+middle (use pahole to find out why this is bad). Given that nr_pages
+is for a range, and that the minimum page size uses 12 bits, the
+largest number of pages you can have here is 56-12=48 bit wide. That's
+another 16 bits worth of flags you can use.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
