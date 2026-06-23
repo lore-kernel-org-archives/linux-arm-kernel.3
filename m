@@ -4,75 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D45FECDB481
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 16:32:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27C74CDB46F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 16:36:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=22N2PXre9YiYxQovnEOcAgvXcS6i+/Ko0WKi4hscMQ8=; b=gHES6hZuRLj2T7713g5rxl7Kcj
-	Mi4ZNjTfcXTMIEu6gKbY36SO3IWJnRUUW3iLmokS3FK7tULuEK6wF4PaDHP4Z3CFgv6fSrRyq5vw4
-	ebFgIqPd0YEC+Y/+XvzS6qM7D5mKhZBxd71xra+jCNcSljmbMTtb4nIOPY/dUOjUCpFrcf3i7eg1L
-	/WVKirQUfvcaQeAEHIyltVhg4iT2G0AOFXmyt+dx5jy4kXwBZEFhy0f2cnfw4g01hlSxmotcF4ZDP
-	Ws3neEsbwNUOS53bO/JnIwbKElvg//GyprXQBDowjZGodFCRoAd2r2ADrREzDoxpFCIN5x1t5wlY7
-	A3oh4JXg==;
+	bh=xA0Pw5Ltim7xa7TG+yFu6in4RZDMahQ0O7HSJsSCKNo=; b=nY9e+roc2mIlpacvogXuuTeCr9
+	DNMUlcXJo6zOpZ8Ef0hYz1vpjduBXV5mH/ZNN2PBNi1CddIIQfeBGHjsWTGS6DSdMXOT3tTOlL7ZL
+	aYWi9w0kTZbN/anmfoD1eJChxGc7RmBTkrlzbZ0yojH9ekvl6sMwmmkvcsJAbBoLM/PHFtL6vDWWo
+	cblV5eK0NBgy3wd1N3bP3mycFWBIhdhbCw6LllhuHkaHX1QqhiAflpfSD373xqFnAfvOGsAgF0Efr
+	zjcfNwMTqiF/hLa8HHIKh8ceZqTI617d0roEdMVjk/Eet998kJYcL8w4Z3jF5028qewC0SCzOOZQQ
+	dzyKrlxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc43D-00000006dAG-2a0E;
-	Tue, 23 Jun 2026 16:32:39 +0000
-Received: from esa3.hc555-34.eu.iphmx.com ([207.54.77.50])
+	id 1wc46i-00000006dmi-13AW;
+	Tue, 23 Jun 2026 16:36:16 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc431-00000006d1Q-3w6O
+	id 1wc46g-00000006dmI-2JtC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 16:32:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=mobileye.com; i=@mobileye.com; q=dns/txt; s=MoEyIP;
-  t=1782232348; x=1813768348;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:references:in-reply-to:to:cc;
-  bh=+Z2cQgxr6f9W2AYTe4LfLElv/Xuc2xJlHOPLDdzJPfU=;
-  b=aV1hen1Rcj17u1RlFkEAtDf0J7Mhzw/CKv1twAvuN16PN/iGQKfa/Xqv
-   MDHdfLsOc/QN7zCZL4ogL52wwQ3dzYtyTM7XSKiTpVQxg2nqWpAYwcX++
-   Y1/al8z5UrIc6W0qAiiW83g/oO2xlrGqfV2bo7mJCxi5Jaj5sB1h6y/F8
-   yeZbXpNWrMLowY5Q3PjmNzuCdHJ1Nqph5V3RJ4oDBjnpJbgnDb2TgqZdP
-   3WO3UEfPP1zYzYKf9mmi9HL1c5wnSwSdGTRPod80qo8BadNAjdi7aUn0a
-   8kEoosh5wkhElRDRKphP+IKVSjAirxDiHzTd1bON01GqHGrNOxIUkzHtZ
-   Q==;
-X-CSE-ConnectionGUID: mA8GO/haRgSgiqnt/1TtKA==
-X-CSE-MsgGUID: Cs3XYAqNT/+8aYlUxmWmTA==
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from unknown (HELO ces04_data.me-crop.lan) ([146.255.191.134])
-  by esa3.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jun 2026 19:32:26 +0300
-X-CSE-ConnectionGUID: mMrEQ/VaSZOzmZ9RjiL74A==
-X-CSE-MsgGUID: 9qbGRbl6STyEoZClwz4xOw==
-Received: from unknown (HELO epgd056.me-corp.lan) ([10.154.54.2])
-  by ces04_data.me-crop.lan with SMTP; 23 Jun 2026 19:37:33 +0300
-Received: by epgd056.me-corp.lan (sSMTP sendmail emulation); Tue, 23 Jun 2026 19:32:24 +0300
-From: Dmitry Guzman <Dmitry.Guzman@mobileye.com>
-Date: Tue, 23 Jun 2026 19:31:53 +0300
-Subject: [PATCH 6/7] i2c: nomadik: add quirks max_len=2047 and
- no_zero_len_read
+	Tue, 23 Jun 2026 16:36:15 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65NBZZUw134206
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 16:36:13 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	xA0Pw5Ltim7xa7TG+yFu6in4RZDMahQ0O7HSJsSCKNo=; b=hBFwZWrJs9byP+c6
+	hYYxGCrOpcZvXsOg28ZB6vszdjmOpDg5xjYrgaWLAB2QRTDOU08+5R/jYG5PW4FS
+	oxjsRSNDoQUVy12asRr0bOypqvLuU6vrk6G47EpAVfFk8HLlyP686H+77ABbEEYA
+	CcxHT/jCVFeID3l5ZwEIzPeOxzdL8PlqaFaPe+NsskCv+8g5VF+O3L0wumSlg+dE
+	KtVB6yhhIIBls4mTfu2atPJbChIapUxE/rqVXgMsopdhWqe6SclBORTCeYvs1uyJ
+	MLDiUDeHXl8Rn/zAi6anLruZIogLZQUt//ltG0ncMJjjmUWxg347N1RjLaDIdZdy
+	xIcNVA==
+Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com [209.85.219.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4eyr321ksk-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 16:36:13 +0000 (GMT)
+Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-8d37bc61dc2so318276d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 09:36:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1782232573; x=1782837373; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=xA0Pw5Ltim7xa7TG+yFu6in4RZDMahQ0O7HSJsSCKNo=;
+        b=EAirTk+8hMWSypgJ7Hu1BOGGfSOyBhCHHNgGOHzx8zhJnO2XQvHg0I5aAVKVT7SjA6
+         9JWfAtXOMstjOmLSGCFlKg6FfL6CEpDPAzJY7wGNUQ6IZPL3HhqAghoQvF547SiQYDYS
+         fAw98He38Kx6GvtGPXrjNy6AKrWu9gN1ZgWDLi2ag54HYu3CEpPacD42n1sC+Iyyg1pn
+         mjVsr7+ofsskIDaXSFw62BmSXOWHs6zcI6+H0PVKDE/NCMRCo1cqPclEVTtvrnI/unoS
+         G8MGW+ftFZw4RD5OoFbaASf596xx5GNura9Ft4YVHCFZR27Z/DTZy6S6CkS/lv66Viq3
+         TqNQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782232573; x=1782837373;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=xA0Pw5Ltim7xa7TG+yFu6in4RZDMahQ0O7HSJsSCKNo=;
+        b=PIbjyZ74ouUQEuA7F9qljQrpyvU/QC4MZUcbI3vRbYEYNvW/nM/hZbcMLYP6yMfgcU
+         +ymabKKmTUeolfdpl0K4YrrEd5fvFovQanMjIrNMKN7dLipIJCZlvhTsIAVejSuu2dC8
+         zDw3gMa61QCEeQjN8aFzrrb+8QbX0Y8td8zp3yTbNIuAEH2LOwCNcDuFdcpnasQwxIU3
+         4r2uBuA6b4K0f34vYNTLN/gtNtDaPoqVsovg7CYqM20KC2/kuRFx9Ch9Mk8/caT1EyZ3
+         E/Eh1Yrj87vqi8RzIO97q59GnVdJ085c+kmFl3AYWX8u8/ZMsdqXK1Ybh6AhNZ2lqpJ1
+         aTAw==
+X-Forwarded-Encrypted: i=1; AFNElJ8dyoIOfZKRDSgITKCvWGiLbm9bKN2r4oVojfAPYupKZyhTvzJ2rB1flTb/QpVrP39/W6P4O3pUlcvDy9zZh45X@lists.infradead.org
+X-Gm-Message-State: AOJu0YzEA5GrZ1MYmn7HnKS2Cgv+ZbFqmmg5aecog/qJ5O+qTMzEUyLd
+	0j4Ya8YsJLA+99o+LGQ56x0dd1tkxjVtvmPDmCu+4OThu1z8pBcdT0maChn8aKwc2mTD6Ypy7QL
+	KTZxCYmfgOJhkrEoGwcM00JmsgLQBdhEd+QPxiPVnRv4wKfPhJMiaRMMLgtC5EfDIN5D43aAhGX
+	jUSw==
+X-Gm-Gg: AfdE7clzuJGTyHFfG2emR/Ly09X39e0Ye4RSDd41PbDMdY+CUQxaBQ4srtnAu6EFfrt
+	W0r531PGPzgSHa663lZpMtNI96BobSkEnyCAwWhdPFYdGrjdC2AMLPa8X/V/G/joc3gACohclBL
+	vsOuvaLaDvyCNZZXqeCx743P9SfYa7DqLjef6C3gngla5ZZ7gK4HhC03BzjFZTkOvd6LxPmnSZh
+	246BAX2373CjyNF1Ai8m6N9rJU9+v/djuxCqqAymW2d04VGs3o9cUUQbKgc/0x742bIaxM3+hTY
+	6HSqRWngUVzuQGPmegC6PfItvcC4Maj3VmVmn1HIJJ0YHyM2eRn83x+uVjNJqGNXsRLY/7bS+6C
+	jx23e3pDVVh15bbaVhPHBwINRvm8miyDFHBQ=
+X-Received: by 2002:a05:620a:6781:b0:926:e8e6:3c28 with SMTP id af79cd13be357-926e8e65d56mr123258785a.7.1782232572839;
+        Tue, 23 Jun 2026 09:36:12 -0700 (PDT)
+X-Received: by 2002:a05:620a:6781:b0:926:e8e6:3c28 with SMTP id af79cd13be357-926e8e65d56mr123255785a.7.1782232572407;
+        Tue, 23 Jun 2026 09:36:12 -0700 (PDT)
+Received: from [192.168.120.170] ([178.235.128.140])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5ad69555c45sm943642e87.36.2026.06.23.09.36.10
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 23 Jun 2026 09:36:11 -0700 (PDT)
+Message-ID: <45794082-0c86-416c-a2b1-76ab4f20d82d@oss.qualcomm.com>
+Date: Tue, 23 Jun 2026 18:36:09 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 7/8] iommu/qcom: Enable clocks before hardware access in
+ qcom_iommu_ctx_probe()
+To: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+        Rob Clark <robin.clark@oss.qualcomm.com>,
+        Will Deacon <will@kernel.org>, "Joerg Roedel (AMD)" <joro@8bytes.org>
+Cc: Robin Murphy <robin.murphy@arm.com>, iommu@lists.linux.dev,
+        linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org
+References: <20260623122034.1166295-1-mukesh.ojha@oss.qualcomm.com>
+ <20260623122034.1166295-8-mukesh.ojha@oss.qualcomm.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20260623122034.1166295-8-mukesh.ojha@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260623-i2c-fault-reporting-v1-6-6db1a8aabf18@mobileye.com>
-References: <20260623-i2c-fault-reporting-v1-0-6db1a8aabf18@mobileye.com>
-In-Reply-To: <20260623-i2c-fault-reporting-v1-0-6db1a8aabf18@mobileye.com>
-To: Andi Shyti <andi.shyti@kernel.org>, 
- Steven Rostedt <rostedt@goodmis.org>, 
- Masami Hiramatsu <mhiramat@kernel.org>, 
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
- Linus Walleij <linusw@kernel.org>
-Cc: linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-trace-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Dmitry Guzman <Dmitry.Guzman@mobileye.com>
-X-Mailer: b4 0.14.2
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNjIzMDEzNiBTYWx0ZWRfX9+s3L0GAzvkD
+ ut1pqY8LotoqeN78CxNOMyRZ3Q2oHsGrYoK1CDFpeogJZsX9pHL1pz6DqBtVkzawLTVm01g0riU
+ kr2KKxDv8M16P/fftXuXx9XZxWVzej0=
+X-Proofpoint-ORIG-GUID: Gt-3XCjICJxPmAowCwVwIgg0a2CRJMKq
+X-Authority-Analysis: v=2.4 cv=HrxG3UTS c=1 sm=1 tr=0 ts=6a3ab5fd cx=c_pps
+ a=wEM5vcRIz55oU/E2lInRtA==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
+ a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
+ a=EUspDBNiAAAA:8 a=Yd-jd7UEqWDYs8h9-TIA:9 a=QEXdDO2ut3YA:10 a=zZCYzV9kfG8A:10
+ a=OIgjcC2v60KrkQgK7BGD:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjIzMDEzNiBTYWx0ZWRfX3mOSTHGX3QT+
+ 5UExavBk4meUtBD+PS6n6toxu20xsODkCE/DG2EeGKeeJJB6dC1SmqCWRZbInmvgKGFvxm263ws
+ genGAxxpTtgOKpt76KHstgcNiJyXIg8+yA7J6x1GCjIOtQIBJNOTnFdFlz3RwZOdVOF6SIy5hak
+ eK0xg7cr23k6jR3ZMUDU1kd+NeRCMrrUJqgi9rKzLceg/E67cZEEUalnjFfnLOkGaUFu0P8ZVVq
+ Hj6XN8ctz6TAsWAiKHmR/Lqrd4WlMGTU8NLmBRcTTtckEgfguq8E0tK8bRkO00aExZf6xpng4nW
+ 3W3mMl3rsrpF/JX7pDUyDifW2xaU11M38hI4GdxjO8I9JItc+3ey/YIlYqCCgH7q1ZKhHU3dtln
+ 9rCf8bQ0Aq9F1wNOEPzfV2W1X7L8rW2bq2XPkkhjWOlIZYd1WOfAUtLkn0xxKv4YdeDwSWwyXeB
+ ZW9CFNCH+rlOZgC96Nw==
+X-Proofpoint-GUID: Gt-3XCjICJxPmAowCwVwIgg0a2CRJMKq
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-06-23_03,2026-06-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 spamscore=0 phishscore=0 priorityscore=1501 malwarescore=0
+ adultscore=0 bulkscore=0 impostorscore=0 clxscore=1015 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2606230136
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_093228_263884_1A4767AE 
-X-CRM114-Status: GOOD (  13.72  )
+X-CRM114-CacheID: sfid-20260623_093614_716917_A2FEFD7B 
+X-CRM114-Status: GOOD (  13.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,57 +154,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In Nomadik I2c controller, register I2C_MCR has 11-bit wide LENGTH
-field. Its maximum value is 2047, so this is the maximum length of a
-single message. It is less than the common maximum I2C message length in
-I2C subsystem (8192), so define a quirk in order to report the
-unsupported message without any attempt to transfer it.
+On 6/23/26 2:20 PM, Mukesh Ojha wrote:
+> qcom_iommu_ctx_probe() reads and writes the CB_FSR register to clear any
+> stale IRQ left by the bootloader. This happens during
+> devm_of_platform_populate() which is called from the parent device's
+> probe before any pm_runtime_get(). The parent's clocks (iface, bus, tbu)
+> are therefore not guaranteed to be on, making the register access
+> unreliable on rebind or after a suspend cycle.
+> 
+> Use pm_runtime_resume_and_get() on the parent device to ensure clocks
+> are enabled before the register access, and release the reference
+> immediately after.
+> 
+> Signed-off-by: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
+> ---
 
-Zero length reading doesn't work properly on this controller, so add
-`I2C_AQ_NO_ZERO_LEN_READ` quirk flag.
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 
-Signed-off-by: Dmitry Guzman <Dmitry.Guzman@mobileye.com>
----
- drivers/i2c/busses/i2c-nomadik.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
-
-diff --git a/drivers/i2c/busses/i2c-nomadik.c b/drivers/i2c/busses/i2c-nomadik.c
-index 7d93fb3876dc1324003dd19884e3fd5cbba9cfbb..9cff0c2757fafeaf809395e02a5e754570f65e08 100644
---- a/drivers/i2c/busses/i2c-nomadik.c
-+++ b/drivers/i2c/busses/i2c-nomadik.c
-@@ -79,6 +79,9 @@
- #define I2C_MCR_STOP		BIT(14)		/* Stop condition */
- #define I2C_MCR_LENGTH		GENMASK(25, 15)	/* Transaction length */
- 
-+/* Controller hardware limitation of the message length */
-+#define I2C_MAX_MSG_LENGTH	(I2C_MCR_LENGTH >> 15)
-+
- /* Status register (SR) */
- #define I2C_SR_OP		GENMASK(1, 0)	/* Operation */
- #define I2C_SR_STATUS		GENMASK(3, 2)	/* controller status */
-@@ -238,6 +241,12 @@ static int fault_codes[] = {
- 	EIO
- };
- 
-+static const struct i2c_adapter_quirks nmk_i2c_quirks = {
-+	.flags = I2C_AQ_NO_ZERO_LEN_READ,
-+	.max_read_len  = I2C_MAX_MSG_LENGTH,
-+	.max_write_len = I2C_MAX_MSG_LENGTH,
-+};
-+
- static inline void i2c_set_bit(void __iomem *reg, u32 mask)
- {
- 	writel(readl(reg) | mask, reg);
-@@ -1162,6 +1171,7 @@ static int nmk_i2c_probe(struct amba_device *adev, const struct amba_id *id)
- 	adap->class = I2C_CLASS_DEPRECATED;
- 	adap->algo = &nmk_i2c_algo;
- 	adap->timeout = usecs_to_jiffies(priv->timeout_usecs);
-+	adap->quirks = &nmk_i2c_quirks;
- 	snprintf(adap->name, sizeof(adap->name),
- 		 "Nomadik I2C at %pR", &adev->res);
- 
-
--- 
-2.43.0
-
+Konrad
 
