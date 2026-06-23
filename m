@@ -4,65 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75A60CDB47C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 08:07:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14C81CDB470
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 08:15:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S7X4nosi8hgJdn6rn+Z4ZHcOUo1kxZv8E9Yj83tJZkM=; b=uDl56MUn5eeKIIS5xLlmuWpaZL
-	xfIVzfaSnIoophGnYmQ0Co0ejUYe0TcT/pevuaG8Yyb2VwQevhRaljPtn8jPcCMIJpMXHLNc40fKm
-	7pKbNJEw8eqBGeo6aFNQnAVw9Joi+PR6jFGDepepaXEU2U4wLOwa5ZJHowKL8P2ZLUU2NLAeskS3a
-	W7q5dTLMjIPqzj4NQDNcgE/3pq1RvWJkcAA0rKUwt8ABPlSYrO6Cn69zgwkd84WYw0b/UTaIVaoTb
-	31xUcLS4k1jkB7frtGtM1YhRmAiC+5BJHqebN9fNps4bTfmxM+gCaoJ0NvzIZzci7KWGlWNNkSwzV
-	EAPn1J4g==;
+	bh=6t4ZwmCH40IWIYlaLACvuOiRTFEmMUQ/Ln8FmnXcNjQ=; b=JaPY9sPYgfu0puVDZXs1vGg8B7
+	4laFhhOoGiI97I+hMNZN2DqXZ4iLMdBv9MGp+IQo1TocHKjniFzB5lbbj7OnattysWMUh2/rY+dG2
+	+tyL4MrdKa+cKNd7rohOT/BHgsHkWQKITJEozxt24RGc/QXQq73WigqXbiArt9wmSB5w0Ky7zR67+
+	r8Lqa/OEV2m1cRS5n2otgW4y+iFKRK66IYhOv+y+NGDA+BxJIBp98rTMBSrLwEGnmcek+WbXr0uGa
+	aH/MiauJKcyFvBcIHcyCwOJ/5pWZLjOcJXw6MrQYu0fpkxfUOIqkR65UCp6lP6+6yjDZ8z1Th6azb
+	eKoupoUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbwAF-00000005sn7-0eSs;
-	Tue, 23 Jun 2026 08:07:23 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wbwHs-00000005tOB-1KsP;
+	Tue, 23 Jun 2026 08:15:16 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbw9b-00000005sZr-2cVm;
-	Tue, 23 Jun 2026 08:06:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1782202001;
-	bh=05sDxDxhH+7UoIrgdabJtlXr867z5VKROPNR6f1UT4I=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=owfJ3Ygz4Dlx/2o5TREY+3za/AJzA8mphrSFgVyPQoi9HTGiZZrHV2+/ej3XnEFZh
-	 +CTa6YjU6GHZzR4dtdFA1ZoPuNObDNh8ZH7kFeGjvHwsW4vGaG5sFY/a1caDLRQ5Z4
-	 og32giKwkqQ7CGZ3AxAgTzH3TCaZHGyCMWCc0FHZIJFpOog4tLPexsrCY7Oz3R1NQr
-	 e98SP4UH8O55uMFya5lLafWNDUqpmF2Jkv3T+33QmFXN0fDKAdFTn8ocZ0Wfrw2eH9
-	 Cy0hSS++zxNj8eVk8OHFsJzuWlpTEO0iB58eEfYeID8Yc6YWP/MfDFrPuRQhHlHJvo
-	 cM3ElXnOyX75Q==
-Received: from [100.64.1.21] (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 324C117E10FC;
-	Tue, 23 Jun 2026 10:06:41 +0200 (CEST)
-Message-ID: <24670280-508d-4794-b5f4-1dda825d9289@collabora.com>
-Date: Tue, 23 Jun 2026 10:06:41 +0200
+	id 1wbwHp-00000005tLo-1slG
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 23 Jun 2026 08:15:15 +0000
+X-UUID: 9da3d15a6edb11f1aa26b74ffac11d73-20260623
+X-CTIC-Tags: HR_CC_COUNT, HR_CC_DOMAIN_COUNT, HR_CC_NAME, HR_CC_NO_NAME, HR_CTE_8B
+	HR_CTT_MISS, HR_DATE_H, HR_DATE_WKD, HR_DATE_ZONE, HR_FROM_NAME
+	HR_SJ_DIGIT_LEN, HR_SJ_LANG, HR_SJ_LEN, HR_SJ_LETTER, HR_SJ_NOR_SYM
+	HR_SJ_PHRASE, HR_SJ_PHRASE_LEN, HR_SJ_WS, HR_TO_COUNT, HR_TO_DOMAIN_COUNT
+	HR_TO_NO_NAME, IP_TRUSTED, SRC_TRUSTED, DN_TRUSTED, SA_UNTRUSTED
+	SA_UNFAMILIAR, SN_UNTRUSTED, SN_UNFAMILIAR, SPF_NOPASS, DKIM_NOPASS
+	DMARC_NOPASS, CIE_GOOD, CIE_GOOD_SPF, GTI_FG_BS, GTI_RG_INFO
+	GTI_C_BU, AMN_GOOD, ABX_MISS_RDNS
+X-CID-UNFAMILIAR: 1
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.12,REQID:e244f643-0d94-4661-9dbe-d3f87441a1ef,IP:10,
+	URL:0,TC:0,Content:0,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:35
+X-CID-INFO: VERSION:1.3.12,REQID:e244f643-0d94-4661-9dbe-d3f87441a1ef,IP:10,UR
+	L:0,TC:0,Content:0,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:35
+X-CID-META: VersionHash:e7bac3a,CLOUDID:5549c0c9c56ac87306c3598eda0d2bad,BulkI
+	D:260623161455U457ALV5,BulkQuantity:0,Recheck:0,SF:16|19|66|78|81|82|102|1
+	27|136|865|898,TC:nil,Content:0|15|50,EDM:5,IP:-2,URL:0,File:nil,RT:nil,Bu
+	lk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:
+	0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_USA,TF_CID_SPAM_FSD,TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 9da3d15a6edb11f1aa26b74ffac11d73-20260623
+X-User: leixiang@kylinos.cn
+Received: from ninol.. [(116.128.244.169)] by mailgw.kylinos.cn
+	(envelope-from <leixiang@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 276535867; Tue, 23 Jun 2026 16:14:54 +0800
+From: leixiang <leixiang@kylinos.cn>
+To: maz@kernel.org
+Cc: oupton@kernel.org,
+	seanjc@google.com,
+	pbonzini@redhat.com,
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	leixiang <leixiang@kylinos.cn>
+Subject: [RFC PATCH] KVM: arm64: Set irqfd->producer to enable vLPI routing updates
+Date: Tue, 23 Jun 2026 16:14:33 +0800
+Message-ID: <20260623081433.21250-1-leixiang@kylinos.cn>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260622075103.35164-1-leixiang@kylinos.cn>
+References: <20260622075103.35164-1-leixiang@kylinos.cn>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] pinctrl: mediatek: Restore PINCTRL_MT8189 to tristate
-To: Justin Yeh <justin.yeh@mediatek.com>, Sean Wang <sean.wang@kernel.org>,
- Linus Walleij <linusw@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>
-Cc: Project_Global_Chrome_Upstream_Group@mediatek.com,
- linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20260529100308.51271-1-justin.yeh@mediatek.com>
- <20260529100308.51271-2-justin.yeh@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20260529100308.51271-2-justin.yeh@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_010643_839764_7F2617C9 
-X-CRM114-Status: GOOD (  16.52  )
+X-CRM114-CacheID: sfid-20260623_011513_803422_34A1F5CB 
+X-CRM114-Status: GOOD (  12.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,47 +94,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/29/26 12:02, Justin Yeh wrote:
-> Under the GKI + vendor_dlkm model, vendor-specific pinctrl cannot be
-> built into the GKI vmlinux. Upstream's recent switch of PINCTRL_MT8189
-> to bool prevents building as a loadable module, which breaks DDK module
-> usage. Restore tristate so MT8189 pinctrl can be packaged as a kernel
-> module in vendor_dlkm.
-> 
-> Signed-off-by: Justin Yeh <justin.yeh@mediatek.com>
+ARM64's kvm_arch_irq_bypass_add_producer() never sets irqfd->producer,
+so kvm_irq_routing_update() never calls the ARM64 routing hook.  That
+hook unmaps the vLPI and falls back to software injection when an
+irqfd's MSI routing changes; with it dead, the vLPI stays bound to the
+old translation.
 
-The MODULE_LICENSE change shall come before this one.
+Set irqfd->producer once kvm_vgic_v4_set_forwarding() succeeds and
+clear it in del_producer(), under irqfds.lock; the only reader,
+kvm_irq_routing_update(), takes that lock.  set_forwarding() may sleep,
+so it runs outside the lock and the pointer is published only on
+success, needing no error cleanup.
 
-Besides - since there's no problem in having the pinctrl drivers as module for
-MT8189, I imagine that this is analogously true for all (or most of) the others.
+Sent as RFC: the unmap-on-reroute path has been dormant.
 
-Looks like getting those to build as modules is trivial, too - so, can you at
-this point please do the same for all of the MediaTek pinctrl drivers that are
-trivial to enable as tristate?
+Fixes: 2412405b3141 ("KVM: arm/arm64: register irq bypass consumer on ARM/ARM64")
+Signed-off-by: leixiang <leixiang@kylinos.cn>
+---
+A review of the x86/powerpc producer-nullify patch pointed out that
+ARM64 never sets irqfd->producer, so kvm_arch_update_irqfd_routing()
+is dead.  This RFC fills that gap; set_forwarding() may sleep and so
+can't run under irqfds.lock like the x86 path, hence the locking is
+what I'd most like reviewed.
 
-P.S.: After reordering the commits, this one is
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+ arch/arm64/kvm/arm.c | 17 +++++++++++++++--
+ 1 file changed, 15 insertions(+), 2 deletions(-)
 
-Thanks,
-Angelo
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 50adfff75be8..6f1e4f526719 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -2935,6 +2935,7 @@ int kvm_arch_irq_bypass_add_producer(struct irq_bypass_consumer *cons,
+ 	struct kvm_kernel_irqfd *irqfd =
+ 		container_of(cons, struct kvm_kernel_irqfd, consumer);
+ 	struct kvm_kernel_irq_routing_entry *irq_entry = &irqfd->irq_entry;
++	int ret;
 
-> ---
->   drivers/pinctrl/mediatek/Kconfig | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/pinctrl/mediatek/Kconfig b/drivers/pinctrl/mediatek/Kconfig
-> index 4819617d9368..a75434e7e989 100644
-> --- a/drivers/pinctrl/mediatek/Kconfig
-> +++ b/drivers/pinctrl/mediatek/Kconfig
-> @@ -270,7 +270,7 @@ config PINCTRL_MT8188
->   	  map specific eint which doesn't have real gpio pin.
->   
->   config PINCTRL_MT8189
-> -        bool "MediaTek MT8189 pin control"
-> +        tristate "MediaTek MT8189 pin control"
->           depends on OF
->           depends on ARM64 || COMPILE_TEST
->           default ARM64 && ARCH_MEDIATEK
+ 	/*
+ 	 * The only thing we have a chance of directly-injecting is LPIs. Maybe
+@@ -2943,8 +2944,16 @@ int kvm_arch_irq_bypass_add_producer(struct irq_bypass_consumer *cons,
+ 	if (irq_entry->type != KVM_IRQ_ROUTING_MSI)
+ 		return 0;
 
+-	return kvm_vgic_v4_set_forwarding(irqfd->kvm, prod->irq,
+-					  &irqfd->irq_entry);
++	ret = kvm_vgic_v4_set_forwarding(irqfd->kvm, prod->irq,
++					 &irqfd->irq_entry);
++	if (ret)
++		return ret;
++
++	spin_lock_irq(&irqfd->kvm->irqfds.lock);
++	irqfd->producer = prod;
++	spin_unlock_irq(&irqfd->kvm->irqfds.lock);
++
++	return 0;
+ }
 
+ void kvm_arch_irq_bypass_del_producer(struct irq_bypass_consumer *cons,
+@@ -2957,6 +2966,10 @@ void kvm_arch_irq_bypass_del_producer(struct irq_bypass_consumer *cons,
+ 	if (irq_entry->type != KVM_IRQ_ROUTING_MSI)
+ 		return;
+
++	spin_lock_irq(&irqfd->kvm->irqfds.lock);
++	irqfd->producer = NULL;
++	spin_unlock_irq(&irqfd->kvm->irqfds.lock);
++
+ 	kvm_vgic_v4_unset_forwarding(irqfd->kvm, prod->irq);
+ }
+
+--
+2.45.0
 
