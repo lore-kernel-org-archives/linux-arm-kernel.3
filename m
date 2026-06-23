@@ -4,133 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0CD2CDB470
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 07:34:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69CE4CD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 07:46:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2NofonEFMP6mSpwao0YmaE1V7bcI3ZadPa5NapNuX7Y=; b=bbB1OV4DinYkzOuMNWLJRs6LDO
-	qWOPzv8De+NPwrKBG+teqlBC1YccyH0XHfHNVGLhVfVAPSGWtWd/+IqzozYCcsR22KcoNcZqrHK1X
-	ORg6c/Snf+eC4a7QijFKrBSE+AiV5hSPsR+/LcMGTXvya8Vj8I5ATks2bu37UAFpNLXAmo1hQEPvZ
-	Eo08zUJfB2IbVf0+LuVkYqAnLTUCvwPtP8O8EBZ7C+BqV8P5IQMNRG3vsYTKaIeH821dK8R2VM4f7
-	CjacfYTg/KGYDfOOpYY5pC2PDCzLZOgrH5TAsLH+2wquZc5bVnXSzjJXYFQ5ofzKppBzYudfghAnP
-	SUG6vpng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OHqXAZgFaTIYpj3YT+irqrhrATN20Im0CDfIlCjE0+M=; b=fMbeRKOfam4pW6NaZljPs47Hci
+	g0MMts1rN25lJBvr9HOuQowsBBP1Vr90gA4Tcv1QjDiR2EINMPjSQymQgy5QrdiKRQph0ryxsdBLC
+	fKSRJibvHAkSOPqF9h61S+QUd8NxzxdtUpHf4nYXaPlo8YPvbVShdX/BR79gUV/rIP22VWC2RFvdc
+	VRb1xsbT7MlXmkZtStxDrDurMyKXjjpn7nnb6p+gRNaUnCE3390rMJAW/HTVUaix10KP5b3nFMA6C
+	bFDvTfTmWy3z1C214Iq9atCmqn95PSkP2E9NhB505o5NSH9B4lq+k/IzB+3SnfEOSXl9AUj8aD5fK
+	Cg+5aRIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbvdx-00000005q5Z-1afY;
-	Tue, 23 Jun 2026 07:34:01 +0000
-Received: from mail-westeuropeazon11010066.outbound.protection.outlook.com ([52.101.69.66] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1wbvpw-00000005qhw-3epb;
+	Tue, 23 Jun 2026 07:46:24 +0000
+Received: from esa7.hc1455-7.c3s2.iphmx.com ([139.138.61.252])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbvdu-00000005q2r-2hSE
+	id 1wbvpt-00000005qhB-3psJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 07:33:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jKvfvOzfdpuQa4unxH4tSWY5n+8fH4rJiAGLv7vatMuWvgWCanbJFP2HH6JMaULNY8orxVV2XnveaCdP4FV3ziYlcHEHoSSWF7dXfX80rDfdawYCLuREkQ7tLYBKzEG2KFYdzaEydSBkcwA0jCfTcJtX+Y1SwjcnD2qWshrWjM2pkKjby6Si61acvxgSFMttGV+Sx3rVTZ5W7zq4WsAjYmWvg4DxVT7+22qCqEVbrPIcIKYIoDADau9IsxPRKZTGkgk4D07too5D2iB19ToUVhFCBqttjcUwI20OfKXCkQJd+UlIpGmwDH4quukoJR/JbEPrwbQRNZDxbr1llWxr4w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2NofonEFMP6mSpwao0YmaE1V7bcI3ZadPa5NapNuX7Y=;
- b=fEs606cqV73PTp/J5iKw080W6RrT9MQ3Es/wbEVeecip9yTqJbiE2zeWLGwqTEY3Jee/eQFJMiQeSe5xVXzvKYgBG3rhawlHxCjfVoy186GdoZPOTpW4eKjuOvfVxLOtO7yFP15oLx2I938IKOAkO8bXf60os8ByLycfJxtyx4Hwy8lJ6sn0Q2OCymWmNKeZLLXmnj2fq758pjEngl+pw2CYijAHDA048rqmSQBXO1CdyWFnnWB+UKgUuKDdWCBRAEHXAwoeMIYNezcxvXhLa/vLUhxLlcyJddftKp9WJD3dBzhMk3SHZ5x9KTvAH+IIDvNSXbNLpvTGB2RwNUGTsQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2NofonEFMP6mSpwao0YmaE1V7bcI3ZadPa5NapNuX7Y=;
- b=Q9XksGDehYz1tflEhwUIsgy+huYW2DBRWGSSm0o4Gvlj1IArChokXrSicZo5ljr9niIvzVRccUWXyBJnhtSv/0XmdBeo8fEoN1RDfoxoo7cuUv17ympfg/v+7Gd/9XwGMhIIOwSqu5+7fiukD4SeblAJ6ep5l8IxiwVER6MqcZ7KWljOO4qLuYL08iMFZCQ2MM5YwJzB5146vO6Dbg5TmG8Do5D3jEFHgNbFKfE9cEZ9Eycf7cGOuvGjMZHZi8wA4TXf6FXq7Mi21SHsU6v58wZjByNJT+W4PwL78+YU+WBra+K/3gjzg385JZge6QiGXJWUfCqygDoPgoqgCqngiQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from DU2PR04MB9180.eurprd04.prod.outlook.com (2603:10a6:10:2f7::6)
- by GV1PR04MB10822.eurprd04.prod.outlook.com (2603:10a6:150:205::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.12; Tue, 23 Jun
- 2026 07:33:53 +0000
-Received: from DU2PR04MB9180.eurprd04.prod.outlook.com
- ([fe80::f94c:ce27:1558:fb05]) by DU2PR04MB9180.eurprd04.prod.outlook.com
- ([fe80::f94c:ce27:1558:fb05%6]) with mapi id 15.21.0139.018; Tue, 23 Jun 2026
- 07:33:53 +0000
-From: ziniu.wang_1@oss.nxp.com
-To: adrian.hunter@intel.com,
-	ulf.hansson@linaro.org,
-	haibo.chen@nxp.com
-Cc: Frank.Li@nxp.com,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	imx@lists.linux.dev,
-	linux-mmc@vger.kernel.org,
-	s32@nxp.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 4/4] mmc: sdhci-esdhc-imx: disable irq during suspend to fix unhandled interrupt
-Date: Tue, 23 Jun 2026 15:35:15 +0800
-Message-Id: <20260623073515.2658205-5-ziniu.wang_1@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260623073515.2658205-1-ziniu.wang_1@oss.nxp.com>
-References: <20260623073515.2658205-1-ziniu.wang_1@oss.nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: AM8P251CA0005.EURP251.PROD.OUTLOOK.COM
- (2603:10a6:20b:21b::10) To DU2PR04MB9180.eurprd04.prod.outlook.com
- (2603:10a6:10:2f7::6)
+	Tue, 23 Jun 2026 07:46:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1782200782; x=1813736782;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=pb/y3OHpId8gRg21e98iHl/w2OyFbj6DK2ruwWVF5ws=;
+  b=MkFLWByn47vai7XHfkg6CWzC4RClgkIuESNJ5EvugUJVQ3zn2nhbU9+x
+   HE8L83gWJPHQPaitbaUHxMi5iCpv89tyaiS1EdtkAFO8V5q381JT1SQ1E
+   lnvHQnOygGHm004SelNo7zNBbuRfZhvS8Du/VRkYiXiAPijRQ3tzvZRWa
+   6LAHDMYvT2rMmqFEuu+PObEBMnhEe/DLukvfajZB8ORR6Hq5I7hhRixoX
+   97CvKyHExffx/m41HIVRyMjyz4TbBQTd4TCIu12W8CC6ZnJLASXhT+06Y
+   GJCPSBGRyrc+aUX+mQyzL67JU5jnytZPM+zHmgUBYnYHKXqnKNZA86JlP
+   w==;
+X-CSE-ConnectionGUID: 4X8Rj0/4SCOBhAQ9HAyxbA==
+X-CSE-MsgGUID: ZBIPcDq7THCuKmm7coWNiw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11825"; a="223916678"
+X-IronPort-AV: E=Sophos;i="6.24,220,1774278000"; 
+   d="scan'208";a="223916678"
+Received: from gmgwuk01.global.fujitsu.com ([172.187.114.235])
+  by esa7.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jun 2026 16:46:17 +0900
+Received: from az2uksmgm1.o.css.fujitsu.com (unknown [10.151.22.198])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by gmgwuk01.global.fujitsu.com (Postfix) with ESMTPS id F33E08203E6
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 07:46:16 +0000 (UTC)
+Received: from az2nlsmom4.fujitsu.com (unknown [10.150.26.201])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2uksmgm1.o.css.fujitsu.com (Postfix) with ESMTPS id AD01C83D977
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 07:46:16 +0000 (UTC)
+Received: from sm-arm-grace07 (unknown [10.124.178.20])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2nlsmom4.fujitsu.com (Postfix) with ESMTPS id 7455F20000F4;
+	Tue, 23 Jun 2026 07:46:12 +0000 (UTC)
+Date: Tue, 23 Jun 2026 16:46:09 +0900
+From: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+To: Wei-Lin Chang <weilin.chang@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH v3 0/5] KVM: arm64: nv: Implement nested stage-2 reverse
+ map
+Message-ID: <ajo5wUzh0usQTXMk@sm-arm-grace07>
+References: <20260510145338.322962-1-weilin.chang@arm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB9180:EE_|GV1PR04MB10822:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5c72f3cf-4cb7-4dee-dc31-08ded0f9c6ba
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|376014|366016|19092799006|18002099003|22082099003|6133799003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: T1Lkjkcsh1ki/t4AbnCNlilfzLOe3dDHnVDFiy8VsCnzjHallIfKJuuppbdZsNyybeHqDjJHouMnCsywQd1iMnXeDPrs4uNZdltoIlnEQReaiJPrnRZh4ZkjFh9FNRmZmnoE3ZLvSYGi/8YfOOXZfjwOYtP0j3aFa+5KZLnXbN3j7HH5DTJ6hNZCwDZ2BIpqAJdz3ekQZRp2uPnIBOxOw3BMBAi9o/7f2+QHP41iqt0Pj+s42/Ys27mwzN9d/S6tI4PBvzyUDxg84QAo9aprafZDKLFxPo5tw93x6zFOfx6t/aIpgSXQy6/3IWkPtgUTpS3ctAhdrNhpuH4jG9F4He3sAFmdYuGrJiUOqeST0yFRM0PKpMEPG2clRyll9Ggs6jWzBblIXHZSkA1rGojhl4qTVQCzsK8ADUIUPIfcNegdFB5bpqDxPLcXiFA0IoB9y9+pCCRXxloCYT6/azk59jHbgkkN2GDNqhZWr0SYHpMnIyz5gTy9N+bo/n5Uz4hdllYJm1gOLRHUlR+1LbHyPmrCmdpLNffN0aYb0lfdonvuB85/38UKUmie3FWk/I7Ink+D39Mej5rC1i8Jm+RhZYogYbXBGnZzrTH4CUews2VfLW0prFYY7RH594KZx/T6Rb5xjfhDmYdSF8R34+DHMVVC2w8C+l+10l2HwKSXYGc=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB9180.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(366016)(19092799006)(18002099003)(22082099003)(6133799003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?hL8mYSxdxKaywoCAGagSno/D/T9T+m6HZ1CHxvo1iZs2sR7rVNmtMB3pu6mZ?=
- =?us-ascii?Q?7zCAKyzovTB1WAkV5JK6LfamLvh0ReXGJ2kbqtNTOa3/k6w+Wy4kK3Paji+g?=
- =?us-ascii?Q?LiwDN+LbgOMUgLsE68e0nlBL7PwpULSx3vA1TkhqqNkBnzCJTmfAijUhJFvm?=
- =?us-ascii?Q?NMN6TQ7vh0Ou/OuhfkHZjK4zyqKJxdQZaPU0kS+4miskTDFeLkpndY+nQBKJ?=
- =?us-ascii?Q?nHvw1jwgYaT7OQsaZiVRrFfHWWcwxx+VnfDtCmvfrMTZ/DycPgHxR9iQ1I/F?=
- =?us-ascii?Q?kkuKZdXRHWfmmJKmQ9VoieGWVCxjjCZFduHCdYHtryDhmUroIDV5A7wiIkq6?=
- =?us-ascii?Q?z8LnI5Hm2V9IelIemhcjkmU0AVDy21+btS9BPuhiQfHrImA2nyvgl2kMXiXV?=
- =?us-ascii?Q?faNXZNbE/VVieWsSCA1kxvKVgzScj7FkxKhQ6L8RyBeUza9z7lQJyJ7m8NR0?=
- =?us-ascii?Q?K3AtCTUMbbx8wUJ5Mv36lyOUkkzAlyJoRg3ZjeWTl6Sr+v0Tz5xaWRHzbTfS?=
- =?us-ascii?Q?l29ky+nZaIzeG7gQmVWsmMgx8xQPUA0XGKNEADE9RSy9bNH5APhHgqfCT3/1?=
- =?us-ascii?Q?w2iQmOBUATCZF21QFwFVFmyhYjUfEAoou+wKViXo7cTW3ExDZeUBU16I/Yf6?=
- =?us-ascii?Q?Z1zi3UElMJLELa85QnUjEAfxst+ZmR8koOKou9niFo62vj01+06APJjKd3/b?=
- =?us-ascii?Q?94CyWFVg7cRcpiG+Y87tyUQVMfOy6qhASUKs51hUKhhmGId8KMYsnN3s9Ixp?=
- =?us-ascii?Q?6oPdFOqZitvLbwoeURaoz15U0PQawxnBuXRWdsZX1A+qy2acGjAmmi/2pLlC?=
- =?us-ascii?Q?mayBPXdviNvOD4mDlh/21Of03eZcnBWGRtsI0Vjh2h6NL2dvDZ0WleldypN4?=
- =?us-ascii?Q?QrsIGYdbE4R0PFoo1wccBBnw2EBX3egprD8r6wiO9pi+TQqXIGgI6dlhpQuE?=
- =?us-ascii?Q?8YF2VNsgCJHdAyEV7Sis5la0+j5D05XFERPKW6F9EjnnHmqRJO1zDMs4P480?=
- =?us-ascii?Q?fpgnv4awpsWxY/9RYwv0CCIHDDivfXwA7ZexFk+1J9PeGWMZs5a7a3yH62Gc?=
- =?us-ascii?Q?erHlOIWg8233NrgY0qg8j304jadoJtbwY5WJ9/CEhWVil+Y0caVB2WPyNon1?=
- =?us-ascii?Q?Rf4Ge68AIlJoaJrC8fuAgSjpV5yiEmIrbx+A6YFhEO1pZesRat26XFbShcVy?=
- =?us-ascii?Q?StOjx/Joz+HsKx0ZA9F22j3Kp5gmwiOpFNhl6lyqJNVb/nKEozU8oLwg0+gt?=
- =?us-ascii?Q?T+Pg35YX6dWF7lHPBSUXA+IYVfRz9b8cWmc1JPsdLEgiFWIg833jqBWNSSux?=
- =?us-ascii?Q?k6UKMQbbYOuuFQETckHFOL8N0HSM2FtO7Q+7AC/edtkiAl0Rp9RkNCx5tOzY?=
- =?us-ascii?Q?m5DvX9NshPgNr/3xzyM7EUtPVyHh7/7Yy23augNSTbVrW27e5nx9uXnZAUDE?=
- =?us-ascii?Q?WUOtkTRR2P8Mm2QXba6lRVihaCs8/7EUG4byfFTWzQ9ExqYUAzjPradmuod6?=
- =?us-ascii?Q?thj9uT7h0sYs1CpeW68ThisjW9bYSo3kzEh7l+gd8PPi8FVWbbRu8ycyXmfS?=
- =?us-ascii?Q?3Nj0v55nRudIx4pIQbXf7q5qJ0gh/Wm6e3f5lZtqaXp9mqTH42bjed4nQGkr?=
- =?us-ascii?Q?Qp1lHYwAoRM35t5fu5EG8wK/naZ0ZS1YoHE32ulGclMosUoAhkbiHHb3ZwDm?=
- =?us-ascii?Q?U7qvtpQ+xXhiWFA85Qj54u5CvquZ40zPNc1WCV0GT0n2n9t9pLLn6RyMWPS8?=
- =?us-ascii?Q?KDO7K2lRLKjrL1fnn9k2wg/qOlydlzaXgTfP1DXEXbJOa46UNvYY?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5c72f3cf-4cb7-4dee-dc31-08ded0f9c6ba
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB9180.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jun 2026 07:33:53.4374
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 98vGgoI69BeNhz5nuEJEABq29OhMkJdKeRtEBdjYWX7JNjVyZWHE1mQB8himA4a9/753c31NQhgUwmKGzL3isEH/5v5pSHLnC6yMoYgaCYIxY3bLNb8Jys9pdzGq/g8Q
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10822
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260510145338.322962-1-weilin.chang@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_003358_689128_127F43A0 
-X-CRM114-Status: GOOD (  15.32  )
+X-CRM114-CacheID: sfid-20260623_004622_529355_DA6E7B0B 
+X-CRM114-Status: GOOD (  18.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,64 +100,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Luke Wang <ziniu.wang_1@nxp.com>
+Hi Wei-Lin,
 
-When using WIFI out-of-band wakeup, an "irq xxx: nobody cared" warning
-occurs. This happens because the usdhc interrupt is not disabled during
-system suspend when device_may_wakeup() returns false.
+On Sun, May 10, 2026 at 03:53:33PM +0100, Wei-Lin Chang wrote:
+> Hi,
+> 
+> This is v3 of optimizing the shadow s2 mmu unmapping during MMU
+> notifiers.
+> 
+> Two new preparatory patches are added, one reduces a hole in kvm_s2_mmu
+> and another refactors the code a bit during s2 faults. Other changes are
+> listed below.
+> 
+> * Changes from v2 [1]:
+> 
+>   - Removed "polluted" teminology.
+> 
+>   - Use xa_{mk, to}_value() when storing and retriving values from maple
+>     trees.
+> 
+>   - Avoid using the 63rd bit in maple tree values so that xa_{mk, to}_value()
+>     does not lose us a bit.
+> 
+>   - Added reverse map removal during TLBI handling.
+> 
+>   - Other suggested refactorings.
+> 
+> Thanks!
+> 
+> [1]: https://lore.kernel.org/kvmarm/20260411125024.3735989-1-weilin.chang@arm.com/
+> 
+> Wei-Lin Chang (5):
+>   KVM: arm64: Use a variable for the canonical GPA in kvm_s2_fault_map()
+>   KVM: arm64: Move shadow_pt_debugfs_dentry to reduce holes in
+>     kvm_s2_mmu
+>   KVM: arm64: nv: Avoid full shadow s2 unmap
+>   KVM: arm64: nv: Remove reverse map entries during TLBI handling
+>   KVM: arm64: nv: Create nested IPA direct map to speed up reverse map
+>     removal
+> 
+>  arch/arm64/include/asm/kvm_host.h   |  17 +-
+>  arch/arm64/include/asm/kvm_nested.h |   6 +
+>  arch/arm64/kvm/mmu.c                |  43 +++--
+>  arch/arm64/kvm/nested.c             | 238 +++++++++++++++++++++++++++-
+>  arch/arm64/kvm/sys_regs.c           |   3 +
+>  5 files changed, 290 insertions(+), 17 deletions(-)
 
-The sequence of events leading to this issue:
-1. System enters suspend without disabling usdhc interrupt
-(because device_may_wakeup() returns false for usdhc device)
-2. WIFI out-of-band wakeup triggers system resume via GPIO interrupt
-3. WIFI sends a Card interrupt before usdhc has fully resumed
-4. usdhc is still in runtime suspend state and cannot handle the
-interrupt properly
-5. The unhandled interrupt triggers "nobody cared" warning
+While investigating the long VM teardown time on QEMU in the nested shadow 
+stage 2 selftest, I instrumented a few functions with bpftrace.
 
-Fix this by unconditionally disabling the usdhc interrupt during suspend
-and re-enabling it during resume, regardless of the wakeup capability.
-This ensures no interrupts are processed during the suspend/resume
-transition.
+The same kselftest workload produced the following counts:
 
-Fixes: 676a83855614 ("mmc: host: sdhci-esdhc-imx: refactor the system PM logic")
-Signed-off-by: Luke Wang <ziniu.wang_1@nxp.com>
----
- drivers/mmc/host/sdhci-esdhc-imx.c | 11 ++++++-----
- 1 file changed, 6 insertions(+), 5 deletions(-)
+Without this series (today's kvmarm/fixes):
 
-diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
-index a3688c94cf58..9afb74cac559 100644
---- a/drivers/mmc/host/sdhci-esdhc-imx.c
-+++ b/drivers/mmc/host/sdhci-esdhc-imx.c
-@@ -2076,9 +2076,10 @@ static int sdhci_esdhc_suspend(struct device *dev)
- 	if (mmc_card_keep_power(host->mmc) && esdhc_is_usdhc(imx_data))
- 		sdhc_esdhc_tuning_save(host);
- 
-+	/* The irqs of imx are not shared. It is safe to disable */
-+	disable_irq(host->irq);
-+
- 	if (device_may_wakeup(dev)) {
--		/* The irqs of imx are not shared. It is safe to disable */
--		disable_irq(host->irq);
- 		ret = sdhci_enable_irq_wakeups(host);
- 		if (!ret)
- 			dev_warn(dev, "Failed to enable irq wakeup\n");
-@@ -2127,10 +2128,10 @@ static int sdhci_esdhc_resume(struct device *dev)
- 	/* re-initialize hw state in case it's lost in low power mode */
- 	sdhci_esdhc_imx_hwinit(host);
- 
--	if (host->irq_wake_enabled) {
-+	if (host->irq_wake_enabled)
- 		sdhci_disable_irq_wakeups(host);
--		enable_irq(host->irq);
--	}
-+
-+	enable_irq(host->irq);
- 
- 	/*
- 	 * restore the saved tuning delay value for the device which keep
--- 
-2.34.1
+kvm_nested_s2_unmap: 12
+kvm_pgtable_stage2_unmap: 8,388,623
+kvm_tlb_flush_vmid_range: 8,388,623
+exit_vmid_context: 8,388,639
 
+With this series:
+
+kvm_nested_s2_unmap: 12
+kvm_pgtable_stage2_unmap: 18
+kvm_tlb_flush_vmid_range: 18
+exit_vmid_context: 34
+
+The bpftrace script used was:
+
+#!/usr/bin/env bpftrace
+
+fentry:kvm_nested_s2_unmap
+{
+    @nested = count();
+}
+
+fentry:kvm_pgtable_stage2_unmap
+{
+    @pgunmap = count();
+}
+
+fentry:kvm_tlb_flush_vmid_range
+{
+    @flush = count();
+}
+
+fentry:exit_vmid_context
+{
+    @exit = count();
+}
+
+END
+{
+    print(@nested);
+    print(@pgunmap);
+    print(@flush);
+    print(@exit);
+}
+
+Is this consistent with what you evaluated during the development?
+I wonder if this is good for nested guest boot paths too.
+
+Thanks,
+Itaru.
+
+> 
+> -- 
+> 2.43.0
+> 
 
