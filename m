@@ -4,75 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E306ACD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 14:00:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9866CDB46F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 14:08:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0Png7tQyLUQFYNFzr2PzUoci03vEvfXVSoXXMaUas74=; b=IbSfsHQUcaMY4whR5QOY44WtJN
-	ggR2qOccUDEv/+ygCheC9ll8FIZ+WtZN/Vtj1zxM7+VRQjHdLsJDvgFtUQ+5IHjaeDaibvY+MUgI6
-	omi7U5NIdbTKOlujrxFAA8u9vRU2HRbEDfuO3b20csHrLLKNR1jtfih7nEAhBeQAkYQhiZJV8At4e
-	I7faY9qeozeMWDlAAj1bUi3mpWulPBOdvuxx8ZKbXr4tmJMSx1RN9LEQbZX7VrJINEZRSOwtsnPSc
-	tPaTrep6mplCn6tWr8AKFLrHOiycIc/TuLNuEKN8DBJmTIxcTP2aSsF/ey3PQStkwP6Wex01uNEFl
-	XD9eE39A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Tj/U0Y54eAKclejjEBVwWZyUPwiS6WzmvFTi1kYoa60=; b=ug0f0V7IHdE8ZSCfor/qyo4+7L
+	A2TVbvhq4NEwSkqvTvl5ZPSQ004IxZ9bVtG9zVSOZVSqo4YaoPQW6TlnAwH+r5i2YhwjMi9adH5rV
+	qo/LIXEbe7BcTA4GB8cyyukIHisBN/Z6cVvenlRfz9RHLJQD6x67vwocwx4L+gJyaTQEROJpvx6SC
+	GMMCm5cABWaoC3+i7IkqDOGWKI8yiAqtZ+lSLdtccIRYCKsesyE7KLf2VTK6XsK3LoR1H3U58xIAj
+	NEvBLKLmnF1fUERNfl1epWO4OtxcOpPKgvk1Kdj6Zg9/VUcztIWdQWnXSMudgR7j9VUi0jvZ0CDj/
+	XYdpPsHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc1fQ-00000006OJP-2Xxz;
-	Tue, 23 Jun 2026 13:59:56 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1wc1nz-00000006P3G-2bqt;
+	Tue, 23 Jun 2026 14:08:47 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc1fN-00000006OIq-0Yqe;
-	Tue, 23 Jun 2026 13:59:54 +0000
-Received: from localhost.localdomain (unknown [111.196.245.140])
-	by APP-05 (Coremail) with SMTP id zQCowAD3Z+tJkTpqtUvYFA--.33813S2;
-	Tue, 23 Jun 2026 21:59:38 +0800 (CST)
-From: Pengpeng Hou <pengpeng@iscas.ac.cn>
-To: Ulf Hansson <ulf.hansson@linaro.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	=?UTF-8?q?Ma=C3=ADra=20Canal?= <mcanal@igalia.com>,
-	Stanimir Varbanov <svarbanov@suse.de>,
-	Eric Anholt <eric@anholt.net>,
-	Rob Herring <robh@kernel.org>
-Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>,
-	linux-pm@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] pmdomain: bcm: bcm2835: handle genpd provider registration errors
-Date: Tue, 23 Jun 2026 21:59:37 +0800
-Message-ID: <20260623135937.60740-1-pengpeng@iscas.ac.cn>
-X-Mailer: git-send-email 2.50.1
+	id 1wc1nu-00000006P1H-3A3M
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 23 Jun 2026 14:08:45 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 31373C6B38E
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 14:08:47 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 910EB601C2;
+	Tue, 23 Jun 2026 14:08:39 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8709C106C8382;
+	Tue, 23 Jun 2026 16:08:35 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1782223718; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=Tj/U0Y54eAKclejjEBVwWZyUPwiS6WzmvFTi1kYoa60=;
+	b=IZuJTS4Gaj7zpjzOxVenDZXvDPqCUWMOEpXcEhfV25BRkcLbwZBK5o8Md0Sp0vUMh3/lI2
+	uNLYIaZKGKBzSO/ZwJzR858RhBjQKDKQEPaWRbsmXflsTjoZAiVlg6+AC3pkHQvzzhQc0U
+	rL1fR+RYTXNHmNYaRzuu9sH5jtyXIP7egW5NXeTxl3/MnJgTsQbAWxlAFFxotrgYvz67jU
+	411GO7jLeSEFDZ/KCW6wJSRJLR0pgWW3cAhnC8rh9Jcag4K9lL5hQ9HsnYXiHFEhpiANYe
+	slL4Wku8V2rEdhkYnNYIfWvqbhiYUzn/Wr/453FOhGPqOrsfXNsYNAGo7UFPqA==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Pengpeng Hou <pengpeng@iscas.ac.cn>
+Cc: Richard Weinberger <richard@nod.at>,  Vignesh Raghavendra
+ <vigneshr@ti.com>,  Matthias Brugger <matthias.bgg@gmail.com>,
+  AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+  Jorge Ramirez-Ortiz <jorge.ramirez-ortiz@linaro.org>,  Boris Brezillon
+ <bbrezillon@kernel.org>,  linux-mtd@lists.infradead.org,
+  linux-kernel@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
+  linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH] mtd: nand: mtk-ecc: stop on ECC idle timeouts
+In-Reply-To: <20260623135729.52304-1-pengpeng@iscas.ac.cn> (Pengpeng Hou's
+	message of "Tue, 23 Jun 2026 21:57:29 +0800")
+References: <20260623135729.52304-1-pengpeng@iscas.ac.cn>
+User-Agent: mu4e 1.12.7; emacs 30.2
+Date: Tue, 23 Jun 2026 16:08:34 +0200
+Message-ID: <87se6dmjrx.fsf@bootlin.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowAD3Z+tJkTpqtUvYFA--.33813S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Zr1xKFyktF1rKFWDWF1fCrg_yoW8Jw17pa
-	ykXayay3y8WF15W3WYv3Z5uFyrG3say3W8GayUGwn7Zry5XrWvg34aq398Zrs3Zr40krW2
-	qF1rA345A3WfCFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9F14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
-	6r4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
-	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUAVWUtwAv7VC2z280aVAFwI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
-	n2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7x
-	kEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E
-	67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUCVW8Jw
-	CI42IY6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWU
-	CwCI42IY6I8E87Iv67AKxVW8JVWxJwCI42IY6I8E87Iv6xkF7I0E14v26r4UJVWxJrUvcS
-	sGvfC2KfnxnUUI43ZEXa7VUbo5l5UUUUU==
-X-Originating-IP: [111.196.245.140]
-X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
+Content-Type: text/plain
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_065953_542478_6F812D00 
-X-CRM114-Status: GOOD (  10.93  )
+X-CRM114-CacheID: sfid-20260623_070842_950742_45846F8A 
+X-CRM114-Status: GOOD (  10.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,39 +79,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-bcm2835_power_probe() initializes all power domains and then registers
-the onecell genpd provider, but ignores of_genpd_add_provider_onecell()
-failures. Probe can therefore return success even though no provider was
-published.
+Hello,
 
-Check the provider registration return value and jump to the existing
-cleanup path on failure.
+> diff --git a/drivers/mtd/nand/ecc-mtk.c b/drivers/mtd/nand/ecc-mtk.c
+> index c75bb8b80..96703f0a4 100644
+> --- a/drivers/mtd/nand/ecc-mtk.c
+> +++ b/drivers/mtd/nand/ecc-mtk.c
+> @@ -123,8 +123,8 @@ static int mt7622_ecc_regs[] = {
+>  	[ECC_DECIRQ_STA] =      0x144,
+>  };
+>  
+> -static inline void mtk_ecc_wait_idle(struct mtk_ecc *ecc,
+> -				     enum mtk_ecc_operation op)
+> +static inline int mtk_ecc_wait_idle(struct mtk_ecc *ecc,
+> +				    enum mtk_ecc_operation op)
 
-Fixes: 670c672608a1 ("soc: bcm: bcm2835-pm: Add support for power domains under a new binding.")
-Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
----
- drivers/pmdomain/bcm/bcm2835-power.c | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/pmdomain/bcm/bcm2835-power.c b/drivers/pmdomain/bcm/bcm2835-power.c
-index b76d74e38..68a0a7a8c 100644
---- a/drivers/pmdomain/bcm/bcm2835-power.c
-+++ b/drivers/pmdomain/bcm/bcm2835-power.c
-@@ -677,7 +677,12 @@ static int bcm2835_power_probe(struct platform_device *pdev)
- 	if (ret)
- 		goto fail;
- 
--	of_genpd_add_provider_onecell(dev->parent->of_node, &power->pd_xlate);
-+	ret = of_genpd_add_provider_onecell(dev->parent->of_node,
-+					    &power->pd_xlate);
-+	if (ret) {
-+		dev_err_probe(dev, ret, "failed to add genpd provider\n");
-+		goto fail;
-+	}
- 
- 	dev_info(dev, "Broadcom BCM2835 power domains driver");
- 	return 0;
--- 
-2.50.1 (Apple Git-155)
-
+Looks good, but could you follow up with a patch which removes the
+inline keyword as well? It does not seem to serve any purpose there.
 
