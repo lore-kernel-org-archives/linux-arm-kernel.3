@@ -4,112 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F35E0CDB471
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 08:03:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BDCCCD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 08:06:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uGXAbbvDtMgdseoEBMP4tUzRSWv2MJSuTR3Me0ClWC8=; b=gHGkk3X6F1abztnHmqAOTWbrDR
-	bhFU1biKF9La7xR17U7clOi/Y8iD8v7yusPh/tkixRWbZL0kwGv3tpkykFN67mH4U6c/YPkcxhnY8
-	Tz7Jr8+q6MjGmoXtjReefzOu/4L2AcYAH/vdvXYqJzmG6N0dBTxFgCuv4vsgpCZt9ALThnQ9s3Xz4
-	K3WXOw38jR6aYSN0CFoimJIsIa+TXl2UzXvSE93iqBPkKtbuptt/Sq5HKKHoUjGvRyPrqC8+lYr3+
-	5A8Sj/avUxAoTm3GAJ3rI0wbH44AlMOmpWoZsaVo+L5IH1dLLClwcKowXsSRiZJMb2d+H792aHNfD
-	JIAD1oFw==;
+	bh=dw5fW7mPp1mZa6nLnYAvn5e0kvkO1A/ra0LkKGeobuU=; b=VD74/hJ/9r9/Axidl1DGJxWlA6
+	lDOVVepQE37Coul8Wr4EW8BSIWS/N3NV9q9zoPEfcE35ii5KmhGDXo1m2gZf+lLUW7eUsOCIVDlo2
+	dc2x2vv86zbc06T/IZ7ZQOcJDgG0g1KZlk5QntpsSfJhHoiwkmpdqKP+f0n3/GPkHownrgOROOJ6O
+	+PAbAAE36InYb31xkrcz3kqurbRC81djA9IFN7cDW9BKlceY56GxK2J2R5x4WYBAKZOkY/4Fz2gib
+	xJk6S8DPcUA6+/kAdVRsKqy5KNgpNbv0oFLBcLB3PAL/TeklpD8QKbkk69Dwe7JYPjNDaH2pobSYZ
+	KCIIaMEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbw5t-00000005s82-2x39;
-	Tue, 23 Jun 2026 08:02:53 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wbw9b-00000005saX-2bSa;
+	Tue, 23 Jun 2026 08:06:43 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbw5s-00000005s7r-34Ae;
-	Tue, 23 Jun 2026 08:02:52 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0C6A2437DF;
-	Tue, 23 Jun 2026 08:02:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 986D81F000E9;
-	Tue, 23 Jun 2026 08:02:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782201771;
-	bh=uGXAbbvDtMgdseoEBMP4tUzRSWv2MJSuTR3Me0ClWC8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=FklgZfZvf9emq2gmny2eGq6EMuPFgTPg3jmwAxmLaYfdeYYOx9o/LUsxGSyhC90Aj
-	 wyT19RvXdWlMCbyU9x5qRfWKwzHtDUwLyiTaRdHPzlhCnqASxByUiH+reBxZa6dm6/
-	 2eUrKJ7Sl3Ard2QCWFs5RMYz0cEIAQCf+F3cTsedtE8mzwpzHancQo4aEImHF0L8cr
-	 Fy0cEII7dznV9is/6QM/nYIXsQ76KUnc8J3lz0n9fEPXD9BgbtOHKKHco2unHFN5KT
-	 hMyDhDgPqCuk0aLgK7toBqI2XUvKRYcOcAAOK274SYOnvXU30gUDeEG5XgOjyI10Dd
-	 19K+31feZDQsg==
-Message-ID: <d04f745d-eb3e-4d2c-8ea2-5fdcf2cf27b8@kernel.org>
-Date: Tue, 23 Jun 2026 10:02:40 +0200
+	id 1wbw9Z-00000005sZ6-1EZ2;
+	Tue, 23 Jun 2026 08:06:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1782201998;
+	bh=2ModYSRenKENVNmwQIj/emlMitTe1H/N34OtBHiupCw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=DMNcKRebgTvdvGNXIb4BUldrfwuq9bfEaX3+xBZ/8/IIdOXYhMgdriWi/BPF0EBym
+	 s/iFQsUsyLwkwPgjMSJPdcUYMNx/E+J/CNcPQopJvfqcn80J8fDBShN9U2xvvo33tK
+	 ACE3yMrIyZCopEKVkAEbjqAZ18EuKM45KLOZu7hxm+8B1o+GWDO/Ks57CM4TdopDdP
+	 tj24t/J6WdHg4Axc8i7b3HBjHEVZzTo7fqtHlzpS2m9qjDTc3ECR1LhQLGut3n/d11
+	 Bn05pJt5IWODSUrNVQnh39TJV78cWXHUiIqCdE790xUoamf6z5ph0FJi4vydC1Sqsp
+	 iL9Oe1JTagVzQ==
+Received: from [100.64.1.21] (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8A3D317E0E64;
+	Tue, 23 Jun 2026 10:06:38 +0200 (CEST)
+Message-ID: <719d4716-8123-43cd-a646-118684565c6e@collabora.com>
+Date: Tue, 23 Jun 2026 10:06:38 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
- fault performance
-To: Hongru Zhang <zhanghongru06@gmail.com>
-Cc: akpm@linux-foundation.org, baohua@kernel.org, bhe@redhat.com,
- chentao@kylinos.cn, chrisl@kernel.org, jack@suse.cz, kasong@tencent.com,
- kunwu.chan@gmail.com, liam@infradead.org, lianux.mm@gmail.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- liyangouwen1@oppo.com, ljs@kernel.org, loongarch@lists.linux.dev,
- mhocko@suse.com, nphamcs@gmail.com, nzzhao@126.com, pfalcato@suse.de,
- rppt@kernel.org, shikemeng@huaweicloud.com, surenb@google.com,
- vbabka@kernel.org, wanglian@kylinos.cn, willy@infradead.org,
- youngjun.park@lge.com
-References: <3be9475b-0e8a-4df8-a130-4262f993973d@kernel.org>
- <20260623075805.466317-1-zhanghongru@xiaomi.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
+Subject: Re: [PATCH 2/2] soc: mediatek: mtk-infracfg: Export symbols for DDK
+ modules
+To: Justin Yeh <justin.yeh@mediatek.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>
+Cc: Project_Global_Chrome_Upstream_Group@mediatek.com,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+References: <20260529101613.55697-1-justin.yeh@mediatek.com>
+ <20260529101613.55697-3-justin.yeh@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20260623075805.466317-1-zhanghongru@xiaomi.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260529101613.55697-3-justin.yeh@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260623_010641_489397_EF9CDFC4 
+X-CRM114-Status: GOOD (  19.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,65 +78,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/23/26 09:58, Hongru Zhang wrote:
->> On 5/20/26 23:15, Matthew Wilcox wrote:
->>>
->>> all of the applications i run are either single threaded or don't fork.
->>> what multithreaded applications call fork?
->>
->> Traditionally the problem was random libraries using fork+execve to launch other
->> programs ... instead of using alternatives like posix_spwan (some use cases
->> require more work done before execve and cannot yet switch to that). I'd hope
->> that that is less of a problem on Android.
->>
->> I assume Android zygote might be multi threaded? Maybe sshd as well? Systemd?
->> But I'd be surprised if there are really performance implications.
->>
->> Not sure about webbroswers .... I think most of them switched to fork servers,
->> where I would assume fork servers would be single-threaded.
->>
->> So, yeah, getting a clear understanding how this ends up being a problem on
->> Android would be great.
+On 5/29/26 12:16, Justin Yeh wrote:
+> Export mtk_infracfg functions to allow other DDK modules (like
+> mtk-scpsys) to use bus protection APIs.
 > 
-> Barry asked me to share observations on fork() usage across Android
-> applications.
+> Changes:
+> - Add EXPORT_SYMBOL_GPL for set/clear bus_protection and init functions
+> - Remove static and __init qualifiers from mtk_infracfg_init
+> - Add mtk_infracfg_init() declaration to header
+> - Remove postcore_initcall, let dependent modules call init explicitly
+> - Add #include <linux/module.h> for export macros
+> - Add MODULE_LICENSE("GPL") metadata
 > 
-> I wrote a BPF-based tracing tool (kprobe on copy_process, checking
-> CLONE_VM to distinguish process creation from thread creation) and ran
-> it against the top 200 Android applications in the China market during
-> normal usage scenarios.
+> This allows mtk-infracfg to be built as a DDK module (.ko) and its
+> functions to be used by other modules like mtk-scpsys for power domain
+> management.
 > 
-> Results:
-> - 82 out of 200 apps (41%) call fork() during normal operation
-
-Crazy. Thanks for these numbers.
-
-> - Among these, some call fork() from multiple threads
+> Signed-off-by: Justin Yeh <justin.yeh@mediatek.com>
+> ---
+>   drivers/soc/mediatek/mtk-infracfg.c   | 9 +++++++--
+>   include/linux/soc/mediatek/infracfg.h | 1 +
+>   2 files changed, 8 insertions(+), 2 deletions(-)
 > 
-> These are not zygote forks — they are fork() calls initiated by app
-> threads at runtime. Examples by category:
-> 
->   Browsers:     com.quark.browser, com.UCMobile, com.xunlei.browser
->   Shopping:     com.taobao.taobao, com.tmall.wireless, com.achievo.vipshop
->   Video:        com.youku.phone, com.qiyi.video, com.hunantv.imgo.activity
->   Social/IM:    com.alibaba.android.rimet, com.ss.android.lark
->   News:         com.ss.android.article.news, com.ss.android.article.lite
->   Navigation:   com.autonavi.minimap, com.sdu.didi.psnger
->   Finance:      com.eg.android.AlipayGphone, com.chinamworld.main
+> diff --git a/drivers/soc/mediatek/mtk-infracfg.c b/drivers/soc/mediatek/mtk-infracfg.c
+> index 2acf19676af2..8a88805468cc 100644
+> --- a/drivers/soc/mediatek/mtk-infracfg.c
+> +++ b/drivers/soc/mediatek/mtk-infracfg.c
+> @@ -7,6 +7,7 @@
+>   #include <linux/jiffies.h>
+>   #include <linux/regmap.h>
+>   #include <linux/mfd/syscon.h>
+> +#include <linux/module.h>
+>   #include <linux/soc/mediatek/infracfg.h>
+>   #include <asm/processor.h>
+>   
+> @@ -43,6 +44,7 @@ int mtk_infracfg_set_bus_protection(struct regmap *infracfg, u32 mask,
+>   
+>   	return ret;
+>   }
+> +EXPORT_SYMBOL_GPL(mtk_infracfg_set_bus_protection);
+>   
+>   /**
+>    * mtk_infracfg_clear_bus_protection - disable bus protection
+> @@ -73,8 +75,9 @@ int mtk_infracfg_clear_bus_protection(struct regmap *infracfg, u32 mask,
+>   
+>   	return ret;
+>   }
+> +EXPORT_SYMBOL_GPL(mtk_infracfg_clear_bus_protection);
 
-I know that especially browser usually use fork servers: a tiny
-(single-threaded) process just to create new child processes. Any information
-regarding the apps above that use fork() on small vs. large processes?
+Those two are ok, but I'd prefer to use namespaces (EXPORT_SYMBOL_NS_GPL) and to
+import the namespace in the relevant drivers.
 
-> 
-> This confirms that fork() is widely used in real-world multi-threaded
-> Android applications.
+>   
+> -static int __init mtk_infracfg_init(void)
+> +int mtk_infracfg_init(void)
+>   {
+>   	struct regmap *infracfg;
+>   
+> @@ -90,4 +93,6 @@ static int __init mtk_infracfg_init(void)
+>   				MT8192_INFRA_CTRL_DISABLE_MFG2ACP);
+>   	return 0;
+>   }
+> -postcore_initcall(mtk_infracfg_init);
+> +EXPORT_SYMBOL_GPL(mtk_infracfg_init);
 
-Above you write "some call fork() from multiple threads". Any further
-information on that?
+Sorry, but that makes little sense.
 
--- 
+Check the mtk_infracfg_init() function: if you avoid the postcore_initcall() there,
+what's going to happen with MT8192?! :-)
+
 Cheers,
+Angelo
 
-David
+> +
+> +MODULE_LICENSE("GPL");
+> diff --git a/include/linux/soc/mediatek/infracfg.h b/include/linux/soc/mediatek/infracfg.h
+> index 9956e18c5ffa..847431a7b967 100644
+> --- a/include/linux/soc/mediatek/infracfg.h
+> +++ b/include/linux/soc/mediatek/infracfg.h
+> @@ -454,4 +454,5 @@ int mtk_infracfg_set_bus_protection(struct regmap *infracfg, u32 mask,
+>   		bool reg_update);
+>   int mtk_infracfg_clear_bus_protection(struct regmap *infracfg, u32 mask,
+>   		bool reg_update);
+> +int mtk_infracfg_init(void);
+>   #endif /* __SOC_MEDIATEK_INFRACFG_H */
+
 
