@@ -4,90 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 586C7CDB46F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 11:25:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F40DCCD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 11:37:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G1i1oDfCJW72UVj6tqHkuUrHq9UVqOgjHQzojRLhWq8=; b=wx+JqKn62tFc9lW5fB4+s2kx7i
-	wWx8g4b0tHRz6aWF5SLBs5ZwLsvf+n/hWB+BlMHCfsGxAqatK09QE9rxhltZyHz6DQPuSJjp/GoJe
-	HTWoeHUhXfTKttqQfWPPLIwQ/hyOxbGSbc/YTvjd7fr0r6BOZyVa3MiECR1RnniC4lxV6Lfu8XTqW
-	BIyriwrEuzlxAhEyHy725fhc4uoLnseQOZuKDMdNuCkBasbzE9bcsFBFTM84aBNuh08P9ESYWtlS/
-	dXH/oWSVUyMYK6/8Ep7pirYScSdCkF5a24Gz+M6cUba2rW0BU3C/0rnecNiKW2oXrQ5HIpU7ZHPZb
-	zA+AEhhA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MXNsvpmExzEXM1J7XKQU25avjaUjuFbYf81y6omDQEg=; b=K5ON8w5Q9db9b1SoLvtpa3uq2p
+	Ec0TBcDQXUqjFHXH+/M8JmCxRqZWWRBRgnAJFlcbUHbsr7nnamkDaNWyGSpdJfwhbyTXn9lNP6uhC
+	EUadWS5dEK/Aq9CgBOHrIS1JKWHxYaPyU002FdUDSD34MRmegcdoH61YWtgEstEEDuvvLGDIgrIAG
+	/dBrjLvRG4Qc93kStneI70mPVbuJnWkXFiWFlCKB/Nvsma6VCCCtxuPhjDG4q9nNy1E/huPJ6rIln
+	D22onPrrEBSyAAJ29ywCjqyeX1afdxU34VY2vYIXIqI2GVDRIqs5RAfOpDqaYorpEHrlYk5pKoDfD
+	QPhRzP4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbzFQ-00000006BHh-059R;
-	Tue, 23 Jun 2026 11:24:56 +0000
-Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
+	id 1wbzRB-00000006BrM-0EHG;
+	Tue, 23 Jun 2026 11:37:05 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbzFN-00000006BGw-2Fyd
+	id 1wbzR8-00000006Bqe-3vpk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 11:24:54 +0000
-Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-691c5776f35so7877732a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 04:24:52 -0700 (PDT)
+	Tue, 23 Jun 2026 11:37:04 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65NBYtJp113975
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 11:37:01 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	MXNsvpmExzEXM1J7XKQU25avjaUjuFbYf81y6omDQEg=; b=OetdD04sMT8BXOHl
+	P0ZfY0xGtL2vRhpknWkdpuLX31ixTvC6kpV0E7VQdx0gj/pE8GCrCnomrMVSoU1+
+	L2bCcW3nQ+aUWuIXihofuZXtk6g13KrVR2/2baRhAnB8pdxL1JML37cHNUuDwsL9
+	5MVe6YTHbtX2udMawnrW7aZgXiGhpEAyN2hDgmAJLUOFX6tzvK3dZK2DqvRnWAbA
+	ndKWhmmmPYlyDqb7nmieAixUTjlWqAOE0oPFv8GUUkOsTpEFyBJ6bbgzJ1gvoniI
+	XyL5R7akeITlahYsjQv8hfHbBlRRM23j5kPYYklFHNfS/zERxNBB56rvyaxkX1YF
+	GewvCw==
+Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4eymnvs9bm-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 11:37:01 +0000 (GMT)
+Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-5176891d0a9so13481621cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 04:37:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1782213891; x=1782818691; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=G1i1oDfCJW72UVj6tqHkuUrHq9UVqOgjHQzojRLhWq8=;
-        b=wOZpThLT1pmYIf93hXyCwI/H3gEwSs0nLCP7tzyjHp4inUXoxT8SCnnh6Fz1Oc8Aby
-         dcQhyILN20bVKq9i7NX0TVlyS4d1AjXlo9SloxpA0mJLPsgo4HrM3XupQhcK7k8L+uyY
-         +muDi10nqL/hVRXSVzU9vksNlSw2Curol22rKfyB8XB3usceJjnhbt5PoTDWm3UTRgVt
-         4hYqvg3c+IrrW5XtsoB2z0rn5yd+Ma8Yjyc3ZaoxWCeiNEbT66VdaHp76CJB4TinzXns
-         9kzDp4Stkjm1vcK8RVY+ELYswl8j0yaBGm+JnABqim2Edbkpdb188uBdLiEht3/2L2Ft
-         y83A==
+        d=oss.qualcomm.com; s=google; t=1782214621; x=1782819421; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=MXNsvpmExzEXM1J7XKQU25avjaUjuFbYf81y6omDQEg=;
+        b=ay08LTlsyqysfoEh8PugBx5ta05JVj/hS28Q4Xpg3JKqmTNvyWsxUuECUK30aUOC1w
+         8jhZgt1WPi4FZg9OgXLhCwBaOf6YNigTyhNn9OThJ6VJmxB3l+KwfKaMmzXJ1olynT2/
+         n1t+TcqX6FD3d/EcMmk63lCs1YJPDDGp6qkIQXTqqR2SeSxSGid5agKg9kTOWV8Aicmu
+         hGWDPrFTXXLGqrSG8FnFe9tOGUuP/SXOtfp4eEvBu+YBjSFeNXBXdhQb5aX8v+aypkuG
+         RIZsES4pgk9OBRH45mxu9OtgzzlUldtGLHXH1FD6AmVh8081ADVj5NnqHN96dpjwhDQV
+         DBlQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782213891; x=1782818691;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=G1i1oDfCJW72UVj6tqHkuUrHq9UVqOgjHQzojRLhWq8=;
-        b=HGN7P97pDLxa81mOdiddGuv8ElPf32qx6WsY33KDIMbgpWziRqG9/pGxp4/z8UoW94
-         Zcu8jK6fUynjy7E4AylDw+PR213BJ2uZ6HbC0Ylhw3iLtU3pP6qGYjzWqWJgwcxoGndY
-         r1WVOKN6QmOyBI67bxkKGaLLwdMLc1wOA+UaIrQIE2qyGYh7A7VRqffpfJuwuogT5yQF
-         DIgHGfUuQv7yH/8e5LEd0xwtNcDUKz2f2pQO2fBKhkl6bFYlgDeVidzDpt7F5He4aknN
-         WK8o/jqGqMmfH2cw6HKGwXRSF7BZpA+vacpsscc0kztjR9E79aYAmg1pYT96z3yclu3O
-         CTbg==
-X-Forwarded-Encrypted: i=1; AFNElJ+grRaz+CZ+ZYA4izivtnHW64/JRgeH8+Ksx+N3KsuGX91O/f8Nw+3n0VESW77SDlvkSAIJF/5aqky5UWi58plR@lists.infradead.org
-X-Gm-Message-State: AOJu0YztgYR8hFDhxh+7675bRb3GYTiKRzOPbK0y5ADlSPf4RzdRr24F
-	YoLUgqOoU+8MNJIEFFa4hZ1hdDUiTQjgcR/+bh9Yz8kUBxrMOyOOfQeTUaSUDJRHGg==
-X-Gm-Gg: AfdE7ck/641xM0E1Yjf+UfRCkVkpcQ708Sb/o4w+vF5hz7YkYdV26fFs7KGghC5givV
-	LjeAnutwkb5j23g1nuWQtU/XKGil9UuJuQQGHTnEYGSzw5vSo/vPB2FYdR5NzAyBqpaS5Th4gIc
-	1+tdns5YPe6vfU3SdDdvCQJIROcD84+ldLe+ziToUQn3iBAEsp42VdYao5TCAm/eI1Q85jWOAuz
-	vEmz4sZ56gOY2xqxqFdY8ciN2myliuoo3KqdqBbBwCB7CZaKvBzO/DSCo3bTyFroibisErjv1tb
-	U7l5OB1HPGfjmTKUK+OYXX4I1kZaK5ZWV4ou6ql/pD1zfJ6jLuigjw+r3QvHFQ+8qFU8iyx67jC
-	eY9XwweKumB/YHhbaBJ2GNLDaJniApgm1iLZbJRu1/AKyFWJPe/R6+tEx8fQjbOMZVskUxla1tb
-	7pK3Rttt5UaP29N/EA+jwqgY+4A6h3glk0oOuioimWefSKlSmClvDcHn5R
-X-Received: by 2002:a17:907:97d0:b0:c0b:90b3:ad25 with SMTP id a640c23a62f3a-c108eff706cmr105170566b.44.1782213889951;
-        Tue, 23 Jun 2026 04:24:49 -0700 (PDT)
-Received: from google.com (135.91.155.104.bc.googleusercontent.com. [104.155.91.135])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c0ff4c9610bsm157445566b.42.2026.06.23.04.24.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 23 Jun 2026 04:24:48 -0700 (PDT)
-Date: Tue, 23 Jun 2026 12:24:44 +0100
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Sebastian Ene <sebastianene@google.com>
-Cc: catalin.marinas@arm.com, maz@kernel.org, oupton@kernel.org,
-	will@kernel.org, joey.gouly@arm.com, korneld@google.com,
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, android-kvm@google.com,
-	mrigendra.chaubey@gmail.com, perlarsen@google.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com
-Subject: Re: [PATCH v4 0/7] KVM: arm64: Forward FFA_NOTIFICATION* calls to
- TrustZone
-Message-ID: <ajps_L72BDyofjG7@google.com>
-References: <20260616154149.2763214-1-sebastianene@google.com>
+        d=1e100.net; s=20251104; t=1782214621; x=1782819421;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=MXNsvpmExzEXM1J7XKQU25avjaUjuFbYf81y6omDQEg=;
+        b=VXXElTo7jyl9reeW1ewmKCQQurtPmat2XL7q41ECEXtVtTPkJAib0rPcEpPejT9VAx
+         QX4Ll5lnnPAQ/f4BOLM3aks2Tn1sDhliQAfRR6oyY3RVV3Bc6LS5eVpV/9YtO23Z6J0W
+         7foSGba0K106X/nns9yG0k2roJcPnVdvxcIFrcV1DiXRs/ifjcDGWiJatnL4qlC7ccNT
+         tnpoThTK3yxuBpUIHbM+tjY5vv5rJ/7WGruXlb3lj/X5pk3/HxXxbUZaozJ5thLg/Cbo
+         t9Kc7j180f+mSJdsqc4z7ikFP7paj7n+SQj2uGRIM8RVhMth4Ek13idJY+fsxUwv6eTg
+         ZLBA==
+X-Forwarded-Encrypted: i=1; AFNElJ9wJUykjyQK1Xa7XOBW73fhoAKtZU5c7g4KWCo7qiJRHR3R7CT+xeC5B0kn+qxpJu1nltm4ymibFp2JtgAlOP0m@lists.infradead.org
+X-Gm-Message-State: AOJu0YxljVF5O35pbRlzM24O2xnINVNqdxZmel1va752xzSnDW894wZW
+	L16g6DYe0Mz+DpNj8qUV0bLrO2I4yrDgWt/f31X4ul7MOa6R8a3Dtow8P0TbYpcrUjMUIei38Ks
+	TVWGsi2j4jtVeW/FYpygSOFOjo/qO/3LWwtmiz8ax8SWW9LB+YErnynq1PRCyeypPWwTKZL5xgv
+	bSTg==
+X-Gm-Gg: AfdE7ck5NOzI5lDyswOREt0LKVsJPMT0xBD5BX4OO7swmh9ite6rtonKYRVJMBTTRzt
+	iaYjw0JV6kFgJqT0mTialb4JdQghqby/iDt1JVEVKEJUhT8uN8SxY2gYrXCb+BKJ2wf4K4PY9YL
+	9sZiEz/6SYIV+ZjMJ+3wKFZ0rMdYOUim061Z9s0H+NoGGmza3cVVRSynmgDUJ0NPevNSVzUrk9w
+	e4BmDE3zTZqcakrDdoSYeVWp2AOlzYyNn1Ezeghcz3RmVYRPKj70w5wAS/Xx1+8LDRwHrxrRbz5
+	clcIUW597As0ElcX4Ja1omRHWmtTq3dw3CqxF2m7nCI0/GUsl+MeSk5GHiUQN+5BrZgYOVFveON
+	7NABygCzpPpl+AB7vRtkBQyejLgNu/89wDPs=
+X-Received: by 2002:ac8:7d49:0:b0:517:5e32:f3ac with SMTP id d75a77b69052e-51a4f380d0dmr47487221cf.0.1782214620866;
+        Tue, 23 Jun 2026 04:37:00 -0700 (PDT)
+X-Received: by 2002:ac8:7d49:0:b0:517:5e32:f3ac with SMTP id d75a77b69052e-51a4f380d0dmr47486981cf.0.1782214620409;
+        Tue, 23 Jun 2026 04:37:00 -0700 (PDT)
+Received: from [192.168.120.170] ([178.235.128.140])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6977be498e4sm4536670a12.20.2026.06.23.04.36.56
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 23 Jun 2026 04:36:58 -0700 (PDT)
+Message-ID: <4635a665-f605-4647-810d-c9d83a271a86@oss.qualcomm.com>
+Date: Tue, 23 Jun 2026 13:36:55 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260616154149.2763214-1-sebastianene@google.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 7/8] phy: qcom: qmp-combo: Correct pre-emphasis table for
+ QMP v4 DP PHYs
+To: esteuwu@proton.me, Bjorn Andersson <andersson@kernel.org>,
+        Michael Turquette <mturquette@baylibre.com>,
+        Stephen Boyd
+ <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
+        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        Rob Clark <robin.clark@oss.qualcomm.com>,
+        Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+        "Joerg Roedel (AMD)" <joro@8bytes.org>, Vinod Koul <vkoul@kernel.org>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
+        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+        iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+        linux-phy@lists.infradead.org
+References: <20260622-sm8450-qol-v1-0-37e2ee8df9da@proton.me>
+ <20260622-sm8450-qol-v1-7-37e2ee8df9da@proton.me>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20260622-sm8450-qol-v1-7-37e2ee8df9da@proton.me>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Authority-Analysis: v=2.4 cv=dOWWXuZb c=1 sm=1 tr=0 ts=6a3a6fdd cx=c_pps
+ a=WeENfcodrlLV9YRTxbY/uA==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
+ a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
+ a=N-WSo6sfiX0bQk_JYPcA:9 a=QEXdDO2ut3YA:10 a=kacYvNCVWA4VmyqE58fU:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNjIzMDA5NCBTYWx0ZWRfX1sQ6svWnT3EP
+ WXwKTaghCTwCXpq2LNlgsY/bVSLd3wzOwqZdzD3BPcuvcJZHZltW1fyj5/3E6GlW4GYeK9javIE
+ 7UBuMqYovhCZNo8lIWXG5HIqm0HXzlE=
+X-Proofpoint-ORIG-GUID: bFMz8bNmX_uTyYMXeT_RpTwuvt3wWDVU
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjIzMDA5NCBTYWx0ZWRfX+lo9EwqBrgAE
+ 4nNAYQIQ4041mn2dXjwI/LVXoi6bP+6jsPKdKwzhDLaNG7buV8gZaKeAffl4ZR9GuowPUXjNwCG
+ KUXB1Sn57Nk/u+mwhE6J5+9/+4A6IesvzwrWug3VgL+1h43R9GaeNZ7PC1ifaJlw4V/EQQIAIRL
+ sozGrQT3YqCq8i/unABNub3D9z5fITedJvXr9v4u/ySe7JxWlPQ+Ui+/vkFBX+KXhW6/MkCYxAa
+ IwDcQ14nEOf9KabeEJY50Akrouk+Z9NB33i8fuNMRWqyvsdFDcy1CyjD0RmWXySS/oCIlf/bUJr
+ SvSL4K3wvnseGjLlEdtNtKyvxfnJGa/g9dG5va928FQWfaI94DN3NyUoMvVhR3jv9BNvOPKOBIv
+ ir2KMqV6v8W/RAwJAKc+trhvtS9hop1fynXFHCJ0Jf3sAPa/up03Ed+xyfcFMpvWGnbjMFYL/JJ
+ x8eII3fa5DSMzT60vmg==
+X-Proofpoint-GUID: bFMz8bNmX_uTyYMXeT_RpTwuvt3wWDVU
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-06-23_03,2026-06-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 lowpriorityscore=0 priorityscore=1501 impostorscore=0
+ adultscore=0 bulkscore=0 clxscore=1015 phishscore=0 spamscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2606230094
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_042453_594556_AB9CAE56 
-X-CRM114-Status: GOOD (  28.90  )
+X-CRM114-CacheID: sfid-20260623_043703_102363_9791CDE0 
+X-CRM114-Status: GOOD (  18.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,81 +164,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 16, 2026 at 03:41:42PM +0000, Sebastian Ene wrote:
-> Remove the FFA_NOTIFICATION* calls from the blocklist used by the pKVM
-> FF-A proxy. This restriction was preventing the use of asynchronous
-> signaling mechanisms defined by the Arm FF-A specification to
-> communicate with the secure services.
-> While these calls are markes as optional, there is no reason why the
-> hypervisor proxy would block them because:
+On 6/23/26 2:54 AM, Esteban Urrutia via B4 Relay wrote:
+> From: Esteban Urrutia <esteuwu@proton.me>
 > 
-> 1. Host is the Sole Non-Secure Endpoint: The Host operates as the
->    only Non-Secure VM ID (VM ID 0) recognized by the Secure World.
->    Because all forwarded notifications are inherently attributed to
->    the Host by the SPMC, there is no risk of VM ID spoofing
->    originating from the Normal World.
+> Comparing sm8350 and sm8450 tables, this seems to be typo.
 > 
-> 2. No Memory Pointers or Addresses: The FFA_NOTIFICATION_* ABIs
->    operate strictly via register-based parameters, passing only
->    VM IDs, VCPU IDs, flags, and bitmaps. Because these calls do
->    not contain memory addresses, offsets, or pointers, forwarding
->    them doesn't pose a risk of memory-based confused deputy attack
->    (e.g., tricking the SPMC into overwriting protected memory).
-> 
-> While the pKVM proxy behaves as a relayer, it doesn't currently have its
-> own FF-A ID(only the host has the ID 0). The behavior of the setup
-> flow is covered by the spec in the: '10.9 Notification support without
-> a Hypervisor'.
-
-For the whole series:
-
-Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
-
-> 
+> Signed-off-by: Esteban Urrutia <esteuwu@proton.me>
 > ---
-> Changes in v4:
-> - previous series(v3) had serious issues with the patch number and it
->   appeared like it used a mixed bag from v2 as well. Resend this to
->   restore the correct order of the patches.
-> - fix strict check in ffa_check_unused_args_sbz and make it "<= 17"
-> - check the receiver endpoint Id in
->   FFA_NOTIFICATION_BIND/FFA_NOTIFICATION_UNBIND instead of the sender
-> - use hyp_smccc_1_2_smc all along 
-> - check the receiver endpoit Id when doing FFA_NOTIFICATION_GET  
+>  drivers/phy/qualcomm/phy-qcom-qmp-combo.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> Changes in v3:
-> - applied Will's suggestion to use the introduced method
->   ffa_check_unused_args_sbz for existing calls and added a new
-> patch in the beggining of the series to do this.
-> - merged the handling of
->   FFA_NOTIFICATION_BITMAP_CREATE/FFA_NOTIFICATION_BITMAP_DESTROY into
-> one patch as Vincent suggested and create one handler for both.
-> 
-> Changes in v2:
-> - enforce the MBZ/SBZ fields
-> - split the calls into separate patches
-> - rebase on 7.1-rc7
-> 
-> Link to v3:
-> https://lore.kernel.org/all/20260616105417.2578670-1-sebastianene@google.com/
-> Link to v2:
-> https://lore.kernel.org/all/20260608165549.1479409-1-sebastianene@google.com/
-> Link to v1:
-> https://lore.kernel.org/all/20260501114447.2389222-2-sebastianene@google.com/
-> 
-> Sebastian Ene (7):
->   KVM: arm64: Enforce strict SBZ checks in the FF-A proxy
->   KVM: arm64: Forward FFA_NOTIFICATION_BITMAP calls to Trustzone
->   KVM: arm64: Support FFA_NOTIFICATION_BIND in host handler
->   KVM: arm64: Support FFA_NOTIFICATION_UNBIND in host handler
->   KVM: arm64: Support FFA_NOTIFICATION_SET in host handler
->   KVM: arm64: Support FFA_NOTIFICATION_GET in host handler
->   KVM: arm64: Support FFA_NOTIFICATION_INFO_GET in host handler
-> 
->  arch/arm64/kvm/hyp/nvhe/ffa.c | 211 ++++++++++++++++++++++++++++++++--
->  1 file changed, 203 insertions(+), 8 deletions(-)
-> 
-> -- 
-> 2.54.0.1136.gdb2ca164c4-goog
-> 
+> diff --git a/drivers/phy/qualcomm/phy-qcom-qmp-combo.c b/drivers/phy/qualcomm/phy-qcom-qmp-combo.c
+> index 9bd666ac2c49..5b278fd54a16 100644
+> --- a/drivers/phy/qualcomm/phy-qcom-qmp-combo.c
+> +++ b/drivers/phy/qualcomm/phy-qcom-qmp-combo.c
+> @@ -2108,7 +2108,7 @@ static const u8 qmp_dp_v4_pre_emphasis_hbr3_hbr2[4][4] = {
+>  static const u8 qmp_dp_v4_pre_emphasis_hbr_rbr[4][4] = {
+>  	{ 0x00, 0x0d, 0x14, 0x1a },
+>  	{ 0x00, 0x0e, 0x15, 0xff },
+> -	{ 0x00, 0x0d, 0xff, 0xff },
+> +	{ 0x00, 0x0e, 0xff, 0xff },
+>  	{ 0x03, 0xff, 0xff, 0xff }
+
+It seems like 8350/8450 should be using what this driver calls
+v5 tables, with this fixup:
+
+diff --git a/drivers/phy/qualcomm/phy-qcom-qmp-combo.c b/drivers/phy/qualcomm/phy-qcom-qmp-combo.c
+index cdcfad2e86b1..63a4f2127e3c 100644
+--- a/drivers/phy/qualcomm/phy-qcom-qmp-combo.c
++++ b/drivers/phy/qualcomm/phy-qcom-qmp-combo.c
+@@ -2134,7 +2134,7 @@ static const u8 qmp_dp_v5_voltage_swing_hbr3_hbr2[4][4] = {
+ };
+ 
+ static const u8 qmp_dp_v5_pre_emphasis_hbr_rbr[4][4] = {
+-       { 0x20, 0x2d, 0x34, 0x3a },
++       { 0x20, 0x2e, 0x35, 0x3b },
+        { 0x20, 0x2e, 0x35, 0xff },
+        { 0x20, 0x2e, 0xff, 0xff },
+        { 0x24, 0xff, 0xff, 0xff }
+
+
++Dmitry please confirm
+
+Konrad
 
