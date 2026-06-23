@@ -4,62 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A59AFCD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 05:46:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5836DCD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 05:49:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dWLz/zW9pGxu4MmyMeLIaL8QlovD/EAbOQwnVjK0tNk=; b=rRYJBN9eU8+Swu0EfN60dnpDBs
-	iCDxtU6MPrmabqDsLCsj4Zrd2M1B9VxYZPmevLTmbM/as8A/j84dUBOHGekE1Jt4VxeQxx+7Ix/lk
-	RVTI2UfOPBUWr8uyayO3I4nRgTh/82bNZfj6Wy48KKaNMyjJBPj7wphGLBAlEC/sb9grWpCZnmEok
-	bFqD1YxEm9GL9mFYNENDnmeLZ/a+YXk25beJmxQ+ye/pW2teo6nqEq9EsIutTKbicw+y/U/bB7zdT
-	nXSgzl5u9NyC3XFpNKjYpgAixe9gSdwsh8u6mIjbg+/yvwLMl0XUwS1lMsp08qOCo1t6Zplbba8oq
-	7v8GPOBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jJpVWCXhXhzN9dpfIh91h7AiToKwgdpZ0Q4+DgKMiXo=; b=v/JCLq8oOEsElZUB/wTzXXyL9I
+	i9FSXa+Jwrh/owe2cU6ujbPT8NRSUnG33ePAkaY/3DkMCc/cHxhhET3AQ0DuyPp3MQFXhh6hIrmTa
+	kyCwNBn9BVH/XebY/HoDGhW/HrOZJOzT0iH56XU0B4rDMBk7AQTVLE4jQwKjk1JKmQKXlV8y4QQES
+	2w3AiNnHxOty5SQajSR+gwrX8g+/PGQdkjAIgdGFavqCjS2cx5Folwpjwd+Z2SR2/tALykRB1+3ck
+	jMeifw+D9uJyb2NJWDiGxs/UHZdohKMPWKg6rPf/tD+N/uN7JhQMBP0/Had1WpgC4BleYlrEkDrjS
+	SGrfyuoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbtxL-00000005jiC-1WLk;
-	Tue, 23 Jun 2026 05:45:55 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbtxK-00000005ji1-17K3
+	id 1wbtHL-00000005hnd-22gb;
+	Tue, 23 Jun 2026 05:02:31 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wbtHI-00000005hmy-2yd4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 05:45:54 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0DD2F40124;
-	Tue, 23 Jun 2026 05:45:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A91C1F000E9;
-	Tue, 23 Jun 2026 05:45:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782193552;
-	bh=dWLz/zW9pGxu4MmyMeLIaL8QlovD/EAbOQwnVjK0tNk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Qa/BeaHWnD+OP69bjLycHVUVXra6sZJV5iK9JntBBfOuED5JtAVeCw58o6uJnrRvi
-	 cULVIyuOAAsRkkC/COasS2mMKt4NE3XmNDak8jO/Bw0lNczHMM+qJValCE2JZ3UH23
-	 tbbhVdKC5KhO/ti5OsMLaP9L06YZk4UApZKs0s0HtUYWEvFx7AzgZyIMki7VJfv6kY
-	 6kjr2LW7g4r4cEVSvzePZ9gIXjI3Ia3n9hVtwYPJpUll1IXCzatilu1XfKHVlMOmUX
-	 qAsmTzfyaBFYkT5542j0KI8Hf0Suwxd2l4pClW6VvsWvGow0J/dPFgnIuBxejSLL4t
-	 ZQ8POrFrSNMmw==
-Date: Tue, 23 Jun 2026 07:45:42 +0200
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Aksh Garg <a-garg7@ti.com>
-Cc: linux-pci@vger.kernel.org, vigneshr@ti.com, s-vadapalli@ti.com, 
-	lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, bhelgaas@google.com, 
-	mpillai@cadence.com, unicorn_wang@outlook.com, me@ziyao.cc, 18255117159@163.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, danishanwar@ti.com
-Subject: Re: [PATCH] PCI: cadence: skip the link polling when endpoint not
- connected
-Message-ID: <pocwd4v7iqlixcpaikjo6vqmnwsb7rfjt42qvlmxsn6xnvtrpf@zgch2iwu7itw>
-References: <20260605071922.1724499-1-a-garg7@ti.com>
- <4lijgllolvtbvmzmluuslhkc7empdpizxhva6ysau7kssuqd5z@drkzb5afd4ba>
- <1ad01870-e2f9-485c-9206-23ee6de1d1ba@ti.com>
+	Tue, 23 Jun 2026 05:02:30 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9897D1A25;
+	Mon, 22 Jun 2026 22:02:20 -0700 (PDT)
+Received: from [10.164.19.14] (unknown [10.164.19.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A69713F632;
+	Mon, 22 Jun 2026 22:02:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1782190945; bh=/tf3ua+vKT99+55m2tCLALI+RpDjIfmCrLzHSIvEtUg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=HuC8saHzhLFSENYFEE1x41S1sRkkb3fz7XT9b2XPuRDl4SGP1EPkUKZ1/29no1S1n
+	 6ygfCJM6BN+ZVQ+fbSop01/2Y7ev3RT41BJ9Llz54s8acdxivyvEQy2ypkWeyFwnsN
+	 DVF+azu/KTetekBkxbb1pagp+lFxQWb20y2KmTPs=
+Message-ID: <78d97371-b477-4230-8690-ac870a7bab3b@arm.com>
+Date: Tue, 23 Jun 2026 10:32:16 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <1ad01870-e2f9-485c-9206-23ee6de1d1ba@ti.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 0/2] kasan: hw_tags: Add option to tag only at
+ allocation time
+To: Catalin Marinas <catalin.marinas@arm.com>, Harry Yoo <harry@kernel.org>
+Cc: ryabinin.a.a@gmail.com, akpm@linux-foundation.org, corbet@lwn.net,
+ glider@google.com, andreyknvl@gmail.com, dvyukov@google.com,
+ vincenzo.frascino@arm.com, kasan-dev@googlegroups.com, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, skhan@linuxfoundation.org,
+ workflows@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, ryan.roberts@arm.com,
+ anshuman.khandual@arm.com, kaleshsingh@google.com, 21cnbao@gmail.com,
+ david@kernel.org, will@kernel.org
+References: <20260612044425.763060-1-dev.jain@arm.com>
+ <b1502a60-09a1-4699-886b-93d041de7023@kernel.org> <ajVByfkLbetzA8bB@arm.com>
+ <2208123f-8a51-483b-aa93-c35d8d053d25@kernel.org> <ajltLd6FQg1aMge_@arm.com>
+Content-Language: en-US
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <ajltLd6FQg1aMge_@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260622_220228_907930_C95E1669 
+X-CRM114-Status: GOOD (  23.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,51 +79,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 23, 2026 at 10:53:48AM +0530, Aksh Garg wrote:
+
+
+On 22/06/26 10:43 pm, Catalin Marinas wrote:
+> Hi Harry,
 > 
+> On Mon, Jun 22, 2026 at 09:42:10PM +0900, Harry Yoo wrote:
+>> On 6/19/26 10:19 PM, Catalin Marinas wrote:
+>>> On Thu, Jun 18, 2026 at 10:35:15PM +0900, Harry Yoo wrote:
+>>>> On 6/12/26 1:44 PM, Dev Jain wrote:
+>>>>> Now, when a memory object will be freed, it will retain the random tag it
+>>>>> had at allocation time. This compromises on catching UAF bugs, till the
+>>>>> time the object is not reallocated, at which point it will have a new
+>>>>> random tag.
+>>>>>
+>>>>> Hence, not catching "use-after-free-before-reallocation" and not catching
+>>>>> "double-free" will be the compromise for reduced KASAN overhead.
+>>>>
+>>>> I doubt users who care about security enough to enable HW_TAGS KASAN
+>>>> are willing to compromise on security just to save a few instructions
+>>>> to store tags in the free path.
+>>>>
+>>>> To me, it looks like too much of a compromise on security for little
+>>>> performance gain.
+>>>
+>>> I don't think there's much compromise on security for use-after-free.
+>>
+>> I think it depends... OH, WAIT! I see what you mean.
+>>
+>> You mean use-after-free before reallocation does not lead to much
+>> compromise on security because objects are initialized after allocation?
+>>
+>> You're probably right.
+>>
+>> Hmm, but stores to e.g.) free pointer, fields initialized by
+>> constructor or accessed by SLAB_TYPESAFE_BY_RCU semantics after free
+>> will be undiscovered if they happen before reallocation.
 > 
-> On 22/06/26 20:22, Manivannan Sadhasivam wrote:
-> > On Fri, Jun 05, 2026 at 12:49:22PM +0530, Aksh Garg wrote:
-> > > cdns_pcie_host_wait_for_link() polls on link-up for 10 retries with a
-> > > delay of 90-100ms each (~1 second). A call to cdns_pcie_host_link_setup()
-> > > during the resume operation blocks the resume operation unnecessarily for
-> > > ~1s even when no endpoint device is connected.
-> > > 
-> > > Add skip_link_polling flag to track link state across suspend/resume
-> > > cycles. If link was down before suspend, skip the expensive polling
-> > > in resume since no endpoint was present.
-> > > 
-> > 
-> > Won't you need the delay if a device gets plugged while the host was suspended?
-> > We had this same concern with the DWC drivers and we left the delay as-is as
-> > nothing prevents an user to connect a device when the host was suspended.
+> Even with SLAB_TYPESAFE_BY_RCU, the object isn't tagged on free either
+> (or realloc, only if the actual slab page ends up freed). But we don't
+> get type confusion for such slab.
 > 
-> Yes, that is true. However, the platforms that do not support hot-plug can
-> skip the delay during resume since no device could have been connected while
-> suspended (only those platform's driver would be expected to set
-> 'rc->skip_link_polling) just like what Tegra264 PCIe driver tries to do at
-> [1], where the driver sets "pcie->link_up = false" if the link is down
-> during the probe and if the controller doesn't support hot-plug.
+> However, without tagging on free, one could argue that it reduces
+> security for cases where the page is re-allocated as untagged - e.g. all
+> user pages mapped without PROT_MTE. Currently we have a deterministic
+> tag check fault if the page is coloured as KASAN_TAG_INVALID. I think
+
+So you are saying that a stale kernel pointer can continue to use the
+reallocated page, because for non-PROT_MTE case the page does not get
+a new tag. Makes sense.
+> for this patch, it might be better to only do such skip on free in
+> kasan_poison_slab() rather than kasan_poison(). Freed pages would then
+> be tagged.
+
+I think you mean to say, "skip tag on free when freeing pages into buddy"?
+So that would mean, kasan_poison() will do the poisoning also in the
+case of value == KASAN_PAGE_FREE.
+
+> 
+> An alternative would be tagging on free only with a new tag and skipping
+> it on re-alloc. But we'd need to track when it's a completely new
+> allocation or a reused object (I haven't looked I'm pretty sure it's
+> doable).
+
+That was our original approach, and IIRC we had concluded there was no
+security compromise. However it is difficult to implement - it has cases
+like, what happens when two differently tagged pages are coalesced by
+buddy and someone gets that large page as an allocation.
+
 > 
 
-If the platform doesn't support hotplug, then it is perfectly fine to skip the
-delay. But you need to name the flag as like 'no_hotplug' or something
-relevant, not 'skip_link_polling'.
-
-> Even if a user connects a device (when the host was suspended) to a platform
-> which doesn't support hotplug, the user is expected to run a bus rescan,
-> which doesn't call cdns_pcie_host_link_setup() anyway, hence the flag
-> 'skip_link_polling' is not taken into account in that case.
-> 
-
-This is not about running the rescan, but about initializing the device. The 1s
-delay in cdns_pcie_host_wait_for_link() is mandated by the PCIe spec after
-starting LTSSM and before issuing the config read to the device. If this delay
-is skipped and if a config read is issued to the device, then the device may not
-respond and the failure may lead to PCI stack assuming that the device is dead.
-
-- Mani
-
--- 
-மணிவண்ணன் சதாசிவம்
 
