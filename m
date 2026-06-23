@@ -4,66 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53916CDB46F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 10:11:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2376CCDB46F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 10:17:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nZjeWKb3b8+hJxS4LWG9E3xPxpm5++RRdvK7jEZmo7A=; b=EON1UUgy/rbEBWzgmL9ubi+jeT
-	F87mq+gYjC9HIcrsTJoRAlmv50smQtm+5KSgnQ2/tn7l87wsWLQeWwSFYVmqWMeRWDdFOa4bVdRCG
-	+iK2UiCwztPDdl28JlLTkLeOEleJu9qt8u1HGxQM9MS2LX9y3RadO2i4uNo8vvHx/4LchsMLiB+tz
-	dgIPhr4DZN08XbX377cJ2kCq2VspCO1UZ/nF6y/uKdJFjJVpkvADmfIYxx4IktcMz9uJspnahdvro
-	BVBxeR0pwHDBIpwZr308DaHq9Fk8HmaMSebXyl9yUWwFaoH4A/OrbNvfSgmYDTsDtG0gc5vxwMuIF
-	BZ2Sp1lw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4wAPmSIrSM+4x+sRyOY4soM+SDdAdjENQXqDhlhF2Hk=; b=JR2XrsYjHF8wk+1Z05xu0HYKyt
+	HaLGtcBcspf0uB6fXeqqVxJXJt8xBTTAs3VKrfG9EX7jQK8KYmAtLN8BDATcl6QFDloMJxRM+ijK5
+	f1dXJRs/gT8N5i2X9b4/nNKDXp3ziY5JgKVGNd8PQnbRiwy6WOR5+3U7C3GsTgJiBUjNh3oSL8GhM
+	lWO5zOSJOPUhZh4tjZ5G+RQT1Jv2cN2OZ9Pf0ENXX0P1O5BwkhWI+FcRBV51i3QIcMrLpapFFN9EA
+	Ih7/epR7pckn8JjE/0HFLmESOu5t8NOYo2NHfYx8dGR0jyfgyvTh9KkOpM/jPCLskj1DWqjZUeYa1
+	seMaaw1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wby69-000000064NU-0lVa;
-	Tue, 23 Jun 2026 10:11:17 +0000
-Received: from imap5.colo.codethink.co.uk ([78.40.148.171])
+	id 1wbyBb-000000064nH-3aGC;
+	Tue, 23 Jun 2026 10:16:55 +0000
+Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wby67-000000064Ly-0xlM
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 10:11:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=codethink.co.uk; s=imap5-20230908; h=Sender:Content-Transfer-Encoding:
-	In-Reply-To:From:References:To:Subject:MIME-Version:Date:Message-ID:Reply-To:
-	Cc; bh=nZjeWKb3b8+hJxS4LWG9E3xPxpm5++RRdvK7jEZmo7A=; b=sv46U1ASHpHBi/teycZX9h
-	fapaPhEgVXraEfMCVqZSFtXlszfqJZIbf7UXnQR09ESsgrxdGGcQYVBNU7fZYZQU26kpvjTOyHP+u
-	mmXKxu6wuXXx71oq7XYEZ6h7pHWFuYtUkXaKQqav6iSV+rEaLdXAzZxrMArlfLaNjZgEPtaEOKg28
-	0lj6gZOSdv6Pepi6KczmKueQtlI9q6TJc6uUuK+uWeyGg6wcs1p2nKC0g3CTkz+9MFR4+WJXWpibz
-	jLU4aAwbwnDa+f4vCTWClL/30LX/srdMg1L62UF3H51NdStuNDm014vkQEEZW5rKh9fdKhrxajgyn
-	zT5fV8xBVGfA==;
-Received: from [167.98.27.226] (helo=[10.35.6.194])
-	by imap5.colo.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
-	id 1wby5x-006mb8-V6; Tue, 23 Jun 2026 11:11:05 +0100
-Message-ID: <4cad4cde-516a-4e22-8498-e84b5221df23@codethink.co.uk>
-Date: Tue, 23 Jun 2026 11:11:05 +0100
+	id 1wbyBZ-000000064mj-1w3Z;
+	Tue, 23 Jun 2026 10:16:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1782209813; x=1813745813;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=6bKxg3mN3i5Bark5W9/mVCmbmllTCHZ+dsMNiE6JZKI=;
+  b=gPCo8moZHSBJcdIlrltZYTDeRSMK5+9zyO1qY20AzF/bpUx/8AsBviX2
+   d+fZQVDMj3skmScHVEC1mDGEWSfcjTW+pW79Es4y83LYDON7rgusJ3r/g
+   F2v5fvPxdOroT/6BdxVA3tX3LBskIg66cDacoM4pnwZ4P4xiYMOyT7NWy
+   Qim8IWKw+SxH22Tr0tT0+xC82Vfof+FhNemg7w2sob2zQdP+1jJDCcPPc
+   v4Xm5kwBE10zCTYFBqOtC5Q6glmc4I7PvJ8c+U82L1heB0TYN2BvV4wlg
+   N+9tvMUEXsdtZyd2lVczWd79i9hKQP/u6RDzV57dTN5KjbwBOCy5Dq8ET
+   Q==;
+X-CSE-ConnectionGUID: 6aTv/e9pQPKLa4mXckHoow==
+X-CSE-MsgGUID: JtKS3VabR/qEGrY0vGyMow==
+X-IronPort-AV: E=McAfee;i="6800,10657,11825"; a="94064581"
+X-IronPort-AV: E=Sophos;i="6.24,220,1774335600"; 
+   d="scan'208";a="94064581"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jun 2026 03:16:52 -0700
+X-CSE-ConnectionGUID: oBBWS6GuS0iUyF5cRmiQxg==
+X-CSE-MsgGUID: Ax1MZTXeQRWV89v3jlZ8VQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.24,220,1774335600"; 
+   d="scan'208";a="245121467"
+Received: from klitkey1-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.7])
+  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jun 2026 03:16:47 -0700
+Date: Tue, 23 Jun 2026 13:16:45 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Frank.Li@oss.nxp.com
+Cc: Daniel Scally <djrscally@gmail.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Dafna Hirschfeld <dafna@fastmail.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+	Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+	Loic Poulain <loic.poulain@oss.qualcomm.com>,
+	driver-core@lists.linux.dev, linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	imx@lists.linux.dev, Guoniu Zhou <guoniu.zhou@nxp.com>,
+	Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH 3/4] media: rkisp1: use
+ fwnode_graph_for_each_endpoint_scoped() to simplify code
+Message-ID: <ajpdDT1N5cjtmAly@ashevche-desk.local>
+References: <20260622-fw_scoped-v1-0-a37d0aac0a68@nxp.com>
+ <20260622-fw_scoped-v1-3-a37d0aac0a68@nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] usb: dwc3: imx8mp: make dwc3_imx_glue_ops static and
- rename to imx8mp
-To: Ahmad Fatoum <a.fatoum@pengutronix.de>,
- Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Frank Li
- <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, linux-usb@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260623100554.735080-1-ben.dooks@codethink.co.uk>
- <39a5d53d-2eb9-4f72-aca9-95def11edf25@pengutronix.de>
-Content-Language: en-GB
-From: Ben Dooks <ben.dooks@codethink.co.uk>
-Organization: Codethink Limited.
-In-Reply-To: <39a5d53d-2eb9-4f72-aca9-95def11edf25@pengutronix.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260622-fw_scoped-v1-3-a37d0aac0a68@nxp.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_031115_272919_45A4C8C0 
-X-CRM114-Status: GOOD (  16.48  )
+X-CRM114-CacheID: sfid-20260623_031653_538828_8169C663 
+X-CRM114-Status: GOOD (  12.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,59 +103,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/06/2026 11:07, Ahmad Fatoum wrote:
-> 
-> 
-> On 6/23/26 12:05 PM, Ben Dooks wrote:
->> The dwc3_imx_glue_ops is not used outside this file, and technically this
->> is the dwc3-imx8mp driver so whilst making this static to avoid the
->> following warning, rename it dwc3_imx8mp_glue_ops to distinguish it from
->> the other driver which also has dwc3_imx_glue_ops.
->>
->> Fixes:
->> drivers/usb/dwc3/dwc3-imx8mp.c:176:22: warning: symbol 'dwc3_imx_glue_ops' was not declared. Should it be static?
->>
->> Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
->> ---
->>   drivers/usb/dwc3/dwc3-imx8mp.c | 6 +++---
->>   1 file changed, 3 insertions(+), 3 deletions(-)
->>
->> diff --git a/drivers/usb/dwc3/dwc3-imx8mp.c b/drivers/usb/dwc3/dwc3-imx8mp.c
->> index 1cf96540b66e..bc61a89b66b1 100644
->> --- a/drivers/usb/dwc3/dwc3-imx8mp.c
->> +++ b/drivers/usb/dwc3/dwc3-imx8mp.c
->> @@ -173,8 +173,8 @@ static void dwc3_imx_pre_set_role(struct dwc3 *dwc, enum usb_role role)
->>   		pm_runtime_use_autosuspend(dwc->dev);
->>   }
->>   
->> -struct dwc3_glue_ops dwc3_imx_glue_ops = {
->> -	.pre_set_role   = dwc3_imx_pre_set_role,
->> +statc struct dwc3_glue_ops dwc3_imx8mp_glue_ops = {
-> 
-> Typo
+On Mon, Jun 22, 2026 at 10:30:13AM -0400, Frank.Li@oss.nxp.com wrote:
 
-Thanks, forgot to re-run check after this. Sent v2
-
+> Use fwnode_graph_for_each_endpoint_scoped() to simplify code.
 > 
->> +	.pre_set_role   = dwc3_imx8mp_pre_set_role,
->>   };
->>   
->>   static int dwc3_imx8mp_probe(struct platform_device *pdev)
->> @@ -266,7 +266,7 @@ static int dwc3_imx8mp_probe(struct platform_device *pdev)
->>   		goto put_dwc3;
->>   	}
->>   
->> -	dwc3->glue_ops = &dwc3_imx_glue_ops;
->> +	dwc3->glue_ops = &dwc3_imx8mp_glue_ops;
->>   
->>   	if (dwc3->dr_mode == USB_DR_MODE_HOST)
->>   		pm_runtime_dont_use_autosuspend(dwc3->dev);
-> 
+> No functional changes.
 
+...
+
+> -	fwnode_graph_for_each_endpoint(fwnode, ep) {
+> +	fwnode_graph_for_each_endpoint_scoped(fwnode, ep) {
+>  		struct fwnode_handle *port;
+>  		struct v4l2_fwnode_endpoint vep = { };
+>  		struct rkisp1_sensor_async *rk_asd;
+> @@ -286,7 +285,6 @@ static int rkisp1_subdev_notifier_register(struct rkisp1_device *rkisp1)
+>  	}
+>  
+>  	if (ret) {
+> -		fwnode_handle_put(ep);
+>  		v4l2_async_nf_cleanup(ntf);
+>  		return ret;
+>  	}
+
+In this case you can go further and actually replace all the
+
+		ret = -Exxx;
+		break;
+
+with
+
+		v4l2_async_nf_cleanup(ntf);
+		return -Exx;
+
+in the above loop.
+
+but I assume the original is also fine as it's a common denominator for all of
+them (and only one case has something in addition to that).
 
 -- 
-Ben Dooks				http://www.codethink.co.uk/
-Senior Engineer				Codethink - Providing Genius
+With Best Regards,
+Andy Shevchenko
 
-https://www.codethink.co.uk/privacy.html
+
 
