@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73089CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 11:01:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE9CDCDB46F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 11:01:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ajgOGUJv9E70qzuN1Ayyd91FsOg/9niwoGshRkWAwhM=; b=GMkh/64poUNfCVXWbZdC5HXR5i
-	0KaTppZhl1VIl9HZWNx43l9S/tKQYcx3vt8qtfNP1pOVRYPF5WYPXP0QSwNXcmL9Tv95UjhyhVCu4
-	BZcd8KsFlSX4yfx/R2qc0d+Aj1KrzWc6bwqQ8CO+6MJEt6B6w0uqZ3jwha2OI7h+TdSlzZ4mSZPf6
-	EQ+cSp/Y7w+vHp7pq0brwxhb//Nc5olDI4Z+HrhvFQlXsAnc9VwT7mTFAgVJ7dDct0BQUYDeR10q2
-	5zuKhz9PChIhgjLoBn12oCcbapDYh1CWyYY7s3LcJwB2jk/8qmKhGqCnynWCey5yp2MlZsBjIf2dP
-	bLsWmxaA==;
+	bh=9OY3ToZFV8FTpO6y8C2HGHRhfbU4pE1nLTwwIJsJDf4=; b=AevSEnqztTOsjmdz6XIBAGVhjB
+	QEQQwUdvO0sjqkq49DZRUuFKcxWgISHpLAyVgwvzHJK1XqeRwHRYnig3cskKBbgtTU96nWrPij0jy
+	tCgkYd/EzPZ4pHCKh3x2h2Rg6/XOcvxs48bZfNV9ldEUyPwgFHYzmmFPqMPuOvgOCmCUhPcBqoYM2
+	iuYof+NhpdbogDMzMZ+h4if/OpkryDcyQotT7TbdmFRbMEn1HZHqNnTyvx9VFIwY/xaZvsfzMC6Gd
+	AX6Jk+LSRa0c0IN9gkN/fVfRqlZz1ReII4Wg1i3KgygkIh4MxzbzfQ8aupz5EjA4algkbObJfyVBQ
+	kRmcE+/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbysI-000000068K3-3eHj;
-	Tue, 23 Jun 2026 11:01:02 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1wbysO-000000068OD-43AM;
+	Tue, 23 Jun 2026 11:01:08 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbysG-000000068Hz-2QqQ
+	id 1wbysM-000000068N9-47Nr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 11:01:01 +0000
+	Tue, 23 Jun 2026 11:01:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1782212461; x=1813748461;
+  t=1782212468; x=1813748468;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=76fKafXWvc1aSYTTJPHdfReuEfuwfXsri5RbkV/LPFQ=;
-  b=HpzlVqUKH5IjRVrjAhuEqU40VfotCVAR5g0W+hxwpnJcirQ9ssT8iqpd
-   rkZGFetLl6fSPLZjxvFAMSUb+IVTDcUUzv2KU7kgMIydB0iyCw+5hdBYY
-   FYz8JIwxbSs7owkephHaizemmexlkmsdABsvZkXkURT/zRgzIH8LuW7wc
-   +OITUa8mUtN8b0LHF91VfDL629MMblFHqQuK//oMIN5u3qv913wu9BoJq
-   KLD5zGwlVcVzAwz7hT1jEGfcKm/22lG+RhuH/0FSWM6KdWo7j9g99z9Xw
-   DjspSR1//MJzw9+B2ZAsFlH6LQlkaW65imLKxdcIZfWkrK9kh7dQc2WjN
-   g==;
-X-CSE-ConnectionGUID: sHVLvk6LQBK/ABYqEBOqcA==
-X-CSE-MsgGUID: b4JSZ4FeQy2DsBzZDMqtaA==
+  bh=kCkIkCkZ+wCnKYcp7lkrWemwFvAzwzkCoeW6zMFBkzc=;
+  b=NMPMBRRzZ4/DZKfnKAzR8LbON2mwuQ440QMkJeB9phMNehXXLOU9ULhD
+   yvFalHNax0eSK8+tsvTd5nFRzFrSK5/mCJl6TZz2WrvVDtRRcOReACKg0
+   XGqUzX11WOe8l+xyjB9PUszPhzmxuxNbzQEozgcaIdqHRyFqNZ5SB2fUG
+   dhU88HVFtuq/sszquEvCA8Mz1ahrUGG3HfdIEVlY1Wre6vRgzKHquuq3+
+   ggtDYDU1nVCvyCwIDd8u63cw4ahQ4aaAiyE7fgWX8gOUBEkEV82ecn+bz
+   1eVk3rTcpyzgodcEu0zMXfRVXv7r2GkjRr8+I/swwOy2hVNfFR7A8MUGX
+   Q==;
+X-CSE-ConnectionGUID: M1Dk4sdfSjKBfdLv3FILiQ==
+X-CSE-MsgGUID: gLEfMQIZSlmkqlsd4r9xjw==
 X-IronPort-AV: E=Sophos;i="6.24,220,1774335600"; 
-   d="scan'208";a="58700392"
+   d="scan'208";a="290925173"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 23 Jun 2026 04:01:01 -0700
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 23 Jun 2026 04:01:07 -0700
 Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Tue, 23 Jun 2026 04:00:59 -0700
+ 15.1.2507.58; Tue, 23 Jun 2026 04:01:05 -0700
 Received: from che-ll-i67070.microchip.com (10.10.85.11) by
  chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Tue, 23 Jun 2026 04:00:53 -0700
+ 15.1.2507.58 via Frontend Transport; Tue, 23 Jun 2026 04:00:59 -0700
 From: Varshini Rajendran <varshini.rajendran@microchip.com>
 To: <ehristev@kernel.org>, <jic23@kernel.org>, <dlechner@baylibre.com>,
 	<nuno.sa@analog.com>, <andy@kernel.org>, <robh@kernel.org>,
@@ -63,9 +63,9 @@ To: <ehristev@kernel.org>, <jic23@kernel.org>, <dlechner@baylibre.com>,
 	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>
 CC: <varshini.rajendran@microchip.com>
-Subject: [PATCH v2 08/12] ARM: dts: microchip: sama7d65_curiosity: Enable ADC, DVFS
-Date: Tue, 23 Jun 2026 16:29:40 +0530
-Message-ID: <20260623105944.128840-9-varshini.rajendran@microchip.com>
+Subject: [PATCH v2 09/12] ARM: dts: microchip: sama7d65: add otpc node
+Date: Tue, 23 Jun 2026 16:29:41 +0530
+Message-ID: <20260623105944.128840-10-varshini.rajendran@microchip.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260623105944.128840-1-varshini.rajendran@microchip.com>
 References: <20260623105944.128840-1-varshini.rajendran@microchip.com>
@@ -73,8 +73,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_040100_691726_491354F3 
-X-CRM114-Status: UNSURE (   8.93  )
+X-CRM114-CacheID: sfid-20260623_040107_028025_97EF3E50 
+X-CRM114-Status: UNSURE (   9.12  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -90,63 +90,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add regulator, pinmux and enable ADC for sama7d65 curiosity. Add
-cpu-supply regulator for DVFS.
+Add OTPC node along with temperature calibration cell.
 
 Signed-off-by: Varshini Rajendran <varshini.rajendran@microchip.com>
 ---
- .../dts/microchip/at91-sama7d65_curiosity.dts | 27 +++++++++++++++++++
- 1 file changed, 27 insertions(+)
+ arch/arm/boot/dts/microchip/sama7d65.dtsi | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
 
-diff --git a/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts b/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts
-index 927c27260b6c..a6a44a176f56 100644
---- a/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts
-+++ b/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts
-@@ -97,6 +97,18 @@ &can3 {
- 	status = "okay";
- };
+diff --git a/arch/arm/boot/dts/microchip/sama7d65.dtsi b/arch/arm/boot/dts/microchip/sama7d65.dtsi
+index ba775459a816..5867fda378b1 100644
+--- a/arch/arm/boot/dts/microchip/sama7d65.dtsi
++++ b/arch/arm/boot/dts/microchip/sama7d65.dtsi
+@@ -15,6 +15,7 @@
+ #include <dt-bindings/interrupt-controller/arm-gic.h>
+ #include <dt-bindings/interrupt-controller/irq.h>
+ #include <dt-bindings/mfd/at91-usart.h>
++#include <dt-bindings/nvmem/microchip,sama7g5-otpc.h>
  
-+&adc {
-+	vddana-supply = <&vddout25>;
-+	vref-supply = <&vddout25>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_adc_default &pinctrl_adtrg_default>;
-+	status = "okay";
-+};
-+
-+&cpu0 {
-+	cpu-supply = <&vddcpu>;
-+};
-+
- &dma0 {
- 	status = "okay";
- };
-@@ -334,6 +346,16 @@ &main_xtal {
- };
+ / {
+ 	model = "Microchip SAMA7D65 family SoC";
+@@ -1112,6 +1113,21 @@ ddr3phy: ddr3phy@e3804000 {
+ 			reg = <0xe3804000 0x1000>;
+ 		};
  
- &pioa {
-+	pinctrl_adc_default: adc-default {
-+		pinmux = <PIN_PC5__GPIO>;
-+		bias-disable;
-+	};
++		otpc: efuse@e8c00000 {
++			compatible = "microchip,sama7d65-otpc", "microchip,sama7g5-otpc", "syscon";
++			reg = <0xe8c00000 0x100>;
 +
-+	pinctrl_adtrg_default: adtrg-default {
-+		pinmux = <PIN_PB7__ADTRG>;
-+		bias-pull-up;
-+	};
++			nvmem-layout {
++				compatible = "fixed-layout";
++				#address-cells = <1>;
++				#size-cells = <1>;
 +
- 	pinctrl_can1_default: can1-default {
- 		pinmux = <PIN_PD10__CANTX1>,
- 			 <PIN_PD11__CANRX1>;
-@@ -457,3 +479,8 @@ input@0 {
- &slow_xtal {
- 	clock-frequency = <32768>;
- };
++				temperature_calib: calib@41435354 {
++					reg = <0x41435354 0x2c>;	/* Temp calib data packet TAG */
++				};
++			};
++		};
 +
-+&vddout25 {
-+	vin-supply = <&vdd_3v3>;
-+	status = "okay";
-+};
+ 		gic: interrupt-controller@e8c11000 {
+ 			compatible = "arm,cortex-a7-gic";
+ 			reg = <0xe8c11000 0x1000>,
 -- 
 2.34.1
 
