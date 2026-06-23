@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38D1ACDB480
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 16:32:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D45FECDB481
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 16:32:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YqPMOa3VhTzs3b8j0JAq4TCU3cOlOKYv3BYmrlxV9SQ=; b=TMVLaNeSQbFGnjvj9cQOTIa9Fe
-	QDS8O72qDOo4VVd3yw3Iw34g5d91ui3i8/nK/Y2WmE0Vj89ZvhPVLq20KzNHO92Tsehnpb6ZDQyVf
-	xhrsq0R2f6iXgs1GGHo3QAXqJWAJTMmZS8XZk56DIkjfxXyxBdHMQ9YiRTbmFR/rPxq2Ok2KN1COl
-	tUuqwYnJOzZob+wEdU2b2CDYVSPr29wlx4Z08z+M/bOf1iB+bniEmhBbMQroShIY7Lzuvq6XOUMAp
-	Y2GemMXHFiws8iIB3BjpQlnqUvPgf+6JGf3gpOG19TdnGx8IydsPpBO/GDlxGO5ff7mC41rWf7G32
-	hij0rFjQ==;
+	bh=22N2PXre9YiYxQovnEOcAgvXcS6i+/Ko0WKi4hscMQ8=; b=gHES6hZuRLj2T7713g5rxl7Kcj
+	Mi4ZNjTfcXTMIEu6gKbY36SO3IWJnRUUW3iLmokS3FK7tULuEK6wF4PaDHP4Z3CFgv6fSrRyq5vw4
+	ebFgIqPd0YEC+Y/+XvzS6qM7D5mKhZBxd71xra+jCNcSljmbMTtb4nIOPY/dUOjUCpFrcf3i7eg1L
+	/WVKirQUfvcaQeAEHIyltVhg4iT2G0AOFXmyt+dx5jy4kXwBZEFhy0f2cnfw4g01hlSxmotcF4ZDP
+	Ws3neEsbwNUOS53bO/JnIwbKElvg//GyprXQBDowjZGodFCRoAd2r2ADrREzDoxpFCIN5x1t5wlY7
+	A3oh4JXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc43D-00000006d9B-1OnW;
+	id 1wc43D-00000006dAG-2a0E;
 	Tue, 23 Jun 2026 16:32:39 +0000
-Received: from esa4.hc555-34.eu.iphmx.com ([207.54.77.171])
+Received: from esa3.hc555-34.eu.iphmx.com ([207.54.77.50])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc431-00000006cys-08hx
+	id 1wc431-00000006d1Q-3w6O
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 16:32:28 +0000
+	Tue, 23 Jun 2026 16:32:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
   d=mobileye.com; i=@mobileye.com; q=dns/txt; s=MoEyIP;
-  t=1782232347; x=1813768347;
+  t=1782232348; x=1813768348;
   h=from:date:subject:mime-version:content-transfer-encoding:
    message-id:references:in-reply-to:to:cc;
-  bh=oG9nkyldQyyI/7WMBxXQe7MvXPqBKeJkeAmDpqjZ4uc=;
-  b=nUs9Pdj9EaJjGZz/+8cuFqAIam9RtBosiL/u8AavQrNthySujwdcQYiH
-   fQLpvGZAmR17rRQRK30v+WgcvXdCBhdORb21SqfAVpgfB0gKtq0wZH9g1
-   gsILhiurqMw3OtPDkxwzbPndfUu3P648U9hCCI3TqQ3r6x+ayvJdfC4Ai
-   R1bafWAp+j+Uj9QNfdo/ZYjRmHl916XDDwT5BCUg/sM+zkdZwSkHZzne0
-   gNzeKzcM0WpnLdAfzNZoANA8156cPxWb9w6Xu/zucriCd0K0REwJY5f6M
-   48fpkNbffsr7M/CCOG6VsyoTWCKUAGvuQ/UG9mlLZuaOoiYi9uUFZdGCJ
+  bh=+Z2cQgxr6f9W2AYTe4LfLElv/Xuc2xJlHOPLDdzJPfU=;
+  b=aV1hen1Rcj17u1RlFkEAtDf0J7Mhzw/CKv1twAvuN16PN/iGQKfa/Xqv
+   MDHdfLsOc/QN7zCZL4ogL52wwQ3dzYtyTM7XSKiTpVQxg2nqWpAYwcX++
+   Y1/al8z5UrIc6W0qAiiW83g/oO2xlrGqfV2bo7mJCxi5Jaj5sB1h6y/F8
+   yeZbXpNWrMLowY5Q3PjmNzuCdHJ1Nqph5V3RJ4oDBjnpJbgnDb2TgqZdP
+   3WO3UEfPP1zYzYKf9mmi9HL1c5wnSwSdGTRPod80qo8BadNAjdi7aUn0a
+   8kEoosh5wkhElRDRKphP+IKVSjAirxDiHzTd1bON01GqHGrNOxIUkzHtZ
    Q==;
-X-CSE-ConnectionGUID: FDMCIGXTQNeOYXoHW9pvjw==
-X-CSE-MsgGUID: 5HZjzprpRfS3JusJ3fM2Iw==
+X-CSE-ConnectionGUID: mA8GO/haRgSgiqnt/1TtKA==
+X-CSE-MsgGUID: Cs3XYAqNT/+8aYlUxmWmTA==
 X-Amp-Result: SKIPPED(no attachment in message)
 X-Amp-File-Uploaded: False
-Received: from unknown (HELO ces01_data.me-corp.lan) ([146.255.191.134])
-  by esa4.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jun 2026 19:32:24 +0300
-X-CSE-ConnectionGUID: z3gDAWAXRIK5/bfqOX3Iaw==
-X-CSE-MsgGUID: ZxvTOvUiS3GUK9Xe1gOEaw==
+Received: from unknown (HELO ces04_data.me-crop.lan) ([146.255.191.134])
+  by esa3.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jun 2026 19:32:26 +0300
+X-CSE-ConnectionGUID: mMrEQ/VaSZOzmZ9RjiL74A==
+X-CSE-MsgGUID: 9qbGRbl6STyEoZClwz4xOw==
 Received: from unknown (HELO epgd056.me-corp.lan) ([10.154.54.2])
-  by ces01_data.me-corp.lan with SMTP; 23 Jun 2026 19:37:34 +0300
-Received: by epgd056.me-corp.lan (sSMTP sendmail emulation); Tue, 23 Jun 2026 19:32:23 +0300
+  by ces04_data.me-crop.lan with SMTP; 23 Jun 2026 19:37:33 +0300
+Received: by epgd056.me-corp.lan (sSMTP sendmail emulation); Tue, 23 Jun 2026 19:32:24 +0300
 From: Dmitry Guzman <Dmitry.Guzman@mobileye.com>
-Date: Tue, 23 Jun 2026 19:31:52 +0300
-Subject: [PATCH 5/7] i2c: nomadik: change print level for fault messages to
- debug
+Date: Tue, 23 Jun 2026 19:31:53 +0300
+Subject: [PATCH 6/7] i2c: nomadik: add quirks max_len=2047 and
+ no_zero_len_read
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260623-i2c-fault-reporting-v1-5-6db1a8aabf18@mobileye.com>
+Message-Id: <20260623-i2c-fault-reporting-v1-6-6db1a8aabf18@mobileye.com>
 References: <20260623-i2c-fault-reporting-v1-0-6db1a8aabf18@mobileye.com>
 In-Reply-To: <20260623-i2c-fault-reporting-v1-0-6db1a8aabf18@mobileye.com>
 To: Andi Shyti <andi.shyti@kernel.org>, 
@@ -71,8 +71,8 @@ Cc: linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
  Dmitry Guzman <Dmitry.Guzman@mobileye.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_093227_351815_3C2E3FC1 
-X-CRM114-Status: GOOD (  14.34  )
+X-CRM114-CacheID: sfid-20260623_093228_263884_1A4767AE 
+X-CRM114-Status: GOOD (  13.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,42 +87,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-i2c-nomadik driver prints error message on every faulted message. This
-is not a good practice, because in I2C a fault not always is an error,
-sometimes it is the expected result. For example, scanning bus with
-`i2cdetects` prints over 100 messages in dmesg (two messages per each
-target address).
+In Nomadik I2c controller, register I2C_MCR has 11-bit wide LENGTH
+field. Its maximum value is 2047, so this is the maximum length of a
+single message. It is less than the common maximum I2C message length in
+I2C subsystem (8192), so define a quirk in order to report the
+unsupported message without any attempt to transfer it.
 
-To avoid excessive prints in the log, change the print level from err to
-debug.
+Zero length reading doesn't work properly on this controller, so add
+`I2C_AQ_NO_ZERO_LEN_READ` quirk flag.
 
 Signed-off-by: Dmitry Guzman <Dmitry.Guzman@mobileye.com>
 ---
- drivers/i2c/busses/i2c-nomadik.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/i2c/busses/i2c-nomadik.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
 diff --git a/drivers/i2c/busses/i2c-nomadik.c b/drivers/i2c/busses/i2c-nomadik.c
-index e19ace904e79cd2d83171d9f38fc103a6c5e023b..7d93fb3876dc1324003dd19884e3fd5cbba9cfbb 100644
+index 7d93fb3876dc1324003dd19884e3fd5cbba9cfbb..9cff0c2757fafeaf809395e02a5e754570f65e08 100644
 --- a/drivers/i2c/busses/i2c-nomadik.c
 +++ b/drivers/i2c/busses/i2c-nomadik.c
-@@ -627,7 +627,7 @@ static int write_i2c(struct nmk_i2c_dev *priv, u16 flags)
+@@ -79,6 +79,9 @@
+ #define I2C_MCR_STOP		BIT(14)		/* Stop condition */
+ #define I2C_MCR_LENGTH		GENMASK(25, 15)	/* Transaction length */
  
- 	if (!xfer_done) {
- 		/* Controller timed out */
--		dev_err(&priv->adev->dev, "write to slave 0x%x timed out\n",
-+		dev_dbg(&priv->adev->dev, "write to slave 0x%x timed out\n",
- 			priv->cli.slave_adr);
- 		status = -ETIMEDOUT;
- 	}
-@@ -661,7 +661,7 @@ static int nmk_i2c_xfer_one(struct nmk_i2c_dev *priv, u16 flags)
- 		i2c_sr = readl(priv->virtbase + I2C_SR);
- 		if (FIELD_GET(I2C_SR_STATUS, i2c_sr) == I2C_ABORT) {
- 			cause = FIELD_GET(I2C_SR_CAUSE, i2c_sr);
--			dev_err(&priv->adev->dev, "%s\n",
-+			dev_dbg(&priv->adev->dev, "%s\n",
- 				cause >= ARRAY_SIZE(abort_causes) ?
- 				"unknown reason" :
- 				abort_causes[cause]);
++/* Controller hardware limitation of the message length */
++#define I2C_MAX_MSG_LENGTH	(I2C_MCR_LENGTH >> 15)
++
+ /* Status register (SR) */
+ #define I2C_SR_OP		GENMASK(1, 0)	/* Operation */
+ #define I2C_SR_STATUS		GENMASK(3, 2)	/* controller status */
+@@ -238,6 +241,12 @@ static int fault_codes[] = {
+ 	EIO
+ };
+ 
++static const struct i2c_adapter_quirks nmk_i2c_quirks = {
++	.flags = I2C_AQ_NO_ZERO_LEN_READ,
++	.max_read_len  = I2C_MAX_MSG_LENGTH,
++	.max_write_len = I2C_MAX_MSG_LENGTH,
++};
++
+ static inline void i2c_set_bit(void __iomem *reg, u32 mask)
+ {
+ 	writel(readl(reg) | mask, reg);
+@@ -1162,6 +1171,7 @@ static int nmk_i2c_probe(struct amba_device *adev, const struct amba_id *id)
+ 	adap->class = I2C_CLASS_DEPRECATED;
+ 	adap->algo = &nmk_i2c_algo;
+ 	adap->timeout = usecs_to_jiffies(priv->timeout_usecs);
++	adap->quirks = &nmk_i2c_quirks;
+ 	snprintf(adap->name, sizeof(adap->name),
+ 		 "Nomadik I2C at %pR", &adev->res);
+ 
 
 -- 
 2.43.0
