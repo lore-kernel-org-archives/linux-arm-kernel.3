@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C09B3CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 11:54:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B903CDB46F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 11:54:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=09b+kI/zkikg9+QKQPwRY6ZbJWum8PvSur8NwEqIQDI=; b=GZGl3nE3gcgHB6ExtMECQsB3yv
-	8K9LuraBYX4AvnrhrkNuN7iYqV00nrVLSjixm0slEK7ZKbCWzxQsGlQmdaCEVeRdT7iPCPQY6iOPg
-	07pHCuFV8n0FsjStAMrKW22eqIXkQhWRs26vuLR9Om2rz/z7/3mbpQK/h2RAeVKlOI2UCMd3qtk/V
-	9Lx3090jmfIsiSpo1LFo/dwcxgDZAJOffO0BA8z+3P5MH/VV8yKZy9qcdcFM9xF7eaanWPWRLDyfE
-	YcWGnoQyaKGphvKg+id7cPEHdYqzE1Ytav1gq794464mlCdlY/SMmwH165j7JbCHWUzBYHvPkgnCx
-	61PkvOdg==;
+	bh=QS4Tc9DEF1sakhdO+oEzT9jcpMtmCqHU665RCgQbU7E=; b=HWlz8QJeB3O9oMl6mkTdG3a0Tb
+	Da3q02gbc6ufZMzWgZMSYdMEW+xHs/HfvlFwz937KQJwM4SjY7w5tA34oNNLClyJ/VKw51rX0CEE4
+	8Wavak+2GxIQYuTtpmiFlA4z1K4dvBwHu6vadVjrcI1FfijHgl9vljt+rAKVCMeBspyo6FhkqZbje
+	TYHfoOele0jlBdbr+sh9toUyvQgAiLZriVlJc4kVkM7a9zAzJCqBdqQS9rbg5l3RKMF63an7Gq4Fl
+	wdKjtMHvacfu8JRtITl1Yj3A1MktApOBP2RTm24RjoozFt0kLeMmvvoY6BW1RM2RG4fW/QrwbF3Kh
+	Sxcqalvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbzhn-00000006D30-2OpV;
+	id 1wbzhn-00000006D3G-2ob9;
 	Tue, 23 Jun 2026 11:54:15 +0000
-Received: from mail-ej1-x649.google.com ([2a00:1450:4864:20::649])
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbzhi-00000006D1K-2KqB
+	id 1wbzhk-00000006D1y-3BwT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 11:54:11 +0000
-Received: by mail-ej1-x649.google.com with SMTP id a640c23a62f3a-c0bd2bf3ecfso345622266b.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 04:54:09 -0700 (PDT)
+	Tue, 23 Jun 2026 11:54:13 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-490a767c7dcso37088965e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 04:54:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1782215648; x=1782820448; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1782215650; x=1782820450; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=09b+kI/zkikg9+QKQPwRY6ZbJWum8PvSur8NwEqIQDI=;
-        b=RVmr80xW9AJe6xZ496aFQuAufE9Va+UA2pfsh5za79B4C67B+1TC/KzAvX4Mjw0QvX
-         f2FLLtsdW2OH3r2rHrjgH6CxqK71srHs4IUlAMOmNYcxb7Gj+Dqx8EkaxoJB258pJyGc
-         T0VDovJ50dbP/rwFjU7k58y9ktBHiL1ecGhX5x4UNk78QlTTiOia/DG2/ti3USYmsk1r
-         g04kaeD5jq6Cynr6RLJ2tq/WsU9l6mbFUXruj5nVzTjNY4RM1dql4Hi2+xVF1TrnKU4/
-         EfmlbAFQ3uzBEe+kPKWEtqeenN11BZEJxNbt40pClNJuXwV0iOUya9G8pyt32goML5bf
-         JYPw==
+        bh=QS4Tc9DEF1sakhdO+oEzT9jcpMtmCqHU665RCgQbU7E=;
+        b=sZILm/NEFV8cXpsC6Ce/qOPST78HqcgAGkoeQDqrvvyt6ZSOGXEhr+xLbnfvr2Y4Fv
+         omerUWvR0Eadp48kc9r90gwfIUiCEADHOfyE+LHXWsYASVIpXnZiLKVs9b0N96vI+ovN
+         ybcI4iYJixRFRBfvOhWBP+C195kD70I7DBeL36qx+YDoBgz+D4EG5jG4NzuaGz+ZUY3U
+         oDYZ05pyKOlE7B3P5Crk8+PnDUx8rrLDI0hMwWOgSLOJ6wsK6VFZkqNmfMi8Ez99Z7m0
+         9CfPRcawATq2iA9BHtkHFpna2tNzG/i0s/Dly/kk3US7bA8fE4nhxbF5F0m/L60yeDbY
+         PXwQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782215648; x=1782820448;
+        d=1e100.net; s=20251104; t=1782215650; x=1782820450;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=09b+kI/zkikg9+QKQPwRY6ZbJWum8PvSur8NwEqIQDI=;
-        b=WYvQMrXY9PUYejqjIqeEjZSuqMaGXpM6Q7n1tH4JE87QL0hxKVX0dY+Te9RqovSl0s
-         YD3YXcEDbSjnoKcFqpSNlVkGrldgZRlyCZmASU8MU/it2CtQMATJGqiExi3KLX+B6phc
-         wnIQN3J4e5bWS7djDOrHB3WvUa3DcPDtkpjnIgTA3yifcoKWf7sKDaNbGG3EgoEiW2BD
-         RZ9iBpe2rxKMTtCPHTWJBnjmdlQATLvBOZb692ZFGgqZJy7Ysorhxvc0ehzp2kN6MZaz
-         MmQq31bwXd9erDQ3T8TFc/Vh8L0hRift860gRH+l+m6iYWD9Ln3zNmto04+Ln0xST1ah
-         QGUQ==
-X-Forwarded-Encrypted: i=1; AFNElJ8yHtvuAv2hN4ubuBshhlmbQWM0XlBIPBHHdebI35PmU6YwsNCOyjJtD84fJH+ww0Pla50kCKnx6Eb7dKy2ze/h@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzwtb5z3RlR5tohulVqEL64LFHKKzh1fV4F/dkb3MymadBEmylm
-	mDqr52rWHqHSd504QZiVoy7n+6EQAeYZflw3tC9TwB3Upd8rlbhD+ltxUWa+bz5jlqr/WlbJTKp
-	bQpKvt1P4Q5RI/0/oVoFAT9q/ucLGQQ==
-X-Received: from ejcse22.prod.google.com ([2002:a17:907:a396:b0:beb:297f:8f09])
+        bh=QS4Tc9DEF1sakhdO+oEzT9jcpMtmCqHU665RCgQbU7E=;
+        b=omYhSeO20nBBLhUJyx8XBPERgyV97HHyCy51PtTTfjwlRVc6pJGVBXiIuC6r72htLO
+         c3olZaENsp4HCg/AD35S3uwZkQcrP+hnImzZ1RSc5ZB9b6bnoITqds0+R0wbuR9ZKLxp
+         YY7qhL/5uzd2nRi9hqtrnzS+a8vWj0nYJQs/OFmO2+4H4gaiqqgX4Ewc5d+bQay8PodT
+         Gnch8TTx2NTLPkn2AK7Z9YceajmBEfbKoDRQrUIt6CORntrnOqB3XdCEQ8ET9x12Dpp+
+         JPOyqcls0yOI2iEI8iL6xRFBgZAHKKfp8W4DtCVbn1G4fjhZM/T6EZ1roVSN4/+W6+9a
+         YYMg==
+X-Forwarded-Encrypted: i=1; AFNElJ+GFS6G72tmsPk83c82M72QXDsMpSrdyxv30ALNtMsdbBdojbLSp2LHovYwwPxFf3at7QtEdBQKoel91TeklNH1@lists.infradead.org
+X-Gm-Message-State: AOJu0YxVl3F38uSneYRz2rTVsnA3VwQByTQlCg3vsK1VyEKNevZLZY5X
+	T8uiDaZtEtZQ/fj2F4aUeqvCj9/B9GAJ6mFBn3tcWjUaYp3uSe7fTmjov1IDcjEZyzWzrKCuKTm
+	lyLA9s2bSZNggESAxkanIiB05452k4A==
+X-Received: from wmpo6.prod.google.com ([2002:a05:600c:3386:b0:490:9d65:494e])
  (user=sebastianene job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:906:6a02:b0:c10:256:3d6a with SMTP id a640c23a62f3a-c107f9a5639mr127032566b.31.1782215647857;
- Tue, 23 Jun 2026 04:54:07 -0700 (PDT)
-Date: Tue, 23 Jun 2026 11:53:48 +0000
+ 2002:a05:600c:6309:b0:490:b645:3213 with SMTP id 5b1f17b1804b1-4925b3ac32fmr36891085e9.19.1782215650250;
+ Tue, 23 Jun 2026 04:54:10 -0700 (PDT)
+Date: Tue, 23 Jun 2026 11:53:49 +0000
 In-Reply-To: <20260623115354.632361-1-sebastianene@google.com>
 Mime-Version: 1.0
 References: <20260623115354.632361-1-sebastianene@google.com>
 X-Mailer: git-send-email 2.55.0.rc0.786.g65d90a0328-goog
-Message-ID: <20260623115354.632361-2-sebastianene@google.com>
-Subject: [PATCH v5 1/7] KVM: arm64: Enforce strict SBZ checks in the FF-A proxy
+Message-ID: <20260623115354.632361-3-sebastianene@google.com>
+Subject: [PATCH v5 2/7] KVM: arm64: Forward FFA_NOTIFICATION_BITMAP calls to Trustzone
 From: Sebastian Ene <sebastianene@google.com>
 To: catalin.marinas@arm.com, maz@kernel.org, oupton@kernel.org, 
 	will@kernel.org
@@ -76,8 +76,8 @@ Cc: joey.gouly@arm.com, korneld@google.com, kvmarm@lists.linux.dev,
 	yuzenghui@huawei.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_045410_611882_B15FBB55 
-X-CRM114-Status: GOOD (  12.74  )
+X-CRM114-CacheID: sfid-20260623_045412_819494_FED374A3 
+X-CRM114-Status: GOOD (  11.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,137 +92,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce a helper method ffa_check_unused_args_sbz to enforce strict
-arguments checking when the hypervisor acts as a relayer between the
-host and Trustzone.
+Allow FF-A notification bitmap messages to be forwarded to
+Trustzone from the host kernel driver enforce checking for
+SBZ fields.
 
 Signed-off-by: Sebastian Ene <sebastianene@google.com>
 Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
 ---
- arch/arm64/kvm/hyp/nvhe/ffa.c | 54 +++++++++++++++++++++++++++++++++++
- 1 file changed, 54 insertions(+)
+ arch/arm64/kvm/hyp/nvhe/ffa.c | 27 +++++++++++++++++++++++++--
+ 1 file changed, 25 insertions(+), 2 deletions(-)
 
 diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-index 1af722771178..78bb043b33ee 100644
+index 78bb043b33ee..cc10f48915fa 100644
 --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
 +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-@@ -71,6 +71,20 @@ static u32 hyp_ffa_version;
- static bool has_version_negotiated;
- static hyp_spinlock_t version_lock;
+@@ -715,8 +715,6 @@ static bool ffa_call_supported(u64 func_id)
+ 	case FFA_MEM_DONATE:
+ 	case FFA_MEM_RETRIEVE_REQ:
+        /* Optional notification interfaces added in FF-A 1.1 */
+-	case FFA_NOTIFICATION_BITMAP_CREATE:
+-	case FFA_NOTIFICATION_BITMAP_DESTROY:
+ 	case FFA_NOTIFICATION_BIND:
+ 	case FFA_NOTIFICATION_UNBIND:
+ 	case FFA_NOTIFICATION_SET:
+@@ -911,6 +909,27 @@ static void do_ffa_part_get(struct arm_smccc_1_2_regs *res,
+ 	hyp_spin_unlock(&host_buffers.lock);
+ }
  
-+static bool ffa_check_unused_args_sbz(struct kvm_cpu_context *ctxt, int first_reg)
++static void do_ffa_notif_bitmap(struct arm_smccc_1_2_regs *res,
++				struct kvm_cpu_context *ctxt)
 +{
 +	DECLARE_REG(u32, func_id, ctxt, 0);
-+	int reg, end_reg;
++	DECLARE_REG(u32, vmid, ctxt, 1);
++	struct arm_smccc_1_2_regs *args;
 +
-+	end_reg = ARM_SMCCC_IS_64(func_id) ? 17 : 7;
-+	for (reg = first_reg; reg <= end_reg; reg++) {
-+		if (cpu_reg(ctxt, reg))
-+			return true;
++	if (ffa_check_unused_args_sbz(ctxt, func_id == FFA_NOTIFICATION_BITMAP_CREATE ? 3 : 2)) {
++		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
++		return;
 +	}
 +
-+	return false;
++	if (vmid != HOST_FFA_ID) {
++		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
++		return;
++	}
++
++	args = (void *)&ctxt->regs.regs[0];
++	hyp_smccc_1_2_smc(args, res);
 +}
 +
- static void ffa_to_smccc_error(struct arm_smccc_1_2_regs *res, u64 ffa_errno)
+ bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
  {
- 	*res = (struct arm_smccc_1_2_regs) {
-@@ -239,6 +253,11 @@ static void do_ffa_rxtx_map(struct arm_smccc_1_2_regs *res,
- 	int ret = 0;
- 	void *rx_virt, *tx_virt;
- 
-+	if (ffa_check_unused_args_sbz(ctxt, 4)) {
-+		ret = FFA_RET_INVALID_PARAMETERS;
-+		goto out;
-+	}
-+
- 	if (npages != (KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE) / FFA_PAGE_SIZE) {
- 		ret = FFA_RET_INVALID_PARAMETERS;
- 		goto out;
-@@ -315,6 +334,11 @@ static void do_ffa_rxtx_unmap(struct arm_smccc_1_2_regs *res,
- 	DECLARE_REG(u32, id, ctxt, 1);
- 	int ret = 0;
- 
-+	if (ffa_check_unused_args_sbz(ctxt, 2)) {
-+		ret = FFA_RET_INVALID_PARAMETERS;
-+		goto out;
-+	}
-+
- 	if (id != HOST_FFA_ID) {
- 		ret = FFA_RET_INVALID_PARAMETERS;
- 		goto out;
-@@ -421,6 +445,11 @@ static void do_ffa_mem_frag_tx(struct arm_smccc_1_2_regs *res,
- 	int ret = FFA_RET_INVALID_PARAMETERS;
- 	u32 nr_ranges;
- 
-+	if (ffa_check_unused_args_sbz(ctxt, 5)) {
-+		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
-+		return;
-+	}
-+
- 	if (fraglen > KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE)
- 		goto out;
- 
-@@ -482,6 +511,11 @@ static void __do_ffa_mem_xfer(const u64 func_id,
- 	u32 offset, nr_ranges, checked_offset;
- 	int ret = 0;
- 
-+	if (ffa_check_unused_args_sbz(ctxt, 5)) {
-+		ret = FFA_RET_INVALID_PARAMETERS;
-+		goto out;
-+	}
-+
- 	if (addr_mbz || npages_mbz || fraglen > len ||
- 	    fraglen > KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE) {
- 		ret = FFA_RET_INVALID_PARAMETERS;
-@@ -581,6 +615,11 @@ static void do_ffa_mem_reclaim(struct arm_smccc_1_2_regs *res,
- 	int ret = 0;
- 	u64 handle;
- 
-+	if (ffa_check_unused_args_sbz(ctxt, 4)) {
-+		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
-+		return;
-+	}
-+
- 	handle = PACK_HANDLE(handle_lo, handle_hi);
- 
- 	hyp_spin_lock(&host_buffers.lock);
-@@ -769,6 +808,11 @@ static void do_ffa_version(struct arm_smccc_1_2_regs *res,
- {
- 	DECLARE_REG(u32, ffa_req_version, ctxt, 1);
- 
-+	if (ffa_check_unused_args_sbz(ctxt, 2)) {
-+		res->a0 = FFA_RET_NOT_SUPPORTED;
-+		return;
-+	}
-+
- 	if (FFA_MAJOR_VERSION(ffa_req_version) != 1) {
- 		res->a0 = FFA_RET_NOT_SUPPORTED;
- 		return;
-@@ -818,6 +862,11 @@ static void do_ffa_part_get(struct arm_smccc_1_2_regs *res,
- 	DECLARE_REG(u32, flags, ctxt, 5);
- 	u32 count, partition_sz, copy_sz;
- 
-+	if (ffa_check_unused_args_sbz(ctxt, 6)) {
-+		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
-+		return;
-+	}
-+
- 	hyp_spin_lock(&host_buffers.lock);
- 	if (!host_buffers.rx) {
- 		ffa_to_smccc_res(res, FFA_RET_BUSY);
-@@ -890,6 +939,11 @@ bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
- 
- 	switch (func_id) {
- 	case FFA_FEATURES:
-+		if (ffa_check_unused_args_sbz(host_ctxt, 3)) {
-+			ffa_to_smccc_res(&res, FFA_RET_INVALID_PARAMETERS);
-+			goto out_handled;
-+		}
-+
- 		if (!do_ffa_features(&res, host_ctxt))
- 			return false;
+ 	struct arm_smccc_1_2_regs res;
+@@ -974,6 +993,10 @@ bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
+ 	case FFA_PARTITION_INFO_GET:
+ 		do_ffa_part_get(&res, host_ctxt);
  		goto out_handled;
++	case FFA_NOTIFICATION_BITMAP_CREATE:
++	case FFA_NOTIFICATION_BITMAP_DESTROY:
++		do_ffa_notif_bitmap(&res, host_ctxt);
++		goto out_handled;
+ 	}
+ 
+ 	if (ffa_call_supported(func_id))
 -- 
 2.55.0.rc0.786.g65d90a0328-goog
 
