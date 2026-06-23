@@ -4,62 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F278CDB46B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Jun 2026 22:53:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 167D3CDB466
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 00:20:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=rW6UcwBUXPjrpsr3QHis50igXIxFrHk65LLA4S/dA08=; b=4Oo72N58jsLm6wQJLYQF8So1P3
-	wYt4C2JQEERxd1K5WYHgmrNSv6kK+xe0syRU2QxqFrwlK5yz+FuQr8tUVMN32DHVRW0BgeSvFOjAL
-	MVQd0/zqztF0QjgwvNYeKoUODuH+DzmcfSgSfDcJWrx4xzaVmVoqIZ0JRBAyGbLhZbMWWedaOvuaK
-	1pVZ3ZObieGBJ/7cvMLJ8RuTxC9gljjlVPJU0Xf9SqA60PeE+BvcW1ZWTozKzq3qJn7bpZcNCPRY9
-	rIQMxRRoO3SII++RjxqQoujEI91W0T7Dx/CceL+HsnVKvYrcRAdS50Q0XQK6ygfwBZLwy0fyFAyeX
-	cW16KW+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BDKUVID7qw6T4mp18P6/ELgU0/lKW+UBMNBhyLpyrEI=; b=42Q6VPDde9vS3UPMLi/zMqJkK3
+	GmCtHfB3qKyN2pp2nfVYZnB8X0gSYOzFwcUOLggacde6BUQekxFBauwbIFzFnm+bzAR54JDyhDaA7
+	lvqVD0nDhlBKaYgVy4SUaytZDJWjwmGuickYi5/ts98pu0L+cDkt3xNuEELoqsGMAGo5+XAGo5qvW
+	+3MleKWeMVtRaXmICrNwthpUfBTu5pQ6GMIcn1o3j1xmwzTbs+2KVNnODL/QQWZhc4NOpDP8cr6Zy
+	SP/uIt73LDAQ44IDurKAOkm6nHkSBLpmj/jrGoSweYa14BwYRbhYgt3vruvB+zOEdlogfg6VnPSmi
+	qAWrOZtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbnVI-00000005Run-42Ha;
-	Mon, 22 Jun 2026 22:52:32 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wbosA-00000005UbN-42PK;
+	Tue, 23 Jun 2026 00:20:15 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbnVH-00000005Rug-38Ka
+	id 1wbos9-00000005UbF-3c16
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Jun 2026 22:52:31 +0000
+	Tue, 23 Jun 2026 00:20:13 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2D5CA42B9F;
-	Mon, 22 Jun 2026 22:52:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1DF141F000E9;
-	Mon, 22 Jun 2026 22:52:28 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D9662601F3;
+	Tue, 23 Jun 2026 00:20:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B54E1F000E9;
+	Tue, 23 Jun 2026 00:20:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782168751;
-	bh=rW6UcwBUXPjrpsr3QHis50igXIxFrHk65LLA4S/dA08=;
-	h=From:Date:Subject:To:Cc;
-	b=BTBW7Da9AMGLhL24KQo7D9zylerH2cGlbNdOgLTe+G77XzZgpivKCEm5qic4McvB2
-	 1+R6wnDRXRohhIdeWsOYbdDwyI4zRn8bryjWH4D86JhCCnD+7eWFh4qVzOA6IXpIa/
-	 OC3E917gNqekDspJrMEEV8kxivg/8K1ANFi/wyjQw/HToJcZRcWXlYIUgkIfD9asSe
-	 Vzx+paPYKlZgSSbNu9LIRHKwH0y00RLI4QnGsiy4c70phWZQapfdZHz8OJnW8ktWJ0
-	 ki6EXUm9ZTwaAIIQQVBedPXZIRLqMy8i6jbkG2bHM2VByKAiebAl5Q6jjVjNDKKegZ
-	 Bc0j2ZoZ/zMfQ==
-From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 23 Jun 2026 00:52:27 +0200
-Subject: [PATCH] ARM: entry: Convert IRQ handling to generic IRQ entry
+	s=k20260515; t=1782174012;
+	bh=BDKUVID7qw6T4mp18P6/ELgU0/lKW+UBMNBhyLpyrEI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Ei9u1GkzJ84WMGMXM2wTDi3t2Wr8NPXEkmG+WJhM2LwZSiZesTnOlQUBNSvABzMOt
+	 PL1bFvxpcEDkHqf7c9Yvv4jxf62tQshvmaB1xz42UA/TLGivZU5BvZmtR+gsdWjjUI
+	 LzwQNlqkw89gXB5SBaSD8fJk40FmW5Mn53HH8CmDTLzRwdmo4l/NN8+1ZEbTW1VXRI
+	 EEYfYTTZ2MNDzBLorlsfbXg+Q6P2wxwMUFbjXB5QWFGAnWhwigy5VmIArvdYu/J0dn
+	 yETSrn9w9g1aM2SA3rJus8yjDi9TGGwBYBtVe7TxgiYeO3FWfLOjKsLGjqQkzseMqA
+	 Ry/RSuqWXcOwA==
+Date: Mon, 22 Jun 2026 17:20:11 -0700
+From: Oliver Upton <oupton@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>,
+	Christoffer Dall <christoffer.dall@linaro.org>,
+	Victor Kamensky <victor.kamensky@linaro.org>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/2] KVM: arm64: Fix and test MMIO sign-extending loads
+Message-ID: <ajnRO9oMrVCXQT9t@kernel.org>
+References: <20260622190701.2039766-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260623-arm-generic-irq-entry-v7-1-v1-1-f25ca7079e3b@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQ6CMBBA0auQWTsJbUwRr0JclGGKY0KVKRAJ4
- e5UXL7F/xskVuEE92ID5UWSvGOGuRRATx97RumywZbWlc5a9DpgzzFXhKIjcpx0xaVCgyE4Mp2
- jmq43yIOPcpDvOW8ef6e5fTFNvyPs+wHowKYhfgAAAA==
-X-Change-ID: 20260622-arm-generic-irq-entry-v7-1-ff6c1d6c9c48
-To: "Paul E. McKenney" <paulmck@kernel.org>, 
- Jinjie Ruan <ruanjinjie@huawei.com>, Arnd Bergmann <arnd@arndb.de>, 
- Russell King <linux@armlinux.org.uk>, Oleg Nesterov <oleg@redhat.com>, 
- Thomas Gleixner <tglx@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Linus Walleij <linusw@kernel.org>
-X-Mailer: b4 0.15.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260622190701.2039766-1-fuad.tabba@linux.dev>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,448 +76,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Bring ARM to the same level of generic-ness as ARM64 by enabling
-GENERIC_IRQ_ENTRY.
+On Mon, Jun 22, 2026 at 08:06:59PM +0100, Fuad Tabba wrote:
+> Hi folks,
+> 
+> A sign-extending load (LDRSB/LDRSH/LDRSW) from emulated MMIO returns a
+> zero-extended value rather than the sign-extended one the architecture
+> requires; vcpu_data_host_to_guest() strips the sign bits when it masks
+> the data to the access width.
+> 
+> If my git archeology is right, the masking dates to 2014 (b30070862edbd,
+> big-endian support) and has been wrong ever since, but sign-extending
+> loads from device memory are rare enough that nobody hit it. Patch 1
+> fixes it; patch 2 adds a selftest so it doesn't regress.
+> 
+> Cheers,
+> /fuad
+> 
+> Fuad Tabba (2):
+>   KVM: arm64: Fix sign-extension of MMIO loads
+>   KVM: arm64: selftests: Add MMIO sign-extending load test
 
-Route ARM IRQ entry through C wrappers that use the generic IRQ entry
-helpers. Conversely put the FIQ entry under the generic NMI-style entry
-helpers.
+For the oddball guest :)
 
-Select GENERIC_IRQ_ENTRY, add the ARM entry prototypes, and provide
-regs_irqs_disabled() for the generic IRQ entry return path.
+Reviewed-by: Oliver Upton <oupton@kernel.org>
 
-The kernel-mode IRQ return path relies on the generic IRQ entry
-preemption handling, matching the arm64 structure and avoiding the old
-assembly reschedule check.
-
-The reschedule check is now done in raw_irqentry_exit_cond_resched()
-in kernel/entry/common.c.
-
-User-mode IRQs __irq_usr is neither calling ct_user_exit/enter
-or asm_trace_hardirqs_off/on anymore. The corresponding calls happen on
-irqentry_enter/exit() call paths, e.g the irq-disabled C variants
-__ct_user_exit/enter() are called instead.
-
-As __irq_usr no longer returns by jumping to ret_to_user_from_irq,
-the corresponding code has been inlined, except the slow_work_pending
-part, which is now also handled by generic entry. ret_to_user_from_irq
-is only called from v7m so it has been renamed accordingly.
-
-arch_do_signal_or_restart() is required, but we only need a very small
-stub, since we keep the existing syscall restart code around in assembly.
-
-Tested on with multi_v7_defconfig and qemu-system-arm vexpress-a15
-using vexpress-v2p-ca15-tc1.dtb and some different loads.
-
-A note on V7M: the reason we cannot switch the V7M entry over to generic
-entry is that it raises a "pendable service call" ("pendv") exception to
-process deferred work at the end of the interrupt handler. This is done
-so higher priority work can come in. This has no corresponding structure
-in other ARM cores.
-
-This is a reduced patch based on the earlier generic entry series avoiding
-all the syscall handling changes.
-
-Link: https://lore.kernel.org/linux-arm-kernel/20250420-arm-generic-entry-v6-0-95f1fcdfeeb2@linaro.org/
-Signed-off-by: Linus Walleij <linusw@kernel.org>
----
- arch/arm/Kconfig                    |  1 +
- arch/arm/include/asm/entry-common.h |  7 ++++
- arch/arm/include/asm/entry.h        | 10 +++++
- arch/arm/include/asm/ptrace.h       |  7 +++-
- arch/arm/kernel/Makefile            |  2 +-
- arch/arm/kernel/entry-armv.S        | 75 ++++++++-----------------------------
- arch/arm/kernel/entry-common.S      |  5 ++-
- arch/arm/kernel/entry-header.S      |  7 +++-
- arch/arm/kernel/entry-v7m.S         |  2 +-
- arch/arm/kernel/entry.c             | 51 +++++++++++++++++++++++++
- arch/arm/kernel/irq.c               |  6 +++
- arch/arm/kernel/irq.h               |  2 +
- arch/arm/kernel/signal.c            |  6 +++
- 13 files changed, 116 insertions(+), 65 deletions(-)
-
-diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-index 73e6647bea46..aad21d645ff3 100644
---- a/arch/arm/Kconfig
-+++ b/arch/arm/Kconfig
-@@ -71,6 +71,7 @@ config ARM
- 	select GENERIC_CPU_AUTOPROBE
- 	select GENERIC_CPU_DEVICES
- 	select GENERIC_EARLY_IOREMAP
-+	select GENERIC_IRQ_ENTRY if !CPU_V7M
- 	select GENERIC_IDLE_POLL_SETUP
- 	select GENERIC_IRQ_MULTI_HANDLER
- 	select GENERIC_IRQ_PROBE
-diff --git a/arch/arm/include/asm/entry-common.h b/arch/arm/include/asm/entry-common.h
-new file mode 100644
-index 000000000000..c017df5f39d5
---- /dev/null
-+++ b/arch/arm/include/asm/entry-common.h
-@@ -0,0 +1,7 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef __ASM_ARM_ENTRY_COMMON_H
-+#define __ASM_ARM_ENTRY_COMMON_H
-+
-+#include <asm/stacktrace.h>
-+
-+#endif
-diff --git a/arch/arm/include/asm/entry.h b/arch/arm/include/asm/entry.h
-new file mode 100644
-index 000000000000..864c9b3abbf1
---- /dev/null
-+++ b/arch/arm/include/asm/entry.h
-@@ -0,0 +1,10 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+#ifndef __ASM_ENTRY_H__
-+#define __ASM_ENTRY_H__
-+
-+struct pt_regs;
-+
-+void arm_irq_handler(struct pt_regs *regs, int mode);
-+void arm_fiq_handler(struct pt_regs *regs);
-+
-+#endif /* __ASM_ENTRY_H__ */
-diff --git a/arch/arm/include/asm/ptrace.h b/arch/arm/include/asm/ptrace.h
-index 6eb311fb2da0..88ddb9371a02 100644
---- a/arch/arm/include/asm/ptrace.h
-+++ b/arch/arm/include/asm/ptrace.h
-@@ -46,8 +46,13 @@ struct svc_pt_regs {
- #define processor_mode(regs) \
- 	((regs)->ARM_cpsr & MODE_MASK)
- 
-+static inline bool regs_irqs_disabled(const struct pt_regs *regs)
-+{
-+	return regs->ARM_cpsr & PSR_I_BIT;
-+}
-+
- #define interrupts_enabled(regs) \
--	(!((regs)->ARM_cpsr & PSR_I_BIT))
-+	(!regs_irqs_disabled(regs))
- 
- #define fast_interrupts_enabled(regs) \
- 	(!((regs)->ARM_cpsr & PSR_F_BIT))
-diff --git a/arch/arm/kernel/Makefile b/arch/arm/kernel/Makefile
-index b36cf0cfd4a7..3b8a62f6f54d 100644
---- a/arch/arm/kernel/Makefile
-+++ b/arch/arm/kernel/Makefile
-@@ -17,7 +17,7 @@ CFLAGS_REMOVE_return_address.o = -pg
- 
- # Object file lists.
- 
--obj-y		:= elf.o entry-common.o irq.o opcodes.o \
-+obj-y		:= elf.o entry.o entry-common.o irq.o opcodes.o \
- 		   process.o ptrace.o reboot.o io.o \
- 		   setup.o signal.o sigreturn_codes.o \
- 		   stacktrace.o sys_arm.o time.o traps.o
-diff --git a/arch/arm/kernel/entry-armv.S b/arch/arm/kernel/entry-armv.S
-index a3d050ce9b79..8ac7f1512ee8 100644
---- a/arch/arm/kernel/entry-armv.S
-+++ b/arch/arm/kernel/entry-armv.S
-@@ -36,35 +36,6 @@
- #define RELOC_TEXT_NONE
- #endif
- 
--/*
-- * Interrupt handling.
-- */
--	.macro	irq_handler, from_user:req
--	mov	r1, sp
--	ldr_this_cpu r2, irq_stack_ptr, r2, r3
--	.if	\from_user == 0
--	@
--	@ If we took the interrupt while running in the kernel, we may already
--	@ be using the IRQ stack, so revert to the original value in that case.
--	@
--	subs	r3, r2, r1		@ SP above bottom of IRQ stack?
--	rsbscs	r3, r3, #THREAD_SIZE	@ ... and below the top?
--#ifdef CONFIG_VMAP_STACK
--	ldr_va	r3, high_memory, cc	@ End of the linear region
--	cmpcc	r3, r1			@ Stack pointer was below it?
--#endif
--	bcc	0f			@ If not, switch to the IRQ stack
--	mov	r0, r1
--	bl	generic_handle_arch_irq
--	b	1f
--0:
--	.endif
--
--	mov_l	r0, generic_handle_arch_irq
--	bl	call_with_stack
--1:
--	.endm
--
- 	.macro	pabt_helper
- 	@ PABORT handler takes pt_regs in r2, fault address in r4 and psr in r5
- #ifdef MULTI_PABORT
-@@ -224,34 +195,17 @@ ENDPROC(__dabt_svc)
- 
- 	.align	5
- __irq_svc:
--	svc_entry
--	irq_handler from_user=0
--
--#ifdef CONFIG_PREEMPTION
--	ldr	r8, [tsk, #TI_PREEMPT]		@ get preempt count
--	ldr	r0, [tsk, #TI_FLAGS]		@ get flags
--	teq	r8, #0				@ if preempt count != 0
--	movne	r0, #0				@ force flags to 0
--	tst	r0, #_TIF_NEED_RESCHED
--	blne	svc_preempt
--#endif
-+	svc_entry trace=0
-+	mov	r0, sp				@ regs
-+	mov	r1, #0				@ from kernel mode
-+	bl	arm_irq_handler
- 
--	svc_exit r5, irq = 1			@ return from exception
-+	svc_exit r5, irqentry = 1		@ return from exception
-  UNWIND(.fnend		)
- ENDPROC(__irq_svc)
- 
- 	.ltorg
- 
--#ifdef CONFIG_PREEMPTION
--svc_preempt:
--	mov	r8, lr
--1:	bl	preempt_schedule_irq		@ irq en/disable is done inside
--	ldr	r0, [tsk, #TI_FLAGS]		@ get new tasks TI_FLAGS
--	tst	r0, #_TIF_NEED_RESCHED
--	reteq	r8				@ go again
--	b	1b
--#endif
--
- __und_fault:
- 	@ Correct the PC such that it is pointing at the instruction
- 	@ which caused the fault.  If the faulting instruction was ARM
-@@ -302,7 +256,7 @@ ENDPROC(__pabt_svc)
- __fiq_svc:
- 	svc_entry trace=0
- 	mov	r0, sp				@ struct pt_regs *regs
--	bl	handle_fiq_as_nmi
-+	bl	arm_fiq_handler
- 	svc_exit_via_fiq
-  UNWIND(.fnend		)
- ENDPROC(__fiq_svc)
-@@ -331,7 +285,7 @@ __fiq_abt:
- 	stmfd	sp!, {r1 - r2}
- 
- 	add	r0, sp, #8			@ struct pt_regs *regs
--	bl	handle_fiq_as_nmi
-+	bl	arm_fiq_handler
- 
- 	ldmfd	sp!, {r1 - r2}
-  ARM(	msr	cpsr_c, #ABT_MODE | PSR_I_BIT | PSR_F_BIT )
-@@ -438,12 +392,15 @@ ENDPROC(__dabt_usr)
- 
- 	.align	5
- __irq_usr:
--	usr_entry
-+	usr_entry trace=0
- 	kuser_cmpxchg_check
--	irq_handler from_user=1
--	get_thread_info tsk
--	mov	why, #0
--	b	ret_to_user_from_irq
-+	mov	r0, sp				@ regs
-+	mov	r1, #1				@ from user mode
-+	bl	arm_irq_handler
-+#ifdef CONFIG_KSTACK_ERASE
-+	bl	stackleak_erase_on_task_stack
-+#endif
-+	restore_user_regs fast = 0, offset = 0
-  UNWIND(.fnend		)
- ENDPROC(__irq_usr)
- 
-@@ -498,7 +455,7 @@ __fiq_usr:
- 	usr_entry trace=0
- 	kuser_cmpxchg_check
- 	mov	r0, sp				@ struct pt_regs *regs
--	bl	handle_fiq_as_nmi
-+	bl	arm_fiq_handler
- 	get_thread_info tsk
- 	restore_user_regs fast = 0, offset = 0
-  UNWIND(.fnend		)
-diff --git a/arch/arm/kernel/entry-common.S b/arch/arm/kernel/entry-common.S
-index 88336a1292bb..d5fdb234c1d4 100644
---- a/arch/arm/kernel/entry-common.S
-+++ b/arch/arm/kernel/entry-common.S
-@@ -110,7 +110,8 @@ ret_slow_syscall:
- 	bl	do_rseq_syscall
- #endif
- 	disable_irq_notrace			@ disable interrupts
--ENTRY(ret_to_user_from_irq)
-+ENTRY(v7m_ret_to_user_from_irq)
-+	/* Only the v7m jumps directly to v7m_ret_to_user_from_irq */
- 	ldr	r1, [tsk, #TI_FLAGS]
- 	movs	r1, r1, lsl #16
- 	bne	slow_work_pending
-@@ -123,7 +124,7 @@ no_work_pending:
- 	bl	stackleak_erase_on_task_stack
- #endif
- 	restore_user_regs fast = 0, offset = 0
--ENDPROC(ret_to_user_from_irq)
-+ENDPROC(v7m_ret_to_user_from_irq)
- ENDPROC(ret_to_user)
- 
- /*
-diff --git a/arch/arm/kernel/entry-header.S b/arch/arm/kernel/entry-header.S
-index 99411fa91350..e83f2fb8a592 100644
---- a/arch/arm/kernel/entry-header.S
-+++ b/arch/arm/kernel/entry-header.S
-@@ -199,7 +199,11 @@
- 	.endm
- 
- 
--	.macro	svc_exit, rpsr, irq = 0
-+	.macro	svc_exit, rpsr, irq = 0, irqentry = 0
-+	.if	\irqentry != 0
-+	@ Generic IRQ entry already handled tracing and lockdep state.
-+	disable_irq_notrace
-+	.else
- 	.if	\irq != 0
- 	@ IRQs already off
- #ifdef CONFIG_TRACE_IRQFLAGS
-@@ -216,6 +220,7 @@
- 	tst	\rpsr, #PSR_I_BIT
- 	blne	trace_hardirqs_off
- #endif
-+	.endif
- 	.endif
- 	uaccess_exit tsk, r0, r1
- 
-diff --git a/arch/arm/kernel/entry-v7m.S b/arch/arm/kernel/entry-v7m.S
-index 52bacf07ba16..49a3a34e2913 100644
---- a/arch/arm/kernel/entry-v7m.S
-+++ b/arch/arm/kernel/entry-v7m.S
-@@ -94,7 +94,7 @@ __pendsv_entry:
- 	@ execute the pending work, including reschedule
- 	get_thread_info tsk
- 	mov	why, #0
--	b	ret_to_user_from_irq
-+	b	v7m_ret_to_user_from_irq
- ENDPROC(__pendsv_entry)
- 
- /*
-diff --git a/arch/arm/kernel/entry.c b/arch/arm/kernel/entry.c
-new file mode 100644
-index 000000000000..1142e418d161
---- /dev/null
-+++ b/arch/arm/kernel/entry.c
-@@ -0,0 +1,51 @@
-+// SPDX-License-Identifier: GPL-2.0
-+#include <linux/hardirq.h>
-+#include <linux/irq-entry-common.h>
-+#include <linux/irq.h>
-+
-+#include <asm/entry.h>
-+#include <asm/stacktrace.h>
-+#include <asm/traps.h>
-+
-+#include "irq.h"
-+
-+static void noinstr handle_arm_irq(void *data)
-+{
-+	struct pt_regs *regs = data;
-+	struct pt_regs *old_regs;
-+
-+	irq_enter_rcu();
-+	old_regs = set_irq_regs(regs);
-+
-+	handle_arch_irq(regs);
-+
-+	set_irq_regs(old_regs);
-+	irq_exit_rcu();
-+}
-+
-+noinstr void arm_irq_handler(struct pt_regs *regs, int mode)
-+{
-+	irqentry_state_t state = irqentry_enter(regs);
-+
-+	/*
-+	 * mode == 1 means we came from userspace, and then we
-+	 * should just immediately switch to the irq stack.
-+	 * Then we check of we are on the thread stack. If we are
-+	 * not, then by definition we are already using the irq stack.
-+	 */
-+	if (mode == 1 || on_thread_stack())
-+		call_on_irq_stack(handle_arm_irq, regs);
-+	else
-+		handle_arm_irq(regs);
-+
-+	irqentry_exit(regs, state);
-+}
-+
-+noinstr void arm_fiq_handler(struct pt_regs *regs)
-+{
-+	irqentry_state_t state = irqentry_nmi_enter(regs);
-+
-+	handle_fiq_as_nmi(regs);
-+
-+	irqentry_nmi_exit(regs, state);
-+}
-diff --git a/arch/arm/kernel/irq.c b/arch/arm/kernel/irq.c
-index e1993e28a9ec..f99d6b24d8ff 100644
---- a/arch/arm/kernel/irq.c
-+++ b/arch/arm/kernel/irq.c
-@@ -43,6 +43,7 @@
- #include <asm/mach/irq.h>
- #include <asm/mach/time.h>
- 
-+#include "irq.h"
- #include "reboot.h"
- 
- unsigned long irq_err_count;
-@@ -71,6 +72,11 @@ static void __init init_irq_stacks(void)
- 	}
- }
- 
-+void call_on_irq_stack(void (*fn)(void *), void *arg)
-+{
-+	call_with_stack(fn, arg, __this_cpu_read(irq_stack_ptr));
-+}
-+
- #ifdef CONFIG_SOFTIRQ_ON_OWN_STACK
- static void ____do_softirq(void *arg)
- {
-diff --git a/arch/arm/kernel/irq.h b/arch/arm/kernel/irq.h
-new file mode 100644
-index 000000000000..80dd5bfe6403
---- /dev/null
-+++ b/arch/arm/kernel/irq.h
-@@ -0,0 +1,2 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+void call_on_irq_stack(void (*fn)(void *), void *arg);
-diff --git a/arch/arm/kernel/signal.c b/arch/arm/kernel/signal.c
-index 7be9188d83d9..9084c04c07f7 100644
---- a/arch/arm/kernel/signal.c
-+++ b/arch/arm/kernel/signal.c
-@@ -12,6 +12,7 @@
- #include <linux/resume_user_mode.h>
- #include <linux/uprobes.h>
- #include <linux/syscalls.h>
-+#include <linux/irq-entry-common.h>
- 
- #include <asm/elf.h>
- #include <asm/cacheflush.h>
-@@ -599,6 +600,11 @@ static int do_signal(struct pt_regs *regs, int syscall)
- 	return 0;
- }
- 
-+void arch_do_signal_or_restart(struct pt_regs *regs)
-+{
-+	do_signal(regs, 0);
-+}
-+
- asmlinkage int
- do_work_pending(struct pt_regs *regs, unsigned int thread_flags, int syscall)
- {
-
----
-base-commit: 8cd9520d35a6c38db6567e97dd93b1f11f185dc6
-change-id: 20260622-arm-generic-irq-entry-v7-1-ff6c1d6c9c48
-
-Best regards,
---  
-Linus Walleij <linusw@kernel.org>
-
+Thanks,
+Oliver
 
