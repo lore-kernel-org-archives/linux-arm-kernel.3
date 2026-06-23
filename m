@@ -4,68 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52BAFCDB46B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 02:07:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D420CDB46B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 02:47:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=CthWdMNq9JCpMJG/+tGCru7j6+DzXpWUhKMLM+JWrZ4=; b=Si9uwHLRTfsk5X7y9L9Mx2o4J5
-	rfWMh9BwKhQB2piiWC25ijK5W1+cM2fEm1NheogWoG7E3IV7uSb9GTKjwIg5jehQ+y7cTyMEuuTnM
-	49s9+oseQXFKuR8yFm6m8z8GUS1jMQs/eKXLRzZ0QWNyhifY6e9FikChWRHCqtlXv38mzPKZqDXJP
-	HSRiqifbbThLitUFDNYgh03Wo1gn7HlqrAG7BdZQJYO5v10vHCulKCw1mRUG8TbC/fQyCDTGMWN1i
-	OlaCeBOzSHfP2buMtlHjqJgPJGP1fntWbNSrw2luHQRmOYq9XOVmBdPEkvXrkzUEpZzyipIcm175+
-	HHondNlQ==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O57Z9kXdDW9ZvhXzAN1RTvICh19sqqK2KSZkn2nN/4o=; b=bpIxJk6XB843BSWzjsWkGhZ6J4
+	IYZoCJjN/nvqvI4abHs+PixGJ2QIQxFjdr2oYwPuUMUFaDR1I7mBHLui89NRwjMUpB5ROXtVoJFYF
+	xFdzGaJHaNLyfcX4NY2bTRZX/q19kydBiHKZxyVNPaqemfU2fvg/Yxz+oyG2EbsaeyJGuEoxKMeJf
+	Hvpe+FQUEVSMM24RDRSccmLrcA1qJIVNLce57kTZn/TaTeeIyYVZcP4r918yK9ZijrPgQCDweQ7ri
+	XDEvr+MwqycBlEh0S5NRMpP4R0jydK7ceSzMnvxSAIk01x3lkeb4ahRKwZbIuEnMXlFqAXQLZVu9H
+	xKkdqHMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbqY4-00000005aOj-0VRl;
-	Tue, 23 Jun 2026 02:07:36 +0000
-Received: from m16.mail.163.com ([117.135.210.2])
+	id 1wbrAf-00000005bfb-13d3;
+	Tue, 23 Jun 2026 02:47:29 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbqY0-00000005aOA-3DhH;
-	Tue, 23 Jun 2026 02:07:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=Ct
-	hWdMNq9JCpMJG/+tGCru7j6+DzXpWUhKMLM+JWrZ4=; b=SGp/dcwcfCDc71R212
-	f2d+WJ6kgweXhVwK3WoGF3f/R63Uu7WKE6eAj4Tckq0VCqL6B8D69e7v3v7P0/js
-	pUdp7KNHHugSKK52TH+5WMzraA62YqP8GXyLCQOX01g2FyaO3HPRQ5H9zkpEm6WX
-	fOqzBDs/qYay9GZepM5JlRPWE=
-Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g0-4 (Coremail) with SMTP id _____wAnM8c+6jlqfZp1FQ--.32290S2;
-	Tue, 23 Jun 2026 10:06:54 +0800 (CST)
-From: fffsqian@163.com
-To: Ryder Lee <ryder.lee@mediatek.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	kwilczynski@kernel.org,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Chen-Yu Tsai <wenst@chromium.org>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Cc: linux-kernel@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
+	id 1wbrAc-00000005beQ-1Ya8
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 23 Jun 2026 02:47:28 +0000
+X-UUID: d71f2ee46ead11f1aa26b74ffac11d73-20260623
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.12,REQID:57e4046d-e2fe-4921-88a0-35e3f2cdd9ca,IP:0,U
+	RL:0,TC:0,Content:-5,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:20
+X-CID-META: VersionHash:e7bac3a,CLOUDID:b120238e1bb89aa4ce6b6f1014414011,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|83|102|850|865|898,TC:nil,Content:
+	0|15|50,EDM:5,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,O
+	SI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: d71f2ee46ead11f1aa26b74ffac11d73-20260623
+Received: from localhost [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <pengyu@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 1455545477; Tue, 23 Jun 2026 10:47:14 +0800
+From: Yu Peng <pengyu@kylinos.cn>
+To: lpieralisi@kernel.org
+Cc: akpm@linux-foundation.org,
+	catalin.marinas@arm.com,
+	guohanjun@huawei.com,
+	lenb@kernel.org,
+	linux-acpi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Qingshuang Fu <fuqingshuang@kylinos.cn>
-Subject: [PATCH 1/1] PCI: mediatek-gen3: fix unreachable error message in probe
-Date: Tue, 23 Jun 2026 10:06:48 +0800
-Message-Id: <20260623020648.112623-1-fffsqian@163.com>
+	linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org,
+	pengyu@kylinos.cn,
+	rafael@kernel.org,
+	sudeep.holla@kernel.org,
+	will@kernel.org
+Subject: Re: [RFC] arm64: early_ioremap fails to map ACPI MADT on 64K pages
+Date: Tue, 23 Jun 2026 10:47:12 +0800
+Message-Id: <20260623024712.3480399-1-pengyu@kylinos.cn>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <ajkFE6TmwW6B/huP@lpieralisi>
+References: <ajkFE6TmwW6B/huP@lpieralisi>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wAnM8c+6jlqfZp1FQ--.32290S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7uw47GrWUZw13uF1UtryxZrb_yoW8Jw4fpF
-	ZrWasayFZ5JFn8Zr47A3Wfu3WF9wn3CrW8Jws7Ww1xZFn3CFyDt343K34rt3y7KFs7Xw13
-	X3Wqqa48GasrGF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jna93UUUUU=
-X-Originating-IP: [116.128.244.169]
-X-CM-SenderInfo: 5iii21xldqqiywtou0bp/xtbCwh+yfWo56j8H7AAA3-
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260622_190733_280255_22F7541A 
-X-CRM114-Status: GOOD (  12.11  )
+X-CRM114-CacheID: sfid-20260622_194726_731050_A6193F70 
+X-CRM114-Status: UNSURE (   6.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,39 +85,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Qingshuang Fu <fuqingshuang@kylinos.cn>
+Hi Lorenzo, Hanjun, Will,
 
-In mtk_pcie_probe(), the error handling for pci_pwrctrl_create_devices()
-has the goto statement before the dev_err_probe() call, making the error
-message completely unreachable. When this function fails, no diagnostic
-message is ever printed.
+Thanks for confirming.
 
-Reorder so that dev_err_probe() is called before jumping to the cleanup
-label, restoring the intended error reporting.
+I will send a proper patch for this. The change I plan to post is along
+these lines:
 
-Fixes: 1a152e21940a ("PCI: mediatek-gen3: Integrate new pwrctrl API")
-Signed-off-by: Qingshuang Fu <fuqingshuang@kylinos.cn>
----
- drivers/pci/controller/pcie-mediatek-gen3.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/arch/arm64/include/asm/fixmap.h b/arch/arm64/include/asm/fixmap.h
+index ... .. ...
+--- a/arch/arm64/include/asm/fixmap.h
++++ b/arch/arm64/include/asm/fixmap.h
+@@ -79,7 +79,11 @@ enum fixed_addresses {
+ 	 * Temporary boot-time mappings, used by early_ioremap(),
+ 	 * before ioremap() is functional.
+ 	 */
++#ifdef CONFIG_ARM64_64K_PAGES
++#define NR_FIX_BTMAPS		(SZ_512K / PAGE_SIZE)
++#else
+ #define NR_FIX_BTMAPS		(SZ_256K / PAGE_SIZE)
++#endif
+ #define FIX_BTMAPS_SLOTS	7
+ #define TOTAL_FIX_BTMAPS	(NR_FIX_BTMAPS * FIX_BTMAPS_SLOTS)
 
-diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/controller/pcie-mediatek-gen3.c
-index b0accd828589..5d7cfed44637 100644
---- a/drivers/pci/controller/pcie-mediatek-gen3.c
-+++ b/drivers/pci/controller/pcie-mediatek-gen3.c
-@@ -1222,8 +1222,8 @@ static int mtk_pcie_probe(struct platform_device *pdev)
- 
- 	err = pci_pwrctrl_create_devices(pcie->dev);
- 	if (err) {
--		goto err_tear_down_irq;
- 		dev_err_probe(dev, err, "failed to create pwrctrl devices\n");
-+		goto err_tear_down_irq;
- 	}
- 
- 	err = mtk_pcie_setup(pcie);
-
-base-commit: 4708cac0e22cfd217f48f7cec3c35e5922efcccd
--- 
-2.25.1
-
+Thanks,
+Yu Peng
 
