@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DC9BCDB480
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 20:48:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D31ECDB471
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 20:48:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L+McTmOMLIPUuLLM47k3fHqRzuLTPsVSB+P6EOYjRpc=; b=ehNNdQ+mZ+BCJUYUnVqiPSPgXb
-	vBLX66mO5FmaYRlE/I86ylRue0/O/MbDdmXwubcjk54USkE0GHzJJbYKAn5tP3MbpiAwJPu5qfNxk
-	wLA48JVtAUzkiGvFdyB6XU1Qzdda5w+C4LGzOcX6mgs4Ke9bFHZHcpwpMFVXJLpf2pF0RRckZNUph
-	0buDktP4JM0dsev/SK7L0uR3+poZV1OBglV1yn+/MpYvjN5eqJz7W1yP0e8u4FSst88Va5AVosOod
-	FpIXsWX7u0fGIZEdGlIeYEf1IIRJyBRphgIG/W/OBm5Nc2ZLf8ggv6AuDQEzC7KIDkbeSZpljD0YQ
-	YxVYRQEg==;
+	bh=wchiVNh3rpBI2XZC92te0JGKBDBHe7YjoYm2rNU3USE=; b=VZaQqAoXC9iPjjBPWDgu5qb4HH
+	9k8pMmbiUCakj31PjkfocKuFdCFsTeNY3wT539KFtuYBF68uM7E/fVJIMU5ax42Ba626NTlsfhghU
+	55idh6C7GNc/sSDHoJ58bSHoChToMhqpBcb+5/W9OzAQi+w6+uWU2YjcehICvU8PyJl8howGmMAH5
+	pBN/8KZF0YysQ8pjPhB6cgUJITpV7f9evT1zTMbhBbS61jcQi/ZAQHnUKs6sTusPMpW+JgNVAwX7b
+	QB6JEkhjRgvD7KPw7a34RXYpEpALLm1iBq48cr91AuteAFB1H2X/Demd5LjwKxOhTXfmP6MEzh/Pp
+	UQbFSI4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc82z-00000006sGV-2KxD;
-	Tue, 23 Jun 2026 20:48:41 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1wc839-00000006sKf-0iZN;
+	Tue, 23 Jun 2026 20:48:51 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc82x-00000006sFZ-0fw8
+	id 1wc831-00000006sHA-298G
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 20:48:40 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-4624c1409c9so260790f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 13:48:38 -0700 (PDT)
+	Tue, 23 Jun 2026 20:48:44 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-462cdb88d01so251954f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 13:48:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782247717; x=1782852517; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1782247722; x=1782852522; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=L+McTmOMLIPUuLLM47k3fHqRzuLTPsVSB+P6EOYjRpc=;
-        b=UF21FWqU04GQhH2rlyVseWJpciuLKujSp+Zb6l+cOYd8zV70Hz3Ti3zSJobaahrKBP
-         q/zZLyt6cISo3yJXpqzYJbCq4MuK6UuNNSE4MQiMIIsf5J1Jx+gYFRIFXzqi69lHIday
-         ynBJ/sKN/FNMS8imTd8djA5kZ0BMAcipFdgrFKcD39eZaJkrPTpUiirGeJMh7yeGCJMt
-         XYHmPAx/iclYH/mxxa3+AO+ti3rWQ94OzSNbySBzlaXrr4hKy6KffwwBGS4gKiBTz5dD
-         +VtAavGDw8g1fqJSAk9xcg0sbmjitYzFSiy7KUtHW9cRmnAjTr7VCwVq8PTpQEesP64J
-         bxtQ==
+        bh=wchiVNh3rpBI2XZC92te0JGKBDBHe7YjoYm2rNU3USE=;
+        b=BFCtp/QlwxDYmIMFwjT3QuPSwOap0GqiPtfFkdxt8dvR9ocmHo5udlFaD15HW/0bty
+         1yA3Q6YJBZQ+fS5yy56JYhBZMwEmMCzMSG1t9RaAABbEWap87yeEGtb6Zzyil9AXf6/+
+         ygIJBgENGSbpSIThKc2ZlFYZuhtUWAf9aVG0gHbK3rkpnGY/X7j7W880d+aiwauIqiFJ
+         wbHIfBq8m5G7VjrqoAo4ZeqHB0zjEs1Lrxs0fItvgyoTfyIk3gkLvcR1aw0Gkk3XhUDQ
+         ypSigh5JNOSVRcOn7aJTnrYkNd2VlZxYsCjGtfkHOVVzLiW2N31tIzDX83O5pKFFpkhR
+         vzxQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782247717; x=1782852517;
+        d=1e100.net; s=20251104; t=1782247722; x=1782852522;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=L+McTmOMLIPUuLLM47k3fHqRzuLTPsVSB+P6EOYjRpc=;
-        b=es+Hq9yizEpBYZCD1NW+XvQmKb9RWkf4Rk3RZip94AUPTtUFmCyQCAphkf6mGLvlZ9
-         IoGhba90vH7zblnCBqtwy7F/8BPw8NFgPBf2k26DJ/VpblGofOc+Nhu2I2/MfcjjOBN8
-         VCHJe7wmGmSQuRxLgzZyY9uLf7H7ntQTay972PtH+0yAQRT6FyGBEemAe6NC87oTOots
-         M5bxmY5zEXXuD9nRBGYo+KQbdM8RyGY7dkwUYwiIkrvA3hVFslVz0l+Bj87CstTPG1/+
-         RmDxSKK+WcRWx9WTt6kyCfPNhI5HUWcf7e/MHQrY4DWIIrN9QQTfUa+rabeYBSFz6XX8
-         1P+w==
-X-Gm-Message-State: AOJu0Yxtn1zpFKDeR4HMGXSpIPVTH2vxHdiq72eoTzV2FauTC8KmNLs+
-	vCa+L3Ed+zmBy29f2XYbywBf4MGkcdCrc7WICez6P7YfymZK9OdoORmQ1qaEN2ctj0Q=
-X-Gm-Gg: AfdE7cmPfAsxd30yywArftVudtI/SgvlX4QyA57C39weEGeZ6zIFbFsJwZDm72IW/zp
-	+NlxfIBzKpMJqJH4FQiDLMEY0I2iGsypLwtfuTbwWq3L5MumQ/WffZ8nHLQltWkYIkGnw2tgwF9
-	qGSdKljM7MGmxSKXu6CRDdQCapzBUFh839yXIs7lVNVI8yJGaIgF3W5OPpWRS9nuq0L/35a/jmg
-	fzG/3YRgZrv8JukMQClClbYbbn7PAL9itLijpAeCeA/dKRf2fVtudW7ZEQflv0z5TdhKEfhXsUY
-	QTk8nLVf4FNu2xo3/AzWoo0/eK8WZBtZIGXsnOGF0vmFfSY7xAT81h0MogciZgtdXlKYYcd0Wiv
-	P+DW8BOMASSEJX5Pkp0cfzhHQtEGIIiUTTxMWjWGcbaN8y7B6Qu3ZjGxwyMFmQoKpmKsvQ/q2cC
-	po+MA5Qbe8sXXHA+p5b2q8zeOo9tJgwFlgd5simwUnhA==
-X-Received: by 2002:a05:6000:40e1:b0:460:3233:beee with SMTP id ffacd0b85a97d-4666358161amr26055694f8f.42.1782247717200;
-        Tue, 23 Jun 2026 13:48:37 -0700 (PDT)
+        bh=wchiVNh3rpBI2XZC92te0JGKBDBHe7YjoYm2rNU3USE=;
+        b=PJpwldGT+eKjPmDBn/m8umyqwm0qMNL5WrqfQWu+IHHBI5FNrttKqdjXNuhyjad92/
+         a0a0eyaSRo0oAg+Q4N24hPNCROQMQCtej5NCNGJ+QfaONolmpwH3+aMRpBoSPAAhRfCJ
+         iSF89HGBDF3QH9/v4/hIOL1M5Y4J1yIXtfnFV5S1MoDpWNRPqfG2nQW0yNpZdU/ZG8Cz
+         RIseH3s1Wc7jdw/fr5lbcu5P7TUGC+oOhU6ef+B+xPljEN6NYZGI7wGoCQoFNo1++Ekf
+         P3098/zqze49VJEiWM+kBqqB4hJ+Z66US9FFGg+jW9yqCQckHTMNCcs0DgqT19EnigGY
+         MfDg==
+X-Gm-Message-State: AOJu0Yx0X3ZAcVX13pX1qfXWdzLAfTfhXnWMix/XNx1crXLUuOUJpTrb
+	bwxiaj4C1FFIe9Xgwxvq2HHx8RuwaU1SkDm23w3Tg68IHf0CoYwGrWzXs33mUkFyf1M=
+X-Gm-Gg: AfdE7cnXFs5x+Wab69gMqhMvMlQhpHaVxSunPlOmFkTQr8/Zcvo7ck2TxALfSWQi/lr
+	kHF/TagxdSBNo/2htIV0MRVvL/wk4ecMNURVRKI7Om98U09sAF6zDKN0JNCAxRxVwrV4IqN8uxK
+	yUm8JcY+gfKM73n6EtCeBpfYwNSIjVPIyjjGDS6eIPwhhk9SWpALahudP60h0LPUk5vK+fxwXob
+	n1GJ0RQ+FInjHoyvL3H/y+10A3vCt6ro7dLV1QVXCA/QAAakX5W2jRxATyZ4ZJtiSrHhJtjRFci
+	MKF6QgWxy84QvKYtmX5sMQ2HL8o96e2HNTCrnkeCBfOYTTvG33SmSi03D1MDdJB8BoxPklbedCl
+	vwC1k0MbCM9WmlQYMTt/darNmFzGbRXm0JwH+o2gjIjNTNUX9MP8Pxj2TjVFQoLpifQm/S8Fd+2
+	4a8g9uaod+WnNHaQvdWanWOMacnqpxKIwKzoXkuO8P/w==
+X-Received: by 2002:a05:6000:4284:b0:464:fff6:489a with SMTP id ffacd0b85a97d-46a7e9f3eacmr9075904f8f.6.1782247721730;
+        Tue, 23 Jun 2026 13:48:41 -0700 (PDT)
 Received: from localhost.localdomain ([2a02:1210:8642:2b00:82ee:73ff:feb8:99e3])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-46c1e840f80sm351996f8f.6.2026.06.23.13.48.36
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-46c1e840f80sm351996f8f.6.2026.06.23.13.48.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 23 Jun 2026 13:48:36 -0700 (PDT)
+        Tue, 23 Jun 2026 13:48:40 -0700 (PDT)
 From: Alexander Sverdlin <alexander.sverdlin@gmail.com>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev
@@ -92,17 +92,17 @@ Cc: Alexander Sverdlin <alexander.sverdlin@gmail.com>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-input@vger.kernel.org
-Subject: [PATCH v5 1/6] arm64: defconfig: Enable Allwinner LRADC input driver
-Date: Tue, 23 Jun 2026 22:48:13 +0200
-Message-ID: <20260623204824.691832-2-alexander.sverdlin@gmail.com>
+Subject: [PATCH v5 4/6] dt-bindings: input: sun4i-lradc-keys: Add A100/A133 compatible
+Date: Tue, 23 Jun 2026 22:48:16 +0200
+Message-ID: <20260623204824.691832-5-alexander.sverdlin@gmail.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260623204824.691832-1-alexander.sverdlin@gmail.com>
 References: <20260623204824.691832-1-alexander.sverdlin@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_134839_203024_DCF32B2A 
-X-CRM114-Status: GOOD (  10.84  )
+X-CRM114-CacheID: sfid-20260623_134843_566747_6C91C31A 
+X-CRM114-Status: GOOD (  11.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,33 +117,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable Allwinner LRADC input driver as module to support buttons on Baijie
-HelperBoard A133.
+The Allwinner A100/A133 SoCs have an LRADC which is compatible with the
+versions in existing SoCs. Add a compatible string for A100, with the R329
+fallback.
 
-Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
 ---
 Changelog:
-v4-v5:
+v5:
 - no changes
-v3:
+v4:
 - new patch
 
- arch/arm64/configs/defconfig | 1 +
+ .../bindings/input/allwinner,sun4i-a10-lradc-keys.yaml           | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 654a102cb5bc..c267f0906460 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -527,6 +527,7 @@ CONFIG_KEYBOARD_GPIO=y
- CONFIG_KEYBOARD_GPIO_POLLED=m
- CONFIG_KEYBOARD_SNVS_PWRKEY=m
- CONFIG_KEYBOARD_IMX_SC_KEY=m
-+CONFIG_KEYBOARD_SUN4I_LRADC=m
- CONFIG_KEYBOARD_CROS_EC=y
- CONFIG_KEYBOARD_MTK_PMIC=m
- CONFIG_MOUSE_ELAN_I2C=m
+diff --git a/Documentation/devicetree/bindings/input/allwinner,sun4i-a10-lradc-keys.yaml b/Documentation/devicetree/bindings/input/allwinner,sun4i-a10-lradc-keys.yaml
+index 6bdb8040be65..524c8b51f53f 100644
+--- a/Documentation/devicetree/bindings/input/allwinner,sun4i-a10-lradc-keys.yaml
++++ b/Documentation/devicetree/bindings/input/allwinner,sun4i-a10-lradc-keys.yaml
+@@ -23,6 +23,7 @@ properties:
+       - const: allwinner,sun50i-r329-lradc
+       - items:
+           - enum:
++              - allwinner,sun50i-a100-lradc
+               - allwinner,sun50i-h616-lradc
+               - allwinner,sun20i-d1-lradc
+           - const: allwinner,sun50i-r329-lradc
 -- 
 2.54.0
 
