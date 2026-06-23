@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33100CDB471
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 20:48:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AA3ECDB471
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 20:48:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=IQf/A4ruU9gIb5FvsawDggEwo1Hergfzti0vWW30RV8=; b=p4AEbSxOwwazOpOJaC2Y5iOEfD
-	4scwKAMt8xI0RpY2yDhNJfKDYdFzJMa2E9cI/h/5a36C2VJae/4ecHgIHPzn3Xxp/gFYsxn2F86T+
-	48diguzud/Y9/4IC8czIkc+KslmJZ9iK9RihlD9gprstkdWQzuE47nl0BhIZkn9Nm91ULhOw46WDn
-	gIGL90n3usbaIS2PqeFVcU4hXz7xk22oaZqMBiBwTgNcXlayRRbGLi2EnSXCHEuftqPyZWlsuW/lQ
-	M3CxyskcXaC+FRt7NwL8RZAIobOgv2eIR2r4qRpy42FMZhpBRHLpDOmCEk4/Nmn301KediC3JFrdx
-	U+oz99vQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fHPVJLFdyyFn1B3+/j6XeVWPQvw5tBspxfdA6KrvZVs=; b=y2K0ACHb14f6aCWwiOPe6yv5UX
+	PfrVKAi87sVTRc0/UQodgAD9EiRotrs+1Se5xKtNseb7r3Y/dJzoTcpWU98NetedkvSEB6AI9LZ+0
+	6QCPJDSUPQrrgIuuhdsn75o7xvGkGxSHgaNGEaaKsZIujZwrS5rrQtQBD8r1R6QfD6LLZ7hug9Xt0
+	6HUBsDU3F3E638G5Hme7bhLfbXe6+bhwZnSw4r8mHk6gqTBKxd9OcsWJnDw5nlQa4UhytpL8EidoN
+	wsPgrUABhVDSMCni/CAHBurdSh07ojT/RzyIoPHMVHwedcw10fD2vaUi+XqYrSTh8rKzTTjvjYJEG
+	LD4XIkzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc82z-00000006sGR-1ywE;
-	Tue, 23 Jun 2026 20:48:41 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1wc837-00000006sJj-3XhF;
+	Tue, 23 Jun 2026 20:48:49 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc82w-00000006sFY-1LA7
+	id 1wc82z-00000006sG9-3CDQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 20:48:40 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4908b92904fso3576245e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 13:48:37 -0700 (PDT)
+	Tue, 23 Jun 2026 20:48:42 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-462cdb88d01so251934f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 13:48:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782247716; x=1782852516; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=IQf/A4ruU9gIb5FvsawDggEwo1Hergfzti0vWW30RV8=;
-        b=jqI9pCV2SDY9nf57xQqtMFHALq03b4vL4UcmwSW+Q1uPd3UAnYYruKUyXNC+2Hdkti
-         2VpzJe303/b7fOwbiTDeGbjQH+mFJiUy9+BcrkcnYE0Xj9oIwQDiVj6Xu76KLczoEy07
-         ocKzRpoEoUdwEF5dnyeTfuK6Ajujgo4cpyWyjAm6t2a7TqjK521uApoXGioI2bnIkl49
-         j91A/YNNewv29SlmIRjPOUx2eKJVIQ4QDR+ZST4vss7XyqP1NW5BJdJhKGXjQoveCACo
-         sblJyFcFGd4VnbmOXn7ZmkN/oFScXXhgmm/slqit7p3/1ZL5MQHf/JR+xF1Cz3lJ2jjB
-         MmUQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782247716; x=1782852516;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1782247720; x=1782852520; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=IQf/A4ruU9gIb5FvsawDggEwo1Hergfzti0vWW30RV8=;
-        b=JSjzITQQNjrCzh1Man1ZUceetuVeCJakt3ehZi3ZotraDEgcVkxOmLrPxOvk9gyFKu
-         OlNeS+iM/ozkYALhQstc6V49LCDOpbssCm60CUnmxXg3eCU3wM86o5wvUZSN5hJn2NOI
-         LTycOL8yYYf31eqNC9YhtYMTxk+xUYcLysHmYXz7bp2JnccC2gzErtrrFW2oRKhMDpJY
-         fE5ZADP9JQxBvkER6BNOfAhNXyS0J6qXCRFr5DWb/Qmn6nIp0mXWEVDpY8q65k7w3nDg
-         7Z8Gy6Hz3807eNMCXUAWl6eFWvKxGKTLDar5HGFUHRrsgpJ8EKf3jwpUzEWnGY7MljsN
-         CMew==
-X-Gm-Message-State: AOJu0YwcwMpI8KPDxYH16FTp9pZXe4nKC1oUXWTrHoz/JVnQ/tTNIw5h
-	1U/igpyCvSmMPMr63kecVRDSFhCJo4HP0XJYcsK4XOr6GwYtA4/+pEJKEn4W4aD8zA4=
-X-Gm-Gg: AfdE7cmxsYzltugqLi2hGtLundXEOoRNrkLY/k5V5jGCQeAzGvoXPGCXTtFvUP2IEHC
-	HYgZdDAqKDeOfuMYF8qVjgGaGBI6RL0MRQsF5KRe9QNMXxGryU13S0sJ+Zob8GZgk7hNkH4xAxD
-	B3YEmDOfqDBrswdMyfRn6MZCbtxIrcy9PZYgxvQjaMcYliYxhiLm861U/Blq9rqkGXXZzhLwHuu
-	x7fVwtFRE130gcqzBIpBL1mq6JaUk6eHnrRz5tO+cZn2QvzDshoEgZJ601WQJH4hzfY15PMMyKW
-	CxIyEu0aCKAQf+T2OgGgHhKDZ1n18T5SqudR2cPxp7YM0rx+euzWFjsdTX2zkKQKJO8IgvXq0aZ
-	W8OonDv6UMAptkz1X7OXxQXUWDdOG1oYL7//GJM43tk495ogxUShh3DAgLAalJdneivE2ow8WE9
-	V/ErD29Pokb1yFcwQYbRp/rlEAHkbGQvWxaZZKPP2Q5w==
-X-Received: by 2002:a05:600c:8208:b0:492:5030:5e7b with SMTP id 5b1f17b1804b1-4925b3533bemr68648165e9.10.1782247716007;
-        Tue, 23 Jun 2026 13:48:36 -0700 (PDT)
+        bh=fHPVJLFdyyFn1B3+/j6XeVWPQvw5tBspxfdA6KrvZVs=;
+        b=WGaVTvqcfbO/E8zDzgojLtwO4O7ztMEhabTXfRqgbutiF0n4xtbgzYrrdauT0AqIoU
+         GRFD2bRH0z2Y6JwD7TMpssuWw20JAeYblMv04PVBvvDpjkDrYUendwZ0IxVI5BbbS7ln
+         Fcs3dc9+qPqYPQsJlARoYyHfDMIWusoRTS9mUc9NKE60Tq4veb82rFMqKbJsXSRlDADr
+         u5eVYp/SFQYI8kgSAktDB2nUcxuQ+x2xcNW484y/mBOsYm5ESBJEzbZ4fmbOBsUMDtw8
+         X9fbO62gnZPRFSSdHrh4Dyw8imnlR8+/YnDFaHUBpq2VX/TXX3E+bOzTv/6QGYyCZmU2
+         3+ZA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782247720; x=1782852520;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=fHPVJLFdyyFn1B3+/j6XeVWPQvw5tBspxfdA6KrvZVs=;
+        b=a29tjIixQxV1eawA/WDkOkCCK6Rn+DnG3dP7y3fB6r72OIRaEma69HPwvNninSipCg
+         4vYBdqmAsdggB929yvNPf2A1L1at8wzsMvDgpew7a76cj15YEb3RhO+MXVT0Rl7HbsWb
+         XfNwt537G2vR5dNkO/OD7hVncKZxFIPvZ2Vi7Q6E9tU3pH+Nwputn2uLhQ0rOF9PFOjH
+         IUgfgbsLzobQeB+Tu7ls2lFv/6cHcJ8Z9qW1m6c7bBAU5GcxbdYgs393sqcjI3EA0wev
+         j1K3v9XTw7mOsy3HxP5cHd3XGENK8Q6v5lbxWZcMXYfhAEmAhPlopld1Ecfzaibadrif
+         bqQg==
+X-Gm-Message-State: AOJu0YzLUMjGyZLO89r/xsD3dzXeIZjKe/cuNAkI+90J4KctcsSvq/vH
+	BbzjLEus/5tgomxwr+0jsliBbbYonKOXi5Fos4qPspeYHTyKBcTXJFOdMqVakbzLSU4=
+X-Gm-Gg: AfdE7cnGPWcd6Iv41v++X1fB84QoBFy4oqkFhozhKPez5dULbVuH4kS16T8ShMjaaqp
+	aHOTXQDhGtnXEK2U59lDQ+dPUoF8j2HNFAUHR6Z8VFMmB+12ASvYfMK/vpKoUzI1K9RX0b8ZjVt
+	cZ4kEdtutA7eWCE07yPlnemlMx8WtKGIh2A1xpN1Fd1N2LkoXmv5W2tWLbw1Ix61i+TPTeI7M5K
+	dw/P5m2IVtxJD4kgRQIOOVaZHbi7c/BzyhUM1al8++oXoX62Ne4Mrll9JFYuyhP5QsnxuhQric4
+	mAOcqf312Mgo0QIfX252uMf6kZ50wfFo3QsBdAf0LKfzch2V+Yfdv/RLVQV/4teHHEHD2k5G6Cc
+	zuXlx6g5RRBPItWCKFogeRHiFytNkiguTevzrALPTtB8TsmcZ3SuYH8UTK68JYq7LQ/tHwOBIPB
+	yiSKZZ1Q0UMSiSJ/jtvL41a+ahLBoRCnETvRCgcDZuTg==
+X-Received: by 2002:a05:6000:401e:b0:460:6b12:1783 with SMTP id ffacd0b85a97d-46a7ebdf3eemr8161239f8f.4.1782247719719;
+        Tue, 23 Jun 2026 13:48:39 -0700 (PDT)
 Received: from localhost.localdomain ([2a02:1210:8642:2b00:82ee:73ff:feb8:99e3])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-46c1e840f80sm351996f8f.6.2026.06.23.13.48.33
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-46c1e840f80sm351996f8f.6.2026.06.23.13.48.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 23 Jun 2026 13:48:34 -0700 (PDT)
+        Tue, 23 Jun 2026 13:48:39 -0700 (PDT)
 From: Alexander Sverdlin <alexander.sverdlin@gmail.com>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev
@@ -90,16 +91,19 @@ Cc: Alexander Sverdlin <alexander.sverdlin@gmail.com>,
 	Maxime Ripard <mripard@kernel.org>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-input@vger.kernel.org
-Subject: [PATCH v5 0/6] Add support for Baijie Helper A133 board
-Date: Tue, 23 Jun 2026 22:48:12 +0200
-Message-ID: <20260623204824.691832-1-alexander.sverdlin@gmail.com>
+	linux-input@vger.kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v5 3/6] dt-bindings: arm: sunxi: Add Baijie HelperBoard A133 compatible
+Date: Tue, 23 Jun 2026 22:48:15 +0200
+Message-ID: <20260623204824.691832-4-alexander.sverdlin@gmail.com>
 X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260623204824.691832-1-alexander.sverdlin@gmail.com>
+References: <20260623204824.691832-1-alexander.sverdlin@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_134838_383352_40CE8EA0 
-X-CRM114-Status: GOOD (  15.43  )
+X-CRM114-CacheID: sfid-20260623_134841_837177_9257D4C7 
+X-CRM114-Status: GOOD (  10.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,90 +118,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Baijie Helper A133 board is a development board around Baijie A133 Core
-SBC. Features:
+Baijie HelperBoard A133 is a development board around their A133 Core
+board. Introduce a compatible for both the Core and the development
+boards.
 
-- 1/2/4GiB LPDDR4 DRAM
-- 8/16/32GiB eMMC
-- AXP707 PMIC
-- USB-C OTG port in peripheral mode (via onboard hub)
-- 2 USB 2.0 ports
-- MicroSD slot and on-board eMMC module
-- Gigabit Ethernet
-- Bluetooth
-- WiFi
-
-Add initial support for both the Helper and Core boards, including UART,
-PMU, eMMC, USB, Ethernet, LRADC-connected buttons.
-
-UART1 can only be used for Bluetooth module, but BT-WiFi combo Allwinner
-AW869A chip has not mainline driver currently.
-
-Link: https://szbaijie.com/index/product/product_detail.html?product_id=23&language=en
-
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+---
 Changelog:
 v5:
-- sun50i-a100.dtsi: reflowed "compatible" property of lradc node
-- dropped "reserve RAM for ATF" patch [v4 6/7]
+- no changes
 v4:
-- reserve RAM for ATF
-- sun4i-lradc-keys: Add A100/A133 compatible
-- dt-bindings: renamed "Baijie Helper A133" -> "Baijie A133 HelperBoard"
-- dt-bindings: renamed "baijie,helper-a133" -> "baijie,helperboard-a133"
-- dt-bindings: introduced allwinner,sun50i-a100-lradc
-- reserve RAM for ATF
-- renamed "sun50i-a133-baijie-helper.dtb" -> "sun50i-a133-helperboard.dtb"
-- added "model" property into root of sun50i-a133-helperboard-core.dtsi
-- added "cap-mmc-highspeed" and "max-frequency" into &mmc2
-- added "x-powers,drive-vbus-en" and "*-supply" into &axp803
-- dropped all "regulator-enable-ramp-delay" properties
-- replaced &reg_dcdc3 with a "polyphased" comment
-- exact DRAM voltage in &reg_dcdc5
-- disabled &reg_dcdc6 to avoid "[   31.710641] dcdc6: disabling"
-- added &reg_vdd5v "root" regulator
-- added "disable-wp" into &mmc0
-- commented &usb_otg
-- assigned usb1_vbus-supply in &usbphy
-- https://lore.kernel.org/all/20260605070923.3045073-1-alexander.sverdlin@gmail.com/
+- renamed "Baijie Helper A133" -> "Baijie A133 HelperBoard"
+- renamed "baijie,helper-a133" -> "baijie,helperboard-a133"
 v3:
-- added lradc node to sun50i-a100.dtsi
-- enabled LRADC driver in arm64 defconfig
-- added my copyrights into the newly introduced DTs
-- all DT nodes sorted alphabetically
-- all always-on regulators commented/propetly named
-- all regulators got proper voltages (not default ranges)
-- ADC-sensed buttons K1..K5 added
-- re-labelled "eth_phy" -> "rgmii_phy"
-- usbphy 0 switched from host into peripheral mode (downstream from an
-  onboard hub)
-- typo sun50i-a133-baije-core.dtsi -> sun50i-a133-baijie-core.dtsi
-- https://lore.kernel.org/all/20260517234134.2737320-1-alexander.sverdlin@gmail.com/
+- no separate section for "core" .dtsi
 v2:
 - introduced baijie,helper-a133-core compatible for the Core (SoM) board
-- https://lore.kernel.org/all/20260510201644.4143710-1-alexander.sverdlin@gmail.com/
-v1:
-- https://lore.kernel.org/all/20260503191842.2736130-1-alexander.sverdlin@gmail.com/
 
-Alexander Sverdlin (6):
-  arm64: defconfig: Enable Allwinner LRADC input driver
-  dt-bindings: vendor-prefixes: Add Shenzhen Baijie Technology Co., Ltd.
-  dt-bindings: arm: sunxi: Add Baijie HelperBoard A133 compatible
-  dt-bindings: input: sun4i-lradc-keys: Add A100/A133 compatible
-  arm64: dts: allwinner: a100: Add LRADC node
-  arm64: dts: allwinner: A133: add support for Baijie Helper A133 board
+ Documentation/devicetree/bindings/arm/sunxi.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
- .../devicetree/bindings/arm/sunxi.yaml        |   6 +
- .../input/allwinner,sun4i-a10-lradc-keys.yaml |   1 +
- .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
- arch/arm64/boot/dts/allwinner/Makefile        |   1 +
- .../arm64/boot/dts/allwinner/sun50i-a100.dtsi |  10 +
- .../sun50i-a133-helperboard-core.dtsi         | 197 ++++++++++++++++++
- .../dts/allwinner/sun50i-a133-helperboard.dts | 148 +++++++++++++
- arch/arm64/configs/defconfig                  |   1 +
- 8 files changed, 366 insertions(+)
- create mode 100644 arch/arm64/boot/dts/allwinner/sun50i-a133-helperboard-core.dtsi
- create mode 100644 arch/arm64/boot/dts/allwinner/sun50i-a133-helperboard.dts
-
+diff --git a/Documentation/devicetree/bindings/arm/sunxi.yaml b/Documentation/devicetree/bindings/arm/sunxi.yaml
+index e6443c266fa1..82dd58b95f8a 100644
+--- a/Documentation/devicetree/bindings/arm/sunxi.yaml
++++ b/Documentation/devicetree/bindings/arm/sunxi.yaml
+@@ -96,6 +96,12 @@ properties:
+           - const: allwinner,ba10-tvbox
+           - const: allwinner,sun4i-a10
+ 
++      - description: Baijie A133 HelperBoard
++        items:
++          - const: baijie,helperboard-a133
++          - const: baijie,helperboard-a133-core
++          - const: allwinner,sun50i-a100
++
+       - description: BananaPi
+         items:
+           - const: lemaker,bananapi
 -- 
 2.54.0
 
