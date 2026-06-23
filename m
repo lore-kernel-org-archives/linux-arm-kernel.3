@@ -4,64 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CC96CDB47C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 10:55:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39ADFCDB479
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 11:00:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lAKwacoVI7uad9g+jIiH9ookXbWgdh+4rlS83ehVIsw=; b=R1M79mSliaGYy4sdfXUyZyCHeQ
-	FyK+uHOmQuI7b40QoWvADVd6Csqunj9we+rrLH9YL3G1GP18UivORC9W6gnw/iCmO+9pj9kSfufT5
-	zr1n+WnzPVulYVe4NwtSq1XTf8OHpTZBaDHHkKDJKcPsFqDfiPvQb5GoO6XRKEri15qMngB72aMNT
-	644/jhA7jq9V20pdmaLY9AQ1tgPWVTc31oxNjUkJYgoNynr1WrJDOpaozS338NuvIIXumMfEIeffM
-	u8rUvHcCMMjAjtnAP3TY/V0SB805jsge5SS61gR6D0dAmK+wOf01HdnwXOpANptBPizVX04yUBSmi
-	ZG7LvceA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=K4win7MBmsG+8l82bTnPrSKb46SWzW6jis+acDmf0m0=; b=gUzWmBj2OBnRxiYFWloD55i/lp
+	zGSNUYkFf3BoS7pbroM/Q9kZanh+DDYZCBEZk/5OnUCDrPpLuRq5QD1h/pRfbjNWYwgv1uh44VAr+
+	Drw7XRdun9k+gv1wpXKgrJDcJtusoCASk+l2ERKooHh53dyJAnHrckIV/KHKQGC7MPfAwRdf+lpm+
+	DItMMU/1CI1KS5Tgrpv2jOMLamuYWVt1qzihXE0FIkuZmL4eHal/0Wh+6GDr3pVlCib+dKiCSELyf
+	sJCtaA63lRLvQgq/KPONLBCC6aNZXqyu7BzCczERNQE2GM+dgLKdc9W6+awvGzikp4zgKNSO9wsHc
+	ME6REWgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbyn0-000000067Sd-08N3;
-	Tue, 23 Jun 2026 10:55:34 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wbyrI-000000067kN-2SqG;
+	Tue, 23 Jun 2026 11:00:00 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbymy-000000067SL-0alp;
-	Tue, 23 Jun 2026 10:55:32 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8745C405A9;
-	Tue, 23 Jun 2026 10:55:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45DA01F000E9;
-	Tue, 23 Jun 2026 10:55:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782212131;
-	bh=lAKwacoVI7uad9g+jIiH9ookXbWgdh+4rlS83ehVIsw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Nd6H/AKBBiphRBm1G0fYBB/P+tJDY3EthHSrSuOOIqxHa6P2zbJvBNW94bt7wq4BM
-	 rcllD8dhyskNiOvyEehpiUPLIwJ3tjjuuVyc+NmGA1tuO2mAYiL0zclDwVkartqoWh
-	 JBUmRhr6KcBb2z1TaCUVlUkV4kaoAjkb+4ajB48qoXaU1vF/SGzxVybKk7d/xjSX9X
-	 DbKFzsyU/r7eKd4RVUehBiutUMpt+UdwJ70k1ZZzm3JxfNyBXGe9cFNk6BLz+1/D8O
-	 W/0IqzZAHxFalUAivpxEFo1eso1fU+u/AZ6PfMIUYMwr6PI3gHIfXWrRcC3NHBcGG7
-	 dQmTtiXdafUwA==
-From: Simon Horman <horms@kernel.org>
-To: lorenzo@kernel.org
-Cc: Simon Horman <horms@kernel.org>,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	leto.liu@airoha.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	netdev@vger.kernel.org,
-	brown.huang@airoha.com
-Subject: Re: [PATCH net v2] net: airoha: Add retry mechanism to airoha_qdma_set_trtcm_param()
-Date: Tue, 23 Jun 2026 11:53:42 +0100
-Message-ID: <20260623105341.1076863-3-horms@kernel.org>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260622-airoha_qdma_set_trtcm_param-retry-fix-v2-1-95a83ac99dbd@kernel.org>
-References: <20260622-airoha_qdma_set_trtcm_param-retry-fix-v2-1-95a83ac99dbd@kernel.org>
+	id 1wbyrF-000000067ja-1aAP
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 23 Jun 2026 10:59:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1782212397; x=1813748397;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=yHO/2t0Hb5A0w4vjeAuH+yDbJ1lP178mmCNx5z6M//k=;
+  b=oI3xoq2zIA4T3rtAGoEEiRHKF3cLrNw/w+ZGFOjUx5WLOeevVnFPdelQ
+   dwIHc0tFbfQWD8wkAvX/eagFJVfkn6K++iWB+nvWbjDS2YY6DIed0RJZz
+   sxRjWQaR1Y+wgoiBcVfvh6AendIDx4pT/SKy8dDgM2+H8MsNb4aAyXkZc
+   FMFG+51eX+XLYc++AH5zwko6jQd/zRCcwh6MKpv6b+dkfw1v1d9lLmE6P
+   5ywNZEfwwxDGsyKV3oPUgTvKGr3N/iJU6YcaFXNtzv3/+pA8Y4kdR3J7S
+   kiB5YOpH7UhZcel548+wL0oqxKKf9bAmZWB71Cy1/2esfs575Uy++hk8a
+   g==;
+X-CSE-ConnectionGUID: Y3LtMIYZREylgqcL4yz3eg==
+X-CSE-MsgGUID: vSMo/dVLT82Qe5W0Vpni4w==
+X-IronPort-AV: E=Sophos;i="6.24,220,1774335600"; 
+   d="scan'208";a="59540448"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 23 Jun 2026 03:59:56 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Tue, 23 Jun 2026 03:59:55 -0700
+Received: from che-ll-i67070.microchip.com (10.10.85.11) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Tue, 23 Jun 2026 03:59:49 -0700
+From: Varshini Rajendran <varshini.rajendran@microchip.com>
+To: <ehristev@kernel.org>, <jic23@kernel.org>, <dlechner@baylibre.com>,
+	<nuno.sa@analog.com>, <andy@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <nicolas.ferre@microchip.com>,
+	<alexandre.belloni@bootlin.com>, <claudiu.beznea@tuxon.dev>,
+	<srini@kernel.org>, <linux-iio@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+CC: <varshini.rajendran@microchip.com>
+Subject: [PATCH v2 00/12] Add thermal management support for sama7d65
+Date: Tue, 23 Jun 2026 16:29:32 +0530
+Message-ID: <20260623105944.128840-1-varshini.rajendran@microchip.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260623_035957_526167_0DBBA0FC 
+X-CRM114-Status: GOOD (  17.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,142 +87,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is an AI-generated review of your patch. The human sending this
-email has considered the AI review valid, or at least plausible.
-Full review at: https://sashiko.dev
+Apologies for the significant delay in following up this series.
+Thank you for your patience and the earlier reviews.
+This v2 reworks the series based on the feedback received on v1.
 
-Simon says: I'd appreciate it if you could look over the first two issues
-            flagged below in the context of this patch. While the third
-	    and final issue looks like it is in possible separate follow-up
-	    territory.
+The thermal management system of sama7d65 includes:
 
----
-net: airoha: Add retry mechanism to airoha_qdma_set_trtcm_param()
-    
-This patch introduces a retry loop to airoha_qdma_set_trtcm_param() to mitigate
-bus timeouts when configuring QDMA parameters. It attempts to verify that the
-configuration is correctly applied to the hardware.
+- Temperature sensor as a part of ADC channel
+- Temperature calibration data retrieved from the OTP memory for
+  improved accuracy of the readings
+- DVFS implementation
+- Thermal system with DVFS as cooling cell.
 
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-> index 3370c3df7c107..bb5c0599a4eed 100644
-> --- a/drivers/net/ethernet/airoha/airoha_eth.c
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-> @@ -2673,14 +2673,30 @@ static int airoha_qdma_set_trtcm_param(struct airoha_qdma *qdma, int channel,
->  		     FIELD_PREP(TRTCM_METER_GROUP_MASK, group) |
->  		     FIELD_PREP(TRTCM_PARAM_INDEX_MASK, idx) |
->  		     FIELD_PREP(TRTCM_PARAM_RATE_TYPE_MASK, mode);
-> +	int i;
->  
-> -	airoha_qdma_wr(qdma, REG_TRTCM_DATA_LOW(addr), val);
-> -	airoha_qdma_wr(qdma, REG_TRTCM_CFG_PARAM(addr), config);
-> +	for (i = 0; i < 100; i++) {
-> +		u32 data;
->  
-> -	return read_poll_timeout(airoha_qdma_rr, val,
-> -				 val & TRTCM_PARAM_RW_DONE_MASK,
-> -				 USEC_PER_MSEC, 10 * USEC_PER_MSEC, true,
-> -				 qdma, REG_TRTCM_CFG_PARAM(addr));
-> +		airoha_qdma_wr(qdma, REG_TRTCM_DATA_LOW(addr), val);
-> +		wmb();
-> +		airoha_qdma_wr(qdma, REG_TRTCM_CFG_PARAM(addr), config);
-> +
-> +		if (read_poll_timeout(airoha_qdma_rr, data,
-> +				      data & TRTCM_PARAM_RW_DONE_MASK,
-> +				      USEC_PER_MSEC, 10 * USEC_PER_MSEC,
-> +				      true, qdma, REG_TRTCM_CFG_PARAM(addr)))
-> +			return -ETIMEDOUT;
+This patch series adds support for the following:
 
-[Severity: High]
-If a bus timeout causes the write phase's read_poll_timeout() in
-airoha_qdma_set_trtcm_param() to fail, this immediately returns -ETIMEDOUT,
-aborting the 100-iteration retry loop.
+- Tag-based packet lookup for the NVMEM OTPC driver while preserving
+  backward compatibility with existing ID-based access
+- Temperature calibration layout handling in the ADC driver to support
+  different SoC-specific calibration data formats
+- ADC driver adaptation for sama7d65
+- DT nodes for OTP, ADC, temperature sensor, and thermal zones for
+  sama7d65
 
-Doesn't this defeat the mitigation?
+Changes in v2:
+    - Preserved backward compatibility with ID-based packet lookup to
+      avoid breaking existing users
+    - Removed sama7g5 DTS changes (not needed with backward compatible
+      driver - will be sent later to update to the new access method)
+    - Preserved the packet data structure returned not to break the
+      consumers
+    - Reworked ADC driver to use a calibration layout structure instead of
+      hardcoded indexes, for scalability
+    - Fixed kernel-doc Return section
+    - Removed stray blank line in mchp_otpc_read()
+    - Removed unnecessary UL suffix in writel_relaxed()
+    - Dropped unused packet types
+    - Fixed stray spaces before exclamation marks in error messages
+    - Added ASCII representation to TAG macro definition
+    - Removed odd MAX enum with trailing comma and refactored
+    - Moved DTS patches to the end of series
+    - Used cleanup.h helpers for NVMEM data buffer handling in ADC driver
+    - Combined multiple v1 patches into logical units
+    - Used correct subject prefixes for dt-bindings patches
+    - Used fixed-layout NVMEM syntax for sama7d65 DTS and binding
+      instead of deprecated syntax
+    - Added cpu-supply linkage for proper DVFS voltage scaling
+    - Updated stale stride=4 comment in dt-bindings header
 
-> +
-> +		if (airoha_qdma_get_trtcm_param(qdma, channel, addr, param,
-> +						mode, &data, NULL))
-> +			continue;
+Link to v1: https://lore.kernel.org/linux-arm-kernel/20250804100219.63325-1-varshini.rajendran@microchip.com/
 
-[Severity: High]
-If airoha_qdma_get_trtcm_param() times out during the verification phase, it
-indicates the hardware hasn't finished the read command (DONE bit is still 0).
 
-The continue statement then immediately starts the next iteration, writing new
-commands to DATA_LOW and CFG_PARAM.
+Varshini Rajendran (12):
+  dt-bindings: iio: adc: at91-sama5d2: document sama7d65
+  iio: adc: at91-sama5d2_adc: rework temp calibration layout handling
+  iio: adc: at91-sama5d2_adc: adapt the driver for sama7d65
+  dt-bindings: nvmem: microchip,sama7g5-otpc: add sama7d65 and dt node
+    example
+  nvmem: microchip-otpc: add tag-based packet lookup
+  ARM: dts: microchip: sama7d65: add cpu opps
+  ARM: dts: microchip: sama7d65: Add ADC node
+  ARM: dts: microchip: sama7d65_curiosity: Enable ADC, DVFS
+  ARM: dts: microchip: sama7d65: add otpc node
+  ARM: dts: microchip: sama7d65: add cells for temperature calibration
+  ARM: dts: microchip: sama7d65: add temperature sensor
+  ARM: dts: microchip: sama7d65: add thermal zones node
 
-Can writing to command registers while the hardware state machine is actively
-busy violate hardware protocols and lead to unrecoverable lockups?
+ .../bindings/iio/adc/atmel,sama5d2-adc.yaml   |   1 +
+ .../nvmem/microchip,sama7g5-otpc.yaml         |  28 +++-
+ .../dts/microchip/at91-sama7d65_curiosity.dts |  27 ++++
+ arch/arm/boot/dts/microchip/sama7d65.dtsi     | 132 ++++++++++++++++
+ drivers/iio/adc/at91-sama5d2_adc.c            | 116 ++++++++++----
+ drivers/nvmem/microchip-otpc.c                | 142 ++++++++++++++++--
+ .../nvmem/microchip,sama7g5-otpc.h            |   4 +-
+ 7 files changed, 409 insertions(+), 41 deletions(-)
 
-> +
-> +		if (data == val)
-> +			return 0;
+-- 
+2.34.1
 
-[Severity: High]
-This isn't a bug introduced by this patch, but if the bus drops the command
-write to REG_TRTCM_CFG_PARAM, the hardware never executes the command and the
-TRTCM_PARAM_RW_DONE_MASK bit remains set from the previous operation.
-
-Consequently, read_poll_timeout() returns an immediate false success.
-
-If both the set and get command writes are dropped by the bus, the get
-operation will read back the newly written DATA_LOW register value.
-
-Will the data == val check evaluate to true and falsely report success without
-the hardware ever processing the configuration?
-
-> +	}
-> +
-> +	return -EBUSY;
->  }
->  
-
-[ ... ]
-
->  static int airoha_qdma_set_trtcm_config(struct airoha_qdma *qdma, int channel,
->  					u32 addr, enum trtcm_mode_type mode,
->  					bool enable, u32 enable_mask)
->  {
->  	u32 val;
->  
->  	if (airoha_qdma_get_trtcm_param(qdma, channel, addr, TRTCM_MISC_MODE,
->  					mode, &val, NULL))
->  		return -EINVAL;
-
-[Severity: High]
-Standalone calls to airoha_qdma_get_trtcm_param(), like this one in
-airoha_qdma_set_trtcm_config(), lack a retry loop entirely.
-
-Does this leave read-modify-write cycles fully vulnerable to the same bus
-timeouts the patch attempts to mitigate?
-
-[Severity: High]
-This isn't a bug introduced by this patch, but the patch mitigates bus
-timeouts in airoha_qdma_set_trtcm_param() while entirely missing
-airoha_qdma_set_rl_param().
-
-The latter performs the exact same write-and-poll sequence on identical QDMA
-configuration registers:
-
-drivers/net/ethernet/airoha/airoha_eth.c:airoha_qdma_set_rl_param() {
-    ...
-    return read_poll_timeout(..., val & RATE_LIMIT_PARAM_RW_DONE_MASK, ...);
-}
-
-If bus timeouts affect QDMA access broadly as stated in the commit message, are
-the rate-limiting configuration paths randomly vulnerable to the same failures?
-
-[Severity: High]
-This isn't a bug introduced by this patch, but in airoha_tc_remove_htb_queue(),
-hardware teardown incorrectly uses queue + 1 instead of queue:
-
-drivers/net/ethernet/airoha/airoha_eth.c:airoha_tc_remove_htb_queue() {
-    ...
-    airoha_qdma_set_tx_rate_limit(netdev, queue + 1, 0, 0);
-    ...
-}
-
-Does this leave the removed queue's hardware limits permanently active
-(resource leak) and inadvertently disable the rate limits for queue + 1,
-corrupting the QoS state of another active channel?
 
