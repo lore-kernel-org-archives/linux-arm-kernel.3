@@ -4,74 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34FE7CDB46F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 10:42:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0975DCDB46F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 10:53:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Subject:From:To:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nW1cfszAg7S4GsG7xpMPmAq99XG9RkOhVx8ssV5Hh5c=; b=z9ftuGuJaBOPTKkROJlTKM7jvR
-	ALllPqPI96fjc3zbGgwCYMRWOIEMTutNqzfJfEXTv6GZBSNZMGZCBt2wG+77nTD5r2xTcO0s0Lpkf
-	jteOw1I2XjWxZyt52Uq6WPe215gNEMahtk6Tgd0aXevX5E74ItQpopQ5dCAekjhccJqMCiRBM/yQd
-	yJZLbJ456ILS707Iv2P1JWhxYlYKY5FKPyMpYoRc+NUd/1DUf8LrtzCpTKuIkptrb1lp93zeJaL+A
-	87xhLiYfIiwDMCYFuDBesBspU4akm3+om8DicuH5xjh8IPswsl8xtiAsngNxNREjujI9zVqH7ZXUr
-	y1J1eUaA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0t8B9KiaKml1jWkv/ehgW2nxgxFMiIhxgi2j8Q8oeTs=; b=hzpESuqApyHW+IyWcxYS0rFzHy
+	fVpOR/FWzy8IZhsYaZSIUsZiz1vW/pMLdp/e5Hn55Az6EBNj65nLdogiXCQU3rDjAeGh9g3QZoega
+	LgnakIQhDGbrDxoigRN/qx+IaeB4jrLvQq0bOfHk1hL5l5h9xPp7fMpeTNHNZtu7KcdD/h2EPAvsx
+	/Grxsy2C/isVml5/0hq/yGap3QbSygxZzUVhq+0rrd6ZDUhqVkD7cSYUIndMINzJ/GVmMu3PVJElu
+	yEruxEpFeOIytjoswuE6FybyvWsQiZbhHzk/dWqfL6UwRjsqa0yOgFOGNQgqR/PVpbJjfU6F0E4VA
+	RyyEtm4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbyZm-000000066NR-3DFh;
-	Tue, 23 Jun 2026 10:41:54 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1wbylD-000000067Ce-1lmt;
+	Tue, 23 Jun 2026 10:53:43 +0000
+Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbyZi-000000066MU-2JXY
+	id 1wbylB-000000067Bx-098L
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 10:41:53 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id B4A91C6B382;
-	Tue, 23 Jun 2026 10:41:53 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 2CA7A601C2;
-	Tue, 23 Jun 2026 10:41:46 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1C89A106C8442;
-	Tue, 23 Jun 2026 12:41:37 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1782211305; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=nW1cfszAg7S4GsG7xpMPmAq99XG9RkOhVx8ssV5Hh5c=;
-	b=TsbFraGxXYHV0bJDmyjJ8nWcVEoBmdokwtEcPMViUEQJr3dI8dWjtCRqglpRmCiSQl7eUm
-	zXTT9XttBj49SaAJebbKEG88UPnERka2W9CCKKrPvv9WmBgxV6zqujW97fD4hVmiksLmA4
-	PNRg5K1B9HIGJTRCeFRs+FKhjJkxh8dP8wBIMSVweGib4+T/FncpYCcKpppU6LiQMGoa8P
-	FguDA0RmM2I1ccDbBRKVbYhp/ds5aPgKdQT7g1r77Pt/ve2fynQg8R0/7kutRNYpOvhgB0
-	yYocI55vQdENSLFfgwzDfLMiKSKF+qGbdtlAsiEhBuABs3K9zeHmkiIx1roGvw==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 23 Jun 2026 12:41:36 +0200
-Message-Id: <DJGD6EW5D0FD.V4WHCIICLXQ7@bootlin.com>
-Cc: "Andrzej Hajda" <andrzej.hajda@intel.com>, "Neil Armstrong"
- <neil.armstrong@linaro.org>, "Robert Foss" <rfoss@kernel.org>, "Laurent
- Pinchart" <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman"
- <jonas@kwiboo.se>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Maarten
- Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard"
- <mripard@kernel.org>, "Thomas Zimmermann" <tzimmermann@suse.de>, "David
- Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Frank Li"
- <Frank.Li@nxp.com>, "Sascha Hauer" <s.hauer@pengutronix.de>, "Pengutronix
- Kernel Team" <kernel@pengutronix.de>, "Fabio Estevam" <festevam@gmail.com>,
- "Dmitry Baryshkov" <dmitry.baryshkov@oss.qualcomm.com>,
- <dri-devel@lists.freedesktop.org>, <imx@lists.linux.dev>,
- <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-To: "Liu Ying" <victor.liu@nxp.com>, "Luca Ceresoli"
- <luca.ceresoli@bootlin.com>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH v3] drm/bridge: imx93-mipi-dsi: Fix mode validation
-X-Mailer: aerc 0.21.0
-References: <20260515-imx93-mipi-dsi-fix-mode-validation-v3-1-91f7d22b2fe4@nxp.com> <DJD6I8NMLN3W.3LVT4L17HT5TU@bootlin.com> <ajjpuroFPI_U2Fw6@raspi>
-In-Reply-To: <ajjpuroFPI_U2Fw6@raspi>
-X-Last-TLS-Session-Version: TLSv1.3
+	Tue, 23 Jun 2026 10:53:42 +0000
+Received: by mail-pg1-x536.google.com with SMTP id 41be03b00d2f7-c86307c4e6bso2055516a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 03:53:40 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1782212020; cv=none;
+        d=google.com; s=arc-20240605;
+        b=USCTfmN6vxo+KIN6f9HBqEYQJyYRiqyvddzFCAoSH1e2610TgE1GR3NYHGkNd4U9aG
+         neZwAUivhMDXXx07TRu4KDETFktOT6W4d8OK60GS8LyJkPIRAU9xrtbI4DewjJcxfBPY
+         oy7Eg5geovuALiHE7urKgp2oa63vq/RaP9I6AesrLqam8i0LdLCaGYIPqrpqun+Uv3pI
+         sIn67lZG8L9H0dJ08IKIrwtZxbNzWCO2Wiu5UyU0Gdz3iv56DL3XwCa8ErD0n6uCoPp6
+         j610MYk6hXtP0fequIf4uRutRJZdavUDxn+qKEPRTI/dMXVleYc2UmTPoY8wx55uX0QO
+         pg6w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=0t8B9KiaKml1jWkv/ehgW2nxgxFMiIhxgi2j8Q8oeTs=;
+        fh=LIHZNankeqr0xq9Yii8BjJ6+sNRF1DAXMtqcXoaI5Ys=;
+        b=dxltUXuoOXp0VGOZF00Lg8Ia8b2ZiwcMxfJzCWTkfV853i54IemP3u4pUQ5bxrdr/w
+         oZamqISa3CVWzaZzXIQuN9gKA2KwqwMJeAPBkxbj0p0fqCn26hCdbXjudhjfHFnj6byT
+         DHGmIgGenBvkX4YRSdutOute7RQpec01pW8z7uM+U1qWD7hXAbTijb+OFSHNwmEgU5vy
+         yvvYP9ka81vDBkmLPlVwk7RgYPKkbIm2NvB1p4fOvO/IAy0jv9hA/IZ0Ice+abad+PbF
+         yI7ATftsKytAVJFIysLNqP0fiX0c9W5xKliURykPhAN75erSo0RPgNh5QRXkn9RvnJQv
+         EUmA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782212020; x=1782816820; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=0t8B9KiaKml1jWkv/ehgW2nxgxFMiIhxgi2j8Q8oeTs=;
+        b=jvJtctBFMlxY6TxNpL0jkiOw5Eh6o71lGCg++ZuuL0bA2wDHqTJEEXpzfgcZu5oE43
+         RsMb0f7YUrmmHWrb2vqpl9+8BHXAW3zgaIVzk1Hum4FRA/KYh/JxAPtKR6P+f7VmF8k8
+         3XVOZL4KjsRR5jrzSTVbxicT394JF29cCkxjMMUZvaVAyfAQhFSxST5kZ8V340rVKIOu
+         t2Yx6/ua7EkZ6CSQptE8V0PcUbvL7UA2N0Dews3jDl+O6NG9W6D2rkM/PEcX1lRE1dix
+         h3FGmz5/ZUCTF81M4GTuBsOOXZObd/vkYPItx7H/RhPhkmTy/KbImeHNUM+f6F9OW69K
+         4gFA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782212020; x=1782816820;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=0t8B9KiaKml1jWkv/ehgW2nxgxFMiIhxgi2j8Q8oeTs=;
+        b=OO3Hx5UCMfTlwlhGLspKpzTCW9a6hgaYvukMJpzVJSK893tznJNP/u7X4kyJy7NIB3
+         Mi4APPxFwyJ0s+odRZMMx/5llhcmYkRa6ApnnpHVZvq6/QqR7euAXLQCZLcYOE58/das
+         DcjkvkaDs3UJqrsbeZZH8IUsrihEU7+QpILT8i6GYCQZVY7y4uQDcaY5jui46KeoLg6M
+         v5oqB3cG0fHEllanAL2msJ7O6uPMa7OgPCZiYIhsE/Ue3fzk1tgNS8bU7Sbz/uc9f9yJ
+         kkPKr0PHsykYGeusUUUrjIfMffjR/04mmSwdkCI1llci3kQJBeTnyCC0LbZBisrmMuGL
+         5qYg==
+X-Forwarded-Encrypted: i=1; AFNElJ+XMibDTbg/e+KE1M/5GYK/pysnsiJByFSqUaBIS74o6xo+GFXYAIGOVhZ59O/kc637e1+hT2qw9QRAaR6jdGlp@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxfiqt4pM0WlK7OfVc9lSdAqDsjfJhtZ6tewIG50NytQlrFo0n0
+	0Ll7ycQKSZ6JrlgMP5ga0VPVUtEWOABKHiMl7e+ZQ7qTDsqWpfHOCP6JKCGNTHgXhmHqd5p2YE2
+	5u7KTM0q/ym8zHUU7cQ3K3KmDNnPyzm0=
+X-Gm-Gg: AfdE7cn9tJUrR/dkirp5VUcB6t9ovvwSpHNVU/TwPIT+8NI263vCggiO6gMlrNunoBM
+	sxJc1hS1SIuOqkKXP21f25I60KpNHvg35JfpkotDJd8XPnXG1o08hZ0kpV/f4Q3GlrfZ1zMS5h4
+	+pYbbIFRFNwBPHaRjtvfMyA8/NW3Z3kQQPsRdSfph6PWRbaLpdRlC83EYkSMcBTiWxz36Z7xzdA
+	xCBUlyAH4jv8nXTH6sYloGIIY1gUinjMAHPtD3G+h6GzrT76QE0qSg5p6eg3dP+ZkGs8NP2sWVK
+	hRQ33dRyTMoXzPnalGXWszVsHs93wk6rXpovRg==
+X-Received: by 2002:a05:6a20:d045:b0:3b4:904f:c9cd with SMTP id
+ adf61e73a8af0-3bc5181907emr16930605637.6.1782212019669; Tue, 23 Jun 2026
+ 03:53:39 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260622005613.21870-1-phucduc.bui@gmail.com> <229ba136-66eb-4a30-a316-58377836b4dc@sirena.org.uk>
+In-Reply-To: <229ba136-66eb-4a30-a316-58377836b4dc@sirena.org.uk>
+From: Bui Duc Phuc <phucduc.bui@gmail.com>
+Date: Tue, 23 Jun 2026 17:53:28 +0700
+X-Gm-Features: AVVi8CfJTdkORwgI_XliseheOLtan_Kjx0p8qfbLbr6t29reUwoDQB9fLtkHz3Q
+Message-ID: <CAABR9nG6BL+-urEg0qDzJHYmowm7O=du_0T4+K2ogdrcD30CXA@mail.gmail.com>
+Subject: Re: [PATCH] ASoC: rockchip: rockchip_sai: Hand over hclk control
+ exclusively to Runtime PM
+To: Mark Brown <broonie@kernel.org>
+Cc: Heiko Stuebner <heiko@sntech.de>, Liam Girdwood <lgirdwood@gmail.com>, 
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, linux-sound@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_034150_941674_D995BDB1 
-X-CRM114-Status: GOOD (  39.75  )
+X-CRM114-CacheID: sfid-20260623_035341_087510_0C09C6D6 
+X-CRM114-Status: GOOD (  27.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,199 +118,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Liu,
+Hi Mark,
 
-On Mon Jun 22, 2026 at 9:52 AM CEST, Liu Ying wrote:
-> On Fri, Jun 19, 2026 at 06:49:55PM +0200, Luca Ceresoli wrote:
->> Hello Liu,
->
-> Hi Luca,
->
->>
->> On Fri May 15, 2026 at 8:54 AM CEST, Liu Ying wrote:
->> > i.MX93 MIPI DPHY PLL has limitation for matching with some pixel clock
->> > rates, e.g., the best DPHY PLL frequency is 445.333333MHz for a typica=
-l
->> > 1920x1080p@60Hz CEA/DMT display mode with a pixel clock rate running
->> > at 148.5MHz with 4 data lanes + RGB888 pixel in MIPI DSI sync pulse mo=
-de,
->> > while the expected PLL frequency is (148.5 * 24) / 4 / 2 MHz =3D 445.5=
-MHz.
->> > Fortunately, VESA Display Monitor Timing Standard allows +/-0.5% pixel
->> > clock rate deviation for timings.  So, for those display modes read
->> > from EDID through a bridge with DRM_BRIDGE_OP_DETECT and DRM_BRIDGE_OP=
-_EDID
->> > operation bit masks set, pixel clock rate could be adjusted to match
->> > with the PLL frequency(for the above example, the pixel clock rate is
->> > adjusted to be 148.444444MHz with about -0.03% deviation from the 148.=
-5MHz
->> > nominal rate so that the adjusted rate matches with the 445.333333MHz =
-PLL
->> > frequency).
->> >
->> > Instead of checking the last bridge's operation bit masks against
->> > DRM_BRIDGE_OP_DETECT and DRM_BRIDGE_OP_EDID to determine if allowing
->> > +/-0.5% pixel clock rate deviation, check any bridge after this bridge=
-,
->> > because the last bridge is usually a display connector bridge without
->> > any operation bit mask when the clock rate deviation is allowed.
->> >
->> > Fixes: ce62f8ea7e3f ("drm/bridge: imx: Add i.MX93 MIPI DSI support")
->> > Fixes: 5849eff7f067 ("drm/bridge: imx93-mipi-dsi: use drm_bridge_chain=
-_get_last_bridge()")
->> > Reviewed-by: Frank Li <Frank.Li@nxp.com>
->> > Signed-off-by: Liu Ying <victor.liu@nxp.com>
->>
->> I'm perhaps not the most qualified to review this change, but let me try=
-.
->
-> Thanks for your review.
->
->>
->> > --- a/drivers/gpu/drm/bridge/imx/imx93-mipi-dsi.c
->> > +++ b/drivers/gpu/drm/bridge/imx/imx93-mipi-dsi.c
->> > @@ -489,25 +489,43 @@ static int imx93_dsi_get_phy_configure_opts(stru=
-ct imx93_dsi *dsi,
->> >  	return 0;
->> >  }
->> >
->> > +static inline struct drm_bridge *
->> > +imx93_dsi_get_next_bridge_in_chain(struct drm_bridge *bridge)
->> > +{
->> > +	struct drm_bridge *next =3D drm_bridge_get_next_bridge(bridge);
->> > +
->> > +	drm_bridge_put(bridge);
->> > +
->> > +	return next;
->> > +}
->> > +
->> >  static enum drm_mode_status
->> >  imx93_dsi_validate_mode(struct imx93_dsi *dsi, const struct drm_displ=
-ay_mode *mode)
->> >  {
->> >  	struct drm_bridge *dmd_bridge =3D dw_mipi_dsi_get_bridge(dsi->dmd);
->> > -	struct drm_bridge *last_bridge __free(drm_bridge_put) =3D
->> > -		drm_bridge_chain_get_last_bridge(dmd_bridge->encoder);
->> > +	struct drm_bridge *bridge;
->> >
->> > -	if ((last_bridge->ops & DRM_BRIDGE_OP_DETECT) &&
->> > -	    (last_bridge->ops & DRM_BRIDGE_OP_EDID)) {
->> > -		unsigned long pixel_clock_rate =3D mode->clock * 1000;
->> > -		unsigned long rounded_rate;
->> > +	for (bridge =3D drm_bridge_get_next_bridge(dmd_bridge);
->> > +	     bridge;
->> > +	     bridge =3D imx93_dsi_get_next_bridge_in_chain(bridge)) {
->> > +		if ((bridge->ops & DRM_BRIDGE_OP_DETECT) &&
->> > +		    (bridge->ops & DRM_BRIDGE_OP_EDID)) {
->> > +			unsigned long pixel_clock_rate =3D mode->clock * 1000;
->> > +			unsigned long rounded_rate;
->> >
->> > -		/* Allow +/-0.5% pixel clock rate deviation */
->> > -		rounded_rate =3D clk_round_rate(dsi->clk_pixel, pixel_clock_rate);
->> > -		if (rounded_rate < pixel_clock_rate * 995 / 1000 ||
->> > -		    rounded_rate > pixel_clock_rate * 1005 / 1000) {
->> > -			dev_dbg(dsi->dev, "failed to round clock for mode " DRM_MODE_FMT "=
-\n",
->> > -				DRM_MODE_ARG(mode));
->> > -			return MODE_NOCLOCK;
->> > +			/* Allow +/-0.5% pixel clock rate deviation */
->> > +			rounded_rate =3D clk_round_rate(dsi->clk_pixel, pixel_clock_rate);
->> > +			if (rounded_rate < pixel_clock_rate * 995 / 1000 ||
->> > +			    rounded_rate > pixel_clock_rate * 1005 / 1000) {
->> > +				dev_dbg(dsi->dev,
->> > +					"failed to round clock for mode " DRM_MODE_FMT "\n",
->> > +					DRM_MODE_ARG(mode));
->> > +				drm_bridge_put(bridge);
->> > +				return MODE_NOCLOCK;
->> > +			}
->> > +
->> > +			drm_bridge_put(bridge);
->> > +			break;
->> >  		}
->> >  	}
->>
->> Is this logic specific to the imx93 MIPI DSI host only? Or should it be
->> made generic for all dw-hdmi users, or even every DSI host?
->
-> I think it's kind of specific to the i.MX93 MIPI DSI host only, because
-> 1) the i.MX93 MIPI DPHY PLL(integrated into i.MX93 MIPI DPHY IP) supports
-> the best DPHY PLL frequency @445.333333MHz for the typical 1920x1080p@60H=
-z
-> display mode, which is lower than the expected/nominal frequency @445.5MH=
-z
-> and 2) the generic DW MIPI DSI driver(dw-mipi-dsi.c) is PHY-agnostic, whi=
-ch
-> means vendors may attach different MIPI DPHY IPs to the common MIPI DSI h=
-ost
-> IP and likely there would be no frequency mismatch between the pixel cloc=
-k
-> and the PLL like i.MX93 has.
+Thank you for your review.
 
-I see, OK, thanks for the clarification!
-
->> Also, iterating over the bridge chain is not very clean. I'm working on
->> bridge hotplug (not upstream yet) and bad things would happen if a bridg=
-e
->> were hot-unplugged during this loop.
+> >    1 Reverting back to devm_clk_get() to remove the implicit devres
+> >      enable/disable behavior.
+> >    2 Manually enabling and disabling hclk explicitly only around the
+> >      early register access before Runtime PM takes over.
+> >    3 Dropping the stray clk_disable_unprepare() at the end of probe()
+> >      so Runtime PM solely owns hclk afterward.
 >
-> The iterating is essentially the same to drm_for_each_bridge_in_chain_fro=
-m()
-> except that bridge_chain_mutex is not taken(since it's already taken) and
-> the starting bridge is fixed to be the next bridge.  A few bridge core AP=
-Is
-> like drm_bridge_chain_mode_valid() call drm_for_each_bridge_in_chain_from=
-().
-> So, the iterating looks clean to me and I'm not aware of any bad things w=
-hich
-> would happen when bridge hotplug is considered.
-
-I had missed this is called from drm_bridge_chain_mode_valid(), which
-already takes the bridge_chain_mutex thanks to
-drm_for_each_bridge_in_chain_from().
-
-So that means this loop is safe, but it would be nice to add a comment to
-make it clear to future readers. E.g. "/* we are called by
-drm_bridge_chain_mode_valid(), so the bridge_chain_mutex is locked */".
-
-Still I'm not a fan of having a loop over the bridge chain (this function)
-inside another loop over the same bridge chain (in
-drm_bridge_chain_mode_valid(). And even more I'm not a fan of drivers
-walking around the bridge chain on their own, IMO the core (perhaps
-drm_bridge.c in this case) should to the loops . However this is a general
-concern, it happens also elsewhere, and I have no immediate proposal to
-improve this, so don't consider it as a blocker for this patch.
-
->> If the core did this sort of algorithm
->> it would be able to be more robust.
+> Note that runtime PM can be disabled at build time so we might not have
+> runtime PM at all...
 >
-> Is the core dw-mipi-dsi.c?
-> If yes, do you think it's worth doing that even if the frequency mismatch
-> between the pixel clock and the PLL is kind of specific to the i.MX93 MIP=
-I
-> DSI host?
->
->>
->> Finally, out of my utter ignorance on the subject, is the VESA +/-0.5%
->> margin generic enough that this driver can always rely on it?
->
-> I see several upstream drivers rely on it, see "git grep '0.5%' drivers/g=
-pu/"
-> output.  And every display mode allows -/+ 0.5% pixel clock rate deviatio=
-n
-> according to VESA Display Monitor Timing Standard [1], though [1] is a fo=
-und
-> by a random Google search.
->
-> [1] https://glenwing.github.io/docs/VESA-DMT-1.13.pdf
 
-As I said I'm quite ignorance about this aspect, so I asked to better
-understand. In reply to another part fo the thread: no, I don't have a
-specific concern if this is the common practice.
+Thanks for pointing this out. You're right that with !CONFIG_PM, the
+driver only relies on the
+two manual calls to rokchip_sai_runtime_resume() / suspend(), so hclk
+stays enabled the
+whole time. I understand this is unvavoidable in that configuration,
+throgh, since there's no
+Runtime PM to re-enable the clock when it's needed.
 
-Luca
+I'll update the commit message to reflect that the driver uses a
+combination of Runtime PM
+and explicit manual enable/disable, rather than relying on Runtime PM alone.
 
---
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+> > Links:
+> > 1 This change is based on the discussion around manual hclk handing during probe(),
+> >   as raised by Krysztof:
+> >   https://lore.kernel.org/all/20e4754b-ea9a-404d-b529-ec44a7263cbf@kernel.org/#t
+> > 2 Background for the earlier devm_clk_get_enbabled() conversion:
+> >   https://lore.kernel.org/all/2818018.CQOukoFCf9@workhorse/
+>
+> > An alternative approach would be use devm_regmap_init_mmio_clk() and let regmap
+> > manage clock enablement around register accesses. If preferred, I can rework the
+> > driver accordingly.
+>
+> > -     sai->hclk = devm_clk_get_enabled(&pdev->dev, "hclk");
+> > +     sai->hclk = devm_clk_get(&pdev->dev, "hclk");
+> >       if (IS_ERR(sai->hclk))
+> >               return dev_err_probe(&pdev->dev, PTR_ERR(sai->hclk),
+> >                                    "Failed to get hclk\n");
+> >
+> > +     ret = clk_prepare_enable(sai->hclk);
+> > +     if (ret)
+> > +             return dev_err_probe(&pdev->dev, ret, "Failed to enable hclk\n");
+> > +
+>
+> > @@ -1482,8 +1492,6 @@ static int rockchip_sai_probe(struct platform_device *pdev)
+> >       pm_runtime_use_autosuspend(&pdev->dev);
+> >       pm_runtime_put(&pdev->dev);
+> >
+> > -     clk_disable_unprepare(sai->hclk);
+> > -
+> >       return 0;
+>
+> Are you sure that the runtime PM state there is such that it knows a
+> reference is held?  The driver used pm_runtime_get_noresume() so the
+> device didn't have RPM_ACTIVE set I think?
+
+
+You are right, pm_runtime_get_noresume() doesn't set RPM_ACTIVE. I
+think we need to add
+pm_runtime_set_active() before pm_runtime_enable(). Otherwise, with CONFIG_PM,
+the pm_runtime_put() at the end of probe() might skip the suspend,
+since the core still considers
+the device suspended .
+
+>
+> The runtime PM API really is a miserable collection of landmines :(
+
+Yeah, plenty of landmines indeed :(
+I checked, and rockchip_spdif.c does use devm_regmap_init_mmio_clk() for hclk,
+rather than wrapping every register access in pm_runtime_get_sync() /
+pm_runtime_put()
+the way rockchip_sai does.
+
+Best regards,
+Phuc
 
