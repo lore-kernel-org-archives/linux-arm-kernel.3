@@ -4,78 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7A8ECD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 07:14:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C752BCDB470
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 07:26:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sXOBfhLAVLwn3podSYtFoxvOp/Tp82jbXxsxprm1FYY=; b=I/L75wqNOst4uWSB9EOv50KVAB
-	/nKzheDh9RJUzQYqShxaAvx6qemY1b5IQsYn+Oo8tU9M3p5NNIU3k1bVAzXpNWDVvJlRDk0X6j19Q
-	F2JHUOytaI5uVbVyj5X5pImK35cGBPcIOmU89OHi5oLk4PHmDKijJNs0VwhPbRRwz9FwWlSguQ086
-	YCemWi7lpNs5ActkzaveYI8HyQNt3lyIVcdiB4N5oZ9CmIVwsW9FdoinSEgs4WqBQwODnJtESgcvL
-	yh0dZqBNsOJgFYDebd91yL2JnfkzHRTHssXR4DK2IwlgymLDUWlymIgzgVPjaDXp2oszDm3u58rMy
-	/GOHZOxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PN4+aDsAu1UBBqtMfoO95odoovyt5n75yyVL3bxa65c=; b=tevK4Dn7DIHrpGbvQzu3Bs/bUz
+	vXsgJ9i8gQ574jJCOJLi2cW7doO5sTEhPiYEuQEks3qd83mqPoEvSCZP+Zfu6S+4onD6UBlBWak5u
+	4q8D06cfayUsrkukgvM3CP66ZOyma/4DcckYqzFBwTFyGMM5VWE6Oe/tWtuHGzra/QDadzmYaSe99
+	i88vrWxho8kaAYXms5nhstu7e4FQ87A8NZeV5uQggSjpe4tE/dvH/Qj2BFgzXEeLplOTggFMV3DaR
+	fnzKbxYCDraMhJjRxxETV01hsBRQ7YT0dZP7UN3lvSmIvqelExyA7/2P6ttOvsrW5uRAPALespwDm
+	bfwcUgHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbvKy-00000005oiR-269n;
-	Tue, 23 Jun 2026 07:14:24 +0000
-Received: from www537.your-server.de ([188.40.3.216])
+	id 1wbvWo-00000005pPX-2GLO;
+	Tue, 23 Jun 2026 07:26:38 +0000
+Received: from m16.mail.163.com ([220.197.31.2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbvKv-00000005ohJ-1p6I
+	id 1wbvWl-00000005pP2-1zMz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 07:14:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=ew.tq-group.com; s=default2602; h=Content-Type:MIME-Version:References:
-	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=sXOBfhLAVLwn3podSYtFoxvOp/Tp82jbXxsxprm1FYY=; b=kqbvVj+LJ8cVuOpaDC1veWCJiX
-	uOgYwPvpWyuyPDFv4+YJbFBwS0jG891C6E3kwpzx8sdGs+VaLL+s6k7PhZdkAogmsGsABVa9K0/20
-	Ut/Dc8nUp2lejzvq4pFyffSvu77bBlVW06LQqOlnrFYf6MwTxRYtFiShPNN6wy5Bma/2HoGZDbNIr
-	BiWNWSohIcej2ukS/q8CA/dLqQ5QCM2yGJnLD4ihOW61/wBC360KWv9rLSYbx3nPDuZ+n7PgdISV1
-	AlkLCHcCdsX/2f+6RLkFm+JXxw/o44W30aULjgnm1ZNxn3UDEW6aZcPZzARaTJh9MEfJJWnc7mFNK
-	SKyrN92Q==;
-Received: from sslproxy07.your-server.de ([78.47.199.104])
-	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1wbvKn-000G3R-1b;
-	Tue, 23 Jun 2026 09:14:13 +0200
-Received: from localhost ([127.0.0.1])
-	by sslproxy07.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1wbvKn-000Oj2-1j;
-	Tue, 23 Jun 2026 09:14:12 +0200
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Magnus Damm <magnus.damm@gmail.com>,
- Markus Niebel <Markus.Niebel@ew.tq-group.com>, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux@ew.tq-group.com,
- linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH v5 1/1] arm64: dts: add tqma9596la-mba95xxca
-Date: Tue, 23 Jun 2026 09:14:11 +0200
-Message-ID: <6282261.lOV4Wx5bFT@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <ajVN4nbmOW-D_Ec9@SMW015318>
-References: <20260619112434.1121610-1-alexander.stein@ew.tq-group.com>
- <ajVN4nbmOW-D_Ec9@SMW015318>
+	Tue, 23 Jun 2026 07:26:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=PN
+	4+aDsAu1UBBqtMfoO95odoovyt5n75yyVL3bxa65c=; b=T8lNrf1KZXZqdURLFm
+	zWhHr07bqDcLIKPHr6GPYbZ//EuGN0YCDLNSmn65lBKi4ymejiMPvXba7kv9PBKc
+	dUr0hZ34i4u1HMFUdod4QnKb7XpSZJj1kjRqATMowxk2nkIz+lqCt+UwJpgdC+dh
+	kdEHEiW5KWSr8IggtZruf8J7w=
+Received: from localhost.localdomain (unknown [])
+	by gzsmtp4 (Coremail) with SMTP id PygvCgCHrrHvNDpqB1a6Dg--.16039S2;
+	Tue, 23 Jun 2026 15:25:36 +0800 (CST)
+From: Haoxiang Li <haoxiang_li2024@163.com>
+To: paul@pwsan.com,
+	aaro.koskinen@iki.fi,
+	andreas@kemnade.info,
+	khilman@baylibre.com,
+	rogerq@kernel.org,
+	tony@atomide.com,
+	linux@armlinux.org.uk
+Cc: linux-omap@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Haoxiang Li <haoxiang_li2024@163.com>,
+	stable@vger.kernel.org
+Subject: [PATCH] ARM: OMAP2+: Fix a reference leak bug in omap_hwmod_fix_mpu_rt_idx()
+Date: Tue, 23 Jun 2026 15:25:34 +0800
+Message-Id: <20260623072534.1997680-1-haoxiang_li2024@163.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="nextPart5113499.31r3eYUQgx";
- micalg="pgp-sha512"; protocol="application/pgp-signature"
-X-Virus-Scanned: Clear (ClamAV 1.4.3/28039/Mon Jun 22 08:24:57 2026)
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: PygvCgCHrrHvNDpqB1a6Dg--.16039S2
+X-Coremail-Antispam: 1Uf129KBjvdXoWrur4fKF47Zw13AFW3tw4fXwb_yoWDCrX_Ww
+	s2gw1kWr4rtF409w45Aanxursayw1xGrW3Ar18tFsFkrW3WF1Iyryvv3s3AFyDXF4xKrZr
+	Zr4Iyr1Y9342gjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7sRNWrWUUUUUU==
+X-Originating-IP: [240e:604:311:e68d:298a:1bbc:177b:53c8]
+X-CM-SenderInfo: xkdr5xpdqjszblsqjki6rwjhhfrp/xtbCxRBy4Go6NPBPIAAA38
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_001421_589902_05CE607D 
-X-CRM114-Status: GOOD (  27.40  )
+X-CRM114-CacheID: sfid-20260623_002635_869923_7950271F 
+X-CRM114-Status: UNSURE (   9.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,156 +80,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---nextPart5113499.31r3eYUQgx
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"; protected-headers="v1"
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Frank Li <Frank.li@oss.nxp.com>
-Subject: Re: [PATCH v5 1/1] arm64: dts: add tqma9596la-mba95xxca
-Date: Tue, 23 Jun 2026 09:14:11 +0200
-Message-ID: <6282261.lOV4Wx5bFT@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <ajVN4nbmOW-D_Ec9@SMW015318>
-MIME-Version: 1.0
+omap_hwmod_fix_mpu_rt_idx() gets the first child node with
+of_get_next_child(), which returns a node with its reference count
+incremented. The function uses the child node to translate the MPU
+runtime register resource, but never drops the reference afterwards.
 
-Am Freitag, 19. Juni 2026, 16:10:42 CEST schrieb Frank Li:
-> On Fri, Jun 19, 2026 at 01:24:30PM +0200, Alexander Stein wrote:
-> > From: Markus Niebel <Markus.Niebel@ew.tq-group.com>
-> >
-> > This adds support for TQMa95xxLA modules, designed to be soldered
-> > on a carrier board. MBa95xxCA is a carrier reference board / starter kit
-> > design.
-> >
-> > There is a common device tree for all variants with e.g. reduced
-> > CPU core / feature count.
-> >
-> > Enable the external accessible PCIe controllers as host,
-> > add clocking and reset GPIO. While at it, add hogs for GPIO
-> > lines from the M.2 slots until M.2 connector driver is available.
-> >
-> > Signed-off-by: Markus Niebel <Markus.Niebel@ew.tq-group.com>
-> > Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-> > ---
-> > Changes in v5:
-> > * Limit LPSPI4 max frequency
-> > * Replace PCIe M2 Key-E GPIO hogs with dedicated connector node
-> > * Fix PCIe clock configuration
-> >
-> > Changes in v4:
-> > * Fix LPSPI4 pad muxing and control
-> >
-> > Changes in v3:
-> > * Moved reserved-memory to board-lebel
-> > * Remove VPU reserved memory (unused for now)
-> > * Fix typo in connector comment
-> >
-> > Changes in v2:
-> > * removed useless regulator
-> > * added USB PD source configuration
-> > * Removed unused uart-has-rtscts properties (unused by LPUART)
-> > * Fixed RTS/CTS pullups in pinctrl
-> > * Added thermalzone on module
-> >
-> >  arch/arm64/boot/dts/freescale/Makefile        |   1 +
-> >  .../freescale/imx95-tqma9596la-mba95xxca.dts  | 963 ++++++++++++++++++
-> >  .../boot/dts/freescale/imx95-tqma9596la.dtsi  | 278 +++++
-> >  3 files changed, 1242 insertions(+)
-> >  create mode 100644 arch/arm64/boot/dts/freescale/imx95-tqma9596la-mba9=
-5xxca.dts
-> >  create mode 100644 arch/arm64/boot/dts/freescale/imx95-tqma9596la.dtsi
-> >
-> > diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/d=
-ts/freescale/Makefile
-> > index 8ddaab127ab9c..43e1dc51b11d7 100644
-> > --- a/arch/arm64/boot/dts/freescale/Makefile
-> > +++ b/arch/arm64/boot/dts/freescale/Makefile
-> > @@ -649,6 +649,7 @@ dtb-$(CONFIG_ARCH_MXC) +=3D imx95-19x19-frdm-pro.dtb
-> >  dtb-$(CONFIG_ARCH_MXC) +=3D imx95-aquila-clover.dtb
-> >  dtb-$(CONFIG_ARCH_MXC) +=3D imx95-aquila-dev.dtb
-> >  dtb-$(CONFIG_ARCH_MXC) +=3D imx95-toradex-smarc-dev.dtb
-> > +dtb-$(CONFIG_ARCH_MXC) +=3D imx95-tqma9596la-mba95xxca.dtb
-> >  dtb-$(CONFIG_ARCH_MXC) +=3D imx95-tqma9596sa-mb-smarc-2.dtb
-> >  dtb-$(CONFIG_ARCH_MXC) +=3D imx95-var-dart-sonata.dtb
-> >  dtb-$(CONFIG_ARCH_MXC) +=3D imx95-verdin-nonwifi-dahlia.dtb
-> ...
-> > +
-> > +	ptn5110: usb-typec@50 {
-> > +		compatible =3D "nxp,ptn5110", "tcpci";
-> > +		reg =3D <0x50>;
-> > +		pinctrl-names =3D "default";
-> > +		pinctrl-0 =3D <&pinctrl_typec>;
-> > +		interrupt-parent =3D <&gpio2>;
-> > +		interrupts =3D <28 IRQ_TYPE_LEVEL_LOW>;
-> > +
-> > +		typec_con: connector {
-> > +			compatible =3D "usb-c-connector";
-> > +			label =3D "X9";
-> > +			power-role =3D "source";
-> > +			data-role =3D "dual";
-> > +			source-pdos =3D <PDO_FIXED(5000, 500, PDO_FIXED_USB_COMM)>;
-> > +			self-powered;
-> > +
-> > +			port {
-> > +				typec_con_hs: endpoint {
-> > +					remote-endpoint =3D <&typec_hs>;
-> > +				};
-> > +			};
-> > +		};
-> > +	};
-> > +
-> > +	sensor_mb: temperature-sensor@1e {
->=20
-> please order by hex address value
+Add the missing of_node_put() after of_address_to_resource().
 
-Ah, thanks for the catch.
+Fixes: 1dbcb97c656e ("ARM: OMAP2+: Fix module address for modules using mpu_rt_idx")
+Cc: stable@vger.kernel.org
+Signed-off-by: Haoxiang Li <haoxiang_li2024@163.com>
+---
+ arch/arm/mach-omap2/omap_hwmod.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-> > +		compatible =3D "nxp,se97b", "jedec,jc-42.4-temp";
-> > +		reg =3D <0x1e>;
-> > +	};
-> > +
-> ...
-> > +		m2-keye-dev_bt-wake-hog {
-> > +			gpio-hog;
-> > +			gpios =3D <4 GPIO_ACTIVE_LOW>;
-> > +			input;
-> > +			line-name =3D "M2_KEYE_DEV_BT_WAKE#";
-> > +		};
->=20
-> Now Key E connector already be upstreamed.
->=20
-> Documentation/devicetree/bindings/connector/pcie-m2-e-connector.yaml,
-> which already define these gpios.
-
-Thanks for the hint. But these two wake signals are vendor specific
-pins 40 and 42 on key-e. In this case these are for the default module
-JODY-W3 module.
-
-Thanks and best regards,
-Alexander
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
---nextPart5113499.31r3eYUQgx
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part.
-Content-Transfer-Encoding: 7Bit
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEByESxqszIvkmWRwbaS+g2M0Z/iUFAmo6MkMACgkQaS+g2M0Z
-/iUfDwf/dfqfx6vWvg+eg95x3/68BAFVAkno24HK2jry2c+5CUtsfK7L9wGzymTY
-ZlDGHpZ6VUjgAb2CBnnWa7ZlqadCIGcpEkEIWgIxzw8ACqyeyZdc1S4Fx73ltWGR
-DpXLmvnqVWCHNtOUbUhSeaWL+ZLkYtkZFX5RRilB2jwuKKlw4TUlk9Rykm8rIln6
-VaI9B3LgoF5mGwZmbspj0my+CT/GRX+EbkgbSh0XR53EnsJBf2zT7xedWW/21ojS
-dGPGWQOQyH1LGuF4lYEyFxFGtA3jdyqrod1vj9FR+o/6mLCoTRL7Ox7LusidQot/
-ByET8EIgzKA0t9Nn5mRc9YUZW/d8ww==
-=QyRP
------END PGP SIGNATURE-----
-
---nextPart5113499.31r3eYUQgx--
-
-
+diff --git a/arch/arm/mach-omap2/omap_hwmod.c b/arch/arm/mach-omap2/omap_hwmod.c
+index 974107ff18b4..1d7677ca3802 100644
+--- a/arch/arm/mach-omap2/omap_hwmod.c
++++ b/arch/arm/mach-omap2/omap_hwmod.c
+@@ -2176,6 +2176,7 @@ static void omap_hwmod_fix_mpu_rt_idx(struct omap_hwmod *oh,
+ 	if (error)
+ 		pr_err("%s: error mapping mpu_rt_idx: %i\n",
+ 		       __func__, error);
++	of_node_put(child);
+ }
+ 
+ /**
+-- 
+2.25.1
 
 
