@@ -4,60 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1EB8CD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 10:07:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1A30CDB46F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 10:09:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bOQaM4cvAE5UnPx8CcCrUCIg+9KFXbBy462/uQ6g8D8=; b=MSJT2n7Fo2ugGbZ3mZiRvmQ+ks
-	PW7UcwePkPlpm4StcBxZxngkvvDOyTRVlZnFcOM4uss6p+vRn+i6cWaZphToR8gehFTBmKGeHtslZ
-	bN4Kj68dnOUtL3OUvn3CGVTrt8Swml1RE8fC/x2Qvjg4h/39b8RaaN2l5v57nNs3D61ye1263Svfh
-	7AB9kAJYmFxVp7CvgbEeeSOefXE1lkEa3DLQfUNMW8XkFva2bPM5NlvMk7s6RpGJ2KG9Hg2RW+m+d
-	2eOF9edXQLJbeT6fKJZlxjKUumJqZ0uVmCjxcCc9/5DyM/46r0lgMy9yCfWW9IpTprkkhigBtBtd3
-	Sd4eeBeg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=osWb8VPpirSTRgDBWbtKsZxOcarD8TaWy2PYjaB8LLg=; b=I9MFkN3Q5FjC8JxOpwdsiUHogs
+	Js2TQbBpDWzUcQcoYWpQJR6J015uVh8ZCELXgYugDL7hVYTjrjlFtGYsmRPAvPA9Qrk9l4zmxoQwp
+	xbpD1Vajzgruget1WHkay2wC3JxOidKVixjPRYReh4CZevczdEgDEpuVuHPWa2LEfXimLtqqhMKFk
+	KEbWY1Z8VKlmICMh/3yR074Mt5qPfGX8etynBYr1sQbkxN3CD1GrCcTqx9QsLA+vYRuUWzbM0Zhx/
+	7xXBIPpnXxdTilaipRRU3wf1Heg8986C0LZw3KFJH71MIVCoL0alRoGDH5HZzY7YzbCWGPYQ6UqRC
+	nu6upG5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wby2a-000000063ms-0QlD;
-	Tue, 23 Jun 2026 10:07:36 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1wby4W-000000063xN-2JmI;
+	Tue, 23 Jun 2026 10:09:36 +0000
+Received: from mgamail.intel.com ([198.175.65.10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wby2W-000000063mQ-1g13
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 10:07:34 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1wby2D-0002tm-Be; Tue, 23 Jun 2026 12:07:13 +0200
-Message-ID: <39a5d53d-2eb9-4f72-aca9-95def11edf25@pengutronix.de>
-Date: Tue, 23 Jun 2026 12:07:11 +0200
+	id 1wby4T-000000063wo-3OLs;
+	Tue, 23 Jun 2026 10:09:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1782209374; x=1813745374;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=xv4r6u0rAfI0XXJ7Y3S0NT2YfyY0CONMP/ImwPkH8bw=;
+  b=iXalQzkY0cXapvobAqgPXti24h3js13Q8qAjccWfZXJ+atDxfIl6uRr9
+   JUh6rlKF8Xs9reLfmpxb7HydGoygfBgFEiX/gLAF5N+4WlaCAd9LU3ciS
+   jPvbjUgMvNnEJTLVUfs0OWENKbkiz1OgPYVDEqQuoZC0v6SZVfjTFIoP8
+   /eIyQANaCzQkcpivpbOjzwDb2bOYN18e+iJYkq0Q67Qgf+wPL2+xU/1yG
+   JIT3DJg9QLRImQCfttockVmcotktlLMhqYkXhb7N82i+rvPz6ML5kSxOH
+   aKh2WxANOzAQlH888ET4kov0JstOu+GhxeFY3pWurNI5ES/y3x7itiOtn
+   A==;
+X-CSE-ConnectionGUID: 03vEpxKqTlCeFP7sTII19Q==
+X-CSE-MsgGUID: 4GKr2iCZTJujHsFdssLmXw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11825"; a="100376404"
+X-IronPort-AV: E=Sophos;i="6.24,220,1774335600"; 
+   d="scan'208";a="100376404"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jun 2026 03:09:33 -0700
+X-CSE-ConnectionGUID: fO295pNvSEiHBZM9FO5beA==
+X-CSE-MsgGUID: +viiu0Y0Q+aDKjP2Rb+XuA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.24,220,1774335600"; 
+   d="scan'208";a="251411103"
+Received: from klitkey1-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.7])
+  by fmviesa004-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jun 2026 03:09:26 -0700
+Date: Tue, 23 Jun 2026 13:09:24 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Frank.Li@oss.nxp.com
+Cc: Daniel Scally <djrscally@gmail.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Dafna Hirschfeld <dafna@fastmail.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+	Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+	Loic Poulain <loic.poulain@oss.qualcomm.com>,
+	driver-core@lists.linux.dev, linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	imx@lists.linux.dev, Guoniu Zhou <guoniu.zhou@nxp.com>,
+	Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH 1/4] device property: Introduce
+ fwnode_graph_for_each_endpoint_scoped()
+Message-ID: <ajpbVCGGKchNa2rd@ashevche-desk.local>
+References: <20260622-fw_scoped-v1-0-a37d0aac0a68@nxp.com>
+ <20260622-fw_scoped-v1-1-a37d0aac0a68@nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] usb: dwc3: imx8mp: make dwc3_imx_glue_ops static and
- rename to imx8mp
-To: Ben Dooks <ben.dooks@codethink.co.uk>,
- Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Frank Li
- <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, linux-usb@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260623100554.735080-1-ben.dooks@codethink.co.uk>
-Content-Language: en-US, de-DE, de-BE
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-In-Reply-To: <20260623100554.735080-1-ben.dooks@codethink.co.uk>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260622-fw_scoped-v1-1-a37d0aac0a68@nxp.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_030732_468588_3386276A 
-X-CRM114-Status: GOOD (  22.63  )
+X-CRM114-CacheID: sfid-20260623_030933_887634_9FE97BCD 
+X-CRM114-Status: GOOD (  15.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,55 +103,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 6/23/26 12:05 PM, Ben Dooks wrote:
-> The dwc3_imx_glue_ops is not used outside this file, and technically this
-> is the dwc3-imx8mp driver so whilst making this static to avoid the
-> following warning, rename it dwc3_imx8mp_glue_ops to distinguish it from
-> the other driver which also has dwc3_imx_glue_ops.
+On Mon, Jun 22, 2026 at 10:30:11AM -0400, Frank.Li@oss.nxp.com wrote:
+> From: Frank Li <Frank.Li@nxp.com>
 > 
-> Fixes:
-> drivers/usb/dwc3/dwc3-imx8mp.c:176:22: warning: symbol 'dwc3_imx_glue_ops' was not declared. Should it be static?
+> Similar to recently propose for_each_child_of_node_scoped() this new
+> version of the loop macro instantiates a new local struct fwnode_handle *
+> that uses the __free(fwnode_handle) auto cleanup handling so that if a
+> reference to a node is held on early exit from the loop the reference will
+> be released. If the loop runs to completion, the child pointer will be NULL
+> and no action will be taken.
 > 
-> Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
-> ---
->  drivers/usb/dwc3/dwc3-imx8mp.c | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/usb/dwc3/dwc3-imx8mp.c b/drivers/usb/dwc3/dwc3-imx8mp.c
-> index 1cf96540b66e..bc61a89b66b1 100644
-> --- a/drivers/usb/dwc3/dwc3-imx8mp.c
-> +++ b/drivers/usb/dwc3/dwc3-imx8mp.c
-> @@ -173,8 +173,8 @@ static void dwc3_imx_pre_set_role(struct dwc3 *dwc, enum usb_role role)
->  		pm_runtime_use_autosuspend(dwc->dev);
->  }
->  
-> -struct dwc3_glue_ops dwc3_imx_glue_ops = {
-> -	.pre_set_role   = dwc3_imx_pre_set_role,
-> +statc struct dwc3_glue_ops dwc3_imx8mp_glue_ops = {
+> The reason this is useful is that it removes the need for
+> fwnode_handle_put() on early loop exits.  If there is a need to retain the
 
-Typo
+Just be consistent with 1-space versus 2-spaces gaps in the same text.
 
+> reference, then return_ptr(child) or no_free_ptr(child) may be used to
+> safely disable the auto cleanup.
 
-> +	.pre_set_role   = dwc3_imx8mp_pre_set_role,
->  };
->  
->  static int dwc3_imx8mp_probe(struct platform_device *pdev)
-> @@ -266,7 +266,7 @@ static int dwc3_imx8mp_probe(struct platform_device *pdev)
->  		goto put_dwc3;
->  	}
->  
-> -	dwc3->glue_ops = &dwc3_imx_glue_ops;
-> +	dwc3->glue_ops = &dwc3_imx8mp_glue_ops;
->  
->  	if (dwc3->dr_mode == USB_DR_MODE_HOST)
->  		pm_runtime_dont_use_autosuspend(dwc3->dev);
+No objections from me.
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+See one nit-pick below.
+
+But you will need driver core maintainers to Ack this.
+
+...
+
+> +#define fwnode_graph_for_each_endpoint_scoped(fwnode, child)			\
+> +	for (struct fwnode_handle *child __free(fwnode_handle) =		\
+> +			fwnode_graph_get_next_endpoint(fwnode, NULL);		\
+
+You should follow the existing style, the 'f' in fwnode should be under 'u' in
+struct.
+
+> +	     child; child = fwnode_graph_get_next_endpoint(fwnode, child))
 
 -- 
-Pengutronix e.K.                  |                             |
-Steuerwalder Str. 21              | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany         | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686  | Fax:   +49-5121-206917-5555 |
+With Best Regards,
+Andy Shevchenko
+
 
 
