@@ -4,61 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C987CDB471
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 20:33:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D705CDB480
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 20:35:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ouMHGOvMc2V/MonYeZTIKoTCZTr7oOqL3Hc354KdZOA=; b=3W9z2TtP6mRCQfabK2al27koX+
-	5Nu+fAh3FBHXOfes65yyUExp9F4MzwiaDjwL49g88HeOTWXX7ovzp8CNSfOkk9KezrsKwwoGd6c2L
-	mFLPr0rss79Z+q6RvU1gj/ZyBWyce3vOF2oTij6tQgtbNa0J9Wb9ANGBVaWsCyKF8VV4twXEqyUe4
-	wOl9RIPnIq4MXQ1MGL3oVeFqZ6o9ArnzjddWgKsAR95QAM6v9L33H7kdKbBPfyBG48qKPBAEIPC8f
-	5TUDDVLEOOSp08JoomeP4smuNpLKH0QAQG4wPQ0ovYGD57T5hf8Fb+ugOCOsqLNXZ0XG+lOA07G6g
-	uItEc3uw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5t3Yym7TNcn23mBBw6H+IPIGFaMcwRdXEZmNa7/R0B4=; b=yrLEiTGOzVCMb1GmNbxHNtM9O/
+	cdOPwXjv6j02HEEzFZmEqG8OOjuEF1qFECv+h9gNGI4IPMqU2XYvkF7Ky7wSrM97/yj31d37bsCzN
+	UDuz5SOe9p5yiGgxXJQ9bNAgcVbxxlhjEX7jDvdvxaF4t0RXN7J6L0J90TnlwqMlbB5V3anvIH9T/
+	KkIIzj538iBXTz7d4D+gYlx0duY1IHNCQiE/5X7BMDACUPfOec4si3hgFsGPWnHGJ3Pz+DjSLLD47
+	o4zB5YyA0hxvE7hTqe/AZO/je4zTISTUUv5wXs2yGsZU1IZlA3qD++sHn03vD7r5TMczcyEo4xxh2
+	cAwDlHGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc7no-00000006qqm-2ffj;
-	Tue, 23 Jun 2026 20:33:00 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wc7pi-00000006r1n-431s;
+	Tue, 23 Jun 2026 20:34:58 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc7nm-00000006qqb-3bVb;
-	Tue, 23 Jun 2026 20:32:58 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id F067D60018;
-	Tue, 23 Jun 2026 20:32:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26EC01F000E9;
-	Tue, 23 Jun 2026 20:32:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782246777;
-	bh=ouMHGOvMc2V/MonYeZTIKoTCZTr7oOqL3Hc354KdZOA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=N/gAeghPXWBeOOzXW3MobOa/tkuES83zcd5MWcmhYfJrT45375eKspP20DNt/fq+8
-	 9r79BBM2GV4GzdQofzhjudn6HhXfuQvX5WjygacOE1QINuHJT2cYaF9pZJRIsonKDz
-	 TUpJU7hgm173+LuAaAtv6KYXU3z7P+CKf9XcQVsMtBN+PQpMNv3IBeBJ29gw3lJNyg
-	 2+flqG/6SkILKa5URY89XXiVg3A+8Fq7StR+5quae5c6Col4I1Dbu7DwDtgRaIck5W
-	 TT1aZ7Rz9tno+F1irbgeS+e5TXTiaTyP49sj5KFBL0E9qmjnVMhZbZSCPTLhXhqElp
-	 sPPjTrLCOrpGA==
-Date: Tue, 23 Jun 2026 22:32:55 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Simon Horman <horms@kernel.org>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, leto.liu@airoha.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	brown.huang@airoha.com
-Subject: Re: [PATCH net v2] net: airoha: Add retry mechanism to
- airoha_qdma_set_trtcm_param()
-Message-ID: <ajrtd5WA2GFzQyV9@lore-desk>
-References: <20260622-airoha_qdma_set_trtcm_param-retry-fix-v2-1-95a83ac99dbd@kernel.org>
- <20260623105341.1076863-3-horms@kernel.org>
+	id 1wc7pf-00000006r1N-31Jw
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 23 Jun 2026 20:34:57 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-490ace40f4bso2923255e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 13:34:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782246894; x=1782851694; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=5t3Yym7TNcn23mBBw6H+IPIGFaMcwRdXEZmNa7/R0B4=;
+        b=HaMY6q/XHK718v4wVZ91DmA+f7kUcZ97OKXx3lKi0wVmYJHo+uQs0DSlBBFnz+ah2D
+         NGl5wkETpYkjbw8OW9/dP+PvM/zFYEGgjD7Tth7BeRKLjN5AhXKVcwxVthvfxAzQe/lO
+         PBNWrcbOKBO9osU8xc00u86nCnDwmwbM0pEybSrKZ034Kk2h1FF7VtnHWvhbq2lcEO3H
+         xdUD5MuJfivjsFOfzaIVEniJBJITrt8eS4rSnp8SDfiaUJzrdkQSBFlBNZjVHjTMTvK2
+         ROsjQVlq/kqImfji1DebkyDXlcWKDXtP6jxkY2TA5Ku8nr06arP5QffGF6/sPJu+FLtL
+         aPMQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782246894; x=1782851694;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=5t3Yym7TNcn23mBBw6H+IPIGFaMcwRdXEZmNa7/R0B4=;
+        b=Z3Rlrgt2SEctP/9U0Jc6O3ItJUzaXITCEDgM70LiOAvD94wXPzjmRhUflwdlrdP7wj
+         dd7OfYiggBx5gwlsCIwenwwnL6Ww65OUTV4IX1OvTZIi5y5cjcz2GZ6LktLf7uMEqLo6
+         QQTlB7zn+1JjgDB14ApPqJHpqlA7Ii4xeBmaBEDibRTI9g4MqapdR4b1JFpwWG70xqQj
+         P3EfnTKtm8jj4xO58muS4qcMJwcw8S/mFAdur1rvsWu/UXJ4IySdWGjQoaIdLkthauOs
+         eKXOxZQG/QZpspcbHskgZF3UImhpZBg9C0E/yLOWs3+mL19xHTqKbGLGY48NGTfrIBlF
+         pqFg==
+X-Forwarded-Encrypted: i=1; AFNElJ+tK3XY81upKlFyCIAcU6k1NE40PtpLOKCwWZknjTA29e8NjBp4cCATRD3GnDKmtFG2kC2MhwZWt99Z8tm1sgVp@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxm//GhtcYBPcGTUchWwGFtYwpzXSOVX72Bk/0IE8GUvNZ70n3I
+	HrJf4LPh0KlZmAJhD9OZ+kUvAUhSHqNaztFvtx+f98n6s49QR0lVmCMr
+X-Gm-Gg: AfdE7clBozsTkkTx7LeLQtaGpwd3BV1FuRMJXujhvA1FT6eGhjqQ1kyjFGEyLJt1N68
+	CYbXqHKTKFtkhR5D87RtI/1pn4iS9Vx4AKuh6iKOOzfYzEeyOwxd+StrWCgWmZi2hIZeRSfx5zc
+	6CfOuInO+W57vHyaSMa8BTqv6sBm8So/RJiWlkrNw1ABBoQBS44AIOqg+qgHxcEl22xJS5DEM3f
+	P80DA8NHfI7Ghdzwov98mcWPcGytwEcpVfe1WGiKZloJRpo9u4Oqbn8Xli9ODtsYXowMLcHrdtH
+	CAREZspPxQmgtVWoGM10KpocUydxIh/1vwZ5163IIbJht2jBf8c69jdXovYBcYMRUz82nH4rx3a
+	qwkStBr6vRw78vgzViV1TXh3aOZ+LjTqvmxlKFPrXPuh2KYUOt1AN3N8GBYwfX8H26bv/ky+q/F
+	IQVrt//27ZbM2WOlHcdyf4
+X-Received: by 2002:a05:600c:34c2:b0:492:465a:7e5b with SMTP id 5b1f17b1804b1-4926087371bmr2714075e9.22.1782246893690;
+        Tue, 23 Jun 2026 13:34:53 -0700 (PDT)
+Received: from [127.0.0.2] ([194.35.121.133])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4923fd154fdsm374613865e9.1.2026.06.23.13.34.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 23 Jun 2026 13:34:53 -0700 (PDT)
+From: Diogo Silva <diogompaissilva@gmail.com>
+Date: Tue, 23 Jun 2026 22:34:40 +0200
+Subject: [PATCH] drm/sun4i: Remove dependency on DRM simple helpers
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="UkOWUaq6LIU/PkBM"
-Content-Disposition: inline
-In-Reply-To: <20260623105341.1076863-3-horms@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260623-sun4i_simple-v1-1-fa6696df1fad@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAN/tOmoC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDMyNj3eLSPJPM+OLM3IKcVF0j02QzCwsL01RjU0sloJaCotS0zAqwcdG
+ xtbUAyL0mhF4AAAA=
+X-Change-ID: 20260623-sun4i_simple-25c68885e359
+To: Chen-Yu Tsai <wens@kernel.org>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>
+Cc: dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Diogo Silva <diogompaissilva@gmail.com>
+X-Mailer: b4 0.14.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260623_133455_836291_476C28A1 
+X-CRM114-Status: GOOD (  14.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,192 +106,252 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Simple KMS helper are deprecated since they only add an intermediate
+layer between drivers and the atomic modesetting.
+This patch removes the dependency on drm simple helpers from sun4i
+DRM drivers.
 
---UkOWUaq6LIU/PkBM
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Signed-off-by: Diogo Silva <diogompaissilva@gmail.com>
+---
+ drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c |  9 ++++++---
+ drivers/gpu/drm/sun4i/sun4i_lvds.c     | 10 +++++++---
+ drivers/gpu/drm/sun4i/sun4i_rgb.c      | 10 +++++++---
+ drivers/gpu/drm/sun4i/sun4i_tv.c       | 10 +++++++---
+ drivers/gpu/drm/sun4i/sun6i_mipi_dsi.c | 10 +++++++---
+ drivers/gpu/drm/sun4i/sun8i_dw_hdmi.c  |  8 ++++++--
+ 6 files changed, 40 insertions(+), 17 deletions(-)
 
-On Jun 23, Simon Horman wrote:
-> This is an AI-generated review of your patch. The human sending this
-> email has considered the AI review valid, or at least plausible.
-> Full review at: https://sashiko.dev
->=20
-> Simon says: I'd appreciate it if you could look over the first two issues
->             flagged below in the context of this patch. While the third
-> 	    and final issue looks like it is in possible separate follow-up
-> 	    territory.
->=20
-> ---
-> net: airoha: Add retry mechanism to airoha_qdma_set_trtcm_param()
->    =20
-> This patch introduces a retry loop to airoha_qdma_set_trtcm_param() to mi=
-tigate
-> bus timeouts when configuring QDMA parameters. It attempts to verify that=
- the
-> configuration is correctly applied to the hardware.
->=20
-> > diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/eth=
-ernet/airoha/airoha_eth.c
-> > index 3370c3df7c107..bb5c0599a4eed 100644
-> > --- a/drivers/net/ethernet/airoha/airoha_eth.c
-> > +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-> > @@ -2673,14 +2673,30 @@ static int airoha_qdma_set_trtcm_param(struct a=
-iroha_qdma *qdma, int channel,
-> >  		     FIELD_PREP(TRTCM_METER_GROUP_MASK, group) |
-> >  		     FIELD_PREP(TRTCM_PARAM_INDEX_MASK, idx) |
-> >  		     FIELD_PREP(TRTCM_PARAM_RATE_TYPE_MASK, mode);
-> > +	int i;
-> > =20
-> > -	airoha_qdma_wr(qdma, REG_TRTCM_DATA_LOW(addr), val);
-> > -	airoha_qdma_wr(qdma, REG_TRTCM_CFG_PARAM(addr), config);
-> > +	for (i =3D 0; i < 100; i++) {
-> > +		u32 data;
-> > =20
-> > -	return read_poll_timeout(airoha_qdma_rr, val,
-> > -				 val & TRTCM_PARAM_RW_DONE_MASK,
-> > -				 USEC_PER_MSEC, 10 * USEC_PER_MSEC, true,
-> > -				 qdma, REG_TRTCM_CFG_PARAM(addr));
-> > +		airoha_qdma_wr(qdma, REG_TRTCM_DATA_LOW(addr), val);
-> > +		wmb();
-> > +		airoha_qdma_wr(qdma, REG_TRTCM_CFG_PARAM(addr), config);
-> > +
-> > +		if (read_poll_timeout(airoha_qdma_rr, data,
-> > +				      data & TRTCM_PARAM_RW_DONE_MASK,
-> > +				      USEC_PER_MSEC, 10 * USEC_PER_MSEC,
-> > +				      true, qdma, REG_TRTCM_CFG_PARAM(addr)))
-> > +			return -ETIMEDOUT;
->=20
-> [Severity: High]
-> If a bus timeout causes the write phase's read_poll_timeout() in
-> airoha_qdma_set_trtcm_param() to fail, this immediately returns -ETIMEDOU=
-T,
-> aborting the 100-iteration retry loop.
->=20
-> Doesn't this defeat the mitigation?
+diff --git a/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c b/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c
+index 8f64464621c9..e99f52ebb26f 100644
+--- a/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c
++++ b/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c
+@@ -24,7 +24,6 @@
+ #include <drm/drm_panel.h>
+ #include <drm/drm_print.h>
+ #include <drm/drm_probe_helper.h>
+-#include <drm/drm_simple_kms_helper.h>
+ 
+ #include <drm/display/drm_hdmi_helper.h>
+ #include <drm/display/drm_hdmi_state_helper.h>
+@@ -172,6 +171,10 @@ static void sun4i_hdmi_enable(struct drm_encoder *encoder,
+ 	writel(val, hdmi->base + SUN4I_HDMI_VID_CTRL_REG);
+ }
+ 
++static const struct drm_encoder_funcs sun4i_hdmi_funcs = {
++	.destroy = drm_encoder_cleanup,
++};
++
+ static const struct drm_encoder_helper_funcs sun4i_hdmi_helper_funcs = {
+ 	.atomic_disable	= sun4i_hdmi_disable,
+ 	.atomic_enable	= sun4i_hdmi_enable,
+@@ -624,8 +627,8 @@ static int sun4i_hdmi_bind(struct device *dev, struct device *master,
+ 
+ 	drm_encoder_helper_add(&hdmi->encoder,
+ 			       &sun4i_hdmi_helper_funcs);
+-	ret = drm_simple_encoder_init(drm, &hdmi->encoder,
+-				      DRM_MODE_ENCODER_TMDS);
++	ret = drm_encoder_init(drm, &hdmi->encoder, &sun4i_hdmi_funcs,
++			       DRM_MODE_ENCODER_TMDS, NULL);
+ 	if (ret) {
+ 		dev_err(dev, "Couldn't initialise the HDMI encoder\n");
+ 		goto err_put_ddc_i2c;
+diff --git a/drivers/gpu/drm/sun4i/sun4i_lvds.c b/drivers/gpu/drm/sun4i/sun4i_lvds.c
+index 6716e895ae8a..35a3f987c37a 100644
+--- a/drivers/gpu/drm/sun4i/sun4i_lvds.c
++++ b/drivers/gpu/drm/sun4i/sun4i_lvds.c
+@@ -8,11 +8,11 @@
+ 
+ #include <drm/drm_atomic_helper.h>
+ #include <drm/drm_bridge.h>
++#include <drm/drm_encoder.h>
+ #include <drm/drm_of.h>
+ #include <drm/drm_panel.h>
+ #include <drm/drm_print.h>
+ #include <drm/drm_probe_helper.h>
+-#include <drm/drm_simple_kms_helper.h>
+ 
+ #include "sun4i_crtc.h"
+ #include "sun4i_tcon.h"
+@@ -89,6 +89,10 @@ static void sun4i_lvds_encoder_disable(struct drm_encoder *encoder)
+ 	}
+ }
+ 
++static const struct drm_encoder_funcs sun4i_lvds_enc_funcs = {
++	.destroy = drm_encoder_cleanup,
++};
++
+ static const struct drm_encoder_helper_funcs sun4i_lvds_enc_helper_funcs = {
+ 	.disable	= sun4i_lvds_encoder_disable,
+ 	.enable		= sun4i_lvds_encoder_enable,
+@@ -115,8 +119,8 @@ int sun4i_lvds_init(struct drm_device *drm, struct sun4i_tcon *tcon)
+ 
+ 	drm_encoder_helper_add(&lvds->encoder,
+ 			       &sun4i_lvds_enc_helper_funcs);
+-	ret = drm_simple_encoder_init(drm, &lvds->encoder,
+-				      DRM_MODE_ENCODER_LVDS);
++	ret = drm_encoder_init(drm, &lvds->encoder, &sun4i_lvds_enc_funcs,
++			       DRM_MODE_ENCODER_LVDS, NULL);
+ 	if (ret) {
+ 		dev_err(drm->dev, "Couldn't initialise the lvds encoder\n");
+ 		goto err_out;
+diff --git a/drivers/gpu/drm/sun4i/sun4i_rgb.c b/drivers/gpu/drm/sun4i/sun4i_rgb.c
+index dfb6acc42f02..9c3fbf1b949e 100644
+--- a/drivers/gpu/drm/sun4i/sun4i_rgb.c
++++ b/drivers/gpu/drm/sun4i/sun4i_rgb.c
+@@ -10,11 +10,11 @@
+ 
+ #include <drm/drm_atomic_helper.h>
+ #include <drm/drm_bridge.h>
++#include <drm/drm_encoder.h>
+ #include <drm/drm_of.h>
+ #include <drm/drm_panel.h>
+ #include <drm/drm_print.h>
+ #include <drm/drm_probe_helper.h>
+-#include <drm/drm_simple_kms_helper.h>
+ 
+ #include "sun4i_crtc.h"
+ #include "sun4i_tcon.h"
+@@ -180,6 +180,10 @@ static void sun4i_rgb_encoder_disable(struct drm_encoder *encoder)
+ 	}
+ }
+ 
++static const struct drm_encoder_funcs sun4i_rgb_enc_funcs = {
++	.destroy = drm_encoder_cleanup,
++};
++
+ static const struct drm_encoder_helper_funcs sun4i_rgb_enc_helper_funcs = {
+ 	.disable	= sun4i_rgb_encoder_disable,
+ 	.enable		= sun4i_rgb_encoder_enable,
+@@ -207,8 +211,8 @@ int sun4i_rgb_init(struct drm_device *drm, struct sun4i_tcon *tcon)
+ 
+ 	drm_encoder_helper_add(&rgb->encoder,
+ 			       &sun4i_rgb_enc_helper_funcs);
+-	ret = drm_simple_encoder_init(drm, &rgb->encoder,
+-				      DRM_MODE_ENCODER_NONE);
++	ret = drm_encoder_init(drm, &rgb->encoder, &sun4i_rgb_enc_funcs,
++			       DRM_MODE_ENCODER_NONE, NULL);
+ 	if (ret) {
+ 		dev_err(drm->dev, "Couldn't initialise the rgb encoder\n");
+ 		goto err_out;
+diff --git a/drivers/gpu/drm/sun4i/sun4i_tv.c b/drivers/gpu/drm/sun4i/sun4i_tv.c
+index 814b77f278f6..ce22f1662c0c 100644
+--- a/drivers/gpu/drm/sun4i/sun4i_tv.c
++++ b/drivers/gpu/drm/sun4i/sun4i_tv.c
+@@ -16,11 +16,11 @@
+ 
+ #include <drm/drm_atomic.h>
+ #include <drm/drm_atomic_helper.h>
++#include <drm/drm_encoder.h>
+ #include <drm/drm_of.h>
+ #include <drm/drm_panel.h>
+ #include <drm/drm_print.h>
+ #include <drm/drm_probe_helper.h>
+-#include <drm/drm_simple_kms_helper.h>
+ 
+ #include "sun4i_crtc.h"
+ #include "sun4i_drv.h"
+@@ -391,6 +391,10 @@ static void sun4i_tv_enable(struct drm_encoder *encoder,
+ 			   SUN4I_TVE_EN_ENABLE);
+ }
+ 
++static const struct drm_encoder_funcs sun4i_tv_funcs = {
++	.destroy = drm_encoder_cleanup,
++};
++
+ static const struct drm_encoder_helper_funcs sun4i_tv_helper_funcs = {
+ 	.atomic_disable	= sun4i_tv_disable,
+ 	.atomic_enable	= sun4i_tv_enable,
+@@ -474,8 +478,8 @@ static int sun4i_tv_bind(struct device *dev, struct device *master,
+ 
+ 	drm_encoder_helper_add(&tv->encoder,
+ 			       &sun4i_tv_helper_funcs);
+-	ret = drm_simple_encoder_init(drm, &tv->encoder,
+-				      DRM_MODE_ENCODER_TVDAC);
++	ret = drm_encoder_init(drm, &tv->encoder, &sun4i_tv_funcs,
++			       DRM_MODE_ENCODER_TVDAC, NULL);
+ 	if (ret) {
+ 		dev_err(dev, "Couldn't initialise the TV encoder\n");
+ 		goto err_disable_clk;
+diff --git a/drivers/gpu/drm/sun4i/sun6i_mipi_dsi.c b/drivers/gpu/drm/sun4i/sun6i_mipi_dsi.c
+index c35b70d83e53..f0c9f0e573d2 100644
+--- a/drivers/gpu/drm/sun4i/sun6i_mipi_dsi.c
++++ b/drivers/gpu/drm/sun4i/sun6i_mipi_dsi.c
+@@ -20,11 +20,11 @@
+ #include <linux/slab.h>
+ 
+ #include <drm/drm_atomic_helper.h>
++#include <drm/drm_encoder.h>
+ #include <drm/drm_mipi_dsi.h>
+ #include <drm/drm_panel.h>
+ #include <drm/drm_print.h>
+ #include <drm/drm_probe_helper.h>
+-#include <drm/drm_simple_kms_helper.h>
+ 
+ #include "sun4i_crtc.h"
+ #include "sun4i_tcon.h"
+@@ -842,6 +842,10 @@ static const struct drm_connector_funcs sun6i_dsi_connector_funcs = {
+ 	.atomic_destroy_state	= drm_atomic_helper_connector_destroy_state,
+ };
+ 
++static const struct drm_encoder_funcs sun6i_dsi_enc_funcs = {
++	.destroy = drm_encoder_cleanup,
++};
++
+ static const struct drm_encoder_helper_funcs sun6i_dsi_enc_helper_funcs = {
+ 	.disable	= sun6i_dsi_encoder_disable,
+ 	.enable		= sun6i_dsi_encoder_enable,
+@@ -1056,8 +1060,8 @@ static int sun6i_dsi_bind(struct device *dev, struct device *master,
+ 
+ 	drm_encoder_helper_add(&dsi->encoder,
+ 			       &sun6i_dsi_enc_helper_funcs);
+-	ret = drm_simple_encoder_init(drm, &dsi->encoder,
+-				      DRM_MODE_ENCODER_DSI);
++	ret = drm_encoder_init(drm, &dsi->encoder, &sun6i_dsi_enc_funcs,
++			       DRM_MODE_ENCODER_DSI, NULL);
+ 	if (ret) {
+ 		dev_err(dsi->dev, "Couldn't initialise the DSI encoder\n");
+ 		return ret;
+diff --git a/drivers/gpu/drm/sun4i/sun8i_dw_hdmi.c b/drivers/gpu/drm/sun4i/sun8i_dw_hdmi.c
+index 96532709c2a7..9694ad142a7d 100644
+--- a/drivers/gpu/drm/sun4i/sun8i_dw_hdmi.c
++++ b/drivers/gpu/drm/sun4i/sun8i_dw_hdmi.c
+@@ -9,8 +9,8 @@
+ #include <linux/platform_device.h>
+ 
+ #include <drm/drm_modeset_helper_vtables.h>
++#include <drm/drm_encoder.h>
+ #include <drm/drm_of.h>
+-#include <drm/drm_simple_kms_helper.h>
+ 
+ #include "sun8i_dw_hdmi.h"
+ #include "sun8i_tcon_top.h"
+@@ -23,6 +23,9 @@ static void sun8i_dw_hdmi_encoder_mode_set(struct drm_encoder *encoder,
+ 
+ 	clk_set_rate(hdmi->clk_tmds, mode->crtc_clock * 1000);
+ }
++static const struct drm_encoder_funcs sun8i_dw_hdmi_encoder_funcs = {
++	.destroy = drm_encoder_cleanup,
++};
+ 
+ static const struct drm_encoder_helper_funcs
+ sun8i_dw_hdmi_encoder_helper_funcs = {
+@@ -180,7 +183,8 @@ static int sun8i_dw_hdmi_bind(struct device *dev, struct device *master,
+ 		goto err_disable_clk_tmds;
+ 
+ 	drm_encoder_helper_add(encoder, &sun8i_dw_hdmi_encoder_helper_funcs);
+-	drm_simple_encoder_init(drm, encoder, DRM_MODE_ENCODER_TMDS);
++	drm_encoder_init(drm, encoder, &sun8i_dw_hdmi_encoder_funcs,
++			 DRM_MODE_ENCODER_TMDS, NULL);
+ 
+ 	plat_data->mode_valid = hdmi->quirks->mode_valid;
+ 	plat_data->use_drm_infoframe = hdmi->quirks->use_drm_infoframe;
 
-I agree we just run 'continue' here instead of returing -ETIMEDOUT
+---
+base-commit: e2a6e04d045a56c6dc61e1eb9e2a6d7cf86512cd
+change-id: 20260623-sun4i_simple-25c68885e359
 
->=20
-> > +
-> > +		if (airoha_qdma_get_trtcm_param(qdma, channel, addr, param,
-> > +						mode, &data, NULL))
-> > +			continue;
->=20
-> [Severity: High]
-> If airoha_qdma_get_trtcm_param() times out during the verification phase,=
- it
-> indicates the hardware hasn't finished the read command (DONE bit is stil=
-l 0).
->=20
-> The continue statement then immediately starts the next iteration, writin=
-g new
-> commands to DATA_LOW and CFG_PARAM.
->=20
-> Can writing to command registers while the hardware state machine is acti=
-vely
-> busy violate hardware protocols and lead to unrecoverable lockups?
+Best regards,
+-- 
+Diogo Silva <diogompaissilva@gmail.com>
 
-@Brown and @Leto: can you please comment on this case?
-
->=20
-> > +
-> > +		if (data =3D=3D val)
-> > +			return 0;
->=20
-> [Severity: High]
-> This isn't a bug introduced by this patch, but if the bus drops the comma=
-nd
-> write to REG_TRTCM_CFG_PARAM, the hardware never executes the command and=
- the
-> TRTCM_PARAM_RW_DONE_MASK bit remains set from the previous operation.
->=20
-> Consequently, read_poll_timeout() returns an immediate false success.
->=20
-> If both the set and get command writes are dropped by the bus, the get
-> operation will read back the newly written DATA_LOW register value.
->=20
-> Will the data =3D=3D val check evaluate to true and falsely report succes=
-s without
-> the hardware ever processing the configuration?
-
-This seems quite a 'pathological' scenario, is it really an issue?
-
-Regards,
-Lorenzo
-
->=20
-> > +	}
-> > +
-> > +	return -EBUSY;
-> >  }
-> > =20
->=20
-> [ ... ]
->=20
-> >  static int airoha_qdma_set_trtcm_config(struct airoha_qdma *qdma, int =
-channel,
-> >  					u32 addr, enum trtcm_mode_type mode,
-> >  					bool enable, u32 enable_mask)
-> >  {
-> >  	u32 val;
-> > =20
-> >  	if (airoha_qdma_get_trtcm_param(qdma, channel, addr, TRTCM_MISC_MODE,
-> >  					mode, &val, NULL))
-> >  		return -EINVAL;
->=20
-> [Severity: High]
-> Standalone calls to airoha_qdma_get_trtcm_param(), like this one in
-> airoha_qdma_set_trtcm_config(), lack a retry loop entirely.
->=20
-> Does this leave read-modify-write cycles fully vulnerable to the same bus
-> timeouts the patch attempts to mitigate?
->=20
-> [Severity: High]
-> This isn't a bug introduced by this patch, but the patch mitigates bus
-> timeouts in airoha_qdma_set_trtcm_param() while entirely missing
-> airoha_qdma_set_rl_param().
->=20
-> The latter performs the exact same write-and-poll sequence on identical Q=
-DMA
-> configuration registers:
->=20
-> drivers/net/ethernet/airoha/airoha_eth.c:airoha_qdma_set_rl_param() {
->     ...
->     return read_poll_timeout(..., val & RATE_LIMIT_PARAM_RW_DONE_MASK, ..=
-=2E);
-> }
->=20
-> If bus timeouts affect QDMA access broadly as stated in the commit messag=
-e, are
-> the rate-limiting configuration paths randomly vulnerable to the same fai=
-lures?
->=20
-> [Severity: High]
-> This isn't a bug introduced by this patch, but in airoha_tc_remove_htb_qu=
-eue(),
-> hardware teardown incorrectly uses queue + 1 instead of queue:
->=20
-> drivers/net/ethernet/airoha/airoha_eth.c:airoha_tc_remove_htb_queue() {
->     ...
->     airoha_qdma_set_tx_rate_limit(netdev, queue + 1, 0, 0);
->     ...
-> }
->=20
-> Does this leave the removed queue's hardware limits permanently active
-> (resource leak) and inadvertently disable the rate limits for queue + 1,
-> corrupting the QoS state of another active channel?
-
---UkOWUaq6LIU/PkBM
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCajrtdwAKCRA6cBh0uS2t
-rOA7AQCVwcnGTvgsBMt3sEm3xy+Xm0d3pO8aN3W5C9mTe6BnwAD/YJ+REZqwrvs3
-BpaC9wSWuXEuVLVX0mq5PSr7zq6ucQQ=
-=Z/ww
------END PGP SIGNATURE-----
-
---UkOWUaq6LIU/PkBM--
 
