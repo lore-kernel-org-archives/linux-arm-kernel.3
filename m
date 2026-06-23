@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59478CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 17:26:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51991CDB470
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 17:28:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n0OabhRPaKb8ZtVjW0dZ5Ep+A9j/jCXntRyyMO7DeCg=; b=jwCUx4x6N3rFyZZ+igYwLWQkQ5
-	pMVT8oY2mxwYLnEpe6E2cpk6HcKns9PfTZng2L4J5gWnOIeM0Ow6Jc2zrcZ5BMYWiPV3q6PT31yui
-	oeH67CA5qoWLZEQSvNN6XDQ69NlFegnGcZ55Iu/IoWuzO8xyI2fRLunoQO/J3Y0uRgbybO3WGSGlJ
-	UwACLJWIludtV0mqw4IBKgbwgatk7QBZtFlrxVaEdFWGfATXF8gL7FazobIPjRMM18RI86BMh8+Dw
-	u24LL+vlIR1jwJCMBZbbiQEf2vrl3311+G+AGoxJ6PbVypPWlLLF3V+MCT5UMa24s7GUVV1+rbtct
-	nN2HRzRQ==;
+	bh=y17qniJxNNgKnaPXUfFps2+zoxLFn1xLNpne1RKDvqM=; b=GoztFy1GXytK2ZWkUM/f/+n3FW
+	tWA4nL/8pXDcy+5J+1PqgDISxZUK9FLq5k3IuPD2gdPSHoNxcmrR0mQWLf6kBBFB/rwmdKzZD/IpN
+	vN/I/P74DT77ecSN6iF6jXMrfHjclANV28Q7UzNrn68mm7bmyzqtlxize5yWP0Hw43FbFQuUltp3q
+	GcZYdvhvZmItAo+mv1WuqY+28SlBgFVF1c66S+ecHATmjncr8Os8LhN6A1gWdxaMdhu7C50MzdTVN
+	3QvblJFmxL3K0V6qysv5MZa2A6JGPeWZBeGZuBm1q44ZyMi0crF2TVGq9YoCT4vG3R3W/HCvFkcJU
+	Yq9/g7kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc4ta-00000006hUI-42aW;
-	Tue, 23 Jun 2026 17:26:46 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wc4v3-00000006had-0ZHM;
+	Tue, 23 Jun 2026 17:28:17 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc4tZ-00000006hUC-37jH
+	id 1wc4v2-00000006haX-1PpP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 17:26:45 +0000
+	Tue, 23 Jun 2026 17:28:16 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 38300429EC;
-	Tue, 23 Jun 2026 17:26:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2E441F000E9;
-	Tue, 23 Jun 2026 17:26:41 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7EBDB60210;
+	Tue, 23 Jun 2026 17:28:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18E661F000E9;
+	Tue, 23 Jun 2026 17:28:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782235605;
-	bh=n0OabhRPaKb8ZtVjW0dZ5Ep+A9j/jCXntRyyMO7DeCg=;
+	s=k20260515; t=1782235695;
+	bh=y17qniJxNNgKnaPXUfFps2+zoxLFn1xLNpne1RKDvqM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=RotgOa4Nm+9+wWbya9PzPZu80TPtMmKQw3Ui0AbTe1Plw2UPSJtnyTGmyxBx8aznh
-	 4t3ZDIexYyM/VGwZEzX7d8VLmp17AImurWuIb0LGjdY/4JT4cU1l5bakML3JuBxLBx
-	 wcIogjysKhSxCeL1bHMgMtEdLbaZhy9umzw7/He+nrmR63d531dKFP58qghuhe4Oss
-	 NPDehHsd+rvmgI69mBbESvL7sK+sJmszYiDPur2xfOH828T3uYAwc5UZf3aN0OHQDt
-	 MotKIK39Vpdq7iSbBxlMX5oOWAO5ITAJUNJTWTsgacDBnHPavKcD/PmUFuaV3N10EI
-	 acaI2aPflr+5w==
-Date: Tue, 23 Jun 2026 18:26:39 +0100
+	b=ZRkqcBor+AahiKUsM/BTHq2kLO+CzRWW5qGI+Op6SxDpPFuBOy1fefA7BLPrFAh9E
+	 VhRZ7tPjSZR/590akyAx9uu772aw9ilWdJC5y6nLiDhOfOMp3v446/AbVlMtFoB+eY
+	 YAW1924NnJkMFT3dm3eiLX43AGoR9A5/u3iG0vLkAEqrNBUIGl7v4L8dWwUkykgV9S
+	 rwUkpdkcXxHB2HZgPRlMJQEoBkVEtweyeLgXmDzWHIxXaPLsvIKkYalzsdVXZsERsI
+	 E3nKG74IFJrUub/e1f2MyZMaE7QbIISnmpN2s9pWnzBeEF40S7YLHIkRBpzU6Gymvz
+	 PQGCbqoT94q0Q==
+Date: Tue, 23 Jun 2026 18:28:10 +0100
 From: Conor Dooley <conor@kernel.org>
 To: Varshini Rajendran <varshini.rajendran@microchip.com>
 Cc: ehristev@kernel.org, jic23@kernel.org, dlechner@baylibre.com,
@@ -51,18 +51,17 @@ Cc: ehristev@kernel.org, jic23@kernel.org, dlechner@baylibre.com,
 	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
 	claudiu.beznea@tuxon.dev, srini@kernel.org,
 	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH v2 01/12] dt-bindings: iio: adc: at91-sama5d2: document
- sama7d65
-Message-ID: <20260623-swiftness-catering-6884c3a58715@spud>
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 04/12] dt-bindings: nvmem: microchip,sama7g5-otpc: add
+ sama7d65 and dt node example
+Message-ID: <20260623-profanity-devotion-b501a11e1539@spud>
 References: <20260623105944.128840-1-varshini.rajendran@microchip.com>
- <20260623105944.128840-2-varshini.rajendran@microchip.com>
+ <20260623105944.128840-5-varshini.rajendran@microchip.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="bWWrdvlOUOdbawuY"
+	protocol="application/pgp-signature"; boundary="AlyPrU4+HCxj3Al1"
 Content-Disposition: inline
-In-Reply-To: <20260623105944.128840-2-varshini.rajendran@microchip.com>
+In-Reply-To: <20260623105944.128840-5-varshini.rajendran@microchip.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,55 +77,91 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---bWWrdvlOUOdbawuY
+--AlyPrU4+HCxj3Al1
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Tue, Jun 23, 2026 at 04:29:33PM +0530, Varshini Rajendran wrote:
-> Add dt-binding documentation for sama7d65 ADC.
-
-Commit message is missing an explanation of why a fallback is not
-suitable.
-pw-bot: changes-requested
-
-Thanks,
-Conor
-
+On Tue, Jun 23, 2026 at 04:29:36PM +0530, Varshini Rajendran wrote:
+> Add support for sama7d65 and a dt node example that shows tag can be used
+> to reference a packet stored in the OTP memory.
 >=20
 > Signed-off-by: Varshini Rajendran <varshini.rajendran@microchip.com>
-> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 > ---
->  Documentation/devicetree/bindings/iio/adc/atmel,sama5d2-adc.yaml | 1 +
->  1 file changed, 1 insertion(+)
+>  .../nvmem/microchip,sama7g5-otpc.yaml         | 28 +++++++++++++++++--
+>  1 file changed, 25 insertions(+), 3 deletions(-)
 >=20
-> diff --git a/Documentation/devicetree/bindings/iio/adc/atmel,sama5d2-adc.=
-yaml b/Documentation/devicetree/bindings/iio/adc/atmel,sama5d2-adc.yaml
-> index 4817b840977a..e8a65fdcd018 100644
-> --- a/Documentation/devicetree/bindings/iio/adc/atmel,sama5d2-adc.yaml
-> +++ b/Documentation/devicetree/bindings/iio/adc/atmel,sama5d2-adc.yaml
-> @@ -15,6 +15,7 @@ properties:
->        - atmel,sama5d2-adc
->        - microchip,sam9x60-adc
->        - microchip,sama7g5-adc
-> +      - microchip,sama7d65-adc
+> diff --git a/Documentation/devicetree/bindings/nvmem/microchip,sama7g5-ot=
+pc.yaml b/Documentation/devicetree/bindings/nvmem/microchip,sama7g5-otpc.ya=
+ml
+> index cc25f2927682..3cc16b0044a6 100644
+> --- a/Documentation/devicetree/bindings/nvmem/microchip,sama7g5-otpc.yaml
+> +++ b/Documentation/devicetree/bindings/nvmem/microchip,sama7g5-otpc.yaml
+> @@ -20,9 +20,15 @@ allOf:
+> =20
+>  properties:
+>    compatible:
+> -    items:
+> -      - const: microchip,sama7g5-otpc
+> -      - const: syscon
+> +    oneOf:
+> +      - items:
+> +          - const: microchip,sama7g5-otpc
+> +          - const: syscon
+> +      - items:
+> +          - enum:
+> +              - microchip,sama7d65-otpc
+> +          - const: microchip,sama7g5-otpc
+> +          - const: syscon
 > =20
 >    reg:
 >      maxItems: 1
+> @@ -48,4 +54,20 @@ examples:
+>          };
+>      };
+> =20
+> +  - |
+> +    otp_controller: efuse@e8c00000 {
+
+Drop the unused label since you have to respin the series.
+With it gone
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
+
+Cheers,
+Conor.
+
+> +        compatible =3D "microchip,sama7d65-otpc", "microchip,sama7g5-otp=
+c", "syscon";
+> +        reg =3D <0xe8c00000 0x100>;
+> +
+> +        nvmem-layout {
+> +            compatible =3D "fixed-layout";
+> +            #address-cells =3D <1>;
+> +            #size-cells =3D <1>;
+> +
+> +            temp_calib: calib@41435354 {
+> +                reg =3D <0x41435354 0x2c>;    /* Temp calib data packet =
+TAG */
+> +            };
+> +        };
+> +    };
+> +
+>  ...
 > --=20
 > 2.34.1
 >=20
 
---bWWrdvlOUOdbawuY
+--AlyPrU4+HCxj3Al1
 Content-Type: application/pgp-signature; name=signature.asc
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCajrBywAKCRB4tDGHoIJi
-0jM6AQDUdgx+Qm+a5ugJzb/Gn79+XAaFjUqEMNYBMSFtptCA6gEAj82jix8YsxqH
-fgYFWhFEg5ve5yF6iKFTwp5ik+Oj8AM=
-=HOgm
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCajrCKgAKCRB4tDGHoIJi
+0jBvAQDNKMDgUwrE0sGqDYdHwfUjnzJV5jbM+1YipRyP5t495wEAsGlK4mgvg9QD
++u0hTlC+4W8hAMDoW8PXtHnc2j9cNwQ=
+=WG7b
 -----END PGP SIGNATURE-----
 
---bWWrdvlOUOdbawuY--
+--AlyPrU4+HCxj3Al1--
 
