@@ -4,59 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDEABCDB471
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 20:10:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEF27CDB471
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 20:11:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8TrQZE9vH39dIRDw32V4DNDUUodeQOx70heLgohi/mA=; b=3B0Zvytabqhs+7z3M1taZ9F8B5
-	yTNFtbQcjQglrAcylNMRdgSCsf/FEw3+xxlGkZdOcbpMQnq6vO3pItvSUobjWI+3O4WNQTyI3gXMQ
-	+kdjG32WiPc00zd0YXgmacp+UPJXPSwpEGVvo8ONUiGEslyVcTm+U1qMIA2zQmt/A2WUQFr53nyth
-	T6rXIs73qs8ecpyOlswMLtBSx4WYH23AG9DETR3xB5Uk60HSklgvJlzggXLyYRRGCwTJ2S47OgRX1
-	PapqIqfSm3l85vrR+4i/WaMgzazByjkZgW90/DOBCqT/E3RKzU724m93YmXaWHMYrDAkZ/FOI8UF2
-	gjJy4A6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=t9AA00HARo6TTOGKX0Hmf8exd0jNlIDDEh7Vt3olSGA=; b=h23LyUL9Eq6mWZCbQBVz8qa5ry
+	CBoK8ELYojFPEXLtNuYTC6FLgIsOidBcKQaIns8BPd82j86xGO3n1GeKWJI36M8T6KXoW6aMkhC6K
+	95oyUjRV0SXNczoTJO3nVnEC8XnzMd3cv8qAezxaLBYUi2lRfZqAPbv98ZhZDcv2tAnRxqlSJJvzU
+	WsxQVHdxs9Xzq7Je+9ro4YhtqGM94xFBCjmuhketwWvl/U8V1DR2f5ZTdg2A3aHwJ9hBS53oH/0sR
+	WCOZaxBLnKPUu36hqvfX8XFNnk2E2n3IKPZFt6Q/dpgYGzYRRDuZsEemAjf7PeFxsp4iNx04nUn48
+	yifQ0oAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc7Ru-00000006pA5-3PgL;
-	Tue, 23 Jun 2026 20:10:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wc7TJ-00000006pH1-0JNu;
+	Tue, 23 Jun 2026 20:11:49 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc7Rt-00000006p9x-1tZD
+	id 1wc7TG-00000006pGK-30gs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 20:10:21 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 99CF760008;
-	Tue, 23 Jun 2026 20:10:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC1071F000E9;
-	Tue, 23 Jun 2026 20:10:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782245420;
-	bh=8TrQZE9vH39dIRDw32V4DNDUUodeQOx70heLgohi/mA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=asEztcvPQ0Qf1LSCraHYg3M2kMxixqmxcDmg7KxK4v9lajXjJ7NiSl+hkqIlYTIqF
-	 QuNpna1+Hpu92/DLFRuk5Fc/Y8fRH4s5Yy1v+n6GLoDgEjycRjTrPiCwJqbTRrWM6z
-	 h8O3pSBLK7EE+rdh0OgE3Wm0J8Ca7iLPnaQX4zVGtnf9nkbKpFkyo5oF3SdCvSGVaO
-	 /a0owvNBzJ6tOB1esP/TbrU0HrTDVDidVJNdOz09qbt1nw5BHBgjOrEhRZv9wZCU/k
-	 1NjfCzKtHhlREKUcVXwgGX41rxC4GJdUwv2SiXbuij/Fn4Iy0980+aKiVwGtQy3a0Y
-	 XYuP7M3bcNMqQ==
-Date: Tue, 23 Jun 2026 22:10:16 +0200
-From: Andi Shyti <andi.shyti@kernel.org>
-To: "Carlos Song (OSS)" <carlos.song@oss.nxp.com>
-Cc: o.rempel@pengutronix.de, kernel@pengutronix.de, s.hauer@pengutronix.de, 
-	festevam@gmail.com, carlos.song@nxp.com, haibo.chen@nxp.com, 
-	linux-i2c@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH v5] i2c: imx: mark I2C adapter when hardware is powered
- down
-Message-ID: <ajrn2kvH_MelCv4Q@zenone.zhora.eu>
-References: <20260525030400.3182911-1-carlos.song@oss.nxp.com>
+	Tue, 23 Jun 2026 20:11:47 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-37dd266c32eso268036a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 13:11:45 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1782245505; cv=none;
+        d=google.com; s=arc-20240605;
+        b=N0IONWH5Ge9ufaQjM4F3uUiSuEOF2F0c/NTYNFoVR7EWzef5hb08uoUaohkHdwYeNr
+         fy4jFx/dHrSnYgBwd1A3nJmOJgFK21GIZI/P0cg+PeSYQS92O6XJmIYeLvI2vSCOy+t9
+         4ZKMpHC80G9RWRYbImvF7l9UuWMLT84wNhdsmnsR06IaeqTaoyXs910oUQbMf+85cegM
+         QbfSDJYiwD46LWjELMmioae0Qk4gXkSRI5TbmJg1cOfREETwiEXkVEHFGMvF/7lHR6Yb
+         /w8tkPLxtdRPW4TqsFeLVS2fN+YCLioyX4QEm8+2NeL0K15tCdnUmQFc6QlsGiWJC4PD
+         z5MQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=t9AA00HARo6TTOGKX0Hmf8exd0jNlIDDEh7Vt3olSGA=;
+        fh=RrpL1geK9Om08Z0rqIFNJPExaf1iZyWuD86IvX5N9GM=;
+        b=fAFK0XBZSekOXrF3PnSN/Q1kR1HqsmZ7nfrOfczAJo7KSHXGoOOiHU+upg4I7vMU40
+         aDeENCScUq+Y0monLtRJo1MTt0HAHfPmSqnQeN3F3W0DtsG7EnXzJdPqGbmfcXQURaYY
+         SrhXMGzrbolMcY+CKBM+1B4QV8MOnL+5bVbriV0prQbikKDOj0gWH9Y0wXLMIDvCzvcD
+         n9Nhma1oK8yAygDRuRRDvYHHsc9oFNe9EEzDwcvgpM7RoohpeID/1ZDV9nrzqW7G0tLa
+         A5Ro77PkGQuLBpXUGK1nQg/fJf8Pro8Tejr2mRL8KqrUPdEmfpcbOhUiijjzO+tGdN65
+         I+GA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlemail.com; s=20251104; t=1782245505; x=1782850305; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=t9AA00HARo6TTOGKX0Hmf8exd0jNlIDDEh7Vt3olSGA=;
+        b=YEfSuNbwoUevmjLyt7Vr2+Sh6MhrQ/5vN9urd4FUcXBiRG8pAJINKSySAibmmHPWCT
+         /F1izNBQqKyV1PWiz/dejlrs5yZzH6DJpjiB6WZexZpZ9tc9GLpTpDW4phf12HsotrLf
+         8PYUrDZReeaDA3S7Uy/POOUvomcX2BDqkDAoacol8fbjIPb1oIDPTFck5klD6aGiL9BX
+         JzaXpnxMGeV9KjWX1j31AH+1cwq2JmM8m45i46R1op/2GMqWOrDIc/v8rQNHUP1TZKyK
+         c2da10JaoC4h7X/G60AUF6RbilXWWJL1JAPMDt4XvtYyCch/bXWJX6lkJOY0DTUZZDA9
+         Hkew==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782245505; x=1782850305;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=t9AA00HARo6TTOGKX0Hmf8exd0jNlIDDEh7Vt3olSGA=;
+        b=ibq/qb6CPzpfU2p1bLsdle7Ytp/eMFSM5OUCChmcMMprGU2kHPysvhUoZCZbPts0Qx
+         czNdzXqH+O5mil44AFAM03ICeDQPMTvv6IFsWCIh790cYcSMCRBRQpqBTNLQYiE1b8uF
+         V1/AqfuG1/NFw8ZGrIWwhLjTSGN8/0UbiwIrVNW7NwUH1t20W0NY6v4AMJYivxlNtl+R
+         BWBZCrNVADNqY/kWrad/KuSW4ec7BsrUN8PWQg33Yza9U6FGL5LLu438F840am+akdfb
+         f2B4Fn6RftrQ62Izf9blnAoop450fyHW7zK28lIeOD5dcKb9y7mpHerEafTOBQYQW9vM
+         8zRw==
+X-Forwarded-Encrypted: i=1; AHgh+RrbYoy4VB4CCYQ0pxA7+q5OsyXsMuhXKDFQt6SP2+35AXm5mpZXt/n+tHYme/EtwpWAT4Rjmi2tqyJ7zqEMvoBa@lists.infradead.org
+X-Gm-Message-State: AOJu0YzqcrsWXM1yzxkVaCIAExp7lwdmgjt4zY0xNpf8IC+UQlgODohf
+	YYsArlltEMACqy3YikX0ork2IsZvwO4TP6PMYtandYhBay8R5L1YNFBfp1MaQZIgK506IXBErpD
+	zkjaWH7bYhagLznKJBbkx7uwRghowjYs=
+X-Gm-Gg: AfdE7clr1un7kZK/AnW5gNlqKsTjKPhl6+7nnQv2OfEbeA6uh+lN7jNFRcOAZs8b4EX
+	42d4S4edSQh2ZrtVt7fjjXz0dSD8/hIk1LVGW0nv2v1oJovM329x7ZOQj6EDfDh9Ihw0LAL/4tC
+	U+aKr2dxhnskZLN6uKmo6fd0Mi+HBQF4kq5tJJksyhanNDB+C7J0RI7xQQ6sDKGxJ7+HPxHastj
+	a6TghWQI2RK0LqPshIuQVb5p7WUaqkdqjwKXifwyzARnJRSWw3ahYYBhT7q4PLh7ulvdEbQDre5
+	Qe7WJDy5pOXEqO+JF22vGJ+5YPMGJg==
+X-Received: by 2002:a17:902:ebd1:b0:2c0:e2ea:6b0c with SMTP id
+ d9443c01a7336-2c7e14bda22mr4283265ad.21.1782245505106; Tue, 23 Jun 2026
+ 13:11:45 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260525030400.3182911-1-carlos.song@oss.nxp.com>
+References: <20260619-drm-no-more-bridge-reset-v3-0-ff399263111b@kernel.org> <20260619-drm-no-more-bridge-reset-v3-54-ff399263111b@kernel.org>
+In-Reply-To: <20260619-drm-no-more-bridge-reset-v3-54-ff399263111b@kernel.org>
+From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Date: Tue, 23 Jun 2026 22:11:33 +0200
+X-Gm-Features: AVVi8Cfq-bHIbRBMSxAeraOZBrOtibTj2Lvi8RI8pWYRXkS8hq20ZIX0g5AznWw
+Message-ID: <CAFBinCDJNGCsyRWS7KeXyHh4Fo0K6NX6sUuwdYRoCRoLn=Cx5Q@mail.gmail.com>
+Subject: Re: [PATCH v3 54/78] drm/meson: encoder_cvbs: Switch to atomic_create_state
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Dmitry Baryshkov <lumag@kernel.org>, 
+	dri-devel@lists.freedesktop.org, Kevin Hilman <khilman@baylibre.com>, 
+	Jerome Brunet <jbrunet@baylibre.com>, linux-amlogic@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260623_131146_794832_C5801F74 
+X-CRM114-Status: GOOD (  10.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,120 +123,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Oleksij,
-
-Any chance you can give this a review?
-
-Thanks,
-Andi
-
-On Mon, May 25, 2026 at 11:04:00AM +0800, Carlos Song (OSS) wrote:
-> From: Carlos Song <carlos.song@nxp.com>
-> 
-> On some i.MX platforms, certain I2C client drivers keep a periodic
-> workqueue which continues to trigger I2C transfers.
-> 
-> During system suspend/resume, there exists a time window between:
->   - suspend_noirq and the system entering suspend
->   - the system starting to resume and resume_noirq
-> 
-> In this window, the I2C controller resources such as clock and pinctrl
-> may already be disabled or not yet restored.
-> 
-> If a workqueue triggers an I2C transfer in this period, the driver
-> attempts to access I2C registers while the hardware resources are
-> unavailable, which may lead to system hang.
-> 
-> Mark the I2C adapter as suspended during noirq suspend and block new
-> transfers until resume, ensuring that I2C transfers are only issued
-> when hardware resources are available.
-> 
-> Fixes: 358025ac091e ("i2c: imx: make controller available until system suspend_noirq() and from resume_noirq()")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Carlos Song <carlos.song@nxp.com>
-> ---
-> Change for v5:
->   - Remake commit log including the issue detail from Mukesh's
->     suggestion.
-> Change for v4:
->   - Restore hrtimer when pm_runtime_force_suspend failed when slave mode
->     enabled.
-> Change for v3:
->   - Add hrtimer_cancel in i2c_imx_suspend_noirq to cancel slave_timer for
->     safe suspend in i2c slave mode.
-> Change for v2:
->   - Call i2c_mark_adapter_suspended() before pm_runtime_force_suspend()
->     to prevent potential deadlock if a transfer is active during suspend.
->   - Roll back with i2c_mark_adapter_resumed() if pm_runtime_force_suspend()
->     fails.
-> ---
->  drivers/i2c/busses/i2c-imx.c | 45 ++++++++++++++++++++++++++++++++++--
->  1 file changed, 43 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
-> index 28313d0fad37..73317ddd5f02 100644
-> --- a/drivers/i2c/busses/i2c-imx.c
-> +++ b/drivers/i2c/busses/i2c-imx.c
-> @@ -1922,6 +1922,47 @@ static int i2c_imx_runtime_resume(struct device *dev)
->  	return 0;
->  }
->  
-> +static int __maybe_unused i2c_imx_suspend_noirq(struct device *dev)
-> +{
-> +	struct imx_i2c_struct *i2c_imx = dev_get_drvdata(dev);
-> +	int ret;
-> +
-> +	i2c_mark_adapter_suspended(&i2c_imx->adapter);
-> +
-> +	/*
-> +	 * Cancel the slave timer before powering down to prevent
-> +	 * i2c_imx_slave_timeout() from accessing hardware registers
-> +	 * while the clock is disabled.
-> +	 */
-> +	hrtimer_cancel(&i2c_imx->slave_timer);
-> +
-> +	ret = pm_runtime_force_suspend(dev);
-> +	if (ret) {
-> +		i2c_mark_adapter_resumed(&i2c_imx->adapter);
-> +		if (i2c_imx->slave) {
-> +			hrtimer_forward_now(&i2c_imx->slave_timer, I2C_IMX_CHECK_DELAY);
-> +			hrtimer_restart(&i2c_imx->slave_timer);
-> +		}
-> +		return ret;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int __maybe_unused i2c_imx_resume_noirq(struct device *dev)
-> +{
-> +	struct imx_i2c_struct *i2c_imx = dev_get_drvdata(dev);
-> +	int ret;
-> +
-> +	ret = pm_runtime_force_resume(dev);
-> +	if (ret)
-> +		return ret;
-> +
-> +	i2c_mark_adapter_resumed(&i2c_imx->adapter);
-> +
-> +	return 0;
-> +}
-> +
->  static int i2c_imx_suspend(struct device *dev)
->  {
->  	/*
-> @@ -1955,8 +1996,8 @@ static int i2c_imx_resume(struct device *dev)
->  }
->  
->  static const struct dev_pm_ops i2c_imx_pm_ops = {
-> -	NOIRQ_SYSTEM_SLEEP_PM_OPS(pm_runtime_force_suspend,
-> -				  pm_runtime_force_resume)
-> +	NOIRQ_SYSTEM_SLEEP_PM_OPS(i2c_imx_suspend_noirq,
-> +				  i2c_imx_resume_noirq)
->  	SYSTEM_SLEEP_PM_OPS(i2c_imx_suspend, i2c_imx_resume)
->  	RUNTIME_PM_OPS(i2c_imx_runtime_suspend, i2c_imx_runtime_resume, NULL)
->  };
-> -- 
-> 2.43.0
-> 
+On Fri, Jun 19, 2026 at 2:27=E2=80=AFPM Maxime Ripard <mripard@kernel.org> =
+wrote:
+>
+> The drm_bridge_funcs.atomic_reset callback and its
+> drm_atomic_helper_bridge_reset() helper are deprecated.
+>
+> Switch to the atomic_create_state callback and its
+> drm_atomic_helper_bridge_create_state() counterpart.
+>
+> Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
+> Signed-off-by: Maxime Ripard <mripard@kernel.org>
+Reviewed-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
 
