@@ -4,92 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5F4ACDB47F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 12:50:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D301CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 13:03:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UKUs6CELJR/1Q1bIKn9jYUW7U/GC0CCNgQj6pM1EaDs=; b=TKCEvbQu7kbq+WHI52MzFwakaz
-	95cLqYyEX6mJU6Rd6SYVC5a5LeC6ZIxGbyj7669qeUVHFfb4VUQavamn072GquhXgUupDXqCKO1YN
-	z1ojaG8iITWCJlJDdYlq/0LYHJ6L6NM+3P/9H0cDiSZU/HN+L+PZyM/rzRiLyE5hpBAvr2LowbcO7
-	LGZXtOHqu8KdL5/b2OJjKLdObjizGuwMmuoRkgN990UI7uegwDiGDbXjyy4W7aybq9NiTP4UrM05k
-	LZSHGbYb1hddrIl0T05QIvRBypSydMCw5/oVhc6lETl9n9Nttc30+acDLYseKyTTvmSGk5kOS2nH2
-	YffuVV7Q==;
+	bh=Ic50QGLcvtZ0vS3i/+z4+DL+suRayRsebfMRMDJCfJw=; b=vQpL6XvVng0hQXqx5KHY+g3nVp
+	E0vsBZCLBPo+GBtk/nClmFnncyBD63GXhRJ4vfm3JexcaL3JX8NqRoEffUqz+BZzHfO8FQNpA5vpc
+	TPU1E0XGN9FzfXHQe9U6hHlOw7uCf1qXFzge/r87JgDIY3qe+3ijCmhExM7WDd5YL9ifo1r6wMZu3
+	Fsu6/apaKI0fH0hj1Qnwy4AaY7D/jPEsQQJJ2+McsL3FEGlybSoAMobKkN5sIDKk6FWT5sDO3Qvz4
+	hVFoeT14epMXuq3SXF0cnulsya9qxpTI0V6TFodYCOoj2pz/p0MfNYhYjFLkE8oyEX0uqEtH7Lulc
+	iQjjsPbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc0aD-00000006Hhp-1vKT;
-	Tue, 23 Jun 2026 12:50:29 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1wc0mL-00000006JAx-2RYG;
+	Tue, 23 Jun 2026 13:03:01 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc0a9-00000006HgB-1Wq1
+	id 1wc0mK-00000006JAn-2mRD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 12:50:26 +0000
-Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-697e96dd8d2so128351a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 05:50:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782219023; x=1782823823; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=UKUs6CELJR/1Q1bIKn9jYUW7U/GC0CCNgQj6pM1EaDs=;
-        b=RoOrK0PoPZtkt2TvDgop1E6muIUvqAdu1M9TcLu2weJToNxtFBeELjvdoi/wIpHKtt
-         djOFIh80Vyn8PVvrvUzNxSytcQAeQGR6zDRXbM7jcZh/e37qTZKr7kX7spZWByoTAPca
-         KjAw+NJ9NSpVGXQDcQ5Ez7k1pCGvLdIHe+rTb7NvHLudZRLfKTjzDyNSuRJ6vod3QUiU
-         OqUWCbLnNMb1Hg7IUxViZroIPxkChASTtr7CzAmyDzJR54stf8BYJxsAT1c1Ff3Qyvh9
-         1HgCWwAzy6wF8UmMBjuZrTBIArQdpZXnQWTQeZXJwcF+fssbkrMzpSKSSpj5PDV/OTbX
-         2H2Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782219023; x=1782823823;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=UKUs6CELJR/1Q1bIKn9jYUW7U/GC0CCNgQj6pM1EaDs=;
-        b=a6YtLovyaT/gu6aPrMUo7G1pkXcS5+Pg2o2LwW0nUITZr7BnWnU/Ad5qW+7TRB2Dj9
-         DGAUcb7qHoqpBIoDmoeidtAd466Ep2D6fQOvpckGjz7tAMuq6i1xMCuFKcOP4eEsu/Pe
-         z1EacC6mC9k+NkvCxYAZ9A2azHb9xAaOqbMzjaTRU5UkSQ4jKNvoH+jpQmNvriCP3Ovd
-         TJ9T1AGxpbLUAFpDKxklRJhGkQk/W3itT8OcHbxGa4IdJPZZN0Sp5Wei2jPvJ2lGCHkg
-         bFXu98X1GKjerdatYTpQzdNmB4c4VzW+ri1NIqivn7W6kqECTG/0GYaUyJxV0l8iP3Zh
-         nMSQ==
-X-Forwarded-Encrypted: i=1; AFNElJ92vmhGuxJiDigCjJ3xlTpJGGB2BSxld8rLDWsOeEskOhNzMJ4oRG0PHHFCv3xucuSjcOmAzdJE+uMaydg7MZ0r@lists.infradead.org
-X-Gm-Message-State: AOJu0YwnGdIXKGqUAu9mgfzoYeTbeJcLiRtZhXACzT4/VTTjsUrxwp/o
-	zyBqtMXqSk9GfJ1CytYzMzc5aEEna47dvdIIZ0+3yZwjuFPmv2a6dCUK
-X-Gm-Gg: AfdE7cmi51S4leU/YcOzeimTBDMDuNVoQTCqoW1WiX9VsVhWcxHnKjHGSHoh5IMFgRL
-	/8ErdhMpkQEEwcEqu+MzgX84Q5WVov3MnPQRFVbFIKSucXMP5mHJfDzRzoEQxiguAD4VgRZ/71O
-	DOoZnZmCZ6oqTrgInewx2vMclPEhQ+m2eWRz8xjX+Fs56FFTcCKO+qEOJe4cVYU+bIdHH4I6GGv
-	u2TuuF6XeDxw34pqrHr1DEboEsaEOPKAvkWwm0bDOb5a1Tj04wxEu8pd71e0UkC7YSREMbVUQ4n
-	IdtrMzqpt+zOd1NpiqZIScNoqOoJZT2p2FgNEyZwOoUSoz/2/n8/FyDK8VLN4Qx46czy5fhffFl
-	+zAf4pa5spRJ4J/Se8cMLkIihXq9vIEmby3nN4l5sw9NzV3REDfuOL20S3VQBI9TUCak0p4YUem
-	wEJwwp4700akk5tYnufy9t
-X-Received: by 2002:a17:907:ec0a:b0:c0f:cbe9:9e7a with SMTP id a640c23a62f3a-c10309ba1acmr182459466b.15.1782219023302;
-        Tue, 23 Jun 2026 05:50:23 -0700 (PDT)
-Received: from [127.0.0.2] ([194.35.121.133])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6977b82fd6fsm5153967a12.2.2026.06.23.05.50.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 23 Jun 2026 05:50:22 -0700 (PDT)
-From: Diogo Silva <diogompaissilva@gmail.com>
-Date: Tue, 23 Jun 2026 14:49:44 +0200
-Subject: [PATCH 2/2] drm/exynos: Add error handling to drm_encoder_init()
+	Tue, 23 Jun 2026 13:03:00 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0EFC441E61;
+	Tue, 23 Jun 2026 13:03:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 530831F000E9;
+	Tue, 23 Jun 2026 13:02:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782219779;
+	bh=Ic50QGLcvtZ0vS3i/+z4+DL+suRayRsebfMRMDJCfJw=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=eN/qzKvqGAInNy/HebvMYGmi9onQQpGC8yfBHiYsfyqh3jKSOK8vTZhQNlkvPADAt
+	 QoTM93ttGyukAb89gMMID+mAn6Il4qrjbbTKjwm5OomWfXwQ2W5501YjmXweN0I/x9
+	 suendL34NNi5wL9csRkkbAmyi5d5NqeMfemdfvntb0jfZ5oT+L41G1v09dqqurUdMy
+	 ONXsMJ+Yo+LU1U0nEDcwDBapF8D1lpKW8rAtFh3HxQBC/xiVVI/MEsimTgGnY3B7Fy
+	 5sU2WmqG5TgrlkZiHtIaNS5PmfoMBVt8Nsg3sh9rff4w5/AKxFxpw9Rl8EkUBAcDYr
+	 PdOOM8QvrJLnw==
+From: Will Deacon <will@kernel.org>
+To: julien.thierry.kdev@gmail.com,
+	maz@kernel.org,
+	oupton@kernel.org,
+	jean-philippe.brucker@arm.com,
+	andre.przywara@arm.com,
+	suzuki.poulose@arm.com,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	Alexandru Elisei <alexandru.elisei@arm.com>
+Cc: catalin.marinas@arm.com,
+	kernel-team@android.com,
+	Will Deacon <will@kernel.org>,
+	seiden@linux.ibm.com
+Subject: Re: [PATCH kvmtool v2 0/7] x86 compilation fixes and arm64 PMU improvements
+Date: Tue, 23 Jun 2026 14:02:41 +0100
+Message-ID: <178221837797.2618973.1411525576893271029.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260618155001.226266-1-alexandru.elisei@arm.com>
+References: <20260618155001.226266-1-alexandru.elisei@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260623-exynos-drm-simple-v1-2-bb52f098b1ee@gmail.com>
-References: <20260623-exynos-drm-simple-v1-0-bb52f098b1ee@gmail.com>
-In-Reply-To: <20260623-exynos-drm-simple-v1-0-bb52f098b1ee@gmail.com>
-To: Jingoo Han <jingoohan1@gmail.com>, Inki Dae <inki.dae@samsung.com>, 
- Seung-Woo Kim <sw0312.kim@samsung.com>, 
- Kyungmin Park <kyungmin.park@samsung.com>, David Airlie <airlied@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>, Krzysztof Kozlowski <krzk@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Diogo Silva <diogompaissilva@gmail.com>
-X-Mailer: b4 0.14.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_055025_432633_7AFAFBC6 
-X-CRM114-Status: GOOD (  15.10  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,113 +80,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Not handling the return code on drm_encoder_init can lead to silent
-failure and/or a drm_encoder_cleanup on a non-initialized encoder.
-This patch adds error handling to the drm_encoder_init calls to prevent
-that from happening.
+On Thu, 18 Jun 2026 16:49:54 +0100, Alexandru Elisei wrote:
+> v1 here [1].
+> 
+> v1 was sent to fix this compilation error:
+> 
+> disk/core.c: In function ‘disk_img_name_parser’:
+> disk/core.c:27:21: error: assignment discards ‘const’ qualifier from pointer target type [-Werror=discarded-qualifiers]
+>    27 |                 sep = strstr(arg, ":");
+>       |                     ^
+> 
+> [...]
 
-Signed-off-by: Diogo Silva <diogompaissilva@gmail.com>
----
- drivers/gpu/drm/exynos/exynos_dp.c       | 6 +++++-
- drivers/gpu/drm/exynos/exynos_drm_dpi.c  | 7 ++++++-
- drivers/gpu/drm/exynos/exynos_drm_dsi.c  | 4 +++-
- drivers/gpu/drm/exynos/exynos_drm_vidi.c | 7 ++++++-
- drivers/gpu/drm/exynos/exynos_hdmi.c     | 7 ++++++-
- 5 files changed, 26 insertions(+), 5 deletions(-)
+Applied to kvmtool (master), thanks!
 
-diff --git a/drivers/gpu/drm/exynos/exynos_dp.c b/drivers/gpu/drm/exynos/exynos_dp.c
-index a2095fb43483..3311674aa32a 100644
---- a/drivers/gpu/drm/exynos/exynos_dp.c
-+++ b/drivers/gpu/drm/exynos/exynos_dp.c
-@@ -99,8 +99,12 @@ static int exynos_dp_bind(struct device *dev, struct device *master, void *data)
- 
- 	dp->drm_dev = drm_dev;
- 
--	drm_encoder_init(drm_dev, encoder, &exynos_dp_encoder_funcs,
-+	ret = drm_encoder_init(drm_dev, encoder, &exynos_dp_encoder_funcs,
- 			 DRM_MODE_ENCODER_TMDS, NULL);
-+	if (ret) {
-+		dev_err(dp->dev, "Failed to initialize encoder\n");
-+		return ret;
-+	}
- 
- 	drm_encoder_helper_add(encoder, &exynos_dp_encoder_helper_funcs);
- 
-diff --git a/drivers/gpu/drm/exynos/exynos_drm_dpi.c b/drivers/gpu/drm/exynos/exynos_drm_dpi.c
-index 4a3d443a15e6..495fcabca0a1 100644
---- a/drivers/gpu/drm/exynos/exynos_drm_dpi.c
-+++ b/drivers/gpu/drm/exynos/exynos_drm_dpi.c
-@@ -198,8 +198,13 @@ int exynos_dpi_bind(struct drm_device *dev, struct drm_encoder *encoder)
- {
- 	int ret;
- 
--	drm_encoder_init(dev, encoder, &exynos_dpi_encoder_funcs,
-+	ret = drm_encoder_init(dev, encoder, &exynos_dpi_encoder_funcs,
- 			 DRM_MODE_ENCODER_TMDS, NULL);
-+	if (ret) {
-+		DRM_DEV_ERROR(encoder_to_dpi(encoder)->dev,
-+			      "failed to create encoder ret = %d\n", ret);
-+		return ret;
-+	}
- 
- 	drm_encoder_helper_add(encoder, &exynos_dpi_encoder_helper_funcs);
- 
-diff --git a/drivers/gpu/drm/exynos/exynos_drm_dsi.c b/drivers/gpu/drm/exynos/exynos_drm_dsi.c
-index 25c438cdc744..73f7c9fe611a 100644
---- a/drivers/gpu/drm/exynos/exynos_drm_dsi.c
-+++ b/drivers/gpu/drm/exynos/exynos_drm_dsi.c
-@@ -83,8 +83,10 @@ static int exynos_dsi_bind(struct device *dev, struct device *master, void *data
- 	struct drm_device *drm_dev = data;
- 	int ret;
- 
--	drm_encoder_init(drm_dev, encoder, &exynos_drm_dsi_encoder_funcs,
-+	ret = drm_encoder_init(drm_dev, encoder, &exynos_drm_dsi_encoder_funcs,
- 			 DRM_MODE_ENCODER_TMDS, NULL);
-+	if (ret)
-+		return ret;
- 
- 	ret = exynos_drm_set_possible_crtcs(encoder, EXYNOS_DISPLAY_TYPE_LCD);
- 	if (ret < 0)
-diff --git a/drivers/gpu/drm/exynos/exynos_drm_vidi.c b/drivers/gpu/drm/exynos/exynos_drm_vidi.c
-index b0f3cfc2a283..a639f2ee4933 100644
---- a/drivers/gpu/drm/exynos/exynos_drm_vidi.c
-+++ b/drivers/gpu/drm/exynos/exynos_drm_vidi.c
-@@ -449,8 +449,13 @@ static int vidi_bind(struct device *dev, struct device *master, void *data)
- 		return PTR_ERR(ctx->crtc);
- 	}
- 
--	drm_encoder_init(drm_dev, encoder, &&exynos_vidi_encoder_funcs,
-+	ret = drm_encoder_init(drm_dev, encoder, &&exynos_vidi_encoder_funcs,
- 			 DRM_MODE_ENCODER_TMDS, NULL);
-+	if (ret) {
-+		DRM_DEV_ERROR(dev, "failed to initialize encoder ret = %d\n",
-+			      ret);
-+		return ret;
-+	}
- 
- 	drm_encoder_helper_add(encoder, &exynos_vidi_encoder_helper_funcs);
- 
-diff --git a/drivers/gpu/drm/exynos/exynos_hdmi.c b/drivers/gpu/drm/exynos/exynos_hdmi.c
-index 26baf5357997..17323c9233ad 100644
---- a/drivers/gpu/drm/exynos/exynos_hdmi.c
-+++ b/drivers/gpu/drm/exynos/exynos_hdmi.c
-@@ -1867,8 +1867,13 @@ static int hdmi_bind(struct device *dev, struct device *master, void *data)
- 
- 	hdata->phy_clk.enable = hdmiphy_clk_enable;
- 
--	drm_encoder_init(drm_dev, encoder, &exynos_hdmi_encoder_funcs,
-+	ret = drm_encoder_init(drm_dev, encoder, &exynos_hdmi_encoder_funcs,
- 			 DRM_MODE_ENCODER_TMDS, NULL);
-+	if (ret) {
-+		DRM_DEV_ERROR(dev, "failed to initialize encoder ret = %d\n",
-+			      ret);
-+		return ret;
-+	}
- 
- 	drm_encoder_helper_add(encoder, &exynos_hdmi_encoder_helper_funcs);
- 
+[1/7] x86: Define bioscall only in 32-bit mode
+      https://git.kernel.org/will/kvmtool/c/4ac426b16525
+[2/7] virtio: Do not modify const strings in virtio_9p_rootdir_parser()
+      https://git.kernel.org/will/kvmtool/c/ddb340d8bcd4
+[3/7] disk/core: Do not modify const strings in disk_img_name_parser()
+      https://git.kernel.org/will/kvmtool/c/63a29eb4e73e
+[4/7] arm64: Initialise the PMU after the GIC
+      https://git.kernel.org/will/kvmtool/c/d4f6367f9a92
+[5/7] util: Set exit status to errno in die_perror()
+      https://git.kernel.org/will/kvmtool/c/6bb2256a59c2
+[6/7] util: Allow die_perror() to take a variable list of argument
+      https://git.kernel.org/will/kvmtool/c/88aeb551e3bc
+[7/7] arm64: Improve KVM_ARM_VCPU_PMU_V3_CTRL diagnostics
+      https://git.kernel.org/will/kvmtool/c/1cf1acf838df
 
+Cheers,
 -- 
-2.51.2
+Will
 
+https://fixes.arm64.dev
+https://next.arm64.dev
+https://will.arm64.dev
 
