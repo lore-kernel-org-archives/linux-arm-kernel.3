@@ -4,65 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84024CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 13:46:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9684CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 13:50:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pu2Ied/2CX8SQgA5iLJzmkqmoH1Ofyj6DGMTiEuzKtk=; b=jF8tY3y8/lpms4FdZ+5RJz/qEG
-	UnH7gQF83vfuDeY1f9znS4AErbouMbTXpnRumNHjhPKp7LknopPWT4qz3gI4mhdbAm8nmedNnRsbX
-	j/4NYw0dnxViQJLZFNK+AdPcLDUhyd32nnOnAZslhWP75T3QCt58ccrCTeWKoVQDa23kYvS5VN1j1
-	XuaX7aCmBL9iEPZhvgJN084kouE4AXevNHgBmghLoBi6zC1stSN1WF7G/0RiQKUpnhVKz/j+2NiFX
-	Xowm5u0A652B/ICSqf99gSfSWQM5Y6IGBYM/Nc5RyX9IeePRvyiLWtemigHiZsbLUGdoJYFPrgn2j
-	sLnUSshA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T5QITE/W9PWMiSnQSEb25byqiClC1qtSsa9UGS2bkgQ=; b=3mIsY3KWSESVHw16S7Zg8uCa1Q
+	DmG59CTHvmzwbb/mrVvSKff/zT3TtEuoa8YLBjADd/gGv5W6xenPZfp5CYEW73KijNlmu1r1pWx30
+	+CHYz87lLshDmwNf0fM6niVVOxLTXaW2HOlo8rp1Ws5gBfLH0fgohKfEE7h2AuDiNzooOSZihSCLc
+	XCwnJsz07K+em6fQX9wpfZQZ2vOGWaGyUPKjb7eNNZcAZRkaHVw5xe6ggn8+vV/nFqkLL5g8d1rM8
+	NDOsxh5GIbsH9zn+Unq9vu0basIeGH1uqqD6arNyXQUTvLFAeIAJzBbDFrfTjseyUCosj4wviT6VF
+	fSbuLe+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc1Sk-00000006MeH-0ObE;
-	Tue, 23 Jun 2026 13:46:50 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wc1We-00000006MzH-2mdn;
+	Tue, 23 Jun 2026 13:50:52 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc1Si-00000006Mdn-36tB
+	id 1wc1Wd-00000006Myo-258v
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 13:46:48 +0000
+	Tue, 23 Jun 2026 13:50:51 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 304F044463;
-	Tue, 23 Jun 2026 13:46:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EEC9F1F00A3A;
-	Tue, 23 Jun 2026 13:46:45 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E909241847;
+	Tue, 23 Jun 2026 13:50:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CAB641F000E9;
+	Tue, 23 Jun 2026 13:50:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782222408;
-	bh=Pu2Ied/2CX8SQgA5iLJzmkqmoH1Ofyj6DGMTiEuzKtk=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=BJtSQEfy3Gu7zg/q9oaOcRXAGcamTpvFq2eDls6gPhz7Q1UeOlxNau7vAroxmoiVC
-	 2h38LMXY1+tASVwkce2X53+8m8qGHAZaMD36aC8ZyUaMvJecZ+fypGZ2pGjZ8sgKZT
-	 Qgmmx6J3GEul2RlijjfNI7cFlO4MiBsgU1qKVusoR8D8xBGq87bAACfIvBHGmJE/5U
-	 bEFxKFNz2JHaSuxVqMYKxxV5/7xOw2qcBysNVO7npaxeXaN3irtDKCwDr09mjflx9E
-	 drS0t2rW4ZXK6EdfFHAxhAH2w3sh8pMGb+tgCaBufwQDh3auA7B+Sd6ZmbhVlqTaHq
-	 FynCXUquWWaPQ==
-From: Will Deacon <will@kernel.org>
-To: linux-arm-kernel@lists.infradead.org,
-	Will Deacon <will@kernel.org>
-Cc: catalin.marinas@arm.com,
-	kernel-team@android.com,
-	Arnd Bergmann <arnd@arndb.de>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	s=k20260515; t=1782222650;
+	bh=T5QITE/W9PWMiSnQSEb25byqiClC1qtSsa9UGS2bkgQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=klJpoF9QJYIA992HykJ0OHqFE91SA7biVpawmOh8gndjtVq7FZdJveGAcnCGHXUHj
+	 XgkbacMTO7qIJdOLo/u931CynW2Pc2BtI1FMbV38yBzieKRsKzF5XM7URKF5Wlv8Xw
+	 6FC7kyHOHcPB08NQCw9XPqwO93g9WbW8LS2unGpp1+61s7YSWoYzuMDnR4RoUv/EiT
+	 2TQ3nCXc9p7xXlqeI2wZwMPi8QOnZ0SpyYhvGDhZMG5Jmb1a31Ots9mosJM9t3jXs2
+	 GKsifzR5QNGIH9TGjjoxBQpajoAezIJYyz3ucIKrc1mcxzEEWKlndlRLvEU7H0Jes/
+	 4GoB86z0yPrbw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wc1Wa-0000000FIy8-2nQI;
+	Tue, 23 Jun 2026 13:50:48 +0000
+Date: Tue, 23 Jun 2026 14:50:48 +0100
+Message-ID: <86se6dqsav.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Will Deacon <will@kernel.org>
+Cc: Bradley Morgan <include@grrlz.net>,
+	Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
 	Steffen Eiden <seiden@linux.ibm.com>,
-	Andreas Grapentin <gra@linux.ibm.com>,
-	Dave Martin <dave.martin@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Marc Zyngier <maz@kernel.org>
-Subject: Re: [PATCH] arm64: uapi: Use __u128 instead of __uint128_t in UAPI headers
-Date: Tue, 23 Jun 2026 14:46:40 +0100
-Message-ID: <178221850412.2621079.13020491489927340307.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260619130835.5678-1-will@kernel.org>
-References: <20260619130835.5678-1-will@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] KVM: arm64: account pKVM reclaim against the VM mm
+In-Reply-To: <ajqNANUBCamSjfHM@willie-the-truck>
+References: <20260621213155.6019-1-include@grrlz.net>
+	<86zf0nq8ki.wl-maz@kernel.org>
+	<ajqNANUBCamSjfHM@willie-the-truck>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: will@kernel.org, include@grrlz.net, oupton@kernel.org, tabba@google.com, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,27 +91,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 19 Jun 2026 14:08:34 +0100, Will Deacon wrote:
-> The arm64 UAPI exposes '__uint128_t' types in the members of
-> 'struct user_fpsimd_state', 'struct user_pac_address_keys' and in the
-> signal frame via 'struct fpsimd_context'. Since the alignment of such
-> a type appears to be non-portable (16 bytes on arm64, 8 bytes on s390),
-> prefer the '__u128' typedef from uapi/linux/types.h, which makes the
-> alignment explicit and allows the definitions to be reused by other
-> host architectures.
+On Tue, 23 Jun 2026 14:41:20 +0100,
+Will Deacon <will@kernel.org> wrote:
 > 
-> [...]
+> On Mon, Jun 22, 2026 at 09:32:29AM +0100, Marc Zyngier wrote:
+> > On Sun, 21 Jun 2026 22:31:55 +0100,
+> > Bradley Morgan <include@grrlz.net> wrote:
+> > > 
+> > > Protected guest faults charge long term pins to the VM's mm. Teardown
+> > > can run later from file release, where current->mm may be unrelated.
+> > >
+> > > Drop the charge from kvm->mm instead.
+> > > 
+> > > Fixes: 4e6e03f9eadd ("KVM: arm64: Hook up reclaim hypercall to pkvm_pgtable_stage2_destroy()")
+> > > Signed-off-by: Bradley Morgan <include@grrlz.net>
+> > > ---
+> > >  arch/arm64/kvm/pkvm.c | 2 +-
+> > >  1 file changed, 1 insertion(+), 1 deletion(-)
+> > > 
+> > > diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+> > > index 053e4f733e4b..428723b1b0f5 100644
+> > > --- a/arch/arm64/kvm/pkvm.c
+> > > +++ b/arch/arm64/kvm/pkvm.c
+> > > @@ -352,7 +352,7 @@ static int __pkvm_pgtable_stage2_reclaim(struct kvm_pgtable *pgt, u64 start, u64
+> > >  		page = pfn_to_page(mapping->pfn);
+> > >  		WARN_ON_ONCE(mapping->nr_pages != 1);
+> > >  		unpin_user_pages_dirty_lock(&page, 1, true);
+> > > -		account_locked_vm(current->mm, 1, false);
+> > > +		account_locked_vm(kvm->mm, 1, false);
+> > >  		pkvm_mapping_remove(mapping, &pgt->pkvm_mappings);
+> > >  		kfree(mapping);
+> > >  	}
+> > 
+> > Seems correct to me, as the final mmdrop(kvm->mm) occurs after S2
+> > teardown.
+> > 
+> > Will, what do you think?
+> 
+> Thanks, this looks correct to me.
+> 
+> While I was thinking about it, I also started looking at the use of
+> 'current->mm' in kvm_arch_prepare_memory_region() in case that should
+> also be 'kvm->mm'. However, I then realised that I don't really grok
+> that code at all because it does a bunch of checking on the VMAs with
+> mmap_read_lock(current->mm) held, but then that lock is dropped
+> immediately after doing the checks so I'm not really sure what they
+> are protected against. Presumably, the address space could be modified
+> as soon as the lock is dropped?
+> 
+> But it's hot, so I'm probably missing something here.
 
-Applied to arm64 (for-next/core), thanks!
+I think this is just trying to catch a few obvious issues, such as
+dirty logging on device memory, but that only works for well behaved
+userspace that is making "a honest mistake".
 
-[1/1] arm64: uapi: Use __u128 instead of __uint128_t in UAPI headers
-      https://git.kernel.org/arm64/c/9d6306113f92
+For the more trying ones, we end-up doing the same checks again at
+fault time anyway.
 
-Cheers,
+	M.
+
+
 -- 
-Will
-
-https://fixes.arm64.dev
-https://next.arm64.dev
-https://will.arm64.dev
+Without deviation from the norm, progress is not possible.
 
