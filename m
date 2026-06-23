@@ -4,157 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97FCDCD98F0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 05:56:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F188CD98F0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 06:14:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=PUkNBK1opUpsH3sD9JrtSJHZXqqd2H2Eza22wRUqSHM=; b=yS4/CX20wNuAWaMz0bdope1AJ9
-	WuKiT4hTQQc/TQZC7YHLZxfxY81pSeZRf1pQNjSa/mmzV9Hhn2cg0gpVQHUpAZwB7EirA5E9wCQOK
-	1TvT5FxPyGJpcTIoBTU4dxDz6sDaeLW5fzM2WiXTKLucOoH8i44gOXVXy3ZkjYajY7AIGS1H+nYWn
-	zNp36EMRw0Bmt5ynV7wzdGbcc0XCeCXlf8kHTjO8hgVBJk20cVUjLNqyFmS8bWo7MxHqaEok+VOpg
-	bB64FYWfTDoKnxSEXkkp9jIeZ53caruP91NL3z+9Uc8wXuGl6VPgW6M2Z8O4gzPURiZSNiSJ4Ly9N
-	Cl4QPYlg==;
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lWTyaXpIK63I0rO14QOLwHw9o9wQZtHZBygetmOGkVc=; b=Qc3X+gUDOEduwKkN6qo13y0MQN
+	rAq4AUHUOmup3zVQiGZZYnK6j7cDHEzoEvqdtGp+IEruITfoGH0JN75OakovhRYXLEUwdSfcJT/9C
+	unG+BhSvbrkehkbu2dMGvAKGiBQazhLUfvZ0T6tMqS+53/kyDa/8ikcjoVO3So41hb7KBi3rBJ4fZ
+	/Rd/IdKBBshCOT25hYrfydusvAuGlcal28a5xFtIQ96zwbvPFGt7bCHWxC+3KWi5FnjU2Dr++U3zj
+	4JCWYg6LRYWUFPkKU7fPA5r47ic4VNS79Qg+Fbdh0TK2mOVgxSfGslyAPlaKlaj8vdKS4+wLpq/S2
+	MxyLgSdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbu7k-00000005kLP-2wRN;
-	Tue, 23 Jun 2026 05:56:40 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wbuOV-00000005l5L-0lIK;
+	Tue, 23 Jun 2026 06:13:59 +0000
+Received: from mail-centralusazon11010049.outbound.protection.outlook.com ([52.101.61.49] helo=DM1PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbu7g-00000005kKH-45CT
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 05:56:39 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65N0i7E92839629
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 05:56:36 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=qcppdkim1; bh=PUkNBK1opUpsH3sD9JrtSJHZXqqd2H2Eza2
-	2wRUqSHM=; b=kvZ+qfxzblWnPpLzCCUN9E6wVvShPr31cBpABbm6nK4SxP4yyVI
-	GjXxtSY+TL3e0MgPrvX0cH7ZjE8MAEJNwma7kjZ4L/57I78NgghSgubLO9UkYCZs
-	1YuUzvDlB3QKJ4FLKO/bz25JQMLtFi4b5AefcIm9f+nuk0oidXBpGvwEcGH0wNZm
-	/ny8ObuL5YF4XGRr8AVJRrCTta2Mz88woNVWYo5ZOXONjePyaphg+jW0xibatXYx
-	EoLC7Gr5J6WRP/CFOKaThyLTPgTljERJIBjA73xs24GyRCqFlVaVaC5ysVlXLacL
-	n2Yj7PSGhHvXdzIwWxBnlSzNnAs7QL/PtRw==
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ey37hbsju-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 05:56:35 +0000 (GMT)
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-9158e75cbc0so863918885a.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Jun 2026 22:56:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1782194195; x=1782798995; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=PUkNBK1opUpsH3sD9JrtSJHZXqqd2H2Eza22wRUqSHM=;
-        b=STIdrMIigvjWXI8IapFkhmWD/xtT9c+kiGv9NLH/g+gYCxmPCrZpAWB3lsMPBLgw3B
-         7Lel/5Vkwig/DXQmuXZH9A06/onxpeEuAHNTWt8O595cog0fREO6BjPxkYQ92N1+GXFD
-         1wv5nCBC01yHt3GFf66FkzxPQEfkXWQ+op33ALYGwjsoSVW4u22mHnm8rIHczry2s2kK
-         Ze41wjdrqzujxGXatyBMSEfUo7VAMPfz3qLF248oN1x12W4Vd/QYTywPFWhXeoPqULI6
-         kjLXQf2GsE1hYtN/PrezPFJrIf+PI95to2Vs1rWEW1LCwCm7Gilq6wDBY97uTkCGE3Xw
-         tGAg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782194195; x=1782798995;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=PUkNBK1opUpsH3sD9JrtSJHZXqqd2H2Eza22wRUqSHM=;
-        b=klFpGPksogZhydanzwgFyICpDpnngRtaS6mmYOv7pbitvVNBQQgYG7+PwG3xtWSpY8
-         WLn9j/phKgQpfcImvVhgRTOb23vZOG7vHjBQ+hDTyGmdIQGGYkvDXwplpNr8ppQ9H3iF
-         HH0D6VFVonlXZNuHG6gU46EWQVUu2rjlxE5cSsPyLrQQ/Rwo12B9rIgK9xlewDTRh4HM
-         8lhE9HXiPvjU4X0wUBZGYD0b2BNk7CL+pmke4rVJsKctVeu6UmJp5/+yBN0cr0cLRnZ8
-         XyrpttmEyUOw47YO+KAItSAwp2y9LRMGlCedAZduMCv5O6gKlXd8SbLuGP0XjWG7bodV
-         5v1A==
-X-Forwarded-Encrypted: i=1; AFNElJ+KrPw3VB6mopFAmfWu9y9XGplJn+YbX9tpJ2iL+qiTu33T5tYiL9vF7FdCiookNWcqgjqieg1vcuzqR1AZmvOP@lists.infradead.org
-X-Gm-Message-State: AOJu0YyRX6vBWNDB/TxWWAmW4G26zx1oulL+KjO7DeGOOEYYVlGCqrmZ
-	bddTV+fVyFBVjvyesntOd7Q3F3u3apd8tLPi0ZVN43A2ncUril2lx0hkXMQtD/zkW0wgrl+dmRF
-	cFwGVifqBXaSSEW0PUI3S+tI0dxiGtxIUAhZafokIDdj9o3yBJEPb3YVV1q8/wR3rRiXUVXywbW
-	4pwg==
-X-Gm-Gg: AfdE7ck5nWtluTD7WFcVLnsm4PQwpZjLSaBA2DPUU7u4R3NjDPZtWI/VMU0uzMAiwpZ
-	tWiIhCeCejB9cgoO7hMv9xI36kTHDlkEeaENssd39avb1YEc6IhYKxmsJasivVWK2h45cdT+nA4
-	ERtYuIi65SLfAs6wHZT8LlfR4o7N5iyFATs7a6uJHejPovOmeuglR/1X49omJkLWhyRKM8ACgvN
-	sKMkWAEJtDQozq6iSJ3VrwITP8tiykeio+JvHpMnX3/TRuN4686YKAJb1WCH0FuME51mvDrzBsd
-	rGNyNXQbmkWVmzTuGXcCg1m6ia4HK4S2f19H6KhTH77SjtbmdnZceV4pNR1ZRcelfugVZm2oM9o
-	f6784ZPfbBfgYfZuYp+VQIEbged4=
-X-Received: by 2002:a05:620a:4481:b0:915:d32a:1cba with SMTP id af79cd13be357-92646584105mr267944585a.27.1782194195102;
-        Mon, 22 Jun 2026 22:56:35 -0700 (PDT)
-X-Received: by 2002:a05:620a:4481:b0:915:d32a:1cba with SMTP id af79cd13be357-92646584105mr267940485a.27.1782194194509;
-        Mon, 22 Jun 2026 22:56:34 -0700 (PDT)
-Received: from quoll ([178.197.218.240])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49249207dabsm472730495e9.0.2026.06.22.22.56.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 22 Jun 2026 22:56:33 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Sylwester Nawrocki <s.nawrocki@samsung.com>,
-        Chanwoo Choi <cw00.choi@samsung.com>,
-        Peter Griffin <peter.griffin@linaro.org>,
-        Alim Akhtar <alim.akhtar@samsung.com>,
-        Barnabas Czeman <barnabas.czeman@mainlining.org>,
-        Tomasz Figa <tomasz.figa@gmail.com>, linux-arm-msm@vger.kernel.org,
-        linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: [PATCH] dt-bindings: clock: Replace bouncing emails
-Date: Tue, 23 Jun 2026 07:56:27 +0200
-Message-ID: <20260623055626.23814-2-krzysztof.kozlowski@oss.qualcomm.com>
-X-Mailer: git-send-email 2.53.0
+	id 1wbuOR-00000005l4i-30ME;
+	Tue, 23 Jun 2026 06:13:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=g5V+3+HXKkyuRX0sVBXTiV0RRH2Rb0dO07Zp3IoGEqnkl+feQl5ZH2XuFJzivRKxltr8cwG4eITBtX9+X3NkPbP9nzQUeZTjNnUU6bd+Pu/+A6UOqjmEYhOR3n+CMqKrDzMkAM7dimyy3HbniNcMySl+XLVIYOVlnGeqE/G/W7lKFOt89PXEKY6VdqnZjxQapPpO7A0vGbP/ky2OSv/MH1/ka6KtXv4mvW8GeLVQD2SHYfT4LvMxK7PfpOzizv4RwLAnNAMYfDg+DvOe3X5S2S76lHRCObkgcKZgGGdm2KvYMrnUzESOPe3+acbfT8X9FSuzeK3keAmL1fRYMhHFoA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=lWTyaXpIK63I0rO14QOLwHw9o9wQZtHZBygetmOGkVc=;
+ b=WQnX+Ig+uaE7bHzCaYCHjAtrsl4+Y3pG/YiLuE2FxdyrcIU/7lAWxwNHU6AdBtaDlEiM04t3gAvuAc5eCinxs5fV5zTu5/aO0EYBuVtsalyBPA7bi/1eielOrBwpxJvPMpxuQRVNmQhMhPKS7QejUV/ZH93ehyQFNQXDK1rtsBFBljwBtBHEt+8Wy/ifivUmjuqMnwrO0WYHEsF652y6I9YxkUhTwHJ5P57Ul0afkMDOyg2Uy76FKTor/KVbNjpZtslb2N78eT2IrUMpIQ2TTr0ryE3h8du1I9OVglJtjwDumjbwqbUWy7ftVIC5WSGftE2zVeHi32lWplzFNSxZhg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=gmail.com smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=lWTyaXpIK63I0rO14QOLwHw9o9wQZtHZBygetmOGkVc=;
+ b=3BdUCZcW0bH0ZqEwb1pXjYx1Qy9vAYbRPMKwtNRhpqozz728nCWZ/i2F0+t8xg4LZ29WIg3KW5u/JA7ajoNvvGQktkAM+vMbk2gYa4aCKbppyJlaPszsM9sfp9ndepX9vNODcnhvFE7946YWKO2yaHBMJ3XoUPFuXtM1fk/2zOA=
+Received: from PH7P221CA0023.NAMP221.PROD.OUTLOOK.COM (2603:10b6:510:32a::34)
+ by DS5PPF78FC67EBA.namprd12.prod.outlook.com (2603:10b6:f:fc00::655) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.18; Tue, 23 Jun
+ 2026 06:13:47 +0000
+Received: from SN1PEPF00036F3E.namprd05.prod.outlook.com
+ (2603:10b6:510:32a:cafe::52) by PH7P221CA0023.outlook.office365.com
+ (2603:10b6:510:32a::34) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.139.20 via Frontend Transport; Tue,
+ 23 Jun 2026 06:13:46 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ SN1PEPF00036F3E.mail.protection.outlook.com (10.167.248.22) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.159.10 via Frontend Transport; Tue, 23 Jun 2026 06:13:46 +0000
+Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Tue, 23 Jun
+ 2026 01:13:45 -0500
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb10.amd.com
+ (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Tue, 23 Jun
+ 2026 01:13:45 -0500
+Received: from [10.136.45.194] (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
+ Transport; Tue, 23 Jun 2026 01:13:40 -0500
+Message-ID: <ff9678fb-4cca-4849-8ffb-7cb76db60e1a@amd.com>
+Date: Tue, 23 Jun 2026 11:43:39 +0530
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2088; i=krzysztof.kozlowski@oss.qualcomm.com;
- h=from:subject; bh=38hp3yau3RDTeW0oghznzoTSMclkrDug0F9GSJUr8b4=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBqOiAKYsNS6tRKh5vJxix7/ly3bWTgUxwiqMBSo
- F0mmQGmFtqJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCajogCgAKCRDBN2bmhouD
- 11mQD/4n+LkA+3kQ6RSk2nVSLPIh+GVx1iNsnmEBK0+sjPsuWzEyhtFCkt4QTnaac/9wzAzM91Q
- UF27QIyy80KmCXPSBAXSGaD7G9WOQ72IdPBOU2liUucSQ0qSdN+oyd7UK/l8A6jGhJzp57sqBol
- gX19h8Byp1PVTjJVSBKpNKoYJIYCiG82MqKA7gNXGXL5/IDODVDVsneNhoJS+Mjtz7cuPfu5YMk
- EvQPIXCGNRWOxnGuihKh7O9JnfaWxXyzW5LGPWBiSEbQL/sZiIV6mKSEPh+psP2cSH/cDlTK7TD
- jcHuAHHQJmcT2qYNbLx6X9lNQf/9McOngnRHGpTW/82sPvg5/e1xhxTvxesJayz3vw+pIWq4NNN
- 3R9beskLV9WnING8FFr7EknYYKmKJaKDZrp29705xjaI9E/2HIkrmhSWeluX8tASI7JVGQawmyA
- V4BIcHTda/ZQ+aVDrTdMQsxvI/PWCXrqIhqvGCiRjr3zjybX6Eh0eSn49W3BE2FMfoUHoa82TC/
- VBbVPXffhf36fPRM9Chl9EFEilnbIIY8SmPC/ogDRlv/i9YDassuN6aGDgLLchLIdnb4mRgsz8t
- 009ChylQcO/SkI88HDEoSzGhH0ZeK0J/2ngpFMEzheiWyBAncO2f1XJmOiA/cUE5kEGEEfF6uAq UYWs/dOg3gQOJmA==
-X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-ORIG-GUID: vdwcZy8pNWSCPeSWdbKymwYRktT7v75c
-X-Authority-Analysis: v=2.4 cv=ecANubEH c=1 sm=1 tr=0 ts=6a3a2013 cx=c_pps
- a=50t2pK5VMbmlHzFWWp8p/g==:117 a=qMZSjPy+XpteAuilWfML4g==:17
- a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22 a=gEfo2CItAAAA:8
- a=EUspDBNiAAAA:8 a=sfOm8-O8AAAA:8 a=OuZLqq7tAAAA:8 a=hD80L64hAAAA:8
- a=VwQbUJbxAAAA:8 a=Dav5TBI4JZG5gbSsjs8A:9 a=IoWCM6iH3mJn3m4BftBB:22
- a=sptkURWiP4Gy88Gu7hUp:22 a=TvTJqdcANYtsRzA46cdi:22 a=AKGiAy9iJ-JzxKVHQNES:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNjIzMDA0NSBTYWx0ZWRfX75jY1AAdYw84
- Tna6Pvqad6d7yS2pVbwEhYj1xyTiX6d+CfMQv0p7/OanvRsjiZzIENGbDETS3814zohVkFWGD2M
- xkHxaCyUBelqxEO63wVAYz2YNPkLsOk=
-X-Proofpoint-GUID: vdwcZy8pNWSCPeSWdbKymwYRktT7v75c
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjIzMDA0NSBTYWx0ZWRfX+yUczRQvrtfz
- JKGqrhY3NywVCDUbjg9GU6Bp9CHNqBoqOMRzLh/VZioO5UvB222eQPbKhGtwBdBYY6UGD3gN4/u
- /pxeZiD9IA71QzxGOaNWe38WZH1m4S3YXwnrzXEZ2U1xEUfpD4OgHibbsrkhyz0BUiT32p1zPiM
- 8kSxqkhdn94kwDPb5a9rFPRp6W9O82vp9wcckSbPsgjHEav8Zjy11UV7GPl6nG64iRcdUqc5NSA
- VE42Sg049PlPus2q42oFZHliU3NdEC6KxMEcQH8j65oaxhBHiMGjDDil54HQZDiQpL98HCOZPo9
- fIwdNaHy8VlsqC2614cspJ/K+hMhzwBZr/eVtGdtDSGNiZYcR1aX6826lu7FlzKwzL9v62y4Noh
- FxzxqsO7aZSyXjb2J7vuEHUDdUVoxE18l6mtWhf2+iKfagnhEtDZGIeSr+ukIImklZdS4CKk4fd
- xeZJkPLCBBkRQC3Zowg==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-23_01,2026-06-22_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 lowpriorityscore=0 priorityscore=1501 clxscore=1015 spamscore=0
- suspectscore=0 impostorscore=0 adultscore=0 malwarescore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2606230045
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 5/8] riscv/runtime-const: Introduce
+ runtime_const_mask_32()
+To: Charlie Jenkins <thecharlesjenkins@gmail.com>
+CC: Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, "Peter
+ Zijlstra" <peterz@infradead.org>, Sebastian Andrzej Siewior
+	<bigeasy@linutronix.de>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Guo Ren
+	<guoren@kernel.org>, Darren Hart <dvhart@infradead.org>, Davidlohr Bueso
+	<dave@stgolabs.net>, =?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>,
+	<linux-arch@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-s390@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>, Alexandre Ghiti <alex@ghiti.fr>,
+	Charlie Jenkins <charlie@rivosinc.com>, Jisheng Zhang <jszhang@kernel.org>,
+	Charles Mirabile <cmirabil@redhat.com>
+References: <20260430094730.31624-1-kprateek.nayak@amd.com>
+ <20260430094730.31624-6-kprateek.nayak@amd.com>
+ <178219229643.10927.7189200920480581019.b4-review@b4>
+Content-Language: en-US
+From: K Prateek Nayak <kprateek.nayak@amd.com>
+In-Reply-To: <178219229643.10927.7189200920480581019.b4-review@b4>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN1PEPF00036F3E:EE_|DS5PPF78FC67EBA:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2beb5042-c1e8-499d-45ef-08ded0ee9596
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|82310400026|376014|7416014|1800799024|36860700016|18002099003|22082099003|4143699003|3023799007|6133799003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: XgxvC6tu7aV8RuaTNX+ZLLRk5Ho9pvYzQevmycmk3zNmn78dierWCJ6oxy5Nr2/hWqcpS6sXZjtrsksJoO5B5+XwzVdppRHVCjhX5FxDb6ruVsOlU9PM4ZwWZYsYvxTaB5n7nCsmkLwIBwPKkbNPe9DNc+u6v0u1zsGH0LVN96IfnFoOIr4oxYYx79At6cqWsAKOdDXr7ySLw8Ho5wfu1Cv0ShzYSzXoXE/qpc3HatLwYfYCMxfKzAnAhPpkPczXgP3sRDzvVTLLEgHMzRcMsYZzQyfF92DycQqfUAUG06HgrnyPiLTM61OTOfDjcJh3ePSgk3DXHKTw/lGj1wV4rO2qNr3DqRYM6ZIMWp8m9DpAeYVunUqDCpF+4LvURh6R3jyfKNuL7xx2OzrtuXG6WRB67tUYnLVVAIun4F0Kaoe8oz+OQZ4hhRKNcPzhBBtXhRdfNesGnScoFtyuWl30I15zjLscUZrbrjq7iCZ5sJZbomp4w2Wk/zWIHNp45elRnLxY6kIIp7K1Xshvg6XQb5h9nyE13pQIm/urgIC2GLLS22G/Q5a0nuV3dO5xYN5eGB5cozU08Gj21PE0JcWQCLwHUqx/KouxPuNk+46jufbYtr+gO8HUUkp9TUCaKMWigys3WBkyC+LYFApf+WlwiqQgxRershrJffc7Zwm7eVXTLYw3LwMOvHFLS6Vfgo+YXGQcHT3J8UiwyD3cM6/qhA==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(376014)(7416014)(1800799024)(36860700016)(18002099003)(22082099003)(4143699003)(3023799007)(6133799003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: rhGPamkFaWyjlOQwVTFGosmGfAW/sxcV5bKasq33VF6IVkSqKw5vylZGlGgxnD+101TiDAEVn2blApm2R3lTCQ5zkw8PK+vuAmm29V8HTvo9gpW56Epgt4HaNvIlQG6tXI9n4Pqex3sJ8r6HnowvLQU2ZX3oOc912CmmSCNWEEi8g3+/8brU7rRzPAnG+dStwflPhqI9jmh3NBlBlTOnPUiQqeRltRKr8Ba04prXk/ThpjNcNCD/UJB2eaS/p5EKEYEli5bjUv702zpPH4i/kT4un7/9qUVtt6Sl6Eqe3WwQVSVBPTaVbxevO9eef464LoI4gokkcfZU57c8CnmA8hh4qzfCWRRGWdIZiwhdazU57qok8f5O3DK7SaPH5Wd6RfSchORS43L420MpfvIEUt8uKAysR4nYeJlUe+HtKgAIxU6I+CSzKjEaxF3FgnXv
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jun 2026 06:13:46.2973
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2beb5042-c1e8-499d-45ef-08ded0ee9596
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF00036F3E.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS5PPF78FC67EBA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260622_225637_134250_919D7C5B 
-X-CRM114-Status: GOOD (  13.82  )
+X-CRM114-CacheID: sfid-20260622_231355_773000_7D426029 
+X-CRM114-Status: GOOD (  19.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,49 +136,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace permanently bouncing email addresses (550 5.1.1 Recipient address
-rejected) of Adam Skladowski, Sireesh Kodali and Chanho Park.  There are
-no new messages from them via other email addresses, so drop them
-permanently.  Add Alim Akhtar to Samsung ExynosAutov9 SoC clocks,
-because he looks at other Samsung clock hardware and drivers.
+Hello Charlie,
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+On 6/23/2026 10:54 AM, Charlie Jenkins wrote:
+> On Thu, 30 Apr 2026 09:47:27 +0000, K Prateek Nayak <kprateek.nayak@amd.com> wrote:
+>> Futex hash computation requires a mask operation with read-only after
+>> init data that will be converted to a runtime constant in the subsequent
+>> commit.
+>>
+>> Introduce runtime_const_mask_32 to further optimize the mask operation
+>> in the futex hash computation hot path. GCC generates a:
+>>
+>>   lui   a0, 0x12346       # upper; +0x800 then >>12 for correct rounding
+>>   addi  a0, a0, 0x678     # lower 12 bits
+>>   and   a1, a1, a0        # a1 = a1 & a0
+>>
+>> pattern to tackle arbitrary 32-bit masks and the same was also suggested
+>> by Claude which is implemented here. The final (__ret & val) operation
+>> is intentionally placed outside of asm block to allow compilers to
+>> further optimize it if possible.
+> 
+> If the mask fits in 12 bits, we can nop the lui and the addi and just
+> patch an "andi" instruction with the 12 bits of the mask. We already do
+> this with the lui+addi block and nop the lui if val fits in 12 bits. I
+> would be happy to help draft that optimization.
+> 
+> But I think the better solution would be to take the power of 2
+> assumption since that will also benefit arm. We should still only emit
+> an andi if val fits in 12 bits, but if it doesn't we can patch in
+> shifts:
+> 
+> slli    a0,a0,x
+> srli    a0,a0,x
+> 
+> Where x is the constant (arch_size - _futex_shift - 1)
 
----
+I can do that for the next version and use ubfx for ARM. I can just put
+in a BUG_ON() at the arch/ specific __runtime_fixup_mask() and if a
+new use case arises which hits that, we can perhaps move on the dynamic
+nop patching scheme that you mentioned earlier.
 
-Stephen, can you take this directly?
----
- Documentation/devicetree/bindings/clock/qcom,gcc-msm8953.yaml   | 2 --
- .../devicetree/bindings/clock/samsung,exynosautov9-clock.yaml   | 2 +-
- 2 files changed, 1 insertion(+), 3 deletions(-)
+Let me know if that works and I can pivot to that scheme in v5 and send
+it out post -rc1 after some testing.
 
-diff --git a/Documentation/devicetree/bindings/clock/qcom,gcc-msm8953.yaml b/Documentation/devicetree/bindings/clock/qcom,gcc-msm8953.yaml
-index fc0360554f68..9f2b970bfb48 100644
---- a/Documentation/devicetree/bindings/clock/qcom,gcc-msm8953.yaml
-+++ b/Documentation/devicetree/bindings/clock/qcom,gcc-msm8953.yaml
-@@ -7,8 +7,6 @@ $schema: http://devicetree.org/meta-schemas/core.yaml#
- title: Qualcomm Global Clock & Reset Controller on MSM8937, MSM8940, MSM8953 and SDM439
- 
- maintainers:
--  - Adam Skladowski <a_skl39@protonmail.com>
--  - Sireesh Kodali <sireeshkodali@protonmail.com>
-   - Barnabas Czeman <barnabas.czeman@mainlining.org>
- 
- description: |
-diff --git a/Documentation/devicetree/bindings/clock/samsung,exynosautov9-clock.yaml b/Documentation/devicetree/bindings/clock/samsung,exynosautov9-clock.yaml
-index e9d17d48b4f3..3dcdfa7a8792 100644
---- a/Documentation/devicetree/bindings/clock/samsung,exynosautov9-clock.yaml
-+++ b/Documentation/devicetree/bindings/clock/samsung,exynosautov9-clock.yaml
-@@ -7,7 +7,7 @@ $schema: http://devicetree.org/meta-schemas/core.yaml#
- title: Samsung Exynos Auto v9 SoC clock controller
- 
- maintainers:
--  - Chanho Park <chanho61.park@samsung.com>
-+  - Alim Akhtar <alim.akhtar@samsung.com>
-   - Chanwoo Choi <cw00.choi@samsung.com>
-   - Krzysztof Kozlowski <krzk@kernel.org>
-   - Sylwester Nawrocki <s.nawrocki@samsung.com>
 -- 
-2.53.0
+Thanks and Regards,
+Prateek
 
 
