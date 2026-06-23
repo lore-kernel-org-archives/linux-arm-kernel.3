@@ -4,106 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5AF0CDB471
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 19:59:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDEABCDB471
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 20:10:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z/fp9uYhKIZVODXjBwNwAyAJlbCISy/3icMoMCSqHfo=; b=vlgtTYV7DG0vT0WcmjRYxMRbXp
-	ZcPxBkULC8LpMb5Iv1JlebPolesNiYh0BEq+j74/ocPuDZLulfZ0eMM7MMatY0kG6xcWxBZqls1DD
-	dVRbbO2XMWb5dIRyVIAPLjHkW0KQIpu/pBCEVev6d+1PfD6zBekuhpeEGznueAZwgzddAYa47mCCI
-	2ALK8RH6QKH1vN6y8ZAAx3gHqm9opL4CmQmYR/tl5y356kF4q0lKd5B4mSKF23XPDMBqah6tOKbbj
-	odgV7DIpqUZRViHNJhCXU8elinNk1yXP9ltCz3yWaEGIS/dwLmMMes45EqNreS/Ku5wuhuPxnHCV2
-	MZNuXhfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8TrQZE9vH39dIRDw32V4DNDUUodeQOx70heLgohi/mA=; b=3B0Zvytabqhs+7z3M1taZ9F8B5
+	yTNFtbQcjQglrAcylNMRdgSCsf/FEw3+xxlGkZdOcbpMQnq6vO3pItvSUobjWI+3O4WNQTyI3gXMQ
+	+kdjG32WiPc00zd0YXgmacp+UPJXPSwpEGVvo8ONUiGEslyVcTm+U1qMIA2zQmt/A2WUQFr53nyth
+	T6rXIs73qs8ecpyOlswMLtBSx4WYH23AG9DETR3xB5Uk60HSklgvJlzggXLyYRRGCwTJ2S47OgRX1
+	PapqIqfSm3l85vrR+4i/WaMgzazByjkZgW90/DOBCqT/E3RKzU724m93YmXaWHMYrDAkZ/FOI8UF2
+	gjJy4A6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc7Go-00000006oan-225A;
-	Tue, 23 Jun 2026 19:58:54 +0000
-Received: from mail-dl1-x1229.google.com ([2607:f8b0:4864:20::1229])
+	id 1wc7Ru-00000006pA5-3PgL;
+	Tue, 23 Jun 2026 20:10:22 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc7Gm-00000006oZn-0RGe
+	id 1wc7Rt-00000006p9x-1tZD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 19:58:53 +0000
-Received: by mail-dl1-x1229.google.com with SMTP id a92af1059eb24-13810b63a1aso585010c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 12:58:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782244731; x=1782849531; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Z/fp9uYhKIZVODXjBwNwAyAJlbCISy/3icMoMCSqHfo=;
-        b=EJsFO7trH8iFRjVcv9+D+YP6qQftO3hhZ/9c6rB+jo2ovNdpcX4+Fx/VLAA8ABcuFh
-         H2QZyvRTSIHBLrpf3QOW8LxNO/qR29tAGADyq6MGJvqrleb45RNIOIjmZ4yr2DurWvEc
-         N1M94eqWwBuii8yzs5ZORwlUu+PKt0CjYhVQjMhclTkaXFtm7F4Oi1dHJpY9jOKnUsiB
-         SOsgjHxfNI+47f5tUBuSDHVC/Q0qJOwvh/FqcuHiavQygmqG6aYLeG0Eig8xv8z351+a
-         7A+hpg3HcYteDUwFODSj6LmC3QOrY42CzpxMdDw+ghbnAdHiAMs5ChR+78k02X4mDSmg
-         4lyQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782244731; x=1782849531;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Z/fp9uYhKIZVODXjBwNwAyAJlbCISy/3icMoMCSqHfo=;
-        b=qpTY9ACVOd5lu+jWppRw3+gHZxmp2UzKTqB4VbLbUSc9voGrrm/MgVIK9pSUDrhBX8
-         vPsOjOuUxX1YK1M58/JRxodsXiVK8eQcQoiGEL1PtQi/Bbkb6231zQvibuhwftdm+ZMs
-         7BPy+Fe15+HpC3BauGQ+61gX8tjP4w3ZNhp0P75BCM8ywu/znHnY832qWmZ+pVTL2zY5
-         jC07R4Lx7l2PJRdXsWQ8qxC6JGA83cjLCZs4uMcLfskRADpCLlAxD0efHNmcOoABPdc3
-         cC3lP2i0+RFW2JL6M3DIXgnPxzmVBxXjEQBqDu4iLXdBAkL7a8rXrxfaIvnVRq6bsMtb
-         3/cQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+QCsPFwa3u453cH04aJ4I+6kh4IHefPFyTkq6egNp+rXQT7yd77Bzw88mk662yR8blLu5sodJreFoD/QYs3lKP@lists.infradead.org
-X-Gm-Message-State: AOJu0YyM2R1XydO/BQJv4rGvIFTNYBwVdRJXbMol/eS1RfO7R1LUSBMz
-	j8UFza0pHNJZEMB22TZOdrqeSIY6xdWq8kyNjQ06e5xqWb402RKnk+u9
-X-Gm-Gg: AfdE7cmXqGD22M6uVk0n3/ogF6O/v57UgajU56lCmsOLMRfYEzsldMAzc7QGYV1D5At
-	/oCCRQyMrKutbwgQ+NJVDo3dGxa4hkh3xbqIp6AFFHcxFCdfckBEZR84KvGC8qPf7WzTXLFOV4P
-	ETBh+NWNHG4DaKgviEpCiaaKZ1DU9LiLMeeOtjS6Mt+7FBzvuN3nEb/1AIvNb2/DbmI/kGKKHyJ
-	mS0PAO+1kCkb0SltWU8vt5pGYyV+zCY78S7BTAQexzVhBPA0ACaIVokakQfzNioGacyZpgTDFKo
-	HZzvyswdntgeUFcwQVWE+y8aMWkIFjhjYIVRilaBeycqJmvJqW5RRDb7QsnzWRU0FgZ/HmgM9vr
-	CQ/u8YxkpuPiTECI84qphEqRoIwF0NqvJHWUAa31jbwNCZKLGHzcgBfqXRnXDbelJn3FUCTcTD3
-	h0GdE9KzMSsFPmXkAeqmjYBWVJ462pF/+LS+iFyabiB9m+NfGfpzbiV88NYQ+85amZ/i3RgOWoL
-	4/eHX2/93wzppTp3Bn5HlJ2wGFa4SX4b+aitf75U2E=
-X-Received: by 2002:a05:7022:4397:b0:138:5ae:3eaa with SMTP id a92af1059eb24-139ad6961c2mr13263116c88.9.1782244731170;
-        Tue, 23 Jun 2026 12:58:51 -0700 (PDT)
-Received: from leonardoc-nb (201-68-197-145.dsl.telesp.net.br. [201.68.197.145])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-139add85c40sm15730896c88.15.2026.06.23.12.58.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 23 Jun 2026 12:58:50 -0700 (PDT)
-From: Leonardo Costa <leoreis.costa@gmail.com>
-To: laurent.pinchart@ideasonboard.com,
-	neil.armstrong@linaro.org,
-	jesszhan0024@gmail.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	nm@ti.com,
-	vigneshr@ti.com,
-	kristo@kernel.org,
-	prabhakar.mahadev-lad.rj@bp.renesas.com,
-	thierry.reding@gmail.com,
-	sam@ravnborg.org
-Cc: leonardo.costa@toradex.com,
-	dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 5/5] arm64: dts: ti: k3-am62-verdin: Add Mezzanine with Toradex Display 10.1" LVDS
-Date: Tue, 23 Jun 2026 16:57:41 -0300
-Message-ID: <20260623195741.495734-6-leoreis.costa@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260623195741.495734-1-leoreis.costa@gmail.com>
-References: <20260623195741.495734-1-leoreis.costa@gmail.com>
+	Tue, 23 Jun 2026 20:10:21 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 99CF760008;
+	Tue, 23 Jun 2026 20:10:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC1071F000E9;
+	Tue, 23 Jun 2026 20:10:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782245420;
+	bh=8TrQZE9vH39dIRDw32V4DNDUUodeQOx70heLgohi/mA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=asEztcvPQ0Qf1LSCraHYg3M2kMxixqmxcDmg7KxK4v9lajXjJ7NiSl+hkqIlYTIqF
+	 QuNpna1+Hpu92/DLFRuk5Fc/Y8fRH4s5Yy1v+n6GLoDgEjycRjTrPiCwJqbTRrWM6z
+	 h8O3pSBLK7EE+rdh0OgE3Wm0J8Ca7iLPnaQX4zVGtnf9nkbKpFkyo5oF3SdCvSGVaO
+	 /a0owvNBzJ6tOB1esP/TbrU0HrTDVDidVJNdOz09qbt1nw5BHBgjOrEhRZv9wZCU/k
+	 1NjfCzKtHhlREKUcVXwgGX41rxC4GJdUwv2SiXbuij/Fn4Iy0980+aKiVwGtQy3a0Y
+	 XYuP7M3bcNMqQ==
+Date: Tue, 23 Jun 2026 22:10:16 +0200
+From: Andi Shyti <andi.shyti@kernel.org>
+To: "Carlos Song (OSS)" <carlos.song@oss.nxp.com>
+Cc: o.rempel@pengutronix.de, kernel@pengutronix.de, s.hauer@pengutronix.de, 
+	festevam@gmail.com, carlos.song@nxp.com, haibo.chen@nxp.com, 
+	linux-i2c@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v5] i2c: imx: mark I2C adapter when hardware is powered
+ down
+Message-ID: <ajrn2kvH_MelCv4Q@zenone.zhora.eu>
+References: <20260525030400.3182911-1-carlos.song@oss.nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_125852_154164_2CA665BA 
-X-CRM114-Status: GOOD (  14.45  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260525030400.3182911-1-carlos.song@oss.nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,166 +71,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Leonardo Costa <leonardo.costa@toradex.com>
+Hi Oleksij,
 
-Add a device tree overlay enabling the Toradex Capacitive Touch Display
-10.1" LVDS V2 on the Verdin Development Board with Verdin AM62 Mezzanine
-expansion board. The panel connects via the AM62 OLDI0 on the Mezzanine
-LVDS interface (J10). The panel is an Opto Logic SCX1001511GGC49 10.1" WXGA
-TFT LCD LVDS and the touch input is provided by an ILITEK ILI251x
-capacitive touch controller.
+Any chance you can give this a review?
 
-Link: https://developer.toradex.com/hardware/accessories/displays/capacitive-touch-display-101inch-lvds
-Signed-off-by: Leonardo Costa <leonardo.costa@toradex.com>
----
- arch/arm64/boot/dts/ti/Makefile               |   5 +
- ...zanine-panel-cap-touch-10inch-lvds-v2.dtso | 109 ++++++++++++++++++
- 2 files changed, 114 insertions(+)
- create mode 100644 arch/arm64/boot/dts/ti/k3-am625-verdin-dev-mezzanine-panel-cap-touch-10inch-lvds-v2.dtso
+Thanks,
+Andi
 
-diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
-index 8b90fef11cb32..d9e0b1b80b28d 100644
---- a/arch/arm64/boot/dts/ti/Makefile
-+++ b/arch/arm64/boot/dts/ti/Makefile
-@@ -31,6 +31,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-am625-sk.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am625-tqma62xx-mba62xx.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-dev-mezzanine-can.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-dev-mezzanine-panel-cap-touch-10inch-lvds.dtbo
-+dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-dev-mezzanine-panel-cap-touch-10inch-lvds-v2.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-dev-nau8822-btl.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-dsi-to-hdmi.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-dsi-to-lvds-panel-cap-touch-10inch.dtbo
-@@ -240,6 +241,9 @@ k3-am625-verdin-wifi-dev-mezzanine-can-dtbs := k3-am625-verdin-wifi-dev.dtb \
- k3-am625-verdin-wifi-dev-mezzanine-panel-cap-touch-10inch-lvds-dtbs := \
- 	k3-am625-verdin-wifi-dev.dtb \
- 	k3-am625-verdin-dev-mezzanine-panel-cap-touch-10inch-lvds.dtbo
-+k3-am625-verdin-wifi-dev-mezzanine-panel-cap-touch-10inch-lvds-v2-dtbs := \
-+	k3-am625-verdin-wifi-dev.dtb \
-+	k3-am625-verdin-dev-mezzanine-panel-cap-touch-10inch-lvds-v2.dtbo
- k3-am625-verdin-wifi-dev-nau8822-btl-dtbs := k3-am625-verdin-wifi-dev.dtb \
- 	k3-am625-verdin-dev-nau8822-btl.dtbo
- k3-am625-verdin-wifi-dev-ov5640-24mhz-dtbs := k3-am625-verdin-wifi-dev.dtb \
-@@ -362,6 +366,7 @@ dtb- += k3-am625-beagleplay-csi2-ov5640.dtb \
- 	k3-am625-verdin-wifi-dev-dsi-to-lvds-v2-panel-cap-touch-10inch.dtb \
- 	k3-am625-verdin-wifi-dev-mezzanine-can.dtb \
- 	k3-am625-verdin-wifi-dev-mezzanine-panel-cap-touch-10inch-lvds.dtb \
-+	k3-am625-verdin-wifi-dev-mezzanine-panel-cap-touch-10inch-lvds-v2.dtb \
- 	k3-am625-verdin-wifi-dev-nau8822-btl.dtb \
- 	k3-am625-verdin-wifi-dev-ov5640-24mhz.dtb \
- 	k3-am625-verdin-wifi-dev-ov5640.dtb \
-diff --git a/arch/arm64/boot/dts/ti/k3-am625-verdin-dev-mezzanine-panel-cap-touch-10inch-lvds-v2.dtso b/arch/arm64/boot/dts/ti/k3-am625-verdin-dev-mezzanine-panel-cap-touch-10inch-lvds-v2.dtso
-new file mode 100644
-index 0000000000000..26f6715463986
---- /dev/null
-+++ b/arch/arm64/boot/dts/ti/k3-am625-verdin-dev-mezzanine-panel-cap-touch-10inch-lvds-v2.dtso
-@@ -0,0 +1,109 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
-+/*
-+ * Copyright (c) Toradex
-+ *
-+ * Toradex Capacitive Touch Display 10.1" LVDS V2 on the Verdin AM62 Mezzanine
-+ * LVDS interface (J10), used with the Verdin Development Board.
-+ *
-+ * https://developer.toradex.com/hardware/accessories/displays/capacitive-touch-display-101inch-lvds
-+ * https://www.toradex.com/accessories/capacitive-touch-display-10.1-inch-lvds
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/interrupt-controller/irq.h>
-+#include <dt-bindings/pwm/pwm.h>
-+
-+&{/} {
-+	backlight_pwm2: backlight-pwm2 {
-+		compatible = "pwm-backlight";
-+		brightness-levels = <0 45 63 88 119 158 203 255>;
-+		default-brightness-level = <4>;
-+		/* Verdin GPIO_4 (SODIMM 212) - LVDS_BKL_EN */
-+		enable-gpios = <&mcu_gpio0 4 GPIO_ACTIVE_HIGH>;
-+		/* Verdin PWM_2 (SODIMM 16) - LVDS_PWM */
-+		pwms = <&epwm0 1 6666667 0>;
-+	};
-+
-+	panel-lvds-native {
-+		compatible = "optologic,scx1001511ggc49", "panel-lvds";
-+		backlight = <&backlight_pwm2>;
-+		data-mapping = "vesa-24";
-+		height-mm = <136>;
-+		width-mm = <217>;
-+
-+		panel-timing {
-+			clock-frequency = <64500000>;
-+			hactive = <1280>;
-+			hback-porch = <20>;
-+			hfront-porch = <20>;
-+			hsync-len = <2>;
-+			vactive = <800>;
-+			vback-porch = <5>;
-+			vfront-porch = <5>;
-+			vsync-len = <3>;
-+			de-active = <1>;
-+			hsync-active = <0>;
-+			vsync-active = <0>;
-+			pixelclk-active = <0>;
-+		};
-+
-+		port {
-+			panel_lvds_native_in: endpoint {
-+				remote-endpoint = <&oldi0_out>;
-+			};
-+		};
-+	};
-+};
-+
-+&dss {
-+	status = "okay";
-+};
-+
-+&dss_ports {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	/* DSS VP1: internal DPI output to OLDIx */
-+	port@0 {
-+		reg = <0>;
-+
-+		dss0_out: endpoint {
-+			remote-endpoint = <&oldi0_in>;
-+		};
-+	};
-+};
-+
-+/* Verdin I2C_2_DSI */
-+&main_i2c2 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	touchscreen@41 {
-+		compatible = "ilitek,ili251x";
-+		reg = <0x41>;
-+		/* Verdin GPIO_3 (SODIMM 210) - LVDS_TOUCH_INT# */
-+		interrupt-parent = <&mcu_gpio0>;
-+		interrupts = <3 IRQ_TYPE_EDGE_RISING>;
-+		/* Verdin GPIO_2 (SODIMM 208) - LVDS_TOUCH_RST# */
-+		reset-gpios = <&mcu_gpio0 2 GPIO_ACTIVE_LOW>;
-+	};
-+};
-+
-+&oldi0 {
-+	status = "okay";
-+};
-+
-+&oldi0_port0 {
-+	oldi0_in: endpoint {
-+		remote-endpoint = <&dss0_out>;
-+	};
-+};
-+
-+&oldi0_port1 {
-+	oldi0_out: endpoint {
-+		remote-endpoint = <&panel_lvds_native_in>;
-+	};
-+};
+On Mon, May 25, 2026 at 11:04:00AM +0800, Carlos Song (OSS) wrote:
+> From: Carlos Song <carlos.song@nxp.com>
+> 
+> On some i.MX platforms, certain I2C client drivers keep a periodic
+> workqueue which continues to trigger I2C transfers.
+> 
+> During system suspend/resume, there exists a time window between:
+>   - suspend_noirq and the system entering suspend
+>   - the system starting to resume and resume_noirq
+> 
+> In this window, the I2C controller resources such as clock and pinctrl
+> may already be disabled or not yet restored.
+> 
+> If a workqueue triggers an I2C transfer in this period, the driver
+> attempts to access I2C registers while the hardware resources are
+> unavailable, which may lead to system hang.
+> 
+> Mark the I2C adapter as suspended during noirq suspend and block new
+> transfers until resume, ensuring that I2C transfers are only issued
+> when hardware resources are available.
+> 
+> Fixes: 358025ac091e ("i2c: imx: make controller available until system suspend_noirq() and from resume_noirq()")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Carlos Song <carlos.song@nxp.com>
+> ---
+> Change for v5:
+>   - Remake commit log including the issue detail from Mukesh's
+>     suggestion.
+> Change for v4:
+>   - Restore hrtimer when pm_runtime_force_suspend failed when slave mode
+>     enabled.
+> Change for v3:
+>   - Add hrtimer_cancel in i2c_imx_suspend_noirq to cancel slave_timer for
+>     safe suspend in i2c slave mode.
+> Change for v2:
+>   - Call i2c_mark_adapter_suspended() before pm_runtime_force_suspend()
+>     to prevent potential deadlock if a transfer is active during suspend.
+>   - Roll back with i2c_mark_adapter_resumed() if pm_runtime_force_suspend()
+>     fails.
+> ---
+>  drivers/i2c/busses/i2c-imx.c | 45 ++++++++++++++++++++++++++++++++++--
+>  1 file changed, 43 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
+> index 28313d0fad37..73317ddd5f02 100644
+> --- a/drivers/i2c/busses/i2c-imx.c
+> +++ b/drivers/i2c/busses/i2c-imx.c
+> @@ -1922,6 +1922,47 @@ static int i2c_imx_runtime_resume(struct device *dev)
+>  	return 0;
+>  }
+>  
+> +static int __maybe_unused i2c_imx_suspend_noirq(struct device *dev)
+> +{
+> +	struct imx_i2c_struct *i2c_imx = dev_get_drvdata(dev);
+> +	int ret;
+> +
+> +	i2c_mark_adapter_suspended(&i2c_imx->adapter);
+> +
+> +	/*
+> +	 * Cancel the slave timer before powering down to prevent
+> +	 * i2c_imx_slave_timeout() from accessing hardware registers
+> +	 * while the clock is disabled.
+> +	 */
+> +	hrtimer_cancel(&i2c_imx->slave_timer);
+> +
+> +	ret = pm_runtime_force_suspend(dev);
+> +	if (ret) {
+> +		i2c_mark_adapter_resumed(&i2c_imx->adapter);
+> +		if (i2c_imx->slave) {
+> +			hrtimer_forward_now(&i2c_imx->slave_timer, I2C_IMX_CHECK_DELAY);
+> +			hrtimer_restart(&i2c_imx->slave_timer);
+> +		}
+> +		return ret;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int __maybe_unused i2c_imx_resume_noirq(struct device *dev)
+> +{
+> +	struct imx_i2c_struct *i2c_imx = dev_get_drvdata(dev);
+> +	int ret;
+> +
+> +	ret = pm_runtime_force_resume(dev);
+> +	if (ret)
+> +		return ret;
+> +
+> +	i2c_mark_adapter_resumed(&i2c_imx->adapter);
+> +
+> +	return 0;
+> +}
+> +
+>  static int i2c_imx_suspend(struct device *dev)
+>  {
+>  	/*
+> @@ -1955,8 +1996,8 @@ static int i2c_imx_resume(struct device *dev)
+>  }
+>  
+>  static const struct dev_pm_ops i2c_imx_pm_ops = {
+> -	NOIRQ_SYSTEM_SLEEP_PM_OPS(pm_runtime_force_suspend,
+> -				  pm_runtime_force_resume)
+> +	NOIRQ_SYSTEM_SLEEP_PM_OPS(i2c_imx_suspend_noirq,
+> +				  i2c_imx_resume_noirq)
+>  	SYSTEM_SLEEP_PM_OPS(i2c_imx_suspend, i2c_imx_resume)
+>  	RUNTIME_PM_OPS(i2c_imx_runtime_suspend, i2c_imx_runtime_resume, NULL)
+>  };
+> -- 
+> 2.43.0
+> 
 
