@@ -4,81 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CF00CDB470
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 20:28:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C987CDB471
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 20:33:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=egV2Cj27OGtBaELQk+zCjLaNq17lbZGojv4n+pNUxY4=; b=FxKViWiQCesV7iMx9D7WFDNREq
-	wU5WNyYc37rXwN64xKYm/vnHsKRVWTmeJPNGyHyYD6RL+4SBRFVWeUFu5kLWdIXZyiVWYfdwcUf0Z
-	VX1vfuy67Y6r3f+fv0VYmp05h/RADErU7zvzJoHSrfA/8D4WsOph/fNyBYblgf5KiceXfPSeYyiJP
-	rYIUpMBEKcwDzS9DqeGJ6epgU8SVxJcZm/T81MO/e9CBg8towyHFrGagUmYO6bm0k0sqPBbHZ46Ow
-	uwRVZonISdtSxoavIl/1vE6k+pnUHEvJ9cF/Okszh0HMO/yc5HjNrdmO7UzQTZJ5Ar91JCw52qeyT
-	wVEboW1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ouMHGOvMc2V/MonYeZTIKoTCZTr7oOqL3Hc354KdZOA=; b=3W9z2TtP6mRCQfabK2al27koX+
+	5Nu+fAh3FBHXOfes65yyUExp9F4MzwiaDjwL49g88HeOTWXX7ovzp8CNSfOkk9KezrsKwwoGd6c2L
+	mFLPr0rss79Z+q6RvU1gj/ZyBWyce3vOF2oTij6tQgtbNa0J9Wb9ANGBVaWsCyKF8VV4twXEqyUe4
+	wOl9RIPnIq4MXQ1MGL3oVeFqZ6o9ArnzjddWgKsAR95QAM6v9L33H7kdKbBPfyBG48qKPBAEIPC8f
+	5TUDDVLEOOSp08JoomeP4smuNpLKH0QAQG4wPQ0ovYGD57T5hf8Fb+ugOCOsqLNXZ0XG+lOA07G6g
+	uItEc3uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc7jT-00000006qf1-0QCS;
-	Tue, 23 Jun 2026 20:28:31 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1wc7no-00000006qqm-2ffj;
+	Tue, 23 Jun 2026 20:33:00 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc7jQ-00000006qeV-11mT
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 20:28:29 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-490b2f22ea2so1960875e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 13:28:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1782246505; x=1782851305; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=egV2Cj27OGtBaELQk+zCjLaNq17lbZGojv4n+pNUxY4=;
-        b=HWhPxKQqzHf/e0ta9q3TcvL9Kf9/ulxNL5LJc0dmDDzb2jTdPJGGRop80uLnxNew+/
-         3OZvao3+1mLTaI2FSJUkVZrd8NPWi6H11PDLkLxAPhjtgiAwfsMcLqeCBBCJDulrZlNu
-         yANBZ5W7m+i3u57F+ZiNFr3Xetpf+xaLpURgDbc1ZQ0Ky3lnSXl914Kd1jP/VZ6wWuAr
-         zoPCsfP1tSjknm20y8+BCPtjbvx5blavgyQgRlfqtEVrVAz9R0CuiDCEL9lPnCcZ+jj+
-         KcBEQ94Yj/6C+LdJQT2hn7Qr2ND/4IOTstqe7QtASHJFQLT1051yUpAwLgXtCUqSssAb
-         DCaw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782246505; x=1782851305;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=egV2Cj27OGtBaELQk+zCjLaNq17lbZGojv4n+pNUxY4=;
-        b=fNtSL9AmAzouENLcWVjsQdS+jFmdQFIBl/blvYE9BCRQ9ydaOfV/0nMivZ9ajGj9xY
-         8BnEZ5A13J8Iu5BTZVvbiby8aCmycrVgBRP2zpVu36LIZfixEyS+2HBuIuEeSIIEMGYi
-         eodEZrAzb2DlyKckGZRYGUUjT7jT/675LQi0abI4NikQ/wGC0A1zkr5//DlRmVjSnsMH
-         EOw2pY8OexVAFRwxfhbRZvl6/wxNPIH6XDZSQqLS7HPijaqlpBeQjZA/yDc/jGn7FMFA
-         8YhGJgUSLMWyioyBs25Iv1uRDxUF+qxW0zNaG2p3lgB/p+wOYTPdWNapvUXaod92G/k7
-         3V4Q==
-X-Gm-Message-State: AOJu0YxAJbj36ZKRZe4GXIFv/LiOoVdWPXcpDnjx8GvzajwP8gYiyuKH
-	v/AIjwk5YGY4tmUvnCGgZ0TBs1myvJkHGM6jdsvDrh5DOJKeOMyj8WeuEwOOMoCgGbO3VPxlQNZ
-	Qmne5rK89OfctR649BHMkyq0NHo8sWtn+6bgJ3HFsetho5mv1YOuRCCSFn6MBO++TAPzuawaUDs
-	4Lvd0JGBxcIMSk7oErGbv2G3B42tYB8XTRFmOXI9Ps1xEe
-X-Received: from wrbfr5.prod.google.com ([2002:a05:6000:2a85:b0:468:7f36:9f66])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:4ec8:b0:492:5e21:458b
- with SMTP id 5b1f17b1804b1-4926084aad6mr3025575e9.8.1782246505129; Tue, 23
- Jun 2026 13:28:25 -0700 (PDT)
-Date: Tue, 23 Jun 2026 22:28:18 +0200
-Mime-Version: 1.0
-X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2520; i=ardb@kernel.org;
- h=from:subject; bh=BHcLpzq4nDfnEcAf94/iXBUylDTH/0C5UUQpTrqyW+8=;
- b=owGbwMvMwCVmkMcZplerG8N4Wi2JIcvqTVLFl+23LVfnaEyRF9F2EeHYcvTqYZmm10vfTRLb2
- 9fLfrexo5SFQYyLQVZMkUVg9t93O09PlKp1niULM4eVCWQIAxenAEzE5SfDL+Y/zRfe1rCmTZDa
- zsymlaP37MDNHXd2zBZ6FfZr3c+SlGsM/xMuHo8+J67xUso/ztnrklrR7ykPKla8ZkkpuBJ3bS9 7GxcA
-X-Mailer: git-send-email 2.55.0.rc0.799.gd6f94ed593-goog
-Message-ID: <20260623202817.2225495-2-ardb+git@google.com>
-Subject: [PATCH v2] arm64: mm: Defer read-only remap of data/bss linear alias
-From: Ard Biesheuvel <ardb+git@google.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org, 
-	Kevin Brodsky <kevin.brodsky@arm.com>, Ard Biesheuvel <ardb@kernel.org>, 
-	Fuad Tabba <fuad.tabba@linux.dev>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_132828_302758_855DBEDB 
-X-CRM114-Status: GOOD (  15.62  )
+	id 1wc7nm-00000006qqb-3bVb;
+	Tue, 23 Jun 2026 20:32:58 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id F067D60018;
+	Tue, 23 Jun 2026 20:32:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26EC01F000E9;
+	Tue, 23 Jun 2026 20:32:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782246777;
+	bh=ouMHGOvMc2V/MonYeZTIKoTCZTr7oOqL3Hc354KdZOA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=N/gAeghPXWBeOOzXW3MobOa/tkuES83zcd5MWcmhYfJrT45375eKspP20DNt/fq+8
+	 9r79BBM2GV4GzdQofzhjudn6HhXfuQvX5WjygacOE1QINuHJT2cYaF9pZJRIsonKDz
+	 TUpJU7hgm173+LuAaAtv6KYXU3z7P+CKf9XcQVsMtBN+PQpMNv3IBeBJ29gw3lJNyg
+	 2+flqG/6SkILKa5URY89XXiVg3A+8Fq7StR+5quae5c6Col4I1Dbu7DwDtgRaIck5W
+	 TT1aZ7Rz9tno+F1irbgeS+e5TXTiaTyP49sj5KFBL0E9qmjnVMhZbZSCPTLhXhqElp
+	 sPPjTrLCOrpGA==
+Date: Tue, 23 Jun 2026 22:32:55 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Simon Horman <horms@kernel.org>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, leto.liu@airoha.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	brown.huang@airoha.com
+Subject: Re: [PATCH net v2] net: airoha: Add retry mechanism to
+ airoha_qdma_set_trtcm_param()
+Message-ID: <ajrtd5WA2GFzQyV9@lore-desk>
+References: <20260622-airoha_qdma_set_trtcm_param-retry-fix-v2-1-95a83ac99dbd@kernel.org>
+ <20260623105341.1076863-3-horms@kernel.org>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="UkOWUaq6LIU/PkBM"
+Content-Disposition: inline
+In-Reply-To: <20260623105341.1076863-3-horms@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,71 +73,192 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ard Biesheuvel <ardb@kernel.org>
 
-Since commit
+--UkOWUaq6LIU/PkBM
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-  f2ba877402e5 ("arm64: mm: Map the kernel data/bss read-only in the linear map")
+On Jun 23, Simon Horman wrote:
+> This is an AI-generated review of your patch. The human sending this
+> email has considered the AI review valid, or at least plausible.
+> Full review at: https://sashiko.dev
+>=20
+> Simon says: I'd appreciate it if you could look over the first two issues
+>             flagged below in the context of this patch. While the third
+> 	    and final issue looks like it is in possible separate follow-up
+> 	    territory.
+>=20
+> ---
+> net: airoha: Add retry mechanism to airoha_qdma_set_trtcm_param()
+>    =20
+> This patch introduces a retry loop to airoha_qdma_set_trtcm_param() to mi=
+tigate
+> bus timeouts when configuring QDMA parameters. It attempts to verify that=
+ the
+> configuration is correctly applied to the hardware.
+>=20
+> > diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/eth=
+ernet/airoha/airoha_eth.c
+> > index 3370c3df7c107..bb5c0599a4eed 100644
+> > --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> > +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+> > @@ -2673,14 +2673,30 @@ static int airoha_qdma_set_trtcm_param(struct a=
+iroha_qdma *qdma, int channel,
+> >  		     FIELD_PREP(TRTCM_METER_GROUP_MASK, group) |
+> >  		     FIELD_PREP(TRTCM_PARAM_INDEX_MASK, idx) |
+> >  		     FIELD_PREP(TRTCM_PARAM_RATE_TYPE_MASK, mode);
+> > +	int i;
+> > =20
+> > -	airoha_qdma_wr(qdma, REG_TRTCM_DATA_LOW(addr), val);
+> > -	airoha_qdma_wr(qdma, REG_TRTCM_CFG_PARAM(addr), config);
+> > +	for (i =3D 0; i < 100; i++) {
+> > +		u32 data;
+> > =20
+> > -	return read_poll_timeout(airoha_qdma_rr, val,
+> > -				 val & TRTCM_PARAM_RW_DONE_MASK,
+> > -				 USEC_PER_MSEC, 10 * USEC_PER_MSEC, true,
+> > -				 qdma, REG_TRTCM_CFG_PARAM(addr));
+> > +		airoha_qdma_wr(qdma, REG_TRTCM_DATA_LOW(addr), val);
+> > +		wmb();
+> > +		airoha_qdma_wr(qdma, REG_TRTCM_CFG_PARAM(addr), config);
+> > +
+> > +		if (read_poll_timeout(airoha_qdma_rr, data,
+> > +				      data & TRTCM_PARAM_RW_DONE_MASK,
+> > +				      USEC_PER_MSEC, 10 * USEC_PER_MSEC,
+> > +				      true, qdma, REG_TRTCM_CFG_PARAM(addr)))
+> > +			return -ETIMEDOUT;
+>=20
+> [Severity: High]
+> If a bus timeout causes the write phase's read_poll_timeout() in
+> airoha_qdma_set_trtcm_param() to fail, this immediately returns -ETIMEDOU=
+T,
+> aborting the 100-iteration retry loop.
+>=20
+> Doesn't this defeat the mitigation?
 
-the linear alias of the .data and .bss regions is remapped read-only
-early during the boot. (Note that a subsequent patch to unmap this
-region entirely was reverted just before the v7.2 merge window, and will
-be brought back in an improved form for the v7.3 cycle)
+I agree we just run 'continue' here instead of returing -ETIMEDOUT
 
-Fuad reports that in some cases, the KVM init code may apply relocations
-to variables that reside in .data, and does so via the linear map. This
-means that remapping .data read-only beforehand is a bad idea, and
-results in an early boot crash.
+>=20
+> > +
+> > +		if (airoha_qdma_get_trtcm_param(qdma, channel, addr, param,
+> > +						mode, &data, NULL))
+> > +			continue;
+>=20
+> [Severity: High]
+> If airoha_qdma_get_trtcm_param() times out during the verification phase,=
+ it
+> indicates the hardware hasn't finished the read command (DONE bit is stil=
+l 0).
+>=20
+> The continue statement then immediately starts the next iteration, writin=
+g new
+> commands to DATA_LOW and CFG_PARAM.
+>=20
+> Can writing to command registers while the hardware state machine is acti=
+vely
+> busy violate hardware protocols and lead to unrecoverable lockups?
 
-These variables in .data are only present when CONFIG_NVHE_EL2_DEBUG or
-CONFIG_NVHE_EL2_TRACING are enabled, which is why it was not spotted in
-testing.
+@Brown and @Leto: can you please comment on this case?
 
-So move the remap to mark_rodata_ro(), which is a reasonable place to
-put this, and ensures that it happens much later during the boot. It
-also means that rodata=off is now taken into account, and so the linear
-alias will remain writable in that case.
+>=20
+> > +
+> > +		if (data =3D=3D val)
+> > +			return 0;
+>=20
+> [Severity: High]
+> This isn't a bug introduced by this patch, but if the bus drops the comma=
+nd
+> write to REG_TRTCM_CFG_PARAM, the hardware never executes the command and=
+ the
+> TRTCM_PARAM_RW_DONE_MASK bit remains set from the previous operation.
+>=20
+> Consequently, read_poll_timeout() returns an immediate false success.
+>=20
+> If both the set and get command writes are dropped by the bus, the get
+> operation will read back the newly written DATA_LOW register value.
+>=20
+> Will the data =3D=3D val check evaluate to true and falsely report succes=
+s without
+> the hardware ever processing the configuration?
 
-Fixes: f2ba877402e5 ("arm64: mm: Map the kernel data/bss read-only in the linear map")
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
-Tested-by: Fuad Tabba < fuad.tabba@linux.dev>
-Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
----
-v2: improve changelog, add Fuad's R-b
+This seems quite a 'pathological' scenario, is it really an issue?
 
- arch/arm64/mm/mmu.c | 11 ++++++-----
- 1 file changed, 6 insertions(+), 5 deletions(-)
+Regards,
+Lorenzo
 
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index 9f354971b7e4..1f7eca86b5c1 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -1198,11 +1198,6 @@ static void __init map_mem(void)
- 		__map_memblock(start, end, pgprot_tagged(PAGE_KERNEL),
- 			       flags);
- 	}
--
--	/* Map the kernel data/bss read-only in the linear map */
--	__map_memblock(init_end, kernel_end, PAGE_KERNEL_RO, flags);
--	flush_tlb_kernel_range((unsigned long)lm_alias(__init_end),
--			       (unsigned long)lm_alias(__bss_stop));
- }
- 
- void mark_rodata_ro(void)
-@@ -1221,6 +1216,12 @@ void mark_rodata_ro(void)
- 	update_mapping_prot(__pa_symbol(_text), (unsigned long)_text,
- 			    (unsigned long)_stext - (unsigned long)_text,
- 			    PAGE_KERNEL_RO);
-+
-+	/* Map the kernel data/bss read-only in the linear map */
-+	update_mapping_prot(__pa_symbol(__init_end),
-+			    (unsigned long)lm_alias(__init_end),
-+			    (unsigned long)__bss_stop - (unsigned long)__init_end,
-+			    PAGE_KERNEL_RO);
- }
- 
- static void __init declare_vma(struct vm_struct *vma,
--- 
-2.55.0.rc0.799.gd6f94ed593-goog
+>=20
+> > +	}
+> > +
+> > +	return -EBUSY;
+> >  }
+> > =20
+>=20
+> [ ... ]
+>=20
+> >  static int airoha_qdma_set_trtcm_config(struct airoha_qdma *qdma, int =
+channel,
+> >  					u32 addr, enum trtcm_mode_type mode,
+> >  					bool enable, u32 enable_mask)
+> >  {
+> >  	u32 val;
+> > =20
+> >  	if (airoha_qdma_get_trtcm_param(qdma, channel, addr, TRTCM_MISC_MODE,
+> >  					mode, &val, NULL))
+> >  		return -EINVAL;
+>=20
+> [Severity: High]
+> Standalone calls to airoha_qdma_get_trtcm_param(), like this one in
+> airoha_qdma_set_trtcm_config(), lack a retry loop entirely.
+>=20
+> Does this leave read-modify-write cycles fully vulnerable to the same bus
+> timeouts the patch attempts to mitigate?
+>=20
+> [Severity: High]
+> This isn't a bug introduced by this patch, but the patch mitigates bus
+> timeouts in airoha_qdma_set_trtcm_param() while entirely missing
+> airoha_qdma_set_rl_param().
+>=20
+> The latter performs the exact same write-and-poll sequence on identical Q=
+DMA
+> configuration registers:
+>=20
+> drivers/net/ethernet/airoha/airoha_eth.c:airoha_qdma_set_rl_param() {
+>     ...
+>     return read_poll_timeout(..., val & RATE_LIMIT_PARAM_RW_DONE_MASK, ..=
+=2E);
+> }
+>=20
+> If bus timeouts affect QDMA access broadly as stated in the commit messag=
+e, are
+> the rate-limiting configuration paths randomly vulnerable to the same fai=
+lures?
+>=20
+> [Severity: High]
+> This isn't a bug introduced by this patch, but in airoha_tc_remove_htb_qu=
+eue(),
+> hardware teardown incorrectly uses queue + 1 instead of queue:
+>=20
+> drivers/net/ethernet/airoha/airoha_eth.c:airoha_tc_remove_htb_queue() {
+>     ...
+>     airoha_qdma_set_tx_rate_limit(netdev, queue + 1, 0, 0);
+>     ...
+> }
+>=20
+> Does this leave the removed queue's hardware limits permanently active
+> (resource leak) and inadvertently disable the rate limits for queue + 1,
+> corrupting the QoS state of another active channel?
 
+--UkOWUaq6LIU/PkBM
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCajrtdwAKCRA6cBh0uS2t
+rOA7AQCVwcnGTvgsBMt3sEm3xy+Xm0d3pO8aN3W5C9mTe6BnwAD/YJ+REZqwrvs3
+BpaC9wSWuXEuVLVX0mq5PSr7zq6ucQQ=
+=Z/ww
+-----END PGP SIGNATURE-----
+
+--UkOWUaq6LIU/PkBM--
 
