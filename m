@@ -4,83 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7E92CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 14:10:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B376CCD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 14:13:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QzZ/eVkAfrxKfCLuLelvePEFPRb5OS3MmMKbZz3YN1o=; b=g19mID0eyJ1F5Wk8WiSh5cOy+3
-	Nj5m1K5dfrWGKiBtnXhfCWaelAUME+bNw81LS8uQRSHE92kFl8sjboN6/6d3Pw+4SkohhdQM9n8Py
-	8aT1tKWGSpyw82ONF3wXlZN2h7sH63yyKNZhTxHytrdq1QfrTndyQ8VcvmloBLRTl5dFJ+/U8WPzW
-	MahB+4bfJrCm20f05UtUmKMdeGMqsE5kZo2I7F4sf9hYaj4lIfSj/CL5gABcAKWQHqq24O4P4Xy8Y
-	DxDEu5NRKGCS82Dos2jhmsi847qSpHOjmpYZghkAkYMu9giIPiS8VxjPybA5E6H4kpdUvVqsK8v7Z
-	9NTbOb6Q==;
+	bh=t2zMXVUbUq6ERjN/fIvEWYa6XlPtK/FgPC26NjIAjXw=; b=zj8c6/GSwqaGnEkDKNCuFvdhzW
+	L6HN0SKzq1YXJ9lPB7uTMPKZNlZGw833N9pxuNGdu1X54cXE9aG9JnMsI+XC+fypd9kzFyY/t+I7I
+	MvnLfTIVYqIlcbdpbBxyTh2ZeTM7xSL3gzISdZpyQlvTbAE1wVJtbyQR6/1iPDeggOnuW44YVEK21
+	suZcdEYGzHHGRRI9WZONETAXlFaNiaWsGMpqsPGzAT2BnwOpr4PyzikehvohjzWdiZjnphzSjskua
+	DNrZ13eeqt1nywWbK0z/V7WpOIl4+rbrgbQk9heu1vD4DClk1VNXJKWzzEP6SIgrvbfL8vYxEdCHm
+	xmwCvFig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc1pE-00000006PGw-3d1v;
-	Tue, 23 Jun 2026 14:10:04 +0000
-Received: from fr5000-r.dnsiaas.com ([92.42.104.18])
+	id 1wc1s4-00000006PVe-1FAx;
+	Tue, 23 Jun 2026 14:13:00 +0000
+Received: from mout.gmx.net ([212.227.17.21])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc1pC-00000006PGD-3lX5;
-	Tue, 23 Jun 2026 14:10:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=superkali.me; s=default; h=Content-Transfer-Encoding:Content-Type:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=QzZ/eVkAfrxKfCLuLelvePEFPRb5OS3MmMKbZz3YN1o=; b=lB1sH8Fg4D035v/eEGjsmD/nds
-	1qjTMd1aOWqyYCSUoOuu5NowhENS5PNqJPPWFrt1J8WfM+rUzw3OOA5Zay9XD912Bmy7qKh4jRPzT
-	iYEiKZNTrRjQnajOwDdSd0ToNDN7tB3jf78OOV3cSmWEpLtkbMErlT5Xt2Q3N+c9m8AueJkGhlHCZ
-	jAxfZWU0/iDNXR/lj97U1DXYcpwTfYk3ttdJuKAu50qoUS+oYYsZiGAn3ajjV3KbPDFVucZrXNcUh
-	VwQFbJ/BNH4F7nwtO8m45QajKORSqAQeT+BeMa6bJ63ntnD04XjnzAvRQW3GrP7npeJKTaKEb5oz/
-	lZ1xcw/Q==;
-Received: from [81.57.40.39] (port=50640 helo=superkali.me)
-	by fr5000-r.dnsiaas.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.99.4)
-	(envelope-from <hello@superkali.me>)
-	id 1wc1pD-0000000AngH-03t6;
-	Tue, 23 Jun 2026 16:10:00 +0200
-From: Daniele Briguglio <hello@superkali.me>
-To: Diederik de Haas <diederik@cknow-tech.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Ricardo Pardini <ricardo@pardini.net>
-Subject: Re: [PATCH v4 5/5] clk: rockchip: rk3588: add GATE_GRF clocks for I2S MCLK output to IO
-Date: Tue, 23 Jun 2026 16:09:58 +0200
-Message-ID: <20260623140958.4181297-1-hello@superkali.me>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <DJGH34DVKL0W.3T6UB4G4WYYUJ@cknow-tech.com>
-References: <20260419-rk3588-mclk-gate-grf-v4-0-513a42dd1dcc@superkali.me> <20260419-rk3588-mclk-gate-grf-v4-5-513a42dd1dcc@superkali.me> <DJGDSS875DDO.22TYPVYK5X8KZ@cknow-tech.com> <2100447.PIDvDuAF1L@diego> <20260623123316.4111002-1-hello@superkali.me> <DJGG8DEAKSPK.1GJ8FARAHXPXM@cknow-tech.com> <20260623132351.4144457-1-hello@superkali.me> <DJGH34DVKL0W.3T6UB4G4WYYUJ@cknow-tech.com>
+	id 1wc1s0-00000006PV3-1JCs;
+	Tue, 23 Jun 2026 14:12:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1782223954; x=1782828754; i=wahrenst@gmx.net;
+	bh=t2zMXVUbUq6ERjN/fIvEWYa6XlPtK/FgPC26NjIAjXw=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=Djvc0Qrgjv6G7JA4Y8fsoFm8STKZCHLc3tbtpKFwnSHWKc5K7ls6L1rlGbt57Y2j
+	 gcGLjVA7ZaS8485LANJRzxLqAfm2+G/OTJBBwih6lM//1wEyQCB6ysS5GHYCDS+nX
+	 eyotElWIDS0YW59hu014z+PznhlawITvaPbTopx7JzFEq/UXGskRHVvCbm2KV0NY3
+	 LDOHQVPKQ8DrYB5p+4BX0kocnmb+o+xzWfyw6m+CF1GCuFQnM2vKMVDh5lMtBjawp
+	 1aS8rwRCk5+MNSiMfqlqbC7AVqyAgy0QmcDc3nIjFUTrlHNo/EuP+U+V5M0nKZ7WC
+	 39q6pwMlw2tU360vgQ==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from client.hidden.invalid by mail.gmx.net (mrgmx104
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1N4z6q-1xL5Vt44Si-00zqLN; Tue, 23
+ Jun 2026 16:12:34 +0200
+Message-ID: <82b9e37d-6ae8-4df6-81e5-2f75ea490297@gmx.net>
+Date: Tue, 23 Jun 2026 16:12:30 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - fr5000-r.dnsiaas.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - superkali.me
-X-Get-Message-Sender-Via: fr5000-r.dnsiaas.com: authenticated_id: hello@superkali.me
-X-Authenticated-Sender: fr5000-r.dnsiaas.com: hello@superkali.me
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] pmdomain: bcm: bcm2835: handle genpd provider
+ registration errors
+To: Pengpeng Hou <pengpeng@iscas.ac.cn>, Ulf Hansson
+ <ulf.hansson@linaro.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>,
+ Scott Branden <sbranden@broadcom.com>, =?UTF-8?Q?Ma=C3=ADra_Canal?=
+ <mcanal@igalia.com>, Stanimir Varbanov <svarbanov@suse.de>,
+ Eric Anholt <eric@anholt.net>, Rob Herring <robh@kernel.org>
+Cc: linux-pm@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260623135937.60740-1-pengpeng@iscas.ac.cn>
+Content-Language: en-US
+From: Stefan Wahren <wahrenst@gmx.net>
+Autocrypt: addr=wahrenst@gmx.net; keydata=
+ xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
+ IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
+ NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
+ JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
+ TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
+ f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
+ V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
+ aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
+In-Reply-To: <20260623135937.60740-1-pengpeng@iscas.ac.cn>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Provags-ID: V03:K1:xzGZzmRsHcnPPt4VQyVgWztQG5yYjbncqGKYZEmpRWVtpp9Ievy
+ WjSPlNCbWeIlwSsLaVkBEpCuIiQhQ22lyAGr3evMzUULRnRdhYuPaBiGiuuq+c22n7gq336
+ vGMgYF7W7O71+ggNREhjz2Xl4T7Ql8xlc950JZGLeKwESIRVX58SQVno8WabDpkN8X/OBI5
+ RQ4+mRp7+8DkzJOQZTDgw==
+UI-OutboundReport: notjunk:1;M01:P0:KSk85o12X2Q=;m8oojhSrDPT7Xog9EzI9Cqdttf1 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 E6YiOfxYnm2EDUImJ9I1ww0zif5xdfmXjZDHo54
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_071003_121082_9EE484B7 
-X-CRM114-Status: UNSURE (   4.34  )
+X-CRM114-CacheID: sfid-20260623_071256_649028_C4A6EB92 
+X-CRM114-Status: UNSURE (   7.56  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -96,27 +98,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Diederik,
-
-> My suspicion that more RK3588 based boards would be broken is because NONE use
-> I2S0_8CH_MCLKOUT_TO_IO; they all use I2S0_8CH_MCLKOUT.
-
-These bits reset to open (SYS_GRF_SOC_CON6 = 0x4600, i2sN_mclk_ioe_ clear,
-1'b0 = "Output enable"), so a board doesn't need to reference the gate to
-get MCLK. They're RW, so firmware can go either way, but your 0x600 has
-them clear, which is why audio works today.
-
-The series made the gate a managed clock, so with no consumer
-clk_disable_unused disables it at boot. CLK_IGNORE_UNUSED leaves an
-already-open gate alone, so nothing changes for those boards. Only the ones
-that come up disabled, like the YY3588 and Ricardo's R58X-Pro, need _TO_IO
-for the kernel to turn it back on.
-
-> So IIUC that means I'd be testing both variants.
-
-Right, that covers both: the mux path and the consumer path. Looking
-forward to the results.
-
-Best regards,
-Daniele
+Am 23.06.26 um 15:59 schrieb Pengpeng Hou:
+> bcm2835_power_probe() initializes all power domains and then registers
+> the onecell genpd provider, but ignores of_genpd_add_provider_onecell()
+> failures. Probe can therefore return success even though no provider was
+> published.
+>
+> Check the provider registration return value and jump to the existing
+> cleanup path on failure.
+>
+> Fixes: 670c672608a1 ("soc: bcm: bcm2835-pm: Add support for power domains under a new binding.")
+> Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
+Reviewed-by: Stefan Wahren <wahrenst@gmx.net>
 
