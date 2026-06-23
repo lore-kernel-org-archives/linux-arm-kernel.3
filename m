@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70487CDB47A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA358CDB46F
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 02:02:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,51 +12,51 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SQnqD75kBJnahVKlM/6rigGCn7nU8AXfVUYkFe+azzo=; b=eCG4eIw84gjYVS3d1JfX20K1nW
-	pjC984/Ku2EAjsXXbZ9kKQWVECTYKxgg52y+ihetRcZ/P0IpvJsZE0aCksuutGUeu246L1M6XESNQ
-	oaAk0luKOOQCN9wNVKcC17IIT08f3BwzU1L+PnOGg/m24D2qZpKNf01CDXoUeNE5poX42UklykaRk
-	W2NYZ1albpwm7jIjoYCVTsi0cjVG+lKsc3tq1rmedh+6Y0y5aWeKH8J+FWFHb9oeH3K5Wk6msSpCd
-	YgJ1vtnVzgSyHy1j2xd5PAi84L86cRy44fWWez0w1h6cVsnhGp/Y8KlSkoGFQWCt2hc6dFAaNTO01
-	MqNQDtQg==;
+	bh=rPTD/8zSUu5VkcrXL6yx21QDb4jTwvzquTnjTr88gc4=; b=ne05djzbAXkIfSNzguRVyzWdNc
+	AVz5HlefHw3dhXXYFaJgAlvx698dbYsGGJyfJ5kReQdTJlNc1bO3XDQNpNjzZHyKSz+/mDUN4Wvrt
+	E5rkQD0QPjslvbEuW3Lums+GjYpWvgzfchYvOi7ZIj7Jrd/IzVnGwOHUlJAjILV2iZ8BUx1GE1YLv
+	SkXVKPoPJ39ai71xxVDOXriP3SPhmpVtI+qF0PgUurI3xk0SNeLkFPE/W9qGsS0/5okEJ5gBWukce
+	wz/ngXNfO6IR0teGEhKp5nYwnEUgpImmgsicHMs4lJyx3EdnWIsrcHM8bu6Csy7kkAC0if+0ZRM8X
+	Ubal0orA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbqSU-00000005Zh4-35PQ;
-	Tue, 23 Jun 2026 02:01:50 +0000
-Received: from dggsgout11.his.huawei.com ([45.249.212.51])
+	id 1wbqSd-00000005ZjT-0GKd;
+	Tue, 23 Jun 2026 02:01:59 +0000
+Received: from dggsgout12.his.huawei.com ([45.249.212.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbqSR-00000005Zes-2F3O
+	id 1wbqSR-00000005Zew-35e3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 02:01:48 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.177])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4gkpFS2CxhzYQtx4
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 10:01:00 +0800 (CST)
+	Tue, 23 Jun 2026 02:01:50 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.170])
+	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4gkpF643MpzKHMZT
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 10:00:42 +0800 (CST)
 Received: from mail02.huawei.com (unknown [10.116.40.112])
-	by mail.maildlp.com (Postfix) with ESMTP id 4F28F40590
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 10:01:40 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTP id E380C4056E
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 10:01:39 +0800 (CST)
 Received: from huaweicloud.com (unknown [10.166.163.161])
-	by APP1 (Coremail) with SMTP id cCh0CgCHiD0A6TlqxaQZCw--.5730S7;
-	Tue, 23 Jun 2026 10:01:40 +0800 (CST)
+	by APP1 (Coremail) with SMTP id cCh0CgCHiD0A6TlqxaQZCw--.5730S6;
+	Tue, 23 Jun 2026 10:01:39 +0800 (CST)
 From: Kemeng Shi <shikemeng@huaweicloud.com>
 To: maz@kernel.org,
 	tglx@kernel.org
 Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	shikemeng@huaweicloud.com
-Subject: [PATCH v3 5/6] irqchip/gic-v3-its: some minor improvement in comments
-Date: Tue, 23 Jun 2026 10:01:34 +0800
-Message-Id: <20260623020135.3584-6-shikemeng@huaweicloud.com>
+Subject: [PATCH v3 4/6] irqchip/gic-v3-its: Add ITS address info in more error logs
+Date: Tue, 23 Jun 2026 10:01:33 +0800
+Message-Id: <20260623020135.3584-5-shikemeng@huaweicloud.com>
 X-Mailer: git-send-email 2.36.1
 In-Reply-To: <20260623020135.3584-1-shikemeng@huaweicloud.com>
 References: <20260623020135.3584-1-shikemeng@huaweicloud.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: cCh0CgCHiD0A6TlqxaQZCw--.5730S7
-X-Coremail-Antispam: 1UD129KBjvJXoW7Gw45Wr13Ww13CrW7Jr1UZFb_yoW8JF1kpF
-	WUG342krn3uFWj9r1Dua109Fy5tan2kFZrKrZrG34Fqas8K3sYgrWUtryagFn3Gr13Jr4Y
-	vFZa9rW8u3yjyFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+X-CM-TRANSID: cCh0CgCHiD0A6TlqxaQZCw--.5730S6
+X-Coremail-Antispam: 1UD129KBjvJXoW7ZFWxCFy5GFyfJF4ftFyrZwb_yoW8tw1kpF
+	45W3yfZrn3X3yUXFs8Zr4DZrn3tw4kKas7G342ga9IgrsxAFykWan2yF9YvF1fA3Z7Ja12
+	qF4UKa1vkanrJaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
 	9KBjDU0xBIdaVrnRJUUUBE14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
 	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JF0E3s1l82xGYI
-	kIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2
+	kIc2x26xkF7I0E14v26r4j6ryUM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2
 	z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F
 	4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oVCq
 	3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7
@@ -64,14 +64,14 @@ X-Coremail-Antispam: 1UD129KBjvJXoW7Gw45Wr13Ww13CrW7Jr1UZFb_yoW8JF1kpF
 	M4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwCY1x0262kKe7AKxVWUAV
 	WUtwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v2
 	6r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_JF0_Jw1lIxkGc2
-	Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUCVW8JwCI42IY6xIIjxv20xvEc7CjxVAFwI0_
+	Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_
 	Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMI
-	IF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUvYLPUUUUU
+	IF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUr9N3UUUUU
 	=
 X-CM-SenderInfo: 5vklyvpphqwq5kxd4v5lfo033gof0z/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260622_190147_760847_D080ADDC 
-X-CRM114-Status: GOOD (  13.41  )
+X-CRM114-CacheID: sfid-20260622_190148_134592_D8D5F930 
+X-CRM114-Status: GOOD (  10.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,37 +86,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-1. "If it some" -> "If some"
-2. "by table by reading" -> by reading"
-3. "reading bit at offset '62'" -> "reading GITS_BASER_INDIRECT"
+We have a lot of logs containing ITS address info which is helpful to
+distiguish which ITS occurs error. Just add ITS address info into more
+exsiting error logs.
 
 Signed-off-by: Kemeng Shi <shikemeng@huaweicloud.com>
 ---
- drivers/irqchip/irq-gic-v3-its.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/irqchip/irq-gic-v3-its.c | 13 +++++++------
+ 1 file changed, 7 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-index 244509701070..120f6f29e978 100644
+index 8968bedefdba..244509701070 100644
 --- a/drivers/irqchip/irq-gic-v3-its.c
 +++ b/drivers/irqchip/irq-gic-v3-its.c
-@@ -163,7 +163,7 @@ struct event_lpi_map {
+@@ -1120,7 +1120,7 @@ static struct its_cmd_block *its_allocate_entry(struct its_node *its)
+ 	while (its_queue_full(its)) {
+ 		count--;
+ 		if (!count) {
+-			pr_err_ratelimited("ITS queue not draining\n");
++			pr_err_ratelimited("ITS@%pa queue not draining\n", &its->phys_base);
+ 			return NULL;
+ 		}
+ 		cpu_relax();
+@@ -1196,8 +1196,8 @@ static int its_wait_for_range_completion(struct its_node *its,
  
- /*
-  * The ITS view of a device - belongs to an ITS, owns an interrupt
-- * translation table, and a list of interrupts.  If it some of its
-+ * translation table, and a list of interrupts.  If some of its
-  * LPIs are injected into a guest (GICv4), the event_map.vm field
-  * indicates which one.
-  */
-@@ -2504,7 +2504,7 @@ static bool its_parse_indirect_baser(struct its_node *its,
- 	if ((esz << ids) > (psz * 2)) {
- 		/*
- 		 * Find out whether hw supports a single or two-level table by
--		 * table by reading bit at offset '62' after writing '1' to it.
-+		 * reading GITS_BASER_INDIRECT after writing '1' to it.
- 		 */
- 		its_write_baser(its, baser, val | GITS_BASER_INDIRECT);
- 		indirect = !!(baser->val & GITS_BASER_INDIRECT);
+ 		count--;
+ 		if (!count) {
+-			pr_err_ratelimited("ITS queue timeout (%llu %llu)\n",
+-					   to_idx, linear_idx);
++			pr_err_ratelimited("ITS@%pa queue timeout (%llu %llu)\n",
++					   &its->phys_base, to_idx, linear_idx);
+ 			return -1;
+ 		}
+ 		prev_idx = rd_idx;
+@@ -1244,7 +1244,7 @@ post:									\
+ 	raw_spin_unlock_irqrestore(&its->lock, flags);			\
+ 									\
+ 	if (its_wait_for_range_completion(its, rd_idx, next_cmd))	\
+-		pr_err_ratelimited("ITS cmd %ps failed\n", builder);	\
++		pr_err_ratelimited("ITS@%pa cmd %ps failed\n", &its->phys_base, &builder);	\
+ }
+ 
+ static void its_build_sync_cmd(struct its_node *its,
+@@ -2411,7 +2411,8 @@ static int its_setup_baser(struct its_node *its, struct its_baser *baser,
+ 
+ 		/* 52bit PA is supported only when PageSize=64K */
+ 		if (psz != SZ_64K) {
+-			pr_err("ITS: no 52bit PA support when psz=%d\n", psz);
++			pr_err("ITS@%pa: no 52bit PA support when psz=%d\n",
++				   &its->phys_base, psz);
+ 			its_free_pages(base, order);
+ 			return -ENXIO;
+ 		}
+@@ -5183,7 +5184,7 @@ static int its_init_vpe_domain(void)
+ 	vpe_proxy.dev = its_create_device(its, devid, entries, false);
+ 	if (!vpe_proxy.dev) {
+ 		kfree(vpe_proxy.vpes);
+-		pr_err("ITS: Can't allocate GICv4 proxy device\n");
++		pr_err("ITS@%pa: Can't allocate GICv4 proxy device\n", &its->phys_base);
+ 		return -ENOMEM;
+ 	}
+ 
 -- 
 2.36.1
 
