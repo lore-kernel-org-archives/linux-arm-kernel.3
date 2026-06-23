@@ -4,101 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DB40CD98F2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 11:22:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DB91CDB46F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 11:23:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=4Ll5fGvrULmASpVjjrUyqyYpgppQmeYjrRkuEZdoatc=; b=2j1L12a+k//GKTya8cQ1FyjLpK
-	FevbcGVlh88FQ8ISBn1u4dcgYwTxTmGVH5dW/ZLutZbQQutlWNmROLznoh3r4pjQfv+ReGJ5NoUqD
-	bdkqZ8dKerZpKrqzrlABZC6I8jLM0ksZhaTXkbSU4b+JHK3xFp1uPODSZqr2Fyu8b7Aug8wLYuzxQ
-	13f/0dGkbkZ3osqtYaOa1rKzEw8OqqAaKV/L1FAIVkqfeqwf/uAAAhPsFNCfyuneQ/4vznEWpnd+o
-	ZebFOvA4EKXVwPeRpzJx1JNad/Z9X793p8+rWWFO6Hyas3LeE/0iTAQqXa9iFHx4bFxh4RWu5xfFG
-	GIu6nzTQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mAVIsyi0roMiNG+3y68083oAhmj4zDD/EfEM2kSD1qg=; b=M9Zho51j++Yqgvdz3p62N4jUtQ
+	7JFCqK4SzRG/R8daPQ7XH/gCgMK3m+dKLET0318/JYsUZR0maeiMBOiBJblh34kI1f7F7U1P5fnk/
+	77mV0aRenxBW6H877HQLOf9X2kfu8O9iXTwV8ICDqdYgw4T5HzF3KEhvr5K/loyzZnhqu2aC+S0gL
+	/EIgNYR2hYnLSJ/k4hHjQDlM30IZShMCROQyjSTCkd+E8k0PMNZa8Jm/8SZQ6XziVAaFdENmYGOFs
+	bcCSOcYO3TVd4ew4llpwmaLagU6MAvUsr19Ho/YRbqML98L/tluAfCtXuYNA/G4GJgo1+9XtELKsj
+	LKJQ+wMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbzD8-00000006Aql-3y0O;
-	Tue, 23 Jun 2026 11:22:34 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1wbzE4-00000006AyZ-0j98;
+	Tue, 23 Jun 2026 11:23:32 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbzD5-00000006AqI-3pm5
+	id 1wbzDz-00000006AxE-4AGH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 11:22:33 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4908b92904fso78446725e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 04:22:31 -0700 (PDT)
+	Tue, 23 Jun 2026 11:23:30 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65NAsL0c042137
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 11:23:27 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	mAVIsyi0roMiNG+3y68083oAhmj4zDD/EfEM2kSD1qg=; b=cbXilyVI6wW8w1uJ
+	sZXyG8GJmlYGOYwDI2JQHfWE9oF9tIeIQbhrCZjn0pvbKS7li7kBxH98HzdSka4y
+	hFGhL+SDLgFikzzemVUbKThM20Xlmi4hoEl9jd/jv+nKs+Z2syIh0kPDS1LDNgf0
+	zO1b3dSG+qfnTsNJ8yodH4frZdovKlS7FD6chm/9yp+dQxem+d78ngb3/OJwYiAE
+	5uQbWjnerSM/+XhuM0y24R/kJCS2TUKgaigmEShJh3qp6xGxcy7NkB2TFpvgcnEG
+	CEuHH+22bN0XUk1ePdfwwmZUlPpdf6ipYArWe/Vb+os/huSVJ6y1B4I67aRCdlEH
+	mNNngA==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4eyr3209j1-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 11:23:27 +0000 (GMT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-9229581de9eso32357585a.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 04:23:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782213750; x=1782818550; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=4Ll5fGvrULmASpVjjrUyqyYpgppQmeYjrRkuEZdoatc=;
-        b=QCYCNSfdlKf7Yoxej5D5L/+TJRXQtt6NQxbDL8I7cxLmTFwM167d3KsCWGHPvbatwA
-         SNatwyTzCzfBEMjUUg/Gy5CnWEyKm/DoDIK4H4vA0QCZCbiLHbHhp0XV9X5JprAC1/Iu
-         ewAsAJDgV5t26MZ1LYD929zevpq2F9ULyUoZxQzJEMgG8Xm0nWOZxQEmtql7BM3puiDL
-         IUbAnlzDPYW1r0I347ZxgZHL7REpC20ZP4+z+zKCqv+Mtrg1Hfmk82CtTaFr7HqYcvMZ
-         oO5afdtDVVzzq9qXYJBMbXinnGtyA6cYTN2Ag3xk+TPo7nza1Jy35TQ892bAspK/Nphi
-         OtaA==
+        d=oss.qualcomm.com; s=google; t=1782213806; x=1782818606; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=mAVIsyi0roMiNG+3y68083oAhmj4zDD/EfEM2kSD1qg=;
+        b=cBrIMqL7ajC4gji5DjkGV3nmTga9hZL1cALdZXOmi2ZlnNn6Jog4FblBj2P6GlN3aQ
+         5BPQbN4myWD4KnV5jjXBg8/KkV9SHDITZR71RMrH7R09Ts1JmFYdwtheqHm8VXX0NHzs
+         HFOYjX0UE9A4UQ36V1WuMffOxffXhXtQzf2wz6OUMLcJ8LJEBMbMcYky+TL6piGDufBw
+         mqvAg37Na1KWl46gfYiLptpWnUHp8zb0HZ/FQ9cM62ckb73hgNzWmGrZPOPwMDFG+c6H
+         oodkIHCqC1IbssztSOIXnRSOTcn58F7lZ7BvnL6VClsxHa4xWCQgkvseoerJ97hGcQ+N
+         QMMA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782213750; x=1782818550;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=4Ll5fGvrULmASpVjjrUyqyYpgppQmeYjrRkuEZdoatc=;
-        b=CVG2DNoD8pnyc9SKiBgCatMj4O2lNn2mXpNaGm35QBxeW1z542BkGr/EcaohsoPy+G
-         zolUmrMYMZhGXKSzeNO8667BF9B/nZVhxNcmjSyqRu9aAzeZzY1lqlD6w7Gx0WLLf4iS
-         SX20g8GzcGKvkIO0pfGj+9x/vc4mf/jqXL460WOlaS9gsSOhJ4r9ZFO+Xr+iohOq8o21
-         1vnC5Xg56oUbu2qVud1ExlPkYKJeD6nbxOhNRHVJytiyzT6udZuYnlQDyjuwL2UQOoEe
-         +bFyIOujrAxRfZopmtik5vgfUr/gJllIkLYR0XcTm5CU9sc+tINZVJEuTr1xuSgzE2+a
-         c12Q==
-X-Forwarded-Encrypted: i=1; AFNElJ+WEibEYSDvOZIcNSln8a2UhAdg7HMgwCwLpDNqrJq943w+OWmyi32IBLxpALs/bY6CR30NtHOw2ZywpaYqncph@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz3eeY1AqkJm52L/+Jl00jQSqu1xMhHboQx1BtHkU+OuIS1icVf
-	089pC8USZWfALMs8FksAU2U9+LOH/8F6N8cU/bP0vT+tXHa+3O/EWMRn
-X-Gm-Gg: AfdE7ck6pIytXrimPiRrIKoPJbFXIMTZkiHriI0ItyYsh/9cCxBOPNaWb2MmHElIV2k
-	fVKE4EaL3uG0HayT6U5iTEjE7n4NxOBs4VCY+Cfm1RyX0QtwQe18rfiBT4TvOIfhXltJF4ZAMH3
-	KCKl/QycL7dDiHSpEA0GHSjz0o6fyX831IEIazAYGtmVOp5dNHy7CqeN8gNSpBH6FiuR2zji+gd
-	iEVlHWqLQwyk/dTobJ17ZqJtJM/99dOH885HIhoH+tdgx5GRmGLqDx6iMZIEgHt3OwSKf8BVPfs
-	upOJcNzgO4/1dYgQvZ6KN5V1EIHn7+3qOhmP/L8b8lRrJYYF/E1CWpoDpvKBn8tv2PsXdwgt9QK
-	QpXS5iLg/hu4bdZNVwvx1Elyn+nPnmTxPqYCtzMlWz7o5dqX42De84cL/jOTfjaGDONbUnXHU94
-	euz4nqm1Uyg/gjeLnd+Ac19h4K8SA6dwVyugc7VjBL9B2xUFk6j+ggUySV9zoS+0IlTozQPKmhe
-	1K1mxOVWNk=
-X-Received: by 2002:a05:600c:4455:b0:492:40f2:4d78 with SMTP id 5b1f17b1804b1-4925b34a2e6mr33035365e9.2.1782213749442;
-        Tue, 23 Jun 2026 04:22:29 -0700 (PDT)
-Received: from dohko.chello.ie (188-141-5-72.dynamic.upc.ie. [188.141.5.72])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4924923cbe7sm272220715e9.8.2026.06.23.04.22.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 23 Jun 2026 04:22:29 -0700 (PDT)
-From: David Carlier <devnexen@gmail.com>
-To: danishanwar@ti.com,
-	rogerq@kernel.org,
-	andrew+netdev@lunn.ch,
-	netdev@vger.kernel.org
-Cc: davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	m-malladi@ti.com,
-	hawk@kernel.org,
-	john.fastabend@gmail.com,
-	sdf@fomichev.me,
-	ast@kernel.org,
-	daniel@iogearbox.net,
-	bpf@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	David Carlier <devnexen@gmail.com>
-Subject: [PATCH net v2] net: ti: icssg-prueth: fix XDP_TX from the AF_XDP zero-copy RX path
-Date: Tue, 23 Jun 2026 12:22:25 +0100
-Message-ID: <20260623112225.303930-1-devnexen@gmail.com>
-X-Mailer: git-send-email 2.53.0
+        d=1e100.net; s=20251104; t=1782213806; x=1782818606;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=mAVIsyi0roMiNG+3y68083oAhmj4zDD/EfEM2kSD1qg=;
+        b=s9Oi3bcD/yLo6FWYsW8gLk8PXdR7HeFTjcVeq9CJKgRWM/WBkExCBXHu9dsDpXq1sQ
+         104SML3FfZaka9wSNs0po+vfRxFYIz09BcP+znibnhNnEkzHIzJ/9XuwlvfSQbCsTWam
+         2tqUj1zss6tugHX5E9hSsgjMUu4NQwuVTfnmLeJuDf0lYeZGyG9HjaQvOUzQxhSfR5f2
+         kR59NrRhyrmPEyjJHDq5ueHLcx8brjgWYWM5R6NLsdypobASsVxpy1XV9dlW0Mxxt0uK
+         rHaLM+st/iw/n5I1n0CVF057fqPjdwKdmQqoid3QDpi7P/0PbFODYJFbr/5ormXtKO6G
+         Ysnw==
+X-Forwarded-Encrypted: i=1; AFNElJ+dmV48e42LIRlp9pSyAqFYQTWLxVApWUVdrGQZ+SqXcBW2+cvB4LzSF9Z+FYjUEIwZ3p9RLJkHSGtLkjsTe9Vg@lists.infradead.org
+X-Gm-Message-State: AOJu0YyX6NkCk4qOaZaBjqZmLyKuGRYoOvM88Pbf/+imgRa6/flFvhCV
+	GTqck8Nyxyd1RCVKeAmXkX5iznbKe61oL5rHznZQwF3LDoV/b9YZSb9UFdCwo4QyhY/S6ODPvis
+	UhK2I2NLxE9jghdYDpqc2YwLUN8PE/tVM0c11IG639szlEs1xYrOR8kISuByh7tcJLxNUKqP4CR
+	UVeQ==
+X-Gm-Gg: AfdE7cm99/MZTRBRp7fY603gQt7Kpty3U+Ly4kCC22pOB58vFlB1Tg4Sn02l4ANdvcC
+	xtuC3JqYy9Xjm6zcnZ7wyg+DOjuN9Nac81O9KukHx3wWlFIekUxjTvMCGirBIX2Hl/oc7WK6Df7
+	b+1nAw5a2izmE5dqB61nIqtmijp7eD7oEzXzPItPkNq36Hl7V6zd5YFF413WeOWo+rUT0Fx7mdz
+	5XhItPbves0OP74ykxBOsKpziqZNLD9eMc0+alvt1iE/XBB88zBYttnJYY/AGNI5RFoVBP1oy8S
+	LPJpHSrnQ+iWqjji1EfDDmxFwW7WigpBDWAIlSEOrZyJMOuc8hELBYUv9VMjYT8dd0XmIdhBSMV
+	s8uVK3rOPq/6NlIQF0fVoddcov1g7BBeHBNU=
+X-Received: by 2002:a05:620a:6cce:b0:920:6579:bee8 with SMTP id af79cd13be357-925c6f59e85mr504350485a.1.1782213806269;
+        Tue, 23 Jun 2026 04:23:26 -0700 (PDT)
+X-Received: by 2002:a05:620a:6cce:b0:920:6579:bee8 with SMTP id af79cd13be357-925c6f59e85mr504346985a.1.1782213805798;
+        Tue, 23 Jun 2026 04:23:25 -0700 (PDT)
+Received: from [192.168.120.170] ([178.235.128.140])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c0c5e49a759sm503098866b.6.2026.06.23.04.23.22
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 23 Jun 2026 04:23:24 -0700 (PDT)
+Message-ID: <27db2e06-e3ea-4edf-a0b9-1baac1d5bb50@oss.qualcomm.com>
+Date: Tue, 23 Jun 2026 13:23:21 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/8] arm64: dts: qcom: sm8450: Modify GPU operating points
+To: esteuwu@proton.me, Bjorn Andersson <andersson@kernel.org>,
+        Michael Turquette <mturquette@baylibre.com>,
+        Stephen Boyd
+ <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
+        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        Rob Clark <robin.clark@oss.qualcomm.com>,
+        Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+        "Joerg Roedel (AMD)" <joro@8bytes.org>, Vinod Koul <vkoul@kernel.org>,
+        Neil Armstrong <neil.armstrong@linaro.org>
+Cc: linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
+        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+        iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+        linux-phy@lists.infradead.org
+References: <20260622-sm8450-qol-v1-0-37e2ee8df9da@proton.me>
+ <20260622-sm8450-qol-v1-3-37e2ee8df9da@proton.me>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20260622-sm8450-qol-v1-3-37e2ee8df9da@proton.me>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNjIzMDA5MyBTYWx0ZWRfX1QQf4nfhtypH
+ x/fuBtHkS3gIL6ndcbXq3diu+o3fYbm7OoxTJpNpQYLMdriLvYPBowzBgaklMS7AXL/RgydGmyr
+ +skGGwoe0LCbsqwNOLfXF2vQ22HjJO4=
+X-Proofpoint-ORIG-GUID: OxXRldg7EzuOvhrFdBNvSsihwtuTyNpR
+X-Authority-Analysis: v=2.4 cv=HrxG3UTS c=1 sm=1 tr=0 ts=6a3a6caf cx=c_pps
+ a=HLyN3IcIa5EE8TELMZ618Q==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
+ a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
+ a=yh-zqMWk-TAmMPKcllkA:9 a=QEXdDO2ut3YA:10 a=bTQJ7kPSJx9SKPbeHEYW:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjIzMDA5MyBTYWx0ZWRfX52HIZQt+oUN/
+ 3J/7pCGQI100f/XlVBwWktmmeRgTxYHp38BHvK/YYyzFmZYF/BllXpU+1hoauGPVZ1Pg/KYMZRn
+ NI5Ckf+wm/ZpNZe5VgfTQXCbdcuFeYTtz0rXweYHOFz1Cxi5RT3uNk1VMb6PQJHqbhXgzIEldWV
+ jaguJWvGVUGSzhTDjCHDg74ECJ4pLsRbEpgriRb2CQNQ3H28Tm8FwAlPFTy+2kds3RbfNuuEQ3P
+ rI3Xfm4hyEKzYQE6P91+DvoNU3045rreIVNYudikffatrggQMxEUKL2jJlc743blqtshM3u2lnM
+ TZ6fK22Nj6rPT4b00mACms4/UnvdocdoyxMuYMhoAC7ecd50e39+r/27T3kZ6GvAtEcQv/MI+eu
+ lJpHkiAJxKNoh5Xi4jTIrHUb6dkvcLOm3Hcxg6+lRcv9I0F858ElJ1yHYvQJjENhF6OEYXPNsN3
+ Fp0nHu2FJtyE/8Z7nEQ==
+X-Proofpoint-GUID: OxXRldg7EzuOvhrFdBNvSsihwtuTyNpR
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-06-23_02,2026-06-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 spamscore=0 phishscore=0 priorityscore=1501 malwarescore=0
+ adultscore=0 bulkscore=0 impostorscore=0 clxscore=1015 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2606230093
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_042232_002683_D04EE005 
-X-CRM114-Status: GOOD (  17.83  )
+X-CRM114-CacheID: sfid-20260623_042328_147472_9DE54988 
+X-CRM114-Status: GOOD (  17.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,127 +161,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On XDP_TX from the zero-copy RX path, emac_run_xdp() converts the xsk
-buffer via xdp_convert_zc_to_xdp_frame(), which clones the data into a
-fresh MEM_TYPE_PAGE_ORDER0 page that is not DMA mapped. Transmitting it
-as PRUETH_TX_BUFF_TYPE_XDP_TX derives the DMA address with
-page_pool_get_dma_addr(), reading an uninitialized page->dma_addr, so
-the device DMAs from a bogus address (corrupt TX, or an IOMMU fault).
+On 6/23/26 2:54 AM, Esteban Urrutia via B4 Relay wrote:
+> From: Esteban Urrutia <esteuwu@proton.me>
+> 
+> These frecuencies don't exist in downstream device trees.
+> Both 220MHz and 285MHz belong to SM8475, and I'm not sure where 317MHz
+> came from.
+> 
+> Signed-off-by: Esteban Urrutia <esteuwu@proton.me>
+> ---
+>  arch/arm64/boot/dts/qcom/sm8450.dtsi | 15 ---------------
+>  1 file changed, 15 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/qcom/sm8450.dtsi b/arch/arm64/boot/dts/qcom/sm8450.dtsi
+> index e34e3c05bf74..5e331a25e22a 100644
+> --- a/arch/arm64/boot/dts/qcom/sm8450.dtsi
+> +++ b/arch/arm64/boot/dts/qcom/sm8450.dtsi
+> @@ -2495,21 +2495,6 @@ opp-350000000 {
+>  					opp-hz = /bits/ 64 <350000000>;
+>  					opp-level = <RPMH_REGULATOR_LEVEL_LOW_SVS>;
+>  				};
+> -
+> -				opp-317000000 {
+> -					opp-hz = /bits/ 64 <317000000>;
+> -					opp-level = <RPMH_REGULATOR_LEVEL_LOW_SVS>;
+> -				};
+> -
+> -				opp-285000000 {
+> -					opp-hz = /bits/ 64 <285000000>;
+> -					opp-level = <RPMH_REGULATOR_LEVEL_LOW_SVS_D1>;
+> -				};
+> -
+> -				opp-220000000 {
+> -					opp-hz = /bits/ 64 <220000000>;
+> -					opp-level = <RPMH_REGULATOR_LEVEL_LOW_SVS_D1>;
+> -				};
 
-Pick the TX buffer type from the frame's memory type: keep
-PRUETH_TX_BUFF_TYPE_XDP_TX for page_pool frames and use
-PRUETH_TX_BUFF_TYPE_XDP_NDO for the cloned zero-copy frame, which is then
-DMA mapped through the NDO path and unmapped on completion.
+These are valid frequency points, although downstream didn't advertize
+them.
 
-While at it, fix the page_pool XDP_TX completion path. A
-PRUETH_TX_BUFF_TYPE_XDP_TX frame carries a page_pool-owned DMA mapping
-(established against rx_chn->dma_dev), yet prueth_xmit_free()
-unconditionally calls dma_unmap_single() on it with tx_chn->dma_dev,
-tearing down a mapping the driver does not own; xdp_return_frame()
-already recycles the page back to the pool. Tag such frames with a
-dedicated PRUETH_SWDATA_XDPF_TX type so the completion path skips the
-unmap, the same way PRUETH_SWDATA_XSK buffers are handled.
+Funnily enough, the frequency plan lists them as:
 
-Fixes: 7a64bb388df3 ("net: ti: icssg-prueth: Add AF_XDP zero copy for RX")
-Fixes: 62aa3246f462 ("net: ti: icssg-prueth: Add XDP support")
-Cc: stable@vger.kernel.org
-Signed-off-by: David Carlier <devnexen@gmail.com>
----
-v2:
- - fold in the page_pool XDP_TX completion-path unmap fix raised by
-   Meghana Malladi: tag page_pool TX frames with PRUETH_SWDATA_XDPF_TX
-   so prueth_xmit_free() skips dma_unmap_single() on a pool-owned
-   mapping; xdp_return_frame() already recycles the page.
- - add Fixes: 62aa3246f462 for that path.
- - no change to the original zero-copy fix.
-v1: https://lore.kernel.org/netdev/20260620213756.87499-1-devnexen@gmail.com
- drivers/net/ethernet/ti/icssg/icssg_common.c | 20 +++++++++++++++++---
- drivers/net/ethernet/ti/icssg/icssg_prueth.h |  1 +
- 2 files changed, 18 insertions(+), 3 deletions(-)
+LOWSVS_D2 -> 317 MHz // in downstream, at LOW_SVS
+LOWSVS_D1 -> 285 MHz // in downstream as-is
+LOWSVS_D0 -> 220 MHz // in downstream, LOW_SVS_D1
+(the above are what it says in the doc, yes, lower voltage for
+higher frequencies.. certainly seems like a bug..)
 
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_common.c b/drivers/net/ethernet/ti/icssg/icssg_common.c
-index 82ddef9c17d5..96c8bf5ef671 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_common.c
-+++ b/drivers/net/ethernet/ti/icssg/icssg_common.c
-@@ -185,7 +185,7 @@ void prueth_xmit_free(struct prueth_tx_chn *tx_chn,
- 	first_desc = desc;
- 	next_desc = first_desc;
- 	swdata = cppi5_hdesc_get_swdata(first_desc);
--	if (swdata->type == PRUETH_SWDATA_XSK)
-+	if (swdata->type == PRUETH_SWDATA_XSK || swdata->type == PRUETH_SWDATA_XDPF_TX)
- 		goto free_pool;
- 
- 	cppi5_hdesc_get_obuf(first_desc, &buf_dma, &buf_dma_len);
-@@ -259,6 +259,7 @@ int emac_tx_complete_packets(struct prueth_emac *emac, int chn,
- 			napi_consume_skb(skb, budget);
- 			break;
- 		case PRUETH_SWDATA_XDPF:
-+		case PRUETH_SWDATA_XDPF_TX:
- 			xdpf = swdata->data.xdpf;
- 			dev_sw_netstats_tx_add(ndev, 1, xdpf->len);
- 			total_bytes += xdpf->len;
-@@ -769,7 +770,8 @@ u32 emac_xmit_xdp_frame(struct prueth_emac *emac,
- 	k3_udma_glue_tx_dma_to_cppi5_addr(tx_chn->tx_chn, &buf_dma);
- 	cppi5_hdesc_attach_buf(first_desc, buf_dma, xdpf->len, buf_dma, xdpf->len);
- 	swdata = cppi5_hdesc_get_swdata(first_desc);
--	swdata->type = PRUETH_SWDATA_XDPF;
-+	swdata->type = buff_type == PRUETH_TX_BUFF_TYPE_XDP_TX ?
-+		PRUETH_SWDATA_XDPF_TX : PRUETH_SWDATA_XDPF;
- 	swdata->data.xdpf = xdpf;
- 
- 	/* Report BQL before sending the packet */
-@@ -804,6 +806,7 @@ EXPORT_SYMBOL_GPL(emac_xmit_xdp_frame);
-  */
- static u32 emac_run_xdp(struct prueth_emac *emac, struct xdp_buff *xdp, u32 *len)
- {
-+	enum prueth_tx_buff_type tx_buff_type;
- 	struct net_device *ndev = emac->ndev;
- 	struct netdev_queue *netif_txq;
- 	int cpu = smp_processor_id();
-@@ -826,11 +829,21 @@ static u32 emac_run_xdp(struct prueth_emac *emac, struct xdp_buff *xdp, u32 *len
- 			goto drop;
- 		}
- 
-+		/* In AF_XDP zero-copy mode xdp_convert_buff_to_frame()
-+		 * clones the xsk buffer into a fresh MEM_TYPE_PAGE_ORDER0
-+		 * page that is not DMA mapped. Such a frame must be mapped
-+		 * via the NDO path; only a page pool-backed frame already
-+		 * carries a usable page_pool DMA address.
-+		 */
-+		tx_buff_type = xdpf->mem_type == MEM_TYPE_PAGE_POOL ?
-+				PRUETH_TX_BUFF_TYPE_XDP_TX :
-+				PRUETH_TX_BUFF_TYPE_XDP_NDO;
-+
- 		q_idx = cpu % emac->tx_ch_num;
- 		netif_txq = netdev_get_tx_queue(ndev, q_idx);
- 		__netif_tx_lock(netif_txq, cpu);
- 		result = emac_xmit_xdp_frame(emac, xdpf, q_idx,
--					     PRUETH_TX_BUFF_TYPE_XDP_TX);
-+					     tx_buff_type);
- 		__netif_tx_unlock(netif_txq);
- 		if (result == ICSSG_XDP_CONSUMED) {
- 			ndev->stats.tx_dropped++;
-@@ -1395,6 +1408,7 @@ void prueth_tx_cleanup(void *data, dma_addr_t desc_dma)
- 		dev_kfree_skb_any(skb);
- 		break;
- 	case PRUETH_SWDATA_XDPF:
-+	case PRUETH_SWDATA_XDPF_TX:
- 		xdpf = swdata->data.xdpf;
- 		xdp_return_frame(xdpf);
- 		break;
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-index df93d15c5b78..00bb760d68a9 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-+++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-@@ -153,6 +153,7 @@ enum prueth_swdata_type {
- 	PRUETH_SWDATA_CMD,
- 	PRUETH_SWDATA_XDPF,
- 	PRUETH_SWDATA_XSK,
-+	PRUETH_SWDATA_XDPF_TX,
- };
- 
- enum prueth_tx_buff_type {
--- 
-2.53.0
+LOW_SVS   -> 350 Mhz // this and the following are in downstream too
+LOW_SVS_L1-> 421 MHz
+SVS	  -> 492 MHz
+SVS_L0 	  -> 545 MHz
+SVS_L1    -> 599 MHz
+SVS_L2    -> 640 MHz
+NOM       -> 734 MHz
+NOM_L1    -> 791 MHz
+TURBO     -> 818 MHz
 
+so in short, the existing map seems to be OK
+
+Konrad
 
