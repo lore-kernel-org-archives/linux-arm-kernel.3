@@ -4,71 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D1F1CDB46F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 13:45:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84024CD98F2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 13:46:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UZ4++YxJXc/6SFIqw2u6ldCc2haTxcSXXUeS9bd2ENM=; b=THeOYKVUmipPYLUiXALfUWfLlL
-	YT3Rrpj1W/mqlDDUxCeuT1lSKfT2IaLUgi1ui7g76o201UQsySqwIzkpiP1MJyW1OHiOkVQ+EvkJu
-	NJwyyhjdioWXxHokU1n2ZtO+wn2XnmWSD5ofTR7Y2IWRDw+kJQhCFd6Xi8TbRpvYcrCf5YEnb09L5
-	rFm/eNKEz7BFlELr4DZPzO5V4Acj0+uAm+C1rlfjdwAaJu1Kl5AABaJrZDW+WWRhF/IP7Mc9jWe36
-	c7GQrJj6UlJFrL2o6T5FGzHiyRe7w7JqAOf1LowRh9d8iV+dhOro4Vuc4SG/8Z99pO43q/NnYwn0S
-	+1NdLvtQ==;
+	bh=Pu2Ied/2CX8SQgA5iLJzmkqmoH1Ofyj6DGMTiEuzKtk=; b=jF8tY3y8/lpms4FdZ+5RJz/qEG
+	UnH7gQF83vfuDeY1f9znS4AErbouMbTXpnRumNHjhPKp7LknopPWT4qz3gI4mhdbAm8nmedNnRsbX
+	j/4NYw0dnxViQJLZFNK+AdPcLDUhyd32nnOnAZslhWP75T3QCt58ccrCTeWKoVQDa23kYvS5VN1j1
+	XuaX7aCmBL9iEPZhvgJN084kouE4AXevNHgBmghLoBi6zC1stSN1WF7G/0RiQKUpnhVKz/j+2NiFX
+	Xowm5u0A652B/ICSqf99gSfSWQM5Y6IGBYM/Nc5RyX9IeePRvyiLWtemigHiZsbLUGdoJYFPrgn2j
+	sLnUSshA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc1Ri-00000006MVJ-3y5D;
-	Tue, 23 Jun 2026 13:45:46 +0000
-Received: from out-178.mta0.migadu.com ([91.218.175.178])
+	id 1wc1Sk-00000006MeH-0ObE;
+	Tue, 23 Jun 2026 13:46:50 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc1Rg-00000006MUH-483t
+	id 1wc1Si-00000006Mdn-36tB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 13:45:46 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
-	s=key1; t=1782222332;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=UZ4++YxJXc/6SFIqw2u6ldCc2haTxcSXXUeS9bd2ENM=;
-	b=Xvt2WwtmOY6PYw8fMMtaKUPwhp00TjzdQIEHqcqaypIosTEKgcmztrkWySTKWpaBWtZTCA
-	1L4m4hU0BAGVvOjQ+nMVV0yHMl39CI6/NJfo8JrXcGL71Gtfc2bxxcCIpcQ1/NHm0YSScq
-	VixU+qrUJNYvHsjEUT/yHEAyQjSidSJOszChjXClbXTCVq1nBsFVsdfkEQ3XlUrvRKI7Co
-	QdXQtaOX2kRLeEiv6rBCwXc0J7rhVqhqtw7KvAZ3ArRpIPUeJEG9l7IjUTcel/3bweDh7B
-	moSJILJFXOBN0NCfuwE0orLdYnOz0zgWN6FG/xVbLACwjwdu2UIz6BWcHfUQWw==
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 23 Jun 2026 15:45:23 +0200
-Message-Id: <DJGH34DVKL0W.3T6UB4G4WYYUJ@cknow-tech.com>
-Cc: "Nicolas Frattaroli" <nicolas.frattaroli@collabora.com>,
- <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- "Ricardo Pardini" <ricardo@pardini.net>
-Subject: Re: [PATCH v4 5/5] clk: rockchip: rk3588: add GATE_GRF clocks for
- I2S MCLK output to IO
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <diederik@cknow-tech.com>
-To: "Daniele Briguglio" <hello@superkali.me>, "Diederik de Haas"
- <diederik@cknow-tech.com>, "Heiko Stuebner" <heiko@sntech.de>, "Michael
- Turquette" <mturquette@baylibre.com>, "Stephen Boyd" <sboyd@kernel.org>,
- "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
- <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>
-References: <20260419-rk3588-mclk-gate-grf-v4-0-513a42dd1dcc@superkali.me>
- <20260419-rk3588-mclk-gate-grf-v4-5-513a42dd1dcc@superkali.me>
- <DJGDSS875DDO.22TYPVYK5X8KZ@cknow-tech.com> <2100447.PIDvDuAF1L@diego>
- <20260623123316.4111002-1-hello@superkali.me>
- <DJGG8DEAKSPK.1GJ8FARAHXPXM@cknow-tech.com>
- <20260623132351.4144457-1-hello@superkali.me>
-In-Reply-To: <20260623132351.4144457-1-hello@superkali.me>
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_064545_168774_A3F1B4BA 
-X-CRM114-Status: GOOD (  15.45  )
+	Tue, 23 Jun 2026 13:46:48 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 304F044463;
+	Tue, 23 Jun 2026 13:46:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EEC9F1F00A3A;
+	Tue, 23 Jun 2026 13:46:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782222408;
+	bh=Pu2Ied/2CX8SQgA5iLJzmkqmoH1Ofyj6DGMTiEuzKtk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=BJtSQEfy3Gu7zg/q9oaOcRXAGcamTpvFq2eDls6gPhz7Q1UeOlxNau7vAroxmoiVC
+	 2h38LMXY1+tASVwkce2X53+8m8qGHAZaMD36aC8ZyUaMvJecZ+fypGZ2pGjZ8sgKZT
+	 Qgmmx6J3GEul2RlijjfNI7cFlO4MiBsgU1qKVusoR8D8xBGq87bAACfIvBHGmJE/5U
+	 bEFxKFNz2JHaSuxVqMYKxxV5/7xOw2qcBysNVO7npaxeXaN3irtDKCwDr09mjflx9E
+	 drS0t2rW4ZXK6EdfFHAxhAH2w3sh8pMGb+tgCaBufwQDh3auA7B+Sd6ZmbhVlqTaHq
+	 FynCXUquWWaPQ==
+From: Will Deacon <will@kernel.org>
+To: linux-arm-kernel@lists.infradead.org,
+	Will Deacon <will@kernel.org>
+Cc: catalin.marinas@arm.com,
+	kernel-team@android.com,
+	Arnd Bergmann <arnd@arndb.de>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Andreas Grapentin <gra@linux.ibm.com>,
+	Dave Martin <dave.martin@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Marc Zyngier <maz@kernel.org>
+Subject: Re: [PATCH] arm64: uapi: Use __u128 instead of __uint128_t in UAPI headers
+Date: Tue, 23 Jun 2026 14:46:40 +0100
+Message-ID: <178221850412.2621079.13020491489927340307.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260619130835.5678-1-will@kernel.org>
+References: <20260619130835.5678-1-will@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,40 +77,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Daniele,
+On Fri, 19 Jun 2026 14:08:34 +0100, Will Deacon wrote:
+> The arm64 UAPI exposes '__uint128_t' types in the members of
+> 'struct user_fpsimd_state', 'struct user_pac_address_keys' and in the
+> signal frame via 'struct fpsimd_context'. Since the alignment of such
+> a type appears to be non-portable (16 bytes on arm64, 8 bytes on s390),
+> prefer the '__u128' typedef from uapi/linux/types.h, which makes the
+> alignment explicit and allows the definitions to be reused by other
+> host architectures.
+> 
+> [...]
 
-On Tue Jun 23, 2026 at 3:23 PM CEST, Daniele Briguglio wrote:
->> md.l 0xfd58c318
->> fd58c318: 00000600
->
-> Thanks. Bit 0 is clear there, so the I2S0 gate is open at the U-Boot
-> prompt, after BL31 and before Linux. That matches the symptom: the
-> firmware on your T6 leaves it open, and the kernel closes it once nothing
-> references it.
->
-> Given that, I think Heiko's suggestion makes sense here. Marking the four
-> gates CLK_IGNORE_UNUSED keeps the kernel from disabling what the firmware
-> already left open, and boards that reference _TO_IO still drive it throug=
-h
-> the consumer.
+Applied to arm64 (for-next/core), thanks!
 
-My suspicion that more RK3588 based boards would be broken is because NONE =
-use
-I2S0_8CH_MCLKOUT_TO_IO; they all use I2S0_8CH_MCLKOUT.
-(And the testing was only done on not (yet?) upstreamed boards)
-
-> Could you test that change if you get a chance? Just set the flag on the
-> I2S0/1/2/3 _TO_IO gates in clk-rk3588.c and check your analog audio comes
-> back. The series is already merged, so I'll send the fix as a separate
-> follow-up patch, this evening if Heiko is fine with the approach.
-
-I'm going to build a new kernel where I did ``s/0/CLK_IGNORE_UNUSED/`` 4 ti=
-mes
-and I adjusted my NanoPC-T6 Plus board dts to use I2S0_8CH_MCLKOUT_TO_IO, w=
-hile
-I keep the LTS board dts to I2S0_8CH_MCLKOUT.
-So IIUC that means I'd be testing both variants.
+[1/1] arm64: uapi: Use __u128 instead of __uint128_t in UAPI headers
+      https://git.kernel.org/arm64/c/9d6306113f92
 
 Cheers,
-  Diederik
+-- 
+Will
+
+https://fixes.arm64.dev
+https://next.arm64.dev
+https://will.arm64.dev
 
