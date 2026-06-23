@@ -4,92 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A06ACD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 09:41:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A807CD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 09:44:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=LEY4mxBInTV31P334VeLm1dxOKL0Pc0LaCfP0/xhKcY=; b=Rau6qdMlbaIw/+Cchfdyxr3pwF
-	9hyn9MYC0GOFgkmlOYHd/47eeu3bqtcm/Qsyc9Dd1noPLeDcZhXiHUeZ9c8DDAXCaZjgPtHQA39Fa
-	cnqdfpyFPWi3HD/GGSlosijCP4HBh6ORLE48gIJdhDUuXApjTBbeB0dz+Qa+zmAuTSX6WnQm1/GBg
-	AlsEoRug0tzA+f82k6tytSsBIMcQGMTYeSoa4MX4veBBsTfOv+/ICfo7LtIKu8H0iNImTffIUIqal
-	+K7xCTBqQ3mP1/DwALSrp6NDTqdZ0X8Dq7MFDG22gEOyajt9ss7qE3NvJHjDYLuhxGjqSX3NwEXg7
-	UqvbDk1w==;
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fzwEa75SVblGykfagU1zVBLhxmcBKPZum3qY/q9Q3pE=; b=DvJrqNHIK4YkS/uJTZ5XrnbLl6
+	x8UrKEKwPMYtVGvg8fJdABYBeArPVU0B01ydepBM9Hpl1ZGOu32dBbVlc72YpxnSNLOwyyl7ykB6j
+	OZXOjk8izSaTNSUuTezXpauxChOg1vk9maS0RxRfGx/lsjjd8MTJ9m4kFQdu4IqD4uh3VwKZ+BuUA
+	yCUsFkc/sIIzs3w+nMCvUAahgmWAH0pIkz57sL8PuEzS990DYD3sm3i/TuS6zPRWMqNAQ7EvXOvsV
+	/U57Igx/mwW9mddCSi5V2VU2XAEwL4zegfrFkqRZQo9fHvCEViUFMupGDTIqlgWYfW+iHc78D1Jp9
+	53S+J/ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbxdO-000000061k5-3niD;
-	Tue, 23 Jun 2026 09:41:34 +0000
-Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
+	id 1wbxfm-000000061yl-1XNX;
+	Tue, 23 Jun 2026 09:44:02 +0000
+Received: from mail-westeuropeazon11010049.outbound.protection.outlook.com ([52.101.69.49] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbxdN-000000061jE-1S1V
+	id 1wbxfj-000000061yL-1ZJP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 09:41:34 +0000
-Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-84592b55832so388183b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 02:41:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782207692; x=1782812492; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=LEY4mxBInTV31P334VeLm1dxOKL0Pc0LaCfP0/xhKcY=;
-        b=AvCA0ISIaoR8TH0IcEXmjq9oYlLe2X2Rt2+dkYiFG0XN+QWvlE7OYXBGAKsZuk5RLl
-         Cs+SISPrL2RLllNIiNjxdHhCgKH3xMnKbQ7WVs5wqgVWZnY0l05MpVHpiEpGL+FYQeW5
-         g/7z7f+aMX5cT3RxLYoqacoZRjSgDFAvtL7VWfveTpK6xsOoYsWfKncQPDECPK1TVr+4
-         tEbYn58pc2+Cicf5nZIqaeJNLp+jpCsej/n5GacsW/aHGYRm/EpfsOuOpdF1v9O//Tj6
-         z1282zDsHc3TzVVIxj/HmYxFLcbrH6H5nsq/60CSN8XWEs6tfPFnVY96eEnOzhh+GiyJ
-         k/mw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782207692; x=1782812492;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=LEY4mxBInTV31P334VeLm1dxOKL0Pc0LaCfP0/xhKcY=;
-        b=hq3u8/f6La2dTzlRhbcnyyVKKwRbLWWCEcgSa4UxvwP7bJMi+/iXAwXy8fla90tIqI
-         Gc3eA8DFL+6o625wvCkfUoFdLuTHJbDU/HRQyzcvjRAbE+ec3xmXdePdwqcoGgwIxCin
-         p9/3cc4uVnnvxL42hRDxXF+jomOC6VYDZvr1MFjEVldePdgHdPC0rE2EN73wNZAqgN8d
-         SqhF7l81qu5YM9Yc0pX6XYrlJ/YnrN6tJkepFPFNJuUDQKHjrC+p9TrbvpbItDYv8Njt
-         2OacQBL+QYZ1s9JOyTbswQzqJ8c7u/5VCOiXfdh3rzRwZqqZORRQBD+sKgJ8kjHa5nIj
-         1WQg==
-X-Forwarded-Encrypted: i=1; AFNElJ/dJwCIFGGf/GLy4rV+eVCdwpuH20fQM0tLDgUpp1vX/WH1LmQfzKVeLF13Y7xGsQbhoZpYL9G50EP7+K5QVzpf@lists.infradead.org
-X-Gm-Message-State: AOJu0YzODOJXYHRpcDDOC1/3bjo4MJPnMzpum9AbVF+ekN4gucawnVy3
-	R58tHOWpkrxm66X6r1MAbh3iQ9rwpdL+JWlkFP51Kyk6KHm4U7q8Yic=
-X-Gm-Gg: AfdE7ckJgPiCpMxJ9ZLb73VZTQLSnF6S8zWptNyyffhHaVyy8wlzgs2RLIKiDMu25PP
-	GUqxl4/F2E0m+nqbMhUDpg558eGx6u2fEJgChsRsjKORYfyHQ95K+5YMmWXsqSrBuKr3foNRToZ
-	C5/sBs0qEJ+KsPIhm9GJvGOOGe7RitGxozOTcLbzuM/lLCXwJDnZ7wiaDnlVS0FHZtYoMskUDDg
-	vIGymS9+VC0JTZkvLxPr3n/nJH6LVoAZpq/tK7wPD3tKLQS3QYcEm/y05sUiEsOyqkioRTzy5/E
-	CsM6jYZlwiWr+96m8GqY+/kriopRrvxkpfEMgHEZpD5LOJDN5y7FFzMbnrGpuwR7PCnGIThlbZv
-	F9dBBWD9KxS+cQWoEjb0jC/mCYtWLKRr7Rq61h9p9pYod0X201xeAwhrf0y8bkZKxJs9Cet/ywg
-	OV1yfEi3utwozuZkrs3UxbYGY1QMTRglzTvJsex+RFWONENRvUBBSJanCd25A/N1DvsP2S1tIoz
-	JA=
-X-Received: by 2002:a05:6a00:2196:b0:842:4387:34c0 with SMTP id d2e1a72fcca58-8459524d475mr2570456b3a.5.1782207692530;
-        Tue, 23 Jun 2026 02:41:32 -0700 (PDT)
-Received: from localhost.localdomain ([14.5.152.27])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84564d6bf73sm10180079b3a.5.2026.06.23.02.41.28
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 23 Jun 2026 02:41:31 -0700 (PDT)
-From: Myeonghun Pak <mhun512@gmail.com>
-To: Yassine Oudjana <y.oudjana@protonmail.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-clk@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Myeonghun Pak <mhun512@gmail.com>,
-	Ijae Kim <ae878000@gmail.com>
-Subject: [PATCH] clk: mediatek: mt6735: Unregister PLLs on probe failure
-Date: Tue, 23 Jun 2026 18:41:11 +0900
-Message-ID: <20260623094125.95791-1-mhun512@gmail.com>
-X-Mailer: git-send-email 2.47.1
+	Tue, 23 Jun 2026 09:44:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=nlInPGPB+ZfxRDfBWkJ34xZ5aMK66Za2SdFfBM20lfQh7kL0IkLf/vJQPdjmtgG7xfUt9tvZBSu9epmCUjgRm16ufr7+482I1owC3HNujNGQqDH8y7cfFskxWUqpRx6XKDGFmRccLk1B8z4YbKVfe0gbfQqsdfWYT8E7HylWbEXMt2AW5PGx5QYC4VbbDe46qOWOh+AJowo7v9MtmR8JDk0Rs5Voul1OhCLWCYkfXRT7sjvO67pxBz6ufWFGsEnSFyJscqOMRdGfWJjpXKZJvfP7JLqP0VPd5+0R2xNr3JdzEsKlNY9pRD+RtOOaDbJ+LqddqEybWvwCzZGMASr0dg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=fzwEa75SVblGykfagU1zVBLhxmcBKPZum3qY/q9Q3pE=;
+ b=e5KcQHP7NY3d/Y8i+3RFLhs7MlmcrspFP8dYm2ClsGF51ngEe2JS0hYnMHk8JvwSWICt1WUZR5A0V4rpW8xfBhzjQ+VwJ4DKNBIq31lXyNmFwvu7JNXsmbKYq865ZZwWWnkbMhs7TbNyMEod7vvMrme9gAaiWXto+XBLehz9AtQ7+W9UUaOsyAlB86aOlda6pbhOv8QFq7Cwq95mL5J9DxeOwHXPDxIzBRwnlTcfomnMUQz+PpS8x1kmwH3YcEEYwO61bgSE0YWlyXYtTQMjn7bkf0ueusgaSXlJyDcXS2TGIITz4FWCHdQIcM+R8v0vEJKOX/38WL8oT5yaZHXvuw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=fzwEa75SVblGykfagU1zVBLhxmcBKPZum3qY/q9Q3pE=;
+ b=GQyioHy+c1A4xRDtR4HXv7otANck9wU7ttfGPQo9ALvWGuVSlq1WhkWQ5hivAawnUn0qQDK50Mbosqe8pulQZsQiQ0F2WOeGgA+rI0hHFNysiLs+sFMqoXV8WLoibmEpyW/1k/7ebjaZyn66kZZuFHMRn0drIBz5RYO54LSlWWbOse0gSwJkNUR3SnwC1kHbSyI9E60VSDKGv14xODHP6xPrFxYVaAiUEIIqhbTshdzJIxpjWUt300597K48Y/aicKK5cJAxJEUzO19c3cAD5pKXgT+dq8kVIwja8TN5oXo4HGEaKOEuL1QmzgkI0reLtMfAQwoyvGBsMUQD8e7Eaw==
+Received: from CW1P302CA0027.GBRP302.PROD.OUTLOOK.COM (2603:10a6:400:297::15)
+ by AM0PR10MB3587.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:144::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.20; Tue, 23 Jun
+ 2026 09:43:52 +0000
+Received: from AM1PEPF000252DA.eurprd07.prod.outlook.com
+ (2603:10a6:400:297:cafe::4b) by CW1P302CA0027.outlook.office365.com
+ (2603:10a6:400:297::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.71.16 via Frontend Transport; Tue, 23
+ Jun 2026 09:43:52 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ AM1PEPF000252DA.mail.protection.outlook.com (10.167.16.52) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.159.10 via Frontend Transport; Tue, 23 Jun 2026 09:43:52 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.35; Tue, 23 Jun
+ 2026 11:48:31 +0200
+Received: from [10.48.87.64] (10.48.87.64) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.35; Tue, 23 Jun
+ 2026 11:43:51 +0200
+Message-ID: <46fce99d-9dd5-435b-95cd-86ed4771aa83@foss.st.com>
+Date: Tue, 23 Jun 2026 11:43:49 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] iio: stm32-dfsdm: Treat flags as booleans
+To: Jonathan Cameron <jic23@kernel.org>, Andy Shevchenko
+	<andriy.shevchenko@intel.com>
+CC: "Rob Herring (Arm)" <robh@kernel.org>, David Lechner
+	<dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, "Andy
+ Shevchenko" <andy@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, <linux-iio@vger.kernel.org>,
+	<linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20260612215151.1886851-1-robh@kernel.org>
+ <ai1dhJWb9vKqxEEe@ashevche-desk.local> <20260621151026.69714694@jic23-huawei>
+Content-Language: en-US
+From: Olivier MOYSAN <olivier.moysan@foss.st.com>
+In-Reply-To: <20260621151026.69714694@jic23-huawei>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.87.64]
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM1PEPF000252DA:EE_|AM0PR10MB3587:EE_
+X-MS-Office365-Filtering-Correlation-Id: cb799532-a9d2-4ac0-1d61-08ded10bef4f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|36860700016|23010399003|82310400026|1800799024|6133799003|56012099006|11063799006|4143699003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: uTgiYrW5OMUhs76rdxWHgh8vqjeDQbgJ85zYMhglDPz6nC+zFow7ah7JFHMjk3Cvw9CADuKshjfqEE0p9AWiYj8rpyNI2ihkimT0M4X04WX2DnKIzM9X711qQNw+NCGTmGNA17V2BmyD4DBHuRTsf67IyQ5L3YiiOIHqD3yf7IXJwofESlk9kLtjomki4c5to4lVMIiwZbtkpviUfiim4FUDjQ0JGGG4fs6AYGlfT+WVuaH3rHExrNJKxFtQTrPng0uoDNkJy4kb4VIpy9HIR0hSFyJCrcVmfWz0BUcxfjbxIUvaQkOZI3DpK67jKh40qUCcA6ssm8G5gJQPYy9xPZZyW+/w75Mc7siSbm+BNuhVukQ+7Cz153yi0c5fWeCS/2MpZJrRD4+KYLXQPfUh4Tvc5CbTHgbccR4Li0bmZ0dpkVGq9EDWzlaXem95U3IGbWRSU+ut39hgd2XLy4byQTq3yF6mz7920W1uI2ZVz0ytUq3ekehA8Hpj7zUAVWshO3CLmbbYxOPxvzt+kWDvswBQSjSZeKEDXuztAE2DfIboD2kVplS8XTeFINnm3AOOuFDcC5BylmXqS/uxuxebDsLZ31zrVhk9IQJXItcYfpZhf2suXh85ZoBpmIZMnlYrud4B+ae/Jwneiix428ofeBm2at0NdgiVdeDcUq7KFmJpCYFOe2eB57NR8hFycBVEvrsat0Mk1iR04f0Ec20FNg==
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(36860700016)(23010399003)(82310400026)(1800799024)(6133799003)(56012099006)(11063799006)(4143699003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: eYFI6jQmZ7osDd8wtC/j+X1GK/PhcCscAawF6J0uyab6o8gxPTYBmfv2FBw6AZ9cYqqPTwUBj/KIoUTM+IXS8oqjQYHUUcOOG9gyisg14Qh+v+sqgch7/5yO3Cm1NOgHbwjHez99ZTkW74x2OYLRG9yerAvxiiAX6CCJrqVZLxSPv6zCNgJA+wO2Dg/LfFQ5R2tS+jRFBmdmNyqFJ4uYewLxH47qxzGJbxaYgLjxPne4iTdZ0UE6ua/Z8lm/Q9luRpfrQr8GCxGny8CorU64l86Sx3MBT31+b0wo2khEPJ24j19YrHqDMJYHO+BFFZLwHZWQ8SllXJBTvqRVDErj/B8LUQms2WtZKnwzZHiVYdI3SBTMK8yuEzJhL0WZZp70HrO64oIp3IafJikDa8ED6FV5ar4rvvIX/AJB439X27gg+x9DaXUimpTI8LwlMHxj
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jun 2026 09:43:52.2098
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: cb799532-a9d2-4ac0-1d61-08ded10bef4f
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: AM1PEPF000252DA.eurprd07.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR10MB3587
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_024133_382745_830ABA99 
-X-CRM114-Status: GOOD (  14.12  )
+X-CRM114-CacheID: sfid-20260623_024359_828576_BEC30B6F 
+X-CRM114-Status: GOOD (  26.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,48 +132,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-mtk_clk_register_plls() registers the apmixedsys PLL clocks manually, while
-clk_mt6735_apmixed_remove() unregisters them on driver removal.
+Hi Andy, Jonathan,
 
-If devm_of_clk_add_hw_provider() fails after the PLL registration succeeds,
-probe returns the error directly and the remove callback is not run. This
-leaves the registered PLL clocks behind on the probe failure path.
+Sorry for the late answer.
 
-Add an unregister_plls error path so provider registration failures unwind the
-PLLs before returning the error.
+On 6/21/26 16:10, Jonathan Cameron wrote:
+> On Sat, 13 Jun 2026 16:39:16 +0300
+> Andy Shevchenko <andriy.shevchenko@intel.com> wrote:
+> 
+>> On Fri, Jun 12, 2026 at 04:51:50PM -0500, Rob Herring (Arm) wrote:
+>>> The "st,adc-alt-channel" and "st,filter0-sync" properties are
+>>> documented as boolean flags. The legacy parser read them as integer
+>>> cells, unlike the child-node parser which already checks only for
+>>> presence.
+>>>
+>>> Use presence and boolean helpers so both parsers follow the binding and
+>>> the property type checker no longer reports the flags.
+>>
+>> For the patch
+>> Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
+>>
+>> However one interesting remark below.
+>>
+>> ...
+>>
+>>> -	ret = of_property_read_u32_index(indio_dev->dev.of_node,
+>>> -					 "st,adc-alt-channel", chan_idx,
+>>> -					 &df_ch->alt_si);
+>>
+>>> +	df_ch->alt_si = of_property_present(indio_dev->dev.of_node,
+>>
+>> I believe it still has another (serious?) issue. We usually don't use indio_dev
+>> for device properties. It's not a device that is described in DT.
+>> It seems the only driver in IIO that does that. Note, I haven't conducted any
+>> deeper research, it might be (however I'm quite in doubt) that this is correct
+>> use and one device registers a few indio_dev:s.
+> 
+> It is curious.  The registration sequence in this driver is complex, but I'm not
+> seeing anything that sets the fwnode for the struct iio_dev->dev before calling
+> the init() callbacks that end up in this code.  It is set later by iio_device_register()
+> (iirc that has something to do with consumers turning up later).
+> 
+> St folk could you take a look at this and see what we are missing
+> if it does currently work?
+> 
+> For now I'll apply this patch but might need to drop it if a fix clashes
+> with it.
+> 
+> Thanks,
+> 
+> Jonathan
+> 
+> 
 
-Fixes: 43c04ed79189 ("clk: mediatek: Add drivers for MediaTek MT6735 main clock and reset drivers")
-Co-developed-by: Ijae Kim <ae878000@gmail.com>
-Signed-off-by: Ijae Kim <ae878000@gmail.com>
-Signed-off-by: Myeonghun Pak <mhun512@gmail.com>
+I confirm that the current legacy path is functional
+(With the st,adc-alt-channel property fix applied)
 
----
- drivers/clk/mediatek/clk-mt6735-apmixedsys.c | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
+It currently works because the driver initializes np from dev->of_node 
+in probe, and that value is then used in init callbacks.
 
-diff --git a/drivers/clk/mediatek/clk-mt6735-apmixedsys.c b/drivers/clk/mediatek/clk-mt6735-apmixedsys.c
-index 9e30c089a2..04cf9665ec 100644
---- a/drivers/clk/mediatek/clk-mt6735-apmixedsys.c
-+++ b/drivers/clk/mediatek/clk-mt6735-apmixedsys.c
-@@ -102,10 +102,17 @@ static int clk_mt6735_apmixed_probe(struct platform_device *pdev)
- 
- 	ret = devm_of_clk_add_hw_provider(&pdev->dev, of_clk_hw_onecell_get,
- 					  clk_data);
--	if (ret)
-+	if (ret) {
- 		dev_err(&pdev->dev,
- 			"Failed to register clock provider: %d\n", ret);
-+		goto unregister_plls;
-+	}
-+
-+	return 0;
- 
-+unregister_plls:
-+	mtk_clk_unregister_plls(apmixedsys_plls, ARRAY_SIZE(apmixedsys_plls),
-+				clk_data);
- 	return ret;
- }
- 
--- 
-2.47.1
+I agree that this approach is not robust, as it depends on 
+initialization sequencing and on using an IIO object that is not the DT 
+owner object. I will prepare a patch to use the DT device directly as 
+the single source for DT properties.
+
+I also suggest keeping a fallback path for st,adc-alt-channel so we do 
+not break legacy DTs that have not yet migrated to the new binding.
+I prepare this also.
+
+BRs
+Olivier
+
+> 
+>>
+>>> +					    "st,adc-alt-channel");
+>>
+> 
+> 
+
 
