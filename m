@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A58EACDB46F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 00:56:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4258ECDB466
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 00:56:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/29N+GxB3wpVJXa9iRvH0y9X5yvYSPFkO8bUW2MurGQ=; b=CL5+hi40HueBmfZS70ZmBmqsHX
-	XMt4feQSvM5RWOJ7tUVbsKuAfe7jskDZ7g9CIRM/VjXwCuVVczrNpt33Bz6Mo8A7OOuczC+h7OC3r
-	wyhx8Luchd0A0oH+KCc+wQ4fXLDRLiTGPEtjWaFjdo+vauFep7lG7NSo4yiFBWUmYVcBRESDAIBlc
-	9bNUwC2UaFHnwMpW+QM17/GVM/62QXPZMi67eAwQWmzDusvK+aOra0I0sl+BD1IDSY/y326cpaR5z
-	U2Zb4n1U9XhGXbmIe2lX26yBpvji3gqwPRs9sam8//tpMQI834puYiTXHOzFCk012EtQ/03KRGr8h
-	GUBU1xOg==;
+	bh=ZHsLQsrlZlU5oN+RlVxh1ifTEZ9ESp+ZM0jQZA3kndU=; b=wYUpG+HaTDpA9luL+K4m6TccH1
+	LUs7hk3GzL3ziY41i6cCqKO4HXOOisrUPVUzfBP2bH6hcvd6wg46aKN4fOAdy2whq8YyCozT6wGmR
+	MBR48AeLfXffa8BRWv41F069OJ5+jyDqanPTPZdQta6iIbua0tnGbCgKL17DdSSyTTnrRp//AuvAf
+	gWjsQXQDBZAAN6K3YgbhEKyLNgU24fEx4czv4ykQfnjwsLAtU5v0SRniN8C/P5t884S+UL46TFElH
+	qLd0ovfn7oKtA8bhOWjk3uvAli6GfWLAl+axkKuDF8IrHiu+RbWmyLHM8PRMMneFViM9WY4jScUHa
+	ZOvLEmHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbpQo-00000005VQb-1gSx;
+	id 1wbpQn-00000005VOx-3aUc;
 	Tue, 23 Jun 2026 00:56:02 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbpQm-00000005VNY-3CzP;
+	id 1wbpQm-00000005VN7-2qtq;
 	Tue, 23 Jun 2026 00:56:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D5413445DE;
+	by sea.source.kernel.org (Postfix) with ESMTP id ACB76445B7;
 	Tue, 23 Jun 2026 00:55:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 79C0CC4AF09;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 6302AC2BCF5;
 	Tue, 23 Jun 2026 00:55:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1782176159;
-	bh=gUSwG/xV3FIgkJs1NjGNIB6Y+opYzgspoHKWeQ+czsk=;
+	bh=NAQ2wPwIxNZQO7OtM7yBfMhOLpni9K/2uOT+0gTcdss=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=uSS0ko1/gDoeJaEiIF/ivgn64b2ahhL0V/Zg1D5KDDQuPl+kCHZ1FtmPvSbM2OiJb
-	 hiFdUGYqXok6G9sf73a5WlQvhDCKzwphpZBfrjyoQUN28x0uAN7SpgAwm0I+Sr9ySH
-	 Q0uQ1y2KA3Q9mEDaPC8zbQ3wXRpg5fU66eIyBhks8gvkxK61t/MEFHhaeZ9MHVmC0v
-	 3bK/TVqA9f0Uu2X+E84zH7FgFTuDOU0x59eYSl+yOEHZPNOqey4mpPvW/RIYsjQseL
-	 1NVSjFqNTOHZ3ILwglJR015cmXA0XrfEo9vgUzhkQeRH0mVfnXzQq680q15WtpccUL
-	 bOasNmLifc+jA==
+	b=q1vXSbLV6q9wVvZSjX2Z9NxO07sUskAJXSNt/6c+Ggu4SEZWOy8o0JwmS46aFXNms
+	 GCvT58oPF/x2PA2uErBIajK2ZCEjnzRKnYNjCf4kSaBI7ToprbfaE+tZwBsDuvAtkQ
+	 mKNSSrVFYhfaO7Gm4ofolbpLZDozWVB8ox/t0PKWNp9dRmxgWwBy3zPFovvDiJKeJL
+	 VRNIXjO8ZeQmXO5tsfXe8Aia3CehURxcE2yXhFGPpT4Om7hwSYxj6dPAUG/eaTmj+B
+	 E3NemT2eBlfMRk44/DVZ1R4fLOVDDi44Rq0jMfsjJ+sNQDTdc5kLHA3xiBdl4JBMMC
+	 tmRhl36qKbB6g==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6D183CDB478;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4E4A4CDB476;
 	Tue, 23 Jun 2026 00:55:59 +0000 (UTC)
 From: Esteban Urrutia via B4 Relay <devnull+esteuwu.proton.me@kernel.org>
-Date: Mon, 22 Jun 2026 20:54:26 -0400
-Subject: [PATCH 5/8] iommu/arm-smmu-qcom: Add SM8450 MDSS compatible
+Date: Mon, 22 Jun 2026 20:54:24 -0400
+Subject: [PATCH 3/8] arm64: dts: qcom: sm8450: Modify GPU operating points
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260622-sm8450-qol-v1-5-37e2ee8df9da@proton.me>
+Message-Id: <20260622-sm8450-qol-v1-3-37e2ee8df9da@proton.me>
 References: <20260622-sm8450-qol-v1-0-37e2ee8df9da@proton.me>
 In-Reply-To: <20260622-sm8450-qol-v1-0-37e2ee8df9da@proton.me>
 To: Bjorn Andersson <andersson@kernel.org>, 
@@ -67,11 +67,11 @@ Cc: linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
  iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  linux-phy@lists.infradead.org, Esteban Urrutia <esteuwu@proton.me>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1782176157; l=895;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782176157; l=1067;
  i=esteuwu@proton.me; s=20260622; h=from:subject:message-id;
- bh=AsOTyr4eFYIIVtsdqo7k4uY9IgyCMaUV3tbOEY06cYo=;
- b=PHvBNW27yZaz/KOj3tAZYrJiQtKcCsyCSLbQxTkyFDC8T/nMmhjDznM0ec0T3y2T5krYPRHgI
- e0Kl/LbAiyDD2MDCZX+2xSpXFqbEwz0xg6g1FrsL8aJKtPxqQKJ1zFn
+ bh=UC8G+Beo5Ny4qD1bWQkjh6S3TFmJKL1P3wTRFImBETw=;
+ b=V0HqhO1u+vHE2WkQyZ8w53tz9nq5vyJwjoEMcNSnSh9lQeJePF45vUwQO1oEV5l9C03S56ym5
+ yuN/x2btOijA7GTkYxTOpmiR7wyBg3PEFIHlzEQG2lD3ssBubBG0T7a
 X-Developer-Key: i=esteuwu@proton.me; a=ed25519;
  pk=wToFt4mOAWkzbqb15Ye1hrhevI13vK9BcMUFiQ/me1M=
 X-Endpoint-Received: by B4 Relay for esteuwu@proton.me/20260622 with
@@ -94,28 +94,41 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Esteban Urrutia <esteuwu@proton.me>
 
-Add the compatible for the MDSS client on the Snapdragon 8 Gen 1 so it
-can be properly configured by the IOMMU driver.
-
-Otherwise, there is an unhandled context fault.
+These frecuencies don't exist in downstream device trees.
+Both 220MHz and 285MHz belong to SM8475, and I'm not sure where 317MHz
+came from.
 
 Signed-off-by: Esteban Urrutia <esteuwu@proton.me>
 ---
- drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm64/boot/dts/qcom/sm8450.dtsi | 15 ---------------
+ 1 file changed, 15 deletions(-)
 
-diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-index e2c914fccd6f..795e8ec7e8fa 100644
---- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-+++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-@@ -425,6 +425,7 @@ static const struct of_device_id qcom_smmu_client_of_match[] __maybe_unused = {
- 	{ .compatible = "qcom,sm6375-mdss" },
- 	{ .compatible = "qcom,sm8150-mdss" },
- 	{ .compatible = "qcom,sm8250-mdss" },
-+	{ .compatible = "qcom,sm8450-mdss" },
- 	{ .compatible = "qcom,x1e80100-mdss" },
- 	{ }
- };
+diff --git a/arch/arm64/boot/dts/qcom/sm8450.dtsi b/arch/arm64/boot/dts/qcom/sm8450.dtsi
+index e34e3c05bf74..5e331a25e22a 100644
+--- a/arch/arm64/boot/dts/qcom/sm8450.dtsi
++++ b/arch/arm64/boot/dts/qcom/sm8450.dtsi
+@@ -2495,21 +2495,6 @@ opp-350000000 {
+ 					opp-hz = /bits/ 64 <350000000>;
+ 					opp-level = <RPMH_REGULATOR_LEVEL_LOW_SVS>;
+ 				};
+-
+-				opp-317000000 {
+-					opp-hz = /bits/ 64 <317000000>;
+-					opp-level = <RPMH_REGULATOR_LEVEL_LOW_SVS>;
+-				};
+-
+-				opp-285000000 {
+-					opp-hz = /bits/ 64 <285000000>;
+-					opp-level = <RPMH_REGULATOR_LEVEL_LOW_SVS_D1>;
+-				};
+-
+-				opp-220000000 {
+-					opp-hz = /bits/ 64 <220000000>;
+-					opp-level = <RPMH_REGULATOR_LEVEL_LOW_SVS_D1>;
+-				};
+ 			};
+ 		};
+ 
 
 -- 
 2.54.0
