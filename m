@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B903CDB46F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 11:54:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A3E3CDB46F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 11:54:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QS4Tc9DEF1sakhdO+oEzT9jcpMtmCqHU665RCgQbU7E=; b=HWlz8QJeB3O9oMl6mkTdG3a0Tb
-	Da3q02gbc6ufZMzWgZMSYdMEW+xHs/HfvlFwz937KQJwM4SjY7w5tA34oNNLClyJ/VKw51rX0CEE4
-	8Wavak+2GxIQYuTtpmiFlA4z1K4dvBwHu6vadVjrcI1FfijHgl9vljt+rAKVCMeBspyo6FhkqZbje
-	TYHfoOele0jlBdbr+sh9toUyvQgAiLZriVlJc4kVkM7a9zAzJCqBdqQS9rbg5l3RKMF63an7Gq4Fl
-	wdKjtMHvacfu8JRtITl1Yj3A1MktApOBP2RTm24RjoozFt0kLeMmvvoY6BW1RM2RG4fW/QrwbF3Kh
-	Sxcqalvg==;
+	bh=46ZjMqvd2ZQFHV75B9sJuMZVM4j/Z6Yee1Bq8pCu1gk=; b=PnX9zb8w4QCKEUO7v0DB72e3Fy
+	uUzfouwjlMRMJ1+FSVOfQN85fNRUJ1QJQGfSHwVEt4fVqy0+JIwPevYA9cxtYPsHEXa2ZJXlIaV6M
+	Lq5lVmdowTuFs2J2+vlJNnTeHrh6xQ2DBIhUpsSU41TtuPKGBDb1shS6UPxWxQCb0eXUNoZWoJQFT
+	qbrneNhlJ3ER+drg7pwiRsx8Jy/I/CyonLXM+yZzoAj6LW+1zwegNWvAmRiw06FcZnOpkfOwItb6o
+	WyhdoxkXrLeIgEFxwBT/yu52oKTg3aVwSdBGqRiSQ5uVN4KDvWaKo8wBneQOhpadi1oU0XftIBvLG
+	2VAd0PBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbzhn-00000006D3G-2ob9;
-	Tue, 23 Jun 2026 11:54:15 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	id 1wbzhw-00000006D87-3h8x;
+	Tue, 23 Jun 2026 11:54:24 +0000
+Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wbzhk-00000006D1y-3BwT
+	id 1wbzhm-00000006D2a-3zL9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 11:54:13 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-490a767c7dcso37088965e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 04:54:11 -0700 (PDT)
+	Tue, 23 Jun 2026 11:54:16 +0000
+Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-465874136a7so2760978f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 04:54:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1782215650; x=1782820450; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1782215653; x=1782820453; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=QS4Tc9DEF1sakhdO+oEzT9jcpMtmCqHU665RCgQbU7E=;
-        b=sZILm/NEFV8cXpsC6Ce/qOPST78HqcgAGkoeQDqrvvyt6ZSOGXEhr+xLbnfvr2Y4Fv
-         omerUWvR0Eadp48kc9r90gwfIUiCEADHOfyE+LHXWsYASVIpXnZiLKVs9b0N96vI+ovN
-         ybcI4iYJixRFRBfvOhWBP+C195kD70I7DBeL36qx+YDoBgz+D4EG5jG4NzuaGz+ZUY3U
-         oDYZ05pyKOlE7B3P5Crk8+PnDUx8rrLDI0hMwWOgSLOJ6wsK6VFZkqNmfMi8Ez99Z7m0
-         9CfPRcawATq2iA9BHtkHFpna2tNzG/i0s/Dly/kk3US7bA8fE4nhxbF5F0m/L60yeDbY
-         PXwQ==
+        bh=46ZjMqvd2ZQFHV75B9sJuMZVM4j/Z6Yee1Bq8pCu1gk=;
+        b=WZTAPtH+hTgbUNIXBzncMTlylVDWEK+WctHGDcbUAfFtNGzevn0MYuXImyfc/KM9Xf
+         0obXqw7E7NnuXVSIVyiXyPsFVD2iNQ8DBnUsBl/l3oV+4W6xaDbkdG9V33qmawxF/1Tj
+         9/4a1iJsN/xYpb/De6jhSc0V9NzbX6OB61TuKSGi6mlSO9+vsUXAV0OifUNPtPrOs2Pp
+         4Y+ejYPbUjkJDZ+FINCTdgSywWEyuu1kRsoeEwUzuRX7VK2hgrjmnSnS49aautHD3qey
+         FITv6d3JG8kfE6tYAtSRsNgMokxtl6Kizzbjbm1vduoo2FS5GQ5YMsxQ5YTmwvXH+Qs+
+         lWhw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782215650; x=1782820450;
+        d=1e100.net; s=20251104; t=1782215653; x=1782820453;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=QS4Tc9DEF1sakhdO+oEzT9jcpMtmCqHU665RCgQbU7E=;
-        b=omYhSeO20nBBLhUJyx8XBPERgyV97HHyCy51PtTTfjwlRVc6pJGVBXiIuC6r72htLO
-         c3olZaENsp4HCg/AD35S3uwZkQcrP+hnImzZ1RSc5ZB9b6bnoITqds0+R0wbuR9ZKLxp
-         YY7qhL/5uzd2nRi9hqtrnzS+a8vWj0nYJQs/OFmO2+4H4gaiqqgX4Ewc5d+bQay8PodT
-         Gnch8TTx2NTLPkn2AK7Z9YceajmBEfbKoDRQrUIt6CORntrnOqB3XdCEQ8ET9x12Dpp+
-         JPOyqcls0yOI2iEI8iL6xRFBgZAHKKfp8W4DtCVbn1G4fjhZM/T6EZ1roVSN4/+W6+9a
-         YYMg==
-X-Forwarded-Encrypted: i=1; AFNElJ+GFS6G72tmsPk83c82M72QXDsMpSrdyxv30ALNtMsdbBdojbLSp2LHovYwwPxFf3at7QtEdBQKoel91TeklNH1@lists.infradead.org
-X-Gm-Message-State: AOJu0YxVl3F38uSneYRz2rTVsnA3VwQByTQlCg3vsK1VyEKNevZLZY5X
-	T8uiDaZtEtZQ/fj2F4aUeqvCj9/B9GAJ6mFBn3tcWjUaYp3uSe7fTmjov1IDcjEZyzWzrKCuKTm
-	lyLA9s2bSZNggESAxkanIiB05452k4A==
-X-Received: from wmpo6.prod.google.com ([2002:a05:600c:3386:b0:490:9d65:494e])
+        bh=46ZjMqvd2ZQFHV75B9sJuMZVM4j/Z6Yee1Bq8pCu1gk=;
+        b=WRdX/5z9zJRwUkbgP1HqgKuG9fyEl1uo0c+QIbUOMwt8cGwBTnCVoOa3cxTlVFM2bb
+         0LKM0NngT6MHtXO3iwkTin8rkOBdcKcn+K7ulSPl4f6wl60RZdgBtMvnemeDOeQMJFbK
+         Z5DOq1hgzozI5HIoq8KeQLbpQO4L9xSOty8FcLzEr2qLsZgx8sscI+Cl+sPIipR1lhqZ
+         z3khMYsGd1gw/sFdidjyahohgKyutvs8Fh8lrcvXcSPl2XpD4x6EWIleV70/L3a0VYV1
+         IEGgA4bjmdtfV4ybdd41ekSt3UKKlOzD80ym64hsKXhsaddGOYvjj9vGxVpU8Jk+9AC0
+         XbvQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9u2cqQApaZ0yM6fJKQ2R86Rng+seV1LFhJ/bfvCpc6OE5cApni3VMRJwjeNKdyxzY8uAqa7U9ppu8EJCoxlsmI@lists.infradead.org
+X-Gm-Message-State: AOJu0YxF66FXodNkPN0FRoClA/So8PwVWB99lt9aBs2EERVw3PR5Anut
+	XqMnVhHEuiqDiIGWGkUUhLsJVj9m/oEqIYrDi7vEupfHGwz8fqGM89gRMn5OoxmTgkTXYXvDCvC
+	iKY3BGenWJii9p0D1lPf4vwcf4sL1Vg==
+X-Received: from wmoo9.prod.google.com ([2002:a05:600d:109:b0:490:ae4c:a69b])
  (user=sebastianene job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:6309:b0:490:b645:3213 with SMTP id 5b1f17b1804b1-4925b3ac32fmr36891085e9.19.1782215650250;
- Tue, 23 Jun 2026 04:54:10 -0700 (PDT)
-Date: Tue, 23 Jun 2026 11:53:49 +0000
+ 2002:a05:600c:609a:b0:492:3fbc:556f with SMTP id 5b1f17b1804b1-49249083b99mr219423035e9.2.1782215652335;
+ Tue, 23 Jun 2026 04:54:12 -0700 (PDT)
+Date: Tue, 23 Jun 2026 11:53:50 +0000
 In-Reply-To: <20260623115354.632361-1-sebastianene@google.com>
 Mime-Version: 1.0
 References: <20260623115354.632361-1-sebastianene@google.com>
 X-Mailer: git-send-email 2.55.0.rc0.786.g65d90a0328-goog
-Message-ID: <20260623115354.632361-3-sebastianene@google.com>
-Subject: [PATCH v5 2/7] KVM: arm64: Forward FFA_NOTIFICATION_BITMAP calls to Trustzone
+Message-ID: <20260623115354.632361-4-sebastianene@google.com>
+Subject: [PATCH v5 3/7] KVM: arm64: Support FFA_NOTIFICATION_BIND in host handler
 From: Sebastian Ene <sebastianene@google.com>
 To: catalin.marinas@arm.com, maz@kernel.org, oupton@kernel.org, 
 	will@kernel.org
@@ -76,8 +76,8 @@ Cc: joey.gouly@arm.com, korneld@google.com, kvmarm@lists.linux.dev,
 	yuzenghui@huawei.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_045412_819494_FED374A3 
-X-CRM114-Status: GOOD (  11.80  )
+X-CRM114-CacheID: sfid-20260623_045415_006543_8943B0D7 
+X-CRM114-Status: GOOD (  14.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,46 +92,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allow FF-A notification bitmap messages to be forwarded to
-Trustzone from the host kernel driver enforce checking for
-SBZ fields.
+Verify the arguments of the FF-A notification bind call and forward the
+message to Trustzone.
 
 Signed-off-by: Sebastian Ene <sebastianene@google.com>
 Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
 ---
- arch/arm64/kvm/hyp/nvhe/ffa.c | 27 +++++++++++++++++++++++++--
- 1 file changed, 25 insertions(+), 2 deletions(-)
+ arch/arm64/kvm/hyp/nvhe/ffa.c | 32 +++++++++++++++++++++++++++++++-
+ 1 file changed, 31 insertions(+), 1 deletion(-)
 
 diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-index 78bb043b33ee..cc10f48915fa 100644
+index cc10f48915fa..c7910ee4000d 100644
 --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
 +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-@@ -715,8 +715,6 @@ static bool ffa_call_supported(u64 func_id)
+@@ -42,6 +42,8 @@
+  */
+ #define HOST_FFA_ID	0
+ 
++#define FFA_NOTIF_RECEIVER_ENDP_MASK	GENMASK(15, 0)
++
+ /*
+  * A buffer to hold the maximum descriptor size we can see from the host,
+  * which is required when the SPMD returns a fragmented FFA_MEM_RETRIEVE_RESP
+@@ -715,7 +717,6 @@ static bool ffa_call_supported(u64 func_id)
  	case FFA_MEM_DONATE:
  	case FFA_MEM_RETRIEVE_REQ:
         /* Optional notification interfaces added in FF-A 1.1 */
--	case FFA_NOTIFICATION_BITMAP_CREATE:
--	case FFA_NOTIFICATION_BITMAP_DESTROY:
- 	case FFA_NOTIFICATION_BIND:
+-	case FFA_NOTIFICATION_BIND:
  	case FFA_NOTIFICATION_UNBIND:
  	case FFA_NOTIFICATION_SET:
-@@ -911,6 +909,27 @@ static void do_ffa_part_get(struct arm_smccc_1_2_regs *res,
- 	hyp_spin_unlock(&host_buffers.lock);
+ 	case FFA_NOTIFICATION_GET:
+@@ -930,6 +931,32 @@ static void do_ffa_notif_bitmap(struct arm_smccc_1_2_regs *res,
+ 	hyp_smccc_1_2_smc(args, res);
  }
  
-+static void do_ffa_notif_bitmap(struct arm_smccc_1_2_regs *res,
-+				struct kvm_cpu_context *ctxt)
++static void do_ffa_notif_bind(struct arm_smccc_1_2_regs *res,
++			      struct kvm_cpu_context *ctxt)
 +{
-+	DECLARE_REG(u32, func_id, ctxt, 0);
-+	DECLARE_REG(u32, vmid, ctxt, 1);
++	DECLARE_REG(u32, endp_id, ctxt, 1);
++	DECLARE_REG(u32, flags, ctxt, 2);
 +	struct arm_smccc_1_2_regs *args;
 +
-+	if (ffa_check_unused_args_sbz(ctxt, func_id == FFA_NOTIFICATION_BITMAP_CREATE ? 3 : 2)) {
++	if (ffa_check_unused_args_sbz(ctxt, 5)) {
 +		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
 +		return;
 +	}
 +
-+	if (vmid != HOST_FFA_ID) {
++	if (FIELD_GET(FFA_NOTIF_RECEIVER_ENDP_MASK, endp_id) != HOST_FFA_ID) {
++		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
++		return;
++	}
++
++	if (flags > 1) {
 +		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
 +		return;
 +	}
@@ -143,13 +155,12 @@ index 78bb043b33ee..cc10f48915fa 100644
  bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
  {
  	struct arm_smccc_1_2_regs res;
-@@ -974,6 +993,10 @@ bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
- 	case FFA_PARTITION_INFO_GET:
- 		do_ffa_part_get(&res, host_ctxt);
+@@ -997,6 +1024,9 @@ bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
+ 	case FFA_NOTIFICATION_BITMAP_DESTROY:
+ 		do_ffa_notif_bitmap(&res, host_ctxt);
  		goto out_handled;
-+	case FFA_NOTIFICATION_BITMAP_CREATE:
-+	case FFA_NOTIFICATION_BITMAP_DESTROY:
-+		do_ffa_notif_bitmap(&res, host_ctxt);
++	case FFA_NOTIFICATION_BIND:
++		do_ffa_notif_bind(&res, host_ctxt);
 +		goto out_handled;
  	}
  
