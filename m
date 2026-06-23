@@ -4,104 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 116F5CDB46F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 253C1CDB481
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 14:30:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w0YQhBtC/ubH1Q0Mrdh/TGxhsAQ0oS6iny3Z+QMvfNE=; b=4/bO/SszXb1njOdFcbbuTVSqvx
-	a5dMfcOfUPsE+T0eAd0+B2lsfxJjiKBUm4zORE8o871oFIYWegtz5Ukrt+Q176uA/dpQRfszUmM7R
-	+IeWrDSUQqeTZyLUPSgQ/xHpOLq7N7SXIuoh7yq1I96vNHWS0wqQe6kJRtLLkXe1NsrByWc4Wdx0N
-	3/gc+9L1f9R3foHcp+R3OmTlBOQjyAqsziMjHRHjDsD6P/Td5EBavZUANbH9wSv76s4UqrC2xF/K3
-	uqioRZSyUyUqdCDNUczn/Sg3Qvs/8QovupXWrxGXyFx2iXC/BcEOptYKL939I3TCdQDLw4HyLGz0f
-	V70ldqVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+WOKyD1Rs8KI4TFU2iAMfZNF7RUu66RNK0cgJJH7Hh4=; b=W8f06OroFgHNmlcG7nJ0p6TR9j
+	+MlV9ygWC5ryGBcB+bXxaV/pd/OvC683mZCDm4Ge6vvOihBjW5po/A5xLadoTHrqGRO2f6HQEGZko
+	E0bl3Z1gUN1xOGdDSJKaMuJ/j5KVWkqYek80ucIx6HiN14rhDENccnLiIegcvLoxf/ckgbAdvRmEC
+	lYYm5ABsI0bwYTAd5tmhv52+E+Lzi9V2kcHh2MxJZ875kphbLNwjAxi5q8Loz6w7AlFaee9ylySpy
+	AGZzZAeyvGj/EdJauQDoXY2IgFBswj7jQFVJUQ3X7i35AOYQOzQzjIoN8/MVZgaQpuGQLRSPDmeqO
+	LUse2JYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc28n-00000006ReG-2GdO;
+	id 1wc28n-00000006Rem-3DkL;
 	Tue, 23 Jun 2026 14:30:17 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc28W-00000006RXG-31XV
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 14:30:01 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-490c0c92cffso39574635e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 07:30:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=9elements.com; s=google; t=1782224999; x=1782829799; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=w0YQhBtC/ubH1Q0Mrdh/TGxhsAQ0oS6iny3Z+QMvfNE=;
-        b=BDBtqOrsu9iYphNpH7Hj4jygNmdjhnyKrSKKLjPJls2KSfvxk0JWx8u5f7rvy35UgJ
-         rhYQP/rn85pa2pbhg0d6uNpMxLxrx/Fvlam24VpaQXOVh/yA63ENcNMPZgTer+yV+b3D
-         Rr4V61R3kUCGc0C+AhIjJJ6hvOzePt6hFAZ2qNhyF7xBPnKjSSV4nQZhvLsws8OUiPVL
-         SghqaaV7sbNTIJ9aKJeoH+6rQigdRUz37+J753rcqrIjoAl0AvaPmiZd3weVdhhrG3K6
-         VXDUJRe6a/HuMrfb1bOW/Z8ET+XyhV25ZpM6RRCQRuTaGPUxeGgLisP8Iks3i9McAQ8H
-         RzlQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782224999; x=1782829799;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=w0YQhBtC/ubH1Q0Mrdh/TGxhsAQ0oS6iny3Z+QMvfNE=;
-        b=nkjuxLKTKjuVBcuAHzGK/RAdbiv6Su7YT6ZKHYY18pp2vRnhghxm13GjB/awy3Szqt
-         npZt8uoYa557lpKMGbqRqq/hliP3ndVrD/+NKHL7pxQcJjme1cj0ENmq6kWEdcE6ix69
-         tAJFxh2bqGVLW9pEDTl0ss32zGhIxasYSdmEWPPCNngDh4fO8aNahSRkquVPfb9ZZ3Gf
-         N65ThrSm9fqfLdH3HQNGAfHAe/2VtMzQvt1vgYL6BxP6qRXnRPQYJjaojUfviUTxBi6W
-         PlIc6oReXyAUiH7QDEkT6jQCR/08zcQAHsQpDs5RGwV/zobxf3Bl7Dg0SdgIVhcPsIrW
-         YBNA==
-X-Forwarded-Encrypted: i=1; AFNElJ80dWq5OzHWh7eyPvnup55yBVcZPOCAgLajyRWydVBs0A5u9TNks8V/aAlY2Zls6dl0cqdOQg6Eie3FdQ93R+Du@lists.infradead.org
-X-Gm-Message-State: AOJu0YwKIiyofVXrA5J/xo5Lce8W4D1l90PJG7XHuQxCRcAb6I+ZbjcR
-	OjzIsSVIjpwAU7nZp4RN9zPSUnSVXTBOUBNX/Q8GJhx0HFOj1IbHqxV1wkwZHZ8iNQM=
-X-Gm-Gg: AfdE7cl7vWjm87l8QQK2BZeI4bpLClOCKrAXFbc+nQjWIMhYL1+FabvWrCBYvkcrMtk
-	M3Q8OStsFVNMHjy8BcGeai091Zk3yDFkv+V+gE9VUpJlr9m7v8vNaFTilANu4YzqTbVc1xIQN7a
-	0vS0a+O2grr3MVRH/mfjc+OOFtSFtbeptRX827WYXkQ4xAVpVwViS349y3WSEZYT2pNnkd/DSDv
-	Q1g7IfwVgPl/coYK9AmlxqDqt5Zvr5zumynjuTgXF5Q/8WcOYC9b/SjtxkHS55o3fxZBQdReYlt
-	AS5nQPY9dwPXUAfSlNVvfcObjSnbaHqGi+ctN5aemH7iklF1sa3RD+w4VDG5LuEVFFN5ib53sbA
-	nWv6y9sJgfwGNczLztf9tKpcLmsKwVCJNXJG1yJOdiIsnYJFWScAS8o0W2KncPD4Uo/0WoZ0pv5
-	S8DoI7P4I5xyY6JzefVQ1aeO8EI6c6ijmDAw6mRcElpYdFdBHrRFpt6fxurq+gX1te1zOoVubpx
-	ZPM7HLnq757wjvBmz/+0Y+1A0PT
-X-Received: by 2002:a05:600c:4886:b0:490:d354:d15b with SMTP id 5b1f17b1804b1-49240e9545amr189390855e9.29.1782224998752;
-        Tue, 23 Jun 2026 07:29:58 -0700 (PDT)
-Received: from gregwork.sec.9e.network ([188.111.3.154])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49240efc160sm362507805e9.2.2026.06.23.07.29.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 23 Jun 2026 07:29:58 -0700 (PDT)
-From: =?UTF-8?q?Gr=C3=A9goire=20Layet?= <gregoire.layet@9elements.com>
-To: joel@jms.id.au,
-	andrew@codeconstruct.com.au,
-	lkundrak@v3.sk,
-	devicetree@vger.kernel.org,
-	gregkh@linuxfoundation.org,
-	jirislaby@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org
-Cc: andrew@lunn.ch,
-	jacky_chou@aspeedtech.com,
-	yh_chung@aspeedtech.com,
-	ninad@linux.ibm.com,
-	anirudhsriniv@gmail.com,
-	linux-serial@vger.kernel.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	=?UTF-8?q?Gr=C3=A9goire=20Layet?= <gregoire.layet@9elements.com>
-Subject: [PATCH v3 6/7] ARM: dts: aspeed: g6: Change vuart compatible string for ast2600
-Date: Tue, 23 Jun 2026 14:25:44 +0000
-Message-ID: <30aedaa9ffd5ba2d763d8802a07b77ef2d5bfcf0.1782224060.git.gregoire.layet@9elements.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <cover.1782224059.git.gregoire.layet@9elements.com>
-References: <cover.1782224059.git.gregoire.layet@9elements.com>
+	id 1wc28j-00000006RcY-07jC;
+	Tue, 23 Jun 2026 14:30:13 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9ED2640427;
+	Tue, 23 Jun 2026 14:30:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A6021F000E9;
+	Tue, 23 Jun 2026 14:30:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782225012;
+	bh=+WOKyD1Rs8KI4TFU2iAMfZNF7RUu66RNK0cgJJH7Hh4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ie1vNp+HwT4kChz++sdxq3g9aY9z+Vm5DYWZa1lrf7bHVA1ni3VAwJGjckFhfV3cK
+	 SnDfkLgnEQfEDWOPg8fTQS3WuOuUetSNXmz0r4+XEfufckpIvXCkg8JoJUNWNfgqnd
+	 xXJ6yMKEKHd8T8z+zE4O3ciang7EPjUYvI5Nq5qi92heRfkADAstoZ25ijGE1RSH9/
+	 TeGX0D82UaggvFA5Jx46D/amaoftWsouz2M1WnttJo8sfMG4yaqCPPELBkee/HygGn
+	 SDMNTfo2N1kNbNJW8U4VFj/xpiUlNFUbnsqsFTJBr7azteQJCRMLrtiGWCZZRWZNiC
+	 cgg1fhb5XS7LQ==
+Date: Tue, 23 Jun 2026 15:30:02 +0100
+From: Will Deacon <will@kernel.org>
+To: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: Michael Kelley <mhklinux@outlook.com>,
+	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+	"tsbogend@alpha.franken.de" <tsbogend@alpha.franken.de>,
+	"pjw@kernel.org" <pjw@kernel.org>,
+	"palmer@dabbelt.com" <palmer@dabbelt.com>,
+	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+	"alex@ghiti.fr" <alex@ghiti.fr>,
+	"tglx@kernel.org" <tglx@kernel.org>,
+	"mingo@redhat.com" <mingo@redhat.com>,
+	"bp@alien8.de" <bp@alien8.de>,
+	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+	"hpa@zytor.com" <hpa@zytor.com>,
+	"peterz@infradead.org" <peterz@infradead.org>,
+	"kees@kernel.org" <kees@kernel.org>,
+	"nathan@kernel.org" <nathan@kernel.org>,
+	"linusw@kernel.org" <linusw@kernel.org>,
+	"ojeda@kernel.org" <ojeda@kernel.org>,
+	"david.kaplan@amd.com" <david.kaplan@amd.com>,
+	"lukas.bulwahn@redhat.com" <lukas.bulwahn@redhat.com>,
+	"ryan.roberts@arm.com" <ryan.roberts@arm.com>,
+	"maz@kernel.org" <maz@kernel.org>,
+	"timothy.hayes@arm.com" <timothy.hayes@arm.com>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"thuth@redhat.com" <thuth@redhat.com>,
+	"oupton@kernel.org" <oupton@kernel.org>,
+	"yeoreum.yun@arm.com" <yeoreum.yun@arm.com>,
+	"miko.lenczewski@arm.com" <miko.lenczewski@arm.com>,
+	"broonie@kernel.org" <broonie@kernel.org>,
+	"kevin.brodsky@arm.com" <kevin.brodsky@arm.com>,
+	"james.clark@linaro.org" <james.clark@linaro.org>,
+	"tabba@google.com" <tabba@google.com>,
+	"mrigendra.chaubey@gmail.com" <mrigendra.chaubey@gmail.com>,
+	"arnd@arndb.de" <arnd@arndb.de>,
+	"anshuman.khandual@arm.com" <anshuman.khandual@arm.com>,
+	"x86@kernel.org" <x86@kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH RFC 3/3] arm64: Add HOTPLUG_PARALLEL support for
+ secondary CPUs
+Message-ID: <ajqYaklhIyvaNLlk@willie-the-truck>
+References: <20260611133809.3854977-1-ruanjinjie@huawei.com>
+ <20260611133809.3854977-4-ruanjinjie@huawei.com>
+ <SN6PR02MB41575306521E6223561F476FD4182@SN6PR02MB4157.namprd02.prod.outlook.com>
+ <e96a2579-c010-4198-a2a3-6ba35b14aef0@huawei.com>
+ <ajPitENEHWa8lDfC@willie-the-truck>
+ <2a34ff43-78a0-4d99-885a-0e7f560634ca@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_073000_810560_26ED87C0 
-X-CRM114-Status: GOOD (  10.06  )
+In-Reply-To: <2a34ff43-78a0-4d99-885a-0e7f560634ca@huawei.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,56 +111,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the ast2600 compatible string.
-This makes it more precise and enables specific ast2600 properties.
-Still use the ast2500 compatible string as a fallback.
+On Mon, Jun 22, 2026 at 04:06:38PM +0800, Jinjie Ruan wrote:
+> On 6/18/2026 8:21 PM, Will Deacon wrote:
+> > On Mon, Jun 15, 2026 at 04:51:48PM +0800, Jinjie Ruan wrote:
+> >> On 6/12/2026 11:45 PM, Michael Kelley wrote:
+> >>> From: Jinjie Ruan <ruanjinjie@huawei.com> Sent: Thursday, June 11, 2026 6:38 AM
+> >>>>
+> >>>> Support for parallel secondary CPU bringup is already utilized by x86,
+> >>>> MIPS, and RISC-V. This patch brings this capability to the arm64
+> >>>> architecture.
+> >>>>
+> >>>> Rework the global `secondary_data` accessed during early boot into
+> >>>> a per-CPU array. This array maps logical CPU IDs to MPIDR_EL1 values,
+> >>>> enabling the early boot code in head.S to resolve each secondary CPU's
+> >>>> logical ID concurrently.
+> >>>>
+> >>>> To fully enable HOTPLUG_PARALLEL, this patch implements:
+> >>>> 1) An arm64-specific arch_cpuhp_kick_ap_alive() handler.
+> >>>> 2) Callbacks to cpuhp_ap_sync_alive() inside secondary_start_kernel().
+> >>>>
+> >>>> Successfully tested on QEMU ARM64 virt machine (KVM on, 128 vCPUs).
+> >>>>
+> >>>> |     test kernel	   | secondary CPUs boot time |
+> >>>> |  ---------------------   |	--------------------  |
+> >>>> |   Without this patch     |		155.672	      |
+> >>>> |   cpuhp.parallel=0	   |		62.897	      |
+> >>>> |   cpuhp.parallel=1	   |		166.703	      |
+> >>>
+> >>> The last two rows seem mixed up. I would expect parallel=0 to
+> >>> result in a longer boot time.
+> >>
+> >> The results are correct and not mixed up.
+> >>
+> >> Compared to the original non‑HOTPLUG_PARALLEL approach, the advantage of
+> >> cpuhp.parallel=0 lies in its use of cpu_relax(`yield` on arm64) instead
+> >> of the wait_for_completion_timeout() mechanism (which may cause sleep
+> >> and context switching). This significantly reduces the overhead of VM
+> >> exits and context switches in a KVM guest, thereby cutting the secondary
+> >> CPU boot time by more than half.
+> > 
+> > I don't think that's a particularly compelling reason to enable this for
+> > arm64, in all honesty. The yield instruction typically doesn't do
+> > anything on actual arm64 silicon, so this probably means that you're
+> > introducing busy-loops which tend to be bad for power and scalability.
+> 
+> After updating the implementation in v2, the performance gains are
+> primarily observed on actual hardware.
 
-Signed-off-by: Grégoire Layet <gregoire.layet@9elements.com>
----
- arch/arm/boot/dts/aspeed/aspeed-g6.dtsi | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+... but that's presumably because the secondary cores are busy-looping.
+That's not something we should do during boot. It might be "fast" on
+your machine but it will probably be "hot" as well.
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
-index 56bb3b0444f7..7c02633f2bd6 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
-+++ b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
-@@ -707,7 +707,7 @@ emmc: sdhci@1e750100 {
- 			};
- 
- 			vuart1: serial@1e787000 {
--				compatible = "aspeed,ast2500-vuart";
-+				compatible = "aspeed,ast2600-vuart", "aspeed,ast2500-vuart";
- 				reg = <0x1e787000 0x40>;
- 				reg-shift = <2>;
- 				interrupts = <GIC_SPI 147 IRQ_TYPE_LEVEL_HIGH>;
-@@ -717,7 +717,7 @@ vuart1: serial@1e787000 {
- 			};
- 
- 			vuart3: serial@1e787800 {
--				compatible = "aspeed,ast2500-vuart";
-+				compatible = "aspeed,ast2600-vuart", "aspeed,ast2500-vuart";
- 				reg = <0x1e787800 0x40>;
- 				reg-shift = <2>;
- 				interrupts = <GIC_SPI 180 IRQ_TYPE_LEVEL_HIGH>;
-@@ -727,7 +727,7 @@ vuart3: serial@1e787800 {
- 			};
- 
- 			vuart2: serial@1e788000 {
--				compatible = "aspeed,ast2500-vuart";
-+				compatible = "aspeed,ast2600-vuart", "aspeed,ast2500-vuart";
- 				reg = <0x1e788000 0x40>;
- 				reg-shift = <2>;
- 				interrupts = <GIC_SPI 148 IRQ_TYPE_LEVEL_HIGH>;
-@@ -737,7 +737,7 @@ vuart2: serial@1e788000 {
- 			};
- 
- 			vuart4: serial@1e788800 {
--				compatible = "aspeed,ast2500-vuart";
-+				compatible = "aspeed,ast2600-vuart", "aspeed,ast2500-vuart";
- 				reg = <0x1e788800 0x40>;
- 				reg-shift = <2>;
- 				interrupts = <GIC_SPI 181 IRQ_TYPE_LEVEL_HIGH>;
--- 
-2.54.0
+> > I implemented this a while ago [1] but didn't manage to see much in terms
+> > of performance improvement and so I didn't bother to send the patches out
+> 
+> As shown in v2 below, on actual hardware, this results in a 40%–60%
+> reduction in boot time.
+> 
+> Bringup Time Comparison (ms, lower is better):
+> 
+> |     Platform		| Baseline|   P=0   |   P=1  | Delta(%)|
+> | --------------------- | ------- | ------- | ------ | ------- |
+> | 64-core ATF QEMU	| 2075.8  | 2080.7  | 1653.4 | 20.34%  |
+> | 192-core server(HIP12)| 14619.2 | 14619.1 | 8589.4 | 41.21%  |
+> | 32-core board	        | 2776.5  | 2881.0  | 1045.0 | 62.36%  |
+> 
+> Link:
+> https://lore.kernel.org/all/20260618092444.1316336-5-ruanjinjie@huawei.com/
 
+To be honest, I'm pretty confused with all these numbers. Your first
+table above suggests that parallel boot is *slower* but then this table
+suggests the opposite. However, it also has a QEMU entry despite being
+"on actual hardware". Is that in a VM?
+
+> > after talking about it at KVM forum [2]. However, as mentioned at the end
+> > of that talk, it _is_ still useful for confidential VMs using PSCI so
+> > let me dust off my old series and send it out to see what you think.
+> > 
+> > It relies on PSCI v0.2, which means we don't need the NR_CPUS size array
+> > for secondary_data and I also have some support for error handling (it
+> > doesn't look like you handle __early_cpu_boot_status properly).
+> 
+> I need some time to look closely at your patch. Alternatively, I will
+> integrate your changes, re-test everything on actual hardware, and then
+> send out a revised version.
+
+Please just give me a week or so to rebase my changes and send them out
+for discussion. It'll be interesting to see what numbers you get.
+
+> It seems that the following patch removing
+> `rcutree_report_cpu_starting()` will reintroduce the original issue as
+> commit ce3d31ad3cac ("arm64/smp: Move
+> rcu_cpu_starting() earlier") soloved.
+> 
+> Link:
+> https://web.git.kernel.org/pub/scm/linux/kernel/git/will/linux.git/commit/?h=cpu-hotplug&id=bba4b62f45f2614bf6085e6cd3f233528f85bf26
+> 
+> Indeed, I also noticed that the invocation order of
+> rcutree_report_cpu_starting() on arm64 is somewhat suboptimal. It
+> hinders the implementation of parallel bringup on arm64 and could
+> potentially lead to RCU stalls.
+> 
+> Link:
+> https://lore.kernel.org/all/20260618092444.1316336-4-ruanjinjie@huawei.com/
+> 
+> [    0.329017] smp: Bringing up secondary CPUs ...
+> [    0.343628] Detected VIPT I-cache on CPU1
+> [    0.343788]
+> [    0.343806] =============================
+> [    0.343816] WARNING: suspicious RCU usage
+> [    0.343966] 7.1.0-rc1-g27c1871848a2 #109 Not tainted
+> [    0.344087] -----------------------------
+> [    0.344098] kernel/locking/lockdep.c:3801 RCU-list traversed in
+> non-reader section!!
+
+Thanks, I'll look into this.
+
+Will
 
