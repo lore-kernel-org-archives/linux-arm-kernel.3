@@ -4,99 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 253C1CDB481
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 14:30:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AB07CDB479
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 14:30:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+WOKyD1Rs8KI4TFU2iAMfZNF7RUu66RNK0cgJJH7Hh4=; b=W8f06OroFgHNmlcG7nJ0p6TR9j
-	+MlV9ygWC5ryGBcB+bXxaV/pd/OvC683mZCDm4Ge6vvOihBjW5po/A5xLadoTHrqGRO2f6HQEGZko
-	E0bl3Z1gUN1xOGdDSJKaMuJ/j5KVWkqYek80ucIx6HiN14rhDENccnLiIegcvLoxf/ckgbAdvRmEC
-	lYYm5ABsI0bwYTAd5tmhv52+E+Lzi9V2kcHh2MxJZ875kphbLNwjAxi5q8Loz6w7AlFaee9ylySpy
-	AGZzZAeyvGj/EdJauQDoXY2IgFBswj7jQFVJUQ3X7i35AOYQOzQzjIoN8/MVZgaQpuGQLRSPDmeqO
-	LUse2JYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/Ys1+I3mTN4tFLUeTqimgmOWnqyRP0wdFQKXJW//HVk=; b=e8puh+kfc91Tq3L/yfK5xCeLNf
+	ZvHt/iYpEk2ou7G520Ty73HZQWLGRgTbEpM+QSu0mEQPlFqtiGBfFNBfyGFcQJeCZF1njDbkp6YZb
+	GpVGQnibWBVyQPiKlAVo5MdhA2mDHp/4P4JY64xMeVBLYEB3QX+BK/OOraQpw4RcOB2Fc8Y8QfFxe
+	aD+bfjhJiCZDw/JhvZbfpQDCQhCZvEqrgsXKCaYAFZ61k8kjGIgLDMu5zHclpEXQ6ox1q9cmCfuwz
+	4s8IGOlF/hamqGBiMEG6BTccQoFgOGNN3CLuDFZrN5eoEbu+/c4NrArjr3hLHjwdBZ0K8G2YRd2M2
+	gRjHJMTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc28n-00000006Rem-3DkL;
+	id 1wc28n-00000006Rdd-19jY;
 	Tue, 23 Jun 2026 14:30:17 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wc28j-00000006RcY-07jC;
-	Tue, 23 Jun 2026 14:30:13 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9ED2640427;
-	Tue, 23 Jun 2026 14:30:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A6021F000E9;
-	Tue, 23 Jun 2026 14:30:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782225012;
-	bh=+WOKyD1Rs8KI4TFU2iAMfZNF7RUu66RNK0cgJJH7Hh4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ie1vNp+HwT4kChz++sdxq3g9aY9z+Vm5DYWZa1lrf7bHVA1ni3VAwJGjckFhfV3cK
-	 SnDfkLgnEQfEDWOPg8fTQS3WuOuUetSNXmz0r4+XEfufckpIvXCkg8JoJUNWNfgqnd
-	 xXJ6yMKEKHd8T8z+zE4O3ciang7EPjUYvI5Nq5qi92heRfkADAstoZ25ijGE1RSH9/
-	 TeGX0D82UaggvFA5Jx46D/amaoftWsouz2M1WnttJo8sfMG4yaqCPPELBkee/HygGn
-	 SDMNTfo2N1kNbNJW8U4VFj/xpiUlNFUbnsqsFTJBr7azteQJCRMLrtiGWCZZRWZNiC
-	 cgg1fhb5XS7LQ==
-Date: Tue, 23 Jun 2026 15:30:02 +0100
-From: Will Deacon <will@kernel.org>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: Michael Kelley <mhklinux@outlook.com>,
-	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	"tsbogend@alpha.franken.de" <tsbogend@alpha.franken.de>,
-	"pjw@kernel.org" <pjw@kernel.org>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>,
-	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
-	"alex@ghiti.fr" <alex@ghiti.fr>,
-	"tglx@kernel.org" <tglx@kernel.org>,
-	"mingo@redhat.com" <mingo@redhat.com>,
-	"bp@alien8.de" <bp@alien8.de>,
-	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
-	"hpa@zytor.com" <hpa@zytor.com>,
-	"peterz@infradead.org" <peterz@infradead.org>,
-	"kees@kernel.org" <kees@kernel.org>,
-	"nathan@kernel.org" <nathan@kernel.org>,
-	"linusw@kernel.org" <linusw@kernel.org>,
-	"ojeda@kernel.org" <ojeda@kernel.org>,
-	"david.kaplan@amd.com" <david.kaplan@amd.com>,
-	"lukas.bulwahn@redhat.com" <lukas.bulwahn@redhat.com>,
-	"ryan.roberts@arm.com" <ryan.roberts@arm.com>,
-	"maz@kernel.org" <maz@kernel.org>,
-	"timothy.hayes@arm.com" <timothy.hayes@arm.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"thuth@redhat.com" <thuth@redhat.com>,
-	"oupton@kernel.org" <oupton@kernel.org>,
-	"yeoreum.yun@arm.com" <yeoreum.yun@arm.com>,
-	"miko.lenczewski@arm.com" <miko.lenczewski@arm.com>,
-	"broonie@kernel.org" <broonie@kernel.org>,
-	"kevin.brodsky@arm.com" <kevin.brodsky@arm.com>,
-	"james.clark@linaro.org" <james.clark@linaro.org>,
-	"tabba@google.com" <tabba@google.com>,
-	"mrigendra.chaubey@gmail.com" <mrigendra.chaubey@gmail.com>,
-	"arnd@arndb.de" <arnd@arndb.de>,
-	"anshuman.khandual@arm.com" <anshuman.khandual@arm.com>,
-	"x86@kernel.org" <x86@kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH RFC 3/3] arm64: Add HOTPLUG_PARALLEL support for
- secondary CPUs
-Message-ID: <ajqYaklhIyvaNLlk@willie-the-truck>
-References: <20260611133809.3854977-1-ruanjinjie@huawei.com>
- <20260611133809.3854977-4-ruanjinjie@huawei.com>
- <SN6PR02MB41575306521E6223561F476FD4182@SN6PR02MB4157.namprd02.prod.outlook.com>
- <e96a2579-c010-4198-a2a3-6ba35b14aef0@huawei.com>
- <ajPitENEHWa8lDfC@willie-the-truck>
- <2a34ff43-78a0-4d99-885a-0e7f560634ca@huawei.com>
+	id 1wc28O-00000006RT0-1yrA
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 23 Jun 2026 14:29:53 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4924944fe6bso22493645e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 07:29:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=9elements.com; s=google; t=1782224990; x=1782829790; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/Ys1+I3mTN4tFLUeTqimgmOWnqyRP0wdFQKXJW//HVk=;
+        b=HTjrpCm4F+bsBiaSSyJFb9mK3ftLu6MqKvStwx9eh5ndC/C6LLdQQY5U0/haWGfJBC
+         GJVlEeBpKcJ3dwBKwhanzov+LoM7zd+Y7zo7lv7mAbnxKEyBQC+f64mG3s94pseyuSjz
+         P2HIq2AxNX7HfbHONT3knklAVMx1/reftnk40bQHJ/PO9RDLYM/kU6YMcyTsY8D1NQMi
+         dEnve3sjOJ09FaNfX4+gmPbHnHjWupvMT7SgFApOVC1TVoaAT1bU3FwVxjw3Hl3ImmVM
+         qZHktbYkANuBVazJ+dAkVkjQzVJ1qXrh4E/jCDe7cH0ZpAVnVE7DfJdI3BIUZ+n6yF28
+         MgSQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782224990; x=1782829790;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=/Ys1+I3mTN4tFLUeTqimgmOWnqyRP0wdFQKXJW//HVk=;
+        b=TSz1F1N0+7akm1oQb4NA6vVBRG+9hdXpkC3/OJ5i2ODUUSb+rZQWfiU91bDyjEF+Xo
+         tIQZo0hkP9oPmjZoq5IA2jImlIrzUPue1JkqohvbiBGPdECBzhy8DpX34JyE7jDBqh+/
+         YAJPBJBroOWhGnL9ezVeAmpejDFZL1X56Rnbq7qT4w7UcObUxknlvcRk2UD4i4O3rnaJ
+         VxDa85NtYcnSBqAAK24C6XEyv+ZpcxlZf16Fynzd1fvc4jBiiJeOERqYxeSExJwoHjt8
+         GaSXeA6ZrAgZtSGUcYtgNqlRbakDZToUEUWoTBES0G8A3W5zAu8mvzZKqUcUVXpLBs/9
+         83gw==
+X-Forwarded-Encrypted: i=1; AFNElJ9caqS9MpRMQupvIQdss3rYRkdbXJIU1FI3LYMSbqBlLZh+oyagnTSC6SxlXkUI2ae5xUtEIPCJMluZMO1K0JC3@lists.infradead.org
+X-Gm-Message-State: AOJu0YxTdAMCOjNgIa7Wil15EOV/5lvFY6HyaNBZL35yVccz5FMXG3lx
+	Q2Aeiy6gGcJ9NUIPK+CVV9XwgoFAr791mA4g5N07AsNVNgoD44VoWBDklFWwiCYN+6w=
+X-Gm-Gg: AfdE7clMLZfUBo4c9g5ghlw5x+eVFqytaosG7u8FmTx5T3FFBuqFf83CsvqmCcHLtVj
+	BnGOmmi0TqG8JF8S6z+PAgH5lm4+jyIf25NwLs6XaDXu4VMKJnR9AKIVdPHScBFfkpMcpJgXOmQ
+	YLTd4CTQ7Xp9hW89YgL5ckXaSvmg+H1OWwmef1v4ZrTq/spHP7Sr7XWUqRgVrog3mLRmTS/Z4Jh
+	QbnIv1Aaqbssp2KRfHH7J+T0lqrDVfxpeGUnEH7HwNAy6EtVdO9T/1I2yKkQAOKo3zva73aPRLH
+	x7tNH0h0WtUNVqWhW34vWR7UJzJcRNJmG7as290zdOASbbaJ3qmdCTZAWiwq9mDVIHBkNeu8tzs
+	dWyPKqrGbdAIQSsNWRrpGLiFl81ekF/xOOmEAdgEUnD8WbqANat7gwe5re8RF7EgJV+1E9/ZC4P
+	tkmyelHdEOtpvtZYE9sGngMp3jY+QwMWP4Kkn2luu4K02QBbmDRZjvq/j6nrfInTPyhVV1us9Ta
+	bkhwjDiAnqicSKo3lkPurlcUnpi
+X-Received: by 2002:a05:600c:1d1e:b0:492:4ca9:a46d with SMTP id 5b1f17b1804b1-4924ca9a4e8mr215051385e9.5.1782224990389;
+        Tue, 23 Jun 2026 07:29:50 -0700 (PDT)
+Received: from gregwork.sec.9e.network ([188.111.3.154])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49240efc160sm362507805e9.2.2026.06.23.07.29.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 23 Jun 2026 07:29:49 -0700 (PDT)
+From: =?UTF-8?q?Gr=C3=A9goire=20Layet?= <gregoire.layet@9elements.com>
+To: joel@jms.id.au,
+	andrew@codeconstruct.com.au,
+	lkundrak@v3.sk,
+	devicetree@vger.kernel.org,
+	gregkh@linuxfoundation.org,
+	jirislaby@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: andrew@lunn.ch,
+	jacky_chou@aspeedtech.com,
+	yh_chung@aspeedtech.com,
+	ninad@linux.ibm.com,
+	anirudhsriniv@gmail.com,
+	linux-serial@vger.kernel.org,
+	linux-aspeed@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	=?UTF-8?q?Gr=C3=A9goire=20Layet?= <gregoire.layet@9elements.com>
+Subject: [PATCH v3 4/7] serial: 8250_aspeed_vuart: add VUART over PCI
+Date: Tue, 23 Jun 2026 14:25:42 +0000
+Message-ID: <c3e1136d3565216c254db138e29299c2a3c6499f.1782224059.git.gregoire.layet@9elements.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <cover.1782224059.git.gregoire.layet@9elements.com>
+References: <cover.1782224059.git.gregoire.layet@9elements.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <2a34ff43-78a0-4d99-885a-0e7f560634ca@huawei.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260623_072952_553736_BA77F523 
+X-CRM114-Status: GOOD (  24.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,121 +116,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 22, 2026 at 04:06:38PM +0800, Jinjie Ruan wrote:
-> On 6/18/2026 8:21 PM, Will Deacon wrote:
-> > On Mon, Jun 15, 2026 at 04:51:48PM +0800, Jinjie Ruan wrote:
-> >> On 6/12/2026 11:45 PM, Michael Kelley wrote:
-> >>> From: Jinjie Ruan <ruanjinjie@huawei.com> Sent: Thursday, June 11, 2026 6:38 AM
-> >>>>
-> >>>> Support for parallel secondary CPU bringup is already utilized by x86,
-> >>>> MIPS, and RISC-V. This patch brings this capability to the arm64
-> >>>> architecture.
-> >>>>
-> >>>> Rework the global `secondary_data` accessed during early boot into
-> >>>> a per-CPU array. This array maps logical CPU IDs to MPIDR_EL1 values,
-> >>>> enabling the early boot code in head.S to resolve each secondary CPU's
-> >>>> logical ID concurrently.
-> >>>>
-> >>>> To fully enable HOTPLUG_PARALLEL, this patch implements:
-> >>>> 1) An arm64-specific arch_cpuhp_kick_ap_alive() handler.
-> >>>> 2) Callbacks to cpuhp_ap_sync_alive() inside secondary_start_kernel().
-> >>>>
-> >>>> Successfully tested on QEMU ARM64 virt machine (KVM on, 128 vCPUs).
-> >>>>
-> >>>> |     test kernel	   | secondary CPUs boot time |
-> >>>> |  ---------------------   |	--------------------  |
-> >>>> |   Without this patch     |		155.672	      |
-> >>>> |   cpuhp.parallel=0	   |		62.897	      |
-> >>>> |   cpuhp.parallel=1	   |		166.703	      |
-> >>>
-> >>> The last two rows seem mixed up. I would expect parallel=0 to
-> >>> result in a longer boot time.
-> >>
-> >> The results are correct and not mixed up.
-> >>
-> >> Compared to the original non‑HOTPLUG_PARALLEL approach, the advantage of
-> >> cpuhp.parallel=0 lies in its use of cpu_relax(`yield` on arm64) instead
-> >> of the wait_for_completion_timeout() mechanism (which may cause sleep
-> >> and context switching). This significantly reduces the overhead of VM
-> >> exits and context switches in a KVM guest, thereby cutting the secondary
-> >> CPU boot time by more than half.
-> > 
-> > I don't think that's a particularly compelling reason to enable this for
-> > arm64, in all honesty. The yield instruction typically doesn't do
-> > anything on actual arm64 silicon, so this probably means that you're
-> > introducing busy-loops which tend to be bad for power and scalability.
-> 
-> After updating the implementation in v2, the performance gains are
-> primarily observed on actual hardware.
+This patch enables the VUART over PCI possible for the AST2600. This is
+only activated if the 'aspeed,vuart-over-pci' property flag is set on an
+'ast2600-vuart' compatible node.
 
-... but that's presumably because the secondary cores are busy-looping.
-That's not something we should do during boot. It might be "fast" on
-your machine but it will probably be "hot" as well.
+The AST2600 has 2 VUART that are usable over PCI. These are the VUART3
+and VUART4 in the 'apseed-g6.dtsi'.
 
-> > I implemented this a while ago [1] but didn't manage to see much in terms
-> > of performance improvement and so I didn't bother to send the patches out
-> 
-> As shown in v2 below, on actual hardware, this results in a 40%–60%
-> reduction in boot time.
-> 
-> Bringup Time Comparison (ms, lower is better):
-> 
-> |     Platform		| Baseline|   P=0   |   P=1  | Delta(%)|
-> | --------------------- | ------- | ------- | ------ | ------- |
-> | 64-core ATF QEMU	| 2075.8  | 2080.7  | 1653.4 | 20.34%  |
-> | 192-core server(HIP12)| 14619.2 | 14619.1 | 8589.4 | 41.21%  |
-> | 32-core board	        | 2776.5  | 2881.0  | 1045.0 | 62.36%  |
-> 
-> Link:
-> https://lore.kernel.org/all/20260618092444.1316336-5-ruanjinjie@huawei.com/
+This code sets the BMC PCI device enables
+bits, sets the PCI class code to MFD device and configures MSI interrupts.
 
-To be honest, I'm pretty confused with all these numbers. Your first
-table above suggests that parallel boot is *slower* but then this table
-suggests the opposite. However, it also has a QEMU entry despite being
-"on actual hardware". Is that in a VM?
+There is no disable function. Removing this driver should not disable
+the BMC PCI device, as other drivers could use it.
+However, if all the drivers using it are removed, the
+BMC PCI device will still be activated, which is not ideal. Realistically though, this is not a
+use case for a BMC, the drivers will never be removed.
 
-> > after talking about it at KVM forum [2]. However, as mentioned at the end
-> > of that talk, it _is_ still useful for confidential VMs using PSCI so
-> > let me dust off my old series and send it out to see what you think.
-> > 
-> > It relies on PSCI v0.2, which means we don't need the NR_CPUS size array
-> > for secondary_data and I also have some support for error handling (it
-> > doesn't look like you handle __early_cpu_boot_status properly).
-> 
-> I need some time to look closely at your patch. Alternatively, I will
-> integrate your changes, re-test everything on actual hardware, and then
-> send out a revised version.
+This is useful on PCIe BMC expansion cards that use the AST2600, such as the
+ASUS Kommando IPMI Expansion Card.
 
-Please just give me a week or so to rebase my changes and send them out
-for discussion. It'll be interesting to see what numbers you get.
+Registers initialisation taken from ASPEED 6.18 Kernel SDK.
+Return code checks were added to each register write.
+The code has been simplified and macros have been added.
 
-> It seems that the following patch removing
-> `rcutree_report_cpu_starting()` will reintroduce the original issue as
-> commit ce3d31ad3cac ("arm64/smp: Move
-> rcu_cpu_starting() earlier") soloved.
-> 
-> Link:
-> https://web.git.kernel.org/pub/scm/linux/kernel/git/will/linux.git/commit/?h=cpu-hotplug&id=bba4b62f45f2614bf6085e6cd3f233528f85bf26
-> 
-> Indeed, I also noticed that the invocation order of
-> rcutree_report_cpu_starting() on arm64 is somewhat suboptimal. It
-> hinders the implementation of parallel bringup on arm64 and could
-> potentially lead to RCU stalls.
-> 
-> Link:
-> https://lore.kernel.org/all/20260618092444.1316336-4-ruanjinjie@huawei.com/
-> 
-> [    0.329017] smp: Bringing up secondary CPUs ...
-> [    0.343628] Detected VIPT I-cache on CPU1
-> [    0.343788]
-> [    0.343806] =============================
-> [    0.343816] WARNING: suspicious RCU usage
-> [    0.343966] 7.1.0-rc1-g27c1871848a2 #109 Not tainted
-> [    0.344087] -----------------------------
-> [    0.344098] kernel/locking/lockdep.c:3801 RCU-list traversed in
-> non-reader section!!
+The ASPEED_SCUC24 regmap update is missing a macro for 'BIT(14)'. I was
+unable to  determine the purpose of this bit. In the AST2600 A3
+datasheet it is marked as 'reserved'. It is only used on the other
+revision. As I only have the AST2600A3, I was unable to try this code
+path.
 
-Thanks, I'll look into this.
+Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
+Signed-off-by: aspeedyh <yh_chung@aspeedtech.com>
+Signed-off-by: Grégoire Layet <gregoire.layet@9elements.com>
+Tested-by: Grégoire Layet <gregoire.layet@9elements.com>
+---
+ drivers/tty/serial/8250/8250_aspeed_vuart.c | 86 +++++++++++++++++++++
+ 1 file changed, 86 insertions(+)
 
-Will
+diff --git a/drivers/tty/serial/8250/8250_aspeed_vuart.c b/drivers/tty/serial/8250/8250_aspeed_vuart.c
+index 6afa2f4057e1..e204e26fa173 100644
+--- a/drivers/tty/serial/8250/8250_aspeed_vuart.c
++++ b/drivers/tty/serial/8250/8250_aspeed_vuart.c
+@@ -32,6 +32,27 @@
+ #define ASPEED_VUART_DEFAULT_SIRQ	4
+ #define ASPEED_VUART_DEFAULT_SIRQ_POLARITY	IRQ_TYPE_LEVEL_LOW
+ 
++#define ASPEED_SCU_SILICON_REVISION_ID			0x04
++#define AST2600A3_REVISION_ID				0x05030303
++
++#define ASPEED_SCUC24			0xC24
++#define  ASPEED_SCUC24_MSI_ROUTING_MASK			GENMASK(11, 10)
++#define  ASPEED_SCUC24_MSI_ROUTING_PCIe2LPC_PCIDEV1		(0x2 << 10)
++#define  ASPEED_SCUC24_PCIDEV1_INTX_MSI_HOST2BMC_EN		BIT(18)
++#define  ASPEED_SCUC24_PCIDEV1_INTX_MSI_SCU560_EN			BIT(17)
++
++
++#define ASPEED_SCU_PCIE_CONF_CTRL	0xC20
++#define  SCU_PCIE_CONF_BMC_DEV_EN					BIT(8)
++#define  SCU_PCIE_CONF_BMC_DEV_EN_MMIO				BIT(9)
++#define  SCU_PCIE_CONF_BMC_DEV_EN_MSI				BIT(11)
++#define  SCU_PCIE_CONF_BMC_DEV_EN_IRQ				BIT(13)
++#define  SCU_PCIE_CONF_BMC_DEV_EN_PCIE_BUS_MASTER	BIT(14)
++#define  SCU_PCIE_CONF_BMC_DEV_EN_E2L				BIT(15)
++#define  SCU_PCIE_CONF_BMC_DEV_EN_LPC_DECODE		BIT(21)
++
++#define ASPEED_SCU_BMC_DEV_CLASS	0xC68
++
+ struct aspeed_vuart {
+ 	struct device		*dev;
+ 	int			line;
+@@ -412,6 +433,62 @@ static int aspeed_vuart_map_irq_polarity(u32 dt)
+ 	}
+ }
+ 
++static int aspeed_ast2600_vuart_over_pci_set_enabled(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	u32 silicon_revision_id;
++	struct regmap *scu;
++	int rc;
++
++	u32 pcie_config_ctl = SCU_PCIE_CONF_BMC_DEV_EN_IRQ |
++						SCU_PCIE_CONF_BMC_DEV_EN_MMIO |
++						SCU_PCIE_CONF_BMC_DEV_EN_MSI |
++						SCU_PCIE_CONF_BMC_DEV_EN_PCIE_BUS_MASTER |
++						SCU_PCIE_CONF_BMC_DEV_EN_E2L |
++						SCU_PCIE_CONF_BMC_DEV_EN_LPC_DECODE |
++						SCU_PCIE_CONF_BMC_DEV_EN;
++
++	scu = syscon_regmap_lookup_by_phandle(dev->of_node, "clocks");
++	if (IS_ERR(scu)) {
++		dev_err(&pdev->dev, "failed to find SCU regmap\n");
++		return PTR_ERR(scu);
++	}
++
++	/* update class code to be an MFD device */
++	if (regmap_write(scu, ASPEED_SCU_BMC_DEV_CLASS, 0xff000000)) {
++		dev_err(dev, "could not set PCI class code\n");
++		return -EIO;
++	}
++
++	if (regmap_update_bits(scu, ASPEED_SCU_PCIE_CONF_CTRL,
++			   pcie_config_ctl, pcie_config_ctl)) {
++		dev_err(dev, "could not set PCIe configuration\n");
++		return -EIO;
++	}
++
++	if (regmap_read(scu, ASPEED_SCU_SILICON_REVISION_ID, &silicon_revision_id)) {
++		dev_err(dev, "could not read silicon revision\n");
++		return -EIO;
++	}
++
++	if (silicon_revision_id == AST2600A3_REVISION_ID)
++		rc = regmap_update_bits(scu, ASPEED_SCUC24,
++				   ASPEED_SCUC24_PCIDEV1_INTX_MSI_HOST2BMC_EN | ASPEED_SCUC24_MSI_ROUTING_MASK,
++				   ASPEED_SCUC24_PCIDEV1_INTX_MSI_HOST2BMC_EN | ASPEED_SCUC24_MSI_ROUTING_PCIe2LPC_PCIDEV1);
++	else
++		rc = regmap_update_bits(scu, ASPEED_SCUC24,
++					/* The bit 14 is reserved in the Datasheet, so we can't say what it does. This revision has not been tested */
++				   ASPEED_SCUC24_PCIDEV1_INTX_MSI_SCU560_EN | BIT(14) | ASPEED_SCUC24_MSI_ROUTING_MASK,
++				   ASPEED_SCUC24_PCIDEV1_INTX_MSI_SCU560_EN | BIT(14) | ASPEED_SCUC24_MSI_ROUTING_PCIe2LPC_PCIDEV1);
++	if (rc) {
++		dev_err(dev, "could not set PCI device 1 MSI interrupt routing\n");
++		return -EIO;
++	}
++
++	return 0;
++}
++
++
+ static int aspeed_vuart_probe(struct platform_device *pdev)
+ {
+ 	struct of_phandle_args sirq_polarity_sense_args;
+@@ -540,6 +617,15 @@ static int aspeed_vuart_probe(struct platform_device *pdev)
+ 	aspeed_vuart_set_host_tx_discard(vuart, true);
+ 	platform_set_drvdata(pdev, vuart);
+ 
++	if (of_device_is_compatible(dev->of_node, "aspeed,ast2600-vuart") &&
++		of_property_read_bool(dev->of_node, "aspeed,vuart-over-pci")) {
++		rc = aspeed_ast2600_vuart_over_pci_set_enabled(pdev);
++		if (rc) {
++			dev_err(dev, "could not enable VUART over PCI\n");
++			return rc;
++		}
++	}
++
+ 	return 0;
+ 
+ err_sysfs_remove:
+-- 
+2.54.0
+
 
