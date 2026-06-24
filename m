@@ -4,65 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C8AACDB479
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 02:55:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CE63CDB479
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 03:15:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=iUMuOltz+V+mvED4r7D4vLbje8XR7nwMng6lJAODwc8=; b=xSfVfu7iNFTFC0EOAp/sWAGnDd
-	OVqppSreq1s8Ltc+Hao16B7DfbPy2q2GJSy/0DS6f/iFwJ32+ieBsFIWswhssLIL9aAPOS7lHXJl1
-	ngn8sZHTz684NaGpDzYAga1PHCSuno5+3u8dlzpo/df107UIaAMOClCBtpHMOvxZidyN6BsDD0ZsJ
-	hsyWdCPPVCMOjNDdGxVD159qjwJv9RyeTJvE4qQN2Or1gWEOZHNpyHd/tVtlz/LNXi0JlUftYcpNT
-	0MN1cA5y2tPcz9ErwXaB/CnL5xB7LR8Ro+VNDukAF48aZA88siKdI1kX8LGtW7sKyg6f58bmRezuR
-	eXVGW0ZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=L69q7hqtuE+dr6mCSS63zKlS/8DKuSasKG+/Mx1ZNm8=; b=4Eu5hYaTSS9nIFEzZI7nCbEwE0
+	7oItDnEKlWeFlA2jw92DTSIoWXS1GAuFn3py7ikpb29VPZV4HG3KkNf4tHEqDhgEZuQzyfWZn+rYY
+	9r5gFmJfTEa3H46eXPaSbdmPgeKfuoJ/x1ryzIHEESlv/3xINh6LrZfR35HFXskazVGBadJHs63jB
+	aMK5YCHpSJc2inyVjC0X50lwtd7CL9Yl3pvfwjT+iE6ZuXfnrfFjmMbLPShOCUANP2C7FBAM6qpUD
+	yVxwJpe1ojZqC/nBmz0mR7QUGthjETQscaFUM5mfQkZjC8r6z1EplNYhUuvbPleQJxOtH5jXB0ob4
+	1YK+w6bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcDlz-000000074SO-2VmF;
-	Wed, 24 Jun 2026 02:55:31 +0000
-Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
+	id 1wcE5c-000000074zU-1ypZ;
+	Wed, 24 Jun 2026 03:15:48 +0000
+Received: from mail-francesouthazon11011006.outbound.protection.outlook.com ([40.107.130.6] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcDlw-000000074Qr-0t1H
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 02:55:30 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=iUMuOltz+V+mvED4r7D4vLbje8XR7nwMng6lJAODwc8=;
-	b=CU1UNOQCYtC+iF35VNilQUvhZ9j7kzTvEy0HBSGmU4fnNeSOOm5kmP5d9t8Rr5F/1ZWU5b8+C
-	AsKiOwOw89JtqM8ymtTZLvmoVdHOOKoN0igS+OH5ZzublflykqQGE4P/vLY2DRNtvly+Cfz1JmW
-	/igez19aQJ3/pzyGkctSi6M=
-Received: from mail.maildlp.com (unknown [172.19.162.144])
-	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4glRCf36bKz1T4LP;
-	Wed, 24 Jun 2026 10:46:38 +0800 (CST)
-Received: from dggpemf500013.china.huawei.com (unknown [7.185.36.188])
-	by mail.maildlp.com (Postfix) with ESMTPS id DAC114056D;
-	Wed, 24 Jun 2026 10:55:18 +0800 (CST)
-Received: from huawei.com (10.50.163.32) by dggpemf500013.china.huawei.com
- (7.185.36.188) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Wed, 24 Jun
- 2026 10:55:17 +0800
-From: Jinqian Yang <yangjinqian1@huawei.com>
-To: <lpieralisi@kernel.org>, <maz@kernel.org>, <tglx@kernel.org>,
-	<alex@shazbot.org>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<liuyonglong@huawei.com>, <wangzhou1@hisilicon.com>, <linuxarm@huawei.com>,
-	Jinqian Yang <yangjinqian1@huawei.com>
-Subject: [RFC PATCH] irqchip/gic-v3-its: enable dynamic MSI-X allocation
-Date: Wed, 24 Jun 2026 10:53:45 +0800
-Message-ID: <20260624025345.458387-1-yangjinqian1@huawei.com>
-X-Mailer: git-send-email 2.33.0
+	id 1wcE5Z-000000074yx-2gHG;
+	Wed, 24 Jun 2026 03:15:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=B9tkFLGqAwbKVuZBn/Zj5w6/6K8PCjz6SDlcfSUjvM0IlBQGRq9EDwX6V7t52/cCRapu+bxnW0atfZjZTVplQnnzvP2WRuyVz3ZronUYnb7ISSoxJYOl3LzBYT2p/n503tv3yR+Mp+5bjsUvBEQBQglE/3VcZTMHwweSF86cGND4feYHec3Vdh0iUZGf633CuRoOnNZh3+AAlXqlX0w5KHL87wnNqEOE2r6XocDrycXQWyodrUEy0sw0n4O1aGwg2GHWhZ10ZOtOSauRdFCMo/RcPz6gkKLPsE1s7/L8u1amBE4NQsE4AJQtSetb4PGRrceaFcNfspKjBxKMKv0z0w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=L69q7hqtuE+dr6mCSS63zKlS/8DKuSasKG+/Mx1ZNm8=;
+ b=fkZPOrhBkcWnqhZaiqrsv3m0NTugODUEfo8HPmYCRzAB9x25JC4x+k43Au7zU/4MoH/4aSQRgwJAuDp31GmeE18bXTWxUltstS17OKzE4B7F1UCNSHULPUL3HFDGj9s8f6Cw/xJ4VeaJMa6MAXdkyJq4m9boFjOntQTlNWqMI1Bei3PVdHD4JnztK2kcGwJqDjhEpoAmXMms752McpGl9u2mO8LErpY7xiSW+mw5m1S21LWuYk/vw/3x+Kp7s3KGGBtPWlZgsSUkItpIijq7zpos8chFol2k77SLuQ3SYmPnH6E2nrvwECiEjWLtvRgbjo4YMWjRnxbntJQw+O/rSw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=L69q7hqtuE+dr6mCSS63zKlS/8DKuSasKG+/Mx1ZNm8=;
+ b=VNLmv8HSQbTQspgaFjZo8NLypY75xNWCmQV+Qz9iKIlG2WUehujv+2nRKAduRiQ97gLD4A2Slrz1+lfFx0O5HmlspiPjGZQ58k88njyCZjvTTxtdHp6YHHT9RUUt68uD4KIIy54MPyU2BAcdTmxpTUSwIwu+PlDgIGJXLhIFsDaUPoAMAckhI3bW+4IHtpkGGjNZX6L2U1QVkgVT+7OjqTWO+F7dMytAQGJu49xCJRi0WXjs7DH84uAnm3C8sjIiBu7fCnBCrTmTPZO5ricVtFb6NtbOiM9ld++omHpsnzIzkstE0ee5Y9oMtIL1Q6t3qVqioVoUS9djq451P0e5rg==
+Received: from AS8PR04MB9080.eurprd04.prod.outlook.com (2603:10a6:20b:447::16)
+ by VI0PR04MB10590.eurprd04.prod.outlook.com (2603:10a6:800:264::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.14; Wed, 24 Jun
+ 2026 03:15:37 +0000
+Received: from AS8PR04MB9080.eurprd04.prod.outlook.com
+ ([fe80::92c2:2e03:bf99:68eb]) by AS8PR04MB9080.eurprd04.prod.outlook.com
+ ([fe80::92c2:2e03:bf99:68eb%6]) with mapi id 15.21.0139.018; Wed, 24 Jun 2026
+ 03:15:37 +0000
+From: "G.N. Zhou" <guoniu.zhou@nxp.com>
+To: "Frank Li (OSS)" <frank.li@oss.nxp.com>, Andy Shevchenko
+	<andriy.shevchenko@linux.intel.com>, Daniel Scally <djrscally@gmail.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>, Sakari Ailus
+	<sakari.ailus@linux.intel.com>, Greg Kroah-Hartman
+	<gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, Danilo
+ Krummrich <dakr@kernel.org>, Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Dafna Hirschfeld <dafna@fastmail.com>, Laurent Pinchart
+	<laurent.pinchart@ideasonboard.com>, Heiko Stuebner <heiko@sntech.de>, Bryan
+ O'Donoghue <bryan.odonoghue@linaro.org>, Vladimir Zapolskiy
+	<vladimir.zapolskiy@linaro.org>, Loic Poulain <loic.poulain@oss.qualcomm.com>
+CC: "driver-core@lists.linux.dev" <driver-core@lists.linux.dev>,
+	"linux-acpi@vger.kernel.org" <linux-acpi@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
+	"linux-rockchip@lists.infradead.org" <linux-rockchip@lists.infradead.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-arm-msm@vger.kernel.org"
+	<linux-arm-msm@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	Frank Li <frank.li@nxp.com>
+Subject: RE: [PATCH 2/4] media: mc: use
+ fwnode_graph_for_each_endpoint_scoped() to simpilfy code
+Thread-Topic: [PATCH 2/4] media: mc: use
+ fwnode_graph_for_each_endpoint_scoped() to simpilfy code
+Thread-Index: AQHdAlO2S9u8oDYSvUOuCIjyNu1QE7ZNCKnw
+Date: Wed, 24 Jun 2026 03:15:37 +0000
+Message-ID: <AS8PR04MB9080F3143F9ECFC26FB40CC4FAED2@AS8PR04MB9080.eurprd04.prod.outlook.com>
+References: <20260622-fw_scoped-v1-0-a37d0aac0a68@nxp.com>
+ <20260622-fw_scoped-v1-2-a37d0aac0a68@nxp.com>
+In-Reply-To: <20260622-fw_scoped-v1-2-a37d0aac0a68@nxp.com>
+Accept-Language: zh-CN, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AS8PR04MB9080:EE_|VI0PR04MB10590:EE_
+x-ms-office365-filtering-correlation-id: 7ea18f9b-6b2c-4341-3bd0-08ded19edd18
+x-ld-processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|23010399003|1800799024|376014|7416014|19092799006|921020|38070700021|18002099003|22082099003|56012099006|4143699003|11063799006;
+x-microsoft-antispam-message-info: KNcmpRnWdPBxWkQrEvmJM3Syy1JS+Cr4pVV/aZjq7x1wbl6KYeSdQa2hrzf2IupVcEYV24p2jqy9vsLe3NUwLBxBjHF0SRh2jXx3ntixb3iosxuEu9lZQvUTMRwhMP9BriDoJCbKsUeF65ssroWzBJaEEWA48CNLKXEtRFZkaqDGXP3DPXWxhgXJgLJMNMuanB1hoNYTntYh7ooWlMa7YlGOOALaL1uiVZXnoPIeNC2MkjzlQNztE3gd608tUlnUJxDyPzEYAtfQIB/KTu78stIs94LuLNhqXexUj2Fo7ht3GXeosvJSd4h9vkUTuLTHc3scoZRSjg8EUf2deKujKSTK/4NH7uQRvJMMwSkbl/aeVwygmSg4+GTuiuwaJtmcu0CphMvm6obnTQV4YJ+ksY3pUvZeD/DxHloa/uxmOJuTuUppQWzrL2pIJhAKZjek2jW4wjaaMZwCOe/LtEIweQno2AAjHEYpRKb2M4CkYoJo1Q6DFdnj8AXpMozZ0tR1WPIgDWs8SyBbZZIoFUBwEyHfCvjQiLsXMX2F6Pgn16/6SHSmK9Px3K/wULHpvOHB63VN3OYxESLN7j272vpZczrEP5TsbRiZ65DJMJCw5iizXbLdgU4RLGOHrDJjs3a3JY1XmT6SpaQGr6uvdWrQWSLHorJMHS+p2Z9JK812O1kJpT9/osyOogRWqIkjijfCGpiJwLJ6JjsfL95NMzrNB/xsYj/EpaiwD2zoH0ifzaHeDD8APg2CD5oMF93eNcTc
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB9080.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(376014)(7416014)(19092799006)(921020)(38070700021)(18002099003)(22082099003)(56012099006)(4143699003)(11063799006);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?VAykx0O0I7kkZj2hbliCIRwvPgvi6g3fdH2Er1oA2Bc/j0m/JIZeTJowcCp2?=
+ =?us-ascii?Q?Ay/7g2Fwcpgff53TQCmoetGMTp5C4vJsXNE42ow9w7y+PCzh1ZHTdFR6bpQd?=
+ =?us-ascii?Q?Hp9kqMTwI1uQTJ9rRQ3P/eMhX1j/RWKGA0YLVYeNZHGO+25r0jF7TLjIV4iC?=
+ =?us-ascii?Q?TRB9/v70KiI69q1IU4MEFYngepWgFtjSwmfZfnro6X6SlJ4Q9LhV0TbELdK0?=
+ =?us-ascii?Q?8k/BG0yE50fynju3r0A3JhRYT7bB7F9gxrU/QV0WZ7n7mXK9uhIoVxlkRVVu?=
+ =?us-ascii?Q?Tq3VfBNciZt/nE6DuaEpHS1rQR+qmarSQrKM8c024vYQsDM7lCx0HKa9xcIC?=
+ =?us-ascii?Q?MgByifKmfQh0FLTkFhJbQAnCl7AL0axBIW/QrDlpY5m92wOvBCke7w1kIybj?=
+ =?us-ascii?Q?HEcOp6NxjdZvtwU0CWivdHZHKVciyk7gzCdJ51S7G1PJUcUUxBsAHW1mGbZj?=
+ =?us-ascii?Q?fg8GhcV4/a/JkcxoILVmQkRzFNVpon0LRVKJQFNjJK/DbtDL9gOnFT4IV9sb?=
+ =?us-ascii?Q?Z0xxIImi8cQC45AZyI5naWbxmAqszOn0+rBPPkXXjNa9WCGUcJ2KP2zxkoLu?=
+ =?us-ascii?Q?x5E4wormo8+UQ4XAo8UzmPTtrghL/ojgeu8fzFQU/31PK9VLP8eSAR4TZntn?=
+ =?us-ascii?Q?fR75IPKsIYitG3jnErtlcBO5FXn4o10CqM/kBc06klBB31YMC9l+XBjeTNkg?=
+ =?us-ascii?Q?kJPuqhsMpJIuKPAqzdCQkZf3Iqicy0CgB/PMhx2boLnddSbC8O2UjbSWXb6d?=
+ =?us-ascii?Q?uxZgIrdbu07gFq4ll6OYQVTb+6HUFBCMCmaI/PZApQF3AJ9ZCoeybcXIhKeo?=
+ =?us-ascii?Q?+m6RgtATCKqlkpKC+sx3L2cTInWsWNga6wqEjdnznJPNpzGgJsGHmuMwS4ce?=
+ =?us-ascii?Q?L1WrV23sggohbwYeenlErioRiYOqdjxHobk0HINQO7Ke2h70LxMsUWIGRNfR?=
+ =?us-ascii?Q?Ewg53zRqjEjT+kF3kGyb99HyFb26dizHSKmqaAlBvA+/40ZHwPyUObdyeqNe?=
+ =?us-ascii?Q?tbDbwqf7pgwRm5DsLYatvtNNzQhXkakCsUnfX0o2eDhczisMkXoIccyj+9Po?=
+ =?us-ascii?Q?pm+bOqL1jYur6XUIfZtHFBDJ7j4Jwc1NrtXNOljWnCZM7/zCeBxzNi2isF2r?=
+ =?us-ascii?Q?h6dCcKdtmFmPIx9DAxETtw985/6DAd2Cfkwh7TOtUBatvEdyr4sImoX6qWOs?=
+ =?us-ascii?Q?WzZMmO0JMHSqb8lrqjej99dKeckSoPcsRHBazIXGHLlFcg/oscjHtMfO953a?=
+ =?us-ascii?Q?v0tPi5Rc12ecJudtszbQcLDnhotv4L4wT+k1lyj72poCzFp3zr1Gwe4areSN?=
+ =?us-ascii?Q?epJy9xI/ZnG/B2XJEX+hL18f4yG60EPg8sKLgH3PeSTAq7Jz0R3sh8Xe/UOI?=
+ =?us-ascii?Q?fZOUiD5EWwptNVqJZhesfagl16KNGa3EJ9fK/fbJXy4h/COHSuE+kBdQMULg?=
+ =?us-ascii?Q?w/K74BcqwJuUrbu5FlKcWEGh+CznhLeBgd5Q79+6xDLJ+X3yCc/cnWfEnwr/?=
+ =?us-ascii?Q?sAY+kH/OvNB5kNHfIWjzZ9zteqx/JyS/XGx9BgEymgTyegQFXmZwoaQXszWT?=
+ =?us-ascii?Q?8G1le26nPAvYq/QWzBn5Q17XlcujVrwC9nuobxophAJX5jbfu/n7ulXCh5Be?=
+ =?us-ascii?Q?Z0tVnCwoycWIo53lq2TbwdzCRE5G42z2WMZcEIrKAfd+Q6LkEaUIzHnOglCV?=
+ =?us-ascii?Q?Ly3II8SUj3mWErn07/1aiqrhFBNmNE2lNJJpPreEyVJDC3/B?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.50.163.32]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- dggpemf500013.china.huawei.com (7.185.36.188)
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB9080.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7ea18f9b-6b2c-4341-3bd0-08ded19edd18
+X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Jun 2026 03:15:37.6940
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: BFXYKBpF2qldJEyZINzPf7tLsH463PBqU+jIKlLEX4B6ZDGuSAML1BYqv8sG6zRUyYGamaqfygPncjSPkzQR9g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10590
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_195528_559762_B5BB3348 
-X-CRM114-Status: GOOD (  11.07  )
+X-CRM114-CacheID: sfid-20260623_201545_705843_4441EFB0 
+X-CRM114-Status: GOOD (  16.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,61 +155,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On ARM64 platforms with GICv3 ITS, VFIO PCI passthrough currently
-cannot dynamically allocate MSI-X vectors after MSI-X has been
-enabled. When QEMU needs to extend the vector range, it must
-disable MSI-X, free all interrupts, then re-enable with a larger
-allocation. This creates an interrupt loss window for already-active
-vectors.
+Hi Frank,
 
-Consider HNS3 with RoCE: NIC and RDMA share one PCI device and
-ITS DeviceID, with MSI-X vectors partitioned as NIC (lower range)
-then RoCE (starting at base_vector = num_nic_msi). In VFIO
-passthrough, loading hns_roce after hns3 forces QEMU to tear down
-all interrupts before re-allocating the larger range. During this
-process, NIC interrupts may be lost. Testing confirmed that this
-occasionally occurs, causing the network port reset to fail.
+> -----Original Message-----
+> From: Frank Li (OSS) <frank.li@oss.nxp.com>
+> Sent: Monday, June 22, 2026 10:30 PM
+> To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>; Daniel Scally
+> <djrscally@gmail.com>; Heikki Krogerus <heikki.krogerus@linux.intel.com>;
+> Sakari Ailus <sakari.ailus@linux.intel.com>; Greg Kroah-Hartman
+> <gregkh@linuxfoundation.org>; Rafael J. Wysocki <rafael@kernel.org>; Dani=
+lo
+> Krummrich <dakr@kernel.org>; Mauro Carvalho Chehab
+> <mchehab@kernel.org>; Dafna Hirschfeld <dafna@fastmail.com>; Laurent
+> Pinchart <laurent.pinchart@ideasonboard.com>; Heiko Stuebner
+> <heiko@sntech.de>; Bryan O'Donoghue <bryan.odonoghue@linaro.org>;
+> Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>; Loic Poulain
+> <loic.poulain@oss.qualcomm.com>
+> Cc: driver-core@lists.linux.dev; linux-acpi@vger.kernel.org; linux-
+> kernel@vger.kernel.org; linux-media@vger.kernel.org; linux-
+> rockchip@lists.infradead.org; linux-arm-kernel@lists.infradead.org; linux=
+-arm-
+> msm@vger.kernel.org; imx@lists.linux.dev; G.N. Zhou
+> <guoniu.zhou@nxp.com>; Frank Li <frank.li@nxp.com>
+> Subject: [PATCH 2/4] media: mc: use
+> fwnode_graph_for_each_endpoint_scoped() to simpilfy code
+>=20
+> From: Frank Li <Frank.Li@nxp.com>
+>=20
+> Use cleanup helper fwnode_graph_for_each_endpoint_scoped() to simpilfy
 
-ITS_MSI_FLAGS_SUPPORTED lacks MSI_FLAG_PCI_MSIX_ALLOC_DYN, causing
-pci_msix_can_alloc_dyn() to return false. VFIO then sets
-has_dyn_msix=false and never clears VFIO_IRQ_INFO_NORESIZE for
-MSI-X, keeping the old "disable and reallocate" behavior.
+s/simpifly/simplify/ both in message title and body.
 
-The essential prerequisite for enabling this flag is the fix to
-msi_prepare() call timing (commit 1396e89e09f0 ("genirq/msi: Move
-prepare() call to per-device allocation")): msi_prepare() is
-now called once at per-device domain creation with hwsize, so ITS
-creates an ITT with sufficient capacity for all MSI-X vectors.
-Without this fix, msi_prepare() was called per-allocation with
-semi-random nvec, maybe resulting in an ITT too small for dynamic
-vector addition.
+With this addressed:
+Reviewed-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
 
-With this in place, dynamic MSI-X allocation works correctly:
-msi_domain_alloc_irq_at() uses populate_alloc_info() to copy the
-pre-prepared alloc_data without re-invoking msi_prepare(), so each
-new vector simply gets a LPI entry in the already-allocated ITT,
-without affecting existing vectors.
-
-Signed-off-by: Jinqian Yang <yangjinqian1@huawei.com>
----
- drivers/irqchip/irq-gic-its-msi-parent.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/irqchip/irq-gic-its-msi-parent.c b/drivers/irqchip/irq-gic-its-msi-parent.c
-index b9257103a999..b2b9d2068bb1 100644
---- a/drivers/irqchip/irq-gic-its-msi-parent.c
-+++ b/drivers/irqchip/irq-gic-its-msi-parent.c
-@@ -18,7 +18,8 @@
- 
- #define ITS_MSI_FLAGS_SUPPORTED (MSI_GENERIC_FLAGS_MASK |	\
- 				 MSI_FLAG_PCI_MSIX      |	\
--				 MSI_FLAG_MULTI_PCI_MSI)
-+				 MSI_FLAG_MULTI_PCI_MSI |	\
-+				 MSI_FLAG_PCI_MSIX_ALLOC_DYN)
- 
- static int its_translate_frame_address(struct fwnode_handle *msi_node, phys_addr_t *pa)
- {
--- 
-2.33.0
+> code.
+>=20
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>  drivers/media/v4l2-core/v4l2-mc.c | 5 +----
+>  1 file changed, 1 insertion(+), 4 deletions(-)
+>=20
+> diff --git a/drivers/media/v4l2-core/v4l2-mc.c b/drivers/media/v4l2-core/=
+v4l2-
+> mc.c
+> index 937d358697e19..5d7fcd67dc42e 100644
+> --- a/drivers/media/v4l2-core/v4l2-mc.c
+> +++ b/drivers/media/v4l2-core/v4l2-mc.c
+> @@ -324,12 +324,10 @@
+> EXPORT_SYMBOL_GPL(v4l_vb2q_enable_media_source);
+>  int v4l2_create_fwnode_links_to_pad(struct v4l2_subdev *src_sd,
+>  				    struct media_pad *sink, u32 flags)  {
+> -	struct fwnode_handle *endpoint;
+> -
+>  	if (!(sink->flags & MEDIA_PAD_FL_SINK))
+>  		return -EINVAL;
+>=20
+> -	fwnode_graph_for_each_endpoint(src_sd->fwnode, endpoint) {
+> +	fwnode_graph_for_each_endpoint_scoped(src_sd->fwnode, endpoint)
+> {
+>  		struct fwnode_handle *remote_ep;
+>  		int src_idx, sink_idx, ret;
+>  		struct media_pad *src;
+> @@ -397,7 +395,6 @@ int v4l2_create_fwnode_links_to_pad(struct
+> v4l2_subdev *src_sd,
+>  				src_sd->entity.name, src_idx,
+>  				sink->entity->name, sink_idx, ret);
+>=20
+> -			fwnode_handle_put(endpoint);
+>  			return ret;
+>  		}
+>  	}
+>=20
+> --
+> 2.43.0
 
 
