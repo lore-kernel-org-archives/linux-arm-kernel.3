@@ -4,80 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C6A8CDE009
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 15:46:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45E39CDB47F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 15:47:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a3ICOxUwoN4NbcwcBNbAh5dF46PtklAQM35NDfsjQxA=; b=m8Wjvrbss23X3cTNsl9iBveirB
-	hA7fxpXM0fIQ75Gkozr5N42T0mmHdTOgb+3HdR8ZwhIL3PL1+FGeDw8iewMprT9TiqllW/noeWGuT
-	6hrIaD57VyOqttQ+xZ9t1XuRL13owyrm4bses7S1XnsgghsEG2cE2MsGFWgfb9kpX0EF4gZYrk2Zy
-	95Q0qKRw9QtHP+PHdDoRmEoD5jNWnAPGo0CfG+69vd2eNKDen97YSsE7iSs3vOv7dDXzT4VOQHaiS
-	/Bv7QfNZeu99RO0DeeWkw0KL73zNgBIxo71crhx3XvPKxyNviDvEFD5MWbMNP8FPRckbt/DNB7TkR
-	1/BNUKdg==;
+	bh=c+RgpsLYw/cPjp2ruDkjJ3jO1w+pGqvDA6P4mjEpeYQ=; b=0jY/dPPle4kqh8nc4DZ/8mqvIF
+	AMjktvgdGdwgbS6yRgEfsVoavg+cUcnFmNBWnlQGRKZfUP9v9B7IPeLgSo414HbUrdu95QopNJVsA
+	y8itweE16BP0NbC56JjsYvUZOj0DPeqPNoSfhVI38uj7MUcKWv1b4yr1iczSOhSevcJj/hKs61Cbd
+	45yb1DdrSgMq1wut9Az6/l32vDEPIy2Cmp5S5gl5dq8cnGLgKgLIPF0jcCZ9TrdZKfHi98azJ9M4R
+	dHwviHRZIYYO6dE+hMPNjq8BR3BCnOmR5bk1r+QY2Qu0hhVcEGmu2AG1D4hp+J3hSSUfmqdgqTL3c
+	TU9U5e9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcPnc-000000082D9-19qQ;
-	Wed, 24 Jun 2026 15:46:00 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wcPoy-000000082eE-2jLe;
+	Wed, 24 Jun 2026 15:47:24 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcPna-000000082Bk-2anO;
-	Wed, 24 Jun 2026 15:45:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id F173043F47;
-	Wed, 24 Jun 2026 15:45:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id CC51EC2BCB7;
-	Wed, 24 Jun 2026 15:45:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1782315956;
-	bh=36brmetKtrVC79sVumiN9i3JG3kddwy0+O20pABEssQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=gY1VQqs71jWWgmWiq5CNFJh/CXJFDBOKXz0IMNPjlkFgfN3TB5vF4WBm752mLgMYB
-	 dGrFkva8j1DBuoIcHTf480ottQ5HWXlKGOIXnWtLtnpFp4aJSnnWN67tAI748YCJNV
-	 PT3aLIwpLtqr1UNmWd9M+ICYJ8eH4HT2uJpB/+Jn+A05JKMo4KJoyd1dUR7EGVQOQC
-	 PLqBRKgAPQdbAxAWd1WIg3mHUB0ABqpZ70af5zq+44l21MIwMJHxjHkY2NRgprg4kw
-	 7FgVtILTFCvVKmy/r6E+ZDOdthIUdZguYCpXHI8BNzS5GXUsI+m1Bk7HQpOvlKUn9Q
-	 h/3Osrhj5nuow==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B55C8CDE001;
-	Wed, 24 Jun 2026 15:45:56 +0000 (UTC)
-From: Ricardo Pardini via B4 Relay <devnull+ricardo.pardini.net@kernel.org>
-Date: Wed, 24 Jun 2026 17:45:53 +0200
-Subject: [PATCH v2 1/2] arm64: dts: mediatek: mt8395-radxa-nio-12l: Drop
- redundant i2c2 drive-strength
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260624-nio-12l-add-i2c-40-pin-v2-1-cf3707a6aaf1@pardini.net>
-References: <20260624-nio-12l-add-i2c-40-pin-v2-0-cf3707a6aaf1@pardini.net>
-In-Reply-To: <20260624-nio-12l-add-i2c-40-pin-v2-0-cf3707a6aaf1@pardini.net>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Ricardo Pardini <ricardo@pardini.net>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1206;
- i=ricardo@pardini.net; h=from:subject:message-id;
- bh=m5Cx5Z1IWJ++CWhQ3mc1twTHRBYJFzAA/qKlYFYZhuo=;
- b=owGbwMvMwMFoHWf/eN7xty8ZT6slMWRZ/97sedvCKo+7fEqerwwrv/y/74Kpf9LvCH5jtBLrf
- TlRQ1G2k9GfhYGRg8FSTJFljYQyz7f1r07d8eiYDDOIlQlkirRIAwMQsDDw5SbmlRrpGOmZahvq
- GRrpGOgYM3BxCsBUF1Wz/5UT4fJ//z+5RmDX9y9Lxe6xd7jsqgg74CyyLfDv5ylaiVc7cj7l+17
- s5BHST/nfK7Hnr9/Fxls+F5f5V07unKFkGruGbWqS2aHl+9Z4KQg+dmCo2FdWGHZq0qU5rBKfN3
- rlnym4pWBjHrldYaJWiqTr7VWZtwNuZASpTr3RzmZrKuHkrjHdwezHpg67pj3GF/ezRj181i3EJ
- 3TnQaLl5oLTVTc7n7A/Tn7lzOn2yWtyyfFzMx/yaAT/sLaevWDxg/VvbS0n9/NOKtxux3pt95XZ
- 3+LzD9dG7vQuNam576un5iYWdnG/5v60ekPnhTbnm2TfiQjeeh6qJ/HyQLksz6XWBdOfdCqa2r2
- fXXZNBwA=
-X-Developer-Key: i=ricardo@pardini.net; a=openpgp;
- fpr=AC18230CF6AFEACADC4888933B5E3FE39EC7EDE9
-X-Endpoint-Received: by B4 Relay for ricardo@pardini.net/default with
- auth_id=588
-X-Original-From: Ricardo Pardini <ricardo@pardini.net>
+	id 1wcPov-000000082df-0rOM
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 24 Jun 2026 15:47:23 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 634231A0913;
+	Wed, 24 Jun 2026 15:47:19 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 2AC9E601C5;
+	Wed, 24 Jun 2026 15:47:19 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 09C53106C8415;
+	Wed, 24 Jun 2026 17:47:10 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1782316037; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=c+RgpsLYw/cPjp2ruDkjJ3jO1w+pGqvDA6P4mjEpeYQ=;
+	b=a+dRWHPDzwJTziT6FjhVvOnUCL54shbP9/BKbxIIBc8eYUwCjAXpNVkY3/NkoOEiK/Nlgt
+	/ghAhu8kFbPH6Ul5I7wFxxI+bIuPOfcTeE7/EqUZZinIbhVhGekWMvImQ2qt8XX0+3P1Ra
+	8EFQkUPBHalpp+L0qRACi7pU/tHmdxB40RZdWFNVRKOEMCD6a9WvDw7VF0S9JJO4Llq/Xl
+	ETGeXAAxN8JrAgJm9xcO+qTrINhtGKkReFk48XjbSKrGka7rBdKteLPz6jYGxtO6xuVMp0
+	SQD8W7CWWglQg40sZW0MeBDbH47p/AZ+RAral6ZQKCafaJBK8Z4ZKXAXTuzO+g==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 24 Jun 2026 17:47:10 +0200
+Message-Id: <DJHEAWSEZR79.19UFIKS8QJBQ7@bootlin.com>
+Subject: Re: [PATCH 05/37] drm/display: bridge-connector: split code
+ creating the connector to a subfunction
+Cc: "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Thomas
+ Zimmermann" <tzimmermann@suse.de>, "David Airlie" <airlied@gmail.com>,
+ "Simona Vetter" <simona@ffwll.ch>, "Andrzej Hajda"
+ <andrzej.hajda@intel.com>, "Neil Armstrong" <neil.armstrong@linaro.org>,
+ "Robert Foss" <rfoss@kernel.org>, "Laurent Pinchart"
+ <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman" <jonas@kwiboo.se>,
+ "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Inki Dae"
+ <inki.dae@samsung.com>, "Jagan Teki" <jagan@amarulasolutions.com>, "Marek
+ Szyprowski" <m.szyprowski@samsung.com>, "Marek Vasut" <marex@denx.de>,
+ "Stefan Agner" <stefan@agner.ch>, "Frank Li" <Frank.Li@nxp.com>, "Sascha
+ Hauer" <s.hauer@pengutronix.de>, "Pengutronix Kernel Team"
+ <kernel@pengutronix.de>, "Fabio Estevam" <festevam@gmail.com>, "Hui Pu"
+ <Hui.Pu@gehealthcare.com>, "Ian Ray" <ian.ray@gehealthcare.com>, "Thomas
+ Petazzoni" <thomas.petazzoni@bootlin.com>,
+ <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
+ <imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>
+To: "Maxime Ripard" <mripard@kernel.org>, "Luca Ceresoli"
+ <luca.ceresoli@bootlin.com>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+X-Mailer: aerc 0.21.0
+References: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
+ <20260519-drm-bridge-hotplug-v1-5-45e2bdb3dfb4@bootlin.com>
+ <20260608-mindful-heavy-frigatebird-be9faf@houat>
+ <DJ735MTNMYD1.3LPNV404V8PIU@bootlin.com>
+ <20260624-proud-unbiased-pony-ecc3c3@houat>
+In-Reply-To: <20260624-proud-unbiased-pony-ecc3c3@houat>
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260624_084721_536938_4B1545CB 
+X-CRM114-Status: GOOD (  20.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,42 +92,84 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: ricardo@pardini.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ricardo Pardini <ricardo@pardini.net>
+On Wed Jun 24, 2026 at 1:41 PM CEST, Maxime Ripard wrote:
+> Hi,x
+>
+> On Fri, Jun 12, 2026 at 02:56:24PM +0200, Luca Ceresoli wrote:
+>> On Mon Jun 8, 2026 at 1:40 PM CEST, Maxime Ripard wrote:
+>> > On Tue, May 19, 2026 at 12:37:22PM +0200, Luca Ceresoli wrote:
+>> >> In preparation to introduce bridge hotplug, split out from
+>> >> drm_bridge_connector_init() the code adding the drm_connector into a
+>> >> dedicated function. This will be needed to be able to add (and re-add=
+) the
+>> >> connector from different code paths.
+>> >
+>> > Same story here, explaining what you need later on that calls for that
+>> > change would be nice.
+>>
+>> Here's a more verbose version:
+>>
+>>     Currently drm_bridge_connector_init() does two things:
+>>
+>>      * allocate and initialize the drm_bridge_connector
+>>        (which embeds a drm_connector)
+>>      * initialize and register the embedded drm_connector
+>>
+>>     For bridge hotplug we need to separate these two actions:
+>>
+>>      * the drm_connector needs to be added and removed at any time based=
+ on
+>>        hotplug events
+>>      * the drm_bridge_connector is designated to create and remove the
+>>        drm_connector, so it must be persistent for the card lifetime
+>>
+>>     As the lifetimes of drm_bridge_connector and drm_connector become
+>>     different, we need to create them in different moments.
+>>
+>>     In preparation to support that, split out from
+>>     drm_bridge_connector_init() the code adding the drm_connector into a
+>>     dedicated function. No functional changes, just moving code around f=
+or
+>>     now. A future commit will make the drm_connector be created based on
+>>     hotplug events.
+>>
+>> Looks good?
+>
+> The message itself, yes, thanks.
+>
+> However, I have questions now :)
+>
+> Do we really expect drm_bridge_connector to stick around when a bridge
+> gets unplugged? If so, how does it cope with having, say, an HDMI
+> connector, and then swapping out the hotplugged part for an LVDS one?
+> Does the HDMI connector sticks around indefinitely?
 
-The i2c2_pins node specifies both drive-strength (mA, standard driving)
-and drive-strength-microamp (uA, advanced driving). These are mutually
-exclusive: the generic pinconf parser logs "cannot have multiple drive
-strength properties" at boot, and on MediaTek the advanced driving enable
-bit makes the uA value authoritative, leaving the mA value dead.
+In your example, the HDMI drm_connector would be unregistered and put on
+hotunplug. Its allocation will stick around until the last put but that's
+quite irrelevant. Then, on plugging the LVDS addon, a new LVDS
+drm_connector will be created and registered.
 
-Drop the redundant drive-strength, keeping only drive-strength-microamp,
-matching i2c4_pins.
+> *Especially* if we're using overlays for this, I'd expect everything
+>  after the first hotplugged bridge to be destroyed, no?
 
-Signed-off-by: Ricardo Pardini <ricardo@pardini.net>
-Assisted-by: Claude:claude-opus-4-8 # vs Sashiko review of upcoming i2c3
----
- arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts | 1 -
- 1 file changed, 1 deletion(-)
+As said, it would be unregistered immediately but might be freed later on
+if still refcounted.
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts b/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts
-index bf91305e8e4a5..589a5f07d5dde 100644
---- a/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts
-@@ -784,7 +784,6 @@ pins-bus {
- 			pinmux = <PINMUX_GPIO12__FUNC_SDA2>,
- 				 <PINMUX_GPIO13__FUNC_SCL2>;
- 			bias-pull-up = <1000>;
--			drive-strength = <6>;
- 			drive-strength-microamp = <1000>;
- 		};
- 	};
+This is visible in patches 36+15, the path to follow is:
 
--- 
-2.54.0
+ drm_bridge_connector_handle_event(event =3D DRM_BRIDGE_DETACHED) [patch 36=
+]
+ -> drm_bridge_connector_dynconn_release()                      [patch 15]
 
+Does this solve your concern?
 
+Luca
+
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
