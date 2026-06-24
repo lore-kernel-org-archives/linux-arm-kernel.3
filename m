@@ -4,159 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BE82CDB475
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 03:59:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2F5CCDB479
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 04:14:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T048eSnLn67wyQ35ZtRrGoHs+XTcAolcC/uHBQEGBcg=; b=gfvCioXeczdxTxyMOiDPS308Qr
-	35Fw87WWhWReBfaBYtDML5wph528dpgW5UvibIlx2XBYWFcz/4CzRgOFXjVzxyq8tHom9LGDmqcLn
-	kvM6ZKQMNA44CT1iFMFA01hxR0yDvaOD+tiHoNRe3gYfw634kKGtURfMytac+BHIGsYAPYeuw26sU
-	B3i6kilflJDkVUVC/B5fK9Aybce3pjGfthQmbbA2RJxYA7mXMozJn3mADK/At6x6XuOaLH3THyEre
-	cSivVUwnThEAPS2zBJExPXtAO7FAfqiKOh3Qm0lk8/3fOZUwyNaXHAIb1w+rpvZp/atSABkSWiVGQ
-	7IYMWNWw==;
+	bh=vKtWlzZGcSqpr4oYtvBHGz8mTHnWwBOUsRR1pMRsq7A=; b=NfQJEYkug3jLwnKRgPlRKHpN1C
+	APjPmZk1+fqlArpjQyMDTN9NQacsjcSL6A1SU9SKQzSQLZk91cjYfEuxHErmlZA1JjvH9zQ45NkM4
+	UDKDH18FL5i7C05bbnQ71h9+Vl1wPE6Mg5OMe8H7RSAwMQYK/K+CB/I5RihpKaELau5r10977i6Bk
+	mY70WUxETkf+GzryCapY0tedwOMm6XdD1AmeT8s1GQf6ml8O8Ipmx+sLylfeXbDUrjxfwh9lwdWEb
+	RjoRopDbDzT4EAwkZyJpnMA7l9I2PsBCgFj8+MPjjw83xpt890wpLoPVjNs2J9jLPUPT8Hs8KZGef
+	+fVaIuSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcEm6-000000076kc-2cHM;
-	Wed, 24 Jun 2026 03:59:42 +0000
-Received: from mail-japaneastazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c405::5] helo=TYPPR03CU001.outbound.protection.outlook.com)
+	id 1wcF0a-000000077HY-0oXQ;
+	Wed, 24 Jun 2026 04:14:40 +0000
+Received: from mail-dl1-x122f.google.com ([2607:f8b0:4864:20::122f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcEm2-000000076k2-1hY2
+	id 1wcF0X-000000077Gi-0Wh6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 03:59:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YupCb1E2NKixLPYl0mml0BN+tVzLXN0m4Fi0zrp/9cq1mNy+Syb2Klnv1tuYyaie9WHA94kEz0ucMtkLnXpW+IfGBWp0fmyiAYO560IKamCnqUIDZEoXPyW9CLELuNoN/HP0UeJRP10auTCCWin8mlpfxK36OR+fIkfTdT6Y29sTV9wOQUwZUDZzSFXR6emy8RBG7xeSWxbSNW3gv9ya7BmOaJS3x0HHf0d4ROl/JAE+YViXwDJ4o5T3GLY/lATbOzIZp+zvbpsR+9963bXKC9h0DtvaY4w+RjDO2r3bYO/Qy67AD6Qm/1Sxi0Ui4+eXxJDZAiezPqknSMmsvH7V4w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=T048eSnLn67wyQ35ZtRrGoHs+XTcAolcC/uHBQEGBcg=;
- b=YbfFYQpj38hYHhagz3fx06gk2DXPxdofP4HcwViCM1Rw38P9pq9TvttSC7nwbQnFSHGgHvAxYLyNclZRyKyUJ0vJmwmuhLe8UuVSX43gIo+3PMhvXuXR8KcspOnzqc4qn+OW0Av7XfgddI9/idPmCshu+XAyglmgAvCebFee+SnEHBf93cjX7ccpOmKjWVbhXI+aSm1+7yGXKVqZOs6UTaB8HKyqLjeMIADw1GAFCFkzxflELYeBlfHa3a8HHhqy+N6pWXbEbDXt6NshA7tTQdwUqRadtCGRsvF25yUHBRAfRBsumRZZI6uuGgzyUyhkTTqP93dLhXmB6ZON6ZQrAw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
- header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=T048eSnLn67wyQ35ZtRrGoHs+XTcAolcC/uHBQEGBcg=;
- b=ZEI0C9Mh/rkgR9lvYDlyTvvtKKYvpuxKBuBzLhu9qfvaSaDLQ1pGNXNndP4tAsni+jW/xxaOb8u5GeoulLF1L6rUI2tcmKWD+jJ/CWCvl1YEbWscmtRX/Xyhuw9UQ+VRIXS2mvjxpqvGBVPVsPT2Pugzp/w/emzBaqIyJHZTH5o5nQpp+AZZDEmEL0uMezrsXznGmdZz6kgW+UoIQeuNdeWIGAE+HX7igdchcWDodNImE0qyIVlEAzjD4d0wIhPDsKPm/xxd9kGaJ5SuKBbWQIbOYqgjycKSA0NqKELKN+WPP2VkX0yv+B4JGgZavQvEOBC5KBNJlUEgCHKXp7tLFw==
-Received: from KL1PR0601MB4276.apcprd06.prod.outlook.com
- (2603:1096:820:78::12) by TYSPR06MB6676.apcprd06.prod.outlook.com
- (2603:1096:400:472::13) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.14; Wed, 24 Jun
- 2026 03:59:28 +0000
-Received: from KL1PR0601MB4276.apcprd06.prod.outlook.com
- ([fe80::b7f3:3c41:fd0e:e3f6]) by KL1PR0601MB4276.apcprd06.prod.outlook.com
- ([fe80::b7f3:3c41:fd0e:e3f6%7]) with mapi id 15.21.0159.012; Wed, 24 Jun 2026
- 03:59:28 +0000
-From: YH Chung <yh_chung@aspeedtech.com>
-To: "Shulzhenko, Oleksandr" <oleksandr.shulzhenko@linux.intel.com>, Arnd
- Bergmann <arnd@arndb.de>, Andrew Jeffery <andrew@codeconstruct.com.au>, Conor
- Dooley <conor@kernel.org>
-CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Ryan Chen
-	<ryan_chen@aspeedtech.com>, Philipp Zabel <p.zabel@pengutronix.de>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
-	<linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "openbmc@lists.ozlabs.org"
-	<openbmc@lists.ozlabs.org>, "maciej.lawniczak@intel.com"
-	<maciej.lawniczak@intel.com>, Mark Brown <broonie@kernel.org>
-Subject: RE: [PATCH 0/7] soc: aspeed: Add AST2600 eSPI controller support
-Thread-Topic: [PATCH 0/7] soc: aspeed: Add AST2600 eSPI controller support
-Thread-Index: AQHcstFOqEOl3ItXl0mr3midS8GMZLWsphAAgABXFACAA7sEAIAAT9LAgAF5RgCADH1X4IAAILCAgAK7OMCAEYY3UIAvrvqAgADtghCABnSAgIACyQAAgB+RCFCAHgEHUA==
-Date: Wed, 24 Jun 2026 03:59:27 +0000
-Message-ID: <KL1PR0601MB4276FA2C6347192CC45826E490ED2@KL1PR0601MB4276.apcprd06.prod.outlook.com>
-References: <20260313-upstream_espi-v1-0-9504428e1f43@aspeedtech.com>
- <20260313-energy-casket-ca8adc1f1fd1@spud>
- <23909400-4e7f-49c9-a982-14036372af98@app.fastmail.com>
- <c3b28ee92fa46700887d0c68b23045b2418358a7.camel@codeconstruct.com.au>
- <KL1PR0601MB4276ED93723F0B1F42349AD89041A@KL1PR0601MB4276.apcprd06.prod.outlook.com>
- <0f7f0f96-a918-47d5-a0bd-bbde494c8fed@app.fastmail.com>
- <KL1PR0601MB4276B5BE3B96C18E3A66AD709049A@KL1PR0601MB4276.apcprd06.prod.outlook.com>
- <14870d17-2471-4522-b8b5-03cb9002a4f7@app.fastmail.com>
- <KL1PR0601MB42763DAD359305DEBA4B769D9057A@KL1PR0601MB4276.apcprd06.prod.outlook.com>
- <KL1PR0601MB427603A6A5768D6A537CAFCB905AA@KL1PR0601MB4276.apcprd06.prod.outlook.com>
- <b1d56feb-9847-41b1-8bba-733963055cae@linux.intel.com>
- <KL1PR0601MB4276AB799EC03BB00C4C0E5490392@KL1PR0601MB4276.apcprd06.prod.outlook.com>
- <be4f662a-b986-4b4c-8263-2fd7b63c238a@linux.intel.com>
- <KL1PR0601MB427604A7136947D020CF272D90002@KL1PR0601MB4276.apcprd06.prod.outlook.com>
- <KL1PR0601MB4276452D09689C90B04209C190EF2@KL1PR0601MB4276.apcprd06.prod.outlook.com>
-In-Reply-To: <KL1PR0601MB4276452D09689C90B04209C190EF2@KL1PR0601MB4276.apcprd06.prod.outlook.com>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=aspeedtech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: KL1PR0601MB4276:EE_|TYSPR06MB6676:EE_
-x-ms-office365-filtering-correlation-id: 5e9d1741-c25e-4fd7-b23c-08ded1a4fca3
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|42112799006|1800799024|366016|7416014|23010399003|376014|56012099006|4143699003|6133799003|18002099003|22082099003|38070700021;
-x-microsoft-antispam-message-info: 9uCavdb9ddv/sYE6Xo2JlkbgdAi47GXNztNpAumr0c5neF032Q6KaaOv7ijyulfi4+sB916lXZicEl9tEvgDPfBRdGR91VoVrw+O1c794ZCHyBfj8WDK4Ynmv+WTHJ+7/9vAfuS+9pqkrOlRHdE77krwC6gI28YHjQWLgJ3txDbctoZclx84UEkCzdfiwY1PKPkZ5x4rZX+ofppaltM7WvWAoSnvP5AWWIwq0fYwgZZqgIho9AgE0jH7i+9694S7oQlEN8FAXBtmUUj5LP7VV2H5YJwBVoeoxOdjQnBqgiRghyMvHy2TjD/w2wgkuBBu0p7YPSFq6KYOTASgxoorR/DRsmRCLFMEs62vx5s7InfOwUSRdX7q3IOnhT/ta6dG0U4kzplfIl5gWIWBvkATxPhwPS0sXmSlzdZEY+AiAKxFx0i8cduqha+HU+V0gL1u4veJ03L40KpjA/JA9Enc8jBzNuiNHkoRngANr+8MBUOZcHLmTDSTZJtOFD6uwJDDNoSNlsCDmEKbz0VMw1izUgBPuHkuEx/5aibqw5HCAD2me9FkCmBsuTkqShAVQ6hZntYGqrBM12YcJHyP4XtNnYbN0tW7nYlVL+2TaLYgfXvaaNktjMF1uJRx3Aj/oq4DckZpFHc6Ifm2qLJejD+a8jrUe1DuvRqJ5QIOZlsV375txyLHJR2QeqBrr0/mQaTCz2azIZkXtpXQzByhzN0rAQui7vS+Oq+KSO6o6Fq7yiQ=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-tw;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR0601MB4276.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(42112799006)(1800799024)(366016)(7416014)(23010399003)(376014)(56012099006)(4143699003)(6133799003)(18002099003)(22082099003)(38070700021);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?NFdWTVJINWpFOTN2UjVTOXRrZUZjY2ovd3pFeXZ0b1R1V2YvczI4MzhHMEc2?=
- =?utf-8?B?elZsTG9heXhmRkFER2hWQXM4QktkQ3R4a053dmhyZ0FDbjZ4QnNkUEtmc28w?=
- =?utf-8?B?TjRTaHhPM1M4MUhMck5Rb2VvSUF0WlgrWS85Y2RXcmM2OUJxeGErUTFYTExv?=
- =?utf-8?B?czVvSk5SdTI5ZVdhS3pQSWN2b09ONVRvSHMwZ3VYcmVaWTV3ZDJOc1l4THZ3?=
- =?utf-8?B?Q3A5R1lQRHMrdFpZbzY4RmZmdWl4VllibzZmcXVFbVIxSzF2SGR1YjZzQWJG?=
- =?utf-8?B?a0Vuc3NVU3RUd3p5T3dVeHA1ZGpSelpDekxuOG8ydzRZdkovVllXQ3FGY2l2?=
- =?utf-8?B?a21PUENFWDNaa1A2YWhtMGFleFUzbTk5am1FTjdHUDkwUWtSMWJmSldoT2lp?=
- =?utf-8?B?R1NtT0g2UjJ1OU5oLzNkcDBWY2VacFVRQXRDQThVUGNRVkdGSmpWV01zNWlV?=
- =?utf-8?B?ZmFqc3ZHNi9DVzg4UGZjc2UzMWhuQzc4WnBpNlZhemhIUTRKWGZjempFL1Bn?=
- =?utf-8?B?UWhCZGdsMk9sN0FCRkFiSVUzT3J5TUVnLyszdFZMczJROS9vRFJKYXpVVllY?=
- =?utf-8?B?elI4Ykt3eUFSUXJyOTF0dnVWZThWRmlGWURhZDF2NG1DNStnL3NEclB2MW40?=
- =?utf-8?B?N2VyTjBGS0pZUGFHbGNkMFlFa2VKenBPdFlRRnZBYWx3VUZWemNiMU5jWlUy?=
- =?utf-8?B?OEt3TE9Uckcxc29XaHVMSlVMT1BqRDlkZmZuSk1ML0k0S0lVRDBXN0kyVENS?=
- =?utf-8?B?VmNIRFE5bkdUK0piLzlOVmt5SEVwbHdHTzJyYTRjZkVpZTB3Vng2ODdCSXFk?=
- =?utf-8?B?WWpUUmpQREhsTmt0RytneERReWtON2MwZmJMWjJ5R3R5dUNQeGNiYXJxWWRs?=
- =?utf-8?B?NCtLMmF3TEFaanhGWUQzQ2FLWUNqTjBHTzNaWUcyeTd4Y3NKQmxGcGxURFI2?=
- =?utf-8?B?UU5IV3pzazNKeTlidkREMUxBaUs5NVF4ck5YSzBueGthZ1dBTTV4YWVpQUJk?=
- =?utf-8?B?UzgxZE1lalhOZ0ZDYXNEd253MzB0OWpCSEROb1VUcUNsRVlNSDQ5WDJLS09Q?=
- =?utf-8?B?MGU3NExqN2RCSmQzMmc2UEhGSUk1d25Oa3R1M3FKbEhXRlJYb2c0T2hsUzFB?=
- =?utf-8?B?UzE4TWdtWlJ3TkY3ZFRNY3lzRUNTb21EYVlSZGlzOVE5eUxYZFRSaVhVL0J1?=
- =?utf-8?B?bC9lTEg3UkZYOEU5ZW9maVczc2dKV1ZPdmxTZnJ6M0xOUDNKRXNyWExVOG8x?=
- =?utf-8?B?Z3dZd0VCTlJwZkJuSEVpSHR4bTh1cDk5Qmo2RW9zTTRzV29Qc2ZzOE9maWs4?=
- =?utf-8?B?Mkh4TXNaOVNYS0hsVnhGV01wME5NQUc0NTdqdytrM1ZTZ2tvd0g5NVZERTZG?=
- =?utf-8?B?ZjJZVU5IZ21Fem84aCt6VUpwL3dZS0ZtTFJ6YzlMNkhXU3QyMVRnZi8wWjhw?=
- =?utf-8?B?NVRRUE9zaXpjL0hJU1B0eWVoclJlK2Eva1ZwYXJTUDd4dmVtUWJ2cE85RzRu?=
- =?utf-8?B?VUdjYVhtbzdjc1JPazE1cjVxYjVXNzZsWmFvOUt4UUtwS3JVWVlLaUt2Q3NN?=
- =?utf-8?B?VkpoaDBqS0NuOEk1ZXFXdGhvdzdwZFlkQUVkSGNQRDkrMzhtWEFhSGd2RXFP?=
- =?utf-8?B?M3JiWEhOT0dtZzl5aHgvbS93SmRmcmVhLzMzcjFwbWRCSE01Nm9VRmlWNmNu?=
- =?utf-8?B?a250R0ZZQUJzc0ZJN0xDZ3BESHFtSDF2ZU1BNHJZOEpPVkdVeUZIL29FeGF5?=
- =?utf-8?B?eUw2aEhNbTlGdzBNd3RBc283cEZYU3VVckRtQnJLNy83ZlFZbHBqNjg3bXZ4?=
- =?utf-8?B?UUU4T1luaEplb3d2Sm5KS2VsOUFaZmk5d0k5cDRrTEZwb3B2RmRsaEp2bmFl?=
- =?utf-8?B?UWtWR1hpZ1p1UGUzU2dXN3kwaG11YW1YV3EyM2NCYTBCYURDekhoZlRNT25J?=
- =?utf-8?B?MkFyVEs1a2pUM2pVVXBxWHJ2NmRVY3ZsZ3pjc3lEeVNPZFcxNWtxUm5saGl6?=
- =?utf-8?B?RDB1cXdLcnNRZGZpMEpmeXN6NkVUMzdBcDZnNllTVk9FYzVyQkZXdjdsd2hy?=
- =?utf-8?B?R1lNRHlmdTlRRUpqbzBGdHcyYzJrM0JkemxIKzBuRWlZb0tiSmZZTFBjNFhj?=
- =?utf-8?B?SWdyczNtdmZoNXcycmM0YmtsYjh1aG5VWko1Rmx4eEJUN05BUU5Kcm5OSEJH?=
- =?utf-8?B?a1EyQ1JvRGZTWVRXa0dXZXN6aDhQRXVrdk1sZGord2dxcnJKTnpadjhYdzdD?=
- =?utf-8?B?bjN5LzdIcXBIMGpiaythVnh4V0lKS3dMTDM1ejBKZGR4TmROZUJlZ2hwOTRF?=
- =?utf-8?B?VzNQOUVnZmZPTXpLVER6K3huek5GVGNaUFZVRjFLZ1E1MCtGT2VFQT09?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	Wed, 24 Jun 2026 04:14:38 +0000
+Received: by mail-dl1-x122f.google.com with SMTP id a92af1059eb24-139b914bab6so676033c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 21:14:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782274476; x=1782879276; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=vKtWlzZGcSqpr4oYtvBHGz8mTHnWwBOUsRR1pMRsq7A=;
+        b=QD+wXeX2AQmbdjvDbU1MmIoH/1JVYUGzXK/h/nrzFi63kw5EIhgh2lq3HDBAogM5j8
+         mBpTriNdPsWExfyn9NMa6rVAAlocVrjE91EYE/3EPi5jR0iIVatYSg7fke/AeSVdHd0m
+         ZRlk1rU4U3iDGuaFWQ803/Jx/yd/gb7w6CPTqkv+uZS9DqgkZsy6H16GcEJFugukx0v4
+         5GvcrhLlMu9wFyge+4/qtw6LEMN+r2JraxoVyAKRPVAQQ1i14ehMtpAVGC9OQiJ6NYzs
+         psKy6MFzQaowWjFB2pSoLE8BzBEcziGQ1rcOSvOyPFZmL+5E3dmdt3qOwhoNtrDDo4UW
+         L55w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782274476; x=1782879276;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=vKtWlzZGcSqpr4oYtvBHGz8mTHnWwBOUsRR1pMRsq7A=;
+        b=aF47yPiecQ40ivI3fws4Rweg869A8pbK0xO1FnFnm4w4MkpAt4GMEtzJLjOq6H6ksp
+         m0RTH/aIyRUhBL1JFIIwmv6xme+dHD7SJRGeM1v4mY5ZgAfiv1RJOViyHwWpsxO0gQFE
+         pL46C0V/8IExyISGQJfb1ZPGuWxrp8UyU+Ct8kY7YxIxsjEecEUckkmYvEKKd4haXxGk
+         AFS3LHjwqRdIjzZWeUovko0/v0Nh8IJNNC9AcCS6t09t0gAWcJhzejdiTUC8828gePzj
+         Z3qK8N2HBH7cXXN7ySnbL6vltC7fO2iK9DK++On3U6hwPnkAhDwt3NqdqnzWL8N/tUki
+         dfpw==
+X-Forwarded-Encrypted: i=1; AFNElJ+IiYaqMCte9Oa1p0Soe4dZC49Bh8l8aojlgaJvyw2EDVkasrzvK7ybppOOegmbs5v3pJ79TgRj+nR5Tav1ISuT@lists.infradead.org
+X-Gm-Message-State: AOJu0YyFSz/rROFsMrmAuY/G9lf/W6KGpZF33y0dz62hqMHjqdK/tKIN
+	HJEPpxeczrzPZiH7hrjFG0iCd9fzNTwBXMvH2hXEgtvfpaksVjEMx2Vm
+X-Gm-Gg: AfdE7ckmqvZg6Qb2FTK8uWEAZrlPiERDwVN1RlTB4x1tf5G7x2OQ+oQWKngCaezXVWM
+	CP1FmVGCkAIdDddqyASZGIfsmEnqT5Kb3ONj8HdZjTLxwNSDkSGOHR9VRAU/+06NSILnhhGPgYN
+	E3YRdP2tp2SJDoJINmUfhAUBH4qtYNbvF8hCt0NvtQi2GRp1dCjpCI1wC1tZUIzhjmBXtXu89GA
+	5Wclene12gAIa2QBJRe4EiniXOp7qcv0PDg36ZYPI+7P0PUFnVJd8GCrHPUn5OjNz4kZQulfy6r
+	UGaQZP0r5YksdCGXpHGOHvhmw5NMTAk37/nQ+ihhtv5G3e6seGXjMHBt49EBYniEAjfUvOwo4ly
+	kh1uwszmAzLEc/pJLiT/W7zWDK+X36Hp/rcRPvQeUQYaKLUNme90asJ4TYnyY5qS+zhMqR+4Qpt
+	v6Qv8MjMu88ZhqPU4AezntSRQZL4OPJJyJ7MPHdJJixKN32kPdncwwkQ==
+X-Received: by 2002:a05:7022:128f:b0:138:5049:cb7c with SMTP id a92af1059eb24-139d0cd9467mr1322277c88.36.1782274475590;
+        Tue, 23 Jun 2026 21:14:35 -0700 (PDT)
+Received: from google.com ([2a00:79e0:2ebe:8:6026:1e6d:4a80:9bd0])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-30c1bd8d6edsm20547205eec.14.2026.06.23.21.14.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 23 Jun 2026 21:14:34 -0700 (PDT)
+Date: Tue, 23 Jun 2026 21:14:31 -0700
+From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+To: Rosen Penev <rosenp@gmail.com>
+Cc: linux-input@vger.kernel.org, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	"open list:ARM/Mediatek SoC support" <linux-kernel@vger.kernel.org>, 
+	"moderated list:ARM/Mediatek SoC support" <linux-arm-kernel@lists.infradead.org>, 
+	"moderated list:ARM/Mediatek SoC support" <linux-mediatek@lists.infradead.org>
+Subject: Re: [PATCH] Input: mtk-pmic-keys: Count available keys during probe
+ instead of pre-counting
+Message-ID: <ajtX-cVWFmmkVO7M@google.com>
+References: <20260528235600.312045-1-rosenp@gmail.com>
 MIME-Version: 1.0
-X-OriginatorOrg: aspeedtech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: KL1PR0601MB4276.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5e9d1741-c25e-4fd7-b23c-08ded1a4fca3
-X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Jun 2026 03:59:27.6059
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 6c5c1l5Xboz5kliQzD5K9lQ+QCYdcQwQ92yQFaVMyyybE9GkhAXkpkCmY7watooFuOPErO5yu7SFiXyD7mMhlg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYSPR06MB6676
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260528235600.312045-1-rosenp@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_205938_947584_380FCBB4 
-X-CRM114-Status: GOOD (  17.90  )
+X-CRM114-CacheID: sfid-20260623_211437_201170_1559B18D 
+X-CRM114-Status: GOOD (  27.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,32 +101,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgTWFyaywNCg0KPiAoMSkgUmV1c2UgdGhlIGV4aXN0aW5nIFNQSSBzdWJzeXN0ZW0gYW5kIHRy
-ZWF0IGVTUEkgcGFja2V0cyBhcyBwdXJlIHNpZ25hbHMuDQo+ICgyKSBNYWludGFpbiB0aGUgZHJp
-dmVyIHVuZGVyIHRoZSBTb0Mgc3Vic3lzdGVtLCBzaW5jZSB0aGVyZSBpcyBjdXJyZW50bHkgbm8N
-Cj4gZVNQSSBzdWJzeXN0ZW0uDQo+ICgzKSBDcmVhdGUgYSBuZXcgZVNQSSBzdWJzeXN0ZW0gYW5k
-IHJld3JpdGUgdGhlIGVTUEkgZHJpdmVyIGFjY29yZGluZ2x5Lg0KPg0KPiBGb3Igb3B0aW9uIDEs
-IHdlIGRvIG5vdCB0aGluayB0aGlzIHdvdWxkIGJlIGEgZ29vZCBmaXQsIGJlY2F1c2UgZVNQSSBo
-YXMgY2xlYXJseQ0KPiBkZWZpbmVkIHNlbWFudGljcyBmb3IgZWFjaCBjaGFubmVsLCBhbmQgb3Vy
-IGhhcmR3YXJlIGV4cG9zZXMgZGlmZmVyZW50IHNldHMgb2YNCj4gcmVnaXN0ZXJzIGZvciBlYWNo
-IG9mIHRoZW0uDQoNClJlZ2FyZGluZyBvcHRpb24gMSwgY291bGQgeW91IGtpbmRseSBzaGFyZSB5
-b3VyIGZlZWRiYWNrIG9uIHdoZXRoZXIgdGhpcw0KcGF0Y2ggc2V0IHNob3VsZCBiZSBtb2RpZmll
-ZCB0byBmaXQgdW5kZXIgdGhlIFNQSSBzdWJzeXN0ZW0sIG9yIHdoZXRoZXIgYSBuZXcNCmVTUEkg
-c3Vic3lzdGVtIHdvdWxkIGJlIG1vcmUgYXBwcm9wcmlhdGU/DQoNCkZvciBvcHRpb24gMiwgQXJu
-ZCBoYXMgaW5kaWNhdGVkIHRoYXQgaGUgZG9lcyBub3Qgd2FudCB0byB0YWtlIHRoaXMgdGhyb3Vn
-aA0KdGhlIFNvQyBzdWJzeXN0ZW0uIFRoZXJlZm9yZSwgaWYgdGhlIFNQSSBzdWJzeXN0ZW0gaXMg
-YWxzbyBub3QgYSBnb29kIGZpdCwgd2UNCnRoaW5rIGEgbmV3IGVTUEkgc3Vic3lzdGVtIG1heSBi
-ZSBuZWVkZWQgdG8gcHJvdmlkZSBhIGNvbW1vbiBob21lIGZvciBjaGFubmVsDQpoYW5kbGluZywg
-ZXZlbiB0aG91Z2ggdGhlIGluZGl2aWR1YWwgY2hhbm5lbHMgYXJlIHJlbGF0aXZlbHkgaW5kZXBl
-bmRlbnQuDQoNCkZvciBleGFtcGxlLCB0aGUgVlcgYW5kIE9PQiBjaGFubmVsIGhhbmRsaW5nIGNv
-dWxkIHBvdGVudGlhbGx5IGJlIGludGVncmF0ZWQNCndpdGggZXhpc3Rpbmcgc3Vic3lzdGVtcyBz
-dWNoIGFzIEdQSU8gb3IgbmV0L21jdHAuIEhvd2V2ZXIsIHRoZSBGbGFzaCBjaGFubmVsDQp3b3Vs
-ZCBzdGlsbCBuZWVkIGFuIGVTUEktc3BlY2lmaWMgaW50ZXJmYWNlIHRvIGNvbmZpZ3VyZSB0aGUg
-YmFja2luZyBzdG9yZS4NClBsYWNpbmcgdGhhdCBjb2RlIHVuZGVyIE1URCBmZWVscyBhd2t3YXJk
-LCBzaW5jZSB0aGUgZHJpdmVyIGlzIG5vdCByZWFsbHkgYW4NCk1URCBkZXZpY2Ugb3IgYSBmbGFz
-aCBjb250cm9sbGVyLg0KDQpJZiB0aGlzIGRpcmVjdGlvbiBzb3VuZHMgcmVhc29uYWJsZSwgd2Ug
-d291bGQgbGlrZSB0byBleHBsb3JlIGludHJvZHVjaW5nIGENCm5ldyBkcml2ZXJzL2VzcGkgc3Vi
-c3lzdGVtIGFuZCBtb3ZpbmcgdGhlIGVTUEkgZHJpdmVyIHRoZXJlLiBQbGVhc2UgbGV0IHVzDQpr
-bm93IGlmIHlvdSB0aGluayB3ZSBzaG91bGQgdGFrZSBhIGRpZmZlcmVudCBhcHByb2FjaC4NCg0K
-VGhhbmtzLA0KWXVuIEhzdWFuLg0K
+Hi Rosen,
+
+On Thu, May 28, 2026 at 04:56:00PM -0700, Rosen Penev wrote:
+> Replace the separate of_get_available_child_count() pre-count and
+> validation step with a single pass through for_each_child_of_node_scoped().
+> Skip unavailable child nodes and bail out if more than
+> MTK_PMIC_MAX_KEY_COUNT available keys are found. Set nkeys after the
+> loop so suspend/resume iterate only over initialized entries.
+> 
+> Also use a key variable in the loop for clarity.
+> 
+> Use of_device_get_match_data() to fetch the PMIC key register data directly
+> instead of open-coding an of_match_device() lookup.
+
+Please split this out into a separate patch.
+
+> 
+> This also lets the driver drop the of_device.h include.
+> 
+> Assisted-by: OpenCode:BigPickle
+> Signed-off-by: Rosen Penev <rosenp@gmail.com>
+> ---
+>  drivers/input/keyboard/mtk-pmic-keys.c | 53 ++++++++++++--------------
+>  1 file changed, 24 insertions(+), 29 deletions(-)
+> 
+> diff --git a/drivers/input/keyboard/mtk-pmic-keys.c b/drivers/input/keyboard/mtk-pmic-keys.c
+> index c78d9f6d97c4..e34856693ee2 100644
+> --- a/drivers/input/keyboard/mtk-pmic-keys.c
+> +++ b/drivers/input/keyboard/mtk-pmic-keys.c
+> @@ -16,7 +16,6 @@
+>  #include <linux/mfd/mt6397/core.h>
+>  #include <linux/mfd/mt6397/registers.h>
+>  #include <linux/module.h>
+> -#include <linux/of_device.h>
+>  #include <linux/of.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/regmap.h>
+> @@ -147,6 +146,7 @@ struct mtk_pmic_keys {
+>  	struct input_dev *input_dev;
+>  	struct device *dev;
+>  	struct regmap *regmap;
+> +	unsigned int nkeys;
+>  	struct mtk_pmic_keys_info keys[MTK_PMIC_MAX_KEY_COUNT];
+>  };
+>  
+> @@ -267,7 +267,7 @@ static int mtk_pmic_keys_suspend(struct device *dev)
+>  	struct mtk_pmic_keys *keys = dev_get_drvdata(dev);
+>  	int index;
+>  
+> -	for (index = 0; index < MTK_PMIC_MAX_KEY_COUNT; index++) {
+> +	for (index = 0; index < keys->nkeys; index++) {
+>  		if (keys->keys[index].wakeup) {
+>  			enable_irq_wake(keys->keys[index].irq);
+>  			if (keys->keys[index].irq_r > 0)
+> @@ -283,7 +283,7 @@ static int mtk_pmic_keys_resume(struct device *dev)
+>  	struct mtk_pmic_keys *keys = dev_get_drvdata(dev);
+>  	int index;
+>  
+> -	for (index = 0; index < MTK_PMIC_MAX_KEY_COUNT; index++) {
+> +	for (index = 0; index < keys->nkeys; index++) {
+>  		if (keys->keys[index].wakeup) {
+>  			disable_irq_wake(keys->keys[index].irq);
+>  			if (keys->keys[index].irq_r > 0)
+> @@ -325,24 +325,23 @@ MODULE_DEVICE_TABLE(of, of_mtk_pmic_keys_match_tbl);
+>  static int mtk_pmic_keys_probe(struct platform_device *pdev)
+>  {
+>  	int error, index = 0;
+> -	unsigned int keycount;
+>  	struct mt6397_chip *pmic_chip = dev_get_drvdata(pdev->dev.parent);
+>  	struct device_node *node = pdev->dev.of_node;
+>  	static const char *const irqnames[] = { "powerkey", "homekey" };
+>  	static const char *const irqnames_r[] = { "powerkey_r", "homekey_r" };
+>  	struct mtk_pmic_keys *keys;
+>  	const struct mtk_pmic_regs *mtk_pmic_regs;
+> +	struct mtk_pmic_keys_info *key;
+>  	struct input_dev *input_dev;
+> -	const struct of_device_id *of_id =
+> -		of_match_device(of_mtk_pmic_keys_match_tbl, &pdev->dev);
+>  
+>  	keys = devm_kzalloc(&pdev->dev, sizeof(*keys), GFP_KERNEL);
+>  	if (!keys)
+>  		return -ENOMEM;
+> -
+>  	keys->dev = &pdev->dev;
+>  	keys->regmap = pmic_chip->regmap;
+> -	mtk_pmic_regs = of_id->data;
+> +	mtk_pmic_regs = of_device_get_match_data(&pdev->dev);
+> +	if (!mtk_pmic_regs)
+> +		return -EINVAL;
+>  
+>  	keys->input_dev = input_dev = devm_input_allocate_device(keys->dev);
+>  	if (!input_dev) {
+> @@ -356,31 +355,26 @@ static int mtk_pmic_keys_probe(struct platform_device *pdev)
+>  	input_dev->id.product = 0x0001;
+>  	input_dev->id.version = 0x0001;
+>  
+> -	keycount = of_get_available_child_count(node);
+> -	if (keycount > MTK_PMIC_MAX_KEY_COUNT ||
+> -	    keycount > ARRAY_SIZE(irqnames)) {
+> -		dev_err(keys->dev, "too many keys defined (%d)\n", keycount);
+> -		return -EINVAL;
+> -	}
+> +	for_each_available_child_of_node_scoped(node, child) {
+
+Let's keep using for_each_child_of_node_scoped() and check
+of_device_is_available() inside the loop. This will allow marking a key
+as disabled without shifting it's meaning (power key vs home key).
+
+In the rest of the driver we should be able to determine if key is set
+up checking for key->irq > 0.
+
+Thanks.
+
+-- 
+Dmitry
 
