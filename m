@@ -4,97 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74CA9CDE002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 13:58:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C2D1CDB479
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 14:02:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WPJvPBqHRLtbAIAX38K/sq/Rtd1BSFIp6Jl6pM1DOLQ=; b=MjnOul/94WJrD/zNgkv8Fo5i68
-	o/3RSiXPJb3ctcKGcm+9o2uCkDs6O9ZjKv73a9RucM84xcJUAlVH/Dd1bhahUb1fv2PIF4ARyTHQx
-	qb2le47ZFSQq1ElZMTQwTkiU10V96UyNlSH5IF3I+RWu1HMROrcp60M+Mh+1dkhKcClLF/jNELJ3v
-	B0tWI6lNE2qhzLhznvpR0Ssj3Mii0wsBMu35czfB02asWTM3rNLYP/GZEfM5JFx4ymAQnqIhHa/WX
-	kF7F06/VC8xkgdxSzjr7fCraNrB5cePZrWHTjteDparqV00ShwFinMqkY1+rlkzDYA9LpbTO7FQvD
-	MJw5Uwyg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=C5vPsYKU56GjNxiaGkkNL7c3r/LVlhBv4KmGsmspM40=; b=blCFN2pCKe7G6BTQcL0c1pPuWe
+	/sXFF3yc99iMja9+MGxsecKBDNgMqE4XR3zn8HH2e36YjH8EVNPYUSJq29E1N1U9tQDI27JTd1Bhx
+	1NdY8k77mfW5RZETvVdmeY+3e7QAes6kBXjOTSRjrK0kvOcTedGBIgjWqDvo5yxlp5i27UnK6zM4q
+	wy5aSP+xAAELuZlBH9uFfzJ7+CgO01JTeq+BobmH4XN6CjkIhARDfAJNoayJRIiCHgiN0GhrCiatq
+	xJKcBOgnue+KMy5qbuJJejy2zLAyQ2HzUv5WSqycek0rqC5e7spwOuoPCRTpOA2PKySbuFlYL8JnT
+	x0AYBqzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcO7T-00000007sCJ-0Y36;
-	Wed, 24 Jun 2026 13:58:23 +0000
-Received: from mail-vs1-xe29.google.com ([2607:f8b0:4864:20::e29])
+	id 1wcOBm-00000007sby-2wcT;
+	Wed, 24 Jun 2026 14:02:50 +0000
+Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcO7P-00000007sA9-3cm5
+	id 1wcOBk-00000007sbJ-297B
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 13:58:21 +0000
-Received: by mail-vs1-xe29.google.com with SMTP id ada2fe7eead31-7296b265011so783556137.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Jun 2026 06:58:19 -0700 (PDT)
+	Wed, 24 Jun 2026 14:02:49 +0000
+Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-693c69b97e7so1980612a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Jun 2026 07:02:47 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1782309766; cv=none;
+        d=google.com; s=arc-20240605;
+        b=BjqaG4af8iQ7iuKrXY3lIx7M6cwlKR9CMa6r9hOkY/EPTQ59MfUnam+rqchoi9JQqX
+         LXQ5srV3MGbjz1JJJ5dbErB6QJFYQtGZt2CKChkRmlZo2ZJi26h87fI1HV+T5Gbx6UnV
+         hbjmx+/StL3519BDxicvpmgKxoU8oF6VkaMPZ/ofMQeZMZKjEPX1vs1sji0nOcWV2BiB
+         NCP4BT2Ok4hVT8BWCv5SuFJaDhodtjpJ7dONkFwTLOWHImFdzE9DyBPKNLPZipqOIVdx
+         BcbagCrKthtPws9WokkbU2llXoLENxUCRQyAntL/vC1WLhkDrDexsnesu9R29nsQI7UF
+         bcyg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=C5vPsYKU56GjNxiaGkkNL7c3r/LVlhBv4KmGsmspM40=;
+        fh=2EYBISqD57rVOSA1S4jHXz0yJtDEW/642EDLXXWX/kw=;
+        b=A8Xtl2lFPoKd8jvWZtoSXJKFRcXInkQKqLGcwuY8BfA6BynITK1Q12/T6RlUXRlAYZ
+         feabGutRNk9HtGFbgnYD0Dz+6KEgCKXbuH9cHbp4UbQZby8pvzbZpTmUw9AVJe1EC0VT
+         oOhK/XNhSPVbItWw7GSxxhhoFPkyv9Ps+lIYZOFXZK0FQl5GiSWE1V4kxpV8z+Xa//qn
+         GWGonxLvvM7v99W4xwuT1QntoISoH+ndlviMPnAMtUzfcC8Hkdq2vgHCLAjEzmdZACLt
+         RwOp62xpP7w8uUSqzAo+7u7ezkqRqF/zRTGN0+kpFUuLkCVeY6sweNtCTdODBgfnqf0l
+         +42g==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782309498; x=1782914298; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WPJvPBqHRLtbAIAX38K/sq/Rtd1BSFIp6Jl6pM1DOLQ=;
-        b=GMSNmIIIKGSnrbTEsYvJ8zHjypQZ7WyCcPvo0306WRV357aKi3QN0dr6a8Ou6I1Gx4
-         bE5poLRJLDfIAIcbXfGFT+QAYib5UO3c170RFpYBlC+TWS5PUZyFK+xdTQ8GCckgKtAS
-         Bgviny+zA26FdVfaHeWGsS/GVvm8i5sWKgBdO5fkntBSsPFIh/ZCVYr5CsI28akj6nb2
-         2+8CO2IEQw35E2VAF/L3Uco5wIkqTeeFQ1krdRIw63VxvTF07CFoUsZxbaQHkZWb72VY
-         Jc6y0Xo4M2x2NhDRF8j3CNRcsUL0Zdbji5z60lnm4bS57mICbSogGhbuBK21q+x3vvc0
-         R93w==
+        d=linaro.org; s=google; t=1782309766; x=1782914566; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=C5vPsYKU56GjNxiaGkkNL7c3r/LVlhBv4KmGsmspM40=;
+        b=wf/WLmcwStKLk7lJjw9zMumSUMmWA73MtEdMQcFHjp+tizKMDVwWafR5mUFHfLBSwB
+         2gXmXOTpw/UmT1ctAaf/AOfkF6axUL8LzbLrA2naZcv89hozRl2wADhmCiDIbTfja6HI
+         BEnV5cyGdycy240uuPDokiZfCKyBUWWT+6MayphkBO/Ui9MZJg2ibd1CTJUFqhWgRHiW
+         Zc5MX9qMgoznAmhMUyRyQWE393+WqcHDo8cDyl66CdYczGn/b6s7PhGQ9Y9i4VDyJcrw
+         /QEKBbHFCAlIRCan9mm8eolbW+lZF8n+C3JhYuzOE9OKszJ/gcNyZjaZeI34fYvZlmd3
+         j1jQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782309498; x=1782914298;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=WPJvPBqHRLtbAIAX38K/sq/Rtd1BSFIp6Jl6pM1DOLQ=;
-        b=BaD/tu2ugw8IWcbvyyatU2BbKZV262m8bqPwTfwTv20p+RlMaYynYnJ2rvMmY+IlG9
-         hcE/VoKB22PCqTM4KU6mrJwYsJVu12ETiu+Viu2lEIVKGHnLtWNsx/eEACq3bxXAfm6o
-         Y2mOjLG2EP3/kJ5dLwCs+/c+jVbFLRJC0FKEkF7DT7posKp5/QRTPGOTGVUUtU/cGw3I
-         VoIIKGxYT4cpaBbeV9xO/cFwAscE6XKxJaA+Vd5hmCCeqbatrUdlQEtMYi5A/W2eQyZy
-         zCESdGn/8zMdfR5s5yJnkA+SOUrTYTMB0B6F5ltvDqQhzNjxKOVtODYrlL1XhdfH74mv
-         v8RA==
-X-Forwarded-Encrypted: i=1; AHgh+RojDV7k9xaEnqT0qIBvs8L+8YlCaWBrdjVDNUoB6ZUHFf/xNvL5CtSbUqYIjpnYg6IiHRBrKl/JoKh4fWZvEFe4@lists.infradead.org
-X-Gm-Message-State: AOJu0YzxDS+YPw2hjUBY86/ItKPCgbKhNh07pengXe768oVCzPkp3+kc
-	EaR4OUr1f0p6urs0kE3AXFGSpUVEoticzkQXxW1Zibmn5cvmPKnhw4TH
-X-Gm-Gg: AfdE7ck74SNDC4iyDQw9ZFTE2HEnKfTiyd8mrRD91if7zoHGGjcYinPNov9msLFr4if
-	FcMQKWgqLZm5U51Jji2WR7grH3EVTkKt+PH1GbyvJCNj1TshWE8teAEvgQavTargK1tens1vv1k
-	57JL9HiMnvVuUQ6kZ87g5EFtaYG+C7xpOcNbMtqzkz6jUHuaZgc0nSlCSUz58z9oeMjZrOj+WoT
-	4tARiQrv5FhwUZlkxdta6Iw3OBPZC9WTJeO4TQMQ6ZTanJ+nQi1z0yWL+YROZvimmA/MqXrrXi/
-	SYPeiuSBxjkbEJhlOv5FYZB0bgP7zYjFJWQFLZdHz1DaV8MwvoPY3OpIIIywIbFleNyER8X6Bqk
-	odg6fFNqaEk3kdH0EmUpINPWXcIhJv6llDhsrIvzpA2jUGc+URlR1aRqC0nq68e3xYY6UCFda1Y
-	cQrGh+pekHdC5eg5P0S0hVKvUQYdIpULwyyfE=
-X-Received: by 2002:a05:6102:4408:b0:631:28c1:154e with SMTP id ada2fe7eead31-73114f0f269mr1737232137.16.1782309498658;
-        Wed, 24 Jun 2026 06:58:18 -0700 (PDT)
-Received: from arch.localdomain ([160.250.247.70])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-72ba2dbc17bsm9805730137.6.2026.06.24.06.58.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 24 Jun 2026 06:58:18 -0700 (PDT)
-From: Jun Yan <jerrysteve1101@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Arseniy Krasnov <avkrasnov@salutedevices.com>
-Cc: Jun Yan <jerrysteve1101@gmail.com>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v4 4/4] arm64: dts: amlogic: meson-axg-s400: enable mipi_pcie_analog_dphy for PCIe
-Date: Wed, 24 Jun 2026 21:56:44 +0800
-Message-ID: <20260624135650.727077-5-jerrysteve1101@gmail.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260624135650.727077-1-jerrysteve1101@gmail.com>
-References: <20260624135650.727077-1-jerrysteve1101@gmail.com>
+        d=1e100.net; s=20251104; t=1782309766; x=1782914566;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=C5vPsYKU56GjNxiaGkkNL7c3r/LVlhBv4KmGsmspM40=;
+        b=CDLGd10+roXBmRgklBiMptkGk8rLedzeckUIi88YjabXfsu2JjULQuwdCWHlh7Enzr
+         j1Naa3o3ZNk4Kc9FhVG7GHVi/QACer/d3DN5657uhCMv/5T5liQMmSwmNywgdJm55EfY
+         BUY9uE6sO2aTxNBpCX2xuzst2S03T7RyRZ5RbH19CqQXthI6C+Jt+V09xHR59xYgzxdP
+         OI+Xs7fjKUhCa24adtmR2Tdzwc4OYY9d+btrVOZ04EF3gCr0NCB6VJrUvcYwAcOPq2Co
+         Op6VNT1cMO5LuhWGfCAVFJiHjGkYo7VrLVT2gTVj8Ldc/tmwrIw5h1LIM74WVeF7N4yy
+         MjUQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rr7723bFgReLostkpVvoLpKeI8BSrnLCTw6RjNy+Riq51zsdSQYl2b1yJ6y000E1ZYEe/memq9MPOa2NlO3mLvR@lists.infradead.org
+X-Gm-Message-State: AOJu0YzLDKkyTlpcO7fI+g1MJ9s53SmLMrO3ldWliQB8anSXIVUlR9Kk
+	Y9iFHa50Id6DxVIAnQxDG4BFjygsB+JYBHgfy3jdALiCsYveeLQzmZk2UHQTarYhpJRNeq5st5x
+	hVVUgax8cblpRpQFuo3FmvyBT7v3o5TDacs9faCM8iv+CCAImv8iaKQ0=
+X-Gm-Gg: AfdE7cm+5dCnTpffcX96tmTIZ0Q6aHylHVh6jy1oBNxyVNV8LhWaEcyHDgNy0TgD3AA
+	joGokON04akf76SDLH4Qi6g3sAk4lNcvsbqvl1IqejSTeCLwiq3SdxbM06ttl0m3kUyV+v5PbCk
+	Q38Fz9skgUXZWiFhWZZVK0RgBWC13OnwX0ocp/8tElby0/zUBnykTjc252XZDyKbBy3cV9EXN4j
+	5O+9+xdkhTvz0MxNISi+Suu0wIYI8JxDSDxDnf0/07EPKXsB7wSCXI12xLg/Vs7rBehYzYGAVMN
+	KsqDY5jl9e7iIuYGQT2lAjJP+8ww+2Q=
+X-Received: by 2002:a05:6402:440b:b0:697:e953:d14d with SMTP id
+ 4fb4d7f45d1cf-697f3aa2104mr2007565a12.17.1782309765856; Wed, 24 Jun 2026
+ 07:02:45 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260619163854.410392-1-tanmay.shah@amd.com> <4a4e518a-61e6-4beb-aaeb-5056fbe2a07a@amd.com>
+ <a9baf2c9-d4d9-4152-9188-c33fce2daf15@amd.com> <59d9a4c9-1f12-4de9-a0d6-613d2f5e9852@amd.com>
+In-Reply-To: <59d9a4c9-1f12-4de9-a0d6-613d2f5e9852@amd.com>
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+Date: Wed, 24 Jun 2026 08:02:31 -0600
+X-Gm-Features: AVVi8CeQVOpe99Jjc0PPT9NZRQIiG1kyiEoqLQu9TzeJnqoNqUneCuzFYP-6rA4
+Message-ID: <CANLsYkyChucfAY1wKvxAt9-tCX=2B5L9=4bbBA6XvnpBnLZD5Q@mail.gmail.com>
+Subject: Re: [PATCH] remoteproc: xlnx: refactor start & stop ops
+To: Michal Simek <michal.simek@amd.com>
+Cc: tanmay.shah@amd.com, andersson@kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-remoteproc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_065819_909122_EE457665 
-X-CRM114-Status: UNSURE (   8.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260624_070248_591779_8D6BB4E0 
+X-CRM114-Status: GOOD (  28.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,31 +116,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PCIe PHY node references mipi_pcie_analog_dphy via its phys property.
-Enable this analog PHY node to make PCIe functionally viable.
+On Wed, 24 Jun 2026 at 00:12, Michal Simek <michal.simek@amd.com> wrote:
+>
+>
+>
+> On 6/23/26 00:29, Shah, Tanmay wrote:
+> > Hello,
+> >
+> >
+> > On 6/22/2026 7:25 AM, Michal Simek wrote:
+> >>
+> >>
+> >> On 6/19/26 18:38, Tanmay Shah wrote:
+> >>> Current _start and _stop ops are implemented using various APIs from the
+> >>> platform management firmware driver. Instead provide respective RPU
+> >>> start and stop API in the firmware driver and move the logic to interact
+> >>> with the PM firmware in the firmware driver. The remoteproc driver
+> >>> doesn't
+> >>> need to know actual logic, but only the final result i.e. RPU start/stop
+> >>> was success or not. This refactor keeps the remoteproc driver simple and
+> >>> moves firmware interaction logic to the firmware driver.
+> >>>
+> >>> Signed-off-by: Tanmay Shah <tanmay.shah@amd.com>
+> >>> ---
+> >>>    drivers/firmware/xilinx/zynqmp.c        | 93 +++++++++++++++++++++++++
+> >>>    drivers/remoteproc/xlnx_r5_remoteproc.c | 68 ++----------------
+> >>>    include/linux/firmware/xlnx-zynqmp.h    | 12 ++++
+> >>>    3 files changed, 110 insertions(+), 63 deletions(-)
+> >>>
+> >>> diff --git a/drivers/firmware/xilinx/zynqmp.c b/drivers/firmware/
+> >>> xilinx/zynqmp.c
+> >>> index af838b2dc327..f9a3a95b0638 100644
+> >>> --- a/drivers/firmware/xilinx/zynqmp.c
+> >>> +++ b/drivers/firmware/xilinx/zynqmp.c
+> >>> @@ -1513,6 +1513,99 @@ int zynqmp_pm_request_wake(const u32 node,
+> >>>    }
+> >>>    EXPORT_SYMBOL_GPL(zynqmp_pm_request_wake);
+> >>>    +/**
+> >>> + * zynqmp_pm_start_rpu - Boot Real-time Processing Unit (Cortex-R) on
+> >>> SoC
+> >>> + *
+> >>> + * @node: power-domains id of the core
+> >>> + * @bootaddr: Boot address of elf
+> >>> + *
+> >>> + * Return: status, either success or error+reason
+> >>> + */
+> >>> +int zynqmp_pm_start_rpu(const u32 node, const u64 bootaddr)
+> >>> +{
+> >>> +    enum rpu_boot_mem bootmem;
+> >>> +    int ret;
+> >>> +
+> >>> +    /*
+> >>> +     * The exception vector pointers (EVP) refer to the base-address of
+> >>> +     * exception vectors (for reset, IRQ, FIQ, etc). The reset-vector
+> >>> +     * starts at the base-address and subsequent vectors are on 4-byte
+> >>> +     * boundaries.
+> >>> +     *
+> >>> +     * Exception vectors can start either from 0x0000_0000 (LOVEC) or
+> >>> +     * from 0xFFFF_0000 (HIVEC) which is mapped in the OCM (On-Chip
+> >>> Memory)
+> >>
+> >> here
+> >>
+> >>> +     *
+> >>> +     * Usually firmware will put Exception vectors at LOVEC.
+> >>> +     *
+> >>> +     * It is not recommend that you change the exception vector.
+> >>> +     * Changing the EVP to HIVEC will result in increased interrupt
+> >>> latency
+> >>> +     * and jitter. Also, if the OCM is secured and the Cortex-R5F
+> >>> processor
+> >>> +     * is non-secured, then the Cortex-R5F processor cannot access the
+> >>> +     * HIVEC exception vectors in the OCM.
+> >>> +     */
+> >>> +    bootmem = (bootaddr >= 0xFFFC0000) ?
+> >>
+> >> and here you have different values without any explanation why.
+> >>
+> >
+> > The value in the comment is correct, but the check is done for all of
+> > OCM address range. This is just refactoring of the interfaces and not
+> > the actual logic. There is a separate patch which actually refactors the
+> > logic, I will send it later. I would like to keep this as it is because
+> > this was originally there, and the intent of the commit is not to modify it.
+>
+> ok.
+>
+> Acked-by: Michal Simek <michal.simek@amd.com>
+>
 
-Fixes: 9715b01da6cf ("arm64: dts: meson-axg-s400: enable PCIe M.2 Key E slots")
-Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
----
- arch/arm64/boot/dts/amlogic/meson-axg-s400.dts | 4 ++++
- 1 file changed, 4 insertions(+)
+Michal - do you prefer that I pick this patch on the remoteproc side?
 
-diff --git a/arch/arm64/boot/dts/amlogic/meson-axg-s400.dts b/arch/arm64/boot/dts/amlogic/meson-axg-s400.dts
-index 7ba249cc3d56..4f13e2b041e1 100644
---- a/arch/arm64/boot/dts/amlogic/meson-axg-s400.dts
-+++ b/arch/arm64/boot/dts/amlogic/meson-axg-s400.dts
-@@ -431,6 +431,10 @@ gpio_speaker: gpio-controller@1f {
- 	};
- };
- 
-+&mipi_pcie_analog_dphy {
-+	status = "okay";
-+};
-+
- &pdm {
- 	pinctrl-0 = <&pdm_dclk_a14_pins>, <&pdm_din0_pins>,
- 		    <&pdm_din1_pins>, <&pdm_din2_pins>, <&pdm_din3_pins>;
--- 
-2.54.0
-
+> Thanks,
+> Michal
 
