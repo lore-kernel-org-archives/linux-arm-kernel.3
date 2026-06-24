@@ -4,179 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24C81CDB470
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 06:12:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E7B7CDB479
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 06:13:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LdcSpiNpisCrHTXqbJDtxaxSik6e4ATGXJv9Rv0aiIY=; b=ByJ6DQLpXqiP2r2Fwi9nknqCf2
-	dD698KdOTrHyvKnET1KALEnDKYZln6vdVeIFAWfLLxcTfRuL5Eyu8VAUzbXo+ZoJ+IgkA+rJbxBwI
-	M5o57r2oejnMestb1r6PyK1Wx0xYKJC7mhyy21kGtV3KRWKHiNicJBfg50ceCgfaALGqAkmfbGyx9
-	diphwgqinuObvvB5fXRQ1YSogB/ALLkI2CXkh8v6nS3Ojeaje9/nA64xK8kzLITZARMXW3st4+KqF
-	k/d5yThMT7gv27w5Z4Scuri9vJlEiThsV/tFd4xvyC899JmP02XJ81LsgR9wIM1toJDWZwptMInyG
-	VGLRbpNQ==;
+	bh=CweNNec5/l5E17L9t+Sw0/2ow5ryOHc2Xrz40mn81nk=; b=5A4jqiyrrLqpI7EYWRH7kQslCb
+	ydHT7wdonf8t7JNZKfOzS84xbn2xuKHjdGJav9ae8qKDrmjMd15QtUy62iURkzQBFLUVmFNfFG4WN
+	KmCcEhCZhdm75oJxMuQ5Ly4bSciXYOtoDeOI4XfyU2GTAaptwH8HwIPDjbHlYmsBcmGWQe2uuTJfu
+	MwcEHcPStytmmH7b6VrmOQMetHvGXPj3gBj15ikpsnbKDMWjjD0b1I9KGurIWzlc1njvA9Dl9xYqI
+	TsOtVfX1eyfnVBoqEYKvkMpnG1OzNqUEIdBiR51Nl0by/sQmzzmusQDBtb/dbmjq+uXSvjG4o0QRo
+	Z55ARG4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcGqo-00000007DC9-0xmY;
-	Wed, 24 Jun 2026 06:12:42 +0000
-Received: from mail-southcentralusazon11013026.outbound.protection.outlook.com ([40.93.196.26] helo=SA9PR02CU001.outbound.protection.outlook.com)
+	id 1wcGra-00000007DIu-3Hdv;
+	Wed, 24 Jun 2026 06:13:30 +0000
+Received: from esa1.hc1455-7.c3s2.iphmx.com ([207.54.90.47])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcGqk-00000007DBf-2MbZ
+	id 1wcGrW-00000007DIE-3BoI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 06:12:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=X1KyALuXTcYm9bbuOsQNEJsklsyEZC9AKEgW/EGpbNKH2HQZEDXeMQHiTrz2vfyNMFWtHL3RazC2Mt+sVqdwdtFAv0ATTtvigRAtGId529eikIsga3uFKl9eXxCn30ynRGILgJgJ6MniqX5MNEOPKcC1kKOElZL61ZfoJ5ctrb8HVPoQ+X1ySBGpBme8WR8Gd5LVlHALChXXuy/Un/zy6BPWoboQeSMG0wGEUg/p+oBiMSt8Cdg1wyRrcot2uACQnyk+ZnvrFG2myAP3p0l0VUXlkEB9iSbAPXLu8Lk/lnk6ExFIeJcnI0GlcKw8AVkwox7Ef1+suh4/rZG8RJlkSw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LdcSpiNpisCrHTXqbJDtxaxSik6e4ATGXJv9Rv0aiIY=;
- b=g4E0wfTboXXb1C1+OruhpVeKkwTfQtXyboGj8aru2xfmCAaIZpi2vLhmYH6qqR0OiQrCxbVm/vidbcNIdCn4Dd694SfyDCSzC/jN4w9HQWogG1OTpCr23YtkkXEhS6qIhhPhZaU3/LREb1+E668cgTdDEADgkyKbuExrZ6BIPFW0lYSQsOY1rlUl/DDyd9BygRs1yLZNEjKM4UGFDDAHnEOOmFqffJbIeAQPocjhM3wZ71eCgyvzgkqxtfsVje4OxE/5EZuZnViM835fg4igf1uLc+MeFopicxWPospYTiFeO87Ebx1Sj75GbFHg6ak17BhC9DbwBW7wGPOWo4TYJQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LdcSpiNpisCrHTXqbJDtxaxSik6e4ATGXJv9Rv0aiIY=;
- b=DzY8tZhkZg/0KD6X5RwjmbuOkB4MKcEYZWBn5cmGbUvlojPSATgSz4Wz3t5vYxp8b+3RAULTDPlnRZRdcavsNipm7svWjARyjEXeVOETU96xi4lIjKYOoyGdn/rAIMen4wJWzs6iashhXwX1DJUkjJjV3yLSlSkRttgpnU/0ZSw=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from LV5PR12MB9779.namprd12.prod.outlook.com (2603:10b6:408:301::14)
- by PH7PR12MB6538.namprd12.prod.outlook.com (2603:10b6:510:1f1::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.13; Wed, 24 Jun
- 2026 06:12:26 +0000
-Received: from LV5PR12MB9779.namprd12.prod.outlook.com
- ([fe80::8ac8:e862:8ae9:9287]) by LV5PR12MB9779.namprd12.prod.outlook.com
- ([fe80::8ac8:e862:8ae9:9287%3]) with mapi id 15.21.0139.018; Wed, 24 Jun 2026
- 06:12:26 +0000
-Message-ID: <59d9a4c9-1f12-4de9-a0d6-613d2f5e9852@amd.com>
-Date: Wed, 24 Jun 2026 08:12:21 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] remoteproc: xlnx: refactor start & stop ops
-To: tanmay.shah@amd.com, andersson@kernel.org, mathieu.poirier@linaro.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-remoteproc@vger.kernel.org
-References: <20260619163854.410392-1-tanmay.shah@amd.com>
- <4a4e518a-61e6-4beb-aaeb-5056fbe2a07a@amd.com>
- <a9baf2c9-d4d9-4152-9188-c33fce2daf15@amd.com>
-Content-Language: en-US
-From: Michal Simek <michal.simek@amd.com>
-Autocrypt: addr=michal.simek@amd.com; keydata=
- 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
- mpwx1d8=
-In-Reply-To: <a9baf2c9-d4d9-4152-9188-c33fce2daf15@amd.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: PH1PEPF000132E8.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:518:1::28) To LV5PR12MB9779.namprd12.prod.outlook.com
- (2603:10b6:408:301::14)
+	Wed, 24 Jun 2026 06:13:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1782281608; x=1813817608;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=ZeS1qI4bsZJVbODnu/qd1qbNJRbNoecKeRBJa8mM/Ko=;
+  b=Rot1W+innarrDCvEnPWNOiuOUK6JTWMJscXiFgG+ksz5iLJpByfGTrIo
+   +FVRRbeI1EFff5V1kNNB7a2be3bt35s6hR7HrMvbe8KKEaDqBCgYPS/Bl
+   0EACe4d6lgfitpTOYhvRbnPf/XbRl91/zIDBfa7P7u0ake29Fd/ORYANb
+   aFySXezOm3R6IHROFY5eNpBSgfzMI9uGNjCOMsYm1M+42ykc/1GnGS3AW
+   VnPzHVhWgRYrveg/ClZ1bYSvtVsOhycSZkFyENb/LFNLif3Nk+mAY8WLn
+   vVZJNvMdJKgLL7eOt4RjyEz+YgOVTQc3nPtSaZWij05sPl/qGKF8zMvDQ
+   A==;
+X-CSE-ConnectionGUID: UgRrgWV1RPmREgBKGgwtWA==
+X-CSE-MsgGUID: bYlM268pQlC2DECPrFRlfA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11826"; a="245152034"
+X-IronPort-AV: E=Sophos;i="6.24,221,1774278000"; 
+   d="scan'208";a="245152034"
+Received: from gmgwnl01.global.fujitsu.com (HELO mgmgwnl01.global.fujitsu.com) ([52.143.17.124])
+  by esa1.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Jun 2026 15:02:24 +0900
+Received: from az2nlsmgm2.o.css.fujitsu.com (unknown [10.150.26.202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mgmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id 1CC4ECA56
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Jun 2026 06:02:24 +0000 (UTC)
+Received: from az2uksmom3.o.css.fujitsu.com (unknown [10.151.22.205])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2nlsmgm2.o.css.fujitsu.com (Postfix) with ESMTPS id C67381C4DE82
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Jun 2026 06:02:23 +0000 (UTC)
+Received: from sm-arm-grace07 (unknown [10.124.178.20])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2uksmom3.o.css.fujitsu.com (Postfix) with ESMTPS id A064F10017CA;
+	Wed, 24 Jun 2026 06:02:19 +0000 (UTC)
+Date: Wed, 24 Jun 2026 15:02:16 +0900
+From: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+To: Wei-Lin Chang <weilin.chang@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH 0/3] KVM: arm64: nv: Shadow ptdump fixes
+Message-ID: <ajty6I7ZqodP4ous@sm-arm-grace07>
+References: <20260623142443.648972-1-weilin.chang@arm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV5PR12MB9779:EE_|PH7PR12MB6538:EE_
-X-MS-Office365-Filtering-Correlation-Id: 41626138-253c-4fe9-d882-08ded1b7902b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|23010399003|366016|56012099006|6133799003|11063799006|5023799004|4143699003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: Dq6o1iRDvX2qPFf1nMGSHEMIyVEWl6vIuuGBx3j3ipUqzMlB0kJm9eFv0D9xmYszTvaL3no2PhdMHh+iPJLsR4pxGyNl2uNWh0hlhrndqKvRBKs4YlykhZAtEMX7YrsIdLygPD0qAqB2G8xGJjPLHnz3/xC9jooJfVRZAGYEr1NUjCIKYwdkFT4UomYv4p3yzx4Foxlu3zE1ortH7EpzKgFSkTdSOzf7RJ368qCdZ/muqRoBKHcrqrobrVh8ls6YRDHpTGW+iH+zbwDQrLenGG+R0Db5qajSDm+jnit/loZ7sPSDhaE5C6610pCjTCRdSsFcylqQpw9p0qX7WTcioCxhi3LNAjiQm2/fzfiA4aESfkBge3/Xm+fYdz4N6z9h83K3tsLEsaxwBNUTAGdN4j7kNpt4Ayy9YStdkvDvBnpR6jFCaF07c1k/zc4Y8noSTx3I+8kCgFFeVlN+uj07/RT8e+5/TRS2ZfspTv1tFUB7n9KPGXzZzM2rdgGS4vxss9miR+oD7e2nzjOnrFBdNrK5k+KYB91EWGw1SUkFpZpo5FPH5Nc++c9C6uG1ZsVjb25k9y0zBaQkUFBnGmIJv4bEB5vM4aKkeg+N8cOj0Qiy0FjQfYuXPSkpKhZ1YZPQqECP50d2HNhiedPZbbvTpK1/6yq18C2mCiTqyEQNeDY=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV5PR12MB9779.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(23010399003)(366016)(56012099006)(6133799003)(11063799006)(5023799004)(4143699003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RklBWGN3aitHM3VkNFJRZktFRmlCc2d4MGNQYi9HbytmMWxTYTVZZ3c4QnYr?=
- =?utf-8?B?WHdoeDFFOEl5b01VMFhIMmhpQWVrNXk3ZzlhVmJkL0xhR29BVU5Qd0NURjF3?=
- =?utf-8?B?a1h3ay9RTHRnemVCb0d3VkV2N2RSWEFENm9wbjQ1bVd3YWJFU3Vsc29aZHB5?=
- =?utf-8?B?ays5Q3lDaitsdUo1M21vNW9oeHkreUJkeHVZdHJtK0Q4UVdmSzRRWlFQb0t4?=
- =?utf-8?B?SFFkS2h5NElNQUxUSTZBZmRkQnJieTY3dVpYenJoQkFZaTZOb3Z0V2oxelF6?=
- =?utf-8?B?dngrSTRIZVI0NzdBSFgvWGg4eG00L25TeTRZZVdiUFZnMEVNaS9zZDNlY2tR?=
- =?utf-8?B?cWhPTkhMMTRkOVk0b05oYnFtdDhiZGVIR2UwckxuSTAvNXdaUzZONWIyanV4?=
- =?utf-8?B?R3k1ZlhzdWMvT0szWCtUSjFhSjNtdXF5SXFpd1luaGF3Z0JxaXRyWm9qVzlt?=
- =?utf-8?B?Q2NmajlTTmZqeWRkR2ZNdTd2QUxBRGlqTXZaaVh2Mmd3b3loS25ZYVIzZkc0?=
- =?utf-8?B?bGl5cTc2RVhhTmVzakFZeUtkM1B6TDdESGJRQlVpUy9PTXNLQ3pyVWVJVXFn?=
- =?utf-8?B?eGo4NzVYT294Y0NpWEViMWJ1L0lXZWNRRWR3YSthM0EvYTZuZzlnYXFhL0s5?=
- =?utf-8?B?dWozV3hWUUlZNjFPSW5TUHdhNE12NlhDQlNmNTNDVm1qMTZKV01ocTdnUzRM?=
- =?utf-8?B?amJJbytNWTkybEozWSs5L0hob1pVbisyVkhDM0V6Qzg4OEQzRFRKT08wUDQ5?=
- =?utf-8?B?UUR0eGhKRG1hOWQ2cFQwZkQxZkdpY0FhQVVtTmg0SXJrdVUrM0VqS1hzRHJu?=
- =?utf-8?B?eFJuUXVtRmkyNTdKMjNCeGZxVnRhbUNUNldvN3U0bXBGbFhRN3FlNnFGNDlR?=
- =?utf-8?B?ZUxkUEFKQi9weGpFZXVkb2Zna2pWbllPbGZaWXNCTDFlK2lYZzdNa0ZmOWhU?=
- =?utf-8?B?ZXY5MzRhTzYwUmRZSSs0T0pWSUFkdk1qRVk5cHlTbG15KytxaEFja0RzMVpi?=
- =?utf-8?B?TlZiOEtSckVMclFLQVJMNnJpVUxWV2U1cStud0pDSzVhM1NFVVlTSE45QVgy?=
- =?utf-8?B?R2hkUmgzYlh3RVgvNlljcTZtN0d0MFVEUFZ1d3M4d0VhOTl6bGZoL0RtbGxy?=
- =?utf-8?B?SjFLbGNWVS9RUlgxRldVb3BVS0lHbi9VcW85UXN3K2ZXcGx4YmlYbW5wekFM?=
- =?utf-8?B?QldxTUh2V0pXbUhSaFIvdDV5OVZFZ0E0TzB4V2NZbDAwYzZpKzArelQ3T2lw?=
- =?utf-8?B?SjNlMldKL1lZaW1CbHBLZ1c0bHhTVzRrcnp2bnlJTzFvaU9LSXpvNWE5bVJi?=
- =?utf-8?B?V0VPSFNvUVRQc1psSjRsbXNYaWlHNFRuU1hjdmpMVHB3WUVGRkF1ak9NaHF3?=
- =?utf-8?B?RktYMm0wMUpyU1FwajF5T1FjZEdrY3pUOTFacFRiWXFhVmxGbWRzczltZXhB?=
- =?utf-8?B?cGN6R0h3SFREeGFPUVJFM1ZiTVBzUzg4KzJNWWpYeDF1YVByeHZwbDhSbkNR?=
- =?utf-8?B?Tk9vWE1QZW1QMncrTWRGeE1FaHBUQU1MckYrUGlvWnRYbi9JS3dqbE5GRFBH?=
- =?utf-8?B?Q2k5dmJJaVhTY1NIZFlKWmRZZVo2OWhxM25tWHlVTDQxaEdDbVFpTDA5Z1lh?=
- =?utf-8?B?UmowQTJ1RW1BMDE3K3Z4U2VPRUJYOUQxS0QyQ3pWUkF4aGN2Nyszbno0T2Rh?=
- =?utf-8?B?U3M4RzVpRXhoYk10bE5oNVR3R1FTRkZWeXlNYjRVODhyWlNvczk2R3FtaDd1?=
- =?utf-8?B?OWl1cldMQ1g4aU9HNzlqVFk5NmZTenNubTdqMUh2cll5N2xlQUVoWHR6V090?=
- =?utf-8?B?KzNDQVNubVpIckdoYVVZK3pWRkc1dHVHajUvVEtsS0NHT2d2eWc3dDNMMVFq?=
- =?utf-8?B?dld1NE9XR3MvMnFLZ2Q1bkJ2OXRETXlJaCtaZDV1N1BDR3UvNmRRVklDUlJ5?=
- =?utf-8?B?SUNXclg5NThOTkJjd1MxZ3FJTS9GSUV1RmlTejlSYW9rVTFlL2tqdlBINjYx?=
- =?utf-8?B?V3lvZ21wakplSzJsaXRTc3ZScmFqYVRNd2hCTjA2M3lKcGU4K2lKdVllU2RY?=
- =?utf-8?B?MnZWdkJBMXhyQzJyY0tjSWcrM0FKQmVCOW5rZGQ2VFl0SXRUenY2RklVK2dO?=
- =?utf-8?B?V1ZyYWpLbjYyWFl2VW8zVC8wZEl5N0gyaFFTbjRweDEzUWlXVGk3ek1GMWQ2?=
- =?utf-8?B?U0Qrc0R0MTV4cWY1Q3ZWdDRuTGZvaWdUSS9FS09WUzRFNHd3TkFEWjBDN0pr?=
- =?utf-8?B?cndTZGZQUmNWRU5RSDNWYVFPaUg5aFVXZzhlaDJ0TzFncVgzYWhyRDhSclRx?=
- =?utf-8?B?bjZtUVgwSUZHSit2cHp4T2RsdGpOUEdXUGZHNTlnSVB1VmdEVlI0dz09?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 41626138-253c-4fe9-d882-08ded1b7902b
-X-MS-Exchange-CrossTenant-AuthSource: LV5PR12MB9779.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jun 2026 06:12:26.2329
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: PbvnWW4vAEoQK2fQPDG9bg2U4bEViMi53mI9f0CNRhW9OuLXoOimHD2wYaoc7RXH
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB6538
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260623142443.648972-1-weilin.chang@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_231238_928605_6672F35A 
-X-CRM114-Status: GOOD (  20.85  )
+X-CRM114-CacheID: sfid-20260623_231327_191313_CECCBEDF 
+X-CRM114-Status: GOOD (  22.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -191,92 +100,195 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Wei-Lin,
 
-
-On 6/23/26 00:29, Shah, Tanmay wrote:
-> Hello,
+On Tue, Jun 23, 2026 at 03:24:40PM +0100, Wei-Lin Chang wrote:
+> Hi,
 > 
+> This series fixes two bugs regarding the shadow ptdump debugfs files.
+> It is based on kvmarm/fixes + [1] ("KVM: arm64: Reassign nested_mmus
+> array behind mmu_lock").
 > 
-> On 6/22/2026 7:25 AM, Michal Simek wrote:
->>
->>
->> On 6/19/26 18:38, Tanmay Shah wrote:
->>> Current _start and _stop ops are implemented using various APIs from the
->>> platform management firmware driver. Instead provide respective RPU
->>> start and stop API in the firmware driver and move the logic to interact
->>> with the PM firmware in the firmware driver. The remoteproc driver
->>> doesn't
->>> need to know actual logic, but only the final result i.e. RPU start/stop
->>> was success or not. This refactor keeps the remoteproc driver simple and
->>> moves firmware interaction logic to the firmware driver.
->>>
->>> Signed-off-by: Tanmay Shah <tanmay.shah@amd.com>
->>> ---
->>>    drivers/firmware/xilinx/zynqmp.c        | 93 +++++++++++++++++++++++++
->>>    drivers/remoteproc/xlnx_r5_remoteproc.c | 68 ++----------------
->>>    include/linux/firmware/xlnx-zynqmp.h    | 12 ++++
->>>    3 files changed, 110 insertions(+), 63 deletions(-)
->>>
->>> diff --git a/drivers/firmware/xilinx/zynqmp.c b/drivers/firmware/
->>> xilinx/zynqmp.c
->>> index af838b2dc327..f9a3a95b0638 100644
->>> --- a/drivers/firmware/xilinx/zynqmp.c
->>> +++ b/drivers/firmware/xilinx/zynqmp.c
->>> @@ -1513,6 +1513,99 @@ int zynqmp_pm_request_wake(const u32 node,
->>>    }
->>>    EXPORT_SYMBOL_GPL(zynqmp_pm_request_wake);
->>>    +/**
->>> + * zynqmp_pm_start_rpu - Boot Real-time Processing Unit (Cortex-R) on
->>> SoC
->>> + *
->>> + * @node: power-domains id of the core
->>> + * @bootaddr: Boot address of elf
->>> + *
->>> + * Return: status, either success or error+reason
->>> + */
->>> +int zynqmp_pm_start_rpu(const u32 node, const u64 bootaddr)
->>> +{
->>> +    enum rpu_boot_mem bootmem;
->>> +    int ret;
->>> +
->>> +    /*
->>> +     * The exception vector pointers (EVP) refer to the base-address of
->>> +     * exception vectors (for reset, IRQ, FIQ, etc). The reset-vector
->>> +     * starts at the base-address and subsequent vectors are on 4-byte
->>> +     * boundaries.
->>> +     *
->>> +     * Exception vectors can start either from 0x0000_0000 (LOVEC) or
->>> +     * from 0xFFFF_0000 (HIVEC) which is mapped in the OCM (On-Chip
->>> Memory)
->>
->> here
->>
->>> +     *
->>> +     * Usually firmware will put Exception vectors at LOVEC.
->>> +     *
->>> +     * It is not recommend that you change the exception vector.
->>> +     * Changing the EVP to HIVEC will result in increased interrupt
->>> latency
->>> +     * and jitter. Also, if the OCM is secured and the Cortex-R5F
->>> processor
->>> +     * is non-secured, then the Cortex-R5F processor cannot access the
->>> +     * HIVEC exception vectors in the OCM.
->>> +     */
->>> +    bootmem = (bootaddr >= 0xFFFC0000) ?
->>
->> and here you have different values without any explanation why.
->>
+> The first is a UAF. A nested mmu can still be accessed when the debugfs
+> file is being closed, after the nested mmus are freed. I can observe
+> this by turning on CONFIG_KASAN and closing the file after the VM is
+> destroyed. To fix this, mmu access is avoided in the .release()
+> callback.
 > 
-> The value in the comment is correct, but the check is done for all of
-> OCM address range. This is just refactoring of the interfaces and not
-> the actual logic. There is a separate patch which actually refactors the
-> logic, I will send it later. I would like to keep this as it is because
-> this was originally there, and the intent of the commit is not to modify it.
+> The second is sleeping in atomic context, found by Itaru [2] (thanks).
+> Originally the code creates a debugfs file whenever a context gets bound
+> to an s2 mmu instance, and deletes it when it gets unbound. Problem is
+> the bind/unbind is done with the mmu_lock held, and debugfs file
+> creation and deletion can sleep. This is observable by using
+> CONFIG_DEBUG_ATOMIC_SLEEP. The new approach is just have one debugfs
+> file for each s2 mmu instance, and show their state + information when
+> requested, which can be invalid, or VTCR + VTTBR + whether s2 enabled +
+> ptdump.
+> 
+> The fixes are tested with CONFIG_PROVE_LOCKING,
+> CONFIG_DEBUG_ATOMIC_SLEEP, and CONFIG_KASAN.
+> 
+> Thanks!
+> Wei-Lin Chang
+> 
+> [1]: https://lore.kernel.org/kvmarm/aiKIVVeIr1aAB1yp@v4bel/
+> [2]: https://lore.kernel.org/kvmarm/aiuF0KSvvv-ZozI1@sm-arm-grace07/
+> 
+> Wei-Lin Chang (3):
+>   KVM: arm64: nv: Print nested mmu info in kvm_ptdump_guest_show()
+>   KVM: arm64: ptdump: Store both mmu and kvm pointers in
+>     kvm_ptdump_guest_state
+>   KVM: arm64: nv: Move to per nested mmu ptdump files
+> 
+>  arch/arm64/kvm/nested.c | 16 +++++++++++-----
+>  arch/arm64/kvm/ptdump.c | 29 +++++++++++++++++++----------
+>  2 files changed, 30 insertions(+), 15 deletions(-)
+> 
+> -- 
+> 2.43.0
 
-ok.
+At end of the execution of the shadow stage 2 selftest I see:
 
-Acked-by: Michal Simek <michal.simek@amd.com>
+[  569.228448] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000098
+[  569.228712] Mem abort info:
+[  569.229091]   ESR = 0x0000000096000046
+[  569.229165]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  569.229213]   SET = 0, FnV = 0
+[  569.229244]   EA = 0, S1PTW = 0
+[  569.229276]   FSC = 0x06: level 2 translation fault
+[  569.229312] Data abort info:
+[  569.229341]   ISV = 0, ISS = 0x00000046, ISS2 = 0x00000000
+[  569.229369]   CM = 0, WnR = 1, TnD = 0, TagAccess = 0
+[  569.229397]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+[  569.229458] user pgtable: 4k pages, 48-bit VAs, pgdp=000000006dce3000
+[  569.229545] [0000000000000098] pgd=0800000048b63403, p4d=0800000048b63403, pud=0800000048b7f403, pmd=0000000000000
+** replaying previous printk message **
+[  569.229545] [0000000000000098] pgd=0800000048b63403, p4d=0800000048b63403, pud=0800000048b7f403, pmd=0000000000000000
+[  569.236428] Internal error: Oops: 0000000096000046 [#1]  SMP
+[  569.237974] Modules linked in:
+[  569.238644] CPU: 1 UID: 0 PID: 824 Comm: shadow_stage2 Not tainted 7.1.0-rc4+ #59 PREEMPT(full)
+[  569.239139] Hardware name: QEMU QEMU Virtual Machine, BIOS 2024.02-2ubuntu0.7 11/27/2025
+[  569.239632] pstate: 61402009 (nZCv daif +PAN -UAO -TCO +DIT -SSBS BTYPE=--)
+[  569.240004] pc : down_write+0x50/0xe8
+[  569.240450] lr : down_write+0x34/0xe8
+[  569.240696] sp : ffff80008252ba20
+[  569.240965] x29: ffff80008252ba20 x28: 0000000000000000 x27: 0000000040000200
+[  569.241346] x26: 0000000000000200 x25: ffffd1bf542891a0 x24: 0000000000000001
+[  569.241625] x23: 0000000000000098 x22: ffff000000637480 x21: ffffd1bf57abc518
+[  569.241985] x20: 0000000000000000 x19: 0000000000000098 x18: ffff80008253d090
+[  569.242261] x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
+[  569.242568] x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
+[  569.242904] x11: 0000000000000000 x10: 0000000000000000 x9 : ffffd1bf5532388c
+[  569.243335] x8 : 0000000000000000 x7 : 0000000000000000 x6 : 0000000000000000
+[  569.243638] x5 : 0000000000000000 x4 : 0000000000000000 x3 : 0000000000000000
+[  569.244056] x2 : 0000000000000000 x1 : 0000000000000001 x0 : 0000000000000000
+[  569.244507] Call trace:
+[  569.244778]  down_write+0x50/0xe8 (P)
+[  569.245094]  __simple_recursive_removal+0x68/0x230
+[  569.245322]  simple_recursive_removal+0x20/0x50
+[  569.245498]  debugfs_remove+0x64/0xc0
+[  569.245655]  kvm_nested_s2_ptdump_remove_debugfs+0x20/0x48
+[  569.245960]  kvm_arch_flush_shadow_all+0x4c/0xc0
+[  569.246100]  kvm_mmu_notifier_release+0x3c/0x90
+[  569.246344]  mmu_notifier_unregister+0x68/0x148
+[  569.246594]  kvm_destroy_vm+0x130/0x2d8
+[  569.246829]  kvm_device_release+0xf8/0x170
+[  569.246969]  __fput+0xf4/0x350
+[  569.247147]  fput_close_sync+0x4c/0x138
+[  569.247291]  __arm64_sys_close+0x44/0xa0
+[  569.247493]  invoke_syscall+0xa8/0x138
+[  569.247727]  el0_svc_common.constprop.0+0x4c/0x140
+[  569.248059]  do_el0_svc+0x28/0x58
+[  569.248236]  el0_svc+0x48/0x218
+[  569.248420]  el0t_64_sync_handler+0xc0/0x108
+[  569.248690]  el0t_64_sync+0x1b4/0x1b8
+[  569.249737] Code: b9000820 d503201f d2800000 d2800021 (c8e07e61)
+[  569.250624] ---[ end trace 0000000000000000 ]---
+[  569.251589] note: shadow_stage2[824] exited with preempt_count 1
+[  569.253677] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000098
+[  569.254391] Mem abort info:
+[  569.254416]   ESR = 0x0000000096000046
+[  569.254436]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  569.254479]   SET = 0, FnV = 0
+[  569.254493]   EA = 0, S1PTW = 0
+[  569.254506]   FSC = 0x06: level 2 translation fault
+[  569.254522] Data abort info:
+[  569.254530]   ISV = 0, ISS = 0x00000046, ISS2 = 0x00000000
+[  569.254544]   CM = 0, WnR = 1, TnD = 0, TagAccess = 0
+[  569.254559]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+[  569.254574] user pgtable: 4k pages, 48-bit VAs, pgdp=000000006dce3000
+[  569.254602] [0000000000000098] pgd=0800000048b63403, p4d=0800000048b63403, pud=0800000048b7f403, pmd=0000000000000000
+[  569.254709] Internal error: Oops: 0000000096000046 [#2]  SMP
+[  569.257747] Modules linked in:
+[  569.258124] CPU: 1 UID: 0 PID: 824 Comm: shadow_stage2 Tainted: G      D             7.1.0-rc4+ #59 PREEMPT(full)
+[  569.258642] Tainted: [D]=DIE
+[  569.258862] Hardware name: QEMU QEMU Virtual Machine, BIOS 2024.02-2ubuntu0.7 11/27/2025
+[  569.259232] pstate: 60402009 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+[  569.259549] pc : down_write+0x50/0xe8
+[  569.259814] lr : down_write+0x34/0xe8
+[  569.259960] sp : ffff80008252b310
+[  569.260175] x29: ffff80008252b310 x28: 0000000000000000 x27: 0000000040000200
+[  569.260507] x26: 0000000000000200 x25: ffffd1bf542891a0 x24: 0000000000000001
+[  569.260891] x23: 0000000000000098 x22: ffff000000637480 x21: ffffd1bf57abc518
+[  569.261278] x20: 0000000000000000 x19: 0000000000000098 x18: ffff80008253d138
+[  569.261652] x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
+[  569.262180] x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
+[  569.262572] x11: 0000000000000000 x10: 0000000000000000 x9 : ffffd1bf5532388c
+[  569.263299] x8 : ffff80008252b508 x7 : 0000000000000000 x6 : 0000000000000000
+[  569.263950] x5 : 0000000000000000 x4 : 0000000000000000 x3 : 0000000000000000
+[  569.264428] x2 : 0000000000000000 x1 : 0000000000000001 x0 : 0000000000000000
+[  569.264799] Call trace:
+[  569.265039]  down_write+0x50/0xe8 (P)
+[  569.265441]  __simple_recursive_removal+0x68/0x230
+[  569.265817]  simple_recursive_removal+0x20/0x50
+[  569.266132]  debugfs_remove+0x64/0xc0
+[  569.266411]  kvm_nested_s2_ptdump_remove_debugfs+0x20/0x48
+[  569.266782]  kvm_arch_flush_shadow_all+0x4c/0xc0
+[  569.267059]  kvm_mmu_notifier_release+0x3c/0x90
+[  569.267564]  __mmu_notifier_release+0x88/0x2a0
+[  569.267736]  exit_mmap+0x430/0x490
+[  569.267943]  __mmput+0x3c/0x178
+[  569.268068]  mmput+0xa4/0xd8
+[  569.268221]  do_exit+0x274/0xb00
+[  569.268335]  make_task_dead+0x98/0x1f0
+[  569.268634]  die+0x194/0x1a0
+[  569.268893]  die_kernel_fault+0x1d0/0x3c0
+[  569.269139]  __do_kernel_fault+0x280/0x290
+[  569.269348]  do_page_fault+0x128/0x7d8
+[  569.269550]  do_translation_fault+0x74/0xc0
+[  569.269767]  do_mem_abort+0x50/0xd0
+[  569.269945]  el1_abort+0x44/0x80
+[  569.270122]  el1h_64_sync_handler+0x54/0xd0
+[  569.270306]  el1h_64_sync+0x80/0x88
+[  569.270683]  down_write+0x50/0xe8 (P)
+[  569.270997]  __simple_recursive_removal+0x68/0x230
+[  569.271217]  simple_recursive_removal+0x20/0x50
+[  569.271704]  debugfs_remove+0x64/0xc0
+[  569.271948]  kvm_nested_s2_ptdump_remove_debugfs+0x20/0x48
+[  569.272212]  kvm_arch_flush_shadow_all+0x4c/0xc0
+[  569.272510]  kvm_mmu_notifier_release+0x3c/0x90
+[  569.272731]  mmu_notifier_unregister+0x68/0x148
+[  569.272960]  kvm_destroy_vm+0x130/0x2d8
+[  569.273210]  kvm_device_release+0xf8/0x170
+[  569.273490]  __fput+0xf4/0x350
+[  569.273748]  fput_close_sync+0x4c/0x138
+[  569.274023]  __arm64_sys_close+0x44/0xa0
+[  569.274289]  invoke_syscall+0xa8/0x138
+[  569.274560]  el0_svc_common.constprop.0+0x4c/0x140
+[  569.274838]  do_el0_svc+0x28/0x58
+[  569.275066]  el0_svc+0x48/0x218
+[  569.275321]  el0t_64_sync_handler+0xc0/0x108
+[  569.275556]  el0t_64_sync+0x1b4/0x1b8
+[  569.275844] Code: b9000820 d503201f d2800000 d2800021 (c8e07e61)
+[  569.276068] ---[ end trace 0000000000000000 ]---
+[  569.277042] note: shadow_stage2[824] exited with preempt_count 1
+[  569.277234] Fixing recursive fault but reboot is needed!
+
+the kernel is based off of kvmarm/fixes, applied your series and
+Hyunwoo's patch as well. Could you take a look at this?
 
 Thanks,
-Michal
+Itaru.
+
+> 
 
