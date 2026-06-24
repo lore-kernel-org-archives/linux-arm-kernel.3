@@ -4,76 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13602CDB470
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 07:44:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C62ACDB470
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 07:47:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cnJvMuQVhi9MCFGKpBaETELFay8xVUFL4L3HsxzBy4Y=; b=XRos06QzJcQxHWaVGYxP929mDD
-	vboBmH385CA9OVkd0JsqsNWUP6goPIGBAM8oDuKdP+t2oQ2YpUf8sbwCg7Wuw+sQi/FbBtdmMoWrS
-	wuMgfe6I7ek7RxTl1llz3j2nmLVufC/MxfE06bHezOMsllG4auANrxxEq20NTSjFUg/CpnNrtAr03
-	3EEnNOELEXyAAsT7qY7qGfMkxLILSX+UM7lXMHHDVySU5+EY8AfzkrZh3q2PWwrMBhuXxOXZucIxD
-	zbL3NrAbdFNONOjFo2+m1/KC+K8JNhJL7sKX2VfW1lA6sGSyi0Fx3kG015bUs8s/Iw54ruasoSZA1
-	aWSO5POw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q9yMWEmsOOE6xZXsbGcAAajvHeQcjyzpY/qjjUWaBSM=; b=zn2zAX2476W8izD7FGRZwwTb7z
+	AUZppj43QdWo6OC7M9ipYZ04CpvRmw7DwwO3IMcyn6FBjXBGvZcg0JPm6Tx/ZX1zWvmS/1ouyn/eb
+	xldARc9+JtxrVCxLVpDYN9HKfGGBPzZnXqYKLtfKElz0/4GMAo/miB/LVXTb3+cN3xuISabYo/bNb
+	BYH6coocTvGermTycsXLxQWSENxbw8DFejRqite8mF4CnU6VrZLR78o+V9IG6u4vJm03tbUy5RsSx
+	IH6K7p5fGuq8OuVyatkNrJZGTU1O+2DvtBE7zYi2lJ3hco1b3HlInI1GUhiBK2YxTTXMDIiNji1+z
+	x4uTgL0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcIHU-00000007L6U-2403;
-	Wed, 24 Jun 2026 07:44:20 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcIHQ-00000007L5Z-0AyY
+	id 1wcIJx-00000007LMY-42vD;
+	Wed, 24 Jun 2026 07:46:53 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wcIJu-00000007LLs-1isD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 07:44:19 +0000
-Date: Wed, 24 Jun 2026 09:44:09 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1782287051;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=cnJvMuQVhi9MCFGKpBaETELFay8xVUFL4L3HsxzBy4Y=;
-	b=GlhKvYj8f0oiqs5OAVu8iEXM84ouiP/RXUcX2e7S/CxXDpsARb48V49l49buF7I/2R+8va
-	xCFzQgdUKVbmj26DsiaYztexsY2M66vwhgV6jlRyLe0CJuTh11OGeJ6h9RpReW/mGmNmot
-	URmVgKt9UNbueflsNpBLlFnbCio/h/Pqvf6/a+RFOIkw9XCvm2OKEpxUvbvTjPyBaOaz8D
-	Qjep1LqXigy1ndUZ7t//Mt3r0EbvfEyslBu4qlExaTuKxCdVXA4R+f2dQQ1ZdS3/r7y+/j
-	Gn04eMkzjfWI5X8roR+iC2YAZHAX05er42tBBYdTW6yxPeZHROJmdsMRlPlyhQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1782287051;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=cnJvMuQVhi9MCFGKpBaETELFay8xVUFL4L3HsxzBy4Y=;
-	b=n5tnwOjfI4do1L7kjz5kIb8dirK3WlMxKRhpE5Li/pN+nwD5Wkh1t2mRvoGnpixmXVKKhp
-	B0d7JxObsFU5fdBg==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: Peng Fan <peng.fan@oss.nxp.com>
-Cc: linux-remoteproc@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rt-devel@lists.linux.dev,
-	Bjorn Andersson <andersson@kernel.org>,
-	Clark Williams <clrkwllms@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
-	Jassi Brar <jassisinghbrar@gmail.com>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Steven Rostedt <rostedt@goodmis.org>
-Subject: Re: [PATCH v3 01/10] mailbox: imx: Forward the timeout/ error in
- imx_mu_generic_tx()
-Message-ID: <20260624074409.5jwpWs61@linutronix.de>
-References: <20260617-imx_mbox_rproc-v3-0-77948112defc@linutronix.de>
- <20260617-imx_mbox_rproc-v3-1-77948112defc@linutronix.de>
- <ajkbUNkn6MSw8txc@shlinux89>
+	Wed, 24 Jun 2026 07:46:52 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 612D4263D;
+	Wed, 24 Jun 2026 00:46:41 -0700 (PDT)
+Received: from [10.57.80.25] (unknown [10.57.80.25])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D40803F632;
+	Wed, 24 Jun 2026 00:46:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1782287205; bh=sbdMZ7z3OdjetPqNLVMjiXhZ3+C66lUfyXUflKzbfqk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=cHP+JdgbxoHxo09iik7ypg7Z8zF6wUkdxsssBPzBpiXtUJFP0fwGxiYRD1I+QQYNQ
+	 wmmzN40Z63gvg90cmGYzkCZ+stFAvxczeDN7EkVWydaZoKerSTLISBQShcnWp/j8+f
+	 1CIwtUXlqlaGlMUvQup+A7eZtr4aRcoxEI1gJFgY=
+Message-ID: <0708554c-54dd-4bd0-a147-b565733b5e4e@arm.com>
+Date: Wed, 24 Jun 2026 09:46:36 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <ajkbUNkn6MSw8txc@shlinux89>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] arm64: mm: Defer read-only remap of data/bss linear
+ alias
+To: Ard Biesheuvel <ardb+git@google.com>, linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org,
+ Ard Biesheuvel <ardb@kernel.org>, Fuad Tabba <fuad.tabba@linux.dev>
+References: <20260623202817.2225495-2-ardb+git@google.com>
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20260623202817.2225495-2-ardb+git@google.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_004416_222644_50752ECC 
-X-CRM114-Status: UNSURE (   6.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260624_004651_102722_836BAC84 
+X-CRM114-Status: GOOD (  22.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,14 +71,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-06-22 19:24:00 [+0800], Peng Fan wrote:
-> We may need to use atomic API for TXDB_V2. For the patchset itself, it
-> looks good to me.
-> 
-> Reviewed-by: Peng Fan <peng.fan@nxp.com>
+On 23/06/2026 22:28, Ard Biesheuvel wrote:
+> From: Ard Biesheuvel <ardb@kernel.org>
+>
+> Since commit
+>
+>   f2ba877402e5 ("arm64: mm: Map the kernel data/bss read-only in the linear map")
+>
+> the linear alias of the .data and .bss regions is remapped read-only
+> early during the boot. (Note that a subsequent patch to unmap this
+> region entirely was reverted just before the v7.2 merge window, and will
+> be brought back in an improved form for the v7.3 cycle)
+>
+> Fuad reports that in some cases, the KVM init code may apply relocations
+> to variables that reside in .data, and does so via the linear map. This
+> means that remapping .data read-only beforehand is a bad idea, and
+> results in an early boot crash.
+>
+> These variables in .data are only present when CONFIG_NVHE_EL2_DEBUG or
+> CONFIG_NVHE_EL2_TRACING are enabled, which is why it was not spotted in
+> testing.
+>
+> So move the remap to mark_rodata_ro(), which is a reasonable place to
+> put this, and ensures that it happens much later during the boot. It
+> also means that rodata=off is now taken into account, and so the linear
+> alias will remain writable in that case.
+>
+> Fixes: f2ba877402e5 ("arm64: mm: Map the kernel data/bss read-only in the linear map")
+> Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+> Tested-by: Fuad Tabba < fuad.tabba@linux.dev>
+> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 
-Thank you. Is there anything you want me to do or is this series good
-as-is?
+Thanks for expanding the commit message!
 
-Sebastian
+Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
+
+> ---
+> v2: improve changelog, add Fuad's R-b
+>
+>  arch/arm64/mm/mmu.c | 11 ++++++-----
+>  1 file changed, 6 insertions(+), 5 deletions(-)
+>
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index 9f354971b7e4..1f7eca86b5c1 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -1198,11 +1198,6 @@ static void __init map_mem(void)
+>  		__map_memblock(start, end, pgprot_tagged(PAGE_KERNEL),
+>  			       flags);
+>  	}
+> -
+> -	/* Map the kernel data/bss read-only in the linear map */
+> -	__map_memblock(init_end, kernel_end, PAGE_KERNEL_RO, flags);
+> -	flush_tlb_kernel_range((unsigned long)lm_alias(__init_end),
+> -			       (unsigned long)lm_alias(__bss_stop));
+>  }
+>  
+>  void mark_rodata_ro(void)
+> @@ -1221,6 +1216,12 @@ void mark_rodata_ro(void)
+>  	update_mapping_prot(__pa_symbol(_text), (unsigned long)_text,
+>  			    (unsigned long)_stext - (unsigned long)_text,
+>  			    PAGE_KERNEL_RO);
+> +
+> +	/* Map the kernel data/bss read-only in the linear map */
+> +	update_mapping_prot(__pa_symbol(__init_end),
+> +			    (unsigned long)lm_alias(__init_end),
+> +			    (unsigned long)__bss_stop - (unsigned long)__init_end,
+> +			    PAGE_KERNEL_RO);
+>  }
+>  
+>  static void __init declare_vma(struct vm_struct *vma,
 
