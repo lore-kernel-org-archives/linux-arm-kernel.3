@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C0D6CDE000
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 22:54:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7ACDCDB479
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 22:54:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tEQluaUQHs9Pq0sF7uhlZdeGFpXYplo4f7PQqgQuW+0=; b=gEy3ImFW/GcZ+ofB0R1UO+LZ4L
-	OXhpJcEa55QDUnGiFz2wfVsFfs16HiIgwAgjwBKmEP221cgGngYPXATrn9lSM4u2m0lhFeec5gJHG
-	cqWXhlFTuXe1NdUl38ffAnxZo4J2odETMptKnbYNMJFkhvR/vSrxM2Se+fW8yPHGW866EAqgKSaCR
-	RBWiXXzOm62pr/9td6Id3/lH71UerQgE4R3cenP8TUwtOxmzUbNzzU2IXo+t0VwDcpp+bUHOY4oz7
-	TF/QrbBrNDv6YBCpLd8o3CiJuJNBxblKYVqD3ScG8gW1tXXuzYvlM4stmwyvwfAfm8f6t3YGdWEw7
-	67R7dtyA==;
+	bh=56P581cyET3p8pfSvFHStxu8oHOszFLpsAJpj8hvZRg=; b=QxCzQVyaMnSmk+36x+NEuLeVKV
+	sXpcTtdvXNpK8lBfx1V/iG7QI1vQ7S3Mor6rEGbsxgdFs4eEOJdCexOg/lZpkXBysFWsR9iKp+zem
+	8i5A9NU3YAUdNcTiKrlH9TWp4QFSQu5gz9609eB/gpj2jY7SMgX2JbTMqh7PZeJBJgn7mFzFw1o5D
+	GQAXrxlPch78Sh1BiXqf89Mg5amZA5ijENqPMdXK4sz0EOj4Sp4+dVwv282SUCfKw7foF7p0B8K6X
+	V+2F7SCE/zlN6X0bKXP6ff2e9VprCw8hrNLDyTRyP9xfV8aR3cRZIUmTCpIPUlnYBsAM4y/WT38tR
+	AiWfDGXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcWTs-00000008Pp8-2JSL;
-	Wed, 24 Jun 2026 22:54:04 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wcWUD-00000008Pst-36Nd;
+	Wed, 24 Jun 2026 22:54:25 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcWTr-00000008Poz-0Frg
+	id 1wcWUC-00000008PsT-02pC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 22:54:03 +0000
+	Wed, 24 Jun 2026 22:54:24 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5100943974
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Jun 2026 22:54:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30E411F00ACA
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Jun 2026 22:54:02 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6BFF243232
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Jun 2026 22:54:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FCB11F00A3D
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Jun 2026 22:54:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782341642;
-	bh=tEQluaUQHs9Pq0sF7uhlZdeGFpXYplo4f7PQqgQuW+0=;
+	s=k20260515; t=1782341663;
+	bh=56P581cyET3p8pfSvFHStxu8oHOszFLpsAJpj8hvZRg=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=NrCTfmBmThM1e1ywz4Uc2cTJ5NMszbpwARgHQLTV5IT7dosoyM8EUug4ZdRHO5vBK
-	 GxpbLJbPi0QS9POiBYLdSqQHSwagUc95L5+eHC9YaRepFTw4TqVg4NL5pqMrpN3M0u
-	 vMMRf/yOye5AE75iet3ERfBLDcDJalgtwIJfgN4o8bk1oDn03I2rUgTbmUSKCHYK4p
-	 rG9IfM+BtV7n1peDjDY8N7kqYHjYJ66BZWJ4/eLPSa6k5AkqjxWmQ6fyTP9rFuq07Q
-	 hcS7eC4wLX+nvvotyiW0JjXfzm9BSj6Cn6TCV8QoQC5FEI8TS1yk1e0mOD2XxACIyo
-	 Sq3/JtDJpwGbw==
-Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-5aa2c25c632so1651339e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Jun 2026 15:54:02 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RqIR+ltOOn9uIppi3ksgRM5GnO4rK5BvUcmKkdww6P3bZNXgX9zI+8FrCdKuuwENRg25tV04xSxOgSO0w1saqUr@lists.infradead.org
-X-Gm-Message-State: AOJu0YyDc1WTp0Ph/M2Eozb2/ZaPFzW9JjRVFnv+ULAAAQGaiPs+xInV
-	DCIbBAuLd+1xWdUv3FrXCVO9dZJbNgtqmZo6maXvu1kgJCQFUob/DNV1qM7qpEHV3XZDoNu2gQv
-	fU/hNJzlA+uuey7RNMzBywjpJFNsfiV8=
-X-Received: by 2002:a05:6512:8355:b0:5ad:58c5:5d49 with SMTP id
- 2adb3069b0e04-5aea1f2939bmr10018e87.5.1782341640926; Wed, 24 Jun 2026
- 15:54:00 -0700 (PDT)
+	b=GAm5f3UJm54F7qj3ACcwYfMiGhx0fpiVaO2rFqe7P93zV07FTHwTKz1bXSlkOHfY5
+	 TB/A9TbrlhZ5dNEYrabhUw5qDFvF8QVCFjphUnvqkmohy/6K7usTVDt4R5FeqxBd/N
+	 YlfUKleNA6S67dMaaUf0dYF/71Qj88x1+iv5suPtjNOJlCdD+UqQsdfiwYXDKF03jK
+	 cxN0hdjXlFfWNhB3ieru21GjQxxJmnPKtaH/n+hLoR6SCDF910PlwmFYmNSBIneJhg
+	 7jZfRIcX9945y0F+OpbmHA0RI5Py6ZJsX2yI2fde1JdeKi6iRBGe+ZWIvMqiq+MOFp
+	 0EzoksAhuaRDA==
+Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-5ad578c49afso1644791e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Jun 2026 15:54:23 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Roi2MnEcesR7rd/Ob7lvBNU5W48RJ/+Y2JN9iLoTxe4FZmKQhmYnFzAzYn1Gd6jZyE86WFkKSWuU4M0eczOSJP5@lists.infradead.org
+X-Gm-Message-State: AOJu0YwxEMULrQubMdySuG4iT5I32ryo3vYIDxxhL5HOjSrNx8iudm9d
+	m2WfYYdAhjG7Pb7TV6Kk3OBLAlqidPBeOgUVI4i6P59/zUUS3ZpyXl2Ze6e/y6jcCWcDG64chJP
+	E40xuUB/0P71TkLzH+sETc82V5NQoz48=
+X-Received: by 2002:ac2:4909:0:b0:5aa:6e60:1983 with SMTP id
+ 2adb3069b0e04-5aea1f4cc2emr7661e87.24.1782341662098; Wed, 24 Jun 2026
+ 15:54:22 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260623-i2c-fault-reporting-v1-0-6db1a8aabf18@mobileye.com> <20260623-i2c-fault-reporting-v1-4-6db1a8aabf18@mobileye.com>
-In-Reply-To: <20260623-i2c-fault-reporting-v1-4-6db1a8aabf18@mobileye.com>
+References: <20260623-i2c-fault-reporting-v1-0-6db1a8aabf18@mobileye.com> <20260623-i2c-fault-reporting-v1-5-6db1a8aabf18@mobileye.com>
+In-Reply-To: <20260623-i2c-fault-reporting-v1-5-6db1a8aabf18@mobileye.com>
 From: Linus Walleij <linusw@kernel.org>
-Date: Thu, 25 Jun 2026 00:53:48 +0200
-X-Gmail-Original-Message-ID: <CAD++jL==oidAtZRLkp6GS8zDj_HzVYiKK4ySiXtLGBjevY=vkQ@mail.gmail.com>
-X-Gm-Features: AVVi8CeRZhi16rK0R8T_l8f30fSkRD317i9RKDpTB3E_lRbKkea3D6tIJrIzIIU
-Message-ID: <CAD++jL==oidAtZRLkp6GS8zDj_HzVYiKK4ySiXtLGBjevY=vkQ@mail.gmail.com>
-Subject: Re: [PATCH 4/7] i2c: nomadik: return proper fault codes
+Date: Thu, 25 Jun 2026 00:54:10 +0200
+X-Gmail-Original-Message-ID: <CAD++jLmze1K8LnMniv1gNTxXnW87AOF08vcPXnsASXn+75WG-Q@mail.gmail.com>
+X-Gm-Features: AVVi8CfWKmNuDtu_CQ8CzYherOgZFOOUsqFP_TlnPojbQL-Ikm-PqOSDWXEzGJQ
+Message-ID: <CAD++jLmze1K8LnMniv1gNTxXnW87AOF08vcPXnsASXn+75WG-Q@mail.gmail.com>
+Subject: Re: [PATCH 5/7] i2c: nomadik: change print level for fault messages
+ to debug
 To: Dmitry Guzman <Dmitry.Guzman@mobileye.com>
 Cc: Andi Shyti <andi.shyti@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
 	Masami Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
@@ -84,21 +85,14 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On Tue, Jun 23, 2026 at 6:32=E2=80=AFPM Dmitry Guzman
 <Dmitry.Guzman@mobileye.com> wrote:
 
-> I2C documentation Documentation/i2c/fault-codes.rst defines fault codes
-> for different negative results in I2C transmittion. Previously,
-> i2c-nomadik driver didn't implement them properly - it returned
-> ETIMEDOUT on most errors and EIO on master arbitration lost.
+> i2c-nomadik driver prints error message on every faulted message. This
+> is not a good practice, because in I2C a fault not always is an error,
+> sometimes it is the expected result. For example, scanning bus with
+> `i2cdetects` prints over 100 messages in dmesg (two messages per each
+> target address).
 >
-> To comply with the documentation, return the proper fault codes for
-> different conditions, namely:
->
-> - EAGAIN if arbitration lost
-> - EOVERFLOW if message is too long (>2047 bytes)
-> - ENXIO if target address is not acknowledged
-> - EIO on other errors detected by controller (for example, NACK on data)
-> - ETIMEDOUT if driver gets timeout waiting for message completion
->   without any fault condition detected by the controller (for example,
-> too long message, or SDA/SCL line stuck on 0).
+> To avoid excessive prints in the log, change the print level from err to
+> debug.
 >
 > Signed-off-by: Dmitry Guzman <Dmitry.Guzman@mobileye.com>
 
