@@ -4,59 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2834CDB479
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 13:34:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26F89CDB481
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 13:39:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
 	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AM/m6QUx+7HmbzlJxUPHx4TvQOgm3V9jyXvmAIwwqI4=; b=COJJY8J9xJQy4e
-	ymLn8HkxpEqTwS2wQrLQCbjme+Qt/lbzrrH9s/4gUhCKp5qpPInmVfjPWmfdu5ryK7feVDlCzst49
-	iZghXXgibPqGtZJ4Cu6RT4vL+uw1110nI9b9jFL2+S0QwgjMm1r1cvEC2Aw4r0aybrIEFZIl1z2EY
-	hqu58QKPx92SygDmyXaieE50nSTFykFU96Etoe5wnJV+Xr8DIFCEKyugvcPqjf2Tdt7y6kq0txYQZ
-	dC/uEERrCPlFnPBL/eEbdCa+c+5103xQJmeAk0jlwQ6vSLSXAES+pbC4CqytB5hC6mtg83JGaMwWf
-	G5KyTx8aL/aueP+5dSjg==;
+	List-Owner; bh=Vmlws4SyEILlTRj3H2zwdIifUQJ6mxj6O+CXowTjjdQ=; b=aq45FCGM0ngyrI
+	5HGWDA1IzIt2e1XrSLxbr4x22iZ1sE5yABqXGWVinaXthkjR9lzoxGRcw35CQ6189PF/Dx3DVzL9w
+	pm5dcmE27cXesR8GbKLcY5X44dMQVgVfquOD0KrHubKPwmCoKmtvM5A1HBsEIlthOOUZwRZTGWPh6
+	awql8f39joZei9lUQDfTjDqfdQLvxhIJdMRJWLl6ZLK+aanmTDs06OzlgU60Co98Fnkz5AKj4FNNb
+	oVNGZyv8Ip/2hbFcC55DQkK/lmklcNfV/mrVamtRKea5jFoyzsL+XOqHBZXxrF28t/gZp9t0JhIrM
+	XbfqsnoE46BcfOApUMJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcNkP-00000007pW4-3rdV;
-	Wed, 24 Jun 2026 13:34:33 +0000
+	id 1wcNoa-00000007ppY-2Ran;
+	Wed, 24 Jun 2026 13:38:52 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcNkN-00000007pVT-3azQ
+	id 1wcNoX-00000007pou-1Yuf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 13:34:33 +0000
+	Wed, 24 Jun 2026 13:38:50 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3B3732008;
-	Wed, 24 Jun 2026 06:34:22 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5B6C31C14;
+	Wed, 24 Jun 2026 06:38:42 -0700 (PDT)
 Received: from [10.2.213.11] (e137867.arm.com [10.2.213.11])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E81773F632;
-	Wed, 24 Jun 2026 06:34:22 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 916BD3F632;
+	Wed, 24 Jun 2026 06:38:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782308066; bh=AM/m6QUx+7HmbzlJxUPHx4TvQOgm3V9jyXvmAIwwqI4=;
+	t=1782308326; bh=fvLOENwwsTm8koXCpH2blUCcRt7sL79l2NvHBaVjXcE=;
 	h=Date:Subject:To:References:From:Cc:In-Reply-To:From;
-	b=Th7r1J3uAsKYc2dcNvUt3pcSlTWu0LFbMoJVOxJKVHUmBXGW1ky0aS/6JLwwrtcRt
-	 jcGgtNO1re/hQ7QWO9Ch04913KtFC85ujJ6e6GbZ6T0TpMOCTVvv0ZSgKbWRZWVfYD
-	 CGiNI6HJrNWxscZlxJZMIfwLkjzDxSNEH+zooJaA=
-Message-ID: <a19d6e1e-d513-4683-b672-71fe2868cf29@arm.com>
-Date: Wed, 24 Jun 2026 14:34:17 +0100
+	b=HI8zFgcOqJJUeTTnCwPr6HiCA9YkFAjuMiSXZHo7Zoh7FSmkSmo4DnXYJ0JiHhf9C
+	 pLOSMpiyWPhNW72Jpbt+nxCgOpPK1fiWkMn4SUi+6NZya0yMtUHX3ZjJ/6csazw+0+
+	 RD+6NP6DfVHSExK+40KlGAtKG4rshp6YblGQ1qVo=
+Message-ID: <8ca5eae1-c72c-47b0-b4d7-e2ec6445c943@arm.com>
+Date: Wed, 24 Jun 2026 14:38:41 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v15 01/11] entry: Fix potential syscall truncation in
- syscall_trace_enter()
+Subject: Re: [PATCH v15 02/11] arm64/ptrace: Refactor
+ syscall_trace_enter/exit() to accept flags parameter
 To: Jinjie Ruan <ruanjinjie@huawei.com>
 References: <20260511092103.1974980-1-ruanjinjie@huawei.com>
- <20260511092103.1974980-2-ruanjinjie@huawei.com>
+ <20260511092103.1974980-3-ruanjinjie@huawei.com>
 From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 Content-Language: en-US, en-GB, fr
 Organization: Arm Ltd.
-In-Reply-To: <20260511092103.1974980-2-ruanjinjie@huawei.com>
+In-Reply-To: <20260511092103.1974980-3-ruanjinjie@huawei.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_063432_031785_CC14C64C 
-X-CRM114-Status: GOOD (  10.93  )
+X-CRM114-CacheID: sfid-20260624_063849_626973_2E1C4579 
+X-CRM114-Status: UNSURE (   9.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,24 +75,41 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 On 11/05/2026 10:20, Jinjie Ruan wrote:
 
-> In syscall_trace_enter(), the current logic returns "ret ? : syscall".
-> While __secure_computing() currently only returns 0 (allow) or -1 (kill),
-> this "ret ? : syscall" pattern is conceptually flawed.
+> Refactor syscall_trace_enter() and syscall_trace_exit() to move thread
+> flag reading to the caller. This aligns arm64's syscall trace enter/exit
+> function signature with generic entry framework.
 >
-> If __secure_computing() were to return a non-zero value that isn't -1, it
-> would unintentionally override the actual system call number. This logic
-> is redundant because if seccomp denies the syscall, the execution path
-> should already be handled by the caller based on the error return, rather
-> than conflating the return code with the syscall number.
+> [Changes]
+> 1. Function signature changes:
+>     - syscall_trace_enter(regs) → syscall_trace_enter(regs, flags)
+>     - syscall_trace_exit(regs) → syscall_trace_exit(regs, flags)
 >
-> Fix it by explicitly returning the syscall number. This ensures
-> the syscall register remains untainted by the trace return values and
-> aligns with the expectation that seccomp-related interceptions are
-> handled via the -1 return status.
+> 2. Move flags reading to caller:
+>     - Previously: read_thread_flags() called inside each function.
+>     - Now: caller (like el0_svc_common) passes flags as parameter.
 >
-> Cc: Thomas Gleixner <tglx@kernel.org>
-> Fixes: 142781e108b1 ("entry: Provide generic syscall entry functionality")
+> 3. Update syscall.c:
+>     - el0_svc_common() now passes flags to tracing functions and
+>       re-fetches flags before entry/exit to handle potential TIF
+>       updates.
+>
+> [Why this matters]
+> - Aligns arm64 with the generic entry interface.
+> - Makes future migration to generic entry framework.
+>
+> No functional changes intended.
+>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Reviewed-by: Linus Walleij <linusw@kernel.org>
+> Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
 > Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
 > ---
+I was a bit confused with some parts, but those changes were made to align
+exactly on the generic entry code, so makes sense !
+
 Reviewed-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+
 
