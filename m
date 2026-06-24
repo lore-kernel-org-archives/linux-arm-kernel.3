@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED74ECDB47F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 11:47:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB53CCDB47F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 11:49:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AqATsS2ELDdnfG87dMlA/GHZ4RbhA3e2nMZFlLYGk+w=; b=EFIJ85rAlb2jYFCZTWDgwr6Pjs
-	Rn90E4W1+FZqVtCJrXq4Foaud4ixQcpBrdlujKkyTer/6bgRid7LWZB5UnIx+cp102xOHE74/R5Md
-	+HKFkKkL6lR+KAxCHkAsy2QxOByfjm5ER2RS5q7JVpToUAgV1fzPI5zvMM5ZhzAIsEYorHTRXeQMj
-	kUJYsEkAs1YHLgZkbKB6vVhhmj4EFepRtuZXYKUhdeGLplywcwD3gTAcDkwko05VFINmEqytsTpTy
-	U1pmSbhHd7rHQO68Uo42lIeYHWIAjzMSr66FYu92pQoeGHo4Am7kxpSuQYnvpYuIns/EokJwF6LkB
-	97QnJXoQ==;
+	bh=HvtRRLwB5nRGK6z7KOkjZragdUXab8f1dvYJB1vbLQs=; b=4oycwQHqmyeyhfYsubqlwXJcQq
+	WBKoJjnuQskzyrnl1RllmgjWNH8ic7hG3TskNQvpvH1Jxng8UQkoYQuTbI7ycqns4KgOqMM+X9DUB
+	KPtC7C7XvLNbgJ8AzFfiuPqHdW7ev7PCfDgVirsQnfW4fpD4PhVs7IGMW06+SuYzjhvulAa539KO1
+	dpoBoUPcEyeNxkAIoj1dXwqDiw4D7irAg4DHsTHbmZLXHBFiMPP/jBCP1CZbrBPYu1SlhWfxbG7tE
+	W1CAHVBLlKCWLPmHmdoNc0teyea3/f1AI1iGT3tKEPvxHJRh3bFL9aS/1hS4iBKmz+G6VUL5ncj1l
+	P5GWPCjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcM57-00000007hlK-0T2Q;
-	Wed, 24 Jun 2026 11:47:49 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wcM6F-00000007hrk-1fmm;
+	Wed, 24 Jun 2026 11:48:59 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcM55-00000007hlE-47ms
+	id 1wcM6D-00000007hrS-39nn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 11:47:48 +0000
+	Wed, 24 Jun 2026 11:48:57 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 94D0660018;
-	Wed, 24 Jun 2026 11:47:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF9371F000E9;
-	Wed, 24 Jun 2026 11:47:45 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A863B60018;
+	Wed, 24 Jun 2026 11:48:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1CCB1F000E9;
+	Wed, 24 Jun 2026 11:48:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782301666;
-	bh=AqATsS2ELDdnfG87dMlA/GHZ4RbhA3e2nMZFlLYGk+w=;
+	s=k20260515; t=1782301736;
+	bh=HvtRRLwB5nRGK6z7KOkjZragdUXab8f1dvYJB1vbLQs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=nljSdIkCWaSStImfXfSOcCHVKNsqYveA3x4bG5pws4tF5oNAT86QL1YamoSh1CcON
-	 sooy3DMbTHrh9h0TxjI/HYapp6BIXWy7kX4F7Pm4M7ioTsVr7UyEn3bT879Gt8sN55
-	 7aOBo8lAas1uTLOpxENNDkd49QsYFC9/0F9cMCY7d8pLX+SsuKzNJrKw3Ll/aYU+ja
-	 /sK7WFurMCmvC81JstdmKMrBwwuO8J2IfIL7J8R9rNQAfuifsm9qqk619Jpydt4Hh9
-	 fGJcp4AlxityncBK7thkmQHJxK2BU1Y54EKhPdRFQwP32qwFBWxQqc8S0/tx5faWcZ
-	 9qA0/s8LHLzyQ==
-Date: Wed, 24 Jun 2026 13:47:43 +0200
+	b=P9TX2/8JO3pJem0y/w8F3b3OVb59ZCN/A0wmXbugp9GUlJjVycnp3K6qkW5XOa0/O
+	 jjSksdRrPefLjvpZh6FwS08cM1YwJueYh4Z+ZJsF0zPzgBvZYOLxbE4y+c7azRjoIp
+	 KWjtV4YhlmZUon2UC0cnPNVimDZyQrNr8iwbobczz1ZyhP77eb3+ua+4hWbh772K93
+	 ZMjfdHX/KcJlbiAaYUsp6lOOXBX/mctKtEA+cBKibNz9ytvHEMpJ408r286WFodVCx
+	 LEIqKOCBPeue+FbgCVezsHMXtkxXuue73oPvPrwh3UNTkRy2gPrviLWreyI5ymXLnc
+	 TY5jUNI2pIzPA==
+Date: Wed, 24 Jun 2026 13:48:54 +0200
 From: Maxime Ripard <mripard@kernel.org>
 To: Luca Ceresoli <luca.ceresoli@bootlin.com>
 Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -58,18 +58,18 @@ Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
 	Ian Ray <ian.ray@gehealthcare.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
 	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 06/37] drm/display: bridge-connector: use a
- drm_bridge_connector internally, not a drm_connector
-Message-ID: <20260624-chicken-of-infinite-enthusiasm-8b0e3f@houat>
+Subject: Re: [PATCH 15/37] drm/display: bridge-connector: allocate the
+ connector dynamically
+Message-ID: <20260624-judicious-enigmatic-hippo-b13ffe@houat>
 References: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
- <20260519-drm-bridge-hotplug-v1-6-45e2bdb3dfb4@bootlin.com>
- <20260608-little-lyrebird-of-competition-c25f7d@houat>
- <DJ736L2DR8H8.35296DRNZ1OW@bootlin.com>
+ <20260519-drm-bridge-hotplug-v1-15-45e2bdb3dfb4@bootlin.com>
+ <20260608-rustling-infrared-turkey-e09af8@houat>
+ <DJ72WOUW5FA2.G1MPCAHJQ13F@bootlin.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="nzzwqigi3og2q45b"
+	protocol="application/pgp-signature"; boundary="gyx3n54eiizonhu6"
 Content-Disposition: inline
-In-Reply-To: <DJ736L2DR8H8.35296DRNZ1OW@bootlin.com>
+In-Reply-To: <DJ72WOUW5FA2.G1MPCAHJQ13F@bootlin.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,71 +85,70 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---nzzwqigi3og2q45b
+--gyx3n54eiizonhu6
 Content-Type: text/plain; protected-headers=v1; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 06/37] drm/display: bridge-connector: use a
- drm_bridge_connector internally, not a drm_connector
+Subject: Re: [PATCH 15/37] drm/display: bridge-connector: allocate the
+ connector dynamically
 MIME-Version: 1.0
 
-On Fri, Jun 12, 2026 at 02:57:39PM +0200, Luca Ceresoli wrote:
-> On Mon Jun 8, 2026 at 1:41 PM CEST, Maxime Ripard wrote:
-> > On Tue, May 19, 2026 at 12:37:23PM +0200, Luca Ceresoli wrote:
-> >> Currently drm_bridge_connector_init() always returns the added connect=
-or or
-> >> errors out. When adding bridge hotplug the bridge-connector can be
-> >> successfully initialized without creating a connector, which can be ad=
-ded
-> >> later when the pipeline will be complete.
+On Fri, Jun 12, 2026 at 02:44:43PM +0200, Luca Ceresoli wrote:
+> On Mon Jun 8, 2026 at 1:46 PM CEST, Maxime Ripard wrote:
+> > On Tue, May 19, 2026 at 12:37:32PM +0200, Luca Ceresoli wrote:
+> >> Currently the drm_bridge_connector has an embedded drm_connector, so t=
+heir
+> >> allocation lifetimes are tied to each other. This is insufficient to
+> >> support DRM bridge hotplugging, which requires the connector to be add=
+ed
+> >> and removed dynamically at runtime multiple times based on hotplug/unp=
+lug
+> >> events while the drm_bridge_connector is persistent.
 > >>
-> >> For this the internal function drm_bridge_connector_add_connector() mu=
-st be
-> >> able to return a valid drm_bridge_connector even without any drm_conne=
-ctor.
+> >> Moreover the drm_connector is exposed to user space and thus an ongoing
+> >> operation (e.g. an ioctl) might last for an arbitrarily long time even
+> >> after the hardware gets removed. This means a new connector might have=
+ to
+> >> be added when the previous one is still referenced by user space.
 > >>
-> >> In preparation to support bridge hotplug, change its return value to b=
-e the
-> >> same drm_bridge_connector pointer it gets as input, or a PTR_ERR.
+> >> In preparation to handle hotplug, allocate the drm-connector dynamical=
+ly,
+> >> to allow:
 > >>
-> >> No functional changes, just changing an internal API.
+> >>  * creating and destroying a connector multiple times during a single
+> >>    drm_bridge_connector lifetime
+> >>  * creating a new connector even though the previous one is still in u=
+se
+> >>    and thus still refcounted and not yet freed
 > >>
-> >> Note the return value could now become an int (0 or negative error) be=
-cause
-> >> returning the same value received as input does not carry any added
-> >> value. However this would be change a lot of lines, so leave such chan=
-ge as
-> >> a future cleanup.
+> >> This commit does not introduce the actions in the two bullets (it will
+> >> happen in a later commit), it only moves to dynamic APIs for connector
+> >> allocation and init.
+> >>
+> >> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 > >
-> > You just created that function and changed "a lot of lines" already, so
-> > I'm not sure that argument holds.
+> > I think this patch should be split in half, with the switch to using
+> > destroy first, and then the actual move to the dynamically allocated
+> > connector API.
 >=20
-> Do you refer to the previous patch?
->=20
-> My comment is more about the following patches. It means I separated
-> changes moving code to a subfunction from changes to the the return value
-> in separate patches, so that each patch is trivial to review for
-> correctness.
->=20
-> Makes sense?
+> Is it doable? drm_connector_dynamic_init() mandates a .destroy callback,
+> drm_connector_init() forbids it.
 
-What confused me is that I took it as "I'm not going to do that work
-(yet?)". If you do it later on, I'd drop the "future cleanup" part, or
-rephrase it.
+drmm_connector_init forbids it. drm_connector_init mandates it.
 
 Maxime
 
---nzzwqigi3og2q45b
+--gyx3n54eiizonhu6
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCajvD3wAKCRAnX84Zoj2+
-dvK7AYDVndEeUjfOdtyDo2JmEMo70BhgM2gg/nLlcNmSNiXs/ZF4vaMZKxKbTdP0
-ITjmkMsBf3L6kJhrRHn9KfvKW9qJEcqFpDhk9KBsLGWHn+YQhSzpjHt5sEmz0n7g
-4bVgFtOWSA==
-=PBGO
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCajvEJQAKCRAnX84Zoj2+
+diY/AYD61uA2nIV5nv2saKAonASdA6xG5aMdfOpsdoDTfSXoIEmfuvVOSm9Strmc
+XNUwH0ABgJ4zLMBRfrGdi32Zl2qPuAgiR2EeAI/luJ4I2OMIEfgM7nSUdQU2Dwv6
+rqixHOXClA==
+=lXQW
 -----END PGP SIGNATURE-----
 
---nzzwqigi3og2q45b--
+--gyx3n54eiizonhu6--
 
