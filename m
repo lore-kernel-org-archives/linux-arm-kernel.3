@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDE00CDE000
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 19:15:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD79FCDB47F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 19:16:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MATdxFQBtgKcjsF1nGjyY/BUTe8cQUAE71nrnYXCJwM=; b=zyZ6twLtDgOEp7SQXTtT8IQ+pD
-	ohbj1gNRvBivnLcTKSenhqOEVTmMeh4McSCXO1p2FJNjBB5wsYn7/oFIL9npjH2SCIYAWvfyEz2bq
-	V77voVOrGOfE8RLMwfjbD5R+0o1lDV0+aw3EGeCx/gwaLGk8suI5F9rNgBC3ZWDcJtxKfw/I1eVyP
-	zRau9MWUvPfCmbiVYcp1MBrSZaTLZTYpTeoqDUUDRb9zeCVWtDaQgsUYY3KOXhBVde53bCtwkAVcT
-	uuZfRE62p/086YOI0K2BqXWFyQpDXSqJHZt4cA6kuLpkRv0fOTYwWQqnarnwQRZiNIC3rTewJ7ywt
-	KLT0nfcA==;
+	bh=9FZIYbi55Lf9jwBrrHH8gAJ9aVH4Nm97rDvFWfiCGps=; b=ZDVqdnIIXSwl0mEIp0agEpHcRA
+	w5j/WQrjHFTDwdgwHgZZqpKIB3/Faf7B8upR7S7/hRamz90yXI0B+mwdGZK8c/zAQNYfzjcMAQbkh
+	6Np/gjGeXjHeE0kCqk3x3I4QpEsQ3OwLTI+MZSxnML1BCiFK/FvxZo4OgeWrXJI9mGM3eyOZYeVlY
+	erVY+UHcXc0zqv5SnrHBmM+gF6v27VoM/I7ewumlEAivRvBR7VQ85QqIV634DtBzn7vxCixhDXUVe
+	FGlE+G11uzNdRGS21Gow0OhE9NtNWvote+jPPZcgDt7xFUcScQGNGWjqJ6TmWACipZWGb2n5XkYkX
+	4O058wQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcT3s-00000008Fiw-2UMY;
-	Wed, 24 Jun 2026 19:15:00 +0000
+	id 1wcT58-00000008FsQ-3zxx;
+	Wed, 24 Jun 2026 19:16:18 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcT3q-00000008FiI-2ILH;
-	Wed, 24 Jun 2026 19:14:59 +0000
+	id 1wcT56-00000008Frl-0pzy;
+	Wed, 24 Jun 2026 19:16:17 +0000
 Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 45848236;
-	Wed, 24 Jun 2026 21:14:17 +0200 (CEST)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 11BA6E9C;
+	Wed, 24 Jun 2026 21:15:35 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1782328457;
-	bh=4l3LwfXynM0MsWP2kcvzPf7S3XQAOuf0AlSVOoYKWIE=;
+	s=mail; t=1782328535;
+	bh=QiPILnKlLuOHtaJpr6jjLy6flwPX2L0FxIacScwZD7c=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GaqAF6Y8/h3JELG3xUHoxAj0t/lD1G8Yuz7xkdZoqjtld0QtIDHM5nhx+A5vDQmV7
-	 ovby1WLWvV7w1axQLbuA+3u3efsU0JcAHedtGdbOdmgidHRiNaqhuK/pBzB30v6axE
-	 YikzPxT71bFWSPP4vGlqpk0U3yjqe+Jgu9MgZUnk=
-Date: Wed, 24 Jun 2026 22:14:55 +0300
+	b=T5vfv449pdBSSpldMnnTgRtmlKEuGS7xR/QqdoAmSDsipINNJfQM0aDOJmupDXynL
+	 M1S1ZTMK4NSbJrwB7EcA5PGPwIV6rfyYmW3jWieV4wOCQKyZmUsf/aZUAVuEMyriDg
+	 RlLsCTwdXzjMK9kwP/uDjrrb4QgNUF25wIXIdvoM=
+Date: Wed, 24 Jun 2026 22:16:13 +0300
 From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 To: Frank.Li@oss.nxp.com
 Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
@@ -57,19 +57,19 @@ Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
 	linux-rockchip@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
 	imx@lists.linux.dev, Guoniu Zhou <guoniu.zhou@nxp.com>,
-	Frank Li <Frank.Li@nxp.com>, Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-Subject: Re: [PATCH v2 2/4] media: mc: use
- fwnode_graph_for_each_endpoint_scoped() to simpilfy code
-Message-ID: <20260624191455.GD851255@killaraus.ideasonboard.com>
+	Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH v2 3/4] media: rkisp1: use
+ fwnode_graph_for_each_endpoint_scoped() to simplify code
+Message-ID: <20260624191613.GE851255@killaraus.ideasonboard.com>
 References: <20260624-fw_scoped-v2-0-0a8db472af4a@nxp.com>
- <20260624-fw_scoped-v2-2-0a8db472af4a@nxp.com>
+ <20260624-fw_scoped-v2-3-0a8db472af4a@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260624-fw_scoped-v2-2-0a8db472af4a@nxp.com>
+In-Reply-To: <20260624-fw_scoped-v2-3-0a8db472af4a@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_121458_735976_8A1D1FD9 
-X-CRM114-Status: GOOD (  13.65  )
+X-CRM114-CacheID: sfid-20260624_121616_388901_E963B13E 
+X-CRM114-Status: GOOD (  17.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,47 +84,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 24, 2026 at 01:00:10PM -0400, Frank.Li@oss.nxp.com wrote:
+On Wed, Jun 24, 2026 at 01:00:11PM -0400, Frank.Li@oss.nxp.com wrote:
 > From: Frank Li <Frank.Li@nxp.com>
 > 
-> Use cleanup helper fwnode_graph_for_each_endpoint_scoped() to simpilfy
-> code.
+> Use fwnode_graph_for_each_endpoint_scoped() to simplify code.
 > 
-> Reviewed-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+> No functional changes.
+> 
 > Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 > Signed-off-by: Frank Li <Frank.Li@nxp.com>
 
 Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
 
 > ---
->  drivers/media/v4l2-core/v4l2-mc.c | 5 +----
->  1 file changed, 1 insertion(+), 4 deletions(-)
+> Andy: Keep original code because too much break. and I am working on more
+> generally solution, so the whole function can be replaced.
+> ---
+>  drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c | 4 +---
+>  1 file changed, 1 insertion(+), 3 deletions(-)
 > 
-> diff --git a/drivers/media/v4l2-core/v4l2-mc.c b/drivers/media/v4l2-core/v4l2-mc.c
-> index 937d358697e19..5d7fcd67dc42e 100644
-> --- a/drivers/media/v4l2-core/v4l2-mc.c
-> +++ b/drivers/media/v4l2-core/v4l2-mc.c
-> @@ -324,12 +324,10 @@ EXPORT_SYMBOL_GPL(v4l_vb2q_enable_media_source);
->  int v4l2_create_fwnode_links_to_pad(struct v4l2_subdev *src_sd,
->  				    struct media_pad *sink, u32 flags)
+> diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
+> index 1791c02a40ae1..f90e01301943c 100644
+> --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
+> +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
+> @@ -187,7 +187,6 @@ static int rkisp1_subdev_notifier_register(struct rkisp1_device *rkisp1)
 >  {
-> -	struct fwnode_handle *endpoint;
-> -
->  	if (!(sink->flags & MEDIA_PAD_FL_SINK))
->  		return -EINVAL;
+>  	struct v4l2_async_notifier *ntf = &rkisp1->notifier;
+>  	struct fwnode_handle *fwnode = dev_fwnode(rkisp1->dev);
+> -	struct fwnode_handle *ep;
+>  	unsigned int index = 0;
+>  	int ret = 0;
 >  
-> -	fwnode_graph_for_each_endpoint(src_sd->fwnode, endpoint) {
-> +	fwnode_graph_for_each_endpoint_scoped(src_sd->fwnode, endpoint) {
->  		struct fwnode_handle *remote_ep;
->  		int src_idx, sink_idx, ret;
->  		struct media_pad *src;
-> @@ -397,7 +395,6 @@ int v4l2_create_fwnode_links_to_pad(struct v4l2_subdev *src_sd,
->  				src_sd->entity.name, src_idx,
->  				sink->entity->name, sink_idx, ret);
+> @@ -195,7 +194,7 @@ static int rkisp1_subdev_notifier_register(struct rkisp1_device *rkisp1)
 >  
-> -			fwnode_handle_put(endpoint);
->  			return ret;
->  		}
+>  	ntf->ops = &rkisp1_subdev_notifier_ops;
+>  
+> -	fwnode_graph_for_each_endpoint(fwnode, ep) {
+> +	fwnode_graph_for_each_endpoint_scoped(fwnode, ep) {
+>  		struct fwnode_handle *port;
+>  		struct v4l2_fwnode_endpoint vep = { };
+>  		struct rkisp1_sensor_async *rk_asd;
+> @@ -286,7 +285,6 @@ static int rkisp1_subdev_notifier_register(struct rkisp1_device *rkisp1)
+>  	}
+>  
+>  	if (ret) {
+> -		fwnode_handle_put(ep);
+>  		v4l2_async_nf_cleanup(ntf);
+>  		return ret;
 >  	}
 
 -- 
