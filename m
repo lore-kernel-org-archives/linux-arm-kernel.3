@@ -4,72 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93030CDB471
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 11:42:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7989CDB47F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 11:42:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ShjfYmyMNme2ZizdbgTF3XrR13Mrtlb7YIX/iZpb3NM=; b=AxgVkQQXI4uTNq46koy2lRf3A7
-	1P6V4iwxT7FkUC6aTtZnc9qqgqQqd3D4sWVpcwB5I5rmnhVlOK41UfIJbeJJHxR24IiYEC9DDkVBT
-	I0jhwktBJujYRWbda5+lDGPSHn64fsWy1HWyBbflWd/BkqvizKf3jV8Fuza+nmiwzwuM3c3MCe32z
-	z898fTT5Y0M5q9Ds21RieXARmWce41BPFkvhhB6/xcsiUrlnIXsUEEMlvz6WIxNomupOtdCMltxxX
-	MrPY0DQZjp0Ah74Yy6WBVRdYfWSruQaqwHFpxGSr4ieuhin7KopeEisbSW0lBt8ihoBbzLGBoRJcQ
-	07YMTPSw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=QoK/3UddXbmX1NE+eBlNwxX446SsnQUqEu7wWRxnQVw=; b=K8X4VRew84x6BqBFOA++I3X9Sz
+	YH+y8HD4I08T7extD9HI3aavH9T6gURuR0i8WuJ4dVZn3OtOG13a4iBUbLYbjDHi9tRCsKHsBnFjb
+	x8LM1b9gtXfBPBHcrQMaM1zXwJ2gziytlD7GCu8ouhquwodtCUPL3p6M+mJNGwp7WuMUQVA7uxk9C
+	ENIr9dTjaoeUaXLv1wGcd9LyMUrun51qkKcsoNmUP6e5spaWAVUmbaP11msd5KEmSsBwSZ4zB4sru
+	f9KLv+PcRNtG7Tik4+x7Ixc1PXLK/d0YEuKcBbVLc5T3TcHqZ99neQpARVrYaXB4qi6z0K6gpfM5k
+	v41/82WQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcLzU-00000007hFL-1Y2Y;
-	Wed, 24 Jun 2026 11:42:00 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wcLzi-00000007hHW-26Ib;
+	Wed, 24 Jun 2026 11:42:14 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcLzS-00000007hFD-3sZQ
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 11:41:59 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E7EC260018;
-	Wed, 24 Jun 2026 11:41:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2FBAE1F000E9;
-	Wed, 24 Jun 2026 11:41:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782301317;
-	bh=ShjfYmyMNme2ZizdbgTF3XrR13Mrtlb7YIX/iZpb3NM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Q4d4gG0xlLhiN/laQaD2KxgfY6UFlil4u8XQNprH7J2MSCUUdd8qV/+cDhwB3QtZK
-	 A3JA6NCXYZdoq9VYSQ5GCWV/NHqR9EYFUxUmaqU/q6UjqLnHFxWX+rx++I86gG54Hj
-	 8ux3dka1wQcydp24WchfAPwsThjr8kdq9Y1ZbtZ3ZyE4dkb/yClBQFX4D6A431eh/I
-	 wn/+j/we6znBedCsjX1akjh7ufk5ww4Jf9Tsk9ZGqGf1eXNF577wsIFd3ZMFhCk2sh
-	 KZ0/fBzt6PZoCIu5CU1t3Fv1x2jjqrq07R5xiiNFO5uR+hcKvZeGMbP2wF1/JIRDch
-	 OcxLRr6EnqkmQ==
-Date: Wed, 24 Jun 2026 13:41:55 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Inki Dae <inki.dae@samsung.com>, 
-	Jagan Teki <jagan@amarulasolutions.com>, Marek Szyprowski <m.szyprowski@samsung.com>, 
-	Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Hui Pu <Hui.Pu@gehealthcare.com>, 
-	Ian Ray <ian.ray@gehealthcare.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 05/37] drm/display: bridge-connector: split code creating
- the connector to a subfunction
-Message-ID: <20260624-proud-unbiased-pony-ecc3c3@houat>
-References: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
- <20260519-drm-bridge-hotplug-v1-5-45e2bdb3dfb4@bootlin.com>
- <20260608-mindful-heavy-frigatebird-be9faf@houat>
- <DJ735MTNMYD1.3LPNV404V8PIU@bootlin.com>
+	id 1wcLza-00000007hG4-2a3l;
+	Wed, 24 Jun 2026 11:42:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0DC9B43650;
+	Wed, 24 Jun 2026 11:42:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id D6A46C2BCB4;
+	Wed, 24 Jun 2026 11:42:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1782301325;
+	bh=LZ1C8rPlZ/X7S4iWJUKXT8UYdYECXgo5EWnaKAYpFo4=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=Cv+QZx9ic8CcDcyku8WSiFp6l1+02Wo432iHHq0rPl3wGrYcAKCE8bP9mI3rQ+fqk
+	 dcJ9LNaPNpHuQ5pXKAYHFhcV7rE/hkUaBKOuq2JbDf5dyXJEeMCMU6MvLXmktAlXQj
+	 OFu2fjqkVTtYJoMwZ++OZAgfbre3m0qevy8/et5DhrVomataDyRtSww5/nE3IXBj8a
+	 DLBdb58Dtsckrswp+KDmGglSEtRX9JB6bvXydGHmMBRH0/A8l1qnqy/tRVEBfikDbf
+	 Ppw8/WLugAzmdARbgh0ITNNpUPOk+8ze7o3WJO9rbQx9eb1FYgP9QKapYRSLZxxcn4
+	 6lNEYAK4rv75g==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CB8C5CDB47F;
+	Wed, 24 Jun 2026 11:42:05 +0000 (UTC)
+From: Ricardo Pardini via B4 Relay <devnull+ricardo.pardini.net@kernel.org>
+Date: Wed, 24 Jun 2026 13:41:50 +0200
+Subject: [PATCH] arm64: dts: mediatek: mt8395-radxa-nio-12l: Enable I2C3 on
+ 40-pin header
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="ggct6afei637l4eq"
-Content-Disposition: inline
-In-Reply-To: <DJ735MTNMYD1.3LPNV404V8PIU@bootlin.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260624-nio-12l-add-i2c-40-pin-v1-1-f6c11ed2184c@pardini.net>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQqDMBBA0avIrDuQjFHUq5QuNBl1SomSVBHEu
+ xt1+Rb/7xA5CEdosh0CrxJl8gn6lYEdWz8wiksGUlSqkgx6mVDTD1vnUMiiUTiLR12zMhX1rso
+ LSPEcuJftHr8/j+PSfdn+rxscxwkHLTmbegAAAA==
+X-Change-ID: 20260624-nio-12l-add-i2c-40-pin-19e0482fd835
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Ricardo Pardini <ricardo@pardini.net>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1939;
+ i=ricardo@pardini.net; h=from:subject:message-id;
+ bh=bk5ea6cLdsnJpmBdpwgO3E/mbMZWo2izXGkJpWcYnGg=;
+ b=owEBiQF2/pANAwAIATteP+Oex+3pAcsmYgBqO8KM5gmzPvJ/rOmLT+qPMGepPIDKiCk8X5DBu
+ 5jAJoBZRaSJAU8EAAEIADkWIQSsGCMM9q/qytxIiJM7Xj/jnsft6QUCajvCjBsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwwLDMACgkQO14/457H7eliKwf/RkZ83zDF2MFSMVYiVJmHI8+ZuRR4XYD
+ nmdBGdJ1vpt7+H9f1xXNJr8MafhwauM1waRUw2x8cK2BgbUbNVvz7O+03KxR1dwP5xzYTP8N9Pa
+ eG3rxMC81LILXsxmleoMnJ8TSbsvlxLJYTiZ/ZMmjncU0Sm4Dzx8Km8puNAYXGr/tDsgf0JPH/q
+ 0mOXv5YVPVwWJzWeH+JVtUgY4lnxUh0m61v6SXzQAfCnipWskgWmCnjNiskyTOtuMew3eJNzlX9
+ Y1lA74GukTKRTFwLK+GI9SaNl3XFoKDvT1/l8i/YsztE6DWpmGaHDAg0EYvdurkCtLdGJQ4Jihm
+ mm1jmx1rbYg==
+X-Developer-Key: i=ricardo@pardini.net; a=openpgp;
+ fpr=AC18230CF6AFEACADC4888933B5E3FE39EC7EDE9
+X-Endpoint-Received: by B4 Relay for ricardo@pardini.net/default with
+ auth_id=588
+X-Original-From: Ricardo Pardini <ricardo@pardini.net>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,84 +91,75 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: ricardo@pardini.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Ricardo Pardini <ricardo@pardini.net>
 
---ggct6afei637l4eq
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 05/37] drm/display: bridge-connector: split code creating
- the connector to a subfunction
-MIME-Version: 1.0
+I2C3 (SDA3/SCL3 on GPIO14/GPIO15) is routed to the 40-pin GPIO header,
+exposed on the blue-colored pins 27 (SCL3) and 28 (SDA3). Enable the
+controller, add the corresponding pin configuration in the pinctrl node
+so users can use external I2C devices.
 
-Hi,x
+Signed-off-by: Ricardo Pardini <ricardo@pardini.net>
+---
+The Radxa NIO 12L exposes I2C3 (SDA3/SCL3, GPIO14/GPIO15) on its 40-pin
+GPIO header, on the blue-coloured pins 27 (SCL3) and 28 (SDA3).
 
-On Fri, Jun 12, 2026 at 02:56:24PM +0200, Luca Ceresoli wrote:
-> On Mon Jun 8, 2026 at 1:40 PM CEST, Maxime Ripard wrote:
-> > On Tue, May 19, 2026 at 12:37:22PM +0200, Luca Ceresoli wrote:
-> >> In preparation to introduce bridge hotplug, split out from
-> >> drm_bridge_connector_init() the code adding the drm_connector into a
-> >> dedicated function. This will be needed to be able to add (and re-add)=
- the
-> >> connector from different code paths.
-> >
-> > Same story here, explaining what you need later on that calls for that
-> > change would be nice.
->=20
-> Here's a more verbose version:
->=20
->     Currently drm_bridge_connector_init() does two things:
->=20
->      * allocate and initialize the drm_bridge_connector
->        (which embeds a drm_connector)
->      * initialize and register the embedded drm_connector
->=20
->     For bridge hotplug we need to separate these two actions:
->=20
->      * the drm_connector needs to be added and removed at any time based =
-on
->        hotplug events
->      * the drm_bridge_connector is designated to create and remove the
->        drm_connector, so it must be persistent for the card lifetime
->=20
->     As the lifetimes of drm_bridge_connector and drm_connector become
->     different, we need to create them in different moments.
->=20
->     In preparation to support that, split out from
->     drm_bridge_connector_init() the code adding the drm_connector into a
->     dedicated function. No functional changes, just moving code around for
->     now. A future commit will make the drm_connector be created based on
->     hotplug events.
->=20
-> Looks good?
+Enable the I2C3 controller, add the matching pinctrl configuration and run
+the bus at 400 kHz, matching the other I2C buses already enabled on this
+board.
 
-The message itself, yes, thanks.
+Tested using a SD1306 I2C OLED display.
+---
+ arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
 
-However, I have questions now :)
+diff --git a/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts b/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts
+index bf91305e8e4a5..03a2f2e746475 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts
++++ b/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts
+@@ -371,6 +371,14 @@ it5205_sbu_mux: endpoint {
+ 	};
+ };
+ 
++/* Exposed on 40-pin header (blue-colored pins 27:SCL3 28:SDA3) */
++&i2c3 {
++	clock-frequency = <400000>;
++	pinctrl-0 = <&i2c3_pins>;
++	pinctrl-names = "default";
++	status = "okay";
++};
++
+ &i2c4 {
+ 	clock-frequency = <400000>;
+ 	pinctrl-0 = <&i2c4_pins>;
+@@ -789,6 +797,16 @@ pins-bus {
+ 		};
+ 	};
+ 
++	i2c3_pins: i2c3-pins {
++		pins-bus {
++			pinmux = <PINMUX_GPIO14__FUNC_SDA3>,
++				 <PINMUX_GPIO15__FUNC_SCL3>;
++			bias-pull-up = <1000>;
++			drive-strength = <6>;
++			drive-strength-microamp = <1000>;
++		};
++	};
++
+ 	i2c4_pins: i2c4-pins {
+ 		pins-bus {
+ 			pinmux = <PINMUX_GPIO16__FUNC_SDA4>,
 
-Do we really expect drm_bridge_connector to stick around when a bridge
-gets unplugged? If so, how does it cope with having, say, an HDMI
-connector, and then swapping out the hotplugged part for an LVDS one?
-Does the HDMI connector sticks around indefinitely?
+---
+base-commit: 8cd9520d35a6c38db6567e97dd93b1f11f185dc6
+change-id: 20260624-nio-12l-add-i2c-40-pin-19e0482fd835
 
-*Especially* if we're using overlays for this, I'd expect everything
- after the first hotplugged bridge to be destroyed, no?
+Best regards,
+--  
+Ricardo Pardini <ricardo@pardini.net>
 
-Maxime
 
---ggct6afei637l4eq
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCajvCeAAKCRAnX84Zoj2+
-dhuUAYDFJqooNqUx588XAwTFLaml7a7KW4JruaolEF1p9BhcIvYFBDvNrKfeFNmP
-g/vAax4BfRNosW1vwCuAixIjSRCuI4sKHQdfzCecAWgVrpSjTSYU7afdO4ghM4Js
-DadrDa7/6Q==
-=c8Y7
------END PGP SIGNATURE-----
-
---ggct6afei637l4eq--
 
