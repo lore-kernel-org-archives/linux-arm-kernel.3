@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41D40CDB479
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 06:52:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7694FCDB479
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 06:55:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jrd+LkEfv5MAEbwJjh86ojQMQ5+oIm/B8nP9VkcnUTk=; b=Ck0iGgh0wjxTGpajOCLoRu+yJ0
-	nG+fMeP8uXpmZVoavZavdBJWrXwCdq3KMwvqF9wUjPZlOUgpqsgFze4SABqcIw5H+YwUpyH6P7fj6
-	xBu0xG3huh9P3SVjp4XnD6eOL4d0fHhBQUeciQ6TtBiMru4xu6jvZxkBAf6RZv8TjBeVFh/tV6EVV
-	Sm1DyOSWG/mVv7EXwRysU+s9aaQPeZ+t6+u+fpbbj2yjtQ3fnBsC13NvtteLeGcdmzKrKcZnUHCh1
-	er0N67h5PiLdTh9y6+8AxArm3U2rlBgorsGWl9dJM7YrbBzoCFL6qDYAJXHz3TjERRa1urx00B5hB
-	CZ2ccWYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yWm8hwbOHYEuIVgePKE1QjEJreKex9TPU9yjx6MzZcc=; b=nRnIvsOeALfNSTFaIaKwcRgmL1
+	/VRogYH1KIvwDhXXCosEwgXkgupaQly0djKO0/iVWjZiFkhDXRftFFsy6XUTc954pEThz0b/rWsFM
+	sisTd75P2pkkgoGdyR1z8D42CYYxozsJeawNs7bgtSJnrawDJ8JcWmdnxjzMetvTOD2D2LOu2si4X
+	NSy0XFAly70WQJS3+XqRoOF1rJ+otCBXA+lwhx+OSupioTPliP5v1cjRTe8EQvD53Sg9+lw6AI/If
+	JHVrKwfvgJ3rpDIdttapWNrfPirDlL0CP1UEqS4BtNVhI4nuSKeJnlm1WHkIA/i4eK5U96x+HezhD
+	pvachKyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcHSi-00000007Fdy-48ya;
-	Wed, 24 Jun 2026 06:51:53 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wcHWS-00000007G04-2zyO;
+	Wed, 24 Jun 2026 06:55:44 +0000
+Received: from out-188.mta0.migadu.com ([91.218.175.188])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcHSh-00000007Fdl-47hp
+	id 1wcHWO-00000007FzU-2hFi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 06:51:52 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 76C0B601F6;
-	Wed, 24 Jun 2026 06:51:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78AAA1F000E9;
-	Wed, 24 Jun 2026 06:51:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782283910;
-	bh=jrd+LkEfv5MAEbwJjh86ojQMQ5+oIm/B8nP9VkcnUTk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=d89k0TKgopbxJmvGycsqeVSY+xGJGzRzXaVBcfXFoJy+9paWh0L8ej6bqzVeeOZGo
-	 MP7yuIprkO+o39oCTqarri6+Re+E1mR9p/qurHPz5oYCknyQf74R5/Senf3gDf6QhN
-	 kZyCSuczjYORClqNgzcMYAIagaSswByNH3mvXclH5rffyDJb6570+hiclLbENVXEuY
-	 yosaRTwrRS/4lGLZVlX4V1TAd+r9T7Afbf/8AjxVmodMOCMZaly76opo0DlzkwIFx2
-	 eDONYgujK7SDbl/jPw+ywTG4k+EPfNtMzj5tQJIKly17fm3YGcsM1/hQFqhZfSBVvJ
-	 g7M1upLooy84g==
-Date: Wed, 24 Jun 2026 08:51:47 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Alexander Sverdlin <alexander.sverdlin@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Hans de Goede <hansg@kernel.org>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
-	Andre Przywara <andre.przywara@arm.com>, Jun Yan <jerrysteve1101@gmail.com>, 
-	Lukas Schmid <lukas.schmid@netcube.li>, =?utf-8?Q?J=2E_Neusch=C3=A4fer?= <j.ne@posteo.net>, 
-	Eric Biggers <ebiggers@kernel.org>, Michal Simek <michal.simek@amd.com>, 
-	Luca Weiss <luca@lucaweiss.eu>, Sven Peter <sven@kernel.org>, Maxime Ripard <mripard@kernel.org>, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-input@vger.kernel.org
-Subject: Re: [PATCH v5 4/6] dt-bindings: input: sun4i-lradc-keys: Add
- A100/A133 compatible
-Message-ID: <20260624-awesome-demonic-guppy-d494a7@quoll>
-References: <20260623204824.691832-1-alexander.sverdlin@gmail.com>
- <20260623204824.691832-5-alexander.sverdlin@gmail.com>
+	Wed, 24 Jun 2026 06:55:43 +0000
+Message-ID: <df40cc47-98ec-44b6-afda-76f483b788f9@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1782284135;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=yWm8hwbOHYEuIVgePKE1QjEJreKex9TPU9yjx6MzZcc=;
+	b=YcHVNIIQIPlkM4Otj/PcpwiswIuKazAwMKCk9ChENUfKCwBT6Gh/wiQr0oNjKrv1nipBGG
+	ct24V6l0dxWtjw8Rc02pGLqDchRSQLB/o2NKzC0FKFohLycg4yJTIH0RPJbw0uwB5DODaP
+	v0GqAVxtEwq+zjEoS/Pic5q81ZOQ9Ic=
+Date: Tue, 23 Jun 2026 23:55:28 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260623204824.691832-5-alexander.sverdlin@gmail.com>
+Subject: Re: [PATCH v6 04/21] RISC-V: Define indirect CSR access helpers
+To: Charlie Jenkins <thecharlesjenkins@gmail.com>
+Cc: James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>, Jiri Olsa <jolsa@kernel.org>,
+ Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Anup Patel <anup@brainfault.org>, Namhyung Kim <namhyung@kernel.org>,
+ Paul Walmsley <pjw@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Ian Rogers <irogers@google.com>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+ Conor Dooley <conor@kernel.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260608-counter_delegation-v6-0-285b72ed65a9@meta.com>
+ <20260608-counter_delegation-v6-4-285b72ed65a9@meta.com>
+ <ajjZR-R11yPYWuDp@blinky>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Atish Patra <atish.patra@linux.dev>
+In-Reply-To: <ajjZR-R11yPYWuDp@blinky>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260623_235541_451140_94ABB811 
+X-CRM114-Status: GOOD (  15.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,17 +78,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 23, 2026 at 10:48:16PM +0200, Alexander Sverdlin wrote:
-> The Allwinner A100/A133 SoCs have an LRADC which is compatible with the
-> versions in existing SoCs. Add a compatible string for A100, with the R329
-> fallback.
-> 
-> Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
-> ---
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-
-Best regards,
-Krzysztof
-
+On 6/21/26 11:42 PM, Charlie Jenkins wrote:
+> On Mon, Jun 08, 2026 at 11:01:18PM -0700, Atish Patra wrote:
+>> From: Atish Patra <atishp@rivosinc.com>
+>>
+>> The indriect CSR requires multiple instructions to read/write CSR.
+> indirect
+>
+>> Add a few helper functions for ease of usage.
+>>
+>> Signed-off-by: Atish Patra <atishp@rivosinc.com>
+>> ---
+>>   arch/riscv/include/asm/csr_ind.h | 44 ++++++++++++++++++++++++++++++++++++++++
+>>   1 file changed, 44 insertions(+)
+>>
+>> diff --git a/arch/riscv/include/asm/csr_ind.h b/arch/riscv/include/asm/csr_ind.h
+>> new file mode 100644
+>> index 000000000000..6fd7d44dc640
+>> --- /dev/null
+>> +++ b/arch/riscv/include/asm/csr_ind.h
+>> @@ -0,0 +1,44 @@
+>> +/* SPDX-License-Identifier: GPL-2.0-only */
+>> +/*
+>> + * Copyright (C) 2024 Rivos Inc.
+> I don't think it makes sense to introduce this copyright in new commits.
+Yeah. I will update these.
+> - Charlie
+>
+>> + */
+>> +
+>> +#ifndef _ASM_RISCV_CSR_IND_H
+>> +#define _ASM_RISCV_CSR_IND_H
+>> +
+>> +#include <linux/irqflags.h>
+>> +
+>> +#include <asm/csr.h>
+>> +
+>> +#define csr_ind_read(iregcsr, iselbase, iseloff) ({		\
+>> +	unsigned long __value = 0;				\
+>> +	unsigned long __flags;					\
+>> +	local_irq_save(__flags);				\
+>> +	csr_write(CSR_ISELECT, (iselbase) + (iseloff));		\
+>> +	__value = csr_read(iregcsr);				\
+>> +	local_irq_restore(__flags);				\
+>> +	__value;						\
+>> +})
+>> +
+>> +#define csr_ind_write(iregcsr, iselbase, iseloff, value) ({	\
+>> +	unsigned long __flags;					\
+>> +	local_irq_save(__flags);				\
+>> +	csr_write(CSR_ISELECT, (iselbase) + (iseloff));		\
+>> +	csr_write(iregcsr, (value));				\
+>> +	local_irq_restore(__flags);				\
+>> +})
+>> +
+>> +#define csr_ind_warl(iregcsr, iselbase, iseloff, warl_val) ({	\
+>> +	unsigned long __old_val = 0, __value = 0;		\
+>> +	unsigned long __flags;					\
+>> +	local_irq_save(__flags);				\
+>> +	csr_write(CSR_ISELECT, (iselbase) + (iseloff));		\
+>> +	__old_val = csr_read(iregcsr);				\
+>> +	csr_write(iregcsr, (warl_val));				\
+>> +	__value = csr_read(iregcsr);				\
+>> +	csr_write(iregcsr, __old_val);				\
+>> +	local_irq_restore(__flags);				\
+>> +	__value;						\
+>> +})
+>> +
+>> +#endif
+>>
+>> -- 
+>> 2.53.0-Meta
+>>
+>>
+>> _______________________________________________
+>> linux-riscv mailing list
+>> linux-riscv@lists.infradead.org
+>> http://lists.infradead.org/mailman/listinfo/linux-riscv
+>>
 
