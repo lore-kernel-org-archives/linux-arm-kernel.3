@@ -4,65 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01823CDB481
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 13:03:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC55DCDB481
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 13:04:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0wvGrticL+14eaoXUIsDMUBu/59dncMbQJKT5O+QSdk=; b=qZGUbCStalcYFrZSdZawUniGBt
-	d3tTB0/cfWsTNDo6onPY6LUQoK1l/TUqfdXqQ2TwGZl6n7fQxCu61UIAE5mk6hgdeq2RES+heN0dk
-	e1LFNWI67U7MTEv+NGUvs9eENBWrSbdTgGuJipQzdS/0qXcl0Nc7mRb/N9dbkLGgPIGFUr1cNr8ar
-	kWAvt3BBG/hg2qZ918j5eBVOfWSM6tG3N6zO3/VA97PGgL3aKCOSyC1rNB4+0SjoUNhzVC5bB9xH/
-	HE4alcbUuY3h+/wztSM9I2fNKQyNt4AJ8Bi/za+6xjoDIPUApNJFMztxh5OOxUy8zAcpkyIeJikxV
-	LfrERB0g==;
+	bh=eWHl0udhvjCV2mjGVC5uD1U/TvHNrVW3aXd0HzDYa1U=; b=k4c1X8OokeBCzhaaDdVqosCSly
+	FAT0GuvWJirEnnm3ROj24crs//LryGLFCP44xEJzQGnu48YLeiXA6ATussUSoRH3E1OhcNHLGkwL+
+	uUlSSXHAKAq9XfOgo55rp99fdR29R/Effy0+CB8HhoBloJM+TfOEFFvSkGW01kLV3Sp8HvCVb0AiY
+	Vi+Bp7sGecdU+i6/OXNFv2Twx41kNTvgURmD+446qxNtriYWs/Aeq4xuq00lw+mjphDzL9FiQpQzp
+	7Z35JWz+2SiZQfD9ducvMkLP5eP9xUHVagjBKHNWRA3VkDVzgbAaTBBzNexySt1lRBKzbBTmVsS6q
+	sK4cnYWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcNGV-00000007nE0-3DKr;
-	Wed, 24 Jun 2026 13:03:39 +0000
-Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
+	id 1wcNHF-00000007nMX-0aBE;
+	Wed, 24 Jun 2026 13:04:25 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcNGT-00000007nCy-2HjE;
-	Wed, 24 Jun 2026 13:03:39 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
-	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 830D12007B6;
-	Wed, 24 Jun 2026 15:03:35 +0200 (CEST)
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1wcNGR-004QbC-1S;
-	Wed, 24 Jun 2026 15:03:35 +0200
-Received: from pza by lupine with local (Exim 4.98.2)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1wcNGR-00000000B6d-1TPc;
-	Wed, 24 Jun 2026 15:03:35 +0200
-Message-ID: <9db83aa615f43ff6eac090626b43915fcd593a25.camel@pengutronix.de>
-Subject: Re: [PATCH v9 04/12] reset: realtek: Add RTD1625-ISO reset
- controller driver
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Yu-Chun Lin <eleanor.lin@realtek.com>, mturquette@baylibre.com, 
-	sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- 	cylee12@realtek.com, afaerber@suse.com, jyanchou@realtek.com,
- bmasney@redhat.com
-Cc: devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-realtek-soc@lists.infradead.org, james.tai@realtek.com, 
-	cy.huang@realtek.com, stanley_chang@realtek.com
-Date: Wed, 24 Jun 2026 15:03:35 +0200
-In-Reply-To: <20260624112940.3475605-5-eleanor.lin@realtek.com>
-References: <20260624112940.3475605-1-eleanor.lin@realtek.com>
-	 <20260624112940.3475605-5-eleanor.lin@realtek.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	id 1wcNHD-00000007nMG-20gh
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 24 Jun 2026 13:04:23 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 87E3C60018;
+	Wed, 24 Jun 2026 13:04:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C30851F000E9;
+	Wed, 24 Jun 2026 13:04:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782306262;
+	bh=eWHl0udhvjCV2mjGVC5uD1U/TvHNrVW3aXd0HzDYa1U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=FVDAUURG5/OnVD/2XG5fzA49+V/z3pAgKME/Z9UXdbjAATGJL7M3qh98G+bnxhA8y
+	 zvn8Vir+IzYGhhHsGRzq15UnjwPKF3AWWu37ET7ogGxEu95K7qdVsdQ4W2hTvJMESV
+	 BCwWgJDd84CnVWefJoKqTcKxoZ5DOc0EgfqgJ6eedQs5wdcaHeFoUa+Htx2y3HpN3y
+	 0ehEMWnE+LupoJaQcFZpdLLmP97qbW0M9g2fxDKXUKvgup+VBq3KxMNhTQyHyiZ5fL
+	 AztfsXKYTjbMO6PWpYeSCHDEuxlk0qhkY5eU1VhvqfK7oFMtH/4wyCDTTa0+Fm3JHN
+	 6INBjM3evlPJQ==
+Date: Wed, 24 Jun 2026 15:04:19 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Inki Dae <inki.dae@samsung.com>, 
+	Jagan Teki <jagan@amarulasolutions.com>, Marek Szyprowski <m.szyprowski@samsung.com>, 
+	Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Hui Pu <Hui.Pu@gehealthcare.com>, 
+	Ian Ray <ian.ray@gehealthcare.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 30/37] drm/bridge: add drm_bridge_is_tail() to know
+ whether a bridge completes the pipeline
+Message-ID: <20260624-vagabond-neon-gorilla-cd6487@houat>
+References: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
+ <20260519-drm-bridge-hotplug-v1-30-45e2bdb3dfb4@bootlin.com>
+ <20260608-shapeless-opal-ferret-c8b105@houat>
+ <DJ4DGYZ3GQZH.3AZOC0Z69W92S@bootlin.com>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_060337_886031_FA8315BF 
-X-CRM114-Status: GOOD (  23.38  )
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="kbqprj5uqeblzkb7"
+Content-Disposition: inline
+In-Reply-To: <DJ4DGYZ3GQZH.3AZOC0Z69W92S@bootlin.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,170 +84,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mi, 2026-06-24 at 19:29 +0800, Yu-Chun Lin wrote:
-> From: Cheng-Yu Lee <cylee12@realtek.com>
+
+--kbqprj5uqeblzkb7
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 30/37] drm/bridge: add drm_bridge_is_tail() to know
+ whether a bridge completes the pipeline
+MIME-Version: 1.0
+
+On Tue, Jun 09, 2026 at 10:23:24AM +0200, Luca Ceresoli wrote:
+> Hi Maxime,
 >=20
-> Add support for the ISO (Isolation) domain reset controller on the Realte=
-k
-> RTD1625 SoC.
+> thanks for the review of this long series!
 >=20
-> The reset controller shares the same register space with the ISO clock
-> controller. To handle this shared register space, the reset driver is
-> implemented as an auxiliary driver. It will be instantiated and probed vi=
-a
-> the auxiliary bus by the RTD1625-ISO clock controller driver.
+> On Mon Jun 8, 2026 at 2:34 PM CEST, Maxime Ripard wrote:
+> ...
+> >> --- a/include/drm/drm_bridge.h
+> >> +++ b/include/drm/drm_bridge.h
+> >> @@ -78,6 +78,19 @@ struct drm_bridge_funcs {
+> >>  	int (*attach)(struct drm_bridge *bridge, struct drm_encoder *encoder,
+> >>  		      enum drm_bridge_attach_flags flags);
+> >>
+> >> +	/**
+> >> +	 * @is_tail:
+> >> +	 *
+> >> +	 * Returns true if this is a tail bridge, i.e. it does not need a
+> >> +	 * next bridge to work. E.g. a panel_bridge is a tail bridge, a
+> >> +	 * DSI-to-LVDS bridge is not a tail bridge (no matter whether the
+> >> +	 * next bridge is present or not).
+> >
+> > Why a DSI-to-LDVS bridge isn't a tail bridge? It only needs a panel
+> > next, right?
 >=20
-> Signed-off-by: Cheng-Yu Lee <cylee12@realtek.com>
-> Co-developed-by: Yu-Chun Lin <eleanor.lin@realtek.com>
-> Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
-> ---
-> Changes in v9:
-> - Extract reset-related code from the previous clock driver patch
-> (formerly patch 9 in v8).
-> ---
->  drivers/reset/realtek/Makefile            |  2 +-
->  drivers/reset/realtek/reset-rtd1625-iso.c | 99 +++++++++++++++++++++++
->  2 files changed, 100 insertions(+), 1 deletion(-)
->  create mode 100644 drivers/reset/realtek/reset-rtd1625-iso.c
+> Uhm, good point, but I'd say it can be a tail bridge or not: in the
+> ATTACH_NO_CONNECTOR case it will need a bridge (a panel_bridge most
+> likely), no?
+
+Yeah, I think it cannot (always) be a blanket statement from the driver.
+For drivers that do not support ATTACH_NO_CONNECTOR, then it's always
+going to be a tail, but if the driver supports it, we should use a
+helper because it's going to depend on the DT, basically.
+
+> However this is possibly irrelevant as the whole .is_tail is meant to
+> disappear in v2, see below.
+>
+> >> +	 * The @is_tail callback is optional but it is required if the
+> >> +	 * bridge is part of a pipeline with hot-pluggable components.
+> >> +	 */
+> >> +	bool (*is_tail)(struct drm_bridge *bridge);
+> >> +
+> >
+> > I don't think that's the right way to think about it, if only because
+> > you never really know at the driver level if you're supposed to be last
+> > or not. A DSI-to-LVDS bridge might just as well be chained with an
+> > LVDS-to-eDP bridge, or feed the panel directly without any additional
+> > bridge.
+> >
+> > I *think* that what you're trying to find out here is whether the chain
+> > is complete or not.
 >=20
-> diff --git a/drivers/reset/realtek/Makefile b/drivers/reset/realtek/Makef=
-ile
-> index c3f605ffb11c..9007c9d5683b 100644
-> --- a/drivers/reset/realtek/Makefile
-> +++ b/drivers/reset/realtek/Makefile
-> @@ -1,3 +1,3 @@
->  # SPDX-License-Identifier: GPL-2.0-only
->  obj-$(CONFIG_RESET_RTK_COMMON) +=3D reset-rtk-common.o
-> -obj-$(CONFIG_RESET_RTD1625) +=3D reset-rtd1625-crt.o
-> +obj-$(CONFIG_RESET_RTD1625) +=3D reset-rtd1625-crt.o reset-rtd1625-iso.o
+> You nailed it.
+>=20
+> That was the main point discussed during the Display Next Hackfest 2026
+> (see the report [0]) and we all agreed the .is_tail along with the
+> -EPROBE_DEFER changes (patches 20+35) are not a good approach.
+>=20
+> This is actually the most crucial aspect of the whole work still not havi=
+ng
+> no well-defined solution.
 
-Is there any benefit to these two being separate modules?
-I suggest you merge them into one: reset-rtd1625.o
+Ok
 
-> diff --git a/drivers/reset/realtek/reset-rtd1625-iso.c b/drivers/reset/re=
-altek/reset-rtd1625-iso.c
-> new file mode 100644
-> index 000000000000..78eaabb408f0
-> --- /dev/null
-> +++ b/drivers/reset/realtek/reset-rtd1625-iso.c
-> @@ -0,0 +1,99 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (C) 2026 Realtek Semiconductor Corporation
-> + */
-> +
-> +#include <dt-bindings/reset/realtek,rtd1625.h>
-> +#include <linux/auxiliary_bus.h>
-> +#include <linux/device.h>
-> +#include <linux/errno.h>
-> +#include <linux/of.h>
-> +#include <linux/slab.h>
-> +#include "reset-rtk-common.h"
-> +
-> +#define RTD1625_ISO_RSTN_MAX	29
-> +#define RTD1625_ISO_S_RSTN_MAX	5
+> > I think you can get the same information by checking
+> > whether you have a connector for that bridge chain. If you don't, you
+> > know the chain isn't complete, and if you do, it's supposed to be.
+>=20
+> There's a checken-egg problem here. Knowing whether the pipeline is
+> complete or not is needed to know whether we have to create a
+> connector. See patch 36:
+>=20
+>   +  if (drm_bridge_connector_pipeline_is_complete(bridge_connector))
+>   +          drm_bridge_connector_add_connector(bridge_connector);
+>=20
+> So the question is still open, what I need the most right now is comments
+> on the overall architecture of this aspecs. Maybe replying to [0] can be
+> more effective than here.
+>=20
+> In a nutshell what we need is:
+>=20
+>  * when a bridge needs a following element (a bridge, or a panel which
+>    however might/should have a panel_bridge), but that element is not
+>    present, instead of deferring the whole card probe the card should be
+>    allowed to probe but without a connector
+>=20
+>  * when something is added to an incomplete pipeline we need to know
+>    whether the pipeline has become complete (in order to create the
+>    connector)
+>=20
+> How to implement this is still an open point. I'll welcome proposals in
+> addition to the ones in [0].
 
-These are not necessary, just use ARRAY_SIZE() for nr_resets.
+Thanks for the notes, I think I largely agree with the discussion.
+Reading through it, I thought it would be nice for a new callback called
+get_next_bridge or something that would return either an error, NULL or a
+(refcounted) pointer to the next bridge in the chain. And have some kind
+of special error (ENODEV?) when the bridge should be there but isn't
+(and thus the chain isn't complete).
 
-> +
-> +static const struct rtk_reset_desc rtd1625_iso_reset_descs[] =3D {
-> +	[RTD1625_ISO_RSTN_VFD]                 =3D { .ofs =3D 0x88, .bit =3D 0 =
-},
-> +	[RTD1625_ISO_RSTN_CEC0]                =3D { .ofs =3D 0x88, .bit =3D 2 =
-},
-> +	[RTD1625_ISO_RSTN_CEC1]                =3D { .ofs =3D 0x88, .bit =3D 3 =
-},
-> +	[RTD1625_ISO_RSTN_CBUSTX]              =3D { .ofs =3D 0x88, .bit =3D 5 =
-},
-> +	[RTD1625_ISO_RSTN_CBUSRX]              =3D { .ofs =3D 0x88, .bit =3D 6 =
-},
-> +	[RTD1625_ISO_RSTN_USB3_PHY2_XTAL_POW]  =3D { .ofs =3D 0x88, .bit =3D 7 =
-},
-> +	[RTD1625_ISO_RSTN_UR0]                 =3D { .ofs =3D 0x88, .bit =3D 8 =
-},
-> +	[RTD1625_ISO_RSTN_GMAC]                =3D { .ofs =3D 0x88, .bit =3D 9 =
-},
-> +	[RTD1625_ISO_RSTN_GPHY]                =3D { .ofs =3D 0x88, .bit =3D 10=
- },
-> +	[RTD1625_ISO_RSTN_I2C_0]               =3D { .ofs =3D 0x88, .bit =3D 11=
- },
-> +	[RTD1625_ISO_RSTN_I2C_1]               =3D { .ofs =3D 0x88, .bit =3D 12=
- },
-> +	[RTD1625_ISO_RSTN_CBUS]                =3D { .ofs =3D 0x88, .bit =3D 13=
- },
-> +	[RTD1625_ISO_RSTN_USB_DRD]             =3D { .ofs =3D 0x88, .bit =3D 14=
- },
-> +	[RTD1625_ISO_RSTN_USB_HOST]            =3D { .ofs =3D 0x88, .bit =3D 15=
- },
-> +	[RTD1625_ISO_RSTN_USB_PHY_0]           =3D { .ofs =3D 0x88, .bit =3D 16=
- },
-> +	[RTD1625_ISO_RSTN_USB_PHY_1]           =3D { .ofs =3D 0x88, .bit =3D 17=
- },
-> +	[RTD1625_ISO_RSTN_USB_PHY_2]           =3D { .ofs =3D 0x88, .bit =3D 18=
- },
-> +	[RTD1625_ISO_RSTN_USB]                 =3D { .ofs =3D 0x88, .bit =3D 19=
- },
-> +	[RTD1625_ISO_RSTN_TYPE_C]              =3D { .ofs =3D 0x88, .bit =3D 20=
- },
-> +	[RTD1625_ISO_RSTN_USB_U3_HOST]         =3D { .ofs =3D 0x88, .bit =3D 21=
- },
-> +	[RTD1625_ISO_RSTN_USB3_PHY0_POW]       =3D { .ofs =3D 0x88, .bit =3D 22=
- },
-> +	[RTD1625_ISO_RSTN_USB3_P0_MDIO]        =3D { .ofs =3D 0x88, .bit =3D 23=
- },
-> +	[RTD1625_ISO_RSTN_USB3_PHY1_POW]       =3D { .ofs =3D 0x88, .bit =3D 24=
- },
-> +	[RTD1625_ISO_RSTN_USB3_P1_MDIO]        =3D { .ofs =3D 0x88, .bit =3D 25=
- },
-> +	[RTD1625_ISO_RSTN_VTC]                 =3D { .ofs =3D 0x88, .bit =3D 26=
- },
-> +	[RTD1625_ISO_RSTN_USB3_PHY2_POW]       =3D { .ofs =3D 0x88, .bit =3D 27=
- },
-> +	[RTD1625_ISO_RSTN_USB3_P2_MDIO]        =3D { .ofs =3D 0x88, .bit =3D 28=
- },
-> +	[RTD1625_ISO_RSTN_USB_PHY_3]           =3D { .ofs =3D 0x88, .bit =3D 29=
- },
-> +	[RTD1625_ISO_RSTN_USB_PHY_4]           =3D { .ofs =3D 0x88, .bit =3D 30=
- },
-> +};
-> +
-> +static const struct rtk_reset_desc rtd1625_iso_s_reset_descs[] =3D {
-> +	[RTD1625_ISO_S_RSTN_ISOM_MIS] =3D { .ofs =3D 0x310, .bit =3D 0, .write_=
-en =3D 1 },
-> +	[RTD1625_ISO_S_RSTN_GPIOM]    =3D { .ofs =3D 0x310, .bit =3D 2, .write_=
-en =3D 1 },
-> +	[RTD1625_ISO_S_RSTN_TIMER7]   =3D { .ofs =3D 0x310, .bit =3D 4, .write_=
-en =3D 1 },
-> +	[RTD1625_ISO_S_RSTN_IRDA]     =3D { .ofs =3D 0x310, .bit =3D 6, .write_=
-en =3D 1 },
-> +	[RTD1625_ISO_S_RSTN_UR10]     =3D { .ofs =3D 0x310, .bit =3D 8, .write_=
-en =3D 1 },
-> +};
-> +
-> +static int rtd1625_iso_reset_probe(struct auxiliary_device *adev,
-> +				   const struct auxiliary_device_id *id)
-> +{
-> +	struct device *dev =3D &adev->dev;
-> +	struct device *parent =3D dev->parent;
-> +	struct rtk_reset_data *data;
-> +
-> +	data =3D devm_kzalloc(dev, sizeof(*data), GFP_KERNEL);
-> +	if (!data)
-> +		return -ENOMEM;
-> +
-> +	if (of_device_is_compatible(parent->of_node, "realtek,rtd1625-iso-s-clk=
-")) {
-> +		data->descs           =3D rtd1625_iso_s_reset_descs;
-> +		data->rcdev.nr_resets =3D RTD1625_ISO_S_RSTN_MAX;
-> +	} else {
-> +		data->descs           =3D rtd1625_iso_reset_descs;
-> +		data->rcdev.nr_resets =3D RTD1625_ISO_RSTN_MAX;
-> +	}
+Maxime
 
-No need to parse OF compatible again. Store these in a struct, point
-auxiliary_device_id::driver_data to it, and use that here.
+--kbqprj5uqeblzkb7
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
 
-regards
-Philipp
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCajvVzAAKCRAnX84Zoj2+
+dlmUAYD85u1Hv2vXFhhpb6AcHYKPXjuNOtyNzQsT4JWMH1ryh7eB79pKZqOgRdEy
+eq2O3/oBgPEWUBztGIVs76NR8fkCDIHxxd33fzv2OlQ6wFx/V7B8rXw601tQObK3
+cTgu6ITMBQ==
+=amXL
+-----END PGP SIGNATURE-----
+
+--kbqprj5uqeblzkb7--
 
