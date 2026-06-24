@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E797CDB479
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 22:56:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23074CDE000
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 23:35:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ygSwhLMj6NXCilW+c33iw+FbMzYRnhoWI20Z3BXK3IE=; b=HhPFDcTQ0Tebxzw8ScocfPAprG
-	sG7EvV3i4weRYq+XPABqLa56gnwixUcPDlIMcVFFY3oFE/S/mhJztcg9JSxFrW5/Fdqz4YfHH7Bxq
-	a6GubJf2EeW9I57DTmcBDswiwwum7QLGLanPclWPvN1PoFXpWC4yeBLr3nV1QfGom23pnz31FCZzl
-	IH+qA6zMlZ98K9RIppnmJ5WVHT7+pibZEQR6RziUnp/ECB8NW7+KXOPtXimsTp/KtBYV0DJflyUeI
-	aJM/qcMzGiIoYVgOgKCI8DABCKEpnj+J1PGBMVsTplmZ2mOBGWdpLFbRiGTV5bK+Pt4rKiZQooaTx
-	0N7A5eBA==;
+	bh=JLmutQCxoo5wzH9sgIQ32+4GwLi13waZ3ElW5YR0dMk=; b=Ea2LoXa1YPZz2DFlaJt/QxfvqE
+	/BhyILhDvAETbcvltksL416l04tR2rfKTEvdGTIXKQyCufRvcJgHvYZum/0LaWbV2xfCx1hLZbtmh
+	X1jrqbPTQBNWM0IEOxwBXkx+OH9FeAt6Tz+8GDyFmKlBJm6KRlJUgXwgVKXAjmK3fUgt4EQxhXFUt
+	HhBrx+Nwm4fv04f707V4Sx5SAFPooVKVJyCvYNNzP7qHTIZ87B5sFAon6HHZ5yh5e6jFAhOvn8ObN
+	+sONS/457+nsYLLLRSkx0nV1RPGp2XlA2+nfcWDL9juDnWIqLDi8lbJVS3t0+TO5AsZVFfoKHev4l
+	2hByoIIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcWWY-00000008Q72-1gAL;
-	Wed, 24 Jun 2026 22:56:50 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wcX84-00000008RQT-29AR;
+	Wed, 24 Jun 2026 23:35:36 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcWWX-00000008Q6w-2DeN
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 22:56:49 +0000
+	id 1wcX82-00000008RQJ-3jNc;
+	Wed, 24 Jun 2026 23:35:34 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4BD6743CA7
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Jun 2026 22:56:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 304B11F00A3F
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Jun 2026 22:56:49 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BB60960018;
+	Wed, 24 Jun 2026 23:35:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F30C1F000E9;
+	Wed, 24 Jun 2026 23:35:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782341809;
-	bh=ygSwhLMj6NXCilW+c33iw+FbMzYRnhoWI20Z3BXK3IE=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=Bvho+GqGAxHLH6uEZGyu9fddQFEwrsP0mN8QqgpKkIwYYWpu253UeybRkOcs9F84C
-	 cJGiJ7nKH0vcQPW80ICOo5u71AbDVPLQAZxlgQsr4HW2YHgizvw9pFtEr0lJhvfb0t
-	 fluwtxIgJxiZgkEa6MJ0WoVdWdj88s85Ivq3gtG+eGRMOXXR8EefgB/C7OIS0V7bcK
-	 ciS3H3V0bfaeXziERb5x7swNfY5FnCFkiXvBZTZ3bIe42muOvA7HAuvUhtmjpj6ETD
-	 xE5mRCaIogz1f//+vFfs/vRcpLAzewi8Spns2OlYlu4x8R6WU3+HnTnF+d3jJQIzOD
-	 vZPbA62sM9utA==
-Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-5ad68b30252so1843451e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Jun 2026 15:56:49 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+Rp642Tg454Vr8qoa8Ib6phHIIyAGIdooXuM9b5rERQN/S8fVThlLcWgFDJNAe6K0KhXA9O3EVs9M1hY9Tb0Bhr5@lists.infradead.org
-X-Gm-Message-State: AOJu0YzE1BAA3h9FOHNAJ5WE/9KTNLX7oevcDtkfNG4qzE7MWDfpGhTa
-	Vpa6NKBb6VW8ylsY8XSHxFrb0wYckdoHjPEB8hpbzKIBt6+Dqc4/cI+nieF0jG4VkGMuAC4Wv8a
-	Is5aNRgMN1er6httDPtDYZCGbAuqWsIQ=
-X-Received: by 2002:a05:6512:135b:b0:5aa:6ede:1a69 with SMTP id
- 2adb3069b0e04-5aea1f43aa8mr15092e87.17.1782341808041; Wed, 24 Jun 2026
- 15:56:48 -0700 (PDT)
+	s=k20260515; t=1782344133;
+	bh=JLmutQCxoo5wzH9sgIQ32+4GwLi13waZ3ElW5YR0dMk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=F5cwixsgtLYdexl9DskEsNL0+nnUb59ozL9di74fEHG1wzoVHg0myhY66KtbT85SM
+	 /zBo7TaDS8t1cjY6+fLxqGI/NlIaFuvMkSENRhLqmJmGvH0jlAXchMuULAkX1DSIsz
+	 QuGO1a8ExUudqTOoyrdUXM4HRP7QgaR97CrGnEPsm7wu7HzWkVgY9bPoNeUY09iOfW
+	 zQio73OS7lZi9h/Uw7Uj6zgFzJCHuSbRg9d78H4AKRFEzU2+2PBeL3W18QgS2z2avB
+	 aDan7AE9d8bVRIjZyPGjUG6CYTW2vT5igx61z8cYNmX5lJCLSJdlH/0ZI4dVwb8UYV
+	 xB/51UsAFPivA==
+Date: Wed, 24 Jun 2026 16:35:31 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: "Wu. JackBB (GSM)" <JackBB_Wu@compal.com>
+Cc: Loic Poulain <loic.poulain@oss.qualcomm.com>, Sergey Ryazanov
+ <ryazanov.s.a@gmail.com>, Johannes Berg <johannes@sipsolutions.net>,
+ "Andrew Lunn" <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, "Eric Dumazet" <edumazet@google.com>, Paolo Abeni
+ <pabeni@redhat.com>, Wen-Zhi Huang <wen-zhi.huang@mediatek.com>, Shi-Wei
+ Yeh <shi-wei.yeh@mediatek.com>, Minano Tseng <Minano.tseng@mediatek.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>, Simon Horman <horms@kernel.org>,
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>
+Subject: Re: [External Mail] [PATCH v2 1/7] net: wwan: t9xx: Add PCIe core
+Message-ID: <20260624163531.2bae55dc@kernel.org>
+In-Reply-To: <b02c0e1e9f0449f2b819197e4329373b@compal.com>
+References: <20260610-t9xx_driver_v1-v2-0-c65addf23b3f@compal.com>
+	<20260610-t9xx_driver_v1-v2-1-c65addf23b3f@compal.com>
+	<b02c0e1e9f0449f2b819197e4329373b@compal.com>
 MIME-Version: 1.0
-References: <20260623-i2c-fault-reporting-v1-0-6db1a8aabf18@mobileye.com> <20260623-i2c-fault-reporting-v1-7-6db1a8aabf18@mobileye.com>
-In-Reply-To: <20260623-i2c-fault-reporting-v1-7-6db1a8aabf18@mobileye.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Thu, 25 Jun 2026 00:56:35 +0200
-X-Gmail-Original-Message-ID: <CAD++jLnF34JGQ5HbRdSx=g_kyvqj35kDoW8mjaJYadCFVWeGLQ@mail.gmail.com>
-X-Gm-Features: AVVi8CcNUuaB-Vq_8JOqV-nSNQpuwqzs4DxG1-v--Hf1jCE0OC5XQdbb55KCWJI
-Message-ID: <CAD++jLnF34JGQ5HbRdSx=g_kyvqj35kDoW8mjaJYadCFVWeGLQ@mail.gmail.com>
-Subject: Re: [PATCH 7/7] i2c: nomadik: add support for I2C_XFER_V2 - detailed
- fault reporting
-To: Dmitry Guzman <Dmitry.Guzman@mobileye.com>
-Cc: Andi Shyti <andi.shyti@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
-	Masami Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
-	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-trace-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,22 +82,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 23, 2026 at 6:32=E2=80=AFPM Dmitry Guzman
-<Dmitry.Guzman@mobileye.com> wrote:
+On Wed, 24 Jun 2026 09:15:17 +0000 Wu. JackBB (GSM) wrote:
+> ================================================================================================================================================================
+> This message may contain information which is private, privileged or confidential of Compal Electronics, Inc. If you are not the intended recipient of this message, please notify the sender and destroy/delete the message. Any review, retransmission, dissemination or other use of, or taking of any action in reliance upon this information, by persons or entities other than the intended recipient is prohibited.
+> ================================================================================================================================================================
 
-> I2C_XFER_V2 is a new API that allows I2C clients to get the detailed
-> report in case of transmission failure. Previously, the only information
-> returned by I2C bus controller was the error code; there was no way to
-> find out how many messages or bytes in a certain message have been sent
-> or received until the fault condition occurred.
->
-> This commit introduces support of this feature in i2c-nomadik driver.
->
-> Signed-off-by: Dmitry Guzman <Dmitry.Guzman@mobileye.com>
-
-I don't fully understand patch 1 but if that is fine, this is fine:
-Acked-by: Linus Walleij <linusw@kernel.org>
-
-Yours,
-Linus Walleij
+If you want to do anything upstream you have to get rid of this first.
 
