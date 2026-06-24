@@ -4,101 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89595CDB479
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 10:48:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F96ECDB479
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 10:50:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fEzTm87qOfwm8A59qa1n6m3Jhvh/CNoRaJ22itd+cR4=; b=tRfl69otnGcZCgW7bFbRdl9Ua2
-	mKaMROIiGT1SJhGpmgcJdk0EOk7jYuoyxsTSiqZ3QAjm6kNbcf5iBRG1aHvuUDDKAVi755gPQ4x6x
-	l/KcgGDPmbq2PRCRQIM8EOc0d67Z8oY4mzF4zN45Obdb6A6PmwCi7fjuj4Il33FgCsPS7IUyNKJ7U
-	1XMwRRjP+3OQBEVgGQ9zf8KcUVDlKDonrGiV+HO+SJe71Qg1qBO9UHlucAYAdhlRYaplS5ZXvA54/
-	oLKLt9XhFjDBaK63fhpTjJ1Gl6notdiXz31hiq4zDv3A1uZb2dSbM7Q+qOdfFkDR9zu5iHS3D/AMD
-	vlEEXbuQ==;
+	bh=H0C8Qwh4Znjr8u8tji4EUpZqLthdUX8QSKReFqw+q8Y=; b=r9FYOkhBEefJMjJ+55pTKGRs5E
+	wR4VsdAlb+VhnbCcS+3Ljsz3IIlEMl3gNzutlAJeKQPem5fn7WY7+gaGhsbwkUv/vR5NfoM9gde/l
+	2x2uOaZ6RCQcgWVzDtgLBihb9CY7TW5ZXxesj6OiD/KNvQaj4V+VQECpoovfk4sxFOURxOs4UIEj2
+	WXEaZtuV8+ZeZDzHAjQ+3FDgLkAwi7o/dcljynUUqqAxz2Ok0kAlkBHohRpOEvoyiOSoeIKetLsBp
+	JLHKAmqpalAPK8EX7Vrrg5InZI5s+Y0WuGjLTqNIBG85otaAN4H/hFFb8ldM2pzL+hEIBc/ksiefo
+	4KzOM73Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcL9V-00000007dCl-3gIe;
-	Wed, 24 Jun 2026 10:48:17 +0000
+	id 1wcLBI-00000007dMY-0X5H;
+	Wed, 24 Jun 2026 10:50:08 +0000
 Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcL9S-00000007dCO-4Bst
+	id 1wcLBF-00000007dMB-0LB4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 10:48:16 +0000
-Received: from pps.filterd (m0384305.ppops.net [127.0.0.1])
-	by m0384305.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 65OAOHO02534214;
-	Wed, 24 Jun 2026 05:48:04 -0500
+	Wed, 24 Jun 2026 10:50:06 +0000
+Received: from pps.filterd (m0380145.ppops.net [127.0.0.1])
+	by m0380145.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 65OAO11i4121130;
+	Wed, 24 Jun 2026 05:49:53 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
 	:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=fEzTm87qOfwm8A59qa1n6m3Jhvh/CNoRaJ22itd+c
-	R4=; b=DWvN0at0o9ZnNECarRJTBb3/YEUrBTLXOB0Y6rRLfCN+wht07jc42KvRY
-	DVIXaMtad5atPddSL2R4ROs5lZMH0/QgOU9s4ZHxeBmkzrfg8N8saHEBDkePCwKn
-	8kJ6W7C42YQSR9YEsTxxyHFyaWAT0ogT8Dsgc4L27HGtooVR6N2wQD3ndXuzGbFc
-	RcxJBnsl9x9q44zuQC4XsB+Ixi3NccRt/s2x8IGNg6JCldTEdPv+7ZEdjeWy3x/X
-	rvraY+kOGqmvpOPKRP7gknO/OXEovWTjjrVg7dRB69UUOlCBwlUbwVMUpCx4zdOM
-	GIG+VN5ljvn8W8cD9x1KcIWDnCwGQ==
-Received: from bl2pr02cu003.outbound.protection.outlook.com (mail-eastusazon11011039.outbound.protection.outlook.com [52.101.52.39])
-	by m0384305.ppops.net (PPS) with ESMTPS id 4eypttgb81-1
+	proofpoint-05-2026; bh=H0C8Qwh4Znjr8u8tji4EUpZqLthdUX8QSKReFqw+q
+	8Y=; b=CXsbhgpxHx3sjOUp/WPds0IEHFo54Lzqm7pDXwqgIQ74AeXXGm5Su1c1P
+	knOaSfWMbaG+mNeqc5BuYbciOTBqB8WYEHfUMuCfrM47byxaSrc26/q/ZN068JDQ
+	GSdpj4wNtiF9op8+mXFx0vEvN/z0WM3MAD/dvSZ1Tjv5aW9hxO+oXNBpMY3Ky3kN
+	EMIHZMUr2M8KxaUbKZHGHusclpTJm0YATBuckDan2Y8X7cD8IlsUWdsrt3ID6yl9
+	iFvUChnoa1VdjBKHt5UC8jZU06FFCcbinmI61ATbDZdJONf3GTAgp0CRNij0I3m8
+	YGU8FNYwBbrdPHncvSrWQgK3HSwWw==
+Received: from bl0pr03cu003.outbound.protection.outlook.com (mail-eastusazon11012037.outbound.protection.outlook.com [52.101.53.37])
+	by m0380145.ppops.net (PPS) with ESMTPS id 4f0bqq0mb9-1
 	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 24 Jun 2026 05:48:03 -0500 (CDT)
+	Wed, 24 Jun 2026 05:49:52 -0500 (CDT)
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=W8sE5Nre2H+MKOi/smhGvc9CnWFLWB7iz0E/aFLYC3cqhDM8o1PN/lxL+CNYUfn/Ru6Uaka9jemmMf2FtrJfcrmfSUPy0RjPTtS2dQTzwmUedSxZDwRg66RTM2H0X1meHY4ba5o1UwLaT8dd+kklC+0gNFNt1ddoxrLYz8do4aR7qe6gQp3Z/aHwBm30d0mgsy/A3bYuExAAcG3aqZGKddzxMT5vXAIDU94Kih8U31clwdhwyOp+vocWBTlPuWezlM/OVUgYTzEyg6vOMPXpBiuiO70iFjn+qkoPcFfU2NCy3EyI/vtyUfx+upqbwbnDjXSs+STMEbLlZriYNcaABg==
+ b=Gy2OymjooBxptqJ/qxEwbBwYru6SHjBCDCB36Us5zsjOeOeuFwEO/UY0n/8XCMbQZjDOP3066J6/3pAW4GwF7scnFrYLjU+TG5+Je73w2mvjmusMnGzLVBGp08jpniUgLMTA/HbT4mVwnh0UVevuUU+/taRY+u2GO93DMxQ2e9OFlEeq/Pn3ZyM5ShyuSoclMssCoYoiRIt4xlC5KSLfynErBtPooVl19iCHNGml5zIwphIM6uK8jyHeruHsesOg9ghGyX0dLKI5QgvZX60gQYhYOSuNg9meQ6LxvwqGNBLvHrndiAO7mcwXMwyyOT75cN3qaHaOYSy1kdAzPs+Wjw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fEzTm87qOfwm8A59qa1n6m3Jhvh/CNoRaJ22itd+cR4=;
- b=o9Vf4EtBkqWiMWNuvKipjw0eeOJIaIgeZuA3H+Qaahaiq2ap1DRYVmY73EWLDZJjZOWb71BjAfrQ7iXFgNA1u07lRl9EHRtYhvfSngJcv9CZTp6/csJ3pHSBAfUcNSZl1DamRc0RA8c56cEHKBuGsOSoi1OwlyRlUV9+0cKeh9pPTbJEiwH1s79uhuvgh7/UFF/uvYnwO623Kzxtgauo1KMy6BbiaRaQAug61BsXzsEI9ljWIAouLofmiC4JC/plh8DrijsAHArboWgBcoToJHVq7qvljMNEh5xXzu4s4TeJm8GAjqMPagGed4UXCUs4c8qBVrH+ZBs0+ZEnyGazPA==
+ bh=H0C8Qwh4Znjr8u8tji4EUpZqLthdUX8QSKReFqw+q8Y=;
+ b=FKSoC++Xolizy8AxYN7l31b+qbSNPMSt5lHSRCzw38uCdQiH8VIQS6RLWCIf8tsaG8mnOAeW19rDCkE1I36UcueNQNabrAwmyWttZK0BrB5nvoxsEkCmo6zkAHH7kV5hLzQkhY7tKJSrAGrDtGEeRMOpw9lCP2qYMzxeoi0I8OhlevgBOgOoxxHKtAYF5kdQVBefYgC3PJHSwOkZXznrpZLF7neoJKUDv7GjzdsqykOzjQEeDQjcywiPqbWcbmkneT+fs19YJ+W5Onjv5wv1k7hn+pcfOOofCgea39byLszg2ALQGvzsl/3YSWRl+PzehzZOM601jzveABuLAuWseA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
+ 198.47.21.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
  dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=fEzTm87qOfwm8A59qa1n6m3Jhvh/CNoRaJ22itd+cR4=;
- b=CbvaUjs0FjzUpzfD37ygzBXIHvZYndygyJl29GSIpoCqrqbqc3bSGD2Fp+PpEjyyvWm3bUEOEf7aer/NtUADn9STqQuKp6Ta5sJh5Qp642zEithBVT4d0k6aA1PDryUmznc9Afr1mHzfhiZJ9ylhdOuY5yHBaSFIVozTBHj0qbc=
-Received: from DS1PR03CA0026.namprd03.prod.outlook.com (2603:10b6:8:233::13)
- by PH7PR10MB6506.namprd10.prod.outlook.com (2603:10b6:510:201::16) with
+ bh=H0C8Qwh4Znjr8u8tji4EUpZqLthdUX8QSKReFqw+q8Y=;
+ b=tQefWRoIPdf0StpQ1ISmjTj6fVppNfsDb1+3g6iq3hlaZqeO4CGuLR0c93UVEoqlbg22VtPK2IJnrJXO42vmtTvTt+DeA3SZcoGWmxeQQqdx0sbtEQtVe55d6gRzXqgc3gVZ4b7jnGWG03FIpUQ/gvSED0A8N2LBpW+xwHXnPoE=
+Received: from MW4PR02CA0029.namprd02.prod.outlook.com (2603:10b6:303:16d::34)
+ by PH0PR10MB5546.namprd10.prod.outlook.com (2603:10b6:510:d9::8) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.18; Wed, 24 Jun
- 2026 10:47:57 +0000
-Received: from DS3PEPF000099DD.namprd04.prod.outlook.com
- (2603:10b6:8:233:cafe::3f) by DS1PR03CA0026.outlook.office365.com
- (2603:10b6:8:233::13) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.159.15 via Frontend Transport; Wed,
- 24 Jun 2026 10:47:56 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.14; Wed, 24 Jun
+ 2026 10:49:47 +0000
+Received: from MWH0EPF000A6735.namprd04.prod.outlook.com
+ (2603:10b6:303:16d:cafe::9) by MW4PR02CA0029.outlook.office365.com
+ (2603:10b6:303:16d::34) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.159.13 via Frontend Transport; Wed,
+ 24 Jun 2026 10:49:46 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
  smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
  action=none header.from=ti.com;
 Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- DS3PEPF000099DD.mail.protection.outlook.com (10.167.17.199) with Microsoft
+ 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
+Received: from flwvzet201.ext.ti.com (198.47.21.195) by
+ MWH0EPF000A6735.mail.protection.outlook.com (10.167.249.27) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.159.10 via Frontend Transport; Wed, 24 Jun 2026 10:47:55 +0000
-Received: from DFLE211.ent.ti.com (10.64.6.69) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ 15.21.159.10 via Frontend Transport; Wed, 24 Jun 2026 10:49:46 +0000
+Received: from DFLE207.ent.ti.com (10.64.6.65) by flwvzet201.ext.ti.com
+ (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 24 Jun
- 2026 05:47:54 -0500
-Received: from DFLE204.ent.ti.com (10.64.6.62) by DFLE211.ent.ti.com
- (10.64.6.69) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 05:49:43 -0500
+Received: from DFLE212.ent.ti.com (10.64.6.70) by DFLE207.ent.ti.com
+ (10.64.6.65) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 24 Jun
- 2026 05:47:54 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE204.ent.ti.com
- (10.64.6.62) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 05:49:43 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE212.ent.ti.com
+ (10.64.6.70) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Wed, 24 Jun 2026 05:47:54 -0500
+ Transport; Wed, 24 Jun 2026 05:49:43 -0500
 Received: from [172.24.20.59] (ltpw0bk3xf.dhcp.ti.com [172.24.20.59])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 65OAlmNt251543;
-	Wed, 24 Jun 2026 05:47:49 -0500
-Message-ID: <338ece74-59bc-4b4b-843d-592d961895f7@ti.com>
-Date: Wed, 24 Jun 2026 16:17:48 +0530
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 65OAnb8B254572;
+	Wed, 24 Jun 2026 05:49:37 -0500
+Message-ID: <69059b1e-5ad2-48c0-8ead-8d377ef68c0c@ti.com>
+Date: Wed, 24 Jun 2026 16:19:36 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 11/15] drm/tidss: oldi: Fix OLDI signal polarities
+Subject: Re: [PATCH v3 12/15] drm/tidss: oldi: Convert OLDI to an aux driver
 To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
         Maarten Lankhorst
 	<maarten.lankhorst@linux.intel.com>,
@@ -119,65 +119,66 @@ To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
 CC: <devicetree@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
         <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
 References: <20260529-beagley-ai-display-v3-0-7fefdc5d1adf@ideasonboard.com>
- <20260529-beagley-ai-display-v3-11-7fefdc5d1adf@ideasonboard.com>
+ <20260529-beagley-ai-display-v3-12-7fefdc5d1adf@ideasonboard.com>
 Content-Language: en-US
 From: Swamil Jain <s-jain1@ti.com>
-In-Reply-To: <20260529-beagley-ai-display-v3-11-7fefdc5d1adf@ideasonboard.com>
+In-Reply-To: <20260529-beagley-ai-display-v3-12-7fefdc5d1adf@ideasonboard.com>
 Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS3PEPF000099DD:EE_|PH7PR10MB6506:EE_
-X-MS-Office365-Filtering-Correlation-Id: a3879295-2245-4df4-23cb-08ded1de0c42
+X-MS-TrafficTypeDiagnostic: MWH0EPF000A6735:EE_|PH0PR10MB5546:EE_
+X-MS-Office365-Filtering-Correlation-Id: 156e575b-7858-4af4-ca9e-08ded1de4e77
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|36860700016|82310400026|23010399003|18002099003|22082099003|3023799007|4143699003|56012099006|921020;
-X-Microsoft-Antispam-Message-Info: m2sd8vJjIfnoXGluJGHI2B7nOY9stIj4zBY0WtRUO/ZZsLvgHHABSpus0w6VPGdsEJX5oiU5WHpXIBxYf3QcijeU4dE5ElHUmuuZ8pQ1507ICpoF0SdnsL22qEZq//k17rpdSZ/qCC8tk8aYqg1Ij9gTYEtDuyot+Ae6zA63FrLDg/YaPhWSI78HuXTXHgAPclD4PB3JdBScS43pGpWgY9fhTy5rwyox3/7asT/Bx9Zy1gJ6hw1FFZGxbP+VQZQDGwbUBz3au9l6aWQ/y5NoYgxyAO4dHvYR00QhK0CrnDdWN56Z962xIjcNMNOBBrlvMsy62gzSftrH6BCeEdFTHTcU6L1kV2dayu4uQQot+SA4/mTFBHjqhC29g4jgq2Hgv8sn3StNBW5bGldvvvIskJt+QTIQ3k1KMRLA8X7sN2laau2yY4auOMiMXWn9ZRms7Vxp0FAY1ehOzwmErqURvf4LUxyPt1VwDymRvzezaYITEkTkZ8/hyIu6O2rTC8IpjlHBCb0nNWv5qGJf3fYGQV7QZatXa6UnBrH3E/rQwhkSSxAMBDpTnq6dURJfDEYWmueK7VxBk1TaZmqt81g2Ots91KTkY1yUGPDI1Ct6/AWGrfFnI0nzRmlSls0PMcx2VqhQJFlSblJFhAeC7qqIMFJGp3FhAgkTcSvDl2hBwN4mGQ+fE/4jrSiCdXSrdh7Vc+If0VFNeL/YIvBmW+locaB20BiVK/wGiZki4Eg2GS/HTkZajKSC56XkuxjcKzs5
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(36860700016)(82310400026)(23010399003)(18002099003)(22082099003)(3023799007)(4143699003)(56012099006)(921020);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|23010399003|82310400026|376014|7416014|56012099006|4143699003|6133799003|22082099003|18002099003|3023799007|921020;
+X-Microsoft-Antispam-Message-Info: 1Bq35NZNe/DJlqPQu6v1Y8JSC7i7bfhHi1QLe1TUIblrHRCO0EfZcBj/ea0Vm7Uy6BxU9OgMWS30XmeuygIOk3t4VSZiUK48qeqx7ftQBbwUp1h8E+TCS1RuLitiq0w+EX9WaqRz/a/v2kAwO/GhhdjhPCoepqKabwgHLs2j0JTBzuEb66DjkLhR9O9KV17llY59joeT6VjZkzwa+erDB/ym559zWV0TiXNskHX/ItS5yAQNsVygXohfu5BiRHLLqf9PmoAeBw4Tvnob+m6jWeajQ3Q4gFXSCKcKfIjNtUIzV2zm+8mJnksjEUcZzzm+hxeC1r6DmWLUUFFlK1Tvf7gRu+Z+Nkf7F2zWDT1P3k6dOk0UC4DlBuTe8EFqxysb6vyhnn2gzkW29WLcHjbfaMIcsC+5Q57RmcgZG2xyinHxP6sSK0P4M7m5SHJLPerbTAkh5NdMPXPo7hTAHm280en+X87PDA8YXJKAQ7297+AS61vTvXVnubmIHy4fFqkaZAt0Blify65Z0akVohLEyjEtp9u1psb2R22Gp/SfFOKtUavFaddUo0PF3z66tTgTpzrgwQLb+YNTaOYRIY5Urkr65Wwnne6LQCtABfTeEO1NrwwB+OFzPS60bfuMnWagek+ZjsJ1usrWrk0UNI34WkY5w3zTGmyhm1Qr4UTZUMK7wYC/49gus3/Are+YNdElp/C5OScGBc2QkQhvQEe44q/vQ/Gvoj1SEOQ5x14PeOJ5GytckwhXK4gWjfdLtCoM
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(23010399003)(82310400026)(376014)(7416014)(56012099006)(4143699003)(6133799003)(22082099003)(18002099003)(3023799007)(921020);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: CjXz3sIG+maaifBsKoaSnPYf4Yl2tfVFvVoyHhvdm+6hScVkaWLRADIHDzp4U8ru3qu6l6a1AveUdtagFFRrj42eKBfNQvzN6TL1sFxNlGU1mL4ELfrVPcrbMH0AlljiMPwn1HjOA9Y1lgCPxwZKJ4MPpqZKbWsRCuxeavkUPKZwpvBqJwztwZP+w+B1AfWvAtqQiXpQdP99+Tjv3HMk1SsOlHpsZuxWIBvFxewz/31ImBWRM1y492mKjQp2a8HeLZgfHQYkM9ZRT10Aa6hHO5ya0NGu3f8Hfb+5oIFTMehe0BXRNonFixXXnaKKeflgBV5rk8+yAbbeythnrBGyOIUbx6PUhgDfctEi6LUlgtfyb82Bihl6U4D3/51aExwhyw/+3ysjCC2lqLEBE/GtqmDn5RzwAwuZX3Qhr9x26NIc5MjHr8fjqiEDHZ9UboPo
-X-Exchange-RoutingPolicyChecked: JxQqKBj2OR73QmjmMcYvgYzpKyeW1kpxmb86bYJx88azFfMhhWAQDkMuUP6MLugh1Iao7e+S1hF9iO6yRO808otyoXWyvHWWASae0NuAoJ3j1ukrSIZY0zyd6HF66CItdzxEWnMFkqYhbXqqLAbA7SLIYKmVeeeLNV038GhWxbiqOrx0JE2PpDOaqvTs2J+mna+rFtCf4zPhxAMKuH1i2oNAu4vRnVU4QLkAaNZZ7RaV8FG1vKR89AS0iGjkpxMFqy6R9nUMc7B5/9bszBgIVuRmRhZc2y5K83s/95XUjwzN+a6nsRvbBpcnbh0gk1UzslClEz5O4CcfWjjfIBp3ng==
+X-MS-Exchange-AntiSpam-MessageData-0: AzVo0M+L8qsSUCFpGI9pZMqEXMl5KPZG7bftoTGkVe+5PIeLX/ELgQShqHDsW3pa9M+LAfDljYdORQw41cXgcUITYgH3CVu8562Tex0O4YS8GDoO8A3lYjBIx/51//AI0l0J3B05eF6U0YIq/h0pq8lV8KjY1YQkvhgmqZKwNP5Es8MFxuTPH2dm+wUeDYNPfv7jvoZb/52/eBm/4muDnTwUFUb08pIjCqzWec3SURlHxOy1ZnrbJh1W15ZHD9x819UiKKhE5hHFXLoTnAW9Xb8hPdk+vFdjF65fElJHbXOcoTiobBY881DOwsqlXG3m361O9+UXQUFcCNg8nnJUmCIeikcz6XquAlqh35bwhnwyEW4YWMPiybuybWGgYzbdFHQwbGMxzChECQ08f0b02prjjk1ALAt05EWx7qVMwESOFp/FJL+4TwakJlZ1QewR
+X-Exchange-RoutingPolicyChecked: czqQjUYmgcia91kL48YsrDajzu3t2Fe3H3dtwWrd0DYc+3ZRPmFj1X9B+az7BclSxnC1p+MI42z6toBSif8ZmLoWGt8XX2cavTsAygUlZpkXuQI7pwnawpgaQYj4FBB6Ycr7m5Xr3t/6k4frS71UmzdMVFm9IuLFYjvh2AAH8WS/+tua2Y5cJYL6qNClUV4iT0mYV2m1eI0+0MoCrdkiHDU0pwim58tlTmbSNUY2QpJFwBVyJwjrBzmBjWYNXwFXp0WhVMBCsCtYM+3sejgTz1pPaIdEj4u6AvlOOwslOcaT2hBEhL8jUY7PB7FaUZJome3PkHW7jQuNGA1pMphs1g==
 X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jun 2026 10:47:55.0812
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jun 2026 10:49:46.1234
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a3879295-2245-4df4-23cb-08ded1de0c42
+X-MS-Exchange-CrossTenant-Network-Message-Id: 156e575b-7858-4af4-ca9e-08ded1de4e77
 X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS3PEPF000099DD.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000A6735.namprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR10MB6506
-X-Proofpoint-GUID: _AJdL1mQwE0EKAJKOnXSbZg73PUGJKfY
-X-Proofpoint-ORIG-GUID: _AJdL1mQwE0EKAJKOnXSbZg73PUGJKfY
-X-Authority-Analysis: v=2.4 cv=EPo2FVZC c=1 sm=1 tr=0 ts=6a3bb5e3 cx=c_pps
- a=GQEFHjoEDIuuLG6+yye4Mw==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR10MB5546
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjI0MDA5MCBTYWx0ZWRfXwxmCogksCq2A
+ sFPQJ6wj422uGoTmgNiCC+W8pyjJJmBV3XCgho67yUXMJjoC+xDGX4pdxyqHz9XA4sGDCPuK5Q0
+ 1corJw00LAQMHpiZAF/VUWfqG2a3jK3amgOlKbTFcg/xbBd7/Ka5BKdElqkikBtiLMzyiYZKJM/
+ w5v0H8tQx8xpyUCCOp0sY7bAZiVJC99O58gTiMJlhmAabymZ9VlX/I5bpHLXXbm4MxWIwAsec/S
+ EdKI8bCokZC746tY3fTMFBnDDkzSd8ltlXNXvfvGX5i0A60x8YOu7gnBE5u/x25bPsVZ5CoF1nO
+ gB4rLvCt0YJ/2biRCsY/IRvgz+GBkG2s4nRDoFvz4fNYnwCIToM0qe3wkExbSuV3ztk+5V8MU+0
+ kzj8O5w+xQPAG4+XhDSRbwlZjoPnfr0ucBtQKsloYkZ/DqaJZj0E+MfS/06xswS3PZNCpAQm9or
+ X10DKmYf0NMRWnnvcUQ==
+X-Proofpoint-GUID: yeOSeA7lrzPm2FXRu2XK4RSYFlyxdyWj
+X-Proofpoint-ORIG-GUID: yeOSeA7lrzPm2FXRu2XK4RSYFlyxdyWj
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNjI0MDA5MCBTYWx0ZWRfXwO++BTIBniFq
+ I/hOiPmiZGp8s2mMK1dvz+xaXR5vkWeOyU/NI0/PT6eKIAAmZJbRwOeM5kYzia64duVuwt9bFtb
+ 2eCS3MeYRrlZsH3iphTpZsu+34zVZHk=
+X-Authority-Analysis: v=2.4 cv=G80s1dk5 c=1 sm=1 tr=0 ts=6a3bb651 cx=c_pps
+ a=gLG24qzvm7739X6cdimX+Q==:117 a=tJyPKKxUohctrY4NYmUjkA==:17
  a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10
  a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
- a=taLDd7a_hP9WKsMzeGRc:22 a=sozttTNsAAAA:8 a=P1BnusSwAAAA:8
- a=uIoPud_fb8ylDxN6hocA:9 a=QEXdDO2ut3YA:10 a=D0XLA9XvdZm18NrgonBM:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNjI0MDA4OSBTYWx0ZWRfX99KXAu5D4t5t
- 3wzQ1fRaImg4+oM8aeDAhgbLJl2bOwuENF4p6/eizgptFAqCNCRVvF79vrHBYb/ir1cwR+jXios
- K2eCCIAjZd2KMRpdfqH6r0bdgc8su4A=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjI0MDA4OSBTYWx0ZWRfX1HFmAkpY/xea
- 9TQXLxjLjQ+w19LMLha1dWgVRleByRDBbDjKsQBZihpO5o47ta7+j0lhwCvwcdKg80rGDDSVgmu
- zI7hbH9hULSXyqjDvZ8xGWcWtkVViAeX2Za0rJdEtWwLOT2XnfhaZdZrFkNG9e95z8hEjJUu6cI
- 1qw5IjUeryJt7XnZbnLI6pxm9SNpvTYQUUOshg7EVGoD1T4AcvLrMQFVOvlWIz5Ou3BCokw/WcH
- Zrb7Iz3JA32+w8Op3t32vrrwLvhKByTie66v4ZnJ5+5qAZdbsDxP8GhiaDlSvCepeRHMo65VFkD
- Lb3MPhuF5hg+6SwFd3VBPBcqPyISQKnCDhPf/paBRnYt1X8zenmassIpU2Ea9uzx+hhGfkhcEmK
- SzBwQR44BVMJHAiNq9qE7i7D1Vxz9MITy9xX5uKUm+Gqeo6Ai+YPQC7gHbslufjVeNbxnUAHrzb
- G2dCbtz3P0e7kMP3/Nw==
+ a=gO1vWkAQAl3rybz1DQOp:22 a=sozttTNsAAAA:8 a=P1BnusSwAAAA:8
+ a=pT3OAXfgWG0yIu-NFKkA:9 a=QEXdDO2ut3YA:10 a=D0XLA9XvdZm18NrgonBM:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
  definitions=2026-06-24_03,2026-06-23_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 adultscore=0 clxscore=1015 priorityscore=1501 suspectscore=0
- malwarescore=0 lowpriorityscore=0 phishscore=0 spamscore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2606240089
+ bulkscore=0 phishscore=0 impostorscore=0 spamscore=0 adultscore=0
+ lowpriorityscore=0 clxscore=1015 suspectscore=0 malwarescore=0
+ priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2606240090
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_034815_049940_BFE8DF47 
-X-CRM114-Status: GOOD (  27.92  )
+X-CRM114-CacheID: sfid-20260624_035005_151262_1FF6E1F4 
+X-CRM114-Status: GOOD (  29.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -195,26 +196,27 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 On 29-05-2026 14:15, Tomi Valkeinen wrote:
-> OLDI has a few issues with how it handles the signal polarities:
+> Currently in the DT, OLDI is defined in child nodes under the DSS node.
+> The tidss driver will parse the DT, and create DRM bridges for the
+> OLDIs, and there are no Linux devices for the OLDIs.
 > 
-> - It always sets OLDI_DEPOL, which means DE active low
-> - It sets DRM_BUS_FLAG_DE_HIGH in struct drm_bridge_timings, i.e.
->    reverse to the OLDI_DEPOL
-> - It sets DRM_BUS_FLAG_SYNC_SAMPLE_NEGEDGE in struct drm_bridge_timings,
->    but the TRM says "The DSS interface is clocked on the rising edge of
->    OLDI_FWD_P_CLK pixel clock", which I read as "OLDI samples on rising
->    edge".
-> - But the defined drm_bridge_timings is not actually used anywhere, even
->    if it is set to bridge->timings, so the bus flags are just ignored.
+> On new SoCs the OLDIs have their own power-domains which we need to
+> control. The cleanest way to do this in DT is to add the PDs to the OLDI
+> nodes. But this means the OLDI bridge code would somehow have to
+> manually manage the PDs, the PDs not being under a Linux device, and
+> there isn't much support for that kind of setup in the PD framework.
 > 
-> However, based on my testing, OLDI_DEPOL bit or the edge on which data
-> and syncs are driven doesn't seem to affect the OLDI output. Possibly
-> it's not as robust, but I did not see any effect with an oscilloscope.
+> A solution to this is to convert the OLDI to an auxiliary device/driver,
+> created by tidss:
 > 
-> However, the code is still quite broken, so let's fix it:
-> - Remove drm_bridge_timings
-> - Set the correct input_bus_cfg.flags in tidss_oldi_atomic_check()
-> - Set OLDI_DEPOL based on the DE bus flag
+> - At module load time the tidss module will, in addition to registering
+>    the tidss DRM driver, register an oldi auxiliary driver.
+> - At probe time tidss will parse the DT, and create an auxiliary device
+>    for each OLDI.
+> 
+> The aux driver will probe, and as its of_node points to the OLDI node
+> containing the PD, the driver framework will take care of enabling and
+> disabling the PD when OLDI is used ("used" as in pm_runtime context).
 > 
 > Tested-by: Swamil Jain <s-jain1@ti.com>
 > Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
@@ -222,110 +224,754 @@ On 29-05-2026 14:15, Tomi Valkeinen wrote:
 
 Reviewed-by: Swamil Jain <s-jain1@ti.com>
 
->   drivers/gpu/drm/tidss/tidss_oldi.c | 38 ++++++++++++++++++++++++++++----------
->   1 file changed, 28 insertions(+), 10 deletions(-)
+>   drivers/gpu/drm/tidss/tidss_drv.c  |  51 +++-
+>   drivers/gpu/drm/tidss/tidss_drv.h  |   5 +-
+>   drivers/gpu/drm/tidss/tidss_oldi.c | 502 ++++++++++++++++++++++++++-----------
+>   drivers/gpu/drm/tidss/tidss_oldi.h |   7 +-
+>   4 files changed, 405 insertions(+), 160 deletions(-)
 > 
-> diff --git a/drivers/gpu/drm/tidss/tidss_oldi.c b/drivers/gpu/drm/tidss/tidss_oldi.c
-> index 17c535bfa057..e925ddaa4fd6 100644
-> --- a/drivers/gpu/drm/tidss/tidss_oldi.c
-> +++ b/drivers/gpu/drm/tidss/tidss_oldi.c
-> @@ -164,7 +164,8 @@ static void tidss_oldi_tx_power(struct tidss_oldi *oldi, bool enable)
->   	regmap_update_bits(oldi->io_ctrl, OLDI_PD_CTRL, mask, enable ? 0 : mask);
->   }
+> diff --git a/drivers/gpu/drm/tidss/tidss_drv.c b/drivers/gpu/drm/tidss/tidss_drv.c
+> index 5cb3e746aeb3..aef945101be4 100644
+> --- a/drivers/gpu/drm/tidss/tidss_drv.c
+> +++ b/drivers/gpu/drm/tidss/tidss_drv.c
+> @@ -133,10 +133,6 @@ static int tidss_probe(struct platform_device *pdev)
+>   		return ret;
+>   	}
 >   
-> -static int tidss_oldi_config(struct tidss_oldi *oldi)
-> +static int tidss_oldi_config(struct tidss_oldi *oldi,
-> +			     struct drm_bridge_state *bridge_state)
->   {
->   	const struct oldi_bus_format *bus_fmt = NULL;
->   	u32 oldi_cfg = 0;
-> @@ -183,7 +184,8 @@ static int tidss_oldi_config(struct tidss_oldi *oldi)
->   			 "OLDI%u: DSS port width %d not supported\n",
->   			 oldi->oldi_instance, bus_fmt->data_width);
+> -	ret = tidss_oldi_init(tidss);
+> -	if (ret)
+> -		return dev_err_probe(dev, ret, "failed to init OLDI\n");
+> -
+>   	pm_runtime_enable(dev);
 >   
-> -	oldi_cfg |= OLDI_DEPOL;
-> +	if (bridge_state->input_bus_cfg.flags & DRM_BUS_FLAG_DE_LOW)
-> +		oldi_cfg |= OLDI_DEPOL; /* 1 = active low */
+>   	pm_runtime_set_autosuspend_delay(dev, 1000);
+> @@ -147,24 +143,30 @@ static int tidss_probe(struct platform_device *pdev)
+>   	dispc_runtime_resume(tidss->dispc);
+>   #endif
 >   
->   	oldi_cfg = (oldi_cfg & (~OLDI_MAP)) | (bus_fmt->oldi_mode_reg_val << 1);
+> +	ret = tidss_oldi_create_devices(tidss);
+> +	if (ret) {
+> +		dev_err_probe(dev, ret, "failed to create OLDI devices\n");
+> +		goto err_runtime_suspend;
+> +	}
+> +
+>   	ret = tidss_modeset_init(tidss);
+>   	if (ret < 0) {
+>   		if (ret != -EPROBE_DEFER)
+>   			dev_err(dev, "failed to init DRM/KMS (%d)\n", ret);
+> -		goto err_runtime_suspend;
+> +		goto err_destroy_oldis;
+>   	}
 >   
-> @@ -220,6 +222,22 @@ static int tidss_oldi_config(struct tidss_oldi *oldi)
+>   	irq = platform_get_irq(pdev, 0);
+>   	if (irq < 0) {
+>   		ret = irq;
+> -		goto err_runtime_suspend;
+> +		goto err_destroy_oldis;
+>   	}
+>   	tidss->irq = irq;
+>   
+>   	ret = tidss_irq_install(ddev, irq);
+>   	if (ret) {
+>   		dev_err(dev, "tidss_irq_install failed: %d\n", ret);
+> -		goto err_runtime_suspend;
+> +		goto err_destroy_oldis;
+>   	}
+>   
+>   	drm_kms_helper_poll_init(ddev);
+> @@ -194,6 +196,9 @@ static int tidss_probe(struct platform_device *pdev)
+>   err_irq_uninstall:
+>   	tidss_irq_uninstall(ddev);
+>   
+> +err_destroy_oldis:
+> +	tidss_oldi_destroy_devices(tidss);
+> +
+>   err_runtime_suspend:
+>   #ifndef CONFIG_PM
+>   	dispc_runtime_suspend(tidss->dispc);
+> @@ -201,8 +206,6 @@ static int tidss_probe(struct platform_device *pdev)
+>   	pm_runtime_dont_use_autosuspend(dev);
+>   	pm_runtime_disable(dev);
+>   
+> -	tidss_oldi_deinit(tidss);
+> -
 >   	return ret;
 >   }
 >   
-> +static int tidss_oldi_atomic_check(struct drm_bridge *bridge,
-> +				   struct drm_bridge_state *bridge_state,
-> +				   struct drm_crtc_state *crtc_state,
-> +				   struct drm_connector_state *conn_state)
-> +{
-> +	bridge_state->input_bus_cfg.flags &=
-> +		~(DRM_BUS_FLAG_PIXDATA_SAMPLE_NEGEDGE |
-> +		  DRM_BUS_FLAG_SYNC_SAMPLE_NEGEDGE);
+> @@ -218,6 +221,8 @@ static void tidss_remove(struct platform_device *pdev)
+>   
+>   	tidss_irq_uninstall(ddev);
+>   
+> +	tidss_oldi_destroy_devices(tidss);
 > +
-> +	bridge_state->input_bus_cfg.flags |=
-> +		DRM_BUS_FLAG_PIXDATA_SAMPLE_POSEDGE |
-> +		DRM_BUS_FLAG_SYNC_SAMPLE_POSEDGE;
+>   #ifndef CONFIG_PM
+>   	/* If we don't have PM, we need to call suspend manually */
+>   	dispc_runtime_suspend(tidss->dispc);
+> @@ -225,8 +230,6 @@ static void tidss_remove(struct platform_device *pdev)
+>   	pm_runtime_dont_use_autosuspend(dev);
+>   	pm_runtime_disable(dev);
+>   
+> -	tidss_oldi_deinit(tidss);
+> -
+>   	/* devm allocated dispc goes away with the dev so mark it NULL */
+>   	dispc_remove(tidss);
+>   
+> @@ -262,7 +265,31 @@ static struct platform_driver tidss_platform_driver = {
+>   	},
+>   };
+>   
+> -drm_module_platform_driver(tidss_platform_driver);
+> +static int __init tidss_platform_driver_init(void)
+> +{
+> +	int ret;
+> +
+> +	ret = tidss_oldi_register_driver();
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = drm_platform_driver_register(&tidss_platform_driver);
+> +	if (ret) {
+> +		tidss_oldi_unregister_driver();
+> +		return ret;
+> +	}
 > +
 > +	return 0;
 > +}
+> +module_init(tidss_platform_driver_init);
 > +
->   static void tidss_oldi_atomic_pre_enable(struct drm_bridge *bridge,
->   					 struct drm_atomic_state *state)
->   {
-> @@ -228,6 +246,7 @@ static void tidss_oldi_atomic_pre_enable(struct drm_bridge *bridge,
->   	struct drm_connector_state *conn_state;
->   	struct drm_crtc_state *crtc_state;
->   	struct drm_display_mode *mode;
-> +	struct drm_bridge_state *bridge_state;
+> +static void __exit tidss_platform_driver_exit(void)
+> +{
+> +	platform_driver_unregister(&tidss_platform_driver);
+> +	tidss_oldi_unregister_driver();
+> +}
+> +module_exit(tidss_platform_driver_exit);
+> +
 >   
+>   MODULE_AUTHOR("Tomi Valkeinen <tomi.valkeinen@ti.com>");
+>   MODULE_DESCRIPTION("TI Keystone DSS Driver");
+> diff --git a/drivers/gpu/drm/tidss/tidss_drv.h b/drivers/gpu/drm/tidss/tidss_drv.h
+> index e1c1f41d8b4b..d3dba639b278 100644
+> --- a/drivers/gpu/drm/tidss/tidss_drv.h
+> +++ b/drivers/gpu/drm/tidss/tidss_drv.h
+> @@ -16,7 +16,8 @@
+>   #define TIDSS_MAX_OLDI_TXES 2
+>   
+>   typedef u32 dispc_irq_t;
+> -struct tidss_oldi;
+> +
+> +struct auxiliary_device;
+>   
+>   struct tidss_device {
+>   	struct drm_device ddev;		/* DRM device for DSS */
+> @@ -34,7 +35,7 @@ struct tidss_device {
+>   	struct drm_plane *planes[TIDSS_MAX_PLANES];
+>   
+>   	unsigned int num_oldis;
+> -	struct tidss_oldi *oldis[TIDSS_MAX_OLDI_TXES];
+> +	struct auxiliary_device *oldis[TIDSS_MAX_OLDI_TXES];
+>   
+>   	unsigned int irq;
+>   
+> diff --git a/drivers/gpu/drm/tidss/tidss_oldi.c b/drivers/gpu/drm/tidss/tidss_oldi.c
+> index e925ddaa4fd6..188f31b57c6a 100644
+> --- a/drivers/gpu/drm/tidss/tidss_oldi.c
+> +++ b/drivers/gpu/drm/tidss/tidss_oldi.c
+> @@ -5,11 +5,13 @@
+>    * Aradhya Bhatia <a-bhatia1@ti.com>
+>    */
+>   
+> +#include <linux/auxiliary_bus.h>
+>   #include <linux/clk.h>
+>   #include <linux/of.h>
+>   #include <linux/of_graph.h>
+>   #include <linux/mfd/syscon.h>
+>   #include <linux/media-bus-format.h>
+> +#include <linux/pm_runtime.h>
+>   #include <linux/regmap.h>
+>   
+>   #include <drm/drm_atomic_helper.h>
+> @@ -20,6 +22,12 @@
+>   #include "tidss_dispc_regs.h"
+>   #include "tidss_oldi.h"
+>   
+> +static DEFINE_IDA(tidss_oldi_ida);
+> +
+> +struct tidss_oldi_platform_data {
+> +	struct tidss_device *tidss;
+> +};
+> +
+>   struct tidss_oldi {
+>   	struct tidss_device	*tidss;
+>   	struct device		*dev;
+> @@ -251,6 +259,8 @@ static void tidss_oldi_atomic_pre_enable(struct drm_bridge *bridge,
 >   	if (oldi->link_type == OLDI_MODE_SECONDARY_CLONE_SINGLE_LINK)
 >   		return;
-> @@ -245,10 +264,14 @@ static void tidss_oldi_atomic_pre_enable(struct drm_bridge *bridge,
->   	if (WARN_ON(!crtc_state))
->   		return;
 >   
-> +	bridge_state = drm_atomic_get_new_bridge_state(state, bridge);
-> +	if (WARN_ON(!bridge_state))
-> +		return;
+> +	WARN_ON(pm_runtime_get_sync(oldi->dev) < 0);
 > +
->   	mode = &crtc_state->adjusted_mode;
+>   	connector = drm_atomic_get_new_connector_for_encoder(state,
+>   							     bridge->encoder);
+>   	if (WARN_ON(!connector))
+> @@ -296,6 +306,8 @@ static void tidss_oldi_atomic_post_disable(struct drm_bridge *bridge,
 >   
->   	/* Configure the OLDI params*/
-> -	tidss_oldi_config(oldi);
-> +	tidss_oldi_config(oldi, bridge_state);
->   
->   	/* Set the OLDI serial clock (7 times the pixel clock) */
->   	tidss_oldi_set_serial_clk(oldi, mode->clock * 7 * 1000);
-> @@ -329,7 +352,8 @@ tidss_oldi_mode_valid(struct drm_bridge *bridge,
+>   	/* Clear OLDI Config */
+>   	tidss_disable_oldi(oldi->tidss, oldi->parent_vp);
+> +
+> +	pm_runtime_put_autosuspend(oldi->dev);
 >   }
 >   
->   static const struct drm_bridge_funcs tidss_oldi_bridge_funcs = {
-> -	.attach	= tidss_oldi_bridge_attach,
-> +	.attach = tidss_oldi_bridge_attach,
-> +	.atomic_check = tidss_oldi_atomic_check,
->   	.atomic_pre_enable = tidss_oldi_atomic_pre_enable,
->   	.atomic_post_disable = tidss_oldi_atomic_post_disable,
->   	.atomic_get_input_bus_fmts = tidss_oldi_atomic_get_input_bus_fmts,
-> @@ -440,11 +464,6 @@ static int get_parent_dss_vp(struct device_node *oldi_tx, u32 *parent_vp)
+>   #define MAX_INPUT_SEL_FORMATS	1
+> @@ -383,12 +395,16 @@ static int get_oldi_mode(struct device_node *oldi_tx, int *companion_instance)
+>   		 */
+>   		return OLDI_MODE_SINGLE_LINK;
+>   
+> -	if (of_property_read_u32(companion, "reg", &companion_reg))
+> +	if (of_property_read_u32(companion, "reg", &companion_reg)) {
+> +		of_node_put(companion);
+>   		return OLDI_MODE_UNSUPPORTED;
+> +	}
+>   
+> -	if (companion_reg > (TIDSS_MAX_OLDI_TXES - 1))
+> +	if (companion_reg > (TIDSS_MAX_OLDI_TXES - 1)) {
+>   		/* Invalid companion OLDI reg value. */
+> +		of_node_put(companion);
+>   		return OLDI_MODE_UNSUPPORTED;
+> +	}
+>   
+>   	*companion_instance = (int)companion_reg;
+>   
+> @@ -464,174 +480,372 @@ static int get_parent_dss_vp(struct device_node *oldi_tx, u32 *parent_vp)
 >   	return -ENODEV;
 >   }
 >   
-> -static const struct drm_bridge_timings default_tidss_oldi_timings = {
-> -	.input_bus_flags = DRM_BUS_FLAG_SYNC_SAMPLE_NEGEDGE
-> -			 | DRM_BUS_FLAG_DE_HIGH,
-> -};
-> -
->   void tidss_oldi_deinit(struct tidss_device *tidss)
+> -void tidss_oldi_deinit(struct tidss_device *tidss)
+> +static int tidss_oldi_probe(struct auxiliary_device *auxdev,
+> +			    const struct auxiliary_device_id *id)
 >   {
->   	for (int i = 0; i < tidss->num_oldis; i++) {
-> @@ -598,7 +617,6 @@ int tidss_oldi_init(struct tidss_device *tidss)
->   		/* Register the bridge. */
->   		oldi->bridge.of_node = child;
->   		oldi->bridge.driver_private = oldi;
-> -		oldi->bridge.timings = &default_tidss_oldi_timings;
+> -	for (int i = 0; i < tidss->num_oldis; i++) {
+> -		if (tidss->oldis[i]) {
+> -			drm_bridge_remove(&tidss->oldis[i]->bridge);
+> -			tidss->is_ext_vp_clk[tidss->oldis[i]->parent_vp] = false;
+> -			tidss->oldis[i] = NULL;
+> +	struct device *dev = &auxdev->dev;
+> +	struct tidss_oldi_platform_data *oldi_pdata = dev_get_platdata(dev);
+> +	struct tidss_device *tidss = oldi_pdata->tidss;
+> +	struct device_node *node = auxdev->dev.of_node;
+> +	enum tidss_oldi_link_type link_type = OLDI_MODE_UNSUPPORTED;
+> +	int companion_instance = -1;
+> +	struct drm_bridge *bridge;
+> +	struct device_link *link;
+> +	struct tidss_oldi *oldi;
+> +	u32 oldi_instance;
+> +	u32 parent_vp;
+> +	int ret;
+> +
+> +	ret = of_property_read_u32(node, "reg", &oldi_instance);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = get_parent_dss_vp(node, &parent_vp);
+> +	if (ret)
+> +		return ret;
+> +
+> +	/*
+> +	 * Now that it's confirmed that OLDI is connected with DSS,
+> +	 * let's continue getting the OLDI sinks ahead and other OLDI
+> +	 * properties.
+> +	 */
+> +	bridge = devm_drm_of_get_bridge(dev, node, OLDI_OUTPUT_PORT, 0);
+> +	if (IS_ERR(bridge)) {
+> +		/*
+> +		 * Either there was no OLDI sink in the devicetree, or the OLDI
+> +		 * sink has not been added yet. In any case, return.
+> +		 */
+> +		return dev_err_probe(dev, PTR_ERR(bridge),
+> +				     "no panel/bridge for OLDI%u.\n",
+> +				     oldi_instance);
+> +	}
+> +
+> +	link_type = get_oldi_mode(node, &companion_instance);
+> +	if (link_type == OLDI_MODE_UNSUPPORTED) {
+> +		return dev_err_probe(dev, -EINVAL,
+> +				     "OLDI%u: Unsupported OLDI connection.\n",
+> +				     oldi_instance);
+> +	} else if ((link_type == OLDI_MODE_SECONDARY_CLONE_SINGLE_LINK) ||
+> +		   (link_type == OLDI_MODE_CLONE_SINGLE_LINK)) {
+> +		/*
+> +		 * The OLDI driver cannot support OLDI clone mode properly at
+> +		 * present. The clone mode requires 2 working encoder-bridge
+> +		 * pipelines, generating from the same crtc. The DRM framework
+> +		 * does not support this at present. If there were to be, say, 2
+> +		 * OLDI sink bridges each connected to an OLDI TXes, they
+> +		 * couldn't both be supported simultaneously. This driver still
+> +		 * has some code pertaining to OLDI clone mode configuration in
+> +		 * DSS hardware for future, when there is a better
+> +		 * infrastructure in the DRM framework to support 2
+> +		 * encoder-bridge pipelines simultaneously. Till that time, this
+> +		 * driver shall error out if it detects a clone mode
+> +		 * configuration.
+> +		 */
+> +		return dev_err_probe(dev, -EOPNOTSUPP,
+> +				     "The OLDI driver does not support Clone Mode at present.\n");
+> +	}
+> +
+> +	oldi = devm_drm_bridge_alloc(dev, struct tidss_oldi, bridge,
+> +				     &tidss_oldi_bridge_funcs);
+> +	if (IS_ERR(oldi))
+> +		return PTR_ERR(oldi);
+> +
+> +	oldi->parent_vp = parent_vp;
+> +	oldi->oldi_instance = oldi_instance;
+> +	oldi->companion_instance = companion_instance;
+> +	oldi->link_type = link_type;
+> +	oldi->dev = dev;
+> +	oldi->next_bridge = bridge;
+> +	oldi->tidss = tidss;
+> +
+> +	auxiliary_set_drvdata(auxdev, oldi);
+> +
+> +	/*
+> +	 * Only the primary OLDI needs to reference the io-ctrl system
+> +	 * registers, and the serial clock.
+> +	 * We don't require a check for secondary OLDI in dual-link mode
+> +	 * because the driver will not create a drm_bridge instance.
+> +	 * But the driver will need to create a drm_bridge instance,
+> +	 * for secondary OLDI in clone mode (once it is supported).
+> +	 */
+> +	if (link_type != OLDI_MODE_SECONDARY_DUAL_LINK &&
+> +	    link_type != OLDI_MODE_SECONDARY_CLONE_SINGLE_LINK) {
+> +		oldi->io_ctrl = syscon_regmap_lookup_by_phandle(node,
+> +								"ti,oldi-io-ctrl");
+> +		if (IS_ERR(oldi->io_ctrl)) {
+> +			return dev_err_probe(oldi->dev, PTR_ERR(oldi->io_ctrl),
+> +					     "OLDI%u: syscon_regmap_lookup_by_phandle failed.\n",
+> +					     oldi_instance);
+> +		}
+> +
+> +		oldi->serial = of_clk_get_by_name(node, "serial");
+> +		if (IS_ERR(oldi->serial)) {
+> +			return dev_err_probe(oldi->dev, PTR_ERR(oldi->serial),
+> +					     "OLDI%u: Failed to get serial clock.\n",
+> +					     oldi_instance);
+>   		}
+>   	}
+> +
+> +	if (link_type != OLDI_MODE_SECONDARY_DUAL_LINK) {
+> +		/* Register the bridge. */
+> +		oldi->bridge.of_node = node;
+> +		oldi->bridge.driver_private = oldi;
+> +
+> +		tidss->is_ext_vp_clk[oldi->parent_vp] = true;
+> +
+> +		drm_bridge_add(&oldi->bridge);
+> +	}
+> +
+> +	link = device_link_add(&auxdev->dev, tidss->dev,
+> +			       DL_FLAG_PM_RUNTIME | DL_FLAG_AUTOREMOVE_CONSUMER);
+> +	if (!link) {
+> +		ret = -EINVAL;
+> +		goto err_bridge_remove;
+> +	}
+> +
+> +	pm_runtime_enable(dev);
+> +	pm_runtime_set_autosuspend_delay(dev, 500);
+> +	pm_runtime_use_autosuspend(dev);
+> +
+> +	return 0;
+> +
+> +err_bridge_remove:
+> +	if (link_type != OLDI_MODE_SECONDARY_DUAL_LINK) {
+> +		drm_bridge_remove(&oldi->bridge);
+> +		tidss->is_ext_vp_clk[oldi->parent_vp] = false;
+> +	}
+> +
+> +	clk_put(oldi->serial);
+> +
+> +	return ret;
+>   }
 >   
->   		tidss->oldis[tidss->num_oldis++] = oldi;
->   		tidss->is_ext_vp_clk[oldi->parent_vp] = true;
+> -int tidss_oldi_init(struct tidss_device *tidss)
+> +static void tidss_oldi_remove(struct auxiliary_device *auxdev)
+>   {
+> -	struct tidss_oldi *oldi;
+> -	struct device_node *child;
+> -	struct drm_bridge *bridge;
+> -	u32 parent_vp, oldi_instance;
+> -	int companion_instance = -1;
+> -	enum tidss_oldi_link_type link_type = OLDI_MODE_UNSUPPORTED;
+> -	struct device_node *oldi_parent;
+> -	int ret = 0;
+> +	struct tidss_oldi *oldi = auxiliary_get_drvdata(auxdev);
+> +	struct tidss_device *tidss = oldi->tidss;
+> +	struct device *dev = &auxdev->dev;
+>   
+> -	tidss->num_oldis = 0;
+> +	pm_runtime_dont_use_autosuspend(dev);
+> +	pm_runtime_disable(dev);
+>   
+> -	oldi_parent = of_get_child_by_name(tidss->dev->of_node, "oldi-transmitters");
+> -	if (!oldi_parent)
+> -		/* Return gracefully */
+> -		return 0;
+> +	if (oldi->link_type != OLDI_MODE_SECONDARY_DUAL_LINK) {
+> +		drm_bridge_remove(&oldi->bridge);
+> +
+> +		tidss->is_ext_vp_clk[oldi->parent_vp] = false;
+> +	}
+> +
+> +	clk_put(oldi->serial);
+> +}
+> +
+> +static const struct auxiliary_device_id tidss_oldi_aux_id_table[] = {
+> +	{ .name = "tidss.oldi" },
+> +	{}
+> +};
+> +
+> +static struct auxiliary_driver oldi_aux_driver = {
+> +	.name = "oldi",
+> +	.probe = tidss_oldi_probe,
+> +	.remove = tidss_oldi_remove,
+> +	.id_table = tidss_oldi_aux_id_table,
+> +};
+> +
+> +static void tidss_oldi_aux_device_release(struct device *dev)
+> +{
+> +	struct auxiliary_device *auxdev = to_auxiliary_dev(dev);
+> +
+> +	ida_free(&tidss_oldi_ida, auxdev->id);
+> +
+> +	of_node_put(auxdev->dev.of_node);
+>   
+> -	for_each_available_child_of_node(oldi_parent, child) {
+> -		ret = get_parent_dss_vp(child, &parent_vp);
+> -		if (ret) {
+> -			if (ret == -ENODEV) {
+> -				/*
+> -				 * ENODEV means that this particular OLDI node
+> -				 * is not connected with the DSS, which is not
+> -				 * a harmful case. There could be another OLDI
+> -				 * which may still be connected.
+> -				 * Continue to search for that.
+> -				 */
+> -				continue;
+> +	kfree(auxdev->dev.platform_data);
+> +	kfree(auxdev);
+> +}
+> +
+> +static struct auxiliary_device *
+> +tidss_oldi_create_device(struct tidss_device *tidss,
+> +			 struct device_node *oldi_tx)
+> +{
+> +	struct tidss_oldi_platform_data *oldi_pdata;
+> +	struct auxiliary_device *companion_auxdev;
+> +	struct auxiliary_device *auxdev;
+> +	struct device_link *link = NULL;
+> +	u32 oldi_aux_id;
+> +	int ret;
+> +
+> +	/*
+> +	 * Allocate the ID first, so that we get a lower ID for the primary
+> +	 * OLDI, instead of the companion grabbing it in the call below. Note
+> +	 * that the ID allocated here often matches the OLDI hardware index,
+> +	 * but not always.
+> +	 * The OLDI hardware index cannot be used as an ID, as, say, OLDI 1 on
+> +	 * two DSS instances would produce the exact same device name
+> +	 * ("tidss.oldi.1").
+> +	 */
+> +	ret = ida_alloc(&tidss_oldi_ida, GFP_KERNEL);
+> +	if (ret < 0)
+> +		return ERR_PTR(ret);
+> +
+> +	oldi_aux_id = ret;
+> +
+> +	companion_auxdev = NULL;
+> +
+> +	/*
+> +	 * If this is the primary OLDI and there is a companion, create the
+> +	 * auxdev for the secondary OLDI first, as the secondary will act as
+> +	 * a supplier for the primary OLDI.
+> +	 */
+> +	if (!of_property_read_bool(oldi_tx, "ti,secondary-oldi")) {
+> +		struct device_node *companion_node;
+> +
+> +		companion_node = of_parse_phandle(oldi_tx, "ti,companion-oldi", 0);
+> +		if (companion_node) {
+> +			companion_auxdev =
+> +				tidss_oldi_create_device(tidss, companion_node);
+> +
+> +			of_node_put(companion_node);
+> +
+> +			if (IS_ERR(companion_auxdev)) {
+> +				dev_err(tidss->dev,
+> +					"Failed to create secondary oldi device\n");
+> +				ret = PTR_ERR(companion_auxdev);
+> +				goto err_free_ida;
+>   			}
+> -			goto err_put_node;
+>   		}
+> +	}
+>   
+> -		ret = of_property_read_u32(child, "reg", &oldi_instance);
+> -		if (ret)
+> -			goto err_put_node;
+> +	oldi_pdata = kzalloc_obj(*oldi_pdata);
+> +	if (!oldi_pdata) {
+> +		ret = -ENOMEM;
+> +		goto err_free_ida;
+> +	}
+>   
+> -		/*
+> -		 * Now that it's confirmed that OLDI is connected with DSS,
+> -		 * let's continue getting the OLDI sinks ahead and other OLDI
+> -		 * properties.
+> -		 */
+> -		bridge = devm_drm_of_get_bridge(tidss->dev, child,
+> -						OLDI_OUTPUT_PORT, 0);
+> -		if (IS_ERR(bridge)) {
+> -			/*
+> -			 * Either there was no OLDI sink in the devicetree, or
+> -			 * the OLDI sink has not been added yet. In any case,
+> -			 * return.
+> -			 * We don't want to have an OLDI node connected to DSS
+> -			 * but not to any sink.
+> -			 */
+> -			ret = dev_err_probe(tidss->dev, PTR_ERR(bridge),
+> -					    "no panel/bridge for OLDI%u.\n",
+> -					    oldi_instance);
+> -			goto err_put_node;
+> -		}
+> +	oldi_pdata->tidss = tidss;
+>   
+> -		link_type = get_oldi_mode(child, &companion_instance);
+> -		if (link_type == OLDI_MODE_UNSUPPORTED) {
+> -			ret = dev_err_probe(tidss->dev, -EINVAL,
+> -					    "OLDI%u: Unsupported OLDI connection.\n",
+> -					    oldi_instance);
+> -			goto err_put_node;
+> -		} else if ((link_type == OLDI_MODE_SECONDARY_CLONE_SINGLE_LINK) ||
+> -			   (link_type == OLDI_MODE_CLONE_SINGLE_LINK)) {
+> -			/*
+> -			 * The OLDI driver cannot support OLDI clone mode
+> -			 * properly at present.
+> -			 * The clone mode requires 2 working encoder-bridge
+> -			 * pipelines, generating from the same crtc. The DRM
+> -			 * framework does not support this at present. If
+> -			 * there were to be, say, 2 OLDI sink bridges each
+> -			 * connected to an OLDI TXes, they couldn't both be
+> -			 * supported simultaneously.
+> -			 * This driver still has some code pertaining to OLDI
+> -			 * clone mode configuration in DSS hardware for future,
+> -			 * when there is a better infrastructure in the DRM
+> -			 * framework to support 2 encoder-bridge pipelines
+> -			 * simultaneously.
+> -			 * Till that time, this driver shall error out if it
+> -			 * detects a clone mode configuration.
+> -			 */
+> -			ret = dev_err_probe(tidss->dev, -EOPNOTSUPP,
+> -					    "The OLDI driver does not support Clone Mode at present.\n");
+> -			goto err_put_node;
+> -		} else if (link_type == OLDI_MODE_SECONDARY_DUAL_LINK) {
+> -			/*
+> -			 * This is the secondary OLDI node, which serves as a
+> -			 * companion to the primary OLDI, when it is configured
+> -			 * for the dual-link mode. Since the primary OLDI will
+> -			 * be a part of bridge chain, no need to put this one
+> -			 * too. Continue onto the next OLDI node.
+> -			 */
+> -			continue;
+> -		}
+> +	auxdev = kzalloc_obj(*auxdev);
+> +	if (!auxdev) {
+> +		ret = -ENOMEM;
+> +		goto err_free_pdata;
+> +	}
+> +
+> +	*auxdev = (struct auxiliary_device) {
+> +		.name = "oldi",
+> +		.id = oldi_aux_id,
+> +		.dev = {
+> +			.parent = tidss->dev,
+> +			.of_node = of_node_get(oldi_tx),
+> +			.release = tidss_oldi_aux_device_release,
+> +			.platform_data = oldi_pdata,
+> +		},
+> +	};
+> +
+> +	ret = auxiliary_device_init(auxdev);
+> +	if (ret) {
+> +		dev_err(tidss->dev, "OLDI auxiliary_device_init failed: %d\n",
+> +			ret);
+> +		goto err_free_auxdev;
+> +	}
+>   
+> -		oldi = devm_drm_bridge_alloc(tidss->dev, struct tidss_oldi, bridge,
+> -					     &tidss_oldi_bridge_funcs);
+> -		if (IS_ERR(oldi)) {
+> -			ret = PTR_ERR(oldi);
+> -			goto err_put_node;
+> +	/*
+> +	 * Create a device-link between the primary and the secondary, so that
+> +	 * the secondary will be powered on when the primary is used.
+> +	 */
+> +	if (companion_auxdev) {
+> +		link = device_link_add(&auxdev->dev, &companion_auxdev->dev,
+> +				       DL_FLAG_PM_RUNTIME |
+> +					       DL_FLAG_AUTOREMOVE_CONSUMER |
+> +					       DL_FLAG_AUTOREMOVE_SUPPLIER);
+> +		if (!link) {
+> +			dev_err(tidss->dev,
+> +				"device_link_add failed between primary and secondary OLDI\n");
+> +			ret = -EINVAL;
+> +			goto err_uninit_auxdev;
+>   		}
+> +	}
+>   
+> -		oldi->parent_vp = parent_vp;
+> -		oldi->oldi_instance = oldi_instance;
+> -		oldi->companion_instance = companion_instance;
+> -		oldi->link_type = link_type;
+> -		oldi->dev = tidss->dev;
+> -		oldi->next_bridge = bridge;
+> +	ret = auxiliary_device_add(auxdev);
+> +	if (ret) {
+> +		dev_err(tidss->dev, "OLDI auxiliary_device_add failed: %d\n",
+> +			ret);
+> +		goto err_link_del;
+> +	}
+>   
+> -		/*
+> -		 * Only the primary OLDI needs to reference the io-ctrl system
+> -		 * registers, and the serial clock.
+> -		 * We don't require a check for secondary OLDI in dual-link mode
+> -		 * because the driver will not create a drm_bridge instance.
+> -		 * But the driver will need to create a drm_bridge instance,
+> -		 * for secondary OLDI in clone mode (once it is supported).
+> -		 */
+> -		if (link_type != OLDI_MODE_SECONDARY_CLONE_SINGLE_LINK) {
+> -			oldi->io_ctrl = syscon_regmap_lookup_by_phandle(child,
+> -									"ti,oldi-io-ctrl");
+> -			if (IS_ERR(oldi->io_ctrl)) {
+> -				ret = dev_err_probe(oldi->dev, PTR_ERR(oldi->io_ctrl),
+> -						    "OLDI%u: syscon_regmap_lookup_by_phandle failed.\n",
+> -						    oldi_instance);
+> -				goto err_put_node;
+> -			}
+> +	tidss->oldis[tidss->num_oldis++] = auxdev;
+>   
+> -			oldi->serial = of_clk_get_by_name(child, "serial");
+> -			if (IS_ERR(oldi->serial)) {
+> -				ret = dev_err_probe(oldi->dev, PTR_ERR(oldi->serial),
+> -						    "OLDI%u: Failed to get serial clock.\n",
+> -						    oldi_instance);
+> -				goto err_put_node;
+> -			}
+> -		}
+> +	return auxdev;
+>   
+> -		/* Register the bridge. */
+> -		oldi->bridge.of_node = child;
+> -		oldi->bridge.driver_private = oldi;
+> +err_link_del:
+> +	if (link)
+> +		device_link_del(link);
+> +err_uninit_auxdev:
+> +	auxiliary_device_uninit(auxdev);
+> +	/* return here, as the rest are done in auxdev's release */
+> +	return ERR_PTR(ret);
+>   
+> -		tidss->oldis[tidss->num_oldis++] = oldi;
+> -		tidss->is_ext_vp_clk[oldi->parent_vp] = true;
+> -		oldi->tidss = tidss;
+> +err_free_auxdev:
+> +	kfree(auxdev);
+> +err_free_pdata:
+> +	kfree(oldi_pdata);
+> +err_free_ida:
+> +	ida_free(&tidss_oldi_ida, oldi_aux_id);
+>   
+> -		drm_bridge_add(&oldi->bridge);
+> +	return ERR_PTR(ret);
+> +}
+> +
+> +int tidss_oldi_create_devices(struct tidss_device *tidss)
+> +{
+> +	struct device_node *oldi_txes;
+> +	struct device_node *oldi_tx;
+> +	int ret;
+> +
+> +	oldi_txes = of_get_child_by_name(tidss->dev->of_node,
+> +					 "oldi-transmitters");
+> +	if (!oldi_txes)
+> +		return 0;
+> +
+> +	/*
+> +	 * Look for primary OLDIs and create devices for them. For dual-link
+> +	 * cases, the primary's create_device call will also create the
+> +	 * secondary device.
+> +	 */
+> +	for_each_available_child_of_node(oldi_txes, oldi_tx) {
+> +		struct auxiliary_device *auxdev;
+> +
+> +		if (of_property_read_bool(oldi_tx, "ti,secondary-oldi"))
+> +			continue;
+> +
+> +		auxdev = tidss_oldi_create_device(tidss, oldi_tx);
+> +		if (IS_ERR(auxdev)) {
+> +			ret = PTR_ERR(auxdev);
+> +			goto err_destroy_oldis;
+> +		}
+>   	}
+>   
+> -	of_node_put(child);
+> -	of_node_put(oldi_parent);
+> +	of_node_put(oldi_txes);
+>   
+>   	return 0;
+>   
+> -err_put_node:
+> -	of_node_put(child);
+> -	of_node_put(oldi_parent);
+> +err_destroy_oldis:
+> +	tidss_oldi_destroy_devices(tidss);
+> +
+> +	of_node_put(oldi_tx);
+> +	of_node_put(oldi_txes);
+> +
+>   	return ret;
+>   }
+> +
+> +void tidss_oldi_destroy_devices(struct tidss_device *tidss)
+> +{
+> +	for (unsigned int i = 0; i < tidss->num_oldis; ++i)
+> +		auxiliary_device_destroy(tidss->oldis[i]);
+> +}
+> +
+> +int tidss_oldi_register_driver(void)
+> +{
+> +	return auxiliary_driver_register(&oldi_aux_driver);
+> +}
+> +
+> +void tidss_oldi_unregister_driver(void)
+> +{
+> +	auxiliary_driver_unregister(&oldi_aux_driver);
+> +}
+> diff --git a/drivers/gpu/drm/tidss/tidss_oldi.h b/drivers/gpu/drm/tidss/tidss_oldi.h
+> index a361e6dbfce3..2069bd46aaae 100644
+> --- a/drivers/gpu/drm/tidss/tidss_oldi.h
+> +++ b/drivers/gpu/drm/tidss/tidss_oldi.h
+> @@ -36,7 +36,10 @@ enum tidss_oldi_link_type {
+>   	OLDI_MODE_SECONDARY_DUAL_LINK,
+>   };
+>   
+> -int tidss_oldi_init(struct tidss_device *tidss);
+> -void tidss_oldi_deinit(struct tidss_device *tidss);
+> +int tidss_oldi_create_devices(struct tidss_device *tidss);
+> +void tidss_oldi_destroy_devices(struct tidss_device *tidss);
+> +
+> +int tidss_oldi_register_driver(void);
+> +void tidss_oldi_unregister_driver(void);
+>   
+>   #endif /* __TIDSS_OLDI_H__ */
 > 
 
 
