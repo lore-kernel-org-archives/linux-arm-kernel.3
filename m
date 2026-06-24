@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99A77CDB47F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 09:26:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4831CDE002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 09:26:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7XKXc2p5ag8Wa8/6XrQXWDs59HMGtBvpBa1OVw7Td60=; b=PHAhB380pAG778Hsdb8sElfG7u
-	O9zKAIAVthFnM2lRhccdaHYl5QkLeWiBZthFflRuMjE+ctsvueQyBXWU7esVywcBzTUvAUnRC3O67
-	bsckeNgdfWL5v4lY5kfo8kNE/NqhFgRlbI/i1NncCHzN9HKgx2yiG/7ZIVLSEIMuJnn6nnOqDiSW8
-	xst9V7GTIKpXrzwL7Wi9+v1iopnltqVsrFd5laDVUWsppQ/ZN9GvDBjIZZY6P0umbV4/g7zQSvAtv
-	X++kDimkoDBUvQO3ELnTBGoOKHDuwcyFj+ZjR5KWHBkSQdXu6QJ7xvofEV137YX5XqzMseHfrnKHF
-	R1hBmTTg==;
+	bh=j8pD2niHhUSyKv0Sb+ifrbF6NQbVWcEj0IMgAAFDU/M=; b=JcLC99ufRdte1iuJpbxTbdEDR5
+	6iHigdBBBz7vc/mNlo/z3C5+sYP+AU+FL7ruGk3huogWMSbNQKI6/PPzMxWnBT0yIoHw/iRmZbQqW
+	cxriKb63DZVipy1Y4pPDt1xkDrUbdg+zIB1BSsAAdNfrN2TojLOyGyOzUd70KmehgUfa5bXjn9pSd
+	TT2U2n2OwH459RvXehRZ6MhguRmVgvzPdDdiPZwzuCpjdj4T0qOclDEzGK2UoPp85QjNiPRULj0om
+	s+y6URLXlQGcVuhWKccRnIBtrLysSKO44s3Tj1fbO5/+ZBFy5/lb0Z26CdTxQ7rqcNOx45LV6A6u3
+	6m9Bemew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcJsR-00000007V6c-0eTv;
-	Wed, 24 Jun 2026 09:26:35 +0000
-Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
+	id 1wcJsQ-00000007V55-0oKY;
+	Wed, 24 Jun 2026 09:26:34 +0000
+Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcJsC-00000007Uu5-3igI
+	id 1wcJs3-00000007UlQ-0VCt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 09:26:23 +0000
+	Wed, 24 Jun 2026 09:26:14 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=7XKXc2p5ag8Wa8/6XrQXWDs59HMGtBvpBa1OVw7Td60=;
-	b=AN4lTXdinG4wA7//CyLXFAYU6HQl3xbEaPap7wN2hGfyaKBwvIekN0zqGDQUCgghcwh6Y6akR
-	kFWSpVHBh3Grt/Nk6w+EtFG94o7/HFC2GeW7IPUnDbSVdLtmiVuLHfIMPd6mnSQQx1/QhMCubE1
-	l9ooLMxXb2UBPG4EFTKCGec=
-Received: from mail.maildlp.com (unknown [172.19.162.223])
-	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4glbtD1cLFz1prQ6;
-	Wed, 24 Jun 2026 17:17:08 +0800 (CST)
+	bh=j8pD2niHhUSyKv0Sb+ifrbF6NQbVWcEj0IMgAAFDU/M=;
+	b=zxda6Md5vcpZojJF3DqKwYWE+YBuXYhT9SCZxJ2rJ5YZimt8Wd7I4YQ9D9tp6cyH58ULObgrh
+	xSkLaOUklXRzo7ngwowV9Xxvlx6iPyp3Zh4Hi6jXBwSq6nhWJ9sbTPJBmLlwhywwi9dJ9N1iCQQ
+	zwhWY7BfXStYLVB5L6Dqjik=
+Received: from mail.maildlp.com (unknown [172.19.162.197])
+	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4glbt60tvyzRhSV;
+	Wed, 24 Jun 2026 17:17:02 +0800 (CST)
 Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 7E4D640561;
-	Wed, 24 Jun 2026 17:26:15 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 299BE40569;
+	Wed, 24 Jun 2026 17:26:06 +0800 (CST)
 Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
  (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Wed, 24 Jun
- 2026 17:26:13 +0800
+ 2026 17:26:03 +0800
 From: Jinjie Ruan <ruanjinjie@huawei.com>
 To: <catalin.marinas@arm.com>, <will@kernel.org>, <tsbogend@alpha.franken.de>,
 	<tglx@kernel.org>, <mingo@redhat.com>, <bp@alien8.de>,
@@ -64,9 +64,9 @@ To: <catalin.marinas@arm.com>, <will@kernel.org>, <tsbogend@alpha.franken.de>,
 	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-mips@vger.kernel.org>
 CC: <ruanjinjie@huawei.com>
-Subject: [PATCH v3 11/12] arm64: smp: Rework early boot data into per-CPU arrays
-Date: Wed, 24 Jun 2026 17:25:36 +0800
-Message-ID: <20260624092537.2916971-12-ruanjinjie@huawei.com>
+Subject: [PATCH v3 07/12] arm64: cpu_ops: Make 'cpu_operations' pointer global instead of per-cpu
+Date: Wed, 24 Jun 2026 17:25:32 +0800
+Message-ID: <20260624092537.2916971-8-ruanjinjie@huawei.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260624092537.2916971-1-ruanjinjie@huawei.com>
 References: <20260624092537.2916971-1-ruanjinjie@huawei.com>
@@ -77,8 +77,8 @@ X-Originating-IP: [10.90.53.73]
 X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
  dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_022621_258538_D2D3A1F4 
-X-CRM114-Status: GOOD (  18.24  )
+X-CRM114-CacheID: sfid-20260624_022611_502753_104D9AED 
+X-CRM114-Status: GOOD (  14.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,268 +93,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rework the global `secondary_data` and `__early_cpu_boot_status`
-accessed during early boot into per-CPU arrays to allow secondary
-CPUs to boot in parallel.
+From: Will Deacon <will@kernel.org>
 
-And reuse `__cpu_logical_map` array in the early boot code in head.S
-to resolve each secondary CPU's logical ID concurrently.
+'cpu_ops' is an NR_CPUS-length array of 'cpu_operations' pointers, which
+theoretically allows for different CPUs to have different bringup and
+hotplug backends.
 
+In reality, this complexity exists only to deal with the case where CPU0
+is not hotpluggable, so replace the array with a single, global pointer
+and record separately whether or not they apply to the boot CPU. Update
+the logic in init_cpu_ops() to enforce that only a single set of
+'cpu_ops' is required.
+
+Signed-off-by: Will Deacon <will@kernel.org>
 Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
 ---
- arch/arm64/include/asm/smp.h    | 16 ++++++------
- arch/arm64/kernel/asm-offsets.c |  2 ++
- arch/arm64/kernel/head.S        | 44 +++++++++++++++++++++++++++------
- arch/arm64/kernel/setup.c       |  9 +++++++
- arch/arm64/kernel/smp.c         | 11 +++++----
- arch/arm64/mm/mmu.c             |  2 +-
- 6 files changed, 62 insertions(+), 22 deletions(-)
+ arch/arm64/kernel/cpu_ops.c | 29 ++++++++++++++++++++---------
+ 1 file changed, 20 insertions(+), 9 deletions(-)
 
-diff --git a/arch/arm64/include/asm/smp.h b/arch/arm64/include/asm/smp.h
-index e2151a01731f..7e69219e6e33 100644
---- a/arch/arm64/include/asm/smp.h
-+++ b/arch/arm64/include/asm/smp.h
-@@ -34,14 +34,9 @@
- /*
-  * Logical CPU mapping.
-  */
--extern u64 __cpu_logical_map[NR_CPUS];
-+extern void set_cpu_logical_map(unsigned int cpu, u64 hwid);
- extern u64 cpu_logical_map(unsigned int cpu);
+diff --git a/arch/arm64/kernel/cpu_ops.c b/arch/arm64/kernel/cpu_ops.c
+index e133011f64b5..eacfb88a0c0c 100644
+--- a/arch/arm64/kernel/cpu_ops.c
++++ b/arch/arm64/kernel/cpu_ops.c
+@@ -20,7 +20,8 @@ extern const struct cpu_operations acpi_parking_protocol_ops;
+ #endif
+ extern const struct cpu_operations cpu_psci_ops;
  
--static inline void set_cpu_logical_map(unsigned int cpu, u64 hwid)
--{
--	__cpu_logical_map[cpu] = hwid;
--}
--
- struct seq_file;
+-static const struct cpu_operations *cpu_ops[NR_CPUS] __ro_after_init;
++static const struct cpu_operations *cpu_ops __ro_after_init;
++static bool boot_cpu_has_enable_method __ro_after_init;
  
- /*
-@@ -92,8 +87,11 @@ struct secondary_data {
- 	long status;
- };
- 
--extern struct secondary_data secondary_data;
--extern long __early_cpu_boot_status;
-+static_assert((sizeof(struct secondary_data) & (sizeof(struct secondary_data) - 1)) == 0,
-+	      "secondary_data size must be a power of 2 for assembly lsl assembly!");
-+
-+extern struct secondary_data cpu_boot_data[NR_CPUS];
-+extern long __early_cpu_boot_status[NR_CPUS];
- extern void secondary_entry(void);
- 
- extern void arch_send_call_function_single_ipi(int cpu);
-@@ -124,7 +122,7 @@ static inline void __noreturn cpu_park_loop(void)
- 
- static inline void update_cpu_boot_status(unsigned int cpu, int val)
+ static const struct cpu_operations *const dt_supported_cpu_ops[] __initconst = {
+ 	&smp_spin_table_ops,
+@@ -40,6 +41,9 @@ static const struct cpu_operations * __init cpu_get_ops(const char *name)
  {
--	WRITE_ONCE(secondary_data.status, val);
-+	WRITE_ONCE(cpu_boot_data[cpu].status, val);
- 	/* Ensure the visibility of the status update */
- 	dsb(ishst);
+ 	const struct cpu_operations *const *ops;
+ 
++	if (!name)
++		return NULL;
++
+ 	ops = acpi_disabled ? dt_supported_cpu_ops : acpi_supported_cpu_ops;
+ 
+ 	while (*ops) {
+@@ -49,6 +53,7 @@ static const struct cpu_operations * __init cpu_get_ops(const char *name)
+ 		ops++;
+ 	}
+ 
++	pr_warn("Unsupported enable-method: %s\n", name);
+ 	return NULL;
  }
-diff --git a/arch/arm64/kernel/asm-offsets.c b/arch/arm64/kernel/asm-offsets.c
-index b6367ff3a49c..566e2222af5b 100644
---- a/arch/arm64/kernel/asm-offsets.c
-+++ b/arch/arm64/kernel/asm-offsets.c
-@@ -11,6 +11,7 @@
- #include <linux/arm_sdei.h>
- #include <linux/sched.h>
- #include <linux/ftrace.h>
-+#include <linux/log2.h>
- #include <linux/kexec.h>
- #include <linux/mm.h>
- #include <linux/kvm_host.h>
-@@ -97,6 +98,7 @@ int main(void)
-   BLANK();
- #endif
-   DEFINE(CPU_BOOT_TASK,		offsetof(struct secondary_data, task));
-+  DEFINE(SECONDARY_DATA_SHIFT,	ilog2(sizeof(struct secondary_data)));
-   BLANK();
-   DEFINE(FTR_OVR_VAL_OFFSET,	offsetof(struct arm64_ftr_override, val));
-   DEFINE(FTR_OVR_MASK_OFFSET,	offsetof(struct arm64_ftr_override, mask));
-diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
-index 87a822e5c4ca..f58de58c4edc 100644
---- a/arch/arm64/kernel/head.S
-+++ b/arch/arm64/kernel/head.S
-@@ -12,6 +12,7 @@
- #include <linux/linkage.h>
- #include <linux/init.h>
- #include <linux/pgtable.h>
-+#include <linux/threads.h>
  
- #include <asm/asm_pointer_auth.h>
- #include <asm/assembler.h>
-@@ -348,6 +349,31 @@ pen:	ldr	x4, [x3]
- 	b	pen
- SYM_FUNC_END(secondary_holding_pen)
- 
-+	/*
-+	 * Convert the physical MPIDR of the current secondary CPU
-+	 * to its logical CPUID by traversing __cpu_logical_map
-+	 * in parallel.
-+	 */
-+	.macro	mpidr_to_cpuid, mpidr, cpuid, tmp1, tmp2
-+	mov_q	\tmp1, MPIDR_HWID_BITMASK
-+	and	\mpidr, \mpidr, \tmp1
-+
-+	adr_l	\tmp1, __cpu_logical_map
-+	mov	\cpuid, #0
-+.Lfind_cpuid\@:
-+	ldr	\tmp2, [\tmp1, \cpuid, lsl #3]
-+	cmp	\tmp2, #-1
-+	b.eq	.Lnext_cpu\@
-+	cmp	\tmp2, \mpidr
-+	b.eq	.Lfound_cpuid\@
-+.Lnext_cpu\@:
-+	add	\cpuid, \cpuid, #1
-+	cmp	\cpuid, #NR_CPUS
-+	b.ne	.Lfind_cpuid\@
-+	b	__secondary_too_slow
-+.Lfound_cpuid\@:
-+	.endm
-+
- 	/*
- 	 * Secondary entry point that jumps straight into the kernel. Only to
- 	 * be used where CPUs are brought online dynamically by the kernel.
-@@ -363,6 +389,8 @@ SYM_FUNC_START_LOCAL(secondary_startup)
- 	 * Common entry point for secondary CPUs.
- 	 */
- 	mov	x20, x0				// preserve boot mode
-+	mrs	x0, mpidr_el1
-+	mpidr_to_cpuid mpidr=x0, cpuid=x19, tmp1=x1, tmp2=x3
- 
- #ifdef CONFIG_ARM64_VA_BITS_52
- alternative_if ARM64_HAS_VA52
-@@ -386,12 +414,12 @@ SYM_FUNC_START_LOCAL(__secondary_switched)
- 	mov	x0, x20
- 	bl	finalise_el2
- 
--	str_l	xzr, __early_cpu_boot_status, x3
- 	adr_l	x5, vectors
- 	msr	vbar_el1, x5
- 	isb
- 
--	adr_l	x0, secondary_data
-+	adr_l	x0, cpu_boot_data
-+	add	x0, x0, x19, lsl #SECONDARY_DATA_SHIFT
- 	ldr	x2, [x0, #CPU_BOOT_TASK]
- 	cbz	x2, __secondary_too_slow
- 
-@@ -430,13 +458,14 @@ SYM_FUNC_END(set_cpu_boot_mode_flag)
-  *
-  * update_early_cpu_boot_status tmp, status
-  *  - Corrupts tmp1, tmp2
-- *  - Writes 'status' to __early_cpu_boot_status and makes sure
-+ *  - Writes 'status' to __early_cpu_boot_status[cpu] and makes sure
-  *    it is committed to memory.
+@@ -94,25 +99,31 @@ static const char *__init cpu_read_enable_method(int cpu)
+ 	return enable_method;
+ }
+ /*
+- * Read a cpu's enable method and record it in cpu_ops.
++ * Read a cpu's enable method and update/check cpu_ops.
   */
- 
--	.macro	update_early_cpu_boot_status status, tmp1, tmp2
--	mov	\tmp2, #\status
-+	.macro	update_early_cpu_boot_status status, cpu_reg, tmp1, tmp2
- 	adr_l	\tmp1, __early_cpu_boot_status
-+	mov	\tmp2, #\status
-+	add	\tmp1, \tmp1, \cpu_reg, lsl #3
- 	str	\tmp2, [\tmp1]
- 	dmb	sy
- 	dc	ivac, \tmp1			// Invalidate potentially stale cache line
-@@ -486,7 +515,7 @@ SYM_FUNC_START(__cpu_secondary_check52bitva)
- #endif
- 
- 	update_early_cpu_boot_status \
--		CPU_STUCK_IN_KERNEL | CPU_STUCK_REASON_52_BIT_VA, x0, x1
-+		CPU_STUCK_IN_KERNEL | CPU_STUCK_REASON_52_BIT_VA, x19, x0, x1
- 1:	wfe
- 	wfi
- 	b	1b
-@@ -498,7 +527,7 @@ SYM_FUNC_END(__cpu_secondary_check52bitva)
- SYM_FUNC_START_LOCAL(__no_granule_support)
- 	/* Indicate that this CPU can't boot and is stuck in the kernel */
- 	update_early_cpu_boot_status \
--		CPU_STUCK_IN_KERNEL | CPU_STUCK_REASON_NO_GRAN, x1, x2
-+		CPU_STUCK_IN_KERNEL | CPU_STUCK_REASON_NO_GRAN, x19, x1, x2
- 1:
- 	wfe
- 	wfi
-@@ -508,6 +537,7 @@ SYM_FUNC_END(__no_granule_support)
- SYM_FUNC_START_LOCAL(__primary_switch)
- 	adrp	x1, reserved_pg_dir
- 	adrp	x2, __pi_init_idmap_pg_dir
-+	mov	x19, #0
- 	bl	__enable_mmu
- 
- 	adrp	x1, early_init_stack
-diff --git a/arch/arm64/kernel/setup.c b/arch/arm64/kernel/setup.c
-index 23c05dc7a8f2..856c00ab6f19 100644
---- a/arch/arm64/kernel/setup.c
-+++ b/arch/arm64/kernel/setup.c
-@@ -273,6 +273,15 @@ arch_initcall(reserve_memblock_reserved_regions);
- 
- u64 __cpu_logical_map[NR_CPUS] = { [0 ... NR_CPUS-1] = INVALID_HWID };
- 
-+void set_cpu_logical_map(unsigned int cpu, u64 hwid)
-+{
-+	unsigned long start = (unsigned long)&__cpu_logical_map[cpu];
-+	unsigned long end = start + sizeof(__cpu_logical_map[cpu]);
-+
-+	__cpu_logical_map[cpu] = hwid;
-+	dcache_clean_inval_poc(start, end);
-+}
-+
- u64 cpu_logical_map(unsigned int cpu)
+ int __init init_cpu_ops(int cpu)
  {
- 	return __cpu_logical_map[cpu];
-diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-index 14b94df26b44..98ddbe50081d 100644
---- a/arch/arm64/kernel/smp.c
-+++ b/arch/arm64/kernel/smp.c
-@@ -61,7 +61,8 @@
-  * so we need some other way of telling a new secondary core
-  * where to place its SVC stack
-  */
--struct secondary_data secondary_data;
-+struct secondary_data cpu_boot_data[NR_CPUS] ____cacheline_aligned;
+ 	const char *enable_method = cpu_read_enable_method(cpu);
++	const struct cpu_operations *ops = cpu_get_ops(enable_method);
+ 
+-	if (!enable_method)
++	if (!ops)
+ 		return -ENODEV;
+ 
+-	cpu_ops[cpu] = cpu_get_ops(enable_method);
+-	if (!cpu_ops[cpu]) {
+-		pr_warn("Unsupported enable-method: %s\n", enable_method);
+-		return -EOPNOTSUPP;
+-	}
++	if (!cpu_ops)
++		cpu_ops = ops;
++	else if (cpu_ops != ops)
++		return -EBUSY;
 +
- /* Number of CPUs which aren't online, but looping in kernel text. */
- static int cpus_stuck_in_kernel;
++	if (cpu == 0)
++		boot_cpu_has_enable_method = true;
  
-@@ -115,7 +116,7 @@ int arch_cpuhp_kick_ap_alive(unsigned int cpu, struct task_struct *idle)
- 	 * We need to tell the secondary core where to find its stack and the
- 	 * page tables.
- 	 */
--	secondary_data.task = idle;
-+	cpu_boot_data[cpu].task = idle;
- 	update_cpu_boot_status(cpu, CPU_MMU_OFF);
+ 	return 0;
+ }
  
- 	/* Now bring the CPU into our world */
-@@ -136,10 +137,10 @@ void arch_cpuhp_cleanup_kick_cpu(unsigned int cpu, bool is_alive)
- 	 * We failed to synchronise with the CPU, so check if it left us
- 	 * any breadcrumbs.
- 	 */
--	secondary_data.task = NULL;
--	status = READ_ONCE(secondary_data.status);
-+	cpu_boot_data[cpu].task = NULL;
-+	status = READ_ONCE(cpu_boot_data[cpu].status);
- 	if (status == CPU_MMU_OFF)
--		status = READ_ONCE(__early_cpu_boot_status);
-+		status = READ_ONCE(__early_cpu_boot_status[cpu]);
- 
- 	switch (status & CPU_BOOT_STATUS_MASK) {
- 	default:
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index dd85e093ffdb..71c160c6c383 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -62,7 +62,7 @@ static bool rodata_is_rw __ro_after_init = true;
-  * The booting CPU updates the failed status @__early_cpu_boot_status,
-  * with MMU turned off.
-  */
--long __section(".mmuoff.data.write") __early_cpu_boot_status;
-+long __section(".mmuoff.data.write") __early_cpu_boot_status[NR_CPUS];
- 
- static DEFINE_SPINLOCK(swapper_pgdir_lock);
- static DEFINE_MUTEX(fixmap_lock);
+ const struct cpu_operations *get_cpu_ops(int cpu)
+ {
+-	return cpu_ops[cpu];
++	if (cpu || boot_cpu_has_enable_method)
++		return cpu_ops;
++
++	return NULL;
+ }
 -- 
 2.34.1
 
