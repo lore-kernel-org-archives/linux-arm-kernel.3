@@ -4,97 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 708B5CDB479
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 09:29:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E22ADCDB479
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 09:30:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d1eG3hPlsm1+oT45P4zhN9osQ73dxXUyqZH+WHKL4Lo=; b=ZoFjQGLcoQvIHumZcCko4mj7oI
-	Fc4BOyNsu4qIOyawMBESl1zwwfqSzSpyK3/xxROLACBVCWihG3ZiIqZKD47STPEm4UOZ+C0c7Udpj
-	5rIoCYouXnHJqfvGLCEftUKoRqjSV8HJVPgXUPO6R8TUlvHzwOHKZIEFlzT/Yctk4RvbRzpd5QHA2
-	7S2/s+y0EaNHwekmAOrRsTkWlNQtrNreN/3ztIJhE7mXFjhYScDwXCs8wFrZz1z5lVVsnpP1HndhU
-	iDQQujPpDvQec8eFzA5dhunY6fp8XAiLDNrclj9gwrD5MWdOCTI1OQ73sinw4wDtLW8xTgDYucM3E
-	SiwmjNQw==;
+	bh=4QMMjNpI69PAa5UDyxQM/MTLmW5DUOCi7kZy5jsq3RQ=; b=MA1NOvE3KNkd0kHwmn78vObtYa
+	HG80gpVIPfIDCvyb1xshHQn0WE9eRhnf8N/2it5zrVDbi0/YspAA7H3L6UnwC9eZgyWstz7+U7W/x
+	8cEdzsJSr4zHPW5sqxg+lZgMD3O8GLhQg9EW5yBuExlJvM1wVJ0Dr43DGT3jkmvz0yBGQAXye6nLp
+	Pabchh5/pKJ3AXFC7k8+u8hf7l0Q35lvgcAVrFtZLf6Gc1cK/dOUXvIqVBl3DGta32kcZacnwKAhc
+	UdQOqryOB21dBclzbBBnqnsCFl7ZKizNIiX2ioIsEt0tpVLeWELERv41FltcUyBqb2t/+der7+bh5
+	2zohxKoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcJvT-00000007Vrk-1ut2;
-	Wed, 24 Jun 2026 09:29:43 +0000
-Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
+	id 1wcJve-00000007VuT-36Ns;
+	Wed, 24 Jun 2026 09:29:54 +0000
+Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcJvQ-00000007Vqf-2G2I;
-	Wed, 24 Jun 2026 09:29:42 +0000
+	id 1wcJva-00000007VtS-3bKt
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 24 Jun 2026 09:29:52 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=d1eG3hPlsm1+oT45P4zhN9osQ73dxXUyqZH+WHKL4Lo=;
-	b=no3zg9rEHsY+O6tH7lGBZCr/wtQTLde9WTBakbu/lBUC2VtlVNPDQ7njD2eIAQDbPGnbNU2jA
-	HUJhzeTdVN3bmifdnpxCNgcDjzfTf/O21bzqAMhNYus0NTL070RWrW3IB5vlEXdFX6WLp1Gmefd
-	V2TB0gHX2ucPShwXbN+bL2U=
-Received: from mail.maildlp.com (unknown [172.19.162.92])
-	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4glby464Fzz1K9Z7;
-	Wed, 24 Jun 2026 17:20:28 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id ECEA240565;
-	Wed, 24 Jun 2026 17:29:32 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+	bh=4QMMjNpI69PAa5UDyxQM/MTLmW5DUOCi7kZy5jsq3RQ=;
+	b=V9GpuCanuGjCEPD4H56OUkLlvDMt0gkYOCkZR8+B9KreN26eSlKmhlmiunfix2+EXMNigTEL6
+	KtBlV2Zhmrqwzl69BOruONcM/y3sMWCcCDQhexKHzCaReAyp/gBa4mtjl9w+tHCJKo5q3uWTnNL
+	uWlY4wJcfYVvxF3nf4vyWQk=
+Received: from mail.maildlp.com (unknown [172.19.162.140])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4glbyK57lqz1prKy;
+	Wed, 24 Jun 2026 17:20:41 +0800 (CST)
+Received: from dggpemf500013.china.huawei.com (unknown [7.185.36.188])
+	by mail.maildlp.com (Postfix) with ESMTPS id 0F3D52012A;
+	Wed, 24 Jun 2026 17:29:49 +0800 (CST)
+Received: from [10.67.121.183] (10.67.121.183) by
+ dggpemf500013.china.huawei.com (7.185.36.188) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 24 Jun 2026 17:29:31 +0800
-Message-ID: <39df6d17-5151-469d-bcff-b0db3fb5f417@huawei.com>
-Date: Wed, 24 Jun 2026 17:29:30 +0800
+ 15.2.1544.11; Wed, 24 Jun 2026 17:29:48 +0800
+Message-ID: <a6e6a636-4e16-465e-8a65-bff671c94ef5@huawei.com>
+Date: Wed, 24 Jun 2026 17:29:47 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 3/3] arm64: Add HOTPLUG_PARALLEL support for secondary
- CPUs
-To: Will Deacon <will@kernel.org>
-CC: Michael Kelley <mhklinux@outlook.com>, "catalin.marinas@arm.com"
-	<catalin.marinas@arm.com>, "tsbogend@alpha.franken.de"
-	<tsbogend@alpha.franken.de>, "pjw@kernel.org" <pjw@kernel.org>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>, "aou@eecs.berkeley.edu"
-	<aou@eecs.berkeley.edu>, "alex@ghiti.fr" <alex@ghiti.fr>, "tglx@kernel.org"
-	<tglx@kernel.org>, "mingo@redhat.com" <mingo@redhat.com>, "bp@alien8.de"
-	<bp@alien8.de>, "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
-	"hpa@zytor.com" <hpa@zytor.com>, "peterz@infradead.org"
-	<peterz@infradead.org>, "kees@kernel.org" <kees@kernel.org>,
-	"nathan@kernel.org" <nathan@kernel.org>, "linusw@kernel.org"
-	<linusw@kernel.org>, "ojeda@kernel.org" <ojeda@kernel.org>,
-	"david.kaplan@amd.com" <david.kaplan@amd.com>, "lukas.bulwahn@redhat.com"
-	<lukas.bulwahn@redhat.com>, "ryan.roberts@arm.com" <ryan.roberts@arm.com>,
-	"maz@kernel.org" <maz@kernel.org>, "timothy.hayes@arm.com"
-	<timothy.hayes@arm.com>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"thuth@redhat.com" <thuth@redhat.com>, "oupton@kernel.org"
-	<oupton@kernel.org>, "yeoreum.yun@arm.com" <yeoreum.yun@arm.com>,
-	"miko.lenczewski@arm.com" <miko.lenczewski@arm.com>, "broonie@kernel.org"
-	<broonie@kernel.org>, "kevin.brodsky@arm.com" <kevin.brodsky@arm.com>,
-	"james.clark@linaro.org" <james.clark@linaro.org>, "tabba@google.com"
-	<tabba@google.com>, "mrigendra.chaubey@gmail.com"
-	<mrigendra.chaubey@gmail.com>, "arnd@arndb.de" <arnd@arndb.de>,
-	"anshuman.khandual@arm.com" <anshuman.khandual@arm.com>, "x86@kernel.org"
-	<x86@kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-mips@vger.kernel.org"
-	<linux-mips@vger.kernel.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>
-References: <20260611133809.3854977-1-ruanjinjie@huawei.com>
- <20260611133809.3854977-4-ruanjinjie@huawei.com>
- <SN6PR02MB41575306521E6223561F476FD4182@SN6PR02MB4157.namprd02.prod.outlook.com>
- <e96a2579-c010-4198-a2a3-6ba35b14aef0@huawei.com>
- <ajPitENEHWa8lDfC@willie-the-truck>
- <b828dd7a-0363-46cf-aad0-e4962e299338@huawei.com>
- <ajqZJVBCu_D-BkTy@willie-the-truck>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <ajqZJVBCu_D-BkTy@willie-the-truck>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+Subject: Re: [RFC PATCH] irqchip/gic-v3-its: enable dynamic MSI-X allocation
+To: Marc Zyngier <maz@kernel.org>
+CC: <lpieralisi@kernel.org>, <tglx@kernel.org>, <alex@shazbot.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<liuyonglong@huawei.com>, <wangzhou1@hisilicon.com>, <linuxarm@huawei.com>
+References: <20260624025345.458387-1-yangjinqian1@huawei.com>
+ <86o6h0quvj.wl-maz@kernel.org>
+From: Jinqian Yang <yangjinqian1@huawei.com>
+In-Reply-To: <86o6h0quvj.wl-maz@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.121.183]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ dggpemf500013.china.huawei.com (7.185.36.188)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_022940_921178_552B3955 
-X-CRM114-Status: GOOD (  23.56  )
+X-CRM114-CacheID: sfid-20260624_022951_371436_7BF5EFAE 
+X-CRM114-Status: GOOD (  20.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,155 +81,92 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 6/23/2026 10:33 PM, Will Deacon wrote:
-> On Mon, Jun 22, 2026 at 05:16:30PM +0800, Jinjie Ruan wrote:
+On 2026/6/24 15:07, Marc Zyngier wrote:
+> On Wed, 24 Jun 2026 03:53:45 +0100,
+> Jinqian Yang <yangjinqian1@huawei.com> wrote:
 >>
+>> On ARM64 platforms with GICv3 ITS, VFIO PCI passthrough currently
+>> cannot dynamically allocate MSI-X vectors after MSI-X has been
+>> enabled. When QEMU needs to extend the vector range, it must
+>> disable MSI-X, free all interrupts, then re-enable with a larger
+>> allocation. This creates an interrupt loss window for already-active
+>> vectors.
 >>
->> On 6/18/2026 8:21 PM, Will Deacon wrote:
->>> Hi Jinjie,
->>>
->>> On Mon, Jun 15, 2026 at 04:51:48PM +0800, Jinjie Ruan wrote:
->>>> On 6/12/2026 11:45 PM, Michael Kelley wrote:
->>>>> From: Jinjie Ruan <ruanjinjie@huawei.com> Sent: Thursday, June 11, 2026 6:38 AM
->>>>>>
->>>>>> Support for parallel secondary CPU bringup is already utilized by x86,
->>>>>> MIPS, and RISC-V. This patch brings this capability to the arm64
->>>>>> architecture.
->>>>>>
->>>>>> Rework the global `secondary_data` accessed during early boot into
->>>>>> a per-CPU array. This array maps logical CPU IDs to MPIDR_EL1 values,
->>>>>> enabling the early boot code in head.S to resolve each secondary CPU's
->>>>>> logical ID concurrently.
->>>>>>
->>>>>> To fully enable HOTPLUG_PARALLEL, this patch implements:
->>>>>> 1) An arm64-specific arch_cpuhp_kick_ap_alive() handler.
->>>>>> 2) Callbacks to cpuhp_ap_sync_alive() inside secondary_start_kernel().
->>>>>>
->>>>>> Successfully tested on QEMU ARM64 virt machine (KVM on, 128 vCPUs).
->>>>>>
->>>>>> |     test kernel	   | secondary CPUs boot time |
->>>>>> |  ---------------------   |	--------------------  |
->>>>>> |   Without this patch     |		155.672	      |
->>>>>> |   cpuhp.parallel=0	   |		62.897	      |
->>>>>> |   cpuhp.parallel=1	   |		166.703	      |
->>>>>
->>>>> The last two rows seem mixed up. I would expect parallel=0 to
->>>>> result in a longer boot time.
->>>>
->>>> Hi, Michael,
->>>>
->>>> The results are correct and not mixed up.
->>>>
->>>> Compared to the original non‑HOTPLUG_PARALLEL approach, the advantage of
->>>> cpuhp.parallel=0 lies in its use of cpu_relax(`yield` on arm64) instead
->>>> of the wait_for_completion_timeout() mechanism (which may cause sleep
->>>> and context switching). This significantly reduces the overhead of VM
->>>> exits and context switches in a KVM guest, thereby cutting the secondary
->>>> CPU boot time by more than half.
->>>
->>> I don't think that's a particularly compelling reason to enable this for
->>> arm64, in all honesty. The yield instruction typically doesn't do
->>> anything on actual arm64 silicon, so this probably means that you're
->>> introducing busy-loops which tend to be bad for power and scalability.
->>>
->>> I implemented this a while ago [1] but didn't manage to see much in terms
->>> of performance improvement and so I didn't bother to send the patches out
->>> after talking about it at KVM forum [2]. However, as mentioned at the end
->>> of that talk, it _is_ still useful for confidential VMs using PSCI so
->>> let me dust off my old series and send it out to see what you think.
->>
->> Hi Will,
->>
->> Thanks for the insights! Your point about using PSCI v0.2's Context ID
->> to avoid the NR_CPUS array for input parameters (like
->> secondary_data.task) is incredibly elegant.
->>
->> However, if I understand your series correctly, it seems your approach
->> primarily targets preventing the concurrent use of secondary_data.task,
->> but it doesn't seem to account for the potential data trampling on
->> secondary_data.status when multiple secondary CPUs are brought up
->> simultaneously.
->>
->> update_cpu_boot_status()
->>   -> WRITE_ONCE(secondary_data.status.flags[val], 1)
->>
->> arch_cpuhp_cleanup_kick_cpu()
->>   -> status = READ_ONCE(secondary_data.status)
+>> Consider HNS3 with RoCE: NIC and RDMA share one PCI device and
+>> ITS DeviceID, with MSI-X vectors partitioned as NIC (lower range)
+>> then RoCE (starting at base_vector = num_nic_msi). In VFIO
+>> passthrough, loading hns_roce after hns3 forces QEMU to tear down
+>> all interrupts before re-allocating the larger range. During this
+>> process, NIC interrupts may be lost. Testing confirmed that this
+>> occasionally occurs, causing the network port reset to fail.
 > 
-> I need to dust it back off but IIRC I made that thing a byte array, with
-> a separate byte for each failure reason.
+> Well, that's what you get for not exposing differentiated functions.
+> Eventually, you face the reality that this is a poor design.
 > 
-> Will
 
-Hi, Will,
+Fair point, though this is not unique to HNS3.. All major NIC+RDMA
+vendors share the same PCI function.
 
-Thanks for the clarification. A byte array with a separate byte per
-failure reason does prevent trampling between different failure types.
-
-However, the issue arises if multiple secondary CPUs fail for the exact
-same reason simultaneously. In that scenario, they will still attempt to
-write to the same byte index at the same time. As a result, the primary
-CPU reading the status later won't be able to distinguish which specific
-CPUs encountered the problem, or how many of them failed.
-
-I test your patch with error inject, which configures CPU4 and CPU6,
-along with CPU16 and CPU18, to generate distinct boot failures, while
-making CPU17 hit the same boot failure as CPU16. The output is not
-correct as below:
-
-[    0.332528] smp: Bringing up secondary CPUs ...
-[   10.674114] CPU1 failed to report alive state
-[   10.674392] CPU1 detected lack of support for 52-bit VAs
-[   10.674610] CPUs may be stuck in kernel
-[   21.016707] CPU2 failed to report alive state
-[   31.357320] CPU3 failed to report alive state
-[   41.693228] CPU4 failed to report alive state
-[   52.033112] CPU5 failed to report alive state
-[   62.378198] CPU6 failed to report alive state
-[   72.716467] CPU7 failed to report alive state
-[   83.046746] CPU8 failed to report alive state
-[   93.338020] CPU9 failed to report alive state
-[  103.591986] CPU10 failed to report alive state
-[  113.893741] CPU11 failed to report alive state
-[  124.230870] CPU12 failed to report alive state
-[  134.567597] CPU13 failed to report alive state
-[  144.905256] CPU14 failed to report alive state
-[  155.247633] CPU15 failed to report alive state
-[  165.584891] CPU16 failed to report alive state
-[  175.920794] CPU17 failed to report alive state
-[  186.256323] CPU18 failed to report alive state
-[  196.596136] CPU19 failed to report alive state
-
-The expected output is as below:
-
-        CPU4 failed to report alive state
-        CPU4: is stuck in kernel
-        CPU4: does not support 52-bit VAs
-
-        CPU6 failed to report alive state
-        CPU6: is stuck in kernel
-        CPU6: does not support 4K granule
-
-        GICv3: CPU8: found redistributor 8 region 0:0x00000000081a0000
-        GICv3: CPU8: using allocated LPI pending table @0x0000000100360000
-        CPU8: Booted secondary processor 0x0000000008 [0x410fd034]
-        ...
-        CPU16 failed to report alive state
-        psci: CPU16 killed (polled 0 ms)
-        CPU16: died during early boot
-
-        CPU17: will not boot
-        CPU17 failed to report alive state
-        psci: CPU17 killed (polled 0 ms)
-        CPU17: died during early boot
-
-        CPU18 failed to report alive state
-        Kernel panic - not syncing: CPU18 detected unsupported configuration
-
-Best regards,
-Jinjie
-
-
+>>
+>> ITS_MSI_FLAGS_SUPPORTED lacks MSI_FLAG_PCI_MSIX_ALLOC_DYN, causing
+>> pci_msix_can_alloc_dyn() to return false. VFIO then sets
+>> has_dyn_msix=false and never clears VFIO_IRQ_INFO_NORESIZE for
+>> MSI-X, keeping the old "disable and reallocate" behavior.
+>>
+>> The essential prerequisite for enabling this flag is the fix to
+>> msi_prepare() call timing (commit 1396e89e09f0 ("genirq/msi: Move
+>> prepare() call to per-device allocation")): msi_prepare() is
+>> now called once at per-device domain creation with hwsize, so ITS
+>> creates an ITT with sufficient capacity for all MSI-X vectors.
+>> Without this fix, msi_prepare() was called per-allocation with
+>> semi-random nvec, maybe resulting in an ITT too small for dynamic
+>> vector addition.
 > 
+> How is this paragraph relevant? The kernel has had this fix for over a
+> year, and backporting this series is not something I plan to ever do.
+> 
+
+Will remove from commit msg.
+
+>>
+>> With this in place, dynamic MSI-X allocation works correctly:
+>> msi_domain_alloc_irq_at() uses populate_alloc_info() to copy the
+>> pre-prepared alloc_data without re-invoking msi_prepare(), so each
+>> new vector simply gets a LPI entry in the already-allocated ITT,
+>> without affecting existing vectors.
+>>
+>> Signed-off-by: Jinqian Yang <yangjinqian1@huawei.com>
+>> ---
+>>   drivers/irqchip/irq-gic-its-msi-parent.c | 3 ++-
+>>   1 file changed, 2 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/irqchip/irq-gic-its-msi-parent.c b/drivers/irqchip/irq-gic-its-msi-parent.c
+>> index b9257103a999..b2b9d2068bb1 100644
+>> --- a/drivers/irqchip/irq-gic-its-msi-parent.c
+>> +++ b/drivers/irqchip/irq-gic-its-msi-parent.c
+>> @@ -18,7 +18,8 @@
+>>   
+>>   #define ITS_MSI_FLAGS_SUPPORTED (MSI_GENERIC_FLAGS_MASK |	\
+>>   				 MSI_FLAG_PCI_MSIX      |	\
+>> -				 MSI_FLAG_MULTI_PCI_MSI)
+>> +				 MSI_FLAG_MULTI_PCI_MSI |	\
+>> +				 MSI_FLAG_PCI_MSIX_ALLOC_DYN)
+>>   
+>>   static int its_translate_frame_address(struct fwnode_handle *msi_node, phys_addr_t *pa)
+>>   {
+> 
+> What has this been tested with? In which conditions?
+> 
+
+Tested on Hisilicon HIP09 (ARM64, GICv3/GICv4.1) with latest
+upstream kernel and QEMU 8.2.
+
+VFIO passthrough of HNS3 NIC to VM: load both hns3 and
+hns_roce_hw_v2 drivers, then trigger FLR. Without the flag,
+QEMU disables/re-enables MSI-X around FLR, causing occasional
+link up failure due to interrupt loss.
+
+Thanks,
+Jinqian
 
 
