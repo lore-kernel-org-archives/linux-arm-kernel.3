@@ -4,56 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38497CDB479
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 22:24:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77119CDE000
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 22:37:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LitrfS+RJ8O8cGsTVU7cFsT1JjhcfhiARP+rjeg5MiY=; b=ik30m3+10iNmePkSv0ua+rOiAl
-	+Y2Rwy69aj9d565uS/78crlFP6xrpJJGb4ZmZtkkWGX7U/ZrP0OzILHpqWla8x9ro3vXH11GoxXj9
-	1m0Ohe0fHjHRJK3q78p6Pd3DAs+/5XzRpOYO3rzLeW0uowqEzKcwXKcjaRJZTgKxxz1u13KIuCx5X
-	4rhh1OKhV8GtVGA3PMJc1PyoAkwPrqSaHYYcUqt3pz2UJPBmiWzB9HArmof2uXlyCviGPJPUqbkA2
-	QGaVX5zvk2LIHhU5N+wt+WD/5uxctdGk7f89CgXpu/UAKb1Nvx6dBXa7MkRCdn46LUhgyUhSl/3Bd
-	9kivUPTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=40fozanXZAxdlzneNHkPG5prWoWrnHjv4DK5nYpBKP8=; b=fnwgvE/xTPL/CynzFGJv/w5pf1
+	zzEoY+E3IfIF4TFiKt3U7YzR/VXhfzsuRByzcQqXX6uekl1X5AMhutQL8lhN/1YhV6dMBEMNEyO11
+	78xIdFWRUBzwCgrAw3ncRJfShxiD6UD1J7zyeKP8I4h9niMJbm7jPeq57Ia401Ee6EZ3OhAySix66
+	D4Kv5LU2bdwV48+Ar8imPe9spyeyuLUvbpE15YVco/6JMlp1/A4/E7oz3hoQ9/75hXaIMfCXGvuWE
+	eX8xPrhbaFWm0EEVaRCm9V9Jn7gc7DswSExF2CgMD/0oBpV2XJ3hrfaGKtr1Grv66mBNyksxclO6R
+	jFmLnKeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcW1H-00000008OhZ-2weI;
-	Wed, 24 Jun 2026 22:24:31 +0000
-Received: from gentwo.org ([62.72.0.81])
+	id 1wcWDR-00000008P7S-3Bqa;
+	Wed, 24 Jun 2026 22:37:05 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcW1E-00000008OhA-2lf8
+	id 1wcWDQ-00000008P7H-1HGD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 22:24:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gentwo.org;
-	s=default; t=1782339192;
-	bh=wkq+3W2fWEC7bjhwfGrR0IiAI2Lcq4cw5kgHSMEauzQ=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=dcGXgBcvO7tRghjIOXtuBM7mTC/NTI/62SEd1Nz5fy3XUT+MNNVGqDGRRjBIAwAlz
-	 XnSQbj2vTWa3ajWmb7aUfRam5ePkwpmU4cF2H1y/9nk7B/VTfw+lCFpnE3XSrS63KH
-	 YMqB9fjam4WD+aUospgSWGXxoabWS+fGtDuSFWBQ=
-Received: by gentwo.org (Postfix, from userid 1012)
-	id 918C5402E2; Wed, 24 Jun 2026 15:13:12 -0700 (PDT)
-Received: from localhost (localhost [127.0.0.1])
-	by gentwo.org (Postfix) with ESMTP id 8FCCA4006E;
-	Wed, 24 Jun 2026 15:13:12 -0700 (PDT)
-Date: Wed, 24 Jun 2026 15:13:12 -0700 (PDT)
-From: Sayali Kulkarni <sk@gentwo.org>
-To: Linu Cherian <linu.cherian@arm.com>
-cc: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org, 
-    linux-kernel@vger.kernel.org, will@kernel.org, ryan.roberts@arm.com, 
-    yang@os.amperecomputing.com, cl@gentwo.org, sskulkarni@amperecomputing.com
-Subject: Re: [PATCH v2] arm64: tlbflush: Reset active_cpu on ASID rollover
-In-Reply-To: <ajQM4bkKfWdPowpM@a079125.arm.com>
-Message-ID: <2ef3430f-fdea-aff0-b9fb-f4ff2427df93@gentwo.org>
-References: <airWIxSd_a5kR65-@arm.com> <20260612232254.2856649-1-sk@gentwo.org> <ajQM4bkKfWdPowpM@a079125.arm.com>
+	Wed, 24 Jun 2026 22:37:04 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4C51460018
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Jun 2026 22:37:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC3B51F00A3A
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Jun 2026 22:37:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782340623;
+	bh=40fozanXZAxdlzneNHkPG5prWoWrnHjv4DK5nYpBKP8=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=c9LrCAKfczx72V/MNASmoT5/6LNaegoXFkGVJRI3xEjWqoZyGaf/QtqTQO1Dg9OK8
+	 SZDkLNrsnnBP6/xrg2Y5VPu9H3cUDZFaX1ZzxS/IVmRispdlhxltPUNV5BPaeUsgmO
+	 PrifS9IeGeM6LYdqLkoLH/HQcgGGdNMClTqEvLTpPOA7KFOqQH8XACo4/BZtYeiH78
+	 iG12/tq7f50dqAWTDJ6GuJp6z8f6wiho6xoBkYwH3jOZ1ZodOo0vD4SzSgiOO5umwO
+	 XmZx5wAdupDfEYov1Q4QgnHv4T4f91XN0hREiY4THNdSFrU3rHW9njyCivR0NtQ7n3
+	 E4iu/VIQZJgzg==
+Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-5ad4ee80f65so1434105e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Jun 2026 15:37:02 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Rorn5vhmlFOx1gYBjKY7jDCE49drb0wnFA4YZrRtMgK5bHm5aKtMMw9FXJr+wHC/0wyns/EoaFh0H/Bn8AcBx2U@lists.infradead.org
+X-Gm-Message-State: AOJu0YxpXHeBWrA9saS/zX2qcfg+UsbDkTiHGxjL4o0wscaPolzlkJQq
+	XndsitjFTuMtqn8NgUEhcaPgtkPMTdOM72ppAykd2KOZUqvfDUk3MmNGvHAIa6Wsu54ZuJNRjAN
+	nE4lpTKoi/6l3yM7F6WojtVzq4zCxKbI=
+X-Received: by 2002:a05:6512:1352:b0:5aa:8824:1571 with SMTP id
+ 2adb3069b0e04-5aea1f5749dmr1552e87.49.1782340621797; Wed, 24 Jun 2026
+ 15:37:01 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="8323329-556800636-1782339192=:3177764"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_152428_726769_BAEBF1BA 
-X-CRM114-Status: GOOD (  31.30  )
+References: <20260623-i2c-fault-reporting-v1-0-6db1a8aabf18@mobileye.com> <20260623-i2c-fault-reporting-v1-2-6db1a8aabf18@mobileye.com>
+In-Reply-To: <20260623-i2c-fault-reporting-v1-2-6db1a8aabf18@mobileye.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Thu, 25 Jun 2026 00:36:49 +0200
+X-Gmail-Original-Message-ID: <CAD++jLmqtG-j=Q-Ctr-1-GKVqYzcwOwWUF6AYHcKf5aXUSKE5A@mail.gmail.com>
+X-Gm-Features: AVVi8CdKE0_TO6Y_h9SxJOdr6PO6E18SEZGrX_NJeddyc2ji01Fy-uaf4cY0jbo
+Message-ID: <CAD++jLmqtG-j=Q-Ctr-1-GKVqYzcwOwWUF6AYHcKf5aXUSKE5A@mail.gmail.com>
+Subject: Re: [PATCH 2/7] i2c: nomadik: optimize layout of struct nmk_i2c_dev
+To: Dmitry Guzman <Dmitry.Guzman@mobileye.com>
+Cc: Andi Shyti <andi.shyti@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
+	Masami Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
+	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-trace-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,112 +81,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
+Hi Dmitry,
 
---8323329-556800636-1782339192=:3177764
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Transfer-Encoding: 8BIT
+thanks for your patch!
 
+Also nice to see some kernel contributions directly from
+MobilEye!
 
-Thank you for catching this. After going through the patch again, I 
-realize that the race is real. Resetting active_cpu to ACTIVE_CPU_NONE on 
-rollover can leave it in an inconsistent state when stale entries still 
-live. Note that the rollover state entries themselves aren’t the issue. 
-Those are handled by the existing reserved_asids/tlb_flush_pending 
-mechanism. It’s specifically active_cpu’s own record going inconsistent.
+On Tue, Jun 23, 2026 at 6:32=E2=80=AFPM Dmitry Guzman
+<Dmitry.Guzman@mobileye.com> wrote:
 
-For v3, I am exploring handling active_cpu together with the generation so 
-that the reset can’t open a NONE window. Doing it in the slow path after 
-local flush and updating to the current CPU rather than NONE. Does that 
-direction seem reasonable or is there a cleaner way to avoid the 
-under-claim window? Will follow up with a patch once it’s figured out.
+> Put two bool variables `xfer_done` and `has_32b_bus` and two char
+> variables `tft` and `rft` together in order to reduce struct size
+> wasted for padding.
+>
+> Signed-off-by: Dmitry Guzman <Dmitry.Guzman@mobileye.com>
+(...)
+>  struct nmk_i2c_dev {
+>         struct i2c_vendor_data          *vendor;
+> @@ -206,13 +206,13 @@ struct nmk_i2c_dev {
+>         u32                             clk_freq;
+>         unsigned char                   tft;
+>         unsigned char                   rft;
 
-Thanks,
-Sayali
+^
+Maybe you want to take the opportunity to change these
+two into u8 if you're anyway changing the layout of this
+struct?
 
+Either way:
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 
-On Thu, 18 Jun 2026, Linu Cherian wrote:
-
-> Hi,
->
-> On Fri, Jun 12, 2026 at 04:21:06PM -0700, Sayali Kulkarni wrote:
->> From: Sayali Kulkarni <sskulkarni@amperecomputing.com>
->>
->> Hi Catalin,
->>
->> Thank you for the review. I’ve addressed your feedback in v2:
->>
->> - Moved `WRITE_ONCE(mm->context.active_cpu, ACTIVE_CPU_NONE)` from `check_and_switch_context()` to `new_context()` after the `set_asid` label. At this point, a brand new ASID has been allocated that no CPU has ever used, so the reset is safe even for multi-threaded processes where other CPUs may still be running with the old ASID via `reserved_asids`.
->> - Updated the commit message to correct the safety reasoning: `flush_context()` only sets `tlb_flush_pending`; it does not issue a global TLB flush.
->>
->> Thanks,
->> Sayali
->>
->>
->> Once active_cpu flips to ACTIVE_CPU_MULTIPLE it never resets, even if
->> the process settles back to one CPU. Reset it to ACTIVE_CPU_NONE in
->> new_context() after a new ASID is allocated at the set_asid label.
->>
->> At this point a brand new ASID has been assigned that no CPU has ever
->> used, so ACTIVE_CPU_NONE accurately reflects reality. Any other threads
->> of the same process continue running with the old ASID via
->> reserved_asids and are unaffected.
->>
->> This gives processes a fresh chance at the local-only flush fast path
->> after each ASID generation rollover.
->>
->> Signed-off-by: Sayali Kulkarni <sskulkarni@amperecomputing.com> (Ampere)
->> ---
->>  arch/arm64/mm/context.c | 1 +
->>  1 file changed, 1 insertion(+)
->>
->> diff --git a/arch/arm64/mm/context.c b/arch/arm64/mm/context.c
->> index f34ed78393e0..46c7fd07b9bf 100644
->> --- a/arch/arm64/mm/context.c
->> +++ b/arch/arm64/mm/context.c
->> @@ -209,6 +209,7 @@ static u64 new_context(struct mm_struct *mm)
->>  set_asid:
->>  	__set_bit(asid, asid_map);
->>  	cur_idx = asid;
->> +	WRITE_ONCE(mm->context.active_cpu, ACTIVE_CPU_NONE);
->
-> Can the above store race with the store to active_cpu in another thread,
-> that updates it to ACTIVE_CPU_MULTIPLE ?
->
-> Lets say we have two threads both initially running in CPU 0,
->
-> Thread 1: Runs in CPU 0
->
-> Encounters a rollover, updates mm->context.active_cpu to ACTIVE_CPU_NONE and
-> updates mm->context.id to new asid.
->
-> Thread 2: Scheduled to run on CPU 1 for the first time
->
-> Observes the updated mm->context.id that belongs to the current
-> generation(after the rollover) and hence proceeds to switch_mm_fastpath
-> and ends up updating the active_cpu to ACTIVE_CPU_MULTIPLE.
->
-> If Thread 1 and Thread 2 races, then active_cpu can get corrupted ?
->
-> The reason this could be possible is that, write to active_cpu and
-> mm->context.id can get reordered and we need to enforce ordering for
-> correctness ?
->
-> Do you see this as a valid scenario ?
->
-> --
-> Thanks,
-> Linu Cherian.
->
->
->
->
->
->
->
->
->
->
---8323329-556800636-1782339192=:3177764--
+Yours,
+Linus Walleij
 
