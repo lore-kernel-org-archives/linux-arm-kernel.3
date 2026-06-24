@@ -4,94 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26E60C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 12:04:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3360AC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 12:14:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WJgZmqjC2QA9/uTc6kcbWKzkbTz9n7WrrEXRH7DelFo=; b=nunNTrtStnh9WYP31EnPzPqQ5J
-	qoAj3fUTcB4mn+SSr1ss6OqfBdGnuWXblDxbAZH8vFp05NY+6WjCC7l13wtmTuMUZsrEWgGIjAyLD
-	93cSsdxw7DxlCxgvH10VHhqNx4gmz8x//lY5MO/YmMOZnvg3bBuHwVHIbg/IvLFUA+v7EiA1F0P0o
-	0JjQbPEVOGeV1tJWwBdvzf3G2zdAwDv4O9hPXFE7PM9XO3fQKVmMtxrBeq8XC5YHWOB7JeNynBBbl
-	klU6QL97PTK1tp9jk0oBR/RuGiOySAjiZrO9lQAQ7zwjkS31YXLiSqrusS3qMGZY3F5PkUQJCBJcX
-	M+6szhRQ==;
+	bh=nrRq/rqP6CPHqJ5bPla9J1CX1DPLvJIFTJzunN36uJQ=; b=rKoER7I1FiTVM7bb2tVQVqquQ5
+	88ZTd+raWE15TcE0as6zo5czzfisyj1iSQZvCZeQauKhdSnexqKaFhLO9eZBXnU7UugPob/azgmnh
+	+u1PlE8sZI/+L98J8bjkCIVG+qWGBkmcMQh9m5tE0KsOMmyyR08gmGWnFPgpPVHcWR6YPBz9sAzV5
+	DHrez9KoVXV1Q87kxVVZgEjOGjYTVO3rbTfdKO0ec4S5Hla7d/d2q1XgNbEHAVOgi/qwFl7SUceXi
+	1EmafVhF/ggMQ8jXEMYkQDn9b+mHDUmj1oVeRjQZb2RaFVC54oBUU1m5UWzLBd7ucf42m1kNOJMuc
+	Ml7PRmmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weAjM-0000000EVqr-1whg;
-	Mon, 29 Jun 2026 12:04:52 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1weAsK-0000000EWlR-0rEE;
+	Mon, 29 Jun 2026 12:14:08 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weAjI-0000000EVpt-2MF7
+	id 1weAsI-0000000EWlD-3Edd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 12:04:50 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4924593f45dso42307525e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 05:04:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1782734687; x=1783339487; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:user-agent
-         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WJgZmqjC2QA9/uTc6kcbWKzkbTz9n7WrrEXRH7DelFo=;
-        b=C5NUHElDUreP7NH7qc442GFpRLo9dMfguMASou88Z4nhuK87xSgvpLgT5Z4obr2A1s
-         6kE2uWITxfkLoVCcnBMj2O1SyLB6BAlGnoxlKfv1/gfOeQkpAPO4yCnAnSolfHBG7D46
-         BtR9JAGj4bi+52BYwccctKJaNZnPhabkfVxJODB9hlWxj7jJCOYRrBeLsjoh3aonhVHb
-         JNsBMqEe3eVFNH90J2wa8JF3Tn9aXjXjAvXiyWFIM2Omfo51kedObNjyLGpKo7kqtdYg
-         bYhNb6n+Fm6Rn/UfTz5Q7NpUs2chz53u6qe33+eDDijGdSlihbA0BUP8nYAnYYb2Lc9a
-         25PQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782734687; x=1783339487;
-        h=content-transfer-encoding:mime-version:message-id:date:user-agent
-         :references:in-reply-to:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=WJgZmqjC2QA9/uTc6kcbWKzkbTz9n7WrrEXRH7DelFo=;
-        b=r6qMB1p0XV5l+qBBggqZ6aygjvGgrtK5I3cGSwo4S4Xreu1cuSDhjcEZiNh57bjkhk
-         hBH54gnY7WiWyXuTKXBuywlO9CTa/19vM0W9sDGRI2aNSn/Unma4tit84ilRJcEk2/B8
-         KmVCCT83u121X26nt10g0LTri5+gF4h/dfzpqH3PcftJ7yL4MsIkJ4dJDhk3+i3L0+nv
-         SOhuwCh0+mUmWYm88X4wb9cYNepfHHEGrc8VM9dJ0jdadS4GjRZALOZU8IDQbh3RxDz5
-         DHcotFVaZXtqU/hrzWJHQZbUKUJLb0s+aqtpQQhLHbj38fQytvpHlsvnaP+fOEZw7Bt/
-         8znA==
-X-Forwarded-Encrypted: i=1; AFNElJ88nuJL/HdXn2UKo72EuDl8iSGk1fbXHojsEiiY+5ybDa8snjPAtnmXS/qUc42LL+S9k3c7eoRGn0M6huwaJ6Ow@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx5pV/7c9yANJUsxYoH6BFEbAwJLdMSEbITs9R+PjahZdZ47Vi8
-	zOnGa1rB8pUyYErEExoB3YZC+zMdFgfqnooRvq1h5bAOfmfj0af7UcIXi3U0ttN6x6k=
-X-Gm-Gg: AfdE7ckeSKWbvi2C1aa1dtNzCkpz5geUaaFpjWgfQCZNwRU3ukDJ2Cyvj2Vnr+1Bdsa
-	BPv2lID9N9tWlVCubz/bkRyIlCcqKmHIfMN2jwSgjn5h9GILg/gNxN41TEOy6SYYRLzxxE5AOFA
-	/GUyqjMc8kyqvihjTAk6iVhh8VW0AvdU7p/QDCsr7qn38FVooTHT7eQ7LcbtjKWOyyqb27ImGOS
-	eIrtZ3qb6J8aupnafRSRmDPb4KOvxNKMk4ikCA76vPZdP46WkwkHJulni3pKHrSdTunseHZJ7hp
-	1EAwktmMagFCEBJKKehd8xDNfXBpY5UKvgZ38DNuds9iOX1nwNnN5XTLi0p6/0MKfQKRU0NUhGc
-	OzQHnqpKb07Syykjb4joIS4Rn7J3Nq1bjaqMfuumiRIms6Pydd8lFPrgGgNWDp6ZI4tZQOcJ5CA
-	NYOKC/3bOvJpM=
-X-Received: by 2002:a05:600c:1d86:b0:490:d354:bcf4 with SMTP id 5b1f17b1804b1-49266885dc4mr247452875e9.27.1782734686627;
-        Mon, 29 Jun 2026 05:04:46 -0700 (PDT)
-Received: from localhost ([2a01:e0a:3c5:5fb1:1d21:f5d5:2d3c:23a7])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-49269071d05sm317487775e9.11.2026.06.29.05.04.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Jun 2026 05:04:46 -0700 (PDT)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: Christian Hewitt <christianshewitt@gmail.com>,  Liam Girdwood
- <lgirdwood@gmail.com>,  Mark Brown <broonie@kernel.org>,  Jaroslav Kysela
- <perex@perex.cz>,  Takashi Iwai <tiwai@suse.com>,  Neil Armstrong
- <neil.armstrong@linaro.org>,  Kevin Hilman <khilman@baylibre.com>,
-  linux-sound@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
-  linux-amlogic@lists.infradead.org,  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] ASoC: meson: aiu: fifo-spdif: soft reset the S/PDIF
- datapath on start/stop
-In-Reply-To: <CAFBinCD5bn5VixbomCz0nmHuopBmgh0CJc-V4jY2vdXhoP_VCw@mail.gmail.com>
-	(Martin Blumenstingl's message of "Fri, 26 Jun 2026 22:41:24 +0200")
-References: <20260626080422.4191435-1-christianshewitt@gmail.com>
-	<CAFBinCD5bn5VixbomCz0nmHuopBmgh0CJc-V4jY2vdXhoP_VCw@mail.gmail.com>
-User-Agent: mu4e 1.12.9; emacs 30.1
-Date: Mon, 29 Jun 2026 14:04:44 +0200
-Message-ID: <1jwlvha6xv.fsf@starbuckisacylon.baylibre.com>
+	Mon, 29 Jun 2026 12:14:06 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 26E8243910;
+	Mon, 29 Jun 2026 12:14:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 034CD1F000E9;
+	Mon, 29 Jun 2026 12:14:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782735246;
+	bh=nrRq/rqP6CPHqJ5bPla9J1CX1DPLvJIFTJzunN36uJQ=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=bIOJGuAkRUeEsVyXg2f4w6mVqSoSoGesHWg/LiHk1eKwRDY89MEN0tl0S4VO1WPXy
+	 2Sqd1qdNgX35zyEUdU5bTL4UPaDxzlgDZ3ek654UY/c5LO38Tsw0tuTZEvTKyDXq6L
+	 BjknxvL2Qg9GjjiXkSKFFdYBQgNU4p7hfawjXKgvtiDKy/M/c4E+j+60uyUbxJVc6M
+	 JwMfNX7yRv71qNizXLd1i5SSXn1Pp2a0htEwDJOSQzgiMq5qDwt1V4h6Lljw6ywzWD
+	 zV9PJCikwOT1EDedQaCR+SuuFCG1az0nrI1bgueqMks/dtJsMTMfUmQfnRsW0OK7SE
+	 owmwQPzsqjNgQ==
+From: Mark Brown <broonie@kernel.org>
+To: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Carlos Song <carlos.song@nxp.com>, 
+ linux-spi@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Javier Fernandez Pastrana <javier.pastrana@linutronix.de>
+Cc: stable@vger.kernel.org
+In-Reply-To: <20260624151958.18626-1-javier.pastrana@linutronix.de>
+References: <20260624151958.18626-1-javier.pastrana@linutronix.de>
+Subject: Re: [PATCH v2] spi: imx: reconfigure for PIO when DMA cannot be
+ started
+Message-Id: <178231999027.43395.1514985035115232415.b4-ty@b4>
+Date: Wed, 24 Jun 2026 17:53:10 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_050448_615998_2CA14324 
-X-CRM114-Status: GOOD (  19.82  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.16-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1139; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=I8SxFiR4w7yQ2Mzp5iIXtB1nJWVUCK0u8oqOK9del00=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqQmGLTSMvPD+Qz2hu2SvAp+EQjs8+4wlCDYYXX
+ 1Pz9qVf13CJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCakJhiwAKCRAk1otyXVSH
+ 0KSeB/92Zvp4edp2JAXF83YCsb7VKwwI8k9+1fxKerRxav/oc0lreCiVnEvWOxEY0a88/8aAKHw
+ L0mOKSavZWuZzlat6yzPzrn8pskTjGQ20NqU7dKPR0RbOgjmhKfBkX+MCoHFzQOKUveZZL/W/Jb
+ JUHlAN77K3hZHFLf04upFHGqu4m45Tg+TNpMWZdtPTZgFaqjLUPvGzTh8KR8P/Pa47jortjrABh
+ VvDU4dMjH8hkcHoRhrLDhv/yzGqMXi8Jbzz57gcI+jaZ8z9ISAhXc4TVPck7A40WO4u9xsCX61t
+ Ajxl6jN96Rfx2MCV/gdet1mnhwsbtYwAYJJiDTDlA1Fm+aZK
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,68 +85,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On ven. 26 juin 2026 at 22:41, Martin Blumenstingl <martin.blumenstingl@goo=
-glemail.com> wrote:
+On Wed, 24 Jun 2026 17:19:58 +0200, Javier Fernandez Pastrana wrote:
+> spi: imx: reconfigure for PIO when DMA cannot be started
 
-> On Fri, Jun 26, 2026 at 10:04=E2=80=AFAM Christian Hewitt
-> <christianshewitt@gmail.com> wrote:
->>
->> The I2S FIFO soft-resets its fast domain on start (AIU_RST_SOFT bit 0 +
->> AIU_I2S_SYNC read in aiu_fifo_i2s_trigger), mirroring the downstream
->> vendor driver's audio_out_i2s_enable(). The S/PDIF FIFO has no equivalen=
-t:
->> it only toggles the IEC958 DCU, so a stale datapath FIFO can be replayed,
->> producing the "machine gun noise" buffer underrun - on start when switch=
-ing
->> outputs, and on stop when playback ends. The latter is audible on devices
->> with an always-on S/PDIF-fed DAC (e.g. the ES7144 on the WeTek Play2).
->>
->> The vendor driver resets the IEC958 fast domain (AIU_RST_SOFT bit 2) on
->> both enable and disable (audio_hw_958_enable), and when reconfiguring
->> (audio_hw_958_reset clears AIU_958_DCU_FF_CTRL then resets). Do the same:
->> reset before enabling the DCU on start, and after disabling it on stop.
->>
->> Signed-off-by: Christian Hewitt <christianshewitt@gmail.com>
-> Reviewed-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
->
-> This matches the vendor driver, references:
-> - fast-reset SPDIF is triggered on enable and disable: [0]
-> - fast-reset SPDIF is triggered after all of the configuration is
-> written, then DCU_FF_CTRL is enabled: [1]
+Applied to
 
-Take what the vendor driver does with a grain of salt, especially when
-it comes to audio
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-7.2
 
->
-> [...]
->>         case SNDRV_PCM_TRIGGER_SUSPEND:
->>         case SNDRV_PCM_TRIGGER_PAUSE_PUSH:
->>         case SNDRV_PCM_TRIGGER_STOP:
->>                 fifo_spdif_dcu_enable(component, false);
->> +               snd_soc_component_write(component, AIU_RST_SOFT,
->> +                                       AIU_RST_SOFT_958_FAST);
-> It doesn't seem to make any difference, so just for the record:
-> The vendor driver first triggers AIU_RST_SOFT_958_FAST then disables DCU:=
- [2]
->
+Thanks!
 
-One could even wonder if there is any point in applying a reset when
-everything is stopped, if the enable path will apply this same
-reset before anything else is started again ? Does it really changes
-anything to the reported issue ?
+[1/1] spi: imx: reconfigure for PIO when DMA cannot be started
+      https://git.kernel.org/broonie/spi/c/245404c26563
 
->
-> Best regards,
-> Martin
->
->
-> [0] https://github.com/endlessm/linux-s905x/blob/c1391ba1116aed801aaabfd9=
-c7bbb76fda9801ec/sound/soc/aml/m8/aml_audio_hw.c#L1016
-> [1] https://github.com/endlessm/linux-s905x/blob/c1391ba1116aed801aaabfd9=
-c7bbb76fda9801ec/sound/soc/aml/m8/aml_audio_hw.c#L979-L983
-> [2] https://github.com/endlessm/linux-s905x/blob/c1391ba1116aed801aaabfd9=
-c7bbb76fda9801ec/sound/soc/aml/m8/aml_audio_hw.c#L1016-L1018
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
---=20
-Jerome
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
