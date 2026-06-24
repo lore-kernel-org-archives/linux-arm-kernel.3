@@ -4,94 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98A8ECDB479
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 13:54:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8061CDE002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 13:57:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GZV9AIpiCFVK4tdxG3Z8tFEyC+qJoxAahhaSiAUDsyI=; b=sa/FY9RpW2WY0UXZgkYvuHr8pC
-	bYOiztAEqjXuwh7OANwe4RmnmbL1RcJlURSpH0LitolmLajgVnFXvNuT3I6df/M+zuWoAdjeNqDQ2
-	r302LnQwlYbyqf6JyXMFPxosRfCnNPNELRPstTLxrkSoYOUn+y3iurvcg/O/u5oIcl/NytfphU7Pz
-	MQbJ0ODeIgFh4z9PoDWzM5w3xF206Ja8TIIjn2uLciEgxoygZBWhkBd2gpV6hoWHXRNqtBKZGGpXl
-	lpJDOQ9XZcMyqZ+F62fZH2J2oPMsr9JSffwLL4XRa2n/A6TFBMVhzaM3bgF20N/oq9hd5Qj0GM2HM
-	IBsySvtw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dK4q1wXB1iEpfa6MKc1INHDEgEytVZ0qx4adNK2kjGo=; b=DysyHh0YxtnZ3iLyHU2aqclyvY
+	7ngGaX5SLCU9qBXAajlKeaU9TuJW7pjU5QoFGDymQIk/ovnU4glijDo7PXrSa3hqgTdY4BJBWxxfp
+	xc1K8DQFmeKt2xCYpcmAcnfCIFPLHUAxmuv61nf2komWTvfnlWo2Dd7FNlJLgfljTs+IyUzGr6wGg
+	3esl+F/+9Y+urS/pF4WQ/a7tPUGpP8J0WmxdHR1Awf9R/Jzkmomssw6/KlYg7GS3PNXSy4K4eDpEb
+	LwI9Kju0hV5t2KuCe2g3XYp5/vQrrv+wBVUKvgTxDs3A68b7KFUdOQx8g3RTcgAQIz24OhgPJXqA3
+	JMpDWzng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcO3x-00000007rYD-0Ja0;
-	Wed, 24 Jun 2026 13:54:45 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1wcO6a-00000007rjP-2WHu;
+	Wed, 24 Jun 2026 13:57:28 +0000
+Received: from mail-vk1-xa2f.google.com ([2607:f8b0:4864:20::a2f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcO3u-00000007rXa-2BpN
+	id 1wcO6X-00000007ric-3472
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 13:54:43 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-49222b6e871so6887555e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Jun 2026 06:54:41 -0700 (PDT)
+	Wed, 24 Jun 2026 13:57:27 +0000
+Received: by mail-vk1-xa2f.google.com with SMTP id 71dfb90a1353d-59ccf81e74bso390767e0c.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Jun 2026 06:57:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1782309280; x=1782914080; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=GZV9AIpiCFVK4tdxG3Z8tFEyC+qJoxAahhaSiAUDsyI=;
-        b=Yvu8uurqsRkWp8oqVNfr5gWbf4q8xLMBGPETmxlZ3HRZE+i04PuNzvdKZ7ntDL5BRa
-         A/w2uDkIcbITclThDgPHsL5gO9sk4ta1b08z8mwYmnR30gCgZ/chCc6a8qEzN/aawJiX
-         wH3+pFd6YaxPzr670VCC9fZqAlIQd6XBSAj5sW/TZXamH6JLN/YKm6Qi8VANFUvAPXYI
-         lOBlKsqGhR/X0AlmxRVoGn3yNBNuzzc2UVjls45DYMuE/b6MOaQ97sMX6REAayb8BeRf
-         uP8llvSytsuvX9qhWLHFm7U2uuvPldKCRpbTjyWoKYFWytsy+UwQTLq3/zzJFRSOSMRy
-         8NTg==
+        d=gmail.com; s=20251104; t=1782309444; x=1782914244; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=dK4q1wXB1iEpfa6MKc1INHDEgEytVZ0qx4adNK2kjGo=;
+        b=O42ZLVrVwL0zpXMp8stnp+5Wft4OZAnKUkPP1WO3aSixX6djOmbSOJRiXPzdlbyhUg
+         LWOtD/5Lxo2tkFoZpcNOA7C7zdPRyzAQLkSp3BKEN8pgVXSJt2+pfIAiX0FwVYwbWCfS
+         Ifj6C730MFdtzNBPAEmrfgJxEEg/ZdrYKWPWbXlSAnLBYW9r9V7q8MJRypJBvKjjDWWe
+         HiVwoqBW4fj/XQGYO1Q9wk/SHa5HmXQJUZBnDjgZvCbjV8HdsdF/uba3AcuHGKMoADen
+         MpXAqWnW5XbxRQhGva0IS+xpql2R4LOzwUb0GT2ZLODXhhlPnbDanQRTw17ZxGKFpUmh
+         s8bg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782309280; x=1782914080;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=GZV9AIpiCFVK4tdxG3Z8tFEyC+qJoxAahhaSiAUDsyI=;
-        b=kyQ+/4tVoAUzDl+GRv9g82lP7gOz1ky/0WVp0R10ExBzbCxbLV/NeRxR3tAPetNNWi
-         Wo04ml3JkGirOxWotxFWcZyGU/QTV1J5Djm+lepBrqxctLhtk/U95pgmoB9mbgOodpKy
-         LbPT5X2N9BMusD82saGjjffJNkWVxDKWcsIoRRN7XBIkIUCZXdaGs2DtYdrZXUoU98aR
-         lU2/0HyPv/VzjudZpXvIQiqNih3W9hsm6uNCXqpIg8dqbZ2FALbmm9MTL6d1v2iw8o6F
-         thQ/KZnhva+eNgRemaz4fADQv2uBpHpfBoy1ayhBs1oLO85Iq4dKpwow5WdhlFblK2Of
-         kU/g==
-X-Gm-Message-State: AOJu0YwOXKDjcjjZY+ZuGWzm5zjAo4TDCJQ2eJrtuqnBcxsrdJGwfrSE
-	vtikO36fJiIbZZDXd1wyo7orAiuw8trvLHshpbYmAtOdaHYI3EZFESzlO9f3gCkJ2A==
-X-Gm-Gg: AfdE7cmQ/8AlC8q8BujApncgMtTIVpDsVUQjAeGCmsh6wAfnotyCDxto59QcKhwc4M/
-	H3lVndaIpSMsyz97TFeHt5F0s5g1/lMblP9HahYvUb/6FHOaARZZCokVjhRnSzyWsJxXCoRBnqf
-	wPrcFbwzp9vbEr5tObeVZwGJ8yWawtBVEJc8/SYramGklbugjmrZhUCZsIwk3F6fOqVYLKmpOr5
-	t0DTxwKg4nAvCm5mggAX03X7eMXarygn5Yx5KjdWs3W3jiu1FKai+8i27RlPyuhxDc4UyLB1Zry
-	pY/kfk0f96ZCCmNKb/j0FiltksaV/tzm7VaKw305kXMqPTlNNrL2oMdo3d802xJSnwoo16DDRWR
-	/7N3QIMypqSLZx0kSnX86jHXu2ZUJohqOpMulHYLEsZWehLT2i3YdkfTUasP3rZRZpR9d4YFMud
-	6Whm7q2rQHVBsutzd5s7x0QL/muzwTr8uom6nL35k1Ep0OFrbVfUfuFMNiHQ==
-X-Received: by 2002:a05:600c:3b17:b0:492:62d9:4e57 with SMTP id 5b1f17b1804b1-49262d94ef2mr19529165e9.2.1782309279820;
-        Wed, 24 Jun 2026 06:54:39 -0700 (PDT)
-Received: from google.com (97.113.76.34.bc.googleusercontent.com. [34.76.113.97])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4926064f0d8sm49968305e9.0.2026.06.24.06.54.38
+        d=1e100.net; s=20251104; t=1782309444; x=1782914244;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=dK4q1wXB1iEpfa6MKc1INHDEgEytVZ0qx4adNK2kjGo=;
+        b=LEVRXtysHn2bW/APtm3zHUTyf6jMT43V3YpEGLjldd01sfp1XkVjoQw2gAz0wz4cY/
+         PthV8aevyvK92i//GuodlzYTqO0lbaD00OwyxdSCWa+8N35FrARW+oAj7uueK/QeIdVY
+         EGIGkQCFGzduq4uUf3Zk9eaj8cItZ3CWN3OM5lOVqU6V68BqQ2zvmYN9bwyChUMbzlN4
+         3z8s3OpcixFGmdpCW5i7HuKxZzmBFQE5dK0Evy6Pw20IbSuGxeVYKs0jxzYXze375wy3
+         opptlDVWJGKq5294IeIH/HFjuSvLH5x4jn9VRU9PNbN2WivPNfNBwUhE5o9r141COImV
+         FMQg==
+X-Forwarded-Encrypted: i=1; AHgh+RrbLRUrPE8tbVFqb2vn55TrfU4azIjYw/ewHU+Nb7W8PbuzKtD2yihMYVRAZl7FlmGPRl4fZBApZWxRlBGMaDkM@lists.infradead.org
+X-Gm-Message-State: AOJu0YzyFvTSrvB6Tt0TOI8LYIyKjrOh3Qa88y8TkOkSFkbyBea0nMg9
+	WoW4kMqgLGNwgh3zgnD9/kGNMKtVR0cvcgu5mbaMBu/r+F0K74CmsXSa
+X-Gm-Gg: AfdE7cmGAkKs9wAA6x8V98lYxMcFaKU54SZERRIf1NAjG5LVeecgKFVs7jcbm3cgt7A
+	6ArvST+h2wisIXFo/cGQ/J5+wTLW6WyNeRhthE208CIZ9QfnCmqTVkxnadBcF3GFxIOg5ujGW6F
+	tMSfZXqzTL64O5pLWl3RfbQVqCYdQ+rt91FJKAKanTWevhLcW6BAQe+PmkpdpQCFoB5KAYHZqYj
+	Jm0AsJi1EqPiW2xSa4Uf7CDCVmApSf5BYKHKinCiYiOu63E7BRQoaffK9q8U41QVni2DadJNDLM
+	/srTLIsoAAW+jhNqJDe7oPt4mbRp8VP+T2oWLuOZSGv3dHKXf1vnr5ybC8/JwLaE2QFQuKWy0oG
+	wK+rFjz7kVyBdKK4RJ7pOcaulAdWKG1I6nXeapMqh/syXEitvwJdpq/mhw7JmDlfoWTaclPH6h8
+	xKO2q63x5ntOUN1MhYjWyRatvHGmuvhp4KG38=
+X-Received: by 2002:a05:6102:548d:b0:604:f849:462e with SMTP id ada2fe7eead31-72fd815dd92mr4226649137.25.1782309439628;
+        Wed, 24 Jun 2026 06:57:19 -0700 (PDT)
+Received: from arch.localdomain ([160.250.247.70])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-72ba2dbc17bsm9805730137.6.2026.06.24.06.57.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 24 Jun 2026 06:54:39 -0700 (PDT)
-Date: Wed, 24 Jun 2026 13:54:35 +0000
-From: Adrian =?utf-8?Q?Barna=C5=9B?= <abarnas@google.com>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, David Hildenbrand <david@kernel.org>,
-	"Mike Rapoport (Microsoft)" <rppt@kernel.org>,
-	Ard Biesheuvel <ardb@kernel.org>, Christoph Lameter <cl@gentwo.org>,
-	Yang Shi <yang@os.amperecomputing.com>,
-	Brendan Jackman <jackmanb@google.com>
-Subject: Re: [RFC PATCH 2/6] arm64: mm: allow huge vmap permission
- adjustments with bbml2_no_abort
-Message-ID: <ajvhm2aRQJPhRGW7@google.com>
-References: <20260611130144.1385343-1-abarnas@google.com>
- <20260611130144.1385343-3-abarnas@google.com>
- <07ab8b6f-cb58-4f8c-af7e-c99c2fb8933a@arm.com>
+        Wed, 24 Jun 2026 06:57:19 -0700 (PDT)
+From: Jun Yan <jerrysteve1101@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Arseniy Krasnov <avkrasnov@salutedevices.com>
+Cc: Jun Yan <jerrysteve1101@gmail.com>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v4 0/4] arm64: dts: amlogic: meson-axg: NAND fix and PCIe PHY adjustment
+Date: Wed, 24 Jun 2026 21:56:40 +0800
+Message-ID: <20260624135650.727077-1-jerrysteve1101@gmail.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <07ab8b6f-cb58-4f8c-af7e-c99c2fb8933a@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_065442_597266_17471055 
-X-CRM114-Status: GOOD (  22.55  )
+X-CRM114-CacheID: sfid-20260624_065725_791991_1FF5D1D6 
+X-CRM114-Status: UNSURE (   9.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,86 +106,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 18, 2026 at 03:21:24PM +0100, Ryan Roberts wrote:
->On 11/06/2026 14:01, Adrian Barnaś wrote:
->> Remove the protection against huge vmap permission adjustments on
->> systems that support the bbml2_no_abort CPU feature.
->>
->> Splitting live kernel VA section mappings into page mappings was
->> restricted because it could cause TLB Conflict Aborts. This forced
->> permission adjustments on memory allocated with VM_ALLOW_HUGE_VMAP to be
->> rejected, resulting in performance drops (e.g., when enforcing rodata=on
->> disables huge mappings).
->>
->> The bbml2_no_abort feature (which mirrors the architectural guarantees of
->> FEAT_BBML3) ensures that changing between table and block sizes without
->> following a break-before-make sequence will not generate a TLB Conflict
->> Abort. This hardware guarantee makes it safe to allow dynamic permission
->> adjustments on huge vmap regions.
->
->FYI Linu Cherian has a series that renames bbml2_no_abort to bbml3. I think he's
->planning to post at -rc1. Would be good to rebase this on top once merged.
->
+- Disable nfc node by default ahead of nand_rb0 pin addition.
+- Add missing nand_rb0 pin to fix incomplete NAND pinctrl.
+- Disable pcie_phy by default to suppress probe warning.
+- Re-enable pcie_phy on S400 board to preserve PCIe functionality.
+- Enable mipi_pcie_analog_dphy for PCIe on S400 board.
 
-I will keep an eye on next releases.
+Changes in v4:
+- Add patch to enable mipi_pcie_analog_dphy for PCIe on S400 board.
+- Link to v3:
+  https://lore.kernel.org/all/20260617082239.645562-1-jerrysteve1101@gmail.com/
 
->>
->> Signed-off-by: Adrian Barnaś <abarnas@google.com>
->> ---
->>  arch/arm64/mm/pageattr.c | 22 ++++++++++++++--------
->>  1 file changed, 14 insertions(+), 8 deletions(-)
->>
->> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
->> index 358d1dc9a576..88720bbba892 100644
->> --- a/arch/arm64/mm/pageattr.c
->> +++ b/arch/arm64/mm/pageattr.c
->> @@ -157,23 +157,29 @@ static int change_memory_common(unsigned long addr, int numpages,
->>  	}
->>
->>  	/*
->> -	 * Kernel VA mappings are always live, and splitting live section
->> -	 * mappings into page mappings may cause TLB conflicts. This means
->> -	 * we have to ensure that changing the permission bits of the range
->> -	 * we are operating on does not result in such splitting.
->> -	 *
->>  	 * Let's restrict ourselves to mappings created by vmalloc (or vmap).
->> -	 * Disallow VM_ALLOW_HUGE_VMAP mappings to guarantee that only page
->> -	 * mappings are updated and splitting is never needed.
->>  	 *
->>  	 * So check whether the [addr, addr + size) interval is entirely
->>  	 * covered by precisely one VM area that has the VM_ALLOC flag set.
->>  	 */
->>  	area = find_vm_area((void *)addr);
->> +
->>  	if (!area ||
->>  	    ((unsigned long)kasan_reset_tag((void *)end) >
->>  	     (unsigned long)kasan_reset_tag(area->addr) + area->size) ||
->> -	    ((area->flags & (VM_ALLOC | VM_ALLOW_HUGE_VMAP)) != VM_ALLOC))
->> +	    !(area->flags & VM_ALLOC))
->> +		return -EINVAL;
->> +
->> +	/*
->> +	 * Kernel VA mappings are always live, and splitting live section
->> +	 * mappings into page mappings may cause TLB conflicts if bbml2_noabort
->> +	 * is not present.
->> +	 *
->> +	 * While bbml2_noabort is not present disallow VM_ALLOW_HUGE_VMAP mappings
->> +	 * to guarantee that only page mappings are updated and splitting is not
->> +	 * needed.
->> +	 */
->> +	if (!system_supports_bbml2_noabort() && (area->flags & (VM_ALLOW_HUGE_VMAP)))
->
->nit: no need for the parentheses around VM_ALLOW_HUGE_VMAP.
->
->With that:
->
->Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
->
->>  		return -EINVAL;
->>
->>  	if (!numpages)
->
+Changes in v3:
+- squash "disable pcie_phy node by default" and "enable pcie_phy in 
+  meson-axg-s400" patches
+- Link to v2:
+  https://lore.kernel.org/all/20260617071604.635627-1-jerrysteve1101@gmail.com/
 
-Thanks,
-Adrian
+Changes in v2:
+- Add patch to disable nfc node by default.
+- Link to v1:
+  https://lore.kernel.org/all/20260529140605.1070764-1-jerrysteve1101@gmail.com/
+
+Jun Yan (4):
+  arm64: dts: amlogic: meson-axg: Disable nfc node by default
+  arm64: dts: amlogic: meson-axg: Add missing nand_rb0 pin to
+    nand_all_pins
+  arm64: dts: amlogic: meson-axg: Disable pcie_phy node by default
+  arm64: dts: amlogic: meson-axg-s400: enable mipi_pcie_analog_dphy for
+    PCIe
+
+ arch/arm64/boot/dts/amlogic/meson-axg-s400.dts | 8 ++++++++
+ arch/arm64/boot/dts/amlogic/meson-axg.dtsi     | 5 ++++-
+ 2 files changed, 12 insertions(+), 1 deletion(-)
+
+-- 
+2.54.0
+
 
