@@ -4,82 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7989CDB47F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 11:42:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD259CDE003
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 11:45:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QoK/3UddXbmX1NE+eBlNwxX446SsnQUqEu7wWRxnQVw=; b=K8X4VRew84x6BqBFOA++I3X9Sz
-	YH+y8HD4I08T7extD9HI3aavH9T6gURuR0i8WuJ4dVZn3OtOG13a4iBUbLYbjDHi9tRCsKHsBnFjb
-	x8LM1b9gtXfBPBHcrQMaM1zXwJ2gziytlD7GCu8ouhquwodtCUPL3p6M+mJNGwp7WuMUQVA7uxk9C
-	ENIr9dTjaoeUaXLv1wGcd9LyMUrun51qkKcsoNmUP6e5spaWAVUmbaP11msd5KEmSsBwSZ4zB4sru
-	f9KLv+PcRNtG7Tik4+x7Ixc1PXLK/d0YEuKcBbVLc5T3TcHqZ99neQpARVrYaXB4qi6z0K6gpfM5k
-	v41/82WQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=425jpoUA3Tt1bWmkrOSFNWHphFjZunbpgGFQD4aSpdk=; b=xYljNkTwUugOd4Jcc/EIN6Paox
+	5AoyeKAfoaqHZFiUombPv79k/OUuOM0+M3ovI91VcWjK+eVS5R5yJO8i/jwtc0Oa0gQinBpThj0Tl
+	h4VDqVh+GpTSiBJ8OVbxa/PSAXQBT7YDnGBiwSjUMl4MH6LOKKUF0pS9Xm7girMKjA7biyljvQbFG
+	KgOTgNpi6pcGgVNXP1iGySVikvsak4xkQdkzdEmtjnA3UA6fE2CGGBqfEZ6hVY85OvDKpWYK0K825
+	+krZHM9FbkhymJQ6YdHXP6JE3HLbHJHJsoxlIBM67oej5Hrt/DoXPGrPTvu1ywXKPhonaTfv5S/yw
+	H3ZojTXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcLzi-00000007hHW-26Ib;
-	Wed, 24 Jun 2026 11:42:14 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wcM37-00000007hXF-0azh;
+	Wed, 24 Jun 2026 11:45:45 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcLza-00000007hG4-2a3l;
-	Wed, 24 Jun 2026 11:42:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0DC9B43650;
-	Wed, 24 Jun 2026 11:42:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id D6A46C2BCB4;
-	Wed, 24 Jun 2026 11:42:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1782301325;
-	bh=LZ1C8rPlZ/X7S4iWJUKXT8UYdYECXgo5EWnaKAYpFo4=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=Cv+QZx9ic8CcDcyku8WSiFp6l1+02Wo432iHHq0rPl3wGrYcAKCE8bP9mI3rQ+fqk
-	 dcJ9LNaPNpHuQ5pXKAYHFhcV7rE/hkUaBKOuq2JbDf5dyXJEeMCMU6MvLXmktAlXQj
-	 OFu2fjqkVTtYJoMwZ++OZAgfbre3m0qevy8/et5DhrVomataDyRtSww5/nE3IXBj8a
-	 DLBdb58Dtsckrswp+KDmGglSEtRX9JB6bvXydGHmMBRH0/A8l1qnqy/tRVEBfikDbf
-	 Ppw8/WLugAzmdARbgh0ITNNpUPOk+8ze7o3WJO9rbQx9eb1FYgP9QKapYRSLZxxcn4
-	 6lNEYAK4rv75g==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CB8C5CDB47F;
-	Wed, 24 Jun 2026 11:42:05 +0000 (UTC)
-From: Ricardo Pardini via B4 Relay <devnull+ricardo.pardini.net@kernel.org>
-Date: Wed, 24 Jun 2026 13:41:50 +0200
-Subject: [PATCH] arm64: dts: mediatek: mt8395-radxa-nio-12l: Enable I2C3 on
- 40-pin header
+	id 1wcM33-00000007hWW-0i0B;
+	Wed, 24 Jun 2026 11:45:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=425jpoUA3Tt1bWmkrOSFNWHphFjZunbpgGFQD4aSpdk=; b=HwpDwOU/UQBrzXup3v/4wCO3K7
+	zCJ7IIJaNRAveaToemqT9Rm33qC2yoq6kgTe2qtMtHgKZqPa4v07jlFRW4YuHCc5FerIo7rjalVAo
+	mLceUYW8JZDM3ObrEFORrFNx8WeJS86BFf7n0D4HoZfGB74CH7p3GXWsWxbomDFIRm/hGpJ6k/c8X
+	AcEzqVQPcfq7lbf9EnV/MwaW8Hr/GSnVw85NCnZxwDFkHv6RVtGoTuW77yfA9FCVceAaYve9jWY/d
+	+mMFYaGajGkDVtAwwhK1t1tnE4Vaage37RZPRnx4ZYFlkUatkgW4UCiRG4ij0WZwJLq+BbA3tjSV+
+	CRLniJYg==;
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Daniele Briguglio <hello@superkali.me>,
+ Diederik de Haas <diederik@cknow-tech.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Diederik de Haas <diederik@cknow-tech.com>
+Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Ricardo Pardini <ricardo@pardini.net>
+Subject: Re: [PATCH v4 5/5] clk: rockchip: rk3588: add GATE_GRF clocks for I2S MCLK
+ output to IO
+Date: Wed, 24 Jun 2026 13:45:22 +0200
+Message-ID: <2008560.6tgchFWduM@diego>
+In-Reply-To: <DJGM4D19H31O.4I5N79CG5Z8C@cknow-tech.com>
+References: <20260419-rk3588-mclk-gate-grf-v4-0-513a42dd1dcc@superkali.me>
+ <20260623140958.4181297-1-hello@superkali.me>
+ <DJGM4D19H31O.4I5N79CG5Z8C@cknow-tech.com>
 MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260624-nio-12l-add-i2c-40-pin-v1-1-f6c11ed2184c@pardini.net>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQqDMBBA0avIrDuQjFHUq5QuNBl1SomSVBHEu
- xt1+Rb/7xA5CEdosh0CrxJl8gn6lYEdWz8wiksGUlSqkgx6mVDTD1vnUMiiUTiLR12zMhX1rso
- LSPEcuJftHr8/j+PSfdn+rxscxwkHLTmbegAAAA==
-X-Change-ID: 20260624-nio-12l-add-i2c-40-pin-19e0482fd835
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Ricardo Pardini <ricardo@pardini.net>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1939;
- i=ricardo@pardini.net; h=from:subject:message-id;
- bh=bk5ea6cLdsnJpmBdpwgO3E/mbMZWo2izXGkJpWcYnGg=;
- b=owEBiQF2/pANAwAIATteP+Oex+3pAcsmYgBqO8KM5gmzPvJ/rOmLT+qPMGepPIDKiCk8X5DBu
- 5jAJoBZRaSJAU8EAAEIADkWIQSsGCMM9q/qytxIiJM7Xj/jnsft6QUCajvCjBsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwwLDMACgkQO14/457H7eliKwf/RkZ83zDF2MFSMVYiVJmHI8+ZuRR4XYD
- nmdBGdJ1vpt7+H9f1xXNJr8MafhwauM1waRUw2x8cK2BgbUbNVvz7O+03KxR1dwP5xzYTP8N9Pa
- eG3rxMC81LILXsxmleoMnJ8TSbsvlxLJYTiZ/ZMmjncU0Sm4Dzx8Km8puNAYXGr/tDsgf0JPH/q
- 0mOXv5YVPVwWJzWeH+JVtUgY4lnxUh0m61v6SXzQAfCnipWskgWmCnjNiskyTOtuMew3eJNzlX9
- Y1lA74GukTKRTFwLK+GI9SaNl3XFoKDvT1/l8i/YsztE6DWpmGaHDAg0EYvdurkCtLdGJQ4Jihm
- mm1jmx1rbYg==
-X-Developer-Key: i=ricardo@pardini.net; a=openpgp;
- fpr=AC18230CF6AFEACADC4888933B5E3FE39EC7EDE9
-X-Endpoint-Received: by B4 Relay for ricardo@pardini.net/default with
- auth_id=588
-X-Original-From: Ricardo Pardini <ricardo@pardini.net>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260624_044542_068762_05CB3AB0 
+X-CRM114-Status: GOOD (  11.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,75 +71,33 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: ricardo@pardini.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ricardo Pardini <ricardo@pardini.net>
+Am Dienstag, 23. Juni 2026, 19:42:05 Mitteleurop=C3=A4ische Sommerzeit schr=
+ieb Diederik de Haas:
+> Hi,
+>=20
+> On Tue Jun 23, 2026 at 4:10 PM CEST, Daniele Briguglio wrote:
+> >> So IIUC that means I'd be testing both variants.
+> >
+> > Right, that covers both: the mux path and the consumer path. Looking
+> > forward to the results.
+>=20
+> Analog audio works on both. Plus with _TO_IO and LTS without in their
+> respective DTS's. So I guess CLK_IGNORE_UNUSED works.=20
+> Whether it's a good/right fix, I'll leave up to others.
 
-I2C3 (SDA3/SCL3 on GPIO14/GPIO15) is routed to the 40-pin GPIO header,
-exposed on the blue-colored pins 27 (SCL3) and 28 (SDA3). Enable the
-controller, add the corresponding pin configuration in the pinctrl node
-so users can use external I2C devices.
+It is the correct fix, as it returns the original way things worked for
+boards not activly handling that clock.
 
-Signed-off-by: Ricardo Pardini <ricardo@pardini.net>
----
-The Radxa NIO 12L exposes I2C3 (SDA3/SCL3, GPIO14/GPIO15) on its 40-pin
-GPIO header, on the blue-coloured pins 27 (SCL3) and 28 (SDA3).
+So while boards should do that, this makes the clock-addition
+backwards compatible.
 
-Enable the I2C3 controller, add the matching pinctrl configuration and run
-the bus at 400 kHz, matching the other I2C buses already enabled on this
-board.
+Care to send a patch for that change? :-)
 
-Tested using a SD1306 I2C OLED display.
----
- arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts | 18 ++++++++++++++++++
- 1 file changed, 18 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts b/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts
-index bf91305e8e4a5..03a2f2e746475 100644
---- a/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts
-@@ -371,6 +371,14 @@ it5205_sbu_mux: endpoint {
- 	};
- };
- 
-+/* Exposed on 40-pin header (blue-colored pins 27:SCL3 28:SDA3) */
-+&i2c3 {
-+	clock-frequency = <400000>;
-+	pinctrl-0 = <&i2c3_pins>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
-+
- &i2c4 {
- 	clock-frequency = <400000>;
- 	pinctrl-0 = <&i2c4_pins>;
-@@ -789,6 +797,16 @@ pins-bus {
- 		};
- 	};
- 
-+	i2c3_pins: i2c3-pins {
-+		pins-bus {
-+			pinmux = <PINMUX_GPIO14__FUNC_SDA3>,
-+				 <PINMUX_GPIO15__FUNC_SCL3>;
-+			bias-pull-up = <1000>;
-+			drive-strength = <6>;
-+			drive-strength-microamp = <1000>;
-+		};
-+	};
-+
- 	i2c4_pins: i2c4-pins {
- 		pins-bus {
- 			pinmux = <PINMUX_GPIO16__FUNC_SDA4>,
-
----
-base-commit: 8cd9520d35a6c38db6567e97dd93b1f11f185dc6
-change-id: 20260624-nio-12l-add-i2c-40-pin-19e0482fd835
-
-Best regards,
---  
-Ricardo Pardini <ricardo@pardini.net>
+Heiko
 
 
 
