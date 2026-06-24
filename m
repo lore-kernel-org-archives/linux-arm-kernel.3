@@ -4,69 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03A04CDB479
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 16:06:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F4A5CDB479
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 16:07:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=O7GEdAiyDOwyLdF7enDZh1aPgl+/ZJvbV+Kk7bU5e7Y=; b=b9+o1/sqCUyh4IwawQKK9PQ9Su
-	3yCh4cpCjzNOMjTf71z3WII4sjiOUJLa3G9YJKNXlT1HvbSBBsmoGw/zVQ0uqN2VU7IZj9Qic7EqU
-	xXh4lsAfNc3FTeamUfBdCqdX9yQv7+OVKVDS77DqDmFFS0brIrd2yeQfpTj2mSN+iqwnvB0w9R5KX
-	tylUg1j9KasWyBV2ZjOz51dhy5wpaTTDDql3KLwipPC9axGavo3Y36PkODFt13UOhOzY5Kaupq16C
-	/yqsj7u3DO7/jgBDSep+GuqBrJEmtjuelc3sKUAR0t6PNG2dox4IJ8yXzwvho9IC2q2h6q9FHFSYl
-	83RXUvZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:
+	Subject:From:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N3v36YslEFTvIe9aSboloVtZTLcZwXqsmCLNtL+8QuI=; b=qGMrKWI73JH1FxNFGrkdcYKPlD
+	DJ6RAe2EIDzgMwxzwlq5fIQ7u86D6ipWhQseO4gtW9yS/QOnBHueOqDHE2KeCp6kLkH3bgkp3/0x4
+	9VKMZqnVysVNJFx+00XsjCBp2vX9g7GboJ6He5q99p5kfL3CU2Xn7PTyVrYTyCjOWuQN+lUml7IPs
+	T9gSIYVsrJUQ9x/D7xu+81uOL3nsd1VQtgdrliVlUZ7cW9r2PKC9fwkxAqUGu3KY6xTDe63e27ajC
+	ts1QzKO5KAyacWXvwIr3i94uEjQmD5lTSF3mhnpNA2yKqjMWOboym7233KUtHdwzptA0X0etkiy7+
+	FSKkGI6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcQ74-000000085AO-3Lbj;
-	Wed, 24 Jun 2026 16:06:06 +0000
-Received: from confino.investici.org ([93.190.126.19])
+	id 1wcQ7y-000000085Jo-3xHa;
+	Wed, 24 Jun 2026 16:07:02 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcQ72-0000000859t-357L
+	id 1wcQ7v-000000085IP-2OJW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 16:06:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=grrlz.net;
-	s=stigmate; t=1782316847;
-	bh=O7GEdAiyDOwyLdF7enDZh1aPgl+/ZJvbV+Kk7bU5e7Y=;
-	h=From:To:Cc:Subject:Date:From;
-	b=WXGfyhLOSN9iYMPngnr6gWVCGMvyhzd8+T/Kkm7C9Ioqs3REsr+2dLVS2cZgPmnmf
-	 kAIgCFPDbfKj6s4biQTogPMknehIbHHP+aAMLxkNlRuvZ0cPx5SA/iX9QkUtNyzLQD
-	 RqyzGIKKgu81fKG3vR7KBmapJLyUgvp03yrG2GyU=
-Received: from mx1.investici.org (unknown [127.0.0.1])
-	by confino.investici.org (Postfix) with ESMTP id 4glmqy72M4z10qk;
-	Wed, 24 Jun 2026 16:00:46 +0000 (UTC)
-Received: by mx1.investici.org (Postfix) id 4glmqx0sBTz10rF;
-	Wed, 24 Jun 2026 16:00:45 +0000 (UTC)
-From: Bradley Morgan <include@grrlz.net>
-To: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>
-Cc: Fuad Tabba <tabba@google.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Quentin Perret <qperret@google.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Bradley Morgan <include@grrlz.net>
-Subject: [PATCH v3 0/3] KVM: arm64: fix pKVM mapping cache corner cases
-Date: Wed, 24 Jun 2026 16:00:25 +0000
-Message-ID: <20260624160028.15591-1-include@grrlz.net>
-X-Mailer: git-send-email 2.53.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Wed, 24 Jun 2026 16:07:01 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id D48791A0923;
+	Wed, 24 Jun 2026 16:06:56 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id A3C69601C5;
+	Wed, 24 Jun 2026 16:06:56 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 502E1106C8468;
+	Wed, 24 Jun 2026 18:06:48 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1782317215; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=N3v36YslEFTvIe9aSboloVtZTLcZwXqsmCLNtL+8QuI=;
+	b=RjmT+un4qnnBjmGoKLf/boh6gu+rTh4ct3BN5juGXqgOv7bgnvX9vEWv3HUtBp+QuzJD5Q
+	N6vRla5R96P4XxouiUhAdC1HzU5C4ileLGLhhO+vxj2PB3zdepND0Fu6fyhHaKGIe2Ku8Z
+	DsWzrXMd/nqD0xS+lLv8vZrf2rrg+kz0mJZ9Ojb7zCXHExHam5OZsbEeLNZWrV5+UUAQRQ
+	Ue1+yCqg1OKk8ghIpB+KxGaSy3evpBqIWgzGFLWS0HhHotZcB3KbL7lSv4CbEf5NBC58at
+	T6WLbK/qhE2i8Gacrjtc7yinm3pm+aC4JaMPb/LLS/JSyTkS6L6ebzc+kO+bDQ==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 24 Jun 2026 18:06:47 +0200
+Message-Id: <DJHEPXMBL9N8.10GN58K6CAULK@bootlin.com>
+To: "Maxime Ripard" <mripard@kernel.org>, "Luca Ceresoli"
+ <luca.ceresoli@bootlin.com>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+Subject: Re: [PATCH 30/37] drm/bridge: add drm_bridge_is_tail() to know
+ whether a bridge completes the pipeline
+Cc: "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Thomas
+ Zimmermann" <tzimmermann@suse.de>, "David Airlie" <airlied@gmail.com>,
+ "Simona Vetter" <simona@ffwll.ch>, "Andrzej Hajda"
+ <andrzej.hajda@intel.com>, "Neil Armstrong" <neil.armstrong@linaro.org>,
+ "Robert Foss" <rfoss@kernel.org>, "Laurent Pinchart"
+ <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman" <jonas@kwiboo.se>,
+ "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Inki Dae"
+ <inki.dae@samsung.com>, "Jagan Teki" <jagan@amarulasolutions.com>, "Marek
+ Szyprowski" <m.szyprowski@samsung.com>, "Marek Vasut" <marex@denx.de>,
+ "Stefan Agner" <stefan@agner.ch>, "Frank Li" <Frank.Li@nxp.com>, "Sascha
+ Hauer" <s.hauer@pengutronix.de>, "Pengutronix Kernel Team"
+ <kernel@pengutronix.de>, "Fabio Estevam" <festevam@gmail.com>, "Hui Pu"
+ <Hui.Pu@gehealthcare.com>, "Ian Ray" <ian.ray@gehealthcare.com>, "Thomas
+ Petazzoni" <thomas.petazzoni@bootlin.com>,
+ <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
+ <imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>
+X-Mailer: aerc 0.21.0
+References: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
+ <20260519-drm-bridge-hotplug-v1-30-45e2bdb3dfb4@bootlin.com>
+ <20260608-shapeless-opal-ferret-c8b105@houat>
+ <DJ4DGYZ3GQZH.3AZOC0Z69W92S@bootlin.com>
+ <20260624-vagabond-neon-gorilla-cd6487@houat>
+In-Reply-To: <20260624-vagabond-neon-gorilla-cd6487@houat>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_090604_945692_BD682E3A 
-X-CRM114-Status: UNSURE (   8.72  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260624_090659_753564_A648FD12 
+X-CRM114-Status: GOOD (  38.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,35 +95,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is a standalone v3.
+On Wed Jun 24, 2026 at 3:04 PM CEST, Maxime Ripard wrote:
+> On Tue, Jun 09, 2026 at 10:23:24AM +0200, Luca Ceresoli wrote:
+>> Hi Maxime,
+>>
+>> thanks for the review of this long series!
+>>
+>> On Mon Jun 8, 2026 at 2:34 PM CEST, Maxime Ripard wrote:
+>> ...
+>> >> --- a/include/drm/drm_bridge.h
+>> >> +++ b/include/drm/drm_bridge.h
+>> >> @@ -78,6 +78,19 @@ struct drm_bridge_funcs {
+>> >>  	int (*attach)(struct drm_bridge *bridge, struct drm_encoder *encode=
+r,
+>> >>  		      enum drm_bridge_attach_flags flags);
+>> >>
+>> >> +	/**
+>> >> +	 * @is_tail:
+>> >> +	 *
+>> >> +	 * Returns true if this is a tail bridge, i.e. it does not need a
+>> >> +	 * next bridge to work. E.g. a panel_bridge is a tail bridge, a
+>> >> +	 * DSI-to-LVDS bridge is not a tail bridge (no matter whether the
+>> >> +	 * next bridge is present or not).
+>> >
+>> > Why a DSI-to-LDVS bridge isn't a tail bridge? It only needs a panel
+>> > next, right?
+>>
+>> Uhm, good point, but I'd say it can be a tail bridge or not: in the
+>> ATTACH_NO_CONNECTOR case it will need a bridge (a panel_bridge most
+>> likely), no?
+>
+> Yeah, I think it cannot (always) be a blanket statement from the driver.
+> For drivers that do not support ATTACH_NO_CONNECTOR, then it's always
+> going to be a tail, but if the driver supports it, we should use a
+> helper because it's going to depend on the DT, basically.
+>
+>> However this is possibly irrelevant as the whole .is_tail is meant to
+>> disappear in v2, see below.
+>>
+>> >> +	 * The @is_tail callback is optional but it is required if the
+>> >> +	 * bridge is part of a pipeline with hot-pluggable components.
+>> >> +	 */
+>> >> +	bool (*is_tail)(struct drm_bridge *bridge);
+>> >> +
+>> >
+>> > I don't think that's the right way to think about it, if only because
+>> > you never really know at the driver level if you're supposed to be las=
+t
+>> > or not. A DSI-to-LVDS bridge might just as well be chained with an
+>> > LVDS-to-eDP bridge, or feed the panel directly without any additional
+>> > bridge.
+>> >
+>> > I *think* that what you're trying to find out here is whether the chai=
+n
+>> > is complete or not.
+>>
+>> You nailed it.
+>>
+>> That was the main point discussed during the Display Next Hackfest 2026
+>> (see the report [0]) and we all agreed the .is_tail along with the
+>> -EPROBE_DEFER changes (patches 20+35) are not a good approach.
+>>
+>> This is actually the most crucial aspect of the whole work still not hav=
+ing
+>> no well-defined solution.
+>
+> Ok
+>
+>> > I think you can get the same information by checking
+>> > whether you have a connector for that bridge chain. If you don't, you
+>> > know the chain isn't complete, and if you do, it's supposed to be.
+>>
+>> There's a checken-egg problem here. Knowing whether the pipeline is
+>> complete or not is needed to know whether we have to create a
+>> connector. See patch 36:
+>>
+>>   +  if (drm_bridge_connector_pipeline_is_complete(bridge_connector))
+>>   +          drm_bridge_connector_add_connector(bridge_connector);
+>>
+>> So the question is still open, what I need the most right now is comment=
+s
+>> on the overall architecture of this aspecs. Maybe replying to [0] can be
+>> more effective than here.
+>>
+>> In a nutshell what we need is:
+>>
+>>  * when a bridge needs a following element (a bridge, or a panel which
+>>    however might/should have a panel_bridge), but that element is not
+>>    present, instead of deferring the whole card probe the card should be
+>>    allowed to probe but without a connector
+>>
+>>  * when something is added to an incomplete pipeline we need to know
+>>    whether the pipeline has become complete (in order to create the
+>>    connector)
+>>
+>> How to implement this is still an open point. I'll welcome proposals in
+>> addition to the ones in [0].
+>
+> Thanks for the notes, I think I largely agree with the discussion.
 
-Patch 1 fixes pKVM cache maintenance for non cacheable mappings without
-growing struct pkvm_mapping.
+Good! :)
 
-Patch 2 fixes a pKVM mapping cache topup bug on permission faults that
-replace page mappings with a PMD mapping.
+> Reading through it, I thought it would be nice for a new callback called
+> get_next_bridge or something that would return either an error, NULL or a
+> (refcounted) pointer to the next bridge in the chain. And have some kind
+> of special error (ENODEV?) when the bridge should be there but isn't
+> (and thus the chain isn't complete).
 
-Patch 3 fixes the generic dirty logging case where a permission fault
-can still need a page table allocation to split a block mapping.
+I initially preferred exposing the fwnode of the next bridge as discussed
+with Dmitry during the Display Next Hackfest, which looks simpler for
+driver writers. But then I realized it would be tricyk in cases such as
+dual-LVDS output bridges (ti-sn65dsi83.c) which have two output ports in
+DT, none of which is mandatory. So I've come to thinking a callback is
+better as it should be flexible enough.
 
-Changes in v3:
-- Send as a standalone series with a cover letter.
-- Store the pKVM cacheable bit in nr_pages instead of adding a bool.
-- Drop stable from patch 1.
-- Add patch 3 for dirty logging permission faults.
+Picking the best errno is probably the only aspect needing special
+attention now.
 
-Changes in v2:
-- Add patch 2 for the pKVM permission fault mapping cache bug.
+Luca
 
-Bradley Morgan (3):
-  KVM: arm64: skip pKVM cache flushes for non cacheable mappings
-  KVM: arm64: top up pKVM mapping cache for permission faults
-  KVM: arm64: top up stage 2 memcache for dirty logging faults
-
- arch/arm64/kvm/mmu.c  | 32 +++++++++++++++++++--------
- arch/arm64/kvm/pkvm.c | 51 ++++++++++++++++++++++++++++++++++---------
- 2 files changed, 64 insertions(+), 19 deletions(-)
-
--- 
-2.53.0
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
