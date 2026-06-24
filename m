@@ -4,58 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2341CDB479
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 15:32:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D599CDB479
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 15:33:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+YWyNqd7eoUdHxKtRCWw0qLzn2eiVttU9Er4wyLAkYk=; b=YLhaB74TSsjr9A
-	PbPWsyEZ6EaUv6igeT8Gu8059mOz1DVOWEnyEzswuz+XZCGS1Y7DH9CZCFZ4tofCZj1Ij0kfJS4Gs
-	OimtYF87Qs7EXq//eAc9qQumq1l55An/OiSAfRYIOTArFu2xG+n9HxkvHRNhJCY01e3bmgJtqj8pY
-	6Targ15PPHPU5WNrqat1hgCczBXjGxOJ+PVslbpI3WnTDzsmZvceC69y8BuYtbL8TAsnMSwWREOBu
-	Lgcvypw1Cnq/xo4+XoA8JsrYvne2dW7I2Kdezu5I4TVDl2vQGAL88ffy+zVWCO4rv05V2mQWowFAi
-	QByOjEiejfYZHnhPPmsQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5Pbkdg8CxGrTMdISG/ZeL9HyppC5k7WySbHQJhihs1k=; b=vYRO63ZjHio92siggwC0S2jDXc
+	6jfrcMIbUCydRDX5ojBZKFlY5HZJMAZK/jDn4NUV49RVvhQSP9XfYOMWp1Hh4DavXx4EEgzYblnIQ
+	WgPtYOzMHBIvTilVFtZLT8hOIH/wS2Z9QkY3RWDfKghiFnM9MRqtH2WA7cUwqy0NY/I/OEB50fp+c
+	Zx6qu5nOFLDw9tF7jksCipPS0im86HPHtqX4noOH/F1Vvrg1ztSqrkWORKKEKaz4fspRO+l34cdIF
+	Fpx+Mlv3hXoeUTOP9xt/zTYCvweDObQhfnE6DG8Z+CPQ995KOxrS11JCq68z/ubliAERxGC3ih+kS
+	efv1qxsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcPaV-000000080JK-0K9n;
-	Wed, 24 Jun 2026 15:32:27 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcPaS-000000080If-2SuV
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 15:32:26 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7AC7D2308;
-	Wed, 24 Jun 2026 08:32:18 -0700 (PDT)
-Received: from [10.2.213.11] (e137867.arm.com [10.2.213.11])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 85DD13F905;
-	Wed, 24 Jun 2026 08:32:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782315143; bh=YYN8guqFW8bsQsH5XPf9FRtbfT6L6ouIddpKDYUN90A=;
-	h=Date:Subject:To:References:From:Cc:In-Reply-To:From;
-	b=WbpGQKIPfkGDQ9ehtwtCNruTMnKuHqy+zQBbB16T0LPXW0LDic1RZr/zwn+eySUuN
-	 8i6V0U1keZC4gj/F/yZg0zJGBLzzrrVmxSCOrpCqh0QiBlT/DV+lsaMmqhrYYjYQ+Y
-	 AjxlF/OPON+ZptGQp3KKdRIrMmJQABIyQK5ncTyg=
-Message-ID: <cfa07466-225b-476f-adf9-346bd1377a4d@arm.com>
-Date: Wed, 24 Jun 2026 16:32:17 +0100
+	id 1wcPbp-000000080VK-1g0p;
+	Wed, 24 Jun 2026 15:33:49 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wcPbo-000000080Uu-2Ke7;
+	Wed, 24 Jun 2026 15:33:48 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id D4075600C3;
+	Wed, 24 Jun 2026 15:33:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C223C1F000E9;
+	Wed, 24 Jun 2026 15:33:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782315227;
+	bh=5Pbkdg8CxGrTMdISG/ZeL9HyppC5k7WySbHQJhihs1k=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=QEAC++bDkxXBzyfD0/mr/n1HZ2S13Hag15DhAJ/hyMSKw7BmgMcrwcFcCTk9819Vb
+	 hjRtWTgLNr/P6SELq5uuvInkN0zP6+FsJ3Q8IxoQi7ZXa6Eirx/AM3F7rpELyemncC
+	 tDbHAyyvFKSK+2MaeTku0RjIMYJWOV4AdqVHKtByRuXFlnpJ/20Iu0qNE9xqZwP0q4
+	 XvyC8voJDUvzAuamRpNJ+m30SlCMnM3XuaDqNBPE+CR5ILR9ZuWi3cxwIdzaN/JlVv
+	 nJD6JdjvhjueyHu2tarrM/GEDowe/Uaibh8CpMmY/17V+tbfFmiUOqJlrNsqfsg6gM
+	 r11xiRoDyRzcA==
+From: Mark Brown <broonie@kernel.org>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>
+Cc: Heiko Stuebner <heiko@sntech.de>, linux-rockchip@lists.infradead.org, 
+ linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20260624083708.254517-2-u.kleine-koenig@baylibre.com>
+References: <20260624083708.254517-2-u.kleine-koenig@baylibre.com>
+Subject: Re: [PATCH v1] ASoC: rockchip: rockchip_sai: #include
+ <linux/platform_device.h> explicitly
+Message-Id: <178230246570.43395.16324097796241355703.b4-ty@b4>
+Date: Wed, 24 Jun 2026 13:01:05 +0100
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v15 10/11] arm64: entry: Convert to generic entry
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-References: <20260511092103.1974980-1-ruanjinjie@huawei.com>
- <20260511092103.1974980-11-ruanjinjie@huawei.com>
-From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-Content-Language: en-US, en-GB, fr
-Organization: Arm Ltd.
-In-Reply-To: <20260511092103.1974980-11-ruanjinjie@huawei.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_083224_709756_437844AA 
-X-CRM114-Status: GOOD (  31.31  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.16-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1191; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=T3HsoN1RXlYhnBv+yF4N9p1cXEDvlxe3CBqydtMEywQ=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqO/jYR9G4KfjUX1bCR95i0ikgV8DhcjnBLMjAZ
+ C1W3Zs/RVKJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCajv42AAKCRAk1otyXVSH
+ 0LP1B/wKWONCKZnjL0UA4GC5KKjXW6HczL7qEGMPO2bIM/NPtLNxJoVRS4Icg3FG6wtDp277l0K
+ 5+IWeJEvbWJuJuLn60UE6tGqqL6fXsF5l5G3si6lKcnzANwvA7x74GuJzJarvLwDmGpnCjrPC+c
+ PKrFwIRBtqZwPhfiGE7ZzKTRnXG5ix2NKwyP7owKzI2iZeNOSyjTvhMSyL8UO8WdMgFkqEfxpAZ
+ uKClMIdHTybEdrOxKu1QC/eAiaP/I+iig8SBpoAdlfvAne4e7ifImQyc35nVSdV+lf9BtEhc9nZ
+ C5OmixPrzWWzsCOBQzYQKB2FBFsj7gLfA5njqKRT91AR4VoA
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,136 +81,38 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, peterz@infradead.org, catalin.marinas@arm.com, ldv@strace.io, song@kernel.org, will@kernel.org, kees@kernel.org, thuth@redhat.com, ryan.roberts@arm.com, anshuman.khandual@arm.com, kevin.brodsky@arm.com, pengcan@kylinos.cn, broonie@kernel.org, luto@kernel.org, linux-arm-kernel@lists.infradead.org, wad@chromium.org, yeoreum.yun@arm.com, oleg@redhat.com, linux-kernel@vger.kernel.org, james.morse@arm.com, tglx@kernel.org, liqiang01@kylinos.cn, linusw@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/05/2026 10:21, Jinjie Ruan wrote:
-> Implement the generic entry framework for arm64 to handle system call
-> entry and exit. This follows the migration of x86, RISC-V, and LoongArch,
-> consolidating architecture-specific syscall tracing and auditing into
-> the common kernel entry infrastructure.
-If I understand correctly, as Syscall User Dispatch is gated being
-`CONFIG_GENERIC_ENTRY` only and handled via ptrace, this patch
-effectively enables Syscall User Dispatch for arm64.
-I think it would be great to mention it here explicitly !
->
-> [Background]
-> Arm64 has already adopted generic IRQ entry. Completing the conversion
-> to the generic syscall entry framework reduces architectural divergence,
-> simplifies maintenance, and allows arm64 to automatically benefit from
-> improvements in the common entry code.
->
-> [Changes]
->
-> 1. Kconfig and Infrastructure:
-> - Select GENERIC_ENTRY and remove GENERIC_IRQ_ENTRY (now implied).
->
-> - Migrate struct thread_info to use the syscall_work field instead
->    of TIF flags for syscall-related tasks.
->
-> 2. Thread Info and Flags:
-> - Remove definitions for TIF_SYSCALL_TRACE, TIF_SYSCALL_AUDIT,
->    TIF_SYSCALL_TRACEPOINT, TIF_SECCOMP, and TIF_SYSCALL_EMU.
->
-> - Replace _TIF_SYSCALL_WORK and _TIF_SYSCALL_EXIT_WORK with the
->    generic SYSCALL_WORK bitmask.
->
-> - Map single-step state to SYSCALL_EXIT_TRAP in debug-monitors.c.
->
-> 3. Architecture-Specific Hooks (asm/entry-common.h):
-> - Implement arch_ptrace_report_syscall_entry() and _exit() by
->    porting the existing arm64 logic to the generic interface.
->
-> - Add arch_syscall_is_vdso_sigreturn() to asm/syscall.h to
->    support Syscall User Dispatch (SUD).
-Related to the above : I feel this is missing an important information.
-Given that SUD is only controlled by `CONFIG_GENERIC_ENTRY`,
-converting to generic entry _requires_ supporting SUD, so we do it here.
-I think this would be important to mention, as I otherwise felt like this
-change did not belong in this patch.
+On Wed, 24 Jun 2026 10:37:07 +0200, Uwe Kleine-König (The Capable Hub) wrote:
+> ASoC: rockchip: rockchip_sai: #include <linux/platform_device.h> explicitly
 
-General question that follows : does it make sense to require an arch
-to support Syscall User Dispatch to be able to convert to generic entry ?
-(I assume not really, given that only `arch_syscall_is_vdso_sigreturn()` is
-required on the arch side, but I am curious)
+Applied to
 
->
-> 4. Cleanup and Refactoring:
-> - Remove redundant arm64-specific syscall tracing functions from
->    ptrace.c, including syscall_trace_enter(), syscall_exit_work(),
->    and related audit/step helpers.
->
-> - Update el0_svc_common() in syscall.c to use the generic
->    syscall_work checks and entry/exit call sites.
->
-> [Why this matters]
-> - Unified Interface: Aligns arm64 with the modern kernel entry standard.
->
-> - Improved Maintainability: Bug fixes in kernel/entry/common.c now
->    apply to arm64 automatically.
->
-> - Feature Readiness: Simplifies the implementation of future
->    cross-architecture syscall features.
->
-> [Compatibility]
-> This conversion maintains full ABI compatibility with existing
-> userspace. The ptrace register-saving behavior, seccomp filtering, and
-> syscall tracing semantics remain identical to the previous implementation.
-I agree, would it make sense to mention that there is no change related
-to RSEQ as arm64 does not have `HAVE_GENERIC_TIF_BITS` ? As that is
-part of generic entry, but is indeed a no-op for us.
->
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Thomas Gleixner <tglx@kernel.org>
-> Cc: Peter Zijlstra <peterz@infradead.org>
-> Reviewed-by: Linus Walleij <linusw@kernel.org>
-> Acked-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-> Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
-> Suggested-by: Kevin Brodsky <kevin.brodsky@arm.com>
-> Suggested-by: Mark Rutland <mark.rutland@arm.com>
-> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
-> ---
-> [...]
-> diff --git a/arch/arm64/kernel/debug-monitors.c b/arch/arm64/kernel/debug-monitors.c
-> index 29307642f4c9..e67643a70405 100644
-> --- a/arch/arm64/kernel/debug-monitors.c
-> +++ b/arch/arm64/kernel/debug-monitors.c
-> @@ -385,11 +385,18 @@ void user_enable_single_step(struct task_struct *task)
->   
->   	if (!test_and_set_ti_thread_flag(ti, TIF_SINGLESTEP))
->   		set_regs_spsr_ss(task_pt_regs(task));
-> +
-> +	/*
-> +	 * Ensure that a trap is triggered once stepping out of a system
-> +	 * call prior to executing any user instruction.
-> +	 */
-I was a bit confused by the comment in isolation at first : we already
-have a signal that we are stepping and would need a trap, `TIF_SINGLESTEP`.
-Would it make sense to mention here that this is for/handled by the generic
-entry code ?
-Something along the lines of "[...], as the generic entry code does not
-check for `TIF_SINGLESTEP`.", or "Ensure that the generic entry code
-triggers a trap [...]", if you think its useful ?
-> +	set_task_syscall_work(task, SYSCALL_EXIT_TRAP);
->   }
->   NOKPROBE_SYMBOL(user_enable_single_step);
->   
->   void user_disable_single_step(struct task_struct *task)
->   {
->   	clear_ti_thread_flag(task_thread_info(task), TIF_SINGLESTEP);
-> +	clear_task_syscall_work(task, SYSCALL_EXIT_TRAP);
->   }
->   NOKPROBE_SYMBOL(user_disable_single_step);
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.2
 
-Apart from my minor nitpicks :
+Thanks!
 
-Reviewed-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+[1/1] ASoC: rockchip: rockchip_sai: #include <linux/platform_device.h> explicitly
+      https://git.kernel.org/broonie/sound/c/83d53eca7e55
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
 
 Thanks,
-Ada
+Mark
 
 
