@@ -4,77 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF632CDB47F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 08:44:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC517CDE001
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 08:46:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
-	bh=gD81xbw18Sh9jn/7ZkMEu1F+TbHXFsYKEWWUgrlI2Xc=; b=hhdqSjF5BzdxmfaDefUm0b9+ek
-	ClN9xL40k3TcGPUM1CO1PEKgg5+123+LjdBenC+M+CqB0afQSVbVXoAT/o91OkREroeYJqMoFMiYP
-	8jBU82Zj7Qy+m/FSp+8Pj6KefzD2V8kGSmSFeWikg4o+GVKGSLWkPXoqtqo0gZv3BMsG8mdq65Q+s
-	uZtfqhcUwd6z4MhsnTzt79op/HgiOdWW5Mk8IJPeR4i+1BYJRTblungv7W3mlqRMO+zMa5BY9358Q
-	IG7jHWi5CoZ4y8OpIQfLwHX2wmfHsav+AGiVkgiYjn3VXZXmYWfFxOi+LdACcqgvU5WeS2A1mvVDx
-	gDi991dA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=VaTXxl/rE8HFkzzKKmqnaZrWWCZtpV0ev/8QevFoQa0=; b=jkP6m58qQyGCJQ
+	UyLhWolTckyMWK5s6BRc1/OlKqgZ985obdDLChe2gULn9f2x1beQXaL9pFkNvZZFDwmVjz2T4aE7m
+	k8Vvtt0DklLZITXhyTjxH3jykm8KnzvuIzfD7eYz97hGOMe22HyO00Fju6cdUoS49DRe6yTP6diB0
+	HFqE16upVd988gD586U8EhGb0Sb/Xsx/4LoDKdGOOp9nfocBOsnE9E/dU3CTO5zdgmbGlVkWGSntr
+	jnbCF4BMygyAUXJ6PeHPdO6fz9bGe+5HFxmzDBDeoDqkySsqam9hOuQpecQkgixAaVkj9YUERQcIY
+	YvzP3LHBYZfh+7coLtBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcJDU-00000007PgT-2J6r;
-	Wed, 24 Jun 2026 08:44:16 +0000
-Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
+	id 1wcJFo-00000007Pw4-3WSb;
+	Wed, 24 Jun 2026 08:46:40 +0000
+Received: from mail-pj1-x1042.google.com ([2607:f8b0:4864:20::1042])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcJDQ-00000007Peo-492c
+	id 1wcJFl-00000007PvH-3eML
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 08:44:15 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=gD81xbw18Sh9jn/7ZkMEu1F+TbHXFsYKEWWUgrlI2Xc=;
-	b=u0sf6IG5D/RnwvoqPmgUG3+lv0KH4okdvJJ2aeX9mzlU8TZJwoM6fvjtlygYu25FLNWn0/7zH
-	aoA01BqOs7GoNA5SW/4ya5aiNGkkHLuRnAE6RWFyZsYbY6YK4pRUBTvIBrQHrHx8XyEykfMc3lJ
-	z21dNanHQ5Ah4mHYehD+UCU=
-Received: from mail.maildlp.com (unknown [172.19.163.15])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4glZxS5SG1zmV7b;
-	Wed, 24 Jun 2026 16:34:52 +0800 (CST)
-Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id 4480D40571;
-	Wed, 24 Jun 2026 16:43:58 +0800 (CST)
-Received: from kwepemq200014.china.huawei.com (7.202.195.213) by
- dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 24 Jun 2026 16:43:58 +0800
-Received: from dggpemf100008.china.huawei.com (7.185.36.138) by
- kwepemq200014.china.huawei.com (7.202.195.213) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 24 Jun 2026 16:43:57 +0800
-Received: from dggpemf100008.china.huawei.com ([7.185.36.138]) by
- dggpemf100008.china.huawei.com ([7.185.36.138]) with mapi id 15.02.1544.011;
- Wed, 24 Jun 2026 16:43:57 +0800
-From: "chenjun (AM)" <chenjun102@huawei.com>
-To: Robin Murphy <robin.murphy@arm.com>, "will@kernel.org" <will@kernel.org>,
-	"joro@8bytes.org" <joro@8bytes.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>
-CC: "zhangyuwei (G)" <zhangyuwei20@huawei.com>
-Subject: Re: [PATCH] iommu/arm-smmu-v3: Add tracepoint for EVTQ events
-Thread-Topic: [PATCH] iommu/arm-smmu-v3: Add tracepoint for EVTQ events
-Thread-Index: AQHc+zWJu1K6BmDmK0WFfh1OITwYNg==
-Date: Wed, 24 Jun 2026 08:43:57 +0000
-Message-ID: <94eee9fa08a8461893b4e076919e9e55@huawei.com>
-References: <20260613130007.18563-1-chenjun102@huawei.com>
- <59c283b1-0436-4ea1-8feb-996dba617b6d@arm.com>
-Accept-Language: zh-CN, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [10.174.177.142]
-Content-Type: text/plain; charset="iso-2022-jp"
-Content-Transfer-Encoding: quoted-printable
+	Wed, 24 Jun 2026 08:46:39 +0000
+Received: by mail-pj1-x1042.google.com with SMTP id 98e67ed59e1d1-36b95eb4bb4so535570a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Jun 2026 01:46:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782290796; x=1782895596; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=VaTXxl/rE8HFkzzKKmqnaZrWWCZtpV0ev/8QevFoQa0=;
+        b=qENcih0kVNJjhubf4d1tfGfDC91Nl2Fm2BR4qFuB0R+3Sh58XVvbatuGn8iODyFqfo
+         Kl9Y7deKQaDIwkstNV4J95QK5EjXBsl2WEmWGsIKkEUE2PPdXpRKzhi5ftt/yBDspImZ
+         rgXYem6aJQd8uW6m2CaO8nasMAZa1rALH/JUjuW7HYjBgE9YQjgqRHbKGppt5Bf8nNEU
+         XKWN51zKTyH9MKkjusUSDQ/iPDt3rJF5WI6zO8+tv4T9JRRVuW/OAziOqAzAHNXcQGZr
+         JBaqadOejQLhOS9zTN39qHO5KnyQHDLfqDbURZ7pFsFHk+wcj+xjugwGl5veXT0SfSue
+         A+iQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782290796; x=1782895596;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=VaTXxl/rE8HFkzzKKmqnaZrWWCZtpV0ev/8QevFoQa0=;
+        b=UNA6LS+HaF4EWzJ2b+i69i5GN3P6HIKVIQyvvW2EZyyy3Dym5uA2cWxIt6Y6QMVKB4
+         NDqHi9jj6tZC/I2Nrp1GFYfnMak8N5nIWzvz9nf/q3SapGb4jQyUsv1bAOeeGTRv/z6L
+         6sXW/somHyBrx1lM4b1UZ3wSsDd40EhNZL5CFQY0MwX9vtQRRuH4fHBR+amGh20nm/J3
+         C5vXFCo4d0x0P+Jcm+OWtpfoTKIOCiivBpby0Aj2P9FGr6G11bbB82EfErIk9Bg+UA4x
+         8iAkw0BaSAcmZlyhLCC99eptRlcqRiF7BTkukLnXjfIjAjIkOonEGm62zM1bDhh5i/1O
+         OPpQ==
+X-Forwarded-Encrypted: i=1; AHgh+RoIsjB61mFZa1ITGdGqHSrqAIqO9Otc1RY0yVwAuXXwHHO9V7cA8qsdaUjvhMbbgplRMQBV5aelGOvAxxl4hZUh@lists.infradead.org
+X-Gm-Message-State: AOJu0YzukBgJ4fG1jn31ddacy1ZLSoNGPwWDM3pHgWkIFeUDMBniFl3k
+	BYbMWEigwoZcsvq0uVJim2fjotW5TxtR+tP8QHNXHo5Q9oLA252FoY9/
+X-Gm-Gg: AfdE7cmdF+KPGq4E/kf3sg0LdSYkQDmkwLF3FGxKG2PQUt4X2dd/uLq8lSRQ8L9uHkO
+	IdR1IZ97q2Zwbh7/xQcVIdn1Nrp6wFkppWWPPOw9IdqoJUbjJHgK8tfwOvlh1YWDiyAw0H4rb6H
+	O8F+c6KP5vt2OijHlJYDbsz53OdRzWZCRpqPWQJSVKv8Hgal81K98xfDZia7MfcUiub/R1fr84Z
+	IAPGETNgqP8h6LN8CK23wBzxRarYkNnAjAk6JqYyTbRHe7n6Kg3lRuD8F6YbCxyufNN3eTAqIlw
+	sj05WgvQDL9V6s037CbnRTyPA0//elbYZZ02schiwsv7rLl+7YGCpuZWbtxSNAJ5Vild2w1F2RG
+	TD/8kLthCAzR2vuIyTPUGaB/g0d/uPYlxhJu/L6r6hEr/yuuedWcoXLxq6igSnbLBVpfFJ1Qn2n
+	NSI1Et/6m6T/X629xght8xpxd1
+X-Received: by 2002:a17:90a:d005:b0:36d:649a:39f7 with SMTP id 98e67ed59e1d1-37de42bb597mr2631365a91.22.1782290796126;
+        Wed, 24 Jun 2026 01:46:36 -0700 (PDT)
+Received: from [192.168.1.101] ([218.194.36.79])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-37de3d152f4sm2138146a91.14.2026.06.24.01.46.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 24 Jun 2026 01:46:35 -0700 (PDT)
+From: Yanan He <grumpycat921013@gmail.com>
+Subject: [PATCH 0/7] ARM: rockchip: rv1126: Add support for Alientek
+ ATK-DLRV1126
+Date: Wed, 24 Jun 2026 16:44:37 +0800
+Message-Id: <20260624-rv1126-alientek-dlrv1126-v1-0-5aef608a3f64@gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/y3M2woCIRSF4VcZ9nWCSon1KtGFhz21SyzUZEB89
+ 7GZLr8F62+QMRFmuEwNElbK9I4D4jCBe5h4R0Z+GCSXiiuhWapCSMVMIIwFX8yH/+LPR2O9m/V
+ Jcxj3T8KZli19ve3OX/tEV3496H0F2yK6+nwAAAA=
+X-Change-ID: 20260618-rv1126-alientek-dlrv1126-d94abdcf8580
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ David Wu <david.wu@rock-chips.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ Yanan He <grumpycat921013@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782290789; l=2033;
+ i=grumpycat921013@gmail.com; s=20260618; h=from:subject:message-id;
+ bh=iJnYjsvlFEQcTUEBJKIAHZNJZeAQoRS5+2RUTfWmdhc=;
+ b=eAmpN/LKqYFNFMAnnsJDd9ohedM5OOImfapRIiKBxmQZmuQsg34keypt4x4eW24GHkC/Y1ECB
+ nUQ/RXKU2rtBBikIZF9qoSlbOOUqSmnD3bfzpThwHvlNvdNsa/IGU1a
+X-Developer-Key: i=grumpycat921013@gmail.com; a=ed25519;
+ pk=oWrY8KwXIunZWlYBV76NG2A3V4p1bJ+aD45Mr56ErTw=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_014413_670684_27860B5F 
-X-CRM114-Status: GOOD (  14.71  )
+X-CRM114-CacheID: sfid-20260624_014637_924183_EC46A4CF 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,167 +117,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=1B$B:_=1B(B 2026/6/23 23:31, Robin Murphy =1B$B<LF;=1B(B:=0A=
-> On 13/06/2026 2:00 pm, Chen Jun wrote:=0A=
->> Events reported by the SMMU can severely impact accelerator=0A=
->> performance. Currently, only events that the SMMU fails to handle are=0A=
->> printed to the kernel log, leaving most events invisible to users.=0A=
->> To analyze and optimize accelerator performance, complete visibility=0A=
->> into all SMMU-reported events is required.=0A=
-> =0A=
-> What events, exactly? AFAICS the only events we should expect to handle=
-=0A=
-> "invisibly", without being some unexpected error condition worth=0A=
-> screaming about, would be stalls for SVA page faults, and if SVA isn't=0A=
-> generically accounting page faults itself then I would imagine it=0A=
-> probably should.=0A=
-> =0A=
-> Thanks,=0A=
-> Robin.=0A=
-> =0A=
-=0A=
-AF and WP faults are common occurrences. and they can significantly =0A=
-impact SMMU performance. If we can determine exactly at which address =0A=
-and what type of page fault occurred, it would help us avoid SVA page =0A=
-fault events through other means. Also, I don't see any separate =0A=
-accounting for page fault events in the SVA flow.=0A=
-=0A=
-Thanks=0A=
-Chen Jun=0A=
-=0A=
->> Add a tracepoint in the EVTQ interrupt handler to capture every=0A=
->> event record reported by the SMMU. This allows users to collect all=0A=
->> event information via ftrace/perf for further analysis, complementing=0A=
->> the existing event decoder and error dump which only cover a subset=0A=
->> of events.=0A=
->>=0A=
->> Signed-off-by: Chen Jun <chenjun102@huawei.com>=0A=
->> ---=0A=
->>    drivers/iommu/arm/arm-smmu-v3/Makefile      |  2 +-=0A=
->>    drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c |  3 ++=0A=
->>    drivers/iommu/arm/arm-smmu-v3/trace.c       |  9 ++++=0A=
->>    drivers/iommu/arm/arm-smmu-v3/trace.h       | 53 ++++++++++++++++++++=
-+=0A=
->>    4 files changed, 66 insertions(+), 1 deletion(-)=0A=
->>    create mode 100644 drivers/iommu/arm/arm-smmu-v3/trace.c=0A=
->>    create mode 100644 drivers/iommu/arm/arm-smmu-v3/trace.h=0A=
->>=0A=
->> diff --git a/drivers/iommu/arm/arm-smmu-v3/Makefile b/drivers/iommu/arm/=
-arm-smmu-v3/Makefile=0A=
->> index 493a659cc66b..63a8d71bfc93 100644=0A=
->> --- a/drivers/iommu/arm/arm-smmu-v3/Makefile=0A=
->> +++ b/drivers/iommu/arm/arm-smmu-v3/Makefile=0A=
->> @@ -1,6 +1,6 @@=0A=
->>    # SPDX-License-Identifier: GPL-2.0=0A=
->>    obj-$(CONFIG_ARM_SMMU_V3) +=3D arm_smmu_v3.o=0A=
->> -arm_smmu_v3-y :=3D arm-smmu-v3.o=0A=
->> +arm_smmu_v3-y :=3D arm-smmu-v3.o trace.o=0A=
->>    arm_smmu_v3-$(CONFIG_ARM_SMMU_V3_IOMMUFD) +=3D arm-smmu-v3-iommufd.o=
-=0A=
->>    arm_smmu_v3-$(CONFIG_ARM_SMMU_V3_SVA) +=3D arm-smmu-v3-sva.o=0A=
->>    arm_smmu_v3-$(CONFIG_TEGRA241_CMDQV) +=3D tegra241-cmdqv.o=0A=
->> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu=
-/arm/arm-smmu-v3/arm-smmu-v3.c=0A=
->> index e8d7dbe495f0..85e6c25b73ed 100644=0A=
->> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c=0A=
->> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c=0A=
->> @@ -34,6 +34,8 @@=0A=
->>    #include "arm-smmu-v3.h"=0A=
->>    #include "../../dma-iommu.h"=0A=
->>    =0A=
->> +#include "trace.h"=0A=
->> +=0A=
->>    static bool disable_msipolling;=0A=
->>    module_param(disable_msipolling, bool, 0444);=0A=
->>    MODULE_PARM_DESC(disable_msipolling,=0A=
->> @@ -2271,6 +2273,7 @@ static irqreturn_t arm_smmu_evtq_thread(int irq, v=
-oid *dev)=0A=
->>    =0A=
->>    	do {=0A=
->>    		while (!queue_remove_raw(q, evt)) {=0A=
->> +			trace_smmu_evtq_event(smmu, evt);=0A=
->>    			arm_smmu_decode_event(smmu, evt, &event);=0A=
->>    			if (arm_smmu_handle_event(smmu, evt, &event))=0A=
->>    				arm_smmu_dump_event(smmu, evt, &event, &rs);=0A=
->> diff --git a/drivers/iommu/arm/arm-smmu-v3/trace.c b/drivers/iommu/arm/a=
-rm-smmu-v3/trace.c=0A=
->> new file mode 100644=0A=
->> index 000000000000..77378698b1a3=0A=
->> --- /dev/null=0A=
->> +++ b/drivers/iommu/arm/arm-smmu-v3/trace.c=0A=
->> @@ -0,0 +1,9 @@=0A=
->> +// SPDX-License-Identifier: GPL-2.0=0A=
->> +/*=0A=
->> + * ARM SMMUv3 trace support=0A=
->> + *=0A=
->> + * Copyright (c) 2026 OpenCloudOS / openEuler=0A=
->> + */=0A=
->> +=0A=
->> +#define CREATE_TRACE_POINTS=0A=
->> +#include "trace.h"=0A=
->> diff --git a/drivers/iommu/arm/arm-smmu-v3/trace.h b/drivers/iommu/arm/a=
-rm-smmu-v3/trace.h=0A=
->> new file mode 100644=0A=
->> index 000000000000..7cec8d41745e=0A=
->> --- /dev/null=0A=
->> +++ b/drivers/iommu/arm/arm-smmu-v3/trace.h=0A=
->> @@ -0,0 +1,53 @@=0A=
->> +/* SPDX-License-Identifier: GPL-2.0 */=0A=
->> +/*=0A=
->> + * ARM SMMUv3 trace support=0A=
->> + *=0A=
->> + * Copyright (c) 2026 OpenCloudOS / openEuler=0A=
->> + */=0A=
->> +=0A=
->> +#undef TRACE_SYSTEM=0A=
->> +#define TRACE_SYSTEM arm_smmu_v3=0A=
->> +=0A=
->> +#if !defined(_TRACE_ARM_SMMU_V3_H) || defined(TRACE_HEADER_MULTI_READ)=
-=0A=
->> +#define _TRACE_ARM_SMMU_V3_H=0A=
->> +=0A=
->> +#include <linux/tracepoint.h>=0A=
->> +=0A=
->> +#include "arm-smmu-v3.h"=0A=
->> +=0A=
->> +TRACE_EVENT(smmu_evtq_event,=0A=
->> +=0A=
->> +	TP_PROTO(struct arm_smmu_device *smmu, u64 *evt),=0A=
->> +=0A=
->> +	TP_ARGS(smmu, evt),=0A=
->> +=0A=
->> +	TP_STRUCT__entry(=0A=
->> +		__string(iommu, dev_name(smmu->dev))=0A=
->> +		__field(u64, evt0)=0A=
->> +		__field(u64, evt1)=0A=
->> +		__field(u64, evt2)=0A=
->> +		__field(u64, evt3)=0A=
->> +	),=0A=
->> +=0A=
->> +	TP_fast_assign(=0A=
->> +		__assign_str(iommu);=0A=
->> +		__entry->evt0 =3D evt[0];=0A=
->> +		__entry->evt1 =3D evt[1];=0A=
->> +		__entry->evt2 =3D evt[2];=0A=
->> +		__entry->evt3 =3D evt[3];=0A=
->> +	),=0A=
->> +=0A=
->> +	TP_printk("%s evt: 0x%016llx 0x%016llx 0x%016llx 0x%016llx",=0A=
->> +		__get_str(iommu),=0A=
->> +		__entry->evt0, __entry->evt1,=0A=
->> +		__entry->evt2, __entry->evt3)=0A=
->> +);=0A=
->> +=0A=
->> +#endif /* _TRACE_ARM_SMMU_V3_H */=0A=
->> +=0A=
->> +/* This part must be outside protection */=0A=
->> +#undef TRACE_INCLUDE_PATH=0A=
->> +#undef TRACE_INCLUDE_FILE=0A=
->> +#define TRACE_INCLUDE_PATH ../../drivers/iommu/arm/arm-smmu-v3/=0A=
->> +#define TRACE_INCLUDE_FILE trace=0A=
->> +#include <trace/define_trace.h>=0A=
-> =0A=
-> =0A=
-> =0A=
-=0A=
+The ATK-DLRV1126 board consists of a CLRV1126F core module and a
+DLRV1126 carrier board. The core module contains the Rockchip RV1126
+SoC, eMMC and RK809 PMIC. The carrier board provides Gigabit Ethernet,
+SD card, AP6212 WiFi and Bluetooth, PCF8563 RTC, ADC keys, GPIO LEDs and
+audio connectors.
+
+This series adds the Alientek vendor prefix and board compatible, updates
+the Rockchip DWMAC binding and driver for the RV1126 GMAC reference
+output clock, adds missing RV1126 SoC description pieces, and finally
+adds the CLRV1126F core module and DLRV1126 carrier board device trees.
+
+The board was tested with Ethernet/NFS boot, eMMC, SD card, SDIO WiFi
+enumeration, Bluetooth LE scanning, RTC, ADC keys, GPIO LEDs and RK809
+audio card registration.
+
+Signed-off-by: Yanan He <grumpycat921013@gmail.com>
+---
+Yanan He (7):
+      dt-bindings: vendor-prefixes: add alientek
+      dt-bindings: arm: rockchip: Add Alientek DLRV1126
+      dt-bindings: net: rockchip-dwmac: Allow 9 clocks
+      net: stmmac: dwmac-rk: Enable refout clock for RGMII
+      ARM: dts: rockchip: Add RV1126 GMAC refout clock
+      ARM: dts: rockchip: Add RV1126 I2C5
+      ARM: dts: rockchip: Add Alientek DLRV1126
+
+ .../devicetree/bindings/arm/rockchip.yaml          |   7 +
+ .../devicetree/bindings/net/rockchip-dwmac.yaml    |   2 +-
+ .../devicetree/bindings/vendor-prefixes.yaml       |   2 +
+ arch/arm/boot/dts/rockchip/Makefile                |   1 +
+ .../dts/rockchip/rv1126-alientek-clrv1126f.dtsi    | 277 +++++++++++++++++++++
+ .../boot/dts/rockchip/rv1126-alientek-dlrv1126.dts | 258 +++++++++++++++++++
+ arch/arm/boot/dts/rockchip/rv1126-pinctrl.dtsi     |  10 +
+ arch/arm/boot/dts/rockchip/rv1126.dtsi             |  18 +-
+ drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c     |   6 +-
+ 9 files changed, 577 insertions(+), 4 deletions(-)
+---
+base-commit: 8cd9520d35a6c38db6567e97dd93b1f11f185dc6
+change-id: 20260618-rv1126-alientek-dlrv1126-d94abdcf8580
+
+Best regards,
+--  
+Yanan He <grumpycat921013@gmail.com>
+
 
