@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0490BCDE002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 09:26:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 169FDCDB479
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 09:26:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9M7PkUPtYpY4RUQreVnYGCM+Ox9OBHbooKtSZnyfcNU=; b=estvvQY8QP/T2MR75IvHyK6hwV
-	O8wNIYkooyYPc1Uqc5Eu/IYrZWAGFNRR5ymg65ehH4A8cD0W0XjidxHaPUO82CHex9P350JDXMFmG
-	g4DcGofxo2Pj01pNO2OKfxsBkop819jO0nyGY/oNczp49WLwIi93HDQ3CNQzMvqyzF9zBTHtY75Bc
-	donALLND9Eu4iSwfUafNQmDCHjiJ3K2qYfe4MQlGPokxGObi/17qFTOTvQRK5GjFMbENk+oHYmpM7
-	dHjcHvfy8MBqBobVnHAyxfslYNjOg+3vLCEwsvTKpCPdav1uSAyPNK7CHLVIMqJa8nxDnKuL00uVy
-	ggEMtl6A==;
+	bh=Mieu95MHGOCQPSEh0wCzkUvvYOX+yIxJiHobJLWZ7sA=; b=Mtbh781OAeXSDUjxjigaClvj6u
+	rw/+3SqXQE8CYuXNlgRm0FlTIsGjCS5FGVBv1ggSQxlNczEpwTWSycvb4e5q++6pvJq/gQafkC2lF
+	RNWaXLciax06XdHGp8nvEGF+wshd47A80OrfgwGIO2bwE0hdh16dYU9hDeLKj9/+VIMVmGRWN92ef
+	O32+nX6QlUjj6gYwUBfHF+VySHWu7Qpf2vDqrzcKwp3fft6u3P0CvD15cd9DByxHqYSkOMJ+ELq7K
+	dy9J0q27JG3mi2uBMXGkf4wQrXAoL+I3serpqJPC2KFJ526fs6fHkkuZizz7T1mrxE+D6hlRzrHd5
+	kuXro90w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcJs7-00000007UpM-1jCe;
+	id 1wcJs7-00000007Upc-2P6c;
 	Wed, 24 Jun 2026 09:26:15 +0000
-Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
+Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcJry-00000007UjB-0YHL
+	id 1wcJs2-00000007Ulb-3HYo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 09:26:07 +0000
+	Wed, 24 Jun 2026 09:26:13 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=9M7PkUPtYpY4RUQreVnYGCM+Ox9OBHbooKtSZnyfcNU=;
-	b=kMtLT1t8pO41raYIMLG3oelygw6Wl2zIt490i/hIKZhryX1NRx+KVJzT98BZNzWdBYJlAPmni
-	sFrBfNgDCFi0pwplLwAp6bFJjFXDclXIwKSZUCs7vaY+XDt+/k2wWm4xdU8RTdOz0AfsmYhYApM
-	UpP+FYcd7qGnxmXjMaA6XtU=
-Received: from mail.maildlp.com (unknown [172.19.162.223])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4glbtW6vNdzcb3r;
-	Wed, 24 Jun 2026 17:17:23 +0800 (CST)
+	bh=Mieu95MHGOCQPSEh0wCzkUvvYOX+yIxJiHobJLWZ7sA=;
+	b=JxJ1KdpaxFu7YpP+SYjQhdAUn7PgqhCjmiBYFvkDQWa33tjd7sW58S/2Sd+Qgaa4nt7JNgzOe
+	w1RCKoee4zOS1OQujBz08Tx8yc7auGQDg7X1/0yGNV6f/PHl+8K0QGNhIqXZZT1ZV6DzZ5F2PoO
+	Ggvk9TLmNUaUb20eqdnIY+o=
+Received: from mail.maildlp.com (unknown [172.19.162.140])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4glbt51GG5z1prKy;
+	Wed, 24 Jun 2026 17:17:01 +0800 (CST)
 Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 7809A40561;
-	Wed, 24 Jun 2026 17:26:01 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 7C6E02012A;
+	Wed, 24 Jun 2026 17:26:08 +0800 (CST)
 Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
  (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Wed, 24 Jun
- 2026 17:25:59 +0800
+ 2026 17:26:06 +0800
 From: Jinjie Ruan <ruanjinjie@huawei.com>
 To: <catalin.marinas@arm.com>, <will@kernel.org>, <tsbogend@alpha.franken.de>,
 	<tglx@kernel.org>, <mingo@redhat.com>, <bp@alien8.de>,
@@ -64,9 +64,9 @@ To: <catalin.marinas@arm.com>, <will@kernel.org>, <tsbogend@alpha.franken.de>,
 	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-mips@vger.kernel.org>
 CC: <ruanjinjie@huawei.com>
-Subject: [PATCH v3 05/12] arm64: smp: Defer RCU registration during secondary CPU bringup
-Date: Wed, 24 Jun 2026 17:25:30 +0800
-Message-ID: <20260624092537.2916971-6-ruanjinjie@huawei.com>
+Subject: [PATCH v3 08/12] arm64: cpu_ops: Introduce get_secondary_cpu_ops()
+Date: Wed, 24 Jun 2026 17:25:33 +0800
+Message-ID: <20260624092537.2916971-9-ruanjinjie@huawei.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260624092537.2916971-1-ruanjinjie@huawei.com>
 References: <20260624092537.2916971-1-ruanjinjie@huawei.com>
@@ -77,8 +77,8 @@ X-Originating-IP: [10.90.53.73]
 X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
  dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_022606_522078_B2B8FE56 
-X-CRM114-Status: GOOD (  16.59  )
+X-CRM114-CacheID: sfid-20260624_022611_314191_B333B512 
+X-CRM114-Status: GOOD (  15.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,89 +95,124 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Will Deacon <will@kernel.org>
 
-Calling rcutree_report_cpu_starting() early during boot can lead to
-livelocks with the generic CPU hotplug mechanism if the boot CPU blocks
-on an RCU grace period while the CPU being onlined is spinning in
-cpuhp_ap_sync_alive(). So cpuhp_ap_sync_alive() must be called
-before rcutree_report_cpu_starting().
+Introduce get_secondary_cpu_ops() to retrieve a pointer to the
+'cpu_operations' structure for the non-boot CPUs and use it instead of
+get_cpu_ops() where we are dealing with secondary CPUs.
 
-And to prevent a potential deadlock on the boot CPU,
-check_local_cpu_capabilities() must be executed before
-cpuhp_ap_sync_alive(). This ensures that if an early capability mismatch
-occurs and the AP invokes cpu_die_early(), the boot CPU can detect
-the boot timeout and proceed, rather than hanging indefinitely.
-
-In preparation for enabling the generic CPU hotplug code on arm64, split
-up the trace_hardirqs_off() call during secondary CPU bringup so that we
-update lockdep early but defer the tracing updates until after
-RCU is ready.
-
-Furthermore, to support parallel bringup without triggering false RCU CPU
-stall Warnings or deadlocks, the initialization order must be:
-
-    secondary_start_kernel()
-        -> lockdep_hardirqs_off()
-        -> check_local_cpu_capabilities()
-           -> cpuhp_ap_sync_alive()
-        -> cpuhp_ap_sync_alive()
-        -> rcutree_report_cpu_starting()
-        -> trace_hardirqs_off_finish()
-
-Because check_local_cpu_capabilities() must execute while RCU is still
-offline on the local CPU, it normally triggers a false-positive lockdep
-"suspicious RCU usage" splat during early lock acquisitions as commit
-ce3d31ad3cac ("arm64/smp: Move rcu_cpu_starting() earlier") pointed out.
-
-Resolve this lockdep splat by wrapping the early capability verification
-path within lockdep_off() and lockdep_on(). This safely suppresses
-false-positive RCU validation flags on the offline CPU while maintaining
-the strictly mandated initialization order for race-free parallel bringup.
+This is a pre-requisite for enabling parallel CPU bring-up.
 
 Signed-off-by: Will Deacon <will@kernel.org>
-Co-developed-by: Jinjie Ruan <ruanjinjie@huawei.com>
 Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
 ---
- arch/arm64/kernel/smp.c | 13 +++++++++++--
- 1 file changed, 11 insertions(+), 2 deletions(-)
+ arch/arm64/include/asm/cpu_ops.h |  1 +
+ arch/arm64/kernel/cpu_ops.c      |  5 +++++
+ arch/arm64/kernel/smp.c          | 19 +++++++------------
+ 3 files changed, 13 insertions(+), 12 deletions(-)
 
+diff --git a/arch/arm64/include/asm/cpu_ops.h b/arch/arm64/include/asm/cpu_ops.h
+index a444c8915e88..cd298a8710d8 100644
+--- a/arch/arm64/include/asm/cpu_ops.h
++++ b/arch/arm64/include/asm/cpu_ops.h
+@@ -48,6 +48,7 @@ struct cpu_operations {
+ 
+ int __init init_cpu_ops(int cpu);
+ extern const struct cpu_operations *get_cpu_ops(int cpu);
++extern const struct cpu_operations *get_secondary_cpu_ops(void);
+ 
+ static inline void __init init_bootcpu_ops(void)
+ {
+diff --git a/arch/arm64/kernel/cpu_ops.c b/arch/arm64/kernel/cpu_ops.c
+index eacfb88a0c0c..7d183ca31dc8 100644
+--- a/arch/arm64/kernel/cpu_ops.c
++++ b/arch/arm64/kernel/cpu_ops.c
+@@ -127,3 +127,8 @@ const struct cpu_operations *get_cpu_ops(int cpu)
+ 
+ 	return NULL;
+ }
++
++const struct cpu_operations *get_secondary_cpu_ops(void)
++{
++	return cpu_ops;
++}
 diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-index c14b179c595d..87f92cf9ffa8 100644
+index 9482e8d38b98..6b9586a69429 100644
 --- a/arch/arm64/kernel/smp.c
 +++ b/arch/arm64/kernel/smp.c
-@@ -35,6 +35,7 @@
- #include <linux/kgdb.h>
- #include <linux/kvm_host.h>
- #include <linux/nmi.h>
-+#include <linux/lockdep.h>
+@@ -99,7 +99,7 @@ static inline int op_cpu_kill(unsigned int cpu)
+  */
+ static int boot_secondary(unsigned int cpu, struct task_struct *idle)
+ {
+-	const struct cpu_operations *ops = get_cpu_ops(cpu);
++	const struct cpu_operations *ops = get_secondary_cpu_ops();
  
- #include <asm/alternative.h>
- #include <asm/atomic.h>
-@@ -215,15 +216,23 @@ asmlinkage notrace void secondary_start_kernel(void)
- 	if (system_uses_irq_prio_masking())
- 		init_gic_priority_masking();
+ 	if (ops->cpu_boot)
+ 		return ops->cpu_boot(cpu);
+@@ -234,7 +234,7 @@ asmlinkage notrace void secondary_start_kernel(void)
+ 	rcutree_report_cpu_starting(cpu);
+ 	trace_hardirqs_off_finish();
  
--	rcutree_report_cpu_starting(cpu);
--	trace_hardirqs_off();
-+	lockdep_hardirqs_off(CALLER_ADDR0);
- 
-+	/*
-+	 * Since RCU is still offline on this CPU, any nested native printk
-+	 * or lock acquisition would normally trigger a false-positive
-+	 * "suspicious RCU usage" lockdep splat.
-+	 */
-+	lockdep_off();
- 	/*
- 	 * If the system has established the capabilities, make sure
- 	 * this CPU ticks all of those. If it doesn't, the CPU will
- 	 * fail to come online.
- 	 */
- 	check_local_cpu_capabilities();
-+	lockdep_on();
-+	rcutree_report_cpu_starting(cpu);
-+	trace_hardirqs_off_finish();
- 
- 	ops = get_cpu_ops(cpu);
+-	ops = get_cpu_ops(cpu);
++	ops = get_secondary_cpu_ops();
  	if (ops->cpu_postboot)
+ 		ops->cpu_postboot();
+ 
+@@ -334,7 +334,7 @@ int __cpu_disable(void)
+ 
+ static int op_cpu_kill(unsigned int cpu)
+ {
+-	const struct cpu_operations *ops = get_cpu_ops(cpu);
++	const struct cpu_operations *ops = get_secondary_cpu_ops();
+ 
+ 	/*
+ 	 * If we have no means of synchronising with the dying CPU, then assume
+@@ -375,7 +375,7 @@ void arch_cpuhp_cleanup_dead_cpu(unsigned int cpu)
+ void __noreturn cpu_die(void)
+ {
+ 	unsigned int cpu = smp_processor_id();
+-	const struct cpu_operations *ops = get_cpu_ops(cpu);
++	const struct cpu_operations *ops = get_secondary_cpu_ops();
+ 
+ 	idle_task_exit();
+ 
+@@ -501,7 +501,7 @@ static int __init smp_cpu_setup(int cpu)
+ 	if (init_cpu_ops(cpu))
+ 		return -ENODEV;
+ 
+-	ops = get_cpu_ops(cpu);
++	ops = get_secondary_cpu_ops();
+ 	if (ops->cpu_init(cpu))
+ 		return -ENODEV;
+ 
+@@ -780,7 +780,7 @@ void __init smp_init_cpus(void)
+ 
+ void __init smp_prepare_cpus(unsigned int max_cpus)
+ {
+-	const struct cpu_operations *ops;
++	const struct cpu_operations *ops = get_secondary_cpu_ops();
+ 	unsigned int cpu;
+ 	int err;
+ 
+@@ -806,10 +806,6 @@ void __init smp_prepare_cpus(unsigned int max_cpus)
+ 		if (cpu == 0)
+ 			continue;
+ 
+-		ops = get_cpu_ops(cpu);
+-		if (!ops)
+-			continue;
+-
+ 		err = ops->cpu_prepare(cpu);
+ 		if (err)
+ 			continue;
+@@ -1299,8 +1295,7 @@ bool smp_crash_stop_failed(void)
+ static bool have_cpu_die(void)
+ {
+ #ifdef CONFIG_HOTPLUG_CPU
+-	int any_cpu = raw_smp_processor_id();
+-	const struct cpu_operations *ops = get_cpu_ops(any_cpu);
++	const struct cpu_operations *ops = get_secondary_cpu_ops();
+ 
+ 	if (ops && ops->cpu_die)
+ 		return true;
 -- 
 2.34.1
 
