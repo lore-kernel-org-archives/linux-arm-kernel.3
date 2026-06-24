@@ -4,70 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDBEBCDB479
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 19:27:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 976B3CDB479
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 19:35:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z99Q29vxpTumNbDlSLV/5spk9aNhNsdFqpygOCzOZY4=; b=BdfwTbQ1nyVY74Zx8dfuzswVQs
-	MGd5v/82lx5qhUspJfLj/OeEGlCz3ZJlSKxKu+avNbmoK0QLXR2c+DpE0+XDkAY9IHq2X0nACm6EK
-	bHWBLwVGqeCdLO5JqpwfWHhb+C4xEnCIordQingKLooXQBz4ze8PGtRv2QJTm9Oa00NXtbkfygFxZ
-	TPYvHdQXOwVfDvKoP1ayL+KOYYOwUOgYC4EWRdtTofJs6V4NzP5L1JlZ/3OJKEPjJK99VB+4udNYu
-	UGCoaHtfKhAo6xT+ax2JmycyWs7RLvcf20y1mCwV4wi7WZnFn+WbP+s5sVQ4RaTdofk4NUk0Zj/Fn
-	mWSQW8mg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xX4mzbkwHpQcX0iN0ItjqIUqp0U++/AaIjQAStqS6sQ=; b=PDEFl7pwFWYnnRmhY2xmMrgMLt
+	riJrDO3kop/4aKQwCDQBlTJFZalB2Y0HB+iJcu74ynO1ZRHYosrFzkeeiSfaXg/wJYint3GaZvzoM
+	6DpMvIaEeLcQJ72LZRDMXC7MiFuZwdlw2WQubAsnDxy2DE9IlR826RjZhEnpDJLv7tIZweDRs11W7
+	6kJJNx8nDc/wNGny9wh1VKzXB1ApLI4jxO3yGhppbekCq+KhSY9ceQ1IT468/WRZWVqc8XiczkQXj
+	pby1JzSXvayfwaWR5js8q0zfKGPxq+f/Wub0p73ghGuA6owBXtLFqFdFHAlWwROVupNM8HlX5rhAk
+	+y/Nn8vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcTGF-00000008GtU-2Nzk;
-	Wed, 24 Jun 2026 19:27:47 +0000
-Received: from smtp.forwardemail.net ([149.28.215.223])
+	id 1wcTNp-00000008HbD-30i1;
+	Wed, 24 Jun 2026 19:35:37 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcTGC-00000008Grg-45cG
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 19:27:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
- Message-ID: Date: Subject: Cc: To: From; q=dns/txt; s=fe-e1b5cab7be;
- t=1782329264; bh=Z99Q29vxpTumNbDlSLV/5spk9aNhNsdFqpygOCzOZY4=;
- b=kEkwLmkpTJsBrGru/kPUc6yApDo4X+NHpm4g6lly9EJQ4hU5+6DjOLYdDPGy9FTt3Lev0UURC
- WIm7QBnrMQrOv0L8Wz+nHFS25ySpTjNsAPmdjCscs5bRtJLRsBLngyh5hl+Gj9X60wiTtywlfgk
- sd8J3k0iuW1uxw10yzmE5VEhPu83gII3J4i7fUcEej0F9Tv4ub7Ute0Q74W2B7Pen3B5mPMrDf0
- 25pRGzqDtjEHFTh/u4oyj8m4GEW47PU4Ef4XVoXaQJ59kM6YzYS6LielAKRFkOAPpgcolFNy6TY
- jDNGERo8QnxtlEK48dj8r6u3/Jer1N7hGZ3b/ZMMvuYA==
-X-Forward-Email-ID: 6a3c2fa5138f49c481104abd
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 149.28.215.223
-X-Forward-Email-Version: 2.8.32
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-From: Jonas Karlman <jonas@kwiboo.se>
-To: Heiko Stuebner <heiko@sntech.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Diederik de Haas <diederik@cknow-tech.com>,
-	devicetree@vger.kernel.org,
+	id 1wcTNm-00000008Haj-1toz;
+	Wed, 24 Jun 2026 19:35:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=cAkaoxqPuDWBY6k6PJb7DrvKZe2ivtmqA5y1ammkatCd5unuObIWSkLGwlXnpTdRLHvSp1JPGUFRGxla6JtxbJHaNoRBmCL8ZOP3FxPGQRRLLXi0YeDvnKgmyV3tbwDJqWhpRK/2KO5dP1uHUIfOQ3881Jp9Q1+HX4UB4HkwC8QEnIimbKuuhkjknw37ztElx+XD/GMcc2l2gNo8BKLM4pbP0yZPAVhCugrLpCcqVQjz5sSEehtXjs1DHLrpvjcdj4+r1qQFrE8jpoJ0RLs7oaJCFG/pboq5VhdkSdLjy7vZjnmT7zUhW1wYwNYMmArC/eLpGe2OiEEJ9VWC8BSB8g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=xX4mzbkwHpQcX0iN0ItjqIUqp0U++/AaIjQAStqS6sQ=;
+ b=VM5ShfwaacgM77U8HTM/w+GdOj5n6zUWuKL/nS38D/9+ZBWhhUikcIyNSRz3ztV5gpl2H48JwQdVte9thN0xlKo4iIb0Fds0HPr52qrcfLBnSvb3MicfR/QN7IFJOUR833Z1Z2ktgDbLRwYQVpqKEY89oeTmInsZdKaWXTpq+BH23SLR9Xf2A6jUSZd6mhadXsV1whJM6jR1XekEXj4IBtFZzYZGJ8BBG0Hc9ipvOsL4Hhl5W1+ughrQxlwIR9XfVCbX5NaDpp2vz2akCyl1bMcjaxfv3itjPxiaSFONpmzmoFgN1r6GkgCOLyorfiu5zOxFZZeKIAxShDohB/EIig==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=xX4mzbkwHpQcX0iN0ItjqIUqp0U++/AaIjQAStqS6sQ=;
+ b=BO3TE5olVkmJW4HGpR8NACqlAxNpsPndsRRrbxaoXfKMZvEgdUOGBq3r2qUfiZvnvGnLSova2wHWM7LOA6g7rP1K2fFdfTFR/1lKUXjqEEV42qXzoABvazIM5sVJ67J2KJ41+lNBWeBqfVW8X9JkpOUfItesmAqDVJNANjzwh6KSJnxVEoIOcKc1lXJq5QDBueIO7BGsyFYYUf8p3wV2lGlpXrPKI6rV4qfKHzvbdBv54ubsAdCDYVWSIGfKIlEs0T07364TSAusjzNsAbsf8daQ/DHBCze+2eo4UN8hl8fXzQa2qEWKdn71LbP+0aKNjOY/+MFs4YdG3JY2i54yog==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by PA2PR04MB10123.eurprd04.prod.outlook.com (2603:10a6:102:403::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.15; Wed, 24 Jun
+ 2026 19:35:29 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Wed, 24 Jun 2026
+ 19:35:28 +0000
+Date: Wed, 24 Jun 2026 14:35:14 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Daniel Scally <djrscally@gmail.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Dafna Hirschfeld <dafna@fastmail.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+	Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+	Loic Poulain <loic.poulain@oss.qualcomm.com>,
+	driver-core@lists.linux.dev, linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
 	linux-rockchip@lists.infradead.org,
-	linux-usb@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Jonas Karlman <jonas@kwiboo.se>
-Subject: [PATCH v2 1/2] dt-bindings: usb: Add Rockchip RK3568 compatible for EHCI and OHCI
-Date: Wed, 24 Jun 2026 19:27:24 +0000
-Message-ID: <20260624192726.781864-2-jonas@kwiboo.se>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260624192726.781864-1-jonas@kwiboo.se>
-References: <20260624192726.781864-1-jonas@kwiboo.se>
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	imx@lists.linux.dev, Guoniu Zhou <guoniu.zhou@nxp.com>,
+	Frank Li <Frank.Li@nxp.com>, Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Subject: Re: [PATCH v2 0/4] media: add and use
+ fwnode_graph_for_each_endpoint_scoped()
+Message-ID: <ajwxcn2LXS8InAjZ@SMW015318>
+References: <20260624-fw_scoped-v2-0-0a8db472af4a@nxp.com>
+ <20260624191935.GG851255@killaraus.ideasonboard.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260624191935.GG851255@killaraus.ideasonboard.com>
+X-ClientProxiedBy: PH7PR13CA0012.namprd13.prod.outlook.com
+ (2603:10b6:510:174::18) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PA2PR04MB10123:EE_
+X-MS-Office365-Filtering-Correlation-Id: 70f23c3e-ba1b-4b6c-dc00-08ded227bf06
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|23010399003|1800799024|7416014|376014|6133799003|18002099003|22082099003|56012099006|11063799006|4143699003;
+X-Microsoft-Antispam-Message-Info: AGgthyTbzg1C+bnvsMaCDS5p4eH/3bC9bbw9IsPnT1O4fhZNEZ7jyT6AuXNGMMJ126s5zEbRfyuULDRGwqexcZVW+FbljmaSBacbyub83TdnUTuq+8Qey1i8FRhEM7Ar/xU/ydclrUoqz/wRjLa1hogkYuGYUVJ5yIjjkQOz727HDCbIj2kpvYRmlV5uvnujQmFVvPt0ss6zCnFHvwe1CkwS6R6yckf4dBJbO+a4aTsOZrUmsrSMQs+LSLLbJngSKtcVHrZCtvDqgG0Od15hUKFUBRUIKFDNqcta3I9WyQRntYIQ6v8Y2w7vLsqmvsfV9xCIsWXdvqGXxTdYvntxsdUyVbHKpvWDC43lfAq3CNTAh8KYEXGdrP5BYvPrz5usEN4ryWh95QRYLN8naoNebuKaba/GthkodLvzThbSVuDRszuGv7tfPE9Ujef7ZjkJjz16/M7TwNQxSYxAMDsgtr6kA5B9gcfJs0n1ohF1JLA8j5Y5MLDSobILo3AxHIn4HE6zTJjrdMGTUMAL9iBHBH3j49Pmgexd3dLooCuUKH7eUw7KuZQGeZ6YVqiscraKDb/HJwbnSbv+dPnz6+6sgT5NbKSrZXjgVcll+K2upw/exbSZxusn0cVjmQxtqrxhGEwcpSF/41CySdylqmLnmPJAQahXblvf4O5Poxuayjc=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(23010399003)(1800799024)(7416014)(376014)(6133799003)(18002099003)(22082099003)(56012099006)(11063799006)(4143699003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?f1QnVOX562kc0kQsCCI8wHgYMdIkSlp4wrrpTbIjRXuyW6yJQ5An3qVPpfa5?=
+ =?us-ascii?Q?BuYFXpIXgW6Yejkz8UulLnfznBKPTI9ajZP9HtiF0MSyzrf36/c5qa1Ivd/o?=
+ =?us-ascii?Q?II7XCNVKDW2q5P9rsu6CVFWVcfCsjaFWfxHwwcaQbR4vympwu4bk99f0BMhZ?=
+ =?us-ascii?Q?T2U8YNe8tAGvHWcKVjE+QsggS2saBEG2nJ3J7UrAWJP8abX9KgyanTdCcr5g?=
+ =?us-ascii?Q?f5tPirf5Y6nS18VgilRnyeM9E/tRQT3sF9jmH0V8vkmKfoyZb0HqAjpagct8?=
+ =?us-ascii?Q?oIPZTrVFZdcRt5fLolAZ0uWuNjkQ/VCjOVju9TAMBdXJdoBAxZ9juyqaa/dr?=
+ =?us-ascii?Q?Kv7onAbAYPaW+LMUyNpaLX4iGbXKDnoMBvyK05CLjBDnsOioUhldarlcRurn?=
+ =?us-ascii?Q?nlSeaJaBUv4W/0lJs3uUXEeog7O+/DyX5FsK8/5z9qZH4z9liw36fs0KIbhf?=
+ =?us-ascii?Q?26tbq0QlJ8Ta5/XPAzm3vTQMjfdbGw74fhYaJlZxGhhcm9XGlXpnxg/0shqK?=
+ =?us-ascii?Q?D9hH39euE8gRuVUw2DuCJmVo7tkSxE0WtuLqQQD7Vt5UVYeYAakMu3Dhh6w0?=
+ =?us-ascii?Q?w/LmIPQNMw5htql6UjbOx31it/k4+3UeCDNvhVhTzZ/uZg/xmzV0zEWa6hm/?=
+ =?us-ascii?Q?tpW/FdWF/l4inhVhrpLeif0BqCR0Yuq29uW7NeUFCVq4QhEn9+G+RaKlMcGz?=
+ =?us-ascii?Q?uOpy/RJ2iQYZcIiCFXHWGq2mFDtr90dQh8cOYifiLDXS6VAOSUHFK/DdPl57?=
+ =?us-ascii?Q?tTloc7m0lawB9fQQeVtcY6cnDpPJGokwJp2XVIRaLKmLifKqTaGg54EQawZV?=
+ =?us-ascii?Q?N31csG4mcBs0XPe0arQ0d5PYz7O6ifAEWXYo51jNCdVDzr8gJWzJQBMn/FyP?=
+ =?us-ascii?Q?oPGD7cc9PIjtk7npq53uJ4geajp/tP0ZWYlx9Z8kApeFLQJcgP2JiBTKp6nF?=
+ =?us-ascii?Q?n4AuCAcKU51XeG4otoeDia6pJ9npRk0FslngZX2tRmWvNOE9dSCmZMmXArE1?=
+ =?us-ascii?Q?355qSs5Zr/3PO9o3YGCA689mU30m6ezjMRXOkoZQH8o/OnLZ0eCp/dMKsUJV?=
+ =?us-ascii?Q?L015cNsMkIV+7waUadGb5F2B/2TtjReRvm2klpg/Npn3MFRZQheGGo/6Xf22?=
+ =?us-ascii?Q?/+lEbsqJA967qYvt23dDFVkBaFuW6GnPGjerevTM8DNVhEc+9d7WAUNgmV+W?=
+ =?us-ascii?Q?mOKbjc2s3XKAHPvFDbv9aeqOot+EGmOEgiYsaKgAgX9ss1bjPo5qGuXjbFbI?=
+ =?us-ascii?Q?PmNGb4CyCL1mDu7g253DO9/w45voXSG/w4iZY3/G/Pc9ONLG1Axh+CB/N3Tr?=
+ =?us-ascii?Q?FpfL6sRe1SMehSJmjhfx50DN1EtETO4HrcijVkTkGEaV9Rsyag5HEJ2br5zt?=
+ =?us-ascii?Q?VqLTZGzm89B5/brLbJIt1ID3JxXqcj8rFrWpzvELRI5MYXb5R2O+XN9doH/w?=
+ =?us-ascii?Q?zaUn8TFx6LRkYPOR9wyQb7X5PP2y5KD9hKi5+xs1GWjD4tqHRM+T3oE64YX6?=
+ =?us-ascii?Q?VFpdP57SG135d4Tf0AicBib/J0z5i3FGrjIb9IhyKke1NFJbDfrGvwvEkOEj?=
+ =?us-ascii?Q?6ng2hZLEx7kUeJPZGncjECjKuPG1nThkcluQs/raGm1MCjZnAfn1BXd68zbq?=
+ =?us-ascii?Q?Wj59xLCZaX0xbKCtWecf4dWiNM6iB+AwnqhYZ4dY6lU6WXS7r0hhv7u5vBBo?=
+ =?us-ascii?Q?Ng8A/ifqRiZwou2uxvMR09W5VtLh2TDxsY4QTho9pZQGorWwbzTonBtn0qp0?=
+ =?us-ascii?Q?l43yIuy2O/isgZSzXDAdVCT32ucuj5s2Ua9O+bpt+HN6vswzwBul?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 70f23c3e-ba1b-4b6c-dc00-08ded227bf06
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jun 2026 19:35:28.7057
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ZZ4gSO2L24lY+zbctpQQcpu4Isb7XAJrmByXVNumCOEWwZmaW6Zwa/kv3i+zULxO1qAmVrYcvU19umeSauE0zOxpjnRvTsgMANCbDR/pvnasbLUAZU4RVtW/fz9q3AQG
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10123
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_122745_014064_52412F56 
-X-CRM114-Status: GOOD (  10.57  )
+X-CRM114-CacheID: sfid-20260624_123534_531340_DC59193E 
+X-CRM114-Status: GOOD (  16.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,92 +154,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Rockchip RK3568 EHCI/OHCI controller depends on clk_usbphy1_480m
-being enabled, or the system may freeze when registers are accessed.
+On Wed, Jun 24, 2026 at 10:19:35PM +0300, Laurent Pinchart wrote:
+> Hi Frank,
+>
+> On Wed, Jun 24, 2026 at 01:00:08PM -0400, Frank.Li@oss.nxp.com wrote:
+> > Add new helper macro fwnode_graph_for_each_endpoint_scoped() and use it
+> > simplify media code.
+> >
+> > Typical example should qualcomm's driver (camss.c), the v4l2_mc.c and
+> > rkisp1-dev.c only silience improvement.
+> >
+> > Anyways, *_for_each_*_scoped() already use widely and make code clean.
+> >
+> > Build test only.
+> >
+> > Sakari Ailus:
+> > 	when I try to improve the patch
+> > "Add common helper library for 1-to-1 subdev registration", I found need
+> > camss.c pattern, so I create this small improvement firstly.
+>
+> Those are nice cleanups, thank you.
+>
+> After applying this series, the only left users of the
+> fwnode_graph_for_each_endpoint() macro are in drivers/base/property.c.
 
-Add Rockchip RK3568 EHCI and OHCI compatibles with a similar four-clock
-constraint as RK3588, also extend the EHCI constraint to include RK3588
-to match similar requirements of RK3588.
+I already checked previously, two place use it.
 
-Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
----
-Existing DTs for RK3568 use the plain generic-ehci/ohci compatible,
-next patch make use of these new compatibles and adds the missing
-clk_usbphy1_480m clock references.
+fwnode_graph_get_endpoint_count(), it will go though all endpoints, last
+ep is NULL, which totally equial to scoped() version.
 
-Existing DTs for RK3588 have contained the required four clocks since
-the initial addition of the EHCI/OHCI nodes.
+another one fwnode_graph_get_endpoint_by_id(), which return ep, expect
+caller to call put().
 
-Changes in v2:
-- Include rockchip,rk3588-ehci in the EHCI constraint
-- Make clocks prop required for EHCI and OHCI
----
- .../devicetree/bindings/usb/generic-ehci.yaml      | 14 ++++++++++++++
- .../devicetree/bindings/usb/generic-ohci.yaml      |  7 ++++++-
- 2 files changed, 20 insertions(+), 1 deletion(-)
+if use scoped() version, need use no_free_ptr() at return, which make think
+a little bit complex.
 
-diff --git a/Documentation/devicetree/bindings/usb/generic-ehci.yaml b/Documentation/devicetree/bindings/usb/generic-ehci.yaml
-index 55a5aa7d7a54..a39f01e740b1 100644
---- a/Documentation/devicetree/bindings/usb/generic-ehci.yaml
-+++ b/Documentation/devicetree/bindings/usb/generic-ehci.yaml
-@@ -52,6 +52,7 @@ properties:
-               - ibm,476gtr-ehci
-               - nxp,lpc1850-ehci
-               - qca,ar7100-ehci
-+              - rockchip,rk3568-ehci
-               - rockchip,rk3588-ehci
-               - snps,hsdk-v1.0-ehci
-               - socionext,uniphier-ehci
-@@ -186,6 +187,19 @@ allOf:
-       required:
-         - clocks
-         - clock-names
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - rockchip,rk3568-ehci
-+              - rockchip,rk3588-ehci
-+    then:
-+      properties:
-+        clocks:
-+          minItems: 4
-+      required:
-+        - clocks
- 
- unevaluatedProperties: false
- 
-diff --git a/Documentation/devicetree/bindings/usb/generic-ohci.yaml b/Documentation/devicetree/bindings/usb/generic-ohci.yaml
-index d42f448fa204..19449a6b3033 100644
---- a/Documentation/devicetree/bindings/usb/generic-ohci.yaml
-+++ b/Documentation/devicetree/bindings/usb/generic-ohci.yaml
-@@ -47,6 +47,7 @@ properties:
-               - hpe,gxp-ohci
-               - ibm,476gtr-ohci
-               - ingenic,jz4740-ohci
-+              - rockchip,rk3568-ohci
-               - rockchip,rk3588-ohci
-               - snps,hsdk-v1.0-ohci
-           - const: generic-ohci
-@@ -198,11 +199,15 @@ allOf:
-       properties:
-         compatible:
-           contains:
--            const: rockchip,rk3588-ohci
-+            enum:
-+              - rockchip,rk3568-ohci
-+              - rockchip,rk3588-ohci
-     then:
-       properties:
-         clocks:
-           minItems: 4
-+      required:
-+        - clocks
-     else:
-       properties:
-         clocks:
--- 
-2.54.0
+It'd better leave these as it.
 
+Frank
 
