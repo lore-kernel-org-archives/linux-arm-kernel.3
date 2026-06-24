@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 496CACDE002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 13:57:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6403BCDB481
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 13:58:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xh5Slloxf8WGtp7aR0d3xxTsesmRmOMMsUzMEvdtcDI=; b=qxQnlThkRqu3HlK3j0CTqrl75f
-	oRUTUNMchHYBs2Cyv3Ng4DzvFzkpJdEkxic0Nb+v5E9vS2GgTFK7dnE86pZbrYtTWOqdDtEcgCzF3
-	htha/7bre4OgGgvEANjgn7WVOpdDNxKw0fc4/qpZmnSdjXmWeo2RmTHrc0CPZfsgHdfW+g+GLulsO
-	DSUtsOrqWNdr7DVDAY9dnqJit0GkcJ2+RGm0TL/OCQqmaB15rJ95XhgMEkROItsw/ub+KSrRGDJ0A
-	qswlD1mZlxSKmGxpvebqQB6F/EE/Tnr8eL+BMucpSeMqYtnysRGKicBJ/XoaV7JnboKKNG3MMClEN
-	tvmuSh0Q==;
+	bh=mk86bxlrPWUP+ZTPQQXB6H9xJamJagPahnQQ0p/X5sM=; b=RiHmEY+Z2/Sa/1Q1A4ZCig5KYL
+	Q26UFbGPqP2CdV66FovEvxSgftHMd0iK10iKaZrVyl8CQIVtrgfyX+pS+1CUAyeFvj4SgS4bI3Z8w
+	0kgRz2SR8bBJBSFo/t25em6ECEzf9clqkR7yr39yIDQSUwIFstJOOvniqz2JRttt/qt5LQH+LH9XU
+	WBF/VqAaVwayMKlXt0Lc26XVw6C0ktXhgeUrcC/JYX07x47wPqchI6FlB9DweS3IDmxZSA6gK9Pq5
+	dYp3l4YaO2NtuWDI15J8Sm6OJVU6jGCaveScDJ0XFC9f9b9d0d99d1i9cniqdEsHVzwtiutMpqRJH
+	+2+d1iow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcO6u-00000007rsO-073Q;
-	Wed, 24 Jun 2026 13:57:48 +0000
-Received: from mail-vs1-xe36.google.com ([2607:f8b0:4864:20::e36])
+	id 1wcO77-00000007rzZ-0atb;
+	Wed, 24 Jun 2026 13:58:01 +0000
+Received: from mail-ua1-x936.google.com ([2607:f8b0:4864:20::936])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcO6r-00000007rqH-0872
+	id 1wcO74-00000007rxC-0olc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 13:57:46 +0000
-Received: by mail-vs1-xe36.google.com with SMTP id ada2fe7eead31-7296071d19fso583139137.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Jun 2026 06:57:44 -0700 (PDT)
+	Wed, 24 Jun 2026 13:57:59 +0000
+Received: by mail-ua1-x936.google.com with SMTP id a1e0cc1a2514c-96757a30368so95652241.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Jun 2026 06:57:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782309464; x=1782914264; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1782309477; x=1782914277; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Xh5Slloxf8WGtp7aR0d3xxTsesmRmOMMsUzMEvdtcDI=;
-        b=JT7DeUGJw26HBVx7cUjvHmk4w0ja+o2ShE09dYEfJI1hl/XhEQPS5k1iusC0qvZYj1
-         YY09SSGtJPPrnBGvyst1ZQPoJm0J5LmO/olBLi2u9pwROyGQqbGTTpJ+p8ebXf5jtbyx
-         G3STXni/NwOBD2RmxnaKp5l+JJSd1Ed7lcp0I1bO1Axh4Hav3tN82PSc819aABW4nnlX
-         WqxM7Vwcjf0onMAwwoXzGIZtoky7GxmWsozcQiag/4B1E5kPTqWzVDa5xyrxfqFU6n3e
-         4IbWs0o5tasc4SDJOBzI63IWYlyYQn+oMGN4szy8UxsN0iUCOwWJ6n1HuKfeg5s8tFKb
-         OEkA==
+        bh=mk86bxlrPWUP+ZTPQQXB6H9xJamJagPahnQQ0p/X5sM=;
+        b=OQwkeAy/Xy1h7+jWnGMiN/xLKSfuwrhKeaSHXN38uWqg+REuFi5OcB7OVBYJNd6peV
+         QKifgRNW7vda8JzZCxmHB3rZ1VBmRPcsbj76zruFi1DdORLcpwYVr08CdyutNMyCQkhS
+         7pRuGl20IwlZuPn16TVxSjeUx6tbhcBZTtsrPdSaOGWzoqCBbMTFnFx4uCTEmOIwnr3K
+         6uKuB8jEb9SPje4SPitgJTPD+bCjBbvLCThEDuXYqNzU1PhWHAlhqD0fT25AlPHUuCv/
+         37k+vuREQbnSiXG7cpu/jM6ZeKAiCI50Q2kALkaTgBUWHA7dpGJcWkpFnE/YsMH+PUw7
+         lwKA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782309464; x=1782914264;
+        d=1e100.net; s=20251104; t=1782309477; x=1782914277;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=Xh5Slloxf8WGtp7aR0d3xxTsesmRmOMMsUzMEvdtcDI=;
-        b=pBuUkLxvvtCvUQm8NUFi4GgWwLZ88bD/+Iy6ZS6s0R1gyQlqR6wxdudi5JVDMvhfaX
-         vKjvL1nR/GWsoQAwliJjU39I50pU5u+bZXHnOW1qGE8p3ZdKgwNBqirHmjyPjFlXWcoY
-         KhBrNS/GSAR5WefEqRqgREdmluBP1O8YO6X+KE+54Z9D5spuFsZq8bliawH8M3mFDAxE
-         ycS6tYSxMe2XmwXDEn+f+waf+4f5v2SK1AI2dwoag2txHgYuwBsM+j/qab+7lshRWAa1
-         2qsnFlfM+SwDA4kzPcxw2GLZy/A3y9DOp6FCJ882HxeQqQDVnBanCUF/k+WazLdC7scC
-         lv1Q==
-X-Forwarded-Encrypted: i=1; AHgh+RpQtn7eldz/Liy0aR47Dfu1q06tNx6VAipe13G8n9+ZYCcxJ9QbfcYebJzzqhU4/GHAN7OqG4AJ45pmUPD/8Rw7@lists.infradead.org
-X-Gm-Message-State: AOJu0YzZG7uJbeWSJizR9aMw2MEj2pG+LezMH2kzEDgnPluwEVItSC3P
-	xsdCMD3KSeY4roHiraNRgFKm7+h/Bw7OkNUiMWZHoJi2LWZztPWYGxQF
-X-Gm-Gg: AfdE7cml/KfyGnPDcXQfM+I9BGsaWKff2dfbXAd/Df6H+KJA8C/z4r7x5bqqPKLhf1m
-	jkjGm+R/s1omIH6dmjMal7yNY08N/4Sofa/YHYovt3ZUrxBGGD/pUTz7Bp/Nig7fsSQrJbvwtj6
-	o3fN+q1skcD8HAo6Avl4My7OrlmMSDaKSMssHB3LXCB4gadYjsOuLUlTQXW8So2JlcAtPXhQ3Fb
-	LTczHKn5qEgHdfV/2d+EUNk/tFeiZC2vseBOnWPGlomvHaUvBv7m8u87IAHYhiyFDIxoFjUWWIL
-	oa1w7DB242rWbJHBr9KyU6RUP7VT8AvzYbrmXF2dDimC2bxmk912EifldVuEaBPquWUrcQnb3aO
-	4U0kzbYrwFJGpVV8rNGxLsgY4oYVoSehmgL0brsk30FY7xeahybag8JZNaZ5Ru/AOuGvu9gx7Dd
-	qoht9u79q1IhyKB6skr4ww4Ts5YrIs6g7v/1V5JYzxA7SoqQ==
-X-Received: by 2002:a05:6102:1611:b0:723:b92:31b6 with SMTP id ada2fe7eead31-73115d8fd1dmr1491466137.27.1782309463680;
-        Wed, 24 Jun 2026 06:57:43 -0700 (PDT)
+        bh=mk86bxlrPWUP+ZTPQQXB6H9xJamJagPahnQQ0p/X5sM=;
+        b=IEdnqX6XmT0iB6yh9hCwDcNkbGdycqris5rr3HPUtrIb6ldAK2XlpZg250qYj6o8Eu
+         LrPLpgNaK/ma7jNlZezCFmim7B1wf+98iILjhxgHH6wJMfAd11TZYi2vpF+rBgsjOmxR
+         7m9sBSINXDx9mv28o9Ds0/X928BJD/olKaTM58mqy3ZLBsWoaO3ztUFlIKMaiJtIGKaW
+         nmnUPEMJMIel46+WcyiLtoIOw8ehva4723SfXPKzD3ai7EM1bzKATIf7nXLrcrvh1P+0
+         kJakvHwq3xhM7Z7QdrfMX63Fmyf+22HOfnRaJPlzawp9mFU7lRdiRt31hPp/XKvqTgqh
+         9oNw==
+X-Forwarded-Encrypted: i=1; AHgh+RrHyabMKFOWVT5VNuCqL+XT65U1gq4Vv5s/e4Oc6rB/cq6VtWDYCzV0KVsBRd+N6eNqChxKhM8e1x8+eQcBV3fh@lists.infradead.org
+X-Gm-Message-State: AOJu0YyfMRw94KIRh7oGFDwCHi8hAwHVuHCi3tU+bSJopqGv31Mo8NU/
+	8LWfCI7Dbt+teuPA9zx6V2KR6bwXSWFUrV8LTF3xEubH5CUwG9Fyjk+e
+X-Gm-Gg: AfdE7cmkouZvlgrF5M2UNLzRqHYMrnAnR4JT5EOPX24tarQ4UW89G9d+w9QPV7v2uts
+	Pt32rch1+3LNCWwRrr0R6jvlf+E7VEEiyYdv88HBFmXZgODcSnLcyZp48/OmJXra0N+K4NK6hLv
+	dNKgy3/08DSDRcCJ7GUlXNM325R8zgzbi3+uWYQ9yS1k7PRP+DuXXAtQOtFdmy4GrALTjLrKZsN
+	fkyeiotj4/a8HYOWgJ3C7ZsbCS5+y75NYfmmjAA5voiQd29nYdWgv4Xpm6Hv04mr29InclCj77B
+	uJe8KUMf6o4b73mebK4t3n+GQzY1CBydvHzfB7gBMDwOksYcqI3hIjRGnCncY8EsuqIpItIUvFW
+	pA7kfwG36juvVxk091cxClRkzzKSonpcOhZQnwWkilE+GOBgsP28tVWOkMjND8nlBJBZLwlP40D
+	haP2D3jpe9yv01CekaCCLjTjbw7W+b7YkxHGY=
+X-Received: by 2002:a05:6102:f09:b0:6c2:e290:cc69 with SMTP id ada2fe7eead31-731157322acmr1460988137.23.1782309476725;
+        Wed, 24 Jun 2026 06:57:56 -0700 (PDT)
 Received: from arch.localdomain ([160.250.247.70])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-72ba2dbc17bsm9805730137.6.2026.06.24.06.57.34
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-72ba2dbc17bsm9805730137.6.2026.06.24.06.57.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 24 Jun 2026 06:57:43 -0700 (PDT)
+        Wed, 24 Jun 2026 06:57:56 -0700 (PDT)
 From: Jun Yan <jerrysteve1101@gmail.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -83,17 +83,17 @@ Cc: Jun Yan <jerrysteve1101@gmail.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-amlogic@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v4 2/4] arm64: dts: amlogic: meson-axg: Add missing nand_rb0 pin to nand_all_pins
-Date: Wed, 24 Jun 2026 21:56:42 +0800
-Message-ID: <20260624135650.727077-3-jerrysteve1101@gmail.com>
+Subject: [PATCH v4 3/4] arm64: dts: amlogic: meson-axg: Disable pcie_phy node by default
+Date: Wed, 24 Jun 2026 21:56:43 +0800
+Message-ID: <20260624135650.727077-4-jerrysteve1101@gmail.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260624135650.727077-1-jerrysteve1101@gmail.com>
 References: <20260624135650.727077-1-jerrysteve1101@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_065745_072149_523457CB 
-X-CRM114-Status: GOOD (  10.52  )
+X-CRM114-CacheID: sfid-20260624_065758_237152_56592CD9 
+X-CRM114-Status: GOOD (  12.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,31 +108,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The nand_all_pins pinctrl node was missing the nand_rb0 (ready/busy)
-pin description, which is required for NAND controller operation.
+Set the pcie_phy node to "disabled" as it is not used on some boards
+and should be enabled per-board when necessary.
 
-Add it to the pinmux list.
+This change suppresses the deferred probe warning:
 
-Fixes: be18d53c32b2 ("arm64: dts: amlogic: meson-axg: pinctrl node for NAND")
+platform ff644000.phy: deferred probe pending: (reason unknown)
+
+The meson-axg dtsi now disables pcie_phy by default, so enable it
+for the s400 board to support PCIe functionality.
+
 Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
 ---
- arch/arm64/boot/dts/amlogic/meson-axg.dtsi | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ arch/arm64/boot/dts/amlogic/meson-axg-s400.dts | 4 ++++
+ arch/arm64/boot/dts/amlogic/meson-axg.dtsi     | 1 +
+ 2 files changed, 5 insertions(+)
 
+diff --git a/arch/arm64/boot/dts/amlogic/meson-axg-s400.dts b/arch/arm64/boot/dts/amlogic/meson-axg-s400.dts
+index 285c6ac1dd61..7ba249cc3d56 100644
+--- a/arch/arm64/boot/dts/amlogic/meson-axg-s400.dts
++++ b/arch/arm64/boot/dts/amlogic/meson-axg-s400.dts
+@@ -448,6 +448,10 @@ &pcieB {
+ 	status = "okay";
+ };
+ 
++&pcie_phy {
++	status = "okay";
++};
++
+ &pwm_ab {
+ 	status = "okay";
+ 	pinctrl-0 = <&pwm_a_x20_pins>;
 diff --git a/arch/arm64/boot/dts/amlogic/meson-axg.dtsi b/arch/arm64/boot/dts/amlogic/meson-axg.dtsi
-index 6457667d974e..8ca3ac09b306 100644
+index 8ca3ac09b306..5b8ef98f6d03 100644
 --- a/arch/arm64/boot/dts/amlogic/meson-axg.dtsi
 +++ b/arch/arm64/boot/dts/amlogic/meson-axg.dtsi
-@@ -481,7 +481,8 @@ mux {
- 							 "nand_ale",
- 							 "nand_cle",
- 							 "nand_wen_clk",
--							 "nand_ren_wr";
-+							 "nand_ren_wr",
-+							 "nand_rb0";
- 						function = "nand";
- 						input-enable;
- 						bias-pull-up;
+@@ -328,6 +328,7 @@ pcie_phy: phy@ff644000 {
+ 			phys = <&mipi_pcie_analog_dphy>;
+ 			phy-names = "analog";
+ 			#phy-cells = <0>;
++			status = "disabled";
+ 		};
+ 
+ 		pdm: audio-controller@ff632000 {
 -- 
 2.54.0
 
