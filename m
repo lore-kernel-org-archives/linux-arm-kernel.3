@@ -4,77 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C455CDB479
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 09:02:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2247FCDB47F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 09:04:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iGpO/CT3jlV2FyumnjfQyfpjXbKZKHQNA+rfz8fJAiw=; b=dz5gl94RKjAdTg6yIkcGp6nz0r
-	j1Lzlu/L7OpGes9nJJ9DUwRo0GGpJ2Wh6z42DOoNm0mLeidqu0pzut2IKBBngQ6WrdPZaUKK175yh
-	TM9+e7fFz6kVBlLzqyNerMrBfv0eHVbFf2Mbs5Z6w8wW4bQ+EH+KyUd3eGgJAA918CJkD06bhkURk
-	bHMpw9baksBLuMoa4LP03D/WgdUxVgzYmd/33NXmIREGWQQGRXmHPwLM2upUT3jJEA6F9bGhOAHue
-	17RPCSwUsZR0vUYf6N3E2Slt+dPNeGxpTbMtSZOQ2DM/xm15jrJKCSslue0dTV+uiZrLukKqfx+ok
-	GEk4OxMw==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MoUdoHzqhvRaG+QdP+Evvt/ejkkExmNeHFiO7MTEkWA=; b=t8PJIYl+NBd/sPToaX6a7SF1B4
+	/A3Tx2+0klTEHzRygj3MujtbPPfMtPOFlD659VfW25w1fEQv74BtY9/ScFFeRvlEpbnUENL6ls4y8
+	VpFush8g3a++tKu1cKbvXYkKlrWBEJ74YSQURC5xZVTqnytTiwwK8yVcty0yc65RSqwBzII39BhiY
+	qAaw9fEsI+aaniWo560Z6lVBUSlXM/J8F9sIRYxpA4vQKENiOteE55gzfXijBUE/n1zCaLJQGHjX3
+	bIro17nT/P2cOS/o6OGgv+zn308fKjcO4l54nxMPsJvEtAevlX4Ayo2ZPrPddUA/tWPfJlMEApD4S
+	mXt/1UpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcJVS-00000007SVJ-3DRM;
-	Wed, 24 Jun 2026 09:02:50 +0000
-Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
+	id 1wcJX3-00000007SnW-1IYs;
+	Wed, 24 Jun 2026 09:04:29 +0000
+Received: from mail-pl1-x643.google.com ([2607:f8b0:4864:20::643])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcJVL-00000007SU4-3OMw;
-	Wed, 24 Jun 2026 09:02:49 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=iGpO/CT3jlV2FyumnjfQyfpjXbKZKHQNA+rfz8fJAiw=;
-	b=KphrrQhFzVOQMqKA0iEo2PFdKqmkk7UmvTlgBnIJd82Tsxa/gLl+9wZdKNN3XQCs+jW3GJQcw
-	ek0ztTUD2tbOJM+2td2kz7h8HH4utdZxTsylYi1MDNLULCjcjFY4rqxOviQ6U0tuGz+iZlwrIIC
-	LHKvGUtpH7jEZJGAEwK7WRg=
-Received: from mail.maildlp.com (unknown [172.19.162.223])
-	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4glbLf67BzzRhSc;
-	Wed, 24 Jun 2026 16:53:14 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id DA70A40561;
-	Wed, 24 Jun 2026 17:02:18 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 24 Jun 2026 17:02:16 +0800
-Message-ID: <e14fa721-0b97-4560-9cd4-83a736db5617@huawei.com>
-Date: Wed, 24 Jun 2026 17:02:15 +0800
+	id 1wcJWz-00000007SmR-3P4x
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 24 Jun 2026 09:04:27 +0000
+Received: by mail-pl1-x643.google.com with SMTP id d9443c01a7336-2c7ee0d7f1fso576395ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Jun 2026 02:04:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782291865; x=1782896665; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=MoUdoHzqhvRaG+QdP+Evvt/ejkkExmNeHFiO7MTEkWA=;
+        b=nIT+wVh2+ArXqmNke+Rgu8yYKuDB2cNyrgAU4GpkW1uurIcyHKvlhD6dq54qM1/aja
+         siPh/9KjosK3TegGWCBObBCJT96oNbP4io3YSEPCYubcO/6m7ByWjekYn9f94Y4Pblrc
+         ewCwJQesnjIUUkKW17iYi+cfofXZKuPqhPz7vRWsTFI0u6HtlvMGlqKiHvyWBx25k6t2
+         EfzCXgZv17gA0UcB6Uvh8+N79hSdCHsdbkxVeB8WkSGArOZS12OiOw2N1xYojM7Dljjr
+         jV9/PDZTRLXaAWmo/SEFj6z7YX4pL5xFzEavpawGtByCOyvLI5zKLCCYrgSAcpyjkwK9
+         rvRg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782291865; x=1782896665;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=MoUdoHzqhvRaG+QdP+Evvt/ejkkExmNeHFiO7MTEkWA=;
+        b=nxNpRXAtChHIsXkMtDT+30+s65ovqLZtPwjqxOOg5snubK9N5zVP5jt6LNA2W9Iixg
+         lFCxUxd6attjm7VS5G8czs38A9ld5G5AiPLcakrJ24UkUr8GMg+W3sTbIPZU8t6rt4hl
+         BxJW2gy8dmT7tdxD9ooZ3rAdbVvme9oT4BTyACwd4+eCny1YaQsx8KTzgQYG+yJLST3M
+         y/izPwXA2p70DTizs6HFB7ES5wODBYhomDsDvB3WFLl/gwdGgA1N3e63RrJgWU20WDI+
+         YyaKzqzPE7WZEVkAFgnKOsM9w07MeyjAiMdBpxI7aLMCKHEbzQSek4YU6kKlbiNjyFKB
+         RyVQ==
+X-Forwarded-Encrypted: i=1; AHgh+RqYH7t20vJSVnBDoyVhmfAh3FlHpUpOQ0C/Q5UQT/5Nnv6niwDvj6H4MCcUydtqmDYwPh8mMcF9kpARD7Tg6sYr@lists.infradead.org
+X-Gm-Message-State: AOJu0YxzgQGfqC8iJM4CCg2sW/sB7fVm43Gm2uC5AeNWyn4QKnmDReNB
+	LZE6EPsz0NS8jGJt0TT4r9tXsEwzzQ5JmSqRquiyYkMCQFYXQPj8B2AC
+X-Gm-Gg: AfdE7ckDeQJmYPwBNmpp5/ZNixYYr1f8SV7H4/eWqulfgqyjsH58CfSaYjbaNjlGkSa
+	HZDctdN9FukZRPFoFhX1h9BYd0f/0M0plbSBi59Ctv+kJX47btC/r8T2R6ZgvEArwkP+5lGcizF
+	ohH+vNKt1QCLClfRtDprylOFdCEbo/zXwzHu72+W/Og0BFdxXQdxySfaNCgdlUA4Hl6A72XG2dn
+	Q/XEaoJi0H8DE7sgIBzh/rcfOin34kaDekDvdJpPV0htyT37V0oF3GI/mIsquQUTz84LpnuJJ/R
+	piQPLUigDhPB77bXgA2eNyx7wE9NkTpsHAVxznlhKBub9v/8ZeDhCByjEgk1Sp9uxVZgj7usBjG
+	Xl2QgwkBRK4Q28yTMVKlrMgDF/a4N5kxdTV1CExKP9CG0t6mv4UbSesVKDAmtcClRbWpnVaOHLV
+	+ptTaH/a2m2XDN
+X-Received: by 2002:a17:903:4b4e:b0:2c6:d710:3e58 with SMTP id d9443c01a7336-2c742b79e68mr191166655ad.36.1782291864779;
+        Wed, 24 Jun 2026 02:04:24 -0700 (PDT)
+Received: from fedora ([218.194.36.79])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c7436af585sm134292515ad.5.2026.06.24.02.04.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 24 Jun 2026 02:04:23 -0700 (PDT)
+From: Yanan He <grumpycat921013@gmail.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	heiko@sntech.de,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	david.wu@rock-chips.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com
+Cc: devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	grumpycat921013@gmail.com
+Subject: [PATCH 7/7] ARM: dts: rockchip: Add Alientek DLRV1126
+Date: Wed, 24 Jun 2026 17:02:47 +0800
+Message-ID: <20260624-rv1126-alientek-dlrv1126-v1-7-dc42d99f75a7@gmail.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260624-rv1126-alientek-dlrv1126-v1-0-dc42d99f75a7@gmail.com>
+References: <20260624-rv1126-alientek-dlrv1126-v1-0-dc42d99f75a7@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/4] arm64: Add HOTPLUG_PARALLEL support for secondary
- CPUs
-To: <catalin.marinas@arm.com>, <will@kernel.org>, <tsbogend@alpha.franken.de>,
-	<pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-	<alex@ghiti.fr>, <tglx@kernel.org>, <mingo@redhat.com>, <bp@alien8.de>,
-	<dave.hansen@linux.intel.com>, <hpa@zytor.com>, <peterz@infradead.org>,
-	<kees@kernel.org>, <nathan@kernel.org>, <linusw@kernel.org>,
-	<jpoimboe@kernel.org>, <lukas.bulwahn@redhat.com>, <ryan.roberts@arm.com>,
-	<ojeda@kernel.org>, <maz@kernel.org>, <timothy.hayes@arm.com>,
-	<lpieralisi@kernel.org>, <thuth@redhat.com>, <menglong8.dong@gmail.com>,
-	<oupton@kernel.org>, <yeoreum.yun@arm.com>, <miko.lenczewski@arm.com>,
-	<broonie@kernel.org>, <kevin.brodsky@arm.com>, <james.clark@linaro.org>,
-	<tabba@google.com>, <mrigendra.chaubey@gmail.com>, <arnd@arndb.de>,
-	<anshuman.khandual@arm.com>, <x86@kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mips@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<apatel@ventanamicro.com>, <mhklinux@outlook.com>
-References: <20260618092444.1316336-1-ruanjinjie@huawei.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260618092444.1316336-1-ruanjinjie@huawei.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+Content-Type: text/plain; charset="utf-8"
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782291360; l=14599; i=grumpycat921013@gmail.com; s=20260618; h=from:subject:message-id; bh=TKHf6LFZ6qy6at9qzY3w2/k1Dk8gfqxmmvJBmN/bvS4=; b=NOC3MnDpGl4+oVWciaQMkfgxHERMhlZF43CN24EzvgI9/jVdCfjc7lpKxp+X9x4ZXWT/FesB2 Z50iLEHIiT+A8Caxi+NB7D5r8BvpoS2R8I+UBrvb2wOP0wXVZUJCGMP
+X-Developer-Key: i=grumpycat921013@gmail.com; a=ed25519; pk=oWrY8KwXIunZWlYBV76NG2A3V4p1bJ+aD45Mr56ErTw=
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_020244_569487_B39E50FD 
-X-CRM114-Status: GOOD (  13.98  )
+X-CRM114-CacheID: sfid-20260624_020425_876329_6F9A9D47 
+X-CRM114-Status: GOOD (  14.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,62 +118,583 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Please ignore this patchset, will update in v3.
+The board consists of a CLRV1126F core module and a DLRV1126 carrier
+board. The core module contains the RV1126 SoC, eMMC and RK809 PMIC,
+while the carrier board provides Ethernet, SD card, AP6212 WiFi and
+Bluetooth, PCF8563 RTC, ADC keys, GPIO LEDs and audio connectors.
 
-On 6/18/2026 5:24 PM, Jinjie Ruan wrote:
-> Support for parallel secondary CPU bringup is already utilized by x86,
-> MIPS, and RISC-V. This patch brings this capability to the arm64
-> architecture.
-> 
-> Introduce CONFIG_PARALLEL_SMT_PRIMARY_FIRST to avoid primary SMT threads
-> to boot first constraint.
-> 
-> And Add a 'cpu' parameter to update_cpu_boot_status() to allow updating the
-> boot status at a per-CPU granularity during parallel bringup.
-> 
-> Rework the global `secondary_data` accessed during early boot into
-> a per-CPU array `cpu_boot_data` to allow secondary CPUs to boot
-> in parallel.
-> 
-> And reuse `__cpu_logical_map` array in the early boot code in head.S
-> to resolve each secondary CPU's logical ID concurrently.
-> 
-> Changes in v2:
-> - Remove RFC.
-> - Add Tested-by.
-> - Fix AI review issues in [1].
-> - Add arch_cpuhp_init_parallel_bringup() to check psci boot.
-> - Reuse `__cpu_logical_map` instead of a new aray.
-> - Defer rcutree_report_cpu_starting() until after
->   check_local_cpu_capabilities() to prevent a potential control CPU
->   deadlock if an early capability check fails.
-> - Move the assembly in head.S to a macro called `mpidr_to_cpuid`.
-> - Add `SECONDARY_DATA_SHIFT` for `lsl` to access `cpu_boot_data`.
-> - Add sizeof(struct secondary_data) power of 2 assert check.
-> - Expand testing with more data collected from real hardware.
-> 
-> [1] https://sashiko.dev/#/patchset/20260611133809.3854977-1-ruanjinjie%40huawei.com
-> 
-> Jinjie Ruan (4):
->   cpu/hotplug: Introduce CONFIG_PARALLEL_SMT_PRIMARY_FIRST
->   arm64: smp: Pass CPU ID to update_cpu_boot_status()
->   arm64: smp: Defer RCU reporting until after local CPU capability
->     checks
->   arm64: Add HOTPLUG_PARALLEL support for secondary CPUs
-> 
->  arch/Kconfig                    |  4 +++
->  arch/arm64/Kconfig              |  1 +
->  arch/arm64/include/asm/smp.h    | 17 ++++++++++---
->  arch/arm64/kernel/asm-offsets.c |  4 +++
->  arch/arm64/kernel/cpufeature.c  | 22 ++++++++--------
->  arch/arm64/kernel/head.S        | 36 ++++++++++++++++++++++++++
->  arch/arm64/kernel/smp.c         | 45 ++++++++++++++++++++++++++++-----
->  arch/arm64/mm/context.c         |  4 +--
->  arch/mips/Kconfig               |  1 +
->  arch/riscv/Kconfig              |  1 +
->  arch/x86/Kconfig                |  1 +
->  kernel/cpu.c                    |  6 ++++-
->  12 files changed, 119 insertions(+), 23 deletions(-)
-> 
+The board has been tested with Ethernet/NFS boot, eMMC, SD card, SDIO
+WiFi enumeration, Bluetooth LE scanning, RTC, ADC keys, GPIO LEDs and
+RK809 audio card registration.
+
+Signed-off-by: Yanan He <grumpycat921013@gmail.com>
+---
+ arch/arm/boot/dts/rockchip/Makefile                |   1 +
+ .../dts/rockchip/rv1126-alientek-clrv1126f.dtsi    | 277 +++++++++++++++++++++
+ .../boot/dts/rockchip/rv1126-alientek-dlrv1126.dts | 258 +++++++++++++++++++
+ 3 files changed, 536 insertions(+)
+
+diff --git a/arch/arm/boot/dts/rockchip/Makefile b/arch/arm/boot/dts/rockchip/Makefile
+index d0154fd7ff24..e9f9e0ac3bfd 100644
+--- a/arch/arm/boot/dts/rockchip/Makefile
++++ b/arch/arm/boot/dts/rockchip/Makefile
+@@ -5,6 +5,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += \
+ 	rv1108-evb.dtb \
+ 	rv1109-relfor-saib.dtb \
+ 	rv1109-sonoff-ihost.dtb \
++	rv1126-alientek-dlrv1126.dtb \
+ 	rv1126-edgeble-neu2-io.dtb \
+ 	rv1126-sonoff-ihost.dtb \
+ 	rk3036-evb.dtb \
+diff --git a/arch/arm/boot/dts/rockchip/rv1126-alientek-clrv1126f.dtsi b/arch/arm/boot/dts/rockchip/rv1126-alientek-clrv1126f.dtsi
+new file mode 100644
+index 000000000000..9bee424b1797
+--- /dev/null
++++ b/arch/arm/boot/dts/rockchip/rv1126-alientek-clrv1126f.dtsi
+@@ -0,0 +1,277 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * Copyright (c) 2026 Yanan He <grumpycat921013@gmail.com>
++ */
++
++#include "rv1126.dtsi"
++
++/ {
++	compatible = "alientek,clrv1126f", "rockchip,rv1126";
++
++	aliases {
++		mmc0 = &emmc;
++	};
++};
++
++&cpu0 {
++	cpu-supply = <&vdd_arm>;
++};
++
++&cpu1 {
++	cpu-supply = <&vdd_arm>;
++};
++
++&cpu2 {
++	cpu-supply = <&vdd_arm>;
++};
++
++&cpu3 {
++	cpu-supply = <&vdd_arm>;
++};
++
++&emmc {
++	bus-width = <8>;
++	cap-mmc-highspeed;
++	mmc-hs200-1_8v;
++	non-removable;
++	pinctrl-names = "default";
++	pinctrl-0 = <&emmc_bus8 &emmc_cmd &emmc_clk &emmc_rstnout>;
++	rockchip,default-sample-phase = <90>;
++	vmmc-supply = <&vcc_3v3>;
++	vqmmc-supply = <&vcc_1v8>;
++	status = "okay";
++};
++
++&i2c0 {
++	clock-frequency = <400000>;
++	status = "okay";
++
++	rk809: pmic@20 {
++		compatible = "rockchip,rk809";
++		reg = <0x20>;
++		interrupt-parent = <&gpio0>;
++		interrupts = <RK_PB1 IRQ_TYPE_LEVEL_LOW>;
++		#clock-cells = <1>;
++		#sound-dai-cells = <0>;
++		clock-output-names = "rk808-clkout1", "rk808-clkout2";
++		clock-names = "mclk";
++		clocks = <&cru MCLK_I2S0_TX_OUT2IO>;
++		assigned-clocks = <&cru MCLK_I2S0_TX_OUT2IO>;
++		assigned-clock-parents = <&cru MCLK_I2S0_TX>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&pmic_int_l>;
++		rockchip,system-power-controller;
++		wakeup-source;
++
++		vcc1-supply = <&vcc5v0_sys>;
++		vcc2-supply = <&vcc5v0_sys>;
++		vcc3-supply = <&vcc5v0_sys>;
++		vcc4-supply = <&vcc5v0_sys>;
++		vcc5-supply = <&vcc_buck5>;
++		vcc6-supply = <&vcc_buck5>;
++		vcc7-supply = <&vcc5v0_sys>;
++		vcc8-supply = <&vcc3v3_sys>;
++		vcc9-supply = <&vcc5v0_sys>;
++
++		regulators {
++			vdd_npu_vepu: DCDC_REG1 {
++				regulator-name = "vdd_npu_vepu";
++				regulator-always-on;
++				regulator-boot-on;
++				regulator-initial-mode = <0x2>;
++				regulator-min-microvolt = <650000>;
++				regulator-max-microvolt = <950000>;
++				regulator-ramp-delay = <6001>;
++				regulator-state-mem {
++					regulator-off-in-suspend;
++				};
++			};
++
++			vdd_arm: DCDC_REG2 {
++				regulator-name = "vdd_arm";
++				regulator-always-on;
++				regulator-boot-on;
++				regulator-initial-mode = <0x2>;
++				regulator-min-microvolt = <725000>;
++				regulator-max-microvolt = <1350000>;
++				regulator-ramp-delay = <6001>;
++				regulator-state-mem {
++					regulator-off-in-suspend;
++				};
++			};
++
++			vcc_ddr: DCDC_REG3 {
++				regulator-name = "vcc_ddr";
++				regulator-always-on;
++				regulator-boot-on;
++				regulator-initial-mode = <0x2>;
++				regulator-state-mem {
++					regulator-on-in-suspend;
++				};
++			};
++
++			vcc3v3_sys: DCDC_REG4 {
++				regulator-name = "vcc3v3_sys";
++				regulator-always-on;
++				regulator-boot-on;
++				regulator-initial-mode = <0x2>;
++				regulator-min-microvolt = <3300000>;
++				regulator-max-microvolt = <3300000>;
++				regulator-state-mem {
++					regulator-on-in-suspend;
++					regulator-suspend-microvolt = <3300000>;
++				};
++			};
++
++			vcc_buck5: DCDC_REG5 {
++				regulator-name = "vcc_buck5";
++				regulator-always-on;
++				regulator-boot-on;
++				regulator-min-microvolt = <2200000>;
++				regulator-max-microvolt = <2200000>;
++				regulator-state-mem {
++					regulator-on-in-suspend;
++					regulator-suspend-microvolt = <2200000>;
++				};
++			};
++
++			vcc_0v8: LDO_REG1 {
++				regulator-name = "vcc_0v8";
++				regulator-always-on;
++				regulator-boot-on;
++				regulator-min-microvolt = <800000>;
++				regulator-max-microvolt = <800000>;
++				regulator-state-mem {
++					regulator-off-in-suspend;
++				};
++			};
++
++			vcc1v8_pmu: LDO_REG2 {
++				regulator-name = "vcc1v8_pmu";
++				regulator-always-on;
++				regulator-boot-on;
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <1800000>;
++				regulator-state-mem {
++					regulator-on-in-suspend;
++					regulator-suspend-microvolt = <1800000>;
++				};
++			};
++
++			vdd0v8_pmu: LDO_REG3 {
++				regulator-name = "vcc0v8_pmu";
++				regulator-always-on;
++				regulator-boot-on;
++				regulator-min-microvolt = <800000>;
++				regulator-max-microvolt = <800000>;
++				regulator-state-mem {
++					regulator-on-in-suspend;
++					regulator-suspend-microvolt = <800000>;
++				};
++			};
++
++			vcc_1v8: LDO_REG4 {
++				regulator-name = "vcc_1v8";
++				regulator-always-on;
++				regulator-boot-on;
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <1800000>;
++				regulator-state-mem {
++					regulator-on-in-suspend;
++					regulator-suspend-microvolt = <1800000>;
++				};
++			};
++
++			vcc_dovdd: LDO_REG5 {
++				regulator-name = "vcc_dovdd";
++				regulator-always-on;
++				regulator-boot-on;
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <1800000>;
++				regulator-state-mem {
++					regulator-off-in-suspend;
++				};
++			};
++
++			vcc_dvdd: LDO_REG6 {
++				regulator-name = "vcc_dvdd";
++				regulator-min-microvolt = <1200000>;
++				regulator-max-microvolt = <1200000>;
++				regulator-state-mem {
++					regulator-off-in-suspend;
++				};
++			};
++
++			vcc_avdd: LDO_REG7 {
++				regulator-name = "vcc_avdd";
++				regulator-min-microvolt = <2800000>;
++				regulator-max-microvolt = <2800000>;
++				regulator-state-mem {
++					regulator-off-in-suspend;
++				};
++			};
++
++			vccio_sd: LDO_REG8 {
++				regulator-name = "vccio_sd";
++				regulator-always-on;
++				regulator-boot-on;
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <3300000>;
++				regulator-state-mem {
++					regulator-off-in-suspend;
++				};
++			};
++
++			vcc3v3_sd: LDO_REG9 {
++				regulator-name = "vcc3v3_sd";
++				regulator-always-on;
++				regulator-boot-on;
++				regulator-min-microvolt = <3300000>;
++				regulator-max-microvolt = <3300000>;
++				regulator-state-mem {
++					regulator-off-in-suspend;
++				};
++			};
++
++			vcc_5v0: SWITCH_REG1 {
++				regulator-name = "vcc_5v0";
++			};
++
++			vcc_3v3: SWITCH_REG2 {
++				regulator-name = "vcc_3v3";
++				regulator-always-on;
++				regulator-boot-on;
++			};
++		};
++	};
++};
++
++&pinctrl {
++	pmic {
++		pmic_int_l: pmic-int-l {
++			rockchip,pins = <0 RK_PB1 RK_FUNC_GPIO &pcfg_pull_up>;
++		};
++	};
++};
++
++&pmu_io_domains {
++	pmuio0-supply = <&vcc3v3_sys>;
++	pmuio1-supply = <&vcc3v3_sys>;
++	vccio1-supply = <&vcc_1v8>;
++	vccio2-supply = <&vccio_sd>;
++	vccio3-supply = <&vcc_1v8>;
++	vccio4-supply = <&vcc_3v3>;
++	vccio5-supply = <&vcc_3v3>;
++	vccio6-supply = <&vcc_3v3>;
++	vccio7-supply = <&vcc_1v8>;
++	status = "okay";
++};
++
++&saradc {
++	vref-supply = <&vcc_1v8>;
++	status = "okay";
++};
++
++&wdt {
++	status = "okay";
++};
+diff --git a/arch/arm/boot/dts/rockchip/rv1126-alientek-dlrv1126.dts b/arch/arm/boot/dts/rockchip/rv1126-alientek-dlrv1126.dts
+new file mode 100644
+index 000000000000..c8123a3c4746
+--- /dev/null
++++ b/arch/arm/boot/dts/rockchip/rv1126-alientek-dlrv1126.dts
+@@ -0,0 +1,258 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * Copyright (c) 2026 Yanan He <grumpycat921013@gmail.com>
++ */
++
++/dts-v1/;
++#include <dt-bindings/input/input.h>
++#include "rv1126-alientek-clrv1126f.dtsi"
++
++/ {
++	model = "Alientek ATK-DLRV1126";
++	compatible = "alientek,dlrv1126", "alientek,clrv1126f", "rockchip,rv1126";
++
++	aliases {
++		ethernet0 = &gmac;
++		mmc1 = &sdio;
++		mmc2 = &sdmmc;
++	};
++
++	chosen {
++		stdout-path = "serial2:1500000n8";
++	};
++
++	adc-keys {
++		compatible = "adc-keys";
++		io-channels = <&saradc 0>;
++		io-channel-names = "buttons";
++		keyup-threshold-microvolt = <1800000>;
++		poll-interval = <100>;
++
++		button-esc {
++			label = "esc";
++			linux,code = <KEY_ESC>;
++			press-threshold-microvolt = <0>;
++		};
++
++		button-right {
++			label = "right";
++			linux,code = <KEY_RIGHT>;
++			press-threshold-microvolt = <400781>;
++		};
++
++		button-left {
++			label = "left";
++			linux,code = <KEY_LEFT>;
++			press-threshold-microvolt = <801562>;
++		};
++
++		button-menu {
++			label = "menu";
++			linux,code = <KEY_MENU>;
++			press-threshold-microvolt = <1198828>;
++		};
++	};
++
++	leds {
++		compatible = "gpio-leds";
++
++		led-0 {
++			label = "sys-led";
++			gpios = <&gpio3 RK_PD4 GPIO_ACTIVE_HIGH>;
++			linux,default-trigger = "heartbeat";
++			default-state = "on";
++		};
++
++		led-1 {
++			label = "user-led";
++			gpios = <&gpio3 RK_PD6 GPIO_ACTIVE_HIGH>;
++			linux,default-trigger = "none";
++			default-state = "on";
++		};
++	};
++
++	sound {
++		compatible = "simple-audio-card";
++		simple-audio-card,format = "i2s";
++		simple-audio-card,name = "Analog RK809";
++		simple-audio-card,mclk-fs = <256>;
++		simple-audio-card,widgets =
++			"Speaker", "Speaker",
++			"Headphone", "Headphones",
++			"Microphone", "Mic Jack";
++		simple-audio-card,routing =
++			"Speaker", "SPKO",
++			"Headphones", "HPOL",
++			"Headphones", "HPOR",
++			"MICL", "Mic Jack";
++
++		simple-audio-card,cpu {
++			sound-dai = <&i2s0>;
++		};
++
++		simple-audio-card,codec {
++			sound-dai = <&rk809>;
++		};
++	};
++
++	vcc5v0_sys: regulator-vcc5v0-sys {
++		compatible = "regulator-fixed";
++		regulator-name = "vcc5v0_sys";
++		regulator-always-on;
++		regulator-boot-on;
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++	};
++
++	sdio_pwrseq: pwrseq-sdio {
++		compatible = "mmc-pwrseq-simple";
++		pinctrl-names = "default";
++		pinctrl-0 = <&wifi_enable_h>;
++		reset-gpios = <&gpio0 RK_PA6 GPIO_ACTIVE_LOW>;
++		post-power-on-delay-ms = <200>;
++		power-off-delay-us = <20000>;
++	};
++};
++
++&i2c5 {
++	status = "okay";
++	clock-frequency = <400000>;
++
++	pcf8563: rtc@51 {
++		compatible = "nxp,pcf8563";
++		reg = <0x51>;
++		#clock-cells = <0>;
++		interrupt-parent = <&gpio1>;
++		interrupts = <RK_PD0 IRQ_TYPE_LEVEL_LOW>;
++		clock-output-names = "xin32k";
++	};
++};
++
++&gmac {
++	phy-mode = "rgmii";
++	clock_in_out = "input";
++	assigned-clocks = <&cru CLK_GMAC_SRC>, <&cru CLK_GMAC_TX_RX>,
++			  <&cru CLK_GMAC_ETHERNET_OUT>;
++	assigned-clock-parents = <&cru CLK_GMAC_SRC_M1>,
++				 <&cru RGMII_MODE_CLK>;
++	assigned-clock-rates = <125000000>, <0>, <25000000>;
++	pinctrl-names = "default";
++	pinctrl-0 = <&rgmiim1_miim &rgmiim1_bus2 &rgmiim1_bus4
++		     &clk_out_ethernetm1_pins>;
++	tx_delay = <0x2a>;
++	rx_delay = <0x1a>;
++	phy-handle = <&phy>;
++	status = "okay";
++};
++
++&mdio {
++	phy: ethernet-phy@1 {
++		compatible = "ethernet-phy-ieee802.3-c22";
++		reg = <0x1>;
++		clocks = <&cru CLK_GMAC_ETHERNET_OUT>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&eth_phy_rst>;
++		reset-gpios = <&gpio3 RK_PA0 GPIO_ACTIVE_LOW>;
++		reset-assert-us = <20000>;
++		reset-deassert-us = <100000>;
++	};
++};
++
++&pinctrl {
++	ethernet {
++		eth_phy_rst: eth-phy-rst {
++			rockchip,pins = <3 RK_PA0 RK_FUNC_GPIO &pcfg_pull_down>;
++		};
++	};
++
++	bt {
++		bt_enable: bt-enable {
++			rockchip,pins = <0 RK_PA7 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++
++		bt_wake_dev: bt-wake-dev {
++			rockchip,pins = <1 RK_PD1 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++
++		bt_wake_host: bt-wake-host {
++			rockchip,pins = <0 RK_PA5 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
++	wifi {
++		wifi_enable_h: wifi-enable-h {
++			rockchip,pins = <0 RK_PA6 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++};
++
++&sdio {
++	bus-width = <4>;
++	cap-sdio-irq;
++	keep-power-in-suspend;
++	max-frequency = <25000000>;
++	mmc-pwrseq = <&sdio_pwrseq>;
++	non-removable;
++	pinctrl-names = "default";
++	pinctrl-0 = <&sdmmc1_clk &sdmmc1_cmd &sdmmc1_bus4>;
++	rockchip,default-sample-phase = <90>;
++	vmmc-supply = <&vcc3v3_sd>;
++	vqmmc-supply = <&vcc_1v8>;
++	status = "okay";
++};
++
++&sdmmc {
++	bus-width = <4>;
++	cap-mmc-highspeed;
++	cap-sd-highspeed;
++	card-detect-delay = <200>;
++	pinctrl-names = "default";
++	pinctrl-0 = <&sdmmc0_clk &sdmmc0_cmd &sdmmc0_bus4 &sdmmc0_det>;
++	rockchip,default-sample-phase = <90>;
++	sd-uhs-sdr12;
++	sd-uhs-sdr25;
++	sd-uhs-sdr104;
++	vmmc-supply = <&vcc3v3_sd>;
++	vqmmc-supply = <&vccio_sd>;
++	status = "okay";
++};
++
++&uart0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&uart0_xfer &uart0_ctsn &uart0_rtsn>;
++	uart-has-rtscts;
++	status = "okay";
++
++	bluetooth {
++		compatible = "brcm,bcm43430a1-bt";
++		shutdown-gpios = <&gpio0 RK_PA7 GPIO_ACTIVE_HIGH>;
++		device-wakeup-gpios = <&gpio1 RK_PD1 GPIO_ACTIVE_HIGH>;
++		clocks = <&rk809 1>;
++		clock-names = "lpo";
++		interrupt-parent = <&gpio0>;
++		interrupts = <RK_PA5 IRQ_TYPE_EDGE_RISING>;
++		interrupt-names = "host-wakeup";
++		max-speed = <115200>;
++		vbat-supply = <&vcc_3v3>;
++		vddio-supply = <&vcc_1v8>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&bt_enable>, <&bt_wake_dev>, <&bt_wake_host>;
++	};
++};
++
++&uart2 {
++	status = "okay";
++};
++
++&i2s0 {
++	rockchip,trcm-sync-tx-only;
++	rockchip,i2s-rx-route = <3 1 2 0>;
++	rockchip,i2s-tx-route = <0 1 2 3>;
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2s0m0_sclk_tx>,
++		    <&i2s0m0_mclk>,
++		    <&i2s0m0_lrck_tx>,
++		    <&i2s0m0_sdo0>,
++		    <&i2s0m0_sdo1_sdi3>;
++	status = "okay";
++};
+
+-- 
+2.54.0
 
 
