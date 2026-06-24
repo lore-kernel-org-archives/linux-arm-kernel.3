@@ -4,64 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8778CCDE002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 20:39:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C71ABCDB479
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 20:38:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ri7uRTE4OgQJ9KnMdsrH9Bk+ocvdn2JGgwiCuU/Ycz8=; b=nrtR4ZbYFI2hRiliZqUVcP0SRz
-	cGinus9fo24qKbTGUmI1oyartQIqUNNzFIUirFmwrN5Ltf8tKbNP28nOAA2tHa4NVznblxC5gfYqu
-	MhCAR6ChObAykulzudSq5hFQbLe4dYvgmaKFNLf5LeApfdR5CYAFeDHmJ7++Igkrdg5Gv4/GVNnXX
-	fWpJ/7ujrZTDrqWOGXq+McPSmHfLM7g85Q+LFTRq685pLqOgEFpzbKZlQ1qD+RFenZvR8Ere/As3T
-	0fIsdNLSTAl9YRPDfC1cVZQEe4WK48LPmy8BqI+gC24nlMH1IMeYJlhcKbJlkXCAqH4MzjVthkv+l
-	LmYP7Jpg==;
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=QqSW9t1zPm7TS3HwkWOj73cx1GbU+9BfUbAhP9l77UY=; b=LuiTGxCoAH/fDWXk3X0VG5LtTw
+	MUvn4yDnCcm4dO0MiaXyZwe7jh4PoXyB4iFYwIjlzRt3Glho00Ru8vDDV0Rg3xRa7fwb+90FMThf3
+	QLDQ8bZZJ6TVtr9gfhdLpm3wOBCiET0rxBQ+kGKCuU/Wb0Xs0hZgvTSM4m9RvmmpdOcITzUpqxjbZ
+	fbiUhGAlsgqbzcOFyvkqeMmTkuKVobWaHY27Ih/bzubZOHXrfqFHk0acGnV5ANvtFCDyPTlam1cBK
+	aEZz6PhZjIeTPiKN5RSNh8h5V/7PVCbb/usYb++DVv8/4UqB9zEco+ZmchuRyAAhb0KneSKBAeytF
+	ASPyMEjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcUN6-00000008Jsw-2bK8;
-	Wed, 24 Jun 2026 20:38:56 +0000
-Received: from mail-norwayeastazon11013067.outbound.protection.outlook.com ([40.107.159.67] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1wcUMx-00000008Jqn-198u;
+	Wed, 24 Jun 2026 20:38:47 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcUN2-00000008JrP-16pw
+	id 1wcUMt-00000008Jpq-3LmN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 20:38:53 +0000
+	Wed, 24 Jun 2026 20:38:46 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sc49YYxZhv2Y2WxIBwEpzeuCADaeGI4iot7iVFD88ZFtOPnTvMvcMoyyeOg6VIHg4NQT+7e2SO46Tk6bQ8PidjlmSjssWfZo3QNjJXx5ufDxShiis2iqfw28715KYWxXVdlank5ZefroYTQEj49x7jOU7eWJ8rrpC5mdI33itwgsj8cCbcyI2tFmgX8/jvUhlOiFksLvKTeW2fwyA8FZSQgreRhMCVD8tGeOIp9GCIi8m6bahfl+Krjuql6llH8AIPw+HJO4INFcI9fyoWTDde7eCHjRD0YfjyqWu7OmVuTMC4b6kr5QU4GtvlfK/VCVneovvx8wCORabBFFyArOwA==
+ b=hly2yXeOUKZ/pLSzVXCpB8fQSsW3r/GS+ZCbBMf2504RuK2UtqwwiniHNYbCAUpq4HQv2ZUZ0bWL3JFBhxphl6K2tSlmbRxyPUTyyX8SmviKv9DvYre8DoRHtuPNZszyxl6UMmRjlNlWifzP4TA70v2M30nMtiCz1XDfYfzlhnjU4FOvAkS7Pf3Y7OCY9dMHf9ilRvzaPuw/xC8c2DJDVrURHqJmG/m6dS4nLXpzs+trEYD48y5kxKP5EknFmtx9gZq0Mw9SbBaGnTk1sy2JZKVQ725J9mhEZIcMvtFy+thbamrNgN29z5/aCU/RMJKJiiKlMgXYguYt2JPiMXjb2g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Ri7uRTE4OgQJ9KnMdsrH9Bk+ocvdn2JGgwiCuU/Ycz8=;
- b=UBUiV9V6nHzaGSdiHxFjmfOFzfAnquv/+V6Q7q6dHSWqETKYxEB8tvzqUsxUjb5t45mAMsdAlk0OMEPKehm9MMnV6VbdjBE67mphkFOzCGeInJmxNxADvMPy6uuzmCrEP5Le9UsUuch0aHAm+yXsVMU7DUhxVN2Ke740em5G/HacA+TCJoA2GpCyWUf9iu9euYj8cJOdDQVLFndiqkNq2W/CQAvL5glSeVcYey/G4iDPO9OOqKN2358wR7p6T5ywdRzZZsZPNEi/0a7lUCfL0Feo3xZ5T9rckADL4a8Yhy1k/mrYzlisYWwHTlA1HX4uh49BBX1cSWFEM7LKx9Nq+A==
+ bh=QqSW9t1zPm7TS3HwkWOj73cx1GbU+9BfUbAhP9l77UY=;
+ b=fOTfxLo4VyGO+C22Ep3xt2sliftCzVnzFDcSGBMI6jNkRed68Smt8PmkOycz6pCeGn7OK13DKcKlBLVUr3f9QLflKfiRiNti0Ec7zdY3uC2+E+1lR0BwJNlfr/xtlLR42WV1fmDYKhqHBf6J/ruDAAKfgBo9ZxNPDAu5FTsTTL54vu4TxogmRjz5NhWoLm7Tm7tc4nILvaTCO/gRPIkHLHr8KtiL67rmnAA+eEavlmDEZ77VKhZRxp1lBRf33YHJ3JwqLNXO0XcB9HRMQRFGt18jTv8Oozm5bc+BVbtqQjkz77EBm1YsWSXn+izMPIYRG8glxmj97a9rIbfQZWXHOQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
  dkim=pass header.d=oss.nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
  s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Ri7uRTE4OgQJ9KnMdsrH9Bk+ocvdn2JGgwiCuU/Ycz8=;
- b=sFQKfKQPFeschmp66/6L9n0ccWTn4Z9KpWo96VxgbjaoyxhnULWeO9C4m2a0TvpJ25i85kUM/5kJ/Qd0mdc8C7/8c+jsS3Ha7/XeiHZ1sbWsPVpLVZGo2UnS3l976erYj28zDDHZAelUqg3mosK2h/y3Ha7+r9qL/PhD9kzm9XSuAVKp3YME6X9uvge7lqOI4n5MG9BJLEObTp/cjMAq/VEAdtV+a/PS5mRF01Ggrgfm0UdsL7lLprtg2rm6AvnfuXX2MxUHrqugcoHK16oi+N1csWsxsNd3DaTX0L9WcqONFa0BjpS9NNX24p+tX4pujs/+ihRaRNYD2UiaL10nKQ==
+ bh=QqSW9t1zPm7TS3HwkWOj73cx1GbU+9BfUbAhP9l77UY=;
+ b=qoXLsREQQsKTGAz5kgieANWa1XH6xaNhxqDZMRH8IOP91NdCqQPRGDurgm0799CS5xp8ROhQBZ7QPZ2YLmPPtKRO1mHaLKFEDYwRxIgrukat/koUJnh4e9B9UGFtH50OmvKlVm4xrgun0RpRGtBWtxoU8J/oYSc/sgB4c4oA3V/55AoZbjM/Fv46UAI5EwDKq28YRoJcveHNjvPEsg4Rl17tuq9YO+n1lE5x9z3Aqh7xt8cHXuUGHyf/n0pdjQ5wzKEzimX91AHapZcJRuWWGX+rBzg7qI9sl24N9c0TDCxZptM57y2UMMH4xAm7Gvb38R01Q4sI6ysMAcVqKcZV7Q==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=oss.nxp.com;
 Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
  by PA1PR04MB11335.eurprd04.prod.outlook.com (2603:10a6:102:4f6::22) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.14; Wed, 24 Jun
- 2026 20:38:47 +0000
+ 2026 20:38:38 +0000
 Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
  ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
  ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Wed, 24 Jun 2026
- 20:38:47 +0000
+ 20:38:38 +0000
 From: Frank.Li@oss.nxp.com
-Date: Wed, 24 Jun 2026 16:37:49 -0400
-Subject: [PATCH v6 2/9] media: subdev: Add set_pad_by_ep() callback to
- internal ops
+Subject: [PATCH v6 0/9] media: add new API simple 1to1 subdev register and
+ add imx parallel camera support
+Date: Wed, 24 Jun 2026 16:37:47 -0400
+Message-Id: <20260624-imx8qxp_pcam-v6-0-4b3f45920d2f@nxp.com>
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260624-imx8qxp_pcam-v6-2-4b3f45920d2f@nxp.com>
-References: <20260624-imx8qxp_pcam-v6-0-4b3f45920d2f@nxp.com>
-In-Reply-To: <20260624-imx8qxp_pcam-v6-0-4b3f45920d2f@nxp.com>
+X-B4-Tracking: v=1; b=H4sIABtAPGoC/13My27CMBCF4VdBXtfI9vgyYdX3qFBl7HHxIpcmV
+ RSE8u41CETw8hzp+69sojHTxA67KxtpzlPuuzLsx46Fs+9+iOdYNlNCGWGV5bld8HcZvofgWx7
+ RSAUIGgKwQoaRUl7uua9j2ec8/fXj5V6f5e19hEC8h2bJBacQImBsGiXkZ7cM+9C37JaZ1Ys6A
+ RVVhUrEE6FJwqaKwpZiRaHQgAaAtDCxpnpDVVNRXaiOKXhNUSV079Q8qRVWuoqaQl3yNiC5dPI
+ buq7rP1VCKAOSAQAA
+X-Change-ID: 20250626-imx8qxp_pcam-d851238343c3
 To: Sakari Ailus <sakari.ailus@linux.intel.com>, 
  Mauro Carvalho Chehab <mchehab@kernel.org>, 
  Michael Riesch <michael.riesch@collabora.com>, 
@@ -75,83 +79,86 @@ To: Sakari Ailus <sakari.ailus@linux.intel.com>,
  Fabio Estevam <festevam@gmail.com>
 Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
  imx@lists.linux.dev, Guoniu Zhou <guoniu.zhou@nxp.com>, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ Alice Yuan <alice.yuan@nxp.com>, Robert Chiras <robert.chiras@nxp.com>, 
+ Zhipeng Wang <zhipeng.wang_1@nxp.com>, 
+ Krzysztof Kozlowski <krzk@kernel.org>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1782333513; l=1754;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782333513; l=6184;
  i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=/qaloPIgAOcAHx/+tY6miUuXAEETkb7RcaudhcrSuLk=;
- b=25ZK1x04AgZbxGlRBG58pdvtK6oA0V4361q6Za8kPPZpsxoAqrdmGkoKnZfPq6NNW+Ma6xzIv
- H+4jy703viQCD35DBQNX7wNaiDd2zcMb9+35DZwVTbuli/pby+VUAU3
+ bh=LxDs34nRK4/bIne8Q5gm49cfE7k7r+Q/Lnr+1VdgzL4=;
+ b=Odnm3cg9RW8HXQJjly2o+dXcHmpIlYt8rYVF6/w+RvCQ+E4UO66wqFyEBTiP9lt3PolMK/vZ/
+ 89o9siOmzKyBWG6AE0uUOR9UmWSfjaNw1GPzB+iy93x9WDssCxbGAtH
 X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
  pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: PH8P221CA0043.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:510:346::23) To GV2PR04MB11799.eurprd04.prod.outlook.com
+X-ClientProxiedBy: PH7P220CA0164.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:33b::7) To GV2PR04MB11799.eurprd04.prod.outlook.com
  (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PA1PR04MB11335:EE_
-X-MS-Office365-Filtering-Correlation-Id: 71b5ec58-d61c-437a-6fd6-08ded2309788
+X-MS-Office365-Filtering-Correlation-Id: 47ebfb55-4d9d-4c0f-b60c-08ded23091e0
 X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|23010399003|376014|7416014|6133799003|11063799006|5023799004|56012099006|18002099003|22082099003|921020;
-X-Microsoft-Antispam-Message-Info: 2u2kkSThO734KBKy6nZauclbHnW1b1AWWqNu6tDjTuRjkfld2RaoMXSjmBqMcLQzSvXLOO7Fmzt+LRzpPrRXF7gGHCjZGahW9lwPaSoknbIw2Ef5BOIUm0jmrVVGeb5N5n+JTau1+zhqRnB+E7iUyV5AHMty6jzlztTAiy8lV9pln5ZQfpH4c3DN6rqN7Oj0mJTZMDVUJbatqgeOnAXd163rBopZQHM00fPNYFwvTyxb+9K4ks2h/pXqWBPFMtFELmVEC3rz1qWBakPOeUYV/0SY6OSWbbeNqT77EmzqEVw0eq8m59GuiJMhKvy99Johgcu4kJVIKDLbSELBIJa3sx9OvpjMQZESoh91Qy7f+d0JWzvCOoTcr9z2NOqyySnTtPKuW+DQ2BQi7I2w1BXWvNofgbHPir8/q9FnFIxTKqBUrSujCa6Lbsk1fmcwVX8Z33IP6mi8wtrC4BZlF8QXiHvbf0L38oG29YKFQWKTBGSVkhIZEUeJYlNNmJ43h7SWBEGFP8W/17b0XB7atXJLlpbPS2CKH9/MgqfrzA7pXIpvcGyxL2HxstMgCWkSTPBsNLb7Xq1mLqzpUIFlP/z/GWj67Onny+YFi1ImSWmoLypIJWO/2uEb9VeMhd8NrP78HQl7Bcpr44U1TikFn2XGvkE8D/7uj1ikD3+vRLM7TWSDbLIBMzHm10rEy8/ECH2gcbqi7WbGAhdE/34XecR9/A==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(23010399003)(376014)(7416014)(6133799003)(11063799006)(5023799004)(56012099006)(18002099003)(22082099003)(921020);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|23010399003|376014|7416014|6133799003|11063799006|56012099006|18002099003|921020;
+X-Microsoft-Antispam-Message-Info: Bjx7Nrd+9XhOZ5j1IRLsvb47ZN20zU7YFb5AG5rGHhxU/SBovsY6lKXzt3S7m/q3+W8ejhocETWPMFbZaQ0KvoMFx8n1s4I8ysFKmnufd0euMsPAQq3xT3c7x/1vGfP8D5VMdYN4CVhE1UPPE9KJG9Qn2GAfD1rFCr6txi69sG31olE1RHGV6Im0kb9neqws5yjbaHUuhSXuoqD6VCHxpnw9/TS245CM6lvAiMFgs23At8n9K+oS5sk9TALpM4sKm7wHRw/WoIxg77CWIqDrWBbC42GphDTxPHTqYuQ7UU3o4bju0V01yJT+ACwnBTde083BZ8dE1DU/ton5T88zg0CA6UTn3QJLLoLGjPuAqz/QKB4yD4mqxtAAoSqKfuq3gwyIihkjcoTIuaN0/YemBC1kS7TuE5ggtCKg+oj37DDxXWBTdMXElFyAkMZZCtYbojm3kpwMmlv9w7TFwnJOeckv7Umb59UM3o5iqsyk++UG5KYw8aBO+OVj1vpHCZdtm1ny6ibdlMTxcJBTBA4A8JqJUeINnCNPDObX3WnL5m0J5KD4heH9yKxoHmOLqRz/7Qp+jhVBpidKWRc+dmcTV2JLv8rEXs7nGnWrjXg9+ZTWeS0mt8vXKowF7qX8Xlbq+o6RYm6ntAgsq8v24aqNesNSujbPGqAexDLKatDpieU=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(23010399003)(376014)(7416014)(6133799003)(11063799006)(56012099006)(18002099003)(921020);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YWVMUENkakxrOWFuOUU0V2NYdnkweFp4cTlHY0RySW5ITGV1TVh6VkNXT2JE?=
- =?utf-8?B?ajNwT05PRGhRYUc2VjExTUhHY2xWeFo5U1RrMUVyZXZ5MHlROUYyaHRWVXBx?=
- =?utf-8?B?RlZPTjhuMVVxUndCWHZReEl3OUU1b3QrbGxROVdEcXNndnhPTFF2emtLUFFz?=
- =?utf-8?B?OExRZWhhbDhOV3RCTStpV3NyVGdEeGllSjVwNnZWU3hncGNXZFJHVDFnb1Qz?=
- =?utf-8?B?bFV1SEJCdlZiRUs4bVBVYWh1cEdHcGdOUTc1TU0zaFJpM2lOS3lOL2VPNEhI?=
- =?utf-8?B?Q3ZEWHNPWTNvMFZmT0tzQUxmWkxIeVNuQTUzdWJuQ1F6dFJmSXNJNGNWVFFH?=
- =?utf-8?B?SXR0S3NvYjRJZndYOGJ4YWpUZHhhN1BpLzlpTVVHK1JzRVlSVFhWbHBza1hz?=
- =?utf-8?B?c2JPUmFSQlJsSmpoM0dhNk01SFZkaHVHT0dpS3pTaUV1MlVxUlFlL056bW1x?=
- =?utf-8?B?T1VnaG9YeFlSenRhOSsyZ1lYcVpUaWxKaVNUUkV4ekRzenBkM2xMa3Rib0Ji?=
- =?utf-8?B?eHhGbWgwUTBSNDBhSGdSMTZ5QmtZbnNnWjhnNTVFdm9PSU5pTzFxWXJrYmFO?=
- =?utf-8?B?bWNjdlRkZkVDbTNPamNobjNxaTdUYVdPc1lmV2dmaXBtS1hGK3JQVXdxTG9S?=
- =?utf-8?B?ZXNVcFo1K29UdHVDUHV6QlJVMGs2a3FkWkdWVnk1MElwdWtaMlYxVkJucGlw?=
- =?utf-8?B?b0hLUDFBR0dsZ2wyRGlmTHUyazA4YXlLakRIZnVrRTRKWG13OE5EekU1aUhk?=
- =?utf-8?B?dGkrTStvS1ljcmcrQi9wU2hHRkhNOVlYaml0VlFSS0lKTkErT2lmU05wR2dy?=
- =?utf-8?B?ZGpKV2ZyNi9lYzRMUmlZSlNocmx5ZE1HcGxDUE1pZ1FzVXpzNDdPM3lScG5z?=
- =?utf-8?B?UThNSmViUjNIMHlERGRWOG5Yb2J5Uis5eDV4K0lTRllqZ21CUE4weDdHVmxk?=
- =?utf-8?B?bElTRE50eWZuRXRRY0ZLZFdKTHNQTVJKalhDcFNQVXVtNC9TbGZqWEl0U0pQ?=
- =?utf-8?B?cUg4UUdiZWY5aisvMmVlNU1aQ3pUNFpxOEFMdWJNejNZcTVjVGpoYklTa2px?=
- =?utf-8?B?ZUlHMXczeG41Zzd3OXVQbGVNbVVaUHltMHU5M0xOVVVRZFoxRkZtanpUTE5P?=
- =?utf-8?B?SVAwOFFjRWptNjJCZDlkWWV3ZjlIVEJWQWFTVWcwNTE0ZzZHMEFzeG9hK1JI?=
- =?utf-8?B?Yko3b0l0d2JZK0ZOT2tCb1drOFJxS0tCUzBVNkkvY3hzY09aYXp4amNINEUz?=
- =?utf-8?B?ZWo3bGkzTTlFRVcxOFcyVEJzc3lKbDNSY0EvZW85Y1BhUllpQmpVWkp0eTdU?=
- =?utf-8?B?WDlKTmlYQ2ZjeUNRakFPcGdOMmFmYmJ2RTBkYWJ0WE5FNG1PNUZxUm5jZkRa?=
- =?utf-8?B?aEliRlJLNlByYnhRYkZKdUNRVzNpakV0eXlxTXgvS0lDZWVNamZ6d0J4b0Vn?=
- =?utf-8?B?dlNLYzBkbDFNZkhvbVgvUDNJYTcwbkJDcDdEZnZYZTVSbUlpdGhzR2lDcmlu?=
- =?utf-8?B?b1dha0I5YkhSZ1VNbmRZSGd5Qzc5MmpyVVFVNkFzaWRXdlBpSTNXOTEwSE1q?=
- =?utf-8?B?d1JXTlhTcGt4TkQ1ZzM0eXZOS1BwdHp3VkphbURYendhZHUrcFdsRTV1bENs?=
- =?utf-8?B?alFoemlwOVk1SUw0SnQwc0NJTE0xYVhxVHJhUUF4OFdLNEkzUzBHZ0JCNVFy?=
- =?utf-8?B?VUx0Z2tZazNoVkdSaTVXaERzMm01UnQxMlJzMDByRGVuWVZBZzhBMlduMDRz?=
- =?utf-8?B?VWlDUEIvblhhUjJqTlRPR2tjbWVnY05Kelh5RzdDRXFMY2lsbUEwUXdwdkU3?=
- =?utf-8?B?bndGN0g5RWRTRnI4U3pTam5UOWJucEw5RUovNHhzMFdQUm54WjlJNlo1MUpz?=
- =?utf-8?B?UVkyQU50azlJcDlHbTJXcUtMSlM5dGkxNDhGdUdYUUZYTGhOWUw4V0Y1RlhC?=
- =?utf-8?B?b0dOaDZmR0RUOTc4UHNlWms4V0FvTXFObHVOMC91dVkwUHpmK3VzTmxYZWlP?=
- =?utf-8?B?ZWMvbndCN2VLRUQ5WWV4UWsvZ0VkK1czV3kwVnpUNWpSK0hoOUtpdWY3bUNO?=
- =?utf-8?B?NDU3VkJkOWJiV3g1bmNLeWh0VVA4dlVYODN6ODdCT1RSdldoK2lCRldFS3N6?=
- =?utf-8?B?VEdzaDhGTENnM1ZLZXZ0Um5WRTVwOTlmbDRMdThKZm1HZTRUOEQwODUxaCsz?=
- =?utf-8?B?QkhMUXBPbVJXaHJKdkdSK3Jhb1laMjRxSXVPbjJlS0Rkd0FxV25mMzliNU9t?=
- =?utf-8?B?dkxsUDdjcXI1VStzN05BU1FSS2ZuOG5DMEZwTTR5ejJOVjVuTzcvVFh4VHNB?=
- =?utf-8?B?ZWNKL2hwNVVWaUMzcTk2TmljTlcxVkRGUzNLZWN1aUpROUthNUtPMmVyZzZt?=
- =?utf-8?Q?K9zX+ba/ayr5la3YJiJYYvdHCn30cQ8fLUKc3?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?d1dpRjJPU2Q1M0dYRWpuOVIvOGZ0ZW4rT1QwQzgrU2NGeFhjRHJUWHdlQ0Vm?=
+ =?utf-8?B?YmxZdGFtU2dpMGFBcVFtNlM4Kzd2eXJiUVA2cTY0WWhhc1ZZKzFvdStyYnZP?=
+ =?utf-8?B?dmxmbWFCc3l1ZEQ0R1k5MUYzcVFSeGZWRGtVT2kzMVdsSzFaUHRpaUlsbzNm?=
+ =?utf-8?B?WFV2K1BpSmVqUlZKU0JpZ1BGcHJpM1BqdzVkdW5oTlZtaFY3ZFp2cUNjZ1ZF?=
+ =?utf-8?B?WHV6ZmtHTGltTlBaOEp5bDMyK1dFeDJVbXZ4WUZiY1ExTWRIVjdpMzhzNHpT?=
+ =?utf-8?B?SnFQVnVjRVNydlRYUUE5bkZLUzZYTDh0ODJkL1ZrZ1gyZlo1OTdtZXR2YnlS?=
+ =?utf-8?B?R0tsRmpiZHdNc2FKai9XQWZRNnF6aitySGpsOHhvS08rMXFUQklyRFBRZHpj?=
+ =?utf-8?B?ZTNQVjdaTWpiSStuNEVlMjArM2pnNThkQVhHVVpka2JVM3ErdllNcDhxdlBa?=
+ =?utf-8?B?RW5iUHc5a1BiQnRZSytQQlM0V052TUxPK3NYaUROaUNtbmxBSjBuQkdWWVR0?=
+ =?utf-8?B?cmZ3WFZZS3RXZWJXeHY2NkVxVUNhRnJXcUpRbmExdk1TUjJ3S1U5UVRwNVhU?=
+ =?utf-8?B?Q3R3cUdSVEFYRmRZa2NHUktKKy8zK1NLSlJnb0RuNFViYUxSOG1LNkVLbUFY?=
+ =?utf-8?B?SHBwWE9pL2NRbjVlZmpDNm50MXl4SW1FQzRwZDVDcmh4SFlSVjRnQ3B4b0tN?=
+ =?utf-8?B?RjlnK1BZR3ZwcjIybE9Sd0JFdkRUMlI2MGQzMThkVDhwMDEvN2dFWEdSd0ND?=
+ =?utf-8?B?VWlsVGdCK1d2OE1UYk8zYUZHeXhiMnhwNVFIbzB2UTlId1B1KzM5RmFwOXRP?=
+ =?utf-8?B?ejBIbDBjZURMU0R2NXJnMERsVDhRZG9TMmtwMUMzS2dpcVRORzNsTXJyRlNx?=
+ =?utf-8?B?T211NUVrd1h0RTZrZDBkWjRpaXFzbEhsS3Z0Mmh5aURtUXlNTFJFZDBtOHla?=
+ =?utf-8?B?ZjEwYU9mVmZQNldiWUhoZFRSTklDUkxqNTZadGk5aHpKVUZIWVozbU1OdzMx?=
+ =?utf-8?B?T2ZXYnM5TVNZckY5UXJsWm11eVllbGZJSTZ2SzBOQnpzbkdTb2UrN2JRM1Nn?=
+ =?utf-8?B?WXM5SFljMjAwa21EQ1VkMFgyY1RqRFd3SVd0OElNZzZ2c1BqSEdoTnFTa2x6?=
+ =?utf-8?B?MjB4UGJ4SHpENUd6NHBxSTlwb0dFbHUrWTlIR0NicDJPdloySlgyNVlKZmg3?=
+ =?utf-8?B?ZG4zVG8yREFQVGlscG40K3dkRm1nMGZ5eHJvbFFiakxTOU1ZOTNENDFQSmd4?=
+ =?utf-8?B?VW9Gc1NsRlMxTFBIdXUyVW54Mm5QcVFWd0FHNVIyNnRWZVpjYU9RUzhLQWND?=
+ =?utf-8?B?UEt6UlhwRDVtd2JPQmJBUEFJTlF5TkJmRUU0ZnMwMyt2eWJKZVVTb3NJT0NP?=
+ =?utf-8?B?TzZNOEE5aXZOUDJDSk1Cd0VNcGpobkQwNnc4SWEycTlnMGpBV2E5ay8zdXFR?=
+ =?utf-8?B?cGk5emNtTGVWSFhZa1pRN1EvaHZ2MGVrOU9pOTl1VjVOSEo0bjZ4UjY5QVJz?=
+ =?utf-8?B?K29wSUQ2Rm45MFRzS0pyRUE5d1NlZnhXdnU3ZEFNSmN1NUZ3QTlIR1FzL3dv?=
+ =?utf-8?B?bHRTQ29CSWpxUEZ5dnlsZDZvOUxhRXNnenBSU3JUQzhnVUl3SjBscmlET3Yw?=
+ =?utf-8?B?ckZMb2UwNXJxRlY2S3RMUmYwRktVRWtTRUlSV3BRYzk1UXkxYjV4MEU1Wmpk?=
+ =?utf-8?B?eDFpeHVUckY2dnBDOFVyZGtxeFFmVytSM3pTeDFMNmZoRjdvUHhNY2dIaXJa?=
+ =?utf-8?B?Y2tDeFpmVmg3QXJkOXVkMkR2RWpKSTJiTVZMNVpJRzBvdkd4TFBVRG5IbzVP?=
+ =?utf-8?B?UVJHUjdNSWlmelc5Mm1OVnlXVlRLYVJBVUh2RFVzTHBCYUZIeEpvaDhCMHhv?=
+ =?utf-8?B?QWpWbG5jS1hhRnFWYUJLYkZTZHF1Ymo1c29SL3dpTEpTQ0hhZFp2UGtYck85?=
+ =?utf-8?B?bUtnR1ZOK0xuemp6NTBBeDJpYXNMR0tURkRLWENkaURGcTZpNDJ3RkVJVlJW?=
+ =?utf-8?B?RUREdS9vNnhRVktoWVQxY2gxWjJUZFdkNTZLYXoxNC9SSFhoekttVUIwMW03?=
+ =?utf-8?B?d3g5R1NzKy9ibzVxaXduNjRpOXpRZUJyMG1VTEx0SXltcU44R3VEN0RHaVZp?=
+ =?utf-8?B?RUZpNDRsVTdxNlRFb3FodkJ1MGRtRnRjTVZ4bEdDZFBJZnk3WitySWVtZnB3?=
+ =?utf-8?B?dmsrT1M2bEhSSUV4eDZNbEluQW5QdWlic0VXbk9USkpnRktRd0RWTmxtMVVF?=
+ =?utf-8?B?WjdNa0tHd1kyRmoyUVZFUHlVTGdTK216M0l4Rk16Z1RjUVJCQlI5dlYyTUlH?=
+ =?utf-8?B?cHVQWmlGNTRiUXpBMVgvYlgzUmhCL2x6VSszYUtybzg4QzBYYko1TzRDQWx2?=
+ =?utf-8?Q?KRI+UhqfgtQCwUg7HY/kEOMP6XzkSX1B8tfLZ?=
 X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 71b5ec58-d61c-437a-6fd6-08ded2309788
+X-MS-Exchange-CrossTenant-Network-Message-Id: 47ebfb55-4d9d-4c0f-b60c-08ded23091e0
 X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jun 2026 20:38:47.7288
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jun 2026 20:38:38.3056
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 1Z15UiYUcfAMCLnaDADbLEDOJwBlUWdqNABnHM83GAo5Z0hCxXqYULUjguDaGlbh0PSo+ulrFjvBMa5Da/B/JVXOE+/RLb478rz43ilmEQlTbdttnhesGx++SHn0sQxb
+X-MS-Exchange-CrossTenant-UserPrincipalName: Ldg4dXGJ7mDOrnl18xDi5jMMqTwVZA9HtOBIEUt7xf6NKM7iDAEEh9NfrWzT5tOq91kNYxjEok1ZiWkMU2lOy1+kCvA0ljiAPHRFxVhlMM8RAGG6OMINSiQAaYcJE4tv
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB11335
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_133852_316710_678ECD6E 
-X-CRM114-Status: GOOD (  11.31  )
+X-CRM114-CacheID: sfid-20260624_133844_000698_AD10C2DC 
+X-CRM114-Status: GOOD (  15.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,51 +173,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
+Base on patches "media: add and use fwnode_graph_for_each_endpoint_scoped()"
+https://lore.kernel.org/imx/20260624200237.GJ851255@killaraus.ideasonboard.com/T/#m7969735b6c236c6b3abc16b9f3f55ec0488dbe89
 
-Add a set_pad_by_ep() callback to struct v4l2_subdev_internal_ops. The
-callback is invoked while parsing firmware node endpoints and allows
-subdevice drivers to configure media pad properties based on endpoint
-information.
+This patches base on previous' thread "media: imx8qxp: add parallel camera
+support".
 
-Typical uses include setting media pad flags according to the endpoint's
-port number or type, and validating that the endpoint configuration is
-supported by the underlying hardware. This provides a common mechanism
-for endpoint-aware pad initialization during graph construction.
+Add new API media_async_register_subdev_1to1() to simple 1to1 subdev
+register.
+
+Many V4L2 subdev drivers implement the same registration and media pads.
+Assumes a 1:1 mapping between firmware endpoints and media pads.
+During registration it parses the firmware graph, creates media pads for
+all endpoints, and registers common asynchronous notifiers for sink
+endpoints. These notifiers automatically create media links when the
+corresponding remote source devices become available.
+
+The set_pad_by_ep() callback allows drivers to determine the media pad
+associated with a firmware endpoint and identify whether the endpoint
+represents a sink pad.
+
+By centralizing firmware graph parsing, media pad creation, notifier
+registration, and link creation, this helper reduces duplicated code and
+simplifies error handling in V4L2 sub-device drivers.
+
+Add media_async_register_subdev(), a helper to register a V4L2 sub-device
+with the asynchronous sub-device framework.
+
+This reduces code duplication and simplifies the implementation of
+simple bridge and converter drivers.
+
+    In subdev driver:
+
+    your_device_probe()
+    {
+            v4l2_subdev_init(sd, &dw_mipi_csi2rx_ops);
+            ...
+            return media_async_register_subdev_1to1(sd);
+    }
+
+    ...
+    your_device_remove()
+    {
+            media_async_subdev_cleanup(sd);
+    }
+
+This API help reduce over line duplcated code in synopsys/dw-mipi-csi2rx.c.
+And use this API at imx8's parallel CPI driver, which over 90% code now
+hardware related.
+
+And also benefit on going pix format patch
+https://lore.kernel.org/imx/20260525-csi_formatter-v8-0-6b646231224b@oss.nxp.com/
+
+It will also reduce missed media_entity_cleanup() problem at some error path
+https://lore.kernel.org/linux-media/20260614202835.11977-15-birenpandya@gmail.com/
+
+Previous do partial simpilfy at
+https://lore.kernel.org/imx/aaisdJSsFE5-PLx1@lizhi-Precision-Tower-5810/
+
+To: Sakari Ailus <sakari.ailus@linux.intel.com>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>
+To: Michael Riesch <michael.riesch@collabora.com>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Frank Li <Frank.Li@nxp.com>
+To: Martin Kepplinger-Novakovic <martink@posteo.de>
+To: Rui Miguel Silva <rmfrfs@gmail.com>
+To: Purism Kernel Team <kernel@puri.sm>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Sascha Hauer <s.hauer@pengutronix.de>
+To: Pengutronix Kernel Team <kernel@pengutronix.de>
+To: Fabio Estevam <festevam@gmail.com>
+Cc: linux-media@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: imx@lists.linux.dev
+Cc: Guoniu Zhou <guoniu.zhou@nxp.com>
+Cc: devicetree@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
 
 Signed-off-by: Frank Li <Frank.Li@nxp.com>
 ---
-change in v6
-- new patch
+Changes in v6:
+- Change API to fix more width user case, assume a media pad have one endpoint
+on dts.
+- other detail change see each patch's change log
+- Link to v5: https://patch.msgid.link/20260617-imx8qxp_pcam-v5-0-7fa6c8e7fba7@nxp.com
+
+Changes in v5:
+- Add media_async_register_subdev_1to1() to simple code.
+- Link to v4: https://lore.kernel.org/r/20250729-imx8qxp_pcam-v4-0-4dfca4ed2f87@nxp.com
+
+Changes in v4:
+- remove imx93 driver support since have not camera sensor module to do test now.
+  Add it later
+- Add new patch
+  media: v4l2-common: Add helper function v4l_get_required_align_by_bpp()
+- See each patche's change log for detail.
+- Link to v3: https://lore.kernel.org/r/20250708-imx8qxp_pcam-v3-0-c8533e405df1@nxp.com
+
+Changes in v3:
+- replace CSI with CPI.
+- detail change see each patch's change logs
+- Link to v2: https://lore.kernel.org/r/20250703-imx8qxp_pcam-v2-0-188be85f06f1@nxp.com
+
+Changes in v2:
+- remove patch media: nxp: isi: add support for UYVY8_2X8 and YUYV8_2X8 bus codes
+  because pcif controller convert 2x8 to 1x16 to match isi's input
+- rename comaptible string to fsl,imx8qxp-pcif
+- See each patches's change log for detail
+- Link to v1: https://lore.kernel.org/r/20250630-imx8qxp_pcam-v1-0-eccd38d99201@nxp.com
+
 ---
- include/media/v4l2-subdev.h | 5 +++++
- 1 file changed, 5 insertions(+)
+Alice Yuan (2):
+      dt-bindings: media: add i.MX parallel CPI support
+      media: nxp: add V4L2 subdev driver for camera parallel interface (CPI)
 
-diff --git a/include/media/v4l2-subdev.h b/include/media/v4l2-subdev.h
-index d256b7ec8f848..eb652eb76d33f 100644
---- a/include/media/v4l2-subdev.h
-+++ b/include/media/v4l2-subdev.h
-@@ -935,6 +935,10 @@ struct v4l2_subdev_ops {
-  *	the v4l2_subdev structure. It is almost certainly required for any
-  *	sub-device that sets the V4L2_SUBDEV_FL_HAS_DEVNODE flag.
-  *
-+ * @set_pad_by_ep: Set pad informaiton by fwnode endpoint, parsed fwnode already
-+ *		   saved into pad->vep. return < 0 means can't support this type
-+ *		   endpoint. Set pad->flags according to pad->vep information.
-+ *
-  * .. note::
-  *	Never call this from drivers, only the v4l2 framework can call
-  *	these ops.
-@@ -947,6 +951,7 @@ struct v4l2_subdev_internal_ops {
- 	int (*open)(struct v4l2_subdev *sd, struct v4l2_subdev_fh *fh);
- 	int (*close)(struct v4l2_subdev *sd, struct v4l2_subdev_fh *fh);
- 	void (*release)(struct v4l2_subdev *sd);
-+	int (*set_pad_by_ep)(struct v4l2_subdev *sd, struct media_pad *pad);
- };
- 
- /* Set this flag if this subdev is a i2c device. */
+Frank Li (7):
+      media: mc-entity: Store parsed V4L2 fwnode endpoint in media_pad
+      media: subdev: Add set_pad_by_ep() callback to internal ops
+      media: subdev: Add media_async_register_subdev() helper
+      media: synopsys: Use v4l2_subdev_get_frame_desc_passthrough()
+      media: synopsys: Use media_async_register_subdev() to simplify code
+      arm64: dts: imx8: add camera parallel interface (CPI) node
+      arm64: dts: imx8qxp-mek: add parallel ov5640 camera support
 
--- 
-2.43.0
+ .../devicetree/bindings/media/fsl,imx93-pcif.yaml  | 126 +++++
+ MAINTAINERS                                        |   2 +
+ arch/arm64/boot/dts/freescale/Makefile             |   3 +
+ arch/arm64/boot/dts/freescale/imx8-ss-img.dtsi     |  13 +
+ .../boot/dts/freescale/imx8qxp-mek-ov5640-cpi.dtso |  83 +++
+ arch/arm64/boot/dts/freescale/imx8qxp-ss-img.dtsi  |  27 +
+ drivers/media/platform/nxp/Kconfig                 |  12 +
+ drivers/media/platform/nxp/Makefile                |   1 +
+ drivers/media/platform/nxp/imx-parallel-cpi.c      | 629 +++++++++++++++++++++
+ drivers/media/platform/synopsys/dw-mipi-csi2rx.c   | 200 ++-----
+ drivers/media/v4l2-core/v4l2-fwnode.c              | 155 +++++
+ include/media/media-entity.h                       |   5 +-
+ include/media/v4l2-async.h                         |  39 ++
+ include/media/v4l2-subdev.h                        |   5 +
+ 14 files changed, 1140 insertions(+), 160 deletions(-)
+---
+base-commit: c425f8be0326d40823cd93cbca633872d099df2a
+change-id: 20250626-imx8qxp_pcam-d851238343c3
+
+Best regards,
+--  
+Frank Li <Frank.Li@nxp.com>
 
 
