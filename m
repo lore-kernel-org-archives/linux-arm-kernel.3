@@ -4,156 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0B0ACDE002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 13:52:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98A8ECDB479
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 13:54:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h1iWNv8UMjbzirzjYFBDDqDzI/ECu6X9oRwH81I3cQ8=; b=VldsKbB2uBKKMzEuN9w9R/acQP
-	HBLwCrQZGP3jCvlfDeOMY3rngz2vBqokQDpnQiNImlpr8jYkTdzmPT5jLRG6bTiykgvkl22Un5vRJ
-	rW6dF3KBninn2AfK4hV/W1fgm2W/xSd5IOBtkNUFp3w3dn7kFS3U+3zEyf3KvY1O0pJvd2hZdJD1z
-	1EVphdzwllmdqrvkOG4hPNZwaNdG2Wy+si/p6YIXZCzqIg+3lR/5iMt2bgwyQpJ2Slakcvq7RCCHL
-	Jzph3f83AzYQ+w/BzyQCd2p3zB1OUG5iussCj8AyknZeEDtTcOamCJZSnvnsWf9EQd/vO61i8N8vF
-	zu8X4Z4w==;
+	bh=GZV9AIpiCFVK4tdxG3Z8tFEyC+qJoxAahhaSiAUDsyI=; b=sa/FY9RpW2WY0UXZgkYvuHr8pC
+	bYOiztAEqjXuwh7OANwe4RmnmbL1RcJlURSpH0LitolmLajgVnFXvNuT3I6df/M+zuWoAdjeNqDQ2
+	r302LnQwlYbyqf6JyXMFPxosRfCnNPNELRPstTLxrkSoYOUn+y3iurvcg/O/u5oIcl/NytfphU7Pz
+	MQbJ0ODeIgFh4z9PoDWzM5w3xF206Ja8TIIjn2uLciEgxoygZBWhkBd2gpV6hoWHXRNqtBKZGGpXl
+	lpJDOQ9XZcMyqZ+F62fZH2J2oPMsr9JSffwLL4XRa2n/A6TFBMVhzaM3bgF20N/oq9hd5Qj0GM2HM
+	IBsySvtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcO1z-00000007rKH-3Xc4;
-	Wed, 24 Jun 2026 13:52:43 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1wcO3x-00000007rYD-0Ja0;
+	Wed, 24 Jun 2026 13:54:45 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcO1w-00000007rHr-3Y48
+	id 1wcO3u-00000007rXa-2BpN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 13:52:42 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=FzVPCWH+JYOLZhirM7k/EqN7Xo7z9JFCZiynYxfgIvmab9jG//rgRcqVTmukdetD+ziiFw2BoBl2D6bpcKznpaSMgQp3Mnos9pyI3oxDssSccHjhrW6xDigrLPrnL9epX4/y9usYEPkOxSQBPdt5151iGjV07BU25Gq0VfQYk0Vgwu4qMuAhCnBW+VA/kqCR60Is1BbzyHti2OMMzMIdRPPcraM0d5kA/Ae4DqetQsIuUMpP4DNE862uQgQh8qLHnWZ+i4YEo4MhtRkYyxC9EK7rxFWC7c6JuAZKmwc6Jin6VgsrZ/ACJC1+DSUsJFEdtCny6/jHTHj0uNbtUpLk3A==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=h1iWNv8UMjbzirzjYFBDDqDzI/ECu6X9oRwH81I3cQ8=;
- b=k/QdA/ig8/nHyOMIq3hpqiXEBgLdmzufxWXqqH2PI220R2Kb1rHvFVUw+Gu0nXSlBNQP+onm9VmtW4tXGMH9j0BOuU2YP+wEkWo45h904lPB0iaq5+xHWJnoP0Aw3rL03xoiyERfpKMQ9AqmcZj+KUjAUF6cxCObMoZ4IsXdyrNS+i4W9kTlx1j/lFxQra3N9ZSu62K1r6GBN7/h9DRP2Zz55aA8ocrxp/vSBBN78KxMfnD9W6FwrtYOuN+nwqPVk/4AnVIkAEqNceLpr3h44s7tVKUovEgLQzuV/Ar0pdr3WU3fABp0T01nShthV1j6SQthtJZTqY7vuIFJ3+wzGw==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=oss.qualcomm.com smtp.mailfrom=arm.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
- dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=h1iWNv8UMjbzirzjYFBDDqDzI/ECu6X9oRwH81I3cQ8=;
- b=eEDIE31EAKVM+dNpRGRZxjCe2x0EkhhQWX8VOCKun/aTS/1f9bpODUDsHS4Rr5hHw6MlVY2YYshbDESqr036G4Dh2kFkHevgYpPxPVdEIapHd68otnNueGZvilDCef6Du2IckrYpVc9Exsq8M+wwFSbLyTsm9JyZZdXLUPYK1AY=
-Received: from CWLP123CA0257.GBRP123.PROD.OUTLOOK.COM (2603:10a6:400:19e::17)
- by DB9PR08MB8458.eurprd08.prod.outlook.com (2603:10a6:10:3d6::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.13; Wed, 24 Jun
- 2026 13:52:30 +0000
-Received: from AM3PEPF00009B9D.eurprd04.prod.outlook.com
- (2603:10a6:400:19e:cafe::1e) by CWLP123CA0257.outlook.office365.com
- (2603:10a6:400:19e::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.139.19 via Frontend Transport; Wed,
- 24 Jun 2026 13:52:29 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AM3PEPF00009B9D.mail.protection.outlook.com (10.167.16.22) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.159.10
- via Frontend Transport; Wed, 24 Jun 2026 13:52:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yeqUgGVSPnQXZE1l+O2v56+hIU+2H2Q2oCOm4QTUJDgtB+couYUBZgRaTnBZwJ5SS+Qj/BNQAoLdCORdcodRXOkuf5Fy8xKE2UCLvwkG+cZqjUTwjLG8vbvOwCJVAXuM2CZz6FqoBKHQxDxnpeUdvdyS1K5t2WEtcJqgKxvAXA1o5T2/TuqTnGxDOOnis8xL+fDzBkq3bPIJ14c7UIORiSID7+egvMNeZaKEvYjcMzO2DJrMMWvDGdhmtq22m+YLcL2gTsamW1anX9L+uCNk/Wkq1Z0TYoqWUnRiMmp8ks5K3gsXxTjjbw5ct9Z7IsxKwSCmD5SUcbBoJHNCxmClEg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=h1iWNv8UMjbzirzjYFBDDqDzI/ECu6X9oRwH81I3cQ8=;
- b=N+gQ6lZEEcDf/ckDyG/82j7VwVm+Q7pxJ4VTMwIXZ3hC9G4SITc5+my0+6i9rGfBBjfMSU91NMsC9glNf9PuFlmfoG/mSUeajy3bGIrWAWSxxMMRsapIY+i/CKHERdPfATEDyJaydfLAtacLcT70uOLFCB2MT8Y4EbR1U4BmAwoxnpsy/gkYMFsN764jF5BhBkBc7qW1Ivrj+A0ilSQ682P0niTD46QvbVgOdp9WZG3q/SgruH3VjLlKTh6OvlS0cr7dDhNU+m6ZRPemF23P2OcVwD2Cam4PJsfpVb9ucDZ5cVFnux6SC+q4l6zJxm3A1ov+57SsBMyRyu/hXLrcYw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=h1iWNv8UMjbzirzjYFBDDqDzI/ECu6X9oRwH81I3cQ8=;
- b=eEDIE31EAKVM+dNpRGRZxjCe2x0EkhhQWX8VOCKun/aTS/1f9bpODUDsHS4Rr5hHw6MlVY2YYshbDESqr036G4Dh2kFkHevgYpPxPVdEIapHd68otnNueGZvilDCef6Du2IckrYpVc9Exsq8M+wwFSbLyTsm9JyZZdXLUPYK1AY=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from PAWPR08MB10975.eurprd08.prod.outlook.com (2603:10a6:102:46e::7)
- by AS2PR08MB8382.eurprd08.prod.outlook.com (2603:10a6:20b:559::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.11; Wed, 24 Jun
- 2026 13:51:22 +0000
-Received: from PAWPR08MB10975.eurprd08.prod.outlook.com
- ([fe80::3c7a:9a64:14bc:ce15]) by PAWPR08MB10975.eurprd08.prod.outlook.com
- ([fe80::3c7a:9a64:14bc:ce15%7]) with mapi id 15.21.0159.013; Wed, 24 Jun 2026
- 13:51:22 +0000
-Message-ID: <471d7a92-3629-4274-a303-8906d3626037@arm.com>
-Date: Wed, 24 Jun 2026 14:51:21 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] arm64: dts: qcom: kaanapali: fix traceNoC probe
- issue
-To: Jie Gan <jie.gan@oss.qualcomm.com>,
- Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
- Jingyi Wang <jingyi.wang@oss.qualcomm.com>,
- Abel Vesa <abel.vesa@oss.qualcomm.com>, Mike Leach <mike.leach@arm.com>,
- James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>,
- Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
-Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260624-fix-tracenoc-probe-issue-v2-0-786520f62f21@oss.qualcomm.com>
- <20260624-fix-tracenoc-probe-issue-v2-2-786520f62f21@oss.qualcomm.com>
- <f0634a64-1141-4ff9-9033-825e3c75d28d@oss.qualcomm.com>
- <f39ec59f-97c4-4d5f-bf02-560adae312d9@oss.qualcomm.com>
-Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <f39ec59f-97c4-4d5f-bf02-560adae312d9@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: LO4P123CA0047.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:152::16) To PAWPR08MB10975.eurprd08.prod.outlook.com
- (2603:10a6:102:46e::7)
+	Wed, 24 Jun 2026 13:54:43 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-49222b6e871so6887555e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Jun 2026 06:54:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1782309280; x=1782914080; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=GZV9AIpiCFVK4tdxG3Z8tFEyC+qJoxAahhaSiAUDsyI=;
+        b=Yvu8uurqsRkWp8oqVNfr5gWbf4q8xLMBGPETmxlZ3HRZE+i04PuNzvdKZ7ntDL5BRa
+         A/w2uDkIcbITclThDgPHsL5gO9sk4ta1b08z8mwYmnR30gCgZ/chCc6a8qEzN/aawJiX
+         wH3+pFd6YaxPzr670VCC9fZqAlIQd6XBSAj5sW/TZXamH6JLN/YKm6Qi8VANFUvAPXYI
+         lOBlKsqGhR/X0AlmxRVoGn3yNBNuzzc2UVjls45DYMuE/b6MOaQ97sMX6REAayb8BeRf
+         uP8llvSytsuvX9qhWLHFm7U2uuvPldKCRpbTjyWoKYFWytsy+UwQTLq3/zzJFRSOSMRy
+         8NTg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782309280; x=1782914080;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=GZV9AIpiCFVK4tdxG3Z8tFEyC+qJoxAahhaSiAUDsyI=;
+        b=kyQ+/4tVoAUzDl+GRv9g82lP7gOz1ky/0WVp0R10ExBzbCxbLV/NeRxR3tAPetNNWi
+         Wo04ml3JkGirOxWotxFWcZyGU/QTV1J5Djm+lepBrqxctLhtk/U95pgmoB9mbgOodpKy
+         LbPT5X2N9BMusD82saGjjffJNkWVxDKWcsIoRRN7XBIkIUCZXdaGs2DtYdrZXUoU98aR
+         lU2/0HyPv/VzjudZpXvIQiqNih3W9hsm6uNCXqpIg8dqbZ2FALbmm9MTL6d1v2iw8o6F
+         thQ/KZnhva+eNgRemaz4fADQv2uBpHpfBoy1ayhBs1oLO85Iq4dKpwow5WdhlFblK2Of
+         kU/g==
+X-Gm-Message-State: AOJu0YwOXKDjcjjZY+ZuGWzm5zjAo4TDCJQ2eJrtuqnBcxsrdJGwfrSE
+	vtikO36fJiIbZZDXd1wyo7orAiuw8trvLHshpbYmAtOdaHYI3EZFESzlO9f3gCkJ2A==
+X-Gm-Gg: AfdE7cmQ/8AlC8q8BujApncgMtTIVpDsVUQjAeGCmsh6wAfnotyCDxto59QcKhwc4M/
+	H3lVndaIpSMsyz97TFeHt5F0s5g1/lMblP9HahYvUb/6FHOaARZZCokVjhRnSzyWsJxXCoRBnqf
+	wPrcFbwzp9vbEr5tObeVZwGJ8yWawtBVEJc8/SYramGklbugjmrZhUCZsIwk3F6fOqVYLKmpOr5
+	t0DTxwKg4nAvCm5mggAX03X7eMXarygn5Yx5KjdWs3W3jiu1FKai+8i27RlPyuhxDc4UyLB1Zry
+	pY/kfk0f96ZCCmNKb/j0FiltksaV/tzm7VaKw305kXMqPTlNNrL2oMdo3d802xJSnwoo16DDRWR
+	/7N3QIMypqSLZx0kSnX86jHXu2ZUJohqOpMulHYLEsZWehLT2i3YdkfTUasP3rZRZpR9d4YFMud
+	6Whm7q2rQHVBsutzd5s7x0QL/muzwTr8uom6nL35k1Ep0OFrbVfUfuFMNiHQ==
+X-Received: by 2002:a05:600c:3b17:b0:492:62d9:4e57 with SMTP id 5b1f17b1804b1-49262d94ef2mr19529165e9.2.1782309279820;
+        Wed, 24 Jun 2026 06:54:39 -0700 (PDT)
+Received: from google.com (97.113.76.34.bc.googleusercontent.com. [34.76.113.97])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4926064f0d8sm49968305e9.0.2026.06.24.06.54.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 24 Jun 2026 06:54:39 -0700 (PDT)
+Date: Wed, 24 Jun 2026 13:54:35 +0000
+From: Adrian =?utf-8?Q?Barna=C5=9B?= <abarnas@google.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, David Hildenbrand <david@kernel.org>,
+	"Mike Rapoport (Microsoft)" <rppt@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>, Christoph Lameter <cl@gentwo.org>,
+	Yang Shi <yang@os.amperecomputing.com>,
+	Brendan Jackman <jackmanb@google.com>
+Subject: Re: [RFC PATCH 2/6] arm64: mm: allow huge vmap permission
+ adjustments with bbml2_no_abort
+Message-ID: <ajvhm2aRQJPhRGW7@google.com>
+References: <20260611130144.1385343-1-abarnas@google.com>
+ <20260611130144.1385343-3-abarnas@google.com>
+ <07ab8b6f-cb58-4f8c-af7e-c99c2fb8933a@arm.com>
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: PAWPR08MB10975:EE_|AS2PR08MB8382:EE_|AM3PEPF00009B9D:EE_|DB9PR08MB8458:EE_
-X-MS-Office365-Filtering-Correlation-Id: 41329c93-b63c-422c-9f4b-08ded1f7d48a
-X-LD-Processed: f34e5979-57d9-4aaa-ad4d-b122a662184d,ExtAddr,ExtAddr
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|7416014|376014|23010399003|1800799024|921020|22082099003|18002099003|11063799006|56012099006|6133799003|4143699003;
-X-Microsoft-Antispam-Message-Info-Original: RXs/rekn/rJda6jhzNBVXmsZ2V0jWGhbUVGsKo3dKe+M6KjznuORwRmaTF/nj8RM81ge2j8ZAhOjF8Lv9nOXJD1ss6Qxl+2p5RS6F/767epz/plCUarG/dqHG0OsYS/VC6zw8XWHZsN5sEH1akmxTZ6bk1W5gQpz5IhNxzonYF6uHdMnEbiJ3W+q7Sdq6Uouhhdd4ng57JZCpRR//nOuL3TOsshzILPnCZZitSJwgihCfoRPNncYLZJb0+R1bSEUKDIf8QINf9HITY8Zfmaq5wA9m50orgs+e+F7lDp7FKJ4O8/OhU34LMcNGfa8U8YeApc304FTVnaKiz5jHyUUfNcLVooUF3oElio+4stp6HBxlddTB9pLx0bVZ6qdmicQVfV8LRh5FPX5LMWLcIMTNTryIlK/WUZWCeE/VyBgqbt8MMBbY1yHqswzaNsMd5P/BlsUDj009xBZ7OJHQbHNCFjMSfRwn+tfnCc0YLe04vnEbKtWAW1SKz15wMflZ7LabGUtMFztunrl9a3oo3GTaQS31tHhIsTPVcTm0sJoel2hNnC9avy5gXNjUtjCKA7tepb9Ea/N+pIjAmfLheY1RIoBy/nVQ498cN9qFW4mkdhpbTVp/lhzlh2bi4XGb5Xa6NYRD92cFrGjVKCQuVBia4uUk53+vTRxoslb/JpoOvQHsnM5PwyJ5c7X6ya6zl1ZYA40rhyKhLP1+yTsXKI7TA==
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAWPR08MB10975.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(23010399003)(1800799024)(921020)(22082099003)(18002099003)(11063799006)(56012099006)(6133799003)(4143699003);DIR:OUT;SFP:1101;
-X-Exchange-RoutingPolicyChecked: CT14iNNbK2JNPi88q7o8MGpeqAeXyRyYAohTU7yHTR3VggGITwXZWqRlvJdCJUbEAvRDv3K5fFhN0dYGqAKUunH6oCH7nA5xnReXMPjneGlkKvJuhHouFw4zOnjhaa8Gztbqwo1b6Se3HaFpFcRB2YY9s9vJzRCBBqcJWpSsjRAU45ENqor8f8GNNKIoXY1Ezfr9ZI/NSiI94YjnV6DxA+GnpHyhMfOJOOta/0WQPj6PvXJimeB241I4cdgRFVL9rfQIDI8dEdHs2w/3PlmirvAx19HnyWQWk46PEDs9YbDcCNvXRomsRstGA7ssBFKhI0V+9KdOVoyl50tDivdPhQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR08MB8382
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM3PEPF00009B9D.eurprd04.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 28debf3d-4f19-4d7e-f700-08ded1f7acd7
-X-Microsoft-Antispam: BCL:0;ARA:13230040|35042699022|14060799003|36860700016|376014|7416014|1800799024|82310400026|23010399003|22082099003|56012099006|921020|6133799003|11063799006|4143699003|18002099003;
-X-Microsoft-Antispam-Message-Info: M2JO2z9zc83K01DSsTv06t6fDklsuP50NW+G2bqbuAXEQ7dhni5P7OaV+H8UwKw/XbT7jcUYONcCDFjuWNpD+IKYnVgjjHKbZYcK4IHKtP97prEfmEzBZVw7bDr01ZsTpEzUs5rBCJW75bNqvNKWkqs+/ixw9Rn5cV94Zq7QJVxV+f5TRmInEijTifvJlfN5e4HT7wGUOAnuks6cDmD0p6fiL+oqPZlOr1ng9p7YB6AjncP/xK9QhplBBpBB4bpwaBNN/525v1AOCOrNNqfU7GRWt8ZMYxEBdBU71eEN926P/1i5u8MHSKhFWI3/OXXQdQYwy4c3HWrAJ1o5BN3p7d/uqoFer4RqYa5RvHCVEZ6BShhCnTaaBTu10wBdyNAcDlmCmyMaXBUyHidUY/3cnwNW8+5zDux0oFQAuLKAh4M30xcFOc4KGN3YALw6r9UKxRkQZY87AL9HNBq5TDfZ5NM2gkHuDYZjBRt0xFbVpXFBWEGHB82monAObAU423J8iQUNGG975wVSE877q6SBptmXx4sCz1pxFt9NV2AM1y+eHIjkL4jvxjzi8R1Kbqndne/Nzkv+FXVcro0zpPMSFLKHRUUiwtLM+B6zfTv1ZPZv6lCy2aCMA1W6SiV07J20gviY8Nf/gxQWbubxi0rh5wLlcCE1G6YNpPoXXQqJL33WRG6+B9KlwqrRdinWHsOZMPGraONA+Yt1CTyAjET/I/SH5NLhUzJsGELVOo/tslKJdUNVF30T1JfgncyqD6+S
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(35042699022)(14060799003)(36860700016)(376014)(7416014)(1800799024)(82310400026)(23010399003)(22082099003)(56012099006)(921020)(6133799003)(11063799006)(4143699003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: e3naW3xpHmhmQXlFYkLgJg4b1ZQABp/bPcBYVjI0L+Y89MxI1WsEP69y8MYD9lwQIoJQdJRxkuq5UsWb+uOqoco8l4ErIkTaKbqf5c3PzvUvgZxTHhQzPOp0JdqqxJlNKQXMkNWXXSp7RLB+RTb/ADuYDkLmc9B+HIqa+/rbY4Ytyx5l0Vnt136QhP9KVa6qh4xpdxRX7MWZ3eRc1RFAzswrfISLwsGezCoVgU1lARn6vQ0xn2txL+YzQyNWUHq2hl3QtNVbDdQWQ9zHX1aiEdqbtWEYpMcn/eCVmr0MXZ1oucQaj2TkwcUOIzNxeKgIW6USWs4DyDj6IeA/urcuHNontn6IkW/H/BgdlNb1ITCUKqa0evfE+AxL/q997paylKrnlZAtSz18Egwubkd8Ysi4wUxQFhCqpsOZtxpb4QH6Vsc12PR5rW5Dv+Bhl281
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jun 2026 13:52:28.5267
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 41329c93-b63c-422c-9f4b-08ded1f7d48a
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM3PEPF00009B9D.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR08MB8458
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <07ab8b6f-cb58-4f8c-af7e-c99c2fb8933a@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_065241_064342_4923125D 
-X-CRM114-Status: GOOD (  19.04  )
+X-CRM114-CacheID: sfid-20260624_065442_597266_17471055 
+X-CRM114-Status: GOOD (  22.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,48 +106,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/06/2026 14:48, Jie Gan wrote:
-> 
-> 
-> On 6/24/2026 9:27 PM, Konrad Dybcio wrote:
->> On 6/24/26 11:49 AM, Jie Gan wrote:
->>> The AMBA bus attempts to read the CID/PID of a device before invoking
->>> its probe function if the arm,primecell-periphid property is absent.
->>> This causes a deferred probe issue for the TraceNoC device, as the
->>> CID/PID cannot be read from the periphid register.
+On Thu, Jun 18, 2026 at 03:21:24PM +0100, Ryan Roberts wrote:
+>On 11/06/2026 14:01, Adrian Barnaś wrote:
+>> Remove the protection against huge vmap permission adjustments on
+>> systems that support the bbml2_no_abort CPU feature.
 >>
->> Why does it probe defer?
+>> Splitting live kernel VA section mappings into page mappings was
+>> restricted because it could cause TLB Conflict Aborts. This forced
+>> permission adjustments on memory allocated with VM_ALLOW_HUGE_VMAP to be
+>> rejected, resulting in performance drops (e.g., when enforcing rodata=on
+>> disables huge mappings).
 >>
-> 
-> For an AMBA device, the periphid is mandatory for probing. In the 
-> amba_match function, AMBA attempts to read the periphid from the CID/PID 
-> registers if the arm,primecell-periphid property is absent in the device 
-> tree. If this read fails, it returns -EPROBE_DEFER, and the probe 
-> ultimately fails.
+>> The bbml2_no_abort feature (which mirrors the architectural guarantees of
+>> FEAT_BBML3) ensures that changing between table and block sizes without
+>> following a break-before-make sequence will not generate a TLB Conflict
+>> Abort. This hardware guarantee makes it safe to allow dynamic permission
+>> adjustments on huge vmap regions.
+>
+>FYI Linu Cherian has a series that renames bbml2_no_abort to bbml3. I think he's
+>planning to post at -rc1. Would be good to rebase this on top once merged.
+>
 
-Why does it fail ? power management ? hw broken ? Is it really AMBA or 
-do you pretend that to be an AMBA device by faking the CID/PID?
+I will keep an eye on next releases.
 
-Suzuki
-
-
-> Most AMBA devices expose valid CID/PID registers, so specifying 
-> arm,primecell-periphid in the device tree is usually unnecessary. 
-> However, for the TraceNoC device in this case, AMBA cannot reliably read 
-> the periphid from the corresponding registers.
-> 
->> And is this required for all TNOC devices?
-> 
-> So far, the TNOC device has been added to sm8750, Glymur, and Kaanapali 
-> platforms, and all exhibit probe failures due to the same root cause.
-> 
-> I prefer to fix it on Kaanapali first.
-> 
-> Thanks,
-> Jie
-> 
 >>
->> Konrad
-> 
+>> Signed-off-by: Adrian Barnaś <abarnas@google.com>
+>> ---
+>>  arch/arm64/mm/pageattr.c | 22 ++++++++++++++--------
+>>  1 file changed, 14 insertions(+), 8 deletions(-)
+>>
+>> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
+>> index 358d1dc9a576..88720bbba892 100644
+>> --- a/arch/arm64/mm/pageattr.c
+>> +++ b/arch/arm64/mm/pageattr.c
+>> @@ -157,23 +157,29 @@ static int change_memory_common(unsigned long addr, int numpages,
+>>  	}
+>>
+>>  	/*
+>> -	 * Kernel VA mappings are always live, and splitting live section
+>> -	 * mappings into page mappings may cause TLB conflicts. This means
+>> -	 * we have to ensure that changing the permission bits of the range
+>> -	 * we are operating on does not result in such splitting.
+>> -	 *
+>>  	 * Let's restrict ourselves to mappings created by vmalloc (or vmap).
+>> -	 * Disallow VM_ALLOW_HUGE_VMAP mappings to guarantee that only page
+>> -	 * mappings are updated and splitting is never needed.
+>>  	 *
+>>  	 * So check whether the [addr, addr + size) interval is entirely
+>>  	 * covered by precisely one VM area that has the VM_ALLOC flag set.
+>>  	 */
+>>  	area = find_vm_area((void *)addr);
+>> +
+>>  	if (!area ||
+>>  	    ((unsigned long)kasan_reset_tag((void *)end) >
+>>  	     (unsigned long)kasan_reset_tag(area->addr) + area->size) ||
+>> -	    ((area->flags & (VM_ALLOC | VM_ALLOW_HUGE_VMAP)) != VM_ALLOC))
+>> +	    !(area->flags & VM_ALLOC))
+>> +		return -EINVAL;
+>> +
+>> +	/*
+>> +	 * Kernel VA mappings are always live, and splitting live section
+>> +	 * mappings into page mappings may cause TLB conflicts if bbml2_noabort
+>> +	 * is not present.
+>> +	 *
+>> +	 * While bbml2_noabort is not present disallow VM_ALLOW_HUGE_VMAP mappings
+>> +	 * to guarantee that only page mappings are updated and splitting is not
+>> +	 * needed.
+>> +	 */
+>> +	if (!system_supports_bbml2_noabort() && (area->flags & (VM_ALLOW_HUGE_VMAP)))
+>
+>nit: no need for the parentheses around VM_ALLOW_HUGE_VMAP.
+>
+>With that:
+>
+>Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+>
+>>  		return -EINVAL;
+>>
+>>  	if (!numpages)
+>
 
+Thanks,
+Adrian
 
