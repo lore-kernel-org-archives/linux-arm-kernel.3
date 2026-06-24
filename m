@@ -4,139 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EFB3CDB47F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 15:53:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBE29CDB47F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 15:56:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	References:From:To:Cc:Subject:Message-Id:Date:Content-Type:
-	Content-Transfer-Encoding:Reply-To:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DLnj/iQ36SUOIC/+pC59sFJeBjtxCbDGOgx2OtZGXjQ=; b=jYYHApIqGrojlwQ7gwfA2nTKcj
-	4DrQv++ErMwy+IyaHwAOD4qtE/V6qhQqOfuLFeq45Zt/mBiSXGc9bucIu6PAuqkEidn2Tmthlfuda
-	xqWgEboseSh+5SHPtZcgGbQXW7VCRAilnFeWWrRRpbDcZ/rkIRuPGuSV9F1xbEghIIrQClobYe2QR
-	umb0zTSHxi184NCHMfJyspT+bgWxEOjUfwYP940vGk+r0ZtgBcG68Cne/Wg5GcqmhDcSglNN8gdf0
-	ptqcJ2kUgciO9Oa99eR+uvAnGXaRnLyumIfpFLhV42fZtmRZgyFai9meJTODDFB3XE+mSXQxdguEi
-	Ly3XwLig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3VABDCrd1jGuDMwSjdhW8OLVFZVtLkEqcz604VeuAs0=; b=edeFRfUUKRZpxMuRDJRrZH4nw2
+	E2ko12KkU3hKtYqAVBIZ8paJ1Qq/ABw9RGFKhkfF25gS/FsqxSGOy5H1IibyiouxeO/4gYgIm8p3P
+	hwRtyCcSC4IDAyDbFcUQpPx6ySdf9UoZj2hp2zHLvw4IjmMT8TZXFKTbI8KoVFOU7Z+bqJnnvEK07
+	FC6XbGASfV6AWWGZTENj/qLhw9i1VxYUNY2imckkPx3vIkK7MZMW4apxWMm0ta+5TRYY0ovR/1nGZ
+	qaO7SCFJ7UxW5/j+qRvgfYIzPvHCbxQq6+gPJYlIwHKv0QXrFia3epF3YDGL3uZRJXM7tqLryty5k
+	CY82daeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcPuV-000000083QX-37Om;
-	Wed, 24 Jun 2026 15:53:07 +0000
-Received: from mail-westcentralusazon11010006.outbound.protection.outlook.com ([40.93.198.6] helo=CY7PR03CU001.outbound.protection.outlook.com)
+	id 1wcPxm-000000083xj-0b3k;
+	Wed, 24 Jun 2026 15:56:30 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcPuQ-000000083Ok-2hQA
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 15:53:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Eteb05URVwTbobEwErufR71+p/pHkrqFX3dmX1kJfrFMZorDHQPmOwjkpAC8zIRo2ldFXgCL8YyginnDZUmhGa9Uyn8y8f5z5lYCmDLNCjTv1Vkyeu5/VrzhW7uuCDqIyMZjO5cH0ENAf7/eob1h8NSTmDh1z3RxPU8zWCRHC3FJugjNCDRgmueKe/oxcOFRuJTjxDEJSLJpPp0UGUyfR1zwIl2BFiTSesEk2id3OvJQ0QATstOcVqPIH/Y5AqFWo3LLNkNKZ8omOBVp+p/GuMt8qPibXS62bQaY3ucZTKbwDAWWFw3ql4TcsKPrLLSvOZhZw1Y8uJ5Izxo0ZPWOLQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=DLnj/iQ36SUOIC/+pC59sFJeBjtxCbDGOgx2OtZGXjQ=;
- b=jEqjZhwS497A6ikSBTnLX7am2HP3P6KVnUcadugIa1RMcAHyQELtKIr+syQzpb3yBfdc4EKXiSva0oq9HIs1Is+aXog0Yy772wbPRO7eFaQcA3Ckx2NuF9WK5yzVyvQl/rQ6H4YMDykZgxFbXmnWsz5TYQaCJXN/LqTguOQEUrLkpPCG1R+6B+SuiZO++jeIUMixQJX1y4nqDU3eTHRNGXY/3q7PS18uaSfib0hrLvNshYOqsmxpEMkXuzmk9Qlj6cjCVTu/lTBb5KllfbVj0P4G9QSZzl3Mdhfc2n7LnEXsnH1GvV9b2U2Y6iCNmc7KyCzJ3laRto8dDd3et3MJLw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=DLnj/iQ36SUOIC/+pC59sFJeBjtxCbDGOgx2OtZGXjQ=;
- b=JFlypixENni2OB0bywf4s2M7eh9X02tNfszT8OcMQTLlXtI7F2wM+aA5l4yvXdODSUt5tcYGvXeqUqjL3QmrWT/k6hQ6uDtqDh6mIoqzYZh3toHgCnZ58CSJHDGDN0CYDTP3xk5m99pEbULhPA7kdLpK78yq4csqse6mySYVys6BeVxnkJXd6PUQvzd4HBa5NI/+xnfYxv+2WyG/qKnmyGP6n3rFV76a/YjmqLAG854hcr2aqVl9Gxupfp22XVqIXuLcovW5mnKnd0n35nV+JdOOKRDxKJDjJSjo9rOXJi8VCs7l2gwyGiFB7RWzm6gFzTTq+aU/sDtVNCCj4Ynpzw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from IA0PR12MB8374.namprd12.prod.outlook.com (2603:10b6:208:40e::7)
- by SN7PR12MB8057.namprd12.prod.outlook.com (2603:10b6:806:34a::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.18; Wed, 24 Jun
- 2026 15:52:52 +0000
-Received: from IA0PR12MB8374.namprd12.prod.outlook.com
- ([fe80::d85f:4c87:ae84:3f16]) by IA0PR12MB8374.namprd12.prod.outlook.com
- ([fe80::d85f:4c87:ae84:3f16%5]) with mapi id 15.21.0159.014; Wed, 24 Jun 2026
- 15:52:51 +0000
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 24 Jun 2026 11:52:49 -0400
-Message-Id: <DJHEF8MWTZSC.3KMTACZH7KWP@nvidia.com>
-Subject: Re: mm: opaque hardware page-table entry handles
-Cc: <linux-mm@kvack.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-kernel@vger.kernel.org>
-To: "Usama Anjum" <usama.anjum@arm.com>, "Andrew Morton"
- <akpm@linux-foundation.org>, "Lorenzo Stoakes" <ljs@kernel.org>, "David
- Hildenbrand" <david@kernel.org>, "Liam R. Howlett" <liam@infradead.org>,
- "Mike Rapoport" <rppt@kernel.org>, "Ryan Roberts" <ryan.roberts@arm.com>,
- "Anshuman Khandual" <anshuman.khandual@arm.com>, "Catalin Marinas"
- <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>, "Samuel
- Holland" <samuel.holland@sifive.com>
-From: "Zi Yan" <ziy@nvidia.com>
-X-Mailer: aerc 0.21.0
-References: <74182e50-b54f-4d2d-a27f-3a59a538d6bc@arm.com>
-In-Reply-To: <74182e50-b54f-4d2d-a27f-3a59a538d6bc@arm.com>
-X-ClientProxiedBy: DM6PR06CA0078.namprd06.prod.outlook.com
- (2603:10b6:5:336::11) To IA0PR12MB8374.namprd12.prod.outlook.com
- (2603:10b6:208:40e::7)
+	id 1wcPxj-000000083wS-0gsg;
+	Wed, 24 Jun 2026 15:56:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=3VABDCrd1jGuDMwSjdhW8OLVFZVtLkEqcz604VeuAs0=; b=0MWj/FEa9zVcYl+adKAuZoukcj
+	OX1cfjSnPvdtWQWMpHfLWnNvhzbr3hhVKPUUXhPn8LJAVZl6fcQyDccdTa/xEaaUEgKxQMFOg2WML
+	nbhh9+52JyV3uPZ7ssxGy1IeiMkIf8QVkNRnxC3YXrDhfivDvnZn7fYQsfH7QLWXNun8=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1wcPxK-00972L-FW; Wed, 24 Jun 2026 17:56:02 +0200
+Date: Wed, 24 Jun 2026 17:56:02 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: jackbb_wu@compal.com
+Cc: Loic Poulain <loic.poulain@oss.qualcomm.com>,
+	Sergey Ryazanov <ryazanov.s.a@gmail.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Wen-Zhi Huang <wen-zhi.huang@mediatek.com>,
+	Shi-Wei Yeh <shi-wei.yeh@mediatek.com>,
+	Minano Tseng <Minano.tseng@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Simon Horman <horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-doc@vger.kernel.org
+Subject: Re: [PATCH v3 1/7] net: wwan: t9xx: Add PCIe core
+Message-ID: <b6ee3440-385f-4567-993d-c10db6f10b97@lunn.ch>
+References: <20260624-t9xx_driver_v1-v3-0-73ff03f60c48@compal.com>
+ <20260624-t9xx_driver_v1-v3-1-73ff03f60c48@compal.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA0PR12MB8374:EE_|SN7PR12MB8057:EE_
-X-MS-Office365-Filtering-Correlation-Id: d91445b6-7599-4bd2-2ea7-08ded208a5b7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|7416014|376014|921020|6133799003|18002099003|22082099003|56012099006|5023799004|11063799006;
-X-Microsoft-Antispam-Message-Info: N6ZP3/4m0+w/eI11PpfZ10kB6zcQFhH6VgzX94kjwHEN0+RI6r/ud4GqU7LRtCGtI5FYfPDFXfnM7HR/Ae7IVKPlfMkcsz+wTWNCM4HjJ/suyLTyM91bX4ymj3Guo3gF++Eq64Fe5sGhoIYOtGrrZABYwWdZGRf2lnRSACHj6dK+ZChTsgZsJIVg0mvHmwwkbVVdzMroqrc5nk//fxM/5COOcr5PUUXD89WByggh6hDk0hyycW5cSqNvBYFPjxRBr/+8CA7VtuiBsMy7nB0IOrN1evc/Q57q7OAiRrrwOd/SYTnmrAsssrGmC2SYkIvxqHfO0p1xCDSLKZDXdW7CbHayvU46NGJSuY5AAQXwnLN0+V6VbD8C0JVW7bHbqS2+kVxzn9zTm7B0TZ7jWHi46zJmxyCLjZGPPY47FEHlbFaB/yhsd791YlWC+52aQRRgAOW5AhZcZQyi+WwJDkpJ+aR+smT68TmppiekMrgvB14nZ9+LL6tjw8X8He+VcPFGQKNmjYBpybLtTP3Sdw+n+oZ4PnF4xWImO0XOkyID8+TQgnfNeDVvkPIJBqKiz+xG+ZjUw/Heh3JJWHBRDcOzYm7tR6R1nvyqlMMMo6MwHPV+xKhhCqAoWS6eEzydtxtMLYwwcCQ7vHZqtNEDK226XaRmUtpjLng1PCPw+U1aPK9NC48OYNNiZU7uyUW0YYULtGR5RsEW3qR2U4vMZayfPA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA0PR12MB8374.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(7416014)(376014)(921020)(6133799003)(18002099003)(22082099003)(56012099006)(5023799004)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?K2FMMnBWcXdPdVYvUytRak0wSnFRc0lCVTZPQW9PTkZQVnAvSGZ4UWVpd1NY?=
- =?utf-8?B?ZldPTk9FeEUyblo1WGw5OE81eUNJVVZseWpOYkhoZ3Y2RjU5Q1h3aVBPRHFT?=
- =?utf-8?B?MXBKMlFoU3hiYkVrVjcvaG1Fb0JubzVBOHM4UHQ3Vk43Qlg5OVFjV2piUjhR?=
- =?utf-8?B?eVE5LzFTQm11VENCWTdlQzg2KzlxeXRqaWN2b24rdDRuYUZqQXZoakMwZEhX?=
- =?utf-8?B?SVVVZWFYRXg3YlJnZmNVVS80S01KSkdmL2UwTUdINnN3ckMzbVA0aWdPQVd1?=
- =?utf-8?B?cEdrbjBkemR2aDh0K1lwVUNqWDhGZlpBZWJCaGFvR0dyMlh6cEZPVVFOcklU?=
- =?utf-8?B?ampVdHZSaTFPMnl1T0N3TjNjN3ZaYjM5NExlLzcvaUxPN3ZQaWhsQXBhcW1P?=
- =?utf-8?B?YXFSWmxBOEFmR3NaT0VnOEJ0R3FGSWl4b3NhUjBBYVh4ejhEb3ViVXJweEtQ?=
- =?utf-8?B?N1plUnppeGZSNW5qTVdJWjhoaUNlL0hLZVd6YXBQY01QMWdQSGo3ajdFeTJh?=
- =?utf-8?B?Q3VJZlI2b2Z5bmZpQnRkaWFUZnArTUx0SkF1RGs1VWFzbE94aWllS1prQ3F2?=
- =?utf-8?B?OVcvZ3E1eWpBaHNDMk9SNUJDTE83b2RDSUVDV1dwTm5TT29pTXZDZWVhNkpO?=
- =?utf-8?B?bmVyczdsYk41R2FYWmIvNUpHYUhYTXo3NkNQNzBOc1Q4VG1IUStQY1k5M1NE?=
- =?utf-8?B?K3JQYXpLQXllZjhVYzhQTTFncFJYajdQSEx1Wi9ET3RSVGhNbUx1Mld3K0pC?=
- =?utf-8?B?UkVuRkVVdXZmUUJQRnQ1MjdGZ0dQYkJaSFNPMjduYmlyR1g5c00xVk1mSSt4?=
- =?utf-8?B?ZzNxSTVpQ0x3d2Jpd0tVZzMzYTE4dXlFYisxT2FCQzRRSXRXYjN3d3dheTBP?=
- =?utf-8?B?RWljK2ZxVVRNZ09vUWlVZFNkakljUUsyV2p3bjF1eWRPbFRlTDFWTVd2UWNx?=
- =?utf-8?B?R1kyRitUVGd5dkN0Q29tamJldzg1WjVKZVVyN0xLQTBBZmx5K1RsTXdBbXJl?=
- =?utf-8?B?MmtIbFNrSmRycnpqdnVjYUhPZTRzUFpRLzVyM2ppbk9LelJOY3hCcDZ2Vith?=
- =?utf-8?B?ZTRtK1pKSFhjN3lmOTVzSlRRZHZUY055cUovUkFvZGU2TW4yTUJSRUdqMmhn?=
- =?utf-8?B?ZmtEaEMyQkJJU0lTNmVuKzg0Z0E0dFJnKzY2MTNMZE4xbmtZVkFvQzM0cm5r?=
- =?utf-8?B?ekhBQjBuZ04yYTY1UmluQ3dyWlpXbVpldzFLSkpONDRveFRyaU1wOGF6Wk1I?=
- =?utf-8?B?RkhxZlhDUHMrbTRYK05CbFdTUURvSDZLamIyOU5mRXZ2TVlUWmU5ZFJuejZZ?=
- =?utf-8?B?djFzaU5BYU1OMStZWW5hZ1VxTHdrdjBJdHNNTnpCT0ZSd21QUXlKMGp3T1Fv?=
- =?utf-8?B?cmtKeHE0NkhZb05IMnM3ZlVtKytZRCtPK3lqaER6amw4OUNyalRuQkVQMXVo?=
- =?utf-8?B?YS9lZGFrOVBjdm15WlJuMXFQV0d6VnhhNUo0Nlk1YjdXMVlyRjJWeWQ0ajg0?=
- =?utf-8?B?VmtqMzdVL3Fyd0dlcWFUNWIralo5RU0zM09pTjAyek1Pay9iRjZmQzk4N1Zp?=
- =?utf-8?B?WGRmUWxjU2U3aGNRc2E5amtNekhIU1JudFZlSktZamkvQzZIdzE0YlBhL1c2?=
- =?utf-8?B?T09CMmI5azBFZmdpQXEwZEJwaktWKzN5YmF0OWJNdkhyWlBMUU9xRDVzdWFh?=
- =?utf-8?B?VTBma25DNFFZaWpkRFE0UE5DdENKbnpPaXhWN095Nm5qQUtwcXlkTjRZL0Z4?=
- =?utf-8?B?dDlIQkpKN0Qrb0UvK2xXN0x5OU16NGhRcjQxS0RqajEvNG90NGF5eWVFZGUv?=
- =?utf-8?B?dThsRDNFb05KUFlaOHdGV2IyRTZ6azlrWlFjU2FTcWEwalFsOThTUnRMUjF0?=
- =?utf-8?B?RG5wNlk3NDNwOThHVFVkNnBtZHlSTnFNNWxsZlFBVVJueU9BQ0V4NVhnRHJL?=
- =?utf-8?B?VWp6Z2M0YlJWc2lnZVhROVE5aE1JSXhrT29waE9TeHh0VVJMdElnUnZFQjlZ?=
- =?utf-8?B?NVdCRnZIZTJMdjBMZ3M3T1JHdHl3ZGpHck5rbGt6dUpXSkt2SXpmLzZSUkww?=
- =?utf-8?B?Q3NreVR4SzNoSkQ2VHZDNDJBczRoY0hCdTQwZVBCYjFHN1BlK0drVXVIUGht?=
- =?utf-8?B?aTZlQjN1Q1VoT3kwWXVTQmtjZ25maWxxb2NtRnZmSG9aWisrWFdiVWlnVW1K?=
- =?utf-8?B?NWVsejJ5eFlHOGxRZzJUV3lrVktuR2xhckFjZnhIVldHZmN5N3FCU3RMa3lE?=
- =?utf-8?B?bGhrN08vZlJFa3NOUlo2cXZKN3Y0SmU4UnZCRGlOdTVhSHdGYU5DWFdoYVQv?=
- =?utf-8?Q?1vACazOqjWTJ9AEcRQ?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d91445b6-7599-4bd2-2ea7-08ded208a5b7
-X-MS-Exchange-CrossTenant-AuthSource: IA0PR12MB8374.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jun 2026 15:52:51.6947
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Xn57h3QxALmvZlhgbcUul3NqbBfXE3WpZNKV0RKb1d9T4uUjh0F7KgJE9ApObpT/
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB8057
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260624-t9xx_driver_v1-v3-1-73ff03f60c48@compal.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_085302_737639_D6B90166 
-X-CRM114-Status: GOOD (  40.46  )
+X-CRM114-CacheID: sfid-20260624_085627_514949_77F3D77E 
+X-CRM114-Status: GOOD (  35.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,189 +82,739 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed Jun 24, 2026 at 10:09 AM EDT, Usama Anjum wrote:
-> Hi all,
->
-> This is a direction-check with the wider community before spending time o=
-n the
-> development. This picks up the idea that was raised and broadly agreed in=
- the
-> earlier thread (Ryan Roberts, Lorenzo Stoakes, David Hildenbrand) [1].
->
-> The problem
-> -----------
-> Core MM code reaches page-table entries by raw pointer dereference (pte_t=
- *,
-> pmd_t *, *pud, ...) in places, implicitly assuming a single, uniform
-> representation. Sprinkling getters wouldn't solve the problem entirely. T=
-he
-> problem is one level up: the *pointer type* itself is overloaded. At each=
- level
-> there are really three distinct things:
->
->   1. a page-table entry value (pte_t, pmd_t, ...)
->   2. a pointer to an entry value, e.g. a pXX_t on the stack
->   3. a pointer to a live entry in the hardware page table
 
-This sounds good to me, but can you clarify the situation below?
+> From: Jack Wu <jackbb_wu@compal.com>
+> 
+> Registers the T900 device driver with the kernel. Set up all
+> the fundamental configurations for the device: PCIe layer,
+> Modem Host Cross Core Interface (MHCCIF), Reset Generation
+> Unit (RGU), modem common control operations and build
+> infrastructure.
+> 
+> * PCIe layer code implements driver probe and removal, MSI-X
+>   interrupt initialization and de-initialization, and the way
+>   of resetting the device.
+> * MHCCIF provides interrupt channels to communicate events
+>   such as handshake, PM and port enumeration.
+> * RGU provides interrupt channels to generate notifications
+>   from the device so that the T900 driver could get the
+>   device reset.
+> * Modem common control operations provide the basic read/write
+>   functions of the device's hardware registers,
+>   mask/unmask/get/clear functions of the device's interrupt
+>   registers and inquiry functions of the device's status.
+> 
+> Signed-off-by: Jack Wu <jackbb_wu@compal.com>
+> ---
+>  drivers/net/wwan/Kconfig                      |   12 +
+>  drivers/net/wwan/Makefile                     |    1 +
+>  drivers/net/wwan/t9xx/Makefile                |   10 +
+>  drivers/net/wwan/t9xx/mtk_dev.h               |  108 +++
+>  drivers/net/wwan/t9xx/pcie/mtk_pci.c          | 1049 +++++++++++++++++++++++++
+>  drivers/net/wwan/t9xx/pcie/mtk_pci.h          |  234 ++++++
+>  drivers/net/wwan/t9xx/pcie/mtk_pci_drv_m9xx.c |   69 ++
+>  drivers/net/wwan/t9xx/pcie/mtk_pci_reg.h      |   70 ++
+>  8 files changed, 1553 insertions(+)
+> 
+> diff --git a/drivers/net/wwan/Kconfig b/drivers/net/wwan/Kconfig
+> index 88df55d78d90..4cee537c739f 100644
+> --- a/drivers/net/wwan/Kconfig
+> +++ b/drivers/net/wwan/Kconfig
+> @@ -121,6 +121,18 @@ config MTK_T7XX
+>  
+>  	  If unsure, say N.
+>  
+> +config MTK_T9XX
+> +	tristate "MediaTek PCIe 5G WWAN modem T9xx device"
+> +	depends on PCI
+> +	select NET_DEVLINK
+> +	help
+> +	  Enables MediaTek PCIe based 5G WWAN modem (T9xx series) device.
+> +
+> +	  To compile this driver as a module, choose M here: the module will be
+> +	  called mtk_t9xx.
+> +
+> +	  If unsure, say N.
+> +
+>  endif # WWAN
+>  
+>  endmenu
+> diff --git a/drivers/net/wwan/Makefile b/drivers/net/wwan/Makefile
+> index 3960c0ae2445..7361eef4c472 100644
+> --- a/drivers/net/wwan/Makefile
+> +++ b/drivers/net/wwan/Makefile
+> @@ -14,3 +14,4 @@ obj-$(CONFIG_QCOM_BAM_DMUX) += qcom_bam_dmux.o
+>  obj-$(CONFIG_RPMSG_WWAN_CTRL) += rpmsg_wwan_ctrl.o
+>  obj-$(CONFIG_IOSM) += iosm/
+>  obj-$(CONFIG_MTK_T7XX) += t7xx/
+> +obj-$(CONFIG_MTK_T9XX) += t9xx/
+> diff --git a/drivers/net/wwan/t9xx/Makefile b/drivers/net/wwan/t9xx/Makefile
+> new file mode 100644
+> index 000000000000..6f2dd3f91454
+> --- /dev/null
+> +++ b/drivers/net/wwan/t9xx/Makefile
+> @@ -0,0 +1,10 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> +
+> +ccflags-y += -I$(src)/pcie
+> +ccflags-y += -I$(src)
+> +
+> +obj-$(CONFIG_MTK_T9XX) += mtk_t9xx.o
+> +
+> +mtk_t9xx-y := \
+> +	pcie/mtk_pci.o \
+> +	pcie/mtk_pci_drv_m9xx.o
+> diff --git a/drivers/net/wwan/t9xx/mtk_dev.h b/drivers/net/wwan/t9xx/mtk_dev.h
+> new file mode 100644
+> index 000000000000..8278a0e2875e
+> --- /dev/null
+> +++ b/drivers/net/wwan/t9xx/mtk_dev.h
+> @@ -0,0 +1,108 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only
+> + *
+> + * Copyright (c) 2022, MediaTek Inc.
+> + */
+> +
+> +#ifndef __MTK_DEV_H__
+> +#define __MTK_DEV_H__
+> +
+> +#include <linux/dma-mapping.h>
+> +#include <linux/dmapool.h>
+> +#include <linux/kernel.h>
+> +#include <linux/module.h>
+> +#include <linux/sched.h>
+> +#include <linux/slab.h>
+> +#include <linux/spinlock.h>
+> +
+> +#define MTK_DEV_STR_LEN 16
+> +
+> +enum mtk_user_id {
+> +	MTK_USER_MIN,
+> +	MTK_USER_CTRL,
+> +	MTK_USER_DATA,
+> +	MTK_USER_MAX
+> +};
+> +
+> +enum mtk_dev_evt_h2d {
+> +	DEV_EVT_H2D_DEVICE_RESET	= BIT(2),
+> +	DEV_EVT_H2D_MAX			= BIT(5)
+> +};
+> +
+> +enum mtk_dev_evt_d2h {
+> +	DEV_EVT_D2H_BOOT_FLOW_SYNC	= BIT(4),
+> +	DEV_EVT_D2H_ASYNC_HS_NOTIFY_SAP = BIT(5),
+> +	DEV_EVT_D2H_ASYNC_HS_NOTIFY_MD	= BIT(6),
+> +	DEV_EVT_D2H_MAX			= BIT(11)
+> +};
+> +
+> +struct mtk_md_dev;
+> +
+> +struct mtk_dev_ops {
+> +	u32 (*get_dev_state)(struct mtk_md_dev *mdev);
+> +	void (*ack_dev_state)(struct mtk_md_dev *mdev, u32 state);
+> +	u32 (*get_dev_cfg)(struct mtk_md_dev *mdev);
+> +	int (*register_dev_evt)(struct mtk_md_dev *mdev, u32 dev_evt,
+> +				int (*evt_cb)(u32 status, void *data), void *data);
+> +	void (*unregister_dev_evt)(struct mtk_md_dev *mdev, u32 dev_evt);
+> +	void (*mask_dev_evt)(struct mtk_md_dev *mdev, u32 dev_evt);
+> +	void (*unmask_dev_evt)(struct mtk_md_dev *mdev, u32 dev_evt);
+> +	void (*clear_dev_evt)(struct mtk_md_dev *mdev, u32 dev_evt);
+> +	int (*send_dev_evt)(struct mtk_md_dev *mdev, u32 dev_evt);
+> +};
+> +
+> +/* mtk_md_dev defines the structure of MTK modem device */
+> +struct mtk_md_dev {
+> +	struct device *dev;
+> +	const struct mtk_dev_ops *dev_ops;
+> +	void *hw_priv;
+> +	u32 hw_ver;
+> +	char dev_str[MTK_DEV_STR_LEN];
+> +};
+> +
+> +static inline u32 mtk_dev_get_dev_state(struct mtk_md_dev *mdev)
+> +{
+> +	return mdev->dev_ops->get_dev_state(mdev);
+> +}
+> +
+> +static inline void mtk_dev_ack_dev_state(struct mtk_md_dev *mdev, u32 state)
+> +{
+> +	return mdev->dev_ops->ack_dev_state(mdev, state);
+> +}
+> +
+> +static inline u32 mtk_dev_get_dev_cfg(struct mtk_md_dev *mdev)
+> +{
+> +	return mdev->dev_ops->get_dev_cfg(mdev);
+> +}
+> +
+> +static inline int mtk_dev_register_dev_evt(struct mtk_md_dev *mdev, u32 dev_evt,
+> +					   int (*evt_cb)(u32 status, void *data), void *data)
+> +{
+> +	return mdev->dev_ops->register_dev_evt(mdev, dev_evt, evt_cb, data);
+> +}
+> +
+> +static inline void mtk_dev_unregister_dev_evt(struct mtk_md_dev *mdev, u32 dev_evt)
+> +{
+> +	mdev->dev_ops->unregister_dev_evt(mdev, dev_evt);
+> +}
+> +
+> +static inline void mtk_dev_mask_dev_evt(struct mtk_md_dev *mdev, u32 dev_evt)
+> +{
+> +	mdev->dev_ops->mask_dev_evt(mdev, dev_evt);
+> +}
+> +
+> +static inline void mtk_dev_unmask_dev_evt(struct mtk_md_dev *mdev, u32 dev_evt)
+> +{
+> +	mdev->dev_ops->unmask_dev_evt(mdev, dev_evt);
+> +}
+> +
+> +static inline void mtk_dev_clear_dev_evt(struct mtk_md_dev *mdev, u32 dev_evt)
+> +{
+> +	mdev->dev_ops->clear_dev_evt(mdev, dev_evt);
+> +}
+> +
+> +static inline int mtk_dev_send_dev_evt(struct mtk_md_dev *mdev, u32 dev_evt)
+> +{
+> +	return mdev->dev_ops->send_dev_evt(mdev, dev_evt);
+> +}
+> +
+> +#endif /* __MTK_DEV_H__ */
+> diff --git a/drivers/net/wwan/t9xx/pcie/mtk_pci.c b/drivers/net/wwan/t9xx/pcie/mtk_pci.c
+> new file mode 100644
+> index 000000000000..c6a7196fcdd6
+> --- /dev/null
+> +++ b/drivers/net/wwan/t9xx/pcie/mtk_pci.c
+> @@ -0,0 +1,1049 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (c) 2022, MediaTek Inc.
+> + */
+> +
+> +#include <linux/acpi.h>
+> +#include <linux/aer.h>
+> +#include <linux/bitfield.h>
+> +#include <linux/debugfs.h>
+> +#include <linux/delay.h>
+> +#include <linux/device.h>
+> +#include <linux/dma-mapping.h>
+> +#include <linux/kernel.h>
+> +#include <linux/module.h>
+> +
+> +#include "mtk_dev.h"
+> +#include "mtk_pci.h"
+> +#include "mtk_pci_reg.h"
+> +
+> +#define MTK_PCI_BAR_NUM		6
+> +#define MTK_PCI_TRANSPARENT_ATR_SIZE	(0x3F)
+> +#define MTK_PCI_MINIMUM_ATR_SIZE	(0x1000)
+> +#define ATR_SIZE_LO32_MASK		GENMASK_ULL(31, 0)
+> +#define ATR_SIZE_HI32_MASK		GENMASK_ULL(63, 32)
+> +#define ATR_SIZE_BIAS_FROM_LO32		2
+> +#define ATR_ADDR_ALIGN_MASK		0xFFFFF000
+> +#define ATR_EN				BIT(0)
+> +#define ATR_PARAM_OFFSET		16
+> +/* Delay between ACPI PXP._OFF and _ON for modem power cycle stabilization */
+> +#define MTK_PLDR_POWER_OFF_DELAY_MS	500
+> +#define LE32_TO_U32(x) ((__force u32)(__le32)(x))
+> +#define SET_HW_BITS(dest, chs, mhccif, dev)		\
+> +	({						\
+> +		if ((chs) & (dev))					\
+> +			(dest) |= FIELD_PREP(mhccif, 1);		\
+> +	})
+> +
+> +struct mtk_mhccif_cb {
+> +	struct list_head entry;
+> +	int (*evt_cb)(u32 status, void *data);
+> +	void *data;
+> +	u32 chs;
+> +};
+> +
+> +/**
+> + * mtk_pci_setup_atr() - Configure a PCIe address translation rule
+> + * @mdev: MTK MD device
+> + * @cfg: ATR configuration parameters
+> + *
+> + * Return: 0 on success, negative error code on failure.
+> + */
+> +int mtk_pci_setup_atr(struct mtk_md_dev *mdev, struct mtk_atr_cfg *cfg)
+> +{
+> +	struct mtk_pci_priv *priv = mdev->hw_priv;
+> +	u32 addr, val, size_h, size_l;
+> +	int atr_size, pos, offset;
+> +
+> +	if (cfg->transparent) {
+> +		/* No address conversion is performed */
+> +		atr_size = MTK_PCI_TRANSPARENT_ATR_SIZE;
+> +	} else {
+> +		if (cfg->size < MTK_PCI_MINIMUM_ATR_SIZE)
+> +			cfg->size = MTK_PCI_MINIMUM_ATR_SIZE;
+> +
+> +		if (cfg->src_addr & (cfg->size - 1)) {
+> +			dev_err((mdev)->dev, "Invalid atr src addr is not aligned to size\n");
+> +			return -EFAULT;
+> +		}
+> +
+> +		if (cfg->trsl_addr & (cfg->size - 1)) {
+> +			dev_err((mdev)->dev,
+> +				"Invalid atr trsl addr is not aligned to size, %llx, %llx\n",
+> +				cfg->trsl_addr, cfg->size - 1);
+> +			return -EFAULT;
+> +		}
+> +
+> +		size_l = FIELD_GET(ATR_SIZE_LO32_MASK, cfg->size);
+> +		size_h = FIELD_GET(ATR_SIZE_HI32_MASK, cfg->size);
+> +		pos = ffs(size_l);
+> +		if (pos) {
+> +			atr_size = pos - ATR_SIZE_BIAS_FROM_LO32;
+> +		} else {
+> +			pos = ffs(size_h);
+> +			atr_size = pos + 32 - ATR_SIZE_BIAS_FROM_LO32;
+> +		}
+> +	}
+> +
+> +	/* Calculate table offset */
+> +	offset = ATR_PORT_OFFSET * cfg->port + ATR_TABLE_OFFSET * cfg->table;
+> +	addr = REG_ATR_PCIE_WIN0_T0_SRC_ADDR_MSB + offset;
+> +	val = (u32)(cfg->src_addr >> 32);
+> +	mtk_pci_mac_write32(priv, addr, val);
+> +
+> +	addr = REG_ATR_PCIE_WIN0_T0_SRC_ADDR_LSB + offset;
+> +	val = (u32)(cfg->src_addr & ATR_ADDR_ALIGN_MASK) | (atr_size << 1) | ATR_EN;
+> +	mtk_pci_mac_write32(priv, addr, val);
+> +
+> +	addr = REG_ATR_PCIE_WIN0_T0_TRSL_ADDR_MSB + offset;
+> +	val = (u32)(cfg->trsl_addr >> 32);
+> +	mtk_pci_mac_write32(priv, addr, val);
+> +
+> +	addr = REG_ATR_PCIE_WIN0_T0_TRSL_ADDR_LSB + offset;
+> +	val = (u32)(cfg->trsl_addr & ATR_ADDR_ALIGN_MASK);
+> +	mtk_pci_mac_write32(priv, addr, val);
+> +
+> +	/* TRSL_PARAM */
+> +	addr = REG_ATR_PCIE_WIN0_T0_TRSL_PARAM + offset;
+> +	val = (cfg->trsl_param << ATR_PARAM_OFFSET) | cfg->trsl_id;
+> +	mtk_pci_mac_write32(priv, addr, val);
+> +
+> +	return 0;
+> +}
+> +
+> +/**
+> + * mtk_pci_atr_disable() - Disable all PCIe address translation rules
+> + * @priv: MTK PCI private data
+> + */
+> +void mtk_pci_atr_disable(struct mtk_pci_priv *priv)
+> +{
+> +	int port, tbl, offset;
+> +	u32 val;
+> +
+> +	/* Disable all ATR table for all ports */
+> +	for (port = ATR_SRC_PCI_WIN0; port <= ATR_SRC_AXIS_3; port++)
+> +		for (tbl = 0; tbl < ATR_TABLE_NUM_PER_ATR; tbl++) {
+> +			/* Calculate table offset */
+> +			offset = ATR_PORT_OFFSET * port + ATR_TABLE_OFFSET * tbl;
+> +			val = mtk_pci_mac_read32(priv, REG_ATR_PCIE_WIN0_T0_SRC_ADDR_LSB + offset);
+> +			val = val & (~BIT(0));
+> +			/* Disable table by SRC_ADDR_L */
+> +			mtk_pci_mac_write32(priv, REG_ATR_PCIE_WIN0_T0_SRC_ADDR_LSB + offset, val);
+> +		}
+> +}
+> +
+> +static void mtk_pci_set_msix_merged(struct mtk_pci_priv *priv, int irq_cnt)
+> +{
+> +	mtk_pci_mac_write32(priv, REG_PCIE_CFG_MSIX, ffs(irq_cnt) * 2 - 1);
+> +}
+> +
+> +/**
+> + * mtk_pci_get_dev_state() - Read the device state from the modem
+> + * @mdev: MTK MD device
+> + *
+> + * Return: Device state value.
+> + */
+> +u32 mtk_pci_get_dev_state(struct mtk_md_dev *mdev)
+> +{
+> +	return mtk_pci_mac_read32(mdev->hw_priv, REG_PCIE_DEBUG_DUMMY_7);
+> +}
+> +
+> +/**
+> + * mtk_pci_ack_dev_state() - Acknowledge the device state to the modem
+> + * @mdev: MTK MD device
+> + * @state: State value to acknowledge
+> + */
+> +void mtk_pci_ack_dev_state(struct mtk_md_dev *mdev, u32 state)
+> +{
+> +	mtk_pci_mac_write32(mdev->hw_priv, REG_PCIE_DEBUG_DUMMY_7, state);
+> +}
+> +
+> +/**
+> + * mtk_pci_get_irq_id() - Map an IRQ source to its hardware IRQ ID
+> + * @mdev: MTK MD device
+> + * @irq_src: IRQ source enum
+> + *
+> + * Return: IRQ ID on success, -EINVAL on failure.
+> + */
+> +int mtk_pci_get_irq_id(struct mtk_md_dev *mdev, enum mtk_irq_src irq_src)
+> +{
+> +	struct mtk_pci_priv *priv = mdev->hw_priv;
+> +	const int *irq_tbl = priv->cfg->irq_tbl;
+> +	int irq_id = -EINVAL;
+> +
+> +	if (irq_src > MTK_IRQ_SRC_MIN && irq_src < MTK_IRQ_SRC_MAX) {
+> +		irq_id = irq_tbl[irq_src];
+> +		if (irq_id < 0 || irq_id >= MTK_IRQ_CNT_MAX)
+> +			irq_id = -EINVAL;
+> +	}
+> +
+> +	return irq_id;
+> +}
+> +
+> +/**
+> + * mtk_pci_get_virq_id() - Get the Linux virtual IRQ for a hardware IRQ ID
+> + * @mdev: MTK MD device
+> + * @irq_id: Hardware IRQ ID
+> + *
+> + * Return: Virtual IRQ number on success, negative error code on failure.
+> + */
+> +int mtk_pci_get_virq_id(struct mtk_md_dev *mdev, int irq_id)
+> +{
+> +	struct pci_dev *pdev = to_pci_dev(mdev->dev);
+> +	struct mtk_pci_priv *priv = mdev->hw_priv;
+> +
+> +	if (!priv->irq_cnt || irq_id < 0)
+> +		return -EINVAL;
+> +
+> +	return pci_irq_vector(pdev, irq_id % priv->irq_cnt);
+> +}
+> +
+> +/**
+> + * mtk_pci_register_irq() - Register a callback for a hardware IRQ
+> + * @mdev: MTK MD device
+> + * @irq_id: Hardware IRQ ID
+> + * @irq_cb: Callback function
+> + * @data: Private data passed to callback
+> + *
+> + * Return: 0 on success, negative error code on failure.
+> + */
+> +int mtk_pci_register_irq(struct mtk_md_dev *mdev, int irq_id,
+> +			 int (*irq_cb)(int irq_id, void *data), void *data)
+> +{
+> +	struct mtk_pci_priv *priv = mdev->hw_priv;
+> +
+> +	if ((irq_id < 0 || irq_id >= MTK_IRQ_CNT_MAX) || !irq_cb)
+> +		return -EINVAL;
+> +
+> +	if (priv->irq_cb_list[irq_id]) {
+> +		dev_err((mdev)->dev,
+> +			"Unable to register irq, irq_id=%d, it's already been register by %ps.\n",
+> +			irq_id, priv->irq_cb_list[irq_id]);
+> +		return -EFAULT;
+> +	}
+> +	priv->irq_cb_list[irq_id] = irq_cb;
+> +	priv->irq_cb_data[irq_id] = data;
+> +
+> +	return 0;
+> +}
+> +
+> +/**
+> + * mtk_pci_unregister_irq() - Unregister a hardware IRQ callback
+> + * @mdev: MTK MD device
+> + * @irq_id: Hardware IRQ ID
+> + *
+> + * Return: 0 on success, negative error code on failure.
+> + */
+> +int mtk_pci_unregister_irq(struct mtk_md_dev *mdev, int irq_id)
+> +{
+> +	struct mtk_pci_priv *priv = mdev->hw_priv;
+> +
+> +	if (irq_id < 0 || irq_id >= MTK_IRQ_CNT_MAX)
+> +		return -EINVAL;
+> +
+> +	if (!priv->irq_cb_list[irq_id]) {
+> +		dev_err((mdev)->dev, "irq_id=%d has not been registered\n", irq_id);
+> +		return -EFAULT;
+> +	}
+> +	priv->irq_cb_list[irq_id] = NULL;
+> +	priv->irq_cb_data[irq_id] = NULL;
+> +
+> +	return 0;
+> +}
+> +
+> +/**
+> + * mtk_pci_mask_irq() - Mask (disable) a hardware IRQ
+> + * @mdev: MTK MD device
+> + * @irq_id: Hardware IRQ ID
+> + *
+> + * Return: 0 on success, negative error code on failure.
+> + */
+> +int mtk_pci_mask_irq(struct mtk_md_dev *mdev, int irq_id)
+> +{
+> +	struct mtk_pci_priv *priv = mdev->hw_priv;
+> +
+> +	if (irq_id < 0 || irq_id >= MTK_IRQ_CNT_MAX ||
+> +	    priv->irq_type != PCI_IRQ_MSIX) {
+> +		dev_err(mdev->dev, "Failed to mask irq: input irq_id=%d\n", irq_id);
+> +		return -EINVAL;
+> +	}
+> +
+> +	mtk_pci_mac_write32(priv, REG_IMASK_HOST_MSIX_CLR_GRP0_0, BIT(irq_id));
+> +
+> +	return 0;
+> +}
+> +
+> +/**
+> + * mtk_pci_unmask_irq() - Unmask (enable) a hardware IRQ
+> + * @mdev: MTK MD device
+> + * @irq_id: Hardware IRQ ID
+> + *
+> + * Return: 0 on success, negative error code on failure.
+> + */
+> +int mtk_pci_unmask_irq(struct mtk_md_dev *mdev, int irq_id)
+> +{
+> +	struct mtk_pci_priv *priv = mdev->hw_priv;
+> +
+> +	if (irq_id < 0 || irq_id >= MTK_IRQ_CNT_MAX ||
+> +	    priv->irq_type != PCI_IRQ_MSIX) {
+> +		dev_err(mdev->dev, "Failed to unmask irq: input irq_id=%d\n", irq_id);
+> +		return -EINVAL;
+> +	}
+> +
+> +	mtk_pci_mac_write32(priv, REG_IMASK_HOST_MSIX_SET_GRP0_0, BIT(irq_id));
+> +
+> +	return 0;
+> +}
+> +
+> +/**
+> + * mtk_pci_clear_irq() - Clear (acknowledge) a hardware IRQ
+> + * @mdev: MTK MD device
+> + * @irq_id: Hardware IRQ ID
+> + *
+> + * Return: 0 on success, negative error code on failure.
+> + */
+> +int mtk_pci_clear_irq(struct mtk_md_dev *mdev, int irq_id)
+> +{
+> +	struct mtk_pci_priv *priv = mdev->hw_priv;
+> +
+> +	if (irq_id < 0 || irq_id >= MTK_IRQ_CNT_MAX ||
+> +	    priv->irq_type != PCI_IRQ_MSIX) {
+> +		dev_err(mdev->dev, "Failed to clear irq: input irq_id=%d\n", irq_id);
+> +		return -EINVAL;
+> +	}
+> +
+> +	mtk_pci_mac_write32(priv, REG_MSIX_ISTATUS_HOST_GRP0_0, BIT(irq_id));
+> +
+> +	return 0;
+> +}
+> +
+> +static u32 mtk_pci_ext_d2h_evt_hw_bits(u32 chs)
+> +{
+> +	u32 hw_bits = 0;
+> +
+> +	SET_HW_BITS(hw_bits, chs, MHCCIF_EP2RC_EVT_BOOT_FLOW_SYNC,
+> +		    DEV_EVT_D2H_BOOT_FLOW_SYNC);
+> +	SET_HW_BITS(hw_bits, chs, MHCCIF_EP2RC_EVT_ASYNC_HS_NOTIFY_SAP,
+> +		    DEV_EVT_D2H_ASYNC_HS_NOTIFY_SAP);
+> +	SET_HW_BITS(hw_bits, chs, MHCCIF_EP2RC_EVT_ASYNC_HS_NOTIFY_MD,
+> +		    DEV_EVT_D2H_ASYNC_HS_NOTIFY_MD);
+> +
+> +	return LE32_TO_U32(cpu_to_le32(hw_bits));
+> +}
+> +
+> +static u32 mtk_pci_ext_d2h_evt_chs(u32 hw_bits)
+> +{
+> +	u32 chs = 0;
+> +
+> +	if (!hw_bits)
+> +		return chs;
+> +
+> +	chs = FIELD_PREP(DEV_EVT_D2H_BOOT_FLOW_SYNC,
+> +			 FIELD_GET(MHCCIF_EP2RC_EVT_BOOT_FLOW_SYNC, hw_bits)) |
+> +	      FIELD_PREP(DEV_EVT_D2H_ASYNC_HS_NOTIFY_SAP,
+> +			 FIELD_GET(MHCCIF_EP2RC_EVT_ASYNC_HS_NOTIFY_SAP, hw_bits)) |
+> +	      FIELD_PREP(DEV_EVT_D2H_ASYNC_HS_NOTIFY_MD,
+> +			 FIELD_GET(MHCCIF_EP2RC_EVT_ASYNC_HS_NOTIFY_MD, hw_bits));
+> +
+> +	return chs;
+> +}
+> +
+> +/**
+> + * mtk_pci_register_ext_evt() - Register a callback for MHCCIF device events
+> + * @mdev: MTK MD device
+> + * @chs: Bitmask of event channels to register
+> + * @evt_cb: Callback function
+> + * @data: Private data passed to callback
+> + *
+> + * Return: 0 on success, negative error code on failure.
+> + */
+> +int mtk_pci_register_ext_evt(struct mtk_md_dev *mdev, u32 chs,
+> +			     int (*evt_cb)(u32 status, void *data), void *data)
+> +{
+> +	struct mtk_pci_priv *priv = mdev->hw_priv;
+> +	struct mtk_mhccif_cb *cb;
+> +	int ret = 0;
+> +
+> +	if (!chs || !evt_cb)
+> +		return -EINVAL;
+> +
+> +	spin_lock_bh(&priv->mhccif_lock);
+> +	list_for_each_entry(cb, &priv->mhccif_cb_list, entry) {
+> +		if (cb->chs & chs) {
+> +			ret = -EFAULT;
+> +			dev_err((mdev)->dev,
+> +				"Unable to register evt, intersection: chs=0x%08x&0x%08x cb=%ps\n",
+> +				chs, cb->chs, cb->evt_cb);
+> +			goto err_spin_unlock;
+> +		}
+> +	}
+> +	cb = devm_kzalloc(mdev->dev, sizeof(*cb), GFP_ATOMIC);
+> +	if (!cb) {
+> +		ret = -ENOMEM;
+> +		goto err_spin_unlock;
+> +	}
+> +	cb->evt_cb = evt_cb;
+> +	cb->data = data;
+> +	cb->chs = chs;
+> +	list_add_tail(&cb->entry, &priv->mhccif_cb_list);
+> +err_spin_unlock:
+> +	spin_unlock_bh(&priv->mhccif_lock);
+> +
+> +	return ret;
+> +}
+> +
+> +/**
+> + * mtk_pci_unregister_ext_evt() - Unregister an MHCCIF device event callback
+> + * @mdev: MTK MD device
+> + * @chs: Bitmask of event channels to unregister
+> + */
+> +void mtk_pci_unregister_ext_evt(struct mtk_md_dev *mdev, u32 chs)
+> +{
+> +	struct mtk_pci_priv *priv = mdev->hw_priv;
+> +	struct mtk_mhccif_cb *cb, *next;
+> +
+> +	if (!chs)
+> +		return;
+> +
+> +	spin_lock_bh(&priv->mhccif_lock);
+> +	list_for_each_entry_safe(cb, next, &priv->mhccif_cb_list, entry) {
+> +		if (cb->chs == chs) {
+> +			list_del(&cb->entry);
+> +			devm_kfree(mdev->dev, cb);
+> +			goto out;
+> +		}
+> +	}
+> +	dev_warn((mdev)->dev,
+> +		 "Unable to unregister evt, no chs=0x%08x has been registered.\n", chs);
+> +out:
+> +	spin_unlock_bh(&priv->mhccif_lock);
+> +}
+> +
+> +/**
+> + * mtk_pci_mask_ext_evt() - Mask (disable) MHCCIF device events
+> + * @mdev: MTK MD device
+> + * @chs: Bitmask of event channels to mask
+> + */
+> +void mtk_pci_mask_ext_evt(struct mtk_md_dev *mdev, u32 chs)
+> +{
+> +	struct mtk_pci_priv *priv = mdev->hw_priv;
+> +	u32 hw_bits = mtk_pci_ext_d2h_evt_hw_bits(chs);
+> +
+> +	mtk_pci_write32(mdev, priv->cfg->mhccif_rc_base_addr +
+> +			MHCCIF_EP2RC_SW_INT_EAP_MASK_SET, hw_bits);
+> +}
+> +
+> +/**
+> + * mtk_pci_unmask_ext_evt() - Unmask (enable) MHCCIF device events
+> + * @mdev: MTK MD device
+> + * @chs: Bitmask of event channels to unmask
+> + */
+> +void mtk_pci_unmask_ext_evt(struct mtk_md_dev *mdev, u32 chs)
+> +{
+> +	struct mtk_pci_priv *priv = mdev->hw_priv;
+> +	u32 hw_bits = mtk_pci_ext_d2h_evt_hw_bits(chs);
+> +
+> +	mtk_pci_write32(mdev, priv->cfg->mhccif_rc_base_addr +
+> +			MHCCIF_EP2RC_SW_INT_EAP_MASK_CLR, hw_bits);
+> +}
+> +
+> +/**
+> + * mtk_pci_clear_ext_evt() - Clear (acknowledge) MHCCIF device events
+> + * @mdev: MTK MD device
+> + * @chs: Bitmask of event channels to clear
+> + */
+> +void mtk_pci_clear_ext_evt(struct mtk_md_dev *mdev, u32 chs)
+> +{
+> +	struct mtk_pci_priv *priv = mdev->hw_priv;
+> +	u32 hw_bits = mtk_pci_ext_d2h_evt_hw_bits(chs);
+> +
+> +	mtk_pci_write32(mdev, priv->cfg->mhccif_rc_base_addr +
+> +			MHCCIF_EP2RC_SW_INT_ACK, hw_bits);
+> +}
+> +
+> +static u32 mtk_pci_ext_h2d_evt_hw_bits(u32 chs)
+> +{
+> +	u32 hw_bits = 0;
+> +
+> +	SET_HW_BITS(hw_bits, chs, MHCCIF_RC2EP_EVT_DEVICE_RESET,
+> +		    DEV_EVT_H2D_DEVICE_RESET);
+> +	return LE32_TO_U32(cpu_to_le32(hw_bits));
+> +}
+> +
+> +/**
+> + * mtk_pci_send_ext_evt() - Send an MHCCIF event to the modem
+> + * @mdev: MTK MD device
+> + * @ch: Event channel to trigger (must be a single bit)
+> + *
+> + * Return: 0 on success, negative error code on failure.
+> + */
+> +int mtk_pci_send_ext_evt(struct mtk_md_dev *mdev, u32 ch)
+> +{
+> +	struct mtk_pci_priv *priv = mdev->hw_priv;
+> +	u32 rc_base, hw_bits;
+> +
+> +	rc_base = priv->cfg->mhccif_rc_base_addr;
+> +
+> +	/* Only allow one ch to be triggered at a time */
+> +	if (!is_power_of_2(ch)) {
+> +		dev_err((mdev)->dev, "Unsupported ext evt ch=0x%08x\n", ch);
+> +		return -EINVAL;
+> +	}
+> +
+> +	hw_bits = mtk_pci_ext_h2d_evt_hw_bits(ch);
+> +	mtk_pci_write32(mdev, rc_base + MHCCIF_RC2EP_SW_BSY, hw_bits);
+> +	mtk_pci_write32(mdev, rc_base + MHCCIF_RC2EP_SW_TCHNUM, ffs(hw_bits) - 1);
+> +	return 0;
+> +}
+> +
+> +static u32 mtk_pci_get_ext_evt_hw_status(struct mtk_md_dev *mdev)
+> +{
+> +	struct mtk_pci_priv *priv = mdev->hw_priv;
+> +
+> +	return mtk_pci_read32(mdev, priv->cfg->mhccif_rc_base_addr +
+> +			      MHCCIF_EP2RC_SW_INT_STS);
+> +}
+> +
+> +/**
+> + * mtk_pci_fldr() - Perform a Function Level Device Reset via ACPI _RST
+> + * @mdev: MTK MD device
+> + *
+> + * Return: 0 on success, negative error code on failure.
+> + */
+> +int mtk_pci_fldr(struct mtk_md_dev *mdev)
+> +{
+> +#ifdef CONFIG_ACPI
 
-A live entry means the entry can be accessed by hardware when the code
-is manipulating it? What type should we use if we are pre-populating
-PTEs in a PMD page before we establish the PMD page as a HW page table?
-In __split_huge_pmd_locked(), we do that. A PMD page is first withdrawn
-and filled with after-split PTEs, pmd_populate() and pte_offset_map()
-are used for this not-yet-HW page table. Later, pmd_populate() is used
-to make this page table visible to HW. Should we have two versions of
-pmd_populate() and pte_offset_map()? Since the first pmd_populate()
-would accept pmd_t*, but the second one would accept hw_pmdp, if we are
-pedantic. Of course, we can be flexible here to use pmd_populate()
-accpeting hw_pmdp for both, since the PMD page table we are modifying
-is going to be visible to HW soon. But I think we should have clear
-definitions for where these types are used and document them well.
+...
 
-You probably can ask LLMs to check these ambiguous/vague uses throughout
-the code base.
+> +#else /* !CONFIG_ACPI */
+> +	dev_err((mdev)->dev, "Unsupported, CONFIG ACPI hasn't been set to 'y'\n");
 
->
-> Today (2) and (3) share the same type - pte_t *, pmd_t *, and so on. Noth=
-ing
-> distinguishes a pointer into a live table from a pointer to a stack copy.
->
-> A pointer to an on-stack entry value and a pointer to a live hardware ent=
-ry have
-> the same type, so the compiler cannot distinguish them. Passing the stack
-> pointer to an arch helper that expects a hardware-entry pointer compiles =
-fine,
-> but is wrong - a bug class the type system makes invisible. It also block=
-s
-> evolution: an arch helper may need to read beyond the addressed entry (e.=
-g.
-> adjacent or contiguous entries), which only makes sense for a real page-t=
-able
-> pointer, not a stack copy.
->
-> The idea
-> --------
-> Give (3) its own opaque type that cannot be dereferenced:
->
->     /* opaque handle to a HW page-table entry; not dereferenceable */
->     typedef struct {
-> 	pte_t *ptr;
->     } hw_ptep;
->
-> With this:
->
->   - a stack value can no longer masquerade as a hardware table entry,
->   - a hardware handle can no longer be raw-dereferenced,
->   - cases that genuinely operate on a value can be refactored to pass the=
- value
->     and let the caller, which knows whether it holds a handle or a stack =
-copy,
->     read it once.
->
-> The overload becomes a compile-time type error instead of a silent runtim=
-e bug,
-> and converting the tree forces every such site to be made explicit. This =
-gives
-> us a framework where the architecture can completely virtualize the pgtab=
-le if
-> it likes; and the compiler can enforce that higher level code can't accid=
-entally
-> work around it.
->
-> It is opt-in by architectures and incremental. The generic definition is
-> just an alias, so arches that do not care build unchanged:
->
->     typedef pte_t *hw_ptep;
->
-> An arch flips to the strong struct type when it is ready, and only then d=
-oes
-> it get the stronger checking. This lets the conversion land gradually.
->
-> Beyond fixing the latent bug class, this abstraction is an enabler for up=
-coming
-> features that need tighter control over how page tables are accessed and
-> manipulated.
->
-> Getter flavours
-> ---------------
-> While converting, it is useful to have two accessor flavours at each leve=
-l:
->
->   - pXXp_get(hw_ptep)        plain C dereference (compiler may optimize)
->   - pXXp_get_once(hw_ptep)   single-copy-atomic, not torn, elided or
->                              duplicated by the compiler
->
-> Keeping them distinct simplifies the conversion and avoids re-introducing=
- the
-> class of lockless-read bugs seen on 32-bit.
->
-> Example conversion
-> ------------------
-> Most of the conversion is mechanical.
->
->   -static inline void set_ptes(struct mm_struct *mm, unsigned long addr,
->   -		pte_t *ptep, pte_t pte, unsigned int nr)
->   +static inline void set_ptes(struct mm_struct *mm, unsigned long addr,
->   +		hw_ptep ptep, pte_t pte, unsigned int nr)
->    {
->    	page_table_check_ptes_set(mm, addr, ptep, pte, nr);
->    	for (;;) {
->    		set_pte(ptep, pte);
->    		if (--nr =3D=3D 0)
->    			break;
->   -		ptep++;
->   +		ptep =3D hw_pte_next(ptep);
->    		pte =3D pte_next_pfn(pte);
->    	}
->    }
->
-> The bulk of work is this kind of rote substitution. The genuine work is t=
-he
-> handful of sites that turn out to be operating on a stack copy rather tha=
-n a
-> live entry - those are exactly the ones the new type forces us to surface=
- and=20
-> fix.
->
-> Estimated churn:
-> ----------------
-> Half way through the prototyping converting only PTE and PMD levels:
->   77 files changed, +1801 / -1425
->   ~57 files reference the new types
->
-> So the line count will grow once PUD/P4D/PGD and the remaining call sites=
- are
-> converted; expect meaningfully more churn than the numbers above.
->
-> Introduce the type as an alias, convert one helper family per patch, and =
-flip
-> an arch to the strong type last - with non-opted arches building unchange=
-d at
-> every step.
->
-> Open questions
-> --------------
->   - Is the type-safety + future-feature enablement worth the churn?
->   - Naming: hw_ptep/hw_pmdp vs something else?
->   - Should all five levels be converted before merging anything, or is a =
-staged
->     PTE-and-PMD then landing others acceptable?
->   - Do we want the two getter flavours (pXXp_get / pXXp_get_once) at ever=
-y
->     level?
->
-> [1] https://lore.kernel.org/all/a063f6c5-2785-4a9f-8079-25edb3e54cef@arm.=
-com
->
-> Thanks,
-> Usama
+Why not just have the Kconfig depend on ACPI?
+
+> +	if (ret) {
+> +		dev_err((mdev)->dev, "Failed to register mhccif_irq callback\n");
+
+Why the () around mdev?
 
 
+    Andrew
 
-
---=20
-Best Regards,
-Yan, Zi
-
+---
+pw-bot: cr
 
