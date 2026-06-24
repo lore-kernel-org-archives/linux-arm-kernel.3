@@ -4,118 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32A90CDE001
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 15:22:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 572F3CDB479
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 15:28:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2gqBIwPaeWmL5XMuFIlmntneXFCjftj2s6pIOw2Q4So=; b=Hp7n1PmIobP94kGFng4+UfP0AI
-	prWNHDwfmKH9Mku0Yuwtkwpx/rriiSbvTM3QgLnHeFZBuLH+4XSbUQamdQPUVi/Vo8QFGuN56uOw9
-	63c0K11RPV/2Vz49hd+VjRDmloWR+mFEYwK16ullIfigfeItpDDUx13mgELgxprHvVxcM3OruvLWU
-	l4uY4KjQJRZXWzp3El6V52eNBjKtYgZM2cVfdV5VxggxsbPB2ciY6DDR/mhcQp3adWhf/fsLJT2tJ
-	BAdkflOX2vUKUiHwQJm3vHOmDRUg5XYOSrmd9zpN8tYFxg8YkuioWKRxXXVgReiLdiOpPSSyLlmFc
-	0U6fNkKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2E1GWR8p1Lt61IxU6XjwCv+WWZn1seqOABqzX0+9sHo=; b=M8MV6j1zANVz6uZdbkmrlFM6l9
+	Uj1izAFFMAjyZz7fxoERX2SIy1uCJJgCS/fEpkXi+Sx8s7MKr3pz08/5gm3otsbmxI6NAUrNq7QJm
+	UiMoLkDhS3rT/KRHpG1eKpyjy4KNUwAoPw3fTcUQVBL6qaRH/Glit+FuAOeLdul4s5WuieFCPLNAa
+	B2d8CXlH9UnLfoiPkLJnwFK8XrKqtqZ0bxeK81nygeyKdc6nB+srZNKZZG8RRPrAEudPtHqKCpoJt
+	CbDQ0zv5Nhjf3bq4B7+qfCDBLT/INIYNG0+EGW4+Ws4vPFK0C+/N4AVs7v0W9/3Tjq2oN+ijp78UW
+	xgy4YOxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcOvi-00000007wRn-2RPB;
-	Wed, 24 Jun 2026 14:50:18 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1wcPWA-00000007zmR-1IoM;
+	Wed, 24 Jun 2026 15:27:58 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcOvf-00000007wRQ-3fLy
+	id 1wcPW7-00000007zlp-2oUk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 14:50:17 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-84237a0fd84so165738b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Jun 2026 07:50:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782312614; x=1782917414; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=2gqBIwPaeWmL5XMuFIlmntneXFCjftj2s6pIOw2Q4So=;
-        b=oT2+dwG0ub3QEZ6aZCw+ORqc3FP64GYv5GlOZBxOtDMBgC7NyBFWUBfE2CZgXb5b1+
-         CBKKbiNpRhHxccKP/klwjo+NqurA4/pXEPmDhkiFSKPCZRGvV60zGRmN7rUQ7Ihy+GCA
-         jCvIyXn22km3IF4LafBEWdvzKz9PWli9/LN4Sda6pslnCfFhvu0gcgii00L8cmMax4J1
-         MGX4cKPQA/O83NCegG9OMGkIcr5QHJElvcVFPyyEhA76fV0Lv1L8xBU668IFMR9aZluO
-         xLX8y7w7FtksqrogbqQuLuDYDT76ggucN9HV/ymawPSXsXXybgSS9uT7xo8Ckz5BNCLc
-         eHPQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782312614; x=1782917414;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=2gqBIwPaeWmL5XMuFIlmntneXFCjftj2s6pIOw2Q4So=;
-        b=Ice5+BnwIDfhjsnCNrEqq9CCdmBsXh2doZMWyHx+XN0l/R+VucBYYJ5rn0v7fblodp
-         agcjv45jWH2Z0RlekB+v+LYvuP+BbCT34bnYNEnmm/yorpNOHBCSVyOWQbVn8ASH5rxZ
-         SpMQ3tRfBIOO0JQ9KyUzWKZRDraJ+PGe6by3qacoc1Fv3d0wNqeMYsXStUi94nB7oAgb
-         +Uu+nnqnsr2791kyUgpxHoUtIKOAoxGVQvzF2J5218EeHMzejHcArPE8QfGfYar4tfos
-         Esy+/q/fAj2qUVzCEcRjgfkvi5Hzxd305FWD+g0ADxGpSYX7dTZNzTNJ8S3TSFPrqJ95
-         wqnw==
-X-Forwarded-Encrypted: i=1; AFNElJ+IscSSsbJU4K4DjRLzFTkXsvsMEZ2xqNQkrpDxl8Non9moPzs7pbfrQPzuMTCRcbUCHX2grAbEX3vPvlfU/65g@lists.infradead.org
-X-Gm-Message-State: AOJu0YwBtzEA7lMOzhSGmzIBB3TtQmAi5070VzR98cPE2QtZBotK/HG6
-	4yoHSwYfBgrl8jIGA0OYERO+/RZDpRaCgqXXETZ9HoZCeKOLb2Ub5Xws
-X-Gm-Gg: AfdE7clSix29we4/gvrjHXWGZIGuOyxoBoiJaD7THLwy0AS6pNDbu8NTYfwle+pxody
-	oYM5+4zoOEoMMlvlhXbS1EaiTVl8vNslbov6ZRdCJzqZdSWzVV91rubt0pWzYAheG9IZfdUrTk6
-	5z5C0DHIvHrNdp7AGvOPG2kmhcTElHYyaDugpjA1gYboFrr0dWHHkD6TImVfPve6F6juUN7IvYR
-	O/5upgSK2rbutNqy6U5zVNaYPTtjZ5oVJI9XfwPeZUaZ7yNolVJt61WZN6aYgULoPEoxCVzphUN
-	BH123hf8vZQXVPIrL+OsfEWvxk4KYxVf946L3x6Z2NVYGIy5IbLK2osvOXCrKefoKZiYprxtf9q
-	MvTT/9x+eaw8wdHwSsS8rr+wdwTWjwAhmmkZPG2XcEsrYVnL5lhlFy9zhARGvI8tznZK8eEygCL
-	CrewbMpdGXek0RqvKRTd+3DpgCPsE6ijgdYuNAVQYr/WqOlyUM2lTkFgviduEGs5mxv0vKHAs5Z
-	iYmV+zY
-X-Received: by 2002:a05:6a21:329b:b0:3a3:1814:20a2 with SMTP id adf61e73a8af0-3bc0be10a82mr10975133637.5.1782312614215;
-        Wed, 24 Jun 2026 07:50:14 -0700 (PDT)
-Received: from debian.lan ([158.247.195.225])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-845a4002bf0sm2374238b3a.25.2026.06.24.07.49.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 24 Jun 2026 07:50:13 -0700 (PDT)
-From: Xueyuan Chen <xueyuan.chen21@gmail.com>
-To: david@kernel.org
-Cc: xueyuan.chen21@gmail.com,
-	dave.hansen@intel.com,
-	akpm@linux-foundation.org,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	x86@kernel.org,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	tglx@kernel.org,
-	mingo@redhat.com,
-	bp@alien8.de,
-	dave.hansen@linux.intel.com,
-	luto@kernel.org,
-	peterz@infradead.org,
-	hpa@zytor.com,
-	ljs@kernel.org,
-	liam@infradead.org,
-	vbabka@kernel.org,
-	rppt@kernel.org,
-	surenb@google.com,
-	mhocko@suse.com,
-	ziy@nvidia.com,
-	baolin.wang@linux.alibaba.com,
-	npache@redhat.com,
-	ryan.roberts@arm.com,
-	dev.jain@arm.com,
-	baohua@kernel.org,
-	lance.yang@linux.dev,
-	yang@os.amperecomputing.com,
-	jannh@google.com
-Subject: Re: [RFC PATCH v2 1/3] mm/huge_memory: make persistent huge zero folio read-only
-Date: Wed, 24 Jun 2026 22:49:41 +0800
-Message-ID: <20260624144941.703172-1-xueyuan.chen21@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <f679fc68-5ff6-4715-9a07-9eb3074b2d1e@kernel.org>
-References: <f679fc68-5ff6-4715-9a07-9eb3074b2d1e@kernel.org>
+	Wed, 24 Jun 2026 15:27:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=aFp0MM3aM+FoHEgPp0OudMNWgrHboSMzVOcTZucIZq3doIlfFYT03dvjGdyWOYLl4oNm4aJXPJ4w3VLDkzQ1RBKyIT4jU/1FRCrQJhkjMFFWlApNgGNJqwJaxFg0ctck2qRQPi1yMOWuM02/BBI64TNC8OmW08AKBcIIYuOHQdLT9OqH6hL7M4YGw7Baoqh73JCX8MsQz8bL65orVrCAXTRovGOMvf6vP8ddbpHjVyyUTz5g7TEQvhHKTY0KrG1Jle6lz24cMm3advlvUcMRLY9psmrIx7rHpRgIZMulTOJvcuZ8W1U6CPCzBlV37RUJQTmhaUxbdR3kQd+a5hvoGg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2E1GWR8p1Lt61IxU6XjwCv+WWZn1seqOABqzX0+9sHo=;
+ b=Hpdmbn0hkkzq4W8dmAltEuCXPOAZ9trIrKhpCk8kR6KYBfjKuY+whzbd8hOUkTnGoeeRi9fRa77nJAy7pgu9QKeNooW//xxLb3VVrGrMJ1kyBYuclxB2ywW6nIXegojZ9nM2/pTbSeCwhznHD5bwwR0q4MWjsHjEEiZR5K+NXKdAYNR4+R0tgn4bFFL1O/4L3q1wQTJZslPtu/c2cbAiLEcbj543v8AymSxE0pt1erk0D7uib02tzfnS9NYZSeHllM9vGtvTC1OZxWV2gYwJTACl95oTlXCWxfLGLZIyYSXTdKUU2eZtZ9KFLsSx3S3h02QgA0Ye+tjbqcZd2oXayw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2E1GWR8p1Lt61IxU6XjwCv+WWZn1seqOABqzX0+9sHo=;
+ b=aTjq4RAN9+K/ryMn/x6B0hOlh4+V+vWQ3S8plFaAgXGvZmg3ZiAteqsj9wHJUas6WXGRgapHL17dLRxbBXngao65kV/SF98adccB6/NslMJwcLsuaHoXYrSnP71kXtC8izLIp5ZGmY5Ilg8Q5qDTnf8q9R9su1rSWgyBb5ht+ktWgKWNDIg2gtrC6ylu/rtot9KkHY6Klr1s6O/LX7HAWRcmoNJe1crDIsmgzRvCkktNqXEjJu6PPpU89gpataAFPFAQy5zXDn2dU206v8NwushQ2wWapiPkFnryDsZfEAd3qhJlwvzEtnU32+b0STF8YgTARC7/anuSRGv6xAHSng==
+Received: from AM0PR04MB6802.eurprd04.prod.outlook.com (2603:10a6:208:184::17)
+ by DU2PR04MB8693.eurprd04.prod.outlook.com (2603:10a6:10:2dc::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.15; Wed, 24 Jun
+ 2026 15:27:49 +0000
+Received: from AM0PR04MB6802.eurprd04.prod.outlook.com
+ ([fe80::dc36:17b6:e5b1:fa51]) by AM0PR04MB6802.eurprd04.prod.outlook.com
+ ([fe80::dc36:17b6:e5b1:fa51%4]) with mapi id 15.21.0159.012; Wed, 24 Jun 2026
+ 15:27:49 +0000
+From: Carlos Song <carlos.song@nxp.com>
+To: Javier Fernandez Pastrana <javier.pastrana@linutronix.de>, Mark Brown
+	<broonie@kernel.org>, Frank Li <frank.li@nxp.com>, Sascha Hauer
+	<s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, "linux-spi@vger.kernel.org"
+	<linux-spi@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+CC: "stable@vger.kernel.org" <stable@vger.kernel.org>
+Subject: RE: [PATCH v2] spi: imx: reconfigure for PIO when DMA cannot be
+ started
+Thread-Topic: [PATCH v2] spi: imx: reconfigure for PIO when DMA cannot be
+ started
+Thread-Index: AQHdA+4Dys8i7MW5JkKuqY43zXsxcQ==
+Date: Wed, 24 Jun 2026 15:27:49 +0000
+Message-ID: <AM0PR04MB6802ED0CFC33BED94C1E2D0BE8ED2@AM0PR04MB6802.eurprd04.prod.outlook.com>
+References: <20260624151958.18626-1-javier.pastrana@linutronix.de>
+In-Reply-To: <20260624151958.18626-1-javier.pastrana@linutronix.de>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AM0PR04MB6802:EE_|DU2PR04MB8693:EE_
+x-ms-office365-filtering-correlation-id: 38e86289-8abf-4017-f3db-08ded2052638
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|19092799006|366016|7416014|376014|1800799024|23010399003|22082099003|18002099003|38070700021|11063799006|921020|6133799003|56012099006;
+x-microsoft-antispam-message-info: ckbcZ1mBmToZjz1kvUHc/ERzmRgoMbGHyt46xpSlzuHFvWghmQ1QsbRQ/FUNUgU76/xn3RBvn19Lf4cSwgbO8AJM6sUVGzDADVb/Tf7mENhXCivydGsC0Vq0iaJE364nU1DL3v/H6UICbMrZtYeqz+HgZSNo35Gf4+7WiMGlwh0Mnlv0MkEsdNR46oFaI6tgpVo0dQmWDUd7yYlUAlqmD7WLIq0msFO4aJZ1iQEMwzzKfz/ZoLi5JxKpm3mm2aPXs9DyiumRLxEGyWqGN+/y+0p+nTdTVIPZXvTHWATt7eGQQo5HUZ7FYUzsFgXm2SbJBRSBAND3bpHgVPvcwUtCQ4HU5sdwykplCDCvs2mQlhsWyG5U7ps3JrRJdv77HilAWNtDXrb2F1nQmsuq7C9NEjTuf8jKuFYiiP8Q6pTLovhekGu8qmWrCSW4KMklwCuG12tIDmbjTePBj7m2t5DtV3Bv3HzZJXmXo3+kFutkBx/JjfN/uTMHjJqYfY7LoaGewAUYcDLJOJtYYGfL9mYsk28cAvEK7FdSlGUUrlXQcjsX8EtO8fwF2+lcNSXyd7n8LBkNXPGUSL6LMB/pqmQg3nqhp717qrhvgaRB5YWtqRqbVngi/wGb0z1RCi4sRRrYVLPp85/rAZ9ERo9wr3C14mBaV56EjKQ6y3yv5SYT8HTvJIRh2SVXB3wx4pQ0EPnPss4g0NU+q6s+qkrawEuJrftYhCxR5SgRoVO69tppt6KaG+ojDRhgOogS+yH14xXp
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB6802.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(7416014)(376014)(1800799024)(23010399003)(22082099003)(18002099003)(38070700021)(11063799006)(921020)(6133799003)(56012099006);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?i3ACLfT4/gy96aFqNzGEushMcDwiBT8A3IBdpVJX/7ab5ZKvaxjnBZRpQ2LH?=
+ =?us-ascii?Q?fUZnJa+dQIORkxopNDvpp7czQlLWKh0ZPt6HcLY5Xes8ZNQ95tf/XG4m7DAw?=
+ =?us-ascii?Q?1FZ/vyrwNDSQ/XuuT5JI+m4RnDZuUPOku8EEhsLRahn5gwGrw+HKushh/RZk?=
+ =?us-ascii?Q?XGeS8FSfWrRr0Z6gjr4Ua99wSYy+Laruc5ufkgjnlrsLdzhY0P9DvfrlSv6h?=
+ =?us-ascii?Q?kigRdXrEo2pik2IsSnAAd+pO7oHdixc3qXemYj43IwPXt3RnTz3H1qQh/VHj?=
+ =?us-ascii?Q?qHsSMe6HtunTXkewo3Bdpl3Bq69cGkCC6K/Ces+1ofkyjqtJnAAgoT8tmoDF?=
+ =?us-ascii?Q?pVOTpwsx4ZSGR/IGBe7O7eJw/2P1+8RWM6x33KOw1Nvihk+4idTUSvYJ+xNW?=
+ =?us-ascii?Q?8DlicEPXeUIHJvlqpsE5VQC2a3pIqa5A96FokKSiwbXPiepFfE/Opem/btux?=
+ =?us-ascii?Q?ETKO6W5YkWwzyrbnFiHVMFBsYt3eTI5daJyojwo02A0ooskOpEn0LDljRc//?=
+ =?us-ascii?Q?hIaK36j6B3U1kCyNY+tLO3N685mJ3NFxRNuUl3K4XEE6s07oBDflD7Iv7OIq?=
+ =?us-ascii?Q?YaZVvOHWQdc/rktKBYukNpukH6Xy8I8DfJ9li6i9ftC31JPyflnFGw693xAV?=
+ =?us-ascii?Q?7wogcTRunfipzV51BDUJPGgETqXcW0+GcMKZ6lCfGvhyuFdVmML4JmvldvrR?=
+ =?us-ascii?Q?vrW7G3ckAaCJaNBLMx1X+7SwPRTgm0DX5qHmj0Uz25ooa3HLtKKE37Wr5BOl?=
+ =?us-ascii?Q?nwylueY83WhhudonJjoja14YOtYLBDbGkgyJWqHx53W37HXYuprfgtFWV1Lq?=
+ =?us-ascii?Q?MoTz2hK/LHw3odQYiBNEwuRyI2zOHp8jRcjkV0hy687ZwyiPbom6TCTj0Hwp?=
+ =?us-ascii?Q?7/RbW02vW4yqectlRwLjY1ql86foc0LY8VuzEc7fZWYOqvXVI1GyqGWTgqUx?=
+ =?us-ascii?Q?2V/j10d0JAjUD+2l2cNq2HO94SJ1ZuzOUPHQaLGZ63Wq9yZnzBTqADdl/NZB?=
+ =?us-ascii?Q?RZi37kR74ybubnZ/u/FSWE2e8xGruQYcwUZ05wSn1QdPp58HJaWJseMQ3q0P?=
+ =?us-ascii?Q?8WKVx4tSfVPTREWdoBtxD/HFR9vUkLxt6OCnkwf2G3zEgWjx8dpM9bpZYbnU?=
+ =?us-ascii?Q?FuUcb+xHHCurral6g/4BN3GBURbXqed2Hk337g/ICj3igXQBvMi0B4cM0F8q?=
+ =?us-ascii?Q?668et+zmaJq6yx/cuT8ydHBlWQz3+YTzXQUZ5Rtpvx0Xg4cJVgWDrmT34yyM?=
+ =?us-ascii?Q?QwFd7gmTeCFy/YUkZ5PWycE3Us6wQm3TJO5xwCSvEkwfxA81FBxdJ+wuaumo?=
+ =?us-ascii?Q?Uifxk/AT4hXnubUFkdXRvVE7aCTflDvqAidV+R79oElZdasfJqjp5ETa6XzU?=
+ =?us-ascii?Q?hziShzL8PiMGL6veXQwvT4aIPcgkxKqtnSjvCvJ2Y1Jk7IBaHhZ9oFE+PROH?=
+ =?us-ascii?Q?zc1jQ2jcb4xGLHjZP66y90sMzmDwbfCK2AS6LQ2gKsk3lqhjCk3QC8q4GW/9?=
+ =?us-ascii?Q?WnFG658coXTctF41Q429Sv5mfB5cYUviWyVlGKp4bBW9+6EFGPjeyScyXkXU?=
+ =?us-ascii?Q?HFUlRTWzpIwt/9WGv6PHO9Ign/WoWWYFAI+cCdWIqFnVmLB4vvhwYrB6xmfk?=
+ =?us-ascii?Q?5AWjXDMiaw826N1cQBSRvEDz66hmlRBk6cVYpv9js5rERRopc+Jb4uX7R2ri?=
+ =?us-ascii?Q?6+9TIAoNAokKMRr3aL9YTxk/qfKyTySR2gVSGlPU0BkRjIYy?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB6802.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 38e86289-8abf-4017-f3db-08ded2052638
+X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Jun 2026 15:27:49.0736
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: uI339wTLQqekhUhc5c1Z+TggyvypnuNfsc0mjhWX+JDGiGJiWd5F+SXbGWQoRxYxvC6MofYJK0GfNQbIEJcYdQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8693
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_075015_925305_9D6F8568 
-X-CRM114-Status: GOOD (  11.63  )
+X-CRM114-CacheID: sfid-20260624_082755_734929_FB6A3E6E 
+X-CRM114-Status: GOOD (  26.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,51 +145,108 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Fri, Jun 19, 2026 at 01:09:09PM +0200, David Hildenbrand (Arm) wrote:
 
-Hi, David
+> -----Original Message-----
+> From: Javier Fernandez Pastrana <javier.pastrana@linutronix.de>
+> Sent: Wednesday, June 24, 2026 11:20 PM
+> To: Mark Brown <broonie@kernel.org>; Frank Li <frank.li@nxp.com>; Sascha
+> Hauer <s.hauer@pengutronix.de>; Pengutronix Kernel Team
+> <kernel@pengutronix.de>; Fabio Estevam <festevam@gmail.com>; Carlos Song
+> <carlos.song@nxp.com>; linux-spi@vger.kernel.org; imx@lists.linux.dev;
+> linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org
+> Cc: javier.pastrana@linutronix.de; stable@vger.kernel.org
+> Subject: [EXT] [PATCH v2] spi: imx: reconfigure for PIO when DMA cannot b=
+e
+> started
+>=20
+> [Some people who received this message don't often get email from
+> javier.pastrana@linutronix.de. Learn why this is important at
+> https://aka.ms/LearnAboutSenderIdentification ]
+>=20
+> Caution: This is an external email. Please take care when clicking links =
+or opening
+> attachments. When in doubt, report the message using the 'Report this ema=
+il'
+> button
+>=20
+>=20
+> When spi_imx_can_dma() selects DMA, the ECSPI is configured for DMA:
+> spi_imx_setupxfer() sets CTRL.SMC and clears dynamic_burst, and
+> spi_imx_dma_transfer() programs the dynamic-burst BURST_LENGTH and the
+> SDMA watermarks.
+>=20
+> If the DMA descriptor cannot be prepared (dmaengine_prep_slave_single()
+> returns NULL), the transfer is failed with SPI_TRANS_FAIL_NO_START and fa=
+lls
+> back to PIO. The dynamic-burst DMA path uses its own bounce buffers inste=
+ad of
+> the SPI core's mapping, so xfer->{tx,rx}_sg_mapped are not set and the co=
+re's
+> DMA->PIO retry is skipped; the driver falls back to PIO internally. But n=
+one of the
+> DMA-mode configuration is undone, so the PIO transfer runs with CTRL.SMC =
+set,
+> the wrong burst length and dynamic_burst cleared, and the transferred dat=
+a is
+> corrupted.
+>=20
+> This is easily hit on i.MX8MP boards that describe ECSPI DMA in the devic=
+e tree
+> but run SDMA on ROM firmware (no external sdma-imx7d.bin):
+> every ECSPI DMA prepare fails. An Infineon SLB9670 TPM on ECSPI1 then ret=
+urns
+> shifted TPM2_GetCapability data, is flagged "field failure mode", /dev/tp=
+mrm0 is
+> never created.
+>=20
+> Set controller->fallback before re-running spi_imx_setupxfer() so the ECS=
+PI is
+> reconfigured exactly like a normal PIO transfer. With
+> controller->fallback set, spi_imx_setupxfer() sees spi_imx_can_dma()
+> return false, so it clears spi_imx->usedma and reprograms the controller =
+(clears
+> CTRL.SMC, restores dynamic_burst and the PIO burst length). No explicit
+> spi_imx->usedma =3D false is needed: setupxfer() already updates it from =
+the
+> can_dma() result.
+>=20
+> Fixes: faa8e404ad8e ("spi: imx: support dynamic burst length for ECSPI DM=
+A
+> mode")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Javier Fernandez Pastrana <javier.pastrana@linutronix.de>
 
-[...]
+Hi,
 
->Having a new direct-map specific function with clear semantics might indeed
->avoid even messing with that.
->
->So, yeah, given that we have
->
->	set_direct_map_invalid_noflush
->	set_direct_map_default_noflush
->	set_direct_map_valid_noflush
->
->Let's add a
->
->	set_direct_map_ro()
->
->Or (my preference)
->
->	change_direct_map_ro()
->
->But given the existing naming scheme ... maybe just set_direct_map_ro() and
->we'll clean this up another day.
->
->
->Now, should there also be a "_noflush" in there, or who is supposed to flush the
->TLB (or don't we flush at all, because it's used early during boot so far)?
->
->In any case, for this function we should add excessive documentation and define
->clear semantics.
->
+LGTM. Thank you!
 
-After talking with Lance, we're leaning toward a direct-map helper:
+Acked-by: Carlos Song <carlos.song@nxp.com>
 
-  set_direct_map_ro_noflush(const void *addr, unsigned long nr_pages)
+> ---
+> v2: drop redundant spi_imx->usedma =3D false; spi_imx_setupxfer() already
+>     clears it via spi_imx_can_dma() (Carlos Song)
+>=20
+>  drivers/spi/spi-imx.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/spi/spi-imx.c b/drivers/spi/spi-imx.c index
+> 480d1e8b281f..1837cc7b0b96 100644
+> --- a/drivers/spi/spi-imx.c
+> +++ b/drivers/spi/spi-imx.c
+> @@ -2152,7 +2152,8 @@ static int spi_imx_transfer_one(struct spi_controll=
+er
+> *controller,
+>         if (spi_imx->usedma) {
+>                 ret =3D spi_imx_dma_transfer(spi_imx, transfer);
+>                 if (transfer->error & SPI_TRANS_FAIL_NO_START) {
+> -                       spi_imx->usedma =3D false;
+> +                       controller->fallback =3D true;
+> +                       spi_imx_setupxfer(spi, transfer);
+>                         if (spi_imx->target_mode)
+>                                 return spi_imx_pio_transfer_target(spi,
+> transfer);
+>                         else
+> --
+> 2.47.3
 
-Contract should be pretty explicit: direct/linear map only, no alias
-handling, no TLB flush. If a caller needs stale entries gone, it has
-to flush itself.
-
-Huge zero folio only uses this early during boot so far, so noflush
-should be OK. Will document that.
-
-Thanks,
-Xueyuan
 
