@@ -4,129 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FFCECDB47F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 19:25:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A8A9CDE000
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 19:27:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZZIGhBG/8Lw0a5tTbCrM4WR8Uy8BiutNW2JHz4dPgbo=; b=Lt69FnsgWzbbX9aJoN9yiW5Ete
-	ABkX38Tp7pI6a38l8TNkBW3ouP6go2+HLoE870i0gUKMUpRawSA3qc//FXWng5QnF9sdSJoCIZDqr
-	oJ39/OeR2jrKc/gKqBmQjtghS5KpKawdiQKM08qS4ZJZiT3RnckbOQg+orNQN0UJM25+PrA71opIj
-	mlTu+GiLJvRMzL3StKUo/3S3H/+XWJmBWGbMjkTHk/9KytMHi5NPKAHmSSEkddlqt83fBHtivJb+q
-	VkFnLBhXc2QrTLZ8X9NZFJMsBVrrA7O7uR6Bepz5uDihuvucSfOsZCJz80JuB73RNXaK5FSnjIHFj
-	mbrdHVwA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HB+X1zwClEyuS34sjRMolD4Gdv13rlFePfJPWzCgmg4=; b=0C68t/fjcwjgTgN3ZG60RhiZJF
+	D97iTMg/bTHf5s/LtH0jgrk0BtGB0XqZt341irYuBInHeSNCoutO7ecEz2tyYZuOJSXgl+rk72bIE
+	+4fSxryQeAhOfne1fSb73n1PZ/7a0EP4wXiV+L3AZ8DV36on6CPQLrDZdJV1kbP2WdwMBZwb//kfW
+	5Ps7i7WshjnNtfvium7jXOcNCSLvErhRd6h6CHUoMytEmVT8W+09CXkBfeU/bVLMP5l33N2p0DHVY
+	9J8L0LsUF2wiwq+b0wfbeh4/yd1ODqNfc0xUbMl54bERRP5ttMbrWGNRTQyBJzBDdgLfWTzzhzbnY
+	BmLb1A5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcTDp-00000008GcP-2zBa;
-	Wed, 24 Jun 2026 19:25:17 +0000
-Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
+	id 1wcTG6-00000008GnX-0Hmh;
+	Wed, 24 Jun 2026 19:27:38 +0000
+Received: from smtp.forwardemail.net ([121.127.44.66])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcTDn-00000008Gbu-03j6
+	id 1wcTG3-00000008Gmf-2ZVd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 19:25:16 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 6EBF56DCFB;
-	Wed, 24 Jun 2026 19:25:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1782329111; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ZZIGhBG/8Lw0a5tTbCrM4WR8Uy8BiutNW2JHz4dPgbo=;
-	b=r4QcG6mhdA8RArfyr4RzLWsdZ62VMaOWod0jhxVp9yJa0FkBdGbZ7182pbjEKU1vLvNOfN
-	TuEV8c15lQ2a3ntIDq1xo2PVMGzpPE/uQhBPUUr22yhG396lFk1gtEDG/Z90+RazgtM65f
-	SPoSMq3abg3N+IzeKD3OQLY0S8BQ1WE=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1782329111;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ZZIGhBG/8Lw0a5tTbCrM4WR8Uy8BiutNW2JHz4dPgbo=;
-	b=eI4FJn9xIGiHGPE2bT0os6X6lTIxKgs42HDiqUq4Q1bpsA8PSNg8dQMIvQEeosXc03CXUg
-	Jp/N53lPqM1kLxAA==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=09mNOUvu;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=+86KRCmp
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1782329110; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ZZIGhBG/8Lw0a5tTbCrM4WR8Uy8BiutNW2JHz4dPgbo=;
-	b=09mNOUvueboSyfPMk1LHBeagcrzoNimbuBgvMPdkbkArCJCh2V8waJjdsa0Iqajatb7DMB
-	sbUJqxWI3QBvCH1g7vyjwV5tC7mPL2LdzCzFYvLjLSRSEbSEBrSHmt6F4AfBgge8ir5/g9
-	KknEBm5nsRArZOmomeiUnl4xB6C9QqQ=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1782329110;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ZZIGhBG/8Lw0a5tTbCrM4WR8Uy8BiutNW2JHz4dPgbo=;
-	b=+86KRCmpXaXmybCmX7a4NNPEFUzGMdP/BaPoVfzJfUnyt/wNa9en2f7WoEodOpSt7wu9kK
-	dSQ83Z715QD4BpBQ==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 78D19779A8;
-	Wed, 24 Jun 2026 19:25:09 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id Z4J7GRUvPGrIXgAAD6G6ig
-	(envelope-from <pfalcato@suse.de>); Wed, 24 Jun 2026 19:25:09 +0000
-Date: Wed, 24 Jun 2026 20:25:07 +0100
-From: Pedro Falcato <pfalcato@suse.de>
-To: Usama Anjum <usama.anjum@arm.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>, 
-	Lorenzo Stoakes <ljs@kernel.org>, David Hildenbrand <david@kernel.org>, 
-	"Liam R. Howlett" <liam@infradead.org>, Mike Rapoport <rppt@kernel.org>, 
-	Ryan Roberts <ryan.roberts@arm.com>, Anshuman Khandual <anshuman.khandual@arm.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Samuel Holland <samuel.holland@sifive.com>, linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: mm: opaque hardware page-table entry handles
-Message-ID: <ajwuKpSnElvwIyhC@pedro-suse>
-References: <74182e50-b54f-4d2d-a27f-3a59a538d6bc@arm.com>
+	Wed, 24 Jun 2026 19:27:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: MIME-Version: Message-ID: Date: Subject: Cc:
+ To: From; q=dns/txt; s=fe-e1b5cab7be; t=1782329253;
+ bh=HB+X1zwClEyuS34sjRMolD4Gdv13rlFePfJPWzCgmg4=;
+ b=rQ3MuJL5753xy6xvQycHiVL52edNOCZkvnZx748gPKUZD4UKlVFnJMpsdUMbTYnu78HzHxLEW
+ sy9PPK5rBhNfjSpEcUEz/wtiWuRamPXJme9kiWVCaqoDsQZ84PIfijse43OWp840YVe7Pl1svek
+ Y9QQRa8JT4H5Kkghw/fmzjM0+I6EYY/iqsiPjVESatCMYAN4UfYuUhliSZapoojgQRXRLAwKvSj
+ YGTzSaiCMHt0OlHTcoH7+ftbIjz+ROb9pz9z6JC+v2jjf/BbiZaA/Ek/MYmOOmyjX4cklke3XJu
+ L8R3IjD1YwiogT0KWQrL4isi0V+7BpP++TsouTSBiT8Q==
+X-Forward-Email-ID: 6a3c2fa3138f49c481104aa0
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 121.127.44.66
+X-Forward-Email-Version: 2.8.32
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+From: Jonas Karlman <jonas@kwiboo.se>
+To: Heiko Stuebner <heiko@sntech.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Diederik de Haas <diederik@cknow-tech.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	devicetree@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-usb@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Jonas Karlman <jonas@kwiboo.se>
+Subject: [PATCH v2 0/2] rockchip: Fix devices suspend freeze on RK3568/RK3566
+Date: Wed, 24 Jun 2026 19:27:23 +0000
+Message-ID: <20260624192726.781864-1-jonas@kwiboo.se>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <74182e50-b54f-4d2d-a27f-3a59a538d6bc@arm.com>
-X-Rspamd-Action: no action
-X-Rspamd-Queue-Id: 6EBF56DCFB
-X-Spamd-Result: default: False [-4.01 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_RHS_NOT_FQDN(0.50)[];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	ARC_NA(0.00)[];
-	TO_DN_SOME(0.00)[];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	RCPT_COUNT_TWELVE(0.00)[14];
-	MIME_TRACE(0.00)[0:+];
-	MISSING_XM_UA(0.00)[];
-	DNSWL_BLOCKED(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	RCVD_TLS_ALL(0.00)[];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	RCVD_COUNT_TWO(0.00)[2];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:dkim,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	DKIM_TRACE(0.00)[suse.de:+]
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_122515_353576_B6C4320B 
-X-CRM114-Status: GOOD (  41.57  )
+X-CRM114-CacheID: sfid-20260624_122735_790352_ABD1D1A1 
+X-CRM114-Status: UNSURE (   8.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,152 +81,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 24, 2026 at 03:09:08PM +0100, Usama Anjum wrote:
-> Hi all,
-> 
-> This is a direction-check with the wider community before spending time on the
-> development. This picks up the idea that was raised and broadly agreed in the
-> earlier thread (Ryan Roberts, Lorenzo Stoakes, David Hildenbrand) [1].
-> 
-> The problem
-> -----------
-> Core MM code reaches page-table entries by raw pointer dereference (pte_t *,
-> pmd_t *, *pud, ...) in places, implicitly assuming a single, uniform
-> representation. Sprinkling getters wouldn't solve the problem entirely. The
-> problem is one level up: the *pointer type* itself is overloaded. At each level
-> there are really three distinct things:
-> 
->   1. a page-table entry value (pte_t, pmd_t, ...)
->   2. a pointer to an entry value, e.g. a pXX_t on the stack
->   3. a pointer to a live entry in the hardware page table
-> 
-> Today (2) and (3) share the same type - pte_t *, pmd_t *, and so on. Nothing
-> distinguishes a pointer into a live table from a pointer to a stack copy.
-> 
-> A pointer to an on-stack entry value and a pointer to a live hardware entry have
-> the same type, so the compiler cannot distinguish them. Passing the stack
-> pointer to an arch helper that expects a hardware-entry pointer compiles fine,
-> but is wrong - a bug class the type system makes invisible. It also blocks
-> evolution: an arch helper may need to read beyond the addressed entry (e.g.
-> adjacent or contiguous entries), which only makes sense for a real page-table
-> pointer, not a stack copy.
-> 
-> The idea
-> --------
-> Give (3) its own opaque type that cannot be dereferenced:
-> 
->     /* opaque handle to a HW page-table entry; not dereferenceable */
->     typedef struct {
-> 	pte_t *ptr;
->     } hw_ptep;
+This series fixes a system freeze during suspend in ohci_suspend() due
+to clk_usbphy1_480m not being enabled when EHCI/OHCI registers are
+accessed on e.g. a Raxa ROCK 3C board.
 
-I don't love typedefs that hide pointers.
+Following pm_test modes work on my ROCK 3C with the missing usbphy clk
+refs added:
 
-> 
-> With this:
-> 
->   - a stack value can no longer masquerade as a hardware table entry,
->   - a hardware handle can no longer be raw-dereferenced,
->   - cases that genuinely operate on a value can be refactored to pass the value
->     and let the caller, which knows whether it holds a handle or a stack copy,
->     read it once.
+  echo N > /sys/module/printk/parameters/console_suspend
 
-Just a small passing comment: how about doing it differently? like
+  echo devices > /sys/power/pm_test
+  echo platform > /sys/power/pm_test
+  echo processors > /sys/power/pm_test
+  echo core > /sys/power/pm_test
 
-typedef struct {
-	pte_t *ptep;
-} sw_ptep_t;
+  echo mem > /sys/power/state
 
-or something like that. Were I to guess, referring to a pte_t on the stack
-is much rarer than all the pte_t references to actual page tables. But maybe
-reality doesn't match up with my guess :)
+Changes in v2:
+- Include rockchip,rk3588-ehci in the EHCI constraint
+- Make clocks prop required for EHCI and OHCI
+- Collect t-b tag
 
-> 
-> The overload becomes a compile-time type error instead of a silent runtime bug,
-> and converting the tree forces every such site to be made explicit. This gives
-> us a framework where the architecture can completely virtualize the pgtable if
-> it likes; and the compiler can enforce that higher level code can't accidentally
-> work around it.
-> 
-> It is opt-in by architectures and incremental. The generic definition is
-> just an alias, so arches that do not care build unchanged:
-> 
->     typedef pte_t *hw_ptep;
-> 
-> An arch flips to the strong struct type when it is ready, and only then does
-> it get the stronger checking. This lets the conversion land gradually.
-> 
-> Beyond fixing the latent bug class, this abstraction is an enabler for upcoming
-> features that need tighter control over how page tables are accessed and
-> manipulated.
-> 
-> Getter flavours
-> ---------------
-> While converting, it is useful to have two accessor flavours at each level:
-> 
->   - pXXp_get(hw_ptep)        plain C dereference (compiler may optimize)
->   - pXXp_get_once(hw_ptep)   single-copy-atomic, not torn, elided or
->                              duplicated by the compiler
-> 
-> Keeping them distinct simplifies the conversion and avoids re-introducing the
-> class of lockless-read bugs seen on 32-bit.
-> 
-> Example conversion
-> ------------------
-> Most of the conversion is mechanical.
-> 
->   -static inline void set_ptes(struct mm_struct *mm, unsigned long addr,
->   -		pte_t *ptep, pte_t pte, unsigned int nr)
->   +static inline void set_ptes(struct mm_struct *mm, unsigned long addr,
->   +		hw_ptep ptep, pte_t pte, unsigned int nr)
->    {
->    	page_table_check_ptes_set(mm, addr, ptep, pte, nr);
->    	for (;;) {
->    		set_pte(ptep, pte);
->    		if (--nr == 0)
->    			break;
->   -		ptep++;
->   +		ptep = hw_pte_next(ptep);
->    		pte = pte_next_pfn(pte);
->    	}
->    }
-> 
-> The bulk of work is this kind of rote substitution. The genuine work is the
-> handful of sites that turn out to be operating on a stack copy rather than a
-> live entry - those are exactly the ones the new type forces us to surface and 
-> fix.
-> 
-> Estimated churn:
-> ----------------
-> Half way through the prototyping converting only PTE and PMD levels:
->   77 files changed, +1801 / -1425
->   ~57 files reference the new types
+Jonas Karlman (2):
+  dt-bindings: usb: Add Rockchip RK3568 compatible for EHCI and OHCI
+  arm64: dts: rockchip: Fix devices suspend freeze on RK3568/RK3566
 
-Right, the churn would be very unfortunate.
-
-> 
-> So the line count will grow once PUD/P4D/PGD and the remaining call sites are
-> converted; expect meaningfully more churn than the numbers above.
-> 
-> Introduce the type as an alias, convert one helper family per patch, and flip
-> an arch to the strong type last - with non-opted arches building unchanged at
-> every step.
-> 
-> Open questions
-> --------------
->   - Is the type-safety + future-feature enablement worth the churn?
->   - Naming: hw_ptep/hw_pmdp vs something else?
->   - Should all five levels be converted before merging anything, or is a staged
->     PTE-and-PMD then landing others acceptable?
->   - Do we want the two getter flavours (pXXp_get / pXXp_get_once) at every
->     level?
-> 
-> [1] https://lore.kernel.org/all/a063f6c5-2785-4a9f-8079-25edb3e54cef@arm.com
-> 
-> Thanks,
-> Usama
-> 
+ .../devicetree/bindings/usb/generic-ehci.yaml    | 14 ++++++++++++++
+ .../devicetree/bindings/usb/generic-ohci.yaml    |  7 ++++++-
+ arch/arm64/boot/dts/rockchip/rk356x-base.dtsi    | 16 ++++++++--------
+ 3 files changed, 28 insertions(+), 9 deletions(-)
 
 -- 
-Pedro
+2.54.0
+
 
