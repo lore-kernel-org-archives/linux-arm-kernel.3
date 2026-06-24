@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AC85CDB47F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 19:14:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDE00CDE000
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 19:15:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8yBQiHhBbaPx10AJMO2mrSTzdi5w57PSOE51pnBcql4=; b=YaL2eNuNJDPR1P4aZK+Su4DjDb
-	wGgvQU7twm+MkU7wJz3HYU/bY5YYdlrTxjjomL2UuzO70Bmb869xQ6SU+vr4KNZmDZH4rwhBm57GZ
-	9HfJ38xtYmeVydGkec9/SPtGr3/ZMMdfc6bIKEla74CF2ofoCMWVAZhoAA3YVSpjLa7Ddf5Jj/ZGg
-	hCu1WWEMbpbDtEowQgEE8KdhGxKqhoYYMMaHKR8pf6KnV9/56I++ZGsir6+xbjQu94OLuKq5tsUPn
-	qFhZOwahkqNSAmytHXDlEe8n21SsV/cakS7VIgV/CRv7e5la9eWSTx527/Ml6+BQ0KlbNgn9v6ggb
-	7dmkz4Jw==;
+	bh=MATdxFQBtgKcjsF1nGjyY/BUTe8cQUAE71nrnYXCJwM=; b=zyZ6twLtDgOEp7SQXTtT8IQ+pD
+	ohbj1gNRvBivnLcTKSenhqOEVTmMeh4McSCXO1p2FJNjBB5wsYn7/oFIL9npjH2SCIYAWvfyEz2bq
+	V77voVOrGOfE8RLMwfjbD5R+0o1lDV0+aw3EGeCx/gwaLGk8suI5F9rNgBC3ZWDcJtxKfw/I1eVyP
+	zRau9MWUvPfCmbiVYcp1MBrSZaTLZTYpTeoqDUUDRb9zeCVWtDaQgsUYY3KOXhBVde53bCtwkAVcT
+	uuZfRE62p/086YOI0K2BqXWFyQpDXSqJHZt4cA6kuLpkRv0fOTYwWQqnarnwQRZiNIC3rTewJ7ywt
+	KLT0nfcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcT30-00000008Fbb-1ead;
-	Wed, 24 Jun 2026 19:14:06 +0000
+	id 1wcT3s-00000008Fiw-2UMY;
+	Wed, 24 Jun 2026 19:15:00 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcT2y-00000008Fan-1E31;
-	Wed, 24 Jun 2026 19:14:05 +0000
+	id 1wcT3q-00000008FiI-2ILH;
+	Wed, 24 Jun 2026 19:14:59 +0000
 Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 18912227;
-	Wed, 24 Jun 2026 21:13:20 +0200 (CEST)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 45848236;
+	Wed, 24 Jun 2026 21:14:17 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1782328400;
-	bh=TJrYqkEmzBcIuRk4NkFKPbj+WerEbvtlgsXw/+2tDE0=;
+	s=mail; t=1782328457;
+	bh=4l3LwfXynM0MsWP2kcvzPf7S3XQAOuf0AlSVOoYKWIE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gFRWl17fewRBNx5IZw0ANyYPSgxXydfLNPrihsfkT0KjDgb+4aS3XufW5zBN+i2K7
-	 Me3fSJ/Gp6uZkeqpuAXOP398GX7JFVCUvZDDSxI4OZWAazFuStseVJ+/u0GzXSbB3d
-	 3dx270PDIVjhNVWXDtpBs9Mv5OX6V+dx3r/hN7Vw=
-Date: Wed, 24 Jun 2026 22:13:58 +0300
+	b=GaqAF6Y8/h3JELG3xUHoxAj0t/lD1G8Yuz7xkdZoqjtld0QtIDHM5nhx+A5vDQmV7
+	 ovby1WLWvV7w1axQLbuA+3u3efsU0JcAHedtGdbOdmgidHRiNaqhuK/pBzB30v6axE
+	 YikzPxT71bFWSPP4vGlqpk0U3yjqe+Jgu9MgZUnk=
+Date: Wed, 24 Jun 2026 22:14:55 +0300
 From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 To: Frank.Li@oss.nxp.com
 Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
@@ -58,18 +58,18 @@ Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
 	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
 	imx@lists.linux.dev, Guoniu Zhou <guoniu.zhou@nxp.com>,
 	Frank Li <Frank.Li@nxp.com>, Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-Subject: Re: [PATCH v2 1/4] device property: Introduce
- fwnode_graph_for_each_endpoint_scoped()
-Message-ID: <20260624191358.GC851255@killaraus.ideasonboard.com>
+Subject: Re: [PATCH v2 2/4] media: mc: use
+ fwnode_graph_for_each_endpoint_scoped() to simpilfy code
+Message-ID: <20260624191455.GD851255@killaraus.ideasonboard.com>
 References: <20260624-fw_scoped-v2-0-0a8db472af4a@nxp.com>
- <20260624-fw_scoped-v2-1-0a8db472af4a@nxp.com>
+ <20260624-fw_scoped-v2-2-0a8db472af4a@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260624-fw_scoped-v2-1-0a8db472af4a@nxp.com>
+In-Reply-To: <20260624-fw_scoped-v2-2-0a8db472af4a@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_121404_482537_B34E263D 
-X-CRM114-Status: GOOD (  22.27  )
+X-CRM114-CacheID: sfid-20260624_121458_735976_8A1D1FD9 
+X-CRM114-Status: GOOD (  13.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,58 +84,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
-
-Thank you for the patch.
-
-On Wed, Jun 24, 2026 at 01:00:09PM -0400, Frank.Li@oss.nxp.com wrote:
+On Wed, Jun 24, 2026 at 01:00:10PM -0400, Frank.Li@oss.nxp.com wrote:
 > From: Frank Li <Frank.Li@nxp.com>
 > 
-> Similar to recently propose for_each_child_of_node_scoped() this new
-> version of the loop macro instantiates a new local struct fwnode_handle *
-> that uses the __free(fwnode_handle) auto cleanup handling so that if a
-> reference to a node is held on early exit from the loop the reference will
-> be released. If the loop runs to completion, the child pointer will be NULL
-> and no action will be taken.
+> Use cleanup helper fwnode_graph_for_each_endpoint_scoped() to simpilfy
+> code.
 > 
-> The reason this is useful is that it removes the need for
-> fwnode_handle_put() on early loop exits. If there is a need to retain the
-> reference, then return_ptr(child) or no_free_ptr(child) may be used to
-> safely disable the auto cleanup.
-> 
-> Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 > Reviewed-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+> Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-
-Nice idea.
 
 Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
 
 > ---
-> change in v2
-> - collect Andy and Guoniu's reviewed-by tags
-> - fix indention
-> - remove extra space in commit message
-> ---
->  include/linux/property.h | 5 +++++
->  1 file changed, 5 insertions(+)
+>  drivers/media/v4l2-core/v4l2-mc.c | 5 +----
+>  1 file changed, 1 insertion(+), 4 deletions(-)
 > 
-> diff --git a/include/linux/property.h b/include/linux/property.h
-> index 14c304db46648..d51824c13d2cc 100644
-> --- a/include/linux/property.h
-> +++ b/include/linux/property.h
-> @@ -545,6 +545,11 @@ unsigned int fwnode_graph_get_endpoint_count(const struct fwnode_handle *fwnode,
->  	for (child = fwnode_graph_get_next_endpoint(fwnode, NULL); child;	\
->  	     child = fwnode_graph_get_next_endpoint(fwnode, child))
+> diff --git a/drivers/media/v4l2-core/v4l2-mc.c b/drivers/media/v4l2-core/v4l2-mc.c
+> index 937d358697e19..5d7fcd67dc42e 100644
+> --- a/drivers/media/v4l2-core/v4l2-mc.c
+> +++ b/drivers/media/v4l2-core/v4l2-mc.c
+> @@ -324,12 +324,10 @@ EXPORT_SYMBOL_GPL(v4l_vb2q_enable_media_source);
+>  int v4l2_create_fwnode_links_to_pad(struct v4l2_subdev *src_sd,
+>  				    struct media_pad *sink, u32 flags)
+>  {
+> -	struct fwnode_handle *endpoint;
+> -
+>  	if (!(sink->flags & MEDIA_PAD_FL_SINK))
+>  		return -EINVAL;
 >  
-> +#define fwnode_graph_for_each_endpoint_scoped(fwnode, child)			\
-> +	for (struct fwnode_handle *child __free(fwnode_handle) =		\
-> +		fwnode_graph_get_next_endpoint(fwnode, NULL);		\
-> +	     child; child = fwnode_graph_get_next_endpoint(fwnode, child))
-> +
->  int fwnode_graph_parse_endpoint(const struct fwnode_handle *fwnode,
->  				struct fwnode_endpoint *endpoint);
+> -	fwnode_graph_for_each_endpoint(src_sd->fwnode, endpoint) {
+> +	fwnode_graph_for_each_endpoint_scoped(src_sd->fwnode, endpoint) {
+>  		struct fwnode_handle *remote_ep;
+>  		int src_idx, sink_idx, ret;
+>  		struct media_pad *src;
+> @@ -397,7 +395,6 @@ int v4l2_create_fwnode_links_to_pad(struct v4l2_subdev *src_sd,
+>  				src_sd->entity.name, src_idx,
+>  				sink->entity->name, sink_idx, ret);
 >  
+> -			fwnode_handle_put(endpoint);
+>  			return ret;
+>  		}
+>  	}
 
 -- 
 Regards,
