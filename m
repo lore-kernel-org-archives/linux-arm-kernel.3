@@ -4,83 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F4A5CDB479
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 16:07:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BCC3CDE001
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 16:16:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:
-	Subject:From:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N3v36YslEFTvIe9aSboloVtZTLcZwXqsmCLNtL+8QuI=; b=qGMrKWI73JH1FxNFGrkdcYKPlD
-	DJ6RAe2EIDzgMwxzwlq5fIQ7u86D6ipWhQseO4gtW9yS/QOnBHueOqDHE2KeCp6kLkH3bgkp3/0x4
-	9VKMZqnVysVNJFx+00XsjCBp2vX9g7GboJ6He5q99p5kfL3CU2Xn7PTyVrYTyCjOWuQN+lUml7IPs
-	T9gSIYVsrJUQ9x/D7xu+81uOL3nsd1VQtgdrliVlUZ7cW9r2PKC9fwkxAqUGu3KY6xTDe63e27ajC
-	ts1QzKO5KAyacWXvwIr3i94uEjQmD5lTSF3mhnpNA2yKqjMWOboym7233KUtHdwzptA0X0etkiy7+
-	FSKkGI6A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=C/KIgQ42qvKpfhlsSKyF2HuauF1ECg4OdEJw3N/MxDE=; b=ChZZJTrdrfCcYM1KdWHRVxK3Fs
+	jGWAwM7LsOdTSz++R+VDuKmSiF8td7G5Z2auz+K7pYI31/K2C+2TK97n6wlfH44yNlzThhs1w0swY
+	bAl2cMkq8Vnpa3XXALJEBLecA7nUjNjXZiYjumWY/vUWSqRamIPg634b+WMV0d7xm2ws4VbHYxY+M
+	ATYBwqnt1t4qw6LQCJckAG4alOTd6BFDfnprWh8QV3Lcp62yo7L/KZXL0Gyxydrbe24RjijrXJtnb
+	Eys40IE40xK/G0IGG3tV6Xl0BQMesd5bdMXO91YSFwC2NxOTqVjyljQCPq4dnRTYM0OCZ2hm11z1h
+	zJ6LncnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcQ7y-000000085Jo-3xHa;
-	Wed, 24 Jun 2026 16:07:02 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1wcQGb-000000085g7-3cnV;
+	Wed, 24 Jun 2026 16:15:57 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcQ7v-000000085IP-2OJW
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 16:07:01 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id D48791A0923;
-	Wed, 24 Jun 2026 16:06:56 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id A3C69601C5;
-	Wed, 24 Jun 2026 16:06:56 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 502E1106C8468;
-	Wed, 24 Jun 2026 18:06:48 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1782317215; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=N3v36YslEFTvIe9aSboloVtZTLcZwXqsmCLNtL+8QuI=;
-	b=RjmT+un4qnnBjmGoKLf/boh6gu+rTh4ct3BN5juGXqgOv7bgnvX9vEWv3HUtBp+QuzJD5Q
-	N6vRla5R96P4XxouiUhAdC1HzU5C4ileLGLhhO+vxj2PB3zdepND0Fu6fyhHaKGIe2Ku8Z
-	DsWzrXMd/nqD0xS+lLv8vZrf2rrg+kz0mJZ9Ojb7zCXHExHam5OZsbEeLNZWrV5+UUAQRQ
-	Ue1+yCqg1OKk8ghIpB+KxGaSy3evpBqIWgzGFLWS0HhHotZcB3KbL7lSv4CbEf5NBC58at
-	T6WLbK/qhE2i8Gacrjtc7yinm3pm+aC4JaMPb/LLS/JSyTkS6L6ebzc+kO+bDQ==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 24 Jun 2026 18:06:47 +0200
-Message-Id: <DJHEPXMBL9N8.10GN58K6CAULK@bootlin.com>
-To: "Maxime Ripard" <mripard@kernel.org>, "Luca Ceresoli"
- <luca.ceresoli@bootlin.com>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH 30/37] drm/bridge: add drm_bridge_is_tail() to know
- whether a bridge completes the pipeline
-Cc: "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Thomas
- Zimmermann" <tzimmermann@suse.de>, "David Airlie" <airlied@gmail.com>,
- "Simona Vetter" <simona@ffwll.ch>, "Andrzej Hajda"
- <andrzej.hajda@intel.com>, "Neil Armstrong" <neil.armstrong@linaro.org>,
- "Robert Foss" <rfoss@kernel.org>, "Laurent Pinchart"
- <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman" <jonas@kwiboo.se>,
- "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Inki Dae"
- <inki.dae@samsung.com>, "Jagan Teki" <jagan@amarulasolutions.com>, "Marek
- Szyprowski" <m.szyprowski@samsung.com>, "Marek Vasut" <marex@denx.de>,
- "Stefan Agner" <stefan@agner.ch>, "Frank Li" <Frank.Li@nxp.com>, "Sascha
- Hauer" <s.hauer@pengutronix.de>, "Pengutronix Kernel Team"
- <kernel@pengutronix.de>, "Fabio Estevam" <festevam@gmail.com>, "Hui Pu"
- <Hui.Pu@gehealthcare.com>, "Ian Ray" <ian.ray@gehealthcare.com>, "Thomas
- Petazzoni" <thomas.petazzoni@bootlin.com>,
- <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
- <imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>
-X-Mailer: aerc 0.21.0
-References: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
- <20260519-drm-bridge-hotplug-v1-30-45e2bdb3dfb4@bootlin.com>
- <20260608-shapeless-opal-ferret-c8b105@houat>
- <DJ4DGYZ3GQZH.3AZOC0Z69W92S@bootlin.com>
- <20260624-vagabond-neon-gorilla-cd6487@houat>
-In-Reply-To: <20260624-vagabond-neon-gorilla-cd6487@houat>
-X-Last-TLS-Session-Version: TLSv1.3
+	id 1wcQGZ-000000085fb-1L7W;
+	Wed, 24 Jun 2026 16:15:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=C/KIgQ42qvKpfhlsSKyF2HuauF1ECg4OdEJw3N/MxDE=; b=zbFrCbjAVWSr9s/Viyahf2Olbs
+	oTCo4yIjsXdPR24Ttlmx4kTxQXI8ylSJ9k1iCBYbolL65pl78MI2bF9pydBeML/noASJ4tMOyHWpC
+	6aBGrmDevD7vE41CyvPDSgLfC5gUPFIl+HZwR/zpqp+4/fLNW977+zmJbh7JowiPQJlI=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1wcQGH-00978o-CO; Wed, 24 Jun 2026 18:15:37 +0200
+Date: Wed, 24 Jun 2026 18:15:37 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: jackbb_wu@compal.com
+Cc: Loic Poulain <loic.poulain@oss.qualcomm.com>,
+	Sergey Ryazanov <ryazanov.s.a@gmail.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Wen-Zhi Huang <wen-zhi.huang@mediatek.com>,
+	Shi-Wei Yeh <shi-wei.yeh@mediatek.com>,
+	Minano Tseng <Minano.tseng@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Simon Horman <horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-doc@vger.kernel.org
+Subject: Re: [PATCH v3 3/7] net: wwan: t9xx: Add control DMA interface
+Message-ID: <dc007021-9013-47b2-b06a-fe4a50d26722@lunn.ch>
+References: <20260624-t9xx_driver_v1-v3-0-73ff03f60c48@compal.com>
+ <20260624-t9xx_driver_v1-v3-3-73ff03f60c48@compal.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260624-t9xx_driver_v1-v3-3-73ff03f60c48@compal.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_090659_753564_A648FD12 
-X-CRM114-Status: GOOD (  38.74  )
+X-CRM114-CacheID: sfid-20260624_091555_362717_7E92C511 
+X-CRM114-Status: GOOD (  17.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,127 +82,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed Jun 24, 2026 at 3:04 PM CEST, Maxime Ripard wrote:
-> On Tue, Jun 09, 2026 at 10:23:24AM +0200, Luca Ceresoli wrote:
->> Hi Maxime,
->>
->> thanks for the review of this long series!
->>
->> On Mon Jun 8, 2026 at 2:34 PM CEST, Maxime Ripard wrote:
->> ...
->> >> --- a/include/drm/drm_bridge.h
->> >> +++ b/include/drm/drm_bridge.h
->> >> @@ -78,6 +78,19 @@ struct drm_bridge_funcs {
->> >>  	int (*attach)(struct drm_bridge *bridge, struct drm_encoder *encode=
-r,
->> >>  		      enum drm_bridge_attach_flags flags);
->> >>
->> >> +	/**
->> >> +	 * @is_tail:
->> >> +	 *
->> >> +	 * Returns true if this is a tail bridge, i.e. it does not need a
->> >> +	 * next bridge to work. E.g. a panel_bridge is a tail bridge, a
->> >> +	 * DSI-to-LVDS bridge is not a tail bridge (no matter whether the
->> >> +	 * next bridge is present or not).
->> >
->> > Why a DSI-to-LDVS bridge isn't a tail bridge? It only needs a panel
->> > next, right?
->>
->> Uhm, good point, but I'd say it can be a tail bridge or not: in the
->> ATTACH_NO_CONNECTOR case it will need a bridge (a panel_bridge most
->> likely), no?
->
-> Yeah, I think it cannot (always) be a blanket statement from the driver.
-> For drivers that do not support ATTACH_NO_CONNECTOR, then it's always
-> going to be a tail, but if the driver supports it, we should use a
-> helper because it's going to depend on the DT, basically.
->
->> However this is possibly irrelevant as the whole .is_tail is meant to
->> disappear in v2, see below.
->>
->> >> +	 * The @is_tail callback is optional but it is required if the
->> >> +	 * bridge is part of a pipeline with hot-pluggable components.
->> >> +	 */
->> >> +	bool (*is_tail)(struct drm_bridge *bridge);
->> >> +
->> >
->> > I don't think that's the right way to think about it, if only because
->> > you never really know at the driver level if you're supposed to be las=
-t
->> > or not. A DSI-to-LVDS bridge might just as well be chained with an
->> > LVDS-to-eDP bridge, or feed the panel directly without any additional
->> > bridge.
->> >
->> > I *think* that what you're trying to find out here is whether the chai=
-n
->> > is complete or not.
->>
->> You nailed it.
->>
->> That was the main point discussed during the Display Next Hackfest 2026
->> (see the report [0]) and we all agreed the .is_tail along with the
->> -EPROBE_DEFER changes (patches 20+35) are not a good approach.
->>
->> This is actually the most crucial aspect of the whole work still not hav=
-ing
->> no well-defined solution.
->
-> Ok
->
->> > I think you can get the same information by checking
->> > whether you have a connector for that bridge chain. If you don't, you
->> > know the chain isn't complete, and if you do, it's supposed to be.
->>
->> There's a checken-egg problem here. Knowing whether the pipeline is
->> complete or not is needed to know whether we have to create a
->> connector. See patch 36:
->>
->>   +  if (drm_bridge_connector_pipeline_is_complete(bridge_connector))
->>   +          drm_bridge_connector_add_connector(bridge_connector);
->>
->> So the question is still open, what I need the most right now is comment=
-s
->> on the overall architecture of this aspecs. Maybe replying to [0] can be
->> more effective than here.
->>
->> In a nutshell what we need is:
->>
->>  * when a bridge needs a following element (a bridge, or a panel which
->>    however might/should have a panel_bridge), but that element is not
->>    present, instead of deferring the whole card probe the card should be
->>    allowed to probe but without a connector
->>
->>  * when something is added to an incomplete pipeline we need to know
->>    whether the pipeline has become complete (in order to create the
->>    connector)
->>
->> How to implement this is still an open point. I'll welcome proposals in
->> addition to the ones in [0].
->
-> Thanks for the notes, I think I largely agree with the discussion.
+> diff --git a/drivers/net/wwan/t9xx/pcie/mtk_cldma.c b/drivers/net/wwan/t9xx/pcie/mtk_cldma.c
 
-Good! :)
+> +static inline void mtk_cldma_clr_bd_dsc(struct cldma_drv_info *drv_info,
+> +					struct bd_dsc *bd_dsc_pool, int nr_bds)
 
-> Reading through it, I thought it would be nice for a new callback called
-> get_next_bridge or something that would return either an error, NULL or a
-> (refcounted) pointer to the next bridge in the chain. And have some kind
-> of special error (ENODEV?) when the bridge should be there but isn't
-> (and thus the chain isn't complete).
+No inline functions in C files. Please let the compiler decide.
 
-I initially preferred exposing the fwnode of the next bridge as discussed
-with Dmitry during the Display Next Hackfest, which looks simpler for
-driver writers. But then I realized it would be tricyk in cases such as
-dual-LVDS output bridges (ti-sn65dsi83.c) which have two output ports in
-DT, none of which is mandatory. So I've come to thinking a callback is
-better as it should be flexible enough.
+> +static int mtk_cldma_reload_rx_skb(struct mtk_md_dev *mdev, struct rxq *rxq,
+> +				   struct rx_req *req)
+> +{
+> +	struct sk_buff *tail = NULL;
+> +	struct bd_dsc *bd_dsc;
+> +	int nr_bds;
+> +	int i, ret;
+> +
+> +	nr_bds = rxq->nr_bds;
+> +
+> +	for (i = 0; i < nr_bds; i++) {
+> +		bd_dsc = req->bd_dsc_pool + i;
+> +		bd_dsc->skb = __dev_alloc_skb(req->frag_size, GFP_KERNEL);
+> +		if (!bd_dsc->skb) {
+> +			dev_warn((mdev)->dev, "Failed to alloc SKB\n");
 
-Picking the best errno is probably the only aspect needing special
-attention now.
+You might want to rate limit this, and the other similar messages in
+the data path, otherwise it could be a DOS.
 
-Luca
+> +u32 mtk_cldma_stop_queue(struct cldma_drv_info *drv_info, enum mtk_tx_rx dir, u32 qno)
+> +{
+> +	u32 val = (qno == ALLQ) ? qno : BIT(qno);
+> +	struct cldma_hw_regs *hw_regs;
+> +	unsigned int active;
+> +	int cnt = 0;
+> +	int base;
+> +	u32 addr;
+> +
+> +	hw_regs = drv_info->hw_regs;
+> +	base = drv_info->base_addr;
+> +
+> +	if (dir == DIR_TX)
+> +		addr = base + hw_regs->reg_cldma_ul_stop_cmd;
+> +	else
+> +		addr = base + hw_regs->reg_cldma_so_stop_cmd;
+> +
+> +	mtk_pci_write32(drv_info->mdev, addr, val);
+> +
+> +	do {
+> +		active = drv_info->drv_ops->cldma_queue_status(drv_info, dir, qno);
+> +		if (active == LINK_ERROR_VAL || !active)
+> +			break;
+> +		usleep_range(WAIT_QUEUE_STOP, 2 * WAIT_QUEUE_STOP);
+> +	} while (++cnt < 10);
 
---
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Please use one of the helpers from iopoll.h. Any loops waiting for an
+event to happen should use those macros, since the open code
+implementation is often wrong.
+
+> +static int mtk_ctrl_trb_srv_init(struct mtk_ctrl_trans *trans)
+> +{
+> +	struct srv_que *srv_que;
+> +	struct trb_srv *srv;
+> +	int i, j;
+> +	int ret;
+> +
+> +	for (i = 0; i < trans->trb_srv_num; i++) {
+> +		srv = devm_kzalloc(trans->mdev->dev, sizeof(*srv), GFP_KERNEL);
+> +		if (!srv) {
+> +			ret = -ENOMEM;
+> +			goto err_free_srv;
+> +		}
+> +
+> +		srv->trans = trans;
+> +		srv->srv_id = i;
+> +		trans->trb_srv[i] = srv;
+> +
+> +		init_waitqueue_head(&srv->trb_waitq);
+> +		for (j = 0; j < NR_CLDMA; j++)
+> +			INIT_LIST_HEAD(&srv->srv_q_list[j]);
+> +	}
+> +
+> +	for (i = 0; i < NR_CLDMA; i++)
+> +		for (j = 0; j < HW_QUE_NUM; j++) {
+> +			if (trans->srv_cfg[i][j] < 0 ||
+> +			    trans->srv_cfg[i][j] >= trans->trb_srv_num)
+> +				trans->srv_cfg[i][j] = 0;
+> +			srv_que = devm_kzalloc(trans->mdev->dev, sizeof(*srv_que), GFP_KERNEL);
+> +			if (!srv_que) {
+> +				ret = -ENOMEM;
+> +				goto err_free_srv_que;
+> +			}
+> +			srv_que->hif_id = i;
+> +			srv_que->qno = j;
+> +			list_add_tail(&srv_que->list,
+> +				      &trans->trb_srv[trans->srv_cfg[i][j]]->srv_q_list[i]);
+> +		}
+> +
+> +	for (i = 0; i < trans->trb_srv_num; i++) {
+> +		trans->trb_srv[i]->trb_thread = kthread_run(mtk_ctrl_trb_thread, trans->trb_srv[i],
+> +							    "mtk_trb_srv%d_%s", i,
+> +							    trans->mdev->dev_str);
+> +		if (IS_ERR(trans->trb_srv[i]->trb_thread)) {
+> +			ret = PTR_ERR(trans->trb_srv[i]->trb_thread);
+> +			trans->trb_srv[i]->trb_thread = NULL;
+> +			goto err_stop_kthread;
+> +		}
+> +	}
+> +
+> +	return 0;
+> +err_stop_kthread:
+> +	while (--i >= 0)
+> +		kthread_stop(trans->trb_srv[i]->trb_thread);
+> +err_free_srv_que:
+> +	for (i = 0; i < trans->trb_srv_num; i++) {
+> +		for (j = 0; j < NR_CLDMA; j++) {
+> +			struct srv_que *next_srv_que;
+> +
+> +			list_for_each_entry_safe(srv_que, next_srv_que,
+> +						 &trans->trb_srv[i]->srv_q_list[j], list) {
+> +				list_del(&srv_que->list);
+> +				devm_kfree(trans->mdev->dev, srv_que);
+
+It is unusual to see devm_kfree(). Why is it needed?
+
+> +static unsigned int ctrl_port_chl_mtu;
+
+Is this a global variable? Why is it not part of priv?
+
+> +module_param(ctrl_port_chl_mtu, uint, 0644);
+> +MODULE_PARM_DESC(ctrl_port_chl_mtu, "This is used to config the ctrl port mtu!\n");
+
+Ah. No modules parameters please. If this is an MTU, why not use the
+normal networking interfaces to set the MTU?
+
+	Andrew
 
