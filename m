@@ -4,72 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB53CCDB47F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 11:49:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDDD4CDB481
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 11:49:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HvtRRLwB5nRGK6z7KOkjZragdUXab8f1dvYJB1vbLQs=; b=4oycwQHqmyeyhfYsubqlwXJcQq
-	WBKoJjnuQskzyrnl1RllmgjWNH8ic7hG3TskNQvpvH1Jxng8UQkoYQuTbI7ycqns4KgOqMM+X9DUB
-	KPtC7C7XvLNbgJ8AzFfiuPqHdW7ev7PCfDgVirsQnfW4fpD4PhVs7IGMW06+SuYzjhvulAa539KO1
-	dpoBoUPcEyeNxkAIoj1dXwqDiw4D7irAg4DHsTHbmZLXHBFiMPP/jBCP1CZbrBPYu1SlhWfxbG7tE
-	W1CAHVBLlKCWLPmHmdoNc0teyea3/f1AI1iGT3tKEPvxHJRh3bFL9aS/1hS4iBKmz+G6VUL5ncj1l
-	P5GWPCjA==;
+	bh=Js+56ANKxPxs/46/PFzp/qZpp2mD0OpgfX8pfIomZwQ=; b=HFPeJqZTZELBJw7lraUYctFRb4
+	UbkisajJQKsxoXeDLG2p5rKsg/YGxiiBV5D2IRocBSGvQUz+t0onLZnf2GZf6piFOnyIfLn/5PaZF
+	6JE2xKHRLW4td/KlgzgzhZy2sUXOYs22CAXBcKQ7qQBJUwjWjbxL3sY+97FlWsZdx3W7ZDRGJ0RpJ
+	RcuEn2YtsZDnwOahCz+lllGqro2CZQdkSFpMx3hE74GdzGIxs/PXjGHgZsvFGOCYIRbLQq9IOLg4A
+	I+JMAqQtv4xK2zAnbZRMqp8shie1fQB2tiLf/77OdKUPiLeNQ+mxQCCGWOq14FMJWdnNTtHvBVMbx
+	EhJwbkVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcM6F-00000007hrk-1fmm;
-	Wed, 24 Jun 2026 11:48:59 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wcM6l-00000007hvo-2UFX;
+	Wed, 24 Jun 2026 11:49:31 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcM6D-00000007hrS-39nn
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 11:48:57 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A863B60018;
-	Wed, 24 Jun 2026 11:48:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1CCB1F000E9;
-	Wed, 24 Jun 2026 11:48:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782301736;
-	bh=HvtRRLwB5nRGK6z7KOkjZragdUXab8f1dvYJB1vbLQs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=P9TX2/8JO3pJem0y/w8F3b3OVb59ZCN/A0wmXbugp9GUlJjVycnp3K6qkW5XOa0/O
-	 jjSksdRrPefLjvpZh6FwS08cM1YwJueYh4Z+ZJsF0zPzgBvZYOLxbE4y+c7azRjoIp
-	 KWjtV4YhlmZUon2UC0cnPNVimDZyQrNr8iwbobczz1ZyhP77eb3+ua+4hWbh772K93
-	 ZMjfdHX/KcJlbiAaYUsp6lOOXBX/mctKtEA+cBKibNz9ytvHEMpJ408r286WFodVCx
-	 LEIqKOCBPeue+FbgCVezsHMXtkxXuue73oPvPrwh3UNTkRy2gPrviLWreyI5ymXLnc
-	 TY5jUNI2pIzPA==
-Date: Wed, 24 Jun 2026 13:48:54 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Inki Dae <inki.dae@samsung.com>, 
-	Jagan Teki <jagan@amarulasolutions.com>, Marek Szyprowski <m.szyprowski@samsung.com>, 
-	Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Hui Pu <Hui.Pu@gehealthcare.com>, 
-	Ian Ray <ian.ray@gehealthcare.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 15/37] drm/display: bridge-connector: allocate the
- connector dynamically
-Message-ID: <20260624-judicious-enigmatic-hippo-b13ffe@houat>
-References: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
- <20260519-drm-bridge-hotplug-v1-15-45e2bdb3dfb4@bootlin.com>
- <20260608-rustling-infrared-turkey-e09af8@houat>
- <DJ72WOUW5FA2.G1MPCAHJQ13F@bootlin.com>
+	id 1wcM6i-00000007huw-1NkL;
+	Wed, 24 Jun 2026 11:49:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=Js+56ANKxPxs/46/PFzp/qZpp2mD0OpgfX8pfIomZwQ=; b=u+3l0513/jiVxcbyjkOiqN809G
+	2FAxCcySH/27vGu51RIwGdzd7RdgsJzIElKLg5bvVdTYm5QR7ZuKjBe569yP2AMIi8NDorLSrXCjl
+	+8EQngoG7F2CYbr6uBNs0PzsaEvGa9M3L/unrNeyXQxmck47zQB5//XBCQVNNSKWassX+h8GXcbom
+	NU74uh7PQGCZvPUQD5k+n1KOp0Aho5ASE8t9dsdQQif1MKnvK5F70scLZSG1ntG+48DX0PbLuGVah
+	7w2yjr982EGHwzmGmO/raYZ8htGjQmOSy4ovTLsfZepdyc6fOdag4SZtfNmsLJd5cYO1RBg8Il9Nr
+	N4iyrrhQ==;
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ David Wu <david.wu@rock-chips.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Yanan He <grumpycat921013@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ Yanan He <grumpycat921013@gmail.com>
+Subject: Re: [PATCH 4/7] net: stmmac: dwmac-rk: Enable refout clock for RGMII
+Date: Wed, 24 Jun 2026 13:49:12 +0200
+Message-ID: <4954560.rnE6jSC6OK@diego>
+In-Reply-To: <20260624-rv1126-alientek-dlrv1126-v1-4-5aef608a3f64@gmail.com>
+References: <20260624-rv1126-alientek-dlrv1126-v1-0-5aef608a3f64@gmail.com>
+ <20260624-rv1126-alientek-dlrv1126-v1-4-5aef608a3f64@gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="gyx3n54eiizonhu6"
-Content-Disposition: inline
-In-Reply-To: <DJ72WOUW5FA2.G1MPCAHJQ13F@bootlin.com>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260624_044928_379051_C3844F99 
+X-CRM114-Status: GOOD (  18.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,71 +74,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
---gyx3n54eiizonhu6
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 15/37] drm/display: bridge-connector: allocate the
- connector dynamically
-MIME-Version: 1.0
-
-On Fri, Jun 12, 2026 at 02:44:43PM +0200, Luca Ceresoli wrote:
-> On Mon Jun 8, 2026 at 1:46 PM CEST, Maxime Ripard wrote:
-> > On Tue, May 19, 2026 at 12:37:32PM +0200, Luca Ceresoli wrote:
-> >> Currently the drm_bridge_connector has an embedded drm_connector, so t=
-heir
-> >> allocation lifetimes are tied to each other. This is insufficient to
-> >> support DRM bridge hotplugging, which requires the connector to be add=
-ed
-> >> and removed dynamically at runtime multiple times based on hotplug/unp=
-lug
-> >> events while the drm_bridge_connector is persistent.
-> >>
-> >> Moreover the drm_connector is exposed to user space and thus an ongoing
-> >> operation (e.g. an ioctl) might last for an arbitrarily long time even
-> >> after the hardware gets removed. This means a new connector might have=
- to
-> >> be added when the previous one is still referenced by user space.
-> >>
-> >> In preparation to handle hotplug, allocate the drm-connector dynamical=
-ly,
-> >> to allow:
-> >>
-> >>  * creating and destroying a connector multiple times during a single
-> >>    drm_bridge_connector lifetime
-> >>  * creating a new connector even though the previous one is still in u=
-se
-> >>    and thus still refcounted and not yet freed
-> >>
-> >> This commit does not introduce the actions in the two bullets (it will
-> >> happen in a later commit), it only moves to dynamic APIs for connector
-> >> allocation and init.
-> >>
-> >> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-> >
-> > I think this patch should be split in half, with the switch to using
-> > destroy first, and then the actual move to the dynamically allocated
-> > connector API.
+Am Mittwoch, 24. Juni 2026, 10:44:41 Mitteleurop=C3=A4ische Sommerzeit schr=
+ieb Yanan He:
+> Some Rockchip GMAC integrations use clk_mac_refout as an external PHY
+> reference clock even when the MAC is configured for RGMII.
 >=20
-> Is it doable? drm_connector_dynamic_init() mandates a .destroy callback,
-> drm_connector_init() forbids it.
+> RV1126 boards can route CLK_GMAC_ETHERNET_OUT to the external PHY as a
+> 25 MHz reference clock. If the driver does not acquire and enable this
+> clock in RGMII mode, the common clock framework may disable it as unused
+> and the PHY can lose its reference clock.
+>=20
+> Enable the refout clock handling for RGMII in addition to RMII.
 
-drmm_connector_init forbids it. drm_connector_init mandates it.
+the clock your referencing is not limited to your rv1126 but instead
+present on most (all?) Rockchip SoCs.
 
-Maxime
+And it is an input clock for the phy itself, so should be handled there.
 
---gyx3n54eiizonhu6
-Content-Type: application/pgp-signature; name="signature.asc"
+See for example
+    https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree=
+/arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi#n313
+as a reference.
 
------BEGIN PGP SIGNATURE-----
 
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCajvEJQAKCRAnX84Zoj2+
-diY/AYD61uA2nIV5nv2saKAonASdA6xG5aMdfOpsdoDTfSXoIEmfuvVOSm9Strmc
-XNUwH0ABgJ4zLMBRfrGdi32Zl2qPuAgiR2EeAI/luJ4I2OMIEfgM7nSUdQU2Dwv6
-rqixHOXClA==
-=lXQW
------END PGP SIGNATURE-----
+Heiko
 
---gyx3n54eiizonhu6--
+> Signed-off-by: Yanan He <grumpycat921013@gmail.com>
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c | 6 ++++--
+>  1 file changed, 4 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net=
+/ethernet/stmicro/stmmac/dwmac-rk.c
+> index 8d7042e68926..f6fdc0c5b475 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> @@ -1112,7 +1112,8 @@ static int rk_gmac_clk_init(struct plat_stmmacenet_=
+data *plat)
+>  	bsp_priv->clk_enabled =3D false;
+> =20
+>  	bsp_priv->num_clks =3D ARRAY_SIZE(rk_clocks);
+> -	if (phy_iface =3D=3D PHY_INTERFACE_MODE_RMII)
+> +	if (phy_iface =3D=3D PHY_INTERFACE_MODE_RMII ||
+> +	    phy_iface =3D=3D PHY_INTERFACE_MODE_RGMII)
+>  		bsp_priv->num_clks +=3D ARRAY_SIZE(rk_rmii_clocks);
+> =20
+>  	bsp_priv->clks =3D devm_kcalloc(dev, bsp_priv->num_clks,
+> @@ -1123,7 +1124,8 @@ static int rk_gmac_clk_init(struct plat_stmmacenet_=
+data *plat)
+>  	for (i =3D 0; i < ARRAY_SIZE(rk_clocks); i++)
+>  		bsp_priv->clks[i].id =3D rk_clocks[i];
+> =20
+> -	if (phy_iface =3D=3D PHY_INTERFACE_MODE_RMII) {
+> +	if (phy_iface =3D=3D PHY_INTERFACE_MODE_RMII ||
+> +	    phy_iface =3D=3D PHY_INTERFACE_MODE_RGMII) {
+>  		for (j =3D 0; j < ARRAY_SIZE(rk_rmii_clocks); j++)
+>  			bsp_priv->clks[i++].id =3D rk_rmii_clocks[j];
+>  	}
+>=20
+>=20
+
+
+
+
 
