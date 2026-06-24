@@ -4,124 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D721CDB47C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 09:24:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6C5ACDB47C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 09:26:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=feVT5fLuDOE7Rojq+E9WobjTI1iyHmEb409dta7jO8w=; b=O/yduilbhTVwBxA/rMb8E7Rx+H
-	5wWlFkX1pXtaMktUPgpqwH123MBzh6qiqdTEdtJBwIfExYEuFLBI3+DP51TQCnX5TBczGFzFDRVMd
-	XRkc8R9QAFxyeWlyetbW6Ul2uG24lttQF+zCFd+tF2Ja3kZ4Vxwj4YOlu1yjQ3cN7EKf0EGoR3y3I
-	XeMLZchlMUoNUJPqwx1u6ZgOnfmCzY/H6/O1M0xLixL46iK2vcfmGMfkzLrkxSW/56EcdUDzarnXn
-	JU4sbWBqwV6MZZffqo2HCnG6z6dwhtwzgBqZAxERXmV84Bmaxz6JDLqZQjePjRkqBD/y8kcSIARc4
-	mSVXDssw==;
+	bh=uuIHUavUzhyt/C6rQx8OpYKtXN7bn3za9grEbqeMnzo=; b=J1bCSu/FtjzMwU60FzXMeJ9A2T
+	zvfIUTNgvKnimy89HNiVUz9Kz4k7tUlvyT31uZ4HouOGQrrfxB3Jh0C99BjYjZXEh/iUXSq6ZWJ2A
+	i/IKNglUvenfx4aKekDdBqOcyotTdv6/lfzggMIF/VKcnfyKYxxfAQ6lSZe3CSueHZXkdjRD3PWLl
+	D5excrhIrvaj2N4p2xppyV6lFMf8XZVeUL2F7VrtP5L8C6uQ2gFByk2y5+hN9St4kqb+Tpat2uiTu
+	wpjUjeNE6VsBxblKBHBvVIgHfQfJN3Vl505PAGks0faNmglaD4HYw/VZgzNj9F/NzweJzkNOji2Tf
+	7Zc4Feqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcJqb-00000007URC-2e5h;
-	Wed, 24 Jun 2026 09:24:41 +0000
-Received: from exmail3.compal.com ([59.120.207.196] helo=tpecef21.compal.com)
+	id 1wcJrv-00000007Uis-1srO;
+	Wed, 24 Jun 2026 09:26:03 +0000
+Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcJqU-00000007UPD-3MKw;
-	Wed, 24 Jun 2026 09:24:36 +0000
-X-UUID: 8035e5446fae11f1b2470fb4f881575f-20260624
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.15,REQID:7676ea42-48f2-4055-8346-59add65a3351,IP:0,U
-	RL:0,TC:0,Content:0,EDM:-20,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
-	N:release,TS:-20
-X-CID-META: VersionHash:e276073,CLOUDID:49ae7045-d8c0-4c26-a341-e1551eb7b06d,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|83|102|110|111|836|865|888|898
-	,TC:-5,Content:0|15|50,EDM:1,IP:nil,URL:99|1,File:130,RT:0,Bulk:nil,QS:nil
-	,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 8035e5446fae11f1b2470fb4f881575f-20260624
-Received: from sdmg11.sdbg.compal.com [(10.113.168.9)] by tpecef21.compal.com
-	(envelope-from <jackbb_wu@compal.com>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 517502503; Wed, 24 Jun 2026 17:24:29 +0800
-X-UUID: 7d3c655c6fae11f1b328fd8a884f4420-20260624
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.15,REQID:bafa626e-4ca2-48ec-a458-67fe5a3918c4,IP:0,U
-	RL:0,TC:0,Content:0,EDM:-20,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
-	N:release,TS:-20
-X-CID-META: VersionHash:e276073,CLOUDID:ff7d0dee-45e6-4692-a476-3f71842ee83b,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|83|102|110|111|836|865|888|898
-	,TC:-5,Content:0|15|50,EDM:1,IP:nil,URL:99|1,File:130,RT:0,Bulk:nil,QS:nil
-	,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 7d3c655c6fae11f1b328fd8a884f4420-20260624
-Received: from sdbmbx13.tpe.compalcomm.com [(10.113.2.137)] by sdmg11.sdbg.compal.com
-	(envelope-from <jackbb_wu@compal.com>)
-	(Compal Mail Service with TLSv1.2 ECDHE-RSA-AES128-SHA 128/128)
-	with ESMTP id 993115234; Wed, 24 Jun 2026 17:24:24 +0800
-Received: from SDBMBX13.tpe.compalcomm.com (10.113.2.137) by
- SDBMBX13.tpe.compalcomm.com (10.113.2.137) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.29;
- Wed, 24 Jun 2026 17:24:22 +0800
-Received: from SDBMBX13.tpe.compalcomm.com ([fe80::ea2a:c2b2:8475:8d69]) by
- SDBMBX13.tpe.compalcomm.com ([fe80::ea2a:c2b2:8475:8d69%11]) with mapi id
- 15.02.2562.029; Wed, 24 Jun 2026 17:24:22 +0800
-From: "Wu. JackBB (GSM)" <JackBB_Wu@compal.com>
-To: Loic Poulain <loic.poulain@oss.qualcomm.com>, Sergey Ryazanov
-	<ryazanov.s.a@gmail.com>, Johannes Berg <johannes@sipsolutions.net>, "Andrew
- Lunn" <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, "Eric
- Dumazet" <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Wen-Zhi Huang <wen-zhi.huang@mediatek.com>, Shi-Wei Yeh
-	<shi-wei.yeh@mediatek.com>, Minano Tseng <Minano.tseng@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Simon Horman <horms@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
-	"Wu. JackBB (GSM)" <JackBB_Wu@compal.com>
-CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-mediatek@lists.infradead.org"
-	<linux-mediatek@lists.infradead.org>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>
-Subject: RE: [External Mail] [PATCH v2 6/7] net: wwan: t9xx: Add AT & MBIM
- WWAN ports
-Thread-Topic: [External Mail] [PATCH v2 6/7] net: wwan: t9xx: Add AT & MBIM
- WWAN ports
-Thread-Index: AQHc+MXDiLwR0PrArUm0OQwIvRWSlLZNhLaa
-Date: Wed, 24 Jun 2026 09:24:22 +0000
-Message-ID: <e70456005c3c403189cf135143f96e36@compal.com>
-References: <20260610-t9xx_driver_v1-v2-0-c65addf23b3f@compal.com>,<20260610-t9xx_driver_v1-v2-6-c65addf23b3f@compal.com>
-In-Reply-To: <20260610-t9xx_driver_v1-v2-6-c65addf23b3f@compal.com>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [10.113.2.241]
-x-tm-as-product-ver: SMEX-14.0.0.3239-9.1.2019-30026.005
-x-tm-as-result: No-10--8.630600-8.000000
-x-tmase-matchedrid: MCb2X8FnAXQuv++HU7VXryRFbfQbCufdN0X64jGy2dZJTOxleK2tZnw0
-	UcwaiWo2OEjNu/JAa11YsTeqDGqRggCyCXo9mCokAszeqtinEnt4Z8iCvievMktf+nDzeNA5rUC
-	vW535VRVx/3vFNR5Gn9vmcY1a+YjJvmBRnessaQvdnKzUfJok1DAGAPS1lC6H+mag7XH0T2ng6I
-	sP5CQMBRm01/5OnlUVUe0HnlDD6uFzLIMOHzR0H1yH89h6Sv8E64sq6ekYKa27G2SFw0dTyrNtL
-	JrMGzAKbxjWf5YY68zlSoteWkUhdPIIB9QHlQCE5enkh7Jrzn6d4wdGi/BH5a7zQeWM/8x2H9eq
-	MMHVCOVNY8dJ8xzaN6gh+IlrIVEcxgRatLz2wHShHa4ajj4rLO4BPpPrzMWli9dqe3GagVgobj5
-	Jsp7aHHqeYMk3FaHe5OoEfTXN5NRXs+zvk+5JKQ53Bh+4sUi8OteHVGUMZ+BbseSoBtlH76nQtt
-	SLi2noK1B8swvjScIL0S5rTMqI7lmsSofMBbXOES46qCSbf/X5gNZJP+k/L6JYuGaIjh0/IOKWW
-	MbJYW2zZHhGBmyWLmReMZ2OJkk3d5c5uTUTfEXqcr4gT7AnzSDBIKx9EIIZt0AKecgRzk8=
-x-tm-as-user-approved-sender: No
-x-tm-as-user-blocked-sender: No
-x-tmase-result: 10--8.630600-8.000000
-x-tmase-version: SMEX-14.0.0.3239-9.1.2019-30026.005
-x-tm-snts-smtp: 55B437C1F277F25705A8EAF4CBE1EDAD9FA8CACEF8705A8AAFD070BBEC949BC52000:8
-Content-Type: text/plain; charset="big5"
-Content-Transfer-Encoding: base64
+	id 1wcJrr-00000007UgZ-2DPb
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 24 Jun 2026 09:26:02 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=uuIHUavUzhyt/C6rQx8OpYKtXN7bn3za9grEbqeMnzo=;
+	b=enxJSVfC9LiH4Y+dT+G/S2D94z7Dr6pXIahi1+GYklbX25doXvQefgoSHtbXgcCvPoPkIFUUB
+	ctA58VRp1/unD68P0rnXpOGmByvrJoOx6WiXUc3KnASoYDXp+5+JehC8x4KOMW4DT9nsN5u/m0B
+	PBW4ysVB5DaZFW43EeRhcXE=
+Received: from mail.maildlp.com (unknown [172.19.163.0])
+	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4glbtm4Sj7zpSvJ;
+	Wed, 24 Jun 2026 17:17:36 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 1B56240537;
+	Wed, 24 Jun 2026 17:25:52 +0800 (CST)
+Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
+ (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Wed, 24 Jun
+ 2026 17:25:49 +0800
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+To: <catalin.marinas@arm.com>, <will@kernel.org>, <tsbogend@alpha.franken.de>,
+	<tglx@kernel.org>, <mingo@redhat.com>, <bp@alien8.de>,
+	<dave.hansen@linux.intel.com>, <hpa@zytor.com>, <peterz@infradead.org>,
+	<kees@kernel.org>, <nathan@kernel.org>, <linusw@kernel.org>,
+	<ojeda@kernel.org>, <david.kaplan@amd.com>, <lukas.bulwahn@redhat.com>,
+	<ryan.roberts@arm.com>, <maz@kernel.org>, <timothy.hayes@arm.com>,
+	<lpieralisi@kernel.org>, <thuth@redhat.com>, <menglong8.dong@gmail.com>,
+	<oupton@kernel.org>, <yeoreum.yun@arm.com>, <miko.lenczewski@arm.com>,
+	<broonie@kernel.org>, <kevin.brodsky@arm.com>, <james.clark@linaro.org>,
+	<yangyicong@hisilicon.com>, <tabba@google.com>, <osandov@fb.com>,
+	<arnd@arndb.de>, <anshuman.khandual@arm.com>, <david@kernel.org>,
+	<akpm@linux-foundation.org>, <ljs@kernel.org>, <dev.jain@arm.com>,
+	<yang@os.amperecomputing.com>, <chaitanyas.prakash@arm.com>,
+	<kprateek.nayak@amd.com>, <chenl311@chinatelecom.cn>,
+	<sshegde@linux.ibm.com>, <thorsten.blum@linux.dev>,
+	<chang.seok.bae@intel.com>, <tim.c.chen@linux.intel.com>, <x86@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mips@vger.kernel.org>
+CC: <ruanjinjie@huawei.com>
+Subject: [PATCH v3 01/12] cpu/hotplug: Introduce CONFIG_HOTPLUG_PARALLEL_SMT
+Date: Wed, 24 Jun 2026 17:25:26 +0800
+Message-ID: <20260624092537.2916971-2-ruanjinjie@huawei.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260624092537.2916971-1-ruanjinjie@huawei.com>
+References: <20260624092537.2916971-1-ruanjinjie@huawei.com>
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.90.53.73]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_022435_262153_14932E6A 
-X-CRM114-Status: GOOD (  17.87  )
+X-CRM114-CacheID: sfid-20260624_022559_904865_62113264 
+X-CRM114-Status: GOOD (  12.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,95 +93,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgSmFrdWIsDQoNCkFkZHJlc3Npbmcgc2FzaGlrbyBBSSBjb2RlIHJldmlldyBjb21tZW50cyBm
-b3IgdGhpcyBwYXRjaCwgYXMNCnJlcXVlc3RlZCBieSB5b3UgaW4gdGhlIHBhdGNoIDMvNyByZXZp
-ZXc6DQpodHRwczovL3BhdGNod29yay5rZXJuZWwub3JnL3Byb2plY3QvbmV0ZGV2YnBmL3BhdGNo
-LzIwMjYwNjEwLXQ5eHhfZHJpdmVyX3YxLXYyLTMtYzY1YWRkZjIzYjNmQGNvbXBhbC5jb20vIzI3
-MDA2MDg4DQoNClExOiBJcyB0aGlzIG11dGV4IGV2ZXIgYWNxdWlyZWQ/IEl0IGlzIGluaXRpYWxp
-emVkIGR1cmluZyBwb3J0IHNldHVwLCBidXQNCml0IGRvZXMgbm90IGFwcGVhciB0byBiZSB1c2Vk
-IHRvIHNlcmlhbGl6ZSBvcGVyYXRpb25zIGluDQptdGtfcG9ydF9jb21tb25fd3JpdGUoKSBvciB3
-aGVuIHNlbmRpbmcgZGF0YS4NCg0KICBWYWxpZC4gRml4ZWQgaW4gdjMgYnkgcmVtb3ZpbmcgdGhl
-IHVudXNlZCB3cml0ZV9sb2NrIG11dGV4IGZyb20NCiAgc3RydWN0IG10a19wb3J0IGFuZCBpdHMg
-bXV0ZXhfaW5pdCBjYWxsLg0KDQpRMjogV2lsbCBjb25jdXJyZW50IHdyaXRlcyBzYWZlbHkgZXhl
-Y3V0ZSBoZXJlIHdpdGhvdXQgaG9sZGluZyB3cml0ZV9sb2NrPw0KQ291bGQgdGhpcyBsYWNrIG9m
-IHNlcmlhbGl6YXRpb24gbGVhZCB0byBzZXF1ZW5jZSBudW1iZXIgY29ycnVwdGlvbj8NCg0KICBU
-aGUgV1dBTiBjb3JlIGZyYW1ld29yayBob2xkcyBwb3J0LT5vcHNfbG9jayAoYSBtdXRleCkgYXJv
-dW5kIHRoZQ0KICB0eC90eF9ibG9ja2luZyBjYWxsYmFjayBpbnZvY2F0aW9ucywgc2VyaWFsaXpp
-bmcgd3JpdGUgb3BlcmF0aW9ucw0KICBvbiB0aGUgc2FtZSBXV0FOIHBvcnQuIEZvciBpbnRlcm5h
-bCBwb3J0cywgd3JpdGVzIGFyZSBleGNsdXNpdmVseQ0KICBwZXJmb3JtZWQgYnkgdGhlIEZTTSBr
-dGhyZWFkLCB3aGljaCBpcyBzaW5nbGUtdGhyZWFkZWQuIENvbmN1cnJlbnQNCiAgd3JpdGVzIHRv
-IHRoZSBzYW1lIHBvcnQgZG8gbm90IG9jY3VyLCBhbmQgcG9ydC0+dHhfc2VxIGlzIGFsd2F5cw0K
-ICBtb2RpZmllZCBieSBhIHNpbmdsZSB0aHJlYWQuDQoNClEzOiBXaGF0IGhhcHBlbnMgaWYgYSBi
-bG9ja2luZyB3cml0ZSBpcyBpbnRlcnJ1cHRlZCBieSBhIHBvcnQgdGVhcmRvd24/DQpJZiBQT1JU
-X1NfV1IgaXMgY2xlYXJlZCwgdHJiLT5zdGF0dXMgcmVtYWlucyBhdCBNVEtfREZMVF9UUkJfU1RB
-VFVTICgxKS4NCnJldCA9ICghdHJiLT5zdGF0dXMpID8gbGVuIDogdHJiLT5zdGF0dXMgZXZhbHVh
-dGVzIHRvIDEsIGNhdXNpbmcgYW4NCmluY29ycmVjdCBieXRlIGNvdW50IHRvIGJlIHJldHVybmVk
-Lg0KDQogIFRoaXMgb25seSBvY2N1cnMgZHVyaW5nIHBvcnQgdGVhcmRvd24gKFBPUlRfU19XUiBj
-bGVhcmVkIGJ5DQogIG10a19wb3J0X2NvbW1vbl9jbG9zZSBvciBkaXNhYmxlKS4gQXQgdGhpcyBw
-b2ludCB0aGUgcG9ydCBpcyBiZWluZw0KICBzaHV0IGRvd24gYW5kIHRoZSByZXR1cm4gdmFsdWUg
-aXMgbGFyZ2VseSBpcnJlbGV2YW50IKFYIHRoZSBjYWxsZXINCiAgY2Fubm90IG1lYW5pbmdmdWxs
-eSB1c2UgdGhlIHBvcnQgYWZ0ZXJ3YXJkLiBUaGUgc3VibWl0dGVkIGRhdGEgbWF5DQogIG9yIG1h
-eSBub3QgaGF2ZSBiZWVuIHRyYW5zbWl0dGVkIGJ5IERNQSwgZGVwZW5kaW5nIG9uIHRpbWluZy4g
-VGhpcw0KICBpcyBhIHRlYXJkb3duLW9ubHkgc2NlbmFyaW8gd2l0aCBubyBwcmFjdGljYWwgaW1w
-YWN0IG9uIGRhdGENCiAgaW50ZWdyaXR5Lg0KDQpRNDogSXMgaXQgc2FmZSB0byBtdXRhdGUgdGhl
-IGZsYWdzIGRpcmVjdGx5IGhlcmU/IFRoaXMgaXMgYSBub24tYXRvbWljDQpyZWFkLW1vZGlmeS13
-cml0ZSBvbiB0aGUgc2hhcmVkIHBvcnQgc3RydWN0dXJlLg0KDQogIFRoZSBXV0FOIGNvcmUgaG9s
-ZHMgcG9ydC0+b3BzX2xvY2sgKGEgbXV0ZXgpIGFyb3VuZCB0eC90eF9ibG9ja2luZw0KICBjYWxs
-YmFja3MsIHNlcmlhbGl6aW5nIGZsYWcgbW9kaWZpY2F0aW9ucy4gbXRrX3BvcnRfd3dhbl93cml0
-ZSgpDQogIGFuZCBtdGtfcG9ydF93d2FuX3dyaXRlX2Jsb2NraW5nKCkgYXJlIG5ldmVyIGNhbGxl
-ZCBjb25jdXJyZW50bHkNCiAgZm9yIHRoZSBzYW1lIHBvcnQuDQoNClE1OiBEb2VzIHRoaXMgc2ls
-ZW50bHkgZHJvcCBkYXRhIG9uIHBhcnRpYWwgd3JpdGVzPyBJZg0KbXRrX3BvcnRfY29tbW9uX3dy
-aXRlKCkgcmV0dXJucyBhIHBvc2l0aXZlIHZhbHVlIChwYXJ0aWFsIHN1Y2Nlc3MpLA0KY29uc3Vt
-ZV9za2IgaXMgY2FsbGVkIHVuY29uZGl0aW9uYWxseSBhbmQgMCAoc3VjY2VzcykgaXMgcmV0dXJu
-ZWQuDQoNCiAgVGhpcyBpcyBhIGRlc2lnbiBsaW1pdGF0aW9uIG9mIHRoZSBXV0FOIHBvcnQgQVBJ
-OiB3d2FuX3BvcnRfb3BfdHgNCiAgcmV0dXJucyAwIGZvciBzdWNjZXNzIG9yIG5lZ2F0aXZlIGZv
-ciBlcnJvciChWCB0aGVyZSBpcyBubyBtZWNoYW5pc20NCiAgdG8gcmVwb3J0IHBhcnRpYWwgd3Jp
-dGVzIGJhY2sgdG8gdGhlIFdXQU4gY29yZS4gVGhlIGFscmVhZHktc3VibWl0dGVkDQogIGZyYWdt
-ZW50cyBjYW5ub3QgYmUgcmVjYWxsZWQgZnJvbSB0aGUgRE1BIGVuZ2luZS4gRm9yIHRoZSBBVC9N
-QklNDQogIGNvbnRyb2wgcG9ydHMgaW4gdGhpcyBkcml2ZXIsIG1lc3NhZ2VzIGFyZSBzbWFsbCAo
-dHlwaWNhbGx5IHVuZGVyDQogIDFLQiwgd2l0aGluIGEgc2luZ2xlIE1UVSkuIFRoZSBtdWx0aS1m
-cmFnbWVudCBwYXRoIGlzIHJhcmVseQ0KICBleGVyY2lzZWQgZm9yIGNvbnRyb2wgcGxhbmUgdHJh
-ZmZpYy4NCg0KUTY6IEFzIHdpdGggbXRrX3BvcnRfd3dhbl93cml0ZSgpLCBtdXRhdGluZyB0aGUg
-c2hhcmVkIGJsb2NraW5nIGZsYWcNCndpdGhvdXQgYXRvbWljcyBjb3VsZCByYWNlLCBhbmQgaWdu
-b3JpbmcgcG9zaXRpdmUgcmV0dXJuIHZhbHVlcyBjb3VsZA0KbGVhZCB0byBzaWxlbnQgZGF0YSBs
-b3NzLg0KDQogIFNhbWUgYXMgUTQgKGZsYWdzIHNlcmlhbGl6ZWQgYnkgV1dBTiBjb3JlIG9wc19s
-b2NrKSBhbmQgUTUNCiAgKHBhcnRpYWwgd3JpdGUgaXMgYSBXV0FOIEFQSSBsaW1pdGF0aW9uLCBy
-YXJlIGZvciBjb250cm9sIG1lc3NhZ2VzKS4NCg0KUTc6IElzIHRoZXJlIGEgcmFjZSBjb25kaXRp
-b24gaGVyZSBpZiB3d2FuX2NyZWF0ZV9wb3J0KCkgZmFpbHM/IFRoZSByZXR1cm4NCnZhbHVlIGlz
-IGRpcmVjdGx5IGFzc2lnbmVkIHRvIHdfcG9ydCB3aXRob3V0IGNoZWNraW5nIElTX0VSUigpIGZp
-cnN0Lg0KQ291bGQgY29uY3VycmVudCBSWCBwYXNzIHRoZSBlcnJvciBwb2ludGVyIHRvIHd3YW5f
-cG9ydF9yeCgpPw0KDQogIE5vIHJhY2UuIG10a19wb3J0X3d3YW5fZW5hYmxlKCkgaXMgY2FsbGVk
-IGZyb20gdGhlIEZTTSB0aHJlYWQNCiAgZHVyaW5nIHRoZSBoYW5kc2hha2Ugc2VxdWVuY2UsIGJl
-Zm9yZSB0aGUgcG9ydCBzdGFydHMgcmVjZWl2aW5nDQogIGRhdGEuIFRoZSBDTERNQSBSWCBxdWV1
-ZSBmb3IgdGhpcyBwb3J0IGhhcyBub3QgYmVlbiBvcGVuZWQgYXQgdGhpcw0KICBwb2ludCChWCBS
-WCBkYXRhIG9ubHkgYXJyaXZlcyBhZnRlciB0aGUgbW9kZW0gY29tcGxldGVzIGl0cw0KICBoYW5k
-c2hha2UuIFRoZSBSWCBwYXRoIGNhbm5vdCBvYnNlcnZlIHRoZSBlcnJvciBwb2ludGVyIGJlY2F1
-c2Ugbm8NCiAgZGF0YSBhcnJpdmVzIHVudGlsIGFmdGVyIHRoZSBwb3J0IGlzIGZ1bGx5IGVuYWJs
-ZWQuDQoNClE4OiBJcyB0aGUgV1dBTiBwb3J0IGV4cG9zZWQgdG8gdXNlcnNwYWNlIGJlZm9yZSBp
-dHMgc3RhdGUgaXMgZnVsbHkNCmluaXRpYWxpemVkPyB3d2FuX2NyZWF0ZV9wb3J0KCkgcmVnaXN0
-ZXJzIHRoZSBjaGFyYWN0ZXIgZGV2aWNlIGFuZA0KdHJpZ2dlcnMgYSB1ZXZlbnQuIElmIHVzZXJz
-cGFjZSBvcGVucyBpbW1lZGlhdGVseSwgUE9SVF9TX0VOQUJMRSBpcw0Kbm90IHNldCB5ZXQgc28g
-b3BlbiByZXR1cm5zIC1FTk9ERVYuDQoNCiAgVGhlIHdpbmRvdyBiZXR3ZWVuIHd3YW5fY3JlYXRl
-X3BvcnQoKSByZXR1cm5pbmcgYW5kDQogIHNldF9iaXQoUE9SVF9TX0VOQUJMRSkgaXMgYSBmZXcg
-aW5zdHJ1Y3Rpb25zIChuYW5vc2Vjb25kcykuIElmDQogIHVzZXJzcGFjZSBvcGVucyBpbiB0aGF0
-IHdpbmRvdywgdGhlIG9wZW4gcmV0dXJucyAtRU5PREVWIGFuZCB0aGUNCiAgYXBwbGljYXRpb24g
-cmV0cmllcy4gSW4gcHJhY3RpY2UsIHVzZXIgc3BhY2UgV1dBTiBtYW5hZ2VycyAoZS5nLiwNCiAg
-TW9kZW1NYW5hZ2VyKSB3YWl0IGZvciB1ZGV2IGV2ZW50cyB0byBzZXR0bGUgYmVmb3JlIG9wZW5p
-bmcgcG9ydHMuDQogIFJlb3JkZXJpbmcgdG8gc2V0IFBPUlRfU19FTkFCTEUgYmVmb3JlIHd3YW5f
-Y3JlYXRlX3BvcnQgaXMgbm90DQogIGNvcnJlY3QgZWl0aGVyIKFYIHRoZSBwb3J0IHNob3VsZCBu
-b3QgYmUgbWFya2VkIGVuYWJsZWQgYmVmb3JlIHRoZQ0KICBXV0FOIHBvcnQgb2JqZWN0IGV4aXN0
-cy4NCg0KVGhhbmtzLg0KDQoNCj09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT0NClRoaXMgbWVzc2FnZSBtYXkgY29udGFpbiBpbmZvcm1hdGlvbiB3aGljaCBpcyBw
-cml2YXRlLCBwcml2aWxlZ2VkIG9yIGNvbmZpZGVudGlhbCBvZiBDb21wYWwgRWxlY3Ryb25pY3Ms
-IEluYy4gSWYgeW91IGFyZSBub3QgdGhlIGludGVuZGVkIHJlY2lwaWVudCBvZiB0aGlzIG1lc3Nh
-Z2UsIHBsZWFzZSBub3RpZnkgdGhlIHNlbmRlciBhbmQgZGVzdHJveS9kZWxldGUgdGhlIG1lc3Nh
-Z2UuIEFueSByZXZpZXcsIHJldHJhbnNtaXNzaW9uLCBkaXNzZW1pbmF0aW9uIG9yIG90aGVyIHVz
-ZSBvZiwgb3IgdGFraW5nIG9mIGFueSBhY3Rpb24gaW4gcmVsaWFuY2UgdXBvbiB0aGlzIGluZm9y
-bWF0aW9uLCBieSBwZXJzb25zIG9yIGVudGl0aWVzIG90aGVyIHRoYW4gdGhlIGludGVuZGVkIHJl
-Y2lwaWVudCBpcyBwcm9oaWJpdGVkLg0KPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PQ0K
+During parallel CPU bringup, x86 requires primary SMT threads to boot
+first to avoid siblings stopping during microcode updates. This constraint
+is architecture-specific and unnecessary for other platforms
+like arm64.
+
+Introduce CONFIG_HOTPLUG_PARALLEL_SMT to decouple this constraint.
+Platforms requiring this temporal order (e.g., x86) can select it
+in Kconfig. Other architectures (e.g., arm64) can leave it unselected
+to entirely bypass the SMT branch.
+
+Suggested-by: Thomas Gleixner <tglx@kernel.org>
+Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+---
+ arch/Kconfig      | 5 +++++
+ arch/mips/Kconfig | 3 +--
+ arch/x86/Kconfig  | 2 +-
+ kernel/cpu.c      | 4 ++--
+ 4 files changed, 9 insertions(+), 5 deletions(-)
+
+diff --git a/arch/Kconfig b/arch/Kconfig
+index e86880045158..d25b61dc03b2 100644
+--- a/arch/Kconfig
++++ b/arch/Kconfig
+@@ -102,6 +102,11 @@ config HOTPLUG_PARALLEL
+ 	bool
+ 	select HOTPLUG_SPLIT_STARTUP
+ 
++config HOTPLUG_PARALLEL_SMT
++	bool
++	select HOTPLUG_PARALLEL
++	select HOTPLUG_SMT
++
+ config GENERIC_IRQ_ENTRY
+ 	bool
+ 
+diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
+index 4364f3dba688..8d9c57f3df23 100644
+--- a/arch/mips/Kconfig
++++ b/arch/mips/Kconfig
+@@ -660,7 +660,7 @@ config EYEQ
+ 	select USB_UHCI_BIG_ENDIAN_DESC if CPU_BIG_ENDIAN
+ 	select USB_UHCI_BIG_ENDIAN_MMIO if CPU_BIG_ENDIAN
+ 	select USE_OF
+-	select HOTPLUG_PARALLEL if HOTPLUG_CPU
++	select HOTPLUG_PARALLEL_SMT if HOTPLUG_CPU
+ 	help
+ 	  Select this to build a kernel supporting EyeQ SoC from Mobileye.
+ 
+@@ -2301,7 +2301,6 @@ config MIPS_CPS
+ 	select MIPS_CM
+ 	select MIPS_CPS_PM if HOTPLUG_CPU
+ 	select SMP
+-	select HOTPLUG_SMT if HOTPLUG_PARALLEL
+ 	select HOTPLUG_CORE_SYNC_DEAD if HOTPLUG_CPU
+ 	select SYNC_R4K if (CEVT_R4K || CSRC_R4K)
+ 	select SYS_SUPPORTS_HOTPLUG_CPU
+diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+index f3f7cb01d69d..2ea80da1e4f8 100644
+--- a/arch/x86/Kconfig
++++ b/arch/x86/Kconfig
+@@ -305,7 +305,7 @@ config X86
+ 	select HAVE_USER_RETURN_NOTIFIER
+ 	select HAVE_GENERIC_VDSO
+ 	select VDSO_GETRANDOM			if X86_64
+-	select HOTPLUG_PARALLEL			if SMP && X86_64
++	select HOTPLUG_PARALLEL_SMT		if SMP && X86_64
+ 	select HOTPLUG_SMT			if SMP
+ 	select HOTPLUG_SPLIT_STARTUP		if SMP && X86_32
+ 	select IRQ_FORCED_THREADING
+diff --git a/kernel/cpu.c b/kernel/cpu.c
+index bc4f7a9ba64e..5a90f60ff60e 100644
+--- a/kernel/cpu.c
++++ b/kernel/cpu.c
+@@ -1792,7 +1792,7 @@ static int __init parallel_bringup_parse_param(char *arg)
+ }
+ early_param("cpuhp.parallel", parallel_bringup_parse_param);
+ 
+-#ifdef CONFIG_HOTPLUG_SMT
++#ifdef CONFIG_HOTPLUG_PARALLEL_SMT
+ static inline bool cpuhp_smt_aware(void)
+ {
+ 	return cpu_smt_max_threads > 1;
+@@ -1811,7 +1811,7 @@ static inline const struct cpumask *cpuhp_get_primary_thread_mask(void)
+ {
+ 	return cpu_none_mask;
+ }
+-#endif
++#endif /* CONFIG_HOTPLUG_PARALLEL_SMT */
+ 
+ bool __weak arch_cpuhp_init_parallel_bringup(void)
+ {
+-- 
+2.34.1
+
 
