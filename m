@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7ACDCDB479
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 22:54:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 465A5CDB479
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 22:55:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=56P581cyET3p8pfSvFHStxu8oHOszFLpsAJpj8hvZRg=; b=QxCzQVyaMnSmk+36x+NEuLeVKV
-	sXpcTtdvXNpK8lBfx1V/iG7QI1vQ7S3Mor6rEGbsxgdFs4eEOJdCexOg/lZpkXBysFWsR9iKp+zem
-	8i5A9NU3YAUdNcTiKrlH9TWp4QFSQu5gz9609eB/gpj2jY7SMgX2JbTMqh7PZeJBJgn7mFzFw1o5D
-	GQAXrxlPch78Sh1BiXqf89Mg5amZA5ijENqPMdXK4sz0EOj4Sp4+dVwv282SUCfKw7foF7p0B8K6X
-	V+2F7SCE/zlN6X0bKXP6ff2e9VprCw8hrNLDyTRyP9xfV8aR3cRZIUmTCpIPUlnYBsAM4y/WT38tR
-	AiWfDGXA==;
+	bh=rZiQSaURDYO17/6WGoNt/MVWZsEN5ahkC1vFIHK/U1A=; b=yRmGUrozvhOX2F0N2mME+kUP0O
+	2EhhZzYVFdAxHcU6iqa0svJuQsSLRtrbHIBW3RyPBW9aEi9tbRL+SUdquBQgQq7LUBhPpmZ6Gl72y
+	RBu8zL7gy1mMQzUIDXKcFZDhiDfH6r4QQ5HmCdhGHdBwzCZRm371DtCb0bCLLwFlJlF6Ceos1Yi4w
+	AujxOPZDq1o+6GovI6K5HkOfiYkDrfF84D377qi7Ro1XgyM7jy+BPoGJrOj6nPl9pffBxqk/9OqMB
+	S7aBwBrz+UD+qPsnZdYUYmhx5Cqi49chntvgP0J/WS9HmzRmD4gfR8J6TVOxiqPIEVK610iKYjkvd
+	pdInVvyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcWUD-00000008Pst-36Nd;
-	Wed, 24 Jun 2026 22:54:25 +0000
+	id 1wcWVT-00000008Q0h-11PD;
+	Wed, 24 Jun 2026 22:55:43 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcWUC-00000008PsT-02pC
+	id 1wcWVS-00000008Q0b-05SQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 22:54:24 +0000
+	Wed, 24 Jun 2026 22:55:42 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6BFF243232
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Jun 2026 22:54:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FCB11F00A3D
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Jun 2026 22:54:23 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C4AA040615
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Jun 2026 22:55:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A70781F00ADB
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Jun 2026 22:55:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782341663;
-	bh=56P581cyET3p8pfSvFHStxu8oHOszFLpsAJpj8hvZRg=;
+	s=k20260515; t=1782341741;
+	bh=rZiQSaURDYO17/6WGoNt/MVWZsEN5ahkC1vFIHK/U1A=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=GAm5f3UJm54F7qj3ACcwYfMiGhx0fpiVaO2rFqe7P93zV07FTHwTKz1bXSlkOHfY5
-	 TB/A9TbrlhZ5dNEYrabhUw5qDFvF8QVCFjphUnvqkmohy/6K7usTVDt4R5FeqxBd/N
-	 YlfUKleNA6S67dMaaUf0dYF/71Qj88x1+iv5suPtjNOJlCdD+UqQsdfiwYXDKF03jK
-	 cxN0hdjXlFfWNhB3ieru21GjQxxJmnPKtaH/n+hLoR6SCDF910PlwmFYmNSBIneJhg
-	 7jZfRIcX9945y0F+OpbmHA0RI5Py6ZJsX2yI2fde1JdeKi6iRBGe+ZWIvMqiq+MOFp
-	 0EzoksAhuaRDA==
-Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-5ad578c49afso1644791e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Jun 2026 15:54:23 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+Roi2MnEcesR7rd/Ob7lvBNU5W48RJ/+Y2JN9iLoTxe4FZmKQhmYnFzAzYn1Gd6jZyE86WFkKSWuU4M0eczOSJP5@lists.infradead.org
-X-Gm-Message-State: AOJu0YwxEMULrQubMdySuG4iT5I32ryo3vYIDxxhL5HOjSrNx8iudm9d
-	m2WfYYdAhjG7Pb7TV6Kk3OBLAlqidPBeOgUVI4i6P59/zUUS3ZpyXl2Ze6e/y6jcCWcDG64chJP
-	E40xuUB/0P71TkLzH+sETc82V5NQoz48=
-X-Received: by 2002:ac2:4909:0:b0:5aa:6e60:1983 with SMTP id
- 2adb3069b0e04-5aea1f4cc2emr7661e87.24.1782341662098; Wed, 24 Jun 2026
- 15:54:22 -0700 (PDT)
+	b=TmkaP2JPQfksOxtmYTQbeS/nAngITe1/7m/+4k5iMJPGYM3eCSKbX2EoX8xm8hTHZ
+	 vmMIPFr/mYv7e7Kh2B4lkJIMh8OGaCn28DKah5fnaM26hkZ0CfyLmqsq+uzRrrk1ir
+	 0Aztjei+ZaT5X5YzpOiHI7aNcdGd2uExUVi2Ml8IXw6wlIW7MLx1St+m6BiMweNN4J
+	 9tixfv9DW9lK5Kmpbs4LaXzIGotI13N5HXHjXHSVbThbmh8+1EmMhdmcMJcBTbyMPn
+	 1f5g9f4/NObzpE/YAJ0Z2dsoVxTMwGVR25DeFZUHwsm3sfI4DVpfe/Li/DKWkN1nPa
+	 b8JT9Hgtp1nLw==
+Received: by mail-lf1-f51.google.com with SMTP id 2adb3069b0e04-5ad58f31846so1786655e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Jun 2026 15:55:41 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Rp2lU0W7JYarUxb88JfT/SZAyPgaFOp+twFQW7BH31a7N8Ff06EZWgEeHLzTevo3yg8DjPX2sy+0/K5hill/vCV@lists.infradead.org
+X-Gm-Message-State: AOJu0YxpqCC1AiniYfqLA85rndyhr90SZCWnnRYQFJRH/7hVBbOmfCAi
+	Qd8ILPHDanO2zChXwAv4OzDbfVrVyOc2Qen+tq6ipAbif5LbJClsdoBqITqbFuWObUIcMfZ7Sm8
+	i0fgcBefF8kJqIH+KvCq9hWBZcRRyqEc=
+X-Received: by 2002:a05:6512:8041:b0:5ad:5a14:4c1b with SMTP id
+ 2adb3069b0e04-5aea1f645b0mr6767e87.36.1782341740475; Wed, 24 Jun 2026
+ 15:55:40 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260623-i2c-fault-reporting-v1-0-6db1a8aabf18@mobileye.com> <20260623-i2c-fault-reporting-v1-5-6db1a8aabf18@mobileye.com>
-In-Reply-To: <20260623-i2c-fault-reporting-v1-5-6db1a8aabf18@mobileye.com>
+References: <20260623-i2c-fault-reporting-v1-0-6db1a8aabf18@mobileye.com> <20260623-i2c-fault-reporting-v1-6-6db1a8aabf18@mobileye.com>
+In-Reply-To: <20260623-i2c-fault-reporting-v1-6-6db1a8aabf18@mobileye.com>
 From: Linus Walleij <linusw@kernel.org>
-Date: Thu, 25 Jun 2026 00:54:10 +0200
-X-Gmail-Original-Message-ID: <CAD++jLmze1K8LnMniv1gNTxXnW87AOF08vcPXnsASXn+75WG-Q@mail.gmail.com>
-X-Gm-Features: AVVi8CfWKmNuDtu_CQ8CzYherOgZFOOUsqFP_TlnPojbQL-Ikm-PqOSDWXEzGJQ
-Message-ID: <CAD++jLmze1K8LnMniv1gNTxXnW87AOF08vcPXnsASXn+75WG-Q@mail.gmail.com>
-Subject: Re: [PATCH 5/7] i2c: nomadik: change print level for fault messages
- to debug
+Date: Thu, 25 Jun 2026 00:55:28 +0200
+X-Gmail-Original-Message-ID: <CAD++jLm+dHRNqS3HNL3+p7NGB2_bxncFPMEQVAOG-ZRZqQH7hQ@mail.gmail.com>
+X-Gm-Features: AVVi8Cerkddbq6mFwZBM5M7tjoj4rE4OxpQJFijXkFL3Z8iwOxVsKKaRtrxxd9E
+Message-ID: <CAD++jLm+dHRNqS3HNL3+p7NGB2_bxncFPMEQVAOG-ZRZqQH7hQ@mail.gmail.com>
+Subject: Re: [PATCH 6/7] i2c: nomadik: add quirks max_len=2047 and no_zero_len_read
 To: Dmitry Guzman <Dmitry.Guzman@mobileye.com>
 Cc: Andi Shyti <andi.shyti@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
 	Masami Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
@@ -85,17 +84,18 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On Tue, Jun 23, 2026 at 6:32=E2=80=AFPM Dmitry Guzman
 <Dmitry.Guzman@mobileye.com> wrote:
 
-> i2c-nomadik driver prints error message on every faulted message. This
-> is not a good practice, because in I2C a fault not always is an error,
-> sometimes it is the expected result. For example, scanning bus with
-> `i2cdetects` prints over 100 messages in dmesg (two messages per each
-> target address).
+> In Nomadik I2c controller, register I2C_MCR has 11-bit wide LENGTH
+> field. Its maximum value is 2047, so this is the maximum length of a
+> single message. It is less than the common maximum I2C message length in
+> I2C subsystem (8192), so define a quirk in order to report the
+> unsupported message without any attempt to transfer it.
 >
-> To avoid excessive prints in the log, change the print level from err to
-> debug.
+> Zero length reading doesn't work properly on this controller, so add
+> `I2C_AQ_NO_ZERO_LEN_READ` quirk flag.
 >
 > Signed-off-by: Dmitry Guzman <Dmitry.Guzman@mobileye.com>
 
+Excellent improvements, almost a Fixes: patch.
 Reviewed-by: Linus Walleij <linusw@kernel.org>
 
 Yours,
