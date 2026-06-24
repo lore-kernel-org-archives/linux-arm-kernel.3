@@ -4,90 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB6D3CDB47F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 20:00:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F785CDB47F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 20:02:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ou7sRiViO9r41tx6wwdMLvYt+1RgLBADg7cisaocX2c=; b=H+DuFKaHjXI6q1WbskLj/qpAk2
-	iOJou0QVhtO4lobDbWPBoTgAK9MtG0Rtx/t+q9xqJ7e2xr3P0Gi/CZQqv42A9a/mR1sMTkX+wX3Ra
-	PFuFazotUB1nydTtD9uFrUmIZyi2MqbHfq6FyMfArc6qaMY+hWFO4eXejSe1ufv/8KDj0oGKhPVua
-	IjYQ+eGbD0HP7nthsqkgY+DUlcpcxqae25oG48QVJQ2pZ86RH2sdW0eLhINuOg4vw1PJBgVeggZmH
-	OrYcFBMfFCS89NdFmvkERMb8aQdeTQuTw006rUBLe0P7QsTTsKQaP4OgBL2XqRDgv/g0skdngiaWR
-	WIrzlopg==;
+	bh=7KSJA4KQaA75GCA5WKtutSEoOxwFOxLm2qvx+kAWOWo=; b=LQGqvxPW8U1KzNZ1r2BpGVv2cR
+	vfffBTfVTbh/rE5q37cB7DP1W/7z/PW06EwvH2vYmtv++Fq2pg1zQmxE8s1+BFsQZVAfkdrhO+L+K
+	YA5h/eMehtL2tw8DTT/iyvyw5y0mUOTFFAASxbkNV1hpmBiWCPdciGiBqguY7JyEJFCKr494ykCUg
+	5hfvFqFLTux3gtp7lU2tcL0jN6ixNVzZ14FBfS1x35irntdPOzu1F2jYOxhGW9SfHV6iMp6Zoqp3q
+	YwyGWBmtcprZQUX6ii8IJVOmHwhrSSLjq2Ax5UJHUNjCsYrBcQEst9mUZXMbm28Gge/kXGc7Njrpp
+	bWBnU9tA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcTmD-00000008IsC-0Gem;
-	Wed, 24 Jun 2026 20:00:49 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1wcTo3-00000008J80-1gF5;
+	Wed, 24 Jun 2026 20:02:43 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcTmA-00000008IrW-22RT
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 20:00:47 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4924f8db066so8629655e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Jun 2026 13:00:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782331244; x=1782936044; darn=lists.infradead.org;
-        h=mime-version:references:in-reply-to:message-id:date:subject:cc:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Ou7sRiViO9r41tx6wwdMLvYt+1RgLBADg7cisaocX2c=;
-        b=Erbp8szSjhiw6ozruXR971J1V0Svw8Z6YX/LeuLEvda1ZMgvFu35Od+Q6HqYMpLcF5
-         UkVKHTeTzEupgr15+9emC0NWZhHtMZWp1mDRQBOsHvFK/4qycHyG97Ep4mEyh7cm7+9i
-         xe0pRJyw9TXALuYKI3QNK/Jf71fyg1BlJp2JzmOPdxC1REI4d+Yq8XatMCSbKw0n5CYx
-         R92P1LauDF4Z84rGTy2HIWdFMBSgFlEwLrr6wCn4G/e+PPtg1Hf1zFTyPi49hKDLr0Ge
-         39oKTiQtLhnh0G1/vXNomTcqTnTnU+BF2Gxb1JsE6gMX/u0BWrjhO+j2F/nghQDEUWv1
-         QIPA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782331244; x=1782936044;
-        h=mime-version:references:in-reply-to:message-id:date:subject:cc:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Ou7sRiViO9r41tx6wwdMLvYt+1RgLBADg7cisaocX2c=;
-        b=HepJiXVK9RgjZ13zSRVBq4oZhLeEsoQ5D15Bu1MvgeYn0WT0zA1SRJncOBZDqxbYIE
-         6cD+FKOXHvpXuEpowa1W3F6RfqmNFlOGm6W5IliOj8wo5Tv7feF/gpGFdwSAnvzXnQvc
-         NNKoCgSoXbFc3r0hEMw4KgYFA2Z66fHjmc0rq6c2+owSNxM7LbwHl3byUV7MwVF0iuqC
-         ZltqxG2vWXrvO9vDf0H0G+EPnJqUQDk66CcBsaOUJP1dWkNHelc0CVAaVwmrhWqaFsf3
-         6rfFHd16CGB/hKrwXpzQxucxflxytjNUmxvrUZJwmsr5ZoonozWf4kyAVYh1O7+8OD1c
-         nwlQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9sgQCaBWAlMPNyrXXo7mcW9d4DeuYfcHolmRxXEZD7qNJYxRa1QtJYaqeITQyYZLVoasK4jBwWGaSCc6omQjbm@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz+GNbCx0DKWepf6rA1jONBl+ChuIQfb4G961Pm2GW1jKPlx5qm
-	OUxnkPcadWBcUjISgrbrKtz4BUey8B81MYn2PmE5h5kYw9v5H2SWp87F
-X-Gm-Gg: AfdE7cntskLN4yRpvj2xHpKtg8k6i/EMPtBxSc/Nm4sO/VQNN19D6f1p/eVfKHiersv
-	nTn5EEjXNqm6d1YavFEoD6NNjggPb+RYeR9eOrvim9MDEl2yTF56MHGkq3puRFOQAyw6rYtJ8Ir
-	ZTY8lC5T2qhZUS/C1oW6eWINHmYvzMpIetOrnGRny0cCCQDxIorjRkDoGke2/kQl3DFkSgv8NhM
-	6/t//Ez5ZI9p3n1zl4nsCAUTZp6rX7+jUPGnfh1itOftAv+EmNTVR5t0MTGW6NL6X1V/U09zI+J
-	aZ32HmJ29/aVh/jMFn5BoXvrYY/jGZyQA4Z9Y29iexoNJ0OiahM+8msbYvcAcjC4oJkPeM8qWIH
-	z8L+09d1o5WQVpfN97ifkVB3rnzBwsJ4a/uF6owlyp3zwavIugleIOMFqQOVTW/dYXhcdWSDsEd
-	gg4N11MOIWvgyx6iNByQVOzugh2Q==
-X-Received: by 2002:a05:600c:528b:b0:492:58d6:2565 with SMTP id 5b1f17b1804b1-4925b3801c4mr125691855e9.25.1782331244005;
-        Wed, 24 Jun 2026 13:00:44 -0700 (PDT)
-Received: from strix.localnet ([197.250.227.156])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49264011d5fsm17039315e9.1.2026.06.24.13.00.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 24 Jun 2026 13:00:41 -0700 (PDT)
-From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
-To: Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Brian Masney <bmasney@redhat.com>, Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH RFC v4 10/12] reset: zte: Add a zx297520v3 reset driver
-Date: Wed, 24 Jun 2026 23:00:04 +0300
-Message-ID: <7_XKp5ZWTJeJfxJieymOJA@gmail.com>
-In-Reply-To: <90c4f50eb23dec06497d46f9c0f522a6b90a918b.camel@pengutronix.de>
-References: <20260616-zx29clk-v4-0-ca994bd22e9d@gmail.com>
- <20260616-zx29clk-v4-10-ca994bd22e9d@gmail.com>
- <90c4f50eb23dec06497d46f9c0f522a6b90a918b.camel@pengutronix.de>
+	id 1wcTo0-00000008J7a-3htZ;
+	Wed, 24 Jun 2026 20:02:42 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 696961E6;
+	Wed, 24 Jun 2026 22:01:59 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1782331319;
+	bh=DUKIEE7/NbZR/k8cWAM68518/PZODDzrS+U/d4ruhG4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=q5Qwb1knc4r2eTb764ud9nediE0cB7p1Mt9q0e69aRTQSHkAd7UZJqXVVelzGEarK
+	 QlFfXvaJ7RXtTwURcika1vW9uzUE6YjD0fnpv6+B4ZFnfzZhMu6TyA31EiE6TaILkY
+	 p3IlZ42+5Jz1Hyxio+3i1dERD8ml8lN9MkmcLqGw=
+Date: Wed, 24 Jun 2026 23:02:37 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Daniel Scally <djrscally@gmail.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Dafna Hirschfeld <dafna@fastmail.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+	Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+	Loic Poulain <loic.poulain@oss.qualcomm.com>,
+	driver-core@lists.linux.dev, linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	imx@lists.linux.dev, Guoniu Zhou <guoniu.zhou@nxp.com>,
+	Frank Li <Frank.Li@nxp.com>, Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Subject: Re: [PATCH v2 0/4] media: add and use
+ fwnode_graph_for_each_endpoint_scoped()
+Message-ID: <20260624200237.GJ851255@killaraus.ideasonboard.com>
+References: <20260624-fw_scoped-v2-0-0a8db472af4a@nxp.com>
+ <20260624191935.GG851255@killaraus.ideasonboard.com>
+ <ajwxcn2LXS8InAjZ@SMW015318>
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="nextParthVt_moD_RiKok0jux0DKSA";
- micalg="pgp-sha256"; protocol="application/pgp-signature"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <ajwxcn2LXS8InAjZ@SMW015318>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_130046_551139_C5D2A23B 
-X-CRM114-Status: GOOD (  17.27  )
+X-CRM114-CacheID: sfid-20260624_130241_070913_8FDC2F50 
+X-CRM114-Status: GOOD (  19.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,68 +85,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---nextParthVt_moD_RiKok0jux0DKSA
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
-From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
-Subject: Re: [PATCH RFC v4 10/12] reset: zte: Add a zx297520v3 reset driver
-Date: Wed, 24 Jun 2026 23:00:04 +0300
-Message-ID: <7_XKp5ZWTJeJfxJieymOJA@gmail.com>
-In-Reply-To: <90c4f50eb23dec06497d46f9c0f522a6b90a918b.camel@pengutronix.de>
-MIME-Version: 1.0
+On Wed, Jun 24, 2026 at 02:35:14PM -0500, Frank Li wrote:
+> On Wed, Jun 24, 2026 at 10:19:35PM +0300, Laurent Pinchart wrote:
+> > On Wed, Jun 24, 2026 at 01:00:08PM -0400, Frank.Li@oss.nxp.com wrote:
+> > > Add new helper macro fwnode_graph_for_each_endpoint_scoped() and use it
+> > > simplify media code.
+> > >
+> > > Typical example should qualcomm's driver (camss.c), the v4l2_mc.c and
+> > > rkisp1-dev.c only silience improvement.
+> > >
+> > > Anyways, *_for_each_*_scoped() already use widely and make code clean.
+> > >
+> > > Build test only.
+> > >
+> > > Sakari Ailus:
+> > > 	when I try to improve the patch
+> > > "Add common helper library for 1-to-1 subdev registration", I found need
+> > > camss.c pattern, so I create this small improvement firstly.
+> >
+> > Those are nice cleanups, thank you.
+> >
+> > After applying this series, the only left users of the
+> > fwnode_graph_for_each_endpoint() macro are in drivers/base/property.c.
+> 
+> I already checked previously, two place use it.
+> 
+> fwnode_graph_get_endpoint_count(), it will go though all endpoints, last
+> ep is NULL, which totally equial to scoped() version.
+> 
+> another one fwnode_graph_get_endpoint_by_id(), which return ep, expect
+> caller to call put().
+> 
+> if use scoped() version, need use no_free_ptr() at return, which make think
+> a little bit complex.
 
-Hi Philipp,
+It would introduce a tiny bit of extra complexity there, but the
+advantage (in my opinion) is that we'll be able to remove the less safe
+fwnode_graph_for_each_endpoint() macro.
 
-Am Donnerstag, 18. Juni 2026, 12:24:26 Ostafrikanische Zeit schrieb Philipp 
-Zabel:
+Now one may argue that the risk of
+fwnode_graph_for_each_endpoint_scoped() is returning the iterator
+without using no_free_ptr(). I wonder if that would be easier to catch
+in static analysis tools than the current pattern that leaks a reference
+when exiting the loop early.
 
-> > +	[ZX297520V3_UART0_RESET]     = { .reg = 0x78,  .mask = BIT(6)  | 
-BIT(7) 
-> > },
-> Is this a single reset line controlled by two bits (do you know what
-> they are)? Or might these actually be two different reset controls that
-> are just always set together?
+> It'd better leave these as it.
 
-I suppose I could expose both bits as separate reset controls in the binding. 
-The lower bit is usually the one that actually resets the device, while the 
-higher one works similarly to PCLK - it disconnects the device from the bus, 
-if asserted. Depending on the device it may or may not leave any residual 
-effect behind after deassert.
+-- 
+Regards,
 
-The stumbling block is the dwc2 USB driver. It only takes one reset, so I'd 
-have to add another one (or abuse the dwc2-ecc reset) and presumably add a PHY 
-driver for the 3rd reset or add a dwc2-phy reset.
-
-The AMBA bus already takes an array of resets, so the pl011 UARTs are fine 
-either way. For stmmac I need a glue driver for other reasons anyway. the 
-dwc,mmc2 controller on this board seems to have only one reset, so no need to 
-extend the driver here.
-
---nextParthVt_moD_RiKok0jux0DKSA
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part.
-Content-Transfer-Encoding: 7Bit
-
------BEGIN PGP SIGNATURE-----
-
-iQJPBAABCAA5FiEEQxb0tqoFWyeVMl1sPRO8yFRPGiIFAmo8N0QbFIAAAAAABAAO
-bWFudTIsMi41KzEuMTIsMiwyAAoJED0TvMhUTxoiEogP/R8cmmFdsmQf1KC8sEpC
-FHs5LDtbqZiDlTBbyS30EkcQvlrgJiE+Nw4ooyuaXdp/yAsXGx6+PcJa+ts3U7n9
-zq47YLFyEbK/eIOiZUL11INgY7fvX+rjmIjUycP/e+QDjZWWwnCylBPS49sy527A
-eL8/Rc9Sh2c1YqqqPrdWXEPCYyex16JFem9/dW8rmBJ+wXtHSZpL4Pp0bnnWEFbB
-pmFzhiVb9YI4/+zDV91/utODGohYddgEqjrpdqnFnp4PQ3NKlLL+IJPOVWOk2gxf
-AWsdTFzbH9KqSeQnCxWw28tUhRdv9FNmL0TLNWzwUIssCxS26glrCoeXAP0G9qzd
-08VmDofaWsbFRaDA2JncmPzJmb94sae4luwRCx611c2DfkgQjfT6r9U+jVKMKXIB
-ys7km03W9hFCIv4oSqZDDzRXhD1h5m3CJA/OfqswLDTvNzUyQPCq9ofGg/O0Xr5+
-7hqx5VO2owAQ1LvQfPuRrjzXdrhFF54Tm8zNxCEszhiJZwBQJ+muvqRtg6Om8KDd
-SZ92FKvcPWcKdA1CAra4b9nPJuGviEvaXQpYh+6ja+Nubcfyf2EUIlidSU2EhaVC
-192zUu5x+IC1lfvdMXBulb9LgPz6yi9S+71ytaYp+Mhn4I3X+gn0n/sLGEmL75VU
-VTD9frYuMZXmnW5169uuFcAU
-=/taJ
------END PGP SIGNATURE-----
-
---nextParthVt_moD_RiKok0jux0DKSA--
-
-
-
+Laurent Pinchart
 
