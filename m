@@ -4,84 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CDAECDB479
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 05:19:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B564FCDB47F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 05:45:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wwH4JKRwdgPVqXhvs8JvCENushgrOY1a28q/t+owUbc=; b=vQ5RbMfFzqq1NysKmD4c3hbk65
-	nyipNEw8CoRl6OOZRjCsWWxtu1I90nrPoVBLV4gh0Bju4zA5d9YMVwI9miTpNpOeauPMBnFTgZ0pS
-	m28an2Mfgv9iVzP3j1fvxGjuFyaTgZ12jjw3KUg3vZVfec/NrP8eUJ0giHhqLqxHPs/WO8mjR1y3f
-	Sv8bKppd8n+cCVvNcXyK0bb7Hc2r/cLECdKHF9z2exYk+AFIju+f5GNOGXn+RxPys/R9eBCB0VwtU
-	u3/fY+XeiXyfURskUSuzvYQMfAd//d85+Kq9tyAau+Bm5gdzbULmnvX5WjaVxmTH3KcrFGi1jpnYq
-	Lrrb3frA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=LWLN71yt+YA8OvfTtpMEtJlNMfJ+e3+F4iSar+rq42A=; b=xrwencs5eBuJI8
+	DN8beNFZuqRlHUvv4ISIqviAF5aj5BM+rMAwVOAYGeDyTZYGCIMj/2rxmnTtS6q8R3f2Xs9+d603c
+	tVU0WxF8abHbMDh7mc9j8CmM2j2yD6jyfNQF2lPHwz3yAGSceYUQ94Ws8qf086CJeOZ79f53o8l2A
+	Tkad//4oC0NKVGKtWQjzGNZGXyGaZIG0boVyJQCFv82o4FekVV9QQW5S0opLSdWsNIODtwVuhB11y
+	6sBx5BujgC/aoG8WYzAJcKiV5IPkeRRw3IuuQUXe5VxD/MIOtuDLl2py/0PlhhkO9tAfxITIQczqN
+	SPj0s/y74oEUugSLe5Hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcG10-000000079sD-1EOp;
-	Wed, 24 Jun 2026 05:19:10 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1wcGQE-00000007AcR-0sg1;
+	Wed, 24 Jun 2026 05:45:14 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=twmbx01.aspeedtech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcG0w-000000079rO-3Ukq
+	id 1wcGQ9-00000007Abj-3urz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 05:19:08 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-8454c5a280aso1017620b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 22:19:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1782278345; x=1782883145; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=wwH4JKRwdgPVqXhvs8JvCENushgrOY1a28q/t+owUbc=;
-        b=PWGh2cD7qeI6DXQBEBBoPqsAn6+UIDCbL2F7QOpPDoax6Ure6W6sc9tgPE6r9JKWIz
-         77pzhrhwGAj/bLTT1FND+yInwZWjPQvTbbxapaDBhU5OvN2RBpD2QUChzjpLj44RO8Xn
-         ZSMle1p2F2b/5+TsAtgcnq7W5eKDMj1tA1Bmk=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782278345; x=1782883145;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=wwH4JKRwdgPVqXhvs8JvCENushgrOY1a28q/t+owUbc=;
-        b=V+H4DQbSO9BeFyp2EfItKvxJ/7NMcwx1xDZr3ChAa1XQ3DJwai6cnEKuqchp/wJnRi
-         sAMROQXfD/o6Wb37a0nsQ0M2cYo7oEbMUS1f2VP1diokOrBGYtnEedf+HqJ4g9VQMWdu
-         oD+RfDO9IOUKFAIQZ+u27Be3ymt/m60SdjJuTOIv9z2iyZlb+Mojy5cJ3jsuIbsJ2osU
-         Gca4JgXQHCxdah5oo/GhH3rjthJJTrsC1538ss0YEfh+DrizV5T9PoY9OSTfFf7U3RFH
-         KVSAaNsWKiBj22I5K/RO3sWEHmJaotC0g2+qlObegbK7mcQwxGmHVzA7g0DrZka0Ho1J
-         QoUg==
-X-Forwarded-Encrypted: i=1; AFNElJ+amrmiBW4xhkh3vLGqJZdcO5XrZ3Pscpk9GMK8gFlF+PquguoQz1pAq2BLQ3jVGQiB09a33t/K+xfPL2eSaHM1@lists.infradead.org
-X-Gm-Message-State: AOJu0YyQdfm/Z+dOaTlmkGjr3ydb9Bmnyz0OepvvTH6tpgEs009odg2Z
-	RcgEGEOFyvcdc/JHy8mX7tfFFhGC1r8L5mO9fFnMQlEL97Hn4voqXZ2a8qgnMcZ9LQ==
-X-Gm-Gg: AfdE7cnc+PY2c3CTxTDknmdCsXiQXmzMyeY/Xf9fGQrFHlrDH/Bno8+mQH95jgY9Z0g
-	LJBVZYP62r474SdN7LDkW84ODNCPYwkPr2RjW205UxzdeT+Vbl7IE3ciktqC80/MpXdx71hJlvB
-	zgM84YbdZ8wDJXCUdhcaOS7IMKhHUen+9mbENfrLI59pRJwr1yuQzay06PObCiv8V6WzsTzHUEM
-	TubX6c4uoy2RpODusPowlfKlHipG1tpUHdTaRgNVDay17zuW2N4tNBtpWKKwpnBSQrJxdNG6COb
-	XZkkyNnDYzpsR4kUNZ6PGZQlQDRweCSyuGrOxt18y2i7HtzYokHcybvZiGrV5wn7byY6d5P/stA
-	YkZKeZfTobENaB5IUvt02IS/VFVCvmOdVohv+J95HWGlKzL/yHHF1+bwa9P0ECaeHbgE4pS/T7G
-	bJxE6eRDitdtog2ai2v5GFI0KQMa0ERWhtZt4kpEgRThxgb+Ehwwxl
-X-Received: by 2002:a05:6a00:859d:b0:842:dd4:d9e2 with SMTP id d2e1a72fcca58-84591a1946amr5158854b3a.0.1782278345062;
-        Tue, 23 Jun 2026 22:19:05 -0700 (PDT)
-Received: from google.com ([2a00:79e0:2031:6:1287:5d13:b2d6:c6ab])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-845a4127bd0sm894643b3a.53.2026.06.23.22.19.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 23 Jun 2026 22:19:04 -0700 (PDT)
-Date: Wed, 24 Jun 2026 14:19:00 +0900
-From: Sergey Senozhatsky <senozhatsky@chromium.org>
-To: Marcel Holtmann <marcel@holtmann.org>, 
-	Luiz Augusto von Dentz <luiz.dentz@gmail.com>, Sean Wang <sean.wang@mediatek.com>
-Cc: Tomasz Figa <tfiga@chromium.org>, linux-bluetooth@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, Sergey Senozhatsky <senozhatsky@chromium.org>
-Subject: Re: [PATCH v4 0/2] Bluetooth: btmtksdio: teardown fixes
-Message-ID: <ajtoXTaBEMSyGADX@google.com>
-References: <20260618031338.1011410-1-senozhatsky@chromium.org>
+	Wed, 24 Jun 2026 05:45:12 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Wed, 24 Jun
+ 2026 13:45:01 +0800
+Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Wed, 24 Jun 2026 13:45:00 +0800
+From: Ryan Chen <ryan_chen@aspeedtech.com>
+Subject: [PATCH 0/2] Add AST2700 PECI clock support
+Date: Wed, 24 Jun 2026 13:44:58 +0800
+Message-ID: <20260624-peci_clk-v1-0-ee28b92e22e9@aspeedtech.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260618031338.1011410-1-senozhatsky@chromium.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIANpuO2oC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDMyNj3YLU5Mz45Jxs3aREC/NUAxPj1FTTNCWg8oKi1LTMCrBR0bG1tQA
+ Z34/3WgAAAA==
+X-Change-ID: 20260623-peci_clk-ba87e043ee5f
+To: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+	<sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Andrew Jeffery
+	<andrew@codeconstruct.com.au>
+CC: <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
+	<linux-kernel@vger.kernel.org>, Ryan Chen <ryan_chen@aspeedtech.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782279900; l=643;
+ i=ryan_chen@aspeedtech.com; s=20251126; h=from:subject:message-id;
+ bh=odlPR9ypkZoCmLp8rrpiizM7sQMlSS91UDSOPAX5z6s=;
+ b=jY5mCWNYf6ZGdseK9bInNXNGm6THNQm8Tn8QAiGuCks3CWEWMwrwx1cJdXSY1RcdDG/yej/qA
+ Mal65bRBbEbDSY5lT2tFoJrxdkdEfZlEpnIpebJLHZzYbt4Jcadf7a+
+X-Developer-Key: i=ryan_chen@aspeedtech.com; a=ed25519;
+ pk=Xe73xY6tcnkuRjjbVAB/oU30KdB3FvG4nuJuILj7ZVc=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_221906_905423_4DB7FA44 
-X-CRM114-Status: GOOD (  10.20  )
+X-CRM114-CacheID: sfid-20260623_224509_978555_1AB09E74 
+X-CRM114-Status: UNSURE (   5.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,27 +79,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On (26/06/18 12:13), Sergey Senozhatsky wrote:
-> This fixes several teardown issues:
-> 
->      INFO: task kworker/u17:0:189 blocked for more than 122 seconds.
->      __cancel_work_timer+0x3f4/0x460
->      cancel_work_sync+0x1c/0x2c
->      btmtksdio_flush+0x2c/0x40
->      hci_dev_open_sync+0x10c4/0x2190
->      [..]
-> 
-> close/flush can deadlock when run concurrently with btmtksdio_txrx_work().
-> In addition btmtksdio_txrx_work() re-enables interrupts regardless of
-> close/flush being executed on another CPU.
-> 
-> v3 -> v4:
-> - fix commit message linter warnings/errors (tabs, subject line over 80
->   chars).
-> 
-> Sergey Senozhatsky (2):
->   Bluetooth: btmtksdio: test for BUS IO errors in btmtksdio_txrx_work()
->   Bluetooth: btmtksdio: call cancel_work_sync() out of host lock scope
+Add the PECI clock for the AST2700 SoC1. The PECI clock is a mux
+controlled by SCU1_CLK_SEL2 bit 16, selecting between the 25MHz CLKIN
+and HPLL/4.
 
-Do the patches look good enough to pick up?
+Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
+---
+Ryan Chen (2):
+      dt-bindings: clock: ast2700: add PECI clock
+      clk: aspeed: add AST2700 PECI clock
+
+ drivers/clk/aspeed/clk-ast2700.c               | 10 ++++++++++
+ include/dt-bindings/clock/aspeed,ast2700-scu.h |  2 ++
+ 2 files changed, 12 insertions(+)
+---
+base-commit: 948efecf22e49aa4bf55bb73ec79a0ddcfd38571
+change-id: 20260623-peci_clk-ba87e043ee5f
+
+Best regards,
+-- 
+Ryan Chen <ryan_chen@aspeedtech.com>
+
 
