@@ -4,112 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AFDFCDB47F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 18:21:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2888CDB47F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 18:25:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hsLja155Z/0zKB9TitXtPN0SGSCeOZF1T0XzkfcXFUs=; b=jxXYqlUgz8ywgEzJj3Obb2wgjN
-	qmXcg7fIOoI/wCgs35/zL4msI43uJyUrLUAmwYy3whr75W//H7t8Ev+U/19xJ1KXDkyAyAjyze3/c
-	ZEA4+9PMMpywG7aFk2oe45HxBpf41PYCeGte75WPpczLok++d8pNhXU3TQAQ7pKBo4kF8tKvw+Iwa
-	azcyxSdq3/LyH6j39oF7Z9qnx74fjCfDsZHUjbOgCBGPKgw1mqm6MQQ5ijgSs/6H4In0LWP9X9KX0
-	UZsLV2fGt39u4BSeTEDZfQmBIxOf5QdpBFqQ7kcp1105wA9aDN/QZhyqCcQmjN1e2xcNU6sPJIdkq
-	VPY+I65A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0fbeFIfFUvGMAe5cuzxSu1wxHQwrTOcqgfAbEnIXJ9I=; b=E783D1Kh8Q1eR0PzwCzKadT48/
+	lgLHoo5pphxHBLDBN/ptmfqYHENqrv5J9MW45rkidCyOWbrRN9fjND3theeSGSaBW9KkuX6o/e7LP
+	nzfHUMcDB6gNOaTtVcTUWrx8NLf4uCxl3stCCoDJkmNw2HFjoLreCDTvyp3u3Y8a+sr1KWt00quRy
+	/3SSZk47GYRP4t6GhMm5uFHVOB0pvEE0arcLeRsFJuOthNOs5PbbUYK4WDa4FcLnWL3eCmpdEeN84
+	yUfAU30sI98oGRHBDGrU17V1vu6iT1v6HSDCgDt+/ZJyCveyeOYtjpme6Mxly9lETdKAdcxofBcme
+	xrzvi68Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcSDf-00000008D03-1yCm;
-	Wed, 24 Jun 2026 18:21:03 +0000
+	id 1wcSHd-00000008DBx-02Dp;
+	Wed, 24 Jun 2026 18:25:09 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcSDe-00000008Czl-2elg;
-	Wed, 24 Jun 2026 18:21:02 +0000
+	id 1wcSHb-00000008DBr-3PAX
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 24 Jun 2026 18:25:07 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id EFAD843BAB;
-	Wed, 24 Jun 2026 18:21:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD1A81F00A3A;
-	Wed, 24 Jun 2026 18:20:54 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7F9E2438BF;
+	Wed, 24 Jun 2026 18:25:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5DF5F1F000E9;
+	Wed, 24 Jun 2026 18:25:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782325261;
-	bh=hsLja155Z/0zKB9TitXtPN0SGSCeOZF1T0XzkfcXFUs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=dzjGh7VGTHiepgB+ZtJRhDcyQSnGxCUxc/or7bCALlztCY8OWbpSdE+NsIDUrBh5n
-	 ZhHAKUMLufVPeNppsMMEUdEyEywmdi8Tp8U99OybiD9BERKigt+FjGqr9aEiKtZQ06
-	 Z0A1uADummRtAICxuW/yUK3LlxW3HuS+qjlvPNHxcQiCwyn1tgonZE48As4S4DkNbN
-	 +gAHjgPGNyo0vg+uzNHGczgltAjavvVEaV980fwjtnKa5iv4p7261sBeyDJZqcIeWD
-	 0Ewx2U8OG61CfljQnF0v2gF4v0fknyV74u4secpoS81r6zLWCv1Gh4xRw2yyL2I6by
-	 tthyHo7C8M3fg==
-Message-ID: <241041b6-9c54-4c2f-b939-9ba5359c4ca2@kernel.org>
-Date: Wed, 24 Jun 2026 20:20:50 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dt-bindings: mediatek: hdmi-ddc: Correct the compatibles
- for mt7623-mt8167
-To: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
- linux-mediatek@lists.infradead.org
-Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- CK Hu <ck.hu@mediatek.com>, Jitao shi <jitao.shi@mediatek.com>,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20260624173514.19752-1-l.scorcia@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGPBBMBCgA5AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJp2mE8AAoJEBuTQ307QWKbeaIP
- /ihHTkTW4KsN/DQ945JJbyu5tI0J80Wue7QyyLPglyKfhgb5cLLNPpOC8cCIJsc7+W3i2P38
- s2c1cOH6CYGE7E9ur3Vfme8NW2S2I/Z8VC7bZnzyS23wT17LrsdS/qCpx4o8U+pt/xdXDKph
- EGRYrIEmMpUWvyYzyYKGIe25FtaayIIKpq8eZYyFcp2f/sG5IkOW5uZzHPMPdcm87jU7fyuQ
- rAU2vx9r+ulUfQ/q9Z2roC/ode3l7t2pN7BCBCsUDp6JCrUyZrtT1e7EbA0ZRP3aOBNk2P2E
- DQOgJGjGdO5Yx2Y9LFtltu6JbsBJHi1syGRX3AtQYOMc4Y1WGoeZJmMlvKj2ZqqXNkcWi2DS
- IQEWB0uW6CqFsBBIMGDa+6OzdaVO/uAVXWDWml02Men3CILdI1MbVjoh8ECqYUY7OQ+JJvNN
- vnliuq5WM3Ghd3jg/LZZrxXjdIginRHFQCjIJYLKpLZWm1/iDFedcfzqRNYmTtqscdCNHW41
- oT3Z7BmO9xwdjuwBS6nmS6JJwkbf5Ot2QR4pB/DRU7ZwjT1qHe+9r9gF32wXVQatHNGK/VVu
- sfwOnkdxCWkp/qb2gdQRmZh+SedStWshigH6sNfuHBloF/q+hjMRc8b2m326OZdrbSHwY1Sz
- vti8Hn7n8NjdHO9LKB7BIdjkA9DA5WsqOuVCzsFNBFVDXDQBEADNkrQYSREUL4D3Gws46JEo
- Z9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLueMNsWLJBv
- BaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6eiOMheesVS
- 5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wAGldWsRxb
- f3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA6z6lBZn0
- WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9YegxWKvX
- XHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt91pFzBSO
- IpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gUBLHFTg2h
- YnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/JoFzZ4B0
- p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu4vXVFBYI
- GmpyNPYzRm0QPwARAQABwsF2BBgBCgAgAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtBYpsFAmna
- YUkACgkQG5NDfTtBYptX+BAApg32CkxwNucNEi8WfWA8oKkW0y8YDuY6ORMo9FWNGiT/OTy0
- vyJrLocrpn86zwfjVp+eCrssPYh8eqJfnWqmYv6ACQtHPYzPZQ3mSo8H97Z01oUxITzCxpXm
- ZkLgPIqtDPcC2E3dPM/fVxcyowM8XsaMA9wcsaUYrta8toOq2b9tKcjleKMfMrm0gQ9u7wUc
- QbLkwj6TCLOwucb07GXzLTNF9PZmaDUpKAZjMjmrW+le+SFvQbhamx0rxLWPR0NWntXpbCn+
- +ACch03p/JyTBVktxFsFyCt7pTPE1kEaeuXBTe/a2D9iQvRxRW19LvuO2e59/u1wYUiH/orz
- wbIC2S4dBsPAPihL3ztOU1yE86GPyQtSE0kU+/7snnLt4QGi6PChf3t5gnNjAzjUUovO8rgI
- c+5yN5heq5loYHgK6OQ9OlHzsPHO9e9MOQcKlFycs1pyijFGzDwdNUm/SchK8iWT2QApTx4A
- K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
- n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
- qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260624173514.19752-1-l.scorcia@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	s=k20260515; t=1782325507;
+	bh=0fbeFIfFUvGMAe5cuzxSu1wxHQwrTOcqgfAbEnIXJ9I=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=et54GvQwwoFwM29uYCezg/ao4/R7nkfnsMbw/fNchDLOPrBnKsXaVQrkXAJnZV9UZ
+	 pKpn+jDq9NWNJzICNboo4ikKAQxuggzhtINQ2HEYkgyaMc26gXoCtM5srIqM22gSh/
+	 iD/d2L0IaNFnWasv7Je+pNlpdh/ue+4fcii7aieLdb74gf0fwtvoFDYzQcBk0GD+w/
+	 6zjCZhdJqwjvNknSYJz7EFZW1/WYy7DaEO7D5OG4J3xqTE1FhRIxliWHPluPT5C/ZJ
+	 r129Cy6UkSnso0cSQna2njd2EaCN0i0lVKNZAdX8wQ3Ado0i37rToef+S4OEAhu3Hm
+	 iuhIxqYjn1Wfw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wcSHY-0000000FjZo-4Aon;
+	Wed, 24 Jun 2026 18:25:05 +0000
+Date: Wed, 24 Jun 2026 19:25:04 +0100
+Message-ID: <86ik77re2n.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Bradley Morgan <include@grrlz.net>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Quentin Perret <qperret@google.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v3 3/3] KVM: arm64: top up stage 2 memcache for dirty logging faults
+In-Reply-To: <6FBA06E8-B0C4-444C-B226-0B756C0172A7@grrlz.net>
+References: <20260624160028.15591-1-include@grrlz.net>
+	<20260624160028.15591-4-include@grrlz.net>
+	<9FCEC7E9-DE50-443F-8E82-9FA22CA15ED6@grrlz.net>
+	<6FBA06E8-B0C4-444C-B226-0B756C0172A7@grrlz.net>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: include@grrlz.net, oupton@kernel.org, tabba@google.com, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, qperret@google.com, vdonnefort@google.com, gshan@redhat.com, alexandru.elisei@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,25 +97,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/06/2026 19:34, Luca Leonardo Scorcia wrote:
-> The HDMI DDC driver for both mt7623 and mt8167 is actually the same as
-> mt8173-hdmi-ddc and the mt7623n.dtsi board include file already uses
-> mt8173-hdmi-ddc compatible as a fallback, but the documentation lists
-> them as separate entries. Correct the binding by adding the correct
-> fallback.
+On Wed, 24 Jun 2026 18:46:10 +0100,
+Bradley Morgan <include@grrlz.net> wrote:
 > 
-> This change fixes the following dtbs_check errors:
+> On June 24, 2026 6:39:16 PM GMT+01:00, Bradley Morgan <include@grrlz.net>
+> wrote:
+> >
+> >Note: Patch 3 seems to conflict because of patch 2 (the comments)
+> >
+> >
+> >Oops! :(
+> >
+> >V4 (after people have their review go), will contain one commit (patch
+> >3) with the updated comments.
+> >
+> >Patch 1 and 2 applies as usual.
+> >
+> >Apologies for my messup. 
+> >
+> >Thanks!
 > 
-> DTC [C] arch/arm/boot/dts/mediatek/mt7623n-rfb-emmc.dtb
+> 
+> Actually. Hmm.
+> 
+> I'll just drop patches 2 and 3, I'll do them at a later date, please
+> disregard patches 2 and 3, patch 1 doesn't rely on 2 and 3..
+> 
+> If you guys wanna have a look feel free! :)
 
-This you can drop, not relevant and such redundant logs only make it
-more difficult to understand the error message. I asked only to paste
-here the error.
+As I suggested in my reply to your hasty v2, taking a few *days*
+between versions is generally a good thing. it gives the reviewers
+time to chime in, and gives you the opportunity to reflect on what
+you've just written (reading your own patches after a few days is a
+sure way to go and rewrite them).
 
-Anyway,
+Actually, by posting more often, you are guaranteeing that people
+*avoid* reviewing your stuff, since odds are that there is a new
+version coming in the next 10 minutes, so why bother...
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+But hey, that's free advice, so it's probably worthless.
 
-Best regards,
-Krzysztof
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
