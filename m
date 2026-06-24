@@ -4,65 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A311CDB47F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 08:12:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ACBECDB47F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 08:17:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=u9AsTUxmyjgLUHtq+jJ/YkeM2AU/tnFtecLAaBwaB/k=; b=2z0rrsAo/y+cB4IS8HNlMy6Q2X
-	d+pHzMszrdtq8iSDZRfkNzi+0Z2COOczxICv9VsYCT6bRZaYINWBXCpwbCSuCCcOdzUAdFcEuPj3x
-	7+SVI7GCmMwCyS4BuDiiOyQzJ5miyjroBqOXYg8akFY5za7xiczXrxw8Bw5edEY5uMIJRBkyEbA76
-	XEkCeR3H7ij4mImNT5dVm++48Cx7/kV9NQ2EUQ9QwtnXkEDfvgXSlKxIGE3NpKTpE56PovFRAfIpH
-	RniAnbjEM6dt9zyGcBDhbpRBhD4My828qTxN4sjx1COhOe6HXjKyuw1LfaF3JG/NIbZnwcttZOJ9q
-	kVSgS5Ag==;
+	bh=36jF0aae/2qf/mqPeDqHORRtGgqdr7FBWT7b1LCQhJc=; b=kZNyQMEHjJqjMkxu2W9aetXqN9
+	OOldRdcH3oOVm2wA9BSEZJ86X3o/q1ZDDVxRcDF0IwhaTx4syUtNM0S/1oJ3qdoTFWa3myBhgiqCw
+	SaRLfh+hFC/Nim80jb59M2Kj8BIdG0j9Dy33YB04PDjGsDZLBkE1U9RKzXg1gUTwrXvuTBowEEmfI
+	tKzcoZEEeUmpRP0PGi263TF6CnUVxnHwWw9mHCplW+pORYP0lR6Dq/GyEJM+RNZeL0sVO5Jh1HdhY
+	yVg3UjYFynl4zALwzyXvLeJqRdp14xq3AD5H3OhOGdwusEAvvUmM2Wlln7nc0kV94b7DDLh3KyNyE
+	dBLg3cMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcIid-00000007NXi-3ozJ;
-	Wed, 24 Jun 2026 08:12:23 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1wcInL-00000007Ns9-24P1;
+	Wed, 24 Jun 2026 08:17:15 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcIiZ-00000007NXC-2Mj0
+	id 1wcInH-00000007NrH-3y4d
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 08:12:22 +0000
-Received: from localhost.localdomain (unknown [111.196.245.140])
-	by APP-03 (Coremail) with SMTP id rQCowABXPONgkTtqLuyvFQ--.23904S2;
-	Wed, 24 Jun 2026 16:12:16 +0800 (CST)
-From: Pengpeng Hou <pengpeng@iscas.ac.cn>
-To: Russell King <linux@armlinux.org.uk>
-Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>,
+	Wed, 24 Jun 2026 08:17:13 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-37c5b9d42efso1088956a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Jun 2026 01:17:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782289031; x=1782893831; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=36jF0aae/2qf/mqPeDqHORRtGgqdr7FBWT7b1LCQhJc=;
+        b=ghbeAJH7dlo7XQQJL2L1IixS8icEIbKOdy3yuuT+DGO/LyxGDdNx5rJV6cPdVidCzn
+         NUtYvDLDzJlhYeR751tMSd1TYlz4bWyH17454m8cHc+6qhVfDjs7rQv/l/rul4Kb5VdW
+         xVeAe29vLcUFAyGy/iQ91QCa4LjoIVB46ANLAAWCR/DPy6wDm0/c2Gv0zYR8dkX7OZzc
+         +zNjaQYyLZ+0VEv7kkyr1IZ+3uUoVXoUOBqbnClZy5MHUrY/4V7EywrxOudRZ8436mN2
+         cx4PrRE2W21wDcevhnQ7f9xViplwvqv0W9v8lPs9cRHjesdQbo3Gx+8Q2rQoDaxwLA/4
+         Sx+A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782289031; x=1782893831;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=36jF0aae/2qf/mqPeDqHORRtGgqdr7FBWT7b1LCQhJc=;
+        b=KO+CGk0HiaRMfpp/2gs61DjNjlNXpY5Mt0Z1xtWj4VMvyQuYFQtfJeKCEvZ4YyMvv1
+         VqGgT7XBJLbSfso/dNsDnabC+Ba5/iqq6hkWtvh499NOJ/CDnNRffwuKo+TXHGrxe6Qo
+         emuM9GuXgS8nqVBTziPpYIxbtrIThJYBIf0pkBP1o08SgmIXtklfhvuBFLzIMtoV0SJk
+         bvarKQTMcSL2r7qitvu6nB7k0vBw6l5yXwWleWaITTxdc+R8hdoISxuYlVKFdG3+WhND
+         nIIExc9Bg03sTcedW4rUOcYW6FqzSl6h7NSpo+pv7m83K5Vg7K3iQC+JuDsHM4LFhcOo
+         vIiA==
+X-Forwarded-Encrypted: i=1; AHgh+RoNBYMA+C61WESfhBWSyWgKaYYOGOhvuFH1Q3MK6XXigCXwAAaInwQQvzd8quoafGZJSp1e82aMh+rNbRCtHFba@lists.infradead.org
+X-Gm-Message-State: AOJu0YzgByiSZ9ODgQl0Fp3d4rcmR+f8fjbO5vDH98RrgGFue72hHxv3
+	Hjg8TARiegrclv1WQkzoeEeXwhXJ8i+VZs7O09AJsDkZCE7OS6nVUak=
+X-Gm-Gg: AfdE7clue12y7rUoAtEb3ul4KbgA9HXJ78HxL3zgvCl3wM41LXpoENVO0L54xZq7pga
+	/s+/COX5IjcSRPv8IOl93QzuP9PoNAlWHzoYpu6GU/NV3Ul5SUmz2wwx7Aj2t54XOkEcdFVB2Ac
+	DlflfAjCKshHUJvg13dOogmFYxHByH2SEhSoIuwcCIqJTG4z3gA63TiqIBBq6d+/5PyF+GKR53Y
+	K/obeGfPhbrypQV4QObMOxenA6SvRJeatUF3D+a91FSKPupHuo8J48Yd+aXIm1fJxargSJ5GoCY
+	q/nR2U+MqVR92uf5+MJicPrncoo+C5nZ7b0PwCuAZ8CqlFnquR3XcAziYBCPsUkyABx46h7riDa
+	vhXORkmhdtHxQ0gLsm/d88oqDRB5NHOfdJvK2Y3ha4vDn+wjOfviaO/aBlvUcf6i1/CXgGPaRPg
+	1g1i3vWLfuvF6vMZuPNg+nFagPWoAnyS9BXjm+0JuOAqOq+mdAhKxNq5YQIgCmSJD/
+X-Received: by 2002:a17:903:8c5:b0:2bd:3c21:a053 with SMTP id d9443c01a7336-2c7c3ff8e32mr60401005ad.24.1782289030882;
+        Wed, 24 Jun 2026 01:17:10 -0700 (PDT)
+Received: from localhost.localdomain ([14.5.152.27])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c7436f7de7sm121836085ad.32.2026.06.24.01.17.07
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 24 Jun 2026 01:17:10 -0700 (PDT)
+From: Myeonghun Pak <mhun512@gmail.com>
+To: Sean Wang <sean.wang@mediatek.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Frank Li <Frank.Li@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: dmaengine@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] ARM: configs: sama5: Enable current Microchip KSZ DSA symbols
-Date: Wed, 24 Jun 2026 16:12:16 +0800
-Message-ID: <20260624081216.75559-1-pengpeng@iscas.ac.cn>
-X-Mailer: git-send-email 2.50.1
+	linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Myeonghun Pak <mhun512@gmail.com>,
+	Ijae Kim <ae878000@gmail.com>
+Subject: [PATCH] dmaengine: mediatek: hsdma: fix runtime PM leak on init failure
+Date: Wed, 24 Jun 2026 17:16:38 +0900
+Message-ID: <20260624081701.19358-1-mhun512@gmail.com>
+X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowABXPONgkTtqLuyvFQ--.23904S2
-X-Coremail-Antispam: 1UD129KBjvdXoWrtF4DJr17tw1xAr4xCFykKrg_yoWkKwcEkr
-	WfWw1UGrWrXrWa9r17u39Yga48C3WfG3W8JrnFqw12gw42qF1ayw4kCFyrt3W5W3WUursx
-	uFWkZayIyryIvjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbz8FF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
-	A2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j
-	6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
-	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwCF04k20xvY0x0EwIxG
-	rwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4
-	vE14v26r106r1rMI8E67AF67kF1VAFwI0_JF0_Jw1lIxkGc2Ij64vIr41lIxAIcVC0I7IY
-	x2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26c
-	xKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r4j6F4UMIIF0xvEx4A2jsIEc7CjxVAF
-	wI0_Gr1j6F4UJbIYCTnIWIevJa73UjIFyTuYvjfU0iiSUUUUU
-X-Originating-IP: [111.196.245.140]
-X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_011220_032060_0D53192A 
-X-CRM114-Status: UNSURE (   9.51  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260624_011712_010343_C1627D1D 
+X-CRM114-Status: GOOD (  14.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,34 +103,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Microchip KSZ DSA family now uses `NET_DSA_MICROCHIP_KSZ_COMMON`
-for the common switch provider and `NET_DSA_MICROCHIP_KSZ_SPI` for SPI
-attached switches.
+mtk_hsdma_hw_init() enables runtime PM and gets a runtime PM reference
+before enabling the HSDMA clock. It currently ignores failures from
+pm_runtime_get_sync(); if runtime resume fails, the usage count remains
+held. If clk_prepare_enable() then fails, runtime PM is left enabled with
+the usage count held.
 
-The sama5 defconfig still enables the stale `KSZ9477`-specific symbols.
-Those symbols no longer select the provider objects, while SAMA5 device
-trees still contain Microchip KSZ SPI switch consumers such as
-`microchip,ksz9477` and `microchip,ksz8563`.
+Use pm_runtime_resume_and_get() so resume failures do not leak the usage
+count, and unwind runtime PM when clk_prepare_enable() fails.
 
-Enable the current common and SPI provider symbols instead.
+The probe path also ignores the return value from mtk_hsdma_hw_init(), so a
+failed hardware init can continue as a successful probe. Propagate
+mtk_hsdma_hw_init() failures from probe, while keeping a separate unwind
+label so mtk_hsdma_hw_deinit() is only called after hardware init succeeds.
 
-Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
+Fixes: 548c4597e984 ("dmaengine: mediatek: Add MediaTek High-Speed DMA controller for MT7622 and MT7623 SoC")
+Co-developed-by: Ijae Kim <ae878000@gmail.com>
+Signed-off-by: Ijae Kim <ae878000@gmail.com>
+Signed-off-by: Myeonghun Pak <mhun512@gmail.com>
+
 ---
- arch/arm/configs/sama5_defconfig | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/dma/mediatek/mtk-hsdma.c | 22 +++++++++++++++++-----
+ 1 file changed, 17 insertions(+), 5 deletions(-)
 
-diff --git a/arch/arm/configs/sama5_defconfig b/arch/arm/configs/sama5_defconfig
---- a/arch/arm/configs/sama5_defconfig
-+++ b/arch/arm/configs/sama5_defconfig
-@@ -70,7 +70,7 @@ CONFIG_BLK_DEV_SD=y
- # CONFIG_SCSI_LOWLEVEL is not set
- CONFIG_NETDEVICES=y
--CONFIG_NET_DSA_MICROCHIP_KSZ9477=m
--CONFIG_NET_DSA_MICROCHIP_KSZ9477_SPI=m
-+CONFIG_NET_DSA_MICROCHIP_KSZ_COMMON=m
-+CONFIG_NET_DSA_MICROCHIP_KSZ_SPI=m
- # CONFIG_NET_VENDOR_BROADCOM is not set
- CONFIG_MACB=y
- # CONFIG_NET_VENDOR_CIRRUS is not set
-
+diff --git a/drivers/dma/mediatek/mtk-hsdma.c b/drivers/dma/mediatek/mtk-hsdma.c
+index a43412ff5e..987e5274fc 100644
+--- a/drivers/dma/mediatek/mtk-hsdma.c
++++ b/drivers/dma/mediatek/mtk-hsdma.c
+@@ -849,16 +849,25 @@ static int mtk_hsdma_hw_init(struct mtk_hsdma_device *hsdma)
+ 	int err;
+ 
+ 	pm_runtime_enable(hsdma2dev(hsdma));
+-	pm_runtime_get_sync(hsdma2dev(hsdma));
++	err = pm_runtime_resume_and_get(hsdma2dev(hsdma));
++	if (err < 0)
++		goto err_disable_pm;
+ 
+ 	err = clk_prepare_enable(hsdma->clk);
+ 	if (err)
+-		return err;
++		goto err_put_pm;
+ 
+ 	mtk_dma_write(hsdma, MTK_HSDMA_INT_ENABLE, 0);
+ 	mtk_dma_write(hsdma, MTK_HSDMA_GLO, MTK_HSDMA_GLO_DEFAULT);
+ 
+ 	return 0;
++
++err_put_pm:
++	pm_runtime_put_sync(hsdma2dev(hsdma));
++err_disable_pm:
++	pm_runtime_disable(hsdma2dev(hsdma));
++
++	return err;
+ }
+ 
+ static int mtk_hsdma_hw_deinit(struct mtk_hsdma_device *hsdma)
+@@ -983,7 +992,9 @@ static int mtk_hsdma_probe(struct platform_device *pdev)
+ 		goto err_unregister;
+ 	}
+ 
+-	mtk_hsdma_hw_init(hsdma);
++	err = mtk_hsdma_hw_init(hsdma);
++	if (err)
++		goto err_free;
+ 
+ 	err = devm_request_irq(&pdev->dev, hsdma->irq,
+ 			       mtk_hsdma_irq, 0,
+@@ -991,7 +1002,7 @@ static int mtk_hsdma_probe(struct platform_device *pdev)
+ 	if (err) {
+ 		dev_err(&pdev->dev,
+ 			"request_irq failed with err %d\n", err);
+-		goto err_free;
++		goto err_deinit;
+ 	}
+ 
+ 	platform_set_drvdata(pdev, hsdma);
+@@ -1000,8 +1011,9 @@ static int mtk_hsdma_probe(struct platform_device *pdev)
+ 
+ 	return 0;
+ 
+-err_free:
++err_deinit:
+ 	mtk_hsdma_hw_deinit(hsdma);
++err_free:
+ 	of_dma_controller_free(pdev->dev.of_node);
+ err_unregister:
+ 	dma_async_device_unregister(dd);
+-- 
+2.47.1
 
