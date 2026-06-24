@@ -4,65 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FF52CDB479
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 03:38:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BE82CDB475
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 03:59:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vKQDyIqON71tqGHwtM14GRZInKm8rV7IMf2eudX48bQ=; b=Ujvw5CtJ55jwOrxz1XqqcZgLcY
-	msghqcOWIZQeVyXz9gnMlHw2qKGPspQTYiZmZitR5KU82JTcuusaJtrpK+nZMyX8A9naks5ZFiL9W
-	wqZT7kEBkoygw9TgG0fVCfHrqOX/sZ8BKupWdUH1D/VP+7qY/y18tcccoQQZDlaAd/0jikZxhXWo1
-	NpzcBl+xbKNth6mekMhoA3R8dsUvFLREOQO1bWnMXVU0B6NMb7VweZNphj62kYiMD/GXhZ44ONAhK
-	DSEVdkx19jhnO1CZ8Tjagqas4bbGWNk1RUMj6JLRI4IIcR09QnyhT4Tb3zTmTH3NREQJngv+Ackbk
-	fvbjNBKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T048eSnLn67wyQ35ZtRrGoHs+XTcAolcC/uHBQEGBcg=; b=gfvCioXeczdxTxyMOiDPS308Qr
+	35Fw87WWhWReBfaBYtDML5wph528dpgW5UvibIlx2XBYWFcz/4CzRgOFXjVzxyq8tHom9LGDmqcLn
+	kvM6ZKQMNA44CT1iFMFA01hxR0yDvaOD+tiHoNRe3gYfw634kKGtURfMytac+BHIGsYAPYeuw26sU
+	B3i6kilflJDkVUVC/B5fK9Aybce3pjGfthQmbbA2RJxYA7mXMozJn3mADK/At6x6XuOaLH3THyEre
+	cSivVUwnThEAPS2zBJExPXtAO7FAfqiKOh3Qm0lk8/3fOZUwyNaXHAIb1w+rpvZp/atSABkSWiVGQ
+	7IYMWNWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcERj-000000075vR-3H4W;
-	Wed, 24 Jun 2026 03:38:39 +0000
-Received: from m16.mail.163.com ([220.197.31.4])
+	id 1wcEm6-000000076kc-2cHM;
+	Wed, 24 Jun 2026 03:59:42 +0000
+Received: from mail-japaneastazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c405::5] helo=TYPPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcERg-000000075ux-0fII
+	id 1wcEm2-000000076k2-1hY2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 03:38:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=vK
-	QDyIqON71tqGHwtM14GRZInKm8rV7IMf2eudX48bQ=; b=a+Hzj8U3KaEAZUvVQ7
-	w8dQPCYHc0D32wMXUPHBW7ThJhkQ5dHoopkPkfMmUmVHfjV14sWgfa6T5vtHKIPo
-	NgGHyBxHuUEdtuJQuvSrbPjGipYR1FguEZNYFLmDt7Sj+76wp7j6N0gYKqsUBh0U
-	aXYlQlCUJw+DTvWLeYfHD+igc=
-Received: from localhost.localdomain (unknown [])
-	by gzsmtp4 (Coremail) with SMTP id PygvCgBXGiYVUTtq3F9PDw--.36777S2;
-	Wed, 24 Jun 2026 11:37:59 +0800 (CST)
-From: Haoxiang Li <haoxiang_li2024@163.com>
-To: sven@kernel.org,
-	j@jannau.net,
-	neal@gompa.dev,
-	rafael@kernel.org,
-	viresh.kumar@linaro.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	asahi@lists.linux.dev,
-	linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Haoxiang Li <haoxiang_li2024@163.com>
-Subject: [PATCH v2] cpufreq: apple-soc: Fix OPP table cleanup
-Date: Wed, 24 Jun 2026 11:37:56 +0800
-Message-Id: <20260624033756.2702021-1-haoxiang_li2024@163.com>
-X-Mailer: git-send-email 2.25.1
+	Wed, 24 Jun 2026 03:59:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=YupCb1E2NKixLPYl0mml0BN+tVzLXN0m4Fi0zrp/9cq1mNy+Syb2Klnv1tuYyaie9WHA94kEz0ucMtkLnXpW+IfGBWp0fmyiAYO560IKamCnqUIDZEoXPyW9CLELuNoN/HP0UeJRP10auTCCWin8mlpfxK36OR+fIkfTdT6Y29sTV9wOQUwZUDZzSFXR6emy8RBG7xeSWxbSNW3gv9ya7BmOaJS3x0HHf0d4ROl/JAE+YViXwDJ4o5T3GLY/lATbOzIZp+zvbpsR+9963bXKC9h0DtvaY4w+RjDO2r3bYO/Qy67AD6Qm/1Sxi0Ui4+eXxJDZAiezPqknSMmsvH7V4w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=T048eSnLn67wyQ35ZtRrGoHs+XTcAolcC/uHBQEGBcg=;
+ b=YbfFYQpj38hYHhagz3fx06gk2DXPxdofP4HcwViCM1Rw38P9pq9TvttSC7nwbQnFSHGgHvAxYLyNclZRyKyUJ0vJmwmuhLe8UuVSX43gIo+3PMhvXuXR8KcspOnzqc4qn+OW0Av7XfgddI9/idPmCshu+XAyglmgAvCebFee+SnEHBf93cjX7ccpOmKjWVbhXI+aSm1+7yGXKVqZOs6UTaB8HKyqLjeMIADw1GAFCFkzxflELYeBlfHa3a8HHhqy+N6pWXbEbDXt6NshA7tTQdwUqRadtCGRsvF25yUHBRAfRBsumRZZI6uuGgzyUyhkTTqP93dLhXmB6ZON6ZQrAw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
+ header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=T048eSnLn67wyQ35ZtRrGoHs+XTcAolcC/uHBQEGBcg=;
+ b=ZEI0C9Mh/rkgR9lvYDlyTvvtKKYvpuxKBuBzLhu9qfvaSaDLQ1pGNXNndP4tAsni+jW/xxaOb8u5GeoulLF1L6rUI2tcmKWD+jJ/CWCvl1YEbWscmtRX/Xyhuw9UQ+VRIXS2mvjxpqvGBVPVsPT2Pugzp/w/emzBaqIyJHZTH5o5nQpp+AZZDEmEL0uMezrsXznGmdZz6kgW+UoIQeuNdeWIGAE+HX7igdchcWDodNImE0qyIVlEAzjD4d0wIhPDsKPm/xxd9kGaJ5SuKBbWQIbOYqgjycKSA0NqKELKN+WPP2VkX0yv+B4JGgZavQvEOBC5KBNJlUEgCHKXp7tLFw==
+Received: from KL1PR0601MB4276.apcprd06.prod.outlook.com
+ (2603:1096:820:78::12) by TYSPR06MB6676.apcprd06.prod.outlook.com
+ (2603:1096:400:472::13) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.14; Wed, 24 Jun
+ 2026 03:59:28 +0000
+Received: from KL1PR0601MB4276.apcprd06.prod.outlook.com
+ ([fe80::b7f3:3c41:fd0e:e3f6]) by KL1PR0601MB4276.apcprd06.prod.outlook.com
+ ([fe80::b7f3:3c41:fd0e:e3f6%7]) with mapi id 15.21.0159.012; Wed, 24 Jun 2026
+ 03:59:28 +0000
+From: YH Chung <yh_chung@aspeedtech.com>
+To: "Shulzhenko, Oleksandr" <oleksandr.shulzhenko@linux.intel.com>, Arnd
+ Bergmann <arnd@arndb.de>, Andrew Jeffery <andrew@codeconstruct.com.au>, Conor
+ Dooley <conor@kernel.org>
+CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Ryan Chen
+	<ryan_chen@aspeedtech.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
+	<linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "openbmc@lists.ozlabs.org"
+	<openbmc@lists.ozlabs.org>, "maciej.lawniczak@intel.com"
+	<maciej.lawniczak@intel.com>, Mark Brown <broonie@kernel.org>
+Subject: RE: [PATCH 0/7] soc: aspeed: Add AST2600 eSPI controller support
+Thread-Topic: [PATCH 0/7] soc: aspeed: Add AST2600 eSPI controller support
+Thread-Index: AQHcstFOqEOl3ItXl0mr3midS8GMZLWsphAAgABXFACAA7sEAIAAT9LAgAF5RgCADH1X4IAAILCAgAK7OMCAEYY3UIAvrvqAgADtghCABnSAgIACyQAAgB+RCFCAHgEHUA==
+Date: Wed, 24 Jun 2026 03:59:27 +0000
+Message-ID: <KL1PR0601MB4276FA2C6347192CC45826E490ED2@KL1PR0601MB4276.apcprd06.prod.outlook.com>
+References: <20260313-upstream_espi-v1-0-9504428e1f43@aspeedtech.com>
+ <20260313-energy-casket-ca8adc1f1fd1@spud>
+ <23909400-4e7f-49c9-a982-14036372af98@app.fastmail.com>
+ <c3b28ee92fa46700887d0c68b23045b2418358a7.camel@codeconstruct.com.au>
+ <KL1PR0601MB4276ED93723F0B1F42349AD89041A@KL1PR0601MB4276.apcprd06.prod.outlook.com>
+ <0f7f0f96-a918-47d5-a0bd-bbde494c8fed@app.fastmail.com>
+ <KL1PR0601MB4276B5BE3B96C18E3A66AD709049A@KL1PR0601MB4276.apcprd06.prod.outlook.com>
+ <14870d17-2471-4522-b8b5-03cb9002a4f7@app.fastmail.com>
+ <KL1PR0601MB42763DAD359305DEBA4B769D9057A@KL1PR0601MB4276.apcprd06.prod.outlook.com>
+ <KL1PR0601MB427603A6A5768D6A537CAFCB905AA@KL1PR0601MB4276.apcprd06.prod.outlook.com>
+ <b1d56feb-9847-41b1-8bba-733963055cae@linux.intel.com>
+ <KL1PR0601MB4276AB799EC03BB00C4C0E5490392@KL1PR0601MB4276.apcprd06.prod.outlook.com>
+ <be4f662a-b986-4b4c-8263-2fd7b63c238a@linux.intel.com>
+ <KL1PR0601MB427604A7136947D020CF272D90002@KL1PR0601MB4276.apcprd06.prod.outlook.com>
+ <KL1PR0601MB4276452D09689C90B04209C190EF2@KL1PR0601MB4276.apcprd06.prod.outlook.com>
+In-Reply-To: <KL1PR0601MB4276452D09689C90B04209C190EF2@KL1PR0601MB4276.apcprd06.prod.outlook.com>
+Accept-Language: zh-TW, en-US
+Content-Language: zh-TW
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=aspeedtech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: KL1PR0601MB4276:EE_|TYSPR06MB6676:EE_
+x-ms-office365-filtering-correlation-id: 5e9d1741-c25e-4fd7-b23c-08ded1a4fca3
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|42112799006|1800799024|366016|7416014|23010399003|376014|56012099006|4143699003|6133799003|18002099003|22082099003|38070700021;
+x-microsoft-antispam-message-info: 9uCavdb9ddv/sYE6Xo2JlkbgdAi47GXNztNpAumr0c5neF032Q6KaaOv7ijyulfi4+sB916lXZicEl9tEvgDPfBRdGR91VoVrw+O1c794ZCHyBfj8WDK4Ynmv+WTHJ+7/9vAfuS+9pqkrOlRHdE77krwC6gI28YHjQWLgJ3txDbctoZclx84UEkCzdfiwY1PKPkZ5x4rZX+ofppaltM7WvWAoSnvP5AWWIwq0fYwgZZqgIho9AgE0jH7i+9694S7oQlEN8FAXBtmUUj5LP7VV2H5YJwBVoeoxOdjQnBqgiRghyMvHy2TjD/w2wgkuBBu0p7YPSFq6KYOTASgxoorR/DRsmRCLFMEs62vx5s7InfOwUSRdX7q3IOnhT/ta6dG0U4kzplfIl5gWIWBvkATxPhwPS0sXmSlzdZEY+AiAKxFx0i8cduqha+HU+V0gL1u4veJ03L40KpjA/JA9Enc8jBzNuiNHkoRngANr+8MBUOZcHLmTDSTZJtOFD6uwJDDNoSNlsCDmEKbz0VMw1izUgBPuHkuEx/5aibqw5HCAD2me9FkCmBsuTkqShAVQ6hZntYGqrBM12YcJHyP4XtNnYbN0tW7nYlVL+2TaLYgfXvaaNktjMF1uJRx3Aj/oq4DckZpFHc6Ifm2qLJejD+a8jrUe1DuvRqJ5QIOZlsV375txyLHJR2QeqBrr0/mQaTCz2azIZkXtpXQzByhzN0rAQui7vS+Oq+KSO6o6Fq7yiQ=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-tw;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR0601MB4276.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(42112799006)(1800799024)(366016)(7416014)(23010399003)(376014)(56012099006)(4143699003)(6133799003)(18002099003)(22082099003)(38070700021);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?NFdWTVJINWpFOTN2UjVTOXRrZUZjY2ovd3pFeXZ0b1R1V2YvczI4MzhHMEc2?=
+ =?utf-8?B?elZsTG9heXhmRkFER2hWQXM4QktkQ3R4a053dmhyZ0FDbjZ4QnNkUEtmc28w?=
+ =?utf-8?B?TjRTaHhPM1M4MUhMck5Rb2VvSUF0WlgrWS85Y2RXcmM2OUJxeGErUTFYTExv?=
+ =?utf-8?B?czVvSk5SdTI5ZVdhS3pQSWN2b09ONVRvSHMwZ3VYcmVaWTV3ZDJOc1l4THZ3?=
+ =?utf-8?B?Q3A5R1lQRHMrdFpZbzY4RmZmdWl4VllibzZmcXVFbVIxSzF2SGR1YjZzQWJG?=
+ =?utf-8?B?a0Vuc3NVU3RUd3p5T3dVeHA1ZGpSelpDekxuOG8ydzRZdkovVllXQ3FGY2l2?=
+ =?utf-8?B?a21PUENFWDNaa1A2YWhtMGFleFUzbTk5am1FTjdHUDkwUWtSMWJmSldoT2lp?=
+ =?utf-8?B?R1NtT0g2UjJ1OU5oLzNkcDBWY2VacFVRQXRDQThVUGNRVkdGSmpWV01zNWlV?=
+ =?utf-8?B?ZmFqc3ZHNi9DVzg4UGZjc2UzMWhuQzc4WnBpNlZhemhIUTRKWGZjempFL1Bn?=
+ =?utf-8?B?UWhCZGdsMk9sN0FCRkFiSVUzT3J5TUVnLyszdFZMczJROS9vRFJKYXpVVllY?=
+ =?utf-8?B?elI4Ykt3eUFSUXJyOTF0dnVWZThWRmlGWURhZDF2NG1DNStnL3NEclB2MW40?=
+ =?utf-8?B?N2VyTjBGS0pZUGFHbGNkMFlFa2VKenBPdFlRRnZBYWx3VUZWemNiMU5jWlUy?=
+ =?utf-8?B?OEt3TE9Uckcxc29XaHVMSlVMT1BqRDlkZmZuSk1ML0k0S0lVRDBXN0kyVENS?=
+ =?utf-8?B?VmNIRFE5bkdUK0piLzlOVmt5SEVwbHdHTzJyYTRjZkVpZTB3Vng2ODdCSXFk?=
+ =?utf-8?B?WWpUUmpQREhsTmt0RytneERReWtON2MwZmJMWjJ5R3R5dUNQeGNiYXJxWWRs?=
+ =?utf-8?B?NCtLMmF3TEFaanhGWUQzQ2FLWUNqTjBHTzNaWUcyeTd4Y3NKQmxGcGxURFI2?=
+ =?utf-8?B?UU5IV3pzazNKeTlidkREMUxBaUs5NVF4ck5YSzBueGthZ1dBTTV4YWVpQUJk?=
+ =?utf-8?B?UzgxZE1lalhOZ0ZDYXNEd253MzB0OWpCSEROb1VUcUNsRVlNSDQ5WDJLS09Q?=
+ =?utf-8?B?MGU3NExqN2RCSmQzMmc2UEhGSUk1d25Oa3R1M3FKbEhXRlJYb2c0T2hsUzFB?=
+ =?utf-8?B?UzE4TWdtWlJ3TkY3ZFRNY3lzRUNTb21EYVlSZGlzOVE5eUxYZFRSaVhVL0J1?=
+ =?utf-8?B?bC9lTEg3UkZYOEU5ZW9maVczc2dKV1ZPdmxTZnJ6M0xOUDNKRXNyWExVOG8x?=
+ =?utf-8?B?Z3dZd0VCTlJwZkJuSEVpSHR4bTh1cDk5Qmo2RW9zTTRzV29Qc2ZzOE9maWs4?=
+ =?utf-8?B?Mkh4TXNaOVNYS0hsVnhGV01wME5NQUc0NTdqdytrM1ZTZ2tvd0g5NVZERTZG?=
+ =?utf-8?B?ZjJZVU5IZ21Fem84aCt6VUpwL3dZS0ZtTFJ6YzlMNkhXU3QyMVRnZi8wWjhw?=
+ =?utf-8?B?NVRRUE9zaXpjL0hJU1B0eWVoclJlK2Eva1ZwYXJTUDd4dmVtUWJ2cE85RzRu?=
+ =?utf-8?B?VUdjYVhtbzdjc1JPazE1cjVxYjVXNzZsWmFvOUt4UUtwS3JVWVlLaUt2Q3NN?=
+ =?utf-8?B?VkpoaDBqS0NuOEk1ZXFXdGhvdzdwZFlkQUVkSGNQRDkrMzhtWEFhSGd2RXFP?=
+ =?utf-8?B?M3JiWEhOT0dtZzl5aHgvbS93SmRmcmVhLzMzcjFwbWRCSE01Nm9VRmlWNmNu?=
+ =?utf-8?B?a250R0ZZQUJzc0ZJN0xDZ3BESHFtSDF2ZU1BNHJZOEpPVkdVeUZIL29FeGF5?=
+ =?utf-8?B?eUw2aEhNbTlGdzBNd3RBc283cEZYU3VVckRtQnJLNy83ZlFZbHBqNjg3bXZ4?=
+ =?utf-8?B?UUU4T1luaEplb3d2Sm5KS2VsOUFaZmk5d0k5cDRrTEZwb3B2RmRsaEp2bmFl?=
+ =?utf-8?B?UWtWR1hpZ1p1UGUzU2dXN3kwaG11YW1YV3EyM2NCYTBCYURDekhoZlRNT25J?=
+ =?utf-8?B?MkFyVEs1a2pUM2pVVXBxWHJ2NmRVY3ZsZ3pjc3lEeVNPZFcxNWtxUm5saGl6?=
+ =?utf-8?B?RDB1cXdLcnNRZGZpMEpmeXN6NkVUMzdBcDZnNllTVk9FYzVyQkZXdjdsd2hy?=
+ =?utf-8?B?R1lNRHlmdTlRRUpqbzBGdHcyYzJrM0JkemxIKzBuRWlZb0tiSmZZTFBjNFhj?=
+ =?utf-8?B?SWdyczNtdmZoNXcycmM0YmtsYjh1aG5VWko1Rmx4eEJUN05BUU5Kcm5OSEJH?=
+ =?utf-8?B?a1EyQ1JvRGZTWVRXa0dXZXN6aDhQRXVrdk1sZGord2dxcnJKTnpadjhYdzdD?=
+ =?utf-8?B?bjN5LzdIcXBIMGpiaythVnh4V0lKS3dMTDM1ejBKZGR4TmROZUJlZ2hwOTRF?=
+ =?utf-8?B?VzNQOUVnZmZPTXpLVER6K3huek5GVGNaUFZVRjFLZ1E1MCtGT2VFQT09?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: PygvCgBXGiYVUTtq3F9PDw--.36777S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7AFy3tF4DZw43XFyxKryfZwb_yoW8Kw4UpF
-	W5WFZ09rn5tF1ktws5JF4j93W7tw1kGrW2gay7GwsavwnFvF1qqa48GFy7uF95Cr95JFy3
-	Cryrta47Zay8J3JanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pRNTm3UUUUU=
-X-Originating-IP: [240e:604:311:e68d:6832:a84c:abe2:7179]
-X-CM-SenderInfo: xkdr5xpdqjszblsqjki6rwjhhfrp/xtbC7RfCMWo7URfnnAAA3l
+X-OriginatorOrg: aspeedtech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: KL1PR0601MB4276.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5e9d1741-c25e-4fd7-b23c-08ded1a4fca3
+X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Jun 2026 03:59:27.6059
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 6c5c1l5Xboz5kliQzD5K9lQ+QCYdcQwQ92yQFaVMyyybE9GkhAXkpkCmY7watooFuOPErO5yu7SFiXyD7mMhlg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYSPR06MB6676
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_203836_583606_9221CAF7 
-X-CRM114-Status: GOOD (  10.38  )
+X-CRM114-CacheID: sfid-20260623_205938_947584_380FCBB4 
+X-CRM114-Status: GOOD (  17.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,74 +171,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-dev_pm_opp_of_add_table() adds the DT OPP table but not all failure
-paths remove it. The driver also uses dev_pm_opp_remove_all_dynamic(),
-which is not the right cleanup helper for OPPs loaded from firmware.
-
-Remove the DT OPP table with dev_pm_opp_of_remove_table() on init
-failure paths and from apple_soc_cpufreq_exit().
-
-Signed-off-by: Haoxiang Li <haoxiang_li2024@163.com>
----
-Changes in v2:
- - Remove unnecessary cleanup calls.
- - Remove OPP table from apple_soc_cpufreq_exit(). Thanks, Viresh!
----
- drivers/cpufreq/apple-soc-cpufreq.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
-
-diff --git a/drivers/cpufreq/apple-soc-cpufreq.c b/drivers/cpufreq/apple-soc-cpufreq.c
-index 638e5bf72185..977d56fc4fa0 100644
---- a/drivers/cpufreq/apple-soc-cpufreq.c
-+++ b/drivers/cpufreq/apple-soc-cpufreq.c
-@@ -258,7 +258,7 @@ static int apple_soc_cpufreq_init(struct cpufreq_policy *policy)
- 	ret = apple_soc_cpufreq_find_cluster(policy, &reg_base, &info);
- 	if (ret) {
- 		dev_err(cpu_dev, "%s: failed to get cluster info: %d\n", __func__, ret);
--		return ret;
-+		goto out_remove_opp_table;
- 	}
- 
- 	ret = dev_pm_opp_set_sharing_cpus(cpu_dev, policy->cpus);
-@@ -271,13 +271,13 @@ static int apple_soc_cpufreq_init(struct cpufreq_policy *policy)
- 	if (ret <= 0) {
- 		dev_dbg(cpu_dev, "OPP table is not ready, deferring probe\n");
- 		ret = -EPROBE_DEFER;
--		goto out_free_opp;
-+		goto out_iounmap;
- 	}
- 
- 	priv = kzalloc_obj(*priv);
- 	if (!priv) {
- 		ret = -ENOMEM;
--		goto out_free_opp;
-+		goto out_iounmap;
- 	}
- 
- 	ret = dev_pm_opp_init_cpufreq_table(cpu_dev, &freq_table);
-@@ -320,10 +320,10 @@ static int apple_soc_cpufreq_init(struct cpufreq_policy *policy)
- 	dev_pm_opp_free_cpufreq_table(cpu_dev, &freq_table);
- out_free_priv:
- 	kfree(priv);
--out_free_opp:
--	dev_pm_opp_remove_all_dynamic(cpu_dev);
- out_iounmap:
- 	iounmap(reg_base);
-+out_remove_opp_table:
-+	dev_pm_opp_of_remove_table(cpu_dev);
- 	return ret;
- }
- 
-@@ -332,7 +332,7 @@ static void apple_soc_cpufreq_exit(struct cpufreq_policy *policy)
- 	struct apple_cpu_priv *priv = policy->driver_data;
- 
- 	dev_pm_opp_free_cpufreq_table(priv->cpu_dev, &policy->freq_table);
--	dev_pm_opp_remove_all_dynamic(priv->cpu_dev);
-+	dev_pm_opp_of_remove_table(priv->cpu_dev);
- 	iounmap(priv->reg_base);
- 	kfree(priv);
- }
--- 
-2.25.1
-
+SGkgTWFyaywNCg0KPiAoMSkgUmV1c2UgdGhlIGV4aXN0aW5nIFNQSSBzdWJzeXN0ZW0gYW5kIHRy
+ZWF0IGVTUEkgcGFja2V0cyBhcyBwdXJlIHNpZ25hbHMuDQo+ICgyKSBNYWludGFpbiB0aGUgZHJp
+dmVyIHVuZGVyIHRoZSBTb0Mgc3Vic3lzdGVtLCBzaW5jZSB0aGVyZSBpcyBjdXJyZW50bHkgbm8N
+Cj4gZVNQSSBzdWJzeXN0ZW0uDQo+ICgzKSBDcmVhdGUgYSBuZXcgZVNQSSBzdWJzeXN0ZW0gYW5k
+IHJld3JpdGUgdGhlIGVTUEkgZHJpdmVyIGFjY29yZGluZ2x5Lg0KPg0KPiBGb3Igb3B0aW9uIDEs
+IHdlIGRvIG5vdCB0aGluayB0aGlzIHdvdWxkIGJlIGEgZ29vZCBmaXQsIGJlY2F1c2UgZVNQSSBo
+YXMgY2xlYXJseQ0KPiBkZWZpbmVkIHNlbWFudGljcyBmb3IgZWFjaCBjaGFubmVsLCBhbmQgb3Vy
+IGhhcmR3YXJlIGV4cG9zZXMgZGlmZmVyZW50IHNldHMgb2YNCj4gcmVnaXN0ZXJzIGZvciBlYWNo
+IG9mIHRoZW0uDQoNClJlZ2FyZGluZyBvcHRpb24gMSwgY291bGQgeW91IGtpbmRseSBzaGFyZSB5
+b3VyIGZlZWRiYWNrIG9uIHdoZXRoZXIgdGhpcw0KcGF0Y2ggc2V0IHNob3VsZCBiZSBtb2RpZmll
+ZCB0byBmaXQgdW5kZXIgdGhlIFNQSSBzdWJzeXN0ZW0sIG9yIHdoZXRoZXIgYSBuZXcNCmVTUEkg
+c3Vic3lzdGVtIHdvdWxkIGJlIG1vcmUgYXBwcm9wcmlhdGU/DQoNCkZvciBvcHRpb24gMiwgQXJu
+ZCBoYXMgaW5kaWNhdGVkIHRoYXQgaGUgZG9lcyBub3Qgd2FudCB0byB0YWtlIHRoaXMgdGhyb3Vn
+aA0KdGhlIFNvQyBzdWJzeXN0ZW0uIFRoZXJlZm9yZSwgaWYgdGhlIFNQSSBzdWJzeXN0ZW0gaXMg
+YWxzbyBub3QgYSBnb29kIGZpdCwgd2UNCnRoaW5rIGEgbmV3IGVTUEkgc3Vic3lzdGVtIG1heSBi
+ZSBuZWVkZWQgdG8gcHJvdmlkZSBhIGNvbW1vbiBob21lIGZvciBjaGFubmVsDQpoYW5kbGluZywg
+ZXZlbiB0aG91Z2ggdGhlIGluZGl2aWR1YWwgY2hhbm5lbHMgYXJlIHJlbGF0aXZlbHkgaW5kZXBl
+bmRlbnQuDQoNCkZvciBleGFtcGxlLCB0aGUgVlcgYW5kIE9PQiBjaGFubmVsIGhhbmRsaW5nIGNv
+dWxkIHBvdGVudGlhbGx5IGJlIGludGVncmF0ZWQNCndpdGggZXhpc3Rpbmcgc3Vic3lzdGVtcyBz
+dWNoIGFzIEdQSU8gb3IgbmV0L21jdHAuIEhvd2V2ZXIsIHRoZSBGbGFzaCBjaGFubmVsDQp3b3Vs
+ZCBzdGlsbCBuZWVkIGFuIGVTUEktc3BlY2lmaWMgaW50ZXJmYWNlIHRvIGNvbmZpZ3VyZSB0aGUg
+YmFja2luZyBzdG9yZS4NClBsYWNpbmcgdGhhdCBjb2RlIHVuZGVyIE1URCBmZWVscyBhd2t3YXJk
+LCBzaW5jZSB0aGUgZHJpdmVyIGlzIG5vdCByZWFsbHkgYW4NCk1URCBkZXZpY2Ugb3IgYSBmbGFz
+aCBjb250cm9sbGVyLg0KDQpJZiB0aGlzIGRpcmVjdGlvbiBzb3VuZHMgcmVhc29uYWJsZSwgd2Ug
+d291bGQgbGlrZSB0byBleHBsb3JlIGludHJvZHVjaW5nIGENCm5ldyBkcml2ZXJzL2VzcGkgc3Vi
+c3lzdGVtIGFuZCBtb3ZpbmcgdGhlIGVTUEkgZHJpdmVyIHRoZXJlLiBQbGVhc2UgbGV0IHVzDQpr
+bm93IGlmIHlvdSB0aGluayB3ZSBzaG91bGQgdGFrZSBhIGRpZmZlcmVudCBhcHByb2FjaC4NCg0K
+VGhhbmtzLA0KWXVuIEhzdWFuLg0K
 
