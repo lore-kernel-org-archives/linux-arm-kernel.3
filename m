@@ -4,144 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2D6CCDB470
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 07:09:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83683CDE001
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 07:15:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=091zK+0NHxzE22BJxj614Psiy9MBhC29uU3DlRRzFy4=; b=W09joBaBzh43AbBUcdJ9qFfmrY
-	gvyXVLzYDqgcTidYFa/CTl1FksBwsxuOUbYuZW4sGPwMBChwBT7JSrMuRv1rNwYvsIP3w7j5TnJmg
-	0Km6Xdv6gLImOTgPx2AViwG3ibw30MQFn8fFeWbofZsErFzYiWMjKeIV343LGoKsLmO1826DHIavn
-	6PkjZXUhYetNzFnOHxVzJ+UOuSnxznsz6dN8zxK7gYMjfSR/8dA3JCRA084ftYJGi1yWHRoE9I2hZ
-	2Y25OkBtHr2c5JDOe2iC/puVS4GbKSn0fsToLinbNu1aB/jW3xQnsTFhZ+ta7pEFaWRKE8/AkcMAm
-	zWN1/FtA==;
+	bh=ONVxwC+Td25N43rGDzHnzsanpqUWTvIc0+6pDMU/MTc=; b=X9TPKPA8ntp6w8/i5D/JE+2iYO
+	oApOtxjjrRFV+R8cY8A8O4qNk5kl6fU/Zt+o/ZOmYjqe5cQCsb9TCcIubm89wuMOvbZp8PgM7FtOq
+	eF0OgzJLcP+fKTP7fYqWd6OYHLPtgZ5gAXDYkjzCOEj4iWc4KM5JiAEOIJAYt9uJhykQ/WqG/hzGQ
+	TvAr5FBSI0CK6uKo/JDWPff1oZn7Zep3LdgHvtvLN9JxhMjPLsG+1uUpyUB2o2S7lxKJfLWWVXAeC
+	vnnFK2X9ZLV3Wv3vnUWkx4iSRLBfKz+ItG3e/5e7FZXzvuVbynhO65XB21HDTJFK3z/4TC+5NRkRq
+	2UHtJOFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcHjx-00000007HG3-2fDd;
-	Wed, 24 Jun 2026 07:09:41 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1wcHpl-00000007HhK-1jZg;
+	Wed, 24 Jun 2026 07:15:41 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcHju-00000007HEY-1wDS
+	id 1wcHpk-00000007Hh9-1O1f
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 07:09:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fiWyAgZYwLORlZop/teXA9rokhJ+pIDrp+pSz5vUmUl76kSxr9+CT1wodNmwYNZhltg48YGmd7Ai5oOo7CFwyaGlRKw4ioycyEDIlnr8uni+NO/mID3kO2RYG/hpj69KJ4esHP+HnOrpof3csXnNEaLd6YFWeDp0ys23jEt6kCFMvSIQFto5kqxQh91MEk8a6w6sfY8YaIewmwwfd3UoDiHu9BnCwBQVauQHDXR5S2dEhT1hjnzIh5cdqipWifr+J+VqPDIm5bCcUztSgzEnNitI41SvqNtUQXeuc6KuEbDO2vxl08HO3dkkaFVyP5ia6ikuOG0+OumAdj8OFe2Djg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=091zK+0NHxzE22BJxj614Psiy9MBhC29uU3DlRRzFy4=;
- b=D7R5B4xO8kgj4OrpvnOdcaxdUpjnCRrUFwTljsy5th8/KKirRWLmknM6K7EDcQXKlUuyVmSKdKpCskbhTMX4xoBBpoueta3bsp02gni29reL0FiIKoW62KjNFEFmvu7LY1IugM2gvjAJDEmjpDHNmYLq+xGLIoPXHGrljLhH7yRZxu938wMVHeqR6YNezN4L38beUVWCCEiT1ODe+UgWx0l1Ifed3GmIGhghhQZ5bgZjJeorYNhvQVPBOGpJTWquRkXNWHi5J9r30YATHi4VZfiAUPlu2ZJ7nCS8yVS3Tt4+lEasz1No0H49xAWXlDX/oPU9mRm+CQeWxFMlURGOUA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=091zK+0NHxzE22BJxj614Psiy9MBhC29uU3DlRRzFy4=;
- b=ViA/Zsx5L9OYKFy+sNMD6trcXKOEQEp2+/qQmqjwBomGafNZOZ+xy9Ot2UBNPcBRXo8Nz94QkoYxqkY22e3/dO5O57uO/4SHwYaYOtfITzUf6mBL3IuRzfMGmqe/N7IxycHlG8PURhtKSohJUoA3CjLySeKIBCe7XhWUcRDSYzytMU0LYr9A8VQzgLZ0+d+yRoFL/7V29g2knv+zV/VJNNtfIvGKtHMittIB14Ryq+D9v8dBYaRpDrMH3rOllV/WurUXMPq1Q71AE5OL9v79SrlJlgH8HdK8nsPsypJ6i8nXAIv2W3v5fgXYBcz3xu7xG1Dy6FQX+6Z3V6/jaUUdhw==
-Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
- (2603:10a6:800:315::13) by DB9PR04MB11511.eurprd04.prod.outlook.com
- (2603:10a6:10:5df::12) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.13; Wed, 24 Jun
- 2026 07:09:27 +0000
-Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
- ([fe80::feda:fd0e:147f:f994]) by VI0PR04MB12114.eurprd04.prod.outlook.com
- ([fe80::feda:fd0e:147f:f994%6]) with mapi id 15.21.0139.018; Wed, 24 Jun 2026
- 07:09:27 +0000
-From: Sherry Sun <sherry.sun@nxp.com>
-To: "Frank Li (OSS)" <frank.li@oss.nxp.com>, "Sherry Sun (OSS)"
-	<sherry.sun@oss.nxp.com>
-CC: "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
-	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>, Frank Li
-	<frank.li@nxp.com>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
-	"kernel@pengutronix.de" <kernel@pengutronix.de>, "festevam@gmail.com"
-	<festevam@gmail.com>, Amitkumar Karwar <amitkumar.karwar@nxp.com>, Neeraj
- Sanjay Kale <neeraj.sanjaykale@nxp.com>, "marcel@holtmann.org"
-	<marcel@holtmann.org>, "luiz.dentz@gmail.com" <luiz.dentz@gmail.com>,
-	Hongxing Zhu <hongxing.zhu@nxp.com>, "l.stach@pengutronix.de"
-	<l.stach@pengutronix.de>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"kwilczynski@kernel.org" <kwilczynski@kernel.org>, "mani@kernel.org"
-	<mani@kernel.org>, "bhelgaas@google.com" <bhelgaas@google.com>,
-	"brgl@kernel.org" <brgl@kernel.org>, "imx@lists.linux.dev"
-	<imx@lists.linux.dev>, "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-bluetooth@vger.kernel.org"
-	<linux-bluetooth@vger.kernel.org>, "linux-pm@vger.kernel.org"
-	<linux-pm@vger.kernel.org>
-Subject: RE: [PATCH V2 1/8] PCI: imx6: Add skip_pwrctrl_off flag support
-Thread-Topic: [PATCH V2 1/8] PCI: imx6: Add skip_pwrctrl_off flag support
-Thread-Index: AQHdAr0iuX6nZVWy60m8TZTUEemMGrZMNMoAgAEUz+A=
-Date: Wed, 24 Jun 2026 07:09:26 +0000
-Message-ID: <VI0PR04MB121147C305022511469FB603A92ED2@VI0PR04MB12114.eurprd04.prod.outlook.com>
-References: <20260623030736.1421537-1-sherry.sun@oss.nxp.com>
- <20260623030736.1421537-2-sherry.sun@oss.nxp.com>
- <ajqZBM6IkbDLiVu2@SMW015318>
-In-Reply-To: <ajqZBM6IkbDLiVu2@SMW015318>
-Accept-Language: zh-CN, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: VI0PR04MB12114:EE_|DB9PR04MB11511:EE_
-x-ms-office365-filtering-correlation-id: 37a7151e-716e-4a56-a6b4-08ded1bf8730
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|19092799006|23010399003|4143699003|11063799006|56012099006|38070700021|18002099003|22082099003;
-x-microsoft-antispam-message-info: XJjkLvu79zUcXIeV6v3k1neyPb/tgb08cLAhzeehzQzSi0YRhqIGZENy04mBjCvIIFMp6Yk7uYs4DyVhEDmg8gTLyeXKt5nWZdHcB23Ygl5Fm1ZdyvjluzSNTtC09LJme5XWjDegkKxw2NUZ7eVVanz3h6tfr6OIbWbHBTFt9yFbNG4qwU2zruhFIFY2a4kpdM6SRViaHaaUnmeLbDXW8qXcB+67qXDoXCoufdyzKJPnKasmQYalimEOIYUvESCprT9LDHEzYTQH5fEcptClwlQdphW+yCcq/L2LVeU/3o2edUCubQoBdzFBppJdGKPQtzUWxzznRAIfeIvc/7xFZiPA6FVLz1cgFcLgTzVZBUKrvSgQ8TsE4CZh6AmEjhk38Ue4jqR11hRYr+/nVNb2t0ggnNXn8fjXGaWPwH5L3oPDcwJkktKdSbw3cecc0bTiBqBOwQBkeuh2YsYUIKDIxF7EtzFLlURrC2k3WAPibU92Kl9vOaAJsbhItisGbjvywPPk7sm++jmRWcWpspqBOTKbGImfEFPVkwA1qt9z/rqAAdmGWWMFpPW18vTscehjC28Emzu6iEqsTBxu1sWQMg5vmh2dP0Eah5Ql2+WyIDYu7Snwtc6HxDPCDQy1AGQs7xoL2NtfIjyxeu1KiITevEu+/he+6S4ndaY+faHbSbYTjj+7gk5FP6HXMkcBor6Tc8Ef4ZSvE2mHgLNBMSv8DQy2h4SpFJmk0o6+qtlYjTg=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB12114.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(19092799006)(23010399003)(4143699003)(11063799006)(56012099006)(38070700021)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?CZ4jDlK01NeFJRgGiguwRxHarrhZFwxt3Br9w/+HQy9nr2DPcP0ZDsu9HoZd?=
- =?us-ascii?Q?zqe/L3mWow+G/RRfI8wmgP6QgVFCDxVeUCVZ8vGBc5jRT3ifOMNdgOLjMslo?=
- =?us-ascii?Q?ADJzNCdYXJI8rnehCNlU/3PqP6tbJ6EpPxa1pZymz4ipXnjPPxtLDZhMDXxH?=
- =?us-ascii?Q?bAgVLCKRZ4C3Vnd9vtAdAAY4HetejEh/RvrqL6NuLVsu+msvuqxtmUbk4a9T?=
- =?us-ascii?Q?pAuy0ad7Gnf8IVK/LYEf4dRBLxnk4Ix6COdgzfz7zzpKYCku+8fK2845w6rF?=
- =?us-ascii?Q?3ZjfjlokbJq0QQysDIEO4OpJRVIpDyA2HumLrbjzeU5HhcM3V1rqppSGbBdP?=
- =?us-ascii?Q?GEsuyjdAOEBBf0SZEmhoWq1x6vBDyyN8g4dUk0fAtlrrB6ER67wvBiVQ0MAy?=
- =?us-ascii?Q?0I9D/m3CBVmBHiY64hMEb2Sv6RzoRMvyPfMCBC+VvDYuRpl/CwM9pC3Nt2YU?=
- =?us-ascii?Q?Xpc/oKuGeoVKXpUSu276NyVD3eSensSPazhbmvY2xqKJOo3IpGtmtY5m0BBW?=
- =?us-ascii?Q?KXDRE3rNYHXIMODWS0B3KbIyBHlwLqp935z8r/Y9CqlpV5nMXe9j9+s7wpTF?=
- =?us-ascii?Q?HGoPai+BJQPt8bSZpY091E2X9ZfQ/MPoCtiFHYSdzZ94fWftQSfbhjKJTV+g?=
- =?us-ascii?Q?/tD4Fmek9dLIaALDrMXRZ7HF2kLSj+oTFhtfcrW+eI6RqsHhO311CedC0U63?=
- =?us-ascii?Q?5d3jD/lx1IDgwQ7M6absTXIF9K0+IH5oSupuyiIaYqsmqIK0l3CzjRwZWMex?=
- =?us-ascii?Q?Gq1rfEEsOXEprUqc+B4IXoiue8UzBByjkIVgIO/ts3GiVKLT4qoyasCJOauc?=
- =?us-ascii?Q?vBHPkFl1vkBkDqMiCpN2zvyhJn/XpYHQotwlSszxRG7Y43uDIwW+2dnjT1kA?=
- =?us-ascii?Q?GKnK0OGpZbpg62HWsnGORo6QiAEJAqKyqCj8EYGGFUQ3F0TiveMYGx7z3zRB?=
- =?us-ascii?Q?iWaw6jxKnTx/jBqOxtzRZLXydcaTs5g62aSs9Wr3ZBJYayJ+jnpgk3u4XBXl?=
- =?us-ascii?Q?1JqYeGPD9l+PfroTaZ0L8zGx2mbO6nOYMcilPZ6jT3v4VTgIOsvgw9ti4Mj+?=
- =?us-ascii?Q?9UQzZSLBwUngYYBVDFbuxn7iRpQGGdloXNbiSqkGOnholZs0MMXW1JKxhwow?=
- =?us-ascii?Q?4CdEyuM58QAAB5OnhePBlwTSwA4ZQxjlvXzX7BKEPXJx36Bd1cJHBFuXQ4/k?=
- =?us-ascii?Q?EHSVBnHIqGqJUS4hvrBuxElp07s0efLp7PjoEQ2kyM05MFTcL3ZdX4ciZsSH?=
- =?us-ascii?Q?fiVGOtPl2UADy5HtVT/JasAfBvjGfeqf17SP52cPByimZKfZy0bUJuRLoU0r?=
- =?us-ascii?Q?s2HXpp6+XhSj6+zVXtF5dN3FV0XubUqwXN/OxG12gUURuOS6asfCk5DbQUUE?=
- =?us-ascii?Q?UiIxaoTx4ipz2fFaBodZeEPVaFO2D+I+wqShWIUQ5bnxkJgC5Xvz+i/JmP/9?=
- =?us-ascii?Q?2I7MuHWFkntlnsotNgk1L2SOfK13qTBV80H/LMCFuS3ihyxrwausbsvUPIcz?=
- =?us-ascii?Q?C8Cy3C7zeT+PT6lVsps40LH7hQi1vywbu3M+EDP2ebvFUpVnFX3uHJrk9v/g?=
- =?us-ascii?Q?OZQ63iSClFe6up8tuKzU2JYSvqhlaa2vyZwGucSAr4ifK8s1Q2vun+r+fdBa?=
- =?us-ascii?Q?mcuv5zt7dfYdr57Kg+maDXFwVBp6biMZ7Jqpuo9mv1bCn1nOg4lr8ev8HLE7?=
- =?us-ascii?Q?dPdyBb54jzTvFWGxgPjPucxLXxWAHJSyzP0yQGPGnzcxs2t/?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Wed, 24 Jun 2026 07:15:40 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 40203601F3;
+	Wed, 24 Jun 2026 07:15:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F24E31F000E9;
+	Wed, 24 Jun 2026 07:15:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782285339;
+	bh=ONVxwC+Td25N43rGDzHnzsanpqUWTvIc0+6pDMU/MTc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=PTBFnWrTnSlnRm7wA9VA1PKnERY9yuPOvIvAeqhs1Yt6aoGxjRIfYBkjLVOQMbeNz
+	 kVBap/AwGkGSkpKtQ/39UY6tYC5h2Hxi7VKuzuAsEwE7Q8mVB/PU7I7Y4eJKS9ET6Q
+	 zysZDCaCETP5NWRPz+SMh2iLvN3vwxYg3pK9Ax+i//noDUm+RX8Zntiq8Pd3FC1Ldt
+	 PVyQL0gk9ZzMeM3ekhH4GVnrOpee7EB9Key3pzQBLLna0L0Ke76QM41Z4gJZ49GMV7
+	 uKzysiCphyE2UP/cXefVGblMHKlA92DT3p3TmpOZ+BzGgY0nAwKsi+rplH5Naor63Q
+	 2WpjSkr7z9qIw==
+Date: Wed, 24 Jun 2026 09:15:34 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: =?utf-8?B?R3LDqWdvaXJl?= Layet <gregoire.layet@9elements.com>
+Cc: joel@jms.id.au, andrew@codeconstruct.com.au, lkundrak@v3.sk, 
+	devicetree@vger.kernel.org, gregkh@linuxfoundation.org, jirislaby@kernel.org, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, andrew@lunn.ch, 
+	jacky_chou@aspeedtech.com, yh_chung@aspeedtech.com, ninad@linux.ibm.com, 
+	anirudhsriniv@gmail.com, linux-serial@vger.kernel.org, linux-aspeed@lists.ozlabs.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/7] dt-bindings: serial: 8250: aspeed: add compatible
+ string for ast2600
+Message-ID: <20260624-realistic-spiked-parrot-db1d9c@quoll>
+References: <cover.1782224059.git.gregoire.layet@9elements.com>
+ <80d983887dfdfc7e70a6db95f8cb95b7312f3044.1782224059.git.gregoire.layet@9elements.com>
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: VI0PR04MB12114.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 37a7151e-716e-4a56-a6b4-08ded1bf8730
-X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Jun 2026 07:09:26.9710
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: n8J0opJOmu7D4862mD5HJG3a1OseRvAiGaubFCZpbPUJAo0w+Tt7ZPlTB33zMQaucsGiyKkXnS0/3ujN6UXJhg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB11511
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_000938_525259_889AB8CC 
-X-CRM114-Status: GOOD (  26.74  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <80d983887dfdfc7e70a6db95f8cb95b7312f3044.1782224059.git.gregoire.layet@9elements.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,166 +75,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Subject: Re: [PATCH V2 1/8] PCI: imx6: Add skip_pwrctrl_off flag support
+On Tue, Jun 23, 2026 at 02:25:39PM +0000, Gr=C3=A9goire Layet wrote:
+> The ast2600 was using the ast2500 vuart compatible string.
+> This change makes it possible to have ast2600-specific properties.
 >=20
-> On Tue, Jun 23, 2026 at 11:07:28AM +0800, Sherry Sun (OSS) wrote:
-> > From: Sherry Sun <sherry.sun@nxp.com>
-> >
-> > Use dw_pcie_rp::skip_pwrctrl_off to avoid powering off devices during
-> > suspend to preserve wakeup capability of the devices and also not to
-> > power on the devices in the init path.
-> > This allows controller power-off to be skipped when some devices(e.g.
-> > M.2 cards key E without auxiliary power) required to support PCIe L2
-> > link state and wake-up mechanisms.
-> >
-> > Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
-> > ---
-> >  drivers/pci/controller/dwc/pci-imx6.c | 36
-> > +++++++++++++++++----------
-> >  1 file changed, 23 insertions(+), 13 deletions(-)
-> >
-> > diff --git a/drivers/pci/controller/dwc/pci-imx6.c
-> > b/drivers/pci/controller/dwc/pci-imx6.c
-> > index 0fa716d1ed75..ff5a9565dbbf 100644
-> > --- a/drivers/pci/controller/dwc/pci-imx6.c
-> > +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> > @@ -1382,16 +1382,20 @@ static int imx_pcie_host_init(struct dw_pcie_rp
-> *pp)
-> >  		}
-> >  	}
-> >
-> > -	ret =3D pci_pwrctrl_create_devices(dev);
-> > -	if (ret) {
-> > -		dev_err(dev, "failed to create pwrctrl devices\n");
-> > -		goto err_reg_disable;
-> > +	if (!pci->suspended) {
-> > +		ret =3D pci_pwrctrl_create_devices(dev);
+> Signed-off-by: Gr=C3=A9goire Layet <gregoire.layet@9elements.com>
+
+Do not attach (thread) your patchsets to some other threads (unrelated
+or older versions). This buries them deep in the mailbox and might
+interfere with applying entire sets. See also:
+https://elixir.bootlin.com/linux/v6.16-rc2/source/Documentation/process/sub=
+mitting-patches.rst#L830
+
+> ---
+>  .../devicetree/bindings/serial/8250.yaml      | 20 +++++++++++--------
+>  1 file changed, 12 insertions(+), 8 deletions(-)
 >=20
-> Is possible move pci_pwrctrl_create_devices() of pci_pwrctrl_create_devic=
-es
->=20
-> and call it direct at probe() function, like other regulator_get function=
-.
->=20
+> diff --git a/Documentation/devicetree/bindings/serial/8250.yaml b/Documen=
+tation/devicetree/bindings/serial/8250.yaml
+> index bb7b9c87a807..3cbd0f532e15 100644
+> --- a/Documentation/devicetree/bindings/serial/8250.yaml
+> +++ b/Documentation/devicetree/bindings/serial/8250.yaml
+> @@ -23,7 +23,9 @@ allOf:
+>      then:
+>        properties:
+>          compatible:
+> -          const: aspeed,ast2500-vuart
+> +          anyOf:
 
-Hi Frank,
-That makes sense. However, if we move pci_pwrctrl_create_devices () to
-probe(), we may need to add the following goto err_pwrctrl_destroy path
-in imx_pcie_probe() to properly handle errors from
-pci_pwrctrl_power_on_devices(), is that acceptable?
+This should be oneOf (by convention and actually more accurate meaning).
 
-@@ -1960,11 +1949,15 @@ static int imx_pcie_probe(struct platform_device *p=
-dev)
-        if (ret)
-                return ret;
+> +            - const: aspeed,ast2500-vuart
+> +            - const: aspeed,ast2600-vuart
+>    - if:
+>        properties:
+>          compatible:
+> @@ -287,17 +289,19 @@ properties:
+>    aspeed,sirq-polarity-sense:
+>      $ref: /schemas/types.yaml#/definitions/phandle-array
+>      description: |
+> -      Phandle to aspeed,ast2500-scu compatible syscon alongside register
+> -      offset and bit number to identify how the SIRQ polarity should be
+> -      configured. One possible data source is the LPC/eSPI mode bit. Only
+> -      applicable to aspeed,ast2500-vuart.
+> +      Phandle to aspeed,ast2500-scu or aspeed,ast2600-scu compatible sys=
+con
+> +      alongside register offset and bit number to identify how the SIRQ
+> +      polarity should be configured. One possible data source is the LPC=
+/eSPI
+> +      mode bit. Only applicable to aspeed,ast2500-vuart and
+> +      aspeed,ast2600-vuart.
+>      deprecated: true
+> =20
+>    aspeed,lpc-io-reg:
+>      $ref: /schemas/types.yaml#/definitions/uint32-array
+>      maxItems: 1
+>      description: |
+> -      The VUART LPC address.  Only applicable to aspeed,ast2500-vuart.
+> +      The VUART LPC address. Only applicable to aspeed,ast2500-vuart and
+> +      aspeed,ast2600-vuart.
+> =20
+>    aspeed,lpc-interrupts:
+>      $ref: /schemas/types.yaml#/definitions/uint32-array
+> @@ -305,8 +309,8 @@ properties:
+>      maxItems: 2
+>      description: |
+>        A 2-cell property describing the VUART SIRQ number and SIRQ
+> -      polarity (IRQ_TYPE_LEVEL_LOW or IRQ_TYPE_LEVEL_HIGH).  Only
+> -      applicable to aspeed,ast2500-vuart.
+> +      polarity (IRQ_TYPE_LEVEL_LOW or IRQ_TYPE_LEVEL_HIGH). Only
+> +      applicable to aspeed,ast2500-vuart and aspeed,ast2600-vuart.
+> =20
 
-+       ret =3D pci_pwrctrl_create_devices(dev);
-+       if (ret)
-+               return dev_err_probe(dev, ret, "failed to create pwrctrl de=
-vices\n");
-+
-        pci->use_parent_dt_ranges =3D true;
-        if (imx_pcie->drvdata->mode =3D=3D DW_PCIE_EP_TYPE) {
-                ret =3D imx_add_pcie_ep(imx_pcie, pdev);
-                if (ret < 0)
--                       return ret;
-+                       goto err_pwrctrl_destroy;
+More important, where is documenting of the actual compatible?
 
-                /*
-                 * FIXME: Only single Device (EPF) is supported due to the
-@@ -1979,7 +1972,7 @@ static int imx_pcie_probe(struct platform_device *pde=
-v)
-                pci->pp.use_atu_msg =3D true;
-                ret =3D dw_pcie_host_init(&pci->pp);
-                if (ret < 0)
--                       return ret;
-+                       goto err_pwrctrl_destroy;
 
-                if (pci_msi_enabled()) {
-                        u8 offset =3D dw_pcie_find_capability(pci, PCI_CAP_=
-ID_MSI);
-@@ -1991,6 +1984,11 @@ static int imx_pcie_probe(struct platform_device *pd=
-ev)
-        }
+Best regards,
+Krzysztof
 
-        return 0;
-+
-+err_pwrctrl_destroy:
-+       if (ret !=3D -EPROBE_DEFER)
-+               pci_pwrctrl_destroy_devices(dev);
-+       return ret;
- }
-
-Best Regards
-Sherry
-
->=20
-> > +		if (ret) {
-> > +			dev_err(dev, "failed to create pwrctrl devices\n");
-> > +			goto err_reg_disable;
-> > +		}
-> >  	}
-> >
-> > -	ret =3D pci_pwrctrl_power_on_devices(dev);
-> > -	if (ret) {
-> > -		dev_err(dev, "failed to power on pwrctrl devices\n");
-> > -		goto err_pwrctrl_destroy;
-> > +	if (!pp->skip_pwrctrl_off) {
-> > +		ret =3D pci_pwrctrl_power_on_devices(dev);
-> > +		if (ret) {
-> > +			dev_err(dev, "failed to power on pwrctrl devices\n");
-> > +			goto err_pwrctrl_destroy;
-> > +		}
-> >  	}
-> >
-> >  	ret =3D imx_pcie_clk_enable(imx_pcie); @@ -1460,9 +1464,10 @@
-> static
-> > int imx_pcie_host_init(struct dw_pcie_rp *pp)
-> >  err_clk_disable:
-> >  	imx_pcie_clk_disable(imx_pcie);
-> >  err_pwrctrl_power_off:
-> > -	pci_pwrctrl_power_off_devices(dev);
-> > +	if (!pp->skip_pwrctrl_off)
-> > +		pci_pwrctrl_power_off_devices(dev);
-> >  err_pwrctrl_destroy:
-> > -	if (ret !=3D -EPROBE_DEFER)
-> > +	if (ret !=3D -EPROBE_DEFER && !pci->suspended)
-> >  		pci_pwrctrl_destroy_devices(dev);
-> >  err_reg_disable:
-> >  	if (imx_pcie->vpcie)
-> > @@ -1482,7 +1487,8 @@ static void imx_pcie_host_exit(struct dw_pcie_rp
-> *pp)
-> >  	}
-> >  	imx_pcie_clk_disable(imx_pcie);
-> >
-> > -	pci_pwrctrl_power_off_devices(pci->dev);
-> > +	if (!pci->pp.skip_pwrctrl_off)
-> > +		pci_pwrctrl_power_off_devices(pci->dev);
-> >  	if (imx_pcie->vpcie)
-> >  		regulator_disable(imx_pcie->vpcie);
-> >  }
-> > @@ -1990,12 +1996,16 @@ static int imx_pcie_probe(struct
-> > platform_device *pdev)  static void imx_pcie_shutdown(struct
-> > platform_device *pdev)  {
-> >  	struct imx_pcie *imx_pcie =3D platform_get_drvdata(pdev);
-> > +	struct dw_pcie *pci =3D imx_pcie->pci;
-> > +	struct dw_pcie_rp *pp =3D &pci->pp;
-> >
-> >  	/* bring down link, so bootloader gets clean state in case of reboot =
-*/
-> >  	imx_pcie_assert_core_reset(imx_pcie);
-> >  	imx_pcie_assert_perst(imx_pcie, true);
-> > -	pci_pwrctrl_power_off_devices(&pdev->dev);
-> > -	pci_pwrctrl_destroy_devices(&pdev->dev);
-> > +	if (!pp->skip_pwrctrl_off)
-> > +		pci_pwrctrl_power_off_devices(&pdev->dev);
-> > +	if (!pci->suspended)
-> > +		pci_pwrctrl_destroy_devices(&pdev->dev);
-> >  }
-> >
-> >  static const struct imx_pcie_drvdata drvdata[] =3D {
-> > --
-> > 2.50.1
-> >
-> >
 
