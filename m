@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE878CDB47F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 09:26:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54FE9CDB47C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 09:26:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6rmLKcb4WRNUXeQ7hP00fLUu61cNXG6u4DRE42LSnkk=; b=0iZci/YczF/NL0wVXf8gI04A7n
-	918Q832er4SZaSaiUKpoLYO9UsM+YXfB5+Sx3TDtE/3cv4wZCb8n5QJyGQUPAVzNpIKAkCh8p2AW/
-	AS/a9WG6YkmTQG7NE6aUTDGiOC1EHzmSD7JM6W4hoyJzT8Tf6TY30VicMVXks4oRhqgutOBqF45xx
-	MV6cS5MgNJu07ngHBJQBr/CcCK2/UonPJYsec+0DbduXCl4Lpj7H4MZvOiDahpOQ5eSp+DEThWFBn
-	AgMvWSph3HJqRQYThOM1T03ZRep2fupK56YckLolsUFCRbXXF6FX2OtPt4qR1Uxu1U6B0Lz1/R4KI
-	g3fSFTsA==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TiI+bU6UZTaJsSDQgLd3Ye3dChV3WHZ4d0D9qJL7ZbY=; b=zRf7LAOYSgc1QS0GPjRoHdRADh
+	MXkQIVGYougzWU4taZn/rCn7GlBvt2DKrNRn7KLcZsj2UORvwLVNIc+iAYcGimsgaFzuM5Tcgr0kQ
+	NbJxoHc9+DpPrZoQ6qGjgNz9sZ338QVTIBMCTHOrKP1uTw/i4Ps1/c95nvzcG5ExZlHrp4FK8QcXb
+	g8bpfHYVMhmbrPnKB4CUv0HXh3rvOwbWznYCsJ1DXmeB9KbSECnoWmv1QFuPebEFxJF21lcuDk5KL
+	4le4gYlKrJeoT/gqamQ5Loavt1NjnoTSPIOjTSkN7xLqQ9I8YBoBbNqx7q4uYJZqqhE500Vs75hiW
+	Ra2z+Dgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcJrv-00000007UjC-3Cev;
-	Wed, 24 Jun 2026 09:26:03 +0000
-Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
+	id 1wcJs6-00000007Uoe-44N2;
+	Wed, 24 Jun 2026 09:26:14 +0000
+Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcJrq-00000007UgW-1hKN
+	id 1wcJrs-00000007Ugc-2I2X
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 09:26:02 +0000
+	Wed, 24 Jun 2026 09:26:03 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=6rmLKcb4WRNUXeQ7hP00fLUu61cNXG6u4DRE42LSnkk=;
-	b=q4D2r/tLrukbpLa/BUPY4FNk0Rx6P78YcaJiOiT4ZZlm6uBYwK7G398712jx5Zbewg4V5auz3
-	Vln6V+6ykBK44Mw5jJmHHFvX13lL1Rr10sni/YEZ5EQV0A8sqS75Xkq2fMiSmfEgfmm81rLxlZZ
-	2Aj0J5TQZVq38VhWptzWepc=
-Received: from mail.maildlp.com (unknown [172.19.162.140])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4glbtJ1DCYzcZyp;
-	Wed, 24 Jun 2026 17:17:12 +0800 (CST)
+	bh=TiI+bU6UZTaJsSDQgLd3Ye3dChV3WHZ4d0D9qJL7ZbY=;
+	b=k8G3N8hb/viyXx/pJP/K0Z/uLHUoSO7z+hUr9oYDC0S2i382rtko3ssbPeRSu7/qAzncvdB7e
+	+n488tlNnRUwAPSU7MHIovWByCHNNbIDeFkcpNZK863DLjf0+kJhDiWM2C/ax8tHB/YX7voSoo4
+	ab0o0cq44vRMTyROkhrOwws=
+Received: from mail.maildlp.com (unknown [172.19.162.92])
+	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4glbsv21fLzmV6k;
+	Wed, 24 Jun 2026 17:16:51 +0800 (CST)
 Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id B19E22012A;
-	Wed, 24 Jun 2026 17:25:49 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id C76A440565;
+	Wed, 24 Jun 2026 17:25:56 +0800 (CST)
 Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
  (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Wed, 24 Jun
- 2026 17:25:47 +0800
+ 2026 17:25:54 +0800
 From: Jinjie Ruan <ruanjinjie@huawei.com>
 To: <catalin.marinas@arm.com>, <will@kernel.org>, <tsbogend@alpha.franken.de>,
 	<tglx@kernel.org>, <mingo@redhat.com>, <bp@alien8.de>,
@@ -64,10 +64,12 @@ To: <catalin.marinas@arm.com>, <will@kernel.org>, <tsbogend@alpha.franken.de>,
 	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-mips@vger.kernel.org>
 CC: <ruanjinjie@huawei.com>
-Subject: [PATCH v3 00/12] arm64: Add HOTPLUG_PARALLEL support for secondary CPUs
-Date: Wed, 24 Jun 2026 17:25:25 +0800
-Message-ID: <20260624092537.2916971-1-ruanjinjie@huawei.com>
+Subject: [PATCH v3 03/12] arm64: smp: Tidy up smp_prepare_cpus()
+Date: Wed, 24 Jun 2026 17:25:28 +0800
+Message-ID: <20260624092537.2916971-4-ruanjinjie@huawei.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260624092537.2916971-1-ruanjinjie@huawei.com>
+References: <20260624092537.2916971-1-ruanjinjie@huawei.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
@@ -75,8 +77,8 @@ X-Originating-IP: [10.90.53.73]
 X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
  dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_022559_042342_C15D1AE8 
-X-CRM114-Status: GOOD (  17.96  )
+X-CRM114-CacheID: sfid-20260624_022601_193990_8BEC2AFE 
+X-CRM114-Status: GOOD (  12.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,166 +93,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Support for parallel secondary CPU bringup is already utilized by x86,
-MIPS, and RISC-V. This patch brings this capability to the arm64
-architecture.
+From: Will Deacon <will@kernel.org>
 
-Introduce CONFIG_HOTPLUG_PARALLEL_SMT to avoid primary SMT threads
-to boot first constraint.
+smp_prepare_cpus() is always run on the boot CPU (i.e. CPU 0) but goes
+to great lengths to support running on a CPU where smp_processor_id()
+is non-zero.
 
-And add a 'cpu' parameter to update_cpu_boot_status() to allow updating
-the boot status at a per-CPU granularity during parallel bringup.
+Clean up the code a little by hardcoding zero for the boot CPU ID.
 
-Rework the global `secondary_data` and `__early_cpu_boot_status` accessed
-during early boot into per-CPU arrays to allow secondary CPUs to boot
-in parallel.
+Signed-off-by: Will Deacon <will@kernel.org>
+Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+---
+ arch/arm64/kernel/smp.c | 13 +++++--------
+ 1 file changed, 5 insertions(+), 8 deletions(-)
 
-And reuse `__cpu_logical_map` array in the early boot code in head.S
-to resolve each secondary CPU's logical ID concurrently.
-
-This series includes a subset of the refactoring patches proposed
-by Will Deacon, with further adjustments.
-
-Link: https://web.git.kernel.org/pub/scm/linux/kernel/git/will/linux.git/log/?h=cpu-hotplug
-
-Bringup Time Comparison on real hardware(ms, lower is better):
-
- |     Platform                     | Baseline|   P=0   |   P=1  | Delta(%)|
- | -------------------------------- | ------- | ------- | ------ | ------- |
- | 192-core server(HIP12)           | 14619.2 | 14619.1 | 8589.4 | 41.21%  |
- | 32-core board                    | 2776.5  | 2881.0  | 1045.0 | 62.36%  |
- | 64-core board                    | 2297.0  |    /    | 814.4  | 64.5%   |
-
-Below is the actual dmesg output demonstrating four concurrent boot
-failures on different CPUs:
-
-	CPU4 failed to report alive state
-	CPU4: is stuck in kernel
-	CPU4: does not support 52-bit VAs
-
-	CPU6 failed to report alive state
-	CPU6: is stuck in kernel
-	CPU6: does not support 4K granule
-
-	GICv3: CPU8: found redistributor 8 region 0:0x00000000081a0000
-	GICv3: CPU8: using allocated LPI pending table @0x0000000100360000
-	CPU8: Booted secondary processor 0x0000000008 [0x410fd034]
-	...
-	CPU16 failed to report alive state
-	psci: CPU16 killed (polled 0 ms)
-	CPU16: died during early boot
-
-	CPU17: will not boot
-	CPU17 failed to report alive state
-	psci: CPU17 killed (polled 0 ms)
-	CPU17: died during early boot
-
-	CPU18 failed to report alive state
-	Kernel panic - not syncing: CPU18 detected unsupported configuration
-	CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 7.1.0-rc1-gdd2d3bbca3b5 #151 PREEMPT
-	Hardware name: linux,dummy-virt (DT)
-	Call trace:
-	 show_stack+0x18/0x24 (C)
-	 dump_stack_lvl+0x38/0xd0
-	 dump_stack+0x18/0x24
-	 vpanic+0x4f8/0x4fc
-	 do_panic_on_target_cpu+0x0/0x1c
-	 secondary_start_kernel+0x0/0x17c
-	 cpuhp_bringup_ap+0x2cc/0x2dc
-	 cpuhp_invoke_callback+0x168/0x2ac
-	 __cpuhp_invoke_callback_range+0x90/0x118
-	 _cpu_up+0x148/0x220
-	 cpu_up+0xcc/0x158
-	 cpuhp_bringup_mask.constprop.0+0x80/0xcc
-	 bringup_nonboot_cpus+0x38/0x80
-	 smp_init+0x30/0x8c
-	 kernel_init_freeable+0x170/0x35c
-	 kernel_init+0x24/0x1e0
-	 ret_from_fork+0x10/0x20
-	SMP: stopping secondary CPUs
-	---[ end Kernel panic - not syncing: CPU18 detected unsupported configuration ]---
-
-Changes in v3:
-- Add necessary rework patches.
-- Fix AI review issues in [2].
-  1. Use lockdep_off() and lockdep_on to resolve the lockdep splat
-     on failure paths, which avoid printk_deferred() and solve
-     the pr_fmt() prefix issue or missing update.
-  2. Ensure atomic updates to system_cpucaps bitmap for arm64 cpufeature.
-  3. Use NR_CPUS __early_cpu_boot_status array in head.S and not clear
-     __early_cpu_boot_status.
-  4. Solve get_cpu_ops(0) which evaluates to the boot CPU issue in
-    arch_cpuhp_init_parallel_bringup() with Will's rework patch.
-- Handle `__early_cpu_boot_status` properly as Will pointed out with
-  Will's patch.
-- Implement arch_cpuhp_cleanup_kick_cpu() to cleanup for fail boot
-  secondary CPUS and add support for error handling with Will's patch.
-- Update the code as Thomas suggested. Rename PARALLEL_SMT_PRIMARY_FIRST
-  to `HOTPLUG_PARALLEL_SMT` and not select it for RISC-V.
-- Select HOTPLUG_PARALLEL if SMP as Thomas suggested.
-- Rework early boot data into per-CPU arrays directly rather than using
-  CONFIG_HOTPLUG_PARALLEL to differentiate code paths as Thomas suggested.
-- Remove `cpu_running` and related complete.
-- Add new test data on new hardware.
-
-[2]: https://sashiko.dev/#/patchset/20260618092444.1316336-1-ruanjinjie%40huawei.com
-
-Changes in v2:
-- Remove RFC.
-- Add Tested-by.
-- Fix AI review issues in [1].
-- Add arch_cpuhp_init_parallel_bringup() to check psci boot.
-- Reuse `__cpu_logical_map` instead of a new aray.
-- Defer rcutree_report_cpu_starting() until after
-  check_local_cpu_capabilities() to prevent a potential control CPU
-  deadlock if an early capability check fails.
-- Move the assembly in head.S to a macro called `mpidr_to_cpuid`.
-- Add `SECONDARY_DATA_SHIFT` for `lsl` to access `cpu_boot_data`.
-- Add sizeof(struct secondary_data) power of 2 assert check.
-- Expand testing with more data collected from real hardware.
-
-[1] https://sashiko.dev/#/patchset/20260611133809.3854977-1-ruanjinjie%40huawei.com
-
-Jinjie Ruan (5):
-  cpu/hotplug: Introduce CONFIG_HOTPLUG_PARALLEL_SMT
-  arm64: cpufeature: Ensure atomic updates to system_cpucaps bitmap
-  arm64: smp: Pass CPU ID to update_cpu_boot_status()
-  arm64: smp: Rework early boot data into per-CPU arrays
-  arm64: Add HOTPLUG_PARALLEL support for secondary CPUs
-
-Will Deacon (7):
-  cpu/hotplug: Propagate bring-up status to
-    arch_cpuhp_cleanup_kick_cpu()
-  arm64: smp: Tidy up smp_prepare_cpus()
-  arm64: smp: Tidy up cpuinfo init and cpufeature updates
-  arm64: smp: Defer RCU registration during secondary CPU bringup
-  arm64: smp: Use generic HOTPLUG_SPLIT_STARTUP machinery for CPU
-    onlining
-  arm64: cpu_ops: Make 'cpu_operations' pointer global instead of
-    per-cpu
-  arm64: cpu_ops: Introduce get_secondary_cpu_ops()
-
- arch/Kconfig                     |   5 ++
- arch/arm64/Kconfig               |   2 +-
- arch/arm64/include/asm/cpu.h     |   6 +-
- arch/arm64/include/asm/cpu_ops.h |   1 +
- arch/arm64/include/asm/smp.h     |  22 +++---
- arch/arm64/kernel/asm-offsets.c  |   2 +
- arch/arm64/kernel/cpu_ops.c      |  34 ++++++---
- arch/arm64/kernel/cpufeature.c   |  27 +++++--
- arch/arm64/kernel/cpuinfo.c      |  11 ---
- arch/arm64/kernel/head.S         |  44 ++++++++++--
- arch/arm64/kernel/setup.c        |   9 +++
- arch/arm64/kernel/smp.c          | 118 +++++++++++++++++--------------
- arch/arm64/mm/context.c          |   5 +-
- arch/arm64/mm/mmu.c              |   2 +-
- arch/mips/Kconfig                |   3 +-
- arch/x86/Kconfig                 |   2 +-
- arch/x86/kernel/smpboot.c        |   4 +-
- include/linux/cpuhotplug.h       |   2 +-
- kernel/cpu.c                     |   8 +--
- 19 files changed, 189 insertions(+), 118 deletions(-)
-
+diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+index 1aa324104afb..e858d7d64d1f 100644
+--- a/arch/arm64/kernel/smp.c
++++ b/arch/arm64/kernel/smp.c
+@@ -772,16 +772,14 @@ void __init smp_init_cpus(void)
+ void __init smp_prepare_cpus(unsigned int max_cpus)
+ {
+ 	const struct cpu_operations *ops;
+-	int err;
+ 	unsigned int cpu;
+-	unsigned int this_cpu;
++	int err;
+ 
+ 	init_cpu_topology();
+ 
+-	this_cpu = smp_processor_id();
+-	store_cpu_topology(this_cpu);
+-	numa_store_cpu_info(this_cpu);
+-	numa_add_cpu(this_cpu);
++	store_cpu_topology(0);
++	numa_store_cpu_info(0);
++	numa_add_cpu(0);
+ 
+ 	/*
+ 	 * If UP is mandated by "nosmp" (which implies "maxcpus=0"), don't set
+@@ -796,8 +794,7 @@ void __init smp_prepare_cpus(unsigned int max_cpus)
+ 	 * secondaries from the bootloader.
+ 	 */
+ 	for_each_possible_cpu(cpu) {
+-
+-		if (cpu == smp_processor_id())
++		if (cpu == 0)
+ 			continue;
+ 
+ 		ops = get_cpu_ops(cpu);
 -- 
 2.34.1
 
