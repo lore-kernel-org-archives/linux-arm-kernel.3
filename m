@@ -4,97 +4,180 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED891CDB479
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 10:45:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3839ECDB47C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 10:47:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1395hZTLdzjvGEUA5mY2MXbrSyHdvWfUix1ZT9yBBvU=; b=gn0R2T//DdPPxaxy29J7knEbYw
-	cMtxOaqjARVS6ZeV8uyUTGFqbKn5YlvyxRUFz5nosivAqVry+drpCbk76kRdzhhCvgFu99d52HqDe
-	gweKrON3lmh4hOhfxY0iv0nleeon1c23hCfUA+ijlkLK1w55/1U6MTRn76/JRBKgny5q80utUFeEp
-	odw25guIWlFI7XYkPojMZ5mebkIeDiLBSWsEXvJqOom1OJahJk6dWCj0a2rSOWv0lgLi8J3lYLq5h
-	60WDnBoAK0e+dzGBiDKxGcjxzTEZHRKtyIXJRfouC7zTp5msnZJpFP9sb/maJbWeJF4hEe3/pWULX
-	yg7bLJsA==;
+	bh=DG8lm0uaDNsOR8nLc3OMkpjgGGVvWSl6oV34vqncZmo=; b=cvXCXBJjpWHaspulEqcLNOb00W
+	PwfGbzpMK3soo9wndUzeCKviLuKT+M9xFt3AfCWNM2QtyGOf+kZNuAZ6KlDoYHI8H/mVv3/ADNVUN
+	9ITIPCi+oZ6867O+Et2opvhTRuleJpG5HaLbYRKlWKMlZNFPr4L1D5ETG5YsN94fTmJkyPe/iNuf7
+	RTOMfXgN5YYdHwhOFpNKCNcGsuBKFYarYZtTuyTGyxSknaThpfzKkLMWbNACNzy7/n3PYuIPuvyuv
+	U8YwxmtXROx94lwNkCYTHMpj7WIT0AXWXuy1hdFfpZoL8hPDSwsYIoHI9r5a22Rp9C0R4LLQH+E0G
+	NyyLyEAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcKPn-00000007YSI-1Ky6;
-	Wed, 24 Jun 2026 10:01:03 +0000
-Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
+	id 1wcL8N-00000007d2y-2o76;
+	Wed, 24 Jun 2026 10:47:07 +0000
+Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcKPh-00000007YQp-2Bma;
-	Wed, 24 Jun 2026 10:01:01 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=1395hZTLdzjvGEUA5mY2MXbrSyHdvWfUix1ZT9yBBvU=;
-	b=qlRqlki8Vete58SPLgzXr/AdeIESPRlfvmDp+qvgdcQ9hdmA0UUGgAXDOKcsXvSaxXgIiKOXt
-	3DjyBcgH9e3sBFpLQEQzJHUd57n5Xz+/Cmhtv/VSkMbJOFp8Ulw3OyOt2bVX4hKemQQiKbc1Qfp
-	7EHlN4/awC+2PYDruCMPWZw=
-Received: from mail.maildlp.com (unknown [172.19.162.223])
-	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4glcfW6d8Rz12LCg;
-	Wed, 24 Jun 2026 17:52:03 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id F21A540575;
-	Wed, 24 Jun 2026 18:00:50 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 24 Jun 2026 18:00:48 +0800
-Message-ID: <a0a531b7-6f1e-4055-ad0c-c1ebf3fadba3@huawei.com>
-Date: Wed, 24 Jun 2026 18:00:47 +0800
+	id 1wcL8H-00000007d21-0RNE
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 24 Jun 2026 10:47:06 +0000
+Received: from pps.filterd (m0384305.ppops.net [127.0.0.1])
+	by m0384305.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 65OAOPVw2534384;
+	Wed, 24 Jun 2026 05:46:49 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=DG8lm0uaDNsOR8nLc3OMkpjgGGVvWSl6oV34vqncZ
+	mo=; b=KjZAutczDcNz8KHQJMmXxFG7gorjHHnzV60Jxcy4acWIibYYw6y4zoz6A
+	otNko5KE7HFveOjhMgdWqv+1vYeoWBZvhhcryN0yOtDV6FLF7JLVeDOI1L4Ktn03
+	aKFcOdtWDuA4UccFbnv/AMCQrT964ITt+HB7RJZ7WWQW/IQPM7FVVX5N+5EXBBnM
+	jA3rWbWiVWfZOmTy0TMEyLdj4TqrUx48mIAS/aIt5k1wNj8CXQNYm81/ObLOs1KM
+	EVOWmSlUlki+fYHRYxDt3I1MgSaScl6CTjHFomkQN9QhqJ40QIeQvQk2XVo51tuj
+	5E8e9KTYs8RRAodio03VjeiiEMw/w==
+Received: from ph7pr06cu001.outbound.protection.outlook.com (mail-westus3azon11010053.outbound.protection.outlook.com [52.101.201.53])
+	by m0384305.ppops.net (PPS) with ESMTPS id 4eypttgb3m-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 24 Jun 2026 05:46:49 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=N8r6wlVhAN04simQC4aR+sEePx3zQYGR0aqHD7eIpCUEVeqWRbEs9TJaXaKrRrpcd10DtWA184uZnoPAYJwr22sTM3u7pBjPvkQ24+siCZ0n+LcLK3uCP65lNybu/QY7tXCi1tXXBTD7gyGMr+OLSb823sb2+TD4f/xGW4OFSG4gHCMZ95WCEKrzpeL2bsQuDESKCZ3Mt4KkBm2CFdeAd4fqX4mvONasgrUy2lXfRj1OhxYD6OzYHqMlNPVBNVohK0mPksGZIa2/0pfGkIyXh6YpC8XjaKzAVvTM40dHveyqp1ZsdpGdLxS5e0V47C/UfiXDpNQpLw/GPacqh73x0Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DG8lm0uaDNsOR8nLc3OMkpjgGGVvWSl6oV34vqncZmo=;
+ b=MsHBcuUraQREXCBvk4A2HO8yf1NpZwOeXo7G1TZmxbsCel3aZUYqEH8LWLV5sU+aiLVCCHg+SKEqEca709PcvjTVeSsGQWxCYuJAt7sE4tIg7+Wc95E9iuPxB+eqhNC7qbO1FV1QU6FLZnf6Ze1918RB0kqtc8KPUD0fA1JFdfKPZimgv5LTBiRKEoWYzFYphpKkXnYHO8NIRKM5eIQ/hfEr3Zf+Faf9RnnifclsDuPDnjCwbokG+ASfw7k+fF39RpJb4mgYkquQPMT/8ZnN1+S66T8Gtoz2J44OT5G09dW06sEBnbkBGpH4ddwp7keJwp+nP1Zr/b4G0vw7eaNvkA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DG8lm0uaDNsOR8nLc3OMkpjgGGVvWSl6oV34vqncZmo=;
+ b=GbfHPCDBoDScHTkvGR2rLmBWpcyazwiAwWPxYxb4s0L08QfPq+b+WVxDZdKrhz/hYZDnvJVAuOX0B4Lo5fCoQyNJwC+LCyLR/5PxmalwZEnKY9piNNq66W5ADIISmKDEJJ67l6J2yirNWt2E0zeHWIgPz+H0wNm+juJUAuoyYyQ=
+Received: from SJ0PR03CA0215.namprd03.prod.outlook.com (2603:10b6:a03:39f::10)
+ by CH3PR10MB7139.namprd10.prod.outlook.com (2603:10b6:610:127::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.13; Wed, 24 Jun
+ 2026 10:46:44 +0000
+Received: from CO1PEPF000075EE.namprd03.prod.outlook.com
+ (2603:10b6:a03:39f:cafe::f) by SJ0PR03CA0215.outlook.office365.com
+ (2603:10b6:a03:39f::10) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.159.13 via Frontend Transport; Wed,
+ 24 Jun 2026 10:46:44 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
+Received: from flwvzet201.ext.ti.com (198.47.21.195) by
+ CO1PEPF000075EE.mail.protection.outlook.com (10.167.249.37) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.159.10 via Frontend Transport; Wed, 24 Jun 2026 10:46:42 +0000
+Received: from DFLE208.ent.ti.com (10.64.6.66) by flwvzet201.ext.ti.com
+ (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 24 Jun
+ 2026 05:46:38 -0500
+Received: from DFLE204.ent.ti.com (10.64.6.62) by DFLE208.ent.ti.com
+ (10.64.6.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 24 Jun
+ 2026 05:46:38 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE204.ent.ti.com
+ (10.64.6.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Wed, 24 Jun 2026 05:46:38 -0500
+Received: from [172.24.20.59] (ltpw0bk3xf.dhcp.ti.com [172.24.20.59])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 65OAkWET249706;
+	Wed, 24 Jun 2026 05:46:33 -0500
+Message-ID: <cccbb9f7-3903-4a3d-bf53-72752b7561bb@ti.com>
+Date: Wed, 24 Jun 2026 16:16:32 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 3/3] arm64: Add HOTPLUG_PARALLEL support for secondary
- CPUs
-To: Will Deacon <will@kernel.org>
-CC: Michael Kelley <mhklinux@outlook.com>, "catalin.marinas@arm.com"
-	<catalin.marinas@arm.com>, "tsbogend@alpha.franken.de"
-	<tsbogend@alpha.franken.de>, "pjw@kernel.org" <pjw@kernel.org>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>, "aou@eecs.berkeley.edu"
-	<aou@eecs.berkeley.edu>, "alex@ghiti.fr" <alex@ghiti.fr>, "tglx@kernel.org"
-	<tglx@kernel.org>, "mingo@redhat.com" <mingo@redhat.com>, "bp@alien8.de"
-	<bp@alien8.de>, "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
-	"hpa@zytor.com" <hpa@zytor.com>, "peterz@infradead.org"
-	<peterz@infradead.org>, "kees@kernel.org" <kees@kernel.org>,
-	"nathan@kernel.org" <nathan@kernel.org>, "linusw@kernel.org"
-	<linusw@kernel.org>, "ojeda@kernel.org" <ojeda@kernel.org>,
-	"david.kaplan@amd.com" <david.kaplan@amd.com>, "lukas.bulwahn@redhat.com"
-	<lukas.bulwahn@redhat.com>, "ryan.roberts@arm.com" <ryan.roberts@arm.com>,
-	"maz@kernel.org" <maz@kernel.org>, "timothy.hayes@arm.com"
-	<timothy.hayes@arm.com>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"thuth@redhat.com" <thuth@redhat.com>, "oupton@kernel.org"
-	<oupton@kernel.org>, "yeoreum.yun@arm.com" <yeoreum.yun@arm.com>,
-	"miko.lenczewski@arm.com" <miko.lenczewski@arm.com>, "broonie@kernel.org"
-	<broonie@kernel.org>, "kevin.brodsky@arm.com" <kevin.brodsky@arm.com>,
-	"james.clark@linaro.org" <james.clark@linaro.org>, "tabba@google.com"
-	<tabba@google.com>, "mrigendra.chaubey@gmail.com"
-	<mrigendra.chaubey@gmail.com>, "arnd@arndb.de" <arnd@arndb.de>,
-	"anshuman.khandual@arm.com" <anshuman.khandual@arm.com>, "x86@kernel.org"
-	<x86@kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-mips@vger.kernel.org"
-	<linux-mips@vger.kernel.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>
-References: <20260611133809.3854977-1-ruanjinjie@huawei.com>
- <20260611133809.3854977-4-ruanjinjie@huawei.com>
- <SN6PR02MB41575306521E6223561F476FD4182@SN6PR02MB4157.namprd02.prod.outlook.com>
- <e96a2579-c010-4198-a2a3-6ba35b14aef0@huawei.com>
- <ajPitENEHWa8lDfC@willie-the-truck>
- <2a34ff43-78a0-4d99-885a-0e7f560634ca@huawei.com>
- <ajqYaklhIyvaNLlk@willie-the-truck>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <ajqYaklhIyvaNLlk@willie-the-truck>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+Subject: Re: [PATCH v3 10/15] drm/tidss: Add support for DPIENABLE bit
+To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+        Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Rob Herring <robh@kernel.org>,
+        "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Lee
+ Jones <lee@kernel.org>,
+        Aradhya Bhatia <aradhya.bhatia@linux.dev>, Nishanth
+ Menon <nm@ti.com>,
+        Vignesh Raghavendra <vigneshr@ti.com>,
+        Devarsh Thakkar
+	<devarsht@ti.com>,
+        Louis Chauvet <louis.chauvet@bootlin.com>
+CC: <devicetree@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+References: <20260529-beagley-ai-display-v3-0-7fefdc5d1adf@ideasonboard.com>
+ <20260529-beagley-ai-display-v3-10-7fefdc5d1adf@ideasonboard.com>
+Content-Language: en-US
+From: Swamil Jain <s-jain1@ti.com>
+In-Reply-To: <20260529-beagley-ai-display-v3-10-7fefdc5d1adf@ideasonboard.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CO1PEPF000075EE:EE_|CH3PR10MB7139:EE_
+X-MS-Office365-Filtering-Correlation-Id: cf517f4c-801e-41da-952c-08ded1dde125
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|376014|7416014|1800799024|23010399003|22082099003|18002099003|4143699003|56012099006|921020|3023799007;
+X-Microsoft-Antispam-Message-Info: nZmQvog0p4/38HufqpyQP2QEZ6/ovFPW2I0UhTHKZRDA0+fcB4PZK+MePtXO0eNdxnR1t92nLYpL7K+asJ9lAT1qn+Dmr3mEHSXo5hx65nbtyYJqktiPabzzCzC7MSnN+ZCDwfmH2hmocs0waHJZsqsZ8RQ1dImeahNKiPe/kk2XaM0YLzn8MQHO9tPRoLIIT57zmKIbgX1ZX46A40/THhAtdhkfFYtCZTr8nACsACvsW1A2tL7KqJjvW7bQnk1FutKEI2EtN9a5RoPuPzloz9rsrbix/wa8V/Xh6DubNm27iORs2evSlPbmpyxF6APWDr8CloAB1zDI7cGY3OBx0s1noGTPY8W5ReuocTTgI7UKHOdN6nK96vTFAdqslJNbOXMH71wHK5suRxgkZM7KOvhW/iPCrNJZZDiqg9wV17rurIZ4VxStxufGtkcSfLp9vnq0kGTMmgjnSuwUc8Qx8yDSCzyNPQDH6Zqo8BMSOdg+xEs8NrWvV24COXBNCGSqtL9PHKBz7RLbou9bxbPrewu6sDFuxT6JtrKttiVihlSYV/IdM6dL9dE5LzWhpJluCoeMLkggEiXfAA0XhzA14n+rnpSB/elk0TfcnQw7LL8hhw8Kdah63oaUfuRW86/TYx7MSbVLSea63FcZ7pq0mt/iv7npzLymL8gaa29h2g1N21i+BiZWt7oSxod5wpFWUQzIvd5Y3FR+cJ3AohznsC75qnr6Qs+TbdY8z5ADafTRwLmIewT1gbqKOm4gRwxG
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(376014)(7416014)(1800799024)(23010399003)(22082099003)(18002099003)(4143699003)(56012099006)(921020)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: mu4F38U1bIDiEdVFNvpPlhd0vf0PsuDBn5rH/WiMULSTRA7CDSWVj8a/Uua/yLFzzCKKbBvVCbgpwa4vjj67JwbH/88GQUGdylODuIWbBrtx8wU9Xy+GYVkSexpDk9r1NZ6mi6QCCfAV2Ar39YmziU3cAeuQt5t0WxOy/kFaCtKRkJInlWhHMkloPqCmrUZ1TG8x/LepOAuN9tclnQfcJCqezaGl1bJz3DWP24FdhMq7Kue88Tn9ZPURXKkVy5hRkQhWJKoAXWeQ6Psby0NDhf3LPGx2iGl3zPWniluUmdqJZiiv8DojbZNo7qqUdngJj6DsuRUAfKS3m3usHK2F1NcEiXtTulvGJTV0XQGZfQ9Q1JTb56oVTNgpeBQP5xBqwReb+7jwK6FeFowDxx8RzQYyu4eAR+EOk4IBKnmcHQVqVMGmiYU8u/48xRyggwLA
+X-Exchange-RoutingPolicyChecked: TQgBWDqTeO596ZlANXXofJ1f81R8+4LYe2BF3hixWEd6lbCIsh1ZUyU67y/KxBs6r0L1gTMDBhHasfgcIaRYgZ3Vw9+sKoRB1pxqNYZUTNUi5Z9qtL2T19Gg2YCNOBC0s9VzS+qLXcGD8RumNwpx3ZII3J4BMDg4CelpKFaTfVTpueW027L1NJg6thjzjgUPmiql7iwu4sDWEPyOpQ9BJdERPMs0J5TyJDrSnlbGI3OJfx978xBavvSSeZ9U0mdrY3vc/Z/Pla831KSAPX/zYYpiEXwAIi5FA1a7IGwOg2i8HKxl1gu/YMldF1F1ILv2Swq20Ss7vJo4k1EiOjBWiQ==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jun 2026 10:46:42.7109
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: cf517f4c-801e-41da-952c-08ded1dde125
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000075EE.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR10MB7139
+X-Proofpoint-GUID: isP4fprQ3AB5PbNA5758M5lH78s7cuDB
+X-Proofpoint-ORIG-GUID: isP4fprQ3AB5PbNA5758M5lH78s7cuDB
+X-Authority-Analysis: v=2.4 cv=EPo2FVZC c=1 sm=1 tr=0 ts=6a3bb599 cx=c_pps
+ a=0vJwjWeN+wUybMchBBml3A==:117 a=tJyPKKxUohctrY4NYmUjkA==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10
+ a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
+ a=taLDd7a_hP9WKsMzeGRc:22 a=sozttTNsAAAA:8 a=P1BnusSwAAAA:8
+ a=vqHznLqP4jQ7SChzMA0A:9 a=QEXdDO2ut3YA:10 a=D0XLA9XvdZm18NrgonBM:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNjI0MDA4OSBTYWx0ZWRfX6MzaILediFoR
+ BLjzOw3MItLwfogSuylt1Fyo2kvvhFjTojZ9stvDIRAdZROC5DSReeVvRHyb0foTFb+uk9AGXeV
+ WpBsn+OPInxL41A+rn5Fz+15Lx+WIzA=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjI0MDA4OSBTYWx0ZWRfXz2PEs9V0whXk
+ YBLF5netB5z3QFR4IuwqGruMTrlvb9mrMGbBmwMQq6FeqETs8kyIMA18ldNQcMp/OAnagWy+Z3o
+ 96sxXLvVe6nH1vNoXv/Ww7lkrUc7J32hCWRUxVFtt78JhsWw9AHW5euEvppowHeANuHcwTyrLZr
+ cnZF/CoHihGRIOVIM8CJDHQcYVV3wT7T/JEspbtzKMARVFkAT96UV1YIn5HorSLvUPWsvgd1Acq
+ kzIIwOQuadL++J0McFTmrZ1yvAYst15EOIIYHvRya9Z0wbvnCvCeE81Bsp79kRVHfE7IH1h78Xq
+ OXvAFIzZd6SuZDnTnzzodxWF8W10YE0qVmK13Gfhioahznb8tVH1lfgPeFxeOuetCDEa9m+cn4S
+ 7z/moeHw1RfguvgmXRTGglJmuPvN3JiTrLy2RqWnkdAzUv9Zu1MtwOKk4oUGgWse7So8fO+csgs
+ AQ4OomVh89PY9QgMI0w==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-06-24_03,2026-06-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 adultscore=0 clxscore=1015 priorityscore=1501 suspectscore=0
+ malwarescore=0 lowpriorityscore=0 phishscore=0 spamscore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2606240089
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_030058_194726_0BA0FBB8 
-X-CRM114-Status: GOOD (  34.08  )
+X-CRM114-CacheID: sfid-20260624_034701_156599_BA668862 
+X-CRM114-Status: GOOD (  27.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,163 +194,115 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 6/23/2026 10:30 PM, Will Deacon wrote:
-> On Mon, Jun 22, 2026 at 04:06:38PM +0800, Jinjie Ruan wrote:
->> On 6/18/2026 8:21 PM, Will Deacon wrote:
->>> On Mon, Jun 15, 2026 at 04:51:48PM +0800, Jinjie Ruan wrote:
->>>> On 6/12/2026 11:45 PM, Michael Kelley wrote:
->>>>> From: Jinjie Ruan <ruanjinjie@huawei.com> Sent: Thursday, June 11, 2026 6:38 AM
->>>>>>
->>>>>> Support for parallel secondary CPU bringup is already utilized by x86,
->>>>>> MIPS, and RISC-V. This patch brings this capability to the arm64
->>>>>> architecture.
->>>>>>
->>>>>> Rework the global `secondary_data` accessed during early boot into
->>>>>> a per-CPU array. This array maps logical CPU IDs to MPIDR_EL1 values,
->>>>>> enabling the early boot code in head.S to resolve each secondary CPU's
->>>>>> logical ID concurrently.
->>>>>>
->>>>>> To fully enable HOTPLUG_PARALLEL, this patch implements:
->>>>>> 1) An arm64-specific arch_cpuhp_kick_ap_alive() handler.
->>>>>> 2) Callbacks to cpuhp_ap_sync_alive() inside secondary_start_kernel().
->>>>>>
->>>>>> Successfully tested on QEMU ARM64 virt machine (KVM on, 128 vCPUs).
->>>>>>
->>>>>> |     test kernel	   | secondary CPUs boot time |
->>>>>> |  ---------------------   |	--------------------  |
->>>>>> |   Without this patch     |		155.672	      |
->>>>>> |   cpuhp.parallel=0	   |		62.897	      |
->>>>>> |   cpuhp.parallel=1	   |		166.703	      |
->>>>>
->>>>> The last two rows seem mixed up. I would expect parallel=0 to
->>>>> result in a longer boot time.
->>>>
->>>> The results are correct and not mixed up.
->>>>
->>>> Compared to the original non‑HOTPLUG_PARALLEL approach, the advantage of
->>>> cpuhp.parallel=0 lies in its use of cpu_relax(`yield` on arm64) instead
->>>> of the wait_for_completion_timeout() mechanism (which may cause sleep
->>>> and context switching). This significantly reduces the overhead of VM
->>>> exits and context switches in a KVM guest, thereby cutting the secondary
->>>> CPU boot time by more than half.
->>>
->>> I don't think that's a particularly compelling reason to enable this for
->>> arm64, in all honesty. The yield instruction typically doesn't do
->>> anything on actual arm64 silicon, so this probably means that you're
->>> introducing busy-loops which tend to be bad for power and scalability.
->>
->> After updating the implementation in v2, the performance gains are
->> primarily observed on actual hardware.
+On 29-05-2026 14:15, Tomi Valkeinen wrote:
+> Many (or even all?) K3 SoCs have DSS VP_CONTROL.DPIENABLE bit described
+> in their documentation. This bit controls whether the DPI block is
+> enabled, and is set to 1 by default (i.e. DPI is enabled at HW reset).
 > 
-> ... but that's presumably because the secondary cores are busy-looping.
-> That's not something we should do during boot. It might be "fast" on
-> your machine but it will probably be "hot" as well.
-
-Hi, Will,
-
-I see your point regarding the 'hot boot' issue, which is indeed a valid
-concern for power-constrained devices,
-
-My optimization is tailored for servers and continuously powered single
-boards, where boot-up speed is much more critical than temporary power
-usage during the early boot phase.
-
-Perhaps we could replace the "yield" instruction with "WFE / SEV"
-instructions to coordinate the parallel boot of the primary and
-secondary cores. This approach would allow the secondary cores to enter
-a low-power standby state rather than busy-looping, effectively
-preventing the thermal and power issues on battery-constrained machines.
-
+> However, in almost all SoCs the setting does not actually do anything,
+> and at the moment the bit is not managed by the driver.
 > 
->>> I implemented this a while ago [1] but didn't manage to see much in terms
->>> of performance improvement and so I didn't bother to send the patches out
->>
->> As shown in v2 below, on actual hardware, this results in a 40%–60%
->> reduction in boot time.
->>
->> Bringup Time Comparison (ms, lower is better):
->>
->> |     Platform		| Baseline|   P=0   |   P=1  | Delta(%)|
->> | --------------------- | ------- | ------- | ------ | ------- |
->> | 64-core ATF QEMU	| 2075.8  | 2080.7  | 1653.4 | 20.34%  |
->> | 192-core server(HIP12)| 14619.2 | 14619.1 | 8589.4 | 41.21%  |
->> | 32-core board	        | 2776.5  | 2881.0  | 1045.0 | 62.36%  |
->>
->> Link:
->> https://lore.kernel.org/all/20260618092444.1316336-5-ruanjinjie@huawei.com/
+> The exception is AM62L, which does have DPIENABLE connected, and
+> disabling the DPI block when it is not in use provides power savings.
 > 
-> To be honest, I'm pretty confused with all these numbers. Your first
-> table above suggests that parallel boot is *slower* but then this table
-> suggests the opposite. However, it also has a QEMU entry despite being
-> "on actual hardware". Is that in a VM?
-
-Sorry, there is a little confused. 192-core server(HIP12) and 32-core
-board are tested on real hardware, which has 40%–60% reduction in boot time.
-
+> Let's add a new feature flag for this, 'has_vp_control_dpienable', and
+> implement the support.  Disable DPIENABLE for all videoports at resume
+> time, so that it is 0 by default. Specifically enable and disable it in
+> dispc_vp_enable() and dispc_vp_disable() for DPI output.
 > 
->>> after talking about it at KVM forum [2]. However, as mentioned at the end
->>> of that talk, it _is_ still useful for confidential VMs using PSCI so
->>> let me dust off my old series and send it out to see what you think.
->>>
->>> It relies on PSCI v0.2, which means we don't need the NR_CPUS size array
->>> for secondary_data and I also have some support for error handling (it
->>> doesn't look like you handle __early_cpu_boot_status properly).
->>
->> I need some time to look closely at your patch. Alternatively, I will
->> integrate your changes, re-test everything on actual hardware, and then
->> send out a revised version.
+> Tested-by: Swamil Jain <s-jain1@ti.com>
+> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+> ---
+
+Reviewed-by: Swamil Jain <s-jain1@ti.com>
+
+>   drivers/gpu/drm/tidss/tidss_dispc.c      | 23 +++++++++++++++++++++--
+>   drivers/gpu/drm/tidss/tidss_dispc.h      |  2 ++
+>   drivers/gpu/drm/tidss/tidss_dispc_regs.h |  1 +
+>   3 files changed, 24 insertions(+), 2 deletions(-)
 > 
-> Please just give me a week or so to rebase my changes and send them out
-> for discussion. It'll be interesting to see what numbers you get.
-
-Sounds good! Take your time, and I'm looking forward to your series.
-
-In the meantime, I have just sent out v3 of this patch. While working
-closely with your previous code, I identified a few bugs (including the
-multi-CPU status trampling issue we discussed) and addressed them in
-this new version.I wanted to share v3 with you now so you can easily
-review the fixes and potentially integrate them when you rebase your
-changes next week. It also includes the updated performance numbers on
-my setup for your reference.
-
-Link:
-https://lore.kernel.org/all/20260624092537.2916971-1-ruanjinjie@huawei.com/
-
-Looking forward to the discussion!
-
-Best regards,
-Jinjie
-
-> 
->> It seems that the following patch removing
->> `rcutree_report_cpu_starting()` will reintroduce the original issue as
->> commit ce3d31ad3cac ("arm64/smp: Move
->> rcu_cpu_starting() earlier") soloved.
->>
->> Link:
->> https://web.git.kernel.org/pub/scm/linux/kernel/git/will/linux.git/commit/?h=cpu-hotplug&id=bba4b62f45f2614bf6085e6cd3f233528f85bf26
->>
->> Indeed, I also noticed that the invocation order of
->> rcutree_report_cpu_starting() on arm64 is somewhat suboptimal. It
->> hinders the implementation of parallel bringup on arm64 and could
->> potentially lead to RCU stalls.
->>
->> Link:
->> https://lore.kernel.org/all/20260618092444.1316336-4-ruanjinjie@huawei.com/
->>
->> [    0.329017] smp: Bringing up secondary CPUs ...
->> [    0.343628] Detected VIPT I-cache on CPU1
->> [    0.343788]
->> [    0.343806] =============================
->> [    0.343816] WARNING: suspicious RCU usage
->> [    0.343966] 7.1.0-rc1-g27c1871848a2 #109 Not tainted
->> [    0.344087] -----------------------------
->> [    0.344098] kernel/locking/lockdep.c:3801 RCU-list traversed in
->> non-reader section!!
-> 
-> Thanks, I'll look into this.
-> 
-> Will
+> diff --git a/drivers/gpu/drm/tidss/tidss_dispc.c b/drivers/gpu/drm/tidss/tidss_dispc.c
+> index 08342a9a5e8c..1b8d52f10673 100644
+> --- a/drivers/gpu/drm/tidss/tidss_dispc.c
+> +++ b/drivers/gpu/drm/tidss/tidss_dispc.c
+> @@ -442,6 +442,8 @@ const struct dispc_features dispc_am62l_feats = {
+>   	},
+>   
+>   	.vid_order = {0},
+> +
+> +	.has_vp_control_dpienable = true,
+>   };
+>   
+>   static const u16 *dispc_common_regmap;
+> @@ -1210,6 +1212,11 @@ void dispc_vp_prepare(struct dispc_device *dispc, u32 hw_videoport,
+>   			     (!ipc ? DPI0_CLK_CTRL_DATA_CLK_INVDIS : 0) |
+>   			     (rf ? DPI0_CLK_CTRL_SYNC_CLK_INVDIS : 0));
+>   	}
+> +
+> +	if (dispc->feat->has_vp_control_dpienable &&
+> +	    dispc->vp_data[hw_videoport].dpi_output)
+> +		VP_REG_FLD_MOD(dispc, hw_videoport, DISPC_VP_CONTROL, 1,
+> +			       DISPC_VP_CONTROL_DPIENABLE_MASK);
+>   }
+>   
+>   void dispc_vp_enable(struct dispc_device *dispc, u32 hw_videoport)
+> @@ -1226,6 +1233,11 @@ void dispc_vp_disable(struct dispc_device *dispc, u32 hw_videoport)
+>   
+>   void dispc_vp_unprepare(struct dispc_device *dispc, u32 hw_videoport)
+>   {
+> +	if (dispc->feat->has_vp_control_dpienable &&
+> +	    dispc->vp_data[hw_videoport].dpi_output)
+> +		VP_REG_FLD_MOD(dispc, hw_videoport, DISPC_VP_CONTROL, 0,
+> +			       DISPC_VP_CONTROL_DPIENABLE_MASK);
+> +
+>   	if (dispc->feat->vp_bus_type[hw_videoport] == DISPC_VP_OLDI_AM65X) {
+>   		dispc_vp_write(dispc, hw_videoport, DISPC_VP_DSS_OLDI_CFG, 0);
+>   
+> @@ -2445,10 +2457,17 @@ static void dispc_vp_init(struct dispc_device *dispc)
+>   
+>   	dev_dbg(dispc->dev, "%s()\n", __func__);
+>   
+> -	/* Enable the gamma Shadow bit-field for all VPs*/
+> -	for (i = 0; i < dispc->feat->num_vps; i++)
+> +	for (i = 0; i < dispc->feat->num_vps; i++) {
+> +		/* Enable the gamma Shadow bit-field for all VPs*/
+>   		VP_REG_FLD_MOD(dispc, i, DISPC_VP_CONFIG, 1,
+>   			       DISPC_VP_CONFIG_GAMMAENABLE_MASK);
+> +
+> +		if (dispc->feat->has_vp_control_dpienable) {
+> +			/* Disable DPIENABLE for all VPs */
+> +			VP_REG_FLD_MOD(dispc, i, DISPC_VP_CONTROL, 0,
+> +				       DISPC_VP_CONTROL_DPIENABLE_MASK);
+> +		}
+> +	}
+>   }
+>   
+>   static void dispc_initial_config(struct dispc_device *dispc)
+> diff --git a/drivers/gpu/drm/tidss/tidss_dispc.h b/drivers/gpu/drm/tidss/tidss_dispc.h
+> index 6f53d554259c..0fbfb86adfbf 100644
+> --- a/drivers/gpu/drm/tidss/tidss_dispc.h
+> +++ b/drivers/gpu/drm/tidss/tidss_dispc.h
+> @@ -92,6 +92,8 @@ struct dispc_features {
+>   	u32 num_vids;
+>   	struct dispc_vid_info vid_info[TIDSS_MAX_PLANES];
+>   	u32 vid_order[TIDSS_MAX_PLANES];
+> +	/* The DSS has VP_CONTROL.DPIENABLE bit */
+> +	bool has_vp_control_dpienable;
+>   };
+>   
+>   extern const struct dispc_features dispc_k2g_feats;
+> diff --git a/drivers/gpu/drm/tidss/tidss_dispc_regs.h b/drivers/gpu/drm/tidss/tidss_dispc_regs.h
+> index 4cdde24d8372..4246c72efdd5 100644
+> --- a/drivers/gpu/drm/tidss/tidss_dispc_regs.h
+> +++ b/drivers/gpu/drm/tidss/tidss_dispc_regs.h
+> @@ -230,6 +230,7 @@ enum dispc_common_regs {
+>   
+>   #define DISPC_VP_CONTROL			0x4
+>   #define DISPC_VP_CONTROL_DATALINES_MASK			GENMASK(10, 8)
+> +#define DISPC_VP_CONTROL_DPIENABLE_MASK			GENMASK(6, 6)
+>   #define DISPC_VP_CONTROL_GOBIT_MASK			GENMASK(5, 5)
+>   #define DISPC_VP_CONTROL_ENABLE_MASK			GENMASK(0, 0)
+>   
 > 
 
 
