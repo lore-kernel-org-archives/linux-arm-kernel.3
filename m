@@ -4,92 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F930CDB479
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 15:01:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A746CCDB479
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 15:05:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ixANeKyt6wrxouLZA6axnl4DzfjEV12z3GBkxlFaUhw=; b=xV17HIZVqF7uEaJvO90DARpWWd
-	NRwDgdkTQijnjRwEs5hIcFsgeqmZU24GQujDmoX3HhBqyDQpbZ18dCgH7h0S2nCfk4GaK3a4jgTF/
-	UWkXo/UL/zJh6wy6ZEyNJeDn3Aoo6t8FA011RSjc3n/WWO8x6ncBx+KlNxwpTjZoOHDVmVxflSWm1
-	D+o0gPDwa1GetKnL9VkznSIU1KQWkn1M/NeOcpgdtq9ep5Xf5j9Hg8v9Vfizup3Ad2pGrZ/zbgb+b
-	6jxYWCJFXVGP3njn8RkmP/vR9qG5TtLReCegp7agQyU6RHCW6pWHnFXRMwphvMzzf0wdgB1w+fkjT
-	6Di1O/eQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jKue2eDZGQbGOoIlsib3xrwOLrN59d+yjNHghXnQH/Y=; b=iyXzhkzyM5hdJtJnFZaMzb3MnE
+	Mdw3676yiKpC0sFVkb/svYSts3ZB8mPXBZQgmWkzQzhqHP8VP9gVY+v4eYvxaaaOMRRAShi6sgp+p
+	5wvZ95nfnTvgeF+ftxgQwtPWaKDZBdS+xY94eGo5DaCIgdQjEDptkGMoUOKwluNzbpniG4/hUSWre
+	dqc/5UrmQSIar7OEiJpqlnT1NiIeSmhLT9LqbYmQAYCvVikGNzZmkmf7smLr3Kp0qMD7rbMeXZvF/
+	PaHbOkDh/Mpze6oSHqPSowqQVvKPb8gkov1pfg05IUqSQeyvQH/ASat1mam0hZ78XnXHJqKF6iYoU
+	Qq3SfTHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcP6E-00000007xZt-1Id9;
-	Wed, 24 Jun 2026 15:01:10 +0000
-Received: from mail.alien8.de ([2a01:4f9:3051:3f93::2])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcP6A-00000007xY8-35MI
+	id 1wcPA6-00000007xr4-2qHd;
+	Wed, 24 Jun 2026 15:05:10 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wcPA4-00000007xqf-0FJa
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 15:01:08 +0000
-Received: from localhost (localhost.localdomain [127.0.0.1])
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id A5FB940E0140;
-	Wed, 24 Jun 2026 15:00:51 +0000 (UTC)
-X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
-Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
-	header.d=alien8.de
-Received: from mail.alien8.de ([127.0.0.1])
-	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id FUCDcAsTcbFn; Wed, 24 Jun 2026 15:00:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
-	t=1782313237; bh=ixANeKyt6wrxouLZA6axnl4DzfjEV12z3GBkxlFaUhw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TPyy9zmaoOk93HRdbVBuaw0eyhfm3pcIRo3ulnBApi7YwlWpafnF3csPJdBiASsmc
-	 TUZPaTNjNX5dXi0gq9AB7OkFt5an6SO1pDA2+Q3vHrihQLbPYujtO4/YLRPKHRefpx
-	 6+rNjgax1zS7Pa3s+KeLdvYcC553vxP18PdfEE3e0y0m4+3ECI1A3yw54iVmQnFlZd
-	 lSj3jORK7ll6iQn64a5GBezIUurwfzo8Rzj28r7Gh806FVt5/d5zUVIX1NzmhdAsLV
-	 BHjaf3uxz2QZehXWkWGmXu2M3Kqk91YAbXZflWHhbLFYTWPwZcor3bzMsmbeTfk2Xl
-	 gColhiwQ96uZiFoWuxV3MgwKV08+cnfQO41LGvs1JxOl2LOxgRsIuHf5dG4mUDsWoK
-	 N7My+5ffBmunNTIKME9VyvoFGWQdt0RK5OxVtxb09xgScf78vi5U1vuBzxzmkNjiCq
-	 jM0y7G/Zeosnoz/EOPQHSPnR415zlHR2OkyJ1Vx1Zr7a/vFKzi2DeLAo9/KMmnNhCc
-	 6NxqAn6j6HyQ69T9bBgx6BvDmzKJAmU1G/FQK94tznkCXab3I9Ci/WZRFRf9btXira
-	 zev3TJnwR5tjnrQA8IIFKN7q9BOpRcBtpljkgyXCnX/y0FWhRWFzIhO/mIgckNpqZQ
-	 150Ye43Cvr8msP2TZaqPrkAk=
-Received: from stx.tnic (unknown [IPv6:2600:1700:38ca:c00::1a])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
-	(No client certificate requested)
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id 037AE40E0031;
-	Wed, 24 Jun 2026 14:59:47 +0000 (UTC)
-Date: Wed, 24 Jun 2026 07:59:45 -0700
-From: Borislav Petkov <bp@alien8.de>
-To: Will Deacon <will@kernel.org>
-Cc: Jinjie Ruan <ruanjinjie@huawei.com>, catalin.marinas@arm.com,
-	tsbogend@alpha.franken.de, tglx@kernel.org, mingo@redhat.com,
-	dave.hansen@linux.intel.com, hpa@zytor.com, peterz@infradead.org,
-	kees@kernel.org, nathan@kernel.org, linusw@kernel.org,
-	ojeda@kernel.org, david.kaplan@amd.com, lukas.bulwahn@redhat.com,
-	ryan.roberts@arm.com, maz@kernel.org, timothy.hayes@arm.com,
-	lpieralisi@kernel.org, thuth@redhat.com, menglong8.dong@gmail.com,
-	oupton@kernel.org, yeoreum.yun@arm.com, miko.lenczewski@arm.com,
-	broonie@kernel.org, kevin.brodsky@arm.com, james.clark@linaro.org,
-	yangyicong@hisilicon.com, tabba@google.com, osandov@fb.com,
-	arnd@arndb.de, anshuman.khandual@arm.com, david@kernel.org,
-	akpm@linux-foundation.org, ljs@kernel.org, dev.jain@arm.com,
-	yang@os.amperecomputing.com, chaitanyas.prakash@arm.com,
-	kprateek.nayak@amd.com, chenl311@chinatelecom.cn,
-	sshegde@linux.ibm.com, thorsten.blum@linux.dev,
-	chang.seok.bae@intel.com, tim.c.chen@linux.intel.com,
-	x86@kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org
-Subject: Re: [PATCH v3 00/12] arm64: Add HOTPLUG_PARALLEL support for
- secondary CPUs
-Message-ID: <20260624145945.GBajvw4cQVt845-se2@fat_crate.local>
-References: <20260624092537.2916971-1-ruanjinjie@huawei.com>
- <ajvKkLw5bL-FT5JC@willie-the-truck>
+	Wed, 24 Jun 2026 15:05:09 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 392592308;
+	Wed, 24 Jun 2026 08:05:00 -0700 (PDT)
+Received: from [10.1.25.171] (XHFQ2J9959-4.cambridge.arm.com [10.1.25.171])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 228DF3F905;
+	Wed, 24 Jun 2026 08:05:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1782313504; bh=t/6bTMiWUaEV1IYOjK8N+ioKve+8nIP8GwG/6p2eaTg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Q35MDHB4NR7gxpgq4eAorP8mtkFCyLvLaC/Od24ga5UC549ID02pnOqRcnH6WRw4y
+	 VnXBa8D8vtzVB1X31ZHO7sAz9n5a5CeMqqgaSGy+h846vop4qVp5pdAvA41zoByrv1
+	 2c2Jsp9lHo0JDLD48N/06IdttEj2eHmNG5YdxR8c=
+Message-ID: <d2a633c8-496e-48e1-bfa0-a0fc75bd0a08@arm.com>
+Date: Wed, 24 Jun 2026 16:05:01 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <ajvKkLw5bL-FT5JC@willie-the-truck>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 6.1 337/522] arm64/mm: Enable batched TLB flush in
+ unmap_hotplug_range()
+To: Will Deacon <will@kernel.org>, Ben Hutchings <ben@decadent.org.uk>
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ "David Hildenbrand (Arm)" <david@kernel.org>, patches@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Sasha Levin <sashal@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ stable <stable@vger.kernel.org>, mark.rutland@arm.com
+References: <20260616145125.307082728@linuxfoundation.org>
+ <20260616145141.584613180@linuxfoundation.org>
+ <b0d5836032ce3135bfc473f6bff791306d086925.camel@decadent.org.uk>
+ <ajqXWqiAol6Shdd6@willie-the-truck>
+From: Ryan Roberts <ryan.roberts@arm.com>
+Content-Language: en-GB
+In-Reply-To: <ajqXWqiAol6Shdd6@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_080106_952017_BE027CD6 
-X-CRM114-Status: UNSURE (   8.28  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260624_080508_186478_93369F95 
+X-CRM114-Status: GOOD (  20.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,18 +79,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 24, 2026 at 01:16:16PM +0100, Will Deacon wrote:
-> If you want to help out in the meantime, there are plenty of patches that
-> need reviewing...
+On 23/06/2026 15:25, Will Deacon wrote:
+> On Sun, Jun 21, 2026 at 05:02:27PM +0200, Ben Hutchings wrote:
+>> On Tue, 2026-06-16 at 20:28 +0530, Greg Kroah-Hartman wrote:
+>>> 6.1-stable review patch.  If anyone has any objections, please let me know.
+>>>
+>>> ------------------
+>>>
+>>> From: Anshuman Khandual <anshuman.khandual@arm.com>
+>>>
+>>> [ Upstream commit 48478b9f791376b4b89018d7afdfd06865498f65 ]
+>> [...]
+>>> @@ -949,15 +953,14 @@ static void unmap_hotplug_pmd_range(pud_
+>>>  		WARN_ON(!pmd_present(pmd));
+>>>  		if (pmd_sect(pmd)) {
+>>>  			pmd_clear(pmdp);
+>>> -
+>>> -			/*
+>>> -			 * One TLBI should be sufficient here as the PMD_SIZE
+>>> -			 * range is mapped with a single block entry.
+>>> -			 */
+>>> -			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+>>> -			if (free_mapped)
+>>> +			if (free_mapped) {
+>>> +				/* CONT blocks are not supported in the vmemmap */
+>>> +				WARN_ON(pmd_cont(pmd));
+>>> +				flush_tlb_kernel_range(addr, addr + PMD_SIZE);
+>>
+>> It wasn't clear to me from the commit message why this now adds PMD_SIZE
+>> rather than PAGE_SIZE.  It seems like this change is fine for Linux
+>> 6.13+ with a CPU that supports TLB range flushing, but otherwise results
+>> in unnecessarily executing multiple TLB invalidations at intervals of
+>> the base page size.
+> 
+> Hmm, the commit message also makes very little sense to me and so I don't
+> understand why this patch has us doing multiple TLB invalidations when
+> we run into a !cont, block mapping at the PMD level. The old comment
+> (which this patch removes) should still apply afaict.
+> 
+> Anshuman, Ryan, any ideas what's going on here?
 
-I would loooove it if git send-email speed and rate of sending mail is
-proportional to how many other patches the sender has really reviewed...
+I think this change was probably my fault; Given the API is called
+flush_tlb_kernel_range() it seemed like an abuse/hack to pretend we are only
+flushing the first PAGE_SIZE of the range. But as I understand it, even if the
+HW shatters a block mapping into multiple TLB entries, all of the entries
+relating to the block mapping will be invalidated if just one of them intersects
+the TLBI range/address. So it should be safe to reapply this hack.
 
-:-P :-P :-P
+Although ideally I think it would be better if this API took a stride argument;
+then intent is clear.
 
--- 
-Regards/Gruss,
-    Boris.
+What's the best way to handle this? Submit a patch for mainline that reverts
+this part, then get it backported to stable (implying this current patch will
+have been applied to stable)?
 
-https://people.kernel.org/tglx/notes-about-netiquette
+Thanks,
+Ryan
+
+
+> 
+> Will
+
 
