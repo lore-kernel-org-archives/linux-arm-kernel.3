@@ -4,88 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03FFECDB47F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 19:08:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AC85CDB47F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 19:14:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=LGb+JhB64d0RGvLH+Gy+gftrzBh3+GzIkvGBLcFoPV0=; b=pceefgbmRnAzQoWnJ6YovekVLh
-	0C6sF27ct2Gg4+Xgi7i/1AhUJmV75HI0QQ2y38cQi3vThZ02Rm95cIhAYYTJw3h5GL35xX7Bgq9KO
-	nEuD2wDFQA/VKtbcR7tOWuK5RUmDRM2kg8PgXunwGxK2MHCXrCBVzzAMHurkqSZ8W1lTk75rl/jm7
-	0WepGhcTY52jXrz3TFVMQhHZfN/un648hg55uChvWvBfKa2lv0DAHenHF0hJBVN2XGzI0rttafnc1
-	0xXVHnoC+Cxf2hF+4QwrtHjPS5PuYdNM3mG+e9pNbpC8vEiL/KjywN2o7LA+2c/NEO8e8xBZqfhqv
-	G4Ygfp1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8yBQiHhBbaPx10AJMO2mrSTzdi5w57PSOE51pnBcql4=; b=YaL2eNuNJDPR1P4aZK+Su4DjDb
+	wGgvQU7twm+MkU7wJz3HYU/bY5YYdlrTxjjomL2UuzO70Bmb869xQ6SU+vr4KNZmDZH4rwhBm57GZ
+	9HfJ38xtYmeVydGkec9/SPtGr3/ZMMdfc6bIKEla74CF2ofoCMWVAZhoAA3YVSpjLa7Ddf5Jj/ZGg
+	hCu1WWEMbpbDtEowQgEE8KdhGxKqhoYYMMaHKR8pf6KnV9/56I++ZGsir6+xbjQu94OLuKq5tsUPn
+	qFhZOwahkqNSAmytHXDlEe8n21SsV/cakS7VIgV/CRv7e5la9eWSTx527/Ml6+BQ0KlbNgn9v6ggb
+	7dmkz4Jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcSxY-00000008FK3-3DLA;
-	Wed, 24 Jun 2026 19:08:28 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1wcT30-00000008Fbb-1ead;
+	Wed, 24 Jun 2026 19:14:06 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcSxW-00000008FJ8-1evt
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 19:08:27 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-4629d80fa08so1297248f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Jun 2026 12:08:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782328103; x=1782932903; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=LGb+JhB64d0RGvLH+Gy+gftrzBh3+GzIkvGBLcFoPV0=;
-        b=mjsNGGH2f38xmuEm2W/jmV0BqTIpS9WTuvPs76FKtDF0YlOcpgCQZ5g2pqsrZns1U7
-         iJ+SeS1e/NH0JJIwy85n/Mhhl+0kvTer40+Ld/MVFyDxEQuGKOEfHugcoAAb2M38aYZA
-         ku5rVq2A0K8/osxRSDZ4Y4hF4qILU9w7r3R54+51bTX25cZrMfKaqkSBJS7D0KSnHCZH
-         j27XWEpDwckuzEq2/5MvX65wFrDMpxalCu4NtYYzC4XNJi8cxFmNo6rPRH6iNvG8eMN0
-         +IrmZx9XgZAf6xoVDbI/cSSkisFmd8OhEVTo00jdCPJqTIPsnCpRSeMXoLIsd6hWCLEk
-         aUWw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782328103; x=1782932903;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=LGb+JhB64d0RGvLH+Gy+gftrzBh3+GzIkvGBLcFoPV0=;
-        b=h0GTB07dVof0x2qC82Gi49HNUBt4lz+edLDRunLluBzn/YVYh+Q/T0wYafhzfvQbBG
-         02kTNRrQHjppawCTXn4q1hUA3ECwnSARmHoWhBboH49XqlHKgxueaGYk3Awf8hBfGG2c
-         XDixBiEuLY2WgmBsu7tX4HRz8s7L2ygaReHKzCEhdXaNWLQzpKVJzaH5+p6fBNQlrGOx
-         V0nmZpmtLXruV5hRiVD0+QvkYHqc3X/2NFzFhp/0hUydkIVPmTkOYjytwVzR6yOLYiZg
-         0OQnLL3npDEoBhQddzkOfFpDS+IGhGBrgY/Y9eWZaFrrHwxKWkdnzi2yyFuqi0l56s1g
-         leoQ==
-X-Forwarded-Encrypted: i=1; AHgh+RrPoorQPGp+ww85MDM+7CNiWFwbWp43v27kt+Hbs25t+qoQ/grFurQt3yW1xTAg89b09lKPPVFoMyiVef9W1cXK@lists.infradead.org
-X-Gm-Message-State: AOJu0YykR2Ym33f5WE6UFmGvFgUi9sxKS7vU8+8iWshjv5sFu/ZDr92X
-	55tNm7iWEsNndM1MN3SsbnjMgoVAMofMDgwk0kQCrzQmtNRu3Uma6SUX
-X-Gm-Gg: AfdE7ck0DIiqVR/hUu9I8+gsKrY1XdEZHvCy3di1fq53vlfLyqqGVmsrmHu3elU35EB
-	llZ3rffcmBQAvJ58qkf7XpovQmx4zuAPCCwirhN/F4MrNkxpvxlJQzrww2dFf5jAh1DDXXSE/D9
-	U1Ee2t9RWa8d0JXkSYoHPRgn4SFjat/CMikwG5ZVHSTwDpb+IlLf7IfNzqmlvjMjjRqLgWTosr0
-	oFjzVEzjdgWj97vEI8FV1BGl9+8Tt5FrYJTpNcHMd8SRGlhPaozuHlDwyuG7op3jxD0Tb/rxAft
-	poINHTXR4QuFYZKIBeLKNMqZR9AZspcHIzr49IBKyWhWNGOUg3JLMdfKn0wEHmEoClSRSyQyIum
-	VQeaZRZ8zE3tBrfM+7MAsda4IIhP7Db0hbrGqC6+zbsNBdddlGlFlCR2Fm2klcgZfXJOBEx72xN
-	9DDrTThBMUHx11IfUY6QXTa2bjTw==
-X-Received: by 2002:a5d:5c11:0:b0:46c:d441:da63 with SMTP id ffacd0b85a97d-46cd441dc98mr4130346f8f.40.1782328102615;
-        Wed, 24 Jun 2026 12:08:22 -0700 (PDT)
-Received: from Dev-Null-MSI ([2a0d:3344:52ac:a808:98a4:4381:be45:536f])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-46c22b73badsm9222414f8f.33.2026.06.24.12.08.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 24 Jun 2026 12:08:22 -0700 (PDT)
-From: Yousef Alhouseen <alhouseenyousef@gmail.com>
-To: Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>
-Cc: Arnd Bergmann <arnd@arndb.de>,
+	id 1wcT2y-00000008Fan-1E31;
+	Wed, 24 Jun 2026 19:14:05 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 18912227;
+	Wed, 24 Jun 2026 21:13:20 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1782328400;
+	bh=TJrYqkEmzBcIuRk4NkFKPbj+WerEbvtlgsXw/+2tDE0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=gFRWl17fewRBNx5IZw0ANyYPSgxXydfLNPrihsfkT0KjDgb+4aS3XufW5zBN+i2K7
+	 Me3fSJ/Gp6uZkeqpuAXOP398GX7JFVCUvZDDSxI4OZWAazFuStseVJ+/u0GzXSbB3d
+	 3dx270PDIVjhNVWXDtpBs9Mv5OX6V+dx3r/hN7Vw=
+Date: Wed, 24 Jun 2026 22:13:58 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Frank.Li@oss.nxp.com
+Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Daniel Scally <djrscally@gmail.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Michal Simek <michal.simek@amd.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Yousef Alhouseen <alhouseenyousef@gmail.com>
-Subject: [PATCH] misc: xilinx_sdfec: validate LDPC code register offsets
-Date: Wed, 24 Jun 2026 21:08:12 +0200
-Message-ID: <20260624190812.3075-1-alhouseenyousef@gmail.com>
-X-Mailer: git-send-email 2.54.0
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Dafna Hirschfeld <dafna@fastmail.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+	Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+	Loic Poulain <loic.poulain@oss.qualcomm.com>,
+	driver-core@lists.linux.dev, linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	imx@lists.linux.dev, Guoniu Zhou <guoniu.zhou@nxp.com>,
+	Frank Li <Frank.Li@nxp.com>, Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Subject: Re: [PATCH v2 1/4] device property: Introduce
+ fwnode_graph_for_each_endpoint_scoped()
+Message-ID: <20260624191358.GC851255@killaraus.ideasonboard.com>
+References: <20260624-fw_scoped-v2-0-0a8db472af4a@nxp.com>
+ <20260624-fw_scoped-v2-1-0a8db472af4a@nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260624-fw_scoped-v2-1-0a8db472af4a@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_120826_471082_95F5714E 
-X-CRM114-Status: GOOD (  13.27  )
+X-CRM114-CacheID: sfid-20260624_121404_482537_B34E263D 
+X-CRM114-Status: GOOD (  22.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,156 +84,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The LDPC code register helpers check the target MMIO address after adding
-code_id * XSDFEC_LDPC_REG_JUMP to the register base. code_id is supplied
-through the ioctl path, so the multiplication and addition can wrap before
-the bounds check.
+Hi Frank,
 
-Validate the code_id against the register window size before computing
-the final address, then write using the checked address.
+Thank you for the patch.
 
-Signed-off-by: Yousef Alhouseen <alhouseenyousef@gmail.com>
----
- drivers/misc/xilinx_sdfec.c | 72 +++++++++++++++++--------------------
- 1 file changed, 32 insertions(+), 40 deletions(-)
+On Wed, Jun 24, 2026 at 01:00:09PM -0400, Frank.Li@oss.nxp.com wrote:
+> From: Frank Li <Frank.Li@nxp.com>
+> 
+> Similar to recently propose for_each_child_of_node_scoped() this new
+> version of the loop macro instantiates a new local struct fwnode_handle *
+> that uses the __free(fwnode_handle) auto cleanup handling so that if a
+> reference to a node is held on early exit from the loop the reference will
+> be released. If the loop runs to completion, the child pointer will be NULL
+> and no action will be taken.
+> 
+> The reason this is useful is that it removes the need for
+> fwnode_handle_put() on early loop exits. If there is a need to retain the
+> reference, then return_ptr(child) or no_free_ptr(child) may be used to
+> safely disable the auto cleanup.
+> 
+> Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+> Reviewed-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 
-diff --git a/drivers/misc/xilinx_sdfec.c b/drivers/misc/xilinx_sdfec.c
-index 3135ba3a5..63f0eb2bd 100644
---- a/drivers/misc/xilinx_sdfec.c
-+++ b/drivers/misc/xilinx_sdfec.c
-@@ -456,10 +456,23 @@ static int xsdfec_get_turbo(struct xsdfec_dev *xsdfec, void __user *arg)
- 	return err;
- }
- 
-+static int xsdfec_ldpc_reg_addr(struct xsdfec_dev *xsdfec, u32 base, u32 high,
-+				u32 offset, u32 *addr)
-+{
-+	if (offset > (high - base) / XSDFEC_LDPC_REG_JUMP) {
-+		dev_dbg(xsdfec->dev, "Writing outside of LDPC register space");
-+		return -EINVAL;
-+	}
-+
-+	*addr = base + offset * XSDFEC_LDPC_REG_JUMP;
-+	return 0;
-+}
-+
- static int xsdfec_reg0_write(struct xsdfec_dev *xsdfec, u32 n, u32 k, u32 psize,
- 			     u32 offset)
- {
- 	u32 wdata;
-+	u32 addr;
- 
- 	if (n < XSDFEC_REG0_N_MIN || n > XSDFEC_REG0_N_MAX || psize == 0 ||
- 	    (n > XSDFEC_REG0_N_MUL_P * psize) || n <= k || ((n % psize) != 0)) {
-@@ -476,17 +489,11 @@ static int xsdfec_reg0_write(struct xsdfec_dev *xsdfec, u32 n, u32 k, u32 psize,
- 	k = k << XSDFEC_REG0_K_LSB;
- 	wdata = k | n;
- 
--	if (XSDFEC_LDPC_CODE_REG0_ADDR_BASE + (offset * XSDFEC_LDPC_REG_JUMP) >
--	    XSDFEC_LDPC_CODE_REG0_ADDR_HIGH) {
--		dev_dbg(xsdfec->dev, "Writing outside of LDPC reg0 space 0x%x",
--			XSDFEC_LDPC_CODE_REG0_ADDR_BASE +
--				(offset * XSDFEC_LDPC_REG_JUMP));
-+	if (xsdfec_ldpc_reg_addr(xsdfec, XSDFEC_LDPC_CODE_REG0_ADDR_BASE,
-+				 XSDFEC_LDPC_CODE_REG0_ADDR_HIGH, offset,
-+				 &addr))
- 		return -EINVAL;
--	}
--	xsdfec_regwrite(xsdfec,
--			XSDFEC_LDPC_CODE_REG0_ADDR_BASE +
--				(offset * XSDFEC_LDPC_REG_JUMP),
--			wdata);
-+	xsdfec_regwrite(xsdfec, addr, wdata);
- 	return 0;
- }
- 
-@@ -494,6 +501,7 @@ static int xsdfec_reg1_write(struct xsdfec_dev *xsdfec, u32 psize,
- 			     u32 no_packing, u32 nm, u32 offset)
- {
- 	u32 wdata;
-+	u32 addr;
- 
- 	if (psize < XSDFEC_REG1_PSIZE_MIN || psize > XSDFEC_REG1_PSIZE_MAX) {
- 		dev_dbg(xsdfec->dev, "Psize is not in range");
-@@ -510,17 +518,11 @@ static int xsdfec_reg1_write(struct xsdfec_dev *xsdfec, u32 psize,
- 	nm = (nm << XSDFEC_REG1_NM_LSB) & XSDFEC_REG1_NM_MASK;
- 
- 	wdata = nm | no_packing | psize;
--	if (XSDFEC_LDPC_CODE_REG1_ADDR_BASE + (offset * XSDFEC_LDPC_REG_JUMP) >
--	    XSDFEC_LDPC_CODE_REG1_ADDR_HIGH) {
--		dev_dbg(xsdfec->dev, "Writing outside of LDPC reg1 space 0x%x",
--			XSDFEC_LDPC_CODE_REG1_ADDR_BASE +
--				(offset * XSDFEC_LDPC_REG_JUMP));
-+	if (xsdfec_ldpc_reg_addr(xsdfec, XSDFEC_LDPC_CODE_REG1_ADDR_BASE,
-+				 XSDFEC_LDPC_CODE_REG1_ADDR_HIGH, offset,
-+				 &addr))
- 		return -EINVAL;
--	}
--	xsdfec_regwrite(xsdfec,
--			XSDFEC_LDPC_CODE_REG1_ADDR_BASE +
--				(offset * XSDFEC_LDPC_REG_JUMP),
--			wdata);
-+	xsdfec_regwrite(xsdfec, addr, wdata);
- 	return 0;
- }
- 
-@@ -529,6 +531,7 @@ static int xsdfec_reg2_write(struct xsdfec_dev *xsdfec, u32 nlayers, u32 nmqc,
- 			     u32 max_schedule, u32 offset)
- {
- 	u32 wdata;
-+	u32 addr;
- 
- 	if (nlayers < XSDFEC_REG2_NLAYERS_MIN ||
- 	    nlayers > XSDFEC_REG2_NLAYERS_MAX) {
-@@ -563,17 +566,11 @@ static int xsdfec_reg2_write(struct xsdfec_dev *xsdfec, u32 nlayers, u32 nmqc,
- 	wdata = (max_schedule | no_final_parity | special_qc | norm_type |
- 		 nmqc | nlayers);
- 
--	if (XSDFEC_LDPC_CODE_REG2_ADDR_BASE + (offset * XSDFEC_LDPC_REG_JUMP) >
--	    XSDFEC_LDPC_CODE_REG2_ADDR_HIGH) {
--		dev_dbg(xsdfec->dev, "Writing outside of LDPC reg2 space 0x%x",
--			XSDFEC_LDPC_CODE_REG2_ADDR_BASE +
--				(offset * XSDFEC_LDPC_REG_JUMP));
-+	if (xsdfec_ldpc_reg_addr(xsdfec, XSDFEC_LDPC_CODE_REG2_ADDR_BASE,
-+				 XSDFEC_LDPC_CODE_REG2_ADDR_HIGH, offset,
-+				 &addr))
- 		return -EINVAL;
--	}
--	xsdfec_regwrite(xsdfec,
--			XSDFEC_LDPC_CODE_REG2_ADDR_BASE +
--				(offset * XSDFEC_LDPC_REG_JUMP),
--			wdata);
-+	xsdfec_regwrite(xsdfec, addr, wdata);
- 	return 0;
- }
- 
-@@ -581,20 +578,15 @@ static int xsdfec_reg3_write(struct xsdfec_dev *xsdfec, u8 sc_off, u8 la_off,
- 			     u16 qc_off, u32 offset)
- {
- 	u32 wdata;
-+	u32 addr;
- 
- 	wdata = ((qc_off << XSDFEC_REG3_QC_OFF_LSB) |
- 		 (la_off << XSDFEC_REG3_LA_OFF_LSB) | sc_off);
--	if (XSDFEC_LDPC_CODE_REG3_ADDR_BASE + (offset * XSDFEC_LDPC_REG_JUMP) >
--	    XSDFEC_LDPC_CODE_REG3_ADDR_HIGH) {
--		dev_dbg(xsdfec->dev, "Writing outside of LDPC reg3 space 0x%x",
--			XSDFEC_LDPC_CODE_REG3_ADDR_BASE +
--				(offset * XSDFEC_LDPC_REG_JUMP));
-+	if (xsdfec_ldpc_reg_addr(xsdfec, XSDFEC_LDPC_CODE_REG3_ADDR_BASE,
-+				 XSDFEC_LDPC_CODE_REG3_ADDR_HIGH, offset,
-+				 &addr))
- 		return -EINVAL;
--	}
--	xsdfec_regwrite(xsdfec,
--			XSDFEC_LDPC_CODE_REG3_ADDR_BASE +
--				(offset * XSDFEC_LDPC_REG_JUMP),
--			wdata);
-+	xsdfec_regwrite(xsdfec, addr, wdata);
- 	return 0;
- }
- 
+Nice idea.
+
+Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+
+> ---
+> change in v2
+> - collect Andy and Guoniu's reviewed-by tags
+> - fix indention
+> - remove extra space in commit message
+> ---
+>  include/linux/property.h | 5 +++++
+>  1 file changed, 5 insertions(+)
+> 
+> diff --git a/include/linux/property.h b/include/linux/property.h
+> index 14c304db46648..d51824c13d2cc 100644
+> --- a/include/linux/property.h
+> +++ b/include/linux/property.h
+> @@ -545,6 +545,11 @@ unsigned int fwnode_graph_get_endpoint_count(const struct fwnode_handle *fwnode,
+>  	for (child = fwnode_graph_get_next_endpoint(fwnode, NULL); child;	\
+>  	     child = fwnode_graph_get_next_endpoint(fwnode, child))
+>  
+> +#define fwnode_graph_for_each_endpoint_scoped(fwnode, child)			\
+> +	for (struct fwnode_handle *child __free(fwnode_handle) =		\
+> +		fwnode_graph_get_next_endpoint(fwnode, NULL);		\
+> +	     child; child = fwnode_graph_get_next_endpoint(fwnode, child))
+> +
+>  int fwnode_graph_parse_endpoint(const struct fwnode_handle *fwnode,
+>  				struct fwnode_endpoint *endpoint);
+>  
+
 -- 
-2.54.0
+Regards,
 
+Laurent Pinchart
 
