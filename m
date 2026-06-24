@@ -4,63 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4D97CDB47F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 16:30:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20419CDB47F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 16:30:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mbyuAlSoRh47aaPkX7JF2oGMTEIdF1Zcr15uiIt8usA=; b=GJdIzqPSh9tUk5L/eztG49mmze
-	PS6nQG8hQh7JIZeVFXljHSIs1UEvO+RuljROg/sbou4kznsA3dSGAnwPc8oZ+ChBuoNEmzUAIIuz9
-	0054XKtvg6/9/LzpzdWUG4hWZUcDwWHYsDUvQVRCg1tUpvAqUte6yI088Unm460J38OCuelkHhhmO
-	xKufhbhXhoaRsnGreJWJ9LCTDDyCZ6Bnds9rP2O/CptizGAbciawJMzVzy0NOiADSnBv+29oSoyb1
-	LmW8x2KLgcEnxIAup/FeewbNO7cLuI6YZwIRpMrg7CeuwsHKT1Ma8TlcFbHOMb868g5fDrRfRoq6x
-	lYPHVf9g==;
+	bh=t2XG1wxdFF07gS26BmYmnVrmB4zvo0PwNNzXTi7R/lM=; b=1Ikn44hFYUxX0hTzqKSVcSSzzR
+	EK7t1XJETvKkH9ogBbK6Vy4DBy5nvtuprDzpB2hpz2H8j3gA1VXMMVQJp4jqrfPDmgHSrS+wgSrtL
+	QvDmbV6ztPu/U3nUrwu9iBqePI32Qo58oEK+fFWkyh5W/04xSPF2G6ZcgVkar9SnTvnfDmbdgQ4bt
+	yD1O9RMypeqbb5FUN0Y3mHWKai1qr4itbVuDtVGlud7a934Ko9arif+iKKetjC9XIEqw07w1Hv+yY
+	WpSY23Mw5/StJVyxyB5vstuV8dktV4+mPDuZEg62nZQ0AGMf4elGhHglHpRgU4GCJIilcik2Er9qI
+	xYhmMmRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcQUR-000000086Kb-0hg7;
-	Wed, 24 Jun 2026 16:30:15 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wcQV0-000000086Ro-1DuZ;
+	Wed, 24 Jun 2026 16:30:50 +0000
+Received: from mail-northeuropeazon11012008.outbound.protection.outlook.com ([52.101.66.8] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcQUP-000000086KC-0pIF
+	id 1wcQUx-000000086Q6-0smK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 16:30:13 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7CB3260123;
-	Wed, 24 Jun 2026 16:30:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 939161F00AC4;
-	Wed, 24 Jun 2026 16:30:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1782318612;
-	bh=mbyuAlSoRh47aaPkX7JF2oGMTEIdF1Zcr15uiIt8usA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=od2yYyf/sl8pz4IJPQDnQOrhYkXrpXNEKFtjPgBBO8QmuXmuUJUW1LX14FDxlYUHS
-	 Kw2kXlsRYdoRkjieZwt375+G5/EYfc5MLvG0MXBfetqiJGWAU7reZ5yiJUSXhZyrRO
-	 V9QwT7TTke2/Ucc705VGL2T6GpiWzVWpsj62SWyo=
-Date: Wed, 24 Jun 2026 17:29:00 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Will Deacon <will@kernel.org>, Ben Hutchings <ben@decadent.org.uk>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	"David Hildenbrand (Arm)" <david@kernel.org>,
-	patches@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Sasha Levin <sashal@kernel.org>,
-	stable <stable@vger.kernel.org>, mark.rutland@arm.com
-Subject: Re: [PATCH 6.1 337/522] arm64/mm: Enable batched TLB flush in
- unmap_hotplug_range()
-Message-ID: <2026062451-bluff-coherent-672d@gregkh>
-References: <20260616145125.307082728@linuxfoundation.org>
- <20260616145141.584613180@linuxfoundation.org>
- <b0d5836032ce3135bfc473f6bff791306d086925.camel@decadent.org.uk>
- <ajqXWqiAol6Shdd6@willie-the-truck>
- <d2a633c8-496e-48e1-bfa0-a0fc75bd0a08@arm.com>
-MIME-Version: 1.0
+	Wed, 24 Jun 2026 16:30:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DBQtelZseDNPT/iKl1Ses/8F0o7smjJmJDF71xk3pKhpU6PDsMEMTPWKFX913Rb8qM0S2LQ5zMKBnM4NCTYnN1FFXVLtNd7KI4Wl/1zPfrqm78Lv9Ek7aXH5R78BbVGI57/J4fCJJUHYhOj24LFmK75290finiCMvZlcSjitQ/jBWSS3oPEu6spXjNEP2dQv9tqPhqepmrsOfrqmzMP26gDSNCX/RhSVzV1/itFmx8M57SimcqC4CgXF5pNjYFL9paoOs+nwQVSynlPpKnbPeqk1U8bvKqfjdQObfBCT7FpON6oUAmcDo3XOmDtD7ByLiQ0ssakxoPKqrlOe9cPqxw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=t2XG1wxdFF07gS26BmYmnVrmB4zvo0PwNNzXTi7R/lM=;
+ b=XpjRbBdTdOhSq+YU0QAq8iB0RWQLWRfyvcuTaBUCxl/pi1YhS+G7CaQZfcdlv4mPFa5z93HLeWMPPupPofCXNVnpTkuTEipuEUJq5K1kmwo/cjK/cxie6sRS6tHtp0lpsIYVd5MemJpF03qbxLW5Zhapwdq0eWoRxwYdvoo3c3v2Mpet45FZ3hzn5FDQXSm+hD7PwmCiokicI6n7zIDBD3yakUNpbAQzBns2ED6kOyDL1CBtm/u3UJICcZx3Mz0fOc69St6ergR11lPp4UDwXcG6MUteON0OsaLFNWVWc3Fey5J0cdzAh8Fp1qV4Np32cNmkJcV4ipkPmOFdHbnOuw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=t2XG1wxdFF07gS26BmYmnVrmB4zvo0PwNNzXTi7R/lM=;
+ b=lW1zSnh2TCd6h9eYSetcM88PINZDxZmOEc5hecdYkFutoa7WsjwU85pmJGMl5NYI4T7Co2AC3ojAZPzXLX+hN0lUik9WEn3BlAyOztNvBCjprPchi3QinVm8lyWdBU0kZx5d/hNr0jmKO3wfrX+dH4qLXwZLBuBrRdfq+PWujSkGl48s3h6szFWeCX1DeQW5yYpjW1rmPgPu4LtYWJWJf15bq8o1C2RV8PSEECzAxamS22qKAI7j4dkpgnoDDNiRoz52Lw6TokbTMcsYwlTAtU6RSW4vkmlcyufHg+gQcilt6MCYZC8sNOqFh9j/OODNfB8CsfDY4zno6aESSZKTsA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by VI1PR04MB9857.eurprd04.prod.outlook.com (2603:10a6:800:1d4::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.14; Wed, 24 Jun
+ 2026 16:30:36 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Wed, 24 Jun 2026
+ 16:30:35 +0000
+Date: Wed, 24 Jun 2026 11:30:26 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Javier Fernandez Pastrana <javier.pastrana@linutronix.de>
+Cc: Mark Brown <broonie@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Carlos Song <carlos.song@nxp.com>, linux-spi@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v2] spi: imx: reconfigure for PIO when DMA cannot be
+ started
+Message-ID: <ajwGIjGuyuvpjVib@SMW015318>
+References: <20260624151958.18626-1-javier.pastrana@linutronix.de>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <d2a633c8-496e-48e1-bfa0-a0fc75bd0a08@arm.com>
+In-Reply-To: <20260624151958.18626-1-javier.pastrana@linutronix.de>
+X-ClientProxiedBy: SA1P222CA0171.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:806:3c3::8) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI1PR04MB9857:EE_
+X-MS-Office365-Filtering-Correlation-Id: dafada49-1923-47d2-3b53-08ded20deaff
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|376014|7416014|23010399003|366016|6133799003|22082099003|18002099003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: tBcVg69OFB+IHpE19fo/ajcLzyE/M8VC/ArfP9hX5INrM1IMUaTOyc45MIiQEGeBbwb/FeZnj3dPdEsCHi5XaeumRsGaz9oU4tH7klTDuqDP7wz3txUbBY/iWYS9E3SsUkbmyv5Wkg2pqLQHfJGVKBvIrkKxM8PdqzoN+ZDLO8ishRtiiDIwC8v5nFl10ISM1LEzSW1O3rm/5brertRZb/VtxS9zhHxpSoh0pZIe1oWImTmuEyKmxAEQFmxu30vFglhdZzPqq9c6v7OK6s+yLdj4/K0Bcf87MjiAkEUqDBO0+8mDQmOjua3RUwCtTx+uUMjI2wOQpy8BQvZkIunVFLIdoobCcD6Qv39PrQwmL842VRwfR+beZWHPqrwnwSJksR7hP3xDqHLR0u/qo9YpyP47KMqhKquulWxEXKIUFBQ6/dDhU7Y7PplRsAKK11h64ejIvxzgSrEVbyVcTcVlMcfJf7+dDUsSWRBYuhlX90IfWVKjgFn8J8NBLhpp55asrL4jlPPF3optPv2IpWo/Dt3XgSmaeObMoVMmb1+7dcKOq6TMO1pD0Q9woF3cO1O7Zay/sB94EeE/GXt4uzasF765zFWO87/B+jiLx0OlfwvDBZdTs3wlz4sK1HNuVbpP6ppkF0KlOAFnqIDigzEA925ElLEc8ZqsA5/X/BmlJwg=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(376014)(7416014)(23010399003)(366016)(6133799003)(22082099003)(18002099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?byQReXRJwsdwESAFykKwS0aGc35PoS+Eq0aopK0EJB2aDcLH3stCIpENXFU5?=
+ =?us-ascii?Q?EkPRd0scfFDLbJII7g4UJQxend5GlnKa7cCDO5El5zkab/BruuxO4MXvpByH?=
+ =?us-ascii?Q?9cP2Wjj0jJs/+lezl57Lr/Grg+Vd8DwV+yYUehoWpj/xNLPMEyFLmFeMjFlB?=
+ =?us-ascii?Q?C8f7i1DGa9ivC0B97xyx7jxEmkvqv7uf4wPAuSQEm35zTQeCwsMOaA0+qTm+?=
+ =?us-ascii?Q?sAGPtJn4Rsu1SfhSM6OpLbGDtflaPF04yTL417w+MKEL/jY1ATPYnv8skViJ?=
+ =?us-ascii?Q?Jta1Jj7h+t8wQ33pQvXVDdTLmP62pEojKP8knbSrP4eXwyZPesVeU3GaGael?=
+ =?us-ascii?Q?TeJwVUE8mIWwR10jHRzDjghnMjhsQYjhUn7FDDHNbaYoc7qztFPLZTn4jaYR?=
+ =?us-ascii?Q?R3MhHjhfLwsphs73R7Au9ciTkNTIcmU7QYAikln/9ibML+RloifqxTQV5lsx?=
+ =?us-ascii?Q?dsHbTEHvjPYed98jA7peD7CJ38ldZsKlx+wa9oPNjR3OnyYaREvgKn/bNFEd?=
+ =?us-ascii?Q?MbmfymUx/em0vrAIB5BSlW7ArT7xae2dm/ulpDtrmEIDgcLmW9je4vxFUFll?=
+ =?us-ascii?Q?4nQmJp4FA4bH6qi9SZ0kiMMlAO6RB+dlNjroGVIcXcF8hDyFXrfa1jx/tiEB?=
+ =?us-ascii?Q?jVXwbtqykaEfUGmWjF3Iuk3F+NoHtIXS+ZBiRYnPxBAY0wwUWbRqfIuDoYIh?=
+ =?us-ascii?Q?kE9AnkDhgisQr9FVx/nVlG5U4noP49P0CFzXOTnV9/Vd1Tef2mRYZzgZOoze?=
+ =?us-ascii?Q?igyghEiNRGlJ6Ms+bXTlxte/sP/scAdSS+eoyJGhhUbNaK5JwilclZYOr9p2?=
+ =?us-ascii?Q?7EyU6fhyCL3W+b/5G8ONcsvYYWgsEWTkHEDwij6HugqotqTEM83KSIzF79qh?=
+ =?us-ascii?Q?klT3BWnd4kjM/XtugnESfEkspUEw+hOG6RQmeNTFvgzbtwp1fmfa8uhRNfnV?=
+ =?us-ascii?Q?Vyr3Jvs8cZZtoouI8lN1puub1lb/FheIcigcFoJtRIZthpvloJCC+h5B4MV/?=
+ =?us-ascii?Q?kizR4hB6mq4GT68yATpoxTKrA517Jese8821AdJ18uV7hz7RJsYwYf5wpRUi?=
+ =?us-ascii?Q?Kz6l/ZlcF2jIrTS5WKUTqjibHcGHm/bVncCaVj1rsO8jYNlOEM976c+Uzmz/?=
+ =?us-ascii?Q?9TIt7JkuRJb5T+quM1Or3fLtaHtKt1VOEbPNye31ene34ECznmwrNwQET2Hx?=
+ =?us-ascii?Q?aoxlcnsDCTjdeHnId5LK9dHS116QSV8/Nx06QHgQsV78ABdJHWNxYPGkGIES?=
+ =?us-ascii?Q?z02DSNDgmVinoGqCku76PzgEHTBHyPIGwrZUi/TBQwf0wbpK1KeyGjttE/OH?=
+ =?us-ascii?Q?S002uY0o6F0AfkOl1VWNpGS7/4FWML+JFqiskkK6jiIwrrFKanRYM+oTLAO1?=
+ =?us-ascii?Q?dIoWj7aSSfBNb0NUgsNUJ8KOALqNOzGUI+O9gkOodg0YpVFlTX1q7Bzrp+mb?=
+ =?us-ascii?Q?ifXVOQ9PAp5d8pk0/ivQJbWTNxk/WK65sAO17TTUd+6qD/4EgYCoKGi7syaN?=
+ =?us-ascii?Q?m9MnNcNykT7gjaDlCC7Rm9s+Yzpo6qqN75/k0ErX/C0xphYWqWD2QRDPNRkn?=
+ =?us-ascii?Q?AOEGNt6nG7ckyxryURXgErqsL+bJWdF5GF0jurge/3EAuVUrhfL130V6LP6P?=
+ =?us-ascii?Q?ztNwHe2zyHG5D33o0Ia9ILxuSeDT8ElhNnlNYwXA6/bXtZA6t7K6MuX5yGuy?=
+ =?us-ascii?Q?Y/oYT49qvD2OzRYvzL+jvoptFqIEtypsaCP7GT8UoA6ZBg736wpj/2nY6BAu?=
+ =?us-ascii?Q?eX7g4Nya+NLSpb5xrhb9j32hoqFVDcwGFzJtWqFuc8Qra6ZVGRQQ?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: dafada49-1923-47d2-3b53-08ded20deaff
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jun 2026 16:30:35.7662
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ToAmWOCuVy9OPIqthe3thOY1HqBRkKJifMkg+lZ8y3ghtBJ3VhPCFpmDQ3yZQPE6l07CCq0ve4AVIN2dT/Y+RGoq89O/+eEoczIFBQTJKqOz484ExECfpqSrfBV0RE5t
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB9857
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260624_093047_256215_277E5225 
+X-CRM114-Status: GOOD (  23.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,64 +141,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 24, 2026 at 04:05:01PM +0100, Ryan Roberts wrote:
-> On 23/06/2026 15:25, Will Deacon wrote:
-> > On Sun, Jun 21, 2026 at 05:02:27PM +0200, Ben Hutchings wrote:
-> >> On Tue, 2026-06-16 at 20:28 +0530, Greg Kroah-Hartman wrote:
-> >>> 6.1-stable review patch.  If anyone has any objections, please let me know.
-> >>>
-> >>> ------------------
-> >>>
-> >>> From: Anshuman Khandual <anshuman.khandual@arm.com>
-> >>>
-> >>> [ Upstream commit 48478b9f791376b4b89018d7afdfd06865498f65 ]
-> >> [...]
-> >>> @@ -949,15 +953,14 @@ static void unmap_hotplug_pmd_range(pud_
-> >>>  		WARN_ON(!pmd_present(pmd));
-> >>>  		if (pmd_sect(pmd)) {
-> >>>  			pmd_clear(pmdp);
-> >>> -
-> >>> -			/*
-> >>> -			 * One TLBI should be sufficient here as the PMD_SIZE
-> >>> -			 * range is mapped with a single block entry.
-> >>> -			 */
-> >>> -			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
-> >>> -			if (free_mapped)
-> >>> +			if (free_mapped) {
-> >>> +				/* CONT blocks are not supported in the vmemmap */
-> >>> +				WARN_ON(pmd_cont(pmd));
-> >>> +				flush_tlb_kernel_range(addr, addr + PMD_SIZE);
-> >>
-> >> It wasn't clear to me from the commit message why this now adds PMD_SIZE
-> >> rather than PAGE_SIZE.  It seems like this change is fine for Linux
-> >> 6.13+ with a CPU that supports TLB range flushing, but otherwise results
-> >> in unnecessarily executing multiple TLB invalidations at intervals of
-> >> the base page size.
-> > 
-> > Hmm, the commit message also makes very little sense to me and so I don't
-> > understand why this patch has us doing multiple TLB invalidations when
-> > we run into a !cont, block mapping at the PMD level. The old comment
-> > (which this patch removes) should still apply afaict.
-> > 
-> > Anshuman, Ryan, any ideas what's going on here?
-> 
-> I think this change was probably my fault; Given the API is called
-> flush_tlb_kernel_range() it seemed like an abuse/hack to pretend we are only
-> flushing the first PAGE_SIZE of the range. But as I understand it, even if the
-> HW shatters a block mapping into multiple TLB entries, all of the entries
-> relating to the block mapping will be invalidated if just one of them intersects
-> the TLBI range/address. So it should be safe to reapply this hack.
-> 
-> Although ideally I think it would be better if this API took a stride argument;
-> then intent is clear.
-> 
-> What's the best way to handle this? Submit a patch for mainline that reverts
-> this part, then get it backported to stable (implying this current patch will
-> have been applied to stable)?
+On Wed, Jun 24, 2026 at 05:19:58PM +0200, Javier Fernandez Pastrana wrote:
+>
+> When spi_imx_can_dma() selects DMA, the ECSPI is configured for DMA:
+> spi_imx_setupxfer() sets CTRL.SMC and clears dynamic_burst, and
+> spi_imx_dma_transfer() programs the dynamic-burst BURST_LENGTH and the
+> SDMA watermarks.
+>
+> If the DMA descriptor cannot be prepared (dmaengine_prep_slave_single()
+> returns NULL), the transfer is failed with SPI_TRANS_FAIL_NO_START and
+> falls back to PIO. The dynamic-burst DMA path uses its own bounce
+> buffers instead of the SPI core's mapping, so xfer->{tx,rx}_sg_mapped
+> are not set and the core's DMA->PIO retry is skipped; the driver falls
+> back to PIO internally. But none of the DMA-mode configuration is
+> undone, so the PIO transfer runs with CTRL.SMC set, the wrong burst
+> length and dynamic_burst cleared, and the transferred data is corrupted.
+>
+> This is easily hit on i.MX8MP boards that describe ECSPI DMA in the
+> device tree but run SDMA on ROM firmware (no external sdma-imx7d.bin):
+> every ECSPI DMA prepare fails. An Infineon SLB9670 TPM on ECSPI1 then
+> returns shifted TPM2_GetCapability data, is flagged "field failure
+> mode", /dev/tpmrm0 is never created.
+>
+> Set controller->fallback before re-running spi_imx_setupxfer() so the
+> ECSPI is reconfigured exactly like a normal PIO transfer. With
+> controller->fallback set, spi_imx_setupxfer() sees spi_imx_can_dma()
+> return false, so it clears spi_imx->usedma and reprograms the controller
+> (clears CTRL.SMC, restores dynamic_burst and the PIO burst length). No
+> explicit spi_imx->usedma = false is needed: setupxfer() already updates
+> it from the can_dma() result.
+>
+> Fixes: faa8e404ad8e ("spi: imx: support dynamic burst length for ECSPI DMA mode")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Javier Fernandez Pastrana <javier.pastrana@linutronix.de>
+> ---
 
-yes, that's probably the best way.
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-thanks,
-
-greg k-h
+> v2: drop redundant spi_imx->usedma = false; spi_imx_setupxfer() already
+>     clears it via spi_imx_can_dma() (Carlos Song)
+>
+>  drivers/spi/spi-imx.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/spi/spi-imx.c b/drivers/spi/spi-imx.c
+> index 480d1e8b281f..1837cc7b0b96 100644
+> --- a/drivers/spi/spi-imx.c
+> +++ b/drivers/spi/spi-imx.c
+> @@ -2152,7 +2152,8 @@ static int spi_imx_transfer_one(struct spi_controller *controller,
+>         if (spi_imx->usedma) {
+>                 ret = spi_imx_dma_transfer(spi_imx, transfer);
+>                 if (transfer->error & SPI_TRANS_FAIL_NO_START) {
+> -                       spi_imx->usedma = false;
+> +                       controller->fallback = true;
+> +                       spi_imx_setupxfer(spi, transfer);
+>                         if (spi_imx->target_mode)
+>                                 return spi_imx_pio_transfer_target(spi, transfer);
+>                         else
+> --
+> 2.47.3
+>
+>
 
