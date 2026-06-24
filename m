@@ -4,68 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57EEBCDB471
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 12:35:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 031E2CDB47F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 12:39:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nSlHeZgCT1oHjvLSw+acVz7VxQaUvcpCz7IcbZqf/FY=; b=WvL1y0D7T8x4ZtbQr7KE6BBp3i
-	mCzfQ0seEBXIBILMzgpYPnNEvRAs0KL+QKsnTzAC1hnVNpuCSPVzL6SPX99Knkhx0WtamXuXG2Oo0
-	odE9Xhnz/9x8Vl/sypk15L5gzdcRVlkNxfaved4aCnbUvP41iy6OID+fLdvTFJQsyfSkdZpx/hqMa
-	EAhyvG1aOfnZK9jHyGJy8dIsnpkUksLhtAuC7nXEqkRIZVIN9eTeLXGO57LQ+WnmnST499qiyFyIl
-	h0opk76HaW3VSrRS3HkexEZx2dVvJLvUqIyTgR4FufUpaT5PEUReGJmgGmi4iqFLMflkM9Vn7FXr3
-	ean+p0yA==;
+	bh=y/4n4V5AO8Pus07hY/WLkyeKXK5EW7PvLo2XFUSSWKk=; b=GCBllMd8cFR09odN0/w5mQzSyJ
+	SQmJJW3Dt9GYtV4OxKsLOaRuO1Fj9XDALp3+eBh99/5CtxEvJ+eYn7X8P5Blm/0LzCr30CxwEtBW+
+	z1J0e9t7UqdcKNdXlxBqk8UnO9LdFuzTVOO7Bhl5c+z0NmHewUo8ztWvauB47LLqPH6k7Qd6OLOuQ
+	2gN2wW3FBZliRWbXp+9McpzNihdkO+KZNhuMiUvDuhoLCjuPwPDbWGXYv/JaXl+Z1oW/23yGxlC1w
+	cMbs8f0T8j7dZ+P9jpp84PCkUnk2wZxnf1XlfIkN2NJ50u5JleV15bb9bI+ZeC6vm1fOaUIQilmo7
+	vEI4gMaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcMov-00000007lAy-1nJa;
-	Wed, 24 Jun 2026 12:35:09 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wcLoR-00000007fX2-1zYD;
+	Wed, 24 Jun 2026 11:30:35 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcMot-00000007lAU-149t
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 12:35:07 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A5CDD44150;
-	Wed, 24 Jun 2026 12:35:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01A6D1F000E9;
-	Wed, 24 Jun 2026 12:35:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782304506;
-	bh=nSlHeZgCT1oHjvLSw+acVz7VxQaUvcpCz7IcbZqf/FY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=fGnN75eYr5ZYS8PB60tTDlz6Um7sYGuRKfaMDzNmcXFBGrQB8djWZrFhFCuxXPMRo
-	 X5r/pb/u1XHBjKYr0GSBDvM12jERqrJb1mtHZX2Wz5pY3wSgnl0jfvHPwf/Oz7vlTC
-	 i0ouMkB9eExbHNFziYN4OpcunLEZv9PX8G0d3riVRGTMW5pZ3QXA7zoX6Ocz0lJx7S
-	 26LJ01PmqJG03rD9qaIz5WzqgIinUCbSsJ76kUHwXptE4g4LtN9U0xxXoOzFb4T4oU
-	 0a1eeHS4Zdn5QEITiRCwAMpQHmezlyZAwqebueChlNBATEMaB9c/jwPE4HkNPrU7ot
-	 pX9dCIZawRGMw==
-Date: Wed, 24 Jun 2026 14:35:04 +0200
-From: Thierry Reding <thierry.reding@kernel.org>
-To: Manivannan Sadhasivam <mani@kernel.org>
-Cc: Bjorn Helgaas <bhelgaas@google.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Thierry Reding <thierry.reding@gmail.com>, 
-	Jonathan Hunter <jonathanh@nvidia.com>, Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>, 
-	Hou Zhiqiang <Zhiqiang.Hou@nxp.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
-	Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>, Michal Simek <michal.simek@amd.com>, 
-	Kevin Xie <kevin.xie@starfivetech.com>, Aksh Garg <a-garg7@ti.com>, linux-pci@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Thierry Reding <treding@nvidia.com>, 
-	Manikanta Maddireddy <mmaddireddy@nvidia.com>
-Subject: Re: [PATCH v7 3/4] PCI: tegra: Add Tegra264 support
-Message-ID: <aju3jokcWR5DzPrv@orome>
-References: <20260617-tegra264-pcie-v7-0-eae7ae964629@nvidia.com>
- <20260617-tegra264-pcie-v7-3-eae7ae964629@nvidia.com>
- <slfaxyt6p5mwsqmxvmriy6npilpjhjxv5ruegj4hnivj6zufkl@o6adjy5jmzfy>
+	id 1wcLoL-00000007fVB-2kEr;
+	Wed, 24 Jun 2026 11:30:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=y/4n4V5AO8Pus07hY/WLkyeKXK5EW7PvLo2XFUSSWKk=; b=BA1/n9SPWRt41eWsTQ3u2zvAq6
+	Gl7C6qSiykhboNFAQgdY2AZ8/NME8W7j8pwMKb4ILVuimqPabxKMFUC+Rxgit4Y6VTax5AdH+omrk
+	aZc+V/J29kakxLgq8XnMIo4D7zYe0jdP7Yvp1Dh3256sZD1EMOuGcwHaLZQwDL/9nZuarTdkj0gTA
+	evqB7an6/1LhBIpr7h9ePxAll8tTAOp5bS7DAQGRGwel/9OEIhc5bShqMZcby3gDZqJr+PMtpTRuy
+	YYXzH9R4zGtLAImejkc44QSLiQezeUv24OVdLXWdC+huwmdM6AlNIfdmeteJbJsSWbovv++bVg++q
+	DC8gm+1A==;
+Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wcLoH-00000002Glp-1nGn;
+	Wed, 24 Jun 2026 11:30:28 +0000
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 65OBThpuE4147238, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1782300583; bh=y/4n4V5AO8Pus07hY/WLkyeKXK5EW7PvLo2XFUSSWKk=;
+	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding:Content-Type;
+	b=oHIEYH5/Xlr0o/6SFq/xKIIX7LLsIGA9XEZu7p1+CcVPsGsatytyYUmM/ie9TO+60
+	 bGITf8hWwachIH6DtSaTSqSdS3OmZ3x6cHKBD6XYBmkybaXuLh6XSjxDRdfytikF1w
+	 AN4IFCARLL0SSR/PFZMMACI4tCcv/NPzbcSUSo1aV1J3O1JbEiRmtU35X6ABy4K9nO
+	 vgzi6O/f1KgrZ55hasK68gar6CEZhGv8XAWmmkHggyBBkHOuCUJeRISg9Ucg09b3Fe
+	 tDhFN5dVhKexvR++gkVy8IPDk6Et0d9nKd1CFQ0YrUd1n4thXqKhnU+PJRXN43shCM
+	 NXzLi51JSCUvA==
+Received: from mail.realtek.com (rtkexhmbs04.realtek.com.tw[10.21.1.54])
+	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 65OBThpuE4147238
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Wed, 24 Jun 2026 19:29:43 +0800
+Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
+ RTKEXHMBS04.realtek.com.tw (10.21.1.54) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.17; Wed, 24 Jun 2026 19:29:41 +0800
+Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
+ RTKEXHMBS05.realtek.com.tw (10.21.1.55) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.17; Wed, 24 Jun 2026 19:29:41 +0800
+Received: from cn1dhc-k02 (172.21.252.101) by RTKEXHMBS05.realtek.com.tw
+ (10.21.1.55) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
+ Transport; Wed, 24 Jun 2026 19:29:41 +0800
+From: Yu-Chun Lin <eleanor.lin@realtek.com>
+To: <mturquette@baylibre.com>, <sboyd@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <p.zabel@pengutronix.de>,
+	<cylee12@realtek.com>, <afaerber@suse.com>, <jyanchou@realtek.com>,
+	<bmasney@redhat.com>
+CC: <devicetree@vger.kernel.org>, <linux-clk@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-realtek-soc@lists.infradead.org>, <james.tai@realtek.com>,
+	<cy.huang@realtek.com>, <stanley_chang@realtek.com>,
+	<eleanor.lin@realtek.com>, Krzysztof Kozlowski
+	<krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH v9 01/12] dt-bindings: clock: Add Realtek RTD1625 Clock & Reset Controller
+Date: Wed, 24 Jun 2026 19:29:29 +0800
+Message-ID: <20260624112940.3475605-2-eleanor.lin@realtek.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20260624112940.3475605-1-eleanor.lin@realtek.com>
+References: <20260624112940.3475605-1-eleanor.lin@realtek.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="om3weh3neg6kh743"
-Content-Disposition: inline
-In-Reply-To: <slfaxyt6p5mwsqmxvmriy6npilpjhjxv5ruegj4hnivj6zufkl@o6adjy5jmzfy>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260624_123026_224214_319E03BA 
+X-CRM114-Status: GOOD (  15.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,278 +103,458 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add DT binding schema for Realtek RTD1625 clock and reset controller
 
---om3weh3neg6kh743
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v7 3/4] PCI: tegra: Add Tegra264 support
-MIME-Version: 1.0
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Co-developed-by: Cheng-Yu Lee <cylee12@realtek.com>
+Signed-off-by: Cheng-Yu Lee <cylee12@realtek.com>
+Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+---
+Changes in v8:
+- None
+---
+ .../bindings/clock/realtek,rtd1625-clk.yaml   |  58 ++++++
+ MAINTAINERS                                   |  10 +
+ .../dt-bindings/clock/realtek,rtd1625-clk.h   | 164 +++++++++++++++++
+ include/dt-bindings/reset/realtek,rtd1625.h   | 171 ++++++++++++++++++
+ 4 files changed, 403 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/clock/realtek,rtd1625-clk.yaml
+ create mode 100644 include/dt-bindings/clock/realtek,rtd1625-clk.h
+ create mode 100644 include/dt-bindings/reset/realtek,rtd1625.h
 
-On Thu, Jun 18, 2026 at 09:26:33AM +0200, Manivannan Sadhasivam wrote:
-> On Wed, Jun 17, 2026 at 06:01:30PM +0200, Thierry Reding wrote:
-[...]
-> > +static int tegra264_pcie_parse_dt(struct tegra264_pcie *pcie)
-> > +{
-> > +	struct device *dev =3D pcie->dev;
-> > +	int err;
-> > +
-> > +	pcie->wake_gpio =3D devm_gpiod_get_optional(dev, "wake", GPIOD_IN);
-> > +	if (IS_ERR(pcie->wake_gpio))
-> > +		return PTR_ERR(pcie->wake_gpio);
-> > +
-> > +	if (!pcie->wake_gpio)
-> > +		return 0;
-> > +
-> > +	err =3D gpiod_to_irq(pcie->wake_gpio);
-> > +	if (err < 0)
-> > +		return dev_err_probe(dev, err, "failed to get wake IRQ\n");
-> > +
-> > +	pcie->wake_irq =3D (unsigned int)err;
-> > +
-> > +	err =3D devm_device_init_wakeup(dev);
-> > +	if (err < 0)
-> > +		return dev_err_probe(dev, err, "failed to initialize wakeup\n");
-> > +
-> > +	err =3D devm_pm_set_wake_irq(dev, pcie->wake_irq);
-> > +	if (err < 0)
-> > +		return dev_err_probe(dev, err, "failed to set wakeup IRQ\n");
-> > +
->=20
-> I'd really like to get rid of custom WAKE# handling in the controller dri=
-vers.
-> Krishna is trying to add generic WAKE# handling in the PCI core and I'd s=
-uggest
-> you to take a look at the patches:
-> https://lore.kernel.org/linux-pci/20260511-wakeirq_support-v10-2-c10af9c9=
-eb8c@oss.qualcomm.com/
->=20
-> But this also means that you need to use switch to Root Port binding to m=
-ove the
-> Root Port properties out of the controller node. This is something we are
-> mandating for the new controllers. Not a big change though...
->=20
-> Reference:
->=20
-> Documentation/devicetree/bindings/pci/spacemit,k1-pcie-host.yaml#n80
+diff --git a/Documentation/devicetree/bindings/clock/realtek,rtd1625-clk.yaml b/Documentation/devicetree/bindings/clock/realtek,rtd1625-clk.yaml
+new file mode 100644
+index 000000000000..1aceef31e148
+--- /dev/null
++++ b/Documentation/devicetree/bindings/clock/realtek,rtd1625-clk.yaml
+@@ -0,0 +1,58 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/clock/realtek,rtd1625-clk.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Realtek RTD1625 Clock & Reset Controller
++
++maintainers:
++  - Cheng-Yu Lee <cylee12@realtek.com>
++  - Yu-Chun Lin <eleanor.lin@realtek.com>
++
++description: |
++  The Realtek RTD1625 Clock Controller manages and distributes clock
++  signals to various controllers and implements a Reset Controller for the
++  SoC peripherals.
++
++  Clocks and resets are referenced by unique identifiers, which are defined as
++  preprocessor macros in include/dt-bindings/clock/realtek,rtd1625-clk.h and
++  include/dt-bindings/reset/realtek,rtd1625.h.
++
++properties:
++  compatible:
++    enum:
++      - realtek,rtd1625-crt-clk
++      - realtek,rtd1625-iso-clk
++      - realtek,rtd1625-iso-s-clk
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  "#clock-cells":
++    const: 1
++
++  "#reset-cells":
++    const: 1
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - "#clock-cells"
++  - "#reset-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    clock-controller@98000000 {
++      compatible = "realtek,rtd1625-crt-clk";
++      reg = <0x98000000 0x1000>;
++      clocks = <&osc27m>;
++      #clock-cells = <1>;
++      #reset-cells = <1>;
++    };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index ba45953bb805..d9df9b120e55 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -22668,6 +22668,16 @@ S:	Maintained
+ F:	Documentation/devicetree/bindings/net/dsa/realtek.yaml
+ F:	drivers/net/dsa/realtek/*
+ 
++REALTEK SOC CLOCK AND RESET DRIVERS
++M:	Cheng-Yu Lee <cylee12@realtek.com>
++M:	Yu-Chun Lin <eleanor.lin@realtek.com>
++L:	devicetree@vger.kernel.org
++L:	linux-clk@vger.kernel.org
++S:	Supported
++F:	Documentation/devicetree/bindings/clock/realtek*
++F:	include/dt-bindings/clock/realtek*
++F:	include/dt-bindings/reset/realtek*
++
+ REALTEK SPI-NAND
+ M:	Chris Packham <chris.packham@alliedtelesis.co.nz>
+ S:	Maintained
+diff --git a/include/dt-bindings/clock/realtek,rtd1625-clk.h b/include/dt-bindings/clock/realtek,rtd1625-clk.h
+new file mode 100644
+index 000000000000..61ca652d6880
+--- /dev/null
++++ b/include/dt-bindings/clock/realtek,rtd1625-clk.h
+@@ -0,0 +1,164 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++/*
++ * Copyright (C) 2025 Realtek Semiconductor Corp.
++ */
++#ifndef __DT_BINDINGS_RTK_CLOCK_RTD1625_H
++#define __DT_BINDINGS_RTK_CLOCK_RTD1625_H
++
++#define RTD1625_CRT_CLK_EN_MISC           0
++#define RTD1625_CRT_CLK_EN_PCIE0          1
++#define RTD1625_CRT_CLK_EN_DIP            2
++#define RTD1625_CRT_CLK_EN_GSPI           3
++#define RTD1625_CRT_CLK_EN_ISO_MISC       5
++#define RTD1625_CRT_CLK_EN_SDS            6
++#define RTD1625_CRT_CLK_EN_HDMI           7
++#define RTD1625_CRT_CLK_EN_GPU            9
++#define RTD1625_CRT_CLK_EN_VE1            10
++#define RTD1625_CRT_CLK_EN_VE2            11
++#define RTD1625_CRT_CLK_EN_MD             18
++#define RTD1625_CRT_CLK_EN_TP             19
++#define RTD1625_CRT_CLK_EN_RCIC           20
++#define RTD1625_CRT_CLK_EN_NF             21
++#define RTD1625_CRT_CLK_EN_EMMC           22
++#define RTD1625_CRT_CLK_EN_SD             23
++#define RTD1625_CRT_CLK_EN_SDIO_IP        24
++#define RTD1625_CRT_CLK_EN_MIPI_CSI       25
++#define RTD1625_CRT_CLK_EN_EMMC_IP        26
++#define RTD1625_CRT_CLK_EN_SDIO           27
++#define RTD1625_CRT_CLK_EN_SD_IP          28
++#define RTD1625_CRT_CLK_EN_TPB            30
++#define RTD1625_CRT_CLK_EN_MISC_SC1       31
++#define RTD1625_CRT_CLK_EN_MISC_I2C_3     32
++#define RTD1625_CRT_CLK_EN_ACPU           33
++#define RTD1625_CRT_CLK_EN_JPEG           34
++#define RTD1625_CRT_CLK_EN_MISC_SC0       37
++#define RTD1625_CRT_CLK_EN_HDMIRX         45
++#define RTD1625_CRT_CLK_EN_HSE            46
++#define RTD1625_CRT_CLK_EN_FAN            49
++#define RTD1625_CRT_CLK_EN_SATA_WRAP_SYS  52
++#define RTD1625_CRT_CLK_EN_SATA_WRAP_SYSH 53
++#define RTD1625_CRT_CLK_EN_SATA_MAC_SYSH  54
++#define RTD1625_CRT_CLK_EN_R2RDSC         55
++#define RTD1625_CRT_CLK_EN_TPC            56
++#define RTD1625_CRT_CLK_EN_PCIE1          57
++#define RTD1625_CRT_CLK_EN_MISC_I2C_4     58
++#define RTD1625_CRT_CLK_EN_MISC_I2C_5     59
++#define RTD1625_CRT_CLK_EN_TSIO           60
++#define RTD1625_CRT_CLK_EN_VE4            61
++#define RTD1625_CRT_CLK_EN_EDP            62
++#define RTD1625_CRT_CLK_EN_TSIO_TRX       63
++#define RTD1625_CRT_CLK_EN_PCIE2          64
++#define RTD1625_CRT_CLK_EN_EARC           66
++#define RTD1625_CRT_CLK_EN_LITE           67
++#define RTD1625_CRT_CLK_EN_MIPI_DSI       68
++#define RTD1625_CRT_CLK_EN_NPUPP          69
++#define RTD1625_CRT_CLK_EN_NPU            70
++#define RTD1625_CRT_CLK_EN_AUCPU0         71
++#define RTD1625_CRT_CLK_EN_AUCPU1         72
++#define RTD1625_CRT_CLK_EN_NSRAM          73
++#define RTD1625_CRT_CLK_EN_HDMITOP        74
++#define RTD1625_CRT_CLK_EN_AUCPU_ISO_NPU  76
++#define RTD1625_CRT_CLK_EN_KEYLADDER      77
++#define RTD1625_CRT_CLK_EN_IFCP_KLM       78
++#define RTD1625_CRT_CLK_EN_IFCP           79
++#define RTD1625_CRT_CLK_EN_MDL_GENPW      80
++#define RTD1625_CRT_CLK_EN_MDL_CHIP       81
++#define RTD1625_CRT_CLK_EN_MDL_IP         82
++#define RTD1625_CRT_CLK_EN_MDLM2M         83
++#define RTD1625_CRT_CLK_EN_MDL_XTAL       84
++#define RTD1625_CRT_CLK_EN_TEST_MUX       85
++#define RTD1625_CRT_CLK_EN_DLA            86
++#define RTD1625_CRT_CLK_EN_TPCW           88
++#define RTD1625_CRT_CLK_EN_GPU_TS_SRC     89
++#define RTD1625_CRT_CLK_EN_VI             91
++#define RTD1625_CRT_CLK_EN_LVDS1          92
++#define RTD1625_CRT_CLK_EN_LVDS2          93
++#define RTD1625_CRT_CLK_EN_AUCPU          94
++#define RTD1625_CRT_CLK_EN_UR1            96
++#define RTD1625_CRT_CLK_EN_UR2            97
++#define RTD1625_CRT_CLK_EN_UR3            98
++#define RTD1625_CRT_CLK_EN_UR4            99
++#define RTD1625_CRT_CLK_EN_UR5            100
++#define RTD1625_CRT_CLK_EN_UR6            101
++#define RTD1625_CRT_CLK_EN_UR7            102
++#define RTD1625_CRT_CLK_EN_UR8            103
++#define RTD1625_CRT_CLK_EN_UR9            104
++#define RTD1625_CRT_CLK_EN_UR_TOP         105
++#define RTD1625_CRT_CLK_EN_MISC_I2C_7     110
++#define RTD1625_CRT_CLK_EN_MISC_I2C_6     111
++#define RTD1625_CRT_CLK_EN_SPI0           112
++#define RTD1625_CRT_CLK_EN_SPI1           113
++#define RTD1625_CRT_CLK_EN_SPI2           114
++#define RTD1625_CRT_CLK_EN_LSADC0         120
++#define RTD1625_CRT_CLK_EN_LSADC1         121
++#define RTD1625_CRT_CLK_EN_ISOMIS_DMA     122
++#define RTD1625_CRT_CLK_EN_DPTX           124
++#define RTD1625_CRT_CLK_EN_NPU_MIPI_CSI   125
++#define RTD1625_CRT_CLK_EN_EDPTX          126
++#define RTD1625_CRT_CLK_HIFI              128
++#define RTD1625_CRT_CLK_NPU_MIPI_CSI      129
++#define RTD1625_CRT_CLK_NPU               130
++#define RTD1625_CRT_CLK_NPU_SYSH          132
++#define RTD1625_CRT_CLK_HIFI_SCPU         133
++#define RTD1625_CRT_CLK_GPU               134
++#define RTD1625_CRT_CLK_GPU2D             135
++#define RTD1625_CRT_CLK_MIPI_DSI_PCLK     136
++#define RTD1625_CRT_CLK_VE1               137
++#define RTD1625_CRT_CLK_VE2               138
++#define RTD1625_CRT_CLK_VE4               139
++#define RTD1625_CRT_CLK_SYS               141
++#define RTD1625_CRT_CLK_SYSH              142
++#define RTD1625_CRT_PLL_SDIO_REF          145
++#define RTD1625_CRT_PLL_CR_REF            146
++#define RTD1625_CRT_PLL_EMMC_REF          147
++#define RTD1625_CRT_CLK_MIS_SC0           148
++#define RTD1625_CRT_CLK_MIS_SC1           149
++#define RTD1625_CRT_PLL_SCPU              150
++#define RTD1625_CRT_PLL_VE1               151
++#define RTD1625_CRT_PLL_DDSA              152
++#define RTD1625_CRT_PLL_PSAUDA1           153
++#define RTD1625_CRT_PLL_PSAUDA2           154
++#define RTD1625_CRT_PLL_BUS               155
++#define RTD1625_CRT_PLL_SDIO              156
++#define RTD1625_CRT_PLL_SDIO_VP0          157
++#define RTD1625_CRT_PLL_SDIO_VP1          158
++#define RTD1625_CRT_PLL_DCSB              159
++#define RTD1625_CRT_PLL_GPU               160
++#define RTD1625_CRT_PLL_NPU               161
++#define RTD1625_CRT_PLL_VE2               162
++#define RTD1625_CRT_PLL_HIFI              163
++#define RTD1625_CRT_PLL_SD                164
++#define RTD1625_CRT_PLL_SD_VP0            165
++#define RTD1625_CRT_PLL_SD_VP1            166
++#define RTD1625_CRT_PLL_EMMC              167
++#define RTD1625_CRT_PLL_EMMC_VP0          168
++#define RTD1625_CRT_PLL_EMMC_VP1          169
++#define RTD1625_CRT_PLL_ACPU              170
++#define RTD1625_CRT_CLK_DET               171
++
++#define RTD1625_ISO_CLK_EN_USB_P4         0
++#define RTD1625_ISO_CLK_EN_USB_P3         1
++#define RTD1625_ISO_CLK_EN_MISC_CEC0      2
++#define RTD1625_ISO_CLK_EN_CBUSRX_SYS     3
++#define RTD1625_ISO_CLK_EN_CBUSTX_SYS     4
++#define RTD1625_ISO_CLK_EN_CBUS_SYS       5
++#define RTD1625_ISO_CLK_EN_CBUS_OSC       6
++#define RTD1625_ISO_CLK_EN_MISC_UR0       8
++#define RTD1625_ISO_CLK_EN_I2C0           9
++#define RTD1625_ISO_CLK_EN_I2C1           10
++#define RTD1625_ISO_CLK_EN_ETN_250M       11
++#define RTD1625_ISO_CLK_EN_ETN_SYS        12
++#define RTD1625_ISO_CLK_EN_USB_DRD        13
++#define RTD1625_ISO_CLK_EN_USB_HOST       14
++#define RTD1625_ISO_CLK_EN_USB_U3_HOST    15
++#define RTD1625_ISO_CLK_EN_USB            16
++#define RTD1625_ISO_CLK_EN_VTC            17
++#define RTD1625_ISO_CLK_EN_MISC_VFD       18
++
++#define RTD1625_ISO_S_CLK_EN_ISOM_MIS     0
++#define RTD1625_ISO_S_CLK_EN_ISOM_GPIOM   1
++#define RTD1625_ISO_S_CLK_EN_TIMER7       2
++#define RTD1625_ISO_S_CLK_EN_IRDA         3
++#define RTD1625_ISO_S_CLK_EN_UR10         4
++
++#endif /* __DT_BINDINGS_RTK_CLOCK_RTD1625_H */
+diff --git a/include/dt-bindings/reset/realtek,rtd1625.h b/include/dt-bindings/reset/realtek,rtd1625.h
+new file mode 100644
+index 000000000000..31e7fa66ef31
+--- /dev/null
++++ b/include/dt-bindings/reset/realtek,rtd1625.h
+@@ -0,0 +1,171 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++/*
++ * Copyright (C)		2025 Realtek Semiconductor Corp.
++ */
++
++#ifndef __DT_BINDINGS_RTK_RESET_RTD1625_H
++#define __DT_BINDINGS_RTK_RESET_RTD1625_H
++
++#define RTD1625_CRT_RSTN_MISC			0
++#define RTD1625_CRT_RSTN_DIP			1
++#define RTD1625_CRT_RSTN_GSPI			2
++#define RTD1625_CRT_RSTN_SDS			3
++#define RTD1625_CRT_RSTN_SDS_REG		4
++#define RTD1625_CRT_RSTN_SDS_PHY		5
++#define RTD1625_CRT_RSTN_GPU2D			6
++#define RTD1625_CRT_RSTN_DC_PHY			7
++#define RTD1625_CRT_RSTN_DCPHY_CRT		8
++#define RTD1625_CRT_RSTN_LSADC			9
++#define RTD1625_CRT_RSTN_SE			10
++#define RTD1625_CRT_RSTN_DLA			11
++#define RTD1625_CRT_RSTN_JPEG			12
++#define RTD1625_CRT_RSTN_SD			13
++#define RTD1625_CRT_RSTN_SDIO			14
++#define RTD1625_CRT_RSTN_PCR_CNT		15
++#define RTD1625_CRT_RSTN_PCIE0_STITCH		16
++#define RTD1625_CRT_RSTN_PCIE0_PHY		17
++#define RTD1625_CRT_RSTN_PCIE0			18
++#define RTD1625_CRT_RSTN_PCIE0_CORE		19
++#define RTD1625_CRT_RSTN_PCIE0_POWER		20
++#define RTD1625_CRT_RSTN_PCIE0_NONSTICH		21
++#define RTD1625_CRT_RSTN_PCIE0_PHY_MDIO		22
++#define RTD1625_CRT_RSTN_PCIE0_SGMII_MDIO	23
++#define RTD1625_CRT_RSTN_VO2			24
++#define RTD1625_CRT_RSTN_MISC_SC0		25
++#define RTD1625_CRT_RSTN_MD			26
++#define RTD1625_CRT_RSTN_LVDS1			27
++#define RTD1625_CRT_RSTN_LVDS2			28
++#define RTD1625_CRT_RSTN_MISC_SC1		29
++#define RTD1625_CRT_RSTN_I2C_3			30
++#define RTD1625_CRT_RSTN_FAN			31
++#define RTD1625_CRT_RSTN_TVE			32
++#define RTD1625_CRT_RSTN_AIO			33
++#define RTD1625_CRT_RSTN_VO			34
++#define RTD1625_CRT_RSTN_MIPI_CSI		35
++#define RTD1625_CRT_RSTN_HDMIRX			36
++#define RTD1625_CRT_RSTN_HDMIRX_WRAP		37
++#define RTD1625_CRT_RSTN_HDMI			38
++#define RTD1625_CRT_RSTN_DISP			39
++#define RTD1625_CRT_RSTN_SATA_PHY_POW1		40
++#define RTD1625_CRT_RSTN_SATA_PHY_POW0		41
++#define RTD1625_CRT_RSTN_SATA_MDIO1		42
++#define RTD1625_CRT_RSTN_SATA_MDIO0		43
++#define RTD1625_CRT_RSTN_SATA_WRAP		44
++#define RTD1625_CRT_RSTN_SATA_MAC_P1		45
++#define RTD1625_CRT_RSTN_SATA_MAC_P0		46
++#define RTD1625_CRT_RSTN_SATA_MAC_COM		47
++#define RTD1625_CRT_RSTN_PCIE1_STITCH		48
++#define RTD1625_CRT_RSTN_PCIE1_PHY		49
++#define RTD1625_CRT_RSTN_PCIE1			50
++#define RTD1625_CRT_RSTN_PCIE1_CORE		51
++#define RTD1625_CRT_RSTN_PCIE1_POWER		52
++#define RTD1625_CRT_RSTN_PCIE1_NONSTICH		53
++#define RTD1625_CRT_RSTN_PCIE1_PHY_MDIO		54
++#define RTD1625_CRT_RSTN_HDMITOP		55
++#define RTD1625_CRT_RSTN_I2C_4			56
++#define RTD1625_CRT_RSTN_I2C_5			57
++#define RTD1625_CRT_RSTN_TSIO			58
++#define RTD1625_CRT_RSTN_VI			59
++#define RTD1625_CRT_RSTN_EDP			60
++#define RTD1625_CRT_RSTN_VE1_MMU		61
++#define RTD1625_CRT_RSTN_VE1_MMU_FUNC		62
++#define RTD1625_CRT_RSTN_HSE_MMU		63
++#define RTD1625_CRT_RSTN_HSE_MMU_FUNC		64
++#define RTD1625_CRT_RSTN_MDLM2M			65
++#define RTD1625_CRT_RSTN_ISO_GSPI		66
++#define RTD1625_CRT_RSTN_SOFT_NPU		67
++#define RTD1625_CRT_RSTN_SPI2EMMC		68
++#define RTD1625_CRT_RSTN_EARC			69
++#define RTD1625_CRT_RSTN_VE1			70
++#define RTD1625_CRT_RSTN_PCIE2_STITCH		71
++#define RTD1625_CRT_RSTN_PCIE2_PHY		72
++#define RTD1625_CRT_RSTN_PCIE2			73
++#define RTD1625_CRT_RSTN_PCIE2_CORE		74
++#define RTD1625_CRT_RSTN_PCIE2_POWER		75
++#define RTD1625_CRT_RSTN_PCIE2_NONSTICH		76
++#define RTD1625_CRT_RSTN_PCIE2_PHY_MDIO		77
++#define RTD1625_CRT_RSTN_DCPHY_UMCTL2		78
++#define RTD1625_CRT_RSTN_MIPI_DSI		79
++#define RTD1625_CRT_RSTN_HIFM			80
++#define RTD1625_CRT_RSTN_NSRAM			81
++#define RTD1625_CRT_RSTN_AUCPU0_REG		82
++#define RTD1625_CRT_RSTN_MDL_GENPW		83
++#define RTD1625_CRT_RSTN_MDL_CHIP		84
++#define RTD1625_CRT_RSTN_MDL_IP			85
++#define RTD1625_CRT_RSTN_TEST_MUX		86
++#define RTD1625_CRT_RSTN_ISO_BIST		87
++#define RTD1625_CRT_RSTN_MAIN_BIST		88
++#define RTD1625_CRT_RSTN_MAIN2_BIST		89
++#define RTD1625_CRT_RSTN_VE1_BIST		90
++#define RTD1625_CRT_RSTN_VE2_BIST		91
++#define RTD1625_CRT_RSTN_DCPHY_BIST		92
++#define RTD1625_CRT_RSTN_GPU_BIST		93
++#define RTD1625_CRT_RSTN_DISP_BIST		94
++#define RTD1625_CRT_RSTN_NPU_BIST		95
++#define RTD1625_CRT_RSTN_CAS_BIST		96
++#define RTD1625_CRT_RSTN_VE4_BIST		97
++#define RTD1625_CRT_RSTN_EMMC			98
++#define RTD1625_CRT_RSTN_GPU			99
++#define RTD1625_CRT_RSTN_VE2			100
++#define RTD1625_CRT_RSTN_UR1			101
++#define RTD1625_CRT_RSTN_UR2			102
++#define RTD1625_CRT_RSTN_UR3			103
++#define RTD1625_CRT_RSTN_UR4			104
++#define RTD1625_CRT_RSTN_UR5			105
++#define RTD1625_CRT_RSTN_UR6			106
++#define RTD1625_CRT_RSTN_UR7			107
++#define RTD1625_CRT_RSTN_UR8			108
++#define RTD1625_CRT_RSTN_UR9			109
++#define RTD1625_CRT_RSTN_UR_TOP			110
++#define RTD1625_CRT_RSTN_I2C_7			111
++#define RTD1625_CRT_RSTN_I2C_6			112
++#define RTD1625_CRT_RSTN_SPI0			113
++#define RTD1625_CRT_RSTN_SPI1			114
++#define RTD1625_CRT_RSTN_SPI2			115
++#define RTD1625_CRT_RSTN_LSADC0			116
++#define RTD1625_CRT_RSTN_LSADC1			117
++#define RTD1625_CRT_RSTN_ISOMIS_DMA		118
++#define RTD1625_CRT_RSTN_AUDIO_ADC		119
++#define RTD1625_CRT_RSTN_DPTX			120
++#define RTD1625_CRT_RSTN_AUCPU1_REG		121
++#define RTD1625_CRT_RSTN_EDPTX			122
++
++/* ISO reset */
++#define RTD1625_ISO_RSTN_VFD			0
++#define RTD1625_ISO_RSTN_CEC0			1
++#define RTD1625_ISO_RSTN_CEC1			2
++#define RTD1625_ISO_RSTN_CBUSTX			3
++#define RTD1625_ISO_RSTN_CBUSRX			4
++#define RTD1625_ISO_RSTN_USB3_PHY2_XTAL_POW	5
++#define RTD1625_ISO_RSTN_UR0			6
++#define RTD1625_ISO_RSTN_GMAC			7
++#define RTD1625_ISO_RSTN_GPHY			8
++#define RTD1625_ISO_RSTN_I2C_0			9
++#define RTD1625_ISO_RSTN_I2C_1			10
++#define RTD1625_ISO_RSTN_CBUS			11
++#define RTD1625_ISO_RSTN_USB_DRD		12
++#define RTD1625_ISO_RSTN_USB_HOST		13
++#define RTD1625_ISO_RSTN_USB_PHY_0		14
++#define RTD1625_ISO_RSTN_USB_PHY_1		15
++#define RTD1625_ISO_RSTN_USB_PHY_2		16
++#define RTD1625_ISO_RSTN_USB			17
++#define RTD1625_ISO_RSTN_TYPE_C			18
++#define RTD1625_ISO_RSTN_USB_U3_HOST		19
++#define RTD1625_ISO_RSTN_USB3_PHY0_POW		20
++#define RTD1625_ISO_RSTN_USB3_P0_MDIO		21
++#define RTD1625_ISO_RSTN_USB3_PHY1_POW		22
++#define RTD1625_ISO_RSTN_USB3_P1_MDIO		23
++#define RTD1625_ISO_RSTN_VTC			24
++#define RTD1625_ISO_RSTN_USB3_PHY2_POW		25
++#define RTD1625_ISO_RSTN_USB3_P2_MDIO		26
++#define RTD1625_ISO_RSTN_USB_PHY_3		27
++#define RTD1625_ISO_RSTN_USB_PHY_4		28
++
++/* ISO_S reset */
++#define RTD1625_ISO_S_RSTN_ISOM_MIS		0
++#define RTD1625_ISO_S_RSTN_GPIOM		1
++#define RTD1625_ISO_S_RSTN_TIMER7		2
++#define RTD1625_ISO_S_RSTN_IRDA			3
++#define RTD1625_ISO_S_RSTN_UR10			4
++
++#endif /* __DT_BINDINGS_RTK_RESET_RTD1625_H */
+-- 
+2.43.0
 
-Okay, let me look into it.
-
-[...]
-> > +	err =3D devm_pm_runtime_set_active_enabled(dev);
->=20
-> I belive this has to come after pm_runtime_get_sync() because at this poi=
-nt, the
-> controller is not enabled.
-
-Okay, I'll change that.
-
-> > +	if (err < 0) {
-> > +		dev_err_probe(dev, err, "failed to enable runtime PM\n");
-> > +		goto put_bpmp;
-> > +	}
-> > +
-> > +	err =3D pm_runtime_get_sync(dev);
-> > +	if (err < 0) {
-> > +		dev_err_probe(dev, err, "failed to power on device\n");
-> > +		goto put_bpmp;
-> > +	}
-> > +
-> > +	/* sanity check that programmed ranges match what's in DT */
-> > +	if (!tegra264_pcie_check_ranges(pdev)) {
-> > +		err =3D -EINVAL;
-> > +		goto put_pm;
-> > +	}
-> > +
-> > +	pcie->cfg =3D pci_ecam_create(dev, res, bus->res, &pci_generic_ecam_o=
-ps);
-> > +	if (IS_ERR(pcie->cfg)) {
-> > +		err =3D dev_err_probe(dev, PTR_ERR(pcie->cfg),
-> > +				    "failed to create ECAM\n");
-> > +		goto put_pm;
-> > +	}
-> > +
-> > +	bridge->ops =3D (struct pci_ops *)&pci_generic_ecam_ops.pci_ops;
-> > +	bridge->sysdata =3D pcie->cfg;
-> > +	pcie->ecam =3D pcie->cfg->win;
-> > +
-> > +	tegra264_pcie_init(pcie);
-> > +
-> > +	if (!pcie->link_up)
-> > +		return 0;
->=20
-> So not hotplug support? Also, you do not want the driver to error out? I'm
-> wondering what's the use then?
-
-Hotplug is supported via pciehp. We skip probing the host bridge if no
-link was detected because there's simply nothing attached to the port,
-otherwise the link would've come up.
-
-pcie->link_up is slightly misleading because it actually means something
-along the lines of "link could be up at some point", either during probe
-or after some hotplug event later on. It is only ever false if there's
-no link during probe and hotplug isn't supported at all.
-
-> > +
-> > +	err =3D pci_host_probe(bridge);
-> > +	if (err < 0) {
-> > +		dev_err_probe(dev, err, "failed to register host\n");
-> > +		goto free_ecam;
-> > +	}
-> > +
-> > +	return 0;
-> > +
-> > +free_ecam:
->=20
-> Nit: Prefix 'err' for the labels.
-
-I don't see any benefit of adding a prefix. Seems pretty redundant, but
-I also don't feel too strongly about it, so I can add it.
-
-> > +	pci_ecam_free(pcie->cfg);
-> > +put_pm:
-> > +	pm_runtime_put_sync(dev);
-> > +put_bpmp:
-> > +	tegra_bpmp_put(pcie->bpmp);
-> > +
-> > +	return err;
-> > +}
-> > +
-> > +static void tegra264_pcie_remove(struct platform_device *pdev)
-> > +{
-> > +	struct tegra264_pcie *pcie =3D platform_get_drvdata(pdev);
-> > +
-> > +	/*
-> > +	 * If we undo tegra264_pcie_init() then link goes down and need
-> > +	 * controller reset to bring up the link again. Remove intention is
-> > +	 * to clean up the root bridge and re-enumerate during bind.
->=20
-> But the controller will be consuming power even if PCIe is not used. Do y=
-ou
-> really want that? Can't tegra264_pcie_init() handle the initialization? I=
-'m
-> wondering how tegra264_pcie_deinit() in tegra264_pcie_suspend() works the=
-n.
-
-I had to clarify this with the PCI team and they indicated that
-tegra264_pcie_deinit() is actually useless and maybe even harmful. The
-reason is that there's a processor on these boards (BPMP) that takes
-care of power sequencing and it will automatically take the PCI links
-to L2 on suspend and assert PERST#.
-
-Another reason why we don't want to reset the entire controller is that
-it is already set up during early boot by UEFI and the kernel driver
-does not redo the entire initialization.
-
-So yes, I think a little bit of power consumption is the compromise that
-we will have to live with. In the bigger picture it's probably not going
-to be noticeable in most cases, and given that these are embedded
-platforms we'll likely see fixed configurations most of the time and the
-case where we remove the PCIe host controller will not be common.
-
-> > +	 */
-> > +	pci_lock_rescan_remove();
-> > +	pci_stop_root_bus(pcie->bridge->bus);
-> > +	pci_remove_root_bus(pcie->bridge->bus);
-> > +	pci_unlock_rescan_remove();
-> > +
-> > +	pm_runtime_put_sync(&pdev->dev);
-> > +	tegra_bpmp_put(pcie->bpmp);
-> > +	pci_ecam_free(pcie->cfg);
-> > +}
-> > +
-> > +static int tegra264_pcie_suspend(struct device *dev)
-> > +{
-> > +	struct tegra264_pcie *pcie =3D dev_get_drvdata(dev);
-> > +	int err;
-> > +
-> > +	tegra264_pcie_deinit(pcie);
-> > +
-> > +	if (pcie->wake_gpio && device_may_wakeup(dev)) {
-> > +		err =3D enable_irq_wake(pcie->wake_irq);
-> > +		if (err < 0)
-> > +			dev_err(dev, "failed to enable wake IRQ: %pe\n",
-> > +				ERR_PTR(err));
-> > +	}
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static int tegra264_pcie_resume(struct device *dev)
-> > +{
-> > +	struct tegra264_pcie *pcie =3D dev_get_drvdata(dev);
-> > +	int err;
-> > +
-> > +	err =3D pinctrl_pm_select_default_state(dev);
-> > +	if (err < 0)
-> > +		dev_err(dev, "failed to configure sideband pins: %pe\n",
-> > +			ERR_PTR(err));
->=20
-> Please remind me if you justified this manual pinctrl handling before.
-
-This is just regular pinctrl PM boilerplate. There's plenty of other
-drivers where we do this, too. We want this because some of the pins
-get configured to non-default states on boot/resume, so doing this
-here ensures they are muxed correctly.
-
-> > +
-> > +	if (pcie->wake_gpio && device_may_wakeup(dev)) {
-> > +		err =3D disable_irq_wake(pcie->wake_irq);
-> > +		if (err < 0)
-> > +			dev_err(dev, "failed to disable wake IRQ: %pe\n",
-> > +				ERR_PTR(err));
-> > +	}
-> > +
-> > +	if (pcie->link_up =3D=3D false)
-> > +		return 0;
->=20
-> How is this possible? If 'pcie->link_up' was 'false' during probe(), then=
- it is
-> going to stay until tegra264_pcie_init() is called below.
-
-Yes, this keeps confusing me, too. The purpose of this is to skip
-initialization if we've already determined during probe that there is
-never going to be a link. link_up will be false if and only if there was
-no link during probe and we don't expect there ever will be a link
-because there is no hotplug support.
-
-Maybe a different name for link_up could help here? maybe_link_up
-perhaps? I don't know if that's any clearer, but I also couldn't come up
-with a better name.
-
-Or maybe we should split this into two booleans, since we're essentially
-trying to use one boolean to track a tristate. What we want to know is
-if a link is truly up and if the controller should be kept powered for
-the case where hotplug is supported.
-
-I suppose we could do:
-
-	bool link_up; /* track the link state */
-	bool supports_hotplug; /* track whether port is hotpluggable */
-
-That would make the code a bit cleaner and easier to follow.
-
-Thierry
-
---om3weh3neg6kh743
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmo7zvMACgkQ3SOs138+
-s6Hh3Q//X7dmLR4HOiiaGe4uf5xC4DNoBrDoU5+YI1I+wZ92BINHB0j+I+flET5R
-SYLDoJu23EpeKKgxNHHQezxjrAT5lKme+6boVw0mYMIahEfiJ2I3jeGOgYPBM60s
-eNrvbIo3bsBNZ2LaWyz1FfhGB8b6jPqWXIkRmWro8408qz7niITqHHwNWSdG0H5v
-rj1/kvdqgGlsc73fgowsWTSUyBltpGBDIMFta668yViMsj+UqfuUVR/S+D60b2OK
-KyHk89OfrWqSPkB70TvgiCKkSxYoDFBk9553K3fUSfkGjHcIwFnSgNeQ4Gfjl/m5
-nRFgKQbFXpVVYxYL0/j0hRJsY+kmLW/KF2q/m99Wr2VhMyU7/szFU+4auyux0+K6
-RqyFLBLG2S1BbU30+ksgxBQTUMeLLdya4IH826rzuJmw4vSS2/H75EwfHMdMe1GY
-qxTfbkZnW6Cj8OfAKrKxY+IFGPTzh3wBZaEyZp9GBncJPx7OCcVJxTv5PaQSymJC
-g0ycSrZ7RMGPhAT+1BBCdeP5dOWTfNo34i1v+Xrp/DNlH3TWehEZ5wcwElw4I4N3
-Krc/K750Cs7t0FmfmIgdo7U+so6FcSyy68Vt5ytODLCmkagv2VVK9IpGhaJT9mCx
-B0c+L6Zkwb5FqFj0Ji3wF8SjlaGaXf3A7R8L36JgsthEEr2RzXE=
-=AVvO
------END PGP SIGNATURE-----
-
---om3weh3neg6kh743--
 
