@@ -4,53 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19063CDB479
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 04:48:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CDAECDB479
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 05:19:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
-	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OyGoP/+BqRycQdKqretNco8SwqQvON5149kBmBuJFNk=; b=r0tbcQLxG1/yehf3xHMa3cVuYW
-	Dbv7ev7g9M19oeau8qYnUVhtKPpgZH9zq/9wLjjNxhDD4OsBzdmCN3TlhOkVs2vl1okfoqWwXUAoU
-	StIXXgFfAF8xNG11N+dRjK2LJdwy2GkMqsFczctbnt/NiheX8JMazfnSbMrhUMyuYyLjYYx953X1Z
-	V5YYds8BHxnHBO8N59AmGNQHHppgbTKlun71fg9MRJ4oqMd+LDYFzL2dRibBL1f5n9NW/sMhk7CHJ
-	BVn1/MVgUwRZNQsGqPAOj9raeLbJWU3GW4+m0lzHUFSwaD8U2GlCpjMLHhCFX781V13yMMAAxAGOM
-	KH8pSrfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wwH4JKRwdgPVqXhvs8JvCENushgrOY1a28q/t+owUbc=; b=vQ5RbMfFzqq1NysKmD4c3hbk65
+	nyipNEw8CoRl6OOZRjCsWWxtu1I90nrPoVBLV4gh0Bju4zA5d9YMVwI9miTpNpOeauPMBnFTgZ0pS
+	m28an2Mfgv9iVzP3j1fvxGjuFyaTgZ12jjw3KUg3vZVfec/NrP8eUJ0giHhqLqxHPs/WO8mjR1y3f
+	Sv8bKppd8n+cCVvNcXyK0bb7Hc2r/cLECdKHF9z2exYk+AFIju+f5GNOGXn+RxPys/R9eBCB0VwtU
+	u3/fY+XeiXyfURskUSuzvYQMfAd//d85+Kq9tyAau+Bm5gdzbULmnvX5WjaVxmTH3KcrFGi1jpnYq
+	Lrrb3frA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcFX4-000000078RA-2ioa;
-	Wed, 24 Jun 2026 04:48:14 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1wcG10-000000079sD-1EOp;
+	Wed, 24 Jun 2026 05:19:10 +0000
+Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcFX1-000000078Qh-0Ljy;
-	Wed, 24 Jun 2026 04:48:13 +0000
-Received: from neptunite.rasen.tech (unknown [IPv6:2404:7a81:160:2100:f24e:84b5:e101:423a])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id BC41A1E6;
-	Wed, 24 Jun 2026 06:47:26 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1782276447;
-	bh=vbRaXo3fH27ZJV4/cFT4V9d3NCse7TNuNUc6rQzVUr4=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=wf14lv2X3gbFuTvQbr+YH6WO9fnlHdRuVj7Kqzx9Oc7FHZWre/DkHPQhWl/VmdLXW
-	 EUe7vZaEVrPJEGVMkodBlT+H4VSWgSzsj3qPJ6PerjjnxcumnkU00CM9OvbzJQfzvC
-	 eZkoADLPtaFxbF0U4nazcBHlDla/5wd5nGTFk98s=
-Content-Type: text/plain; charset="utf-8"
+	id 1wcG0w-000000079rO-3Ukq
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 24 Jun 2026 05:19:08 +0000
+Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-8454c5a280aso1017620b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Jun 2026 22:19:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1782278345; x=1782883145; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=wwH4JKRwdgPVqXhvs8JvCENushgrOY1a28q/t+owUbc=;
+        b=PWGh2cD7qeI6DXQBEBBoPqsAn6+UIDCbL2F7QOpPDoax6Ure6W6sc9tgPE6r9JKWIz
+         77pzhrhwGAj/bLTT1FND+yInwZWjPQvTbbxapaDBhU5OvN2RBpD2QUChzjpLj44RO8Xn
+         ZSMle1p2F2b/5+TsAtgcnq7W5eKDMj1tA1Bmk=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782278345; x=1782883145;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=wwH4JKRwdgPVqXhvs8JvCENushgrOY1a28q/t+owUbc=;
+        b=V+H4DQbSO9BeFyp2EfItKvxJ/7NMcwx1xDZr3ChAa1XQ3DJwai6cnEKuqchp/wJnRi
+         sAMROQXfD/o6Wb37a0nsQ0M2cYo7oEbMUS1f2VP1diokOrBGYtnEedf+HqJ4g9VQMWdu
+         oD+RfDO9IOUKFAIQZ+u27Be3ymt/m60SdjJuTOIv9z2iyZlb+Mojy5cJ3jsuIbsJ2osU
+         Gca4JgXQHCxdah5oo/GhH3rjthJJTrsC1538ss0YEfh+DrizV5T9PoY9OSTfFf7U3RFH
+         KVSAaNsWKiBj22I5K/RO3sWEHmJaotC0g2+qlObegbK7mcQwxGmHVzA7g0DrZka0Ho1J
+         QoUg==
+X-Forwarded-Encrypted: i=1; AFNElJ+amrmiBW4xhkh3vLGqJZdcO5XrZ3Pscpk9GMK8gFlF+PquguoQz1pAq2BLQ3jVGQiB09a33t/K+xfPL2eSaHM1@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQdfm/Z+dOaTlmkGjr3ydb9Bmnyz0OepvvTH6tpgEs009odg2Z
+	RcgEGEOFyvcdc/JHy8mX7tfFFhGC1r8L5mO9fFnMQlEL97Hn4voqXZ2a8qgnMcZ9LQ==
+X-Gm-Gg: AfdE7cnc+PY2c3CTxTDknmdCsXiQXmzMyeY/Xf9fGQrFHlrDH/Bno8+mQH95jgY9Z0g
+	LJBVZYP62r474SdN7LDkW84ODNCPYwkPr2RjW205UxzdeT+Vbl7IE3ciktqC80/MpXdx71hJlvB
+	zgM84YbdZ8wDJXCUdhcaOS7IMKhHUen+9mbENfrLI59pRJwr1yuQzay06PObCiv8V6WzsTzHUEM
+	TubX6c4uoy2RpODusPowlfKlHipG1tpUHdTaRgNVDay17zuW2N4tNBtpWKKwpnBSQrJxdNG6COb
+	XZkkyNnDYzpsR4kUNZ6PGZQlQDRweCSyuGrOxt18y2i7HtzYokHcybvZiGrV5wn7byY6d5P/stA
+	YkZKeZfTobENaB5IUvt02IS/VFVCvmOdVohv+J95HWGlKzL/yHHF1+bwa9P0ECaeHbgE4pS/T7G
+	bJxE6eRDitdtog2ai2v5GFI0KQMa0ERWhtZt4kpEgRThxgb+Ehwwxl
+X-Received: by 2002:a05:6a00:859d:b0:842:dd4:d9e2 with SMTP id d2e1a72fcca58-84591a1946amr5158854b3a.0.1782278345062;
+        Tue, 23 Jun 2026 22:19:05 -0700 (PDT)
+Received: from google.com ([2a00:79e0:2031:6:1287:5d13:b2d6:c6ab])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-845a4127bd0sm894643b3a.53.2026.06.23.22.19.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 23 Jun 2026 22:19:04 -0700 (PDT)
+Date: Wed, 24 Jun 2026 14:19:00 +0900
+From: Sergey Senozhatsky <senozhatsky@chromium.org>
+To: Marcel Holtmann <marcel@holtmann.org>, 
+	Luiz Augusto von Dentz <luiz.dentz@gmail.com>, Sean Wang <sean.wang@mediatek.com>
+Cc: Tomasz Figa <tfiga@chromium.org>, linux-bluetooth@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, Sergey Senozhatsky <senozhatsky@chromium.org>
+Subject: Re: [PATCH v4 0/2] Bluetooth: btmtksdio: teardown fixes
+Message-ID: <ajtoXTaBEMSyGADX@google.com>
+References: <20260618031338.1011410-1-senozhatsky@chromium.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20260619052637.1110672-2-paul.elder@ideasonboard.com>
-References: <20260619052637.1110672-1-paul.elder@ideasonboard.com> <20260619052637.1110672-2-paul.elder@ideasonboard.com>
-Subject: Re: [RFC PATCH 1/6] media: mc: Implement shared media graph
-From: Paul Elder <paul.elder@ideasonboard.com>
-Cc: michael.riesch@collabora.com, xuhf@rock-chips.com, stefan.klug@ideasonboard.com, kieran.bingham@ideasonboard.com, dan.scally@ideasonboard.com, jacopo.mondi@ideasonboard.com, linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, hverkuil+cisco@kernel.org, nicolas.dufresne@collabora.com, ribalda@chromium.org, sakari.ailus@linux.intel.com
-To: laurent.pinchart@ideasonboard.com
-Date: Wed, 24 Jun 2026 13:47:59 +0900
-Message-ID: <178227647941.292172.11363904473241703252@neptunite.rasen.tech>
-User-Agent: alot/0.0.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260618031338.1011410-1-senozhatsky@chromium.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_214811_582816_E960A039 
-X-CRM114-Status: GOOD (  33.28  )
+X-CRM114-CacheID: sfid-20260623_221906_905423_4DB7FA44 
+X-CRM114-Status: GOOD (  10.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,548 +96,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi me,
+On (26/06/18 12:13), Sergey Senozhatsky wrote:
+> This fixes several teardown issues:
+> 
+>      INFO: task kworker/u17:0:189 blocked for more than 122 seconds.
+>      __cancel_work_timer+0x3f4/0x460
+>      cancel_work_sync+0x1c/0x2c
+>      btmtksdio_flush+0x2c/0x40
+>      hci_dev_open_sync+0x10c4/0x2190
+>      [..]
+> 
+> close/flush can deadlock when run concurrently with btmtksdio_txrx_work().
+> In addition btmtksdio_txrx_work() re-enables interrupts regardless of
+> close/flush being executed on another CPU.
+> 
+> v3 -> v4:
+> - fix commit message linter warnings/errors (tabs, subject line over 80
+>   chars).
+> 
+> Sergey Senozhatsky (2):
+>   Bluetooth: btmtksdio: test for BUS IO errors in btmtksdio_txrx_work()
+>   Bluetooth: btmtksdio: call cancel_work_sync() out of host lock scope
 
-You have a typo...
-
-Quoting Paul Elder (2026-06-19 14:26:28)
-> Currently, a media graph contains a main device whose driver is
-> responsible for creating the media device. We have however recently run
-> into devices that have multiple devices that can quality as a main
-> device. Examples are the RK3588 which has a VICAP and two ISP
-> instances, and another example is the i.MX8MP which has an ISI and two
-> ISP instances. As there is currently no way to reconcile who the main
-> device is in the media device, these setups simple cannot be used
-> simultaneously.
->=20
-> This patch extends the media controller API with a "shared media graph"
-> framework. This allows drivers to share a media device, thus enabling
-> the setups mentioned above. Instead of owning and creating a media
-> device, drivers can join-or-create a shared media device via the shared
-> media graph API. The matching is done automatically based on the
-> detected endpoints in the device tree.
->=20
-> Signed-off-by: Paul Elder <paul.elder@ideasonboard.com>
-> ---
->  drivers/media/mc/Makefile          |   2 +-
->  drivers/media/mc/mc-shared-graph.c | 335 +++++++++++++++++++++++++++++
->  include/media/mc-shared-graph.h    |  92 ++++++++
->  3 files changed, 428 insertions(+), 1 deletion(-)
->  create mode 100644 drivers/media/mc/mc-shared-graph.c
->  create mode 100644 include/media/mc-shared-graph.h
->=20
-> diff --git a/drivers/media/mc/Makefile b/drivers/media/mc/Makefile
-> index 2b7af42ba59c..1d502fdc52ad 100644
-> --- a/drivers/media/mc/Makefile
-> +++ b/drivers/media/mc/Makefile
-> @@ -1,7 +1,7 @@
->  # SPDX-License-Identifier: GPL-2.0
-> =20
->  mc-objs        :=3D mc-device.o mc-devnode.o mc-entity.o \
-> -          mc-request.o
-> +          mc-request.o mc-shared-graph.o
-> =20
->  ifneq ($(CONFIG_USB),)
->         mc-objs +=3D mc-dev-allocator.o
-> diff --git a/drivers/media/mc/mc-shared-graph.c b/drivers/media/mc/mc-sha=
-red-graph.c
-> new file mode 100644
-> index 000000000000..c4067e5b861d
-> --- /dev/null
-> +++ b/drivers/media/mc/mc-shared-graph.c
-> @@ -0,0 +1,335 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * mc-shared-graph.c - Media Controller Shared Graph API
-> + *
-> + * Copyright (c) 2026 Paul Elder <paul.elder@ideasonboard.com>
-> + */
-> +
-> +/*
-> + * This file adds the Media Controller Shared Graph API. This allows dri=
-vers
-> + * to create shared media graphs or join existing media graphs from other
-> + * drivers, so that they can all be in the same media graph. This allows=
- us to
-> + * have more complex media graphs chaining more complex hardware togethe=
-r,
-> + * instead of simple async subdevs.
-> + */
-> +
-> +#include <linux/device.h>
-> +#include <linux/fwnode.h>
-> +#include <linux/kref.h>
-> +#include <linux/property.h>
-> +
-> +#include <media/media-device.h>
-> +
-> +#include <media/mc-shared-graph.h>
-> +
-> +static LIST_HEAD(media_device_shared_list);
-> +static DEFINE_MUTEX(media_device_shared_lock);
-> +
-> +struct media_device_shared_member {
-> +       struct device *dev;
-> +       struct fwnode_handle *fwnode;
-> +       struct list_head list;
-> +};
-> +
-> +struct media_device_shared_link {
-> +       struct media_entity *source;
-> +       u16 source_pad;
-> +       struct media_entity *sink;
-> +       u16 sink_pad;
-> +       u32 flags;
-> +       struct list_head list;
-> +};
-> +
-> +// TODO figure out locking for when multiple drivers touch the media gra=
-ph;
-> +// maybe macros for shared versions?
-> +struct media_device_shared {
-> +       struct media_device mdev;
-> +       struct list_head members;
-> +       struct list_head links;
-> +
-> +       struct list_head list;
-> +       struct kref refcount;
-> +
-> +       struct device *removed_device;
-> +};
-> +
-> +static inline struct media_device_shared *
-> +to_media_device_shared(struct media_device *mdev)
-> +{
-> +       return container_of(mdev, struct media_device_shared, mdev);
-> +}
-> +
-> +static void media_device_shared_release(struct kref *kref)
-> +{
-> +       struct media_device_shared *mds =3D
-> +               container_of(kref, struct media_device_shared, refcount);
-> +
-> +       dev_dbg(mds->removed_device, "%s: releasing Media Device\n", __fu=
-nc__);
-> +
-> +       mutex_lock(&media_device_shared_lock);
-> +
-> +       media_device_unregister(&mds->mdev);
-> +       media_device_cleanup(&mds->mdev);
-> +
-> +       list_del(&mds->list);
-> +       mutex_unlock(&media_device_shared_lock);
-> +
-> +       kfree(mds);
-> +}
-> +
-> +/* Callers should hold media_device_shared_lock when calling this functi=
-on */
-> +static bool __media_device_shared_find_match(struct media_device_shared =
-*mds,
-> +                                            struct fwnode_handle *fwnode)
-> +{
-> +       struct media_device_shared_member *member;
-> +       struct fwnode_handle *ep;
-> +       struct fwnode_handle *remote_ep;
-> +       bool match =3D false;
-> +
-> +       // TODO: parse the device tree endpoints graph instead of finding=
- just the
-> +       // first-level neighbours
-> +       fwnode_graph_for_each_endpoint(fwnode, ep) {
-> +               list_for_each_entry(member, &mds->members, list) {
-> +                       remote_ep =3D fwnode_graph_get_remote_port_parent=
-(ep);
-> +                       match =3D (member->fwnode =3D=3D remote_ep);
-> +                       fwnode_handle_put(remote_ep);
-> +
-> +                       if (!match)
-> +                               continue;
-> +
-> +                       goto match_complete;
-> +               }
-> +       }
-> +
-> +match_complete:
-> +       fwnode_handle_put(ep);
-> +       return match;
-> +}
-> +
-> +/* Callers should hold media_device_shared_lock when calling this functi=
-on */
-> +static struct media_device *__media_device_shared_get(struct device *dev)
-> +{
-> +       struct media_device_shared *mds;
-> +       struct media_device_shared_member *member;
-> +       struct fwnode_handle *fwnode =3D dev_fwnode(dev);
-> +       bool ret;
-> +
-> +       dev_dbg(dev, "%s: searching for media device for %pfwf", __func__=
-, fwnode);
-> +
-> +       list_for_each_entry(mds, &media_device_shared_list, list) {
-> +               ret =3D __media_device_shared_find_match(mds, fwnode);
-> +               if (ret)
-> +                       break;
-> +       }
-> +
-> +       if (!ret)
-> +               return NULL;
-> +
-> +       member =3D kzalloc_obj(*member);
-> +       if (!member)
-> +               return NULL;
-> +
-> +       member->dev =3D dev;
-> +       member->fwnode =3D fwnode;
-> +       list_add_tail(&member->list, &mds->members);
-> +       kref_get(&mds->refcount);
-> +
-> +       dev_dbg(dev, "%s: %pfwf joined media device of %pfwf",
-> +               __func__, fwnode,
-> +               list_first_entry(&mds->members, struct media_device_share=
-d_member, list)->fwnode);
-> +
-> +       return &mds->mdev;
-> +}
-> +
-> +/* Callers should hold media_device_shared_lock when calling this functi=
-on */
-> +static struct media_device *__media_device_shared_create(struct device *=
-dev)
-> +{
-> +       struct media_device_shared *mds;
-> +       struct media_device_shared_member *member;
-> +       struct fwnode_handle *fwnode =3D dev_fwnode(dev);
-> +       int ret;
-> +
-> +       mds =3D kzalloc_obj(*mds);
-> +       if (!mds)
-> +               return NULL;
-> +
-> +       member =3D kzalloc_obj(*member);
-> +       if (!member)
-> +               goto err_free_mds;
-> +
-> +       media_device_init(&mds->mdev);
-> +
-> +       ret =3D media_device_register(&mds->mdev);
-> +       if (ret)
-> +               goto err_free_member;
-> +
-> +       INIT_LIST_HEAD(&mds->members);
-> +       member->dev =3D dev;
-> +       member->fwnode =3D fwnode;
-> +       list_add_tail(&member->list, &mds->members);
-> +
-> +       INIT_LIST_HEAD(&mds->links);
-> +
-> +       kref_init(&mds->refcount);
-> +       list_add_tail(&mds->list, &media_device_shared_list);
-> +
-> +       // TODO figure out how to reconcile this with multiple members
-> +       mds->mdev.dev =3D dev;
-> +
-> +       devv_dbg(dev, "%s: Allocated media device with %pfwf at %p\n",
-
-here:
-
-s/devv/dev/
-
-
-Paul
-
-> +                __func__, fwnode, &mds->mdev);
-> +       return &mds->mdev;
-> +
-> +err_free_member:
-> +       kfree(member);
-> +err_free_mds:
-> +       kfree(mds);
-> +       return NULL;
-> +}
-> +
-> +// TODO figure out how to resolve the identifiers (model, driver name, e=
-tc);
-> +// atm it's racy and whoever gets it last wins
-> +struct media_device *media_device_shared_join(struct device *dev)
-> +{
-> +       struct media_device *mdev;
-> +
-> +       mutex_lock(&media_device_shared_lock);
-> +
-> +       mdev =3D __media_device_shared_get(dev);
-> +       if (!!mdev) {
-> +               dev_dbg(dev, "%s: found media device for %pfwf", __func__=
-, dev_fwnode(dev));
-> +               mutex_unlock(&media_device_shared_lock);
-> +               return mdev;
-> +       }
-> +
-> +       mdev =3D __media_device_shared_create(dev);
-> +       if (!mdev) {
-> +               dev_warn(dev, "%s: failed to create media device for %pfw=
-f", __func__, dev_fwnode(dev));
-> +               mutex_unlock(&media_device_shared_lock);
-> +               return ERR_PTR(-ENOMEM);
-> +       }
-> +
-> +       dev_dbg(dev, "%s: created media device for %pfwf", __func__, dev_=
-fwnode(dev));
-> +       mutex_unlock(&media_device_shared_lock);
-> +       return mdev;
-> +}
-> +EXPORT_SYMBOL_GPL(media_device_shared_join);
-> +
-> +void media_device_shared_leave(struct media_device *mdev, struct device =
-*dev)
-> +{
-> +       struct media_device_shared *mds =3D to_media_device_shared(mdev);
-> +       struct media_device_shared_member *member;
-> +       struct media_device_shared_member *member_tmp;
-> +       bool removed =3D false;
-> +
-> +       mutex_lock(&media_device_shared_lock);
-> +
-> +       list_for_each_entry_safe(member, member_tmp, &mds->members, list)=
- {
-> +               if (member->dev =3D=3D dev) {
-> +                       list_del(&member->list);
-> +                       kfree(member);
-> +                       removed =3D true;
-> +               }
-> +       }
-> +
-> +       if (!removed)
-> +               dev_err(dev, "%s: %pfwf trying to leave from graph in whi=
-ch not a member",
-> +                       __func__, dev_fwnode(dev));
-> +
-> +       mds->removed_device =3D dev;
-> +       mutex_unlock(&media_device_shared_lock);
-> +       kref_put(&mds->refcount, media_device_shared_release);
-> +}
-> +EXPORT_SYMBOL_GPL(media_device_shared_leave);
-> +
-> +int media_device_shared_join_link_source(struct media_device *mdev,
-> +                                        struct device *dev,
-> +                                        struct media_entity *source,
-> +                                        u16 source_pad, u32 flags)
-> +{
-> +       struct media_device_shared *mds =3D to_media_device_shared(mdev);
-> +       struct media_device_shared_link *link;
-> +       struct media_device_shared_link *link_tmp;
-> +       int ret =3D 0;
-> +
-> +       mutex_lock(&media_device_shared_lock);
-> +
-> +       /*
-> +        * TODO Figure out flags. Should we use greatest common denominat=
-or? Or
-> +        * prioritize sink? Or whoever wins the race? For now we just tak=
-e the flags
-> +        * from the sink.
-> +        *
-> +        * TODO Figure out how to actually do the matching. For now we ju=
-st match
-> +        * whoever comes in first. This works with the simple example we'=
-re running
-> +        * with now (rkcif + one rkisp2) but with setups with multiple co=
-pies of
-> +        * hardware this will cause problems, like with rkcif + two rkisp=
-2 and
-> +        * imx8-isi + two rkisp1.
-> +        */
-> +       list_for_each_entry_safe(link, link_tmp, &mds->links, list) {
-> +               if (link->sink) {
-> +                       ret =3D media_create_pad_link(source, source_pad,
-> +                                                   link->sink, link->sin=
-k_pad,
-> +                                                   link->flags);
-> +                       list_del(&link->list);
-> +                       kfree(link);
-> +                       goto exit_join_link_source;
-> +               }
-> +       }
-> +
-> +       link =3D kzalloc_obj(*link);
-> +       if (!link) {
-> +               ret =3D -ENOMEM;
-> +               goto exit_join_link_source;
-> +       }
-> +
-> +       link->source =3D source;
-> +       link->source_pad =3D source_pad;
-> +       link->flags =3D flags;
-> +       list_add_tail(&link->list, &mds->links);
-> +
-> +exit_join_link_source:
-> +       mutex_unlock(&media_device_shared_lock);
-> +       return ret;
-> +}
-> +EXPORT_SYMBOL_GPL(media_device_shared_join_link_source);
-> +
-> +// TODO deduplicate from above
-> +int media_device_shared_join_link_sink(struct media_device *mdev,
-> +                                      struct device *dev,
-> +                                      struct media_entity *sink,
-> +                                      u16 sink_pad, u32 flags)
-> +{
-> +       struct media_device_shared *mds =3D to_media_device_shared(mdev);
-> +       struct media_device_shared_link *link;
-> +       struct media_device_shared_link *link_tmp;
-> +       int ret =3D 0;
-> +
-> +       mutex_lock(&media_device_shared_lock);
-> +
-> +       list_for_each_entry_safe(link, link_tmp, &mds->links, list) {
-> +               if (link->source) {
-> +                       ret =3D media_create_pad_link(link->source, link-=
->source_pad,
-> +                                                   sink, sink_pad,
-> +                                                   flags);
-> +                       list_del(&link->list);
-> +                       kfree(link);
-> +                       goto exit_join_link_sink;
-> +               }
-> +       }
-> +
-> +       link =3D kzalloc_obj(*link);
-> +       if (!link) {
-> +               ret =3D -ENOMEM;
-> +               goto exit_join_link_sink;
-> +       }
-> +
-> +       link->sink =3D sink;
-> +       link->sink_pad =3D sink_pad;
-> +       link->flags =3D flags;
-> +       list_add_tail(&link->list, &mds->links);
-> +
-> +exit_join_link_sink:
-> +       mutex_unlock(&media_device_shared_lock);
-> +       return ret;
-> +}
-> +EXPORT_SYMBOL_GPL(media_device_shared_join_link_sink);
-> diff --git a/include/media/mc-shared-graph.h b/include/media/mc-shared-gr=
-aph.h
-> new file mode 100644
-> index 000000000000..487325163f84
-> --- /dev/null
-> +++ b/include/media/mc-shared-graph.h
-> @@ -0,0 +1,92 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * mc-shared-graph.h - Media Controller Shared Graph API
-> + *
-> + * Copyright (c) 2026 Paul Elder <paul.elder@ideasonboard.com>
-> + */
-> +
-> +/*
-> + * This file adds the Media Controller Shared Graph API. This allows dri=
-vers
-> + * to create shared media graphs or join existing media graphs from other
-> + * drivers, so that they can all be in the same media graph. This allows=
- us to
-> + * have more complex media graphs chaining more complex hardware togethe=
-r,
-> + * instead of simple async subdevs.
-> + */
-> +
-> +#include <linux/types.h>
-> +
-> +#ifndef _MEDIA_SHARED_GRAPH_H
-> +#define _MEDIA_SHARED_GRAPH_H
-> +
-> +struct device;
-> +struct media_device;
-> +struct media_entity;
-> +
-> +#if defined(CONFIG_MEDIA_CONTROLLER)
-> +/**
-> + * media_device_shared_join() - Join or create a new shared media device
-> + *
-> + * @dev:               struct &device pointer
-> + *
-> + * This is the entrance function for a device to join or create a new sh=
-ared
-> + * media device. It searches for an existing shared media device based o=
-n the
-> + * neighbours in the device's device tree ports node. If found, then this
-> + * functions returns the existing shared media device and joins it. If o=
-ne is
-> + * not found then one is created and initialized and returned.
-> + */
-> +struct media_device *media_device_shared_join(struct device *dev);
-> +
-> +/**
-> + * media_device_shared_leave() - Leave the shared media device.
-> + *
-> + * @mdev:              struct &media_device pointer
-> + * @dev:               struct &device pointer
-> + *
-> + * This function makes the device leave the shared media device. When all
-> + * members have left the media device it will be freed.
-> + */
-> +void media_device_shared_leave(struct media_device *mdev, struct device =
-*dev);
-> +
-> +/**
-> + * media_device_shared_join_link_source() - Register a link source in th=
-e shared media device
-> + *
-> + * @mdev: The struct &media_device pointer that is part of a shared medi=
-a device
-> + * @dev: struct &device pointer
-> + * @source: The link source
-> + * @source_pad: The pad
-> + * @flags: The flags
-> + *
-> + * This function registers with the shared media device the source part =
-of a
-> + * link. When the shared media device receives the matching sink part of=
- a link
-> + * via media_device_shared_join_link_sink() then the link will be fully =
-created.
-> + */
-> +int media_device_shared_join_link_source(struct media_device *mdev,
-> +                                        struct device *dev,
-> +                                        struct media_entity *source,
-> +                                        u16 source_pad, u32 flags);
-> +
-> +/**
-> + * media_device_shared_join_link_sink() - Register a link sink in the sh=
-ared media device
-> + *
-> + * Same as media_device_shared_join_link_source() but for sink instead of
-> + * source.
-> + */
-> +int media_device_shared_join_link_sink(struct media_device *mdev,
-> +                                      struct device *dev,
-> +                                      struct media_entity *sink,
-> +                                      u16 sink_pad, u32 flags);
-> +#else
-> +static inline struct media_device *media_device_shared_join(struct devic=
-e *dev)
-> +{ return NULL; }
-> +static inline void media_device_shared_leave(struct media_device *mdev,
-> +                                            struct device *dev) { }
-> +static inline int media_device_shared_join_link_source(struct media_devi=
-ce *mdev,
-> +                                                      struct device *dev,
-> +                                                      struct media_entit=
-y *source,
-> +                                                      u16 source_pad, u3=
-2 flags) { }
-> +static inline int media_device_shared_join_link_sink(struct media_device=
- *mdev,
-> +                                                    struct device *dev,
-> +                                                    struct media_entity =
-*sink,
-> +                                                    u16 sink_pad, u32 fl=
-ags) { }
-> +#endif /* CONFIG_MEDIA_CONTROLLER */
-> +#endif /* _MEDIA_DEV_SHARED_GRAPH_H */
-> --=20
-> 2.47.2
->
+Do the patches look good enough to pick up?
 
