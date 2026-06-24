@@ -4,59 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C62ACDB470
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 07:47:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBAF0CDB47F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 07:59:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q9yMWEmsOOE6xZXsbGcAAajvHeQcjyzpY/qjjUWaBSM=; b=zn2zAX2476W8izD7FGRZwwTb7z
-	AUZppj43QdWo6OC7M9ipYZ04CpvRmw7DwwO3IMcyn6FBjXBGvZcg0JPm6Tx/ZX1zWvmS/1ouyn/eb
-	xldARc9+JtxrVCxLVpDYN9HKfGGBPzZnXqYKLtfKElz0/4GMAo/miB/LVXTb3+cN3xuISabYo/bNb
-	BYH6coocTvGermTycsXLxQWSENxbw8DFejRqite8mF4CnU6VrZLR78o+V9IG6u4vJm03tbUy5RsSx
-	IH6K7p5fGuq8OuVyatkNrJZGTU1O+2DvtBE7zYi2lJ3hco1b3HlInI1GUhiBK2YxTTXMDIiNji1+z
-	x4uTgL0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QkYKCgxQU6KvSyvLLWfg45WEOY2XnUCNPzXVNmKvy+o=; b=YYag1+OyHGrSEAHMXD9qmPj9rm
+	ushvQVnmIB5jmtjp4NqbObwm9MAf0bj8nWRTEgivr+Z4jk9M8kWdIb61AUX+3gHp/riqShVjrLHpG
+	VexGBAJCjT3oHidRom3zTolMS4Wzppx1VPbgkDxk25Fi3rdwTS9KygSKZtwPK9ujokVlsQPtJAnG1
+	SBBEeUZocZWKwPJfEbgIvHizDnBfYk9dr9R8gS2ANg7cVIG06g1YUP6NPveRQMagW6znMvAnFXw/z
+	KQd0NVTGoauRKfTt18DOOLYyaqIJFNSG20mXUAAEgWHcg507zUR5onXUmkLMRhXlQLXOGydFpeRBD
+	gCoPDsaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcIJx-00000007LMY-42vD;
-	Wed, 24 Jun 2026 07:46:53 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcIJu-00000007LLs-1isD
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 07:46:52 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 612D4263D;
-	Wed, 24 Jun 2026 00:46:41 -0700 (PDT)
-Received: from [10.57.80.25] (unknown [10.57.80.25])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D40803F632;
-	Wed, 24 Jun 2026 00:46:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782287205; bh=sbdMZ7z3OdjetPqNLVMjiXhZ3+C66lUfyXUflKzbfqk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=cHP+JdgbxoHxo09iik7ypg7Z8zF6wUkdxsssBPzBpiXtUJFP0fwGxiYRD1I+QQYNQ
-	 wmmzN40Z63gvg90cmGYzkCZ+stFAvxczeDN7EkVWydaZoKerSTLISBQShcnWp/j8+f
-	 1CIwtUXlqlaGlMUvQup+A7eZtr4aRcoxEI1gJFgY=
-Message-ID: <0708554c-54dd-4bd0-a147-b565733b5e4e@arm.com>
-Date: Wed, 24 Jun 2026 09:46:36 +0200
+	id 1wcIVl-00000007MSA-1lUc;
+	Wed, 24 Jun 2026 07:59:05 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wcIVj-00000007MRx-40u2;
+	Wed, 24 Jun 2026 07:59:03 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 543A844038;
+	Wed, 24 Jun 2026 07:59:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37A051F000E9;
+	Wed, 24 Jun 2026 07:59:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782287943;
+	bh=QkYKCgxQU6KvSyvLLWfg45WEOY2XnUCNPzXVNmKvy+o=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=n8HFwZ7y/8Sy63L+oepv4OUd/GA8G/porNz4CZTiKCED9Cx1oudWaG+jczBNhs6x4
+	 GpEHfC42VPs1qeEyHJuUVNeNWC1ObC9oVt7KjI9OwpYzHV31gcSUNmfHGVdMqNSPH8
+	 dEXVqkXojMHTaCY9SgsnEQ00l2Z46UE2dx1H82Cfz9oL77fd5WhDwCoSvAnD8U31ah
+	 wyrAbV3xew9llyf8uY8tHB5obCpkbVIb55fQ9c5Zy8oTG7AETkjf4rndJ44w5qXz5P
+	 Y9W3jb6HgAdln6ai54HN3AWrj7YBsKAxJg9QbflMUoEedQUw0XnGP1m1J/vL4XapYe
+	 LPKafPkow5eqg==
+Date: Wed, 24 Jun 2026 09:58:59 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+Cc: linux-mediatek@lists.infradead.org, 
+	Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, CK Hu <ck.hu@mediatek.com>, Jitao shi <jitao.shi@mediatek.com>, 
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] dt-bindings: mediatek: cec: Correct the compatibles for
+ mt7623-mt8167
+Message-ID: <20260624-silent-judicious-impala-56b20c@quoll>
+References: <20260623135757.5111-1-l.scorcia@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: mm: Defer read-only remap of data/bss linear
- alias
-To: Ard Biesheuvel <ardb+git@google.com>, linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org,
- Ard Biesheuvel <ardb@kernel.org>, Fuad Tabba <fuad.tabba@linux.dev>
-References: <20260623202817.2225495-2-ardb+git@google.com>
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20260623202817.2225495-2-ardb+git@google.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_004651_102722_836BAC84 
-X-CRM114-Status: GOOD (  22.91  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260623135757.5111-1-l.scorcia@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,74 +76,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/06/2026 22:28, Ard Biesheuvel wrote:
-> From: Ard Biesheuvel <ardb@kernel.org>
->
-> Since commit
->
->   f2ba877402e5 ("arm64: mm: Map the kernel data/bss read-only in the linear map")
->
-> the linear alias of the .data and .bss regions is remapped read-only
-> early during the boot. (Note that a subsequent patch to unmap this
-> region entirely was reverted just before the v7.2 merge window, and will
-> be brought back in an improved form for the v7.3 cycle)
->
-> Fuad reports that in some cases, the KVM init code may apply relocations
-> to variables that reside in .data, and does so via the linear map. This
-> means that remapping .data read-only beforehand is a bad idea, and
-> results in an early boot crash.
->
-> These variables in .data are only present when CONFIG_NVHE_EL2_DEBUG or
-> CONFIG_NVHE_EL2_TRACING are enabled, which is why it was not spotted in
-> testing.
->
-> So move the remap to mark_rodata_ro(), which is a reasonable place to
-> put this, and ensures that it happens much later during the boot. It
-> also means that rodata=off is now taken into account, and so the linear
-> alias will remain writable in that case.
->
-> Fixes: f2ba877402e5 ("arm64: mm: Map the kernel data/bss read-only in the linear map")
-> Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
-> Tested-by: Fuad Tabba < fuad.tabba@linux.dev>
-> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+On Tue, Jun 23, 2026 at 03:57:53PM +0200, Luca Leonardo Scorcia wrote:
+> The HDMI CEC driver for both mt7623 and mt8167 is actually the same as
+> mt8173-cec and the mt7623n.dtsi board include file already uses mt8173-cec
+> compatible as a fallback, but the documentation lists them as separate
+> entries. Correct the binding by adding the correct fallback.
+> 
+> This change fixes a dtbs_check error.
 
-Thanks for expanding the commit message!
+which one? here you paste it (can be trimmed a bit)
 
-Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
 
+> 
+> Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
 > ---
-> v2: improve changelog, add Fuad's R-b
->
->  arch/arm64/mm/mmu.c | 11 ++++++-----
->  1 file changed, 6 insertions(+), 5 deletions(-)
->
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index 9f354971b7e4..1f7eca86b5c1 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -1198,11 +1198,6 @@ static void __init map_mem(void)
->  		__map_memblock(start, end, pgprot_tagged(PAGE_KERNEL),
->  			       flags);
->  	}
-> -
-> -	/* Map the kernel data/bss read-only in the linear map */
-> -	__map_memblock(init_end, kernel_end, PAGE_KERNEL_RO, flags);
-> -	flush_tlb_kernel_range((unsigned long)lm_alias(__init_end),
-> -			       (unsigned long)lm_alias(__bss_stop));
->  }
+>  .../bindings/display/mediatek/mediatek,cec.yaml       | 11 +++++++----
+>  1 file changed, 7 insertions(+), 4 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,cec.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,cec.yaml
+> index 080cf321209e..4d741ba415e8 100644
+> --- a/Documentation/devicetree/bindings/display/mediatek/mediatek,cec.yaml
+> +++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,cec.yaml
+> @@ -15,10 +15,13 @@ description: |
 >  
->  void mark_rodata_ro(void)
-> @@ -1221,6 +1216,12 @@ void mark_rodata_ro(void)
->  	update_mapping_prot(__pa_symbol(_text), (unsigned long)_text,
->  			    (unsigned long)_stext - (unsigned long)_text,
->  			    PAGE_KERNEL_RO);
-> +
-> +	/* Map the kernel data/bss read-only in the linear map */
-> +	update_mapping_prot(__pa_symbol(__init_end),
-> +			    (unsigned long)lm_alias(__init_end),
-> +			    (unsigned long)__bss_stop - (unsigned long)__init_end,
-> +			    PAGE_KERNEL_RO);
->  }
->  
->  static void __init declare_vma(struct vm_struct *vma,
+>  properties:
+>    compatible:
+> -    enum:
+> -      - mediatek,mt7623-cec
+> -      - mediatek,mt8167-cec
+> -      - mediatek,mt8173-cec
+> +    oneOf:
+> +      - const: mediatek,mt8173-cec
+> +      - items:
+> +        - enum:
+
+"This change fixes a dtbs_check error."
+... and introduces new other errors, so error count stays the same. Not
+great.
+
+It does not look like you tested the bindings, at least after quick
+look. Please run 'make dt_binding_check' (see
+Documentation/devicetree/bindings/writing-schema.rst for instructions).
+Maybe you need to update your dtschema and yamllint. Don't rely on
+distro packages for dtschema and be sure you are using the latest
+released dtschema.
+
+Best regards,
+Krzysztof
+
 
