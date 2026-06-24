@@ -4,119 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21B2FCDB481
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 13:52:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F171BCDE002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 13:52:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:In-Reply-To:MIME-Version:References:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JVKkeSAj9cEIT5s5aHGZfnYhC/Asr1gCUKNdYQVD9Y4=; b=3yxU+R2xkg6g/z4Q1JQikUu/99
-	AKjXZVweugek8mwB3a8khWFkBuLAdIDuBLs8HDgR15+5Lp2BmfajmwayNVFE//6h3p/0dMtkKL63G
-	cKXeQhiP3JT1QrsLu8mUWHLn1qf5d6RqjVWafdPdjVXGSZW6gle+c15pr1HC+2tCwNG0Kxr1ayotF
-	BGA1qwYZ15vXBJVeey5IfBlCv+7leOadfTguKfGlIcTnCP0LDpV0VBkQfxQsFdPWAU/kKX5krT8KG
-	JOcg7BiROpILxz0K2xuzFIwHKndVOZxkig2XfGTPuQ7CcJ0GLSqvMLo+NaF5bVXcPjg/aRg5/PXps
-	VDOmaU4w==;
+	bh=H9fHKpp0hsSkHZoVgpfSSRVfUXpN+LFN7Jx/OE3znng=; b=ZSVkGc0YaXc+SsmDuxGclLZwdH
+	DFBsQoLYB1iLeIVQazYg8RTvsfQdHxj0QsL6yoNRG1lQm8vh2CeYQT9c9BZGycBiapGkqNPAcrY8u
+	/H1PiApw+YbrF+IB3oYWgKh8gdVdqDUKArrEN1ZnAV4nMyKOu4dYlS+5V1CLL6GpEiaqMRYA6K348
+	qGSgspM0DdjsjJ1wCaq0XRGEbXpEz2nqgMIPr+Alg89K+uZKxLFc/n9soqO4kGR2OFXPZ76JF75LM
+	UEGDvUfJ2O5crTUVm9lpWFKAyv/d0VvovdA9RTuJxSjSZikYDrdBwY5vBm/BmfG01qkmbZouB11W+
+	48CVdMfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcO1S-00000007rCx-18Y5;
-	Wed, 24 Jun 2026 13:52:10 +0000
-Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
+	id 1wcO1r-00000007rGw-2QH4;
+	Wed, 24 Jun 2026 13:52:35 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcO1P-00000007rCa-1fA4
+	id 1wcO1o-00000007rFz-2lxJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 13:52:09 +0000
-Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-69690062350so1266754a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Jun 2026 06:52:06 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1782309125; cv=none;
-        d=google.com; s=arc-20240605;
-        b=P/VOnRemqk9R/Zr66Jemy3O1dE23PZwq/f0ZyU9uYWIWo8H4OOHci/xUpfb2Ro/MLM
-         210SrCGlrAyK2EiASnuPbWKkd1RrYPeJGNQGFoUAAA7CQShj1PoFAuRXdyvhlsCZUzCU
-         dxCFgliiD8aLcVvBQV4uHJNAlgvdb1rbZx4FSrguXcvDVmQiik01IQ9u/MIbhUf+hNUw
-         c3DlPQKWOK73R0CNAH8k6brc8PJoLTy+isTH+N8BMDaDagXZbuymIL+WiZmtUNh8OSmz
-         CbLTp9/B1zUSfL/8hlEOa25UcYYi35HZx5xvAiLOuJGcHEcLGDVjZDcLIYgEQQxoPjjx
-         9H1A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:in-reply-to:mime-version:references
-         :mail-followup-to:from:dkim-signature;
-        bh=JVKkeSAj9cEIT5s5aHGZfnYhC/Asr1gCUKNdYQVD9Y4=;
-        fh=/zRWhKF1EC3TTrJb/ZjT+DuVXCg7ETJGuQJ/EGBj8Y4=;
-        b=e1iGqFMAeFwhUNlDHwh8MVKK9m/0xsAZ88FJrdLhqsdpCbqcv6VWa9nvjVETxVIDiN
-         Lhlpa8Rtlbi85C989OE4pMvD06FSawd+aO+S/htMkbgJQxBWkSPcB5Q7s0IyoTjlzlyr
-         bE7+ZtPYc9TDSWuOBN2OgQFBxdFv95zfORBJtw/ZBnSi3vEZ2HybVzqqpo+FIP8DK0Jc
-         nzi1xwMOdo3PbEbfR7zOEnOWWDQsqRjTH3NajlTtNlai9G9QVSjj8108zdXEByPaDy7J
-         3ITnG3jretTs+SUPEtt7gZ8x7NEfi578hw0qAUHOmblfsig+3F9uNnDH36rJc33CLrnE
-         09cA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Wed, 24 Jun 2026 13:52:33 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4921eed3fa2so8007105e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Jun 2026 06:52:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1782309125; x=1782913925; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:in-reply-to:mime-version:references
-         :mail-followup-to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=JVKkeSAj9cEIT5s5aHGZfnYhC/Asr1gCUKNdYQVD9Y4=;
-        b=fEclaedW3LoKh2LT6KzTHhSyrGUmL6XnQi65SqHOI5pEkKb599kIFGShCAXCANLcpw
-         kOJ+hM7PlZkGaXoq834Vd31YL0X0F1wTJp9//TTzxkqBnlnE0av1dHpSGQYuMdbDKGZl
-         7PT7VriNQ1yfQOh90y07vKdh1qvd4SaBlDPkwv1Q0Pt0/LYdA8xjJATO/ImM10tGS/a9
-         o2vg4SvUeB9X67aaDsXhkXbCfww/X8Q9t+xajVFhWjqApqEvXl5/Mf9fQePyLOfNd6cV
-         x8IEYnt0HaW6E9Oq4tRClfU4+GfhNgh7MwFB4B3D/h25fid7Par8G2sZO7xwOwaLYolG
-         vYjw==
+        d=google.com; s=20251104; t=1782309150; x=1782913950; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=H9fHKpp0hsSkHZoVgpfSSRVfUXpN+LFN7Jx/OE3znng=;
+        b=ZE8tQC7q0BTKRg6tmk7VYYSoQK4Mmv+G+rdGS+2a91PngZA7BbfAF1ts7q5xcCed0r
+         Vg9UYr1YnnsbvPNvgfpWzAiCd+JvIT0SG0rRujPJiRh2h4HU/uXYdZhNPXHiVveD9nIj
+         OKBay2y1rERYiJwdiHAwgQTgKI5w5nrhcHfqqqqu7PHzRzjoxCtKMtXCmpgFzmzosHw8
+         14K60yC+UT9KBI7cTQn3W1zu1oaUP44Fwq2Xl9oEye5+v2csx0v/uMtqPDMIJHPeiNZm
+         foWkT29rGwzOeUJqVKg814JATYztolbkdXsnGAKEwXEdUT/7J/caFdA2nnzKweUenQpk
+         HEqw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782309125; x=1782913925;
-        h=cc:to:subject:message-id:date:in-reply-to:mime-version:references
-         :mail-followup-to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=JVKkeSAj9cEIT5s5aHGZfnYhC/Asr1gCUKNdYQVD9Y4=;
-        b=Qfienva1zsfSTYP3Eyg8dsNKr6ZxOzvOcWT9RpKwiiVmAxaX78p5a3FdRyaWIJV73K
-         MxV+0NUXqEQSXLj3qfReoOlupvwIfJdVnswjHBmoGcHsbsOJgNHxg07//uBOVzFLH0Br
-         QPUvCZmTcBniom12usEs5nXpVXyhr2SpXtyZiGocEnVDK61BoBKIvwSDjBzkW2dCv6dN
-         nP0oIzOv3eIKOphjEpLuLFPpnd0s3PUXxp5F2cmV6myn7yj1nePljOGxmG8NPyRzjfDO
-         fh9YtkOWQ4/tfl6oEXRitj1V5u2QGPYU5GMNf0c3gTM6ALmnxRgFw0TNRF2q7f+MTIzY
-         z1WA==
-X-Forwarded-Encrypted: i=1; AFNElJ/l12MphQk2BD0OPoXTGKN5HgXYg2pRH1bZUGFCd67/XH/aIFIXL/rwjkonvZjYg191VZdGi7+XWubA5Dq5fYq7@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz11OeCCC2mzE0hJqVmF7wz8bX3Y4XbMknEt+I0L/HnifIrPrPR
-	mCwtYqeea9wP8Ndo+2n81Z6vm2zv5TqECwnpgWqMr9Ex5kiDuWcEsSu0R1VARiN75L8ADpNJwtM
-	oG6rQIURlDI6/RGy5jp42B1dTrb9Q0WFZbsfHfyddew==
-X-Gm-Gg: AfdE7clDc1zPk66ySdYkEcbBrrhcXSlU5icYYTb1ca//UZsxl8+UqgpYNHzdyYisZ42
-	arArDDT4CqRMU08LdfTGYp5N/bwXjduQ3yt5GgBkGXrYDTkWd664TJcktStmHeLe84c1bIhTNjs
-	HTDRbr87PkljcNHAIAV7QbZ4q2iSliYkQazFUGasM8xOpNEIsohr2nvGgqkSmJzwtQO2BCVnT0C
-	BpHeuDUihxB/UIen4Q1JA0+Huop8wn2/DZvk3H7xDgrZT2QblAckTqc4FdytYPABVmvMPIkNCnt
-	+yzX6m2u5fgp/9aVXMrqmSoaDA==
-X-Received: by 2002:a17:907:60c9:b0:bfe:ed06:5a14 with SMTP id
- a640c23a62f3a-c119f6123b6mr182955966b.50.1782309124805; Wed, 24 Jun 2026
- 06:52:04 -0700 (PDT)
-Received: from 753933720722 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 24 Jun 2026 06:52:03 -0700
-Received: from 753933720722 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 24 Jun 2026 06:52:03 -0700
-From: Angelo Dureghello <adureghello@baylibre.com>
-Mail-Followup-To: Andy Shevchenko <andriy.shevchenko@intel.com>, 
-	Angelo Dureghello <adureghello@baylibre.com>, Jonathan Cameron <jic23@kernel.org>, 
-	David Lechner <dlechner@baylibre.com>, =?UTF-8?B?TnVubyBTw6E=?= <nuno.sa@analog.com>, 
-	Andy Shevchenko <andy@kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	linux-kernel@vger.kernel.org, linux-iio@vger.kernel.org, 
-	linux-m68k@lists.linux-m68k.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org
-References: <20260618-wip-stmark2-dac-v6-0-48761dbb96d7@baylibre.com> <ajr4LvdPZKHrqDVp@ashevche-desk.local>
+        d=1e100.net; s=20251104; t=1782309150; x=1782913950;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=H9fHKpp0hsSkHZoVgpfSSRVfUXpN+LFN7Jx/OE3znng=;
+        b=XyS6iL6jsB6Pm9B8pnhRltVrAU1ZZY38UlxsY1Ew+qV4rA7f55u9dGlebbc4aYG2lx
+         375RK6/CsALvRuf+RR2XW/QcMg/ZmMjOQq22hC7VKYEa51Qcyocj8yVQGQ4Dh4U2xeXM
+         9LWm56YvOflrFs55cqAl9o8tNKTKMp7/Tuw5AD6LvcaVvzOJNLwVjWuzYj7wTjUsTz7e
+         r3vpI0s0Jmamk+8FsaHCGm1oyf/WThjJ1uYLltm22AAnj9UstrM2QWTs8ukZOkr/SEMD
+         e16g//19Q4cXDg0QFI6mkOHS0rUVEjYdfAjUBL4dERyUQhTnQWJ8bNu5b0JqUwQfVpnm
+         l1Jg==
+X-Gm-Message-State: AOJu0YwZV+MxwQz2S5E2ZuBjWrOUL/TaN4e/7/YgUp57z8mV6zgCC32X
+	IwVAMOQ7RoAGATjexyQWe9Bn40mhrlr45D7rlrsHVCb2aUnziO4sgXTnY2dyqMQTClnAluZaPGN
+	CC2b5WQ==
+X-Gm-Gg: AfdE7ckWCS074NUpVbDZwlFVmdZx2rQR8t4z379LnGh7TQzQDeSZRvTLoMpIBRQw5H4
+	AyQPjj/TzfPBmhKHgiR589T3pMjVShNcRh6+pbuH9eD6k0X6UPwGNvcHGOSUN79v8JZNjHTsHct
+	YHDVdHPIDSWpmkZnJMWIe7Nj43xOdsYeFa/SeEY62FkaFfa7hODjFzSjSqQ6dYOtF5aW9suc/ni
+	GlEBTBcBdAHYaA2ByjWXwmUbSRCK3zSZXVKX8EJXeYQADpLjasYXpaQiguIBn0qCMMy2ctmKs2S
+	3UmXeBqzLjnu34AOwJVjDGl5MQlpxmYq6Fk3vyZRuA0lDy3h5ZTJUXtbpMPs5M8hY/1qtzSNXWR
+	RhD4qvy7xTWvuw1KoVQ4fTnvUiUcoLev27aBEC053LuGRUcWijasVO53kRFlELzNvNBNNSFOsHz
+	V18CnczSVhqwLyvyPyNoAGp0LdbJ40bzLjMfW/fN98oAMLp0g=
+X-Received: by 2002:a05:600c:8b71:b0:492:59a0:4a65 with SMTP id 5b1f17b1804b1-4925b3802a0mr117077955e9.27.1782309149240;
+        Wed, 24 Jun 2026 06:52:29 -0700 (PDT)
+Received: from google.com (97.113.76.34.bc.googleusercontent.com. [34.76.113.97])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-492494496cdsm341827885e9.10.2026.06.24.06.52.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 24 Jun 2026 06:52:28 -0700 (PDT)
+Date: Wed, 24 Jun 2026 13:52:25 +0000
+From: Adrian =?utf-8?Q?Barna=C5=9B?= <abarnas@google.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, David Hildenbrand <david@kernel.org>,
+	"Mike Rapoport (Microsoft)" <rppt@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>, Christoph Lameter <cl@gentwo.org>,
+	Yang Shi <yang@os.amperecomputing.com>,
+	Brendan Jackman <jackmanb@google.com>
+Subject: Re: [RFC PATCH 3/6] arm64: mm: fix restoring linear map permissions
+ on execmem cache clean
+Message-ID: <ajvhGajVO_GFlcrY@google.com>
+References: <20260611130144.1385343-1-abarnas@google.com>
+ <20260611130144.1385343-4-abarnas@google.com>
+ <402e247d-1eb9-4842-ba9a-712a3bb9b438@arm.com>
+ <751c564b-d6c3-4bd5-a269-e3de89e8cf13@arm.com>
 MIME-Version: 1.0
-In-Reply-To: <ajr4LvdPZKHrqDVp@ashevche-desk.local>
-Date: Wed, 24 Jun 2026 06:52:03 -0700
-X-Gm-Features: AVVi8Ce0Oz4uWAyICirL9pSge-M3xWIHMYk0X2M6seIbhH3jA-_W8vl1mqu01X8
-Message-ID: <CALSJ-wAFwYC38X0VUYYBX_AYsWChpFxDQtQ52KHhbFV2Bm=prg@mail.gmail.com>
-Subject: Re: [PATCH v6 0/2] add mcf54415 DAC driver
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: Angelo Dureghello <adureghello@baylibre.com>, Jonathan Cameron <jic23@kernel.org>, 
-	David Lechner <dlechner@baylibre.com>, =?UTF-8?B?TnVubyBTw6E=?= <nuno.sa@analog.com>, 
-	Andy Shevchenko <andy@kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	linux-kernel@vger.kernel.org, linux-iio@vger.kernel.org, 
-	linux-m68k@lists.linux-m68k.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <751c564b-d6c3-4bd5-a269-e3de89e8cf13@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_065207_510546_0E3F789A 
-X-CRM114-Status: GOOD (  19.28  )
+X-CRM114-CacheID: sfid-20260624_065232_770126_93B1CC56 
+X-CRM114-Status: GOOD (  25.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,56 +108,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andy,
-On Wed, Jun 24, 2026 at 12:18:38AM +0300, Andy Shevchenko wrote:
-> On Thu, Jun 18, 2026 at 11:04:14PM +0200, Angelo Dureghello wrote:
-> > This patchset adds a minimalistic DAC driver for the NXP mcf54415/6/7/8
-> > builtin DACs.
-> >
-> > Currently the driver enables the raw write only. Feature as dma, sync, or
-> > format are not supoprted for this version.
-> >
-> > Additional options suppoerted by the DAC module will be added to the driver
-> > later on, as needed.
-> >
-> > The same patchset prepares the m68k/coldfire architecture to support
-> > the driver.
-> >
-> > Below some basic tests done on stmark2 mcf54415-based board, voltage check
-> > on DAC0 and DAC1:
-> >
-> > ~ # cd /sys/bus/iio/devices/iio:device0/
-> > /sys/bus/iio/devices/iio:device0 # ls
-> > name               out_voltage_scale  uevent
-> > out_voltage_raw    subsystem
-> > /sys/bus/iio/devices/iio:device0 # cat name
-> > mcf54415
-> > /sys/bus/iio/devices/iio:device0 # echo 4095 > out_voltage_raw
-> > /sys/bus/iio/devices/iio:device0 # echo 2048 > out_voltage_raw
-> > /sys/bus/iio/devices/iio:device0 # echo 4096 > out_voltage_raw
-> > sh: write error: Invalid argument
-> > /sys/bus/iio/devices/iio:device0 # cat out_voltage_raw
-> > 2048
-> > /sys/bus/iio/devices/iio:device0 #
-> >
-> > Same behavior for /sys/bus/iio/devices/iio:device1.
-> >
-> > Generated a sine wave by shell script, sine shape is good.
+On Fri, Jun 19, 2026 at 09:33:18AM +0100, Ryan Roberts wrote:
+>On 18/06/2026 16:05, Ryan Roberts wrote:
+>> On 11/06/2026 14:01, Adrian Barnaś wrote:
+>>> Strip the read-only attribute from the selected memory range when
+>>> restoring the linear map after an execmem cache clean.
+>>>
+>>> An execmem cache clean is performed when a cache block becomes empty
+>>> after unloading a module. When making the memory valid again, the linear
+>>> memory alias must also have its read-only attribute cleared.
+>>>
+>>> Without this change, the linear memory alias remains read-only even
+>>> after the execmem cache block itself is freed, which prevents subsequent
+>>> allocations from writing to that memory.
+>>>
+>>> Signed-off-by: Adrian Barnaś <abarnas@google.com>
+>>> ---
+>>>  arch/arm64/mm/pageattr.c | 17 ++++++++++++++++-
+>>>  1 file changed, 16 insertions(+), 1 deletion(-)
+>>>
+>>> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
+>>> index 88720bbba892..eaefdf90b0d5 100644
+>>> --- a/arch/arm64/mm/pageattr.c
+>>> +++ b/arch/arm64/mm/pageattr.c
+>>> @@ -239,6 +239,13 @@ int set_memory_x(unsigned long addr, int numpages)
+>>>  					__pgprot(PTE_PXN));
+>>>  }
+>>>
+>>> +static int set_memory_default(unsigned long addr, int numpages)
+>>> +{
+>>> +	return __change_memory_common(addr, PAGE_SIZE * numpages,
+>>> +				      __pgprot(PTE_VALID),
+>>> +				      __pgprot(PTE_RDONLY));
+>>
+>> This is not sufficient to convert an invalid entry to valid. As well as setting
+>> the PTE_VALID bit, you would also need to clear the PTE_PRESENT_INVALID and set
+>> PTE_MAYBE_NG.
+>>
+>> e.g:
+>>
+>> int set_memory_valid(unsigned long addr, int numpages, int enable)
+>> {
+>> 	if (enable)
+>> 		return __change_memory_common(addr, PAGE_SIZE * numpages,
+>> 					__pgprot(PTE_PRESENT_VALID_KERNEL),
+>> 					__pgprot(PTE_PRESENT_INVALID));
+>>
+
+Thanks, I will fix that
+
+>>
+>>> +}
+>>> +
+>>>  int set_memory_valid(unsigned long addr, int numpages, int enable)
+>>>  {
+>>>  	if (enable)
+>>> @@ -362,7 +369,15 @@ int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
+>>>  	if (!can_set_direct_map())
+>>>  		return 0;
+>>>
+>>> -	return set_memory_valid(addr, nr, valid);
+>>> +	/*
+>>> +	 * Execmem cache uses this function to reset permissions on linear mapping
+>>> +	 * when freeing unused cache block. On x86 it makes memory RW which is
+>>> +	 * desirable. On ARM64 set_memory_valid() just change valid bit which
+>>> +	 * leave direct mapping read-only so use set_memory_default instead.
+>>> +	 */
+>>> +
+>>> +	return valid ? set_memory_default(addr, nr) :
+>>> +		       set_memory_valid(addr, nr, false);
+>>
+>> Surely execmem should just be using set_direct_map_default_noflush() if that's
+>> the behaviour it wants?
+>>
+>> I think that the current implementation of set_direct_map_default_noflush()
+>> doesn't undo the effects of set_memory_nx() / set_memory_x(). That might be
+>> worth checking?
 >
-> Heard a presentation (Embedded Recipes IIRC) where one tried sine and real
-> sound (it was about sound DAC) was really awful. So, Can you try a bit more
-> sophisticated signal?
+>It's also worth mentioning that set_direct_map_valid_noflush() has "noflush" in
+>the name, implies it doesn't expect/require any TLB flushing to occur. But the
+>implementation will perform tlb flushing for any case that is not just a
+>invalid->valid transition (which for the existing impl is the case when
+>valid=true and for your changes is never the case - see __change_memory_common).
+>
+>But execmem doesn't do any tlb flushing so it looks to me like it actually
+>requires that set_direct_map_valid_noflush() handles the tlb flushing? All seems
+>a bit fishy and probably warrants a cleanup to make things clearer.
 >
 
-sure can try some sound with this 12-bit, but don't think is possible now
-with only raw output. My idea is with further patches, once ColdFire DMA
-is fixed, to extend the driver and be able to sample higher frequencies.
+I think that the clean approach would be to have the `set_direct_map_default`
+function (without `noflush`) that does flushing as needed (like the current
+one on ARM64). I am not entirely sure but x86 seems to handle permission
+faults gracefully while on ARM64 those would cause panics. Is that correct?
 
-> --
-> With Best Regards,
-> Andy Shevchenko
+
+>>
+>> Thanks,
+>> Ryan
+>>
+>>
+>>>  }
+>>>
+>>>  #ifdef CONFIG_DEBUG_PAGEALLOC
+>>
 >
->
-Regards,
-angelo
+
+
+Thanks,
+Adrian
 
