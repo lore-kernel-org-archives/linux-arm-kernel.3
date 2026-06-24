@@ -4,62 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12377CDB479
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 15:45:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E148CDE008
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 15:46:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4HoG5nibkY73X5+Sim6btQdITTv97/tVHKTgeohtTGg=; b=1PRdeUH/eVtO58vbOxF3EGjnzE
-	1f8Z3M8xyODD4/8gDczrFTsfrBmxdQJphcaQSpduo95Yb96ayMlYwp0mgNZC101tNssugaEUOB3XM
-	EMc1Vb1pNt44rZgW7oGjOU8v5WIULInPBLanq+HvPjKfvXiAJeS1dXn03y4awnw/Kn2AOhTkHY0kY
-	1wD/cE2+ZK85HxTdJGiMSqY8y3o6/GGsM2lSo4iNRmSuJsAK4BgyNlVyObMHujYk7LSum5SJcT7/s
-	nbBoKLlzSM1X76xGD7Ggzcnj5f0MPRrP9Hf6Q51bD44gCqmcyw2ocqPeUnLm6HHU9qWX1nlOai8da
-	CMM+38zQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Fk/Z8OE+ChiAP78iz+VA+TzWEbs4aCOhKWxII5xeA38=; b=2bswg4QqNx75Z0pXZDheH8uLzk
+	FrfLnxErN8QqF7V7AVz6QvyDYvFsJtn/ZeUzBpMIwW2otgZ1N0Z4BxJTTgObAw/uXbFSFK9VNJE6L
+	hFcy6L22HKKTRw/Fj6KwQmbE1T6j8L+OlALqL9VSLWHnfLDnU+kcBETnlZROtE6ssDsIgfSSvS+X6
+	5BBj1TgZSiSK+tUaE2YO0Uv0fZl+veGN81Eo7gCUkcyQKP6TUiQXIiGqJ2qnyICLVL9CpO62/r3bc
+	HMBI9A6/i+y4Zynv7GUoahHMueR1E5UH8PhbtQLDNVNsy22vKQsDzgIT4Rt6qXgB4nP5Qk5BFxg3G
+	B3+QNEbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcPml-000000081ze-3IgG;
-	Wed, 24 Jun 2026 15:45:07 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1wcPnc-000000082Cq-0is8;
+	Wed, 24 Jun 2026 15:46:00 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcPmi-000000081y9-2pfp;
-	Wed, 24 Jun 2026 15:45:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=4HoG5nibkY73X5+Sim6btQdITTv97/tVHKTgeohtTGg=; b=BtxnOHP1PijdZwZuVcOKI5sK5c
-	54MUxwFe6LX9lO9Pmeo0BFQVIa2+yf4XeAstyWjbCgm9jMq8IzD7dil3cUJsGjnBOpScm4R7Ar7Lv
-	oyeZYEXG1rjg2PQBNMNnupaLRQ8zvVYxAcnKFMXOhp/Q576eiWf2LxAF45Nuk+DIxkSM=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1wcPmY-0096vk-Jm; Wed, 24 Jun 2026 17:44:54 +0200
-Date: Wed, 24 Jun 2026 17:44:54 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Yanan He <grumpycat921013@gmail.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	heiko@sntech.de, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
-	david.wu@rock-chips.com, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH 7/7] ARM: dts: rockchip: Add Alientek DLRV1126
-Message-ID: <f526c23f-2ead-4246-bfaf-5bf4fbaec29f@lunn.ch>
-References: <20260624-rv1126-alientek-dlrv1126-v1-0-dc42d99f75a7@gmail.com>
- <20260624-rv1126-alientek-dlrv1126-v1-7-dc42d99f75a7@gmail.com>
+	id 1wcPna-000000082Bj-2Stz;
+	Wed, 24 Jun 2026 15:45:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 115CE44161;
+	Wed, 24 Jun 2026 15:45:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id E2CB5C2BCC9;
+	Wed, 24 Jun 2026 15:45:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1782315957;
+	bh=gq7SZQMCqoWdcgKCYD6222wJceoyTVBlco/WMG2UIaI=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=hTfCzKA8p6wQRw2Fy+Io6dWME5BdP0NdDOhFFz8HyJha37eybesuNfVZpGHN8YZNO
+	 A/E92MSe8Diy+wELrAdhAjTCUiu7oQLbPa3Ge/nNzTjGyn35ICpfTltV2Qxkgna3Jc
+	 Gn54fezRt7oYzn0uclrOZz0aZ/MHNYMxePJeCFmpEXVnl4HF73eJKndwxVa9U5y4zm
+	 TnM8WQ54o7ClJF78tCdmiNp7ovnGAYCgY8FHjj3OWWk8LLxHjeEQVW+0C74ei2EorU
+	 z+aZeEqgw6XUcbqmXZ19FMHJ2vOAQsZmD1/h/ldsb2JnETO6PI6oZRCODdON1yfAwM
+	 ejv9dICwWs1mw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CB4AFCDB479;
+	Wed, 24 Jun 2026 15:45:56 +0000 (UTC)
+From: Ricardo Pardini via B4 Relay <devnull+ricardo.pardini.net@kernel.org>
+Date: Wed, 24 Jun 2026 17:45:54 +0200
+Subject: [PATCH v2 2/2] arm64: dts: mediatek: mt8395-radxa-nio-12l: Enable
+ i2c3 on 40-pin header
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260624-rv1126-alientek-dlrv1126-v1-7-dc42d99f75a7@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_084504_731148_051E1AA8 
-X-CRM114-Status: UNSURE (   9.81  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260624-nio-12l-add-i2c-40-pin-v2-2-cf3707a6aaf1@pardini.net>
+References: <20260624-nio-12l-add-i2c-40-pin-v2-0-cf3707a6aaf1@pardini.net>
+In-Reply-To: <20260624-nio-12l-add-i2c-40-pin-v2-0-cf3707a6aaf1@pardini.net>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Ricardo Pardini <ricardo@pardini.net>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1402;
+ i=ricardo@pardini.net; h=from:subject:message-id;
+ bh=hIyBf7strNNA+Ox0sJe1DQ4Wou2BwNHnavbyLGWV3fE=;
+ b=owGbwMvMwMFoHWf/eN7xty8ZT6slMWRZ/95csKVZmzf5k99/+4o/Lx9p3fyxT6zsosX7Q2q1S
+ 2Y9ZXCq7GT0Z2Fg5GCwFFNkWSOhzPNt/atTdzw6JsMMYmUCmSIt0sAABCwMfLmJeaVGOkZ6ptqG
+ eoZGOgY6xgxcnAIw1YKL2P/wdlhtu1evdcBOR/yhalTtabllBoV3JepeNbqLtQcxOzW/auBadt8
+ osKLqy/e2w4+3TYqzk/zYK1eaotW4Xug7u3a0tejGzrm6G4Ilmo03KEqLZDyOubOCv/+MRu320B
+ +a6mcr96cr/lVQieMM0PsUes7BprHBY97BT/kPlnqfu/9tB3NMpJjxa9vZSi/yaz13T4zXn2r8d
+ MPWtQuSq3QuzvzCr+V/pXDa4uTigObEs06Pi6dX6K780C6/3rnpX5L7O4E7M9j/vJCfpmb0wuVD
+ Rm/D1OtXBILC6tuzn5oxZm9ZEV0W6NvpxrNOLW1yepk5U17GS7PpVyW/XLnSeL7514VXs+6bJE6
+ vvVn+FQA=
+X-Developer-Key: i=ricardo@pardini.net; a=openpgp;
+ fpr=AC18230CF6AFEACADC4888933B5E3FE39EC7EDE9
+X-Endpoint-Received: by B4 Relay for ricardo@pardini.net/default with
+ auth_id=588
+X-Original-From: Ricardo Pardini <ricardo@pardini.net>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,41 +89,60 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: ricardo@pardini.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> The board consists of a CLRV1126F core module and a DLRV1126 carrier
-> board. The core module contains the RV1126 SoC, eMMC and RK809 PMIC,
-> while the carrier board provides Ethernet, SD card, AP6212 WiFi and
-> Bluetooth, PCF8563 RTC, ADC keys, GPIO LEDs and audio connectors.
-> 
-> The board has been tested with Ethernet/NFS boot, eMMC, SD card, SDIO
-> WiFi enumeration, Bluetooth LE scanning, RTC, ADC keys, GPIO LEDs and
-> RK809 audio card registration.
+From: Ricardo Pardini <ricardo@pardini.net>
 
-Ah, here is the networking nodes. But why was it not threaded to the
-rest of the series?
+i2c3 (SDA3/SCL3 on GPIO14/GPIO15) is routed to the 40-pin GPIO header,
+exposed on the blue-colored pins 27 (SCL3) and 28 (SDA3). Enable the
+controller and add the corresponding pin configuration in the pinctrl
+node so users can use external I2C devices.
 
-> +&gmac {
-> +	phy-mode = "rgmii";
-> +	clock_in_out = "input";
-> +	assigned-clocks = <&cru CLK_GMAC_SRC>, <&cru CLK_GMAC_TX_RX>,
-> +			  <&cru CLK_GMAC_ETHERNET_OUT>;
-> +	assigned-clock-parents = <&cru CLK_GMAC_SRC_M1>,
-> +				 <&cru RGMII_MODE_CLK>;
-> +	assigned-clock-rates = <125000000>, <0>, <25000000>;
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&rgmiim1_miim &rgmiim1_bus2 &rgmiim1_bus4
-> +		     &clk_out_ethernetm1_pins>;
-> +	tx_delay = <0x2a>;
-> +	rx_delay = <0x1a>;
+Signed-off-by: Ricardo Pardini <ricardo@pardini.net>
+---
+ arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
 
-As i predicted, this is wrong.
+diff --git a/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts b/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts
+index 589a5f07d5dde..9b0966c271cb5 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts
++++ b/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts
+@@ -371,6 +371,14 @@ it5205_sbu_mux: endpoint {
+ 	};
+ };
+ 
++/* Exposed on 40-pin header (blue-colored pins 27:SCL3 28:SDA3) */
++&i2c3 {
++	clock-frequency = <400000>;
++	pinctrl-0 = <&i2c3_pins>;
++	pinctrl-names = "default";
++	status = "okay";
++};
++
+ &i2c4 {
+ 	clock-frequency = <400000>;
+ 	pinctrl-0 = <&i2c4_pins>;
+@@ -788,6 +796,15 @@ pins-bus {
+ 		};
+ 	};
+ 
++	i2c3_pins: i2c3-pins {
++		pins-bus {
++			pinmux = <PINMUX_GPIO14__FUNC_SDA3>,
++				 <PINMUX_GPIO15__FUNC_SCL3>;
++			bias-pull-up = <1000>;
++			drive-strength-microamp = <1000>;
++		};
++	};
++
+ 	i2c4_pins: i2c4-pins {
+ 		pins-bus {
+ 			pinmux = <PINMUX_GPIO16__FUNC_SDA4>,
 
-https://elixir.bootlin.com/linux/v6.15/source/Documentation/devicetree/bindings/net/ethernet-controller.yaml#L287
+-- 
+2.54.0
 
-Please try removing rx_delay, rx_delay and setting phy-mode to
-rgmii-id.
 
-	Andrew
 
