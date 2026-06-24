@@ -4,73 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F785CDB47F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 20:02:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5E8BCDB47F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 20:38:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7KSJA4KQaA75GCA5WKtutSEoOxwFOxLm2qvx+kAWOWo=; b=LQGqvxPW8U1KzNZ1r2BpGVv2cR
-	vfffBTfVTbh/rE5q37cB7DP1W/7z/PW06EwvH2vYmtv++Fq2pg1zQmxE8s1+BFsQZVAfkdrhO+L+K
-	YA5h/eMehtL2tw8DTT/iyvyw5y0mUOTFFAASxbkNV1hpmBiWCPdciGiBqguY7JyEJFCKr494ykCUg
-	5hfvFqFLTux3gtp7lU2tcL0jN6ixNVzZ14FBfS1x35irntdPOzu1F2jYOxhGW9SfHV6iMp6Zoqp3q
-	YwyGWBmtcprZQUX6ii8IJVOmHwhrSSLjq2Ax5UJHUNjCsYrBcQEst9mUZXMbm28Gge/kXGc7Njrpp
-	bWBnU9tA==;
+	bh=C+tgr1Ap0i9OzZqPcmohFuSY5tkU630KlTIERKHGLe8=; b=N/GesDeE+AybjSR4KjxzbcRlGw
+	lf4oiovEmigub0M0X0OUZyeYdSR56+3P52Uf7bHdy3gynkhI/bfa3GSwulr5ZViAcZIbyRiux6l+Y
+	k12Q6bQnRTVSsy8fyZRX4dlCSnE4MXpGj/vVkP5bfm7lTj4E9rcKAnxXB1RUggdRSoiovI8iG7bNB
+	ejhwnk+p7yrZeOtUHf1lECEwJ+H8ls4PBZEGV+65lH/vtDhX8Q/+juG2qODlFD3pUU5cZAZ+QUr6T
+	RTbuJiAZQk1T4T22SeSswPLEBTT8gQmwrQsphFWbrCPkpGKNwFfVzM2kC7GA2s7iVPncjPIxakRQz
+	n3t95Xhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcTo3-00000008J80-1gF5;
-	Wed, 24 Jun 2026 20:02:43 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1wcUN1-00000008JrT-1lh4;
+	Wed, 24 Jun 2026 20:38:51 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcTo0-00000008J7a-3htZ;
-	Wed, 24 Jun 2026 20:02:42 +0000
-Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 696961E6;
-	Wed, 24 Jun 2026 22:01:59 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1782331319;
-	bh=DUKIEE7/NbZR/k8cWAM68518/PZODDzrS+U/d4ruhG4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=q5Qwb1knc4r2eTb764ud9nediE0cB7p1Mt9q0e69aRTQSHkAd7UZJqXVVelzGEarK
-	 QlFfXvaJ7RXtTwURcika1vW9uzUE6YjD0fnpv6+B4ZFnfzZhMu6TyA31EiE6TaILkY
-	 p3IlZ42+5Jz1Hyxio+3i1dERD8ml8lN9MkmcLqGw=
-Date: Wed, 24 Jun 2026 23:02:37 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Daniel Scally <djrscally@gmail.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Dafna Hirschfeld <dafna@fastmail.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
-	Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
-	Loic Poulain <loic.poulain@oss.qualcomm.com>,
-	driver-core@lists.linux.dev, linux-acpi@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	imx@lists.linux.dev, Guoniu Zhou <guoniu.zhou@nxp.com>,
-	Frank Li <Frank.Li@nxp.com>, Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-Subject: Re: [PATCH v2 0/4] media: add and use
- fwnode_graph_for_each_endpoint_scoped()
-Message-ID: <20260624200237.GJ851255@killaraus.ideasonboard.com>
-References: <20260624-fw_scoped-v2-0-0a8db472af4a@nxp.com>
- <20260624191935.GG851255@killaraus.ideasonboard.com>
- <ajwxcn2LXS8InAjZ@SMW015318>
+	id 1wcUMw-00000008Jpq-2Sgs
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 24 Jun 2026 20:38:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=o44uZcNsVhq48hmBOpFGBxUjDaAQspYziYPcJg1bMiMQZXh/v+7iO2jvmo1L6M0YfMHMRJoUW5qZe91dk/zBvJElT30iPLenp64thR8t+KbrzV59yro11YiztgMLWyxiYrSRPkSuNVA546CpcFJDS7fI8QlmXITKifzbYexEHtmzjixT1y/SiQBusbUBc+/aFzflC4+deLULs9SvGjt3rpFASEHnUXD7CVufCO10D36gfJij4wkh/rhbui4QSvC6+Y2yx4B9m8CFFcFKKlj/vOoQxREDwxvSLg3VlqoyXllOz83ApOGWp/LfHE4YMZcAss6gSyN7TCdZrzNla9DfvQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=C+tgr1Ap0i9OzZqPcmohFuSY5tkU630KlTIERKHGLe8=;
+ b=wMYoqhUWQLI3pa8xl2sJNTmZZTBfRyk4dcAEj0U6RMMmprDr0YlSxPqK9WCz4kV7jYdnSogfD+rEE5YKLCl2eBN1Z6sQzd+iP8p4jlevVDiNhg8/hPWs/gUOdhYOjlAvv4h4GaWx8mioA702TGCqVkIUYTIIOIVxdA9byAAJZslH57/DmPMQliBMJvp3vyRkzkcbph5/TjS7sSUCEn/OOUUsYr7kGmSXsWnhSBmmr1MKHwWExu1kd4YpzD6VY/aa++E/goscVd7R/YFTuMJNBGX+eTbvAU7e6PCjUW2DbK+RxwaYrLkrbSyS20hli7OGRAakQ8SWVNeSPMjyJhNi7A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=C+tgr1Ap0i9OzZqPcmohFuSY5tkU630KlTIERKHGLe8=;
+ b=P47DPsJIgjJIs57YKuuvq161192eXsBKIhdym1VuF2jBt3cj5Z0wxIHXnA2npYfafQE87KqUgWSveUWYrJyvMlpxQRk5odtdhCauo9MtCbHI5MWr6I1MS7kZtAoqWdGfSzeyEg6UF+6NhtYwH4JGNhlvhpQQgl4r98tg6JzM0YwoUsaAK4GUdz0eETt2jGdrEtm5u/HxRYE3zcxPB2RVohgEbeVLjt7SguTEOQKCJfgIqA2Z8pf0ds9B2g4Jqc1Zklrd3XQ5r1k9iUwik9cv9xAvK2ObRv1JaoocXmMWSRkOPXFjbJPgZoNy+S+tRQR8o4Y+aPC0DgJbr8XT6l6pGg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by PA1PR04MB11335.eurprd04.prod.outlook.com (2603:10a6:102:4f6::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.14; Wed, 24 Jun
+ 2026 20:38:42 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Wed, 24 Jun 2026
+ 20:38:42 +0000
+From: Frank.Li@oss.nxp.com
+Date: Wed, 24 Jun 2026 16:37:48 -0400
+Subject: [PATCH v6 1/9] media: mc-entity: Store parsed V4L2 fwnode endpoint
+ in media_pad
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260624-imx8qxp_pcam-v6-1-4b3f45920d2f@nxp.com>
+References: <20260624-imx8qxp_pcam-v6-0-4b3f45920d2f@nxp.com>
+In-Reply-To: <20260624-imx8qxp_pcam-v6-0-4b3f45920d2f@nxp.com>
+To: Sakari Ailus <sakari.ailus@linux.intel.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Michael Riesch <michael.riesch@collabora.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Frank Li <Frank.Li@nxp.com>, 
+ Martin Kepplinger-Novakovic <martink@posteo.de>, 
+ Rui Miguel Silva <rmfrfs@gmail.com>, Purism Kernel Team <kernel@puri.sm>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, Guoniu Zhou <guoniu.zhou@nxp.com>, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782333513; l=1604;
+ i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
+ bh=h3+MxmY5u+lmSZ6oer9Jj49nkAEShJBsB54i46isFtc=;
+ b=kEkjSScNwPDCjke9KoaE2oOLYy3s9vh8c3XU21CoCP6oay+TYLuT7pq6k34c5BHPCdo/U/cmQ
+ V7kIX/tX6/eBYS+dKKqLS9rMbcuQL/jp+DKSjaRZPpe38Sma7eAz/S7
+X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
+ pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
+X-ClientProxiedBy: PH8P220CA0034.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:348::17) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <ajwxcn2LXS8InAjZ@SMW015318>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PA1PR04MB11335:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3fcc2935-971f-4f51-f00d-08ded23094a6
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|23010399003|376014|7416014|6133799003|11063799006|56012099006|18002099003|22082099003|921020;
+X-Microsoft-Antispam-Message-Info: Kt5hXQFv4k1X4swjuAauGfaBgisyznM6H/6xDZAboF6RSdzJfoiUsA51oy3glGVbOsJtswY54zi0F0jbWpoZ+H0L6lkpVzs/RtV2LT+OjZafJAMPOLbh4N4N46oMcalffUcb6HgVW4OAnDFEF9Nlu0lafTQ5zHQLm2NFWBJMeQ4JP/JJk6yiMKNyDbdgHTZHGe6hLRlWU/a7E1Em+rrQ0VvxoEOtXd2rTb8bfPftom18VstWonpgfuCj2C7mVpiCP+0qPlwVycI+terJczQQXcIsxaBxeN63TbNBljkCF0XKcOkeM+F6GkdSgvWWoEPkV07MfllpLSeij3PDVQlk5OB7lBCQxPgMcI++cPwaa650d2GHFfPG3i9pnsdjRzPzr2B6UmTYppyelBlJCdKkrtureFsXNPcaqRTVc7TmvU4zJuxWz1xIVI2Tmr4od7yRjxfKLmQIWGx3+y14+n3n7RJYA/iIuwCEO7yeXRTRzYMjSYdt1/gNVFLSFcNOywJ1s7JGfkpAYuL5vEJHuHDfu1WQ2Gn3FjPu3+mOacypc5rv/sKqh3ttxDUgW+7cyzMetybsW9Kr9i8yV3IHM9RHx1vrblKbHZ0e3HVzg+ieh7KZEJ/OZEhYcOYEGuRsCi/mu8CQCx9qOtYsWPno8ujwg7c1fQCHPhZ3pLZ2NSipPTF1nWG6u4SyuLUV296dwPy6qCmuu1oEQWGysqCXYc7eaA==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(23010399003)(376014)(7416014)(6133799003)(11063799006)(56012099006)(18002099003)(22082099003)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cm1OcFFVQi9oTFQ2cWVBd0V3eDhaT014bUwxNENIVk5udm56ZmlNSjRIaGlm?=
+ =?utf-8?B?VFRtdkhiWmRaZ2paT1pFdFU1Rzk1NmN2ZFNidUdMdVVGTndLS09aSzgrS1Ar?=
+ =?utf-8?B?aWRRd2plUkVoS1RmZ3VTN1gxcUgrY3NrdGdYSXk3MmpoYlRSMVVVNmtSeTJZ?=
+ =?utf-8?B?am4wWWE2anhQK1BoL1BFT0hpVkFvdUdvY0hCMXJJUGRoMTBxYUhaam8yRVJo?=
+ =?utf-8?B?MEMvTGgvM21GTnllYTJYVFI0NFFxQ3RCNXpCK2JEZUdGRktJSFloMEI0U2VJ?=
+ =?utf-8?B?aW1PU2F0RURKVWVodlZWTi9wWU1uckkrSzlqQnpTTThSTytsZTFqOFpReWpR?=
+ =?utf-8?B?ZW5NN21nWkdXZzgxSUExWGxzeE9zWThBM1ZmYzQrbHRDY21kSCtWRGVtUlU1?=
+ =?utf-8?B?V2N5RnlHRW03RS9TS1lsL1pRYlRjZlFjQk5kM0NPVHBrdzYydWNoSDdRL1FT?=
+ =?utf-8?B?VlBtSnVqUUdnRHJCUnppbFR4OUt1SGdOQUdOald1dmlCeS9oRXpEd2t0ZFFw?=
+ =?utf-8?B?VDZvcUo1T20rb2FWWXRKNUdsVDFyT0lkSVBNbU9idVVadUxZQWZBcmo4alNN?=
+ =?utf-8?B?N1c1QVU4UWVIcTd0elhRb1g3K1pYM2ljSnBFZms3cjJPOWFjcDRMakl1Skd5?=
+ =?utf-8?B?VnZ2SjV0MzE5ZFBsSTJLS0hZZVgwSjRGWGlpYnBTTE5takJiVS9yczd2N3ox?=
+ =?utf-8?B?dGZ1VWxvQmo3WXFYMkpzdXlMUGFFKzh3NVpDSG40MjVTWk1qZ1JMUXYrZHdn?=
+ =?utf-8?B?eEt5TU9oN0tab1kyTUV0SE1uM053UDJXZFYyTFNrc0xTRHNCMkFPaXZGNGdN?=
+ =?utf-8?B?OGhXanY0UnNPMUZjcmlsWWlSQjVPWXd5cFBXRmN6TmFVbng1MnprOGFpUThx?=
+ =?utf-8?B?eFdVczBJMmozKy95TlQwdEVCNkhWY1VNcFlaWVRXQTV1WWhSblkrMG80YkFY?=
+ =?utf-8?B?UGVKYndkU2xoL1EydGg0SGdud0l1cXdhaDhzVUFNYTB4YmNtTjhBZVJTK1p1?=
+ =?utf-8?B?ZE9oNVRSVVRkcHJjZHJ2QnpZTisxRi9Cc1ZrZkk4cmRoZlRYeG0rZzRENFA2?=
+ =?utf-8?B?eTk2RGtoQnFlTzN1bmdRaTg3bUpJQjdKOGF2Y2p4eG5DRDJENFY2Z0RXWmxC?=
+ =?utf-8?B?VENwUFlUUGc0VGpEU3k1ZU96ZkxWdDgySnRVNzEvUENSaE1LZ0o1SkRzcFd4?=
+ =?utf-8?B?azZEV3M0WGdzc3dQTXBVWWNFMmdJY1lzVlZ1NzBTT0M1MWlMZkNFY3h4T1pZ?=
+ =?utf-8?B?c1RDbWtLUlI0WDQzTG9JdzVnQ1ZQY01sOW1xL29aSStOMytJcnd2VnBVb2Rq?=
+ =?utf-8?B?MVJ4dndneEJRSXN6YVA2ai95aDEzV3ZzaHBsZTZzakhvaVlUcDJ0ZWlhS2lF?=
+ =?utf-8?B?cmlUa1F5QmJNRDl5UG14Mm5VbW1BdjlYTldwSVdlQXE2SDdTYzYwbUFNblB6?=
+ =?utf-8?B?dDZOTGpVM2s5bmNscS9ldVVGdnFYbkM2OEpUV1p6cWdRUlFFV2x3Q0d4UzNL?=
+ =?utf-8?B?WEgzNURIQk55Y0JBV3JZOTV4RVhVUHFjQ0plS1h2T3pVVnp1SDBFRTBMUnIv?=
+ =?utf-8?B?amZBNXBFYmZsbm14bDhmaWI3ajF3YzQwTGs2NDBKWkR0c0JsUGhVaWZ1anZt?=
+ =?utf-8?B?ajhDMmgwaFNNR3lDc3djT3hPSXU4dmxJOTlJSlgrNUh1M2JRWlpQUkpIZVd5?=
+ =?utf-8?B?aHBvaE1uOStseWFaNU1PQjFWVWpkQmQxejg5dldqbGYzUllzYU52a2ZGQW9i?=
+ =?utf-8?B?ay9rSTRmVDlmUlJONXFtYUc0cjdkemh5WjVGMGRFU2pyeHZwZW1ET3N4SllP?=
+ =?utf-8?B?cWZRdTRvaFQyUDIyOS9sWGNjb2JxT1lTUmFtcU80Z0U0WktFellER0MrZG9x?=
+ =?utf-8?B?akxPbGtHeWErVmpsaElYeHVXTFE4ZWRZTmlFYlk3S2oyUVlKR1RGRUhUcHU3?=
+ =?utf-8?B?cGRkUDBUZDVGVlNMaXRLNnp3dEZBLzhlQkJUSXlCcjNlQTVCdDd2RGMrUjhH?=
+ =?utf-8?B?S1Q5WFpFNEV0MzhBaGx4eTE4U1lnK1VwMnM2OHVpSGhuUTN3VmdVNjZzQXFy?=
+ =?utf-8?B?ZndFT0Z2MUFxajRFQTl1Y2haSmFBdGdoWml4ZGlDNUZ5M1BTWWh5NmpocTFq?=
+ =?utf-8?B?M2JFUi9YL3VjdnlBYlVKR3FtaUJ6ZlpTNCtqek1pSmRqSEZ5WDFZbVhIL3pq?=
+ =?utf-8?B?OGNaS084elNXcnNGSjVjTHloOVhBeG13Rm9kc0ZpSC9ETVFmR2NLL3FnUzk1?=
+ =?utf-8?B?VlFEOXNsQ0tyUDRKZHpyOEMzVDVKQmpkYnl2K2IrbDBEWnJXeXpzMk1sd0FV?=
+ =?utf-8?B?TUNFZkp6R0M3UXhmWGNJVHU4bEgzbFFEd0ZoSk1VSU1kTTl3S0lJeGsyK2ZL?=
+ =?utf-8?Q?e2WZRrrCxj12wZImvk/uGIsbYCk5qsXjumK8L?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3fcc2935-971f-4f51-f00d-08ded23094a6
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jun 2026 20:38:42.8695
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: We5LYf4C0VM2+ExOj6BuAJoJdX3BZCaj32ju/4JmUig2688ME0MFphY10hYLKaodq3FiFkuRNFS77W+FBNsf6feoT0KTP37QahldqkwyMy9O3sGo8FACr0Z2InU/QsUH
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB11335
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_130241_070913_8FDC2F50 
-X-CRM114-Status: GOOD (  19.98  )
+X-CRM114-CacheID: sfid-20260624_133846_635497_305DBE07 
+X-CRM114-Status: GOOD (  13.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,54 +166,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 24, 2026 at 02:35:14PM -0500, Frank Li wrote:
-> On Wed, Jun 24, 2026 at 10:19:35PM +0300, Laurent Pinchart wrote:
-> > On Wed, Jun 24, 2026 at 01:00:08PM -0400, Frank.Li@oss.nxp.com wrote:
-> > > Add new helper macro fwnode_graph_for_each_endpoint_scoped() and use it
-> > > simplify media code.
-> > >
-> > > Typical example should qualcomm's driver (camss.c), the v4l2_mc.c and
-> > > rkisp1-dev.c only silience improvement.
-> > >
-> > > Anyways, *_for_each_*_scoped() already use widely and make code clean.
-> > >
-> > > Build test only.
-> > >
-> > > Sakari Ailus:
-> > > 	when I try to improve the patch
-> > > "Add common helper library for 1-to-1 subdev registration", I found need
-> > > camss.c pattern, so I create this small improvement firstly.
-> >
-> > Those are nice cleanups, thank you.
-> >
-> > After applying this series, the only left users of the
-> > fwnode_graph_for_each_endpoint() macro are in drivers/base/property.c.
-> 
-> I already checked previously, two place use it.
-> 
-> fwnode_graph_get_endpoint_count(), it will go though all endpoints, last
-> ep is NULL, which totally equial to scoped() version.
-> 
-> another one fwnode_graph_get_endpoint_by_id(), which return ep, expect
-> caller to call put().
-> 
-> if use scoped() version, need use no_free_ptr() at return, which make think
-> a little bit complex.
+From: Frank Li <Frank.Li@nxp.com>
 
-It would introduce a tiny bit of extra complexity there, but the
-advantage (in my opinion) is that we'll be able to remove the less safe
-fwnode_graph_for_each_endpoint() macro.
+Each media pad is associated with a firmware node endpoint. Capture the
+parsed V4L2 fwnode endpoint information in struct media_pad so it can be
+reused by consumers.
 
-Now one may argue that the risk of
-fwnode_graph_for_each_endpoint_scoped() is returning the iterator
-without using no_free_ptr(). I wonder if that would be easier to catch
-in static analysis tools than the current pattern that leaks a reference
-when exiting the loop early.
+This avoids reparsing firmware node endpoint data every time the endpoint
+configuration is needed, reduces duplicate code, and provides a common
+place to store endpoint properties associated with a pad.
 
-> It'd better leave these as it.
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
+---
+Assume 1 to 1 map between dt's endpoint to medie pad.
+Change in v6
+- new patch
+---
+ include/media/media-entity.h | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/include/media/media-entity.h b/include/media/media-entity.h
+index d9b72cd87d524..4a3785cd9f370 100644
+--- a/include/media/media-entity.h
++++ b/include/media/media-entity.h
+@@ -20,6 +20,8 @@
+ #include <linux/minmax.h>
+ #include <linux/types.h>
+ 
++#include <media/v4l2-fwnode.h>
++
+ /* Enums used internally at the media controller to represent graphs */
+ 
+ /**
+@@ -230,6 +232,7 @@ enum media_pad_signal_type {
+  * @flags:	Pad flags, as defined in
+  *		:ref:`include/uapi/linux/media.h <media_header>`
+  *		(seek for ``MEDIA_PAD_FL_*``)
++ * @vep:	associated fwnode endpoint information
+  * @pipe:	Pipeline this pad belongs to. Use media_entity_pipeline() to
+  *		access this field.
+  */
+@@ -240,7 +243,7 @@ struct media_pad {
+ 	u16 num_links;
+ 	enum media_pad_signal_type sig_type;
+ 	unsigned long flags;
+-
++	struct v4l2_fwnode_endpoint vep;
+ 	/*
+ 	 * The fields below are private, and should only be accessed via
+ 	 * appropriate functions.
 
 -- 
-Regards,
+2.43.0
 
-Laurent Pinchart
 
