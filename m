@@ -4,80 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43F98CD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 00:33:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25DC2CDB479
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 02:15:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Zhe/bJuWNQFZCQRQ2U29gnWogyLVcmbEkUk0S/YP6HE=; b=0cfG6vrNqsijmP7GZacNz0jb8O
-	J+C5G7ygMoaWYOkLsfOEJ94jV1DUTZPHt9JSYsqAY4G9Yc81gruRhBEXd3diBAuGiivzNShrQ3m3u
-	Itfa1U+u0KPzlFrtbuUmm1v2VoSZoM3R3xKhBQKwMxzzNDaY4o1c+nsd5rHKmcbTBmdqkLXQeL0rR
-	6aHdwBljSbT6uNh7L0Ab/SF0nVWFVTKqQMdXvROc4HY6BlU7+e9bJc/1ZvsAJhb12HFmTt8/ZAYqR
-	PfsB7IgMCGj7x3AgGRNGTWf6x4vy6ofFB1CyFvwAev6/eGhXCbVGBVCSEHCWcgtRpfNP8Bk8K1OIg
-	tLcfJhmA==;
+	bh=dnvoFrJhlJCL9e81EXyvHBQDfjFBTadCPk/LJUOw2Iw=; b=Zo39mrODrBWqv4JYSx7qiI0yXu
+	W4xmK/ItTRmUjkcH8GI5dPLWbyWNWq9+CN66vTXzjF+ffKmfnQpRhKsKfxn3gkkPB68igcReIcytQ
+	1xN7qfcmxPRo7xQgUYOunGz3WCuBVbw8Ly54VMMnhxVXC9Qhe4o0xHQLswK8/ZgkBluEiMcTXSEqd
+	y5jYDUi0s5fmXfjK//zaGckeJcHmpYSbB5XnfloVt8yjvuV9zcvywCe2FvNoCdkEOp6MBCbd7WUpv
+	+53W9dndQDsnCr+o3h2J6tuIWGzVlTcq7kUf+8JFepimJQvt5mkNuSSR+SC2EFm2PPEJvgagpiTQI
+	9UMY/+gA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcBYR-000000070Rf-07Wq;
-	Wed, 24 Jun 2026 00:33:23 +0000
-Received: from azure-sdnproxy.icoremail.net ([52.229.168.213])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcBYM-000000070RE-0yd6
+	id 1wcD92-000000072ve-0WcY;
+	Wed, 24 Jun 2026 02:15:16 +0000
+Received: from mgamail.intel.com ([192.198.163.18])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wcD8y-000000072vG-2zLq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 00:33:21 +0000
-Received: from zju.edu.cn (unknown [10.98.66.117])
-	by mtasvr (Coremail) with SMTP id _____wDnVtC_JTtqNNIEAw--.19900S3;
-	Wed, 24 Jun 2026 08:33:04 +0800 (CST)
-Received: from localhost.localdomain (unknown [10.98.66.117])
-	by mail-app1 (Coremail) with SMTP id yy_KCgBHl5+_JTtqlq47Ag--.46757S2;
-	Wed, 24 Jun 2026 08:33:03 +0800 (CST)
-From: Fan Wu <fanwu01@zju.edu.cn>
-To: mirela.rabulea@nxp.com,
-	mchehab@kernel.org
-Cc: shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	imx@lists.linux.dev,
-	linux-media@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Fan Wu <fanwu01@zju.edu.cn>
-Subject: [PATCH] media: imx-jpeg: finish the job on device_run() error paths
-Date: Wed, 24 Jun 2026 00:32:08 +0000
-Message-Id: <20260624003208.12400-1-fanwu01@zju.edu.cn>
-X-Mailer: git-send-email 2.34.1
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: yy_KCgBHl5+_JTtqlq47Ag--.46757S2
-X-CM-SenderInfo: qrstjiaswqq6lmxovvfxof0/
-X-CM-DELIVERINFO: =?B?xwzJ2QXKKxbFmtjJiESix3B1w3vZ3A9ovKVTomAyoQazvoRs/NHSP8GI2EvgeEEW7R
-	sfnVCjTgEH9dVomQuWcozCBBFB48mKC5DDzTCdDpjvUvjuGCGVJYTzvwsltdPDHA6IOBJZ
-	R1Ezv3MDA86MpxTOsUDN5RPxYw6l01w8CbPzC/8w
-X-Coremail-Antispam: 1Uk129KBj93XoWxuF13trWDuFWUZF43JFWxXwc_yoW5ury5pr
-	ZIgryqkFyFqrs7tF4xtr4UAF1Yyrn3uF42ga18Ww1ku34agF4DtF40k3WUtF17tas29F1F
-	qw4qvwsrurWDCFXCm3ZEXasCq-sJn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7KY7ZEXa
-	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
-	0xBIdaVrnRJUUUPIb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2
-	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
-	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
-	0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjcxK6I8E87Iv6xkF7I0E
-	14v26r4UJVWxJr1lnxkEFVAIw20F6cxK64vIFxWle2I262IYc4CY6c8Ij28IcVAaY2xG8w
-	AqjxCEc2xF0cIa020Ex4CE44I27wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8I
-	cVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjc
-	xG0xvY0x0EwIxGrwACjcxG0xvY0x0EwIxGrVCF72vEw4AK0wACI402YVCY1x02628vn2kI
-	c2xKxwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14
-	v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkG
-	c2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI
-	0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4U
-	MIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07jbo7NUUU
-	UU=
+	Wed, 24 Jun 2026 02:15:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1782267313; x=1813803313;
+  h=date:from:to:cc:subject:message-id;
+  bh=nIOHiv7R/Ej0NPY4DBIL60TFcFt6IO2/67c9boxiK2Y=;
+  b=A7PVMyCvEpZfJBOkz4SzSDP8pjJWv231x+VnwErNg1UJn0IDl2vpo/MO
+   4HbFpUJ0luVuLUxQD+p0xZJmlp/EDN4mwVwaIuvncsnYMLeNTQ8PPBjHn
+   lRQe9Wmi+3T8PbAA5z6fRuo1O2quxN2lpNfkYKcRDvoIo7qM4DYIbo734
+   rj6tSVwLmnMsSN+tXjTGhDhUlukOefhg5nhz2t0OTzKfCSZweGu4Ak7FI
+   EtF3PpxbRRfj2b+BbHkrTc4j0NkxffWoCOSbFF0VfvKJEJPuNWeUsiTiJ
+   b+pSbMuISQvQzTOp/cP9nlyFsU8tzBZSyjEA7WAvvasf4nerSU4QuoTkh
+   A==;
+X-CSE-ConnectionGUID: b7mdqGeoTxWI65ur7rvyAA==
+X-CSE-MsgGUID: fNK4cx9QSTiuay0MZvccEQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11826"; a="82126954"
+X-IronPort-AV: E=Sophos;i="6.24,221,1774335600"; 
+   d="scan'208";a="82126954"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jun 2026 19:15:11 -0700
+X-CSE-ConnectionGUID: h+ag6gclS8GX5RbjovsZeg==
+X-CSE-MsgGUID: psk0ALP4QPWzMSBtzp35Mw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.24,221,1774335600"; 
+   d="scan'208";a="254779758"
+Received: from igk-lkp-server01.igk.intel.com (HELO 892db79562d4) ([10.211.93.152])
+  by fmviesa005.fm.intel.com with ESMTP; 23 Jun 2026 19:15:08 -0700
+Received: from kbuild by 892db79562d4 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wcD8s-000000006K1-0825;
+	Wed, 24 Jun 2026 02:15:06 +0000
+Date: Wed, 24 Jun 2026 04:14:15 +0200
+From: kernel test robot <lkp@intel.com>
+To: Will Deacon <will@kernel.org>
+Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ Marc Zyngier <maz@kernel.org>, Arnd Bergmann <arnd@arndb.de>
+Subject: [arm64:for-next/core 12/12]
+ usr/include/asm/sigcontext.h:81:9: error: unknown type name '__u128'; did you
+ mean '__u32'?
+Message-ID: <202606240441.7eZ1TIRM-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_173318_586515_D561FE80 
-X-CRM114-Status: UNSURE (   9.20  )
+X-CRM114-CacheID: sfid-20260623_191512_812488_63430DD9 
+X-CRM114-Status: UNSURE (   8.84  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -93,89 +85,346 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-mxc_jpeg_device_run() returns early through a shared "end" label on several
-error paths (no free slot, mxc_jpeg_alloc_slot_data() failure, or missing
-buffers or queue data), and none of them calls v4l2_m2m_job_finish().
-Since the delayed work is queued only after the hardware is started, those
-paths neither finish the job directly nor queue timeout work that could
-finish it later. The job is left with TRANS_RUNNING set, so the
-wait_event() in v4l2_m2m_cancel_job() (reached from v4l2_m2m_ctx_release()
-at close) waits indefinitely and the close hangs.
+Hi Will,
 
-mxc_jpeg_alloc_slot_data() uses dma_alloc_coherent(), so the failure path
-is reachable under memory pressure.
+FYI, the error/warning was bisected to this commit, please ignore it if it's irrelevant.
 
-Return the src/dst buffers with VB2_BUF_STATE_ERROR and call
-v4l2_m2m_job_finish() on those paths: paths that have buffers use a
-"buf_finish" label; the no-buffer path uses "job_finish" directly. This
-mirrors the existing jpeg_parse_error path.
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git for-next/core
+head:   9d6306113f921dc00793df46f31ed46583c720df
+commit: 9d6306113f921dc00793df46f31ed46583c720df [12/12] arm64: uapi: Use __u128 instead of __uint128_t in UAPI headers
+config: arm64-allnoconfig-bpf (https://download.01.org/0day-ci/archive/20260624/202606240441.7eZ1TIRM-lkp@intel.com/config)
+compiler: aarch64-linux-gnu-gcc (Debian 14.2.0-19) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260624/202606240441.7eZ1TIRM-lkp@intel.com/reproduce)
 
-This bug was found by static analysis.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202606240441.7eZ1TIRM-lkp@intel.com/
 
-Fixes: 2db16c6ed72c ("media: imx-jpeg: Add V4L2 driver for i.MX8 JPEG Encoder/Decoder")
-Cc: stable@vger.kernel.org
-Signed-off-by: Fan Wu <fanwu01@zju.edu.cn>
----
- .../media/platform/nxp/imx-jpeg/mxc-jpeg.c    | 21 +++++++++++++------
- 1 file changed, 15 insertions(+), 6 deletions(-)
+Note: the arm64/for-next/core HEAD 9d6306113f921dc00793df46f31ed46583c720df builds fine.
+      It only hurts bisectability.
 
-diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-index 9e4a813489c0..6b224a19f40e 100644
---- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-+++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-@@ -1525,15 +1525,15 @@ static void mxc_jpeg_device_run(void *priv)
- 	dst_buf = v4l2_m2m_next_dst_buf(ctx->fh.m2m_ctx);
- 	if (!src_buf || !dst_buf) {
- 		dev_err(dev, "Null src or dst buf\n");
--		goto end;
-+		goto job_finish;
- 	}
- 
- 	q_data_cap = mxc_jpeg_get_q_data(ctx, V4L2_BUF_TYPE_VIDEO_CAPTURE);
- 	if (!q_data_cap)
--		goto end;
-+		goto buf_finish;
- 	q_data_out = mxc_jpeg_get_q_data(ctx, V4L2_BUF_TYPE_VIDEO_OUTPUT);
- 	if (!q_data_out)
--		goto end;
-+		goto buf_finish;
- 	src_buf->sequence = q_data_out->sequence++;
- 	dst_buf->sequence = q_data_cap->sequence++;
- 
-@@ -1571,11 +1571,11 @@ static void mxc_jpeg_device_run(void *priv)
- 	ctx->slot = mxc_get_free_slot(&jpeg->slot_data);
- 	if (ctx->slot < 0) {
- 		dev_err(dev, "No more free slots\n");
--		goto end;
-+		goto buf_finish;
- 	}
- 	if (!mxc_jpeg_alloc_slot_data(jpeg)) {
- 		dev_err(dev, "Cannot allocate slot data\n");
--		goto end;
-+		goto buf_finish;
- 	}
- 
- 	mxc_jpeg_enable_slot(reg, ctx->slot);
-@@ -1597,8 +1597,17 @@ static void mxc_jpeg_device_run(void *priv)
- 		mxc_jpeg_dec_mode_go(dev, reg);
- 	}
- 	schedule_delayed_work(&ctx->task_timer, msecs_to_jiffies(hw_timeout));
--end:
-+
- 	spin_unlock_irqrestore(&ctx->mxc_jpeg->hw_lock, flags);
-+	return;
-+buf_finish:
-+	v4l2_m2m_src_buf_remove(ctx->fh.m2m_ctx);
-+	v4l2_m2m_dst_buf_remove(ctx->fh.m2m_ctx);
-+	v4l2_m2m_buf_done(src_buf, VB2_BUF_STATE_ERROR);
-+	v4l2_m2m_buf_done(dst_buf, VB2_BUF_STATE_ERROR);
-+job_finish:
-+	spin_unlock_irqrestore(&ctx->mxc_jpeg->hw_lock, flags);
-+	v4l2_m2m_job_finish(jpeg->m2m_dev, ctx->fh.m2m_ctx);
- }
- 
- static int mxc_jpeg_decoder_cmd(struct file *file, void *priv,
--- 
-2.34.1
+All errors (new ones prefixed by >>):
 
+   In file included from /usr/aarch64-linux-gnu/include/bits/sigcontext.h:30,
+                    from /usr/aarch64-linux-gnu/include/signal.h:301,
+                    from testcases/fake_sigreturn_bad_magic.c:10:
+>> usr/include/asm/sigcontext.h:81:9: error: unknown type name '__u128'; did you mean '__u32'?
+      81 |         __u128 vregs[32];
+         |         ^~~~~~
+         |         __u32
+   In file included from ./test_signals.h:14,
+                    from ./test_signals_utils.h:14,
+                    from testcases/fake_sigreturn_bad_magic.c:13:
+>> usr/include/asm/ptrace.h:96:9: error: unknown type name '__u128'; did you mean '__u32'?
+      96 |         __u128          vregs[32];
+         |         ^~~~~~
+         |         __u32
+   usr/include/asm/ptrace.h:261:9: error: unknown type name '__u128'; did you mean '__u32'?
+     261 |         __u128  apiakey;
+         |         ^~~~~~
+         |         __u32
+   usr/include/asm/ptrace.h:262:9: error: unknown type name '__u128'; did you mean '__u32'?
+     262 |         __u128  apibkey;
+         |         ^~~~~~
+         |         __u32
+   usr/include/asm/ptrace.h:263:9: error: unknown type name '__u128'; did you mean '__u32'?
+     263 |         __u128  apdakey;
+         |         ^~~~~~
+         |         __u32
+   usr/include/asm/ptrace.h:264:9: error: unknown type name '__u128'; did you mean '__u32'?
+     264 |         __u128  apdbkey;
+         |         ^~~~~~
+         |         __u32
+   usr/include/asm/ptrace.h:268:9: error: unknown type name '__u128'; did you mean '__u32'?
+     268 |         __u128  apgakey;
+         |         ^~~~~~
+         |         __u32
+   In file included from /usr/aarch64-linux-gnu/include/bits/sigcontext.h:30,
+                    from /usr/aarch64-linux-gnu/include/signal.h:301,
+                    from test_signals.h:7,
+                    from test_signals.c:16:
+>> usr/include/asm/sigcontext.h:81:9: error: unknown type name '__u128'; did you mean '__u32'?
+      81 |         __u128 vregs[32];
+         |         ^~~~~~
+         |         __u32
+   In file included from test_signals.h:14:
+>> usr/include/asm/ptrace.h:96:9: error: unknown type name '__u128'; did you mean '__u32'?
+      96 |         __u128          vregs[32];
+         |         ^~~~~~
+         |         __u32
+   usr/include/asm/ptrace.h:261:9: error: unknown type name '__u128'; did you mean '__u32'?
+     261 |         __u128  apiakey;
+         |         ^~~~~~
+         |         __u32
+   usr/include/asm/ptrace.h:262:9: error: unknown type name '__u128'; did you mean '__u32'?
+     262 |         __u128  apibkey;
+         |         ^~~~~~
+         |         __u32
+   usr/include/asm/ptrace.h:263:9: error: unknown type name '__u128'; did you mean '__u32'?
+     263 |         __u128  apdakey;
+         |         ^~~~~~
+         |         __u32
+   usr/include/asm/ptrace.h:264:9: error: unknown type name '__u128'; did you mean '__u32'?
+     264 |         __u128  apdbkey;
+         |         ^~~~~~
+         |         __u32
+   usr/include/asm/ptrace.h:268:9: error: unknown type name '__u128'; did you mean '__u32'?
+     268 |         __u128  apgakey;
+         |         ^~~~~~
+         |         __u32
+   In file included from /usr/aarch64-linux-gnu/include/bits/sigcontext.h:30,
+                    from /usr/aarch64-linux-gnu/include/signal.h:301,
+                    from test_signals_utils.c:6:
+>> usr/include/asm/sigcontext.h:81:9: error: unknown type name '__u128'; did you mean '__u32'?
+      81 |         __u128 vregs[32];
+         |         ^~~~~~
+         |         __u32
+   In file included from test_signals.h:14,
+                    from test_signals_utils.c:18:
+>> usr/include/asm/ptrace.h:96:9: error: unknown type name '__u128'; did you mean '__u32'?
+      96 |         __u128          vregs[32];
+         |         ^~~~~~
+         |         __u32
+   usr/include/asm/ptrace.h:261:9: error: unknown type name '__u128'; did you mean '__u32'?
+     261 |         __u128  apiakey;
+         |         ^~~~~~
+         |         __u32
+   usr/include/asm/ptrace.h:262:9: error: unknown type name '__u128'; did you mean '__u32'?
+     262 |         __u128  apibkey;
+         |         ^~~~~~
+         |         __u32
+   usr/include/asm/ptrace.h:263:9: error: unknown type name '__u128'; did you mean '__u32'?
+     263 |         __u128  apdakey;
+         |         ^~~~~~
+         |         __u32
+   usr/include/asm/ptrace.h:264:9: error: unknown type name '__u128'; did you mean '__u32'?
+     264 |         __u128  apdbkey;
+         |         ^~~~~~
+         |         __u32
+   usr/include/asm/ptrace.h:268:9: error: unknown type name '__u128'; did you mean '__u32'?
+     268 |         __u128  apgakey;
+         |         ^~~~~~
+         |         __u32
+   In file included from /usr/aarch64-linux-gnu/include/bits/sigcontext.h:30,
+                    from /usr/aarch64-linux-gnu/include/signal.h:301,
+                    from testcases/testcases.h:12,
+                    from testcases/testcases.c:7:
+>> usr/include/asm/sigcontext.h:81:9: error: unknown type name '__u128'; did you mean '__u32'?
+      81 |         __u128 vregs[32];
+         |         ^~~~~~
+         |         __u32
+   In file included from sve_helpers.c:10:
+>> usr/include/asm/sigcontext.h:81:9: error: unknown type name '__u128'; did you mean '__u32'?
+      81 |         __u128 vregs[32];
+         |         ^~~~~~
+         |         __u32
+--
+   In file included from /usr/aarch64-linux-gnu/include/bits/sigcontext.h:30,
+                    from /usr/aarch64-linux-gnu/include/signal.h:301,
+                    from /usr/aarch64-linux-gnu/include/sys/wait.h:36,
+                    from pac.c:8:
+>> usr/include/asm/sigcontext.h:81:9: error: unknown type name '__u128'; did you mean '__u32'?
+      81 |         __u128 vregs[32];
+         |         ^~~~~~
+         |         __u32
+--
+   In file included from /usr/aarch64-linux-gnu/include/bits/sigcontext.h:30,
+                    from /usr/aarch64-linux-gnu/include/signal.h:301,
+                    from /usr/aarch64-linux-gnu/include/sys/wait.h:36,
+                    from fp-ptrace.c:22:
+>> usr/include/asm/sigcontext.h:81:9: error: unknown type name '__u128'; did you mean '__u32'?
+      81 |         __u128 vregs[32];
+         |         ^~~~~~
+         |         __u32
+   In file included from fp-ptrace.c:28:
+>> usr/include/asm/ptrace.h:96:9: error: unknown type name '__u128'; did you mean '__u32'?
+      96 |         __u128          vregs[32];
+         |         ^~~~~~
+         |         __u32
+   usr/include/asm/ptrace.h:261:9: error: unknown type name '__u128'; did you mean '__u32'?
+     261 |         __u128  apiakey;
+         |         ^~~~~~
+         |         __u32
+   usr/include/asm/ptrace.h:262:9: error: unknown type name '__u128'; did you mean '__u32'?
+     262 |         __u128  apibkey;
+         |         ^~~~~~
+         |         __u32
+   usr/include/asm/ptrace.h:263:9: error: unknown type name '__u128'; did you mean '__u32'?
+     263 |         __u128  apdakey;
+         |         ^~~~~~
+         |         __u32
+   usr/include/asm/ptrace.h:264:9: error: unknown type name '__u128'; did you mean '__u32'?
+     264 |         __u128  apdbkey;
+         |         ^~~~~~
+         |         __u32
+   usr/include/asm/ptrace.h:268:9: error: unknown type name '__u128'; did you mean '__u32'?
+     268 |         __u128  apgakey;
+         |         ^~~~~~
+         |         __u32
+--
+   In file included from /usr/aarch64-linux-gnu/include/bits/sigcontext.h:30,
+                    from /usr/aarch64-linux-gnu/include/signal.h:301,
+                    from mte_common_util.h:7,
+                    from check_buffer_fill.c:11:
+>> usr/include/asm/sigcontext.h:81:9: error: unknown type name '__u128'; did you mean '__u32'?
+      81 |         __u128 vregs[32];
+         |         ^~~~~~
+         |         __u32
+   In file included from /usr/aarch64-linux-gnu/include/bits/sigcontext.h:30,
+                    from /usr/aarch64-linux-gnu/include/signal.h:301,
+                    from mte_common_util.c:6:
+>> usr/include/asm/sigcontext.h:81:9: error: unknown type name '__u128'; did you mean '__u32'?
+      81 |         __u128 vregs[32];
+         |         ^~~~~~
+         |         __u32
+--
+   In file included from system.h:20,
+                    from test.c:7:
+>> usr/include/asm/ptrace.h:96:9: error: unknown type name '__u128'; did you mean '__u32'?
+      96 |         __u128          vregs[32];
+         |         ^~~~~~
+         |         __u32
+   usr/include/asm/ptrace.h:261:9: error: unknown type name '__u128'; did you mean '__u32'?
+     261 |         __u128  apiakey;
+         |         ^~~~~~
+         |         __u32
+   usr/include/asm/ptrace.h:262:9: error: unknown type name '__u128'; did you mean '__u32'?
+     262 |         __u128  apibkey;
+         |         ^~~~~~
+         |         __u32
+   usr/include/asm/ptrace.h:263:9: error: unknown type name '__u128'; did you mean '__u32'?
+     263 |         __u128  apdakey;
+         |         ^~~~~~
+         |         __u32
+   usr/include/asm/ptrace.h:264:9: error: unknown type name '__u128'; did you mean '__u32'?
+     264 |         __u128  apdbkey;
+         |         ^~~~~~
+         |         __u32
+   usr/include/asm/ptrace.h:268:9: error: unknown type name '__u128'; did you mean '__u32'?
+     268 |         __u128  apgakey;
+         |         ^~~~~~
+         |         __u32
+   In file included from test.c:14:
+>> usr/include/asm/sigcontext.h:81:9: error: unknown type name '__u128'; did you mean '__u32'?
+      81 |         __u128 vregs[32];
+         |         ^~~~~~
+         |         __u32
+--
+   In file included from system.h:20,
+                    from signal.c:7:
+>> usr/include/asm/ptrace.h:96:9: error: unknown type name '__u128'; did you mean '__u32'?
+      96 |         __u128          vregs[32];
+         |         ^~~~~~
+         |         __u32
+   usr/include/asm/ptrace.h:261:9: error: unknown type name '__u128'; did you mean '__u32'?
+     261 |         __u128  apiakey;
+         |         ^~~~~~
+         |         __u32
+   usr/include/asm/ptrace.h:262:9: error: unknown type name '__u128'; did you mean '__u32'?
+     262 |         __u128  apibkey;
+         |         ^~~~~~
+         |         __u32
+   usr/include/asm/ptrace.h:263:9: error: unknown type name '__u128'; did you mean '__u32'?
+     263 |         __u128  apdakey;
+         |         ^~~~~~
+         |         __u32
+   usr/include/asm/ptrace.h:264:9: error: unknown type name '__u128'; did you mean '__u32'?
+     264 |         __u128  apdbkey;
+         |         ^~~~~~
+         |         __u32
+   usr/include/asm/ptrace.h:268:9: error: unknown type name '__u128'; did you mean '__u32'?
+     268 |         __u128  apgakey;
+         |         ^~~~~~
+         |         __u32
+--
+   In file included from /usr/aarch64-linux-gnu/include/bits/sigcontext.h:30,
+                    from /usr/aarch64-linux-gnu/include/signal.h:301,
+                    from tools/testing/selftests/cgroup/lib/cgroup_util.c:9:
+>> usr/include/asm/sigcontext.h:81:9: error: unknown type name '__u128'; did you mean '__u32'?
+      81 |         __u128 vregs[32];
+         |         ^~~~~~
+         |         __u32
+   cc1: note: unrecognized command-line option '-Wno-gnu-variable-sized-type-not-at-end' may have been intended to silence earlier diagnostics
+--
+   In file included from /usr/aarch64-linux-gnu/include/bits/sigcontext.h:30,
+                    from /usr/aarch64-linux-gnu/include/signal.h:301,
+                    from include/test_util.h:12,
+                    from include/kvm_util.h:8,
+                    from demand_paging_test.c:17:
+>> usr/include/asm/sigcontext.h:81:9: error: unknown type name '__u128'; did you mean '__u32'?
+      81 |         __u128 vregs[32];
+         |         ^~~~~~
+         |         __u32
+   In file included from usr/include/asm/kvm.h:37,
+                    from usr/include/linux/kvm.h:16,
+                    from include/kvm_util.h:14:
+>> usr/include/asm/ptrace.h:96:9: error: unknown type name '__u128'; did you mean '__u32'?
+      96 |         __u128          vregs[32];
+         |         ^~~~~~
+         |         __u32
+   usr/include/asm/ptrace.h:261:9: error: unknown type name '__u128'; did you mean '__u32'?
+     261 |         __u128  apiakey;
+         |         ^~~~~~
+         |         __u32
+   usr/include/asm/ptrace.h:262:9: error: unknown type name '__u128'; did you mean '__u32'?
+     262 |         __u128  apibkey;
+         |         ^~~~~~
+         |         __u32
+   usr/include/asm/ptrace.h:263:9: error: unknown type name '__u128'; did you mean '__u32'?
+     263 |         __u128  apdakey;
+         |         ^~~~~~
+         |         __u32
+   usr/include/asm/ptrace.h:264:9: error: unknown type name '__u128'; did you mean '__u32'?
+     264 |         __u128  apdbkey;
+         |         ^~~~~~
+         |         __u32
+   usr/include/asm/ptrace.h:268:9: error: unknown type name '__u128'; did you mean '__u32'?
+     268 |         __u128  apgakey;
+         |         ^~~~~~
+         |         __u32
+   cc1: note: unrecognized command-line option '-Wno-gnu-variable-sized-type-not-at-end' may have been intended to silence earlier diagnostics
+--
+   In file included from usr/include/asm/kvm.h:37,
+                    from usr/include/linux/kvm.h:16,
+                    from lib/arm64/gic_v3_its.c:7:
+>> usr/include/asm/ptrace.h:96:9: error: unknown type name '__u128'; did you mean '__u32'?
+      96 |         __u128          vregs[32];
+         |         ^~~~~~
+         |         __u32
+   usr/include/asm/ptrace.h:261:9: error: unknown type name '__u128'; did you mean '__u32'?
+     261 |         __u128  apiakey;
+         |         ^~~~~~
+         |         __u32
+   usr/include/asm/ptrace.h:262:9: error: unknown type name '__u128'; did you mean '__u32'?
+     262 |         __u128  apibkey;
+         |         ^~~~~~
+         |         __u32
+   usr/include/asm/ptrace.h:263:9: error: unknown type name '__u128'; did you mean '__u32'?
+     263 |         __u128  apdakey;
+         |         ^~~~~~
+         |         __u32
+   usr/include/asm/ptrace.h:264:9: error: unknown type name '__u128'; did you mean '__u32'?
+     264 |         __u128  apdbkey;
+         |         ^~~~~~
+         |         __u32
+   usr/include/asm/ptrace.h:268:9: error: unknown type name '__u128'; did you mean '__u32'?
+     268 |         __u128  apgakey;
+         |         ^~~~~~
+         |         __u32
+   In file included from /usr/aarch64-linux-gnu/include/bits/sigcontext.h:30,
+                    from /usr/aarch64-linux-gnu/include/signal.h:301,
+                    from include/test_util.h:12,
+                    from include/kvm_util.h:8,
+                    from lib/arm64/gic_v3_its.c:12:
+>> usr/include/asm/sigcontext.h:81:9: error: unknown type name '__u128'; did you mean '__u32'?
+      81 |         __u128 vregs[32];
+         |         ^~~~~~
+         |         __u32
+   cc1: note: unrecognized command-line option '-Wno-gnu-variable-sized-type-not-at-end' may have been intended to silence earlier diagnostics
+..
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
