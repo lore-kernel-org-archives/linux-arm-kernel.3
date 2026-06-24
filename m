@@ -4,67 +4,182 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E22ADCDB479
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 09:30:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66A9BCDB479
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 09:41:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4QMMjNpI69PAa5UDyxQM/MTLmW5DUOCi7kZy5jsq3RQ=; b=MA1NOvE3KNkd0kHwmn78vObtYa
-	HG80gpVIPfIDCvyb1xshHQn0WE9eRhnf8N/2it5zrVDbi0/YspAA7H3L6UnwC9eZgyWstz7+U7W/x
-	8cEdzsJSr4zHPW5sqxg+lZgMD3O8GLhQg9EW5yBuExlJvM1wVJ0Dr43DGT3jkmvz0yBGQAXye6nLp
-	Pabchh5/pKJ3AXFC7k8+u8hf7l0Q35lvgcAVrFtZLf6Gc1cK/dOUXvIqVBl3DGta32kcZacnwKAhc
-	UdQOqryOB21dBclzbBBnqnsCFl7ZKizNIiX2ioIsEt0tpVLeWELERv41FltcUyBqb2t/+der7+bh5
-	2zohxKoQ==;
+	bh=fXRvepxGG46kMkNEZqCRCACd3A9TAe5y/21+2jCPxRk=; b=OcRwEk6eB5zlLLHw0ozHw//OYi
+	dWP+bwUPow1o1QTG9TL+1F+0V1Yemu1TlKXxrqIBF/hZnxIg7VOJNWXIoSryjR+YBCwQGigAg6TXa
+	pH/4dC05BxD7JMLkMFz/I+C8LqkQWHokGeqcunSwXW9cJkTVc93jxB36Y5MzHub/G6FeL2R5SSnsp
+	QtKLjI2Y+3PB0hSbhfpL020dzoUXXhi9ccRCpLO/CaSuDJnz6SYIqSunjZZBSWmvy3GLZix/Yy5CH
+	7kify5oZYiM+LWi5pBszw1ua0YTF3uuGSW5d0nMW2GWDpo/fZLopO9mMTPCF0Tz5VPPgveEw/tyUY
+	kuKslvDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcJve-00000007VuT-36Ns;
-	Wed, 24 Jun 2026 09:29:54 +0000
-Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
+	id 1wcK75-00000007Wpl-21mA;
+	Wed, 24 Jun 2026 09:41:43 +0000
+Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcJva-00000007VtS-3bKt
+	id 1wcK72-00000007Wov-24Jm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 09:29:52 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=4QMMjNpI69PAa5UDyxQM/MTLmW5DUOCi7kZy5jsq3RQ=;
-	b=V9GpuCanuGjCEPD4H56OUkLlvDMt0gkYOCkZR8+B9KreN26eSlKmhlmiunfix2+EXMNigTEL6
-	KtBlV2Zhmrqwzl69BOruONcM/y3sMWCcCDQhexKHzCaReAyp/gBa4mtjl9w+tHCJKo5q3uWTnNL
-	uWlY4wJcfYVvxF3nf4vyWQk=
-Received: from mail.maildlp.com (unknown [172.19.162.140])
-	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4glbyK57lqz1prKy;
-	Wed, 24 Jun 2026 17:20:41 +0800 (CST)
-Received: from dggpemf500013.china.huawei.com (unknown [7.185.36.188])
-	by mail.maildlp.com (Postfix) with ESMTPS id 0F3D52012A;
-	Wed, 24 Jun 2026 17:29:49 +0800 (CST)
-Received: from [10.67.121.183] (10.67.121.183) by
- dggpemf500013.china.huawei.com (7.185.36.188) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 24 Jun 2026 17:29:48 +0800
-Message-ID: <a6e6a636-4e16-465e-8a65-bff671c94ef5@huawei.com>
-Date: Wed, 24 Jun 2026 17:29:47 +0800
+	Wed, 24 Jun 2026 09:41:42 +0000
+Received: from pps.filterd (m0374956.ppops.net [127.0.0.1])
+	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65O5tG4Q3782753;
+	Wed, 24 Jun 2026 04:41:19 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=fXRvepxGG46kMkNEZqCRCACd3A9TAe5y/21+2jCPx
+	Rk=; b=P8Xr3iMXO3qpM5AzaV6/2UL/T4wWA98lPQvA3D2I0uZthygy3xuIJSedI
+	eWQjW7orJ+zl790rVak086gECpMTkypSxmej10/o34UOpmvfuVBcOhr/vkQTSk1I
+	jqz8nL2kwLVf4sNwgQe9OeMUoavJ3vpT14SivNsYBLvWSoNFED1a4muNMpPTbeFd
+	e7vkwZmgA5s0Wt6ZmjtDYhCyxxj0spPqFVGMa/dD3JNAeobakkjSmq4i2tcB+WjE
+	3f5HoXEpLTJvROHN6kUCU/rY+FsC12aGFE1ACmkZTt9tFmHUU9i5Uc0TG+ZuBsQ1
+	Fo+Xl5484QGIJHCtFaulwrDrnJ3rw==
+Received: from mw6pr02cu001.outbound.protection.outlook.com (mail-westus2azon11012025.outbound.protection.outlook.com [52.101.48.25])
+	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4eyten6wk7-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 24 Jun 2026 04:41:19 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uNl1+eUrXXwxMrYldhG01yZwS9Cq3GdUDDTquXMhwAim7+JtfnKTqbiY+IO0fvid6x3qV+3YZxKHM5wz5PYnH2s1dwbnmYIlCJVT5bGWZzqnAJMzBtagF2XDkIqq18RZfT3Y1CdCrq660X1q2kn2DRh6FcLSsbdeR1dO01G0QcjEeBC5Yl4xPt1gmaCI8HjXMkR8ZlkJyDAdXKyAD9hv3pf5O0eclnBr9K6QiphODdTY4YdFsE64V4bnSskAoKO+Ojt54GRvD/No8jBJsg1Ado9OLzpTzSG3ynMq9hRMdNUuT7lSdLBqbUxghuBpPXFNkDCiNinPLodk0gnhH5MrKw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=fXRvepxGG46kMkNEZqCRCACd3A9TAe5y/21+2jCPxRk=;
+ b=MlmQHQmjtvlBzXKyjmdrMynFrP4hcJjKcjzgI4H2c2pw0fwyIAk+KNrJChRPIZzkpJz4o2tSFSxLQQ7JjWTBNf3yoPEWBB4YZed2tjhb2oqkLEubRSONUkGDvZZOP25YECWbd54+nxXuIH2TPa6SQ9o+1CSOVRLicmRos7JV0yLgPhZdSPyTz87nDlUqod5mFotb56JZKjXCV/D1evcwG7irc8bTpHTv+AygfXMzKnL5XFyXQaJNYwKUvSwUuNs5p6f89Rf8SrAKoKIdxKsskouAZ8PsjIbxOCKG6P9mUuhawVbHjlErMJAnKzXBapgxr55+AVg3cRFc+HL0522R9g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=fXRvepxGG46kMkNEZqCRCACd3A9TAe5y/21+2jCPxRk=;
+ b=JOHTXNmXvlPcCzQxY5EVi4hq5lKYQWnWcLQl55EwyMIMvW3Svli3SYCpsn5yWdyjxRGaKzu/0EtfEdDX7U20j+jGc29a/M1ganSnYyH0t+BEb5CkeWXdKhrHlEwcigD8+SNoey2B9+b0ecKSGGzFRZRaa4n85IgBUv4Hlja/5us=
+Received: from CH5P223CA0008.NAMP223.PROD.OUTLOOK.COM (2603:10b6:610:1f3::29)
+ by CH4PR10MB8028.namprd10.prod.outlook.com (2603:10b6:610:23d::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.18; Wed, 24 Jun
+ 2026 09:41:16 +0000
+Received: from CH3PEPF0000000F.namprd04.prod.outlook.com
+ (2603:10b6:610:1f3:cafe::5f) by CH5P223CA0008.outlook.office365.com
+ (2603:10b6:610:1f3::29) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.159.14 via Frontend Transport; Wed,
+ 24 Jun 2026 09:41:16 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ CH3PEPF0000000F.mail.protection.outlook.com (10.167.244.40) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.159.10 via Frontend Transport; Wed, 24 Jun 2026 09:41:16 +0000
+Received: from DLEE214.ent.ti.com (157.170.170.117) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 24 Jun
+ 2026 04:41:15 -0500
+Received: from DLEE213.ent.ti.com (157.170.170.116) by DLEE214.ent.ti.com
+ (157.170.170.117) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 24 Jun
+ 2026 04:41:15 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE213.ent.ti.com
+ (157.170.170.116) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Wed, 24 Jun 2026 04:41:15 -0500
+Received: from [10.24.52.205] (a0512632.dhcp.ti.com [10.24.52.205])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 65O9f9XI724906;
+	Wed, 24 Jun 2026 04:41:10 -0500
+Message-ID: <e9ca1b98-afb8-4336-9bbb-d497e8bbc287@ti.com>
+Date: Wed, 24 Jun 2026 15:11:09 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH] irqchip/gic-v3-its: enable dynamic MSI-X allocation
-To: Marc Zyngier <maz@kernel.org>
-CC: <lpieralisi@kernel.org>, <tglx@kernel.org>, <alex@shazbot.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<liuyonglong@huawei.com>, <wangzhou1@hisilicon.com>, <linuxarm@huawei.com>
-References: <20260624025345.458387-1-yangjinqian1@huawei.com>
- <86o6h0quvj.wl-maz@kernel.org>
-From: Jinqian Yang <yangjinqian1@huawei.com>
-In-Reply-To: <86o6h0quvj.wl-maz@kernel.org>
+Subject: Re: [PATCH v3 07/15] drm/tidss: oldi: Remove define for unused
+ register OLDI_LB_CTRL
+To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+        Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Rob Herring <robh@kernel.org>,
+        "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Lee
+ Jones <lee@kernel.org>,
+        Aradhya Bhatia <aradhya.bhatia@linux.dev>, Nishanth
+ Menon <nm@ti.com>,
+        Vignesh Raghavendra <vigneshr@ti.com>,
+        Devarsh Thakkar
+	<devarsht@ti.com>,
+        Louis Chauvet <louis.chauvet@bootlin.com>
+CC: <devicetree@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+References: <20260529-beagley-ai-display-v3-0-7fefdc5d1adf@ideasonboard.com>
+ <20260529-beagley-ai-display-v3-7-7fefdc5d1adf@ideasonboard.com>
+Content-Language: en-US
+From: Swamil Jain <s-jain1@ti.com>
+In-Reply-To: <20260529-beagley-ai-display-v3-7-7fefdc5d1adf@ideasonboard.com>
 Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.183]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- dggpemf500013.china.huawei.com (7.185.36.188)
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PEPF0000000F:EE_|CH4PR10MB8028:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6d16aa5f-7f56-4df7-7ab5-08ded1d4bcc9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|36860700016|1800799024|82310400026|7416014|376014|921020|22082099003|18002099003|4143699003|56012099006;
+X-Microsoft-Antispam-Message-Info: iYD6gwzxqWMo+FeGdauswol1jpo0Zd7p0br0yMUN5UcrdJxPMcTfAHJnjPIbkLS1oc7WgVOpz0EvbiRkDsfxKhrTOx2o+B6HTCuaBAl0aI+7TT10Bdq0xp+nIIIjAfQmGIS1Rrl/vpb9UsFfFZZoyqCfG0Yl1dk6iI9DdsW0//MN7SZoLaHuETid71lajKS3NTBbWvUdTYi9aKNT2PS7Q6LRC99LxdiwZiBKPpAOvkZ6OxOozrKIBxXmcKccrUe8IbRIowkJdbKzCP78CJyFgx4iM9jleFpbhHBFb5+iYCL0zMq+fjy69cd+I//fbyFv54t9Vq4jZzSFIeSzQlqTKhlg2HJvEXkvBn9GaJw977Mk/WbVqGF9bkXlMlzspUIJdF2ncsKhTX3c9Dryvmyaq3nr7aL4a5zdJxD34hzJ1WHAVNXxNQLZpmPwoWBFOUlZ03OehT9tn9V5FW6jczC8OFTrdWbgPt80jSt6euj01y88aqw7HPoLMOTk1ivah87QYFHrpewsMDqmsIsNllrGpHEyZoNyLwYm0HAnP2s7nb8MZImGV+toOMbtILFu206d9fkRhkcWZQORQU0/ro60HTf63SZ5f9pVF5Fjpn9eOZxKuYBJd0zWc5K4tADT5G/OYhyYqvdE9Ifm7p3GRCUi4xjBd7N/qlv1z1FvVbqtercyFr8S4QKEZYqxLMnjxrL6f8vMiYB4PYC7h11yZvfHGz7atltsT7u4ah5Bb+/HQIU=
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(1800799024)(82310400026)(7416014)(376014)(921020)(22082099003)(18002099003)(4143699003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: Hp5NI66rorW01tUA1aSzwt+xdTknVs75ElM85BLCH2nY8YDkKTs0OrvhlbG7V9MG409+Ac7oI3tB7f7qzPxZYzs02sjNTnD5hocKSnRyRKe8RqTvsjEYKYSXWaq4g8U3lI9K7hhFglZysgvZIhONP+TMEx36+mpMktVOr5zam4z7nuWCQ5EoMGUNdTKWey1ViTLxEK1t3dyH/aPZbhJID/umShxnkvyu+hwYCJR02CViFDIgfgbpqWE/nauyhHjiOv9o7bCPy1exsmHWsCr4SmI+nZ3KeSTEnXLQwO5MNxbAS03kM3xineQCwkhcAQ/J7VXwjDaoKYeUTeQZpG9w1tWHcQMSvwdkv/RWuRhg8hfQSMKd1ERdaQ48QhGMnW27ds53m8ZNt6ENvTPHXWzQMr2V/ZBiqqEmzUtlQ96i1xt0nDWCd2qsCEeXNgw5BVYE
+X-Exchange-RoutingPolicyChecked: EjAwtPoLtxGtdNZs2R5T2Xui5kpo+nlkg8krR+CrJdx9/LB5smAoqG1qfBaBnS9b8E6QbVvRDMSdlcHsVF3LobmYLI0mC8gjzTTWasZvAjM4Peg5VK2odtm7R94+O50auW1veFkWayRT0yfikJkbsceSEiP5QvhWyemPVTHAt/5o0s7vTm+yaSMVd9u2MtC2MWkt67FCzDjyQxbMvzh5nqokzC+ZsayQ+4zAezFHP+Dv/JaptmdUE/Y6jxkfmTKruextxu2uM7S/VkvThpjSAunqqy0rQMNj3Mi9UaxOFnIbsJsA2JTeliXX1CmP5SyOCX4Ac998XRNHQ7OfDO+Fwg==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jun 2026 09:41:16.2837
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6d16aa5f-7f56-4df7-7ab5-08ded1d4bcc9
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH3PEPF0000000F.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH4PR10MB8028
+X-Authority-Analysis: v=2.4 cv=eO4jSnp1 c=1 sm=1 tr=0 ts=6a3ba63f cx=c_pps
+ a=fLgsFiGMcCN2bMhaTK1NuA==:117 a=f+v6EHfkeJbVwR46tk4DMg==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10
+ a=s63m1ICgrNkA:10 a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=Z8NIEmU8O1QQgoT56wFK:22 a=jwouBfj2j3NM8CExmVVE:22 a=sozttTNsAAAA:8
+ a=P1BnusSwAAAA:8 a=mNI_SQqZokdIuhQb0EsA:9 a=QEXdDO2ut3YA:10
+ a=D0XLA9XvdZm18NrgonBM:22
+X-Proofpoint-GUID: 1fzW0WOOtzaS8mx3DH7csDWArRHxwPeQ
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjI0MDA4MCBTYWx0ZWRfX06Ty2ud2TGmK
+ Pr9NWVbo+QWXYmclK7qrI9B6dFK6Uwf/OQY2RyjS6GZM0u2mN3e0orWnWNERDyTYAHjg5lMzOAx
+ dX1WX/g0rXUxzlgr7u+b4slzPb4qZa8tzV62fs8bOdxuMl0x46JhE/aZm84w3nmNn2fzBr0pfoY
+ 8XOKy79woKjwn1f84O94Wn7HM2P5uFmdeVxyf1ATs/mYVJ133a79vTm+QAO+/RMUmSFZ7/CuTof
+ fUAZPUurfG45gKiPD1mEILa1gkH8HK6zmwJrhgalyr2ALRzMGKXGROyzOtJ0TpQMlSn9awn7LUR
+ 5c2aMx3ej9aKLa9gxEwQXAbNMcePM5UFotWh/UDgL7JfSbwZC2mbgtvR6scx8w0QkcoEISbg0wJ
+ 6TRBAff247HCcDjJoK55ayEjdx0wNXuRyrFZZxuQ7nvWRm2K6J9/AWzh/qbQoVnSIqJKAKVU3HL
+ JBtFTU9twXIoi9HVh8A==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNjI0MDA4MCBTYWx0ZWRfX4LMVVZgK8V6y
+ Um/Tc1bQMu3gaH8lJGDoQGg3TOb/8XS4iD4bqrmmrKQCU5lwsxp+9NBCrpBNJsX0ksUkdKr12Ld
+ A3ThBACsb1dBaVpJBzyi6h0UmLp4qYo=
+X-Proofpoint-ORIG-GUID: 1fzW0WOOtzaS8mx3DH7csDWArRHxwPeQ
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-06-24_02,2026-06-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 priorityscore=1501 bulkscore=0 malwarescore=0 impostorscore=0
+ phishscore=0 clxscore=1011 lowpriorityscore=0 suspectscore=0 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2606240080
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_022951_371436_7BF5EFAE 
-X-CRM114-Status: GOOD (  20.11  )
+X-CRM114-CacheID: sfid-20260624_024140_843559_872F17EE 
+X-CRM114-Status: GOOD (  14.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,92 +196,31 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 2026/6/24 15:07, Marc Zyngier wrote:
-> On Wed, 24 Jun 2026 03:53:45 +0100,
-> Jinqian Yang <yangjinqian1@huawei.com> wrote:
->>
->> On ARM64 platforms with GICv3 ITS, VFIO PCI passthrough currently
->> cannot dynamically allocate MSI-X vectors after MSI-X has been
->> enabled. When QEMU needs to extend the vector range, it must
->> disable MSI-X, free all interrupts, then re-enable with a larger
->> allocation. This creates an interrupt loss window for already-active
->> vectors.
->>
->> Consider HNS3 with RoCE: NIC and RDMA share one PCI device and
->> ITS DeviceID, with MSI-X vectors partitioned as NIC (lower range)
->> then RoCE (starting at base_vector = num_nic_msi). In VFIO
->> passthrough, loading hns_roce after hns3 forces QEMU to tear down
->> all interrupts before re-allocating the larger range. During this
->> process, NIC interrupts may be lost. Testing confirmed that this
->> occasionally occurs, causing the network port reset to fail.
+On 5/29/26 14:15, Tomi Valkeinen wrote:
+> OLDI_LB_CTRL define is not used, and doesn't seem to exist at least on
+> some SoCs. Let's remove the define.
 > 
-> Well, that's what you get for not exposing differentiated functions.
-> Eventually, you face the reality that this is a poor design.
+> Tested-by: Swamil Jain <s-jain1@ti.com>
+> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+> ---
+
+Reviewed-by: Swamil Jain <s-jain1@ti.com>
+
+>   drivers/gpu/drm/tidss/tidss_oldi.h | 1 -
+>   1 file changed, 1 deletion(-)
 > 
-
-Fair point, though this is not unique to HNS3.. All major NIC+RDMA
-vendors share the same PCI function.
-
->>
->> ITS_MSI_FLAGS_SUPPORTED lacks MSI_FLAG_PCI_MSIX_ALLOC_DYN, causing
->> pci_msix_can_alloc_dyn() to return false. VFIO then sets
->> has_dyn_msix=false and never clears VFIO_IRQ_INFO_NORESIZE for
->> MSI-X, keeping the old "disable and reallocate" behavior.
->>
->> The essential prerequisite for enabling this flag is the fix to
->> msi_prepare() call timing (commit 1396e89e09f0 ("genirq/msi: Move
->> prepare() call to per-device allocation")): msi_prepare() is
->> now called once at per-device domain creation with hwsize, so ITS
->> creates an ITT with sufficient capacity for all MSI-X vectors.
->> Without this fix, msi_prepare() was called per-allocation with
->> semi-random nvec, maybe resulting in an ITT too small for dynamic
->> vector addition.
+> diff --git a/drivers/gpu/drm/tidss/tidss_oldi.h b/drivers/gpu/drm/tidss/tidss_oldi.h
+> index 8cd535c5ee65..a361e6dbfce3 100644
+> --- a/drivers/gpu/drm/tidss/tidss_oldi.h
+> +++ b/drivers/gpu/drm/tidss/tidss_oldi.h
+> @@ -20,7 +20,6 @@ struct tidss_oldi;
+>   
+>   /* Register offsets */
+>   #define OLDI_PD_CTRL            0x100
+> -#define OLDI_LB_CTRL            0x104
+>   
+>   /* Power control bits */
+>   #define OLDI_PWRDOWN_TX(n)	BIT(n)
 > 
-> How is this paragraph relevant? The kernel has had this fix for over a
-> year, and backporting this series is not something I plan to ever do.
-> 
-
-Will remove from commit msg.
-
->>
->> With this in place, dynamic MSI-X allocation works correctly:
->> msi_domain_alloc_irq_at() uses populate_alloc_info() to copy the
->> pre-prepared alloc_data without re-invoking msi_prepare(), so each
->> new vector simply gets a LPI entry in the already-allocated ITT,
->> without affecting existing vectors.
->>
->> Signed-off-by: Jinqian Yang <yangjinqian1@huawei.com>
->> ---
->>   drivers/irqchip/irq-gic-its-msi-parent.c | 3 ++-
->>   1 file changed, 2 insertions(+), 1 deletion(-)
->>
->> diff --git a/drivers/irqchip/irq-gic-its-msi-parent.c b/drivers/irqchip/irq-gic-its-msi-parent.c
->> index b9257103a999..b2b9d2068bb1 100644
->> --- a/drivers/irqchip/irq-gic-its-msi-parent.c
->> +++ b/drivers/irqchip/irq-gic-its-msi-parent.c
->> @@ -18,7 +18,8 @@
->>   
->>   #define ITS_MSI_FLAGS_SUPPORTED (MSI_GENERIC_FLAGS_MASK |	\
->>   				 MSI_FLAG_PCI_MSIX      |	\
->> -				 MSI_FLAG_MULTI_PCI_MSI)
->> +				 MSI_FLAG_MULTI_PCI_MSI |	\
->> +				 MSI_FLAG_PCI_MSIX_ALLOC_DYN)
->>   
->>   static int its_translate_frame_address(struct fwnode_handle *msi_node, phys_addr_t *pa)
->>   {
-> 
-> What has this been tested with? In which conditions?
-> 
-
-Tested on Hisilicon HIP09 (ARM64, GICv3/GICv4.1) with latest
-upstream kernel and QEMU 8.2.
-
-VFIO passthrough of HNS3 NIC to VM: load both hns3 and
-hns_roce_hw_v2 drivers, then trigger FLR. Without the flag,
-QEMU disables/re-enables MSI-X around FLR, causing occasional
-link up failure due to interrupt loss.
-
-Thanks,
-Jinqian
 
 
