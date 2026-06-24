@@ -4,72 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC55DCDB481
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 13:04:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E1CFCDB481
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 13:10:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eWHl0udhvjCV2mjGVC5uD1U/TvHNrVW3aXd0HzDYa1U=; b=k4c1X8OokeBCzhaaDdVqosCSly
-	FAT0GuvWJirEnnm3ROj24crs//LryGLFCP44xEJzQGnu48YLeiXA6ATussUSoRH3E1OhcNHLGkwL+
-	uUlSSXHAKAq9XfOgo55rp99fdR29R/Effy0+CB8HhoBloJM+TfOEFFvSkGW01kLV3Sp8HvCVb0AiY
-	Vi+Bp7sGecdU+i6/OXNFv2Twx41kNTvgURmD+446qxNtriYWs/Aeq4xuq00lw+mjphDzL9FiQpQzp
-	7Z35JWz+2SiZQfD9ducvMkLP5eP9xUHVagjBKHNWRA3VkDVzgbAaTBBzNexySt1lRBKzbBTmVsS6q
-	sK4cnYWQ==;
+	bh=gQTOfWdw1qdEOgKqwNzVR7Pe01y3HaMQ9/zsv/ctqT4=; b=xTmCCsQx9KyFv9ZrZLFifNSD+t
+	SqMBuEYVNL3f09g59Q6XUkInEXDmm9wsMgXQmwOg58p6JKyKyLI1UEaW0YsWwZ2pzFSzphzddxGko
+	G4fwJ2TrkZA9APcTOU0U11jOs4E8RuJLutcta1TqMMdVj0PZ433UP2k/ndfbYn87VIbJlzZycupQ3
+	5tUN8rLXqtGby4MuQOfynf6g9g/npYLrgnLwNmkYS/+S4KISqwLo/ajDixywRYSU6LMCtBN351MhB
+	dsAo/WjtIwEY5xoxhJPWtDpxY2UQ3Ft+F8OcnDvV1qaacCzEVevANMedcfBznds/mJH4Up9lkl9+K
+	6KjsJ+lA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcNHF-00000007nMX-0aBE;
-	Wed, 24 Jun 2026 13:04:25 +0000
+	id 1wcNMz-00000007nnB-438p;
+	Wed, 24 Jun 2026 13:10:21 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcNHD-00000007nMG-20gh
+	id 1wcNMy-00000007nmz-14ZF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 13:04:23 +0000
+	Wed, 24 Jun 2026 13:10:20 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 87E3C60018;
-	Wed, 24 Jun 2026 13:04:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C30851F000E9;
-	Wed, 24 Jun 2026 13:04:21 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4C55660018;
+	Wed, 24 Jun 2026 13:10:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA02C1F000E9;
+	Wed, 24 Jun 2026 13:10:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782306262;
-	bh=eWHl0udhvjCV2mjGVC5uD1U/TvHNrVW3aXd0HzDYa1U=;
+	s=k20260515; t=1782306619;
+	bh=gQTOfWdw1qdEOgKqwNzVR7Pe01y3HaMQ9/zsv/ctqT4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=FVDAUURG5/OnVD/2XG5fzA49+V/z3pAgKME/Z9UXdbjAATGJL7M3qh98G+bnxhA8y
-	 zvn8Vir+IzYGhhHsGRzq15UnjwPKF3AWWu37ET7ogGxEu95K7qdVsdQ4W2hTvJMESV
-	 BCwWgJDd84CnVWefJoKqTcKxoZ5DOc0EgfqgJ6eedQs5wdcaHeFoUa+Htx2y3HpN3y
-	 0ehEMWnE+LupoJaQcFZpdLLmP97qbW0M9g2fxDKXUKvgup+VBq3KxMNhTQyHyiZ5fL
-	 AztfsXKYTjbMO6PWpYeSCHDEuxlk0qhkY5eU1VhvqfK7oFMtH/4wyCDTTa0+Fm3JHN
-	 6INBjM3evlPJQ==
-Date: Wed, 24 Jun 2026 15:04:19 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Inki Dae <inki.dae@samsung.com>, 
-	Jagan Teki <jagan@amarulasolutions.com>, Marek Szyprowski <m.szyprowski@samsung.com>, 
-	Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Hui Pu <Hui.Pu@gehealthcare.com>, 
-	Ian Ray <ian.ray@gehealthcare.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 30/37] drm/bridge: add drm_bridge_is_tail() to know
- whether a bridge completes the pipeline
-Message-ID: <20260624-vagabond-neon-gorilla-cd6487@houat>
-References: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
- <20260519-drm-bridge-hotplug-v1-30-45e2bdb3dfb4@bootlin.com>
- <20260608-shapeless-opal-ferret-c8b105@houat>
- <DJ4DGYZ3GQZH.3AZOC0Z69W92S@bootlin.com>
+	b=UJmZbtJFiDGZuKk+oxyxHxmOVjjwlf2PrzJBQ0W/VK8/shpCklgAx5ZSiowjXEDNP
+	 lIMFdlglSHIJRenUx0LhvtJuMxW27HGieQKwwZcVkQ0gas6Ug2+RFVq685c6UIjqMd
+	 m+CKpnotDFCJUZRdBS+ABSHFoJ136FK11xwJt0LiKy+2qS8v5Dx7/CvDWtCMbamktE
+	 AHlAMOdMw9BzgIwZ9XGXhQtlt94KIye1QWJ0pxgoj7KQlgow/eBiPPDM5/hyPOeYI7
+	 zA/8OmZczX+lw66yiKAZyPcQ8xA6Hde98vt5CtNRgwL/HDm+WPkkuG4xpXMiqi5v1o
+	 YhX6/RZ9J94KQ==
+Date: Wed, 24 Jun 2026 08:10:18 -0500
+From: Rob Herring <robh@kernel.org>
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, Brian Masney <bmasney@redhat.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, devicetree@vger.kernel.org,
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH] dt-bindings: clock: renesas: div6: Use ZT/ZTR trace
+ clock in R-Mobile APE6 example
+Message-ID: <20260624131018.GA4064376-robh@kernel.org>
+References: <20260523192622.56605-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="kbqprj5uqeblzkb7"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <DJ4DGYZ3GQZH.3AZOC0Z69W92S@bootlin.com>
+In-Reply-To: <20260523192622.56605-1-marek.vasut+renesas@mailbox.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,127 +75,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sat, May 23, 2026 at 09:25:50PM +0200, Marek Vasut wrote:
+> Since commit 2abdc3dcf978 ("dt-bindings: clock: renesas,cpg-clocks:
+> Document ZT/ZTR trace clock on R-Mobile APE6"), the APE6 clock node
+> expects two additional "clock-output-names" entries, "zt" and "ztr".
+> Update the example accordingly.
+> 
+> Fixes: 2abdc3dcf978 ("dt-bindings: clock: renesas,cpg-clocks: Document ZT/ZTR trace clock on R-Mobile APE6")
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 
---kbqprj5uqeblzkb7
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 30/37] drm/bridge: add drm_bridge_is_tail() to know
- whether a bridge completes the pipeline
-MIME-Version: 1.0
+Applied for rc1.
 
-On Tue, Jun 09, 2026 at 10:23:24AM +0200, Luca Ceresoli wrote:
-> Hi Maxime,
->=20
-> thanks for the review of this long series!
->=20
-> On Mon Jun 8, 2026 at 2:34 PM CEST, Maxime Ripard wrote:
-> ...
-> >> --- a/include/drm/drm_bridge.h
-> >> +++ b/include/drm/drm_bridge.h
-> >> @@ -78,6 +78,19 @@ struct drm_bridge_funcs {
-> >>  	int (*attach)(struct drm_bridge *bridge, struct drm_encoder *encoder,
-> >>  		      enum drm_bridge_attach_flags flags);
-> >>
-> >> +	/**
-> >> +	 * @is_tail:
-> >> +	 *
-> >> +	 * Returns true if this is a tail bridge, i.e. it does not need a
-> >> +	 * next bridge to work. E.g. a panel_bridge is a tail bridge, a
-> >> +	 * DSI-to-LVDS bridge is not a tail bridge (no matter whether the
-> >> +	 * next bridge is present or not).
-> >
-> > Why a DSI-to-LDVS bridge isn't a tail bridge? It only needs a panel
-> > next, right?
->=20
-> Uhm, good point, but I'd say it can be a tail bridge or not: in the
-> ATTACH_NO_CONNECTOR case it will need a bridge (a panel_bridge most
-> likely), no?
-
-Yeah, I think it cannot (always) be a blanket statement from the driver.
-For drivers that do not support ATTACH_NO_CONNECTOR, then it's always
-going to be a tail, but if the driver supports it, we should use a
-helper because it's going to depend on the DT, basically.
-
-> However this is possibly irrelevant as the whole .is_tail is meant to
-> disappear in v2, see below.
->
-> >> +	 * The @is_tail callback is optional but it is required if the
-> >> +	 * bridge is part of a pipeline with hot-pluggable components.
-> >> +	 */
-> >> +	bool (*is_tail)(struct drm_bridge *bridge);
-> >> +
-> >
-> > I don't think that's the right way to think about it, if only because
-> > you never really know at the driver level if you're supposed to be last
-> > or not. A DSI-to-LVDS bridge might just as well be chained with an
-> > LVDS-to-eDP bridge, or feed the panel directly without any additional
-> > bridge.
-> >
-> > I *think* that what you're trying to find out here is whether the chain
-> > is complete or not.
->=20
-> You nailed it.
->=20
-> That was the main point discussed during the Display Next Hackfest 2026
-> (see the report [0]) and we all agreed the .is_tail along with the
-> -EPROBE_DEFER changes (patches 20+35) are not a good approach.
->=20
-> This is actually the most crucial aspect of the whole work still not havi=
-ng
-> no well-defined solution.
-
-Ok
-
-> > I think you can get the same information by checking
-> > whether you have a connector for that bridge chain. If you don't, you
-> > know the chain isn't complete, and if you do, it's supposed to be.
->=20
-> There's a checken-egg problem here. Knowing whether the pipeline is
-> complete or not is needed to know whether we have to create a
-> connector. See patch 36:
->=20
->   +  if (drm_bridge_connector_pipeline_is_complete(bridge_connector))
->   +          drm_bridge_connector_add_connector(bridge_connector);
->=20
-> So the question is still open, what I need the most right now is comments
-> on the overall architecture of this aspecs. Maybe replying to [0] can be
-> more effective than here.
->=20
-> In a nutshell what we need is:
->=20
->  * when a bridge needs a following element (a bridge, or a panel which
->    however might/should have a panel_bridge), but that element is not
->    present, instead of deferring the whole card probe the card should be
->    allowed to probe but without a connector
->=20
->  * when something is added to an incomplete pipeline we need to know
->    whether the pipeline has become complete (in order to create the
->    connector)
->=20
-> How to implement this is still an open point. I'll welcome proposals in
-> addition to the ones in [0].
-
-Thanks for the notes, I think I largely agree with the discussion.
-Reading through it, I thought it would be nice for a new callback called
-get_next_bridge or something that would return either an error, NULL or a
-(refcounted) pointer to the next bridge in the chain. And have some kind
-of special error (ENODEV?) when the bridge should be there but isn't
-(and thus the chain isn't complete).
-
-Maxime
-
---kbqprj5uqeblzkb7
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCajvVzAAKCRAnX84Zoj2+
-dlmUAYD85u1Hv2vXFhhpb6AcHYKPXjuNOtyNzQsT4JWMH1ryh7eB79pKZqOgRdEy
-eq2O3/oBgPEWUBztGIVs76NR8fkCDIHxxd33fzv2OlQ6wFx/V7B8rXw601tQObK3
-cTgu6ITMBQ==
-=amXL
------END PGP SIGNATURE-----
-
---kbqprj5uqeblzkb7--
+Rob
 
