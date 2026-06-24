@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8061CDE002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 13:57:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55C2FCDB479
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 13:57:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=dK4q1wXB1iEpfa6MKc1INHDEgEytVZ0qx4adNK2kjGo=; b=DysyHh0YxtnZ3iLyHU2aqclyvY
-	7ngGaX5SLCU9qBXAajlKeaU9TuJW7pjU5QoFGDymQIk/ovnU4glijDo7PXrSa3hqgTdY4BJBWxxfp
-	xc1K8DQFmeKt2xCYpcmAcnfCIFPLHUAxmuv61nf2komWTvfnlWo2Dd7FNlJLgfljTs+IyUzGr6wGg
-	3esl+F/+9Y+urS/pF4WQ/a7tPUGpP8J0WmxdHR1Awf9R/Jzkmomssw6/KlYg7GS3PNXSy4K4eDpEb
-	LwI9Kju0hV5t2KuCe2g3XYp5/vQrrv+wBVUKvgTxDs3A68b7KFUdOQx8g3RTcgAQIz24OhgPJXqA3
-	JMpDWzng==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O9WzTe+1vlDzzoGxy8+EdE00Q4JOiUjNnl8CApnpdjw=; b=Pz3Tg2ix9QNdJFt4H/Alf8xKXZ
+	sJzs8fjKp39xEtAdKBsyfgSSCWJjFkmHIe+W2mHAdCMqfdHrytqzUOaUnHcAALXTY7zs6vogFA7uu
+	hEExYUmyi8VeVB/TQ1pwNNzxUweU23759LUefZL7OVTtKGxNLiluXkgRnHikLYnPOe4xx+6ohGEsj
+	NFKbwx8qCRkTIVSS+281JULmDOUKwmBnFKJalxHOI0WqxPE/pc5N9Y+1k4CnHnr8Lfnzd05CGc6ed
+	tuwnWH0iJAs67p4BKgT+Bp8qkn9h/QhlOfE48f0GTuA2jtrE4nD5bU800CtMoNCMGrbP0UlOWq2Ou
+	k5jD9qpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcO6a-00000007rjP-2WHu;
-	Wed, 24 Jun 2026 13:57:28 +0000
-Received: from mail-vk1-xa2f.google.com ([2607:f8b0:4864:20::a2f])
+	id 1wcO6i-00000007rmK-3FZc;
+	Wed, 24 Jun 2026 13:57:36 +0000
+Received: from mail-ua1-x929.google.com ([2607:f8b0:4864:20::929])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcO6X-00000007ric-3472
+	id 1wcO6f-00000007rkv-3wC6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 13:57:27 +0000
-Received: by mail-vk1-xa2f.google.com with SMTP id 71dfb90a1353d-59ccf81e74bso390767e0c.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Jun 2026 06:57:25 -0700 (PDT)
+	Wed, 24 Jun 2026 13:57:35 +0000
+Received: by mail-ua1-x929.google.com with SMTP id a1e0cc1a2514c-963a722ed59so389009241.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Jun 2026 06:57:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782309444; x=1782914244; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=dK4q1wXB1iEpfa6MKc1INHDEgEytVZ0qx4adNK2kjGo=;
-        b=O42ZLVrVwL0zpXMp8stnp+5Wft4OZAnKUkPP1WO3aSixX6djOmbSOJRiXPzdlbyhUg
-         LWOtD/5Lxo2tkFoZpcNOA7C7zdPRyzAQLkSp3BKEN8pgVXSJt2+pfIAiX0FwVYwbWCfS
-         Ifj6C730MFdtzNBPAEmrfgJxEEg/ZdrYKWPWbXlSAnLBYW9r9V7q8MJRypJBvKjjDWWe
-         HiVwoqBW4fj/XQGYO1Q9wk/SHa5HmXQJUZBnDjgZvCbjV8HdsdF/uba3AcuHGKMoADen
-         MpXAqWnW5XbxRQhGva0IS+xpql2R4LOzwUb0GT2ZLODXhhlPnbDanQRTw17ZxGKFpUmh
-         s8bg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782309444; x=1782914244;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1782309452; x=1782914252; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=dK4q1wXB1iEpfa6MKc1INHDEgEytVZ0qx4adNK2kjGo=;
-        b=LEVRXtysHn2bW/APtm3zHUTyf6jMT43V3YpEGLjldd01sfp1XkVjoQw2gAz0wz4cY/
-         PthV8aevyvK92i//GuodlzYTqO0lbaD00OwyxdSCWa+8N35FrARW+oAj7uueK/QeIdVY
-         EGIGkQCFGzduq4uUf3Zk9eaj8cItZ3CWN3OM5lOVqU6V68BqQ2zvmYN9bwyChUMbzlN4
-         3z8s3OpcixFGmdpCW5i7HuKxZzmBFQE5dK0Evy6Pw20IbSuGxeVYKs0jxzYXze375wy3
-         opptlDVWJGKq5294IeIH/HFjuSvLH5x4jn9VRU9PNbN2WivPNfNBwUhE5o9r141COImV
-         FMQg==
-X-Forwarded-Encrypted: i=1; AHgh+RrbLRUrPE8tbVFqb2vn55TrfU4azIjYw/ewHU+Nb7W8PbuzKtD2yihMYVRAZl7FlmGPRl4fZBApZWxRlBGMaDkM@lists.infradead.org
-X-Gm-Message-State: AOJu0YzyFvTSrvB6Tt0TOI8LYIyKjrOh3Qa88y8TkOkSFkbyBea0nMg9
-	WoW4kMqgLGNwgh3zgnD9/kGNMKtVR0cvcgu5mbaMBu/r+F0K74CmsXSa
-X-Gm-Gg: AfdE7cmGAkKs9wAA6x8V98lYxMcFaKU54SZERRIf1NAjG5LVeecgKFVs7jcbm3cgt7A
-	6ArvST+h2wisIXFo/cGQ/J5+wTLW6WyNeRhthE208CIZ9QfnCmqTVkxnadBcF3GFxIOg5ujGW6F
-	tMSfZXqzTL64O5pLWl3RfbQVqCYdQ+rt91FJKAKanTWevhLcW6BAQe+PmkpdpQCFoB5KAYHZqYj
-	Jm0AsJi1EqPiW2xSa4Uf7CDCVmApSf5BYKHKinCiYiOu63E7BRQoaffK9q8U41QVni2DadJNDLM
-	/srTLIsoAAW+jhNqJDe7oPt4mbRp8VP+T2oWLuOZSGv3dHKXf1vnr5ybC8/JwLaE2QFQuKWy0oG
-	wK+rFjz7kVyBdKK4RJ7pOcaulAdWKG1I6nXeapMqh/syXEitvwJdpq/mhw7JmDlfoWTaclPH6h8
-	xKO2q63x5ntOUN1MhYjWyRatvHGmuvhp4KG38=
-X-Received: by 2002:a05:6102:548d:b0:604:f849:462e with SMTP id ada2fe7eead31-72fd815dd92mr4226649137.25.1782309439628;
-        Wed, 24 Jun 2026 06:57:19 -0700 (PDT)
+        bh=O9WzTe+1vlDzzoGxy8+EdE00Q4JOiUjNnl8CApnpdjw=;
+        b=a6sCkiWhjr9idD8/rhmhFBH3NcSMDahiurXI0ry4IIZyLIWvCl1KOvfL1rQzFdQDZe
+         Wkd5Ml+JeaaG3cxydrzuNplttiPZZ/fsv8AEYu5b+3ZBsldFrzEqWLfnPSOKoD86nYHi
+         TFvWdQLpDYZjEkYSGvW4ct0M8yTEvNVv0ouWeOVxKkVJt/XuHTbZzQDTf8R3x/FaKnFj
+         V7VCqCpTJw5ac9LNlI9szoUuWysjNui4fRs6vFJwbNZVBHFIOONebrfpzhLDvoogwz5k
+         9uJV1g2Lle4VzrEcFXz3K9ByaR87lcXH/wwiQty75WmCsjs0svBCAL695fr/L6DwVevO
+         A5MQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782309452; x=1782914252;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=O9WzTe+1vlDzzoGxy8+EdE00Q4JOiUjNnl8CApnpdjw=;
+        b=civn1aQs2thQ94LlT19Zfydr5oe5b9zuXwQGcksOGk41WsZPb/ABMKh/YJ3kLHcwnQ
+         Z4z6EdzQKgGMH/9WwOkk4hBt6qvwFUsRnd5WDunieMCHC43XYoY3DTiIxiA3G4lPCWIV
+         XkJUB4755O41sXdrg+naKaXmV6ss69vR4ndPsbIPb4jr0KevS8wA/uEXQfC9SdSPcskz
+         GQF9BgI4HptUlMWzy2ZhuNwGbX4whMnUCmypCFu3CFwFNqe9XpR6Y5ckeFGQZmiyhNEm
+         ljwkLh/7ZqBDXhauQFJmhkuDMJu1sp5hO0arXy7gEtTcJkicbuqi0jv8BULGJ5KVS9t+
+         rxBA==
+X-Forwarded-Encrypted: i=1; AHgh+RqebNBDr/2c4HaHbDpXjtkXzCW8dIS2EI+Hh6cUVXvohOih/cnYpySwPij3p1JikygGZ+VbLfDZfqHr22l089+O@lists.infradead.org
+X-Gm-Message-State: AOJu0YxscWyUdGMyNYdiiNeymmWqyGYmxEyGzmYIniPaPAddQq0Qj8um
+	N/MN7Wld+5J+rW08kkSTwcfcBH74BJ8OE+//X6Vkpya4mrYPdVHGs3/a
+X-Gm-Gg: AfdE7clRCFAG3NZLYfdBrIr7Ht3JYsWURuyqTO51FjCYusKAzUW5R/yf4nBMnhT2M+T
+	RRLT8rnvdfafn5mf2qPJ4ToTziniUTXeBVsCDZEZzkL4PLEG0gQhXp9cwi6hW57TT0UpVMJvoku
+	/VXQax3QJuamjViEQpSSburklLf9yFUrQEv22f3WpAXoTg1nVbLzf/yxcDBm08LsULwUIrgenx/
+	RkEDN5/7Hz3B3z8nFjcPYpttI21cog5piXuqs9E/ZX2G9JH1Uw1+4O8WZbocmgPDx8YR4FEKcC6
+	H9+05qXkaCQj/UwpL7l1j8QQ25wW4V691191FkqBBjLa26t7UlnMEp6k2hLM/svkrCccB51zcej
+	X0PD2ioOQ+bxS6fpqNz68h73Jn6qnGRPZLy1GCE5iI1HKEZau47vIqupYY3JVr7QkDhfPNmfaY+
+	HliTfFSdzn6usY1IwK1r40dNuRsU3odSPlGQI=
+X-Received: by 2002:a05:6102:26c5:b0:631:4cd8:b6aa with SMTP id ada2fe7eead31-73114f11320mr1562339137.13.1782309452608;
+        Wed, 24 Jun 2026 06:57:32 -0700 (PDT)
 Received: from arch.localdomain ([160.250.247.70])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-72ba2dbc17bsm9805730137.6.2026.06.24.06.57.08
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-72ba2dbc17bsm9805730137.6.2026.06.24.06.57.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 24 Jun 2026 06:57:19 -0700 (PDT)
+        Wed, 24 Jun 2026 06:57:32 -0700 (PDT)
 From: Jun Yan <jerrysteve1101@gmail.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -82,15 +83,17 @@ Cc: Jun Yan <jerrysteve1101@gmail.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-amlogic@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v4 0/4] arm64: dts: amlogic: meson-axg: NAND fix and PCIe PHY adjustment
-Date: Wed, 24 Jun 2026 21:56:40 +0800
-Message-ID: <20260624135650.727077-1-jerrysteve1101@gmail.com>
+Subject: [PATCH v4 1/4] arm64: dts: amlogic: meson-axg: Disable nfc node by default
+Date: Wed, 24 Jun 2026 21:56:41 +0800
+Message-ID: <20260624135650.727077-2-jerrysteve1101@gmail.com>
 X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260624135650.727077-1-jerrysteve1101@gmail.com>
+References: <20260624135650.727077-1-jerrysteve1101@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_065725_791991_1FF5D1D6 
-X-CRM114-Status: UNSURE (   9.66  )
+X-CRM114-CacheID: sfid-20260624_065733_982154_0E6189D9 
+X-CRM114-Status: UNSURE (   8.61  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -106,40 +109,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-- Disable nfc node by default ahead of nand_rb0 pin addition.
-- Add missing nand_rb0 pin to fix incomplete NAND pinctrl.
-- Disable pcie_phy by default to suppress probe warning.
-- Re-enable pcie_phy on S400 board to preserve PCIe functionality.
-- Enable mipi_pcie_analog_dphy for PCIe on S400 board.
+nand_rb0 and emmc_ds share one pad. Before enabling nand_rb0 for nfc,
+disable nfc nodes by default to resolve pinctrl resource contention.
 
-Changes in v4:
-- Add patch to enable mipi_pcie_analog_dphy for PCIe on S400 board.
-- Link to v3:
-  https://lore.kernel.org/all/20260617082239.645562-1-jerrysteve1101@gmail.com/
+No mainline AXG boards enable nfc currently thus no extra DTS adjustments
+are needed.
 
-Changes in v3:
-- squash "disable pcie_phy node by default" and "enable pcie_phy in 
-  meson-axg-s400" patches
-- Link to v2:
-  https://lore.kernel.org/all/20260617071604.635627-1-jerrysteve1101@gmail.com/
+Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
+---
+ arch/arm64/boot/dts/amlogic/meson-axg.dtsi | 1 +
+ 1 file changed, 1 insertion(+)
 
-Changes in v2:
-- Add patch to disable nfc node by default.
-- Link to v1:
-  https://lore.kernel.org/all/20260529140605.1070764-1-jerrysteve1101@gmail.com/
-
-Jun Yan (4):
-  arm64: dts: amlogic: meson-axg: Disable nfc node by default
-  arm64: dts: amlogic: meson-axg: Add missing nand_rb0 pin to
-    nand_all_pins
-  arm64: dts: amlogic: meson-axg: Disable pcie_phy node by default
-  arm64: dts: amlogic: meson-axg-s400: enable mipi_pcie_analog_dphy for
-    PCIe
-
- arch/arm64/boot/dts/amlogic/meson-axg-s400.dts | 8 ++++++++
- arch/arm64/boot/dts/amlogic/meson-axg.dtsi     | 5 ++++-
- 2 files changed, 12 insertions(+), 1 deletion(-)
-
+diff --git a/arch/arm64/boot/dts/amlogic/meson-axg.dtsi b/arch/arm64/boot/dts/amlogic/meson-axg.dtsi
+index f1f53fd98ae2..6457667d974e 100644
+--- a/arch/arm64/boot/dts/amlogic/meson-axg.dtsi
++++ b/arch/arm64/boot/dts/amlogic/meson-axg.dtsi
+@@ -1999,6 +1999,7 @@ nfc: nand-controller@7800 {
+ 				clocks = <&clkc CLKID_SD_EMMC_C>,
+ 					 <&clkc CLKID_FCLK_DIV2>;
+ 				clock-names = "core", "device";
++				status = "disabled";
+ 			};
+ 
+ 			usb2_phy1: phy@9020 {
 -- 
 2.54.0
 
