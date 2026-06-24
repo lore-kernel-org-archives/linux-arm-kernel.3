@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4831CDE002
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 09:26:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C59DCDE003
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 09:26:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j8pD2niHhUSyKv0Sb+ifrbF6NQbVWcEj0IMgAAFDU/M=; b=JcLC99ufRdte1iuJpbxTbdEDR5
-	6iHigdBBBz7vc/mNlo/z3C5+sYP+AU+FL7ruGk3huogWMSbNQKI6/PPzMxWnBT0yIoHw/iRmZbQqW
-	cxriKb63DZVipy1Y4pPDt1xkDrUbdg+zIB1BSsAAdNfrN2TojLOyGyOzUd70KmehgUfa5bXjn9pSd
-	TT2U2n2OwH459RvXehRZ6MhguRmVgvzPdDdiPZwzuCpjdj4T0qOclDEzGK2UoPp85QjNiPRULj0om
-	s+y6URLXlQGcVuhWKccRnIBtrLysSKO44s3Tj1fbO5/+ZBFy5/lb0Z26CdTxQ7rqcNOx45LV6A6u3
-	6m9Bemew==;
+	bh=ieofr+x7mCv4RU+fHCV+TK9nLxuSjsWJ0dtdog5pIVA=; b=nh70JvsgABhC1KNkdE3GbqZslw
+	bGWELeAmG2026CvrRlsJZmFAeZLG6gIHdimAgREHBsWPAOFCRchr03lJ6y756TdhOy3aH44gbXhNE
+	5HQooG0SGiZW+kRD/AU24yu+MQtMafpsEmExgNMbalaQE38tBPJzt0f9MHXpnduF1HdFwFhTtN0XW
+	llcawj5p0e8gBzA7nOxOMu+ymJt3TxKj+x4eFhbrjcDifWk35dLE4eV9GYMHWVfS0xHC1fhbCWgy3
+	nRhm7pTW5DEB5s9NZbzVxgY8+UMEhcwDa9kdnXVyrqpVwLcY/6YN4mlJgqaugltTU1kTkjf7259yj
+	9F6KLdmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcJsQ-00000007V55-0oKY;
+	id 1wcJsQ-00000007V5m-35VM;
 	Wed, 24 Jun 2026 09:26:34 +0000
-Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
+Received: from canpmsgout11.his.huawei.com ([113.46.200.226])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcJs3-00000007UlQ-0VCt
+	id 1wcJs8-00000007UoH-2cNh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 09:26:14 +0000
+	Wed, 24 Jun 2026 09:26:18 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=j8pD2niHhUSyKv0Sb+ifrbF6NQbVWcEj0IMgAAFDU/M=;
-	b=zxda6Md5vcpZojJF3DqKwYWE+YBuXYhT9SCZxJ2rJ5YZimt8Wd7I4YQ9D9tp6cyH58ULObgrh
-	xSkLaOUklXRzo7ngwowV9Xxvlx6iPyp3Zh4Hi6jXBwSq6nhWJ9sbTPJBmLlwhywwi9dJ9N1iCQQ
-	zwhWY7BfXStYLVB5L6Dqjik=
-Received: from mail.maildlp.com (unknown [172.19.162.197])
-	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4glbt60tvyzRhSV;
-	Wed, 24 Jun 2026 17:17:02 +0800 (CST)
+	bh=ieofr+x7mCv4RU+fHCV+TK9nLxuSjsWJ0dtdog5pIVA=;
+	b=NOw2pEITHKGTM3UczBmJPM8jkaq7W6NTFyORTA/J7kXCCAzXUBEgIB4tMNc7bcnIet9S6PO3S
+	Gz4cFvOrKNRgXSoRm6GabZqgBsqQezYG6xEZMf0a/WBtftJK44IHwhXjRG1Rcv+wh7Pms7+Uycl
+	HaqZ2cg1A617MnH37otl40c=
+Received: from mail.maildlp.com (unknown [172.19.163.15])
+	by canpmsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4glbt92VTgzKm6V;
+	Wed, 24 Jun 2026 17:17:05 +0800 (CST)
 Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 299BE40569;
-	Wed, 24 Jun 2026 17:26:06 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 2BBC940539;
+	Wed, 24 Jun 2026 17:26:13 +0800 (CST)
 Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
  (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Wed, 24 Jun
- 2026 17:26:03 +0800
+ 2026 17:26:10 +0800
 From: Jinjie Ruan <ruanjinjie@huawei.com>
 To: <catalin.marinas@arm.com>, <will@kernel.org>, <tsbogend@alpha.franken.de>,
 	<tglx@kernel.org>, <mingo@redhat.com>, <bp@alien8.de>,
@@ -64,9 +64,9 @@ To: <catalin.marinas@arm.com>, <will@kernel.org>, <tsbogend@alpha.franken.de>,
 	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-mips@vger.kernel.org>
 CC: <ruanjinjie@huawei.com>
-Subject: [PATCH v3 07/12] arm64: cpu_ops: Make 'cpu_operations' pointer global instead of per-cpu
-Date: Wed, 24 Jun 2026 17:25:32 +0800
-Message-ID: <20260624092537.2916971-8-ruanjinjie@huawei.com>
+Subject: [PATCH v3 10/12] arm64: smp: Pass CPU ID to update_cpu_boot_status()
+Date: Wed, 24 Jun 2026 17:25:35 +0800
+Message-ID: <20260624092537.2916971-11-ruanjinjie@huawei.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260624092537.2916971-1-ruanjinjie@huawei.com>
 References: <20260624092537.2916971-1-ruanjinjie@huawei.com>
@@ -77,8 +77,8 @@ X-Originating-IP: [10.90.53.73]
 X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
  dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_022611_502753_104D9AED 
-X-CRM114-Status: GOOD (  14.58  )
+X-CRM114-CacheID: sfid-20260624_022616_998544_397A0DB9 
+X-CRM114-Status: GOOD (  15.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,96 +93,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Will Deacon <will@kernel.org>
+To support CONFIG_HOTPLUG_PARALLEL, the CPU boot status tracking must
+be refactored from a single global variable (secondary_data.status)
+to a per-CPU tracking structure to prevent multi-core race conditions.
 
-'cpu_ops' is an NR_CPUS-length array of 'cpu_operations' pointers, which
-theoretically allows for different CPUs to have different bringup and
-hotplug backends.
+Add a 'cpu' parameter to update_cpu_boot_status() and update all its
+callsites to pass the corresponding CPU ID. This allows updating the
+boot status at a per-CPU granularity during parallel bringup.
 
-In reality, this complexity exists only to deal with the case where CPU0
-is not hotpluggable, so replace the array with a single, global pointer
-and record separately whether or not they apply to the boot CPU. Update
-the logic in init_cpu_ops() to enforce that only a single set of
-'cpu_ops' is required.
-
-Signed-off-by: Will Deacon <will@kernel.org>
 Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
 ---
- arch/arm64/kernel/cpu_ops.c | 29 ++++++++++++++++++++---------
- 1 file changed, 20 insertions(+), 9 deletions(-)
+ arch/arm64/include/asm/smp.h   | 6 +++---
+ arch/arm64/kernel/cpufeature.c | 2 +-
+ arch/arm64/kernel/smp.c        | 8 ++++----
+ arch/arm64/mm/context.c        | 5 +++--
+ 4 files changed, 11 insertions(+), 10 deletions(-)
 
-diff --git a/arch/arm64/kernel/cpu_ops.c b/arch/arm64/kernel/cpu_ops.c
-index e133011f64b5..eacfb88a0c0c 100644
---- a/arch/arm64/kernel/cpu_ops.c
-+++ b/arch/arm64/kernel/cpu_ops.c
-@@ -20,7 +20,8 @@ extern const struct cpu_operations acpi_parking_protocol_ops;
- #endif
- extern const struct cpu_operations cpu_psci_ops;
+diff --git a/arch/arm64/include/asm/smp.h b/arch/arm64/include/asm/smp.h
+index 10ea4f543069..e2151a01731f 100644
+--- a/arch/arm64/include/asm/smp.h
++++ b/arch/arm64/include/asm/smp.h
+@@ -122,7 +122,7 @@ static inline void __noreturn cpu_park_loop(void)
+ 	}
+ }
  
--static const struct cpu_operations *cpu_ops[NR_CPUS] __ro_after_init;
-+static const struct cpu_operations *cpu_ops __ro_after_init;
-+static bool boot_cpu_has_enable_method __ro_after_init;
- 
- static const struct cpu_operations *const dt_supported_cpu_ops[] __initconst = {
- 	&smp_spin_table_ops,
-@@ -40,6 +41,9 @@ static const struct cpu_operations * __init cpu_get_ops(const char *name)
+-static inline void update_cpu_boot_status(int val)
++static inline void update_cpu_boot_status(unsigned int cpu, int val)
  {
- 	const struct cpu_operations *const *ops;
+ 	WRITE_ONCE(secondary_data.status, val);
+ 	/* Ensure the visibility of the status update */
+@@ -134,9 +134,9 @@ static inline void update_cpu_boot_status(int val)
+  * which calls for a kernel panic. Update the boot status and park the calling
+  * CPU.
+  */
+-static inline void __noreturn cpu_panic_kernel(void)
++static inline void __noreturn cpu_panic_kernel(unsigned int cpu)
+ {
+-	update_cpu_boot_status(CPU_PANIC_KERNEL);
++	update_cpu_boot_status(cpu, CPU_PANIC_KERNEL);
+ 	cpu_park_loop();
+ }
  
-+	if (!name)
-+		return NULL;
-+
- 	ops = acpi_disabled ? dt_supported_cpu_ops : acpi_supported_cpu_ops;
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index a1a13f3e01ed..abc3aef9c206 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -3685,7 +3685,7 @@ static void verify_local_cpu_caps(u16 scope_mask)
+ 			caps->desc, system_has_cap, cpu_has_cap);
  
- 	while (*ops) {
-@@ -49,6 +53,7 @@ static const struct cpu_operations * __init cpu_get_ops(const char *name)
- 		ops++;
+ 		if (cpucap_panic_on_conflict(caps))
+-			cpu_panic_kernel();
++			cpu_panic_kernel(smp_processor_id());
+ 		else
+ 			cpu_die_early();
+ 	}
+diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+index 6b9586a69429..14b94df26b44 100644
+--- a/arch/arm64/kernel/smp.c
++++ b/arch/arm64/kernel/smp.c
+@@ -116,7 +116,7 @@ int arch_cpuhp_kick_ap_alive(unsigned int cpu, struct task_struct *idle)
+ 	 * page tables.
+ 	 */
+ 	secondary_data.task = idle;
+-	update_cpu_boot_status(CPU_MMU_OFF);
++	update_cpu_boot_status(cpu, CPU_MMU_OFF);
+ 
+ 	/* Now bring the CPU into our world */
+ 	ret = boot_secondary(cpu, idle);
+@@ -262,7 +262,7 @@ asmlinkage notrace void secondary_start_kernel(void)
+ 	pr_info("CPU%u: Booted secondary processor 0x%010lx [0x%08x]\n",
+ 					 cpu, (unsigned long)mpidr,
+ 					 read_cpuid_id());
+-	update_cpu_boot_status(CPU_BOOT_SUCCESS);
++	update_cpu_boot_status(cpu, CPU_BOOT_SUCCESS);
+ 	set_cpu_online(cpu, true);
+ 
+ 	/*
+@@ -420,11 +420,11 @@ void __noreturn cpu_die_early(void)
+ 	rcutree_report_cpu_dead();
+ 
+ 	if (IS_ENABLED(CONFIG_HOTPLUG_CPU)) {
+-		update_cpu_boot_status(CPU_KILL_ME);
++		update_cpu_boot_status(cpu, CPU_KILL_ME);
+ 		__cpu_try_die(cpu);
  	}
  
-+	pr_warn("Unsupported enable-method: %s\n", name);
- 	return NULL;
- }
+-	update_cpu_boot_status(CPU_STUCK_IN_KERNEL);
++	update_cpu_boot_status(cpu, CPU_STUCK_IN_KERNEL);
  
-@@ -94,25 +99,31 @@ static const char *__init cpu_read_enable_method(int cpu)
- 	return enable_method;
+ 	cpu_park_loop();
  }
- /*
-- * Read a cpu's enable method and record it in cpu_ops.
-+ * Read a cpu's enable method and update/check cpu_ops.
-  */
- int __init init_cpu_ops(int cpu)
+diff --git a/arch/arm64/mm/context.c b/arch/arm64/mm/context.c
+index 0f4a28b87469..e78ae989ad57 100644
+--- a/arch/arm64/mm/context.c
++++ b/arch/arm64/mm/context.c
+@@ -63,6 +63,7 @@ static u32 get_cpu_asid_bits(void)
+ /* Check if the current cpu's ASIDBits is compatible with asid_bits */
+ void verify_cpu_asid_bits(void)
  {
- 	const char *enable_method = cpu_read_enable_method(cpu);
-+	const struct cpu_operations *ops = cpu_get_ops(enable_method);
++	unsigned int cpu = smp_processor_id();
+ 	u32 asid = get_cpu_asid_bits();
  
--	if (!enable_method)
-+	if (!ops)
- 		return -ENODEV;
- 
--	cpu_ops[cpu] = cpu_get_ops(enable_method);
--	if (!cpu_ops[cpu]) {
--		pr_warn("Unsupported enable-method: %s\n", enable_method);
--		return -EOPNOTSUPP;
--	}
-+	if (!cpu_ops)
-+		cpu_ops = ops;
-+	else if (cpu_ops != ops)
-+		return -EBUSY;
-+
-+	if (cpu == 0)
-+		boot_cpu_has_enable_method = true;
- 
- 	return 0;
+ 	if (asid < asid_bits) {
+@@ -71,8 +72,8 @@ void verify_cpu_asid_bits(void)
+ 		 * fewer ASID bits than the boot CPU.
+ 		 */
+ 		pr_crit("CPU%d: smaller ASID size(%u) than boot CPU (%u)\n",
+-				smp_processor_id(), asid, asid_bits);
+-		cpu_panic_kernel();
++			cpu, asid, asid_bits);
++		cpu_panic_kernel(cpu);
+ 	}
  }
  
- const struct cpu_operations *get_cpu_ops(int cpu)
- {
--	return cpu_ops[cpu];
-+	if (cpu || boot_cpu_has_enable_method)
-+		return cpu_ops;
-+
-+	return NULL;
- }
 -- 
 2.34.1
 
