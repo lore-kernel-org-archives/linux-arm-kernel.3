@@ -4,144 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3022CDB47F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 20:47:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91662CDB47F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 20:47:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zIyRuMx1pH+NrTMQULxdR9rpGT3e/LaQVtBWVDGoFE8=; b=WsrPjFamPfeROOWTMVejlTJYUe
-	MY0/s0Q7geLCZH80XM+bc/5u5drYjEd9nQhutjgw6BOHrWh72x7oid/WNf144ZHPB4wEOpn0pTPUI
-	qVkJEWT73IOPzAZgCaOr5qSbaE0d/1QB/jUri7CoxmT9dX90WRxbR6oz2cGW7osIazC1swySmnVJC
-	IqSzn2w2L42InQvkz59IxujBWc+Zk7Twa+W4VqA4PMvepvb0B9DQBWng4ud9LDzkxDLZCfppOWg4A
-	UmUuGwuTgYh9gDqHMHh7ZHdvjfyXgjPKcNlVqfhIukJUE2leEdnQpmthFLJmsPsYRQB5d+EephQRI
-	02fN+GPg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=s+dWXhRvFGeR6TIDCInTT91yDDHNH5ZIv/W2CkqAegk=; b=pdeKlNZXKO94dT
+	oc+y/9UMVWVGD6vE7TZrMotAwHSvDCQWmmZunwXT2R9ekdDeacOfYL1F170CXOSyxCGymdoz+1yxc
+	RnZZGjhTVMkOQPtizYD21hFhWC/xX9R6qa6voBWVGgz+cUYrwHgF2YRVJdYhDels2uzrwsxLMp4Vp
+	QsgKRhFOqNde7yubgH4vpULShyDEll2CnIbz7v7ZADZ9cdgO1d9e/UWf6hnozSN95FDkT2JIhft0q
+	rJ/Ubcq7HwvKv52ihA18y3vz/ePbyO654Z2lKVmgVnFBCPQn/XoPXUQ23WgHzwzBi2uI5tHBxyWCz
+	hfm/3B/l0KAJflwU8veQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcUV3-00000008KvS-3V3k;
-	Wed, 24 Jun 2026 20:47:09 +0000
-Received: from mail-westeuropeazon11013009.outbound.protection.outlook.com ([52.101.72.9] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1wcUVI-00000008L0y-0MMt;
+	Wed, 24 Jun 2026 20:47:24 +0000
+Received: from mail-northcentralusazlp170100000.outbound.protection.outlook.com ([2a01:111:f403:c105::] helo=CH1PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcUV1-00000008Kua-0ofi;
-	Wed, 24 Jun 2026 20:47:08 +0000
+	id 1wcUVE-00000008Kzo-3wCK
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 24 Jun 2026 20:47:23 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gVsxVIoJ3qDO5Ukk6w4oIfyCcp1SxDUrAN3hshxymZr27syEPyd46eHaj8hRHnfG6fVitJWtQdT8hu8aLZds40qNPlN4+eJ/FaExvgj0SRHMZKtuXZG257Y12G6HFYZZImWnwTPsbCha2RSuEWgYaN0rRaeebLchwg6L6XcACXjcWXJUbKjCa3IhaIlRYYuX5T3XSotZcnQiJUB8HGMT4LaYP8ggiU9wwP9gZAOZvf/UzZfqafSuTxqhfaoFfu6MgP65xT5TAx/Y6i+VjCg5q71JokI2rwJ1thLFam5m2iR0F3MvMIytfPZf7J5G9vRdTaiJn0F++FTvt/KYYbeVKA==
+ b=a4g2rHUm/+N59ibsmsMOn4jd/ia7f2lN83YG7Y1OOvOPlkiygRXJYYwLJEnbmA+3DhwsXdwadPD/fUWJC7EGKFl9ogxEhE6enhGo41X09ba2jjWPoCWRuRJDxEyiRns1j/h7QJHtt4TW2iBxgcdwnSNYomu0i/ZkzcnDGz7YVdowgYlwlkupIkhlLMM76gIVRDot6NuP/SwwWO+ghj1KDLwxuWlLVOW+yGIHzpxnXcHdS2JuqTlBEQx7b50s/Sxy0wmqkPWUomlz02BmgWvHXFVFXW4wsf0plYUTDjhSkSMX2q4AT6le/DwFDPStPpwgeYYS2vH2FGo8YpZIxzw9Mw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zIyRuMx1pH+NrTMQULxdR9rpGT3e/LaQVtBWVDGoFE8=;
- b=cgGW8cBlsunlcilP+52YNd9wz6l3p31NLq2D+LZfV28ZWKAbYExsAEfpo5md1tWEji0z3DLbZuj7Bk7Y1Do2CL7viIIs6Hrv+KdUcYXhcPlANrUJTqtDFRLr4hlHnnSXxTJkAExpfhj39jk1MWX5nvvjHDkUL4YpeZxPtocEU/jSN3WEQXKSukW4gefbSWcsiG7YEQopg6/pS7gQe9z4/EQoawiIgyinNA7k6KFUg3HEDfAOQyYswpqsknVWuW/etWwrVK2q8Nl7+5lvF6HN5WTUzW3vNOZagCjq1wzfhBFazasEWAn0Q3fZ6o9bqPrpQsvmnqPZHSo1gSaAgYiudg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
+ bh=s+dWXhRvFGeR6TIDCInTT91yDDHNH5ZIv/W2CkqAegk=;
+ b=gbFBt6vMKiY0EvTt8PCGTCNfje55aNjoMPCN2RmxHGnM90uTlJdm4FX3/SefCCOPMzZYKK+ztiBOZGJaDyYdOlU1YcdfzFHfQmimJgH6Q8P24iFFm4LAJ3S5WFTni/Ncga9OdpCpMI9Dnf6qfOIhxSDGaUVBCeJqjfd6xubTn6apOb5q9FV+yax3IE6Bgkl8KiI2OC/pJyFXlV6pTQUFRgeM9yNjxVAU/OZ3aAcqLGHcpJDej1Mh0ASBwMez8HLXgxko5AlOs4CIhVg08oUpBKGQE9J0zY8/FMsXumo2khkz/Ed2vE+RXxlhJYhKsyeQNG06isZhq53tTAAmYGux0Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zIyRuMx1pH+NrTMQULxdR9rpGT3e/LaQVtBWVDGoFE8=;
- b=Jrxxhk9xbeH6C3ZkdxcnNeO1br+Zttsz3yMt7y2vPNDmF+50m9Y+vxBjOYTs4D88pv7Xxo0gFFC9JTZoZSIUzDZtH5n0Vc4hzepU3QZ3tUxxcv/q4GIT+f/9KQPxnjIutYMtm0jKndDXmeIeQHWQActxYn1qg70phi94z67BYpWvdnrND1aQgnavw/FtHQVn+WYnA7tRxlNOU60Y4VERkOkG/OSIf39cjnQ5KKVBfR3wyPseRliPJLuvrI3NTMf+lWO2VI0D37hKX4BnaTZ4RXFAcceOwu6qzEedtXsC6DuXQ6IF04rKBisYa7Efj0wSRqlo4SjAEn5fbP6jar8Lxw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AMBPR04MB12286.eurprd04.prod.outlook.com (2603:10a6:20b:733::19) with
+ bh=s+dWXhRvFGeR6TIDCInTT91yDDHNH5ZIv/W2CkqAegk=;
+ b=if4aW3TkXQQTbsNLMB3oxhc+8CqWTOlweGrS90j7nJTE8S+HFyq6VooYJ32Evna0hUUc9NYBq1ffNmZ3lOirfq4T+RzrR3xhv66UNo3NLsKboAFWOLAFJB7kVh0Mhsf1HOOvfXtXrC6S5dY2kqin9mdu5NPIK5n9hMQLhiYBjAShU42VXXjZhKdBpCBhtMbx7R3Td63xRmCexTfmZK55Tl2Zi37JKhXVCF5ZFuo0LSKHk5cPR38AjE6MOPQZ83FzaE3YZUAKgJjixxHU3IuG8fKDG5AN8BV3g1jKx/H6BL6CNGhZpm3GAJpBIdnvsbAgzbED/UEOehP5r/EMnL1+5A==
+Received: from SJ0PR03CA0179.namprd03.prod.outlook.com (2603:10b6:a03:338::34)
+ by PH7PR12MB7186.namprd12.prod.outlook.com (2603:10b6:510:202::15) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.21; Wed, 24 Jun
- 2026 20:47:01 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Wed, 24 Jun 2026
- 20:47:01 +0000
-Date: Wed, 24 Jun 2026 15:46:48 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Daniel Scally <djrscally@gmail.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Dafna Hirschfeld <dafna@fastmail.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
-	Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
-	Loic Poulain <loic.poulain@oss.qualcomm.com>,
-	driver-core@lists.linux.dev, linux-acpi@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	imx@lists.linux.dev, Guoniu Zhou <guoniu.zhou@nxp.com>,
-	Frank Li <Frank.Li@nxp.com>, Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-Subject: Re: [PATCH v2 0/4] media: add and use
- fwnode_graph_for_each_endpoint_scoped()
-Message-ID: <ajxCOE3avXXLlrfT@SMW015318>
-References: <20260624-fw_scoped-v2-0-0a8db472af4a@nxp.com>
- <20260624191935.GG851255@killaraus.ideasonboard.com>
- <ajwxcn2LXS8InAjZ@SMW015318>
- <20260624200237.GJ851255@killaraus.ideasonboard.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260624200237.GJ851255@killaraus.ideasonboard.com>
-X-ClientProxiedBy: PH8PR02CA0022.namprd02.prod.outlook.com
- (2603:10b6:510:2d0::12) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.13; Wed, 24 Jun
+ 2026 20:47:12 +0000
+Received: from SJ1PEPF00002323.namprd03.prod.outlook.com
+ (2603:10b6:a03:338:cafe::37) by SJ0PR03CA0179.outlook.office365.com
+ (2603:10b6:a03:338::34) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.159.13 via Frontend Transport; Wed,
+ 24 Jun 2026 20:47:12 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ SJ1PEPF00002323.mail.protection.outlook.com (10.167.242.85) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.159.10 via Frontend Transport; Wed, 24 Jun 2026 20:47:12 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 24 Jun
+ 2026 13:46:52 -0700
+Received: from [10.221.135.3] (10.126.230.37) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 24 Jun
+ 2026 13:46:49 -0700
+Message-ID: <7c23a6e4-31bc-4803-8c67-63f5d4e94593@nvidia.com>
+Date: Wed, 24 Jun 2026 22:46:46 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 4/8] firmware: smccc: lfa: Add timeout and trigger
+ watchdog
+To: Andre Przywara <andre.przywara@arm.com>, Mark Rutland
+	<mark.rutland@arm.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, "Sudeep
+ Holla" <sudeep.holla@kernel.org>
+References: <20260317103336.1273582-1-andre.przywara@arm.com>
+ <20260317103336.1273582-5-andre.przywara@arm.com>
+Content-Language: en-US
+From: Nirmoy Das <nirmoyd@nvidia.com>
+In-Reply-To: <20260317103336.1273582-5-andre.przywara@arm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.126.230.37]
+X-ClientProxiedBy: rnnvmail201.nvidia.com (10.129.68.8) To
+ rnnvmail201.nvidia.com (10.129.68.8)
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AMBPR04MB12286:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4d7d6c8d-674f-47cf-f89a-08ded231bdec
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00002323:EE_|PH7PR12MB7186:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3078e8b5-af4b-4a98-9fb9-08ded231c467
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|7416014|376014|23010399003|6133799003|22082099003|18002099003|56012099006|4143699003|11063799006;
-X-Microsoft-Antispam-Message-Info: 8p1n2bC7xvghMSPxFf/IDvgtaoYyJzXo/nlaVHwzN/Hl7I+Ban6agsilJcO3uZuhDEGPCQ8Oesn+KMQGuIuzRfpIdWNc4+2yxQXKmAxs/dojpI5BsBEAIpdf7COvTHb4gGTC9SRyXyylY9M7E+dyXwiGiYlHo68t8ogu9oLxcojYK0wMKEKOxts+nMG6b9OC8PKJ8dm/+X57vb0RDXlnv3UjjPElc7M0HBFX7d/OXUy38lfGk5psfu9YJ6S0meaWeGWAndCuhDIx8gOi6jRoEAvcCI63OBSz5crZjQUdTwxF/6tQGDsNG1OCoZ93dOzvhx7mC/sa0VoSSFkU7RFJT6etwsAedb2e0jSmDL6cVNOmF3csIqlneT/DqrDlCtGdx76T7rnf8YYXuS/YLsBAdhi3+oaYuEGtnZQZCemNylVbeFPWUwD/pRYamRPjZ2tmg9tdfm3IwYfdJ++4EqRDznaStven3/d5kqJ1cNa4PDwBy9MoOVep9fgYNAiQy+WRos7ZIlhJxX8FlmsQCgPkgM9biOo8ScFahZaK3Kt09S/GFvJuaitUFc+ugGf4iH/HHlSstzp1i6oDn6OYxI/0vJso1EcjbH5xnbIwH3aV8f4mH5yGOnneeh3m4qnKkPmMXPqfshAVhifikv1MudYgu7eCp0RcfQG990nVE5BYAP4=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(7416014)(376014)(23010399003)(6133799003)(22082099003)(18002099003)(56012099006)(4143699003)(11063799006);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|36860700016|1800799024|23010399003|6133799003|56012099006|22082099003|18002099003|11063799006|4143699003;
+X-Microsoft-Antispam-Message-Info: dZ0HX/GWWHRKimD9282REvvlQ/q8JlMm8GaySyuIjmjIT4NPu1KIALM1GqMk5w72H3ZQ97ySK5b2mtKzf4mXnFGBMBcJY0KOBRZIYttqGmVvBI/ojhfhtjFhJW9d0pkpCvO3dthTQkkDnMk3zasw1VWrFLCLmITkVf2VeBL89+LPlzYRd6AePKFROdVjlXDYw7nY7dvmPv7YOx949Yj5Z8zQu6b99r/QQNeYHE/QCvNotvgzQ7GJxIH9KZDbez6kkw0oF1/UFJ9/NH5vNu0DipnbuLb1c3l6ZEpJwCayYZK26V58BDEVEbCGG9YMK/zhGHMwz95L5sg6+Xo6maBv9t3y/zHC/r4GVlZImrCYjN40jjpWOIkhVOsXK0HCWcbFMcpbCXlFXdqRIGkM+E98QNpcKgXPJ70XWawyJvCuOQIpI2uJ4ZV6TheF1lZUFw+ayi5BMdc+jEgT4vkOzU1YyD7sGgdiNfpD1Jw92+ZC4Nrjy+r7mGOkBRXYWZDelqeajD6JO15Pe8o7Wrzwc1JkZbiD634UAxulIOshNV2AUyqNZ7V02Z7tW3HUVOOVe4bxTjpJPdBkxibw9J1HJhBHWtIxrWd+FBxIo2aGC+0WX1Wo0YvofpeLYNSFjNjfakBlPlHbPfsETvJ96p3gLJ+Jjw2PUjFYmEuSNuSXprmSuFN0Bg/diAoFZwcHUKazKSOrsYWiYinytzsTRVI7UW8AGA==
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(376014)(36860700016)(1800799024)(23010399003)(6133799003)(56012099006)(22082099003)(18002099003)(11063799006)(4143699003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?AywxQEWAqJ9uIwMWLjjZJZl0McFmpilb9xHqs5k9L0feNDLUj1DQG7KSLI19?=
- =?us-ascii?Q?KZigmcuE8CR3nF8VCSXAbEXwG1/P6qffzvBfFVdkXenZZDd1FFoDFHhgTvR3?=
- =?us-ascii?Q?fo4DPUhysAuOxjox02sZ6z7qnB8wCPuOqBOGY/iSbKRFV27w/j/WIVQGQLtK?=
- =?us-ascii?Q?Wq5iH2v4dzOmnF5I3Gy6p3lQI6gIqd2yTCHsSBln0x5ZyIxPFVHG0L+uurgr?=
- =?us-ascii?Q?sx3duA2tp/3kHPkFj4iNVCyT/3dbZSm+U+ivT2ekLgBBlJ7hfkrVXbsDb21U?=
- =?us-ascii?Q?dtpRaQTNVzspmV1X2GX4ReJtuKprXLYlpBl4CtXmmRqaWsaNZn8yv4cZ8sF/?=
- =?us-ascii?Q?DJhyEKRXwVQ2dNGzF1jTjHcG7IoDcvKAx+6ipGSeMPtZPsRvRuGuDzH0OFbk?=
- =?us-ascii?Q?QYx4bRYEanmoGvYpQpORf+8L8GbVjMK7qua15wrpAsU7m6DBMylDbctbirk3?=
- =?us-ascii?Q?z6di/f4paGJHRuVC34BECfzBzpm3FrD/u27uPrGOOxBvtulT5IXYb3VpVssA?=
- =?us-ascii?Q?O0/ek+gZfE8tOobEe000AhFE7XjOL8dlMiKS6Ll6e+YLt3Jchp/2lIJiHzqB?=
- =?us-ascii?Q?WpHvuoCIqBv8++EMZiY3zK2q8+fuK/FjxWGhFQLFL49Zpl9imce8KPC9NNVR?=
- =?us-ascii?Q?JSQRubEcyyrgQ8J7zacd+hheOdM5LsyeMkuyUrv1mYZ84Q7dOTwPGtu07/U8?=
- =?us-ascii?Q?Vm37+uR75gm7TDPWlSDK2Fu9UIOLM1q2Tg/jqDNPwBZFM/w9kMtYXKPshTPx?=
- =?us-ascii?Q?goPd7MuAAhAUrn7kFIAaxMBQCAwgVn9LTtX9njCeipBJbOxrqrnXg3lQbmdx?=
- =?us-ascii?Q?FKCbuD1qHYG1u4REc3lm0AMBzmGpq20gRTqRuUcS06HmfN43vMbyKYKoM8+i?=
- =?us-ascii?Q?TltE/fEuthCP/j3wLHCcX8JUgXMJtWAwOol16wgpZ8WZveOXY9obMxId19mb?=
- =?us-ascii?Q?ttcCZmvAUvMwQnUkp6bPLlz51aNiao25lHJSv08pIsc3Et3LRxyVwu6e7Vb7?=
- =?us-ascii?Q?2LAUe4T0HmY7bRILS6Wh2huwTgGuCXD0GpVsewWQRR8gOX5pVcDSH7cQOBKB?=
- =?us-ascii?Q?4zGC+przw/5RiPoykHaic0McW4Vzia/Yo4hfcPolVXGFrpukWynCr0nAmBYL?=
- =?us-ascii?Q?JzjwyZtckIDKdMhj+UfzHtZIpMkQMOTDJpEowANZ84KIGBQwyO7yy4EJiUVt?=
- =?us-ascii?Q?OYh2YbZF3JMvwRhizU+Zh28kTcHIQqKCSgNxFyNMeLmudU3s3P661gslJhDY?=
- =?us-ascii?Q?ru9o3pUxSao5JuUItncP4M45YuljO5kQElo7T3evN1sAQt82aC+p1vBXe7Wt?=
- =?us-ascii?Q?Pss2u4iHwa/yADLrKPmTHZ+xDsKonmTEuFkMVbhUVpOny4zJzSG4RqyFVZxM?=
- =?us-ascii?Q?AcT5eRhJZ7RfEQhqPlKb1TIHlmkxhiEuAICuxzCPmdVa+C7wyP+nVJjJtCKW?=
- =?us-ascii?Q?xV7+JhXPSUjoRHpilXZJsSdfo+wHJlLrRRrSoS24ItsdK9HjSyPD+niIRnUv?=
- =?us-ascii?Q?k0yAxxPOYgGwoQsZyFp7Elv0jz9XPrgm0mDGCpZqRpHH6LCqmVT4Rd3ltrac?=
- =?us-ascii?Q?NnGBZYDAH87hRPYqO+luRyeVpiSnpcGteiDR0F9weFb0POuGM5cP6W22n9A5?=
- =?us-ascii?Q?w8SEQgNWbDxxoh5zf/1dKpVAUtnDe40TkmCP65W9UhaJBWhPMcGPv07V40Mn?=
- =?us-ascii?Q?j0CIDUfOS0WelKcQp3v9TbHBwGT18oLliLLQauTz9JnE0veuyeJebj0TXxW5?=
- =?us-ascii?Q?Zr2NaJVhadmsgySZLsHO1mZHw/PQpelMXskgRi1434BpmPZHzU8d?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4d7d6c8d-674f-47cf-f89a-08ded231bdec
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jun 2026 20:47:01.8036
+X-MS-Exchange-AntiSpam-MessageData-0: b+Plp1J7qtqmZQ42Cyj5EOn0QgWwLZgi/l5TPlBPMHzxtj0FE0IYh3dO3VzBAGGkt/2nmRAX6BkkZt6JN16kX0Z2dL9KCb6kjbeJx8f4eW0SxJMo90rStDUA181tof5gpYilXuLmPRGlhx52WB8tyoqi3oLhgUuy+qKEM9PAYnhso3ikLAKlnSlITr5PkXCJV63T7Gu1/BR6fgiTbIdm71fwUtzeb6Je4qGuT45tRxiWdkJj7YghzJsUuhv8NTuPiYDjA49XugHlITmc1zxUXS0FsmFf1tCk6hhmW01244OYsi5NePmt3CVD1hhD4Urupc/1NFxIs6ha9E6tQb3rir9m+HB+WmB1EfrVQnIRPR0eTfcHoDqZ6iLd4kYFjYjFthqqwsdHFO2un/SzcKa0xg4Pl7pErkBoJYMPxi1SlpgHCUAeF0Kh1bfTtcZFNiCE
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jun 2026 20:47:12.3140
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: WfKXoeqFWAoeXzt8usI+8l677mN6g59/uLV2ZSU0uXdA2phCOe+5IAUduglUT+BJEeuLbu7XsESUDanAJnNgfI7DY3gFj2OhvdvWx9RRcw6bifYUwxLPO4ArS22xsVqb
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMBPR04MB12286
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3078e8b5-af4b-4a98-9fb9-08ded231c467
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00002323.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB7186
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_134707_238537_AB0399D1 
-X-CRM114-Status: GOOD (  26.76  )
+X-CRM114-CacheID: sfid-20260624_134720_987834_24C8F00A 
+X-CRM114-Status: GOOD (  21.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,64 +125,153 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: vsethi@nvidia.com, Salman Nabi <salman.nabi@arm.com>, linux-kernel@vger.kernel.org, vwadekar@nvidia.com, Trilok Soni <trilokkumar.soni@oss.qualcomm.com>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 24, 2026 at 11:02:37PM +0300, Laurent Pinchart wrote:
-> On Wed, Jun 24, 2026 at 02:35:14PM -0500, Frank Li wrote:
-> > On Wed, Jun 24, 2026 at 10:19:35PM +0300, Laurent Pinchart wrote:
-> > > On Wed, Jun 24, 2026 at 01:00:08PM -0400, Frank.Li@oss.nxp.com wrote:
-> > > > Add new helper macro fwnode_graph_for_each_endpoint_scoped() and use it
-> > > > simplify media code.
-> > > >
-> > > > Typical example should qualcomm's driver (camss.c), the v4l2_mc.c and
-> > > > rkisp1-dev.c only silience improvement.
-> > > >
-> > > > Anyways, *_for_each_*_scoped() already use widely and make code clean.
-> > > >
-> > > > Build test only.
-> > > >
-> > > > Sakari Ailus:
-> > > > 	when I try to improve the patch
-> > > > "Add common helper library for 1-to-1 subdev registration", I found need
-> > > > camss.c pattern, so I create this small improvement firstly.
-> > >
-> > > Those are nice cleanups, thank you.
-> > >
-> > > After applying this series, the only left users of the
-> > > fwnode_graph_for_each_endpoint() macro are in drivers/base/property.c.
-> >
-> > I already checked previously, two place use it.
-> >
-> > fwnode_graph_get_endpoint_count(), it will go though all endpoints, last
-> > ep is NULL, which totally equial to scoped() version.
-> >
-> > another one fwnode_graph_get_endpoint_by_id(), which return ep, expect
-> > caller to call put().
-> >
-> > if use scoped() version, need use no_free_ptr() at return, which make think
-> > a little bit complex.
->
-> It would introduce a tiny bit of extra complexity there, but the
-> advantage (in my opinion) is that we'll be able to remove the less safe
-> fwnode_graph_for_each_endpoint() macro.
->
-> Now one may argue that the risk of
-> fwnode_graph_for_each_endpoint_scoped() is returning the iterator
-> without using no_free_ptr(). I wonder if that would be easier to catch
-> in static analysis tools than the current pattern that leaks a reference
-> when exiting the loop early.
+Hi Andre, Veda,
 
-It's not big deal, if everyone prefer drop fwnode_graph_for_each_endpoint(),
-I can do it.
 
-Frank
+On 17.03.26 12:33, Andre Przywara wrote:
+> From: Vedashree Vidwans <vvidwans@nvidia.com>
+>
+> Enhance PRIME/ACTIVATION functions to touch watchdog and implement
+> timeout mechanism. This update ensures that any potential hangs are
+> detected promptly and that the LFA process is allocated sufficient
+> execution time before the watchdog timer expires. These changes improve
+> overall system reliability by reducing the risk of undetected process
+> stalls and unexpected watchdog resets.
+>
+> Signed-off-by: Vedashree Vidwans <vvidwans@nvidia.com>
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> ---
+>   drivers/firmware/smccc/lfa_fw.c | 43 ++++++++++++++++++++++++++++++---
+>   1 file changed, 39 insertions(+), 4 deletions(-)
+>
+> diff --git a/drivers/firmware/smccc/lfa_fw.c b/drivers/firmware/smccc/lfa_fw.c
+> index 4831abf2b60e..d1b5cd29b8a0 100644
+> --- a/drivers/firmware/smccc/lfa_fw.c
+> +++ b/drivers/firmware/smccc/lfa_fw.c
+> @@ -5,11 +5,14 @@
+>   
+>   #include <linux/arm-smccc.h>
+>   #include <linux/array_size.h>
+> +#include <linux/delay.h>
+>   #include <linux/fs.h>
+>   #include <linux/init.h>
+>   #include <linux/kobject.h>
+> +#include <linux/ktime.h>
+>   #include <linux/list.h>
+>   #include <linux/module.h>
+> +#include <linux/nmi.h>
+>   #include <linux/psci.h>
+>   #include <linux/stop_machine.h>
+>   #include <linux/string.h>
+> @@ -38,6 +41,11 @@
+>   #define LFA_PRIME_CALL_AGAIN		BIT(0)
+>   #define LFA_ACTIVATE_CALL_AGAIN		BIT(0)
+>   
+> +#define LFA_PRIME_BUDGET_MS		30000		/* 30s cap */
+> +#define LFA_PRIME_DELAY_MS		10		/* 10ms between polls */
+> +#define LFA_ACTIVATE_BUDGET_MS		10000		/* 10s cap */
+> +#define LFA_ACTIVATE_DELAY_MS		10		/* 10ms between polls */
+> +
+>   /* LFA return values */
+>   #define LFA_SUCCESS			0
+>   #define LFA_NOT_SUPPORTED		1
+> @@ -287,6 +295,7 @@ static int call_lfa_activate(void *data)
+>   	struct fw_image *image = data;
+>   	struct arm_smccc_1_2_regs reg = { 0 }, res;
+>   
+> +	touch_nmi_watchdog();
+>   	reg.a0 = LFA_1_0_FN_ACTIVATE;
+>   	reg.a1 = image->fw_seq_id;
+>   	/*
+> @@ -310,6 +319,7 @@ static int call_lfa_activate(void *data)
+>   
+>   static int activate_fw_image(struct fw_image *image)
+>   {
+> +	ktime_t end = ktime_add_ms(ktime_get(), LFA_ACTIVATE_BUDGET_MS);
+>   	int ret;
+>   
+>   retry:
+> @@ -324,8 +334,15 @@ static int activate_fw_image(struct fw_image *image)
+>   		return 0;
+>   	}
+>   
+> -	if (ret == -LFA_CALL_AGAIN)
+> -		goto retry;
+> +	if (ret == -LFA_CALL_AGAIN) {
+> +		/* SMC returned with call_again flag set */
+> +		if (ktime_before(ktime_get(), end)) {
+> +			msleep_interruptible(LFA_ACTIVATE_DELAY_MS);
+> +			goto retry;
+> +		}
+> +
+> +		ret = -LFA_TIMED_OUT;
+> +	}
+>   
+>   	lfa_cancel(image);
+Correct me if I am wrong here
 
->
-> > It'd better leave these as it.
->
-> --
-> Regards,
->
-> Laurent Pinchart
+DEN0147 2.6.6: LFA_ACTIVATE can return LFA_BUSY ("activation postponed 
+... prime status not changed"), i.e. retriable like CALL_AGAIN. So we need:
+       if (ret == -LFA_BUSY) {
+           if (ktime_before(ktime_get(), end)) {
+               msleep_interruptible(LFA_ACTIVATE_DELAY_MS);
+               goto retry;
+           }
+           ret = -LFA_TIMED_OUT;
+
+       }
+
+Regards,
+
+Nirmoy
+
+
+>   
+> @@ -338,6 +355,8 @@ static int activate_fw_image(struct fw_image *image)
+>   static int prime_fw_image(struct fw_image *image)
+>   {
+>   	struct arm_smccc_1_2_regs reg = { 0 }, res;
+> +	ktime_t end = ktime_add_ms(ktime_get(), LFA_PRIME_BUDGET_MS);
+> +	int ret;
+>   
+>   	if (image->may_reset_cpu) {
+>   		pr_err("CPU reset not supported by kernel driver\n");
+> @@ -345,6 +364,8 @@ static int prime_fw_image(struct fw_image *image)
+>   		return -EINVAL;
+>   	}
+>   
+> +	touch_nmi_watchdog();
+> +
+>   	reg.a0 = LFA_1_0_FN_PRIME;
+>   retry:
+>   	/*
+> @@ -363,8 +384,22 @@ static int prime_fw_image(struct fw_image *image)
+>   		return res.a0;
+>   	}
+>   
+> -	if (res.a1 & LFA_PRIME_CALL_AGAIN)
+> -		goto retry;
+> +	if (res.a1 & LFA_PRIME_CALL_AGAIN) {
+> +		/* SMC returned with call_again flag set */
+> +		if (ktime_before(ktime_get(), end)) {
+> +			msleep_interruptible(LFA_PRIME_DELAY_MS);
+> +			goto retry;
+> +		}
+> +
+> +		pr_err("LFA_PRIME for image %s timed out",
+> +		       get_image_name(image));
+> +
+> +		ret = lfa_cancel(image);
+> +		if (ret != 0)
+> +			return ret;
+> +
+> +		return -ETIMEDOUT;
+> +	}
+>   
+>   	return 0;
+>   }
 
