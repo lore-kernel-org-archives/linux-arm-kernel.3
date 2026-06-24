@@ -4,113 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73A05CDB47F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 12:48:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A800CDB481
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 13:02:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e7crjkX7xxDZ9ZyGUXr6JqBDMyWiaXIEE/qm3XJmLi8=; b=Ei9+I6XmWmpddWjcm/ddJax0Dw
-	59eSeyrpZvhm1W57ru57hgJ353LPeUBsR1hh+9Sd9EL8gVyvNP8nRRm7qCV9qfgXOOk5Twl/q9pcE
-	ikYNXde9wZ4Rwfol7P1SkpJxDubWt8EGpjPSoMVRE7JjAn/PpYPt+75cAgXy6vNFnz1YVzsZL51MX
-	OVCnM18bIs34VnK1gItvraWsIDIBNbSTiG+7aKYx66PwCGrGW+svZ/yDMvuDyZJ+af4rU1QogEXPU
-	qq67HEGP2A7uAbmkP8MQu7mH/ec+BZeDoCi6g8BJm6+JxQGNj7o6BZDBQgtizCM8QCzsYXP9YSuNa
-	X/sNPstQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yN+jlUj2bkdJO2fa3tTsgtziLO5bfzzPt08XHlkjhtE=; b=I7rSHW9jH90f9BgGA0ucR34LaH
+	LW3hvtpH0bhbqOUrOzyuh8Quh8dX3/rE9YIglROUaAc956LAOEn7MvYJ/XRx5iXk0JkHnbMZDb4Ed
+	ruc646OiT+xEz8a9ZcZj6c96nN19gJ/y7brm+pfGAdies51xz6XzhmDv3qlT5nigwE4dMfTJ67XHw
+	DWyYEleszuygwb96ukBlOBAMw8+iGRZ/y0M9YNACoubRfyQNcyKrI8uZhZycO7gdNxPh6U0SZdQ9X
+	4g+VI+YSgRs7c1Y+L4cgchv3fP7pO0e5vx3UGv/oywDtTznEpilqFSIOTlKrrIDa9N5q4ypsBZSaf
+	XpLjuJbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcN1t-00000007mAr-1UYC;
-	Wed, 24 Jun 2026 12:48:33 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1wcNFG-00000007muY-3xTu;
+	Wed, 24 Jun 2026 13:02:22 +0000
+Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcN1l-00000007m97-20Nq
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 12:48:26 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-4631679f204so1085011f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Jun 2026 05:48:24 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1782305303; cv=none;
-        d=google.com; s=arc-20240605;
-        b=gmn6AQ8NrhnDBbkxqJpRQ15DG3M9hBJGP4FHNeQSX5AliFibmCFM4VP9HuYHDf6a2S
-         ufQlGnTwnghQqksuadoRPJRIbHQwTMIs5mmyF13dOvspwzj7SKWKGzjliXJ/Nut6HCDw
-         XxHpqvzWtlwFWoyzBtmXqjM30/4WUJncAkEhhW4h78HI1HduaDAb2vYjNokzZwke8+aw
-         axf+1CqI111V79vxNtC47B1npsOfjp42ni9oI6i4yG0KEFUaSNEP1B7kJNesekLW4XPg
-         yhEb4PNfEZaVGo54sMzCCq0x5lm8UQB3gSaMKkenngKQ6iAohqdY/6NwaZ7KWg7p1q7n
-         Udcg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=e7crjkX7xxDZ9ZyGUXr6JqBDMyWiaXIEE/qm3XJmLi8=;
-        fh=Q0w+vspRq2w4jKi2BGp7gS66xj7DQ6LBze72nRZXKrw=;
-        b=GlCRuplYQKJn7D/vio54S/9AbzbfTOqMn1Wr1NZXB5laZkBNbQ+dWDmnly/uRGzKy5
-         L2K92mMEF3pNk0HzmgZPM2Lxw6HHdURB3vdXjN6T3xH/aw/b3/nXdgFhonZi3RgDHLV5
-         fXlyGdX9vCr+3QmHBHppkqBjdJoP9E7t4++31jzJjnX8dF7bsV+Zq9nxxWchFewzKJzO
-         5vSncsDN5T4iJodQONIueRkwUvA66t1Z9jpXaHj9cRU1kOIjxDUz2j5kz7xR0WsKBXhx
-         p4fLXk4q20GRNzGkRNXjrrLeUGsPdBCMXA4J1L1clR1TayDDTLhorOjmf2GlkU7hs2RR
-         HPJA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=9elements.com; s=google; t=1782305303; x=1782910103; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=e7crjkX7xxDZ9ZyGUXr6JqBDMyWiaXIEE/qm3XJmLi8=;
-        b=GH4kSYkq3ut2mjLXxnzwhjzYVuW2v7vkOMSOHWRiU0M49E8xQXNQpVknGogtzStC5i
-         yihLqzYC4LvjilIIKr/hG5JtSCrHMoUzGEpD8RBctczpeQqV6MF6W8WMtPmGcUqQ/0l/
-         rmy6Qt/XXqSzObyizgKsaoijYZm8miADJacqSI3C4Blyp8EgLTJU9LswwEr4ThOVCdc+
-         c2DjMZhJyiXSyJmqGKjdWH/4TahK1XPzpwWt/rb1i0UtwwI4Nd1O+QQYC6jIGD7Z1zVl
-         O/i/LqBiXt9JQP3QyphlvjALRwnARtZ6yUgo7cuYpVKbBUznbYhG/v8Z66ljOwgZ/1X3
-         Zw+Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782305303; x=1782910103;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=e7crjkX7xxDZ9ZyGUXr6JqBDMyWiaXIEE/qm3XJmLi8=;
-        b=p1j0CcIb7wEjA/PTpiljb4MxJsV/34s0kx5IJ6JNzz4He+B/yf1ClojQhKu7k4w7KW
-         G1KnJQ8ypO80vxErMl0wWo0pgXFJHV+8Jar6c2IatuFczL09NNCNvu9JuGZfU5CyRqiz
-         KnzUpcMsQcHzw7pFcqOn1+2NvyNxVnzHsQGD5GyK5Wb3K+xmNvhEF4CJEZQNOfNNfXrv
-         KWIhCjUKVlyxKVhDEU3w+2WiexQpd+qoG9rKKaA/yQFUh3onyBvlAvOG8beXhLVODhB0
-         F/MHucKaShzjzPUyI0EB2nPj6nzBB+Dq3CgfAxtFrdEvQ21TJqo9Jogho0zShWz2obX0
-         Z+kQ==
-X-Forwarded-Encrypted: i=1; AHgh+RqXxJzKCi5ZkhHVHUzYJmwT22iLvTESId5lCRLz9b3xZZmzYsNMTQ9jME3XrtcYDqEPGrYJl6uQt18+5Tnqtd3f@lists.infradead.org
-X-Gm-Message-State: AOJu0YwgUhlfo88zxgyU4BO/kwj6IIoh32Dq4O32fhJrpH6FfnA903jX
-	XBGRtOY8Z4PTid0H/OtSIN8LaY8QLWOqgHTblROtSrLkiGx7R6wGljpCpAjjqulW6aWVh+pULrS
-	jZteaTpfhhLvH9OvGxYEdXoI115eJraK66wfg8EEpRQ==
-X-Gm-Gg: AfdE7ckSEkpqCVSMBzt2NLKWXQehZvUPQiezMdPXzLoLtV3Rgzg+cdLF5SkO7r55OjB
-	wx5mZ3Dw884MWLImuSZxEJbKMKJNbdl/ER4sQAo9A/ddGQhUISn+1pogtWvBEZmqKpcquauhITp
-	Tf1tHfrJcLQZvgxDsVLNMfMWvpZQ9VQFZVy9iAdhEjVhLA65De7XdPoKPSNOt0aDTumKo0sS2T+
-	QkHgFFa1j29JD/8YwERqO3yZAvKZL48Xzu1Q1YHFaKF0kwk22o0w7Llc8vHLnCnudPOGtgNS5lD
-	SRzD04AB+Af5R78h9uVweNi2ptSN0HSrZbA6lUW3z7j+AbMd/xx3FMVv/Q==
-X-Received: by 2002:a05:6000:2488:b0:464:c5be:37fe with SMTP id
- ffacd0b85a97d-46d04d45829mr417638f8f.15.1782305303554; Wed, 24 Jun 2026
- 05:48:23 -0700 (PDT)
-MIME-Version: 1.0
-References: <cover.1782224059.git.gregoire.layet@9elements.com>
- <80d983887dfdfc7e70a6db95f8cb95b7312f3044.1782224059.git.gregoire.layet@9elements.com>
- <20260624-realistic-spiked-parrot-db1d9c@quoll>
-In-Reply-To: <20260624-realistic-spiked-parrot-db1d9c@quoll>
-From: =?UTF-8?Q?Gr=C3=A9goire_Layet?= <gregoire.layet@9elements.com>
-Date: Wed, 24 Jun 2026 14:48:11 +0200
-X-Gm-Features: AVVi8CcfDxQiwuKN4se3SFXuUd_U7WotHtCQRVpspiQz6vxahSkFlSb2JfFBv40
-Message-ID: <CAFi2wKaL8qiv_H2GQ05CaeBDQwGvHdjb+dqmjQrHHzWNK6qrtQ@mail.gmail.com>
-Subject: Re: [PATCH v3 1/7] dt-bindings: serial: 8250: aspeed: add compatible
- string for ast2600
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: joel@jms.id.au, andrew@codeconstruct.com.au, lkundrak@v3.sk, 
-	devicetree@vger.kernel.org, gregkh@linuxfoundation.org, jirislaby@kernel.org, 
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, andrew@lunn.ch, 
-	jacky_chou@aspeedtech.com, yh_chung@aspeedtech.com, ninad@linux.ibm.com, 
-	anirudhsriniv@gmail.com, linux-serial@vger.kernel.org, 
-	linux-aspeed@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
+	id 1wcNFA-00000007mtP-39cY;
+	Wed, 24 Jun 2026 13:02:21 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
+	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 20A192000D8;
+	Wed, 24 Jun 2026 15:02:13 +0200 (CEST)
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1wcNF7-004Qb0-09;
+	Wed, 24 Jun 2026 15:02:13 +0200
+Received: from pza by lupine with local (Exim 4.98.2)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1wcNF6-00000000B61-3z8C;
+	Wed, 24 Jun 2026 15:02:12 +0200
+Message-ID: <eb03894ae2765a426457238157e474087ea0aaa6.camel@pengutronix.de>
+Subject: Re: [PATCH v9 02/12] reset: Add Realtek basic reset support
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Yu-Chun Lin <eleanor.lin@realtek.com>, mturquette@baylibre.com, 
+	sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ 	cylee12@realtek.com, afaerber@suse.com, jyanchou@realtek.com,
+ bmasney@redhat.com
+Cc: devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-realtek-soc@lists.infradead.org, james.tai@realtek.com, 
+	cy.huang@realtek.com, stanley_chang@realtek.com
+Date: Wed, 24 Jun 2026 15:02:12 +0200
+In-Reply-To: <20260624112940.3475605-3-eleanor.lin@realtek.com>
+References: <20260624112940.3475605-1-eleanor.lin@realtek.com>
+	 <20260624112940.3475605-3-eleanor.lin@realtek.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_054825_560858_77B28C4F 
-X-CRM114-Status: UNSURE (   7.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260624_060216_940170_1895BB53 
+X-CRM114-Status: GOOD (  21.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,24 +76,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+On Mi, 2026-06-24 at 19:29 +0800, Yu-Chun Lin wrote:
+> From: Cheng-Yu Lee <cylee12@realtek.com>
+>=20
+> Define the reset operations backed by a regmap-based register interface
+> and prepare the reset controller to be registered through the reset
+> framework.
+>=20
+> Since the reset controllers on Realtek SoCs often share the same register
+> space with the clock controllers, this common framework is designed to
+> extract the regmap and device tree node from the parent device
+> (e.g., an auxiliary device parent).
+>=20
+> Signed-off-by: Cheng-Yu Lee <cylee12@realtek.com>
+> Co-developed-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+> Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+> ---
+> Changes in v8:
+> - Rename common.[ch] to reset-rtk-common.[ch].
+> ---
+>  MAINTAINERS                              |  1 +
+>  drivers/reset/Kconfig                    |  1 +
+>  drivers/reset/Makefile                   |  1 +
+>  drivers/reset/realtek/Kconfig            |  8 +++
+>  drivers/reset/realtek/Makefile           |  2 +
+>  drivers/reset/realtek/reset-rtk-common.c | 90 ++++++++++++++++++++++++
+>  drivers/reset/realtek/reset-rtk-common.h | 29 ++++++++
+>  7 files changed, 132 insertions(+)
+>  create mode 100644 drivers/reset/realtek/Kconfig
+>  create mode 100644 drivers/reset/realtek/Makefile
+>  create mode 100644 drivers/reset/realtek/reset-rtk-common.c
+>  create mode 100644 drivers/reset/realtek/reset-rtk-common.h
+>=20
+[...]
+> diff --git a/drivers/reset/realtek/reset-rtk-common.c b/drivers/reset/rea=
+ltek/reset-rtk-common.c
+> new file mode 100644
+> index 000000000000..75b27cb2a208
+> --- /dev/null
+> +++ b/drivers/reset/realtek/reset-rtk-common.c
+> @@ -0,0 +1,90 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (C) 2019-2026 Realtek Semiconductor Corporation
+> + */
+> +
+> +#include <linux/device.h>
+> +#include <linux/export.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/regmap.h>
+> +#include "reset-rtk-common.h"
+> +
+> +static inline struct rtk_reset_data *to_rtk_reset_controller(struct rese=
+t_controller_dev *r)
+> +{
+> +	return container_of(r, struct rtk_reset_data, rcdev);
+> +}
+> +
+> +static inline const struct rtk_reset_desc *rtk_reset_get_desc(struct rtk=
+_reset_data *data,
+> +							      unsigned long idx)
+> +{
+> +	return &data->descs[idx];
+> +}
+> +
+> +static int rtk_reset_assert(struct reset_controller_dev *rcdev,
+> +			    unsigned long idx)
+> +{
+> +	struct rtk_reset_data *data =3D to_rtk_reset_controller(rcdev);
+> +	const struct rtk_reset_desc *desc;
+> +	u32 mask, val;
+> +
+> +	desc =3D rtk_reset_get_desc(data, idx);
+> +	mask =3D desc->write_en ? (0x3U << desc->bit) : BIT(desc->bit);
+> +	val  =3D desc->write_en ? (0x2U << desc->bit) : 0;
+> +
+> +	return regmap_update_bits(data->regmap, desc->ofs, mask, val);
+> +}
+> +
+> +static int rtk_reset_deassert(struct reset_controller_dev *rcdev,
+> +			      unsigned long idx)
+> +{
+> +	struct rtk_reset_data *data =3D to_rtk_reset_controller(rcdev);
+> +	const struct rtk_reset_desc *desc;
+> +	u32 mask, val;
+> +
+> +	desc =3D rtk_reset_get_desc(data, idx);
+> +	mask =3D desc->write_en ? (0x3U << desc->bit) : BIT(desc->bit);
+> +	val =3D mask;
+> +
+> +	return regmap_update_bits(data->regmap, desc->ofs, mask, val);
 
-> Do not attach (thread) your patchsets to some other threads (unrelated
-> or older versions). This buries them deep in the mailbox and might
-> interfere with applying entire sets. See also:
-> https://elixir.bootlin.com/linux/v6.16-rc2/source/Documentation/process/s=
-ubmitting-patches.rst#L830
+You can use regmap_set_bits() here.
 
-Oh okay sorry I missed this information. Thank's for letting me know !
+> +}
+> +
+> +static int rtk_reset_status(struct reset_controller_dev *rcdev,
+> +			    unsigned long idx)
+> +{
+> +	struct rtk_reset_data *data =3D to_rtk_reset_controller(rcdev);
+> +	const struct rtk_reset_desc *desc;
+> +	u32 val;
 
-> This should be oneOf (by convention and actually more accurate meaning).
+	unsigned int val;
 
-Acknowledged
+> +	int ret;
+> +
+> +	desc =3D rtk_reset_get_desc(data, idx);
+> +	ret =3D regmap_read(data->regmap, desc->ofs, &val);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return !((val >> desc->bit) & 1);
+> +}
+> +
+> +static const struct reset_control_ops rtk_reset_ops =3D {
+> +	.assert   =3D rtk_reset_assert,
+> +	.deassert =3D rtk_reset_deassert,
+> +	.status   =3D rtk_reset_status,
+> +};
+> +
+> +/* The caller must initialize data->descs, data->rcdev.nr_resets and
+> + * data->rcdev.owner before calling rtk_reset_controller_add().
+> + */
+> +int rtk_reset_controller_add(struct device *dev,
+> +			     struct rtk_reset_data *data)
+> +{
+> +	data->regmap          =3D dev_get_platdata(dev);
+> +	data->rcdev.ops       =3D &rtk_reset_ops;
+> +	data->rcdev.dev       =3D dev;
+> +	data->rcdev.of_node   =3D dev->parent->of_node;
 
-> More important, where is documenting of the actual compatible?
+This split rcdev initialization is more hassle than it is worth.
+Please just export rtk_reset_ops and duplicate the
+regmap/ops/dev/of_node assignment in the probe functions.
 
-Yes, you are right, I missed it. Will be added in v4.
+Alternatively, consolidate the probe function and export it from here.
 
-Best regards,
-Gr=C3=A9goire
+regards
+Philipp
 
