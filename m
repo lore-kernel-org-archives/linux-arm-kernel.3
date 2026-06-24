@@ -4,85 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F852CDE000
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 10:04:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C849CDB47C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 10:05:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ndRykSSJoRGrOe5/I4OXUoB6S+4/M9Ada4KuUeuqPuU=; b=cJCPVJ0ft8+EoYCdNX7napq9df
-	tqPCV0RtlXBzK7UDNjHksRqHgI1EXh670lnk1eEjcS4MaIYzKqR+WfQJJ3MGAazT+1UxmCv50SZ/f
-	pb/otDp637jwJVOjaa3523unKis2e6QM9jUh7tJ71pbb5s1SDlZdDqOIvh8HlbzQEN4is+7Fg6U9U
-	614wAFFaPBcvmI78KZm8OY4NMbCpf+lc5KRn7Sa41di3uQIRiWWPLs1IDHGle90t7L1CrYW0jfyr1
-	7Ap0S7rTxjhi4FegstfoHyHk4tSjZFxLq1dTrtzfp6bywcjzfym54ZsM74L5k5XAMdzOyvQJ3shPg
-	bv4P77Ww==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HTArwVKu1Y38xUl5eFcMw3mUeVPxit5uZcPbJoGuZ24=; b=kCx1PM6czZm/y5OAFLRgVj7EiJ
+	2fH2Uc90iiwDcaOkF/HQRAEa2eXA6fQDkPWlVtMC6/LQie11WUuEvWacsvYztFizlh1B7QzYBOptR
+	SYD0hCwfjgNKO4OcWE59ixK4IubnyNTXdOXRHSv2+9Xumnnf4Ljl4ocG4SdWqBZ/Qy6wqXJwCri0H
+	3grxa4f+XYP77mjzB9m9oH+n95Q6F4kTbLvUdzww7yn75YKhMCMs4jGzGJCBnRLjXncMMlObvUGTV
+	l0Jt3p7Cw3BjngkPHX9jMzMkv65N2nmX2BE3wIjceDI1zqGP7Jsk6ep9v66r2IV9aoROGZEO/lP43
+	s+d+d94A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcKTT-00000007ZMd-3VbY;
-	Wed, 24 Jun 2026 10:04:51 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wcKTn-00000007ZeG-37Pn;
+	Wed, 24 Jun 2026 10:05:11 +0000
+Received: from mout.gmx.net ([212.227.15.19])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcKSx-00000007YsF-0fva;
-	Wed, 24 Jun 2026 10:04:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D798B60018;
-	Wed, 24 Jun 2026 10:04:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 7FFCBC2BCB7;
-	Wed, 24 Jun 2026 10:04:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1782295457;
-	bh=wkVjtgalCZbQSoIpv9CwBCZjvSYX3+Cp4uEVA8TMu7k=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=Kd+6zp42TLJ9Vj1RhBmssJDOPbMoFPKBiScH2VRXdBiajdClbuYazdwKGLnJRaBA7
-	 FFNiP1pdHZOxjXgKngRaXscYsLHfijukC08IoMG0hVJoIVKM7Bf39xp7epVURT+i+C
-	 xePUsd26Z3vTk0AfMI1rcpmamKAONrc5qIE4NaACXZuoDy/yVqyzX04Ho03ttroUqA
-	 XrtfJmOsLi2KR++k/cKxlnTFV1UBOjzikAbffzEHp0M6ReSfwx6Vvdc5ZEX0OHsXU8
-	 4GoXcV63CuFlHe/bb3my9/2oArclzrb099mlRQv39Zbcx5L7FYHu4g/6svH4Rlq3vR
-	 RAFYvEJhACCrg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5A71BCDE000;
-	Wed, 24 Jun 2026 10:04:17 +0000 (UTC)
-From: Jack Wu via B4 Relay <devnull+jackbb_wu.compal.com@kernel.org>
-Subject: [PATCH v3 0/7] net: wwan: t9xx: Add MediaTek T9XX WWAN driver
-Date: Wed, 24 Jun 2026 18:04:06 +0800
-Message-Id: <20260624-t9xx_driver_v1-v3-0-73ff03f60c48@compal.com>
+	id 1wcKTh-00000007ZYa-2Yq6
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 24 Jun 2026 10:05:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1782295502; x=1782900302; i=wahrenst@gmx.net;
+	bh=HTArwVKu1Y38xUl5eFcMw3mUeVPxit5uZcPbJoGuZ24=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=hMGdAMcKFIO67z64skEXRq4wWNboHoTlLhievESyU5DZhriD53fMzs2UidtAfBhH
+	 49cWGL6TNuQJKN9XrVoQQSNs3WqLJbz/WpbLcy+wfadTWlnXNj/tE2fo4LMcCrmXt
+	 jkyniVvJJBRB2ezbuXUMLVKkm23yJ9yWprzAji5bHibxeNeo6hDqTCuKjS7k4QBaO
+	 81d/4LlHcA47HHD6u7rpJJgrmf+j5iBkidgT1U1UrB50xA348Nfa5HRifUw4Y9jsb
+	 vX90XGiGYiAVZ6xt5A/GpDUAUwV9F9omS8UuiVdnMwL015yUU1oGIYCJXBjqap9Lb
+	 qOzxUUzSqYU8C0+hWA==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from client.hidden.invalid by mail.gmx.net (mrgmx005
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1MTABZ-1wjELx0B15-00IVpp; Wed, 24
+ Jun 2026 12:05:02 +0200
+Message-ID: <07bc94cf-2b89-45ce-b36e-d07af6749ef9@gmx.net>
+Date: Wed, 24 Jun 2026 12:05:00 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAJarO2oC/3WNWwrCMBREtyL5NpJH21i/3IdIyePGRrQtSQ2V0
- r2b1A8RES4MA3POnVEA7yCgw2ZGHqILru9S4dsN0q3sLoCdSR0xwipSshqP9TQ1xrsIvokUU1E
- Udi+tELxGCRo8WDetwtP53cNDXUGP2ZIXrQtj75/rx0jz7q88HcHKKAtMEwqlOOr+PsjbLgXK9
- sg+fEXJD88Sr6tSGmMZV9x+8cuyvACNvY/m/wAAAA==
-X-Change-ID: 20260529-t9xx_driver_v1-1744f8af7739
-To: Loic Poulain <loic.poulain@oss.qualcomm.com>, 
- Sergey Ryazanov <ryazanov.s.a@gmail.com>, 
- Johannes Berg <johannes@sipsolutions.net>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Jack Wu <jackbb_wu@compal.com>, Wen-Zhi Huang <wen-zhi.huang@mediatek.com>, 
- Shi-Wei Yeh <shi-wei.yeh@mediatek.com>, 
- Minano Tseng <Minano.tseng@mediatek.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Simon Horman <horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>
-Cc: linux-kernel@vger.kernel.org, netdev@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- linux-doc@vger.kernel.org
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1782295454; l=13177;
- i=jackbb_wu@compal.com; s=20260526; h=from:subject:message-id;
- bh=wkVjtgalCZbQSoIpv9CwBCZjvSYX3+Cp4uEVA8TMu7k=;
- b=jPZka2HnEi+K+CbV2Jywm3Mrp5Qd3gOkA5PmGzVD32JJuUfAPPdLYsawrAo9Hw8HHi2bSqKlz
- ssBbVetjNJQCqRBRstFy4adm0Ra8tfI7w9HHrdsaeH5TUTYXiEeiPjV
-X-Developer-Key: i=jackbb_wu@compal.com; a=ed25519;
- pk=VH1prTWixNl8OEUPPSfII3p46MzJpQN8J3+ecE1tZXg=
-X-Endpoint-Received: by B4 Relay for jackbb_wu@compal.com/20260526 with
- auth_id=793
-X-Original-From: Jack Wu <jackbb_wu@compal.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: chipidea: usbmisc_imx: i.MX93 support
+To: Xu Yang <xu.yang_2@oss.nxp.com>
+Cc: Xu Yang <xu.yang_2@nxp.com>, Frank Li <Frank.Li@nxp.com>,
+ Jun Li <jun.li@nxp.com>, Alexander Stein <alexander.stein@ew.tq-group.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Linux ARM <linux-arm-kernel@lists.infradead.org>,
+ "linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>
+References: <b2fb88eb-5c5f-499f-9cee-6a69769c578c@gmx.net>
+ <ibkjg6bymxoy5wcewrfn4y63f5izlh2yvdqjt42a63kvttr42w@tvqjjhfjg3u4>
+ <40e4df43-5de8-48fb-9c5d-9ccb437e63b9@gmx.net>
+ <lwo7rsdsfuibceyz5qoi46bbrhmofjpb2e3ukzdawieou3uo7m@5o2ral3q4oaf>
+Content-Language: en-US
+From: Stefan Wahren <wahrenst@gmx.net>
+Autocrypt: addr=wahrenst@gmx.net; keydata=
+ xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
+ IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
+ NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
+ JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
+ TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
+ f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
+ V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
+ aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
+In-Reply-To: <lwo7rsdsfuibceyz5qoi46bbrhmofjpb2e3ukzdawieou3uo7m@5o2ral3q4oaf>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: base64
+X-Provags-ID: V03:K1:gaU3oCttgjVbp2xNHvZFXcsZfjrXQe8xVzyJD3vWmQAFerULpWx
+ eknls63rMtGIPFeguD5N+I6jd0fTJb4fDEasJPfg+Kxap6Bum4KPpvRVi68ccgPQggQt2ne
+ NMjuib4aI5zM8Npmm+MVUUrZfRMnmUc3NhXbjC6RANAaQ73uB0xwUn2QU5kjjvU5nApUlKl
+ CZ1eZlnOErJUuic5rROCA==
+UI-OutboundReport: notjunk:1;M01:P0:TXRI+9cUPns=;MCvG8RMQprIM8RW1tL9WVnTnaYQ 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 RA4wAoToZVyXnLKIbLWLaGzAWG8UU1Eamknk=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260624_030505_962820_A63D8E49 
+X-CRM114-Status: UNSURE (   9.07  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,227 +95,52 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: jackbb_wu@compal.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T9XX is the PCIe host device driver for MediaTek's
-t900 modem. The driver uses the WWAN framework
-infrastructure to create the following control ports
-and network interfaces for data transactions.
-* /dev/wwan0at0 - Interface that supports AT commands.
-* /dev/wwan0mbim0 - Interface conforming to the MBIM
-  protocol.
-* wwan0-X - Primary network interface for IP traffic.
-
-The main blocks in the T9XX driver are:
-* HW layer - Abstracts the hardware bus operations for
-   the device, and provides generic interfaces for the
-   transaction layer to get the device's information and
-   control the device's behavior. It includes:
-
-   * PCIe - Implements probe, removal and interrupt
-     handling.
-   * MHCCIF (Modem Host Cross-Core Interface) - Provides
-     interrupt channels for bidirectional event
-     notification such as handshake and port enumeration.
-
-* Transaction layer - Implements data transactions for
-   the control plane and the data plane. It includes:
-
-   * DPMAIF (Data Plane Modem AP Interface) - Controls
-     the hardware that provides uplink and downlink
-     queues for the data path. The data exchange takes
-     place using circular buffers to share data buffer
-     addresses and metadata to describe the packets.
-   * CLDMA (Cross Layer DMA) - Manages the hardware
-     used by the port layer to send control messages to
-     the device using MediaTek's CCCI (Cross-Core
-     Communication Interface) protocol.
-   * TX Services - Dispatch packets from the port layer
-     to the device.
-   * RX Services - Dispatch packets to the port layer
-     when receiving packets from the device.
-
-* Port layer - Provides control plane and data plane
-   interfaces to userspace. It includes:
-
-   * Control Plane - Provides device node interfaces
-     for controlling data transactions.
-   * Data Plane - Provides network link interfaces
-     wwanX (0, 1, 2...) for IP data transactions.
-
-* Core logic - Contains the core logic to keep the
-   device working. It includes:
-
-   * FSM (Finite State Machine) - Monitors the state
-     of the device, and notifies each module when the
-     state changes.
-
-The compilation of the T9XX driver is enabled by the
-CONFIG_MTK_T9XX and CONFIG_MTK_T9XX_PCI config option
-which depends on CONFIG_WWAN.
-
-This v2 submission covers the control plane only
-(patches 1-6). The data plane will follow in a
-separate series once the control plane is accepted.
-
----
-Changes in v3:
-- Address sashiko AI code review comments and fix sparse warnings
-- Patch 1 (Add PCIe core):
-  - Move extern declaration of mtk_dev_cfg_0900 from mtk_pci.c to mtk_pci.h to fix sparse warning
-  - Remove mtk_pci_bar_exit(): pcim_iounmap_region() was called with bitmask instead of BAR index, and pcim_iomap_regions() is devres-managed so manual unmap is redundant [sashiko]
-  - Remove pci_disable_device() from probe error path and remove path: pcim_enable_device() registers devres cleanup, manual disable causes enable_cnt underflow [sashiko]
-- Patch 3 (Add control DMA interface):
-  - Add #include "mtk_cldma.h" in mtk_cldma_drv_m9xx.c to fix sparse undeclared symbol warnings for mtk_cldma_regs_m9xx and cldma_drv_ops_m9xx
-  - Move extern declaration of mtk_ctrl_info_m9xx from mtk_trans_ctrl.c to mtk_trans_ctrl.h to fix sparse undeclared symbol warning
-  - Replace kcalloc + radix_tree_gang_lookup with radix_tree_for_each_slot() in mtk_ctrl_remove_radix_tree() to eliminate allocation in teardown path [sashiko]
-  - Add missing mtk_pci_dev_exit() call in mtk_pci_remove() to properly clean up FSM and trans_ctrl resources before device removal [sashiko]
-- Patch 4 (Add control port):
-  - Replace kcalloc + radix_tree_gang_lookup with radix_tree_for_each_slot() and single-entry gang_lookup in mtk_port_tbl_destroy() to eliminate allocation failure in teardown path [sashiko]
-  - Add port = NULL after mtk_port_put_locked() in mtk_port_internal_open() error path to prevent returning un-refcounted pointer [sashiko]
-  - Restore skb_unlink + trb_complete for non-EAGAIN errors in mtk_ctrl_trb_handler() TX path to prevent infinite retry loop [sashiko]
-- Patch 5 (Add FSM thread):
-  - Check mtk_pci_register_irq() return value in mtk_cldma_dev_init() and add err_destroy_wq error label to fix unreachable dead code [sashiko]
-  - Propagate specific error codes (ENOMEM/EIO/EINVAL) from mtk_cldma_dev_init() error paths instead of generic -EIO [sashiko]
-  - Free head SKB after detaching frag_list in mtk_cldma_rxq_free() scatter-gather mode to fix memory leak [sashiko]
-- Patch 6 (Add AT & MBIM WWAN ports):
-  - Remove unused write_lock mutex from struct mtk_port and its mutex_init call [sashiko]
-- Link to v2: https://patch.msgid.link/20260610-t9xx_driver_v1-v2-0-c65addf23b3f@compal.com
-
-Changes in v2:
-- Split series into control plane (this v2) and data plane (follow-up)
-- Patch 1 (Add PCIe core):
-  - Rename BAR_NUM to MTK_PCI_BAR_NUM for driver prefix consistency
-  - Replace magic numbers in mtk_pci_setup_atr() with named defines
-  - Remove redundant ATR register comments, use blank line separators
-  - Add kernel-doc comments to all non-static functions
-  - Convert 4 MMIO wrapper functions to static inline in header [sashiko]
-  - Remove unnecessary unlikely() from IRQ validation paths
-  - Add irq_cnt == 0 and irq_id < 0 guards in mtk_pci_get_virq_id() [sashiko]
-  - Initialize hw_bits at declaration for consistency
-  - Merge same-type variable declarations into single lines
-  - Add #else/#endif comments for CONFIG_ACPI blocks
-  - Add newlines in mtk_pci_pldr() for readability
-  - Move return into default case in mtk_pci_dev_reset()
-  - Simplify mtk_mhccif_init() error path to use direct returns
-  - Change -EFAULT to -ENOLINK for PCIe link check failure
-  - Rename goto label "out" to "log_err" in mtk_pci_probe()
-  - Wrap long lines to stay within 80 columns
-  - Fix IRQ vector leak: add pci_free_irq_vectors() on error path [sashiko]
-  - Fix mtk_pci_remove() ordering: free IRQ before cancel_work_sync [sashiko]
-  - Fix mtk_pci_pldr() ACPI buffer leak: free first result before second call [sashiko]
-  - Replace msleep(500) with MTK_PLDR_POWER_OFF_DELAY_MS define
-  - Remove unused EXT_EVT_H2D_DRM_DISABLE_AP and related register define [sashiko]
-  - Increase MTK_IRQ_NAME_LEN from 20 to 32 to fix W=1 format-truncation warning [sashiko]
-- Patch 2 (Add control plane transaction layer):
-  - Add kernel-doc comments to mtk_ctrl_init() and mtk_ctrl_exit()
-  - Change mtk_ctrl_exit() return type from int to void
-  - Set mdev->ctrl_blk to NULL after freeing in mtk_ctrl_exit() [sashiko]
-  - Change ctrl_blk from void* to typed struct mtk_ctrl_blk* [sashiko]
-  - Remove redundant "depends on MTK_T9XX" from MTK_T9XX_PCI Kconfig [sashiko]
-  - Use mtk_dev_free() instead of devm_kfree() in mtk_pci_probe() error path [sashiko]
-- Patch 3 (Add control DMA interface):
-  - Add @ops kernel-doc parameter for mtk_ctrl_init()
-  - Rename 'err' to 'ret' consistently throughout the patch
-  - Reorder variable declarations to follow reverse Christmas tree style
-  - Change mtk_cldma_txq_free() return type from int to void
-  - Change mtk_cldma_rxq_free() return type from int to void
-  - Change mtk_cldma_exit() return type from int to void
-  - Remove unnecessary zero-initialization of ret in mtk_cldma_start_xfer()
-  - Remove unnecessary zero-initialization of ret in mtk_cldma_tx()
-  - Use direct return instead of goto out in mtk_cldma_submit_tx() error paths
-  - Move software state before HWO flag in mtk_cldma_submit_tx()
-  - Squash variable declarations in mtk_cldma_check_intr_status()
-  - Remove unlikely() from validation paths in mtk_cldma_check_ch_cfg()
-  - Clamp data_recv_len with min_t to prevent skb_over_panic in mtk_cldma_rx_skb_adjust() [sashiko]
-  - Use READ_ONCE() for HWO flag polling in mtk_cldma_check_rx_req() [sashiko]
-  - Fix mtk_cldma_rx_done_work() to always unmask interrupt on error path [sashiko]
-  - Add DMA address guard in mtk_cldma_txq_free() teardown loop [sashiko]
-  - Add IS_ERR() check for kthread_run() in mtk_ctrl_trb_srv_init() [sashiko]
-  - Fix queue_info memory leak on validation failure in mtk_pcie_hif_init() [sashiko]
-  - Handle non-EAGAIN errors in mtk_ctrl_trb_handler() TX path [sashiko]
-  - Fix 'err' typo to 'ret' in mtk_cldma_txbuf_set() error message
-  - Remove unused variable mdev in mtk_cldma_rx_check_again() [sashiko]
-  - Remove unused variables trans and ctrl_blk in mtk_cldma_txq_free() and mtk_cldma_rxq_free() [sashiko]
-- Patch 4 (Add control port):
-  - Add @cfg kernel-doc parameter for mtk_ctrl_init()
-  - Update mtk_ctrl_init() return description to cover additional error codes
-  - Fix double list_del in mtk_port_stale_list_grp_cleanup() [sashiko]
-  - Fix direct mtk_port_trb_free() call to use kref_put() in mtk_port_ch_enable() error path [sashiko]
-  - Fix direct mtk_port_trb_free() call to use kref_put() in mtk_port_ch_disable() error path [sashiko]
-  - Add mtk_port_tbl_destroy() in mtk_port_mngr_init() error path to prevent port memory leak [sashiko]
-  - Change port_ops exit/reset/enable/disable callbacks from int to void
-  - Move -EIO dispatch comment to where the code was introduced
-- Patch 5 (Add FSM thread):
-  - Add bounds check for rtft_entry in mtk_fsm_parse_hs2_msg() [sashiko]
-  - Add skb length validation before accessing ctrl_msg_header in mtk_fsm_sap_ctrl_msg_handler() [sashiko]
-  - Fix skb leak on CTRL_MSG_HS2 mismatch return in mtk_fsm_sap_ctrl_msg_handler() [sashiko]
-  - Add skb length validation before accessing ctrl_msg_header in mtk_fsm_md_ctrl_msg_handler() [sashiko]
-  - Replace devm_kzalloc/devm_kfree with kzalloc/kfree for FSM events [sashiko]
-  - Fix mtk_fsm_evt_submit() to return -ETIMEDOUT on blocking event timeout [sashiko]
-  - Change FSM kthread from TASK_INTERRUPTIBLE to TASK_UNINTERRUPTIBLE [sashiko]
-  - Remove unused variable hw_id in mtk_cldma_dev_exit() [sashiko]
-- Patch 6 (Add AT & MBIM WWAN ports):
-  - Use imperative mode in commit message
-  - Remove unnecessary zero-initialization of ret in mtk_port_copy_data_from()
-  - Change copy_from_user() error code from -EFAULT to -EINVAL in mtk_port_copy_data_from()
-  - Return -EINVAL for zero-length write in mtk_port_common_write()
-  - Change mtk_port_wwan_exit/enable/disable() return type from int to void
-  - Fix packet_size to account for CCCI header reservation in mtk_port_common_write() [sashiko]
-  - Fix WWAN tx callbacks to consume skb and return 0 per wwan_port_ops contract [sashiko]
-  - Fix wwan_create_port() error path: clear ERR_PTR to NULL and call mtk_port_ch_disable() [sashiko]
-- Patch 7 (Add maintainers entry): new patch
-- Link to v1: https://patch.msgid.link/20260529-t9xx_driver_v1-v1-0-bdbfe2c01e57@compal.com
-
----
-Jack Wu (7):
-      net: wwan: t9xx: Add PCIe core
-      net: wwan: t9xx: Add control plane transaction layer
-      net: wwan: t9xx: Add control DMA interface
-      net: wwan: t9xx: Add control port
-      net: wwan: t9xx: Add FSM thread
-      net: wwan: t9xx: Add AT & MBIM WWAN ports
-      net: wwan: t9xx: Add maintainers entry
-
- MAINTAINERS                                     |    9 +
- drivers/net/wwan/Kconfig                        |   17 +
- drivers/net/wwan/Makefile                       |    1 +
- drivers/net/wwan/t9xx/Makefile                  |   14 +
- drivers/net/wwan/t9xx/mtk_ctrl_plane.c          |  111 ++
- drivers/net/wwan/t9xx/mtk_ctrl_plane.h          |   88 ++
- drivers/net/wwan/t9xx/mtk_dev.c                 |   55 +
- drivers/net/wwan/t9xx/mtk_dev.h                 |  114 ++
- drivers/net/wwan/t9xx/mtk_fsm.c                 |  948 +++++++++++++++
- drivers/net/wwan/t9xx/mtk_fsm.h                 |  140 +++
- drivers/net/wwan/t9xx/mtk_port.c                |  968 +++++++++++++++
- drivers/net/wwan/t9xx/mtk_port.h                |  174 +++
- drivers/net/wwan/t9xx/mtk_port_io.c             |  573 +++++++++
- drivers/net/wwan/t9xx/mtk_port_io.h             |   41 +
- drivers/net/wwan/t9xx/mtk_utility.h             |   33 +
- drivers/net/wwan/t9xx/pcie/Makefile             |   15 +
- drivers/net/wwan/t9xx/pcie/mtk_cldma.c          | 1420 +++++++++++++++++++++++
- drivers/net/wwan/t9xx/pcie/mtk_cldma.h          |  173 +++
- drivers/net/wwan/t9xx/pcie/mtk_cldma_drv.c      |  371 ++++++
- drivers/net/wwan/t9xx/pcie/mtk_cldma_drv.h      |  174 +++
- drivers/net/wwan/t9xx/pcie/mtk_cldma_drv_m9xx.c |  178 +++
- drivers/net/wwan/t9xx/pcie/mtk_cldma_drv_m9xx.h |  101 ++
- drivers/net/wwan/t9xx/pcie/mtk_ctrl_cfg_m9xx.c  |   55 +
- drivers/net/wwan/t9xx/pcie/mtk_pci.c            | 1102 ++++++++++++++++++
- drivers/net/wwan/t9xx/pcie/mtk_pci.h            |  234 ++++
- drivers/net/wwan/t9xx/pcie/mtk_pci_drv_m9xx.c   |   69 ++
- drivers/net/wwan/t9xx/pcie/mtk_pci_reg.h        |   71 ++
- drivers/net/wwan/t9xx/pcie/mtk_trans_ctrl.c     |  603 ++++++++++
- drivers/net/wwan/t9xx/pcie/mtk_trans_ctrl.h     |  107 ++
- 29 files changed, 7959 insertions(+)
----
-base-commit: eb3f4b7426cfd2b79d65b7d37155480b32259a11
-change-id: 20260529-t9xx_driver_v1-1744f8af7739
-
-Best regards,
---  
-Jack Wu <jackbb_wu@compal.com>
-
-
+SGkgWHUsDQoNCkFtIDI0LjA2LjI2IHVtIDExOjExIHNjaHJpZWIgWHUgWWFuZzoNCj4gT24gV2Vk
+LCBKdW4gMjQsIDIwMjYgYXQgMDg6MzA6MDBBTSArMDIwMCwgU3RlZmFuIFdhaHJlbiB3cm90ZToN
+Cj4gV2hhdCdzIHlvdXIgaXNzdWUgb24gaS5NWDkzPw0Kd2UgaGF2ZSBhbiBpLk1YOTMgYm9hcmQg
+dXNpbmcgYm90aCBVU0IgaW50ZXJmYWNlczoNCg0KVVNCMToNCi0gZXh0ZXJuYWwgYXZhaWxhYmxl
+IHZpYSBVU0ItQyBjb25uZWN0b3INCi0gT1RHIGludGVyZmFjZSBzaG91bGQgYmUgYWJsZSB0byBz
+d2l0Y2ggYmV0d2VlbiBob3N0IGFuZCBwZXJpcGhlcmFsDQotIGFzIFVTQi1DIGludGVyZmFjZSBj
+b250cm9sIHdlIHVzZSB0aGUgVEkgVFVTQjMyMUFJIFsxXSAod2hpbGUgaXRzIERJUiwgDQpPVVQx
+LCBPVVQyLCBDVVJSRU5UX01PREUsIFBPUlQgaXMgdW5jb25uZWN0ZWQgb3IgdGllZCB0byBHTkQp
+DQoNCiDCoFVTQjI6DQotIHVzZWQgYXMgaW50ZXJuYWwgaG9zdCBpbnRlcmZhY2UNCg0KIMKgV2Ug
+aGF2ZSB0aGUgcHJvYmxlbSB0aGF0IDUgc2Vjb25kcyBhZnRlciBkaXNjb25uZWN0aW5nIGEgVVNC
+IGRldmljZSANCmZyb20gVVNCLUMgKFVTQjEpIGludGVyZmFjZSwgdGhlIFVTQiBkcml2ZXIgY29t
+cGxhaW5zIHRoYXQgdGhlIFZCVVMgaXMgDQpzdGlsbCB0byBoaWdoOg0KDQpbwqAgMTQ0LjA3ODM0
+N10gdXNiIDItMTogVVNCIGRpc2Nvbm5lY3QsIGRldmljZSBudW1iZXIgMg0KW8KgIDE0NC4wODM0
+MjVdIGNpX2hkcmMgY2lfaGRyYy4wOiByZW1vdmUsIHN0YXRlIDENClvCoCAxNDQuMDgzNTIxXSB1
+c2IgMi0xLjE6IFVTQiBkaXNjb25uZWN0LCBkZXZpY2UgbnVtYmVyIDMNClvCoCAxNDQuMDkwMzEw
+XSB1c2IgdXNiMjogVVNCIGRpc2Nvbm5lY3QsIGRldmljZSBudW1iZXIgMQ0KW8KgIDE0NC4xMzkz
+MjVdIHVzYiAyLTEuNTogVVNCIGRpc2Nvbm5lY3QsIGRldmljZSBudW1iZXIgNA0KW8KgIDE0NC4x
+NTg3MDBdIGNpX2hkcmMgY2lfaGRyYy4wOiBVU0IgYnVzIDIgZGVyZWdpc3RlcmVkDQpbwqAgMTQ5
+LjE5MDI3NF0gY2lfaGRyYyBjaV9oZHJjLjA6IHRpbWVvdXQgd2FpdGluZyBmb3IgMDAwMDA4MDAg
+aW4gT1RHU0MNClvCoCAxNDkuMTk2NzQxXSB1c2JtaXNjX2lteCA0YzEwMDIwMC51c2JtaXNjOiB2
+YnVzIGlzIGVycm9yDQpbwqAgMTQ5LjIwMjA3OF0gdXNibWlzY19pbXggNGMxMDAyMDAudXNibWlz
+YzogRXJyb3Igb2NjdXJzIGR1cmluZyANCmRldGVjdGlvbjogLTIyDQoNCkJ1dCBleGNlcHQgb2Yg
+dGhpcywgYm90aCByb2xlcyB3b3JrcyBhcyBleHBlY3RlZC4NCg0KSGVyZSBhcmUgdGhlIHJlbGV2
+YW50IGRldmljZSB0cmVlIHBhcnRzOg0KDQogwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgcmVnX3Vz
+Yl9vdGcxX3ZidXM6IHJlZ3VsYXRvci11c2Itb3RnMS12YnVzIHsNCiDCoCDCoCDCoCDCoCDCoCDC
+oCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoHBpbmN0cmwtbmFtZXMgPSAiZGVmYXVsdCI7
+DQogwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqBwaW5jdHJs
+LTAgPSA8JnBpbmN0cmxfdXNib3RnMWdycD47DQogwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAg
+wqAgwqAgwqAgwqAgwqAgwqAgwqBjb21wYXRpYmxlID0gInJlZ3VsYXRvci1maXhlZCI7DQogwqAg
+wqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqByZWd1bGF0b3ItbmFt
+ZSA9ICJ1c2Jfb3RnMV92YnVzIjsNCiDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDC
+oCDCoCDCoCDCoCDCoHJlZ3VsYXRvci1taW4tbWljcm92b2x0ID0gPDUwMDAwMDA+Ow0KIMKgIMKg
+IMKgIMKgIMKgIMKgIMKgIMKgIMKgIMKgIMKgIMKgIMKgIMKgIMKgIMKgcmVndWxhdG9yLW1heC1t
+aWNyb3ZvbHQgPSA8NTAwMDAwMD47DQogwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAg
+wqAgwqAgwqAgwqAgwqBncGlvID0gPCZncGlvNCAxMyBHUElPX0FDVElWRV9ISUdIPjsNCiDCoCDC
+oCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoGVuYWJsZS1hY3RpdmUt
+aGlnaDsNCiDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoCDCoHJl
+Z3VsYXRvci1ib290LW9uOw0KIMKgIMKgIMKgIMKgIMKgIMKgIMKgIMKgIH07DQoNCiDCoCDCoCDC
+oCDCoCDCoCDCoCDCoCDCoCAmdXNib3RnMSB7DQogwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAg
+wqAgwqAgwqAgwqAgwqAgwqAgwqB2YnVzLXN1cHBseSA9IDwmcmVnX3VzYl9vdGcxX3ZidXM+Ow0K
+IMKgIMKgIMKgIMKgIMKgIMKgIMKgIMKgIMKgIMKgIMKgIMKgIMKgIMKgIMKgIMKgb3Zlci1jdXJy
+ZW50LWFjdGl2ZS1sb3c7DQogwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAg
+wqAgwqAgwqBzdGF0dXMgPSAib2theSI7DQogwqAgwqAgwqAgwqAgwqAgwqAgwqAgwqAgfTsNCg0K
+VGhhbmtzDQpTdGVmYW4NCg0KWzFdIC0gaHR0cHM6Ly93d3cudGkuY29tL2xpdC9kcy9zeW1saW5r
+L3R1c2IzMjFhaS5wZGYNCj4NCj4gVGhhbmtzLA0KPiBYdSBZYW5nDQoNCg==
 
