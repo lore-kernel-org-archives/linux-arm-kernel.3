@@ -4,134 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9CC6CD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Jun 2026 23:38:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43F98CD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 00:33:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bXj89P8NQOP2nCPmWd3Wk/nGOtJ4OpsodS1IQuNYTks=; b=Hgbz6xqyFdSeOoJI9C42hz0gE6
-	k+OfQYa0d+bJj0AQhpOibR5YBcZofh/T0NhpYEmzAW6Ysfl2u57VyeG09WAkumjgtf23Zx/h5C0oM
-	JtyOg9ZoaXDaQjeOkVtXsIJPrW9oFTe2+g1359qqB3vWbbHuzP+bKraeTyK2+G1oJhph7nV7RuKSF
-	YO/M9znM1FT4evQIRWM2L+9DChNssVJ5lnzkparmhsv0guWYq1XMgY/gsk6A7NR6cNHLXiylFgnUd
-	6FcZ92gRlSf6k12VMlkbcEArZ83eXPvc/xc2QL55RpXLI2mKUrPBOiXY8QO83ce2TKkZBdXgEtvkQ
-	CqxJw8hQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Zhe/bJuWNQFZCQRQ2U29gnWogyLVcmbEkUk0S/YP6HE=; b=0cfG6vrNqsijmP7GZacNz0jb8O
+	J+C5G7ygMoaWYOkLsfOEJ94jV1DUTZPHt9JSYsqAY4G9Yc81gruRhBEXd3diBAuGiivzNShrQ3m3u
+	Itfa1U+u0KPzlFrtbuUmm1v2VoSZoM3R3xKhBQKwMxzzNDaY4o1c+nsd5rHKmcbTBmdqkLXQeL0rR
+	6aHdwBljSbT6uNh7L0Ab/SF0nVWFVTKqQMdXvROc4HY6BlU7+e9bJc/1ZvsAJhb12HFmTt8/ZAYqR
+	PfsB7IgMCGj7x3AgGRNGTWf6x4vy6ofFB1CyFvwAev6/eGhXCbVGBVCSEHCWcgtRpfNP8Bk8K1OIg
+	tLcfJhmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcAgt-00000006yob-0Dr7;
-	Tue, 23 Jun 2026 23:38:03 +0000
-Received: from mail-southcentralusazlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c10d::1] helo=SN4PR2101CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcAgo-00000006yoB-2rET
+	id 1wcBYR-000000070Rf-07Wq;
+	Wed, 24 Jun 2026 00:33:23 +0000
+Received: from azure-sdnproxy.icoremail.net ([52.229.168.213])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wcBYM-000000070RE-0yd6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Jun 2026 23:38:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bN7OuGqblXWSxF06KzSMYSByhbs31ex6WQ7Gj4QdIxfzwkdUl8VQpyH7venTQahV9KDFwWNCX9FIaHS0iOylPuaQ5WX4JVtNSF/ZMBMVGuQ8kiquuYez5hhlZ7lMWXnUY1/nt9NtwvHGwNqWpNP/ikYXh47njjzPILxkYT01/jF/AxqLnKt7Sca9yuN51W60lhbX8Oec+UKu2R32Xc00CMEuENyLemhoT2J2Z7dd0pkxzKh1AwuzVvt7paVAIC0PhcNO68SsPD2WWNOEeKlIoXXs2ao4M2vP56Iz0V8uXCzgr3FYfRRbIInCralNeIogRkvpcWrd8yclxKZCCFRV6A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bXj89P8NQOP2nCPmWd3Wk/nGOtJ4OpsodS1IQuNYTks=;
- b=fwjbo3asj0ea7W8Gkwt7XXUpil0I25aK2xLHmEw6r9jn5XaOsLDndWnau/PcWc/7QG8yo/GhvCZxoUwBboVBQ+KdeHhTG2V5hG1gJMdCElNLoeimzvFP/QB3niAi+ZOsGS+driWs/5pK64hMzQ1quLcgiG2HA8qqZnwV+WBLH3HxtxtlvKuIX2t99HePV0mYdLwM8i8bVto8pW7mE6cDZWeatA3Hm0q0PyCmBj4JLQ4Jtuei956n4478ZdKyBxyEnUII3RdTNb2uQEZKgz7YWk8M3nxtx64LQxg0MrXxEKjGYl+EghYRVVRijV2DZ7DcvIYoNCi/2pOglF1xN0yg1Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bXj89P8NQOP2nCPmWd3Wk/nGOtJ4OpsodS1IQuNYTks=;
- b=aQRVMAO1JIYoRrSg7zXf4yKF7fBd5sD/1jC5I8yG5ezVoPx34A3DYs2vrNkqXMUQEPpEyKSpFqKokQPtfnnFMDaOMB0Ef4bb+R1eNclJTZNZfggiA890SJNVIOZmyxZ9r7QC3rVM295s1eGJA4Dwt4U6xWVD3sjxdDwk+gauuIQnOGwExjqhvWFvi74GWY5do2gD/IEMaWg3m+NWgjZ6JmIDpW6xifbfftn+bOyjfdnVRYw8Pi39k1HCLQa6AmuCJg1MQSYaKb3U+3YE0jJjili8YQUMpETAXcTO1FSTCxo7Qb+4B4VJCbDYHPXLNbI9mzeJ+w94Xj+EnOmy7daBUw==
-Received: from DS7PR12MB9474.namprd12.prod.outlook.com (2603:10b6:8:252::17)
- by PH7PR12MB7331.namprd12.prod.outlook.com (2603:10b6:510:20e::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.13; Tue, 23 Jun
- 2026 23:37:49 +0000
-Received: from DS7PR12MB9474.namprd12.prod.outlook.com
- ([fe80::31ad:931:ef07:8ad7]) by DS7PR12MB9474.namprd12.prod.outlook.com
- ([fe80::31ad:931:ef07:8ad7%6]) with mapi id 15.21.0159.012; Tue, 23 Jun 2026
- 23:37:49 +0000
-From: Srirangan Madhavan <smadhavan@nvidia.com>
-To: Mark Rutland <mark.rutland@arm.com>, Lorenzo Pieralisi
-	<lpieralisi@kernel.org>, Sudeep Holla <sudeep.holla@kernel.org>, Conor Dooley
-	<conor@kernel.org>, Jonathan Cameron <jic23@kernel.org>
-CC: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
-	Dan Williams <djbw@kernel.org>, Thierry Reding <treding@nvidia.com>, Jon
- Hunter <jonathanh@nvidia.com>, Vikram Sethi <vsethi@nvidia.com>, Souvik
- Chakravarty <Souvik.Chakravarty@arm.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-tegra@vger.kernel.org"
-	<linux-tegra@vger.kernel.org>
-Subject: Re: [PATCH v2 0/2] Add SMCCC cache clean/invalidate provider
-Thread-Topic: [PATCH v2 0/2] Add SMCCC cache clean/invalidate provider
-Thread-Index: AQHc95MpdVuc7Bm9ck23f3rlDLIKzLZM4jlF
-Date: Tue, 23 Jun 2026 23:37:48 +0000
-Message-ID: <DS7PR12MB9474657F83D9FB7A3036ABCEC3EE2@DS7PR12MB9474.namprd12.prod.outlook.com>
-References: <20260608220709.1300245-1-smadhavan@nvidia.com>
-In-Reply-To: <20260608220709.1300245-1-smadhavan@nvidia.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: DS7PR12MB9474:EE_|PH7PR12MB7331:EE_
-x-ms-office365-filtering-correlation-id: 96ac2265-7873-4c48-c285-08ded1806f7b
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|7416014|376014|38070700021|22082099003|18002099003|56012099006|11063799006|6133799003;
-x-microsoft-antispam-message-info: MEyMt7GkDqpx4Os7sKTwdNDQe7NbguezbwInR6L7HQGnCMYmUv8TqUoyE0T6QNkujz4t+Qk3sELq3OlXCHm7QP+rNCTEpW52nowqHHnyMOm8fabtdnLnExA68t0b0FlG/zNBY6twMd/F13+Y6LG0hnU6J33VTWPb6YuauIBnRlI/cGTWMgHw+GvhG839gOEU09hvzuH7UuxQUKkiv1M7lpz/VBSuZQdkaTARS0a4q2ulaXlNvvb57rkQYxnwTivlzATcHA3NI4KwFsETJ/XLrPma3/Nw6+MWiJmqLhYlPIxx+RNTtU62MhPmDtPB0ol2TiUPO1ycEXWnA9dLerlS/vzDC9iytWsyPeyEXUfRjz3vso+9MuOCv+KvCakEP06TWy9yjwCE8fIy0b1j2DDNed3e5PNmSp0h6z9RRPDd+G5BVY5ZU+Iyp+S7j0Pl8GMCZDwikceDb2fl4Jjo/PdBaL1lHhJt0hj9SpcGwg25qtUmCiHl7wlnC2hPVepVtfCI2X8BkDey2PW3pUN2Bi/lmUzsB+VSyI0TCOgDVRT+gj+cjNZ2H2AY9r9EoIC9p9MhL5bzLOAsuRBWy/Wg1p/pBy4BRm94+xMZShDZOHlLksIN7N4cMUszJCzIOqh8Iohk366AFqHBgnXVZZluNwqS3D3W+j15M5ZGizZpXVBF5AZyutUPMZG+uAPr2mMmkrVFWwisPZE6MDdaWXXORVS2VSC+nGn4Hyff75F4Fm6nous=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR12MB9474.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(7416014)(376014)(38070700021)(22082099003)(18002099003)(56012099006)(11063799006)(6133799003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?W+HlPFNk+vfjHPmyLyBu6Cf3Xa4t+nZG5e3vuHfkkDNQxPSUzFBEABOmvH7M?=
- =?us-ascii?Q?TxVHjRTrspX1BaaUdHZHvQUWICa/KRNxxIlYPJXW/zSDucy6tiKgmZFacDp1?=
- =?us-ascii?Q?ZqEBCgbiWfwomTN92qh6TJJwClqGeU6FBIsIXNYXrbCK6g68lIWaGZcYRjM/?=
- =?us-ascii?Q?Rvj8b174oP5nWs3Yfzq8z0L4yZtlE4v9eUjvoAr8M7n+rtyo7VEGLiClzgPC?=
- =?us-ascii?Q?4pZrL1vPfI4T6GHIh4jmV4FHHmJgiaPA4Tq658NMvo41EsaUUd6k/Ww0GGVy?=
- =?us-ascii?Q?5987umd4+NJO3eYh96Ws9Zh6iQxHcgiHMgpbijcP6nIIwcAqTAfNcP2N58t5?=
- =?us-ascii?Q?nuWUc5yV0MuIjmQLwEnMpE5UObUj/8Rp9m9+wX+Z/4dfVaQmW0En6uM49dyw?=
- =?us-ascii?Q?mS+6qLo9o7h2vcTGDLNiIArxRwFPr031XhxLVfDxF8lmcBOnyq+RNGlEX8wS?=
- =?us-ascii?Q?CPtckURgAROG/VUyLHF2MyiWOXlZsxZbkoja2He7WULcoLjP460syo+X2cyo?=
- =?us-ascii?Q?FloqX8uewqch2ZlKThsyEphwZKp4ZkBR97DoI7UKVfcP3roZlwmN5V510nQy?=
- =?us-ascii?Q?MQ/MvOFMBWKfD9VMbD7x6ju0pFXLWEYxd1f31JqoXgahVdKajAdi6wWsz6q1?=
- =?us-ascii?Q?O1/UPNXCy7xmFxpA60SN3l13VuFgBrWsDLI7rDt1ub6Meb7h3+q1YYb8hwAL?=
- =?us-ascii?Q?c5PlYIyiCIHvpI5dOZusejNHKJAauvwofeVre3/dl94O182df3d9LKoCRW8A?=
- =?us-ascii?Q?9NfI4KLHR9OuyBq0CaXu6h9rRV+Xz+kaEbG4DLSdsMfpm/ErGOWVzNwnSJgu?=
- =?us-ascii?Q?V5roqJkYlEWdPN+l4jIYuJJfiIWR9Jqlr7gslnppCIEu2b5Evb7ubxEPHYq2?=
- =?us-ascii?Q?pNoswHf+pHkDGPnhOObL9pOqrvNTyTKL2/3toAaixm/Oy7gaIlv2pJ0E8I99?=
- =?us-ascii?Q?FoN0U4NOpium1Lz4rKBVRy0Bjm6SMlyU9nIDjDNNHyg3fnzMdECy6BlG/7P3?=
- =?us-ascii?Q?Xjj8cPhOzCs4B/Ohndq9GX3le5V15uYBEqI95zgPf57fnimjSq1dbttPgys+?=
- =?us-ascii?Q?HZW/YuHchERgrLtxsxY/Wq/WCrWEWbrsZ1QSgzbF0ZCGH7OJX2oqnXnxmh/B?=
- =?us-ascii?Q?ERfEiBEIJn6R5CLutFB9EzVOCwfJ5P84YWN9TBnb0BXQAmV2PlwI9Im2XWBP?=
- =?us-ascii?Q?wdS9pXV6QW8+9Fq2I0hMo4sGU+YgOxgLYYAxxbo6ovKYh12uRLt3esbiBFvx?=
- =?us-ascii?Q?tqwCLbDzWyg4F0RyiD5hFe3WPUiGHDFJiWB8NIWJ3J+OBcijrZiCCAuQ8X1p?=
- =?us-ascii?Q?E2yU/Tq4bnmlqe4Kfy8SRf1UQTZFJYkBB/6u3BeqEOGAsFjijO7QPDk8ZJG0?=
- =?us-ascii?Q?nf7juaAWaQNWX5WydmW+WizDvRPms+bLgJlyRZqipU3hxxogFCWdY6dYAL40?=
- =?us-ascii?Q?XixhlqEnTVfzCeeizs0PVdzFo/ZC/9INmY7ZhBlT4KNqZ4xCLg8lmuJsGZw+?=
- =?us-ascii?Q?GzslPdV8Y9t/rPcVBkNulChnf3W1Xg7wJN+KJh0wr2C8CwjhvrjFoA51ecA0?=
- =?us-ascii?Q?/+lxig4cTvrAj7wFXFp/E1QPYYUnvYWZJ9Yqz2f7Mh2UNxVk2diCc9+/iDfT?=
- =?us-ascii?Q?41CD7mumiuCKrf3PU2wv5fUahXipQ7iMLluMwpMitRKTeqgoWzG/sqSXZdY8?=
- =?us-ascii?Q?UGz/WoEr546L77hSgRpr/RukQ3puiXydl5wDHC9m2UiYik6T?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Wed, 24 Jun 2026 00:33:21 +0000
+Received: from zju.edu.cn (unknown [10.98.66.117])
+	by mtasvr (Coremail) with SMTP id _____wDnVtC_JTtqNNIEAw--.19900S3;
+	Wed, 24 Jun 2026 08:33:04 +0800 (CST)
+Received: from localhost.localdomain (unknown [10.98.66.117])
+	by mail-app1 (Coremail) with SMTP id yy_KCgBHl5+_JTtqlq47Ag--.46757S2;
+	Wed, 24 Jun 2026 08:33:03 +0800 (CST)
+From: Fan Wu <fanwu01@zju.edu.cn>
+To: mirela.rabulea@nxp.com,
+	mchehab@kernel.org
+Cc: shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	imx@lists.linux.dev,
+	linux-media@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	Fan Wu <fanwu01@zju.edu.cn>
+Subject: [PATCH] media: imx-jpeg: finish the job on device_run() error paths
+Date: Wed, 24 Jun 2026 00:32:08 +0000
+Message-Id: <20260624003208.12400-1-fanwu01@zju.edu.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DS7PR12MB9474.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 96ac2265-7873-4c48-c285-08ded1806f7b
-X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Jun 2026 23:37:48.9472
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: y+LwTNCQgwt2L5CvpD2XCUBqYZPuNfXThU/VI3tHc1/3ESQZLncHc2BFWTq8NQkMfMC283XYMGORINRwb3PiSA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB7331
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: yy_KCgBHl5+_JTtqlq47Ag--.46757S2
+X-CM-SenderInfo: qrstjiaswqq6lmxovvfxof0/
+X-CM-DELIVERINFO: =?B?xwzJ2QXKKxbFmtjJiESix3B1w3vZ3A9ovKVTomAyoQazvoRs/NHSP8GI2EvgeEEW7R
+	sfnVCjTgEH9dVomQuWcozCBBFB48mKC5DDzTCdDpjvUvjuGCGVJYTzvwsltdPDHA6IOBJZ
+	R1Ezv3MDA86MpxTOsUDN5RPxYw6l01w8CbPzC/8w
+X-Coremail-Antispam: 1Uk129KBj93XoWxuF13trWDuFWUZF43JFWxXwc_yoW5ury5pr
+	ZIgryqkFyFqrs7tF4xtr4UAF1Yyrn3uF42ga18Ww1ku34agF4DtF40k3WUtF17tas29F1F
+	qw4qvwsrurWDCFXCm3ZEXasCq-sJn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7KY7ZEXa
+	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
+	0xBIdaVrnRJUUUPIb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2
+	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
+	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
+	0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjcxK6I8E87Iv6xkF7I0E
+	14v26r4UJVWxJr1lnxkEFVAIw20F6cxK64vIFxWle2I262IYc4CY6c8Ij28IcVAaY2xG8w
+	AqjxCEc2xF0cIa020Ex4CE44I27wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8I
+	cVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjc
+	xG0xvY0x0EwIxGrwACjcxG0xvY0x0EwIxGrVCF72vEw4AK0wACI402YVCY1x02628vn2kI
+	c2xKxwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14
+	v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkG
+	c2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI
+	0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4U
+	MIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07jbo7NUUU
+	UU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260623_163758_739354_869D0857 
-X-CRM114-Status: GOOD (  18.76  )
+X-CRM114-CacheID: sfid-20260623_173318_586515_D561FE80 
+X-CRM114-Status: UNSURE (   9.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,109 +93,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+mxc_jpeg_device_run() returns early through a shared "end" label on several
+error paths (no free slot, mxc_jpeg_alloc_slot_data() failure, or missing
+buffers or queue data), and none of them calls v4l2_m2m_job_finish().
+Since the delayed work is queued only after the hardware is started, those
+paths neither finish the job directly nor queue timeout work that could
+finish it later. The job is left with TRANS_RUNNING set, so the
+wait_event() in v4l2_m2m_cancel_job() (reached from v4l2_m2m_ctx_release()
+at close) waits indefinitely and the close hangs.
 
-  Gentle ping on this v2.
+mxc_jpeg_alloc_slot_data() uses dma_alloc_coherent(), so the failure path
+is reachable under memory pressure.
 
-  This version includes Jonathan's Reviewed-by tags and addresses the v1
-  comments around the Kconfig wording, Makefile ordering/comment, and retry
-  loop handling.
+Return the src/dst buffers with VB2_BUF_STATE_ERROR and call
+v4l2_m2m_job_finish() on those paths: paths that have buffers use a
+"buf_finish" label; the no-buffer path uses "job_finish" directly. This
+mirrors the existing jpeg_parse_error path.
 
-  The main open question from v1 was whether DEN0028 v1.7 BET0 is sufficien=
-t
-  for merging these SMCCC cache maintenance definitions/provider. Could one
-  of the Arm/SMCCC maintainers please confirm whether this is acceptable fo=
-r
-  merge, or whether the series should wait for a non-beta spec revision?
+This bug was found by static analysis.
 
-  If the spec status is acceptable, please let me know if there are any
-  remaining concerns with v2.
+Fixes: 2db16c6ed72c ("media: imx-jpeg: Add V4L2 driver for i.MX8 JPEG Encoder/Decoder")
+Cc: stable@vger.kernel.org
+Signed-off-by: Fan Wu <fanwu01@zju.edu.cn>
+---
+ .../media/platform/nxp/imx-jpeg/mxc-jpeg.c    | 21 +++++++++++++------
+ 1 file changed, 15 insertions(+), 6 deletions(-)
 
-  Thanks,
-  Srirangan
+diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+index 9e4a813489c0..6b224a19f40e 100644
+--- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
++++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+@@ -1525,15 +1525,15 @@ static void mxc_jpeg_device_run(void *priv)
+ 	dst_buf = v4l2_m2m_next_dst_buf(ctx->fh.m2m_ctx);
+ 	if (!src_buf || !dst_buf) {
+ 		dev_err(dev, "Null src or dst buf\n");
+-		goto end;
++		goto job_finish;
+ 	}
+ 
+ 	q_data_cap = mxc_jpeg_get_q_data(ctx, V4L2_BUF_TYPE_VIDEO_CAPTURE);
+ 	if (!q_data_cap)
+-		goto end;
++		goto buf_finish;
+ 	q_data_out = mxc_jpeg_get_q_data(ctx, V4L2_BUF_TYPE_VIDEO_OUTPUT);
+ 	if (!q_data_out)
+-		goto end;
++		goto buf_finish;
+ 	src_buf->sequence = q_data_out->sequence++;
+ 	dst_buf->sequence = q_data_cap->sequence++;
+ 
+@@ -1571,11 +1571,11 @@ static void mxc_jpeg_device_run(void *priv)
+ 	ctx->slot = mxc_get_free_slot(&jpeg->slot_data);
+ 	if (ctx->slot < 0) {
+ 		dev_err(dev, "No more free slots\n");
+-		goto end;
++		goto buf_finish;
+ 	}
+ 	if (!mxc_jpeg_alloc_slot_data(jpeg)) {
+ 		dev_err(dev, "Cannot allocate slot data\n");
+-		goto end;
++		goto buf_finish;
+ 	}
+ 
+ 	mxc_jpeg_enable_slot(reg, ctx->slot);
+@@ -1597,8 +1597,17 @@ static void mxc_jpeg_device_run(void *priv)
+ 		mxc_jpeg_dec_mode_go(dev, reg);
+ 	}
+ 	schedule_delayed_work(&ctx->task_timer, msecs_to_jiffies(hw_timeout));
+-end:
++
+ 	spin_unlock_irqrestore(&ctx->mxc_jpeg->hw_lock, flags);
++	return;
++buf_finish:
++	v4l2_m2m_src_buf_remove(ctx->fh.m2m_ctx);
++	v4l2_m2m_dst_buf_remove(ctx->fh.m2m_ctx);
++	v4l2_m2m_buf_done(src_buf, VB2_BUF_STATE_ERROR);
++	v4l2_m2m_buf_done(dst_buf, VB2_BUF_STATE_ERROR);
++job_finish:
++	spin_unlock_irqrestore(&ctx->mxc_jpeg->hw_lock, flags);
++	v4l2_m2m_job_finish(jpeg->m2m_dev, ctx->fh.m2m_ctx);
+ }
+ 
+ static int mxc_jpeg_decoder_cmd(struct file *file, void *priv,
+-- 
+2.34.1
 
-________________________________________
-From: Srirangan Madhavan
-Sent: Monday, June 8, 2026 3:07 PM
-To: Mark Rutland; Lorenzo Pieralisi; Sudeep Holla; Conor Dooley; Jonathan C=
-ameron
-Cc: Catalin Marinas; Will Deacon; Dan Williams; Thierry Reding; Jon Hunter;=
- Souvik Chakravarty; linux-arm-kernel@lists.infradead.org; linux-kernel@vge=
-r.kernel.org; linux-tegra@vger.kernel.org; Srirangan Madhavan
-Subject: [PATCH v2 0/2] Add SMCCC cache clean/invalidate provider
-
-This series adds an arm64 backend for memregion cache invalidation users
-based on the Arm SMCCC cache clean+invalidate interface.
-
-Per DEN0028, this interface targets systems where a Normal Cacheable
-memory region can be modified in ways that are not handled by usual PE
-coherency mechanisms, and where VA-based CMOs may be too slow or
-insufficient for large ranges and/or system-cache implementations.
-
-Representative use cases include device-backed memory state transitions
-where stale CPU/system cache lines must be invalidated reliably (for
-example secure erase, reset/offline flows, and dynamic memory
-reconfiguration).
-
-Patch 1 introduces the Arm SMCCC cache clean/invalidate function IDs and
-transient return codes needed by callers [1].
-
-Patch 2 adds a cache maintenance provider that:
-- discovers SMCCC support and attributes at init time
-- registers with the generic cache coherency framework used by
-  cpu_cache_invalidate_memregion()
-- handles transient BUSY/RATE_LIMITED responses with bounded retries
-
-This patch set does not add a software fallback path; when firmware does
-not implement the SMCCC cache maintenance interface, the provider is not
-registered and existing behavior is preserved.
-
-Reference:
-[1] https://developer.arm.com/documentation/den0028/latest
-
-Note: Jonathan Cameron raised whether DEN0028 v1.7 BET0 is sufficient
-for merge. Input from Arm maintainers / SMCCC spec owners on that point
-would be appreciated.
-
-Changes since v1:
-- Added Jonathan Cameron's Reviewed-by tags.
-- Clarified the ARM_SMCCC_CACHE Kconfig help text.
-- Added a Makefile comment identifying the providers that depend on
-  CACHEMAINT_FOR_HOTPLUG.
-- Dropped the final-backoff-sleep skip in the retry loop.
-
-Changes since RFC:
-- Dropped the RFC tag.
-- Moved the provider from arch/arm64/mm to drivers/cache.
-- Added a dedicated CONFIG_ARM_SMCCC_CACHE option under the existing
-  CACHEMAINT_FOR_HOTPLUG menu.
-- Dropped the global-operation coalescing optimization.
-- Dropped provider handling for SMCCC_RET_NOT_REQUIRED.
-- Removed the unnecessary global provider pointer.
-- Removed arm64_ prefixes from static provider-local names.
-- Documented why these SMCCC Arch cache maintenance calls use SMC64.
-- Anchored the SMCCC return-code comment to DEN0028 v1.7.
-- Used fsleep() for retry backoff.
-- Used unsigned long for retry delay values passed to fsleep().
-- Skipped the final backoff sleep when no retry remains.
-- Documented the bounded mutex hold time across the serialized retry
-  sequence.
-- Added mutex_destroy() on the registration failure path.
-
-Srirangan Madhavan (2):
-  arm64: smccc: add cache clean/invalidate IDs and return codes
-  cache: add SMCCC-backed cache invalidate provider
-
- drivers/cache/Kconfig           |  11 +++
- drivers/cache/Makefile          |   2 +
- drivers/cache/arm_smccc_cache.c | 157 ++++++++++++++++++++++++++++++++
- include/linux/arm-smccc.h       |  21 ++++-
- tools/include/linux/arm-smccc.h |  21 ++++-
- 5 files changed, 208 insertions(+), 4 deletions(-)
- create mode 100644 drivers/cache/arm_smccc_cache.c
-
-
-base-commit: 3b3bea6d4b9c162f9e555905d96b8c1da67ecd5b
---
-2.43.0
 
