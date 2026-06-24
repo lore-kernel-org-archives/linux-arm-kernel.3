@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43E80CDE001
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 15:40:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E4D7CDE002
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 15:42:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yHAPNcQ5EKyi7n1ik7WzWF+RwYT1Afv+h7uAsSVT37U=; b=cz2+e/rRDhBHur1MC9piCACNUJ
-	p6uXbPl/aHjLY+AtBQvSeO85sqVWCW9Br0065lzaUhP16c7O+YAFBFhNlKxBmpp3WRiTH7dslxw4t
-	QxWWa0JDllDRqXaTRno69H/X9tK+ENuXwhhWhaJhMr4jYMnM/eRJInAMJlSq/BgdRwGPmw2S0BepS
-	LiDEcL/M/LnAXEVOUiHF9zkO/GP9e7dW4QLrJYb4+pVwHsFcYgiJGPV6fmKHCpjvKifealHYSpks6
-	DHnKVt0UuqCuxmcZMN6GypUrZr1OyLlYmpXBsZKwC/K2jclBwovf7vVb1XowENXfh6lICOxv9+6BP
-	Pt80mrGQ==;
+	bh=xPpByjy7W5L7XpVcP76WXAwInbwRDBlAjul1A4H6MFE=; b=f7mfUtNyOTXHDPTbPnHoIFn0qD
+	tImZ8G0UhfGdq8dFgEhzqv7j8MqftLFrjMaRBpCxoOMbccsme9qD0wot/Q8M1SnY01DoOq+RGud9z
+	aWejY+tQ03m2bjOtNNawwYMlGuwTUMQteshNsY3xsQgCIp0qxNXlRPqLL3mTuiQA1WTLm97RdM6tS
+	Y0ppNE3hyrtDxyI1sKZ6cKmwUEDFavpGm3fIwXygYf6CBWgSN44JOdkcwHkYk0ot9uQPGx2CGg7gT
+	3nzytVulokbzD6RH+HWyRb1y9fVrNzsUSBUSssJdWi3txyMdMqH8t0SZksqH8L5BT6dF8C5iFLhMJ
+	h3zzXzVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcPhj-000000081Fl-3Ilw;
-	Wed, 24 Jun 2026 15:39:55 +0000
+	id 1wcPk1-000000081aM-0Qs0;
+	Wed, 24 Jun 2026 15:42:17 +0000
 Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcPhh-000000081EY-1S5O;
-	Wed, 24 Jun 2026 15:39:54 +0000
+	id 1wcPjz-000000081Ze-128n;
+	Wed, 24 Jun 2026 15:42:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
 	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
 	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=yHAPNcQ5EKyi7n1ik7WzWF+RwYT1Afv+h7uAsSVT37U=; b=ePY2ywc1fQl0LEsKtNKvYMHLoq
-	puhjGDFNEGFC4FwqspAIfys1IPAcHKK1DeRyboD+Jd/8E1mWjL4XTkueom1bn3nUD7DhacZv31AUP
-	SWTDPYLfX5jLbXN2TpZKB6UrFPgcqZ9o6tWnkQkEb29+dbQgSnS5omx9mK9GPQBqAr8I=;
+	bh=xPpByjy7W5L7XpVcP76WXAwInbwRDBlAjul1A4H6MFE=; b=w9F4ID5ojrpJx1Mc3AY1BPTJS0
+	Y5BQyHlaR0t1aG7fVvGNnP1lQ45Mw+Pjq4pqi2GQg0gr+VtY9lkQe3rrNDymgupHQWD1MTmLVLTNZ
+	s9aMhTef0+LCMRs+rh1lSAw+ELiw2UoO87AomQx71ltMD20iNUrwlcSSVh986rFQeNSU=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1wcPhP-0096s7-BA; Wed, 24 Jun 2026 17:39:35 +0200
-Date: Wed, 24 Jun 2026 17:39:35 +0200
+	id 1wcPjq-0096u7-99; Wed, 24 Jun 2026 17:42:06 +0200
+Date: Wed, 24 Jun 2026 17:42:06 +0200
 From: Andrew Lunn <andrew@lunn.ch>
 To: Yanan He <grumpycat921013@gmail.com>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -54,17 +54,17 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org, netdev@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH 4/7] net: stmmac: dwmac-rk: Enable refout clock for RGMII
-Message-ID: <bb50eb6a-561b-4e48-b8ed-2ed5a17b6a1c@lunn.ch>
+Subject: Re: [PATCH 6/7] ARM: dts: rockchip: Add RV1126 I2C5
+Message-ID: <1d1d3618-b73f-4c38-a817-b7d053687497@lunn.ch>
 References: <20260624-rv1126-alientek-dlrv1126-v1-0-5aef608a3f64@gmail.com>
- <20260624-rv1126-alientek-dlrv1126-v1-4-5aef608a3f64@gmail.com>
+ <20260624-rv1126-alientek-dlrv1126-v1-6-5aef608a3f64@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260624-rv1126-alientek-dlrv1126-v1-4-5aef608a3f64@gmail.com>
+In-Reply-To: <20260624-rv1126-alientek-dlrv1126-v1-6-5aef608a3f64@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_083953_385878_D595BB45 
-X-CRM114-Status: GOOD (  18.09  )
+X-CRM114-CacheID: sfid-20260624_084215_304431_29C553EB 
+X-CRM114-Status: GOOD (  10.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,41 +79,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 24, 2026 at 04:44:41PM +0800, Yanan He wrote:
-> Some Rockchip GMAC integrations use clk_mac_refout as an external PHY
-> reference clock even when the MAC is configured for RGMII.
-> 
-> RV1126 boards can route CLK_GMAC_ETHERNET_OUT to the external PHY as a
-> 25 MHz reference clock. If the driver does not acquire and enable this
-> clock in RGMII mode, the common clock framework may disable it as unused
-> and the PHY can lose its reference clock.
-> 
-> Enable the refout clock handling for RGMII in addition to RMII.
-> 
-> Signed-off-by: Yanan He <grumpycat921013@gmail.com>
-> ---
->  drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c | 6 ++++--
->  1 file changed, 4 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-> index 8d7042e68926..f6fdc0c5b475 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-> @@ -1112,7 +1112,8 @@ static int rk_gmac_clk_init(struct plat_stmmacenet_data *plat)
->  	bsp_priv->clk_enabled = false;
->  
->  	bsp_priv->num_clks = ARRAY_SIZE(rk_clocks);
-> -	if (phy_iface == PHY_INTERFACE_MODE_RMII)
-> +	if (phy_iface == PHY_INTERFACE_MODE_RMII ||
-> +	    phy_iface == PHY_INTERFACE_MODE_RGMII)
+On Wed, Jun 24, 2026 at 04:44:43PM +0800, Yanan He wrote:
+> The controller is present in the SoC and can be used by boards for
+> external peripherals, such as an RTC on the Alientek DLRV1126 carrier
+> board.
 
-Apart from Heiko commenting that this patch is completely wrong, there
-are 4 RGMII modes, not one. You should of used
-phy_interface_mode_is_rgmii().
+This has nothing to do with networking, so please post it separately.
 
-    Andrew
+What i would actually like to see is the patch adding networking
+nodes, because my guess is, you have the RGMII delays wrong.
 
----
-pw-bot: cr
- 
+       Andrew
 
