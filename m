@@ -4,59 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81A93CDB481
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 14:55:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F930CDB479
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Jun 2026 15:01:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dyeYlSz6E1U762BN0EdUinKptw8Zriv1SWjt+9nburo=; b=qc44DlDZucMnQi
-	61H6hsIF/DaFmsnqRLTqNVp6q7Ltr7tgWLWbjCF5tNJWerCwnwx0kSIfHrzHk1dTSyzlhAhOlK0Vo
-	mbFXn740Wg4tyT9i38Ou+MqYmmEhiphTEjIxwiX3WuSK0Asid3kT4GUg2u0srLnBD8XJrpsyJQIi/
-	SvX0J7LDW0EV6LCj14POzunVWLMWJbpAVA+sOYvisCLy/qOca6Q1yWGahDNaqh5ZzyH+1JCdOMFm+
-	yZWAgC1f0B1KHcq7Ex69oXywb4ulVzernz0jBcbAVDsxRuYjRLjIjU5dcS4RuRRKgAZTIr2NJs5S1
-	zbFIKHZT4pKfltMGhyzg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ixANeKyt6wrxouLZA6axnl4DzfjEV12z3GBkxlFaUhw=; b=xV17HIZVqF7uEaJvO90DARpWWd
+	NRwDgdkTQijnjRwEs5hIcFsgeqmZU24GQujDmoX3HhBqyDQpbZ18dCgH7h0S2nCfk4GaK3a4jgTF/
+	UWkXo/UL/zJh6wy6ZEyNJeDn3Aoo6t8FA011RSjc3n/WWO8x6ncBx+KlNxwpTjZoOHDVmVxflSWm1
+	D+o0gPDwa1GetKnL9VkznSIU1KQWkn1M/NeOcpgdtq9ep5Xf5j9Hg8v9Vfizup3Ad2pGrZ/zbgb+b
+	6jxYWCJFXVGP3njn8RkmP/vR9qG5TtLReCegp7agQyU6RHCW6pWHnFXRMwphvMzzf0wdgB1w+fkjT
+	6Di1O/eQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcP0d-00000007wsR-1Fi9;
-	Wed, 24 Jun 2026 14:55:23 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcP0b-00000007ws6-1Z2G
+	id 1wcP6E-00000007xZt-1Id9;
+	Wed, 24 Jun 2026 15:01:10 +0000
+Received: from mail.alien8.de ([2a01:4f9:3051:3f93::2])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wcP6A-00000007xY8-35MI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Jun 2026 14:55:22 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0610B2944;
-	Wed, 24 Jun 2026 07:55:15 -0700 (PDT)
-Received: from [10.2.213.11] (e137867.arm.com [10.2.213.11])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E28433F62B;
-	Wed, 24 Jun 2026 07:55:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782312919; bh=tEkCFO/7kjtDTSCATNl+pL/YVd1ciADIUOeJdcK0kik=;
-	h=Date:Subject:To:References:From:Cc:In-Reply-To:From;
-	b=Ar0n6+64oRwrxWE3lp9TQ68Ez0mRiyFyHz9QPRPNY+Zy85YsKjXwzbds3QVzA9pBK
-	 d8QuTIacfO+/1tno4aM4Unz2j+NIS61dbJy0YxPFh/zqujby+KEqZ/o6QZ8KGpy0G8
-	 pBL4er099nhu/NbNXZVLIZCZ6biGmhwafZmzcLL0=
-Message-ID: <7c6bbc36-b100-4ca1-a710-99b483b04d2d@arm.com>
-Date: Wed, 24 Jun 2026 15:55:14 +0100
+	Wed, 24 Jun 2026 15:01:08 +0000
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id A5FB940E0140;
+	Wed, 24 Jun 2026 15:00:51 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
+Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
+	header.d=alien8.de
+Received: from mail.alien8.de ([127.0.0.1])
+	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id FUCDcAsTcbFn; Wed, 24 Jun 2026 15:00:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
+	t=1782313237; bh=ixANeKyt6wrxouLZA6axnl4DzfjEV12z3GBkxlFaUhw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=TPyy9zmaoOk93HRdbVBuaw0eyhfm3pcIRo3ulnBApi7YwlWpafnF3csPJdBiASsmc
+	 TUZPaTNjNX5dXi0gq9AB7OkFt5an6SO1pDA2+Q3vHrihQLbPYujtO4/YLRPKHRefpx
+	 6+rNjgax1zS7Pa3s+KeLdvYcC553vxP18PdfEE3e0y0m4+3ECI1A3yw54iVmQnFlZd
+	 lSj3jORK7ll6iQn64a5GBezIUurwfzo8Rzj28r7Gh806FVt5/d5zUVIX1NzmhdAsLV
+	 BHjaf3uxz2QZehXWkWGmXu2M3Kqk91YAbXZflWHhbLFYTWPwZcor3bzMsmbeTfk2Xl
+	 gColhiwQ96uZiFoWuxV3MgwKV08+cnfQO41LGvs1JxOl2LOxgRsIuHf5dG4mUDsWoK
+	 N7My+5ffBmunNTIKME9VyvoFGWQdt0RK5OxVtxb09xgScf78vi5U1vuBzxzmkNjiCq
+	 jM0y7G/Zeosnoz/EOPQHSPnR415zlHR2OkyJ1Vx1Zr7a/vFKzi2DeLAo9/KMmnNhCc
+	 6NxqAn6j6HyQ69T9bBgx6BvDmzKJAmU1G/FQK94tznkCXab3I9Ci/WZRFRf9btXira
+	 zev3TJnwR5tjnrQA8IIFKN7q9BOpRcBtpljkgyXCnX/y0FWhRWFzIhO/mIgckNpqZQ
+	 150Ye43Cvr8msP2TZaqPrkAk=
+Received: from stx.tnic (unknown [IPv6:2600:1700:38ca:c00::1a])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
+	(No client certificate requested)
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id 037AE40E0031;
+	Wed, 24 Jun 2026 14:59:47 +0000 (UTC)
+Date: Wed, 24 Jun 2026 07:59:45 -0700
+From: Borislav Petkov <bp@alien8.de>
+To: Will Deacon <will@kernel.org>
+Cc: Jinjie Ruan <ruanjinjie@huawei.com>, catalin.marinas@arm.com,
+	tsbogend@alpha.franken.de, tglx@kernel.org, mingo@redhat.com,
+	dave.hansen@linux.intel.com, hpa@zytor.com, peterz@infradead.org,
+	kees@kernel.org, nathan@kernel.org, linusw@kernel.org,
+	ojeda@kernel.org, david.kaplan@amd.com, lukas.bulwahn@redhat.com,
+	ryan.roberts@arm.com, maz@kernel.org, timothy.hayes@arm.com,
+	lpieralisi@kernel.org, thuth@redhat.com, menglong8.dong@gmail.com,
+	oupton@kernel.org, yeoreum.yun@arm.com, miko.lenczewski@arm.com,
+	broonie@kernel.org, kevin.brodsky@arm.com, james.clark@linaro.org,
+	yangyicong@hisilicon.com, tabba@google.com, osandov@fb.com,
+	arnd@arndb.de, anshuman.khandual@arm.com, david@kernel.org,
+	akpm@linux-foundation.org, ljs@kernel.org, dev.jain@arm.com,
+	yang@os.amperecomputing.com, chaitanyas.prakash@arm.com,
+	kprateek.nayak@amd.com, chenl311@chinatelecom.cn,
+	sshegde@linux.ibm.com, thorsten.blum@linux.dev,
+	chang.seok.bae@intel.com, tim.c.chen@linux.intel.com,
+	x86@kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org
+Subject: Re: [PATCH v3 00/12] arm64: Add HOTPLUG_PARALLEL support for
+ secondary CPUs
+Message-ID: <20260624145945.GBajvw4cQVt845-se2@fat_crate.local>
+References: <20260624092537.2916971-1-ruanjinjie@huawei.com>
+ <ajvKkLw5bL-FT5JC@willie-the-truck>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v15 09/11] arm64/ptrace: Skip syscall exit reporting for
- PTRACE_SYSEMU_SINGLESTEP
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-References: <20260511092103.1974980-1-ruanjinjie@huawei.com>
- <20260511092103.1974980-10-ruanjinjie@huawei.com>
-From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-Content-Language: en-US, en-GB, fr
-Organization: Arm Ltd.
-In-Reply-To: <20260511092103.1974980-10-ruanjinjie@huawei.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <ajvKkLw5bL-FT5JC@willie-the-truck>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_075521_477231_7B12EB21 
-X-CRM114-Status: GOOD (  12.88  )
+X-CRM114-CacheID: sfid-20260624_080106_952017_BE027CD6 
+X-CRM114-Status: UNSURE (   8.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,55 +101,21 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, peterz@infradead.org, catalin.marinas@arm.com, ldv@strace.io, song@kernel.org, will@kernel.org, kees@kernel.org, thuth@redhat.com, ryan.roberts@arm.com, anshuman.khandual@arm.com, kevin.brodsky@arm.com, pengcan@kylinos.cn, broonie@kernel.org, luto@kernel.org, linux-arm-kernel@lists.infradead.org, wad@chromium.org, yeoreum.yun@arm.com, oleg@redhat.com, linux-kernel@vger.kernel.org, james.morse@arm.com, tglx@kernel.org, liqiang01@kylinos.cn, linusw@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/05/2026 10:21, Jinjie Ruan wrote:
-> Align the syscall exit reporting logic with the generic entry
-> framework by skipping the exit stop when PTRACE_SYSEMU_SINGLESTEP is
-> in effect.
->
-> [Rationale]
-> When a tracer uses PTRACE_SYSEMU_SINGLESTEP, both _TIF_SYSCALL_EMU
-> and _TIF_SINGLESTEP flags are set. Currently, arm64 reports a syscall
-> exit stop whenever _TIF_SINGLESTEP is set, regardless of the
-> emulation state.
->
-> However, as per the generic entry implementation (see
-> include/linux/entry-common.h):
-> "If SYSCALL_EMU is set, then the only reason to report is when SINGLESTEP
-> is set (i.e. PTRACE_SYSEMU_SINGLESTEP). This syscall instruction has been
-> already reported in syscall_trace_enter()."
->
-> Since PTRACE_SYSEMU intercepts and skips the actual syscall
-> execution, reporting a subsequent exit stop is redundant and
-> inconsistent with the expected behavior of emulated system calls.
->
-> [Changes]
-> - Introduce report_single_step(): Add a helper to encapsulate the
->    logic for deciding whether to report a single-step stop at syscall
->    exit. It returns false if _TIF_SYSCALL_EMU is set, ensuring the
->    emulated syscall does not trigger a duplicate report.
->
-> - Update syscall_exit_work(): Use the new helper to determine
->    the stepping state instead of directly checking _TIF_SINGLESTEP.
->
-> [Impact]
-> - PTRACE_SINGLESTEP: Continues to report exit stops for actual
->    instructions.
->
-> - PTRACE_SYSEMU: Continues to skip exit stops.
->
-> - PTRACE_SYSEMU_SINGLESTEP: Now correctly skips the redundant exit
->    stop, aligning arm64 with the generic entry infrastructure.
->
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Reviewed-by: Linus Walleij <linusw@kernel.org>
-> Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
-> ---
-Reviewed-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+On Wed, Jun 24, 2026 at 01:16:16PM +0100, Will Deacon wrote:
+> If you want to help out in the meantime, there are plenty of patches that
+> need reviewing...
+
+I would loooove it if git send-email speed and rate of sending mail is
+proportional to how many other patches the sender has really reviewed...
+
+:-P :-P :-P
+
+-- 
+Regards/Gruss,
+    Boris.
+
+https://people.kernel.org/tglx/notes-about-netiquette
 
