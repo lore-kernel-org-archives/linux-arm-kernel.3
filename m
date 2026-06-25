@@ -4,73 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D48BCDE008
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 10:20:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C21CCDB479
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 10:22:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qU+ldOMCjsRLA5DXyuXG+eI9MaIuWf7QnLG8V1CkUEo=; b=vKdl8h2NZ5Lr9OPawFGg1fgPsM
-	T4Gc3oXuoXv4SVV6B4ct1feBWkrLmww6TPG5CjROyvdDRKn0lKW0SPt8LSS7jDqzNFJzKxcmSojHD
-	zLLpEhBg7+TjNzyY08lTZbNObQDr3k9U5RvkTa9o3/hPAu9pvF7XNCZssE9ERlcbLdu3U01/vv69k
-	wf16bE0BkxN7Yje+d5Ts1+rZnvb5izlMhz2luZ7Spx4pcEC40KIHrq0P4IhUumbyIIaVUvyibZr7I
-	ALHbBF1gEwMxFQiYMprXYtyX1l0MGTCHvKLBfPdxkkEnYuNnKNFAknhVzfpO7EJaJ4LaT9TuwUQK+
-	/mnLskDA==;
+	bh=QZLFfOQmGDFlX3PTUJhEv/KCfVYYPzDv7PEyM1q/Oxw=; b=kvquspjpaQLbmo96FULT9QFzgP
+	e62tAXAdi2t1U3hB6IpBv1bky5hx3b9F4Z/xHF4oEENEW+GS7sV95VqRQ8sStoenLz0b29sXL5sb7
+	rzq3uOVALKoZ9jozo+wFeGV4958Sw22KT84BapA2kUUNHlCMs2lASLKL04cKeUIWYJjuHvFd4hde4
+	c1xC/szZOgbbtxpy3HMb3+c4INM37LyDaEPRUcDqFu1PDVdFl9if7IEY33kJAHqdYYrZpNHpQKuSg
+	GUAQedTeCUSLNrk4SvyLtQ2lN66ZDjGTq+I/4O/xdo8vHIs8ED+y8IWaUYJjSpwEpJKXxwmF88DnD
+	B11aSEmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wchC9-00000008yn1-3HQb;
-	Thu, 25 Jun 2026 10:20:29 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1wchE1-00000008z0c-4AIT;
+	Thu, 25 Jun 2026 10:22:26 +0000
+Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wchC7-00000008ymY-0CmD
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Jun 2026 10:20:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=qU+ldOMCjsRLA5DXyuXG+eI9MaIuWf7QnLG8V1CkUEo=; b=xHUtZbaz94S7pOeN9m19RvFy7e
-	oPH7p4NBy8Iraw74eQ4HOMjRkh24gWDEg30OqF/q96HnI7EKNHZflN35SEz06o7YJUgMu2BkiEyFZ
-	icOkQjUkPQvxeMCmsaAkn39XCk7jkGbd3QOPndCASIEdvVhDqecBnSeijNHJxzqPYXINMnJiu33Bh
-	/6GudVDouZMbkFXQftyqhP9JpyE0t3oXRrNhGAkds/x3QmbJZTkJ2jS0qJ8s7bljHAtpQYHoYTM5q
-	UbzmDc+2xiZ6FC4zugxGma+G7xGwsMaStYjkWTSasjFOEkD6AJZDOXtACnKlZzXYHCXWfFGhfE/k2
-	RN5YwNIA==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:43234)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1wchBx-000000000mn-0rvY;
-	Thu, 25 Jun 2026 11:20:17 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1wchBt-000000001vm-30e6;
-	Thu, 25 Jun 2026 11:20:13 +0100
-Date: Thu, 25 Jun 2026 11:20:13 +0100
-From: Russell King <linux@armlinux.org.uk>
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Cc: Xie Yuanbin <xieyuanbin1@huawei.com>, clrkwllms@kernel.org,
-	rostedt@goodmis.org, linusw@kernel.org, arnd@arndb.de,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev, liaohua4@huawei.com,
-	lilinjie8@huawei.com
-Subject: Re: [PATCH] ARM: enable interrupts when arm_notify_die() is handling
- user mode errors
-Message-ID: <aj0A3SjMhR24e8fP@shell.armlinux.org.uk>
-References: <20260625073522.182503-1-xieyuanbin1@huawei.com>
- <20260625085034.tvyGSmaP@linutronix.de>
- <ajzvcCve4LubjH9J@shell.armlinux.org.uk>
- <20260625093008.e5I4bh-_@linutronix.de>
+	id 1wchDz-00000008yzt-0oBB;
+	Thu, 25 Jun 2026 10:22:25 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
+	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id B42EA2006B1;
+	Thu, 25 Jun 2026 12:22:18 +0200 (CEST)
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1wchDu-004Zgc-25;
+	Thu, 25 Jun 2026 12:22:18 +0200
+Received: from pza by lupine with local (Exim 4.98.2)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1wchDu-000000006AZ-2JJx;
+	Thu, 25 Jun 2026 12:22:18 +0200
+Message-ID: <36c8a3db6038db4973b6cd80c554339f5b71d32c.camel@pengutronix.de>
+Subject: Re: [PATCH v9 04/12] reset: realtek: Add RTD1625-ISO reset
+ controller driver
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Yu-Chun Lin =?UTF-8?Q?=5B=E6=9E=97=E7=A5=90=E5=90=9B=5D?=	
+ <eleanor.lin@realtek.com>, "mturquette@baylibre.com"
+ <mturquette@baylibre.com>,  "sboyd@kernel.org"	 <sboyd@kernel.org>,
+ "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"	
+ <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>, Edgar
+ Lee =?UTF-8?Q?=5B=E6=9D=8E=E6=89=BF=E8=AB=AD=5D?=	 <cylee12@realtek.com>,
+ "afaerber@suse.com" <afaerber@suse.com>, Jyan Chou
+ =?UTF-8?Q?=5B=E5=91=A8=E8=8A=B7=E5=AE=89=5D?=	 <jyanchou@realtek.com>,
+ "bmasney@redhat.com" <bmasney@redhat.com>
+Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
+ "linux-clk@vger.kernel.org"
+	 <linux-clk@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	 <linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	 <linux-arm-kernel@lists.infradead.org>, 
+ "linux-realtek-soc@lists.infradead.org"
+	 <linux-realtek-soc@lists.infradead.org>, James Tai
+ =?UTF-8?Q?=5B=E6=88=B4=E5=BF=97=E5=B3=B0=5D?=
+	 <james.tai@realtek.com>, 
+ =?UTF-8?Q?CY=5FHuang=5B=E9=BB=83=E9=89=A6=E6=99=8F=5D?=
+	 <cy.huang@realtek.com>, Stanley
+ =?UTF-8?Q?Chang=5B=E6=98=8C=E8=82=B2=E5=BE=B7=5D?=
+	 <stanley_chang@realtek.com>
+Date: Thu, 25 Jun 2026 12:22:18 +0200
+In-Reply-To: <f3b747e20110424c8a434cbd271edb87@realtek.com>
+References: <20260624112940.3475605-1-eleanor.lin@realtek.com>
+		 <20260624112940.3475605-5-eleanor.lin@realtek.com>
+	 <9db83aa615f43ff6eac090626b43915fcd593a25.camel@pengutronix.de>
+	 <f3b747e20110424c8a434cbd271edb87@realtek.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260625093008.e5I4bh-_@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260625_032027_092099_58BCEE00 
-X-CRM114-Status: GOOD (  31.50  )
+X-CRM114-CacheID: sfid-20260625_032223_400414_24736EB9 
+X-CRM114-Status: GOOD (  23.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,114 +93,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 25, 2026 at 11:30:08AM +0200, Sebastian Andrzej Siewior wrote:
-> On 2026-06-25 10:05:52 [+0100], Russell King wrote:
-> > > for this but actual breakpoint handling might be broken or is it just
-> > > me? But then your stack trace looks like mine so :/
-> > 
-> > ARM Linux doesn't use BKPT. BKPT was an instruction introduced by Arm
-> > Ltd in ARMv5TE. Prior to this, we use a UDF instruction instead (we
-> > had to pick something!) and gdb and other tools use that as a
-> > breapoint.
-> > 
-> > Moreover, BKPT isn't guaranteed to trap to the kernel, especially when
-> > there is a hardware debugger connected. In that case, DDI0100E states
-> > that use of BKPT must be according to the instructions provided with
-> > the hardware debugger. This makes BKPT unsuitable for use.
-> 
-> So you are saying this:
-> 
-> diff --git a/arch/arm/mm/fault.c b/arch/arm/mm/fault.c
-> index e62cc4be5adf6..11ac69113eca2 100644
-> --- a/arch/arm/mm/fault.c
-> +++ b/arch/arm/mm/fault.c
-> @@ -595,6 +595,16 @@ do_bad(unsigned long addr, unsigned int fsr, struct pt_regs *regs)
->  	return 1;
->  }
->  
-> +static int do_debug_event(unsigned long addr, unsigned int fsr,
-> +			  struct pt_regs *regs)
-> +{
-> +	if (!user_mode(regs))
-> +		return 1;
-> +	local_irq_enable();
-> +	ptrace_break(regs);
-> +	return 0;
-> +}
-> +
->  struct fsr_info {
->  	int	(*fn)(unsigned long addr, unsigned int fsr, struct pt_regs *regs);
->  	int	sig;
-> diff --git a/arch/arm/mm/fsr-2level.c b/arch/arm/mm/fsr-2level.c
-> index f2be95197265d..bfd718f64020c 100644
-> --- a/arch/arm/mm/fsr-2level.c
-> +++ b/arch/arm/mm/fsr-2level.c
-> @@ -46,7 +46,7 @@ static struct fsr_info fsr_info[] = {
->  static struct fsr_info ifsr_info[] = {
->  	{ do_bad,		SIGBUS,  0,		"unknown 0"			   },
->  	{ do_bad,		SIGBUS,  0,		"unknown 1"			   },
-> -	{ do_bad,		SIGBUS,  0,		"debug event"			   },
-> +	{ do_debug_event,	SIGBUS,  0,		"debug event"			   },
->  	{ do_bad,		SIGSEGV, SEGV_ACCERR,	"section access flag fault"	   },
->  	{ do_bad,		SIGBUS,  0,		"unknown 4"			   },
->  	{ do_translation_fault,	SIGSEGV, SEGV_MAPERR,	"section translation fault"	   },
-> diff --git a/arch/arm/mm/fsr-3level.c b/arch/arm/mm/fsr-3level.c
-> index d0ae2963656a6..96c1d45d20d9e 100644
-> --- a/arch/arm/mm/fsr-3level.c
-> +++ b/arch/arm/mm/fsr-3level.c
-> @@ -34,7 +34,7 @@ static struct fsr_info fsr_info[] = {
->  	{ do_bad,		SIGBUS,  0,		"synchronous parity error (translation table walk" },
->  	{ do_bad,		SIGBUS,  0,		"unknown 32"			},
->  	{ do_bad,		SIGBUS,  BUS_ADRALN,	"alignment fault"		},
-> -	{ do_bad,		SIGBUS,  0,		"debug event"			},
-> +	{ do_debug_event,	SIGBUS,  0,		"debug event"			},
->  	{ do_bad,		SIGBUS,  0,		"unknown 35"			},
->  	{ do_bad,		SIGBUS,  0,		"unknown 36"			},
->  	{ do_bad,		SIGBUS,  0,		"unknown 37"			},
-> 
-> is not worth doing it? With this I can my little testcase working.
+On Do, 2026-06-25 at 10:05 +0000, Yu-Chun Lin [=E6=9E=97=E7=A5=90=E5=90=9B]=
+ wrote:
+> Hi Philipp,
+>=20
+> > On Mi, 2026-06-24 at 19:29 +0800, Yu-Chun Lin wrote:
+> > > From: Cheng-Yu Lee <cylee12@realtek.com>
+> > >=20
+> > > Add support for the ISO (Isolation) domain reset controller on the
+> > > Realtek
+> > > RTD1625 SoC.
+> > >=20
+> > > The reset controller shares the same register space with the ISO cloc=
+k
+> > > controller. To handle this shared register space, the reset driver is
+> > > implemented as an auxiliary driver. It will be instantiated and probe=
+d
+> > > via the auxiliary bus by the RTD1625-ISO clock controller driver.
+> > >=20
+> > > Signed-off-by: Cheng-Yu Lee <cylee12@realtek.com>
+> > > Co-developed-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+> > > Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+> > > ---
+> > > Changes in v9:
+> > > - Extract reset-related code from the previous clock driver patch
+> > > (formerly patch 9 in v8).
+> > > ---
+> > >  drivers/reset/realtek/Makefile            |  2 +-
+> > >  drivers/reset/realtek/reset-rtd1625-iso.c | 99
+> > > +++++++++++++++++++++++
+> > >  2 files changed, 100 insertions(+), 1 deletion(-)  create mode 10064=
+4
+> > > drivers/reset/realtek/reset-rtd1625-iso.c
+> > >=20
+> > > diff --git a/drivers/reset/realtek/Makefile
+> > > b/drivers/reset/realtek/Makefile index c3f605ffb11c..9007c9d5683b
+> > > 100644
+> > > --- a/drivers/reset/realtek/Makefile
+> > > +++ b/drivers/reset/realtek/Makefile
+> > > @@ -1,3 +1,3 @@
+> > >  # SPDX-License-Identifier: GPL-2.0-only
+> > >  obj-$(CONFIG_RESET_RTK_COMMON) +=3D reset-rtk-common.o
+> > > -obj-$(CONFIG_RESET_RTD1625) +=3D reset-rtd1625-crt.o
+> > > +obj-$(CONFIG_RESET_RTD1625) +=3D reset-rtd1625-crt.o
+> > > +reset-rtd1625-iso.o
+> >=20
+> > Is there any benefit to these two being separate modules?
+> > I suggest you merge them into one: reset-rtd1625.o
+> >=20
+>=20
+> If I merge them into a single 'reset-rtd1625' module,
+> both the 'crt' and 'iso' clock drivers would trigger the probe
+> process for the same reset driver name, which would lead to a
+> duplicate driver registration error.
 
-No, it isn't, because if you enable PERF_EVENTS then BKPT breaks.
-hw_breakpoint.c claims this vector.
+What do you mean by duplicate driver registration error?
 
-Moreover, in older architectures, FSR=2 means "Terminal exception"
-which is defined as "This indicates that an irrecoverable fault has
-occurred. The circumstances under which this can happen (if at all)
-are IMPLEMENTATION DEFINED." - from DDI0100E (which includes
-ARMv5TE). In DDI0100F, this encoding was changed to "Debug exception".
+There would only be one auxiliary_driver, with support for all three
+auxiliary_device_id's.
 
-Hence, the above can not be unconditional.
 
-Then, we also have that FSR=2 is generated for a number of different
-reasons (including hardware debug events) which may trigger.
-
-Also a hardware debugger (e.g. connected via JTAG) could decide to
-pass a BKPT exception on, and that could happen from the kernel. I
-believe LLVM CFI uses BKPT (see LinusW's commit c3f89986fde7 ("ARM:
-9391/2: hw_breakpoint: Handle CFI breakpoints")
-
-BKPT is a total mess.
-
-> That would be exc_int3() from arch/x86/kernel/traps.c.
-> Besides doing "notify_die(DIE_INT3, "int3", regs, 0, X86_TRAP_BP, SIGTRAP);"
-> 
-> it does cond_local_irq_enable() which enables the interrupts if they
-> were enabled by the "caller", sends the signal (SIGTRAP).
-
-I'm happy with that approach as far as interrupts go, but we can't
-change the behaviour for FSR=2 again, beyond fixing LinusW's
-commit (which has recently been reported as a regression.)
-
-Note that the change which makes this raise a SIGTRAP rather than
-SIGBUS when PERF_EVENTS=y could _also_ be reported as a regression
-that we would have to fix, and making FSR=2 raise a SIGTRAP now
-could very well invite that regression to be reported.
-
-Essentially, I don't think we can "fix" BKPT to always raise SIGTRAP.
-The BKPT instruction is something the kernel has never _officially_
-supported.
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+regards
+Philipp
 
