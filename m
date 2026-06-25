@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 401A7CDB479
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 00:33:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36AC6CDB479
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 00:34:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=FMrjjTBRHYPdyBAaMjCinCWggdeO8FNlZPvq2H9OVLw=; b=unY71CZBlwoh25AuT2DUM7HXAK
-	0j8u9pemuh712mckElOxt0r5wECaZGmPuTE/WwxD7GkMHpt5dMK13UQ5eok/Gkx95zKOR42vitgRt
-	c5y4FjnQ8B/TQn2wx0AOMgC5kvAI1wsMGiLG1nr7KYpiM1Zfzf8P84WsrrX+iWcuB27PKaZxBa/Kc
-	kPxZKjfaPXoCrc9j4RprgBa4YmOKXQ9eGnS4oCmHjxiSic/IdjD8+JXF+lEE9fIBzpDfeW7oCbjpP
-	5D5zNkG+KV61f4XPv7whPy4IX3h8MYPYHLHRhOVsUlaF7rPbRKNBcGgWdCbqUsbnsI7ijYwJXZvrN
-	3XiyTN0A==;
+	bh=KrW5Js/vgcglIHjJXzY3uUj6z/r7gJ4lUexgfvZXCWI=; b=salNiQrnVgBVyW0jz65GzFbvXf
+	u2y/ls1+XsMiq1qA885Xhg1ReSC6GNydUxYMd9rpP9OU6zUSyyAOeQXt7T1WIiDeY8inwEogekCpj
+	Aa5+oWBAaPkKJZeB8kTwXI6ZrO0ldW19C9vC74IcM7boZoiLiE2/4QAHvWYMrbz/lFnd6lbiPyI3W
+	A7bx/kV6Lql6Fs90Lp2kzZhCL+O5wpbz7VzB+snXRXKQod85u3CrrllRsGkB/QUixfyk2qzSeTbUL
+	AbIDi6cYdKPVube2y0MT9MxEN46Ws1oewqem6Eccu9l38hujBhA6Oz1CjnfKqnJE8eGo5NTmM8LI7
+	XuX3bcHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcY2A-00000008TDj-407w;
-	Thu, 25 Jun 2026 00:33:34 +0000
+	id 1wcY2x-00000008TMs-14nG;
+	Thu, 25 Jun 2026 00:34:23 +0000
 Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcY27-00000008TDB-3ETp;
-	Thu, 25 Jun 2026 00:33:33 +0000
+	id 1wcY2u-00000008TMJ-2uKj
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 25 Jun 2026 00:34:22 +0000
 Received: from localhost.localdomain (unknown [111.196.245.140])
-	by APP-03 (Coremail) with SMTP id rQCowADH4dhZdzxqKNXCFQ--.4822S2;
-	Thu, 25 Jun 2026 08:33:29 +0800 (CST)
+	by APP-03 (Coremail) with SMTP id rQCowADXwaiJdzxqAdjCFQ--.4213S2;
+	Thu, 25 Jun 2026 08:34:18 +0800 (CST)
 From: Pengpeng Hou <pengpeng@iscas.ac.cn>
-To: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Chen-Yu Tsai <wens@kernel.org>
 Cc: pengpeng@iscas.ac.cn,
-	Richard Weinberger <richard@nod.at>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Vladimir Zapolskiy <vz@mleia.com>,
-	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
-	linux-mtd@lists.infradead.org,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
 	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] mtd: rawnand: lpc32xx_mlc: fail DMA transfers on timeout
-Date: Thu, 25 Jun 2026 08:33:27 +0800
-Message-ID: <20260625003327.11060-1-pengpeng@iscas.ac.cn>
+Subject: [PATCH] bus: sunxi-rsb: fail hardware init on soft-reset timeout
+Date: Thu, 25 Jun 2026 08:34:16 +0800
+Message-ID: <20260625003416.15841-1-pengpeng@iscas.ac.cn>
 X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowADH4dhZdzxqKNXCFQ--.4822S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Kw4ftF48ur4rWr4fJF4Utwb_yoW8Kr17pa
-	1jkwn0kF4qyrsIgrWUCa1DXF1Yva1rArW7K34q934F934qyr1q9Fn5KFyjvF4YkF95CF12
-	vF4Dtas8C34UJw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+X-CM-TRANSID: rQCowADXwaiJdzxqAdjCFQ--.4213S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7Cr4UCw43ZFWUWF18Xw4kXrb_yoW8Xr4kpa
+	naka47CrWqqF4FqF12yF1jvF15X3Z7KF98C3s8Cwn2vwnYgry8CFyrKFWFg3W5AF48uay5
+	ZFnFqa1UCF1q9w7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
 	9KBjDU0xBIdaVrnRJUUUkE14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
 	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
 	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
@@ -56,17 +56,17 @@ X-Coremail-Antispam: 1UD129KBjvJXoW7Kw4ftF48ur4rWr4fJF4Utwb_yoW8Kr17pa
 	1j6F4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv
 	7VC0I7IYx2IY67AKxVWUXVWUAwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r
 	1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwCY1x0262kKe7AK
-	xVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F4
+	xVWUAVWUtwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F4
 	0E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFyl
 	IxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxV
 	AFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j
-	6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUpwZ
-	cUUUUU=
+	6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUQo7
+	NUUUUU=
 X-Originating-IP: [111.196.245.140]
 X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_173332_184960_1E85B44E 
-X-CRM114-Status: GOOD (  11.55  )
+X-CRM114-CacheID: sfid-20260624_173421_111948_F5B67C6F 
+X-CRM114-Status: GOOD (  12.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,67 +81,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-lpc32xx_xmit_dma() starts a DMA transfer and waits up to one second for
-its completion, but it ignores the wait result and returns success after
-unmapping the buffer.
+sunxi_rsb_hw_init() issues a controller soft reset and waits for the reset
+bit to clear, but it ignores readl_poll_timeout()'s return value.
 
-A timed out read can therefore return success with incomplete data, and a
-timed out write can continue the NAND operation without proof that the DMA
-payload reached the controller.
+If the controller never leaves reset, probe can continue to publish child
+devices and system resume can report success without a usable RSB
+controller.
 
-Terminate the DMA channel on timeout, unmap the scatterlist through the
-existing cleanup path, and return -ETIMEDOUT to the NAND read/write
-callers.
+Return the timeout error, assert reset again, and disable the clock before
+leaving the hardware-init path.
 
 Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
 ---
- drivers/mtd/nand/raw/lpc32xx_mlc.c | 12 ++++++++++--
- 1 file changed, 10 insertions(+), 2 deletions(-)
+ drivers/bus/sunxi-rsb.c | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/mtd/nand/raw/lpc32xx_mlc.c b/drivers/mtd/nand/raw/lpc32xx_mlc.c
-index 19b13ae53..8f6a89d9b 100644
---- a/drivers/mtd/nand/raw/lpc32xx_mlc.c
-+++ b/drivers/mtd/nand/raw/lpc32xx_mlc.c
-@@ -396,6 +396,7 @@ static int lpc32xx_xmit_dma(struct mtd_info *mtd, void *mem, int len,
- 	struct lpc32xx_nand_host *host = nand_get_controller_data(chip);
- 	struct dma_async_tx_descriptor *desc;
- 	int flags = DMA_CTRL_ACK | DMA_PREP_INTERRUPT;
-+	unsigned long time_left;
- 	int res;
+diff --git a/drivers/bus/sunxi-rsb.c b/drivers/bus/sunxi-rsb.c
+index daf0ea563..f83224dea 100644
+--- a/drivers/bus/sunxi-rsb.c
++++ b/drivers/bus/sunxi-rsb.c
+@@ -669,8 +669,12 @@ static int sunxi_rsb_hw_init(struct sunxi_rsb *rsb)
  
- 	sg_init_one(&host->sgl, mem, len);
-@@ -410,6 +411,7 @@ static int lpc32xx_xmit_dma(struct mtd_info *mtd, void *mem, int len,
- 				       flags);
- 	if (!desc) {
- 		dev_err(mtd->dev.parent, "Failed to prepare slave sg\n");
-+		res = -ENXIO;
- 		goto out1;
- 	}
- 
-@@ -420,7 +422,13 @@ static int lpc32xx_xmit_dma(struct mtd_info *mtd, void *mem, int len,
- 	dmaengine_submit(desc);
- 	dma_async_issue_pending(host->dma_chan);
- 
--	wait_for_completion_timeout(&host->comp_dma, msecs_to_jiffies(1000));
-+	time_left = wait_for_completion_timeout(&host->comp_dma,
-+						msecs_to_jiffies(1000));
-+	if (!time_left) {
-+		dmaengine_terminate_sync(host->dma_chan);
-+		res = -ETIMEDOUT;
-+		goto out1;
+ 	/* reset the controller */
+ 	writel(RSB_CTRL_SOFT_RST, rsb->regs + RSB_CTRL);
+-	readl_poll_timeout(rsb->regs + RSB_CTRL, reg,
+-			   !(reg & RSB_CTRL_SOFT_RST), 1000, 100000);
++	ret = readl_poll_timeout(rsb->regs + RSB_CTRL, reg,
++				 !(reg & RSB_CTRL_SOFT_RST), 1000, 100000);
++	if (ret) {
++		dev_err(dev, "soft reset timed out\n");
++		goto err_reset_assert;
 +	}
  
- 	dma_unmap_sg(host->dma_chan->device->dev, &host->sgl, 1,
- 		     DMA_BIDIRECTIONAL);
-@@ -428,7 +436,7 @@ static int lpc32xx_xmit_dma(struct mtd_info *mtd, void *mem, int len,
- out1:
- 	dma_unmap_sg(host->dma_chan->device->dev, &host->sgl, 1,
- 		     DMA_BIDIRECTIONAL);
--	return -ENXIO;
-+	return res;
- }
+ 	/*
+ 	 * Clock frequency and delay calculation code is from
+@@ -696,6 +700,8 @@ static int sunxi_rsb_hw_init(struct sunxi_rsb *rsb)
  
- static int lpc32xx_read_page(struct nand_chip *chip, uint8_t *buf,
+ 	return 0;
+ 
++err_reset_assert:
++	reset_control_assert(rsb->rstc);
+ err_clk_disable:
+ 	clk_disable_unprepare(rsb->clk);
+ 
 -- 
 2.50.1 (Apple Git-155)
 
