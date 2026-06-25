@@ -4,112 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF986CDE001
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 16:10:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61233CDE001
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 16:16:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=AvWrzenWitRXdBn/A6pWW8+BLrHtzKUzNX3DY23N3TA=; b=SRkvimrJk9tQ6/F3JD7HYC4tT6
-	9cbR6A9K609A/4AlX8ria4PYbLTrFAZOzuPgoQHPDET73FaZWfa16K1Kd3lnD3XozVGufetIdiuOW
-	cUJqFlc5BenLR5++tewqnMewOxeIVu7LM2flSEmCcc4+TH1VAwaAh+vUubRutHyGg0eTQqEpXQMhD
-	r1UF90gW4+0i6cxDuso2niSoij2hwOLRAXH/xUoj8lEN7ZrIWw1cu3Vs39MdWlWZyAN6qbCvLQVTu
-	N9mJAgpodGg1RWs5cl0/gqsDT5z9CPk1GHYzn2DnQNryhB3NlJqP6ymnF3NhbHuLZ2VaTnJ0FgbK5
-	5rDXqrhw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OPOL0Eqdv4R4nmGH4LgFX2vwQhWwNia4bGgtDOfeSF8=; b=rL15y4Iw2X+NxuNDPo6BMrK79s
+	1ZWBIigi0BKiyILVMTc8fFkW/nZH+aDPOXYqcvT4MMqlhzRCFTyd/X5BxY3949338DP+oh96YCeBf
+	eO+zTrhQfEaG8uOOayGfBgbTbDRoeKDrxEIrusgsU1I2/Rfa5mCZ1+RRdnoJ/cyw6iwqEOsGiWvgN
+	LGbGpnJlfbm08QsFSznNxsLu0WDJlgKuFza5144n+8GWWZxXxQKwc+fiDZupfyb/RhLrKH2f5wEMS
+	GXMmquHxmeVdhRRCtbPUAzbirIq3vo9cmC370pGxA6kfl0Tc1kmv18EFxrZ4I3oypy2mZPwMT9ya6
+	IAo9mAPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcmf7-00000009SKg-42sD;
-	Thu, 25 Jun 2026 16:10:45 +0000
-Received: from mail-eastusazon11011019.outbound.protection.outlook.com ([52.101.52.19] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	id 1wcmka-00000009Sg2-2pGF;
+	Thu, 25 Jun 2026 16:16:24 +0000
+Received: from mail-northeuropeazon11011062.outbound.protection.outlook.com ([52.101.65.62] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcmf4-00000009SKI-23at
+	id 1wcmkY-00000009Sfc-2250
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Jun 2026 16:10:44 +0000
+	Thu, 25 Jun 2026 16:16:23 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xq4aYZG0d/yjmwxVEaIPw00zwzLm4FIsEU0Si+wj6nkVtK4CS1NtMaGDS9SRuNGsryS23977aIv5epbDJVVnX1QyR6MmMTtq+hRykCg2H6utyPKhNQMKo1wUtlAimHNbJ+iL0xvymY2u/s6QBbwDooII16rOVPCmfiUm9vaFg2KMPhu1spVVRnDy6tjDh3yrE5G/YCPpsSvMufFDbYBaeRt3A9ylDNqt4yzuyrEvaZqXXpEBcsfWoaWExtpL11s9Mg7PTyol0Im52mFxRMMkN3Su9CilObfooMrZyP41db12HPOpGazwCqo9opzMe1/357IGeFxb3Dqxg/UYp+HXOg==
+ b=VAyq7EuIVbkGTQPK3HIzyoEbJho7z+Lk5Wjw/qTx0jlP9mAqXMmG6XqQ/6uLraHzenzH8J/dUKUcX3oy3o9QdK6bdcgPPavVXAZU9LQMuZyf8iT3L5PtiSz8xwz9ekBfxMFiFWvbR6+IxYm/ciTSx/xbrMQayz9Fd3zDgi7mTOkSa2opP6t3kULcA9VITVpme9Hq4ItGJr6R4v2ztSTgkI+kWPAF7tWcMO1as64LigWtgcQgtZNSS1mQjLrqeNbgN/gchKdJXLUefQq/cJhngqZLNdhsfKlp/GHX+JQvC3O7Gss8qnjkT8nabRHlR//cpdtO+LjF3gfRJ0gjht/IFA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=AvWrzenWitRXdBn/A6pWW8+BLrHtzKUzNX3DY23N3TA=;
- b=PVuI8q6woKA7CDGVCNdLjAgh/5pApOkWDDb5UKb+k0IWONlXXJVp52fIF/vHWh5N5sk5YdJrKrimEVX/TEzdWnAAplCoFbykd41OEBVy3G5nn2qlRmf/YKtMVNbP1xIdE8cKaom/CzyVKYLBpd9wokMjBac9Rj5EonfZC+d0iL1+XPO8ElgBQC/8VNCB6ICWm8VZYx/aSYwDG39ItrcZrl89jCmcoYJLicr0o49mN3EQXnTqXXs4OMyPuIJudmB1tt1pNwAYoPahr9KC1mKXjAkKs3Y1Cj1bTc+2xxds8t3FcwaEw6FzbuJHVEsZdoIv+C9qE258bbd9nyu950QYsw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ bh=OPOL0Eqdv4R4nmGH4LgFX2vwQhWwNia4bGgtDOfeSF8=;
+ b=YqPYgDPepFvfvrWzDUbfxJetZD3+kcEl5zDEq53r1jJcqOVwCgSoNpoFb80epkiOGFOzpgt/XipeAREIgrNzsgXjERl4AkjdfzLvhycXSYWu4Hn6Aikdh99jWNZapF8Cwdous/shEEBqSTE/xoJD75i0y+c5Fk92sYVbBO6n6uChm7U/9NcYA+5rJ8FxLXFk0G9iKSHVsOP3+fNjJ46Rr/XJWwsM+x6JOh0PclVYUHchDUplnOVYm5Ih7ph56JKhLHuDRuUncs3F5JjmTL0YdLCt2cWo5NO+vdaf0gATs2Ci285e6OoSkRrDsEeEkJpn5agxqP8ix24M8vosCLltQA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=AvWrzenWitRXdBn/A6pWW8+BLrHtzKUzNX3DY23N3TA=;
- b=XUsReO7q6cnxdrXiLgTFVWKtbpfmpSWPRHpV5aFKsgr/CT6iAl0TSK0Y+FOg68ZBUgJfyzvkt+HV5q8BSwwX9k0TYhsNFhJ4o99turcMpmyxPUEwI6xPStXQua0H/2SGjNGS2ySQ7rdOkCYkT3emwitP4VgdhHPKTFrkDabqtno=
-Received: from SJ0PR05CA0073.namprd05.prod.outlook.com (2603:10b6:a03:332::18)
- by SN7PR12MB6689.namprd12.prod.outlook.com (2603:10b6:806:273::17) with
+ bh=OPOL0Eqdv4R4nmGH4LgFX2vwQhWwNia4bGgtDOfeSF8=;
+ b=HPWFHdW1IeDEYCS7kU3EoZf74VJyycWEP6v8C0EE0LenaD6n2+3PB5Vqp3Y67H/DiuyOypzf569G9fyz7SJJuMki5sWXmsxZrvMo/Eiy9I3wduM3DsKp5qPvquoRbhNpKayICqvW1UpSEVo3EwZLeD3A6pvqYcuS0gBPvTR0j0uonMLZpSxRskTlQpJ6qkwwV987dPNWrvOOJxoTzGo2ckkl3vt0jTRCsx+B9sqUML4CYwj9GGp/Y6zYOWh+0Tb71XvCXqiwrhjKfYFl43dxq2fHx8C1Qgg8AHQZF87/b87pa3IK/r72CWnc/jfiBdNpFC5S1EB1QycLOYbaYLX1Fg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AM7PR04MB6805.eurprd04.prod.outlook.com (2603:10a6:20b:dc::16) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.14; Thu, 25 Jun
- 2026 16:10:26 +0000
-Received: from BY1PEPF0001AE1A.namprd04.prod.outlook.com
- (2603:10b6:a03:332:cafe::39) by SJ0PR05CA0073.outlook.office365.com
- (2603:10b6:a03:332::18) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.5 via Frontend Transport; Thu, 25
- Jun 2026 16:10:20 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- BY1PEPF0001AE1A.mail.protection.outlook.com (10.167.242.102) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.181.6 via Frontend Transport; Thu, 25 Jun 2026 16:10:20 +0000
-Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Thu, 25 Jun
- 2026 11:10:19 -0500
-Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb09.amd.com
- (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Thu, 25 Jun
- 2026 09:10:19 -0700
-Received: from xhdsuragupt40.xilinx.com (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
- Transport; Thu, 25 Jun 2026 11:10:16 -0500
-From: Suraj Gupta <suraj.gupta2@amd.com>
-To: <vkoul@kernel.org>, <Frank.Li@kernel.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <michal.simek@amd.com>,
-	<radhey.shyam.pandey@amd.com>
-CC: <dmaengine@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH] dt-bindings: dma: xlnx,axi-dma: Restore xlnx,flush-fsync as u32
-Date: Thu, 25 Jun 2026 21:40:16 +0530
-Message-ID: <20260625161016.1249570-1-suraj.gupta2@amd.com>
-X-Mailer: git-send-email 2.25.1
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.16; Thu, 25 Jun
+ 2026 16:16:16 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Thu, 25 Jun 2026
+ 16:16:16 +0000
+Date: Thu, 25 Jun 2026 11:16:07 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Liem <liem16213@gmail.com>
+Cc: Oleksij Rempel <o.rempel@pengutronix.de>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Biwen Li <biwen.li@nxp.com>,
+	Wolfram Sang <wsa@kernel.org>, linux-i2c@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v2] i2c: imx: Fix slave registration error path and
+ missing timer cleanup
+Message-ID: <aj1UR5ddawsdMbZC@SMW015318>
+References: <20260625071130.93544-1-liem16213@gmail.com>
+ <20260625160219.55116-1-liem16213@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260625160219.55116-1-liem16213@gmail.com>
+X-ClientProxiedBy: SA0PR11CA0195.namprd11.prod.outlook.com
+ (2603:10b6:806:1bc::20) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BY1PEPF0001AE1A:EE_|SN7PR12MB6689:EE_
-X-MS-Office365-Filtering-Correlation-Id: 54d21fed-fa47-454f-67c1-08ded2d44132
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM7PR04MB6805:EE_
+X-MS-Office365-Filtering-Correlation-Id: e4e898f1-9caf-4e7c-f07a-08ded2d51572
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|376014|82310400026|23010399003|3023799007|56012099006|11063799006|18002099003;
-X-Microsoft-Antispam-Message-Info: t57jEPGVwgU6foGe1ES2kH6z2N+gcq335ImD+AZCzQpbpMdOa6zUS8yb6A1uc+EfCJ9z6DQ1yj+l38s/Mm/U18WBhjnjJnyZp5oQZHcWne7ZhFYggmpEF/uAoBCQw89fMiBIB6MGi8tNyNNtsr0douJLw5vajME8yS/xwlgnrdZHEbeJ3veG8oqMPTWnJ76iLvE94cgJfCKunzktSBpD19/72v/WpeAisrGC5dJtZRAM6WOnMNbFXPAj/HQ9yUhtU0dGEBG5s/xU1RJ9ee991SGign3eHGKz+yS4+PgWaMdx2MsojahTHrdbQ2q93YaX2OB5hMgkBntzTAnS5jRMq8ieCbCJxqYOLSFJ9xM/gjWSJuMd0BUQ1kWoeT6NvPgduUtArsCB39HOKcU39CxKmigajSgXmk4FiFBvr3u5ldGDSTHWXf99VffWr+NdKA6S1mDVUmhUrspPxu852ZfRYDv8YH9vDDdZ9dL1St6CeP/7cUGzSGdcPjqPPM+VivaHtH2WA1IMmo/b9ftkm23EqA+MAXv2AT5zzEWlxRYV+bjmx8V+u2G7/cyzrkRO9JrjOO+mlbsDIZq3yu92Q8zDQGK4p2vurb+fDfGoWjrKww+s+1gVxTf915WicdoRApRdx5TS4IvyebvqgRSuGxaL0H7NHmRE7LNNvOvLNxh3Kk5QwwRcnbh7IIEbG1llJwmGQS+i4INH4fFBrvOS0skpxQ==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(376014)(82310400026)(23010399003)(3023799007)(56012099006)(11063799006)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|7416014|376014|1800799024|23010399003|18002099003|22082099003|4143699003|11063799006|56012099006|6133799003;
+X-Microsoft-Antispam-Message-Info: 7csmJY2ZgRvPBdjzQ00Y0IVDNT3Xi2+nHrgXG9ki/chTbwU/+Q8dNdg+TjokgD2egpPAhIOF/1QipjuEMj/CHj+z0jEbqHpHB/3fbx2LSz19elmLk4pmNCl4gidc4mIZWmvwONOh1UEILAWEmVYLpp8UmNa/jN5ievPlFSYY+mJt8xLTr9y3uy1q12clWbEbmBKvMESlVM91MZmAP/MQbeD68HVQdQ2G/fpx0EC90xcPdRxNk8Q+Tj4X/nMvvfxrWUA9MUBwHVgdQMn+Ofcuycd8SKgbLomvrZyagEwvdJtWSJyM6O+gCILJiLzPyv21XLytMSPxO466XN6krNlA5U7z72kdKnTzXWMvC/54tgXAV8iNTl0cvH8EZA3QM22b+Mtqp2P2sY9DOuoLa9PqGH9yvsNLMzyW1GWbNf7rD+0oTY8meO0rZl1oE3Z959O33QYczXY7NPMSMI49OC5pcHuSXtVaoBl7VlGVXTI/shrR+n/EY7GHvFL3psd2HRN3x9LVbjOLtIuEZlUkQMwy+YXzPFfoGe0Y0OFqJsw7/WprY/IumXrJHed/NDxu8XogJCGYZGlt0sWTWUMq1uooi3iKvYAfU65Z65o307Zh9btXEpfWSJmijVZQlMLGh/qHCOuoS0GlXrkgI+xK14PT6PjymfB4xYY5XsNWT5BMnlU=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(7416014)(376014)(1800799024)(23010399003)(18002099003)(22082099003)(4143699003)(11063799006)(56012099006)(6133799003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: Gk8KoFgDeJnpXY41aem68Brp9jAXwM3pW5jxIKjVqrgTZRYr3rLIDDvE7HmOrbhPp8h3lQ3BcJKB5kulMjKBGJwfLj9DfQTIEUpvrEvHjZFPpjOsFpI8rDmmJW4FLHTqojmxVMlwdniVU4Ng0vPzZoEDG82JNqqA/NNcT2ckBcCxZKorMs7FDPLT2wXyqskyA0WtWGPL48ix7yGZjlKDKhfuBAWf1/L8KY6JZCuhRGeo/i1/BNFxzAFYDJ2kXbKIWFmuosWIC5/3bE5bpOH6o8+rAM8U5Ck1izND6Qyevs2aHsF3BBgRPaqLILEGmgpdt1cg/kC+QyBsRmk8IrfXtul2LTjViHzyZwUOC3f5XBVHjDYpYMuN/IDIbek4VBAgHl2oA04jGd5JwxOMKNdz+UezJBVBzTzCoUhLRYr0ZBowPGG9S3UZpV/47+ShHe1h
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Jun 2026 16:10:20.1242
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?kjAMQWgWeVM9+wjnyQdKanJjBRQaBBSwACTBPD95lXm1rV6+cEDBAkuaHoby?=
+ =?us-ascii?Q?CyM3RAUteO36qnPSPgSVAK6KWjaSyNBucpEsWTJGyeqKU+rLfWWvOYKU8Yn8?=
+ =?us-ascii?Q?8hLi1IDXrtGNbK1Wa6mS2EDEJKVDOEBWJE2QJZSZYjFwMJMLNBl00WhyiCYM?=
+ =?us-ascii?Q?INT8901HW8EXVmsUhA+FapWUKj8HSqlrrIWYVXQeLXuNkLzTKiVyYmR3E0/V?=
+ =?us-ascii?Q?FQhpS5fIR1xpaBVWFGUjIahE/L41VLWt4Drfck5BftjgpA28AJtdlNWs+Po/?=
+ =?us-ascii?Q?tve7Qn79/VHG1izzn7DYlboY/1Nf4/6PM4g1PTuMp4E0Kz7g9zGkfYCw60pK?=
+ =?us-ascii?Q?EXZM4OJZszg4xN93K6E1sJPls9x7/A82XN83gaJT8PJdnhZ0m2NxbXuFXiBE?=
+ =?us-ascii?Q?4eAFLzrr527ByhYEDoBGGjUW7QLjIx7tGx7szeO3lwIuURXXVGIr4onLnHjl?=
+ =?us-ascii?Q?VpuKZ/RnhxZsnHA47qvphny1QOCLByEgFtJJ74kuZ1fmV8RMPzW2rC2IaPJB?=
+ =?us-ascii?Q?siQPr7jGB9px5FvdfssE76hCJzOdPfNT4ybKU8S9ZM7H1fcg9f7LAbPtoeoI?=
+ =?us-ascii?Q?gjMmayy1fTwiUSVlkgy//v68yFzzeXkGsQbn47aE8djwmKkNNNhDTgSOtjL8?=
+ =?us-ascii?Q?nn1B6ucJAOb15HsK5cXbGa178O9sD1Az4h+GxwvuqJ6hamxxnuqVmTBCzg/t?=
+ =?us-ascii?Q?W2lGrOuU74f1N0SYYeDfYgNK+C6p4YMx405eaMBG2DLiJm1UsMcI2lSHvZE5?=
+ =?us-ascii?Q?6Rb8Uh9ttLrRmYOjN+K7EN7cxqi6R1lmMT9t+Foai1acJ2qbwIT+8DiVT7Nf?=
+ =?us-ascii?Q?8Gm7E+oVkKj2C4HEqEJMYIcXO9d4Apa/OvPPq452LISoLTYaIGB98Nk2hL5L?=
+ =?us-ascii?Q?CrqFr75UHDS8ldUxngpw0jChc8GMMiAxv6ySzAcy0RlfwS/Oi1edVON9XFYd?=
+ =?us-ascii?Q?YvOFXKbmiard4A6fZb7VAi9QE5Y+o0GLpj6qqcOiIHYbN1NjURSX0atWTbou?=
+ =?us-ascii?Q?Vy3OxZkRlP1a7in4XtUeiZVSS0krXs5nS0hfr+f0mKvJkxm/+x7v5jB8Ovvs?=
+ =?us-ascii?Q?yAO9wZgNM1Iv4vZco/39xWgya5gTpEzJ+jJg+KwVlfSxzjskeZCzcUbzbFeb?=
+ =?us-ascii?Q?69L7uS+4lzbGU6trEdQeR+uI6XH85oXB21SD64meEKUqzThK3raG0FtTMpqC?=
+ =?us-ascii?Q?YJjUuEhVsrfaeMMBIMJrXPuwo2G+vYRP9rc1TWUY84AUAgnmd/0L3aemdfpL?=
+ =?us-ascii?Q?cEHyRlweU3KBUI+lYL7UGnd9dJp4Q2ceh//L6Z06wogQZZqHwNv/BkwdQpot?=
+ =?us-ascii?Q?KRh9HgolBxOTkVHu6ybKVrpRCSLeGS1mdgxAmuzP1XCSYIdf/6xdbIQNKWv1?=
+ =?us-ascii?Q?bGIPGo7O1erOtptIlsP2iyDulU9QMp2UhH/JVYWoddybpJBwU6b6OYA1j0v1?=
+ =?us-ascii?Q?MTlaq+0RLHqBzgnegZXviRszIp2o5+qpImPKpBaNnz3MpzRd9WVS5ifM+exf?=
+ =?us-ascii?Q?6m5ClyDVwSsGyEhU3g6f7c1dYnN3bX9IDjMhtYPBgKGSJsXyd8sbV6kDfUp5?=
+ =?us-ascii?Q?+bZiht3JXfcgVdHQ9EIr6LhuFLU3i+adnaMmL+f+j6SV0qlHxFU0R4svChwd?=
+ =?us-ascii?Q?/rVBQRWxJjZqu3/D2kyXZbdAogNjTbDcx8eqqztkR+hrQaeRel8VDfwx+/kJ?=
+ =?us-ascii?Q?aL92bq2ZYkrBAs0uTp8Y5JHg0rn/Zb203vcIkV8swWRQp9A71BwhO3FRY9xe?=
+ =?us-ascii?Q?sfcZSe3LDXePU0/iIT2yd1kxRnSD8/4OpMAN+JbphYKBj158qnbU?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e4e898f1-9caf-4e7c-f07a-08ded2d51572
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Jun 2026 16:16:16.5660
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 54d21fed-fa47-454f-67c1-08ded2d44132
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: BY1PEPF0001AE1A.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB6689
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: M2DIfh0P3fwTG6qCdGAdPwKVMOECxjYqUoUFCjS8D04C+BwhgjtjzAABZ4d/TT5CWZMPRVJXw80fiFvWf7ySJ5erGdkIgB+Gb/Utx76j518DjpxmZS7CQgCSUCvqiCRF
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB6805
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260625_091042_692165_145E0377 
-X-CRM114-Status: GOOD (  10.04  )
+X-CRM114-CacheID: sfid-20260625_091622_535629_61D827CF 
+X-CRM114-Status: GOOD (  26.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,48 +143,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The DT schema conversion incorrectly changed xlnx,flush-fsync from a u32
-property to a boolean. The original binding documented values 1, 2, and 3
-to select which VDMA channel(s) flush on frame sync.
-Restore the uint32 type with the documented enum values and fix the
-example accordingly.
+On Fri, Jun 26, 2026 at 12:02:19AM +0800, Liem wrote:
+>
+> There are two issues that affect the i2c-imx slave handling:
+>
+> 1. In i2c_imx_reg_slave(), i2c_imx->slave is checked at the beginning
+>    and the function returns -EBUSY if it is non-NULL.  If
+>    pm_runtime_resume_and_get() fails later, the error path returns
+>    without clearing i2c_imx->slave, leaving it non-NULL.  Subsequent
+>    attempts to register a slave will then immediately fail with
+>    -EBUSY, making it impossible to register the slave again.  Fix
+>    by setting i2c_imx->slave = NULL on the error path.
+>
+> 2. In i2c_imx_unreg_slave(), the slave pointer is set to NULL after
+>    disabling interrupts.  However, a pending interrupt might already
+>    have started the hrtimer (i2c_imx_slave_timeout) before the pointer
+>    was cleared.  If the hrtimer fires after i2c_imx->slave is set to
+>    NULL, the timer callback i2c_imx_slave_finish_op() will call
+>    i2c_imx_slave_event() with a NULL slave pointer, and the
+>    last_slave_event check loop in i2c_imx_slave_finish_op() may cause
+>    a system hang because last_slave_event is no longer updated.  Fix
+>    by canceling the hrtimer and waiting for it to complete after
+>    disabling interrupts, before clearing the slave pointer.
 
-Fixes: 2d5c2952b972 ("dt-bindings: dma: xlnx,axi-dma: Convert to DT schema")
-Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
----
+Please use two patches to fix these problem. One patch fix one problem.
 
- Documentation/devicetree/bindings/dma/xilinx/xlnx,axi-dma.yaml | 11 ++++++++---
- 1 file changed, 8 insertions(+), 3 deletions(-)
+Frank
 
-diff --git a/Documentation/devicetree/bindings/dma/xilinx/xlnx,axi-dma.yaml b/Documentation/devicetree/bindings/dma/xilinx/xlnx,axi-dma.yaml
-index 340ae9e91cb0..95b951eea1b7 100644
---- a/Documentation/devicetree/bindings/dma/xilinx/xlnx,axi-dma.yaml
-+++ b/Documentation/devicetree/bindings/dma/xilinx/xlnx,axi-dma.yaml
-@@ -81,8 +81,13 @@ properties:
-     description: Should be the number of framebuffers as configured in h/w.
- 
-   xlnx,flush-fsync:
--    type: boolean
--    description: Tells which channel to Flush on Frame sync.
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    enum: [1, 2, 3]
-+    description:
-+      Tells which channel to flush on frame sync.
-+      1 - flush both channels
-+      2 - flush mm2s channel
-+      3 - flush s2mm channel
- 
-   xlnx,sg-length-width:
-     $ref: /schemas/types.yaml#/definitions/uint32
-@@ -251,7 +256,7 @@ examples:
-                       "m_axi_s2mm_aclk", "m_axis_mm2s_aclk",
-                       "s_axis_s2mm_aclk";
-         xlnx,num-fstores = <8>;
--        xlnx,flush-fsync;
-+        xlnx,flush-fsync = <1>;
-         xlnx,addrwidth = <32>;
- 
-         dma-channel-mm2s {
--- 
-2.43.0
+>
+> Both issues can trigger a kernel oops, system hang, or permanent
+> slave registration failure under certain race conditions.  Add the
+> missing NULL assignment and the missing hrtimer cleanup to harden
+> the slave path.
+>
+> Fixes: f7414cd6923f ("i2c: imx: support slave mode for imx I2C driver")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Liem <liem16213@gmail.com>
+> ---
+> v1 -> v2:
+>   - Instead of adding a NULL check in i2c_imx_slave_event(), cancel
+>     the hrtimer and wait for it to finish in i2c_imx_unreg_slave()
+>     after disabling interrupts, as suggested by <Carlos Song>.
+>     This avoids a potential hang in the last_slave_event loop in
+>     i2c_imx_slave_finish_op().
+> ---
+>  drivers/i2c/busses/i2c-imx.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
+> index 28313d0fad37..04ffb927aba9 100644
+> --- a/drivers/i2c/busses/i2c-imx.c
+> +++ b/drivers/i2c/busses/i2c-imx.c
+> @@ -936,6 +936,7 @@ static int i2c_imx_reg_slave(struct i2c_client *client)
+>         /* Resume */
+>         ret = pm_runtime_resume_and_get(i2c_imx->adapter.dev.parent);
+>         if (ret < 0) {
+> +               i2c_imx->slave = NULL;
+>                 dev_err(&i2c_imx->adapter.dev, "failed to resume i2c controller");
+>                 return ret;
+>         }
+> @@ -957,7 +958,7 @@ static int i2c_imx_unreg_slave(struct i2c_client *client)
+>         imx_i2c_write_reg(0, i2c_imx, IMX_I2C_IADR);
+>
+>         i2c_imx_reset_regs(i2c_imx);
+> -
+> +       hrtimer_cancel(&i2c_imx->slave_timer);
+>         i2c_imx->slave = NULL;
+>
+>         /* Suspend */
+> --
+> 2.53.0
+>
+>
 
