@@ -4,146 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78817CDB466
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 07:26:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 377CCCDE002
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 07:27:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i0Qp1bEdtAOorTeYWACiQslPOlPDx2pu/DIpg0yeUzo=; b=smyG3OSL5ugYfTXl9oCVnLMuDV
-	2j7MGR5FcpNW8ZXlU2TMwOcJD5bQFgDt6FS7f3CcLxbS6UNF9YsBzxwSPVwTXPTNAMchMqF5BpDAK
-	IWNBtp82P5rTAGELwGFpdKgxkUqiakrwauvWk/Fn/Fa9f6hU4CGQhROxFghjOfShdMTcmQwAg822j
-	heUo1vHWDJK3+Y5IQ673BaYRUxf/GdjS1/Eg9BPwdGWy02Oe2ZfBshnk6q9HBkrdGa48TVwKBCi3u
-	dqIq34mev2N7xEor3Yb0n7tVKMZtexpDCw+VdEo7yBK92ir4x/dfKFC9APHk9wMzOUqGZ6daCwg3V
-	PcMl0XdQ==;
+	bh=sDtG3awr190WQ1bwFXKig7vbdTxQsCK4ptbu5W8EcjQ=; b=SZupIOZYJ4yRrP4tZKwuaA0hHR
+	DzSupvS/Smiszfxu4LYo9w61LbqBAlGMLbWt1GTGqPFfKWSQYoEBX861Te8lDjCMBkSIPCzqLW2ym
+	2cW9C8SKi7+7yNHMgIgacjmJ7lpiBlsal8kuKA/jqs+HiZhTSjmhem0C1tw/3Ef7yLf96TSpJmCfA
+	D2ZohVxdNUBP32K2JOYRcnWwRsAASTlJUptSh6PtSDhxSUL1ZJAyfDCEwFvU5klKG9CJ7xR1WD2hE
+	B6ERUHGIrmeHQqendqItn+rNUad0ctS6d8z8d2IxeSgeaDZKyTgM6dKTm8mwdLGLaQBT2/m9RkT6Y
+	LGcTcgZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wceTH-00000008l9C-30Yk;
-	Thu, 25 Jun 2026 07:25:59 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1wceUB-00000008lH2-3y9Q;
+	Thu, 25 Jun 2026 07:26:55 +0000
+Received: from mgamail.intel.com ([198.175.65.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wceTF-00000008l8b-10Fc
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Jun 2026 07:25:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nmZiVtSzIbuGK9kbVJVVpnoLb43Wcl/nPm6dRYJwS4t7rHqqfHmpf7b+nuGAjeeJ9DGcA5c6jB4AoMKo87V9BDllRfguQKOPZjEHDCPEoPuV5GNxD2UQ5qKoIa3kI6QzprJqBfc7TMg4x/ySfC1qw6Hd6nW6XI+T3c8Tjmr4CI7PY19J11ouSePFFItbgRPQ+laEjuJimQc8vXotYTIa2MnHwLZ8i1ewBbMVzgw2Wd+1LslMxqLFT0sbAMYegdIy2zeTZ91a14w044Hh6xz6SSOdC6zn2ChpLVMVn6vQp18LyMbxiYWstsg2W9Miwf/r1bzwornltKQEJFinqcOayw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=i0Qp1bEdtAOorTeYWACiQslPOlPDx2pu/DIpg0yeUzo=;
- b=IZaEm1NrRyKY036HKEBRuuGQB8IkuUFF2rgAJJL3NqOwAmCIGAHCQT6oeHI4PEno1UmoSW8B18W5nRm7JpxhfDLKv9aUKR1ONIq4JRgYN7kubkeUeGsfcdRYRlwAip5Jgp8QiwGNtoFG0gE85DvhU/xbtDCw7RtDu/ZkHQxW+BbnEBc8qxeEk7K4++rDUBS/y1zhrGhpqv6neOsaldJ+KDpfsrsP/u+3PbPwipM6EL0AVLdrjn/s+mHnpZyqYAwX0SEhg1vSaq+52HG3rzaq4JOr8GiYd9FsI+o5dK5a4UYtcSHl6uiU1+hH843afwO3TfPtUDg6Ha0hcNoBs7c53w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=i0Qp1bEdtAOorTeYWACiQslPOlPDx2pu/DIpg0yeUzo=;
- b=NjvHkNKCEyYaJRayr3MmdEqt1nrYWEXZq/4It6k+4p4APw+tSL8WEMJcDJ/cl4bA5kqSMNPpjtOi5QciUV3ntMnkL0palloXHk9hXQ1tM/7TuWjNB2tOk8X+qhQFaEklOmY+Bxc2IP5EtpnSyrvccPdljkao7hANEMvao+YueFE5D+q3uszqvMikkixlhfig/kEtGF7MtWQwZcS5EKykkVbJVlUGCTMWsB7wqGkxm6wFfvcbs2qkH1zJ8LFQJLa/upmSHnhfGKnWjozaGmTc5QKs+yt1PnqBfwwsw/+xfAz7UZvuakQVZpHNqaRczMTlSkhOuvCPGTXFde1+00lx9w==
-Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
- (2603:10a6:800:315::13) by DU2PR04MB8760.eurprd04.prod.outlook.com
- (2603:10a6:10:2e3::23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.13; Thu, 25 Jun
- 2026 07:25:46 +0000
-Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
- ([fe80::feda:fd0e:147f:f994]) by VI0PR04MB12114.eurprd04.prod.outlook.com
- ([fe80::feda:fd0e:147f:f994%6]) with mapi id 15.21.0139.018; Thu, 25 Jun 2026
- 07:25:46 +0000
-From: Sherry Sun <sherry.sun@nxp.com>
-To: "Frank Li (OSS)" <frank.li@oss.nxp.com>
-CC: "Sherry Sun (OSS)" <sherry.sun@oss.nxp.com>, "robh@kernel.org"
-	<robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>, Frank Li <frank.li@nxp.com>,
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "kernel@pengutronix.de"
-	<kernel@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>, Amitkumar
- Karwar <amitkumar.karwar@nxp.com>, Neeraj Sanjay Kale
-	<neeraj.sanjaykale@nxp.com>, "marcel@holtmann.org" <marcel@holtmann.org>,
-	"luiz.dentz@gmail.com" <luiz.dentz@gmail.com>, Hongxing Zhu
-	<hongxing.zhu@nxp.com>, "l.stach@pengutronix.de" <l.stach@pengutronix.de>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, "kwilczynski@kernel.org"
-	<kwilczynski@kernel.org>, "mani@kernel.org" <mani@kernel.org>,
-	"bhelgaas@google.com" <bhelgaas@google.com>, "brgl@kernel.org"
-	<brgl@kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-bluetooth@vger.kernel.org"
-	<linux-bluetooth@vger.kernel.org>, "linux-pm@vger.kernel.org"
-	<linux-pm@vger.kernel.org>
-Subject: RE: [PATCH V2 1/8] PCI: imx6: Add skip_pwrctrl_off flag support
-Thread-Topic: [PATCH V2 1/8] PCI: imx6: Add skip_pwrctrl_off flag support
-Thread-Index: AQHdAr0iuX6nZVWy60m8TZTUEemMGrZMNMoAgAEUz+CAAKi0gIAApisQ
-Date: Thu, 25 Jun 2026 07:25:46 +0000
-Message-ID: <VI0PR04MB12114BCBD405505888063284492EC2@VI0PR04MB12114.eurprd04.prod.outlook.com>
-References: <20260623030736.1421537-1-sherry.sun@oss.nxp.com>
- <20260623030736.1421537-2-sherry.sun@oss.nxp.com>
- <ajqZBM6IkbDLiVu2@SMW015318>
- <VI0PR04MB121147C305022511469FB603A92ED2@VI0PR04MB12114.eurprd04.prod.outlook.com>
- <ajwOvZUlOEQzmjsu@SMW015318>
-In-Reply-To: <ajwOvZUlOEQzmjsu@SMW015318>
-Accept-Language: zh-CN, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: VI0PR04MB12114:EE_|DU2PR04MB8760:EE_
-x-ms-office365-filtering-correlation-id: 1f49fc68-87db-4384-a1dd-08ded28af9a2
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|23010399003|1800799024|376014|7416014|366016|19092799006|22082099003|56012099006|11063799006|4143699003|38070700021|18002099003;
-x-microsoft-antispam-message-info: DZNDboajsc73uwIOPZLp7NvM1GdvXeltVgNXVDyF/c9SzvACjU21T2xRgX8whPvmnyF2Fi+KdWF4KbRyP0YRYjOHJlKWNeKTGuxO0C0XAcKHMyjXgc/H6oH6zjU4pRpxS3Q7wBNy/hb1qJMGQZgr2cBk5yGLx2CBX03HeNmUMCX1ubL4dFA9wRDCKhI6XOAttTnfV5e3V3XAy5qKZMsoulYVdK1XXjfvaEKZB4X1QDlf9yFixm8K30UlfPA8FfkUVXa1YB2xhW3g5yRpD1qyrZO+TCITN8ZWIJl7FRinRn2UjAqZJyI6kZ5F78Hf01X/+zCEq7XOapybF7dzTItSJnNtRTjjRQOkAUKHrao5SQ622RSOMpvjl7A4GKihFXLqM1WbtS6QxvJZphrqCjHDrd5x8OCSCC87XwUrdV6ZxwxX5k6+eKVkm7mwzg3BCz/Tm/nU20bB/n5sCY3vsH/rZzr6ikpN/AngUdIrwZAiNn378mb4DjqFH3cFifpVjn/eaQuP4h37z73eZqPpAH4TElh5Zx1s8Ed/o7SrgTME779G6GRTdF17ZoQJ06QQDdkW4GDsbCcfLV/VuVyLmb6vdEQO1jQfGg1EuvmkrKKvqOicIDKZXWyc4sKGdpSe6UCHXLwZm1YXz7OVhyzm86rVLdPqyYUQWbsehjp67wDnH2uFfQ/PDsesvTNUBLn/5JQRW1KQV0baNWtE1N2zDv2PTF6eMXGwoba4e4uhxFyR92o=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB12114.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(7416014)(366016)(19092799006)(22082099003)(56012099006)(11063799006)(4143699003)(38070700021)(18002099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?YhfXa6oG50U0UGw+BgnnoqGIGB7VQYd2qE+S9Ci488AYiT6OGTHi3NOdd12v?=
- =?us-ascii?Q?zrILmGVuMLF2dZOxyf434wz31QcecbWHDH/IqoS1nzMqQndp4fDhCCBxe090?=
- =?us-ascii?Q?H1W1DOMvhVAg6ifGOgqrfnM4fv0Zpci+FLi6gen8wzDn0oZQ5GWzdRH5VteF?=
- =?us-ascii?Q?KSh5j0H1hh+mflIK2qqGu/0BOEmcflatU9P8noaNcgYjpVdUOnuDmwVpZQMh?=
- =?us-ascii?Q?KCcZwRT1nKVhlnzcFTYxmRM6BbPcOKl2fMvTpPVAuKKSOY057fOE1kWH5OTW?=
- =?us-ascii?Q?oQc0smcxAJWluzfYbMS6LzXeBZI6OHEYbWo/n5jFee27eInGHc2zULNgDjl6?=
- =?us-ascii?Q?S2QphN+ktUSG/MfnwcamEf6g1d8JfEHLQ9bg6VsrmVtwyux+XQ5axVUNfwG6?=
- =?us-ascii?Q?db2fqcL14rBWTjHy8I6/j7ysZdF5EjIaT56xqD+ay14uEW8AjDaatuSNfKnS?=
- =?us-ascii?Q?qrX+3ECFjgTEsRqpxm4eR57lEpJ8TWGttWLKdnKnEcVuOEQeiKeEM9XeB80z?=
- =?us-ascii?Q?E7bxaLXFN+8iYfvmH6CxmGZ59osi4LHhZo5clcJjvhOsr1LzGm6cOH7bOKux?=
- =?us-ascii?Q?xxdK28qbwb6a9w4A4jax8dA35ZCDHw3miqYLHb5QWh8cZ8cdNlmiLCP97GqZ?=
- =?us-ascii?Q?7RHUVr+5NRPjBT4Jd5WzUAvq5SBQiWWH/Av6SrC/5lO8DTU4vVc1IFOVooiK?=
- =?us-ascii?Q?Qc0SrPsxXk9B0tlj6471xwvq4lMrYnDvC7o3FZTN1udDaLp+jRqw+yQNL1oE?=
- =?us-ascii?Q?Khj1lyxTV9IzZ0M0gOnpEsvQG0KiDsPigZc9Iqq/X5nK0SOi8v4lFaWp49N6?=
- =?us-ascii?Q?W8h4fFNadPUSgSm/eI/bEjeRSTzR0QIUIw7FtqVmLuGrmuo1SaYzA060Ibqo?=
- =?us-ascii?Q?UwIohKdL4uy1/9inoWDedEB/FAFrubMA3PYuQbzWIAn7PLW29HqWqvDrWA0S?=
- =?us-ascii?Q?Cs6pLejQrucaM/kQ4xixwE67g8rGLOiBdRLoHyhmSTbcgVeFhN26HSmnk2Pb?=
- =?us-ascii?Q?zFN5NXS9yQwJ9Q1eHxPi02HG4YHvqu2jUwz+9dnNHSq6rX8luvezuh+geozP?=
- =?us-ascii?Q?QhSHbN4oRiZme9Ia9oJzHfc3sYj6Qo1vNWNxrOdsnojFz2QcliZ8gcFGTC1L?=
- =?us-ascii?Q?VLNxw6lCplCJBrxvEIc5dxMZyBVuOGYUpM6E5TqnHgEJQSlPWvlSmytWtUhe?=
- =?us-ascii?Q?ZljnzB0G1G11j2Cvju2FmBfKmqijeBgCsSqxWtld+4Kb8/1Yh3YUSt8hD7cp?=
- =?us-ascii?Q?HiVMVqZQixaXuudbJ2fGRhTRIOzo2Ot8YQ990HCe98l/Cty0D8ZXeVtTZmtt?=
- =?us-ascii?Q?fQzuCclvMF9aLDCmp9EbJl3r9RiLNJZvkgMPB35EHDWMnLkT6xq5yYk1NORq?=
- =?us-ascii?Q?V5W/NBYGoW/H6EgF+ABdYIbm0VUkttEdBGhGeHy/3dIiObigU5XeNHeFfCr0?=
- =?us-ascii?Q?Dx1UM7E4oBavENg9gZ2wHXQOgjiVVKBnyP5weBNJC3fraGhVpierLJxxu6k3?=
- =?us-ascii?Q?UXlYf8a+3mwAuUZ/nYkuOAmRvP7c/3VQ49EW/yYoi/NbhIfjvojFdwsdn5li?=
- =?us-ascii?Q?3Fy+gZDpsLhMF9ipUIdwSCIDBi4OnEJOx/e4WviM2ZXlyhDc9djx2AknsxLs?=
- =?us-ascii?Q?ZaypdBxYWDoE6JR/WyriljCGhGocackXjj4sNyV+eCNeqahefOR7qmXz8oKC?=
- =?us-ascii?Q?91QWV2EIMG5SyzLbVNBMXP9xjjcQ+h3K0m9tX0+FNVmAnHKY?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1wceU9-00000008l3j-0tXE;
+	Thu, 25 Jun 2026 07:26:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1782372413; x=1813908413;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=h5ocJXXKpSTKpkJaGKhd2kaVYd35m9dsl6aoMK/+5oE=;
+  b=gLZ4QLF1SpWkP3Hpt2WEU9FYoUks23b20CX3jnNNoSXztlbu1apfA6Q2
+   xJOHkFWOKlop2tnSOv/EVO/iKulzU5qh7t6lVwA15vVj7Sdcu+le2Aepp
+   4l8x3Be1GOfO6g+lL2bK8MQHCggd9+JzNtww9OfLeNYQrkCc6ZNh54W0b
+   0DsTfYQB5DcQ1d79aYeoalJaP9xFN0Xc/oTdDip6tIsoCEC/+Bjjs6jh/
+   Hiiczyr3sDxpRktF8iLyxNMdw8NwnL1wsZf8abAdbZtR2xJ3cDEgdf9Xp
+   6Ywq1zjm5bJ3/sbxw9/KhI9hgSou1SHX4DEkxfKf9iv+OET7Sh439y+ht
+   A==;
+X-CSE-ConnectionGUID: fasjkrncTrufaUCF114JbQ==
+X-CSE-MsgGUID: zg3clpDUTlGULfrTwuUq6w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11827"; a="86822206"
+X-IronPort-AV: E=Sophos;i="6.24,224,1774335600"; 
+   d="scan'208";a="86822206"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Jun 2026 00:24:39 -0700
+X-CSE-ConnectionGUID: hcztOcZrRiS2v4zjDIGV1g==
+X-CSE-MsgGUID: OEXbgkZkRPSxlt5KzXGeSw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.24,224,1774335600"; 
+   d="scan'208";a="244045858"
+Received: from pgcooper-mobl3.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.245.106])
+  by fmviesa009-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Jun 2026 00:24:34 -0700
+Received: from kekkonen.localdomain (localhost [IPv6:::1])
+	by kekkonen.fi.intel.com (Postfix) with SMTP id F407111FAA5;
+	Thu, 25 Jun 2026 10:24:33 +0300 (EEST)
+Date: Thu, 25 Jun 2026 10:24:33 +0300
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
+From: Sakari Ailus <sakari.ailus@linux.intel.com>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Frank Li <Frank.li@oss.nxp.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Daniel Scally <djrscally@gmail.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Dafna Hirschfeld <dafna@fastmail.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+	Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+	Loic Poulain <loic.poulain@oss.qualcomm.com>,
+	driver-core@lists.linux.dev, linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	imx@lists.linux.dev, Guoniu Zhou <guoniu.zhou@nxp.com>,
+	Frank Li <Frank.Li@nxp.com>, Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Subject: Re: [PATCH v2 0/4] media: add and use
+ fwnode_graph_for_each_endpoint_scoped()
+Message-ID: <ajzXsacric_2fvGh@kekkonen.localdomain>
+References: <20260624-fw_scoped-v2-0-0a8db472af4a@nxp.com>
+ <20260624191935.GG851255@killaraus.ideasonboard.com>
+ <ajwxcn2LXS8InAjZ@SMW015318>
+ <20260624200237.GJ851255@killaraus.ideasonboard.com>
+ <ajxCOE3avXXLlrfT@SMW015318>
+ <20260624222042.GN851255@killaraus.ideasonboard.com>
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: VI0PR04MB12114.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1f49fc68-87db-4384-a1dd-08ded28af9a2
-X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Jun 2026 07:25:46.8407
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: s9Ua8WcLGb+3nLitrRFDRThEs4RA1CYxEK6sC00xgNZuc1UYBakyX2Nmg25KuTl4yjTf4wqHNkKtNGo6wEHyaA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8760
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260624222042.GN851255@killaraus.ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260625_002557_453177_6D2458F3 
-X-CRM114-Status: GOOD (  34.25  )
+X-CRM114-CacheID: sfid-20260625_002653_294045_40F8FFB4 
+X-CRM114-Status: GOOD (  31.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,189 +109,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Subject: Re: [PATCH V2 1/8] PCI: imx6: Add skip_pwrctrl_off flag support
->=20
-> On Wed, Jun 24, 2026 at 07:09:26AM +0000, Sherry Sun wrote:
-> > > Subject: Re: [PATCH V2 1/8] PCI: imx6: Add skip_pwrctrl_off flag
-> > > support
-> > >
-> > > On Tue, Jun 23, 2026 at 11:07:28AM +0800, Sherry Sun (OSS) wrote:
-> > > > From: Sherry Sun <sherry.sun@nxp.com>
-> > > >
-> > > > Use dw_pcie_rp::skip_pwrctrl_off to avoid powering off devices
-> > > > during suspend to preserve wakeup capability of the devices and
-> > > > also not to power on the devices in the init path.
-> > > > This allows controller power-off to be skipped when some devices(e.=
-g.
-> > > > M.2 cards key E without auxiliary power) required to support PCIe
-> > > > L2 link state and wake-up mechanisms.
-> > > >
-> > > > Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
-> > > > ---
-> > > >  drivers/pci/controller/dwc/pci-imx6.c | 36
-> > > > +++++++++++++++++----------
-> > > >  1 file changed, 23 insertions(+), 13 deletions(-)
-> > > >
-> > > > diff --git a/drivers/pci/controller/dwc/pci-imx6.c
-> > > > b/drivers/pci/controller/dwc/pci-imx6.c
-> > > > index 0fa716d1ed75..ff5a9565dbbf 100644
-> > > > --- a/drivers/pci/controller/dwc/pci-imx6.c
-> > > > +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> > > > @@ -1382,16 +1382,20 @@ static int imx_pcie_host_init(struct
-> > > > dw_pcie_rp
-> > > *pp)
-> > > >  		}
-> > > >  	}
-> > > >
-> > > > -	ret =3D pci_pwrctrl_create_devices(dev);
-> > > > -	if (ret) {
-> > > > -		dev_err(dev, "failed to create pwrctrl devices\n");
-> > > > -		goto err_reg_disable;
-> > > > +	if (!pci->suspended) {
-> > > > +		ret =3D pci_pwrctrl_create_devices(dev);
-> > >
-> > > Is possible move pci_pwrctrl_create_devices() of
-> > > pci_pwrctrl_create_devices
-> > >
-> > > and call it direct at probe() function, like other regulator_get func=
-tion.
-> > >
-> >
-> > Hi Frank,
-> > That makes sense. However, if we move pci_pwrctrl_create_devices () to
-> > probe(), we may need to add the following goto err_pwrctrl_destroy
-> > path in imx_pcie_probe() to properly handle errors from
-> > pci_pwrctrl_power_on_devices(), is that acceptable?
->=20
-> Can you add a API devm_pci_pwrctrl_create_devices() ?
->=20
+Hi Laurent,
 
-Hi Frank, we cannot unconditionally destroy the pwrctrl devices
-when probing fails by using devm API.
-Since we need to check the return value of
-pci_pwrctrl_power_on_devices() for example EPROBE_DEFER to decide
-whether to destroy the pwrctrl devices to avoid the deferred probe loop.
-
-You can find more related discussion here.
-https://lore.kernel.org/all/tutxwjciedqoje5wxvtin4h637auni5zzpvb7rtfg4uticx=
-oux@yfl6xg7oht7t/
-
-Best Regards
-Sherry
->=20
-> >
-> > @@ -1960,11 +1949,15 @@ static int imx_pcie_probe(struct
-> platform_device *pdev)
-> >         if (ret)
-> >                 return ret;
-> >
-> > +       ret =3D pci_pwrctrl_create_devices(dev);
-> > +       if (ret)
-> > +               return dev_err_probe(dev, ret, "failed to create
-> > + pwrctrl devices\n");
-> > +
-> >         pci->use_parent_dt_ranges =3D true;
-> >         if (imx_pcie->drvdata->mode =3D=3D DW_PCIE_EP_TYPE) {
-> >                 ret =3D imx_add_pcie_ep(imx_pcie, pdev);
-> >                 if (ret < 0)
-> > -                       return ret;
-> > +                       goto err_pwrctrl_destroy;
-> >
-> >                 /*
-> >                  * FIXME: Only single Device (EPF) is supported due to
-> > the @@ -1979,7 +1972,7 @@ static int imx_pcie_probe(struct
-> platform_device *pdev)
-> >                 pci->pp.use_atu_msg =3D true;
-> >                 ret =3D dw_pcie_host_init(&pci->pp);
-> >                 if (ret < 0)
-> > -                       return ret;
-> > +                       goto err_pwrctrl_destroy;
-> >
-> >                 if (pci_msi_enabled()) {
-> >                         u8 offset =3D dw_pcie_find_capability(pci,
-> > PCI_CAP_ID_MSI); @@ -1991,6 +1984,11 @@ static int
-> imx_pcie_probe(struct platform_device *pdev)
-> >         }
-> >
-> >         return 0;
-> > +
-> > +err_pwrctrl_destroy:
-> > +       if (ret !=3D -EPROBE_DEFER)
-> > +               pci_pwrctrl_destroy_devices(dev);
-> > +       return ret;
-> >  }
-> >
-> > Best Regards
-> > Sherry
-> >
+On Thu, Jun 25, 2026 at 01:20:42AM +0300, Laurent Pinchart wrote:
+> On Wed, Jun 24, 2026 at 03:46:48PM -0500, Frank Li wrote:
+> > On Wed, Jun 24, 2026 at 11:02:37PM +0300, Laurent Pinchart wrote:
+> > > On Wed, Jun 24, 2026 at 02:35:14PM -0500, Frank Li wrote:
+> > > > On Wed, Jun 24, 2026 at 10:19:35PM +0300, Laurent Pinchart wrote:
+> > > > > On Wed, Jun 24, 2026 at 01:00:08PM -0400, Frank.Li@oss.nxp.com wrote:
+> > > > > > Add new helper macro fwnode_graph_for_each_endpoint_scoped() and use it
+> > > > > > simplify media code.
+> > > > > >
+> > > > > > Typical example should qualcomm's driver (camss.c), the v4l2_mc.c and
+> > > > > > rkisp1-dev.c only silience improvement.
+> > > > > >
+> > > > > > Anyways, *_for_each_*_scoped() already use widely and make code clean.
+> > > > > >
+> > > > > > Build test only.
+> > > > > >
+> > > > > > Sakari Ailus:
+> > > > > > 	when I try to improve the patch
+> > > > > > "Add common helper library for 1-to-1 subdev registration", I found need
+> > > > > > camss.c pattern, so I create this small improvement firstly.
+> > > > >
+> > > > > Those are nice cleanups, thank you.
+> > > > >
+> > > > > After applying this series, the only left users of the
+> > > > > fwnode_graph_for_each_endpoint() macro are in drivers/base/property.c.
+> > > >
+> > > > I already checked previously, two place use it.
+> > > >
+> > > > fwnode_graph_get_endpoint_count(), it will go though all endpoints, last
+> > > > ep is NULL, which totally equial to scoped() version.
+> > > >
+> > > > another one fwnode_graph_get_endpoint_by_id(), which return ep, expect
+> > > > caller to call put().
+> > > >
+> > > > if use scoped() version, need use no_free_ptr() at return, which make think
+> > > > a little bit complex.
 > > >
-> > > > +		if (ret) {
-> > > > +			dev_err(dev, "failed to create pwrctrl devices\n");
-> > > > +			goto err_reg_disable;
-> > > > +		}
-> > > >  	}
-> > > >
-> > > > -	ret =3D pci_pwrctrl_power_on_devices(dev);
-> > > > -	if (ret) {
-> > > > -		dev_err(dev, "failed to power on pwrctrl devices\n");
-> > > > -		goto err_pwrctrl_destroy;
-> > > > +	if (!pp->skip_pwrctrl_off) {
-> > > > +		ret =3D pci_pwrctrl_power_on_devices(dev);
-> > > > +		if (ret) {
-> > > > +			dev_err(dev, "failed to power on pwrctrl devices\n");
-> > > > +			goto err_pwrctrl_destroy;
-> > > > +		}
-> > > >  	}
-> > > >
-> > > >  	ret =3D imx_pcie_clk_enable(imx_pcie); @@ -1460,9 +1464,10 @@
-> > > static
-> > > > int imx_pcie_host_init(struct dw_pcie_rp *pp)
-> > > >  err_clk_disable:
-> > > >  	imx_pcie_clk_disable(imx_pcie);
-> > > >  err_pwrctrl_power_off:
-> > > > -	pci_pwrctrl_power_off_devices(dev);
-> > > > +	if (!pp->skip_pwrctrl_off)
-> > > > +		pci_pwrctrl_power_off_devices(dev);
-> > > >  err_pwrctrl_destroy:
-> > > > -	if (ret !=3D -EPROBE_DEFER)
-> > > > +	if (ret !=3D -EPROBE_DEFER && !pci->suspended)
-> > > >  		pci_pwrctrl_destroy_devices(dev);
-> > > >  err_reg_disable:
-> > > >  	if (imx_pcie->vpcie)
-> > > > @@ -1482,7 +1487,8 @@ static void imx_pcie_host_exit(struct
-> > > > dw_pcie_rp
-> > > *pp)
-> > > >  	}
-> > > >  	imx_pcie_clk_disable(imx_pcie);
-> > > >
-> > > > -	pci_pwrctrl_power_off_devices(pci->dev);
-> > > > +	if (!pci->pp.skip_pwrctrl_off)
-> > > > +		pci_pwrctrl_power_off_devices(pci->dev);
-> > > >  	if (imx_pcie->vpcie)
-> > > >  		regulator_disable(imx_pcie->vpcie);
-> > > >  }
-> > > > @@ -1990,12 +1996,16 @@ static int imx_pcie_probe(struct
-> > > > platform_device *pdev)  static void imx_pcie_shutdown(struct
-> > > > platform_device *pdev)  {
-> > > >  	struct imx_pcie *imx_pcie =3D platform_get_drvdata(pdev);
-> > > > +	struct dw_pcie *pci =3D imx_pcie->pci;
-> > > > +	struct dw_pcie_rp *pp =3D &pci->pp;
-> > > >
-> > > >  	/* bring down link, so bootloader gets clean state in case of reb=
-oot */
-> > > >  	imx_pcie_assert_core_reset(imx_pcie);
-> > > >  	imx_pcie_assert_perst(imx_pcie, true);
-> > > > -	pci_pwrctrl_power_off_devices(&pdev->dev);
-> > > > -	pci_pwrctrl_destroy_devices(&pdev->dev);
-> > > > +	if (!pp->skip_pwrctrl_off)
-> > > > +		pci_pwrctrl_power_off_devices(&pdev->dev);
-> > > > +	if (!pci->suspended)
-> > > > +		pci_pwrctrl_destroy_devices(&pdev->dev);
-> > > >  }
-> > > >
-> > > >  static const struct imx_pcie_drvdata drvdata[] =3D {
-> > > > --
-> > > > 2.50.1
-> > > >
-> > > >
+> > > It would introduce a tiny bit of extra complexity there, but the
+> > > advantage (in my opinion) is that we'll be able to remove the less safe
+> > > fwnode_graph_for_each_endpoint() macro.
+> > >
+> > > Now one may argue that the risk of
+> > > fwnode_graph_for_each_endpoint_scoped() is returning the iterator
+> > > without using no_free_ptr(). I wonder if that would be easier to catch
+> > > in static analysis tools than the current pattern that leaks a reference
+> > > when exiting the loop early.
+> > 
+> > It's not big deal, if everyone prefer drop fwnode_graph_for_each_endpoint(),
+> > I can do it.
+> 
+> Let's see what others think. If people prefer keeping both versions,
+> I'll be OK with that.
+
+I'd prefer to keep both: it depends on the use case which one is better. 
+
+-- 
+Kind regards,
+
+Sakari Ailus
 
