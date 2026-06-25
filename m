@@ -4,76 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 446C0CDB479
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 15:58:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27839CDE000
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 16:02:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mdYneCQwt2K9MddmfOwONDyk4IAchddMYMt4/fzfCsc=; b=Gx2thjINd48F5hiOFTDWaLOC6f
-	pEl0chSgXynii0nS/T/ZG8vb1Hq1nTjaX8MNXUqBqejlh5c5amcpKvK0237vzJ4NjgklqwZQfpEV5
-	H20Cv8g97bLXobVQ6nRC5K7Nd1EQuFrup7uhvpQR6rNUXDn5UtroVJ2XMvvySWrwDG5SBQroCZ95a
-	WzmyNfJExTOzdHfLKQe/mGV673a04GR+WkRkvyiAqGHimVEUZMpNRCni0/bV8cBGS0NGtYqM+FJBN
-	Tx6dWVuqfOMAnlp43OzykeWpzup4pwJLFd3vMPMz/I+d3AZncrXEcp6zWiflVC9FwwRd5rMiAzCt0
-	3BWBxTOA==;
+	bh=7uBKJbZacR7qpAxgkxKTYuFWT8lf0EijVUm+JTDcFsE=; b=plvCJm3k0tLEc6R3uyiru1GjiN
+	pEb898puEeYuwIYDPPuW8u2D2eF9npF0CeLjdQw9ZdgJaTQZFbviJU4lmzx6rNUJIxlfsV1gjKrqP
+	V91WonBRGk3lZyuWdNlRG87n30tzX2Ia921sMt0y27Dg1ebXN9+aqeFLLVKUBy7Q6AaCcxRngadhA
+	iMYhQSTOE4pUTeutWg7E6EOHdaB7/hFQopHGGnOHXPsECUpZMWHdefZfNfnCBY1sbktN71G+Z98tR
+	n+k4zMl+IeBmZkXSxwM/WfSQ5Cf5LTS8OCm0XHJRkIsD/JNWMiyGtrdQJtQo57td7YAyV079fs++1
+	9pHU2q5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcmTG-00000009RCz-0GIa;
-	Thu, 25 Jun 2026 15:58:30 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcmTB-00000009RCI-3mV0
+	id 1wcmXE-00000009RWD-2TmO;
+	Thu, 25 Jun 2026 16:02:36 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wcmXC-00000009RVj-0Aos
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Jun 2026 15:58:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9A4D21595;
-	Thu, 25 Jun 2026 08:58:18 -0700 (PDT)
-Received: from [10.57.25.211] (unknown [10.57.25.211])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 05DA73F632;
-	Thu, 25 Jun 2026 08:58:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782403103; bh=cejSckmHYWFVCJUKq4/DngHn1oJpjTol/0GlR0BWKBo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=iZitS/3Bmh8eJQVDplqVlnCkUDvK5JG0GO6fVzF7fXzUL+RNiwRq8lX1y9x3Q9tSs
-	 sMyN4z7Jwsl7jHwZz7r+eJnW6Xks0UN2uNgA5V8r9DcxMLtP9zQM7bE9DgLsWREZu6
-	 mB9AbW4i4FdKEkctqgNRDsgUpXen4vekPINtTRBU=
-Message-ID: <98d2a0f3-b831-466a-8212-5bcf97ad9d8b@arm.com>
-Date: Thu, 25 Jun 2026 16:58:18 +0100
+	Thu, 25 Jun 2026 16:02:35 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2c7f1db3ad2so354585ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Jun 2026 09:02:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782403353; x=1783008153; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=7uBKJbZacR7qpAxgkxKTYuFWT8lf0EijVUm+JTDcFsE=;
+        b=WF68zw02c4EiLzJvUCJumilhy5EMLFMaMIJEm6kP+0g+JCwfO8Z9dzO1Nz0VOmdci4
+         wzbfN+t8XjSPylvo0MqyyqYOAqCKXVYY4PVZzyKYBpKhbpiNpho4zO6bX5b10hNjCCon
+         bud/WCOj0xEWqyWUrx0wqLAoMRMl0P8hgYvHciut8iPFqXmCQEPTEZtgGdRvW88WZbDV
+         c22Fzl9jg/ULm0jjUAP5lGThJ94BGIrYJRZOWOA6ETmyIv7Mm3Oc7qdxLdqqmplpxSle
+         5/B5hnFYWTIVroXE5YmwmQzUEuePPMbCD6z9kQT9s/Tab4wom90SztZjj+v735MSIetc
+         /n2w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782403353; x=1783008153;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=7uBKJbZacR7qpAxgkxKTYuFWT8lf0EijVUm+JTDcFsE=;
+        b=EIywWibrdDDUdraYrATvNaVWI4I7JoGRYz/DKfBy1MBw6aEtyf89HJx/nUk7h4walg
+         CgvfprFQAsV4oFvA7EOJJFl68qQWZhnA8Os3D015ajU/1ZI7wr5mYqsvhJ8CE/9SC567
+         f86Edud4aAkMfjHXyLCzLMx21c6bPX++V0OfxoVEU4GrQMqGdsx2kh6LSXbPSXY1B57q
+         gXcwlKJGpTI9fJrtZCWEN5HeYtjtotohLnCqpJqI9Pa+FUBO3np4HNrnuTbW8stESfUW
+         1XLN34QLT7glKfvnpmzIUuhenwkQBrzqpIxMMhJX0PXbspnqEwM6iI6vZsVCOM6JthHL
+         HPdA==
+X-Forwarded-Encrypted: i=1; AHgh+RpyX0zfFow0tYg/fDbcB7N1Pv8Wb2obPJgkacdkmQBOhW5wSPWz1uR9ZMWfgm9K8VtS0ucuD1Sskqb7LlapmsLO@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx5FouKItV3Cq4Dd49MHbmq5nx/BdlwwlwNwzBHLzJjPYMNH5s2
+	32271GKmvgkNaMLb93zb8ZIoGctSl1OjhVnW1/3jDvE02mI1+pem7v6y
+X-Gm-Gg: AfdE7ckGBOVQBY+LaIwaHXFFWob5jz2qHB6sV06lBf2cKU5AYLB6AtMir+ZrArshLpo
+	A5HNdKlmtZ+NfH4jDCzZZKFDFyprG4ygqlWK/+HbnIAwnW/uXIBggNhE5sZfOZdKYgpPfGMT5eB
+	xuLP2nagjIQyclNsQ3ZyAzl4gbyp7Ro/4FiIzr8P/kp/bVMz7rCoKJ6PKnAqA9/D6KjTlLMcasZ
+	aoiN4kcpb4dkaVBmxwrDSzkRYg7WalKLiW5tH0qvTsBQtk6+3J2qGmk6lEgYCoCK2yEJxDfCUOM
+	8t6zkrO6xOzPXuKdouKML4QhyhCozD5vk1fNl8e501yBYmuj2Vss4coWjd6lcMY4FhbrH/MhmOh
+	je8I+DcMbR2Mv4tt6CksWAV1uETYCqQ+h4V+QAsShmEX+CCmNXJ4X+kXPKdOjZTYmp3yvXA0jbf
+	OwHiF+1H6D8FrvkeySwyTDsOklgOnTudPfAmrg
+X-Received: by 2002:a17:902:d483:b0:2c6:6424:c79f with SMTP id d9443c01a7336-2c7fc708aa6mr35566035ad.8.1782403352803;
+        Thu, 25 Jun 2026 09:02:32 -0700 (PDT)
+Received: from liem-TUF-Gaming-FX505GM-FX86FM ([240e:39b:ee0:1b70:943:8348:4ae1:4072])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c7f5ac88cfsm24127925ad.2.2026.06.25.09.02.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 25 Jun 2026 09:02:32 -0700 (PDT)
+From: Liem <liem16213@gmail.com>
+To: Oleksij Rempel <o.rempel@pengutronix.de>
+Cc: Andi Shyti <andi.shyti@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Biwen Li <biwen.li@nxp.com>,
+	Wolfram Sang <wsa@kernel.org>,
+	linux-i2c@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	Liem <liem16213@gmail.com>
+Subject: [PATCH v2] i2c: imx: Fix slave registration error path and missing timer cleanup
+Date: Fri, 26 Jun 2026 00:02:19 +0800
+Message-ID: <20260625160219.55116-1-liem16213@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260625071130.93544-1-liem16213@gmail.com>
+References: <20260625071130.93544-1-liem16213@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v14 29/44] arm64: RMI: Runtime faulting of memory
-Content-Language: en-GB
-To: Gavin Shan <gshan@redhat.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev, Catalin Marinas <catalin.marinas@arm.com>,
- Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>,
- James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
- Zenghui Yu <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
- <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
- Emi Kisanuki <fj0570is@fujitsu.com>, Vishal Annapurve
- <vannapurve@google.com>, WeiLin.Chang@arm.com, Lorenzo.Pieralisi2@arm.com
-References: <20260513131757.116630-1-steven.price@arm.com>
- <20260513131757.116630-30-steven.price@arm.com>
- <3359f788-07fa-41a1-9ac7-45c58577c1fa@redhat.com>
- <aiJ6u83O0nVUtPyv@lpieralisi>
- <ecef952b-e8c6-4102-933b-c99c46f14431@redhat.com>
- <aiLes2ecZSr17UwZ@lpieralisi>
- <1e39094f-7fa3-4ef1-be54-53d7a8643506@redhat.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <1e39094f-7fa3-4ef1-be54-53d7a8643506@redhat.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260625_085826_123958_069E8580 
-X-CRM114-Status: GOOD (  35.96  )
+X-CRM114-CacheID: sfid-20260625_090234_082925_18007A30 
+X-CRM114-Status: GOOD (  16.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,290 +109,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/06/2026 14:53, Gavin Shan wrote:
-> On 6/6/26 12:35 AM, Lorenzo Pieralisi wrote:
->> On Fri, Jun 05, 2026 at 06:11:11PM +1000, Gavin Shan wrote:
->>> On 6/5/26 5:28 PM, Lorenzo Pieralisi wrote:
->>>> On Fri, Jun 05, 2026 at 04:23:15PM +1000, Gavin Shan wrote:
->>>>
->>>> [...]
->>>>
->>>>>> +static int realm_map_ipa(struct kvm *kvm, phys_addr_t ipa,
->>>>>> +             kvm_pfn_t pfn, unsigned long map_size,
->>>>>> +             enum kvm_pgtable_prot prot,
->>>>>> +             struct kvm_mmu_memory_cache *memcache)
->>>>>> +{
->>>>>> +    struct realm *realm = &kvm->arch.realm;
->>>>>> +
->>>>>> +    /*
->>>>>> +     * Write permission is required for now even though it's 
->>>>>> possible to
->>>>>> +     * map unprotected pages (granules) as read-only. It's 
->>>>>> impossible to
->>>>>> +     * map protected pages (granules) as read-only.
->>>>>> +     */
->>>>>> +    if (WARN_ON(!(prot & KVM_PGTABLE_PROT_W)))
->>>>>> +        return -EFAULT;
->>>>>> +
->>>>>
->>>>> I'm a bit concerned with this. We don't have KVM_PGTABLE_PROT_W set 
->>>>> in @prot
->>>>> if the stage2 fault is raised due to memory read. With -EFAULT 
->>>>> returned to VMM
->>>>> (e.g. QEMU), the vCPU continuous execution is stopped and system 
->>>>> won't be
->>>>> working any more.
->>>>>
->>>>>> +    ipa = ALIGN_DOWN(ipa, PAGE_SIZE);
->>>>>> +    if (!kvm_realm_is_private_address(realm, ipa))
->>>>>> +        return realm_map_non_secure(realm, ipa, pfn, map_size, prot,
->>>>>> +                        memcache);
->>>>>> +
->>>>>> +    return realm_map_protected(kvm, ipa, pfn, map_size, memcache);
->>>>>> +}
->>>>>> +
->>>>>>     static bool kvm_vma_is_cacheable(struct vm_area_struct *vma)
->>>>>>     {
->>>>>>         switch (FIELD_GET(PTE_ATTRINDX_MASK, pgprot_val(vma- 
->>>>>> >vm_page_prot))) {
->>>>>> @@ -1604,27 +1641,52 @@ static int gmem_abort(const struct 
->>>>>> kvm_s2_fault_desc *s2fd)
->>>>>>         bool write_fault, exec_fault;
->>>>>>         enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_SHARED;
->>>>>>         enum kvm_pgtable_prot prot = KVM_PGTABLE_PROT_R;
->>>>>> -    struct kvm_pgtable *pgt = s2fd->vcpu->arch.hw_mmu->pgt;
->>>>>> +    struct kvm_vcpu *vcpu = s2fd->vcpu;
->>>>>> +    struct kvm_pgtable *pgt = vcpu->arch.hw_mmu->pgt;
->>>>>> +    gpa_t gpa = kvm_gpa_from_fault(vcpu->kvm, s2fd->fault_ipa);
->>>>>>         unsigned long mmu_seq;
->>>>>>         struct page *page;
->>>>>> -    struct kvm *kvm = s2fd->vcpu->kvm;
->>>>>> +    struct kvm *kvm = vcpu->kvm;
->>>>>>         void *memcache;
->>>>>>         kvm_pfn_t pfn;
->>>>>>         gfn_t gfn;
->>>>>>         int ret;
->>>>>> -    memcache = get_mmu_memcache(s2fd->vcpu);
->>>>>> -    ret = topup_mmu_memcache(s2fd->vcpu, memcache);
->>>>>> +    if (kvm_is_realm(vcpu->kvm)) {
->>>>>> +        /* check for memory attribute mismatch */
->>>>>> +        bool is_priv_gfn = kvm_mem_is_private(kvm, gpa >> 
->>>>>> PAGE_SHIFT);
->>>>>> +        /*
->>>>>> +         * For Realms, the shared address is an alias of the private
->>>>>> +         * PA with the top bit set. Thus if the fault address 
->>>>>> matches
->>>>>> +         * the GPA then it is the private alias.
->>>>>> +         */
->>>>>> +        bool is_priv_fault = (gpa == s2fd->fault_ipa);
->>>>>> +
->>>>>> +        if (is_priv_gfn != is_priv_fault) {
->>>>>> +            kvm_prepare_memory_fault_exit(vcpu, gpa, PAGE_SIZE,
->>>>>> +                              kvm_is_write_fault(vcpu),
->>>>>> +                              false,
->>>>>> +                              is_priv_fault);
->>>>>> +            /*
->>>>>> +             * KVM_EXIT_MEMORY_FAULT requires an return code of
->>>>>> +             * -EFAULT, see the API documentation
->>>>>> +             */
->>>>>> +            return -EFAULT;
->>>>>> +        }
->>>>>> +    }
->>>>>> +
->>>>>> +    memcache = get_mmu_memcache(vcpu);
->>>>>> +    ret = topup_mmu_memcache(vcpu, memcache);
->>>>>>         if (ret)
->>>>>>             return ret;
->>>>>>         if (s2fd->nested)
->>>>>>             gfn = kvm_s2_trans_output(s2fd->nested) >> PAGE_SHIFT;
->>>>>>         else
->>>>>> -        gfn = s2fd->fault_ipa >> PAGE_SHIFT;
->>>>>> +        gfn = gpa >> PAGE_SHIFT;
->>>>>> -    write_fault = kvm_is_write_fault(s2fd->vcpu);
->>>>>> -    exec_fault = kvm_vcpu_trap_is_exec_fault(s2fd->vcpu);
->>>>>> +    write_fault = kvm_is_write_fault(vcpu);
->>>>>> +    exec_fault = kvm_vcpu_trap_is_exec_fault(vcpu);
->>>>>>         VM_WARN_ON_ONCE(write_fault && exec_fault);
->>>>>> @@ -1634,7 +1696,7 @@ static int gmem_abort(const struct 
->>>>>> kvm_s2_fault_desc *s2fd)
->>>>>>         ret = kvm_gmem_get_pfn(kvm, s2fd->memslot, gfn, &pfn, 
->>>>>> &page, NULL);
->>>>>>         if (ret) {
->>>>>> -        kvm_prepare_memory_fault_exit(s2fd->vcpu, s2fd- 
->>>>>> >fault_ipa, PAGE_SIZE,
->>>>>> +        kvm_prepare_memory_fault_exit(vcpu, gpa, PAGE_SIZE,
->>>>>>                               write_fault, exec_fault, false);
->>>>>>             return ret;
->>>>>>         }
->>>>>> @@ -1654,14 +1716,20 @@ static int gmem_abort(const struct 
->>>>>> kvm_s2_fault_desc *s2fd)
->>>>>>         kvm_fault_lock(kvm);
->>>>>>         if (mmu_invalidate_retry(kvm, mmu_seq)) {
->>>>>>             ret = -EAGAIN;
->>>>>> -        goto out_unlock;
->>>>>> +        goto out_release_page;
->>>>>> +    }
->>>>>> +
->>>>>> +    if (kvm_is_realm(kvm)) {
->>>>>> +        ret = realm_map_ipa(kvm, s2fd->fault_ipa, pfn,
->>>>>> +                    PAGE_SIZE, KVM_PGTABLE_PROT_R | 
->>>>>> KVM_PGTABLE_PROT_W, memcache);
->>>>>> +        goto out_release_page;
->>>>>>         }
->>>>>>         ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, s2fd- 
->>>>>> >fault_ipa, PAGE_SIZE,
->>>>>>                              __pfn_to_phys(pfn), prot,
->>>>>>                              memcache, flags);
->>>>>> -out_unlock:
->>>>>> +out_release_page:
->>>>>>         kvm_release_faultin_page(kvm, page, !!ret, prot & 
->>>>>> KVM_PGTABLE_PROT_W);
->>>>>>         kvm_fault_unlock(kvm);
->>>>>> @@ -1847,7 +1915,7 @@ static int kvm_s2_fault_get_vma_info(const 
->>>>>> struct kvm_s2_fault_desc *s2fd,
->>>>>>          * mapping size to ensure we find the right PFN and lay 
->>>>>> down the
->>>>>>          * mapping in the right place.
->>>>>>          */
->>>>>> -    s2vi->gfn = ALIGN_DOWN(s2fd->fault_ipa, s2vi->vma_pagesize) 
->>>>>> >> PAGE_SHIFT;
->>>>>> +    s2vi->gfn = kvm_gpa_from_fault(kvm, ALIGN_DOWN(s2fd- 
->>>>>> >fault_ipa, s2vi->vma_pagesize)) >> PAGE_SHIFT;
->>>>>>         s2vi->mte_allowed = kvm_vma_mte_allowed(vma);
->>>>>> @@ -2056,6 +2124,9 @@ static int kvm_s2_fault_map(const struct 
->>>>>> kvm_s2_fault_desc *s2fd,
->>>>>>             prot &= ~KVM_NV_GUEST_MAP_SZ;
->>>>>>             ret = KVM_PGT_FN(kvm_pgtable_stage2_relax_perms)(pgt, 
->>>>>> gfn_to_gpa(gfn),
->>>>>>                                      prot, flags);
->>>>>> +    } else if (kvm_is_realm(kvm)) {
->>>>>> +        ret = realm_map_ipa(kvm, s2fd->fault_ipa, pfn, mapping_size,
->>>>>> +                    prot, memcache);
->>>>>>         } else {
->>>>>>             ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, 
->>>>>> gfn_to_gpa(gfn), mapping_size,
->>>>>>                                  __pfn_to_phys(pfn), prot,
->>>>>
->>>>> For the case kvm_is_realm(), need we adjust 's2fd->fault_ipa' for 
->>>>> the sake of
->>>>> huge pages. In kvm_s2_fault_map(), @gfn and @pfn may have been 
->>>>> adjusted by
->>>>> transparent_hugepage_adjust() to be aligned with huge page size. If 
->>>>> the
->>>>> adjustment happened in transparent_hugepage_adjust(), we need to align
->>>>> s2fd->fault_ipa down to the huge page size either.
->>>>
->>>> All of the above + some RMM changes are needed to get QEmu VMM going
->>>> with anon pages guest memory backing - currently testing various
->>>> configurations in the background.
->>>>
->>>
->>> I tried to rebase Jean's latest QEMU series [1] to upstream QEMU, and 
->>> found
->>> that memory slots backed by THP are broken. With THP disabled on the 
->>> host and
->>> other fixes (mentioned in my prevous replies) applied on the top of 
->>> this (v14)
->>> series, I'm able to boot a realm guest with rebased QEMU series [2], 
->>> plus more
->>> fxies on the top.
->>>
->>> [1] https://git.codelinaro.org/linaro/dcap/qemu.git  (branch: cca/ 
->>> latest)
->>> [2] https://git.qemu.org/git/qemu.git                (branch: cca/gavin)
->>>
->>> Lorenzo, You may be saying there is someone making QEMU to support 
->>> ARM/CCA?
->>
->> Mathieu and I are working on that yes and with Steven/Suzuki to fix 
->> the THP
->> issues you pointed out above.
->>
->>> If so, I'm not sure if there is a QEMU repository for me to try?
->>
->> We should be able to submit patches by end of June - we shall let you 
->> know
->> whether we can make something available earlier.
->>
-> 
-> Not sure if there are other known issues in this series. It seems the 
-> stage2
-> page fault handling on the shared space isn't working well. In my test, the
-> vring (struct vring_desc) of virtio-net-pci is updated by the guest, and 
-> the
-> data isn't seen by QEMU, I'm suspecting if the host-page-frame-number is 
-> properly
-> resolved in the s2 page fault handler for shared (unprotected) space.
-> 
-> - I rebased Jean's latest qemu branch to the upstream qemu;
-> 
-> - On the host, which is emulated by qemu/tcg, the THP (transparent huge 
-> page) is
->    disabled.
-> 
-> - On the guest, I can see the virtio vring (struct vring_desc) is 
-> updated. The
->    S1 page-table entry looks correct because the corresponding physical 
-> address
->    0x10046880000 is a sane shared (unprotected) space address.
-> 
->    [   52.094143] software IO TLB: Memory encryption is active and 
-> system is using DMA bounce buffers
->    [   52.289746] virtqueue_add_desc_split: desc[0]@0xffff000006880000, 
-> [00000100b983f000  00000640  0002  0001]
->    [   52.432150] PTE 0x00e8010046880707 at address 0xffff000006880000
-> 
-> - On the host, the s2 page-table-entry is unmapped due to attribute 
-> transition (private -> shared).
->    A subsequent S2 page fault is raised against the adress and the s2 
-> page-table-entry is built.
-> 
->    [  109.259077] ====> realm_unmap_shared_range: 
-> tracked_unprot_addr=0x10046880000
->    [  109.260249] realm_unmap_shared_range: unmapped shared range at 
-> 0x10046880000
->    [  109.317786] realm_unmap_shared_range: unmapped shared range at 
-> 0x10046880000
->    [  109.629939] ====> kvm_handle_guest_abort: fault_ipa=0x10046880000, 
-> esr=0x92000007
->    [  109.630245] realm_map_non_secure: ipa=0x10046880000, pfn=0xb8b59, 
-> size=0x1000, prot=0xf
->    [  109.630331] realm_map_non_secure: ipa=0x10046880000, 
-> ipa_top=0x10046881000, flags=0x1e0001, range_desc=0xb8b59004
+There are two issues that affect the i2c-imx slave handling:
 
-Are you able to correlate the order of the transitions and the Guest
-access with RMM log ? We haven't seen this from our end. We are aware
-of permission fault issues with Unprotected IPA when backing the memslot
-with MAP_PRIVATE areas. But this looks different.
+1. In i2c_imx_reg_slave(), i2c_imx->slave is checked at the beginning
+   and the function returns -EBUSY if it is non-NULL.  If
+   pm_runtime_resume_and_get() fails later, the error path returns
+   without clearing i2c_imx->slave, leaving it non-NULL.  Subsequent
+   attempts to register a slave will then immediately fail with
+   -EBUSY, making it impossible to register the slave again.  Fix
+   by setting i2c_imx->slave = NULL on the error path.
 
-Lorenzo, have you run into this ?
+2. In i2c_imx_unreg_slave(), the slave pointer is set to NULL after
+   disabling interrupts.  However, a pending interrupt might already
+   have started the hrtimer (i2c_imx_slave_timeout) before the pointer
+   was cleared.  If the hrtimer fires after i2c_imx->slave is set to
+   NULL, the timer callback i2c_imx_slave_finish_op() will call
+   i2c_imx_slave_event() with a NULL slave pointer, and the
+   last_slave_event check loop in i2c_imx_slave_finish_op() may cause
+   a system hang because last_slave_event is no longer updated.  Fix
+   by canceling the hrtimer and waiting for it to complete after
+   disabling interrupts, before clearing the slave pointer.
 
-Suzuki
+Both issues can trigger a kernel oops, system hang, or permanent
+slave registration failure under certain race conditions.  Add the
+missing NULL assignment and the missing hrtimer cleanup to harden
+the slave path.
 
+Fixes: f7414cd6923f ("i2c: imx: support slave mode for imx I2C driver")
+Cc: stable@vger.kernel.org
+Signed-off-by: Liem <liem16213@gmail.com>
+---
+v1 -> v2:
+  - Instead of adding a NULL check in i2c_imx_slave_event(), cancel
+    the hrtimer and wait for it to finish in i2c_imx_unreg_slave()
+    after disabling interrupts, as suggested by <Carlos Song>.
+    This avoids a potential hang in the last_slave_event loop in
+    i2c_imx_slave_finish_op().
+---
+ drivers/i2c/busses/i2c-imx.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-> 
-> - On QEMU, the updated vring (struct vring_desc) at GPA 0x46880000 isn't 
-> seen. All the
->    data in that adress are zeros.
-> 
->    ====> virtqueue_split_pop: vdev=<virtio-net>, sz=0x38, 
-> queue_index=0x0, vq->vring.num=0x100
->    virtqueue_split_pop: last_avail_idx=0x0, head=0x0
->    address_space_read_cached_slow: cache@0xffff1c036440, addr=0x0, 
-> buf=0xffffeee34880, len=0x10
->    address_space_read_cached_slow: cache: ptr=0x0, xlat=0x10046880000, 
-> len=0x1000, mrs=<realm-dma-region>, is_write=no
->    address_space_read_cached_slow: translated to mr=<mach-virt.ram>, 
-> mr_addr=0x6880000, l=0x10
->    flatview_read_continue_step: mr=<mach-virt.ram>, host=0xffff23e00000, 
-> mr_addr=0x6880000, ram_ptr=0xffff2a680000
->    virtqueue_split_pop: desc: 0000000000000000 - 00000000 - 00000000 - 
-> 00000000
->    qemu-system-aarch64: virtio: zero sized buffers are not allowed
-> 
-> 
-> Thanks,
-> Gavin
-> 
+diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
+index 28313d0fad37..04ffb927aba9 100644
+--- a/drivers/i2c/busses/i2c-imx.c
++++ b/drivers/i2c/busses/i2c-imx.c
+@@ -936,6 +936,7 @@ static int i2c_imx_reg_slave(struct i2c_client *client)
+ 	/* Resume */
+ 	ret = pm_runtime_resume_and_get(i2c_imx->adapter.dev.parent);
+ 	if (ret < 0) {
++		i2c_imx->slave = NULL;
+ 		dev_err(&i2c_imx->adapter.dev, "failed to resume i2c controller");
+ 		return ret;
+ 	}
+@@ -957,7 +958,7 @@ static int i2c_imx_unreg_slave(struct i2c_client *client)
+ 	imx_i2c_write_reg(0, i2c_imx, IMX_I2C_IADR);
+ 
+ 	i2c_imx_reset_regs(i2c_imx);
+-
++	hrtimer_cancel(&i2c_imx->slave_timer);
+ 	i2c_imx->slave = NULL;
+ 
+ 	/* Suspend */
+-- 
+2.53.0
 
 
