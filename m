@@ -4,109 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF4D4CDE00E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 16:02:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B849CDE002
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 16:03:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XZa2aLM59D4xOOpXoe6buFQ1VgGBAiluuaiWjEnontA=; b=HhRGNuRdAZBnXjdXW8VumBufdN
-	2dIAxuBqM23DOBLU6NrODlKWzlCowDMB0AetNKKEIVAobrVhi05vpoRCHjJUVxOlVrJz52G27Wj6U
-	Up55yVDCds/Q6tbB9Y8U09C5FEAW87vrx/hrLXB0t3Vxt2/TGncA3fbZWMB5bqps/+cKOQ8B6bvIO
-	SLSRyhHxfvs6CRQA73Crax10WgcQF9O7ZQEkkt6e26R+VKBR9WY5cjbiH/YG93EmgY/r6vnSaZ4rP
-	PeMAY20yXrVIjMZqJ19hZdZFdDQQrZTL0CFGgtzCO2quaMakfZUe1tMPkAMDpBJiSPs7rk7KTeDlU
-	uzbjfNOA==;
+	bh=sqZ2wO48UYLxlaNbThccYzBuNYAooHb+dh5RphM+d8Y=; b=IRU06bSWAJVm3q3yZwiuOOi4DK
+	Tsb4FTZj3nLUA37G/FgDoQG78PmVXspklQdPaOfKGlqg0cOCLntbzj+Bw3yqI9WcP0FTaRA8jPQC8
+	zUZM4rFtVVNDTY9jSzyncs/bHYdsA1G9RjDTBWnyjA9ppYNgJJjMcXAHGsHusigH8uu3ZOmizGaTO
+	hK1ISQVmUvwg8XLBSn2eDhnNOWbTeI5RI+wsH6c/+AGUpj49S5lzFJbyTYd9HHhdvlhotaPjTPfDJ
+	NVcESudEUUB6Qc4BhNikOQWY2sbqdu1e0GFhoK+nKX/Qc22HqrQe+0eymn64LB1AntDSzk+CMi9Do
+	ENg+62aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcmXN-00000009RZa-3vZS;
-	Thu, 25 Jun 2026 16:02:45 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1wcmYE-00000009RnI-0oY1;
+	Thu, 25 Jun 2026 16:03:38 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcmXL-00000009RXj-1H6D
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Jun 2026 16:02:45 +0000
+	id 1wcmYB-00000009Rmi-2P9P;
+	Thu, 25 Jun 2026 16:03:36 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Z5hAHXcQdv+LC4hs6CxwIEJCp4TEOAOD8S8KD1/iViVJcMLt1cNZ5ZWMPfGrHSCxfBrzlklh4rtnRhoHPFphvVgUlEtobOCbAzvH4WHgDjmFS4w96kBBuXf243txoipNxRkwKAh7Xitu6ztq76j2Kx1DHmHDuBRSdDPTJSpEoCFV2m6J2vXj/sdCkqAh3i3gli3zH58Xy+PkY9/M3a2xBIPfiY2TbPNcz5q4PNScAl0fLf72jizMTxCI+PXZsa9whcHl0ieFjDPD0d3EVbyAfOzBdF+BPLNWU/Sh48bBJv/3PG6NoQPm0ZEw70B1qmaTmw1cWoJR74A17ZkUx5zESA==
+ b=H+TfrD9p2VEjgq/XHHE2lKQq9ozFcWKYTmLV/Z20H3nzCdqlTk+ikXcPCI9EA9s7qjEA5LZEJ8+4ofSskqhOb7zgp35CalYrEkHLhiluX0M4xBz5BSsRU1QNfiR0udVBSfcZoygKsSp3ZJMCJRQ/dF2vC6hRue0IuU1eB63B+hV2cfcYN+EubM/wyZu4qqKYBpq6d8QOwgnvTY6R4gGiO4y+pSAT+H5DcA2vkJhAdtupG7oeGgP8fhOsQnmoHRXGV6dOupL1t2FjU1ncltl55qFLGfQEr3y6JPpduhlA5AlguaoweFj/KUs3CZw1xbA8QB714hr+bbUBdVmnkyFtbg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XZa2aLM59D4xOOpXoe6buFQ1VgGBAiluuaiWjEnontA=;
- b=qeQmjTyOBZDTNcTu9bx8/ewY8zh9XaXtarB4wTDtSgylvwvADpwwRnvlcVloBRle02gLgGIq62rehQABg3ExgwyysSlX+4+b31XJoR94aEnY56mN4nhQzRXz/Hw9bfyup5O/ItoWztbQNx0o38u/zN8MPFAUh/iVEeAa2NbvlkexvPGgrFoGZASzzXSoqW/D121Am2RkNFUzTJncsOkUQv+U8QtLxcA2yBl+XT6mJ8Gckm0ScQ/+XNvXbLqFd586If/zp72iuHUCY0oKUlMmqsdRF0OEwjiDqPtyhW60vCzlrKg24cYs5I63xH2HWNaZAMnslVoANRYh80BKHkrtug==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
- is 91.26.50.189) smtp.rcpttodomain=ti.com smtp.mailfrom=phytec.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=phytec.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.com;
- s=selector1;
+ bh=sqZ2wO48UYLxlaNbThccYzBuNYAooHb+dh5RphM+d8Y=;
+ b=rQMbW7iGxcs18cM/boTRkXoDs3LVcBcfsCY2boeUvrhbzdoDMitpcv0i2Oe2mjhmAG9pjfxN/Bo85y514oVi06EuaQKD7gP8BDdW28P7rAw4cDmlQaEQCirAUA+Cwagsjob7zosKLRaAQyFZrw1aiJLkCeswDBZqL7SnUoMYm2MZ9C5GsjcmNpU9q7oSIwfVd9/64rhb3uNxFaERQlCHJzH6KxXKBvqTo5LqNYAP9fXxhSzWUodk3SRcQH5wJgvpQ+ro7wWDEptdaLZfaApBwDd49/qpOJWwVHKoXxRa/H/bicdMzkRRRhWs9CTZ4wCfVvZuX1gdaG4Y1MHqs8ZN1A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XZa2aLM59D4xOOpXoe6buFQ1VgGBAiluuaiWjEnontA=;
- b=hZn2UtvO7jPeoyeDM0nLfxtbat+nv0y15SFEBijEyLi6K9Vwt/pl31+v7p+822L1SmLCu/6pPHMwoS7dUhSBpJyYCDX8sufvooaovnIzMTOcmpZXU2SA/9BN+1FJjofrhw9GGgym+Uaa21LCWSvKQVPH8MehHU5vc3o7UKlISLCR7rUwu9IOIjJ0c4TNQh2OQH1WqzzLOIpcLzGN5TMAYHCS9mYFY7tFNo6H4iQubacb/mTG8KEbORF39P7O+NXWEay9qKKh8ToXPwcD4PEcS+h/csgSe0fjanifBuJRGF82OLBhXEmzhjVVIk4vtVZc6gqsIoLDS19kLBeCeSMcog==
-Received: from AS4PR09CA0010.eurprd09.prod.outlook.com (2603:10a6:20b:5e0::14)
- by AM0P195MB0771.EURP195.PROD.OUTLOOK.COM (2603:10a6:20b:160::14) with
+ bh=sqZ2wO48UYLxlaNbThccYzBuNYAooHb+dh5RphM+d8Y=;
+ b=aM6m2Oy+YfUquqo+pMN9TKH5dv9v601kk3a9Ir3CwR8ql0SCt537jhdI5eycPpbIvnIv0TKH3P3/6Dr3vmWzraFVxG68mP+XE6hwa5/ukj2o9XyF3zRWvfZi1yPgs8Exql7KbyHZp0GiDxjx4swo+Np2pa5WvETKZtMH+iFHA61NSrl/XBoqXwmbmFRU8g/qZfDuuuUH3E/CroXbblUbQKHXYR6Wqdc+KEQanW9juFpJdtxCYgyYXFN1Lif4/6ANv2ng1v+uBgZ3PXXdj22MNA9gt3jdZmH9hp286Nk+hBr5BBg8vaiBTrdYlOicWmdq97MR9uqPi7QMhZ4kmf8C0g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by DB9PR04MB9992.eurprd04.prod.outlook.com (2603:10a6:10:4c1::18) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.16; Thu, 25 Jun
- 2026 16:02:35 +0000
-Received: from AM4PEPF00027A65.eurprd04.prod.outlook.com
- (2603:10a6:20b:5e0:cafe::12) by AS4PR09CA0010.outlook.office365.com
- (2603:10a6:20b:5e0::14) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.159.16 via Frontend Transport; Thu,
- 25 Jun 2026 16:02:35 +0000
-X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 91.26.50.189)
- smtp.mailfrom=phytec.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=phytec.com;
-Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
- phytec.com discourages use of 91.26.50.189 as permitted sender)
-Received: from Postix.phytec.de (91.26.50.189) by
- AM4PEPF00027A65.mail.protection.outlook.com (10.167.16.86) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.181.6 via Frontend Transport; Thu, 25 Jun 2026 16:02:33 +0000
-Received: from phytec.com (172.25.39.17) by Postix.phytec.de (172.25.0.11)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 25 Jun
- 2026 18:02:30 +0200
-From: Nathan Morrisson <nmorrisson@phytec.com>
-To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <upstream@lists.phytec.de>
-Subject: [PATCH 2/2] arm64: dts: ti: Add support for the phyCORE-AM67x
-Date: Thu, 25 Jun 2026 09:02:14 -0700
-Message-ID: <20260625160214.4001298-2-nmorrisson@phytec.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260625160214.4001298-1-nmorrisson@phytec.com>
-References: <20260625160214.4001298-1-nmorrisson@phytec.com>
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.15; Thu, 25 Jun
+ 2026 16:03:30 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Thu, 25 Jun 2026
+ 16:03:30 +0000
+Date: Thu, 25 Jun 2026 12:03:22 -0400
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Myeonghun Pak <mhun512@gmail.com>
+Cc: Sean Wang <sean.wang@mediatek.com>, Vinod Koul <vkoul@kernel.org>,
+	Frank Li <Frank.Li@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Ijae Kim <ae878000@gmail.com>
+Subject: Re: [PATCH] dmaengine: mediatek: hsdma: fix runtime PM leak on init
+ failure
+Message-ID: <aj1RSj5ZXvc-9yu7@lizhi-Precision-Tower-5810>
+References: <20260624081701.19358-1-mhun512@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260624081701.19358-1-mhun512@gmail.com>
+X-ClientProxiedBy: PH3PEPF000040B0.namprd05.prod.outlook.com
+ (2603:10b6:518:1::5c) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [172.25.39.17]
-X-ClientProxiedBy: Postix.phytec.de (172.25.0.11) To Postix.phytec.de
- (172.25.0.11)
-X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM4PEPF00027A65:EE_|AM0P195MB0771:EE_
-X-MS-Office365-Filtering-Correlation-Id: 58d02e6c-7726-4087-9896-08ded2d32b26
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DB9PR04MB9992:EE_
+X-MS-Office365-Filtering-Correlation-Id: 01e24da5-ce7a-44b7-eb96-08ded2d34c9f
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|376014|1800799024|23010399003|22082099003|18002099003|3023799007|11063799006|6133799003|56012099006;
-X-Microsoft-Antispam-Message-Info: q6W/8fT0ZahmBAslhtpCR6ElyhrLDGWRCUkGVq65O9ts33Dxw2rgP4vd/vmFXJzft4Ku6MfpaN1Mkik+9GS771ilkyRfas78nSVgt6TRjba0MYNNy4WJSy702Cvbq2JAomLWKnmtCOBSCElypx9zYnE7HkExilTr5A9vd4iJqVZW1Mseso+Dqd50d/lQnxqGbY3YYw0yvIkPerGFh4+Qx40kkN9HDtX/m+tmZVI2UsjeRhkrky4M9UsUZITd1fl93enzmkYT77CqItScLtLOLeuDdDl+W49MHhw/8MLL0n4kOOCeHUFkS8LPAb32aPeAFv5/n1mMNmNuSEzrfFq+3d42KYL3E6625VxWQgwwL9l43JdJVoRjOuvs2YTN7bkztTYnGzdg2+gtibtCT7xyCdxMWkHxEDNC++n+MkeNF9PYn5q2IGU9N7dHV6qaL/IJfvvdt6ZpxtXCcSJ1J8TO+RtLQ1NsNj3Akbpg+2FCt6eNZz8q/u8Jt0tYQ3nYrWTo+5cKZIRtTkbS3ULtDXAheM4LiQqqqXP5ujaibltqmlP5gMi6eDgegiLjhtXy3EsaaOv0N1FhUbrLJb4t7Urfr8Wy+YaskJoUYdIxPcFBstWXB4MFyW5xnWueGj+hc6wY+jgn8LaHBsPmD802SHMc6TT69ipGSawgFAsXyjOggawQXja6//kk3BbfYmr1+2eDVXoYgXOIggbwreTb+TJtNA==
-X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:Postix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(376014)(1800799024)(23010399003)(22082099003)(18002099003)(3023799007)(11063799006)(6133799003)(56012099006);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|19092799006|1800799024|23010399003|56012099006|11063799006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: thkr5k3GyRThMpNt+9y9i2RaE93mW4ErqoTYDAVFh2B+Ye/NXpVAScxjs7yN/Ts3mRGt1M0JDdm+lKmmc8qD5ffGy6qu/MU8jEpKTE5zEeUo00uviZafHcLGu+cO8J3oE8MbZVrRGziKu8cG59CEfhJO4DMJ17nkzRMZk2jkXZtLmr6uEXYE1eTnX8MAfi5s915td9e1gd9Qmeer5ygrkvYzXM91e9AkgX4rtpWJxNC0Dqx7WQ5v9HVARPYDKiY+d5gE6tKsL27mqd1EuBAOSKFMkELYMi6YlhIRHUyfeGRyzkwckrvmYoiZW/aDHWK1bkR2sY2J6YIj+gSylel0QRywHXVGSK01OeI/VoghwyNtL6ZtcCUc1tUiMKdaOrkKNvrJwfZswyOUUKK2Z4H36eGMGntJlWnQNCIuoRH35zBQ9+x5aFQL+bqBK4wzvOZCwCQ2Ps7I5NIDBSMSWzGyCvDYGlI+TSfZOfEAOzUCzpjQT3i84vhEoG5O0juUUQAlXVvnQyokONtmyEHC8nXKNrpx9Axzv549y5yiRjFh5iOvR3CQNpb8j3fk2G9c5FDsUfdje8NUdXd15sMnBI1U7usoNaGr1u17kXQOKgqi8mqwdeq0rE5r5hPY9Djo0Yn4Bk0l4KygNz+1HXTmsa8tPEp/0IVUzyWcOBGoBCIsMYE=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(19092799006)(1800799024)(23010399003)(56012099006)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: Uz3APTWDsRDTGOPTboJ9uXMPYCK7XW/b1QYt8aTwo46wWvy9WaPWAENWcGu7lEUY6yJQO043x2NYkRPGTD5Cl75yyCwH0x3oJa6V2Dg02qLbLM7pLCH4l4TMBZIMEIYypsR0n11yYw9yYYo29oO83OzDSbDldvsv+/O0YhgP6PRZVgcMF1nx2/+QnMyiJRggn8AL3qNHTF/fQnhbGhaXETTg/uoWRP0Os8tNNnseQVXo7J60D/sGjiFK8OCCroqsey/GXHH3dzf53gHWJ2TKvL+jVi2m9KT7Inf1bMEOIO47XxTH8vKYF4DLbIpD3jEi+fwWdNvPPG2Ms64jLOjb+kGN5WT6tiQDtcRMGA87V/0xhCJkwnBhktbseKI10lwG6EXUiQHJdj/F5lYXUECFSsb2Bhs7XxlumLzxOigjI/UU3oiz9cXINs6/0fq7hsmu
-X-OriginatorOrg: phytec.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Jun 2026 16:02:33.6599
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?q2RmVqq4+pgTvL9VXgWrdPo7PGa6IQhREBx66SL2PZxP/fVhmexz9bvNbFQ2?=
+ =?us-ascii?Q?DwEz9Zpk56r4DbPbziNHdw//lj4WdNfyA01IsbPKR2LXLGQE5ohlMlIUFZIV?=
+ =?us-ascii?Q?Bui2Rn9zxKKQkKAl3pi7yjQdRJcT+M17nlXdwtOmoTpvvY/o9Ezh8cjTM9j4?=
+ =?us-ascii?Q?XkRciO+PHr+iT7uvttqv6/a0x4uxZMB7DqZekvmVTZXRU/pALklDRJBzEmuI?=
+ =?us-ascii?Q?ijuf6ZsC+qI3MZVY7wRrWRwdx5jt97g9hnIyfR9vqBrCyEWI3Ujya1TdLWAD?=
+ =?us-ascii?Q?tzbzz7wuLjWIYPrxUbAYMn7J/wo2LWMSjMX3BSa/rxdPq7fbrgZr//C71kw7?=
+ =?us-ascii?Q?YkTn2Pg3fGTmcRNGOxBdIYOu70J6zxqM1Ty9IrSc1XX78HCcmhAc6yqF1ltF?=
+ =?us-ascii?Q?GQRqC/Lm0RKGLH2LTt8WrAWYpDZ8KMRj7Wu2KpCcEXCnOmHqaAl9z/P5jms+?=
+ =?us-ascii?Q?50Am94JfjkiPj2XThiYdUTRHNm2Kuv5ZdW+z4c7OSy6YbjL+om4bG2DJ6VWV?=
+ =?us-ascii?Q?OPDJR6SXkFdfla8km7BS30VUdxSvtstxBs/8b10OFtE8kGKueRzQK119YJiG?=
+ =?us-ascii?Q?Ze4P6wBw55mg1ebYO+qmeH9rvzt9fv2th84DOeWsU7ZGOZ91P3iYhhGTaPUy?=
+ =?us-ascii?Q?x49IG2Sq4Ic/sqhqskxEE5trikmPummQCTmDUC4AHudIJ7n4MjIlYc6HT7gv?=
+ =?us-ascii?Q?pD0AS8EN5YqZTs7+yZJK44f43Ite0TkovacCnHywIzohcL7TnaoUHi0akZSp?=
+ =?us-ascii?Q?199crC6VZrBz8XJdIONPG68W9LuSbzkIsmoz5pjdTHrohi16G7zzCxpk3e+S?=
+ =?us-ascii?Q?/Jrl2WiFYq/o58O0mn6sagM0mZIKtt2kqB61PV/9eHBuxjJ9vMIIIANVhnbI?=
+ =?us-ascii?Q?scvljEbHIq7MZ0DT6+CSoSFKszrCRl3/4HdniqePhtBKN8g9aEHE7CjTXApI?=
+ =?us-ascii?Q?mxdo9Hg6+sLC7BjZz312agfqztCU7yezk/JUVoSBfoR6Yan0douTboab51HH?=
+ =?us-ascii?Q?/Awt5OG8QLhgmFW7J7Zz6QIAvcNwcpUCAAxJDquZKVQ+FkCdEObijZ+AEX0C?=
+ =?us-ascii?Q?Jjhl8MfROEvzb/0wB1jx1QNK9P1sYazocXARfbuOMtjVw0AMM4M4wf9u0Wh7?=
+ =?us-ascii?Q?5dJ+nbnFEGkmtSM7o7UeweWoZ6/WLj+oqf4suiPm8MEYpI3XqPwgSft0bBee?=
+ =?us-ascii?Q?5QknFiyB50HJ0/rRYlQ0aB83X+xt7onDDWjcfIhoaJ14K1ACxYD0pDn5dsv+?=
+ =?us-ascii?Q?5LKmMTHh9vbgb3uUb2LTKmwewrer2TP/VPceYuz/zKScAeys7G08+2nVPQny?=
+ =?us-ascii?Q?tpm+k7RI3LiEXA2Olbgx5WC3jrSJC+BNqfY9cBfe/dDvU3zcAgJ91Y6mXctz?=
+ =?us-ascii?Q?TXKWYQ5aiIyImRKP5gqYoQ7msQRjdGEPbHX1MMZCay7oioKlx0ewCOlGOVQL?=
+ =?us-ascii?Q?3xaPBT0wVu/zU2ds87wKBv9fRSHNUSm/pG9AbCuLqxKXLbpxuOAp6Pg0DdWv?=
+ =?us-ascii?Q?8fePbHgSl4eZk/vWwC7XIQlTutegU0WU8RQ0ag0ZTAYy4kY2q0hCmx5nyu+i?=
+ =?us-ascii?Q?4/YgIfdMMOwP5yM/D+6gAucdaqEpIDxMwEzTpqXnGvfAokmVblCpCOVse/ha?=
+ =?us-ascii?Q?dxZjVpLtGSieI15WcEa0N5miOLb6NiKW4JqcqlWbnUAb/nbGM3ug2F+LAeXw?=
+ =?us-ascii?Q?h/ziPhXvg9Z4DEoZHuuBWkhUajNq0Zlcaj8Z2GC4kctnmk1x0VDduqlMmjfY?=
+ =?us-ascii?Q?1B8Nn64VpEQmey1ihT2VnRoTJcgGsDuv7EoKd/qpomN2vQ/VvlKP?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 01e24da5-ce7a-44b7-eb96-08ded2d34c9f
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Jun 2026 16:03:30.0520
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 58d02e6c-7726-4087-9896-08ded2d32b26
-X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e609157c-80e2-446d-9be3-9c99c2399d29;Ip=[91.26.50.189];Helo=[Postix.phytec.de]
-X-MS-Exchange-CrossTenant-AuthSource: AM4PEPF00027A65.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0P195MB0771
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: k7YJLh4OvMkPzLmacvu4eD2FgPzjBcuF2VauVa9IH4gu2N0zrTigenRHZL+GdpKEPOEBWBct7tQUKjkuLRt20hbWubpYZ94IMlayniHp3oox6FgNa9gSPW1KTNRA23VF
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9992
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260625_090243_521033_5BC928CA 
-X-CRM114-Status: GOOD (  15.05  )
+X-CRM114-CacheID: sfid-20260625_090335_846856_F21E41A9 
+X-CRM114-Status: GOOD (  21.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,895 +140,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the PHYTEC phyCORE-AM67x SoM [1] and the
-corresponding phyBOARD-Rigel carrier board [2]. The phyCORE-AM67x SoM
-uses the TI AM67x SoC and can come with different sizes and models of
-DDR, eMMC, and SPI NOR Flash.
+On Wed, Jun 24, 2026 at 05:16:38PM +0900, Myeonghun Pak wrote:
+> mtk_hsdma_hw_init() enables runtime PM and gets a runtime PM reference
+> before enabling the HSDMA clock. It currently ignores failures from
+> pm_runtime_get_sync(); if runtime resume fails, the usage count remains
+> held. If clk_prepare_enable() then fails, runtime PM is left enabled with
+> the usage count held.
+>
+> Use pm_runtime_resume_and_get() so resume failures do not leak the usage
+> count, and unwind runtime PM when clk_prepare_enable() fails.
+>
+> The probe path also ignores the return value from mtk_hsdma_hw_init(), so a
+> failed hardware init can continue as a successful probe. Propagate
+> mtk_hsdma_hw_init() failures from probe, while keeping a separate unwind
+> label so mtk_hsdma_hw_deinit() is only called after hardware init succeeds.
+>
+> Fixes: 548c4597e984 ("dmaengine: mediatek: Add MediaTek High-Speed DMA controller for MT7622 and MT7623 SoC")
+> Co-developed-by: Ijae Kim <ae878000@gmail.com>
+> Signed-off-by: Ijae Kim <ae878000@gmail.com>
+> Signed-off-by: Myeonghun Pak <mhun512@gmail.com>
+>
+> ---
+>  drivers/dma/mediatek/mtk-hsdma.c | 22 +++++++++++++++++-----
+>  1 file changed, 17 insertions(+), 5 deletions(-)
+>
+> diff --git a/drivers/dma/mediatek/mtk-hsdma.c b/drivers/dma/mediatek/mtk-hsdma.c
+> index a43412ff5e..987e5274fc 100644
+> --- a/drivers/dma/mediatek/mtk-hsdma.c
+> +++ b/drivers/dma/mediatek/mtk-hsdma.c
+> @@ -849,16 +849,25 @@ static int mtk_hsdma_hw_init(struct mtk_hsdma_device *hsdma)
+>  	int err;
+>
+>  	pm_runtime_enable(hsdma2dev(hsdma));
 
-Supported features:
-  * Audio playback and recording
-  * CAN
-  * Debug UART
-  * eMMC
-  * Ethernet
-  * GPIO buttons
-  * Heartbeat LED
-  * I2C Current sensor
-  * I2C EEPROM
-  * I2C Light sensor
-  * I2C RTC
-  * Micro SD card
-  * PCIe
-  * SPI NOR flash
-  * USB
+use devm_pm_runtime_enable()
 
-[1] https://www.phytec.com/product/phycore-am67x/
-[2] https://www.phytec.com/product/phyboard-am67x-development-kit/
+> -	pm_runtime_get_sync(hsdma2dev(hsdma));
+> +	err = pm_runtime_resume_and_get(hsdma2dev(hsdma));
 
-Signed-off-by: Nathan Morrisson <nmorrisson@phytec.com>
----
- arch/arm64/boot/dts/ti/Makefile               |   1 +
- .../boot/dts/ti/k3-am67-phycore-som.dtsi      | 328 ++++++++++++
- .../boot/dts/ti/k3-am6754-phyboard-rigel.dts  | 502 ++++++++++++++++++
- 3 files changed, 831 insertions(+)
- create mode 100644 arch/arm64/boot/dts/ti/k3-am67-phycore-som.dtsi
- create mode 100644 arch/arm64/boot/dts/ti/k3-am6754-phyboard-rigel.dts
+It enable runtime pm and resume_get here. and suspend at driver remove,
+so whole life cycle, pm is enable, why need enable runtime pm management?
 
-diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
-index 371f9a043fe5..623ee2369132 100644
---- a/arch/arm64/boot/dts/ti/Makefile
-+++ b/arch/arm64/boot/dts/ti/Makefile
-@@ -184,6 +184,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-j721s2-evm-pcie1-ep.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-j721s2-evm-usb0-type-a.dtbo
- 
- # Boards with J722s SoC
-+dtb-$(CONFIG_ARCH_K3) += k3-am6754-phyboard-rigel.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am67a-beagley-ai.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-j722s-evm.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtbo
-diff --git a/arch/arm64/boot/dts/ti/k3-am67-phycore-som.dtsi b/arch/arm64/boot/dts/ti/k3-am67-phycore-som.dtsi
-new file mode 100644
-index 000000000000..8a40f648098e
---- /dev/null
-+++ b/arch/arm64/boot/dts/ti/k3-am67-phycore-som.dtsi
-@@ -0,0 +1,328 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR MIT
-+/*
-+ * Copyright (C) 2026 PHYTEC America LLC
-+ * Author: Nathan Morrisson <nmorrisson@phytec.com>
-+ */
-+
-+#include <dt-bindings/net/ti-dp83867.h>
-+#include <dt-bindings/leds/common.h>
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/interrupt-controller/irq.h>
-+
-+/ {
-+	compatible = "phytec,am67-phycore-som", "ti,j722s";
-+	model = "PHYTEC phyCORE-AM67";
-+
-+	aliases {
-+		ethernet0 = &cpsw_port1;
-+		gpio0 = &main_gpio0;
-+		mmc0 = &sdhci0;
-+		rtc0 = &i2c_som_rtc;
-+		rtc1 = &wkup_rtc0;
-+		spi0 = &ospi0;
-+	};
-+
-+	memory@80000000 {
-+		/* 4G RAM */
-+		reg = <0x00000000 0x80000000 0x00000000 0x80000000>,
-+		      <0x00000008 0x80000000 0x00000000 0x80000000>;
-+		device_type = "memory";
-+		bootph-all;
-+	};
-+
-+	reserved_memory: reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		secure_tfa_ddr: tfa@9e780000 {
-+			reg = <0x00 0x9e780000 0x00 0x80000>;
-+			no-map;
-+		};
-+
-+		secure_ddr: optee@9e800000 {
-+			reg = <0x00 0x9e800000 0x00 0x01800000>;
-+			no-map;
-+		};
-+
-+		wkup_r5fss0_core0_dma_memory_region: memory@a0000000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0xa0000000 0x00 0x100000>;
-+			no-map;
-+		};
-+
-+		wkup_r5fss0_core0_memory_region: memory@a0100000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0xa0100000 0x00 0xf00000>;
-+			no-map;
-+		};
-+	};
-+
-+	vcc_5v0_som: regulator-vcc-5v0-som {
-+		compatible = "regulator-fixed";
-+		regulator-name = "VCC_5V0_SOM";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-always-on;
-+		regulator-boot-on;
-+	};
-+
-+	leds {
-+		compatible = "gpio-leds";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&leds_pins_default>;
-+
-+		led-0 {
-+			color = <LED_COLOR_ID_GREEN>;
-+			gpios = <&main_gpio0 13 GPIO_ACTIVE_HIGH>;
-+			linux,default-trigger = "heartbeat";
-+			function = LED_FUNCTION_HEARTBEAT;
-+		};
-+	};
-+};
-+
-+&main_pmx0 {
-+	leds_pins_default: leds-default-pins {
-+		pinctrl-single,pins = <
-+			J722S_IOPAD(0x034, PIN_OUTPUT, 7)	/* (K22) OSPI0_CSN2.GPIO0_13 */
-+		>;
-+	};
-+
-+	mdio_pins_default: mdio-default-pins {
-+		pinctrl-single,pins = <
-+			J722S_IOPAD(0x0160, PIN_OUTPUT, 0)	/* (AC24) MDIO0_MDC */
-+			J722S_IOPAD(0x015c, PIN_INPUT, 0)	/* (AD25) MDIO0_MDIO */
-+		>;
-+		bootph-all;
-+	};
-+
-+	ospi0_pins_default: ospi0-default-pins {
-+		pinctrl-single,pins = <
-+			J722S_IOPAD(0x000, PIN_OUTPUT, 0)	/* (L24) OSPI0_CLK */
-+			J722S_IOPAD(0x02c, PIN_OUTPUT, 0)	/* (K26) OSPI0_CSn0 */
-+			J722S_IOPAD(0x00c, PIN_INPUT, 0)	/* (K27) OSPI0_D0 */
-+			J722S_IOPAD(0x010, PIN_INPUT, 0)	/* (L27) OSPI0_D1 */
-+			J722S_IOPAD(0x014, PIN_INPUT, 0)	/* (L26) OSPI0_D2 */
-+			J722S_IOPAD(0x018, PIN_INPUT, 0)	/* (L25) OSPI0_D3 */
-+			J722S_IOPAD(0x01c, PIN_INPUT, 0)	/* (L21) OSPI0_D4 */
-+			J722S_IOPAD(0x020, PIN_INPUT, 0)	/* (M26) OSPI0_D5 */
-+			J722S_IOPAD(0x024, PIN_INPUT, 0)	/* (N27) OSPI0_D6 */
-+			J722S_IOPAD(0x028, PIN_INPUT, 0)	/* (M27) OSPI0_D7 */
-+			J722S_IOPAD(0x008, PIN_INPUT, 0)	/* (L22) OSPI0_DQS */
-+			J722S_IOPAD(0x038, PIN_INPUT, 7)	/* (J22) OSPI0_CSn3.GPIO0_14 */
-+		>;
-+		bootph-all;
-+	};
-+
-+	pmic_irq_pins_default: pmic-irq-default-pins {
-+		pinctrl-single,pins = <
-+			J722S_IOPAD(0x030, PIN_INPUT, 7)	/* (K23) OSPI0_CSN1.GPIO0_12 */
-+		>;
-+	};
-+
-+	rgmii1_pins_default: rgmii1-default-pins {
-+		pinctrl-single,pins = <
-+			J722S_IOPAD(0x014c, PIN_INPUT, 0)	/* (AC25) RGMII1_RD0 */
-+			J722S_IOPAD(0x0150, PIN_INPUT, 0)	/* (AD27) RGMII1_RD1 */
-+			J722S_IOPAD(0x0154, PIN_INPUT, 0)	/* (AE24) RGMII1_RD2 */
-+			J722S_IOPAD(0x0158, PIN_INPUT, 0)	/* (AE26) RGMII1_RD3 */
-+			J722S_IOPAD(0x0148, PIN_INPUT, 0)	/* (AE27) RGMII1_RXC */
-+			J722S_IOPAD(0x0144, PIN_INPUT, 0)	/* (AD23) RGMII1_RX_CTL */
-+			J722S_IOPAD(0x0134, PIN_OUTPUT, 0)	/* (AF27) RGMII1_TD0 */
-+			J722S_IOPAD(0x0138, PIN_OUTPUT, 0)	/* (AE23) RGMII1_TD1 */
-+			J722S_IOPAD(0x013c, PIN_OUTPUT, 0)	/* (AG25) RGMII1_TD2 */
-+			J722S_IOPAD(0x0140, PIN_OUTPUT, 0)	/* (AF24) RGMII1_TD3 */
-+			J722S_IOPAD(0x0130, PIN_OUTPUT, 0)	/* (AG26) RGMII1_TXC */
-+			J722S_IOPAD(0x012c, PIN_OUTPUT, 0)	/* (AF25) RGMII1_TX_CTL */
-+		>;
-+		bootph-all;
-+	};
-+};
-+
-+&mcu_pmx0 {
-+	wkup_i2c0_pins_default: wkup-i2c0-default-pins {
-+		pinctrl-single,pins = <
-+			J722S_MCU_IOPAD(0x04c, PIN_INPUT_PULLUP, 0)	/* (B9) WKUP_I2C0_SCL */
-+			J722S_MCU_IOPAD(0x050, PIN_INPUT_PULLUP, 0)	/* (D11) WKUP_I2C0_SDA */
-+		>;
-+		bootph-all;
-+	};
-+};
-+
-+&cpsw3g {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&rgmii1_pins_default>;
-+	bootph-all;
-+	status = "okay";
-+};
-+
-+&cpsw3g_mdio {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&mdio_pins_default>;
-+	status = "okay";
-+
-+	cpsw3g_phy1: ethernet-phy@1 {
-+		compatible = "ethernet-phy-ieee802.3-c22";
-+		reg = <1>;
-+		ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
-+		tx-fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
-+		ti,min-output-impedance;
-+	};
-+};
-+
-+&cpsw_port1 {
-+	phy-mode = "rgmii-id";
-+	phy-handle = <&cpsw3g_phy1>;
-+	status = "okay";
-+};
-+
-+&cpsw_port2 {
-+	status = "disabled";
-+};
-+
-+&ospi0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&ospi0_pins_default>;
-+	bootph-all;
-+	status = "okay";
-+
-+	serial_flash: flash@0 {
-+		compatible = "jedec,spi-nor";
-+		reg = <0x0>;
-+		spi-tx-bus-width = <8>;
-+		spi-rx-bus-width = <8>;
-+		spi-max-frequency = <25000000>;
-+		vcc-supply = <&vdd_1v8>;
-+		cdns,tshsl-ns = <60>;
-+		cdns,tsd2d-ns = <60>;
-+		cdns,tchsh-ns = <60>;
-+		cdns,tslch-ns = <60>;
-+		cdns,read-delay = <0>;
-+	};
-+};
-+
-+&sdhci0 {
-+	non-removable;
-+	bootph-all;
-+	ti,driver-strength-ohm = <50>;
-+	status = "okay";
-+};
-+
-+&wkup_i2c0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&wkup_i2c0_pins_default>;
-+	clock-frequency = <400000>;
-+	bootph-all;
-+	status = "okay";
-+
-+	pmic@30 {
-+		compatible = "ti,tps65219";
-+		reg = <0x30>;
-+		buck1-supply = <&vcc_5v0_som>;
-+		buck2-supply = <&vcc_5v0_som>;
-+		buck3-supply = <&vcc_5v0_som>;
-+		ldo1-supply = <&vdd_3v3>;
-+		ldo2-supply = <&vdd_1v8>;
-+		ldo3-supply = <&vdd_3v3>;
-+		ldo4-supply = <&vdd_3v3>;
-+
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pmic_irq_pins_default>;
-+		interrupt-parent = <&main_gpio0>;
-+		interrupts = <12 IRQ_TYPE_EDGE_FALLING>;
-+		interrupt-controller;
-+		#interrupt-cells = <1>;
-+
-+		system-power-controller;
-+		ti,power-button;
-+
-+		regulators {
-+			vdd_3v3: buck1 {
-+				regulator-name = "VDD_3V3";
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			vdd_1v8: buck2 {
-+				regulator-name = "VDD_1V8";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			vdd_lpddr4: buck3 {
-+				regulator-name = "VDD_LPDDR4";
-+				regulator-min-microvolt = <1100000>;
-+				regulator-max-microvolt = <1100000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			vddshv_sdio: ldo1 {
-+				regulator-name = "VDDSHV_SDIO";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-allow-bypass;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			vdd_1v2: ldo2 {
-+				regulator-name = "VDD_1V2";
-+				regulator-min-microvolt = <1200000>;
-+				regulator-max-microvolt = <1200000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			vdda_1v8_phy: ldo3 {
-+				regulator-name = "VDDA_1V8_PHY";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			vdd_1v8_pll: ldo4 {
-+				regulator-name = "VDD_1V8_PLL";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+		};
-+	};
-+
-+	vdd_core: regulator-vdd-core@44 {
-+		compatible = "ti,tps62873";
-+		reg = <0x44>;
-+		bootph-pre-ram;
-+		regulator-name = "VDD_CORE";
-+		regulator-min-microvolt = <850000>;
-+		regulator-max-microvolt = <850000>;
-+		regulator-boot-on;
-+		regulator-always-on;
-+	};
-+
-+	eeprom@50 {
-+		compatible = "atmel,24c32";
-+		reg = <0x50>;
-+		pagesize = <32>;
-+	};
-+
-+	som_eeprom_opt: eeprom@51 {
-+		compatible = "atmel,24c32";
-+		reg = <0x51>;
-+		pagesize = <32>;
-+	};
-+
-+	i2c_som_rtc: rtc@52 {
-+		compatible = "microcrystal,rv3028";
-+		reg = <0x52>;
-+	};
-+};
-+
-+#include "k3-j722s-ti-ipc-firmware.dtsi"
-diff --git a/arch/arm64/boot/dts/ti/k3-am6754-phyboard-rigel.dts b/arch/arm64/boot/dts/ti/k3-am6754-phyboard-rigel.dts
-new file mode 100644
-index 000000000000..7853d4f5d3b9
---- /dev/null
-+++ b/arch/arm64/boot/dts/ti/k3-am6754-phyboard-rigel.dts
-@@ -0,0 +1,502 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR MIT
-+/*
-+ * Copyright (C) 2026 PHYTEC America LLC
-+ * Author: Nathan Morrisson <nmorrisson@phytec.com>
-+ */
-+
-+/dts-v1/;
-+
-+#include <dt-bindings/input/input.h>
-+#include <dt-bindings/phy/phy.h>
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/interrupt-controller/irq.h>
-+#include "k3-serdes.h"
-+#include "k3-j722s.dtsi"
-+#include "k3-am67-phycore-som.dtsi"
-+
-+/ {
-+	compatible = "phytec,am6754-phyboard-rigel",
-+		     "phytec,am67-phycore-som", "ti,j722s";
-+	model = "PHYTEC phyBOARD-Rigel AM67";
-+
-+	aliases {
-+		gpio1 = &main_gpio1;
-+		mmc1 = &sdhci1;
-+		serial2 = &main_uart0;
-+		usb0 = &usb0;
-+		usb1 = &usb1;
-+	};
-+
-+	can_tc0: can-phy0 {
-+		compatible = "ti,tcan1042";
-+		#phy-cells = <0>;
-+		max-bitrate = <8000000>;
-+		standby-gpios = <&gpio_exp1 1 GPIO_ACTIVE_HIGH>;
-+	};
-+
-+	usb0_connector: connector {
-+		compatible = "gpio-usb-b-connector", "usb-b-connector";
-+		label = "USB-C";
-+		data-role = "dual";
-+
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&main_usbc_power_pins_default>;
-+
-+		id-gpios = <&main_gpio1 15 GPIO_ACTIVE_HIGH>;
-+
-+		port {
-+			usb0_con: endpoint {
-+				remote-endpoint = <&usb0_ep>;
-+			};
-+		};
-+	};
-+
-+	keys {
-+		compatible = "gpio-keys";
-+		autorepeat;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&gpio_keys_pins_default>;
-+
-+		key-home {
-+			label = "home";
-+			linux,code = <KEY_HOME>;
-+			gpios = <&main_gpio1 23 GPIO_ACTIVE_HIGH>;
-+		};
-+
-+		key-menu {
-+			label = "menu";
-+			linux,code = <KEY_MENU>;
-+			gpios = <&gpio_exp1 4 GPIO_ACTIVE_HIGH>;
-+		};
-+	};
-+
-+	pcie_refclk0: pcie-refclk0 {
-+		compatible = "gpio-gate-clock";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&main_pcie_usb_sel_pins_default>;
-+		clocks = <&serdes_refclk>;
-+		#clock-cells = <0>;
-+		enable-gpios = <&main_gpio0 22 GPIO_ACTIVE_LOW>;
-+	};
-+
-+	vcc_1v8: regulator-vcc-1v8 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "VCC_1V8";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		regulator-always-on;
-+		regulator-boot-on;
-+	};
-+
-+	vcc_3v3_aud: regulator-vcc-3v3-aud {
-+		compatible = "regulator-fixed";
-+		regulator-name = "VCC_3V3_AUD";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-always-on;
-+		regulator-boot-on;
-+	};
-+
-+	vcc_3v3_mmc: regulator-vcc-3v3-mmc {
-+		/* TPS22963C OUTPUT */
-+		compatible = "regulator-fixed";
-+		regulator-name = "VCC_3V3_MMC";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-always-on;
-+		regulator-boot-on;
-+	};
-+
-+	vcc_3v3_sw: regulator-vcc-3v3-sw {
-+		compatible = "regulator-fixed";
-+		regulator-name = "VCC_3V3_SW";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-always-on;
-+		regulator-boot-on;
-+	};
-+
-+	vcc_speaker: regulator-vcc-speaker {
-+		compatible = "regulator-fixed";
-+		regulator-name = "VCC_SPEAKER";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-always-on;
-+		regulator-boot-on;
-+	};
-+
-+	sound {
-+		compatible = "simple-audio-card";
-+		simple-audio-card,widgets =
-+			"Microphone", "Mic Jack",
-+			"Headphone", "Headphone Jack",
-+			"Line", "Stereo Jack",
-+			"Speaker", "L SPKR",
-+			"Speaker", "R SPKR";
-+		simple-audio-card,routing =
-+			"MIC1RP", "Mic Jack",
-+			"Mic Jack", "MICBIAS",
-+			"Headphone Jack", "HPL",
-+			"Headphone Jack", "HPR",
-+			"MIC1LM", "Stereo Jack",
-+			"MIC1LP", "Stereo Jack",
-+			"SPL", "L SPKR",
-+			"SPR", "R SPKR";
-+		simple-audio-card,name = "phyBOARD-Rigel";
-+		simple-audio-card,format = "dsp_b";
-+		simple-audio-card,bitclock-master = <&sound_master>;
-+		simple-audio-card,frame-master = <&sound_master>;
-+		simple-audio-card,bitclock-inversion;
-+
-+		simple-audio-card,cpu {
-+			sound-dai = <&mcasp0>;
-+		};
-+
-+		sound_master: simple-audio-card,codec {
-+			sound-dai = <&audio_codec>;
-+			clocks = <&audio_refclk1>;
-+		};
-+	};
-+};
-+
-+&main_pmx0 {
-+	audio_ext_refclk1_pins_default: audio-ext-refclk1-default-pins {
-+		pinctrl-single,pins = <
-+			J722S_IOPAD(0x0a0, PIN_OUTPUT, 1)	/* (N24) GPMC0_WPn.AUDIO_EXT_REFCLK1 */
-+		>;
-+	};
-+
-+	gpio_exp0_int_pins_default: gpio-exp0-int-default-pins {
-+		pinctrl-single,pins = <
-+			J722S_IOPAD(0x0054, PIN_INPUT, 7)	/* (T21) GPMC0_AD6.GPIO0_21 */
-+		>;
-+	};
-+
-+	gpio_exp1_int_pins_default: gpio-exp1-int-default-pins {
-+		pinctrl-single,pins = <
-+			J722S_IOPAD(0x0244, PIN_INPUT, 7)	/* (A24) MMC1_SDWP.GPIO1_49 */
-+		>;
-+	};
-+
-+	gpio_exp2_int_pins_default: gpio-exp2-int-default-pins {
-+		pinctrl-single,pins = <
-+			J722S_IOPAD(0x0050, PIN_INPUT, 7)	/* (T24) GPMC0_AD5.GPIO0_20 */
-+		>;
-+	};
-+
-+	gpio_keys_pins_default: gpio-keys-default-pins {
-+		pinctrl-single,pins = <
-+			J722S_IOPAD(0x01d4, PIN_INPUT, 7)	/* (B21) UART0_RTSn.GPIO1_23 */
-+		>;
-+	};
-+
-+	main_i2c0_pins_default: main-i2c0-default-pins {
-+		pinctrl-single,pins = <
-+			J722S_IOPAD(0x01e0, PIN_INPUT_PULLUP, 0)	/* (D23) I2C0_SCL */
-+			J722S_IOPAD(0x01e4, PIN_INPUT_PULLUP, 0)	/* (B22) I2C0_SDA */
-+		>;
-+		bootph-all;
-+	};
-+
-+	main_i2c1_pins_default: main-i2c1-default-pins {
-+		pinctrl-single,pins = <
-+			J722S_IOPAD(0x01e8, PIN_INPUT_PULLUP, 0)	/* (C24) I2C1_SCL */
-+			J722S_IOPAD(0x01ec, PIN_INPUT_PULLUP, 0)	/* (A22) I2C1_SDA */
-+		>;
-+		bootph-all;
-+	};
-+
-+	main_mcan0_pins_default: main-mcan0-default-pins {
-+		pinctrl-single,pins = <
-+			J722S_IOPAD(0x1dc, PIN_INPUT, 0)	/* (C22) MCAN0_RX */
-+			J722S_IOPAD(0x1d8, PIN_OUTPUT, 0)	/* (D22) MCAN0_TX */
-+		>;
-+	};
-+
-+	main_mcasp0_pins_default: main-mcasp0-default-pins {
-+		pinctrl-single,pins = <
-+			J722S_IOPAD(0x1a8, PIN_INPUT, 0)	/* (C26) MCASP0_AFSX */
-+			J722S_IOPAD(0x1a4, PIN_INPUT, 0)	/* (D25) MCASP0_ACLKX */
-+			J722S_IOPAD(0x198, PIN_OUTPUT, 0)	/* (A26) MCASP0_AXR2 */
-+			J722S_IOPAD(0x194, PIN_INPUT, 0)	/* (A25) MCASP0_AXR3 */
-+		>;
-+	};
-+
-+	main_mcasp1_pins_default: main-mcasp1-default-pins {
-+		pinctrl-single,pins = <
-+			J722S_IOPAD(0x0090, PIN_INPUT, 2)	/* (P27) GPMC0_BE0n_CLE.MCASP1_ACLKX */
-+			J722S_IOPAD(0x0098, PIN_INPUT, 2)	/* (V21) GPMC0_WAIT0.MCASP1_AFSX */
-+			J722S_IOPAD(0x008c, PIN_OUTPUT, 2)	/* (N23) GPMC0_WEn.MCASP1_AXR0 */
-+		>;
-+	};
-+
-+	main_mmc1_pins_default: main-mmc1-default-pins {
-+		pinctrl-single,pins = <
-+			J722S_IOPAD(0x023c, PIN_INPUT, 0)	/* (H22) MMC1_CMD */
-+			J722S_IOPAD(0x0234, PIN_INPUT, 0)	/* (H24) MMC1_CLK */
-+			J722S_IOPAD(0x0230, PIN_INPUT, 0)	/* (H23) MMC1_DAT0 */
-+			J722S_IOPAD(0x022c, PIN_INPUT, 0)	/* (H20) MMC1_DAT1 */
-+			J722S_IOPAD(0x0228, PIN_INPUT, 0)	/* (J23) MMC1_DAT2 */
-+			J722S_IOPAD(0x0224, PIN_INPUT, 0)	/* (H25) MMC1_DAT3 */
-+			J722S_IOPAD(0x0240, PIN_INPUT, 0)	/* (B24) MMC1_SDCD */
-+		>;
-+		bootph-all;
-+	};
-+
-+	main_pcie_pins_default: main-pcie-default-pins {
-+		pinctrl-single,pins = <
-+			J722S_IOPAD(0x07c, PIN_INPUT, 7)	/* (T23) GPMC0_CLK.GPIO0_31 */
-+		>;
-+	};
-+
-+	main_pcie_usb_sel_pins_default: main-pcie-usb-sel-default-pins {
-+		pinctrl-single,pins = <
-+			J722S_IOPAD(0x058, PIN_INPUT, 7)	/* (T22) GPMC0_AD7.GPIO0_22 */
-+		>;
-+	};
-+
-+	main_uart0_pins_default: main-uart0-default-pins {
-+		pinctrl-single,pins = <
-+			J722S_IOPAD(0x01c8, PIN_INPUT, 0)	/* (F19) UART0_RXD */
-+			J722S_IOPAD(0x01cc, PIN_OUTPUT, 0)	/* (F20) UART0_TXD */
-+		>;
-+		bootph-all;
-+	};
-+
-+	main_usbc_power_pins_default: main-usbc-power-default-pins {
-+		pinctrl-single,pins = <
-+			J722S_IOPAD(0x1b4, PIN_INPUT, 7)	/* (B20) SPI0_CS0.GPIO1_15 */
-+		>;
-+	};
-+};
-+
-+&audio_refclk1 {
-+	assigned-clock-rates = <25000000>;
-+};
-+
-+&main_i2c0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&main_i2c0_pins_default>;
-+	clock-frequency = <400000>;
-+	status = "okay";
-+
-+	veml6030: light-sensor@10 {
-+		compatible = "vishay,veml6030";
-+		reg = <0x10>;
-+		vdd-supply = <&vcc_3v3_sw>;
-+	};
-+};
-+
-+&main_i2c1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&main_i2c1_pins_default>;
-+	clock-frequency = <100000>;
-+	status = "okay";
-+
-+	audio_codec: audio-codec@18 {
-+		compatible = "ti,tlv320aic3110";
-+		reg = <0x18>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&audio_ext_refclk1_pins_default>;
-+		#sound-dai-cells = <0>;
-+		ai3xx-micbias-vg = <2>;
-+		reset-gpios = <&gpio_exp1 7 GPIO_ACTIVE_LOW>;
-+
-+		HPVDD-supply = <&vcc_3v3_aud>;
-+		SPRVDD-supply = <&vcc_speaker>;
-+		SPLVDD-supply = <&vcc_speaker>;
-+		AVDD-supply = <&vcc_3v3_aud>;
-+		IOVDD-supply = <&vcc_3v3_aud>;
-+		DVDD-supply = <&vcc_1v8>;
-+	};
-+
-+	gpio_exp0: gpio@20 {
-+		compatible = "nxp,pcf8574";
-+		reg = <0x20>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&gpio_exp0_int_pins_default>;
-+		interrupt-parent = <&main_gpio0>;
-+		interrupts = <21 IRQ_TYPE_LEVEL_LOW>;
-+		gpio-line-names = "CSI3_STROBE", "CSI3_TRIGGER",
-+				  "CSI3_SHUTTER", "CSI3_OE",
-+				  "CSI2_STROBE", "CSI2_TRIGGER",
-+				  "CSI2_SHUTTER", "CSI2_OE";
-+	};
-+
-+	gpio_exp1: gpio@21 {
-+		compatible = "nxp,pcf8574";
-+		reg = <0x21>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&gpio_exp1_int_pins_default>;
-+		interrupt-parent = <&main_gpio1>;
-+		interrupts = <49 IRQ_TYPE_LEVEL_LOW>;
-+		gpio-line-names = "GPIO0_HDMI_RST", "GPIO1_CAN_nEN",
-+				  "GPIO2_LED", "GPIO3_MCU_CAN0_nEN",
-+				  "GPIO4_BUT2", "GPIO5_MCU_CAN1_nEN",
-+				  "GPIO6_AUDIO_GPIO", "GPIO7_AUDIO_USER_RESET";
-+	};
-+
-+	gpio_exp2: gpio@23 {
-+		compatible = "nxp,pcf8574";
-+		reg = <0x23>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&gpio_exp2_int_pins_default>;
-+		interrupt-parent = <&main_gpio0>;
-+		interrupts = <20 IRQ_TYPE_LEVEL_LOW>;
-+		gpio-line-names = "CSI1_STROBE", "CSI1_TRIGGER",
-+				  "CSI1_SHUTTER", "CSI1_OE",
-+				  "CSI0_STROBE", "CSI0_TRIGGER",
-+				  "CSI0_SHUTTER", "CSI0_OE";
-+	};
-+
-+	current-sensor@40 {
-+		compatible = "ti,ina233";
-+		reg = <0x40>;
-+		shunt-resistor = <18000>;
-+	};
-+
-+	eeprom@51 {
-+		compatible = "atmel,24c02";
-+		reg = <0x51>;
-+		pagesize = <16>;
-+	};
-+};
-+
-+&main_mcan0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&main_mcan0_pins_default>;
-+	phys = <&can_tc0>;
-+	status = "okay";
-+};
-+
-+&main_uart0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&main_uart0_pins_default>;
-+	bootph-all;
-+	status = "okay";
-+};
-+
-+&mcasp0 {
-+	#sound-dai-cells = <0>;
-+	op-mode = <0>; /* MCASP_IIS_MODE */
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&main_mcasp0_pins_default>;
-+	tdm-slots = <2>;
-+	serial-dir = < /* 0: INACTIVE, 1: TX, 2: RX */
-+	       0 0 1 2
-+	       0 0 0 0
-+	       0 0 0 0
-+	       0 0 0 0
-+	>;
-+	status = "okay";
-+};
-+
-+&mcasp1 {
-+	#sound-dai-cells = <0>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&main_mcasp1_pins_default>;
-+	op-mode = <0>; /* MCASP_IIS_MODE */
-+	tdm-slots = <2>;
-+	serial-dir = < /* 0: INACTIVE, 1: TX, 2: RX */
-+	       1 0 2 0
-+	       0 0 0 0
-+	       0 0 0 0
-+	       0 0 0 0
-+	>;
-+	status = "okay";
-+};
-+
-+&pcie0_rc {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&main_pcie_pins_default>;
-+	num-lanes = <1>;
-+	phys = <&serdes1_pcie_link>;
-+	phy-names = "pcie-phy";
-+	reset-gpios = <&main_gpio0 31 GPIO_ACTIVE_HIGH>;
-+	status = "okay";
-+};
-+
-+&sdhci1 {
-+	/* SD/MMC */
-+	vmmc-supply = <&vcc_3v3_mmc>;
-+	vqmmc-supply = <&vddshv_sdio>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&main_mmc1_pins_default>;
-+	disable-wp;
-+	no-1-8-v;
-+	bootph-all;
-+	status = "okay";
-+};
-+
-+&serdes_ln_ctrl {
-+	idle-states = <J722S_SERDES0_LANE0_USB>,
-+		      <J722S_SERDES1_LANE0_PCIE0_LANE0>;
-+};
-+
-+&serdes0 {
-+	status = "okay";
-+
-+	serdes0_usb_link: phy@0 {
-+		reg = <0>;
-+		cdns,num-lanes = <1>;
-+		#phy-cells = <0>;
-+		cdns,phy-type = <PHY_TYPE_USB3>;
-+		resets = <&serdes_wiz0 1>;
-+	};
-+};
-+
-+&serdes_wiz0 {
-+	status = "okay";
-+};
-+
-+&serdes1 {
-+	status = "okay";
-+
-+	serdes1_pcie_link: phy@0 {
-+		reg = <0>;
-+		cdns,num-lanes = <1>;
-+		#phy-cells = <0>;
-+		cdns,phy-type = <PHY_TYPE_PCIE>;
-+		resets = <&serdes_wiz1 1>;
-+	};
-+};
-+
-+&serdes_wiz1 {
-+	clocks = <&k3_clks 280 0>, <&k3_clks 280 1>, <&pcie_refclk0>;
-+	status = "okay";
-+};
-+
-+&usbss0 {
-+	ti,vbus-divider;
-+	status = "okay";
-+};
-+
-+&usb0 {
-+	dr_mode = "otg";
-+	usb-role-switch;
-+	maximum-speed = "high-speed";
-+
-+	port {
-+		usb0_ep: endpoint {
-+			remote-endpoint = <&usb0_con>;
-+		};
-+	};
-+};
-+
-+&usbss1 {
-+	ti,vbus-divider;
-+	status = "okay";
-+};
-+
-+&usb1 {
-+	dr_mode = "host";
-+	phys = <&serdes0_usb_link>;
-+	phy-names = "cdns3,usb3-phy";
-+	maximum-speed = "super-speed";
-+};
--- 
-2.43.0
+Frank
 
+> +	if (err < 0)
+> +		goto err_disable_pm;
+>
+>  	err = clk_prepare_enable(hsdma->clk);
+>  	if (err)
+> -		return err;
+> +		goto err_put_pm;
+>
+>  	mtk_dma_write(hsdma, MTK_HSDMA_INT_ENABLE, 0);
+>  	mtk_dma_write(hsdma, MTK_HSDMA_GLO, MTK_HSDMA_GLO_DEFAULT);
+>
+>  	return 0;
+> +
+> +err_put_pm:
+> +	pm_runtime_put_sync(hsdma2dev(hsdma));
+> +err_disable_pm:
+> +	pm_runtime_disable(hsdma2dev(hsdma));
+> +
+> +	return err;
+>  }
+>
+>  static int mtk_hsdma_hw_deinit(struct mtk_hsdma_device *hsdma)
+> @@ -983,7 +992,9 @@ static int mtk_hsdma_probe(struct platform_device *pdev)
+>  		goto err_unregister;
+>  	}
+>
+> -	mtk_hsdma_hw_init(hsdma);
+> +	err = mtk_hsdma_hw_init(hsdma);
+> +	if (err)
+> +		goto err_free;
+>
+>  	err = devm_request_irq(&pdev->dev, hsdma->irq,
+>  			       mtk_hsdma_irq, 0,
+> @@ -991,7 +1002,7 @@ static int mtk_hsdma_probe(struct platform_device *pdev)
+>  	if (err) {
+>  		dev_err(&pdev->dev,
+>  			"request_irq failed with err %d\n", err);
+> -		goto err_free;
+> +		goto err_deinit;
+>  	}
+>
+>  	platform_set_drvdata(pdev, hsdma);
+> @@ -1000,8 +1011,9 @@ static int mtk_hsdma_probe(struct platform_device *pdev)
+>
+>  	return 0;
+>
+> -err_free:
+> +err_deinit:
+>  	mtk_hsdma_hw_deinit(hsdma);
+> +err_free:
+>  	of_dma_controller_free(pdev->dev.of_node);
+>  err_unregister:
+>  	dma_async_device_unregister(dd);
+> --
+> 2.47.1
 
