@@ -4,27 +4,27 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEEECCDB479
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 05:15:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A333CDB479
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 05:15:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=owpGvIDvafj4FmetzRwj1Of5zNW8jn13/R7Di810Ixk=; b=W/715XpjZMQvm9EIfeOe09TV3Q
-	z3ei3Oh3fxCdj/brLNinYhjwVco4+Jq1uD+T0aYqyhdCi14TucUvM1U9XdSGDvIopryfQD6AbPa7v
-	EqUo9T4FRTKT0Cyx7C9BbYGdW4GDuO4OafgOMfEOnIod5vgXuv2UF1vUcLHNHUNJYZEDAdC4zS0u5
-	sr22zw/rYzvA+TDZpDN0s2iU1jKP1RBLt9eYJtZuwBUzaO+hhdVKVweR0FE2EopwbBsqQhLO2v+Ek
-	Sh0/uxc/gSQrYOpGQ3q4jyRtYoOCoujs+8/5jRVcsNJacTlPosnChpSrvrGbrlmKL9M3Mdog68RmO
-	MBJA5imA==;
+	bh=xBI/2YDcHNtE+QcZY8pKqHohUJo6d3H7lbIGpWyQnYA=; b=nTWtFFw2x6GvaQwL4yMJ+suxBR
+	lYrsJCS/fsmJq2G/SJdZc2WX9n13SYsDIFNxijl04CQs4RebUgBzzvp9Dvb85/s2IpnAfT2LVQCqm
+	4wfri8/dcdU2E3Z8MDFp+CiFEgDp1duV6lDIxaOeZjqO3OoaDQCb+zFPYi0MA4T8I2uRU67LB3H6M
+	iGgUlqmSnak+tdP/Ipv3vDu1I/3Z32QmHgfBVOBT7g799idb/NA7tDUAgwE7V5smsXonHPe0mcse5
+	v5l6Kq40mtk5AIYsSm2ot2fNvICvAlkfEe3okvKtf4KhHhDVT/Nufff9w9TwUOU58DimesmKD+l80
+	h4rooy4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wccQc-00000008efA-2rDL;
+	id 1wccQc-00000008ef6-2Iec;
 	Thu, 25 Jun 2026 05:15:06 +0000
 Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wccQZ-00000008edf-2TEJ
+	id 1wccQZ-00000008ede-0e3d
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 25 Jun 2026 05:15:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -32,23 +32,23 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=owpGvIDvafj4FmetzRwj1Of5zNW8jn13/R7Di810Ixk=; b=g27bAOP0fwv8aaIalePav/W0LB
-	Z2K08vtfQ4clb0Qs3n96T1H832VwDyZoaYq2xvJcLoAtbYtHgpe3jig2JZSBllQyRoPOm4tkDFJXE
-	yc7j4acJjLAauRkEi7pv5+/nXabhdXFeKIx2al/PSC4Eh1GyMnSqIuXWhVVhyRXyDvSUMghLPxEXG
-	StkgtsrihJ0LfKYG4wGX/GBGODDpbZz6Dhgkn30a9RW5/bWGTaDLVRf8MZlLGpLkUyVTzHrrDKwVf
-	ySTylM67shMkhZVEc4snm7oHMzeSTIhrZBgYGBvMY9BYuqeuIpxzCpTpdh9ePQNDTZzq0hatLduOD
-	6b6zotOw==;
+	bh=xBI/2YDcHNtE+QcZY8pKqHohUJo6d3H7lbIGpWyQnYA=; b=TPykId9tmRhwUUOAMGOJ3Eg1Wn
+	IyvzitS/1DW24MYRHtuhCKnh9MgVv+wLrDnQId3e5HnTU4YkiFF9u7WjPBxKsROSL52oN6NZFAB0S
+	wOLjdW5SiO2Hcxz5AsoG+VdwIzbyE3Z+1qRkKBXIQcwmAqqoZk18BWU3a3H+YPQQIjUoVmPvT9LHX
+	BsJePCoFvpoE4b+NxAXiqqleVqwHCk4w7EVAiH6IhrTbPqTvyCQGjzlGCaSiahq/HQxvLnJWNeYWW
+	i6ycpuZqC/cSLcSIVPQWBmd7OVQQtMcZpWJoiPx2qIiOcrDKWBFOsdPuXRF18OVb1bXo7y6MrjpDX
+	DtGKYgrw==;
 Received: from sslproxy05.your-server.de ([78.46.172.2])
 	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.96.2)
 	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1wccQQ-0001pQ-0l;
-	Thu, 25 Jun 2026 07:14:54 +0200
+	id 1wccQP-0001e6-2Q;
+	Thu, 25 Jun 2026 07:14:53 +0200
 Received: from localhost ([127.0.0.1])
 	by sslproxy05.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1wccQQ-0002rW-1N;
+	id 1wccQP-0002rW-2w;
 	Thu, 25 Jun 2026 07:14:53 +0200
 From: Alexander Stein <alexander.stein@ew.tq-group.com>
 To: Rob Herring <robh@kernel.org>,
@@ -61,16 +61,17 @@ To: Rob Herring <robh@kernel.org>,
 	Geert Uytterhoeven <geert+renesas@glider.be>,
 	Magnus Damm <magnus.damm@gmail.com>,
 	Shawn Guo <shawnguo@kernel.org>
-Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
+Cc: Paul Gerber <paul.gerber@tq-group.com>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux@ew.tq-group.com,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH v6 4/4] arm64: dts: freescale: Add dual-channel LVDS overlay for TQMa8MPxS
-Date: Thu, 25 Jun 2026 07:14:47 +0200
-Message-ID: <20260625051449.2560197-4-alexander.stein@ew.tq-group.com>
+	linux-renesas-soc@vger.kernel.org,
+	Alexander Stein <alexander.stein@ew.tq-group.com>
+Subject: [PATCH v6 3/4] arm64: dts: freescale: add LVDS overlays for TQMa8MPxS
+Date: Thu, 25 Jun 2026 07:14:46 +0200
+Message-ID: <20260625051449.2560197-3-alexander.stein@ew.tq-group.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260625051449.2560197-1-alexander.stein@ew.tq-group.com>
 References: <20260625051449.2560197-1-alexander.stein@ew.tq-group.com>
@@ -78,8 +79,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Virus-Scanned: Clear (ClamAV 1.4.3/28041/Wed Jun 24 08:24:54 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_221503_626002_188E97DB 
-X-CRM114-Status: GOOD (  12.37  )
+X-CRM114-CacheID: sfid-20260624_221503_304390_05FC73B7 
+X-CRM114-Status: GOOD (  14.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,46 +95,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This adds an overlay for the supported LVDS display AUO G133HAN01.
-Configure the video PLL frequency to exactly match typical pixel clock of
-141.200 MHz.
+From: Paul Gerber <paul.gerber@tq-group.com>
 
+This adds overlays for the supported LVDS display tianma tm070jvhg33
+for both LVDS channels.
+
+The display timings have to be specified explicitly. Using the typical
+pixel clock, the LDB clock can not be configured as the 7-fold of that.
+By setting pixel clock to 74.25 MHz, LDB can be configured to exactly
+519.75 MHz.
+
+Signed-off-by: Paul Gerber <paul.gerber@tq-group.com>
 Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 ---
 Changes in v6:
 * None
 
- arch/arm64/boot/dts/freescale/Makefile        |  2 +
- ...p-tqma8mpqs-mb-smarc-2-lvds-g133han01.dtso | 81 +++++++++++++++++++
- 2 files changed, 83 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-tqma8mpqs-mb-smarc-2-lvds-g133han01.dtso
+ arch/arm64/boot/dts/freescale/Makefile        |  5 +++
+ ...qma8mpqs-mb-smarc-2-lvds0-tm070jvhg33.dtso | 43 +++++++++++++++++++
+ ...qma8mpqs-mb-smarc-2-lvds1-tm070jvhg33.dtso | 43 +++++++++++++++++++
+ 3 files changed, 91 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-tqma8mpqs-mb-smarc-2-lvds0-tm070jvhg33.dtso
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-tqma8mpqs-mb-smarc-2-lvds1-tm070jvhg33.dtso
 
 diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 2f4568e7105f4..0c390ef6f7571 100644
+index acb73cde76f16..2f4568e7105f4 100644
 --- a/arch/arm64/boot/dts/freescale/Makefile
 +++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -498,8 +498,10 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mp-ras314-imx219.dtbo
+@@ -498,6 +498,11 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mp-ras314-imx219.dtbo
  dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mp-ras314-lvds-tm070jvhg33.dtb
  dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mp-ras314-lvds-tm070jvhg33-imx219.dtb
  
-+imx8mp-tqma8mpqs-mb-smarc-2-lvds-g133han01-dtbs += imx8mp-tqma8mpqs-mb-smarc-2.dtb imx8mp-tqma8mpqs-mb-smarc-2-lvds-g133han01.dtbo
- imx8mp-tqma8mpqs-mb-smarc-2-lvds0-tm070jvhg33-dtbs += imx8mp-tqma8mpqs-mb-smarc-2.dtb imx8mp-tqma8mpqs-mb-smarc-2-lvds0-tm070jvhg33.dtbo
- imx8mp-tqma8mpqs-mb-smarc-2-lvds1-tm070jvhg33-dtbs += imx8mp-tqma8mpqs-mb-smarc-2.dtb imx8mp-tqma8mpqs-mb-smarc-2-lvds1-tm070jvhg33.dtbo
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpqs-mb-smarc-2-lvds-g133han01.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpqs-mb-smarc-2-lvds0-tm070jvhg33.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpqs-mb-smarc-2-lvds1-tm070jvhg33.dtb
- 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpqs-mb-smarc-2-lvds-g133han01.dtso b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpqs-mb-smarc-2-lvds-g133han01.dtso
++imx8mp-tqma8mpqs-mb-smarc-2-lvds0-tm070jvhg33-dtbs += imx8mp-tqma8mpqs-mb-smarc-2.dtb imx8mp-tqma8mpqs-mb-smarc-2-lvds0-tm070jvhg33.dtbo
++imx8mp-tqma8mpqs-mb-smarc-2-lvds1-tm070jvhg33-dtbs += imx8mp-tqma8mpqs-mb-smarc-2.dtb imx8mp-tqma8mpqs-mb-smarc-2-lvds1-tm070jvhg33.dtbo
++dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpqs-mb-smarc-2-lvds0-tm070jvhg33.dtb
++dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpqs-mb-smarc-2-lvds1-tm070jvhg33.dtb
++
+ dtb-$(CONFIG_ARCH_MXC) += imx8mq-evk.dtb
+ imx8mq-evk-pcie1-ep-dtbs += imx8mq-evk.dtb imx-pcie1-ep.dtbo
+ dtb-$(CONFIG_ARCH_MXC) += imx8mq-evk-pcie1-ep.dtb
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpqs-mb-smarc-2-lvds0-tm070jvhg33.dtso b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpqs-mb-smarc-2-lvds0-tm070jvhg33.dtso
 new file mode 100644
-index 0000000000000..2d2dfda944faa
+index 0000000000000..2cf1de8c05b49
 --- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpqs-mb-smarc-2-lvds-g133han01.dtso
-@@ -0,0 +1,81 @@
++++ b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpqs-mb-smarc-2-lvds0-tm070jvhg33.dtso
+@@ -0,0 +1,43 @@
 +// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
 +/*
 + * Copyright (c) 2025-2026 TQ-Systems GmbH <linux@ew.tq-group.com>,
 + * D-82229 Seefeld, Germany.
-+ * Author: Martin Schmiedel
++ * Author: Paul Gerber
 + */
 +
 +/dts-v1/;
@@ -143,31 +154,21 @@ index 0000000000000..2d2dfda944faa
 +	status = "okay";
 +};
 +
-+&panel_lvds0 {
-+	compatible = "auo,g133han01";
++&panel_lvds0{
++	compatible = "tianma,tm070jvhg33";
 +	status = "okay";
 +
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		port@0 {
-+			reg = <0>;
-+			dual-lvds-odd-pixels;
-+
-+			panel_in_lvds0: endpoint {
-+				remote-endpoint = <&ldb_lvds_ch0>;
-+			};
-+		};
-+
-+		port@1 {
-+			reg = <1>;
-+			dual-lvds-even-pixels;
-+
-+			panel_in_lvds1: endpoint {
-+				remote-endpoint = <&ldb_lvds_ch1>;
-+			};
-+		};
++	panel-timing {
++		clock-frequency = <74250000>;
++		hactive = <1280>;
++		vactive = <800>;
++		hfront-porch = <64>;
++		hback-porch = <5>;
++		hsync-len = <1>;
++		vfront-porch = <40>;
++		vback-porch = <2>;
++		vsync-len = <1>;
++		de-active = <1>;
 +	};
 +};
 +
@@ -177,37 +178,58 @@ index 0000000000000..2d2dfda944faa
 +
 +&lvds_bridge {
 +	status = "okay";
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		port@1 {
-+			reg = <1>;
-+
-+			ldb_lvds_ch0: endpoint {
-+				remote-endpoint = <&panel_in_lvds0>;
-+			};
-+		};
-+
-+		port@2 {
-+			reg = <2>;
-+
-+			ldb_lvds_ch1: endpoint {
-+				remote-endpoint = <&panel_in_lvds1>;
-+			};
-+		};
-+	};
-+};
-+
-+// Update VIDEO_PLL1 frequency
-+&media_blk_ctrl {
-+	assigned-clock-rates = <500000000>, <200000000>,
-+			       <0>, <0>, <500000000>,
-+			       <988400000>;
 +};
 +
 +&pwm3 {
++	status = "okay";
++};
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpqs-mb-smarc-2-lvds1-tm070jvhg33.dtso b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpqs-mb-smarc-2-lvds1-tm070jvhg33.dtso
+new file mode 100644
+index 0000000000000..cbad0cfab2925
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpqs-mb-smarc-2-lvds1-tm070jvhg33.dtso
+@@ -0,0 +1,43 @@
++// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
++/*
++ * Copyright (c) 2025-2026 TQ-Systems GmbH <linux@ew.tq-group.com>,
++ * D-82229 Seefeld, Germany.
++ * Author: Paul Gerber
++ */
++
++/dts-v1/;
++/plugin/;
++
++&backlight_lvds1 {
++	status = "okay";
++};
++
++&panel_lvds1{
++	compatible = "tianma,tm070jvhg33";
++	status = "okay";
++
++	panel-timing {
++		clock-frequency = <74250000>;
++		hactive = <1280>;
++		vactive = <800>;
++		hfront-porch = <64>;
++		hback-porch = <5>;
++		hsync-len = <1>;
++		vfront-porch = <40>;
++		vback-porch = <2>;
++		vsync-len = <1>;
++		de-active = <1>;
++	};
++};
++
++&lcdif2 {
++	status = "okay";
++};
++
++&lvds_bridge {
++	status = "okay";
++};
++
++&pwm2 {
 +	status = "okay";
 +};
 -- 
