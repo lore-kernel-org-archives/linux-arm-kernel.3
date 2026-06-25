@@ -4,101 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A490CDB47C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 01:32:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAF55CDB47C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 01:43:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6pJmX0R8PC4ckpLbRYtZu8jM9oRzly5QdgHVSm/L6aA=; b=Qj3sJT8Q7pLJxhWmd4gCh0B3fv
-	Ew8eZd3q/FX6/wsWZV3TPp0IpACjgSZfnwRykSUWBEiO8uAjsse3JIp87Dc7u7M7K13xBcaSYp79B
-	3TxmjkIJUtrYS3Wzkf89on4H2vx4y9Ml7v5Sw1QLrdTp4tuco/mpjc5vE4+rlOuPNC0h3UnPvQYwt
-	nyjnudqLscgkeGGYHZLNhYwbESWrX52P7SsBMinztFO1P5b3tqWET69IbMTkkBDNNgFIjvp0NEcHv
-	+BRkoNg+quHweSWxm8KYWprTi1gNuDAXscM73dOBOyEiZ+ian+rm1XtllT6ULGckVoZqksbRnCmg6
-	IYDZG1fA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=++vfa1m2CCWUGOrm6a6F1tn4rrnISyc/JsmLk5fdvN8=; b=lJRgCE1+Y4t7J8Tr5lPVQNifYk
+	GgueUesELFrY5Sb8FBylmjtFGhbudcD4ywxJUSG9XiggpLWc8rDeqH+XaEnSExkdr6OKqS1ka7MC7
+	O+cnOyEyQ1psekN52FKsKZtRXbiUzJ/6VQ00oLWCoXw6YOMRZTqfgu8QJC9P3sq2u16PFOw4XLDMy
+	naVsrnvzH8SVgfMbe41LP6Ne9ABN82JS8YoPYoFBLc7AZFWj7hfeCO491aggf1Q3Qx3ETtyEUEEN0
+	cwAE1pffGJlziqjdWUucxkTLJq32vQ0uEE+WBwmnAw/uGFPn4Lqyta6aVpp8JHjcGomawS58Cwf3X
+	eTWJ06Ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcYxP-00000008VsB-3nD8;
-	Thu, 25 Jun 2026 01:32:43 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1wcZ85-00000008XCN-2Xhw;
+	Thu, 25 Jun 2026 01:43:45 +0000
+Received: from mail-koreacentralazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c40f::5] helo=SEVP216CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcYxN-00000008Vrk-0fPO
+	id 1wcZ81-00000008XBX-4BIa
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Jun 2026 01:32:42 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-49222b6e871so10472135e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Jun 2026 18:32:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1782351156; x=1782955956; darn=lists.infradead.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6pJmX0R8PC4ckpLbRYtZu8jM9oRzly5QdgHVSm/L6aA=;
-        b=u65ceTPC5fOohSS7AJHIxCs+OmZgNp7dtLkB8bdgv0gJ1HQ1bfikh7XCeDek4zlLqb
-         jGhPZnXMOEsQk1f/J/yJBJF3Xf96biyB8fpN1g4kIQ8fkq5SHf6JNDJS/A/Ht3a0Yb8u
-         evHxuCawsffphp1MX+ZrrWXL+AUL84BK4i+VF1mUXS2SDpoVcpas1xyr1LCXBqYOFx+I
-         FDkIWc5iPFo/EepnM6S0QM88kxfxBUwvELiHXQa3STK3UwIcW9KXHQWf1UJ4f/hlgTu5
-         TWx3Be6g3oFJM6uCEJgGsUQsGPonSUn2lGGAkakMddqvdjB2HAAZ41VXFpr0ule0rgcn
-         kSDw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782351156; x=1782955956;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=6pJmX0R8PC4ckpLbRYtZu8jM9oRzly5QdgHVSm/L6aA=;
-        b=K28E5rQISsw5nAaWXXfEmQ0UBuXFglym/UXWsPypmU/vitPZ+5sX6NoItnlGuORGf4
-         S9sQmPlPmht80jyjEnW464xjE94WJC03Zw02ZFMZ0sKF4T13uCcWSE77c4sjvwkBEPNk
-         9qwLAoyyyWWQaEjJd5HdkZY0664clw4eEV9iJtTNnK7FpH/p0lVsceHkwF/llrUVp9Sb
-         CKyPOd5bBdTaUDvYp5p7rw/MV25RLAQChnDRMOQ8WRwaACR37N/dpL7SWtR8RDg4ICUt
-         6MbKMiVQ3XSCjt6Kdj8NCsidgENLJaolwdzXZ+d43dBGNvBquMGmgysXRAedPB5gGqh2
-         7oIQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/Ja3CWU+IkgYM8Wn+5DH3RKqFGkyBEuWEWokeikO2WCfgMqVl2XXjfS3b+JqLBzYSv87GbkVOQKPNCm2Lx1KXZ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz3/qA6WtealNZpSQ6XDF5ZOVJFCAEYFCiHEFCbNcTBK4e+Lde1
-	83SvCDXq7eIGP324aqIyWePuZKOB5kNyJyizXc7hHi+vYKMTvrel5m7DcdamkUH4+EI=
-X-Gm-Gg: AfdE7cmTXur1EBsAb0AA6NwOhzS9mpCnbLyjoEwbOqf8OqRmJbQRFStZcb1STpZUt8V
-	YdaTxlh/kd/eGAmrscG5pLQh8vbi8aOmOx8RQTUbW7gLhDjwD/WgPZayHBfI+igxFA17TLBrjCA
-	YGfPH1YXQpyqY0ybbm0XUL2w4Lm8DQr3FKABCKoO94xMfw9ufd8/HEZvsriLYbANgaBwiO/q7s0
-	yyPchbgmnwwsvVdj654DV0bNnS8Nrrt0gm9IDw2bakUQhlF9VkJ4l9U3gG1EII6zJJP20G1su0u
-	hdSw53lPkaE+b7Rk+4PyVgJ/oxs1/AW91qQa/11ZeXib2BfDqbP0TbNjUwiU46iol+WmSpKtPgH
-	gERIrYdF1YvmBxv6mXgWh0JsvwfoBvItmg4+m3NkpH4fI82fqIlvMy/snG2Jw96KfUMtM8CVcxD
-	SBxxM88aeUQdzlSSmLEy/QhPrw3idqwmAe9L9LQK6xWJDulMv1Tn5wsFse9go9gFG132HlQg6kN
-	Q==
-X-Received: by 2002:a05:600c:3e8c:b0:492:4a70:fa9b with SMTP id 5b1f17b1804b1-492668985cfmr2555955e9.24.1782351155868;
-        Wed, 24 Jun 2026 18:32:35 -0700 (PDT)
-Received: from localhost ([2.122.8.179])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-492660adae1sm15090735e9.4.2026.06.24.18.32.34
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 24 Jun 2026 18:32:35 -0700 (PDT)
-Mime-Version: 1.0
+	Thu, 25 Jun 2026 01:43:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=hKAjpvEiglohjWLMljAPEdSwF2yILHkxVTsrpnAVhGURbb7oL7ybQbHvxSYjZXlLs4KljO1KLPn3RaLopKIdkNFU11hT76sif6vM9MQZ3pgTAEN0c17fhsoGB4AOz50kWoSHVLELmKV7Uu7N5Q16vmmpDnhF0Q7coYz7LgPvp4uvZWIbGfbjdYkzn5VO4cRSYWh//yJjwDczbbYhK8hZbMULEmsQ6Stx1HuwWuIVbj0igtpfi4/hPQ3DG91kdA/cVUhC/4exZvBcBLfcIAx0HlqgFepKYy5WFZGSUI4g7t7ov5azikJMNrmxuJr/sGLdGMBf4u3rAjIBXxBaHKMdqw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=++vfa1m2CCWUGOrm6a6F1tn4rrnISyc/JsmLk5fdvN8=;
+ b=pHZe00KkyuVl79JyH4RDpRpyQxlbe4Cn1SCKClU0NdPhcd6wfDVhC0cwuFZZUj+olPS7H18Cp/+Gc1Wx10fZcUz15FBf2iX8RLLAD2uONiSAeDrFQ2TfnCIyIX9dpZaucGz/HImFGgxmljx39N1AIsL2TylvTI7VMXRw33/YqHV9nRL3z6X6AZLZOta6jtIh6snjM1GDwvvlCcgQxB9fiSHRR6pwHcevtx3DiUoyp8iZpt2tl0MjGZuG78uj/GwEcoCWQHp9eyPcmCw774V2MMv1ykSmwdoSzzG4qlQnwUe19fHAGE3MsjhUZzipgI9LkVpd9+UP+apglUDXKNsJIA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=chipsnmedia.com; dmarc=pass action=none
+ header.from=chipsnmedia.com; dkim=pass header.d=chipsnmedia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chipsnmedia.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=++vfa1m2CCWUGOrm6a6F1tn4rrnISyc/JsmLk5fdvN8=;
+ b=aUUjzkesRgjfaF5sd6RZuQFvgWC+AUqtyj647hlzDMr2L4+HGoD0IZQ9cgcvylczBspuOCEBKCpt58KdId5GW1Uoctjt0r5xVLkidAFKQJ5/18eoUcZtp43D98Bv5ofYfA8Ut+aKUT29ypM9NKZ2Unn78mqA1z+rGYnsrTzDRWI=
+Received: from SL2P216MB2441.KORP216.PROD.OUTLOOK.COM (2603:1096:101:1b9::8)
+ by SE2P216MB890387.KORP216.PROD.OUTLOOK.COM (2603:1096:101:30a::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.16; Thu, 25 Jun
+ 2026 01:43:34 +0000
+Received: from SL2P216MB2441.KORP216.PROD.OUTLOOK.COM
+ ([fe80::f234:3bc6:9197:8232]) by SL2P216MB2441.KORP216.PROD.OUTLOOK.COM
+ ([fe80::f234:3bc6:9197:8232%6]) with mapi id 15.21.0159.015; Thu, 25 Jun 2026
+ 01:43:34 +0000
+From: Nas Chung <nas.chung@chipsnmedia.com>
+To: Conor Dooley <conor@kernel.org>
+CC: "mchehab@kernel.org" <mchehab@kernel.org>, "hverkuil@xs4all.nl"
+	<hverkuil@xs4all.nl>, "robh@kernel.org" <robh@kernel.org>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org"
+	<conor+dt@kernel.org>, "shawnguo@kernel.org" <shawnguo@kernel.org>,
+	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+	"linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-imx@nxp.com" <linux-imx@nxp.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, jackson.lee
+	<jackson.lee@chipsnmedia.com>, lafley.kim <lafley.kim@chipsnmedia.com>,
+	"marek.vasut@mailbox.org" <marek.vasut@mailbox.org>
+Subject: RE: [PATCH v6 2/9] dt-bindings: media: nxp: Add Wave6 video codec
+ device
+Thread-Topic: [PATCH v6 2/9] dt-bindings: media: nxp: Add Wave6 video codec
+ device
+Thread-Index: AQHdA6oA4dFGLrgtZ0GgpOtEiXsOgLZN6VwAgACMHsA=
+Date: Thu, 25 Jun 2026 01:43:33 +0000
+Message-ID: <SL2P216MB2441BB9DC91CCBE494F2B45BFBEC2@SL2P216MB2441.KORP216.PROD.OUTLOOK.COM>
+References: <20260624072043.238-1-nas.chung@chipsnmedia.com>
+ <20260624072043.238-3-nas.chung@chipsnmedia.com>
+ <20260624-junkyard-sensuous-fcd43189b593@spud>
+In-Reply-To: <20260624-junkyard-sensuous-fcd43189b593@spud>
+Accept-Language: en-US, ko-KR
+Content-Language: ko-KR
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=chipsnmedia.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SL2P216MB2441:EE_|SE2P216MB890387:EE_
+x-ms-office365-filtering-correlation-id: 37fba83e-655c-4de1-601b-08ded25b2b11
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|23010399003|1800799024|366016|376014|7416014|4143699003|38070700021|56012099006|6133799003|18002099003|22082099003|3023799007;
+x-microsoft-antispam-message-info: NKQElDii+5fkvdNXET6Ul/Dr2RfS0qkrKIffQ7zJGKYZWF8QZ0Tty0Oz6E+4qiSqL7mhDwQSg2tiiGBE1kS9BMq5pdmdufyLHJ0v0vSDYVo49PYzClpYbY9ZwkEKLBAFtZni+8UmR8Z2sST6DvbGv3J7eBp1FH2XB+iKYFuLbivxyHQKxEAaYF2sFmaw0N2+FMl3918OuSAIVgfkV3v2xEh3LTcWiJ2b5riGheKboenW88ZqZyrfcSvAb3F0Dw3uuvrnV0GNUWJtXbG5XFhWCBzPe0N3muwKdTdiJnO112H0TGRisYwe8WUtWuupzGqwv9Ug+WspYOwAwgCd+GCIK6mDOvGzpy8HbPIOthgzLNt0Mmq5im5V0mdlvw1ZuptqosOkz7fG9DvMXaNcrzXLgCX8+gjq48AfOCFf/1/7eUhCFhx5+S+Xv7xcmLsMFuGHrBjy6ua3ULb5CSrrkbmHa554812mYTbLEYkzkgcKLqYNZfe31LdphOB7OfNwu4tiLurkU07bzeBNNzHhtqUzHRQnlBhN8yY53F5LFw0uhfbqyXnkrfReAYHWgZaB1hkjHWhKZvVbqvXky5fikq4CVS05VI7XL0dnvWv1X6QS26NixW4tud7JJ3WBLxrrcYDthv+gdWVbgDhdI4d5I+SWbWGi4ARn6Sp1zAeLQ1eePPQ=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SL2P216MB2441.KORP216.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(366016)(376014)(7416014)(4143699003)(38070700021)(56012099006)(6133799003)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?ujeVo3umjiN7mfkK52BYiuxrPBrFTYxisJU19T/6vIBBIUgeGcZw2CxeniX/?=
+ =?us-ascii?Q?MTkP6I5HOUuf4eloJX7vzXMY2Slko5TWe57kDopT9WKKow2f1IwL1CdRLkmy?=
+ =?us-ascii?Q?0pe49oLviTE8UXRJyOyaUS0HDlzRdiDv7D2HcKu4OyFKAtqODyg3V5J4mSzO?=
+ =?us-ascii?Q?N0D5V09dboJSoQZ1Ecl4GYGUCFFakXtWuj0yTe/FEUFARwYswNikp/b3MITt?=
+ =?us-ascii?Q?HyiVJbtLdSNMSjD+rEH0KBVYTAB0zk49SRcYsoj8uTy0KUUQqWxQEjIemKdk?=
+ =?us-ascii?Q?PT1ybknjG5AjAvp/+8mBNSIgeniOfMBgUNAMHVQCQREIHoL12pINiw5ZqiiP?=
+ =?us-ascii?Q?eDxCfeoJbksv/SkSUU7use9QgGjQyOQUezMOu53lxLWtq9Q3vv+FrHf4KyVA?=
+ =?us-ascii?Q?I+0M0gHEAgBWLFXSRDOi261thYZDo/gqtijanjHLFjtgx07DqITHkYa7E7gP?=
+ =?us-ascii?Q?xiQFqf0lhBy2w1V7FLaCJtIG07zVUpnkOiCF7jhR8esRFI8n2nAbSv3X3NrS?=
+ =?us-ascii?Q?FFIMdk5YD8zt61ip8RF58trUjqoPrkVI+hxJ8ldU+n1QN1PHKnCuPNp2dBxX?=
+ =?us-ascii?Q?a9aZ2k/7bz/BQlXN3qKoJdyEB9GlXLa/M4KsqpvC1SsBtLOLwuR7Vjwb5NsJ?=
+ =?us-ascii?Q?Tt+nunjrkS2SK231ylqddfr1v2DPoL8ExmA/csHyU6bvidK6DcSj8h0v3h5J?=
+ =?us-ascii?Q?b6JSgbYcpFpOO/vydlWbm2D6snlWh1Jq+/6j2yK6U2OLEFs6DMs/84pbCcTT?=
+ =?us-ascii?Q?mK/PVJsHB0Ob2mhe/7lWevNpyYkNsqVARaJbL5JjHrh8WGD/e+lyo7j2mI8L?=
+ =?us-ascii?Q?lSdCK1vScU6ndlxw7pgB3dr0vbp3A7u/G82myxAneNVD5zwFq7OJdIXW2q+P?=
+ =?us-ascii?Q?wb2oojEsv3TIjFUfNwGlCRwVDIVkEzYWx3wOL/DIXDZp+nUe2L9bs8PIsDVh?=
+ =?us-ascii?Q?7WYxNsZ0hjW2B/W4Y9BrzPZ3VK70fM8XgGACj+WR7DgSkZTBFesb5/zvmbRW?=
+ =?us-ascii?Q?GEpqBDuEL/pHLzG7NRRpovHo9frx/amwN8w0lAtLmqQgwmCQ8Pwu7WK5yPXW?=
+ =?us-ascii?Q?TkTQwYae8yKW6/Kwz0FlvaY7d+msvPNKaXKDlCBbMFvX2Bl4yr2HsmnTa00o?=
+ =?us-ascii?Q?lYrRA5N8KEuDbgF6V1fAZh2r9aKmztrw9y+F1B6A2RTPP97v2tx8575lO5Uh?=
+ =?us-ascii?Q?rRRp8R/D7sH8NdBGKxHD/odR8NXJLUEH6AdkKH6RJNyKSnicy2OZopoWJxVL?=
+ =?us-ascii?Q?b+n+5kHG/Dfq7nYHikMw/YwfPawZRgy10rMOtiCjIeG7ljTU+cwON4u/yXQk?=
+ =?us-ascii?Q?0PuC76pxKY9Ozv9nMVG6LBjUvA65SV2W/3Xm7fPFBeFjN7rBgTxrY8JhyItv?=
+ =?us-ascii?Q?7mS0jXW9dRD0cY4dGBwL8V34kf/5B0mGs45RghOiEEM+YxqS7jnN7sVcIxfl?=
+ =?us-ascii?Q?w5WKkVKmTB6JxH91CrNarQsRVHpWbQeVznR7qXXsSGlEYeMllCQ1QRgfrIyk?=
+ =?us-ascii?Q?JkkVctOOC1BlZa4PPjzcr7kuHeJCyO+6lB/oEjT2GWoVL49K9zdPO+BHpyz+?=
+ =?us-ascii?Q?W5ZjLC03g3gcDV9vLKjPsYmiPWiFym4wGs0LWAOou+eK9Y36MpRsWLtQZP56?=
+ =?us-ascii?Q?O5ELLEdK1jPrcdEu2FBdkj0ZuRDPjVqrsJTzse9dgYDHAHJVzEY22ikXbp9q?=
+ =?us-ascii?Q?txAU0vGxhh6OSSka5Fv+ZHX0A6LPZKv6+FvbolZ8jRoaWf3aFqnZc/TG4IzT?=
+ =?us-ascii?Q?zOhz48q53g=3D=3D?=
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 25 Jun 2026 02:32:34 +0100
-Message-Id: <DJHQR4IAYPDF.2BOI33M1O4CMO@linaro.org>
-Cc: <jyescas@google.com>, <linux-kernel@vger.kernel.org>,
- <linux-samsung-soc@vger.kernel.org>, <linux-pm@vger.kernel.org>,
- <devicetree@vger.kernel.org>, <linux-hardening@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, "Krzysztof Kozlowski"
- <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH v8 2/5] thermal: samsung: Add Exynos ACPM TMU driver
- GS101
-From: "Alexey Klimov" <alexey.klimov@linaro.org>
-To: "Tudor Ambarus" <tudor.ambarus@linaro.org>, "Rafael J. Wysocki"
- <rafael@kernel.org>, "Daniel Lezcano" <daniel.lezcano@kernel.org>, "Zhang
- Rui" <rui.zhang@intel.com>, "Lukasz Luba" <lukasz.luba@arm.com>, "Rob
- Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>, "Bartlomiej Zolnierkiewicz"
- <bzolnier@gmail.com>, "Krzysztof Kozlowski" <krzk@kernel.org>, "Kees Cook"
- <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>, "Peter
- Griffin" <peter.griffin@linaro.org>, =?utf-8?q?Andr=C3=A9_Draszik?=
- <andre.draszik@linaro.org>, "Alim Akhtar" <alim.akhtar@samsung.com>
-X-Mailer: aerc 0.21.0
-References: <20260603-acpm-tmu-v8-0-0f1810a356e6@linaro.org>
- <20260603-acpm-tmu-v8-2-0f1810a356e6@linaro.org>
-In-Reply-To: <20260603-acpm-tmu-v8-2-0f1810a356e6@linaro.org>
+MIME-Version: 1.0
+X-OriginatorOrg: chipsnmedia.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SL2P216MB2441.KORP216.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: 37fba83e-655c-4de1-601b-08ded25b2b11
+X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Jun 2026 01:43:33.9556
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 4d70c8e9-142b-4389-b7f2-fa8a3c68c467
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: NlGqkFGeuK2Tp9/PJZwnOQtBDtMdYQE79fZr+S10l1qmPTJWSt6XNK8p3QXJHyCoXDPeOMeI5QE17yTEGQQWCgiXwQoxnH/TaKrYmAWKR00=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SE2P216MB890387
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_183241_236250_FB415EF0 
-X-CRM114-Status: GOOD (  11.74  )
+X-CRM114-CacheID: sfid-20260624_184342_490799_EB5A6D5E 
+X-CRM114-Status: GOOD (  19.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,41 +153,273 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed Jun 3, 2026 at 2:00 PM BST, Tudor Ambarus wrote:
-> Add driver for the Thermal Management Unit (TMU) managed via the Alive
-> Clock and Power Manager (ACPM), found on Samsung Exynos SoCs such as
-> the Google GS101.
+Hi, Conor.
+
+>-----Original Message-----
+>From: Conor Dooley <conor@kernel.org>
+>Sent: Thursday, June 25, 2026 1:42 AM
+>To: Nas Chung <nas.chung@chipsnmedia.com>
+>Cc: mchehab@kernel.org; hverkuil@xs4all.nl; robh@kernel.org;
+>krzk+dt@kernel.org; conor+dt@kernel.org; shawnguo@kernel.org;
+>s.hauer@pengutronix.de; linux-media@vger.kernel.org;
+>devicetree@vger.kernel.org; linux-kernel@vger.kernel.org; linux-imx@nxp.co=
+m;
+>linux-arm-kernel@lists.infradead.org; jackson.lee
+><jackson.lee@chipsnmedia.com>; lafley.kim <lafley.kim@chipsnmedia.com>;
+>marek.vasut@mailbox.org
+>Subject: Re: [PATCH v6 2/9] dt-bindings: media: nxp: Add Wave6 video codec
+>device
 >
-> The TMU on the GS101 utilizes a hybrid management model shared between
-> the Application Processor (AP) and the ACPM firmware. The driver
-> maintains direct memory-mapped access to the TMU interrupt pending
-> registers to identify thermal events, while delegating functional
-> tasks - such as sensor initialization, threshold configuration, and
-> temperature acquisition, to the ACPM firmware via the ACPM IPC
-> protocol.
+>On Wed, Jun 24, 2026 at 04:20:36PM +0900, Nas Chung wrote:
+>> Add documentation for the Chips&Media Wave6 video codec on NXP i.MX SoCs=
+.
+>>
+>> The hardware contains one control register region and four interface
+>> register regions for a shared video processing engine. The control regio=
+n
+>> manages shared resources such as firmware memory, while each interface
+>> region has its own MMIO range and interrupt.
+>>
+>> The control region and each interface region are distinct DMA requesters
+>> and can be associated with separate IOMMU stream IDs. Represent the
+>> control region as the parent node and the interface register regions as
+>> child nodes to describe these resources.
+>>
+>> Signed-off-by: Nas Chung <nas.chung@chipsnmedia.com>
+>> ---
+>>  .../bindings/media/nxp,imx95-vpu.yaml         | 163 ++++++++++++++++++
+>>  MAINTAINERS                                   |   7 +
+>>  2 files changed, 170 insertions(+)
+>>  create mode 100644 Documentation/devicetree/bindings/media/nxp,imx95-
+>vpu.yaml
+>>
+>> diff --git a/Documentation/devicetree/bindings/media/nxp,imx95-vpu.yaml
+>b/Documentation/devicetree/bindings/media/nxp,imx95-vpu.yaml
+>> new file mode 100644
+>> index 000000000000..9a5ca53e15a3
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/media/nxp,imx95-vpu.yaml
+>> @@ -0,0 +1,163 @@
+>> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/media/nxp,imx95-vpu.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: Chips&Media Wave6 Series multi-standard codec IP on NXP i.MX SoC=
+s
+>> +
+>> +maintainers:
+>> +  - Nas Chung <nas.chung@chipsnmedia.com>
+>> +  - Jackson Lee <jackson.lee@chipsnmedia.com>
+>> +
+>> +description:
+>> +  The Chips&Media Wave6 codec IP is a multi-standard video
+>encoder/decoder.
+>> +  On NXP i.MX SoCs, the Wave6 codec IP exposes one control register
+>region and
+>> +  four interface register regions for a shared video processing engine.
+>> +  The parent node describes the control region, which has its own MMIO
+>range and
+>> +  manages shared resources such as firmware memory. The child nodes
+>describe the
+>> +  interface register regions. Each interface region has its own MMIO
+>range and
+>> +  interrupt.
+>> +  The control region and the interface regions are distinct DMA
+>requesters.
+>> +  The control region and each interface region can be associated with
+>separate
+>> +  IOMMU stream IDs, allowing DMA isolation between them.
+>> +
+>> +properties:
+>> +  compatible:
+>> +    enum:
+>> +      - nxp,imx95-vpu
+>> +
+>> +  reg:
+>> +    maxItems: 1
+>> +
+>> +  clocks:
+>> +    items:
+>> +      - description: VPU core clock
+>> +      - description: VPU associated block clock
+>> +
+>> +  clock-names:
+>> +    items:
+>> +      - const: core
+>> +      - const: vpublk
+>> +
+>> +  power-domains:
+>> +    items:
+>> +      - description: Main VPU power domain
+>> +      - description: Performance power domain
+>> +
+>> +  power-domain-names:
+>> +    items:
+>> +      - const: vpu
+>> +      - const: perf
+>> +
+>> +  memory-region:
+>> +    maxItems: 1
+>> +
+>> +  sram:
+>> +    $ref: /schemas/types.yaml#/definitions/phandle
+>> +    description:
+>> +      phandle to the SRAM node used to store reference data, reducing D=
+MA
+>> +      memory bandwidth.
+>> +
+>> +  iommus:
+>> +    maxItems: 1
+>> +
+>> +  "#cooling-cells":
+>> +    const: 2
+>> +
+>> +  "#address-cells":
+>> +    const: 2
+>> +
+>> +  "#size-cells":
+>> +    const: 2
+>> +
+>> +  ranges: true
+>> +
+>> +patternProperties:
+>> +  "^interface@[0-9a-f]+$":
+>
+>I have to wonder if this interface business is required at all.
+>Why can this not go into the parent, with each region fetchable via
+>reg-names, interrupt-names and iommu-names?
 
-[..]
+Thanks for your feedback.
 
-> +++ b/drivers/thermal/samsung/acpm-tmu.c
+I did try the flat model, but the blocker is the IOMMU.
 
-[...]
+The control region and four interface regions are independent DMA requester=
+s
+with distinct stream IDs, and each interface can be assigned to a different=
+ VM,
+driving the video core with its own isolated memory.
 
-> +static struct platform_driver acpm_tmu_driver =3D {
-> +	.driver =3D {
-> +		.name   =3D "gs-tmu",
+If all stream IDs are listed under the parent's iommus, they bind to a
+single device and share one domain, so the isolation is lost.
+This is the main reason I added the interface nodes.
 
-Should it be "gs-tmu" still?
-https://lore.kernel.org/linux-samsung-soc/56c1bb6d-54e4-4977-bd88-9ce7a6086=
-b1d@linaro.org/
+Thanks.
+Nas.
 
-> +		.pm     =3D pm_ptr(&acpm_tmu_pm_ops),
-> +		.of_match_table =3D acpm_tmu_match,
-> +	},
-> +	.probe =3D acpm_tmu_probe,
-> +	.remove =3D acpm_tmu_remove,
-> +};
-> +module_platform_driver(acpm_tmu_driver);
-
-Thanks,
-Alexey
+>
+>Cheers,
+>Conor.
+>
+>> +    type: object
+>> +    description:
+>> +      An interface register region within the Chips&Media Wave6 codec I=
+P.
+>> +      Each region has its own MMIO range and interrupt and can be
+>associated
+>> +      with a separate IOMMU stream ID for DMA isolation.
+>> +    additionalProperties: false
+>> +
+>> +    properties:
+>> +      reg:
+>> +        maxItems: 1
+>> +
+>> +      interrupts:
+>> +        maxItems: 1
+>> +
+>> +      iommus:
+>> +        maxItems: 1
+>> +
+>> +    required:
+>> +      - reg
+>> +      - interrupts
+>> +
+>> +required:
+>> +  - compatible
+>> +  - reg
+>> +  - clocks
+>> +  - clock-names
+>> +  - power-domains
+>> +  - power-domain-names
+>> +  - memory-region
+>> +  - "#address-cells"
+>> +  - "#size-cells"
+>> +  - ranges
+>> +
+>> +additionalProperties: false
+>> +
+>> +examples:
+>> +  - |
+>> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+>> +    #include <dt-bindings/clock/nxp,imx95-clock.h>
+>> +
+>> +    soc {
+>> +      #address-cells =3D <2>;
+>> +      #size-cells =3D <2>;
+>> +
+>> +      video-codec@4c4c0000 {
+>> +        compatible =3D "nxp,imx95-vpu";
+>> +        reg =3D <0x0 0x4c4c0000 0x0 0x10000>;
+>> +        clocks =3D <&scmi_clk 115>,
+>> +                 <&vpu_blk_ctrl IMX95_CLK_VPUBLK_WAVE>;
+>> +        clock-names =3D "core", "vpublk";
+>> +        power-domains =3D <&scmi_devpd 21>,
+>> +                        <&scmi_perf 10>;
+>> +        power-domain-names =3D "vpu", "perf";
+>> +        memory-region =3D <&vpu_boot>;
+>> +        sram =3D <&sram1>;
+>> +        iommus =3D <&smmu 0x32>;
+>> +        #cooling-cells =3D <2>;
+>> +        #address-cells =3D <2>;
+>> +        #size-cells =3D <2>;
+>> +        ranges;
+>> +
+>> +        interface@4c480000 {
+>> +          reg =3D <0x0 0x4c480000 0x0 0x10000>;
+>> +          interrupts =3D <GIC_SPI 299 IRQ_TYPE_LEVEL_HIGH>;
+>> +          iommus =3D <&smmu 0x33>;
+>> +        };
+>> +
+>> +        interface@4c490000 {
+>> +          reg =3D <0x0 0x4c490000 0x0 0x10000>;
+>> +          interrupts =3D <GIC_SPI 300 IRQ_TYPE_LEVEL_HIGH>;
+>> +          iommus =3D <&smmu 0x34>;
+>> +        };
+>> +
+>> +        interface@4c4a0000 {
+>> +          reg =3D <0x0 0x4c4a0000 0x0 0x10000>;
+>> +          interrupts =3D <GIC_SPI 301 IRQ_TYPE_LEVEL_HIGH>;
+>> +          iommus =3D <&smmu 0x35>;
+>> +        };
+>> +
+>> +        interface@4c4b0000 {
+>> +          reg =3D <0x0 0x4c4b0000 0x0 0x10000>;
+>> +          interrupts =3D <GIC_SPI 302 IRQ_TYPE_LEVEL_HIGH>;
+>> +          iommus =3D <&smmu 0x36>;
+>> +        };
+>> +      };
+>> +    };
+>> diff --git a/MAINTAINERS b/MAINTAINERS
+>> index efbf808063e5..77ea3a1a966b 100644
+>> --- a/MAINTAINERS
+>> +++ b/MAINTAINERS
+>> @@ -28688,6 +28688,13 @@ S:	Maintained
+>>  F:	Documentation/devicetree/bindings/media/cnm,wave521c.yaml
+>>  F:	drivers/media/platform/chips-media/wave5/
+>>
+>> +WAVE6 VPU CODEC DRIVER
+>> +M:	Nas Chung <nas.chung@chipsnmedia.com>
+>> +M:	Jackson Lee <jackson.lee@chipsnmedia.com>
+>> +L:	linux-media@vger.kernel.org
+>> +S:	Maintained
+>> +F:	Documentation/devicetree/bindings/media/nxp,imx95-vpu.yaml
+>> +
+>>  WHISKEYCOVE PMIC GPIO DRIVER
+>>  M:	Kuppuswamy Sathyanarayanan
+><sathyanarayanan.kuppuswamy@linux.intel.com>
+>>  L:	linux-gpio@vger.kernel.org
+>> --
+>> 2.31.1
+>>
 
