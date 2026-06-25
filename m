@@ -4,66 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 382F5CDE00B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 14:48:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6292CDE00B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 14:53:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=734qaU1tQelPPkEQYjTXfKoHnBuUcIAlHaI48ASBazw=; b=r3ogHuRdE8mKy1dUX8flXnxlSh
-	uMGKZicy8ax4EA08XiN9ZRjnZaQaq3zc3351oVsXn5c6M9EMQ5V/RtPx+DbS+w6ckOvhB1AulmrYC
-	KPO6YWaHXnpZAoDm8yVWLPezabbtd+NrSygqg3TetPD6kUzYS13zdF4dyxU3Of1VVDCVO170PlXQV
-	AKgfvKGVaf8XmFzsePJHrZsQLFi35vcjtv0ophT5knekFoIK650R//3WrujcF2MLmXtJ96TxgwAWt
-	db7bVJxt4O7hE9Wfy2fepCyB74yQHI4VyFI6YOa5lvgFdeN+UMv7+jOlhzrp16/Geeqqa1NzKmXTH
-	UgFdfl5A==;
+	bh=MbrQiqoxsl8WhIHD+LeV4P6XnZdN+WMJ7f67o9JPdMA=; b=tfGlUYCA5n7udtEcz+ZsSSFVLk
+	7ookwsM0ef2tbWoZQDIxpdE+bWS//IfNmFIs4pbA542QVeeWGGmNnhBduksLTLkvLLDj9/X+LTqtU
+	BK/B76i+rAa05sq/BQ90TTLKtgAM6VTnNeiuEUGllRSWbQclFQssdjdrxbYIzM7JmeMl/Tz2pT6Ha
+	qAOswhUA5VJX4FXKdDSklYMAsXwQ8affG6KdJYQHcmp/sikJsIHKnrC0DLv03JBteTR+cC0USSQTc
+	F1sgMEmRL7fZeQEutRxvPYfCr+4EcH4n/IvbnWClRSQJ3VtfIpsM6tSH+IyK+kLViJL7qWxOKFgzL
+	Qsc7Dx7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wclNQ-00000009M3D-3oH3;
-	Thu, 25 Jun 2026 14:48:24 +0000
-Received: from out-176.mta1.migadu.com ([95.215.58.176])
+	id 1wclSG-00000009MRK-2NiJ;
+	Thu, 25 Jun 2026 14:53:24 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wclNN-00000009M1Y-0L1B
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Jun 2026 14:48:22 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1782398898;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=734qaU1tQelPPkEQYjTXfKoHnBuUcIAlHaI48ASBazw=;
-	b=dlaPYe1FdAaYc4wBXwtTQkFrP0HCeWAENGQDLbVugIASPMUiGKwttzM6cBF/7IiQfcXuVj
-	Qb4sQAy76Du/hSX6/s/n7BqKFQFOf2AREOxInWCnftv7SOlMXBUL2d55q1WmRQZMup7aUr
-	x0ZOX+JJkSvIZKICHTprpkmjQiJTHq4=
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Shuah Khan <shuah@kernel.org>,
-	Christoffer Dall <christoffer.dall@linaro.org>,
-	Victor Kamensky <victor.kamensky@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 2/2] KVM: arm64: selftests: Add MMIO sign-extending load test
-Date: Thu, 25 Jun 2026 15:48:07 +0100
-Message-Id: <20260625144807.2603272-3-fuad.tabba@linux.dev>
-In-Reply-To: <20260625144807.2603272-1-fuad.tabba@linux.dev>
-References: <20260625144807.2603272-1-fuad.tabba@linux.dev>
+	id 1wclSD-00000009MQn-2hEL;
+	Thu, 25 Jun 2026 14:53:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1782399188; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=WmuNy7DOl2kIWdkDhViAxrZRU/cJ7wBTa322xVY1CK8Pk3C40ur0DO9M6N4ZjPGTD0+iQnhwR1PF0Sa2vTRB0xrIj55SAKZqTGBx8xI7ysmrTmnOHij9ya09zNNzEp5LnNgvW0kM0TMbwuEnuhH4YN2erVpMp8qtXF2WWAZxThM=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1782399188; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=MbrQiqoxsl8WhIHD+LeV4P6XnZdN+WMJ7f67o9JPdMA=; 
+	b=I/XIghwJuqB8wvNCKRiqFyu79Tew0PoHDAeKlWpsQdVhRMxVWQm+EHNGmpJBqgSmTjDvRAqCZN6VKLq8jCZt90rNTzuuUztzXkct5Y/2Hfa0+MJYdgoyQbUfE7azsJwct6qmi09oUOmMz/Nza1VAmbl2tjnMN2waUEQxJIvQod8=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=detlev.casanova@collabora.com;
+	dmarc=pass header.from=<detlev.casanova@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1782399188;
+	s=zohomail; d=collabora.com; i=detlev.casanova@collabora.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=MbrQiqoxsl8WhIHD+LeV4P6XnZdN+WMJ7f67o9JPdMA=;
+	b=hOXJDn/A/Xkc15506+TTFkdBmzhPbTOkiy6iKSZfl5moM/WdDs70DEqW+K7O8dUg
+	Wzl2YLMDRZLJCM+DFIP3NFf9sPkek9llYc00LGEQYt8GBJFCa7PYEFk9KJzq1H+dyTQ
+	X9qn3rVNHHZG/3FVJ25yQOb6dx3d2bGWOOfZijx0=
+Received: by mx.zohomail.com with SMTPS id 1782399185495703.3163955828122;
+	Thu, 25 Jun 2026 07:53:05 -0700 (PDT)
+Message-ID: <4787dfe9-edec-4983-9ecb-6ac60502afd7@collabora.com>
+Date: Thu, 25 Jun 2026 10:53:03 -0400
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/5] media: v4l2-core: Add v4l2-stats interface
+To: Hans Verkuil <hverkuil+cisco@kernel.org>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+ Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+ Heiko Stuebner <heiko@sntech.de>
+Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, kernel@collabora.com,
+ linux-arm-kernel@lists.infradead.org
+References: <20260617-v4l2-add-fdinfo-v2-0-d298e98ce06a@collabora.com>
+ <20260617-v4l2-add-fdinfo-v2-3-d298e98ce06a@collabora.com>
+ <0d2576f8-7773-419e-be0f-0bb37a776bc0@kernel.org>
+Content-Language: en-US
+From: Detlev Casanova <detlev.casanova@collabora.com>
+In-Reply-To: <0d2576f8-7773-419e-be0f-0bb37a776bc0@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260625_074821_289044_1C801553 
-X-CRM114-Status: GOOD (  22.52  )
+X-CRM114-CacheID: sfid-20260625_075321_819574_C99479F2 
+X-CRM114-Status: GOOD (  27.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,300 +87,262 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a test for sign-extending MMIO loads (LDRSB, LDRSH, LDRSW) into Xt
-and Wt destinations, with and without the sign bit set. The host supplies
-the MMIO data and checks the guest register holds the sign-extended value.
+Hi Hans,
 
-Repeat the loads big-endian on a mixed-endian implementation. Issue those
-at EL0: SCTLR_EL1.EE would make an EL1 load big-endian but also walk the
-little-endian page tables big-endian, whereas SCTLR_EL1.E0E selects only
-EL0 data endianness and leaves the walk little-endian.
+On 6/19/26 09:05, Hans Verkuil wrote:
+> On 17/06/2026 20:10, Detlev Casanova wrote:
+>> Provide helpers for media drivers to set fdinfo data and print the
+>> key:value pairs in a standard way.
+>>
+>> User drivers can set stats values with helpers like:
+>>   - v4l2_stats_update_hw_usage
+>>   - v4l2_stats_set_media_dev_type
+>>
+>> And also call the show helpers from their show_fdinfo callback with:
+>>   - v4l2_stats_show -- Shows the values set previously
+>>   - v4l2_stats_show_clock -- Shows the main clock state.
+>>
+>> The show_clock helper is used instead of updating a clock value in
+>> v4l2_stats for the following reasons:
+>>   - Clocks are at the device level, this is not a per-fd information
+>>   - This avoids having clock references in v4l2-core
+>>   - Drivers can use different approaches to manage clocks
+>>     (e.g.: bulk_data or not: A set helper wouldn't please all drivers)
+>>   - Arguably, clocks could be exposed elsewhere (like a debugfs), but we
+>>     want something close to what DRM does and centralizing information has
+>>     its advantages for userspace tooling.
+>>
+>> In DRM the key:value pair format for clocks is documented and each driver
+>> can write them directly based on that.
+>> In this case, provide a helper and document the format.
+>>
+>> Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
+>> ---
+>>   drivers/media/v4l2-core/Makefile     |  2 +-
+>>   drivers/media/v4l2-core/v4l2-dev.c   |  2 ++
+>>   drivers/media/v4l2-core/v4l2-fh.c    |  3 ++
+>>   drivers/media/v4l2-core/v4l2-stats.c | 65 ++++++++++++++++++++++++++++++++++++
+>>   include/media/v4l2-fh.h              |  2 ++
+>>   include/media/v4l2-stats.h           | 44 ++++++++++++++++++++++++
+>>   6 files changed, 117 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/media/v4l2-core/Makefile b/drivers/media/v4l2-core/Makefile
+>> index 329f0eadce99..20e1ab74ac09 100644
+>> --- a/drivers/media/v4l2-core/Makefile
+>> +++ b/drivers/media/v4l2-core/Makefile
+>> @@ -9,7 +9,7 @@ ccflags-y += -I$(srctree)/drivers/media/tuners
+>>   tuner-objs	:=	tuner-core.o
+>>   
+>>   videodev-objs	:=	v4l2-dev.o v4l2-ioctl.o v4l2-device.o v4l2-fh.o \
+>> -			v4l2-event.o v4l2-subdev.o v4l2-common.o \
+>> +			v4l2-event.o v4l2-subdev.o v4l2-common.o v4l2-stats.o \
+>>   			v4l2-ctrls-core.o v4l2-ctrls-api.o \
+>>   			v4l2-ctrls-request.o v4l2-ctrls-defs.o
+>>   
+>> diff --git a/drivers/media/v4l2-core/v4l2-dev.c b/drivers/media/v4l2-core/v4l2-dev.c
+>> index 3878fa2ff73e..3e7a6876dffd 100644
+>> --- a/drivers/media/v4l2-core/v4l2-dev.c
+>> +++ b/drivers/media/v4l2-core/v4l2-dev.c
+>> @@ -486,6 +486,8 @@ static void v4l2_show_fdinfo(struct seq_file *m, struct file *filp)
+>>   {
+>>   	struct video_device *vdev = video_devdata(filp);
+>>   
+>> +	seq_printf(m, "media-driver:\t%s\n", vdev->v4l2_dev->name);
+>> +
+>>   	if (vdev->fops->show_fdinfo)
+>>   		vdev->fops->show_fdinfo(m, filp);
+>>   }
+>> diff --git a/drivers/media/v4l2-core/v4l2-fh.c b/drivers/media/v4l2-core/v4l2-fh.c
+>> index b184bed8aca9..1b655672c718 100644
+>> --- a/drivers/media/v4l2-core/v4l2-fh.c
+>> +++ b/drivers/media/v4l2-core/v4l2-fh.c
+>> @@ -17,6 +17,7 @@
+>>   #include <media/v4l2-event.h>
+>>   #include <media/v4l2-ioctl.h>
+>>   #include <media/v4l2-mc.h>
+>> +#include <media/v4l2-stats.h>
+>>   
+>>   void v4l2_fh_init(struct v4l2_fh *fh, struct video_device *vdev)
+>>   {
+>> @@ -38,6 +39,7 @@ void v4l2_fh_init(struct v4l2_fh *fh, struct video_device *vdev)
+>>   	INIT_LIST_HEAD(&fh->subscribed);
+>>   	fh->sequence = -1;
+>>   	mutex_init(&fh->subscribe_lock);
+>> +	v4l2_stats_init(&fh->stats);
+>>   }
+>>   EXPORT_SYMBOL_GPL(v4l2_fh_init);
+>>   
+>> @@ -88,6 +90,7 @@ void v4l2_fh_exit(struct v4l2_fh *fh)
+>>   	v4l2_event_unsubscribe_all(fh);
+>>   	mutex_destroy(&fh->subscribe_lock);
+>>   	fh->vdev = NULL;
+>> +	v4l2_stats_exit(&fh->stats);
+>>   }
+>>   EXPORT_SYMBOL_GPL(v4l2_fh_exit);
+>>   
+>> diff --git a/drivers/media/v4l2-core/v4l2-stats.c b/drivers/media/v4l2-core/v4l2-stats.c
+>> new file mode 100644
+>> index 000000000000..93e64ef2e7bb
+>> --- /dev/null
+>> +++ b/drivers/media/v4l2-core/v4l2-stats.c
+>> @@ -0,0 +1,65 @@
+>> +// SPDX-License-Identifier: GPL-2.0-only
+>> +/*
+>> + * v4l2-stats.c
+>> + *
+>> + * V4L2 statistics management.
+>> + *
+>> + * Maintain a per-file handle list of statistics about the hardware and handle
+>> + * exposing it in the fdinfo.
+>> + *
+>> + * Copyright (C) 2026 Collabora.
+>> + *
+>> + * Contact: Detlev Casanova <detlev.casanova@collabora.com>
+>> + */
+>> +
+>> +#include <linux/types.h>
+>> +#include <linux/seq_file.h>
+>> +#include <linux/clk.h>
+>> +#include <media/v4l2-stats.h>
+>> +
+>> +static const char * const dev_type_name[] = {
+>> +	[MEDIA_DEV_TYPE_V4L2] = "media",
+>> +	[MEDIA_DEV_TYPE_V4L2_STATELESS_ENCODER] = "encoder",
+>> +	[MEDIA_DEV_TYPE_V4L2_STATELESS_DECODER] = "decoder",
+>> +};
+>> +
+>> +void v4l2_stats_init(struct v4l2_stats *stats)
+>> +{
+>> +	stats->hw_usage_time = 0;
+>> +	stats->media_dev_type = MEDIA_DEV_TYPE_V4L2;
+>> +}
+>> +
+>> +void v4l2_stats_exit(struct v4l2_stats *stats)
+>> +{
+>> +}
+>> +
+>> +void v4l2_stats_update_hw_usage(struct v4l2_stats *stats, u64 usage_time)
+>> +{
+>> +	stats->hw_usage_time += usage_time;
+>> +}
+>> +EXPORT_SYMBOL_GPL(v4l2_stats_update_hw_usage);
+>> +
+>> +void v4l2_stats_set_media_dev_type(struct v4l2_stats *stats, enum v4l2_media_dev_type type)
+>> +{
+>> +	if (type >= MEDIA_DEV_TYPE_COUNT)
+>> +		return;
+>> +
+>> +	stats->media_dev_type = type;
+>> +}
+>> +EXPORT_SYMBOL_GPL(v4l2_stats_set_media_dev_type);
+>> +
+>> +void v4l2_stats_show(struct v4l2_stats *stats, struct seq_file *m)
+>> +{
+>> +	seq_printf(m, "media-type:\t%s\n", dev_type_name[stats->media_dev_type]);
+>> +	seq_printf(m, "media-engine-usage:\t%llu ns\n", stats->hw_usage_time);
+>> +}
+>> +EXPORT_SYMBOL_GPL(v4l2_stats_show);
+>> +
+>> +void v4l2_stats_show_clock(struct seq_file *m, struct clk *clk)
+>> +{
+>> +	seq_printf(m, "media-maxfreq:\t%lu Hz\n",
+>> +		   clk_get_rate(clk));
+>> +	seq_printf(m, "media-curfreq:\t%lu Hz\n",
+>> +		   clk_get_rate(clk));
+>> +}
+>> +EXPORT_SYMBOL_GPL(v4l2_stats_show_clock);
+>> diff --git a/include/media/v4l2-fh.h b/include/media/v4l2-fh.h
+>> index aad4b3689d7e..ae6688722bee 100644
+>> --- a/include/media/v4l2-fh.h
+>> +++ b/include/media/v4l2-fh.h
+>> @@ -17,6 +17,7 @@
+>>   #include <linux/kconfig.h>
+>>   #include <linux/list.h>
+>>   #include <linux/videodev2.h>
+>> +#include <media/v4l2-stats.h>
+>>   
+>>   struct video_device;
+>>   struct v4l2_ctrl_handler;
+>> @@ -43,6 +44,7 @@ struct v4l2_fh {
+>>   	struct list_head	list;
+>>   	struct video_device	*vdev;
+>>   	struct v4l2_ctrl_handler *ctrl_handler;
+>> +	struct v4l2_stats	stats;
+>>   	enum v4l2_priority	prio;
+>>   
+>>   	/* Events */
+>> diff --git a/include/media/v4l2-stats.h b/include/media/v4l2-stats.h
+>> new file mode 100644
+>> index 000000000000..d580933c4181
+>> --- /dev/null
+>> +++ b/include/media/v4l2-stats.h
+>> @@ -0,0 +1,44 @@
+>> +/* SPDX-License-Identifier: GPL-2.0-only */
+>> +/*
+>> + * v4l2-stats.h
+>> + *
+>> + * V4L2 statistics management.
+>> + *
+>> + * Maintain a per-file handle list of statistics about the hardware and handle
+>> + * exposing it in the fdinfo.
+>> + *
+>> + * Copyright (C) 2026 Collabora.
+>> + *
+>> + * Contact: Detlev Casanova <detlev.casanova@collabora.com>
+>> + */
+>> +#ifndef V4L2_STATS_H
+>> +#define V4L2_STATS_H
+>> +
+>> +#include <linux/types.h>
+>> +
+>> +struct clk;
+>> +struct seq_file;
+>> +
+>> +enum v4l2_media_dev_type {
+>> +	MEDIA_DEV_TYPE_V4L2 = 0,
+>> +	MEDIA_DEV_TYPE_V4L2_STATELESS_ENCODER,
+>> +	MEDIA_DEV_TYPE_V4L2_STATELESS_DECODER,
+>> +
+>> +	MEDIA_DEV_TYPE_COUNT,
+> I'm a bit unhappy about introducing yet another type. Do we need it?
+I didn't want it either, but this will extend to other kind of drivers 
+and I couldn't find a type enum to rule them all.
+Maybe just using Device Capabilities Flags ?
 
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
----
- tools/testing/selftests/kvm/Makefile.kvm      |   1 +
- .../selftests/kvm/arm64/mmio_sign_ext.c       | 259 ++++++++++++++++++
- 2 files changed, 260 insertions(+)
- create mode 100644 tools/testing/selftests/kvm/arm64/mmio_sign_ext.c
+It still won't differentiate encoder from decoder.
+I wouldn't super mad if we loose that information (userspace can simply 
+see it as a capture device) but it'd still be nice to have it.
+>
+>> +};
+>> +
+>> +struct v4l2_stats {
+> Poor name, and it conflicts with ISP statistics.
+>
+> How about v4l2_pdinfo? And v4l2-fdinfo.h etc. That avoids any confusion and
+> also clearly says what this is about.
+As mentioned in the other patch, "v4l2_metrics" is more accurate.
 
-diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
-index 9118a5a51b89f..0f5803a1092e1 100644
---- a/tools/testing/selftests/kvm/Makefile.kvm
-+++ b/tools/testing/selftests/kvm/Makefile.kvm
-@@ -171,6 +171,7 @@ TEST_GEN_PROGS_arm64 += arm64/hello_el2
- TEST_GEN_PROGS_arm64 += arm64/host_sve
- TEST_GEN_PROGS_arm64 += arm64/hypercalls
- TEST_GEN_PROGS_arm64 += arm64/external_aborts
-+TEST_GEN_PROGS_arm64 += arm64/mmio_sign_ext
- TEST_GEN_PROGS_arm64 += arm64/page_fault_test
- TEST_GEN_PROGS_arm64 += arm64/psci_test
- TEST_GEN_PROGS_arm64 += arm64/sea_to_user
-diff --git a/tools/testing/selftests/kvm/arm64/mmio_sign_ext.c b/tools/testing/selftests/kvm/arm64/mmio_sign_ext.c
-new file mode 100644
-index 0000000000000..06708ab6db8c0
---- /dev/null
-+++ b/tools/testing/selftests/kvm/arm64/mmio_sign_ext.c
-@@ -0,0 +1,259 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * mmio_sign_ext - Test sign-extending MMIO load emulation (LDRSB/LDRSH/LDRSW)
-+ *
-+ * Copyright (c) 2026 Google LLC
-+ */
-+
-+#include <asm/ptrace.h>
-+
-+#include "processor.h"
-+#include "test_util.h"
-+
-+#define MMIO_ADDR	0x8000000ULL
-+
-+/* AP[1]: allow unprivileged (EL0) access to a mapping. */
-+#define PTE_USER	BIT(6)
-+
-+/* SPSR for ERET to EL0t with DAIF masked. */
-+#define SPSR_EL0	(PSR_MODE_EL0t | PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT)
-+
-+struct mmio_test {
-+	const char *name;
-+	uint64_t data;		/* access-width value, host byte order */
-+	uint8_t len;
-+	uint64_t expected;	/* sign-extended result; same for LE and BE */
-+};
-+
-+/* Paired 1:1, in order, with the loads in guest_loads_le() and el0_be_loads. */
-+static const struct mmio_test tests[] = {
-+	/* LDRSB Xt: byte sign-extended to 64 bits */
-+	{ "LDRSB Xt 0xFF",	0xFF,		1, 0xFFFFFFFFFFFFFFFFULL },
-+	{ "LDRSB Xt 0x7F",	0x7F,		1, 0x7FULL },
-+
-+	/* LDRSB Wt: byte sign-extended to 32 bits, upper 32 bits zeroed */
-+	{ "LDRSB Wt 0xFF",	0xFF,		1, 0xFFFFFFFFULL },
-+	{ "LDRSB Wt 0x7F",	0x7F,		1, 0x7FULL },
-+
-+	/* LDRSH Xt: halfword sign-extended to 64 bits */
-+	{ "LDRSH Xt 0x8001",	0x8001,		2, 0xFFFFFFFFFFFF8001ULL },
-+	{ "LDRSH Xt 0x7FFF",	0x7FFF,		2, 0x7FFFULL },
-+
-+	/* LDRSH Wt: halfword sign-extended to 32 bits, upper 32 bits zeroed */
-+	{ "LDRSH Wt 0x8001",	0x8001,		2, 0xFFFF8001ULL },
-+	{ "LDRSH Wt 0x7FFF",	0x7FFF,		2, 0x7FFFULL },
-+
-+	/* LDRSW Xt: word sign-extended to 64 bits (no Wt form) */
-+	{ "LDRSW Xt 0x80000001", 0x80000001,	4, 0xFFFFFFFF80000001ULL },
-+	{ "LDRSW Xt 0x7FFFFFFF", 0x7FFFFFFF,	4, 0x7FFFFFFFULL },
-+};
-+
-+/* Issue one sign-extending load from MMIO and report the result. */
-+#define GUEST_LDRS(load) do {						\
-+	uint64_t val;							\
-+									\
-+	asm volatile(load : "=r"(val) : "r"(MMIO_ADDR) : "memory");	\
-+	GUEST_SYNC(val);						\
-+} while (0)
-+
-+/* Little-endian pass: loads issued at EL1. */
-+static void guest_loads_le(void)
-+{
-+	GUEST_LDRS("ldrsb %0, [%1]");
-+	GUEST_LDRS("ldrsb %0, [%1]");
-+	GUEST_LDRS("ldrsb %w0, [%1]");
-+	GUEST_LDRS("ldrsb %w0, [%1]");
-+	GUEST_LDRS("ldrsh %0, [%1]");
-+	GUEST_LDRS("ldrsh %0, [%1]");
-+	GUEST_LDRS("ldrsh %w0, [%1]");
-+	GUEST_LDRS("ldrsh %w0, [%1]");
-+	GUEST_LDRS("ldrsw %0, [%1]");
-+	GUEST_LDRS("ldrsw %0, [%1]");
-+}
-+
-+/*
-+ * Run the big-endian loads at EL0, where SCTLR_EL1.E0E flips only the data
-+ * endianness; at EL1, SCTLR_EL1.EE would also flip the page-table walk and
-+ * fault on the little-endian tables. x0 holds MMIO_ADDR; results return in
-+ * x19..x28 (tests[] order) via a single SVC.
-+ */
-+extern char el0_be_loads[], el0_be_loads_end[];
-+asm(
-+"	.pushsection .text, \"ax\"\n"
-+"	.global el0_be_loads\n"
-+"el0_be_loads:\n"
-+"	ldrsb	x19, [x0]\n"
-+"	ldrsb	x20, [x0]\n"
-+"	ldrsb	w21, [x0]\n"
-+"	ldrsb	w22, [x0]\n"
-+"	ldrsh	x23, [x0]\n"
-+"	ldrsh	x24, [x0]\n"
-+"	ldrsh	w25, [x0]\n"
-+"	ldrsh	w26, [x0]\n"
-+"	ldrsw	x27, [x0]\n"
-+"	ldrsw	x28, [x0]\n"
-+"	svc	#0\n"
-+"	.global el0_be_loads_end\n"
-+"el0_be_loads_end:\n"
-+"	.popsection\n"
-+);
-+
-+/* EL1 handler for the EL0 SVC: report the results, then finish. */
-+static void el0_svc_handler(struct ex_regs *regs)
-+{
-+	int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(tests); i++)
-+		GUEST_SYNC(regs->regs[19 + i]);
-+
-+	GUEST_DONE();
-+}
-+
-+static bool guest_mixed_endian_el0(void)
-+{
-+	uint64_t mmfr0 = read_sysreg(id_aa64mmfr0_el1);
-+
-+	return SYS_FIELD_GET(ID_AA64MMFR0_EL1, BIGEND, mmfr0) ||
-+	       SYS_FIELD_GET(ID_AA64MMFR0_EL1, BIGENDEL0, mmfr0);
-+}
-+
-+static void guest_code(void)
-+{
-+	guest_loads_le();
-+
-+	if (guest_mixed_endian_el0()) {
-+		write_sysreg(read_sysreg(sctlr_el1) | SCTLR_EL1_E0E, sctlr_el1);
-+		isb();
-+
-+		asm volatile(
-+		"	msr	elr_el1, %[pc]\n"
-+		"	msr	spsr_el1, %[spsr]\n"
-+		"	mov	x0, %[mmio]\n"
-+		"	isb\n"
-+		"	eret\n"
-+		:
-+		: [pc] "r"(el0_be_loads),
-+		  [spsr] "r"((uint64_t)SPSR_EL0),
-+		  [mmio] "r"(MMIO_ADDR)
-+		: "x0", "memory");
-+		__builtin_unreachable();	/* el0_svc_handler ends the test */
-+	}
-+
-+	GUEST_DONE();
-+}
-+
-+static void handle_mmio(struct kvm_run *run, const struct mmio_test *t, bool be)
-+{
-+	int i;
-+
-+	TEST_ASSERT_EQ(run->mmio.phys_addr, MMIO_ADDR);
-+	TEST_ASSERT(!run->mmio.is_write, "Expected MMIO read for %s", t->name);
-+	TEST_ASSERT_EQ(run->mmio.len, t->len);
-+
-+	memset(run->mmio.data, 0, sizeof(run->mmio.data));
-+	if (be) {
-+		/* The guest reads the device bytes most-significant first. */
-+		for (i = 0; i < t->len; i++)
-+			run->mmio.data[i] = t->data >> (8 * (t->len - 1 - i));
-+	} else {
-+		/* Works because arm64 KVM hosts are always little-endian. */
-+		memcpy(run->mmio.data, &t->data, t->len);
-+	}
-+}
-+
-+static void expect_sync(struct kvm_vcpu *vcpu, struct ucall *uc,
-+			const struct mmio_test *t)
-+{
-+	switch (get_ucall(vcpu, uc)) {
-+	case UCALL_SYNC:
-+		TEST_ASSERT(uc->args[1] == t->expected,
-+			    "%s: got %#lx, want %#lx", t->name,
-+			    (unsigned long)uc->args[1], (unsigned long)t->expected);
-+		break;
-+	case UCALL_ABORT:
-+		REPORT_GUEST_ASSERT(*uc);
-+		break;
-+	default:
-+		TEST_FAIL("Unexpected ucall for %s", t->name);
-+	}
-+}
-+
-+/* OR PTE_USER into the leaf descriptors covering [gva, gva + len). */
-+static void make_el0_accessible(struct kvm_vm *vm, uint64_t gva, uint64_t len)
-+{
-+	uint64_t addr;
-+
-+	for (addr = gva & ~((uint64_t)vm->page_size - 1); addr < gva + len;
-+	     addr += vm->page_size)
-+		*virt_get_pte_hva(vm, addr) |= PTE_USER;
-+}
-+
-+static bool vcpu_mixed_endian_el0(struct kvm_vcpu *vcpu)
-+{
-+	uint64_t mmfr0 = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_ID_AA64MMFR0_EL1));
-+
-+	return SYS_FIELD_GET(ID_AA64MMFR0_EL1, BIGEND, mmfr0) ||
-+	       SYS_FIELD_GET(ID_AA64MMFR0_EL1, BIGENDEL0, mmfr0);
-+}
-+
-+int main(void)
-+{
-+	struct kvm_vcpu *vcpu;
-+	struct kvm_vm *vm;
-+	struct ucall uc;
-+	unsigned int i;
-+	bool be;
-+
-+	vm = vm_create_with_one_vcpu(&vcpu, guest_code);
-+	virt_map(vm, MMIO_ADDR, MMIO_ADDR, 1);
-+
-+	vm_init_descriptor_tables(vm);
-+	vcpu_init_descriptor_tables(vcpu);
-+	vm_install_sync_handler(vm, VECTOR_SYNC_LOWER_64, ESR_ELx_EC_SVC64,
-+				el0_svc_handler);
-+
-+	be = vcpu_mixed_endian_el0(vcpu);
-+	if (be) {
-+		make_el0_accessible(vm, MMIO_ADDR, vm->page_size);
-+		make_el0_accessible(vm, (uint64_t)el0_be_loads,
-+				    el0_be_loads_end - el0_be_loads);
-+	}
-+
-+	ksft_print_header();
-+	ksft_set_plan(ARRAY_SIZE(tests) * (be ? 2 : 1));
-+
-+	/* Little-endian pass: one load and one result per iteration. */
-+	for (i = 0; i < ARRAY_SIZE(tests); i++) {
-+		const struct mmio_test *t = &tests[i];
-+
-+		vcpu_run(vcpu);
-+		TEST_ASSERT_KVM_EXIT_REASON(vcpu, KVM_EXIT_MMIO);
-+		handle_mmio(vcpu->run, t, false);
-+
-+		vcpu_run(vcpu);
-+		expect_sync(vcpu, &uc, t);
-+
-+		ksft_test_result_pass("%s\n", t->name);
-+	}
-+
-+	if (be) {
-+		/* The EL0 stub issues all the loads, then reports the results. */
-+		for (i = 0; i < ARRAY_SIZE(tests); i++) {
-+			vcpu_run(vcpu);
-+			TEST_ASSERT_KVM_EXIT_REASON(vcpu, KVM_EXIT_MMIO);
-+			handle_mmio(vcpu->run, &tests[i], true);
-+		}
-+		for (i = 0; i < ARRAY_SIZE(tests); i++) {
-+			vcpu_run(vcpu);
-+			expect_sync(vcpu, &uc, &tests[i]);
-+			ksft_test_result_pass("BE %s\n", tests[i].name);
-+		}
-+	}
-+
-+	vcpu_run(vcpu);
-+	TEST_ASSERT(get_ucall(vcpu, &uc) == UCALL_DONE, "Expected UCALL_DONE");
-+
-+	kvm_vm_free(vm);
-+
-+	ksft_finished();
-+}
--- 
-2.39.5
+Detlev.
+>
+>> +	u64 hw_usage_time;
+>> +	enum v4l2_media_dev_type media_dev_type;
+> This should be the first field.
+>
+>> +};
+>> +
+>> +void v4l2_stats_init(struct v4l2_stats *stats);
+>> +void v4l2_stats_exit(struct v4l2_stats *stats);
+>> +
+>> +void v4l2_stats_update_hw_usage(struct v4l2_stats *stats, u64 usage_time);
+>> +void v4l2_stats_set_media_dev_type(struct v4l2_stats *stats, enum v4l2_media_dev_type type);
+>> +
+>> +void v4l2_stats_show(struct v4l2_stats *stats, struct seq_file *m);
+>> +void v4l2_stats_show_clock(struct seq_file *m, struct clk *clk);
+>> +
+>> +#endif /* V4L2_STATS_H */
+>>
+> Regards,
+>
+> 	Hans
 
 
