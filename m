@@ -4,62 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DA1DCDB466
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 09:43:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10524CDB47F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 09:45:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=kfIRsSw5cLdsaIa2/VNlwqA6JtFDV9at3sJRCJsJesA=; b=Kr8C3XOe6Dlr+FpgodBUSKO0oM
-	v62CRgHEAd+eapjY/uHDts/A5u0c6NZi6zTnR0SBZ++fz+icbAH8VE7+R68bl/xLu+Y2b40sfBUt2
-	E5RlQkk6kDezPKzpgdPKrLnAnWaE5ffnKHbuQDgaxiUQ2P2VUwadIrvzo0B1m5sx6GezdxWAB2W5L
-	/BFbZuBTIworQEc/oDefxsDOQhnPI0xa+OtMKXRp8wSjZOitMZuc55ScJy5LFKayHRIYnrVrHxovK
-	7ThkHhvNa1Yn/oQbzNq1BH/X5PlBUGkWx0kAmchKzFVbiWo7UGiq3YqvvOzDiFXMgkBq4+6XTESzU
-	cAt/zDPQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Q7LZb4Oyp6MyCiFD5fuuqoWQdDcqkeN2EAojsuCFuQk=; b=mRKMm/VUlEZ1V+KeOMa/5RPwte
+	iG+Q7pMe3jBlgL+mcxnrFTzpi1ttto/CNyw7bcihmaOInZE07NzQA+B9xI9oNUbwldWjWHcibCLOi
+	tZLQxNXWODjPil0AsoybE5NUj1AGR9eSr87bV52hIQT4rFNEQiP4lvezsefr2ryG2Sr6xZ6+Qssss
+	VKfDyPuXnKbZLiTrEOrm7O1qjmN69YcqkKuX9jwAQlmHTgzoE9KLaYEqs0cnuc5TyeaJk+O1Mvbao
+	hsI6UHzvaCzC5ahyB3DamjZJpPX22nYJMoOqvUPLeY8oIe9IGaxK6A6FgJMuwwC/M20BV9A1uV8fX
+	iCADxnnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcgc0-00000008vWy-1Hj9;
-	Thu, 25 Jun 2026 09:43:08 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wcgdo-00000008viQ-2lPH;
+	Thu, 25 Jun 2026 09:45:00 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcgbz-00000008vWd-0ywy;
-	Thu, 25 Jun 2026 09:43:07 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7FE076014C;
-	Thu, 25 Jun 2026 09:43:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD8C41F000E9;
-	Thu, 25 Jun 2026 09:43:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782380585;
-	bh=kfIRsSw5cLdsaIa2/VNlwqA6JtFDV9at3sJRCJsJesA=;
-	h=From:Date:Subject:To:Cc;
-	b=V9JTsFGAe6nvw4b4Biz+gtY+fFyZwxOLVcw7gz/RYFPY/5bs28bD6P5erH2wgTMsS
-	 1QrF/d/EgD8FMIi2c5Hb7DXwM6uMHIERp+oJ5qW7+LoGvwSMvSy87nYOW2mQtdq+lp
-	 /HFTmdnIUi6jd8KydLkLkRDO/sS3dFIBxa7d79uJIUNbMsikfEt0XSFaRX8m4Mx+AN
-	 jUzqBB6UFfFmxRV/j9VxixF3nlZAmgr5X+xej3BVKa7MFlXMI3kutW5MV3pSqiqFb6
-	 vHnsCSjZWvzbkCGjIj+MV0jzN4gzHKLMtSLK0DQie8HV6LEpO3QORZugt9leo1kfNF
-	 IDz/RL9Uqtuuw==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Thu, 25 Jun 2026 11:42:46 +0200
-Subject: [PATCH net] net: airoha: dma map xmit frags with
- skb_frag_dma_map()
+	id 1wcgdl-00000008vho-3OhM
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 25 Jun 2026 09:44:59 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2c6be9cd89bso8312425ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Jun 2026 02:44:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782380697; x=1782985497; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Q7LZb4Oyp6MyCiFD5fuuqoWQdDcqkeN2EAojsuCFuQk=;
+        b=Mzwf21biKdjsskocXuwCZT7vMnJ1uNSVDCXcz3Ct7ZW55L9eIEqH0Q19JYseDDHI6T
+         zb7rFdBcWkzk0BnMzo66PWYye3iC2FvYDOvCP0gQPKH9GOodVdKyNZOE+hzS7SJXvPAb
+         fqW3AZUv71JxSaRm2E4beF3uEtXgs/SEdgd9NeaZjRMQRKbU86G5K5jYjwcSlHEQaCRg
+         tGymPzOI/KjuP5WoFwH23jql4XODiFXaKBwjdcJwrY+LES1nEWvlHFoCxNeAFNbpaZAY
+         ffS6glatIWnjUWdyJI5OLhSTm6MT4rZsyYngNzvXtiTYzzSqzhhJFT/1f3Pk9hUFmyZq
+         Eeng==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782380697; x=1782985497;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Q7LZb4Oyp6MyCiFD5fuuqoWQdDcqkeN2EAojsuCFuQk=;
+        b=ojUIDPchMxp9wNUIRUkrWd4MguwEl5ErB7gV3nE6zTWDEORftGpERW879u8cGgoiU9
+         FMfE4Sei/zoQGVP9KKpwe5h9A/QBaxi22giFP4J28OAs1I1MLYKUEpQ+H+sKDMLYyPsW
+         uX0YBMfdBZUWr3dtYOtz+jvkaNECozfWqVHDQs1J7TvBVFA1cjLh6fT0+vP9MyFeRqmV
+         AlgwaF2Q+iNNWep1gy0rS5K8gMfAVhjC9FcGbgAOxyIUykDaWhFN0cRm5OHVlonlyY0S
+         Z0rH9lBAzLWOOGAPOsxZ37ScqKEb7V/fgwVZ/gVxRZuZ3RXu80WV257DRhEMTBh47D5d
+         mIhg==
+X-Forwarded-Encrypted: i=1; AHgh+Ro2rIuTcW7f2VsfLMdeVZZE4+YYVHahfriaSn/ZiwxNjxDpjZdGUruA+KlChqBg62SqusvS9zQKgQswGLl+Fugk@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz76OFEJMyU1tWB+MlD0uSAiC8YaKphyBLG1uxxgmgiXQHlCaDI
+	oH5YY+2DET/tDAWP2wT7ns+zA0YlNJIzebWDyiynzJsi4tOhs9ri95yOyeLdJg==
+X-Gm-Gg: AfdE7cmcr+99UD822b+CxwoAGzRthPkYMlTx4GGlBaxvR+FgMfTyrwlU50Dq8AGtPcn
+	TrXFojIwgY9ckaxod97c2+6zmhPU3OBBcdec2bjwl1YXe9J6s2vUl6fV619n/7kEqXp9Cy7mqvB
+	/pgYzrT2N7FYVUa3pGzxZDLV9eG1nd+9NUuryB6eoSE5Tz4NoYyMdnKVUXDAWYal2opvCWrkbl/
+	awttVsxzlQmyhTrxTSuB2uzj0Nmi+dpzz8+Ic0510EekSBZtQ8CCNAY1/ewRhuWoXiGnjB+RSqs
+	l4fubWRX9sIHLQugSxL/CoJ1RCYRoZPL+rZl4mKv4pdHLE/QQi871rEeaIiWA2O/KahN8isDJLu
+	YHrndWRMjPMxueUvGBVx05M8TAjcY6qCdNTjaWow54UtTRWIPA9zyfQLqdUn/i3frcRCjm3/RDW
+	bW5TgT5yi91Pik9xlNoQ8iJlOlajILN8BzLEBMuf5W70wHKS4MRxnGk0r67YU32JoCiNnFT0VDk
+	Vnx75fuDT3L
+X-Received: by 2002:a17:902:e843:b0:2c1:a19:8396 with SMTP id d9443c01a7336-2c7fca3eeb3mr18687905ad.31.1782380696777;
+        Thu, 25 Jun 2026 02:44:56 -0700 (PDT)
+Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c7f5ac8c26sm16614995ad.1.2026.06.25.02.44.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 25 Jun 2026 02:44:56 -0700 (PDT)
+From: Joey Lu <a0987203069@gmail.com>
+To: zhengxingda@iscas.ac.cn,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: ychuang3@nuvoton.com,
+	schung@nuvoton.com,
+	yclu4@nuvoton.com,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Joey Lu <a0987203069@gmail.com>
+Subject: [PATCH v5 0/7] drm/verisilicon: add Nuvoton MA35D1 DCU Lite support
+Date: Thu, 25 Jun 2026 17:44:42 +0800
+Message-ID: <20260625094449.708386-1-a0987203069@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260625-airoha-eth-skb_frag_dma_map-v1-1-31d9e460aae6@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MQQqEMAwAwK9Izga0rD34lUVK2kYbFqukIoL49
- y0e5zI3FFbhAmNzg/IpRbZc0bcNhER5YZRYDaYztrNmQBLdEiEfCcvPu1lpcXElt9KOPoQQh2j
- 543uow648y/XuX8h8wPQ8fxqovC9yAAAA
-X-Change-ID: 20260625-airoha-eth-skb_frag_dma_map-bcccd5d6e4b1
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-X-Mailer: b4 0.14.3
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260625_024457_877358_400BB4EA 
+X-CRM114-Status: GOOD (  20.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,183 +110,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Map xmit skb fragments using skb_frag_dma_map() instead of
-dma_map_single(skb_frag_address()). skb_frag_address() relies on
-page_address() to obtain a kernel virtual address, which is not
-guaranteed to work for all page types (e.g. highmem pages or
-user-pinned pages from MSG_ZEROCOPY).
-skb_frag_dma_map() maps the fragment directly via its struct page and
-offset through dma_map_page(), avoiding the need for a kernel virtual
-address entirely.
-Introduce an enum airoha_dma_map_type to track how each queue entry was
-mapped (single vs page), so that the matching unmap function is called
-on completion and in error paths.
+This series adds support for the Verisilicon DCUltraLite display
+controller as integrated in the Nuvoton MA35D1 SoC.
 
-Fixes: 23020f049327 ("net: airoha: Introduce ethernet support for EN7581 SoC")
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/ethernet/airoha/airoha_eth.c | 61 ++++++++++++++++++++------------
- drivers/net/ethernet/airoha/airoha_eth.h |  7 ++++
- 2 files changed, 45 insertions(+), 23 deletions(-)
+The Verisilicon DC driver and its DT binding were originally written by
+Icenowy Zheng <zhengxingda@iscas.ac.cn> for the T-Head TH1520 SoC, which
+carries a DC8200 IP block.  The present series builds on that foundation
+with gratitude to Icenowy for the original work.
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 932b3a3df2e5..1caf6766f2c0 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -944,6 +944,25 @@ static void airoha_qdma_wake_netdev_txqs(struct airoha_queue *q)
- 	q->txq_stopped = false;
- }
- 
-+static void airoha_unmap_xmit_buf(struct airoha_eth *eth,
-+				  struct airoha_queue_entry *e)
-+{
-+	switch (e->dma_type) {
-+	case AIROHA_DMA_MAP_PAGE:
-+		dma_unmap_page(eth->dev, e->dma_addr, e->dma_len,
-+			       DMA_TO_DEVICE);
-+		break;
-+	case AIROHA_DMA_MAP_SINGLE:
-+		dma_unmap_single(eth->dev, e->dma_addr, e->dma_len,
-+				 DMA_TO_DEVICE);
-+		break;
-+	case AIROHA_DMA_UNMAPPED:
-+	default:
-+		break;
-+	}
-+	e->dma_type = AIROHA_DMA_UNMAPPED;
-+}
-+
- static int airoha_qdma_tx_napi_poll(struct napi_struct *napi, int budget)
- {
- 	struct airoha_tx_irq_queue *irq_q;
-@@ -1006,9 +1025,7 @@ static int airoha_qdma_tx_napi_poll(struct napi_struct *napi, int budget)
- 		skb = e->skb;
- 		e->skb = NULL;
- 
--		dma_unmap_single(eth->dev, e->dma_addr, e->dma_len,
--				 DMA_TO_DEVICE);
--		e->dma_addr = 0;
-+		airoha_unmap_xmit_buf(eth, e);
- 		list_add_tail(&e->list, &q->tx_list);
- 
- 		WRITE_ONCE(desc->msg0, 0);
-@@ -1177,12 +1194,10 @@ static void airoha_qdma_tx_cleanup(struct airoha_qdma *qdma)
- 			struct airoha_qdma_desc *desc = &q->desc[j];
- 			struct sk_buff *skb = e->skb;
- 
--			if (!e->dma_addr)
-+			if (e->dma_type == AIROHA_DMA_UNMAPPED)
- 				continue;
- 
--			dma_unmap_single(qdma->eth->dev, e->dma_addr,
--					 e->dma_len, DMA_TO_DEVICE);
--			e->dma_addr = 0;
-+			airoha_unmap_xmit_buf(qdma->eth, e);
- 			list_add_tail(&e->list, &q->tx_list);
- 
- 			WRITE_ONCE(desc->ctrl, 0);
-@@ -2193,8 +2208,8 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
- 	struct netdev_queue *txq;
- 	struct airoha_queue *q;
- 	LIST_HEAD(tx_list);
-+	dma_addr_t addr;
- 	int i = 0, qid;
--	void *data;
- 	u16 index;
- 	u8 fport;
- 
-@@ -2250,24 +2265,22 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
- 		return NETDEV_TX_BUSY;
- 	}
- 
--	len = skb_headlen(skb);
--	data = skb->data;
--
- 	e = list_first_entry(&q->tx_list, struct airoha_queue_entry,
- 			     list);
-+	len = skb_headlen(skb);
-+	addr = dma_map_single(netdev->dev.parent, skb->data, len,
-+			      DMA_TO_DEVICE);
-+	if (unlikely(dma_mapping_error(netdev->dev.parent, addr)))
-+		goto error_unlock;
-+
-+	e->dma_type = AIROHA_DMA_MAP_SINGLE;
- 	index = e - q->entry;
- 
- 	while (true) {
- 		struct airoha_qdma_desc *desc = &q->desc[index];
- 		skb_frag_t *frag = &skb_shinfo(skb)->frags[i];
--		dma_addr_t addr;
- 		u32 val;
- 
--		addr = dma_map_single(netdev->dev.parent, data, len,
--				      DMA_TO_DEVICE);
--		if (unlikely(dma_mapping_error(netdev->dev.parent, addr)))
--			goto error_unmap;
--
- 		list_move_tail(&e->list, &tx_list);
- 		e->skb = i == nr_frags - 1 ? skb : NULL;
- 		e->dma_addr = addr;
-@@ -2291,8 +2304,13 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
- 		if (++i == nr_frags)
- 			break;
- 
--		data = skb_frag_address(frag);
- 		len = skb_frag_size(frag);
-+		addr = skb_frag_dma_map(netdev->dev.parent, frag, 0, len,
-+					DMA_TO_DEVICE);
-+		if (unlikely(dma_mapping_error(netdev->dev.parent, addr)))
-+			goto error_unmap;
-+
-+		e->dma_type = AIROHA_DMA_MAP_PAGE;
- 	}
- 	q->queued += i;
- 
-@@ -2313,11 +2331,8 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
- 	return NETDEV_TX_OK;
- 
- error_unmap:
--	list_for_each_entry(e, &tx_list, list) {
--		dma_unmap_single(netdev->dev.parent, e->dma_addr, e->dma_len,
--				 DMA_TO_DEVICE);
--		e->dma_addr = 0;
--	}
-+	list_for_each_entry(e, &tx_list, list)
-+		airoha_unmap_xmit_buf(dev->eth, e);
- 	list_splice(&tx_list, &q->tx_list);
- error_unlock:
- 	spin_unlock_bh(&q->lock);
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-index d7ff8c5200e2..2765244d937c 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.h
-+++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -170,12 +170,19 @@ enum trtcm_param {
- #define TRTCM_TOKEN_RATE_MASK			GENMASK(23, 6)
- #define TRTCM_TOKEN_RATE_FRACTION_MASK		GENMASK(5, 0)
- 
-+enum airoha_dma_map_type {
-+	AIROHA_DMA_UNMAPPED,
-+	AIROHA_DMA_MAP_SINGLE,
-+	AIROHA_DMA_MAP_PAGE,
-+};
-+
- struct airoha_queue_entry {
- 	union {
- 		void *buf;
- 		struct {
- 			struct list_head list;
- 			struct sk_buff *skb;
-+			enum airoha_dma_map_type dma_type;
- 		};
- 	};
- 	dma_addr_t dma_addr;
+The DCUltraLite is a different variant in the DC IP family.  While the two
+IPs share a broadly similar register layout, a number of differences
+prevent the existing driver from working on the MA35D1 without
+modification:
 
----
-base-commit: 232c4ca2343d1181cbfc061f9856d9591e397579
-change-id: 20260625-airoha-eth-skb_frag_dma_map-bcccd5d6e4b1
+  - No CONFIG_EX commit path: the DC8200 staging registers
+    (FB_CONFIG_EX, FB_TOP_LEFT, FB_BOTTOM_RIGHT, FB_BLEND_CONFIG,
+    PANEL_CONFIG_EX) are absent.  The DCUltraLite uses enable (bit 0) and
+    reset (bit 4) bits in FB_CONFIG for direct framebuffer updates, and
+    requires a per-frame VALID bit toggle (FB_CONFIG bit 3) to latch
+    configuration changes.
 
-Best regards,
+  - No PANEL_START register: panel output begins when
+    PANEL_CONFIG.RUNNING is set; the DC8200 multi-display sync start
+    register at 0x1CCC does not exist.
+
+  - Different IRQ registers: DISP_IRQ_STA at 0x147C / DISP_IRQ_EN at
+    0x1480, versus the DC8200's TOP_IRQ_ACK at 0x0010 / TOP_IRQ_EN at
+    0x0014.
+
+  - Simpler clock topology: two clocks ("core" bus gate and "pix0" pixel
+    divider); no axi or ahb clocks required.
+
+  - Single display output: no per-output indexing beyond index 0 is
+    needed.
+
+  - Hardware-discoverable identity: the DCUltraLite exposes chip identity
+    registers whose model field reads 0x0 (revision 0x5560,
+    customer_id 0x305), allowing the existing vs_fill_chip_identity()
+    path to identify the variant purely through register reads.
+
+Patch 1 generalises the verisilicon,dc DT binding to accommodate the
+Nuvoton MA35D1 SoC-specific compatible and the variant's two-clock,
+one-reset, single-port topology.
+
+Patch 2 adds the register-level macros needed by the DC8000 ops.
+
+Patches 3-5 introduce the driver changes in three logical steps: the
+vs_dc_funcs hardware ops vtable with DC8200 ops extracted into
+vs_dc8200.c; making axi/ahb clocks optional as a separate atomic change;
+and the DC8000 ops in vs_dc8000.c.  Patch 6 adds the DCUltraLite HWDB
+entry that gates hardware recognition once all support is in place.
+
+Patch 7 adds the Kconfig dependency on ARCH_MA35, placed last because it
+is only meaningful after the HWDB entry is added.
+
+All patches have been tested on Nuvoton MA35D1 hardware.
+
+Changes from v4:
+  - [dt-bindings] Kept clock and reset item descriptions in the global
+    clocks:/resets: properties; per-compatible sections only constrain
+    minItems/maxItems and override clock-names items for nuvoton,ma35d1-dcu.
+  - [dt-bindings] Dropped redundant global minItems/maxItems on clocks:
+    and clock-names:.
+  - [dt-bindings] Dropped the extra-space typo fix in port@0 description
+    to keep the patch atomic; left for a separate patch later.
+  - [ops] Renamed crtc_enable/crtc_disable hooks to crtc_enable_ex/
+    crtc_disable_ex.
+  - [ops] Added unified IRQ bit definitions; each irq_ack() implementation
+    now translates hardware-specific bits before returning.
+  - [clocks] Split the axi/ahb optional-clock change into its own patch
+    for atomicity.
+  - [hwdb] Simplified the commit message for patch 6.
+  - [kconfig] Simplified the commit message for patch 7.
+
+Joey Lu (7):
+  dt-bindings: display: verisilicon,dc: generalize for single-output
+    variants
+  drm/verisilicon: add register-level macros for DC8000
+  drm/verisilicon: introduce per-variant hardware ops table
+  drm/verisilicon: make axi and ahb clocks optional
+  drm/verisilicon: add DC8000 (DCUltraLite) display controller support
+  drm/verisilicon: add DCUltraLite chip identity to HWDB
+  drm/verisilicon: extend Kconfig to support ARCH_MA35 platforms
+
+ .../bindings/display/verisilicon,dc.yaml      |  57 +++++++++
+ drivers/gpu/drm/verisilicon/Kconfig           |   2 +-
+ drivers/gpu/drm/verisilicon/Makefile          |   2 +-
+ drivers/gpu/drm/verisilicon/vs_bridge.c       |  20 +--
+ drivers/gpu/drm/verisilicon/vs_crtc.c         |  38 +++++-
+ drivers/gpu/drm/verisilicon/vs_crtc_regs.h    |   1 +
+ drivers/gpu/drm/verisilicon/vs_dc.c           |  13 +-
+ drivers/gpu/drm/verisilicon/vs_dc.h           |  33 +++++
+ drivers/gpu/drm/verisilicon/vs_dc8000.c       |  86 +++++++++++++
+ drivers/gpu/drm/verisilicon/vs_dc8200.c       | 115 ++++++++++++++++++
+ drivers/gpu/drm/verisilicon/vs_drm.c          |   5 +-
+ drivers/gpu/drm/verisilicon/vs_drm.h          |   8 ++
+ drivers/gpu/drm/verisilicon/vs_hwdb.c         |  14 +++
+ drivers/gpu/drm/verisilicon/vs_hwdb.h         |   6 +
+ .../gpu/drm/verisilicon/vs_primary_plane.c    |  32 +----
+ .../drm/verisilicon/vs_primary_plane_regs.h   |   3 +
+ 16 files changed, 378 insertions(+), 57 deletions(-)
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_dc8000.c
+ create mode 100644 drivers/gpu/drm/verisilicon/vs_dc8200.c
+
 -- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+2.43.0
 
 
