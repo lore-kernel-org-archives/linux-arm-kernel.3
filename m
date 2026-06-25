@@ -4,101 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0BC0CDE008
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 10:42:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00E1DCDE009
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 10:43:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o0dxj0A552w7ubsF/6UDVTgs5P4hm62XQTlAEP8tTXI=; b=YK+12AfyduQeGPGTTIUzttdQAV
-	gIcUwI6e4XCyyG/WFtA5Gudml0BLOSCjKkj2WVM5YFGsL2hUcrnD0Fi2MoWjZjt2lttbRcd5ZLauz
-	MmrpeP2VhO9N+eqGVeUZTyO2Wdt/Qdyf5WmJDpxlgeewXMK9c5odhbuwplyf6V1IaUcB5F41KN3zh
-	J16FmV61TV872jArqyCLMxMhkHNetfFDzlGwKorAKhBINnwvyOAZkUxf5FYPw7+dWN8mCrU4yh3MX
-	uOkkUpAWaNMJMC7L7S5ecBAMpefOZtuxl/8G0rQ4Yb0wC7/5eOKGDLVKlwApZQK5/0kVQyNtR9i2L
-	aMT+3w+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	List-Owner; bh=So56zEOdEfiZU+vXcUQqeRQSzEvYq6PmDku1aeJMKLs=; b=0XdDVBUJd0RHbD
+	33WK/fv6U9opd1o1yHq3RBj85zEOR9lSbjlnx97+jnMykpMm/l60Uc7RrFmbLCgHOZOGQG0TiKHnl
+	236PCi3p/Vy1NZzptdCae2p1LcDV+meZYClqb6Phi6KF0V1AX54jM7EZjB0oycWv2z5IaXOzv2ubo
+	QoFcZ/dKGy5u9YnsXnzFm1KLEvSTM8OtG92mWqBG054vKe/XTL2Opbz3CSThIqM6zIncag6oL4B9r
+	2gQltxDMPCGr4vmUDAejpi0v88NEJt6RDQxE0swxRcdqRJXL/uAXDivq9zTyesGj77qDCVo5FbdJu
+	xEI9uzIkFujdn/bAM87w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcgeB-00000008vvZ-2I2x;
-	Thu, 25 Jun 2026 09:45:23 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1wchYV-000000090Q1-2zMU;
+	Thu, 25 Jun 2026 10:43:35 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcge3-00000008vpt-3tL9
+	id 1wchYV-000000090PW-0R3P
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Jun 2026 09:45:17 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-37cab825ec9so1573619a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Jun 2026 02:45:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782380715; x=1782985515; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=o0dxj0A552w7ubsF/6UDVTgs5P4hm62XQTlAEP8tTXI=;
-        b=F3T/K2g9qHMjHBeyq9m1qDWEPzlG3bQarhnbv02UwkHuhpbcoc9mlp4WZXAic0UUJO
-         Ic/zm1nEJp9rV4JQ/ZdxAuhUsk71aZ7NcA/OgYEUUhJq8Emr62nMn52syFr1Hda4cZaO
-         cp0+qnwtPf6MtvzOLa4mJlZdzf0hDclAbDsIAmiYwraQa9cG7jYsoHpSUohh3CX1Rn3L
-         5NmWAAECmbrakKdPC0iPyFodjK+oaVoG/sYU7PVCO9cCD0J0i9Zpq0P/D5Rd6wb1odOJ
-         1T9CNTCv6+uLhKYtS5+lZ3H2OaHHQAmx7gYMQJXSVLrte3ezKI5YkIB+uG5H4hXcFi5c
-         5hyw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782380715; x=1782985515;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=o0dxj0A552w7ubsF/6UDVTgs5P4hm62XQTlAEP8tTXI=;
-        b=gCwEoT0H/9fkFjVOB/KTx29Vjsaz58uJVULlO0sVEGkvOrMo2i2nuQAln27gdkrHbt
-         UalvHBvKIW+/nUe7cj6t9qtL682h2pamRivsQ2E5htFL0PxDlvwmOGSEzYYyNCLOV+2d
-         f6byv8x9kh5ztFQ/NTk2DtYGGOMJvjx+oefCwQtxC1oOSMMwqlgaBHNG4o2aw3MpHgaI
-         N8EfVvL4yhEYjH1w0LJoiq/3GBBw+ORP9CZ3HUzL66iv2gOA5LMsl1k1H+GSw39T+jGk
-         D117QYxKgjRUveTAo7rIHp6ixKsCF/VbF6Um/2yorqgFET/KZM0GWsunksIQ6MWeSvim
-         vwNQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rq25hSXV1zcBUOzJ1sGmE9PUyHq6NdHFmlSReEzUiYIf3ikTjuwRlP8jgRWFY9o1BjnBvlAb94DlCfDcCh219+J@lists.infradead.org
-X-Gm-Message-State: AOJu0YxDJTOMLnofFOI/nuBXqp+oFaYNpKyiG7xLSJ0oap9P/g7huiVw
-	49djaWepl84WyMdg5XeQA4lu/jCp0lBVj2q2hTHy+osgk4z3WXmGwb9f
-X-Gm-Gg: AfdE7clxus73h2TJWlMPUbFrgyxwd5hVP8alCwizDij/pIeKlmoU24uQmmIJaSw+MEd
-	atJBoftc0Qck2OvSuZ5PKKuX4gfSFPBmZauxgZHXfAZkYkhc01tOIIcf6xgk16j8OKHWHHepcyU
-	f06fGTv++74ngh2HegUxBcZjcWMUNC/1iH0q7Dv2XC1aAjVmCe2awIz0HUQdaTnyptgKbAddd83
-	wTkYdpp8YkI9UCP+tj/TintoLOVAP2nPR8bBJQ5zAWWkc7/LoYRqbzfufW9X/CGRHO/Xge2KPor
-	//9hibZCd44V+OdK5aPq9yhkpVlMo5a3lzl/2l+NkcVszga/eJrwg3eWnjLqFKWZZSubRtsiO4+
-	CEAEXUrobQDYTMZpKMPJND7f6ffe6esjXOpKjSXDS13JgtA+pOyLtcg+tLYRKyyyXNO8pHYQT7d
-	kXb4qwIxEVud2HMUWkQvTcK5lzq5PSjyEXjtDsXmFBHganOFnuSPlljvPWzgI0NdTmivIDF4SDj
-	A==
-X-Received: by 2002:a17:903:37c6:b0:2c0:ab92:584c with SMTP id d9443c01a7336-2c7fc727984mr18002025ad.25.1782380714969;
-        Thu, 25 Jun 2026 02:45:14 -0700 (PDT)
-Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c7f5ac8c26sm16614995ad.1.2026.06.25.02.45.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 25 Jun 2026 02:45:14 -0700 (PDT)
-From: Joey Lu <a0987203069@gmail.com>
-To: zhengxingda@iscas.ac.cn,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org
-Cc: ychuang3@nuvoton.com,
-	schung@nuvoton.com,
-	yclu4@nuvoton.com,
-	dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Joey Lu <a0987203069@gmail.com>
-Subject: [PATCH v5 5/7] drm/verisilicon: add DC8000 (DCUltraLite) display controller support
-Date: Thu, 25 Jun 2026 17:44:47 +0800
-Message-ID: <20260625094449.708386-6-a0987203069@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260625094449.708386-1-a0987203069@gmail.com>
-References: <20260625094449.708386-1-a0987203069@gmail.com>
+	Thu, 25 Jun 2026 10:43:35 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 73B1B4012D;
+	Thu, 25 Jun 2026 10:43:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47DB81F000E9;
+	Thu, 25 Jun 2026 10:43:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782384214;
+	bh=So56zEOdEfiZU+vXcUQqeRQSzEvYq6PmDku1aeJMKLs=;
+	h=Date:From:To:Cc:Subject:References;
+	b=D0fpngk0P6IaMUg/fv2JW/n3Umw6ehE2vavcoRCFZVGOIYdkkIKj8QrcaqmMsrBL1
+	 80qZCqxSYMgGZDTaiQ4H9rlKsdQm5bLEqtfC9vn2+eCJ9ByNXKH8vpy1s3XuZyRw5m
+	 TkjWReQzGL+Fa0dZ4SCdpdGSLsSLfztcwkWwgEq+D4OEX4No/2vy6nWwoguvgcgzmq
+	 8oI8elnVnl438BD2vtSae8+F4shF/u1y+HbsNg3OPf67HtVJQINCf7jkbgjo9/SY6q
+	 NKZa1fGonzzRLrf8mzvB/6utE1xf+YCDXwQnw54Z6fduPScgik9Awd8H3pqa+5zcZJ
+	 4QSlIX2Ku/s0w==
+Received: from rostedt by gandalf with local (Exim 4.99.3)
+	(envelope-from <rostedt@kernel.org>)
+	id 1wchYw-00000002WA7-0nb8;
+	Thu, 25 Jun 2026 06:44:02 -0400
+Message-ID: <20260625104402.064484896@kernel.org>
+User-Agent: quilt/0.69
+Date: Thu, 25 Jun 2026 06:40:08 -0400
+From: Steven Rostedt <rostedt@kernel.org>
+To: linux-kernel@vger.kernel.org,
+ linux-trace-kernel@vger.kernel.org
+Cc: Masami Hiramatsu <mhiramat@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Linus Torvalds <torvalds@linux-foundation.org>,
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+ John Ogness <john.ogness@linutronix.de>,
+ Thomas Gleixner <tglx@kernel.org>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Julia Lawall <julia.lawall@inria.fr>,
+ Yury Norov <yury.norov@gmail.com>,
+ linux-doc@vger.kernel.org,
+ linux-kbuild@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org,
+ dri-devel@lists.freedesktop.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org,
+ linux-rdma@vger.kernel.org,
+ linux-usb@vger.kernel.org,
+ linux-ext4@vger.kernel.org,
+ linux-nfs@vger.kernel.org,
+ kvm@vger.kernel.org,
+ intel-gfx@lists.freedesktop.org
+Subject: [PATCH v4 1/2] tracing: Move non-trace_printk prototypes into trace_controls.h
+References: <20260625104007.041432666@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260625_024515_974298_373505EA 
-X-CRM114-Status: GOOD (  21.49  )
+Content-Type: text/plain; charset=UTF-8
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,167 +93,336 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Nuvoton MA35D1 SoC integrates a Verisilicon DCUltraLite display
-controller (DC8000 generation) whose register layout differs from
-the DC8200 in several important ways:
+From: Steven Rostedt <rostedt@goodmis.org>
 
-1. No CONFIG_EX commit path: framebuffer updates use the enable (bit 0)
-   and reset (bit 4) bits in FB_CONFIG instead of the DC8200 staging
-   registers (FB_CONFIG_EX, FB_TOP_LEFT, FB_BOTTOM_RIGHT,
-   FB_BLEND_CONFIG, PANEL_CONFIG_EX).
+Remove the prototypes of the code that is not associated with
+trace_printk() from trace_printk.h.
 
-2. No PANEL_START register: panel output starts when
-   PANEL_CONFIG.RUNNING is set; there is no multi-display sync start
-   register.
+These control functions as well as ftrace_dump() and trace_dump_stack()
+are used in cases where things go wrong.  The main use case is to do a
+trace_dump_stack(); tracing_off(); ftrace_dump(); in a place that detected
+that something went wrong, whereas, trace_printk() is added to normal code
+during debugging and removed before committing upstream. The dump code is
+fine to keep in production.
 
-3. Different IRQ registers: DCUltraLite uses DISP_IRQ_STA (0x147C) /
-   DISP_IRQ_EN (0x1480) versus DC8200's TOP_IRQ_ACK (0x0010) /
-   TOP_IRQ_EN (0x0014).
-
-4. Simpler clock topology: only 'core' (bus gate) and 'pix0' (pixel
-   divider) clocks; no axi or ahb clocks required.
-
-Signed-off-by: Joey Lu <a0987203069@gmail.com>
+Suggested-by: Yury Norov <yury.norov@gmail.com>
+Acked-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+Signed-off-by: Steven Rostedt <rostedt@goodmis.org>
 ---
- drivers/gpu/drm/verisilicon/Makefile    |  2 +-
- drivers/gpu/drm/verisilicon/vs_dc.c     |  5 +-
- drivers/gpu/drm/verisilicon/vs_dc.h     |  1 +
- drivers/gpu/drm/verisilicon/vs_dc8000.c | 86 +++++++++++++++++++++++++
- 4 files changed, 92 insertions(+), 2 deletions(-)
- create mode 100644 drivers/gpu/drm/verisilicon/vs_dc8000.c
+Changes since v3: https://patch.msgid.link/20260624081948.147764194@kernel.org
 
-diff --git a/drivers/gpu/drm/verisilicon/Makefile b/drivers/gpu/drm/verisilicon/Makefile
-index 9d4cd16452fa..d2fd8e4dff24 100644
---- a/drivers/gpu/drm/verisilicon/Makefile
-+++ b/drivers/gpu/drm/verisilicon/Makefile
-@@ -1,6 +1,6 @@
- # SPDX-License-Identifier: GPL-2.0-only
+- Move include out of #if statement in rcu.h
+  kernel test robot found other configs that could require the
+  control functions in rcu.h. Just always include it in that file.
+
+ arch/powerpc/xmon/xmon.c         |  1 +
+ arch/s390/kernel/ipl.c           |  1 +
+ arch/s390/kernel/machine_kexec.c |  1 +
+ drivers/gpu/drm/i915/i915_gem.h  |  1 +
+ drivers/tty/sysrq.c              |  1 +
+ include/linux/trace_controls.h   | 54 ++++++++++++++++++++++++++++++++
+ include/linux/trace_printk.h     | 51 ------------------------------
+ kernel/debug/debug_core.c        |  1 +
+ kernel/panic.c                   |  1 +
+ kernel/rcu/rcu.h                 |  1 +
+ kernel/rcu/rcutorture.c          |  1 +
+ kernel/trace/trace.h             |  1 +
+ kernel/trace/trace_benchmark.c   |  1 +
+ lib/sys_info.c                   |  1 +
+ 14 files changed, 66 insertions(+), 51 deletions(-)
+ create mode 100644 include/linux/trace_controls.h
+
+diff --git a/arch/powerpc/xmon/xmon.c b/arch/powerpc/xmon/xmon.c
+index cb3a3244ae6f..2135f319e0dd 100644
+--- a/arch/powerpc/xmon/xmon.c
++++ b/arch/powerpc/xmon/xmon.c
+@@ -27,6 +27,7 @@
+ #include <linux/highmem.h>
+ #include <linux/security.h>
+ #include <linux/debugfs.h>
++#include <linux/trace_controls.h>
  
--verisilicon-dc-objs := vs_bridge.o vs_crtc.o vs_dc.o vs_dc8200.o vs_drm.o vs_hwdb.o \
-+verisilicon-dc-objs := vs_bridge.o vs_crtc.o vs_dc.o vs_dc8200.o vs_dc8000.o vs_drm.o vs_hwdb.o \
- 	vs_plane.o vs_primary_plane.o vs_cursor_plane.o
+ #include <asm/ptrace.h>
+ #include <asm/smp.h>
+diff --git a/arch/s390/kernel/ipl.c b/arch/s390/kernel/ipl.c
+index 3c346b02ceb9..baac66cc4de4 100644
+--- a/arch/s390/kernel/ipl.c
++++ b/arch/s390/kernel/ipl.c
+@@ -22,6 +22,7 @@
+ #include <linux/debug_locks.h>
+ #include <linux/vmalloc.h>
+ #include <linux/secure_boot.h>
++#include <linux/trace_controls.h>
+ #include <asm/asm-extable.h>
+ #include <asm/machine.h>
+ #include <asm/diag.h>
+diff --git a/arch/s390/kernel/machine_kexec.c b/arch/s390/kernel/machine_kexec.c
+index baeb3dcfc1c8..33f9a89eb3ad 100644
+--- a/arch/s390/kernel/machine_kexec.c
++++ b/arch/s390/kernel/machine_kexec.c
+@@ -12,6 +12,7 @@
+ #include <linux/delay.h>
+ #include <linux/reboot.h>
+ #include <linux/ftrace.h>
++#include <linux/trace_controls.h>
+ #include <linux/debug_locks.h>
+ #include <linux/cpufeature.h>
+ #include <asm/guarded_storage.h>
+diff --git a/drivers/gpu/drm/i915/i915_gem.h b/drivers/gpu/drm/i915/i915_gem.h
+index 20b3cb29cfff..1da8fb61c09e 100644
+--- a/drivers/gpu/drm/i915/i915_gem.h
++++ b/drivers/gpu/drm/i915/i915_gem.h
+@@ -116,6 +116,7 @@ int i915_gem_open(struct drm_i915_private *i915, struct drm_file *file);
+ #endif
  
- obj-$(CONFIG_DRM_VERISILICON_DC) += verisilicon-dc.o
-diff --git a/drivers/gpu/drm/verisilicon/vs_dc.c b/drivers/gpu/drm/verisilicon/vs_dc.c
-index fd1f5fe67a68..9499fffbca58 100644
---- a/drivers/gpu/drm/verisilicon/vs_dc.c
-+++ b/drivers/gpu/drm/verisilicon/vs_dc.c
-@@ -134,7 +134,10 @@ static int vs_dc_probe(struct platform_device *pdev)
- 	dev_info(dev, "Found DC%x rev %x customer %x\n", dc->identity.model,
- 		 dc->identity.revision, dc->identity.customer_id);
- 
--	dc->funcs = &vs_dc8200_funcs;
-+	if (dc->identity.generation == VSDC_GEN_DC8200)
-+		dc->funcs = &vs_dc8200_funcs;
-+	else
-+		dc->funcs = &vs_dc8000_funcs;
- 
- 	if (port_count > dc->identity.display_count) {
- 		dev_err(dev, "too many downstream ports than HW capability\n");
-diff --git a/drivers/gpu/drm/verisilicon/vs_dc.h b/drivers/gpu/drm/verisilicon/vs_dc.h
-index 825f5dd6bf17..ac96ad701199 100644
---- a/drivers/gpu/drm/verisilicon/vs_dc.h
-+++ b/drivers/gpu/drm/verisilicon/vs_dc.h
-@@ -66,5 +66,6 @@ struct vs_dc {
+ #if IS_ENABLED(CONFIG_DRM_I915_TRACE_GEM)
++#include <linux/trace_controls.h>
+ #define GEM_TRACE(...) trace_printk(__VA_ARGS__)
+ #define GEM_TRACE_ERR(...) do {						\
+ 	pr_err(__VA_ARGS__);						\
+diff --git a/drivers/tty/sysrq.c b/drivers/tty/sysrq.c
+index c2e4b31b699a..d3f72dc430b8 100644
+--- a/drivers/tty/sysrq.c
++++ b/drivers/tty/sysrq.c
+@@ -324,6 +324,7 @@ static const struct sysrq_key_op sysrq_showstate_blocked_op = {
  };
  
- extern const struct vs_dc_funcs vs_dc8200_funcs;
-+extern const struct vs_dc_funcs vs_dc8000_funcs;
+ #ifdef CONFIG_TRACING
++#include <linux/trace_controls.h>
+ #include <linux/ftrace.h>
  
- #endif /* _VS_DC_H_ */
-diff --git a/drivers/gpu/drm/verisilicon/vs_dc8000.c b/drivers/gpu/drm/verisilicon/vs_dc8000.c
+ static void sysrq_ftrace_dump(u8 key)
+diff --git a/include/linux/trace_controls.h b/include/linux/trace_controls.h
 new file mode 100644
-index 000000000000..fbe0fa516cac
+index 000000000000..995b97e963b4
 --- /dev/null
-+++ b/drivers/gpu/drm/verisilicon/vs_dc8000.c
-@@ -0,0 +1,86 @@
-+// SPDX-License-Identifier: GPL-2.0-only
++++ b/include/linux/trace_controls.h
+@@ -0,0 +1,54 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef _LINUX_TRACE_CONTROLS_H
++#define _LINUX_TRACE_CONTROLS_H
++
++
 +/*
-+ * Copyright (C) 2026 Joey Lu <yclu4@nuvoton.com>
++ * General tracing related utility functions - trace_printk(),
++ * tracing_on/tracing_off and tracing_start()/tracing_stop
++ *
++ * Use tracing_on/tracing_off when you want to quickly turn on or off
++ * tracing. It simply enables or disables the recording of the trace events.
++ * This also corresponds to the user space /sys/kernel/tracing/tracing_on
++ * file, which gives a means for the kernel and userspace to interact.
++ * Place a tracing_off() in the kernel where you want tracing to end.
++ * From user space, examine the trace, and then echo 1 > tracing_on
++ * to continue tracing.
++ *
++ * tracing_stop/tracing_start has slightly more overhead. It is used
++ * by things like suspend to ram where disabling the recording of the
++ * trace is not enough, but tracing must actually stop because things
++ * like calling smp_processor_id() may crash the system.
++ *
++ * Most likely, you want to use tracing_on/tracing_off.
 + */
-+
-+#include <linux/regmap.h>
-+
-+#include "vs_crtc_regs.h"
-+#include "vs_dc.h"
-+#include "vs_drm.h"
-+#include "vs_primary_plane_regs.h"
-+
-+static void vs_dc8000_panel_enable_ex(struct vs_dc *dc, unsigned int output)
-+{
-+	regmap_set_bits(dc->regs, VSDC_FB_CONFIG(output),
-+			VSDC_FB_CONFIG_RESET);
-+}
-+
-+static void vs_dc8000_panel_disable_ex(struct vs_dc *dc, unsigned int output)
-+{
-+	regmap_clear_bits(dc->regs, VSDC_FB_CONFIG(output),
-+			  VSDC_FB_CONFIG_RESET);
-+}
-+
-+static void vs_dc8000_crtc_begin(struct vs_dc *dc, unsigned int output)
-+{
-+	regmap_set_bits(dc->regs, VSDC_FB_CONFIG(output),
-+			VSDC_FB_CONFIG_VALID);
-+}
-+
-+static void vs_dc8000_crtc_flush(struct vs_dc *dc, unsigned int output)
-+{
-+	regmap_clear_bits(dc->regs, VSDC_FB_CONFIG(output),
-+			  VSDC_FB_CONFIG_VALID);
-+}
-+
-+static void vs_dc8000_crtc_enable_ex(struct vs_dc *dc, unsigned int output)
-+{
-+	regmap_set_bits(dc->regs, VSDC_FB_CONFIG(output),
-+			VSDC_FB_CONFIG_ENABLE);
-+}
-+
-+static void vs_dc8000_crtc_disable_ex(struct vs_dc *dc, unsigned int output)
-+{
-+	regmap_clear_bits(dc->regs, VSDC_FB_CONFIG(output),
-+			  VSDC_FB_CONFIG_ENABLE);
-+}
-+
-+static void vs_dc8000_enable_vblank(struct vs_dc *dc, unsigned int output)
-+{
-+	regmap_set_bits(dc->regs, VSDC_DISP_IRQ_EN,
-+			VSDC_DISP_IRQ_VSYNC(output));
-+}
-+
-+static void vs_dc8000_disable_vblank(struct vs_dc *dc, unsigned int output)
-+{
-+	regmap_clear_bits(dc->regs, VSDC_DISP_IRQ_EN,
-+			  VSDC_DISP_IRQ_VSYNC(output));
-+}
-+
-+static u32 vs_dc8000_irq_ack(struct vs_dc *dc)
-+{
-+	u32 hw_irqs, unified = 0;
-+	unsigned int i;
-+
-+	regmap_read(dc->regs, VSDC_DISP_IRQ_STA, &hw_irqs);
-+
-+	for (i = 0; i < VSDC_MAX_OUTPUTS; i++) {
-+		if (hw_irqs & VSDC_DISP_IRQ_VSYNC(i))
-+			unified |= VSDC_IRQ_VSYNC(i);
-+	}
-+
-+	return unified;
-+}
-+
-+const struct vs_dc_funcs vs_dc8000_funcs = {
-+	.panel_enable_ex	= vs_dc8000_panel_enable_ex,
-+	.panel_disable_ex	= vs_dc8000_panel_disable_ex,
-+	.crtc_begin		= vs_dc8000_crtc_begin,
-+	.crtc_flush		= vs_dc8000_crtc_flush,
-+	.crtc_enable_ex		= vs_dc8000_crtc_enable_ex,
-+	.crtc_disable_ex	= vs_dc8000_crtc_disable_ex,
-+	.enable_vblank		= vs_dc8000_enable_vblank,
-+	.disable_vblank		= vs_dc8000_disable_vblank,
-+	.irq_ack		= vs_dc8000_irq_ack,
++enum ftrace_dump_mode {
++	DUMP_NONE,
++	DUMP_ALL,
++	DUMP_ORIG,
++	DUMP_PARAM,
 +};
++
++#ifdef CONFIG_TRACING
++void tracing_on(void);
++void tracing_off(void);
++int tracing_is_on(void);
++void tracing_snapshot(void);
++void tracing_snapshot_alloc(void);
++void tracing_start(void);
++void tracing_stop(void);
++void trace_dump_stack(int skip);
++void ftrace_dump(enum ftrace_dump_mode oops_dump_mode);
++#else
++static inline void tracing_start(void) { }
++static inline void tracing_stop(void) { }
++static inline void tracing_on(void) { }
++static inline void tracing_off(void) { }
++static inline int tracing_is_on(void) { return 0; }
++static inline void tracing_snapshot(void) { }
++static inline void tracing_snapshot_alloc(void) { }
++static inline void trace_dump_stack(int skip) { }
++static inline void ftrace_dump(enum ftrace_dump_mode oops_dump_mode) { }
++#endif
++
++#endif /* _LINUX_TRACE_CONTROLS_H */
+diff --git a/include/linux/trace_printk.h b/include/linux/trace_printk.h
+index 3d54f440dccf..a488ea9e9f85 100644
+--- a/include/linux/trace_printk.h
++++ b/include/linux/trace_printk.h
+@@ -7,43 +7,7 @@
+ #include <linux/stddef.h>
+ #include <linux/stringify.h>
+ 
+-/*
+- * General tracing related utility functions - trace_printk(),
+- * tracing_on/tracing_off and tracing_start()/tracing_stop
+- *
+- * Use tracing_on/tracing_off when you want to quickly turn on or off
+- * tracing. It simply enables or disables the recording of the trace events.
+- * This also corresponds to the user space /sys/kernel/tracing/tracing_on
+- * file, which gives a means for the kernel and userspace to interact.
+- * Place a tracing_off() in the kernel where you want tracing to end.
+- * From user space, examine the trace, and then echo 1 > tracing_on
+- * to continue tracing.
+- *
+- * tracing_stop/tracing_start has slightly more overhead. It is used
+- * by things like suspend to ram where disabling the recording of the
+- * trace is not enough, but tracing must actually stop because things
+- * like calling smp_processor_id() may crash the system.
+- *
+- * Most likely, you want to use tracing_on/tracing_off.
+- */
+-
+-enum ftrace_dump_mode {
+-	DUMP_NONE,
+-	DUMP_ALL,
+-	DUMP_ORIG,
+-	DUMP_PARAM,
+-};
+-
+ #ifdef CONFIG_TRACING
+-void tracing_on(void);
+-void tracing_off(void);
+-int tracing_is_on(void);
+-void tracing_snapshot(void);
+-void tracing_snapshot_alloc(void);
+-
+-extern void tracing_start(void);
+-extern void tracing_stop(void);
+-
+ static inline __printf(1, 2)
+ void ____trace_printk_check_format(const char *fmt, ...)
+ {
+@@ -149,8 +113,6 @@ int __trace_printk(unsigned long ip, const char *fmt, ...);
+ extern int __trace_bputs(unsigned long ip, const char *str);
+ extern int __trace_puts(unsigned long ip, const char *str);
+ 
+-extern void trace_dump_stack(int skip);
+-
+ /*
+  * The double __builtin_constant_p is because gcc will give us an error
+  * if we try to allocate the static variable to fmt if it is not a
+@@ -173,19 +135,7 @@ __ftrace_vbprintk(unsigned long ip, const char *fmt, va_list ap);
+ 
+ extern __printf(2, 0) int
+ __ftrace_vprintk(unsigned long ip, const char *fmt, va_list ap);
+-
+-extern void ftrace_dump(enum ftrace_dump_mode oops_dump_mode);
+ #else
+-static inline void tracing_start(void) { }
+-static inline void tracing_stop(void) { }
+-static inline void trace_dump_stack(int skip) { }
+-
+-static inline void tracing_on(void) { }
+-static inline void tracing_off(void) { }
+-static inline int tracing_is_on(void) { return 0; }
+-static inline void tracing_snapshot(void) { }
+-static inline void tracing_snapshot_alloc(void) { }
+-
+ static inline __printf(1, 2)
+ int trace_printk(const char *fmt, ...)
+ {
+@@ -196,7 +146,6 @@ ftrace_vprintk(const char *fmt, va_list ap)
+ {
+ 	return 0;
+ }
+-static inline void ftrace_dump(enum ftrace_dump_mode oops_dump_mode) { }
+ #endif /* CONFIG_TRACING */
+ 
+ #endif
+diff --git a/kernel/debug/debug_core.c b/kernel/debug/debug_core.c
+index b276504c1c6b..f9c83a470c98 100644
+--- a/kernel/debug/debug_core.c
++++ b/kernel/debug/debug_core.c
+@@ -27,6 +27,7 @@
+ 
+ #define pr_fmt(fmt) "KGDB: " fmt
+ 
++#include <linux/trace_controls.h>
+ #include <linux/pid_namespace.h>
+ #include <linux/clocksource.h>
+ #include <linux/serial_core.h>
+diff --git a/kernel/panic.c b/kernel/panic.c
+index 213725b612aa..1415e910371d 100644
+--- a/kernel/panic.c
++++ b/kernel/panic.c
+@@ -9,6 +9,7 @@
+  * This function is used through-out the kernel (including mm and fs)
+  * to indicate a major problem.
+  */
++#include <linux/trace_controls.h>
+ #include <linux/debug_locks.h>
+ #include <linux/sched/debug.h>
+ #include <linux/interrupt.h>
+diff --git a/kernel/rcu/rcu.h b/kernel/rcu/rcu.h
+index fa6d30ce73d1..735a80df0b30 100644
+--- a/kernel/rcu/rcu.h
++++ b/kernel/rcu/rcu.h
+@@ -12,6 +12,7 @@
+ 
+ #include <linux/slab.h>
+ #include <trace/events/rcu.h>
++#include <linux/trace_controls.h>
+ 
+ /*
+  * Grace-period counter management.
+diff --git a/kernel/rcu/rcutorture.c b/kernel/rcu/rcutorture.c
+index 882a158ada7b..76bf0184b267 100644
+--- a/kernel/rcu/rcutorture.c
++++ b/kernel/rcu/rcutorture.c
+@@ -39,6 +39,7 @@
+ #include <linux/srcu.h>
+ #include <linux/slab.h>
+ #include <linux/trace_clock.h>
++#include <linux/trace_controls.h>
+ #include <asm/byteorder.h>
+ #include <linux/torture.h>
+ #include <linux/vmalloc.h>
+diff --git a/kernel/trace/trace.h b/kernel/trace/trace.h
+index 80fe152af1dd..2537c33ddd49 100644
+--- a/kernel/trace/trace.h
++++ b/kernel/trace/trace.h
+@@ -22,6 +22,7 @@
+ #include <linux/ctype.h>
+ #include <linux/once_lite.h>
+ #include <linux/ftrace_regs.h>
++#include <linux/trace_controls.h>
+ #include <linux/llist.h>
+ 
+ #include "pid_list.h"
+diff --git a/kernel/trace/trace_benchmark.c b/kernel/trace/trace_benchmark.c
+index e19c32f2a938..69cc39008c36 100644
+--- a/kernel/trace/trace_benchmark.c
++++ b/kernel/trace/trace_benchmark.c
+@@ -3,6 +3,7 @@
+ #include <linux/module.h>
+ #include <linux/kthread.h>
+ #include <linux/trace_clock.h>
++#include <linux/trace_controls.h>
+ 
+ #define CREATE_TRACE_POINTS
+ #include "trace_benchmark.h"
+diff --git a/lib/sys_info.c b/lib/sys_info.c
+index f32a06ec9ed4..e3c9ca05601b 100644
+--- a/lib/sys_info.c
++++ b/lib/sys_info.c
+@@ -8,6 +8,7 @@
+ #include <linux/ftrace.h>
+ #include <linux/nmi.h>
+ #include <linux/sched/debug.h>
++#include <linux/trace_controls.h>
+ #include <linux/string.h>
+ #include <linux/sysctl.h>
+ 
 -- 
-2.43.0
+2.53.0
+
 
 
