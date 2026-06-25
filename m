@@ -4,69 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5891FCDB479
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 02:45:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 152CECDB47C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 02:57:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+I3E4Gc+UcSMgz+gbL7FQhQ6yoN65t58RV4TjtaKbLc=; b=PTDRYuRa2HS4SzGACse4FB0MOQ
-	nRAts9ioWW9rNvoQKHvX2LcY1l6Jz+fyBLvukSFYyf9WiFa829GhnoG9PuWscKAs0FhjGdOGqIGDn
-	W/7ElDx/92tlXgDWLCKzmnKWoNlG2H4xB+D3ppz2snlsIoLSbdzlvWrMg5vY2DaIKs4vyFi7Nfsk0
-	iGDOVA5NHlcuEqOGF0He20R73cb+Acywux/zpUNLfsEGvfQhLkIqn4RDppecvKnfM0WyvLehMS64X
-	p/8tm56HdZh54wJAITI6xaHlXufA7s7xoBr1YJjbLFNi0SV8ZZpLmQhjAuqDGlGw/d05YGtgwUfJt
-	s7tf9qbg==;
+	bh=1VUqMECiZlY9thhbQvmy35ab0ws4JsaGHxxluesab0Q=; b=qilx37yMq17OsAWydv+h5JLWVA
+	nOUr2PFKvOwtBY6y+5k39zkgbXOKP0ZHLtAs8Wq+FYCv/3iGiq/Qvmv+HJq4k+sPZO3u81ZtNHwFt
+	4fhb5okMBEymEob4h70lRotZdpN0brIpq6ag9drRqE9wUZUfP/KMVWrcPVYSL70D/fcQ0q8SvlpD6
+	T0CB+GsZ4UvLInvYnQz4I9wKg+i86tXjEX8ufLCwG3APh0Wj4ZxctND54Nz7ibPoeIyrKK9vHJLKw
+	Q9Q//BmEFbgAK1O/NjDhu5LgF5saCan8c0m3qUfAChkl5c1UH8R3xX1WmjBoBLLs8WUdwzganUrYa
+	q0pfTxJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wca67-00000008aWM-3d7p;
-	Thu, 25 Jun 2026 02:45:47 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wcaH5-00000008b1G-0Gdh;
+	Thu, 25 Jun 2026 02:57:07 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wca67-00000008aWC-0GSj;
-	Thu, 25 Jun 2026 02:45:47 +0000
+	id 1wcaH4-00000008b1A-09ke
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 25 Jun 2026 02:57:06 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0F179443C7;
-	Thu, 25 Jun 2026 02:45:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 230441F00AC4;
-	Thu, 25 Jun 2026 02:45:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782355545;
-	bh=+I3E4Gc+UcSMgz+gbL7FQhQ6yoN65t58RV4TjtaKbLc=;
+	by sea.source.kernel.org (Postfix) with ESMTP id A7FE843C49;
+	Thu, 25 Jun 2026 02:57:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B1481F000E9;
+	Thu, 25 Jun 2026 02:57:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux-foundation.org; s=korg; t=1782356225;
+	bh=1VUqMECiZlY9thhbQvmy35ab0ws4JsaGHxxluesab0Q=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=WkY3uKIDrW1rloi6INImOYI/O0oBxuPoDh0qWO/SddOs1Nwa8H6WwBBzz7yeUv53k
-	 JE8BvInUy5w3zB30xrBG4bd7FFr2A85cefeljVMccUQHGtpluFz4XRtln7NPeQHGXq
-	 R4mkKITaphUsUKd5LA6CYCgOX1jsnRLG84Vggwcw/kav7pYXkpsD1Qr7jVXeEjM9f6
-	 Eu/o+DTcg2hJO30Inns4XCe3J8GVsQCWkiuZxQ0uNgaqdYMHsuF7gpRh0YhmVMvu+0
-	 oEjRTuEv1ao+cfkwtxEVFtgwNea1NgXAbB3DFs54AN7Df4Nc8csr/Tiz0Zec4wyJ45
-	 j+e5cHk+WhsnA==
-Date: Wed, 24 Jun 2026 19:45:44 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: "Wu. JackBB (GSM)" <JackBB_Wu@compal.com>
-Cc: Loic Poulain <loic.poulain@oss.qualcomm.com>, Sergey Ryazanov
- <ryazanov.s.a@gmail.com>, Johannes Berg <johannes@sipsolutions.net>,
- "Andrew Lunn" <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, "Eric Dumazet" <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, Wen-Zhi Huang <wen-zhi.huang@mediatek.com>, Shi-Wei
- Yeh <shi-wei.yeh@mediatek.com>, "Minano Tseng" <Minano.tseng@mediatek.com>,
- Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>, "Simon Horman"
- <horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Shuah Khan
- <skhan@linuxfoundation.org>, "linux-kernel@vger.kernel.org"
- <linux-kernel@vger.kernel.org>, "netdev@vger.kernel.org"
- <netdev@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>
-Subject: Re: [External Mail] Re: [PATCH v3 0/7] net: wwan: t9xx: Add
- MediaTek T9XX WWAN driver
-Message-ID: <20260624194544.2b4ef01b@kernel.org>
-In-Reply-To: <cec5736466864641967b99adcfaf324a@compal.com>
-References: <20260624-t9xx_driver_v1-v3-0-73ff03f60c48@compal.com>
-	<20260624170917.09967c74@kernel.org>
-	<cec5736466864641967b99adcfaf324a@compal.com>
-MIME-Version: 1.0
+	b=wUfWXj5aUF9eoVta8SgZEnnNduNGTOKD5CBkcZw8lAQZ5nDQRfynZOikmNZair0Ja
+	 xXlXcSLqbYwRVFC0GBj35O/iJAfNJHkfNGgjOUcxYCbjg/mRCa74VQbQf+iHrTDgCb
+	 jyvQry5GV5UdWA2ROhhIbcXZti87XuVpMIrNdw/8=
+Date: Wed, 24 Jun 2026 19:57:04 -0700
+From: Andrew Morton <akpm@linux-foundation.org>
+To: Wen Jiang <jiangwenxiaomi@gmail.com>
+Cc: linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+ catalin.marinas@arm.com, will@kernel.org, urezki@gmail.com,
+ baohua@kernel.org, Xueyuan.chen21@gmail.com, dev.jain@arm.com,
+ rppt@kernel.org, david@kernel.org, ryan.roberts@arm.com,
+ anshuman.khandual@arm.com, ajd@linux.ibm.com, linux-kernel@vger.kernel.org,
+ jiangwen6@xiaomi.com, shanghaoqiang@xiaomi.com
+Subject: Re: [PATCH v4 0/6] mm/vmalloc: Speed up ioremap, vmalloc and vmap
+ with contiguous memory
+Message-Id: <20260624195704.5c29c0353163babb721585ca@linux-foundation.org>
+In-Reply-To: <20260618084726.1070022-1-jiangwen6@xiaomi.com>
+References: <20260618084726.1070022-1-jiangwen6@xiaomi.com>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -83,22 +71,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 25 Jun 2026 01:55:49 +0000 Wu. JackBB (GSM) wrote:
->   I have a question about the preferred workflow: the cover
->   letter changelog would get quite long if I include detailed
->   explanations for each sashiko comment we chose not to fix.
+On Thu, 18 Jun 2026 16:47:20 +0800 Wen Jiang <jiangwenxiaomi@gmail.com> wrote:
+
+> This patchset accelerates ioremap, vmalloc, and vmap when the memory
+> is physically fully or partially contiguous. Two techniques are used:
+
+Thanks.
+
+> 1. Avoid page table rewalk when setting PTEs/PMDs for multiple memory
+>    segments
+> 2. Use batched mappings wherever possible in both vmalloc and ARM64
+>    layers
 > 
->   Was the concern more about timing? Should we have replied
->   to the sashiko review promptly when it came in, rather than
->   waiting until the full v3 was ready?
+> Besides accelerating the mapping path, this also enables large
+> mappings (PMD and cont-PTE) for vmap, which are currently not
+> supported.
+> 
+> Patches 1-2 extend ARM64 vmalloc CONT-PTE mapping to support multiple
+> CONT-PTE regions instead of just one.
+> 
+> Patch 3 extracts a common helper vmap_set_ptes() that consolidates PTE
+> mapping logic between the ioremap and vmalloc/vmap paths, handling both
+> CONT_PTE and regular PTE mappings. This prepares for the next patch.
+> 
+> Patch 4 extends the page table walk path to support page shifts other
+> than PAGE_SHIFT and eliminates the page table rewalk for huge vmalloc
+> mappings. The function is renamed from vmap_small_pages_range_noflush()
+> to vmap_pages_range_noflush_walk().
+> 
+> Patches 5-6 add huge vmap support for contiguous pages, including
+> support for non-compound pages with pfn alignment verification.
+> 
+> On the RK3588 8-core ARM64 SoC, with tasks pinned to a little core and
+> the performance CPUfreq policy enabled, benchmark results:
+> 
+> * ioremap(1 MB): 1.35x faster (3407 ns -> 2526 ns)
+> * vmalloc(1 MB) mapping time (excluding allocation) with
+>   VM_ALLOW_HUGE_VMAP: 1.42x faster (5.00 us -> 3.53us)
+> * vmap(100MB) with order-8 pages: 8.3x faster (1235 us -> 149 us)
 
-Either way works. Either give reviewers 24h to dispute the comments or
-add the comments to the repost. You don't have to keep a full detailed
-log in the changelog.
+Nice.
 
-> ================================================================================================================================================================
-> This message may contain information which is private, privileged or confidential of Compal Electronics, Inc. If you are not the intended recipient of this message, please notify the sender and destroy/delete the message. Any review, retransmission, dissemination or other use of, or taking of any action in reliance upon this information, by persons or entities other than the intended recipient is prohibited.
-> ================================================================================================================================================================
+> Many thanks to Xueyuan Chen for his testing efforts on RK3588 boards.
 
-Again, please fix this.
+Indeed.
+
+I see Dev had a good look at v3 - hopefully he (and Ulad) (and more ARM
+folks) have time to go through this.
+
+Is there any effect on anything other than arm64?  I'm wondering how
+much testing these changes will really get in mm.git and linux-next.
+
+How is our selftests coverage of these changes?  Is there some existing
+selftest which will exercise these new features?
+
+You diligently went through the Sashiko report against v3 (thanks). 
+Please pass an eye across its v4 report, see if something new popped
+up?
+	https://sashiko.dev/#/patchset/20260618084726.1070022-1-jiangwen6@xiaomi.com
+
 
