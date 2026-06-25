@@ -4,67 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EF7ACDB47F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 08:50:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33307CDB466
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 08:51:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FOZszqMBrYS7JOlBZJmMDKPWZN1V0x6xdDNISbf7dUI=; b=24wsfYuuS3CCvtsi6pvQfZpDqz
-	cVtE88KZ7LuL/jUgREeBbm8GHEBDT7d7zP85Po17dOn/hcHf6ZZ6KGMPrkq4mwXXJkf/PtTmAkPqd
-	fgB45v1Nj6iRqo5ZPLKKSiSOONkkji0PFHAhu6PbbNLl0/1tlVr0I/qWKLbm9r8gDDT8Hs9eNFhH8
-	GUfOHgME0v7VDG4UV5Cu6dXOAMFZE8+31Lu4W4Gldui8HyVsJhpIjF0es8cS2ohcOMAPUAMIOD41U
-	IUh6Q+YVZCiElPmbpHQ3x+Z89OFsdEafUIsbV8DG5iB6jwRze9FvE5c0S1titYkIy7pgbMeBZRkCl
-	x5e+3t6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vgG6+D68sy9iRTc5R0iCJ3olXs5OjWjTcVd+XbrgDPE=; b=cBBqioxA0bD7VXm3S0+CFl63Rf
+	XMv4dADSjxOaSB+OVU+bw8x5E1EmRdXLP1yVK0HbzGwUBiFGiYY52k6Gvsj5cZAZWwrru2d1i7Pbg
+	FxnT34hZczcwSwQZH4QE7COLSYsalkrHGg9BtHw6IF52Tkv1Euxb+BtUJgrjmSkJBdj36IfobpAwo
+	4FqIFjiQl+rgRV4Pv+4v7o5OjsApnZr5EqwL2CxPnu3ZDNp7TzOiKVu5bHSfr+JthZMFbFfRf2t9n
+	F0KMFqpNDcBqTNROINhvc9+3Psw1/J0iuxK29f48JmO8PX0n00Cs39ct693zgPdccReu+sCLrgS04
+	/DxWtMfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcfnF-00000008r0L-3Y0I;
-	Thu, 25 Jun 2026 08:50:41 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1wcfnu-00000008r5W-1Wp1;
+	Thu, 25 Jun 2026 08:51:22 +0000
+Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcfnD-00000008qzy-0Qc7
+	id 1wcfnq-00000008r4g-1nFV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Jun 2026 08:50:40 +0000
-Date: Thu, 25 Jun 2026 10:50:34 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1782377435;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=FOZszqMBrYS7JOlBZJmMDKPWZN1V0x6xdDNISbf7dUI=;
-	b=i8WCuLI9qFqXegYkEOURO5ezSHMFVd2u4lSi+b8c6fXZ0gU5E4N94KwqAhq2w2i28IiLEt
-	cTkP9tj86wKyoOXdw6yUN/ImRtrhDFf8jNcVEF5gIFTtYeWVNF226lSsOKviohiDM/i9mE
-	JdcYra9PgOBSodB5PO/lhDIxhJjpQ6odVSUZc7SqZMfemDC+e+0CxbKtwPBtM2vn+3N1gx
-	rCzK9VhmUfXjKECBeIMvIeE0ZzBp0KqqElmo/B18E3N1kszzITwbijLltjq+zp79CgFf7J
-	jT5nt7ANJr+Egu1bDlwpFDMQ530ktxR+TkhtbGK6piwfov/ZwAOfTr+Q7Updjw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1782377435;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=FOZszqMBrYS7JOlBZJmMDKPWZN1V0x6xdDNISbf7dUI=;
-	b=Z22sVkALQHW/DiCA6kPcmCeR/Z6/CiYSX9STVgbCL1+GdnRphuBRSUKKp5Q3Vv0MHiqaUy
-	nwMHDvrVIOXd4RBA==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: Xie Yuanbin <xieyuanbin1@huawei.com>
-Cc: linux@armlinux.org.uk, clrkwllms@kernel.org, rostedt@goodmis.org,
-	rmk+kernel@armlinux.org.uk, linusw@kernel.org, arnd@arndb.de,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev, liaohua4@huawei.com,
-	lilinjie8@huawei.com
-Subject: Re: [PATCH] ARM: enable interrupts when arm_notify_die() is handling
- user mode errors
-Message-ID: <20260625085034.tvyGSmaP@linutronix.de>
-References: <20260625073522.182503-1-xieyuanbin1@huawei.com>
+	Thu, 25 Jun 2026 08:51:20 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=vgG6+D68sy9iRTc5R0iCJ3olXs5OjWjTcVd+XbrgDPE=;
+	b=pXE2/Lq89Ou8/Tcgq+tmjFS4Q/beQPc2UPLS3CkVp5jPHIyNLyCKSsCNxMkJYTRGrIvvkiyY6
+	eBebrAR6GFM6wFm5jYHV4vL91naBsZeJqwaVWWpAjt85V/rnTITtnz40/YSgsImntltOOgu4VO6
+	RvRnqWpfx0JjCqBVOB0XZkg=
+Received: from mail.maildlp.com (unknown [172.19.163.104])
+	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4gmC3n0Jrwz1T4H1;
+	Thu, 25 Jun 2026 16:42:29 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 440EC4048F;
+	Thu, 25 Jun 2026 16:51:11 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 25 Jun 2026 16:51:09 +0800
+Message-ID: <190f6862-25a8-495e-b96d-8a1a6d244bd3@huawei.com>
+Date: Thu, 25 Jun 2026 16:51:08 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260625073522.182503-1-xieyuanbin1@huawei.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v15 03/11] arm64/ptrace: Use syscall_get_nr() helper for
+ syscall_trace_enter()
+To: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+CC: <catalin.marinas@arm.com>, <will@kernel.org>, <oleg@redhat.com>,
+	<tglx@kernel.org>, <peterz@infradead.org>, <luto@kernel.org>,
+	<kees@kernel.org>, <wad@chromium.org>, <mark.rutland@arm.com>,
+	<yeoreum.yun@arm.com>, <linusw@kernel.org>, <kevin.brodsky@arm.com>,
+	<ldv@strace.io>, <thuth@redhat.com>, <james.morse@arm.com>,
+	<song@kernel.org>, <anshuman.khandual@arm.com>, <broonie@kernel.org>,
+	<ryan.roberts@arm.com>, <pengcan@kylinos.cn>, <liqiang01@kylinos.cn>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20260511092103.1974980-1-ruanjinjie@huawei.com>
+ <20260511092103.1974980-4-ruanjinjie@huawei.com>
+ <5ea376d7-388a-418c-acde-9ebe1da96202@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <5ea376d7-388a-418c-acde-9ebe1da96202@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260625_015039_282696_8913C027 
-X-CRM114-Status: GOOD (  14.31  )
+X-CRM114-CacheID: sfid-20260625_015118_994469_E8D2081F 
+X-CRM114-Status: UNSURE (   8.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,62 +87,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-06-25 15:35:22 [+0800], Xie Yuanbin wrote:
-> For lastest linux-next kernel, with default multi_v7_defconfig, and
-> setting CONFIG_PREEMPT_RT=y, CONFIG_DEBUG_ATOMIC_SLEEP=y, and
-> CONFIG_PERF_EVENTS=n. When the user program executes bkpt
-> instruction, the following WARN will be triggered:
-> ```log
-> [    3.677825] BUG: sleeping function called from invalid context at kernel/locking/spinlock_rt.c:48
-> [    3.678002] in_atomic(): 0, irqs_disabled(): 128, non_block: 0, pid: 84, name: test
-> [    3.678036] preempt_count: 0, expected: 0
-> [    3.678078] RCU nest depth: 0, expected: 0
-> [    3.678864] CPU: 0 UID: 0 PID: 84 Comm: test Tainted: G        W           7.1.0-next-20260623 #45 PREEMPT_RT
-> [    3.679067] Tainted: [W]=WARN
-> [    3.679088] Hardware name: Generic DT based system
-> [    3.679198] Call trace:
-> [    3.679695]  unwind_backtrace from show_stack+0x10/0x14
-> [    3.680363]  show_stack from dump_stack_lvl+0x50/0x5c
-> [    3.680377]  dump_stack_lvl from __might_resched+0x160/0x174
-> [    3.680393]  __might_resched from rt_spin_lock+0x38/0x138
-> [    3.680425]  rt_spin_lock from force_sig_info_to_task+0x1c/0x11c
-> [    3.680438]  force_sig_info_to_task from force_sig_fault+0x44/0x64
-> [    3.680450]  force_sig_fault from do_PrefetchAbort+0x94/0x9c
-> [    3.680461]  do_PrefetchAbort from ret_from_exception+0x0/0x20
-> [    3.680513] Exception stack(0xf0ab5fb0 to 0xf0ab5ff8)
-> [    3.680653] 5fa0:                                     00000000 bed32e94 bed32e9c 00037954
-> [    3.680672] 5fc0: 00000002 00000001 bed32e94 0009d590 00000000 bed32e9c 00000002 00000000
-> [    3.680682] 5fe0: bed32d48 bed32d38 00037a00 00037958 60000010 ffffffff
-> ```
 
-I don't think this required information as it is obvious. At the very
-least you could trim it the needed parts if considered needed.
 
-> When PREEMPT_RT is enabled, force_sig_info() requires interrupts to be
-> enabled. Enable interrupts when arm_notify_die() is handling user mode
-> errors to fix the issue.
+On 6/24/2026 9:42 PM, Ada Couprie Diaz wrote:
+> On 11/05/2026 10:20, Jinjie Ruan wrote:
 > 
-> Fixes: c6e61c06d606 ("ARM: 9463/1: Allow to enable RT")
+>> Use syscall_get_nr() to get syscall number for syscall_trace_enter().
+>> This aligns arm64's internal tracing logic with the generic
+>> entry framework.
+>>
+>> [Changes]
+>> 1. Use syscall_get_nr() helper:
+>>     - Replace direct regs->syscallno access with
+>>       syscall_get_nr(current, regs).
+>>     - This helper is functionally equivalent to direct access on arm64.
+>>
+>> 2. Re-read syscall number after tracepoint:
+>>    - Re-fetch the syscall number after trace_sys_enter() as it may have
+>>      been modified by BPF or ftrace probes, matching generic entry
+>> behavior.
+>>
+>> [Why this matters]
+>> - Aligns arm64 with the generic entry interface.
+>> - Makes future migration to generic entry framework.
+> This is missing what it makes the future migration . Easier, possible ?
+> (Same in patch 02, but I missed it !)
+
+Hi Ada,
+
+Yes, a word was missing: 'simpler' or 'smoother'.
+
+Best regards,
+Jinjie
+
+
+>> - Properly handles syscall number modifications by tracers.
+>> - Uses standard architecture-independent helpers.
+>>
+>> No functional changes intended.
+>>
+>> Cc: Mark Rutland <mark.rutland@arm.com>
+>> Cc: Will Deacon <will@kernel.org>
+>> Cc: Catalin Marinas <catalin.marinas@arm.com>
+>> Reviewed-by: Linus Walleij <linusw@kernel.org>
+>> Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
+>> Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
+>> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+>> ---
 > 
-> Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-> Cc: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> Signed-off-by: Xie Yuanbin <xieyuanbin1@huawei.com>
+> Otherwise,
+> 
+> Reviewed-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> 
 
-So I did test the 32bit case on arm64 while testing/ backporting the
-breakpoint handling there but apparently did not try it on real
-arm32.
-
-For "asm("BKPT #0");" the SIGTRAP is not raised instead I get just
-| 8<--- cut here ---
-| Unhandled prefetch abort: debug event (0x222) at 0x00000000
-
-on the kernel side and a "Bus error" on userland side.
-
-So
-Reviewed-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-
-for this but actual breakpoint handling might be broken or is it just
-me? But then your stack trace looks like mine so :/
-
-Sebastian
 
