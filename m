@@ -4,74 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7DF4CDB479
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 13:58:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34F48CDB479
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 14:13:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KaLc+quV2pMprMYuRbpfQ+2ZIV/dZbs72AcURaa/OQ0=; b=bR1GjryvJH+misxxWTF23mcNE0
-	19abpKqd9ThlAKZHMvTv21ZnMyO9spieUaBVI6A4YHlY4zXLIdXhclV9e0oYFbBZMiCeNwykrB09M
-	XdLiXX2e/Yd5VfoDfo2bpsOG7bUZPQ9WhETWQCnf4sa6iaAbpC1bp2TQVGw5YSCG2AoM3FrTwlGaB
-	ndBzKA+LM76uc0xYwhPFPoRO+62vdNQNkTiTwS5zBWmrfXRUIDD7uVam7wG+OLBeTvnoR4ObQKrwm
-	yRAGxYBw5cEhhiPY21nN8SgIRlCsISe9SKy4XkIDO+7NJiS+8Ago09vioIoIAfKcTdg+kGCfEll+c
-	6Ujlekqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=k3XImR5LuwT8/GVFa0sNRFYkN/CDPKz36sZeNivR0Ps=; b=KI5i5po0Oz/88tI2DYh1pHqHlP
+	OMf3SY1+GYyDU9HqsbRVa34YzC97d/dMpJ/aHbfbeX5QWd6sPqZlUscDjJgjTI04EVbxNVJGDCSyk
+	zpiRzATwWGY3XO7/xZDy+JSVRW06/bycct98fzfF9aGve8VIoTux2qBybGSPAyBvbMbEs82oJOszU
+	8iWfY9EVgvdHU0quIhUl+RcEgtNZlocjWY7IL4jBJQnjbZUGapc9vLe0N7Xqj/nBfreNpT/6RlEuL
+	RDdIj0N230WOkb1h5CRDqAHsfNdHNLS6hs2Lwo6ub7eogpC7uv9jJB1gbfX9EG9zFenDQedu+2Cdm
+	GxI2AVYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wckav-00000009Gll-1Vrc;
-	Thu, 25 Jun 2026 13:58:17 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wckpk-00000009J8c-3lZU;
+	Thu, 25 Jun 2026 14:13:36 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wckat-00000009Gld-46RB
+	id 1wckph-00000009J7n-2NnM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Jun 2026 13:58:16 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4ADEF444C3;
-	Thu, 25 Jun 2026 13:58:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64D931F00A3A;
-	Thu, 25 Jun 2026 13:58:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782395895;
-	bh=KaLc+quV2pMprMYuRbpfQ+2ZIV/dZbs72AcURaa/OQ0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=hxzCeslCh1paaQ8/HrAjwhqZTAelNUsRIjBPlx5RHMj5LtK3w3RfPFIdBadUna4DE
-	 nq1McAB8FAmEl6SanbsC8zX00pnFnB6gdenCE1yK7Mls2mrfPpqdZOZlICMJhSlCHp
-	 owurHl9hTH3dFmHUYBNfsXeZ/YfGAJiT09NVgU0XtajdCDy1VixADEppORjAVB+AyL
-	 Srwy1bXrdRe68sJOuwDd4A+yc7YovE0g0Us/8eSiN14f8ViGgKT0ZL6emGWChcULD7
-	 Dh/5U9EcTyLwdZL405n5v1knnQqGzFwMJGNORvcn0/wvDL+xcomdrFyxBqnGOlVI/m
-	 +67YJTWsze+KQ==
-Date: Thu, 25 Jun 2026 15:57:54 +0200
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Sherry Sun <sherry.sun@nxp.com>
-Cc: "Frank Li (OSS)" <frank.li@oss.nxp.com>, 
-	"Sherry Sun (OSS)" <sherry.sun@oss.nxp.com>, "robh@kernel.org" <robh@kernel.org>, 
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>, 
-	Frank Li <frank.li@nxp.com>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, 
-	"kernel@pengutronix.de" <kernel@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>, 
-	Amitkumar Karwar <amitkumar.karwar@nxp.com>, Neeraj Sanjay Kale <neeraj.sanjaykale@nxp.com>, 
-	"marcel@holtmann.org" <marcel@holtmann.org>, "luiz.dentz@gmail.com" <luiz.dentz@gmail.com>, 
-	Hongxing Zhu <hongxing.zhu@nxp.com>, "l.stach@pengutronix.de" <l.stach@pengutronix.de>, 
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, "kwilczynski@kernel.org" <kwilczynski@kernel.org>, 
-	"bhelgaas@google.com" <bhelgaas@google.com>, "brgl@kernel.org" <brgl@kernel.org>, 
-	"imx@lists.linux.dev" <imx@lists.linux.dev>, "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"linux-bluetooth@vger.kernel.org" <linux-bluetooth@vger.kernel.org>, "linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>
-Subject: Re: [PATCH V2 1/8] PCI: imx6: Add skip_pwrctrl_off flag support
-Message-ID: <ozh6q3xazym5dfwvp4re7zwaqcaqmms7pbrzwelzsfldxs6lju@bshacga5usqs>
-References: <20260623030736.1421537-1-sherry.sun@oss.nxp.com>
- <20260623030736.1421537-2-sherry.sun@oss.nxp.com>
- <ajqZBM6IkbDLiVu2@SMW015318>
- <VI0PR04MB121147C305022511469FB603A92ED2@VI0PR04MB12114.eurprd04.prod.outlook.com>
- <ajwOvZUlOEQzmjsu@SMW015318>
- <VI0PR04MB12114BCBD405505888063284492EC2@VI0PR04MB12114.eurprd04.prod.outlook.com>
+	Thu, 25 Jun 2026 14:13:36 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 665A24E408E1;
+	Thu, 25 Jun 2026 14:13:30 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 2E7535FF03;
+	Thu, 25 Jun 2026 14:13:30 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2B3FC104C9776;
+	Thu, 25 Jun 2026 16:13:15 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1782396808; h=from:subject:date:message-id:to:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=k3XImR5LuwT8/GVFa0sNRFYkN/CDPKz36sZeNivR0Ps=;
+	b=wHXbjJXutSwFzKdyBO+JadrL7vzZXU2Ju+iay6NC3mqD2OVKNOmpQcK+SqpaVzmb/kfhUw
+	b9eJsyPs0swywCYolXBHA9sqiLCYmtT6uu9qlEbPcUoYONRWs4Qz3g9ycv/87AB2lXiaCY
+	dVXvQeAZhwn9vqI4DnCISuk++CUKb6I/A1KPjM1BARbiKqito2vCTmjxITZn6c+TsasA/Y
+	hgDUl7mLW9wPZQ94naWK5t7dGuiPvzFXNe/mc9zgn4DI6COoTOIcigvIHeeJPFhcpbK2qu
+	LZ4JptlGAm20dUa3h0Eg3n2MoWAJ+oZYl9WKk/LHhvhj9PpkpYcIf2WUrIh4ow==
+Message-ID: <a271385e-302d-45c7-a1df-aebd380b427b@bootlin.com>
+Date: Thu, 25 Jun 2026 16:13:14 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <VI0PR04MB12114BCBD405505888063284492EC2@VI0PR04MB12114.eurprd04.prod.outlook.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH net-next v8 03/12] net: phylink: add
+ phylink_release_pcs() to externally release a PCS
+To: Christian Marangi <ansuelsmth@gmail.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Simon Horman <horms@kernel.org>,
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+ Lorenzo Bianconi <lorenzo@kernel.org>, Heiner Kallweit
+ <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>,
+ Saravana Kannan <saravanak@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Nathan Chancellor
+ <nathan@kernel.org>, Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ llvm@lists.linux.dev
+References: <20260618125752.1223-1-ansuelsmth@gmail.com>
+ <20260618125752.1223-4-ansuelsmth@gmail.com>
+Content-Language: en-US
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <20260618125752.1223-4-ansuelsmth@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260625_071333_909691_86778D9A 
+X-CRM114-Status: GOOD (  34.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,78 +92,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 25, 2026 at 07:25:46AM +0000, Sherry Sun wrote:
-> > Subject: Re: [PATCH V2 1/8] PCI: imx6: Add skip_pwrctrl_off flag support
-> > 
-> > On Wed, Jun 24, 2026 at 07:09:26AM +0000, Sherry Sun wrote:
-> > > > Subject: Re: [PATCH V2 1/8] PCI: imx6: Add skip_pwrctrl_off flag
-> > > > support
-> > > >
-> > > > On Tue, Jun 23, 2026 at 11:07:28AM +0800, Sherry Sun (OSS) wrote:
-> > > > > From: Sherry Sun <sherry.sun@nxp.com>
-> > > > >
-> > > > > Use dw_pcie_rp::skip_pwrctrl_off to avoid powering off devices
-> > > > > during suspend to preserve wakeup capability of the devices and
-> > > > > also not to power on the devices in the init path.
-> > > > > This allows controller power-off to be skipped when some devices(e.g.
-> > > > > M.2 cards key E without auxiliary power) required to support PCIe
-> > > > > L2 link state and wake-up mechanisms.
-> > > > >
-> > > > > Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
-> > > > > ---
-> > > > >  drivers/pci/controller/dwc/pci-imx6.c | 36
-> > > > > +++++++++++++++++----------
-> > > > >  1 file changed, 23 insertions(+), 13 deletions(-)
-> > > > >
-> > > > > diff --git a/drivers/pci/controller/dwc/pci-imx6.c
-> > > > > b/drivers/pci/controller/dwc/pci-imx6.c
-> > > > > index 0fa716d1ed75..ff5a9565dbbf 100644
-> > > > > --- a/drivers/pci/controller/dwc/pci-imx6.c
-> > > > > +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> > > > > @@ -1382,16 +1382,20 @@ static int imx_pcie_host_init(struct
-> > > > > dw_pcie_rp
-> > > > *pp)
-> > > > >  		}
-> > > > >  	}
-> > > > >
-> > > > > -	ret = pci_pwrctrl_create_devices(dev);
-> > > > > -	if (ret) {
-> > > > > -		dev_err(dev, "failed to create pwrctrl devices\n");
-> > > > > -		goto err_reg_disable;
-> > > > > +	if (!pci->suspended) {
-> > > > > +		ret = pci_pwrctrl_create_devices(dev);
-> > > >
-> > > > Is possible move pci_pwrctrl_create_devices() of
-> > > > pci_pwrctrl_create_devices
-> > > >
-> > > > and call it direct at probe() function, like other regulator_get function.
-> > > >
-> > >
-> > > Hi Frank,
-> > > That makes sense. However, if we move pci_pwrctrl_create_devices () to
-> > > probe(), we may need to add the following goto err_pwrctrl_destroy
-> > > path in imx_pcie_probe() to properly handle errors from
-> > > pci_pwrctrl_power_on_devices(), is that acceptable?
-> > 
-> > Can you add a API devm_pci_pwrctrl_create_devices() ?
-> > 
-> 
-> Hi Frank, we cannot unconditionally destroy the pwrctrl devices
-> when probing fails by using devm API.
-> Since we need to check the return value of
-> pci_pwrctrl_power_on_devices() for example EPROBE_DEFER to decide
-> whether to destroy the pwrctrl devices to avoid the deferred probe loop.
-> 
-> You can find more related discussion here.
-> https://lore.kernel.org/all/tutxwjciedqoje5wxvtin4h637auni5zzpvb7rtfg4uticxoux@yfl6xg7oht7t/
-> 
+Hello Christian,
 
-Yes. Ideally we should try to do a blocking wait in the pwrctrl core until all
-the pwrctrl drivers are probed, instead of deferring probe. Hopefully, I'll get
-to it soon.
+On 6/18/26 14:57, Christian Marangi wrote:
+> Add phylink_release_pcs() to externally release a PCS from a phylink
+> instance. This can be used to handle case when a single PCS needs to be
+> removed and the phylink instance needs to be refreshed.
+> 
+> On calling phylink_release_pcs(), the PCS will be removed from the
+> phylink internal PCS list and the phylink supported_interfaces value is
+> reparsed with the remaining PCS interfaces.
+> 
+> Also a phylink resolve is triggered to handle the PCS removal.
+> 
+> The flag force_major_config is set to make phylink resolve reconfigure
+> the interface (even if it didn't change).
+> This is needed to handle the special case when the current PCS used
+> by phylink is removed and a major_config is needed to propagae the
+> configuration change. With this option enabled we also force mac_config
+> even if the PHY link is not up for the in-band case.
+> 
+> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+> ---
+>  drivers/net/phy/phylink.c | 56 +++++++++++++++++++++++++++++++++++++++
+>  include/linux/phylink.h   |  2 ++
+>  2 files changed, 58 insertions(+)
+> 
+> diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
+> index c38bcd43b8c8..064d6f5a06da 100644
+> --- a/drivers/net/phy/phylink.c
+> +++ b/drivers/net/phy/phylink.c
+> @@ -158,6 +158,8 @@ static const phy_interface_t phylink_sfp_interface_preference[] = {
+>  static DECLARE_PHY_INTERFACE_MASK(phylink_sfp_interfaces);
+>  
+>  static void phylink_run_resolve(struct phylink *pl);
+> +static void phylink_link_down(struct phylink *pl);
+> +static void phylink_pcs_disable(struct phylink_pcs *pcs);
+>  
+>  /**
+>   * phylink_set_port_modes() - set the port type modes in the ethtool mask
+> @@ -918,6 +920,60 @@ static void phylink_resolve_an_pause(struct phylink_link_state *state)
+>  	}
+>  }
+>  
+> +/**
+> + * phylink_release_pcs - Removes a PCS from the phylink PCS available list
+> + * @pcs: a pointer to the phylink_pcs struct to be released
+> + *
+> + * This function release a PCS from the phylink PCS available list if
+> + * actually in use. It also refreshes the supported interfaces of the
+> + * phylink instance by copying the supported interfaces from the phylink
+> + * conf and merging the supported interfaces of the remaining available PCS
+> + * in the list and trigger a resolve.
+> + */
+> +void phylink_release_pcs(struct phylink_pcs *pcs)
+> +{
+> +	struct phylink *pl;
+> +
+> +	ASSERT_RTNL();
+> +
+> +	pl = pcs->phylink;
+> +	if (!pl)
+> +		return;
+> +
+> +	mutex_lock(&pl->state_mutex);
+> +
+> +	list_del(&pcs->list);
+> +	pcs->phylink = NULL;
+> +
+> +	/*
+> +	 * Check if we are removing the PCS currently
+> +	 * in use by phylink. If this is the case, tear down
+> +	 * the link, force phylink resolve to reconfigure the
+> +	 * interface mode, disable the current PCS and set the
+> +	 * phylink PCS to NULL.
+> +	 */
+> +	if (pl->pcs == pcs) {
+> +		phylink_link_down(pl);
+> +		phylink_pcs_disable(pl->pcs);
+> +
+> +		pl->force_major_config = true;
+> +		pl->pcs = NULL;
+> +	}
+> +
+> +	mutex_unlock(&pl->state_mutex);
+> +
+> +	/* Refresh supported interfaces */
+> +	phy_interface_copy(pl->supported_interfaces,
+> +			   pl->config->supported_interfaces);
+> +	list_for_each_entry(pcs, &pl->pcs_list, list)
+> +		phy_interface_or(pl->supported_interfaces,
+> +				 pl->supported_interfaces,
+> +				 pcs->supported_interfaces);
 
-- Mani
+I've given more thought to that 'supported_interfaces' thing. This
+patchset redefines the meaning of
 
--- 
-மணிவண்ணன் சதாசிவம்
+  pl->config->supported_interfaces
+
+Currently, it's filled by the MAC driver and means "Every interface
+we can support, including the ones provided by PCSs that we can use
+with this MAC".
+
+It now becomes "Every interface we support without needing a PCS", at
+least the way I understand that.
+
+It's not an error in your code, but I think this is worth documenting
+somewhere as this changes one the things that's already fairly
+error-prone in new drivers.
+
+I don't know to what extent people use that, be we have a porting guide
+that explains how to use phylink in a MAC driver, maybe an update in there
+would be nice as well :
+
+https://docs.kernel.org/networking/sfp-phylink.html#rough-guide-to-converting-a-network-driver-to-sfp-phylink
+
+Maxime
+
+
 
