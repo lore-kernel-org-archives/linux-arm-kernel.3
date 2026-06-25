@@ -4,78 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F36ACDB466
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 08:27:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01A35CDB47F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 08:37:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QTFO3oQkVPqrmRl+n0cp7vUlHt0XKOQHlyIGpfzi49g=; b=A+H41/LkyJOpDi7CFgSH/ryU5Z
-	XLRJWJs/RkjQebLh4lVB7/R3eYD0M/LcEokq70jhrYT/T37hsFTlmae0JwpxUnhK0CVdRxJ4ZVOe0
-	/8Oez7rpJY4WD8F09YC4cYVtQ/s8uushNHK/wdKVsMotZ4hSPhRegPlGdQbZ5esI2PuRMggRo88YX
-	gnDizmDfXaJNbWAKF7ydHBap33VXMV6lPkvFRtHM+BuDO3t1EsJbtQ6715jxe3V8uc6DlERmqfZbP
-	+qkWYBXnz12EX6EATuP3vSi3hWoI0QFHIzVUTWL92RDK0FkVePFaOAxDXioCYadDBv/qkzk6mnUPx
-	J06mt3Ug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DTHenELavdixkpehBZtgo0+fqBfXPK/qvE1tJsk4MnM=; b=quH/qF1w56foZByQmyPfhz1JRj
+	dfStQ4vPcV0eVxKNrt4CIMOGS93zipx9rPrhbYHx8VQWhH1fjw0uLmoyUXVbwUXSOdNUIWkw+bddK
+	2pWy1ptlcUwKyhAXjSyhYKJ/jatTymRKk8ES6X/2jL9vWWbbpJbaSZLZnSKWhGW2MFFyvAVfx4ErP
+	YCZIoGdjZgamNgMEjDssuVHtS6pkehPv2/bjD87Wg4AGwVo/2cdpFg7Ak+mVqfvObR4UFn8IZc20A
+	nMgitvJzlR5mvRIHhUtR6aUNnYvR73No9CNlrUo1R6aV0LxyN7pqYzWK3Gvp0HPgvijf56dnXz+GS
+	DZA9FZ5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcfQl-00000008pjy-01Pz;
-	Thu, 25 Jun 2026 08:27:27 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wcfaW-00000008qE5-0lnv;
+	Thu, 25 Jun 2026 08:37:32 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcfQi-00000008pjb-3Rbe;
-	Thu, 25 Jun 2026 08:27:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1782376041;
-	bh=3/LY8KlTihlMDpw21vo/W499ESW2H40mbT2W0+IKHaE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=lpwEnTR69cAw6BGZ8RcZ1Y0OKSSYaUSXjXIwI1l5nxNRP0Lldb+D9gIul57l6dhRu
-	 040xDbSq8R70JI2jTOjWwi6hrSvb1AI5W1EP9G74ykG7Brusm1zEiIGnMWVG5KMQ9o
-	 FxPRFv0/lCmeVlEoba4KDbhxqpQ8mm8uo92G9b3B+egsmOgOlXgyUSG11gDRoKgHSb
-	 WlE8NkQmscThLBWOx9Zjj4OrjN0xCunXHlz1+nlwaNgBNyyltBjGUMtJ3zERFNxgOQ
-	 3N0gjN604GcjfnkEW6Xs5OYvwPIn4bePFmHhn0k3SjULJAYtniYPtoso6EYLLPomh8
-	 BR04vvdB51zuQ==
-Received: from [100.64.0.241] (unknown [100.64.0.241])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9355B17E02B5;
-	Thu, 25 Jun 2026 10:27:20 +0200 (CEST)
-Message-ID: <0e8ae8b8-3a6e-49e1-acdd-27ce4921bd21@collabora.com>
-Date: Thu, 25 Jun 2026 11:27:20 +0300
+	id 1wcfaU-00000008qDw-3xKZ
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 25 Jun 2026 08:37:31 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id E1EC560217;
+	Thu, 25 Jun 2026 08:37:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 930531F000E9;
+	Thu, 25 Jun 2026 08:37:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782376649;
+	bh=DTHenELavdixkpehBZtgo0+fqBfXPK/qvE1tJsk4MnM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=FGlFrAQy6E1uz0C3XgqICgDtpY4DNdRjgthseoT8MOaduXl+SL2fHnjmBcTYDYVoi
+	 aahon87kV8Efqxe2wgajqSOfG+M8UjxNNxFsy+F5zI+k++5To0Lok2H3O3Rv1rReCc
+	 4GdaD1AQG03Ev/h+Ut1+huKOcnbWktK3QkMVU8PbwQ/NT4ysLrtbHE2zVbir4hs4P/
+	 NrVHnpV8HVagJwIgz0sIcJXup1HvAIrniYojkT3EXswnjYmA8WlxJbIWl1GTzV1Wo9
+	 uiKQORFPHRADJs5La5tVBgIZquUTMYRVkk8GBfS+6AZVOCWadOU7XYgpssTnjgx/Gv
+	 Xi0QONQ3Fwmug==
+Date: Thu, 25 Jun 2026 11:37:18 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Shyam Saini <shyamsaini@linux.microsoft.com>
+Cc: linux-mm@kvack.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, akpm@linux-foundation.org,
+	tgopinath@linux.microsoft.com, bboscaccy@linux.microsoft.com,
+	kees@kernel.org, tony.luck@intel.com, gpiccoli@igalia.com,
+	bp@alien8.de, rdunlap@infradead.org, peterz@infradead.org,
+	feng.tang@linux.alibaba.com, dapeng1.mi@linux.intel.com,
+	elver@google.com, enelsonmoore@gmail.com, kuba@kernel.org,
+	lirongqing@baidu.com, ebiggers@kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+	David Hildenbrand <david@kernel.org>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [RFC v2 PATCH] reserve_mem: add support for static memory
+Message-ID: <ajzovhWHcFQZ9d3l@kernel.org>
+References: <20260619062331.348789-1-shyamsaini@linux.microsoft.com>
+ <aje-nY6QbwZP9XLG@kernel.org>
+ <ajyC2eX9MKSU84Z8@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 04/30] drm/display: scdc_helper: Add HDMI 2.0
- scrambling management helpers
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>,
- =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
- Andy Yan <andy.yan@rock-chips.com>, Daniel Stone <daniels@collabora.com>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>,
- =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
- kernel@collabora.com, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org
-References: <20260602-dw-hdmi-qp-scramb-v7-0-445eb54ee1ed@collabora.com>
- <20260602-dw-hdmi-qp-scramb-v7-4-445eb54ee1ed@collabora.com>
- <20260625-screeching-uptight-elephant-5bdaed@houat>
-Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <20260625-screeching-uptight-elephant-5bdaed@houat>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260625_012725_157237_1FE53B35 
-X-CRM114-Status: GOOD (  17.92  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ajyC2eX9MKSU84Z8@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,61 +80,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/25/26 11:05 AM, Maxime Ripard wrote:
-> On Tue, Jun 02, 2026 at 01:44:04AM +0300, Cristian Ciocaltea wrote:
->> +static int drm_scdc_reset_crtc(struct drm_connector *connector,
->> +			       struct drm_modeset_acquire_ctx *ctx)
->> +{
->> +	struct drm_device *dev = connector->dev;
->> +	struct drm_crtc *crtc;
->> +	u8 config;
->> +	int ret;
->> +
->> +	if (!ctx)
->> +		return 0;
->> +
->> +	/*
->> +	 * This is normally part of .detect_ctx() call path, which already holds
->> +	 * connection_mutex through @ctx.  However, re-acquiring it with the
->> +	 * same context is a no-op and makes the helper safe under any caller.
->> +	 */
->> +	ret = drm_modeset_lock(&dev->mode_config.connection_mutex, ctx);
->> +	if (ret)
->> +		return ret;
->> +
->> +	if (!connector->state)
->> +		return 0;
->> +
->> +	crtc = connector->state->crtc;
->> +	if (!crtc)
->> +		return 0;
->> +
->> +	ret = drm_scdc_readb(connector->ddc, SCDC_TMDS_CONFIG, &config);
->> +	if (ret) {
->> +		drm_scdc_dbg(connector, "Failed to read TMDS config: %d\n", ret);
->> +		return ret;
->> +	}
->> +
->> +	if ((config & SCDC_SCRAMBLING_ENABLE) &&
->> +	    (config & SCDC_TMDS_BIT_CLOCK_RATIO_BY_40))
->> +		return 0;
-> 
-> I don't think we should care about the bit clock ratio here. From a
-> technical standpoint, and since you ignore low rates for the scrambler
-> for now, they are indeed equivalents. But semantically, scrambler can be
-> enabled for any rate, and the bit clock ratio should be changed only for
-> rates higher than 340MHz.
-> 
-> This function makes sure to trigger a modeset when the scrambler is
-> enabled or not. From a spec point of view, it's somewhat orthogonal to
-> the bit clock ratio. From a function name point of view, it's
-> misleading.
-> 
-> So yeah, I'd just drop the check on the bit clock ratio here. Drivers
-> will then get to enable either when the commit actually happens.
+Hi Shyam,
 
-Ack.
+On Wed, Jun 24, 2026 at 06:22:33PM -0700, Shyam Saini wrote:
+> On 21 Jun 2026 13:36, Mike Rapoport wrote:
+> > On Thu, Jun 18, 2026 at 11:23:31PM -0700, Shyam Saini wrote:
+> > > reserve_mem relies on dynamic memory allocation, this limits the
+> > > usecase where memory is required to be preserved across the boots.
+> > > Eg: ramoops memory reservation on ACPI platforms
+> > >
+> > > So add support to pass a pre-determined static address and reserve
+> > > memory at a specified location. This enables use case like ramoops
+> > > on ACPI platforms to reliably access ramoops region with previous
+> > > boot logs.
+> > > 
+> > > Also skip the parsing of <align> when static address is passed.
+> > > 
+> > > Example syntax for static address
+> > >  reserve_mem=4M@0x1E0000000:oops
+> > 
+> > reserve_mem is best effort by design because such hacks as well as memmap=
+> > cannot guarantee this memory is actually free.
+> > 
+> > If you want to preserve ramoops reliably, use KHO with reserve_mem.
+> > The first kernel will allocate memory, this memory will be preserved by KHO
+> > and could be picked up by the second kernel.
+> 
+> ok, On ARM64 DTS systems, we can reserve ramoops memory in the device tree during
+> the warm reboot.
 
-Thanks,
-Cristian
+The cc list actually implied x86 ;-)
+Added arm64 folks now.
+
+> For an equivalent ARM64 ACPI platform, what is the recommended way to reserve
+> and preserve that memory across the boots? 
+
+I don't think it exists, but a command line option (be it memmap= or
+reserve_mem=) does not seem the right way to me.
+
+Most of the arguments that were made against adding memmap= to arm64 [1]
+apply here.
+
+If kexec is an option, KHO provides a reliable way to preserve memory
+across boots.
+
+If kexec is not an option, we should look for a generic way to specify
+something like DT's reserved_mem for ACPI/EFI systems.
+
+[1] https://lkml.kernel.org/lkml/20201118063314.22940-1-song.bao.hua@hisilicon.com/T/
+
+> Thanks,
+> Shyam
+
+-- 
+Sincerely yours,
+Mike.
 
