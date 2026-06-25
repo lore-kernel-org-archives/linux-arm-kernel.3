@@ -4,64 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5ED9CDB47C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 02:40:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5891FCDB479
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 02:45:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p3p64QLxeoSw9Yq4VL1TE72ZFtwb/GGd34Qq6hX/+TA=; b=TbaA4op9uhoPoQCTA7hrnThBGV
-	8fxulxw46nzEHNu8C7iTPIpDgzpknMGOAto6yv8Wr1rI69MUpoSVXjRFGouz3KojrriAQ7Bd2aYKO
-	qhABKcdf8WjMhzFcNDYwZskVqfETaKuW82LKFpAKpxVP6T0ZuTtd9mfACT45Y7uK/1kx590OrnTV4
-	MSyVdiiB6laQfMFblsE4uYR7rSyeCbxVhw3qtNd0Dy/sKQOA0Za7lkdq1ej6ahvkTCjaNlCNMX2df
-	nuvhbs7lbEdJLck2iWHpKpfiPdnSYmt6fbQ1D/ValQ2M4YMojvIHMGJS9lAcpem0GsmCpopmtEoX6
-	kCJxdDMg==;
+	bh=+I3E4Gc+UcSMgz+gbL7FQhQ6yoN65t58RV4TjtaKbLc=; b=PTDRYuRa2HS4SzGACse4FB0MOQ
+	nRAts9ioWW9rNvoQKHvX2LcY1l6Jz+fyBLvukSFYyf9WiFa829GhnoG9PuWscKAs0FhjGdOGqIGDn
+	W/7ElDx/92tlXgDWLCKzmnKWoNlG2H4xB+D3ppz2snlsIoLSbdzlvWrMg5vY2DaIKs4vyFi7Nfsk0
+	iGDOVA5NHlcuEqOGF0He20R73cb+Acywux/zpUNLfsEGvfQhLkIqn4RDppecvKnfM0WyvLehMS64X
+	p/8tm56HdZh54wJAITI6xaHlXufA7s7xoBr1YJjbLFNi0SV8ZZpLmQhjAuqDGlGw/d05YGtgwUfJt
+	s7tf9qbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wca14-00000008a0p-0cjK;
-	Thu, 25 Jun 2026 02:40:34 +0000
+	id 1wca67-00000008aWM-3d7p;
+	Thu, 25 Jun 2026 02:45:47 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wca11-00000008ZyM-22vB;
-	Thu, 25 Jun 2026 02:40:31 +0000
+	id 1wca67-00000008aWC-0GSj;
+	Thu, 25 Jun 2026 02:45:47 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C23C540587;
-	Thu, 25 Jun 2026 02:40:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A318D1F000E9;
-	Thu, 25 Jun 2026 02:40:30 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0F179443C7;
+	Thu, 25 Jun 2026 02:45:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 230441F00AC4;
+	Thu, 25 Jun 2026 02:45:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782355230;
-	bh=p3p64QLxeoSw9Yq4VL1TE72ZFtwb/GGd34Qq6hX/+TA=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=P7na+PilaTea4ySP01h/CB9/1d51ZEgJcB7t4yjiyW9Ebe7bbB7g6R4goX2Rmjp0H
-	 cLTNwxK3eGUO/45R/Th60rbmu7WVB71uVsdxW6Eug3N7pygfq0v/uHvrGk3WSpYxYk
-	 woZZHkRYnTntt0wUy7+jl6jsPvOAVL5NrKXIH26Ej6JVfwLVHAXh93JXiyoT+NOPMM
-	 Mx1HIGld4tyrEBuL39iT9CmYKVGY59II1ErPcDFch1hfcX3mf24hIiJqp+ijX8Ic0Z
-	 AM1gKYE6qD2JJJPKsFnv22Cg//Hmj/3qWuDHLSkuJPoGGNFJKA6ATQwzlhLbARGgl2
-	 1mhHuKPw/iXLA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 199423AAA6DE;
-	Thu, 25 Jun 2026 02:40:20 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	s=k20260515; t=1782355545;
+	bh=+I3E4Gc+UcSMgz+gbL7FQhQ6yoN65t58RV4TjtaKbLc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=WkY3uKIDrW1rloi6INImOYI/O0oBxuPoDh0qWO/SddOs1Nwa8H6WwBBzz7yeUv53k
+	 JE8BvInUy5w3zB30xrBG4bd7FFr2A85cefeljVMccUQHGtpluFz4XRtln7NPeQHGXq
+	 R4mkKITaphUsUKd5LA6CYCgOX1jsnRLG84Vggwcw/kav7pYXkpsD1Qr7jVXeEjM9f6
+	 Eu/o+DTcg2hJO30Inns4XCe3J8GVsQCWkiuZxQ0uNgaqdYMHsuF7gpRh0YhmVMvu+0
+	 oEjRTuEv1ao+cfkwtxEVFtgwNea1NgXAbB3DFs54AN7Df4Nc8csr/Tiz0Zec4wyJ45
+	 j+e5cHk+WhsnA==
+Date: Wed, 24 Jun 2026 19:45:44 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: "Wu. JackBB (GSM)" <JackBB_Wu@compal.com>
+Cc: Loic Poulain <loic.poulain@oss.qualcomm.com>, Sergey Ryazanov
+ <ryazanov.s.a@gmail.com>, Johannes Berg <johannes@sipsolutions.net>,
+ "Andrew Lunn" <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, "Eric Dumazet" <edumazet@google.com>, Paolo Abeni
+ <pabeni@redhat.com>, Wen-Zhi Huang <wen-zhi.huang@mediatek.com>, Shi-Wei
+ Yeh <shi-wei.yeh@mediatek.com>, "Minano Tseng" <Minano.tseng@mediatek.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>, "Simon Horman"
+ <horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Shuah Khan
+ <skhan@linuxfoundation.org>, "linux-kernel@vger.kernel.org"
+ <linux-kernel@vger.kernel.org>, "netdev@vger.kernel.org"
+ <netdev@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>
+Subject: Re: [External Mail] Re: [PATCH v3 0/7] net: wwan: t9xx: Add
+ MediaTek T9XX WWAN driver
+Message-ID: <20260624194544.2b4ef01b@kernel.org>
+In-Reply-To: <cec5736466864641967b99adcfaf324a@compal.com>
+References: <20260624-t9xx_driver_v1-v3-0-73ff03f60c48@compal.com>
+	<20260624170917.09967c74@kernel.org>
+	<cec5736466864641967b99adcfaf324a@compal.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net v2 0/2] net: stmmac: dwmac-spacemit: Fix wrong macro
- definition
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <178235521877.3091545.4674535688381617061.git-patchwork-notify@kernel.org>
-Date: Thu, 25 Jun 2026 02:40:18 +0000
-References: <20260623074637.503864-1-inochiama@gmail.com>
-In-Reply-To: <20260623074637.503864-1-inochiama@gmail.com>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, dlan@kernel.org, rmk+kernel@armlinux.org.uk,
- netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
- spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, dlan@gentoo.org,
- looong.bin@gmail.com
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,31 +83,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This series was applied to netdev/net.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
-
-On Tue, 23 Jun 2026 15:46:33 +0800 you wrote:
-> Fix Wrong macro definition of the Spacemit K3.
+On Thu, 25 Jun 2026 01:55:49 +0000 Wu. JackBB (GSM) wrote:
+>   I have a question about the preferred workflow: the cover
+>   letter changelog would get quite long if I include detailed
+>   explanations for each sashiko comment we chose not to fix.
 > 
-> Changed from v1:
-> - https://lore.kernel.org/netdev/20260618064143.1102179-1-inochiama@gmail.com
-> 1. Separate the patch into two patches
-> 2. Use the right macro name for the LPI interrupt.
-> 
-> [...]
+>   Was the concern more about timing? Should we have replied
+>   to the sashiko review promptly when it came in, rather than
+>   waiting until the full v3 was ready?
 
-Here is the summary with links:
-  - [net,v2,1/2] net: stmmac: dwmac-spacemit: Fix wrong phy interface definition
-    https://git.kernel.org/netdev/net/c/d1e3a4c3b24d
-  - [net,v2,2/2] net: stmmac: dwmac-spacemit: Fix wrong irq definition
-    https://git.kernel.org/netdev/net/c/bf5cd5d4ca42
+Either way works. Either give reviewers 24h to dispute the comments or
+add the comments to the repost. You don't have to keep a full detailed
+log in the changelog.
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+> ================================================================================================================================================================
+> This message may contain information which is private, privileged or confidential of Compal Electronics, Inc. If you are not the intended recipient of this message, please notify the sender and destroy/delete the message. Any review, retransmission, dissemination or other use of, or taking of any action in reliance upon this information, by persons or entities other than the intended recipient is prohibited.
+> ================================================================================================================================================================
 
-
+Again, please fix this.
 
