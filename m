@@ -4,83 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB641CDB479
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 02:27:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC508CDB47C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 02:30:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T0BfrzIU2ix5DJskEM1Wh3op9TvYE7OUzHykA1a7KTg=; b=zXL+htLEqtg3iZC/EGdAaZ3ZKX
-	uVVirjQNa0InAWsVOc0WJOCyNwraT//9J+nribNxQD7wUGyobLQbBBvq/k/Ev+fG+w7h/B+sA9JE/
-	1cjOfaJlec3e14Irv9aafDLnJQbIpR5JYrb31xh2+SlLeMKjbquklfDrunbhssiI1w9A+ttP+qd59
-	/N2a2D2q4Gh6ixUMtSx+ZEZp91rvK29Lb7Z+0QDryYl8slEEQvjTMhT+BHqk/WMM9eGxvB/Il+uCm
-	O3IsUzY/OWBADc1tzT6fBjhVWKfStl6lHisMkI+fdB8aNHzmSlyqd3PmU8dTRBpZd7H6gZc2GhoXe
-	jlARBSjg==;
+	bh=/zm2kniPPjTjNt80SmWWzw+TJTE/nuVESpcdWWyR90A=; b=heaqNUJ8LACYlk4FDHgkY4ZyEh
+	IfR2u/pMDbpQuuhtvbMBR8mg/G/WVJ2f+HOilOd1Nb3qr6RqiveGrM4qCFl1ezG9eshSypkt1VEP5
+	FM4SfuM3naQGXTGfDIPq0OkoG9LO1BtP+uFLkiUF0snX+RI4ACTh6k5aoVCEHZEF5y/QzGdwPGTuj
+	SlLvfHC56g4+VwG1vFm6wzuo6PG0kuM8Dee+3cflx/Cty4QfbfIB5/ZAFmx2G+7isbgkf98Ka/VIV
+	gK3huMajrM/KGZSsg4lZv6dDYKyZOibVQSPBK4KyuHG3BcIuOB8ba9izC/3CautKcCZPty71Gh1v6
+	EmgRN1Zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcYzX-00000008W1L-0asF;
-	Thu, 25 Jun 2026 01:34:55 +0000
-Received: from canpmsgout11.his.huawei.com ([113.46.200.226])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcYzS-00000008W06-3ar0
+	id 1wcZqu-00000008ZUa-2WGO;
+	Thu, 25 Jun 2026 02:30:04 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wcZqr-00000008ZTd-2RvP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Jun 2026 01:34:53 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=T0BfrzIU2ix5DJskEM1Wh3op9TvYE7OUzHykA1a7KTg=;
-	b=rzPGgwZRFxo1+KyN5i209/XJHzqxOl/KLFCLb88pubrzMXDJ1QXV6/T7MRXTPkry2iotj4wKz
-	TR/J/r7udCZozzyPhn4OiRq3p0d+icD//XhGqHC9K+vqdT8PMw8EgILkOKp25kBBRoq9/C2/1FJ
-	hoxwASCD474cVEY8GPetQ4g=
-Received: from mail.maildlp.com (unknown [172.19.162.92])
-	by canpmsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4gm1Mc0NgGzKm6J;
-	Thu, 25 Jun 2026 09:25:32 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 4EF6240562;
-	Thu, 25 Jun 2026 09:34:40 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 25 Jun 2026 09:34:37 +0800
-Message-ID: <32d41a67-cf37-4079-8218-bed2b73bbf14@huawei.com>
-Date: Thu, 25 Jun 2026 09:34:36 +0800
+	Thu, 25 Jun 2026 02:30:03 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 719C72309;
+	Wed, 24 Jun 2026 19:29:52 -0700 (PDT)
+Received: from [10.164.18.48] (J09HK2D2RT.blr.arm.com [10.164.18.48])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DE6E53F836;
+	Wed, 24 Jun 2026 19:29:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1782354597; bh=H4FgjilvRhDxaejSOs5jXTlNlpdPoqb31yfgAlihuI8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=giYOnuqRdTISFy6hmWYZAGBzFNiE301udlj9j8E36XojIMm1id4IDbBt0Pz8fXMi+
+	 lPks3QTwKXnd2PcNe+ZX+ft3eOkI9Mz0BwsIm2M8pVZLdSWoEim1eegI/oZYlyKXCU
+	 8EfgGf/tcUo4PnBel4ckzDZ78lcKhuSctPtNojKI=
+Message-ID: <b51f82ed-aa54-4c67-bcef-e59acd10c789@arm.com>
+Date: Thu, 25 Jun 2026 07:59:51 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 00/12] arm64: Add HOTPLUG_PARALLEL support for
- secondary CPUs
-To: Will Deacon <will@kernel.org>
-CC: <catalin.marinas@arm.com>, <tsbogend@alpha.franken.de>, <tglx@kernel.org>,
-	<mingo@redhat.com>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
-	<hpa@zytor.com>, <peterz@infradead.org>, <kees@kernel.org>,
-	<nathan@kernel.org>, <linusw@kernel.org>, <ojeda@kernel.org>,
-	<david.kaplan@amd.com>, <lukas.bulwahn@redhat.com>, <ryan.roberts@arm.com>,
-	<maz@kernel.org>, <timothy.hayes@arm.com>, <lpieralisi@kernel.org>,
-	<thuth@redhat.com>, <menglong8.dong@gmail.com>, <oupton@kernel.org>,
-	<yeoreum.yun@arm.com>, <miko.lenczewski@arm.com>, <broonie@kernel.org>,
-	<kevin.brodsky@arm.com>, <james.clark@linaro.org>,
-	<yangyicong@hisilicon.com>, <tabba@google.com>, <osandov@fb.com>,
-	<arnd@arndb.de>, <anshuman.khandual@arm.com>, <david@kernel.org>,
-	<akpm@linux-foundation.org>, <ljs@kernel.org>, <dev.jain@arm.com>,
-	<yang@os.amperecomputing.com>, <chaitanyas.prakash@arm.com>,
-	<kprateek.nayak@amd.com>, <chenl311@chinatelecom.cn>,
-	<sshegde@linux.ibm.com>, <thorsten.blum@linux.dev>,
-	<chang.seok.bae@intel.com>, <tim.c.chen@linux.intel.com>, <x86@kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mips@vger.kernel.org>
-References: <20260624092537.2916971-1-ruanjinjie@huawei.com>
- <ajvKkLw5bL-FT5JC@willie-the-truck>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <ajvKkLw5bL-FT5JC@willie-the-truck>
-Content-Type: text/plain; charset="UTF-8"
+Subject: Re: [PATCH 6.1 337/522] arm64/mm: Enable batched TLB flush in
+ unmap_hotplug_range()
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Ryan Roberts <ryan.roberts@arm.com>
+Cc: Will Deacon <will@kernel.org>, Ben Hutchings <ben@decadent.org.uk>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ "David Hildenbrand (Arm)" <david@kernel.org>, patches@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Sasha Levin <sashal@kernel.org>, stable <stable@vger.kernel.org>,
+ mark.rutland@arm.com
+References: <20260616145125.307082728@linuxfoundation.org>
+ <20260616145141.584613180@linuxfoundation.org>
+ <b0d5836032ce3135bfc473f6bff791306d086925.camel@decadent.org.uk>
+ <ajqXWqiAol6Shdd6@willie-the-truck>
+ <d2a633c8-496e-48e1-bfa0-a0fc75bd0a08@arm.com>
+ <2026062451-bluff-coherent-672d@gregkh>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <2026062451-bluff-coherent-672d@gregkh>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_183451_507051_0960F6AA 
-X-CRM114-Status: GOOD (  19.62  )
+X-CRM114-CacheID: sfid-20260624_193001_916027_B4BD0115 
+X-CRM114-Status: GOOD (  21.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,69 +83,62 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 6/24/2026 8:16 PM, Will Deacon wrote:
-> On Wed, Jun 24, 2026 at 05:25:25PM +0800, Jinjie Ruan wrote:
->> Support for parallel secondary CPU bringup is already utilized by x86,
->> MIPS, and RISC-V. This patch brings this capability to the arm64
->> architecture.
+On 24/06/26 9:59 PM, Greg Kroah-Hartman wrote:
+> On Wed, Jun 24, 2026 at 04:05:01PM +0100, Ryan Roberts wrote:
+>> On 23/06/2026 15:25, Will Deacon wrote:
+>>> On Sun, Jun 21, 2026 at 05:02:27PM +0200, Ben Hutchings wrote:
+>>>> On Tue, 2026-06-16 at 20:28 +0530, Greg Kroah-Hartman wrote:
+>>>>> 6.1-stable review patch.  If anyone has any objections, please let me know.
+>>>>>
+>>>>> ------------------
+>>>>>
+>>>>> From: Anshuman Khandual <anshuman.khandual@arm.com>
+>>>>>
+>>>>> [ Upstream commit 48478b9f791376b4b89018d7afdfd06865498f65 ]
+>>>> [...]
+>>>>> @@ -949,15 +953,14 @@ static void unmap_hotplug_pmd_range(pud_
+>>>>>  		WARN_ON(!pmd_present(pmd));
+>>>>>  		if (pmd_sect(pmd)) {
+>>>>>  			pmd_clear(pmdp);
+>>>>> -
+>>>>> -			/*
+>>>>> -			 * One TLBI should be sufficient here as the PMD_SIZE
+>>>>> -			 * range is mapped with a single block entry.
+>>>>> -			 */
+>>>>> -			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+>>>>> -			if (free_mapped)
+>>>>> +			if (free_mapped) {
+>>>>> +				/* CONT blocks are not supported in the vmemmap */
+>>>>> +				WARN_ON(pmd_cont(pmd));
+>>>>> +				flush_tlb_kernel_range(addr, addr + PMD_SIZE);
+>>>>
+>>>> It wasn't clear to me from the commit message why this now adds PMD_SIZE
+>>>> rather than PAGE_SIZE.  It seems like this change is fine for Linux
+>>>> 6.13+ with a CPU that supports TLB range flushing, but otherwise results
+>>>> in unnecessarily executing multiple TLB invalidations at intervals of
+>>>> the base page size.
+>>>
+>>> Hmm, the commit message also makes very little sense to me and so I don't
+>>> understand why this patch has us doing multiple TLB invalidations when
+>>> we run into a !cont, block mapping at the PMD level. The old comment
+>>> (which this patch removes) should still apply afaict.
+>>>
+>>> Anshuman, Ryan, any ideas what's going on here?
 >>
->> Introduce CONFIG_HOTPLUG_PARALLEL_SMT to avoid primary SMT threads
->> to boot first constraint.
+>> I think this change was probably my fault; Given the API is called
+>> flush_tlb_kernel_range() it seemed like an abuse/hack to pretend we are only
+>> flushing the first PAGE_SIZE of the range. But as I understand it, even if the
+>> HW shatters a block mapping into multiple TLB entries, all of the entries
+>> relating to the block mapping will be invalidated if just one of them intersects
+>> the TLBI range/address. So it should be safe to reapply this hack.
 >>
->> And add a 'cpu' parameter to update_cpu_boot_status() to allow updating
->> the boot status at a per-CPU granularity during parallel bringup.
+>> Although ideally I think it would be better if this API took a stride argument;
+>> then intent is clear.
 >>
->> Rework the global `secondary_data` and `__early_cpu_boot_status` accessed
->> during early boot into per-CPU arrays to allow secondary CPUs to boot
->> in parallel.
->>
->> And reuse `__cpu_logical_map` array in the early boot code in head.S
->> to resolve each secondary CPU's logical ID concurrently.
->>
->> This series includes a subset of the refactoring patches proposed
->> by Will Deacon, with further adjustments.
+>> What's the best way to handle this? Submit a patch for mainline that reverts
+>> this part, then get it backported to stable (implying this current patch will
+>> have been applied to stable)?
 > 
-> Sheesh, Jinjie, what are you doing?
-> 
-> I said yesterday that I would dust off the old series after the merge
-> window:
-> 
->   https://lore.kernel.org/all/ajqYaklhIyvaNLlk@willie-the-truck/
-> 
-> "Please just give me a week or so to rebase my changes and send them out
->  for discussion"
-> 
-> but instead, you've posted patches from me that are missing a bunch of
-> fixes that need to be folded back in:
-> 
->   https://web.git.kernel.org/pub/scm/linux/kernel/git/will/linux.git/commit/?h=cpu-hotplug&id=2d5b8df5d4e2bbc142e3b4f21cabbca96e3da79d
-> 
-
-Hi Will,
-
-I am terribly sorry for my impatience and the confusion this has caused.
-I completely misread the situation and shouldn't have posted those
-incomplete patches, especially when you explicitly asked for a week to
-rebase them properly.
-
-> so now you're asking people to review incomplete patches from somebody
-> else.
-> 
-> Please just give me the time I asked for. If you want to help out in the
-> meantime, there are plenty of patches that need reviewing...
-
-
-It was a mistake on my part, and I sincerely apologize for wasting
-community review resources and disrupting your schedule.
-
-I will absolutely back off now and wait for your official series. Lesson
-learned. Thanks for your patience and for calling me out on this.
-
-Best regards,
-Jinjie
-
-> 
-> Will
-> 
-
+> yes, that's probably the best way.
+Sure, will send out the change as suggested.
 
