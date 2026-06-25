@@ -4,63 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB468CDB47F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 06:37:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09C4CCDB47F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 06:43:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ka/0fFwIrE8KYC5CIEgVfrLvIZWCEyFDPAvVUoaSKMk=; b=vHitUDouow24KxBGuxP2R1DHoB
-	fA+Wgy8teaPwyQz7xNML5jfxaeMV5wfbgJR5mQUPUwoVCNazrfwbiZUA8L79Kt5XMQ6KGMfyBH6K3
-	bqUfaKjLOA4WplG+94DS1oV6WOhqF17m018/tEGiyvL4+bnJsj2/PWhjdS8obCe7VtKDSoeorWYI7
-	5GIxCMkxcVObBBzgyHuBYCzevM966h05Nroy1finZq6o5VBsT+eZCgOeWYjjvAmXuq6lVZt0ohmhq
-	XEID2tZVMIOlfC9chnqaDBLh5TU8MSaYDnmRNij4/L7tzw/wpvLgFHHfuIxQIqoDud8YcqfD6/TSv
-	c66PM13Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=L75aBSsCGpBryRml4FN363qW1z8PZx29ZjzFOlFMwSw=; b=ZkzbW9rECI2rd9ZNR46FAfOSK6
+	YmGXGAh0BqZ6rIZ5TiC5oyickHt5U0PA6nRBVZa4aRpAHFgiC69OBPfKbRG68MfIYhFvcUG0J00wh
+	Lx2jx+IErbvfq+2MqWb6Lnp1U0j0c1UADGquRAAijT5fM/+w+gv1pEOnM+UeaR70Tye76/pDTKUd6
+	Aq9ditIzMj0BuOz4SEJtQ71+Z+Cpe9mLHMa2Cj/zeLBoRcob4f3Rc4/eX3g65MRAb56YfMh+IAdIS
+	Ns5w/BXgg8gugy0EWwLhoUb79wmSGymJIfZliGhPlGt26+9h/H98ilR6vOVBLPGTbJXtKHnMVuRjE
+	Go0VQHew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcdiI-00000008iOh-0337;
-	Thu, 25 Jun 2026 06:37:26 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcdiE-00000008iO7-2mUA
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Jun 2026 06:37:24 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 27C862BCE;
-	Wed, 24 Jun 2026 23:37:14 -0700 (PDT)
-Received: from [10.164.19.14] (unknown [10.164.19.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2B7363F836;
-	Wed, 24 Jun 2026 23:37:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782369438; bh=EEs9c0oR0ySt7qs8lyDve3TQdfPsDi4b1RDmHK97N2s=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=cvB+/xs6BeUfI5Q+MqjEYE+/jyUJaCsPo3JqLGcjDJIEOO5eq8V6e62FPOC4la5MU
-	 ASiXMlUF+QsKsIpEGNo1qlVHXUrPqK6NtC6W1d/wl03Setc1gjYV9m+gEx1WS8pqKF
-	 E86vo+p2VLEx/Yb5YOwHQG8YIsV6M43EzueVm21Q=
-Message-ID: <a6e410bd-7413-45f0-9033-a60cd5386512@arm.com>
-Date: Thu, 25 Jun 2026 12:07:11 +0530
+	id 1wcdoG-00000008ia8-33l4;
+	Thu, 25 Jun 2026 06:43:36 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wcdoF-00000008iZv-10Z5;
+	Thu, 25 Jun 2026 06:43:35 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3682B60218;
+	Thu, 25 Jun 2026 06:43:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1AC6A1F000E9;
+	Thu, 25 Jun 2026 06:43:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782369813;
+	bh=L75aBSsCGpBryRml4FN363qW1z8PZx29ZjzFOlFMwSw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=L5u/UClwtiDhr17ilKFgEfTZ2MMjqkM08fRr4vse7c7eWk9w8wRKVi+QjH0rJBJoG
+	 DTPv6CdQYFmK49eIhsSmj2YI+FWrrClAGY5ssliz0L4fqU1v/EY8WZkbboi0SbSPM1
+	 a1gMJmnxb6UkuAY2SmEKTTg0f5Xsm5i9kRBOepU3oBrjWQu7+iNpcfuLDVm2LJ7r5k
+	 JVOqGWfGckjV+boyeLoUNI9KRoMppggrQ6ZSfwfhZuIfPTt/ZD4jiqaw6+oZSQYaGF
+	 8UPf28Z+snwLYheykEggC8ZYf71r7VC9CGF3YmkbhXlHN+LVpt2LHLz7cWKJo40BAf
+	 hzV1dwhpQfPOg==
+Date: Thu, 25 Jun 2026 08:43:30 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Gerald Loacker <gerald.loacker@wolfvision.net>
+Cc: Vinod Koul <vkoul@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v2 2/3] dt-bindings: phy: rockchip-inno-csi-dphy: add
+ rockchip,clk-lane-phase property
+Message-ID: <20260625-lean-debonair-anteater-c22f83@quoll>
+References: <20260619-feature-mipi-csi-dphy-4k60-v2-0-323356c2cc2e@wolfvision.net>
+ <20260619-feature-mipi-csi-dphy-4k60-v2-2-323356c2cc2e@wolfvision.net>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/6] mm/vmalloc: Speed up ioremap, vmalloc and vmap
- with contiguous memory
-To: Wen Jiang <jiangwenxiaomi@gmail.com>, linux-mm@kvack.org,
- linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
- will@kernel.org, akpm@linux-foundation.org, urezki@gmail.com
-Cc: baohua@kernel.org, Xueyuan.chen21@gmail.com, rppt@kernel.org,
- david@kernel.org, ryan.roberts@arm.com, anshuman.khandual@arm.com,
- ajd@linux.ibm.com, linux-kernel@vger.kernel.org, jiangwen6@xiaomi.com,
- shanghaoqiang@xiaomi.com, Ard Biesheuvel <ardb@kernel.org>
-References: <20260618084726.1070022-1-jiangwen6@xiaomi.com>
-Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <20260618084726.1070022-1-jiangwen6@xiaomi.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_233722_968654_6C4BBB1A 
-X-CRM114-Status: GOOD (  16.88  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260619-feature-mipi-csi-dphy-4k60-v2-2-323356c2cc2e@wolfvision.net>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,79 +72,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 18/06/26 2:17 pm, Wen Jiang wrote:
-> This patchset accelerates ioremap, vmalloc, and vmap when the memory
-> is physically fully or partially contiguous. Two techniques are used:
+On Fri, Jun 19, 2026 at 11:13:40AM +0200, Gerald Loacker wrote:
+> Add support for the optional rockchip,clk-lane-phase device tree property
+> to allow board-specific tuning of the clock lane sampling phase for
+> improved signal integrity across supported data rates.
 > 
-> 1. Avoid page table rewalk when setting PTEs/PMDs for multiple memory
->    segments
-> 2. Use batched mappings wherever possible in both vmalloc and ARM64
->    layers
+> Signed-off-by: Gerald Loacker <gerald.loacker@wolfvision.net>
+> ---
+>  .../devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml          | 9 +++++++++
+>  1 file changed, 9 insertions(+)
 > 
-> Besides accelerating the mapping path, this also enables large
-> mappings (PMD and cont-PTE) for vmap, which are currently not
-> supported.
-> 
-> Patches 1-2 extend ARM64 vmalloc CONT-PTE mapping to support multiple
-> CONT-PTE regions instead of just one.
-> 
-> Patch 3 extracts a common helper vmap_set_ptes() that consolidates PTE
-> mapping logic between the ioremap and vmalloc/vmap paths, handling both
-> CONT_PTE and regular PTE mappings. This prepares for the next patch.
-> 
-> Patch 4 extends the page table walk path to support page shifts other
-> than PAGE_SHIFT and eliminates the page table rewalk for huge vmalloc
-> mappings. The function is renamed from vmap_small_pages_range_noflush()
-> to vmap_pages_range_noflush_walk().
-> 
-> Patches 5-6 add huge vmap support for contiguous pages, including
-> support for non-compound pages with pfn alignment verification.
-> 
-> On the RK3588 8-core ARM64 SoC, with tasks pinned to a little core and
-> the performance CPUfreq policy enabled, benchmark results:
-> 
-> * ioremap(1 MB): 1.35x faster (3407 ns -> 2526 ns)
-> * vmalloc(1 MB) mapping time (excluding allocation) with
->   VM_ALLOW_HUGE_VMAP: 1.42x faster (5.00 us -> 3.53us)
-> * vmap(100MB) with order-8 pages: 8.3x faster (1235 us -> 149 us)
-> 
-> Many thanks to Xueyuan Chen for his testing efforts on RK3588 boards.
-> 
+> diff --git a/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml b/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml
+> index 03950b3cad08c..010950a8a8856 100644
+> --- a/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml
+> +++ b/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml
+> @@ -56,6 +56,15 @@ properties:
+>      description:
+>        Some additional phy settings are access through GRF regs.
+>  
+> +  rockchip,clk-lane-phase:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    minimum: 0
+> +    maximum: 7
 
-I am still a little nervous about doing vmap-huge by default.
+Missing default here. If default is unknown, explain that in commit msg.
 
-We can play set_memory_* games on a vmap huge mapping partially, thus
-forcing a pgtable split, and not all arches can handle a kernel pgtable
-split.
-
-For arm64, we can handle that with BBML2_NOABORT, but interestingly, in
-change_memory_common, arch/arm64/mm/pageattr.c:
-
-	area = find_vm_area((void *)addr);
-	if (!area ||
-	    ((unsigned long)kasan_reset_tag((void *)end) >
-	     (unsigned long)kasan_reset_tag(area->addr) + area->size) ||
-	    ((area->flags & (VM_ALLOC | VM_ALLOW_HUGE_VMAP)) != VM_ALLOC))
-		return -EINVAL;
-
-Even before my change fcf8dda8cc48, we were bailing out on
-
-!(area->flags & VM_ALLOC))
-
-So on arm64 we haven't been supporting set_memory_* for vmap memory at all, because
-it has VM_MAP set and not VM_ALLOC. Although we have a contradictory comment above
-this code so not sure if this was intentional:
-
-"Let's restrict ourselves to mappings created by vmalloc (or vmap)."
-
-
-So either there is no user in the kernel doing vmap + set_memory_* (looks like it
-by doing an LLM scan), or it is not fatal for set_memory_* to fail.
-
-But even if no one does it now, technically the API allows it.
-
-> 
+Best regards,
+Krzysztof
 
 
