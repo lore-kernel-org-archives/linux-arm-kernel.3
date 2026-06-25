@@ -4,106 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C395ACDE002
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 05:34:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFD09CDB47F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 05:43:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A+9zdrnWdYPYO0YMlgRGb3kLO0yAknKaNgGna5hHFMo=; b=RxEO34/LYX9BXHEKLWdw3Dj9a/
-	rIcUOod54SPpRc2cVDheu8+d2Fk6YGZTIkzWFKqxY4506uNa6OB5czDNEnc5Z/NlMd9dX24Vk3xc6
-	srYhgZgUIz2EYj2JZdik7mW6e0lKb2cUYx+2olCzGxbRVPyVEb6juqm5NGdR10FKfU4Tv+ML+LS3e
-	auydqfzJZ8a+JmxgbHlStfZdGBzbF9XxcT/uuQ72ti+kANurX1pdbs2R2TxDelCRhbTuUsao+q5SQ
-	UbfkHiNqzFfLkNdcO53/DpvjvYmfocYEY28mMrOpfk4IFuekYIplqAeTyUgyODL7LNDjG/KZE4XKE
-	T4KLx0Jw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:To:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=w77rf8sJ0JUCzdThI9boJMxIZVV9fCYLzXBrSmIMf3A=; b=WvFFWnXOsLCJ9xC17WUgKfQ9mn
+	qcoAQBfl9nrFOjCWA6nzuMbQnPYkHlxCDE/5kEZhMXPODgN6KpPrKzp7Hg7s2Xw+gljZXs8lhPEC2
+	D3f1vDyJFLgPZAbiixwQyJD5j+fx/qFi750UW28Zshv85RxTMQyo8GNn7Fh9xa8hJ0rGFvr1vV1rx
+	o2A2vz240c33QSLrQSRZ9+DdfDYcuW1oReqzd684YBEz/aOURoIVx1qm1LqwyayYqFBfFtH15vQml
+	EL229H8PPABzOpwuW6ktEiBMdW2U/ZcjrrCa9sB9Qihd+t9O+QWEMoPSxny6GM2FA5L6PoY8v+UFt
+	IjHNX36w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wccj2-00000008fam-1CO2;
-	Thu, 25 Jun 2026 05:34:08 +0000
-Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
+	id 1wccra-00000008fue-0vW5;
+	Thu, 25 Jun 2026 05:42:58 +0000
+Received: from mail-northeuropeazon11011049.outbound.protection.outlook.com ([52.101.65.49] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wccj0-00000008faN-1Yw4
+	id 1wccrX-00000008fuD-1x3W
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Jun 2026 05:34:07 +0000
-Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-5aea33ffa0aso46904e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Jun 2026 22:34:02 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1782365641; cv=none;
-        d=google.com; s=arc-20260327;
-        b=T5FNTDZb/j4+LLabysbthZki3DdTQSii1KgigYaoUNJ2KUa1CylPnqBM+G1XV3EMJd
-         SO5aveHL86WDrE/tQRy0kR4dbCA/q0H/8qnAfWhjkGut+siheK0EmarPDPqjUKHCJNjw
-         ZiwN4e6NU32njDBmRaQWBf2mzLEmUldQ6MiWlmAtG0oil8Xh0vti4QHVsYI4rRUq3RFr
-         3V5YVrl7eg6/HbE4OIPPieMaVRd6eCW0/IkkTZ/KgU2+m5Gr9Dokk4xLHzjuN5FamtT7
-         WvomUdLV5OXiKOJqaF9nJVKBRfYsWcXQBz5apOLM8IrImuwdh3SJGFVgkBtNn20CC+Cn
-         YdXA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=A+9zdrnWdYPYO0YMlgRGb3kLO0yAknKaNgGna5hHFMo=;
-        fh=lvxl08rKvtA7ko0JWYQ6VW+AAKnWvvTt4cBqtU8NJxE=;
-        b=Q1xTH9knd/nd/EdXTchPram1PB0kj3LmUsPC3iEdH4LkK6MWb+SemgiLOmA7g2S+nO
-         +ME8AhkhKzCEnQ6iw2sAGm0lmUwnqhxre9mU8aEjesDy12LnHmQzGaSZx0fqqhKtUTJ/
-         cBdzKTb+SdIc6vqwYAJMb21/OmoeDQoQb6Ote5jMN628iq3L7SszJr5sX8Qk253xxghO
-         LzAY0ytT7x1vgdpgFsm099y6qdqPHb/XgUe48I4SRckMEDOr/EhGttW2RzNu4K8aaTDY
-         NQQYhn4NDgz73d4XFExJ8b/DDP3lYmN0mOWZWa3w9c9YbakqGMiXrseJVS+dw5QT8CZJ
-         E39w==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782365641; x=1782970441; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=A+9zdrnWdYPYO0YMlgRGb3kLO0yAknKaNgGna5hHFMo=;
-        b=m2wT1QZbSV/+PoZktcwMHzZyIV3xCQZWmiqeOGNwcLYgO+FfE+z3WOO+5XiyPk4xYF
-         IqdZLFZoMjjP/BFSRAqdLLbhLPz+RH0s8lvrmXUTqv1CYh2MxN6tZQnxkmDXG+Oy6Nsq
-         jSns3zs32sQNuNdq12O9mYKrHnh8P6o/Qf0EhvWetfKT5ibakTKf/Xiio17YA12Ixcxx
-         J19E+e1cq2JBo2Jreer3KsppCwFQMsiDRf5wipUJ50bLWUpCBf9vx6iWx2ek3UblcGOn
-         DjmUq+mbXkTaq/ohQL7D6qeKRgpTgdCmMtCLxKAQmkAHpOykSzJGT0xs+0Oqi7OSeVHF
-         SFDQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782365641; x=1782970441;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=A+9zdrnWdYPYO0YMlgRGb3kLO0yAknKaNgGna5hHFMo=;
-        b=d06LoLh4iX0HaQxfrSlitLeblPUtiPVn5cbBBRYwi4scUWfp5z9K2+1SFEcKBzj97B
-         HQXAfj7wmhKJkD03jm5To/FGM9l9n3+4eix7f9N3C7XFmrto++/mVMk8mTC814uvpczk
-         jEjFjyPwMQbCGpqlz7/I1k2ahWCTyUKrhtacKQHq0haQ4/8CvEvA+i6JVAjFiKMfbcXL
-         tZ/qMXE6PInla7Md7hAZJ9YxDgL0FfN5kfmsOjq4rLU31MTJgPtUMZ6Z3EdKSmr7/XRh
-         jF2JIBDAIUie16GZsI5wTY0YG2XmX8dv9Z9PX6kQyRGVuUKU62AdiVEptd8/WzVaPucg
-         8+kA==
-X-Forwarded-Encrypted: i=1; AHgh+Ro3oV4J5lO1ZSX1vC3QAOHzKoyqhCGsA/Rot3+282IEzaNbr4+SfOvog7+ZLzLCR8EnbVeglSGVgpQeXCeD7Oyi@lists.infradead.org
-X-Gm-Message-State: AOJu0YyZ0elpYy1ihg8GueBbxrkaU6TWj0ZL4RQo0UBuN5D5BfjUqi+u
-	ii57jOqb3VfmIMW6tT7NKUWp6fNY7Kq0jP+egSTAGhG7tiOVJ8JOr4TVlvne0LmVzQXEf/2KZz3
-	GLiAzR/scNlt+yjijes02qj2DqaW1Tb0=
-X-Gm-Gg: AfdE7cmqADcPzuPD7+BYFlger/Q6YjXSWnuwFa/fpff3YmTz7uNFGRIQQEnxdYzBy3D
-	SUA0d92BY7AVJ4Clkm8cgkk3WQbMJnIJOjaMsFcXC0VDhl4U6UY4e1PhRC9LdHr3YVqAFvE4yfv
-	vGUjZtaqaCPdK8G+cFq37YWW/RXX56QrwbgSZmtdMJ9+fDCkucIxsw32PtA37JugnMvKFcsR9tb
-	RA7fapnn/EQ/0DxD8LC1xoTSYvgrw456Shv+AzsezZeqEmmyV/pDrV6y10awUA+58IQlsZH/A==
-X-Received: by 2002:a05:6512:2c86:b0:5ae:a348:1292 with SMTP id
- 2adb3069b0e04-5aea34815d2mr45473e87.38.1782365640650; Wed, 24 Jun 2026
- 22:34:00 -0700 (PDT)
+	Thu, 25 Jun 2026 05:42:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=eWHXBtUOcVneFg1Qypts6EigWygOIhDN0kW+bY6BBjPfwz03hdSQ2KV37MtOzsHAED2sZyszwJSttCpFtXmTgbQ2kAecVoemtE+vRK/luW7Wbs21cFcalaSCqLN3zAOXEkOKGc5UmBNgNpFX7mz0lSHE6YxH+HqpFRg9iDE0KkrrIIIwiq68Cl2iD8OCn7tZvPwH9Vm44FD7NJVJXW55DgC0qnflEdkCq64aqEoHRsJa570lbk0A4kc2A+vhzYymluh9rW6xQxMYxYTBpxgavFivMarSrmVvrfoK2mpbbSoFVuPAKe6W+xwR1pklLh2dePZdyXeZMh0KwMmhSCgQOQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=w77rf8sJ0JUCzdThI9boJMxIZVV9fCYLzXBrSmIMf3A=;
+ b=CM8j+L1X9fbBPpxNH7huVUUnqpNQ81Hcdg16vBMPZ8Vc2uJk4VdRMC+ltJzZD7yqwRhsuTD045BZDvCBPSz3llXiB61DDN0M1GqMoH9QVAliF7uo1G/MFASbSQaq/9Ve/4pT0Qn/Qj2BZpIylVPMjAPPp2Z1G40klvdZY8x0/GIRJSDx7kh2djJMD7dasJahyWdP87BhrDFrpqkOOXDBg8Q2a9+/0oTi9d9PpvwxvbJaRGUJUezyVRgNgH8ie/N6j7nyyOua9T/DsNx4d6tWiNo05FG84v4IsgqYugSW4Po5AWdz9btUkvmqgoEL2Hh01CwjBpXFQwrJ7PL/1VY5Ew==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=w77rf8sJ0JUCzdThI9boJMxIZVV9fCYLzXBrSmIMf3A=;
+ b=HOAq73usPaRNrSMFN3Xfr+p+zIgyepPFped5bLYPSIW7sg7Jt4CP3YDM0EJ7+CjmGeoAONv8aKFaIzCvMpAsr2P+GB6w6qoHYcFUTOwTQh1h0nxd26uYntlWN2AbQybLmQr8siArwJEEy+9flwSH+AnFI83VwW7wbtdRQChusmVzV/IMYhcEro5VsXHzbkvP3FfOoSJAUfA/bfrxUlk443ttIIbAkHp9d50vK9MlUxsDfbS+09cS51YFs+Cwzxc9BgQbk1JHuSHdPPIY2M06tDuAL7Dl4Dd3egx12zPGV5ZIN4yLGnZvV0tzZafMK2nn+pkBqbFgAxjqsxPun07yZw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB9351.eurprd04.prod.outlook.com (2603:10a6:102:2b6::17)
+ by AM8PR04MB7858.eurprd04.prod.outlook.com (2603:10a6:20b:237::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.16; Thu, 25 Jun
+ 2026 05:42:48 +0000
+Received: from PAXPR04MB9351.eurprd04.prod.outlook.com
+ ([fe80::1058:a430:52c1:5aa]) by PAXPR04MB9351.eurprd04.prod.outlook.com
+ ([fe80::1058:a430:52c1:5aa%6]) with mapi id 15.21.0159.013; Thu, 25 Jun 2026
+ 05:42:48 +0000
+From: shengjiu.wang@oss.nxp.com
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	Frank.Li@nxp.com,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: dts: imx8mp-ab2: Enable MU2 for DSP communication
+Date: Thu, 25 Jun 2026 13:47:09 +0800
+Message-Id: <20260625054709.301209-1-shengjiu.wang@oss.nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: MA0PR01CA0005.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:80::22) To PAXPR04MB9351.eurprd04.prod.outlook.com
+ (2603:10a6:102:2b6::17)
 MIME-Version: 1.0
-References: <20260615-ventura2_initial_dts-v8-0-c89f92c80447@gmail.com>
-In-Reply-To: <20260615-ventura2_initial_dts-v8-0-c89f92c80447@gmail.com>
-From: Kyle Hsieh <kylehsieh1995@gmail.com>
-Date: Thu, 25 Jun 2026 13:35:37 +0800
-X-Gm-Features: AVVi8CcTmMqcRiP9802pZDxyIJzSjqDj0HrKRWQTIvD6r3wqR2s-_IKZO7UmEjM
-Message-ID: <CAF7HswP25GXigSqL+bGBz=0=RST2XjS7fNmkKcsy-qjxfg_1jQ@mail.gmail.com>
-Subject: Re: [PATCH v8 0/2] Add Meta(Facebook) ventura2 BMC(AST2600)
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
-	Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9351:EE_|AM8PR04MB7858:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0a46f38b-7eb4-406b-fd85-08ded27c96d1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|376014|23010399003|7416014|1800799024|18002099003|11063799006|56012099006|921020;
+X-Microsoft-Antispam-Message-Info: HeoYExsL0pE3hvYh82f3XOo4fgHklFJVpcR456Hb/bX8VT1wNP+jqYb8dXlmyu8AejzKBos7zqDwTB86NJNVdmZvFd7IqNWnTGqkzyvHEKY0TFbzQrtRnAGSD9Es68I+MPsOs5aPddX9pwYKxQMPlLz9h8HQdW/s+TIeiWodhFRIYhPfrnwisrqRW7AC5tExeetscxGC+hh+WMhyhZxk80M5Bu58mEdC4SrK17sYzWdXwxC1nB8ujaFeUn1LcqImFq5rK3nXlm0DOj2kaRnHNfVmvIEmBx/ykqNvbZuJF4anuQVmNtq2LE7QRb8DX2tdm76mbNmfXLQ6UBuNw1wg74R/MJaNek6eUsVfahpKW1yAPN6Y3H5Sp3A9Fttfj2zN4ZZfIi/DT9LhRUqPPKgToMAFqFLsJi27KAn9DgUYYNLLEcAQjp2jjk5gUEIDTigRhBG/FMuXU1LtugjvdCjLKQ8DXn0W+RcYA/uMcIQBvL9O/m01Oz+44fK2ndsV4ZOLsgXSPrXZEKa9zA7IpUQZYwsmfbe2s3SpoSfw60cNh9iIscev8uCtfzUL1GERzUEXZLlvx6NWFTXTISjcwk2gf3leBMupeCtocdEixFEJpRpnKZPB0iuQXsedKgmUrenPwGACmSIPERsYEHVWR48i4Rc2xH5n/tSEJp9GddAzJ+udrfM+iV426t9RTgDkbm1xaPKRIR3JPweuCmXdferoBA==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9351.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(376014)(23010399003)(7416014)(1800799024)(18002099003)(11063799006)(56012099006)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?aXrmhuoJpY0qh4NpYbpkPzrYclpKDZY2kqdm9iH7yneIYoc6e6ulz4oSEEeB?=
+ =?us-ascii?Q?JHmuznHNrCiVW4RzvkaMB3v3Q4Ble/HV9ElxPhh4BTAUNRUeyvmhlEJXEGOB?=
+ =?us-ascii?Q?CDjhVklJB+Qr28somQYstjb3tRT3bevLmlW8tsjSpvnnEqnLLCbCA0HvMNzc?=
+ =?us-ascii?Q?wp0uK7X5vbgnLe2/WlRwbYXMtTEADRFcBpVb8XN5e4tAwJW7/VfTjwrwzEey?=
+ =?us-ascii?Q?aM9rGdx5CsnDod2rQKZkaGphvrS4JYrUWtR2HhapnkpKruFYkceK8LacEppZ?=
+ =?us-ascii?Q?NFRvXmoaUQBWjbPQZ9ohFsOW3L+i6f9sFznF7wMyp/GcXNYUPl8rkFJPB7TL?=
+ =?us-ascii?Q?O4qeqfDb02GahxKn+6gL2HrxNG5l54z+ft41KdV6du/7jZE8phraMSzHrBJN?=
+ =?us-ascii?Q?TAsKOMqmMGyrUQQOtPJ++DIr4snIWlknxovDqhx+4eoFOzEC2+AijUep2Xs/?=
+ =?us-ascii?Q?y6SHK54TvGlvPGDmmeAfXzi7KiNbcQGwtMhqZSfhZrVlVzUFUqpWBzM8hhwj?=
+ =?us-ascii?Q?/At+LcjdW6wryEwSsocBVK4w/hzFqL0PPaoQgJQTw6f5byhRPlr7e9UYDEOe?=
+ =?us-ascii?Q?GOFxlHOhaZOp1UKJKZpEzIqpibjWyO3gRjFr1tvLUHgC0Wc8+j/1UJQYEtTk?=
+ =?us-ascii?Q?+SMHeforLKXNKlCQBaOSbfFWhVIqPFo77AxEzvri1Nk8deYlO1utD5LPaZAB?=
+ =?us-ascii?Q?JAiF3RzRVqW/QzTmyHKzCA4rGkMxBMUM4gLwUebwFNxFSx/HqsJ0IsO4vUqA?=
+ =?us-ascii?Q?K0xwEfz4hzKe8Lhg8vZxqV6T1P1xJyV71gIoljIjSv3l1UKbP5fCx4WwaTP7?=
+ =?us-ascii?Q?UQ9X2xdpVgIAhmLdUednyYMZpyWdUZqkrXunfogv7H/Gmf2ZZfOM0NOtCpmP?=
+ =?us-ascii?Q?Pzz3MX+q7xbUfsemocs9NRydSxs5WtX1Ai6Inz14lOKLNYjw+Fneo2SBXX/O?=
+ =?us-ascii?Q?NxGk47vPKPOHDLplZMRiGZxPftyGFSh0flxxuw7Mp6f0exbwtr+C/p+/VT9A?=
+ =?us-ascii?Q?hpEFq3zBj/2LgGqDa4ab9Ezm73GdzBvKh0efOYmjWajoMdVu510VLGtvjoYF?=
+ =?us-ascii?Q?yi/vVoEjleYnQjyF7aU/iP+XnBKWB4oAfxjht+qB+qHTxEHKvdFBXY/Mdqbt?=
+ =?us-ascii?Q?NNVRGMtmew2tGtMY8Z7XobZee0xPmcPa2jeEbGyCkJFl45HUMlE9HIVZzFr7?=
+ =?us-ascii?Q?mUKRciaNbeukawLeAH1BvHHP2LPTolgvqAYDUQjUhbfs1EsR8UYr7oRuv1ks?=
+ =?us-ascii?Q?tx4PsJbBYh8rM9wQneYMsWxhmU8jVwdQytM/zYEFbw7JE1JSLkVNtfLG9TZx?=
+ =?us-ascii?Q?ywYvpQEGOwBWBa6F4h/2uWrhTgsVsL+fQlEMGLmsIjYHvlJnAfWFpOLxdyWV?=
+ =?us-ascii?Q?lMe8DAaeoxG2Dj9HlPJSRHnYBc3Z5z2C1bJqRfNGhn2cwf0UTV/uRh9K5mJk?=
+ =?us-ascii?Q?CLuuY2QL7dJbQJgtd9e3TVTUQ5owcDxUgvqXiOkO0BtM+vkz6fF8YNN6fz/y?=
+ =?us-ascii?Q?MnBTVZkOQrZY8IjmHM56fqlg4DwxLSwTUXZcPnxQ7rrAC2LzKAd17O20/ty6?=
+ =?us-ascii?Q?7Lzv4MmKm0JmNaDI3OknRqVDuSDRDn7PigaD8qD9L32dG0HXxdw1lbNQY/oK?=
+ =?us-ascii?Q?yLMt7UlQ/yab0/fyrPl+Z5xyN7YSQlrQ0iexllaJYJThJqcC98Wv1Iu0xpQQ?=
+ =?us-ascii?Q?psXkI0VOuWVKqZwwbZan9gVEQJCQJS1f0oaOjyN/43wL1QTwBRv1K5AYqhhm?=
+ =?us-ascii?Q?70CMMNUOQJMtxCIucsj0yR7UPcFlmjpP4UJ5tdiOo+M1yTdFq2zi?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0a46f38b-7eb4-406b-fd85-08ded27c96d1
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9351.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Jun 2026 05:42:48.4956
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: O6Nj3OoRCiyla2WuRCZdHd6wgmj7xgRuwI3qOyD/zB7wi1/HUVoPHM/yl3dpjo8H9Rw8OJp2GmCfzwzyD5XofuWOVr5WMoGSs2LWdgZ8L0tl0uFqrYRODCa9VqVqANS1
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7858
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_223406_448703_796BD78A 
-X-CRM114-Status: GOOD (  24.09  )
+X-CRM114-CacheID: sfid-20260624_224255_515486_424A4B55 
+X-CRM114-Status: GOOD (  10.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,122 +142,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Maintainers,
+From: Shengjiu Wang <shengjiu.wang@nxp.com>
 
-Just a gentle ping on this v8 series.
-All review comments from the previous versions have been addressed.
-Please let me know if there is anything else needed for this to be
-applied.
+Enable the MU2 (Message Unit 2) node on the i.MX8MP Audio Board v2.
+MU2 is required for inter-processor communication between the
+application CPU and the HiFi4 DSP, allowing DSP firmware to exchange
+control and status messages with the Linux host.
 
-Thanks,
-Kyle
+Without this change, the DSP driver cannot establish the message
+channel and DSP audio processing is non-functional.
 
-On Mon, Jun 15, 2026 at 10:44=E2=80=AFAM Kyle Hsieh <kylehsieh1995@gmail.co=
-m> wrote:
->
-> Summary:
-> Add linux device tree entry related to Meta(Facebook) ventura2.
-> specific devices connected to BMC(AST2600) SoC.
->
-> Signed-off-by: Kyle Hsieh <kylehsieh1995@gmail.com>
-> ---
-> Changes in v8:
-> - Addressed review comments from Andrew Lunn:
->   * Added a detailed comment to the Marvell 88E6393X EEPROM node to clari=
-fy its hardware I2C multiplexer isolation and out-of-band firmware update m=
-echanism, explaining why there is no concurrent access or multi-master scen=
-ario.
-> - Link to v7: https://lore.kernel.org/r/20260611-ventura2_initial_dts-v7-=
-0-a61d8902bc5f@gmail.com
->
-> Changes in v7:
-> - Updated the commit message to include a detailed description of the Ven=
-tura2 platform's purpose and its key hardware features.
-> - Fix comments from Andrew Jeffery:
->   * Ensured consistent blank lines to separate child nodes from parent pr=
-operties and from each other throughout the DTS.
->   * Sorted fan nodes in ascending order.
->   * Replaced '//' comments with '/* */' block comments.
-> - Fix feedback from Sashiko AI:
->   * Added 'idle-state =3D <6>;' to the PCA9548 mux on i2c4.
-> - Link to v6: https://lore.kernel.org/r/20260610-ventura2_initial_dts-v6-=
-0-375d8e9d7ebf@gmail.com
->
-> Changes in v6:
-> - Addressed automated feedback from Sashiko bot:
->   * Clarified comments that io_expander0 and io_expander8 physically shar=
-e the same interrupt line (Wired-OR) by hardware design.
->   * Removed leading zeros from unit addresses in DAC nodes (dac@c, dac@e,=
- dac@f).
->   * Removed unused properties from the adc@48 node.
-> - Link to v5: https://lore.kernel.org/r/20260608-ventura2_initial_dts-v5-=
-0-37ee5bcf58b6@gmail.com
->
-> Changes in v5:
-> - Addressed review comments:
->   * Added comments explaining the necessity of 'legacy_' prefixes (hardwa=
-re label collision), pre-allocated I2C aliases (future expansions), and the=
- 'ledd1' naming convention (schematic alignment).
->   * Removed the empty `&mdio0` node to comply with upstream networking su=
-bsystem guidelines.
->   * Removed the redundant `&peci0` node.
->   * Sorted `&kcs3` and `&lpc_ctrl` nodes in strict alphabetical order.
-> - Hardware/DT alignment updates:
->   * Removed unpopulated sensors (adi,adt7461, infineon,tda38640, ti,ina23=
-0, ti,ina238) to accurately reflect the current board population.
->   * Added the secondary flash node (flash@1 labeled "e810") under the &sp=
-i2 bus.
-> - Link to v4: https://lore.kernel.org/r/20260424-ventura2_initial_dts-v4-=
-0-806b00ea4314@gmail.com
->
-> Changes in v4:
-> - Fixed capitalization: "ventura2" -> "Ventura2".
-> - Reordered I2C child nodes in ascending order of unit addresses.
-> - Enable PECI, LPC control, and KCS3 interfaces for host communication.
-> - Configure MCTP controller on I2C4 and enable MCTP support for specific =
-mux channels.
-> - Add Infineon TDA38640 and TI INA230 power monitor nodes.
-> - GPIO and Pinmux cleanup for PVT:
->     - Aligned gpio-line-names as requested.
->     - Remove unused or non-existent GPIO line names to align with Ventura=
-2 PVT.
->     - Update specific GPIO pins to empty strings where signals were remov=
-ed or consolidated.
-> - Adjust SGPIOM frequency to 200kHz and update signal line names.
-> - Enable UART3 and add serial2 alias.
-> - Link to v3: https://lore.kernel.org/r/20260113-ventura2_initial_dts-v3-=
-0-2dbfda6a5b47@gmail.com
->
-> Changes in v3:
-> - Add annotation for marvel 88e6393x
-> - Modify the gpio-line-name
-> - Modify the node order alphabetically
-> - Modify dt-bindings document for rmc instead of bmc
-> - Move the gpio-line-names to original node
-> - Link to v2: https://lore.kernel.org/r/20251224-ventura2_initial_dts-v2-=
-0-f193ba5d4073@gmail.com
->
-> Changes in v2:
-> - Remove unused mdio
-> - Link to v1: https://lore.kernel.org/r/20251222-ventura2_initial_dts-v1-=
-0-1f06166c78a3@gmail.com
->
-> ---
-> Kyle Hsieh (2):
->       dt-bindings: arm: aspeed: add Meta ventura2 board
->       ARM: dts: aspeed: ventura2: Add Meta ventura2 BMC
->
->  .../devicetree/bindings/arm/aspeed/aspeed.yaml     |    1 +
->  arch/arm/boot/dts/aspeed/Makefile                  |    1 +
->  .../dts/aspeed/aspeed-bmc-facebook-ventura2.dts    | 2903 ++++++++++++++=
-++++++
->  3 files changed, 2905 insertions(+)
-> ---
-> base-commit: 9448598b22c50c8a5bb77a9103e2d49f134c9578
-> change-id: 20251222-ventura2_initial_dts-909b3277d665
->
-> Best regards,
-> --
-> Kyle Hsieh <kylehsieh1995@gmail.com>
->
+Fixes: bf68c18150efc ("arm64: dts: imx8mp-ab2: add support for NXP i.MX8MP audio board (version 2)")
+Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
+---
+ arch/arm64/boot/dts/freescale/imx8mp-ab2.dts | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-ab2.dts b/arch/arm64/boot/dts/freescale/imx8mp-ab2.dts
+index 443e4fd5b9bf..285bf79864eb 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-ab2.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mp-ab2.dts
+@@ -775,6 +775,10 @@ &micfil {
+ 	status = "okay";
+ };
+ 
++&mu2 {
++	status = "okay";
++};
++
+ &pwm1 {
+ 	pinctrl-0 = <&pinctrl_pwm1>;
+ 	pinctrl-names = "default";
+-- 
+2.34.1
+
 
