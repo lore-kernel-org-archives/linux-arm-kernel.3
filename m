@@ -4,68 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4934DCDB47F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 08:05:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F545CDB47F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 08:18:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OOHFW3I2Mozg+pjgDGKqgRV1x2xRqQMXQpGRSpXK4io=; b=f2veGRAMCnuVFlhwjSX4AO2a8r
-	FplB/Fja7agqCCjlcz53A6Gqr/Z/gVxDeyNfFqYSQ4Fi/EFX8e2vSJGl78jrIENpmsMI8Pw1DfAmQ
-	/NcN/pWphJCRQj04Tp8zq//SUjFnh2LHG7fT0UJ9sw+Uv+6HCZnBt75hjhpoW/yHL77kMUh1O3F9C
-	L2cq70nYBc04Sq62PoFsMnPl3WOblqgw4hfMjV7o+ffiwN4KWAxINsblAToMV4RtO8zNCO+cb4bGT
-	5e/ZNfYaRDP31hpa6P1nQAoXMDKSiN1qk76XQjxjpDEPvfsGW9+QfZDeyMa3/JrP5GGXrDOOq4hAn
-	QLaTiNWg==;
+	bh=1VrOxiSW5B9jvWGgR4Gle73eBnm+FHHuuxp5jo91p3s=; b=STlaaMVdZJ6GduEQvMn2+hamYz
+	HolH9D0hJjIRNWnSPoWqavqwspCFA8BUySFPBTao3YMJTm+kWYIIlX/8yXpcOsc9IxU5qqUjadwu3
+	IxFJyGliDA0LCdngpmSuoBi8cKThTDAzFNfFCZH3mVJOixLwprR/O6yOj4fDyY/zCZ/iMlxzPC+18
+	WMh5KASxldiF/AXbLZigXwqQ605t/kubh5mXsMf64eG7oFrX4J5t93BKihys2fCX/p7Np9lBS03gx
+	MxfgPae0Tzsm4wgkkIN1WV20je6hDu8YZRDpQldN+osmAGCSVWcHelvcEDee42HC26EZntRaAzWjI
+	9QiUYotg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcf5h-00000008oO1-17gG;
-	Thu, 25 Jun 2026 08:05:41 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wcfHY-00000008p1r-1lsF;
+	Thu, 25 Jun 2026 08:17:56 +0000
+Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcf5g-00000008oNh-2y6K;
-	Thu, 25 Jun 2026 08:05:40 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id DABF860217;
-	Thu, 25 Jun 2026 08:05:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 202D91F000E9;
-	Thu, 25 Jun 2026 08:05:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782374739;
-	bh=OOHFW3I2Mozg+pjgDGKqgRV1x2xRqQMXQpGRSpXK4io=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=limYh9jLuZbDS0F4wqXmQcmJzzAl0ZT1GX9Zkx5qVp/aCXAIQUPUa18WnwW7R3WZK
-	 kQ5vKUuac/Zo/yDcGdWsAqJnGl+iw2wUP/riOqaCII8ev7j14qmeoHKaiTCMsK7Moh
-	 rhD1eyUwPgisJwmfInNcanC383PRSDdT/FMDMDSfb+H2U3Oa0ivl802JCT8M5KBsoi
-	 QHOAp32ev5gIcbTqHYtD0OexS0BVQIkYbkU6m9NZcjyLIQ8nf4CMEvG9N4OECiIpLD
-	 Eh+AsEyGt2KKIuwGdO+5EA6KwotfveVN1Z03wKcuXFWeORCZBAMuGQO1w35mImGoEE
-	 ZR1YIyEfLHYgA==
-Date: Thu, 25 Jun 2026 10:05:36 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
-	Sandy Huang <hjc@rock-chips.com>, Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, 
-	Andy Yan <andy.yan@rock-chips.com>, Daniel Stone <daniels@collabora.com>, 
-	Dave Stevenson <dave.stevenson@raspberrypi.com>, =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, 
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, kernel@collabora.com, dri-devel@lists.freedesktop.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v7 04/30] drm/display: scdc_helper: Add HDMI 2.0
- scrambling management helpers
-Message-ID: <20260625-screeching-uptight-elephant-5bdaed@houat>
-References: <20260602-dw-hdmi-qp-scramb-v7-0-445eb54ee1ed@collabora.com>
- <20260602-dw-hdmi-qp-scramb-v7-4-445eb54ee1ed@collabora.com>
+	id 1wcfHU-00000008p0W-3cmN
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 25 Jun 2026 08:17:54 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
+	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 2342A200698;
+	Thu, 25 Jun 2026 10:17:50 +0200 (CEST)
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1wcfHS-004Ynh-0C;
+	Thu, 25 Jun 2026 10:17:50 +0200
+Received: from pza by lupine with local (Exim 4.98.2)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1wcfHR-000000002b6-46gr;
+	Thu, 25 Jun 2026 10:17:49 +0200
+Message-ID: <12958f10b032e6b37a83c783a261b2c184d94222.camel@pengutronix.de>
+Subject: Re: [PATCH RFC v4 10/12] reset: zte: Add a zx297520v3 reset driver
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Stefan =?ISO-8859-1?Q?D=F6singer?= <stefandoesinger@gmail.com>,  Michael
+ Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Rob
+ Herring <robh@kernel.org>,  Krzysztof Kozlowski	 <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Brian Masney	 <bmasney@redhat.com>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Date: Thu, 25 Jun 2026 10:17:49 +0200
+In-Reply-To: <7_XKp5ZWTJeJfxJieymOJA@gmail.com>
+References: <20260616-zx29clk-v4-0-ca994bd22e9d@gmail.com>
+	 <20260616-zx29clk-v4-10-ca994bd22e9d@gmail.com>
+	 <90c4f50eb23dec06497d46f9c0f522a6b90a918b.camel@pengutronix.de>
+	 <7_XKp5ZWTJeJfxJieymOJA@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="uqkyfjdf52yhangd"
-Content-Disposition: inline
-In-Reply-To: <20260602-dw-hdmi-qp-scramb-v7-4-445eb54ee1ed@collabora.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260625_011753_052606_BC4EC0FF 
+X-CRM114-Status: GOOD (  18.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,79 +77,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mi, 2026-06-24 at 23:00 +0300, Stefan D=C3=B6singer wrote:
+> Hi Philipp,
+>=20
+> Am Donnerstag, 18. Juni 2026, 12:24:26 Ostafrikanische Zeit schrieb Phili=
+pp=20
+> Zabel:
+>=20
+> > > +	[ZX297520V3_UART0_RESET]     =3D { .reg =3D 0x78,  .mask =3D BIT(6)=
+  |=20
+> BIT(7)=20
+> > > },
+> > Is this a single reset line controlled by two bits (do you know what
+> > they are)? Or might these actually be two different reset controls that
+> > are just always set together?
+>=20
+> I suppose I could expose both bits as separate reset controls in the bind=
+ing.=20
+> The lower bit is usually the one that actually resets the device, while t=
+he=20
+> higher one works similarly to PCLK - it disconnects the device from the b=
+us,=20
+> if asserted. Depending on the device it may or may not leave any residual=
+=20
+> effect behind after deassert.
 
---uqkyfjdf52yhangd
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Subject: Re: [PATCH v7 04/30] drm/display: scdc_helper: Add HDMI 2.0
- scrambling management helpers
-MIME-Version: 1.0
+So it's not a separate reset.
+Whether bus isolation should be controlled together with the reset or
+not could be argued, but exposing this as a separate reset control via
+the reset API would not be correct.
 
-On Tue, Jun 02, 2026 at 01:44:04AM +0300, Cristian Ciocaltea wrote:
-> +static int drm_scdc_reset_crtc(struct drm_connector *connector,
-> +			       struct drm_modeset_acquire_ctx *ctx)
-> +{
-> +	struct drm_device *dev = connector->dev;
-> +	struct drm_crtc *crtc;
-> +	u8 config;
-> +	int ret;
-> +
-> +	if (!ctx)
-> +		return 0;
-> +
-> +	/*
-> +	 * This is normally part of .detect_ctx() call path, which already holds
-> +	 * connection_mutex through @ctx.  However, re-acquiring it with the
-> +	 * same context is a no-op and makes the helper safe under any caller.
-> +	 */
-> +	ret = drm_modeset_lock(&dev->mode_config.connection_mutex, ctx);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (!connector->state)
-> +		return 0;
-> +
-> +	crtc = connector->state->crtc;
-> +	if (!crtc)
-> +		return 0;
-> +
-> +	ret = drm_scdc_readb(connector->ddc, SCDC_TMDS_CONFIG, &config);
-> +	if (ret) {
-> +		drm_scdc_dbg(connector, "Failed to read TMDS config: %d\n", ret);
-> +		return ret;
-> +	}
-> +
-> +	if ((config & SCDC_SCRAMBLING_ENABLE) &&
-> +	    (config & SCDC_TMDS_BIT_CLOCK_RATIO_BY_40))
-> +		return 0;
+> The stumbling block is the dwc2 USB driver. It only takes one reset, so I=
+'d=20
+> have to add another one (or abuse the dwc2-ecc reset) and presumably add =
+a PHY=20
+> driver for the 3rd reset or add a dwc2-phy reset.
 
-I don't think we should care about the bit clock ratio here. From a
-technical standpoint, and since you ignore low rates for the scrambler
-for now, they are indeed equivalents. But semantically, scrambler can be
-enabled for any rate, and the bit clock ratio should be changed only for
-rates higher than 340MHz.
+This on the other hand sounds like there is a separate PHY reset line?
+If so, I think that should be modeled as a separate control.
 
-This function makes sure to trigger a modeset when the scrambler is
-enabled or not. From a spec point of view, it's somewhat orthogonal to
-the bit clock ratio. From a function name point of view, it's
-misleading.
-
-So yeah, I'd just drop the check on the bit clock ratio here. Drivers
-will then get to enable either when the commit actually happens.
-
-Maxime
-
---uqkyfjdf52yhangd
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCajzhUAAKCRAnX84Zoj2+
-dj3SAX0SNhtnQQwwUwEqFVWo858enoiUhStjnPWPl67++vzJWDs7nJ3DUfg6e2d7
-4b54sboBfA/hKC5JoGp+7bbCtDq/Ux03xRKPTLqiT3+2m9OvF5Kp3NZF00tPzQus
-N7RdxaxujA==
-=2INP
------END PGP SIGNATURE-----
-
---uqkyfjdf52yhangd--
+regards
+Philipp
 
