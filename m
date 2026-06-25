@@ -4,83 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D22CCDE001
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 17:06:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DAA6CDE000
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 17:16:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:Cc
-	:Subject:From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LC73b91HEO74osloKjUTD0DDGZ8iF8lp6LJqm7dhJ8M=; b=TmYEgpCbZKz8DwYLdlwEF9wJL+
-	YsXrZmNfEDQ0VqkVtl+xbH/+JhClvqwjLp2MHaAtAFq2uGIG4mvY2X6d8ljQhKfjSnBKmNuHLMn1n
-	RkgDFhFseg1IejgOzwPXApAmALo3FhQ86L4I7xfrb+ZLzLhV6uViIgivZB/YNwjB5jm/TI5/zYE7W
-	ji5gXMID9K/7gyNKxSr1Q0qEQWGSBSWlRG0dGA2ZUaJbxW/HjwnOy8U6jvOyuJScszXa36Robx/NF
-	DaFBNT3PNqvSDSq1M55mzpCoYdHaiq+0ESdkLuVe0+kzRBzm5c0V4BEF3Zo7NxFrEPQcmGkF6PbNY
-	ySYhkc/g==;
+	bh=GkT4WdnPstsq9MRgV8hqr6BdDADZaeozbBdfpn34WxI=; b=vwTaEjD/TdEy1f3Esr3Z8gJgoN
+	8uZA94lknZDNVVoKsr9u6gMeVjBXv1flK8w1BGArAWR/j6Q1Su7tMb/Yp9nyMfoAl7VhRX7ZqG7nt
+	RdgppWlhQe9ccqj6+YtwgtdWYwAtLOdd9BXd9D4q6MWEkCHfI1fMHzhVHJlrAp3JzcTF/GDctG2Dr
+	HDjvNUKX5hmnrhiulCX2/4Wr28boM+RWd/hvYXbzFi8fOxzS2qwSSS+K1gKYblYzXbMm0lyUlV6oe
+	lXDFDPMFI6gK0vf0bw+Wt6/ALJ5sm5zC+xoRSNTOJoVpf8quk23MZfXrvq3WmuhDyOJZ3VxA6/smZ
+	ACubSIxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcnXM-00000009WIu-09F9;
-	Thu, 25 Jun 2026 17:06:48 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcnXI-00000009WIK-21As
+	id 1wcngW-00000009Wuy-3Oxq;
+	Thu, 25 Jun 2026 17:16:16 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wcngU-00000009Wuc-1uGS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Jun 2026 17:06:47 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id E5D9C4E408C8;
-	Thu, 25 Jun 2026 17:06:38 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id A6ADF60220;
-	Thu, 25 Jun 2026 17:06:38 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 15F7B104C944D;
-	Thu, 25 Jun 2026 19:06:27 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1782407197; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=LC73b91HEO74osloKjUTD0DDGZ8iF8lp6LJqm7dhJ8M=;
-	b=uQm8PJkfrXPURCmngvTfk5NTqUnIqV6cUS22d2DQymp7VGhbWSK2YM/nr/FqTxrSJvF0HI
-	b7lUArpGfPlCwTOCWJc8Vjghs6YYfzMlNwNBNy+whbSTPu35wSomkE3LSzZxgygA5o4rl6
-	RlpNtnsDVdzgWQaM02AKxTR/LjHBtvFIzfAqnqcv8RCRrGInl1bxhn2IinCYZxxQzUM8sL
-	WOQz/CggHTDGFsy5iAK7RxegIR4zXGQH6apGh3u85BeK0lCvopk5iDNZW9Iv6IobFB6WaM
-	hKCYQRjkelATr+rfI04ZJjCp+f02zxyQZ7mcRNpRICltWfek6ZQcLhy9zArciQ==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 25 Jun 2026 19:06:26 +0200
-Message-Id: <DJIAM5GDIA9W.NJQJTONTBQRI@bootlin.com>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH 19/37] drm/bridge: samsung-dsim: move drm_bridge_add()
- call to probe
-Cc: "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Thomas
- Zimmermann" <tzimmermann@suse.de>, "David Airlie" <airlied@gmail.com>,
- "Simona Vetter" <simona@ffwll.ch>, "Andrzej Hajda"
- <andrzej.hajda@intel.com>, "Neil Armstrong" <neil.armstrong@linaro.org>,
- "Robert Foss" <rfoss@kernel.org>, "Laurent Pinchart"
- <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman" <jonas@kwiboo.se>,
- "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Inki Dae"
- <inki.dae@samsung.com>, "Jagan Teki" <jagan@amarulasolutions.com>, "Marek
- Szyprowski" <m.szyprowski@samsung.com>, "Marek Vasut" <marex@denx.de>,
- "Stefan Agner" <stefan@agner.ch>, "Frank Li" <Frank.Li@nxp.com>, "Sascha
- Hauer" <s.hauer@pengutronix.de>, "Pengutronix Kernel Team"
- <kernel@pengutronix.de>, "Fabio Estevam" <festevam@gmail.com>, "Hui Pu"
- <Hui.Pu@gehealthcare.com>, "Ian Ray" <ian.ray@gehealthcare.com>, "Thomas
- Petazzoni" <thomas.petazzoni@bootlin.com>,
- <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
- <imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>
-To: "Maxime Ripard" <mripard@kernel.org>, "Luca Ceresoli"
- <luca.ceresoli@bootlin.com>
-X-Mailer: aerc 0.21.0
-References: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
- <20260519-drm-bridge-hotplug-v1-19-45e2bdb3dfb4@bootlin.com>
- <20260608-mellow-weasel-of-politeness-a56172@houat>
- <DJ63DNXUOW46.1DI6982PGPFRR@bootlin.com>
- <20260624-courageous-accomplished-sambar-0e3cf8@houat>
-In-Reply-To: <20260624-courageous-accomplished-sambar-0e3cf8@houat>
-X-Last-TLS-Session-Version: TLSv1.3
+	Thu, 25 Jun 2026 17:16:15 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 94F7C25E4;
+	Thu, 25 Jun 2026 10:16:06 -0700 (PDT)
+Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4883D3F632;
+	Thu, 25 Jun 2026 10:16:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1782407771; bh=dvzl13ZKPyiQ7SU483lZ6yBokqwfqiGC884xC85A3+w=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=b0j8CcIql6qRH+2ITHpAIkBn9S/+HcMCEqF5PfHdKHwoleM+JYMlHxD8c1dZDeiJH
+	 V/TUMaaozYB7PQx+ZKOrwcPXpxmDX6NCBj0K5n5BlNgT6d02Nje+ZqNtbBm4azs/Lj
+	 1x8nejhZLoMnVDJ1ZWFjAoqyXKKpRCK2NsCIczkA=
+Message-ID: <570441b8-e6fd-48fe-932c-1c663994bbd0@arm.com>
+Date: Thu, 25 Jun 2026 18:16:08 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] iommu/arm-smmu-v3: Add tracepoint for EVTQ events
+To: "chenjun (AM)" <chenjun102@huawei.com>, "will@kernel.org"
+ <will@kernel.org>, "joro@8bytes.org" <joro@8bytes.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Cc: "zhangyuwei (G)" <zhangyuwei20@huawei.com>
+References: <20260613130007.18563-1-chenjun102@huawei.com>
+ <59c283b1-0436-4ea1-8feb-996dba617b6d@arm.com>
+ <94eee9fa08a8461893b4e076919e9e55@huawei.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <94eee9fa08a8461893b4e076919e9e55@huawei.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260625_100644_679628_C69D2650 
-X-CRM114-Status: GOOD (  34.88  )
+X-CRM114-CacheID: sfid-20260625_101614_669014_3071AB2D 
+X-CRM114-Status: GOOD (  24.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,135 +74,187 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed Jun 24, 2026 at 5:28 PM CEST, Maxime Ripard wrote:
-> On Thu, Jun 11, 2026 at 10:54:14AM +0200, Luca Ceresoli wrote:
->> On Mon Jun 8, 2026 at 1:58 PM CEST, Maxime Ripard wrote:
->> > On Tue, May 19, 2026 at 12:37:36PM +0200, Luca Ceresoli wrote:
->> >> This bridge driver calls drm_bridge_add() in the DSI host .attach cal=
-lback
->> >> instead of in the probe function.
->> >>
->> >> This works for current use cases but is problematic for supporting ho=
-tplug
->> >> of DRM bridges. The problematic case is when this DSI host is always
->> >> present while its DSI device is hot-pluggable. In such case with the
->> >> current code the DRM card will not be populated until after the DSI d=
-evice
->> >> attaches to the host, which could happen a very long time after booti=
-ng, or
->> >> even not happen at all.
->> >>
->> >> The reason is that the previous pipeline component (the encoder in th=
-is
->> >> case) when probing cannot find the samsung-dsim bridge. What happens =
-is:
->> >>
->> >>  [1 and 2 can happen in any order, same result]
->> >>  1) samsung-dsim probes (does not drm_bridge_add() itself)
->> >>  2) The lcdif starts probing multiple times, but
->> >>     lcdif_probe
->> >>     -> lcdif_load
->> >>        -> lcdif_attach_bridge
->> >>           -> devm_drm_of_get_bridge() returns -EPROBE_DEFER because
->> >>              the samsung-dsim is not in the global bridge_list
->> >>              (deferred probe pending: imx-lcdif: Cannot connect bridg=
-e)
->> >>
->> >> The samsung-dsim will not drm_bridge_add() itself until a DSI device =
-will
->> >> try to mipi_dsi_attach() to the DSI Host, which can happen arbitratil=
-y late
->> >> on hot-pluggable hardware.
->> >>
->> >> As a preliminary step to supporting hotplug move drm_bridge_add() at =
-probe
->> >> time, so that the samsung-dsim DSI host bridge is available during bo=
-ot,
->> >> even without a connected DSI device. This results in:
->> >>
->> >>  1) samsung-dsim probes (and adds to drm_bridge_add() itself)
->> >>  2) The lcdif starts probing multiple times, but
->> >>     lcdif_probe
->> >>     -> lcdif_load
->> >>        -> lcdif_attach_bridge
->> >>           -> devm_drm_of_get_bridge() --> OK, returns samsung-dsim pt=
-r
->> >>
->> >> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
->> >
->> > We should probably amend
->> > https://www.kernel.org/doc/html/latest/gpu/drm-kms-helpers.html#specia=
-l-care-with-mipi-dsi-bridges
->> >
->> > To mention this use case here
+On 24/06/2026 9:43 am, chenjun (AM) wrote:
+> 在 2026/6/23 23:31, Robin Murphy 写道:
+>> On 13/06/2026 2:00 pm, Chen Jun wrote:
+>>> Events reported by the SMMU can severely impact accelerator
+>>> performance. Currently, only events that the SMMU fails to handle are
+>>> printed to the kernel log, leaving most events invisible to users.
+>>> To analyze and optimize accelerator performance, complete visibility
+>>> into all SMMU-reported events is required.
 >>
->> Right. I haven't updated the docs for this v1 because I was not sure the
->> overall approach would be acked. Now Dmitry acked it overall, and I kind=
- of
->> infer you are not against, so I'll look into updating the docs in v2.
+>> What events, exactly? AFAICS the only events we should expect to handle
+>> "invisibly", without being some unexpected error condition worth
+>> screaming about, would be stalls for SVA page faults, and if SVA isn't
+>> generically accounting page faults itself then I would imagine it
+>> probably should.
 >>
->> However I find that section of the docs a bit hard to read especially fr=
-om
->> a newcomer perspective.
->
-> It's a complex problem, so I don't think we should expect the target
-> audience to be newcomers. But maybe we can indeed improve it.
->
->> A better understanding on my side would help in doing the right change a=
-s
->> far as this patch is concerned, and as a bonus in improving the section
->> overall (that would probably be a separate series).
+>> Thanks,
+>> Robin.
 >>
->> So I have a couple questions to start from:
+> 
+> AF and WP faults are common occurrences. and they can significantly
+> impact SMMU performance. If we can determine exactly at which address
+> and what type of page fault occurred, it would help us avoid SVA page
+> fault events through other means. Also, I don't see any separate
+> accounting for page fault events in the SVA flow.
+
+Right, and that's what I'm getting at. By nature, handling IOMMU page 
+faults is always going to be less efficient than a CPU handling its own 
+fault synchronously; that is not unique to Arm SMMU. The methods for 
+pre-faulting pages from the CPU side to minimise avoidable IOMMU faults 
+are not unique to Arm SMMU either. And if you care about this, then it's 
+highly likely that other SVA users across all architectures will care 
+about it too. Thus it seems like a pretty clear argument for having 
+something nice like /proc/vmstat for SVA processes to give users 
+sufficiently visible accounting of IOMMU faults to decide whether it's 
+worth tuning their application.
+
+Sure that's not going to give insight into the details of individual 
+faults, but I'd imagine that the majority of cases won't actually need 
+that anyway, as they're unlikely to be deeply application-specific and 
+requiring analysis at the per-page level - I'd expect most of the value 
+to be in merely being able to confirm that there was a high rate of 
+faults to begin with, and e.g. adding MAP_POPULATE to some obvious mmap 
+calls reduced that rate by X% accounting for a Y% performance 
+improvement. But if someone does want the details then even then, a 
+common tracepoint in the SVA IOPF path would make a lot more sense than 
+an SMMU-specific thing which won't even account for all of SMMU (since 
+PRI-based SVA is finally being revived now as well.)
+
+Thanks,
+Robin.
+
+> 
+> Thanks
+> Chen Jun
+> 
+>>> Add a tracepoint in the EVTQ interrupt handler to capture every
+>>> event record reported by the SMMU. This allows users to collect all
+>>> event information via ftrace/perf for further analysis, complementing
+>>> the existing event decoder and error dump which only cover a subset
+>>> of events.
+>>>
+>>> Signed-off-by: Chen Jun <chenjun102@huawei.com>
+>>> ---
+>>>     drivers/iommu/arm/arm-smmu-v3/Makefile      |  2 +-
+>>>     drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c |  3 ++
+>>>     drivers/iommu/arm/arm-smmu-v3/trace.c       |  9 ++++
+>>>     drivers/iommu/arm/arm-smmu-v3/trace.h       | 53 +++++++++++++++++++++
+>>>     4 files changed, 66 insertions(+), 1 deletion(-)
+>>>     create mode 100644 drivers/iommu/arm/arm-smmu-v3/trace.c
+>>>     create mode 100644 drivers/iommu/arm/arm-smmu-v3/trace.h
+>>>
+>>> diff --git a/drivers/iommu/arm/arm-smmu-v3/Makefile b/drivers/iommu/arm/arm-smmu-v3/Makefile
+>>> index 493a659cc66b..63a8d71bfc93 100644
+>>> --- a/drivers/iommu/arm/arm-smmu-v3/Makefile
+>>> +++ b/drivers/iommu/arm/arm-smmu-v3/Makefile
+>>> @@ -1,6 +1,6 @@
+>>>     # SPDX-License-Identifier: GPL-2.0
+>>>     obj-$(CONFIG_ARM_SMMU_V3) += arm_smmu_v3.o
+>>> -arm_smmu_v3-y := arm-smmu-v3.o
+>>> +arm_smmu_v3-y := arm-smmu-v3.o trace.o
+>>>     arm_smmu_v3-$(CONFIG_ARM_SMMU_V3_IOMMUFD) += arm-smmu-v3-iommufd.o
+>>>     arm_smmu_v3-$(CONFIG_ARM_SMMU_V3_SVA) += arm-smmu-v3-sva.o
+>>>     arm_smmu_v3-$(CONFIG_TEGRA241_CMDQV) += tegra241-cmdqv.o
+>>> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+>>> index e8d7dbe495f0..85e6c25b73ed 100644
+>>> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+>>> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+>>> @@ -34,6 +34,8 @@
+>>>     #include "arm-smmu-v3.h"
+>>>     #include "../../dma-iommu.h"
+>>>     
+>>> +#include "trace.h"
+>>> +
+>>>     static bool disable_msipolling;
+>>>     module_param(disable_msipolling, bool, 0444);
+>>>     MODULE_PARM_DESC(disable_msipolling,
+>>> @@ -2271,6 +2273,7 @@ static irqreturn_t arm_smmu_evtq_thread(int irq, void *dev)
+>>>     
+>>>     	do {
+>>>     		while (!queue_remove_raw(q, evt)) {
+>>> +			trace_smmu_evtq_event(smmu, evt);
+>>>     			arm_smmu_decode_event(smmu, evt, &event);
+>>>     			if (arm_smmu_handle_event(smmu, evt, &event))
+>>>     				arm_smmu_dump_event(smmu, evt, &event, &rs);
+>>> diff --git a/drivers/iommu/arm/arm-smmu-v3/trace.c b/drivers/iommu/arm/arm-smmu-v3/trace.c
+>>> new file mode 100644
+>>> index 000000000000..77378698b1a3
+>>> --- /dev/null
+>>> +++ b/drivers/iommu/arm/arm-smmu-v3/trace.c
+>>> @@ -0,0 +1,9 @@
+>>> +// SPDX-License-Identifier: GPL-2.0
+>>> +/*
+>>> + * ARM SMMUv3 trace support
+>>> + *
+>>> + * Copyright (c) 2026 OpenCloudOS / openEuler
+>>> + */
+>>> +
+>>> +#define CREATE_TRACE_POINTS
+>>> +#include "trace.h"
+>>> diff --git a/drivers/iommu/arm/arm-smmu-v3/trace.h b/drivers/iommu/arm/arm-smmu-v3/trace.h
+>>> new file mode 100644
+>>> index 000000000000..7cec8d41745e
+>>> --- /dev/null
+>>> +++ b/drivers/iommu/arm/arm-smmu-v3/trace.h
+>>> @@ -0,0 +1,53 @@
+>>> +/* SPDX-License-Identifier: GPL-2.0 */
+>>> +/*
+>>> + * ARM SMMUv3 trace support
+>>> + *
+>>> + * Copyright (c) 2026 OpenCloudOS / openEuler
+>>> + */
+>>> +
+>>> +#undef TRACE_SYSTEM
+>>> +#define TRACE_SYSTEM arm_smmu_v3
+>>> +
+>>> +#if !defined(_TRACE_ARM_SMMU_V3_H) || defined(TRACE_HEADER_MULTI_READ)
+>>> +#define _TRACE_ARM_SMMU_V3_H
+>>> +
+>>> +#include <linux/tracepoint.h>
+>>> +
+>>> +#include "arm-smmu-v3.h"
+>>> +
+>>> +TRACE_EVENT(smmu_evtq_event,
+>>> +
+>>> +	TP_PROTO(struct arm_smmu_device *smmu, u64 *evt),
+>>> +
+>>> +	TP_ARGS(smmu, evt),
+>>> +
+>>> +	TP_STRUCT__entry(
+>>> +		__string(iommu, dev_name(smmu->dev))
+>>> +		__field(u64, evt0)
+>>> +		__field(u64, evt1)
+>>> +		__field(u64, evt2)
+>>> +		__field(u64, evt3)
+>>> +	),
+>>> +
+>>> +	TP_fast_assign(
+>>> +		__assign_str(iommu);
+>>> +		__entry->evt0 = evt[0];
+>>> +		__entry->evt1 = evt[1];
+>>> +		__entry->evt2 = evt[2];
+>>> +		__entry->evt3 = evt[3];
+>>> +	),
+>>> +
+>>> +	TP_printk("%s evt: 0x%016llx 0x%016llx 0x%016llx 0x%016llx",
+>>> +		__get_str(iommu),
+>>> +		__entry->evt0, __entry->evt1,
+>>> +		__entry->evt2, __entry->evt3)
+>>> +);
+>>> +
+>>> +#endif /* _TRACE_ARM_SMMU_V3_H */
+>>> +
+>>> +/* This part must be outside protection */
+>>> +#undef TRACE_INCLUDE_PATH
+>>> +#undef TRACE_INCLUDE_FILE
+>>> +#define TRACE_INCLUDE_PATH ../../drivers/iommu/arm/arm-smmu-v3/
+>>> +#define TRACE_INCLUDE_FILE trace
+>>> +#include <trace/define_trace.h>
 >>
->>  * Do I understand correctly that using the component framework is legac=
-y,
->>    not recommended for new DRM development, and that converting existing
->>    code to stop using it is welcome?
->
-> No. It's not legacy or deprecated. And about the conversion, I guess
-> it's on a case-by-case basis? It's not encouraged or discouraged anyway.
->
->>  * The first bullet quotes "The upstream driver [...] isn=E2=80=99t a MI=
-PI-DSI
->>    host". If the upstream driver of a MIPI DSI link isn't a MIPI DSI hos=
-t,
->>    what else could it be? What are the use cases here?
->
-> Nowhere is it said that we're considering a MIPI-DSI link here,
+>>
+>>
+> 
 
-To me, the section title "Special Care with MIPI-DSI bridges" seems to
-suggest that.
-
-What about rewording as "Possible driver combinations and their probe
-sequences" or the like?
-
-> so the
-> use case is any bridge that isn't using MIPI-DSI at all.
->
->>  * If read literally, none of the 4 bullets after "Indeed, there=E2=80=
-=99s multiple
->>    cases that needs to be considered" covers this driver (it does not us=
-e
->>    the component framework, it does not use DCS, and the upstream device=
- is
->>    a DSI host). However the 3 bullets after "The ideal pattern to cover =
-the
->>    last item" appear to cover what this driver does.  Do we need a fifth
->>    bullet for drivers like this one? Or...?
->
-> You tell me :)
->
-> How does hotplugging, say, a MIPI-DSI device bridge controlled over I2C,
-> or a MIPI-DSI host bridge, affect the probing sequence, and can we end
-> up in endless probe deferrals?
-
-I'll try to write that in a fifth bullet in v2.
-
-Luca
-
---
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
 
