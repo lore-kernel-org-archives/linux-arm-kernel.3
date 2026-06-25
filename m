@@ -4,62 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DAA6CDE000
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 17:16:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5D19CDE000
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 17:35:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GkT4WdnPstsq9MRgV8hqr6BdDADZaeozbBdfpn34WxI=; b=vwTaEjD/TdEy1f3Esr3Z8gJgoN
-	8uZA94lknZDNVVoKsr9u6gMeVjBXv1flK8w1BGArAWR/j6Q1Su7tMb/Yp9nyMfoAl7VhRX7ZqG7nt
-	RdgppWlhQe9ccqj6+YtwgtdWYwAtLOdd9BXd9D4q6MWEkCHfI1fMHzhVHJlrAp3JzcTF/GDctG2Dr
-	HDjvNUKX5hmnrhiulCX2/4Wr28boM+RWd/hvYXbzFi8fOxzS2qwSSS+K1gKYblYzXbMm0lyUlV6oe
-	lXDFDPMFI6gK0vf0bw+Wt6/ALJ5sm5zC+xoRSNTOJoVpf8quk23MZfXrvq3WmuhDyOJZ3VxA6/smZ
-	ACubSIxA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nohWA6Z3QOs8Euk83tp6VSWyE7ASO/iSFcpEAB1p3Gs=; b=Q4VbEA5t6H9vTsnOHNrWKlB+Hq
+	rhQ8QctTZMDkUPdQQUU+xAbjWwT6JrBuaoYxO//nPAwYXeCShv2CJzg7ofPB5V88yO1+e+DRXKROB
+	pNvNyGID4j8LcpuVELqBHsc7JEWqFl6g37J9rXnnS78C9TOSvuCZIqzQHBnPODrB0q2dPsDArWiCC
+	seY7gTKr8TRKHhHUEnD7NIt+dluuJupIt1950jtebhtNdDCddeLjFy1QG61ZnHHfSRc0rU1vsX6Ij
+	A2mN2yxGig5oKbOEXxuwXEF3krBASehGXzcDYAHK/UoLcoMNT5yI6qEpPC08bDeTrIYyUsDk83KWC
+	tZ9XPUbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcngW-00000009Wuy-3Oxq;
-	Thu, 25 Jun 2026 17:16:16 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcngU-00000009Wuc-1uGS
+	id 1wcnys-00000009YR4-3BTZ;
+	Thu, 25 Jun 2026 17:35:14 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wcnyr-00000009YP8-1jfT
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 25 Jun 2026 17:35:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=nohWA6Z3QOs8Euk83tp6VSWyE7ASO/iSFcpEAB1p3Gs=; b=KZK0xvGUJr9cDRz67OXoiq6YbA
+	0YP4uAoNgLGLwwJyk912yFvIupEXRKvfI9dFJ8hTav+mmLAfmGE79vYsxszMXjyRKsftVcoi7+/5X
+	w8fqJN2NOhr8qnER89cJBEduKtC96GuKNQTm3RLL2rh2DkoVkmqrlCU4hDw0o7HQvgc0CLW/ttq4J
+	+zkGvHaNVdAfpT420eDIDBScfNCczWDwpzow1HGCpBNwR4FMEq4Lseznd8E89n69K+X6jIOHGGeEt
+	D0SpZFsnjjQaPFNtih5svLMUtZ5BVVyd2fIbQDb/D0xbVy8T9Lu3Ck6SobymWF/XQeEEYWcWoZKGP
+	JodUEH1g==;
+Received: from linux.microsoft.com ([13.77.154.182])
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wcnyn-00000003v66-4Byk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Jun 2026 17:16:15 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 94F7C25E4;
-	Thu, 25 Jun 2026 10:16:06 -0700 (PDT)
-Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4883D3F632;
-	Thu, 25 Jun 2026 10:16:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782407771; bh=dvzl13ZKPyiQ7SU483lZ6yBokqwfqiGC884xC85A3+w=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=b0j8CcIql6qRH+2ITHpAIkBn9S/+HcMCEqF5PfHdKHwoleM+JYMlHxD8c1dZDeiJH
-	 V/TUMaaozYB7PQx+ZKOrwcPXpxmDX6NCBj0K5n5BlNgT6d02Nje+ZqNtbBm4azs/Lj
-	 1x8nejhZLoMnVDJ1ZWFjAoqyXKKpRCK2NsCIczkA=
-Message-ID: <570441b8-e6fd-48fe-932c-1c663994bbd0@arm.com>
-Date: Thu, 25 Jun 2026 18:16:08 +0100
+	Thu, 25 Jun 2026 17:35:12 +0000
+Received: from linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net (linux.microsoft.com [13.77.154.182])
+	by linux.microsoft.com (Postfix) with ESMTPSA id A1B0420B7167;
+	Thu, 25 Jun 2026 10:35:00 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com A1B0420B7167
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1782408900;
+	bh=nohWA6Z3QOs8Euk83tp6VSWyE7ASO/iSFcpEAB1p3Gs=;
+	h=From:To:Cc:Subject:Date:From;
+	b=eK3igkyLatBZ6Tk0y7WVi6+UeBtq5AXuE6onb51ImsVboRJaZbX9dPtZvW2yEgJgd
+	 EHMc4bljt1luJvOB8uTWVADhy3oWB+vauUbKMO6NwyBL/PRm+TYrFEPGPJOPlxPJEj
+	 TFFTc8l7mX2H9x+KoW16zMM245E89V0cVM4ZEJCg=
+From: Kameron Carr <kameroncarr@linux.microsoft.com>
+To: kys@microsoft.com,
+	haiyangz@microsoft.com,
+	wei.liu@kernel.org,
+	decui@microsoft.com,
+	longli@microsoft.com
+Cc: catalin.marinas@arm.com,
+	will@kernel.org,
+	mark.rutland@arm.com,
+	lpieralisi@kernel.org,
+	sudeep.holla@kernel.org,
+	arnd@arndb.de,
+	thuth@redhat.com,
+	linux-hyperv@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	mhklinux@outlook.com
+Subject: [PATCH v2 0/6] arm64: hyperv: Add Realm support for Hyper-V
+Date: Thu, 25 Jun 2026 10:34:54 -0700
+Message-ID: <20260625173500.1995481-1-kameroncarr@linux.microsoft.com>
+X-Mailer: git-send-email 2.43.7
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] iommu/arm-smmu-v3: Add tracepoint for EVTQ events
-To: "chenjun (AM)" <chenjun102@huawei.com>, "will@kernel.org"
- <will@kernel.org>, "joro@8bytes.org" <joro@8bytes.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Cc: "zhangyuwei (G)" <zhangyuwei20@huawei.com>
-References: <20260613130007.18563-1-chenjun102@huawei.com>
- <59c283b1-0436-4ea1-8feb-996dba617b6d@arm.com>
- <94eee9fa08a8461893b4e076919e9e55@huawei.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <94eee9fa08a8461893b4e076919e9e55@huawei.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260625_101614_669014_3071AB2D 
-X-CRM114-Status: GOOD (  24.08  )
+X-CRM114-CacheID: sfid-20260625_183510_252752_D796BF07 
+X-CRM114-Status: GOOD (  12.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,187 +94,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/06/2026 9:43 am, chenjun (AM) wrote:
-> 在 2026/6/23 23:31, Robin Murphy 写道:
->> On 13/06/2026 2:00 pm, Chen Jun wrote:
->>> Events reported by the SMMU can severely impact accelerator
->>> performance. Currently, only events that the SMMU fails to handle are
->>> printed to the kernel log, leaving most events invisible to users.
->>> To analyze and optimize accelerator performance, complete visibility
->>> into all SMMU-reported events is required.
->>
->> What events, exactly? AFAICS the only events we should expect to handle
->> "invisibly", without being some unexpected error condition worth
->> screaming about, would be stalls for SVA page faults, and if SVA isn't
->> generically accounting page faults itself then I would imagine it
->> probably should.
->>
->> Thanks,
->> Robin.
->>
-> 
-> AF and WP faults are common occurrences. and they can significantly
-> impact SMMU performance. If we can determine exactly at which address
-> and what type of page fault occurred, it would help us avoid SVA page
-> fault events through other means. Also, I don't see any separate
-> accounting for page fault events in the SVA flow.
+Realms (CoCo VMs on ARM) require host calls to be routed through the RMM
+(Realm Management Monitor) via the RSI (Realm Service Interface). This
+series implements most of the necessary changes to support Realms on
+Hyper-V.
 
-Right, and that's what I'm getting at. By nature, handling IOMMU page 
-faults is always going to be less efficient than a CPU handling its own 
-fault synchronously; that is not unique to Arm SMMU. The methods for 
-pre-faulting pages from the CPU side to minimise avoidable IOMMU faults 
-are not unique to Arm SMMU either. And if you care about this, then it's 
-highly likely that other SVA users across all architectures will care 
-about it too. Thus it seems like a pretty clear argument for having 
-something nice like /proc/vmstat for SVA processes to give users 
-sufficiently visible accounting of IOMMU faults to decide whether it's 
-worth tuning their application.
+One required change is not included in this series. The two buffers
+allocated via vzalloc() in netvsc_init_buf() cannot be decrypted in
+vmbus_establish_gpadl(). Currently only linearly mapped memory can be
+decrypted. See my RFC patch [1]. I will implement the accompanying netvsc
+changes based on the feedback I receive on that patch.
 
-Sure that's not going to give insight into the details of individual 
-faults, but I'd imagine that the majority of cases won't actually need 
-that anyway, as they're unlikely to be deeply application-specific and 
-requiring analysis at the per-page level - I'd expect most of the value 
-to be in merely being able to confirm that there was a high rate of 
-faults to begin with, and e.g. adding MAP_POPULATE to some obvious mmap 
-calls reduced that rate by X% accounting for a Y% performance 
-improvement. But if someone does want the details then even then, a 
-common tracepoint in the SVA IOPF path would make a lot more sense than 
-an SMMU-specific thing which won't even account for all of SMMU (since 
-PRI-based SVA is finally being revived now as well.)
+This patch series was tested by booting a Realm on Cobalt 200 running
+Windows. I decreased the buffer size and used kzalloc() in
+netvsc_init_buf() in my testing as a workaround for the issue mentioned
+above.
 
-Thanks,
-Robin.
 
-> 
-> Thanks
-> Chen Jun
-> 
->>> Add a tracepoint in the EVTQ interrupt handler to capture every
->>> event record reported by the SMMU. This allows users to collect all
->>> event information via ftrace/perf for further analysis, complementing
->>> the existing event decoder and error dump which only cover a subset
->>> of events.
->>>
->>> Signed-off-by: Chen Jun <chenjun102@huawei.com>
->>> ---
->>>     drivers/iommu/arm/arm-smmu-v3/Makefile      |  2 +-
->>>     drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c |  3 ++
->>>     drivers/iommu/arm/arm-smmu-v3/trace.c       |  9 ++++
->>>     drivers/iommu/arm/arm-smmu-v3/trace.h       | 53 +++++++++++++++++++++
->>>     4 files changed, 66 insertions(+), 1 deletion(-)
->>>     create mode 100644 drivers/iommu/arm/arm-smmu-v3/trace.c
->>>     create mode 100644 drivers/iommu/arm/arm-smmu-v3/trace.h
->>>
->>> diff --git a/drivers/iommu/arm/arm-smmu-v3/Makefile b/drivers/iommu/arm/arm-smmu-v3/Makefile
->>> index 493a659cc66b..63a8d71bfc93 100644
->>> --- a/drivers/iommu/arm/arm-smmu-v3/Makefile
->>> +++ b/drivers/iommu/arm/arm-smmu-v3/Makefile
->>> @@ -1,6 +1,6 @@
->>>     # SPDX-License-Identifier: GPL-2.0
->>>     obj-$(CONFIG_ARM_SMMU_V3) += arm_smmu_v3.o
->>> -arm_smmu_v3-y := arm-smmu-v3.o
->>> +arm_smmu_v3-y := arm-smmu-v3.o trace.o
->>>     arm_smmu_v3-$(CONFIG_ARM_SMMU_V3_IOMMUFD) += arm-smmu-v3-iommufd.o
->>>     arm_smmu_v3-$(CONFIG_ARM_SMMU_V3_SVA) += arm-smmu-v3-sva.o
->>>     arm_smmu_v3-$(CONFIG_TEGRA241_CMDQV) += tegra241-cmdqv.o
->>> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
->>> index e8d7dbe495f0..85e6c25b73ed 100644
->>> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
->>> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
->>> @@ -34,6 +34,8 @@
->>>     #include "arm-smmu-v3.h"
->>>     #include "../../dma-iommu.h"
->>>     
->>> +#include "trace.h"
->>> +
->>>     static bool disable_msipolling;
->>>     module_param(disable_msipolling, bool, 0444);
->>>     MODULE_PARM_DESC(disable_msipolling,
->>> @@ -2271,6 +2273,7 @@ static irqreturn_t arm_smmu_evtq_thread(int irq, void *dev)
->>>     
->>>     	do {
->>>     		while (!queue_remove_raw(q, evt)) {
->>> +			trace_smmu_evtq_event(smmu, evt);
->>>     			arm_smmu_decode_event(smmu, evt, &event);
->>>     			if (arm_smmu_handle_event(smmu, evt, &event))
->>>     				arm_smmu_dump_event(smmu, evt, &event, &rs);
->>> diff --git a/drivers/iommu/arm/arm-smmu-v3/trace.c b/drivers/iommu/arm/arm-smmu-v3/trace.c
->>> new file mode 100644
->>> index 000000000000..77378698b1a3
->>> --- /dev/null
->>> +++ b/drivers/iommu/arm/arm-smmu-v3/trace.c
->>> @@ -0,0 +1,9 @@
->>> +// SPDX-License-Identifier: GPL-2.0
->>> +/*
->>> + * ARM SMMUv3 trace support
->>> + *
->>> + * Copyright (c) 2026 OpenCloudOS / openEuler
->>> + */
->>> +
->>> +#define CREATE_TRACE_POINTS
->>> +#include "trace.h"
->>> diff --git a/drivers/iommu/arm/arm-smmu-v3/trace.h b/drivers/iommu/arm/arm-smmu-v3/trace.h
->>> new file mode 100644
->>> index 000000000000..7cec8d41745e
->>> --- /dev/null
->>> +++ b/drivers/iommu/arm/arm-smmu-v3/trace.h
->>> @@ -0,0 +1,53 @@
->>> +/* SPDX-License-Identifier: GPL-2.0 */
->>> +/*
->>> + * ARM SMMUv3 trace support
->>> + *
->>> + * Copyright (c) 2026 OpenCloudOS / openEuler
->>> + */
->>> +
->>> +#undef TRACE_SYSTEM
->>> +#define TRACE_SYSTEM arm_smmu_v3
->>> +
->>> +#if !defined(_TRACE_ARM_SMMU_V3_H) || defined(TRACE_HEADER_MULTI_READ)
->>> +#define _TRACE_ARM_SMMU_V3_H
->>> +
->>> +#include <linux/tracepoint.h>
->>> +
->>> +#include "arm-smmu-v3.h"
->>> +
->>> +TRACE_EVENT(smmu_evtq_event,
->>> +
->>> +	TP_PROTO(struct arm_smmu_device *smmu, u64 *evt),
->>> +
->>> +	TP_ARGS(smmu, evt),
->>> +
->>> +	TP_STRUCT__entry(
->>> +		__string(iommu, dev_name(smmu->dev))
->>> +		__field(u64, evt0)
->>> +		__field(u64, evt1)
->>> +		__field(u64, evt2)
->>> +		__field(u64, evt3)
->>> +	),
->>> +
->>> +	TP_fast_assign(
->>> +		__assign_str(iommu);
->>> +		__entry->evt0 = evt[0];
->>> +		__entry->evt1 = evt[1];
->>> +		__entry->evt2 = evt[2];
->>> +		__entry->evt3 = evt[3];
->>> +	),
->>> +
->>> +	TP_printk("%s evt: 0x%016llx 0x%016llx 0x%016llx 0x%016llx",
->>> +		__get_str(iommu),
->>> +		__entry->evt0, __entry->evt1,
->>> +		__entry->evt2, __entry->evt3)
->>> +);
->>> +
->>> +#endif /* _TRACE_ARM_SMMU_V3_H */
->>> +
->>> +/* This part must be outside protection */
->>> +#undef TRACE_INCLUDE_PATH
->>> +#undef TRACE_INCLUDE_FILE
->>> +#define TRACE_INCLUDE_PATH ../../drivers/iommu/arm/arm-smmu-v3/
->>> +#define TRACE_INCLUDE_FILE trace
->>> +#include <trace/define_trace.h>
->>
->>
->>
-> 
+Changes since v1 [2]:
+  Patch 1: Add explicit padding to the RSI host call structure
+  Patch 3: Change from a per-cpu pointer lazily allocated to an array
+             of host call structs indexed by cpu id
+  Patch 4: Align input_page + output_page allocation to PAGE_SIZE since
+              that is the smallest unit of memory that can be decrypted
+           Remove KSAN tags before passing address to set_memory_decrypted()
+             since __is_lm_address() does pointer arithmetic.
+  Patch 5: Add a helper function to reduce repetition
+           Check for NULL before indexing into host call array
+
+[1] https://lore.kernel.org/all/20260521205834.1012925-1-kameroncarr@linux.microsoft.com/
+[2] https://lore.kernel.org/all/20260609181030.2378391-1-kameroncarr@linux.microsoft.com/
+
+Kameron Carr (6):
+  arm64: rsi: Add RSI host call structure and helper function
+  firmware: smccc: Detect hypervisor via RSI host call in CCA Realms
+  arm64: hyperv: Add per-CPU RSI host call infrastructure for CCA Realms
+  Drivers: hv: Mark shared memory as decrypted for CCA Realms
+  arm64: hyperv: Route hypercalls through RSI host call in CCA Realms
+  arm64: hyperv: Implement hv_is_isolation_supported() for CCA Realms
+
+ arch/arm64/hyperv/hv_core.c       | 155 +++++++++++++++++++++++-------
+ arch/arm64/hyperv/mshyperv.c      |  42 +++++++-
+ arch/arm64/include/asm/mshyperv.h |   4 +
+ arch/arm64/include/asm/rsi_cmds.h |  22 +++++
+ arch/arm64/include/asm/rsi_smc.h  |   7 ++
+ drivers/firmware/smccc/smccc.c    |  41 +++++++-
+ drivers/hv/hv_common.c            |  17 +++-
+ include/asm-generic/mshyperv.h    |   1 +
+ 8 files changed, 249 insertions(+), 40 deletions(-)
+
+
+base-commit: a4ffc59238be84dd1c26bf1c001543e832674fc6
+-- 
+2.45.4
 
 
