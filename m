@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D143BCDB479
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 11:06:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97401CDE009
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 11:07:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=IQDJv9UMQlWEKvIidyyhqiruXHUjg+2ZPsabXlVxUVo=; b=xtCBbFkfDiams5X8TM2Rqg6rPS
-	mtwXvef7OujiAmTf1SjgRIfNEajU7z9KvIEXvff4JjbIOQGukEyS6SAG5e3NtMpf7gRA5NaEidUbY
-	M0xtgRMIjuHgFVBArhnwtIVq68RM4rzO4MVqxdvAwphSFgebSlMZZwdkjXtxmQXNcEfl15fiFTm20
-	6qkvIjUxk9qvNdUCEuMXHHo73wC3OGczT6ilgOQvwZmBO73a8taJlP2RjMDxiZlQGRzPpQ1XPL1Lu
-	P1rL5MSwddw19lV011CIf7aZIqKqNI+Zr0+XOBWutrZigeLRacVEiUg6mB8yz4NUSXkbU8/pq0pDq
-	wUKZHYOw==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B1nW/nmFOqYMEtyYiZrpJrEw0myJ3BtBDyAkNbadcU4=; b=HGD3FeSAF8tbvCvxwM4f9vSqTA
+	4c7gzQ/Q0YW3x0UOOWUrLc8gM+vwQ3RAJH47kv2v25Xrf3NYzBZF1tTPMLRk9M6qi4ojJAptL9VbH
+	Ft5Yv7J0z4dn790d3SUKUxweGr8b06z79XSPieuXBfB9vXTeJV1pRFZhOgrfoBAT9JeEyoie8JIjm
+	X5thzL5Ims2BqymR/w0EBE/ky9rrNrE3rxtwLd4S6UsH6KoPqglyFvplf6j5pgra3UeDtkQ2b2FDH
+	o6BKfNw4DCRR2By/DJHzc0oUyOoUtbBwF06GUIMKqVT6JsXkFb2qXu0uvgh77jE8jnwhRG8TRHm5h
+	z7csKIxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wchv0-0000000948F-2SHo;
-	Thu, 25 Jun 2026 11:06:50 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1wchv5-000000094AC-3Kky;
+	Thu, 25 Jun 2026 11:06:55 +0000
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wchux-0000000947J-4ADR
+	id 1wchv2-0000000948Q-0sD8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Jun 2026 11:06:49 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-845b733e82cso269510b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Jun 2026 04:06:47 -0700 (PDT)
+	Thu, 25 Jun 2026 11:06:53 +0000
+Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-8452a597afcso1493342b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Jun 2026 04:06:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782385606; x=1782990406; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=IQDJv9UMQlWEKvIidyyhqiruXHUjg+2ZPsabXlVxUVo=;
-        b=U61x/EGwr4EhOop0MIJAgTAzMM168fq0t2nc6cfImaY8y/8KWceAHsvVk1vL764Fup
-         PL/XQvBeAkiPJN/Rej2vWkRvckb84TFS8slXdRibNlWAGfv0r9OFF00ToE2M8X9nQBcV
-         FvDYn/DPcyK20VvF3JDdQbQ7H5uONnGk4nwF71M65G6UOVx/PBW+n20nAzTK2+bfig2g
-         czJI/qFnql+P0qzQ/KsvP0N3U/JjDKWc7f+v5E6+GBVO1Ymw8V03j7srHgwtg1/FfqN0
-         FF48/ooQUv8i+EfFHreV/hJgeSkB5EpJYlJDdyttjba61jvRM6nDVDJcjcTyvFong2Xc
-         AFeQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782385606; x=1782990406;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1782385611; x=1782990411; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=IQDJv9UMQlWEKvIidyyhqiruXHUjg+2ZPsabXlVxUVo=;
-        b=CIxTq9CVJAlEmPF538VgAt8lDQ5Tf9POlxBhelXhpEnUgttrWVqzL25THBIAyJY2VK
-         C+sxW6ZItFETYYmtHzoK1KsauTprFvRDoSXirEI/hzLbqbS3X09sU7tnKZiG81CMJSfM
-         1W/K2DXHbM170U7rwfZuEd+fCnpF8cOq4NhRafQpxn7Eyc0twJ83aXpzGhFd7lyS5uTj
-         sDB98Etyuj2uCWLQrDVdGJge/Hb7lE05Ullk+aXtxb30HLeU3+HPdsh60lDfgEIP34zP
-         jLC9B3a/4r0TRdMY1aPvgmxtmbCvMhAqzuZm5kSIhgiU/uppzFQsXInXUqIv5paZpdCN
-         BYKw==
-X-Forwarded-Encrypted: i=1; AFNElJ9OPLPeH3lMwQTVlY7w9wVlAWeBbHH4LVhSDc2Usgh5N5wxX3+ENUvIA29G4dYYWmJOrJj+8xIBKqIyyYJSHxAu@lists.infradead.org
-X-Gm-Message-State: AOJu0YyYfiPtsyBDETnxb3+vJQ6yuD7KI4MQJGFPJApcORN4MwbgKDCT
-	Hd/JFfgKikBhfQxJ4gb/HZQ4vCEou0wIHWHCvkqlLB+MyMog7T4MKZgs
-X-Gm-Gg: AfdE7clxHMc3cuISBvKZRv61bPX2GPFYU9Ob04f3/Co0099itzC/tPldUwNztNVaBmk
-	6Elq+wrhdtIHzMYe9kDGUdaUHawEPtZvn+dAgWVhtU+q14YlNm821zfKWUKGwRkc4PoyzdLUjYC
-	SdlFNEhFGrUaQGkb7VFW90RI/ygJBnAt7RnKeIhkX4KtaAH5WVNleSOan1YQVSigSpBSrGaN2lG
-	BzXPmttSYsg3irIge1MaFbzNcraTHtSoL7TCJErmzaLdGCFGvaqQNB2I4gcs4YDrjeoKYuy2IR2
-	ce8ZZNYSaL9RGzUTqnk+R5suwO2970XuOgOBF6xkXWACriSN4z1M+RsYRSd0mHQl7bK5KwaYm8u
-	hDmWEZmuyCahTmnFodogOPQjqDcc8tIQR6zOViHmVh4oS5zrbnswLKgN6NLpuzpxVa80jjtEr+Y
-	od5206Hmi6lzrvh6MKG+LMuLi1uNRcUkDwY1is4SMTu5PkfuauDVaoAk3IOQCgHj2ZVsy3U0MzN
-	T8=
-X-Received: by 2002:a05:6a00:2917:b0:845:4126:222b with SMTP id d2e1a72fcca58-845b3ab542cmr2566928b3a.28.1782385606359;
-        Thu, 25 Jun 2026 04:06:46 -0700 (PDT)
+        bh=B1nW/nmFOqYMEtyYiZrpJrEw0myJ3BtBDyAkNbadcU4=;
+        b=JxzrJOFIXwNXBmNxO5gH0HcgGoX8Tbr66gvbHTQ0E9EQXfedO1tC+bSQfxMSMLDIIi
+         O5zHYiKOjbzG51Ow03dXNc+ghgeWZU4W8h5x2TF7vxTWdtSasDL3heLIPfsFFG9kjeKX
+         2a5Y7Cu3Wv4qSBvbBO3x17+aBl/nno04nIG+VjuMHQjHvKM/BmJP2somAz+SZtaw4Lbo
+         wsM8ZY0m+a10dw9m9V3orNWcHQXyLxGWzw9eYXPhxr5o+unbweaZGU7NcO0eH/ZM59HA
+         hkfcua1lhaj4RrL+xr7DE/duS72kaKBffvECRL8i5m9kymnJZ5NsWZIc77KifZUMzyVb
+         hP9A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782385611; x=1782990411;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=B1nW/nmFOqYMEtyYiZrpJrEw0myJ3BtBDyAkNbadcU4=;
+        b=LPejnskaiQz2M+ObzOTZibNfZzz1RR1zb6VSN9vKA+uIKlYl2VPzC1nLmIigD5KYob
+         iu1AUFjzVrMouhs0LT6O7cT4tiGa6C7KTyP3wTpeiE2bdia06BImUbkFLYqcCQMg033x
+         Q4AvZKDYiaHCx89PO5dCP8M1r95+dbfEKvStJ9tAiq5CTgUq/0ncZE4/DUeqmf1FfBuA
+         llB3xUk1bYDQgcu4CxD/DdMNBP3HqlD/Tvna7H2tcqWhHQh38nmpFAdzObyZUZdZ++d6
+         WSEKgF5SEXj3cV8X45T+xjMIJwRsUO3FvHyHEhtbHPW9SmJVDbUwKCkI9vVRdh/qk5LT
+         TuAA==
+X-Forwarded-Encrypted: i=1; AHgh+RqFxKN65dTmQMzZ2cL12FArnEYIyhM9pc4MGTsnuq2GQj1H9HU9WAoogdmtoK+QKlH1T06Lw6Tzfz2ZIa7OQ0do@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywhx7euA9Zina9w93At8+It9SD0roIj5wXtwWEsI9pNfIytJ9IE
+	Cf74H+8ywlJcKiq7WfCr2/IUJ+49trd2f5Lh+LXt1EZS7xMbg7bJxLRp
+X-Gm-Gg: AfdE7cmhSGGoPjzYyzA4S8bPOtaUg9ziQoGEnkcLqJeMnlOMu9AXW/naZnvzonSPkvy
+	1IYo6pGzbNeopIXXT1B+J0hDVxwmkCJTCkko4CnLHbEfRO8HEc/UX4qbD0Fngw4h7LBJ/s3JyYL
+	2IAy/J+S5DoGgZqOb3l1qX/n/bJryYXMPpSaiwN/DyKGmbeYc+jNVXjOhrUt8Jyz/RhrsmZHrg0
+	uuW4/iJegQfkckrwAbraSgWgsGccHa2hH545x0J6js3rawKeQgO3+MpWGxq3Shn3qWAb/yAMBYl
+	+qWGwJTWseM+d20GlsyvDLoGoMQuiArVWCk/4/KstFWpGl+lhO2y9ssASbNp7B4elAVnp82+Lej
+	cpc3zt9u+SUk055IhiHsdgWBNaU8/+FAVnpBSPXQGUm9ExW7ds5iItyk0RzQ7U8C2ORUoLCokiE
+	rC45wR2gIPkSDMH1vOk6HOD5EycjPPqJSobkvhJNG8nEALEHzQMVsonZxgdA6dhyCEX6U6bb9RR
+	xQ=
+X-Received: by 2002:a05:6a00:3984:b0:845:a24d:9b65 with SMTP id d2e1a72fcca58-845b39e6b71mr2663793b3a.14.1782385611082;
+        Thu, 25 Jun 2026 04:06:51 -0700 (PDT)
 Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-845a3fec0f7sm4412759b3a.22.2026.06.25.04.06.43
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-845a3fec0f7sm4412759b3a.22.2026.06.25.04.06.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 25 Jun 2026 04:06:45 -0700 (PDT)
+        Thu, 25 Jun 2026 04:06:50 -0700 (PDT)
 From: Chi-Wen Weng <cwweng.linux@gmail.com>
 To: jic23@kernel.org,
 	robh@kernel.org,
@@ -83,15 +84,17 @@ Cc: dlechner@baylibre.com,
 	linux-kernel@vger.kernel.org,
 	cwweng@nuvoton.com,
 	cwweng.linux@gmail.com
-Subject: [PATCH 0/2] iio: adc: Add Nuvoton MA35D1 EADC support
-Date: Thu, 25 Jun 2026 19:06:36 +0800
-Message-Id: <20260625110638.38438-1-cwweng.linux@gmail.com>
+Subject: [PATCH 1/2] dt-bindings: iio: adc: Add Nuvoton MA35D1 EADC
+Date: Thu, 25 Jun 2026 19:06:37 +0800
+Message-Id: <20260625110638.38438-2-cwweng.linux@gmail.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20260625110638.38438-1-cwweng.linux@gmail.com>
+References: <20260625110638.38438-1-cwweng.linux@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260625_040648_033301_E673486D 
-X-CRM114-Status: GOOD (  12.17  )
+X-CRM114-CacheID: sfid-20260625_040652_254705_F58C2D42 
+X-CRM114-Status: GOOD (  13.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,38 +111,125 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chi-Wen Weng <cwweng@nuvoton.com>
 
-This series adds devicetree binding and IIO driver support for the
-Nuvoton MA35D1 Enhanced ADC controller.
+Add devicetree binding for the Enhanced ADC controller found on
+Nuvoton MA35D1 SoCs.
 
-The MA35D1 EADC controller supports multiple ADC input channels. This
-initial upstream driver supports direct raw reads and triggered buffered
-capture using the controller end-of-conversion interrupt as the IIO
-device trigger.
+The controller has one register region, one interrupt and one functional
+clock. ADC inputs are described using standard channel child nodes,
+including optional differential channel pairs.
 
-ADC channels are described using standard firmware child nodes. Both
-single-ended and differential channels are supported. Since the
-differential enable bit is global in the controller, mixed single-ended
-and differential buffered scans are rejected.
-
-DMA support is intentionally not included in this initial version. The
-driver uses the interrupt-driven conversion path to keep the first
-upstream submission small and easier to review.
-
-Patch 1 adds the devicetree binding.
-Patch 2 adds the MA35D1 EADC IIO driver.
-
-Chi-Wen Weng (2):
-  dt-bindings: iio: adc: Add Nuvoton MA35D1 EADC
-  iio: adc: Add Nuvoton MA35D1 EADC driver
-
- .../bindings/iio/adc/nuvoton,ma35d1-eadc.yaml | 100 +++
- drivers/iio/adc/Kconfig                       |  10 +
- drivers/iio/adc/Makefile                      |   1 +
- drivers/iio/adc/ma35d1_eadc.c                 | 636 ++++++++++++++++++
- 4 files changed, 747 insertions(+)
+Signed-off-by: Chi-Wen Weng <cwweng@nuvoton.com>
+---
+ .../bindings/iio/adc/nuvoton,ma35d1-eadc.yaml | 100 ++++++++++++++++++
+ 1 file changed, 100 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/iio/adc/nuvoton,ma35d1-eadc.yaml
- create mode 100644 drivers/iio/adc/ma35d1_eadc.c
 
+diff --git a/Documentation/devicetree/bindings/iio/adc/nuvoton,ma35d1-eadc.yaml b/Documentation/devicetree/bindings/iio/adc/nuvoton,ma35d1-eadc.yaml
+new file mode 100644
+index 000000000000..ae7ad0f7689a
+--- /dev/null
++++ b/Documentation/devicetree/bindings/iio/adc/nuvoton,ma35d1-eadc.yaml
+@@ -0,0 +1,100 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/iio/adc/nuvoton,ma35d1-eadc.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Nuvoton MA35D1 Enhanced Analog to Digital Converter
++
++maintainers:
++  - Chi-Wen Weng <cwweng@nuvoton.com>
++
++description: |
++  The Nuvoton MA35D1 Enhanced Analog to Digital Converter (EADC) is a
++  12-bit ADC controller integrated in the MA35D1 SoC. Each enabled ADC
++  input is described by a child channel node.
++
++properties:
++  compatible:
++    const: nuvoton,ma35d1-eadc
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  '#address-cells':
++    const: 1
++
++  '#size-cells':
++    const: 0
++
++patternProperties:
++  '^channel@[0-8]$':
++    type: object
++    $ref: adc.yaml
++    unevaluatedProperties: false
++
++    properties:
++      reg:
++        minimum: 0
++        maximum: 8
++
++      diff-channels:
++        minItems: 2
++        maxItems: 2
++        items:
++          minimum: 0
++          maximum: 8
++
++    required:
++      - reg
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - clocks
++  - '#address-cells'
++  - '#size-cells'
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/nuvoton,ma35d1-clk.h>
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #include <dt-bindings/interrupt-controller/irq.h>
++
++    soc {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        adc@40430000 {
++            compatible = "nuvoton,ma35d1-eadc";
++            reg = <0x0 0x40430000 0x0 0x10000>;
++            interrupts = <GIC_SPI 65 IRQ_TYPE_LEVEL_HIGH>;
++            clocks = <&clk EADC_GATE>;
++
++            #address-cells = <1>;
++            #size-cells = <0>;
++
++            channel@0 {
++                reg = <0>;
++            };
++
++            channel@1 {
++                reg = <1>;
++            };
++
++            channel@2 {
++                reg = <2>;
++                diff-channels = <2 3>;
++            };
++        };
++    };
++...
 -- 
 2.25.1
 
