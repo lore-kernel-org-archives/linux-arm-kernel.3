@@ -4,138 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC35ECDE009
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 11:18:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D2FFCDE008
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 11:27:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OSR64S6Aqa6ktWZllA6jH0aHgPNk5Mazi+gTKN4jgpc=; b=E85vCTYbrX9ldqNz1G9P3+C37O
-	EqCU0M4U38FEcdj79QvJokW7IEUWWgSWquYKhaKsxq1Nw9AkxxFdf87JtstmyzH6ED7rl/aClN1CA
-	iBsCRLsXyhPt7qQJBMFXuWelLSCbS1951A/ulxChpxuXtEf16ub5i31u0go0iE0okuUl8YM62r7GH
-	DZoVB/CElj56T0vEMvu2KvOorImcGaWP4yX52Th3PbLpE/ulsCPrlOW9GADpW0AXH3CmUvmLplGEc
-	ngF2Wj/pmof2SeQj0Wmy/WgFEshlwEToBzb6WjpP1nBqIEUpWLIfyvYERTKvalgPGW2MBRCsiWQsP
-	GueR2Lmw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Lbzw4iCdEMIVr8Rm+02JZsgUDjGn908N2EuKEXL1dA4=; b=DsNdmPpRHFc3fFUxyxFGlxVa1z
+	6mlBoVim/LkI+IFycAIMVLeY2O8gR9OciWAI6PAcS0qWp2M7YN9MV2m+TXFuur1vJpDI/T02PlPUH
+	Tq81l7nA4HW8+vF1odIjbayki6wXXgRqcp86JxlKxul9qjIEjEd0n47JzfzsSb4eKemRU/Fj4jF33
+	/FmOc12R/z6KP76+cFyC30e8507ccolTIflDGtzh5yNiMcGgOrwN1fvlO2QFWQQ6gJpW3uDJ9XlZp
+	5e5KBwOAKHrjnGyLo+xvdl4zPl6oYEFQr6I2Y5RSbVTAzog1u8XaSED6uvwv+0RhvKGGbY8Pjrtpt
+	Hoil9yKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wci5s-000000095AY-2Lv5;
-	Thu, 25 Jun 2026 11:18:04 +0000
-Received: from mail-swedencentralazon11013041.outbound.protection.outlook.com ([52.101.83.41] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1wciF9-000000095iR-275f;
+	Thu, 25 Jun 2026 11:27:39 +0000
+Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wci5q-0000000959y-1KA1
+	id 1wciF5-000000095hj-3fAF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Jun 2026 11:18:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ngddBmI08eviWvBGQX4YB8YbGuOTGyxY660QGki/EdRwRjO72I8zZdpiiONtffulYNkK3eFVc2NWWcAwD97OckDRSvz7IdkuhPfuWi0ybq5MxnSeWxr/LPYVzGA3/agrtWaMACIV8nvIIyOoo0xnaEwEfC1MQGlE7+yYRadzh2IHtBqrUA8VN85cC/8GVWFWner3lPwTEwd9m5dqZ8AqXb5dCKawfJy4+JPMqUk+FjcEWtTu4QIsnExvJG3pvoJZibU/4+fjZJ18y+d6XfPfAodOtOorzL5SEFbcJMBI45kC/fvek3iFv0vCwEk7Ge4qAOwRApV7UNYVRtJc2dIykg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OSR64S6Aqa6ktWZllA6jH0aHgPNk5Mazi+gTKN4jgpc=;
- b=HTL7dOIS6lrx/UuESQTw0h08AAOluCvwrIBiSbazMNSceMiwPGapjS1wauBpDTqmFxciZnWLqbOwNDKT3Im7iHZwU247oma8tP5eKtToM2Tt/SIaigWeL0IBRDbgJBk1/JxyYMY3pfP36FZ0vZM/dpSTmSX1qTB1c2qwoaMyZa+wYdO9GYCcQJryxiHMcpgRjqzJr0PAJNEf32M2Fe6Iwu05yHMWytZxGzgVNbvvPVFZujXZnxZt21sNq/qy00fG1FpVCShZQSCwZxUX9mqljQkkqMq2IfVGTjl5xZd+NxiBsXdceWUDh1EzhoxtsPhAMAj6TVd3XmDtLyAwtWY8Ng==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OSR64S6Aqa6ktWZllA6jH0aHgPNk5Mazi+gTKN4jgpc=;
- b=bpNcxIn4kEVfBnSMDGxlwliO+6s9+LrbfCS1xJmsmdiLq9pDzqhyqxOysnUPfHuADfAdXiWbsMzIH+uIUO1MQWIqqbjRl5Dek6Le/kkBKRi6/VXdDMIdjgiNBfMGfFyDGInKJywdUMUj7PzNEGTZA6V75YbTH/GsVbPD9EURITF7DDQP+PYaLVfFadG5GiKAogiGI8L791ol1AXMS+6HFA1Ex7nhX0N0pLsU35aolXMv9HGHQS0c/n9bUuBSIH794iOc+gXXUEkTLhIabe+WZ3C85wl1MDjaY5FjYERdvsvZtJ0KTimHVgaeDosfW3GDvGMvnW53RzSyNmrMkoU1ig==
-Received: from AM0PR04MB6802.eurprd04.prod.outlook.com (2603:10a6:208:184::17)
- by PA3PR04MB11226.eurprd04.prod.outlook.com (2603:10a6:102:4aa::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.16; Thu, 25 Jun
- 2026 11:17:50 +0000
-Received: from AM0PR04MB6802.eurprd04.prod.outlook.com
- ([fe80::dc36:17b6:e5b1:fa51]) by AM0PR04MB6802.eurprd04.prod.outlook.com
- ([fe80::dc36:17b6:e5b1:fa51%4]) with mapi id 15.21.0159.015; Thu, 25 Jun 2026
- 11:17:50 +0000
-From: "Carlos Song (OSS)" <carlos.song@oss.nxp.com>
-To: Liem <liem16213@gmail.com>, Oleksij Rempel <o.rempel@pengutronix.de>
-CC: Andi Shyti <andi.shyti@kernel.org>, Pengutronix Kernel Team
-	<kernel@pengutronix.de>, Frank Li <frank.li@nxp.com>, Sascha Hauer
-	<s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Biwen Li
-	<biwen.li@nxp.com>, Wolfram Sang <wsa@kernel.org>,
-	"linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "stable@vger.kernel.org"
-	<stable@vger.kernel.org>
-Subject: RE: [PATCH] i2c: imx: Fix slave registration error path and missing
- NULL check
-Thread-Topic: [PATCH] i2c: imx: Fix slave registration error path and missing
- NULL check
-Thread-Index: AQHdBJRCYLZIRGV8v0Ks9SBmILGL8g==
-Date: Thu, 25 Jun 2026 11:17:50 +0000
-Message-ID: <AM0PR04MB6802E046B76A723EA3EE8649E8EC2@AM0PR04MB6802.eurprd04.prod.outlook.com>
-References: <20260625071130.93544-1-liem16213@gmail.com>
-In-Reply-To: <20260625071130.93544-1-liem16213@gmail.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-x-ms-exchange-messagesentrepresentingtype: 1
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AM0PR04MB6802:EE_|PA3PR04MB11226:EE_
-x-ms-office365-filtering-correlation-id: 8069ebf2-d269-4e7c-ff3e-08ded2ab64dd
-x-ms-exchange-sharedmailbox-routingagent-processed: True
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|23010399003|7416014|376014|6133799003|56012099006|11063799006|38070700021|22082099003|18002099003;
-x-microsoft-antispam-message-info: JG4Tkc7VZSLLkbQkV0Yhdy9G8g6cA3oXvdoQypQFQZUZJUFic/ldEKUKsIbSnxXj8tIDVGvm5u3hJC7b9jf8pu7n+2wGgWZ4lQthsE4RZtPjHb9UbALlx+0gHnUnmL+vubpL+3c6P/1Qosd+hhrLyQwrDFjx1/KDEJd7F0c0iHXhZnqIKp0CfRwSJTKFbefzwJGdRqwGfN8WGepGAG8gNgRQXKDNwFHJsQYDbwnztKGu7w/5SBi680TOlkLlDrP9rDFpa08NcQlCEa/u44/xXvEZLAFVMFXtsDz4uXriRLn9b6eoJdtCB6GYx/YpCd3aUZjrUb+qxax1H1Myd8w1+Dmv+ZqWeD4/TO+5JacXn3irVBcJhxm4r5+v37bu+LNJaEFFF8Biai727eUqEJKEFcGoy9V+8EABFz5OH/2v+IK6cfX+DJz1r2wJHXUQlMHz5IcNe3ZwFM2CtJTk0kAAEbaKy6yWvSnEs+6wK06f19QGCelw2U7RB/LczblU4Wz3nh2ffJ/eQXPxllLc5Yd4HrtT312PsCVL6eX77xDWFubnajVXRNs7U6RBBXGa6yWCTLex5AkDLZaxZQRHO8bKd36MgumSn6zauoq8gP1Gloflvyu8Utu+tBH9yaT9C2944Dlhau4kDU3re6mHRcv/6cvtunA/2qi0FNfkrNqMMmarue0feywGuSS2okGhkyXKjisWyYJPxfazVCBTiGUCDf9QL/PNyZnR8Ohs1ueEVTs=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB6802.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(23010399003)(7416014)(376014)(6133799003)(56012099006)(11063799006)(38070700021)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?yXCFM0GFy70LCI5IQ/cDsBptu2J7eMmZdTBE1ygmQY3wi9sfAXwH2W/cGfM7?=
- =?us-ascii?Q?ZesVC9v8AHwBzDoXi9ssqHup7/LsQ9GKqoZ1jm5O5PkonpqQFU54rJBPiogF?=
- =?us-ascii?Q?H1NwGBtkINKXmjlcQTj3u/Tf7fEX6p/LPYwmVRVKZ92B7Pvl5m/IvwhN3k5b?=
- =?us-ascii?Q?fR5xoyalwsFTTkwU/LsBlZLLDmgZH/Tfc6zlNZb+mYb38c00necTecaeroT9?=
- =?us-ascii?Q?4lppp5pPQSqAcHuzj7iMsS1Q4cl/kfcp9Zuu4tiuZIKINcZif14159kVexOh?=
- =?us-ascii?Q?VGbj5lYjmLgFUQl8p2yxVyyK6Kxixf7hTLxobrdRKEkOrlED5UA5QP4zPL1R?=
- =?us-ascii?Q?tdDFuK5BJIlIeOJfZ6d87GdvQxv8klt+y+igLTzVmR16PEwdZgKK3yE22txn?=
- =?us-ascii?Q?mTN49aoUSGbZaVZ+08mTNSJBhu+AEiboK/AQqxNC0kQUtPsHYsqgXFdri17n?=
- =?us-ascii?Q?+bOuCkc9VZVfLu+4h2squWFBDwJRUgraZOcFYN2eOPi952x4y54DlGqH549Y?=
- =?us-ascii?Q?0E9Gbl/smWIIdxVlRuxdmMwxjuZGF3y6BmRfOcI82Kfpr5pO49x7pwgc/trM?=
- =?us-ascii?Q?s7ZKJl/DeYOsWratnFUygQtVZCgZIXvx933B7H7GD7PuDAu3uUCSr5SNNQxe?=
- =?us-ascii?Q?0D70YYMwRiJo1iRcB8fj1p3/AWmtccO8bVs8In4gHGr5Dwi0xyGPq05KHBM4?=
- =?us-ascii?Q?AuETvW4tSd/rXy5ILuX6tXprShIZ1MSf94MIolYYi4HlSMOQWCUDdfMLpMGU?=
- =?us-ascii?Q?FKFfGjrD+0Uy8tfQYFMWzJwD6pU1Me44UvDxdYTGc9YMzjBTezA/+rB0l9pF?=
- =?us-ascii?Q?g/Z1V3ij1xF9Q0Yq36AP3KYAxLEb8icqxcVSe6X6oqbUU6zOWSr8V3ljlvya?=
- =?us-ascii?Q?6PPCyuwE5rYPOB2n3vft0FNEXwrIcX75sdxzGKM2ds3BybnhTdsphEVx6CGd?=
- =?us-ascii?Q?jTIMktmHPYj4Em78F+SlKgNZwCrN+QAWz37coUqLbvfeUJmc7/ejHVp4ZeNK?=
- =?us-ascii?Q?lhUSsYcFe48LLys0sAxdw+b6y8dTGkBFf33hSlY0GKD+xL4Z/DYJ2g3iYrZL?=
- =?us-ascii?Q?mXK+4YyDy/Y2gi/CwKmnmhO6DgoMSEJTA0BPfAKQ/Mlod4urytBbpyPUEjyY?=
- =?us-ascii?Q?cjI7ZvM4+87qtkdVmHbngUkcOVztv10CT+yY1n/5T3RLYyhu80Nj+WKC0zhh?=
- =?us-ascii?Q?Sj/Y3fl1BRvPDh6muvkfNoyk2KiVZBrU3jbsK2LW2DMhN7wO+xIh1JXTYqmJ?=
- =?us-ascii?Q?iunBVyLHmWtv9kJtlAMZtef4wJlIKqy0etbs6Q9OFy86vVMMaJR1t4xcKXRm?=
- =?us-ascii?Q?UrCGuI+Y3r0AZHp0t8LF715To6IR5LVRLvBrskeufC3x4KyZ383p72kRiO5J?=
- =?us-ascii?Q?/41ypRt3YodLFr2VrvtRIivkXHtuqFj30KYLOpO2KwcCyOD6EW4usjPpKrmA?=
- =?us-ascii?Q?waoypDKd4eHo/WYR/kovOBk2Qbc0KAA62ZgmMP5hmD6jHY/ntkURNpEyTGlH?=
- =?us-ascii?Q?iuAHSZmFU4uCFUiyS8jw66nn2hDu3OCD/ascjIl5Gqh/d4P3Q5/tPwsiwAPn?=
- =?us-ascii?Q?ozekkqDOMR9Ayvy1pO1Dxc5xwuTEc57SPidp/SyoY2wek4/SNtQ/MRrhvJC1?=
- =?us-ascii?Q?3WDF6tBWbdMV9qk5VSy+gQ04vDNfWJXURZw5eL9TDej5kHx1pGENj3l6EfF9?=
- =?us-ascii?Q?2Ose1+X+s53zYmuDTwF/JOTHXZd/t7bFZ5soqH4yBqcNyB3exHZ2+OOllBNr?=
- =?us-ascii?Q?VeFm+sYfdQ=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Thu, 25 Jun 2026 11:27:37 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=Lbzw4iCdEMIVr8Rm+02JZsgUDjGn908N2EuKEXL1dA4=;
+	b=qiacUhhsOGncoVteo8geEM+b3wh3Hpw61ByC3JbyDn3fSo6yee7FrlCjIYrhUWbq2HoOYxoXJ
+	ffm62qqErbVVhrshZO/jW1avQu9/8GJAwHovdFZIEg+ptyPsLcy3t8+PePqsDv6uD2cVe2ZZ/Z+
+	OK7qM7dR2z3/gHcu+O7J/DY=
+Received: from mail.maildlp.com (unknown [172.19.163.200])
+	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4gmGWb1W42z1K96q;
+	Thu, 25 Jun 2026 19:18:19 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 063B940563;
+	Thu, 25 Jun 2026 19:27:24 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 25 Jun 2026 19:27:22 +0800
+Message-ID: <8b0c9b40-b539-40df-b2f9-e83289b00cb4@huawei.com>
+Date: Thu, 25 Jun 2026 19:27:21 +0800
 MIME-Version: 1.0
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB6802.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8069ebf2-d269-4e7c-ff3e-08ded2ab64dd
-X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Jun 2026 11:17:50.5675
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: nJo52ILwq91IIKlK1IaRfC/e+biIHI4LZjyAbP4ouX8igYIZgIdWKwyiUNRixWWBKC9uffMLJlImwJuJK0ri8g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA3PR04MB11226
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v15 10/11] arm64: entry: Convert to generic entry
+To: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+CC: <catalin.marinas@arm.com>, <will@kernel.org>, <oleg@redhat.com>,
+	<tglx@kernel.org>, <peterz@infradead.org>, <luto@kernel.org>,
+	<kees@kernel.org>, <wad@chromium.org>, <mark.rutland@arm.com>,
+	<yeoreum.yun@arm.com>, <linusw@kernel.org>, <kevin.brodsky@arm.com>,
+	<ldv@strace.io>, <thuth@redhat.com>, <james.morse@arm.com>,
+	<song@kernel.org>, <anshuman.khandual@arm.com>, <broonie@kernel.org>,
+	<ryan.roberts@arm.com>, <pengcan@kylinos.cn>, <liqiang01@kylinos.cn>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20260511092103.1974980-1-ruanjinjie@huawei.com>
+ <20260511092103.1974980-11-ruanjinjie@huawei.com>
+ <cfa07466-225b-476f-adf9-346bd1377a4d@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <cfa07466-225b-476f-adf9-346bd1377a4d@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260625_041802_364025_7B66516F 
-X-CRM114-Status: GOOD (  28.48  )
+X-CRM114-CacheID: sfid-20260625_042736_246767_3D31E150 
+X-CRM114-Status: GOOD (  35.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,150 +87,187 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-> -----Original Message-----
-> From: Liem <liem16213@gmail.com>
-> Sent: Thursday, June 25, 2026 3:12 PM
-> To: Oleksij Rempel <o.rempel@pengutronix.de>
-> Cc: Andi Shyti <andi.shyti@kernel.org>; Pengutronix Kernel Team
-> <kernel@pengutronix.de>; Frank Li <frank.li@nxp.com>; Sascha Hauer
-> <s.hauer@pengutronix.de>; Fabio Estevam <festevam@gmail.com>; Biwen Li
-> <biwen.li@nxp.com>; Wolfram Sang <wsa@kernel.org>;
-> linux-i2c@vger.kernel.org; imx@lists.linux.dev;
-> linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org;
-> stable@vger.kernel.org; Liem <liem16213@gmail.com>
-> Subject: [PATCH] i2c: imx: Fix slave registration error path and missing =
-NULL check
->=20
-> [You don't often get email from liem16213@gmail.com. Learn why this is
-> important at https://aka.ms/LearnAboutSenderIdentification ]
->=20
-> There are two issues that affect the i2c-imx slave handling:
->=20
-> 1. In i2c_imx_reg_slave(), i2c_imx->slave is checked at the beginning
->    and the function returns -EBUSY if it is non-NULL.  If
->    pm_runtime_resume_and_get() fails later, the error path returns
->    without clearing i2c_imx->slave, leaving it non-NULL.  Subsequent
->    attempts to register a slave will then immediately fail with
->    -EBUSY, making it impossible to register the slave again.  Fix
->    by setting i2c_imx->slave =3D NULL on the error path.
->=20
-> 2. In i2c_imx_unreg_slave(), the slave pointer is set to NULL after
->    disabling interrupts.  However, a pending interrupt might already
->    have started a timer (e.g. for slave event processing) before
->    the pointer was cleared.  The timer callback
->    i2c_imx_slave_event() dereferences i2c_imx->slave without a
->    NULL check, which results in a use-after-free / NULL pointer
->    dereference.  Prevent this by checking that i2c_imx->slave is
->    valid before calling i2c_slave_event() and updating the
->    last_slave_event field.
->=20
-> Both issues can trigger a kernel oops or permanent slave registration fai=
-lure under
-> certain race conditions.  Add the missing NULL assignment and the missing=
- NULL
-> check to harden the slave path.
->=20
-> Fixes: f7414cd6923f ("i2c: imx: support slave mode for imx I2C driver")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Liem <liem16213@gmail.com>
-> ---
->  drivers/i2c/busses/i2c-imx.c | 7 +++++--
->  1 file changed, 5 insertions(+), 2 deletions(-)
->=20
-> diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c =
-index
-> 28313d0fad37..4f7bcbeecfd0 100644
-> --- a/drivers/i2c/busses/i2c-imx.c
-> +++ b/drivers/i2c/busses/i2c-imx.c
+On 6/24/2026 11:32 PM, Ada Couprie Diaz wrote:
+> On 11/05/2026 10:21, Jinjie Ruan wrote:
+>> Implement the generic entry framework for arm64 to handle system call
+>> entry and exit. This follows the migration of x86, RISC-V, and LoongArch,
+>> consolidating architecture-specific syscall tracing and auditing into
+>> the common kernel entry infrastructure.
+> If I understand correctly, as Syscall User Dispatch is gated being
+> `CONFIG_GENERIC_ENTRY` only and handled via ptrace, this patch
+> effectively enables Syscall User Dispatch for arm64.
+> I think it would be great to mention it here explicitly !
 
+Hi, Ada,
 
-Hi, Liem=20
+Yes, I mentioned it in the cover letter, will add it in next version.
 
-Thank you very much for this fix!
-Looks like you are catching a corner bug and try to fix this for i2c-imx ta=
-rget mode.
+>>
+>> [Background]
+>> Arm64 has already adopted generic IRQ entry. Completing the conversion
+>> to the generic syscall entry framework reduces architectural divergence,
+>> simplifies maintenance, and allows arm64 to automatically benefit from
+>> improvements in the common entry code.
+>>
+>> [Changes]
+>>
+>> 1. Kconfig and Infrastructure:
+>> - Select GENERIC_ENTRY and remove GENERIC_IRQ_ENTRY (now implied).
+>>
+>> - Migrate struct thread_info to use the syscall_work field instead
+>>    of TIF flags for syscall-related tasks.
+>>
+>> 2. Thread Info and Flags:
+>> - Remove definitions for TIF_SYSCALL_TRACE, TIF_SYSCALL_AUDIT,
+>>    TIF_SYSCALL_TRACEPOINT, TIF_SECCOMP, and TIF_SYSCALL_EMU.
+>>
+>> - Replace _TIF_SYSCALL_WORK and _TIF_SYSCALL_EXIT_WORK with the
+>>    generic SYSCALL_WORK bitmask.
+>>
+>> - Map single-step state to SYSCALL_EXIT_TRAP in debug-monitors.c.
+>>
+>> 3. Architecture-Specific Hooks (asm/entry-common.h):
+>> - Implement arch_ptrace_report_syscall_entry() and _exit() by
+>>    porting the existing arm64 logic to the generic interface.
+>>
+>> - Add arch_syscall_is_vdso_sigreturn() to asm/syscall.h to
+>>    support Syscall User Dispatch (SUD).
+> Related to the above : I feel this is missing an important information.
+> Given that SUD is only controlled by `CONFIG_GENERIC_ENTRY`,
+> converting to generic entry _requires_ supporting SUD, so we do it here.
+> I think this would be important to mention, as I otherwise felt like this
+> change did not belong in this patch.
 
-Have you meet the issue on one real platform?
+Thanks for the excellent point.
 
-> @@ -775,8 +775,10 @@ static void i2c_imx_enable_bus_idle(struct
-> imx_i2c_struct *i2c_imx)  static void i2c_imx_slave_event(struct imx_i2c_=
-struct
-> *i2c_imx,
->                                 enum i2c_slave_event event, u8 *val)  {
-> -       i2c_slave_event(i2c_imx->slave, event, val);
-> -       i2c_imx->last_slave_event =3D event;
-> +       if (i2c_imx->slave) {
-> +               i2c_slave_event(i2c_imx->slave, event, val);
-> +               i2c_imx->last_slave_event =3D event;
-> +       }
+I completely agree that bundling Syscall User Dispatch (SUD) support
+with the core generic entry conversion makes the patch bloated and less
+focused.
 
-From i2c-imx.c driver, I notice this call trace is:
+To address this, I will extract the Syscall User Dispatch support into a
+completely standalone patch in the next version.
 
-1. IRQ-> i2c_imx_slave_handle-> i2c_imx_slave_timeout(if in progress)-> i2c=
-_imx_slave_finish_op
-2. IRQ->i2c_imx_slave_finish_op
+And I noticed that arch_syscall_is_vdso_sigreturn() returns false for
+most architectures. It would make sense to refactor it to return false
+by default.
 
-'''
-In i2c_imx_unreg_slave(), the slave pointer is set to NULL after
-disabling interrupts. However, a pending interrupt might already
-have started a timer (e.g. for slave event processing) before
-the pointer was cleared.
-...
+> 
+> General question that follows : does it make sense to require an arch
+> to support Syscall User Dispatch to be able to convert to generic entry ?
+> (I assume not really, given that only `arch_syscall_is_vdso_sigreturn()` is
+> required on the arch side, but I am curious)
 
-Yes, this may happen, then trigger slave hrtimer running.=20
+No, converting to generic entry doesn't architecturally require an arch
+to force-enable SUD, but since the generic entry framework already
+includes SUD support, the arch naturally gains the capability.
 
-Go into i2c_imx_slave_finish_op().
+It is worth noting that enabling this capability has zero impact by
+default. The functionality remains entirely dormant unless a userspace
+application explicitly configures it via
+prctl(PR_SET_SYSCALL_USER_DISPATCH, ...). Otherwise, the kernel logic
+won't take effect at all.
 
-you add a judgement in i2c_slave_event():
+Separating it into its own patch will make this relationship much
+clearer in v16.
 
-if (i2c_imx->slave) {
-	i2c_slave_event(i2c_imx->slave, event, val);
-	i2c_imx->last_slave_event =3D event;
-}
+> 
+>>
+>> 4. Cleanup and Refactoring:
+>> - Remove redundant arm64-specific syscall tracing functions from
+>>    ptrace.c, including syscall_trace_enter(), syscall_exit_work(),
+>>    and related audit/step helpers.
+>>
+>> - Update el0_svc_common() in syscall.c to use the generic
+>>    syscall_work checks and entry/exit call sites.
+>>
+>> [Why this matters]
+>> - Unified Interface: Aligns arm64 with the modern kernel entry standard.
+>>
+>> - Improved Maintainability: Bug fixes in kernel/entry/common.c now
+>>    apply to arm64 automatically.
+>>
+>> - Feature Readiness: Simplifies the implementation of future
+>>    cross-architecture syscall features.
+>>
+>> [Compatibility]
+>> This conversion maintains full ABI compatibility with existing
+>> userspace. The ptrace register-saving behavior, seccomp filtering, and
+>> syscall tracing semantics remain identical to the previous
+>> implementation.
+> I agree, would it make sense to mention that there is no change related
+> to RSEQ as arm64 does not have `HAVE_GENERIC_TIF_BITS` ? As that is
+> part of generic entry, but is indeed a no-op for us.
 
-At this time i2c_imx->slave=3D NULL,=20
-so i2c_slave_event(i2c_imx->slave, event, val) and i2c_imx->last_slave_even=
-t =3D event; won't run again.
+Agreed. I will update the commit message to include this information in
+v16. Thanks!
 
-in i2c_imx_slave_finish_op(),
+>>
+>> Cc: Mark Rutland <mark.rutland@arm.com>
+>> Cc: Will Deacon <will@kernel.org>
+>> Cc: Catalin Marinas <catalin.marinas@arm.com>
+>> Cc: Thomas Gleixner <tglx@kernel.org>
+>> Cc: Peter Zijlstra <peterz@infradead.org>
+>> Reviewed-by: Linus Walleij <linusw@kernel.org>
+>> Acked-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+>> Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
+>> Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
+>> Suggested-by: Kevin Brodsky <kevin.brodsky@arm.com>
+>> Suggested-by: Mark Rutland <mark.rutland@arm.com>
+>> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+>> ---
+>> [...]
+>> diff --git a/arch/arm64/kernel/debug-monitors.c b/arch/arm64/kernel/
+>> debug-monitors.c
+>> index 29307642f4c9..e67643a70405 100644
+>> --- a/arch/arm64/kernel/debug-monitors.c
+>> +++ b/arch/arm64/kernel/debug-monitors.c
+>> @@ -385,11 +385,18 @@ void user_enable_single_step(struct task_struct
+>> *task)
+>>         if (!test_and_set_ti_thread_flag(ti, TIF_SINGLESTEP))
+>>           set_regs_spsr_ss(task_pt_regs(task));
+>> +
+>> +    /*
+>> +     * Ensure that a trap is triggered once stepping out of a system
+>> +     * call prior to executing any user instruction.
+>> +     */
+> I was a bit confused by the comment in isolation at first : we already
+> have a signal that we are stepping and would need a trap, `TIF_SINGLESTEP`.
+> Would it make sense to mention here that this is for/handled by the generic
+> entry code ?
+> Something along the lines of "[...], as the generic entry code does not
+> check for `TIF_SINGLESTEP`.", or "Ensure that the generic entry code
+> triggers a trap [...]", if you think its useful ?
+>> +    set_task_syscall_work(task, SYSCALL_EXIT_TRAP);
 
-Fall into" while (i2c_imx->last_slave_event !=3D I2C_SLAVE_STOP)" the loop.=
- So system maybe hang.
+That makes a lot of sense. The clarification is definitely useful to
+prevent confusion for anyone looking at this architecture-specific bit
+in the future.
 
-My idea is just cancel the slave timer and wait it finished after disabled =
-IRQ.
-If I am wrong please correct me. Thank you again.
+I will update the comment in v16 to explicitly mention that this is
+handled to ensure the generic entry code correctly triggers the trap, as
+per your suggestion.
 
-static int i2c_imx_unreg_slave(struct i2c_client *client)
-{
-    imx_i2c_write_reg(0, i2c_imx, IMX_I2C_IADR);
+Thanks for the feedback!
 
-    i2c_imx_reset_regs(i2c_imx);
+Best regards,
+Jinjie
 
-+	hrtimer_cancel(&i2c_imx->slave_timer);
-
-	i2c_imx->slave =3D NULL;
-}
-
-Carlos
-
->=20
->  static void i2c_imx_slave_finish_op(struct imx_i2c_struct *i2c_imx) @@ -=
-936,6
-> +938,7 @@ static int i2c_imx_reg_slave(struct i2c_client *client)
->         /* Resume */
->         ret =3D pm_runtime_resume_and_get(i2c_imx->adapter.dev.parent);
->         if (ret < 0) {
-> +               i2c_imx->slave =3D NULL;
-
-This a good fix. I agree with this.
-
->                 dev_err(&i2c_imx->adapter.dev, "failed to resume i2c
-> controller");
->                 return ret;
->         }
-> --
-> 2.34.1
->=20
+>>   }
+>>   NOKPROBE_SYMBOL(user_enable_single_step);
+>>     void user_disable_single_step(struct task_struct *task)
+>>   {
+>>       clear_ti_thread_flag(task_thread_info(task), TIF_SINGLESTEP);
+>> +    clear_task_syscall_work(task, SYSCALL_EXIT_TRAP);
+>>   }
+>>   NOKPROBE_SYMBOL(user_disable_single_step);
+> 
+> Apart from my minor nitpicks :
+> 
+> Reviewed-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> 
+> Thanks,
+> Ada
+> 
+> 
 
 
