@@ -4,77 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 940F3CDE001
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 14:36:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37A80CDB479
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 14:48:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mJO1zc6CsyO0zKIIPRSRfzrWercYcCJIayebrFLBka0=; b=D+pTH8TwPk5G9v7753gbR86pgq
-	+Xm2utHwXRAuLDANHKG652Fy2zqhj5DmEHXjjj3ehPg7s5tnBlE/dlljmHajTpxHoRwPkTrepG1WP
-	7lPPaS27CkN0xCXTUbGnd+Ox9kG/WXz7+3qtleqx8ipdD7EMhI6ppiFkRnTbdWWtjK8CSQz/aLHEu
-	BTKt/UAPBxc0a4MDqNYW3bf3wC64iUwLwT5KURCXeQ11P1zRb7/0gKl53C+A6GQrixmH9Ecc2ZIZu
-	1C3iCTwH+EtCHoyiW9Q4Ls4/DbJfOL8ogFISElt+n98+IGeZ8kywrTMp4msNRKFnNvpAb+YAOJzkQ
-	mqTvmJjg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=EGMmvy6ftzwFlTcHswppZl2sY7USu5gMaULF9M6YB6U=; b=ICfbYyLjBE85Blbug5IJGMcj+j
+	7c2vcG6Vwto4F+5UB5zpPpoxD2L/YiiZZq5amFxU1Q5dOlOGEhLsrGJsvbb2Mk6YV46pLDmgslfp2
+	iECMGmuoJquu2Cf+x9nuIyRK1UyRZ6gbG8Oe72g4mqCpvwF6/Wl/0j5b1KQ/HXoGobff7+raLpp0n
+	Uq2xexVpmGZFi2S2v7Iq1dzTdb3t2QCE1uhf4v/Ma5lyUCWc0PMKbMeXyHu6Nb7wm7Tdxv/ATWPDg
+	ErnZSPqfUCUNXrRdHln5XfVYgBGeI8vNa5le9pfSlQ3srIyaBuK61UOPP9QK5bCOh7YSnUxk6RBFB
+	miL7hokQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wclC7-00000009LOP-26e9;
-	Thu, 25 Jun 2026 14:36:43 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1wclNN-00000009M2F-2mkJ;
+	Thu, 25 Jun 2026 14:48:21 +0000
+Received: from out-189.mta1.migadu.com ([95.215.58.189])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wclC4-00000009LNW-0pp6;
-	Thu, 25 Jun 2026 14:36:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1782398185; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=XoV+pvJHoQ/l/jsP00g757VrdbWy2Y3E0nmYsC3F5WQh9StIFtgeogldmfEisxxfHecDvtNCC+2CxxvswhdG9+8evAjaBL6fmpy/RzbrtpHgBsAzm9vPkUvLSVQxIZk/tobYHH60DhnMiLuSSmApqU6cevURXm1c7u5bRDZkcMo=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1782398185; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=mJO1zc6CsyO0zKIIPRSRfzrWercYcCJIayebrFLBka0=; 
-	b=frcuypxjn326LGf0w84uLimgP5ghMtIveCqebhS1NdKbqiThhvH8YPBIPRG1MmG93VdMsKpSXZv9avemeq8oJNMs1SZQB7Yr83WNfYSgDTyurxNKOp5GyRdKAGBYhzQJKHpiuATh5etVfRhXYmQePGofT/wpSoyIa2TiyA2fbCo=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=detlev.casanova@collabora.com;
-	dmarc=pass header.from=<detlev.casanova@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1782398185;
-	s=zohomail; d=collabora.com; i=detlev.casanova@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=mJO1zc6CsyO0zKIIPRSRfzrWercYcCJIayebrFLBka0=;
-	b=NdS42NJ1DAmtf/Rf41yyFutIAP+C7VwP40DqYi+PbzDi3baoMFiqF3NdAPtZf3Ap
-	Y0PP5ZtfBQKFTyE9RJhXGSINraPTxcJd2a0/rAZ/c3tA9phcjnzLZxT6IcuRj5k0rTS
-	//6z0o29RrZ+Dw5PU15hrbKBG7DoCzJBuu/8xPDI=
-Received: by mx.zohomail.com with SMTPS id 1782398184087670.7754768546965;
-	Thu, 25 Jun 2026 07:36:24 -0700 (PDT)
-Message-ID: <77829262-b07f-4a42-86ec-9bf9c45709ee@collabora.com>
-Date: Thu, 25 Jun 2026 10:36:21 -0400
+	id 1wclNK-00000009M1B-1DA8
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 25 Jun 2026 14:48:20 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1782398893;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=EGMmvy6ftzwFlTcHswppZl2sY7USu5gMaULF9M6YB6U=;
+	b=jhMVHxVxPkeFP3VUyjIWb7QSDQ3VqU1gMzHLWFb3Th48bXl+vcZtTvBWYyxhcNdlyVLdou
+	tvkrP+MO8FTbk1ygyjZgOO+98W064LMV9LAEL6o853vTlXdQNeoZpRSHJFpn6jGJUkjOMd
+	AGT7OyMCawE4DXBtOn7g2vT83VPDCis=
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Shuah Khan <shuah@kernel.org>,
+	Christoffer Dall <christoffer.dall@linaro.org>,
+	Victor Kamensky <victor.kamensky@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 0/2] KVM: arm64: Fix and test MMIO sign-extending loads
+Date: Thu, 25 Jun 2026 15:48:05 +0100
+Message-Id: <20260625144807.2603272-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/5] docs: media: add documentation for media client
- usage stats
-To: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
- Hans Verkuil <hverkuil+cisco@kernel.org>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Benjamin Gaignard <benjamin.gaignard@collabora.com>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
- Heiko Stuebner <heiko@sntech.de>
-Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-rockchip@lists.infradead.org, kernel@collabora.com,
- linux-arm-kernel@lists.infradead.org, Christopher Healy <healych@amazon.com>
-References: <20260617-v4l2-add-fdinfo-v2-0-d298e98ce06a@collabora.com>
- <20260617-v4l2-add-fdinfo-v2-2-d298e98ce06a@collabora.com>
- <755cf7c1-6bcc-45d1-afea-192d393256af@kernel.org>
- <0449f2bf75685e17034ada5ae3961518ceb04345.camel@collabora.com>
-Content-Language: en-US
-From: Detlev Casanova <detlev.casanova@collabora.com>
-In-Reply-To: <0449f2bf75685e17034ada5ae3961518ceb04345.camel@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-ZohoMailClient: External
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260625_073640_318924_82651982 
-X-CRM114-Status: GOOD (  57.29  )
+X-CRM114-CacheID: sfid-20260625_074818_539391_D241E606 
+X-CRM114-Status: GOOD (  11.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,282 +75,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi !
+Hi folks,
 
-On 6/19/26 10:04, Nicolas Dufresne wrote:
-> Hi,
->
-> Le vendredi 19 juin 2026 à 14:58 +0200, Hans Verkuil a écrit :
->> Hi Detlev,
->>
->> Interesting, I had never heard of fdinfo, so if nothing else, I learned something new!
->>
->> On 17/06/2026 20:10, Detlev Casanova wrote:
->>> From: Christopher Healy <healych@amazon.com>
->>>
->>> Document the media fdinfo interface for per-file-descriptor usage
->>> statistics exposed by stateless V4L2 codec drivers via
->>> /proc/<pid>/fdinfo/<fd>.
->>>
->>> This interface is designed for stateless (request API based) codec
->>> devices where the kernel driver has per-job visibility into hardware
->>> execution. Stateful codecs cannot support all of this because their
->>> firmware manages job scheduling opaquely.
->>>
->>> The specification defines media- prefixed keys for engine utilization
->>> time, and operating frequency, following the same conventions as the DRM
->>> fdinfo mechanism documented in drm-usage-stats.rst.
->>>
->>> More fields can be added later.
->>>
->>> Signed-off-by: Christopher Healy <healych@amazon.com>
->>> Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
->>> ---
->>>   .../userspace-api/media/drivers/index.rst          |  1 +
->>>   .../media/drivers/media-usage-stats.rst            | 85 ++++++++++++++++++++++
->>>   2 files changed, 86 insertions(+)
->>>
->>> diff --git a/Documentation/userspace-api/media/drivers/index.rst b/Documentation/userspace-api/media/drivers/index.rst
->>> index 02967c9b18d6..61879738836c 100644
->>> --- a/Documentation/userspace-api/media/drivers/index.rst
->>> +++ b/Documentation/userspace-api/media/drivers/index.rst
->>> @@ -34,6 +34,7 @@ For more details see the file COPYING in the source distribution of Linux.
->>>   	imx-uapi
->>>   	mali-c55
->>>   	max2175
->>> +	media-usage-stats
->>>   	npcm-video
->>>   	omap3isp-uapi
->>>   	thp7312
->>> diff --git a/Documentation/userspace-api/media/drivers/media-usage-stats.rst b/Documentation/userspace-api/media/drivers/media-usage-stats.rst
->>> new file mode 100644
->>> index 000000000000..d3dc07002f62
->>> --- /dev/null
->>> +++ b/Documentation/userspace-api/media/drivers/media-usage-stats.rst
->>> @@ -0,0 +1,85 @@
->>> +.. SPDX-License-Identifier: GPL-2.0
->>> +
->>> +.. _media-usage-stats:
->>> +
->>> +==========================
->>> +Media client usage stats
->> stats -> statistics
->>
->> But are these really statistics? Isn't it just the current status?
-The term "statistics" was the first that came to my mind, but I agree 
-it's not great here.
-Thinking of it, the term "metrics" feels more adapted, what do you think ?
+Changes since v1 [1]:
+  - Patch 1: rewrote the commit msg in the Arm ARM's terms, with the Mem
+    accessor performing the access keyed on the access size and SignExtend
+    handling the register width. No code change. (Marc)
+  - Patch 2: added a big-endian pass to the test. The big-endian loads run
+    at EL0 with SCTLR_EL1.E0E set, so the access is big-endian while the
+    stage-1 walk stays little-endian. (Marc)
 
->> In many ways this feature looks to me similar to what VIDIOC_LOG_STATUS does,
->> except in a nicer format. When VIDIOC_LOG_STATUS was first added, fdinfo
->> didn't exist yet.
->>
->> And I wouldn't call it 'Media client': it's specific to stateless V4L2
->> codec drivers.
-> While it is currently implemented for sateless m2m codec drivers as example
-> (because we can't implement this everywhere at once really, its not practical),
-> there is no reason why we cannot track to a process fdinfo memory usage
-> associated with other video devices. In fact, I would pretty much want to see
-> capture devices showing up in v4l2top, as these are using a lot of memory too,
-> specially the new camera pipelines. And this is also perfectly suitable for
-> stateful codec, converters, everything.
->
-> So please, let's agree this is not "stateless V4L2 codec drivers" specific.
-Indeed, but I get the confusion as the documentation suggests that 
-stateless codec drivers fields are mandatory.
-I'll rework it to have generic v4l2 fields that are mandatory for all 
-driver types, and then fields per type (where it will focus on stateless 
-codecs)
->
-> About VIDIOC_LOG_STATUS, this is effectively broken for m2m, only the owning
-> session process could call that. Its also pretty bad for tools to have to
-> monitor the dmesg and filter it up. fdinfo on the other end, does not require
-> opening the device and permissions are very clear, and bound to user process.
->
->>> +==========================
->>> +
->>> +Stateless V4L2 codec drivers can optionally expose per-file-descriptor usage
->>> +statistics via ``/proc/<pid>/fdinfo/<fd>``. This is analogous to the DRM fdinfo
->>> +mechanism documented in :ref:`drm-client-usage-stats`, but uses the ``media-``
->>> +key prefix for V4L2 media devices.
->>> +
->>> +This interface is specific to stateless (request API based) codec devices,
->>> +including both decoders and encoders. With stateless codecs, the kernel driver
->>> +explicitly submits each frame to the hardware and receives a completion
->>> +interrupt, providing a clean per-job boundary that can be attributed to the
->>> +submitting file descriptor.
->>> +
->>> +Stateful codec devices cannot support this interface because their firmware
->>> +manages job scheduling internally. The kernel driver submits bitstream data
->>> +but has no visibility into per-frame hardware execution timing.
->>> +
->>> +Implementation
->>> +==============
->>> +
->>> +The V4L2 core provides the plumbing: drivers implement the ``show_fdinfo``
->>> +callback in ``struct v4l2_file_operations``, and the core wires it into the
->>> +kernel ``struct file_operations`` so that ``/proc/<pid>/fdinfo/<fd>`` output
->>> +includes the driver-provided keys.
->>> +
->>> +File format specification
->>> +=========================
->>> +
->>> +- File shall contain one key value pair per one line of text.
->>> +- Colon character (``:``) must be used to delimit keys and values.
->>> +- All standardised keys shall be prefixed with ``media-``.
->>> +- Driver-specific keys shall be prefixed with ``driver_name-``.
->>> +
->>> +Mandatory keys
->>> +--------------
->>> +
->>> +- media-driver: <valstr>
->> I'd pick 'v4l2-driver'. Since 'media-driver' is too generic for this
->> since that encompasses also DVB/CEC/RC drivers.
-v4l2-driver works for me.
->>
->>> +
->>> +  String shall contain the name of the media driver.
->> 'V4L2 stateless codec driver'
-> With that said, we can refine, but not in that direction.
-Then just 'V4L2 driver'
->>> +
->>> +- media-type: <valstr>
->> Poor name.
-This fields will basically be the one telling userspace what fields to 
-expect next.
-"v4l2-type" sounds wrong as well. What about "v4l2-driver-type" ?
->>
->>> +
->>> +  String shall identify the type of media engine exposed through this file
->>> +  descriptor. Standard values are ``decoder`` and ``encoder``.
->> I think I would use 'stateless-decoder' and 'stateless-encoder'. It's more
->> specific than de/encoder since that can be stateful as well.
-Yes, I totally agree.
->>
->> So I am missing the big picture here: right now this patch adds support for
->> this for stateless codecs, but what happens in the future if this is also
->> added for regular video capture devices, ISPs, etc.?
-> We should work further on the type system, then we'd simply have to extend it.
-> Different type of driver will provide different key/value pair. We should well
-> document which key are mandatory for the type (or for all type, like giving a
-> name for general identification purpose).
->
-> Of course, the current proposal is very torward processing cores, hence the one
-> to one match with what GPUs present in fdinfo today in mainline, such are
-> frequency, core utilization time, etc.
->
-> Though, DMA devices such as capture may expose more of a bandwidth kind of
-> information. I really don't want to make up too may cases, so owners of these
-> don't feel like this is mandated though. As we develop software using our
-> drivers, we should be able to figure-out what kind of things are important to
-> monitor. For CODECs, we have two majors things. a) core utilization (which can
-> be with a timer like this one, but ideally using cycle counters, or firmware
-> provided data). b) memory usage.
-For core utilization, we can have both (HW cycles and time).
-Time is less precise as it is computed by the driver, starting a bit 
-before the hardware is run and a bit after the interrupt arrives.
-HW cycles is very precise, but need the clock rate to be exposed and not 
-all HW may support it.
+Oliver's Reviewed-by is on patch 1 only: the code there is unchanged, while
+the test in patch 2 gained the big-endian coverage above.
 
-We can say that time is mandatory (for stateless codec), as it can 
-always be computed and HW cycles is optional.
-For showing usage like in v4l2top, the userspace can compute it from HW 
-cycles if available and fallback to less precise "Time" otherwise.
+A sign-extending load (LDRSB/LDRSH/LDRSW) from emulated MMIO returns a
+zero-extended value rather than the sign-extended one the architecture
+requires; vcpu_data_host_to_guest() strips the sign bits when it masks
+the data to the access width.
 
->
->> The naming here matters, it has to have some sort of scheme so it can be
->> extended to other types of drivers. So a 'media' prefix is too generic,
->> and it also looks like it refers to the /dev/mediaX device.
->>
->>> +
->>> +Utilization keys
->>> +----------------
->>> +
->>> +- media-engine-usage: <uint> ns
->> 'Media Engine': very vague.
-Thinking of it, this one could be changed to 
-"v4l2-core-usage-time-<core_id>".
-That way we can have "v4l2-core-usage-cycles-<core_id>" too.
+If my git archeology is right, the masking dates to 2014 (b30070862edbd,
+big-endian support) and has been wrong ever since, but sign-extending
+loads from device memory are rare enough that nobody hit it. Patch 1
+fixes it; patch 2 adds a selftest so it doesn't regress.
 
-Separating by core id show more precise metrics.
->>
->>> +
->>> +  Time in nanoseconds that the hardware engine spent busy processing work
->> Cumulative since creating the file handle? Or since the last read?
-I implemented cumulative since the file handle was created.
-This is closer to what DRM does, so let's keep it. I'll specify it in 
-the documentation.
+Based on Linux 7.1 (8cd9520d35a6c).
 
->>
->>> +  belonging to this file descriptor. The engine being measured is identified
->>> +  by the ``media-type`` key.
->>> +
->>> +  Values are not required to be constantly monotonic if it makes the driver
->>> +  implementation easier, but are required to catch up with the previously
->>> +  reported larger value within a reasonable period.
->> Does this make sense for codecs?
->>
->> I can tell that this is heavily influenced by the drm documentation, but that
->> does not necessarily translate to V4L2.
-> I would guess this is bound to usage of cycle counter, which we definitely have
-> in some codec HW exposing. As the frequency fluctuate, I suppose there is ways
-> you can get your calculation a bit off, as this is being sampled. Basically, the
-> frequence change is not strictly tracked by our drivers, which is ok. But I also
-> don't seen why we wouldn't keep the counters monotonic, its really easy to do.
-Yeah, I think we can drop that comment. For each run, we just add a 
-positive value,
-so there is no reason not to be monotonic.
->>> +
->>> +Frequency keys
->>> +--------------
->>> +
->>> +- media-maxfreq: <uint> Hz
->>> +
->>> +  Maximum operating frequency of the main engine clock.
->>> +
->>> +- media-curfreq: <uint> Hz
->>> +
->>> +  Current operating frequency of the main engine clock.
->> 'Main engine clock'?
-> The word "engine" seems indeed alien in this subsystem. It is referring to a
-> system where you open one devices, so you have one fdinfo, but multiple cores.
-> Each cores may be running at it owns frequency. But I think this is a little too
-> vague to my taste.
-Main doesn't refer to the main engine, but rather to the main clock of 
-the engine.
-e.g. rkvdec so far can have up to 5 clocks linked to it but only the one 
-that actually clocks the HW should be exposed.
+Cheers,
+/fuad
 
-That being said, you are right that one file handle can have multiple 
-cores, so the name should be changed to v4l2-maxfreq-<core_id> (and 
-curfreq) and the text should use "main clock of the core <core_id>".
+[1] https://lore.kernel.org/all/20260622190701.2039766-1-fuad.tabba@linux.dev/
 
-We also could just expose all clocks with their name, but userspace 
-still needs to know which one can be used to compute usage %age from HW 
-cycles.
+Fuad Tabba (2):
+  KVM: arm64: Fix sign-extension of MMIO loads
+  KVM: arm64: selftests: Add MMIO sign-extending load test
 
-Detlev.
->
-> Hope this feedback does not cross to many wires, but tagging this as specific to
-> stateless codec drivers did spark a little in my head. And we are really in need
-> for a way to monitor our drivers.
->
-> Nicolas
->
->>> +
->>> +Example output
->>> +==============
->>> +
->>> +::
->>> +
->>> +  media-driver:           hantro-vpu
->>> +  media-type:             decoder
->>> +  media-engine-usage:     123456789 ns
->>> +  media-maxfreq:          600000000 Hz
->>> +  media-curfreq:          600000000 Hz
->>>
->> Regards,
->>
->> 	Hans
+ arch/arm64/kvm/mmio.c                         |   7 +-
+ tools/testing/selftests/kvm/Makefile.kvm      |   1 +
+ .../selftests/kvm/arm64/mmio_sign_ext.c       | 259 ++++++++++++++++++
+ 3 files changed, 264 insertions(+), 3 deletions(-)
+ create mode 100644 tools/testing/selftests/kvm/arm64/mmio_sign_ext.c
+
+-- 
+2.39.5
 
 
