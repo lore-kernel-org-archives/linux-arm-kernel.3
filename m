@@ -4,79 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2731ACDB47F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 08:57:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92ACFCDB47F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 08:58:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b1tff3UVEjaMXl2j/d/HQcurhlW+2hAJ2DR9+gMtLY8=; b=svDCb5WyVw/uX6lFvHNA4tNH2K
-	Ey0Exywf0Gr44Ly/ZilbPVVSYHgRTcoz1Kkg+fZFCc/P/HerCys5xVCJySuLG/7LxvIrU3K9SjdiK
-	hFj/00ht5N9x1uYabkdDL4v8aw6/jfHp2Auufjc3j8WJer8bl163UD7McuSfkbyjwCMmaHPn06j/H
-	e8DO6LGlpnWVGg9gMte1Vcgf75CVa1S6F6mj/KpzkhS5hlY1hUdPZKgWhLzlQF3K4lhiiiSnmLy30
-	VBedOcY5oUUMb4vuYx9KcWl+xHfYmtbuuYRG4G4sNnPr6PoJqSVPBFGXqTrX5c39lVM6fSwPVR8xI
-	s3094Wzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=WHMuCKDp3YbDDMvuKoLEQaGreX8W6rFv5szF7QtOh38=; b=el34nX3RmbL2G4St43aCCwi77o
+	xqAzaghL0GHf6K5EvpWa9TfORBlE/l8MJ8mwBvnDRoWD9wigkLNRUt7/SpADjuAfeJpo6Xow0u8mV
+	bGVif7kASvYTN2Zr9V1ULaJzKgeXBnc9JzxlpqeHViHCcUw4HnUVO8uW0iUiR2tOTQkxCWpOc4Ksn
+	YOvIJ44kY/RqTccWtK0jgMIFulj0I0hg9Uz13LACqgeOs/liHZYRrwb/djPh/YSKFUNbB3zrh2ktI
+	Ojx/ZGYn1NQdRqELL2DjhaZ+fFul7pJGPTQG9SrJxm5Bx1FqF2cvrhiHn2bajmTtCgAxGoZ+ANgvg
+	3KvJ4x1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcftC-00000008rSD-4AIo;
-	Thu, 25 Jun 2026 08:56:50 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcftA-00000008rRh-1T31
+	id 1wcfuq-00000008rYF-0jeA;
+	Thu, 25 Jun 2026 08:58:32 +0000
+Received: from mail-yw1-x112b.google.com ([2607:f8b0:4864:20::112b])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wcfun-00000008rXp-3Ujy
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Jun 2026 08:56:49 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D19042BCE;
-	Thu, 25 Jun 2026 01:56:41 -0700 (PDT)
-Received: from localhost (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EF5873F836;
-	Thu, 25 Jun 2026 01:56:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782377806; bh=CoaICBgyZOpVW54p1ocJ7jTim5gBU3nJmN8HCHZtt6w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hv4iF/4H6zrDi91o12M0JAPWvL9/T2htesNqeEVkmrmHJ0V4OUT3ktuqEwURdFy0A
-	 WiyveDBpWP23DIKxMmIWuobU66Luv0Rn+6rapH3Pq+FbkIG+XjxAEYuUJZ/0U/0cvH
-	 l/EqyIG68zo2FzVtgIHnjUjSrznrhVOVa69pzW9Q=
-Date: Thu, 25 Jun 2026 09:56:43 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Jie Gan <jie.gan@oss.qualcomm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-	Jingyi Wang <jingyi.wang@oss.qualcomm.com>,
-	Abel Vesa <abel.vesa@oss.qualcomm.com>,
-	Mike Leach <mike.leach@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
-	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 2/2] arm64: dts: qcom: kaanapali: fix traceNoC probe
- issue
-Message-ID: <20260625085643.GD575984@e132581.arm.com>
-References: <20260624-fix-tracenoc-probe-issue-v2-0-786520f62f21@oss.qualcomm.com>
- <20260624-fix-tracenoc-probe-issue-v2-2-786520f62f21@oss.qualcomm.com>
- <f0634a64-1141-4ff9-9033-825e3c75d28d@oss.qualcomm.com>
- <f39ec59f-97c4-4d5f-bf02-560adae312d9@oss.qualcomm.com>
- <471d7a92-3629-4274-a303-8906d3626037@arm.com>
- <25d7d3a1-58e0-4f25-a73a-59a978130c47@oss.qualcomm.com>
- <20260624151610.GC575984@e132581.arm.com>
- <a13fb65c-726b-4c99-b741-29040c4564d0@oss.qualcomm.com>
+	Thu, 25 Jun 2026 08:58:31 +0000
+Received: by mail-yw1-x112b.google.com with SMTP id 00721157ae682-7dbcb505578so23321497b3.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Jun 2026 01:58:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782377908; x=1782982708; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=WHMuCKDp3YbDDMvuKoLEQaGreX8W6rFv5szF7QtOh38=;
+        b=Gr3Ny/OnGOXVS+AvM+yh3GMe0Ebxlq+4O2tPlW+NcMicEEff/dXJcjGbeUZPnMnnkj
+         +4t+jAY/eQb0jxuJ5BBG5MURRySA8Xt4HrygLsXWrgspVFUv14ru8zkG3bcLRjy8hmrf
+         GAOv1AaZY5PErX7DxUmNLUXU83BOiqGmOSfNLnt/ZGrGU1NJ5SK38zPsiSfr1PfSyhnT
+         uSisu7S1IIB/oXyp7UENrhZYiETjq0TjyKwNAPuMgkAhUWw6gZuzcVUS5tUipqLfFFMZ
+         G1uWdIxRjJGDgt078F3591A5WZmkZ5vUYRVzj68YIf2v6Dy6y91HNyA/xM+jSovsrHTa
+         AgKQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782377908; x=1782982708;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=WHMuCKDp3YbDDMvuKoLEQaGreX8W6rFv5szF7QtOh38=;
+        b=EJehIbU5wDaxY88RiSNGbLcHo7/PQcURKVKc55+/WQkyPud1bM+WiEvb/vEp0qyuvm
+         VRS2nlIbE+KSKSMWt2+A0hTHxgzK3QQOKtJyn+aA6mPlrd/HXYj+stUpswPmNOwonpLF
+         FXYeIxW/V9nZiK8j0fqBlGkppbdu22kov8EJy/w/eM58TEGsnVV3w0NHwlEzZ8HURLlR
+         cbbvDxUWt90jY26pskG/+bDpkSpJN4IgQG/u999RH3dYMvIX7yb6wxgqjLaV+GftMK0K
+         ZuLz/tuntdHpZuy5uDSA4Uj21L25MSB9f55F1hmagZ6wb3+R/sXNXOtT5L89PxG4Oa0b
+         4MKg==
+X-Forwarded-Encrypted: i=1; AHgh+Rp0p6KGxXvP1S338nI8Bkl4PkEUU73+p90/ehZKsEJcZEJfYLbsHh5j7Y5bG0uRIuGdG+o/HNaz4GXt13Y5yPgR@lists.infradead.org
+X-Gm-Message-State: AOJu0YzZRhImJX36N7agG8X3LZqBAf3YRUyXdW6ZHVFyG07Ahi+xukUP
+	iLRx7l3OzWFoSd5JMwaET5v22nCoLjAEplphW7YzxVcoH1x9CqVx+2fg
+X-Gm-Gg: AfdE7cmm+Y7+KmwfvDF/DwJ54OBClGkzTgehYZeF6P/0YAjgjXtNnfWV4ypL9bKRHcP
+	XPk4g4xLqwKP5w3RDxXiTIJSSSzIR31CMZjIE1v2EekCtdalXSefsXAyN5IyybhL35R6DdxwHji
+	EtnociyqDiR7w/Gn4PcwJpfQXAeE5uaiMyPLokZ6ukRqPTzpmUvRkIA/ToDZcYaXHkPATnOxyAP
+	U+Yz8cf+Mqwro+1dtG/lRLbsdFquO6h9n635X178M7mXhP7tU0hssIASnjNkOQYa/7qs0yVqQ5R
+	goMGRO46vRDLCfdRZbgujHyoSzynLLgazJcJ4ZDfiCa4IjSOZcp740YNI3s/N4jw8UqQLcQRXeL
+	fFu5mCuXUAmJfXbIRxItANweTjxD7ai9/NF+o0HRf9cI1sje/nrv3fhod0q7kcKmkShTV0wjJ5N
+	I8FjT2wyzFrDAcC9c8O6id2cDXzg==
+X-Received: by 2002:a05:690e:168b:b0:662:a4ee:104b with SMTP id 956f58d0204a3-664882bb9bdmr1048451d50.48.1782377908381;
+        Thu, 25 Jun 2026 01:58:28 -0700 (PDT)
+Received: from Dev-Null-MSI ([2a0d:3344:52ac:a808:98a4:4381:be45:536f])
+        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-6647f917b1csm1059566d50.13.2026.06.25.01.58.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 25 Jun 2026 01:58:27 -0700 (PDT)
+From: Yousef Alhouseen <alhouseenyousef@gmail.com>
+To: Arnd Bergmann <arnd@arndb.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Russell King <linux@armlinux.org.uk>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	Rich Felker <dalias@libc.org>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sh@vger.kernel.org,
+	Yousef Alhouseen <alhouseenyousef@gmail.com>
+Subject: [PATCH] char: mem: keep arch range checks overflow-safe
+Date: Thu, 25 Jun 2026 10:58:00 +0200
+Message-ID: <20260625085800.4505-1-alhouseenyousef@gmail.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <a13fb65c-726b-4c99-b741-29040c4564d0@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260625_015648_630863_3495E813 
-X-CRM114-Status: GOOD (  19.02  )
+X-CRM114-CacheID: sfid-20260625_015829_878472_694CA348 
+X-CRM114-Status: GOOD (  13.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,41 +102,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 25, 2026 at 09:01:18AM +0800, Jie Gan wrote:
+The generic /dev/mem physical range check now avoids validating
+addr + size directly, but ARM and SH provide their own
+valid_phys_addr_range() implementations with the same wrapped-addition
+pattern.
 
-[...]
+Use subtraction-based upper-bound checks in those overrides as well. Also
+make the ARM mmap pfn check avoid overflowing the pfn plus page-count
+expression.
 
-> > > However, I believe it is acceptable to allocate an ATID for the itNoC device
-> > > and the issue can be fixed with this way.
-> > 
-> > I think so.
-> 
-> Hi Suzuki/Leo
-> 
-> Which solution do you prefer to address the issue?
+Suggested-by: Arnd Bergmann <arnd@arndb.de>
+Signed-off-by: Yousef Alhouseen <alhouseenyousef@gmail.com>
+---
+ arch/arm/mm/mmap.c | 9 +++++++--
+ arch/sh/mm/mmap.c  | 4 +++-
+ 2 files changed, 10 insertions(+), 3 deletions(-)
 
-I will leave this to Suzuki.
+diff --git a/arch/arm/mm/mmap.c b/arch/arm/mm/mmap.c
+index 3dbb383c2..7467ce8cd 100644
+--- a/arch/arm/mm/mmap.c
++++ b/arch/arm/mm/mmap.c
+@@ -150,9 +150,11 @@ arch_get_unmapped_area_topdown(struct file *filp, const unsigned long addr0,
+  */
+ int valid_phys_addr_range(phys_addr_t addr, size_t size)
+ {
++	phys_addr_t end = __pa(high_memory - 1) + 1;
++
+ 	if (addr < PHYS_OFFSET)
+ 		return 0;
+-	if (addr + size > __pa(high_memory - 1) + 1)
++	if (addr > end || size > end - addr)
+ 		return 0;
+ 
+ 	return 1;
+@@ -163,5 +165,8 @@ int valid_phys_addr_range(phys_addr_t addr, size_t size)
+  */
+ int valid_mmap_phys_addr_range(unsigned long pfn, size_t size)
+ {
+-	return (pfn + (size >> PAGE_SHIFT)) <= (1 + (PHYS_MASK >> PAGE_SHIFT));
++	unsigned long max_pfn = 1 + (PHYS_MASK >> PAGE_SHIFT);
++	unsigned long pages = size >> PAGE_SHIFT;
++
++	return pfn <= max_pfn && pages <= max_pfn - pfn;
+ }
+diff --git a/arch/sh/mm/mmap.c b/arch/sh/mm/mmap.c
+index c442734d9..ba7aade46 100644
+--- a/arch/sh/mm/mmap.c
++++ b/arch/sh/mm/mmap.c
+@@ -170,9 +170,11 @@ arch_get_unmapped_area_topdown(struct file *filp, const unsigned long addr0,
+  */
+ int valid_phys_addr_range(phys_addr_t addr, size_t count)
+ {
++	phys_addr_t end = __pa(high_memory);
++
+ 	if (addr < __MEMORY_START)
+ 		return 0;
+-	if (addr + count > __pa(high_memory))
++	if (addr > end || count > end - addr)
+ 		return 0;
+ 
+ 	return 1;
+-- 
+2.54.0
 
-> The interconnect traceNoC platform driver is intended for the itnoc device,
-> implying that no TPDM devices are connected to it. So, if I modify it to
-> allocate an ATID, I think it would be better to rename the “itnoc” node
-> accordingly? Or it's ok to leave it as-is?
-> 
-> BTW, the traceNoC device definitely is an AMBA device with CID/PID
-> registers.
-
-Just to share a bit thoughts on the driver's design.
-
-I think it would be better to keep the probe function generic. The AMBA
-probe should not be specific to TraceNoC, and the platform probe should
-not be only dedicated to the interconnect TraceNoC. The probe function
-should simply handle a device that appears on either the AMBA bus or the
-platform bus.
-
-So the question is: if allocat an ATID for all traceNoC devices, do you
-still need to distinguish TraceNoC types? If no, then the code can be
-unified.
-
-Thanks,
-Leo
 
