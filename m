@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D86DCCDE009
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 20:38:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 730BCCDE00E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 20:52:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zF0CmFyf2xQn011oohHEMIrfSqflDPWPwJZ8fCLs8jk=; b=sxKTk0vkwWdTw5w5/Bwt1sRm6F
-	rLR3BNVhSNByG4jHW2JMlw/V4hhHxxWfHdJrLl6bTQFbjQiqZo2EuOezR1YuTJ7R+iTlXksall0ZK
-	iRWBGXnHRGmPyB2lVNfGrHpuP0cGm5dtGtH44ka2FPMdAGL86bn6BppZGVnqPprMx+8v7oLcsg28F
-	ZB9L/op90dkCLVHK3E0DT2byILBel8tcN4bdKxchcHliJOsepVyvyl/SaJEx3wpQiD6ojU8KcD2yn
-	QJ1eiVMROJTJYudgrDgsQLmku0VhumOOTPSfYChFqXqtX/9ulErDRIwUiKOMqiac8G1G6Qrrnd1MY
-	0rdV3ZQA==;
+	bh=d+zUpBjzrV3mGC/Qjzinul6Ul1DhAX4pHbNGlwJHB0M=; b=zvM7Bb1ar/C8oXRbx1NsxefQNa
+	/YUPE7083v2AjzqcYEJp/ju5iIRL+wb88zciLq/s/ckJ+GMz27Tg3dzQXaDUzVK9yzQpyMhKj9Ba6
+	cUXhKi0+ZYumIRHKZXyV9rqgSH+zW5KIPUOK7o4ETHh3Jw6fyFW+6XR4200UbsQHfxQzlwDUfyK5Q
+	YNVtoW5VzJCx/s5cb8PRzDX1GJTDygTBTuRRQEvoFSvW9bCEADCGc8YdAGNtmPMcA90PAs0gf/DSP
+	Dbh/2whFpIur6KGcpQfpQ2ez9jZ/fecJk+by/bSIEjl4LqQqVGewTKBlm0mq4oH2EHXZ0hShSpTkf
+	1RGl+5YA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcqpk-00000009o1X-0uVc;
-	Thu, 25 Jun 2026 20:38:00 +0000
+	id 1wcqzo-00000009olX-0gE6;
+	Thu, 25 Jun 2026 20:48:24 +0000
 Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcqph-00000009o12-0wsw
+	id 1wcqzk-00000009okz-3Bkp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Jun 2026 20:37:59 +0000
-Received: from pps.filterd (m0374956.ppops.net [127.0.0.1])
-	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65PHiPmt3869930;
-	Thu, 25 Jun 2026 15:37:53 -0500
+	Thu, 25 Jun 2026 20:48:22 +0000
+Received: from pps.filterd (m0374955.ppops.net [127.0.0.1])
+	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65PHiTQt3933544;
+	Thu, 25 Jun 2026 15:48:17 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
 	:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=zF0CmFyf2xQn011oohHEMIrfSqflDPWPwJZ8fCLs8
-	jk=; b=AddDnlLWwpGKmxI0JsdvnObFoXpgFh2dlpDWReG3iUQDfoVYrjfSKerpZ
-	JZCtSZ3UFMahz+idAh68ZZVlF5TONvOOHfONXiwV8UWEDP5VaPGPC7lA37iwVuW7
-	HjiwsJKcsPAdDNFBoKgQqfoYkdoqIJ/BVcH7bpO9F5N27kBkql0yOY0ZonYa9ns1
-	cX4YU0SXK3XKhoAc6vxsRklj4AGuR/zaJa1IPgdGy+6gul6bllZsNwnGluVK4s/x
-	DyCq9XVqXTso7n8+vXi3J84dZRJZaGJ1gblKVf9YBQVgwktDfi/BfAFsMnl/QD/I
-	s0bi34UF5auES69QUl3LaqTcFtUUQ==
-Received: from ch1pr05cu001.outbound.protection.outlook.com (mail-northcentralusazon11010063.outbound.protection.outlook.com [52.101.193.63])
-	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4f12jckqaf-1
+	proofpoint-05-2026; bh=d+zUpBjzrV3mGC/Qjzinul6Ul1DhAX4pHbNGlwJHB
+	0M=; b=Nai2br75Bu7SK7/CT/Tn4LzBLhrsPRz0zpxswgrT2blJyEAhFjxq96v5l
+	CDcgN2YjPJOszJZcDgg9oX7y8SrvHBne5C3/Hoqrmp4NQ/Ku1qy3O7RQQyrjO8mC
+	JgRBnE13GW8Hps9IsModvzC3HvQoOGYWthNb5cT4eftgYlibnffAYXgU5ubPgcGq
+	DfkB6gd4Caaaw10J+pMqY7OB4JOWW7yHN4BLFt/pAxtCXQLuvwnUT5ecyLuBxNfj
+	2iPJ20GIH37bDOtxiMRv4rup7TIYZXnqWYDYgID9ZYWW9/95SoRXXwyJUk/q+crc
+	gofQsejtABawwjnDv1Ey8on/Yimpg==
+Received: from bn8pr05cu002.outbound.protection.outlook.com (mail-eastus2azon11011023.outbound.protection.outlook.com [52.101.57.23])
+	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4f13a0ug2k-1
 	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Thu, 25 Jun 2026 15:37:52 -0500 (CDT)
+	Thu, 25 Jun 2026 15:48:17 -0500 (CDT)
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=T3M/dWpHHNWKTKaGK3/fdr7rzq/JB8d6hyNFkvzup7av+7Au1qLQhUTxABRn2MRK+njnCQUQfP+X2xC7dqJUgpK4drU9L4rGXPO3wZJF5/P/Vm5Vw0nCNPdSU+A/e5iCHEv9HrRziLyT6P8665BRj90MKUedfp6VMrXBUi+aOoeUeK6mVt/nDV/U5WcO1wfblhbLY0NNI4WiGw9b2IQXqFiYe5XXMo+aXLfdbzce11jQA7pUhZFHV9/jqsT6pwqp15rMTwVK5kQAQhuIjZssgvxrfL+jT2wHI8wD1KRk9ZGga7jk/IgWBN9kt+HXELkdU1rm+fjzv4tSYvEIESjfUw==
+ b=aGHaKNpT3kFrCkcnx6K4QYDWXvssHYN0G7egZdoEiPF9Yh6CM2zHwJk9Wdpg5Pg5549lNdwNJhqjzeQQo7oMZcAjGsqxjuacGPXR9tOSkzmodbJJBU/NraqkNYv2PqYFh7BI8eRE811X7C7rt5pVZzsoQMM15kz6Rh2IzA+UNOfcbs3XteSQ7+jMqzZ34oZq4LCfXk+mDbrNglxU08UomiH80W3aYnavDOrcso6p0rMMj07PLC09oXFOYgvmHXsWpr0u2EmVbSYM8fujAdTOpe284TV43yk4phNHliXQiBBiARZHMH/Xlbxb/agajSY9bD65AYq9NgtX7q8Oz6f/Aw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zF0CmFyf2xQn011oohHEMIrfSqflDPWPwJZ8fCLs8jk=;
- b=pqtFRYNVVJLg9vSINvmndsl3d9QAGwYyCvhbLs/xbJ8blRh5g9ljtzO5g7fxGyB4DvoATa1I2tsk8jXJFTRKaowtbZbsXaD77fLpaA/jPitcfXNHbkJpo0HVa1ejoWhxygDybuxmbk6uq4SM0eUb1sjUQFLzQXNpyUrWKjOIs6gUYcejnQ1P02OjiPT6CwiUoLZ05oDMxp4E8HX1gkilUnsLZGs64MBfWsGa8/ivNpveCGJ0Bf7BVdVjqHLqaRzxEO4cv2CikObqbnYqAaD0HcgJKMs1EeB8h7/o4Zy4d2U8ujCblolREkptso7A22Si5ft8dzw1Q3Q7I05v6odXDA==
+ bh=d+zUpBjzrV3mGC/Qjzinul6Ul1DhAX4pHbNGlwJHB0M=;
+ b=JF0kSY2p+PZo1EAb9BbXc+/rxKFDlsIN6615AsOqv+APF4vbLz4mom5M/dY35l42jhYOW7nNrY1fj6+rPP5HrUF2hhXpjhyrd+nrTp+6X5IeDxl7LT2+r8NNerOSf7c+a6wRxj7FJw71JYabf3GGY4YkoRwftwK6AB8E+1YCdZiaMQZZs0OmDVJCGpg3YPzyNcoEoJJMVBnWdLmHP/Q7UW/BkTupVwEnFm/2GhKSGgb9PAwxfXfUf5znnxlYgmQ4vvsh9Ut2YcGgpV/Ezt80h+S6/PkP9wL5JeNynAunF9zzHpav+ZVLAllku7CLnqebZoPXk2pa2z3CEi1Une4ybw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.194) smtp.rcpttodomain=lists.phytec.de smtp.mailfrom=ti.com;
+ 198.47.23.194) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
  dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zF0CmFyf2xQn011oohHEMIrfSqflDPWPwJZ8fCLs8jk=;
- b=rufUSltCKWa2xXw7MXSv3IUx26jBLmcQcQ0gRvNToakttl2juN+1HXoeXrvPjK78H7E1sqT366aqRgLFR50UdMGdFORehqoXA3zXI/X45HIPX5jFeew8ypSwg6h/QiVxdzToyJU/sXAE10zc6jcM/CJq4qcorkaUp2OPP5kUEz0=
-Received: from DS1PR03CA0006.namprd03.prod.outlook.com (2603:10b6:8:450::17)
- by DSWPR10MB997887.namprd10.prod.outlook.com (2603:10b6:8:3b0::12) with
+ bh=d+zUpBjzrV3mGC/Qjzinul6Ul1DhAX4pHbNGlwJHB0M=;
+ b=EwRKQvp/WkWpZVI4nWxw8//dxeEJ7SY/4YGPHIgxnLcJqAQ3lft/DvA+dUYEAl2vE/1Gxdwz+Ou2nDW1HG44bBP96ifSzCF/etz78RvGukZTzjjgnb0G8x3sabNnIxKR2V+1kL0DyEfuSpvEib3bZs9eGyHOFqKuAiCPYm0Qn9g=
+Received: from CH2PR16CA0005.namprd16.prod.outlook.com (2603:10b6:610:50::15)
+ by IA1PR10MB7334.namprd10.prod.outlook.com (2603:10b6:208:3fc::21) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.20; Thu, 25 Jun
- 2026 20:37:47 +0000
-Received: from DM2PEPF00003FC7.namprd04.prod.outlook.com
- (2603:10b6:8:450:cafe::a) by DS1PR03CA0006.outlook.office365.com
- (2603:10b6:8:450::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.159.17 via Frontend Transport; Thu,
- 25 Jun 2026 20:37:47 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.14; Thu, 25 Jun
+ 2026 20:48:14 +0000
+Received: from CH1PEPF0000AD75.namprd04.prod.outlook.com
+ (2603:10b6:610:50:cafe::6b) by CH2PR16CA0005.outlook.office365.com
+ (2603:10b6:610:50::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.159.16 via Frontend Transport; Thu,
+ 25 Jun 2026 20:48:14 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
  smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
  action=none header.from=ti.com;
@@ -76,95 +76,95 @@ Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
  198.47.23.194 as permitted sender) receiver=protection.outlook.com;
  client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
 Received: from lewvzet200.ext.ti.com (198.47.23.194) by
- DM2PEPF00003FC7.mail.protection.outlook.com (10.167.23.24) with Microsoft
+ CH1PEPF0000AD75.mail.protection.outlook.com (10.167.244.54) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.181.6 via Frontend Transport; Thu, 25 Jun 2026 20:37:47 +0000
-Received: from DLEE203.ent.ti.com (157.170.170.78) by lewvzet200.ext.ti.com
+ 15.21.181.6 via Frontend Transport; Thu, 25 Jun 2026 20:48:13 +0000
+Received: from DLEE206.ent.ti.com (157.170.170.90) by lewvzet200.ext.ti.com
  (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 25 Jun
- 2026 15:37:46 -0500
-Received: from DLEE201.ent.ti.com (157.170.170.76) by DLEE203.ent.ti.com
- (157.170.170.78) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 15:48:13 -0500
+Received: from DLEE209.ent.ti.com (157.170.170.98) by DLEE206.ent.ti.com
+ (157.170.170.90) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 25 Jun
- 2026 15:37:46 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE201.ent.ti.com
- (157.170.170.76) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 15:48:13 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE209.ent.ti.com
+ (157.170.170.98) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Thu, 25 Jun 2026 15:37:46 -0500
+ Transport; Thu, 25 Jun 2026 15:48:13 -0500
 Received: from [10.249.42.149] ([10.249.42.149])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 65PKbjKo4117611;
-	Thu, 25 Jun 2026 15:37:46 -0500
-Message-ID: <0aaf11b7-6043-4140-ac15-7c62f367c218@ti.com>
-Date: Thu, 25 Jun 2026 15:37:45 -0500
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 65PKmCpB4133033;
+	Thu, 25 Jun 2026 15:48:12 -0500
+Message-ID: <6eeecfb3-6d88-469c-b087-a4c87ade65a3@ti.com>
+Date: Thu, 25 Jun 2026 15:48:12 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] arm64: dts: ti: Add support for the phyCORE-AM67x
-To: Nathan Morrisson <nmorrisson@phytec.com>, <nm@ti.com>, <vigneshr@ti.com>,
-        <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <upstream@lists.phytec.de>
-References: <20260625160214.4001298-1-nmorrisson@phytec.com>
- <20260625160214.4001298-2-nmorrisson@phytec.com>
+Subject: Re: [PATCH] arm64: dts: ti: k3-am62a7-sk: Add bootph-all property in
+ cpsw_mac_syscon node
+To: Chintan Vankar <c-vankar@ti.com>, Conor Dooley <conor+dt@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Rob Herring <robh@kernel.org>, "Tero Kristo" <kristo@kernel.org>,
+        Vignesh Raghavendra <vigneshr@ti.com>, "Nishanth Menon" <nm@ti.com>
+CC: <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>
+References: <20260625113223.1711052-1-c-vankar@ti.com>
 Content-Language: en-US
 From: Andrew Davis <afd@ti.com>
-In-Reply-To: <20260625160214.4001298-2-nmorrisson@phytec.com>
+In-Reply-To: <20260625113223.1711052-1-c-vankar@ti.com>
 Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM2PEPF00003FC7:EE_|DSWPR10MB997887:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3d88313b-8992-4749-f92d-08ded2f99dfa
+X-MS-TrafficTypeDiagnostic: CH1PEPF0000AD75:EE_|IA1PR10MB7334:EE_
+X-MS-Office365-Filtering-Correlation-Id: e43e4319-e6ba-4116-06ad-08ded2fb139c
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|36860700016|82310400026|23010399003|3023799007|6133799003|4143699003|18002099003|22082099003|13003099007|56012099006;
-X-Microsoft-Antispam-Message-Info: PDSpfznOWFNhx07obBoQa+DgLki/69Ij4alnXH5mpgQWKo7Vma+vn+W1bUNWxQoO3f4Wu8s1urmHc7ENKYTrA8R874FOdu3x7OmjP1l3BsmoiB6nbT8Es5Nw1ezuwqUOGReoxgqK3d6pBqVO3RL2lt4SwQiAl5kGM1grTAK41oppnlWalBKNIWWjwDhJejU637EEzlu1xLWmfkadmw7hhVg30dvAOSJZH3kaaSRobUv5+Lv87P30/+UsPbHBF6zBxxTowBZ5T0k+2sGuHUumGMpSMFTs+aYZQvRTaP1rcctHrizn38OGbol3nXibQRrQtGuXQCGF0JbMD5MVzWAaXas9YRjSSyPWgn7ovooKVNqSco8Fevcg/9aH3XT0dnpB7zB5cOHziZCNE5vLy7JCWH4zaFj8ABXGw92EyvOh5TIVNOpLQvaLCecVd5/mK/FjZvIRZQCcdKVVdZ1OCwBLxcAfk0LiCI2chPWKFknYRSERla6UcFyyI+nrbcxF1E2s/yCZl8Joo+iNgkfFaK3VMDaqw/MNGczvgIVjb8iJYFc5fnS4JI0EqXuH7i9P9oxJswAF4LQqu+QLxDLOw4LovGkUVh9dvrRs1bjNLC0yV6IA7gsu4zZpPt9h3DZ/vdIrz8vkTru/NPE7zHw4+D7R1THlevx1K5ZFXPOFsEHWNZcoEl7KJAC1eN6JLlhyDvMf3EBH39JRO61C6G1w7RrJFw==
-X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(1800799024)(36860700016)(82310400026)(23010399003)(3023799007)(6133799003)(4143699003)(18002099003)(22082099003)(13003099007)(56012099006);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|82310400026|23010399003|1800799024|22082099003|18002099003|56012099006|3023799007;
+X-Microsoft-Antispam-Message-Info: fPJaLKTmVtXu5+f4x8AGBMdwUYHTgSJHpVZIVTKJpDfScmoqm32/VU0b7JvODpriNYwKRVSd0QpuJTCPiTDl/g5Yr1YEzcSYvaJT7VjA0OpGyWVTSjN7Tp5ryuTgsuYXwSoxKQg/U+SNZJfrIb1URZ3g2uVRaYBuOAVfLUsdaPKxtwYKiB2YkcEdBuJljAEmCESjcFT2I/Ba1nJijPSf1v76RCHoLPIiT/Y8A3pN5VdU3W0ioqAzeEJvugRLORtPMyq2rhdKBVnD2nZxqHaSwUJK/d3e50WOMAxdax6jzOPWXzzwJ2bLe9XYmfKIVb6V3JyxS4KHOM4pUjFfm9TLoY9u47b3HeUi9S6AINGQkp3jsqUe+Gm/R1wf6GVA7j7NGAttov56+ZMZNjvt5IqW3limYQpRfX1k58CcIi6vHEipMJc89gfIFZG0eB7FXDHrwSiyXblQUiUVuvO+/8nCtV/Pzgx+x3T29KSWCcG3ByTHjd5pRZRl+H0bwSy+c8BX8qer3dIYHzs07siHQN7spXDbrbClLoa5XxiXnBjha4C16FOUDFNQAo9IMjUkvEtWWy+Ypq9ZntLhEMkcSqSY+x0nIjSz0PYTtfaKXiF3P9Bggdl8RFCRsrJ0N9/PAwTWvUVntbR1jhjtiB6SUK+YR50gwM0Zsu2SBAkkzvmRd9AkTIExeeKB1eqv53haRPs8JylTES0h+5gYN9flpxa1og==
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(82310400026)(23010399003)(1800799024)(22082099003)(18002099003)(56012099006)(3023799007);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: ZbIi8t0JMeLvnNOwnaHyg8AtAZrwLy8kJez7AQeTG1Y3yLZ4uhfioYqoCDR+t+VgqcCGXguspwAdtrI9UFczPNE+cLUPKQh5Qcsilos16QSYp69Jkj9s7N4e31DfNqhA8vW0523k8gLvqKBC3XBK9JjgzVhUh5QRqf9KpD3ly81+qXFs8GqBHmvLNg4P52Y43VYnSYffExUa53SORB2fUxd9wTPjZLX91lgeTUsr3bRSMI8Z8fPsE7vEqoamPbbWoCyppZg4/HFVfITYRNmknz2DVbwUrIn/Q8ud/f9X1MLHAE72q/meqDuQSqokq+OgS1A73IoVXEt0thNplmVcmjy6zBTqYtT7uQzyUSchid2LYYEk4KEaLsWK4bSTZqXEBQJL4xpWxFl/IWdQjsAnZltZkT3fyLdZl0/YPMKVOmLFxQZxZxORCHAygFhtlRhT
-X-Exchange-RoutingPolicyChecked: VUaytFr0Z+GrQiC6ovtjQSNDMeat5goSOun1Ym4akp26V45ejvu/XpWAvVzOqrcC1wOxBHCnEt/3C+0MdSRm/kHj2jYGAgZtCFpUeOm25o2ESu7cXX4UklaQYeKgK94TCYhWFNcGNdxQN3cVBrlW+dnK8xP7s1OcnYifIA6jjVMWnfmgPAnbDcDxSxL5PULfGN3BZKD/HpCSNQ9Iaa8QZDWIdu2LKnSN+/TIBXpqZd9jKHJU5ZdxWHvZrMlgU+iL28DKRyguMCnu0fENujYUfHX51FQUWQIgr/vUly9DvbsdpVbSAOllQdOsf+FIqBlt3BicuKzugylBD9mgmGU/rw==
+X-MS-Exchange-AntiSpam-MessageData-0: o+/jt01JxQvIQXcQepfb10DVp6VqXPyYaZBL0cdEhAYU+3A8IAaabCQNOYL+JxLnAC00MHiMMzBBsGK8krhmXgthXYAu8Z0yTikY3GD6D7vNj4NwYKLxWoUsA3/QKTjUvOfQuFnVmszr54cjHDuuZKQD9MNDql1nXqze/XNYICYBjP6r/Zon/7oZF9uBLTiGL5pdclie1I97nWZIyEqWuNLEiAnTBwYgZ6qB6o0gw1yY8hWmnuxejcJWXGUxaJqmVrhNFskBRbu8fLQD4gkIpZwRI7iLgLmQnclL0t+IbJBnnHmtEFcqYromWm5/3mMD4+2LAqr1B5fpG536BtaKZWTXg4sFcGz4n4cZdQY0iA5/gY/dlvrlmmV25z/yT2HP73itlHcw0l9H4i2bnO31aHoSFSBetAcUBPAc6ot06EA5pVJ8xwgjZJ1UigrS6hOc
+X-Exchange-RoutingPolicyChecked: D7eZUBybxUluxc2+DiDahTOPitaWj9/RsPeX34G1yVAd3zPF3mMAFnv0pQmFL3L8cfRUuZXrFGM/DvvYffhXs6jpvhK29kTJ/gK1q1HpTliN+48tQHCBnRjUXdwycAhsIeyHOd1T0qjy3RGWh8jxNwqpntD7K/L4L2mIXD8cghFEjbmpvK2p1q74u504ugUhA4goZ5O+iHqg676D0usLpPAa6i1WKIXhplTnXnbPEOeIvsNM4BP/Cg6sl9IjM5GeD1sQ5kThgMBhWWWk3QGbgMv413cyv38Opu4hz/UTi41h34TUg9IXGbGIt6W1USkjxQQi2agtCxhIZwHwgwqoEw==
 X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Jun 2026 20:37:47.1276
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Jun 2026 20:48:13.9809
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3d88313b-8992-4749-f92d-08ded2f99dfa
+X-MS-Exchange-CrossTenant-Network-Message-Id: e43e4319-e6ba-4116-06ad-08ded2fb139c
 X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: DM2PEPF00003FC7.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: CH1PEPF0000AD75.namprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DSWPR10MB997887
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjI1MDE3NyBTYWx0ZWRfX9qvq0HWKoCok
- gr0GiUxXBAIrZ9xxi5qEYCAG9L0fFZ/ZVXiEzuoj5AEkvWbce3CT5ip0GZRq0eIo4AYhPwSlZT9
- Q3DZKuaM2epeiDT10HxXonrcJ6csouWd5mrGfBKm3HzB+tqaT0drf3qAosQClrtOWzN6Gn8vH0j
- f6Ge6loVVUAwBRiu12KmMhODf+HNWJcITGClY/ToWZdRhm3VCRE3TGntRZP5a5CJmED7eaawrve
- rV2ZlPu/Fl6wxWl2gxnh1TCJAfnG80f4xPeNyso/Rro/yLXj98qiNNZwoRMLCc1w3EY9E4VmRo8
- TjzBlyltlRG9wAuOJ0Eki4Wc5wyWBgbcjHBwPNGOLIJnEjJJlvbdQ1MxcHU002OMIRrD1Wq/+Z6
- fypdnxbelxacXZhnsyY/QzbyhMj/n5UmMUguKajjSG0p4Wx7GWGPtVehR38ouTYvLmmlw7ybNzI
- ElJ4nIfvi1dRxAt3+Ug==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNjI1MDE3NyBTYWx0ZWRfX0BbNYvEjGF+h
- dQXEl6Fj0fBxerp4P5vWtqUqcuJXFglVZujFH0oZT4T8OVtK30TKjCD0ZDp0PaVew3V3Ve16z2P
- bDSeUSKqu/jIdmE9H9GdaPn3KNamCs4=
-X-Proofpoint-GUID: UX2tHXqyTc6CE4KlHQGBrY4Cd9mPLahv
-X-Authority-Analysis: v=2.4 cv=WrUb99fv c=1 sm=1 tr=0 ts=6a3d91a0 cx=c_pps
- a=FmVrivm6CVS+kYk2MGmjxQ==:117 a=WotqVVQAdb04rnGuttW3Kw==:17
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR10MB7334
+X-Authority-Analysis: v=2.4 cv=WrAb99fv c=1 sm=1 tr=0 ts=6a3d9411 cx=c_pps
+ a=n8CZQ1v8Y1OZ9xNCwzzv5Q==:117 a=WotqVVQAdb04rnGuttW3Kw==:17
  a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10
  a=s63m1ICgrNkA:10 a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=Z8NIEmU8O1QQgoT56wFK:22 a=jwouBfj2j3NM8CExmVVE:22 a=JSOPZz9IAAAA:8
- a=gbx08JFH5pctAH6JFOYA:9 a=QEXdDO2ut3YA:10 a=B-1sCzwcsC-Wa9HVu-tL:22
-X-Proofpoint-ORIG-GUID: UX2tHXqyTc6CE4KlHQGBrY4Cd9mPLahv
+ a=Z8NIEmU8O1QQgoT56wFK:22 a=fPAWb5peG099m5CrUpKH:22 a=sozttTNsAAAA:8
+ a=eLZqF03l_r-QDe5qrpkA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-ORIG-GUID: 1Pd1HQefAazhK7v4a3taMsqpu810-OhD
+X-Proofpoint-GUID: 1Pd1HQefAazhK7v4a3taMsqpu810-OhD
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNjI1MDE3OCBTYWx0ZWRfX7+26vR3U7uge
+ l3Bb+bVf+vCzykFliOYUi1qeCyYCivIcdEV8HBWEsk2jJ2+5KpZ2m0XAXEkZ8gOuksL8Ha0EVe7
+ OtodOCuPujpVgIPy2RsWrWSPczb6No4=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjI1MDE3OCBTYWx0ZWRfX5Jr5/GQYKVM+
+ VQMibUjqXqzjG9qKryjdGJ1U4S+C7LDp0crgxYQdT8UERmvBuWEscSxYxMGnH2LnlSza5+VPZBD
+ i/rra+JIxuKfnyEul6LTM0wySQZbeCoLI3bmV8E6w1nYKsH4YnYkqHolOVvB1KRt1olTLu4Iwcx
+ 3qkuM6+BSNRPBMq+3/GyJi6ORFc6kF28jf2ML+uQwYtB1qhbmSR9ilzYpWjfOpyErZPkwPuE8UA
+ CVz5vcxdoTFUoJGWZYV7amiCgAxiubF7OWZRqYvQjzwPQuK3Qlt4xriAbObJQtv11L5vA6Ysois
+ 8CZyOUGuPbItBJtjBMcc2viglP/kMijER5t06tnOjEGZDLGQkS7V4D/dtX3AyUE/R7GILYrEwm5
+ H2aDEMwaMtq7n/j4as1QpQcMKTZDiTEdC0tLEX9ESbA1JTPXSlM7c2MJr2BJHFPyZJETWD+Se8o
+ hFRjM6bZS55UFyflpIg==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
  definitions=2026-06-25_02,2026-06-24_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 clxscore=1011 impostorscore=0 priorityscore=1501
- phishscore=0 suspectscore=0 bulkscore=0 spamscore=0 adultscore=0
- malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2606250177
+ spamscore=0 phishscore=0 priorityscore=1501 lowpriorityscore=0 bulkscore=0
+ adultscore=0 clxscore=1015 impostorscore=0 suspectscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2606250178
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260625_133757_428862_19C2B4E0 
-X-CRM114-Status: GOOD (  18.08  )
+X-CRM114-CacheID: sfid-20260625_134820_950534_3CC48E7B 
+X-CRM114-Status: GOOD (  16.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,903 +179,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/25/26 11:02 AM, Nathan Morrisson wrote:
-> Add support for the PHYTEC phyCORE-AM67x SoM [1] and the
-> corresponding phyBOARD-Rigel carrier board [2]. The phyCORE-AM67x SoM
-> uses the TI AM67x SoC and can come with different sizes and models of
-> DDR, eMMC, and SPI NOR Flash.
+On 6/25/26 6:32 AM, Chintan Vankar wrote:
+> Ethernet boot requires CPSW node to be present starting from R5 SPL stage.
+> Add "bootph-all" property in CPSW MAC's eFuse node "cpsw_mac_syscon" to
+> enable this node during SPL stage along with later boot stage so that CPSW
+> port will get static MAC address.
 > 
-> Supported features:
->    * Audio playback and recording
->    * CAN
->    * Debug UART
->    * eMMC
->    * Ethernet
->    * GPIO buttons
->    * Heartbeat LED
->    * I2C Current sensor
->    * I2C EEPROM
->    * I2C Light sensor
->    * I2C RTC
->    * Micro SD card
->    * PCIe
->    * SPI NOR flash
->    * USB
-> 
-> [1] https://www.phytec.com/product/phycore-am67x/
-> [2] https://www.phytec.com/product/phyboard-am67x-development-kit/
-> 
-> Signed-off-by: Nathan Morrisson <nmorrisson@phytec.com>
+> Signed-off-by: Chintan Vankar <c-vankar@ti.com>
 > ---
->   arch/arm64/boot/dts/ti/Makefile               |   1 +
->   .../boot/dts/ti/k3-am67-phycore-som.dtsi      | 328 ++++++++++++
->   .../boot/dts/ti/k3-am6754-phyboard-rigel.dts  | 502 ++++++++++++++++++
->   3 files changed, 831 insertions(+)
->   create mode 100644 arch/arm64/boot/dts/ti/k3-am67-phycore-som.dtsi
->   create mode 100644 arch/arm64/boot/dts/ti/k3-am6754-phyboard-rigel.dts
 > 
-> diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
-> index 371f9a043fe5..623ee2369132 100644
-> --- a/arch/arm64/boot/dts/ti/Makefile
-> +++ b/arch/arm64/boot/dts/ti/Makefile
-> @@ -184,6 +184,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-j721s2-evm-pcie1-ep.dtbo
->   dtb-$(CONFIG_ARCH_K3) += k3-j721s2-evm-usb0-type-a.dtbo
+> Hello All,
+> 
+> This patch is based on linux-next tagged next-20260623.
+> 
+>   arch/arm64/boot/dts/ti/k3-am62a7-sk.dts | 4 ++++
+>   1 file changed, 4 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+> index 821a9705bb7d..d3b3675e7a8f 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+> +++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+> @@ -230,6 +230,10 @@ AM62AX_MCU_IOPAD(0x0030, PIN_OUTPUT, 0) /* (C8) WKUP_UART0_RTSn */
+>   	};
+>   };
 >   
->   # Boards with J722s SoC
-> +dtb-$(CONFIG_ARCH_K3) += k3-am6754-phyboard-rigel.dtb
->   dtb-$(CONFIG_ARCH_K3) += k3-am67a-beagley-ai.dtb
->   dtb-$(CONFIG_ARCH_K3) += k3-j722s-evm.dtb
->   dtb-$(CONFIG_ARCH_K3) += k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtbo
-> diff --git a/arch/arm64/boot/dts/ti/k3-am67-phycore-som.dtsi b/arch/arm64/boot/dts/ti/k3-am67-phycore-som.dtsi
-> new file mode 100644
-> index 000000000000..8a40f648098e
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/ti/k3-am67-phycore-som.dtsi
-> @@ -0,0 +1,328 @@
-> +// SPDX-License-Identifier: GPL-2.0-only OR MIT
-> +/*
-> + * Copyright (C) 2026 PHYTEC America LLC
-> + * Author: Nathan Morrisson <nmorrisson@phytec.com>
-> + */
-> +
-> +#include <dt-bindings/net/ti-dp83867.h>
-> +#include <dt-bindings/leds/common.h>
-> +#include <dt-bindings/gpio/gpio.h>
-> +#include <dt-bindings/interrupt-controller/irq.h>
-> +
-> +/ {
-> +	compatible = "phytec,am67-phycore-som", "ti,j722s";
-> +	model = "PHYTEC phyCORE-AM67";
-> +
-> +	aliases {
-> +		ethernet0 = &cpsw_port1;
-> +		gpio0 = &main_gpio0;
-> +		mmc0 = &sdhci0;
-> +		rtc0 = &i2c_som_rtc;
-> +		rtc1 = &wkup_rtc0;
-> +		spi0 = &ospi0;
-> +	};
-> +
-> +	memory@80000000 {
-> +		/* 4G RAM */
-> +		reg = <0x00000000 0x80000000 0x00000000 0x80000000>,
-> +		      <0x00000008 0x80000000 0x00000000 0x80000000>;
-> +		device_type = "memory";
-> +		bootph-all;
-> +	};
-> +
-> +	reserved_memory: reserved-memory {
-> +		#address-cells = <2>;
-> +		#size-cells = <2>;
-> +		ranges;
-> +
-> +		secure_tfa_ddr: tfa@9e780000 {
-> +			reg = <0x00 0x9e780000 0x00 0x80000>;
-> +			no-map;
-> +		};
-> +
-> +		secure_ddr: optee@9e800000 {
-> +			reg = <0x00 0x9e800000 0x00 0x01800000>;
-> +			no-map;
-> +		};
-> +
-> +		wkup_r5fss0_core0_dma_memory_region: memory@a0000000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0xa0000000 0x00 0x100000>;
-> +			no-map;
-> +		};
-> +
-> +		wkup_r5fss0_core0_memory_region: memory@a0100000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0xa0100000 0x00 0xf00000>;
-> +			no-map;
-> +		};
-> +	};
-> +
-> +	vcc_5v0_som: regulator-vcc-5v0-som {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "VCC_5V0_SOM";
-> +		regulator-min-microvolt = <5000000>;
-> +		regulator-max-microvolt = <5000000>;
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +	};
-> +
-> +	leds {
-> +		compatible = "gpio-leds";
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&leds_pins_default>;
-> +
-> +		led-0 {
-> +			color = <LED_COLOR_ID_GREEN>;
-> +			gpios = <&main_gpio0 13 GPIO_ACTIVE_HIGH>;
-> +			linux,default-trigger = "heartbeat";
-> +			function = LED_FUNCTION_HEARTBEAT;
-> +		};
-> +	};
-> +};
-> +
-> +&main_pmx0 {
-> +	leds_pins_default: leds-default-pins {
-> +		pinctrl-single,pins = <
-> +			J722S_IOPAD(0x034, PIN_OUTPUT, 7)	/* (K22) OSPI0_CSN2.GPIO0_13 */
-> +		>;
-> +	};
-> +
-> +	mdio_pins_default: mdio-default-pins {
-> +		pinctrl-single,pins = <
-> +			J722S_IOPAD(0x0160, PIN_OUTPUT, 0)	/* (AC24) MDIO0_MDC */
-> +			J722S_IOPAD(0x015c, PIN_INPUT, 0)	/* (AD25) MDIO0_MDIO */
-> +		>;
-> +		bootph-all;
-> +	};
-> +
-> +	ospi0_pins_default: ospi0-default-pins {
-> +		pinctrl-single,pins = <
-> +			J722S_IOPAD(0x000, PIN_OUTPUT, 0)	/* (L24) OSPI0_CLK */
-> +			J722S_IOPAD(0x02c, PIN_OUTPUT, 0)	/* (K26) OSPI0_CSn0 */
-> +			J722S_IOPAD(0x00c, PIN_INPUT, 0)	/* (K27) OSPI0_D0 */
-> +			J722S_IOPAD(0x010, PIN_INPUT, 0)	/* (L27) OSPI0_D1 */
-> +			J722S_IOPAD(0x014, PIN_INPUT, 0)	/* (L26) OSPI0_D2 */
-> +			J722S_IOPAD(0x018, PIN_INPUT, 0)	/* (L25) OSPI0_D3 */
-> +			J722S_IOPAD(0x01c, PIN_INPUT, 0)	/* (L21) OSPI0_D4 */
-> +			J722S_IOPAD(0x020, PIN_INPUT, 0)	/* (M26) OSPI0_D5 */
-> +			J722S_IOPAD(0x024, PIN_INPUT, 0)	/* (N27) OSPI0_D6 */
-> +			J722S_IOPAD(0x028, PIN_INPUT, 0)	/* (M27) OSPI0_D7 */
-> +			J722S_IOPAD(0x008, PIN_INPUT, 0)	/* (L22) OSPI0_DQS */
-> +			J722S_IOPAD(0x038, PIN_INPUT, 7)	/* (J22) OSPI0_CSn3.GPIO0_14 */
-> +		>;
-> +		bootph-all;
-> +	};
-> +
-> +	pmic_irq_pins_default: pmic-irq-default-pins {
-> +		pinctrl-single,pins = <
-> +			J722S_IOPAD(0x030, PIN_INPUT, 7)	/* (K23) OSPI0_CSN1.GPIO0_12 */
-> +		>;
-> +	};
-> +
-> +	rgmii1_pins_default: rgmii1-default-pins {
-> +		pinctrl-single,pins = <
-> +			J722S_IOPAD(0x014c, PIN_INPUT, 0)	/* (AC25) RGMII1_RD0 */
-> +			J722S_IOPAD(0x0150, PIN_INPUT, 0)	/* (AD27) RGMII1_RD1 */
-> +			J722S_IOPAD(0x0154, PIN_INPUT, 0)	/* (AE24) RGMII1_RD2 */
-> +			J722S_IOPAD(0x0158, PIN_INPUT, 0)	/* (AE26) RGMII1_RD3 */
-> +			J722S_IOPAD(0x0148, PIN_INPUT, 0)	/* (AE27) RGMII1_RXC */
-> +			J722S_IOPAD(0x0144, PIN_INPUT, 0)	/* (AD23) RGMII1_RX_CTL */
-> +			J722S_IOPAD(0x0134, PIN_OUTPUT, 0)	/* (AF27) RGMII1_TD0 */
-> +			J722S_IOPAD(0x0138, PIN_OUTPUT, 0)	/* (AE23) RGMII1_TD1 */
-> +			J722S_IOPAD(0x013c, PIN_OUTPUT, 0)	/* (AG25) RGMII1_TD2 */
-> +			J722S_IOPAD(0x0140, PIN_OUTPUT, 0)	/* (AF24) RGMII1_TD3 */
-> +			J722S_IOPAD(0x0130, PIN_OUTPUT, 0)	/* (AG26) RGMII1_TXC */
-> +			J722S_IOPAD(0x012c, PIN_OUTPUT, 0)	/* (AF25) RGMII1_TX_CTL */
-> +		>;
-> +		bootph-all;
-> +	};
-> +};
-> +
-> +&mcu_pmx0 {
-> +	wkup_i2c0_pins_default: wkup-i2c0-default-pins {
-> +		pinctrl-single,pins = <
-> +			J722S_MCU_IOPAD(0x04c, PIN_INPUT_PULLUP, 0)	/* (B9) WKUP_I2C0_SCL */
-> +			J722S_MCU_IOPAD(0x050, PIN_INPUT_PULLUP, 0)	/* (D11) WKUP_I2C0_SDA */
-> +		>;
-> +		bootph-all;
-> +	};
-> +};
-> +
-> +&cpsw3g {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&rgmii1_pins_default>;
+> +&cpsw_mac_syscon {
 > +	bootph-all;
-> +	status = "okay";
-> +};
-> +
-> +&cpsw3g_mdio {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&mdio_pins_default>;
-> +	status = "okay";
-> +
-> +	cpsw3g_phy1: ethernet-phy@1 {
-> +		compatible = "ethernet-phy-ieee802.3-c22";
-> +		reg = <1>;
-> +		ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
-> +		tx-fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
-> +		ti,min-output-impedance;
-> +	};
-> +};
-> +
-> +&cpsw_port1 {
-> +	phy-mode = "rgmii-id";
-> +	phy-handle = <&cpsw3g_phy1>;
-> +	status = "okay";
-> +};
-> +
-> +&cpsw_port2 {
-> +	status = "disabled";
 
-This should already be default disabled in the SoC dtsi,
-no need to re-disable it here.
-
-> +};
-> +
-> +&ospi0 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&ospi0_pins_default>;
-> +	bootph-all;
-> +	status = "okay";
-> +
-> +	serial_flash: flash@0 {
-> +		compatible = "jedec,spi-nor";
-> +		reg = <0x0>;
-> +		spi-tx-bus-width = <8>;
-> +		spi-rx-bus-width = <8>;
-> +		spi-max-frequency = <25000000>;
-> +		vcc-supply = <&vdd_1v8>;
-> +		cdns,tshsl-ns = <60>;
-> +		cdns,tsd2d-ns = <60>;
-> +		cdns,tchsh-ns = <60>;
-> +		cdns,tslch-ns = <60>;
-> +		cdns,read-delay = <0>;
-> +	};
-> +};
-> +
-> +&sdhci0 {
-> +	non-removable;
-> +	bootph-all;
-> +	ti,driver-strength-ohm = <50>;
-> +	status = "okay";
-> +};
-> +
-> +&wkup_i2c0 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&wkup_i2c0_pins_default>;
-> +	clock-frequency = <400000>;
-> +	bootph-all;
-> +	status = "okay";
-> +
-> +	pmic@30 {
-> +		compatible = "ti,tps65219";
-> +		reg = <0x30>;
-> +		buck1-supply = <&vcc_5v0_som>;
-> +		buck2-supply = <&vcc_5v0_som>;
-> +		buck3-supply = <&vcc_5v0_som>;
-> +		ldo1-supply = <&vdd_3v3>;
-> +		ldo2-supply = <&vdd_1v8>;
-> +		ldo3-supply = <&vdd_3v3>;
-> +		ldo4-supply = <&vdd_3v3>;
-> +
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&pmic_irq_pins_default>;
-> +		interrupt-parent = <&main_gpio0>;
-> +		interrupts = <12 IRQ_TYPE_EDGE_FALLING>;
-> +		interrupt-controller;
-> +		#interrupt-cells = <1>;
-> +
-> +		system-power-controller;
-> +		ti,power-button;
-> +
-> +		regulators {
-> +			vdd_3v3: buck1 {
-> +				regulator-name = "VDD_3V3";
-> +				regulator-min-microvolt = <3300000>;
-> +				regulator-max-microvolt = <3300000>;
-> +				regulator-boot-on;
-> +				regulator-always-on;
-> +			};
-> +
-> +			vdd_1v8: buck2 {
-> +				regulator-name = "VDD_1V8";
-> +				regulator-min-microvolt = <1800000>;
-> +				regulator-max-microvolt = <1800000>;
-> +				regulator-boot-on;
-> +				regulator-always-on;
-> +			};
-> +
-> +			vdd_lpddr4: buck3 {
-> +				regulator-name = "VDD_LPDDR4";
-> +				regulator-min-microvolt = <1100000>;
-> +				regulator-max-microvolt = <1100000>;
-> +				regulator-boot-on;
-> +				regulator-always-on;
-> +			};
-> +
-> +			vddshv_sdio: ldo1 {
-> +				regulator-name = "VDDSHV_SDIO";
-> +				regulator-min-microvolt = <1800000>;
-> +				regulator-max-microvolt = <3300000>;
-> +				regulator-allow-bypass;
-> +				regulator-boot-on;
-> +				regulator-always-on;
-> +			};
-> +
-> +			vdd_1v2: ldo2 {
-> +				regulator-name = "VDD_1V2";
-> +				regulator-min-microvolt = <1200000>;
-> +				regulator-max-microvolt = <1200000>;
-> +				regulator-boot-on;
-> +				regulator-always-on;
-> +			};
-> +
-> +			vdda_1v8_phy: ldo3 {
-> +				regulator-name = "VDDA_1V8_PHY";
-> +				regulator-min-microvolt = <1800000>;
-> +				regulator-max-microvolt = <1800000>;
-> +				regulator-boot-on;
-> +				regulator-always-on;
-> +			};
-> +
-> +			vdd_1v8_pll: ldo4 {
-> +				regulator-name = "VDD_1V8_PLL";
-> +				regulator-min-microvolt = <1800000>;
-> +				regulator-max-microvolt = <1800000>;
-> +				regulator-boot-on;
-> +				regulator-always-on;
-> +			};
-> +		};
-> +	};
-> +
-> +	vdd_core: regulator-vdd-core@44 {
-> +		compatible = "ti,tps62873";
-> +		reg = <0x44>;
-> +		bootph-pre-ram;
-> +		regulator-name = "VDD_CORE";
-> +		regulator-min-microvolt = <850000>;
-> +		regulator-max-microvolt = <850000>;
-> +		regulator-boot-on;
-> +		regulator-always-on;
-> +	};
-> +
-> +	eeprom@50 {
-> +		compatible = "atmel,24c32";
-> +		reg = <0x50>;
-> +		pagesize = <32>;
-> +	};
-> +
-> +	som_eeprom_opt: eeprom@51 {
-> +		compatible = "atmel,24c32";
-> +		reg = <0x51>;
-> +		pagesize = <32>;
-> +	};
-> +
-> +	i2c_som_rtc: rtc@52 {
-> +		compatible = "microcrystal,rv3028";
-> +		reg = <0x52>;
-> +	};
-> +};
-> +
-> +#include "k3-j722s-ti-ipc-firmware.dtsi"
-> diff --git a/arch/arm64/boot/dts/ti/k3-am6754-phyboard-rigel.dts b/arch/arm64/boot/dts/ti/k3-am6754-phyboard-rigel.dts
-> new file mode 100644
-> index 000000000000..7853d4f5d3b9
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/ti/k3-am6754-phyboard-rigel.dts
-> @@ -0,0 +1,502 @@
-> +// SPDX-License-Identifier: GPL-2.0-only OR MIT
-> +/*
-> + * Copyright (C) 2026 PHYTEC America LLC
-> + * Author: Nathan Morrisson <nmorrisson@phytec.com>
-> + */
-> +
-> +/dts-v1/;
-> +
-> +#include <dt-bindings/input/input.h>
-> +#include <dt-bindings/phy/phy.h>
-> +#include <dt-bindings/gpio/gpio.h>
-> +#include <dt-bindings/interrupt-controller/irq.h>
-> +#include "k3-serdes.h"
-> +#include "k3-j722s.dtsi"
-
-This should be included by the som.dtsi, keeps the include chain sane.
+Seems you need this because cpsw_port1 uses it though a phandle reference.
+cpsw_port1 has bootph-all, why is this property not transitive though
+phandles? Would not having that cause missing references when the phandles
+are resolved to nodes that get dropped for some given boot stage?
 
 Andrew
 
-> +#include "k3-am67-phycore-som.dtsi"
-> +
-> +/ {
-> +	compatible = "phytec,am6754-phyboard-rigel",
-> +		     "phytec,am67-phycore-som", "ti,j722s";
-> +	model = "PHYTEC phyBOARD-Rigel AM67";
-> +
-> +	aliases {
-> +		gpio1 = &main_gpio1;
-> +		mmc1 = &sdhci1;
-> +		serial2 = &main_uart0;
-> +		usb0 = &usb0;
-> +		usb1 = &usb1;
-> +	};
-> +
-> +	can_tc0: can-phy0 {
-> +		compatible = "ti,tcan1042";
-> +		#phy-cells = <0>;
-> +		max-bitrate = <8000000>;
-> +		standby-gpios = <&gpio_exp1 1 GPIO_ACTIVE_HIGH>;
-> +	};
-> +
-> +	usb0_connector: connector {
-> +		compatible = "gpio-usb-b-connector", "usb-b-connector";
-> +		label = "USB-C";
-> +		data-role = "dual";
-> +
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&main_usbc_power_pins_default>;
-> +
-> +		id-gpios = <&main_gpio1 15 GPIO_ACTIVE_HIGH>;
-> +
-> +		port {
-> +			usb0_con: endpoint {
-> +				remote-endpoint = <&usb0_ep>;
-> +			};
-> +		};
-> +	};
-> +
-> +	keys {
-> +		compatible = "gpio-keys";
-> +		autorepeat;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&gpio_keys_pins_default>;
-> +
-> +		key-home {
-> +			label = "home";
-> +			linux,code = <KEY_HOME>;
-> +			gpios = <&main_gpio1 23 GPIO_ACTIVE_HIGH>;
-> +		};
-> +
-> +		key-menu {
-> +			label = "menu";
-> +			linux,code = <KEY_MENU>;
-> +			gpios = <&gpio_exp1 4 GPIO_ACTIVE_HIGH>;
-> +		};
-> +	};
-> +
-> +	pcie_refclk0: pcie-refclk0 {
-> +		compatible = "gpio-gate-clock";
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&main_pcie_usb_sel_pins_default>;
-> +		clocks = <&serdes_refclk>;
-> +		#clock-cells = <0>;
-> +		enable-gpios = <&main_gpio0 22 GPIO_ACTIVE_LOW>;
-> +	};
-> +
-> +	vcc_1v8: regulator-vcc-1v8 {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "VCC_1V8";
-> +		regulator-min-microvolt = <1800000>;
-> +		regulator-max-microvolt = <1800000>;
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +	};
-> +
-> +	vcc_3v3_aud: regulator-vcc-3v3-aud {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "VCC_3V3_AUD";
-> +		regulator-min-microvolt = <3300000>;
-> +		regulator-max-microvolt = <3300000>;
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +	};
-> +
-> +	vcc_3v3_mmc: regulator-vcc-3v3-mmc {
-> +		/* TPS22963C OUTPUT */
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "VCC_3V3_MMC";
-> +		regulator-min-microvolt = <3300000>;
-> +		regulator-max-microvolt = <3300000>;
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +	};
-> +
-> +	vcc_3v3_sw: regulator-vcc-3v3-sw {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "VCC_3V3_SW";
-> +		regulator-min-microvolt = <3300000>;
-> +		regulator-max-microvolt = <3300000>;
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +	};
-> +
-> +	vcc_speaker: regulator-vcc-speaker {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "VCC_SPEAKER";
-> +		regulator-min-microvolt = <5000000>;
-> +		regulator-max-microvolt = <5000000>;
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +	};
-> +
-> +	sound {
-> +		compatible = "simple-audio-card";
-> +		simple-audio-card,widgets =
-> +			"Microphone", "Mic Jack",
-> +			"Headphone", "Headphone Jack",
-> +			"Line", "Stereo Jack",
-> +			"Speaker", "L SPKR",
-> +			"Speaker", "R SPKR";
-> +		simple-audio-card,routing =
-> +			"MIC1RP", "Mic Jack",
-> +			"Mic Jack", "MICBIAS",
-> +			"Headphone Jack", "HPL",
-> +			"Headphone Jack", "HPR",
-> +			"MIC1LM", "Stereo Jack",
-> +			"MIC1LP", "Stereo Jack",
-> +			"SPL", "L SPKR",
-> +			"SPR", "R SPKR";
-> +		simple-audio-card,name = "phyBOARD-Rigel";
-> +		simple-audio-card,format = "dsp_b";
-> +		simple-audio-card,bitclock-master = <&sound_master>;
-> +		simple-audio-card,frame-master = <&sound_master>;
-> +		simple-audio-card,bitclock-inversion;
-> +
-> +		simple-audio-card,cpu {
-> +			sound-dai = <&mcasp0>;
-> +		};
-> +
-> +		sound_master: simple-audio-card,codec {
-> +			sound-dai = <&audio_codec>;
-> +			clocks = <&audio_refclk1>;
-> +		};
-> +	};
 > +};
 > +
-> +&main_pmx0 {
-> +	audio_ext_refclk1_pins_default: audio-ext-refclk1-default-pins {
-> +		pinctrl-single,pins = <
-> +			J722S_IOPAD(0x0a0, PIN_OUTPUT, 1)	/* (N24) GPMC0_WPn.AUDIO_EXT_REFCLK1 */
-> +		>;
-> +	};
-> +
-> +	gpio_exp0_int_pins_default: gpio-exp0-int-default-pins {
-> +		pinctrl-single,pins = <
-> +			J722S_IOPAD(0x0054, PIN_INPUT, 7)	/* (T21) GPMC0_AD6.GPIO0_21 */
-> +		>;
-> +	};
-> +
-> +	gpio_exp1_int_pins_default: gpio-exp1-int-default-pins {
-> +		pinctrl-single,pins = <
-> +			J722S_IOPAD(0x0244, PIN_INPUT, 7)	/* (A24) MMC1_SDWP.GPIO1_49 */
-> +		>;
-> +	};
-> +
-> +	gpio_exp2_int_pins_default: gpio-exp2-int-default-pins {
-> +		pinctrl-single,pins = <
-> +			J722S_IOPAD(0x0050, PIN_INPUT, 7)	/* (T24) GPMC0_AD5.GPIO0_20 */
-> +		>;
-> +	};
-> +
-> +	gpio_keys_pins_default: gpio-keys-default-pins {
-> +		pinctrl-single,pins = <
-> +			J722S_IOPAD(0x01d4, PIN_INPUT, 7)	/* (B21) UART0_RTSn.GPIO1_23 */
-> +		>;
-> +	};
-> +
-> +	main_i2c0_pins_default: main-i2c0-default-pins {
-> +		pinctrl-single,pins = <
-> +			J722S_IOPAD(0x01e0, PIN_INPUT_PULLUP, 0)	/* (D23) I2C0_SCL */
-> +			J722S_IOPAD(0x01e4, PIN_INPUT_PULLUP, 0)	/* (B22) I2C0_SDA */
-> +		>;
-> +		bootph-all;
-> +	};
-> +
-> +	main_i2c1_pins_default: main-i2c1-default-pins {
-> +		pinctrl-single,pins = <
-> +			J722S_IOPAD(0x01e8, PIN_INPUT_PULLUP, 0)	/* (C24) I2C1_SCL */
-> +			J722S_IOPAD(0x01ec, PIN_INPUT_PULLUP, 0)	/* (A22) I2C1_SDA */
-> +		>;
-> +		bootph-all;
-> +	};
-> +
-> +	main_mcan0_pins_default: main-mcan0-default-pins {
-> +		pinctrl-single,pins = <
-> +			J722S_IOPAD(0x1dc, PIN_INPUT, 0)	/* (C22) MCAN0_RX */
-> +			J722S_IOPAD(0x1d8, PIN_OUTPUT, 0)	/* (D22) MCAN0_TX */
-> +		>;
-> +	};
-> +
-> +	main_mcasp0_pins_default: main-mcasp0-default-pins {
-> +		pinctrl-single,pins = <
-> +			J722S_IOPAD(0x1a8, PIN_INPUT, 0)	/* (C26) MCASP0_AFSX */
-> +			J722S_IOPAD(0x1a4, PIN_INPUT, 0)	/* (D25) MCASP0_ACLKX */
-> +			J722S_IOPAD(0x198, PIN_OUTPUT, 0)	/* (A26) MCASP0_AXR2 */
-> +			J722S_IOPAD(0x194, PIN_INPUT, 0)	/* (A25) MCASP0_AXR3 */
-> +		>;
-> +	};
-> +
-> +	main_mcasp1_pins_default: main-mcasp1-default-pins {
-> +		pinctrl-single,pins = <
-> +			J722S_IOPAD(0x0090, PIN_INPUT, 2)	/* (P27) GPMC0_BE0n_CLE.MCASP1_ACLKX */
-> +			J722S_IOPAD(0x0098, PIN_INPUT, 2)	/* (V21) GPMC0_WAIT0.MCASP1_AFSX */
-> +			J722S_IOPAD(0x008c, PIN_OUTPUT, 2)	/* (N23) GPMC0_WEn.MCASP1_AXR0 */
-> +		>;
-> +	};
-> +
-> +	main_mmc1_pins_default: main-mmc1-default-pins {
-> +		pinctrl-single,pins = <
-> +			J722S_IOPAD(0x023c, PIN_INPUT, 0)	/* (H22) MMC1_CMD */
-> +			J722S_IOPAD(0x0234, PIN_INPUT, 0)	/* (H24) MMC1_CLK */
-> +			J722S_IOPAD(0x0230, PIN_INPUT, 0)	/* (H23) MMC1_DAT0 */
-> +			J722S_IOPAD(0x022c, PIN_INPUT, 0)	/* (H20) MMC1_DAT1 */
-> +			J722S_IOPAD(0x0228, PIN_INPUT, 0)	/* (J23) MMC1_DAT2 */
-> +			J722S_IOPAD(0x0224, PIN_INPUT, 0)	/* (H25) MMC1_DAT3 */
-> +			J722S_IOPAD(0x0240, PIN_INPUT, 0)	/* (B24) MMC1_SDCD */
-> +		>;
-> +		bootph-all;
-> +	};
-> +
-> +	main_pcie_pins_default: main-pcie-default-pins {
-> +		pinctrl-single,pins = <
-> +			J722S_IOPAD(0x07c, PIN_INPUT, 7)	/* (T23) GPMC0_CLK.GPIO0_31 */
-> +		>;
-> +	};
-> +
-> +	main_pcie_usb_sel_pins_default: main-pcie-usb-sel-default-pins {
-> +		pinctrl-single,pins = <
-> +			J722S_IOPAD(0x058, PIN_INPUT, 7)	/* (T22) GPMC0_AD7.GPIO0_22 */
-> +		>;
-> +	};
-> +
-> +	main_uart0_pins_default: main-uart0-default-pins {
-> +		pinctrl-single,pins = <
-> +			J722S_IOPAD(0x01c8, PIN_INPUT, 0)	/* (F19) UART0_RXD */
-> +			J722S_IOPAD(0x01cc, PIN_OUTPUT, 0)	/* (F20) UART0_TXD */
-> +		>;
-> +		bootph-all;
-> +	};
-> +
-> +	main_usbc_power_pins_default: main-usbc-power-default-pins {
-> +		pinctrl-single,pins = <
-> +			J722S_IOPAD(0x1b4, PIN_INPUT, 7)	/* (B20) SPI0_CS0.GPIO1_15 */
-> +		>;
-> +	};
-> +};
-> +
-> +&audio_refclk1 {
-> +	assigned-clock-rates = <25000000>;
-> +};
-> +
-> +&main_i2c0 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&main_i2c0_pins_default>;
-> +	clock-frequency = <400000>;
-> +	status = "okay";
-> +
-> +	veml6030: light-sensor@10 {
-> +		compatible = "vishay,veml6030";
-> +		reg = <0x10>;
-> +		vdd-supply = <&vcc_3v3_sw>;
-> +	};
-> +};
-> +
-> +&main_i2c1 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&main_i2c1_pins_default>;
-> +	clock-frequency = <100000>;
-> +	status = "okay";
-> +
-> +	audio_codec: audio-codec@18 {
-> +		compatible = "ti,tlv320aic3110";
-> +		reg = <0x18>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&audio_ext_refclk1_pins_default>;
-> +		#sound-dai-cells = <0>;
-> +		ai3xx-micbias-vg = <2>;
-> +		reset-gpios = <&gpio_exp1 7 GPIO_ACTIVE_LOW>;
-> +
-> +		HPVDD-supply = <&vcc_3v3_aud>;
-> +		SPRVDD-supply = <&vcc_speaker>;
-> +		SPLVDD-supply = <&vcc_speaker>;
-> +		AVDD-supply = <&vcc_3v3_aud>;
-> +		IOVDD-supply = <&vcc_3v3_aud>;
-> +		DVDD-supply = <&vcc_1v8>;
-> +	};
-> +
-> +	gpio_exp0: gpio@20 {
-> +		compatible = "nxp,pcf8574";
-> +		reg = <0x20>;
-> +		gpio-controller;
-> +		#gpio-cells = <2>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&gpio_exp0_int_pins_default>;
-> +		interrupt-parent = <&main_gpio0>;
-> +		interrupts = <21 IRQ_TYPE_LEVEL_LOW>;
-> +		gpio-line-names = "CSI3_STROBE", "CSI3_TRIGGER",
-> +				  "CSI3_SHUTTER", "CSI3_OE",
-> +				  "CSI2_STROBE", "CSI2_TRIGGER",
-> +				  "CSI2_SHUTTER", "CSI2_OE";
-> +	};
-> +
-> +	gpio_exp1: gpio@21 {
-> +		compatible = "nxp,pcf8574";
-> +		reg = <0x21>;
-> +		gpio-controller;
-> +		#gpio-cells = <2>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&gpio_exp1_int_pins_default>;
-> +		interrupt-parent = <&main_gpio1>;
-> +		interrupts = <49 IRQ_TYPE_LEVEL_LOW>;
-> +		gpio-line-names = "GPIO0_HDMI_RST", "GPIO1_CAN_nEN",
-> +				  "GPIO2_LED", "GPIO3_MCU_CAN0_nEN",
-> +				  "GPIO4_BUT2", "GPIO5_MCU_CAN1_nEN",
-> +				  "GPIO6_AUDIO_GPIO", "GPIO7_AUDIO_USER_RESET";
-> +	};
-> +
-> +	gpio_exp2: gpio@23 {
-> +		compatible = "nxp,pcf8574";
-> +		reg = <0x23>;
-> +		gpio-controller;
-> +		#gpio-cells = <2>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&gpio_exp2_int_pins_default>;
-> +		interrupt-parent = <&main_gpio0>;
-> +		interrupts = <20 IRQ_TYPE_LEVEL_LOW>;
-> +		gpio-line-names = "CSI1_STROBE", "CSI1_TRIGGER",
-> +				  "CSI1_SHUTTER", "CSI1_OE",
-> +				  "CSI0_STROBE", "CSI0_TRIGGER",
-> +				  "CSI0_SHUTTER", "CSI0_OE";
-> +	};
-> +
-> +	current-sensor@40 {
-> +		compatible = "ti,ina233";
-> +		reg = <0x40>;
-> +		shunt-resistor = <18000>;
-> +	};
-> +
-> +	eeprom@51 {
-> +		compatible = "atmel,24c02";
-> +		reg = <0x51>;
-> +		pagesize = <16>;
-> +	};
-> +};
-> +
-> +&main_mcan0 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&main_mcan0_pins_default>;
-> +	phys = <&can_tc0>;
-> +	status = "okay";
-> +};
-> +
-> +&main_uart0 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&main_uart0_pins_default>;
-> +	bootph-all;
-> +	status = "okay";
-> +};
-> +
-> +&mcasp0 {
-> +	#sound-dai-cells = <0>;
-> +	op-mode = <0>; /* MCASP_IIS_MODE */
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&main_mcasp0_pins_default>;
-> +	tdm-slots = <2>;
-> +	serial-dir = < /* 0: INACTIVE, 1: TX, 2: RX */
-> +	       0 0 1 2
-> +	       0 0 0 0
-> +	       0 0 0 0
-> +	       0 0 0 0
-> +	>;
-> +	status = "okay";
-> +};
-> +
-> +&mcasp1 {
-> +	#sound-dai-cells = <0>;
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&main_mcasp1_pins_default>;
-> +	op-mode = <0>; /* MCASP_IIS_MODE */
-> +	tdm-slots = <2>;
-> +	serial-dir = < /* 0: INACTIVE, 1: TX, 2: RX */
-> +	       1 0 2 0
-> +	       0 0 0 0
-> +	       0 0 0 0
-> +	       0 0 0 0
-> +	>;
-> +	status = "okay";
-> +};
-> +
-> +&pcie0_rc {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&main_pcie_pins_default>;
-> +	num-lanes = <1>;
-> +	phys = <&serdes1_pcie_link>;
-> +	phy-names = "pcie-phy";
-> +	reset-gpios = <&main_gpio0 31 GPIO_ACTIVE_HIGH>;
-> +	status = "okay";
-> +};
-> +
-> +&sdhci1 {
-> +	/* SD/MMC */
-> +	vmmc-supply = <&vcc_3v3_mmc>;
-> +	vqmmc-supply = <&vddshv_sdio>;
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&main_mmc1_pins_default>;
-> +	disable-wp;
-> +	no-1-8-v;
-> +	bootph-all;
-> +	status = "okay";
-> +};
-> +
-> +&serdes_ln_ctrl {
-> +	idle-states = <J722S_SERDES0_LANE0_USB>,
-> +		      <J722S_SERDES1_LANE0_PCIE0_LANE0>;
-> +};
-> +
-> +&serdes0 {
-> +	status = "okay";
-> +
-> +	serdes0_usb_link: phy@0 {
-> +		reg = <0>;
-> +		cdns,num-lanes = <1>;
-> +		#phy-cells = <0>;
-> +		cdns,phy-type = <PHY_TYPE_USB3>;
-> +		resets = <&serdes_wiz0 1>;
-> +	};
-> +};
-> +
-> +&serdes_wiz0 {
-> +	status = "okay";
-> +};
-> +
-> +&serdes1 {
-> +	status = "okay";
-> +
-> +	serdes1_pcie_link: phy@0 {
-> +		reg = <0>;
-> +		cdns,num-lanes = <1>;
-> +		#phy-cells = <0>;
-> +		cdns,phy-type = <PHY_TYPE_PCIE>;
-> +		resets = <&serdes_wiz1 1>;
-> +	};
-> +};
-> +
-> +&serdes_wiz1 {
-> +	clocks = <&k3_clks 280 0>, <&k3_clks 280 1>, <&pcie_refclk0>;
-> +	status = "okay";
-> +};
-> +
-> +&usbss0 {
-> +	ti,vbus-divider;
-> +	status = "okay";
-> +};
-> +
-> +&usb0 {
-> +	dr_mode = "otg";
-> +	usb-role-switch;
-> +	maximum-speed = "high-speed";
-> +
-> +	port {
-> +		usb0_ep: endpoint {
-> +			remote-endpoint = <&usb0_con>;
-> +		};
-> +	};
-> +};
-> +
-> +&usbss1 {
-> +	ti,vbus-divider;
-> +	status = "okay";
-> +};
-> +
-> +&usb1 {
-> +	dr_mode = "host";
-> +	phys = <&serdes0_usb_link>;
-> +	phy-names = "cdns3,usb3-phy";
-> +	maximum-speed = "super-speed";
-> +};
+>   /* WKUP UART0 is used for DM firmware logs */
+>   &wkup_uart0 {
+>   	pinctrl-names = "default";
 
 
