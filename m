@@ -4,139 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D97BFCDE002
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 05:48:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2341ECDB479
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 05:53:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M3I+DqW2/rPEMQxEB4Tut72vdKlbdYsutIbq0uGtNJE=; b=s7HUKrlSAEYfOqWfJJBJCC3CxK
-	FbS4ccxSBp7yxxHlR6S44FbirCVJdhCJ0zKi5hVLWBZpPMYCdM1mNAVQ4M3b1PPHCAYxNRTaRf9yr
-	SnYx2AYFhumn/yCo31RIr2GSrSEYQGMS3yTUM0xqxW6ATJYX5ETK63TVo7ocXqxKgqANmZYorCJEm
-	EJHHHy+DXQB/2DeIgoGg5jn0UQzirMB+xXPCP4BC30f2LQp/8XkMJ7rQRlk7fSbNZXhG/lNQcmBwf
-	Nz2CJ9LYxwyhBkUjPAt77Bq+LsbPyN2fuOP5WdezkFvZjJa3J+HpfWRAj55nZnpELkUnRRoccpXBg
-	KPFbftaA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=feDfEtX/9kQs2f+wxAQHO2e71fm72OqRRtW4u3183hs=; b=E3+S8bA2hohkxvFRsTuOIvT0C7
+	1mNTNctpwI0zqo1GzqUJCHcoYvbKbhS3VSOK0Xn/e6ufnAPKthMIGUmG0eXMM28/ibAssS9hlv/CZ
+	k37nsL+dHeBzJytK4oYIh1SK6922tiqNvD2dOxchdOQEjONGdGjwz2h1Syomclmy8LU0oj6THDLYm
+	2+1sa9WnIKvumFhOekMU1RD5qxWov+aeIGPaTN4POFBAYnoHJy6Mqgq9iIWd8v2i5R1P/Nk6uLuFo
+	hD6GNP9sSRD2xAJIekybPP3JGIKq2aC+N01kuOcorhpYNiQeu9DzhxWTm/GNVcTg+O68ohax6xJMc
+	K+hLnC9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wccwK-00000008g96-2c2f;
-	Thu, 25 Jun 2026 05:47:52 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wcd1r-00000008gZr-2i6I;
+	Thu, 25 Jun 2026 05:53:35 +0000
+Received: from mail-northcentralusazon11010028.outbound.protection.outlook.com ([52.101.193.28] helo=CH1PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wccwI-00000008g8j-0XcS
+	id 1wcd1o-00000008gZK-18Aw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Jun 2026 05:47:51 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65P3e1nK3405679
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Jun 2026 05:47:49 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	M3I+DqW2/rPEMQxEB4Tut72vdKlbdYsutIbq0uGtNJE=; b=knk/ccUxuYUeuhqY
-	pdLnzCEbOCPpAxWu3+BOFN6RC5NhBF7yiQbjorS3jGDvc6Iw74jH5SGVpDpXEHWN
-	VfRuvUKqrGT/hOcQeR0Su3QkK55YFvxPGgBXUOk2qgJcrIEFwQEGvgYfn32VAQSK
-	25Ck37sCRMHpaRWSoTbvYQBJkM2bePYYo8O4aWa8h6Gsfzu/s5cRaiSUWIH5itce
-	bqC4u4l8wulKN69i7W4QoDXJO0OrDYyunytLkkrZ93yIIg187fhop3Mx5LBDxKQK
-	q6QcvskHQsRHwoikLAUpXsLGVTsMDcy2lvOt5KnidoalAnxgR18i8GeK/zonCY2p
-	q6uOYQ==
-Received: from mail-pf1-f197.google.com (mail-pf1-f197.google.com [209.85.210.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f0tsprwb7-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Jun 2026 05:47:49 +0000 (GMT)
-Received: by mail-pf1-f197.google.com with SMTP id d2e1a72fcca58-845b97ebc72so87864b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Jun 2026 22:47:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1782366469; x=1782971269; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:subject:from:user-agent:mime-version:date:message-id:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=M3I+DqW2/rPEMQxEB4Tut72vdKlbdYsutIbq0uGtNJE=;
-        b=RZ80M9jOI+y9JCTQocB6Fi+SXv01aS0ZXK9K3ArYQDEDpER8cw7Iq8YdMt25gUdzFf
-         akTWIYI5cVNpa61L3x4lAQSzAIb0kIfh9I5L4n6fR5nbcHql99cjuelOCAgpkdbEf924
-         4himrckJPQviWP7NZKieddKU/3jVOIPHwU1yCrKuS9vBEt8MeNYnQz8stJF3cAhnVfuK
-         mRB9tFPCz2U5kSwiOjpA0nykBt4uDg7BRuFQhFohUz9uRXMrX3yR5Ss+LAwUgidN0+i5
-         eUTCsRX4fCB4VPbU5hvZ4hBSg0ztY3mwnyfe9h958AsDgGJLUeXY3yyB+7xSTR6oIDOm
-         QuhQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782366469; x=1782971269;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:subject:from:user-agent:mime-version:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=M3I+DqW2/rPEMQxEB4Tut72vdKlbdYsutIbq0uGtNJE=;
-        b=oPeNwRyV3YWeXypvr53da5lj/jWZ4xCgUiUpbL0qZ+cVAwfqeHT3eRVoXpJDAhbPIN
-         M9IU+LXKHL47LbRBMFOeLoEnscNWNTbeRNdgJ3ezYY13TpiXu2NmiYMC2L4eKmstOkge
-         L8auDMkPsBCtmCulGC59eS2Zsz8sT6gwIvM84o2+Q35SXFHXCLt1if7fC11x1g2vuy84
-         00ra6TMgZxewEE0Lo3zwm339XJxMpbvKMmeVy0o3/QHecNd9WPAONsUDVaRQjScZek92
-         XxiyOY7pO0TklTPcWjDHG2u7c5striJZgrsayRB0IjGAtf5K/G6JPi256ja/F1NnjR7l
-         rtpg==
-X-Forwarded-Encrypted: i=1; AFNElJ8pTVf4taQkv3HsjA8zZr6j2ByrZpAlB2t1/Rq1E/OEGjyi6ProP5P/zv3p3fL/EYEUABCTlhe3if91yVsQgcnN@lists.infradead.org
-X-Gm-Message-State: AOJu0YzcPtAcef9EJ8/fNI/xc3/82m4lzgjDUS6/JapCMbCaJdlA35ZH
-	6DYgPgWaE4f1QRf7K+R2CQa4XE05H8HCS45qXUPmXheqR2oRlVCcJmLTOrv475YFSqnJ1EkXNog
-	9+hl4wBqqpfohkZ31ZpCFMReaVwgIUGA9TEzKzN8uoMWFyvsbG536HWsrK5PffUyKq2SLXW3IVo
-	rfQg==
-X-Gm-Gg: AfdE7clhUEMIhnlTdbfQCpxPkTKpHA+SxnHijiVq6RwOCgpl6huatDj4ys3W9TjmiRh
-	3Z4Ji0dtCZeIFH8nv4D5qRaZ+xbWSUtCzlnjGXTv0kAt6HvQxkBd6Cn3Qt1cEJjPLuW9O5lxh48
-	b+LxIUSZEewOBfSRkgO7HMSJFD6kGlGBXCM4Z1fOmWRhtCf8QJMqd/PuKI1qKXfT0ap9VdpNJDL
-	vmU2BuFhTilorVt8GO2gWkkNcv3D6wQIVgvVGeqn2MPVU5kxm9lx6m102yEvO/JgZckFvuzffEU
-	qhpAgCIRWy/gRE3SX8aYgVY2cLb/ygNdCtHlXZkFVOaiI2jxwbHzQV8PtHXYDmW3qxL2WaOfEtq
-	PuaHkJG+aL+b+t0cr8PXlq8uziwE/y1+Pxwcf1rnhTM7y
-X-Received: by 2002:a05:6a00:f8b:b0:842:7f81:8079 with SMTP id d2e1a72fcca58-845b3ae1ac6mr1470948b3a.37.1782366468451;
-        Wed, 24 Jun 2026 22:47:48 -0700 (PDT)
-X-Received: by 2002:a05:6a00:f8b:b0:842:7f81:8079 with SMTP id d2e1a72fcca58-845b3ae1ac6mr1470925b3a.37.1782366467845;
-        Wed, 24 Jun 2026 22:47:47 -0700 (PDT)
-Received: from [10.218.39.50] ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-845a3fcc82dsm4343164b3a.7.2026.06.24.22.47.44
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 24 Jun 2026 22:47:47 -0700 (PDT)
-Message-ID: <9b5b8feb-da05-4381-93dc-c11e135fff10@oss.qualcomm.com>
-Date: Thu, 25 Jun 2026 11:17:21 +0530
+	Thu, 25 Jun 2026 05:53:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=hxs5DuvYXuChmR4VabOnhPPYQzwA47orlDvV+1PcVnqUvAQtArGxn4/sOrfh8VqSRlb2yw0IVPeLuKt6sya0JDLgQttQjsXxvzft2UGr3znjqA96XL/ZBDJGCVuS2efNrYmNYhXD88c5UGZgDkDCpOiGduP0/E/oB9BBNErNjIaLlJ1zZQZBTk3vP2t95xhuBBLbsisIrqFB33905eq7Tz1oGqA8icqli80AiUIEX0jac8ervRfSUIwlpdv6wCG7+w+3ECndGvo/x7OLQkbJ9Ngt94V+jgFKedT/gqzyYMUEFI/JfYQgrnfU7ngmBiybwVtrHXJO7eU8Cd64zKf02Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=feDfEtX/9kQs2f+wxAQHO2e71fm72OqRRtW4u3183hs=;
+ b=Ot/hzj9h3oPfJmnhGN3Jg7kQu7FK/gc8ugRVrk73ZJ4wRjef8CuMrhCuKUP9mpVxp75a6RDsQ4EtbMVTWVXEaPyuyZhAPYzX4R3d3lhqkSuDitDk722zKYwUVeVTvWXfjOtCLyxx2ovuZ5qjGHoyiLYYpwmVSVcaP0qSWRF8YLnN5/hByEP5bNCiGb5hcWnQsWEGBVBVHt/Ws/pkkE2eI55f01mSgA6p1/ks2rZpmYAipRq3Vd69Go359U5fJOBFbN3qauA1a0eA7Pk14Xx5FlLBzWZM+9OuUT7GPOb7G4+W3IuHl0egrhGsM35jAqKNX02dcNcE9VI8ALbJJJ/nPA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=microchip.com; dmarc=pass action=none
+ header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=microchip.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=feDfEtX/9kQs2f+wxAQHO2e71fm72OqRRtW4u3183hs=;
+ b=yH/EqiMbHXcTvoWwzpUcmtZBTS0w4iNVoO8nuuh39rM5SOnxkjkHZ17ZfJQRgPxNrgFi2PEnVlwgzckD4VajVwf53Vom/heHUSdtdz8/VHxLJrLAlOG1N5vmqaSivhiskj3lz8RutkNEAqFGg3yTuXc5BSLo59O8CAX8xHfQWK14O7xmf4q1f91PUhIVCM6oMVp7NsCRjcaC71w5vgcJT0lViaqViM8BS8GSnM705hlRN3eq4WrtOAAq3wt1XO8aptwOfc+ahhCyO9yecRd6s6l93U8juWTj4DWEFah0qzP/gFiOWpGVr5BHYHHeYcT70YgFvAgfhY+okvWB+GpWJQ==
+Received: from IA3PR11MB9014.namprd11.prod.outlook.com (2603:10b6:208:583::17)
+ by SN7PR11MB6703.namprd11.prod.outlook.com (2603:10b6:806:268::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.14; Thu, 25 Jun
+ 2026 05:53:25 +0000
+Received: from IA3PR11MB9014.namprd11.prod.outlook.com
+ ([fe80::13c0:2f12:94a2:8dc8]) by IA3PR11MB9014.namprd11.prod.outlook.com
+ ([fe80::13c0:2f12:94a2:8dc8%6]) with mapi id 15.21.0139.009; Thu, 25 Jun 2026
+ 05:53:19 +0000
+From: <Varshini.Rajendran@microchip.com>
+To: <andriy.shevchenko@intel.com>
+CC: <ehristev@kernel.org>, <jic23@kernel.org>, <dlechner@baylibre.com>,
+	<nuno.sa@analog.com>, <andy@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <Nicolas.Ferre@microchip.com>,
+	<alexandre.belloni@bootlin.com>, <claudiu.beznea@tuxon.dev>,
+	<srini@kernel.org>, <linux-iio@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2 03/12] iio: adc: at91-sama5d2_adc: adapt the driver for
+ sama7d65
+Thread-Topic: [PATCH v2 03/12] iio: adc: at91-sama5d2_adc: adapt the driver
+ for sama7d65
+Thread-Index: AQHdAv+LPOlGq88v806dGbstYYVO9bZMdHmAgAJTXwA=
+Date: Thu, 25 Jun 2026 05:53:19 +0000
+Message-ID: <47964463-cfea-4808-80a2-393038c475ff@microchip.com>
+References: <20260623105944.128840-1-varshini.rajendran@microchip.com>
+ <20260623105944.128840-4-varshini.rajendran@microchip.com>
+ <ajrO3-buCfS0vx1L@ashevche-desk.local>
+In-Reply-To: <ajrO3-buCfS0vx1L@ashevche-desk.local>
+Accept-Language: en-GB, en-US
+Content-Language: en-GB
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=microchip.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: IA3PR11MB9014:EE_|SN7PR11MB6703:EE_
+x-ms-office365-filtering-correlation-id: a694a9c8-ff54-4be0-3a2d-08ded27e0f29
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|366016|7416014|23010399003|1800799024|38070700021|4143699003|56012099006|11063799006|18002099003|22082099003;
+x-microsoft-antispam-message-info: LHHKmRNFlCMV17fH1jH0vJoGelLHtApKMI8dqLemTcKjThtIOvjHUlHf8oo9psKwvvRlnHwDke+SeW81sJbqe3Ntv80xMzzmX5XIV8ruve2Hf4VRCGJH/lw0UehqEXGBRRhJLtiwE3QhrECvSwZF207F8Cnd57tUayCnaMc7dmS9eHRTAkXKMV7PpZ7RpxtBDFUBxhepVp/GMB/5LKJtB2v/vXJAKqfcfVA5OA0jx4avpBpqZtHvGn86CWRjrY3EjYok0Tv7NvD3dA3TLi+1e5GWgyeJjhVuW2FohP2+wgsaiXNnR6Vf+zKNlHLgkSo3MwjBgLw1nNj4Q5E9+VsWhdjdQxPCCg/A4EyrXfrbVtCDRfhW7dm7kiX+rUQ08vq7xFblD07RGw1jg9ORWP3Rv6+Tp1jwZeBqLQ2XZGPCUbbP/KEDD7n+f5WPwtyJibZ/lFqY+jjULYF2tVtiz7iciIWQ05pjyuyS97Cy+Rq5xAf1LeKuXc7P3MXLIYP5rUf7H9Di4M4vHz+m3LnnT28zamGfUy+RSmNkViBZWJwNIgopWCShnd3wvBzlWyXgxFi9rhF4zB6r9beNmdQ+QWXNRFE7eAaD01Ixzw++6Tp9BW3KufpJNffy9CQK25v3ucre3WuXyQUX/fPCelQbNBpux68HE1FT57QrqK1HxCbI5owffzGtuwW/xBeU4YQbdP7dySeKOATSfL0YXijBKoErEw==
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA3PR11MB9014.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(7416014)(23010399003)(1800799024)(38070700021)(4143699003)(56012099006)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?amdqZjVXTjZEQ3B4eXdUV1NNcDFiWWpDNm52Z1V2SS9LLzVJK2hOVWtMOWo0?=
+ =?utf-8?B?NW9FOEU3TmsrQzRmTVRRaEo3QmVkd0gzNE9DRzRMWjM2WWgvR3hRQnVVMGh1?=
+ =?utf-8?B?NkRzZjZpRzczLzVZOWhTaEpEemFnVTBhbkVEL2lud1ZGRUsvdk9OUXdBT2RU?=
+ =?utf-8?B?eUtmZEJnWFZYcjlJYVRsR0JOK1BROWFYcFhjb3prNisra2xtWTNEMWlvaGti?=
+ =?utf-8?B?MTlScWRCUjFNK3RjV25ya3hydkh6djRELzlKMCs4bDgzSmNOSTJzVk9teEJE?=
+ =?utf-8?B?Y1hxS2xiNVJkcjhJcTlhbzhhOGdxUWdQcFpESW9UVnAyV3ZFNC9ZWGxWdzZS?=
+ =?utf-8?B?RkpBbWhwOGVtZ0ExUXJNRm90YXBUSi9uaDRXcnhGck0rZk5mWnJRZnNSODFp?=
+ =?utf-8?B?QVlPaWh6YzFjbzgxRnpUVTU2Rmdvdzk5dWlkN2ZaUkVRNWw3eStoZ2V3Nmcw?=
+ =?utf-8?B?dXptUENHMEVQTnI0cjkvRlhnVlN1eXhQWXB4N2VCOVJNSVV5MmFndGJZR3Iz?=
+ =?utf-8?B?WFlZM0JJbnkzaUtHZzFjL3hMeUdSMjNDaWdSb3R6dzdndEhZYWNiMHRSR2lZ?=
+ =?utf-8?B?QnJUN2N0UFdKQ2xQWDhZOFg0THAwVE5IWXlaMGl6bVhBSnlDdkZSWHJYeFEx?=
+ =?utf-8?B?V0ZUSGZBVVFvQTNTai9NS3pWUnRxWEZxOFlvc09aUllrYUgxdUNVY0FWV0Ri?=
+ =?utf-8?B?WCtwTjZUb25xVHRwVlNhTHYyTTdzVzFxVXpFNVBGTStiSjB2bW14VDY1V1A1?=
+ =?utf-8?B?eGx1djZ5UDF6U0F2ejk3S2owRi9RVkJQMlpGYStsYVdYRmtYTXE3eDF0WE93?=
+ =?utf-8?B?WDNrWE0yQjgySjFlODcrNkYwdi9vRTdSb01BYXlkdk15UFVYeDYyRmMrdGZH?=
+ =?utf-8?B?ZXJsTnlpbHBhK3BmWFRETUI1T3BCTU1QaHk2RUl6SnM3eGgzZnovb3dZTE9F?=
+ =?utf-8?B?V3EwRUdJUi8vL1ZLLy9vK1NtbDRMNUx4alJJcEhHRGZQNUJNMTBlNERDZXlk?=
+ =?utf-8?B?cWVzVXNUN2NNYzdEbW0rMzJCamdlMkJJSFRSVk8ySVZwZHpKVHNweS91TVRx?=
+ =?utf-8?B?RFFRU1NLL3pIcjNPTW1SUWhxY3pRNW9QdUtkSzg4TEJjN0EwMG9iT2NYTUZ5?=
+ =?utf-8?B?R251MiszRTgzZ1E2YWVMQlFtUDRsNXZ0UHZ5MzhuR1ArNVhrMFFydjJVRTlj?=
+ =?utf-8?B?cHp2TENmbERibVgvODRGQS9CaXNmYWRkSGpRK3EvZkZ6TWQwYlNibG5RS1hu?=
+ =?utf-8?B?TFZRMEgyMm9LVzNRY3ovRFI0ZUt1S2JhTTc2K0orNWowOGs3V3lhQVJzNWVN?=
+ =?utf-8?B?T3h6d1RHSVN4TWY4bHpIRTJUOHNuaWhKSFBGMnVoS2hjUEtEZUVkSjBiR2NF?=
+ =?utf-8?B?em8vL0JMeTdLcVhPVDNBZGU0VVBoaWtGK2l6RUwvcTBEandXWUNBdWR3V0Vk?=
+ =?utf-8?B?UVJSTVozalkwSEhJZ0Fxdnp5WlF0N3lSdVNxNlhlbTdHNWxBNllFdEM1ck13?=
+ =?utf-8?B?QVJmK0hXSGZrTzRLSWc3SGpwVytkck5NUXVDcFBnanM2NWx5bXlWREhHd2Fs?=
+ =?utf-8?B?Y3ptTzdLTVI4OURlRmpZUUVpUk1zYVdGOGIxUExnVnJJZEcwRE44b0dLQ2k5?=
+ =?utf-8?B?VmZ0Qmozems4RUJHUUVJOVNDQkVLcU91Q0ZQTjNoc3Z5aDFNbHZFd0ZtWFhp?=
+ =?utf-8?B?REZoeFpEdWM1M0c0VXp0WGMyV1E5dkJjeDZvQ3doUTFlRTZjTXNOQkhFemMx?=
+ =?utf-8?B?NmQ3eU11dSs4a3BBVktZZHc1L1I0MDNBZG8vY05KVHNpZ0x3VG1HUUJDRXRu?=
+ =?utf-8?B?cU9UMFErREZnNUJEdnM4NGZYUnpNUTd0aVFCeVBmN0NzUmdsZHRaSHdCUWg4?=
+ =?utf-8?B?dzhKMDFWSmtoU014ZUU5b3AxOTRrK0xFMXhaZkdKY3JIM3lrU2RpV0Uzc3lD?=
+ =?utf-8?B?UkZqZEhwNTR6T2ZrREc4bFZyS0NpRVQxQ3hLWXJ2c2h3YjZyZVJrdVNVVjdv?=
+ =?utf-8?B?TllqTm9MUjEyRmwxb1kwVXBqVXFiZ0ZWYnZMalZLdUVnb21kR2NINDkwSUY5?=
+ =?utf-8?B?K3dKS0RNeGNUTEtDVGJHbGlMTXJJUi9rWnRvSzQxVWt2UUFEZmV5amRWS0Zm?=
+ =?utf-8?B?VnByVE9pMzBDQlFRUjdJc0kvZ09wRDFiWndLeXNkMWIxb294R0xDdVlNWGVE?=
+ =?utf-8?B?ai9aUjNkMlVCSWxGNzRTd0tuNTVtbVUxdE9kdm4zNHZ4cTNCc05QUFJLb3Fj?=
+ =?utf-8?B?d01kVFlNaTdEWG1yQ0RwQnAxM0NaRm1jZ3UySDFqcmpYVzVHMEdkTzJCTElK?=
+ =?utf-8?B?amgvRjk3c2VPOXNaaTB6Q2RjRnBtZldSWkVvMUNzOEZSR2gwOXJIaVJ3NnZN?=
+ =?utf-8?Q?EPkimCJKWCfrV+L4=3D?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <E8480CCDEA79C44BA780F3C9B8ABA597@namprd11.prod.outlook.com>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
-Subject: Re: [PATCH] iommu/io-pgtable-arm: Add support for contiguous hint bit
-To: Daniel Mentz <danielmentz@google.com>
-Cc: "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>,
-        Robin Murphy <robin.murphy@arm.com>, linux-arm-msm@vger.kernel.org,
-        iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        Prakash Gupta <prakash.gupta@oss.qualcomm.com>
-References: <20260618-iommu_contig_hint-v1-1-4502a59e6388@oss.qualcomm.com>
- <CAE2F3rABU2_d+e+NuFJ3ngDCEnGuVCsmE612V9RAKmyAX-R9Mw@mail.gmail.com>
-Content-Language: en-US
-In-Reply-To: <CAE2F3rABU2_d+e+NuFJ3ngDCEnGuVCsmE612V9RAKmyAX-R9Mw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=OL8XGyaB c=1 sm=1 tr=0 ts=6a3cc105 cx=c_pps
- a=rEQLjTOiSrHUhVqRoksmgQ==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
- a=EUspDBNiAAAA:8 a=2pZLd1I5B0H_JK-GwgIA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=2VI0MkxyNR6bbpdq8BZq:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjI1MDA0NyBTYWx0ZWRfX7hr0Zc6JNXpB
- ZSu3inlxFzThEfdwqjTOrjen/nPSfGvidecgz7UGwkGy3J1ITiZ5ZPByZWHjMd7Bnd7H8aRxFK6
- M8H0tnEvjQKHQ+yeBqPFtIi11JAgLLOvWjOeltiSv4C52XLcUc8i60YpsjWzzn4BV3dKeeh9K/6
- h8y80CNuJUvKvDSqNWYTVgBsg9gqVdGo9h2WPT7cTi3ZSBxdDekKDglWRRYCFTdXF+C9LIFuZcQ
- LmkpRKWxRj9RW9zPwBSMRiSIct1w7SFF/yRomNL84bUD8cS7YiihoVo+wnC6u/PJblr7NL3QF61
- zm/kBE9m6m3sVo5ZK7Z+3X4akjjNGVyvoiKtYoqWtZjikVgTG42Bd5WRcQ11A1BlL/K8TWM9CsF
- RRLV4NSGuvj4oNVJ0lQohJ2D0HPUa+DBkwzpNOoXP3NsrOBCDeAIFlAGKl3oxwrH394od5uaj/d
- 63mMgYzrT9jpJT+6joQ==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNjI1MDA0NyBTYWx0ZWRfXwHFOmkO94TlZ
- VOcho4FAsqieWXPJtCk+DfUFcG0fhTEabHEYQRm62y2KhTMgF2y0w4PISd64qZO8SJYxI89qfYI
- ZP+0gzCro4IxqH4sOTCAnWCpHUz4yPk=
-X-Proofpoint-ORIG-GUID: zd14iHUeqE4jEmCHUWMUGjrRAQqpZpyE
-X-Proofpoint-GUID: zd14iHUeqE4jEmCHUWMUGjrRAQqpZpyE
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-25_01,2026-06-24_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 phishscore=0 clxscore=1015 malwarescore=0 lowpriorityscore=0
- suspectscore=0 priorityscore=1501 spamscore=0 impostorscore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2606250047
+X-OriginatorOrg: microchip.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: IA3PR11MB9014.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a694a9c8-ff54-4be0-3a2d-08ded27e0f29
+X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Jun 2026 05:53:19.4781
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: adtbBlU/e9lDNmkIBBq3yjk72Bhr9rTynj19P2QAhv4E7GlIPBgkwBZ1a/njG0JCGu/9w2NnkrdXu0CHzBCj5yA6LUIDrC/yposNQcAWVKh+gjziGpEqFFeLHfQq84vd
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR11MB6703
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_224750_183877_8AC3DEB1 
-X-CRM114-Status: GOOD (  41.60  )
+X-CRM114-CacheID: sfid-20260624_225332_527221_863CB2FA 
+X-CRM114-Status: GOOD (  14.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,255 +158,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 6/20/2026 1:10 AM, Daniel Mentz wrote:
-> On Thu, Jun 18, 2026 at 2:06 AM Vijayanand Jitta
-> <vijayanand.jitta@oss.qualcomm.com> wrote:
->> Support is gated behind CONFIG_IOMMU_IO_PGTABLE_CONTIG_HINT, which
->> provides a compile-time opt-out for hardware affected by SMMU errata
->> related to the contiguous bit.
-> 
-> Have you considered making this a runtime option? Compare this with
-> arm_smmu_device_iidr_probe() where the smmuv3 driver disables certain
-> features based on the identified implementation and the errata
-> affecting that implementation.
-> 
-
-Thanks for the review comments.
-
-Good point. I’ll drop the Kconfig switch and make this runtime-controlled
-via an io-pgtable quirk, so SMMU drivers can disable CONT based on errata.
-
->> On the mapping side, __arm_lpae_map() detects when the requested size
->> matches a contiguous range at the next level, sets the CONT bit on all
->> PTEs in the group, then recurses with the base block size and an
->> adjusted pgcount.
-> 
-> I would perform this check at the current level not the previous
-> level. See comments below.
-> 
-
-Sure, will update this check at current level.
-
->>
->> On the unmapping side, the CONT bit is cleared from all PTEs in the
->> affected contiguous group before any individual entry is invalidated,
->> following the Break-Before-Make requirement of the architecture.
-> 
-> My understanding is that for unmap operations, the following rule applies:
-> 
-> The IOVA range targeted by an unmap operation must exactly match the
-> IOVA range of a previous map operation. Partial unmap operations are
-> not allowed.
-> 
-> The iopgtable code previously had a function named
-> arm_lpae_split_blk_unmap() which allowed a block mapping to be split
-> up. However, that function has since been removed, which aligns with
-> prohibiting partial unmaps.
-> The other concern I have is a potential race condition: While one
-> thread clears the contiguous bit, another thread could try to unmap
-> the same descriptor.
-> 
-> Consider dropping support for partial unmap and just triggering a
-> WARN_ON() if you detect that a contiguous group is partially unmapped.
-> 
-
-Sure, will drop partial unmap support and  I'll update with WARN_ON()
-as suggested.
-
->> +static inline int arm_lpae_cont_pmds(unsigned long size)
-> 
-> PMD is not a term that is used in this file. I advise against
-> introducing this term.
-> 
-
-Agreed, I’ll avoid PMD terminology here and rename those helpers/comments
-to use block-level wording.
-
->> +static u32 arm_lpae_find_num_cont(struct arm_lpae_io_pgtable *data, int lvl)
->> +{
->> +       if (lvl == ARM_LPAE_MAX_LEVELS - 2)
->> +               return arm_lpae_cont_pmds(ARM_LPAE_BLOCK_SIZE(lvl, data));
->> +       else if (lvl == ARM_LPAE_MAX_LEVELS - 1)
->> +               return arm_lpae_cont_ptes(ARM_LPAE_BLOCK_SIZE(lvl, data));
-> 
-> Consider supporting the contiguous bit at lookup level 1.
-> 
-
-Sure.
-
->>  static int __arm_lpae_map(struct arm_lpae_io_pgtable *data, unsigned long iova,
->>                           phys_addr_t paddr, size_t size, size_t pgcount,
->>                           arm_lpae_iopte prot, int lvl, arm_lpae_iopte *ptep,
->> @@ -463,6 +583,7 @@ static int __arm_lpae_map(struct arm_lpae_io_pgtable *data, unsigned long iova,
->>         size_t tblsz = ARM_LPAE_GRANULE(data);
->>         struct io_pgtable_cfg *cfg = &data->iop.cfg;
->>         int ret = 0, num_entries, max_entries, map_idx_start;
->> +       u32 num_cont = 1;
->>
->>         /* Find our entry at the current level */
->>         map_idx_start = ARM_LPAE_LVL_IDX(iova, lvl, data);
->> @@ -505,6 +626,24 @@ static int __arm_lpae_map(struct arm_lpae_io_pgtable *data, unsigned long iova,
->>                 return -EEXIST;
->>         }
->>
->> +       if (arm_lpae_pte_is_contiguous_range(data, size, lvl + 1, &num_cont)) {
-> 
-> I would recommend performing this check at the actual level not at the
-> previous lookup level i.e. not at the (lvl - 1) level. Imagine the
-> following situation: The granule size is 4KB, the initial lookup level
-> is 2, and size is 32MB. I'm wondering if in that case, it'll just keep
-> recursing until it hits (WARN_ON(lvl >= ARM_LPAE_MAX_LEVELS - 1)).
-> 
-
-Right, I see your point. The contiguous-size check should be done against the
-current level, I’ll fix that in v2.
-
->> +#ifdef CONFIG_IOMMU_IO_PGTABLE_CONTIG_HINT
->> +static void arm_lpae_cont_clear(struct arm_lpae_io_pgtable *data,
->> +                               unsigned long iova, int lvl,
->> +                               arm_lpae_iopte *ptep, size_t num_entries)
->> +{
->> +       struct io_pgtable_cfg *cfg = &data->iop.cfg;
->> +       u32 num_cont = arm_lpae_find_num_cont(data, lvl);
->> +       arm_lpae_iopte *cont_ptep;
->> +       arm_lpae_iopte *cont_ptep_start;
->> +       unsigned long cont_iova;
->> +       int offset, itr;
->> +
->> +       cont_ptep = ptep - ARM_LPAE_LVL_IDX(iova, lvl, data);
->> +       cont_iova = round_down(iova,
->> +                              ARM_LPAE_BLOCK_SIZE(lvl, data) * num_cont);
-> 
-> As a result of this round_down() function, you are accessing a
-> descriptor that describes an IOVA outside the range targeted by the
-> iommu_unmap call. Consequently, you might race against another thread
-> accessing the same descriptor.
-> 
-
-Agreed. I’m going to drop partial-unmap handling for contiguous groups,
-so we will only operate on an exact aligned contiguous range and
-reject partial unmaps with WARN_ON(). That also removes the need for
-the current round_down()-based logic.
-
->> +       cont_ptep += ARM_LPAE_LVL_IDX(cont_iova, lvl, data);
->> +       cont_ptep_start = cont_ptep;
->> +
->> +       /*
->> +        * iova may not be aligned to the contiguous group boundary; include
->> +        * any leading entries so round_up() covers all overlapping groups.
->> +        */
->> +       offset = ARM_LPAE_LVL_IDX(iova, lvl, data) -
->> +                ARM_LPAE_LVL_IDX(cont_iova, lvl, data);
->> +       num_entries = round_up(offset + num_entries, num_cont);
->> +
->> +       for (itr = 0; itr < num_entries; itr++) {
->> +               WRITE_ONCE(*cont_ptep, READ_ONCE(*cont_ptep) & ~ARM_LPAE_PTE_CONT);
-> 
-> This read-modify-write operation is not safe due to the potential race
-> described above.
-> 
-
-With partial unmap support removed, I suppose this should be fine now.
-
->> +               cont_ptep++;
->> +       }
->> +
->> +       if (!cfg->coherent_walk)
->> +               __arm_lpae_sync_pte(cont_ptep_start, num_entries, cfg);
->> +}
->> +#else
->> +static void arm_lpae_cont_clear(struct arm_lpae_io_pgtable *data,
->> +                               unsigned long iova, int lvl,
->> +                               arm_lpae_iopte *ptep, size_t num_entries)
->> +{
->> +}
->> +#endif
->> +
->>  static size_t __arm_lpae_unmap(struct arm_lpae_io_pgtable *data,
->>                                struct iommu_iotlb_gather *gather,
->>                                unsigned long iova, size_t size, size_t pgcount,
->> @@ -660,7 +841,7 @@ static size_t __arm_lpae_unmap(struct arm_lpae_io_pgtable *data,
->>  {
->>         arm_lpae_iopte pte;
->>         struct io_pgtable *iop = &data->iop;
->> -       int i = 0, num_entries, max_entries, unmap_idx_start;
->> +       int i = 0, num_cont = 1, num_entries, max_entries, unmap_idx_start;
->>
->>         /* Something went horribly wrong and we ran out of page table */
->>         if (WARN_ON(lvl == ARM_LPAE_MAX_LEVELS))
->> @@ -675,9 +856,15 @@ static size_t __arm_lpae_unmap(struct arm_lpae_io_pgtable *data,
->>         }
->>
->>         /* If the size matches this level, we're in the right place */
->> -       if (size == ARM_LPAE_BLOCK_SIZE(lvl, data)) {
->> +       if (size == ARM_LPAE_BLOCK_SIZE(lvl, data) ||
->> +           (size == arm_lpae_find_num_cont(data, lvl) *
->> +                    ARM_LPAE_BLOCK_SIZE(lvl, data))) {
->> +               size_t pte_size;
->> +
->>                 max_entries = arm_lpae_max_entries(unmap_idx_start, data);
->> -               num_entries = min_t(int, pgcount, max_entries);
->> +               num_cont = arm_lpae_check_num_cont(data, size, lvl);
->> +               num_entries = min_t(int, num_cont * pgcount, max_entries);
->> +               pte_size = size / num_cont;
->>
->>                 /* Find and handle non-leaf entries */
->>                 for (i = 0; i < num_entries; i++) {
->> @@ -687,11 +874,27 @@ static size_t __arm_lpae_unmap(struct arm_lpae_io_pgtable *data,
->>                                 break;
->>                         }
->>
->> +                       /*
->> +                        * Break-Before-Make: before invalidating any leaf
->> +                        * entry, clear the CONT bit from every entry in the
->> +                        * contiguous group(s) and flush the TLB, as required
->> +                        * by the architecture.  arm_lpae_cont_clear() covers
->> +                        * the full [iova, iova + num_entries * pte_size) range
->> +                        * via round_up(), so subsequent entries read back
->> +                        * CONT=0 and skip this block.
->> +                        */
->> +                       if (pte & ARM_LPAE_PTE_CONT) {
->> +                               arm_lpae_cont_clear(data, iova, lvl, ptep, num_entries);
->> +                               io_pgtable_tlb_flush_walk(iop, iova,
->> +                                                         num_entries * pte_size,
->> +                                                         ARM_LPAE_GRANULE(data));
-> 
-> I believe this is inefficient. Consider the case where we unmap 2MB
-> worth of IOVA space mapped by 512 4KB page descriptors with the
-> contiguous bit set. If I'm not mistaken, you're running CMOs
-> (__arm_lpae_sync_pte) twice for every page descriptor. In addition,
-> io_pgtable_tlb_flush_walk() will submit an extra CMD_SYNC and wait for
-> it's completion.
-> 
-> Additionally, you perform rounding in arm_lpae_cont_clear(). However,
-> io_pgtable_tlb_flush_walk() is called on the original, potentially
-> unaligned range. Can this lead to under invalidation? Again, my
-> preference would be to drop support for partial unmaps which would
-> also remove the requirement for calling io_pgtable_tlb_flush_walk()
-> here.
-> 
-
-Agreed. The current unmap path is more complex and expensive than necessary.
-Since partial unmap of contiguous groups should not be supported, I will remove
-the rounding-based handling and only permit unmaps that exactly match an
-aligned contiguous group. That also eliminates the need for the 
-extra io_pgtable_tlb_flush_walk() here.
-
-Thanks,
-Vijay
-
->> +                       }
->> +
->>                         if (!iopte_leaf(pte, lvl, iop->fmt)) {
->>                                 __arm_lpae_clear_pte(&ptep[i], &iop->cfg, 1);
->>
->>                                 /* Also flush any partial walks */
->> -                               io_pgtable_tlb_flush_walk(iop, iova + i * size, size,
->> +                               io_pgtable_tlb_flush_walk(iop, iova + i * pte_size, pte_size,
->>                                                           ARM_LPAE_GRANULE(data));
->>                                 __arm_lpae_free_pgtable(data, lvl + 1, iopte_deref(pte, data));
->>                         }
-
+SGkgQW5keSwNCg0KT24gMjMvMDYvMjYgMTE6NTIgcG0sIEFuZHkgU2hldmNoZW5rbyB3cm90ZToN
+Cj4gRVhURVJOQUwgRU1BSUw6IERvIG5vdCBjbGljayBsaW5rcyBvciBvcGVuIGF0dGFjaG1lbnRz
+IHVubGVzcyB5b3Uga25vdyB0aGUgY29udGVudCBpcyBzYWZlDQo+IA0KPiBPbiBUdWUsIEp1biAy
+MywgMjAyNiBhdCAwNDoyOTozNVBNICswNTMwLCBWYXJzaGluaSBSYWplbmRyYW4gd3JvdGU6DQo+
+PiBBZGQgc3VwcG9ydCBmb3Igc2FtYTdkNjUgQURDLiBUaGUgZGlmZmVyZW5jZXMgYXJlIGhpZ2hs
+aWdodGVkIHdpdGggdGhlDQo+PiBjb21wYXRpYmxlLiBUaGUgY2FsaWJyYXRpb24gZGF0YSBsYXlv
+dXQgaXMgdGhlIG1haW4gZGlmZmVyZW5jZS4NCj4gDQo+IERvIHlvdSBuZWVkIHRvIHVwZGF0ZSBh
+IEtjb25maWcgaGVscCB0ZXh0Pw0KDQpZZXMuIEkgd2lsbCB1cGRhdGUgdGhlIHN1cHBvcnRlZCBT
+b0Mgc3BlY2lmaWNzIGluIHRoZSBLY29uZmlnIGhlbHAgdGV4dC4gDQpJIHdpbGwgYWxzbyBhZGRy
+ZXNzIHRoZSByZXN0IG9mIHlvdXIgcmV2aWV3IGNvbW1lbnRzIGluIHRoZSB2MyBwYXRjaHNldC4g
+DQpUaGFua3MgZm9yIHlvdXIgdGltZS4NCg0KPiANCj4gLS0NCj4gV2l0aCBCZXN0IFJlZ2FyZHMs
+DQo+IEFuZHkgU2hldmNoZW5rbw0KPiANCj4gDQoNCg0KLS0gDQpUaGFua3MsDQpWYXJzaGluaSBS
+YWplbmRyYW4uDQo=
 
