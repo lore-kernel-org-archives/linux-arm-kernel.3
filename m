@@ -4,52 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 196C6CDB479
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 00:37:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66C93CDB47C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 00:38:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fXbwUFpFZ+ncL+q1D1CKROZ5ZKOJfJBwJnKUiLXZjeQ=; b=BMslw4P9iWIzSm0MdLP3OiAHWS
-	aLuT6QY+3DZmEMfrobMxyh1qt4HtSTG9wm9BilMgVQm6aQw0cibxc/5qTvKoY5JmcIooaPx/ebr95
-	9WyuBh8IzOVbrz6zaXfbghwU1i99yuFJQl1sfdl2+ZG0UXyoktDqNoAvrcJmI/BDt4fJ/51G7N2GF
-	iHBpBsr6wfRqLolgyQS+mUL4yJBRGzxBWqFEIF+sz2NGc4EqHwxTEE6SWfgKz9x0IYJZ8QVH2VvkN
-	LuA9BupyAHKakWTvWOqis0GrO7kNnaKMteINHSTDkNLUmxadCdb0/teaZ8d7sDcP93IxHt13G2nXm
-	+LK02/fA==;
+	bh=nBDQYELmeM++uI0eikSwF9uiMa5FBguJzVyGdL7t6Hc=; b=US1nQe9EXTLgd20QAU9c2Fhlts
+	JcCl+Bpa8MXTYKWEQG/zVVFrHIOwrpO5lKjG3v1Wu92RkDccm7EHcUyK9qSVxV5sC0jik/Gg1RTMH
+	wL9kyli3C7DPwg5/MLRIdRAwCcv01Ljcs/2Ev/A6tDeRWnS3YTxkIj1OlTTli7DurxBLKer8MBDvE
+	V7pbdcHxdzEfpRRhEx4r6zECyUZN736Y71FFG/WdWAFayZa1I13b3gBrk/o8pQjZOwtmVZNeBRlx+
+	TPkX5p3c3dCDuf7z+ZUIjrDPOEg1gcw4RtTlM6Tm5QL5EHiSgdi+mcHKJiHddPu2LYGsv8hUpemQl
+	EBCyuSAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcY67-00000008TiL-02qP;
-	Thu, 25 Jun 2026 00:37:39 +0000
+	id 1wcY6l-00000008Tro-0qWO;
+	Thu, 25 Jun 2026 00:38:19 +0000
 Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcY63-00000008Thi-3gxB;
-	Thu, 25 Jun 2026 00:37:37 +0000
+	id 1wcY6i-00000008Tqv-3ejQ;
+	Thu, 25 Jun 2026 00:38:18 +0000
 Received: from localhost.localdomain (unknown [111.196.245.140])
-	by APP-03 (Coremail) with SMTP id rQCowAC3k5pMeDxqN+nCFQ--.4432S2;
-	Thu, 25 Jun 2026 08:37:32 +0800 (CST)
+	by APP-03 (Coremail) with SMTP id rQCowADH4dh2eDxqD+zCFQ--.4839S2;
+	Thu, 25 Jun 2026 08:38:14 +0800 (CST)
 From: Pengpeng Hou <pengpeng@iscas.ac.cn>
-To: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Felix Fietkau <nbd@nbd.name>
 Cc: pengpeng@iscas.ac.cn,
-	Richard Weinberger <richard@nod.at>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Shayne Chen <shayne.chen@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
 	Matthias Brugger <matthias.bgg@gmail.com>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-mtd@lists.infradead.org,
+	linux-wireless@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [RFC PATCH] mtd: rawnand: mtk: return errors when reset does not idle
-Date: Thu, 25 Jun 2026 08:37:30 +0800
-Message-ID: <20260625003730.35025-1-pengpeng@iscas.ac.cn>
+Subject: [RFC PATCH] wifi: mt76: fail channel switch when TX queues do not drain
+Date: Thu, 25 Jun 2026 08:38:12 +0800
+Message-ID: <20260625003812.37895-1-pengpeng@iscas.ac.cn>
 X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowAC3k5pMeDxqN+nCFQ--.4432S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxZF1xuFyDtr18uFyUAr17Awb_yoW5uFWkpF
-	WrJa47JF4UJF4xuw4kAFs5AFy3A3yft343GrWFg34I93WYvryj9a4rtF109rZxKFW8GFy3
-	Zrs2qasxuF43Ar7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+X-CM-TRANSID: rQCowADH4dh2eDxqD+zCFQ--.4839S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7tFyrWr4rur1rGFy5uF45Jrb_yoW8Kw4DpF
+	WDt3yj9F1DJFn0g3WxJ3Z5JFWY9F48Kw1DGrZYy34rA3Z8Zrn0yF15Ga4jkr15ArZ2yayY
+	grs8ta17WFyDWaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
 	9KBjDU0xBIdaVrnRJUUU9a14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
 	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
 	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
@@ -66,8 +68,8 @@ X-Coremail-Antispam: 1UD129KBjvJXoWxZF1xuFyDtr18uFyUAr17Awb_yoW5uFWkpF
 X-Originating-IP: [111.196.245.140]
 X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_173736_300430_BB3AE522 
-X-CRM114-Status: GOOD (  14.72  )
+X-CRM114-CacheID: sfid-20260624_173817_288767_6512D54F 
+X-CRM114-Status: GOOD (  12.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,107 +84,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-mtk_nfc_hw_reset() waits for the NFI master to become idle after forcing a
-reset, but it only logs a warning when the wait times out.  Probe-time
-hardware init and later exec_op() calls then continue as if the reset had
-completed.
+__mt76_set_channel() disables the TX worker, schedules pending TX queues,
+sets MT76_RESET, and waits for pending TX to drain before changing the PHY
+channel state and calling the driver set_channel() callback.
 
-Make the reset helper return the poll error and propagate it through both
-initial hardware setup and NAND operation execution.  Keep the final reset
-writes so status registers affected by the NFI master are still forced
-back to the reset state before the error is returned.
+The wait result is ignored.  If TX does not drain within the timeout, the
+function still publishes the new channel state and asks the driver to
+switch channels while old-channel TX may remain pending.
 
-This is marked RFC because the existing code only warns about the idle
-timeout and then performs the final reset writes.  Maintainer feedback is
-needed on whether this timeout should be treated as fatal or as a
-recoverable reset condition on affected hardware.
+Return -ETIMEDOUT when the drain wait expires.  Keep the survey update on
+the old channel, then clear MT76_RESET and re-enable the TX worker through
+the existing exit path.
+
+This is marked RFC because the existing channel switch path treats the TX
+drain wait as best-effort.  Maintainer feedback is needed on whether a TX
+drain timeout should fail the channel switch for all mt76 devices or
+whether the current force-forward behavior is intentional.
 
 Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
 ---
- drivers/mtd/nand/raw/mtk_nand.c | 27 ++++++++++++++++++++-------
- 1 file changed, 20 insertions(+), 7 deletions(-)
+ drivers/net/wireless/mediatek/mt76/mac80211.c | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/mtd/nand/raw/mtk_nand.c b/drivers/mtd/nand/raw/mtk_nand.c
-index 21c7e1102..059b8070f 100644
---- a/drivers/mtd/nand/raw/mtk_nand.c
-+++ b/drivers/mtd/nand/raw/mtk_nand.c
-@@ -255,7 +255,7 @@ static inline u8 nfi_readb(struct mtk_nfc *nfc, u32 reg)
- 	return readb_relaxed(nfc->regs + reg);
- }
- 
--static void mtk_nfc_hw_reset(struct mtk_nfc *nfc)
-+static int mtk_nfc_hw_reset(struct mtk_nfc *nfc)
+diff --git a/drivers/net/wireless/mediatek/mt76/mac80211.c b/drivers/net/wireless/mediatek/mt76/mac80211.c
+index 13c4e8abe..37474d64c 100644
+--- a/drivers/net/wireless/mediatek/mt76/mac80211.c
++++ b/drivers/net/wireless/mediatek/mt76/mac80211.c
+@@ -1033,6 +1033,7 @@ int __mt76_set_channel(struct mt76_phy *phy, struct cfg80211_chan_def *chandef,
+ 		       bool offchannel)
  {
- 	struct device *dev = nfc->dev;
- 	u32 val;
-@@ -269,12 +269,14 @@ static void mtk_nfc_hw_reset(struct mtk_nfc *nfc)
- 				 !(val & MASTER_STA_MASK), 50,
- 				 MTK_RESET_TIMEOUT);
- 	if (ret)
--		dev_warn(dev, "master active in reset [0x%x] = 0x%x\n",
--			 NFI_MASTER_STA, val);
-+		dev_err(dev, "master active in reset [0x%x] = 0x%x\n",
-+			NFI_MASTER_STA, val);
+ 	struct mt76_dev *dev = phy->dev;
++	long time_left;
+ 	int timeout = HZ / 5;
+ 	int ret;
  
- 	/* ensure any status register affected by the NFI master is reset */
- 	nfi_writel(nfc, CON_FIFO_FLUSH | CON_NFI_RST, NFI_CON);
- 	nfi_writew(nfc, STAR_DE, NFI_STRDATA);
-+
-+	return ret;
- }
+@@ -1040,8 +1041,13 @@ int __mt76_set_channel(struct mt76_phy *phy, struct cfg80211_chan_def *chandef,
+ 	mt76_txq_schedule_pending(phy);
  
- static int mtk_nfc_send_command(struct mtk_nfc *nfc, u8 command)
-@@ -517,7 +519,10 @@ static int mtk_nfc_exec_op(struct nand_chip *chip,
- 	if (check_only)
- 		return 0;
+ 	set_bit(MT76_RESET, &phy->state);
+-	wait_event_timeout(dev->tx_wait, !mt76_has_tx_pending(phy), timeout);
++	time_left = wait_event_timeout(dev->tx_wait, !mt76_has_tx_pending(phy),
++				       timeout);
+ 	mt76_update_survey(phy);
++	if (!time_left) {
++		ret = -ETIMEDOUT;
++		goto out;
++	}
  
--	mtk_nfc_hw_reset(nfc);
-+	ret = mtk_nfc_hw_reset(nfc);
-+	if (ret)
-+		return ret;
-+
- 	nfi_writew(nfc, CNFG_OP_CUST, NFI_CNFG);
- 	mtk_nfc_select_target(chip, op->cs);
+ 	if (phy->chandef.chan->center_freq != chandef->chan->center_freq ||
+ 	    phy->chandef.width != chandef->width)
+@@ -1059,6 +1065,7 @@ int __mt76_set_channel(struct mt76_phy *phy, struct cfg80211_chan_def *chandef,
  
-@@ -1084,8 +1089,10 @@ static int mtk_nfc_read_oob_std(struct nand_chip *chip, int page)
- 	return mtk_nfc_read_page_raw(chip, NULL, 1, page);
- }
+ 	ret = dev->drv->set_channel(phy);
  
--static inline void mtk_nfc_hw_init(struct mtk_nfc *nfc)
-+static int mtk_nfc_hw_init(struct mtk_nfc *nfc)
- {
-+	int ret;
-+
- 	/*
- 	 * CNRNB: nand ready/busy register
- 	 * -------------------------------
-@@ -1095,10 +1102,14 @@ static inline void mtk_nfc_hw_init(struct mtk_nfc *nfc)
- 	nfi_writew(nfc, 0xf1, NFI_CNRNB);
- 	nfi_writel(nfc, PAGEFMT_8K_16K, NFI_PAGEFMT);
- 
--	mtk_nfc_hw_reset(nfc);
-+	ret = mtk_nfc_hw_reset(nfc);
-+	if (ret)
-+		return ret;
- 
- 	nfi_readl(nfc, NFI_INTR_STA);
- 	nfi_writel(nfc, 0, NFI_INTR_EN);
-+
-+	return 0;
- }
- 
- static irqreturn_t mtk_nfc_irq(int irq, void *id)
-@@ -1411,7 +1422,9 @@ static int mtk_nfc_nand_chip_init(struct device *dev, struct mtk_nfc *nfc,
- 	mtd->name = MTK_NAME;
- 	mtd_set_ooblayout(mtd, &mtk_nfc_ooblayout_ops);
- 
--	mtk_nfc_hw_init(nfc);
-+	ret = mtk_nfc_hw_init(nfc);
-+	if (ret)
-+		return ret;
- 
- 	ret = nand_scan(nand, nsels);
- 	if (ret)
++out:
+ 	clear_bit(MT76_RESET, &phy->state);
+ 	mt76_worker_enable(&dev->tx_worker);
+ 	mt76_worker_schedule(&dev->tx_worker);
 -- 
 2.50.1 (Apple Git-155)
 
