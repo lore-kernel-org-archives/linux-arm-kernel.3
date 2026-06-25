@@ -4,71 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CEEDCDB466
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 09:06:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA6D9CDB47F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 09:10:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OO+/HYEHVU7mrQlTQFm+x8smhOEbJOWX2G5Z9vZo/LU=; b=vJGBo8DYohhtR9a1ZHMY2r1f1u
-	n0YOAnpluK9kC8i/G/Kz7b6VcOo14grtXNdxF1r26pWPoBq1On3txWb4C4ijco312FDt0qKmJB1NL
-	pF+sOqcKnvQbZQbOKqkyAHjHC01g77yYYuOIbK6ETXqtmmJdniIg1qfoDZr2nriA23zkGgp9N9kUG
-	yileUsezBhcfULMrWKN2rhVmn+Jl/nDSJn/4p4J4PfLvDIKo6yDLLyAbvbMghYHTXkKlNl/VBJhGS
-	FoqfD7aFwVEB9lRKv9ENghzPYw77beRK+A5PPM69nA4DDlmQD+xHDZyREnb+29tndoTcZU0/qJQQO
-	EIW4pCXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PybBbFFbv2qgp/wGc6XtY0wnuLp8C2DGakY4TdWZcjY=; b=JY27OPqHuheb0b5jC3My77UNqu
+	L2bBCxqYntDm2EdFhxJYXTd3nWAP5YZsEZc+NguEZie7tDepBeB5ghuJvKcJZ4t4PU7Zx3lXtD+ov
+	aXvlPLGXGRh6Aq5YdjE5j9gvs0GYGm8SrUsdbVOkyNotuf48xu3X9Pd8qs0xMHllEwhxI/kw807m0
+	pA1es0aZtowcmlKPVEulqxLn8eSG3MIJy1uVBShgEt0XwCc0QCiix+v6A6W8X/K+lVuAQoXMbp7Mv
+	yQbqdYwzHAIkA2HEnk1Bhrc5L72NmT4sKJ8L2iJt1qM8Xju1nE2YRB6ZRw+UaRwbU/YsLLsDTHfVw
+	8X19i3bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcg2G-00000008sOD-2qqS;
-	Thu, 25 Jun 2026 09:06:12 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1wcg6U-00000008sgJ-0SwH;
+	Thu, 25 Jun 2026 09:10:34 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcg2D-00000008sMs-21zS
+	id 1wcg6P-00000008sfV-3n2p
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Jun 2026 09:06:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=OO+/HYEHVU7mrQlTQFm+x8smhOEbJOWX2G5Z9vZo/LU=; b=a2wge7awYvSVOrIb6JR/DXjX1Z
-	CS8EiK4eIIXAxU5duFXx8VssXWvKe5MwSEEq0syXbEBBuJae68Wn543V9DZzf92TJqJFo8dctJrEW
-	UTh4D7UBhAQksKZa1mNk4k+m8NqWwKeepZ0w6ymaUTCcNCp//kFWQ8YMKjS8ci0MwvAq4hJcg7Ytf
-	jT+nfizmlrqc1nZE8Q2TU47LZdGnlZs9QBUwBWtcZBay5vJZw/jj4yj5WXE3q2+PPSwKXK3WgSPjN
-	omkCfhyAP9bK9YmfuDn/r/PqvQDdVtq4q+B/UjRnIIBYEGwZeDkE7ytUnzy3Nnu8dJ6EZ9zVY7HN/
-	1cKJVqEQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:55702)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1wcg20-000000000gq-1mB7;
-	Thu, 25 Jun 2026 10:05:56 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1wcg1w-000000001sO-44Zi;
-	Thu, 25 Jun 2026 10:05:52 +0100
-Date: Thu, 25 Jun 2026 10:05:52 +0100
-From: Russell King <linux@armlinux.org.uk>
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Cc: Xie Yuanbin <xieyuanbin1@huawei.com>, clrkwllms@kernel.org,
-	rostedt@goodmis.org, linusw@kernel.org, arnd@arndb.de,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev, liaohua4@huawei.com,
-	lilinjie8@huawei.com
-Subject: Re: [PATCH] ARM: enable interrupts when arm_notify_die() is handling
- user mode errors
-Message-ID: <ajzvcCve4LubjH9J@shell.armlinux.org.uk>
-References: <20260625073522.182503-1-xieyuanbin1@huawei.com>
- <20260625085034.tvyGSmaP@linutronix.de>
+	Thu, 25 Jun 2026 09:10:32 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-4631679f204so365191f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Jun 2026 02:10:28 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1782378627; cv=none;
+        d=google.com; s=arc-20260327;
+        b=iohgTpbEDDD8g2srShKMn4jxgUZ8pU2QbDA8TyxbY/apLo3Do7h41fsOdLnhibMTDB
+         AinxvxSyzmajtOgo9R9io5jiAu7qVz5RTMX1DlaKsVwnadRG65BNdN2Joe37mw/1yoX2
+         rcGzF5UM9GUxr+mAXawrFKkFkvePU2Hm8pzUSU266hWvlS5F9uRXKMrlp+Rhf/EZNMnz
+         DsCbvUyiiK67q2LVQ/t6HX/6VWdA+adGfraVdc4svGCrdMW4wNjrsdEtHfg+bei9CEmF
+         wedeqXW5ackVIDw4njyiVHbPV2RtbKki+/8fUno52p3H1N80NZA+lMUiPLlbnGrSPlx/
+         tJDQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=PybBbFFbv2qgp/wGc6XtY0wnuLp8C2DGakY4TdWZcjY=;
+        fh=cue+fImAbH/fPNwAQ8EiaXRD1nA1ObfIbmFc8sgHO5Y=;
+        b=c+RvgGLHrG9+ll7qoPKW7X/kR43bSzp9VbH87RDUAKuL+vCDOpKvMVnSYYa+N5Ckx0
+         ijRDxC4mEILUn5U7+z50yx9X9cN0MZfQXkpPQLKdHlbtpWn9jpWj7nRQ6D037CFUw5Tf
+         E8QBCEeyHSOJN7IOZN3DYTniwceTxc8ZXzmHpKyGnVAEdNsAZY0lRi9tF97rV3cvCScW
+         iTaVWwoidywKADhHOySxFjA5Ky6wNX3GRuzkPsgYG4P1m828WmK2L2lkaM3VJAeQgpZh
+         sh7p34gnR3sLhKn9Ejj+Lnc/d8uktJxJLkslTtvB/dIiVYLaKE1WgrZyiak1PqdZlqtn
+         hq7w==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=9elements.com; s=google; t=1782378627; x=1782983427; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PybBbFFbv2qgp/wGc6XtY0wnuLp8C2DGakY4TdWZcjY=;
+        b=We9pN9JCBUmAB4cgkAWJB0TPGHJBTXwEh3LOwtPZAflvPQPzKYy7vsMvnlsFeRydND
+         g9/ADbk3TlB4KaDk1VreDuJWsm5qWDeA7wDUCBV7+x9kg35+DvN8v0I3+EQGb0M4kCMf
+         MUwpNCTKqdTDr37wYJUijqKusMzJmyj+PE4QKjgNn9g/j31/xtXl9rOMA3zgJeHjMAVz
+         9wrE+AMT5iDfEikhTmjfvkZHsRzrrlNwDzKO7RzDbtOAIlXgNVcNH5IaQaKqbbapTd7n
+         Or0718rkoFK3WQkIahOz7s/ZDkGkbShVEo71odbatnPJp0EJww30jFwL1udISnq23KJr
+         EeWA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782378627; x=1782983427;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=PybBbFFbv2qgp/wGc6XtY0wnuLp8C2DGakY4TdWZcjY=;
+        b=VKllN2Om6w/IDcs7II2bqflic9XMviHY+QnatmWx3ETBVmv3d4dacsPBxXHQ/0sJiB
+         b3GKfppbC/otMgGMnUmcKWgW0fgZ8WSNDpg16PemC82J3cqWkiWeGyJsYMCouTvkIIhJ
+         mPjX7nbfqbVfQvqIUaLj/55V67N1MjEFxGOHgb9H1801PtRZ+11L9bZbqsO0fNd7Qcmy
+         /G9+9LvtUkqgPpmHqT0vaCm7+UslyBxV6PWdes3AjYqxLfPFjh8qkNW5l/8R5ldQEqPf
+         tHH/WIoqb9G0bahhoC2mUsqPqWN66R8ZcD2xD7DypyGRjGDL3cEMIPpO4/zS+sZMB8PX
+         f1PQ==
+X-Forwarded-Encrypted: i=1; AHgh+Ro4sAtSpn/GkBZ5KbgBzvgvnSwexZCfIcsJxCd13Ggr0SUq8zF+chXgXzUoVXYmb8t4diJtBR1Lsea7eamgzH7v@lists.infradead.org
+X-Gm-Message-State: AOJu0YwaFj7bV8XQ6mboLLc3UIj/UejtiluLbF3PhV3pyw8JFJGZA9VD
+	R7rBN/TXrzGI643nEl5oQ12J5CYbSGJU38eJ55ft6WwO4GA9siZa5GoZYXS7355IRIwX8cB+dI/
+	GXWbgZn6rk8hxYpVnnpf2rJa5jp71g9vmDPOXEa0n3A==
+X-Gm-Gg: AfdE7cljsaRGDz43YNh3kvatalmfGsYpDJ4MzAsrx/XqwkCsvjaM/vZ+G50kO06+Su9
+	Tv/q8xW9vIcB/9gCZyRlpm5NYSL379liQwEMqR6tIOOPwb8RjD/FbK7lnk7eT2J1iI+pmuMIuhZ
+	t0uZpN0WB+68yciwdZ1xnw/pvHKEQJ7LGL9YrnUAvFaKGhn83DM6os9IG1W/Pac5mPonFRSVoRX
+	c4yUMJRPXB2WFuNebjnYmyhNURskBE5YG5gGzFcFjFAwGxmuPIIqGWH13lQogt3PQMUiA/gbTyJ
+	GG21glea7SdH6LoISWO1b8tZsKycbCL+aLIN1cqVCVpB+zMWcgU4dgwS2w==
+X-Received: by 2002:a05:6000:24c6:b0:463:b7f2:cc7a with SMTP id
+ ffacd0b85a97d-46da9508504mr2493751f8f.17.1782378626958; Thu, 25 Jun 2026
+ 02:10:26 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260625085034.tvyGSmaP@linutronix.de>
+References: <cover.1782224059.git.gregoire.layet@9elements.com>
+ <73b2bd81ce70814612e6d3cb689c3296de742aaf.1782224059.git.gregoire.layet@9elements.com>
+ <20260624-original-vigorous-mayfly-dfceac@quoll> <CAFi2wKbKr8FMcJeGWA5e1UZUTh2=LwYNkLEj6exd2as7=AcvVQ@mail.gmail.com>
+ <b9ca9e36-a851-4a98-a739-ca99dd534d6d@kernel.org>
+In-Reply-To: <b9ca9e36-a851-4a98-a739-ca99dd534d6d@kernel.org>
+From: =?UTF-8?Q?Gr=C3=A9goire_Layet?= <gregoire.layet@9elements.com>
+Date: Thu, 25 Jun 2026 11:10:14 +0200
+X-Gm-Features: AVVi8CdVW0AmRhEG0L6wUoqXHMzj3ec0waXKRN6u-RXjXnalVyhv5A88QhYFWcQ
+Message-ID: <CAFi2wKY-73nXEKxp3vfB0RBsB+VB_stNk6NKk8gCopaoav6Tww@mail.gmail.com>
+Subject: Re: [PATCH v3 2/7] dt-bindings: serial: 8250: aspeed: add
+ aspeed,vuart-over-pci bool prop
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: joel@jms.id.au, andrew@codeconstruct.com.au, lkundrak@v3.sk, 
+	devicetree@vger.kernel.org, gregkh@linuxfoundation.org, jirislaby@kernel.org, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, andrew@lunn.ch, 
+	jacky_chou@aspeedtech.com, yh_chung@aspeedtech.com, ninad@linux.ibm.com, 
+	anirudhsriniv@gmail.com, linux-serial@vger.kernel.org, 
+	linux-aspeed@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260625_020609_831823_3CACC735 
-X-CRM114-Status: GOOD (  30.06  )
+X-CRM114-CacheID: sfid-20260625_021030_222767_83D2A48F 
+X-CRM114-Status: GOOD (  16.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,96 +125,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 25, 2026 at 10:50:34AM +0200, Sebastian Andrzej Siewior wrote:
-> On 2026-06-25 15:35:22 [+0800], Xie Yuanbin wrote:
-> > For lastest linux-next kernel, with default multi_v7_defconfig, and
-> > setting CONFIG_PREEMPT_RT=y, CONFIG_DEBUG_ATOMIC_SLEEP=y, and
-> > CONFIG_PERF_EVENTS=n. When the user program executes bkpt
-> > instruction, the following WARN will be triggered:
-> > ```log
-> > [    3.677825] BUG: sleeping function called from invalid context at kernel/locking/spinlock_rt.c:48
-> > [    3.678002] in_atomic(): 0, irqs_disabled(): 128, non_block: 0, pid: 84, name: test
-> > [    3.678036] preempt_count: 0, expected: 0
-> > [    3.678078] RCU nest depth: 0, expected: 0
-> > [    3.678864] CPU: 0 UID: 0 PID: 84 Comm: test Tainted: G        W           7.1.0-next-20260623 #45 PREEMPT_RT
-> > [    3.679067] Tainted: [W]=WARN
-> > [    3.679088] Hardware name: Generic DT based system
-> > [    3.679198] Call trace:
-> > [    3.679695]  unwind_backtrace from show_stack+0x10/0x14
-> > [    3.680363]  show_stack from dump_stack_lvl+0x50/0x5c
-> > [    3.680377]  dump_stack_lvl from __might_resched+0x160/0x174
-> > [    3.680393]  __might_resched from rt_spin_lock+0x38/0x138
-> > [    3.680425]  rt_spin_lock from force_sig_info_to_task+0x1c/0x11c
-> > [    3.680438]  force_sig_info_to_task from force_sig_fault+0x44/0x64
-> > [    3.680450]  force_sig_fault from do_PrefetchAbort+0x94/0x9c
-> > [    3.680461]  do_PrefetchAbort from ret_from_exception+0x0/0x20
-> > [    3.680513] Exception stack(0xf0ab5fb0 to 0xf0ab5ff8)
-> > [    3.680653] 5fa0:                                     00000000 bed32e94 bed32e9c 00037954
-> > [    3.680672] 5fc0: 00000002 00000001 bed32e94 0009d590 00000000 bed32e9c 00000002 00000000
-> > [    3.680682] 5fe0: bed32d48 bed32d38 00037a00 00037958 60000010 ffffffff
-> > ```
-> 
-> I don't think this required information as it is obvious. At the very
-> least you could trim it the needed parts if considered needed.
-> 
-> > When PREEMPT_RT is enabled, force_sig_info() requires interrupts to be
-> > enabled. Enable interrupts when arm_notify_die() is handling user mode
-> > errors to fix the issue.
-> > 
-> > Fixes: c6e61c06d606 ("ARM: 9463/1: Allow to enable RT")
-> > 
-> > Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-> > Cc: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> > Signed-off-by: Xie Yuanbin <xieyuanbin1@huawei.com>
-> 
-> So I did test the 32bit case on arm64 while testing/ backporting the
-> breakpoint handling there but apparently did not try it on real
-> arm32.
-> 
-> For "asm("BKPT #0");" the SIGTRAP is not raised instead I get just
-> | 8<--- cut here ---
-> | Unhandled prefetch abort: debug event (0x222) at 0x00000000
-> 
-> on the kernel side and a "Bus error" on userland side.
-> 
-> So
-> Reviewed-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-> 
-> for this but actual breakpoint handling might be broken or is it just
-> me? But then your stack trace looks like mine so :/
+Hi Krzysztof,
 
-ARM Linux doesn't use BKPT. BKPT was an instruction introduced by Arm
-Ltd in ARMv5TE. Prior to this, we use a UDF instruction instead (we
-had to pick something!) and gdb and other tools use that as a
-breapoint.
+> > It's a Virtual UART. Internally, it's two FIFOs accessible via
+> > 8250-compatible register sets on both ends.
+>
+> I do not know what is Virtual UART...
 
-Moreover, BKPT isn't guaranteed to trap to the kernel, especially when
-there is a hardware debugger connected. In that case, DDI0100E states
-that use of BKPT must be according to the instructions provided with
-the hardware debugger. This makes BKPT unsuitable for use.
+Yes the name of ASPEED is a bit weird, it means that it is not a real
+UART. It is two 8250-compatible register sets, and the data path is
+handled by two hardware FIFOs (one per direction).
 
-Consequently, ARM Linux has not supported the use of BKPT - no code
-was added to support this instruction, hence why the kernel prints an
-Alert level message stating that the fault was unhandled.
+> > There is 4 Virtuals UARTs on the LPC bus of the AST2600 and 2 of them
+> > are bridged over the PCI bus.
+> > So, from the host, you can access the 8250 register set on the PCI bus.
+>
+> You mean these appear (or are) as PCI devices?
 
-In addition, when a hardware debugger is not being used, with the
-addition of hw_breakpoint.c, what userland sees in response depends on
-kernel configuration. If hw_breakpoint.c is not built (when PERF_EVENTS
-is disabled), then a SIGBUS signal will be raised. If it is built, and
-prior to a recent commit by LinusW, it will raise a SIGTRAP. After
-LinusW's commit, it won't raise a signal, but userspace will spin on
-the BKPT instruction.
+Yes but not as a UART devices.
+The two VUART are accessible under the same PCIe BMC device, at the
+VUART addresses configured on the BMC. They are accessible on the BAR1
+of the PCIe BMC device.
+There is a 2 bit left shift between the addresses of the registers on
+the BMC LPC bus and the addresses accessible over the PCI device.
+0x3F8 on the BMC is accessible at BAR1 0xFE0 over the PCI device.
 
-The path we go through in the above case is very much an "oh damn,
-we aren't handling this exception, let's try to do something that
-might save the day".
+The PCIe BMC Device is one PCI device where you can access several
+peripherals. It's not one PCI device per VUART.
 
-Rather than throwing local_irq_enable() in random places, it would
-be better to do it earlier, but I would want to review what x86 does
-when it gets an exception that the kernel doesn't handle - not sure
-when I'll get around to doing that though.
+For example, you can also enable the KCS channel 4 and it will be also
+accessible via the BAR1 of the PCI BMC device. KCS is a protocol used
+for IPMI.
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Only these two peripherals can be accessed over the PCI BMC device and
+they need to be enabled.
+The host cannot access everything on the LPC bus of the BMC.
+
+Best regards,
+Gr=C3=A9goire
 
