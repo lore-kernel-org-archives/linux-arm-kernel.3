@@ -4,81 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D03CCDE009
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 10:43:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13FF2CDB479
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 10:45:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=vrE5rKKh67A7ttm5RQO/CXJ/rkAgZefEmuAWd7/EtXk=; b=wRQhX/A5B30Jgg
-	U0Uc25GtqNoiIC3zjkaGqZ9YSYJ6xSAPc+nT/Act2qhbOU3jSPr91EwQZIpmrDXQg3QCqCO1L7y3O
-	EVcJ9E/bBClMctd+KWpd9xnJcdzhlOOCov/etUfDKsRo/jI15s3PNSTaTL6mejdhbuuW+nn+SwVHx
-	ZxWXENQbLr1zScuD81L7T7qSTh9EAPf4VfjWLXwSruPRAjbdkXYtm3/SdmBxDli14s+LquCsNVyNN
-	O42UEcX1wvJIZV0luFYZ4j5GvYV8eJ3Hp7Ry6702wZkJW+SCdZzHMHFgFvDNmgJJIrXLqGvrdwlUi
-	O34Y2t5AxrEpM3SeHf8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0a7qUU0b9Vgs/bQRiRfTqXiRPAMtXXzREh+h5RRAzXI=; b=PAZH+BtlSmgEXDRAf22fQ3Ue26
+	nzDNm/xqVBZdnKv/mnfeLdjJwQHPa0T1/ZR7rD/DHEpy0qS+EH+7d4hjg1Ynpb7o/qT65RW16YCbF
+	qTH2Ex213yMmnJ83TjeVrQqZGMnqG+S26b1c49RRHiho4Yov5Pmm0KE9JJPxxYsm/dTFnhokDoyKF
+	eRAGnj2PFpX1nTYNzOuVmMG9/9w9h3Wg6H0doCATEzL1l/Sa5fYxO7NApEUnUuSexM9DXdD0lP3RV
+	4QfTyl9DlRn/j258aQO4etaYhl/2K0lp+KTOUNvK+jKApI9DcvMTU0kuIRhAC4oy0cAiPNUxm6uxE
+	SgDrs1xA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wchYV-000000090Px-2cyO;
-	Thu, 25 Jun 2026 10:43:35 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wchaA-000000090mX-0GQM;
+	Thu, 25 Jun 2026 10:45:18 +0000
+Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wchYV-000000090PZ-0R6n
+	id 1wcha7-000000090lz-43OT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Jun 2026 10:43:35 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A83AC40146;
-	Thu, 25 Jun 2026 10:43:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DC901F00A3D;
-	Thu, 25 Jun 2026 10:43:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782384214;
-	bh=vrE5rKKh67A7ttm5RQO/CXJ/rkAgZefEmuAWd7/EtXk=;
-	h=Date:From:To:Cc:Subject:References;
-	b=jCZlirZKjW2TUHy8idztUHCy4JIRd6I6M7e6xGNB23f3pyXf16FhvqG35DrXbTKif
-	 6CTdD9I7QCaqiGxZugzO7MmTStmCmJRqZyKjOD2zH6ykU5hvcdCFabi3O+xbQjzlCp
-	 HXOV6f0o71MzIypBKKi3RKSTW3TUdHlVKxejROkvPBTKmZw7W5JJBpN3I1t676Izr5
-	 ZLxEfDC34+BMHYGfUs9Ki7IhnhcW12qrIXm4Qsr39vpPQ2RXr+gXQmH1XwzEN3U17w
-	 PscFL1YbbVfy1enFaH7zV/kWilNH4t2W73evYLf6fhTFgl6kXpKsrHnxlGp7wQY30g
-	 TswFZtxoRGi/g==
-Received: from rostedt by gandalf with local (Exim 4.99.3)
-	(envelope-from <rostedt@kernel.org>)
-	id 1wchYw-00000002WAe-1TEX;
-	Thu, 25 Jun 2026 06:44:02 -0400
-Message-ID: <20260625104402.210473477@kernel.org>
-User-Agent: quilt/0.69
-Date: Thu, 25 Jun 2026 06:40:09 -0400
-From: Steven Rostedt <rostedt@kernel.org>
-To: linux-kernel@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org
-Cc: Masami Hiramatsu <mhiramat@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Linus Torvalds <torvalds@linux-foundation.org>,
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
- John Ogness <john.ogness@linutronix.de>,
- Thomas Gleixner <tglx@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>,
- Julia Lawall <julia.lawall@inria.fr>,
- Yury Norov <yury.norov@gmail.com>,
- linux-doc@vger.kernel.org,
- linux-kbuild@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org,
- dri-devel@lists.freedesktop.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org,
- linux-rdma@vger.kernel.org,
- linux-usb@vger.kernel.org,
- linux-ext4@vger.kernel.org,
- linux-nfs@vger.kernel.org,
- kvm@vger.kernel.org,
- intel-gfx@lists.freedesktop.org
-Subject: [PATCH v4 2/2] tracing: Remove trace_printk.h from kernel.h
-References: <20260625104007.041432666@kernel.org>
+	Thu, 25 Jun 2026 10:45:17 +0000
+Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-37dece114acso108022a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Jun 2026 03:45:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782384315; x=1782989115; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=0a7qUU0b9Vgs/bQRiRfTqXiRPAMtXXzREh+h5RRAzXI=;
+        b=Q+i/WuXsyIAWph4hXMrsIN5IAxPzYVP72UhTmF1zDJzklMuCOatL/uMai2jN+S2CYF
+         qyR9Lnx3POEEVAxqqgNAADJoyjr9tThA5SSX8w603QeThuCuYbbF9LBkEj1+PXTEScg5
+         yIqMndkBQJj6ecwzgTjbHi5YaVK2sNsKfYpQBiZul8KEzKku+IswZBpKT1Q37YYFtw2E
+         Yj2RiImKa3D+McsReP068Qm0t+1flnv1mIS64Z86z2cip/60/zClvJi70p7b+7nJtwyB
+         PU92L+UutY212IdA0ruILc2Gzdn1dKd6vj8u0eLefqbn/mNQ8623ShFeBAkjIqYF5NeK
+         Xq0g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782384315; x=1782989115;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=0a7qUU0b9Vgs/bQRiRfTqXiRPAMtXXzREh+h5RRAzXI=;
+        b=JmVngxVhA1cSbI5V3eAAGdUEaeYgy2g4gVXIfAd78BrXM6SxE5arFCbzuqGXUHUIGo
+         169OK0C2ZnWw7XNL3b0ZPCZL/SjTq06BSoyAySSsUKlQ/mbb3QB9ozMBmGt9h2wbTAVj
+         DykLvl/XYRdBa3yu+jQxeXdh3by3EZsyLIifN5FCt78FmfcQoarZvMzY+JYeC/VWdsk7
+         DqxQLzh/aaDzRKxV+Xd9WxNe6yzYMv52aFgljT+tT4vsXa92N0nKXi9uqeX5P83YW+xI
+         g5MP/vCoVXZcjYjzbc2fIW5+CUKzcEhq5UXoUxngRa4U16vamFprE3GR2xm1XjGq2LKm
+         lAMw==
+X-Forwarded-Encrypted: i=1; AFNElJ+IkiUi172syViYwa8+zpUAy9ukeaYpKg0s0Zv+UOOlQjGyYGIqnqUpXsQ/iyru4Ie3GzArK73RjYKqrtXIzIqP@lists.infradead.org
+X-Gm-Message-State: AOJu0YzcTZs42Pw0BAXqvv4L8V836hzRSrLJgKtQrHFc7UoF+8P8QRwe
+	KAt/DmaBn9GevcjdIv/HuYHt4EMqFfZo9agehjcmlZ9vPr3pj4Vp5SsZ
+X-Gm-Gg: AfdE7cmipEZR3PH/JsN1UNWyAvdiS8LZSqrJ8rDk2rp/YQ1ZUfs1Hjt/dw/Ko7lTHXE
+	ABGZ95Yk/cLWaKQrcWzhaAa76GMA6NCe8F7eORMYn+PmgYQft7CVvHp5eZutoHpypawiBvLZB+L
+	cBphRYnNmwRZSrI43cwaly2Ga6GUOAtcKmxgzqkfK3ckmy3lrE/0d2Ycck4Rp0/kjc0uQVhrB6J
+	PXYCuMTsVl3LraqHhhusC3eyUeksvGCEVIfwNgV1Pp3MP0M+kAkjN7Me4NGEn2r9asCBCk5dQAF
+	A+x2dpBTaB3w9MoI+qJT+rMxdHK2mB1zk2uXI7IbPWDFf1QPAuK6aGddZY4I/Ori1MfIb4AaHx1
+	HFQ2ZlJOx77ctiinAImqQkrhS39p/+E+mOs9Dk7kFwmasFg/Gc45O/lrjBnxNanPB1+32oiON0n
+	c5ush9IDNG0EpwZQsz0U5JJQ==
+X-Received: by 2002:a05:6a21:b98:b0:3b4:895f:6abf with SMTP id adf61e73a8af0-3bd4b39b200mr1148613637.3.1782384314585;
+        Thu, 25 Jun 2026 03:45:14 -0700 (PDT)
+Received: from localhost.localdomain ([189.1.242.96])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c92bc1e0d10sm1408853a12.21.2026.06.25.03.45.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 25 Jun 2026 03:45:14 -0700 (PDT)
+From: Yiqi Sun <sunyiqixm@gmail.com>
+To: catalin.marinas@arm.com,
+	linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org,
+	rmk+kernel@armlinux.org.uk,
+	ruanjinjie@huawei.com,
+	will@kernel.org,
+	Yiqi Sun <sunyiqixm@gmail.com>
+Subject: [PATCH v2] arm64: ptrace: use live x0 for seccomp and audit after ptrace
+Date: Thu, 25 Jun 2026 18:45:02 +0800
+Message-Id: <2f435bab0d61d0bf8fbaa54203525aae8e8f5371.1782384161.git.sunyiqixm@gmail.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260529065444.1336608-1-sunyiqixm@gmail.com>
+References: <20260529065444.1336608-1-sunyiqixm@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260625_034516_012091_439D7EEF 
+X-CRM114-Status: GOOD (  15.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,229 +102,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Steven Rostedt <rostedt@goodmis.org>
+On arm64, seccomp obtains syscall arguments via
+syscall_get_arguments(), where arg0 is currently read from
+regs->orig_x0. audit_syscall_entry() in syscall_trace_enter() also
+takes arg0 from regs->orig_x0. However, the syscall wrapper consumes
+live arguments from regs->regs[0..5].
 
-There have been complaints about trace_printk.h causing more build time
-for being in kernel.h if it changes. There is also an effort to clean up
-kernel.h to have it not include unneeded header files. Move trace_printk.h
-out of kernel.h and place it in the headers and C files that use it.
+A ptracer can modify x0 on syscall-enter stop before seccomp and audit
+run, but cannot update orig_x0 through the native syscall-stop
+interface. This can leave seccomp and audit checking stale arg0 while
+the syscall executes with updated live x0.
 
-Link: https://lore.kernel.org/all/CAHk-=wikCBeVFjVXiY4o-oepdbjAoir5+TcAgtL12c4u1TpZLQ@mail.gmail.com/
+Make both paths read arg0 from regs->regs[0], matching the actual
+dispatch arguments and keeping seccomp and audit aligned after ptrace
+updates.
 
-Suggested-by: Yury Norov <yury.norov@gmail.com>
-Acked-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-Signed-off-by: Steven Rostedt <rostedt@goodmis.org>
+Fixes: f27bb139c387 ("arm64: Miscellaneous library functions")
+Signed-off-by: Yiqi Sun <sunyiqixm@gmail.com>
 ---
- arch/powerpc/kvm/book3s_xics.c         | 1 +
- drivers/gpu/drm/i915/gt/intel_gtt.h    | 1 +
- drivers/gpu/drm/i915/i915_gem.h        | 1 +
- drivers/hwtracing/stm/dummy_stm.c      | 1 +
- drivers/infiniband/hw/hfi1/trace_dbg.h | 1 +
- drivers/usb/early/xhci-dbc.c           | 1 +
- fs/ext4/inline.c                       | 1 +
- include/linux/ftrace.h                 | 2 ++
- include/linux/kernel.h                 | 1 -
- include/linux/sunrpc/debug.h           | 1 +
- include/linux/trace_printk.h           | 5 +++--
- kernel/trace/ring_buffer_benchmark.c   | 1 +
- samples/fprobe/fprobe_example.c        | 1 +
- samples/ftrace/ftrace-direct-too.c     | 1 -
- samples/trace_printk/trace-printk.c    | 1 +
- 15 files changed, 16 insertions(+), 4 deletions(-)
+Changes in v2:
+- Also switch the arm64 audit entry path to use live x0
+- Clarify the orig_x0 synchronization comment in syscall_set_arguments()
+---
+ arch/arm64/include/asm/syscall.h | 7 +++----
+ arch/arm64/kernel/ptrace.c       | 2 +-
+ 2 files changed, 4 insertions(+), 5 deletions(-)
 
-diff --git a/arch/powerpc/kvm/book3s_xics.c b/arch/powerpc/kvm/book3s_xics.c
-index 74a44fa702b0..ef5eb596a56e 100644
---- a/arch/powerpc/kvm/book3s_xics.c
-+++ b/arch/powerpc/kvm/book3s_xics.c
-@@ -26,6 +26,7 @@
- #if 1
- #define XICS_DBG(fmt...) do { } while (0)
- #else
-+#include <linux/trace_printk.h>
- #define XICS_DBG(fmt...) trace_printk(fmt)
- #endif
- 
-diff --git a/drivers/gpu/drm/i915/gt/intel_gtt.h b/drivers/gpu/drm/i915/gt/intel_gtt.h
-index b54ee4f25af1..f6f223090760 100644
---- a/drivers/gpu/drm/i915/gt/intel_gtt.h
-+++ b/drivers/gpu/drm/i915/gt/intel_gtt.h
-@@ -35,6 +35,7 @@
- #define I915_GFP_ALLOW_FAIL (GFP_KERNEL | __GFP_RETRY_MAYFAIL | __GFP_NOWARN)
- 
- #if IS_ENABLED(CONFIG_DRM_I915_TRACE_GTT)
-+#include <linux/trace_printk.h>
- #define GTT_TRACE(...) trace_printk(__VA_ARGS__)
- #else
- #define GTT_TRACE(...)
-diff --git a/drivers/gpu/drm/i915/i915_gem.h b/drivers/gpu/drm/i915/i915_gem.h
-index 1da8fb61c09e..f490052e8964 100644
---- a/drivers/gpu/drm/i915/i915_gem.h
-+++ b/drivers/gpu/drm/i915/i915_gem.h
-@@ -117,6 +117,7 @@ int i915_gem_open(struct drm_i915_private *i915, struct drm_file *file);
- 
- #if IS_ENABLED(CONFIG_DRM_I915_TRACE_GEM)
- #include <linux/trace_controls.h>
-+#include <linux/trace_printk.h>
- #define GEM_TRACE(...) trace_printk(__VA_ARGS__)
- #define GEM_TRACE_ERR(...) do {						\
- 	pr_err(__VA_ARGS__);						\
-diff --git a/drivers/hwtracing/stm/dummy_stm.c b/drivers/hwtracing/stm/dummy_stm.c
-index 38528ffdc0b3..7c5e48ebfb9f 100644
---- a/drivers/hwtracing/stm/dummy_stm.c
-+++ b/drivers/hwtracing/stm/dummy_stm.c
-@@ -8,6 +8,7 @@
-  */
- 
- #undef DEBUG
-+#include <linux/trace_printk.h>
- #include <linux/kernel.h>
- #include <linux/module.h>
- #include <linux/slab.h>
-diff --git a/drivers/infiniband/hw/hfi1/trace_dbg.h b/drivers/infiniband/hw/hfi1/trace_dbg.h
-index 58304b91380f..30df5e246586 100644
---- a/drivers/infiniband/hw/hfi1/trace_dbg.h
-+++ b/drivers/infiniband/hw/hfi1/trace_dbg.h
-@@ -103,6 +103,7 @@ __hfi1_trace_def(IOCTL);
-  */
- 
- #ifdef HFI1_EARLY_DBG
-+#include <linux/trace_printk.h>
- #define hfi1_dbg_early(fmt, ...) \
- 	trace_printk(fmt, ##__VA_ARGS__)
- #else
-diff --git a/drivers/usb/early/xhci-dbc.c b/drivers/usb/early/xhci-dbc.c
-index 41118bba9197..955c73bd601f 100644
---- a/drivers/usb/early/xhci-dbc.c
-+++ b/drivers/usb/early/xhci-dbc.c
-@@ -30,6 +30,7 @@ static struct xdbc_state xdbc;
- static bool early_console_keep;
- 
- #ifdef XDBC_TRACE
-+#include <linux/trace_printk.h>
- #define	xdbc_trace	trace_printk
- #else
- static inline void xdbc_trace(const char *fmt, ...) { }
-diff --git a/fs/ext4/inline.c b/fs/ext4/inline.c
-index 8045e4ff270c..0eff4a0c6a6c 100644
---- a/fs/ext4/inline.c
-+++ b/fs/ext4/inline.c
-@@ -934,6 +934,7 @@ static int ext4_da_convert_inline_data_to_extent(struct address_space *mapping,
- }
- 
- #ifdef INLINE_DIR_DEBUG
-+#include <linux/trace_printk.h>
- void ext4_show_inline_dir(struct inode *dir, struct buffer_head *bh,
- 			  void *inline_start, int inline_size)
+diff --git a/arch/arm64/include/asm/syscall.h b/arch/arm64/include/asm/syscall.h
+index 5e4c7fc44f73..0a44db425522 100644
+--- a/arch/arm64/include/asm/syscall.h
++++ b/arch/arm64/include/asm/syscall.h
+@@ -81,7 +81,7 @@ static inline void syscall_get_arguments(struct task_struct *task,
+ 					 struct pt_regs *regs,
+ 					 unsigned long *args)
  {
-diff --git a/include/linux/ftrace.h b/include/linux/ftrace.h
-index 02bc5027523a..b5336a81e619 100644
---- a/include/linux/ftrace.h
-+++ b/include/linux/ftrace.h
-@@ -8,6 +8,8 @@
- #define _LINUX_FTRACE_H
+-	args[0] = regs->orig_x0;
++	args[0] = regs->regs[0];
+ 	args[1] = regs->regs[1];
+ 	args[2] = regs->regs[2];
+ 	args[3] = regs->regs[3];
+@@ -101,9 +101,8 @@ static inline void syscall_set_arguments(struct task_struct *task,
+ 	regs->regs[5] = args[5];
  
- #include <linux/trace_recursion.h>
-+#include <linux/trace_controls.h>
-+#include <linux/trace_printk.h>
- #include <linux/trace_clock.h>
- #include <linux/jump_label.h>
- #include <linux/kallsyms.h>
-diff --git a/include/linux/kernel.h b/include/linux/kernel.h
-index e5570a16cbb1..e87a40fbd152 100644
---- a/include/linux/kernel.h
-+++ b/include/linux/kernel.h
-@@ -31,7 +31,6 @@
- #include <linux/build_bug.h>
- #include <linux/sprintf.h>
- #include <linux/static_call_types.h>
--#include <linux/trace_printk.h>
- #include <linux/util_macros.h>
- #include <linux/wordpart.h>
- 
-diff --git a/include/linux/sunrpc/debug.h b/include/linux/sunrpc/debug.h
-index ab61bed2f7af..7524f5d82fba 100644
---- a/include/linux/sunrpc/debug.h
-+++ b/include/linux/sunrpc/debug.h
-@@ -29,6 +29,7 @@ extern unsigned int		nlm_debug;
- # define ifdebug(fac)		if (unlikely(rpc_debug & RPCDBG_##fac))
- 
- # if IS_ENABLED(CONFIG_SUNRPC_DEBUG_TRACE)
-+#  include <linux/trace_printk.h>
- #  define __sunrpc_printk(fmt, ...)	trace_printk(fmt, ##__VA_ARGS__)
- # else
- #  define __sunrpc_printk(fmt, ...)	printk(KERN_DEFAULT fmt, ##__VA_ARGS__)
-diff --git a/include/linux/trace_printk.h b/include/linux/trace_printk.h
-index a488ea9e9f85..74ce4f8995c4 100644
---- a/include/linux/trace_printk.h
-+++ b/include/linux/trace_printk.h
-@@ -1,11 +1,12 @@
- /* SPDX-License-Identifier: GPL-2.0 */
- #ifndef _LINUX_TRACE_PRINTK_H
- #define _LINUX_TRACE_PRINTK_H
-+#if !defined(__ASSEMBLY__) && !defined(__GENKSYMS__) && !defined(BUILD_VDSO)
- 
--#include <linux/compiler_attributes.h>
- #include <linux/instruction_pointer.h>
- #include <linux/stddef.h>
- #include <linux/stringify.h>
-+#include <linux/stdarg.h>
- 
- #ifdef CONFIG_TRACING
- static inline __printf(1, 2)
-@@ -147,5 +148,5 @@ ftrace_vprintk(const char *fmt, va_list ap)
- 	return 0;
+ 	/*
+-	 * Also copy the first argument into orig_x0
+-	 * so that syscall_get_arguments() would return it
+-	 * instead of the previous value.
++	 * Keep orig_x0 in sync so syscall_rollback() and compat
++	 * register views see the updated first argument.
+ 	 */
+ 	regs->orig_x0 = regs->regs[0];
  }
- #endif /* CONFIG_TRACING */
--
-+#endif /* !defined(__ASSEMBLY__) && !defined(__GENKSYMS__) && !defined(BUILD_VDSO) */
- #endif
-diff --git a/kernel/trace/ring_buffer_benchmark.c b/kernel/trace/ring_buffer_benchmark.c
-index 593e3b59e42e..2bb25caebb75 100644
---- a/kernel/trace/ring_buffer_benchmark.c
-+++ b/kernel/trace/ring_buffer_benchmark.c
-@@ -5,6 +5,7 @@
-  * Copyright (C) 2009 Steven Rostedt <srostedt@redhat.com>
-  */
- #include <linux/ring_buffer.h>
-+#include <linux/trace_printk.h>
- #include <linux/completion.h>
- #include <linux/kthread.h>
- #include <uapi/linux/sched/types.h>
-diff --git a/samples/fprobe/fprobe_example.c b/samples/fprobe/fprobe_example.c
-index bfe98ce826f3..de81b9b4ca7d 100644
---- a/samples/fprobe/fprobe_example.c
-+++ b/samples/fprobe/fprobe_example.c
-@@ -12,6 +12,7 @@
+diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
+index 4d08598e2891..35dd86f9e87a 100644
+--- a/arch/arm64/kernel/ptrace.c
++++ b/arch/arm64/kernel/ptrace.c
+@@ -2426,7 +2426,7 @@ int syscall_trace_enter(struct pt_regs *regs)
+ 	if (test_thread_flag(TIF_SYSCALL_TRACEPOINT))
+ 		trace_sys_enter(regs, regs->syscallno);
  
- #define pr_fmt(fmt) "%s: " fmt, __func__
+-	audit_syscall_entry(regs->syscallno, regs->orig_x0, regs->regs[1],
++	audit_syscall_entry(regs->syscallno, regs->regs[0], regs->regs[1],
+ 			    regs->regs[2], regs->regs[3]);
  
-+#include <linux/trace_printk.h>
- #include <linux/kernel.h>
- #include <linux/module.h>
- #include <linux/fprobe.h>
-diff --git a/samples/ftrace/ftrace-direct-too.c b/samples/ftrace/ftrace-direct-too.c
-index bf2411aa6fd7..159190f4103f 100644
---- a/samples/ftrace/ftrace-direct-too.c
-+++ b/samples/ftrace/ftrace-direct-too.c
-@@ -1,6 +1,5 @@
- // SPDX-License-Identifier: GPL-2.0-only
- #include <linux/module.h>
--
- #include <linux/mm.h> /* for handle_mm_fault() */
- #include <linux/ftrace.h>
- #if !defined(CONFIG_ARM64) && !defined(CONFIG_PPC32)
-diff --git a/samples/trace_printk/trace-printk.c b/samples/trace_printk/trace-printk.c
-index cfc159580263..ff37aeb8523e 100644
---- a/samples/trace_printk/trace-printk.c
-+++ b/samples/trace_printk/trace-printk.c
-@@ -1,4 +1,5 @@
- // SPDX-License-Identifier: GPL-2.0-only
-+#include <linux/trace_printk.h>
- #include <linux/module.h>
- #include <linux/kthread.h>
- #include <linux/irq_work.h>
+ 	return regs->syscallno;
 -- 
-2.53.0
-
+2.34.1
 
 
