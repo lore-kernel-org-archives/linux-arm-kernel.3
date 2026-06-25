@@ -4,107 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04A8ACDE00E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 22:59:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1B30CDE013
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 23:42:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/gX7hQHyvfb4Ci0nY3Fxsfc2Doou++pLUQ8Pual9WtQ=; b=mOb9w35XDvnnlg8EWteBCEdshi
-	rMExC54f1i6H6M19JGsTWR2Lax7yqR872MiBAXslNHQljSfqQD0uEhAzeTZZZfGMF4+jehSrJBwpK
-	t1hbt5naC6Vh3NfD+5Ei6ikJYHo8hxOoe+3yKEeMp2COi/wjrb8745IUAhChhcgpClccPjAgxMHpi
-	xWMCk3o32E0TG9eDaaSW8Hmd4XSS+TijRQ3jKm8iw2AvMPm/SiEl5u6dtFPxWBGq1hrl0iG4yYaq+
-	KGlC9Jw6w/P5CS74js1XWgnTaEhJUYTjHzuUFe558zUw/+anXx0WPQPivMI+XT6Ga0bMKRsGwYGdf
-	ZZyb8Qww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7rTeWGRC3qlYe3M/STi4OqC/ckIFBCcw0pmuKzcM+Ms=; b=fC9dkRnqBg/uFNYd711uqsxOzL
+	9mMSkUFc0Wr9f3hyUvM+lp8FrMND1Nco5YODWk/6qioQXrvtqym4ZcosNGDd6UulSA7+x22AmbSsF
+	q2F/WtC8hxm4TJLR9oU3rOjrCSGdMr90z90lU2UApZwWSzjgeJD/VDM7MHwcTosa8SPwYWJ1inHVx
+	I21DSjzII4lNV5tnnCdGVAnDqB4hRWTlT7K9LnrnF0Phc9OUAt0QVW0DRvJhU9iL3b7xJuf+U2kYA
+	9mhuKzQMbhBsV2e0ex3O0TWw57VDwGAnXwTO+5wxbgAl4K63N0GZt1mWr08EnaYsILkNbF9eYGw9i
+	fFSTEkJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wct2e-00000009xnx-0WRZ;
-	Thu, 25 Jun 2026 22:59:28 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1wcthw-00000009zta-1fvI;
+	Thu, 25 Jun 2026 23:42:08 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wct2a-00000009xnC-3uN8
+	id 1wcthv-00000009ztU-2CIX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Jun 2026 22:59:26 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2c813a45a65so8225ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Jun 2026 15:59:23 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1782428363; cv=none;
-        d=google.com; s=arc-20260327;
-        b=DC72QhK9n5soxdPCn1cG9G93Gh2l/gIo+bR0V/MmdWr5YyAAebaaOhpIVZ5WwbBRi9
-         5cIR+jUDaQS0W+K2s5lk1Bcfr/oUqUFPxhp4BhP0/Db2sVMpGklsbjeGOAebywsESCTn
-         6tAwnC3T5KhEJaIOFHpSsbX1cyB3N6i7SgFevp4/vdXM/GI89I8H15x/iUarHpKDrx3P
-         //ZYIQxRRfA3WtqO7hpkqzWBA/WyHpvbfAVKR+4RaW8TP5h3E0N0Jk4uYPIx1aXv6u/n
-         miBwK7tqgKk1pjjmFmoFhO0iKEmE07S+TrB+iiRMYsRPp4W+sOKALxlH0SdQre57D/kH
-         8guw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=/gX7hQHyvfb4Ci0nY3Fxsfc2Doou++pLUQ8Pual9WtQ=;
-        fh=g1FBqZqoeQYFwQm/QXU/MwSXpWSaI0z0SIz+28LvI9w=;
-        b=KjrA5cybsqeFQks47KTWkfOgGzhZsZVSR8q4cDXXCcFyT5Stq7Gms154XiDWTz7GD3
-         Xjc/eNnetvs27PRjq11jsIbmMnNHt9/ZImQV/M7np93hNntZZN9/ZYcCrFRwOD2O9I1G
-         zetiE26TxuTGUKHbQxM8/ExmNi0jHK/uQMpQVb3BZyNrtEPqzI8W4q/zalxNlSV/iR05
-         5lMrEDbisc126t2l/LH6zwnHkPwEHGQBQ35877eEhw+oSfrBndL5OhyadbKGyNYgTZrI
-         LKH6SQoWUyOjIbC7dKRmdQtnG5fEOYNh5grhCONG4dN7UbUrh4rrhyNmYz1ViJQfxX1n
-         2Kug==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1782428363; x=1783033163; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=/gX7hQHyvfb4Ci0nY3Fxsfc2Doou++pLUQ8Pual9WtQ=;
-        b=JSUeu97WuF1NxcYGKJZ3+OjcVCjTWhDzPVj0TixTAnSNW95O93n00nw1x+cUMmtPxd
-         W2Ls7IyDw5Lg4xqxitO6BllHoZzPc8ut0oT0MA/9+dR3ezN7vwtPcWWWL/Dy805R2whM
-         0Fa+ZnOzC/SEnFr5wVds+APYa68K/vHLTI+MEEZd8UimZFRIu7YJdwRxmKVIxhcOFbm5
-         bd4IpWozeHTjmPlVhbIiyETfFmcJjDM2RiLIsSoYOtU+g/Ol7Bm7TBQbHI/5QN0F4N9u
-         kIEXgLiK5t4enP14lK/0BK/pBmzgdVILPD1NbOuQ2XaJO7GjgP/JvBSuMkXrD+F3b0hQ
-         kD7Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782428363; x=1783033163;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=/gX7hQHyvfb4Ci0nY3Fxsfc2Doou++pLUQ8Pual9WtQ=;
-        b=W2c+W8oNaALy6dX++BBB8Wui0s9GNbhwNLDczfU93ShC1cHWD08NmZqvOJ/PNqdLCY
-         6nXjpT3OM2+kQJOTkUHCnMF3Dx6DXznsPCE8FmalKRMJil4Rc/3iYTKnXJBNTIhex6kC
-         +ZCPmW5b8MoFxG2knvjZC+86HfRokOA88sFDZ5GRutx2oUo8qBMq2WPHtSAnqvoDWa2A
-         Jv8CQhoRQq/A+9mIUh9XI1iEu972T5XE37zbMi9AxRbgvyBF4DRqCRReNb2LNl5Q3exA
-         yfijtKZFhnRgC2VezBxgsX+V1nSqVNMz9Vue1bKu3ziyemYzy92fUdXK6V+z4qAg3GOg
-         k+IQ==
-X-Forwarded-Encrypted: i=1; AHgh+RpW+Xk5ekfqe6jEqfaupA5Pq3WJ58QnY5Y3as6s3tXZoTSKYLxQsW82K67H2X+QWFm6Acw3tD78szjVKDm5pjlD@lists.infradead.org
-X-Gm-Message-State: AOJu0YzlslEFFu8HaQtKscfxm+3rulUcvQSvRV+t+wLu10bur6gmL4vD
-	3jTsGeGut0yGxlpYpJDUMqICWl5N38r6tzRcjeYe9/W0V7114CLChpGPFhR69YZcdxz/4gtQpMS
-	lgL+plIkIM0TiUC6nSfK8clAq9+nJGcQRud+z00b2
-X-Gm-Gg: AfdE7cmVb/W5d1XwAb9Ulev4SbfaMWwBahLkTkCvN87fqhj+7dXtG0HjTTKJY9g/Fw2
-	kvsJyNzN8JJh10aq9D/umWSiuWcR11hk6MdHIHmiAgd00Zk9DUgriLj9zrkfhA7vYOVE39kbgjD
-	kORcisJAH5+38EYgaFnjIcIhqlPj9O+7hFQnO4AvoMRA3Cdp7qPUrKOgPuKd0B4e9FvR7gmsDK3
-	/ctoMO7AdNsWl96nqzhFze1Bwfs4QZngZaDXsCPW1vKI+qccVR8Rf9KpBHDmlAwaiF3ndZMWTbP
-	cNx54lOua9ExLSyo/JnBwoBB56e89WOeHHd3y5Vo+yS4moeBIvDabM39SZzPuyq5HvO+Il4=
-X-Received: by 2002:a17:902:fc4d:b0:2bf:193b:a195 with SMTP id
- d9443c01a7336-2c813e4f6c6mr855945ad.11.1782428362363; Thu, 25 Jun 2026
- 15:59:22 -0700 (PDT)
+	Thu, 25 Jun 2026 23:42:07 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id A12BF40BF5;
+	Thu, 25 Jun 2026 23:42:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DEF11F000E9;
+	Thu, 25 Jun 2026 23:42:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782430926;
+	bh=7rTeWGRC3qlYe3M/STi4OqC/ckIFBCcw0pmuKzcM+Ms=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ERWk9tSfkvUB3gpMoi+r8/npeOf+VTcK6LEcTQ+ydlZM4R04BnjE7NoxRlL2Y7oOp
+	 HwEILF3l/MEtXv4l1oapXtPAddR7mVIcAbFM+/NzAauaraVXtWjthqV/7Xr9jV0rmP
+	 iV/aTYKta1D6uPYRp+2hh9+GTlghECm8I505IDeByN96e5NV0eCKP7muVv5sc3JnQG
+	 O3K8AFvvCi6QK5nN6WRqQQQyuO2ODeP0WbSkJkHgCIFXVq1+HVSkMdVsvtq4txrVyP
+	 sezhtjuTBGj4tnd2fWtTX6Neebzlxe0449kNqUc5+ZQaEKrKtQDmJHaKYNRwLyfJcc
+	 gFiMuxnkCmkKg==
+Date: Thu, 25 Jun 2026 16:41:58 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Steven Rostedt <rostedt@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	John Ogness <john.ogness@linutronix.de>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Julia Lawall <julia.lawall@inria.fr>,
+	Yury Norov <yury.norov@gmail.com>, linux-doc@vger.kernel.org,
+	linux-kbuild@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	dri-devel@lists.freedesktop.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-rdma@vger.kernel.org,
+	linux-usb@vger.kernel.org, linux-ext4@vger.kernel.org,
+	linux-nfs@vger.kernel.org, kvm@vger.kernel.org,
+	intel-gfx@lists.freedesktop.org
+Subject: Re: [PATCH v4 2/2] tracing: Remove trace_printk.h from kernel.h
+Message-ID: <20260625234158.GA261868@ax162>
+References: <20260625104007.041432666@kernel.org>
+ <20260625104402.210473477@kernel.org>
 MIME-Version: 1.0
-References: <20260625-airoha-eth-skb_frag_dma_map-v1-1-31d9e460aae6@kernel.org>
-In-Reply-To: <20260625-airoha-eth-skb_frag_dma_map-v1-1-31d9e460aae6@kernel.org>
-From: Harshitha Ramamurthy <hramamurthy@google.com>
-Date: Thu, 25 Jun 2026 15:59:10 -0700
-X-Gm-Features: AVVi8CeiefQknrcxxwnBcBr19FhEdmLlZYqiKgArFjpWRrvJ_M8y2FZe1GT04Ic
-Message-ID: <CAEAWyHfyWrSdKziDg3SOnx3QRfd6uu6YXtJV85OgqWEQSJykmQ@mail.gmail.com>
-Subject: Re: [PATCH net] net: airoha: dma map xmit frags with skb_frag_dma_map()
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	netdev@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260625_155924_987340_97ECCBE6 
-X-CRM114-Status: GOOD (  24.25  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260625104402.210473477@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,206 +86,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 25, 2026 at 2:43=E2=80=AFAM Lorenzo Bianconi <lorenzo@kernel.or=
-g> wrote:
->
-> Map xmit skb fragments using skb_frag_dma_map() instead of
-> dma_map_single(skb_frag_address()). skb_frag_address() relies on
-> page_address() to obtain a kernel virtual address, which is not
-> guaranteed to work for all page types (e.g. highmem pages or
-> user-pinned pages from MSG_ZEROCOPY).
-> skb_frag_dma_map() maps the fragment directly via its struct page and
-> offset through dma_map_page(), avoiding the need for a kernel virtual
-> address entirely.
-> Introduce an enum airoha_dma_map_type to track how each queue entry was
-> mapped (single vs page), so that the matching unmap function is called
-> on completion and in error paths.
->
-> Fixes: 23020f049327 ("net: airoha: Introduce ethernet support for EN7581 =
-SoC")
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+Hi Steve,
 
-Reviewed-by: Harshitha Ramamurthy <hramamurthy@google.com>
+On Thu, Jun 25, 2026 at 06:40:09AM -0400, Steven Rostedt wrote:
+> From: Steven Rostedt <rostedt@goodmis.org>
+> 
+> There have been complaints about trace_printk.h causing more build time
+> for being in kernel.h if it changes. There is also an effort to clean up
+> kernel.h to have it not include unneeded header files. Move trace_printk.h
+> out of kernel.h and place it in the headers and C files that use it.
+> 
+> Link: https://lore.kernel.org/all/CAHk-=wikCBeVFjVXiY4o-oepdbjAoir5+TcAgtL12c4u1TpZLQ@mail.gmail.com/
+> 
+> Suggested-by: Yury Norov <yury.norov@gmail.com>
+> Acked-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+> Signed-off-by: Steven Rostedt <rostedt@goodmis.org>
 
-> ---
->  drivers/net/ethernet/airoha/airoha_eth.c | 61 ++++++++++++++++++++------=
-------
->  drivers/net/ethernet/airoha/airoha_eth.h |  7 ++++
->  2 files changed, 45 insertions(+), 23 deletions(-)
->
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ether=
-net/airoha/airoha_eth.c
-> index 932b3a3df2e5..1caf6766f2c0 100644
-> --- a/drivers/net/ethernet/airoha/airoha_eth.c
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-> @@ -944,6 +944,25 @@ static void airoha_qdma_wake_netdev_txqs(struct airo=
-ha_queue *q)
->         q->txq_stopped =3D false;
->  }
->
-> +static void airoha_unmap_xmit_buf(struct airoha_eth *eth,
-> +                                 struct airoha_queue_entry *e)
-> +{
-> +       switch (e->dma_type) {
-> +       case AIROHA_DMA_MAP_PAGE:
-> +               dma_unmap_page(eth->dev, e->dma_addr, e->dma_len,
-> +                              DMA_TO_DEVICE);
-> +               break;
-> +       case AIROHA_DMA_MAP_SINGLE:
-> +               dma_unmap_single(eth->dev, e->dma_addr, e->dma_len,
-> +                                DMA_TO_DEVICE);
-> +               break;
-> +       case AIROHA_DMA_UNMAPPED:
-> +       default:
-> +               break;
-> +       }
-> +       e->dma_type =3D AIROHA_DMA_UNMAPPED;
-> +}
-> +
->  static int airoha_qdma_tx_napi_poll(struct napi_struct *napi, int budget=
-)
->  {
->         struct airoha_tx_irq_queue *irq_q;
-> @@ -1006,9 +1025,7 @@ static int airoha_qdma_tx_napi_poll(struct napi_str=
-uct *napi, int budget)
->                 skb =3D e->skb;
->                 e->skb =3D NULL;
->
-> -               dma_unmap_single(eth->dev, e->dma_addr, e->dma_len,
-> -                                DMA_TO_DEVICE);
-> -               e->dma_addr =3D 0;
-> +               airoha_unmap_xmit_buf(eth, e);
->                 list_add_tail(&e->list, &q->tx_list);
->
->                 WRITE_ONCE(desc->msg0, 0);
-> @@ -1177,12 +1194,10 @@ static void airoha_qdma_tx_cleanup(struct airoha_=
-qdma *qdma)
->                         struct airoha_qdma_desc *desc =3D &q->desc[j];
->                         struct sk_buff *skb =3D e->skb;
->
-> -                       if (!e->dma_addr)
-> +                       if (e->dma_type =3D=3D AIROHA_DMA_UNMAPPED)
->                                 continue;
->
-> -                       dma_unmap_single(qdma->eth->dev, e->dma_addr,
-> -                                        e->dma_len, DMA_TO_DEVICE);
-> -                       e->dma_addr =3D 0;
-> +                       airoha_unmap_xmit_buf(qdma->eth, e);
->                         list_add_tail(&e->list, &q->tx_list);
->
->                         WRITE_ONCE(desc->ctrl, 0);
-> @@ -2193,8 +2208,8 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *=
-skb,
->         struct netdev_queue *txq;
->         struct airoha_queue *q;
->         LIST_HEAD(tx_list);
-> +       dma_addr_t addr;
->         int i =3D 0, qid;
-> -       void *data;
->         u16 index;
->         u8 fport;
->
-> @@ -2250,24 +2265,22 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff=
- *skb,
->                 return NETDEV_TX_BUSY;
->         }
->
-> -       len =3D skb_headlen(skb);
-> -       data =3D skb->data;
-> -
->         e =3D list_first_entry(&q->tx_list, struct airoha_queue_entry,
->                              list);
-> +       len =3D skb_headlen(skb);
-> +       addr =3D dma_map_single(netdev->dev.parent, skb->data, len,
-> +                             DMA_TO_DEVICE);
-> +       if (unlikely(dma_mapping_error(netdev->dev.parent, addr)))
-> +               goto error_unlock;
-> +
-> +       e->dma_type =3D AIROHA_DMA_MAP_SINGLE;
->         index =3D e - q->entry;
->
->         while (true) {
->                 struct airoha_qdma_desc *desc =3D &q->desc[index];
->                 skb_frag_t *frag =3D &skb_shinfo(skb)->frags[i];
-> -               dma_addr_t addr;
->                 u32 val;
->
-> -               addr =3D dma_map_single(netdev->dev.parent, data, len,
-> -                                     DMA_TO_DEVICE);
-> -               if (unlikely(dma_mapping_error(netdev->dev.parent, addr))=
-)
-> -                       goto error_unmap;
-> -
->                 list_move_tail(&e->list, &tx_list);
->                 e->skb =3D i =3D=3D nr_frags - 1 ? skb : NULL;
->                 e->dma_addr =3D addr;
-> @@ -2291,8 +2304,13 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff =
-*skb,
->                 if (++i =3D=3D nr_frags)
->                         break;
->
-> -               data =3D skb_frag_address(frag);
->                 len =3D skb_frag_size(frag);
-> +               addr =3D skb_frag_dma_map(netdev->dev.parent, frag, 0, le=
-n,
-> +                                       DMA_TO_DEVICE);
-> +               if (unlikely(dma_mapping_error(netdev->dev.parent, addr))=
-)
-> +                       goto error_unmap;
-> +
-> +               e->dma_type =3D AIROHA_DMA_MAP_PAGE;
->         }
->         q->queued +=3D i;
->
-> @@ -2313,11 +2331,8 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff =
-*skb,
->         return NETDEV_TX_OK;
->
->  error_unmap:
-> -       list_for_each_entry(e, &tx_list, list) {
-> -               dma_unmap_single(netdev->dev.parent, e->dma_addr, e->dma_=
-len,
-> -                                DMA_TO_DEVICE);
-> -               e->dma_addr =3D 0;
-> -       }
-> +       list_for_each_entry(e, &tx_list, list)
-> +               airoha_unmap_xmit_buf(dev->eth, e);
->         list_splice(&tx_list, &q->tx_list);
->  error_unlock:
->         spin_unlock_bh(&q->lock);
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ether=
-net/airoha/airoha_eth.h
-> index d7ff8c5200e2..2765244d937c 100644
-> --- a/drivers/net/ethernet/airoha/airoha_eth.h
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.h
-> @@ -170,12 +170,19 @@ enum trtcm_param {
->  #define TRTCM_TOKEN_RATE_MASK                  GENMASK(23, 6)
->  #define TRTCM_TOKEN_RATE_FRACTION_MASK         GENMASK(5, 0)
->
-> +enum airoha_dma_map_type {
-> +       AIROHA_DMA_UNMAPPED,
-> +       AIROHA_DMA_MAP_SINGLE,
-> +       AIROHA_DMA_MAP_PAGE,
-> +};
-> +
->  struct airoha_queue_entry {
->         union {
->                 void *buf;
->                 struct {
->                         struct list_head list;
->                         struct sk_buff *skb;
-> +                       enum airoha_dma_map_type dma_type;
->                 };
->         };
->         dma_addr_t dma_addr;
->
-> ---
-> base-commit: 232c4ca2343d1181cbfc061f9856d9591e397579
-> change-id: 20260625-airoha-eth-skb_frag_dma_map-bcccd5d6e4b1
->
-> Best regards,
-> --
-> Lorenzo Bianconi <lorenzo@kernel.org>
->
->
+This patch breaks lib/test_context-analysis.c for me in several
+configurations:
+
+  In file included from lib/test_context-analysis.c:9:
+  In file included from include/linux/local_lock.h:5:
+  include/linux/local_lock_internal.h:46:2: error: use of undeclared identifier '_THIS_IP_'
+     46 |         lock_map_acquire(&l->dep_map);
+        |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  include/linux/lockdep.h:541:69: note: expanded from macro 'lock_map_acquire'
+    541 | #define lock_map_acquire(l)                     lock_acquire_exclusive(l, 0, 0, NULL, _THIS_IP_)
+        |                                                                                       ^~~~~~~~~
+  In file included from lib/test_context-analysis.c:9:
+  In file included from include/linux/local_lock.h:5:
+  include/linux/local_lock_internal.h:53:2: error: use of undeclared identifier '_THIS_IP_'
+     53 |         lock_map_acquire_try(&l->dep_map);
+        |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  include/linux/lockdep.h:542:73: note: expanded from macro 'lock_map_acquire_try'
+    542 | #define lock_map_acquire_try(l)                 lock_acquire_exclusive(l, 0, 1, NULL, _THIS_IP_)
+        |                                                                                       ^~~~~~~~~
+  In file included from lib/test_context-analysis.c:9:
+  In file included from include/linux/local_lock.h:5:
+  include/linux/local_lock_internal.h:62:2: error: use of undeclared identifier '_THIS_IP_'
+     62 |         lock_map_release(&l->dep_map);
+        |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  include/linux/lockdep.h:545:47: note: expanded from macro 'lock_map_release'
+    545 | #define lock_map_release(l)                     lock_release(l, _THIS_IP_)
+        |                                                                 ^~~~~~~~~
+  3 errors generated.
+
+The following diff resolves it for me, should I send it as a separate
+patch or do you want to just fold it in with a note?
+
+diff --git a/include/linux/lockdep.h b/include/linux/lockdep.h
+index 621566345406..2301a701ffbb 100644
+--- a/include/linux/lockdep.h
++++ b/include/linux/lockdep.h
+@@ -10,6 +10,7 @@
+ #ifndef __LINUX_LOCKDEP_H
+ #define __LINUX_LOCKDEP_H
+ 
++#include <linux/instruction_pointer.h>
+ #include <linux/lockdep_types.h>
+ #include <linux/smp.h>
+ #include <asm/percpu.h>
+-- 
+Cheers,
+Nathan
 
