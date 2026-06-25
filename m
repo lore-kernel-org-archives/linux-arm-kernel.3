@@ -4,39 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93AEECDE007
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 11:58:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0500CDE007
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 11:59:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tHBRfl9Vo3x4vHdC+OjdO88ymwe1Pfd1Y+88rPy3+7Y=; b=lCBSteh64wbU9XSe4i05jZDbSS
-	BCR6xpH6k8a92jjZVOX1IvWVTki1FrIXhLLMPR/zXvzqR29tbD1cVdpFh2hCOEggmmLJjIfkIaMBu
-	ez+SebP9R8/mec/mX6GEubeKo/QyH0M1q+EXWHu0QN4dn079Z7J2MbHI40h1Fqoe+NmV60wIMSuq+
-	0gtpK9FfPgQhSSEsvFJkgaSVQRUdA5+nohyBF7+ukNPpNX71VoTSYVL7XwaxvfDaroGa0ykLUmH0V
-	gDkjB3y0cF/7gO9zDX9pbbbpbPsqO9QBdrO1clGRQtiScfKUFF+JBhyLfReryuUDGZYj7es5VMWrg
-	WAjtJ9sQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=00CUa1hLOxEqnOirfYovjxZeJiCqa/8wDLtlYF68e/4=; b=skDRY6qsqbS2/Wanu7fV9Plpp4
+	G1fJ6QzpD+OEfDiIq6UnnMjHbo2Qic5JzSBEAFW6e514NheZwRvQXfvjsE/pKEcPT6SrU2eSwNFRu
+	QICla7Ww12nSFzw1T1JXxsKMKo1vSvQ31iiBrEvXFl2GBwhwiWMH6ddURMY5UMbdyeEGiGaJkIUAO
+	CI5LtuV3ZSZv2nNVgSvWit/qhTwiTZz5AmdU34dQddaM5CBSdkflc1I1nAPjbjO95GyXpddF/6e8s
+	IF37oiog0x8XkJR863reiNs9dusot+Rn6oOyjGw2AChB6rgEA7hUre/br/amnhCxf90QjV6htjDLU
+	E3clmQzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wciiv-000000098T7-2rx6;
-	Thu, 25 Jun 2026 11:58:25 +0000
+	id 1wciii-000000098MW-0rd8;
+	Thu, 25 Jun 2026 11:58:12 +0000
 Received: from mx.adeep.su ([185.250.0.168])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wciis-000000098RG-2blh;
-	Thu, 25 Jun 2026 11:58:24 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 08E74170300;
-	Thu, 25 Jun 2026 14:58:12 +0300 (MSK)
+	id 1wciie-000000098LR-3CHR;
+	Thu, 25 Jun 2026 11:58:11 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E8734170204;
+	Thu, 25 Jun 2026 14:57:48 +0300 (MSK)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=baodeep.com; s=dkim;
-	t=1782388700; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=tHBRfl9Vo3x4vHdC+OjdO88ymwe1Pfd1Y+88rPy3+7Y=;
-	b=Yibxn0dpYcUtixpK9CEN3dPqAWNFVyUEIti9o3DVbUqkdztJzlm3K2sjjlFzSc/4vWby4X
-	7xypilkTmgxIhrQt0OLQxuk3mWzb+ywrnJDxBz4n9A+0N1jWDSI4v+w2DzqzfVGvZi/VXj
-	Zd9hjwMv27VroThaUEghsz8LmJzInHjbsIqMAiPcSbj/UEZNYtgD6CTpswLOswGCkoRjqQ
-	5THkPf2M48U6N9ur+XDBor7yYY9b4T3jk3KM0e+p3qLp22gXvRpvFgSxnCcyaxpcJopnPV
-	0/7oorpf6HAThCCTrMS9LvIlwEHIHco1sPiMH2H0U/tpXjug/gBW8+cxzYDaNw==
+	t=1782388682; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=00CUa1hLOxEqnOirfYovjxZeJiCqa/8wDLtlYF68e/4=;
+	b=FVwLDUQg38OHClWg9cUHgYBGktXMqDZPZCwwoJ9oX7Qt88x+OESMSiKIn7T/LMKJhdmMoG
+	dfaJgroBqEsxQ5NoRGrKXR7wvMyIh1PEpA00xDqGKI0NBfYSQCya4iw8TI9PS/BUeDWDpe
+	FJ9a5xU6+owdAoVcMT29AbK2vuY7rMA+xOcbpfxBbHrrvC85n0zfSplNogiTMs5SrnuVXo
+	47LbZadKDKaEZ409wu/jERSTth437wrdLdodtjYISi20O07ynWp6w488Rbxf9G8iVDvs0G
+	yAwUAeZnQxJ+MIPyebGomtI0WUxWBa3vPJQSTANN8qGdJwt/eXiTLJ5VXgnwdA==
 From: Viacheslav Bocharov <v@baodeep.com>
 To: Linus Walleij <linusw@kernel.org>,
 	Bartosz Golaszewski <brgl@kernel.org>
@@ -51,18 +50,17 @@ Cc: Neil Armstrong <neil.armstrong@linaro.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-amlogic@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 2/2] pinctrl: meson: restore non-sleeping GPIO access
-Date: Thu, 25 Jun 2026 14:57:18 +0300
-Message-ID: <20260625115718.1678991-3-v@baodeep.com>
+Subject: [PATCH v2 0/2] gpio: fix sleeping-in-atomic in shared-proxy; restore meson non-sleeping
+Date: Thu, 25 Jun 2026 14:57:16 +0300
+Message-ID: <20260625115718.1678991-1-v@baodeep.com>
 X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260625115718.1678991-1-v@baodeep.com>
-References: <20260625115718.1678991-1-v@baodeep.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260625_045822_827228_80F7E416 
-X-CRM114-Status: GOOD (  12.08  )
+X-CRM114-CacheID: sfid-20260625_045809_327332_2A841593 
+X-CRM114-Status: UNSURE (   9.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,59 +75,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 28f240683871 ("pinctrl: meson: mark the GPIO controller as
-sleeping") set gpio_chip.can_sleep = true to work around
-gpio-shared-proxy holding a spinlock across a sleeping pinctrl config
-path. That locking bug is now fixed in the shared-proxy itself ("gpio:
-shared-proxy: always serialize with a sleeping mutex"), so the
-controller-wide workaround is no longer needed; the meson GPIO
-controller does not sleep.
+gpio-shared-proxy chooses its descriptor lock (mutex vs spinlock) from
+the underlying chip's can_sleep, but under that lock it calls config and
+direction ops that reach sleeping pinctrl paths. On a controller with
+non-sleeping MMIO value ops the lock is a spinlock, so a sleeping call
+runs from atomic context:
 
-meson_gpio_get/set/direction_* access MMIO through regmap. The
-regmap_mmio bus uses fast I/O (spinlock) locking, so these value
-callbacks do not contain sleeping operations. Since gpio_chip.can_sleep
-describes the get/set value path, restore can_sleep = false.
+  BUG: sleeping function called from invalid context
+    ... pinctrl_gpio_set_config <- gpiochip_generic_config
+    <- gpio_shared_proxy_set_config (voting spinlock held)
+    <- ... <- mmc_pwrseq_simple_probe
 
-Marking the controller sleeping also broke atomic value consumers such
-as w1-gpio (1-Wire bitbang): w1_io.c runs its read time slot under
-local_irq_save() and uses the non-cansleep gpiod_set_value() /
-gpiod_get_value(), which with can_sleep=true trigger WARN_ON(can_sleep)
-in gpiolib on every transferred bit (from w1_gpio_write_bit() /
-w1_gpio_read_bit() via w1_reset_bus() and w1_search()). The printk and
-stack dump inside the IRQs-off, microsecond-scale time slot destroy the
-bit timing, so reset/presence detection and ROM search fail: the bus
-master registers but w1_master_slave_count stays at 0 and no devices
-are found. Verified on an Amlogic A113X board (DS18B20 on GPIOA_14):
-with can_sleep restored to false the warnings are gone and the sensor
-is detected and read again.
+This was reported on Khadas VIM3 and worked around for Amlogic by
+commit 28f240683871 ("pinctrl: meson: mark the GPIO controller as
+sleeping"), which marked the whole meson controller sleeping. That
+workaround broke atomic value-path consumers: w1-gpio (1-Wire bitbang)
+no longer detects devices, because its IRQ-disabled read slot calls the
+non-cansleep gpiod_*_value() and now hits WARN_ON(can_sleep) per bit.
 
-This must not be applied or backported without the shared-proxy locking
-fix above; otherwise the original Khadas VIM3 splat returns on boards
-that genuinely share a meson GPIO.
+Patch 1 fixes the proxy locking generically (always a sleeping mutex).
+Patch 2 then restores meson can_sleep=false, fixing 1-Wire.
 
-Fixes: 28f240683871 ("pinctrl: meson: mark the GPIO controller as sleeping")
-Link: https://lore.kernel.org/all/20260105150509.56537-1-bartosz.golaszewski@oss.qualcomm.com/
-Signed-off-by: Viacheslav Bocharov <v@baodeep.com>
----
-v1: https://lore.kernel.org/linux-gpio/20260610153329.937833-3-v@baodeep.com/
+Patch 1 has a trade-off: a proxied GPIO becomes sleeping, so consumers
+gating on gpiod_cansleep() change behaviour. No current device needs
+atomic (non-cansleep) value access on a shared GPIO -- every report
+(Khadas VIM3, ODROID-M1, my test on JetHub D1+) is a shared reset line
+(eMMC/SDIO pwrseq or PCIe reset) driven through the cansleep accessors,
+which is what the proxy exists to vote on; bit-banging that needs atomic
+access cannot work through voting anyway. An alternative that keeps
+atomic value access (split locking) is possible but adds a second lock
+and new race windows, so this series takes the simpler mutex-only
+approach.
 
- drivers/pinctrl/meson/pinctrl-meson.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+The two are a unit: patch 2 must not be applied without patch 1,
+otherwise the original VIM3 splat returns on boards that share a meson
+GPIO -- please keep the order. I have not Cc'd stable; I will request
+stable backports separately once both patches have landed.
 
-diff --git a/drivers/pinctrl/meson/pinctrl-meson.c b/drivers/pinctrl/meson/pinctrl-meson.c
-index 4507dc8b5563..18295b15ecd9 100644
---- a/drivers/pinctrl/meson/pinctrl-meson.c
-+++ b/drivers/pinctrl/meson/pinctrl-meson.c
-@@ -619,7 +619,7 @@ static int meson_gpiolib_register(struct meson_pinctrl *pc)
- 	pc->chip.set = meson_gpio_set;
- 	pc->chip.base = -1;
- 	pc->chip.ngpio = pc->data->num_pins;
--	pc->chip.can_sleep = true;
-+	pc->chip.can_sleep = false;
- 
- 	ret = gpiochip_add_data(&pc->chip, pc);
- 	if (ret) {
--- 
+Changes since v1:
+- gpio: shared-proxy: open-code the descriptor mutex; drop the
+  gpio_shared_desc_lock guard and the gpio_shared_lockdep_assert()
+  helper, move the mutex rationale to the can_sleep assignment. No
+  functional change.
+
+v1: https://lore.kernel.org/linux-gpio/20260610153329.937833-1-v@baodeep.com/
+
+Viacheslav Bocharov (2):
+  gpio: shared-proxy: always serialize with a sleeping mutex
+  pinctrl: meson: restore non-sleeping GPIO access
+
+ drivers/gpio/gpio-shared-proxy.c      | 66 +++++++++++----------------
+ drivers/gpio/gpiolib-shared.c         |  9 +---
+ drivers/gpio/gpiolib-shared.h         | 28 +-----------
+ drivers/pinctrl/meson/pinctrl-meson.c |  2 +-
+ 4 files changed, 30 insertions(+), 75 deletions(-)
+
+
+base-commit: 840ef6c78e6a2f694b578ecb9063241c992aaa9e
+--
 2.54.0
 
 
