@@ -4,91 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 051AACDB466
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 06:34:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0425CCDB466
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 06:36:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p2S5wQkJ7oDInTepN3k9OHxotHUCNgt6rfOIAJ5F7GA=; b=IW6hBd/nL1nJods53H4OEKs3UN
-	s9rYkLy6MKBpNvN0p99QuV67Gmvp6Cc4R43f75jPP+JbGjGehyvcY56zv92X70idTRqglIcrBw78A
-	w4PBYE57vZqLwAsm//tjqci+Bq3RQMzsErlGFcUZ80hmejjSjQrri6uT03bekOgTY+JsySMk1Gfnk
-	41UpdAqh2U3yOQQad4Oql0d5FPTd3nb0GcTdAOVW1IWnikXX6p4qNJPO9o8/09DzbHeFsh8TETZnM
-	zAtupm0vLvFBEqtgiQtHbPoYUbZDe3L61nGH1lCdl7Pk8o+iweBGolbuS2ovpZ8NTU0fBnpSTi322
-	QN5xcczQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iccqRVwxvhQewqfPMfK2FxEEJuivEneqQEGd1Rf7CFw=; b=xISA94MFY3fH5pwJC8xwmSbp08
+	WX6AnJM5GiuRsCocHSWx4BH+8IDVYfrYjiZdP1qDmLBfn+KF4R0ZZHIjm/Td1urFLNZnsODL9P0hi
+	sO6rCnGNdkV1B3pPt/kPDQoHzqO5/inCiC4PuIR3POvtDx4zkoY5u9mEGGSv19K+mCRXh+o4yonBi
+	dokNcF2H6whBY1fhnD2QfnVNKPIZxFER40og4mmIbuEAMN7aTUBRc5loTYof5m7FTWqj1zoqjQVWN
+	Pv9uYnMuFICJKnXrMQEI3MDW2p3NooU4RLuB8WEs09VTEzp5TKUqflwMQkCprHnOp7EthGAVCqhza
+	dz6Vn33Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcdev-00000008i4b-1bUg;
-	Thu, 25 Jun 2026 06:33:57 +0000
-Received: from mgamail.intel.com ([198.175.65.17])
+	id 1wcdhC-00000008iHR-3XVK;
+	Thu, 25 Jun 2026 06:36:18 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcdes-00000008i3y-1NSX;
-	Thu, 25 Jun 2026 06:33:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1782369234; x=1813905234;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=FBfQ5z8ocvcr92KhtSfiqgzAuZkaUppGNWRywcRPaKI=;
-  b=fqyGA7AxE2iGK/urbwigc59+P6kZNNo547WxpdJkMy8v7czURQov/Wnt
-   fBIEZDbVnk0MNA7J6J5SEHqb4pCJAaEJ7+ie+YUivdljBMuHeoN0rZdaA
-   XvgCYbjF2wkUME7KEPkof3BaEGEAbXf7s47SfXUrJIEGUjjjrx7ZMz245
-   +iGL1PVh2Tq3yV7eLWlGRNbdGkLBVhhtTtvCqmyaVMPJ+LYDJaWLgxPLY
-   XjeOsOglUyMPLDEZ3xBg7rA7LMKfQ5/GUO5vyYXMNh4DkEPkLN5/EOhmL
-   gHnvyf/EWDMn2rIY+RTSlDCWqpc9/MrQVBl9TaU7TJcfrxxAkWQ3joYaV
-   A==;
-X-CSE-ConnectionGUID: fr/4i0JCSy6Nuvcdd7J3/Q==
-X-CSE-MsgGUID: BqwP4fh3TFipQvldduEjwQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11827"; a="83141345"
-X-IronPort-AV: E=Sophos;i="6.24,223,1774335600"; 
-   d="scan'208";a="83141345"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Jun 2026 23:33:53 -0700
-X-CSE-ConnectionGUID: +diy+BegSCGuh5hOe0bZfQ==
-X-CSE-MsgGUID: 874nazgcSQ6Sp/Y1exe5IQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.24,223,1774335600"; 
-   d="scan'208";a="274626595"
-Received: from rvuia-mobl.ger.corp.intel.com (HELO localhost) ([10.245.245.93])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Jun 2026 23:33:44 -0700
-Date: Thu, 25 Jun 2026 09:33:42 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Frank.Li@oss.nxp.com
-Cc: Daniel Scally <djrscally@gmail.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Dafna Hirschfeld <dafna@fastmail.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
-	Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
-	Loic Poulain <loic.poulain@oss.qualcomm.com>,
-	driver-core@lists.linux.dev, linux-acpi@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	imx@lists.linux.dev, Guoniu Zhou <guoniu.zhou@nxp.com>,
-	Frank Li <Frank.Li@nxp.com>, Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-Subject: Re: [PATCH v2 1/4] device property: Introduce
- fwnode_graph_for_each_endpoint_scoped()
-Message-ID: <ajzLxtn_b3MC-NAl@ashevche-desk.local>
-References: <20260624-fw_scoped-v2-0-0a8db472af4a@nxp.com>
- <20260624-fw_scoped-v2-1-0a8db472af4a@nxp.com>
+	id 1wcdhC-00000008iHL-0IQ1
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 25 Jun 2026 06:36:18 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B9A9243BD4;
+	Thu, 25 Jun 2026 06:36:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F4961F000E9;
+	Thu, 25 Jun 2026 06:36:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782369377;
+	bh=iccqRVwxvhQewqfPMfK2FxEEJuivEneqQEGd1Rf7CFw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=Udh2bRr6XK88oSDv+Zm9Ba41OghYlzOckyWxDmSExO+EfEeU4vo2Qba7n31uLrNEe
+	 7uv3a4Oy+qxoBrZ5Rje+TUs2gNbBqlaJ9c6XekJFx8cXN4OTR6G8K8YXvFv73uZ+0q
+	 jWMVn8tWqSa1bD0+DVn8f/0DyMlYBoVup1dU1pwUpIDCKszo0vsmxAo0JSs4yWcEN8
+	 vCp2l30W27riiu2x1M3Yg9O9LdRkgMjXxSI8y4iWvJUtUvSyAT4SBCtLYJhY6skLfX
+	 DwgKB6dqFudG/LanO8cox6GNDUiwNyMTsyPTV7b4AVtztt0dKHiyoNEdDX+zsLTCd1
+	 WklrG+75DCZwg==
+Message-ID: <b9ca9e36-a851-4a98-a739-ca99dd534d6d@kernel.org>
+Date: Thu, 25 Jun 2026 08:36:08 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260624-fw_scoped-v2-1-0a8db472af4a@nxp.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260624_233354_402815_71FB3325 
-X-CRM114-Status: GOOD (  15.64  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/7] dt-bindings: serial: 8250: aspeed: add
+ aspeed,vuart-over-pci bool prop
+To: =?UTF-8?Q?Gr=C3=A9goire_Layet?= <gregoire.layet@9elements.com>
+Cc: joel@jms.id.au, andrew@codeconstruct.com.au, lkundrak@v3.sk,
+ devicetree@vger.kernel.org, gregkh@linuxfoundation.org,
+ jirislaby@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, andrew@lunn.ch, jacky_chou@aspeedtech.com,
+ yh_chung@aspeedtech.com, ninad@linux.ibm.com, anirudhsriniv@gmail.com,
+ linux-serial@vger.kernel.org, linux-aspeed@lists.ozlabs.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <cover.1782224059.git.gregoire.layet@9elements.com>
+ <73b2bd81ce70814612e6d3cb689c3296de742aaf.1782224059.git.gregoire.layet@9elements.com>
+ <20260624-original-vigorous-mayfly-dfceac@quoll>
+ <CAFi2wKbKr8FMcJeGWA5e1UZUTh2=LwYNkLEj6exd2as7=AcvVQ@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <CAFi2wKbKr8FMcJeGWA5e1UZUTh2=LwYNkLEj6exd2as7=AcvVQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,35 +122,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 24, 2026 at 01:00:09PM -0400, Frank.Li@oss.nxp.com wrote:
-
-> Similar to recently propose for_each_child_of_node_scoped() this new
-> version of the loop macro instantiates a new local struct fwnode_handle *
-> that uses the __free(fwnode_handle) auto cleanup handling so that if a
-> reference to a node is held on early exit from the loop the reference will
-> be released. If the loop runs to completion, the child pointer will be NULL
-> and no action will be taken.
+On 24/06/2026 14:48, Grégoire Layet wrote:
+> Hi Krzysztof,
 > 
-> The reason this is useful is that it removes the need for
-> fwnode_handle_put() on early loop exits. If there is a need to retain the
-> reference, then return_ptr(child) or no_free_ptr(child) may be used to
-> safely disable the auto cleanup.
+>> What does that mean? How UART can be accessible over PCI bus?
+> 
+> It's a Virtual UART. Internally, it's two FIFOs accessible via
+> 8250-compatible register sets on both ends.
 
-...
+I do not know what is Virtual UART...
 
-> +#define fwnode_graph_for_each_endpoint_scoped(fwnode, child)			\
-> +	for (struct fwnode_handle *child __free(fwnode_handle) =		\
-> +		fwnode_graph_get_next_endpoint(fwnode, NULL);		\
+> There is 4 Virtuals UARTs on the LPC bus of the AST2600 and 2 of them
+> are bridged over the PCI bus.
+> So, from the host, you can access the 8250 register set on the PCI bus.
 
-Now there is a misindentation of the \, id est an additional tab is missing.
+You mean these appear (or are) as PCI devices?
 
-> +	     child; child = fwnode_graph_get_next_endpoint(fwnode, child))
-
-Collect more tags and send a v3 :-)
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+> 
+Best regards,
+Krzysztof
 
