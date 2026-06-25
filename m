@@ -4,128 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57599CDE001
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 16:26:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E92D5CDE001
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 16:28:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c/qUuySUP5X73d9RjT6LN4JM1jTe2UT2ivULeVpJCHU=; b=uMYZDmOqT2uT8fF7LtHuVTlR+h
-	JDl3AjnPUPkcavzhJ3E3gz9Y4f2a/Im8I+7Lvm32hL5Q2MW/tADEU2pRT8+9tHOLjzC1G32BSAvKy
-	pl3hZiNTjpOQHxkB+Aoa58a24s+IZzMf0de0PAyHP2LSYKDOqIXqrvtQG3xqJV2OT+O6Z/1cwD3z2
-	C23GE/TLkOS0P3c+viX4OErzWGV9IWuJljHloPHfA5w344Wp5rbqAzQ28jAC450r2deN+iZh0SSYc
-	1bCAspBi3V6iTRWu+uIREH+JQK9KQMkFGYh2a2/IkNNNF9dBAXGpthif8FZmLz8pCwwt+oJYvJpWG
-	ltx0Hrsw==;
+	bh=WtHTE0ZUOjcMfiVh3eBEYex+oSym3DakLquUDoIGAK0=; b=Vs/jLcCXk/UeUWw0fdxrUA9Zbv
+	/4SdQFbcHXhTsmZ53wQqmyTGF59Yd/nV8qb6beixRWx1Q2AQFlzxHt+fjFLo1L6fj1Kb+BcyEb9fA
+	3pnlTI3OAa1ggOqGyMdJGlAgpNGT7YMyJgLfayON7vCrbguoP29PHSMS+jiHSz5PfgwH5hdHNeQaF
+	HzIQ2daEcJCx0geUpTNu2ND/I3cy5Lg6v5Jxz5mJ4uQfHFdt06AIhX2sSiou/XpKNgFOGgAmqyHOF
+	BQVpmNT2I1pqX3sSbWZpIwTFoSsbspfwPnP9zciYqwA28U7bDk5pBsJctlP0cPQhd/BYhSgpn5kaJ
+	i3CcZXyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcmue-00000009Tkk-1gvm;
-	Thu, 25 Jun 2026 16:26:48 +0000
-Received: from mail-westeuropeazon11010039.outbound.protection.outlook.com ([52.101.69.39] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1wcmw0-00000009TyH-3NTY;
+	Thu, 25 Jun 2026 16:28:12 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcmub-00000009Tk4-3Fn8
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Jun 2026 16:26:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lUzEZ0Bk2HAypICdUvJBHV7JkKiyeIjBquNRu8DZHr1e9uu1KbtoC4He3bGtQg9S4wH/3jJMpSvcFPNKblEurIaZ8oYkNb4N00HTfPsLAQ11DnWf7tYlGV7eZpoZDIlIS4ZpuyGtyxdrxOeL89GliSd5me2ckSB4d5A2994a/5wXOPsBs+kCoMMX/dzjMkiVvBxgMFJ4yaQ6VNVP4Ean/VQNQNa16+6+ZQXWlQxs+73jSnk9rraSxefmudtPMG05N87VKKu7Z2JmVKaxToUb9Up2U2YDx1Ge420nd2OoKPyjiPSFlKGUYEeR4AexKKrgAWOg5gsJj/ZelW+ifxaEBg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=c/qUuySUP5X73d9RjT6LN4JM1jTe2UT2ivULeVpJCHU=;
- b=RRiAisxDz/KnEwngXMEa3zqxnhmq9w9v/AuQtuqTe9GeGX2ggDS6DD86WVwZo/OMUBDByyD9m7Wo9eSeAZOvJN7YBaPwPLzj4J25SW/Hwx1Sj4sn6WJroTVEz3eZX3bWRfGsse3vnDd1pFz1+B77n+nLaLeWWkXeHqBNB9YyjlmDLiGE46OOftM5NmK5570g32YV5UOodeOdH7FVpmmHl+AjZpwig49lLFHMEbMfhMSZIWAcguLkJ8rgR+wSqfPqb8md75eDIdBjvWVOpCHqZKLOHnpOxR9vfpCBcZn2B8/7//dLE+GZDXgJ3Uq6ACTqKKHvP5Ky+O8OclE/4X4RLg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=c/qUuySUP5X73d9RjT6LN4JM1jTe2UT2ivULeVpJCHU=;
- b=cpVHS7OhpAWpV9vE3gopGL1M1Su257QIvh1iK7A3MrAkvOxn8GjxBnjO7PORsYKF/ehLKYgaPA3tzRgIh6tUAvtp9FA/0KaIMyUMbJz0RcVEAQ6e4WYGDHScvFQETFbsR2yvhUlQ8C+CqQyF5sdRat2tNt3sjd1woza+AJkzafVcR1uXnO5F9y6q0l07Rrm9bWMKbRtjHtwrj9j7hMj6CW1OpIYqivkM+44BJQVr2BRC8nlqPvvaXTW6HnjcQ2f4CSi/tyk61VtAkyFRBoIHupVW50R44pa5Y71MrcLCk6f6InBMzxz2dT+77l1HJ7SUm0wPwcLzCTmUl3ybM/XmUg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by GV4PR04MB11329.eurprd04.prod.outlook.com (2603:10a6:150:29d::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.16; Thu, 25 Jun
- 2026 16:26:39 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Thu, 25 Jun 2026
- 16:26:39 +0000
-Date: Thu, 25 Jun 2026 11:26:30 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: ziniu.wang_1@oss.nxp.com
-Cc: adrian.hunter@intel.com, ulfh@kernel.org, haibo.chen@nxp.com,
-	Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de,
-	festevam@gmail.com, imx@lists.linux.dev, linux-mmc@vger.kernel.org,
-	s32@nxp.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/5] mmc: sdhci-esdhc-imx: remove unnecessary
- mmc_card_wake_sdio_irq check for tuning save/restore
-Message-ID: <aj1WtoGc-43LYWrs@SMW015318>
-References: <20260625105934.2890635-1-ziniu.wang_1@oss.nxp.com>
- <20260625105934.2890635-2-ziniu.wang_1@oss.nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260625105934.2890635-2-ziniu.wang_1@oss.nxp.com>
-X-ClientProxiedBy: SN7PR04CA0036.namprd04.prod.outlook.com
- (2603:10b6:806:120::11) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	id 1wcmw0-00000009Ty5-0G9a;
+	Thu, 25 Jun 2026 16:28:12 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7FA0360098;
+	Thu, 25 Jun 2026 16:28:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BEC451F000E9;
+	Thu, 25 Jun 2026 16:28:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782404891;
+	bh=WtHTE0ZUOjcMfiVh3eBEYex+oSym3DakLquUDoIGAK0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=OrnML/WHmTgEM8hECMVUFCXgOabcaUPalCHsOgPbadDyN2KlV0HJNHv1ek7iRlt5a
+	 riZ/irtakiS2NB7d2Pv7N49R4idkhbhKD+VZx8CQqGX21ci6hnAwkK51k5eJOKHzu9
+	 DvTL/S0QoaPEm/TkeEBoBRqEOgtaQPJliJLcKjooMTNjZLVKUGYl6Spt4ncBnpr4/z
+	 VSjNzQ3EnUBZMMXPGCSsrDdteBgpgRYegtOiGjMnny9eqEXuNIrB6VnRxKzJYC+Vv9
+	 f2BskVg3UcU1UO34mgOLs6gmIhp4z8Yh4TDMdmJ1AJARrSHkB3ob1qsFSyFM32/9LP
+	 Pwy0rZN9EkTCQ==
+Date: Thu, 25 Jun 2026 17:28:06 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+Cc: linux-mediatek@lists.infradead.org, Sean Wang <sean.wang@kernel.org>,
+	Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [RFC PATCH 1/3] dt-bindings: pinctrl: mt8516/mt8167: Move
+ compatibles from mt66xx to mt6795
+Message-ID: <20260625-cameo-siamese-cd78c349519c@spud>
+References: <20260625104742.113803-1-l.scorcia@gmail.com>
+ <20260625104742.113803-2-l.scorcia@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GV4PR04MB11329:EE_
-X-MS-Office365-Filtering-Correlation-Id: 647e20ed-e8cc-4c92-c7a2-08ded2d688e2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|376014|1800799024|23010399003|18002099003|22082099003|4143699003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: JVNR7Oaf7pnaRnAveyhnmg04PlH6MXLTjimd330X7CTD5IJOP3bLRbpcDUClE38B0zALVlLVbxdrnW6JoUgtw8TcgkOA0qXF/W3emEyLe3fU9pO8Jc9bOnhDJNrSe3As7q7lMdWle7l38wn2WGycBtSl+e8oEP+PU8SzrCPWASCDS0JhqJ46sCP669GX9JnHaTGOZ4b/IDQnZOKLv2IBtC+/R/fbgKbb5WBR8DisC4OzPwePcdv9CiPMfN/gCFvL1Xk2MuuUtg0QNRXzJF6BiUIDDQ9sL4XOtnWIAv+P9SIwzCZkKLJGB7MSZspEgbl49xi+1nbl+vqrKmdntybsC4WvSnQfCamvtpMD8pD52k/n4k4Ts23rz7cMoQSYferUJk1lGLgYAnKEiixm79cJeRY3JT8AkO11AbK403wQlNW2BVZO9zucpjycMr/E81rEcEdGbLbPkpIR1PEGiTJjeARGkl4mqOJyy0r11FniKhgb+FnnSoOLDfWc1WB6TUfOFYr+8PIJ0rjJpldhvWXjdZTMgB+ulGwlvvxr/++txeleiXaG3QDdnIOMTkBNGn0OsKNc5v6I8E24wdeA0b/MFquIXHPwThtSEbVJoUsjQF7cwiXv8F+1A0jpFJg466DUOzirCOx/FK1cdiP4nQdFQZrFUX4rkpsZv9qhVcxs/44=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(376014)(1800799024)(23010399003)(18002099003)(22082099003)(4143699003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Q5+b+axUDGst7zUVq7n4LE0ERn3mnClYB1/TYrLwrdAyAmqxOUiJHBW+xCH6?=
- =?us-ascii?Q?Zo/N1Umr5pNwWoX8tf3nM5SdghxAt44StxqLJ03pj675N9hbcmZI2LxK6RQv?=
- =?us-ascii?Q?zLSmB4UAD+cogh0LE2Q6AEW3Zylc5eW3GuuJWvCxxZQXx331SkbuudCYpQDC?=
- =?us-ascii?Q?Yk61LvFZCSwCtJ9yZ+i4myfoLyPTco8u/bUEZM22sO7wLUc4CeKhDYA8/AId?=
- =?us-ascii?Q?WYRf0fRPQmyFRXvU5VKanQEqoPW2Rh5xZ0U300+H93cQRZ2dzK5EcvDEBtRD?=
- =?us-ascii?Q?KMDhPFgEUgqjhHsXqO3pX6iQu5NvmK97ikdOSnAmVDf7iQKS/9fnC7n13pdE?=
- =?us-ascii?Q?yPEDTI3LGZlOtTXA36nTIfaJTbuxTO3l6Kf1f6SmzR1yo0+iXchUzegSPTNC?=
- =?us-ascii?Q?W+aSGFypQyeIwYzuwFhenlc9XV1k/YzRtXYDbsaPso7Q7XU4PqqqvrBBsxcL?=
- =?us-ascii?Q?n3Eu/J0fw/u97FhNIQ7j6G515mFTUhVbDMuj2gE1jnbPtKtGbh2LQQFF6hct?=
- =?us-ascii?Q?jp/jmJQgBSUrnA2QGJ7t3NbY8MdjJ345m+zL2Lbs4gCTb2pmphYv94iV5O3Q?=
- =?us-ascii?Q?4cKmOPseTilbC7RjfjYzO/AfXxf6dhqJtdcIod3//V2VproakOe+FOl48GJv?=
- =?us-ascii?Q?9BdA2TPa9C8WvNuJszKGEU3AbDvyCIXXCUBTg5JqKclx6be521dYqdC9WVGo?=
- =?us-ascii?Q?3SEvg32saVfmV3esg22f1Or4aOtGoSrDd8zYchYZ0MCcwQHJ9EfQbg8/gWp9?=
- =?us-ascii?Q?PLw+SUEPczvr6unys4b1e2uJGQ7a49WyrQCT4aR/dt/r0v+54khC++ffWeKF?=
- =?us-ascii?Q?Q0wn6DaDSqw2ID88h9yDpBHm2hW2XtCOdSLROeoWCx6uG8fTFlA7PDeEu6HT?=
- =?us-ascii?Q?hxKsiZ2TvlduwLKrc+w1xDWPw45/uD0G+I4vOT4yAIsWE1qK3gvlH5rDB3zX?=
- =?us-ascii?Q?P4nUGZmmGslJPEHT+yVhG6KFx4fYrg7Z7RoSMZMITUU9/sVbzzmRYCnOMd9Y?=
- =?us-ascii?Q?zaMRvsCF8cH4duTw2SeaQBWldCoOLO7IwaPFn5/8JN2lrzdOMme2ebhJoVn9?=
- =?us-ascii?Q?11V6UR7OJRcAX6oEYeC8PmOTMCSN4lCUyYrg0RZbZECv2ttpPnwnl7ORAs6q?=
- =?us-ascii?Q?gi8Ap26xXyiYOIIzHw2AHOM7c+pXgSSsKnLqskuy0zO8rCVKjPCJ7ncHqQ8Y?=
- =?us-ascii?Q?pwyQRbqqoJnPJhDt8uN3a2+VltjMRerVRYfG8OfjNxAszKKd083sfsoU/Y4n?=
- =?us-ascii?Q?N0/2wE6+cJvFHgJ1TnIyvOPOBOuY5+xjjsIN4ZyEshaSFfS1rWKAbwwKqV95?=
- =?us-ascii?Q?bSm6eEQUOJkSul02+8DCHQfLVrhtN23KDunHDYsrUUx8SmN0/pv0p6FlR650?=
- =?us-ascii?Q?oHouRMCTFCisV47snUtMa4i11+QZR8X6x5+CE45vQSspwi6jfo5a3JPDp5Xt?=
- =?us-ascii?Q?z68p7Ko6Bl2rhYu98PkPTtE+5umevUio0942JapKAIzHNTOWFD0HSctr0eFS?=
- =?us-ascii?Q?ay51OS3/DDZ89BIM06TNRpVqDyjC7C/s34094+YnakQr4AsmkF5UpUaHWrka?=
- =?us-ascii?Q?qd7YAm3CYr4DTckyPBU0y35RXaaUbJIzYdYKYlsQK11eTKVMOEbGhD2QRLr7?=
- =?us-ascii?Q?DQZ0NdsMYeZ5RvIPVZBjE+iF+mShBT3J3V99Ho00b8aGKJb/Kr/PgEl+BWaX?=
- =?us-ascii?Q?oUmPoG+IgFK854aSLD798P2d8QQSaRA9C1wokU0n3GDpIZ95uf0DBD5zJIep?=
- =?us-ascii?Q?xzft0LOPwGlWsVfku5iGbARWo/D7aCF7Yc26usvNrafXEO6k02Ln?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 647e20ed-e8cc-4c92-c7a2-08ded2d688e2
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Jun 2026 16:26:39.7588
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 94JeUCDqwJyF+JSDfSe1aJrFRgp0k1ojytCStIKCUNA4uFc0LQQFvMKRXvkRXUrIphypGTRnsLxBKqogVysGl0DtSHIQuJ0Y9NfzTV0P/HlV5MUHPHpxUDABB6OhBAic
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV4PR04MB11329
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260625_092645_894982_23012AC5 
-X-CRM114-Status: GOOD (  23.56  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="lpFCCusrIGXpI9Qc"
+Content-Disposition: inline
+In-Reply-To: <20260625104742.113803-2-l.scorcia@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,56 +76,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 25, 2026 at 06:59:30PM +0800, ziniu.wang_1@oss.nxp.com wrote:
-> From: Luke Wang <ziniu.wang_1@nxp.com>
->
-> The tuning save/restore during system PM is conditioned on
-> mmc_card_wake_sdio_irq(), but this check is unrelated to whether
-> tuning values need to be preserved. The actual requirement is that
-> the card keeps power during suspend and the controller is a uSDHC.
->
-> SDIO devices using out-of-band GPIO wakeup maintain power during
-> suspend but do not set the SDIO IRQ wake flag. In this case the
-> tuning delay values are not saved/restored.
->
-> Remove the unnecessary mmc_card_wake_sdio_irq() condition from both
-> the suspend save and resume restore paths.
->
-> Fixes: c63d25cdc59a ("mmc: sdhci-esdhc-imx: Save tuning value when card stays powered in suspend")
-> Signed-off-by: Luke Wang <ziniu.wang_1@nxp.com>
+
+--lpFCCusrIGXpI9Qc
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Thu, Jun 25, 2026 at 12:46:30PM +0200, Luca Leonardo Scorcia wrote:
+> Pinctrl settings for MediaTek mt8516-mt8167 SoCs use two reg base
+> addresses, one for GPIO and the other for EINT, as it is common in the
+> "Paris" pinctrl platform that is described in the MediaTek mt6795 docs.
+>=20
+> Move the binding compatible for these two SoCs from mt66xx to the mt6796
+> one as a prerequisite for migrating the pinctrl driver to the
+> pinctrl-paris platform.
+
+I've not done a very through analysis, but this seems like a massive ABI
+break.
+The change you're trying to make here will mean that new kernels will
+not work with older devicetrees AFAICT.
+
+>=20
+> Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
 > ---
+>  .../devicetree/bindings/pinctrl/mediatek,mt65xx-pinctrl.yaml | 2 --
+>  .../devicetree/bindings/pinctrl/mediatek,mt6795-pinctrl.yaml | 5 ++++-
+>  2 files changed, 4 insertions(+), 3 deletions(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/pinctrl/mediatek,mt65xx-pi=
+nctrl.yaml b/Documentation/devicetree/bindings/pinctrl/mediatek,mt65xx-pinc=
+trl.yaml
+> index 1468c6f87cfa..0cff2a352b1f 100644
+> --- a/Documentation/devicetree/bindings/pinctrl/mediatek,mt65xx-pinctrl.y=
+aml
+> +++ b/Documentation/devicetree/bindings/pinctrl/mediatek,mt65xx-pinctrl.y=
+aml
+> @@ -22,9 +22,7 @@ properties:
+>        - mediatek,mt7623-pinctrl
+>        - mediatek,mt8127-pinctrl
+>        - mediatek,mt8135-pinctrl
+> -      - mediatek,mt8167-pinctrl
+>        - mediatek,mt8173-pinctrl
+> -      - mediatek,mt8516-pinctrl
+> =20
+>    reg:
+>      maxItems: 1
+> diff --git a/Documentation/devicetree/bindings/pinctrl/mediatek,mt6795-pi=
+nctrl.yaml b/Documentation/devicetree/bindings/pinctrl/mediatek,mt6795-pinc=
+trl.yaml
+> index 9a937f414cc9..c703de72e1d5 100644
+> --- a/Documentation/devicetree/bindings/pinctrl/mediatek,mt6795-pinctrl.y=
+aml
+> +++ b/Documentation/devicetree/bindings/pinctrl/mediatek,mt6795-pinctrl.y=
+aml
+> @@ -15,7 +15,10 @@ description:
+> =20
+>  properties:
+>    compatible:
+> -    const: mediatek,mt6795-pinctrl
+> +    enum:
+> +      - mediatek,mt6795-pinctrl
+> +      - mediatek,mt8167-pinctrl
+> +      - mediatek,mt8516-pinctrl
+> =20
+>    gpio-controller: true
+> =20
+> --=20
+> 2.43.0
+>=20
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+--lpFCCusrIGXpI9Qc
+Content-Type: application/pgp-signature; name=signature.asc
 
->  drivers/mmc/host/sdhci-esdhc-imx.c | 6 ++----
->  1 file changed, 2 insertions(+), 4 deletions(-)
->
-> diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
-> index 18ecddd6df6f..6526d65538de 100644
-> --- a/drivers/mmc/host/sdhci-esdhc-imx.c
-> +++ b/drivers/mmc/host/sdhci-esdhc-imx.c
-> @@ -2064,8 +2064,7 @@ static int sdhci_esdhc_suspend(struct device *dev)
->  	 * to save the tuning delay value just in case the usdhc
->  	 * lost power during system PM.
->  	 */
-> -	if (mmc_card_keep_power(host->mmc) && mmc_card_wake_sdio_irq(host->mmc) &&
-> -	    esdhc_is_usdhc(imx_data))
-> +	if (mmc_card_keep_power(host->mmc) && esdhc_is_usdhc(imx_data))
->  		sdhc_esdhc_tuning_save(host);
->
->  	if (device_may_wakeup(dev)) {
-> @@ -2124,8 +2123,7 @@ static int sdhci_esdhc_resume(struct device *dev)
->  	 * restore the saved tuning delay value for the device which keep
->  	 * power during system PM.
->  	 */
-> -	if (mmc_card_keep_power(host->mmc) && mmc_card_wake_sdio_irq(host->mmc) &&
-> -	    esdhc_is_usdhc(imx_data))
-> +	if (mmc_card_keep_power(host->mmc) && esdhc_is_usdhc(imx_data))
->  		sdhc_esdhc_tuning_restore(host);
->
->  	pm_runtime_put_autosuspend(dev);
-> --
-> 2.34.1
->
->
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaj1XFgAKCRB4tDGHoIJi
+0jrbAP97wobMnRO7HdyCFDRjLsINUhRhF1pHhFQuAEIeonbG2gEAsdjf82z1L2/O
+CIqr2L2XbnkDV93d6huma3K037t9dQ8=
+=uL4W
+-----END PGP SIGNATURE-----
+
+--lpFCCusrIGXpI9Qc--
 
