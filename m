@@ -4,113 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA6D9CDB47F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 09:10:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFCF6CDB47F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Jun 2026 09:11:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PybBbFFbv2qgp/wGc6XtY0wnuLp8C2DGakY4TdWZcjY=; b=JY27OPqHuheb0b5jC3My77UNqu
-	L2bBCxqYntDm2EdFhxJYXTd3nWAP5YZsEZc+NguEZie7tDepBeB5ghuJvKcJZ4t4PU7Zx3lXtD+ov
-	aXvlPLGXGRh6Aq5YdjE5j9gvs0GYGm8SrUsdbVOkyNotuf48xu3X9Pd8qs0xMHllEwhxI/kw807m0
-	pA1es0aZtowcmlKPVEulqxLn8eSG3MIJy1uVBShgEt0XwCc0QCiix+v6A6W8X/K+lVuAQoXMbp7Mv
-	yQbqdYwzHAIkA2HEnk1Bhrc5L72NmT4sKJ8L2iJt1qM8Xju1nE2YRB6ZRw+UaRwbU/YsLLsDTHfVw
-	8X19i3bg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=G69PCEOlnq92SdyMP8AGIKg5XJgYw5Jrc7HuDLGgvos=; b=3nZKUffHnVIjxkLZwSJxqXN30L
+	PuTO7THZyYT+lGr7XBbNx+VMat1aptrf7cuMcC+iRr0vyJShiH3fytnXPznL5X9ZnKY2tAC4hEkWD
+	xhnJavPTSPehDG5f46IvtPIpEOKtLLwz2IHkBqxikUgBsi1KADW6pQ7n6hU2wC75Bg9FVJA2egj1+
+	kjokSrh00n1tFNH2yn6WSFXFS6Q8SKPrU7bhnR3cOaioMJTCntu0th4L8NR5eJl6E1hLFHK/MEYlT
+	MaJs1ydJx4/z1PP7m9lV4wZhKQ5U3+FVnrm6FU6xRHgJJ+17LsF1rckAwq08tHuCFxuZ7DkSA1c2W
+	vVkFXjzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcg6U-00000008sgJ-0SwH;
-	Thu, 25 Jun 2026 09:10:34 +0000
+	id 1wcg7I-00000008srW-1ZCG;
+	Thu, 25 Jun 2026 09:11:24 +0000
 Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcg6P-00000008sfV-3n2p
+	id 1wcg7F-00000008sqP-2vr6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Jun 2026 09:10:32 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-4631679f204so365191f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Jun 2026 02:10:28 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1782378627; cv=none;
-        d=google.com; s=arc-20260327;
-        b=iohgTpbEDDD8g2srShKMn4jxgUZ8pU2QbDA8TyxbY/apLo3Do7h41fsOdLnhibMTDB
-         AinxvxSyzmajtOgo9R9io5jiAu7qVz5RTMX1DlaKsVwnadRG65BNdN2Joe37mw/1yoX2
-         rcGzF5UM9GUxr+mAXawrFKkFkvePU2Hm8pzUSU266hWvlS5F9uRXKMrlp+Rhf/EZNMnz
-         DsCbvUyiiK67q2LVQ/t6HX/6VWdA+adGfraVdc4svGCrdMW4wNjrsdEtHfg+bei9CEmF
-         wedeqXW5ackVIDw4njyiVHbPV2RtbKki+/8fUno52p3H1N80NZA+lMUiPLlbnGrSPlx/
-         tJDQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=PybBbFFbv2qgp/wGc6XtY0wnuLp8C2DGakY4TdWZcjY=;
-        fh=cue+fImAbH/fPNwAQ8EiaXRD1nA1ObfIbmFc8sgHO5Y=;
-        b=c+RvgGLHrG9+ll7qoPKW7X/kR43bSzp9VbH87RDUAKuL+vCDOpKvMVnSYYa+N5Ckx0
-         ijRDxC4mEILUn5U7+z50yx9X9cN0MZfQXkpPQLKdHlbtpWn9jpWj7nRQ6D037CFUw5Tf
-         E8QBCEeyHSOJN7IOZN3DYTniwceTxc8ZXzmHpKyGnVAEdNsAZY0lRi9tF97rV3cvCScW
-         iTaVWwoidywKADhHOySxFjA5Ky6wNX3GRuzkPsgYG4P1m828WmK2L2lkaM3VJAeQgpZh
-         sh7p34gnR3sLhKn9Ejj+Lnc/d8uktJxJLkslTtvB/dIiVYLaKE1WgrZyiak1PqdZlqtn
-         hq7w==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Thu, 25 Jun 2026 09:11:22 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-46dd46901dbso358750f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Jun 2026 02:11:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=9elements.com; s=google; t=1782378627; x=1782983427; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=PybBbFFbv2qgp/wGc6XtY0wnuLp8C2DGakY4TdWZcjY=;
-        b=We9pN9JCBUmAB4cgkAWJB0TPGHJBTXwEh3LOwtPZAflvPQPzKYy7vsMvnlsFeRydND
-         g9/ADbk3TlB4KaDk1VreDuJWsm5qWDeA7wDUCBV7+x9kg35+DvN8v0I3+EQGb0M4kCMf
-         MUwpNCTKqdTDr37wYJUijqKusMzJmyj+PE4QKjgNn9g/j31/xtXl9rOMA3zgJeHjMAVz
-         9wrE+AMT5iDfEikhTmjfvkZHsRzrrlNwDzKO7RzDbtOAIlXgNVcNH5IaQaKqbbapTd7n
-         Or0718rkoFK3WQkIahOz7s/ZDkGkbShVEo71odbatnPJp0EJww30jFwL1udISnq23KJr
-         EeWA==
+        d=gmail.com; s=20251104; t=1782378680; x=1782983480; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=G69PCEOlnq92SdyMP8AGIKg5XJgYw5Jrc7HuDLGgvos=;
+        b=D63n17CRyU/oFNKRRfaoCPeUkFulDaNvcv6IP+SCiwdvXyL/iFNqrWfDNg9arQV5WF
+         cbI6OFPYo3F29g7LI+mAmpEdWNI0P45qfNflEg0DGA0xfQHL4lqCUvVZqXdFdQojVilG
+         BRuBRSrWAkERCxN+wyFilOk1vQky033Uf0FrpxLqVcZTYxEJX9v0bIhoZAo2BJPBqC7q
+         OoxbPMoi4sMN6vIbafYeGmCQfDruxTWX8sSoVounjs2LykYffnFVqig+nly7BihcJZ2S
+         SRhm0iju14nQ9xR0zIbNMHHw2pCkKrBsTSHI4Zy+m5rNfog7nPPQEnZluD2oNLR9006i
+         Y6rA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782378627; x=1782983427;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=PybBbFFbv2qgp/wGc6XtY0wnuLp8C2DGakY4TdWZcjY=;
-        b=VKllN2Om6w/IDcs7II2bqflic9XMviHY+QnatmWx3ETBVmv3d4dacsPBxXHQ/0sJiB
-         b3GKfppbC/otMgGMnUmcKWgW0fgZ8WSNDpg16PemC82J3cqWkiWeGyJsYMCouTvkIIhJ
-         mPjX7nbfqbVfQvqIUaLj/55V67N1MjEFxGOHgb9H1801PtRZ+11L9bZbqsO0fNd7Qcmy
-         /G9+9LvtUkqgPpmHqT0vaCm7+UslyBxV6PWdes3AjYqxLfPFjh8qkNW5l/8R5ldQEqPf
-         tHH/WIoqb9G0bahhoC2mUsqPqWN66R8ZcD2xD7DypyGRjGDL3cEMIPpO4/zS+sZMB8PX
-         f1PQ==
-X-Forwarded-Encrypted: i=1; AHgh+Ro4sAtSpn/GkBZ5KbgBzvgvnSwexZCfIcsJxCd13Ggr0SUq8zF+chXgXzUoVXYmb8t4diJtBR1Lsea7eamgzH7v@lists.infradead.org
-X-Gm-Message-State: AOJu0YwaFj7bV8XQ6mboLLc3UIj/UejtiluLbF3PhV3pyw8JFJGZA9VD
-	R7rBN/TXrzGI643nEl5oQ12J5CYbSGJU38eJ55ft6WwO4GA9siZa5GoZYXS7355IRIwX8cB+dI/
-	GXWbgZn6rk8hxYpVnnpf2rJa5jp71g9vmDPOXEa0n3A==
-X-Gm-Gg: AfdE7cljsaRGDz43YNh3kvatalmfGsYpDJ4MzAsrx/XqwkCsvjaM/vZ+G50kO06+Su9
-	Tv/q8xW9vIcB/9gCZyRlpm5NYSL379liQwEMqR6tIOOPwb8RjD/FbK7lnk7eT2J1iI+pmuMIuhZ
-	t0uZpN0WB+68yciwdZ1xnw/pvHKEQJ7LGL9YrnUAvFaKGhn83DM6os9IG1W/Pac5mPonFRSVoRX
-	c4yUMJRPXB2WFuNebjnYmyhNURskBE5YG5gGzFcFjFAwGxmuPIIqGWH13lQogt3PQMUiA/gbTyJ
-	GG21glea7SdH6LoISWO1b8tZsKycbCL+aLIN1cqVCVpB+zMWcgU4dgwS2w==
-X-Received: by 2002:a05:6000:24c6:b0:463:b7f2:cc7a with SMTP id
- ffacd0b85a97d-46da9508504mr2493751f8f.17.1782378626958; Thu, 25 Jun 2026
- 02:10:26 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1782378680; x=1782983480;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=G69PCEOlnq92SdyMP8AGIKg5XJgYw5Jrc7HuDLGgvos=;
+        b=kxPO8n4kNSuX2xYBVrJMefi/I2Pzg0neVladqrNflAKecqK01sHJJt8D3tYj/Lk39E
+         gASpulJPL1CDYjWDag2pRoHho1du/O3zEkmKKo8rcrLlMHGFd6buaMxoBgqoPaCaLSCE
+         Bug6sOH0vBTNhf/6/cimkysRD7VESVRUuTQryKRo+0++Z+TuhxL1xA84sed5X9XH9Szp
+         Z8ZDupcVqgu368nODnxNgz/uJ0LSsrJRbUWwrihkXsNiXvJRnIiTf/JCsgck2+m8WSQt
+         hNgLxqiIJnbpn1LYr8F8OI/qdql2f+ke8rr17HFsH11dDBrjSQvymNgrzhcIQ59LWnIP
+         fwvQ==
+X-Forwarded-Encrypted: i=1; AHgh+RrIF8XRt05CMTPWDaUSHH4MkO+IibMzZOD8pP7PNKWbbvn/vhFrmY6nALda1YNOOYGixx0uZnkyWn2F9IPTrs9G@lists.infradead.org
+X-Gm-Message-State: AOJu0YyZpDt7UWdV7FB8P+bKJj0qRbKgGt5AVUY5tKF9pDIIHTELVwkY
+	OXYpMoLBy2U3dRllFw3hmrkfoiIhFVA76/g00TlAMqUbHK+xbOBnjZsL
+X-Gm-Gg: AfdE7clNF1CWsG/RyTkZSpyq/iOJN1qKau8poDofTZQLhkY9liGAQX2JRgZR5ZmD7pU
+	9Ae4KK7mLuKwGK4nCMBuyiksVDBaXePXbb95ZhJ7bDvwA12bT1f5jFa+Gw4IW8DSFeKiFoGv7hK
+	sykEozz3BXxz+JzPLnJNA5c3uDh3R9yiMsiUW5jypTw3rFD5vYvyZKJP7fGTLCSVk8lUgVfci8V
+	nTZDHOd7JaiqvaIbvrlDHEz3QjUyq5v3VOwGjP9AqfLRYGqG0E0Hc96KFmnsxbMCHl0h9R/IHQQ
+	J7EVPC5QJv8SrnsJFLVgQoAOMOzyscs+jjN7Lxw/D6n8UYhYul8DUVd9BrAJZy5mHsgbfA28G7j
+	pmkJWwG5xWD8glE9SsVxOO8tTa0aleKqud2Hn2YrhIoLpTEVyFSyEwwDxurY1zttRTg==
+X-Received: by 2002:a05:6000:41fc:b0:46d:47bb:d711 with SMTP id ffacd0b85a97d-46dc0e050d9mr2295206f8f.23.1782378679096;
+        Thu, 25 Jun 2026 02:11:19 -0700 (PDT)
+Received: from eichest-laptop ([2a02:168:af72::cb4])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-46e3d6ba143sm209356f8f.33.2026.06.25.02.11.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 25 Jun 2026 02:11:18 -0700 (PDT)
+Date: Thu, 25 Jun 2026 11:11:16 +0200
+From: Stefan Eichenberger <eichest@gmail.com>
+To: Vincent Jardin <vjardin@free.fr>
+Cc: Oleksij Rempel <o.rempel@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Andi Shyti <andi.shyti@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Wolfram Sang <wsa@kernel.org>,
+	Kaushal Butala <kaushalkernelmailinglist@gmail.com>,
+	Shawn Guo <shawn.guo@freescale.com>,
+	Stefan Eichenberger <stefan.eichenberger@toradex.com>,
+	linux-i2c@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v2 2/2] i2c: imx: fix locked bus on SMBus block-read of 0
+ (IRQ)
+Message-ID: <ajzwtNbCKXdxQAUA@eichest-laptop>
+References: <20260525-for-upstream-i2c-lx2160-fix-v1-v2-0-26a3cc8cd055@free.fr>
+ <20260525-for-upstream-i2c-lx2160-fix-v1-v2-2-26a3cc8cd055@free.fr>
 MIME-Version: 1.0
-References: <cover.1782224059.git.gregoire.layet@9elements.com>
- <73b2bd81ce70814612e6d3cb689c3296de742aaf.1782224059.git.gregoire.layet@9elements.com>
- <20260624-original-vigorous-mayfly-dfceac@quoll> <CAFi2wKbKr8FMcJeGWA5e1UZUTh2=LwYNkLEj6exd2as7=AcvVQ@mail.gmail.com>
- <b9ca9e36-a851-4a98-a739-ca99dd534d6d@kernel.org>
-In-Reply-To: <b9ca9e36-a851-4a98-a739-ca99dd534d6d@kernel.org>
-From: =?UTF-8?Q?Gr=C3=A9goire_Layet?= <gregoire.layet@9elements.com>
-Date: Thu, 25 Jun 2026 11:10:14 +0200
-X-Gm-Features: AVVi8CdVW0AmRhEG0L6wUoqXHMzj3ec0waXKRN6u-RXjXnalVyhv5A88QhYFWcQ
-Message-ID: <CAFi2wKY-73nXEKxp3vfB0RBsB+VB_stNk6NKk8gCopaoav6Tww@mail.gmail.com>
-Subject: Re: [PATCH v3 2/7] dt-bindings: serial: 8250: aspeed: add
- aspeed,vuart-over-pci bool prop
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: joel@jms.id.au, andrew@codeconstruct.com.au, lkundrak@v3.sk, 
-	devicetree@vger.kernel.org, gregkh@linuxfoundation.org, jirislaby@kernel.org, 
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, andrew@lunn.ch, 
-	jacky_chou@aspeedtech.com, yh_chung@aspeedtech.com, ninad@linux.ibm.com, 
-	anirudhsriniv@gmail.com, linux-serial@vger.kernel.org, 
-	linux-aspeed@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260525-for-upstream-i2c-lx2160-fix-v1-v2-2-26a3cc8cd055@free.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260625_021030_222767_83D2A48F 
-X-CRM114-Status: GOOD (  16.13  )
+X-CRM114-CacheID: sfid-20260625_021121_752594_65C76C29 
+X-CRM114-Status: GOOD (  25.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,42 +107,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+On Mon, May 25, 2026 at 06:43:16PM +0200, Vincent Jardin wrote:
+> SMBus 3.1 6.5.7 allows a Block Read byte count of 0, but the
+> interrupt-driven block-read state machine rejects it as -EPROTO. Worse,
+> it returns without a NACK+STOP: the next receive cycle has already
+> started, so the target keeps holding SDA and the bus stays stuck until a
+> power cycle of this i2c controller.
+> 
+> Accept count=0: NACK the in-flight dummy byte (TXAK) and set msg->len to
+> 2 so i2c_imx_isr_read_continue() emits STOP via its normal last-byte
+> path. The dummy byte is discarded; block-read callers only consume
+> buf[0..count-1].
+> 
+> Reading I2DR has likewise already armed the next byte on the
+> count > I2C_SMBUS_BLOCK_MAX error path, so NACK it (TXAK) before aborting
+> with -EPROTO; otherwise the failing transfer's STOP cannot complete and
+> the bus stays held.
+> 
+> The atomic path regressed earlier (v3.16) and is fixed separately; this
+> patch covers only the v6.13 state-machine rework.
+> 
+> Fixes: 5f5c2d4579ca ("i2c: imx: prevent rescheduling in non dma mode")
+> Cc: <stable@vger.kernel.org> # v6.13+
+> Signed-off-by: Vincent Jardin <vjardin@free.fr>
+> ---
+>  drivers/i2c/busses/i2c-imx.c | 17 +++++++++++++++++
+>  1 file changed, 17 insertions(+)
+> 
+> diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
+> index 14107e1ad413..8db8d2e10f5c 100644
+> --- a/drivers/i2c/busses/i2c-imx.c
+> +++ b/drivers/i2c/busses/i2c-imx.c
+> @@ -1061,11 +1061,28 @@ static inline enum imx_i2c_state i2c_imx_isr_read_continue(struct imx_i2c_struct
+>  static inline void i2c_imx_isr_read_block_data_len(struct imx_i2c_struct *i2c_imx)
+>  {
+>  	u8 len = imx_i2c_read_reg(i2c_imx, IMX_I2C_I2DR);
+> +	unsigned int temp;
+>  
+>  	if (len == 0 || len > I2C_SMBUS_BLOCK_MAX) {
+> +		/*
+> +		 * SMBus 3.1 6.5.7: support count byte of 0.
+> +		 * I2C_SMBUS_BLOCK_MAX case should not hold the SDA either.
+> +		 * So NACK it (TXAK) to not hold the bus.
+> +		 */
+> +		temp = imx_i2c_read_reg(i2c_imx, IMX_I2C_I2CR);
+> +		temp |= I2CR_TXAK;
+> +		imx_i2c_write_reg(temp, i2c_imx, IMX_I2C_I2CR);
+> +
+> +		if (len == 0) {
+> +			i2c_imx->msg->buf[i2c_imx->msg_buf_idx++] = 0;
+> +			i2c_imx->msg->len = 2;
+> +			return;
+> +		}
+> +
+>  		i2c_imx->isr_result = -EPROTO;
+>  		i2c_imx->state = IMX_I2C_STATE_FAILED;
+>  		wake_up(&i2c_imx->queue);
+> +		return;
+>  	}
+>  	i2c_imx->msg->len += len;
+>  	i2c_imx->msg->buf[i2c_imx->msg_buf_idx++] = len;
+> 
+> -- 
+> 2.43.0
+> 
 
-> > It's a Virtual UART. Internally, it's two FIFOs accessible via
-> > 8250-compatible register sets on both ends.
->
-> I do not know what is Virtual UART...
-
-Yes the name of ASPEED is a bit weird, it means that it is not a real
-UART. It is two 8250-compatible register sets, and the data path is
-handled by two hardware FIFOs (one per direction).
-
-> > There is 4 Virtuals UARTs on the LPC bus of the AST2600 and 2 of them
-> > are bridged over the PCI bus.
-> > So, from the host, you can access the 8250 register set on the PCI bus.
->
-> You mean these appear (or are) as PCI devices?
-
-Yes but not as a UART devices.
-The two VUART are accessible under the same PCIe BMC device, at the
-VUART addresses configured on the BMC. They are accessible on the BAR1
-of the PCIe BMC device.
-There is a 2 bit left shift between the addresses of the registers on
-the BMC LPC bus and the addresses accessible over the PCI device.
-0x3F8 on the BMC is accessible at BAR1 0xFE0 over the PCI device.
-
-The PCIe BMC Device is one PCI device where you can access several
-peripherals. It's not one PCI device per VUART.
-
-For example, you can also enable the KCS channel 4 and it will be also
-accessible via the BAR1 of the PCI BMC device. KCS is a protocol used
-for IPMI.
-
-Only these two peripherals can be accessed over the PCI BMC device and
-they need to be enabled.
-The host cannot access everything on the LPC bus of the BMC.
-
-Best regards,
-Gr=C3=A9goire
+Reviewed-by: Stefan Eichenberger <eichest@gmail.com>
 
