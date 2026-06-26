@@ -4,77 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6078DCD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 09:00:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6D0ECD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 09:05:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L11YCHCY08q2khr2thDi9WcElJkTW8SmsVn6mOnZzdw=; b=h2RRxVZOeTnoL88vQUiaho4Dfg
-	tlqhImXG+PpRpBG5BGl+mpETVs4QA1l1/BDTKtaGp1qCsNUi8iA0SoUyLRGLTrHMODtDKkt9vTfzm
-	vOcFNGl2DlvNG/dHf/lxN/pbzpulbMn7Ch16kUnYZBrXC9nM4DE4d+54PJN7LkmgTrtYFMP7G/ik4
-	LhQiVEY2P0JtVgLAy9mTXwTvlhXh6vKHYvoVbToILTKzpyRmni4BsT+uvSItGEuo6u5ZY3EiHP0yv
-	GAuk/AemyLiE09q9bkpALdhjQEPvj5BuWJ9rUEvJNcmG1hSLVvu6/0wWZN0UUMSUvX4H36rN0nGXU
-	mXZCeCSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bEiU3fojUNGAYgCWRN2irluABr3uKPWYFItnRGilRUc=; b=kBpfPGdv8SfQPfQNN7GSby0ySz
+	yh8BxJaKSDVWxvzlXvBI5Ol0y+yRVgYSTTyDwBbuzY/fgsM2dQLnm5UcsjQTFQAmeE8v87hSq/RZC
+	GW5D40D+3dIxTlGZy2pcFDC/TECKN6/dPSRPAKcjMK/HkaFQhY14SIIFvrEHvA7vY/rGnGZWewV1x
+	UEO71M6VMHekgKN8Dw0GGXDxBZBczHmVtqvoPTqWWmcHfdlxiEcGyCksCAjNv20LnPQ3PqPwVDMi4
+	NJjNfyNYZsnhJqM3ilHJX9ciEFLPm2GqVV3uLzwfRcOO6oIOUYSgAw35bZPKqthDtgKKV5wOQKOmn
+	4I4McoPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd2QY-0000000AvxY-3jtg;
-	Fri, 26 Jun 2026 09:00:46 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd2QW-0000000Avwn-0TW7
+	id 1wd2Uk-0000000AwGq-25oZ;
+	Fri, 26 Jun 2026 09:05:06 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wd2Uh-0000000AwGT-1GqF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 09:00:45 +0000
-Received: from edelgard.fodlan.icenowy.me (unknown [112.94.101.182])
-	by APP-01 (Coremail) with SMTP id qwCowACHLtezPz5qny9fAw--.34802S2;
-	Fri, 26 Jun 2026 17:00:36 +0800 (CST)
-Message-ID: <c0731801729713d35f97bec40ebc21cef31b72b5.camel@iscas.ac.cn>
-Subject: Re: [PATCH v5 1/7] dt-bindings: display: verisilicon,dc: generalize
- for single-output variants
-From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: Conor Dooley <conor@kernel.org>, Joey Lu <a0987203069@gmail.com>, 
-	maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
- 	airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, ychuang3@nuvoton.com, schung@nuvoton.com,
- yclu4@nuvoton.com, 	dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Date: Fri, 26 Jun 2026 17:00:35 +0800
-In-Reply-To: <20260626-astrology-mural-853d3860e048@wendy>
-References: <20260625094449.708386-1-a0987203069@gmail.com>
-	 <20260625094449.708386-2-a0987203069@gmail.com>
-	 <20260625-bobbing-annotate-d1c4d6874ee2@spud>
-	 <e3fe23ddbc504879bd797bbaa595d3653fa139ff.camel@iscas.ac.cn>
-	 <20260626-astrology-mural-853d3860e048@wendy>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.3 
+	Fri, 26 Jun 2026 09:05:04 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 152D71595;
+	Fri, 26 Jun 2026 02:04:57 -0700 (PDT)
+Received: from [10.57.28.79] (unknown [10.57.28.79])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 451C93F836;
+	Fri, 26 Jun 2026 02:04:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1782464701; bh=SDF1tP2lFvbMSbt90bQcI7DYejdz/8WLarqyxI1Iv+4=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=TKNgwx78UHVN4ckaiLi5JwvIzalMTtEOrxZG/Ln35ENBJRJcJrF4WpVIvsJ1a1mYT
+	 HBbibhMDOz3gLUFnFM6VDLey1QSQTo9XMVdeoyv1fyrruoLcMFi7fP2+TMr/Pyp9OA
+	 Q23dXsqj+8Cvan0fCpNl2/B8hsokTTypqKHj088k=
+Message-ID: <8cc5b4e0-a047-47fd-8fd0-29c49ea92d3f@arm.com>
+Date: Fri, 26 Jun 2026 10:04:56 +0100
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowACHLtezPz5qny9fAw--.34802S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxXFyUZF4fuF4kJFy3CrW3KFg_yoW5Cr4UpF
-	4kJFWUJr95Jrn5tr1UKw1UGF9Fyw4DJ3Z8Jr1kXFyUJF4qqF12gr1Ygr1q9r1fXr48Gr1j
-	qr1jqr13Zr13AFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvmb7Iv0xC_tr1lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I
-	8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
-	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8Jw
-	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
-	c7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
-	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
-	14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
-	IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E
-	87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4UJVWxJrUvcSsGvfC2KfnxnU
-	UI43ZEXa7IUnj-e5UUUUU==
-X-Originating-IP: [112.94.101.182]
-X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v14 29/44] arm64: RMI: Runtime faulting of memory
+Content-Language: en-GB
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+To: Gavin Shan <gshan@redhat.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev, Catalin Marinas <catalin.marinas@arm.com>,
+ Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>,
+ James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
+ Zenghui Yu <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
+ <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+ Emi Kisanuki <fj0570is@fujitsu.com>, Vishal Annapurve
+ <vannapurve@google.com>, WeiLin.Chang@arm.com, Lorenzo.Pieralisi2@arm.com
+References: <20260513131757.116630-1-steven.price@arm.com>
+ <20260513131757.116630-30-steven.price@arm.com>
+ <3359f788-07fa-41a1-9ac7-45c58577c1fa@redhat.com>
+ <aiJ6u83O0nVUtPyv@lpieralisi>
+ <ecef952b-e8c6-4102-933b-c99c46f14431@redhat.com>
+ <aiLes2ecZSr17UwZ@lpieralisi>
+ <1e39094f-7fa3-4ef1-be54-53d7a8643506@redhat.com>
+ <98d2a0f3-b831-466a-8212-5bcf97ad9d8b@arm.com>
+ <8da87878-2a5d-478a-a280-60dbed7ad1b9@redhat.com>
+ <9482dfbc-4d96-47ba-a615-f4ba0bda833f@arm.com>
+In-Reply-To: <9482dfbc-4d96-47ba-a615-f4ba0bda833f@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_020044_551275_41153B5A 
-X-CRM114-Status: GOOD (  27.52  )
+X-CRM114-CacheID: sfid-20260626_020503_426843_494C5741 
+X-CRM114-Status: GOOD (  40.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,107 +91,223 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=E5=9C=A8 2026-06-26=E4=BA=94=E7=9A=84 08:19 +0100=EF=BC=8CConor Dooley=E5=
-=86=99=E9=81=93=EF=BC=9A
-> On Fri, Jun 26, 2026 at 01:27:21PM +0800, Icenowy Zheng wrote:
-> > =E5=9C=A8 2026-06-25=E5=9B=9B=E7=9A=84 17:33 +0100=EF=BC=8CConor Dooley=
-=E5=86=99=E9=81=93=EF=BC=9A
-> > > On Thu, Jun 25, 2026 at 05:44:43PM +0800, Joey Lu wrote:
-> > > > +allOf:
-> > > > +=C2=A0 - if:
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 properties:
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 compatible:
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 contains:
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
- const: thead,th1520-dc8200
-> > > > +=C2=A0=C2=A0=C2=A0 then:
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 properties:
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 clocks:
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 minItems: 5
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 maxItems: 5
-> > > > +
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 clock-names:
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 minItems: 5
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 maxItems: 5
-> > >=20
-> > > All the maxItems here repeat the maximum constraint and do
-> > > nothing.
-> > >=20
-> > > Since you didn't change the minimum constraint at the top level,
-> > > your
-> > > minItems also do nothing.
-> > >=20
-> > > > +
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 resets:
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 minItems: 3
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 maxItems: 3
-> > > > +
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 reset-names:
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 minItems: 3
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 maxItems: 3
-> > > > +
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 required:
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - resets
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - reset-names
-> > >=20
-> > > Both conditional sections have this, but the original binding
-> > > doesn't
-> > > require these for the thead device. This is a functional change
-> > > therefore and shouldn't be in a patch calling itself "generalise
-> > > for
-> > > single ended variants".
-> >=20
-> > Well yes they're required.
-> >=20
-> > Should I send a patch adding the `thead,th1520-dc8200` part of the
-> > schema?
->=20
-> If you mean the code above, no. Adding a conditional section when
-> there's only that compatible doesn't make sense.
->=20
-> What you could do is just add it at the top level though, which would
-> also benefit this patch since it'd not have to be conditionally added
-> for the new nuvoton device.
-> Just note in your commit message about what the ABI impact of the
-> change
-> to required properties is (effectively nothing because it's optional
-> in
-> the driver and the only user has the properties).
+On 26/06/2026 09:47, Suzuki K Poulose wrote:
+> On 26/06/2026 08:43, Gavin Shan wrote:
+>> On 6/26/26 1:58 AM, Suzuki K Poulose wrote:
+>>> On 25/06/2026 14:53, Gavin Shan wrote:
+>>>> On 6/6/26 12:35 AM, Lorenzo Pieralisi wrote:
+>>>>> On Fri, Jun 05, 2026 at 06:11:11PM +1000, Gavin Shan wrote:
+>>>>>> On 6/5/26 5:28 PM, Lorenzo Pieralisi wrote:
+>>>>>>> On Fri, Jun 05, 2026 at 04:23:15PM +1000, Gavin Shan wrote:
+>>
+>> [...]
+>>
+>>>>>>
+>>>>>> I tried to rebase Jean's latest QEMU series [1] to upstream QEMU, 
+>>>>>> and found
+>>>>>> that memory slots backed by THP are broken. With THP disabled on 
+>>>>>> the host and
+>>>>>> other fixes (mentioned in my prevous replies) applied on the top 
+>>>>>> of this (v14)
+>>>>>> series, I'm able to boot a realm guest with rebased QEMU series 
+>>>>>> [2], plus more
+>>>>>> fxies on the top.
+>>>>>>
+>>>>>> [1] https://git.codelinaro.org/linaro/dcap/qemu.git  (branch: cca/ 
+>>>>>> latest)
+>>>>>> [2] https://git.qemu.org/git/qemu.git                (branch: cca/ 
+>>>>>> gavin)
+>>>>>>
+>>>>>> Lorenzo, You may be saying there is someone making QEMU to support 
+>>>>>> ARM/CCA?
+>>>>>
+>>>>> Mathieu and I are working on that yes and with Steven/Suzuki to fix 
+>>>>> the THP
+>>>>> issues you pointed out above.
+>>>>>
+>>>>>> If so, I'm not sure if there is a QEMU repository for me to try?
+>>>>>
+>>>>> We should be able to submit patches by end of June - we shall let 
+>>>>> you know
+>>>>> whether we can make something available earlier.
+>>>>>
+>>>>
+>>>> Not sure if there are other known issues in this series. It seems 
+>>>> the stage2
+>>>> page fault handling on the shared space isn't working well. In my 
+>>>> test, the
+>>>> vring (struct vring_desc) of virtio-net-pci is updated by the guest, 
+>>>> and the
+>>>> data isn't seen by QEMU, I'm suspecting if the host-page-frame- 
+>>>> number is properly
+>>>> resolved in the s2 page fault handler for shared (unprotected) space.
+>>>>
+>>>> - I rebased Jean's latest qemu branch to the upstream qemu;
+>>>>
+>>>> - On the host, which is emulated by qemu/tcg, the THP (transparent 
+>>>> huge page) is
+>>>>    disabled.
+>>>>
+>>>> - On the guest, I can see the virtio vring (struct vring_desc) is 
+>>>> updated. The
+>>>>    S1 page-table entry looks correct because the corresponding 
+>>>> physical address
+>>>>    0x10046880000 is a sane shared (unprotected) space address.
+>>>>
+>>>>    [   52.094143] software IO TLB: Memory encryption is active and 
+>>>> system is using DMA bounce buffers
+>>>>    [   52.289746] virtqueue_add_desc_split: 
+>>>> desc[0]@0xffff000006880000, [00000100b983f000  00000640  0002  0001]
+>>>>    [   52.432150] PTE 0x00e8010046880707 at address 0xffff000006880000
+>>>>
+>>>> - On the host, the s2 page-table-entry is unmapped due to attribute 
+>>>> transition (private -> shared).
+>>>>    A subsequent S2 page fault is raised against the adress and the 
+>>>> s2 page-table-entry is built.
+>>>>
+>>>>    [  109.259077] ====> realm_unmap_shared_range: 
+>>>> tracked_unprot_addr=0x10046880000
+>>>>    [  109.260249] realm_unmap_shared_range: unmapped shared range at 
+>>>> 0x10046880000
+>>>>    [  109.317786] realm_unmap_shared_range: unmapped shared range at 
+>>>> 0x10046880000
+>>>>    [  109.629939] ====> kvm_handle_guest_abort: 
+>>>> fault_ipa=0x10046880000, esr=0x92000007
+>>>>    [  109.630245] realm_map_non_secure: ipa=0x10046880000, 
+>>>> pfn=0xb8b59, size=0x1000, prot=0xf
+>>>>    [  109.630331] realm_map_non_secure: ipa=0x10046880000, 
+>>>> ipa_top=0x10046881000, flags=0x1e0001, range_desc=0xb8b59004
+>>>
+>>> Are you able to correlate the order of the transitions and the Guest
+>>> access with RMM log ? We haven't seen this from our end. We are aware
+>>> of permission fault issues with Unprotected IPA when backing the memslot
+>>> with MAP_PRIVATE areas. But this looks different.
+>>>
+>>> Lorenzo, have you run into this ?
+>>>
+>>
+>> It's hard to correlate the order since the logs are collected from two 
+>> separate
+>> consoles. For the write permission, I add code to the host where the 
+>> permission
+>> is always added for all s2 page faults in the shared space. Otherwise, 
+>> qemu can
+>> be killed by -EFAULT or similar error.
+> 
+> This is the problem. We can't add WRITE permission by default. I believe
+> you may have MAP_PRIVATE mapping and it has to be mapped as READ only
+> and on a permission fault, we replace it with a writable page. By
+> overriding the WRITE permission, you let the guest write to a page
+> that may not be seen by the VMM.
+> 
+> We identified this as a bug in the KVM driver in this series (reported
+> by Lorenzo) and there is a corresponding tf-RMM change that is required
+> to get this working. So, please could you wait until the next series
+> when this will be addressed ? Or you could switch to using MAP_SHARED
+> for the "shared" memory in the memslot.
 
-Okay, I will craft such a patch and send it.
+For the record, you need something like this :
 
->=20
-> > > > +
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 resets:
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 minItems: 1
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 maxItems: 1
-> > > > +
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 reset-names:
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 items:
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
- - const: core
-> > >=20
-> > > This is just maxItems: 1.
-> >=20
-> > Well the implicit rules of DT binding schemas are quite weird...
->=20
-> I don't think it is that strange, as the binding has
-> =C2=A0 reset-names:
-> =C2=A0=C2=A0=C2=A0 items:
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: core
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: axi
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: ahb
+--- a/arch/arm64/kvm/rmi.c
++++ b/arch/arm64/kvm/rmi.c
 
-Ah does the list constraint the order of items? If it constrains the
-order, it partly breaks the intention of having names; if it does not
-constrain the order, it needs to be clarified that the required 1 reset
-is core instead of the other two.
+@@ -838,8 +838,17 @@ int realm_map_non_secure(struct realm *realm,
+                 if (RMI_RETURN_STATUS(ret) == RMI_ERROR_RTT) {
+                         /* Create missing RTTs and retry */
+                         int level = RMI_RETURN_INDEX(ret);
++                       int req_level = find_map_level(realm, ipa, ipa_top);
++
++                       /*
++                        * There already exists a mapping at the level. 
+May be
++                        * we are relaxing a permission for the given 
+range ?
++                        */
++                       if (level >= req_level) {
++                               realm_unmap_shared_range(kvm, ipa, 
+ipa_top, false);
++                               continue;
++                       }
 
-Thanks,
-Icenowy
+-                       WARN_ON(level == KVM_PGTABLE_LAST_LEVEL);
+                         ret = realm_create_rtt_levels(realm, ipa, level,
+  
+KVM_PGTABLE_LAST_LEVEL,
+                                                       memcache);
 
-> so just constraining to one item is the simplest way to do this
-> without
-> duplication.
+
+Thanks
+Suzuki
+
+
+> 
+> 
+> Suzuki
+> 
+> 
+>>
+>> There are more findings after more experiments: this virtio-net-pci 
+>> device has 3
+>> queues or vrings (Rx/Tx/Ctrl). The Rx/Tx/Ctrl queue are populated in 
+>> order one after
+>> one. In the guest kernel, I intentionally write fixed data 
+>> (0x0123456789abcdef) to
+>> the first 8 bytes of the queue when it gets populated, and stop the 
+>> guest at random
+>> points to see if the data is gone. I found that the data written to 
+>> Rx/ Tx queue are
+>> lost after Ctrl queue is allocated.
+>>
+>> The data written to Rx/Tx queue is lost if the guest stops (B). The 
+>> data written to
+>> Rx/Tx queue isn't lost if the guest stops at (A). I can see the 
+>> pattern (0x0123...cdef)
+>> by dumping the physcial memory through 'pmemsave' command in qemu.
+>>
+>> DMA allocation
+>> ==============
+>> dma_alloc_coherent
+>>    dma_alloc_attrs
+>>      dma_direct_alloc
+>>        __dma_direct_alloc_pages
+>>        dma_set_decrypted                    // (A) No data lost if 
+>> being stopped here for the Ctrl queue
+>>        memset(ret, 0, size)                 // (B) Data lost after 
+>> being stopped after memset() for the Ctrl queue
+>>
+>> The memset() on the Ctrl queue should trigger a stage2 page fault. It 
+>> seems the page
+>> fault enforces the shared pages for Rx/Tx queue to be dropped? I need 
+>> to add more
+>> debugging code and track it down.
+>>
+>>> Suzuki
+>>>
+>>>
+>>>>
+>>>> - On QEMU, the updated vring (struct vring_desc) at GPA 0x46880000 
+>>>> isn't seen. All the
+>>>>    data in that adress are zeros.
+>>>>
+>>>>    ====> virtqueue_split_pop: vdev=<virtio-net>, sz=0x38, 
+>>>> queue_index=0x0, vq->vring.num=0x100
+>>>>    virtqueue_split_pop: last_avail_idx=0x0, head=0x0
+>>>>    address_space_read_cached_slow: cache@0xffff1c036440, addr=0x0, 
+>>>> buf=0xffffeee34880, len=0x10
+>>>>    address_space_read_cached_slow: cache: ptr=0x0, 
+>>>> xlat=0x10046880000, len=0x1000, mrs=<realm-dma-region>, is_write=no
+>>>>    address_space_read_cached_slow: translated to mr=<mach-virt.ram>, 
+>>>> mr_addr=0x6880000, l=0x10
+>>>>    flatview_read_continue_step: mr=<mach-virt.ram>, 
+>>>> host=0xffff23e00000, mr_addr=0x6880000, ram_ptr=0xffff2a680000
+>>>>    virtqueue_split_pop: desc: 0000000000000000 - 00000000 - 00000000 
+>>>> - 00000000
+>>>>    qemu-system-aarch64: virtio: zero sized buffers are not allowed
+>>>>
+>>>>
+>> Thanks,
+>> Gavin
+>>
+> 
 
 
