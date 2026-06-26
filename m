@@ -4,82 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEB44CDE008
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 07:23:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BCB2CDE008
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 07:26:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E9v/F1Z++mQQjd7Ny9GNR7WlwhRWYPPlNCRQ0zWVHfs=; b=5BYzDo6kv2heGHBw+0HcFxLShY
-	gdp1apFzVnYq1wllDZwbs85/QYyXSbwk/mdQYYzJcFXeuOVNwzQxh6efe71oBs4/jzKTxp0a1LD8z
-	xcJsfn0HiiDCMmq+Ob42PpmHMi/4goFoxN+PmiJSTzH23i2Di1KbSuWQ58m0OGU7PDhcFcm9t176M
-	QiwUN/wMoLiFjjmclO7JWTzEX5Lv+W6p7Fjj1rYls1o5z+/AcEhkLlSyXblVe/4VlvuZdn7i3HWeV
-	29gLy78Fe+vWFS9DtsnT1ReMLPsqhDDxOxHfGdYRr5TvEWjWpxSiJZArVqNtKQLIHppKLC753jc4w
-	8HrL/h4Q==;
+	bh=yb7I5zhAtiTVkfckf6Udr6TiG/DJCJIc8n/hG3KXcNk=; b=sf1Cq1o7OGZuVQ+G3yBHji8b6J
+	00ldrXrUVQjBRMOHhkSyOl+wqzA2Q7yFzDbMyBEeTi5nIRZkjiED5Yi0woONhLR2/Y0k/eyJPIHgN
+	JSCnf+I71gbzFydN/9InpDoyGK+KjkesAXqNmXzohqF6nrz8Ks5HyPlY8USSmiDeu6WJPobCpWNmj
+	Xo1+Q1/nga/yrQPD6fnqDopIVSLx0oqSTUOquFjorS8sf+wF+D595qq36hleI0Z8i6piPYi+Zmpeh
+	T23xAQJEFBmAeSlmbiz6G/dpi2BXvwiG19TPEMfvrB7zavtEOSzH0gyGs4m/09v57pyvzVamPORgQ
+	RY6HBFTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd0uS-0000000AfbU-1MLo;
-	Fri, 26 Jun 2026 07:23:32 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1wd0xU-0000000AfqI-2hy4;
+	Fri, 26 Jun 2026 07:26:40 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd0uO-0000000Afay-2j8A
+	id 1wd0xS-0000000Afpb-11El
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 07:23:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1782458609; x=1813994609;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=lYOOGzE7LwdgMGhlQH4i2dwWqqICBmMwCeAwhl5UGLA=;
-  b=SNganFz/TVtSbwRwHKaaAqwEXogw5VfZx1IVCxZ/NMN4QYBgCVjyqYDF
-   VdH8vhfORYZ4DE1pwOUlVRu6K/ndqP4JbgLgiQkpt4EFKwsCYNTSq7GmI
-   0Y0ZpVuaCG6H6sx78ZMhqga9/50+CW/FrKCeNPeAWdmYePmL73pIUlbDK
-   Tl8iU3ok6CxO1ofKlkgISnJADuW5uFcDtw/JgAhuFEm4jyeid8Buxi8Ma
-   c3wl2RSkJNM2hqpp1QPMvMJLGOJeBrRp/caLjnpIDp7UFgcJMgmTBX+Sb
-   ctmNSvburZf9pXKeXBNGYuxHpQ9RbwO6Dn22ppGzWlOQizlON+Y5YIjEu
-   g==;
-X-CSE-ConnectionGUID: YXc+Jpe1T8GT2zvd2E5JkQ==
-X-CSE-MsgGUID: xAUdhOBNSdGhplnRPVZPqQ==
-X-IronPort-AV: E=Sophos;i="6.24,226,1774335600"; 
-   d="asc'?scan'208";a="58876145"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 26 Jun 2026 00:23:28 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Fri, 26 Jun 2026 00:23:27 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex04.mchp-main.com (10.10.85.152)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.58 via Frontend
- Transport; Fri, 26 Jun 2026 00:23:23 -0700
-Date: Fri, 26 Jun 2026 08:22:33 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Conor Dooley <conor@kernel.org>
-CC: Joey Lu <a0987203069@gmail.com>, <zhengxingda@iscas.ac.cn>,
-	<maarten.lankhorst@linux.intel.com>, <mripard@kernel.org>,
-	<tzimmermann@suse.de>, <airlied@gmail.com>, <simona@ffwll.ch>,
-	<robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<ychuang3@nuvoton.com>, <schung@nuvoton.com>, <yclu4@nuvoton.com>,
-	<dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v5 1/7] dt-bindings: display: verisilicon,dc: generalize
- for single-output variants
-Message-ID: <20260626-zit-amuck-e743e58d2e15@wendy>
-References: <20260625094449.708386-1-a0987203069@gmail.com>
- <20260625094449.708386-2-a0987203069@gmail.com>
- <20260625-bobbing-annotate-d1c4d6874ee2@spud>
+	Fri, 26 Jun 2026 07:26:39 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-49241dbf9c1so5410285e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 00:26:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1782458795; x=1783063595; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=yb7I5zhAtiTVkfckf6Udr6TiG/DJCJIc8n/hG3KXcNk=;
+        b=VzGOyvzF/+l4cJJ50dBzJbTCmaMRqs7ehm5C/ouMHnEWQMb8qpK5c7CbL0UsVpJagO
+         rwvQmzT2d5cWo6JTGJ+SFvxOOb6BpS/WaMSaOgHN1ZxENuy4g5EPhqC2xD9WzmFsEPj/
+         pTDCZBjHmy9AHUJqq91BiIugFZlSNtqLmBOL4B+mfnSC7G1OlME6Cb2iJf29LH9pXckE
+         CvzLJ7PiCnG5PF6JBv8PXBph2WQYoSmG5GU6ZiUDZLWn9Dl3nRHuSacoQs1AG4+eTDkl
+         Xo4XarWrgehdVp8Gu8MmO3ahxz4B9mB7I/AaNsodn4PggGHjyFZpnQAdfTV7oEGnDnz8
+         tKCw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782458795; x=1783063595;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=yb7I5zhAtiTVkfckf6Udr6TiG/DJCJIc8n/hG3KXcNk=;
+        b=fBcXS4OmjZJPfXpD9SO6ZUr4U/XFdFiOQ3+CyxzI3JAJ8+2FbbGWCVqSXz7xQGByKf
+         Eo0LZyTQ0tLVSkvz+q7m6Bh14Knloqg2iJbiqMs95CCZ0Qk6w4DBBe12AqN6AnfIyUgk
+         DCCS24c+qHNhEtQHv/WfHpjjUe58gTp5QaP+ORVg5Ewy8cbCMsE9xpK9G8XclvC/yC90
+         yKe1yZH3ToNvqUtXC2i7oA5GjYDgZEd8zcjw8Fax1ttBizTabd5M4F1V1XM3O2DN4A1R
+         IIPZ+RzR2GCcLORsqilicgkjPBnExSejx+VGzfsEMe/CTK5DD31nUedXwON3Eom1dOrh
+         XSqQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+RamwPn5XAlPtcZzmnsasdbkOZ8XFn+WkD0xlPWAgSlzPYO3Fycj62iYkUJkuXwsP1KGyJRk4sYLNV7XVVQR2t@lists.infradead.org
+X-Gm-Message-State: AOJu0YyzvsnMBdLD1sxaDQDi6vIY/XdldjS/yABjmDH8xbRTAtQFoG85
+	eFwpISwAaz+Pp2wKaeXq5lGqNnnpTcWks9x2+yvy1JnYDdDtsAQzwnGwaMuyi9iSdw==
+X-Gm-Gg: AfdE7ckmpMLsmZVo6/iZu0RsLjZrGcdaVSp2SzrbZLVtytMvn5sIWhfJnAwkJggMCSK
+	SvDViC8oqYaKmC69AoP3X3bEEJEWw1wWdr15aX7BlbyTSOuF1fXv/uUXgQJ/DrmqpyoiR+6CImy
+	IHwdK8b/WUfh7YLf1LVFoGtiwvru1bCWNH46y5pgWJJ2xASCyuCsB5JfEEggnxRc3S8LacBHXQS
+	A4QwAKteOe2CnM89LGT7+MAIA3n/6whBmTDh1zvI9zXfEe8oxIlmCrFxsBG66lyU0bbP91DmsEg
+	TXPpBDZ5IYZQ72pjB2buf12xnirWJJ+VF4WOD6x0RHP/ac8APEOmofBl7MD+d/qtmaLADfzXQbD
+	MLrKPQEcrgqAWzyAomKOqsXQEKQucj/3NSpKi67W2V4Y0yc186ok0vJCCvh9aMM0ZuiZ9CZkmUY
+	h3qnqnnGyIcSii7ySzXwTYXkwBR6wnnnibPF6ibaXsR9z9Rh+JZAg=
+X-Received: by 2002:a05:600c:8b53:b0:490:b294:c652 with SMTP id 5b1f17b1804b1-492668857demr75260145e9.20.1782458794415;
+        Fri, 26 Jun 2026 00:26:34 -0700 (PDT)
+Received: from google.com (137.69.77.34.bc.googleusercontent.com. [34.77.69.137])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49269005626sm54095525e9.10.2026.06.26.00.26.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 26 Jun 2026 00:26:33 -0700 (PDT)
+Date: Fri, 26 Jun 2026 08:26:29 +0100
+From: Vincent Donnefort <vdonnefort@google.com>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Quentin Perret <qperret@google.com>,
+	Sebastian Ene <sebastianene@google.com>,
+	Hyunwoo Kim <imv4bel@gmail.com>, Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH v3 8/8] KVM: arm64: Implement lazy vCPU state sync for
+ non-protected guests
+Message-ID: <aj4ppe5JYTaaB3zh@google.com>
+References: <20260626070408.3420953-1-fuad.tabba@linux.dev>
+ <20260626070408.3420953-9-fuad.tabba@linux.dev>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="zir5oJSkmyAXG85W"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260625-bobbing-annotate-d1c4d6874ee2@spud>
+In-Reply-To: <20260626070408.3420953-9-fuad.tabba@linux.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_002328_754730_B20D062A 
-X-CRM114-Status: GOOD (  29.46  )
+X-CRM114-CacheID: sfid-20260626_002638_367118_329A639C 
+X-CRM114-Status: GOOD (  38.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,165 +108,252 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---zir5oJSkmyAXG85W
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On Fri, Jun 26, 2026 at 08:04:08AM +0100, Fuad Tabba wrote:
+> pKVM copies a non-protected guest's register context between the host
+> and the hypervisor on every world switch, even when the host never
+> inspects it. Defer the copy: on entry, flush the host context into the
+> hyp vCPU only when the host marked it dirty (PKVM_HOST_STATE_DIRTY); on
+> exit, leave it in the hyp vCPU and copy it back only when the host needs
+> it, via a __pkvm_vcpu_sync_state hypercall or at vcpu put. A protected
+> guest's context is copied as before, since lazy sync only helps where
+> the host is trusted to see the guest's registers.
+> 
+> PC and PSTATE are the exception: they are copied back on every exit so
+> the kvm_exit tracepoint reports the guest's real exit PC, and the run
+> loop's vcpu_mode_is_bad_32bit() and SError-masking checks evaluate the
+> guest's current PSTATE rather than the value left by the previous sync.
+> 
+> The host needs the full context when it is about to read it (trap
+> handling) or write it (the SError injection that writes ESR_EL1). Sync
+> both from handle_exit_early(), which runs non-preemptible so the loaded
+> hyp vCPU is stable without a preempt guard.
+> 
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 
-On Thu, Jun 25, 2026 at 05:33:37PM +0100, Conor Dooley wrote:
-> On Thu, Jun 25, 2026 at 05:44:43PM +0800, Joey Lu wrote:
-> > The verisilicon,dc binding was originally written for the T-Head TH1520
-> > SoC carrying a DC8200, and hard-codes five clocks, three resets and two
-> > output ports.
-> >=20
-> > Add the Nuvoton MA35D1 DCUltraLite (nuvoton,ma35d1-dcu) to the binding.
-> > The DCUltraLite uses only two clocks (core, pix0) and one reset (core),
-> > with a single output port.
-> >=20
-> > Use allOf/if blocks to express per-variant constraints rather than
-> > hard-coding the DC8200 topology at the top level.  Each compatible's
-> > block constrains the clock and reset item counts; the nuvoton block
-> > additionally overrides clock-names to the two names it actually uses.
-> >=20
-> > Signed-off-by: Joey Lu <a0987203069@gmail.com>
-> > ---
-> >  .../bindings/display/verisilicon,dc.yaml      | 57 +++++++++++++++++++
-> >  1 file changed, 57 insertions(+)
-> >=20
-> > diff --git a/Documentation/devicetree/bindings/display/verisilicon,dc.y=
-aml b/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
-> > index 9dc35ab973f2..1e751f3c7ce8 100644
-> > --- a/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
-> > +++ b/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
-> > @@ -17,6 +17,7 @@ properties:
-> >      items:
-> >        - enum:
-> >            - thead,th1520-dc8200
-> > +          - nuvoton,ma35d1-dcu
-> >        - const: verisilicon,dc # DC IPs have discoverable ID/revision r=
-egisters
-> > =20
-> >    reg:
-> > @@ -77,6 +78,62 @@ required:
-> >    - clock-names
-> >    - ports
-> > =20
-> > +allOf:
-> > +  - if:
-> > +      properties:
-> > +        compatible:
-> > +          contains:
-> > +            const: thead,th1520-dc8200
-> > +    then:
-> > +      properties:
-> > +        clocks:
-> > +          minItems: 5
-> > +          maxItems: 5
-> > +
-> > +        clock-names:
-> > +          minItems: 5
-> > +          maxItems: 5
->=20
-> All the maxItems here repeat the maximum constraint and do nothing.
->=20
-> Since you didn't change the minimum constraint at the top level, your
-> minItems also do nothing.
->=20
-> > +
-> > +        resets:
-> > +          minItems: 3
-> > +          maxItems: 3
-> > +
-> > +        reset-names:
-> > +          minItems: 3
-> > +          maxItems: 3
-> > +
-> > +      required:
-> > +        - resets
-> > +        - reset-names
->=20
-> Both conditional sections have this, but the original binding doesn't
-> require these for the thead device. This is a functional change
-> therefore and shouldn't be in a patch calling itself "generalise for
-> single ended variants".
->=20
-> FWIW, adding your new compatible shouldn't really be in a patch with
-> that subject either, it really should say "add support for nuvoton
-> ma35d1" or something.
->=20
-> > +
-> > +  - if:
-> > +      properties:
-> > +        compatible:
-> > +          contains:
-> > +            const: nuvoton,ma35d1-dcu
-> > +    then:
-> > +      properties:
-> > +        clocks:
-> > +          minItems: 2
->=20
-> Anything that updates the minimum constraint should be done at the top
-> level of this schema. The conditional section should then tighten the
-> constraint, in this case that means only having maxItems.
->=20
-> > +          maxItems: 2
-> > +
-> > +        clock-names:
-> > +          items:
-> > +            - const: core
-> > +            - const: pix0
->=20
-> Does this even work when the top level schema thinks clock 2 should be
-> called axi?
+Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
 
-Additionally here, only have core and pix0 seems like it might be an
-oversimplification. I doubt removing the second output port means that
-the axi and ahb clocks are no longer needed.
-Is it the case that your device supplies the same clock to core, ahb and
-axi? If so, then you should fill those clocks in in your devicetree and
-this can just constrain the number of clocks/clock-names to 4.
-
->=20
-> > +
-> > +        resets:
-> > +          minItems: 1
-> > +          maxItems: 1
-> > +
-> > +        reset-names:
-> > +          items:
-> > +            - const: core
->=20
-> This is just maxItems: 1.
->=20
-> pw-bot: changes-requested
->=20
-> Thanks,
-> Conor.
->=20
-> > +
-> > +      required:
-> > +        - resets
-> > +        - reset-names
-> > +
-> >  additionalProperties: false
-> > =20
-> >  examples:
-> > --=20
-> > 2.43.0
-> >=20
-
-
-
---zir5oJSkmyAXG85W
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaj4ouQAKCRB4tDGHoIJi
-0gbuAP9YNrkk4sSHNNI/u1TL50xLKK0vVA2UxUnlFzZLo8p6BAEAyTBb18kN4Jsr
-vttFNioIt2c8wadFCGvKcOjGHBz05g0=
-=SCHK
------END PGP SIGNATURE-----
-
---zir5oJSkmyAXG85W--
+> ---
+>  arch/arm64/include/asm/kvm_asm.h   |  1 +
+>  arch/arm64/include/asm/kvm_host.h  |  2 +
+>  arch/arm64/kvm/arm.c               |  7 +++
+>  arch/arm64/kvm/handle_exit.c       | 23 ++++++++
+>  arch/arm64/kvm/hyp/nvhe/hyp-main.c | 86 ++++++++++++++++++++++++++++--
+>  5 files changed, 114 insertions(+), 5 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
+> index 043495f7fc78b..6e1135b3ded44 100644
+> --- a/arch/arm64/include/asm/kvm_asm.h
+> +++ b/arch/arm64/include/asm/kvm_asm.h
+> @@ -113,6 +113,7 @@ enum __kvm_host_smccc_func {
+>  	__KVM_HOST_SMCCC_FUNC___pkvm_finalize_teardown_vm,
+>  	__KVM_HOST_SMCCC_FUNC___pkvm_vcpu_load,
+>  	__KVM_HOST_SMCCC_FUNC___pkvm_vcpu_put,
+> +	__KVM_HOST_SMCCC_FUNC___pkvm_vcpu_sync_state,
+>  	__KVM_HOST_SMCCC_FUNC___pkvm_tlb_flush_vmid,
+>  
+>  	MARKER(__KVM_HOST_SMCCC_FUNC_MAX)
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index 2faa60df847d2..caa39ee5125f2 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -1068,6 +1068,8 @@ struct kvm_vcpu_arch {
+>  #define INCREMENT_PC		__vcpu_single_flag(iflags, BIT(1))
+>  /* Target EL/MODE (not a single flag, but let's abuse the macro) */
+>  #define EXCEPT_MASK		__vcpu_single_flag(iflags, GENMASK(3, 1))
+> +/* Host-set: the hyp flushes the non-protected vCPU state in on entry */
+> +#define PKVM_HOST_STATE_DIRTY	__vcpu_single_flag(iflags, BIT(4))
+>  
+>  /* Helpers to encode exceptions with minimum fuss */
+>  #define __EXCEPT_MASK_VAL	unpack_vcpu_flag(EXCEPT_MASK)
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index 3732ee9eb0d4e..4e89558d80278 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -733,6 +733,10 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
+>  	if (is_protected_kvm_enabled()) {
+>  		kvm_call_hyp(__vgic_v3_save_aprs, &vcpu->arch.vgic_cpu.vgic_v3);
+>  		kvm_call_hyp_nvhe(__pkvm_vcpu_put);
+> +
+> +		/* __pkvm_vcpu_put implies a sync of the state */
+> +		if (!kvm_vm_is_protected(vcpu->kvm))
+> +			vcpu_set_flag(vcpu, PKVM_HOST_STATE_DIRTY);
+>  	}
+>  
+>  	kvm_vcpu_put_debug(vcpu);
+> @@ -964,6 +968,9 @@ int kvm_arch_vcpu_run_pid_change(struct kvm_vcpu *vcpu)
+>  		return ret;
+>  
+>  	if (is_protected_kvm_enabled()) {
+> +		/* Start with the vcpu in a dirty state */
+> +		if (!kvm_vm_is_protected(vcpu->kvm))
+> +			vcpu_set_flag(vcpu, PKVM_HOST_STATE_DIRTY);
+>  		ret = pkvm_create_hyp_vm(kvm);
+>  		if (ret)
+>  			return ret;
+> diff --git a/arch/arm64/kvm/handle_exit.c b/arch/arm64/kvm/handle_exit.c
+> index 54aedf93c78b6..29108e5c0206e 100644
+> --- a/arch/arm64/kvm/handle_exit.c
+> +++ b/arch/arm64/kvm/handle_exit.c
+> @@ -486,9 +486,32 @@ int handle_exit(struct kvm_vcpu *vcpu, int exception_index)
+>  	}
+>  }
+>  
+> +static void handle_exit_pkvm_state(struct kvm_vcpu *vcpu, int exception_index)
+> +{
+> +	int exception_code = ARM_EXCEPTION_CODE(exception_index);
+> +
+> +	if (!is_protected_kvm_enabled() || kvm_vm_is_protected(vcpu->kvm))
+> +		return;
+> +
+> +	/*
+> +	 * Sync the context back when the host will read (trap) or write
+> +	 * (SError) it. Preempt-off here, so the loaded hyp vCPU is stable.
+> +	 */
+> +	if (exception_code == ARM_EXCEPTION_TRAP ||
+> +	    exception_code == ARM_EXCEPTION_EL1_SERROR ||
+> +	    ARM_SERROR_PENDING(exception_index)) {
+> +		kvm_call_hyp_nvhe(__pkvm_vcpu_sync_state);
+> +		vcpu_set_flag(vcpu, PKVM_HOST_STATE_DIRTY);
+> +	} else {
+> +		vcpu_clear_flag(vcpu, PKVM_HOST_STATE_DIRTY);
+> +	}
+> +}
+> +
+>  /* For exit types that need handling before we can be preempted */
+>  void handle_exit_early(struct kvm_vcpu *vcpu, int exception_index)
+>  {
+> +	handle_exit_pkvm_state(vcpu, exception_index);
+> +
+>  	if (ARM_SERROR_PENDING(exception_index)) {
+>  		if (this_cpu_has_cap(ARM64_HAS_RAS_EXTN)) {
+>  			u64 disr = kvm_vcpu_get_disr(vcpu);
+> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> index 0194965930e61..acf53aae4fe43 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> @@ -141,6 +141,48 @@ static void sync_hyp_vgic_state(struct pkvm_hyp_vcpu *hyp_vcpu)
+>  		host_cpu_if->vgic_lr[i] = hyp_cpu_if->vgic_lr[i];
+>  }
+>  
+> +static void __copy_vcpu_state(const struct kvm_vcpu *from_vcpu,
+> +			      struct kvm_vcpu *to_vcpu)
+> +{
+> +	int i;
+> +
+> +	to_vcpu->arch.ctxt.regs		= from_vcpu->arch.ctxt.regs;
+> +	to_vcpu->arch.ctxt.spsr_abt	= from_vcpu->arch.ctxt.spsr_abt;
+> +	to_vcpu->arch.ctxt.spsr_und	= from_vcpu->arch.ctxt.spsr_und;
+> +	to_vcpu->arch.ctxt.spsr_irq	= from_vcpu->arch.ctxt.spsr_irq;
+> +	to_vcpu->arch.ctxt.spsr_fiq	= from_vcpu->arch.ctxt.spsr_fiq;
+> +	to_vcpu->arch.ctxt.fp_regs	= from_vcpu->arch.ctxt.fp_regs;
+> +
+> +	/*
+> +	 * Copy the sysregs, but don't mess with the timer state which
+> +	 * is directly handled by EL1 and is expected to be preserved.
+> +	 * enum vcpu_sysreg is sparse: VNCR-mapped registers take values
+> +	 * derived from their VNCR page offset, so the timer registers do
+> +	 * not form a contiguous numeric range and must be skipped by name.
+> +	 */
+> +	for (i = 1; i < NR_SYS_REGS; i++) {
+> +		switch (i) {
+> +		case CNTVOFF_EL2:
+> +		case CNTV_CVAL_EL0:
+> +		case CNTV_CTL_EL0:
+> +		case CNTP_CVAL_EL0:
+> +		case CNTP_CTL_EL0:
+> +			continue;
+> +		}
+> +		to_vcpu->arch.ctxt.sys_regs[i] = from_vcpu->arch.ctxt.sys_regs[i];
+> +	}
+> +}
+> +
+> +static void sync_hyp_vcpu_state(struct pkvm_hyp_vcpu *hyp_vcpu)
+> +{
+> +	__copy_vcpu_state(&hyp_vcpu->vcpu, hyp_vcpu->host_vcpu);
+> +}
+> +
+> +static void flush_hyp_vcpu_state(struct pkvm_hyp_vcpu *hyp_vcpu)
+> +{
+> +	__copy_vcpu_state(hyp_vcpu->host_vcpu, &hyp_vcpu->vcpu);
+> +}
+> +
+>  static void flush_debug_state(struct pkvm_hyp_vcpu *hyp_vcpu)
+>  {
+>  	struct kvm_vcpu *host_vcpu = hyp_vcpu->host_vcpu;
+> @@ -170,7 +212,17 @@ static void flush_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
+>  	fpsimd_sve_flush();
+>  	flush_debug_state(hyp_vcpu);
+>  
+> -	hyp_vcpu->vcpu.arch.ctxt	= host_vcpu->arch.ctxt;
+> +	/*
+> +	 * If we deal with a non-protected guest and the state is potentially
+> +	 * dirty (from a host perspective), copy the state back into the hyp
+> +	 * vcpu.
+> +	 */
+> +	if (!pkvm_hyp_vcpu_is_protected(hyp_vcpu)) {
+> +		if (vcpu_get_flag(host_vcpu, PKVM_HOST_STATE_DIRTY))
+> +			flush_hyp_vcpu_state(hyp_vcpu);
+> +	} else {
+> +		hyp_vcpu->vcpu.arch.ctxt = host_vcpu->arch.ctxt;
+> +	}
+>  
+>  	/* __hyp_running_vcpu must be NULL in a guest context. */
+>  	hyp_vcpu->vcpu.arch.ctxt.__hyp_running_vcpu = NULL;
+> @@ -201,9 +253,13 @@ static void sync_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
+>  	fpsimd_sve_sync(&hyp_vcpu->vcpu);
+>  	sync_debug_state(hyp_vcpu);
+>  
+> -	host_vcpu->arch.ctxt		= hyp_vcpu->vcpu.arch.ctxt;
+> -
+> -	host_vcpu->arch.hcr_el2		= hyp_vcpu->vcpu.arch.hcr_el2;
+> +	if (pkvm_hyp_vcpu_is_protected(hyp_vcpu)) {
+> +		host_vcpu->arch.ctxt = hyp_vcpu->vcpu.arch.ctxt;
+> +	} else {
+> +		/* Keep PC (tracepoint) and PSTATE (vcpu_mode_is_bad_32bit) current. */
+> +		host_vcpu->arch.ctxt.regs.pc = hyp_vcpu->vcpu.arch.ctxt.regs.pc;
+> +		host_vcpu->arch.ctxt.regs.pstate = hyp_vcpu->vcpu.arch.ctxt.regs.pstate;
+> +	}
+>  
+>  	host_vcpu->arch.fault		= hyp_vcpu->vcpu.arch.fault;
+>  
+> @@ -237,8 +293,27 @@ static void handle___pkvm_vcpu_put(struct kvm_cpu_context *host_ctxt)
+>  {
+>  	struct pkvm_hyp_vcpu *hyp_vcpu = pkvm_get_loaded_hyp_vcpu();
+>  
+> -	if (hyp_vcpu)
+> +	if (hyp_vcpu) {
+> +		struct kvm_vcpu *host_vcpu = hyp_vcpu->host_vcpu;
+> +
+> +		if (!pkvm_hyp_vcpu_is_protected(hyp_vcpu) &&
+> +		    !vcpu_get_flag(host_vcpu, PKVM_HOST_STATE_DIRTY)) {
+> +			sync_hyp_vcpu_state(hyp_vcpu);
+> +		}
+> +
+>  		pkvm_put_hyp_vcpu(hyp_vcpu);
+> +	}
+> +}
+> +
+> +static void handle___pkvm_vcpu_sync_state(struct kvm_cpu_context *host_ctxt)
+> +{
+> +	struct pkvm_hyp_vcpu *hyp_vcpu;
+> +
+> +	hyp_vcpu = pkvm_get_loaded_hyp_vcpu();
+> +	if (!hyp_vcpu || pkvm_hyp_vcpu_is_protected(hyp_vcpu))
+> +		return;
+> +
+> +	sync_hyp_vcpu_state(hyp_vcpu);
+>  }
+>  
+>  static struct kvm_vcpu *__get_host_hyp_vcpus(struct kvm_vcpu *arg,
+> @@ -869,6 +944,7 @@ static const hcall_t host_hcall[] = {
+>  	HANDLE_FUNC(__pkvm_finalize_teardown_vm),
+>  	HANDLE_FUNC(__pkvm_vcpu_load),
+>  	HANDLE_FUNC(__pkvm_vcpu_put),
+> +	HANDLE_FUNC(__pkvm_vcpu_sync_state),
+>  	HANDLE_FUNC(__pkvm_tlb_flush_vmid),
+>  };
+>  
+> -- 
+> 2.39.5
+> 
 
