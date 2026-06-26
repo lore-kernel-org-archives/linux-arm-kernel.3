@@ -4,64 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 788E9C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 14:18:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42925C43327
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 14:21:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S7OGCC6Q1LctmHJFe8cX2dcUbKj1900sOqj9vVCpnIc=; b=1hVNg/EqYDwG6MBNjsvz873FXC
-	VmSJ92n6ravsSYCAlQCsECIluxaro1YQL9TArUQrlLGJrLda/hoMiPIBq9u3vB85AWhTPM/8bxqkK
-	x9hNucl40DS/nZ5ryuWmnRElMLnUY+SOd8A/akQzDeEAer+DKrZ5VX6kESHT7H+sTam7fArN40ISr
-	RFma+SYUKDJd66+zsPIdORUZQYYVbFTvA7dm28V92WwsHmAga3MX09Yb2k/cPVCaKXWwHvf/9w0sA
-	Rz5JRx5gLuRZ8h5HNqFyHDi2Kr9O+/BslzaZuTtKLfIRnQEM48h5r4w/WzwMuNSD2CPsbJErlLXs+
-	fVlTM3sQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ke6gtps38ktpywN4raSMTf/Qd3T81LDQBZmPN4IfMpo=; b=O/+yqxCYhh4UYGtqZHzhuuO/7R
+	UtrEMtQEIcdUlqSbdHJ7/zOkGu80oiPY4Gs48qPsapUD/d9HkydfVkUdU3V5uaGEWCCo1eRlcxAks
+	0PCUDYIuDRvkE0b62RnC3EnI702jAgGhpQxsWQhw2PldD/bLlDiHkdOrU40xdEroCpQRt5ik34tKD
+	VJwFfM0ZcpjEu9nw1QYU5YRdTrxwMvKgOIzn2gW6Czcc8SJxWpdOW8kLeK9wUEXO8pU+pLkAntAnq
+	AdeBroVQhhAprJG6puMWjp98utYrwUImKhhx62eY40Q49a+8GbkAtqS8S/T9tD0ordYJl8iltbMEF
+	OoOTtFLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd7NJ-0000000BRZn-2UB0;
-	Fri, 26 Jun 2026 14:17:45 +0000
+	id 1wd7QO-0000000BRrP-0SIx;
+	Fri, 26 Jun 2026 14:20:56 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd7NG-0000000BRZI-2qzd
+	id 1wd7QM-0000000BRrJ-4Bqo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 14:17:42 +0000
+	Fri, 26 Jun 2026 14:20:55 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2210960137;
-	Fri, 26 Jun 2026 14:17:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B6A61F00A3E;
-	Fri, 26 Jun 2026 14:17:39 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6EEBE600D8;
+	Fri, 26 Jun 2026 14:20:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22A341F000E9;
+	Fri, 26 Jun 2026 14:20:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782483461;
-	bh=S7OGCC6Q1LctmHJFe8cX2dcUbKj1900sOqj9vVCpnIc=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=OTwv4cp19o0IbJ6sxOymAbLDjcG8g4T/wUVR/SlObZCgRnVEvQGJQ4UXhugb6TTx9
-	 tCCAp5tt7fAGnprLtyxLJjRoLVnt+fUuLDAZaJPZfoJl5/lNzmEvgg0ODng2kpifFP
-	 D+XhW8sUCKeybEzvozJ26E4xtDZXrDhPi49+uMHSYqXVZtDS+g0YvAo8xnlGW7HkoC
-	 BF3c5UKkn1CGR09jbBtV/HlxE2u+gTv9dHpgcNC+t7CLcdtBbcdlKnDF5O/Uvl2eL+
-	 P7nnYJZTmIKT9/Ep3kjqBEbczIqoy0b8Y46p20sheRq1DrKw+bXh7c+VLGXgvZqZym
-	 x1sq8qott/r6w==
-From: Will Deacon <will@kernel.org>
-To: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org,
-	Will Deacon <will@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Andreas Grapentin <gra@linux.ibm.com>,
+	s=k20260515; t=1782483654;
+	bh=Ke6gtps38ktpywN4raSMTf/Qd3T81LDQBZmPN4IfMpo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=LMaWKo28J2wAgy5wU7ESIVHMDF8JMc02ZW7Q1tLGqNOKkgZwEmqToOnxQM4WKFVfD
+	 xEZ5RmakzpzziQjAT2dFAAfA689hfPyNDoplhO6XtxCryZAWbMtYFOKQ24VaUHtu8N
+	 US2M+vF5zq3ooki8nMyppjRhNSY5u6h27a21XSyBHNYf2wDgu2uHaqJJULPuZW1Eel
+	 505Abveh4FACFqUsjeOyvKF+hgpV0ARiBUUz5n04LUc6mKz81b2MfJDrn98f/+FvAa
+	 gaSCQz3vK7M09AT6E4UiUAcm/EaP/G+nnqYUf2+VrIoBiFMzsaycXkn+xKYzgp2IaS
+	 HK66PzB7tLaoQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wd7QK-0000000GMhT-0rdi;
+	Fri, 26 Jun 2026 14:20:52 +0000
+Date: Fri, 26 Jun 2026 15:20:51 +0100
+Message-ID: <865x35qt6k.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Alexander Martyniuk <alexevgmart@gmail.com>
+Cc: stable@vger.kernel.org,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Martin <dave.martin@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Marc Zyngier <maz@kernel.org>
-Subject: [PATCH v2 2/2] arm64: uapi: Use __u128 instead of __uint128_t in UAPI headers
-Date: Fri, 26 Jun 2026 15:17:29 +0100
-Message-ID: <20260626141730.5976-3-will@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260626141730.5976-1-will@kernel.org>
-References: <20260626141730.5976-1-will@kernel.org>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Oliver Upton <oupton@kernel.org>,
+	Hyunwoo Kim <imv4bel@gmail.com>
+Subject: Re: [PATCH 6.12] KVM: arm64: Take the SRCU lock for page table walks in fault injection and AT emulation
+In-Reply-To: <20260626134210.228892-1-alexevgmart@gmail.com>
+References: <20260626134210.228892-1-alexevgmart@gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: alexevgmart@gmail.com, stable@vger.kernel.org, gregkh@linuxfoundation.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, oupton@kernel.org, imv4bel@gmail.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,89 +91,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The arm64 UAPI exposes '__uint128_t' types in the members of
-'struct user_fpsimd_state', 'struct user_pac_address_keys' and in the
-signal frame via 'struct fpsimd_context'. Since the alignment of such
-a type appears to be non-portable (16 bytes on arm64, 8 bytes on s390),
-prefer the '__u128' typedef from uapi/linux/types.h, which makes the
-alignment explicit and allows the definitions to be reused by other
-host architectures.
+On Fri, 26 Jun 2026 14:42:07 +0100,
+Alexander Martyniuk <alexevgmart@gmail.com> wrote:
+> 
+> From: Hyunwoo Kim <imv4bel@gmail.com>
+> 
+> commit f2ca45b50d4216c9cc7ffabf50d9ad1932209251 upstream.
+> 
+> walk_s1() and kvm_walk_nested_s2() expect to be called while holding
+> kvm->srcu to guard against memslot changes. While this is generally
+> the case, __kvm_at_s12() and __kvm_find_s1_desc_level() call into the
+> respective walkers without taking kvm->srcu.
+> 
+> Fix by acquiring kvm->srcu prior to the table walk in both instances.
+> 
+> Cc: stable@vger.kernel.org
+> Fixes: 50f77dc87f13 ("KVM: arm64: Populate level on S1PTW SEA injection")
+> Fixes: be04cebf3e78 ("KVM: arm64: nv: Add emulation of AT S12E{0,1}{R,W}")
+> Suggested-by: Oliver Upton <oupton@kernel.org>
+> Signed-off-by: Hyunwoo Kim <imv4bel@gmail.com>
+> Reviewed-by: Oliver Upton <oupton@kernel.org>
+> Link: https://patch.msgid.link/aiAZfdeyanIvP8SD@v4bel
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> [Alexander: __kvm_find_s1_desc_level() not present, patching only __kvm_at_s12()]
+> Signed-off-by: Alexander Martyniuk <alexevgmart@gmail.com>
 
-Cc: Arnd Bergmann <arnd@arndb.de>
-Cc: Nick Desaulniers <nick.desaulniers+lkml@gmail.com>
-Cc: Steffen Eiden <seiden@linux.ibm.com>
-Cc: Andreas Grapentin <gra@linux.ibm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Dave Martin <dave.martin@arm.com>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>
-Acked-by: Mark Rutland <mark.rutland@arm.com>
-Reviewed-by: Marc Zyngier <maz@kernel.org>
-Reviewed-by: Arnd Bergmann <arnd@arndb.de>
-Signed-off-by: Will Deacon <will@kernel.org>
----
- arch/arm64/include/uapi/asm/ptrace.h     | 12 ++++++------
- arch/arm64/include/uapi/asm/sigcontext.h |  6 +++---
- 2 files changed, 9 insertions(+), 9 deletions(-)
+See thread at [1], which explains why this is not needed.
 
-diff --git a/arch/arm64/include/uapi/asm/ptrace.h b/arch/arm64/include/uapi/asm/ptrace.h
-index 6fed93fb2536..15649a253a57 100644
---- a/arch/arm64/include/uapi/asm/ptrace.h
-+++ b/arch/arm64/include/uapi/asm/ptrace.h
-@@ -93,7 +93,7 @@ struct user_pt_regs {
- };
- 
- struct user_fpsimd_state {
--	__uint128_t	vregs[32];
-+	__u128		vregs[32];
- 	__u32		fpsr;
- 	__u32		fpcr;
- 	__u32		__reserved[2];
-@@ -258,14 +258,14 @@ struct user_pac_mask {
- /* pointer authentication keys (NT_ARM_PACA_KEYS, NT_ARM_PACG_KEYS) */
- 
- struct user_pac_address_keys {
--	__uint128_t	apiakey;
--	__uint128_t	apibkey;
--	__uint128_t	apdakey;
--	__uint128_t	apdbkey;
-+	__u128	apiakey;
-+	__u128	apibkey;
-+	__u128	apdakey;
-+	__u128	apdbkey;
- };
- 
- struct user_pac_generic_keys {
--	__uint128_t	apgakey;
-+	__u128	apgakey;
- };
- 
- /* ZA state (NT_ARM_ZA) */
-diff --git a/arch/arm64/include/uapi/asm/sigcontext.h b/arch/arm64/include/uapi/asm/sigcontext.h
-index e29bf3e2d0cc..d250ca7a1d46 100644
---- a/arch/arm64/include/uapi/asm/sigcontext.h
-+++ b/arch/arm64/include/uapi/asm/sigcontext.h
-@@ -78,7 +78,7 @@ struct fpsimd_context {
- 	struct _aarch64_ctx head;
- 	__u32 fpsr;
- 	__u32 fpcr;
--	__uint128_t vregs[32];
-+	__u128 vregs[32];
- };
- 
- /*
-@@ -266,8 +266,8 @@ struct gcs_context {
-  *	-	----				-----------
-  *	REGS					the entire SVE context
-  *
-- *	ZREGS	__uint128_t[SVE_NUM_ZREGS][vq]	all Z-registers
-- *	ZREG	__uint128_t[vq]			individual Z-register Zn
-+ *	ZREGS	__u128[SVE_NUM_ZREGS][vq]	all Z-registers
-+ *	ZREG	__u128[vq]			individual Z-register Zn
-  *
-  *	PREGS	uint16_t[SVE_NUM_PREGS][vq]	all P-registers
-  *	PREG	uint16_t[vq]			individual P-register Pn
+	M.
+
+[1] https://lore.kernel.org/all/aifnUC7gmeniiYPv@v4bel/
+
 -- 
-2.55.0.rc0.799.gd6f94ed593-goog
-
+Without deviation from the norm, progress is not possible.
 
