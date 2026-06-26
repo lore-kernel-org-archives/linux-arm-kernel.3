@@ -4,109 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB6E7C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 16:10:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F12CFC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 16:15:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=2aWBvZh578V8IDg5VB5A5waCEKnBVyKHYVkUeWcOaBQ=; b=0Ow+L0Q6I+pdqrx9ljnSpYRkwX
-	6ZnbPDwVrw8Zo3S6PS5zJDgIT5yCpEsA9gSl5J+LUhk7SkL2WS+nuRcJBFD+jwPkLOQrufN0mbV2J
-	jKdMTjULFif7HPadp+67MZslq/ge2sCrVsoAowizc1RMuwlWJ9CzTDDfbsogAO2I++l18bKU+aXoi
-	/8gWu3BDTGgGhQm3oqf/Bqs6uTXsfLqcjYT4Rd9zyLPeQQ5FB0oWGZE5q1WRR8WpKOEaPiYDdojJh
-	wCao6EY6xVQnnWBKx5QxiwVhLeXO1036QH2c+tqVUsvnrglBFXBCPfFxpuab4LMz+K/Hz1BgGRu33
-	x3m7sKKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IFj+K8pWjYcRO5D7jGhk3uw0VEa1YWWgcwRuiZFb3G4=; b=aRD13OppVaBKzROlD2q1FZqql3
+	neAUAzcZMAwBnjf1EAzfueurqphq/ctKSpmhbeGau4TtbuCzqlun59QgCyd1J1ANHGFHH/X6p+HTG
+	5Pab4TFtntI0yqqiwUeouNGf9x8EW5j4m+xYryaFyDCuFvZ9zIBvZ1x8vN2lvSTAkPOgYL6RoKAR4
+	9+Lat8LyT4gTnTZq6e9qCaiDgmgTrnf9uvNmCmAG9MkUvFFO/+Fs0/Um+cQg23EJgS4VPloNs9IAo
+	O1rjxT4gFfty3YTMVOl37OHuIfoc4L7crvXWChtfE9USn3su4typ1J6HKgty42J9+xN/78o+hM3IB
+	J0753rYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd98a-0000000BbHd-36H2;
-	Fri, 26 Jun 2026 16:10:40 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd98Y-0000000BbGC-14kz
+	id 1wd9D9-0000000Bby8-3RY1;
+	Fri, 26 Jun 2026 16:15:23 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wd9D6-0000000Bbwq-1vm4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 16:10:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=oljR08au37E9aX3TOW+SOsrlG90yzIF585DN9DB+sncleqZFkVppbWR/sURLeYcVdh7HGAaSeGiIJNct8JBObRbDLQVtUKBfuWXAFCRnVm09jSfsFcLM+xF9VuiB2ba9rkeAbSM67IZ2orA0/GC7JBlQYFP3E9hlv1whwwRVbnnBGynidbpvBxZNYHvIQKZLMkCUz2lSpC2wUDhDebFxSpDOhw0PPk0gLsU75UZhgvbItDprUSEqWDiyqOnkHSFWTWLTv4bmAy3SCyQmn/vY1wFE7fVOJgSsKENLS/26DAsPHujbLfWBgQ65dzUqgvkKqYtwYO8LqWg5HpwWf+yKag==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2aWBvZh578V8IDg5VB5A5waCEKnBVyKHYVkUeWcOaBQ=;
- b=snFG4zn4BTtB0T8LuSi0n2y5hHasBKjhJ6Mm3epR0M08i4GgRWkfVlRDGGD51ThiIwr1bk8Ybwiz48sZ+y9a7Q6vNVbqKy5ZCwnuaCQZIgGP16ueb2vN3F/H3fesVzdDRrSqMCoHA4/SkNHmj4+aCrViozOQSW2cmKpRjKvZz3LAZ/swZue8gatCstG3oR4Q8attBOtn1gc6504KiMJF5v/LqIOTPPqlY4CWGxEB4H2qsKls43gFM93hL/WZ1ovJUcqPBya5ZHrV+vItFLnR3/tu/jjXwlaciKAWJddLV9f9dpD3iY5ImF5gCq2LchSoJ6A9FxjmJM8a2Xze0UF1Ew==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
- is 91.26.50.189) smtp.rcpttodomain=ti.com smtp.mailfrom=phytec.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=phytec.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2aWBvZh578V8IDg5VB5A5waCEKnBVyKHYVkUeWcOaBQ=;
- b=XC+kUdVhH0osl91cykwbmrRgkD+IBROyKJ6mueYwTXqgg0eAHPsWFkIwuG/HHUD6XpyXNs+uscm/+vmsWSvcEbEA1DUJ2B32ClHFOsOcm/0EfXAWwNGN+J+klO4a0q4TL9QdJcFe9Ip1ghVn2hoesodADnpNZ0V9fMP0u4BPHGb0KEgUFqTLp0DpZa8e0JZydGevA0eJMyNRvflDGla2W8lp44RYkYaxExfgqYIrf9oiQXBCdAJ+Jj3cUV885vRWYGSYcSJMVG/KNVBHBzLsW3IIcqlmQ9ZFic+lwXNLvMEMB/yrwBQzdgpotwmmVOr8tp1HmaX/vn6bu8B5nE+6Jw==
-Received: from DUZP191CA0070.EURP191.PROD.OUTLOOK.COM (2603:10a6:10:4fa::20)
- by AS5P195MB3382.EURP195.PROD.OUTLOOK.COM (2603:10a6:20b:753::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.16; Fri, 26 Jun
- 2026 16:10:30 +0000
-Received: from DB1PEPF000509F8.eurprd02.prod.outlook.com
- (2603:10a6:10:4fa:cafe::9a) by DUZP191CA0070.outlook.office365.com
- (2603:10a6:10:4fa::20) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.159.17 via Frontend Transport; Fri,
- 26 Jun 2026 16:10:29 +0000
-X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 91.26.50.189)
- smtp.mailfrom=phytec.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=phytec.com;
-Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
- phytec.com discourages use of 91.26.50.189 as permitted sender)
-Received: from Postix.phytec.de (91.26.50.189) by
- DB1PEPF000509F8.mail.protection.outlook.com (10.167.242.154) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.181.6 via Frontend Transport; Fri, 26 Jun 2026 16:10:29 +0000
-Received: from phytec.com (172.25.39.17) by Postix.phytec.de (172.25.0.11)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Fri, 26 Jun
- 2026 18:10:25 +0200
-From: Nathan Morrisson <nmorrisson@phytec.com>
-To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>
-CC: <afd@ti.com>, <sashiko-reviews@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <upstream@lists.phytec.de>
-Subject: [PATCH v2 1/2] dt-bindings: arm: ti: Add bindings for PHYTEC AM67x based hardware
-Date: Fri, 26 Jun 2026 09:10:13 -0700
-Message-ID: <20260626161014.1146128-1-nmorrisson@phytec.com>
-X-Mailer: git-send-email 2.43.0
+	Fri, 26 Jun 2026 16:15:22 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4936A1F37;
+	Fri, 26 Jun 2026 09:15:14 -0700 (PDT)
+Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6CC793F905;
+	Fri, 26 Jun 2026 09:15:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1782490518; bh=x1pZG/Gj42lOLXnmttonXXa2JSMsqRCTY2KmksX0HQ8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=eRK/J+KYf7DjADjIUXwQEubt1nCizCaOY2eJ8PmY/58KATn8ZkhCYGfu0BFdW1ryr
+	 Lvi5GVIbuA65ERwq3LxT7PC01/3KTVY6fG4iysSn/KN9zjm/PgdP4jcMGNlqVvl02f
+	 WsdIF967MSv63AMJVtIV7bYvAGlax9tCXlPPstF0=
+Message-ID: <b5085e09-6533-4f88-938d-8d46751cf7da@arm.com>
+Date: Fri, 26 Jun 2026 17:15:13 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [172.25.39.17]
-X-ClientProxiedBy: Postix.phytec.de (172.25.0.11) To Postix.phytec.de
- (172.25.0.11)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB1PEPF000509F8:EE_|AS5P195MB3382:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4947259d-ae55-45d9-34d6-08ded39d70eb
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|7416014|376014|23010399003|82310400026|11063799006|56012099006|18002099003;
-X-Microsoft-Antispam-Message-Info: uPlAaXax8wta2ytK7AnTgTdVdMzzy6m7nW6WPY5MYm7JUQE6UtbJCLuY2lq+a69+xahto6ivukrXqsQLIKyywL9hCdQ5b47xZycqtTgXfIGi67++gS8NKVpSJv7so0Mf8QJs+C0ns38LtdIvdI3I4yYEBnPGGOYUNdcGLkiTukXFmK0t+WL45kRdqHv+uyWAnQJanZ5NmiRIT42OurI8T3Zp5YYGYZ80ve5ra58M+7VVmwYpbzJW8vBbbjqHRwCc1nH2aMJtxVkeeZIbAcjdw2EXX0iptZTADvtuCrzJ/cYMdDiwhb0DT28r/fsW4yb4/fn+5by7ischA0ASrBlmX3RBuPuso5oCd2tcS8NBy5M5hBImbZ4HZFyT5tGB9Md+RnnBbaFIf+HKP9wW0l1Z/hSkZxFb3llH8zeEYUOrpI/iWGY6x9Iqjc6KaDXlYINAwdA8AqnzWpOe38p1NHAed/cPI49ebNnBvlZzV3kagCgH7gFf0H1T7q2amB/cVuqgu7DBTG15f5T/tgir2Vv1kOdMwhKHx/dMEURXUkr7uDr5v0KoifRURCQWwdVNjTSs74VkfROZrfifMHlFgubd7BIKrsTxFiSz8hTWDir1f1kP69ciS5W3LyTtdnMg7oRJ9uvmr7YjBRaSNHza+4lKEVHVHIxH5I0f6LSFNmfg9BmeDlvSiNHWoZEWx4glaNkOkAdOhpRvWj4W++bm/ZN+Cw==
-X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:Postix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(7416014)(376014)(23010399003)(82310400026)(11063799006)(56012099006)(18002099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: C+3YlPlzEh9kdGplEFyAUcMmkn3nUOdwFGDnP+ZYT642Pk7XNKas5dpv3589YX3nk/auKqxvsQuvEB1zEcQPsSBQC2yHGF+aknuXt2exyXjqCaI9GxA/5WHD1pEEgoWUuTfEzuEmwLe6Js/jbNhR4q0hgQMMmFJ5xJTlRTV6nMzB+naPmaGhx98OH914+OBDH019pwl0v5dgAtMm19FGfrBVoqPo7wiH5+n2OINc3P7az1JGiAIKQnC/AvSNIJ/DsaVTGLSJ2/HUxhr9qIe1Z/VciiLbH28fwYIkZyjB5DzZhvge6Pq824Gd5xj5+Alj4CK+t8p2KtzRDOfkszltHP81XIalthYmr+9/uJyEm9XvZS3T6nuWoc/VKAehorvqmBHWa5wn0itw/P/h15EqxfJ12tfb/2D4NvINNDCEoTIiTj3EOYws2B/w/Uq0vJZL
-X-OriginatorOrg: phytec.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Jun 2026 16:10:29.0248
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4947259d-ae55-45d9-34d6-08ded39d70eb
-X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e609157c-80e2-446d-9be3-9c99c2399d29;Ip=[91.26.50.189];Helo=[Postix.phytec.de]
-X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509F8.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5P195MB3382
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 05/11] iommu/arm-smmu-v3: Submit CMDQ_OP_PRI_RESP for
+ IOPF event
+To: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org, jgg@nvidia.com
+Cc: joro@8bytes.org, bhelgaas@google.com, praan@google.com,
+ kevin.tian@intel.com, kees@kernel.org, smostafa@google.com,
+ baolu.lu@linux.intel.com, linux-arm-kernel@lists.infradead.org,
+ iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-pci@vger.kernel.org, skaestle@nvidia.com, mmarrid@nvidia.com,
+ skolothumtho@nvidia.com, bbiber@nvidia.com
+References: <cover.1779944354.git.nicolinc@nvidia.com>
+ <6c713c724fa09bf5a1b5e2247c633e516036f079.1779944354.git.nicolinc@nvidia.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <6c713c724fa09bf5a1b5e2247c633e516036f079.1779944354.git.nicolinc@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_091038_407062_8D363BE2 
-X-CRM114-Status: UNSURE (   7.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260626_091520_695975_B95D2597 
+X-CRM114-Status: GOOD (  27.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,37 +76,185 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add device tree bindings for the AM67x based phyCORE-AM67x SoM and
-phyBOARD-Rigel.
+On 28/05/2026 8:59 am, Nicolin Chen wrote:
+> From: Malak Marrid <mmarrid@nvidia.com>
+> 
+> To handle IOMMU_FAULT_PAGE_REQ from the PRI queue, arm_smmu_page_response()
+> must issue a CMDQ_OP_PRI_RESP back to the SMMU.
+> 
+> However, either a stall event in the EVTQ or a PRI request in the PRIQ can
+> surface to the IOPF infrastructure with fault.type == IOMMU_FAULT_PAGE_REQ,
+> and a single master can in principle be both stall-capable and PRI-capable
 
-Signed-off-by: Nathan Morrisson <nmorrisson@phytec.com>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
----
-Changes in v2:
- * Use spaces instead of tabs for indentation
+No, the SMMU architecture does all it can to specifically forbid this, 
+see 3.12.1 and 16.4, it just can't be made architecturally ILLEGAL to 
+enable stalls for PCIe devices because there's no strict architectural 
+definition for what "a PCIe device" actually is. Similarly with the note 
+in the definition of STE.EATS about the relationship with CD.S - the 
+unwritten implication is that defining specific behaviours would only 
+create an unreasonable burden for hardware validation, for the sake of 
+something that nobody in their right mind should ever do anyway.
 
- Documentation/devicetree/bindings/arm/ti/k3.yaml | 7 +++++++
- 1 file changed, 7 insertions(+)
+The expectation is that RCiEPs which do speak stallable non-PCIe bus 
+protocols will not go to the effort of implementing ATS/PRI capabilities 
+(not least because there's every chance that such protocols simply 
+doesn't have that kind of transaction flow anyway). And conversely that 
+it can be considered an egregious firmware (or system design) error to 
+even claim (let alone force) stall capability for a real PCIe root port 
+which may be deadlocked by blocking its requirement for free-flowing 
+writes. Thus I think we could go so far as to refuse to handle any 
+endpoint which did somehow claim both.
 
-diff --git a/Documentation/devicetree/bindings/arm/ti/k3.yaml b/Documentation/devicetree/bindings/arm/ti/k3.yaml
-index 69b5441cbf1a..ae47190d1f82 100644
---- a/Documentation/devicetree/bindings/arm/ti/k3.yaml
-+++ b/Documentation/devicetree/bindings/arm/ti/k3.yaml
-@@ -222,6 +222,13 @@ properties:
-               - ti,j722s-evm
-           - const: ti,j722s
- 
-+      - description: K3 AM67 SoC PHYTEC phyBOARD-Rigel
-+        items:
-+          - enum:
-+              - phytec,am6754-phyboard-rigel
-+          - const: phytec,am67-phycore-som
-+          - const: ti,j722s
-+
-       - description: K3 J742S2 SoC
-         items:
-           - enum:
--- 
-2.43.0
+Thanks,
+Robin.
+
+> (e.g. FEAT_STALL_FORCE on a PCIe device with PRI), so master state is not a
+> reliable discriminator.
+> 
+> Add IOMMU_FAULT_PAGE_REQUEST_STALLS_TRANS to the generic flags so the fault
+> reporter can mark a page request that is holding the device's transaction:
+>      arm_smmu_handle_event() sets it on STALL events
+>      arm_smmu_handle_ppr() leaves it clear for PRI events
+> 
+> Note: streams[0].id remains the RID because arm_smmu_enable_iopf() rejects
+> num_streams != 1.
+> 
+> Co-developed-by: Barak Biber <bbiber@nvidia.com>
+> Signed-off-by: Barak Biber <bbiber@nvidia.com>
+> Co-developed-by: Stefan Kaestle <skaestle@nvidia.com>
+> Signed-off-by: Stefan Kaestle <skaestle@nvidia.com>
+> Signed-off-by: Malak Marrid <mmarrid@nvidia.com>
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> ---
+>   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |  1 +
+>   include/linux/iommu.h                       |  1 +
+>   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 75 +++++++++++++++------
+>   3 files changed, 58 insertions(+), 19 deletions(-)
+> 
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> index 2bb810e4d5fce..1083621705f16 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> @@ -1007,6 +1007,7 @@ struct arm_smmu_master {
+>   	/* Locked by the iommu core using the group mutex */
+>   	struct arm_smmu_ctx_desc_cfg	cd_table;
+>   	unsigned int			num_streams;
+> +	bool				pri_enabled : 1;
+>   	bool				ats_enabled : 1;
+>   	bool				ste_ats_enabled : 1;
+>   	bool				stall_enabled;
+> diff --git a/include/linux/iommu.h b/include/linux/iommu.h
+> index e587d4ac4d331..83c4dfcf20637 100644
+> --- a/include/linux/iommu.h
+> +++ b/include/linux/iommu.h
+> @@ -76,6 +76,7 @@ struct iommu_fault_page_request {
+>   #define IOMMU_FAULT_PAGE_REQUEST_PASID_VALID	(1 << 0)
+>   #define IOMMU_FAULT_PAGE_REQUEST_LAST_PAGE	(1 << 1)
+>   #define IOMMU_FAULT_PAGE_RESPONSE_NEEDS_PASID	(1 << 2)
+> +#define IOMMU_FAULT_PAGE_REQUEST_STALLS_TRANS	(1 << 3)
+>   	u32	flags;
+>   	u32	pasid;
+>   	u32	grpid;
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> index ffc9621cd2288..061f1d46fda0d 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> @@ -921,32 +921,68 @@ static int arm_smmu_drain_queue_for_iopf(struct arm_smmu_device *smmu,
+>   	return ret;
+>   }
+>   
+> -static void arm_smmu_page_response(struct device *dev, struct iopf_fault *unused,
+> +static void arm_smmu_page_response(struct device *dev, struct iopf_fault *evt,
+>   				   struct iommu_page_response *resp)
+>   {
+>   	struct arm_smmu_master *master = dev_iommu_priv_get(dev);
+> -	u8 resume_resp;
+> +	struct arm_smmu_cmd cmd;
+> +	int sid;
+>   
+> -	if (WARN_ON(!master->stall_enabled))
+> +	if (WARN_ON_ONCE(evt->fault.type != IOMMU_FAULT_PAGE_REQ))
+>   		return;
+>   
+> -	switch (resp->code) {
+> -	case IOMMU_PAGE_RESP_INVALID:
+> -	case IOMMU_PAGE_RESP_FAILURE:
+> -		resume_resp = CMDQ_RESUME_0_RESP_ABORT;
+> -		break;
+> -	case IOMMU_PAGE_RESP_SUCCESS:
+> -		resume_resp = CMDQ_RESUME_0_RESP_RETRY;
+> -		break;
+> -	default:
+> -		resume_resp = CMDQ_RESUME_0_RESP_TERM;
+> -		break;
+> +	/* IOPF is gated to num_streams == 1 in arm_smmu_enable_iopf() */
+> +	sid = master->streams[0].id;
+> +
+> +	if (evt->fault.prm.flags & IOMMU_FAULT_PAGE_REQUEST_STALLS_TRANS) {
+> +		u8 resume_resp;
+> +
+> +		if (WARN_ON_ONCE(!master->stall_enabled))
+> +			return;
+> +		switch (resp->code) {
+> +		case IOMMU_PAGE_RESP_INVALID:
+> +		case IOMMU_PAGE_RESP_FAILURE:
+> +			resume_resp = CMDQ_RESUME_0_RESP_ABORT;
+> +			break;
+> +		case IOMMU_PAGE_RESP_SUCCESS:
+> +			resume_resp = CMDQ_RESUME_0_RESP_RETRY;
+> +			break;
+> +		default:
+> +			resume_resp = CMDQ_RESUME_0_RESP_TERM;
+> +			break;
+> +		}
+> +		cmd = arm_smmu_make_cmd_resume(sid, resp->grpid, resume_resp);
+> +	} else {
+> +		enum pri_resp pri_resp;
+> +		bool ssv;
+> +
+> +		if (WARN_ON_ONCE(!master->pri_enabled))
+> +			return;
+> +		/* PCIe allows only one PRG Response per group */
+> +		if (!(evt->fault.prm.flags &
+> +		      IOMMU_FAULT_PAGE_REQUEST_LAST_PAGE))
+> +			return;
+> +		switch (resp->code) {
+> +		case IOMMU_PAGE_RESP_SUCCESS:
+> +			pri_resp = PRI_RESP_SUCC;
+> +			break;
+> +		case IOMMU_PAGE_RESP_FAILURE:
+> +			pri_resp = PRI_RESP_FAIL;
+> +			break;
+> +		case IOMMU_PAGE_RESP_INVALID:
+> +			pri_resp = PRI_RESP_DENY;
+> +			break;
+> +		default:
+> +			WARN_ON(true);
+> +			return;
+> +		}
+> +		ssv = !!(evt->fault.prm.flags &
+> +			 IOMMU_FAULT_PAGE_REQUEST_PASID_VALID);
+> +		cmd = arm_smmu_make_cmd_pri_resp(sid, resp->pasid, ssv,
+> +						 resp->grpid, pri_resp);
+>   	}
+>   
+> -	arm_smmu_cmdq_issue_cmd(master->smmu,
+> -				arm_smmu_make_cmd_resume(master->streams[0].id,
+> -							 resp->grpid,
+> -							 resume_resp));
+> +	arm_smmu_cmdq_issue_cmd(master->smmu, cmd);
+>   	/*
+>   	 * Don't send a SYNC, it doesn't do anything for RESUME or PRI_RESP.
+>   	 * RESUME consumption guarantees that the stalled transaction will be
+> @@ -2081,7 +2117,8 @@ static int arm_smmu_handle_event(struct arm_smmu_device *smmu, u64 *evt,
+>   
+>   		flt->type = IOMMU_FAULT_PAGE_REQ;
+>   		flt->prm = (struct iommu_fault_page_request){
+> -			.flags = IOMMU_FAULT_PAGE_REQUEST_LAST_PAGE,
+> +			.flags = IOMMU_FAULT_PAGE_REQUEST_LAST_PAGE |
+> +				 IOMMU_FAULT_PAGE_REQUEST_STALLS_TRANS,
+>   			.grpid = event->stag,
+>   			.perm = perm,
+>   			.addr = event->iova,
 
 
