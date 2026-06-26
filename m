@@ -4,57 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7894AC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 14:25:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57178C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 14:30:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mq5eB87xLrwNqO+AmRAx98AdQSUns2cVe/ldlPXsX14=; b=w54ea0JoP+osw3HM8Uh0PCP2ir
-	zVmEf0Ck0zVbI5MRAdUSvfjr52Yo01/deUXkCbPLLcTjxWmX/55HtxWgIMX7weleiKvPLn5r+oFPJ
-	BYfYu4941Di/RIGflVp7cTWqTkXUUsB7W8RyRnUOb1uLRwDF/QxrQswSERA1rgCx+t0EZzKOOQ4ET
-	S1duhSyD7LqC+WnNXesDy0kPex5BrstQJJo7K0ooUYghnK3QiJQvPsh/q0D9w0Zbd1SmtvLkfXNmN
-	uVt2icO4y6r2LLbJurGKucV00TTKTJA3eZC4QHISfOySAZJJkNxkPLPKIZX4k/D59QxbPPRc5oyOg
-	Cxshjfpg==;
+	bh=J0oH+PQ9BpfCFKuRcRrHjrQvw2d5pVGbbxbaEFYzceE=; b=kcUMuT37y9+PBbhA2wkkGrhAVw
+	Vb2pvkE2IyhBzmqqejqrOnC1aPl4FxWvrl3e4pDeBZQcXAkARqslUb2NROGXrKXXZNHDmZAGXsiiL
+	K9BpCtcQjUNWemLK/j/6UzBetP0wTLJTvedXMbzcoOIcdO3s75hTMWw0UoyACFa9f4oSve59oYJ7o
+	0aTlvw293mPkUALxydgj+MhYsFQyzmBMUKzAx8agwx7r984+uZfEJJf8JElT9hh/QVR7kT8MBkksV
+	xlElCsp9S/xDPqz8mv7pGLA/7c911WZCldxP/FfSOezgSgRhyn9dLD4DvGgp7FafqaUJ4X2v0sD6N
+	WMLEo5Fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd7Uj-0000000BSER-0Oqs;
-	Fri, 26 Jun 2026 14:25:25 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wd7ZO-0000000BSQe-2bun;
+	Fri, 26 Jun 2026 14:30:14 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd7Uh-0000000BSEK-3y5i
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 14:25:24 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 09D6A600C8;
-	Fri, 26 Jun 2026 14:25:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 441BD1F000E9;
-	Fri, 26 Jun 2026 14:25:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1782483922;
-	bh=Mq5eB87xLrwNqO+AmRAx98AdQSUns2cVe/ldlPXsX14=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=SlhftcQoyt+CCvsFrPLqCbzrYbKhix2b1KAVgU9jE1ER84hpdJ5RoaGVryqSJBFqK
-	 tlCi2DM/GtanGUCMkLwnL7TXrNNQtXobMg1AspzsQZtDl48fwaKFabEaac4blBeM+0
-	 nibbMs0foCEmhcjqrKp0o117YZG0XpYNydueh2Ng=
-Date: Fri, 26 Jun 2026 15:24:09 +0100
-From: Greg KH <gregkh@linuxfoundation.org>
-To: WenTao Liang <vulab@iscas.ac.cn>
-Cc: krzk@kernel.org, s.nawrocki@samsung.com, cw00.choi@samsung.com,
-	mturquette@baylibre.com, sboyd@kernel.org, alim.akhtar@samsung.com,
-	bmasney@redhat.com, linux-samsung-soc@vger.kernel.org,
-	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH] fix: clk/samsung: exynos_clkout_probe: success path
- leaks parent clock   references from of_clk_get_by_name
-Message-ID: <2026062612-twiddling-lagged-62ac@gregkh>
-References: <20260626120135.34173-1-vulab@iscas.ac.cn>
+	id 1wd7ZL-0000000BSQ8-3zrg;
+	Fri, 26 Jun 2026 14:30:13 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id B2106174;
+	Fri, 26 Jun 2026 16:29:25 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1782484165;
+	bh=62WGItH/nKsA4jiLztr8BealNzEavczRY+wH5drktQo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JxLk6gzym/QGytAkBH6IOdj4e4dK7npLijt1RCGCdtCWFmDs5lTRPIow0tPH+AScd
+	 plWks+NGQn7YO1NeORSXTtRh62/fwLX7qtfOaJA2E+a9YAuI0haNN/uOAModZ4Hca7
+	 Q4izlUBS4mmnbjMsCoN2AaZx9pLUorY9Rnu8AHpM=
+Date: Fri, 26 Jun 2026 17:30:05 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Kieran Bingham <kieran.bingham@ideasonboard.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jacopo Mondi <jacopo@jmondi.org>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Jimmy Su <jimmy.su@intel.com>,
+	Matthias Fend <matthias.fend@emfend.at>,
+	Mikhail Rudenko <mike.rudenko@gmail.com>,
+	Daniel Scally <dan.scally@ideasonboard.com>,
+	Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
+	Michael Riesch <michael.riesch@collabora.com>,
+	Benjamin Mugnier <benjamin.mugnier@foss.st.com>,
+	Sylvain Petinot <sylvain.petinot@foss.st.com>,
+	Paul Elder <paul.elder@ideasonboard.com>,
+	Martin Kepplinger <martin.kepplinger@puri.sm>,
+	Quentin Schulz <quentin.schulz@theobroma-systems.com>,
+	Tommaso Merciai <tomm.merciai@gmail.com>,
+	Svyatoslav Ryhel <clamor95@gmail.com>,
+	Richard Acayan <mailingradian@gmail.com>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Heiko Stuebner <heiko@sntech.de>, linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-tegra@vger.kernel.org, linux@ew.tq-group.com,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v2 2/8] media: dt-bindings: video-interface-devices: add
+ video-interface-devices.h references
+Message-ID: <20260626143005.GD2363897@killaraus.ideasonboard.com>
+References: <20260626-kbingham-orientation-v2-0-47178be927b4@ideasonboard.com>
+ <20260626-kbingham-orientation-v2-2-47178be927b4@ideasonboard.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260626120135.34173-1-vulab@iscas.ac.cn>
+In-Reply-To: <20260626-kbingham-orientation-v2-2-47178be927b4@ideasonboard.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260626_073012_149659_40697835 
+X-CRM114-Status: GOOD (  21.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,27 +100,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 26, 2026 at 08:01:35PM +0800, WenTao Liang wrote:
-> of_clk_get_by_name() acquires clock references stored in the local
->   parents[] array. All error paths correctly release these via the clks_put
->   label, but the success path returns 0 without releasing the parent
->   references. The references were only needed to obtain clock names for
->   registration and are permanently leaked after probe completes.
+Hi Kieran,
+
+Thank you for the patch.
+
+On Fri, Jun 26, 2026 at 01:07:54PM +0100, Kieran Bingham wrote:
+> Expand the documentation of the video-interface-devices orientation to
+> reference the include/dt-bindings/media/video-interface-devices.h header
+> which provides human readable defines for the orientation enum, to help
+> avoid hardcoding values in dts.
 > 
-> Cc: stable@vger.kernel.org
-> Fixes: 9484f2cb8332 ("clk: samsung: exynos-clkout: convert to module driver")
-> Signed-off-by: WenTao Liang <vulab@iscas.ac.cn>
+> Signed-off-by: Kieran Bingham <kieran.bingham@ideasonboard.com>
 > ---
->  drivers/clk/samsung/clk-exynos-clkout.c | 4 ++++
->  1 file changed, 4 insertions(+)
+>  .../bindings/media/video-interface-devices.yaml         | 17 +++++++++++------
+>  1 file changed, 11 insertions(+), 6 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/media/video-interface-devices.yaml b/Documentation/devicetree/bindings/media/video-interface-devices.yaml
+> index a81d2a155fe6..c9c3f4f16719 100644
+> --- a/Documentation/devicetree/bindings/media/video-interface-devices.yaml
+> +++ b/Documentation/devicetree/bindings/media/video-interface-devices.yaml
+> @@ -392,17 +392,22 @@ properties:
+>        The orientation of a device (typically an image sensor or a flash LED)
+>        describing its mounting position relative to the usage orientation of the
+>        system where the device is installed on.
+> +      See include/dt-bindings/media/video-interface-devices.h.
 
-For all of these, you are not using the normal kernel style, which means
-a LLM is generating them, which implies that you did not properly
-document what tool found/fixed all of these.  So please go back and fix
-them all up and resend them properly, after telling the
-maintainers/developers that the originals should be ignored.
+If you want this to be a separate paragraph, you need a blnk line on
+top. Otherwise, Move "See" to the previous line.
 
-thanks,
+Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 
-greg k-h
+> +
+>      $ref: /schemas/types.yaml#/definitions/uint32
+>      enum:
+> -        # Front. The device is mounted on the front facing side of the system. For
+> -        # mobile devices such as smartphones, tablets and laptops the front side
+> -        # is the user facing side.
+> +        # MEDIA_ORIENTATION_FRONT
+> +        # The device is mounted on the front facing side of the system. For
+> +        # mobile devices such as smartphones, tablets and laptops the front
+> +        # side is the user facing side.
+>        - 0
+> -        # Back. The device is mounted on the back side of the system, which is
+> +        # MEDIA_ORIENTATION_BACK
+> +        # The device is mounted on the back side of the system, which is
+>          # defined as the opposite side of the front facing one.
+>        - 1
+> -        # External. The device is not attached directly to the system but is
+> -        # attached in a way that allows it to move freely.
+> +        # MEDIA_ORIENTATION_EXTERNAL
+> +        # The device is not attached directly to the system but is attached in
+> +        # a way that allows it to move freely.
+>        - 2
+>  
+>  additionalProperties: true
+
+-- 
+Regards,
+
+Laurent Pinchart
 
