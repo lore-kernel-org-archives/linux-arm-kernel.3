@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0472CD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 11:44:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21B92CD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 12:01:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/EzMymxSUM5VRHbvfwnomvo7p7AG4LxoHMkA4hDGBI8=; b=4XbeoRzKcX9lK2MPs5Qj8h7y4x
-	rI88tjXuXp6KEEZBfaDtr6yXmDChxCKACeEkDhh5zi6WDZTY8q36motbv3Q7fCWpEM39G6i8KTp3v
-	qmhxd8Jk0IoL9Z6qASye3zo8BvKiiEzaSaoAKAy1AWZypa9nD0gnRrnSqJIsKOUoA9v2FLuLRYF92
-	EtR+ndAi7/xunJY9kcpxkUYVX0Rwb1mmnO2w7S0g/N5xa4FPygMMoxGnJgH3bL7YEI2t0yvlzuBbq
-	kRIj3kux+ZUC6Jqc2iSTlU6ukmgD1mIsMpwaecsHTh6aRi6aCVA21zE375rynivvjhRHkGa0mi98L
-	pqg3hduQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fv/1dtOUoVNCKZwbZNeQlTXmM6tuMobbgYpONhXMsI8=; b=xOMNIN4TFN3XNNwsSRz2ufgr04
+	giOcZ1qV70e4nii8tCAt4cug5qWkJ8pyB2FidZR+exbBvgx5f5gsxDpCqJ9L3AjAhG4QGnZ4qdzCW
+	QepXR+ReTi2OruAMLCR9X6z9W6vqTQVbWT2S5lcxTl44UklUeDC+aTR7P+eANBUiYRm+Atty1xBFd
+	iimReZnfq9V6dcxwqZjYOsNh+dwvJil7DpqBsxkEPozbtJh6DlDDZJBm59+/914EXC8FPbvj2ypeq
+	fd7jS3dip3i845cGeqGq6bR2rQTDkVPpUacxV0c4e7NbborcwQ3+E/CSbfdriDt7Gtc4v6xPDfTIU
+	5O1yz+nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd4z3-0000000BFS6-1coC;
-	Fri, 26 Jun 2026 11:44:33 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wd5Fj-0000000BGjO-1eKH;
+	Fri, 26 Jun 2026 12:01:47 +0000
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd4z2-0000000BFRo-09S7
+	id 1wd5Fg-0000000BGiz-1uGv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 11:44:32 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 55E4340640;
-	Fri, 26 Jun 2026 11:44:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E26091F000E9;
-	Fri, 26 Jun 2026 11:44:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782474271;
-	bh=/EzMymxSUM5VRHbvfwnomvo7p7AG4LxoHMkA4hDGBI8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=fMrCwO2pP0ZceLP1QpT/U1z6q/JXr09+ePTb2Ziqm9erGt8yebbW0hqeMmzmmWb4O
-	 assosyXSeaB1lnCbmy5dKGSrcjdhNq4eK7FKqV0PlbekGzjMC3z3wP7daMwjfxCRU1
-	 ApX7mdKhlodBF1jL9yyvBHP0DSouh/If9UszYulMaT9Fv7IwfGVj8AQx6bWIspmwTy
-	 D5jNwZJogr2BgoexQg+uWxc/xxp5Bh4THYKQtmK9uJ2bVYiJTqSy0Jz3umL47d7SPN
-	 gyzkHbnGc0kI9+N0zaOmncPEz122A9Js9v8e1+KvGfnmxmF0n1H1ZiYCTii+jrH2dR
-	 bfpqdHfTyqQyw==
-Date: Fri, 26 Jun 2026 13:44:29 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Inki Dae <inki.dae@samsung.com>, 
-	Jagan Teki <jagan@amarulasolutions.com>, Marek Szyprowski <m.szyprowski@samsung.com>, 
-	Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Hui Pu <Hui.Pu@gehealthcare.com>, 
-	Ian Ray <ian.ray@gehealthcare.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 15/37] drm/display: bridge-connector: allocate the
- connector dynamically
-Message-ID: <20260626-falcon-of-unmatched-whirlwind-2fbbbf@houat>
-References: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
- <20260519-drm-bridge-hotplug-v1-15-45e2bdb3dfb4@bootlin.com>
- <20260608-rustling-infrared-turkey-e09af8@houat>
- <DJ72WOUW5FA2.G1MPCAHJQ13F@bootlin.com>
- <20260624-judicious-enigmatic-hippo-b13ffe@houat>
- <DJHE108R7TU6.35ECAUQ8ZX041@bootlin.com>
- <DJI0YM93PKAM.TMLLL1394R5D@bootlin.com>
+	Fri, 26 Jun 2026 12:01:46 +0000
+Received: from localhost.localdomain (unknown [117.182.75.66])
+	by APP-05 (Coremail) with SMTP id zQCowAAngNMgaj5q5xZnFQ--.22291S2;
+	Fri, 26 Jun 2026 20:01:39 +0800 (CST)
+From: WenTao Liang <vulab@iscas.ac.cn>
+To: krzk@kernel.org,
+	s.nawrocki@samsung.com,
+	cw00.choi@samsung.com,
+	mturquette@baylibre.com,
+	sboyd@kernel.org
+Cc: alim.akhtar@samsung.com,
+	bmasney@redhat.com,
+	linux-samsung-soc@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	WenTao Liang <vulab@iscas.ac.cn>,
+	stable@vger.kernel.org
+Subject: [PATCH] fix: clk/samsung: exynos_clkout_probe: success path leaks parent clock   references from of_clk_get_by_name
+Date: Fri, 26 Jun 2026 20:01:35 +0800
+Message-Id: <20260626120135.34173-1-vulab@iscas.ac.cn>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="efk5uu5pc7hesw2a"
-Content-Disposition: inline
-In-Reply-To: <DJI0YM93PKAM.TMLLL1394R5D@bootlin.com>
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: zQCowAAngNMgaj5q5xZnFQ--.22291S2
+X-Coremail-Antispam: 1UD129KBjvdXoW7GrWxAFy3JrWkGrW3CF45KFg_yoWkAFg_CF
+	1FgFnrCry5GrnrCF1kCry5CFZIkr9a9Fn5XFWIy398A347uF17Zr4F9wnIyw1jgw48XFZ8
+	G3Zrur48ur1SvjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUb38FF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
+	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
+	Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_GcCE3s
+	1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0
+	cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8Jw
+	ACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2ka
+	0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7
+	v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF
+	1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIx
+	AIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI
+	42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWI
+	evJa73UjIFyTuYvjfUoWlkDUUUU
+X-Originating-IP: [117.182.75.66]
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiCREKA2o+TZNWugAAs3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260626_050144_884579_85A33C68 
+X-CRM114-Status: UNSURE (   8.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,106 +87,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+of_clk_get_by_name() acquires clock references stored in the local
+  parents[] array. All error paths correctly release these via the clks_put
+  label, but the success path returns 0 without releasing the parent
+  references. The references were only needed to obtain clock names for
+  registration and are permanently leaked after probe completes.
 
---efk5uu5pc7hesw2a
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 15/37] drm/display: bridge-connector: allocate the
- connector dynamically
-MIME-Version: 1.0
+Cc: stable@vger.kernel.org
+Fixes: 9484f2cb8332 ("clk: samsung: exynos-clkout: convert to module driver")
+Signed-off-by: WenTao Liang <vulab@iscas.ac.cn>
+---
+ drivers/clk/samsung/clk-exynos-clkout.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-On Thu, Jun 25, 2026 at 11:32:32AM +0200, Luca Ceresoli wrote:
-> On Wed Jun 24, 2026 at 5:34 PM CEST, Luca Ceresoli wrote:
-> > Hi Maxime,
-> >
-> > thanks for the feedback.
-> >
-> > On Wed Jun 24, 2026 at 1:48 PM CEST, Maxime Ripard wrote:
-> >> On Fri, Jun 12, 2026 at 02:44:43PM +0200, Luca Ceresoli wrote:
-> >>> On Mon Jun 8, 2026 at 1:46 PM CEST, Maxime Ripard wrote:
-> >>> > On Tue, May 19, 2026 at 12:37:32PM +0200, Luca Ceresoli wrote:
-> >>> >> Currently the drm_bridge_connector has an embedded drm_connector, =
-so their
-> >>> >> allocation lifetimes are tied to each other. This is insufficient =
-to
-> >>> >> support DRM bridge hotplugging, which requires the connector to be=
- added
-> >>> >> and removed dynamically at runtime multiple times based on hotplug=
-/unplug
-> >>> >> events while the drm_bridge_connector is persistent.
-> >>> >>
-> >>> >> Moreover the drm_connector is exposed to user space and thus an on=
-going
-> >>> >> operation (e.g. an ioctl) might last for an arbitrarily long time =
-even
-> >>> >> after the hardware gets removed. This means a new connector might =
-have to
-> >>> >> be added when the previous one is still referenced by user space.
-> >>> >>
-> >>> >> In preparation to handle hotplug, allocate the drm-connector dynam=
-ically,
-> >>> >> to allow:
-> >>> >>
-> >>> >>  * creating and destroying a connector multiple times during a sin=
-gle
-> >>> >>    drm_bridge_connector lifetime
-> >>> >>  * creating a new connector even though the previous one is still =
-in use
-> >>> >>    and thus still refcounted and not yet freed
-> >>> >>
-> >>> >> This commit does not introduce the actions in the two bullets (it =
-will
-> >>> >> happen in a later commit), it only moves to dynamic APIs for conne=
-ctor
-> >>> >> allocation and init.
-> >>> >>
-> >>> >> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-> >>> >
-> >>> > I think this patch should be split in half, with the switch to using
-> >>> > destroy first, and then the actual move to the dynamically allocated
-> >>> > connector API.
-> >>>
-> >>> Is it doable? drm_connector_dynamic_init() mandates a .destroy callba=
-ck,
-> >>> drm_connector_init() forbids it.
-> >>
-> >> drmm_connector_init forbids it. drm_connector_init mandates it.
-> >
-> > Something bogus in my reply, sorry. :)
-> >
-> > So you mean splitting in:
-> >
-> >  * first patch: move from drmm_connector[_hdmi]_init() to
-> >    drm_connector[_hdmi]_init() and add a .destroy
-> >  * second patch: move from drm_connector[_hdmi]_init() to
-> >    drm_connector[_hdmi]_dynamic_init() +
-> >    drm_connector_dynamic_register/unregister()
->=20
-> Ah, no, there's an annoyance here. drm_connector_hdmi_init() does not
-> exist, so it'd have to be created just for the sake of splitting this
-> patch, sitting unused after the second patch.
->=20
-> I don't think it's worth implementing (and maybe deleting) it just for
-> that, so I'm leaving this patch as is unless you have counteraguments.
+diff --git a/drivers/clk/samsung/clk-exynos-clkout.c b/drivers/clk/samsung/clk-exynos-clkout.c
+index 5b21025338bd..ee3048d36040 100644
+--- a/drivers/clk/samsung/clk-exynos-clkout.c
++++ b/drivers/clk/samsung/clk-exynos-clkout.c
+@@ -190,6 +190,10 @@ static int exynos_clkout_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		goto err_clk_unreg;
+ 
++	for (i = 0; i < EXYNOS_CLKOUT_PARENTS; ++i)
++		if (!IS_ERR(parents[i]))
++			clk_put(parents[i]);
++
+ 	return 0;
+ 
+ err_clk_unreg:
+-- 
+2.39.5 (Apple Git-154)
 
-If it's just to ease the transition, you can have two different set of
-drm_connector_funcs for HDMI vs !HDMI, one with destroy and the other
-using drmm while you rework the init function
-
-Maxime
-
---efk5uu5pc7hesw2a
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaj5mGAAKCRAnX84Zoj2+
-dnJMAYDonRDM7lYwChQvQtwXC8KltmCs4qQ0NQD1obaIE5je/j+3uLNA3Zwa/0QD
-Nr64eHkBf2a3n1y/O3BApWQ00QFwjbklQKszO9JRCcBkAyS8zUaJ11TbFPP2Tqxb
-BP0SynMxDQ==
-=2ozk
------END PGP SIGNATURE-----
-
---efk5uu5pc7hesw2a--
 
