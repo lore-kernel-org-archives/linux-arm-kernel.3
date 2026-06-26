@@ -4,85 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 786CECD4F26
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 486E0CDE008
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 09:27:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wkt3ar6iPUbFcYacgPNJpIHFcNav7UI8z4kHnwZokzk=; b=wAMdAS6yQ66Op/fyWYIYMK8QTN
-	38yt4sGByd3Aiq9/0NaC7tBdPESKkiOZ0HhX853L0sJH26iwoRf6G+bL5qkmBGr4EL63zT7YiqAoj
-	ex9I6zOvtnqGJ4t1KoQgD4ymVLCcYkU4TjVYP/Ct9Im/ZNDyppCI5rtt1qN3yAxTMNKMCcr4RMAXi
-	8mFAjfCVYJFVakJy1U/lGySo+Pg0AXi1PPr3SFweT1Uxf1rjBoiPY0rDWRHkNa1B7XkLfpcQiq+eT
-	2vV0FCXt3ftVIyiYrA9jkrN8kYrNEnu02GWQ8vN2seHaP88bqgQHc72fmh+GQYlonjMrILp7Byu3x
-	PLTDW/gA==;
+	bh=5qok4EtcDiokDt7vS9kapu/YhCtuezGoLX4IHSn95mU=; b=n2DMrj2xMobvGJ+taI8kYOSTVp
+	99hGSjvwvwGo88OnFuG67m+KJxFq7bj3rZZUr7uuhhsCtSY3Uy+KTaCdV06FEakW/Mi7VPgFnn3r8
+	d6a5qYgIGCwTB3c/cBbBlIeLSu6FmruruLX3DtommIEp7npPqj/dTWtTybak/B84oNKBCLtqcD4sg
+	2WIKef5FbZFAAlMaxL1LKmWMLXon3JQy2/bFbHh4iBB+jRF2GCRlQU9ZRbmn1Ou+pNp+VsdWzTH3k
+	9AysuShD/j6VTUwWpMuX0sn23knLLFwaNO5jIwxvslrTFmk39PBpDuem2A/UUe4qnfuU03eitOhGO
+	FVppZKXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd2qA-0000000Ayn0-3Ufl;
+	id 1wd2qA-0000000Aymf-31Ty;
 	Fri, 26 Jun 2026 09:27:14 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+Received: from mail-eastusazon11011038.outbound.protection.outlook.com ([52.101.52.38] helo=BL2PR02CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd2q7-0000000AylA-4242
+	id 1wd2q6-0000000AykB-3Esv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 09:27:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1782466032; x=1814002032;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Wkt3ar6iPUbFcYacgPNJpIHFcNav7UI8z4kHnwZokzk=;
-  b=jthrdQl5yNZgAaRunu8EsTsSAM5pTjp3ZTLbXpLoNwhR5OqFokTkBSRg
-   4BCSDfVDSc7KdjBN/IZt7R+qVKUQ9+DzP7hjuEEPIV5+qQEpDe2XvK/x9
-   EoKG6uFKLJxeisaT7dHMSnZS6JNfpNIwfv3yd1FCgK9eJIuAIHEktjUQY
-   JXsAAEIleHdSDpcFur0PBhUSHrQLuerdHBn1k4l9yN827/MZHSWOH2n+L
-   yodXy/0Nt1nhrwrKmP3xLmoUDKjY+JJD0rUxu7C+N6JlpZOQjaVq3+Puo
-   LkQXs+sLxzIjwVoX5opcRGmED30U31ClDxOWKvLPg2/30eSEb/7oA1X6a
-   A==;
-X-CSE-ConnectionGUID: YBF2Gm23RaCAopAUoC2ytw==
-X-CSE-MsgGUID: oIg1nReOT0iGvs4oFRTaTw==
-X-IronPort-AV: E=Sophos;i="6.24,226,1774335600"; 
-   d="asc'?scan'208";a="291102737"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Jun 2026 02:27:11 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.87.152) by
- chn-vm-ex1.mchp-main.com (10.10.87.30) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.43; Fri, 26 Jun 2026 02:27:10 -0700
-Received: from wendy (10.10.85.11) by chn-vm-ex03.mchp-main.com (10.10.85.151)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.58 via Frontend
- Transport; Fri, 26 Jun 2026 02:27:07 -0700
-Date: Fri, 26 Jun 2026 10:26:16 +0100
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-CC: Conor Dooley <conor@kernel.org>, Joey Lu <a0987203069@gmail.com>,
-	<maarten.lankhorst@linux.intel.com>, <mripard@kernel.org>,
-	<tzimmermann@suse.de>, <airlied@gmail.com>, <simona@ffwll.ch>,
-	<robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<ychuang3@nuvoton.com>, <schung@nuvoton.com>, <yclu4@nuvoton.com>,
-	<dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v5 1/7] dt-bindings: display: verisilicon,dc: generalize
- for single-output variants
-Message-ID: <20260626-everybody-epilogue-8fb298a54981@wendy>
-References: <20260625094449.708386-1-a0987203069@gmail.com>
- <20260625094449.708386-2-a0987203069@gmail.com>
- <20260625-bobbing-annotate-d1c4d6874ee2@spud>
- <e3fe23ddbc504879bd797bbaa595d3653fa139ff.camel@iscas.ac.cn>
- <20260626-astrology-mural-853d3860e048@wendy>
- <c0731801729713d35f97bec40ebc21cef31b72b5.camel@iscas.ac.cn>
+	Fri, 26 Jun 2026 09:27:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=EWqLJUDXRP7rCN5MHX3waXioJsLVpihWZXvfeHKNLlDO1clMjDXmgc1YY4fOrmWdktDF/sEyOn6824Wmc+fKYAHiDO563G7oVfcK/sLsfKImRDgl5++FLEERq8DCKhPimCLsM9nOBTxSJ97H7fQen4JWtYcuDfTYdNzO8m0qrCM5sEjPh+bZEWDUJvYlSGtmtw9uBdrN17Uzh+ucmxaYmJf8OzOwbROfAzlFm8RKSKUdAfmFpY+94unOnVf4BysmbK86svLMn8Jv3VPzX5H0aBOFFCIDbBFVoATcMT3A+KF5ryN5FpL+RsBu65tBzTFRE0dVD2yTnBdt5QfndnbJKw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=5qok4EtcDiokDt7vS9kapu/YhCtuezGoLX4IHSn95mU=;
+ b=Nm0ite/lkLuY1QYoGrIs0UQk6Jg1Ci4UNV//sUWXOovo29+V+dy6K+GHbO6Oqhlqeynj8VyJPnTdfxaRhp80x2COhQBn/2aTBbKYz5dnR5i3dwsgBaXDk80gaJoGJ8fwh3+0pjdlHDzLo1HBUyjj1Zz5T4tH+wfvzTLnvehY9JQ4USVS+HpkNiUOIeAz9Zc7Yy9Fw3Q9snkglapA4ZLzP0RDqCpeq5jBDz/VL//wmWCrsVACEYZWylStLpBh8nDdqVODTwmsIkCtTf37mh2TGcefbArlFvbgvGts7LOCgQBZ7QoNJa/dfJI75PrtC924qP/CwmadK12H6aFWRcE0sQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=5qok4EtcDiokDt7vS9kapu/YhCtuezGoLX4IHSn95mU=;
+ b=CwTEotqs7Sl57md6IXKOaWN4RSbElqW3c/CLZLowOnMbN+jqxLafx+DDIxgSTVmJ/TYHAPk0enYbaSj1QSXILru7SqQJQx7L6aoJBFgMDbJ5VMEU2vUKHjp+kghzO/Hi+oPRZ1R63WDDU3hLGGDZnMamudqu0agBVFdG+SYWeWE=
+Received: from CY5PR15CA0081.namprd15.prod.outlook.com (2603:10b6:930:18::23)
+ by MW4PR12MB6731.namprd12.prod.outlook.com (2603:10b6:303:1eb::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.16; Fri, 26 Jun
+ 2026 09:27:04 +0000
+Received: from CY4PEPF0000EE30.namprd05.prod.outlook.com
+ (2603:10b6:930:18:cafe::84) by CY5PR15CA0081.outlook.office365.com
+ (2603:10b6:930:18::23) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.159.17 via Frontend Transport; Fri,
+ 26 Jun 2026 09:27:04 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ CY4PEPF0000EE30.mail.protection.outlook.com (10.167.242.36) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.181.6 via Frontend Transport; Fri, 26 Jun 2026 09:27:04 +0000
+Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Fri, 26 Jun
+ 2026 04:27:03 -0500
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb09.amd.com
+ (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Fri, 26 Jun
+ 2026 02:27:03 -0700
+Received: from xhdsuragupt40.xilinx.com (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
+ Transport; Fri, 26 Jun 2026 04:27:01 -0500
+From: Suraj Gupta <suraj.gupta2@amd.com>
+To: <vkoul@kernel.org>, <Frank.Li@kernel.org>, <michal.simek@amd.com>,
+	<dev@folker-schwesinger.de>
+CC: <dmaengine@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: [PATCH v3 2/3] dmaengine: xilinx_dma: Enable transfer chaining for AXIDMA and MCDMA by removing idle restriction
+Date: Fri, 26 Jun 2026 14:56:55 +0530
+Message-ID: <20260626092656.1563871-3-suraj.gupta2@amd.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20260626092656.1563871-1-suraj.gupta2@amd.com>
+References: <20260626092656.1563871-1-suraj.gupta2@amd.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="r8rF78kmCgnz4y87"
-Content-Disposition: inline
-In-Reply-To: <c0731801729713d35f97bec40ebc21cef31b72b5.camel@iscas.ac.cn>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000EE30:EE_|MW4PR12MB6731:EE_
+X-MS-Office365-Filtering-Correlation-Id: d9592edb-ae7c-4684-34ac-08ded36515d7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|36860700016|1800799024|82310400026|11063799006|56012099006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: aEVmHLWcroTItzTAUvUEwAEpOZ+eHBsp3Hl5diUpDRj6pijtp7J/rsGCVdPa8Hqc7DXlYghas6UFsqhHrKOWh2ESPWR3n1Xo2E9Jx8l9z/KTnuWopYFr36ZvzTYPc+CujBKjFLRd8qHDrt0nSFoEpzgyMMlgj+UpBIp8+aaMr8NjXvYOj4uUOH2OlD1+ZHAidhvnpi5C2K51zeEqH/uQU2XdxM1zYrH0uKT6Dty7CWJ0OG6ayJ+twO4SL3bTSegE2i1/Y+vwuGCeZ8TKB2DWiHz9BnnyzNw7RLxVufqW6sljChKht4EiozkuB0JKTtJvax6DcOK0TbMLE7KKR+NpErXLAjraoY+UF0EmDIQZBnLEfBLNzRJtwRPQ3bASBqXmPi4T+AUwaVlrc20kHNeMiwAKoLf5gHwJu9RcaujQnhX/F6ruSgyK8WRv5TDkeTY9GU1PqOVVeYkG8XF4iaAG+Nd0CfIpodSp0byPFXBa8CFh1Qt1u3/PRZO6WoOZyiPoxOqJm7R7DFbmxb/6h7qXsQ/CD4GwP3TXZDYXvdHwqwfMi3puMvSSnNGof2G3xD/7T0dJjrp4b9qntU68Xj1x63MPbQE9I7GkeM7vO2HkqiTH+iQ3T5a44gRHfFFmvMPSKsSV2+n9YhJC/cQD9K4P3wZrib3DBDge0ZJTWFCcVc4dSI9jH+KeQdL4S0AIseQ+UFOrnMIoK7VGr0RYvw2mIw==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(376014)(36860700016)(1800799024)(82310400026)(11063799006)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: EFLTaDbWyARCibMH+YknT8G2tiFkIPKkuVSENNVCmUwZ+YlghVMa6Eg9kq2o2eU8+S/k/DTqzcDsiJ1vrZuraRqmQxRmR/ykHcIQ7wRKTYTh/IxAlrUtGdmOPGLkV+xvwGf5b5rlago4DYnzm99RGZM5BunSPiIdW2omVztQi35D5AJE2lGu/8txWygoa84hQwIS5PWCTGkVG+KO0x8gkrsYkL9xaxQ4obPmCpeUqvhBiMjlxG+KZECPYz5GeI2Z7TxjdH+GvUFCzwva7yEnjkCOvqo7bSGYExBrdNiyQmd2PqvXj88Dm0YvJlrsy/2/eVeQph13SlwqxEQHT5BWvXZQlfaUacphPnRMzcE5foZz8pW4kJoDPFaD4ZZjbqf/Wp8cGaCawTA5SY5FNE2nvzPOSY2VBhqbpZwgGy6CAWPZf1NVc3M2oZfmFqxXByAh
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Jun 2026 09:27:04.3899
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: d9592edb-ae7c-4684-34ac-08ded36515d7
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EE30.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB6731
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_022712_010573_08A9BD3A 
-X-CRM114-Status: GOOD (  33.24  )
+X-CRM114-CacheID: sfid-20260626_022710_814042_6CBA661B 
+X-CRM114-Status: GOOD (  14.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,137 +125,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---r8rF78kmCgnz4y87
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Relax the idle check in xilinx_dma_start_transfer() and
+xilinx_mcdma_start_transfer() that prevented new transfers from being
+queued when the channel was busy, so scatter-gather transfers can be
+chained onto an in-flight transfer.
 
-On Fri, Jun 26, 2026 at 05:00:35PM +0800, Icenowy Zheng wrote:
-> =E5=9C=A8 2026-06-26=E4=BA=94=E7=9A=84 08:19 +0100=EF=BC=8CConor Dooley=
-=E5=86=99=E9=81=93=EF=BC=9A
-> > On Fri, Jun 26, 2026 at 01:27:21PM +0800, Icenowy Zheng wrote:
-> > > =E5=9C=A8 2026-06-25=E5=9B=9B=E7=9A=84 17:33 +0100=EF=BC=8CConor Dool=
-ey=E5=86=99=E9=81=93=EF=BC=9A
-> > > > On Thu, Jun 25, 2026 at 05:44:43PM +0800, Joey Lu wrote:
-> > > > > +allOf:
-> > > > > +=C2=A0 - if:
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 properties:
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 compatible:
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 contains:
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 const: thead,th1520-dc8200
-> > > > > +=C2=A0=C2=A0=C2=A0 then:
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 properties:
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 clocks:
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 minItems:=
- 5
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 maxItems:=
- 5
-> > > > > +
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 clock-names:
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 minItems:=
- 5
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 maxItems:=
- 5
-> > > >=20
-> > > > All the maxItems here repeat the maximum constraint and do
-> > > > nothing.
-> > > >=20
-> > > > Since you didn't change the minimum constraint at the top level,
-> > > > your
-> > > > minItems also do nothing.
-> > > >=20
-> > > > > +
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 resets:
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 minItems:=
- 3
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 maxItems:=
- 3
-> > > > > +
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 reset-names:
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 minItems:=
- 3
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 maxItems:=
- 3
-> > > > > +
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 required:
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - resets
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - reset-names
-> > > >=20
-> > > > Both conditional sections have this, but the original binding
-> > > > doesn't
-> > > > require these for the thead device. This is a functional change
-> > > > therefore and shouldn't be in a patch calling itself "generalise
-> > > > for
-> > > > single ended variants".
-> > >=20
-> > > Well yes they're required.
-> > >=20
-> > > Should I send a patch adding the `thead,th1520-dc8200` part of the
-> > > schema?
-> >=20
-> > If you mean the code above, no. Adding a conditional section when
-> > there's only that compatible doesn't make sense.
-> >=20
-> > What you could do is just add it at the top level though, which would
-> > also benefit this patch since it'd not have to be conditionally added
-> > for the new nuvoton device.
-> > Just note in your commit message about what the ABI impact of the
-> > change
-> > to required properties is (effectively nothing because it's optional
-> > in
-> > the driver and the only user has the properties).
->=20
-> Okay, I will craft such a patch and send it.
->=20
-> >=20
-> > > > > +
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 resets:
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 minItems:=
- 1
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 maxItems:=
- 1
-> > > > > +
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 reset-names:
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 items:
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 - const: core
-> > > >=20
-> > > > This is just maxItems: 1.
-> > >=20
-> > > Well the implicit rules of DT binding schemas are quite weird...
-> >=20
-> > I don't think it is that strange, as the binding has
-> > =C2=A0 reset-names:
-> > =C2=A0=C2=A0=C2=A0 items:
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: core
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: axi
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: ahb
->=20
-> Ah does the list constraint the order of items? If it constrains the
+In scatter-gather mode, only update the CURDESC register when the active
+list is empty to avoid interfering with transfers already in progress.
+When the active list contains transfers, the hardware tail pointer
+extension mechanism handles chaining automatically via the descriptor
+next pointer chain, which is set up at channel allocation and preserved
+across descriptor recycling.
 
-It does, yes.
-Alternatively, using an enum permits free ordering.
+Direct (non-SG) mode has no descriptor queue: writing the BTT register
+launches a transfer immediately, so a new transfer must not be programmed
+while one is in flight. Keep those transfers serialized by retaining the
+idle check on the non-SG path. MCDMA always operates in scatter-gather
+mode, so it is unaffected.
 
-> order, it partly breaks the intention of having names; if it does not
-> constrain the order, it needs to be clarified that the required 1 reset
-> is core instead of the other two.
+Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
+Co-developed-by: Srinivas Neeli <srinivas.neeli@amd.com>
+Signed-off-by: Srinivas Neeli <srinivas.neeli@amd.com>
+---
+ drivers/dma/xilinx/xilinx_dma.c | 19 ++++++++++++-------
+ 1 file changed, 12 insertions(+), 7 deletions(-)
 
-Given the discussion we're having on the clocks, I wonder if this is
-also an oversimplification and the IP has three resets inputs hooked up
-to one output of the reset controller (or 3 outputs controlled by one
-bit..).
+diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
+index ca396b709742..6e7b183cb499 100644
+--- a/drivers/dma/xilinx/xilinx_dma.c
++++ b/drivers/dma/xilinx/xilinx_dma.c
+@@ -1580,7 +1580,14 @@ static void xilinx_dma_start_transfer(struct xilinx_dma_chan *chan)
+ 		return;
+ 	}
+ 
+-	if (!chan->idle)
++	/*
++	 * Direct (non-SG) mode has no descriptor queue: writing the BTT
++	 * register launches a transfer immediately, so a new transfer must
++	 * not be programmed while one is in flight. Keep such transfers
++	 * serialized. SG mode supports chaining onto a running transfer via
++	 * tail-pointer extension, so it is allowed to proceed when busy.
++	 */
++	if (!chan->has_sg && !chan->idle)
+ 		return;
+ 
+ 	head_desc = list_first_entry(&chan->pending_list,
+@@ -1599,7 +1606,7 @@ static void xilinx_dma_start_transfer(struct xilinx_dma_chan *chan)
+ 		dma_ctrl_write(chan, XILINX_DMA_REG_DMACR, reg);
+ 	}
+ 
+-	if (chan->has_sg)
++	if (chan->has_sg && list_empty(&chan->active_list))
+ 		xilinx_write(chan, XILINX_DMA_REG_CURDESC,
+ 			     head_desc->async_tx.phys);
+ 	reg  &= ~XILINX_DMA_CR_DELAY_MAX;
+@@ -1660,9 +1667,6 @@ static void xilinx_mcdma_start_transfer(struct xilinx_dma_chan *chan)
+ 	if (chan->err)
+ 		return;
+ 
+-	if (!chan->idle)
+-		return;
+-
+ 	if (list_empty(&chan->pending_list))
+ 		return;
+ 
+@@ -1685,8 +1689,9 @@ static void xilinx_mcdma_start_transfer(struct xilinx_dma_chan *chan)
+ 	dma_ctrl_write(chan, XILINX_MCDMA_CHAN_CR_OFFSET(chan->tdest), reg);
+ 
+ 	/* Program current descriptor */
+-	xilinx_write(chan, XILINX_MCDMA_CHAN_CDESC_OFFSET(chan->tdest),
+-		     head_desc->async_tx.phys);
++	if (chan->has_sg && list_empty(&chan->active_list))
++		xilinx_write(chan, XILINX_MCDMA_CHAN_CDESC_OFFSET(chan->tdest),
++			     head_desc->async_tx.phys);
+ 
+ 	/* Program channel enable register */
+ 	reg = dma_ctrl_read(chan, XILINX_MCDMA_CHEN_OFFSET);
+-- 
+2.25.1
 
---r8rF78kmCgnz4y87
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaj5FuAAKCRB4tDGHoIJi
-0sUHAQC+jTasbIiodz+h8pTi1hrZwttHaW1rwv2+JI+IilqgIgD+LU/w2PQybkmB
-IYTfrIxpqApp9H5myhsNrMD3QJIRRgE=
-=OJVD
------END PGP SIGNATURE-----
-
---r8rF78kmCgnz4y87--
 
