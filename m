@@ -4,114 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C6E2C43327
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 16:55:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7240C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 16:58:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
+	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z4gymTGV6BiMiOHHpj5GTolc7Qp1ch0N0uJWIjJOI5s=; b=ex2tWybvfarQl9e53w94jBpusb
-	924KZh5Ta7ZyVv0a9lBxFSJa+p7q0WHYZdB6zp8U1hQoytBeNlY6OaBov/wETqMZbB7Z5R2+mHKgq
-	E7zN+fnP72Q7QgWfz0Ob6Rr83w8CzvUd6ftBB1wsTuCVrtyJ5t/bD63W2QZ0yGF33uehbRufvhs7m
-	G6HF4IJMwAmfQppgHUMacQseeK1eEwosgGkpnahfvmH6lwetXSmACSqYIAV+9tSirQ2OQrZpJjQ6s
-	sEvhq7B4YCFRCSLSukeOddAUzijMQ/NIxuRf/yr/X0Hr3y5RkOqm2JDSzPDwbAk6PbBXkWTTYGmp7
-	734IL+DQ==;
+	bh=m5ig5e/vFQuALUQGdicF9HziSInVDWjrehXp5HNLvQ0=; b=J7r1WZuouRfQblBATmVu/cybRX
+	wl9xsu6aAxQODi3WUr1OzwpGT8M1Ok70ixbip0Ai+fMV+DR0IyevEFkYf+fVlV7p938NEr2ERLBHB
+	AwUwDBDd5q/Km5cwts6KgKSgMIwyrK1VBaunquRlucobNlUhHMHVeJwflk8Jf0PD9aQb75zesiqop
+	YfEeHLtrvy/jS5yoUpbMhU1+kPwkIJ49plb63NFndyM1FiKign1WmsHyNsvaCfM5SbvQMDoAjqHkN
+	CREyRDzQTRsIx55h1xmlET7J+rG4Ab8Z1zXH+O+GuRpXv8bE465TgETXnaBfghdbtAKJ5mqW85qeL
+	/ZPonTsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd9pO-0000000Bf9b-37yW;
-	Fri, 26 Jun 2026 16:54:54 +0000
-Received: from mail-yx1-xb136.google.com ([2607:f8b0:4864:20::b136])
+	id 1wd9sy-0000000BfRO-14a1;
+	Fri, 26 Jun 2026 16:58:36 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd9pL-0000000Bf8q-30Ow
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 16:54:52 +0000
-Received: by mail-yx1-xb136.google.com with SMTP id 956f58d0204a3-662bf1dab83so1891707d50.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 09:54:51 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1782492890; cv=none;
-        d=google.com; s=arc-20260327;
-        b=HEDf1ISb1NalwmZRxlKtMtzOE4DMDfb5/RtyYCUKuAW3XF6CLDHFUC3uiPCiZBHZMr
-         HbW1X+RHzRDbcL8tjpczpvLGXANQLbe+sjV3THsjP9SHETvj58z1tgCbCVsPlqzeE7WL
-         9Sb/HJh1DNZskykpHg2NDcRY7jgcFmb869dZUvYdQ9gSR6rfaTzdP6DH7SnhNvKxP8/x
-         ruvu0U5V4vsrlVrBRk1Dz7/aWrSD+eaF0ikrGc1fqkfTSJDs7bq0XbqssQfQJTto0Yvm
-         JkrdvxlnoRlfWJAPSnH/98piPvi4I0Io6amJ6Y1MWP7TF8tKaZkP6vN8D79UM/3Po+/q
-         UsDg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=z4gymTGV6BiMiOHHpj5GTolc7Qp1ch0N0uJWIjJOI5s=;
-        fh=7P01lktoDklHi1gbCWfzEgtxs3oCT5JbxREltjS84ZA=;
-        b=Z/CHLkU3GbJwSGaBLM+gjYa3e5T1OEpy0nBxCyxsm/zgPnxr/NhM42w18FctRxLybY
-         vTIAjUxXE8EFAg9xkV/plXBiwPx2PE3CNvwhrNj5g6i8AVqlVizMWdO6YgBrmNfEvsTk
-         3qWdrQhgHVUk1lHbWa4uE2Q++rYzWPxAAfllBV36lVfTUFNxoFWjhxu4X2+t5pfcDXYX
-         Bth4s1FiFD7TE26GEL7REXhJZDrziMcTMPrRWZbTRsAol8CmT4E78gHIKAfW39vpyeWg
-         fcLmSr7GuPyP+26rfEjwoxKWr6qXsvFNkLrVyL5A1klyMEqaWt0YQJ7CoPqRbEE1zPd1
-         CoVQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782492890; x=1783097690; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=z4gymTGV6BiMiOHHpj5GTolc7Qp1ch0N0uJWIjJOI5s=;
-        b=aH+VWR27NnRcqdfPDDRCkjeNlVLR5OfAlZvDzcL1gd7iemm4ZHMY86lRx4Y4EeVi6P
-         sOeVvTbzSGk55XkiruJ/bKqjA78QqmSmly8O3jTBJEx0cMonHzep0BHKpI8xXiy4E1sA
-         LQm0ly9OnyJYeD64IqbS2peXk6diwx2GbQq/TFZO+0rHAYaRwOTXWC++pqtU5ORAzoHb
-         Me1mC3MJnvlbTzBVA5kWB/OS6KOGM0l0C66e62aBX+n5cBE1D6ZXNS0Q+vDfNOIwQjvF
-         Fnc3F/P9Nv/GeHLy3XPllXBlXWqEpT8OVSSBnGBMAdr7vNMlCzxB/p+w8ngIoUwAF2R5
-         yrjg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782492890; x=1783097690;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=z4gymTGV6BiMiOHHpj5GTolc7Qp1ch0N0uJWIjJOI5s=;
-        b=rGcZ2yUYFBwsgcD00yE6ONEqKqKs13UjE5lwFZGL/o1Z5z0XxbyF6C1kKUHeGF8DsJ
-         sK7ikq+rV0FN7eBcnp58TMSuozu8pq/MEm6EHxLVlwcwjLKph5hNVN9pwf+4gpLGS7K2
-         1S0NVnHIvuSdBc8xKzc4ejEZlsUYK9kkAbYHiqN7iEvhDPN5c/+3JTidB+SK56zInU+c
-         nngfZ8v+Zy/QbNkiP2k/oXUhsAmoBhxIRjTqXGZ+cOzsTLghtS2BF58WqMLH2TVbYFtc
-         SueXmJ9iJx+ndKE0KfcM/5m1Nkr03Do4Sen/N3F5cHXJTUChXk5tdTR4BLVhKh3b0cPG
-         Wb8Q==
-X-Forwarded-Encrypted: i=1; AHgh+RrWes8k9/I0oeoLpiW5lwgXmF8h9xVObo8c91vKvtq3k/TI8ggPoNGoqkioRPkEDQyXmNZfy0gNzuz5cwJ1Ra/w@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz9+U5GKc8bYJ0yHXNAuq2WeyDsl0QW+lJc76H1Yny6Kr4YHwta
-	k9hxbn8UJHAkE7bAOppCyG9ZRsppmsBp9wxrgqZPP92+jNYq765XVZmeLOZ9oqaJ+CgKV8nTVnU
-	RCB/77Ngr3mhG8KMXUkokiDD6XpJyMjg=
-X-Gm-Gg: AfdE7cncKv8X58Ud8tBOJtzqDZvSsHq8G+mwzPT38FM1XJR7QFIrMkETa5QGjH1Gx/N
-	KbR26T8xIG2AHsmwduvOAoboIJe2h1/9xeXkTQoLkkT0NBHJIlxIxpEhwpz8qoIPvntKY2WM1j7
-	s2LQDDHIomfAosgyLcUOUOKoTAKLDInKRrW3GUjIDL0lNSs96k6nLxKUJkkUaYiVtW1qL7dYDxF
-	uykyoJO5SBWZS+QEGMbN/IniPsZ9WSC2xmWCkVnKEiOLjbZcPHkuttxw5IDTImhMoylmEtkYfhc
-	ZXK2WFutxej3B0AlfhR8SS5X7jke6dIbL1lP1Nwxs7sYCrIiYEvWH9Vw
-X-Received: by 2002:a05:690e:408f:b0:65c:477a:2ad7 with SMTP id
- 956f58d0204a3-66487e02906mr6126812d50.25.1782492890243; Fri, 26 Jun 2026
- 09:54:50 -0700 (PDT)
+	id 1wd9sv-0000000BfQR-3SOV;
+	Fri, 26 Jun 2026 16:58:35 +0000
+Received: from monstersaurus.ideasonboard.com (cpc89244-aztw30-2-0-cust6594.18-1.cable.virginm.net [86.31.185.195])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id D3CD91E7;
+	Fri, 26 Jun 2026 18:57:49 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1782493070;
+	bh=tctF25yDjX2h/D8jTaVAW8rgtRGo6jx+AhqWLDpBgto=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=XavWwpTshvR2O36bfPMEeGMaH0w7ZdslrtG03Qazu+OZnaOrAdHxWil5SaIhIb0cY
+	 JMvAYnk+2anzMx7HlygYjieq5FydLfCQQ2JSjFiBcLiE61AZt31R9BdllD2TjmFZbd
+	 IcL7snuNtXIT11WheBb0ccOUTcoe4r1AFdHxHaok=
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-References: <20260603-btmtk-remote-wakeup-v1-1-5c1006442f36@rong.moe>
- <178050901239.1520440.2026593395539384648.git-patchwork-notify@kernel.org>
- <3f9c376a5dbfc9d737e2a7f83c5db8e591fb8793.camel@mediatek.com> <17FE08E9-2229-4C97-846F-6FA099E22C90@rong.moe>
-In-Reply-To: <17FE08E9-2229-4C97-846F-6FA099E22C90@rong.moe>
-From: Luiz Augusto von Dentz <luiz.dentz@gmail.com>
-Date: Fri, 26 Jun 2026 12:54:37 -0400
-X-Gm-Features: AVVi8CdVv3HHwGMLXRaGH6j7p0AAQgeoBhar-UCT0NoarWVa66KqAbaQhtDgliw
-Message-ID: <CABBYNZ+rR71SKUEuZBTf+E3SwRNzV2-s-zt8EwNJM3PSx9qB_A@mail.gmail.com>
-Subject: Re: [PATCH] Bluetooth: btmtk: Disable remote wakeup for MT7922/MT7925
-To: Rong Zhang <i@rong.moe>
-Cc: =?UTF-8?B?Q2hyaXMgTHUgKOmZuOeomuazkyk=?= <Chris.Lu@mediatek.com>, 
-	"patchwork-bot+bluetooth@kernel.org" <patchwork-bot+bluetooth@kernel.org>, 
-	"marcel@holtmann.org" <marcel@holtmann.org>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	=?UTF-8?B?U1MgV3UgKOW3q+aGsuasoyk=?= <ss.wu@mediatek.com>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
-	"linux-bluetooth@vger.kernel.org" <linux-bluetooth@vger.kernel.org>, 
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>, 
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20260626143310.GF2363897@killaraus.ideasonboard.com>
+References: <20260626-kbingham-orientation-v2-0-47178be927b4@ideasonboard.com> <20260626-kbingham-orientation-v2-4-47178be927b4@ideasonboard.com> <20260626143310.GF2363897@killaraus.ideasonboard.com>
+Subject: Re: [PATCH v2 4/8] ARM: tegra: Convert to new media orientation definitions
+From: Kieran Bingham <kieran.bingham@ideasonboard.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Jacopo Mondi <jacopo@jmondi.org>, Sakari Ailus <sakari.ailus@linux.intel.com>, Jimmy Su <jimmy.su@intel.com>, Matthias Fend <matthias.fend@emfend.at>, Mikhail Rudenko <mike.rudenko@gmail.com>, Daniel Scally <dan.scally@ideasonboard.com>, Jacopo Mondi <jacopo.mondi@ideasonboard.com>, Michael Riesch <michael.riesch@collabora.com>, Benjamin Mugnier <benjamin.mugnier@foss.st.com>, Sylvain Petinot <sylvain.petinot@foss.st.com>, Paul Elder <paul.elder@ideasonboard.com>, Martin Kepplinger <martin.kepplinger@puri.sm>, Quentin Schulz <quentin.schulz@theobroma-systems.com>, Tommaso Merciai <tomm.merciai@gmail.com>, Svyatoslav Ryhel <clamor95@gmail.com>, Richard Acayan <mailingradian@gmail.com>, Thierry Reding <thierry.reding@kernel.org>, Jonathan Hunter <jonathanh@nvidia.com>, Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.
+ de>, Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, Heiko Stuebner <heiko@sntech.de>, linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, devicetree@vger.kernel.org, linux-tegra@vger.kernel.org, linux@ew.tq-group.com, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Date: Fri, 26 Jun 2026 17:58:28 +0100
+Message-ID: <178249310801.36676.2030968701607803461@ping.linuxembedded.co.uk>
+User-Agent: alot/0.9.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_095451_796391_16F3554A 
-X-CRM114-Status: GOOD (  23.75  )
+X-CRM114-CacheID: sfid-20260626_095834_014205_E1BD5B93 
+X-CRM114-Status: GOOD (  19.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,76 +66,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Quoting Laurent Pinchart (2026-06-26 15:33:10)
+> On Fri, Jun 26, 2026 at 01:07:56PM +0100, Kieran Bingham wrote:
+> > The orientation property for video interface devices now has definitions
+> > to prevent hardcoded integer values for the enum options.
+> >=20
+> > Update the users throughout the nvidia device trees to use the new
+> > definitions.
+> >=20
+> > Signed-off-by: Kieran Bingham <kieran.bingham@ideasonboard.com>
+> > ---
+> >  arch/arm/boot/dts/nvidia/tegra30-asus-nexus7-grouper-common.dtsi | 3 +=
++-
+> >  arch/arm/boot/dts/nvidia/tegra30-asus-transformer-common.dtsi    | 3 +=
++-
+> >  arch/arm/boot/dts/nvidia/tegra30-lg-p895.dts                     | 4 +=
+++-
+> >  arch/arm/boot/dts/nvidia/tegra30-lg-x3.dtsi                      | 3 +=
++-
+> >  4 files changed, 9 insertions(+), 4 deletions(-)
+> >=20
+<snip>
+> > diff --git a/arch/arm/boot/dts/nvidia/tegra30-lg-x3.dtsi b/arch/arm/boo=
+t/dts/nvidia/tegra30-lg-x3.dtsi
+> > index 60e8a19aa70e..c58e3026a115 100644
+> > --- a/arch/arm/boot/dts/nvidia/tegra30-lg-x3.dtsi
+> > +++ b/arch/arm/boot/dts/nvidia/tegra30-lg-x3.dtsi
+> > @@ -4,6 +4,7 @@
+> >  #include <dt-bindings/input/input.h>
+> >  #include <dt-bindings/leds/common.h>
+> >  #include <dt-bindings/media/video-interfaces.h>
+> > +#include <dt-bindings/media/video-interface-devices.h>
+> >  #include <dt-bindings/mfd/max77620.h>
+> >  #include <dt-bindings/thermal/thermal.h>
+> > =20
+> > @@ -1216,7 +1217,7 @@ rear-camera@10 {
+> >                       dvdd-supply =3D <&vdd_1v2_rear>;
+> >                       avdd-supply =3D <&vdd_2v7_rear>;
+> > =20
+> > -                     orientation =3D <1>; /* Rear camera */
+> > +                     orientation =3D <MEDIA_ORIENTATION_REAR>;
+>=20
 
+It must have been hot when I typed that one out...
 
-On Fri, Jun 26, 2026 at 7:19=E2=80=AFAM Rong Zhang <i@rong.moe> wrote:
->
-> Hi Chris,
->
-> =E4=BA=8E 2026=E5=B9=B46=E6=9C=8826=E6=97=A5 GMT+08:00 10:40:54=EF=BC=8C"=
-Chris Lu (=E9=99=B8=E7=A8=9A=E6=B3=93)" <Chris.Lu@mediatek.com> =E5=86=99=
-=E9=81=93=EF=BC=9A
-> >Hi Luiz,
-> >
-> >Could we revert this change?
->
-> Please don't. The fundamental goal of the patch is to make MT7922/MT7925 =
-*usable* on affected platforms.
->
-> Moreover, almost all recent AMD platforms ship with MT7922/MT7925, revert=
-ing this patch affects quite a lot of users. Almost every AMD platform I've=
- met suffers from the issue, and there are plenty of bug reports.
->
-> Intel platforms never ship with MTK WLAN NICs, so I can't tell if the iss=
-ue is reproducible on them.
+> This should be MEDIA_ORIENTATION_BACK. And you should compile all the
+> device trees the series touch.
 
-We cannot really remove it anymore, since it has already been pulled.
-Therefore, I strongly prefer that the issue is fixed somehow or if
-there is no other way then a proper revert patch must be sent, since I
-don't have any hardware with this controller I cannot really test this
-myself.
+Indeed, I got caught out by these being in arm, with the others in arm64
+even though I explicitly pulled these out to a separate patch!
 
-> >
-> >Sorry, MediaTek wasn't aware someone submitted this change and it had
-> >already been merged.
-> >
-> >MTK believes this issue is strongly related to the platform's USB hub
-> >behavior,
->
-> Still, I believe that there are some interoperability issues in MT7922/MT=
-7925's hardware or firmware, as reinitializing the XHCI root hub (by logica=
-lly removing it from the PCI bus and probing it again) doesn't make it reco=
-ver at all.
->
-> > The product lines MTK directly support haven't reported such
-> >issue.
->
-> ...or did you mean none of the existing AMD platforms are supported by MT=
-K?
->
-> >
-> >Disable wake capability would severely impact wake on Bluetooth on
-> >MTK's official product lines.
->
-> Could you kindly explain "MTK's official product lines"?
->
-> > Furthermore, this patch looks like a
-> >workaround. There should be a better way to handle this issue. We hope
-> >this change can be reverted.
->
-> The issue is severe on affected platforms by making the Bluetooth interfa=
-ce completely gone. IMHO, we must figure out the "better way" before revert=
-ing it, or else it's more like burying your head into sand by shouting "wor=
-ks fine on our platforms" (TM).
->
-> That being said, I think we can narrow the range of the quirk down to AMD=
- platforms only. Does it make sense to you? If so, I will submit a patch fo=
-r this.
+Fixed up and now I have compiled also with:
 
-Ok, then you guys please coordinate. I don't want to start requiring
-Sign-Off-By (SOB) from driver authors because this instance shows that
-response time can be very long. Therefore, the best way forward in my
-opinion, is to have the issue fixed in a way that works for both of
-you.
+make O=3Darm32 ARCH=3Darm multi_v7_defconfig
+make O=3Darm32 ARCH=3Darm dtbs -j32
+
+which looks clean.
+
+> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+
+Thanks
+
+Kieran
+
+>=20
+> >                       rotation =3D <90>;
+> > =20
+> >                       nvmem =3D <&m24c08>;
+>=20
+> --=20
+> Regards,
+>=20
+> Laurent Pinchart
 
