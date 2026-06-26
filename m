@@ -4,152 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93235CDE008
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 09:00:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6078DCD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 09:00:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NXc1HNBub9Odlxt9uHL5dZmAmGbkpeVwGZhN05awU+k=; b=ul9dVrH7DKhkVfByn1zoaCkNZS
-	mpAh2yGgzgmndB6YkgTeX39Nday1JbFv2hTCBpJJzCmva5rjsNKWs4vswSRzuXCpnPGHjbPzHu8yw
-	7rQZ/P9mvYPh93FaFcyq611V6kYADjJfiS015FzwIEcSz0JCxsDm71WpTL1ZBcl52XJ6X/TeiyBRz
-	w/4tFwA2a7ixfuqKNlS/sTCmMaVgevHPGordaVi0t+zYvNDqLaobfKrNq6VX8ZwEhFBP/B43dfV1l
-	LVIdbfplmUzX7lFzESoJzDhOZ+bbalCJWDh0LRDGSlo0Ao0lZvK4f+duRlD6Gi0nx/xybAA417NYS
-	M3oCaq/A==;
+	bh=L11YCHCY08q2khr2thDi9WcElJkTW8SmsVn6mOnZzdw=; b=h2RRxVZOeTnoL88vQUiaho4Dfg
+	tlqhImXG+PpRpBG5BGl+mpETVs4QA1l1/BDTKtaGp1qCsNUi8iA0SoUyLRGLTrHMODtDKkt9vTfzm
+	vOcFNGl2DlvNG/dHf/lxN/pbzpulbMn7Ch16kUnYZBrXC9nM4DE4d+54PJN7LkmgTrtYFMP7G/ik4
+	LhQiVEY2P0JtVgLAy9mTXwTvlhXh6vKHYvoVbToILTKzpyRmni4BsT+uvSItGEuo6u5ZY3EiHP0yv
+	GAuk/AemyLiE09q9bkpALdhjQEPvj5BuWJ9rUEvJNcmG1hSLVvu6/0wWZN0UUMSUvX4H36rN0nGXU
+	mXZCeCSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd2Q1-0000000Avsu-3EST;
-	Fri, 26 Jun 2026 09:00:13 +0000
-Received: from mail-westeuropeazon11010029.outbound.protection.outlook.com ([52.101.69.29] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1wd2QY-0000000AvxY-3jtg;
+	Fri, 26 Jun 2026 09:00:46 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd2Pz-0000000Avs9-1tMe
+	id 1wd2QW-0000000Avwn-0TW7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 09:00:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nrgqRnaMj0+88LdGJ/nnCj+UzOrfQrNO6Tob8SWT7/2XSehGjbRYFlcJyqjP2Ei/UhXSuEAECFg5AuEX1xn5tmaU//aiuCK+0fG6wCDxmdNl60pa8jUX4ZJ9xU2x5xaNrAshD/Jwaqlz7cpZKpb42XyOqkDhkmkvOWnRcMYDykCQfw3RkBYRW++gFsYL6xUnshraBRP6VAwfenKANbT4iz5Ad/tZu7Cn3YPLWZRKugq60xb7hbcgeis4g9GXoIO2WUIFF1DDliS51ZqTDZeSMqHXfHmKeo8/WEI7Uczj3zmFGxzeVY030OM/Gl9Q94B4TLrAXPO5TPGBJY/ZFESnYw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NXc1HNBub9Odlxt9uHL5dZmAmGbkpeVwGZhN05awU+k=;
- b=iMY0O+az05RuqH4zcJIDZvAUhI2k63VjDH2uijqpbG8bTW68HSBVDTh6Tl4SgPYVejJkYYfkjBpDtiqtlNKvV9XgJM978aXW8JfyexIKYYRoLOn7TDcc6mUSw8SLN34plL5GT2uOI/SfL+D30pJfy4m7OIqyRP20pmqjqWe/p/cRh/am7x0GEjcRUPi55djGFSDdBrpF7oBF6GoiEmp0TBUak6xS+Pd09pFbQ76vQkWzdHiqfDVPSYcGQCTAACBM32dARC4qC/eJC35M7q1iUEvVKHoZy4oQAs1NF1DJjq3KqSl24tnsHJZakpyCnH3uh4OokyYmD92BIhn53rA6ow==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NXc1HNBub9Odlxt9uHL5dZmAmGbkpeVwGZhN05awU+k=;
- b=Cx0spRfin8ynbf02K6m830Tp7A64mDLL1+sWDpZw6boAiDVZ7ufW1v/FH6xA2R7C6JtpSXMpXSKZ071mEU6I/CpJNssxmUo9z2yrq2QT6lnD14MJtNQL3lIgZl8IL/lZNvhZYDhF3Ep6QvxoBAe5aIr6lneVTkV0pVG0s4uACL4eVQUn0pzPjfv4mv0wdHT2x/lw3BWFHr/cBptpdpgySuKQ4rscjo5dNE8Gxt0NLUhhAtoCR+9tslg/b+C/AblufZC3x1wmZTpbQMY6rWCrNI9d6vsguC6qdZiswGVmWImMFeKRxHgxStJuD5XJJVw2R/CAu0NDf1ny7FDHoCyBtQ==
-Received: from MRWPR04MB12330.eurprd04.prod.outlook.com (2603:10a6:501:7f::23)
- by PAXPR04MB8317.eurprd04.prod.outlook.com (2603:10a6:102:1ce::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.17; Fri, 26 Jun
- 2026 09:00:04 +0000
-Received: from MRWPR04MB12330.eurprd04.prod.outlook.com
- ([fe80::ca22:f8c8:6aca:7889]) by MRWPR04MB12330.eurprd04.prod.outlook.com
- ([fe80::ca22:f8c8:6aca:7889%6]) with mapi id 15.21.0159.016; Fri, 26 Jun 2026
- 09:00:04 +0000
-From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>, "Peng Fan (OSS)"
-	<peng.fan@oss.nxp.com>
-CC: "linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-rt-devel@lists.linux.dev"
-	<linux-rt-devel@lists.linux.dev>, Bjorn Andersson <andersson@kernel.org>,
-	Clark Williams <clrkwllms@kernel.org>, Fabio Estevam <festevam@gmail.com>,
-	Frank Li <frank.li@nxp.com>, Jassi Brar <jassisinghbrar@gmail.com>, Mathieu
- Poirier <mathieu.poirier@linaro.org>, Pengutronix Kernel Team
-	<kernel@pengutronix.de>, Sascha Hauer <s.hauer@pengutronix.de>, Steven
- Rostedt <rostedt@goodmis.org>
-Subject: RE: [PATCH v3 01/10] mailbox: imx: Forward the timeout/ error in
- imx_mu_generic_tx()
-Thread-Topic: [PATCH v3 01/10] mailbox: imx: Forward the timeout/ error in
- imx_mu_generic_tx()
-Thread-Index: AQHc/iZYga2ImdpEMkuKEQrmgYYx5rZKdvEAgALnPYCAAy+/gIAAAusAgAAGoAA=
-Date: Fri, 26 Jun 2026 09:00:04 +0000
-Message-ID: <MRWPR04MB12330C5851B5421F8EE723F1A88EB2@MRWPR04MB12330.eurprd04.prod.outlook.com>
-References: <20260617-imx_mbox_rproc-v3-0-77948112defc@linutronix.de>
- <20260617-imx_mbox_rproc-v3-1-77948112defc@linutronix.de>
- <ajkbUNkn6MSw8txc@shlinux89> <20260624074409.5jwpWs61@linutronix.de>
- <aj43FQ7f6juXQ/tP@shlinux89> <20260626083416.xbVlbOQJ@linutronix.de>
-In-Reply-To: <20260626083416.xbVlbOQJ@linutronix.de>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-x-ms-exchange-messagesentrepresentingtype: 1
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: MRWPR04MB12330:EE_|PAXPR04MB8317:EE_
-x-ms-office365-filtering-correlation-id: 9fb034f0-e1d7-469c-1275-08ded3615029
-x-ms-exchange-sharedmailbox-routingagent-processed: True
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|10070799003|366016|376014|7416014|23010399003|1800799024|19092799006|38070700021|22082099003|18002099003|56012099006|4143699003|11063799006;
-x-microsoft-antispam-message-info: gGBTsA3hUAWwuZo2F/n3rD9uI7f858gQ5SEl3dvwfybJki/tv/frTG7Cb2q6j32qvmt2+8O66ywkPw7rDefG9O1eZij5S/StWEtlY8Cn2TstyKbU5/wMwqsWf4/lkP8NkkBL7hqE2JBZwQxg0uQJPkhaV/yzcH6ljMsxfRBxsMWkJdM0KU2IEeCC2Zd3rEU3JKa9uWRx0uHcJBmBn4r31gHhYP4YB+rlMUGahhQwaUy6PT9psqgX2MxLylfuqWC2TbCE8y4nKAO+q7nCbCG/TXLw8OIR/FfGuETz/687Ek1mxqukox1E65xUu5gvI8D74I6oXhTAkl3tNa30e60jGkUDLkhNHtTgaADu8TwuhxIg8l2qWYkHeMqrFMr2y93YRGWlokbOqNrIBfZGLhW1EMYYqNOjRmmpcX9MUOlmZoAzGExOIPFk7vgKP7/9qF6xIxFOeisrNYwz8NTP/IgQxgXO4lr+mr6vmn/FuXXBt2S+BM5/WDkRYX2p4zGr7u02AEP6lrpDhP1/cU10Ga781viiziECcCgdv5/aJHcNIRZR00z/RvjaE0bfOeVPtP25CzNdRNEJI3XhmWrRfjP/dALnsj7qCqmmeHEo1AgKgyzUyy0fj8M1fUMALbcV/jnSK+YlUFYDdI/eNociTnJaKd7yS17QCW+qeB8MIXbeze7KDzzzHe9FwzT5wh+217El4y940GphgLNm/HViAL9cs3IHXrHQhqHJ0DWZXJusjUo=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MRWPR04MB12330.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(366016)(376014)(7416014)(23010399003)(1800799024)(19092799006)(38070700021)(22082099003)(18002099003)(56012099006)(4143699003)(11063799006);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?bG1nRUlVY0J0ZkgwSzViWDJ0V2ZzNkdkTlJTRXZIVEFRdkxNd3Q0dnhibWcw?=
- =?utf-8?B?aWh6emZnRDlDWnd4UzZiakR3MzNlQkIvN0Voa2FiVWlyRDVVSVBQTFFIZ0M0?=
- =?utf-8?B?c2J4Z29ObXFKcENRMG9oTVlSdGFtNUZHdFFPUXVzbm94czFRK1haSjdJWE9u?=
- =?utf-8?B?UFQ0b0ZVR0ZOZllITlkycS8xR0hGRVlZWk9KemlIK0NNT3F2dldwdEhiSWVv?=
- =?utf-8?B?UUYweUxzd1MyM2E4WFYvVzNXZ3haemhiL20xclhHN0pHRGdxRExLRXBGeitS?=
- =?utf-8?B?b1N5U0tzVHJ4UjFuVGJMc1hTSnl2MXZPb2N5UXFFekU4VDEycDgwbmpjNVRJ?=
- =?utf-8?B?T1dHS0dTK0JFaXZhN2dKZWRQWkNWeVR5L1p3ZnVpMG5hUXo4d1NJZmJmdVlq?=
- =?utf-8?B?US9laFZYc3N4MnlSZmQ0U0dETlQ5Y3hBRFZJWGNzWmFoREpod0h5QkZtNzk3?=
- =?utf-8?B?cGdUSjNnZnJKZnhTalRkY0JQWnVUMjFNanIxSnd5TWNoSW1TY3ZuK0Nib0h1?=
- =?utf-8?B?YXROV0hNNndLa21Na3dtSWY0d0RxendvOWV6SXRhcDQzanppL1gyOEd4QnVn?=
- =?utf-8?B?NWtQZVBEYU9pL2FVZEM2VlZtR2RFZVlOSXVQMjB1UEFFc0gvMzZrQzBhTkFU?=
- =?utf-8?B?WUh1bGMvMmxPZkM4bHhHbkhWZFZpelVNN0Q3NUR1emxHOGYvdUN4N2N1b1dp?=
- =?utf-8?B?QU1WcG93Y3gvVTd1WmNDcFZscndadDN5dU5nSTJybG4vVld1MnRIZkp4VHll?=
- =?utf-8?B?eTFwOHA4Mitob3F3UDFmbjlxdDdsMW5IeVE3ZE5Ka3g3cGZxNHg1MmJabEpo?=
- =?utf-8?B?a3lwSzZnUWNIMTlyL0VvaHUxSmRUK1BuMU9vbElQWTlKalFtMHR4L2JUMHFM?=
- =?utf-8?B?Umt6NjA3NFQwVU93SWNOeXRYT2JMUnZPOHh4RGRHTU9YR2JzQlRQdGJ2QnE5?=
- =?utf-8?B?NmRJVlpXd2g2akVTS2IxU3ltTTZJYVE1a3dLR1ZkaTgrY2ZzSWpXa3I3VEZP?=
- =?utf-8?B?ZUlmTlJ2Z1U0M3E3ZktMbytzY1Z0ZEZuR2dmc0w2L2R0bGg3OUhlZGxGRUNQ?=
- =?utf-8?B?SEEzNWZHRUZlQ1pSMUJPc1JSRVhrNnBHbGJOTFNEMTNMTndxb3VzQXp3TVZ1?=
- =?utf-8?B?ZHM4VUhUSWZwcytwcGRHWURQWDdjeDlsM0hRWHZZTzRCT1lyTk16ZXJMcVg5?=
- =?utf-8?B?bjhPTEtGajIvcFVRWHo4WEMzakt3ZmloQkwzNkltbWFSMWR3SG1RZEZUN2kz?=
- =?utf-8?B?T0FXTWR1enZvUE4wcXhDclBRSkdtclJEYUJ1MWJhWmJIY3NxR2UyYmJWVDlZ?=
- =?utf-8?B?V2xJRkpxbDFwTjBuR3hISWFkME5QYlZIVEVZeS9SKzQrSW05M3lVR2FBNzFE?=
- =?utf-8?B?MUlnSmlCcG52YWQxNVpuZ1pPRjFTL1JtVmhHWmFqUHdOcFlyVjhsQytDOThX?=
- =?utf-8?B?MEc2MHk5MFJybHVveWdqUERLR2YxTmlSdUtaY1pRSSsyRzJNV0c4UktUeFUv?=
- =?utf-8?B?dWVxVmtkN1lSTnNNSHpVcnJMbWY1NmdxTmhwVEI2enJrbU52WU00QVltaGlY?=
- =?utf-8?B?aEsrRGZ2Lzh2SHRFbXZReEF6QjdZQUt0K09CRXdRdm5rSkJSOExxK2c4YXlx?=
- =?utf-8?B?dzRMNFkxdXdjektvS3MzMkxPdXlxTDZHYXprWFVDSG9tVUU0cGcwWE40WWFC?=
- =?utf-8?B?SGV5Y1pmeWV2TFdaeHUwMzh4eEZLZkNjVjRXUHV0MnpFd3c0aXJ0MGh2MUxV?=
- =?utf-8?B?bW82dUlUcG8zTmp5UFJSTHFEc1Z1VzNORVFFNndMWlJWY3FFUVpwV3R5Sk4v?=
- =?utf-8?B?Z0tNbWZEMVQ4d2JJNDNJMzNMV2tMNk42eHZ1eWZudW9yTDRONFN6c29hMjd5?=
- =?utf-8?B?MUR0bTAzVEQzdGtIV1BybDg5N2NFRUVOMEdlMnMzaDVGNDRtUWpEV3h5aTZD?=
- =?utf-8?B?TmxTVStyWFZXREZteHViQnIrU0ZMQWRHQkRHYTYwMkd3LytxVzMzMnlXNVl3?=
- =?utf-8?B?eGM1b1J2VldoZXNaNk9tU2M1RkFucmlZUEVRNUN4S2hXTC8valUxazR6dE5m?=
- =?utf-8?B?T1c0MGpEMEVPT3RoQXA0QjgvdzUyMmpNc0NFN2tLbGJ6VWo3dWw3dWZ6VWtk?=
- =?utf-8?B?UFlMcnQ1bEticzJoemxxaFlqWEluVkV6YkdiR25YbGR1anVMMkdHeTB4TTRz?=
- =?utf-8?B?c2FrWWFaR1ZmK1RKQjBPblh3ZUwxc0ZZMFhYWTFSV0xZZ3JMSVhGQXA1OGdx?=
- =?utf-8?B?bXRxT0xDZzVYdFBUczRhbnY2U1FMb0VqUTRqWENSWDQydmM1VG5icTdRWEFJ?=
- =?utf-8?B?c3FGQUxWbXhQMDkxNlErdmFrVDI2VU50Qzd4TXZCZEJ1cnplMnA0SnlzMXB2?=
- =?utf-8?Q?7s4rPOmtg55iyNBetlpqlM2P4AIe/z/I8UMFa?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	Fri, 26 Jun 2026 09:00:45 +0000
+Received: from edelgard.fodlan.icenowy.me (unknown [112.94.101.182])
+	by APP-01 (Coremail) with SMTP id qwCowACHLtezPz5qny9fAw--.34802S2;
+	Fri, 26 Jun 2026 17:00:36 +0800 (CST)
+Message-ID: <c0731801729713d35f97bec40ebc21cef31b72b5.camel@iscas.ac.cn>
+Subject: Re: [PATCH v5 1/7] dt-bindings: display: verisilicon,dc: generalize
+ for single-output variants
+From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: Conor Dooley <conor@kernel.org>, Joey Lu <a0987203069@gmail.com>, 
+	maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
+ 	airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, ychuang3@nuvoton.com, schung@nuvoton.com,
+ yclu4@nuvoton.com, 	dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Date: Fri, 26 Jun 2026 17:00:35 +0800
+In-Reply-To: <20260626-astrology-mural-853d3860e048@wendy>
+References: <20260625094449.708386-1-a0987203069@gmail.com>
+	 <20260625094449.708386-2-a0987203069@gmail.com>
+	 <20260625-bobbing-annotate-d1c4d6874ee2@spud>
+	 <e3fe23ddbc504879bd797bbaa595d3653fa139ff.camel@iscas.ac.cn>
+	 <20260626-astrology-mural-853d3860e048@wendy>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.3 
 MIME-Version: 1.0
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: MRWPR04MB12330.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9fb034f0-e1d7-469c-1275-08ded3615029
-X-MS-Exchange-CrossTenant-originalarrivaltime: 26 Jun 2026 09:00:04.3143
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: xAoeio98sUn/6QBSWHQE96+QGVeqASaXrYX4bQNKLsXNTE8CyvBoF+TXAJZBAwIEH47LIhsfQcT09yXCD7JRwg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8317
+X-CM-TRANSID: qwCowACHLtezPz5qny9fAw--.34802S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxXFyUZF4fuF4kJFy3CrW3KFg_yoW5Cr4UpF
+	4kJFWUJr95Jrn5tr1UKw1UGF9Fyw4DJ3Z8Jr1kXFyUJF4qqF12gr1Ygr1q9r1fXr48Gr1j
+	qr1jqr13Zr13AFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvmb7Iv0xC_tr1lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I
+	8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8Jw
+	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
+	c7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
+	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
+	14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
+	IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E
+	87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4UJVWxJrUvcSsGvfC2KfnxnU
+	UI43ZEXa7IUnj-e5UUUUU==
+X-Originating-IP: [112.94.101.182]
+X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_020011_492825_C3844223 
-X-CRM114-Status: GOOD (  17.39  )
+X-CRM114-CacheID: sfid-20260626_020044_551275_41153B5A 
+X-CRM114-Status: GOOD (  27.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,21 +89,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PiBTdWJqZWN0OiBSZTogW1BBVENIIHYzIDAxLzEwXSBtYWlsYm94OiBpbXg6IEZvcndhcmQgdGhl
-IHRpbWVvdXQvDQo+IGVycm9yIGluIGlteF9tdV9nZW5lcmljX3R4KCkNCj4gDQo+IE9uIDIwMjYt
-MDYtMjYgMTY6MjM6NDkgWyswODAwXSwgUGVuZyBGYW4gd3JvdGU6DQo+ID4gT24gV2VkLCBKdW4g
-MjQsIDIwMjYgYXQgMDk6NDQ6MDlBTSArMDIwMCwgU2ViYXN0aWFuIEFuZHJ6ZWoNCj4gU2lld2lv
-ciB3cm90ZToNCj4gPiA+T24gMjAyNi0wNi0yMiAxOToyNDowMCBbKzA4MDBdLCBQZW5nIEZhbiB3
-cm90ZToNCj4gPiA+PiBXZSBtYXkgbmVlZCB0byB1c2UgYXRvbWljIEFQSSBmb3IgVFhEQl9WMi4g
-Rm9yIHRoZSBwYXRjaHNldA0KPiBpdHNlbGYsDQo+ID4gPj4gaXQgbG9va3MgZ29vZCB0byBtZS4N
-Cj4gPiA+Pg0KPiA+ID4+IFJldmlld2VkLWJ5OiBQZW5nIEZhbiA8cGVuZy5mYW5AbnhwLmNvbT4N
-Cj4gPiA+DQo+ID4gPlRoYW5rIHlvdS4gSXMgdGhlcmUgYW55dGhpbmcgeW91IHdhbnQgbWUgdG8g
-ZG8gb3IgaXMgdGhpcyBzZXJpZXMNCj4gZ29vZA0KPiA+ID5hcy1pcz8NCj4gPg0KPiA+IElmIHlv
-dSB3b3VsZCBsaWtlIHRvIGFkZHJlc3MgdGhlIEFJIHJlcG9ydGVkIGlzc3VlIGZ1cnRoZXIsIHlv
-dSBtYXkNCj4gPiB1cGRhdGUgcmVhZGxfcG9sbF90aW1lb3V0IHRvIHJlYWRsX3BvbGxfdGltZW91
-dF9hdG9taWMuDQo+IA0KPiBXaGF0IGFib3V0IHRoZSB0aW1lb3V0IHZhbHVlPyBLZWVwIGl0IGFz
-LWlzIG9yIHJlZHVjZSB0bz8NCg0KTGV0J3Mga2VlcCBpdCBhcy1pcy4NCg0KVGhhbmtzLA0KUGVu
-Zy4NCg0KPiANCj4gPiBGcm9tIHRoZSBmaXggb24gZXJyb3IgcmV0dXJuLCB0aGlzIHBhdGNoIGlz
-IG9rIHRvIG1lLCBhbmQgdGhlIHNlcmllcyBpcw0KPiBnb29kLg0KPiANCj4gVGhhbmtzLg0KPiAN
-Cj4gPiBUaGFua3MsDQo+ID4gUGVuZw0KPiA+ID4NCj4gDQo+IFNlYmFzdGlhbg0KDQo=
+=E5=9C=A8 2026-06-26=E4=BA=94=E7=9A=84 08:19 +0100=EF=BC=8CConor Dooley=E5=
+=86=99=E9=81=93=EF=BC=9A
+> On Fri, Jun 26, 2026 at 01:27:21PM +0800, Icenowy Zheng wrote:
+> > =E5=9C=A8 2026-06-25=E5=9B=9B=E7=9A=84 17:33 +0100=EF=BC=8CConor Dooley=
+=E5=86=99=E9=81=93=EF=BC=9A
+> > > On Thu, Jun 25, 2026 at 05:44:43PM +0800, Joey Lu wrote:
+> > > > +allOf:
+> > > > +=C2=A0 - if:
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 properties:
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 compatible:
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 contains:
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ const: thead,th1520-dc8200
+> > > > +=C2=A0=C2=A0=C2=A0 then:
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 properties:
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 clocks:
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 minItems: 5
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 maxItems: 5
+> > > > +
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 clock-names:
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 minItems: 5
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 maxItems: 5
+> > >=20
+> > > All the maxItems here repeat the maximum constraint and do
+> > > nothing.
+> > >=20
+> > > Since you didn't change the minimum constraint at the top level,
+> > > your
+> > > minItems also do nothing.
+> > >=20
+> > > > +
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 resets:
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 minItems: 3
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 maxItems: 3
+> > > > +
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 reset-names:
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 minItems: 3
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 maxItems: 3
+> > > > +
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 required:
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - resets
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - reset-names
+> > >=20
+> > > Both conditional sections have this, but the original binding
+> > > doesn't
+> > > require these for the thead device. This is a functional change
+> > > therefore and shouldn't be in a patch calling itself "generalise
+> > > for
+> > > single ended variants".
+> >=20
+> > Well yes they're required.
+> >=20
+> > Should I send a patch adding the `thead,th1520-dc8200` part of the
+> > schema?
+>=20
+> If you mean the code above, no. Adding a conditional section when
+> there's only that compatible doesn't make sense.
+>=20
+> What you could do is just add it at the top level though, which would
+> also benefit this patch since it'd not have to be conditionally added
+> for the new nuvoton device.
+> Just note in your commit message about what the ABI impact of the
+> change
+> to required properties is (effectively nothing because it's optional
+> in
+> the driver and the only user has the properties).
+
+Okay, I will craft such a patch and send it.
+
+>=20
+> > > > +
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 resets:
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 minItems: 1
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 maxItems: 1
+> > > > +
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 reset-names:
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 items:
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ - const: core
+> > >=20
+> > > This is just maxItems: 1.
+> >=20
+> > Well the implicit rules of DT binding schemas are quite weird...
+>=20
+> I don't think it is that strange, as the binding has
+> =C2=A0 reset-names:
+> =C2=A0=C2=A0=C2=A0 items:
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: core
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: axi
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: ahb
+
+Ah does the list constraint the order of items? If it constrains the
+order, it partly breaks the intention of having names; if it does not
+constrain the order, it needs to be clarified that the required 1 reset
+is core instead of the other two.
+
+Thanks,
+Icenowy
+
+> so just constraining to one item is the simplest way to do this
+> without
+> duplication.
+
 
