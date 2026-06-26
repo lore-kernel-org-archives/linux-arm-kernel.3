@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 021E3CDE00E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 08:48:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EA0CCD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 08:51:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/S2xp6uP+NnDpHnkVhvd3u/16+/JYV8Sjg9E05AV+CY=; b=Suh3zPTP/SnYbJmhRGwJ3weflh
-	Oky3zW1+UlJIfcN7zIlzVUVN6x2D5y1FImhmUO1wzO3A6xMajcBgETfyAp+4F3lK46up/QleIzHOp
-	WTIXzM2Ym3NPA9Y/oXU5EYTMXprd3UJ9hNSdyrWifHnh5eNmt33D8Wu+0puh1VslhE1+49lx8Kog+
-	I5bcJdw/coKCOTEPLL13+KAIh4tzSjmDJWXS9bX4CXhzIL1c6nRkJMGaApVWIu31NDZG8lvJ/7XCC
-	ohKVnOSjexfa1VjUF2IvPgwy8D0pvZhLbZSNGjYW/wSx9ZdCxb+1mL20naahwOBbAKajLUJkgOm4o
-	iLcTrKXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dczgg0EG8SzCmQOx10ra7Wu7tyi/QlMQ5W656css9gI=; b=K/h5HP33kMVfw4cGm7u8MeEFTn
+	GaraclTNwK8KATdEK4zu+LpvUldSnj9YimUOjAHN6jcMnEEeB1bDfu4IhPchPGhPbgGDxINMRg3Ei
+	KcoW46nL+5q205NDhcQyU3sx8HyJP7gmGTzrQ2Yn7MSvlAHqHxwFjgJAi9n25IxST0NlD7Kj/quB2
+	vpIrfIQwUuizWQrtSSzrc8JZii8TvPWMihspVh9dtZV9lbG1U/8+agGFzyWi7LjAt8FbMI4MapnL9
+	83Ju/8QRxBULR6TfaU83twNKyXfcAQZcLeCDkwb4q+dmmyt2AG8Dlcfmkgdfk9TDD1lc1DvApVonb
+	ARrkxZIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd2Et-0000000Aubk-2Qhd;
-	Fri, 26 Jun 2026 08:48:43 +0000
-Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
+	id 1wd2Ha-0000000AupT-0T7X;
+	Fri, 26 Jun 2026 08:51:30 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd2Eq-0000000Aub3-3HXm;
-	Fri, 26 Jun 2026 08:48:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
-	s=smtpauto.stravinsky; h=X-Debian-User:In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=/S2xp6uP+NnDpHnkVhvd3u/16+/JYV8Sjg9E05AV+CY=; b=rm3wMVYaU1oJmUW30/iLkgC8tW
-	7+nUXiZkXvcke485Uvum75qA/elqGgphrlJfHTBzMEA1UvJ1Jf8WVju41IKgBn2hTxrEub4VTd3s0
-	YL/4hcAOtKDB33Aj9WcSyQZfdSEz6TqK/GwHbiaUDotC6dBsyO//eJpotx7vqDie39FWM9Tzm4XHS
-	D2Km03J/B1aVTtxyHzzIOVJ1uDq+A90eDG2BDt57WhAV8LOtj7pwlMYNA+K5q1AJc4VijF/okauZY
-	iIAslLsevZHHzxRCb0XsyW3gPXJLVLGth3PyeKZ99biSJyk2rVPiZoEzcBZavQ00pi0Dr8TcrMybU
-	li1RBlEA==;
-Received: from authenticated-user
-	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.96)
-	(envelope-from <leitao@debian.org>)
-	id 1wd2Ea-003qhi-15;
-	Fri, 26 Jun 2026 08:48:24 +0000
-Date: Fri, 26 Jun 2026 01:48:17 -0700
-From: Breno Leitao <leitao@debian.org>
-To: Doug Anderson <dianders@chromium.org>, kernel-team@meta.com
-Cc: Kiryl Shutsemau <kirill@shutemov.name>, Marc Zyngier <maz@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Petr Mladek <pmladek@suse.com>, 
-	Thomas Gleixner <tglx@linutronix.de>, Andrew Morton <akpm@linux-foundation.org>, 
-	Baoquan He <bhe@redhat.com>, Puranjay Mohan <puranjay@kernel.org>, 
-	Usama Arif <usama.arif@linux.dev>, Julien Thierry <julien.thierry.kdev@gmail.com>, 
-	Lecopzer Chen <lecopzer@gmail.com>, Sumit Garg <sumit.garg@kernel.org>, kernel-team@meta.com, 
-	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, paulmck@kernel.org, rmikey@meta.com
-Subject: Re: [PATCH v4 0/4] arm64: cross-CPU NMI via SDEI
-Message-ID: <aj46xP6jgZ6fmsPb@gmail.com>
-References: <cover.1781709543.git.kas@kernel.org>
- <ajVLeseWOZn0XXY2@arm.com>
- <868q8asj1u.wl-maz@kernel.org>
- <ajk-Vge2qhaY-TwJ@thinkstation>
- <CAD=FV=UTcL1NVkvR8Fw_BXvHHk-vBtLSGoJrU-RFSt0yvGUjxA@mail.gmail.com>
+	id 1wd2HX-0000000Auoh-49WT
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 26 Jun 2026 08:51:28 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id E0C03600AE;
+	Fri, 26 Jun 2026 08:51:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55C131F000E9;
+	Fri, 26 Jun 2026 08:51:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782463886;
+	bh=dczgg0EG8SzCmQOx10ra7Wu7tyi/QlMQ5W656css9gI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=ZuN86shSSyy0XeJHxDjAleAAh3O8h5DItrYs4TSav34bAuZW0MAx9ZBBE9S3nKp+q
+	 JUucAqzuWIOp1XCgdpd9P3oFXnLbWNeWduuAN7d3BLmln+qoARZNZxKF2O06nPeYv4
+	 1dAdVGA0JDyuC0sJVCZD2wvL+fK7VqCql7n7upa+dFP/qqyZ8tCeX05jqkcgPFDC5w
+	 tFX0+2mg/DvZd1BW9undZCZbfHnid5R0fV0ghRYpjUgkCITPyYbrNbnJWUD3Su88Bu
+	 iGHlEwHR4XUomu86ZdOshDLSTLNHrTMNbY7gs9BX+9uYtxaMeTpyySj/HlKZUt2HrK
+	 5/RKab/63CQEw==
+Date: Fri, 26 Jun 2026 04:51:19 -0400
+From: Steven Rostedt <rostedt@kernel.org>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, Masami
+ Hiramatsu <mhiramat@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, Andrew Morton
+ <akpm@linux-foundation.org>, Linus Torvalds
+ <torvalds@linux-foundation.org>, Sebastian Andrzej Siewior
+ <bigeasy@linutronix.de>, John Ogness <john.ogness@linutronix.de>, Thomas
+ Gleixner <tglx@kernel.org>, Peter Zijlstra <peterz@infradead.org>, Julia
+ Lawall <julia.lawall@inria.fr>, Yury Norov <yury.norov@gmail.com>,
+ linux-doc@vger.kernel.org, linux-kbuild@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, dri-devel@lists.freedesktop.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-rdma@vger.kernel.org,
+ linux-usb@vger.kernel.org, linux-ext4@vger.kernel.org,
+ linux-nfs@vger.kernel.org, kvm@vger.kernel.org,
+ intel-gfx@lists.freedesktop.org
+Subject: Re: [PATCH v4 2/2] tracing: Remove trace_printk.h from kernel.h
+Message-ID: <20260626045119.659d1e6b@fedora>
+In-Reply-To: <20260625234158.GA261868@ax162>
+References: <20260625104007.041432666@kernel.org>
+	<20260625104402.210473477@kernel.org>
+	<20260625234158.GA261868@ax162>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAD=FV=UTcL1NVkvR8Fw_BXvHHk-vBtLSGoJrU-RFSt0yvGUjxA@mail.gmail.com>
-X-Debian-User: leitao
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_014840_826086_AE40AA53 
-X-CRM114-Status: UNSURE (   8.18  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,20 +84,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 22, 2026 at 09:52:40AM -0700, Doug Anderson wrote:
-> Having them as a stop-gap until true NMI is available
-> seems nice to me
+On Thu, 25 Jun 2026 16:41:58 -0700
+Nathan Chancellor <nathan@kernel.org> wrote:
 
-I completely agree. Should these patches unfortunately not make it upstream,
-my plan is to maintain them downstream at Meta kernels until the Meta fleet
-no longer contains any non-FEAT_NMI hosts.
 
-The trade-offs under consideration are:
+> The following diff resolves it for me, should I send it as a separate
+> patch or do you want to just fold it in with a note?
+> 
+> diff --git a/include/linux/lockdep.h b/include/linux/lockdep.h
+> index 621566345406..2301a701ffbb 100644
+> --- a/include/linux/lockdep.h
+> +++ b/include/linux/lockdep.h
+> @@ -10,6 +10,7 @@
+>  #ifndef __LINUX_LOCKDEP_H
+>  #define __LINUX_LOCKDEP_H
+>  
+> +#include <linux/instruction_pointer.h>
 
-	1) Accept the performance overhead from pseudo-NMI
-	2) Lose debuggability by disabling NMI entirely
-	3) Maintain downstream patches
+Ah, so the reason for this breakage is because lockdep was relying on
+instruction_pointer.h, that just happened to be included in kernel.h
+via trace_printk.h.
 
-Of these three options, carrying downstream patches appears to be the least
-disruptive path for our business needs.
+This is a separate issue, so it should be a separate patch. I'll add it
+as patch 1 of this series.
+
+Can you send me the config you used. This didn't trigger in my tests.
+
+Thanks,
+
+-- Steve
+
+
+
+>  #include <linux/lockdep_types.h>
+>  #include <linux/smp.h>
+>  #include <asm/percpu.h>
+
 
