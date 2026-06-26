@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 129A6C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 21:54:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7186C43211
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 21:55:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pnTbJ0qzupqs+OdQTBbFmTptoXz92YWWt6sTMLKlVlM=; b=GzHnu9kiRtM+pi7TQwJ+9cc31X
-	9Mn9s7qsGEBPQrAGjmY5Bnzsmakogwxw4KVtWLJCABZJVKdfDBmHQj6v834A0BWJLLkbAtGb0l8zO
-	YCAkmwuscQ5FlkpdUk1B2AdKzgOv/3lL0mKa2xhCOQN03HXygixM/4gC9sW1yuuZh0jDq8dX8dyuL
-	u7NtqkKuw+oLiOaZg+SZ/nwkr4kQDRNUYp3HLSgJeieTwTjkysPklUYenUFoJlwnqtlgjMRmtp+VI
-	gFJSk/6inD0kH4fHNYpf3X4whq3PIZ+ff+9Ng0Yt8FMf4utujtIGTIp1WjmcE0xJaYWsv315vqO/8
-	Jp05fTXQ==;
+	bh=SXFt4r4hF0CDqmnY5VMLGnN8mXFOQ8bAerYnb+O0pOw=; b=q6KfrgXSa/r2sUJVFEYmtDcR83
+	rFFafEWkKVJy2fOiTrNjRnF3q3hF+mNZ11VUKVl9bQks0g8WTcjgEcNC/EFUtHN5Q5cONVTSq6SOD
+	PMtpOtp6BU2VVuN2h8BIA5cta8mSCqJDv1CNpy4CduCzix0Qh7lrF2RQB3O5F5btqVVzWWc8sqoDX
+	KoGJSoJ8CjfCyZGOEc3Cfyi8XI0JqTbMNVCYP/bWOItqYeK0MjaEpSBWHcWrzlzq+HQ1qCG2zx1qA
+	T3Wj56jzTTYDMx6WaEjVGsnWpPL0I9iZEOrEHaCYqA1SpPjsvk9W6HH6vxSOlE+Um3cDQFlUNPG/h
+	8HQd1org==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdEDX-0000000BuWz-1RR3;
+	id 1wdEDX-0000000BuY5-2nIJ;
 	Fri, 26 Jun 2026 21:36:07 +0000
-Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
+Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdEDD-0000000BuJB-3tfN
+	id 1wdEDH-0000000BuJw-2RAr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 21:35:51 +0000
-Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-84540d59430so1003597b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 14:35:47 -0700 (PDT)
+	Fri, 26 Jun 2026 21:35:52 +0000
+Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-c88da04b71dso695462a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 14:35:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1782509746; x=1783114546; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1782509749; x=1783114549; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=pnTbJ0qzupqs+OdQTBbFmTptoXz92YWWt6sTMLKlVlM=;
-        b=gZ5uqw16nz23KLjHr8aLcVRe6TKaZ+t6NI8akdBZ5p+H9iNJ372qZYZnMfhTah9jkY
-         OpH5Sdm8QNphwqq7axKcOTz8h5s9uSsLauaPW2K0UTjMFi5ZUXKR0Mbq/23Ut7R8l9YG
-         Ti9yoXcunZ4WyJmzPV9ujluAt5spfzX/QmAzB0swKL5x6A4svPOAXehEx4PxznPhuWMU
-         0IHH+z84FspbKUmaupKboqunqX1TyN7WMc/8KDKkAHQo67LoYeHCgobCTjE3aiMtb4/9
-         0x75j6PPK0L/FMvp/yFzhBw6H47kWfDtlLWlK7O095Y89LiSFAGB6rZ3iuhLJrQBvsoZ
-         Gavw==
+        bh=SXFt4r4hF0CDqmnY5VMLGnN8mXFOQ8bAerYnb+O0pOw=;
+        b=DSE6LssG20D2YD3v335LghcTetxIILf4UAf+gR58+V+lLgIKRwO/acdwUXYu+NoOB6
+         AGoj3DebBxqnmXjCDavuCCcSQGoLczQSMrZWQuy2G6QBDQ9Dr3bagUAJQqT7gILJ7Z7Q
+         rgEWX3Jy2agiSfFDyoabD6J5/X2KcuOYiApAQAv5yZk1F5PPiqoEZtIV2BwpbhvmxFs1
+         YM3gC8sSPgx8Guyy61cv+Mye8yy1FnhnBT5IV7X/3YrQbc5B5IvNTHoLw8Zd6uMtGVZN
+         KocDOLmNzesy0Piv1OK/k0paUZb8K6THRIjHjPw96MZuL+vklCBm91L+P5RcN5GnVx8T
+         Dygg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782509746; x=1783114546;
+        d=1e100.net; s=20251104; t=1782509749; x=1783114549;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=pnTbJ0qzupqs+OdQTBbFmTptoXz92YWWt6sTMLKlVlM=;
-        b=Ioqfe3/2wPqNG4h7gOaKok+FHBkKJO9QxFzrOC2w1FWub3TCzSCNCkJlO/jXiqVS/v
-         Je+cbpiv7GKErSrogwRqZ93Q5QIz4ELLPZoJGXQFDazgFvvYAgc2+yOdSLu3MGhXCLP9
-         NMjQ0ZV7XxLNWf+R2o6ee1OumzHqj7fGUjTr99kFoS7MobuYSLGt3BluD4d6oMA+vtTI
-         80ljCTykqoM8pwKzmdW5iIo+WUd2Z8QJQXvIvHpZ+q4L+X2wKy1jv72pI9i9izBoxagz
-         LKxnXyIHEHsMaUw64zCbaNrUjSG9ZX8NxipznhYx+EsS+bKgRAxWHI54ShCsHWgsypZo
-         AuTA==
-X-Forwarded-Encrypted: i=1; AHgh+RpahtoVZiENqsRQumnqeduhOvx6N/u/ZUKZT0Y1g8FxOrWC0rwQ/rwhnu9lXwRcDnjS5GuznCLRKct5lREMdLRV@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy3r73PRF0nfATwGYaYtM/Ctkgys8tFCm0lawq4onyd45yrwADl
-	AAPZfAYPPAngBK/8yxM2Hydha8p+YwhMJWCGvPgyhZ4TTN6l9+XFbVMAHyi1XBknvdCk8o18121
-	18oMPLg==
-X-Received: from pfbhx20.prod.google.com ([2002:a05:6a00:8994:b0:842:7548:51e8])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:66c6:b0:845:ba0d:3e5c
- with SMTP id d2e1a72fcca58-845ba0d45cfmr6880920b3a.42.1782509746265; Fri, 26
- Jun 2026 14:35:46 -0700 (PDT)
-Date: Fri, 26 Jun 2026 14:35:21 -0700
+        bh=SXFt4r4hF0CDqmnY5VMLGnN8mXFOQ8bAerYnb+O0pOw=;
+        b=oHudkdJAwTnzspa0VaXa2zww/aI2eN1mzn7ZLXG3HwnXV14gzQQoAuINWKPRJ0tvWg
+         THo8x/2YSRQNjHoO2IMOoeHpwWKNDW9vVv1HY2aWsqFFyKzScVdtkKeXsYw++wWcKUI/
+         ARXJovY8lN5vVWCaOXsKNWfdtRo9e8t97qJZtjKBTdFAHL/Brmu/BSZokqGeQOkKts+M
+         yYr2QOVkkxpuzmQEwYCwREdrUpkpzzy0ZnbiOnGNgpMQ7mXH+q3mN7noo9AH/Br57sy8
+         28PKypjy9oxJ+lbahJz7Izm8DITEXmhz2Z4zDCxKCF5VZAXrva39VWhBpkyYam55omci
+         HpjA==
+X-Forwarded-Encrypted: i=1; AFNElJ+S3QznWMTig6xRUktS6HtX2oK7+irdGkd+WH8pWGUTfVbs9V6aUnd/I/hHtNeMJbk9j7sdSXwd1Etw96h//Zyi@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyybappe9AGw6Q5/AM5S8OmQGEdCESiZwuNnHl/mQyA/SnSVgQ/
+	VtlLmnNipHwpZmKxyaErI+s3Co9vsbYwtYL5J1K+hVe0cSj4s0yfzLu56Ype6RqQnzNMck+Loga
+	T6tjp8A==
+X-Received: from pgge9.prod.google.com ([2002:a63:db09:0:b0:c85:62f4:f188])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6300:8811:b0:3a0:bc61:62e6
+ with SMTP id adf61e73a8af0-3bf69b3edc5mr2231510637.8.1782509748445; Fri, 26
+ Jun 2026 14:35:48 -0700 (PDT)
+Date: Fri, 26 Jun 2026 14:35:23 -0700
 In-Reply-To: <20260626213534.3866178-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20260626213534.3866178-1-seanjc@google.com>
 X-Mailer: git-send-email 2.55.0.rc0.799.gd6f94ed593-goog
-Message-ID: <20260626213534.3866178-9-seanjc@google.com>
-Subject: [PATCH v8 08/20] KVM: selftests: Add helper to get host IRQ from
- device MSI-X for IRQ bypass test
+Message-ID: <20260626213534.3866178-11-seanjc@google.com>
+Subject: [PATCH v8 10/20] KVM: selftests: Add a helper to set proc IRQ
+ affinity for IRQ test
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oupton@kernel.org>, Sean Christopherson <seanjc@google.com>
@@ -78,8 +78,8 @@ Cc: Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>,
 	Josh Hilke <jrhilke@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_143547_972093_4B2E57E6 
-X-CRM114-Status: GOOD (  15.77  )
+X-CRM114-CacheID: sfid-20260626_143551_622203_F2D41844 
+X-CRM114-Status: GOOD (  10.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,105 +95,56 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: David Matlack <dmatlack@google.com>
+From: Josh Hilke <jrhilke@google.com>
 
-Introduce proc_util.c and proc_util.h to house utility functions for
-interacting with the proc filesystem.
+Add a utility, proc_irq_set_smp_affinity(), to set the CPU affinity of a
+Linux host IRQ via the proc filesystem.  Use smp_affinity_list instead of
+smp_affinity to avoid having to convert the single CPU to a bitmask.
 
-Add vfio_msix_to_host_irq(), which parses /proc/interrupts, to get the host
-Linux IRQ for a given VFIO device BDF and MSI-X vector.
+The helper will be used by the eventfd IRQ test to verify delivery of IRQs
+when the affinity is randomized/modified.
 
-This helper will be used by the eventfd IRQ test to print the host IRQ
-number when triggering IRQs via VFIO device, e.g. to aid in debugging if
-the test fails.
-
-Suggested-by: Sean Christopherson <seanjc@google.com>
-Signed-off-by: David Matlack <dmatlack@google.com>
-Co-developed-by: Josh Hilke <jrhilke@google.com>
 Signed-off-by: Josh Hilke <jrhilke@google.com>
-[sean: massage changelog]
+[sean: make the utility self-contained, drop "list", massage changelog]
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- tools/testing/selftests/kvm/Makefile.kvm      |  1 +
- .../testing/selftests/kvm/include/proc_util.h |  9 +++++
- tools/testing/selftests/kvm/lib/proc_util.c   | 40 +++++++++++++++++++
- 3 files changed, 50 insertions(+)
- create mode 100644 tools/testing/selftests/kvm/include/proc_util.h
- create mode 100644 tools/testing/selftests/kvm/lib/proc_util.c
+ tools/testing/selftests/kvm/include/proc_util.h |  2 ++
+ tools/testing/selftests/kvm/lib/proc_util.c     | 14 ++++++++++++++
+ 2 files changed, 16 insertions(+)
 
-diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
-index a24875fada03..88c6c8046dde 100644
---- a/tools/testing/selftests/kvm/Makefile.kvm
-+++ b/tools/testing/selftests/kvm/Makefile.kvm
-@@ -11,6 +11,7 @@ LIBKVM += lib/kvm_util.c
- LIBKVM += lib/lru_gen_util.c
- LIBKVM += lib/memstress.c
- LIBKVM += lib/guest_sprintf.c
-+LIBKVM += lib/proc_util.c
- LIBKVM += lib/rbtree.c
- LIBKVM += lib/sparsebit.c
- LIBKVM += lib/test_util.c
 diff --git a/tools/testing/selftests/kvm/include/proc_util.h b/tools/testing/selftests/kvm/include/proc_util.h
-new file mode 100644
-index 000000000000..704839b6d7af
---- /dev/null
+index 704839b6d7af..d1ddc967d11d 100644
+--- a/tools/testing/selftests/kvm/include/proc_util.h
 +++ b/tools/testing/selftests/kvm/include/proc_util.h
-@@ -0,0 +1,9 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+#ifndef SELFTEST_KVM_PROC_UTIL_H
-+#define SELFTEST_KVM_PROC_UTIL_H
+@@ -6,4 +6,6 @@
+ 
+ unsigned int vfio_msix_to_host_irq(const char *vfio_device_bdf, int msix);
+ 
++void proc_irq_set_smp_affinity(unsigned int irq, int cpu);
 +
-+#include <stdint.h>
-+
-+unsigned int vfio_msix_to_host_irq(const char *vfio_device_bdf, int msix);
-+
-+#endif /* SELFTEST_KVM_PROC_UTIL_H */
+ #endif /* SELFTEST_KVM_PROC_UTIL_H */
 diff --git a/tools/testing/selftests/kvm/lib/proc_util.c b/tools/testing/selftests/kvm/lib/proc_util.c
-new file mode 100644
-index 000000000000..84d30f055a0a
---- /dev/null
+index 84d30f055a0a..3960b3841d63 100644
+--- a/tools/testing/selftests/kvm/lib/proc_util.c
 +++ b/tools/testing/selftests/kvm/lib/proc_util.c
-@@ -0,0 +1,40 @@
-+// SPDX-License-Identifier: GPL-2.0
-+#include "kvm_util.h"
-+#include "test_util.h"
-+#include "proc_util.h"
-+
-+static FILE *open_proc_interrupts(void)
+@@ -38,3 +38,17 @@ unsigned int vfio_msix_to_host_irq(const char *device_bdf, int msix)
+ 	return (unsigned int)irq;
+ }
+ 
++void proc_irq_set_smp_affinity(unsigned int irq, int cpu)
 +{
-+	FILE *fp;
++	char path[PATH_MAX];
++	int r, fd;
 +
-+	fp = fopen("/proc/interrupts", "r");
-+	TEST_ASSERT(fp, "fopen(/proc/interrupts) failed");
++	snprintf(path, sizeof(path), "/proc/irq/%u/smp_affinity_list", irq);
++	fd = open(path, O_RDWR);
++	TEST_ASSERT(fd >= 0, "Failed to open %s", path);
 +
-+	return fp;
++	r = dprintf(fd, "%d\n", cpu);
++	TEST_ASSERT(r > 0, "Failed to affinitize IRQ-%u to CPU %d", irq, cpu);
++
++	kvm_close(fd);
 +}
-+
-+unsigned int vfio_msix_to_host_irq(const char *device_bdf, int msix)
-+{
-+	char search_string[64];
-+	char line[4096];
-+	int irq = -1;
-+	FILE *fp;
-+
-+	fp = open_proc_interrupts();
-+
-+	snprintf(search_string, sizeof(search_string), "vfio-msix[%d]", msix);
-+
-+	while (fgets(line, sizeof(line), fp)) {
-+		if (strstr(line, device_bdf) && strstr(line, search_string)) {
-+			TEST_ASSERT_EQ(1, sscanf(line, "%d:", &irq));
-+			break;
-+		}
-+	}
-+
-+	fclose(fp);
-+
-+	TEST_ASSERT(irq != -1, "Failed to locate IRQ for %s %s", device_bdf,
-+		    search_string);
-+	return (unsigned int)irq;
-+}
-+
 -- 
 2.55.0.rc0.799.gd6f94ed593-goog
 
