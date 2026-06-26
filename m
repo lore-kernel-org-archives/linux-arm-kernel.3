@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FF3DCDE008
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 09:21:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6D78CDE00E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 09:21:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BAIXjok/noDXT0EMJbelmqrpI+3GMWHmkOh7wf+FXrE=; b=UDb+DdYY+SdV4hiBKCb8yhsG2V
-	4jr0uAKhYbF59EfPmUO6bEw4+B6+Ohmyrqvsvfm8FZTl2mN/DwdN5EgV9Zwpz4HCG+5JGFjKQjew4
-	tJ3gObX6zW50DdihEpIlDkXRVAQylyaLttxA1y2U1Aq0qSou8DjCIOAG2rlZ0vfIpxiFKckhIdgQr
-	NU9By9NtHeCrcTfsjcmGXFqyse+FtQNkOGd09d3XCH85g9WsP7UJVLxcg47WYe6NK2KBNKKoMQc4D
-	gik8fAZUsVRImV4wV54QHxI8PqQ5HdaLLznsxW6Omj5dL6BprUAHHsnUD4j5Znc+9cmLzje3rQL4x
-	aqe8TLCg==;
+	bh=Oqp269fPqkkP0y4F1qhxEIUZdEYzw+E7N13spqrG24g=; b=AejwIt9vzGmfPLdOh2mVvBZWjY
+	rkOIiRaQoXaAXnAIfN8v0UieNvMW15iHepa1H1XClW/TXdPafPyIa3iL0gMEW33w+nyw9CFficJfI
+	bDjZpNbDCGh5/gSuIytdpGE5TCbI4DTo+FMGgg9hksNZYu5QFUuzLEF4fBNgbPM+gCiqT7Artf9vz
+	IJLzrHuIQlBJc7O9JvTD7TQ1+RQOKjC98ZYXMCRis2EXByLBstsB9zOt8IIDl5YGiZAEEAdbwcrbe
+	KYjGkTjZDXx0UZtwgqgUrJZS9gR+OoMNb0E80h7VKFDIHyqN+epkg6ehAc5aAzch80Bmr/XtoAUzK
+	PWwYUGFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd2k1-0000000Axlk-1ziE;
+	id 1wd2k1-0000000Axl2-0TKL;
 	Fri, 26 Jun 2026 09:20:53 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd2jx-0000000AxhB-2mys
+	id 1wd2jv-0000000AxfO-3v6K
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 09:20:51 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-46f27bd4c45so346504f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 02:20:49 -0700 (PDT)
+	Fri, 26 Jun 2026 09:20:49 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-46f098551bfso313844f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 02:20:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782465648; x=1783070448; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1782465646; x=1783070446; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=BAIXjok/noDXT0EMJbelmqrpI+3GMWHmkOh7wf+FXrE=;
-        b=B9sWVFkxlQ/d0OGJWmR8lqEM0iVJYB+kHnqRMqkpRM7520YrLDqL8zHUJjRxNLiLp/
-         dgQX+/FptUhiKKZmNld4ZqVpM771lTKYUQEeZ/bK6m84L8mWG+5URquNg87sugvd5BtU
-         6ZX7xnDiPba0/DE7gKBHdw1gB4gWBtHdl1uYiE5W95SR2CmrHUVFPr318Xoecl26mSYk
-         1td+M8NzQ8wTFL3cbsPMr8kCPEW4Jj4mYxodTbpGqGZAJXupjv99LmOmWbz5XJ7b1wjM
-         FPT+mMqgDYU3ttzURQXUBIOxzIc7Cu+TgxOiD7HLu/ndImJyPdyEm3OzahozlGyFFeK1
-         7h1g==
+        bh=Oqp269fPqkkP0y4F1qhxEIUZdEYzw+E7N13spqrG24g=;
+        b=S7PSJKfSInAHkjt+1w0zz0a6wOwoUT8uuC1a85Iryx50+IU3Nx5z4v+YRaZIvO2J16
+         jjnRViNgDtP9dqLLnzNego0iTfrCocuIEUvMYxRXvTWwCBaDAsjsB/xlk2iyWdbdYpbD
+         nAeOwDehbFzb2RDvzDQVcjtkJMLKRT9Bi9CepAe0Cbc0jEQQbKjWz1yFDRNcmTOVDVR5
+         9BI9jlMj0/E3O56pO6ecM+8vK5atPnvQphOMlmcnNVlM7DSyIVxyEIejcWmqC0PfYGlv
+         NZhZ4ldPwKH/1aAkw8GmOWpSGxKpPLTCiCPCAQwendveA9z1MLdpKoqNzaPj2Pxl8InJ
+         Zz0A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782465648; x=1783070448;
+        d=1e100.net; s=20251104; t=1782465646; x=1783070446;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=BAIXjok/noDXT0EMJbelmqrpI+3GMWHmkOh7wf+FXrE=;
-        b=SaHrEzfC7hZs7VJ1VjdowzsUO/h//sIFH9mdjyPzctjdR9bjYUwjDfTB5eVheQ3G+T
-         CfXAIAD/Xk91z3eZ7EbSfIITlQ6sPytPCzQNu1TME+eok/yOIoMQL6WzyNG/aHdJ/xhc
-         PhLBXEl0GGYjBdwKWRz4DmzWQqYqxc0oXmfFxSAJNwX3fUoh47Mujh+ja0il8vTyIVea
-         MiS0/nb4YWeSI1mjX4JHpRJeuIUU9bRW5aLzQE92Jnsw4AFP72VyJ2C8zK5ruHwP3q8+
-         gnFVW1FqSbVnaWwip0/otkKnRK9oOxordOyFFOCHhUAr01ZgZNeUrxVs+TrnGOxwqCjb
-         za2w==
-X-Forwarded-Encrypted: i=1; AHgh+Rr2eM/0zWV52jPw3cC5N0O4nOMjLsaBw7Ss+81Xypr6SrlLiDqI46dOemfWvixTS1VP+s5DKDbieOvFkoB+movk@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw+ipBslR0jETxCf9+4kPz+FF2SC6zNzu0iysErdW8om1od/ENs
-	wbloc8Exm0l2wtaBIbC7nAbExUGiTMo3Yrph4IKC1UqbWqQeFEvFwYc4
-X-Gm-Gg: AfdE7cleJifBb5emAeZJ/KygWeufaSjIPkQINmvL/jeonczWOaaZw8NxS/OPmsksDR/
-	IHDDe4m0nIX7nox5WMKaSVNwHrDUBl+RVX/5YQcn4Bei8LD4QA2q25XBmua8ve8kZdp5+GjlZ46
-	mwDhbuPVo9xMCqbpIgggRJdlcTTwKYDtNNNejwB7vNFBcWyQLLPxRSw+Kp2sghoiqSMFC5GJ5s7
-	aJWw+Ng/Gv2Pp26yoWO/O3wpUAoIDB9/ALCxNuKrXZ0cNJlX8CS0dip4UG2iNVYF4q3Qbu+K//b
-	vdQxVO5LlZCtCvFPfaw7S6RdxeHRQyPbRlvx3J++i65GV4RilUp/VCs+14Jn53bQCz+5GP/S0wL
-	tjgia7WwbWWN0UGJw3fDvnBUmV/cJkiap8m0zi6gpQ/p3BMUC56HHIOJq+blBzX0hZMv7QJrDoi
-	1PAa03HAk9X0w2K88E4YQlcAgILBdGWHYLHLMOHNzhX13eb1vUEYotx9jyn6eOXe2Ma8pmWApTx
-	f92ngQ08mwL
-X-Received: by 2002:a05:6000:5c6:b0:46e:765d:78aa with SMTP id ffacd0b85a97d-46e765d7e1dmr5860777f8f.2.1782465647617;
-        Fri, 26 Jun 2026 02:20:47 -0700 (PDT)
+        bh=Oqp269fPqkkP0y4F1qhxEIUZdEYzw+E7N13spqrG24g=;
+        b=F1IiqMmnMcxkqLXLFw94RVUNPqZofXYdNrCX0LPnBDhgg9fBefUfizsOpoQItruVJh
+         eAbOwMcvBeMzkT+Ocv2nrXhYPgxFWlwIgcjh/Tf4q7+Qjx47h+sRUhoiiVSH3I51Sx3F
+         LGYdVKS7m0ArdH6c1VMLKCi7o6CjPHv/elD3ny5IWql1+1M723NfU4Gsop1SPV9AWL5B
+         Y0KxbDceY3nuHz9J2ShFAinGMIX9NbuIIXMvtTjmN0SwJPLXJAlBjXTNCXN5o404qwzf
+         Mjh+8VqgL/vXKtju6WFNI7EMDUjong+ezTNzwdJqUxdcOIn4KOzEZUVeV0cru8hOU7BP
+         t/EQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rq4PeTk02JsxxKMAmygBHsaRLxx9RHbKIzXsb4ReATymHekUCpXANAcAuDj5QSTI3w8MwP4ick2GSYSsCgwbPO9@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz2NP76ReFuggSxCoMExikpHD5Nx9Z4tHnHTlb4vsKwgZwPh1/Z
+	9B/Y4pSOx7to/IiGQcdeWtbcPxoTq69sdqx3edeF7myZsrYqLoAS54YE
+X-Gm-Gg: AfdE7cmlcWQ6m6uCKk3tJwl2AHdOGWj8s4QimxSNTmX4HlIpsS4ffu6snyUUk1IjbmY
+	Tb/vJIVz+R4jzK5Y97KZ2CpCXDHgNmvS/ts4taQvhZGEmap9IPKlF01lkW4Wp1CNcQO1KdBrDbq
+	5IQ+cWS4ObCbYcPXZ+zgUq85hHaKV3aSqAsW7Zj/N+cbprJM/vKiV2V2uM1pem0istPQm29z13d
+	0ZYW+bjphT/buI83pN6f7rZ0Sz4V4KMxLUdzUCdOQga+I1GNBQw5VnQBQ7aEhpVWh6JRcM4ZJW/
+	nStjTmEo7gE3BsJlOgY8mD0mo3n1R8eHExUsMXeEPUWFZbP13y+z+/x5KQ5f6jyKjDTQnu4yUj1
+	+/cRI2335q87lyj/Dyy8elklXcgtrkDPp8Lb04fp44nJHl11v9MbbX7zZ4H7ke66coTDGWOeH1w
+	8oE1I0xtciS3u4hQjX0XiK5IZvdKhU9CaC8iFPVcOo1rqFrRmxi5+/bnqxvu5ayja06XFfeP74C
+	GGJMt9JFK6D
+X-Received: by 2002:a05:6000:1447:b0:464:8d68:616f with SMTP id ffacd0b85a97d-46dc2b0b64bmr10020789f8f.31.1782465645828;
+        Fri, 26 Jun 2026 02:20:45 -0700 (PDT)
 Received: from Ansuel-XPS24.localdomain (host-80-183-219-152.pool80183.interbusiness.it. [80.183.219.152])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-46e6167c05fsm9094388f8f.25.2026.06.26.02.20.45
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-46e6167c05fsm9094388f8f.25.2026.06.26.02.20.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 26 Jun 2026 02:20:47 -0700 (PDT)
+        Fri, 26 Jun 2026 02:20:45 -0700 (PDT)
 From: Christian Marangi <ansuelsmth@gmail.com>
 To: Bjorn Helgaas <bhelgaas@google.com>,
 	Lorenzo Pieralisi <lpieralisi@kernel.org>,
@@ -93,17 +93,17 @@ To: Bjorn Helgaas <bhelgaas@google.com>,
 	linux-mediatek@lists.infradead.org,
 	linux-clk@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 3/4] dt-bindings: PCI: mediatek-gen3: Split Airoha schema and document 2-lanes
-Date: Fri, 26 Jun 2026 11:20:27 +0200
-Message-ID: <20260626092029.3525264-4-ansuelsmth@gmail.com>
+Subject: [PATCH v2 2/4] clk: en7523: add support for dedicated PCIe PERSTOUT reset
+Date: Fri, 26 Jun 2026 11:20:26 +0200
+Message-ID: <20260626092029.3525264-3-ansuelsmth@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260626092029.3525264-1-ansuelsmth@gmail.com>
 References: <20260626092029.3525264-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_022049_779426_2A6A5D67 
-X-CRM114-Status: GOOD (  19.16  )
+X-CRM114-CacheID: sfid-20260626_022048_018063_4A74B2A4 
+X-CRM114-Status: GOOD (  16.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,427 +118,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-To permit proper documentation of required property to support PCIe
-configured for 2-lanes mode, split the Airoha schema part from the
-mediatek-gen3 schema to a dedicated schema.
+Add support for resetting the PCIe lines with the PERSTOUT reset. These
+special reset are controlled by the PCIC register and are specific to each
+of the 3 PCIe lines.
 
-A PCIe configured for 2-lanes mode require an additional reg for the
-secondary PCIe to be configured and the airoha,scu phandle to correctly
-configure the PCIe MUX.
+Notice that reset logic is inverted for these bit where 0 is assert and 1
+deassert. This is intenrally handled in the reset function.
 
-Rework the mediatek-gen3 schema to drop any redundant constraint previsouly
-introduced for Airoha PCIe properties.
+PCI enable/disable are updated to drop PERSTOUT bits in favor dedicated
+reset handling.
 
 Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 ---
- .../bindings/pci/airoha,en7581-pcie.yaml      | 251 ++++++++++++++++++
- .../bindings/pci/mediatek-pcie-gen3.yaml      |  77 +-----
- 2 files changed, 256 insertions(+), 72 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/pci/airoha,en7581-pcie.yaml
+ drivers/clk/clk-en7523.c | 39 ++++++++++++++++++++++++++++-----------
+ 1 file changed, 28 insertions(+), 11 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/pci/airoha,en7581-pcie.yaml b/Documentation/devicetree/bindings/pci/airoha,en7581-pcie.yaml
-new file mode 100644
-index 000000000000..c690ba7f207c
---- /dev/null
-+++ b/Documentation/devicetree/bindings/pci/airoha,en7581-pcie.yaml
-@@ -0,0 +1,251 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pci/airoha,en7581-pcie.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Gen3 PCIe controller on Airoha SoCs
-+
-+maintainers:
-+  - Christian Marangi <ansuelsmth@gmail.com>
-+
-+description: |+
-+  PCIe Gen3 MAC controller for Airoha SoCs, it supports Gen3 speed
-+  and compatible with Gen2, Gen1 speed.
-+
-+  This PCIe controller supports up to 256 MSI vectors, the MSI hardware
-+  block diagram is as follows:
-+
-+                    +-----+
-+                    | GIC |
-+                    +-----+
-+                       ^
-+                       |
-+                   port->irq
-+                       |
-+               +-+-+-+-+-+-+-+-+
-+               |0|1|2|3|4|5|6|7| (PCIe intc)
-+               +-+-+-+-+-+-+-+-+
-+                ^ ^           ^
-+                | |    ...    |
-+        +-------+ +------+    +-----------+
-+        |                |                |
-+  +-+-+---+--+--+  +-+-+---+--+--+  +-+-+---+--+--+
-+  |0|1|...|30|31|  |0|1|...|30|31|  |0|1|...|30|31| (MSI sets)
-+  +-+-+---+--+--+  +-+-+---+--+--+  +-+-+---+--+--+
-+   ^ ^      ^  ^    ^ ^      ^  ^    ^ ^      ^  ^
-+   | |      |  |    | |      |  |    | |      |  |  (MSI vectors)
-+   | |      |  |    | |      |  |    | |      |  |
-+
-+    (MSI SET0)       (MSI SET1)  ...   (MSI SET7)
-+
-+  With 256 MSI vectors supported, the MSI vectors are composed of 8 sets,
-+  each set has its own address for MSI message, and supports 32 MSI vectors
-+  to generate interrupt.
-+
-+properties:
-+  compatible:
-+    const: airoha,en7581-pcie
-+
-+  reg:
-+    minItems: 1
-+    maxItems: 2
-+
-+  reg-names:
-+    minItems: 1
-+    maxItems: 2
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  ranges:
-+    minItems: 1
-+    maxItems: 8
-+
-+  iommu-map:
-+    maxItems: 1
-+
-+  iommu-map-mask:
-+    const: 0
-+
-+  resets:
-+    minItems: 1
-+    maxItems: 4
-+
-+  reset-names:
-+    minItems: 1
-+    maxItems: 4
-+
-+  clocks:
-+    maxItems: 1
-+
-+  clock-names:
-+    items:
-+      - const: sys-ck
-+
-+  phys:
-+    maxItems: 1
-+
-+  phy-names:
-+    items:
-+      - const: pcie-phy
-+
-+  num-lanes:
-+    enum: [1, 2]
-+
-+  mediatek,pbus-csr:
-+    $ref: /schemas/types.yaml#/definitions/phandle-array
-+    items:
-+      - items:
-+          - description: phandle to pbus-csr syscon
-+          - description: offset of pbus-csr base address register
-+          - description: offset of pbus-csr base address mask register
-+    description:
-+      Phandle with two arguments to the syscon node used to detect if
-+      a given address is accessible on PCIe controller.
-+
-+  airoha,scu:
-+    $ref: /schemas/types.yaml#/definitions/phandle-array
-+    items:
-+      - items:
-+          - description: phandle to airoha SCU syscon
-+    description:
-+      Phandle to SCU syscon to configure PCIe MUX for 2 lines support.
-+
-+  '#interrupt-cells':
-+    const: 1
-+
-+  interrupt-controller:
-+    description: Interrupt controller node for handling legacy PCI interrupts.
-+    type: object
-+    properties:
-+      '#address-cells':
-+        const: 0
-+      '#interrupt-cells':
-+        const: 1
-+      interrupt-controller: true
-+
-+    required:
-+      - '#address-cells'
-+      - '#interrupt-cells'
-+      - interrupt-controller
-+
-+    additionalProperties: false
-+
-+required:
-+  - compatible
-+  - reg
-+  - reg-names
-+  - interrupts
-+  - ranges
-+  - clocks
-+  - clock-names
-+  - '#interrupt-cells'
-+  - interrupt-controller
-+
-+allOf:
-+  - $ref: /schemas/pci/pci-host-bridge.yaml#
-+  - if:
-+      properties:
-+        num-lanes:
-+          const: 2
-+    then:
-+      properties:
-+        reg:
-+          minItems: 2
-+
-+        reg-names:
-+          items:
-+            - const: pcie-mac
-+            - const: sec-pcie-mac
-+
-+        resets:
-+          minItems: 4
-+
-+        reset-names:
-+          items:
-+            - const: phy-lane0
-+            - const: phy-lane1
-+            - const: perstout
-+            - const: sec-perstout
-+
-+      required:
-+        - airoha,scu
-+
-+    else:
-+      properties:
-+        reg:
-+          maxItems: 1
-+
-+        reg-names:
-+          items:
-+            - const: pcie-mac
-+
-+        resets:
-+          minItems: 2
-+          maxItems: 3
-+
-+        reset-names:
-+          minItems: 2
-+          items:
-+            - enum: [ phy-lane0, phy-lane1, phy-lane2 ]
-+            - enum: [ phy-lane1, perstout ]
-+            - const: phy-lane2
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+
-+    bus {
-+        #address-cells = <2>;
-+        #size-cells = <2>;
-+
-+        pcie@1fc00000 {
-+            compatible = "airoha,en7581-pcie";
-+            device_type = "pci";
-+            #address-cells = <3>;
-+            #size-cells = <2>;
-+
-+            reg = <0x0 0x1fc00000 0x0 0x1670>,
-+                  <0x0 0x1fc20000 0x0 0x1670>;
-+            reg-names = "pcie-mac", "sec-pcie-mac";
-+
-+            clocks = <&scuclk 7>;
-+            clock-names = "sys-ck";
-+
-+            phys = <&pciephy>;
-+            phy-names = "pcie-phy";
-+
-+            ranges = <0x02000000 0 0x20000000 0x0 0x20000000 0 0x4000000>;
-+
-+            resets = <&scuclk 48>,
-+                     <&scuclk 49>,
-+                     <&scuclk 53>,
-+                     <&scuclk 54>;
-+            reset-names = "phy-lane0", "phy-lane1",
-+                          "perstout", "sec-perstout";
-+
-+            num-lanes = <2>;
-+
-+            mediatek,pbus-csr = <&pbus_csr 0x0 0x4>;
-+
-+            airoha,scu = <&scuclk>;
-+
-+            interrupts = <GIC_SPI 39 IRQ_TYPE_LEVEL_HIGH>;
-+            bus-range = <0x00 0xff>;
-+            #interrupt-cells = <1>;
-+            interrupt-map-mask = <0 0 0 0x7>;
-+            interrupt-map = <0 0 0 1 &pcie_intc 0>,
-+                            <0 0 0 2 &pcie_intc 1>,
-+                            <0 0 0 3 &pcie_intc 2>,
-+                            <0 0 0 4 &pcie_intc 3>;
-+            pcie_intc: interrupt-controller {
-+                      #address-cells = <0>;
-+                      #interrupt-cells = <1>;
-+                      interrupt-controller;
-+            };
-+        };
-+    };
-diff --git a/Documentation/devicetree/bindings/pci/mediatek-pcie-gen3.yaml b/Documentation/devicetree/bindings/pci/mediatek-pcie-gen3.yaml
-index 4db700fc36ba..510f1f2b1c5a 100644
---- a/Documentation/devicetree/bindings/pci/mediatek-pcie-gen3.yaml
-+++ b/Documentation/devicetree/bindings/pci/mediatek-pcie-gen3.yaml
-@@ -59,7 +59,6 @@ properties:
-           - const: mediatek,mt8196-pcie
-       - const: mediatek,mt8192-pcie
-       - const: mediatek,mt8196-pcie
--      - const: airoha,en7581-pcie
+diff --git a/drivers/clk/clk-en7523.c b/drivers/clk/clk-en7523.c
+index 1ab0e2eca5d3..c9b21d9bf2f3 100644
+--- a/drivers/clk/clk-en7523.c
++++ b/drivers/clk/clk-en7523.c
+@@ -338,6 +338,7 @@ static const struct en_clk_desc en7581_base_clks[] = {
+ static const u16 en7581_rst_ofs[] = {
+ 	REG_RST_CTRL2,
+ 	REG_RST_CTRL1,
++	REG_NP_SCU_PCIC,
+ };
  
-   reg:
-     maxItems: 1
-@@ -83,20 +82,20 @@ properties:
+ static const u16 en751221_rst_ofs[] = {
+@@ -450,6 +451,11 @@ static const u16 en7581_rst_map[] = {
+ 	[EN7581_CPU_TIMER_RST]		= RST_NR_PER_BANK + 28,
+ 	[EN7581_PCIE_HB_RST]		= RST_NR_PER_BANK + 29,
+ 	[EN7581_XPON_MAC_RST]		= RST_NR_PER_BANK + 31,
++
++	/* RST_PCIC */
++	[EN7581_PCIC_PERSTOUT0_RST]	= 2 * RST_NR_PER_BANK + 29,
++	[EN7581_PCIC_PERSTOUT1_RST]	= 2 * RST_NR_PER_BANK + 26,
++	[EN7581_PCIC_PERSTOUT2_RST]	= 2 * RST_NR_PER_BANK + 16,
+ };
  
-   resets:
-     minItems: 1
--    maxItems: 3
-+    maxItems: 2
+ static const u16 en751221_rst_map[] = {
+@@ -635,9 +641,7 @@ static int en7581_pci_enable(struct clk_hw *hw)
+ 	void __iomem *np_base = cg->base;
+ 	u32 val, mask;
  
-   reset-names:
-     minItems: 1
--    maxItems: 3
-+    maxItems: 2
-     items:
--      enum: [ phy, mac, phy-lane0, phy-lane1, phy-lane2 ]
-+      enum: [ phy, mac ]
+-	mask = REG_PCI_CONTROL_REFCLK_EN0 | REG_PCI_CONTROL_REFCLK_EN1 |
+-	       REG_PCI_CONTROL_PERSTOUT1 | REG_PCI_CONTROL_PERSTOUT2 |
+-	       REG_PCI_CONTROL_PERSTOUT;
++	mask = REG_PCI_CONTROL_REFCLK_EN0 | REG_PCI_CONTROL_REFCLK_EN1;
+ 	val = readl(np_base + REG_PCI_CONTROL);
+ 	writel(val | mask, np_base + REG_PCI_CONTROL);
  
-   clocks:
--    minItems: 1
-+    minItems: 4
-     maxItems: 6
+@@ -650,9 +654,7 @@ static void en7581_pci_disable(struct clk_hw *hw)
+ 	void __iomem *np_base = cg->base;
+ 	u32 val, mask;
  
-   clock-names:
--    minItems: 1
-+    minItems: 4
-     maxItems: 6
+-	mask = REG_PCI_CONTROL_REFCLK_EN0 | REG_PCI_CONTROL_REFCLK_EN1 |
+-	       REG_PCI_CONTROL_PERSTOUT1 | REG_PCI_CONTROL_PERSTOUT2 |
+-	       REG_PCI_CONTROL_PERSTOUT;
++	mask = REG_PCI_CONTROL_REFCLK_EN0 | REG_PCI_CONTROL_REFCLK_EN1;
+ 	val = readl(np_base + REG_PCI_CONTROL);
+ 	writel(val & ~mask, np_base + REG_PCI_CONTROL);
+ 	usleep_range(1000, 2000);
+@@ -754,14 +756,21 @@ static int en7523_reset_update(struct reset_controller_dev *rcdev,
+ 			       unsigned long id, bool assert)
+ {
+ 	struct en_rst_data *rst_data = container_of(rcdev, struct en_rst_data, rcdev);
+-	void __iomem *addr = rst_data->base + rst_data->bank_ofs[id / RST_NR_PER_BANK];
++	u32 offset = rst_data->bank_ofs[id / RST_NR_PER_BANK];
++	void __iomem *addr = rst_data->base + offset;
++	bool inverted = false;
+ 	u32 val;
  
-   assigned-clocks:
-@@ -115,17 +114,6 @@ properties:
-   power-domains:
-     maxItems: 1
++	/* For PCIC reset logic is inverted, 0:assert 1:deassert*/
++	if (offset == REG_NP_SCU_PCIC)
++		inverted = true;
++
+ 	val = readl(addr);
++	val &= ~BIT(id % RST_NR_PER_BANK);
+ 	if (assert)
+-		val |= BIT(id % RST_NR_PER_BANK);
++		val |= inverted ? 0 : BIT(id % RST_NR_PER_BANK);
+ 	else
+-		val &= ~BIT(id % RST_NR_PER_BANK);
++		val |= inverted ? BIT(id % RST_NR_PER_BANK) : 0;
+ 	writel(val, addr);
  
--  mediatek,pbus-csr:
--    $ref: /schemas/types.yaml#/definitions/phandle-array
--    items:
--      - items:
--          - description: phandle to pbus-csr syscon
--          - description: offset of pbus-csr base address register
--          - description: offset of pbus-csr base address mask register
--    description:
--      Phandle with two arguments to the syscon node used to detect if
--      a given address is accessible on PCIe controller.
--
-   '#interrupt-cells':
-     const: 1
+ 	return 0;
+@@ -783,9 +792,17 @@ static int en7523_reset_status(struct reset_controller_dev *rcdev,
+ 			       unsigned long id)
+ {
+ 	struct en_rst_data *rst_data = container_of(rcdev, struct en_rst_data, rcdev);
+-	void __iomem *addr = rst_data->base + rst_data->bank_ofs[id / RST_NR_PER_BANK];
++	u32 offset = rst_data->bank_ofs[id / RST_NR_PER_BANK];
++	void __iomem *addr = rst_data->base + offset;
++	bool inverted = false;
++	u32 val;
++
++	/* For PCIC reset logic is inverted, 0:assert 1:deassert*/
++	if (offset == REG_NP_SCU_PCIC)
++		inverted = true;
  
-@@ -177,16 +165,6 @@ allOf:
-             - const: peri_26m
-             - const: top_133m
+-	return !!(readl(addr) & BIT(id % RST_NR_PER_BANK));
++	val = readl(addr) & BIT(id % RST_NR_PER_BANK);
++	return inverted ? !val : !!val;
+ }
  
--        resets:
--          minItems: 1
--          maxItems: 2
--
--        reset-names:
--          minItems: 1
--          maxItems: 2
--
--        mediatek,pbus-csr: false
--
-   - if:
-       properties:
-         compatible:
-@@ -208,16 +186,6 @@ allOf:
-             - const: peri_26m
-             - const: peri_mem
- 
--        resets:
--          minItems: 1
--          maxItems: 2
--
--        reset-names:
--          minItems: 1
--          maxItems: 2
--
--        mediatek,pbus-csr: false
--
-   - if:
-       properties:
-         compatible:
-@@ -246,8 +214,6 @@ allOf:
-             - const: phy
-             - const: mac
- 
--        mediatek,pbus-csr: false
--
-   - if:
-       properties:
-         compatible:
-@@ -257,7 +223,6 @@ allOf:
-     then:
-       properties:
-         clocks:
--          minItems: 4
-           maxItems: 4
- 
-         clock-names:
-@@ -267,38 +232,6 @@ allOf:
-             - const: peri_26m
-             - const: top_133m
- 
--        resets:
--          minItems: 1
--          maxItems: 2
--
--        reset-names:
--          minItems: 1
--          maxItems: 2
--
--        mediatek,pbus-csr: false
--
--  - if:
--      properties:
--        compatible:
--          const: airoha,en7581-pcie
--    then:
--      properties:
--        clocks:
--          maxItems: 1
--
--        clock-names:
--          items:
--            - const: sys-ck
--
--        resets:
--          minItems: 3
--
--        reset-names:
--          items:
--            - const: phy-lane0
--            - const: phy-lane1
--            - const: phy-lane2
--
- unevaluatedProperties: false
- 
- examples:
+ static int en7523_reset_xlate(struct reset_controller_dev *rcdev,
 -- 
 2.53.0
 
