@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7414CDE011
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 12:08:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1D7CCDE018
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 12:08:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OKyIGQGbDGHP1L7ry1iEbnADCH/kULfeBHtwfkZhOOQ=; b=vLKkUHJo4luggiaHU/P0xJmywD
-	LJ7UMPNycFmEKC54jN8JAlzppQSylRXCekpU8p9hcSHdXoCLTfxhgH7HJi+iLwNvrrj7KqIHYKGH2
-	yxEPnCXywRxyx2nc5Op6FVFr5RUOAZS71E8ThNCLknVgLVshIL9e9bP+1Yo0/shDNi0FI13L2v2Fx
-	4xswK3MytGXHVCpait5ahxy6fQW9j6tNDB30VmPgVmCKQ/5e1tCFZBhMvObyF75j1C4GhCTG6uofE
-	BuBdfXej7i/8AvCbNHlvOUoKCDYYd8Qm0jGNO4KVAK2JksN26Nale7IztvUQ+KOHOugQN0VXYSJUb
-	9GwIBz7w==;
+	bh=y8HFQL13Ed5vzOYK2fwoLShERZHxhqV9y9OrxARUfgE=; b=hm/1e79o7Lxla58IfoNQCZeG6a
+	v0G5pmZIiGKsT9snD3v+yZNMXzGeLpsSOx0e5sL9u3K6CokQwAQMcWgOQC4ths0qchugDSe30bkIg
+	JtWkBIAwrrF9xPE1Zy7JfkmewsSBd/WEhosI12DPHeCEf7KZcZRGd4J4BNQV+GPKoSf74McvA0YGy
+	XAtP6WnBr79lFJ7lLrqtnNzFZS8Uyl/x4kkgg63QYeTev5S0V+JPfjvU0GqVqL8iNIem7FEhVx4hf
+	nQBcEdaJrQy2WjmFB5/bkK6Ap5URnKBpuYXEsIrmw+jSJdppaKD3oSgoAu6ccCuRqTVSJdnoufGpV
+	+lcYAU1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd5MB-0000000BHcI-3uR1;
-	Fri, 26 Jun 2026 12:08:27 +0000
+	id 1wd5MC-0000000BHd4-0qxS;
+	Fri, 26 Jun 2026 12:08:28 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd5Lu-0000000BHN5-3us7;
-	Fri, 26 Jun 2026 12:08:12 +0000
+	id 1wd5Lw-0000000BHNr-1ZiO;
+	Fri, 26 Jun 2026 12:08:13 +0000
 Received: from ping.linuxembedded.co.uk (cpc89244-aztw30-2-0-cust6594.18-1.cable.virginm.net [86.31.185.195])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 4900E1CEF;
-	Fri, 26 Jun 2026 14:07:27 +0200 (CEST)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id B0EFA1D0A;
+	Fri, 26 Jun 2026 14:07:28 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1782475648;
-	bh=PB9YxYHHHDa6l4Ina14jx4/wZx2J8xLQNOqCltTeeww=;
+	s=mail; t=1782475650;
+	bh=1/oUhVk74PsiN3MZzcdIYvqyHY+Gnerhson6lRR0lpk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=ZGVNFzFvxSwtAONX4j48RYUMN7o11jg+XXilq1QjDQ/8xlvXuqbFGTu7Yo3dtBk0R
-	 95hOJd1FIJ7qp0YrDnDRTgwBvWRL2y7XGMaV6j9gf1QVT/kHBS2P4FsPE2E5etl6Xx
-	 /7swDODs6kP6JNZ9+KrhTiDiXXn4Gag08gTIsSfk=
+	b=GHWKZshpDcFnXFUHNVMtu/UJLiytezMts/EH87Rqx3kQJqmogwz1sdI8oQ0ms2fsV
+	 RUTiUZ15R/OQm8y29EwifB0WRr8G+KrRSirOP0DqcqDkoCPmR8j9p5bxVfrLszRDIM
+	 JsO78O9kqBlayrEpObQjwws28vWrevT9lYQZ19uQ=
 From: Kieran Bingham <kieran.bingham@ideasonboard.com>
-Date: Fri, 26 Jun 2026 13:07:58 +0100
-Subject: [PATCH v2 6/8] arm64: dts: qcom: Convert to new media orientation
- definitions
+Date: Fri, 26 Jun 2026 13:07:59 +0100
+Subject: [PATCH v2 7/8] arm64: dts: renesas: Convert to new media
+ orientation definitions
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260626-kbingham-orientation-v2-6-47178be927b4@ideasonboard.com>
+Message-Id: <20260626-kbingham-orientation-v2-7-47178be927b4@ideasonboard.com>
 References: <20260626-kbingham-orientation-v2-0-47178be927b4@ideasonboard.com>
 In-Reply-To: <20260626-kbingham-orientation-v2-0-47178be927b4@ideasonboard.com>
 To: Mauro Carvalho Chehab <mchehab@kernel.org>, 
@@ -77,18 +77,18 @@ Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
  linux@ew.tq-group.com, imx@lists.linux.dev, 
  linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
  linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org, 
- Kieran Bingham <kieran.bingham@ideasonboard.com>
+ Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1782475679; l=3050;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782475679; l=3758;
  i=kieran.bingham@ideasonboard.com; s=20260207; h=from:subject:message-id;
- bh=PB9YxYHHHDa6l4Ina14jx4/wZx2J8xLQNOqCltTeeww=;
- b=omDJyr+cL2Qk2zq3pggIUJqkAAXLtTJU0fn7jwm5sk+FNC8ZoVSUgJjzug4B0fD7LcWxpqpGE
- c2m5inmr2LADU/SAlBwYyZ9S44n0zw/V2SHMaIg5B3NUqX+NDl08zRu
+ bh=2rSGjcZ6Wtxs4n28tXYT3YrV2tMO4y4R6/uKEOMLHZ4=;
+ b=M2sPkEEhGzwwR4wOZOH8hrGe0NikpT9cwMXZiqcMlIOrSlHLxC4reijwMKw37IEDOBpvZsUpj
+ acEeh+ARrdaA+Uybdsid9t9l0atzeRv08JnGdrORhBtZhgmJbqe7Gsa
 X-Developer-Key: i=kieran.bingham@ideasonboard.com; a=ed25519;
  pk=FVXKN7YuwHc6UtbRUeTMAmranfsQomA+vnilfglWdaY=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_050811_164475_E4D86D58 
-X-CRM114-Status: GOOD (  10.39  )
+X-CRM114-CacheID: sfid-20260626_050812_574564_3408C69A 
+X-CRM114-Status: GOOD (  10.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,82 +103,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>
+
 The orientation property for video interface devices now has definitions
 to prevent hardcoded integer values for the enum options.
 
-Update the users throughout the qualcomm device trees to use the new
+Update the users throughout the renesas device trees to use the new
 definitions.
 
-Signed-off-by: Kieran Bingham <kieran.bingham@ideasonboard.com>
+Signed-off-by: Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>
 ---
- arch/arm64/boot/dts/qcom/qcm6490-fairphone-fp5.dts         | 3 ++-
- arch/arm64/boot/dts/qcom/sc8280xp-lenovo-thinkpad-x13s.dts | 3 ++-
- arch/arm64/boot/dts/qcom/sdm670-google-common.dtsi         | 3 ++-
- 3 files changed, 6 insertions(+), 3 deletions(-)
+ .../arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j1-imx219.dtso | 3 ++-
+ .../arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j1-imx462.dtso | 3 ++-
+ .../arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j2-imx219.dtso | 3 ++-
+ .../arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j2-imx462.dtso | 3 ++-
+ 4 files changed, 8 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/qcom/qcm6490-fairphone-fp5.dts b/arch/arm64/boot/dts/qcom/qcm6490-fairphone-fp5.dts
-index 04cb9230d29f..d79be22108c8 100644
---- a/arch/arm64/boot/dts/qcom/qcm6490-fairphone-fp5.dts
-+++ b/arch/arm64/boot/dts/qcom/qcm6490-fairphone-fp5.dts
-@@ -13,6 +13,7 @@
- #include <dt-bindings/iio/qcom,spmi-adc7-pmk8350.h>
- #include <dt-bindings/leds/common.h>
+diff --git a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j1-imx219.dtso b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j1-imx219.dtso
+index 3acaf714cf24..b816382bba0a 100644
+--- a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j1-imx219.dtso
++++ b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j1-imx219.dtso
+@@ -12,6 +12,7 @@
+ 
+ #include <dt-bindings/gpio/gpio.h>
  #include <dt-bindings/media/video-interfaces.h>
 +#include <dt-bindings/media/video-interface-devices.h>
- #include <dt-bindings/pinctrl/qcom,pmic-gpio.h>
- #include <dt-bindings/regulator/qcom,rpmh-regulator.h>
- #include <dt-bindings/sound/qcom,q6asm.h>
-@@ -701,7 +702,7 @@ camera@10 {
- 		pinctrl-0 = <&cam_mclk3_default>;
- 		pinctrl-names = "default";
  
--		orientation = <0>; /* Front facing */
-+		orientation = <MEDIA_ORIENTATION_FRONT>;
- 		rotation = <270>;
+ &{/} {
+ 	clk_cam_j1: clk-cam-j1 {
+@@ -44,7 +45,7 @@ cam@10 {
+ 		VDIG-supply = <&reg_cam_j1>;
+ 		VDDL-supply = <&reg_cam_j1>;
+ 
+-		orientation = <2>;
++		orientation = <MEDIA_ORIENTATION_EXTERNAL>;
+ 		rotation = <0>;
  
  		port {
-diff --git a/arch/arm64/boot/dts/qcom/sc8280xp-lenovo-thinkpad-x13s.dts b/arch/arm64/boot/dts/qcom/sc8280xp-lenovo-thinkpad-x13s.dts
-index abd9c5a67b9f..543fc691fd3c 100644
---- a/arch/arm64/boot/dts/qcom/sc8280xp-lenovo-thinkpad-x13s.dts
-+++ b/arch/arm64/boot/dts/qcom/sc8280xp-lenovo-thinkpad-x13s.dts
-@@ -11,6 +11,7 @@
- #include <dt-bindings/input/gpio-keys.h>
- #include <dt-bindings/input/input.h>
- #include <dt-bindings/leds/common.h>
-+#include <dt-bindings/media/video-interface-devices.h>
- #include <dt-bindings/regulator/qcom,rpmh-regulator.h>
+diff --git a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j1-imx462.dtso b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j1-imx462.dtso
+index a19bc0840392..4019b80a88b7 100644
+--- a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j1-imx462.dtso
++++ b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j1-imx462.dtso
+@@ -12,6 +12,7 @@
  
- #include "sc8280xp.dtsi"
-@@ -682,7 +683,7 @@ camera@10 {
- 
- 		clocks = <&camcc CAMCC_MCLK3_CLK>;
- 
--		orientation = <0>;	/* Front facing */
-+		orientation = <MEDIA_ORIENTATION_FRONT>;
- 
- 		avdd-supply = <&vreg_l6q>;
- 		dvdd-supply = <&vreg_l2q>;
-diff --git a/arch/arm64/boot/dts/qcom/sdm670-google-common.dtsi b/arch/arm64/boot/dts/qcom/sdm670-google-common.dtsi
-index 0f57b915186b..375b3c0edea7 100644
---- a/arch/arm64/boot/dts/qcom/sdm670-google-common.dtsi
-+++ b/arch/arm64/boot/dts/qcom/sdm670-google-common.dtsi
-@@ -9,6 +9,7 @@
  #include <dt-bindings/gpio/gpio.h>
- #include <dt-bindings/input/input.h>
- #include <dt-bindings/leds/common.h>
+ #include <dt-bindings/media/video-interfaces.h>
 +#include <dt-bindings/media/video-interface-devices.h>
- #include <dt-bindings/pinctrl/qcom,pmic-gpio.h>
- #include <dt-bindings/power/qcom-rpmpd.h>
- #include "sdm670.dtsi"
-@@ -460,7 +461,7 @@ camera@1a {
- 		pinctrl-names = "default";
  
- 		rotation = <270>;
--		orientation = <0>;
-+		orientation = <MEDIA_ORIENTATION_FRONT>;
+ &{/} {
+ 	clk_cam_j1: clk-cam-j1 {
+@@ -46,7 +47,7 @@ cam@1a {
+ 		vdda-supply = <&reg_cam_j1>;
+ 		vddd-supply = <&reg_cam_j1>;
+ 
+-		orientation = <2>;
++		orientation = <MEDIA_ORIENTATION_EXTERNAL>;
+ 		rotation = <0>;
  
  		port {
- 			cam_front_endpoint: endpoint {
+diff --git a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j2-imx219.dtso b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j2-imx219.dtso
+index 512810b861aa..fea1ef4a1178 100644
+--- a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j2-imx219.dtso
++++ b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j2-imx219.dtso
+@@ -12,6 +12,7 @@
+ 
+ #include <dt-bindings/gpio/gpio.h>
+ #include <dt-bindings/media/video-interfaces.h>
++#include <dt-bindings/media/video-interface-devices.h>
+ 
+ &{/} {
+ 	clk_cam_j2: clk-cam-j2 {
+@@ -44,7 +45,7 @@ cam@10 {
+ 		VDIG-supply = <&reg_cam_j2>;
+ 		VDDL-supply = <&reg_cam_j2>;
+ 
+-		orientation = <2>;
++		orientation = <MEDIA_ORIENTATION_EXTERNAL>;
+ 		rotation = <0>;
+ 
+ 		port {
+diff --git a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j2-imx462.dtso b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j2-imx462.dtso
+index a31524b59834..177201a8a6d2 100644
+--- a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j2-imx462.dtso
++++ b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-camera-j2-imx462.dtso
+@@ -12,6 +12,7 @@
+ 
+ #include <dt-bindings/gpio/gpio.h>
+ #include <dt-bindings/media/video-interfaces.h>
++#include <dt-bindings/media/video-interface-devices.h>
+ 
+ &{/} {
+ 	clk_cam_j2: clk-cam-j2 {
+@@ -46,7 +47,7 @@ cam@1a {
+ 		vdda-supply = <&reg_cam_j2>;
+ 		vddd-supply = <&reg_cam_j2>;
+ 
+-		orientation = <2>;
++		orientation = <MEDIA_ORIENTATION_EXTERNAL>;
+ 		rotation = <0>;
+ 
+ 		port {
 
 -- 
 2.52.0
