@@ -4,72 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3862CD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 08:04:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3163BCD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 08:04:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+77nOJgmwtZQGzPLmm+rcnUe48T3XJA7XfHbn/x3vS0=; b=tMqLHXd+BmmEoh7wZUDw3XnQ4q
-	nyMEPRzpbb95gw1gs0lQIYIlz3CIa/LZeiYhB3q0qdHQ+paB4jh8c22kW3galxMJLPPN0Q6Im58yE
-	YJQvRlkuZKjCTTVKxAyH1gq+6oY4zHxbnlYe4ZQapsjxE4SIPd+WO4ysOjNfj2j4MngsqlJjEN3Cl
-	eKcFf8W8mIPeKUf3N7rOw1wvuKjnq2nSe1pQZVD8XWeaAMh0pho6LIJALwWwQwW8zpDP3D11jAUnB
-	mUoxPAByd6gs3bLDHzGPVFgYZz61J2wCHqtkPHGqbjkhMKI4hwAyX3z6orPLu1PiVBclpxU3yN84L
-	Ox0WPlmg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8BDlwFSAwx/VUcU/0Zc7YpwR/WtK9Ex0Sk5CLPSAtZY=; b=kD20XK+0rsvio1Sci1CmFNMEXZ
+	nGHSheYQxYPrqXyyMy2eNEFuKfa9Mmg7l/F0o9USk56US/4b6RHkJwJh/tjlPDqzaPUrvVIoasgZV
+	QIJOWs2/8+tNFFpMdmDT+/0Du7csmPx02XO2wjXOQH/BcPTJZC4hWergy3/JTtDrq/U5pQ+K/I0D/
+	ITbQ+a9tAYoLjrb8ud3dnFYdoE6nhyGoxgSdZlcSLbqzchITh5pSq0qIljn53B3sNWtMXVPuVmZEc
+	s8SgBYPKznVhc6AJtntSHm+yKAed7Ww+eYn5OWFhmVdc5pzR7GkWUDzBVJvImj4oWpkqTsW2ea8ZC
+	cMZ0CkZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd1Xf-0000000AkUM-18cM;
-	Fri, 26 Jun 2026 08:04:03 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1wd1Y8-0000000Akad-1dPp;
+	Fri, 26 Jun 2026 08:04:32 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd1Xc-0000000AkSm-0mM3
+	id 1wd1Y5-0000000AkZO-2d9v
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 08:04:02 +0000
-Received: from edelgard.fodlan.icenowy.me (unknown [112.94.101.182])
-	by APP-03 (Coremail) with SMTP id rQCowACHerFoMj5q46XoFQ--.17534S2;
-	Fri, 26 Jun 2026 16:03:53 +0800 (CST)
-Message-ID: <39e7d0426d1690ccfc8dbcfc77e7440bc5c9a725.camel@iscas.ac.cn>
-Subject: Re: [PATCH v5 5/7] drm/verisilicon: add DC8000 (DCUltraLite)
- display controller support
-From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-To: Joey Lu <a0987203069@gmail.com>, maarten.lankhorst@linux.intel.com, 
-	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
- simona@ffwll.ch, 	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com, 
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Fri, 26 Jun 2026 16:03:53 +0800
-In-Reply-To: <20260625094449.708386-6-a0987203069@gmail.com>
-References: <20260625094449.708386-1-a0987203069@gmail.com>
-	 <20260625094449.708386-6-a0987203069@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.3 
+	Fri, 26 Jun 2026 08:04:30 +0000
+Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-697ebe536b6so1064262a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 01:04:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782461067; x=1783065867; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=8BDlwFSAwx/VUcU/0Zc7YpwR/WtK9Ex0Sk5CLPSAtZY=;
+        b=DVmLz0AblE9RIFkt7P6Dnxno9a8IE6xobsa2JxkWsl4O6Qe9YTJhE+OBBHy3e6uN1j
+         D2JnRGkTTwGx8zzTaP/W/YU4DXVEdc5lDlMIbyL3j80iFLLu895YcPNyAnskmVCgE7U6
+         oqRzrAE51UdAwGdN0v4D/q+NC+hLh45m1G6cJHphPzH/nis76x87sjP7EArWCCzsWqKi
+         XD1exg0zdk/hYp4retB7VX0wPkaCyZAsUlSwOGRZWzF6n9EwRTtU0mdBkFXUljDONmKJ
+         5i/Mv/hmSlNvGB9kHw39eEeX00TSKoi9TLw5TCkXY5eGzmdj6/ShBba6QuTbM49lJoSE
+         5KRg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782461067; x=1783065867;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=8BDlwFSAwx/VUcU/0Zc7YpwR/WtK9Ex0Sk5CLPSAtZY=;
+        b=jbU+q7cich2/xc0qOtomNm1RdURrDdOQ6lpkj/Dgt4DYE0CFt+FbmMb04VCttGAqbb
+         tVVNFeqURYEbN9clfJNhiZXlxI1voPG3pDsYLjDePq//CI8dR+6W18m1wnrtE50gyOrV
+         pEevC7OLvEzqDysJPq5SedCooXHvA69f+sz4Q5CzllqcOwpFFhZNkvpVDqyWyJsviCjz
+         3mnr4Jdhv3KfcBvXxUqsLg4YoDJMMxDKyd1g0ZXFnSymHF8wl4Rm90ngORU6MRzu7mpI
+         cJzpw7QNRkKRWZrlWFMf0SODlHbj3WjJCoEP+rhbSsxdVDvnSK9/xRKV467wLo61MJM9
+         wA8g==
+X-Forwarded-Encrypted: i=1; AHgh+RrEO3a2nuGgzIeHdVaUt6/tqvJWn82UZXT8g2srSeRqJpAxF/7mWg4y6yKiL4xIMndc84PZq7WbKVE/9/R74Jnw@lists.infradead.org
+X-Gm-Message-State: AOJu0YxKvrRwfZcrxKyvhz9Bu2SYm4avj4s9I+JSlL/G0bjceElGTxC5
+	bjVl0ZMbh/11IMyLEaZqRNCNOrZXfo+mAxUkseaQPDzICu0Fj+T8gpKg
+X-Gm-Gg: AfdE7cnotkzsK0kboJpYK7eRcOMofyh9tT4OCzUWuKLvr4uQkhR7JUPUsj+Y60i5Kdt
+	G6MtMOyWzrrfrUhVnCBv1KbrkigL3BFGHShSg44I+LQ7xPaS3o8tgKhUyriWl/uFZk2r06JgIN3
+	1gQIg+f+eiG1OBjmyMG6KgTXcMoa8bZhHTnkK8lTHDm6mZNycbPAx7H3gFPdyLfb+QvzO3lkccP
+	wZ168UUe7h644TZvzS90sPyHt+xW8wVrDUPSztaknuqemqBfEzrsMD45DwHkC0c8P3qPh2pguh6
+	P9gDLiYzJ59M3lLbHvnkj7EM8hxYdpW+wUMhDGVGOGO8HKGopgBGNTv1aUAZkGEnA9VDEjfvBWF
+	FjJffRuGbbVBu5sd11pwnXi0Rf2LWBF+EyG0hLtnxurMB1XvpodnWhEuMnDZQsiKnQ+T271hVEf
+	+AwhjDDdnV8favJcL5
+X-Received: by 2002:a05:6402:3553:b0:698:bbe:9c8 with SMTP id 4fb4d7f45d1cf-69810ae7ec2mr1477123a12.15.1782461066991;
+        Fri, 26 Jun 2026 01:04:26 -0700 (PDT)
+Received: from toolbox.. ([87.200.95.144])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-46c1ee01c3bsm24027475f8f.10.2026.06.26.01.04.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 26 Jun 2026 01:04:26 -0700 (PDT)
+From: Christian Hewitt <christianshewitt@gmail.com>
+To: Jerome Brunet <jbrunet@baylibre.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	linux-sound@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] ASoC: meson: aiu: fifo-spdif: soft reset the S/PDIF datapath on start/stop
+Date: Fri, 26 Jun 2026 08:04:22 +0000
+Message-ID: <20260626080422.4191435-1-christianshewitt@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-CM-TRANSID: rQCowACHerFoMj5q46XoFQ--.17534S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxKr48Gry5WF4DGFyUtr1rtFb_yoWxGr47pF
-	40yay8WrWUXay29r97JFy0qF90yw1xt3yfWrZ7G34avrn8tF98WFW0qFy8AFWDWrZrJF1I
-	vFs2gr47CrW2v3JanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvlb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwV
-	C2z280aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
-	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUXVWUAwAv7VC2z280aVAFwI0_Jr0_Gr
-	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7
-	MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r
-	4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF
-	67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2I
-	x0cI8IcVCY1x0267AKxVWxJVW8Jr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvE
-	x4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvj
-	DU0xZFpf9x07beoGdUUUUU=
-X-Originating-IP: [112.94.101.182]
-X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_010400_849990_193095D7 
-X-CRM114-Status: GOOD (  19.77  )
+X-CRM114-CacheID: sfid-20260626_010429_685293_E916BA6C 
+X-CRM114-Status: GOOD (  11.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,196 +104,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=E5=9C=A8 2026-06-25=E5=9B=9B=E7=9A=84 17:44 +0800=EF=BC=8CJoey Lu=E5=86=99=
-=E9=81=93=EF=BC=9A
-> The Nuvoton MA35D1 SoC integrates a Verisilicon DCUltraLite display
-> controller (DC8000 generation) whose register layout differs from
-> the DC8200 in several important ways:
->=20
-> 1. No CONFIG_EX commit path: framebuffer updates use the enable (bit
-> 0)
-> =C2=A0=C2=A0 and reset (bit 4) bits in FB_CONFIG instead of the DC8200 st=
-aging
-> =C2=A0=C2=A0 registers (FB_CONFIG_EX, FB_TOP_LEFT, FB_BOTTOM_RIGHT,
-> =C2=A0=C2=A0 FB_BLEND_CONFIG, PANEL_CONFIG_EX).
->=20
-> 2. No PANEL_START register: panel output starts when
-> =C2=A0=C2=A0 PANEL_CONFIG.RUNNING is set; there is no multi-display sync =
-start
-> =C2=A0=C2=A0 register.
->=20
-> 3. Different IRQ registers: DCUltraLite uses DISP_IRQ_STA (0x147C) /
-> =C2=A0=C2=A0 DISP_IRQ_EN (0x1480) versus DC8200's TOP_IRQ_ACK (0x0010) /
-> =C2=A0=C2=A0 TOP_IRQ_EN (0x0014).
->=20
-> 4. Simpler clock topology: only 'core' (bus gate) and 'pix0' (pixel
-> =C2=A0=C2=A0 divider) clocks; no axi or ahb clocks required.
->=20
-> Signed-off-by: Joey Lu <a0987203069@gmail.com>
-> ---
-> =C2=A0drivers/gpu/drm/verisilicon/Makefile=C2=A0=C2=A0=C2=A0 |=C2=A0 2 +-
-> =C2=A0drivers/gpu/drm/verisilicon/vs_dc.c=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=
- 5 +-
-> =C2=A0drivers/gpu/drm/verisilicon/vs_dc.h=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=
- 1 +
-> =C2=A0drivers/gpu/drm/verisilicon/vs_dc8000.c | 86
-> +++++++++++++++++++++++++
-> =C2=A04 files changed, 92 insertions(+), 2 deletions(-)
-> =C2=A0create mode 100644 drivers/gpu/drm/verisilicon/vs_dc8000.c
->=20
-> diff --git a/drivers/gpu/drm/verisilicon/Makefile
-> b/drivers/gpu/drm/verisilicon/Makefile
-> index 9d4cd16452fa..d2fd8e4dff24 100644
-> --- a/drivers/gpu/drm/verisilicon/Makefile
-> +++ b/drivers/gpu/drm/verisilicon/Makefile
-> @@ -1,6 +1,6 @@
-> =C2=A0# SPDX-License-Identifier: GPL-2.0-only
-> =C2=A0
-> -verisilicon-dc-objs :=3D vs_bridge.o vs_crtc.o vs_dc.o vs_dc8200.o
-> vs_drm.o vs_hwdb.o \
-> +verisilicon-dc-objs :=3D vs_bridge.o vs_crtc.o vs_dc.o vs_dc8200.o
-> vs_dc8000.o vs_drm.o vs_hwdb.o \
-> =C2=A0	vs_plane.o vs_primary_plane.o vs_cursor_plane.o
-> =C2=A0
-> =C2=A0obj-$(CONFIG_DRM_VERISILICON_DC) +=3D verisilicon-dc.o
-> diff --git a/drivers/gpu/drm/verisilicon/vs_dc.c
-> b/drivers/gpu/drm/verisilicon/vs_dc.c
-> index fd1f5fe67a68..9499fffbca58 100644
-> --- a/drivers/gpu/drm/verisilicon/vs_dc.c
-> +++ b/drivers/gpu/drm/verisilicon/vs_dc.c
-> @@ -134,7 +134,10 @@ static int vs_dc_probe(struct platform_device
-> *pdev)
-> =C2=A0	dev_info(dev, "Found DC%x rev %x customer %x\n", dc-
-> >identity.model,
-> =C2=A0		 dc->identity.revision, dc->identity.customer_id);
-> =C2=A0
-> -	dc->funcs =3D &vs_dc8200_funcs;
-> +	if (dc->identity.generation =3D=3D VSDC_GEN_DC8200)
-> +		dc->funcs =3D &vs_dc8200_funcs;
-> +	else
-> +		dc->funcs =3D &vs_dc8000_funcs;
-> =C2=A0
-> =C2=A0	if (port_count > dc->identity.display_count) {
-> =C2=A0		dev_err(dev, "too many downstream ports than HW
-> capability\n");
-> diff --git a/drivers/gpu/drm/verisilicon/vs_dc.h
-> b/drivers/gpu/drm/verisilicon/vs_dc.h
-> index 825f5dd6bf17..ac96ad701199 100644
-> --- a/drivers/gpu/drm/verisilicon/vs_dc.h
-> +++ b/drivers/gpu/drm/verisilicon/vs_dc.h
-> @@ -66,5 +66,6 @@ struct vs_dc {
-> =C2=A0};
-> =C2=A0
-> =C2=A0extern const struct vs_dc_funcs vs_dc8200_funcs;
-> +extern const struct vs_dc_funcs vs_dc8000_funcs;
-> =C2=A0
-> =C2=A0#endif /* _VS_DC_H_ */
-> diff --git a/drivers/gpu/drm/verisilicon/vs_dc8000.c
-> b/drivers/gpu/drm/verisilicon/vs_dc8000.c
-> new file mode 100644
-> index 000000000000..fbe0fa516cac
-> --- /dev/null
-> +++ b/drivers/gpu/drm/verisilicon/vs_dc8000.c
-> @@ -0,0 +1,86 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (C) 2026 Joey Lu <yclu4@nuvoton.com>
-> + */
-> +
-> +#include <linux/regmap.h>
-> +
-> +#include "vs_crtc_regs.h"
-> +#include "vs_dc.h"
-> +#include "vs_drm.h"
-> +#include "vs_primary_plane_regs.h"
-> +
-> +static void vs_dc8000_panel_enable_ex(struct vs_dc *dc, unsigned int
-> output)
-> +{
-> +	regmap_set_bits(dc->regs, VSDC_FB_CONFIG(output),
-> +			VSDC_FB_CONFIG_RESET);
-> +}
-> +
-> +static void vs_dc8000_panel_disable_ex(struct vs_dc *dc, unsigned
-> int output)
-> +{
-> +	regmap_clear_bits(dc->regs, VSDC_FB_CONFIG(output),
-> +			=C2=A0 VSDC_FB_CONFIG_RESET);
-> +}
-> +
-> +static void vs_dc8000_crtc_begin(struct vs_dc *dc, unsigned int
-> output)
-> +{
-> +	regmap_set_bits(dc->regs, VSDC_FB_CONFIG(output),
-> +			VSDC_FB_CONFIG_VALID);
-> +}
-> +
-> +static void vs_dc8000_crtc_flush(struct vs_dc *dc, unsigned int
-> output)
-> +{
-> +	regmap_clear_bits(dc->regs, VSDC_FB_CONFIG(output),
-> +			=C2=A0 VSDC_FB_CONFIG_VALID);
-> +}
-> +
-> +static void vs_dc8000_crtc_enable_ex(struct vs_dc *dc, unsigned int
-> output)
-> +{
-> +	regmap_set_bits(dc->regs, VSDC_FB_CONFIG(output),
-> +			VSDC_FB_CONFIG_ENABLE);
-> +}
-> +
-> +static void vs_dc8000_crtc_disable_ex(struct vs_dc *dc, unsigned int
-> output)
-> +{
-> +	regmap_clear_bits(dc->regs, VSDC_FB_CONFIG(output),
-> +			=C2=A0 VSDC_FB_CONFIG_ENABLE);
-> +}
-> +
-> +static void vs_dc8000_enable_vblank(struct vs_dc *dc, unsigned int
-> output)
-> +{
-> +	regmap_set_bits(dc->regs, VSDC_DISP_IRQ_EN,
-> +			VSDC_DISP_IRQ_VSYNC(output));
-> +}
-> +
-> +static void vs_dc8000_disable_vblank(struct vs_dc *dc, unsigned int
-> output)
-> +{
-> +	regmap_clear_bits(dc->regs, VSDC_DISP_IRQ_EN,
-> +			=C2=A0 VSDC_DISP_IRQ_VSYNC(output));
-> +}
-> +
-> +static u32 vs_dc8000_irq_ack(struct vs_dc *dc)
-> +{
-> +	u32 hw_irqs, unified =3D 0;
-> +	unsigned int i;
-> +
-> +	regmap_read(dc->regs, VSDC_DISP_IRQ_STA, &hw_irqs);
-> +
-> +	for (i =3D 0; i < VSDC_MAX_OUTPUTS; i++) {
-> +		if (hw_irqs & VSDC_DISP_IRQ_VSYNC(i))
-> +			unified |=3D VSDC_IRQ_VSYNC(i);
-> +	}
+The I2S FIFO soft-resets its fast domain on start (AIU_RST_SOFT bit 0 +
+AIU_I2S_SYNC read in aiu_fifo_i2s_trigger), mirroring the downstream
+vendor driver's audio_out_i2s_enable(). The S/PDIF FIFO has no equivalent:
+it only toggles the IEC958 DCU, so a stale datapath FIFO can be replayed,
+producing the "machine gun noise" buffer underrun - on start when switching
+outputs, and on stop when playback ends. The latter is audible on devices
+with an always-on S/PDIF-fed DAC (e.g. the ES7144 on the WeTek Play2).
 
-Maybe a warning for unknown IRQ bits should be added here.
+The vendor driver resets the IEC958 fast domain (AIU_RST_SOFT bit 2) on
+both enable and disable (audio_hw_958_enable), and when reconfiguring
+(audio_hw_958_reset clears AIU_958_DCU_FF_CTRL then resets). Do the same:
+reset before enabling the DCU on start, and after disabling it on stop.
 
-Thanks,
-Icenowy
+Signed-off-by: Christian Hewitt <christianshewitt@gmail.com>
+---
+ sound/soc/meson/aiu-fifo-spdif.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-> +
-> +	return unified;
-> +}
-> +
-> +const struct vs_dc_funcs vs_dc8000_funcs =3D {
-> +	.panel_enable_ex	=3D vs_dc8000_panel_enable_ex,
-> +	.panel_disable_ex	=3D vs_dc8000_panel_disable_ex,
-> +	.crtc_begin		=3D vs_dc8000_crtc_begin,
-> +	.crtc_flush		=3D vs_dc8000_crtc_flush,
-> +	.crtc_enable_ex		=3D vs_dc8000_crtc_enable_ex,
-> +	.crtc_disable_ex	=3D vs_dc8000_crtc_disable_ex,
-> +	.enable_vblank		=3D vs_dc8000_enable_vblank,
-> +	.disable_vblank		=3D vs_dc8000_disable_vblank,
-> +	.irq_ack		=3D vs_dc8000_irq_ack,
-> +};
+diff --git a/sound/soc/meson/aiu-fifo-spdif.c b/sound/soc/meson/aiu-fifo-spdif.c
+index e0e00ec026dc..826055a71421 100644
+--- a/sound/soc/meson/aiu-fifo-spdif.c
++++ b/sound/soc/meson/aiu-fifo-spdif.c
+@@ -24,6 +24,7 @@
+ #define AIU_MEM_IEC958_CONTROL_MODE_16BIT	BIT(7)
+ #define AIU_MEM_IEC958_CONTROL_MODE_LINEAR	BIT(8)
+ #define AIU_MEM_IEC958_BUF_CNTL_INIT		BIT(0)
++#define AIU_RST_SOFT_958_FAST			BIT(2)
+ 
+ #define AIU_FIFO_SPDIF_BLOCK			8
+ 
+@@ -68,12 +69,16 @@ static int fifo_spdif_trigger(struct snd_pcm_substream *substream, int cmd,
+ 	case SNDRV_PCM_TRIGGER_START:
+ 	case SNDRV_PCM_TRIGGER_RESUME:
+ 	case SNDRV_PCM_TRIGGER_PAUSE_RELEASE:
++		snd_soc_component_write(component, AIU_RST_SOFT,
++					AIU_RST_SOFT_958_FAST);
+ 		fifo_spdif_dcu_enable(component, true);
+ 		break;
+ 	case SNDRV_PCM_TRIGGER_SUSPEND:
+ 	case SNDRV_PCM_TRIGGER_PAUSE_PUSH:
+ 	case SNDRV_PCM_TRIGGER_STOP:
+ 		fifo_spdif_dcu_enable(component, false);
++		snd_soc_component_write(component, AIU_RST_SOFT,
++					AIU_RST_SOFT_958_FAST);
+ 		break;
+ 	default:
+ 		return -EINVAL;
+-- 
+2.43.0
 
 
