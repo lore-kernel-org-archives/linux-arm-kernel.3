@@ -4,65 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE046C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 15:12:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01D12C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 15:16:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8IjQQV0x4v7pxOJTTVBCFNy8jphgOpJOuxHypSpBUQU=; b=oMSeMn123ckCdS22TAm89WbPNB
-	utoCNTKdZKVz8twxktOMjn/yosZmW5P4cbBNhrBaItZeqLRVQ49RQTNTdomkwF+kJ6KdPnXsX2kyY
-	UUToK8/GqSA2djeqadl2QOB3nLCot7RYGaOoKLBzCI1gF+tBVbUJoJzVbMfzmLDtpkRATIRI/Rsnu
-	/IhGnqHzhg3gYyMZwURL/5hZ1d5yJIyLqwNm0EHPtOXx3MOWjCz3K8yjA+K0RW9Pf+kAj8C1MrprM
-	wfshHem8whAg6OzwfPlXI8FJVxU6awr03Jwdl75tqzaQfS/1G2lbkNX2/1+j99eBU1ymqhCTZuk8/
-	iBem6Wqg==;
+	bh=dHONzNZurmNs9NAMZL5smtkhZLFBha363Qf59K5VhA4=; b=n3/UAeEDMLiPaSgDO/T1etEQNi
+	UbeLKpIQV8sd1UHRRBGlhV5dqZEofdbXJY0NIYQS0fZOXvLIpcvmfyUbaTVyZdB+3fARG0hQE1QPW
+	n+3w0YkHwNDzEYpsxIWmIvojuAKSWoV42g3t7zLkWOWJhSjLNWx094h4vtosM3Q37b6nrX5CBTqvf
+	b1k05NtekH1tr6XOgjOr0cO9BFy9j/r4z3E50hsAHSYIFhdF7z9yXwghWSkd1uWR/OXA8JxKquEhU
+	H92VWYIZMEgdntEfig8fQersNHzwhCuPyHzL46gC5iEFid9W1YOxP50RDYrhY6t8Otsg2hVWhP0K8
+	blJOY8Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd8EA-0000000BX2L-04T1;
-	Fri, 26 Jun 2026 15:12:22 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd8E7-0000000BX1y-0hNo
+	id 1wd8I1-0000000BXQe-042W;
+	Fri, 26 Jun 2026 15:16:21 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wd8Hz-0000000BXQX-1BXp
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 15:12:20 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 596401E7D;
-	Fri, 26 Jun 2026 08:12:12 -0700 (PDT)
-Received: from localhost (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 68D2D3F632;
-	Fri, 26 Jun 2026 08:12:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782486736; bh=YN7HFeAn5PfLzBdHTnw12iJICI72jFBKITQg8GRt9JI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=W4OK0Qj/gfEiAScIK4WRs1+dVyd7SXFPAI+0BUFrcXuVHPnbTliWZzqYxLs3rNdQI
-	 4s5PWJrgQ8F5NTwPDsn9Shr56QFSSGvxFWGKWd/D7lYrWZOS+D08a5l6+jG5+suUU4
-	 ONIuI3yT9d+BIeSeJ2JJHdwLAJoWoEbNTVCuuzEg=
-Date: Fri, 26 Jun 2026 16:12:14 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Wen Jiang <jiangwenxiaomi@gmail.com>
-Cc: linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
-	catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org,
-	urezki@gmail.com, baohua@kernel.org, Xueyuan.chen21@gmail.com,
-	dev.jain@arm.com, rppt@kernel.org, david@kernel.org,
-	ryan.roberts@arm.com, anshuman.khandual@arm.com, ajd@linux.ibm.com,
-	linux-kernel@vger.kernel.org, jiangwen6@xiaomi.com,
-	shanghaoqiang@xiaomi.com, Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@arm.com>,
-	James Clark <james.clark@linaro.org>, Tamas.Petz@arm.com,
-	Michiel.VanTol@arm.com
-Subject: Re: [PATCH v4 0/6] mm/vmalloc: Speed up ioremap, vmalloc and vmap
- with contiguous memory
-Message-ID: <20260626151214.GA1794676@e132581.arm.com>
-References: <20260618084726.1070022-1-jiangwen6@xiaomi.com>
+	Fri, 26 Jun 2026 15:16:19 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B63754193E;
+	Fri, 26 Jun 2026 15:16:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 578E71F00A3A;
+	Fri, 26 Jun 2026 15:16:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782486978;
+	bh=dHONzNZurmNs9NAMZL5smtkhZLFBha363Qf59K5VhA4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=PFB15Ka7QCMaorqN+koVilBviVzAfYITGm3A5OF1OjTy/RUU/03kmsaHMN52swvSP
+	 qCJwBChsrFRBA5N/S6N69VBM3oMbyvvkwIcPev04rcipikuStMaOUiklqK3BDfp2y1
+	 /2dk1lldLP+lkJYuamo9+jw0mo1r9KHj11SEED5z7nBO4+SgLGfn8A6MKfBA/bVQqj
+	 k2dQJdKU/BLI9HO+9w8lTqs4JbDUDfvDYAqIsWHWmmAO4vRBc14P0bDYgSDjPtC5dy
+	 04w4d5XwOWS+rrXn3ZyVz0140+xYmvFf0kMNH2H3sKARE4Ayog1TeJ0vYwEslIfm93
+	 dVU3vpWLz+jFA==
+Date: Fri, 26 Jun 2026 16:16:13 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Joey Lu <a0987203069@gmail.com>, maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
+	simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, ychuang3@nuvoton.com, schung@nuvoton.com,
+	yclu4@nuvoton.com, dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 1/7] dt-bindings: display: verisilicon,dc: generalize
+ for single-output variants
+Message-ID: <20260626-alive-step-a2c82b4f0706@spud>
+References: <20260625094449.708386-1-a0987203069@gmail.com>
+ <20260625094449.708386-2-a0987203069@gmail.com>
+ <20260625-bobbing-annotate-d1c4d6874ee2@spud>
+ <20260626-zit-amuck-e743e58d2e15@wendy>
+ <84b93c496fabdeee05d2f962a1b764fdbfaacdb7.camel@iscas.ac.cn>
+ <20260626-agreement-express-b16c71315f7b@wendy>
+ <996c3d442e92e7f908fb3a32973805dd2d2680d7.camel@iscas.ac.cn>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="QLHakFN0+CeUBvUt"
 Content-Disposition: inline
-In-Reply-To: <20260618084726.1070022-1-jiangwen6@xiaomi.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_081219_379346_266EE2E9 
-X-CRM114-Status: GOOD (  10.75  )
+In-Reply-To: <996c3d442e92e7f908fb3a32973805dd2d2680d7.camel@iscas.ac.cn>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,108 +82,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 18, 2026 at 04:47:20PM +0800, Wen Jiang wrote:
 
-> Besides accelerating the mapping path, this also enables large
-> mappings (PMD and cont-PTE) for vmap, which are currently not
-> supported.
+--QLHakFN0+CeUBvUt
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-I verified this series with large vmap() mappings for Arm trace buffer
-units (TRBE and SPE), and the results are positive.
+On Fri, Jun 26, 2026 at 05:09:12PM +0800, Icenowy Zheng wrote:
+> =E5=9C=A8 2026-06-26=E4=BA=94=E7=9A=84 09:57 +0100=EF=BC=8CConor Dooley=
+=E5=86=99=E9=81=93=EF=BC=9A
+> > On Fri, Jun 26, 2026 at 03:58:14PM +0800, Icenowy Zheng wrote:
+> > > =E5=9C=A8 2026-06-26=E4=BA=94=E7=9A=84 08:22 +0100=EF=BC=8CConor Dool=
+ey=E5=86=99=E9=81=93=EF=BC=9A
+> > > > On Thu, Jun 25, 2026 at 05:33:37PM +0100, Conor Dooley wrote:
+> > > > > On Thu, Jun 25, 2026 at 05:44:43PM +0800, Joey Lu wrote:
+> > > > > > +
+> > > > > > +=C2=A0 - if:
+> > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 properties:
+> > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 compatible:
+> > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 contain=
+s:
+> > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 const: nuvoton,ma35d1-dcu
+> > > > > > +=C2=A0=C2=A0=C2=A0 then:
+> > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 properties:
+> > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 clocks:
+> > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 minItem=
+s: 2
+> > > > >=20
+> > > > > Anything that updates the minimum constraint should be done at
+> > > > > the
+> > > > > top
+> > > > > level of this schema. The conditional section should then
+> > > > > tighten
+> > > > > the
+> > > > > constraint, in this case that means only having maxItems.
+> > > > >=20
+> > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 maxItem=
+s: 2
+> > > > > > +
+> > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 clock-names:
+> > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 items:
+> > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 - const: core
+> > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 - const: pix0
+> > > > >=20
+> > > > > Does this even work when the top level schema thinks clock 2
+> > > > > should
+> > > > > be
+> > > > > called axi?
+> > > >=20
+> > > > Additionally here, only have core and pix0 seems like it might be
+> > > > an
+> > > > oversimplification. I doubt removing the second output port means
+> > > > that
+> > > > the axi and ahb clocks are no longer needed.
+> > > > Is it the case that your device supplies the same clock to core,
+> > > > ahb
+> > > > and
+> > > > axi? If so, then you should fill those clocks in in your
+> > > > devicetree
+> > > > and
+> > > > this can just constrain the number of clocks/clock-names to 4.
+> > >=20
+> > > The clock controller of that SoC is quite weird -- it has only a
+> > > single
+> > > gate bit, but controlling 3 clock gates. All core, ahb and axi
+> > > clocks
+> > > have gates controlled by this single bit, so it's why currently
+> > > it's
+> > > modelled as only core clock supplied.
+> >=20
+> > Yeah, then what's in the binding is definitely wrong.
+> > Even if the same clock was provided to all clock inputs in the IP,
+> > all
+> > individual clock should be listed in the devicetree - although it
+> > will
+> > look a little silly to see clocks =3D <&foo 2>, <&foo 2>, <&foo 2>,
+> > <&foo 2>;
+> > In this case, 3 clocks controlled by 1 gate bit is an implementation
+> > detail
+> > of the SoC's clocking hardware, and not relevant to how the dc
+> > instance
+> > should be described.
+> >=20
+> > > Well it might be worthful to supply the bus clock before the gate
+> > > as
+> > > ahb/axi, especially axi, because both the AXI clock and the core
+> > > clock
+> > > constraints the maximum pixel clock.
+> >=20
+> > Right. And looking at patch 4/7, and the wording:
+> > > The Nuvoton MA35D1 SoC integrates a DCUltraLite display controller
+> > > whose
+> > > AXI and AHB bus clocks share a single gate enable bit with the
+> > > display
+> > > core clock, so the clock driver does not expose them separately.
+> > > This
+> > > patch makes the axi and ahb clocks optional in the probe.
+> >=20
+> > It sounds like there's probably some issues with how things are
+> > modelled
+> > clock wise in this device, unless this is not an accurate statement
+> > and
+> > there's actually one clock provided to all three inputs. If they're
+> > distinct clocks, with different rates, only having one exposed has a
+> > lot
+> > of potential to be problematic!
+>=20
+> Yes, I agree with this, they're different clocks according to the
+> manual.
+>=20
+> I added the clk people to the CC list in a reply of the previous
+> revision, but they didn't react yet. I don't know how to represent
+> multiple clock gates sharing a single control bit in the clock
+> framework...
 
-Arm trace buffer units use the CPU's page tables for address translation
-when writing trace data to DRAM. The larger vmap() mapping granules
-reduce TLB pressure, resulting in significantly fewer L2D TLB refills
-and reduced L1D TLB refills. The decrease in dtlb_walk indicates that
-fewer page table walks are required and that address translations are
-more often satisfied by cached TLB entries.
+Yeah, I have absolutely no idea. Maybe it requires custom refcounting?
+Surely this cannot be the only device that does something like this
+though.
 
-The detailed results are included below for reference.
+> Maybe just supplying the ungated AXI/AHB clocks here, and let the core
+> clock manage the gate?
 
-Thanks for working on this, and here is my test tag:
+I guess, but that seems incorrect and would require commentary about why
+it's being done. Feel like they (the missing axi/ahb clocks) should be
+added to the clock driver and binding, and any special workarounds done
+there.
+Of course letting the core clock manage the gate and making the enable
+method for the gated AXI/AHB clocks be a NOP is one way of handling it
+in the clock driver. Still a bit of a hack compared to refcounting it,
+but it makes me happier to have the correct clock tree modelled in DT.
 
-Tested-by: Leo Yan <leo.yan@arm.com>
+--QLHakFN0+CeUBvUt
+Content-Type: application/pgp-signature; name=signature.asc
 
-P.s. I applied a local change to set PERF_PMU_CAP_AUX_PREFER_LARGE in
-the CoreSight and SPE drivers to allocate large memory chunks. This
-change will be sent out once the MM changes are agreed.
+-----BEGIN PGP SIGNATURE-----
 
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaj6XvQAKCRB4tDGHoIJi
+0vssAQDndJs9/ctwRc2c7FjHBwBiv4LpDbHHbKg3pi7OB4EvDwD/bUeIo9EzaeR5
+PJstTNEZxtLCLfIx88hwML6Acinghwk=
+=IOEf
+-----END PGP SIGNATURE-----
 
-## Results with TRBE
-
-Test command:
-
-  taskset -c 2 perf stat -C 10 -e cycles:u,instructions:u,dtlb_walk:u,l1d_tlb:u,l1d_tlb_refill:u,l2d_tlb_refill:u \
-    -- taskset -c 2 perf record -C 10 -m ,1G -e cs_etm// \
-    -- taskset -c 10 ./sparse_branch_delay.elf
-
-The benchmark was run 5 times. CPU10 was isolated and dedicated to
-running the workload while collecting the TLB statistics.
-
-Before this series:
-
- +----------------+--------+--------+--------+--------+--------+----------+
- |TLB Metrics     |   Run1 |   Run2 |   Run3 |   Run4 |   Run5 |     Avg. |
- +----------------+--------+--------+--------+--------+--------+----------+
- | dtlb_walk      |     63 |     75 |     62 |     73 |     69 |     68.4 |
- +----------------+--------+--------+--------+--------+--------+----------+
- | l1d_tlb        |   2093 |   2189 |   2237 |   2036 |   2086 |   2128.2 |
- +----------------+--------+--------+--------+--------+--------+----------+
- | l1d_tlb_refill |    154 |    153 |    150 |    165 |    157 |    155.8 |
- +----------------+--------+--------+--------+--------+--------+----------+
- | l2d_tlb_refill | 161325 | 161403 | 161432 | 161580 | 161439 | 161435.8 |
- +----------------+--------+--------+--------+--------+--------+----------+
-
-After this series:
-
- +----------------+--------+--------+--------+--------+--------+----------+----------+
- |TLB Metrics     |   Run1 |   Run2 |   Run3 |   Run4 |   Run5 |     Avg. |    Diff. |
- +----------------+--------+--------+--------+--------+--------+----------+----------+
- | dtlb_walk      |     67 |     59 |     60 |     58 |     53 |     59.4 |  -13.16% |
- +----------------+--------+--------+--------+--------+--------+----------+----------+
- | l1d_tlb        |   6710 |   7120 |   6662 |   6626 |   6542 |   6732.0 | +216.32% |
- +----------------+--------+--------+--------+--------+--------+----------+----------+
- | l1d_tlb_refill |    126 |    117 |    119 |    117 |    119 |    119.6 |  -23.23% |
- +----------------+--------+--------+--------+--------+--------+----------+----------+
- | l2d_tlb_refill |    506 |    489 |    485 |    506 |    489 |   495.0  |  -99.69% |
- +----------------+--------+--------+--------+--------+--------+----------+----------+
-
-## Results with SPE
-
-Test command:
-
-  taskset -c 2 perf stat -C 10 -e cycles:u,instructions:u,dtlb_walk:u,l1d_tlb:u,l1d_tlb_refill:u,l2d_tlb_refill:u \
-    -- taskset -c 2 perf record -C 10 -m ,512M -e arm_spe_0/ts_enable=1,pa_enable=1,period=64,min_latency=0/ \
-    -- taskset -c 10 dd if=/dev/zero of=/dev/shm/dd_mem_test bs=1M count=1024 status=progress
-
-The benchmark was run five times. CPU10 was isolated and dedicated to
-running the workload while collecting the TLB statistics.
-
-Before this series:
-
- +----------------+--------+--------+--------+--------+--------+----------+
- |TLB Metrics     |   Run1 |   Run2 |   Run3 |   Run4 |   Run5 |     Avg. |
- +----------------+--------+--------+--------+--------+--------+----------+
- | dtlb_walk      |   2090 |   1709 |   1679 |   1519 |   1555 |   1710.4 |
- +----------------+--------+--------+--------+--------+--------+----------+
- | l1d_tlb        | 254450 | 257227 | 252517 | 252535 | 254752 | 254296.2 |
- +----------------+--------+--------+--------+--------+--------+----------+
- | l1d_tlb_refill |  16023 |  16088 |  15944 |  15989 |  15956 |  16000.0 |
- +----------------+--------+--------+--------+--------+--------+----------+
- | l2d_tlb_refill |   5887 |   4204 |   3713 |   4556 |   5620 |   4796.0 |
- +----------------+--------+--------+--------+--------+--------+----------+
-
-After this series:
-
- +----------------+--------+--------+--------+--------+--------+----------+----------+
- |TLB Metrics     |   Run1 |   Run2 |   Run3 |   Run4 |   Run5 |     Avg. |    Diff. |
- +----------------+--------+--------+--------+--------+--------+----------+----------+
- | dtlb_walk      |   1111 |   1301 |   1229 |   1166 |   1771 |   1315.6 |  -23.08% |
- +----------------+--------+--------+--------+--------+--------+----------+----------+
- | l1d_tlb        | 257462 | 257420 | 257241 | 259968 | 261324 | 258683.0 |   +1.73% |
- +----------------+--------+--------+--------+--------+--------+----------+----------+
- | l1d_tlb_refill |  15954 |  15919 |  15948 |  15962 |  15968 |  15950.2 |   -0.31% |
- +----------------+--------+--------+--------+--------+--------+----------+----------+
- | l2d_tlb_refill |   2672 |   2558 |   2801 |   2478 |   4147 |   2931.2 |  -38.88% |
- +----------------+--------+--------+--------+--------+--------+----------+----------+
+--QLHakFN0+CeUBvUt--
 
