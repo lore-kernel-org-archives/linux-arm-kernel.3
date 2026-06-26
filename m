@@ -4,82 +4,223 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E2CCC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 22:01:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29E42C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 22:08:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
-	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LnOwvJzchK4FfYVRhLUd9M/CfdcZF8IWyQ377aEQXH0=; b=tugBV82UV1Cfbdu8n1FD5q3fqP
-	CR1qFNQVHujRDq0FoVXf/LdLsxRBK4uCdK5lXBWGFxbL5IvS7oSyoIwH3DWEXHTbCdlso7EJVYD0e
-	svAChwAJbhqINe7IT73VOI1Y9PLJ5k1Cb7iliwSz4pZ1eflHYC2bXFqzMX3R74ww2r0FMoarHhPrj
-	IV6uPhCckxaBWfY/6D6mj5BY/mHEJUnU5FT5baJinh6LeWYzEo9u3+CCFLdYpEhTZoHuFX7u5KHUG
-	2Y3X77WWmLIioOuATqkLWD0QD6+zBb+S0wNZM5c4m7qtfbmSYpe015sd6nKefx0G+R8faSLE3KbAr
-	j00vK8Mw==;
+	bh=nlKult501L1z1hUbb+icRQobALMyX9zvcPGWWM44LR4=; b=sKy6msD8TGDXxUYfsnaU1+oK59
+	yQId3/F++M4me0rrp3AJJRt0ne/yf03yaimpDYm+l2anibzG5wvNfOROoeY2FdTIe01Z1hPC4GWUb
+	HPbpVzG4wNgDLSVt/YEIKWGj3oEgV38XWLsC6PiUgwXsLPIUBlnCCNkt9l8fqT50wL/F47ZH3MWkg
+	hECLSGBxF8Wusi3r5+qhFPjf0fEj6M1voLW52l4YJGrO08U4KvSybd8QJmbJDmJGk4JvXPekDWLrO
+	Bw2kHjwYd5+N6AEX3Lnbs8/jNV/2Nhit6LjHLwT6DHQcwpvJorutvdH84g3HhnZ0/s4QmuSTVzBXR
+	ZyuLSB2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdEDY-0000000Buaa-38JN;
-	Fri, 26 Jun 2026 21:36:08 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1wdEiQ-0000000BxPh-02Eo;
+	Fri, 26 Jun 2026 22:08:02 +0000
+Received: from mx0b-00230701.pphosted.com ([148.163.158.9])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdEDK-0000000BuNa-1Wch
+	id 1wdEiN-0000000BxP2-1OHW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 21:35:55 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-37c6916c768so1750449a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 14:35:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1782509753; x=1783114553; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=LnOwvJzchK4FfYVRhLUd9M/CfdcZF8IWyQ377aEQXH0=;
-        b=N3HWk2oPuxINKwYYCubG4xFM7Vy618juM8j6XLVrjYAmne76Lni97cbCYbm6ZNNNVJ
-         rDbUhCmdstOoNmkK2lOBBsQdZloX7D2W/Gx9tDgxD1RjklxzwUXuqClkfAC9hFBluA0y
-         Nl3aS6bB4bEzz1GQGw06H6NL8+eIfKAETGPdwPwM5NLcgLzDrrXe+p+QxCrZDcL+HtfH
-         kODtdCV8LAczsd85DHsvl1H6Pdp4upbvANEtYlJwTBxygp5R5l4SNIz9vm6sDobBC7RT
-         HJ+/FgOxYSrX291+jRLG7Z6AcCBCYJ+pm1urkjcRlDXfdYa2PC+67bALn+LHwRbytUay
-         I1eQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782509753; x=1783114553;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=LnOwvJzchK4FfYVRhLUd9M/CfdcZF8IWyQ377aEQXH0=;
-        b=U4m2Lanfx40cZOO9LZyGshMsXei7JCK5OsLhfpjPZcLHLBK8XUpSoo/yBVhvrRLrDI
-         nVt+LqN1SctQmugz6hoJ99oCJqQVLAuew3MK0wdnoPdhekeVcj7iX946I/3rRICC/Qm4
-         zBqTmdGvmnhCXf26+jdZCe8JRopmgbSuEVKNhyPQxgSako4ndGQzBVdNKzqddrhp6A/J
-         0gpeCCgubP5NA2vvRwDRKZY6ncofzItwXo8NMD1W7J2mXS8kBBYOb7e9cpJeTbTA6hJf
-         b4nHlPESFvjo6k8IdY1SnFUiFzZoANOs9v9Ovs+q7AHsl1R6voHJ8ISRVlIbPSkz/58c
-         xfnQ==
-X-Forwarded-Encrypted: i=1; AHgh+RrX+KoXMC+z8ZMoyy/vNPbSNxozppMkx0hg1pucSxq/5WBlzzrPIgukYwYak6kgqEH1kX1oasO2q2B0iaF4hMn+@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw/mwzZHqd1DS4ohWPWS/tmvI6f7Qx34Y0BM4CExxmDO8JO6mHx
-	qib4AGs7qj+2/Xkyadp/AkzOIXjE5qqyBMz9T1n4P0J/PRhb9/8P5r022ngzTU+vyKEOms/rQ2B
-	63Aj1ow==
-X-Received: from pgge9.prod.google.com ([2002:a63:db09:0:b0:c85:62f4:f188])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:28cc:b0:37e:a09:2432
- with SMTP id 98e67ed59e1d1-37e0a0936b9mr5335064a91.4.1782509753021; Fri, 26
- Jun 2026 14:35:53 -0700 (PDT)
-Date: Fri, 26 Jun 2026 14:35:27 -0700
-In-Reply-To: <20260626213534.3866178-1-seanjc@google.com>
-Mime-Version: 1.0
-References: <20260626213534.3866178-1-seanjc@google.com>
-X-Mailer: git-send-email 2.55.0.rc0.799.gd6f94ed593-goog
-Message-ID: <20260626213534.3866178-15-seanjc@google.com>
-Subject: [PATCH v8 14/20] KVM: selftests: Verify non-postable IRQ remapping in
- IRQ test
-From: Sean Christopherson <seanjc@google.com>
-To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oupton@kernel.org>, Sean Christopherson <seanjc@google.com>
-Cc: Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, David Matlack <dmatlack@google.com>, 
-	Josh Hilke <jrhilke@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Fri, 26 Jun 2026 22:08:00 +0000
+Received: from pps.filterd (m0297265.ppops.net [127.0.0.1])
+	by mx0a-00230701.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65QKhWhX1930484;
+	Fri, 26 Jun 2026 15:07:49 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=synopsys.com; h=
+	cc:content-id:content-transfer-encoding:content-type:date:from
+	:in-reply-to:message-id:mime-version:references:subject:to; s=
+	pfptdkimsnps; bh=nlKult501L1z1hUbb+icRQobALMyX9zvcPGWWM44LR4=; b=
+	U7KLCcl4mOGnYI0q8Kh6sjxFJ4PRrhgTFa/xmPEhYZ5FFB3JiN6b+zQv+b6ek0sZ
+	6Y3IWwyfFB461EbLb2XgbqoIqTIycgoK++jlABAOG4WURI6Ojea/X/wIB1caPTiC
+	Fqf4NBCrx+aPvc7dyR6N4vPU/iqy/eM61GbdIg+wwY7EA/mEOLnb99m843pocJvL
+	p2WhliZcRCLMEIlw5BkE5tp8Cs8gZ/CQgE50fHeS0PqYrEv7OmwyjAlPcRJGwQWJ
+	jJIa/QHZqyo9usx3x9i+VKxGLzbMt9BPy1UWGaqcmAob613D7gvi5EieZPig2oYO
+	Me6bIx8u8mTxHBsYAXHwUQ==
+Received: from smtprelay-out1.synopsys.com (smtprelay-out1.synopsys.com [149.117.73.133])
+	by mx0a-00230701.pphosted.com (PPS) with ESMTPS id 4f20qc8jak-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Fri, 26 Jun 2026 15:07:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=synopsys.com; s=mail;
+	t=1782511668; bh=nlKult501L1z1hUbb+icRQobALMyX9zvcPGWWM44LR4=;
+	h=From:To:CC:Subject:Date:References:In-Reply-To:From;
+	b=VNlAtDcssGK65ig0dnXe+XP1YVL3fO773lQfR1RkqLz3WbyIqfxUQ8+VI01Gpg9xd
+	 chjGbISi55I+tdI52+NPqQZWbB7RBuLWpDf+9HWpNtyPAFCGJfevZb+ru4lqdhyAHA
+	 17Rp+PHVR/UuP/W7KK3cQLBTshNQ3lLgQjGUaMrLzbuIk+CuV5zrXCmVLpIQ2qWKy6
+	 VEIAsDRBs9sbAJD2u+Mb/O+d82+hcGpVAOWZIJBIpLVRIzOmaCM/SGigW6Ko4QINws
+	 6NTBv998YOcB5Gsg16CnMVV2Skn9KL/NsFXIGQUV5erQmh0mgodDfjuyzha5RNLuIC
+	 VRN77GdS/sakw==
+Received: from mailhost.synopsys.com (badc-mailhost3.synopsys.com [10.192.0.81])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits)
+	 client-signature RSA-PSS (2048 bits))
+	(Client CN "mailhost.synopsys.com", Issuer "SNPSica2" (verified OK))
+	by smtprelay-out1.synopsys.com (Postfix) with ESMTPS id B3AA540125;
+	Fri, 26 Jun 2026 22:07:46 +0000 (UTC)
+Received: from o365relay-in.synopsys.com (sv2-o365relay1.synopsys.com [10.202.1.137])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits)
+	 client-signature RSA-PSS (2048 bits))
+	(Client CN "o365relay-in.synopsys.com", Issuer "Sectigo Public Server Authentication CA OV R36" (not verified))
+	by mailhost.synopsys.com (Postfix) with ESMTPS id EC2F9A007A;
+	Fri, 26 Jun 2026 22:07:45 +0000 (UTC)
+Authentication-Results: o365relay-in.synopsys.com; dmarc=pass (p=reject dis=none) header.from=synopsys.com
+Authentication-Results: o365relay-in.synopsys.com; spf=pass smtp.mailfrom=synopsys.com
+Authentication-Results: o365relay-in.synopsys.com;
+	dkim=pass (1024-bit key; unprotected) header.d=synopsys.com header.i=@synopsys.com header.a=rsa-sha256 header.s=selector1 header.b=vFcMia1a;
+	dkim-atps=neutral
+Received: from DS2PR08CU001.outbound.protection.outlook.com (mail-ds2pr08cu00107.outbound.protection.outlook.com [40.93.13.55])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-384) server-signature RSA-PSS (2048 bits) server-digest SHA256
+	 client-signature RSA-PSS (2048 bits) client-digest SHA256)
+	(Client CN "mail.protection.outlook.com", Issuer "DigiCert Cloud Services CA-1" (verified OK))
+	by o365relay-in.synopsys.com (Postfix) with ESMTPS id 8ECF14011C;
+	Fri, 26 Jun 2026 22:07:41 +0000 (UTC)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=LqqjAPd1IJPv+C7tQd8sat+xDzBf+2sDvDxoqmzSpoVCUKaxwqeM0IH3BnD0IsB3pOJXFH1zE5R28VRxi7gndz9eI46oyHzAr8Y9v4W1pI2MWpufHUL0iE4cw0b7Gn6E+4X4N83M/TmULeeeSJjfdJ2XRrKp0qzxH0HF8KaZjrfvxY9hY40o9IGWyxoNWPd4XCnhUodwzeerXu0XWxVA6RSgSqxluJWxg/NJT/ZsR7ctIP/8FaP6U0kG26bvmWNr/7hztIkzJQeEN9T2XXT0PCyG3Mv7K2muxzR2zwyLeMutpPT/LDr4CvP0JQCTnJL+Nkj02UFQAz02/3huGvJNkA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=nlKult501L1z1hUbb+icRQobALMyX9zvcPGWWM44LR4=;
+ b=MkyoCj/F5jSkR+G/JmYpgoU5VjfXMKrL6z4P7x34AqjxueCOpoz06V/tzkDlNsz0nzH8cbhARe42/ewMJsPrCZ57G5U9xBXL8nFstvUfqu6OMPODZFItQKPG/ithXC3UO5E7BqITMfonh0yzFYNZ6B9dIshhJfvwZ1xYlwH0RYxqalb1J8FOf9OZNy8n2vmO50mO7Lq4fyOaqr8n8+/hgeV/jG2KZ0m9Leoao4rvpeeEXYvyxw5okPr8AwhgzEWxB1M3f4Ir7pXxvsQROSCnPjuysDcM6hOknLJcG/tY8nXT4NnzzddaERmPPOsiplubk5Yv902qijcUARTKszEIog==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=synopsys.com; dmarc=pass action=none header.from=synopsys.com;
+ dkim=pass header.d=synopsys.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=synopsys.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=nlKult501L1z1hUbb+icRQobALMyX9zvcPGWWM44LR4=;
+ b=vFcMia1a/fXtJbmnagyUUzrSL9LYicIDg2vgpqI/V4aVoPJnMC4Rqc83g974ghhoFS1ObK+Ggfn0ncoBgjEQMt/SfehmYrO0VmtfzoTkOt9ATJE57LKblnYaSwqKg4Mugtl4PWNCY7Lud4vkoyroEltKNHUTg71tHgqY/LImS2U=
+Received: from PH0PR12MB7486.namprd12.prod.outlook.com (2603:10b6:510:1e9::6)
+ by DM4PR12MB6493.namprd12.prod.outlook.com (2603:10b6:8:b6::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.17; Fri, 26 Jun
+ 2026 22:07:35 +0000
+Received: from PH0PR12MB7486.namprd12.prod.outlook.com
+ ([fe80::7df9:b25e:9216:f109]) by PH0PR12MB7486.namprd12.prod.outlook.com
+ ([fe80::7df9:b25e:9216:f109%6]) with mapi id 15.21.0159.015; Fri, 26 Jun 2026
+ 22:07:35 +0000
+X-SNPS-Relay: synopsys.com
+From: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+To: Pengpeng Hou <pengpeng@iscas.ac.cn>
+CC: Patrice Chotard <patrice.chotard@foss.st.com>,
+        Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Philipp Zabel <p.zabel@pengutronix.de>,
+        "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+        "linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
+        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] usb: dwc3: st: Propagate reset deassert failures
+Thread-Topic: [PATCH] usb: dwc3: st: Propagate reset deassert failures
+Thread-Index: AQHdA55lv1c8W0tRNE+dggZ1pzGO9bZRaSOA
+Date: Fri, 26 Jun 2026 22:07:35 +0000
+Message-ID: <aj73tdMG7uEHoUBy@vbox>
+References: <20260624055728.46078-1-pengpeng@iscas.ac.cn>
+In-Reply-To: <20260624055728.46078-1-pengpeng@iscas.ac.cn>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PH0PR12MB7486:EE_|DM4PR12MB6493:EE_
+x-ms-office365-filtering-correlation-id: 9fcba0f4-e8de-4c81-c6f9-08ded3cf53f2
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|1800799024|23010399003|11063799006|56012099006|38070700021|18002099003|22082099003;
+x-microsoft-antispam-message-info: 7yxuJJCO4eOiV/odToJ350CjVINUvWb7AuFyVDjyHXLOjeCjcJBlKwvqHdwZ5e8ttOQjxdMb5ysE683Xp9Qv1JClVi6Z+hd59uWTHIZPc0cLreFqAuvSXQUnXmwZEgLi67Wse0cTMuttvdg3VAyM0ITDt6SZH2lmRu8cg22xfNAhv+m1kjiFaUuK3ITgxbMoJC0YgJM2pzEL16junOiYyZybVnPbDJf47WSQSGcPDyFx4NrT/LmKC8o+LgCBtRkaYt70aTepsPoHsLvOfAbNSxTdzvUrhaawR1YOnE++QaHiZGSwZkVvtyPAr3+Bd+baZShIr7rNSjzBOYKppYFeM6eFNk6zGkvZtpb/IFyxq0+iAcr2dRrlCYYIWVuIK2lRrDT5DVeaStkhhpQ1eXb/fLMUWtsT1U8I2QGtgbgJun3/dNzx2bynlelaqZ2t236lV22/HhA2vxvC/jz0OrjvhgjJtDtJ1NM36q/6qLpMHKrqHVw+mj05ghZ5VUD9Bnywdun1UXhuklptM6S69Qdt0zWfoHHOMqlSHtyk4h4NgdHDREhJnWWIKwpDkNUFipjUSMPEo9vN0sy0xI9vCMwz6ttnGgrXphwRjmvnqg6CQdmUGV0UyhJggeMU44NMbD+OwrMUKnDltmuA9jloiKoB3O282fE7RKMmpZw/aA0mGIWE9D9WyLVMeJKTjEqsNfBfwIVv5+eZVUKdpFMDNWWTWXSv7NeUWEzIG+8aUppZuMk=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR12MB7486.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(23010399003)(11063799006)(56012099006)(38070700021)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?SkZPZmpmRHVMWFBtQlFZbmFGSzVXNGlQZWR5Qy93SXJ2c0FQRXhvVXFkbXd4?=
+ =?utf-8?B?SkF2Y1hyVWpDZ2pHaXNiblp5WitYYVlDQkJ1bG5zUGl3bWV4YVowZ2diN2I2?=
+ =?utf-8?B?ZlJXeHBHQUV3cFdKL25xWExhSzI4VHYxL3NMaHVCbU5HMEpTMFpoT1d1Um95?=
+ =?utf-8?B?L0pWVEZpUGluM09UbTZ3Zi9RS0NxV1o0OUdzaWlmaDlwT0pTYWhPRFdxenpN?=
+ =?utf-8?B?eHdyRFVIcCs2U3lTZHlBQVAyVlRxNnhKUEdQbnNON28yb0wyR3ZPYTNuaHBr?=
+ =?utf-8?B?Tk5qcGhtTHgxNFNaanUwTU1MWTNMK2o5TWcreDNHMkVzUTU5SzgzSUdBL0s2?=
+ =?utf-8?B?OW9YdXpsdjRoeUZzUUlYallZWVhZZnpkVHpHUjMvMDNXbWlNRkIzSDBJVmM5?=
+ =?utf-8?B?SGkyeDEzeUYyT3dyR1dYRFRWS0Qyd1A4NzU1WitnVHFmZFlpWkphT0d4Tzdq?=
+ =?utf-8?B?U3RnR3pqRUJrY25sUEU5dzFnbytlWWpveHMzOXdXbGxkdncvcjExMTdzM1V1?=
+ =?utf-8?B?RjJHVDBKOGlPczJEZWdSQngrWGlUN3Uzamt0WVY2cHFZMWxEN1ZsdjN3MkJz?=
+ =?utf-8?B?cURnank1QXc3eTFCQVZuYnRLRVFvUUdXM2ZZME5rZkRDZFFDK1dITUN0S1FO?=
+ =?utf-8?B?V0N0cCtJMFBxMDJMSm1KeFA4YnFYVVRGYnczYytGa1NDZWtSeExMN2dlWkZU?=
+ =?utf-8?B?RDVrUGMyY0l2OXBsMkUvUStPOHZSMyt1ZXREdU5nUExhdmhoQUVuQVFTY2lo?=
+ =?utf-8?B?SEg0eDRqTTB6NHZyNWNoOVNkVXVCTVpYV0RIeWNzMnptR1Z5R0R0cXZvY0Fi?=
+ =?utf-8?B?eHc0V08xbmNmRXRNWlpzVWFvU0Y4NnNYc1JUMVRwZi9IQ0FCVThQRFYyQXNT?=
+ =?utf-8?B?WDk1TDhRY1NXTFVlMERRc01DU1h2bWN5Y01jSlZIQVMwKzFjQlB3TkJtV21t?=
+ =?utf-8?B?alJyRE1WYkpGQlluV0RuaXdhaDRlSVFQbHBJdEhYL2RPMFBTUncwY2JLSVJv?=
+ =?utf-8?B?Sk5zZnhxZWpEdkViQ1JsK3J1aWlkWDlVY3BWbE5ZTXhZWmxaLzRHdzdJVlo5?=
+ =?utf-8?B?VFdCTVNwRWxPdTdlVTl1bHNIWnRRVzNrMmloUzJCckJ2UkU2YjlQaXpXQ295?=
+ =?utf-8?B?U1ZBNjNCU3NvYlNudkpORzk3UHREaWhIdVFVVmtNb3I5dkRqcEtZQktUeTRO?=
+ =?utf-8?B?aFJZU0JGSzNFTzdxMjBjUVZmdUt1T2JIbjJHYzQrdDV3V1RXV2ZTdmpOWTVz?=
+ =?utf-8?B?NU5YODE0TWN3OUZVVzlFRlo5VnNwK0p6OHp2aFJjWWJ1NjJ6cnVubjNEUmRk?=
+ =?utf-8?B?a3ZPSk8yeGVhWHM5MHdSbE0vKzEwNGdZRzNvbVZkOWkwQlh5eXhzUGxXcXVN?=
+ =?utf-8?B?MzYrNDBnNDRKcWg3WWNtTlpjR0t3NGFabDRtMmR0Yktabm4wTFVVNTd5WmxP?=
+ =?utf-8?B?K2t5b1g3cmNUcjRQalNJWk9HQngyWWhBdUl5Q25TSHQyQVcvQzBMRk9FcC9y?=
+ =?utf-8?B?eWVEOGVCVUlQRFI0Rm5XS2hYSVdQRnRQSWhWZWlady8wVTRLMmI2VnJJSEZN?=
+ =?utf-8?B?RW5FeFpkcGVJMGZJQjFtWEorQThpL1psL3E4bjY0QWs2NXVjMi9wVzV4b0pI?=
+ =?utf-8?B?dVIxaTBybUFNbkJObDhZM0xBQ05sZkNMTnhYd1pDUk5Gb3Q3ME9tOFVrd0dD?=
+ =?utf-8?B?Ky9WKzRaZFlzWGxhemZtem5udzZRNHhmWW1CRVFjNVMyOUFkNWNZczlEb3p3?=
+ =?utf-8?B?L0ErM041c3hCMVJnTkczSVgwNDlacmtsR1paVmVGeHZ2ek03eUUrM3RndkZS?=
+ =?utf-8?B?c3FDYmsxSzFNVzdaT2EvaW9KZzBsdUV5a0FnaWI2cTFHUzdtS3VlRFE2SjN5?=
+ =?utf-8?B?clFJQkFpOXVlNzlzVjU5S05JdmpnckdxSUwzZndCckI0MFFObFhTWkFJL0d6?=
+ =?utf-8?B?Z3J3WVFoNzhVci9QejU0QzR2THlseWpZUTkxcDl5cEV2RWVPdG9jQ2Y4M2dP?=
+ =?utf-8?B?SDVlcmdRbnFQOGU4RjlkL1FiLy9kbnpYYlk4Qy9DWlY5dC8vVUsxTkJMQUlD?=
+ =?utf-8?B?SWVMYTVZVmcrMmMyNEVacFZ2WTkzbkNhbTFDNlNTUmhoSjNaMDhQek5KeW4y?=
+ =?utf-8?B?cDZtYUJvUGVuaG5rTG9VTzlwSDBLWUM0Y3I5OVVvN2NGRGJZMjNNN1JPN2VT?=
+ =?utf-8?B?YW42Z281VkFjZUV5L05XU1piZk10QXNtM01KNjZxdlI4cmsvYjJMcmxRZ1JO?=
+ =?utf-8?B?dExFV0R6Uy9LWmltUWFJMnZXOWlhMlRVa0djVFVVQkE3YUdIb3BmNDNBTlVr?=
+ =?utf-8?B?akFYRWUwQmRFM2JHMk5MSHhqeEYrZ3M5aHFhRTlZeklQZ2cxb2Mxdz09?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <6BB3896D22B3A9499836CDB7887ADB58@namprd12.prod.outlook.com>
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+X-Exchange-RoutingPolicyChecked: CUfIRmmkTFaiC+gt/+IMxTZ1D2Cc7nWNUUPl/RB4T7u6s8dRcmh4NrJNN8nQIY0kjfwuyB8532A/eDMqubfvDImZQ9evFTWzjrXg9pJk1Yx2Cmpja8Q33HkAoaFDEPg8NMLQl6NG9dUgSAUJXBEuss8ZltwXFR/Te+J5B/LzfSJ8GMrpzu+qC2S8i53qwPizYdbPitQ99gMI9ZuWnUWfU8ZpNtDkuuSF2QGTTmtUfec+cuhx5patOQH4m8Y4VicR1qdPhR/GdWOrjF/0Eg7SWktbs4+/TpjlcIFXpCl3l6juO20N9rBsgDB1cV1KKyQ9zVtlQQeKYpWQlY00/yTYEQ==
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: 0vgoG41L6qQQOBoB3inFmJDM/nnPLeDZjWfdiqUUtICx7TbImDaXSSHEyJj2DYG4AEtggLrMF0GWROlxH9ojNJ7yJruh2Hhi5ZUzAdixnPi7qtAD4jdfWsUGLnYi5lnhNf8XFy9+hwkQiXN3PjRQ8izENBEWSKRRtaFafNUraOL0W/AqUMlvnwRv5O4UrY533lv5TT1ndyz6RVbC9tWqquFUjmuN1gfqONRvoq+egoouo2SCtoQovf/qKWjy1ps6xFU/7PufHWhLLRTu/UXcPi6cPCAReZZtVbQtPUBeWiCfVjVbS0v273qUcScZvjkE9VlRlwX+pyfbBBGXMQt8oZkaF6clzafpJG9xARF7MIyrWbwRynriUAUg253pUBCH5LXCVdp0p7hgb2iML4FfLwOMHPPyCiF7aQrVy2efHfdihgsfvFZnjryQo/VJqHTMLfMhR1wndXgXqbnvAmRCE83Pyjx7lCKuN1RgEGLX9RNTwxikBxvpGiKGUKGbLdA5H8+/w6L25XLagAAlZwmwNenWbus1KEg56Ho7oYvQNE3fYNxRPJI8y/HrGLbM+nAdW1WzQ/mH99MNy7o902Dfv5VBfagv34ZO4IZ8UZYOzfuuT1mKZVV44lUI6EWJhV+JIPesQwHBpNdmoBIfMvGjfw==
+X-OriginatorOrg: synopsys.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PH0PR12MB7486.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9fcba0f4-e8de-4c81-c6f9-08ded3cf53f2
+X-MS-Exchange-CrossTenant-originalarrivaltime: 26 Jun 2026 22:07:35.2793
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: c33c9f88-1eb7-4099-9700-16013fd9e8aa
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: mYGBr1g2Zy/zFBOx15RZcBLV1+X+xYEEb7ncFtejYje86MGqOVswFXj3Joi8Lk6QNwEhQM8HuIwt0IhVd59O7g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB6493
+X-Proofpoint-ORIG-GUID: 0ayNV1wsCADqvZNPxhFAC8Hc439dEodr
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjI2MDE4NCBTYWx0ZWRfX+q6uyQwjB+dS
+ qauwEbDiXRiq2dpvW+YZYc54CRaoblV+8V61bW3l5Ra3nvt+s6EsYyUyiuXGn25S2wz769FEajm
+ ErUcz76lxatezEJdNqRppuyGQOugIRkQzWcphdbqde4NV0mUZbvYocO6tG5rlWDkcGhGFtqfwyy
+ jmfRFL234jQe04MnyZLQepvjnGTvemM78Issi2E74jwfrcEUNVUBit8pcj/YH2hm8ABY7jTb0Ma
+ gyi0V/sFEyWupdPtI9GrHunxMvV2Wb3Pt5cx+tnvsEj9fJ3RVSrLKavX/24V5pYQq3+NJdeJcfI
+ sQr45rwI/kIBJSyAMwDtGGxcoI5hjLMg9iDle4JZB+LlLhaW4zTtl3NfKtnUVyX7918x30lJ6vO
+ MA1DCZ2cqV+msqHU//Yda9E69MmVVApouWsgs78hwS3dW4v/0c/V3Fod9B9XeqFVH7PDltevW9l
+ I+XXrJvQMh5koF7jV3g==
+X-Authority-Analysis: v=2.4 cv=bo18wkai c=1 sm=1 tr=0 ts=6a3ef835 cx=c_pps
+ a=8EbXvwLXkpGsT4ql/pYRAw==:117 a=8EbXvwLXkpGsT4ql/pYRAw==:17
+ a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19
+ a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=qPHU084jO2kA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=tU_645BZ7FZt8VqRJtHG:22 a=-4-sGo8i1FcW4KD7_GeR:22
+ a=QPOMwdtYFG5MZfDgLBoA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNjI2MDE4NCBTYWx0ZWRfX093+1WzuL1HM
+ 2i083c8UaROkQKuOSPYZVu5CYzyvLUDT0WwnCAz6k47mjiRFmoy+ZULYyhWJsiCBnYrk1+dM278
+ 57ch3106AjIfM4FeVEgwSK+J2rNSiUE=
+X-Proofpoint-GUID: 0ayNV1wsCADqvZNPxhFAC8Hc439dEodr
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-06-26_05,2026-06-26_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_active_cloned_notspam
+ policy=outbound_active_cloned score=0 impostorscore=0 phishscore=0
+ suspectscore=0 clxscore=1011 lowpriorityscore=0 bulkscore=0 spamscore=0
+ adultscore=0 malwarescore=0 priorityscore=1501 classifier=typeunknown
+ authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.22.0-2606150000 definitions=main-2606260184
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_143554_410654_30E1DA0D 
-X-CRM114-Status: GOOD (  17.45  )
+X-CRM114-CacheID: sfid-20260626_150759_530664_67362CF8 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,184 +232,34 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Extend the eventfd IRQ test with an '-n' flag to route a subset of device
-interrupts as NMIs (Non-Maskable Interrupts) into the guest using an
-alternating pattern of 4 NMIs followed by 4 regular interrupts.
-
-While this adds coverage for NMI injection, the primary goal is to
-validate KVM's handling of non-postable interrupt delivery (AMD and Intel
-IOMMUs only support posting fixed IRQs targeting a single vCPU).  KVM
-has historically bungled handling transitions between posted and remapped
-modes.  Use NMIs to stress the transitions, because they are a reliable,
-architectural way to force these code paths.
-
-Signed-off-by: David Matlack <dmatlack@google.com>
-Co-developed-by: Josh Hilke <jrhilke@google.com>
-Signed-off-by: Josh Hilke <jrhilke@google.com>
-[sean: add GUEST_RECEIVED_INTERRUPT(), massage changelog]
-Signed-off-by: Sean Christopherson <seanjc@google.com>
----
- tools/testing/selftests/kvm/irq_test.c | 48 ++++++++++++++++++++------
- 1 file changed, 37 insertions(+), 11 deletions(-)
-
-diff --git a/tools/testing/selftests/kvm/irq_test.c b/tools/testing/selftests/kvm/irq_test.c
-index bb20bb81e930..48520c6dea69 100644
---- a/tools/testing/selftests/kvm/irq_test.c
-+++ b/tools/testing/selftests/kvm/irq_test.c
-@@ -17,11 +17,17 @@
- static u64 timeout_ns = 2ULL * 1000 * 1000 * 1000;
- static bool guest_ready_for_irqs[KVM_MAX_VCPUS];
- static bool guest_received_irq[KVM_MAX_VCPUS];
-+static bool guest_received_nmi[KVM_MAX_VCPUS];
- static bool irq_affinity;
- static bool done;
- 
- #define GUEST_RECEIVED_IRQ(__vcpu)	\
- 	SYNC_FROM_GUEST_AND_READ((__vcpu)->vm, guest_received_irq[(__vcpu)->id])
-+#define GUEST_RECEIVED_NMI(__vcpu)	\
-+	SYNC_FROM_GUEST_AND_READ((__vcpu)->vm, guest_received_nmi[(__vcpu)->id])
-+
-+#define GUEST_RECEIVED_INTERRUPT(__vcpu, __nmi)	\
-+	((__nmi) ? GUEST_RECEIVED_NMI(__vcpu) : GUEST_RECEIVED_IRQ(__vcpu))
- 
- static u32 guest_get_vcpu_id(void)
- {
-@@ -35,6 +41,11 @@ static void guest_irq_handler(struct ex_regs *regs)
- 	x2apic_write_reg(APIC_EOI, 0);
- }
- 
-+static void guest_nmi_handler(struct ex_regs *regs)
-+{
-+	WRITE_ONCE(guest_received_nmi[guest_get_vcpu_id()], true);
-+}
-+
- static void guest_code(void)
- {
- 	x2apic_enable();
-@@ -103,7 +114,7 @@ static void trigger_interrupt(struct vfio_pci_device *device, int eventfd)
- 
- 
- static void kvm_route_msi(struct kvm_vm *vm, u32 gsi, struct kvm_vcpu *vcpu,
--			  u8 vector)
-+			  u8 vector, bool use_nmi)
- {
- 	struct {
- 		struct kvm_irq_routing header;
-@@ -114,7 +125,7 @@ static void kvm_route_msi(struct kvm_vm *vm, u32 gsi, struct kvm_vcpu *vcpu,
- 			.gsi = gsi,
- 			.type = KVM_IRQ_ROUTING_MSI,
- 			.u.msi.address_lo = 0xFEE00000 | (vcpu->id << 12),
--			.u.msi.data = vector,
-+			.u.msi.data = use_nmi ? NMI_VECTOR | (4 << 8) : vector,
- 		},
- 	};
- 
-@@ -146,13 +157,14 @@ static const char *probe_iommu_type(void)
- 
- static void help(const char *name)
- {
--	printf("Usage: %s [-a] [-d <segment:bus:device.function>] [-e] [-h] [-i nr_irqs] [-t iommu_type]\n", name);
-+	printf("Usage: %s [-a] [-d <segment:bus:device.function>] [-e] [-h] [-i nr_irqs] [-n] [-t iommu_type]\n", name);
- 	printf("\n");
- 	printf("Tests KVM interrupt routing and delivery via irqfd.\n");
- 	printf("-a	Affine the device's host IRQ to a random physical CPU\n");
- 	printf("-d	Use a VFIO device to send MSI-X interrupts instead of manually signaling the eventfd\n");
- 	printf("-e	Set empty GSI routing in-between some interrupts\n");
- 	printf("-i	The number of IRQs to generate during the test\n");
-+	printf("-n	Deliver 50 percent of IRQs as non-maskable interrupts\n");
- 	printf("-t	Override the IOMMU type to use (vfio_type1_iommu or iommufd)\n");
- 	printf("\n");
- 	exit(KSFT_FAIL);
-@@ -183,11 +195,12 @@ int main(int argc, char **argv)
- 	const char *device_bdf = NULL;
- 	const char *iommu_type = NULL;
- 	int i, j, c, msix, eventfd;
-+	bool use_nmi = false;
- 	struct iommu *iommu;
- 	struct kvm_vm *vm;
- 	int irq, irq_cpu;
- 
--	while ((c = getopt(argc, argv, "ad:ehi:t:")) != -1) {
-+	while ((c = getopt(argc, argv, "ad:ehi:nt:")) != -1) {
- 		switch (c) {
- 		case 'a':
- 			irq_affinity = true;
-@@ -201,6 +214,9 @@ int main(int argc, char **argv)
- 		case 'i':
- 			nr_irqs = atoi_positive("Number of IRQs", optarg);
- 			break;
-+		case 'n':
-+			use_nmi = true;
-+			break;
- 		case 't':
- 			iommu_type = optarg;
- 			break;
-@@ -214,6 +230,7 @@ int main(int argc, char **argv)
- 
- 	vm = vm_create_with_vcpus(nr_vcpus, guest_code, vcpus);
- 	vm_install_exception_handler(vm, vector, guest_irq_handler);
-+	vm_install_exception_handler(vm, NMI_VECTOR, guest_nmi_handler);
- 
- 	if (device_bdf) {
- 		if (!iommu_type)
-@@ -251,36 +268,45 @@ int main(int argc, char **argv)
- 
- 	for (i = 0; i < nr_irqs; i++) {
- 		const bool do_set_empty_routing = set_empty_routing && (i & BIT(3));
-+		const bool do_use_nmi = use_nmi && (i & BIT(2));
- 		struct kvm_vcpu *vcpu = vcpus[i % nr_vcpus];
- 		struct timespec start;
- 
- 		if (do_set_empty_routing)
- 			kvm_set_empty_gsi_routing(vm);
- 
--		kvm_route_msi(vm, gsi, vcpu, vector);
-+		kvm_route_msi(vm, gsi, vcpu, vector, do_use_nmi);
- 
- 		if (irq_affinity) {
- 			irq_cpu = kvm_random_u64(&kvm_rng) % get_nprocs();
- 			proc_irq_set_smp_affinity(irq, irq_cpu);
- 		}
- 
--		for (j = 0; j < nr_vcpus; j++)
-+		for (j = 0; j < nr_vcpus; j++) {
- 			TEST_ASSERT(!GUEST_RECEIVED_IRQ(vcpus[j]),
- 				    "IRQ flag for vCPU %d not clear prior to test",
- 				    vcpus[j]->id);
-+			TEST_ASSERT(!GUEST_RECEIVED_NMI(vcpus[j]),
-+				    "NMI flag for vCPU %d not clear prior to test",
-+				    vcpus[j]->id);
-+		}
- 
- 		trigger_interrupt(device, eventfd);
- 
- 		clock_gettime(CLOCK_MONOTONIC, &start);
--		while (!GUEST_RECEIVED_IRQ(vcpu) &&
-+		while (!GUEST_RECEIVED_INTERRUPT(vcpu, do_use_nmi) &&
- 		       timespec_to_ns(timespec_elapsed(start)) <= timeout_ns)
- 			cpu_relax();
- 
--		TEST_ASSERT(GUEST_RECEIVED_IRQ(vcpu),
--			    "vCPU %d timed out waiting for IRQ (vector 0x%x) from GSI %d (via CPU %d)\n",
--			    vcpu->id, vector, gsi, irq_cpu);
-+		TEST_ASSERT(GUEST_RECEIVED_INTERRUPT(vcpu, do_use_nmi),
-+			    "vCPU %d timed out waiting for %s (vector 0x%x) from GSI %d (via CPU %d)\n",
-+			    vcpu->id, do_use_nmi ? "NMI" : "IRQ",
-+			    do_use_nmi ? NMI_VECTOR : vector, gsi, irq_cpu);
- 
--		WRITE_AND_SYNC_TO_GUEST(vm, guest_received_irq[vcpu->id], false);
-+		if (do_use_nmi)
-+			WRITE_AND_SYNC_TO_GUEST(vm, guest_received_nmi[vcpu->id], false);
-+		else
-+			WRITE_AND_SYNC_TO_GUEST(vm, guest_received_irq[vcpu->id], false);
- 	}
- 
- 	WRITE_AND_SYNC_TO_GUEST(vm, done, true);
--- 
-2.55.0.rc0.799.gd6f94ed593-goog
-
+T24gV2VkLCBKdW4gMjQsIDIwMjYsIFBlbmdwZW5nIEhvdSB3cm90ZToNCj4gVGhlIFNUIERXQzMg
+Z2x1ZSBkcml2ZXIgdHJlYXRzIHRoZSBwb3dlcmRvd24gYW5kIHNvZnRyZXNldCByZXNldA0KPiBj
+b250cm9scyBhcyByZXF1aXJlZCByZXNvdXJjZXMsIGJ1dCBpZ25vcmVzIHJlc2V0X2NvbnRyb2xf
+ZGVhc3NlcnQoKQ0KPiBmYWlsdXJlcyBiZWZvcmUgcG9wdWxhdGluZyB0aGUgY2hpbGQgRFdDMyBk
+ZXZpY2UuICBSZXN1bWUgaWdub3JlcyB0aGUNCj4gc2FtZSBmYWlsdXJlcyBiZWZvcmUgcmV0dXJu
+aW5nIHN1Y2Nlc3MuDQo+IA0KPiBDaGVjayB0aGUgZGVhc3NlcnQgb3BlcmF0aW9ucyBhbmQgdW53
+aW5kIHRoZSBhbHJlYWR5IGRlYXNzZXJ0ZWQNCj4gcG93ZXJkb3duIHJlc2V0IGlmIHNvZnRyZXNl
+dCBkZWFzc2VydGlvbiBmYWlscy4NCj4gDQo+IFNpZ25lZC1vZmYtYnk6IFBlbmdwZW5nIEhvdSA8
+cGVuZ3BlbmdAaXNjYXMuYWMuY24+DQo+IC0tLQ0KPiAgZHJpdmVycy91c2IvZHdjMy9kd2MzLXN0
+LmMgfCAxOSArKysrKysrKysrKysrKystLS0tDQo+ICAxIGZpbGUgY2hhbmdlZCwgMTUgaW5zZXJ0
+aW9ucygrKSwgNCBkZWxldGlvbnMoLSkNCj4gDQo+IGRpZmYgLS1naXQgYS9kcml2ZXJzL3VzYi9k
+d2MzL2R3YzMtc3QuYyBiL2RyaXZlcnMvdXNiL2R3YzMvZHdjMy1zdC5jDQo+IGluZGV4IDVkNTEz
+ZGVjYWFjZC4uYmJhYmZkOTMzNzk4IDEwMDY0NA0KPiAtLS0gYS9kcml2ZXJzL3VzYi9kd2MzL2R3
+YzMtc3QuYw0KPiArKysgYi9kcml2ZXJzL3VzYi9kd2MzL2R3YzMtc3QuYw0KPiBAQCAtMjQyLDcg
+KzI0Miw5IEBAIHN0YXRpYyBpbnQgc3RfZHdjM19wcm9iZShzdHJ1Y3QgcGxhdGZvcm1fZGV2aWNl
+ICpwZGV2KQ0KPiAgCQkJCSAgICAgImNvdWxkIG5vdCBnZXQgcG93ZXIgY29udHJvbGxlclxuIik7
+DQo+ICANCj4gIAkvKiBNYW5hZ2UgUG93ZXJEb3duICovDQo+IC0JcmVzZXRfY29udHJvbF9kZWFz
+c2VydChkd2MzX2RhdGEtPnJzdGNfcHdyZG4pOw0KPiArCXJldCA9IHJlc2V0X2NvbnRyb2xfZGVh
+c3NlcnQoZHdjM19kYXRhLT5yc3RjX3B3cmRuKTsNCj4gKwlpZiAocmV0KQ0KPiArCQlyZXR1cm4g
+cmV0Ow0KPiAgDQo+ICAJZHdjM19kYXRhLT5yc3RjX3JzdCA9DQo+ICAJCWRldm1fcmVzZXRfY29u
+dHJvbF9nZXRfc2hhcmVkKGRldiwgInNvZnRyZXNldCIpOw0KPiBAQCAtMjUzLDcgKzI1NSw5IEBA
+IHN0YXRpYyBpbnQgc3RfZHdjM19wcm9iZShzdHJ1Y3QgcGxhdGZvcm1fZGV2aWNlICpwZGV2KQ0K
+PiAgCX0NCj4gIA0KPiAgCS8qIE1hbmFnZSBTb2Z0UmVzZXQgKi8NCj4gLQlyZXNldF9jb250cm9s
+X2RlYXNzZXJ0KGR3YzNfZGF0YS0+cnN0Y19yc3QpOw0KPiArCXJldCA9IHJlc2V0X2NvbnRyb2xf
+ZGVhc3NlcnQoZHdjM19kYXRhLT5yc3RjX3JzdCk7DQo+ICsJaWYgKHJldCkNCj4gKwkJZ290byB1
+bmRvX3Bvd2VyZG93bjsNCg0KVGhpcyBzaG91bGQgZ290byB1bmRvX3NvZnRyZXNldCBpbnN0ZWFk
+IG9mIHVuZG9fcG93ZXJkb3duLg0KDQpCUiwNClRoaW5o
 
