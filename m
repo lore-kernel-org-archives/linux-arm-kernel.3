@@ -4,79 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6D0ECD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 09:05:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CED4CDE008
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 09:09:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bEiU3fojUNGAYgCWRN2irluABr3uKPWYFItnRGilRUc=; b=kBpfPGdv8SfQPfQNN7GSby0ySz
-	yh8BxJaKSDVWxvzlXvBI5Ol0y+yRVgYSTTyDwBbuzY/fgsM2dQLnm5UcsjQTFQAmeE8v87hSq/RZC
-	GW5D40D+3dIxTlGZy2pcFDC/TECKN6/dPSRPAKcjMK/HkaFQhY14SIIFvrEHvA7vY/rGnGZWewV1x
-	UEO71M6VMHekgKN8Dw0GGXDxBZBczHmVtqvoPTqWWmcHfdlxiEcGyCksCAjNv20LnPQ3PqPwVDMi4
-	NJjNfyNYZsnhJqM3ilHJX9ciEFLPm2GqVV3uLzwfRcOO6oIOUYSgAw35bZPKqthDtgKKV5wOQKOmn
-	4I4McoPA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5Lv/xycF/BeAYW6b9Q5Dt2xc6YcWsiS5nJX8Z7401wQ=; b=vvwQzej+KER1p1gf2JbmXIbk21
+	Xnam0Pbm0SXjbb3XBVAgRm/Vpg+NgxZnpzvq3DTb0pBJC6vbOJ1ye9TYT/4xKH3YlVmiscEVMrtBV
+	UQUW4SlAbGBulFH9WQ8+vNz1o5D/cxoJ2mA6Oo2sN5+GEraZwClhUgi/N7Q5fSCLvuGSDthfee+av
+	kRPP9SeSV5QYP8Vcm2zLh83Jr258MgldiQldWftV/kaBu8nuWN67AtRcoXvdArbwudTdfFxYoc3vI
+	EV7vi2d6dP3uVbS1M4k+DnXvAM+JFfQCKGtQcfek6cI2TZxOXIRxgCiiOkrAVgcLneT2sn5WUUdgn
+	6Gf5sdpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd2Uk-0000000AwGq-25oZ;
-	Fri, 26 Jun 2026 09:05:06 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd2Uh-0000000AwGT-1GqF
+	id 1wd2Ys-0000000AwUC-3mMX;
+	Fri, 26 Jun 2026 09:09:22 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wd2Yp-0000000AwTm-409L
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 09:05:04 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 152D71595;
-	Fri, 26 Jun 2026 02:04:57 -0700 (PDT)
-Received: from [10.57.28.79] (unknown [10.57.28.79])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 451C93F836;
-	Fri, 26 Jun 2026 02:04:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782464701; bh=SDF1tP2lFvbMSbt90bQcI7DYejdz/8WLarqyxI1Iv+4=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=TKNgwx78UHVN4ckaiLi5JwvIzalMTtEOrxZG/Ln35ENBJRJcJrF4WpVIvsJ1a1mYT
-	 HBbibhMDOz3gLUFnFM6VDLey1QSQTo9XMVdeoyv1fyrruoLcMFi7fP2+TMr/Pyp9OA
-	 Q23dXsqj+8Cvan0fCpNl2/B8hsokTTypqKHj088k=
-Message-ID: <8cc5b4e0-a047-47fd-8fd0-29c49ea92d3f@arm.com>
-Date: Fri, 26 Jun 2026 10:04:56 +0100
+	Fri, 26 Jun 2026 09:09:21 +0000
+Received: from edelgard.fodlan.icenowy.me (unknown [112.94.101.182])
+	by APP-01 (Coremail) with SMTP id qwCowADnjNW4QT5qNX5fAw--.14227S2;
+	Fri, 26 Jun 2026 17:09:13 +0800 (CST)
+Message-ID: <996c3d442e92e7f908fb3a32973805dd2d2680d7.camel@iscas.ac.cn>
+Subject: Re: [PATCH v5 1/7] dt-bindings: display: verisilicon,dc: generalize
+ for single-output variants
+From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: Conor Dooley <conor@kernel.org>, Joey Lu <a0987203069@gmail.com>, 
+	maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
+ 	airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, ychuang3@nuvoton.com, schung@nuvoton.com,
+ yclu4@nuvoton.com, 	dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Date: Fri, 26 Jun 2026 17:09:12 +0800
+In-Reply-To: <20260626-agreement-express-b16c71315f7b@wendy>
+References: <20260625094449.708386-1-a0987203069@gmail.com>
+	 <20260625094449.708386-2-a0987203069@gmail.com>
+	 <20260625-bobbing-annotate-d1c4d6874ee2@spud>
+	 <20260626-zit-amuck-e743e58d2e15@wendy>
+	 <84b93c496fabdeee05d2f962a1b764fdbfaacdb7.camel@iscas.ac.cn>
+	 <20260626-agreement-express-b16c71315f7b@wendy>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.3 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v14 29/44] arm64: RMI: Runtime faulting of memory
-Content-Language: en-GB
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-To: Gavin Shan <gshan@redhat.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev, Catalin Marinas <catalin.marinas@arm.com>,
- Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>,
- James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
- Zenghui Yu <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
- <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
- Emi Kisanuki <fj0570is@fujitsu.com>, Vishal Annapurve
- <vannapurve@google.com>, WeiLin.Chang@arm.com, Lorenzo.Pieralisi2@arm.com
-References: <20260513131757.116630-1-steven.price@arm.com>
- <20260513131757.116630-30-steven.price@arm.com>
- <3359f788-07fa-41a1-9ac7-45c58577c1fa@redhat.com>
- <aiJ6u83O0nVUtPyv@lpieralisi>
- <ecef952b-e8c6-4102-933b-c99c46f14431@redhat.com>
- <aiLes2ecZSr17UwZ@lpieralisi>
- <1e39094f-7fa3-4ef1-be54-53d7a8643506@redhat.com>
- <98d2a0f3-b831-466a-8212-5bcf97ad9d8b@arm.com>
- <8da87878-2a5d-478a-a280-60dbed7ad1b9@redhat.com>
- <9482dfbc-4d96-47ba-a615-f4ba0bda833f@arm.com>
-In-Reply-To: <9482dfbc-4d96-47ba-a615-f4ba0bda833f@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: qwCowADnjNW4QT5qNX5fAw--.14227S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxXF4DCrWktr1UAr1rKrWfXwb_yoW5Kw1fpF
+	yrJFW5ta4DJr1rXr1kKw18JFyvkw1xJ3WDXr95XFyxAFn0vr10gF12qF909F9rXrs7C3Zr
+	Xr4jqryxZryYyFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvlb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwV
+	C2z280aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
+	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Jr0_Gr
+	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7
+	MxkF7I0En4kS14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r
+	4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF
+	67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2I
+	x0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2
+	z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIdaVFxhVjvj
+	DU0xZFpf9x07b4oGdUUUUU=
+X-Originating-IP: [112.94.101.182]
+X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_020503_426843_494C5741 
-X-CRM114-Status: GOOD (  40.11  )
+X-CRM114-CacheID: sfid-20260626_020920_396469_2AEB6D74 
+X-CRM114-Status: GOOD (  34.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,223 +90,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/06/2026 09:47, Suzuki K Poulose wrote:
-> On 26/06/2026 08:43, Gavin Shan wrote:
->> On 6/26/26 1:58 AM, Suzuki K Poulose wrote:
->>> On 25/06/2026 14:53, Gavin Shan wrote:
->>>> On 6/6/26 12:35 AM, Lorenzo Pieralisi wrote:
->>>>> On Fri, Jun 05, 2026 at 06:11:11PM +1000, Gavin Shan wrote:
->>>>>> On 6/5/26 5:28 PM, Lorenzo Pieralisi wrote:
->>>>>>> On Fri, Jun 05, 2026 at 04:23:15PM +1000, Gavin Shan wrote:
->>
->> [...]
->>
->>>>>>
->>>>>> I tried to rebase Jean's latest QEMU series [1] to upstream QEMU, 
->>>>>> and found
->>>>>> that memory slots backed by THP are broken. With THP disabled on 
->>>>>> the host and
->>>>>> other fixes (mentioned in my prevous replies) applied on the top 
->>>>>> of this (v14)
->>>>>> series, I'm able to boot a realm guest with rebased QEMU series 
->>>>>> [2], plus more
->>>>>> fxies on the top.
->>>>>>
->>>>>> [1] https://git.codelinaro.org/linaro/dcap/qemu.git  (branch: cca/ 
->>>>>> latest)
->>>>>> [2] https://git.qemu.org/git/qemu.git                (branch: cca/ 
->>>>>> gavin)
->>>>>>
->>>>>> Lorenzo, You may be saying there is someone making QEMU to support 
->>>>>> ARM/CCA?
->>>>>
->>>>> Mathieu and I are working on that yes and with Steven/Suzuki to fix 
->>>>> the THP
->>>>> issues you pointed out above.
->>>>>
->>>>>> If so, I'm not sure if there is a QEMU repository for me to try?
->>>>>
->>>>> We should be able to submit patches by end of June - we shall let 
->>>>> you know
->>>>> whether we can make something available earlier.
->>>>>
->>>>
->>>> Not sure if there are other known issues in this series. It seems 
->>>> the stage2
->>>> page fault handling on the shared space isn't working well. In my 
->>>> test, the
->>>> vring (struct vring_desc) of virtio-net-pci is updated by the guest, 
->>>> and the
->>>> data isn't seen by QEMU, I'm suspecting if the host-page-frame- 
->>>> number is properly
->>>> resolved in the s2 page fault handler for shared (unprotected) space.
->>>>
->>>> - I rebased Jean's latest qemu branch to the upstream qemu;
->>>>
->>>> - On the host, which is emulated by qemu/tcg, the THP (transparent 
->>>> huge page) is
->>>>    disabled.
->>>>
->>>> - On the guest, I can see the virtio vring (struct vring_desc) is 
->>>> updated. The
->>>>    S1 page-table entry looks correct because the corresponding 
->>>> physical address
->>>>    0x10046880000 is a sane shared (unprotected) space address.
->>>>
->>>>    [   52.094143] software IO TLB: Memory encryption is active and 
->>>> system is using DMA bounce buffers
->>>>    [   52.289746] virtqueue_add_desc_split: 
->>>> desc[0]@0xffff000006880000, [00000100b983f000  00000640  0002  0001]
->>>>    [   52.432150] PTE 0x00e8010046880707 at address 0xffff000006880000
->>>>
->>>> - On the host, the s2 page-table-entry is unmapped due to attribute 
->>>> transition (private -> shared).
->>>>    A subsequent S2 page fault is raised against the adress and the 
->>>> s2 page-table-entry is built.
->>>>
->>>>    [  109.259077] ====> realm_unmap_shared_range: 
->>>> tracked_unprot_addr=0x10046880000
->>>>    [  109.260249] realm_unmap_shared_range: unmapped shared range at 
->>>> 0x10046880000
->>>>    [  109.317786] realm_unmap_shared_range: unmapped shared range at 
->>>> 0x10046880000
->>>>    [  109.629939] ====> kvm_handle_guest_abort: 
->>>> fault_ipa=0x10046880000, esr=0x92000007
->>>>    [  109.630245] realm_map_non_secure: ipa=0x10046880000, 
->>>> pfn=0xb8b59, size=0x1000, prot=0xf
->>>>    [  109.630331] realm_map_non_secure: ipa=0x10046880000, 
->>>> ipa_top=0x10046881000, flags=0x1e0001, range_desc=0xb8b59004
->>>
->>> Are you able to correlate the order of the transitions and the Guest
->>> access with RMM log ? We haven't seen this from our end. We are aware
->>> of permission fault issues with Unprotected IPA when backing the memslot
->>> with MAP_PRIVATE areas. But this looks different.
->>>
->>> Lorenzo, have you run into this ?
->>>
->>
->> It's hard to correlate the order since the logs are collected from two 
->> separate
->> consoles. For the write permission, I add code to the host where the 
->> permission
->> is always added for all s2 page faults in the shared space. Otherwise, 
->> qemu can
->> be killed by -EFAULT or similar error.
-> 
-> This is the problem. We can't add WRITE permission by default. I believe
-> you may have MAP_PRIVATE mapping and it has to be mapped as READ only
-> and on a permission fault, we replace it with a writable page. By
-> overriding the WRITE permission, you let the guest write to a page
-> that may not be seen by the VMM.
-> 
-> We identified this as a bug in the KVM driver in this series (reported
-> by Lorenzo) and there is a corresponding tf-RMM change that is required
-> to get this working. So, please could you wait until the next series
-> when this will be addressed ? Or you could switch to using MAP_SHARED
-> for the "shared" memory in the memslot.
+=E5=9C=A8 2026-06-26=E4=BA=94=E7=9A=84 09:57 +0100=EF=BC=8CConor Dooley=E5=
+=86=99=E9=81=93=EF=BC=9A
+> On Fri, Jun 26, 2026 at 03:58:14PM +0800, Icenowy Zheng wrote:
+> > =E5=9C=A8 2026-06-26=E4=BA=94=E7=9A=84 08:22 +0100=EF=BC=8CConor Dooley=
+=E5=86=99=E9=81=93=EF=BC=9A
+> > > On Thu, Jun 25, 2026 at 05:33:37PM +0100, Conor Dooley wrote:
+> > > > On Thu, Jun 25, 2026 at 05:44:43PM +0800, Joey Lu wrote:
+> > > > > +
+> > > > > +=C2=A0 - if:
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 properties:
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 compatible:
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 contains:
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 const: nuvoton,ma35d1-dcu
+> > > > > +=C2=A0=C2=A0=C2=A0 then:
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 properties:
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 clocks:
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 minItems:=
+ 2
+> > > >=20
+> > > > Anything that updates the minimum constraint should be done at
+> > > > the
+> > > > top
+> > > > level of this schema. The conditional section should then
+> > > > tighten
+> > > > the
+> > > > constraint, in this case that means only having maxItems.
+> > > >=20
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 maxItems:=
+ 2
+> > > > > +
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 clock-names:
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 items:
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 - const: core
+> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 - const: pix0
+> > > >=20
+> > > > Does this even work when the top level schema thinks clock 2
+> > > > should
+> > > > be
+> > > > called axi?
+> > >=20
+> > > Additionally here, only have core and pix0 seems like it might be
+> > > an
+> > > oversimplification. I doubt removing the second output port means
+> > > that
+> > > the axi and ahb clocks are no longer needed.
+> > > Is it the case that your device supplies the same clock to core,
+> > > ahb
+> > > and
+> > > axi? If so, then you should fill those clocks in in your
+> > > devicetree
+> > > and
+> > > this can just constrain the number of clocks/clock-names to 4.
+> >=20
+> > The clock controller of that SoC is quite weird -- it has only a
+> > single
+> > gate bit, but controlling 3 clock gates. All core, ahb and axi
+> > clocks
+> > have gates controlled by this single bit, so it's why currently
+> > it's
+> > modelled as only core clock supplied.
+>=20
+> Yeah, then what's in the binding is definitely wrong.
+> Even if the same clock was provided to all clock inputs in the IP,
+> all
+> individual clock should be listed in the devicetree - although it
+> will
+> look a little silly to see clocks =3D <&foo 2>, <&foo 2>, <&foo 2>,
+> <&foo 2>;
+> In this case, 3 clocks controlled by 1 gate bit is an implementation
+> detail
+> of the SoC's clocking hardware, and not relevant to how the dc
+> instance
+> should be described.
+>=20
+> > Well it might be worthful to supply the bus clock before the gate
+> > as
+> > ahb/axi, especially axi, because both the AXI clock and the core
+> > clock
+> > constraints the maximum pixel clock.
+>=20
+> Right. And looking at patch 4/7, and the wording:
+> > The Nuvoton MA35D1 SoC integrates a DCUltraLite display controller
+> > whose
+> > AXI and AHB bus clocks share a single gate enable bit with the
+> > display
+> > core clock, so the clock driver does not expose them separately.
+> > This
+> > patch makes the axi and ahb clocks optional in the probe.
+>=20
+> It sounds like there's probably some issues with how things are
+> modelled
+> clock wise in this device, unless this is not an accurate statement
+> and
+> there's actually one clock provided to all three inputs. If they're
+> distinct clocks, with different rates, only having one exposed has a
+> lot
+> of potential to be problematic!
 
-For the record, you need something like this :
+Yes, I agree with this, they're different clocks according to the
+manual.
 
---- a/arch/arm64/kvm/rmi.c
-+++ b/arch/arm64/kvm/rmi.c
+I added the clk people to the CC list in a reply of the previous
+revision, but they didn't react yet. I don't know how to represent
+multiple clock gates sharing a single control bit in the clock
+framework...
 
-@@ -838,8 +838,17 @@ int realm_map_non_secure(struct realm *realm,
-                 if (RMI_RETURN_STATUS(ret) == RMI_ERROR_RTT) {
-                         /* Create missing RTTs and retry */
-                         int level = RMI_RETURN_INDEX(ret);
-+                       int req_level = find_map_level(realm, ipa, ipa_top);
-+
-+                       /*
-+                        * There already exists a mapping at the level. 
-May be
-+                        * we are relaxing a permission for the given 
-range ?
-+                        */
-+                       if (level >= req_level) {
-+                               realm_unmap_shared_range(kvm, ipa, 
-ipa_top, false);
-+                               continue;
-+                       }
+Maybe just supplying the ungated AXI/AHB clocks here, and let the core
+clock manage the gate?
 
--                       WARN_ON(level == KVM_PGTABLE_LAST_LEVEL);
-                         ret = realm_create_rtt_levels(realm, ipa, level,
-  
-KVM_PGTABLE_LAST_LEVEL,
-                                                       memcache);
-
-
-Thanks
-Suzuki
-
-
-> 
-> 
-> Suzuki
-> 
-> 
->>
->> There are more findings after more experiments: this virtio-net-pci 
->> device has 3
->> queues or vrings (Rx/Tx/Ctrl). The Rx/Tx/Ctrl queue are populated in 
->> order one after
->> one. In the guest kernel, I intentionally write fixed data 
->> (0x0123456789abcdef) to
->> the first 8 bytes of the queue when it gets populated, and stop the 
->> guest at random
->> points to see if the data is gone. I found that the data written to 
->> Rx/ Tx queue are
->> lost after Ctrl queue is allocated.
->>
->> The data written to Rx/Tx queue is lost if the guest stops (B). The 
->> data written to
->> Rx/Tx queue isn't lost if the guest stops at (A). I can see the 
->> pattern (0x0123...cdef)
->> by dumping the physcial memory through 'pmemsave' command in qemu.
->>
->> DMA allocation
->> ==============
->> dma_alloc_coherent
->>    dma_alloc_attrs
->>      dma_direct_alloc
->>        __dma_direct_alloc_pages
->>        dma_set_decrypted                    // (A) No data lost if 
->> being stopped here for the Ctrl queue
->>        memset(ret, 0, size)                 // (B) Data lost after 
->> being stopped after memset() for the Ctrl queue
->>
->> The memset() on the Ctrl queue should trigger a stage2 page fault. It 
->> seems the page
->> fault enforces the shared pages for Rx/Tx queue to be dropped? I need 
->> to add more
->> debugging code and track it down.
->>
->>> Suzuki
->>>
->>>
->>>>
->>>> - On QEMU, the updated vring (struct vring_desc) at GPA 0x46880000 
->>>> isn't seen. All the
->>>>    data in that adress are zeros.
->>>>
->>>>    ====> virtqueue_split_pop: vdev=<virtio-net>, sz=0x38, 
->>>> queue_index=0x0, vq->vring.num=0x100
->>>>    virtqueue_split_pop: last_avail_idx=0x0, head=0x0
->>>>    address_space_read_cached_slow: cache@0xffff1c036440, addr=0x0, 
->>>> buf=0xffffeee34880, len=0x10
->>>>    address_space_read_cached_slow: cache: ptr=0x0, 
->>>> xlat=0x10046880000, len=0x1000, mrs=<realm-dma-region>, is_write=no
->>>>    address_space_read_cached_slow: translated to mr=<mach-virt.ram>, 
->>>> mr_addr=0x6880000, l=0x10
->>>>    flatview_read_continue_step: mr=<mach-virt.ram>, 
->>>> host=0xffff23e00000, mr_addr=0x6880000, ram_ptr=0xffff2a680000
->>>>    virtqueue_split_pop: desc: 0000000000000000 - 00000000 - 00000000 
->>>> - 00000000
->>>>    qemu-system-aarch64: virtio: zero sized buffers are not allowed
->>>>
->>>>
->> Thanks,
->> Gavin
->>
-> 
+Thanks,
+Icenowy
 
 
