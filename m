@@ -4,119 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61125C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 13:22:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 436FDC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 13:29:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oQ23aqtvHk/KnAoTWB/JH/fphJ2pYqYtw5YHFybaZsQ=; b=a3/pvbY4U0QzYq+cCl1xSQPQfs
-	dXlbHYrHVWHKaOIGKUcv9dsnMf0TLjrduE2CP97j3GmKl80RDyUSG9dCJFUf2aliqVg6Eily5uNn5
-	W/Ln5SDBggXFH68fsjhf+M5ihUW7LMjhk5Sr2OneRc6EeF5rhX39G4CAtgN6aZWuXii60+k6FBvcS
-	tdTC00os9UzTXdsT3UPSI77TYSWjpGfJuaPew5EJhFwsF1Qg3c35OHHU2RMhbQRzkaLGjPcUMHaI8
-	1lgaxp9ja6unJ/FK1mP6Qf8wbPsJZ+kaw/x4vlu15ke3vVb/DqQ0NREwb3ZFZjc6gfVFGI9Q+c+V1
-	+7TDpULA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6MwPjlK9K0kWs7uUBNOwpE6Bg8Uxb2wYDRU1IIsqnKM=; b=XMXcfajK/7NzVeryBz+huwey0g
+	tudDfAMOpVcjf5/UKwS71Mu4LCjCHck5XAJCg41r+6ojZM5z1jbFLsgYTLru/0B8PA4numeTwIWuu
+	gPBng1xJ+wqO56wgFokzzkfrXk6i1dx7lnJK/h7fIG8XhsjPVDaAkxrJyzrr0fX+hLlHYUiEtu8p9
+	vvSUSY3sncnCxohRurBUW6q9Kae0vXg51zEAk3qjN3buaIRwlKzCX39kjRc13MXFw7zHK67stoJIR
+	gfkNrh2XB0nmrRrsFBG+Ipq+yGGSI/co83li5WMSldaAC95YBlH3Mm82gJVyyWWthOEIE8O8aZKEe
+	rwRJxjcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd6Vr-0000000BMvS-4ArY;
-	Fri, 26 Jun 2026 13:22:31 +0000
-Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
+	id 1wd6c9-0000000BNLF-37R3;
+	Fri, 26 Jun 2026 13:29:01 +0000
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd6Vo-0000000BMsj-13JO
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 13:22:30 +0000
-Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-5ad699b182dso99586e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 06:22:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1782480146; x=1783084946; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=oQ23aqtvHk/KnAoTWB/JH/fphJ2pYqYtw5YHFybaZsQ=;
-        b=AsvlPAEGSMX7lSS5jIKel1vfgDTBVRGXVvsCYabBihALBjE82Nr7miQWoJTJU1dKQJ
-         KRIA/Wy4VukTj2cF9FhDWfokgqNb/Y5F0n/TS/XvVYlH2uf6m6NcZOt6BwZ3T0eh9UCx
-         Jlx7yPxlRV/j97BNYv4S9dJxbh9QR0rhA/xIdHgP8uMiGuWe4RyiWVr5lh9UJ3lZHNqn
-         0ASkCb5mfGWYALhfk6Obli1hfd/lheZ37Rrg4phdplylO8jUddhxIqXUQJxh2RvkvVBW
-         VZvMUzF/CEsV+qFYa9X3dEypPxBjE1519jTv4JMymuRHfAjJJ6JlRRAhvWxCaQvpTNEl
-         nhwg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782480146; x=1783084946;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=oQ23aqtvHk/KnAoTWB/JH/fphJ2pYqYtw5YHFybaZsQ=;
-        b=Z1gGXz3hQZcZVtf6TIXZh9ufGyzMdb+fR4qiD4VCliUZTkLOhnCunZmJ2lPsKZB+Cc
-         Kzfh+Lg008xuWfnprZRTy4Jy3CM5UZDlJPPNo27fGEl692qLuHbbOpk8zHyS/NVT1vBn
-         N5Zt6jPbYeb3jEHcgNyf6xxm54tHmH5hAjQ79GV2Bcey5tS0pa7k5jXuo+EUX56lha3X
-         Em3j5DsGiPlBX7ZlelBWGqlacSVkLmfFZhTuM3l+aXE+pbIq5Wj2DI7mfHFgwt+el8a7
-         6g8JD5Oun8EjBpp7SphcmYgf4+Ci59mrXY9d845ZpOCd5Qa3z1w2dsxjZbYyUOBtH892
-         PYtA==
-X-Forwarded-Encrypted: i=1; AHgh+RoggnpNedc7Z3sy83NZRDpFlCDPiaedlyPC7G3UIN6jFt864wMo7ZqZv2wLbCRY6xUAXlAB62UBQlstHt1S59z1@lists.infradead.org
-X-Gm-Message-State: AOJu0YycPn1/sEZ3B3L9/6E5yHeMRl0Vj/pGBFXVWpdhg3nPTaWYSdlo
-	Pqd2CKm2EzIfLNK0VkAF4RLJMOf2Cgvfb3Nn+RGkL/ApYklpDya2IaMDKjCbkwluJa0=
-X-Gm-Gg: AfdE7cnvqCvVF74gMJDwDegYZVGL339KBOor3jZBL+reUef/kK68i4wQmzXvIYoPrPn
-	57+3nn4238/7WBgZyiL81+EEeQl2bvBZtBK8um71he3Bveo5WSsp82GOY9mtU0fsjgOX0s3YlKJ
-	8ANxLTem06UzOG76EjDnUz9RS+y3aFC1p8nqhjb9eEZfI+LY9TYNp/2vDzXNqV7DBpTngbpcA4B
-	aJq86WEQ1QXRp/iqUEk3RqSDs+RB7R73C6m2fQttF4QWXkWVN2A63CcTgncZR7n/mZDSaFKH4Gn
-	LAzpsy20UO057yHaQrF/0iAbKFqRsi/665K9kxLFvkDvFinShkxC47DQoo/Rl5b0G4nfeHyPThR
-	IRi/b+OIxxyMQjtPoBy55bQPXhgSIuSlV5hAebhJw3GD281Ni8oIaLs0pyYA+tYMXQ3/O0oIR/6
-	ELckZWNO7pUZyY5MQnYxfKzcc1qpiustI9M9rSn8H3heT23XuwWij+7UAsfYcJ24eTDfo=
-X-Received: by 2002:a05:6512:1252:b0:5ad:4ead:72d7 with SMTP id 2adb3069b0e04-5aea1f630cbmr1249234e87.5.1782480146180;
-        Fri, 26 Jun 2026 06:22:26 -0700 (PDT)
-Received: from [192.168.1.100] (91-159-24-186.elisa-laajakaista.fi. [91.159.24.186])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5aea5195050sm816328e87.83.2026.06.26.06.22.24
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 26 Jun 2026 06:22:25 -0700 (PDT)
-Message-ID: <eaca986e-81d5-44f7-bc64-8e89e5a1f823@linaro.org>
-Date: Fri, 26 Jun 2026 16:22:24 +0300
+	id 1wd6c7-0000000BNKB-0t4u;
+	Fri, 26 Jun 2026 13:29:01 +0000
+Received: from localhost.localdomain (unknown [117.182.75.66])
+	by APP-05 (Coremail) with SMTP id zQCowABHntGSfj5qhXFqFQ--.43105S2;
+	Fri, 26 Jun 2026 21:28:52 +0800 (CST)
+From: WenTao Liang <vulab@iscas.ac.cn>
+To: chunkuang.hu@kernel.org,
+	p.zabel@pengutronix.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com
+Cc: dri-devel@lists.freedesktop.org,
+	linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	WenTao Liang <vulab@iscas.ac.cn>,
+	stable@vger.kernel.org
+Subject: [PATCH] fix: drm/mediatek: mtk_drm_probe: of_node_get in loop overwrites previous   node references without release
+Date: Fri, 26 Jun 2026 21:28:49 +0800
+Message-Id: <20260626132849.38694-1-vulab@iscas.ac.cn>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 6/8] arm64: dts: qcom: Convert to new media orientation
- definitions
-To: Kieran Bingham <kieran.bingham@ideasonboard.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Jacopo Mondi <jacopo@jmondi.org>,
- Sakari Ailus <sakari.ailus@linux.intel.com>, Jimmy Su <jimmy.su@intel.com>,
- Matthias Fend <matthias.fend@emfend.at>,
- Mikhail Rudenko <mike.rudenko@gmail.com>,
- Daniel Scally <dan.scally@ideasonboard.com>,
- Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
- Michael Riesch <michael.riesch@collabora.com>,
- Benjamin Mugnier <benjamin.mugnier@foss.st.com>,
- Sylvain Petinot <sylvain.petinot@foss.st.com>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Paul Elder <paul.elder@ideasonboard.com>,
- Martin Kepplinger <martin.kepplinger@puri.sm>,
- Quentin Schulz <quentin.schulz@theobroma-systems.com>,
- Tommaso Merciai <tomm.merciai@gmail.com>,
- Svyatoslav Ryhel <clamor95@gmail.com>,
- Richard Acayan <mailingradian@gmail.com>,
- Thierry Reding <thierry.reding@kernel.org>,
- Jonathan Hunter <jonathanh@nvidia.com>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Magnus Damm <magnus.damm@gmail.com>, Heiko Stuebner <heiko@sntech.de>
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
- devicetree@vger.kernel.org, linux-tegra@vger.kernel.org,
- linux@ew.tq-group.com, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org
-References: <20260626-kbingham-orientation-v2-0-47178be927b4@ideasonboard.com>
- <20260626-kbingham-orientation-v2-6-47178be927b4@ideasonboard.com>
-From: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
-In-Reply-To: <20260626-kbingham-orientation-v2-6-47178be927b4@ideasonboard.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: zQCowABHntGSfj5qhXFqFQ--.43105S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7AFy8ur4ktF43Ar4xCF4fGrg_yoW8XryfpF
+	WUKFWYyry0gr4xKFyvyF1Uuryay3WIqayxWa12ga1xZws5tFyUXFyFqay7KFZ2yFy8CF13
+	JFn8AFyfur17AFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9F14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
+	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
+	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
+	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x
+	0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2
+	zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF
+	4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWU
+	CwCI42IY6I8E87Iv67AKxVW8JVWxJwCI42IY6I8E87Iv6xkF7I0E14v26r4UJVWxJrUvcS
+	sGvfC2KfnxnUUI43ZEXa7VUbzpBDUUUUU==
+X-Originating-IP: [117.182.75.66]
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBwwKA2o+TTuTHAAAsv
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_062228_329414_E330CA95 
-X-CRM114-Status: GOOD (  16.22  )
+X-CRM114-CacheID: sfid-20260626_062859_630095_9AD81B5A 
+X-CRM114-Status: UNSURE (   7.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,88 +85,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/26/26 15:07, Kieran Bingham wrote:
-> The orientation property for video interface devices now has definitions
-> to prevent hardcoded integer values for the enum options.
-> 
-> Update the users throughout the qualcomm device trees to use the new
-> definitions.
-> 
-> Signed-off-by: Kieran Bingham <kieran.bingham@ideasonboard.com>
-> ---
->   arch/arm64/boot/dts/qcom/qcm6490-fairphone-fp5.dts         | 3 ++-
->   arch/arm64/boot/dts/qcom/sc8280xp-lenovo-thinkpad-x13s.dts | 3 ++-
->   arch/arm64/boot/dts/qcom/sdm670-google-common.dtsi         | 3 ++-
->   3 files changed, 6 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/qcom/qcm6490-fairphone-fp5.dts b/arch/arm64/boot/dts/qcom/qcm6490-fairphone-fp5.dts
-> index 04cb9230d29f..d79be22108c8 100644
-> --- a/arch/arm64/boot/dts/qcom/qcm6490-fairphone-fp5.dts
-> +++ b/arch/arm64/boot/dts/qcom/qcm6490-fairphone-fp5.dts
-> @@ -13,6 +13,7 @@
->   #include <dt-bindings/iio/qcom,spmi-adc7-pmk8350.h>
->   #include <dt-bindings/leds/common.h>
->   #include <dt-bindings/media/video-interfaces.h>
-> +#include <dt-bindings/media/video-interface-devices.h>
->   #include <dt-bindings/pinctrl/qcom,pmic-gpio.h>
->   #include <dt-bindings/regulator/qcom,rpmh-regulator.h>
->   #include <dt-bindings/sound/qcom,q6asm.h>
-> @@ -701,7 +702,7 @@ camera@10 {
->   		pinctrl-0 = <&cam_mclk3_default>;
->   		pinctrl-names = "default";
->   
-> -		orientation = <0>; /* Front facing */
-> +		orientation = <MEDIA_ORIENTATION_FRONT>;
->   		rotation = <270>;
->   
->   		port {
-> diff --git a/arch/arm64/boot/dts/qcom/sc8280xp-lenovo-thinkpad-x13s.dts b/arch/arm64/boot/dts/qcom/sc8280xp-lenovo-thinkpad-x13s.dts
-> index abd9c5a67b9f..543fc691fd3c 100644
-> --- a/arch/arm64/boot/dts/qcom/sc8280xp-lenovo-thinkpad-x13s.dts
-> +++ b/arch/arm64/boot/dts/qcom/sc8280xp-lenovo-thinkpad-x13s.dts
-> @@ -11,6 +11,7 @@
->   #include <dt-bindings/input/gpio-keys.h>
->   #include <dt-bindings/input/input.h>
->   #include <dt-bindings/leds/common.h>
-> +#include <dt-bindings/media/video-interface-devices.h>
->   #include <dt-bindings/regulator/qcom,rpmh-regulator.h>
->   
->   #include "sc8280xp.dtsi"
-> @@ -682,7 +683,7 @@ camera@10 {
->   
->   		clocks = <&camcc CAMCC_MCLK3_CLK>;
->   
-> -		orientation = <0>;	/* Front facing */
-> +		orientation = <MEDIA_ORIENTATION_FRONT>;
->   
->   		avdd-supply = <&vreg_l6q>;
->   		dvdd-supply = <&vreg_l2q>;
-> diff --git a/arch/arm64/boot/dts/qcom/sdm670-google-common.dtsi b/arch/arm64/boot/dts/qcom/sdm670-google-common.dtsi
-> index 0f57b915186b..375b3c0edea7 100644
-> --- a/arch/arm64/boot/dts/qcom/sdm670-google-common.dtsi
-> +++ b/arch/arm64/boot/dts/qcom/sdm670-google-common.dtsi
-> @@ -9,6 +9,7 @@
->   #include <dt-bindings/gpio/gpio.h>
->   #include <dt-bindings/input/input.h>
->   #include <dt-bindings/leds/common.h>
-> +#include <dt-bindings/media/video-interface-devices.h>
->   #include <dt-bindings/pinctrl/qcom,pmic-gpio.h>
->   #include <dt-bindings/power/qcom-rpmpd.h>
->   #include "sdm670.dtsi"
-> @@ -460,7 +461,7 @@ camera@1a {
->   		pinctrl-names = "default";
->   
->   		rotation = <270>;
-> -		orientation = <0>;
-> +		orientation = <MEDIA_ORIENTATION_FRONT>;
->   
->   		port {
->   			cam_front_endpoint: endpoint {
-> 
+In the for_each_child_of_node loop, private->comp_node[comp_id] and
+  private->mutex_node are assigned via of_node_get without first releasing
+  any previously stored reference for the same index. When the same comp_id
+  or mmsys_id matches multiple nodes, earlier node references are
+  overwritten and permanently leaked.
 
-Reviewed-by: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
+Cc: stable@vger.kernel.org
+Fixes: 1ef7ed48356c ("drm/mediatek: Modify mediatek-drm for mt8195 multi mmsys support")
+Signed-off-by: WenTao Liang <vulab@iscas.ac.cn>
+---
+ drivers/gpu/drm/mediatek/mtk_drm_drv.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
+diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.c b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
+index c86a3f54f35b..2c0d8db9ade2 100644
+--- a/drivers/gpu/drm/mediatek/mtk_drm_drv.c
++++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
+@@ -1138,6 +1138,7 @@ static int mtk_drm_probe(struct platform_device *pdev)
+ 
+ 			id = of_alias_get_id(node, "mutex");
+ 			if (id < 0 || id == private->data->mmsys_id) {
++				of_node_put(private->mutex_node);
+ 				private->mutex_node = of_node_get(node);
+ 				dev_dbg(dev, "get mutex for mmsys %d", private->data->mmsys_id);
+ 			}
+@@ -1153,7 +1154,7 @@ static int mtk_drm_probe(struct platform_device *pdev)
+ 
+ 		if (!mtk_drm_find_mmsys_comp(private, comp_id))
+ 			continue;
+-
++		of_node_put(private->comp_node[comp_id]);
+ 		private->comp_node[comp_id] = of_node_get(node);
+ 
+ 		/*
 -- 
-Best wishes,
-Vladimir
+2.39.5 (Apple Git-154)
+
 
