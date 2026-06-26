@@ -4,92 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3163BCD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 08:04:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00ED0CDE008
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 08:04:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8BDlwFSAwx/VUcU/0Zc7YpwR/WtK9Ex0Sk5CLPSAtZY=; b=kD20XK+0rsvio1Sci1CmFNMEXZ
-	nGHSheYQxYPrqXyyMy2eNEFuKfa9Mmg7l/F0o9USk56US/4b6RHkJwJh/tjlPDqzaPUrvVIoasgZV
-	QIJOWs2/8+tNFFpMdmDT+/0Du7csmPx02XO2wjXOQH/BcPTJZC4hWergy3/JTtDrq/U5pQ+K/I0D/
-	ITbQ+a9tAYoLjrb8ud3dnFYdoE6nhyGoxgSdZlcSLbqzchITh5pSq0qIljn53B3sNWtMXVPuVmZEc
-	s8SgBYPKznVhc6AJtntSHm+yKAed7Ww+eYn5OWFhmVdc5pzR7GkWUDzBVJvImj4oWpkqTsW2ea8ZC
-	cMZ0CkZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bz68rvbTRnPMiKYWRS6WoWfcYgoHC7s7QsAp4joWb84=; b=D0Vt075/yYD5bLn/UprRZ6Etcp
+	l6IuGi7dGxQVH8qDyGlV+9Ww7mXPZdjy/mcDlH5OLWaqveIrnZ4Nhz9N/MzlRjIs3KXL1O2D/d9qI
+	67Wg23RN/TVnCi83iw9r0Z6c3V8djBfzVWnemva0SCQqfAiOw9wnzuzcloClvHdQZZwDkAliHCym3
+	POC+5kZmm7QHQdlc7VITtMi3O7ImYvZTUYfrcKrKsloNchy6cA05a8jibA20Scy/luM5bo6pj08RF
+	/Gl3xUpnQJ0jgvRQKhENIxgkzJvSUK/eek0oin8/QBppXOZiuWrTl7cZriL2v12SqhwRnu+IQ5hyh
+	RW4IS03A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd1Y8-0000000Akad-1dPp;
-	Fri, 26 Jun 2026 08:04:32 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	id 1wd1YR-0000000Aki9-2Sn2;
+	Fri, 26 Jun 2026 08:04:51 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd1Y5-0000000AkZO-2d9v
+	id 1wd1YO-0000000AkgZ-40PG
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 08:04:30 +0000
-Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-697ebe536b6so1064262a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 01:04:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782461067; x=1783065867; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=8BDlwFSAwx/VUcU/0Zc7YpwR/WtK9Ex0Sk5CLPSAtZY=;
-        b=DVmLz0AblE9RIFkt7P6Dnxno9a8IE6xobsa2JxkWsl4O6Qe9YTJhE+OBBHy3e6uN1j
-         D2JnRGkTTwGx8zzTaP/W/YU4DXVEdc5lDlMIbyL3j80iFLLu895YcPNyAnskmVCgE7U6
-         oqRzrAE51UdAwGdN0v4D/q+NC+hLh45m1G6cJHphPzH/nis76x87sjP7EArWCCzsWqKi
-         XD1exg0zdk/hYp4retB7VX0wPkaCyZAsUlSwOGRZWzF6n9EwRTtU0mdBkFXUljDONmKJ
-         5i/Mv/hmSlNvGB9kHw39eEeX00TSKoi9TLw5TCkXY5eGzmdj6/ShBba6QuTbM49lJoSE
-         5KRg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782461067; x=1783065867;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=8BDlwFSAwx/VUcU/0Zc7YpwR/WtK9Ex0Sk5CLPSAtZY=;
-        b=jbU+q7cich2/xc0qOtomNm1RdURrDdOQ6lpkj/Dgt4DYE0CFt+FbmMb04VCttGAqbb
-         tVVNFeqURYEbN9clfJNhiZXlxI1voPG3pDsYLjDePq//CI8dR+6W18m1wnrtE50gyOrV
-         pEevC7OLvEzqDysJPq5SedCooXHvA69f+sz4Q5CzllqcOwpFFhZNkvpVDqyWyJsviCjz
-         3mnr4Jdhv3KfcBvXxUqsLg4YoDJMMxDKyd1g0ZXFnSymHF8wl4Rm90ngORU6MRzu7mpI
-         cJzpw7QNRkKRWZrlWFMf0SODlHbj3WjJCoEP+rhbSsxdVDvnSK9/xRKV467wLo61MJM9
-         wA8g==
-X-Forwarded-Encrypted: i=1; AHgh+RrEO3a2nuGgzIeHdVaUt6/tqvJWn82UZXT8g2srSeRqJpAxF/7mWg4y6yKiL4xIMndc84PZq7WbKVE/9/R74Jnw@lists.infradead.org
-X-Gm-Message-State: AOJu0YxKvrRwfZcrxKyvhz9Bu2SYm4avj4s9I+JSlL/G0bjceElGTxC5
-	bjVl0ZMbh/11IMyLEaZqRNCNOrZXfo+mAxUkseaQPDzICu0Fj+T8gpKg
-X-Gm-Gg: AfdE7cnotkzsK0kboJpYK7eRcOMofyh9tT4OCzUWuKLvr4uQkhR7JUPUsj+Y60i5Kdt
-	G6MtMOyWzrrfrUhVnCBv1KbrkigL3BFGHShSg44I+LQ7xPaS3o8tgKhUyriWl/uFZk2r06JgIN3
-	1gQIg+f+eiG1OBjmyMG6KgTXcMoa8bZhHTnkK8lTHDm6mZNycbPAx7H3gFPdyLfb+QvzO3lkccP
-	wZ168UUe7h644TZvzS90sPyHt+xW8wVrDUPSztaknuqemqBfEzrsMD45DwHkC0c8P3qPh2pguh6
-	P9gDLiYzJ59M3lLbHvnkj7EM8hxYdpW+wUMhDGVGOGO8HKGopgBGNTv1aUAZkGEnA9VDEjfvBWF
-	FjJffRuGbbVBu5sd11pwnXi0Rf2LWBF+EyG0hLtnxurMB1XvpodnWhEuMnDZQsiKnQ+T271hVEf
-	+AwhjDDdnV8favJcL5
-X-Received: by 2002:a05:6402:3553:b0:698:bbe:9c8 with SMTP id 4fb4d7f45d1cf-69810ae7ec2mr1477123a12.15.1782461066991;
-        Fri, 26 Jun 2026 01:04:26 -0700 (PDT)
-Received: from toolbox.. ([87.200.95.144])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-46c1ee01c3bsm24027475f8f.10.2026.06.26.01.04.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 26 Jun 2026 01:04:26 -0700 (PDT)
-From: Christian Hewitt <christianshewitt@gmail.com>
-To: Jerome Brunet <jbrunet@baylibre.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	linux-sound@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] ASoC: meson: aiu: fifo-spdif: soft reset the S/PDIF datapath on start/stop
-Date: Fri, 26 Jun 2026 08:04:22 +0000
-Message-ID: <20260626080422.4191435-1-christianshewitt@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Fri, 26 Jun 2026 08:04:50 +0000
+Received: from edelgard.fodlan.icenowy.me (unknown [112.94.101.182])
+	by APP-03 (Coremail) with SMTP id rQCowAA3WuGbMj5qHavoFQ--.17430S2;
+	Fri, 26 Jun 2026 16:04:43 +0800 (CST)
+Message-ID: <2cbe37cbaf246f56d54288d8180d383fcbdd5eb4.camel@iscas.ac.cn>
+Subject: Re: [PATCH v5 6/7] drm/verisilicon: add DCUltraLite chip identity
+ to HWDB
+From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+To: Joey Lu <a0987203069@gmail.com>, maarten.lankhorst@linux.intel.com, 
+	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
+ simona@ffwll.ch, 	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
+Cc: ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com, 
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Date: Fri, 26 Jun 2026 16:04:43 +0800
+In-Reply-To: <20260625094449.708386-7-a0987203069@gmail.com>
+References: <20260625094449.708386-1-a0987203069@gmail.com>
+	 <20260625094449.708386-7-a0987203069@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.3 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: rQCowAA3WuGbMj5qHavoFQ--.17430S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7AF1ruFyDJryUGrWxuF1kGrg_yoW8Gr1kpF
+	47KryDW3s5J3ZIyr97Ar4j9Fy5C3Z3J393W3Zay34I9Fs0kryUGry7GF98CFZYgF4xJFyI
+	gF4vkFW7Crsayr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvlb7Iv0xC_Cr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwV
+	C2z280aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
+	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUAVWUtwAv7VC2z280aVAFwI0_Jr0_Gr
+	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7
+	MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r
+	4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF
+	67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2I
+	x0cI8IcVCY1x0267AKxVWxJVW8Jr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvE
+	x4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvj
+	DU0xZFpf9x07jbVyxUUUUU=
+X-Originating-IP: [112.94.101.182]
+X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_010429_685293_E916BA6C 
-X-CRM114-Status: GOOD (  11.48  )
+X-CRM114-CacheID: sfid-20260626_010449_368695_18A4A620 
+X-CRM114-Status: GOOD (  10.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,54 +84,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The I2S FIFO soft-resets its fast domain on start (AIU_RST_SOFT bit 0 +
-AIU_I2S_SYNC read in aiu_fifo_i2s_trigger), mirroring the downstream
-vendor driver's audio_out_i2s_enable(). The S/PDIF FIFO has no equivalent:
-it only toggles the IEC958 DCU, so a stale datapath FIFO can be replayed,
-producing the "machine gun noise" buffer underrun - on start when switching
-outputs, and on stop when playback ends. The latter is audible on devices
-with an always-on S/PDIF-fed DAC (e.g. the ES7144 on the WeTek Play2).
+=E5=9C=A8 2026-06-25=E5=9B=9B=E7=9A=84 17:44 +0800=EF=BC=8CJoey Lu=E5=86=99=
+=E9=81=93=EF=BC=9A
+> The Nuvoton MA35D1 chip contains a DCUltraLite display controller
+> with
+> model number 0x0 (sic, the model name contains no number either),
+> revision 0x5560 and customer ID 0x305.=C2=A0 It has a similar register ma=
+p
+> with DC8000, only one display output and only 32x32 cursor supported.
+>=20
+> Signed-off-by: Joey Lu <a0987203069@gmail.com>
+> =C2=A0drivers/gpu/drm/verisilicon/vs_hwdb.c | 10 ++++++++++
+> =C2=A01 file changed, 10 insertions(+)
+>=20
+> diff --git a/drivers/gpu/drm/verisilicon/vs_hwdb.c
+> b/drivers/gpu/drm/verisilicon/vs_hwdb.c
+> index 91524d16f778..7d630a667a3f 100644
+> --- a/drivers/gpu/drm/verisilicon/vs_hwdb.c
+> +++ b/drivers/gpu/drm/verisilicon/vs_hwdb.c
+> @@ -129,6 +129,16 @@ static struct vs_chip_identity
+> vs_chip_identities[] =3D {
+> =C2=A0		.max_cursor_size =3D 64,
+> =C2=A0		.formats =3D &vs_formats_no_yuv444,
+> =C2=A0	},
+> +	{
+> +		.model =3D 0x0,		/* DCUltraLite */
+> +		.revision =3D 0x5560,
+> +		.customer_id =3D 0x305,
+> +
+> +		.generation =3D VSDC_GEN_DC8000,
+> +		.display_count =3D 1,
+> +		.max_cursor_size =3D 32,
+> +		.formats =3D &vs_formats_no_yuv444,
+> +	},
 
-The vendor driver resets the IEC958 fast domain (AIU_RST_SOFT bit 2) on
-both enable and disable (audio_hw_958_enable), and when reconfiguring
-(audio_hw_958_reset clears AIU_958_DCU_FF_CTRL then resets). Do the same:
-reset before enabling the DCU on start, and after disabling it on stop.
+Checked against the MA35D1 manual, and it looks okay.
 
-Signed-off-by: Christian Hewitt <christianshewitt@gmail.com>
----
- sound/soc/meson/aiu-fifo-spdif.c | 5 +++++
- 1 file changed, 5 insertions(+)
+```
+Reviewed-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+```
 
-diff --git a/sound/soc/meson/aiu-fifo-spdif.c b/sound/soc/meson/aiu-fifo-spdif.c
-index e0e00ec026dc..826055a71421 100644
---- a/sound/soc/meson/aiu-fifo-spdif.c
-+++ b/sound/soc/meson/aiu-fifo-spdif.c
-@@ -24,6 +24,7 @@
- #define AIU_MEM_IEC958_CONTROL_MODE_16BIT	BIT(7)
- #define AIU_MEM_IEC958_CONTROL_MODE_LINEAR	BIT(8)
- #define AIU_MEM_IEC958_BUF_CNTL_INIT		BIT(0)
-+#define AIU_RST_SOFT_958_FAST			BIT(2)
- 
- #define AIU_FIFO_SPDIF_BLOCK			8
- 
-@@ -68,12 +69,16 @@ static int fifo_spdif_trigger(struct snd_pcm_substream *substream, int cmd,
- 	case SNDRV_PCM_TRIGGER_START:
- 	case SNDRV_PCM_TRIGGER_RESUME:
- 	case SNDRV_PCM_TRIGGER_PAUSE_RELEASE:
-+		snd_soc_component_write(component, AIU_RST_SOFT,
-+					AIU_RST_SOFT_958_FAST);
- 		fifo_spdif_dcu_enable(component, true);
- 		break;
- 	case SNDRV_PCM_TRIGGER_SUSPEND:
- 	case SNDRV_PCM_TRIGGER_PAUSE_PUSH:
- 	case SNDRV_PCM_TRIGGER_STOP:
- 		fifo_spdif_dcu_enable(component, false);
-+		snd_soc_component_write(component, AIU_RST_SOFT,
-+					AIU_RST_SOFT_958_FAST);
- 		break;
- 	default:
- 		return -EINVAL;
--- 
-2.43.0
+Thanks,
+Icenowy
+
+> =C2=A0};
+> =C2=A0
+> =C2=A0int vs_fill_chip_identity(struct regmap *regs,
 
 
