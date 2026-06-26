@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32F60C43211
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 13:21:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 460C7C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 13:21:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PwLoCPBMvnE4mFTZ0Iskkh0u0N7Zrq4pjwblbNDMp4g=; b=JlRoKj0iOJdpV88YS2syjDTVSZ
-	Idg+S+mVAdqFqPQ3HKB4Fo0nxlhbXuROqWLQ0NwF+Hsi8ijHiAi+Kqi1s0wSWau5u8pErZogJpuMI
-	tOnQ14iJ0OCPkaO6o27EYd7G2XYiy9GcnE7ySbVUZg+yBV6ClI+JKFbZcY37g9LxHJ35FiDXvclL3
-	3rLLMcqJqSdRlVUQtInDO9J+CwdOZgYqzDzn3vLuHf8rI9kfZoX3lvBStLKm4LUwzdYX2O75DwXvR
-	HHxGdrn3jpE7dzwndpw5QVDydcatVDtCIL6/148ZAlsgdPBjBuTln8oLoOEVD+Cj5uE6okoVwHck6
-	MeNM84LQ==;
+	bh=QIA0G/jpdUonaNek+iyuSn4PC2pWxZGQ0umU16wcyA4=; b=aZ7mGopqrfQ+sQTSXp4yI4ZPU+
+	Ondh/ZzI/mn6aNaHfdbLoyhEWq3f+nzayDdxzR6mJoY4euSm8ViLAWPydL2NStlwcfCVUg07yWrOF
+	coCaKl6JNoGSIGjH7d+oA3wjyMhAOARV/zhKKcYHlWWB6XOoaptm5qmeqejNMf8Qw3ocTj6qrf3gS
+	QOtfwbIhSb0hDvvTdl9mQ96PQNiG0qW8fdIhVwzjcmFCaMdp/jQmqI7aqtwN4mbeCKFwQWaSB3dMu
+	5lWVl/tgf/QN1CLTzDzzEKRZzc38g3Qry2A5ogMrWMGz8ZX0qisKXULQkwa3M+qZBJ66edGBCUYWu
+	xkhDcwYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd6Ue-0000000BMZa-15lf;
-	Fri, 26 Jun 2026 13:21:16 +0000
-Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
+	id 1wd6V6-0000000BMeR-1zPF;
+	Fri, 26 Jun 2026 13:21:44 +0000
+Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd6Ub-0000000BMYg-3x0x
+	id 1wd6V3-0000000BMdM-2uZa
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 13:21:15 +0000
-Received: by mail-lj1-x232.google.com with SMTP id 38308e7fff4ca-39ad8dbe947so388031fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 06:21:12 -0700 (PDT)
+	Fri, 26 Jun 2026 13:21:43 +0000
+Received: by mail-lj1-x235.google.com with SMTP id 38308e7fff4ca-3967701fc3cso483621fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 06:21:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1782480071; x=1783084871; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1782480099; x=1783084899; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:in-reply-to:from:references
          :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
          :subject:date:message-id:reply-to:content-type;
-        bh=PwLoCPBMvnE4mFTZ0Iskkh0u0N7Zrq4pjwblbNDMp4g=;
-        b=SeI4bELlsJ79tx4QpglRJ+usuN3i2f8Kv/qwXr5SMsYXxqXMXDuagc7ZkWkC72b0n4
-         HVNBg6QN2MhkH0CpTSCTIb+tDxdzZ66l3u6ZHE2drEKvl6LflnySgJ3ISbuyPde6xD8o
-         ndKYCKULE8JucU2uZo8LVL5LLrEdElHlQh1/hqlVpMny7ZHIlXT+SvepmDaekW5GZ/KG
-         ZyyeKTj9fA/NutUHIsyAmRYdsp1YkNtSamGyBC9ZzM5NCNpiACoKF1jnV0M8iZyiuHW4
-         WwPy/aNVLhyC7qJxFUcG9t3Z7d6F6cbPuUabWc1Wb7WdlEf4JI5nB1XxEtnAd6EGhX4b
-         ZbtA==
+        bh=QIA0G/jpdUonaNek+iyuSn4PC2pWxZGQ0umU16wcyA4=;
+        b=aehhzwuCaC5mf9cmaxpEoQbGzMk7ZnwckUjAy4b1Crssub2Py5g8MaC0V+/lrTsdra
+         fZOs9nTolJ5og80++2/tsJxxdvWweAlCx4UKrRxw/+nq1Jk0Pj57Bl0XlfUuv3l/eYcx
+         QexSOKoj/LwWx5JwLnTVw534KDV7qxn2fCJn9Ql4/xANGzeM7KuyNevtASq8EurFzIhO
+         OEpOs1m8QTYQ5qZyzKFE0lvC3btSAYII6xVn+NyDyB9QohujAUpKxlWLiN0XPEOjXaqD
+         ni68xSPUdoOlyUoymDpoQXKiQwkQMcjAkeRNMDUG531lKZHJqCzle9zMkiHYjDfNFi0A
+         q1xA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782480071; x=1783084871;
+        d=1e100.net; s=20251104; t=1782480099; x=1783084899;
         h=content-transfer-encoding:content-type:in-reply-to:from:references
          :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=PwLoCPBMvnE4mFTZ0Iskkh0u0N7Zrq4pjwblbNDMp4g=;
-        b=gBduTiMq15RmCEtFQmpQCl8vUPVCT3WcCHm4894Pg3Kw+1mqdcyAQf+A1zdCsrGbyt
-         FU2fnIKmeqdpNGLJPiyHvkIqvkUnvMjg3Ft7owo8Ru1reXsv9JkIJij4tjycpO3HFuea
-         3z2b8Oh4aFb8oU8HundL3cMx4yVdvX7PDsk52oJBwCynEW9EmfStDtkV9E12xTtZHIHH
-         N2SpX+2QSKir+7l8Evqb3GnDEo5tXtQeZAAHSQo8fnQDHaoC7Us0N78ztrkkxpjxcMIs
-         iKJs21MxMoacXrmQfEO8HCHQfODI4KPtCIZ8V6+kLT1w/WdfprGpp1m+JKjq0GoEexbr
-         LI6A==
-X-Forwarded-Encrypted: i=1; AHgh+RpTw2zNU+p/DtjmMF1AHcfY/qsEet1fGno5SZE3UixBlu68s4KBWrv0gfVVSC9PKRwuuDeGwIEvVII3JYWxVael@lists.infradead.org
-X-Gm-Message-State: AOJu0YzKMFKiDI4Yd+WhfFeLoDvZa2OGw0/VdxIo3CNFHqD0oFh1wMa7
-	8ey470yp4mUPBtDxHgc8OEZTSoPguOiA6YCeutxnSogX/OOrPY6RMFzRALJ9OHwv4Xk=
-X-Gm-Gg: AfdE7cl2umtX9j7wTF4LImjoUnUtS6v1bDbJgAWgLm+cwMzZr6xg1EMGnJW7ZW+xQpX
-	ip1pNPs5b6g3KJMah7g8ZzAjJeZgJtI7rusMTYiTuVIDNpIBK6qZlRWTHpqkNkOsFil5AnZeDHC
-	Q1IVS7y59qQHUC6CKCSV8AJIV8M7R4uVPkrehuNm7UuibF6ihGZT0k+E+pjbeydvzeJ53lucG4J
-	FsfBRo5gWd2m+vNv0NVWBh7AtYkdVO9lkItgOgfq5TX00wSOmlWXtfjvkXL3DsD3odP2tIrE2HZ
-	yUEggHkN3Wp4OZVqXA/x+L5fHf9C5yIZwb8XPt1shcsct36UGzvXSigV5SaZeErHCzBtJiMX5ee
-	TKA8cgxtJ7SN1yhpjvKGKnJMrb9hq69HIsY67D87LidosOiUyI+is4ICUgDTn2W8KCwaCzVS31l
-	S5ogXSKRYtNY5ncW9mfQPngcFClX3IWcq/fhMMxWqs/EML/UIDO2SvIkZ+o/nJ9hVffLEvwWwaL
-	8q32w==
-X-Received: by 2002:a05:6512:1252:b0:5a8:bd9c:a2e1 with SMTP id 2adb3069b0e04-5aea1f3c156mr1200847e87.2.1782480071016;
-        Fri, 26 Jun 2026 06:21:11 -0700 (PDT)
+        bh=QIA0G/jpdUonaNek+iyuSn4PC2pWxZGQ0umU16wcyA4=;
+        b=CeFofSVDt5EqAbOCawdmVbGQ/Eq4nHeT2zZkhuPIbBnnh/JRZd7mXq2nbgJLfK4Q3z
+         2TggczdsSopMtbv8KEg+vnhTzEamxvF1ELFgrOUPpEwU6MQ2kVLsCd9cMYiIQdb2JrXT
+         wTHX1/ZeSmlv3jBvhqdUW6GNUzUE8H2KVvCjZVeNBMlO3yoDeWd7cKS0n1xnb+UakgTd
+         v5TksPmihknwz3edqgst1VfRYcwBQ7JSbNnRc2Gtrp+vhuNf89ZOeVqOIlamkF+JsAgo
+         9xJTZKJA5IOoget2xCq/7xK4HeVq/JgC+V37oZw99Uh5iVny04+/ta2px0kcD1Ks5FoR
+         3r6g==
+X-Forwarded-Encrypted: i=1; AHgh+RpUJdkJS8KVUErONikkyIJHycIl5RN6I+gdXKr7tUNG0dULrzpCqvlQw1DpOQSXUYs2TiR7L/Qo39r56DCsFJ1Z@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyeo8c2gO1a3KIWPFtHDAodfZFNJ0ILxQPaQqI/gLYnlpIfFS1W
+	BMf9y8bnmph695VUDUTUjrkcX4dNk0BA/J8Itgi35fFf8npCCv5Tv+EvoS9H2r7ah9I=
+X-Gm-Gg: AfdE7ckWnOqvOua9R+d03l8N1EaiLs18wnqFRtc3zzP1XqfjMX1AahHEW29andGXkhs
+	+HfjQkgbSUH5X9z3fbYFkZx2qsZLTwdH5mjfJBmSGBvbVW5T65BhpusovvJl9B9VxozoAp1LgpQ
+	Ak9ycAH1zt/Vm0mceEIWK5W9Mqp7ZNIhwi7Agm/+MfjmojromyfD3ODh3bLCz8UzZX0alIyBJAQ
+	XQavVH40LEC8yXoMD5HOMPBXtyg6dy8kLaQvKu7uPVnml+2qYAh3BH0Yjhz93IiI6sYhMTkyeHg
+	/m+ZjJLCXFxAAubdH28waSW+dN0LL3BePs+GzsupdhwgKJ89xXqpSoGWnpj6RPh74SN3P853PD1
+	fQ/4q49fLYGQZyEV3IVEPXN+/iu/AO/uOGwpRhPJl8Jhyd/qAqYGkMh2YgGvHyaNMbKETJQayqN
+	THDrvUyhmLa/wwVDysDzNxxHdPQpw/qeiGgy39SPPkFhy8E1Ox7J251E8BEZqwlwHuvy0jjHhZE
+	0z8dA==
+X-Received: by 2002:a05:651c:1511:b0:39a:c9d5:3c65 with SMTP id 38308e7fff4ca-39acb97be3emr7979051fa.8.1782480099479;
+        Fri, 26 Jun 2026 06:21:39 -0700 (PDT)
 Received: from [192.168.1.100] (91-159-24-186.elisa-laajakaista.fi. [91.159.24.186])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5ad695859b4sm3327909e87.72.2026.06.26.06.21.09
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-39ae2613f76sm460481fa.30.2026.06.26.06.21.38
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 26 Jun 2026 06:21:10 -0700 (PDT)
-Message-ID: <d14af4aa-f791-4aac-9d49-ace834952257@linaro.org>
-Date: Fri, 26 Jun 2026 16:21:08 +0300
+        Fri, 26 Jun 2026 06:21:38 -0700 (PDT)
+Message-ID: <2f238823-d340-4cad-b6f0-24ff86ff969b@linaro.org>
+Date: Fri, 26 Jun 2026 16:21:37 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/8] dt-bindings: media: Add macros for video interface
- devices
+Subject: Re: [PATCH v2 2/8] media: dt-bindings: video-interface-devices: add
+ video-interface-devices.h references
 To: Kieran Bingham <kieran.bingham@ideasonboard.com>,
  Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
@@ -108,17 +108,16 @@ Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
  devicetree@vger.kernel.org, linux-tegra@vger.kernel.org,
  linux@ew.tq-group.com, imx@lists.linux.dev,
  linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org,
- Conor Dooley <conor.dooley@microchip.com>
+ linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org
 References: <20260626-kbingham-orientation-v2-0-47178be927b4@ideasonboard.com>
- <20260626-kbingham-orientation-v2-1-47178be927b4@ideasonboard.com>
+ <20260626-kbingham-orientation-v2-2-47178be927b4@ideasonboard.com>
 From: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
-In-Reply-To: <20260626-kbingham-orientation-v2-1-47178be927b4@ideasonboard.com>
+In-Reply-To: <20260626-kbingham-orientation-v2-2-47178be927b4@ideasonboard.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_062114_012149_5B834253 
-X-CRM114-Status: GOOD (  16.55  )
+X-CRM114-CacheID: sfid-20260626_062141_772414_1CF0449C 
+X-CRM114-Status: GOOD (  21.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,39 +133,49 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 6/26/26 15:07, Kieran Bingham wrote:
-> Add a new dt-bindings/media/video-interface-devices.h header that
-> defines macros corresponding to the orientation enumeration types from
-> media/video-interface-devices.yaml.
+> Expand the documentation of the video-interface-devices orientation to
+> reference the include/dt-bindings/media/video-interface-devices.h header
+> which provides human readable defines for the orientation enum, to help
+> avoid hardcoding values in dts.
 > 
-> This allows avoiding hardcoded constants in device tree sources.
-> 
-> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> Acked-by: Sakari Ailus <sakari.ailus@linux.intel.com>
 > Signed-off-by: Kieran Bingham <kieran.bingham@ideasonboard.com>
 > ---
->   include/dt-bindings/media/video-interface-devices.h | 13 +++++++++++++
->   1 file changed, 13 insertions(+)
+>   .../bindings/media/video-interface-devices.yaml         | 17 +++++++++++------
+>   1 file changed, 11 insertions(+), 6 deletions(-)
 > 
-> diff --git a/include/dt-bindings/media/video-interface-devices.h b/include/dt-bindings/media/video-interface-devices.h
-> new file mode 100644
-> index 000000000000..d2340b457292
-> --- /dev/null
-> +++ b/include/dt-bindings/media/video-interface-devices.h
-> @@ -0,0 +1,13 @@
-> +/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
-> +/*
-> + * Copyright (C) 2026 Kieran Bingham <kieran.bingham@ideasonboard.com>
-> + */
+> diff --git a/Documentation/devicetree/bindings/media/video-interface-devices.yaml b/Documentation/devicetree/bindings/media/video-interface-devices.yaml
+> index a81d2a155fe6..c9c3f4f16719 100644
+> --- a/Documentation/devicetree/bindings/media/video-interface-devices.yaml
+> +++ b/Documentation/devicetree/bindings/media/video-interface-devices.yaml
+> @@ -392,17 +392,22 @@ properties:
+>         The orientation of a device (typically an image sensor or a flash LED)
+>         describing its mounting position relative to the usage orientation of the
+>         system where the device is installed on.
+> +      See include/dt-bindings/media/video-interface-devices.h.
 > +
-> +#ifndef __DT_BINDINGS_MEDIA_VIDEO_INTERFACE_DEVICES_H__
-> +#define __DT_BINDINGS_MEDIA_VIDEO_INTERFACE_DEVICES_H__
-> +
-> +#define MEDIA_ORIENTATION_FRONT		0
-> +#define MEDIA_ORIENTATION_BACK		1
-> +#define MEDIA_ORIENTATION_EXTERNAL	2
-> +
-> +#endif /* __DT_BINDINGS_MEDIA_VIDEO_INTERFACE_DEVICES_H__ */
+>       $ref: /schemas/types.yaml#/definitions/uint32
+>       enum:
+> -        # Front. The device is mounted on the front facing side of the system. For
+> -        # mobile devices such as smartphones, tablets and laptops the front side
+> -        # is the user facing side.
+> +        # MEDIA_ORIENTATION_FRONT
+> +        # The device is mounted on the front facing side of the system. For
+> +        # mobile devices such as smartphones, tablets and laptops the front
+> +        # side is the user facing side.
+>         - 0
+> -        # Back. The device is mounted on the back side of the system, which is
+> +        # MEDIA_ORIENTATION_BACK
+> +        # The device is mounted on the back side of the system, which is
+>           # defined as the opposite side of the front facing one.
+>         - 1
+> -        # External. The device is not attached directly to the system but is
+> -        # attached in a way that allows it to move freely.
+> +        # MEDIA_ORIENTATION_EXTERNAL
+> +        # The device is not attached directly to the system but is attached in
+> +        # a way that allows it to move freely.
+>         - 2
+>   
+>   additionalProperties: true
 > 
 
 Reviewed-by: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
