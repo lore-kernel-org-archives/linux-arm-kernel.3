@@ -4,94 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 002D3C43327
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 16:40:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FE70C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 16:45:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=XFdrr1aj+JZ4LS4KDt4mRxZWjc/rOk51r42pgK7BZ1Y=; b=lN5zi3NSRV5aJIMRRnHN0xdTj2
-	DqVsxEtWUjRla54PJI/JqTf/eUOZLXJa8I8ZP6ee85CGyQgjV4GaCy6JGnri/A15jde4QRuaFDEmy
-	X3MxzLvTmRPqW8+wXeiIvGiyxIau/h0mh6WrGDQqR/a5t3iVukwu9JEzP+9+RdMbjpqubc3iDygoV
-	dAqXptRbTqAvFouojEKVb4COvD3cjOKxKWk7H1uYlGLblvfVftZX+QO6pC5/4felCF3fd6hkwwy4w
-	csCZ5X5et2ratf2DFSzzlES8z8KNagbtLi4BqEtTE/vHQG9mqFKZydW8WN8yZhIRN8L/ml2VNRMmX
-	LPQqfXdg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IIMKFrwzgRLP5t1Gt5PG42EY4TZLGzrHo7tbdnQ49uA=; b=zP8n/XkfvFzEpGN/zKmcW+tSqE
+	+RXaGryIYYn/YLeqeBP1uKjLKzlhIukDWkUUJEUfmeRyqPemmXkFXcq5LUV/cOTNG3u8OG68yQN3O
+	DORJxMX5yQ7Rz6aGH/bCveHUpxWfh3TGxB4Ti+FHghnl2L2cOJLFHVTXtvfakxi6kfFkdGY8pY1N1
+	gSZYYLxFQbkSq7LFa7hqfgj6l10vUUO+B62YqkcvUq8jupgBGYRtSaxFs55WkwcI19fs5RCGCP/BR
+	ZrSz+XXrh6L83EOHNBZhbwYzJPUz07u02ClAanGwdSFAPJ1rxBwH1LSVD5dMy4THr5ITcgFClKeXv
+	3nU1/U6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd9bW-0000000BdzK-2dH8;
-	Fri, 26 Jun 2026 16:40:34 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1wd9fj-0000000BeHn-0mbr;
+	Fri, 26 Jun 2026 16:44:55 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd9bT-0000000BdyV-16pA
+	id 1wd9fh-0000000BeHh-3uQQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 16:40:33 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4903d730b1fso15358925e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 09:40:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=0sec.ai; s=google; t=1782492029; x=1783096829; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=XFdrr1aj+JZ4LS4KDt4mRxZWjc/rOk51r42pgK7BZ1Y=;
-        b=uBD/e5LiE4YVhI0zOgrUiAgETDdvNbrn79RscwnjUQ5YsFzjI3KfHwYVDX4LweR6Fj
-         3J4MWMoOJ1D/aFMzoFdSmWPu2XR7+wP1mVSsEedAznpRzMnwKACjQ3eOe/GkuAY/IJiM
-         8p/Yeya/a6RmlXQurK6zJvGSkeZPCpqa9hdn0qkjUnwUCffPDDVvyK19KXtFi1pjudvO
-         UlIhOdXDfcaVfQGZAgy0V4KfgHgByA+QsTX1J5GVvDqBWiatCbzWWTzOlVZiDX/Wcnj5
-         YulcgvnruDwbZL1XRoY7/hBGu1zByxWEUNvvg7PUDNZhefnxJUKzqLFiP5Hji/B7WhkV
-         eULg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782492029; x=1783096829;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=XFdrr1aj+JZ4LS4KDt4mRxZWjc/rOk51r42pgK7BZ1Y=;
-        b=VC9gyd015EO3BPR4c+BWR4P7XCGPnG0fmGZsk+m2W1IkRCOl76dPwswM03KLbuZ4Ri
-         Vr10ie6EOv9xntLDkhC2LH3GpoRKyEw18u8I1U0RRF0y9NiOpRxLauupjEEWI5WXxsus
-         QywqOHlm4YqE5Kyu2YFBHIMra2objkD0sWCsojEhAKWBgHhOwLsRjpbninSt+2sL3CfQ
-         QevuZqWCqhDpGIGmBHmPsNo+LEnPaT4/p+s5sufkQGKXr23Si7pftYf6fRvyFOJeiTSN
-         FJxAJqai1wZbFU9O6o6dU6605rTzGo/vLLUshDw2metlnf5EJWH0fdKeWkvWki3R6On8
-         JpTA==
-X-Forwarded-Encrypted: i=1; AFNElJ/sc3m+z53DAU0/vcEg3GLIWdruMXuv2koifQweVFkY/dTsVuGiZqu4xx0GvuShuyazBIqFiwIxY0kRw6JxcIYw@lists.infradead.org
-X-Gm-Message-State: AOJu0YxU48ZSNzIeAb4qNYoxxu+M4O0Eiz2LoZJP6603NoO2LPe8VJCb
-	UkWdZB/uKkMJxaMPc4QM1EQRRc4Fu07cwlSLcn+dscU8+qCdGkEXXjxIMjmdcF+GobNI
-X-Gm-Gg: AfdE7ckKQqirUAatIaM/ipu8eii/j8sFJXqU3BRI0qrqoh8fyA4c4Ur11cF3dAOqtOT
-	Oy5oV+4G/NoGpgQDKnxo/+hmAap0RA/U3/+SK9nbGop4JW6xnm7270Vj9OnRYTuTXT31jTDnt3N
-	ndnZldDhlvJbCAPdoEM3XIxcgoCvnAR5oNZ5z68WJou/DGO1wI6UsTA6fsvj8piPVJnUYliJy9y
-	RyMhji9IUNxMKCCuqHlwz4t47kLKkd13zzOTvbgAeLvsDL8xkZYJ3EoU/22unODTyh78K2XHHHo
-	YAcyugIdBQtuOxXIYFcTJ9gxCuB+0vUAKwLMFwD8yLuvukVOFHrE7HuVDTXcZMaIRIM4vFl16pW
-	6jTSh1hCvp9aMtjgkQ0G8GJPLE387XEjJR5KmGL2z+oOD48PrqiY8vW3gPSfF/xdmxNE6w4PV8Q
-	/btSkl4YdBFsNLVRp7xzHMkVr5GdvKVsvu5U8fVM3FZU+9e9ecZFxXBgDjI76IraXUkwTyXB4hJ
-	LviNQJc6UxXqlkgk6Y2sxvcaAU1zNRcbDk=
-X-Received: by 2002:a05:600c:8109:b0:490:bad9:de43 with SMTP id 5b1f17b1804b1-492667ca5fbmr116117235e9.0.1782492028118;
-        Fri, 26 Jun 2026 09:40:28 -0700 (PDT)
-Received: from PeakBook-Mini.tail8e484.ts.net ([178.197.218.209])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4926f94f213sm30866825e9.12.2026.06.26.09.40.26
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 26 Jun 2026 09:40:27 -0700 (PDT)
-From: Doruk Tan Ozturk <doruk@0sec.ai>
-To: Neil Armstrong <neil.armstrong@linaro.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Hans Verkuil <hverkuil@kernel.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	linux-media@vger.kernel.org,
-	linux-amlogic@lists.infradead.org,
-	linux-staging@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Doruk Tan Ozturk <doruk@0sec.ai>
-Subject: [PATCH] media: meson: vdec: fix use-after-free of prev_frame in codec_vp9_rm_noshow_frame()
-Date: Fri, 26 Jun 2026 18:40:25 +0200
-Message-ID: <20260626164025.52694-1-doruk@0sec.ai>
-X-Mailer: git-send-email 2.53.0
+	Fri, 26 Jun 2026 16:44:54 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6003C43915;
+	Fri, 26 Jun 2026 16:44:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4112D1F000E9;
+	Fri, 26 Jun 2026 16:44:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782492293;
+	bh=IIMKFrwzgRLP5t1Gt5PG42EY4TZLGzrHo7tbdnQ49uA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=RblsZsm0QeSPqN0GVq67PJyDnlFgcmEG7eUjPJqUD//eJD6bA9qFtn/XA+ZAAOXZf
+	 SWrEi/x6lmJKQHvp6COe4I3oEVwTABEKgtvqrjgYhkdi1llqjJ05KZD/cB8DnoLFfh
+	 ytKZse/yhYO5VKR4JttvZUrQWaXlZoSdBufX7QZwrcK26p5UvZ89kUfim5o9DVZ6ul
+	 pKAcKpUXK2WFLs2CE2dd+JJ3O83R4I89pyUHTGfefikEBf6AO91LHvZeYBaWDaLlxx
+	 Ibpo/8DFHB3r0NEeXqdV1LPLz8c0Syky9JOrA5UaDYvoe2Jv/Wxg3O6g4x7NkuEPl/
+	 oK13n0tP/tNDQ==
+Date: Fri, 26 Jun 2026 18:44:39 +0200
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Gavin Shan <gshan@redhat.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev, Catalin Marinas <catalin.marinas@arm.com>,
+	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
+	Lorenzo.Pieralisi2@arm.com
+Subject: Re: [PATCH v14 29/44] arm64: RMI: Runtime faulting of memory
+Message-ID: <aj6sdzlbxT8D5fnf@lpieralisi>
+References: <20260513131757.116630-30-steven.price@arm.com>
+ <3359f788-07fa-41a1-9ac7-45c58577c1fa@redhat.com>
+ <aiJ6u83O0nVUtPyv@lpieralisi>
+ <ecef952b-e8c6-4102-933b-c99c46f14431@redhat.com>
+ <aiLes2ecZSr17UwZ@lpieralisi>
+ <1e39094f-7fa3-4ef1-be54-53d7a8643506@redhat.com>
+ <98d2a0f3-b831-466a-8212-5bcf97ad9d8b@arm.com>
+ <8da87878-2a5d-478a-a280-60dbed7ad1b9@redhat.com>
+ <9482dfbc-4d96-47ba-a615-f4ba0bda833f@arm.com>
+ <8f81ed99-c53a-4196-baa2-adea9239a000@redhat.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_094031_351210_2E320E30 
-X-CRM114-Status: GOOD (  11.37  )
+In-Reply-To: <8f81ed99-c53a-4196-baa2-adea9239a000@redhat.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,52 +95,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-codec_vp9_rm_noshow_frame() frees the first non-shown reference frame on
-ref_frames_list without excluding vp9->prev_frame. When the previously
-decoded frame was a non-show (alt-ref) frame and the current frame is a
-non-show inter frame, the freed object is the one vp9->prev_frame still
-points to; codec_vp9_set_mpred_mv() then dereferences the stale pointer
-(use_prev_frame_mvs and codec_vp9_get_frame_mv_paddr()), a use-after-free.
+On Fri, Jun 26, 2026 at 09:43:03PM +1000, Gavin Shan wrote:
+> On 6/26/26 6:47 PM, Suzuki K Poulose wrote:
+> > On 26/06/2026 08:43, Gavin Shan wrote:
+> > > On 6/26/26 1:58 AM, Suzuki K Poulose wrote:
+> > > > On 25/06/2026 14:53, Gavin Shan wrote:
+> > > > > On 6/6/26 12:35 AM, Lorenzo Pieralisi wrote:
+> > > > > > On Fri, Jun 05, 2026 at 06:11:11PM +1000, Gavin Shan wrote:
+> > > > > > > On 6/5/26 5:28 PM, Lorenzo Pieralisi wrote:
+> > > > > > > > On Fri, Jun 05, 2026 at 04:23:15PM +1000, Gavin Shan wrote:
+> > > 
+> > > [...]
+> > > 
+> > > > > > > 
+> > > > > > > I tried to rebase Jean's latest QEMU series [1] to upstream QEMU, and found
+> > > > > > > that memory slots backed by THP are broken. With THP disabled on the host and
+> > > > > > > other fixes (mentioned in my prevous replies) applied on the top of this (v14)
+> > > > > > > series, I'm able to boot a realm guest with rebased QEMU series [2], plus more
+> > > > > > > fxies on the top.
+> > > > > > > 
+> > > > > > > [1] https://git.codelinaro.org/linaro/dcap/qemu.git  (branch: cca/ latest)
+> > > > > > > [2] https://git.qemu.org/git/qemu.git                (branch: cca/ gavin)
+> > > > > > > 
+> > > > > > > Lorenzo, You may be saying there is someone making QEMU to support ARM/CCA?
+> > > > > > 
+> > > > > > Mathieu and I are working on that yes and with Steven/Suzuki to fix the THP
+> > > > > > issues you pointed out above.
+> > > > > > 
+> > > > > > > If so, I'm not sure if there is a QEMU repository for me to try?
+> > > > > > 
+> > > > > > We should be able to submit patches by end of June - we shall let you know
+> > > > > > whether we can make something available earlier.
+> > > > > > 
+> > > > > 
+> > > > > Not sure if there are other known issues in this series. It seems the stage2
+> > > > > page fault handling on the shared space isn't working well. In my test, the
+> > > > > vring (struct vring_desc) of virtio-net-pci is updated by the guest, and the
+> > > > > data isn't seen by QEMU, I'm suspecting if the host-page-frame-number is properly
+> > > > > resolved in the s2 page fault handler for shared (unprotected) space.
+> > > > > 
+> > > > > - I rebased Jean's latest qemu branch to the upstream qemu;
+> > > > > 
+> > > > > - On the host, which is emulated by qemu/tcg, the THP (transparent huge page) is
+> > > > >    disabled.
+> > > > > 
+> > > > > - On the guest, I can see the virtio vring (struct vring_desc) is updated. The
+> > > > >    S1 page-table entry looks correct because the corresponding physical address
+> > > > >    0x10046880000 is a sane shared (unprotected) space address.
+> > > > > 
+> > > > >    [   52.094143] software IO TLB: Memory encryption is active and system is using DMA bounce buffers
+> > > > >    [   52.289746] virtqueue_add_desc_split: desc[0]@0xffff000006880000, [00000100b983f000  00000640  0002  0001]
+> > > > >    [   52.432150] PTE 0x00e8010046880707 at address 0xffff000006880000
+> > > > > 
+> > > > > - On the host, the s2 page-table-entry is unmapped due to attribute transition (private -> shared).
+> > > > >    A subsequent S2 page fault is raised against the adress and the s2 page-table-entry is built.
+> > > > > 
+> > > > >    [  109.259077] ====> realm_unmap_shared_range: tracked_unprot_addr=0x10046880000
+> > > > >    [  109.260249] realm_unmap_shared_range: unmapped shared range at 0x10046880000
+> > > > >    [  109.317786] realm_unmap_shared_range: unmapped shared range at 0x10046880000
+> > > > >    [  109.629939] ====> kvm_handle_guest_abort: fault_ipa=0x10046880000, esr=0x92000007
+> > > > >    [  109.630245] realm_map_non_secure: ipa=0x10046880000, pfn=0xb8b59, size=0x1000, prot=0xf
+> > > > >    [  109.630331] realm_map_non_secure: ipa=0x10046880000, ipa_top=0x10046881000, flags=0x1e0001, range_desc=0xb8b59004
+> > > > 
+> > > > Are you able to correlate the order of the transitions and the Guest
+> > > > access with RMM log ? We haven't seen this from our end. We are aware
+> > > > of permission fault issues with Unprotected IPA when backing the memslot
+> > > > with MAP_PRIVATE areas. But this looks different.
+> > > > 
+> > > > Lorenzo, have you run into this ?
+> > > > 
+> > > 
+> > > It's hard to correlate the order since the logs are collected from two separate
+> > > consoles. For the write permission, I add code to the host where the permission
+> > > is always added for all s2 page faults in the shared space. Otherwise, qemu can
+> > > be killed by -EFAULT or similar error.
+> > 
+> > This is the problem. We can't add WRITE permission by default. I believe
+> > you may have MAP_PRIVATE mapping and it has to be mapped as READ only
+> > and on a permission fault, we replace it with a writable page. By
+> > overriding the WRITE permission, you let the guest write to a page
+> > that may not be seen by the VMM.
+> > 
+> > We identified this as a bug in the KVM driver in this series (reported
+> > by Lorenzo) and there is a corresponding tf-RMM change that is required
+> > to get this working. So, please could you wait until the next series
+> > when this will be addressed ? Or you could switch to using MAP_SHARED
+> > for the "shared" memory in the memslot.
+> > 
+> 
+> Exactly. the syntax for MAP_PRIVATE is broken if the write permission is
+> enforced for a read fault in the shared space. In my case, the host page can
+> be the zero page and eventually multiple s2 page-table entries (for multiple
+> unprotected or shared pages) point to the zero page. It's why clearing the
+> 3rd queue (Ctrl queue) also clears the first queue (Rx queue) in my case.
+> 
+> Yes, this issue can be avoid by using a shared memory backend in qemu, something
+> like below. With this, I'm able to see virtio-net-pci starts to work...
+> 
+>     -object memory-backend-ram,id=mem0,size=2G,share=yes
 
-The sibling cleanup codec_vp9_show_frame() already guards this pointer
-(tmp == vp9->prev_frame); rm_noshow_frame() simply omits the same check.
-Add it.
+Yes, as Suzuki said that's what we have been fixing. QEmu patches
+will be on the mailing lists very shortly - the KVM/tf-RMM fixes
+to make MAP_PRIVATE work will be included in the next posting.
 
-The fields that drive this path (show_frame, frame_type, intra_only) are
-parsed from the VP9 bitstream, so a crafted stream fed to the stateless
-decoder can trigger the free-then-use.
+Feel free to drop your QEmu command line so that I can give it
+a shot and check whether the fixes solve the problem you hit
+(I think so because that's precisely the kind of issue I got
+into when I started debugging THP/MAP_PRIVATE but it is better
+to check).
 
-Found by static analysis; not yet runtime-reproduced (Amlogic Meson
-hardware required).
-
-Found by 0sec's autonomous vulnerability analysis (https://0sec.ai).
-
-Signed-off-by: Doruk Tan Ozturk <doruk@0sec.ai>
----
- drivers/staging/media/meson/vdec/codec_vp9.c | 9 +++++++++
- 1 file changed, 9 insertions(+)
-
-diff --git a/drivers/staging/media/meson/vdec/codec_vp9.c b/drivers/staging/media/meson/vdec/codec_vp9.c
-index 8e80ecf84..572f418c9 100644
---- a/drivers/staging/media/meson/vdec/codec_vp9.c
-+++ b/drivers/staging/media/meson/vdec/codec_vp9.c
-@@ -1247,6 +1247,15 @@ static void codec_vp9_rm_noshow_frame(struct amvdec_session *sess)
- 		if (tmp->show)
- 			continue;
- 
-+		/*
-+		 * prev_frame is still referenced by the MV predictor in
-+		 * codec_vp9_set_mpred_mv(); the sibling codec_vp9_show_frame()
-+		 * already excludes it before freeing. Do the same here to avoid
-+		 * a use-after-free of vp9->prev_frame.
-+		 */
-+		if (tmp == vp9->prev_frame)
-+			continue;
-+
- 		pr_debug("rm noshow: %u\n", tmp->index);
- 		v4l2_m2m_buf_queue(sess->m2m_ctx, tmp->vbuf);
- 		list_del(&tmp->list);
--- 
-2.43.0
-
+Thanks,
+Lorenzo
 
