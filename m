@@ -4,78 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56F52CD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 10:07:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F8BCCDE008
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 10:09:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bPr0hURvwWeDTVUDuQvVY7K4OEiRUuIyw2Nn2XsCGLM=; b=c3iRKfGpMV+3hEnSg0XmGzcblF
-	d0ZJcul/J+tWoSbR9NVXdchYbQR8llx2zfNM0KalO1SeW+fYCns14gNsEuTbvfXfXw5uFlln5C3aN
-	Go4CujfJWVaGy0zPXDZxoHuAj2ZJ5a+EU9L+zX/djdOkaLa7tQfOYl2eBvNStTjx6NuFf/FWUIxjm
-	aiQt54Lht5TmSfjiXLh1OGt6CYa1D768uSVHXeLSapsZar7FFLMO+g6SuxwW6OBFybymRb2aSRKsL
-	dASs/ri0BgdlokBRyUc+w8SA4pcZpXzFDJ69AdJP4e3cyJBMRjZ8yD6tdl/Uin5sMfv0szwYp4hFn
-	IHCB605A==;
+	bh=/8m16LbO8lK2QhthwpfA6cSLy6pKWANJXso5ew8q1+0=; b=h9ZXV3sCRP5GyAtgW0eSQi/MaS
+	f5CMlCJGGqomFvCRzcP8C1FZcinwSIiauICoXtUiOpHnTJzI92eRMBVXulnlrDe8SxKhLSgmfplTW
+	fJKF2136RPJODJS8qA4UaaS/uAt7+cEQ7ICjD/t6h/8YVzFm4EpEBPAYNcvupkJY0MSFN/tt37TfK
+	TqdDr9ex7UGZda9D2W7WqAY4qQtdnM2IHzbbPjkPe0sbbBFEmZGlArYrDl7sqp5unkKTOJHCk1Ctq
+	ALmc0FT2lFyIpWXZ9SjiMm5jdxXbyRg9XfXQHzEXPMQtiCsJZLdQeCNz/2Cj2JwbIhUvslp6pnxi1
+	+HMc/Kkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd3TA-0000000B3ZE-2pem;
-	Fri, 26 Jun 2026 10:07:32 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1wd3Uh-0000000B3nE-3cYL;
+	Fri, 26 Jun 2026 10:09:07 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd3T8-0000000B3Yi-0bW6
+	id 1wd3Ug-0000000B3n0-35yO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 10:07:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1782468450; x=1814004450;
-  h=message-id:subject:from:to:cc:date:in-reply-to:
-   references:content-transfer-encoding:mime-version;
-  bh=mWD9mCGrzZWHZ7x0PPyvacdrsovHQpw623DcM+HA8P0=;
-  b=d8M/HeC8C9HRycqeqtFVHAwBo/Q2lQu5y/Riou5fjyy+3VMa3lMk0Jjc
-   LizIVutdNInHShpq7wWlugQ8y8EuUKnEdrwC/wGP8kCeEN4b54wudV9Rf
-   BGZOMU8k1D8cwcminkBKrebCSyw9GYs5EU9+Ju5Tvy43F4ouFr1+Hajb/
-   v5DMmce9FNJHldVFQN0Z61sus0wMyqkWLC7vvEdzr7GYyHM+RryBY0MqW
-   qSlEpg2E4nctALkCBJ/v5LqV7BWL4S/fqvAAhjl2voBuA2biLF0nthf4v
-   BB7DHitNpIoHyxwuDt6Ct+9VQHAT8ldpuuUro+rxoxTAO8UCvnY5x6/hp
-   w==;
-X-CSE-ConnectionGUID: KlKLWQ5ZT9mmykJiUVRU5w==
-X-CSE-MsgGUID: SxoojhgbT/G54j0UDE7HWw==
-X-IronPort-AV: E=Sophos;i="6.24,226,1774335600"; 
-   d="scan'208";a="60080065"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 26 Jun 2026 03:07:29 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Fri, 26 Jun 2026 03:07:28 -0700
-Received: from DEN-DL-M77643.microsemi.net (10.10.85.11) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Fri, 26 Jun 2026 03:07:25 -0700
-Message-ID: <fc2d818282656906dc264f286c4a10c24f77f1d7.camel@microchip.com>
-Subject: Re: [PATCH net-next 1/9] net: microchip: vcap: fix rule move for
- rules of coprime size
-From: Jens Emil Schulz Ostergaard <jensemil.schulzostergaard@microchip.com>
-To: Jakub Kicinski <kuba@kernel.org>
-CC: <horatiu.vultur@microchip.com>, <UNGLinuxDriver@microchip.com>,
-	<andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
-	<pabeni@redhat.com>, <daniel.machon@microchip.com>,
-	<Steen.Hegelund@microchip.com>, <kees@kernel.org>, <gustavoars@kernel.org>,
-	<netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-hardening@vger.kernel.org>
-Date: Fri, 26 Jun 2026 12:07:25 +0200
-In-Reply-To: <20260615233845.1042219-1-kuba@kernel.org>
-References: <20260612-sparx5_l3_routing-v1-1-fc3c10160f49@microchip.com>
-	 <20260615233845.1042219-1-kuba@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.44.4-0ubuntu2.1 
+	Fri, 26 Jun 2026 10:09:06 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1831043858;
+	Fri, 26 Jun 2026 10:09:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7EC791F000E9;
+	Fri, 26 Jun 2026 10:09:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782468546;
+	bh=/8m16LbO8lK2QhthwpfA6cSLy6pKWANJXso5ew8q1+0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=YZ2AOjui3EJK37FD6DnOgFAp49V/8laiD6Qd3DzQR16Jym+3ikcoWbQoxeRDIdSmG
+	 t/icJvQZwAiw5eAuH4WI38LaVngWy+STSt1nOjFxe8Atexkj+aZ7YE33XIGXr5rfUT
+	 k0TjVR+nCbHsCcpTmPEWKxWhWanEpDOLy5qq9N386nD1ILR19x1lc0mtIMEwPmz+ZD
+	 cLOZPdz0Tn43PiegaqC12tQnU0OMzMMKMeng7z1sceIyVnawpXDN3yLafK5pY5IT1t
+	 GnpLDKaFCBn76yidbGhJ56hQq7oEb3+C5obHC71aLYz5BDGuTnoiPkVIRCFi61TgHt
+	 FOYfYeCwSqWlA==
+Date: Fri, 26 Jun 2026 12:09:03 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Inki Dae <inki.dae@samsung.com>, 
+	Jagan Teki <jagan@amarulasolutions.com>, Marek Szyprowski <m.szyprowski@samsung.com>, 
+	Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Hui Pu <Hui.Pu@gehealthcare.com>, 
+	Ian Ray <ian.ray@gehealthcare.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 05/37] drm/display: bridge-connector: split code creating
+ the connector to a subfunction
+Message-ID: <20260626-polite-hairy-perch-25e1aa@houat>
+References: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
+ <20260519-drm-bridge-hotplug-v1-5-45e2bdb3dfb4@bootlin.com>
+ <20260608-mindful-heavy-frigatebird-be9faf@houat>
+ <DJ735MTNMYD1.3LPNV404V8PIU@bootlin.com>
+ <20260624-proud-unbiased-pony-ecc3c3@houat>
+ <DJHEAWSEZR79.19UFIKS8QJBQ7@bootlin.com>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_030730_255934_ABF3AAC1 
-X-CRM114-Status: GOOD (  29.83  )
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="afpil2l4mwf7jssr"
+Content-Disposition: inline
+In-Reply-To: <DJHEAWSEZR79.19UFIKS8QJBQ7@bootlin.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,163 +86,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 2026-06-15 at 16:38 -0700, Jakub Kicinski wrote:
-> EXTERNAL EMAIL: Do not click links or open attachments unless you know th=
-e content is safe
->=20
-> This is an AI-generated review of your patch. The human sending this
-> email has considered the AI review valid, or at least plausible.
-> ---
-> Subject: net: microchip: vcap: fix rule move for rules of coprime size
->=20
-> This patch addresses a discrepancy in how software and hardware move rule
-> addresses on insert and delete for the LPM VCAP. It introduces a uniform
-> offset computation aligned to the least common multiple of all rule sizes
-> in a block. This ensures that hardware and software representations remai=
-n
-> synchronized and all rules land on correctly aligned addresses.
->=20
-> > diff --git a/drivers/net/ethernet/microchip/vcap/vcap_api.c b/drivers/n=
-et/ethernet/microchip/vcap/vcap_api.c
-> > index 0fdb5e363badc..6946fd7384581 100644
-> > --- a/drivers/net/ethernet/microchip/vcap/vcap_api.c
-> > +++ b/drivers/net/ethernet/microchip/vcap/vcap_api.c
->=20
-> [ ... ]
->=20
-> > @@ -2275,8 +2336,7 @@ int vcap_add_rule(struct vcap_rule *rule)
-> >                      __func__, __LINE__, ret);
-> >               goto out;
-> >       }
-> > -     if (move.count > 0)
-> > -             vcap_move_rules(ri, &move);
-> > +     vcap_move_rules(ri, &move);
-> >=20
-> >       /* Set the counter to zero */
-> >       ret =3D vcap_write_counter(ri, &ctr);
->=20
-> [Severity: High]
-> This is a pre-existing issue, but does vcap_add_rule() leak the newly
-> duplicated rule if operations like vcap_write_counter() or
-> vcap_write_rule() fail later on?
->=20
-> If a failure occurs, the code takes the goto out path:
->=20
-> vcap_add_rule() {
->     ...
->     ret =3D vcap_write_rule(ri);
->     if (ret) {
->         pr_err("%s:%d: rule write error: %d\n", __func__, __LINE__, ret);
->         goto out;
->     }
-> out:
->     mutex_unlock(&ri->admin->lock);
->     return ret;
-> }
->=20
-> This seems to exit without reverting the earlier list insertions and
-> hardware moves.
->=20
-> Could this leave the software and hardware states permanently inconsisten=
-t
-> and leak the newly duplicated rule?
->=20
 
-I think this is latent, and not actually reachable by current callers.
+--afpil2l4mwf7jssr
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 05/37] drm/display: bridge-connector: split code creating
+ the connector to a subfunction
+MIME-Version: 1.0
 
-1. vcap_write_counter always returns 0
-2. vcap_encode_rule can not error if vcap_val_rule is called before vcap_ad=
-d_rule
-3. vcap_write_rule can not error if vcap_val_rule is called before vcap_add=
-_rule
+On Wed, Jun 24, 2026 at 05:47:10PM +0200, Luca Ceresoli wrote:
+> On Wed Jun 24, 2026 at 1:41 PM CEST, Maxime Ripard wrote:
+> > Hi,x
+> >
+> > On Fri, Jun 12, 2026 at 02:56:24PM +0200, Luca Ceresoli wrote:
+> >> On Mon Jun 8, 2026 at 1:40 PM CEST, Maxime Ripard wrote:
+> >> > On Tue, May 19, 2026 at 12:37:22PM +0200, Luca Ceresoli wrote:
+> >> >> In preparation to introduce bridge hotplug, split out from
+> >> >> drm_bridge_connector_init() the code adding the drm_connector into a
+> >> >> dedicated function. This will be needed to be able to add (and re-a=
+dd) the
+> >> >> connector from different code paths.
+> >> >
+> >> > Same story here, explaining what you need later on that calls for th=
+at
+> >> > change would be nice.
+> >>
+> >> Here's a more verbose version:
+> >>
+> >>     Currently drm_bridge_connector_init() does two things:
+> >>
+> >>      * allocate and initialize the drm_bridge_connector
+> >>        (which embeds a drm_connector)
+> >>      * initialize and register the embedded drm_connector
+> >>
+> >>     For bridge hotplug we need to separate these two actions:
+> >>
+> >>      * the drm_connector needs to be added and removed at any time bas=
+ed on
+> >>        hotplug events
+> >>      * the drm_bridge_connector is designated to create and remove the
+> >>        drm_connector, so it must be persistent for the card lifetime
+> >>
+> >>     As the lifetimes of drm_bridge_connector and drm_connector become
+> >>     different, we need to create them in different moments.
+> >>
+> >>     In preparation to support that, split out from
+> >>     drm_bridge_connector_init() the code adding the drm_connector into=
+ a
+> >>     dedicated function. No functional changes, just moving code around=
+ for
+> >>     now. A future commit will make the drm_connector be created based =
+on
+> >>     hotplug events.
+> >>
+> >> Looks good?
+> >
+> > The message itself, yes, thanks.
+> >
+> > However, I have questions now :)
+> >
+> > Do we really expect drm_bridge_connector to stick around when a bridge
+> > gets unplugged? If so, how does it cope with having, say, an HDMI
+> > connector, and then swapping out the hotplugged part for an LVDS one?
+> > Does the HDMI connector sticks around indefinitely?
+>=20
+> In your example, the HDMI drm_connector would be unregistered and put on
+> hotunplug. Its allocation will stick around until the last put but that's
+> quite irrelevant. Then, on plugging the LVDS addon, a new LVDS
+> drm_connector will be created and registered.
+>
+> > *Especially* if we're using overlays for this, I'd expect everything
+> >  after the first hotplugged bridge to be destroyed, no?
+>=20
+> As said, it would be unregistered immediately but might be freed later on
+> if still refcounted.
+>=20
+> This is visible in patches 36+15, the path to follow is:
+>=20
+>  drm_bridge_connector_handle_event(event =3D DRM_BRIDGE_DETACHED) [patch =
+36]
+>  -> drm_bridge_connector_dynconn_release()                      [patch 15]
+>=20
+> Does this solve your concern?
 
-So I propose this is fixed in seperate series.
+Not really, I'm talking about drm_bridge_connector. The fact that
+bridges are destroyed make sense to me. The fact that
+drm_bridge_connector sticks around doesn't. It's supposed to be a
+connector for bridges. If you don't have bridges because they got
+destroyed, and connector, drm_bridge_connector doesn't have a reason to
+exist anymore, unless it's drm_bridge_hotplug in a trench coat :)
 
-> [ ... ]
->=20
-> > @@ -2488,59 +2548,52 @@ int vcap_mod_rule(struct vcap_rule *rule)
-> >  }
-> >  EXPORT_SYMBOL_GPL(vcap_mod_rule);
->=20
-> [Severity: High]
-> This isn't a bug introduced by this patch, but does vcap_mod_rule() disca=
-rd
-> the active software rule pointer and overwrite hardware with stale addres=
-ses?
->=20
-> Looking at vcap_mod_rule(), the function validates the rule using
-> vcap_get_locked_rule() but ignores the returned pointer:
->=20
-> vcap_mod_rule(struct vcap_rule *rule) {
->     struct vcap_rule_internal *ri =3D to_intrule(rule);
->     ...
->     if (!vcap_get_locked_rule(ri->vctrl, ri->data.id))
->         return -ENOENT;
->     ...
->     err =3D vcap_encode_rule(ri);
->     if (err)
->         goto out;
->=20
->     err =3D vcap_write_rule(ri);
-> }
->=20
-> Because the function continues to use the caller provided copy ri, it
-> doesn't see updates to the real rule in the admin->rules list.
->=20
-> If the real rule's hardware address was previously shifted due to inserti=
-ons
-> or deletions, could writing to the stale address in ri->addr corrupt othe=
-r
-> rules in the hardware VCAP?
->=20
+Maxime
 
-This is also true but latent again. To trigger this we would need concurren=
-cy
-against the same vcap instance. Before this series vcap_mod_rule was only
-called under rtnl. This series introduces a call outside rtnl, but the new =
-LPM VCAP
-is not usable by tc only the routing module, which serializes everything un=
-der
-one mutex.
+--afpil2l4mwf7jssr
+Content-Type: application/pgp-signature; name="signature.asc"
 
-So I think this should be fixed in a seperate series.
+-----BEGIN PGP SIGNATURE-----
 
-> [ ... ]
->=20
-> One other pre-existing issue noticed while reviewing this subsystem:
->=20
-> [Severity: High]
-> This is a pre-existing issue, but is it safe to iterate over the admin->r=
-ules
-> list across different VCAP instances without acquiring admin->lock for
-> each instance?
->=20
-> In vcap_rule_exists():
->=20
-> static bool vcap_rule_exists(struct vcap_control *vctrl, u32 id) {
->     ...
->     list_for_each_entry(admin, &vctrl->list, list)
->         list_for_each_entry(ri, &admin->rules, list)
->             if (ri->data.id =3D=3D id)
->                 return true;
->     return false;
-> }
->=20
-> If another thread is concurrently inserting or deleting a rule on another
-> VCAP instance while holding that instance's lock, could this unprotected
-> concurrent access encounter a data race and dereference a poisoned pointe=
-r?
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaj5PvwAKCRAnX84Zoj2+
+dtwEAX4ijuVNE181/mqCOafyW3Jbn1VsUVf2J9rGzifU5uKrZMsSWTfU5SxviGjz
+/GWmgbsBewf9Dp8zYwfQlX4fBaDezy5TaiuhnwNUA6T1Jrq2ZsoSQTjxbco2obCp
+WVWtqMxZ5Q==
+=L4Fb
+-----END PGP SIGNATURE-----
 
-Yes this becomes reachable with this series, due to calls outside rtnl.
-It is a symptom of a wider issue with the per instance locking in the VCAP
-api. Sashiko found another existing bug with the shared SUPER vcap register=
-s
-also caused by this, and that one is reachable in mainline, so I will send =
-a
-fix to net for the vcap locking which will also fix this problem, then send
-v2 once that is settled.
-
-> --
-> pw-bot: cr
-
+--afpil2l4mwf7jssr--
 
