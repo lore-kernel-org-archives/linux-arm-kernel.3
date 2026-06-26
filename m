@@ -4,60 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A226C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 16:03:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C575C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 16:09:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fsEOcFVyW58xJJRghSUMNtbCJxZ9Kbd53+GfSQog+7M=; b=OhkwGL4y4suwceI7kRDW/YXKQj
-	IZ7B1EKSfNpYhh4N3/fXZeslxblG6VABpdGWPG3vDLdaHZAQsNVJ4rPA7UF0PvihbngAES1twJRim
-	lXch0S0RIU+KIBh0MLLAQm/c1VD6F506p00qtxEuaApEwA0WSqwdYKrsUIEm8S7PlbNQ5NaLV3Qej
-	6gBKQ3SEX/lV2WpxZ2XklBjFVAEtMR2CFadETPN9wYntOV5D05PkTrI3M86I2etUwMTjou+S+/VCF
-	WN+yP5lDnatt3Z8gdw8mbPFAfxKbNEEfzQvHHUeWzJz4XfbrTkrXebLMBPfyUwhFyKwrNSyd1pvfk
-	11twZViQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d2RpaOt1UY9w7z3P6fskDSOG9pDQRRmB1BEeBNxqJr4=; b=wqws+FFnEwk3NpadA/tbIzRTfm
+	wbJ7Kx9+gZhB0/oNlizHekafnC3qTK8HLHLVYlF8hj9KahYipErdAqORM9Fi7JHpVzndLt97qJt4q
+	BgoLwOYEwY1yvFV25ITDAdnK2X2GfEc5vwV0uTWf41tbVfLTVUOzmmPdevo8g7dPt90y9vhaMr3eH
+	aguANUtjuiPHEDB+ZFfHpGwXsGGpaMJhXU/cVmpMXA/7DTiJaOjx/ZOMhQt7TnmKIyqAaw6YPQVuO
+	8ob247Aq2nQxP9ftrpQIV9NIYQY3/eBtmXdFoCZYFlvvojRGGgEsHP68GdnCDZW4mlR8ARwCjORNK
+	bdQldyzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd91v-0000000Bae9-2ckf;
-	Fri, 26 Jun 2026 16:03:47 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wd97V-0000000Bb8U-257h;
+	Fri, 26 Jun 2026 16:09:33 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd91u-0000000Badg-25qQ
+	id 1wd97U-0000000Bb8O-1QCn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 16:03:46 +0000
+	Fri, 26 Jun 2026 16:09:32 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5766B600C8;
-	Fri, 26 Jun 2026 16:03:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B01C21F000E9;
-	Fri, 26 Jun 2026 16:03:41 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E20D14358D;
+	Fri, 26 Jun 2026 16:09:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8A7A1F000E9;
+	Fri, 26 Jun 2026 16:09:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782489825;
-	bh=fsEOcFVyW58xJJRghSUMNtbCJxZ9Kbd53+GfSQog+7M=;
-	h=Date:Subject:To:References:From:In-Reply-To;
-	b=d8uU5DAoCTxjCmm+fp/sjqi90YsueMm3+LL7xTB2PB2cKyLKDl/bSgGhfZESxjOxx
-	 wHgydZRGUdEqkRyi8Z0fg8WMsK9WMpwQI66gVErW5ZitauwFdhMg4+CmNhB441G37S
-	 Xs73wA7BvhDsSuT5iBsolAbgOeGhwNIhfOY8XJJvsBQzDhio5DLAxtDIkD2tC3qmfK
-	 5Bxo3vsTDWlka1JM/1aSVVNb9yc5G28OKPbqTEFSyestc7EeAOKahL1ARSaCsh2b0y
-	 9fdx8EmOTik9W50FD+p2PyYgza9cwciz5pNPzz9vPW70DhLa1RLvtI24z2ag8oK1Z8
-	 QIM0vAASl1kvQ==
-Message-ID: <f9f6bb59-e3f2-4201-888f-c56e83126934@kernel.org>
-Date: Fri, 26 Jun 2026 18:03:39 +0200
+	s=k20260515; t=1782490171;
+	bh=d2RpaOt1UY9w7z3P6fskDSOG9pDQRRmB1BEeBNxqJr4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=oZ4B++o/Kmjf4mUIAYR5+eeWqagv/Mf5xBAQhfNkRTB5OSZtAiNHppeTvnGpD6nVT
+	 eKHuClfS9exgUr7g18L8xjPcrTm0MWPChQNVvTURWTPWwZlE3UWx/DgyOzJ6vuDQux
+	 rjI+54clt8ILLbFApZu9/sMPQiaXSabVHsChhTMnSpPmlkzgRXZbqjQZDtxwk11Vli
+	 h5MOvr0rroF+HrZ1rEAF34RgdZFbJLoDOpCks+Jf51RpilDiRE0QeJz2PBz7Bku2tw
+	 pxDCbuPC9ToShir5k+Vybct8QvRoX1SaSa1V+QDbS6QXLl5j/YMFKXQO4+Wnpmn5S6
+	 BSNDSKHuLnVxw==
+Message-ID: <ced1c28d-b9e1-4307-8900-7139c610d176@kernel.org>
+Date: Fri, 26 Jun 2026 18:09:27 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: mm: refresh stale pmd snapshot after
- split_contpmd()
-To: Dev Jain <dev.jain@arm.com>, lirongqing <lirongqing@baidu.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Ryan Roberts <ryan.roberts@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Kevin Brodsky <kevin.brodsky@arm.com>, Yang Shi
- <yang@os.amperecomputing.com>,
- Chaitanya S Prakash <chaitanyas.prakash@arm.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260625113953.2332-1-lirongqing@baidu.com>
- <e0031cbe-2a49-4611-ad48-bde73fe4cd1c@arm.com>
+Subject: Re: [PATCH] arm64/mm: Optimize TLB flush in
+ unmap_hotplug_[pmd|pud]_range()
+To: Anshuman Khandual <anshuman.khandual@arm.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Ryan Roberts <ryan.roberts@arm.com>, linux-kernel@vger.kernel.org,
+ Ben Hutchings <ben@decadent.org.uk>
+References: <20260626012845.475959-1-anshuman.khandual@arm.com>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -104,7 +100,7 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <e0031cbe-2a49-4611-ad48-bde73fe4cd1c@arm.com>
+In-Reply-To: <20260626012845.475959-1-anshuman.khandual@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -121,24 +117,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/26/26 15:03, Dev Jain wrote:
+On 6/26/26 03:28, Anshuman Khandual wrote:
+> flush_tlb_kernel_range() could flush down an entire block mapping just with
+> a single PAGE_SIZE stride. This capability was being used umapping PMD and
+> PUD based block mappings in unmap_hotplug_[pmd|pud]_range().
 > 
+> But later on the commit 48478b9f7913
+> ("arm64/mm: Enable batched TLB flush in unmap_hotplug_range()") replaced
+> this PAGE_SIZE stride with [PMD|PUD]_SIZE strides, hence forcing multiple
+> PAGE_SIZE stride based TLB flushes on platforms where TLB range operation
+> is not supported. Revert back to the earlier TLB behaviour along with the
+> required comments that were dropped earlier.
 > 
-> On 25/06/26 5:09 pm, lirongqing wrote:
->> From: Li RongQing <lirongqing@baidu.com>
->>
->> split_contpmd() modifies the pmd entries in-place by clearing the CONT
->> bit, but the local 'pmd' variable still holds the old snapshot with CONT
->> set. The subsequent split_pmd() call uses this stale value to derive the
->> pgprot for the new PTE entries via pmd_pgprot(), causing the resulting
->> PTEs to be populated with incorrect protection bits.
-> 
-> Since the block was CONTPMD, it means the pgprot was uniform on that block,
-> so after splitting, it should be safe to derive the pgprot from individual pmd's
-> right?
 
-I'm also confused by that, can we get some details why (and how) the cont bit
-misguides  pmd_pgprot?
+Right, it looked like the right thing to do in that commit. I wonder if we can
+make the comments even clearer to prevent his happening another time,
+incorporating the HW consideration.
+
+In any case
+
+Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
+
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Ryan Roberts <ryan.roberts@arm.com>
+> Cc: David Hildenbrand <david@kernel.org>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Reported-by: Ben Hutchings <ben@decadent.org.uk>
+> Closes: https://lore.kernel.org/all/b0d5836032ce3135bfc473f6bff791306d086925.camel@decadent.org.uk/
+> Fixes: 48478b9f7913 ("arm64/mm: Enable batched TLB flush in unmap_hotplug_range()")
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> ---
+>  arch/arm64/mm/mmu.c | 12 ++++++++++--
+>  1 file changed, 10 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index 8242f93f05e4..5ff0041f4a5f 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -1509,7 +1509,11 @@ static void unmap_hotplug_pmd_range(pud_t *pudp, unsigned long addr,
+>  			if (free_mapped) {
+>  				/* CONT blocks are not supported in the vmemmap */
+>  				WARN_ON(pmd_cont(pmd));
+> -				flush_tlb_kernel_range(addr, addr + PMD_SIZE);
+> +				/*
+> +				 * One TLBI should be sufficient here as the PMD_SIZE
+> +				 * range is mapped with a single block entry.
+> +				 */
+
+"Flush only a single page, resulting in a single TLBi for this large block
+mapping, avoiding multiple TLBIs on HW without TLB range flushes."
 
 -- 
 Cheers,
