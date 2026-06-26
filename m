@@ -4,102 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F935CDE00B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 02:40:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81341CDE008
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 02:40:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aO7HAaieXZKl5Jbk/eJYtrPb89oZ6xa9v0C5IFxSeHw=; b=4xKif9lrGpgMQz6Bj7N2Qg1RS4
-	mw9q4SEsVyvG8e9DRWcPbeegpZLLUU8LqViSElwvGj8xifivVePPN2q90eq4L5kLfzxuf59xAdfUK
-	bCBmr7yNXb5wD2jebrb/7uRmiOc1dlQlh8K27eyS75iGOohrmaWA7vQlTTABjiYR5HmI6AXw8SUy2
-	ugifWUR03M/A88i70TefbD58J3ldrhDO6Reuosj/1kB4ghAXXrlB1b7OTw2BMSIUcJa4LI+Wu1zbM
-	FwXE7Xs/F1UmRtOFa6UIVoMegXmB2xPv4d1R/Y6P4L41+J4iiww5pCCwzHJOv8PFa2ZirAwsNBBgk
-	NyVHwnQQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SY9fB7bT5x6j7PBT0QOYVCBdraeT1PC6J/Z6r3RE6V8=; b=iQhx1KN8c5taHVijijOOyb7eIJ
+	v8VBLL5FByuEbooqcqHac/DAyVSCCA8avNjCIm2d0cVo+sRXQumGC+4pTNz7jLauKZME62XZ363hc
+	68SAGq+NvlPIKxrsKyY9LuuV59XMyz+fQvvnRKyMxzJStqQ6aPlvppLRiIX/vFgA1kHS4/r/CjTSr
+	oBXyhe7ZqwVBcsYa+W9Bypp6nIBaYMF+W3Hi72DZifC9vg/qCefooE8li74HOZQ7mMFaHL6Rz+CBb
+	wbEvFR1zY9qDL4Uvd/U4uoxLpNm1jJl8VE1WtnWHyhT1ScOiSCyWV5oL8TT/LEBgQVkO5y6FZaNrV
+	PSXhm2gA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcwUc-0000000AJDP-3vtj;
-	Fri, 26 Jun 2026 02:40:34 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	id 1wcwUl-0000000AJF2-0HM5;
+	Fri, 26 Jun 2026 02:40:43 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcwUa-0000000AJCp-1NkL
+	id 1wcwUi-0000000AJEI-0ap4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 02:40:33 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-c1214dc027cso42577066b.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Jun 2026 19:40:31 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1782441630; cv=none;
-        d=google.com; s=arc-20260327;
-        b=r7FABk05AWxp2hHTkGc9jHWG+3if0O+cI+pl6m5YzyKS0TlkW9TlWn1Fd+WbD8BJIW
-         DrcfU+uXIlhnddesAi3/uvs3DmUyDgw1NEh9NrqSDqVWOjNiipzLJPtYjnnyDEt3jVA+
-         YcS4vuemkl/iRtd0SHDXeWoUan8ZzYfbIbgksPyc0SJ9A5N9uDSvLypQsDFgziWfrjwk
-         dv9ehLU0A8G8uSBXIdpE/qHRXyykqPv5QcsyV7rCsPnYdLelbUfWQy5Eg1Bzz0FiA4hG
-         PxvA7Z3lbbZd/qZGa8qQhv4re4om1bBzggc/4Q0sb96aT8p6dhIiywHs+dh3wufBQdNB
-         OWOw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=aO7HAaieXZKl5Jbk/eJYtrPb89oZ6xa9v0C5IFxSeHw=;
-        fh=4R/vpvwn6fOueShcgmgE2zJkdxLsNn9v/PRO12yelkc=;
-        b=kRSSOtSdvpE/vUMU3Mnu2r1c6o6KDuPu0yWI7AagKn9SaOeAhlwBqBTZ2Fd4Vg0y4P
-         wFmTvkC8bLW79cA4Z65KdnY6dU6ZeBr9WSNd+dYapI2UTuo2scz8OvexUvUNYHm84d9U
-         J7JBx5vMlQwIi91ynJvKTXFBIc+kSb5YphBePD4Z8DO0mQCZ0jPP17EUOj0NiJutdRpi
-         Q2fkJvHQY8j5LZIB/R+ZO2mBjeaID+cM95Dk3Q/KeRbGy/PUre30jug+lbz4ygo7M39i
-         UhkEllJlFtP6OB3Vx7KQWNrPjzpkwfGQDh1uyRossXLSww8Rfrd6cgV3d9QMuPFOp73u
-         NzKw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782441630; x=1783046430; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=aO7HAaieXZKl5Jbk/eJYtrPb89oZ6xa9v0C5IFxSeHw=;
-        b=SQuycwqD+4uLIRIxK30DopY0rKjCqIm+9hrbbWMlLvKPTAjNqlTBqq7cZvyHrJNWbG
-         GEWfWNzwbVMr2764yKF7b3KQRPDhuq42Ac0KRPPVA265gQPihYTjOozSvK6JVpluAWil
-         9yjkrUS4Cwqz12epUKzZLFr8QKSSYn4Y1vxDXoyEQJQOxXad7bkfC+0li8DwDLmO2rXu
-         1XBhmCPSZnewrz6NlArE2vh5c1xtZam803pXj6qQ1gynGGdV8B7bz20U1mxvrDVNemtw
-         PBllvbPHbNJ5bUCcPj5kLYEMkS4muZN1NHOStowHq0rmxVWmyzOmKenXmcs1BgUqKhCb
-         44Qg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782441630; x=1783046430;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=aO7HAaieXZKl5Jbk/eJYtrPb89oZ6xa9v0C5IFxSeHw=;
-        b=Eb1Pb7DxV3rqMQVFutYc7D/p5YLpahzQbOx0QF4utElnd9naTag6SnJY6sa2hmgmop
-         CVxJSzdE5mE/07kpHrHu6gyIf4fS/W1/qe4ZJHdDqf/xBht/Q/f8IoVTMTC00Ck8RTMA
-         Mmj2kcWnifhCUeGUQNGujvpv22OrETwYhIxTt4iRwVKCAw8fzMw/Rm1yQY9LpTa+Rqv3
-         UxgekCADBezzawoYxTx8S2MXf28yzNFEr4XQVZwevpx/vObE9Z8Ar+zWF61NcJHYTEax
-         Z6Y1QmGQE1qWjuad5HMZSnXqx0r0IeEKcNogfCYbr0p7zjrVeIT50r22+HX8IKzJwre5
-         uc5w==
-X-Forwarded-Encrypted: i=1; AHgh+Rp8jYHIeTnXBNX3ig/5o4ELeRqOcQPmRoZni9npL9jUgH2DIli2ZXog/0dNNDckRengBYnOkPvjrhrsBu4ZI5Lz@lists.infradead.org
-X-Gm-Message-State: AOJu0YyX+IocyJuJ7krmsib53E0AtRw8/M3/fUke8yiD9uRe0YhWWrsZ
-	Ngpk43cBDkpUbVUhXpuPU46NyYo1zbZY8rQ+W9MLkTXt/mCWY/4gW8gQR74ZY/gT0CvtdrGthdz
-	kcco2jOU6uXgGP5gO8lE8dzbDH1XNZhI=
-X-Gm-Gg: AfdE7ckGWakMyFyWN9QWD/SJKogtYXOMGqeQCJz6jADjxgAUfReuzQI81SGpJwbkLK6
-	UH/YlqZgLxZ9wMpXAPxqfdUXdyx++BFiWS5iVzPBbHy1KpCN7JbaW5Au0HekvM2F1ANupOgUOH4
-	ttTXVxft1Uu6FPA22p7uPJFVfskjq3eTPTVi0ccLxPfyVEIbsA1XCc/F8qLjbABpcoQe/NZ2o/L
-	7Hua99m3C9g2Xt9HNd5rFGYEQaEdkKm9UFTHYrw3PHZfUgWvu8+Sikcz6Rs0tiXhMQdgSBI
-X-Received: by 2002:a17:907:94c7:b0:c12:2b09:6c83 with SMTP id
- a640c23a62f3a-c122b0985c8mr14150066b.33.1782441630203; Thu, 25 Jun 2026
- 19:40:30 -0700 (PDT)
+	Fri, 26 Jun 2026 02:40:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jLsHcfdcybYTs3mCWHOQFKt6eyRg1Zw3PDCqgyRMWMUWSxVXlyopMxt6IPQpeDHpEtP08feDTINiDxDit4VQhNfFjfDl0MvGnKXI9534Q5h/iZKSn40E+SWHRgCTYdrjP+EN6y/jBDGsGMVnWdyL4oTv2j+K3cTSX5CWONMMfvShoj+rsB6NEFK9ZVnm3QJJwlWJfPMwj6Xozd1dVfS6KjCwQChL7rLZKuVMt1KR7aG+2xplHwtYp0Wu3Om81cgOTdvtBSjHbbxRb3djN3/LpGEKH8F9Ugn72MxnPrOR+QLtq/LKyqtiLJis4ZSSzrAoKvw9Z0w+a1gSsqh3IvBq3A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=SY9fB7bT5x6j7PBT0QOYVCBdraeT1PC6J/Z6r3RE6V8=;
+ b=siHeA9z7QoyWXQl8ibNmjmX1adzll25vRxXgYd3YMUrOckJ+VknpE4GfHO3mOunrK23uIi/PZagpS36WbQPfewLDueJ16urbRAzcVG6t+S+2qAGrxYMQqWrUIxgSTXiT8WbR/ZoxiVyoWf87AozJgQovrT8jVPOu3LG0njKoiT/jjkKojXbbnb3cEpcs/3qeOXqwuYRSpFZjZMPeJgZtxv6ZR4lUQ0CS+gAxVGg/oaB0lgiHslT9CLrEHzm27rT6gC1utf7/E9lql+Vss1AtRLVHBnh2xWlw4l9exx2YQvO+G63ne+mZmHBLl/CCHNFah3ijrA/iXx02RUZG7EIqRA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=SY9fB7bT5x6j7PBT0QOYVCBdraeT1PC6J/Z6r3RE6V8=;
+ b=otXFvmaZ69cYSqaUg9Wy3ehj8BDtACynb3ChlT0nUAhcYGP8lPbvyOUrGkw3pHh8ziJdQj1ir8eRCQ2le6sB+0tNvdYJJh0Zwy+JAyhIeU+CdN5a6asvBRXMxJv+ItZ3521g5Gsn0DXV5LmR/0BdYYx2hcLjW29njlHTA/qE7e5fsrpPtPxHC3Z+Ng5B8pEJFFiwd7r7hQ88fblJhcLPYpmEuS7VBnhfDGBZ29wRr4Sfp1hEUGzGw28VMIRMbu/hDhYtme+3mve1lACUoBApUG44Id2lvEddnKGg5QqqGsq9KPqczxakC4+7IevZzBsbViNFV3ZMx70NBa9ObrwWZg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DU0PR04MB9418.eurprd04.prod.outlook.com (2603:10a6:10:359::6)
+ by DB8PR04MB7146.eurprd04.prod.outlook.com (2603:10a6:10:127::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.13; Fri, 26 Jun
+ 2026 02:40:35 +0000
+Received: from DU0PR04MB9418.eurprd04.prod.outlook.com
+ ([fe80::130:1767:2462:db72]) by DU0PR04MB9418.eurprd04.prod.outlook.com
+ ([fe80::130:1767:2462:db72%5]) with mapi id 15.21.0159.016; Fri, 26 Jun 2026
+ 02:40:35 +0000
+Date: Fri, 26 Jun 2026 10:39:21 +0800
+From: Xu Yang <xu.yang_2@oss.nxp.com>
+To: Stefan Wahren <wahrenst@gmx.net>
+Cc: Xu Yang <xu.yang_2@nxp.com>, Frank Li <Frank.Li@nxp.com>, 
+	Jun Li <jun.li@nxp.com>, Alexander Stein <alexander.stein@ew.tq-group.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+	"linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>
+Subject: Re: chipidea: usbmisc_imx: i.MX93 support
+Message-ID: <n7z5b5iq6aqre7hmbw2pawhskolovt745g3fia5hneli7oiiwd@ovrboc3ujxib>
+References: <b2fb88eb-5c5f-499f-9cee-6a69769c578c@gmx.net>
+ <ibkjg6bymxoy5wcewrfn4y63f5izlh2yvdqjt42a63kvttr42w@tvqjjhfjg3u4>
+ <40e4df43-5de8-48fb-9c5d-9ccb437e63b9@gmx.net>
+ <lwo7rsdsfuibceyz5qoi46bbrhmofjpb2e3ukzdawieou3uo7m@5o2ral3q4oaf>
+ <07bc94cf-2b89-45ce-b36e-d07af6749ef9@gmx.net>
+ <sbu2axah6vjys2q5zpsurdzlto33zbcpexmfn7uhpnxzkmnmle@3dl2jvt4hb5t>
+ <f1cb93cc-40ac-4b88-bc0e-94390d1f6a99@gmx.net>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <f1cb93cc-40ac-4b88-bc0e-94390d1f6a99@gmx.net>
+X-ClientProxiedBy: MA5P287CA0037.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:175::17) To DU0PR04MB9418.eurprd04.prod.outlook.com
+ (2603:10a6:10:359::6)
 MIME-Version: 1.0
-References: <20260619185808.1090575-1-dbgh9129@gmail.com> <877bnt8u5k.wl-maz@kernel.org>
- <24e2da5b-82a4-4889-8b62-5f445cec9657@linux.dev>
-In-Reply-To: <24e2da5b-82a4-4889-8b62-5f445cec9657@linux.dev>
-From: =?UTF-8?B?7LWc7Jyg7Zi4?= <dbgh9129@gmail.com>
-Date: Thu, 25 Jun 2026 22:40:17 -0400
-X-Gm-Features: AVVi8CcSDw38iXU3lFIzIb0mZHU9FrMAV9-WNQC98wuHtZQ7-9FEbpQx1c3iqQY
-Message-ID: <CACrCO_XLNF=1ptxkNR8+E8NWjKVZPeVz0i0ZMkzxo+VRX4d5FQ@mail.gmail.com>
-Subject: Re: [PATCH v1] irqchip/gic-v3-its: Fix OF node reference leak
-To: Zenghui Yu <zenghui.yu@linux.dev>
-Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU0PR04MB9418:EE_|DB8PR04MB7146:EE_
+X-MS-Office365-Filtering-Correlation-Id: 283eaa19-2d91-4275-c63e-08ded32c4cac
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|19092799006|366016|23010399003|18002099003|4143699003|11063799006|22082099003|56012099006;
+X-Microsoft-Antispam-Message-Info: p5+sWJJY1JuZhfLhz3cJ6ASeQDtWhv+y97K1UQQPAX13/gECliQqBzIypTs7k7N2WOx9mQ9wpMNjt18wvi9PTV6Z1Jp3momTy5byOL8B9iKnBccSHLF3sHjnhnIu4TlM9EIwTbHTb4yNMkxypfJSViCBLo/8XBEBtLu9E+EizrvzhIc1k9eZ1W61QXL+kttiIDrJ4GIWVUzb62SacqiVXoEys+ABVonD2v/ZwysmJ5MrTeecfeZvdZHmip4Kmlz5qRogXR3sxEvbDuVpx89WHNZ8U/5k6u6nkUSAQfbe/jNxSJUbnfnMyoC48N0fwfg6m7S8BTJpNfGT4m0JJ5YF/pr3hEMPPbTFO/VBD7UfdB/6UPfd8dJ4QeCQN5m1jG9OMQzUADiybRZqqVSQ3bXfY8y6li08pCANU8yK1yTQDov7O7htERrf3IBfUt4pg3TNlh1bcSw0cWzf1fMbGIOj1ZkUl0zV1EY7qviV/2ctvH+TFxpGX3CGN31rQYoP93qoxc0GOdN12kTAtAMW7LJxHs7S0LP1xxTXaPzMYewNz4gmV2O/g+cIvKP3D1cG/8ByD1Ket8bGS+BJwPP4qmDhD/SOIwvDRcvkdm4A+eQqpIRvaFrNsdHdrqeB/9W7e8SEcdPR4ky1T3fV+VFNvIsXmOEcfwXhmMImZph0iPSsJ4Q=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9418.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(19092799006)(366016)(23010399003)(18002099003)(4143699003)(11063799006)(22082099003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bncrNjU5OXphbUcrZGl2YlpvTG8zK0NDbEd0K3VGOEFWaDJjOXZLd3dpbVc4?=
+ =?utf-8?B?TlZqSWU4WUV0RzdhK3NkRXc2R3ZTNEppT3Y4Q3ZFd2s3OUNpOVdYRjMyZGVS?=
+ =?utf-8?B?bm5zVG1QK2lNSDE5bHhwSEZMNHRSSkNxVzl0NEdtR0N4dHdNVHdGOWVGeXMv?=
+ =?utf-8?B?Unc5aUhYYW1qcXplcmJNRHJqNnJFZGszQllKMnNPSEg0elI0dzNSRjB0RzJM?=
+ =?utf-8?B?T3VhUGFlNEVDb0kra3VyNjgvajN5WElDdkxyZUNXYSttWUVnQzZId3FOUDZJ?=
+ =?utf-8?B?TTlSZGkzNlI3ZjNrbnVWc09FVUxmL3dXQnFhbGx2dXJpQ1JnNG1BaE9LVEpW?=
+ =?utf-8?B?eWVoRCs0YUZoQlBnNkVKWGtUL1loR3ZUV0t2RjVJcGwydkdjbDNFbzkxb0FY?=
+ =?utf-8?B?TjF3bWZ5d2xLMkVsZ05TRHlJU2RlUkxzNFFHUGdmR1F1OFlqWDhDdE5uckpI?=
+ =?utf-8?B?NXIxQlpIeVVTMlNjdTV5ZjF2dE9WNjU5c0ErTmJPanVqQTN3ZXBNLzRvMXFO?=
+ =?utf-8?B?VFBhYXV2engyZjhrK3FENVlvVzJUZlkyTkV6djh5MHVUajhhbDBNMU5jb0Js?=
+ =?utf-8?B?Y1lRM29EWGxzUERUOWpTajJ4R2hpZWF3eTVVQW1RNjY3VGo1VnBQVzlWaTlK?=
+ =?utf-8?B?Smg5KzRLbFJXenNnbGJJQ044Z3JNazduQWdXQ09EZncyM2NyY3ZidEU4Rkg3?=
+ =?utf-8?B?aFl3UzU0SkhNSGNuMWUrekI0UXA5eDIxL29uRThqV3RYTisvTmpTUTNSZ256?=
+ =?utf-8?B?ZDBzcUxhR25YdU1CUzkwMjVCSWZ1c2ZrVnY0UFU2aVRSSXJyWkxEekt0dXRD?=
+ =?utf-8?B?T0xKN0s0b0pHS2ZJTnF4dml1bDlHR0U1blh6QXQxY3Y3cmxaOGpzNXZTYUFS?=
+ =?utf-8?B?UTFQRWRBeUVVbVUwVmNZWE5ReWZYMnVXa2k4N3Mvd1lCSERBVjhhUjMrL2Qx?=
+ =?utf-8?B?bmNVZHVhQjdreWkyQ2tkQ1VUUlFZVzlsd2x1aTh4TGNRdkZiRzlBdHU2M25D?=
+ =?utf-8?B?ZDZsNlNoSW9icmQ2RU1ZUDROcEFiemhtYjd2aCs2MlZ5ajFjWWpSeHBldEVV?=
+ =?utf-8?B?UlVMejl1ZUhod2txdlhwU3oxUit6Yng0TFBQUlJRTm5PbmlyWTVRazBnRE5F?=
+ =?utf-8?B?NFY3RklvczZZc2pyZUU1bWtDbGJxQmlvWGRQbXRZVTlVQzB1SkR6US9VeGdW?=
+ =?utf-8?B?a1BoVlkvcmFDUDAwNUNyTDFRSVdueHVFTGQwbWxNYTlkZE83dUlDTDRRZHFz?=
+ =?utf-8?B?ZFgyLzk3UENZWlJidnZVRU9Kclo5OERLVXlKTVdDemVmMGFMSWY2Q1VrWXVT?=
+ =?utf-8?B?ZExtMitOUnBnMzJFRTdva2RiNW1hd1ZlaUFlV3FIUGlyb3lKenJXQWIyWmdm?=
+ =?utf-8?B?R0JGc2hSREVDck53bll0N2RFMCt1dEJObDI1VjVJOUNLd1J0TThMT1crSG5z?=
+ =?utf-8?B?aGhvQ0piRU13a0hCZVhwbGlDbkw4allSNWIwNUxlMStGZG53YzdFaVp3U0pW?=
+ =?utf-8?B?N3pQT1lOSFQ5T0YyMDljUUVTYVA4MjR3OGxWTEpKNElFZVllVDBhKzE5UUpr?=
+ =?utf-8?B?S3ZXWkNvb0NjOFF0VWZxT3JzNWszSzBiZkpFbHorbVVsb1l6ajV6ZXZ3VjNn?=
+ =?utf-8?B?b3lBMURDOWVQcjdmdENjK3RJd0M0SnladU1JRGZzeko5TjFLZzNic0JDNlA4?=
+ =?utf-8?B?Vm5DL0E3bXdYTHNDand4Y2EzN3ZManJZL0p2N1NuUkZrSzdqWUpLOTZoTnBI?=
+ =?utf-8?B?K2RWZU9sZlBUMlVQcGxuak00ME1rQW9Lc3I2dnFXeTZQSkJRcXlUWGJnb3k0?=
+ =?utf-8?B?SVB1V3VRNGtmdXNqaC9hNlF6dzBkQ0k5MThDcXJuSlY1TkhYK3Y3K2E1YktC?=
+ =?utf-8?B?WTlRN242V09DRnI1NXpaclBmUDNXTGdpblFwK2Q4YktVRWZHRXlVaTBXemlm?=
+ =?utf-8?B?VGZSZkdYam5LYTRYeldESS9QVUJGQk14b1NlajVZd2xxZGczMHZpZnNpT01k?=
+ =?utf-8?B?eUI5aCtITEsvK3lhZkIreEZpZ0M3bCt2OENhaEl0QjhOLzBVaFNlT0J6a1Yz?=
+ =?utf-8?B?Vjg0MlNGeWRiVW0yc3FIOU5YQnU2R3ZxeFFzNkdQQW5zSVlDZTlzR2VtMkZl?=
+ =?utf-8?B?MDlHNmVTbk42S1lzTU5WUXRVZThnNVdHQWFVTFZzK1BTeUJNZklTdk5VVnpC?=
+ =?utf-8?B?dTRJcjFtOEVUSVgwNzlFMUE2V1FEcmJjQXVPLzlERkZCMWlpTGc3aVBIVEJ2?=
+ =?utf-8?B?QU1ZVlk3OFpxUHhJOURVZVY2akl0SElxUzFYdnVMVnlZcEJZQ2w4ZStyeGR4?=
+ =?utf-8?B?SzFrRkZHNU14ZjR4bGt6NW9HYnJVck91NEhBRG91WUJ2WU8rL3ZRYWtMRGdU?=
+ =?utf-8?Q?BjPP8CetKw1p1vm7Ke1hhurVAOF554sP4ZGyG?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 283eaa19-2d91-4275-c63e-08ded32c4cac
+X-MS-Exchange-CrossTenant-AuthSource: DU0PR04MB9418.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Jun 2026 02:40:35.5091
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: jtpW2U8qd98Hi8PxyCBgvGs+M/8BhYE4pmVAy/S0aj73pdQRp6EO332of7h0GU5vX0qrl11UohPRP9FakT3WC8WyXHwHDh7nlJpXQkzAK5/occN2ZPfnauxY4e+a/SWD
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB7146
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260625_194032_401559_62ACE7D8 
-X-CRM114-Status: GOOD (  10.47  )
+X-CRM114-CacheID: sfid-20260625_194040_213914_1C9103A7 
+X-CRM114-Status: GOOD (  21.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,19 +154,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thanks for the review!
+On Thu, Jun 25, 2026 at 05:22:20PM +0200, Stefan Wahren wrote:
+> Am 25.06.26 um 05:07 schrieb Xu Yang:
+> > On Wed, Jun 24, 2026 at 12:05:00PM +0200, Stefan Wahren wrote:
+> > > Hi Xu,
+> > > 
+> > > Am 24.06.26 um 11:11 schrieb Xu Yang:
+> > > > On Wed, Jun 24, 2026 at 08:30:00AM +0200, Stefan Wahren wrote:
+> > > > What's your issue on i.MX93?
+> > > we have an i.MX93 board using both USB interfaces:
+> > > 
+> > > USB1:
+> > > - external available via USB-C connector
+> > > - OTG interface should be able to switch between host and peripheral
+> > > - as USB-C interface control we use the TI TUSB321AI [1] (while its DIR,
+> > > OUT1, OUT2, CURRENT_MODE, PORT is unconnected or tied to GND)
+> > > 
+> > >   USB2:
+> > > - used as internal host interface
+> > > 
+> > >   We have the problem that 5 seconds after disconnecting a USB device from
+> > > USB-C (USB1) interface, the USB driver complains that the VBUS is still to
+> > > high:
+> > > 
+> > > [  144.078347] usb 2-1: USB disconnect, device number 2
+> > > [  144.083425] ci_hdrc ci_hdrc.0: remove, state 1
+> > > [  144.083521] usb 2-1.1: USB disconnect, device number 3
+> > > [  144.090310] usb usb2: USB disconnect, device number 1
+> > > [  144.139325] usb 2-1.5: USB disconnect, device number 4
+> > > [  144.158700] ci_hdrc ci_hdrc.0: USB bus 2 deregistered
+> > > [  149.190274] ci_hdrc ci_hdrc.0: timeout waiting for 00000800 in OTGSC
+> > > [  149.196741] usbmisc_imx 4c100200.usbmisc: vbus is error
+> > > [  149.202078] usbmisc_imx 4c100200.usbmisc: Error occurs during detection:
+> > > -22
+> > Does the VBUS be turned off after switching to device mode? If yes, how long
+> > will the voltage of VBUS drop to 0.8V?
+> The regulator turns off the VBUS indirectly, but the voltage is above 2 V.
+> AFAIU the discharge resistor is missing.
 
-> It looks to me that this issue was introduced in fbf8f40e1658
-> ("irqchip/gicv3-its: numa: Enable workaround for Cavium thunderx erratum
-> 23144"). What am I missing?
->
-You are right; I used the wrong Fixes tag. I will update the fix commit in v2.
+Yes, then the 2V voltage is the issue.
 
-> > Please consider using the cleanup infrastructure instead, something
-> > like the untested hack below.
+> > 
+> > > But except of this, both roles works as expected.
+> > > 
+> > > Here are the relevant device tree parts:
+> > > 
+> > >                  reg_usb_otg1_vbus: regulator-usb-otg1-vbus {
+> > >                                 pinctrl-names = "default";
+> > >                                 pinctrl-0 = <&pinctrl_usbotg1grp>;
+> > >                                 compatible = "regulator-fixed";
+> > >                                 regulator-name = "usb_otg1_vbus";
+> > >                                 regulator-min-microvolt = <5000000>;
+> > >                                 regulator-max-microvolt = <5000000>;
+> > >                                 gpio = <&gpio4 13 GPIO_ACTIVE_HIGH>;
+> > >                                 enable-active-high;
+> > >                                 regulator-boot-on;
+> > >                  };
+> > > 
+> > >                  &usbotg1 {
+> > >                                 vbus-supply = <&reg_usb_otg1_vbus>;
+> > >                                 over-current-active-low;
+> > >                                 status = "okay";
+> > >                  };
+> > Does USB2 use the same VBUS regulator?
+> No, USB2 has its own VBUS regulator. So the usbotg1 node looks good?
 
-Sure, I'll update this in v2 and resend it.
+Yes, it's fine here.
 
 Thanks,
-Yuho
+Xu Yang
 
