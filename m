@@ -4,102 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BB19C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 18:38:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A4B9C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 19:03:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9qZNEU8TLi2B72MvhZC50cLWKEBNbNUsr7u728Oim+M=; b=vXBztIvxS1Fq5HdecLc0mxCC1s
-	WlmeN9eXDWCyqMKpmOB+OS36AoqLsJQEJ6ljG9AkaliUuC5VaCxta7Bqo42I8AlGmAqES8YNov3ht
-	CfRKngAdhPAmO7g/Cl85aPRCGdKplU4GIxJL8f23seh60q19k3Sk8arBY0p0n0mT6mVixnQ0joET4
-	BlSC9czifwuWFEQkLAy7TZc0qEea36TFlO2oEqgdXuLaz4y+NwE9FJ54kjvopZorSZ40b6GXM1Guc
-	tRvBtD3kNDc5ARcLiXYgBWlilr3c6+jd3lMNYBhoNBvXXxe/W2JIhDZZ9BkUBnIk1YBEDGYNBRQ9b
-	kH84Z1uQ==;
+	bh=TyFl9GWmXNLl+QLk0gYGvkiIPobdLVhGYz9j6ia1saU=; b=RVz+CAz/dkpCu7hnyirvxg1oxh
+	WCeqoqHs86STkf8JE+WmLZBMUO+5sT5b2RcZOePWyZY/qpyf8JtSLzjvu5+DiDyuiL3Fq+QQzrcHH
+	2lu83ydRcp0FBStnuPshZHRYMs41wo1USK62jukH6gROtlPFVBzKNWJb1vIiYxK8eOYZvkWft1FVv
+	zOmAbL+KV1bypf+IRDN/Uy/VLQYILuwUjDhTmdH4sbRBIWNcu+8sZ0U6BdwGZPuMvU60hnkAGpJLR
+	VHE66jH1xX6EPS8QjA4ZKDedwxzyz5gKEMwaQ3XV4NSSSKK91ROdO955q9Z5LSSE5NXquqKTMbKrG
+	r1F0kL9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdBR4-0000000BlMq-14xD;
-	Fri, 26 Jun 2026 18:37:54 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	id 1wdBpv-0000000BmJs-0Fvb;
+	Fri, 26 Jun 2026 19:03:35 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdBR1-0000000BlMB-3TkW
+	id 1wdBpt-0000000BmJm-3cID
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 18:37:52 +0000
-Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-c1214dc027cso136934766b.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 11:37:51 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1782499070; cv=none;
-        d=google.com; s=arc-20260327;
-        b=KknIuZv77/ieydJUGcOyo5+ugvOlMWw2H2IlPoieP5wOg/9LnPeyvN+cy1Tp0TUOPD
-         yikHqUeXIlGv/owmVVY02L4O9KWU3d/1/zwUTu+SsWS+QcovPRCRNRXC2d1z9P5R6v43
-         MJnrPXTDHb7aU+hz+vLa+JrewYr2P/+MSYSxhHNHE4QaS58U6oSLYfKZFRzAIV9XJ38F
-         Afqcdy58yeTf0uiMBHRTCE8inCmAwhHgkps3Kz8CBBL+7kekJZTMcTflEzEWzWyNR75W
-         1xcIRhAIJkHw0cwxQOImclR2uU3nPQAf+8qerOQKx9FBU1eA3Sv4Up8R5fL5v/YqYQXU
-         DTsw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=9qZNEU8TLi2B72MvhZC50cLWKEBNbNUsr7u728Oim+M=;
-        fh=T9n9WLuw53toTGIiuxa95YZTXFT+IQODnHcw/KJzk30=;
-        b=QoCpC8j1mC422MJBgnNmOVP5/zX4mkSaMko5gSCs2/xPnjanW1jyiPHDwobnwk1Pxs
-         tdsrx3Kz7A4ocI9aJ2M+Wi90b9B9pPVExv6wOJ9Qs+Oy0uJJqFvCuuChvYI1lWAIHi7g
-         YYXCD0Ba+E/W2B2A64uZnPhpTeMRVnertMEUEADwlqWG35aOD2ihX7WgfFlaf54aCdrn
-         eb48lGTaRh8UcDH0ZANVMoPsJ6BpG/gy+MxKZ84D/8wGLhCpipZxbw3D4kpz2pJwK3yq
-         YGPjpzFWb0ELG/kDC4oH0uazaxd5NDJ85klqCYXOuNRseNeW1EtmBdLRuRbSA0Nrqnlf
-         D4yA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782499070; x=1783103870; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=9qZNEU8TLi2B72MvhZC50cLWKEBNbNUsr7u728Oim+M=;
-        b=p7rX5a/s/7gMcXYfp1Mv7pI75d01syy6jNKY0qGe6TtHSmA6oawvR5shLdZs8UlD3E
-         poEV/S3v0h0bwXXr1ucdo3uL9HGZ9aTtM8aAxKK9AsBx+mDuTVIOMqAb99jhk4eKbaIN
-         tZJE7O8y/JXyyw8nibyL8PyVHp4FPUK1HtLIOPpYYfhayqS+lmk+9nEqlnJcjefOlLF5
-         Kx5AYY+qwiNCv8cGOGamr1kX8dm9nJb3o2Er8jXZEGW1BsLP+6/WfKqq/gJm4cIDfPCi
-         uNJK+kBKA4Y8iR7eaoqtbRfwOhZwscExL+wVQI7GwXbN/UBi3Ta6jgzHgxuiETk7/umF
-         FFsA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782499070; x=1783103870;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=9qZNEU8TLi2B72MvhZC50cLWKEBNbNUsr7u728Oim+M=;
-        b=p7CA7wU6MZpiw7V6PIYynS/pTXAkI8ZvBAFxc+kr2KfuDYrSmSSlWC4R/PH8XQP7fA
-         jMHbuOsd6SR5fzCiVAapFIWANwZPPv46UYhjVFcVXlFqDZzAVSZhHs9phCEqRIpy3rcT
-         KV2F34lt0oX9roL0LSoZjsSodFr/22/dBlAiR551xn4YMVQoZxGOXntxCBn3rLxw2br2
-         3M0buyYHxeQaHg+EWoyA9puhlHvgpQSBMERxUilo2xEWhBkR972+e8leDeGQMbrpXsca
-         0kkt6fPZTSEX+w159AtJjyXDuMhjtfeLmTnzY0LI/0q5eKH762uZd9I8Bh5n+5hC8WFD
-         wINg==
-X-Forwarded-Encrypted: i=1; AHgh+RrR9rJP3r552KNwlvrpNTpecrEBoQ70z0oLI9/AXjcdt8+JBcT4ivBexPwCa2a43YzlVECeeNubSg0MYcFtmXp3@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxp79TgHBB3vPC1qiHgDQ2O9gf20UYTA+A3Y9k6JE3lJkUs1IUh
-	FEGEO7TQQ6WbYF0EOI2mf1Y3sNvitcRRZX+7a3XJWngViEyIkn41nOsgvoSXHiGkT7K0HzDae/g
-	7o+ISjXH220WH7oYmP8ssyW/Zr1G4mjM=
-X-Gm-Gg: AfdE7cnDjVdyX73NxxsHeGBDYdZ0/BPqyDgw/aV/MzPubmA8De+cjBRKiZcq3qpxdnD
-	Om5BqyierOls2RJJSaelhP0M4UFKKErqboY7EnJ+u8kNw3Qj83Ww/8Fz+HOebQInI8G1z7cCfjK
-	MWf2bq8mxogJNUJaxyE1YXpXEJK64LCx3VY2cnGNbaxWWh7Zqw7FiH09tUgsehyOl/AxcFbLDum
-	bm1b9NsIW5nACMcllTZn6m46XBUXlIGrcooI4zp7+aCz4JjkpSaavLQRfHfRO5uj8bDi3HQOA==
-X-Received: by 2002:a17:907:3fa0:b0:c12:2946:ffc4 with SMTP id
- a640c23a62f3a-c1229470a5dmr209546366b.40.1782499069483; Fri, 26 Jun 2026
- 11:37:49 -0700 (PDT)
+	Fri, 26 Jun 2026 19:03:33 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id E1BDB600AA;
+	Fri, 26 Jun 2026 19:03:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B10911F000E9;
+	Fri, 26 Jun 2026 19:03:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782500612;
+	bh=TyFl9GWmXNLl+QLk0gYGvkiIPobdLVhGYz9j6ia1saU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Tw9iWJ3AW/qVhYN7KGc/ZTiaZzg/3oECz+DiP4VJfyn3QB4fPWwrgNuAJIGNxs+V2
+	 gQMOySYXH+qHCB0JOy7ShmXUDJ864WlfuAmNSW4eC0jw1v5I1DDn/MBUmLRwI+Zmn+
+	 Tvx68PQugVu+ljQ23TFRCcjPeBFQjWYKgQD+yv+Dj0NPAyY7KU1ce1064Yq2UJQHNh
+	 7PCVds29NYJupkBRTBhXtnaGXQquqVp6AN7Xp9L5f6IxL0XEVKpAcZfxaTF8hC29A2
+	 GZgsbwtmAy/ydDOu69TLhC+XE3g2v+Sxjbre9Fp/7W+UikRELgut2FYBWl4v+dv3IH
+	 ZX2QubJjR77jQ==
+Date: Fri, 26 Jun 2026 12:03:25 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Steven Rostedt <rostedt@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	John Ogness <john.ogness@linutronix.de>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Julia Lawall <julia.lawall@inria.fr>,
+	Yury Norov <yury.norov@gmail.com>, linux-doc@vger.kernel.org,
+	linux-kbuild@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	dri-devel@lists.freedesktop.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-rdma@vger.kernel.org,
+	linux-usb@vger.kernel.org, linux-ext4@vger.kernel.org,
+	linux-nfs@vger.kernel.org, kvm@vger.kernel.org,
+	intel-gfx@lists.freedesktop.org
+Subject: Re: [PATCH v4 2/2] tracing: Remove trace_printk.h from kernel.h
+Message-ID: <20260626190325.GA3913132@ax162>
+References: <20260625104007.041432666@kernel.org>
+ <20260625104402.210473477@kernel.org>
+ <20260625234158.GA261868@ax162>
+ <20260626045119.659d1e6b@fedora>
 MIME-Version: 1.0
-References: <20260626033747.1515585-1-dbgh9129@gmail.com> <867bnlqv0e.wl-maz@kernel.org>
-In-Reply-To: <867bnlqv0e.wl-maz@kernel.org>
-From: =?UTF-8?B?7LWc7Jyg7Zi4?= <dbgh9129@gmail.com>
-Date: Fri, 26 Jun 2026 14:37:38 -0400
-X-Gm-Features: AVVi8CcpEMiWPBB2T6yyifV_4QnLIgFoI93iyNU8tqmdsioXlvMhAmHbD1WBBqQ
-Message-ID: <CACrCO_UmXQQrpaz2Fd32_JX=ZaPtY8z5Rk7rRh9be7=sp9v9UA@mail.gmail.com>
-Subject: Re: [PATCH v2] irqchip/gic-v3-its: Fix OF node reference leak
-To: Marc Zyngier <maz@kernel.org>
-Cc: Thomas Gleixner <tglx@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_113751_869213_4F80E6DD 
-X-CRM114-Status: UNSURE (   7.86  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260626045119.659d1e6b@fedora>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,15 +88,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thanks for the review, Marc.
+On Fri, Jun 26, 2026 at 04:51:19AM -0400, Steven Rostedt wrote:
+> On Thu, 25 Jun 2026 16:41:58 -0700
+> Nathan Chancellor <nathan@kernel.org> wrote:
+> 
+> 
+> > The following diff resolves it for me, should I send it as a separate
+> > patch or do you want to just fold it in with a note?
+> > 
+> > diff --git a/include/linux/lockdep.h b/include/linux/lockdep.h
+> > index 621566345406..2301a701ffbb 100644
+> > --- a/include/linux/lockdep.h
+> > +++ b/include/linux/lockdep.h
+> > @@ -10,6 +10,7 @@
+> >  #ifndef __LINUX_LOCKDEP_H
+> >  #define __LINUX_LOCKDEP_H
+> >  
+> > +#include <linux/instruction_pointer.h>
+> 
+> Ah, so the reason for this breakage is because lockdep was relying on
+> instruction_pointer.h, that just happened to be included in kernel.h
+> via trace_printk.h.
 
-> Please keep this on a single line. I find nothing more irritating than
-> these split assignments.
->
-> Worth taking this opportunity to fix the indentation here.
+Correct.
 
-I will fix the assignment formatting and indentation and send v3.
+> This is a separate issue, so it should be a separate patch. I'll add it
+> as patch 1 of this series.
 
-Thanks,
-Yuho
+Sounds good, thanks!
+
+> Can you send me the config you used. This didn't trigger in my tests.
+
+It is a plain allmodconfig, for example on arm:
+
+  $ make -skj"$(nproc)" ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- allmodconfig lib/test_context-analysis.o
+  In file included from include/linux/local_lock_internal.h:8,
+                   from include/linux/local_lock.h:5,
+                   from lib/test_context-analysis.c:9:
+  include/linux/local_lock_internal.h: In function 'local_lock_acquire':
+  include/linux/lockdep.h:541:87: error: '_THIS_IP_' undeclared (first use in this function)
+    541 | #define lock_map_acquire(l)                     lock_acquire_exclusive(l, 0, 0, NULL, _THIS_IP_)
+        |                                                                                       ^~~~~~~~~
+  include/linux/lockdep.h:509:88: note: in definition of macro 'lock_acquire_exclusive'
+    509 | #define lock_acquire_exclusive(l, s, t, n, i)           lock_acquire(l, s, t, 0, 1, n, i)
+        |                                                                                        ^
+  include/linux/local_lock_internal.h:46:9: note: in expansion of macro 'lock_map_acquire'
+     46 |         lock_map_acquire(&l->dep_map);
+        |         ^~~~~~~~~~~~~~~~
+  include/linux/lockdep.h:541:87: note: each undeclared identifier is reported only once for each function it appears in
+  ...
+
+I also reproduced it on top of allnoconfig:
+
+  $ cat allno.config
+  CONFIG_CONTEXT_ANALYSIS_TEST=y
+  CONFIG_DEBUG_KERNEL=y
+  CONFIG_DEBUG_LOCK_ALLOC=y
+  CONFIG_EXPERT=y
+  CONFIG_MMU=y
+  CONFIG_RUNTIME_TESTING_MENU=y
+
+  $ make -skj"$(nproc)" ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- KCONFIG_ALLCONFIG=1 clean allnoconfig lib/test_context-analysis.o
+  <same error as above>
+
+-- 
+Cheers,
+Nathan
 
