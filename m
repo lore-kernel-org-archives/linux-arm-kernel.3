@@ -4,75 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67D1CC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 17:25:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B56FC43327
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 17:29:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eNphthjgVvbUd0LwSkmhg8t4XbYVlflbuljAnr/3qUI=; b=3v0q9aiONauYOeWrOTulC+JUNK
-	9lEfJjrmSDazLD8r+ZmUXiHy4U8hX+J12XShuPxHlELr88Y6GkAKGCmJKvn/FGYD/cV09ZrSgAe/f
-	neKJ3h52a7ErdseCui0AVJFDCZGNojI7wyY2uo/KICcTdBIZtGnbDINJBa1zEP/GgKPf+7pnt+HWE
-	z4nzEZeuPjzptPmceyEETFVIc0QeQvpTF3xRwr2Bl0DRwMcZbfvr66H20dym54K1Y4optA4LYi9/y
-	6diRikCsr+ma/jS/AWYtSnI/yu35IxhmFDui8jEwvdm/zi7jXH60RjgCzScO4Sst3IUwY9pR/Wuue
-	POrZsG6w==;
+	bh=S/VSPjiBxVWzwoGtJrzRhtH5hK8hWcYXUpH5mPgMo2s=; b=eeSKgI7jYXvJ2dPHiqAYCBpke+
+	RXcJvcqoHQch9pur4Yyc622KA/3cmoOo8Fk4mPlgTPJRU+0eImcBym/wyi/cXPkLn25WaAqeF9Dfm
+	POIqZ247H6QFSfCApH7A//ZY/URK0a+tIl5fFlrir1pnwiCIKhJMXW6qHhCiY9+r0znqhRQnHb4gk
+	14jqQQUkyF8rhcLQ83MK3WdKxbpv7uVxQfYglFmCbxfyXsPXeP6azFeA4YEg/g9QoiyDz46YWU8N1
+	D1PG01q5YY4O10HIZA8w+lu0WegfbeeF5lx8rUHp0ot7jdY8zZHB8QCjtzVIylgGbSefPhoS+mGBo
+	xSHJQywQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdAIV-0000000BhLM-3gp8;
-	Fri, 26 Jun 2026 17:24:59 +0000
-Received: from mgamail.intel.com ([192.198.163.14])
+	id 1wdAMb-0000000BhUE-1y40;
+	Fri, 26 Jun 2026 17:29:13 +0000
+Received: from mail-ot1-x32e.google.com ([2607:f8b0:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdAIT-0000000BhBx-2Lj0
+	id 1wdAMY-0000000BhTS-2SLo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 17:24:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1782494697; x=1814030697;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=sxRw18zkQathnyRUCjykUrB0bBzcjMDPv4SrED00VSc=;
-  b=c3tERzkXB7goh3h5Uf4aX4WNwoCQdJDw2qPE8s8vMeF61RbmbYo9Nw92
-   rv2+y0qvWcUg1nQwePkxeF2ialk8NZjQ8iH/npVEHkj8+RkYCcVSwMVVq
-   zrUUNUHRd7uC9Q++4fxTw7Gq6NpJiBnLttB1g7YL/j2j/nePZfx0wZimq
-   LPJXt3cAbbrvPR2GS2XVB2aHwxhykOAfTBHqC28R43lfP5c0YzDC7jyom
-   ZHI+m01g2AxzDLuW+7QOOrMa532HHUvB+rLbMJFcgeckegc2D4hNojaKh
-   0ML2JHDli2URwgke199Jr+aaC4FAGhi5altdf9yfueyQgU0P8BYTgiokt
-   Q==;
-X-CSE-ConnectionGUID: xMH76DPJRuylBqjNfhQlFg==
-X-CSE-MsgGUID: sDWPLniwSN+NmbfIheYcqg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11829"; a="83347106"
-X-IronPort-AV: E=Sophos;i="6.24,226,1774335600"; 
-   d="scan'208";a="83347106"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Jun 2026 10:22:56 -0700
-X-CSE-ConnectionGUID: MRPAZPY+SNOnmi7n9ZUeKg==
-X-CSE-MsgGUID: +6Q51wUpQw2Gf1GiK2hyQA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.24,226,1774335600"; 
-   d="scan'208";a="246908176"
-Received: from yilunxu-optiplex-7050.sh.intel.com (HELO localhost) ([10.239.159.165])
-  by fmviesa006.fm.intel.com with ESMTP; 26 Jun 2026 10:22:54 -0700
-Date: Sat, 27 Jun 2026 01:22:53 +0800
-From: Xu Yilun <yilun.xu@linux.intel.com>
-To: "Pandey, Radhey Shyam" <radheys@amd.com>
-Cc: Michal Simek <michal.simek@amd.com>, linux-kernel@vger.kernel.org,
-	monstr@monstr.eu, git@amd.com, Moritz Fischer <mdf@kernel.org>,
-	Tom Rix <trix@redhat.com>, Xu Yilun <yilun.xu@intel.com>,
-	"moderated list:ARM/ZYNQ ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
-	"open list:FPGA MANAGER FRAMEWORK" <linux-fpga@vger.kernel.org>
-Subject: Re: [PATCH] fpga: xilinx-pr-decoupler: Use devm_clk_get_prepared()
-Message-ID: <aj61bRnqxDEDx9en@yilunxu-OptiPlex-7050>
-References: <8ca8ee5ba720b608a41f842d2b743302e5500ad0.1782205286.git.michal.simek@amd.com>
- <5bd0f7db-7ec0-4390-b6ea-1edca46e1ca7@amd.com>
+	Fri, 26 Jun 2026 17:29:12 +0000
+Received: by mail-ot1-x32e.google.com with SMTP id 46e09a7af769-7e93a984f79so878633a34.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 10:29:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782494949; x=1783099749; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=S/VSPjiBxVWzwoGtJrzRhtH5hK8hWcYXUpH5mPgMo2s=;
+        b=Piz0V7OSUlEZJ6i1UN983vDF4MMa/LdpYdYWgW1J4FxTFboVcvXFFto1JpIk2ZNf11
+         fwRfcbqdJD81rT3R+bYKvj6ewoOyOumH8Vk7sXvkkFT0ARAfGXDZThu44XLIhYrZ5V5W
+         cyjILQPkk/XV/LuHq16NwYE4fZAMy/mFLjSrRcIwmzcnAHdWgs/r6fDre0tMFo+Lmzuf
+         3M0GOYJ9BJbGy0gEM5yiHX3obb4kxxDOjESnNQ31Pcu4wCfZFbrh+6p1iOZE9XE7oXCb
+         aEkoKg+7QifHf3HNJoCCq+cWA/rwT7dVIJmn12KR2N0sv6DFPx2hLNG5gYxRiG07fB05
+         kKBw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782494949; x=1783099749;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=S/VSPjiBxVWzwoGtJrzRhtH5hK8hWcYXUpH5mPgMo2s=;
+        b=mjtCAmyXKVcE7Wvt2B5sXInWT5k5wgjmo9WUhGucKTKgk+x52KAAJuFc/qXgWoZITf
+         dfbBqVYqYOipa36+tf5GoICUMq5dqkdKAd80WYKGMRN3AKMwNnjErobSWk3rpBMLSTTx
+         BX7QQowKaFTABRK9Mpc/e6XTUAUx9ORyZMTcEOIjTugY7+EUG/Cog8XqZo8z/OQPNPvZ
+         H6VX3fL6xwPfowvl+M24T/pivsQ0iXau2457ztq+3ef3hF565mem2fiw5B1HCOTxC370
+         Wc2ptJe4YnciXeZZUqMqJYFK0Lm2a7e+DrUxwWtzbbQLr4C0hyfOexUUdcC8mna/mObr
+         Vo8g==
+X-Forwarded-Encrypted: i=1; AFNElJ+43yjGX5augnywKJpf5KEjzwdFsl5e27hH+ae9mMY6SjmMKb5w4GVO7PB86eeqwDpHGIpyZ4AyyMzU2DolCnes@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw6jc+StSoitxfNOy9dPix+vGEDwOZP6sLQOEHkUGX5UeeQq7st
+	Mpe64VvwtUTExXnOqd/R7WG5uO309hmfn1ZhuslNJJG3MPmo97XwazgJ
+X-Gm-Gg: AfdE7clTNUoGkNyfSIc7ordqZz7y0pOt0ygvZtJhviHqrndOPwTH3vnAmUGBYn3tm9l
+	1fPeq62wyB0T3vuSC9bROGIda4MqO1dCewFSs4ei9LcLEgRzmhJySEU3o9uqa2Jl26rBBKf2NMU
+	2yL0HouqyscZcThFeXi6DBMjoTzjAKzLRzNJmpP2uPxtoeEKvNzByVY+Dh10N+Jitq8jVhpZ64r
+	Vr+gCBxiAIVPUJDoUWYI4BeAfiEl+xOI8iATWGenCqukHaDrLN4OhbiqfazojwW3hySKrx8DY/3
+	0FXOKcZpD0cNHCBrRq4fWAsPB9+7MOWIL8iI63rEDxxSG+ZfIda1DcVUjeamQMFA3fwWJRd8r4i
+	5Llt9PSxccg07tD01sXUwY6I10oBr5T0zbwhAcAorM/Y8zTOsnZBBCtIPyO6TZTFOVtsBxUN9eB
+	Ebd6U4
+X-Received: by 2002:a05:6830:8291:b0:7e6:ed97:ce5a with SMTP id 46e09a7af769-7e99c2ec47cmr6930978a34.4.1782494948915;
+        Fri, 26 Jun 2026 10:29:08 -0700 (PDT)
+Received: from localhost ([74.80.182.98])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7e9aa78751fsm2063757a34.13.2026.06.26.10.29.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 26 Jun 2026 10:29:08 -0700 (PDT)
+Date: Fri, 26 Jun 2026 20:29:01 +0300
+From: Dan Carpenter <error27@gmail.com>
+To: Doruk Tan Ozturk <doruk@0sec.ai>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Hans Verkuil <hverkuil@kernel.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	linux-media@vger.kernel.org, linux-amlogic@lists.infradead.org,
+	linux-staging@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] media: meson: vdec: fix use-after-free of prev_frame in
+ codec_vp9_rm_noshow_frame()
+Message-ID: <aj623aQRkNiVdrnM@stanley.mountain>
+References: <20260626164025.52694-1-doruk@0sec.ai>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <5bd0f7db-7ec0-4390-b6ea-1edca46e1ca7@amd.com>
+In-Reply-To: <20260626164025.52694-1-doruk@0sec.ai>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_102457_612787_F863B196 
-X-CRM114-Status: GOOD (  12.22  )
+X-CRM114-CacheID: sfid-20260626_102910_632419_3356EC4B 
+X-CRM114-Status: GOOD (  22.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,26 +106,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 23, 2026 at 04:31:28PM +0530, Pandey, Radhey Shyam wrote:
-> > The driver keeps the "aclk" clock prepared but disabled in its idle
-> > state, toggling only the atomic clk_enable()/clk_disable() around
-> > register accesses in the bridge enable_set/enable_show callbacks.
-> > 
-> > At probe time this was open-coded as clk_prepare_enable() immediately
-> > followed by clk_disable(), leaving the clock prepared, with a matching
-> > clk_unprepare() in the error path and in remove().
-> > 
-> > devm_clk_get_prepared() expresses exactly this: it gets and prepares the
-> > clock and unprepares it automatically on driver detach.
-> > 
-> > Use it to drop the manual prepare/disable dance, the error-path
-> > unprepare, and the now-empty clock teardown in remove().
-> > 
-> > Signed-off-by: Michal Simek <michal.simek@amd.com>
+On Fri, Jun 26, 2026 at 06:40:25PM +0200, Doruk Tan Ozturk wrote:
+> codec_vp9_rm_noshow_frame() frees the first non-shown reference frame on
+> ref_frames_list without excluding vp9->prev_frame. When the previously
+> decoded frame was a non-show (alt-ref) frame and the current frame is a
+> non-show inter frame, the freed object is the one vp9->prev_frame still
+> points to; codec_vp9_set_mpred_mv() then dereferences the stale pointer
+> (use_prev_frame_mvs and codec_vp9_get_frame_mv_paddr()), a use-after-free.
 > 
-> Reviewed-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+> The sibling cleanup codec_vp9_show_frame() already guards this pointer
+> (tmp == vp9->prev_frame); rm_noshow_frame() simply omits the same check.
+> Add it.
+> 
+> The fields that drive this path (show_frame, frame_type, intra_only) are
+> parsed from the VP9 bitstream, so a crafted stream fed to the stateless
+> decoder can trigger the free-then-use.
+> 
+> Found by static analysis; not yet runtime-reproduced (Amlogic Meson
+> hardware required).
+> 
+> Found by 0sec's autonomous vulnerability analysis (https://0sec.ai).
+> 
+> Signed-off-by: Doruk Tan Ozturk <doruk@0sec.ai>
+> ---
+>  drivers/staging/media/meson/vdec/codec_vp9.c | 9 +++++++++
+>  1 file changed, 9 insertions(+)
+> 
+> diff --git a/drivers/staging/media/meson/vdec/codec_vp9.c b/drivers/staging/media/meson/vdec/codec_vp9.c
+> index 8e80ecf84..572f418c9 100644
+> --- a/drivers/staging/media/meson/vdec/codec_vp9.c
+> +++ b/drivers/staging/media/meson/vdec/codec_vp9.c
+> @@ -1247,6 +1247,15 @@ static void codec_vp9_rm_noshow_frame(struct amvdec_session *sess)
+>  		if (tmp->show)
+>  			continue;
+>  
+> +		/*
+> +		 * prev_frame is still referenced by the MV predictor in
+> +		 * codec_vp9_set_mpred_mv(); the sibling codec_vp9_show_frame()
+> +		 * already excludes it before freeing. Do the same here to avoid
+> +		 * a use-after-free of vp9->prev_frame.
+> +		 */
+> +		if (tmp == vp9->prev_frame)
+> +			continue;
 
-Reviewed-by: Xu Yilun <yilun.xu@intel.com>
+I have not looked at this code before so I'm speaking from a position
+of ignorance but codec_vp9_show_frame() checks vp9->cur_frame as well.
+Shouldn't we check that here as well?
 
-Will apply to for-next when 7.2-rc1 comes.
+regards,
+dan carpenter
+
 
