@@ -4,77 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DEA9CDE008
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 01:55:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05E7FCDE00B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 01:55:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gj2bbn8jYjWEIqGqHeyesuLDPLCENVJ9YKxGWo8YZK0=; b=fWljALqeFsOl3x4J7m65x0Aimk
-	lq/uSp3opy4FP8Nycq4uJxssguoZeipctRFv/i8I1mb1wkSGBx9Bz3bSXr1490eaBryE96AGLauJs
-	ANCX1HlXLZvbIJN+5LGN9l3PzkzBWHtPyakWkH4Zbxnlysa58iDlkqFbeaycIW9epUbgKgglAt0ft
-	alqp4tbq48uCO+oq0JEao3Y661iOoNoO5d9Af90lnN0acxxMnjQY9pI1KG0wIjYdBGJkyR+jeLc0t
-	M/hjq5YmC/OVdSPXzAEyMN8RBVaqwhgqrTCPHY4Ity11C70Z5eI1TNQwWWdcfrHgk7WO4+Tl3ozcn
-	L3GkoRkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=s0xCP4KWu4tvRGx1Bk35Nb1XpPf59ZmNkKNUUYsYMDM=; b=gE6f/RGk4P+FfaztjB8jfRe9n0
+	cRboN3O1vs7IrIcIMLHafYaYj2PruqJezbY0uK/Um49/RTlO9Z3dGDv8g3kAAe980PJIl3JpiprJ8
+	6HcI1o54gHpqXhEJAjilsWuFhBh7fbXo3pWyJlAXWQ3SMIoXFoM2Mo1y6YYafpg5UOl7UDLriYNKf
+	Pcs9kb57LTFhdeCvA2mJDDLAkLQmMOU5JiGYDg3laX5ujDOCzFMQO5OwVn08PDq/UUi0r5ZjByDIY
+	BQrFvO41bpPYvo88Aj9AAKkBh/DNba8RUbM6SeF0v2ihe2VH/Jiu6/fvlMFOXbNU07WNtuuXOdtdv
+	/W0WigRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcvRJ-0000000A6AB-1f88;
-	Fri, 26 Jun 2026 01:33:05 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1wcvn2-0000000AEXx-3RVi;
+	Fri, 26 Jun 2026 01:55:32 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcvR4-0000000A5cn-3sW4;
-	Fri, 26 Jun 2026 01:32:53 +0000
-X-UUID: ed9748d470fe11f1acbe4559397dec65-20260625
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=Gj2bbn8jYjWEIqGqHeyesuLDPLCENVJ9YKxGWo8YZK0=;
-	b=JwH3yI0Vx2q4CFDHKPPz99IRnJJLOX1YzQBj9VQn/P67Pwv3w48F82ZxZpZnWacmoDfdcdJGj8egQutbFyvuF8unywGx9SL4sSid3UvM/kGf232pe5DfYhloEpi6WlmfGvD60htt83Ha9S6f6I189HmGtFrj8lIhei9SSoq2rpA=;
+	id 1wcvn0-0000000AEX7-00L3
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 26 Jun 2026 01:55:31 +0000
+X-UUID: 167634d8710211f1aa26b74ffac11d73-20260626
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.17,REQID:9bd360f8-093b-4303-bc1e-3b36a8d50c39,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:d497b38,CLOUDID:2ae1bc53-4902-453d-ab3a-e0854d5c03df,B
-	ulkID:nil,BulkQuantity:0,SF:81|82|102|136|836|865|888|898,TC:-5,Content:0|
-	15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0
-	,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-O-INFO: VERSION:1.3.12,REQID:9c9653c2-96d6-4a31-8a6e-5fc2d3a26971,IP:0,U
+	RL:0,TC:0,Content:2,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:2
+X-CID-META: VersionHash:e7bac3a,CLOUDID:d89af0c5808b4f65f03b3c06f107fd71,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|865|898,TC:nil,Content:4
+	|15|50,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,O
+	SI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
 X-CID-BVR: 2,SSN|SDN
 X-CID-BAS: 2,SSN|SDN,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
 X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: ed9748d470fe11f1acbe4559397dec65-20260625
-Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw02.mediatek.com
-	(envelope-from <justin.yeh@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1266421146; Thu, 25 Jun 2026 18:32:43 -0700
-Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- mtkmbs11n2.mediatek.inc (172.21.101.187) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Fri, 26 Jun 2026 09:32:40 +0800
-Received: from mtksitap99.mediatek.inc (10.233.130.16) by
- mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Fri, 26 Jun 2026 09:32:40 +0800
-From: Justin Yeh <justin.yeh@mediatek.com>
-To: Sean Wang <sean.wang@kernel.org>, Linus Walleij <linusw@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>
-CC: <Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	<linux-mediatek@lists.infradead.org>, <linux-gpio@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	Justin Yeh <justin.yeh@mediatek.com>
-Subject: [PATCH v2 13/32] pinctrl: mediatek: mt8192: Enable module build support
-Date: Fri, 26 Jun 2026 09:31:39 +0800
-Message-ID: <20260626013217.2373808-14-justin.yeh@mediatek.com>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20260626013217.2373808-1-justin.yeh@mediatek.com>
-References: <20260626013217.2373808-1-justin.yeh@mediatek.com>
+X-UUID: 167634d8710211f1aa26b74ffac11d73-20260626
+X-User: pengyu@kylinos.cn
+Received: from [192.168.31.66] [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <pengyu@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_128_GCM_SHA256 128/128)
+	with ESMTP id 156880850; Fri, 26 Jun 2026 09:55:20 +0800
+Message-ID: <08fd96fa-ee3a-4904-bd11-bb08bd90436f@kylinos.cn>
+Date: Fri, 26 Jun 2026 09:55:20 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC] arm64: early_ioremap fails to map ACPI MADT on 64K pages
+To: Will Deacon <will@kernel.org>
+Cc: lpieralisi@kernel.org, akpm@linux-foundation.org,
+ catalin.marinas@arm.com, guohanjun@huawei.com, lenb@kernel.org,
+ linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org, rafael@kernel.org,
+ sudeep.holla@kernel.org
+References: <ajkFE6TmwW6B/huP@lpieralisi>
+ <20260623024712.3480399-1-pengyu@kylinos.cn>
+ <ajp25MIQJWWE1ziY@willie-the-truck>
+From: Yu Peng <pengyu@kylinos.cn>
+In-Reply-To: <ajp25MIQJWWE1ziY@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260625_183251_001781_CC01B0D8 
-X-CRM114-Status: GOOD (  12.22  )
+X-CRM114-CacheID: sfid-20260625_185530_358974_FB2091FE 
+X-CRM114-Status: GOOD (  14.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,42 +81,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add MODULE_LICENSE("GPL") macro and change Kconfig option from
-bool to tristate to allow building as a loadable kernel module.
+On 6/23/2026 8:07 PM, Will Deacon wrote:
+> On Tue, Jun 23, 2026 at 10:47:12AM +0800, Yu Peng wrote:
+>> Hi Lorenzo, Hanjun, Will,
+>>
+>> Thanks for confirming.
+>>
+>> I will send a proper patch for this. The change I plan to post is along
+>> these lines:
+>>
+>> diff --git a/arch/arm64/include/asm/fixmap.h b/arch/arm64/include/asm/fixmap.h
+>> index ... .. ...
+>> --- a/arch/arm64/include/asm/fixmap.h
+>> +++ b/arch/arm64/include/asm/fixmap.h
+>> @@ -79,7 +79,11 @@ enum fixed_addresses {
+>>   	 * Temporary boot-time mappings, used by early_ioremap(),
+>>   	 * before ioremap() is functional.
+>>   	 */
+>> +#ifdef CONFIG_ARM64_64K_PAGES
+>> +#define NR_FIX_BTMAPS		(SZ_512K / PAGE_SIZE)
+>> +#else
+>>   #define NR_FIX_BTMAPS		(SZ_256K / PAGE_SIZE)
+>> +#endif
+>>   #define FIX_BTMAPS_SLOTS	7
+>>   #define TOTAL_FIX_BTMAPS	(NR_FIX_BTMAPS * FIX_BTMAPS_SLOTS)
+> 
+> I still don't understand why this issue is specific to 64k pages, though.
+> 
+> In the example you gave, the thing wasn't even 4k aligned.
+> 
+> Will
 
-This is required for Android GKI + vendor_dlkm deployments where
-vendor-specific drivers must be kept separate from the GKI vmlinux.
+You're right, this is not specific to 64K pages.
 
-Fixes: d32f38f2a8fc ("pinctrl: mediatek: Add pinctrl driver for mt8192")
-Signed-off-by: Justin Yeh <justin.yeh@mediatek.com>
----
- drivers/pinctrl/mediatek/Kconfig          | 2 +-
- drivers/pinctrl/mediatek/pinctrl-mt8192.c | 1 +
- 2 files changed, 2 insertions(+), 1 deletion(-)
+I looked at 64K first because the current slot is only 4 pages there,
+compared with 64 pages on 4K. Any initial offset therefore leaves much
+less room in the page-aligned span.
 
-diff --git a/drivers/pinctrl/mediatek/Kconfig b/drivers/pinctrl/mediatek/Kconfig
-index c62024d75593..eb9a4de1b51f 100644
---- a/drivers/pinctrl/mediatek/Kconfig
-+++ b/drivers/pinctrl/mediatek/Kconfig
-@@ -282,7 +282,7 @@ config PINCTRL_MT8189
-           map specific eint which doesn't have real gpio pin.
- 
- config PINCTRL_MT8192
--	bool "MediaTek MT8192 pin control"
-+	tristate "MediaTek MT8192 pin control"
- 	depends on OF
- 	depends on ARM64 || COMPILE_TEST
- 	default ARM64 && ARCH_MEDIATEK
-diff --git a/drivers/pinctrl/mediatek/pinctrl-mt8192.c b/drivers/pinctrl/mediatek/pinctrl-mt8192.c
-index 3f8a9dbcb704..f29ef2a535c0 100644
---- a/drivers/pinctrl/mediatek/pinctrl-mt8192.c
-+++ b/drivers/pinctrl/mediatek/pinctrl-mt8192.c
-@@ -1431,3 +1431,4 @@ static int __init mt8192_pinctrl_init(void)
- arch_initcall(mt8192_pinctrl_init);
- 
- MODULE_DESCRIPTION("MediaTek MT8192 Pinctrl Driver");
-+MODULE_LICENSE("GPL");
--- 
-2.45.2
+A blanket SZ_512K slot does not look right either. On 4K pages it would
+make the boot-ioremap area 512K * 7 = 3.5M, while arm64 requires it to
+stay within one PMD:
 
+   /*
+    * The boot-ioremap range spans multiple pmds, for which
+    * we are not prepared:
+    */
+   BUILD_BUG_ON((__fix_to_virt(FIX_BTMAP_BEGIN) >> PMD_SHIFT)
+	       != (__fix_to_virt(FIX_BTMAP_END) >> PMD_SHIFT));
+
+So I think the better fix is to preserve the 256K payload budget and add
+one page for the possible initial offset:
+
+#define NR_FIX_BTMAPS		((SZ_256K / PAGE_SIZE) + 1)
+
+That should allow any table up to 256K to be mapped regardless of its
+initial offset, without exceeding the single-PMD constraint.
+
+Does this direction sound reasonable?
+
+Thanks,
+Yu Peng
 
