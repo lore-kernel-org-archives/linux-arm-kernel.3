@@ -4,65 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2873CCDE012
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 10:04:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56F52CD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 10:07:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lq4RapmBc+PELXWN5H6lcSbDpd3RAz4mvTQtiJsUWWc=; b=RUOBT44c4p6XzXW+35RUi7pzFa
-	wO3+0CantDBIqNbecScx+tqclJeHZK2DN2M9TeGGyE09bCo49Woyskuvg5kKpNx6umOlApGwVDjuf
-	gSJYalTs7YMYH+WY9hio9IQIxnjt9N6R8rGgJt2qqUDHjEaNTeHoUrzN9lb296CHAR24Ng57lyWI9
-	GPBam6XVTGI7YgoMn/0VEVXdmp1mtptEI1kT8LSGS1cYabDpxyPw+M1oJdfZMZYU7DXzj0wO2U4B5
-	uFPkVSCX3vGhekPJ+hKri5ceRBKohN6oqMY/7YojpYqDonZ23jYngwbXrjrzFjUoHVzH2kZcECl4N
-	f1cwQvjA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bPr0hURvwWeDTVUDuQvVY7K4OEiRUuIyw2Nn2XsCGLM=; b=c3iRKfGpMV+3hEnSg0XmGzcblF
+	d0ZJcul/J+tWoSbR9NVXdchYbQR8llx2zfNM0KalO1SeW+fYCns14gNsEuTbvfXfXw5uFlln5C3aN
+	Go4CujfJWVaGy0zPXDZxoHuAj2ZJ5a+EU9L+zX/djdOkaLa7tQfOYl2eBvNStTjx6NuFf/FWUIxjm
+	aiQt54Lht5TmSfjiXLh1OGt6CYa1D768uSVHXeLSapsZar7FFLMO+g6SuxwW6OBFybymRb2aSRKsL
+	dASs/ri0BgdlokBRyUc+w8SA4pcZpXzFDJ69AdJP4e3cyJBMRjZ8yD6tdl/Uin5sMfv0szwYp4hFn
+	IHCB605A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd3Q5-0000000B3FP-1GyS;
-	Fri, 26 Jun 2026 10:04:21 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wd3TA-0000000B3ZE-2pem;
+	Fri, 26 Jun 2026 10:07:32 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd3Q2-0000000B3Ex-30BH;
-	Fri, 26 Jun 2026 10:04:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1782468256;
-	bh=ReCFqVhpToxEGsTwmHeMOcGqZ65zmC9b4kBYnQWBNUY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=dR8P3rx57/HUhEnpfMIr3OwFel1uxC8cVbfYgwmqN4//ed9ARA+lvLVThPPT2jyoe
-	 pWkK9oY8DTaqSikeHpKN5i7aSvkWKtRBYKDBS0f7x5KyVdGVuDvmrEfg2MV4r4fyox
-	 G+vsLLZ8SW2b2MIJlBIr6cBG6oV/qO2x1keLQ43YFiFcu14llPpH/kuiZO3b+q247k
-	 NP6VEVPPQ5stMmKg7HLY9AoaiGdwLXjiqJMOLHLyodvEU8WGIvcBdsLQ/ePSttJQsf
-	 S/fxBMGlVJ8KlEInSlMj1mP1xRuAX69hm95dAhPAIFqoXLGOmoq/p9FuKlh7aCn1RF
-	 +BtkzevBLt+/g==
-Received: from [100.64.1.21] (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7125917E0C88;
-	Fri, 26 Jun 2026 12:04:15 +0200 (CEST)
-Message-ID: <ad1a6a17-aff4-4dbf-9cdb-62765064b670@collabora.com>
-Date: Fri, 26 Jun 2026 12:04:14 +0200
+	id 1wd3T8-0000000B3Yi-0bW6
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 26 Jun 2026 10:07:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1782468450; x=1814004450;
+  h=message-id:subject:from:to:cc:date:in-reply-to:
+   references:content-transfer-encoding:mime-version;
+  bh=mWD9mCGrzZWHZ7x0PPyvacdrsovHQpw623DcM+HA8P0=;
+  b=d8M/HeC8C9HRycqeqtFVHAwBo/Q2lQu5y/Riou5fjyy+3VMa3lMk0Jjc
+   LizIVutdNInHShpq7wWlugQ8y8EuUKnEdrwC/wGP8kCeEN4b54wudV9Rf
+   BGZOMU8k1D8cwcminkBKrebCSyw9GYs5EU9+Ju5Tvy43F4ouFr1+Hajb/
+   v5DMmce9FNJHldVFQN0Z61sus0wMyqkWLC7vvEdzr7GYyHM+RryBY0MqW
+   qSlEpg2E4nctALkCBJ/v5LqV7BWL4S/fqvAAhjl2voBuA2biLF0nthf4v
+   BB7DHitNpIoHyxwuDt6Ct+9VQHAT8ldpuuUro+rxoxTAO8UCvnY5x6/hp
+   w==;
+X-CSE-ConnectionGUID: KlKLWQ5ZT9mmykJiUVRU5w==
+X-CSE-MsgGUID: SxoojhgbT/G54j0UDE7HWw==
+X-IronPort-AV: E=Sophos;i="6.24,226,1774335600"; 
+   d="scan'208";a="60080065"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 26 Jun 2026 03:07:29 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Fri, 26 Jun 2026 03:07:28 -0700
+Received: from DEN-DL-M77643.microsemi.net (10.10.85.11) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Fri, 26 Jun 2026 03:07:25 -0700
+Message-ID: <fc2d818282656906dc264f286c4a10c24f77f1d7.camel@microchip.com>
+Subject: Re: [PATCH net-next 1/9] net: microchip: vcap: fix rule move for
+ rules of coprime size
+From: Jens Emil Schulz Ostergaard <jensemil.schulzostergaard@microchip.com>
+To: Jakub Kicinski <kuba@kernel.org>
+CC: <horatiu.vultur@microchip.com>, <UNGLinuxDriver@microchip.com>,
+	<andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
+	<pabeni@redhat.com>, <daniel.machon@microchip.com>,
+	<Steen.Hegelund@microchip.com>, <kees@kernel.org>, <gustavoars@kernel.org>,
+	<netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-hardening@vger.kernel.org>
+Date: Fri, 26 Jun 2026 12:07:25 +0200
+In-Reply-To: <20260615233845.1042219-1-kuba@kernel.org>
+References: <20260612-sparx5_l3_routing-v1-1-fc3c10160f49@microchip.com>
+	 <20260615233845.1042219-1-kuba@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.44.4-0ubuntu2.1 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 00/32] pinctrl: mediatek: Enable module build support
- for all drivers
-To: Justin Yeh <justin.yeh@mediatek.com>, Sean Wang <sean.wang@kernel.org>,
- Linus Walleij <linusw@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>
-Cc: Project_Global_Chrome_Upstream_Group@mediatek.com,
- linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20260626040112.2436185-1-justin.yeh@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20260626040112.2436185-1-justin.yeh@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_030418_921143_32E53B88 
-X-CRM114-Status: GOOD (  17.25  )
+X-CRM114-CacheID: sfid-20260626_030730_255934_ABF3AAC1 
+X-CRM114-Status: GOOD (  29.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,117 +90,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/26/26 06:00, Justin Yeh wrote:
-> Sorry for the quick v4 - v3 was sent with an incomplete cover letter
-> (template placeholders) by mistake. This v4 also unifies MODULE_LICENSE
-> to consistently use "GPL v2" across all patches.
-> 
-> This series enables all MediaTek pinctrl drivers to be built as loadable
-> kernel modules. This is required for Android GKI (Generic Kernel Image) +
-> vendor_dlkm deployments where vendor-specific drivers must be kept separate
-> from the GKI vmlinux.
-> 
-> Each patch adds MODULE_LICENSE("GPL v2") and MODULE_DESCRIPTION() macros where
-> missing, and changes the Kconfig option from bool to tristate. This allows
-> these drivers to be properly packaged as vendor kernel modules while
-> maintaining the existing built-in option.
-> 
+On Mon, 2026-06-15 at 16:38 -0700, Jakub Kicinski wrote:
+> EXTERNAL EMAIL: Do not click links or open attachments unless you know th=
+e content is safe
+>=20
+> This is an AI-generated review of your patch. The human sending this
+> email has considered the AI review valid, or at least plausible.
+> ---
+> Subject: net: microchip: vcap: fix rule move for rules of coprime size
+>=20
+> This patch addresses a discrepancy in how software and hardware move rule
+> addresses on insert and delete for the LPM VCAP. It introduces a uniform
+> offset computation aligned to the least common multiple of all rule sizes
+> in a block. This ensures that hardware and software representations remai=
+n
+> synchronized and all rules land on correctly aligned addresses.
+>=20
+> > diff --git a/drivers/net/ethernet/microchip/vcap/vcap_api.c b/drivers/n=
+et/ethernet/microchip/vcap/vcap_api.c
+> > index 0fdb5e363badc..6946fd7384581 100644
+> > --- a/drivers/net/ethernet/microchip/vcap/vcap_api.c
+> > +++ b/drivers/net/ethernet/microchip/vcap/vcap_api.c
+>=20
+> [ ... ]
+>=20
+> > @@ -2275,8 +2336,7 @@ int vcap_add_rule(struct vcap_rule *rule)
+> >                      __func__, __LINE__, ret);
+> >               goto out;
+> >       }
+> > -     if (move.count > 0)
+> > -             vcap_move_rules(ri, &move);
+> > +     vcap_move_rules(ri, &move);
+> >=20
+> >       /* Set the counter to zero */
+> >       ret =3D vcap_write_counter(ri, &ctr);
+>=20
+> [Severity: High]
+> This is a pre-existing issue, but does vcap_add_rule() leak the newly
+> duplicated rule if operations like vcap_write_counter() or
+> vcap_write_rule() fail later on?
+>=20
+> If a failure occurs, the code takes the goto out path:
+>=20
+> vcap_add_rule() {
+>     ...
+>     ret =3D vcap_write_rule(ri);
+>     if (ret) {
+>         pr_err("%s:%d: rule write error: %d\n", __func__, __LINE__, ret);
+>         goto out;
+>     }
+> out:
+>     mutex_unlock(&ri->admin->lock);
+>     return ret;
+> }
+>=20
+> This seems to exit without reverting the earlier list insertions and
+> hardware moves.
+>=20
+> Could this leave the software and hardware states permanently inconsisten=
+t
+> and leak the newly duplicated rule?
+>=20
 
-The entire series is
+I think this is latent, and not actually reachable by current callers.
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+1. vcap_write_counter always returns 0
+2. vcap_encode_rule can not error if vcap_val_rule is called before vcap_ad=
+d_rule
+3. vcap_write_rule can not error if vcap_val_rule is called before vcap_add=
+_rule
 
-...but I'm not sure if one commit for each is ok, makes reverting easy but that
-may be too much noise. Should Linus ask for joining them all, feel free to still
-keep my R-b tag, as I'd be fine with that as well.
+So I propose this is fixed in seperate series.
 
-Cheers,
-Angelo
+> [ ... ]
+>=20
+> > @@ -2488,59 +2548,52 @@ int vcap_mod_rule(struct vcap_rule *rule)
+> >  }
+> >  EXPORT_SYMBOL_GPL(vcap_mod_rule);
+>=20
+> [Severity: High]
+> This isn't a bug introduced by this patch, but does vcap_mod_rule() disca=
+rd
+> the active software rule pointer and overwrite hardware with stale addres=
+ses?
+>=20
+> Looking at vcap_mod_rule(), the function validates the rule using
+> vcap_get_locked_rule() but ignores the returned pointer:
+>=20
+> vcap_mod_rule(struct vcap_rule *rule) {
+>     struct vcap_rule_internal *ri =3D to_intrule(rule);
+>     ...
+>     if (!vcap_get_locked_rule(ri->vctrl, ri->data.id))
+>         return -ENOENT;
+>     ...
+>     err =3D vcap_encode_rule(ri);
+>     if (err)
+>         goto out;
+>=20
+>     err =3D vcap_write_rule(ri);
+> }
+>=20
+> Because the function continues to use the caller provided copy ri, it
+> doesn't see updates to the real rule in the admin->rules list.
+>=20
+> If the real rule's hardware address was previously shifted due to inserti=
+ons
+> or deletions, could writing to the stale address in ri->addr corrupt othe=
+r
+> rules in the hardware VCAP?
+>=20
 
-> Changes in v4:
->    * Fix cover letter content (v3 accidentally sent with template placeholders)
->    * Unify MODULE_LICENSE to use "GPL v2" consistently across all drivers
->    * Update all commit messages to reflect "GPL v2" instead of "GPL"
-> 
-> Changes in v3:
->    * Add MODULE_DESCRIPTION() for all drivers (even those that already had MODULE_LICENSE)
->    * Update commit messages to reflect that we're adding MODULE_DESCRIPTION too
-> 
-> Changes in v2:
->    * Squash MODULE_LICENSE and tristate changes into single patch per driver
->    * Extend fix to all MediaTek pinctrl drivers (32 total), not just MT8189
->    * Add Android GKI + vendor_dlkm context to cover letter
->    * Add MODULE_DESCRIPTION() where it was missing
->    * Add Fixes: tags referencing the original commits that added each driver
-> 
-> Justin Yeh (32):
->    pinctrl: mediatek: mt8189: Enable module build support
->    pinctrl: mediatek: mt6878: Enable module build support
->    pinctrl: mediatek: mt6893: Enable module build support
->    pinctrl: mediatek: mt7622: Enable module build support
->    pinctrl: mediatek: mt7981: Enable module build support
->    pinctrl: mediatek: mt7986: Enable module build support
->    pinctrl: mediatek: mt7988: Enable module build support
->    pinctrl: mediatek: mt8167: Enable module build support
->    pinctrl: mediatek: mt8173: Enable module build support
->    pinctrl: mediatek: mt8183: Enable module build support
->    pinctrl: mediatek: mt8186: Enable module build support
->    pinctrl: mediatek: mt8188: Enable module build support
->    pinctrl: mediatek: mt8192: Enable module build support
->    pinctrl: mediatek: mt8195: Enable module build support
->    pinctrl: mediatek: mt8196: Enable module build support
->    pinctrl: mediatek: mt8365: Enable module build support
->    pinctrl: mediatek: mt8516: Enable module build support
->    pinctrl: mediatek: mt2701: Enable module build support
->    pinctrl: mediatek: mt7623: Enable module build support
->    pinctrl: mediatek: mt7629: Enable module build support
->    pinctrl: mediatek: mt8135: Enable module build support
->    pinctrl: mediatek: mt8127: Enable module build support
->    pinctrl: mediatek: mt7620: Enable module build support
->    pinctrl: mediatek: mt7621: Enable module build support
->    pinctrl: mediatek: mt76x8: Enable module build support
->    pinctrl: mediatek: rt2880: Enable module build support
->    pinctrl: mediatek: rt305x: Enable module build support
->    pinctrl: mediatek: rt3883: Enable module build support
->    pinctrl: mediatek: mt6397: Enable module build support
->    pinctrl: mediatek: mt2712: Enable module build support
->    pinctrl: mediatek: mt6795: Enable module build support
->    pinctrl: mediatek: mt6797: Enable module build support
-> 
->   drivers/pinctrl/mediatek/Kconfig          | 64 +++++++++++------------
->   drivers/pinctrl/mediatek/pinctrl-mt2701.c |  3 ++
->   drivers/pinctrl/mediatek/pinctrl-mt2712.c |  3 ++
->   drivers/pinctrl/mediatek/pinctrl-mt6397.c |  3 ++
->   drivers/pinctrl/mediatek/pinctrl-mt6795.c |  3 ++
->   drivers/pinctrl/mediatek/pinctrl-mt6797.c |  3 ++
->   drivers/pinctrl/mediatek/pinctrl-mt6878.c |  1 +
->   drivers/pinctrl/mediatek/pinctrl-mt6893.c |  1 +
->   drivers/pinctrl/mediatek/pinctrl-mt7620.c |  3 ++
->   drivers/pinctrl/mediatek/pinctrl-mt7621.c |  3 ++
->   drivers/pinctrl/mediatek/pinctrl-mt7622.c |  3 ++
->   drivers/pinctrl/mediatek/pinctrl-mt7623.c |  3 ++
->   drivers/pinctrl/mediatek/pinctrl-mt7629.c |  3 ++
->   drivers/pinctrl/mediatek/pinctrl-mt76x8.c |  3 ++
->   drivers/pinctrl/mediatek/pinctrl-mt7981.c |  3 ++
->   drivers/pinctrl/mediatek/pinctrl-mt7986.c |  3 ++
->   drivers/pinctrl/mediatek/pinctrl-mt7988.c |  3 ++
->   drivers/pinctrl/mediatek/pinctrl-mt8127.c |  3 ++
->   drivers/pinctrl/mediatek/pinctrl-mt8135.c |  3 ++
->   drivers/pinctrl/mediatek/pinctrl-mt8167.c |  3 ++
->   drivers/pinctrl/mediatek/pinctrl-mt8173.c |  3 ++
->   drivers/pinctrl/mediatek/pinctrl-mt8183.c |  3 ++
->   drivers/pinctrl/mediatek/pinctrl-mt8186.c |  3 ++
->   drivers/pinctrl/mediatek/pinctrl-mt8188.c |  1 +
->   drivers/pinctrl/mediatek/pinctrl-mt8189.c |  1 +
->   drivers/pinctrl/mediatek/pinctrl-mt8192.c |  1 +
->   drivers/pinctrl/mediatek/pinctrl-mt8195.c |  3 ++
->   drivers/pinctrl/mediatek/pinctrl-mt8196.c |  1 +
->   drivers/pinctrl/mediatek/pinctrl-mt8365.c |  1 +
->   drivers/pinctrl/mediatek/pinctrl-mt8516.c |  3 ++
->   drivers/pinctrl/mediatek/pinctrl-rt2880.c |  3 ++
->   drivers/pinctrl/mediatek/pinctrl-rt305x.c |  3 ++
->   drivers/pinctrl/mediatek/pinctrl-rt3883.c |  3 ++
->   33 files changed, 114 insertions(+), 32 deletions(-)
-> 
+This is also true but latent again. To trigger this we would need concurren=
+cy
+against the same vcap instance. Before this series vcap_mod_rule was only
+called under rtnl. This series introduces a call outside rtnl, but the new =
+LPM VCAP
+is not usable by tc only the routing module, which serializes everything un=
+der
+one mutex.
+
+So I think this should be fixed in a seperate series.
+
+> [ ... ]
+>=20
+> One other pre-existing issue noticed while reviewing this subsystem:
+>=20
+> [Severity: High]
+> This is a pre-existing issue, but is it safe to iterate over the admin->r=
+ules
+> list across different VCAP instances without acquiring admin->lock for
+> each instance?
+>=20
+> In vcap_rule_exists():
+>=20
+> static bool vcap_rule_exists(struct vcap_control *vctrl, u32 id) {
+>     ...
+>     list_for_each_entry(admin, &vctrl->list, list)
+>         list_for_each_entry(ri, &admin->rules, list)
+>             if (ri->data.id =3D=3D id)
+>                 return true;
+>     return false;
+> }
+>=20
+> If another thread is concurrently inserting or deleting a rule on another
+> VCAP instance while holding that instance's lock, could this unprotected
+> concurrent access encounter a data race and dereference a poisoned pointe=
+r?
+
+Yes this becomes reachable with this series, due to calls outside rtnl.
+It is a symptom of a wider issue with the per instance locking in the VCAP
+api. Sashiko found another existing bug with the shared SUPER vcap register=
+s
+also caused by this, and that one is reachable in mainline, so I will send =
+a
+fix to net for the vcap locking which will also fix this problem, then send
+v2 once that is settled.
+
+> --
+> pw-bot: cr
 
 
