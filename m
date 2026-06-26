@@ -4,73 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 436FDC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 13:29:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36C7AC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 13:35:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6MwPjlK9K0kWs7uUBNOwpE6Bg8Uxb2wYDRU1IIsqnKM=; b=XMXcfajK/7NzVeryBz+huwey0g
-	tudDfAMOpVcjf5/UKwS71Mu4LCjCHck5XAJCg41r+6ojZM5z1jbFLsgYTLru/0B8PA4numeTwIWuu
-	gPBng1xJ+wqO56wgFokzzkfrXk6i1dx7lnJK/h7fIG8XhsjPVDaAkxrJyzrr0fX+hLlHYUiEtu8p9
-	vvSUSY3sncnCxohRurBUW6q9Kae0vXg51zEAk3qjN3buaIRwlKzCX39kjRc13MXFw7zHK67stoJIR
-	gfkNrh2XB0nmrRrsFBG+Ipq+yGGSI/co83li5WMSldaAC95YBlH3Mm82gJVyyWWthOEIE8O8aZKEe
-	rwRJxjcw==;
+	bh=NzHNiZRJs/ug1E3IvLOYIVWeeI5eXvwckhLoUOrOafc=; b=SOSzab7x69zBXsZP9e451N5Eoy
+	x4mZM3uUJw48mOUG0jANj6YWnl9c+2VY2fMmAnA8ayCzSq88XEX+2qjdBjlpNPNIBfF4PIj8ADDeK
+	3bRdI/THG1DNwAjLn2iRkCwHMAlZ1dPRAJbEN2XwVckDucjISv7JgG4iZaSBdB7aRW6nD1K0iPtU8
+	T+wwmVczYNZlt4ou9BGJ7hflQKxqlwPADIKvPBxwN3Nz6eraJEdTgQ46bLDebPwPwgEdiMaqwuGBj
+	ekipNlR+2lEWe7uyrA32Y+Za3x8EHdtBjUY9xUw+t8XHYefnUEzEvQnPLEhIe3Cix9NLYgc+kMNvm
+	3oPkLzHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd6c9-0000000BNLF-37R3;
-	Fri, 26 Jun 2026 13:29:01 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1wd6iZ-0000000BNmy-2xhn;
+	Fri, 26 Jun 2026 13:35:39 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd6c7-0000000BNKB-0t4u;
-	Fri, 26 Jun 2026 13:29:01 +0000
-Received: from localhost.localdomain (unknown [117.182.75.66])
-	by APP-05 (Coremail) with SMTP id zQCowABHntGSfj5qhXFqFQ--.43105S2;
-	Fri, 26 Jun 2026 21:28:52 +0800 (CST)
-From: WenTao Liang <vulab@iscas.ac.cn>
-To: chunkuang.hu@kernel.org,
-	p.zabel@pengutronix.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com
-Cc: dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	WenTao Liang <vulab@iscas.ac.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH] fix: drm/mediatek: mtk_drm_probe: of_node_get in loop overwrites previous   node references without release
-Date: Fri, 26 Jun 2026 21:28:49 +0800
-Message-Id: <20260626132849.38694-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+	id 1wd6iY-0000000BNmk-206Y
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 26 Jun 2026 13:35:38 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 17CDC405E5;
+	Fri, 26 Jun 2026 13:35:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED28B1F000E9;
+	Fri, 26 Jun 2026 13:35:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782480938;
+	bh=NzHNiZRJs/ug1E3IvLOYIVWeeI5eXvwckhLoUOrOafc=;
+	h=From:To:Cc:Subject:Date;
+	b=VMeT0S1SvqLatI/IwMpCTMXnqFFBPetfizCnvFuQZvF9X2oV6NsBlc8otnciskJ7d
+	 DmNVg/W6U4lrOQdbceCKtUGpvtFWXu26YXitkFfqWlHbd2a0dx1fjEpKpNk2DygS7f
+	 YpgzuqzwwQWIHeWSTu0nYlIG6Oo8DKm8g8k+JZias+t0haj2M6qzxXr5E6C3rz8yrU
+	 DIEQLOuKqJdvJCUR2GQUG8icS+Cz9VM3949Oy6ga6wWJ/VxJ13Qiu63jPsKdznBIk6
+	 T+9qCI8OMnE0Kl2SxClS3up52kDWYpoJRb/spn3gNoCFg+JJFrryiIuDV+oh9g5sYB
+	 J3dWlP/o9k95g==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wd6iV-0000000GLsv-1HwZ;
+	Fri, 26 Jun 2026 13:35:35 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Bradley Morgan <include@grrlz.net>,
+	Fuad Tabba <tabba@google.com>,
+	Hyunwoo Kim <imv4bel@gmail.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Weiming Shi <bestswngs@gmail.com>,
+	Will Deacon <will@kernel.org>,
+	Xuanqing Shi <shixuanqing.11@bytedance.com>,
+	Zhong Wang <wangzhong.c0ss4ck@bytedance.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [GIT PULL] KVM/arm64 fixes for 7.2, take #1
+Date: Fri, 26 Jun 2026 14:35:26 +0100
+Message-ID: <20260626133526.817232-1-maz@kernel.org>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowABHntGSfj5qhXFqFQ--.43105S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7AFy8ur4ktF43Ar4xCF4fGrg_yoW8XryfpF
-	WUKFWYyry0gr4xKFyvyF1Uuryay3WIqayxWa12ga1xZws5tFyUXFyFqay7KFZ2yFy8CF13
-	JFn8AFyfur17AFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9F14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
-	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
-	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
-	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x
-	0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2
-	zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF
-	4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWU
-	CwCI42IY6I8E87Iv67AKxVW8JVWxJwCI42IY6I8E87Iv6xkF7I0E14v26r4UJVWxJrUvcS
-	sGvfC2KfnxnUUI43ZEXa7VUbzpBDUUUUU==
-X-Originating-IP: [117.182.75.66]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBwwKA2o+TTuTHAAAsv
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_062859_630095_9AD81B5A 
-X-CRM114-Status: UNSURE (   7.95  )
-X-CRM114-Notice: Please train this message.
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: pbonzini@redhat.com, include@grrlz.net, tabba@google.com, imv4bel@gmail.com, oupton@kernel.org, bestswngs@gmail.com, will@kernel.org, shixuanqing.11@bytedance.com, wangzhong.c0ss4ck@bytedance.com, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,41 +89,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In the for_each_child_of_node loop, private->comp_node[comp_id] and
-  private->mutex_node are assigned via of_node_get without first releasing
-  any previously stored reference for the same index. When the same comp_id
-  or mmsys_id matches multiple nodes, earlier node references are
-  overwritten and permanently leaked.
+Paolo,
 
-Cc: stable@vger.kernel.org
-Fixes: 1ef7ed48356c ("drm/mediatek: Modify mediatek-drm for mt8195 multi mmsys support")
-Signed-off-by: WenTao Liang <vulab@iscas.ac.cn>
----
- drivers/gpu/drm/mediatek/mtk_drm_drv.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+As predicted, here's another largeish set of fixes for KVM/arm64. A
+bunch of them are fairly benign (the PSTATE.IL stuff), but some are
+pretty annoying (vgic, MOPS) and are stable material.
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.c b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-index c86a3f54f35b..2c0d8db9ade2 100644
---- a/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-+++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-@@ -1138,6 +1138,7 @@ static int mtk_drm_probe(struct platform_device *pdev)
- 
- 			id = of_alias_get_id(node, "mutex");
- 			if (id < 0 || id == private->data->mmsys_id) {
-+				of_node_put(private->mutex_node);
- 				private->mutex_node = of_node_get(node);
- 				dev_dbg(dev, "get mutex for mmsys %d", private->data->mmsys_id);
- 			}
-@@ -1153,7 +1154,7 @@ static int mtk_drm_probe(struct platform_device *pdev)
- 
- 		if (!mtk_drm_find_mmsys_comp(private, comp_id))
- 			continue;
--
-+		of_node_put(private->comp_node[comp_id]);
- 		private->comp_node[comp_id] = of_node_get(node);
- 
- 		/*
--- 
-2.39.5 (Apple Git-154)
+On the bright side, Fuad has volunteered to be an official reviewer.
+We really need people to engage with the reviewing process instead of
+simply dumping patches on us, as me and Oliver really can't be
+stretched much further. So many thanks Fuad for offering to help.
 
+I expect to be back next week with a similar delivery, as my Inbox
+keeps filling with this stuff...
+
+Please pull,
+
+	M.
+
+The following changes since commit 1ee27dacbe5dc4def481794d899d67b0d4570094:
+
+  Merge branch kvm-arm64/nv-mmu-7.2 into kvmarm-master/next (2026-06-12 09:29:34 +0100)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git tags/kvmarm-fixes-7.2-1
+
+for you to fetch changes up to d098bb75d14fde2f12155f1a95ec0168160867ce:
+
+  KVM: arm64: account pKVM reclaim against the VM mm (2026-06-22 10:48:08 +0100)
+
+----------------------------------------------------------------
+KVM/arm64 fixes for 7.2, take #1
+
+- Fix an accounting buglet when reclaiming pages from a protected
+  guest
+
+- Fix a bunch of architectural compliance issues when injecting a
+  synthesised exception, most of which were missing the PSTATE.IL bit
+  indicating a 32bit-wide instruction
+
+- Another set of fixes addressing issues with translation of VNCR_EL2,
+  including corner cases where the guest point that register at a RO
+  page...
+
+- Don't warn when trapping accesses to ZCR_EL2 from an L2 guest, as
+  that's not unexpected at all
+
+- Address a bunch of races with LPI migration vs LPIs being disabled
+
+- Fix a total howler of a bug combining FEAT_MOPS and NV, resulting in
+  exception returning in the wrong place...
+
+- Coerce Fuad Tabba into a reviewer role, and may his Inbox catch
+  fire!
+
+----------------------------------------------------------------
+Bradley Morgan (1):
+      KVM: arm64: account pKVM reclaim against the VM mm
+
+Fuad Tabba (11):
+      KVM: arm64: nv: Write ESR_EL2 for injected nested SError exceptions
+      KVM: arm64: Sync SPSR_EL1 when injecting an exception into a pVM
+      KVM: arm64: nv: Fix PSTATE construction on illegal exception return
+      KVM: arm64: Add Fuad Tabba as a reviewer
+      KVM: arm64: Set ESR_ELx.IL for injected undefined exceptions at EL2
+      KVM: arm64: Unconditionally set IL for injected undefined exceptions
+      KVM: arm64: Unconditionally set IL for injected abort exceptions
+      KVM: arm64: Set IL for injected FPAC exceptions during ERET emulation
+      KVM: arm64: Set IL for emulated SError injection
+      KVM: arm64: Set IL for nested SError injection
+      KVM: arm64: Set IL in fake ESR for pKVM memory sharing exit
+
+Hyunwoo Kim (1):
+      KVM: arm64: vgic: Check the interrupt is still ours before migrating it
+
+Marc Zyngier (1):
+      KVM: arm64: vgic: Handle race between interrupt affinity change and LPI disabling
+
+Oliver Upton (6):
+      KVM: arm64: nv: Drop bogus WARN for write to ZCR_EL2
+      KVM: arm64: nv: Respect read-only PFN when mapping L1 VNCR
+      KVM: arm64: nv: Inject SEA if kvm_translate_vncr() can't resolve PFN
+      KVM: arm64: nv: Re-translate VNCR before injecting abort
+      KVM: arm64: nv: Inject SEA if guest VNCR isn't normal memory
+      KVM: arm64: nv: Mark VM as bugged for unexpected VNCR abort
+
+Weiming Shi (1):
+      KVM: arm64: nv: Fix SPSR_EL2 restore in kvm_hyp_handle_mops()
+
+ MAINTAINERS                             |   1 +
+ arch/arm64/include/asm/kvm_nested.h     |   8 ++
+ arch/arm64/kvm/at.c                     |   8 --
+ arch/arm64/kvm/emulate-nested.c         |  37 +++++--
+ arch/arm64/kvm/hyp/include/hyp/switch.h |  11 ++-
+ arch/arm64/kvm/hyp/nvhe/pkvm.c          |   3 +-
+ arch/arm64/kvm/hyp/nvhe/sys_regs.c      |   3 +-
+ arch/arm64/kvm/inject_fault.c           |  18 +---
+ arch/arm64/kvm/nested.c                 | 164 ++++++++++++++++----------------
+ arch/arm64/kvm/pkvm.c                   |   2 +-
+ arch/arm64/kvm/vgic/vgic.c              |  20 ++--
+ 11 files changed, 149 insertions(+), 126 deletions(-)
 
