@@ -4,61 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F051CDE008
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 08:25:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D5FBCDE008
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 08:25:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=27YABmwHBDKVWbwK/4Je2e6GlPCgX/PJ6Dx90r18aqk=; b=sX47AL/2ewS25DTL+Qm5QuTrdO
-	i4aQ/zaGjAQa4UTOG7K1MSzuFYfYlC7g0v16iZPpL7ZSi+/8/XcEtgy05wLjE5+Hm3yVTqKgucq3W
-	snzjLwRy5awqQHPtBTtI9HjYhwFAPxtU+cNJvyU6xTJWfzvqEiIpVQszt4PEJq2Y6C+tsJ1UEikc6
-	MjBuCdmIbxti8+yT2Ovvms/aszPf2M6f1s6+rFBYxzLpBGRh07Cr9AoXPXCIaAlQmeEy25goRcxW2
-	4FHJBczvj52732P/tUttr3NSzJEqmmq2kO5K4xelftxsY0JhuNB2Qp4mJ12Q909DCoEJbJ5mUJD8X
-	5Dl9K+8A==;
+	bh=AoJVBmYqkYYc7bgnl/B8M++q57EqJtQnmodoViGs4lE=; b=AJOd0ZPaTojVKp6Gk3gxqsuUgS
+	OkcM4PbhtLlVo3PeAhh+557AKQ4JJlsCE9A1I7AtYCC01T0zNzd88VIF4jbYVDXxp1p1/qFiPM7/x
+	wBTPYGE2IU4UwBRIm8GL/5yHz/HQFhj269Jg5WTt9PdCuW4RSy7HCyMywO8MhiTsYGMg7dRciErOQ
+	cNJvx+t01gMnI4FCGSbeJGflSJ62Tii6rotZ0odAYW0w83SPBzuTTVESW7ilb50W3/n6x5Cqf/Zq9
+	a4nFC1PkiFCZF63mlgRZT02RrYPcEiZDq2UvHGdrjBznqLUDhFdyJTpLUmvXvwda7osrhb4YGPNBW
+	cefDiv5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd1sI-0000000Ar9g-3b8v;
-	Fri, 26 Jun 2026 08:25:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wd1sc-0000000ArGI-0thW;
+	Fri, 26 Jun 2026 08:25:42 +0000
+Received: from out30-130.freemail.mail.aliyun.com ([115.124.30.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd1sH-0000000Ar9N-0o4T;
-	Fri, 26 Jun 2026 08:25:21 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D12E360122;
-	Fri, 26 Jun 2026 08:25:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05A0C1F000E9;
-	Fri, 26 Jun 2026 08:25:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782462319;
-	bh=27YABmwHBDKVWbwK/4Je2e6GlPCgX/PJ6Dx90r18aqk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Lche6K/mOPJxBZQDkapOmDs9pns2e7kmPPpc5zxRLf/bQR45ed/mef7DnmgBPmgkQ
-	 DgfNWeHEBDBNLXZlZzBVtNbEx6cykz5ST3WvJg83jhBDpfdhMDmacdAgIKEon9TLRk
-	 hpRrYwpYzMR4B7rk0CJdLF0S8U47jRU1XkBc2GHflqcPi6kypIR2BsPO3e2tojI7aU
-	 GjNmsZscXWd8OF0RehVDbf/i+EWEw60xbyxMg7yHfb0Fud+pxPD25dqA9SIiTnkx+2
-	 6c48RmtfHt0+gkwi7ynIo6rwrxeXTJQGTEkNVj5plw2ySCUKhAh9xgESMy+9QAelSp
-	 WcsZJqndrMXrA==
-Date: Fri, 26 Jun 2026 10:25:17 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	Madhur Agrawal <madhur.agrawal@airoha.com>
-Subject: Re: [PATCH net] net: airoha: fix max receive size configuration
-Message-ID: <aj43bTR4ttfHsyU7@lore-desk>
-References: <20260625-airoha-fix-rx-max-len-v1-1-45b9b827358d@kernel.org>
+	id 1wd1sX-0000000ArDr-2gjA;
+	Fri, 26 Jun 2026 08:25:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1782462331; h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type;
+	bh=AoJVBmYqkYYc7bgnl/B8M++q57EqJtQnmodoViGs4lE=;
+	b=JYLDaGLyOzEYrj7eDD5UH4PdP9PIGtrz7c5LkgDWqYRV56GiICd8bmep63xellvfgm/23ekOBGGLLjOnY/VgZpvuz98/RAuhZ8y0495Z5pi7OAdZXvXXF+VVWSwT2y0jDRB72KP1yqCSdIdloBZ9tjb0IJPrV72zhzw15kxv/Y0=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R421e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033032089153;MF=fengwei_yin@linux.alibaba.com;NM=1;PH=DS;RN=21;SR=0;TI=SMTPD_---0X5e6nOB_1782462325;
+Received: from U-V2QX163P-2032.local(mailfrom:fengwei_yin@linux.alibaba.com fp:SMTPD_---0X5e6nOB_1782462325 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Fri, 26 Jun 2026 16:25:27 +0800
+Date: Fri, 26 Jun 2026 16:25:24 +0800
+From: YinFengwei <fengwei_yin@linux.alibaba.com>
+To: Kiryl Shutsemau <kirill@shutemov.name>
+Cc: Marc Zyngier <maz@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Doug Anderson <dianders@chromium.org>,
+	Petr Mladek <pmladek@suse.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Baoquan He <bhe@redhat.com>, Puranjay Mohan <puranjay@kernel.org>,
+	Usama Arif <usama.arif@linux.dev>, Breno Leitao <leitao@debian.org>,
+	Julien Thierry <julien.thierry.kdev@gmail.com>,
+	Lecopzer Chen <lecopzer@gmail.com>,
+	Sumit Garg <sumit.garg@kernel.org>, kernel-team@meta.com,
+	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 0/4] arm64: cross-CPU NMI via SDEI
+Message-ID: <aj43dFtbcZHvWBv5@U-V2QX163P-2032.local>
+References: <cover.1781709543.git.kas@kernel.org>
+ <ajVLeseWOZn0XXY2@arm.com>
+ <868q8asj1u.wl-maz@kernel.org>
+ <ajk-Vge2qhaY-TwJ@thinkstation>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="rEKXp4YYWJj8j3Cp"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260625-airoha-fix-rx-max-len-v1-1-45b9b827358d@kernel.org>
+In-Reply-To: <ajk-Vge2qhaY-TwJ@thinkstation>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260626_012538_595587_2B338B77 
+X-CRM114-Status: GOOD (  31.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,356 +80,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Kirill
+On Mon, Jun 22, 2026 at 02:56:16PM +0100, Kiryl Shutsemau wrote:
+> On Fri, Jun 19, 2026 at 03:26:21PM +0100, Marc Zyngier wrote:
+> > > Does your firmware set ICC_CTLR_EL1.PMHE? I'd be curious to see the
+> > > numbers if the DSB was omitted on the enable path.
+> >
+> > I certainly don't observe this sort of overhead on the HW I have
+> > access to, and would like to understand where this is coming from with
+> > actual profiling data.
+> 
+> Full disclosure: the ~66% figures come from internal testing about a year ago.
+> I no longer have the details of the machine it ran on and can't confirm whether
+> ICC_CTLR_EL1.PMHE was set there -- it may well have been. I shouldn't have
+> carried those numbers forward without being able to stand behind them, so
+> please disregard them.
+> 
+> Here are fresh numbers from NVIDIA Grace (Neoverse V2). Importantly, this
+> box reports:
+> 
+>   GICv3: Pseudo-NMIs enabled using relaxed ICC_PMR_EL1 synchronisation
+> 
+> i.e. PMHE == 0, so the synchronising DSB on the unmask path is already
+> patched to a NOP (ARM64_HAS_GIC_PRIO_RELAXED_SYNC). What's left is the
+> floor cost of PMR-based masking itself plus the PMR save/restore on
+> exception entry/exit -- not the DSB. So this is the case Catalin asked
+> about (DSB omitted), and there is still a measurable cost.
+> 
+> A trivial single-threaded gettid() loop (1e6 calls, median of 5,
+> performance governor, ASLR off):
+> 
+>   pseudo_nmi=0 (DAIF):       178.4 ns/call
+>   pseudo_nmi=1 (PMR):        252.5 ns/call
+>   delta:                     +74.1 ns/call  (~230-250 cycles)
+>                              +41.5% wall time / 0.706 throughput
+I tested the u-bench.c on a Neoverse N2 based arm64 server. The result
+is as following:
+   pseudo_nmi=0 (DAIF):       96.3  ns/call
+   pseudo_nmi=1 (PMR):        169.8 ns/call
+   delta:                     +73.5 ns/call
 
---rEKXp4YYWJj8j3Cp
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> 
+>   --- u-bench.c ---
+>   #include <unistd.h>
+>   #include <sys/syscall.h>
+>   #include <time.h>
+>   #include <stdio.h>
+>   int main(void) {
+>           struct timespec a, b;
+>           clock_gettime(CLOCK_MONOTONIC, &a);
+>           for (long i = 0; i < 1000000; i++)
+>                   syscall(SYS_gettid);
+>           clock_gettime(CLOCK_MONOTONIC, &b);
+>           printf("%f ns\n", (b.tv_sec-a.tv_sec)*1e9 + (b.tv_nsec-a.tv_nsec));
+>           return 0;
+>   }
+> 
+> will-it-scale agrees independently. sched_yield (ops/s, median of 5):
+> 
+>                       1 task       72 tasks
+>   pseudo_nmi=0      3,195,656    230,824,534
+>   pseudo_nmi=1      2,253,753    163,914,837
+>   ratio                0.705          0.710
+> 
+> The ratio is flat across the whole 1-to-72 sweep, so -- relevant to the
+> scalability question -- it's a constant per-syscall tax, not a contention
+> effect. The impact tracks syscall/exception density: page_fault1, a more
+> realistic workload, stays within ~5%.
+> 
+> > The direction of travel is to deprecate SDEI. I wouldn't add more stuff
+> > on top of this interface.
+> 
+> I understand FEAT_NMI is the long-term answer, and I'm not arguing against
+> deprecating SDEI. My concern is the gap in between. By our estimate it's
+> 10+ years before the last non-FEAT_NMI machine retires from the fleet --
+> for scale, we're still running Skylake today. So there's roughly a
+> decade where a large installed base has neither FEAT_NMI nor affordable
+> pseudo-NMI, and no way to reach a DAIF-masked CPU for an all-CPU
+> backtrace or to capture a wedged CPU in a crash dump. That's the
+> functional gap this series tries to cover.
+> 
+> Given the deprecation direction, I deliberately kept the SDEI footprint as
+> small as I could. The series adds no new firmware interface and no vendor
+> SMC -- it uses only the standard software-signalled event (event 0) via
+> SDEI_EVENT_SIGNAL, which is already present on these systems for
+> firmware-first RAS (APEI/GHES). And SDEI is only ever invoked in a "bad
+> state": to deliver a backtrace signal to a CPU that a normal IPI can't
+> reach, or to stop a CPU that ignored the stop IPIs. Nothing on any hot or
+> steady-state path touches it.
+> 
+> If even that minimal use is unacceptable on a deprecated interface, I'd
+> rather know now and redirect the effort -- but I'd appreciate a pointer to
+> what should cover this gap for existing silicon in the meantime.
+I couldn't agree more: We need a solution for existing system. And
+like to see this patchset merged. Thanks.
 
-> Set the GDM maximum receive size to AIROHA_MAX_RX_SIZE unconditionally
-> during hardware initialization instead of updating it according to the
-> configured MTU. This avoids dropping incoming frames that exceed the
-> current MTU but could still be processed by the networking stack, which
-> is able to fragment the reply on the TX side (e.g. ICMP echo requests).
-> Move the per-port MTU configuration to the PPE egress path where it
-> belongs, and set the tx frame size running airoha_ppe_set_xmit_frame_size=
-()
-> to dynamically track the maximum MTU across running interfaces sharing
-> the same PPE instance.
-> Fix the PPE MTU register addressing to pack two port entries per
-> register word and add WAN_MTU0 configuration for non-LAN GDM devices.
->=20
-> Fixes: 54d989d58d2a ("net: airoha: Move min/max packet len configuration =
-in airoha_dev_open()")
-> Tested-by: Madhur Agrawal <madhur.agrawal@airoha.com>
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-
-commenting on sashiko's report:
-https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260625-airoha-fix-rx-=
-max-len-v1-1-45b9b827358d%40kernel.org
-
-> ---
->  drivers/net/ethernet/airoha/airoha_eth.c  | 68 ++++++++++---------------=
-------
->  drivers/net/ethernet/airoha/airoha_eth.h  |  2 +
->  drivers/net/ethernet/airoha/airoha_ppe.c  | 39 +++++++++++++-----
->  drivers/net/ethernet/airoha/airoha_regs.h |  9 ++--
->  4 files changed, 58 insertions(+), 60 deletions(-)
->=20
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ether=
-net/airoha/airoha_eth.c
-> index 932b3a3df2e5..3f451c2d4c24 100644
-> --- a/drivers/net/ethernet/airoha/airoha_eth.c
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-> @@ -178,10 +178,15 @@ static void airoha_fe_maccr_init(struct airoha_eth =
-*eth)
->  {
->  	int p;
-> =20
-> -	for (p =3D 1; p <=3D ARRAY_SIZE(eth->ports); p++)
-> +	for (p =3D 1; p <=3D ARRAY_SIZE(eth->ports); p++) {
->  		airoha_fe_set(eth, REG_GDM_FWD_CFG(p),
->  			      GDM_TCP_CKSUM_MASK | GDM_UDP_CKSUM_MASK |
->  			      GDM_IP4_CKSUM_MASK | GDM_DROP_CRC_ERR_MASK);
-> +		airoha_fe_rmw(eth, REG_GDM_LEN_CFG(p),
-> +			      GDM_SHORT_LEN_MASK | GDM_LONG_LEN_MASK,
-> +			      FIELD_PREP(GDM_SHORT_LEN_MASK, 60) |
-> +			      FIELD_PREP(GDM_LONG_LEN_MASK, AIROHA_MAX_RX_SIZE));
-> +	}
-> =20
->  	airoha_fe_rmw(eth, REG_CDM_VLAN_CTRL(1), CDM_VLAN_MASK,
->  		      FIELD_PREP(CDM_VLAN_MASK, 0x8100));
-> @@ -1831,13 +1836,24 @@ static void airoha_update_hw_stats(struct airoha_=
-gdm_dev *dev)
->  	spin_unlock(&port->stats_lock);
->  }
-> =20
-> +static void airoha_dev_set_xmit_frame_size(struct net_device *netdev)
-> +{
-> +	struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
-> +
-> +	airoha_ppe_set_xmit_frame_size(dev);
-> +	if (!airoha_is_lan_gdm_dev(dev))
-> +		airoha_fe_rmw(dev->eth, REG_WAN_MTU0, WAN_MTU0_MASK,
-> +			      FIELD_PREP(WAN_MTU0_MASK,
-> +					 VLAN_ETH_HLEN + netdev->mtu));
-> +}
-
-- Could the WAN_MTU0 update here use the same max-across-siblings
-  aggregation as airoha_ppe_set_xmit_frame_size()?
-  - This is same issue reported by sashiko-gemini. There is just one WAN de=
-vice
-    in the system so we do not need calculate the max MTU here.
-
-> +
->  static int airoha_dev_open(struct net_device *netdev)
->  {
-> -	int err, len =3D ETH_HLEN + netdev->mtu + ETH_FCS_LEN;
->  	struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
->  	struct airoha_gdm_port *port =3D dev->port;
-> -	u32 cur_len, pse_port =3D FE_PSE_PORT_PPE1;
->  	struct airoha_qdma *qdma =3D dev->qdma;
-> +	u32 pse_port =3D FE_PSE_PORT_PPE1;
-> +	int err;
-> =20
->  	netif_tx_start_all_queues(netdev);
->  	err =3D airoha_set_vip_for_gdm_port(dev, true);
-> @@ -1851,19 +1867,7 @@ static int airoha_dev_open(struct net_device *netd=
-ev)
->  		airoha_fe_clear(qdma->eth, REG_GDM_INGRESS_CFG(port->id),
->  				GDM_STAG_EN_MASK);
-> =20
-> -	cur_len =3D airoha_fe_get(qdma->eth, REG_GDM_LEN_CFG(port->id),
-> -				GDM_LONG_LEN_MASK);
-> -	if (!port->users || len > cur_len) {
-> -		/* Opening a sibling net_device with a larger MTU updates the
-> -		 * MTU of already running devices. This is required to allow
-> -		 * multiple net_devices with different MTUs to share the same
-> -		 * GDM port.
-> -		 */
-> -		airoha_fe_rmw(qdma->eth, REG_GDM_LEN_CFG(port->id),
-> -			      GDM_SHORT_LEN_MASK | GDM_LONG_LEN_MASK,
-> -			      FIELD_PREP(GDM_SHORT_LEN_MASK, 60) |
-> -			      FIELD_PREP(GDM_LONG_LEN_MASK, len));
-> -	}
-> +	airoha_dev_set_xmit_frame_size(netdev);
->  	port->users++;
-> =20
->  	if (!airoha_is_lan_gdm_dev(dev) &&
-> @@ -1875,30 +1879,6 @@ static int airoha_dev_open(struct net_device *netd=
-ev)
->  	return 0;
->  }
-> =20
-> -static void airoha_set_port_mtu(struct airoha_eth *eth,
-> -				struct airoha_gdm_port *port)
-> -{
-> -	u32 len =3D 0;
-> -	int i;
-> -
-> -	for (i =3D 0; i < ARRAY_SIZE(port->devs); i++) {
-> -		struct airoha_gdm_dev *dev =3D port->devs[i];
-> -		struct net_device *netdev;
-> -
-> -		if (!dev)
-> -			continue;
-> -
-> -		netdev =3D netdev_from_priv(dev);
-> -		if (netif_running(netdev))
-> -			len =3D max_t(u32, len, netdev->mtu);
-> -	}
-> -	len +=3D ETH_HLEN + ETH_FCS_LEN;
-> -
-> -	airoha_fe_rmw(eth, REG_GDM_LEN_CFG(port->id),
-> -		      GDM_LONG_LEN_MASK,
-> -		      FIELD_PREP(GDM_LONG_LEN_MASK, len));
-> -}
-> -
->  static int airoha_dev_stop(struct net_device *netdev)
->  {
->  	struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
-> @@ -1909,7 +1889,7 @@ static int airoha_dev_stop(struct net_device *netde=
-v)
->  	airoha_set_vip_for_gdm_port(dev, false);
-> =20
->  	if (--port->users)
-> -		airoha_set_port_mtu(dev->eth, port);
-> +		airoha_ppe_set_xmit_frame_size(dev);
-
-- On the close path, the call is to airoha_ppe_set_xmit_frame_size()
-  directly rather than the airoha_dev_set_xmit_frame_size() wrapper.
-  Does this mean WAN_MTU0 is never refreshed when a WAN dev is closed?
-  For example, if a small-MTU sibling is closed while a larger-MTU dev
-  remains running, the PPE MTU register gets recomputed to the larger
-  value but WAN_MTU0 retains the smaller value written at the last open
-  or change_mtu.
-  The commit message states:
-    set the tx frame size running airoha_ppe_set_xmit_frame_size()
-    to dynamically track the maximum MTU across running interfaces sharing
-    the same PPE instance.
-  Is the asymmetry between PPE MTU (max across siblings) and WAN_MTU0
-  (per-netdev write) intentional?
-  - This is same issue reported by sashiko-gemini. There is just one WAN de=
-vice
-    in the system so there is no point to update WAN_MTU0 if the WAN device=
- is
-    stopped.
-
-Regards,
-Lorenzo
-
->  	else
->  		airoha_set_gdm_port_fwd_cfg(qdma->eth,
->  					    REG_GDM_FWD_CFG(port->id),
-> @@ -1962,10 +1942,6 @@ static int airoha_enable_gdm2_loopback(struct airo=
-ha_gdm_dev *dev)
->  		      FIELD_PREP(LPBK_CHAN_MASK, chan) |
->  		      LBK_GAP_MODE_MASK | LBK_LEN_MODE_MASK |
->  		      LBK_CHAN_MODE_MASK | LPBK_EN_MASK);
-> -	airoha_fe_rmw(eth, REG_GDM_LEN_CFG(AIROHA_GDM2_IDX),
-> -		      GDM_SHORT_LEN_MASK | GDM_LONG_LEN_MASK,
-> -		      FIELD_PREP(GDM_SHORT_LEN_MASK, 60) |
-> -		      FIELD_PREP(GDM_LONG_LEN_MASK, AIROHA_MAX_MTU));
->  	/* Forward the traffic to the proper GDM port */
->  	pse_port =3D port->id =3D=3D AIROHA_GDM3_IDX ? FE_PSE_PORT_GDM3
->  					       : FE_PSE_PORT_GDM4;
-> @@ -2098,7 +2074,7 @@ static int airoha_dev_change_mtu(struct net_device =
-*netdev, int mtu)
-> =20
->  	WRITE_ONCE(netdev->mtu, mtu);
->  	if (port->users)
-> -		airoha_set_port_mtu(dev->eth, port);
-> +		airoha_dev_set_xmit_frame_size(netdev);
-> =20
->  	return 0;
->  }
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ether=
-net/airoha/airoha_eth.h
-> index d7ff8c5200e2..0c3fb6e5d7f1 100644
-> --- a/drivers/net/ethernet/airoha/airoha_eth.h
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.h
-> @@ -23,6 +23,7 @@
->  #define AIROHA_MAX_DSA_PORTS		7
->  #define AIROHA_MAX_NUM_RSTS		3
->  #define AIROHA_MAX_MTU			9220
-> +#define AIROHA_MAX_RX_SIZE		16128
->  #define AIROHA_MAX_PACKET_SIZE		2048
->  #define AIROHA_NUM_QOS_CHANNELS		4
->  #define AIROHA_NUM_QOS_QUEUES		8
-> @@ -676,6 +677,7 @@ int airoha_get_fe_port(struct airoha_gdm_dev *dev);
->  bool airoha_is_valid_gdm_dev(struct airoha_eth *eth,
->  			     struct airoha_gdm_dev *dev);
-> =20
-> +void airoha_ppe_set_xmit_frame_size(struct airoha_gdm_dev *dev);
->  void airoha_ppe_set_cpu_port(struct airoha_gdm_dev *dev, u8 ppe_id, u8 f=
-port);
->  bool airoha_ppe_is_enabled(struct airoha_eth *eth, int index);
->  void airoha_ppe_check_skb(struct airoha_ppe_dev *dev, struct sk_buff *sk=
-b,
-> diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ether=
-net/airoha/airoha_ppe.c
-> index 42f4b0f21d17..e7c78293002a 100644
-> --- a/drivers/net/ethernet/airoha/airoha_ppe.c
-> +++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-> @@ -97,6 +97,33 @@ void airoha_ppe_set_cpu_port(struct airoha_gdm_dev *de=
-v, u8 ppe_id, u8 fport)
->  		      __field_prep(DFT_CPORT_MASK(fport), fe_cpu_port));
->  }
-> =20
-> +void airoha_ppe_set_xmit_frame_size(struct airoha_gdm_dev *dev)
-> +{
-> +	struct airoha_gdm_port *port =3D dev->port;
-> +	struct airoha_eth *eth =3D dev->eth;
-> +	int i, ppe_id, index;
-> +	u32 len =3D 0;
-> +
-> +	for (i =3D 0; i < ARRAY_SIZE(port->devs); i++) {
-> +		struct airoha_gdm_dev *d =3D port->devs[i];
-> +		struct net_device *netdev;
-> +
-> +		if (!d)
-> +			continue;
-> +
-> +		netdev =3D netdev_from_priv(d);
-> +		if (netif_running(netdev))
-> +			len =3D max_t(u32, len, netdev->mtu);
-> +	}
-> +	len +=3D VLAN_ETH_HLEN;
-> +
-> +	ppe_id =3D !airoha_is_lan_gdm_dev(dev) && airoha_ppe_is_enabled(eth, 1);
-> +	index =3D port->id =3D=3D AIROHA_GDM4_IDX ? 7 : port->id;
-> +	airoha_fe_rmw(eth, REG_PPE_MTU(ppe_id, index),
-> +		      FP_EGRESS_MTU_MASK(index),
-> +		      __field_prep(FP_EGRESS_MTU_MASK(index), len));
-> +}
-> +
->  static void airoha_ppe_hw_init(struct airoha_ppe *ppe)
->  {
->  	u32 sram_ppe_num_data_entries =3D PPE_SRAM_NUM_ENTRIES, sram_num_entrie=
-s;
-> @@ -115,8 +142,6 @@ static void airoha_ppe_hw_init(struct airoha_ppe *ppe)
->  		PPE_RAM_NUM_ENTRIES_SHIFT(sram_ppe_num_data_entries);
-> =20
->  	for (i =3D 0; i < eth->soc->num_ppe; i++) {
-> -		int p;
-> -
->  		airoha_fe_wr(eth, REG_PPE_TB_BASE(i),
->  			     ppe->foe_dma + sram_tb_size);
-> =20
-> @@ -166,15 +191,6 @@ static void airoha_ppe_hw_init(struct airoha_ppe *pp=
-e)
->  		airoha_fe_wr(eth, REG_PPE_HASH_SEED(i), PPE_HASH_SEED);
->  		airoha_fe_clear(eth, REG_PPE_PPE_FLOW_CFG(i),
->  				PPE_FLOW_CFG_IP6_6RD_MASK);
-> -
-> -		for (p =3D 0; p < ARRAY_SIZE(eth->ports); p++)
-> -			airoha_fe_rmw(eth, REG_PPE_MTU(i, p),
-> -				      FP0_EGRESS_MTU_MASK |
-> -				      FP1_EGRESS_MTU_MASK,
-> -				      FIELD_PREP(FP0_EGRESS_MTU_MASK,
-> -						 AIROHA_MAX_MTU) |
-> -				      FIELD_PREP(FP1_EGRESS_MTU_MASK,
-> -						 AIROHA_MAX_MTU));
->  	}
-> =20
->  	for (i =3D 0; i < ARRAY_SIZE(eth->ports); i++) {
-> @@ -196,6 +212,7 @@ static void airoha_ppe_hw_init(struct airoha_ppe *ppe)
->  				 airoha_ppe_is_enabled(eth, 1);
->  			fport =3D airoha_get_fe_port(dev);
->  			airoha_ppe_set_cpu_port(dev, ppe_id, fport);
-> +			airoha_ppe_set_xmit_frame_size(dev);
->  		}
->  	}
->  }
-> diff --git a/drivers/net/ethernet/airoha/airoha_regs.h b/drivers/net/ethe=
-rnet/airoha/airoha_regs.h
-> index 436f3c8779c1..6fed63d013b4 100644
-> --- a/drivers/net/ethernet/airoha/airoha_regs.h
-> +++ b/drivers/net/ethernet/airoha/airoha_regs.h
-> @@ -327,9 +327,8 @@
->  #define PPE_SRAM_TABLE_EN_MASK			BIT(0)
-> =20
->  #define REG_PPE_MTU_BASE(_n)			(((_n) ? PPE2_BASE : PPE1_BASE) + 0x304)
-> -#define REG_PPE_MTU(_m, _n)			(REG_PPE_MTU_BASE(_m) + ((_n) << 2))
-> -#define FP1_EGRESS_MTU_MASK			GENMASK(29, 16)
-> -#define FP0_EGRESS_MTU_MASK			GENMASK(13, 0)
-> +#define REG_PPE_MTU(_m, _n)			(REG_PPE_MTU_BASE(_m) + (((_n) / 2) << 2))
-> +#define FP_EGRESS_MTU_MASK(_n)			GENMASK(13 + (((_n) % 2) << 4), ((_n) %=
- 2) << 4)
-> =20
->  #define REG_PPE_RAM_CTRL(_n)			(((_n) ? PPE2_BASE : PPE1_BASE) + 0x31c)
->  #define PPE_SRAM_CTRL_ACK_MASK			BIT(31)
-> @@ -377,6 +376,10 @@
->  #define REG_SRC_PORT_FC_MAP6		0x2298
->  #define FC_ID_OF_SRC_PORT_MASK(_n)	GENMASK(4 + ((_n) << 3), ((_n) << 3))
-> =20
-> +#define REG_WAN_MTU0			0x2300
-> +#define WAN_MTU1_MASK			GENMASK(29, 16)
-> +#define WAN_MTU0_MASK			GENMASK(13, 0)
-> +
->  #define REG_CDM5_RX_OQ1_DROP_CNT	0x29d4
-> =20
->  /* QDMA */
->=20
-> ---
-> base-commit: fd1269e454089abda0e4f9e5e25ecd02a90ab009
-> change-id: 20260618-airoha-fix-rx-max-len-57654b661646
->=20
-> Best regards,
-> --=20
-> Lorenzo Bianconi <lorenzo@kernel.org>
->=20
-
---rEKXp4YYWJj8j3Cp
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaj43bQAKCRA6cBh0uS2t
-rFrUAQCOeB4a0gN1IdYKnxN2lXsizU+k1u9UYyshfWu83j3wxgD+MFiRhBMQ733l
-YJwwQzNoR1eIe+9/fCDIkZWCL2Bd9gI=
-=9uSQ
------END PGP SIGNATURE-----
-
---rEKXp4YYWJj8j3Cp--
+Regards
+Yin, Fengwei
+> 
+> -- 
+>   Kiryl Shutsemau / Kirill A. Shutemov
+> 
 
