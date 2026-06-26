@@ -4,105 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97E57CDE00E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 12:36:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5508CDE002
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 12:37:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3Qc4TavqegVrav+S2qpl9+8s6wcCSKt3nqOoGSJ8Fvk=; b=sffz/CVe/Dcbmcle5l0d8x9iVs
-	TqM8lONoGuZb9Evk+54/ZklpfskQotBQXRw8eKTrZBk7i4ILaGPX9oYfMRWXfUbgClRONPlhbHapk
-	cyd6GI4FoTx/eKUoRiitSbWJ8ybJaFHBZLTdfqGjJtLMoTv1cpJAHdj117GfXQtROEa/4qy6Ty4M7
-	piTdJ9RcK7mivl95VIQ0JMNRbooJt8SwBOL5QI3P/taONvC7ZYHSlCKU6NH/EphMuFVXCpyrRXo/f
-	MD0bqcqB2Gdjs6DeHQVzDuLwIa4m07nuEUm0EG8lJnsi2XgpLPewn5Uh1x/vSHuR8DUG0F7BzloM7
-	/5Fahqww==;
+	bh=q1NRetAvDj6Zysapf6Nj83QBBrbnYgH2f7DVXGRpPmQ=; b=yiRwuMTRKkVw+d4dO979pynHxZ
+	UKFtKc/9uVwFaVYy3iHPHxga9jEgEcQ6nMpplQV8+NxjAZ/5ohvOzGPFSdGK49hnnOytSiKHOBH5D
+	T5XgZdTlskBoSGs4N8KxQZYgUuc3NG1YZwjEGGTbth/nhRlRqTZI0gMgWoPwnW/o2ZK5zeFU4wcn0
+	qRypDjYpA5z0/+FvfiiS68R9IFghRUC+YVModwKkVKSGB3jOVR7xDBM4g+BDv9YAjMxsr0NUKCMts
+	MWdCWk+cnBqlVZzG5n3igNfow/qBUnbUStMgj+5T46C5YCFmbzQNDkNh7XW5Xg4lT6B9AnZvVTl/v
+	Eh+JnbNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd5nX-0000000BJat-08XX;
-	Fri, 26 Jun 2026 12:36:43 +0000
-Received: from mail-oi1-f180.google.com ([209.85.167.180])
+	id 1wd5nx-0000000BJeT-0ZjK;
+	Fri, 26 Jun 2026 12:37:09 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd5nV-0000000BJaX-07uS
+	id 1wd5nu-0000000BJde-1ntc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 12:36:42 +0000
-Received: by mail-oi1-f180.google.com with SMTP id 5614622812f47-486852c7b68so572265b6e.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 05:36:40 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782477399; x=1783082199;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3Qc4TavqegVrav+S2qpl9+8s6wcCSKt3nqOoGSJ8Fvk=;
-        b=dH8Sw6ZEX1HUBw9l2kQ2XEwzig1TNjL7Lk5kg2dXxHdh5UAodkp9PdF5V3o5Fq0kBR
-         ZpXh4cEH4IdT9ALs8UoAsVqL5VoH8jHg5mCzN0Fo/cjd0QNSRP1HVq0BDsSPxkg7XyaI
-         Tt0XlG9dsVoaoJFbwo/VzmapSkz5T8NUK/lbsgeeSChw9OcDu2DrWB/xV3Ca0abZ/pIF
-         AGQTxy60hblnkg56QzFR8KtCzymoHihODuFownqpwcNW79wDBEo82r++Ddsj9Xo8v7p9
-         XVaXfISoabebwEFtj+bDKLquNWB10iRqAG3f5ipnC2/b3d5Ca3JEeqQRJS5xjr+y97H0
-         rKFA==
-X-Forwarded-Encrypted: i=1; AFNElJ+Lcds5w0RSH/LE7qRqTLHA+rI293C/24O+W0RnjJfEmWSXuGYxAUJ/eOspjCh5GG8snKzc+nPDj/qEGNv+EJgK@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQk86c7r15bier3+qpYzdN/pKVZX4RH9f0XV7tTRBKorIz3Yq2
-	yI6P/US28fUf3fYldR8M/mUIVMDsDLEXqKlECzaWkymmfLn0ov1Qxz/BVx63qzBY
-X-Gm-Gg: AfdE7clfik69NgQaX9OpMPd62l8g7KfNabzROPlJ8YyPcZejcyNva2zxRWdKksMwDxP
-	ZWZM1trOlo5IrGE/CkeHXctPTl1U7J8H4jk3TpRSgeXWmXS1uVj+ikqhHhJF9+cClGRxGAyizEF
-	wVNxOoxACQN7Qp/5PTEge7ntriqCpp2RP9rUa+q/3lTX475ewF0dy6A5kd9Il6A5eO3yPR5AhkB
-	PgHtxtqtu8CKqvsV3g9FhQk8ZhT2mUSfMnYUc3m1MFtnJfwFkHea0J1PIgfvHgBFzjJA7pVC0Li
-	g9bxCUfVt7loSsPucQRg/PPJq4x+/tjdwc0506SpEBzXrIZTb/tM7Qqeliuv/tvbK8vOJiCsRUk
-	EpH7J50qjR3uhXDk2b92vPt84dbs9OIzucovTnEK9bMZ/xPDRbIPR4xv3EWrmxaPTS2/rtdOo8p
-	bOAcLDDOfV0eYbCPS2fMBKFsARC6q1PpagQtjDu+bJeF6zpnNgjw==
-X-Received: by 2002:a05:6808:1806:b0:493:3b1b:f121 with SMTP id 5614622812f47-4933b1bf279mr2652335b6e.7.1782477399631;
-        Fri, 26 Jun 2026 05:36:39 -0700 (PDT)
-Received: from mail-ot1-f48.google.com (mail-ot1-f48.google.com. [209.85.210.48])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-49352505004sm1299738b6e.2.2026.06.26.05.36.38
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 26 Jun 2026 05:36:39 -0700 (PDT)
-Received: by mail-ot1-f48.google.com with SMTP id 46e09a7af769-7e6d991991dso679420a34.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 05:36:38 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ9ig+V2WI23qvWzurFySXDx6cmSFAPkTjTBIwN1HxQQcTsBHuL53FKbCQ+JZTaYbQ3uyHo3+OxxhU4nd8hLEfok@lists.infradead.org
-X-Received: by 2002:a05:6102:5491:b0:631:4580:6a46 with SMTP id
- ada2fe7eead31-73435b90f5fmr3476500137.17.1782477036873; Fri, 26 Jun 2026
- 05:30:36 -0700 (PDT)
+	Fri, 26 Jun 2026 12:37:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=q1NRetAvDj6Zysapf6Nj83QBBrbnYgH2f7DVXGRpPmQ=; b=AtCJJF3CcxC2+M7yQPBFpgOu9U
+	prM/53Pc76uGqFwtrN7d1fQxaRRiDmqUu0hEOVQUC2+W/CjOXzvu8RLB1xDEZw7TwtkUSe9kMTIaF
+	YsnDtVp5/r4HUQbN+o9vcM6m2OOfZzwb28D5ACBGuamFTiR+y/nSDG5s4BflKMfqxcE/dxPOMvc2Z
+	R3e0TyFQBm19fEDRomlwngHvU0Iw1Ngd/MlEJgo4DUoQqj/Qg+1EqDI+A227TWxrh/pl2PfBGEgy1
+	NPlZuWVUtcEEFQUN84kMHmKa9trbN2eVDxX6DQt2mwv6CEXuVWp7PQOgWXMSrOQMGeZS+j318gaMo
+	qwTNNvUA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:58358)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1wd5nq-000000002EX-2RZt;
+	Fri, 26 Jun 2026 13:37:02 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1wd5no-0000000032I-2G2O;
+	Fri, 26 Jun 2026 13:37:00 +0100
+Date: Fri, 26 Jun 2026 13:37:00 +0100
+From: Russell King <linux@armlinux.org.uk>
+To: Xie Yuanbin <xieyuanbin1@huawei.com>
+Cc: xiqi2@huawei.com, akpm@linux-foundation.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	sunnanyong@huawei.com
+Subject: Re: [PATCH v3 2/2] ARM: mm: protect show_pte() in do_DataAbort()
+ fallback path
+Message-ID: <aj5ybKcDxl1tOIx4@shell.armlinux.org.uk>
+References: <20260626073048.3595106-3-xiqi2@huawei.com>
+ <20260626101615.60920-1-xieyuanbin1@huawei.com>
 MIME-Version: 1.0
-References: <20260626-kbingham-orientation-v2-0-47178be927b4@ideasonboard.com> <20260626-kbingham-orientation-v2-7-47178be927b4@ideasonboard.com>
-In-Reply-To: <20260626-kbingham-orientation-v2-7-47178be927b4@ideasonboard.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 26 Jun 2026 14:30:24 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdV+BDLjuhVo5fyHxSEibW8E4opXbaDrgsmTgygXXJoATA@mail.gmail.com>
-X-Gm-Features: AVVi8Cc1rFvCNNORSHDtFmL_tkYQ91oxJ5vGSfmmYwanPmDM2yIyJwQSJ-fX378
-Message-ID: <CAMuHMdV+BDLjuhVo5fyHxSEibW8E4opXbaDrgsmTgygXXJoATA@mail.gmail.com>
-Subject: Re: [PATCH v2 7/8] arm64: dts: renesas: Convert to new media
- orientation definitions
-To: Kieran Bingham <kieran.bingham@ideasonboard.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jacopo Mondi <jacopo@jmondi.org>, Sakari Ailus <sakari.ailus@linux.intel.com>, 
-	Jimmy Su <jimmy.su@intel.com>, Matthias Fend <matthias.fend@emfend.at>, 
-	Mikhail Rudenko <mike.rudenko@gmail.com>, Daniel Scally <dan.scally@ideasonboard.com>, 
-	Jacopo Mondi <jacopo.mondi@ideasonboard.com>, 
-	Michael Riesch <michael.riesch@collabora.com>, 
-	Benjamin Mugnier <benjamin.mugnier@foss.st.com>, 
-	Sylvain Petinot <sylvain.petinot@foss.st.com>, 
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
-	Paul Elder <paul.elder@ideasonboard.com>, Martin Kepplinger <martin.kepplinger@puri.sm>, 
-	Quentin Schulz <quentin.schulz@theobroma-systems.com>, 
-	Tommaso Merciai <tomm.merciai@gmail.com>, Svyatoslav Ryhel <clamor95@gmail.com>, 
-	Richard Acayan <mailingradian@gmail.com>, Thierry Reding <thierry.reding@kernel.org>, 
-	Jonathan Hunter <jonathanh@nvidia.com>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
-	Heiko Stuebner <heiko@sntech.de>, linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-tegra@vger.kernel.org, 
-	linux@ew.tq-group.com, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260626101615.60920-1-xieyuanbin1@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_053641_091433_BFB2BC29 
-X-CRM114-Status: GOOD (  19.10  )
+X-CRM114-CacheID: sfid-20260626_053706_471875_942C18AD 
+X-CRM114-Status: GOOD (  16.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,29 +81,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 26 Jun 2026 at 14:08, Kieran Bingham
-<kieran.bingham@ideasonboard.com> wrote:
-> From: Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>
->
-> The orientation property for video interface devices now has definitions
-> to prevent hardcoded integer values for the enum options.
->
-> Update the users throughout the renesas device trees to use the new
-> definitions.
->
-> Signed-off-by: Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>
+On Fri, Jun 26, 2026 at 06:16:15PM +0800, Xie Yuanbin wrote:
+> On Fri, 26 Jun 2026 15:30:48 +0800, Qi Xi wrote:
+> > @@ -638,7 +638,10 @@ do_DataAbort(unsigned long addr, unsigned int fsr, struct pt_regs *regs)
+> > 	pr_alert("8<--- cut here ---\n");
+> > 	pr_alert("Unhandled fault: %s (0x%03x) at 0x%08lx\n",
+> > 		inf->name, fsr, addr);
+> > -	show_pte(KERN_ALERT, current->mm, addr);
+> > +	if (mmap_read_trylock(current->mm)) {
+> > +		show_pte(KERN_ALERT, current->mm, addr);
+> > +		mmap_read_unlock(current->mm);
+> > +	}
+> 
+> For kernel faults, `current->mm` maybe NULL, and
+> `mmap_read_trylock(current->mm)` may cause a panic.
+> Also, interrupts may be disabled here.
+> 
+> I suggest that waiting for this patch to be merged first:
+> https://lore.kernel.org/20260625122612.43501-1-xieyuanbin1@huawei.com
+> which make sure that interrupts are enabled here.
 
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+No, it doesn't ensure that.
 
-Gr{oetje,eeting}s,
+show_pte() is also called from die_kernel_fault() and
+__do_kernel_fault(), which can be from a path that has interrupts
+disabled. See the comments in do_kernel_address_page_fault().
 
-                        Geert
+We are not "fixing" show_pte(), which is a diagnostic function when
+things go wrong in the kernel, and is there to *try* to give us
+information to diagnose what happened. It is *not* a function that
+is used routinely in the kernel.
 
+The fact it is racy with other CPUs may be a problem, but it isn't
+a big problem because when it's called, the system is practically
+dead anyway.
 
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
