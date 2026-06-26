@@ -4,80 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14519CDE008
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 07:35:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52A34CDE008
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 07:44:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fwt/kxlU0Ywgyydlp2eJ2vLoMTfcjLWZMUoUXLH7s2E=; b=l56Lt0fMwjPqi4kSOioUPJh/e9
-	E7yfpqMO6jDxdAWYZQsCY9LWbJFmwL6rNVrI/nBIecyjA7c5r0TJKWg1QHJhEsrYRS9jWNKcb9BG9
-	Zqk6/fsyiPfbyc1zaPceyoLw3h+UxtjOrKPc/61DF5LgYhZbT3lQ13t8hagv7eQkTtlwAnMOpb1ZS
-	q0a6eGcKiYuyrWdQULRvJsujiQGqC6AKJBHUxMg9r4q0vGyu0Mz1dpLJFwW8eNsvqaVKlKTX91T7s
-	GSHZ8fE3LntCFYncoYnF+RFNWZj7ueTInZE2q4quc6ZnU3/KltPG86O7mtdLtrZr8O7i0vZxbyGjj
-	MNxufbfA==;
+	bh=Xt7ue9HwiPWHFMmu1Qr+INx7bk2xLViK4an0U84LPO8=; b=Qfl0l4glGGMoh85huBAdS1yRzp
+	jn8LHHpPdlfcmyL5R5zLPUN9IhGlBQGA6Yke16WcGJdyq8GrqIPJjD2nSnO44VEaB0SHYtIieh0Jw
+	owIIV/dDbxh1ffw0fIq2k/ohsEJA0VRW64Nr2qAocZ2DZh6rJvNKtdN3qvHL7T76A2j81VXhiZqmr
+	Oo6cn/pzmOA5ZUFz+X+FPS6vrCFUNZKJhz5LxmeAymATR7kMFfd2fxPZlG75XW5reVLIqj605dTEq
+	E7D8POxaamw9EftZtgp9hgGWfdmsBy/55iqTeRL7SGiORO5elpOtjlTLu5DtBEfW5JFen+DHneExQ
+	KgkOd65g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd160-0000000AgLv-34HI;
-	Fri, 26 Jun 2026 07:35:28 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1wd1ED-0000000Ah5x-1451;
+	Fri, 26 Jun 2026 07:43:57 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd15m-0000000AgFM-0fvX;
-	Fri, 26 Jun 2026 07:35:15 +0000
-From: Gregor Herburger <gregor.herburger@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1782459310;
+	id 1wd1E8-0000000Ah4y-3vHm
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 26 Jun 2026 07:43:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1782459831;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=fwt/kxlU0Ywgyydlp2eJ2vLoMTfcjLWZMUoUXLH7s2E=;
-	b=n3vHKV2+xyyd0FcD/B/ZRr+mENG/2UskwZQsL52jvLLvCg3Nf5HhURbSZKJG5e1kI1k9Xc
-	WoqpsrFqthiHF397xaPv3ZSYqyGW8kJTmocpyzUHaS8pq80pFtoBlAoVTm5g4cuuDAoG5p
-	Xiu95cpTnAScvQVn6+WpjR/XT9uYqSgZKAeiPn1dSE7DVKE1gB/C22ZsgTLZHDhBNM7JPg
-	xqUcx2Jv0YyZXgQ0RqxdGaGQi5ikBBLqEZee/4MvSE6UweDkWKyN9hkP3qI4ZTVZmd/Hn0
-	fIMu4UR/icihYh3jk0m7F/BPhG/2YIfv23O1DmtOM6Pllg4k0PmNB4//+oKqNw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1782459310;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=fwt/kxlU0Ywgyydlp2eJ2vLoMTfcjLWZMUoUXLH7s2E=;
-	b=UdKKD7nH7jwPMpCuF2zQyM6eSag1HbHvxmhpIW6pgZKlqJ/8saWIn4BeJVqhJctwB6BeqH
-	H3sLvvJpcsRMnbAw==
-Date: Fri, 26 Jun 2026 09:35:07 +0200
-Subject: [PATCH 4/4] arm64: dts: broadcom: bcm2712: Add reboot modes to
- firmware node
+	bh=Xt7ue9HwiPWHFMmu1Qr+INx7bk2xLViK4an0U84LPO8=;
+	b=JKOYpLp3yaUHS6OE+l7CdtKCDwB3J3pYCh/OUVijt8TyFRAe0BXve7iXXcTzLTaSOc/UT+
+	+IZqq3qk5g21fAXlOtZCGRFkUPwdWs+V7Qq8kNQ9uOqqLI6YWakT/4RJ37J1Fjm+mTmISU
+	MG+EvR9aBd+ZNDH94zpidrDRcze/IGY=
+Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com
+ [209.85.214.199]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-528-cCHH6YoMMlG2Lb33qSJqZA-1; Fri, 26 Jun 2026 03:43:49 -0400
+X-MC-Unique: cCHH6YoMMlG2Lb33qSJqZA-1
+X-Mimecast-MFC-AGG-ID: cCHH6YoMMlG2Lb33qSJqZA_1782459829
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2c80f89b64bso10524585ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 00:43:49 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782459829; x=1783064629;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Xt7ue9HwiPWHFMmu1Qr+INx7bk2xLViK4an0U84LPO8=;
+        b=DBJSUsFqAixrcMn+J4ZTMZFhbLKjpONjG936Z0rfGl0HzadFSXP9j5L1X3Lqfsaj6E
+         L7IaqUSOb0NITd42pdqu4fzsgCoygjPfdjuy7/N4OySAj8BTN7JywHODRoixibm4aqFh
+         VGCKnVq+9n1W8V+DAjCDeDbcvba+HxCMidqrkyWoY4QqOh5RWjHdPwiLiEPUnl/u0RZo
+         yg1HhrUhc2z4ZGvRhalAlkPbIF+ZSO1zC6s70oS+wOb1VeQ7lc3KXU1qoGsG2i5azOFA
+         2UuwHhYxmipvAYN6bOWLo6vjhut7nm99wPJC+NkWbVRL4xzZQXI1APDzUbWrb/B/rAJR
+         6P4Q==
+X-Forwarded-Encrypted: i=1; AHgh+RrokdeVNa4c38Jy4E83zZa8yuIeh0muBbt9iHl5hn+HF3/Qy0Sphvn5h9rE/6UdYUfkYv647ver4KXE+wyfWQMm@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw2dMxBqq9lIEY4Wb1hLZ7/EaWKrwSjVGQepkG96GnOcQQG2eZt
+	xe9A5vGowAwuAfvnvvyGdaJzKtdFP2jB0Z3Hk0UUdvPO565FdDr9M8XKglOVLiartIJNvxEZ1d9
+	mIM+0PUaXsIWvSGuSQJIH23vpWnUOcw99Dr1dV6rxyOGFffDHxyGUfm5McPH+xu5JSz6JsfTFXK
+	ov
+X-Gm-Gg: AfdE7ckztlnLVPDI8BtZxudHItr/jDjZh0gZtIuqM0gYoVHPJqgjF32FZMpdwtEkq/Z
+	I3WJfQxJ3WZBzkbMfR3PbEiqBshYwFanpNWVZecXyvk+3iS11oBGCUGze/jBuUTEexwq6ZYEsns
+	FLpdrbudGU39r7+a6LrinkMeAvvPwPCIXj8tZ8XkOOlHrDJ0TezlLHIA8zmXv4NJ221V7VqLoo2
+	1LalFB+UhytNb3O9Q3XqZVhyXUMBxGk/GYULaORpqgS2SiUa4Eb8gMrUmOhVDEE94TFGg2PWrha
+	dBrvfstkeTvnnCY0MKi7bFJp/6Gf9kqkFF90bnmwTiHO9XZQH9oJ2X29O6pfouIKeY2OytbEDN9
+	Aefm+dY/ez0joIAso1a1hnYHLidOpdE3qmwKxLq2MnKT69NtC/rx0oQ==
+X-Received: by 2002:a17:902:d510:b0:2c7:f233:3df8 with SMTP id d9443c01a7336-2c7fc8ab880mr56064705ad.31.1782459828709;
+        Fri, 26 Jun 2026 00:43:48 -0700 (PDT)
+X-Received: by 2002:a17:902:d510:b0:2c7:f233:3df8 with SMTP id d9443c01a7336-2c7fc8ab880mr56064265ad.31.1782459828076;
+        Fri, 26 Jun 2026 00:43:48 -0700 (PDT)
+Received: from [192.168.68.51] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c7f63b27f4sm34866665ad.53.2026.06.26.00.43.36
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 26 Jun 2026 00:43:47 -0700 (PDT)
+Message-ID: <8da87878-2a5d-478a-a280-60dbed7ad1b9@redhat.com>
+Date: Fri, 26 Jun 2026 17:43:34 +1000
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260626-rpi-tryboot-v1-4-490b1c4c4970@linutronix.de>
-References: <20260626-rpi-tryboot-v1-0-490b1c4c4970@linutronix.de>
-In-Reply-To: <20260626-rpi-tryboot-v1-0-490b1c4c4970@linutronix.de>
-To: Florian Fainelli <florian.fainelli@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Eric Anholt <eric@anholt.net>, 
- Stefan Wahren <wahrenst@gmx.net>
-Cc: linux-rpi-kernel@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, 
- Gregor Herburger <gregor.herburger@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1782459308; l=866;
- i=gregor.herburger@linutronix.de; s=20260226; h=from:subject:message-id;
- bh=vDH7xyINpB8aIhH1p1k0iDI8THECYcbWKH4TgFUwSIg=;
- b=DMU3jwcQAgiYGwTw+ByY8t8n4oB09PTsBDQ/38EeI5tZNG33/zES84FT5LRHK5fgWTU1olYYR
- OEgslcJPBR/CR1sxonPSrQzbFAwJaiKjCNNIkvhc/gnqYa998iYvrZp
-X-Developer-Key: i=gregor.herburger@linutronix.de; a=ed25519;
- pk=u72Lv7+/lS5CC1hmSrb17lv/6CK7HBh4Lvz77PHA5LM=
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v14 29/44] arm64: RMI: Runtime faulting of memory
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev, Catalin Marinas <catalin.marinas@arm.com>,
+ Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>,
+ James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
+ Zenghui Yu <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
+ <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+ Emi Kisanuki <fj0570is@fujitsu.com>, Vishal Annapurve
+ <vannapurve@google.com>, WeiLin.Chang@arm.com, Lorenzo.Pieralisi2@arm.com
+References: <20260513131757.116630-1-steven.price@arm.com>
+ <20260513131757.116630-30-steven.price@arm.com>
+ <3359f788-07fa-41a1-9ac7-45c58577c1fa@redhat.com>
+ <aiJ6u83O0nVUtPyv@lpieralisi>
+ <ecef952b-e8c6-4102-933b-c99c46f14431@redhat.com>
+ <aiLes2ecZSr17UwZ@lpieralisi>
+ <1e39094f-7fa3-4ef1-be54-53d7a8643506@redhat.com>
+ <98d2a0f3-b831-466a-8212-5bcf97ad9d8b@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <98d2a0f3-b831-466a-8212-5bcf97ad9d8b@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: X8KZ03Ts2faEc5Owdmrqg_OmEJsv5avDceXWSLEldXE_1782459829
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_003514_377240_8F16A0A4 
-X-CRM114-Status: UNSURE (   8.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260626_004353_052722_896E4043 
+X-CRM114-Status: GOOD (  28.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,29 +131,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The raspberry pi firmware driver allows the tryboot reboot mode. Add
-this mode and normal boot mode to the node.
+On 6/26/26 1:58 AM, Suzuki K Poulose wrote:
+> On 25/06/2026 14:53, Gavin Shan wrote:
+>> On 6/6/26 12:35 AM, Lorenzo Pieralisi wrote:
+>>> On Fri, Jun 05, 2026 at 06:11:11PM +1000, Gavin Shan wrote:
+>>>> On 6/5/26 5:28 PM, Lorenzo Pieralisi wrote:
+>>>>> On Fri, Jun 05, 2026 at 04:23:15PM +1000, Gavin Shan wrote:
 
-Signed-off-by: Gregor Herburger <gregor.herburger@linutronix.de>
----
- arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi | 2 ++
- 1 file changed, 2 insertions(+)
+[...]
 
-diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
-index b7a6bc34ae1ab..67095c7ff770d 100644
---- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
-+++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
-@@ -49,6 +49,8 @@ firmware: rpi-firmware {
- 			compatible = "raspberrypi,bcm2835-firmware", "simple-mfd";
- 
- 			mboxes = <&mailbox>;
-+			mode-normal = <0>;
-+			mode-tryboot = <1>;
- 
- 			firmware_clocks: clocks {
- 				compatible = "raspberrypi,firmware-clocks";
+>>>>
+>>>> I tried to rebase Jean's latest QEMU series [1] to upstream QEMU, and found
+>>>> that memory slots backed by THP are broken. With THP disabled on the host and
+>>>> other fixes (mentioned in my prevous replies) applied on the top of this (v14)
+>>>> series, I'm able to boot a realm guest with rebased QEMU series [2], plus more
+>>>> fxies on the top.
+>>>>
+>>>> [1] https://git.codelinaro.org/linaro/dcap/qemu.git  (branch: cca/ latest)
+>>>> [2] https://git.qemu.org/git/qemu.git                (branch: cca/gavin)
+>>>>
+>>>> Lorenzo, You may be saying there is someone making QEMU to support ARM/CCA?
+>>>
+>>> Mathieu and I are working on that yes and with Steven/Suzuki to fix the THP
+>>> issues you pointed out above.
+>>>
+>>>> If so, I'm not sure if there is a QEMU repository for me to try?
+>>>
+>>> We should be able to submit patches by end of June - we shall let you know
+>>> whether we can make something available earlier.
+>>>
+>>
+>> Not sure if there are other known issues in this series. It seems the stage2
+>> page fault handling on the shared space isn't working well. In my test, the
+>> vring (struct vring_desc) of virtio-net-pci is updated by the guest, and the
+>> data isn't seen by QEMU, I'm suspecting if the host-page-frame-number is properly
+>> resolved in the s2 page fault handler for shared (unprotected) space.
+>>
+>> - I rebased Jean's latest qemu branch to the upstream qemu;
+>>
+>> - On the host, which is emulated by qemu/tcg, the THP (transparent huge page) is
+>>    disabled.
+>>
+>> - On the guest, I can see the virtio vring (struct vring_desc) is updated. The
+>>    S1 page-table entry looks correct because the corresponding physical address
+>>    0x10046880000 is a sane shared (unprotected) space address.
+>>
+>>    [   52.094143] software IO TLB: Memory encryption is active and system is using DMA bounce buffers
+>>    [   52.289746] virtqueue_add_desc_split: desc[0]@0xffff000006880000, [00000100b983f000  00000640  0002  0001]
+>>    [   52.432150] PTE 0x00e8010046880707 at address 0xffff000006880000
+>>
+>> - On the host, the s2 page-table-entry is unmapped due to attribute transition (private -> shared).
+>>    A subsequent S2 page fault is raised against the adress and the s2 page-table-entry is built.
+>>
+>>    [  109.259077] ====> realm_unmap_shared_range: tracked_unprot_addr=0x10046880000
+>>    [  109.260249] realm_unmap_shared_range: unmapped shared range at 0x10046880000
+>>    [  109.317786] realm_unmap_shared_range: unmapped shared range at 0x10046880000
+>>    [  109.629939] ====> kvm_handle_guest_abort: fault_ipa=0x10046880000, esr=0x92000007
+>>    [  109.630245] realm_map_non_secure: ipa=0x10046880000, pfn=0xb8b59, size=0x1000, prot=0xf
+>>    [  109.630331] realm_map_non_secure: ipa=0x10046880000, ipa_top=0x10046881000, flags=0x1e0001, range_desc=0xb8b59004
+> 
+> Are you able to correlate the order of the transitions and the Guest
+> access with RMM log ? We haven't seen this from our end. We are aware
+> of permission fault issues with Unprotected IPA when backing the memslot
+> with MAP_PRIVATE areas. But this looks different.
+> 
+> Lorenzo, have you run into this ?
+> 
 
--- 
-2.47.3
+It's hard to correlate the order since the logs are collected from two separate
+consoles. For the write permission, I add code to the host where the permission
+is always added for all s2 page faults in the shared space. Otherwise, qemu can
+be killed by -EFAULT or similar error.
+
+There are more findings after more experiments: this virtio-net-pci device has 3
+queues or vrings (Rx/Tx/Ctrl). The Rx/Tx/Ctrl queue are populated in order one after
+one. In the guest kernel, I intentionally write fixed data (0x0123456789abcdef) to
+the first 8 bytes of the queue when it gets populated, and stop the guest at random
+points to see if the data is gone. I found that the data written to Rx/Tx queue are
+lost after Ctrl queue is allocated.
+
+The data written to Rx/Tx queue is lost if the guest stops (B). The data written to
+Rx/Tx queue isn't lost if the guest stops at (A). I can see the pattern (0x0123...cdef)
+by dumping the physcial memory through 'pmemsave' command in qemu.
+
+DMA allocation
+==============
+dma_alloc_coherent
+   dma_alloc_attrs
+     dma_direct_alloc
+       __dma_direct_alloc_pages
+       dma_set_decrypted                    // (A) No data lost if being stopped here for the Ctrl queue
+       memset(ret, 0, size)                 // (B) Data lost after being stopped after memset() for the Ctrl queue
+
+The memset() on the Ctrl queue should trigger a stage2 page fault. It seems the page
+fault enforces the shared pages for Rx/Tx queue to be dropped? I need to add more
+debugging code and track it down.
+
+> Suzuki
+> 
+> 
+>>
+>> - On QEMU, the updated vring (struct vring_desc) at GPA 0x46880000 isn't seen. All the
+>>    data in that adress are zeros.
+>>
+>>    ====> virtqueue_split_pop: vdev=<virtio-net>, sz=0x38, queue_index=0x0, vq->vring.num=0x100
+>>    virtqueue_split_pop: last_avail_idx=0x0, head=0x0
+>>    address_space_read_cached_slow: cache@0xffff1c036440, addr=0x0, buf=0xffffeee34880, len=0x10
+>>    address_space_read_cached_slow: cache: ptr=0x0, xlat=0x10046880000, len=0x1000, mrs=<realm-dma-region>, is_write=no
+>>    address_space_read_cached_slow: translated to mr=<mach-virt.ram>, mr_addr=0x6880000, l=0x10
+>>    flatview_read_continue_step: mr=<mach-virt.ram>, host=0xffff23e00000, mr_addr=0x6880000, ram_ptr=0xffff2a680000
+>>    virtqueue_split_pop: desc: 0000000000000000 - 00000000 - 00000000 - 00000000
+>>    qemu-system-aarch64: virtio: zero sized buffers are not allowed
+>>
+>>
+Thanks,
+Gavin
 
 
