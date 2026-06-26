@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9DC3C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 21:35:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80256C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 21:36:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SQrCOvI/gGqY/5lmFouPkrLmKsRGpPhinpGyhSDO7Ek=; b=uviYDQIzeVJwP93CH53SB4yA5V
-	U66lXbgvr+NdbyGIYcMUZUCqFyIry5IfBxwph9YKt49LZ5oGO3PRvqZtTi7XKBhk3ryFGxU6j4uLr
-	uPysx+V/64eJV4LRic6XLlna59AG6Lwh/bzeu904+unlMGamrhU9xNJwdCizkjWsUugesWpgPMZB8
-	c8/XjTJUMRHwqpM/YPTnxwcg03hV7h6hCn4iGAnVnop6eC7xEF7Fk+XDyg2xuJhKIVJB2O0Uh+9oV
-	1GO44P6vKLm0FIUKiUSmxPWImWciTvL4H/weY6HVS9hQ2uyB8UiIWsYaUbKlxsTWs7LLlNMZ2ISZU
-	56D6vU1Q==;
+	bh=qCGL317mUr/viDiHdvHr/Nh+V34QOpSJDtpLpPCiKc0=; b=Oh4F9s0mzq1idpLSbJPTWbCr86
+	+Mdg9SZyLjafL5g+Pq0/cwRfJL2AKxnTD7+gyT7APfp3E40+1a4h5zZy2VthpgIdPznq4ZrjM4dx0
+	KoxDQ8qka8HdgGmfjj+z1cBHLpIDRXW/3xlQbfu1kxdrUVvjS4uPTJ+sgVmCwqD8yuZ40jSBA/ftx
+	md6FmuamoR0kU3exARD2UMw62XNf7mTZ6glWUR2L97p7rcd8d8zvUUKkCfoglw7royRqj/x58YRLA
+	+Vw+btCODV337WwgT6jxA+3eE9JwLL7/BxAHzgxdnuASjkOQpTFDgnRoePkYOtq1AUMWGH+C/JBsA
+	cOuuMMaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdEDC-0000000BuHg-06E3;
-	Fri, 26 Jun 2026 21:35:46 +0000
+	id 1wdEDV-0000000BuVY-3J0T;
+	Fri, 26 Jun 2026 21:36:05 +0000
 Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdED5-0000000BuEp-2fzL
+	id 1wdEDA-0000000BuGd-0woy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 21:35:41 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-2c6bbd0afffso19441045ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 14:35:38 -0700 (PDT)
+	Fri, 26 Jun 2026 21:35:45 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-2c8018f11fbso12536115ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 14:35:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1782509738; x=1783114538; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1782509743; x=1783114543; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=SQrCOvI/gGqY/5lmFouPkrLmKsRGpPhinpGyhSDO7Ek=;
-        b=Wna6J7VqVX1da0xFw4+eOO8IPnpXeZnuCOqU1bL/KqIROoRDJk8JpaqYqtNbPrWuT8
-         +cN/EJIBe0NdP7/aXqAVaJKefn7nzwk0OBF0A1ORC3txHPohEk4jEK9pKoH/EgClQGmS
-         v+eoIgMvy/XJMqsiPWUuboPPrR73Hf2JgzSW5BrUPyYMjRi7IrxtnW0CNvgbWaj6ugPD
-         SUId6eOq7LTzOEj3l1ZZqPOjLl8Yhd0avYIwRFok7oHBUxyjJAXmrcnGjukRstqoyP9P
-         +waZ+rBcEsNUa2BI4IdOosJ82ZtgzIs6s7Z9TQHbaxwlhWrXd7Q2grV0Dz+LtCx1jWhP
-         /CZw==
+        bh=qCGL317mUr/viDiHdvHr/Nh+V34QOpSJDtpLpPCiKc0=;
+        b=LWenNCwoYHe0WkuZYe5yYUAx02pJDtyFB7wfH8WeVFR2+E9RZTmvL+4gO71CMD2hpL
+         R5baZl373o66HYDKbsTpR6/Oc9Z5pKrcKa4TLOkHJ3Gqn7973n1czaSzZEXPTB0IfWZO
+         c3C+cGIpP2vZ33OrQN2SJIBotQiqOCqnz8WBxluCA5bTjQKaUG/Tp5TWtbVANLklTBOu
+         b61pI2rEDWuYUGbkW9jDQxn3wKv8Keev5kRYarrcQry6cvOZolPVzzJU3+0EBohSsoWP
+         v2OFW3kkw/vVSZ5sLsCb3Zzu3iaXRxMQu+7JnGfFVzXRBZ0takYzkvIT/wBRvjfJNUa1
+         9IqQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782509738; x=1783114538;
+        d=1e100.net; s=20251104; t=1782509743; x=1783114543;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=SQrCOvI/gGqY/5lmFouPkrLmKsRGpPhinpGyhSDO7Ek=;
-        b=M50B9k8svIaT8UNwTDhh0Icrw7IW7+oBCsIoDmR2kc5GpgbxbBeYgKJF7N8igwCNSk
-         I8NvVFyKMyCuzZ2b8jYB5AqekLAuzikpNUrFynR0Oo+Txz7PSouQHBHXDPI9e28BTPS4
-         F9XW1NDkImp3lFCfWWgu5h9i6eLJf+JY2mtDPqtmfL4Wr8ge8q4LcsOqgeE8WhB6cDOc
-         pXIn36Iz714TxwqPYU5m5n+2sPgDtEy6slo/ExByRT12JA8Ix+HaoRFzos6HIm3XM9RF
-         /47WvJH9TmRLl+lCrwLWupAxWp/LlgJE4d8iJm00R5BcR+Urua35+Mjf7c7Iz3uGM42Z
-         vdWg==
-X-Forwarded-Encrypted: i=1; AHgh+Rq1/kHdhlm8HkfkPed5korO/rDAqqaajx43YDdg4KJpQv2+WewExXY0a/YhrtwM0iN/1TkN1UZ5QIz5v+vuwuWB@lists.infradead.org
-X-Gm-Message-State: AOJu0YxYEx1qZJ85sYC6NMmP36gyB/LSCb3RV4YklM9CsmHA/0MKePqb
-	RzDdvBxSNiZ6NviZNVCj8VopPJ9Swe3KHwWAn9dcEdY6fexC8Zh4I+Lwih1BC6MtmCVFf+4R9eY
-	VD++ydA==
-X-Received: from plq11.prod.google.com ([2002:a17:903:2f8b:b0:2c8:17d:91a3])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:2304:b0:2c0:d91d:c3e8
- with SMTP id d9443c01a7336-2c7fc65423emr78308535ad.4.1782509737490; Fri, 26
- Jun 2026 14:35:37 -0700 (PDT)
-Date: Fri, 26 Jun 2026 14:35:14 -0700
+        bh=qCGL317mUr/viDiHdvHr/Nh+V34QOpSJDtpLpPCiKc0=;
+        b=VrPrDjtKvS1SlLZX9eC/PvlNrWbUYKWlSDgdZKaLxzXcR6zmqRXLelDA/t2yoWfb61
+         u5p/ykngSX/ISmjUDzlZ9OE0TJ+/idaduRfHO+v3xY3kvEvHm/98LPE+a/7ou2RytNgt
+         vfFL+oXnUA2oWdg1kDbWuFCcMJwYfxkK56SooS9hBs8dboPeVAN3PmqhzYAKD6ccwviy
+         xz6P0m/z6pT9i4CFjBXCIr0lRQzrzL+TP3q8/yhpI6NmOAr/BzfDeqkilGEoyqn/4kDZ
+         ewn9LPnuiSjj+672DovbTm5+JBOg9m79PZucZtEv7h5s4p7yD3stTZzSeoxvfYZ7wwDS
+         JjOA==
+X-Forwarded-Encrypted: i=1; AHgh+RpmMJK5ZMtJOOULs3PZu/d0F1hcuwgJV+Uha1n832irVZAVP6layx2SErXHilCmsoImdGPunvY55GEFZsHYxskV@lists.infradead.org
+X-Gm-Message-State: AOJu0YwwqKC4nGNcJIUdM5bMLDfsgsHo98cKhD+p+ucBc/jclQA/Nx5l
+	/HWzDCP5Amu0QL6ybJLeoHVrGFUc6xOLKbItjkrFWhxfMIEveNY6lj4ICtVvk+IQxPH2gNr3Vf/
+	PCVkTdQ==
+X-Received: from plbv21.prod.google.com ([2002:a17:903:44d5:b0:2c7:f68a:7995])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:ce87:b0:2c0:3400:5c34
+ with SMTP id d9443c01a7336-2c7fc75a558mr80368325ad.3.1782509742779; Fri, 26
+ Jun 2026 14:35:42 -0700 (PDT)
+Date: Fri, 26 Jun 2026 14:35:18 -0700
 In-Reply-To: <20260626213534.3866178-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20260626213534.3866178-1-seanjc@google.com>
 X-Mailer: git-send-email 2.55.0.rc0.799.gd6f94ed593-goog
-Message-ID: <20260626213534.3866178-2-seanjc@google.com>
-Subject: [PATCH v8 01/20] KVM: selftests: Build and link selftests/vfio/lib
- into KVM selftests
+Message-ID: <20260626213534.3866178-6-seanjc@google.com>
+Subject: [PATCH v8 05/20] KVM: selftests: Seed libc's RNG before using it to
+ generate a seed for KVM's pRNG
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oupton@kernel.org>, Sean Christopherson <seanjc@google.com>
@@ -78,8 +78,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>,
 	Josh Hilke <jrhilke@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_143539_677875_07FE4D76 
-X-CRM114-Status: GOOD (  11.10  )
+X-CRM114-CacheID: sfid-20260626_143544_265846_00717950 
+X-CRM114-Status: UNSURE (   9.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,49 +96,36 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: David Matlack <dmatlack@google.com>
+Seed the RNG used by random() using the de facto standard method of
+srand(time(0)), so that a different seed is actually used in each test run.
+E.g. without seeding the RNG, literally every test on x86 will use
+0x6b8b4567 to seed the KVM RNG.
 
-Include libvfio.mk into the KVM selftests Makefile and link it into all
-KVM selftests by adding it to LIBKVM_OBJS.
-
-This lays the groundwork for future changes to utilize VFIO devices to
-verify IRQ bypass in KVM selftests.
-
-Note that KVM selftests build their own copy of selftests/vfio/lib and
-the resulting object files are placed in $(OUTPUT)/lib. This allows the
-KVM and VFIO selftests to apply different CFLAGS when building without
-conflicting with each other.
-
-Signed-off-by: David Matlack <dmatlack@google.com>
-Signed-off-by: Josh Hilke <jrhilke@google.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- tools/testing/selftests/kvm/Makefile.kvm | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ tools/testing/selftests/kvm/lib/kvm_util.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
-index 4ace12606e93..ae0dfd67dd31 100644
---- a/tools/testing/selftests/kvm/Makefile.kvm
-+++ b/tools/testing/selftests/kvm/Makefile.kvm
-@@ -259,6 +259,7 @@ OVERRIDE_TARGETS = 1
- # which causes the environment variable to override the makefile).
- include ../lib.mk
- include ../cgroup/lib/libcgroup.mk
-+include ../vfio/lib/libvfio.mk
+diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
+index 1016865d3f7a..277166ab1aa9 100644
+--- a/tools/testing/selftests/kvm/lib/kvm_util.c
++++ b/tools/testing/selftests/kvm/lib/kvm_util.c
+@@ -15,6 +15,7 @@
+ #include <sys/resource.h>
+ #include <sys/types.h>
+ #include <sys/stat.h>
++#include <time.h>
+ #include <unistd.h>
+ #include <linux/kernel.h>
  
- INSTALL_HDR_PATH = $(top_srcdir)/usr
- LINUX_HDR_PATH = $(INSTALL_HDR_PATH)/include/
-@@ -313,7 +314,9 @@ LIBKVM_S := $(filter %.S,$(LIBKVM))
- LIBKVM_C_OBJ := $(patsubst %.c, $(OUTPUT)/%.o, $(LIBKVM_C))
- LIBKVM_S_OBJ := $(patsubst %.S, $(OUTPUT)/%.o, $(LIBKVM_S))
- LIBKVM_STRING_OBJ := $(patsubst %.c, $(OUTPUT)/%.o, $(LIBKVM_STRING))
--LIBKVM_OBJS = $(LIBKVM_C_OBJ) $(LIBKVM_S_OBJ) $(LIBKVM_STRING_OBJ) $(LIBCGROUP_O)
-+LIBKVM_OBJS = $(LIBKVM_C_OBJ) $(LIBKVM_S_OBJ) $(LIBKVM_STRING_OBJ)
-+LIBKVM_OBJS += $(LIBCGROUP_O)
-+LIBKVM_OBJS += $(LIBVFIO_O)
- SPLIT_TEST_GEN_PROGS := $(patsubst %, $(OUTPUT)/%, $(SPLIT_TESTS))
- SPLIT_TEST_GEN_OBJ := $(patsubst %, $(OUTPUT)/$(ARCH)/%.o, $(SPLIT_TESTS))
+@@ -2284,6 +2285,7 @@ void __attribute((constructor)) kvm_selftest_init(void)
+ 	sigaction(SIGILL, &sig_sa, NULL);
+ 	sigaction(SIGFPE, &sig_sa, NULL);
  
++	srandom(time(0));
+ 	kvm_seed_rng(random());
+ 
+ 	kvm_selftest_arch_init();
 -- 
 2.55.0.rc0.799.gd6f94ed593-goog
 
