@@ -4,54 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E5B9CDE008
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 10:59:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D46DCD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 10:59:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=pFEri1gc+lOziivF2NStUGXOlg7Y1X2jZxwurRE7KUk=; b=fzbGPJFqi7keHZuEKCC0Bd0ubG
-	CKtiNcV8sNSUhiBjNOH+scPusZ+txpBUn0gJxZBqyrw7gxoy9QhMh6AjL0wfAKMu21g+1P0JnF9kP
-	NUbQv13Buk9H1i47LHf0PrJxue8FXuKqZeBdchldukpwXH1kkUlcFpnDVkz8s3ssuAFD1R3tly6eS
-	EchOEaZA9LsFo/DGJYK8M99r4GkH+rm8Dq+OM359qyV+cKOjQFZvfZZ1mrABOprSCNZgzoMBWSIwB
-	Kx/uivsw2KD001ykhaAXv0KDJbQBu+ao1bIw6F5SQ1GCqvTVKrnesPG5N6QluECC95UCVGxoLELdr
-	AIh/oLYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5D+Arq0OSsap3F+LvB7ekAuzrcd4vf6SH4pb1GLsatI=; b=0HqTLj9WJyWdutQ57WBfadP79+
+	SY8r3eAIExl6ZXtjfxlqvqnuToHwme/Q+P0Z3s19Xvua2CPm7hp5GurQxQA04Ru50kdc74jC/cxQX
+	pRU/inBM7gMhYxBkwYrDJRQSTwVjTDquVotx1AoQNap6570Q/5UY1udwUJtcwvid2eonxAvzfeTCP
+	/3bfBvrNvwWg8k40crZJR8WuQrGQTgujRAqf0UgMGokFx+8BnjzTiPS32GR7yN4k07wbDuL4TK3+U
+	tvUkPSkglVcEkYI8JbXuzYhnifpQnZmRmibpy5xoZYLAhoBBDFRdcAwWN4gOE4gF4gaWjn3oQzZU2
+	PRQ6dcew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd4HD-0000000B9uX-1ohY;
-	Fri, 26 Jun 2026 10:59:15 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wd4HZ-0000000BA10-2HmH;
+	Fri, 26 Jun 2026 10:59:37 +0000
+Received: from mail-yx1-xb136.google.com ([2607:f8b0:4864:20::b136])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd4HC-0000000B9uK-1PEn
+	id 1wd4HW-0000000B9zi-1lm4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 10:59:14 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E843F42A77;
-	Fri, 26 Jun 2026 10:59:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A92BF1F000E9;
-	Fri, 26 Jun 2026 10:59:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782471553;
-	bh=pFEri1gc+lOziivF2NStUGXOlg7Y1X2jZxwurRE7KUk=;
-	h=Date:From:To:Cc:Subject;
-	b=XU2bcYX9yz8sXnBUFnpi20ZtWXPStNqicrd4VIkwWKdgU/5QUSvnHRmvPM/OAl0Bu
-	 2E1T5y8O03nQ98j0L8aUp/W8mJ8fdXJSLugizCtQoKTQNZe13FOn2AgV6aii1RpkvP
-	 PTMsgrQcwOHulPwpqhQV4ixqJhurU7NylDZqorBiy4NqJU9oCke+IFPNRGOSXiW30w
-	 nt8FCe9uZ9C9hiIxL2m8CwWikVp8qg+YY1CKzn9QSLmn0gFyN/5Gl8FEVkvHPnum6E
-	 UMk4nVw9uk1Ghgbc2PpKWw/OgH3XnJTx+fKcljG0tSZ83D5M62fk2bM6GtPfpz879N
-	 AwT72NHhR3Erg==
-Date: Fri, 26 Jun 2026 11:59:09 +0100
-From: Will Deacon <will@kernel.org>
-To: torvalds@linux-foundation.org
-Cc: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, kernel-team@android.com
-Subject: [GIT PULL] arm64 fixes for -rc1
-Message-ID: <aj5bfQ9E7Qjeeo1d@willie-the-truck>
+	Fri, 26 Jun 2026 10:59:35 +0000
+Received: by mail-yx1-xb136.google.com with SMTP id 956f58d0204a3-66490aba02aso1013518d50.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 03:59:34 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1782471573; cv=none;
+        d=google.com; s=arc-20260327;
+        b=G1+NSsK9msVUxLXeE4bfAmuPRNGEIYpcGGMHCeev1YJUn5GMEOnO5/JsL6oWLBGgzv
+         0k0+ropCuyrHunv0vj7AB+kpKX16j28TF+jh8hiYi+hbddzJMSPjsUFq9HyuCrSMb8XQ
+         MJA98y8iTfqZoDKsckZT6J0WwGOMvrDSqDCn/qMhocMOXc05/9wQft5rinc44XK2H662
+         bp4sJu6yAzJKGlPeEKDeHZNzSqtpDccdWJTzCDPf1WM+fO20U2Pztyh3Mx80JAZAfrxZ
+         5DoUILnXSwlvPhphNnVuyd/Za9NO76VlOf2SSR/z/ZJkxMvNW5g5QOx4tkBPjFH/IGta
+         pvxA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=5D+Arq0OSsap3F+LvB7ekAuzrcd4vf6SH4pb1GLsatI=;
+        fh=E8i1pCYMpEBbom3LwdeBUpNW+qeizEf+htppV8g1DbI=;
+        b=PuABLcOqNy02I2lA8ySIbfYWDJ5gzQgNyfuwqLpTorFPHbC7jvU1x4KWVx9yvs/sB9
+         gCsXEDZGgJ7anigbq9c9iOr1EACDDi+z/cj+eqUvyuoruU7L/aHmGn0F0Q3gr2r7WKT3
+         tD7DnCW9LZO0Wqb9mf9z1OnShq5kIeKetbSGu/vTtZVMYB+uoWQjdJs0m8V3IsGv+GiS
+         ggdiCJtjgTKLmEKycafzcLXvgw5VyEvE7R96l1/HDnv6yD1F8Bk5anIgL1Apbg6SlACt
+         hn+rA9M6WYjFBnOoBpXd4usa6ai6QSRRL81h+w8Q5gzQFnPAWgjZmnCcg1yte3FB/VtN
+         sZZA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782471573; x=1783076373; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=5D+Arq0OSsap3F+LvB7ekAuzrcd4vf6SH4pb1GLsatI=;
+        b=Mfu0ONAp1+r4q+t+DNyaNF5X1KRPlbpypYYbWNrfjAzhcDOyC8AVr0GONV4SEuYJHh
+         NuV3tTWf9/C8BZ9/NBl9CWozx9VR8PyTlW5SA/QDjCq9esmeZi86OVJZN/t3od7b0jYO
+         KgCusc4hAL4XjLEDzRcsEdU2zH+ycBnt2GbAD9+P+dHc0PCUTW5P/vgh+gRVpFBr7BIY
+         7XV8FkiGE7c2KvHruWX6RWos0ZOsEtfqjGTEhxcptpfoX743dZkcIKgmlF7vD9QqFOH/
+         i7dtMgk9uDfp/IGZwpRiKfFbnqmae5uRDO7HPwR5ssudQgh0SOnK6lqU2P1CrbxYV9Tr
+         pNPQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782471573; x=1783076373;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=5D+Arq0OSsap3F+LvB7ekAuzrcd4vf6SH4pb1GLsatI=;
+        b=pUewLnQk6xI24wV4/fgyuDozrKRzKZcEu7MrFo0PbnY5cyltgJJSzLnoS4b2C6AmCW
+         pOygxhvwZbzlEI9Rkv5T61qW2jEyYWs3PwPaGWeL1ygm7ZrYGj6Fce/4Q0JWKmyw8QK1
+         0EJMtoT9k4I6dz/S9hNixW+d/p5B43p/xhvb80S2EzQHZOK6K28YcG2SXUYSI1M7/0Oe
+         9W6KlMaR4n1WaXzyfUq14ErglY1ngJZDXQiAs5x9KrqFwpbdimm95ZgO7SvTn10j6xWL
+         YWABBwFwx1/2E2oFV6kLtp+DfLMiM+uy1LLUuOacTuGL3ES6BdDaOcqsjcXXnye8ex7V
+         Soew==
+X-Forwarded-Encrypted: i=1; AHgh+Rr1cayx4DMWQV/3ktBcKbIK60xzBHUTsgtchYYenQjMf85PBjsCcnEB6JT8Vdjrkfaj4qO2576iOZeBKY5Cwcxa@lists.infradead.org
+X-Gm-Message-State: AOJu0YxWF3XvaBxw/o5xcz3VKu6gLJEHAtFIQwo0QfKuTrtztS86OCne
+	QFUdbg8f/DLzwj0qgBhc18Y1weGC087lEUWgiA3bm2k9j9gNrioc9AWRe8mh4WzBrhJhIFo0Mov
+	1Am9DAhHNWPokkaVqA+Nycn2lzIYlm54=
+X-Gm-Gg: AfdE7clIB+mgN40s6LKjNw70aFb+WLzQrr9GjGKiUT5PD5puteCW0tF/8ARu7qy2Js7
+	Ve5nunjgLd5z9tNUdY+rGECxYsLSynEyv9rSguZA90UhrWCw76YcU+LjXKFqdBZdADJ3EFKitpO
+	UpKtCX2PdAHPIJKfr1zEkWKG1SwsTVwWH8zpim8f40Th35/lv1ayInotTgISoHUVolafwpoyDQd
+	DfU1AkSBkjNlCewmCyFkBi3bjjP2UxdEmpPiau+pe7ZxBoCtqu+Nhy4Sx4J5OQX11KE9w==
+X-Received: by 2002:a05:690e:1686:b0:660:48b1:50fc with SMTP id
+ 956f58d0204a3-66487e2f1b4mr5328375d50.29.1782471573329; Fri, 26 Jun 2026
+ 03:59:33 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+References: <20260621145919.1453-1-ekffu200098@gmail.com> <aj426bA-YiOKt06m@kernel.org>
+In-Reply-To: <aj426bA-YiOKt06m@kernel.org>
+From: Sang-Heon Jeon <ekffu200098@gmail.com>
+Date: Fri, 26 Jun 2026 19:59:22 +0900
+X-Gm-Features: AVVi8CeTYWPFnSIqmIZ3cUOMnriJoMgLi6dkY_72NuzlW0NxE1cDivKv2fvqfq8
+Message-ID: <CABFDxME8wej3m8T5gn8y4dmpOLZutm=tDTa7ZcfhbWwScTu_5Q@mail.gmail.com>
+Subject: Re: [PATCH 0/6] treewide: remove unnecessary invalid range checks in
+ memblock iteration loops
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Andrew Morton <akpm@linux-foundation.org>, 
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Huacai Chen <chenhuacai@kernel.org>, Muchun Song <muchun.song@linux.dev>, 
+	Oscar Salvador <osalvador@suse.de>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, 
+	Will Deacon <will@kernel.org>, Alexander Potapenko <glider@google.com>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Andrey Konovalov <andreyknvl@gmail.com>, David Hildenbrand <david@kernel.org>, 
+	Dmitry Vyukov <dvyukov@google.com>, kasan-dev@googlegroups.com, 
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org, 
+	linux-riscv@lists.infradead.org, loongarch@lists.linux.dev, 
+	Vincenzo Frascino <vincenzo.frascino@arm.com>, WANG Xuerui <kernel@xen0n.name>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260626_035934_466689_D994ADCD 
+X-CRM114-Status: GOOD (  16.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,56 +124,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Linus,
+On Fri, Jun 26, 2026 at 5:23=E2=80=AFPM Mike Rapoport <rppt@kernel.org> wro=
+te:
+>
+> On Sun, Jun 21, 2026 at 11:59:10PM +0900, Sang-Heon Jeon wrote:
+> > The memblock API guarantees that for_each_mem_range() and
+> > for_each_mem_pfn_range() never return an invalid range, meaning start i=
+s
+> > always less than end.
+> >
+> > Several memblock callers still have unnecessary invalid range checks in
+> > their loop bodies, so remove them.
+> >
+> > Sang-Heon Jeon (6):
+> >   arm64: mm: remove unreachable invalid range check in
+> >     kasan_init_shadow()
+> >   LoongArch: remove unreachable invalid range check in kasan_init()
+> >   riscv: remove unreachable invalid range check in
+> >     create_linear_mapping_page_table()
+> >   riscv: remove unreachable invalid range check in kasan_init()
+> >   mm: remove unnecessary empty range check in
+> >     early_calculate_totalpages()
+> >   mm/hugetlb: remove unnecessary empty range check in
+> >     hugetlb_bootmem_set_nodes()
+>
+> I queued this for inclusion into memblock tree.
 
-Please pull this small crop of arm64 fixes for -rc1. We've got a build
-fix for a new randconfig permutation, a fix for a long-standing
-truncation issue with hardware watchpoints and a KVM initialisation fix
-for the newly merged remapping of the kernel data and bss sections.
+Thank you, Mike.
 
-There will be more to come, but this is the solid stuff for now.
+Could you please review and queue this patch [1] as well? It does the
+same kind of clean up, I just missed it at the time.
 
-Cheers,
+[1] https://lore.kernel.org/all/20260626032902.703944-1-ekffu200098@gmail.c=
+om/
 
-Will
+> >  arch/arm64/mm/kasan_init.c     | 3 ---
+> >  arch/loongarch/mm/kasan_init.c | 3 ---
+> >  arch/riscv/mm/init.c           | 2 --
+> >  arch/riscv/mm/kasan_init.c     | 3 ---
+> >  mm/hugetlb.c                   | 3 +--
+> >  mm/mm_init.c                   | 3 +--
+> >  6 files changed, 2 insertions(+), 15 deletions(-)
+> >
+> > --
+> > 2.43.0
+> >
+>
+> --
+> Sincerely yours,
+> Mike.
 
---->8
-
-The following changes since commit 61c19a9feb1d87156e46e38d7759f3ad23710e24:
-
-  Merge branch 'for-next/sysregs' into for-next/core (2026-06-14 12:18:27 +0100)
-
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git tags/arm64-fixes
-
-for you to fetch changes up to 36fa5ffa60344bcc59fb3f50b33af8187e6b8753:
-
-  arm64: mm: Defer read-only remap of data/bss linear alias (2026-06-24 14:52:14 +0100)
-
-----------------------------------------------------------------
-arm64 fixes for -rc1
-
-- Fix randconfig build failure due to missing include of asm/insn.h.
-
-- Reject unaligned hardware watchpoints which were silently being
-  truncated.
-
-- Fix crash in KVM initialisation by deferring the read-only remapping
-  of the kernel data and bss sections.
-
-----------------------------------------------------------------
-Ard Biesheuvel (1):
-      arm64: mm: Defer read-only remap of data/bss linear alias
-
-Arnd Bergmann (1):
-      arm64: static_call: include asm/insns.h
-
-Breno Leitao (1):
-      arm64/hw_breakpoint: reject unaligned watchpoints that would truncate BAS
-
- arch/arm64/kernel/hw_breakpoint.c |  9 +++++++++
- arch/arm64/kernel/static_call.c   |  1 +
- arch/arm64/mm/mmu.c               | 11 ++++++-----
- 3 files changed, 16 insertions(+), 5 deletions(-)
+Best Regards,
+Sang-Heon Jeon
 
