@@ -4,91 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90883C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 21:02:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66BFAC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 21:35:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cslRQ+BULUR49CDcCbqs0zYZnoDv6ztIe6VOSwAqNfg=; b=lnHUvNZhvoOMwEegZCqsyvmgnc
-	Sg4j62KsqJJ6A9fmVeXUWcWSABmN0c4DX++aQYkdyn6aysnnCMek/XmkUEVPwRRU3ghqEUovtdgnu
-	Qd0ZiJG/x6dGqCkDEZlppcM//NNhXCAagflQvYE/+Ow9URL5HHM/48Au2ogNWq+vOYjxbh+hC0ToL
-	kHhvm8bBSe/svLUO6Yu16qrqV6C2OhpGLBrEzBEZ3IydnYxFqcrY11hkY4nL/42hCMFKieqoeYNa+
-	aACUROCs8KDHXm8S67r84spj4clmGP/7ZM/PFUAliNYwrr8zvuLzOSuOAiJFeWDajQBCWkeSX7//8
-	sKXzCalQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
+	From:Subject:Message-ID:Mime-Version:Date:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LeJPhSF7XykTcqCWYKGnt+fCegC9QerUoXnnQkQeerA=; b=dev98vwj9JCfnOk1qAg/hC/Tjm
+	X/376odz7DoTvPqb2tDVUWxSxR0ynI6xk3SB7Mv1ls52M6knY075Ez2ip7W3Hf505P1Smt96TeXMQ
+	S9P1viAVq9NA+hYO/UzKaKIkiVKjmmbOUeJ+KaxyRkudjt1zP1ZgSz12lj/QHcO6QrUJUBxCI8G0J
+	5/DkLBlb+OPA+IdW7LncuNNuz0N5z9/JtWV/0mKxNts//YRt9AV/J8DAXoLnFQWyNJLZibBx8q/DB
+	NuQ671LQ25hP8poGDZdIC2dO4nPhBgS5HRueFgWJ5cbzLlpERpQRYXZ7Ld6dKcAUNZIVpjW3394Pc
+	ENFixfxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdDhG-0000000Bt4J-1Ec3;
-	Fri, 26 Jun 2026 21:02:46 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wdED6-0000000BuFd-3t7A;
+	Fri, 26 Jun 2026 21:35:40 +0000
+Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdDgs-0000000Bsle-3JQV;
-	Fri, 26 Jun 2026 21:02:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1782507740;
-	bh=MarmR1wDaE/auFAtnNePXWY3E7UWDMWQ2CxnXkcbfjg=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=CHcruOHFIPttswVoR6IM1QkyvF4+mf4TY36EqSAtHqN3SCRJrcQCMOsL/xMxvX3sl
-	 DPtKsmgF8MLtTV8MAHBVBosoatyOjUffFClH4pTxJGI/X0WHF2SO+Wvq80DLHsPZzk
-	 gqQdJTzRyuQy/YAc0Cz6WSSI9g0TpGChdASwQgIflM2l7v1qQj1mGXRa+JKEauq93v
-	 78dhuoL0XMUKJGQylJFhwdxOEd3qGYt0dI/Lmgxqb04zOuGf5ZrgkCefJyTiIEAxLq
-	 wvnZAkanSbq7BbJCSs2ZayO2ihmyk+ueOxpJ6zSWuY1DQRLmPbz0/5qN/N0M/Bt3bY
-	 PQx6kqqFV07dw==
-Received: from jupiter.universe (unknown [100.64.1.62])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0057317E0C88;
-	Fri, 26 Jun 2026 23:02:19 +0200 (CEST)
-Received: by jupiter.universe (Postfix, from userid 1000)
-	id 3037C48006A; Fri, 26 Jun 2026 22:55:02 +0200 (CEST)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Fri, 26 Jun 2026 22:55:18 +0200
-Subject: [PATCH v8 25/29] phy: rockchip: usbdp: Clear USB status on PHY
- exit
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260626-rockchip-usbdp-cleanup-v8-25-47f682987895@collabora.com>
-References: <20260626-rockchip-usbdp-cleanup-v8-0-47f682987895@collabora.com>
-In-Reply-To: <20260626-rockchip-usbdp-cleanup-v8-0-47f682987895@collabora.com>
-To: Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Heiko Stuebner <heiko@sntech.de>, Frank Wang <frank.wang@rock-chips.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: Andy Yan <andy.yan@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>, 
- Yubing Zhang <yubing.zhang@rock-chips.com>, 
- Alexey Charkov <alchark@gmail.com>, linux-phy@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, kernel@collabora.com, 
- devicetree@vger.kernel.org, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, 
- Sashiko <sashiko-bot@kernel.org>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1229;
- i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=MarmR1wDaE/auFAtnNePXWY3E7UWDMWQ2CxnXkcbfjg=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGo+5yVdZh4n+jkW7gcyoPH3lQcGa1FiDJ1LO
- TdTz5vHHbYlKIkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqPuclAAoJENju1/PI
- O/qajBsP/2iW+fNHmJyYrQARtaGAvY11NLf6GT7uYLt250imMz5I/intLeETL1VJExxtCnzZtLv
- CEePzyabyiwiH5UfqtAwnL/gKnVFaigLe8et4+t39Nf5D6PgG/LpxpmeZCV/1ZZztgeVzYKau8P
- 2JEFknQfYSvQ6k6dIXSqMVuV+8820Bqz7uGtq57KZDMgwlkxKRhcEGuK6OpZTzWx3bnTkK1w9rZ
- dKoj0cyzkJPDLo0bn1CvXls2vgHKrvN2d8IafShlTHVl8pUKZAifA6yKen0gJKgxrFWfuOFRgMN
- orA2lHrYSpwfo/yDCM+kDNBKL0LmTUWChHykSMECazqFDAdjbo3DXowzeRb6TePWniarJcycAl+
- F9C36VrenjAftHquWyIbrjFBlcE05foQSjtdUPm3ZDZDmU2IPZGP4VuixM+tRSxe6YCU3iG9HYr
- CpfXHtTdhQo8RT1AQqIuvEbBBtKnyXk2LctsFxoMd9N/VOSVqRc2dgg2fLIfW16nybGWz0Vdbwp
- AazKTMcfoADXqHf5Egtdu8wji6b8mvSCAZEa+DjS/IY3tu+6EQyPPOJTcD1H7Ly1T2Uav9bjtHA
- Wt71WpJt7kKD4+fqbBPhhZtRVMna0sp2enPw7Ml0pU2lJMWrZOi/BbqejBk6WecqfV85VQ8zej1
- BAVbXccjVkNWK47a3UtoyZQ==
-X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
- fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
+	id 1wdED4-0000000BuEo-2g2R
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 26 Jun 2026 21:35:39 +0000
+Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-c894c1c4aa9so736467a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 14:35:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1782509737; x=1783114537; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:reply-to:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=LeJPhSF7XykTcqCWYKGnt+fCegC9QerUoXnnQkQeerA=;
+        b=wm8qhS67mnLXMt5Z6gT9Uw4Piey7lOzbQf5ecOJH1jcI0u6YRe0wttVj06J++8Csxh
+         N35gef3aqJ2aWxiephabiJsPInal9vc21NqVIufnGk+JHw6gFWsAOgU73EOcKWB81vv0
+         5y+nC1CV0RHgZ32QwQieexhdgHuRrUxlw2O13faS7MskBNNe3lSl2mVqUft4Yvaddz3Q
+         AIK+gxU3tQD1vSjnuDGkyoTvBxTMnieAS3gDLr2AkxKuO4VfAhM1Ifnjvg/PF4gTzT0A
+         lHr7rdJyW3uk5LeGT0pbWjb9qeMvRfdL6N4j4JarnZ4bRkGQMc7yMLYBmB7mUPSY0or9
+         HmCQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782509737; x=1783114537;
+        h=cc:to:from:subject:message-id:mime-version:date:reply-to
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=LeJPhSF7XykTcqCWYKGnt+fCegC9QerUoXnnQkQeerA=;
+        b=l7mCUc7cIwMTh+nUyCLtsiCZtSj9vXC8ZdCFf4l5xP06HXJi48jXRkBu9dp3MNH3F7
+         EJxhcbj5wB+WIvUIg3Y86uZO/aSfd4/s1AFkkWKsniWffahr++y0KCGHhLxlAvprjc7s
+         i9Qb7kJeuwMF94u5hYkQeYhNAzc5PJkksgi1cTaJo1SRBSvxlegl1IYD1588UrD8y6Pi
+         u5i9v4y3Yuj/7l/DekOiVlm4syW4A/0KbeGwz97Nv3E3ncoKG0b1X+cDAKgsAoUq+P2B
+         HE4cjL37/jo5j7UKwAzjUxvzPlHIRZw33iW7W0CffQOqMXaXDb/86CD2Ei2H/bY/S3b3
+         VisQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9SkFjeONx0ZWOT4MaRRNJ6xMtr59Z9egXvonzxatkMqYUXF8tWT/L5tiOPDc2oG4/jfOHIhjEg8idYVPVl/Nn+@lists.infradead.org
+X-Gm-Message-State: AOJu0YyNy+RA03ti6S2ZVHRsbKmFfo3Z2L7gstbp77ggfANOhie6tbfe
+	Q75vjWGO+ikElEyzzIRZjeFd7sZ6gt8yp5iQlA6AC8hcUIB4gvOCHar6IgXKR8SHzBvQyk0Wu7t
+	+baYS3g==
+X-Received: from pgll186.prod.google.com ([2002:a63:25c3:0:b0:c93:a359:cea6])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:3d1d:b0:398:c0ba:9ceb
+ with SMTP id adf61e73a8af0-3bd4ad233bcmr8360983637.12.1782509736302; Fri, 26
+ Jun 2026 14:35:36 -0700 (PDT)
+Date: Fri, 26 Jun 2026 14:35:13 -0700
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.55.0.rc0.799.gd6f94ed593-goog
+Message-ID: <20260626213534.3866178-1-seanjc@google.com>
+Subject: [PATCH v8 00/20] KVM: selftests: Add eventfd+VFIO IRQ test
+From: Sean Christopherson <seanjc@google.com>
+To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oupton@kernel.org>, Sean Christopherson <seanjc@google.com>
+Cc: Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, David Matlack <dmatlack@google.com>, 
+	Josh Hilke <jrhilke@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_140222_995833_5CCB4D94 
-X-CRM114-Status: GOOD (  12.31  )
+X-CRM114-CacheID: sfid-20260626_143538_716739_23F8B37D 
+X-CRM114-Status: GOOD (  17.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,40 +87,127 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Ensure the USB status flag is cleared when the USB3 PHY is
-exited while the system is in DP-only mode. This can happen
-if the USB3 controller device is unbound while a DP-only
-adapter is plugged into the USB-C port.
+David and Josh's series to add a selftest for verifying interrupt delivery
+via eventfd (via KVM_IRQFD), and also from a real device, wired up via VFIO.
 
-Fixes: 2f70bbddeb45 ("phy: rockchip: add usbdp combo phy driver")
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://sashiko.dev/#/message/20260625-rockchip-usbdp-cleanup-v7-24-38eb3cf654fd%40collabora.com
-Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
----
- drivers/phy/rockchip/phy-rockchip-usbdp.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+Gory details in the patches, and in the v5 cover letter.
 
-diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 4566822d70c4..15c18c6e3093 100644
---- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
-+++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-@@ -1322,8 +1322,10 @@ static int rk_udphy_usb3_phy_exit(struct phy *phy)
- 	udphy->usb_in_use = false;
- 
- 	/* DP only or high-speed */
--	if (!(udphy->mode & UDPHY_MODE_USB) || udphy->hs)
-+	if (!(udphy->mode & UDPHY_MODE_USB) || udphy->hs) {
-+		udphy->status &= ~UDPHY_MODE_USB;
- 		return 0;
-+	}
- 
- 	rk_udphy_power_off(udphy, UDPHY_MODE_USB);
- 
+v8:
+ - Explicitly include <time.h>. [Sashiko]
+ - Use iova_allocator instea of hardcoding the IOVA. [Sashiko, David]
+ - Add a comment explaining why DMA needs to be allocated. [David]
+ - Probe /dev/vfio/vfio, not /dev/vfio. [Sashiko, David]
 
+v7:
+ - https://lore.kernel.org/all/20260613002031.745413-1-seanjc@google.com
+ - Seed kvm_rng during kvm_selftest_init(). [Sashiko]
+ - Seed libc's RNG during kvm_selftest_init(), so that the seed (from random())
+   that's printed and passed to kvm_rng isn't the same every time.
+ - Init irq_cpu to -1 in all paths. [Sashiko]
+ - Require the driver to provide .send_msi(). [David]
+
+v6:
+ - Massage most changelogs.
+ - Fix SoB ordering issues.
+ - Clean up KVM_SET_GSI_ROUTING helper.
+ - Remove misleading "IRQ injection" and "emulated eventfd" terminology.
+ - Add GUEST_RECEIVED_INTERRUPT() to simplifiy the core loop.
+ - Use cpu_relax() in tight loops while waiting for interrupts.
+ - Print as much information as possible in the actual assert, instead of
+   printing to stdout separately.
+ - Make a best guess as to the right VFIO vs. IOMMUFD mode instead of
+   assuming IOMMUFD, and give the user the option to overide said guess.
+ - Simplify open_proc_irq_smp_affinity_list() +
+   write_proc_irq_smp_affinity_list() into proc_irq_set_smp_affinity().
+ - Drop print_proc_irq_file() and kvm_print_vcpu_affinity() (for now) to avoid
+   potential issues on systems with high CPU counts.
+ - Drop the blocking/HLT testing as it was at best broken.
+ - Use -e for "empty", not -c for "clear", when completely tearing down GSI
+   routing, because routing can be "cleared" without completely emptying the
+   routing information.
+ - Use the main task's CPU affinity as the available_cpus set.
+ - Allow overcommiting vCPUs:pCPUs.
+ - Set the target vCPU's affinity instead of batching when vCPU0 is targeted.
+ - Add support for 256+ vCPUs with x2APIC.
+ - Restrict xAPIC mode to 255 vCPUs.
+ - Restrict the test to KVM selftest's max supported vCPUs.
+
+v5:
+ - https://lore.kernel.org/all/20260604020143.748245-1-jrhilke@google.com
+ - Rename get_proc_vfio_irq_number() to vfio_msix_to_host_irq()
+ - Rename open_proc_irq_affinity() and write_proc_irq_affinity() to include "_smp_affinity_list"
+ - Print /proc/irq/<irq>/smp_affinity and effective_affinity on timeout failures
+ - Convert IRQ type from 'int' to 'unsigned int' across helpers and the test
+ - Fix compiler warnings for uninitialized variables in irq_test.c
+ - Remove rate-limiting on affinity changes
+
+v4: https://lore.kernel.org/kvm/20260530002134.558837-1-jrhilke@google.com
+
+David Matlack (11):
+  KVM: selftests: Build and link selftests/vfio/lib into KVM selftests
+  KVM: selftests: Add macros to read/write+sync to/from guest memory
+  KVM: selftests: Add an irqfd send+receive (and later IRQ bypass) test
+  KVM: selftests: Add helper to get host IRQ from device MSI-X for IRQ
+    bypass test
+  KVM: selftests: Add VFIO device support to eventfd IRQ test
+  KVM: selftests: Verify interrupts are received when IRQ affinity
+    changes in IRQ test
+  KVM: selftests: Add option to set empty routing between IRQs in
+    eventfd IRQ test
+  KVM: selftests: Make number of IRQs configurable in IRQ test
+  KVM: selftests: Verify vCPU migration during IRQ delivery in IRQ test
+  KVM: selftests: Make number of vCPUs configurable in IRQ test
+  KVM: selftests: Add xAPIC support in eventfd IRQ test
+
+Josh Hilke (6):
+  KVM: selftests: Rename guest_rng to kvm_rng
+  KVM: selftests: Add helper to generate random u64 in range [min,max]
+  KVM: selftests: Add a helper to set proc IRQ affinity for IRQ test
+  KVM: selftests: Add kvm_gettid() wrapper and convert users
+  KVM: selftests: Add kvm_sched_getaffinity() wrapper and convert users
+  KVM: selftests: Add a utility to pin a task to a random CPU, given a
+    CPU set
+
+Sean Christopherson (3):
+  KVM: selftests: Initialize the default/global pRNG during
+    kvm_selftest_init()
+  KVM: selftests: Seed libc's RNG before using it to generate a seed for
+    KVM's pRNG
+  KVM: selftests: Verify non-postable IRQ remapping in IRQ test
+
+ tools/testing/selftests/kvm/Makefile.kvm      |   7 +-
+ tools/testing/selftests/kvm/arch_timer.c      |   2 +-
+ .../kvm/arm64/arch_timer_edge_cases.c         |   2 +-
+ .../selftests/kvm/demand_paging_test.c        |   2 +-
+ .../selftests/kvm/dirty_log_perf_test.c       |   4 +-
+ tools/testing/selftests/kvm/dirty_log_test.c  |  11 +-
+ .../selftests/kvm/include/kvm_syscalls.h      |   7 +
+ .../testing/selftests/kvm/include/kvm_util.h  |  12 +
+ .../testing/selftests/kvm/include/proc_util.h |  11 +
+ .../testing/selftests/kvm/include/test_util.h |  25 +-
+ .../selftests/kvm/include/x86/kvm_util_arch.h |   4 +-
+ tools/testing/selftests/kvm/irq_test.c        | 362 ++++++++++++++++++
+ tools/testing/selftests/kvm/lib/assert.c      |   8 +-
+ tools/testing/selftests/kvm/lib/kvm_util.c    |  54 ++-
+ tools/testing/selftests/kvm/lib/memstress.c   |   8 +-
+ tools/testing/selftests/kvm/lib/proc_util.c   |  54 +++
+ tools/testing/selftests/kvm/lib/test_util.c   |  27 +-
+ tools/testing/selftests/kvm/mmu_stress_test.c |  15 +-
+ tools/testing/selftests/kvm/rseq_test.c       |   6 +-
+ tools/testing/selftests/kvm/steal_time.c      |  22 +-
+ .../testing/selftests/kvm/x86/sev_dbg_test.c  |   2 +-
+ 21 files changed, 561 insertions(+), 84 deletions(-)
+ create mode 100644 tools/testing/selftests/kvm/include/proc_util.h
+ create mode 100644 tools/testing/selftests/kvm/irq_test.c
+ create mode 100644 tools/testing/selftests/kvm/lib/proc_util.c
+
+
+base-commit: a204badd8432f93b7e862e7dac6db0fe3d65f370
 -- 
-2.53.0
+2.55.0.rc0.799.gd6f94ed593-goog
 
 
