@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD8A9C43211
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 20:55:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D621C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 20:55:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RUzrbf2ZOlgMSXasgiA813uVorowz+/R7EYhJ3WPjBo=; b=Q1XeSJtxxdgO6IgaYVaa8AzWME
-	QbrvdZQhq+N0ywMrF7DO606nvp+xqazEGtZ81tRMhEIaCaoWc+YLiHVpKUdqh3tz6zgg4NCs46j0w
-	Ok18tq+zmnRpipDsDGtNo+iQyDLiXuojNQiKir6shU1BhkDB6nj9cns7Quyd00rd1gIhfRNQBlwEJ
-	iYQtHQJfqFTqBk8O4MDmIVG1vZqvn2WcUiAjCpxnWdL/Y2nnmE5n3WQs3V3aOZQj4QKOBc3NSKvzq
-	/EpeZpgX1g2FaJ7lsfvKy+OVISxDA1BVYZj5NzZ98OG/jkHGODebAA6HT3eJ9QdIlchMMr2+lnkRQ
-	EKSEu/cg==;
+	bh=Ur6qA6hAP712lEuWCnSpdVtJp7T98n6tWpR4IdaSLTQ=; b=QBD8HaNS0DnKDCedzRz9fY4WaL
+	RHw+wuBgSdkxF9ZyvsnVn6FyeLQOBYc5mj8jGoXEi7C7XnYk3SZcSelBm+tp+CGBBeai6w7o2NkQv
+	I0XEWNzBQZHXN8BzJsTH/oG3L3d9+SabtcNp/ogfYjv0hNOdsrLIhi0NoGlFmDLY2j6Cn7DGnrhen
+	HFdyXyOMLxVjkxRkoJlD0vXASQYF0OCGHqmOojBCkPYl7pYqU1rPpbW+BNYM0hiOjF/XAAGiyp6Em
+	qSC6HSs4RWf1c1GF/4oH6ndqJP1GfxUkPco912Pw/FTWrdmNjKeXch1N1etZxQww1+SEjTbJYgK6K
+	YFUFAq7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdDZs-0000000BpaN-1bIc;
-	Fri, 26 Jun 2026 20:55:08 +0000
+	id 1wdDZx-0000000Bpfd-2faU;
+	Fri, 26 Jun 2026 20:55:13 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdDZq-0000000BpZL-2Fcy;
+	id 1wdDZq-0000000BpZO-3mkQ;
 	Fri, 26 Jun 2026 20:55:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
 	s=mail; t=1782507302;
-	bh=USg1ohYmbXwetA6mCilQyNqt0XA2ZTz/AW7yPMSqQVI=;
+	bh=1p3WFYm3nPwFyjx+ldeJOnj6dqBA+X1XeNTC11p7Zk4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=fjKGfUu/SgCkMFsLGGOpRa09uW4xKO0KPwoxxOsdMrySTXZhGtoLebulEpBMF0+Rb
-	 cVRh0i4fF2wUcr4IAoU4TgQS3Y6J9l0RxIMJxecTQ7q1kro9oCaQ4hDEmEWmdu5eA7
-	 5vaBfXd47GhALcpISn2u+cZIJHs/Xi7ML/B11aIK5Hq4ijyYenSJhfqUS7rNh8HM5L
-	 1rwXFyF0zCUR7GzBOfjWtHppUtUFIP3fa5QIyCqQaRTW8n0/9tLM/NeHLFigJqqOxU
-	 P3o1mStnn8nFSLCCBoclKcJFe/8fJdETd7a7EZMOahG3rg4/WqiyhI3QQxpsgUfQCT
-	 44QIYbTn82mtQ==
+	b=VZuKZqjhOL41NXJS7+mvK3jLcBagzwdRffZc5kQR/23F2YzzOX1oodnU6gbWwzlWU
+	 PuptQ5mb+YU0fZ17xMc/5TozVxyE7En9/tROJ9LLS1UgRJGu+YQM4yqUpI7jjtqwx0
+	 M3zx8dQ8jjaJfh7iNkXa0Os+E30p6CGaRaSOGan9iqdTIoRUdtszXQ9Zz+ewtMcg3H
+	 P8lI9lV17fiKkroCXG9/WwIrkehpiV0hjqyjv2emawx7ZbS7Es3w6NkikqaATnmsoq
+	 UPeNAWWIJiZvBqxiqQW94cYDeAYjvvZy3/uAFbvwbyYHWf/YHqLKGNmYdw6KVWSQ8L
+	 fKRrC5ft3iIsg==
 Received: from jupiter.universe (unknown [100.64.1.62])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5EB2B17E0C88;
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 619E017E10FC;
 	Fri, 26 Jun 2026 22:55:02 +0200 (CEST)
 Received: by jupiter.universe (Postfix, from userid 1000)
-	id 0DC37480029; Fri, 26 Jun 2026 22:55:02 +0200 (CEST)
+	id 10CB448002F; Fri, 26 Jun 2026 22:55:02 +0200 (CEST)
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Fri, 26 Jun 2026 22:54:55 +0200
-Subject: [PATCH v8 02/29] phy: rockchip: usbdp: Update mode_change after
- error handling
+Date: Fri, 26 Jun 2026 22:54:57 +0200
+Subject: [PATCH v8 04/29] phy: rockchip: usbdp: Fix devm_clk_bulk_get_all
+ check
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260626-rockchip-usbdp-cleanup-v8-2-47f682987895@collabora.com>
+Message-Id: <20260626-rockchip-usbdp-cleanup-v8-4-47f682987895@collabora.com>
 References: <20260626-rockchip-usbdp-cleanup-v8-0-47f682987895@collabora.com>
 In-Reply-To: <20260626-rockchip-usbdp-cleanup-v8-0-47f682987895@collabora.com>
 To: Vinod Koul <vkoul@kernel.org>, 
@@ -69,26 +69,26 @@ Cc: Andy Yan <andy.yan@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>,
  Sebastian Reichel <sebastian.reichel@collabora.com>, 
  Sashiko <sashiko-bot@kernel.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1789;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1653;
  i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=USg1ohYmbXwetA6mCilQyNqt0XA2ZTz/AW7yPMSqQVI=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGo+5yQ0wncuIq0TqEaIQ0cGZ6hiF3QKJvVIq
- ow3WgHj4ebDaIkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqPuckAAoJENju1/PI
- O/qavPQQAKACkti70G1jJsqhNOAQ8DrvY2FbnT7ygWto0Uj+7VpmMQCYn2My4kR3kvyZ4WqXvFM
- Pxju6kJJ7h03GlK9HNx0vF81yIoekaWAN8rju8ffWUN6VZ9fHiAq7VE/jjbPBtqD+Vv5QCyokHl
- LjUmLGVmKGC+fB4ggvpErEePSnIJ5GCt1ZYvKGp9Q2Tz2TdFxXKtmDNMH735v+2GwWdWUOJBqm2
- i8L3qVMjcSXtWaRNIZk2QuJ81OUGT/TEaXAC6zyl3UHt0lB6dc3gl2I4jooCUWZrsgMcE/aSPnL
- WGv8NXIdK+M6z4k8JCIrNUU+KmyJXR1GCAWpNGgPk9+8qSwuC/i8VkHiq83nUWqWW2SuDZeTdWr
- BzpfviTJuR2ZkFhi7db3tfQkAjA0yz0xQRSmggHCIFJqgnqHYKL1jNhvG4e/yyesCAjBzrPQqNM
- qEdRrUpM6xXxMJGU9z2HafAIgwqJUtSJwMccwD1KJKUXvdc143AnnbPzpkqrMl1SUuvYZp6Lc/t
- sKVhzmkWYAeQ609POJAvxmpcnhwjnuCwLegKFdD5o32HrieyC1IgmAIEI/It4D+mdXRv9wsuD7/
- rYKB6hl114jYSPfMO7I9/8QvkKnpXtHztEtAdZmqJavMAakCHj5P9cyrvsVfWcS2M66kMmaLC3O
- 9B0dDM+eS8KmdPbWRQwYo8w==
+ bh=1p3WFYm3nPwFyjx+ldeJOnj6dqBA+X1XeNTC11p7Zk4=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGo+5ySEnnXwnLhwf6pGkZ15z8g1ku8DZG7rN
+ Wy/PaCZj4EKVIkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqPuckAAoJENju1/PI
+ O/qaaYwP/R+sPnWBMhanQqGENnxS93mEur+v+/3r6apGQ0wkHHe0+GjLHuAmy1fHPQYpsinpK+6
+ nUqNTOaC0bOrnLHaTBZNJx2POjcJrztmbppFGgAqTSWwd9vHguYK0ZAQjo4rNOHlAcEO++2Q8EL
+ VZD+XV+QbRibpgZDhApb3cZh5RCE7Ddi2+EaH7m0sj3oRXXZUh8FCP4UXSLJByOowRmIwo+HOJx
+ rR6daYGfUgeWP9kP0vwCe2MGYTMsyPdS0JhPayPvn4Q7uNjtd9osdtFmrD66HmryAIwkQLOPb8z
+ AaTcIHaspS/px9+vMMgBXggX5Q5JosoDI2ETg76DtNTPnxEoaTQF1IOruECeJeXKTPH5EFZf12u
+ HkHzi6zp7XFBkD600rOI4ALWyvOcHN3XebvN+jKQMh2DOZUtm1ypSFzh2aiD22sxP626FxoJaWq
+ Xh1xcjJH23PkNnyekPKtxi2/9Hzab3X7un5tO4KANvLD7rx65p8WDXiaX+UO84vCECuNPAHp1D0
+ Ksf0TfSWZwA3Uewl9PKEK0ZsqYaw1RreHYVi5mdZkThWFQlFcwbeBKEa9lQQ72AZbZPAj6rPmgo
+ 9VGoDphSiu7qraSR4mXL4nShiPt+yJiP9Id9Hm0myMfcZ+tUN6rqAxX47g5QZHwOKU87jOpHcIc
+ lYdqe3vqJCsMjuIlt3Agx2g==
 X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
  fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_135506_736114_9A4DB9CE 
-X-CRM114-Status: GOOD (  12.46  )
+X-CRM114-CacheID: sfid-20260626_135507_087830_B7E0E796 
+X-CRM114-Status: GOOD (  16.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,52 +103,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If rk_udphy_init() or rk_udphy_setup() fails, the reinit will not be
-tried again. Fix this by only updating the variable after all potential
-errors have been handled.
+If devm_clk_bulk_get_all() returns -EPROBE_DEFER, it is replaced with
+-ENODEV, permanently failing the driver probe instead of allowing it to
+defer. Avoid masking the error code to fix the issue.
 
-Note, that no errors have been seen on real hardware and failures would
-most likely be fatal and require at least a full reboot as the function
-already asserts the PHY reset lines. So this is more of a theoretical
-issue.
+This effectively drops returning -ENODEV in case no clocks are being
+described in DT. This special case will now be handled by the follow-up
+check searching for "refclk" and exit with -EINVAL.
+
+None of this will be hit in practice, since the driver is only used by
+RK3588 and RK3576 - on these platforms the DT is validated to contain
+the clocks and the clock driver is force probed early. Thus there is
+no need to backport this.
 
 Fixes: 2f70bbddeb45 ("phy: rockchip: add usbdp combo phy driver")
 Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://lore.kernel.org/linux-phy/20260612163835.8D5471F000E9@smtp.kernel.org/
+Closes: https://lore.kernel.org/linux-phy/20260612164107.C7DB21F000E9@smtp.kernel.org/
 Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
  drivers/phy/rockchip/phy-rockchip-usbdp.c | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index fba35510d88c..a5ffdf7a6e76 100644
+index 12dfdd470a78..2845a012eafc 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-@@ -1000,15 +1000,14 @@ static int rk_udphy_power_on(struct rk_udphy *udphy, u8 mode)
- 	}
+@@ -427,8 +427,8 @@ static int rk_udphy_clk_init(struct rk_udphy *udphy, struct device *dev)
+ 	int i;
  
- 	if (udphy->status == UDPHY_MODE_NONE) {
--		udphy->mode_change = false;
- 		ret = rk_udphy_setup(udphy);
- 		if (ret)
- 			return ret;
+ 	udphy->num_clks = devm_clk_bulk_get_all(dev, &udphy->clks);
+-	if (udphy->num_clks < 1)
+-		return -ENODEV;
++	if (udphy->num_clks < 0)
++		return udphy->num_clks;
  
- 		if (udphy->mode & UDPHY_MODE_USB)
- 			rk_udphy_u3_port_disable(udphy, false);
--	} else if (udphy->mode_change) {
- 		udphy->mode_change = false;
-+	} else if (udphy->mode_change) {
- 		udphy->status = UDPHY_MODE_NONE;
- 		if (udphy->mode == UDPHY_MODE_DP)
- 			rk_udphy_u3_port_disable(udphy, true);
-@@ -1017,6 +1016,7 @@ static int rk_udphy_power_on(struct rk_udphy *udphy, u8 mode)
- 		ret = rk_udphy_setup(udphy);
- 		if (ret)
- 			return ret;
-+		udphy->mode_change = false;
- 	}
- 
- 	udphy->status |= mode;
+ 	/* used for configure phy reference clock frequency */
+ 	for (i = 0; i < udphy->num_clks; i++) {
 
 -- 
 2.53.0
