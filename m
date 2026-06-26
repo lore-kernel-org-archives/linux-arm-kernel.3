@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57178C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 14:30:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FAEBC43211
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 14:31:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J0oH+PQ9BpfCFKuRcRrHjrQvw2d5pVGbbxbaEFYzceE=; b=kcUMuT37y9+PBbhA2wkkGrhAVw
-	Vb2pvkE2IyhBzmqqejqrOnC1aPl4FxWvrl3e4pDeBZQcXAkARqslUb2NROGXrKXXZNHDmZAGXsiiL
-	K9BpCtcQjUNWemLK/j/6UzBetP0wTLJTvedXMbzcoOIcdO3s75hTMWw0UoyACFa9f4oSve59oYJ7o
-	0aTlvw293mPkUALxydgj+MhYsFQyzmBMUKzAx8agwx7r984+uZfEJJf8JElT9hh/QVR7kT8MBkksV
-	xlElCsp9S/xDPqz8mv7pGLA/7c911WZCldxP/FfSOezgSgRhyn9dLD4DvGgp7FafqaUJ4X2v0sD6N
-	WMLEo5Fg==;
+	bh=+JuFV6rNf20iD7PBLS7g9UXf9ZgKImeO0pGDgasE3q8=; b=Y/mbIJyQay79/8dMyN9lS1T0Rx
+	3hNoL1J95iORa9kFMtvEh9sBvDwvXWqpf7etoYME3lT0SQixnJXgtFEXqofyUyw579i2W1RDj60jl
+	kPSSVPiLEp/6QaZExUpe4CmmZXZl8R4ryfOcGQxJIWvw21OmDqn9EkwQoUeLJkAoCLPbaX98GlOIi
+	w5luByB2tKhnU56tYLmAeqWjikJTJlam1m6quG3zLML491klzyhM6U5UL9iDX6ugjUUxPQQJUOz3P
+	XXWMy5TLNzaNVDJcg87A+BPKh1SdJLfh2rVRzLtJUA8X6o9+zZ9flW7mJM7FdijwYl1+pbl97jEB0
+	caC+a2XQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd7ZO-0000000BSQe-2bun;
-	Fri, 26 Jun 2026 14:30:14 +0000
+	id 1wd7aZ-0000000BSZS-3Zr3;
+	Fri, 26 Jun 2026 14:31:27 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd7ZL-0000000BSQ8-3zrg;
-	Fri, 26 Jun 2026 14:30:13 +0000
+	id 1wd7aX-0000000BSYe-1IKd;
+	Fri, 26 Jun 2026 14:31:26 +0000
 Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id B2106174;
-	Fri, 26 Jun 2026 16:29:25 +0200 (CEST)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 7BEF6174;
+	Fri, 26 Jun 2026 16:30:42 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1782484165;
-	bh=62WGItH/nKsA4jiLztr8BealNzEavczRY+wH5drktQo=;
+	s=mail; t=1782484242;
+	bh=sJ/tExaSCQZH/G1ZdmBqdgm66+iDkMVW52aWnWzp0/I=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JxLk6gzym/QGytAkBH6IOdj4e4dK7npLijt1RCGCdtCWFmDs5lTRPIow0tPH+AScd
-	 plWks+NGQn7YO1NeORSXTtRh62/fwLX7qtfOaJA2E+a9YAuI0haNN/uOAModZ4Hca7
-	 Q4izlUBS4mmnbjMsCoN2AaZx9pLUorY9Rnu8AHpM=
-Date: Fri, 26 Jun 2026 17:30:05 +0300
+	b=TMnTkzMvTyjW8sMvg/Xym4e/hJK+Obabv/0BpBwOAQ6NJpP4Tvlqdf8qnP9rgKq+3
+	 9Ol8nH/QMMTDC0cNC+3ixZSuDKpXDn7cXXZ6GL+GCu3rKsW7S/e894EwV6Tg+ilTYL
+	 f/yzlr37FJCQLy0B76gE5Ckbx2OVD3ElFuLQPjJA=
+Date: Fri, 26 Jun 2026 17:31:22 +0300
 From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 To: Kieran Bingham <kieran.bingham@ideasonboard.com>
 Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
@@ -74,18 +74,18 @@ Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
 	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	linux-arm-msm@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
 	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v2 2/8] media: dt-bindings: video-interface-devices: add
- video-interface-devices.h references
-Message-ID: <20260626143005.GD2363897@killaraus.ideasonboard.com>
+Subject: Re: [PATCH v2 3/8] dt-bindings: media: i2c: Utilise
+ video-interface-devices enums
+Message-ID: <20260626143122.GE2363897@killaraus.ideasonboard.com>
 References: <20260626-kbingham-orientation-v2-0-47178be927b4@ideasonboard.com>
- <20260626-kbingham-orientation-v2-2-47178be927b4@ideasonboard.com>
+ <20260626-kbingham-orientation-v2-3-47178be927b4@ideasonboard.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260626-kbingham-orientation-v2-2-47178be927b4@ideasonboard.com>
+In-Reply-To: <20260626-kbingham-orientation-v2-3-47178be927b4@ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_073012_149659_40697835 
-X-CRM114-Status: GOOD (  21.75  )
+X-CRM114-CacheID: sfid-20260626_073125_756279_172B4F51 
+X-CRM114-Status: GOOD (  13.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,60 +100,284 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Kieran,
-
-Thank you for the patch.
-
-On Fri, Jun 26, 2026 at 01:07:54PM +0100, Kieran Bingham wrote:
-> Expand the documentation of the video-interface-devices orientation to
-> reference the include/dt-bindings/media/video-interface-devices.h header
-> which provides human readable defines for the orientation enum, to help
-> avoid hardcoding values in dts.
+On Fri, Jun 26, 2026 at 01:07:55PM +0100, Kieran Bingham wrote:
+> The orientation property for video interface devices now has definitions
+> to prevent hardcoded integer values for the enum options.
+> 
+> Update the existing examples throughout the bindings documentation for
+> camera sensors.
 > 
 > Signed-off-by: Kieran Bingham <kieran.bingham@ideasonboard.com>
-> ---
->  .../bindings/media/video-interface-devices.yaml         | 17 +++++++++++------
->  1 file changed, 11 insertions(+), 6 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/media/video-interface-devices.yaml b/Documentation/devicetree/bindings/media/video-interface-devices.yaml
-> index a81d2a155fe6..c9c3f4f16719 100644
-> --- a/Documentation/devicetree/bindings/media/video-interface-devices.yaml
-> +++ b/Documentation/devicetree/bindings/media/video-interface-devices.yaml
-> @@ -392,17 +392,22 @@ properties:
->        The orientation of a device (typically an image sensor or a flash LED)
->        describing its mounting position relative to the usage orientation of the
->        system where the device is installed on.
-> +      See include/dt-bindings/media/video-interface-devices.h.
-
-If you want this to be a separate paragraph, you need a blnk line on
-top. Otherwise, Move "See" to the previous line.
 
 Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 
-> +
->      $ref: /schemas/types.yaml#/definitions/uint32
->      enum:
-> -        # Front. The device is mounted on the front facing side of the system. For
-> -        # mobile devices such as smartphones, tablets and laptops the front side
-> -        # is the user facing side.
-> +        # MEDIA_ORIENTATION_FRONT
-> +        # The device is mounted on the front facing side of the system. For
-> +        # mobile devices such as smartphones, tablets and laptops the front
-> +        # side is the user facing side.
->        - 0
-> -        # Back. The device is mounted on the back side of the system, which is
-> +        # MEDIA_ORIENTATION_BACK
-> +        # The device is mounted on the back side of the system, which is
->          # defined as the opposite side of the front facing one.
->        - 1
-> -        # External. The device is not attached directly to the system but is
-> -        # attached in a way that allows it to move freely.
-> +        # MEDIA_ORIENTATION_EXTERNAL
-> +        # The device is not attached directly to the system but is attached in
-> +        # a way that allows it to move freely.
->        - 2
+> ---
+>  Documentation/devicetree/bindings/media/i2c/hynix,hi846.yaml   | 3 ++-
+>  Documentation/devicetree/bindings/media/i2c/ovti,ov08d10.yaml  | 3 ++-
+>  Documentation/devicetree/bindings/media/i2c/ovti,ov4689.yaml   | 3 ++-
+>  Documentation/devicetree/bindings/media/i2c/ovti,ov5675.yaml   | 3 ++-
+>  Documentation/devicetree/bindings/media/i2c/ovti,ov5693.yaml   | 3 ++-
+>  Documentation/devicetree/bindings/media/i2c/ovti,ov64a40.yaml  | 3 ++-
+>  Documentation/devicetree/bindings/media/i2c/sony,imx111.yaml   | 3 ++-
+>  Documentation/devicetree/bindings/media/i2c/sony,imx355.yaml   | 3 ++-
+>  Documentation/devicetree/bindings/media/i2c/sony,imx415.yaml   | 3 ++-
+>  Documentation/devicetree/bindings/media/i2c/st,vd55g1.yaml     | 3 ++-
+>  Documentation/devicetree/bindings/media/i2c/st,vd56g3.yaml     | 3 ++-
+>  Documentation/devicetree/bindings/media/i2c/thine,thp7312.yaml | 3 ++-
+>  12 files changed, 24 insertions(+), 12 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/media/i2c/hynix,hi846.yaml b/Documentation/devicetree/bindings/media/i2c/hynix,hi846.yaml
+> index 1a57f2aa1982..b7bc6ba26e6e 100644
+> --- a/Documentation/devicetree/bindings/media/i2c/hynix,hi846.yaml
+> +++ b/Documentation/devicetree/bindings/media/i2c/hynix,hi846.yaml
+> @@ -86,6 +86,7 @@ unevaluatedProperties: false
+>  examples:
+>    - |
+>      #include <dt-bindings/gpio/gpio.h>
+> +    #include <dt-bindings/media/video-interface-devices.h>
 >  
->  additionalProperties: true
+>      i2c {
+>          #address-cells = <1>;
+> @@ -102,7 +103,7 @@ examples:
+>              vddio-supply = <&reg_camera_vddio>;
+>              reset-gpios = <&gpio1 25 GPIO_ACTIVE_LOW>;
+>              shutdown-gpios = <&gpio5 4 GPIO_ACTIVE_LOW>;
+> -            orientation = <0>;
+> +            orientation = <MEDIA_ORIENTATION_FRONT>;
+>              rotation = <0>;
+>  
+>              port {
+> diff --git a/Documentation/devicetree/bindings/media/i2c/ovti,ov08d10.yaml b/Documentation/devicetree/bindings/media/i2c/ovti,ov08d10.yaml
+> index 6f2017c75125..b9c61395b24f 100644
+> --- a/Documentation/devicetree/bindings/media/i2c/ovti,ov08d10.yaml
+> +++ b/Documentation/devicetree/bindings/media/i2c/ovti,ov08d10.yaml
+> @@ -69,6 +69,7 @@ examples:
+>    - |
+>      #include <dt-bindings/gpio/gpio.h>
+>      #include <dt-bindings/media/video-interfaces.h>
+> +    #include <dt-bindings/media/video-interface-devices.h>
+>  
+>      i2c {
+>          #address-cells = <1>;
+> @@ -84,7 +85,7 @@ examples:
+>              avdd-supply = <&ov08d10_vdda_2v8>;
+>              dvdd-supply = <&ov08d10_vddd_1v2>;
+>  
+> -            orientation = <2>;
+> +            orientation = <MEDIA_ORIENTATION_EXTERNAL>;
+>              rotation = <0>;
+>  
+>              reset-gpios = <&gpio 1 GPIO_ACTIVE_LOW>;
+> diff --git a/Documentation/devicetree/bindings/media/i2c/ovti,ov4689.yaml b/Documentation/devicetree/bindings/media/i2c/ovti,ov4689.yaml
+> index d96199031b66..fcd617848ce3 100644
+> --- a/Documentation/devicetree/bindings/media/i2c/ovti,ov4689.yaml
+> +++ b/Documentation/devicetree/bindings/media/i2c/ovti,ov4689.yaml
+> @@ -96,6 +96,7 @@ unevaluatedProperties: false
+>  examples:
+>    - |
+>      #include <dt-bindings/gpio/gpio.h>
+> +    #include <dt-bindings/media/video-interface-devices.h>
+>  
+>      i2c {
+>          #address-cells = <1>;
+> @@ -114,7 +115,7 @@ examples:
+>              powerdown-gpios = <&pio 107 GPIO_ACTIVE_LOW>;
+>              reset-gpios = <&pio 109 GPIO_ACTIVE_LOW>;
+>  
+> -            orientation = <2>;
+> +            orientation = <MEDIA_ORIENTATION_EXTERNAL>;
+>              rotation = <0>;
+>  
+>              port {
+> diff --git a/Documentation/devicetree/bindings/media/i2c/ovti,ov5675.yaml b/Documentation/devicetree/bindings/media/i2c/ovti,ov5675.yaml
+> index ad07204057f9..6df62fd0c0c0 100644
+> --- a/Documentation/devicetree/bindings/media/i2c/ovti,ov5675.yaml
+> +++ b/Documentation/devicetree/bindings/media/i2c/ovti,ov5675.yaml
+> @@ -85,6 +85,7 @@ examples:
+>    - |
+>      #include <dt-bindings/clock/px30-cru.h>
+>      #include <dt-bindings/gpio/gpio.h>
+> +    #include <dt-bindings/media/video-interface-devices.h>
+>      #include <dt-bindings/pinctrl/rockchip.h>
+>  
+>      i2c {
+> @@ -108,7 +109,7 @@ examples:
+>              dovdd-supply = <&vcc_2v8>;
+>  
+>              rotation = <90>;
+> -            orientation = <0>;
+> +            orientation = <MEDIA_ORIENTATION_FRONT>;
+>  
+>              port {
+>                  ucam_out: endpoint {
+> diff --git a/Documentation/devicetree/bindings/media/i2c/ovti,ov5693.yaml b/Documentation/devicetree/bindings/media/i2c/ovti,ov5693.yaml
+> index 3368b3bd8ef2..5732657e1484 100644
+> --- a/Documentation/devicetree/bindings/media/i2c/ovti,ov5693.yaml
+> +++ b/Documentation/devicetree/bindings/media/i2c/ovti,ov5693.yaml
+> @@ -103,6 +103,7 @@ examples:
+>    - |
+>      #include <dt-bindings/clock/px30-cru.h>
+>      #include <dt-bindings/gpio/gpio.h>
+> +    #include <dt-bindings/media/video-interface-devices.h>
+>      #include <dt-bindings/pinctrl/rockchip.h>
+>  
+>      i2c {
+> @@ -126,7 +127,7 @@ examples:
+>              dovdd-supply = <&vcc_2v8>;
+>  
+>              rotation = <90>;
+> -            orientation = <0>;
+> +            orientation = <MEDIA_ORIENTATION_FRONT>;
+>  
+>              port {
+>                  ucam_out: endpoint {
+> diff --git a/Documentation/devicetree/bindings/media/i2c/ovti,ov64a40.yaml b/Documentation/devicetree/bindings/media/i2c/ovti,ov64a40.yaml
+> index 2b6143aff391..24787c9aa155 100644
+> --- a/Documentation/devicetree/bindings/media/i2c/ovti,ov64a40.yaml
+> +++ b/Documentation/devicetree/bindings/media/i2c/ovti,ov64a40.yaml
+> @@ -72,6 +72,7 @@ unevaluatedProperties: false
+>  examples:
+>    - |
+>        #include <dt-bindings/gpio/gpio.h>
+> +      #include <dt-bindings/media/video-interface-devices.h>
+>  
+>        i2c {
+>            #address-cells = <1>;
+> @@ -87,7 +88,7 @@ examples:
+>                powerdown-gpios = <&gpio1 9 GPIO_ACTIVE_HIGH>;
+>                reset-gpios = <&gpio1 10 GPIO_ACTIVE_LOW>;
+>                rotation = <180>;
+> -              orientation = <2>;
+> +              orientation = <MEDIA_ORIENTATION_EXTERNAL>;
+>  
+>                port {
+>                    endpoint {
+> diff --git a/Documentation/devicetree/bindings/media/i2c/sony,imx111.yaml b/Documentation/devicetree/bindings/media/i2c/sony,imx111.yaml
+> index 20f48d5e9b2d..56fb5f18f07b 100644
+> --- a/Documentation/devicetree/bindings/media/i2c/sony,imx111.yaml
+> +++ b/Documentation/devicetree/bindings/media/i2c/sony,imx111.yaml
+> @@ -69,6 +69,7 @@ examples:
+>    - |
+>      #include <dt-bindings/gpio/gpio.h>
+>      #include <dt-bindings/media/video-interfaces.h>
+> +    #include <dt-bindings/media/video-interface-devices.h>
+>  
+>      i2c {
+>          #address-cells = <1>;
+> @@ -84,7 +85,7 @@ examples:
+>              dvdd-supply = <&camera_vddd_1v2>;
+>              avdd-supply = <&camera_vdda_2v7>;
+>  
+> -            orientation = <1>;
+> +            orientation = <MEDIA_ORIENTATION_BACK>;
+>              rotation = <90>;
+>  
+>              nvmem = <&eeprom>;
+> diff --git a/Documentation/devicetree/bindings/media/i2c/sony,imx355.yaml b/Documentation/devicetree/bindings/media/i2c/sony,imx355.yaml
+> index 6050d7e7dcfe..b4a88eaa7ef2 100644
+> --- a/Documentation/devicetree/bindings/media/i2c/sony,imx355.yaml
+> +++ b/Documentation/devicetree/bindings/media/i2c/sony,imx355.yaml
+> @@ -74,6 +74,7 @@ examples:
+>    - |
+>      #include <dt-bindings/clock/qcom,camcc-sdm845.h>
+>      #include <dt-bindings/gpio/gpio.h>
+> +    #include <dt-bindings/media/video-interface-devices.h>
+>  
+>      i2c {
+>          #address-cells = <1>;
+> @@ -98,7 +99,7 @@ examples:
+>              pinctrl-0 = <&cam_front_default>;
+>  
+>              rotation = <270>;
+> -            orientation = <0>;
+> +            orientation = <MEDIA_ORIENTATION_FRONT>;
+>  
+>              port {
+>                  cam_front_endpoint: endpoint {
+> diff --git a/Documentation/devicetree/bindings/media/i2c/sony,imx415.yaml b/Documentation/devicetree/bindings/media/i2c/sony,imx415.yaml
+> index 7c11e871dca6..69a37ff68db3 100644
+> --- a/Documentation/devicetree/bindings/media/i2c/sony,imx415.yaml
+> +++ b/Documentation/devicetree/bindings/media/i2c/sony,imx415.yaml
+> @@ -86,6 +86,7 @@ unevaluatedProperties: false
+>  examples:
+>    - |
+>      #include <dt-bindings/gpio/gpio.h>
+> +    #include <dt-bindings/media/video-interface-devices.h>
+>  
+>      i2c {
+>          #address-cells = <1>;
+> @@ -98,7 +99,7 @@ examples:
+>              clocks = <&clock_cam>;
+>              dvdd-supply = <&vcc1v1_cam>;
+>              lens-focus = <&vcm>;
+> -            orientation = <2>;
+> +            orientation = <MEDIA_ORIENTATION_EXTERNAL>;
+>              ovdd-supply = <&vcc1v8_cam>;
+>              reset-gpios = <&gpio_expander 14 GPIO_ACTIVE_LOW>;
+>              rotation = <180>;
+> diff --git a/Documentation/devicetree/bindings/media/i2c/st,vd55g1.yaml b/Documentation/devicetree/bindings/media/i2c/st,vd55g1.yaml
+> index 060ac6829b66..db9f0c15576c 100644
+> --- a/Documentation/devicetree/bindings/media/i2c/st,vd55g1.yaml
+> +++ b/Documentation/devicetree/bindings/media/i2c/st,vd55g1.yaml
+> @@ -105,6 +105,7 @@ unevaluatedProperties: false
+>  examples:
+>    - |
+>      #include <dt-bindings/gpio/gpio.h>
+> +    #include <dt-bindings/media/video-interface-devices.h>
+>  
+>      i2c {
+>          #address-cells = <1>;
+> @@ -123,7 +124,7 @@ examples:
+>              reset-gpios = <&gpio 5 GPIO_ACTIVE_LOW>;
+>              st,leds = <2>;
+>  
+> -            orientation = <2>;
+> +            orientation = <MEDIA_ORIENTATION_EXTERNAL>;
+>              rotation = <0>;
+>  
+>              port {
+> diff --git a/Documentation/devicetree/bindings/media/i2c/st,vd56g3.yaml b/Documentation/devicetree/bindings/media/i2c/st,vd56g3.yaml
+> index c6673b8539db..48db22ca4a7e 100644
+> --- a/Documentation/devicetree/bindings/media/i2c/st,vd56g3.yaml
+> +++ b/Documentation/devicetree/bindings/media/i2c/st,vd56g3.yaml
+> @@ -107,6 +107,7 @@ unevaluatedProperties: false
+>  examples:
+>    - |
+>      #include <dt-bindings/gpio/gpio.h>
+> +    #include <dt-bindings/media/video-interface-devices.h>
+>  
+>      i2c {
+>          #address-cells = <1>;
+> @@ -125,7 +126,7 @@ examples:
+>              reset-gpios = <&gpio 5 GPIO_ACTIVE_LOW>;
+>              st,leds = <6>;
+>  
+> -            orientation = <2>;
+> +            orientation = <MEDIA_ORIENTATION_EXTERNAL>;
+>              rotation = <0>;
+>  
+>              port {
+> diff --git a/Documentation/devicetree/bindings/media/i2c/thine,thp7312.yaml b/Documentation/devicetree/bindings/media/i2c/thine,thp7312.yaml
+> index bc339a7374b2..4a66cb711372 100644
+> --- a/Documentation/devicetree/bindings/media/i2c/thine,thp7312.yaml
+> +++ b/Documentation/devicetree/bindings/media/i2c/thine,thp7312.yaml
+> @@ -173,6 +173,7 @@ examples:
+>    - |
+>      #include <dt-bindings/gpio/gpio.h>
+>      #include <dt-bindings/media/video-interfaces.h>
+> +    #include <dt-bindings/media/video-interface-devices.h>
+>  
+>      i2c {
+>          #address-cells = <1>;
+> @@ -196,7 +197,7 @@ examples:
+>              vddgpio-0-supply = <&vsys_v4p2>;
+>              vddgpio-1-supply = <&vsys_v4p2>;
+>  
+> -            orientation = <0>;
+> +            orientation = <MEDIA_ORIENTATION_FRONT>;
+>              rotation = <0>;
+>  
+>              sensors {
 
 -- 
 Regards,
