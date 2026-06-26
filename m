@@ -4,64 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC478CDE018
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 08:21:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10675CDE00E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 08:21:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xf3kAwe5ywIQY//rN3h6sBdlm1lF9rusVsWktLYdFkk=; b=Ldd2O30BNxLBM1Fzc8tiAgffo6
-	1Y7pgiTh4TuZIkuOSCSw0GD7TmgwoA8GQYOsYeT7bHwvX8mhhvz8DyynYggZWe16/25T2LrcoocZb
-	T4tgcd7ba0whMapwNEoWNjf2VWZA9pNlxanW0NVUFYuRJO2nDatX9QuW9ExCTiFU5XuCYkEKzVdyA
-	7uClVfznir/MFiA2vULVkwSVqGb35Ze3y9cq9Ag/W1GMc5BFoCysUuGoZp23agygHhqvgHy4jhKjG
-	bgBmZ4Kg199DFOZBjiqARMbeUnlv2WQTioO34Zgo9pL8Uq2UlvbxeX9D9ui4ILvOENKouAFxCDsPD
-	Yggf6nBg==;
+	bh=cnDZkcdojzG6TP+7FyMqVMauu4QrpFoQrKFZui4fel0=; b=2+gfA3QzSPJ8WlgLyQZcFb1K6V
+	CCbHe1AgeD+QFDqhr66J8pqtkFYzuQz9GknblOjghN8gUBEy28OaYJsW+0j7FkBwa5E9FCehI9N+G
+	1Q+KChAZ1KKs8iL6hWFfDSFFk6l0/+djwUpzVeGsg/stXDngpCIhHT2J7hrZMOJREHVT4yD8sjFyy
+	9xwWLYVNpxSMm0RxiKfVfC7GpcEXxDz1fW6+FoGwI6J4/SfvjJ4gsFH4h/C8uH6pBT47Tu8H63h3J
+	xQa7VelQqtqVqAC+4gxyy9VJeDmiwsTp7cGJFSc24jQo2IhNLkNDmynFUijKIS4RkXpHTBvLGeViy
+	9dzNO97A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd1oR-0000000AnJe-3F51;
-	Fri, 26 Jun 2026 08:21:23 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wd1oS-0000000AnKq-1JqD;
+	Fri, 26 Jun 2026 08:21:24 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd1oP-0000000AnEU-1jzo;
-	Fri, 26 Jun 2026 08:21:21 +0000
+	id 1wd1oQ-0000000AnHH-1Ffr;
+	Fri, 26 Jun 2026 08:21:22 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6C90A6021E;
-	Fri, 26 Jun 2026 08:21:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B0AC1F00A3D;
-	Fri, 26 Jun 2026 08:21:20 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 047B640A8E;
+	Fri, 26 Jun 2026 08:21:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3FFB1F00AC4;
+	Fri, 26 Jun 2026 08:21:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782462080;
-	bh=Xf3kAwe5ywIQY//rN3h6sBdlm1lF9rusVsWktLYdFkk=;
+	s=k20260515; t=1782462081;
+	bh=cnDZkcdojzG6TP+7FyMqVMauu4QrpFoQrKFZui4fel0=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=aA/AaODJC9hNx87l7DWmFqF1ycvUQDGXM6GzZfkNDnaN83wpqMr7NjTKa3W749koe
-	 hwI7hQleW1NVEl2PH70tTqE+TBtvDm8AwRL2dm6Hcj+k9PQxhyaItrC9HsLeyyIqR0
-	 zndpM5dfZUZ+rxd7ac/2X/rhEe3gGN3uSkL1j5ZvFuZKkz4qiMsVS0UdRBcW255bmd
-	 B7KThCYiQMxkacYR+Lx1CIiiqfC6QKOcMNcIWeEeOhqYwGxKSKPiOIfXmLesV17yR2
-	 Odx/7NmU+bJ7ZzRHg/3Xun0PK3w6/xBip2pDM77MGz/xkgB+IWxpgu7gJukMW3wPcN
-	 lLNjFjZn/RKUw==
+	b=MC6yAmsds/bx8R7anvknX1AQ8wYErykOAlLqPC3rBrW/haRJJv9chUhiwT+CvnTmN
+	 khK/Dcw19LSCUFchb8D/hw+DpMaTb1XpLahGVWuQ2ovAXgjD87gIQurL0gIl9+xHit
+	 ncTog7IyU918i0n0R2d/om837p9tvnVMwNZwfwlMdGa5QlmnH1j/rqWXUCSJ6gUh9Z
+	 brR2GYKjb1zdGevtCBdmugxCTe8YRqU7Ur91VQYGPcJyxomzPIKGl4smPb/Yxi36dG
+	 9lOJILFIUiOpBT1cUYSLvvKVEE9Xu8TR8Q7d0eK5LtRY1OrEVkIWnTXlTpm48x7ej4
+	 4HMiz7mE0JbVg==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 5695239389E8;
-	Fri, 26 Jun 2026 08:21:08 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 198C839389E8;
+	Fri, 26 Jun 2026 08:21:10 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH v9 0/4] Introduce ASPEED AST27xx BMC SoC
+Subject: Re: [PATCH 01/19] btrfs: require at least 4 devices for RAID 6
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <178246206701.3816447.15009741745882675380.git-patchwork-notify@kernel.org>
-Date: Fri, 26 Jun 2026 08:21:07 +0000
-References: <20260609-upstream_ast2700-v9-0-f631752f0cb1@aspeedtech.com>
-In-Reply-To: <20260609-upstream_ast2700-v9-0-f631752f0cb1@aspeedtech.com>
-To: Ryan Chen <ryan_chen@aspeedtech.com>
-Cc: linux-riscv@lists.infradead.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, joel@jms.id.au, andrew@codeconstruct.com.au,
- catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de, krzk@kernel.org,
- alexandre.belloni@bootlin.com, linusw@kernel.org, fustini@kernel.org,
- pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
- soc@lists.linux.dev, conor.dooley@microchip.com
+Message-Id: <178246206859.3816447.16178589769412306177.git-patchwork-notify@kernel.org>
+Date: Fri, 26 Jun 2026 08:21:08 +0000
+References: <20260512052230.2947683-2-hch@lst.de>
+In-Reply-To: <20260512052230.2947683-2-hch@lst.de>
+To: Christoph Hellwig <hch@lst.de>
+Cc: linux-riscv@lists.infradead.org, akpm@linux-foundation.org,
+ catalin.marinas@arm.com, will@kernel.org, ardb@kernel.org,
+ chenhuacai@kernel.org, kernel@xen0n.name, maddy@linux.ibm.com,
+ mpe@ellerman.id.au, npiggin@gmail.com, chleroy@kernel.org, pjw@kernel.org,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, hca@linux.ibm.com,
+ gor@linux.ibm.com, agordeev@linux.ibm.com, borntraeger@linux.ibm.com,
+ svens@linux.ibm.com, tglx@kernel.org, mingo@redhat.com, bp@alien8.de,
+ dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
+ herbert@gondor.apana.org.au, dan.j.williams@intel.com, clm@fb.com,
+ dsterba@suse.com, arnd@arndb.de, song@kernel.org, yukuai@fnnas.com,
+ linan122@huawei.com, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
+ linux-crypto@vger.kernel.org, linux-btrfs@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-raid@vger.kernel.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,31 +86,57 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 Hello:
 
 This series was applied to riscv/linux.git (fixes)
-by Arnd Bergmann <arnd@arndb.de>:
+by Andrew Morton <akpm@linux-foundation.org>:
 
-On Tue, 9 Jun 2026 10:47:17 +0800 you wrote:
-> This introduces initial support for the Aspeed AST27xx SoC and the AST2700
-> Evaluation Board (EVB) to the Linux kernel. The AST27xx is the 8th
-> generation Baseboard Management Controller (BMC) SoC from Aspeed,
-> featuring improved performance, enhanced security, and expanded I/O
-> capabilities compared to previous generations.
-> 
-> AST27xx SOC Family
->  - https://www.aspeedtech.com/server_ast2700/
->  - https://www.aspeedtech.com/server_ast2720/
->  - https://www.aspeedtech.com/server_ast2750/
+On Tue, 12 May 2026 07:20:41 +0200 you wrote:
+> While the RAID6 algorithm could in theory support 3 devices by just
+> copying the data disk to the two parity disks, this version is not only
+> useless because it is a suboptimal version of 3-way mirroring, but also
+> broken with various crashes and incorrect parity generation in various
+> architecture-optimized implementations.  Disallow it similar to mdraid
+> which requires at least 4 devices for RAID 6.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v9,1/4] dt-bindings: arm: aspeed: Add AST2700 board compatible
-    https://git.kernel.org/riscv/c/34efd73379ff
-  - [v9,2/4] arm64: Kconfig: Add ASPEED SoC family Kconfig support
-    https://git.kernel.org/riscv/c/df6f379eb4ac
-  - [v9,3/4] arm64: dts: aspeed: Add initial AST27xx SoC device tree
-    https://git.kernel.org/riscv/c/e77bb5dc5759
-  - [v9,4/4] arm64: configs: Update defconfig for AST2700 platform support
-    https://git.kernel.org/riscv/c/512cef2af615
+  - [01/19] btrfs: require at least 4 devices for RAID 6
+    (no matching commit)
+  - [02/19] raid6: turn the userspace test harness into a kunit test
+    (no matching commit)
+  - [03/19] raid6: remove __KERNEL__ ifdefs
+    https://git.kernel.org/riscv/c/3d6beb659ddf
+  - [04/19] raid6: move to lib/raid/
+    (no matching commit)
+  - [05/19] raid6: remove unused defines in pq.h
+    https://git.kernel.org/riscv/c/06d2a66fb7c0
+  - [06/19] raid6: remove raid6_get_zero_page
+    https://git.kernel.org/riscv/c/885d31423183
+  - [07/19] raid6: use named initializers for struct raid6_calls
+    https://git.kernel.org/riscv/c/7e91f76a9668
+  - [08/19] raid6: improve the public interface
+    (no matching commit)
+  - [09/19] raid6: hide internals
+    (no matching commit)
+  - [10/19] raid6: rework the init helpers
+    (no matching commit)
+  - [11/19] raid6: use static_call for gen_syndrom and xor_syndrom
+    https://git.kernel.org/riscv/c/10f4b8e2a164
+  - [12/19] raid6: use static_call for raid6_recov_2data and raid6_recov_datap
+    (no matching commit)
+  - [13/19] raid6: update top of file comments
+    https://git.kernel.org/riscv/c/30bf04bd13a5
+  - [14/19] raid6_kunit: use KUNIT_CASE_PARAM
+    https://git.kernel.org/riscv/c/2175395f76c3
+  - [15/19] raid6_kunit: dynamically allocate data buffers using vmalloc
+    https://git.kernel.org/riscv/c/d67c25712fe3
+  - [16/19] raid6_kunit: cleanup dataptr handling
+    https://git.kernel.org/riscv/c/562bcbfcb99b
+  - [17/19] raid6_kunit: randomize parameters and increase limits
+    (no matching commit)
+  - [18/19] raid6_kunit: randomize parameters and increase limits
+    (no matching commit)
+  - [19/19] raid6_kunit: randomize buffer alignment
+    https://git.kernel.org/riscv/c/8cf0a6c4bb9e
 
 You are awesome, thank you!
 -- 
