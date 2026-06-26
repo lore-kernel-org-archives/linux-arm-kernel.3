@@ -4,68 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D5FBCDE008
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 08:25:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3747CD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 08:30:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AoJVBmYqkYYc7bgnl/B8M++q57EqJtQnmodoViGs4lE=; b=AJOd0ZPaTojVKp6Gk3gxqsuUgS
-	OkcM4PbhtLlVo3PeAhh+557AKQ4JJlsCE9A1I7AtYCC01T0zNzd88VIF4jbYVDXxp1p1/qFiPM7/x
-	wBTPYGE2IU4UwBRIm8GL/5yHz/HQFhj269Jg5WTt9PdCuW4RSy7HCyMywO8MhiTsYGMg7dRciErOQ
-	cNJvx+t01gMnI4FCGSbeJGflSJ62Tii6rotZ0odAYW0w83SPBzuTTVESW7ilb50W3/n6x5Cqf/Zq9
-	a4nFC1PkiFCZF63mlgRZT02RrYPcEiZDq2UvHGdrjBznqLUDhFdyJTpLUmvXvwda7osrhb4YGPNBW
-	cefDiv5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=g7QugsTJVRYqI5KzYuo8WC1k67mQy/4ShxoER+MIinM=; b=wy4I233uaTdefrqi4cW1w5CTGH
+	YuuOgCE00UHyaVoEigzCENZWcH9ZQ3q4A+bXQmDwT0KTkP82ar963nTwvtTfM46mnTTbiK8patLuh
+	6kdWwGeNdzrLLwTFGWzhPz6lRHmvOrzxmx4WGfLS9HLcnvMSGgUmg88gimzK2u5ydMNj1BLr9Gz+I
+	d5nmfcPI0JW2q1NZj4ImJG4TFdq+VYrof9Vm5/3Kk+lMiyxuWd2pC5h4mr2fg/YD0NeFg4rNqw+Jn
+	qoKDxOi6PZQcaZFz5GU1W3aqa3PBOSlhP3r1UyCuzcnoGBvIIkcfcXyox1U6u+VIqgSFHY7y+P6D3
+	iKEkmocw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd1sc-0000000ArGI-0thW;
-	Fri, 26 Jun 2026 08:25:42 +0000
-Received: from out30-130.freemail.mail.aliyun.com ([115.124.30.130])
+	id 1wd1xS-0000000Arro-0rRT;
+	Fri, 26 Jun 2026 08:30:42 +0000
+Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd1sX-0000000ArDr-2gjA;
-	Fri, 26 Jun 2026 08:25:40 +0000
+	id 1wd1xP-0000000ArrU-1vjw
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 26 Jun 2026 08:30:40 +0000
+Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-84532e3dbf7so316814b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 01:30:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1782462331; h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type;
-	bh=AoJVBmYqkYYc7bgnl/B8M++q57EqJtQnmodoViGs4lE=;
-	b=JYLDaGLyOzEYrj7eDD5UH4PdP9PIGtrz7c5LkgDWqYRV56GiICd8bmep63xellvfgm/23ekOBGGLLjOnY/VgZpvuz98/RAuhZ8y0495Z5pi7OAdZXvXXF+VVWSwT2y0jDRB72KP1yqCSdIdloBZ9tjb0IJPrV72zhzw15kxv/Y0=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R421e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033032089153;MF=fengwei_yin@linux.alibaba.com;NM=1;PH=DS;RN=21;SR=0;TI=SMTPD_---0X5e6nOB_1782462325;
-Received: from U-V2QX163P-2032.local(mailfrom:fengwei_yin@linux.alibaba.com fp:SMTPD_---0X5e6nOB_1782462325 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Fri, 26 Jun 2026 16:25:27 +0800
-Date: Fri, 26 Jun 2026 16:25:24 +0800
-From: YinFengwei <fengwei_yin@linux.alibaba.com>
-To: Kiryl Shutsemau <kirill@shutemov.name>
-Cc: Marc Zyngier <maz@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Doug Anderson <dianders@chromium.org>,
-	Petr Mladek <pmladek@suse.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Baoquan He <bhe@redhat.com>, Puranjay Mohan <puranjay@kernel.org>,
-	Usama Arif <usama.arif@linux.dev>, Breno Leitao <leitao@debian.org>,
-	Julien Thierry <julien.thierry.kdev@gmail.com>,
-	Lecopzer Chen <lecopzer@gmail.com>,
-	Sumit Garg <sumit.garg@kernel.org>, kernel-team@meta.com,
-	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 0/4] arm64: cross-CPU NMI via SDEI
-Message-ID: <aj43dFtbcZHvWBv5@U-V2QX163P-2032.local>
-References: <cover.1781709543.git.kas@kernel.org>
- <ajVLeseWOZn0XXY2@arm.com>
- <868q8asj1u.wl-maz@kernel.org>
- <ajk-Vge2qhaY-TwJ@thinkstation>
+        d=gmail.com; s=20251104; t=1782462638; x=1783067438; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language:subject
+         :references:cc:to:user-agent:mime-version:date:message-id:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=g7QugsTJVRYqI5KzYuo8WC1k67mQy/4ShxoER+MIinM=;
+        b=Awb56LQfkYesxh0ocvKnuZOuH2y3B5WwbUCUCd0dKnVKJV5Y5ZvqVyvRm2PfGdR0wJ
+         xXYdvK7G+IJbY06XU63gPpKiilNZsON81V1yjarvRA0gr6Get1X+7EN5X/W3l4t8ufj7
+         s768P0EXH+JYvyy4/4thedd9PkQINK/xliZCLUZhqsA43yRIoq8NEuMqepQJdwrzYbGY
+         7Z7eCghZ8W/bIwyJwkXVBy6F3IuoStcHsCvqaH3CKgZt712EAJSsTML1oX+C7rB1X/0M
+         c7NQ2hQ7SeMfKgznAn+x5cygc65oJuxutc1U6iJ+Man5G+jkl/IMb8vWfOhVGkAVJVRR
+         9XHQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782462638; x=1783067438;
+        h=content-transfer-encoding:in-reply-to:from:content-language:subject
+         :references:cc:to:user-agent:mime-version:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=g7QugsTJVRYqI5KzYuo8WC1k67mQy/4ShxoER+MIinM=;
+        b=VWOZ1UofsY/uGDtS5w1zc0PrP0BLX27ILZqFB/a+At89L85+zaWLF47QlWpvFarelG
+         nqoQ2m5Lryrg4x5o11LLL/QyDsTC3cd2MvEi5WmRTro8Qh1j081dQtmeVOvKNYwL7GfE
+         qjXpt5DSbNg2Hu8kbCmOEXWIk8NUhBWgNt4e2O4einEcGMdKdsOQKLeN0ai8Dr/DYeEM
+         St6fnVmg6nsLcnvO5j8NZWx05ztIyt1GnckDirzos+s4VYvmAGU+QutlLonJ34MZSHRh
+         A7ZtDCsmk40H0dIbFZlv/297LUqN5wIVKAC4KWzb6yLVMzZjUQHwKWYbAZj7D2+U6PJQ
+         A6Cw==
+X-Forwarded-Encrypted: i=1; AFNElJ/iOrJ+4deNCrISYfUNor4QMbteZHxTEIXFZFgT3noDgzI4SL/pHw6DI0WRett5Kc/V4aS5FzgiImD5T3oA2j6G@lists.infradead.org
+X-Gm-Message-State: AOJu0YwS8bzTvVTDJ2PZnpr2JODwGfzewC9vYzJ5VADpNhI0rWktT3W8
+	WLl28w3LRwSquJ9KQ3visvwr+Irg31JVe3sissNpONjjl4W57j4m+U2N
+X-Gm-Gg: AfdE7cnDpIugQD0STmvp+jPObIUpKojidmuDdvbToiIwoZbdd52ahe+OGlKIu57geD0
+	OAHF8myJaz4HuWgnsUbS7ZhDlISOg3AkLt9kxoLOz5XpRho9BtH06aEbuB9ysg0xK1yTQo9+Bvu
+	ZVFrf2gFidcmH9r6HVLjq+sWvpWHODU2QsfHFD6z1OOFr0aUHSNwSNUgD/2jTq8FiqxHZyFCTSQ
+	lM8ushYzaz64q4n8f8MzQcH6HqD4eYJeJ6OKmb7uoC6Kiz2TudqCc91mastPxdSNi4pEqutO64s
+	WLRTnB+ZLZK1u2gVc5OtC8BvXdr+mvhX6abRT9796Qi4136IzfbzP9ERkd3D07/REQN2ZQnh5vv
+	XqGCH7Y28AB9SjIYhAIY3XfGJ9asIEyO+G2ysMMHhlEx8/DO37eUceafWK8oQ1f1KMDZi8kYjGP
+	aBqA58dAasHnY8NQ==
+X-Received: by 2002:a05:6a00:804:b0:82f:72e6:ed4 with SMTP id d2e1a72fcca58-845b382ec89mr7443975b3a.0.1782462638151;
+        Fri, 26 Jun 2026 01:30:38 -0700 (PDT)
+Received: from [10.31.13.168] ([182.150.55.91])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-845c104113esm1660225b3a.57.2026.06.26.01.30.32
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 26 Jun 2026 01:30:37 -0700 (PDT)
+Message-ID: <c21cd9dc-9bbf-49dd-9812-4db0733b0636@gmail.com>
+Date: Fri, 26 Jun 2026 16:30:26 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ajk-Vge2qhaY-TwJ@thinkstation>
+User-Agent: Mozilla Thunderbird
+To: carlos.song@oss.nxp.com
+Cc: andi.shyti@kernel.org, biwen.li@nxp.com, festevam@gmail.com,
+ frank.li@nxp.com, frank.li@oss.nxp.com, imx@lists.linux.dev,
+ kernel@pengutronix.de, liem16213@gmail.com,
+ linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
+ linux-kernel@vger.kernel.org, o.rempel@pengutronix.de,
+ s.hauer@pengutronix.de, stable@vger.kernel.org, wsa@kernel.org
+References: <AM0PR04MB6802B863CD9B9AE1609C1785E8EB2@AM0PR04MB6802.eurprd04.prod.outlook.com>
+Subject: RE: [PATCH v3 1/2] i2c: imx: Clear slave pointer on registration
+ error
+Content-Language: en-US
+From: liem <liem16213@gmail.com>
+In-Reply-To: <AM0PR04MB6802B863CD9B9AE1609C1785E8EB2@AM0PR04MB6802.eurprd04.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_012538_595587_2B338B77 
-X-CRM114-Status: GOOD (  31.17  )
+X-CRM114-CacheID: sfid-20260626_013039_517410_1E4D5BCD 
+X-CRM114-Status: UNSURE (   5.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,105 +106,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Kirill
-On Mon, Jun 22, 2026 at 02:56:16PM +0100, Kiryl Shutsemau wrote:
-> On Fri, Jun 19, 2026 at 03:26:21PM +0100, Marc Zyngier wrote:
-> > > Does your firmware set ICC_CTLR_EL1.PMHE? I'd be curious to see the
-> > > numbers if the DSB was omitted on the enable path.
-> >
-> > I certainly don't observe this sort of overhead on the HW I have
-> > access to, and would like to understand where this is coming from with
-> > actual profiling data.
-> 
-> Full disclosure: the ~66% figures come from internal testing about a year ago.
-> I no longer have the details of the machine it ran on and can't confirm whether
-> ICC_CTLR_EL1.PMHE was set there -- it may well have been. I shouldn't have
-> carried those numbers forward without being able to stand behind them, so
-> please disregard them.
-> 
-> Here are fresh numbers from NVIDIA Grace (Neoverse V2). Importantly, this
-> box reports:
-> 
->   GICv3: Pseudo-NMIs enabled using relaxed ICC_PMR_EL1 synchronisation
-> 
-> i.e. PMHE == 0, so the synchronising DSB on the unmask path is already
-> patched to a NOP (ARM64_HAS_GIC_PRIO_RELAXED_SYNC). What's left is the
-> floor cost of PMR-based masking itself plus the PMR save/restore on
-> exception entry/exit -- not the DSB. So this is the case Catalin asked
-> about (DSB omitted), and there is still a measurable cost.
-> 
-> A trivial single-threaded gettid() loop (1e6 calls, median of 5,
-> performance governor, ASLR off):
-> 
->   pseudo_nmi=0 (DAIF):       178.4 ns/call
->   pseudo_nmi=1 (PMR):        252.5 ns/call
->   delta:                     +74.1 ns/call  (~230-250 cycles)
->                              +41.5% wall time / 0.706 throughput
-I tested the u-bench.c on a Neoverse N2 based arm64 server. The result
-is as following:
-   pseudo_nmi=0 (DAIF):       96.3  ns/call
-   pseudo_nmi=1 (PMR):        169.8 ns/call
-   delta:                     +73.5 ns/call
+Hi, carlos!
 
-> 
->   --- u-bench.c ---
->   #include <unistd.h>
->   #include <sys/syscall.h>
->   #include <time.h>
->   #include <stdio.h>
->   int main(void) {
->           struct timespec a, b;
->           clock_gettime(CLOCK_MONOTONIC, &a);
->           for (long i = 0; i < 1000000; i++)
->                   syscall(SYS_gettid);
->           clock_gettime(CLOCK_MONOTONIC, &b);
->           printf("%f ns\n", (b.tv_sec-a.tv_sec)*1e9 + (b.tv_nsec-a.tv_nsec));
->           return 0;
->   }
-> 
-> will-it-scale agrees independently. sched_yield (ops/s, median of 5):
-> 
->                       1 task       72 tasks
->   pseudo_nmi=0      3,195,656    230,824,534
->   pseudo_nmi=1      2,253,753    163,914,837
->   ratio                0.705          0.710
-> 
-> The ratio is flat across the whole 1-to-72 sweep, so -- relevant to the
-> scalability question -- it's a constant per-syscall tax, not a contention
-> effect. The impact tracks syscall/exception density: page_fault1, a more
-> realistic workload, stays within ~5%.
-> 
-> > The direction of travel is to deprecate SDEI. I wouldn't add more stuff
-> > on top of this interface.
-> 
-> I understand FEAT_NMI is the long-term answer, and I'm not arguing against
-> deprecating SDEI. My concern is the gap in between. By our estimate it's
-> 10+ years before the last non-FEAT_NMI machine retires from the fleet --
-> for scale, we're still running Skylake today. So there's roughly a
-> decade where a large installed base has neither FEAT_NMI nor affordable
-> pseudo-NMI, and no way to reach a DAIF-masked CPU for an all-CPU
-> backtrace or to capture a wedged CPU in a crash dump. That's the
-> functional gap this series tries to cover.
-> 
-> Given the deprecation direction, I deliberately kept the SDEI footprint as
-> small as I could. The series adds no new firmware interface and no vendor
-> SMC -- it uses only the standard software-signalled event (event 0) via
-> SDEI_EVENT_SIGNAL, which is already present on these systems for
-> firmware-first RAS (APEI/GHES). And SDEI is only ever invoked in a "bad
-> state": to deliver a backtrace signal to a CPU that a normal IPI can't
-> reach, or to stop a CPU that ignored the stop IPIs. Nothing on any hot or
-> steady-state path touches it.
-> 
-> If even that minimal use is unacceptable on a deprecated interface, I'd
-> rather know now and redirect the effort -- but I'd appreciate a pointer to
-> what should cover this gap for existing silicon in the meantime.
-I couldn't agree more: We need a solution for existing system. And
-like to see this patchset merged. Thanks.
+Thanks for the review.
+This is a good idea; this is a better way to fix it.
+I'll fix Patch 1 as suggested and send a v4.
 
-Regards
-Yin, Fengwei
-> 
-> -- 
->   Kiryl Shutsemau / Kirill A. Shutemov
-> 
+Regards,
+
+Liem
 
