@@ -4,76 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 450C4C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 14:38:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 793BEC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 14:41:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NNBz9yeKFDt8S3A8rSmCcd4DAlHXOY7KnNCw3bojEvg=; b=bJ3W9HJZ/Mhp8aLzWnbSlGkLb0
-	bhUKy+SSkzjVX1JLhHXeZOV/+vfPFFwmedtoitkn43kB4YwCaoWjwzWJqs4EmHyBM7j4DS6UWG1RJ
-	jHHgvVv/M5vrhoNuFwBq8YUuEoELbtHyVqmRm6haRPNmaHqWlZcwUaAUP1VYnpwO5St+vPlRJNRXG
-	UjW6AljeCvNgovTwN9P76P55ZUZXH8symULCFeWHawX59f7YjGnFiLpTLAPTJUauzUW+CXteVIXW7
-	yjCs81Ntngkkslme7C8wsg+V6LlLnL82zMDCDdJC21vYNrujDi1ZQPvPTtWiVheQpQQUUhjyOqgaV
-	bTdYyoFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0HPhwFtkXvquAUDYvZqrHytOvvPkaGYk3vsC80cW3dk=; b=EdC+ZoU/qhOc8rl252hO1ctOpe
+	zC7AWXmNhIOUAZb5db/HT3RCd8NA+swlD9tdikSGR4/J3Jym+z939ReQbEi2I3BRLCt6Q73rgoL+V
+	N/d43qPkjVilRF3VSoSuv/zMiVV/AcBV+kb0c78YKBE+hzWxh+5tQ32AkeLKBf971rj85L6yKDWGJ
+	FFAEltysiEsqNvraD+v2R7waErj3xg4ji+7ABp6B2C/9CJxpzIQuAvTG6DwjBHBVU+wnhAkFRxlsh
+	THIcLPf2rEwJ0VpGgMz0jBU56H4kOAv/dgCRwZGGkvDhYsYyd5n4HxtvkCPc7ax/Nc6J/icLzyO/C
+	7HB7DgzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd7h5-0000000BTdM-05aQ;
-	Fri, 26 Jun 2026 14:38:11 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wd7jo-0000000BU2u-3Hyh;
+	Fri, 26 Jun 2026 14:41:00 +0000
+Received: from smtp-1909.mail.infomaniak.ch ([2001:1600:19:8e30::1909])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd7h4-0000000BTdC-10di
+	id 1wd7jk-0000000BU11-2h6U
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 14:38:10 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7A2F7600D8;
-	Fri, 26 Jun 2026 14:38:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B427D1F000E9;
-	Fri, 26 Jun 2026 14:38:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782484689;
-	bh=NNBz9yeKFDt8S3A8rSmCcd4DAlHXOY7KnNCw3bojEvg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=hSzTLFr4gv+NL5oRQq/EB2d6PvRcsHIWmf1KI+jbAVPhfkEtVfN/ZLe8yXV1H5xLY
-	 5x7JvsYnUg0yRPQKmO4I/oL6mbDZuzB5LC8fe/73Y2B+/Ig117KyG5EGbNuvvly0qy
-	 dD2TMThOWM4iFfIxDtTS3lI/gFRkJz7KdXJ2l3rerEaUP2TN/X0WPn3i4Lo25/XbRv
-	 pJ/MLMIqMpJEdzXfDJFhmzmzMr9n0EixPA4hLvaGZW5YAx2V+FYM1Jhkh3PPLs+ah9
-	 Swt6Pb0OIEtRgmLG6f/nWymjRmNoQVNv14okSyXYQP1zSeoQIwJ3YKdbqJ2SJhWysv
-	 eDqLm6r+6yvww==
-Date: Fri, 26 Jun 2026 16:38:07 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Inki Dae <inki.dae@samsung.com>, 
-	Jagan Teki <jagan@amarulasolutions.com>, Marek Szyprowski <m.szyprowski@samsung.com>, 
-	Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Hui Pu <Hui.Pu@gehealthcare.com>, 
-	Ian Ray <ian.ray@gehealthcare.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 05/37] drm/display: bridge-connector: split code creating
- the connector to a subfunction
-Message-ID: <20260626-classy-nightingale-of-romance-1cacad@houat>
-References: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
- <20260519-drm-bridge-hotplug-v1-5-45e2bdb3dfb4@bootlin.com>
- <20260608-mindful-heavy-frigatebird-be9faf@houat>
- <DJ735MTNMYD1.3LPNV404V8PIU@bootlin.com>
- <20260624-proud-unbiased-pony-ecc3c3@houat>
- <DJHEAWSEZR79.19UFIKS8QJBQ7@bootlin.com>
- <20260626-polite-hairy-perch-25e1aa@houat>
- <DJJ1MPCEJGZD.UZM9183V6ZE5@bootlin.com>
+	Fri, 26 Jun 2026 14:40:59 +0000
+Received: from smtp-3-0001.mail.infomaniak.ch (smtp-3-0001.mail.infomaniak.ch [10.4.36.108])
+	by smtp-4-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4gmyyq3sCRzspR;
+	Fri, 26 Jun 2026 16:40:51 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=0leil.net;
+	s=20231125; t=1782484851;
+	bh=0HPhwFtkXvquAUDYvZqrHytOvvPkaGYk3vsC80cW3dk=;
+	h=From:Date:Subject:To:Cc:From;
+	b=kbfEwjZs5NrTcHkqTfsl8NYqNIp7n77UhG5v9cIkEvGqsLft0Cy/9flMNyDAEbeCV
+	 ruUSAHxJKTe3Cfs/6aHMrY877vtXzB4++d4g/JN3m4/YvwrxUqb1c1kDUlyUbrF/bl
+	 IpFUGfvdDkqbDQn+7oeavtf2TdN1X49hdfxJSkfvrxI0bEFCrmbznKRGE/BOmuwbOy
+	 aEcECZ4kyL5AovQ9i805jDSu9z0JqoX4Z++YdElO24NLTIv/oSPa7cYOgiKITJKJjt
+	 SIrbR3wtKq97A42IfdwULZdR8sZPbKBDx20zRgOJ4quVoO/dIB2F6abLf5OsqtlLIx
+	 r9Iav44fT9Vsw==
+Received: from unknown by smtp-3-0001.mail.infomaniak.ch (Postfix) with ESMTPA id 4gmyyp1m8tz3Fy;
+	Fri, 26 Jun 2026 16:40:50 +0200 (CEST)
+From: Quentin Schulz <foss+kernel@0leil.net>
+Date: Fri, 26 Jun 2026 16:40:38 +0200
+Subject: [PATCH] arm64: dts: rockchip: fix eMMC reset polarity on PX30
+ Ringneck
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="dg3qswh7aapydmwm"
-Content-Disposition: inline
-In-Reply-To: <DJJ1MPCEJGZD.UZM9183V6ZE5@bootlin.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260626-ringneck-emmc-polarity-v1-1-90cefe57b316@cherry.de>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMwQ6CMAyA4VchPdukG8kwvorxAKXOqgzSoYEQ3
+ t2px+/w/xtkMZUMp2oDk7dmHVOBO1TAtzZFQe2LwZMPFHxA0xST8ANlGBin8dmazis2riGqOXR
+ H8lDiyeSqy298vvydX91deP7eYN8/sFCo3HoAAAA=
+X-Change-ID: 20260626-ringneck-emmc-polarity-717003c6b802
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Quentin Schulz <quentin.schulz@theobroma-systems.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Quentin Schulz <quentin.schulz@cherry.de>, stable@vger.kernel.org
+X-Mailer: b4 0.15-dev-47773
+X-Infomaniak-Routing: alpha
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260626_074056_815786_2DB673A3 
+X-CRM114-Status: GOOD (  12.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,158 +79,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Quentin Schulz <quentin.schulz@cherry.de>
 
---dg3qswh7aapydmwm
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 05/37] drm/display: bridge-connector: split code creating
- the connector to a subfunction
-MIME-Version: 1.0
+According to the Jedec 5.1 specification, the device is held in reset
+when RST_n is low, therefore the polarity of the line must be that, as
+specified in the Device Tree binding (mmc/mmc-pwrseq-emmc.yaml).
 
-On Fri, Jun 26, 2026 at 04:16:39PM +0200, Luca Ceresoli wrote:
-> Hi Maxime,
->=20
-> On Fri Jun 26, 2026 at 12:09 PM CEST, Maxime Ripard wrote:
-> > On Wed, Jun 24, 2026 at 05:47:10PM +0200, Luca Ceresoli wrote:
-> >> On Wed Jun 24, 2026 at 1:41 PM CEST, Maxime Ripard wrote:
-> >> > Hi,x
-> >> >
-> >> > On Fri, Jun 12, 2026 at 02:56:24PM +0200, Luca Ceresoli wrote:
-> >> >> On Mon Jun 8, 2026 at 1:40 PM CEST, Maxime Ripard wrote:
-> >> >> > On Tue, May 19, 2026 at 12:37:22PM +0200, Luca Ceresoli wrote:
-> >> >> >> In preparation to introduce bridge hotplug, split out from
-> >> >> >> drm_bridge_connector_init() the code adding the drm_connector in=
-to a
-> >> >> >> dedicated function. This will be needed to be able to add (and r=
-e-add) the
-> >> >> >> connector from different code paths.
-> >> >> >
-> >> >> > Same story here, explaining what you need later on that calls for=
- that
-> >> >> > change would be nice.
-> >> >>
-> >> >> Here's a more verbose version:
-> >> >>
-> >> >>     Currently drm_bridge_connector_init() does two things:
-> >> >>
-> >> >>      * allocate and initialize the drm_bridge_connector
-> >> >>        (which embeds a drm_connector)
-> >> >>      * initialize and register the embedded drm_connector
-> >> >>
-> >> >>     For bridge hotplug we need to separate these two actions:
-> >> >>
-> >> >>      * the drm_connector needs to be added and removed at any time =
-based on
-> >> >>        hotplug events
-> >> >>      * the drm_bridge_connector is designated to create and remove =
-the
-> >> >>        drm_connector, so it must be persistent for the card lifetime
-> >> >>
-> >> >>     As the lifetimes of drm_bridge_connector and drm_connector beco=
-me
-> >> >>     different, we need to create them in different moments.
-> >> >>
-> >> >>     In preparation to support that, split out from
-> >> >>     drm_bridge_connector_init() the code adding the drm_connector i=
-nto a
-> >> >>     dedicated function. No functional changes, just moving code aro=
-und for
-> >> >>     now. A future commit will make the drm_connector be created bas=
-ed on
-> >> >>     hotplug events.
-> >> >>
-> >> >> Looks good?
-> >> >
-> >> > The message itself, yes, thanks.
-> >> >
-> >> > However, I have questions now :)
-> >> >
-> >> > Do we really expect drm_bridge_connector to stick around when a brid=
-ge
-> >> > gets unplugged? If so, how does it cope with having, say, an HDMI
-> >> > connector, and then swapping out the hotplugged part for an LVDS one?
-> >> > Does the HDMI connector sticks around indefinitely?
-> >>
-> >> In your example, the HDMI drm_connector would be unregistered and put =
-on
-> >> hotunplug. Its allocation will stick around until the last put but tha=
-t's
-> >> quite irrelevant. Then, on plugging the LVDS addon, a new LVDS
-> >> drm_connector will be created and registered.
-> >>
-> >> > *Especially* if we're using overlays for this, I'd expect everything
-> >> >  after the first hotplugged bridge to be destroyed, no?
-> >>
-> >> As said, it would be unregistered immediately but might be freed later=
- on
-> >> if still refcounted.
-> >>
-> >> This is visible in patches 36+15, the path to follow is:
-> >>
-> >>  drm_bridge_connector_handle_event(event =3D DRM_BRIDGE_DETACHED) [pat=
-ch 36]
-> >>  -> drm_bridge_connector_dynconn_release()                      [patch=
- 15]
-> >>
-> >> Does this solve your concern?
-> >
-> > Not really, I'm talking about drm_bridge_connector. The fact that
-> > bridges are destroyed make sense to me. The fact that
-> > drm_bridge_connector sticks around doesn't. It's supposed to be a
-> > connector for bridges. If you don't have bridges because they got
-> > destroyed, and connector, drm_bridge_connector doesn't have a reason to
-> > exist anymore, unless it's drm_bridge_hotplug in a trench coat :)
->=20
-> It is not a hotplug-bridge in a trench coat, no :) The code is clear about
-> this.
->=20
-> I'd say with this series a "drm_bridge_connector" is just becoming
-> something more (perhaps something else too). Somewhat as "a drm_bridge is
-> either a bridge or something else". :)
->=20
->=20
-> But let's leave names aside for a moment. If just looking at the current
-> code, the drm_bridge_connector is "a handler, owned by the card/encoder a=
-nd
-> having the same lifetime, which takes care of drm_connector
-> creation/destruction at card probe/removal".
->
-> What we need now is just the same plug " and on hotplug events" appended.
->=20
-> So in both cases there needs to be "a handler persitent with the card".
->=20
-> Do we agree so far?
+Due to the wrong polarity, eMMC devices with RST_n_FUNCTION[162]
+bitfield [1:0] set to 0x1 (the default is 0x0) will be held in reset
+forever.
 
-Ish. If we go for that, then we need to update the name.
-drm_bridge_connector for something that is neither a bridge or a
-connector is not great.
+Cc: stable@vger.kernel.org
+Fixes: c484cf93f61b ("arm64: dts: rockchip: add PX30-µQ7 (Ringneck) SoM with Haikou baseboard")
+Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
+---
+PX30 Ringneck is affected by the same issue that Cobra and PP-1516 have
+and for which patches[1][2] have already been sent.
 
-But even then, I'm not even sure why we need to have that "manager" in
-the first place. You want to make bridges be aware if they are the last
-in the chain or not. Use that property in attach to either create a
-drm_bridge_connector instance if you're last, or attach the next bridge
-if you aren't.
+Out of the other boards I own, RK3588 Tiger and Jaguar also have an
+inverted polarity but I tried making the eMMC chip care about the reset
+line polarity to no avail, therefore I'm not changing them until we
+figure out a setup in which we can reproduce the issue.
 
-And when a bridge is removed, drop everything after it in the chain,
-drm_bridge_connector instance included.
+There are a handful of other Rockchip boards with an inverted polarity
+but I don't own any of them so I will not change them either.
 
-And the encoder can take care of handling bridge remove and tearing down
-the bridge chain itself.
+[1] https://lore.kernel.org/linux-rockchip/20260609081728.30616-2-jakobunt@gmail.com/
+[2] https://lore.kernel.org/linux-rockchip/20260612-pp1516-emmc-polarity-v1-1-4816c1c909f7@cherry.de/
+---
+ arch/arm64/boot/dts/rockchip/px30-ringneck.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Maximex
+diff --git a/arch/arm64/boot/dts/rockchip/px30-ringneck.dtsi b/arch/arm64/boot/dts/rockchip/px30-ringneck.dtsi
+index 973b4c5880e24..29794216592d8 100644
+--- a/arch/arm64/boot/dts/rockchip/px30-ringneck.dtsi
++++ b/arch/arm64/boot/dts/rockchip/px30-ringneck.dtsi
+@@ -26,7 +26,7 @@ emmc_pwrseq: emmc-pwrseq {
+ 		compatible = "mmc-pwrseq-emmc";
+ 		pinctrl-0 = <&emmc_reset>;
+ 		pinctrl-names = "default";
+-		reset-gpios = <&gpio1 RK_PB3 GPIO_ACTIVE_HIGH>;
++		reset-gpios = <&gpio1 RK_PB3 GPIO_ACTIVE_LOW>;
+ 	};
+ 
+ 	leds {
 
---dg3qswh7aapydmwm
-Content-Type: application/pgp-signature; name="signature.asc"
+---
+base-commit: 4edcdefd4083ae04b1a5656f4be6cd83ae919ef4
+change-id: 20260626-ringneck-emmc-polarity-717003c6b802
 
------BEGIN PGP SIGNATURE-----
+Best regards,
+--  
+Quentin Schulz <quentin.schulz@cherry.de>
 
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaj6OzgAKCRAnX84Zoj2+
-dlHPAYCTNSboNOVXU0dmvN96wAvIb/yzXhKCBdDIWnlDDNW4AejABxGdGyL4blwi
-Bk9zW48Bf1ClZlJpYwJ2D0QMk2WXJ6V+CGe0ae7jM3+A//UFZT9jbXzL8n4VDGNy
-2nljLX6eYw==
-=J8kO
------END PGP SIGNATURE-----
-
---dg3qswh7aapydmwm--
 
