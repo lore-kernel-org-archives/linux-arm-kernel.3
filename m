@@ -4,62 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5721ACDE008
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 07:17:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 407D6CD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 07:20:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LLwOaOrVN63ocBzK4TrquFSTvMxdhRBEVjhLSw06WEg=; b=qRj/vtkRcrBSYh0RrZX5WDOAj7
-	02TaGJd25iGwldZMVZ1Is/p90FBi+XLHRSMP16khud3N3/aB83HhwWGjcnie82VSzfIIUnOrOKasB
-	pJ66b71bHdbcdK+zduX+eZ+jEedT51dZhWMLz4FMRBI2Y8wERfP4eVGlM+5SIKeCO+KrWBaCu0c84
-	osX53PsmrdYWS7Vhw8wT/oxmrW1HX3S6pTiYSj+nUw6w+dYblUUz48L8vE4L2S8Mv+xXP8opu0C+A
-	6/SK9CNkafJCPyHnLZsRI0is3vVZDwBBnpMP6MG6+zWwEzZdiON+A8iG1TxosQ9zeMTnBn++uqsQN
-	Nzskg/Tg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nsDpEa3ZukNKDY+tJmpbprch+iDsYOyLe8vx+gpj3Zk=; b=SmB4W8MVuQxpDmcrAO+84GhceH
+	sZH8U0NF8RdVZ+pAX0hw3i8nQMluelXR4Swlb/ZRs7GQqbLs8AjTygVe69G54zCJFJHG9MHDeE/WR
+	NJ89LhpLtk2kAxYCUKM66X0o2Qr8+zNmuek9K44a9y9RwhEuf3DY5toH4RYv0EzTTjt3J59U73jz4
+	Nrbry11WtCZARTQp08/AhNM/UHAnBvnKIYuz7GDYxeMmSi5hmxfmgd3bs5BKH2wjuy1jx90fVOUBh
+	Ku5lrvH9bhfRJB+FgPrHBSNbSsZWfuT4oIUqYD70dgdVmcu2kcsxLgf/8sglePxF88grmaPd5yryh
+	cY+gKfuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd0o4-0000000AfAJ-27Ri;
-	Fri, 26 Jun 2026 07:16:56 +0000
-Received: from mx.adeep.su ([185.250.0.168])
+	id 1wd0rJ-0000000AfMR-3sTm;
+	Fri, 26 Jun 2026 07:20:17 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd0o0-0000000Af9q-0DNC;
-	Fri, 26 Jun 2026 07:16:55 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id DF51B1BE7A2;
-	Fri, 26 Jun 2026 10:16:44 +0300 (MSK)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=baodeep.com; s=dkim;
-	t=1782458207; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=LLwOaOrVN63ocBzK4TrquFSTvMxdhRBEVjhLSw06WEg=;
-	b=jyzEzToPHt0FZEmcxepLe+ZA6VMW2QaCJLe96oEhXXdQhSolX3SH2aWIN078Or7/guip9m
-	82ZEJ3DklV52hmqI5FJndHqn9PIWo4eumBRO7PBLUc72cWVkTz7o4dW4o6F7oqqoNRg6Ev
-	wIqMLPn0iDCNqC5LioVBHo/WriwYTTAwiBCvM2c5Pjl9wFs+/OQTMDkQXwpcD9MDj4m9oW
-	2cAxU05OE0rPKjDz5vAke6MfDIVXYPz8EGK7ENdztgc1A9/lzV/Q/FL0dRIrvZzlV5wPlu
-	UdwruCzDc8Kd7uWA1HZM2Wq5mNsK1N8M7a7jL4uXmIYQCljl3Uil0QPGYpgBqw==
-Message-ID: <0a9fee08-8945-4c7d-8bea-9efb7d921f10@baodeep.com>
-Date: Fri, 26 Jun 2026 10:16:27 +0300
+	id 1wd0rH-0000000AfM3-0Hut
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 26 Jun 2026 07:20:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1782458415; x=1813994415;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=ISWXHKaawn9h3mmKev98WgFcthqdhjvovZhyVz7j7f8=;
+  b=DMgX3KBb5DF5BuXjqVCVb6mRfQfkFF7ZyyiUAJQ7cUAmvD/nxNxzQwt5
+   zp4M8xWcNKla8xk6BOm21BSYYHcQKGvh4dLmQALIxUOz5KTWIv8IqwP0Y
+   mzYr/PFlWWCLarYT1zNMvOAbgczmSfeEVQPG+k5+/ZXaDQTvnQqRwkULE
+   aipvrC5vw9Z3zGqQNBi8WZ3WXsqiNwc/7lxJGvt6Q3FMYXDqcY6UZzC+0
+   BFtClTRf0g4Ery5NEeePz1xrIlvXnR8CdQyfl8Q3z5IS6E675rOYeaKae
+   gvzrS8wutcpP1HOurrnlzgOV7hp0yyQQDS39dr+3HSzeIm9VTPE8oYwVN
+   A==;
+X-CSE-ConnectionGUID: /ckA0SlxThe1rb4/x1hBOQ==
+X-CSE-MsgGUID: JEpd77qjQQicd2yYZkhrag==
+X-IronPort-AV: E=Sophos;i="6.24,226,1774335600"; 
+   d="asc'?scan'208";a="58875964"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 26 Jun 2026 00:20:14 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Fri, 26 Jun 2026 00:20:12 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex03.mchp-main.com (10.10.85.151)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.58 via Frontend
+ Transport; Fri, 26 Jun 2026 00:20:09 -0700
+Date: Fri, 26 Jun 2026 08:19:19 +0100
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+CC: Conor Dooley <conor@kernel.org>, Joey Lu <a0987203069@gmail.com>,
+	<maarten.lankhorst@linux.intel.com>, <mripard@kernel.org>,
+	<tzimmermann@suse.de>, <airlied@gmail.com>, <simona@ffwll.ch>,
+	<robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+	<ychuang3@nuvoton.com>, <schung@nuvoton.com>, <yclu4@nuvoton.com>,
+	<dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v5 1/7] dt-bindings: display: verisilicon,dc: generalize
+ for single-output variants
+Message-ID: <20260626-astrology-mural-853d3860e048@wendy>
+References: <20260625094449.708386-1-a0987203069@gmail.com>
+ <20260625094449.708386-2-a0987203069@gmail.com>
+ <20260625-bobbing-annotate-d1c4d6874ee2@spud>
+ <e3fe23ddbc504879bd797bbaa595d3653fa139ff.camel@iscas.ac.cn>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] gpio: shared-proxy: always serialize with a
- sleeping mutex
-To: Marek Szyprowski <m.szyprowski@samsung.com>
-Cc: linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260625115718.1678991-1-v@baodeep.com>
- <CGME20260625115817eucas1p10bfe0898d6cb2f6f51cff36a031946f9@eucas1p1.samsung.com>
- <20260625115718.1678991-2-v@baodeep.com>
- <d8d407d5-ba6c-4197-9cf0-2fa7e6e17155@samsung.com>
-Content-Language: ru
-From: Viacheslav <v@baodeep.com>
-In-Reply-To: <d8d407d5-ba6c-4197-9cf0-2fa7e6e17155@samsung.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="7SoCkx0H/fbweAJy"
+Content-Disposition: inline
+In-Reply-To: <e3fe23ddbc504879bd797bbaa595d3653fa139ff.camel@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_001652_603153_B9D7D6A4 
-X-CRM114-Status: UNSURE (   5.51  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260626_002015_195972_E139825B 
+X-CRM114-Status: GOOD (  21.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,37 +95,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi!
+--7SoCkx0H/fbweAJy
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-26.06.2026 08:54, Marek Szyprowski wrote:
-> On 25.06.2026 13:57, Viacheslav Bocharov wrote:
->> The shared GPIO descriptor used either a mutex or a spinlock, chosen at
->> runtime from the underlying chip's can_sleep:
->>
->> 	shared_desc->can_sleep = gpiod_cansleep(shared_desc->desc);
->> 	... if (can_sleep) mutex_lock(); else spin_lock_irqsave();
+On Fri, Jun 26, 2026 at 01:27:21PM +0800, Icenowy Zheng wrote:
+> =E5=9C=A8 2026-06-25=E5=9B=9B=E7=9A=84 17:33 +0100=EF=BC=8CConor Dooley=
+=E5=86=99=E9=81=93=EF=BC=9A
+> > On Thu, Jun 25, 2026 at 05:44:43PM +0800, Joey Lu wrote:
+> > > +allOf:
+> > > +=C2=A0 - if:
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 properties:
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 compatible:
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 contains:
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 c=
+onst: thead,th1520-dc8200
+> > > +=C2=A0=C2=A0=C2=A0 then:
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 properties:
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 clocks:
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 minItems: 5
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 maxItems: 5
+> > > +
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 clock-names:
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 minItems: 5
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 maxItems: 5
+> >=20
+> > All the maxItems here repeat the maximum constraint and do nothing.
+> >=20
+> > Since you didn't change the minimum constraint at the top level, your
+> > minItems also do nothing.
+> >=20
+> > > +
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 resets:
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 minItems: 3
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 maxItems: 3
+> > > +
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 reset-names:
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 minItems: 3
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 maxItems: 3
+> > > +
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 required:
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - resets
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - reset-names
+> >=20
+> > Both conditional sections have this, but the original binding doesn't
+> > require these for the thead device. This is a functional change
+> > therefore and shouldn't be in a patch calling itself "generalise for
+> > single ended variants".
+>=20
+> Well yes they're required.
+>=20
+> Should I send a patch adding the `thead,th1520-dc8200` part of the
+> schema?
 
-...
+If you mean the code above, no. Adding a conditional section when
+there's only that compatible doesn't make sense.
 
->>
->> The lock type was added by commit a060b8c511ab ("gpiolib: implement
->> low-level, shared GPIO support"); the sleeping call under it arrived with
->> the proxy driver.
->>
->> Fixes: e992d54c6f97 ("gpio: shared-proxy: implement the shared GPIO proxy driver")
->> Reported-by: Marek Szyprowski <m.szyprowski@samsung.com>
->> Closes: https://lore.kernel.org/all/00107523-7737-4b92-a785-14ce4e93b8cb@samsung.com/
->> Signed-off-by: Viacheslav Bocharov <v@baodeep.com>
-> 
-> 
-> Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
-> 
+What you could do is just add it at the top level though, which would
+also benefit this patch since it'd not have to be conditionally added
+for the new nuvoton device.
+Just note in your commit message about what the ABI impact of the change
+to required properties is (effectively nothing because it's optional in
+the driver and the only user has the properties).
 
-Thanks!
+> > > +
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 resets:
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 minItems: 1
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 maxItems: 1
+> > > +
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 reset-names:
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 items:
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 -=
+ const: core
+> >=20
+> > This is just maxItems: 1.
+>=20
+> Well the implicit rules of DT binding schemas are quite weird...
+
+I don't think it is that strange, as the binding has
+  reset-names:
+    items:
+      - const: core
+      - const: axi
+      - const: ahb
+so just constraining to one item is the simplest way to do this without
+duplication.
 
 
-Best regards
--- 
-Viacheslav Bocharov
+--7SoCkx0H/fbweAJy
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaj4n9wAKCRB4tDGHoIJi
+0jrNAQDGXff+FunKOyT28vcC9lrAn2ZYxmbPl/I52t/aaUdp9wEAq5x1xHEXvb49
+A3qqhyWWSlJZMo2jH5vbzEt1icggMwk=
+=ND87
+-----END PGP SIGNATURE-----
+
+--7SoCkx0H/fbweAJy--
 
