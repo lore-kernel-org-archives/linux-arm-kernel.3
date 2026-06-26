@@ -4,64 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F12CFC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 16:15:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 006BEC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 16:20:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IFj+K8pWjYcRO5D7jGhk3uw0VEa1YWWgcwRuiZFb3G4=; b=aRD13OppVaBKzROlD2q1FZqql3
-	neAUAzcZMAwBnjf1EAzfueurqphq/ctKSpmhbeGau4TtbuCzqlun59QgCyd1J1ANHGFHH/X6p+HTG
-	5Pab4TFtntI0yqqiwUeouNGf9x8EW5j4m+xYryaFyDCuFvZ9zIBvZ1x8vN2lvSTAkPOgYL6RoKAR4
-	9+Lat8LyT4gTnTZq6e9qCaiDgmgTrnf9uvNmCmAG9MkUvFFO/+Fs0/Um+cQg23EJgS4VPloNs9IAo
-	O1rjxT4gFfty3YTMVOl37OHuIfoc4L7crvXWChtfE9USn3su4typ1J6HKgty42J9+xN/78o+hM3IB
-	J0753rYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4tKsbGrcR78zcHbLWs3JHmwiHpOL5AjwjOIZHc1xSi0=; b=43Ab96VJFWQ5sREpFt8XANfWx8
+	RoZM4BOSGhdj2rMej2ykSRf9bdjkhfg3XYLC/Y96yMeB1yt9T7Fb/lNvg8t+BPXRxWjw562xVcZSP
+	NIr5VUiNz2C5USi/WoLcaLMWA5GZsK2x+ol4MuMYXwM0r18FeywF88ZonT9msqjUUVEgO86xh9sM8
+	+deMPKp/feaXTvT/jNW9RQOdaYX27/Qf2WYqORyyAIZSSV/ekFGg9QAtw/n1kZBK/uL3FQjmTtbY9
+	AqxlMtQNYWRLRPwXoSj6bSiGqwjIwDMPL8QrvBPzpXK2apf4mFy64sAmrBj3Yt6zrPJiX1fCCdt3C
+	4xFoaQrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd9D9-0000000Bby8-3RY1;
-	Fri, 26 Jun 2026 16:15:23 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd9D6-0000000Bbwq-1vm4
+	id 1wd9IL-0000000BcES-1ZiJ;
+	Fri, 26 Jun 2026 16:20:45 +0000
+Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wd9II-0000000BcDr-371k
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 16:15:22 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4936A1F37;
-	Fri, 26 Jun 2026 09:15:14 -0700 (PDT)
-Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6CC793F905;
-	Fri, 26 Jun 2026 09:15:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782490518; bh=x1pZG/Gj42lOLXnmttonXXa2JSMsqRCTY2KmksX0HQ8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=eRK/J+KYf7DjADjIUXwQEubt1nCizCaOY2eJ8PmY/58KATn8ZkhCYGfu0BFdW1ryr
-	 Lvi5GVIbuA65ERwq3LxT7PC01/3KTVY6fG4iysSn/KN9zjm/PgdP4jcMGNlqVvl02f
-	 WsdIF967MSv63AMJVtIV7bYvAGlax9tCXlPPstF0=
-Message-ID: <b5085e09-6533-4f88-938d-8d46751cf7da@arm.com>
-Date: Fri, 26 Jun 2026 17:15:13 +0100
+	Fri, 26 Jun 2026 16:20:43 +0000
+Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-5ad58f31846so1057652e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 09:20:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782490840; x=1783095640; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=4tKsbGrcR78zcHbLWs3JHmwiHpOL5AjwjOIZHc1xSi0=;
+        b=P6ZEjTG6BYSyr3mbEY3QVPzj3R61OdwydN6X9q9WPLoG88bRLy+Bmqy5YMxFjj1v6e
+         spezGkt1T6w47AeQ391u6h5SY+3h4L9+RHz0ok6b0s3BKkNwQ7HkrzahhbQ/EaKqu1Mb
+         O5tIOknkVTIdRKoePbEeksSWLQfCf6KJcXGhQ8Y7gMeCiBZU184b4YJJaQBfMaQvok6g
+         /z0wjdZLrb+4CIhWHSaWtWpEwyUw2IdBQsAheFSD+KA4bGD8rI0/IDPeAUBEAfSLV/e1
+         NWaXx41VCEZEFaYgizqebxI3ZBqxMyoaxmz8m43Q2+LhgsE/Akl6/SVA6aYoSZO/MLjG
+         ZduQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782490840; x=1783095640;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=4tKsbGrcR78zcHbLWs3JHmwiHpOL5AjwjOIZHc1xSi0=;
+        b=kIc4qYovjAg9uuJdD8RSaBgurtPbYSQg1XCqnnyDdLitLfbR6lZKRHsiXVMjT/qNoM
+         +ErgPz4hLdJzBAW64b3ndik29R7jvFAJvW3HtX3eU3VYkN32hnAJKDV0zlDVturl7pZD
+         pAhQvnqEYNsAYByE9Upn8/PDzUlK/f9fd55b6FTsB/2lUSKkHQLXSibVYlM0VuF0jUMN
+         ZVibXnQNyVbBgXPo4bPbd1tnJPoo/iPCWUmKmvsehzidSbce3ctz+bMC4VyISNtsZ8l5
+         pE0xNOeTVciVI2+4uZVZCLJOIMNZPvjVUN7TjPot42WO2qUeeNNGLiGQsb75BGiLuisM
+         72nA==
+X-Forwarded-Encrypted: i=1; AHgh+Ro4501dHHVtiJRJaaBsWWvohKL5IssHiG6Q9UnX/FRYuLapRE6VzMmjPeWFLhbn9mPGma2BWpauFniCLE5KfgyE@lists.infradead.org
+X-Gm-Message-State: AOJu0YwkQijRZXp/Sgy1iKAlVejV3BI8CXmO+6R+9p+90e4E2PcT/wiQ
+	j2ThhYiMyNTW+wRwGf/ron5z/qFNLKrdMhv9Unu+UiUABNs9k8+3TZWF
+X-Gm-Gg: AfdE7cmRSJrsxVQtQaQo6L2i6HxzNtwxSjk8pTxP74+ixeehSnyvwdgz/M+1klaUKSd
+	qZV7oQ3/RxfMC60+EgyAe9kBDmWT2LBOmKmnTQwpOeudCUvbWMx936CJz5ng7RANmSaqgtQHNW9
+	d1iVxeLVKlFI0zK+ppJRdtyr2xkLE2kiedF1dC8XjusBK3tiKVR013liqS1YP958ny1smcMk0li
+	m5ldVsOesei2S+G3t4SB2xSL4a77NBHsNincoUghIfsXeLTUaZl+/L5Q5byV2BmWycRHVhr1Vsj
+	h1ShxvIf4SfnOFali355fNul5pNTd96sIhmCN8qohNMfPMvbp6hNm30f65HHLpq/HUNcRr2rA/V
+	ixto6bZvcKL3OdzU6wVz+uTfb0CnYikjckfnv79cu6zUGu63fb8iQFA==
+X-Received: by 2002:ac2:4bc9:0:b0:5aa:71fd:de75 with SMTP id 2adb3069b0e04-5aea94adf59mr297281e87.39.1782490839450;
+        Fri, 26 Jun 2026 09:20:39 -0700 (PDT)
+Received: from milan ([2001:9b1:d5a0:a500::24b])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5ad69550ff7sm3611804e87.20.2026.06.26.09.20.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 26 Jun 2026 09:20:38 -0700 (PDT)
+From: Uladzislau Rezki <urezki@gmail.com>
+X-Google-Original-From: Uladzislau Rezki <urezki@milan>
+Date: Fri, 26 Jun 2026 18:20:37 +0200
+To: Wen Jiang <jiangwenxiaomi@gmail.com>
+Cc: linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+	catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org,
+	urezki@gmail.com, baohua@kernel.org, Xueyuan.chen21@gmail.com,
+	dev.jain@arm.com, rppt@kernel.org, david@kernel.org,
+	ryan.roberts@arm.com, anshuman.khandual@arm.com, ajd@linux.ibm.com,
+	linux-kernel@vger.kernel.org, jiangwen6@xiaomi.com,
+	shanghaoqiang@xiaomi.com
+Subject: Re: [PATCH v4 6/6] mm/vmalloc: align vm_area so vmap() can batch
+ mappings
+Message-ID: <aj6m1cFUTlr_DCdj@milan>
+References: <20260618084726.1070022-1-jiangwen6@xiaomi.com>
+ <20260618084726.1070022-7-jiangwen6@xiaomi.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 05/11] iommu/arm-smmu-v3: Submit CMDQ_OP_PRI_RESP for
- IOPF event
-To: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org, jgg@nvidia.com
-Cc: joro@8bytes.org, bhelgaas@google.com, praan@google.com,
- kevin.tian@intel.com, kees@kernel.org, smostafa@google.com,
- baolu.lu@linux.intel.com, linux-arm-kernel@lists.infradead.org,
- iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-pci@vger.kernel.org, skaestle@nvidia.com, mmarrid@nvidia.com,
- skolothumtho@nvidia.com, bbiber@nvidia.com
-References: <cover.1779944354.git.nicolinc@nvidia.com>
- <6c713c724fa09bf5a1b5e2247c633e516036f079.1779944354.git.nicolinc@nvidia.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <6c713c724fa09bf5a1b5e2247c633e516036f079.1779944354.git.nicolinc@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260618084726.1070022-7-jiangwen6@xiaomi.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_091520_695975_B95D2597 
-X-CRM114-Status: GOOD (  27.04  )
+X-CRM114-CacheID: sfid-20260626_092042_842010_3934C2F0 
+X-CRM114-Status: GOOD (  21.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,185 +104,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/05/2026 8:59 am, Nicolin Chen wrote:
-> From: Malak Marrid <mmarrid@nvidia.com>
+On Thu, Jun 18, 2026 at 04:47:26PM +0800, Wen Jiang wrote:
+> From: "Barry Song (Xiaomi)" <baohua@kernel.org>
 > 
-> To handle IOMMU_FAULT_PAGE_REQ from the PRI queue, arm_smmu_page_response()
-> must issue a CMDQ_OP_PRI_RESP back to the SMMU.
+> Try to align the vmap virtual address to PMD_SHIFT or a
+> larger PTE mapping size hinted by the architecture, so
+> contiguous pages can be batch-mapped when setting PMD or
+> PTE entries.
 > 
-> However, either a stall event in the EVTQ or a PRI request in the PRIQ can
-> surface to the IOPF infrastructure with fault.type == IOMMU_FAULT_PAGE_REQ,
-> and a single master can in principle be both stall-capable and PRI-capable
-
-No, the SMMU architecture does all it can to specifically forbid this, 
-see 3.12.1 and 16.4, it just can't be made architecturally ILLEGAL to 
-enable stalls for PCIe devices because there's no strict architectural 
-definition for what "a PCIe device" actually is. Similarly with the note 
-in the definition of STE.EATS about the relationship with CD.S - the 
-unwritten implication is that defining specific behaviours would only 
-create an unreasonable burden for hardware validation, for the sake of 
-something that nobody in their right mind should ever do anyway.
-
-The expectation is that RCiEPs which do speak stallable non-PCIe bus 
-protocols will not go to the effort of implementing ATS/PRI capabilities 
-(not least because there's every chance that such protocols simply 
-doesn't have that kind of transaction flow anyway). And conversely that 
-it can be considered an egregious firmware (or system design) error to 
-even claim (let alone force) stall capability for a real PCIe root port 
-which may be deadlocked by blocking its requirement for free-flowing 
-writes. Thus I think we could go so far as to refuse to handle any 
-endpoint which did somehow claim both.
-
-Thanks,
-Robin.
-
-> (e.g. FEAT_STALL_FORCE on a PCIe device with PRI), so master state is not a
-> reliable discriminator.
+> Add __get_vm_area_node_aligned_caller() as a wrapper over
+> __get_vm_area_node() to simplify repeated calls with fixed
+> arguments.
 > 
-> Add IOMMU_FAULT_PAGE_REQUEST_STALLS_TRANS to the generic flags so the fault
-> reporter can mark a page request that is holding the device's transaction:
->      arm_smmu_handle_event() sets it on STALL events
->      arm_smmu_handle_ppr() leaves it clear for PRI events
-> 
-> Note: streams[0].id remains the RID because arm_smmu_enable_iopf() rejects
-> num_streams != 1.
-> 
-> Co-developed-by: Barak Biber <bbiber@nvidia.com>
-> Signed-off-by: Barak Biber <bbiber@nvidia.com>
-> Co-developed-by: Stefan Kaestle <skaestle@nvidia.com>
-> Signed-off-by: Stefan Kaestle <skaestle@nvidia.com>
-> Signed-off-by: Malak Marrid <mmarrid@nvidia.com>
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
+> Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
+> Tested-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
 > ---
->   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |  1 +
->   include/linux/iommu.h                       |  1 +
->   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 75 +++++++++++++++------
->   3 files changed, 58 insertions(+), 19 deletions(-)
+>  mm/vmalloc.c | 37 ++++++++++++++++++++++++++++++++++++-
+>  1 file changed, 36 insertions(+), 1 deletion(-)
 > 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> index 2bb810e4d5fce..1083621705f16 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> @@ -1007,6 +1007,7 @@ struct arm_smmu_master {
->   	/* Locked by the iommu core using the group mutex */
->   	struct arm_smmu_ctx_desc_cfg	cd_table;
->   	unsigned int			num_streams;
-> +	bool				pri_enabled : 1;
->   	bool				ats_enabled : 1;
->   	bool				ste_ats_enabled : 1;
->   	bool				stall_enabled;
-> diff --git a/include/linux/iommu.h b/include/linux/iommu.h
-> index e587d4ac4d331..83c4dfcf20637 100644
-> --- a/include/linux/iommu.h
-> +++ b/include/linux/iommu.h
-> @@ -76,6 +76,7 @@ struct iommu_fault_page_request {
->   #define IOMMU_FAULT_PAGE_REQUEST_PASID_VALID	(1 << 0)
->   #define IOMMU_FAULT_PAGE_REQUEST_LAST_PAGE	(1 << 1)
->   #define IOMMU_FAULT_PAGE_RESPONSE_NEEDS_PASID	(1 << 2)
-> +#define IOMMU_FAULT_PAGE_REQUEST_STALLS_TRANS	(1 << 3)
->   	u32	flags;
->   	u32	pasid;
->   	u32	grpid;
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> index ffc9621cd2288..061f1d46fda0d 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -921,32 +921,68 @@ static int arm_smmu_drain_queue_for_iopf(struct arm_smmu_device *smmu,
->   	return ret;
->   }
->   
-> -static void arm_smmu_page_response(struct device *dev, struct iopf_fault *unused,
-> +static void arm_smmu_page_response(struct device *dev, struct iopf_fault *evt,
->   				   struct iommu_page_response *resp)
->   {
->   	struct arm_smmu_master *master = dev_iommu_priv_get(dev);
-> -	u8 resume_resp;
-> +	struct arm_smmu_cmd cmd;
-> +	int sid;
->   
-> -	if (WARN_ON(!master->stall_enabled))
-> +	if (WARN_ON_ONCE(evt->fault.type != IOMMU_FAULT_PAGE_REQ))
->   		return;
->   
-> -	switch (resp->code) {
-> -	case IOMMU_PAGE_RESP_INVALID:
-> -	case IOMMU_PAGE_RESP_FAILURE:
-> -		resume_resp = CMDQ_RESUME_0_RESP_ABORT;
-> -		break;
-> -	case IOMMU_PAGE_RESP_SUCCESS:
-> -		resume_resp = CMDQ_RESUME_0_RESP_RETRY;
-> -		break;
-> -	default:
-> -		resume_resp = CMDQ_RESUME_0_RESP_TERM;
-> -		break;
-> +	/* IOPF is gated to num_streams == 1 in arm_smmu_enable_iopf() */
-> +	sid = master->streams[0].id;
+> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+> index fffb885cb2158..bc9fa93e2bdc6 100644
+> --- a/mm/vmalloc.c
+> +++ b/mm/vmalloc.c
+> @@ -3628,6 +3628,41 @@ static int vmap_batched(unsigned long addr, unsigned long end,
+>  	return err;
+>  }
+>  
+> +static struct vm_struct *__get_vm_area_node_aligned_caller(unsigned long size,
+> +		unsigned long align, unsigned long flags, const void *caller)
+> +{
+> +	return __get_vm_area_node(size, align, PAGE_SHIFT, flags,
+> +			VMALLOC_START, VMALLOC_END,
+> +			NUMA_NO_NODE, GFP_KERNEL, caller);
+> +}
 > +
-> +	if (evt->fault.prm.flags & IOMMU_FAULT_PAGE_REQUEST_STALLS_TRANS) {
-> +		u8 resume_resp;
+> +static struct vm_struct *vmap_get_aligned_vm_area(unsigned long size,
+> +		unsigned long flags, const void *caller)
+> +{
+> +	struct vm_struct *vm_area;
+> +	unsigned int shift;
 > +
-> +		if (WARN_ON_ONCE(!master->stall_enabled))
-> +			return;
-> +		switch (resp->code) {
-> +		case IOMMU_PAGE_RESP_INVALID:
-> +		case IOMMU_PAGE_RESP_FAILURE:
-> +			resume_resp = CMDQ_RESUME_0_RESP_ABORT;
-> +			break;
-> +		case IOMMU_PAGE_RESP_SUCCESS:
-> +			resume_resp = CMDQ_RESUME_0_RESP_RETRY;
-> +			break;
-> +		default:
-> +			resume_resp = CMDQ_RESUME_0_RESP_TERM;
-> +			break;
-> +		}
-> +		cmd = arm_smmu_make_cmd_resume(sid, resp->grpid, resume_resp);
-> +	} else {
-> +		enum pri_resp pri_resp;
-> +		bool ssv;
+> +	/* Try PMD alignment for large sizes */
+> +	if (size >= PMD_SIZE) {
+> +		vm_area = __get_vm_area_node_aligned_caller(size, PMD_SIZE,
+> +				flags, caller);
+> +		if (vm_area)
+> +			return vm_area;
+> +	}
 > +
-> +		if (WARN_ON_ONCE(!master->pri_enabled))
-> +			return;
-> +		/* PCIe allows only one PRG Response per group */
-> +		if (!(evt->fault.prm.flags &
-> +		      IOMMU_FAULT_PAGE_REQUEST_LAST_PAGE))
-> +			return;
-> +		switch (resp->code) {
-> +		case IOMMU_PAGE_RESP_SUCCESS:
-> +			pri_resp = PRI_RESP_SUCC;
-> +			break;
-> +		case IOMMU_PAGE_RESP_FAILURE:
-> +			pri_resp = PRI_RESP_FAIL;
-> +			break;
-> +		case IOMMU_PAGE_RESP_INVALID:
-> +			pri_resp = PRI_RESP_DENY;
-> +			break;
-> +		default:
-> +			WARN_ON(true);
-> +			return;
-> +		}
-> +		ssv = !!(evt->fault.prm.flags &
-> +			 IOMMU_FAULT_PAGE_REQUEST_PASID_VALID);
-> +		cmd = arm_smmu_make_cmd_pri_resp(sid, resp->pasid, ssv,
-> +						 resp->grpid, pri_resp);
->   	}
->   
-> -	arm_smmu_cmdq_issue_cmd(master->smmu,
-> -				arm_smmu_make_cmd_resume(master->streams[0].id,
-> -							 resp->grpid,
-> -							 resume_resp));
-> +	arm_smmu_cmdq_issue_cmd(master->smmu, cmd);
->   	/*
->   	 * Don't send a SYNC, it doesn't do anything for RESUME or PRI_RESP.
->   	 * RESUME consumption guarantees that the stalled transaction will be
-> @@ -2081,7 +2117,8 @@ static int arm_smmu_handle_event(struct arm_smmu_device *smmu, u64 *evt,
->   
->   		flt->type = IOMMU_FAULT_PAGE_REQ;
->   		flt->prm = (struct iommu_fault_page_request){
-> -			.flags = IOMMU_FAULT_PAGE_REQUEST_LAST_PAGE,
-> +			.flags = IOMMU_FAULT_PAGE_REQUEST_LAST_PAGE |
-> +				 IOMMU_FAULT_PAGE_REQUEST_STALLS_TRANS,
->   			.grpid = event->stag,
->   			.perm = perm,
->   			.addr = event->iova,
+> +	/* Try CONT_PTE alignment */
+> +	shift = arch_vmap_pte_supported_shift(size);
+> +	if (shift > PAGE_SHIFT) {
+> +		vm_area = __get_vm_area_node_aligned_caller(size, 1UL << shift,
+> +				flags, caller);
+> +		if (vm_area)
+> +			return vm_area;
+> +	}
+> +
+> +	/* Fall back to page alignment */
+> +	return __get_vm_area_node_aligned_caller(size, PAGE_SIZE, flags, caller);
+> +}
+> +
+>  /**
+>   * vmap - map an array of pages into virtually contiguous space
+>   * @pages: array of page pointers
+> @@ -3666,7 +3701,7 @@ void *vmap(struct page **pages, unsigned int count,
+>  		return NULL;
+>  
+>  	size = (unsigned long)count << PAGE_SHIFT;
+> -	area = get_vm_area_caller(size, flags, __builtin_return_address(0));
+> +	area = vmap_get_aligned_vm_area(size, flags, __builtin_return_address(0));
+>  	if (!area)
+>  		return NULL;
+>  
+> -- 
+> 2.34.1
+> 
+Did intensive random mapping/unmaping, so i have not noticed any issues.
 
+Reviewed-by: Uladzislau Rezki (Sony) <urezki@gmail.com>
+
+--
+Uladzislau Rezki
 
