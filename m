@@ -4,141 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0655EC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 14:54:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86ED8C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 14:54:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mYWJkhNIK4vEw8z7nhJCveZpwInyCIrXGAzZOF/vmPE=; b=ZaEadBGUzPY2VUMznz7oQ8rxon
-	VRRj6WpPtJC89rqxUXvSglITZ8SymgUD0+oyZIF+WplJS74XZeYgDIyU+6xMvm3ibonEmAo5HJIYo
-	BF+a/FFBp7PZkuYYH9wKvGumbqLH/RYSYj4p58n5kAmPMoV48Bm1px9JmTxjdpIPMOvBPz0NNG7Kc
-	c4kV2ntPiEdISESLq0KBL3oMAFXT0WOJsDKDVFlVcZ6lYlDQykaUB9eg3MtP7Smvcl1NwSRniw07W
-	EtBKjYFoZ9RWAaMlD/pquG1JNoVFuqbc1TMfHWgfjqmVGPLDBs91riZo0XzJyzrFUeLLQ6rSFLOMb
-	O+3LOI0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FTDVjpRWTB5xLz1rJhXl+zL1ZWA88STzpaSgnQuzgNQ=; b=CWrHrmv/ylSj4loDGuk+JqY6Tb
+	WCD3pBfq2CoxVKWkBIawn745wKDC/93jpdk5YzV+oVsy3KhP8r1JVRYUexWaoWoPxowCDdtixNJMG
+	HYa7qlc04Slgpweo+DAY518K8WnwClFb53ZKg2fg3acxqZFX5+9B+oeOmAAOhWCf1xxo2jEzHczV6
+	3MXPffw++Vw1SfQLWAJWmVGWGAnOdSe6pXzH/o8V2ic1Eh6Dc/Rd4XXmAfwgNpv6w9BJSNM8aCsB/
+	N+2UeitPJIk3LYFX1sc98cRmtyRNDz11J/8YA1oWl7Fbbp+voVCJXqc9g5NJtrqNm8VJ6BB58hfQn
+	AlTjPg3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd7x5-0000000BVAf-0t1T;
+	id 1wd7x5-0000000BVAb-0XuO;
 	Fri, 26 Jun 2026 14:54:43 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd7x3-0000000BVAA-1Ai5
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wd7x2-0000000BV9t-3N3z
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 26 Jun 2026 14:54:42 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65QAcr983384438
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 14:54:40 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	mYWJkhNIK4vEw8z7nhJCveZpwInyCIrXGAzZOF/vmPE=; b=nZ1SMgbCdM6XOVR1
-	iinWb5Si+AAILW4f57MbZ3eRlU/0q35t64nBbizVTVbZNFoCH6nvIkJw6hJbEHtW
-	5JVJwD98DI77lkVNqJYPkXVJrvDn32XrCQKSSL6DRJyBW4AjxnXz2xgVJibIytrg
-	XyJgoblrtq6VLyEn1JzepHwFwNgBz7bjPYJSzoi+v/HMjobPLtCLK4lqG5+mkO5e
-	v7pWy6tPs55DZate5bFbwqrP5j1653J4BDTV/diUTNIHTyKEanmzCmPJeVtKTCOu
-	hnkIY9O9h0VSxqx5Oq9mNrT+wH3y8zSeLobSTP5OUTjIbYtQxtoTyhpqi9V24eLU
-	p4KcMQ==
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f19m3v8px-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 14:54:40 +0000 (GMT)
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2c6bbd0afffso15762055ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 07:54:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1782485680; x=1783090480; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:subject:from:user-agent:mime-version:date:message-id:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=mYWJkhNIK4vEw8z7nhJCveZpwInyCIrXGAzZOF/vmPE=;
-        b=kuvyEY0d9Kx5V2Rb5rSgV1SGtaq+KMwjjQjntV622kNU3Tb+S8ELg9pc3QB3vx4B5I
-         16mgklSVBnuNKCfZxdhRRV88p1TFDUZ3/WbYATZDyPALri29fcW7Q6Wm5PxvBQzqbjIA
-         FcucTIoK98qAKIS4LXBbWQKXAz0DQ0zsbL+uV4ApsLkAR0xr22u96a1NtYgy4qoTAeoM
-         GYvmqS04Q7Mr9Hm4aNPIGMaklCIC33X/G3gOc/15t3s8amik+gpbDNJ4ddBI1EAuLNRw
-         NKuJ5ecU14+DNto83uMSGwbn/CtfHur0+nzvX2zfOYICs1hEDnMkeGQxBkL8AxuxfEm8
-         8zlA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782485680; x=1783090480;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:subject:from:user-agent:mime-version:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=mYWJkhNIK4vEw8z7nhJCveZpwInyCIrXGAzZOF/vmPE=;
-        b=bJo1T3tWk2z41BJLowxLw68h32+PsPsSu6ZHKIUYr4UICggqKADNMtYccxhA0CC219
-         ++DOK3I4/sz5T573ymZkGpo7UPZ5nIRz0WCduQ0PqmuFzNo8nPX4YKSE5RGEqrG9Ff0d
-         C9aZHp9IS/1rnpyEo6X7Ti/zQFjZRcVNNnZT35VIhaTq4aqcrLYS4QjNAjBWiYWAuOWr
-         M20aRcP8yUvV78PsykcrtmebPzS4UcZbrSxOggohGtQgGa9aCRm7Ddbn29MemfC+VMkH
-         NsEKFGkfNc0OdHgVah0NTPkhZLkqWeuMSaaSVxrHfBRlka88tznK/l2RwN83nvuy27Zy
-         kUYw==
-X-Forwarded-Encrypted: i=1; AHgh+RptW8xUw1Y7pcfA9c9OgetcyTV+mgG+DQRapshtPNecM2uZjrZPu8cFT2UVU//hBN6ivdkaoiZSixbj3xTdkXbQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YxHPW8QNFQtiIHBlCbXipJ9eE3Yb8gVONbJpfFI8I66q5OwHpK+
-	1FH8lvOt2Cx2TeU26Y/B1+FWIHOWU30HQ0JGdnIi661+KrjFR6wgfEtid6V5RWsKgThlVzdxdou
-	BSztPMy3gUor8YiDvZmhouO03JJJbDQXRPKDwjDnaUaeZCibMOgZDWFYBEx+CWdhhmjM6gPDARR
-	xTPQ==
-X-Gm-Gg: AfdE7cls2jWKWtOuScTptoJSjrLltQmICTT0sLx/Grsmo+yU12BBmumd+qpvtFUtkdM
-	NdMEBg9A7kaxVR0g6pnbCpG14gBtP/vzGenZQpdq8qW21Qyk8DBVBC2q+xoIgyLRvy6YUnYjtQ7
-	hvHJpUPCVPxXaniE9zLcfEaw3hKNc64Niwx0/8pnjkvgNuQchw9hQRrFfy1VsC6b+eLcwpVh2b/
-	X6D2MgM6leHXtHG9UBzI6tChwj7+f+YXZ31MLV67OLFsnq5qZcsptKlG2VjgWrXl0m55MAuEq9i
-	VZe21rCt/O19ggZd0JI9x/bRVIZXUYCXhAKdcNdINtuenbj0KycEsN5N1ZdxvJxq5wOHIIe6VKk
-	9yM/0Y6TRU7A8BTI5UuVl2K1UFd8fYqy83Jo=
-X-Received: by 2002:a17:902:c40a:b0:2c0:a555:80e6 with SMTP id d9443c01a7336-2c7fc654109mr75502885ad.6.1782485679550;
-        Fri, 26 Jun 2026 07:54:39 -0700 (PDT)
-X-Received: by 2002:a17:902:c40a:b0:2c0:a555:80e6 with SMTP id d9443c01a7336-2c7fc654109mr75502655ad.6.1782485679097;
-        Fri, 26 Jun 2026 07:54:39 -0700 (PDT)
-Received: from [192.168.29.96] ([49.37.170.88])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c7f5ac899esm41390565ad.7.2026.06.26.07.54.33
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 26 Jun 2026 07:54:38 -0700 (PDT)
-Message-ID: <2a52ecb1-be8a-4522-aa23-f3277f0555fa@oss.qualcomm.com>
-Date: Fri, 26 Jun 2026 20:24:31 +0530
+Received: by linux.microsoft.com (Postfix, from userid 1152)
+	id 6D95E20B7169; Fri, 26 Jun 2026 07:54:34 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 6D95E20B7169
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1782485674;
+	bh=FTDVjpRWTB5xLz1rJhXl+zL1ZWA88STzpaSgnQuzgNQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=X4YVjO/vL9TlHYJDpGFXqcbR/6jI85VyLql7+Y7KNo3wuPzKze1wVfItjL6ugt2ao
+	 pRtIz4B/j0SCfl/IFlU18O2+U5ip5iqGWbNp2s4UOb4BDQ0+ex52Pb0uZQW7iDtOEy
+	 LL5DyWYNLkeqztby2/J/kT+3I2LZIL5V+lDkfDBM=
+Date: Fri, 26 Jun 2026 07:54:34 -0700
+From: Shyam Saini <shyamsaini@linux.microsoft.com>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: linux-mm@kvack.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, akpm@linux-foundation.org,
+	tgopinath@linux.microsoft.com, bboscaccy@linux.microsoft.com,
+	kees@kernel.org, tony.luck@intel.com, gpiccoli@igalia.com,
+	bp@alien8.de, rdunlap@infradead.org, peterz@infradead.org,
+	feng.tang@linux.alibaba.com, dapeng1.mi@linux.intel.com,
+	elver@google.com, enelsonmoore@gmail.com, kuba@kernel.org,
+	lirongqing@baidu.com, ebiggers@kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+	David Hildenbrand <david@kernel.org>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [RFC v2 PATCH] reserve_mem: add support for static memory
+Message-ID: <aj6SqipC/dIN01iN@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
+References: <20260619062331.348789-1-shyamsaini@linux.microsoft.com>
+ <aje-nY6QbwZP9XLG@kernel.org>
+ <ajyC2eX9MKSU84Z8@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
+ <ajzovhWHcFQZ9d3l@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: harsha.v@oss.qualcomm.com
-Subject: Re: [PATCH v2 00/11] iommu/arm-smmu-v3: Add PRI support
-To: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org, robin.murphy@arm.com,
-        jgg@nvidia.com
-Cc: joro@8bytes.org, bhelgaas@google.com, praan@google.com,
-        kevin.tian@intel.com, kees@kernel.org, smostafa@google.com,
-        baolu.lu@linux.intel.com, linux-arm-kernel@lists.infradead.org,
-        iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
-        linux-pci@vger.kernel.org, skaestle@nvidia.com, mmarrid@nvidia.com,
-        skolothumtho@nvidia.com, bbiber@nvidia.com
-References: <cover.1779944354.git.nicolinc@nvidia.com>
-Content-Language: en-GB
-In-Reply-To: <cover.1779944354.git.nicolinc@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNjI2MDEyMyBTYWx0ZWRfX7WTJELQeg6Q3
- QcsLObmzKK8r4LNRr/zTEQsvk8MPmiZjfTIFpcrI7+WL5iaAwVecqzi8Whk61yE/I7JYOkaT6WI
- T0y13QR2CiXkVVuprtwKhT7i32w/Ii4=
-X-Proofpoint-GUID: waxLIsPbxWz2FprWd9OXbghecw3OMMyG
-X-Proofpoint-ORIG-GUID: waxLIsPbxWz2FprWd9OXbghecw3OMMyG
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjI2MDEyMyBTYWx0ZWRfX6c2OqI1jPVWy
- a+1CRGvptkZZHlRR4+i0hD/omVbPH9xaBEU+pBsiIayLtcu3EyEfx1wtxPS3SNwlTaQtEj2AInU
- mol/VNQqekzDksRaXf6NnzQyVIPBodPQuZdmGu1U1LdCLIO5scJDLbOp53mVn2gl+FofGUfpl01
- 6FMD2IfG/Rs1kzMFNySqfHbIKo6JfsOGvSYh2z5y2jLBRxkT7ng4U4XNcdAzZdNebq+aZBdIbZI
- 310v5M5nHbMbbfdUT2CEloo/8e/196OameXFUDDuaHIj3E8sJTE4bE9bBmfLB+TeTXvhWerGxCD
- gQqZNp3b66guUDIUHWLxUWdvtnwm2Ir2AoiBWZ6Ldcqt2zU0xuxdcq04SSqPhCORXhGHcGVQ4bb
- qSqtxZBnIVxamSqIH7I/F9vpoleyjnt9C7iUGCVZ0DOtldRoJuVUKMqSnPRIXl6+zMHZB++RD97
- g/PqPUdUHqBFDbHnZ2Q==
-X-Authority-Analysis: v=2.4 cv=Vv0Txe2n c=1 sm=1 tr=0 ts=6a3e92b0 cx=c_pps
- a=JL+w9abYAAE89/QcEU+0QA==:117 a=asHclmMlXTalQ/2ShlWtEQ==:17
- a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
- a=NEAV23lmAAAA:8 a=VwQbUJbxAAAA:8 a=Ikd4Dj_1AAAA:8 a=XZ8z-I0mWLgmP2cXQ10A:9
- a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=324X-CrmTo6CU4MGRt3R:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-26_03,2026-06-24_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 suspectscore=0 clxscore=1015 priorityscore=1501
- adultscore=0 malwarescore=0 impostorscore=0 spamscore=0 bulkscore=0
- phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2606260123
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ajzovhWHcFQZ9d3l@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_075441_321923_647385E4 
-X-CRM114-Status: GOOD (  19.89  )
+X-CRM114-CacheID: sfid-20260626_075440_894997_27A5F535 
+X-CRM114-Status: GOOD (  30.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,95 +79,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nicolin Chen,
+On 25 Jun 2026 11:37, Mike Rapoport wrote:
+> Hi Shyam,
+> 
+> On Wed, Jun 24, 2026 at 06:22:33PM -0700, Shyam Saini wrote:
+> > On 21 Jun 2026 13:36, Mike Rapoport wrote:
+> > > On Thu, Jun 18, 2026 at 11:23:31PM -0700, Shyam Saini wrote:
+> > > > reserve_mem relies on dynamic memory allocation, this limits the
+> > > > usecase where memory is required to be preserved across the boots.
+> > > > Eg: ramoops memory reservation on ACPI platforms
+> > > >
+> > > > So add support to pass a pre-determined static address and reserve
+> > > > memory at a specified location. This enables use case like ramoops
+> > > > on ACPI platforms to reliably access ramoops region with previous
+> > > > boot logs.
+> > > > 
+> > > > Also skip the parsing of <align> when static address is passed.
+> > > > 
+> > > > Example syntax for static address
+> > > >  reserve_mem=4M@0x1E0000000:oops
+> > > 
+> > > reserve_mem is best effort by design because such hacks as well as memmap=
+> > > cannot guarantee this memory is actually free.
+> > > 
+> > > If you want to preserve ramoops reliably, use KHO with reserve_mem.
+> > > The first kernel will allocate memory, this memory will be preserved by KHO
+> > > and could be picked up by the second kernel.
+> > 
+> > ok, On ARM64 DTS systems, we can reserve ramoops memory in the device tree during
+> > the warm reboot.
+> 
+> The cc list actually implied x86 ;-)
+> Added arm64 folks now.
 
-On 5/28/2026 1:29 PM, Nicolin Chen wrote:
-> The SMMUv3 driver doesn't handle events on the PRI queue or respond to IOPF
-> faults. This series adds the missing pieces, using the IOPF infrastructure,
-> to convert PRI page requests into iopf_faults and issue CMDQ_OP_PRI_RESP.
+Thanks for adding ARM folks, I had just included whatever get_maintainer script
+suggested, sorry. 
+> > For an equivalent ARM64 ACPI platform, what is the recommended way to reserve
+> > and preserve that memory across the boots? 
 > 
-> The iopf_queue_flush_dev() contract requires the driver to first drain the
-> hardware PRI queue and synchronize using a threaded IRQ handler before the
-> IOPF software flush. This drove the additional commits compared to v1:
->   - arm_smmu_drain_queue_for_iopf() drains the hardware queue to the PROD
->     snapshot
->   - arm_smmu_attach_release() moves the teardown outside the global lock
->   - synchronize_irq() closes the gap before the final flush
+> I don't think it exists, but a command line option (be it memmap= or
+> reserve_mem=) does not seem the right way to me.
 > 
-> This is on Github:
-> https://github.com/nicolinc/iommufd/commits/smmuv3_pri-v2
+> Most of the arguments that were made against adding memmap= to arm64 [1]
+> apply here.
 > 
-> FWIW, engineers on the NVIDIA side have managed to verify the PRI feature.
+> If kexec is an option, KHO provides a reliable way to preserve memory
+> across boots.
 > 
-> Changelog
-> v2:
->   * Allocate evtq.iopf for ARM_SMMU_FEAT_PRI
->   * Pick up Jean's PRI stubs and PRI export patches
->   * Enable PRI for PCI devices in arm_smmu_probe_device()
->   * Add arm_smmu_drain_queue_for_iopf() for EVTQ and PRIQ
->   * Add arm_smmu_attach_release() to rework the IOPF drain
->   * Add IOMMU_FAULT_PAGE_REQUEST_STALLS_TRANS for STALL mode
->   * Gate pci_enable_pri() on FEAT_PRI plus a non-NULL evtq.iopf
->   * Deny unrecognised-StreamID PRG_LAST in arm_smmu_handle_ppr()
->   * Disable PRI when no IRQ handler is registered (unique or combined IRQ)
-> v1:
->   https://lore.kernel.org/all/cover.1772568590.git.nicolinc@nvidia.com/
+> If kexec is not an option, we should look for a generic way to specify
+> something like DT's reserved_mem for ACPI/EFI systems.
 > 
-> Jean-Philippe Brucker (2):
->    PCI/ATS: Add PRI stubs
->    PCI/ATS: Export pci_enable_pri() and pci_reset_pri()
+> [1] https://lkml.kernel.org/lkml/20201118063314.22940-1-song.bao.hua@hisilicon.com/T/
 > 
-> Malak Marrid (1):
->    iommu/arm-smmu-v3: Submit CMDQ_OP_PRI_RESP for IOPF event
-> 
-> Nicolin Chen (8):
->    iommu/arm-smmu-v3: Add arm_smmu_attach_release()
->    iommu/arm-smmu-v3: Factor out __queue_empty() and __queue_consumed()
->    iommu/arm-smmu-v3: Add arm_smmu_drain_queue_for_iopf() helper
->    iommu/arm-smmu-v3: Drain in-flight fault handlers
->    iommu/arm-smmu-v3: Support PRI Page Request in arm_smmu_handle_ppr()
->    iommu/arm-smmu-v3: Disable PRI when no IRQ handler is registered
->    iommu/arm-smmu-v3: Allocate IOPF queue for ARM_SMMU_FEAT_PRI
->    iommu/arm-smmu-v3: Enable PRI for PCI device in
->      arm_smmu_probe_device()
-> 
->   drivers/iommu/arm/Kconfig                     |   1 +
->   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |   3 +
->   include/linux/iommu.h                         |   1 +
->   include/linux/pci-ats.h                       |   5 +
->   .../arm/arm-smmu-v3/arm-smmu-v3-iommufd.c     |   1 +
->   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 244 +++++++++++++++---
->   drivers/pci/ats.c                             |   2 +
->   7 files changed, 221 insertions(+), 36 deletions(-)
-> 
-> 
-> base-commit: 74fa4c177ad09800b007cba043370c887bb1b4e3
+Well, kexec is one of the option for my use case, it also requires
+memory reservation during warm reboot, I think memory can be reserved in
+the firmware but this will create a dependency on firmware for Linux
+reservation.
 
-One thing I noticed while reviewing: when arm_smmu_priq_thread() detects
-PRIQ overflow, partial faults (non-LAST pages stored via
-report_partial_fault()) whose LAST page was lost in the overflow remain
-permanently in iopf_param->partial. This is a monotonic memory leak —
-it grows with each overflow event.
+It would be great to have a in kernel memory reservation mechanism for
+ARM64 ACPI platforms. I believe some other use cases like PMEM
+reservation would also benefit from this.
 
-Intel VT-d handles this in prq_event_thread() (drivers/iommu/intel/prq.c):
-     if (head == tail) {
-         iopf_queue_discard_partial(iommu->iopf_queue);
-         writel(DMA_PRS_PRO, iommu->reg + DMAR_PRS_REG);
-     }
-
-iopf_queue_discard_partial() was written for exactly this scenario.
-Could we add the same here arm_smmu_priq_thread()
-(drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c) ?
-
-     if (queue_sync_prod_in(q) == -EOVERFLOW) {
-         dev_err(smmu->dev, "PRIQ overflow detected -- requests lost\n");
-+       iopf_queue_discard_partial(smmu->evtq.iopf);
-     }
-
-At this point all surviving entries have already been consumed by the
-loop above, so discarding unconditionally is safe — implicitly matching
-Intel's "head == tail" guard.
-
-Best Regards,
-Harsha Vardhan V
+Thanks,
+Shyam
 
