@@ -4,65 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1109C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 13:03:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28585C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 13:04:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6d/oqOD8zQkyE4b/1qlMDMnxp88XlK2z79LX0andfQo=; b=G+30YN/ZuV2uOiSobzBWuNlg6l
-	xYAwKGbusX5yhpJE4gLgpGFHW/MsUH7/o0z7WGUd+k5W8/SlEr4JZeLzZcVZv3FusJIPxdJd2hLMa
-	CKUy1PmLII/+bAwFlH63dAvYYTVeHereJVXJoTh643udtJo02cZHyrKCSMfgLP1xeZvSpVqIk9ZLR
-	GF96HsR7cKewr4lobor4TrhwIitSoLPHSenAcooe+ZzNWm79j22I82Cii68ZHXJTdrYUe49oqRoP9
-	ppIJlicnIhZAZCMRgU9MKg4TVDC6n1cmm2tm4s93kiZf6pf/cduGZYzXpKY1Fy1ewXSoC6qezL6ib
-	QBIyofmQ==;
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ck5xsWo/5MeWEGxVeZ8T87STzgoOYFBEg4ZFVZbwJXs=; b=zamf+nYdFRZ+zr7u4IBrHpwaVZ
+	tLKQUbq1rMFb2qe0Xni3MP8emX6HVy5UPMw/ik9L2wEw32HxlUxdA5DP8Xg/JyDlNzL9OghzWlr+W
+	J4lbD1AForElxDRRQLXECrmMYcu17higXQUgp6UL4GNd8BOb1skf8OohawKTe4eHjfpSYgLQ/aPaa
+	dRLs3/ZGf38kxOINa7aPQaetTKZyy7RB9WqhsHT24k735pRSVtjF/qJ7r6YVeAwxhEzoMAuKbwya1
+	BXsKQaIKxF068TSCd5JbA9Rl/aw0UrsjP3j5mMVFchHlih1sMlm5/uiE+UPSGXtMU0KfAnDjn/w7k
+	1ztst8XQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd6DX-0000000BLjb-0zKb;
-	Fri, 26 Jun 2026 13:03:35 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd6DV-0000000BLjE-198C
+	id 1wd6EY-0000000BLoe-1bms;
+	Fri, 26 Jun 2026 13:04:38 +0000
+Received: from fout-b1-smtp.messagingengine.com ([202.12.124.144])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wd6EV-0000000BLo8-29SU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 13:03:34 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 976401A9A;
-	Fri, 26 Jun 2026 06:03:25 -0700 (PDT)
-Received: from [10.164.19.14] (unknown [10.164.19.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 061343F632;
-	Fri, 26 Jun 2026 06:03:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782479010; bh=mLrqXzI6fndhpQWKl/d2+M3KKUFe6veWV+hQFDs0DeY=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=fWVkimfK0mRUOX//wOlw1rDvquS+agvpJcAkS7YH0I9Iij80JRXnFNzWSSx73410H
-	 /LCvDunajkaQu7zfR9Ub8o+teDJWQm9KdOdC6CrtlF4zGNDAfgV0XM96pUYyvZf81x
-	 BJYdWAs0Al+kc/xmBkoBGspCIyTHPR5fYUuw0fIk=
-Message-ID: <e0031cbe-2a49-4611-ad48-bde73fe4cd1c@arm.com>
-Date: Fri, 26 Jun 2026 18:33:24 +0530
+	Fri, 26 Jun 2026 13:04:37 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfout.stl.internal (Postfix) with ESMTP id 620551D00149;
+	Fri, 26 Jun 2026 09:04:34 -0400 (EDT)
+Received: from phl-imap-05 ([10.202.2.95])
+  by phl-compute-04.internal (MEProxy); Fri, 26 Jun 2026 09:04:34 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1782479074;
+	 x=1782565474; bh=ck5xsWo/5MeWEGxVeZ8T87STzgoOYFBEg4ZFVZbwJXs=; b=
+	aYKmELdfeb0rPqlN8e16bOkUkWCTcLC1/itvp2LZ/WY7n7moMOUqkMHWWtJaKXqZ
+	9Gw6zK6vuVrEJ9AAmpqfHLftZ5vuHIb/DambduN+DMQWXulGjS/37TqRfK/ekWbE
+	ubUoDzlRRYhQFMUcKPBIUkrFX16y+aD5CrBsAIxQVS3xRdjFuwx73q1eH2j/I7Ea
+	UJ88Lajwc0wFBaf9Y/N5Z1AiEjK3LfVoWrUxfw3ttCTJbPdVqCVIev77JkZyFEAn
+	/mdVUh8OQdNKGh5zat8SkH4odI0Xp+xWOX3UgGpiCI3AFB4/eqjBB6XlHVRrYxKs
+	woA2Np322Y7Ek2LTjpd2Xw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1782479074; x=
+	1782565474; bh=ck5xsWo/5MeWEGxVeZ8T87STzgoOYFBEg4ZFVZbwJXs=; b=l
+	NT0ZaMgD+GUMq+qzem7hmjUJ1AqCGZz0Di2PutnGB0PMfBDviVRyVk2hTEJZ/Xvr
+	oz0Z6ai02QeeYi7QfnSWZg3oQgUrrKrSxzewbuh4qpwJKnz7oZGVlaBHf+IPMCZH
+	krW4c0x/GnbsCxAkFeHhyMEUYrS/eyg/O91df5W1bW/OtFXWX111CeF1FjdH8EVk
+	Ju4295eY6i5ya/sMSiEpD0/jdATePygnywQzr/1MQ8h1g3sw5QRlJUxfudo/869J
+	1TnCPCiVV+pZYl6iUVW7KfTvzlz0vyRaf1SIbxMCWsmQ3r1c5QMfJnMSWr+iLvy/
+	D0JocP7YSKM0gZtuh+lHA==
+X-ME-Sender: <xms:4Xg-alcHfQcPvFdUTtTsSMf3Jx_3jlYaPcZ3H9sZPfY8UU_6Pa5MDw>
+    <xme:4Xg-auAdl5Z633VBpm59SxEsZJ3Tcx_67dQ9fWelCY7fY4CCYmWZtCORi2E66rZNl
+    xeNAsJ9iIcQG_HgYEIJtfY3SkhUu0mmlHi3WD7TWLa0ssNQ3pBXu1k>
+X-ME-Proxy-Cause: dmFkZTGumcPKcYwUjmZLHZyGSxGucW9r5tCK8vdAwuEMt5W3aGAeR670U78q6k/BQeoGPg
+    HHxkD26HPAU6mikhbPmHyDO7TCwYxKrcLT66iE1WTXnJ5LEgQSQdDUu3z/4YgsdlM76HmC
+    BMVxETundec920vGBbomfOyfKGb48gt0Un5kOZkqdnqKl8HJVCPxhmoh3zOxnxIf7c+wl6
+    UsGglnbGOLpCw3kryKdBHSLKb+hh1kQ6iyXS1V6B1xKaQY0H5ajbxk2kQdc9aQwKj0BhLO
+    w4wc/Cb2NlkQh+mQWIIhMPgz9ai0tZkHTZ0Joat8mL1mHuX1vEqoisl3jraJfksOs1gDlN
+    C0fBpBfY6De1JJRguCgbLG/RxDnaie0HejkaN8k0X8NqdRGU9v9dCNkyI3VPo+I5NGlzKK
+    l3vwJ0fNY7ikWuekmBPr+/glLv9XEE+qED4OPGkXw57r695ar1jf5JGHakIUjssCATkfrD
+    oBtjEzb9peCDUQl6eYv70tAeplRdhLyjfGT6ghNHv9clqa+JxYarKHdmlwenjg14j10gfV
+    QpNcV0dECfvnxj41K3LkRz7Fw6PyIaW8EJPyP7LRj/9y2dJoKEugVKdfen0KESG1/6HdXj
+    dTLMmgrHVVEYKu3gGao5UbwdNZhIjJlxRvL00qONo9BDBD7IvtplF0WhRDVw
+X-ME-Proxy: <xmx:4Xg-aoDodgQlAZf9gr9zMsDT9U0SHMiXMikUGH7igB6h1-5e_T8mEA>
+    <xmx:4Xg-asAoJZehc9MlVl5gWxTQJsq20ZPd0CWoN_yn7aVb6xIQqk0j4A>
+    <xmx:4Xg-arqWhANO3-qCrN9pRu3FD7RuwpGqqKy2sQacBohvpQX0HTtdWg>
+    <xmx:4Xg-aumiU-KFcmgiBoQyEQixP6mboDV8A60nIhtTL9jrr0p5fHxbHQ>
+    <xmx:4ng-asuttGD_CyH_7nQ26-LslR3dtE_Vh2-3tcVfGa8A7RIsJZc0Ouqn>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id AFA001820086; Fri, 26 Jun 2026 09:04:33 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: mm: refresh stale pmd snapshot after
- split_contpmd()
-To: lirongqing <lirongqing@baidu.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Ryan Roberts <ryan.roberts@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
- David Hildenbrand <david@kernel.org>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Kevin Brodsky <kevin.brodsky@arm.com>, Yang Shi
- <yang@os.amperecomputing.com>,
- Chaitanya S Prakash <chaitanyas.prakash@arm.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260625113953.2332-1-lirongqing@baidu.com>
-Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <20260625113953.2332-1-lirongqing@baidu.com>
-Content-Type: text/plain; charset=UTF-8
+X-ThreadId: A5EVnRCqXlfN
+Date: Fri, 26 Jun 2026 15:03:53 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Gary Yang" <gary.yang@cixtech.com>
+Cc: "Fugang . duan" <fugang.duan@cixtech.com>,
+ linux-arm-kernel@lists.infradead.org, cix-kernel-upstream@cixtech.com,
+ "Peter Chen" <peter.chen@kernel.org>
+Message-Id: <21f81761-ac02-4771-9dfd-38e653d1f74f@app.fastmail.com>
+In-Reply-To: <20260626092015.1709904-1-gary.yang@cixtech.com>
+References: <20260626092015.1709904-1-gary.yang@cixtech.com>
+Subject: Re: [PATCH] MAINTAINERS: Update maintainer and git tree for CIX SoC
+Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_060333_353368_3B7CD4B4 
-X-CRM114-Status: GOOD (  18.95  )
+X-CRM114-CacheID: sfid-20260626_060435_913234_CE50BB97 
+X-CRM114-Status: GOOD (  14.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,59 +109,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Jun 26, 2026, at 11:20, Gary Yang wrote:
+> Peter Chen has left CIX Technology. Take over maintenance of the CIX SoC
+> and Update the git tree URL accordingly.
+>
+> Signed-off-by: Gary Yang <gary.yang@cixtech.com>
+> Reviewed-by: Fugang Duan <fugang.duan@cixtech.com>
 
+This obviously needs an Ack from Peter. I assume he's ok with the
+change, but you should document that since maintainership
+is tied to the person by default rather than their employer.
 
-On 25/06/26 5:09 pm, lirongqing wrote:
-> From: Li RongQing <lirongqing@baidu.com>
-> 
-> split_contpmd() modifies the pmd entries in-place by clearing the CONT
-> bit, but the local 'pmd' variable still holds the old snapshot with CONT
-> set. The subsequent split_pmd() call uses this stale value to derive the
-> pgprot for the new PTE entries via pmd_pgprot(), causing the resulting
-> PTEs to be populated with incorrect protection bits.
+I've added peter.chen@kernel.org to Cc, hopefully this forwards
+to a current address.
 
-Since the block was CONTPMD, it means the pgprot was uniform on that block,
-so after splitting, it should be safe to derive the pgprot from individual pmd's
-right?
+      Arnd
 
-> 
-> Fix this by re-reading the pmd from memory after split_contpmd() returns
-> in both call sites: split_kernel_leaf_mapping_locked() and
-> split_to_ptes_pmd_entry().
-> 
-> Fixes: a166563e7ec3 ("arm64: mm: support large block mapping when rodata=full")
-> Signed-off-by: Li RongQing <lirongqing@baidu.com>
 > ---
->  arch/arm64/mm/mmu.c | 8 ++++++--
->  1 file changed, 6 insertions(+), 2 deletions(-)
+>  MAINTAINERS | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+>
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 2fb1c75afd16..17b3704bbcde 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -2692,12 +2692,12 @@ F:	arch/arm/mach-ep93xx/
+>  F:	drivers/iio/adc/ep93xx_adc.c
 > 
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index 12e862c..e510336 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -746,8 +746,10 @@ static int split_kernel_leaf_mapping_locked(unsigned long addr)
->  	if (!pmd_present(pmd))
->  		goto out;
->  	if (pmd_leaf(pmd)) {
-> -		if (pmd_cont(pmd))
-> +		if (pmd_cont(pmd)) {
->  			split_contpmd(pmdp);
-> +			pmd = pmdp_get(pmdp);
-> +		}
->  		/*
->  		 * PMD: If addr is PMD aligned then addr already describes a
->  		 * leaf boundary. Otherwise, split to contpte.
-> @@ -891,8 +893,10 @@ static int split_to_ptes_pmd_entry(pmd_t *pmdp, unsigned long addr,
->  	int ret = 0;
->  
->  	if (pmd_leaf(pmd)) {
-> -		if (pmd_cont(pmd))
-> +		if (pmd_cont(pmd)) {
->  			split_contpmd(pmdp);
-> +			pmd = pmdp_get(pmdp);
-> +		}
->  		ret = split_pmd(pmdp, pmd, gfp, false);
->  
->  		/*
-
+>  ARM/CIX SOC SUPPORT
+> -M:	Peter Chen <peter.chen@cixtech.com>
+> +M:	Gary Yang <gary.yang@cixtech.com>
+>  M:	Fugang Duan <fugang.duan@cixtech.com>
+>  R:	CIX Linux Kernel Upstream Group <cix-kernel-upstream@cixtech.com>
+>  L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+>  S:	Maintained
+> -T:	git git://git.kernel.org/pub/scm/linux/kernel/git/peter.chen/cix.git
+> +T:	git https://github.com/cixtech/linux-mainline.git
+>  F:	Documentation/devicetree/bindings/arm/cix.yaml
+>  F:	Documentation/devicetree/bindings/mailbox/cix,sky1-mbox.yaml
+>  F:	arch/arm64/boot/dts/cix/
+> -- 
+> 2.50.1
 
