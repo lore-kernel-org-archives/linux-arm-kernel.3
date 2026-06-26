@@ -4,99 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD644CD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 03:25:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7979ECDE008
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 03:38:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vVsjU9yKl2cJB/WfxCzz06jvF+n5PC9ZLu0AFLXamVs=; b=ha6UEBqwxyjLTvJXlXEUnGn+kM
-	CjDpb4yPrISmUwDsh6UFtBNJZKz4JexNkeVvc3aE1zFpP9IH4wuxT7e9Wo7mxPlmBmBtROdO1SOYe
-	xtduGrHewlClHY2XEjTUC0hvnplBnq9lf8+e4flFJCqnUS66/HzK31GxIj/MXFRjOsYdTOgAwXHWE
-	64RrLwCnXuUmL2DSFBPBkKjtT3bT9KzVc5jFXDR+7MWYI0D8ALEN8wzZ12nP96dxfewxE+1hPW5ma
-	iU7fY2OE6youIowgqhsefWqM+g7IRErnUxErtFXerxUuMeDPcI9jxxSUEXutPV5MUU2OOM2fknQUV
-	cMoRh6NQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DXRbQdsGUO+OaF2qH7v2uVNyKE0DcMPVyC/pru11U+0=; b=Svk2XmJBi5ncQhIiasmFulKOEh
+	uZeO4tV8Uey1pQZdeR8nSBiTyH8H0Fp8BxG5aSe8uJ29Ldw/4BnMDadpERTbPfOA/gHok9A8RBsiz
+	5Tx75o7rMph2cpBrmOKixK0xqf5J8ug562aLLn8AvyEBdPlF9ihcG5t/OaBdPct90/mekyFP+J1fa
+	b5Yec1q0GUFF7+TFQgWvnGmdbsmQVTwZS0gHBLVyY89rF/dFfnG/9yFKmnZLKetUqZcdKGEfN4k69
+	51d00glVPAjIu9h72xv7Xk0wO438bRwu+SXd5WYF7Mr0iIDKLQMaESYd1mGTEbk4DbaKjqbgqdNnJ
+	sBA/ZbZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcwmT-0000000ALLy-3ep7;
-	Fri, 26 Jun 2026 02:59:01 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1wcxO8-0000000ANvH-0BjO;
+	Fri, 26 Jun 2026 03:37:56 +0000
+Received: from mail-qk1-x733.google.com ([2607:f8b0:4864:20::733])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcwmQ-0000000ALLJ-2yIy
+	id 1wcxO5-0000000ANug-1y5c
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 02:59:00 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2c7f5869cddso3365755ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Jun 2026 19:58:58 -0700 (PDT)
+	Fri, 26 Jun 2026 03:37:54 +0000
+Received: by mail-qk1-x733.google.com with SMTP id af79cd13be357-91587626a3eso80898985a.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Jun 2026 20:37:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782442738; x=1783047538; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vVsjU9yKl2cJB/WfxCzz06jvF+n5PC9ZLu0AFLXamVs=;
-        b=nbMXVhJH8hUUF0UasdolN1bwzugsd1NRc6Px1kStmrh3Toy2lV0R4wUoe9zHOz3RGI
-         PoPvx75t0tmK8ueMWqawMeKOn/MZMXHnTYWbaZLTzYT9bSxZqxg289GnTVkvM7y4RAv9
-         sJiQFfhV2nGZbyINeoK0HxsQcAnm4LZZtY6F9/JJRhX3OVMlwQ54BduGFSMk3HaH59Hr
-         hgfsB47jh5SSdNun149HQVW97yVpqv6YSFIq+BWI/CRGZ+X5813w9Wo331roR8S05ddm
-         8jGfGdNJ+uiP2RyZEYhFzratRt3R+pvP4ifdcj4hq+c8dgCEKUUxYvirbo6lFZZMFQeY
-         eu7g==
+        d=gmail.com; s=20251104; t=1782445072; x=1783049872; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=DXRbQdsGUO+OaF2qH7v2uVNyKE0DcMPVyC/pru11U+0=;
+        b=NkfaxIGb5qGzxtpYVgPkYh+GwE8vFrVPsRE7GUfHFT98QT5djvKwwLDiyUd/1bD7pf
+         8hIE/lcOEUpPs198S7+KgyYdGHdNrlLT6UyP5I89Y9xua5ZieDxDIJyTbpT1WgXsQUmr
+         03+xqY6cADaKWJFWvNX+QC6msyhxlPFsJanJPWCCzDW9ALRyH4Oh2t33eOCG8CyuNyDQ
+         hEfPPZKfZ/SMjeldG0I2mwomNErpRY4oskRNZk/e56a5CvKf/Xw0YX3I3ioWE+n74I+G
+         6R3iyemY+4sVH5yQRl+qeDnSHljTAd+QO+FSGoHZL/qWH1KzE46S8KnWAKd9fBh91YT7
+         zfaA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782442738; x=1783047538;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=vVsjU9yKl2cJB/WfxCzz06jvF+n5PC9ZLu0AFLXamVs=;
-        b=Wh6EgsrPD3tVQkHzge/OFvfGRWVG84ir1Xw1ecqtLcQwmxCx67uZNMCC4zuH0B/9Jr
-         Ga63YH37v145F1uaOC3cla6DyCJqa/FQxqzqgtMARaHgn4rk/vPfzD+nBWfBuJjWJrpf
-         ba51FlrXaW5XS1xATvnjU4DL2l6oYfZGyOG0qA2Po4v0GSyrAqy10RVvhNfFxJvQfdwS
-         HMYAn4gVt2Rsmx1BUl1BryMwU4CV1tJrDflg/hgsaM7DHT6FS8mRMWjGvPCECHL+YeDO
-         UGynWsVf5jWpHycc2X84VlcfawIxZlAdOmmyh+SlfvM87I0ForYvYp28/VTee9CedFfZ
-         L/FA==
-X-Forwarded-Encrypted: i=1; AHgh+RqBdqtKVNaFXNZ8VpjzKQ0GwH6Dq19WRRfFAshLotornzNuPb15rap0VARcILZKSD8HEfrbRfOavRPesFFZr725@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyqjv6FXjexFyUMqUqAeKxboIaXkLekhB4LIc4PVch8Pk49b0Fi
-	5895kX9kI1mXwjcUQQ2XDExL71sgOmPj0Ufg1Sb2tQwzD9DgWu9RZBdG
-X-Gm-Gg: AfdE7cm+P9xrMtURggvlKgiD6Wn0IZpsZ7/F2u8onjzagPYZWiEaO4jqcLCEuTylZpx
-	ry+qdN19MoaQnAdIHUB43GegQWG/lgNLDqTad3EIsmqedlVB2LYuwehvv3sTWWdmzCiyMFlhH7u
-	z6PeCYMcgZAf7H8zvR4lQqruYmWRJi6+DEretUs4A1N9UvS3fxMXsDl4fxgRHQFgwiqbrJbuPPi
-	vFgxXMKM5zznpLCJGOMIVnFuVXGtPbCotnTn+RdVAbDx+o9H5CLl0PBUOucBZ1lIS5MPsmZF4KY
-	POs7maPEX5X1GT1dW+pBUTYVtiHgxA1tgHXXPDC2HKbqbrK5JHWl8yXWiH8PlY9dq1ZbNvjmXRL
-	HZYOo3TFbD7eiFVu8i3YgquepsbAtWMEzW+qOc+1FR86/e+de6/VzYSqFhVBSWN/rCEUr8ereXv
-	BbR+toki0lFfI=
-X-Received: by 2002:a17:903:46c8:b0:2c7:d071:3ef1 with SMTP id d9443c01a7336-2c7fca19129mr53387105ad.19.1782442737717;
-        Thu, 25 Jun 2026 19:58:57 -0700 (PDT)
-Received: from archermind.. ([182.150.55.91])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c7f5afb1e0sm31252535ad.29.2026.06.25.19.58.53
+        d=1e100.net; s=20251104; t=1782445072; x=1783049872;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=DXRbQdsGUO+OaF2qH7v2uVNyKE0DcMPVyC/pru11U+0=;
+        b=oJ4O/Qv2CnL35GLhZFaCds1YqZmNfK04zYKYrv3zc6IbzOzVQwvhGGfr7OzNkT7PxD
+         XfNSA1xpVNNXqOeKk73jPsp09dWtGXvcmhyC7MUeM/CwEoVNbuIYrRZpt4GxwNK7p1SN
+         /0C2d1M3RyOuuuhrFX+vX52oQgkPLhPmfiOLXlna+9kBUI0ske9IuICJhAz/Qe03n/ek
+         UTZMPGiSTFTzFB8NDaU/jDvEaCv+9gXvkQyiIZvP9yQJWrR8YoyIqvKynxgIRqLV047E
+         kMWNjiT1bxs4pnv1TOVaQjjpHI6f+VDqb4sVMUafPy7/3GcGY02myu1saLu/WNixdsd1
+         WrKQ==
+X-Gm-Message-State: AOJu0YxlN5NpiHJtA5N9TNkU/yjYXl/jgXlQV6VjT7u7J5Db8b+SSsfT
+	3LpFKi8kWWOr7lkfnQ4I1Yk6/OO6tcC9BnpDeRqxi3IlPDRwszDvX2U+GY+kECKdJdU=
+X-Gm-Gg: AfdE7clA47nZLF8lc7L2U/0NiO2GUdhLaveTP9gMMTYNigueKj7SrTK/e2zhtWfsNjn
+	eOv31l+u9Hpx2eGnEF0TdSos8lFs8WKeRDlYgWBRDxKm6PxPQ49HFwz8svNvfctvvJoekDK/iM6
+	5uRHXdGugaiwmxxaImi4F4NbBi7x+ZsTuDUUPvoJICmD+cMqU1MGzXbgsGZKnfFoRqhz1LiXxz2
+	F/8to+tIBbJLYiZnqA7mYDMblxP5hQtkpe4L3DaaoNiPpN15TrButDcJ8uxVZQat2xFXoKymf2N
+	5Tcy1RW+/zcpLdZnjMULoMLTCbgBhWIKZ+7TtWs+tbAXQ96BNf7LwPaXu3iaMnFsZGqAkSqmbfC
+	L5nmJwIeg3TYXcoQgoQWy+gjVBlyNPWMBrOvAYLhjxuldkwYNmQm1wgRJ7JzOubf5BVTZkJ91Xp
+	XN8L1L2yECU8UKwBbjOTIBVpa3Q8k3oSw5u8VR6SCb
+X-Received: by 2002:a05:620a:271a:b0:923:3062:9046 with SMTP id af79cd13be357-9293abaeb24mr803214385a.23.1782445071924;
+        Thu, 25 Jun 2026 20:37:51 -0700 (PDT)
+Received: from i4-gl-tmk5904.ad.psu.edu ([130.203.156.186])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-925fe040904sm1032082985a.20.2026.06.25.20.37.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 25 Jun 2026 19:58:57 -0700 (PDT)
-From: Liem <liem16213@gmail.com>
-To: frank.li@oss.nxp.com
-Cc: Frank.Li@nxp.com,
-	andi.shyti@kernel.org,
-	biwen.li@nxp.com,
-	festevam@gmail.com,
-	imx@lists.linux.dev,
-	kernel@pengutronix.de,
-	liem16213@gmail.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-i2c@vger.kernel.org,
+        Thu, 25 Jun 2026 20:37:51 -0700 (PDT)
+From: Yuho Choi <dbgh9129@gmail.com>
+To: Marc Zyngier <maz@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	o.rempel@pengutronix.de,
-	s.hauer@pengutronix.de,
-	stable@vger.kernel.org,
-	wsa@kernel.org
-Subject: [PATCH v3 0/2] Fix slave mode corner issues
-Date: Fri, 26 Jun 2026 10:58:44 +0800
-Message-Id: <20260626025846.106157-1-liem16213@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <aj1UR5ddawsdMbZC@SMW015318>
-References: <aj1UR5ddawsdMbZC@SMW015318>
+	Yuho Choi <dbgh9129@gmail.com>
+Subject: [PATCH v2] irqchip/gic-v3-its: Fix OF node reference leak
+Date: Thu, 25 Jun 2026 23:37:47 -0400
+Message-ID: <20260626033747.1515585-1-dbgh9129@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260625_195859_104362_E6DC64D3 
-X-CRM114-Status: UNSURE (   8.26  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260625_203753_528533_7EAD7152 
+X-CRM114-Status: GOOD (  12.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,29 +96,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series fixes two issues in the i2c-imx slave mode.
+of_get_cpu_node() returns a referenced device node. In
+its_cpu_init_collection(), the Cavium 23144 workaround only uses the
+node to compare the CPU NUMA node, but the reference is never dropped.
 
-Patch 1 clears the slave pointer on registration failure to allow
-subsequent re-registration.
+Use the device_node cleanup helper for the CPU node reference so it is
+released when leaving the workaround block, including the NUMA mismatch
+return path.
 
-Patch 2 cancels the hrtimer before clearing the slave pointer during
-unregistration, preventing a potential use-after-free / NULL pointer
-dereference.
+Fixes: fbf8f40e1658 ("irqchip/gicv3-its: numa: Enable workaround for Cavium thunderx erratum 23144")
+Signed-off-by: Yuho Choi <dbgh9129@gmail.com>
+---
+- Use __free(device_node) for the CPU node reference.
+- Correct the Fixes tag to fbf8f40e1658.
 
-Changes in v3:
-- Split the original patch into two separate patches as suggested by
-  Frank Li.
-- v2: https://lore.kernel.org/imx/
-  20260625160219.55116-1-liem16213@gmail.com/
+ drivers/irqchip/irq-gic-v3-its.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-Liem (2):
-  i2c: imx: Clear slave pointer on registration error
-  i2c: imx: Cancel hrtimer before clearing slave pointer
-
- drivers/i2c/busses/i2c-imx.c | 2 ++
- 1 file changed, 2 insertions(+)
-
+diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+index b57d81ad33a0..63942cf1dbe3 100644
+--- a/drivers/irqchip/irq-gic-v3-its.c
++++ b/drivers/irqchip/irq-gic-v3-its.c
+@@ -3290,9 +3290,9 @@ static void its_cpu_init_collection(struct its_node *its)
+ 
+ 	/* avoid cross node collections and its mapping */
+ 	if (its->flags & ITS_FLAGS_WORKAROUND_CAVIUM_23144) {
+-		struct device_node *cpu_node;
++		struct device_node *cpu_node __free(device_node) =
++			of_get_cpu_node(cpu, NULL);
+ 
+-		cpu_node = of_get_cpu_node(cpu, NULL);
+ 		if (its->numa_node != NUMA_NO_NODE &&
+ 			its->numa_node != of_node_to_nid(cpu_node))
+ 			return;
 -- 
-2.34.1
+2.43.0
 
 
