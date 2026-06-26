@@ -4,70 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DFD2CDE008
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 08:21:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2879CDE008
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 08:21:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mKdovRIrKfyxu635TzziBG37YLmIxh49GjmLAgAIHUg=; b=yxsKWzuA/0rH83r7wZ4xS4w/e9
-	MBi3UGABBHbfRRwAFOYQaB7KxRwPo033l/idXjrF0Vd0jYSWxLOfCP9/eBzJmryVCgJK0AMB8Ji+F
-	NEe3oyqATqCso6NETNWBnc9HEUGDSBgZqKk/tGQdifiw5iSqy3tMjqeZFqndYYvz9jm3uTpPVYeum
-	8KoWTD9InhUCZmi2WRXxa7HyikRc6TGTyEU8OxFUHb3bC5aA7fRtWKm79mZsT/b1RkI3USIVhs1k5
-	UQwgYhRy4DSAxsbIwY9tutYQWXxe+5e37byjW0HnHJUbr+ESpOmhwH5/bDsuf+m8nNUDMzTySXCx7
-	1L6SAs4A==;
+	bh=wplAzzEOm+Q0aPWW11dYgrqvd6iKQve3ErEDf2HUUMo=; b=w04icemBWEWK1XB7a06Kuo26Rk
+	SUIU/OGJhl+yJv0/wKZ/zABOxr6nJ1jA4O10Di47eajdazUTwv9TTgBggWj4F61XXRNIxunGrVG2z
+	vmT7uueu/1eWICuL3+Vs8K+RwqFoapGknhPh56Nia/5vcq27SfnXXay5RsNDlOyjsq54ZijeEFO9X
+	YStHUR6CKuEHkkwuxeXRQcZtqsc9m5yUXaulrWKkDYhBoENrpyTb6obwK0zbNWxVLEb/3XONRU0Lf
+	b9mMybamQkPFi6h05Cpu0H2pPy8HbosCqu6oaVW/e1x7+3zGk5DzQHThQEE8uoP7cwVJM3yd2aj+H
+	Ek4wA8IQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd1oH-0000000An2D-0nJg;
-	Fri, 26 Jun 2026 08:21:13 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wd1oM-0000000An8a-1iha;
+	Fri, 26 Jun 2026 08:21:18 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd1oF-0000000An0H-1hx5;
-	Fri, 26 Jun 2026 08:21:11 +0000
+	id 1wd1oI-0000000An4U-4ARB;
+	Fri, 26 Jun 2026 08:21:15 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6FE59600AE;
-	Fri, 26 Jun 2026 08:21:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1993C1F00A3A;
-	Fri, 26 Jun 2026 08:21:10 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8306342A91;
+	Fri, 26 Jun 2026 08:21:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FE0C1F00A3D;
+	Fri, 26 Jun 2026 08:21:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782462070;
-	bh=mKdovRIrKfyxu635TzziBG37YLmIxh49GjmLAgAIHUg=;
+	s=k20260515; t=1782462074;
+	bh=wplAzzEOm+Q0aPWW11dYgrqvd6iKQve3ErEDf2HUUMo=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=oEW0CG/94G+fLSDLCrwsou32pQbWB6aRMjW87zHUXlLuzZy/K+I1NDQCu52QeCv+N
-	 0TPRnMW9bKrWxlzErKoh6Ecg83BOIz34dfafwUDpyS4WrAIzV9XM9DaMzJmeazcnfe
-	 gUXg2/NLVqviD9vIVFfepRpzSJ8k4Nn7zXmbkbKknP3/7bUrWk6ngWdpkmPqFQAU0z
-	 I5gzfoLdLWMLSFKa5DFSxK35JX+mSj0pTwSe4jpHtdfI5zxX7n7EX7oYXx7eVo+Q8E
-	 lmzcE1dniK06SAVV710pZ1FtvT+xV0UEHP2v9FGQvH7XiEITgiIpEdibHF3Xr4Hjoy
-	 cbujCc5RGAtIQ==
+	b=EZC15R2pBfNIFs+6rNdwmk9jGSf+WvK+9KJt09+nK428GCipOT/5kpz/PdSAOO1X7
+	 +3IhCzrKGed9ZgatfgLQfuHqxn09xGLHyOqbGUsEJrAPzdOx/g11diX3oZ1b7fiBeg
+	 7pZhSn30yIO3XjwIdUAJGFIRcRozxroD6Oe7z1JO0za+TopjVP8RWYwKdNjlS6ISIQ
+	 ovP7Hl1jhB2b7xBzCgHx8V2v7/0H0a5hbbI8M3AQs7ATgJsoWRZLex4hhvsYzfv/uz
+	 gw/EOH7s4FxzBBa4RDMTF7I/hZ5AkETfNvj3WPJtj2JySlsDNeuOzv64uUofVexJAa
+	 cSRnp7C94e8yA==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 5697639389E8;
-	Fri, 26 Jun 2026 08:20:58 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 9ABD739389E8;
+	Fri, 26 Jun 2026 08:21:02 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH v1 0/6] power: Use named initializers for
- platform_device_id
- arrays
+Subject: Re: [PATCH v5 1/7] perf unwind: Refactor get_entries to allow dynamic
+ libdw/libunwind selection
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <178246205698.3816447.10450599511697138681.git-patchwork-notify@kernel.org>
-Date: Fri, 26 Jun 2026 08:20:56 +0000
-References: <cover.1780048925.git.u.kleine-koenig@baylibre.com>
-In-Reply-To: <cover.1780048925.git.u.kleine-koenig@baylibre.com>
-To: =?utf-8?q?Uwe_Kleine-K=C3=B6nig_=28The_Capable_Hub=29_=3Cu=2Ekleine-koenig?=@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org,
-	=?utf-8?q?=40baylibre=2Ecom=3E?=@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org
-Cc: linux-riscv@lists.infradead.org, sre@kernel.org, visitorckw@gmail.com,
- bleung@chromium.org, groeck@chromium.org, linux@weissschuh.net,
- krzk@kernel.org, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, linux-pm@vger.kernel.org,
- linux-kernel@vger.kernel.org, chrome-platform@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- hansg@kernel.org, m.szyprowski@samsung.com, sebastian.krzyszkowiak@puri.sm,
- kernel@puri.sm, dlan@kernel.org, andreas@kemnade.info,
- mazziesaccount@gmail.com, sven@kernel.org, j@jannau.net, neal@gompa.dev,
- amitsd@google.com, samkay014@gmail.com, spacemit@lists.linux.dev,
- asahi@lists.linux.dev, imx@lists.linux.dev, wens@kernel.org
+Message-Id: <178246206150.3816447.6305387305041749998.git-patchwork-notify@kernel.org>
+Date: Fri, 26 Jun 2026 08:21:01 +0000
+References: <20260513233151.572332-2-irogers@google.com>
+In-Reply-To: <20260513233151.572332-2-irogers@google.com>
+To: Ian Rogers <irogers@google.com>
+Cc: linux-riscv@lists.infradead.org, acme@kernel.org, adrian.hunter@intel.com,
+ dapeng1.mi@linux.intel.com, james.clark@linaro.org, namhyung@kernel.org,
+ florian.fainelli@broadcom.com, guanli.oerv@isrc.iscas.ac.cn,
+ 9erthalion6@gmail.com, alex@ghiti.fr, alexander.shishkin@linux.intel.com,
+ andrew.jones@oss.qualcomm.com, aou@eecs.berkeley.edu, atrajeev@linux.ibm.com,
+ howardchu95@gmail.com, john.g.garry@oracle.com, jolsa@kernel.org,
+ leo.yan@linux.dev, libunwind-devel@nongnu.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-perf-users@vger.kernel.org, mingo@redhat.com, palmer@dabbelt.com,
+ peterz@infradead.org, pjw@kernel.org, shimin.guo@skydio.com,
+ tglozar@redhat.com, tmricht@linux.ibm.com, will@kernel.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,23 +82,37 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hello:
 
-This patch was applied to riscv/linux.git (fixes)
-by Sebastian Reichel <sebastian.reichel@collabora.com>:
+This series was applied to riscv/linux.git (fixes)
+by Arnaldo Carvalho de Melo <acme@redhat.com>:
 
-On Fri, 29 May 2026 12:18:15 +0200 you wrote:
-> Hello,
+On Wed, 13 May 2026 16:31:45 -0700 you wrote:
+> Currently, both libdw and libunwind define 'unwind__get_entries'. This
+> causes a duplicate symbol build failure when both are compiled into
+> perf.
 > 
-> this series targets to use named initializers for platform_device_id
-> arrays. In general these are better readable for humans and more robust
-> to changes in the respective struct definition.
-> 
-> This robustness is needed as I want to do
+> This commit refactors the DWARF unwind post-processing to be
+> configurable at runtime via the .perfconfig file option
+> 'unwind.style', or using the argument '--unwind-style' in the commands
+> 'perf report', 'perf script' and 'perf inject', in a similar manner to
+> the addr2line or the disassembler style.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v1,4/6] power: Use named initializers for platform_device_id arrays
-    https://git.kernel.org/riscv/c/e28f7498dd81
+  - [v5,1/7] perf unwind: Refactor get_entries to allow dynamic libdw/libunwind selection
+    (no matching commit)
+  - [v5,2/7] tools build: Deduplicate test-libunwind for different architectures
+    https://git.kernel.org/riscv/c/6d13d53be9dd
+  - [v5,3/7] perf build: Be more programmatic when setting up libunwind variables
+    https://git.kernel.org/riscv/c/444508cd7c7b
+  - [v5,4/7] perf unwind-libunwind: Make libunwind register reading cross platform
+    (no matching commit)
+  - [v5,5/7] perf unwind-libunwind: Move flush/finish access out of local
+    https://git.kernel.org/riscv/c/2723e9f8b5cf
+  - [v5,6/7] perf unwind-libunwind: Remove libunwind-local
+    (no matching commit)
+  - [v5,7/7] perf unwind-libunwind: Add RISC-V libunwind support
+    https://git.kernel.org/riscv/c/834c557167a9
 
 You are awesome, thank you!
 -- 
