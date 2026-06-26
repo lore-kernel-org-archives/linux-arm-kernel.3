@@ -4,77 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D4B4CDE008
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 02:56:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95DF7CDE00B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 02:59:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4/UPTUaCEifkHcSLWDahxe9czBgczcWhfop7nB3GxdY=; b=Lm6cLU4LGfK+MSqbeKfH8Ycp4w
-	xNW6gLzOgwwORRj3SaS2owf0U498KAy1Lx/0imF34M9k96hyiqUh79lZOzti7FGOq2nh6pfqjHdV4
-	AwmbRxgZYouVPfXPpwbHzFLScV6aZbFU+dkG/cOHGIBQCvvFimzbRhc5MwIzZRqJ96z56jzARegif
-	a/sombvI+NAQxP4cV5/70jt2Jfn5TB77ZH6fyBAM32oinh40Qlo3/6mECAGTsgQ5CrvU0jPdwYSCD
-	9zOTXbmG1Q65fP1hqcLP5f5SxWDmcCb9PfNVcY5AzK2DA6DcGFZbHeYU80HZWlabdBC9taxCb5gm3
-	A2yysN9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IvC4gX1oHDIM5j6whwgmhqEecsHukjk3hp3brUU36ME=; b=xxSOlQX9ulrLFwfKPJHSRK/wYe
+	4OcKHgTMN1rwIZCeEmDpdgCxKNa3t5v1xtSVOBqC8uUx0zrn1iz2wuccWD7kRS/KZelB4aLAvHnMg
+	Mw6mdR2R8ann/Ahr9MKUN0EDSyjIRd7vGUnlJhdembFyfro2nc7VSxNJTl0lpnbdscCAKYFQZ2Wwq
+	mwB5kKc7EDKmpuSIlccoTtt0cql+FOjfHXr9W3ek9SpTaaNtwAQJY7z59yq804suhoryDwlaAxDMt
+	HFuhq882ipy2sK8xKHu5K9Z6+H88ZNlLIvRRGSaIpDMtUSEui3k5jTsBwZvb+2RPj9vocJ42qRspT
+	XmSUpdug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcvRF-0000000A5xO-1EEC;
-	Fri, 26 Jun 2026 01:33:01 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1wcwmh-0000000ALPW-44LG;
+	Fri, 26 Jun 2026 02:59:15 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wcvR3-0000000A5bA-2Fjc;
-	Fri, 26 Jun 2026 01:32:51 +0000
-X-UUID: ec4028e870fe11f1afed4741b24580c9-20260625
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=4/UPTUaCEifkHcSLWDahxe9czBgczcWhfop7nB3GxdY=;
-	b=cBptAYZfoSUyvYfL2odJaCrcQWhnIc6aUs5zA9vgYDbSesF6HMDkjZaznH+4P5yVeS/T6vHY2pv/OAdD2nMsdPNsYnUz6xwo5rKSh3iI/9758U2bka49iv1BZ0SIpUAk5yMSVlIyXPA5a1AXJXQMxEDmBGgs10jcG6HVSnVv2ag=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.17,REQID:8fb723f8-78c8-49bc-8b27-9c3f845bd161,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:d497b38,CLOUDID:01d28ba5-9ef7-4489-861a-e83b251ece46,B
-	ulkID:nil,BulkQuantity:0,SF:81|82|102|136|836|865|888|898,TC:-5,Content:0|
-	15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0
-	,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: ec4028e870fe11f1afed4741b24580c9-20260625
-Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw01.mediatek.com
-	(envelope-from <justin.yeh@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 265814930; Thu, 25 Jun 2026 18:32:41 -0700
-Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Fri, 26 Jun 2026 09:32:39 +0800
-Received: from mtksitap99.mediatek.inc (10.233.130.16) by
- mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Fri, 26 Jun 2026 09:32:39 +0800
-From: Justin Yeh <justin.yeh@mediatek.com>
-To: Sean Wang <sean.wang@kernel.org>, Linus Walleij <linusw@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>
-CC: <Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	<linux-mediatek@lists.infradead.org>, <linux-gpio@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	Justin Yeh <justin.yeh@mediatek.com>
-Subject: [PATCH v2 07/32] pinctrl: mediatek: mt7988: Enable module build support
-Date: Fri, 26 Jun 2026 09:31:33 +0800
-Message-ID: <20260626013217.2373808-8-justin.yeh@mediatek.com>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20260626013217.2373808-1-justin.yeh@mediatek.com>
-References: <20260626013217.2373808-1-justin.yeh@mediatek.com>
+	id 1wcwmg-0000000ALOn-0tgO
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 26 Jun 2026 02:59:15 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2c7ee3952f2so2520465ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Jun 2026 19:59:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782442753; x=1783047553; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=IvC4gX1oHDIM5j6whwgmhqEecsHukjk3hp3brUU36ME=;
+        b=s+KBiOnpGhByR89cSmqnGZCf+qT9sIHeLLVfvelQSb0pO0/XvEPDqBAVHTxODMnFOR
+         tTv1cFlfGGARTuM8k1jilZYWwcTJr0uIUd6uO7YTZNsXAmQ0UwuOHhYiREyhYUVl+p8k
+         hXhE0AON7HW7sITRR4gILKhwj96MqTyUxsU/trJs6zsEQlzQwYF29PKCHQh/Zkvs9PfN
+         w+29IvHbxXLy62dEki5YlgZUyvUqqEcsKOkMC+5da4Etm2veD6RcGcM/osi8qPxdrYzQ
+         RxDlpWhnyUwAOP6FAwoYB4NsbjOE/bG1T8ysPOGa0PwDh3FMVgU94CHwJPrGfLy4ClDQ
+         iY1Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782442753; x=1783047553;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=IvC4gX1oHDIM5j6whwgmhqEecsHukjk3hp3brUU36ME=;
+        b=iudJ7AVrC8D5p6hCGjd/i851DvP/pMhmgTPg86svY8q0x7CslSn3mGpPNZfqiXbPW7
+         dzQyyQ5JBRzYCi/htG2T4Yem/3d5W+nfRAEeE4BSPMvm3WBr9O+SZBSvXr1xN/EkKeyL
+         0Ps/F1ax4B2IhIcuXfISakJ1o0hB+JDhDgtVHXTqsQIEtOBc3zRR/ZLvV+bKjVEozLaz
+         1R4GW47dnTn6lRCbMvJf+Hlra7wuLc77ms9kLQSWPaeIBeIk91QUVDOpRSzbUxRzMzbS
+         RsZRX9WBXXwkWTj7TCGdotLf5fjkooTskKqj67wBmE5I3Y8A74LNoJyXRyS6mwV54ol2
+         P2VA==
+X-Forwarded-Encrypted: i=1; AHgh+RrI5mLN6HtFIBbA6ddd6GGnHRKAzG58MizvX1ckc/CjCYnu/JuZJyIML3Jd7wmQtbLAYZyV0vijYJLRI9xs/0KA@lists.infradead.org
+X-Gm-Message-State: AOJu0YxRdjrsSnSbi/V0Sjp6x+mqX0ymD4cReOpgL+iZlR7kL49exK5i
+	paGH7s04FC0JJM7Z0MCswSdvCRfj6Y4GPoA+VNRlHYUE0Q+g8bFLpTwkjhsF79V7pWk=
+X-Gm-Gg: AfdE7clloKNI9ODBl0p5uPYvTabfCC5oz2zzoRprsXPAeQLWMbZX3CcNmsd48QUXkHB
+	2do5o+7v31+tW9MegWtl48LP5ket3oLppQ982ilrO8m7U7FGx0ABQmIcaWFcMr6xqxcPfsE0+C5
+	/9F40JNekiFEuucY0SXqkZYHhns1fxaL29+eopk5dNFxN5fTx4A/9A38MEVfEdq7G4paAiBbAGV
+	AcQmAsADJENHrdhZeQDPFviZSjlm4VVtikV/oLQyUt5RIwBmJQnicwREFMlpBPOsbgMxollvLQN
+	AE0QMENxcJEF2SpnV1UOU7/4jK9Wlvvl4lNHMVwIja/M3sGwNDVIS5CoL5mXHxOlyn0OZ8Gp6AW
+	x6ryd5IGWET4E/3uoKU7ACMCTivvh3rW91czmB4mAWepLEWpH8PoYQY5B66/I1khTZyiWXBiXXR
+	W7jMwT4auzYn0=
+X-Received: by 2002:a17:903:1acb:b0:2c8:1f58:55dd with SMTP id d9443c01a7336-2c81f58569bmr423295ad.9.1782442753216;
+        Thu, 25 Jun 2026 19:59:13 -0700 (PDT)
+Received: from archermind.. ([182.150.55.91])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c7f5afb1e0sm31252535ad.29.2026.06.25.19.59.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 25 Jun 2026 19:59:12 -0700 (PDT)
+From: Liem <liem16213@gmail.com>
+To: frank.li@oss.nxp.com
+Cc: Frank.Li@nxp.com,
+	andi.shyti@kernel.org,
+	biwen.li@nxp.com,
+	festevam@gmail.com,
+	imx@lists.linux.dev,
+	kernel@pengutronix.de,
+	liem16213@gmail.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	o.rempel@pengutronix.de,
+	s.hauer@pengutronix.de,
+	stable@vger.kernel.org,
+	wsa@kernel.org
+Subject: [PATCH v3 1/2] i2c: imx: Clear slave pointer on registration error
+Date: Fri, 26 Jun 2026 10:58:45 +0800
+Message-Id: <20260626025846.106157-2-liem16213@gmail.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260626025846.106157-1-liem16213@gmail.com>
+References: <aj1UR5ddawsdMbZC@SMW015318>
+ <20260626025846.106157-1-liem16213@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260625_183249_601910_0DB7C857 
-X-CRM114-Status: GOOD (  11.10  )
+X-CRM114-CacheID: sfid-20260625_195914_253981_265CA3DC 
+X-CRM114-Status: GOOD (  10.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,44 +111,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add MODULE_LICENSE("GPL") macro and change Kconfig option from
-bool to tristate to allow building as a loadable kernel module.
+In i2c_imx_reg_slave(), i2c_imx->slave is checked at the beginning
+and the function returns -EBUSY if it is non-NULL.  If
+pm_runtime_resume_and_get() fails later, the error path returns
+without clearing i2c_imx->slave, leaving it non-NULL.  Subsequent
+attempts to register a slave will then immediately fail with
+-EBUSY, making it impossible to register the slave again.
 
-This is required for Android GKI + vendor_dlkm deployments where
-vendor-specific drivers must be kept separate from the GKI vmlinux.
+Fix by setting i2c_imx->slave = NULL on the error path.
 
-Fixes: 08bec8511182 ("pinctrl: mediatek: add MT7988 pinctrl driver")
-Signed-off-by: Justin Yeh <justin.yeh@mediatek.com>
+Fixes: f7414cd6923f ("i2c: imx: support slave mode for imx I2C driver")
+Cc: stable@vger.kernel.org
+Signed-off-by: Liem <liem16213@gmail.com>
 ---
- drivers/pinctrl/mediatek/Kconfig          | 2 +-
- drivers/pinctrl/mediatek/pinctrl-mt7988.c | 3 +++
- 2 files changed, 4 insertions(+), 1 deletion(-)
+ drivers/i2c/busses/i2c-imx.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/pinctrl/mediatek/Kconfig b/drivers/pinctrl/mediatek/Kconfig
-index f0bc125cfb2a..d21c4cd0708a 100644
---- a/drivers/pinctrl/mediatek/Kconfig
-+++ b/drivers/pinctrl/mediatek/Kconfig
-@@ -223,7 +223,7 @@ config PINCTRL_MT7986
- 	select PINCTRL_MTK_MOORE
- 
- config PINCTRL_MT7988
--	bool "Mediatek MT7988 pin control"
-+	tristate "Mediatek MT7988 pin control"
- 	depends on OF
- 	depends on ARM64 || COMPILE_TEST
- 	default ARM64 && ARCH_MEDIATEK
-diff --git a/drivers/pinctrl/mediatek/pinctrl-mt7988.c b/drivers/pinctrl/mediatek/pinctrl-mt7988.c
-index fd3a7ff0a04d..99b445f1e771 100644
---- a/drivers/pinctrl/mediatek/pinctrl-mt7988.c
-+++ b/drivers/pinctrl/mediatek/pinctrl-mt7988.c
-@@ -1544,3 +1544,6 @@ static int __init mt7988_pinctrl_init(void)
- 	return platform_driver_register(&mt7988_pinctrl_driver);
- }
- arch_initcall(mt7988_pinctrl_init);
-+
-+MODULE_DESCRIPTION("MediaTek MT7988 Pinctrl Driver");
-+MODULE_LICENSE("GPL");
+diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
+index 28313d0fad37..17defb470776 100644
+--- a/drivers/i2c/busses/i2c-imx.c
++++ b/drivers/i2c/busses/i2c-imx.c
+@@ -936,6 +936,7 @@ static int i2c_imx_reg_slave(struct i2c_client *client)
+ 	/* Resume */
+ 	ret = pm_runtime_resume_and_get(i2c_imx->adapter.dev.parent);
+ 	if (ret < 0) {
++		i2c_imx->slave = NULL;
+ 		dev_err(&i2c_imx->adapter.dev, "failed to resume i2c controller");
+ 		return ret;
+ 	}
 -- 
-2.45.2
+2.34.1
 
 
