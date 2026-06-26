@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B097AC43211
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 21:36:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4D3CC43327
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 21:36:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MGnCIDvL4VuiQREjmSstYz3dctCxQA8TSy/TAbZS7yY=; b=u4PRsUri9Trx6Y+z7iNIKUH95Q
-	3x4kk8bhJ1l2HjLfogqk1OuJsRIDOPC7vx40ctGm2QQ0PW8tQwGgm4MX1e3qelNW82qQIitS0GcLH
-	JRZ/JNeDLttHd4UuUnYiYJeDIoBnFOsjv9hmdN879LMtaGtglOJkWG12SoLFu3oWIcIIV5SoQs7MD
-	zy5wZsWmRerFssoVuiRrWsQNwKMxHIPRuVv4YBKSj77po7zoGNw1AmX65IL3BLO97eEmr/GGhrl12
-	IjIut91Z5mjggC0rqfm0SbpuWAKZ5N0s+uflCb4zr3w2Q2Fuka/kYjaxN+5/R/Mr5/SemqzmebZjz
-	dtrvjqCA==;
+	bh=4Jjdh/fhaNd2JbtrBCobPcqX80InnjRHE8TkDXBPMD4=; b=3qUzIBL36+4rtcvNtcuW71638q
+	GJDZcpECtYUmeuLwfayYo76aQzcy4MSh9HEAuf4Tvl6t5Qb1Xn9JGO9fJIBJUmjM46AyzCK42D/+o
+	heNqN62LuyNAshTiYHJxVMbcs30f/mAw8KCKpeCq77qBPRAuNKm4Xj5B7xgP0/sNpdbcgNdYHZw/o
+	fP3H8ojeoR2GMhay8A79iZR757MMsZwb2Q3YJFnuqh/vDiMA6Xtrf4a71IIlB4Lb6pmnjCjdgDfPn
+	OqxrX2qEPZbSJcOMrnTw7bY4n5WSCs18ehHKJdsm9UtuzQ6ezdeVai+3Y8PTzALSWlkI6wpxNd2m/
+	QWUPxfJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdEDZ-0000000Buc1-0qte;
-	Fri, 26 Jun 2026 21:36:09 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1wdEDX-0000000BuYN-3KZA;
+	Fri, 26 Jun 2026 21:36:07 +0000
+Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdEDO-0000000BuOa-3J8s
+	id 1wdEDH-0000000BuJx-3YEE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 21:36:01 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-37d125687b6so1418993a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 14:35:55 -0700 (PDT)
+	Fri, 26 Jun 2026 21:35:53 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-2c80f89b64bso18558605ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 14:35:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1782509755; x=1783114555; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1782509750; x=1783114550; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=MGnCIDvL4VuiQREjmSstYz3dctCxQA8TSy/TAbZS7yY=;
-        b=UiS4Q0gZyVPzTsac7hdMyozL1bc0sgQ5/3ZMvfVv/M8FUhCGe9lG136qYheoaoyjkJ
-         i0QGsv82Ey2RnQ8UMb2X9Lfr9vjsAAs+aG7KroJ6QvwKBLnBdj6q3vblYZBnp7Xte+eH
-         l/WbxelIrH1pRzAoLO1wJ9YTjbO86d2fBkGzW7RC/jELSiux4o7xEiw+mc3nSYRW6Ecl
-         NDSF+kWU/KO/cH8b+DKNtn7oDr0e6IQ2vtI+dIweaWQu7b8r7fG7a7G5amVBVKV8sHBM
-         oVH4woruRB3lLiUEPEpFHfXLkY65G2o770XC+ExHkI2B2XnI4vvPURJ12cn7n8aCbq9f
-         2Yow==
+        bh=4Jjdh/fhaNd2JbtrBCobPcqX80InnjRHE8TkDXBPMD4=;
+        b=it5q/CDhRfpbwCz005Vj+QfqxfCj9t8/A9EUzU5CHhMbMZKh9ihdDfxY8YcoGR6oGS
+         yHilWW0FMyGgp7nKhwN86gBvq3x7eoZhA96LNQ0pAsIAwIKu14nvduMozKrGKyP4tBHE
+         aPAx+Ka/lTJidoDer0YrAijNNnRgLeJkU9UGHyBG4JCT8FOz4af/XwKeQF9AyY0uNOiq
+         YvHoQdA2ox0p0fwYrH/l3yXPZqeamnkTT6QPgt6FtR20rpgZrSqdMLTQcJr4/f63CIUw
+         1SwitIRu0Ey2jSP0TJfcdm672Wqcino62edsg5ydFV6MTPXz6O+vXBij3hGXZITyNbrB
+         DEmA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782509755; x=1783114555;
+        d=1e100.net; s=20251104; t=1782509750; x=1783114550;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=MGnCIDvL4VuiQREjmSstYz3dctCxQA8TSy/TAbZS7yY=;
-        b=CyWWEoUOlcjEgr5vhn4CW2g+BuG8e+1YwGb/mvJpwKc7d/dN85ks/qulCq4pOK/LXD
-         XCUuODrNMt3I4MHJEY1+8oqGPaJJqgmIRfv56kQE3Xe5Ls91/SBdTjswg0GBFqd1ILU5
-         d4slw/VRSu3GB5BooaUpuX7IL9CvmzbQdc5YitsWtMdmsqVw/oMhYA31DFP32SzDDFaH
-         z5oG8SYLAO2VcPXsn9Rf8pUkdR1RxUPD12BzvnrBSYA/N6u1vU5xcY+JGSGYYscstMLe
-         xTjl/9wYPjdMm5adNowyrPkz+5Nc4KCOFrZjcbWhyg04WUt3pA07fyQmYMXmIsXh/Xul
-         L39Q==
-X-Forwarded-Encrypted: i=1; AHgh+RrWNVo7JkY/dz1yc+ctKVnsd0MGBH4Bfm3YZXOHXajsnfBl8TGnhXiL7eQwyo8x84THLeoBbVJA2YLqCM1kSiBi@lists.infradead.org
-X-Gm-Message-State: AOJu0YyD7yEAPNjQDkRHr1DNSOfSiimJ5+6tBjsfz7LUDaXiQa8kTt57
-	qGTpwQ1FmXc/lmpP54WMUUh7j2rLijRlxl/4KYZmjA/lVUZBK3cFH075GQFtvcyP+3MfVyuKGCP
-	qWpjcEA==
-X-Received: from plau11.prod.google.com ([2002:a17:903:304b:b0:2c6:e595:44e1])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:2f4c:b0:2c9:9a19:10c
- with SMTP id d9443c01a7336-2c99a19037fmr10641045ad.40.1782509754664; Fri, 26
- Jun 2026 14:35:54 -0700 (PDT)
-Date: Fri, 26 Jun 2026 14:35:28 -0700
+        bh=4Jjdh/fhaNd2JbtrBCobPcqX80InnjRHE8TkDXBPMD4=;
+        b=ZgaZ4rtZEv7v8FhcockkDqJNa1q1iOZ7aGlG/MyK7RXY3MwoYkrtGaYBt/YPhMYCzu
+         Pp0S17mup2jwGutCznNGpugI5hG7s6OvKnAe6zXF3Dqp9BrjdfvKsrqV/g0NjiXsevIX
+         r+eU8oxGNxWXC0OIA75swqYuv/rmIqtlU9fMhStq3LffbtQv6fk0Za4mgUN9wCIqHlGc
+         17x78jS0U29Of+edXqrfE8f91XgI7Mif2/sItx50wTCOIhcmDYOV42I0+4QaG0DeqDO5
+         1Mzsy29riVdhMh/vZkREnL/FV5pIT/U6OdtkBmjBFJtu6i6Fam9slLKi1fZS0k8EqgSa
+         +9WQ==
+X-Forwarded-Encrypted: i=1; AHgh+RpzCXYqhNN1UR4s3NBQ9izhUyT7kH7F8ZUxAs+EJ5zhnX0r4FbR7wpCjnkSDlOrIHoScogngDNQHxHTR6Ca6DJF@lists.infradead.org
+X-Gm-Message-State: AOJu0YzgnFK0N+mhX/pq+1wb7gkwMgKQBx4R9Md1KVTOiTPIsU+x6blo
+	GYVnaf85Gh3mfZtdIzphB7GIBbXs51GgJ52K4Pjfx7jIWhL+5X/3GPFRcissXvoaNuJAqx08iSx
+	14laWBg==
+X-Received: from plxx12.prod.google.com ([2002:a17:902:e04c:b0:2c7:6c19:9ae9])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:4b08:b0:2c6:937a:249
+ with SMTP id d9443c01a7336-2c7fc8a2889mr83480545ad.29.1782509749463; Fri, 26
+ Jun 2026 14:35:49 -0700 (PDT)
+Date: Fri, 26 Jun 2026 14:35:24 -0700
 In-Reply-To: <20260626213534.3866178-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20260626213534.3866178-1-seanjc@google.com>
 X-Mailer: git-send-email 2.55.0.rc0.799.gd6f94ed593-goog
-Message-ID: <20260626213534.3866178-16-seanjc@google.com>
-Subject: [PATCH v8 15/20] KVM: selftests: Add kvm_gettid() wrapper and convert users
+Message-ID: <20260626213534.3866178-12-seanjc@google.com>
+Subject: [PATCH v8 11/20] KVM: selftests: Verify interrupts are received when
+ IRQ affinity changes in IRQ test
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oupton@kernel.org>, Sean Christopherson <seanjc@google.com>
@@ -77,8 +78,8 @@ Cc: Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>,
 	Josh Hilke <jrhilke@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_143558_841611_950FBEA2 
-X-CRM114-Status: GOOD (  13.45  )
+X-CRM114-CacheID: sfid-20260626_143551_906072_507E6C2B 
+X-CRM114-Status: GOOD (  13.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,128 +95,104 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Josh Hilke <jrhilke@google.com>
+From: David Matlack <dmatlack@google.com>
 
-Add a KVM wrapper for the gettid() syscall so that tests don't have to
-open code the syscall() themselves.  Unfortunately, not all flavors of
-libc that KVM selftests support provide gettid().  Convert all existing
-users of the syscall to the new wrapper.
+Extent the eventfd IRQ test with a '-a' flag to randomly affinitize the
+device's host IRQ to different physical CPUs throughout the test.  This
+stresses the kernel's ability to maintain correct interrupt routing and
+delivery even as the underlying hardware IRQ affinity is changed
+dynamically via /proc/<irq>/smp_affinity{,_list}.
 
-Note, per the gettid() manpage[1], "This call is always successful", i.e.
-prefixing kvm_ to the syscall name is aligned with the goal of providing
-syscall wrappers that guarantee success.
-
-No functional changes intended.
-
-Link: https://man7.org/linux/man-pages/man2/gettid.2.html [1]
-Suggested-by: Sean Christopherson <seanjc@google.com>
+Signed-off-by: David Matlack <dmatlack@google.com>
+Co-developed-by: Josh Hilke <jrhilke@google.com>
 Signed-off-by: Josh Hilke <jrhilke@google.com>
 [sean: massage changelog]
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- tools/testing/selftests/kvm/demand_paging_test.c   | 2 +-
- tools/testing/selftests/kvm/include/kvm_syscalls.h | 5 +++++
- tools/testing/selftests/kvm/lib/assert.c           | 8 ++------
- tools/testing/selftests/kvm/lib/test_util.c        | 3 ++-
- tools/testing/selftests/kvm/rseq_test.c            | 2 +-
- 5 files changed, 11 insertions(+), 9 deletions(-)
+ tools/testing/selftests/kvm/irq_test.c | 26 +++++++++++++++++++++-----
+ 1 file changed, 21 insertions(+), 5 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/demand_paging_test.c b/tools/testing/selftests/kvm/demand_paging_test.c
-index 302c4923d093..f8b3d0b68830 100644
---- a/tools/testing/selftests/kvm/demand_paging_test.c
-+++ b/tools/testing/selftests/kvm/demand_paging_test.c
-@@ -57,7 +57,7 @@ static void vcpu_worker(struct memstress_vcpu_args *vcpu_args)
- static int handle_uffd_page_request(int uffd_mode, int uffd,
- 		struct uffd_msg *msg)
+diff --git a/tools/testing/selftests/kvm/irq_test.c b/tools/testing/selftests/kvm/irq_test.c
+index 70b2c9cac279..fd386e3e9ac3 100644
+--- a/tools/testing/selftests/kvm/irq_test.c
++++ b/tools/testing/selftests/kvm/irq_test.c
+@@ -12,10 +12,12 @@
+ #include <unistd.h>
+ #include <pthread.h>
+ #include <sys/eventfd.h>
++#include <sys/sysinfo.h>
+ 
+ static u64 timeout_ns = 2ULL * 1000 * 1000 * 1000;
+ static bool guest_ready_for_irqs[KVM_MAX_VCPUS];
+ static bool guest_received_irq[KVM_MAX_VCPUS];
++static bool irq_affinity;
+ static bool done;
+ 
+ #define GUEST_RECEIVED_IRQ(__vcpu)	\
+@@ -137,9 +139,10 @@ static const char *probe_iommu_type(void)
+ 
+ static void help(const char *name)
  {
--	pid_t tid = syscall(__NR_gettid);
-+	pid_t tid = kvm_gettid();
- 	u64 addr = msg->arg.pagefault.address;
- 	struct timespec start;
- 	struct timespec ts_diff;
-diff --git a/tools/testing/selftests/kvm/include/kvm_syscalls.h b/tools/testing/selftests/kvm/include/kvm_syscalls.h
-index 6cb3bed29b81..dc4fb97aef8d 100644
---- a/tools/testing/selftests/kvm/include/kvm_syscalls.h
-+++ b/tools/testing/selftests/kvm/include/kvm_syscalls.h
-@@ -83,6 +83,11 @@ static inline int kvm_dup(int fd)
- 	return new_fd;
- }
+-	printf("Usage: %s [-d <segment:bus:device.function>] [-h] [-t iommu_type]\n", name);
++	printf("Usage: %s [-a] [-d <segment:bus:device.function>] [-h] [-t iommu_type]\n", name);
+ 	printf("\n");
+ 	printf("Tests KVM interrupt routing and delivery via irqfd.\n");
++	printf("-a	Affine the device's host IRQ to a random physical CPU\n");
+ 	printf("-d	Use a VFIO device to send MSI-X interrupts instead of manually signaling the eventfd\n");
+ 	printf("-t	Override the IOMMU type to use (vfio_type1_iommu or iommufd)\n");
+ 	printf("\n");
+@@ -172,10 +175,13 @@ int main(int argc, char **argv)
+ 	int i, j, c, msix, eventfd;
+ 	struct iommu *iommu;
+ 	struct kvm_vm *vm;
+-	int irq;
++	int irq, irq_cpu;
  
-+static inline pid_t kvm_gettid(void)
-+{
-+	return syscall(__NR_gettid);
-+}
+-	while ((c = getopt(argc, argv, "d:ht:")) != -1) {
++	while ((c = getopt(argc, argv, "ad:ht:")) != -1) {
+ 		switch (c) {
++		case 'a':
++			irq_affinity = true;
++			break;
+ 		case 'd':
+ 			device_bdf = optarg;
+ 			break;
+@@ -204,7 +210,12 @@ int main(int argc, char **argv)
+ 		printf("Using device %s MSI-X[%d] (IRQ-%u)\n", device_bdf, msix,
+ 		       irq);
+ 	} else {
++		TEST_ASSERT(!irq_affinity,
++			    "Setting IRQ affinity (-a) requires a backing device (-d)");
 +
- __KVM_SYSCALL_DEFINE(munmap, 2, void *, mem, size_t, size);
- __KVM_SYSCALL_DEFINE(close, 1, int, fd);
- __KVM_SYSCALL_DEFINE(fallocate, 4, int, fd, int, mode, loff_t, offset, loff_t, len);
-diff --git a/tools/testing/selftests/kvm/lib/assert.c b/tools/testing/selftests/kvm/lib/assert.c
-index 8be0d09ecf0f..1d72dcdfce3b 100644
---- a/tools/testing/selftests/kvm/lib/assert.c
-+++ b/tools/testing/selftests/kvm/lib/assert.c
-@@ -10,6 +10,7 @@
- #include <sys/syscall.h>
+ 		eventfd = kvm_new_eventfd();
++		irq = -1;
++		irq_cpu = -1;
+ 	}
  
- #include "kselftest.h"
-+#include "kvm_syscalls.h"
+ 	pr_info("Injecting interrupts for GSI %d (guest vector 0x%x) %d times\n",
+@@ -228,6 +239,11 @@ int main(int argc, char **argv)
  
- #ifdef __GLIBC__
- #include <execinfo.h>
-@@ -64,11 +65,6 @@ static void test_dump_stack(void)
- static void test_dump_stack(void) {}
- #endif
+ 		kvm_route_msi(vm, gsi, vcpu, vector);
  
--static pid_t _gettid(void)
--{
--	return syscall(SYS_gettid);
--}
--
- void __attribute__((noinline))
- test_assert(bool exp, const char *exp_str,
- 	const char *file, unsigned int line, const char *fmt, ...)
-@@ -81,7 +77,7 @@ test_assert(bool exp, const char *exp_str,
- 		fprintf(stderr, "==== Test Assertion Failure ====\n"
- 			"  %s:%u: %s\n"
- 			"  pid=%d tid=%d errno=%d - %s\n",
--			file, line, exp_str, getpid(), _gettid(),
-+			file, line, exp_str, getpid(), kvm_gettid(),
- 			errno, strerror(errno));
- 		test_dump_stack();
- 		if (fmt) {
-diff --git a/tools/testing/selftests/kvm/lib/test_util.c b/tools/testing/selftests/kvm/lib/test_util.c
-index e208a57f190c..6b00ab11f3c0 100644
---- a/tools/testing/selftests/kvm/lib/test_util.c
-+++ b/tools/testing/selftests/kvm/lib/test_util.c
-@@ -17,6 +17,7 @@
- #include "linux/kernel.h"
++		if (irq_affinity) {
++			irq_cpu = kvm_random_u64(&kvm_rng) % get_nprocs();
++			proc_irq_set_smp_affinity(irq, irq_cpu);
++		}
++
+ 		for (j = 0; j < nr_vcpus; j++)
+ 			TEST_ASSERT(!GUEST_RECEIVED_IRQ(vcpus[j]),
+ 				    "IRQ flag for vCPU %d not clear prior to test",
+@@ -241,8 +257,8 @@ int main(int argc, char **argv)
+ 			cpu_relax();
  
- #include "test_util.h"
-+#include "kvm_syscalls.h"
+ 		TEST_ASSERT(GUEST_RECEIVED_IRQ(vcpu),
+-			    "vCPU %d timed out waiting for IRQ (vector 0x%x) from GSI %d\n",
+-			    vcpu->id, vector, gsi);
++			    "vCPU %d timed out waiting for IRQ (vector 0x%x) from GSI %d (via CPU %d)\n",
++			    vcpu->id, vector, gsi, irq_cpu);
  
- sigjmp_buf expect_sigbus_jmpbuf;
- 
-@@ -395,7 +396,7 @@ long get_run_delay(void)
- 	long val[2];
- 	FILE *fp;
- 
--	sprintf(path, "/proc/%ld/schedstat", syscall(SYS_gettid));
-+	sprintf(path, "/proc/%ld/schedstat", (long)kvm_gettid());
- 	fp = fopen(path, "r");
- 	/* Return MIN_RUN_DELAY_NS upon failure just to be safe */
- 	if (fscanf(fp, "%ld %ld ", &val[0], &val[1]) < 2)
-diff --git a/tools/testing/selftests/kvm/rseq_test.c b/tools/testing/selftests/kvm/rseq_test.c
-index f80ad6b47d16..6510fbfd64f1 100644
---- a/tools/testing/selftests/kvm/rseq_test.c
-+++ b/tools/testing/selftests/kvm/rseq_test.c
-@@ -244,7 +244,7 @@ int main(int argc, char *argv[])
- 	vm = vm_create_with_one_vcpu(&vcpu, guest_code);
- 
- 	pthread_create(&migration_thread, NULL, migration_worker,
--		       (void *)(unsigned long)syscall(SYS_gettid));
-+		       (void *)(unsigned long)kvm_gettid());
- 
- 	if (latency >= 0) {
- 		/*
+ 		WRITE_AND_SYNC_TO_GUEST(vm, guest_received_irq[vcpu->id], false);
+ 	}
 -- 
 2.55.0.rc0.799.gd6f94ed593-goog
 
