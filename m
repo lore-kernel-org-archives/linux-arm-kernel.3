@@ -4,66 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66BFAC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 21:35:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1601C43211
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 21:35:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
-	From:Subject:Message-ID:Mime-Version:Date:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=LeJPhSF7XykTcqCWYKGnt+fCegC9QerUoXnnQkQeerA=; b=dev98vwj9JCfnOk1qAg/hC/Tjm
-	X/376odz7DoTvPqb2tDVUWxSxR0ynI6xk3SB7Mv1ls52M6knY075Ez2ip7W3Hf505P1Smt96TeXMQ
-	S9P1viAVq9NA+hYO/UzKaKIkiVKjmmbOUeJ+KaxyRkudjt1zP1ZgSz12lj/QHcO6QrUJUBxCI8G0J
-	5/DkLBlb+OPA+IdW7LncuNNuz0N5z9/JtWV/0mKxNts//YRt9AV/J8DAXoLnFQWyNJLZibBx8q/DB
-	NuQ671LQ25hP8poGDZdIC2dO4nPhBgS5HRueFgWJ5cbzLlpERpQRYXZ7Ld6dKcAUNZIVpjW3394Pc
-	ENFixfxA==;
+	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eoIoCgmeh5c18xI9Db8okKC8/2FYeOrfnJC4MrZ1yUY=; b=KPcR/0S83fKDBrUenzS8sY56Kb
+	wpJN6P4YqkGPtQxgTY0rGY+vq/yArrp0+7/MYmi+tUoA4r148JtXjB7lpW/NCdzeBF9OWY5QSh27f
+	raNJDZoF2KpiFhaFP5YxM6X3gdBB5XnMXayjL/h7JDXwoEoP+fHzVlc+GjqrWgYIrNZiwxCEb0VF3
+	+Rzl6XoXqUepT3zniziV5PSZjuF1OIKSXQPFbHIB1eHdho8HvQZppE0mzPXwrNCqt8q7pmAMQ+0ih
+	fc5J5YeUE6ikht2sw+r+6c4abVHf5NT0sQfzG2AjcKdsSoHO4VT0yjw07P6WTs1R9JwVRVkbmMT4X
+	yNl6v7SQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdED6-0000000BuFd-3t7A;
-	Fri, 26 Jun 2026 21:35:40 +0000
-Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
+	id 1wdEDC-0000000BuIG-14pm;
+	Fri, 26 Jun 2026 21:35:46 +0000
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdED4-0000000BuEo-2g2R
+	id 1wdED8-0000000BuFi-0Yht
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 21:35:39 +0000
-Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-c894c1c4aa9so736467a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 14:35:37 -0700 (PDT)
+	Fri, 26 Jun 2026 21:35:43 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-2c9960cf96cso3831035ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 14:35:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1782509737; x=1783114537; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:reply-to:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=LeJPhSF7XykTcqCWYKGnt+fCegC9QerUoXnnQkQeerA=;
-        b=wm8qhS67mnLXMt5Z6gT9Uw4Piey7lOzbQf5ecOJH1jcI0u6YRe0wttVj06J++8Csxh
-         N35gef3aqJ2aWxiephabiJsPInal9vc21NqVIufnGk+JHw6gFWsAOgU73EOcKWB81vv0
-         5y+nC1CV0RHgZ32QwQieexhdgHuRrUxlw2O13faS7MskBNNe3lSl2mVqUft4Yvaddz3Q
-         AIK+gxU3tQD1vSjnuDGkyoTvBxTMnieAS3gDLr2AkxKuO4VfAhM1Ifnjvg/PF4gTzT0A
-         lHr7rdJyW3uk5LeGT0pbWjb9qeMvRfdL6N4j4JarnZ4bRkGQMc7yMLYBmB7mUPSY0or9
-         HmCQ==
+        d=google.com; s=20251104; t=1782509741; x=1783114541; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
+        bh=eoIoCgmeh5c18xI9Db8okKC8/2FYeOrfnJC4MrZ1yUY=;
+        b=IV4m7letWpION1vsr6WHmr125u7G61mQb+jqAk3l5F4PFREop/lT0ZAV8hD1/EKoVR
+         WbC7uqPVwxu7rcRY4ww34pGe5F259X3A8e66J0d7MEKiRqc6Q+P2TnHXyTDWIhK4cowC
+         CSfqOluOw96HnBE12ncbPqI8/UoLxr1ttmg/9zam6dtJyd8TWjA+FpKzzCY2UFqDEQFE
+         ZFkJbDAGHtiLDObzCc8bM9xxRCA0i2+jdCIob5aa1aKph0vpbdvmI3FuWrO5PNSWTyb7
+         DSfBkG/dL34pIMJHbbULMBoCwP6MnJP1rZE3B9F7i16bbBcqIPMveZepeGS2zqd1xO4e
+         Pipw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782509737; x=1783114537;
-        h=cc:to:from:subject:message-id:mime-version:date:reply-to
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=LeJPhSF7XykTcqCWYKGnt+fCegC9QerUoXnnQkQeerA=;
-        b=l7mCUc7cIwMTh+nUyCLtsiCZtSj9vXC8ZdCFf4l5xP06HXJi48jXRkBu9dp3MNH3F7
-         EJxhcbj5wB+WIvUIg3Y86uZO/aSfd4/s1AFkkWKsniWffahr++y0KCGHhLxlAvprjc7s
-         i9Qb7kJeuwMF94u5hYkQeYhNAzc5PJkksgi1cTaJo1SRBSvxlegl1IYD1588UrD8y6Pi
-         u5i9v4y3Yuj/7l/DekOiVlm4syW4A/0KbeGwz97Nv3E3ncoKG0b1X+cDAKgsAoUq+P2B
-         HE4cjL37/jo5j7UKwAzjUxvzPlHIRZw33iW7W0CffQOqMXaXDb/86CD2Ei2H/bY/S3b3
-         VisQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9SkFjeONx0ZWOT4MaRRNJ6xMtr59Z9egXvonzxatkMqYUXF8tWT/L5tiOPDc2oG4/jfOHIhjEg8idYVPVl/Nn+@lists.infradead.org
-X-Gm-Message-State: AOJu0YyNy+RA03ti6S2ZVHRsbKmFfo3Z2L7gstbp77ggfANOhie6tbfe
-	Q75vjWGO+ikElEyzzIRZjeFd7sZ6gt8yp5iQlA6AC8hcUIB4gvOCHar6IgXKR8SHzBvQyk0Wu7t
-	+baYS3g==
-X-Received: from pgll186.prod.google.com ([2002:a63:25c3:0:b0:c93:a359:cea6])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:3d1d:b0:398:c0ba:9ceb
- with SMTP id adf61e73a8af0-3bd4ad233bcmr8360983637.12.1782509736302; Fri, 26
- Jun 2026 14:35:36 -0700 (PDT)
-Date: Fri, 26 Jun 2026 14:35:13 -0700
+        d=1e100.net; s=20251104; t=1782509741; x=1783114541;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=eoIoCgmeh5c18xI9Db8okKC8/2FYeOrfnJC4MrZ1yUY=;
+        b=EKeETHZ7vFAa2eQ11xnP308e6nKKgxzc2sX2vgoRQmca7VXKRSxrrjS0zXD6Mf8z8T
+         loTsy9+bCQdJe8W88NkrxBpSWeEU4xjxdLgZ1rWbjGNXBZ4UwkXWku6fHEeR/TPOpOKE
+         f/wKwGrqvH3rGXg8hSKa89w2hGY+Ilr4OEvaBbHGMj3f5/3x6+KY8miR8WEGd+eaLOmB
+         7b/JQ0k3+vdHzDBqtcXNtaKavvBKXqNkPKLvqC6gjNrrVPTpjuNLEZQR/Z13Vea/oNjX
+         +o4FuG+7qPUfD4HRxGN1GA06l4OLDGykOYXx2m0pLCGhcZFLKEy6UbgSAYrRxBYUZl6f
+         fqoQ==
+X-Forwarded-Encrypted: i=1; AHgh+RpLlkOwVtkVtcxIfpfhTWq/AUOtIL7yU7voAOIGNLZMEKIjh104POYpWvMLma827kK/UH83AtpeV/6KH29/5IWJ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy6pxvVyvMkBV/Q8nVPx3xyTHAGy8MOXPjG053p6ir2yr1wV9oN
+	VRw4iwFkLwlsJYXrj1isOxpie3EbJVCjQ2Lb8ODhGNRTY1JgWQXHx2NE6ZfU4KPz6pI0IHYjF/P
+	cLO9Bhg==
+X-Received: from plhz4.prod.google.com ([2002:a17:902:d9c4:b0:2ba:2863:4c3f])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:fda5:b0:2c9:b09c:5a1
+ with SMTP id d9443c01a7336-2c9b09c06e6mr425215ad.46.1782509740407; Fri, 26
+ Jun 2026 14:35:40 -0700 (PDT)
+Date: Fri, 26 Jun 2026 14:35:16 -0700
+In-Reply-To: <20260626213534.3866178-1-seanjc@google.com>
 Mime-Version: 1.0
+References: <20260626213534.3866178-1-seanjc@google.com>
 X-Mailer: git-send-email 2.55.0.rc0.799.gd6f94ed593-goog
-Message-ID: <20260626213534.3866178-1-seanjc@google.com>
-Subject: [PATCH v8 00/20] KVM: selftests: Add eventfd+VFIO IRQ test
+Message-ID: <20260626213534.3866178-4-seanjc@google.com>
+Subject: [PATCH v8 03/20] KVM: selftests: Rename guest_rng to kvm_rng
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oupton@kernel.org>, Sean Christopherson <seanjc@google.com>
@@ -74,8 +77,8 @@ Cc: Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>,
 	Josh Hilke <jrhilke@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_143538_716739_23F8B37D 
-X-CRM114-Status: GOOD (  17.32  )
+X-CRM114-CacheID: sfid-20260626_143542_184357_D05FE2B9 
+X-CRM114-Status: GOOD (  18.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,122 +94,244 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-David and Josh's series to add a selftest for verifying interrupt delivery
-via eventfd (via KVM_IRQFD), and also from a real device, wired up via VFIO.
+From: Josh Hilke <jrhilke@google.com>
 
-Gory details in the patches, and in the v5 cover letter.
+Rename functions prefixed with 'guest_random_' to 'kvm_random_' and the
+global random state variable 'guest_rng' to 'kvm_rng', as the pRNG isn't
+strictly limited to guest code.  This will allow using the pRNG in host
+code without creating confusing/misleading function calls.
 
-v8:
- - Explicitly include <time.h>. [Sashiko]
- - Use iova_allocator instea of hardcoding the IOVA. [Sashiko, David]
- - Add a comment explaining why DMA needs to be allocated. [David]
- - Probe /dev/vfio/vfio, not /dev/vfio. [Sashiko, David]
+No functional changes are intended.
 
-v7:
- - https://lore.kernel.org/all/20260613002031.745413-1-seanjc@google.com
- - Seed kvm_rng during kvm_selftest_init(). [Sashiko]
- - Seed libc's RNG during kvm_selftest_init(), so that the seed (from random())
-   that's printed and passed to kvm_rng isn't the same every time.
- - Init irq_cpu to -1 in all paths. [Sashiko]
- - Require the driver to provide .send_msi(). [David]
+Suggested-by: Sean Christopherson <seanjc@google.com>
+Signed-off-by: Josh Hilke <jrhilke@google.com>
+[sean: massage changelog]
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+---
+ .../selftests/kvm/dirty_log_perf_test.c       |  4 ++--
+ tools/testing/selftests/kvm/dirty_log_test.c  |  2 +-
+ .../testing/selftests/kvm/include/test_util.h | 22 +++++++++----------
+ .../selftests/kvm/include/x86/kvm_util_arch.h |  4 ++--
+ tools/testing/selftests/kvm/lib/kvm_util.c    | 20 ++++++++---------
+ tools/testing/selftests/kvm/lib/memstress.c   |  8 +++----
+ tools/testing/selftests/kvm/lib/test_util.c   |  6 ++---
+ .../testing/selftests/kvm/x86/sev_dbg_test.c  |  2 +-
+ 8 files changed, 34 insertions(+), 34 deletions(-)
 
-v6:
- - Massage most changelogs.
- - Fix SoB ordering issues.
- - Clean up KVM_SET_GSI_ROUTING helper.
- - Remove misleading "IRQ injection" and "emulated eventfd" terminology.
- - Add GUEST_RECEIVED_INTERRUPT() to simplifiy the core loop.
- - Use cpu_relax() in tight loops while waiting for interrupts.
- - Print as much information as possible in the actual assert, instead of
-   printing to stdout separately.
- - Make a best guess as to the right VFIO vs. IOMMUFD mode instead of
-   assuming IOMMUFD, and give the user the option to overide said guess.
- - Simplify open_proc_irq_smp_affinity_list() +
-   write_proc_irq_smp_affinity_list() into proc_irq_set_smp_affinity().
- - Drop print_proc_irq_file() and kvm_print_vcpu_affinity() (for now) to avoid
-   potential issues on systems with high CPU counts.
- - Drop the blocking/HLT testing as it was at best broken.
- - Use -e for "empty", not -c for "clear", when completely tearing down GSI
-   routing, because routing can be "cleared" without completely emptying the
-   routing information.
- - Use the main task's CPU affinity as the available_cpus set.
- - Allow overcommiting vCPUs:pCPUs.
- - Set the target vCPU's affinity instead of batching when vCPU0 is targeted.
- - Add support for 256+ vCPUs with x2APIC.
- - Restrict xAPIC mode to 255 vCPUs.
- - Restrict the test to KVM selftest's max supported vCPUs.
-
-v5:
- - https://lore.kernel.org/all/20260604020143.748245-1-jrhilke@google.com
- - Rename get_proc_vfio_irq_number() to vfio_msix_to_host_irq()
- - Rename open_proc_irq_affinity() and write_proc_irq_affinity() to include "_smp_affinity_list"
- - Print /proc/irq/<irq>/smp_affinity and effective_affinity on timeout failures
- - Convert IRQ type from 'int' to 'unsigned int' across helpers and the test
- - Fix compiler warnings for uninitialized variables in irq_test.c
- - Remove rate-limiting on affinity changes
-
-v4: https://lore.kernel.org/kvm/20260530002134.558837-1-jrhilke@google.com
-
-David Matlack (11):
-  KVM: selftests: Build and link selftests/vfio/lib into KVM selftests
-  KVM: selftests: Add macros to read/write+sync to/from guest memory
-  KVM: selftests: Add an irqfd send+receive (and later IRQ bypass) test
-  KVM: selftests: Add helper to get host IRQ from device MSI-X for IRQ
-    bypass test
-  KVM: selftests: Add VFIO device support to eventfd IRQ test
-  KVM: selftests: Verify interrupts are received when IRQ affinity
-    changes in IRQ test
-  KVM: selftests: Add option to set empty routing between IRQs in
-    eventfd IRQ test
-  KVM: selftests: Make number of IRQs configurable in IRQ test
-  KVM: selftests: Verify vCPU migration during IRQ delivery in IRQ test
-  KVM: selftests: Make number of vCPUs configurable in IRQ test
-  KVM: selftests: Add xAPIC support in eventfd IRQ test
-
-Josh Hilke (6):
-  KVM: selftests: Rename guest_rng to kvm_rng
-  KVM: selftests: Add helper to generate random u64 in range [min,max]
-  KVM: selftests: Add a helper to set proc IRQ affinity for IRQ test
-  KVM: selftests: Add kvm_gettid() wrapper and convert users
-  KVM: selftests: Add kvm_sched_getaffinity() wrapper and convert users
-  KVM: selftests: Add a utility to pin a task to a random CPU, given a
-    CPU set
-
-Sean Christopherson (3):
-  KVM: selftests: Initialize the default/global pRNG during
-    kvm_selftest_init()
-  KVM: selftests: Seed libc's RNG before using it to generate a seed for
-    KVM's pRNG
-  KVM: selftests: Verify non-postable IRQ remapping in IRQ test
-
- tools/testing/selftests/kvm/Makefile.kvm      |   7 +-
- tools/testing/selftests/kvm/arch_timer.c      |   2 +-
- .../kvm/arm64/arch_timer_edge_cases.c         |   2 +-
- .../selftests/kvm/demand_paging_test.c        |   2 +-
- .../selftests/kvm/dirty_log_perf_test.c       |   4 +-
- tools/testing/selftests/kvm/dirty_log_test.c  |  11 +-
- .../selftests/kvm/include/kvm_syscalls.h      |   7 +
- .../testing/selftests/kvm/include/kvm_util.h  |  12 +
- .../testing/selftests/kvm/include/proc_util.h |  11 +
- .../testing/selftests/kvm/include/test_util.h |  25 +-
- .../selftests/kvm/include/x86/kvm_util_arch.h |   4 +-
- tools/testing/selftests/kvm/irq_test.c        | 362 ++++++++++++++++++
- tools/testing/selftests/kvm/lib/assert.c      |   8 +-
- tools/testing/selftests/kvm/lib/kvm_util.c    |  54 ++-
- tools/testing/selftests/kvm/lib/memstress.c   |   8 +-
- tools/testing/selftests/kvm/lib/proc_util.c   |  54 +++
- tools/testing/selftests/kvm/lib/test_util.c   |  27 +-
- tools/testing/selftests/kvm/mmu_stress_test.c |  15 +-
- tools/testing/selftests/kvm/rseq_test.c       |   6 +-
- tools/testing/selftests/kvm/steal_time.c      |  22 +-
- .../testing/selftests/kvm/x86/sev_dbg_test.c  |   2 +-
- 21 files changed, 561 insertions(+), 84 deletions(-)
- create mode 100644 tools/testing/selftests/kvm/include/proc_util.h
- create mode 100644 tools/testing/selftests/kvm/irq_test.c
- create mode 100644 tools/testing/selftests/kvm/lib/proc_util.c
-
-
-base-commit: a204badd8432f93b7e862e7dac6db0fe3d65f370
+diff --git a/tools/testing/selftests/kvm/dirty_log_perf_test.c b/tools/testing/selftests/kvm/dirty_log_perf_test.c
+index ef779fa91827..7c5abe1ae9e0 100644
+--- a/tools/testing/selftests/kvm/dirty_log_perf_test.c
++++ b/tools/testing/selftests/kvm/dirty_log_perf_test.c
+@@ -311,7 +311,7 @@ int main(int argc, char *argv[])
+ 	int opt;
+ 
+ 	/* Override the seed to be deterministic by default. */
+-	guest_random_seed = 1;
++	kvm_random_seed = 1;
+ 
+ 	dirty_log_manual_caps =
+ 		kvm_check_cap(KVM_CAP_MANUAL_DIRTY_LOG_PROTECT2);
+@@ -357,7 +357,7 @@ int main(int argc, char *argv[])
+ 			p.phys_offset = strtoull(optarg, NULL, 0);
+ 			break;
+ 		case 'r':
+-			guest_random_seed = atoi_positive("Random seed", optarg);
++			kvm_random_seed = atoi_positive("Random seed", optarg);
+ 			break;
+ 		case 's':
+ 			p.backing_src = parse_backing_src_type(optarg);
+diff --git a/tools/testing/selftests/kvm/dirty_log_test.c b/tools/testing/selftests/kvm/dirty_log_test.c
+index 087e94a8a81a..e8419d7da1ea 100644
+--- a/tools/testing/selftests/kvm/dirty_log_test.c
++++ b/tools/testing/selftests/kvm/dirty_log_test.c
+@@ -121,7 +121,7 @@ static void guest_code(void)
+ 	while (true) {
+ 		while (!READ_ONCE(vcpu_stop)) {
+ 			addr = guest_test_virt_mem;
+-			addr += (guest_random_u64(&guest_rng) % guest_num_pages)
++			addr += (kvm_random_u64(&kvm_rng) % guest_num_pages)
+ 				* guest_page_size;
+ 			addr = align_down(addr, host_page_size);
+ 
+diff --git a/tools/testing/selftests/kvm/include/test_util.h b/tools/testing/selftests/kvm/include/test_util.h
+index a56271c237ae..44c0104d60ac 100644
+--- a/tools/testing/selftests/kvm/include/test_util.h
++++ b/tools/testing/selftests/kvm/include/test_util.h
+@@ -108,30 +108,30 @@ struct timespec timespec_sub(struct timespec ts1, struct timespec ts2);
+ struct timespec timespec_elapsed(struct timespec start);
+ struct timespec timespec_div(struct timespec ts, int divisor);
+ 
+-struct guest_random_state {
++struct kvm_random_state {
+ 	u32 seed;
+ };
+ 
+-extern u32 guest_random_seed;
+-extern struct guest_random_state guest_rng;
++extern u32 kvm_random_seed;
++extern struct kvm_random_state kvm_rng;
+ 
+-struct guest_random_state new_guest_random_state(u32 seed);
+-u32 guest_random_u32(struct guest_random_state *state);
++struct kvm_random_state new_kvm_random_state(u32 seed);
++u32 kvm_random_u32(struct kvm_random_state *state);
+ 
+-static inline bool __guest_random_bool(struct guest_random_state *state,
++static inline bool __kvm_random_bool(struct kvm_random_state *state,
+ 				       u8 percent)
+ {
+-	return (guest_random_u32(state) % 100) < percent;
++	return (kvm_random_u32(state) % 100) < percent;
+ }
+ 
+-static inline bool guest_random_bool(struct guest_random_state *state)
++static inline bool kvm_random_bool(struct kvm_random_state *state)
+ {
+-	return __guest_random_bool(state, 50);
++	return __kvm_random_bool(state, 50);
+ }
+ 
+-static inline u64 guest_random_u64(struct guest_random_state *state)
++static inline u64 kvm_random_u64(struct kvm_random_state *state)
+ {
+-	return ((u64)guest_random_u32(state) << 32) | guest_random_u32(state);
++	return ((u64)kvm_random_u32(state) << 32) | kvm_random_u32(state);
+ }
+ 
+ enum vm_mem_backing_src_type {
+diff --git a/tools/testing/selftests/kvm/include/x86/kvm_util_arch.h b/tools/testing/selftests/kvm/include/x86/kvm_util_arch.h
+index c33ab6e04171..6904dbda79f9 100644
+--- a/tools/testing/selftests/kvm/include/x86/kvm_util_arch.h
++++ b/tools/testing/selftests/kvm/include/x86/kvm_util_arch.h
+@@ -55,9 +55,9 @@ static inline bool __vm_arch_has_protected_memory(struct kvm_vm_arch *arch)
+ do {											\
+ 	const typeof(mem) val = (__val);						\
+ 											\
+-	if (!is_forced_emulation_enabled || guest_random_bool(&guest_rng)) {		\
++	if (!is_forced_emulation_enabled || kvm_random_bool(&kvm_rng)) {		\
+ 		(mem) = val;								\
+-	} else if (guest_random_bool(&guest_rng)) {					\
++	} else if (kvm_random_bool(&kvm_rng)) {					\
+ 		__asm__ __volatile__(KVM_FEP "mov %1, %0"				\
+ 				     : "+m" (mem)					\
+ 				     : "r" (val) : "memory");				\
+diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
+index 195f3fdae1e3..875030c22d07 100644
+--- a/tools/testing/selftests/kvm/lib/kvm_util.c
++++ b/tools/testing/selftests/kvm/lib/kvm_util.c
+@@ -20,9 +20,9 @@
+ 
+ #define KVM_UTIL_MIN_PFN	2
+ 
+-u32 guest_random_seed;
+-struct guest_random_state guest_rng;
+-static u32 last_guest_seed;
++u32 kvm_random_seed;
++struct kvm_random_state kvm_rng;
++static u32 last_kvm_seed;
+ 
+ static size_t vcpu_mmap_sz(void);
+ 
+@@ -515,12 +515,12 @@ struct kvm_vm *__vm_create(struct vm_shape shape, u32 nr_runnable_vcpus,
+ 	slot0 = memslot2region(vm, 0);
+ 	ucall_init(vm, slot0->region.guest_phys_addr + slot0->region.memory_size);
+ 
+-	if (guest_random_seed != last_guest_seed) {
+-		pr_info("Random seed: 0x%x\n", guest_random_seed);
+-		last_guest_seed = guest_random_seed;
++	if (kvm_random_seed != last_kvm_seed) {
++		pr_info("Random seed: 0x%x\n", kvm_random_seed);
++		last_kvm_seed = kvm_random_seed;
+ 	}
+-	guest_rng = new_guest_random_state(guest_random_seed);
+-	sync_global_to_guest(vm, guest_rng);
++	kvm_rng = new_kvm_random_state(kvm_random_seed);
++	sync_global_to_guest(vm, kvm_rng);
+ 
+ 	kvm_arch_vm_post_create(vm, nr_runnable_vcpus);
+ 
+@@ -2279,8 +2279,8 @@ void __attribute((constructor)) kvm_selftest_init(void)
+ 	sigaction(SIGILL, &sig_sa, NULL);
+ 	sigaction(SIGFPE, &sig_sa, NULL);
+ 
+-	guest_random_seed = last_guest_seed = random();
+-	pr_info("Random seed: 0x%x\n", guest_random_seed);
++	kvm_random_seed = last_kvm_seed = random();
++	pr_info("Random seed: 0x%x\n", kvm_random_seed);
+ 
+ 	kvm_selftest_arch_init();
+ }
+diff --git a/tools/testing/selftests/kvm/lib/memstress.c b/tools/testing/selftests/kvm/lib/memstress.c
+index 6dcd15910a06..3599b75d97c9 100644
+--- a/tools/testing/selftests/kvm/lib/memstress.c
++++ b/tools/testing/selftests/kvm/lib/memstress.c
+@@ -48,14 +48,14 @@ void memstress_guest_code(u32 vcpu_idx)
+ {
+ 	struct memstress_args *args = &memstress_args;
+ 	struct memstress_vcpu_args *vcpu_args = &args->vcpu_args[vcpu_idx];
+-	struct guest_random_state rand_state;
++	struct kvm_random_state rand_state;
+ 	gva_t gva;
+ 	u64 pages;
+ 	u64 addr;
+ 	u64 page;
+ 	int i;
+ 
+-	rand_state = new_guest_random_state(guest_random_seed + vcpu_idx);
++	rand_state = new_kvm_random_state(kvm_random_seed + vcpu_idx);
+ 
+ 	gva = vcpu_args->gva;
+ 	pages = vcpu_args->pages;
+@@ -69,13 +69,13 @@ void memstress_guest_code(u32 vcpu_idx)
+ 
+ 		for (i = 0; i < pages; i++) {
+ 			if (args->random_access)
+-				page = guest_random_u32(&rand_state) % pages;
++				page = kvm_random_u32(&rand_state) % pages;
+ 			else
+ 				page = i;
+ 
+ 			addr = gva + (page * args->guest_page_size);
+ 
+-			if (__guest_random_bool(&rand_state, args->write_percent))
++			if (__kvm_random_bool(&rand_state, args->write_percent))
+ 				*(u64 *)addr = 0x0123456789ABCDEF;
+ 			else
+ 				READ_ONCE(*(u64 *)addr);
+diff --git a/tools/testing/selftests/kvm/lib/test_util.c b/tools/testing/selftests/kvm/lib/test_util.c
+index bab1bd2b775b..e98ca7ef439c 100644
+--- a/tools/testing/selftests/kvm/lib/test_util.c
++++ b/tools/testing/selftests/kvm/lib/test_util.c
+@@ -30,13 +30,13 @@ void __attribute__((used)) expect_sigbus_handler(int signum)
+  * Park-Miller LCG using standard constants.
+  */
+ 
+-struct guest_random_state new_guest_random_state(u32 seed)
++struct kvm_random_state new_kvm_random_state(u32 seed)
+ {
+-	struct guest_random_state s = {.seed = seed};
++	struct kvm_random_state s = {.seed = seed};
+ 	return s;
+ }
+ 
+-u32 guest_random_u32(struct guest_random_state *state)
++u32 kvm_random_u32(struct kvm_random_state *state)
+ {
+ 	state->seed = (u64)state->seed * 48271 % ((u32)(1 << 31) - 1);
+ 	return state->seed;
+diff --git a/tools/testing/selftests/kvm/x86/sev_dbg_test.c b/tools/testing/selftests/kvm/x86/sev_dbg_test.c
+index a9d8e4c059f9..eaa8201b937d 100644
+--- a/tools/testing/selftests/kvm/x86/sev_dbg_test.c
++++ b/tools/testing/selftests/kvm/x86/sev_dbg_test.c
+@@ -34,7 +34,7 @@ static void validate_buffers(void)
+ 
+ static void ____test_sev_dbg(struct kvm_vm *vm, int i, int j, int nr_bytes)
+ {
+-	u8 pattern = guest_random_u32(&guest_rng);
++	u8 pattern = kvm_random_u32(&kvm_rng);
+ 
+ 	if (i + nr_bytes > BUFFER_SIZE || j + nr_bytes > BUFFER_SIZE)
+ 		return;
 -- 
 2.55.0.rc0.799.gd6f94ed593-goog
 
