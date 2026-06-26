@@ -4,75 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B20BFC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 16:30:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 002D3C43327
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 16:40:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
-	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t+BRi142KmPuEUcsmuXZ0IikgeFHZzmKjoeyvOaxuEQ=; b=ZNddh+YqSF6uS5p+Ed9iLmcBsr
-	2FyO1xyOwKXajA0SNypsEUafDEX2rOYfVmV4A/uMT6tr4lQ3finVULA5tl+6tVXB8lkbqJUuha13r
-	vegy9BS7xYMSAAnvWj8TrfRPwAYli8VxuwRWeif/A1AhQLlsIdA9TCZwBs2ep4nU4w1MamO9Hvb+b
-	9VUX1TRcNeNG+vwTzfukS+YB0Wy1SviC11pJcrZI59RPrinwVxytC1cErB5gMTl5q8mznHyY/+kKk
-	I1UO+tnrpOU4yNGdjzklddd4aNVVbxsn/D+UcO5D8sAPurFVmpFodrSxBjX8A+fDo+WE1j9EeDkv3
-	pFYV99Ug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=XFdrr1aj+JZ4LS4KDt4mRxZWjc/rOk51r42pgK7BZ1Y=; b=lN5zi3NSRV5aJIMRRnHN0xdTj2
+	DqVsxEtWUjRla54PJI/JqTf/eUOZLXJa8I8ZP6ee85CGyQgjV4GaCy6JGnri/A15jde4QRuaFDEmy
+	X3MxzLvTmRPqW8+wXeiIvGiyxIau/h0mh6WrGDQqR/a5t3iVukwu9JEzP+9+RdMbjpqubc3iDygoV
+	dAqXptRbTqAvFouojEKVb4COvD3cjOKxKWk7H1uYlGLblvfVftZX+QO6pC5/4felCF3fd6hkwwy4w
+	csCZ5X5et2ratf2DFSzzlES8z8KNagbtLi4BqEtTE/vHQG9mqFKZydW8WN8yZhIRN8L/ml2VNRMmX
+	LPQqfXdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd9RK-0000000BdQr-1kBl;
-	Fri, 26 Jun 2026 16:30:02 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1wd9bW-0000000BdzK-2dH8;
+	Fri, 26 Jun 2026 16:40:34 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd9R6-0000000BdMK-0Ndx
+	id 1wd9bT-0000000BdyV-16pA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 16:29:49 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id AEE774E40972;
-	Fri, 26 Jun 2026 16:29:45 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 814D060232;
-	Fri, 26 Jun 2026 16:29:45 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 914E3104C9AEC;
-	Fri, 26 Jun 2026 18:29:40 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1782491384; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=t+BRi142KmPuEUcsmuXZ0IikgeFHZzmKjoeyvOaxuEQ=;
-	b=w21TOswOVZP9cm07O68mTEA9LTM/duqidm1F8aWEzC7PVhcUBQDBk0zM6eUh3qjO4yLZYU
-	uKlmPHpoaFimW/HZ6ulF35YQxLVfxiny9tAcGq5sZNzsLLTkZcZ8pafDtF9b2dl32ZycN7
-	Q/PmGPX5B9sJAIHdZoV7PRXYLH+ckEmizv21lWyeMqDib6cz3Kcl2dFEa6OMzePnde6Arm
-	6MkgcF+7T6YZHcDrp/6GFo9TyR2Zfyc4nyQghYQ1JX5fvEnSItexw2F0Uu5QgVqQRajiSb
-	fz2eYG+dbdo6Xriq/0C1p80MzKD7JFKf2liwI8ZAHdoNxU3wZzesxPQDgMTbCA==
+	Fri, 26 Jun 2026 16:40:33 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4903d730b1fso15358925e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 09:40:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=0sec.ai; s=google; t=1782492029; x=1783096829; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=XFdrr1aj+JZ4LS4KDt4mRxZWjc/rOk51r42pgK7BZ1Y=;
+        b=uBD/e5LiE4YVhI0zOgrUiAgETDdvNbrn79RscwnjUQ5YsFzjI3KfHwYVDX4LweR6Fj
+         3J4MWMoOJ1D/aFMzoFdSmWPu2XR7+wP1mVSsEedAznpRzMnwKACjQ3eOe/GkuAY/IJiM
+         8p/Yeya/a6RmlXQurK6zJvGSkeZPCpqa9hdn0qkjUnwUCffPDDVvyK19KXtFi1pjudvO
+         UlIhOdXDfcaVfQGZAgy0V4KfgHgByA+QsTX1J5GVvDqBWiatCbzWWTzOlVZiDX/Wcnj5
+         YulcgvnruDwbZL1XRoY7/hBGu1zByxWEUNvvg7PUDNZhefnxJUKzqLFiP5Hji/B7WhkV
+         eULg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782492029; x=1783096829;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=XFdrr1aj+JZ4LS4KDt4mRxZWjc/rOk51r42pgK7BZ1Y=;
+        b=VC9gyd015EO3BPR4c+BWR4P7XCGPnG0fmGZsk+m2W1IkRCOl76dPwswM03KLbuZ4Ri
+         Vr10ie6EOv9xntLDkhC2LH3GpoRKyEw18u8I1U0RRF0y9NiOpRxLauupjEEWI5WXxsus
+         QywqOHlm4YqE5Kyu2YFBHIMra2objkD0sWCsojEhAKWBgHhOwLsRjpbninSt+2sL3CfQ
+         QevuZqWCqhDpGIGmBHmPsNo+LEnPaT4/p+s5sufkQGKXr23Si7pftYf6fRvyFOJeiTSN
+         FJxAJqai1wZbFU9O6o6dU6605rTzGo/vLLUshDw2metlnf5EJWH0fdKeWkvWki3R6On8
+         JpTA==
+X-Forwarded-Encrypted: i=1; AFNElJ/sc3m+z53DAU0/vcEg3GLIWdruMXuv2koifQweVFkY/dTsVuGiZqu4xx0GvuShuyazBIqFiwIxY0kRw6JxcIYw@lists.infradead.org
+X-Gm-Message-State: AOJu0YxU48ZSNzIeAb4qNYoxxu+M4O0Eiz2LoZJP6603NoO2LPe8VJCb
+	UkWdZB/uKkMJxaMPc4QM1EQRRc4Fu07cwlSLcn+dscU8+qCdGkEXXjxIMjmdcF+GobNI
+X-Gm-Gg: AfdE7ckKQqirUAatIaM/ipu8eii/j8sFJXqU3BRI0qrqoh8fyA4c4Ur11cF3dAOqtOT
+	Oy5oV+4G/NoGpgQDKnxo/+hmAap0RA/U3/+SK9nbGop4JW6xnm7270Vj9OnRYTuTXT31jTDnt3N
+	ndnZldDhlvJbCAPdoEM3XIxcgoCvnAR5oNZ5z68WJou/DGO1wI6UsTA6fsvj8piPVJnUYliJy9y
+	RyMhji9IUNxMKCCuqHlwz4t47kLKkd13zzOTvbgAeLvsDL8xkZYJ3EoU/22unODTyh78K2XHHHo
+	YAcyugIdBQtuOxXIYFcTJ9gxCuB+0vUAKwLMFwD8yLuvukVOFHrE7HuVDTXcZMaIRIM4vFl16pW
+	6jTSh1hCvp9aMtjgkQ0G8GJPLE387XEjJR5KmGL2z+oOD48PrqiY8vW3gPSfF/xdmxNE6w4PV8Q
+	/btSkl4YdBFsNLVRp7xzHMkVr5GdvKVsvu5U8fVM3FZU+9e9ecZFxXBgDjI76IraXUkwTyXB4hJ
+	LviNQJc6UxXqlkgk6Y2sxvcaAU1zNRcbDk=
+X-Received: by 2002:a05:600c:8109:b0:490:bad9:de43 with SMTP id 5b1f17b1804b1-492667ca5fbmr116117235e9.0.1782492028118;
+        Fri, 26 Jun 2026 09:40:28 -0700 (PDT)
+Received: from PeakBook-Mini.tail8e484.ts.net ([178.197.218.209])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4926f94f213sm30866825e9.12.2026.06.26.09.40.26
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Fri, 26 Jun 2026 09:40:27 -0700 (PDT)
+From: Doruk Tan Ozturk <doruk@0sec.ai>
+To: Neil Armstrong <neil.armstrong@linaro.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Hans Verkuil <hverkuil@kernel.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	linux-media@vger.kernel.org,
+	linux-amlogic@lists.infradead.org,
+	linux-staging@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Doruk Tan Ozturk <doruk@0sec.ai>
+Subject: [PATCH] media: meson: vdec: fix use-after-free of prev_frame in codec_vp9_rm_noshow_frame()
+Date: Fri, 26 Jun 2026 18:40:25 +0200
+Message-ID: <20260626164025.52694-1-doruk@0sec.ai>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v5 3/4] drm/bridge: analogix_dp: Add validation for
- samsung,lane-count property
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-To: Damon Ding <damon.ding@rock-chips.com>
-Cc: hjc@rock-chips.com, heiko@sntech.de, andy.yan@rock-chips.com, 
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, 
- airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org, 
- conor+dt@kernel.org, andrzej.hajda@intel.com, neil.armstrong@linaro.org, 
- rfoss@kernel.org, Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se, 
- jernej.skrabec@gmail.com, nicolas.frattaroli@collabora.com, 
- cristian.ciocaltea@collabora.com, sebastian.reichel@collabora.com, 
- dmitry.baryshkov@oss.qualcomm.com, luca.ceresoli@bootlin.com, 
- dianders@chromium.org, m.szyprowski@samsung.com, 
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20260604085220.2862986-4-damon.ding@rock-chips.com>
-References: <20260604085220.2862986-1-damon.ding@rock-chips.com>
- <20260604085220.2862986-4-damon.ding@rock-chips.com>
-Date: Fri, 26 Jun 2026 18:29:25 +0200
-Message-Id: <178249136513.1374898.11400378046460567437.b4-review@b4>
-X-Mailer: b4 0.15.2
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_092948_274813_CA150E2F 
-X-CRM114-Status: GOOD (  14.15  )
+X-CRM114-CacheID: sfid-20260626_094031_351210_2E320E30 
+X-CRM114-Status: GOOD (  11.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,54 +106,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 04 Jun 2026 16:52:19 +0800, Damon Ding <damon.ding@rock-chips.com> wrote:
+codec_vp9_rm_noshow_frame() frees the first non-shown reference frame on
+ref_frames_list without excluding vp9->prev_frame. When the previously
+decoded frame was a non-show (alt-ref) frame and the current frame is a
+non-show inter frame, the freed object is the one vp9->prev_frame still
+points to; codec_vp9_set_mpred_mv() then dereferences the stale pointer
+(use_prev_frame_mvs and codec_vp9_get_frame_mv_paddr()), a use-after-free.
 
-Hello Damon,
+The sibling cleanup codec_vp9_show_frame() already guards this pointer
+(tmp == vp9->prev_frame); rm_noshow_frame() simply omits the same check.
+Add it.
 
->
-> diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-> index 7a85774aaac1..e120ef3320c1 100644
-> --- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-> +++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-> @@ -1261,8 +1262,11 @@ static int analogix_dp_dt_parse_pdata(struct analogix_dp_device *dp)
->  		 */
->  		of_property_read_u32(dp_node, "samsung,link-rate",
->  				     &video_info->max_link_rate);
-> -		of_property_read_u32(dp_node, "samsung,lane-count",
-> -				     &video_info->max_lane_count);
-> +		ret = of_property_read_u32(dp_node, "samsung,lane-count",
-> +					   &video_info->max_lane_count);
-> +		if (ret || !drm_dp_lane_count_is_valid(video_info->max_lane_count))
-> +			return dev_err_probe(dp->dev, ret ? ret : -EINVAL,
-> +					     "failed to parse samsung,lane-count\n");
+The fields that drive this path (show_frame, frame_type, intra_only) are
+parsed from the VP9 bitstream, so a crafted stream fed to the stateless
+decoder can trigger the free-then-use.
 
-I think this report by sashiko makes sense:
+Found by static analysis; not yet runtime-reproduced (Amlogic Meson
+hardware required).
 
-  >  sashiko-bot@kernel.org <sashiko-bot@kernel.org>:
-  >
-  >  [Severity: High]
-  >  Does this make the optional and deprecated samsung,lane-count property a
-  >  strict requirement?
-  >
-  >  If samsung,lane-count is absent from the device tree, of_property_read_u32()
-  >  returns -EINVAL. This causes the condition to evaluate to true, aborting the
-  >  probe with an error.
-  >
-  >  According to the device tree bindings
-  >  (Documentation/devicetree/bindings/display/samsung/samsung,exynos5-dp.yaml),
-  >  this property is marked as deprecated and explicitly optional because the
-  >  lane count can be read from the monitor. Does this patch break compatibility
-  >  with device trees that rightfully omit this deprecated property?
+Found by 0sec's autonomous vulnerability analysis (https://0sec.ai).
 
- (via: https://patch.msgid.link/20260604090935.7FC051F00898@smtp.kernel.org)
+Signed-off-by: Doruk Tan Ozturk <doruk@0sec.ai>
+---
+ drivers/staging/media/meson/vdec/codec_vp9.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-Can you comment on this?
-
-Luca
-
+diff --git a/drivers/staging/media/meson/vdec/codec_vp9.c b/drivers/staging/media/meson/vdec/codec_vp9.c
+index 8e80ecf84..572f418c9 100644
+--- a/drivers/staging/media/meson/vdec/codec_vp9.c
++++ b/drivers/staging/media/meson/vdec/codec_vp9.c
+@@ -1247,6 +1247,15 @@ static void codec_vp9_rm_noshow_frame(struct amvdec_session *sess)
+ 		if (tmp->show)
+ 			continue;
+ 
++		/*
++		 * prev_frame is still referenced by the MV predictor in
++		 * codec_vp9_set_mpred_mv(); the sibling codec_vp9_show_frame()
++		 * already excludes it before freeing. Do the same here to avoid
++		 * a use-after-free of vp9->prev_frame.
++		 */
++		if (tmp == vp9->prev_frame)
++			continue;
++
+ 		pr_debug("rm noshow: %u\n", tmp->index);
+ 		v4l2_m2m_buf_queue(sess->m2m_ctx, tmp->vbuf);
+ 		list_del(&tmp->list);
 -- 
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+2.43.0
 
 
