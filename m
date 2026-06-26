@@ -4,97 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28585C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 13:04:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20D97C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 13:04:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ck5xsWo/5MeWEGxVeZ8T87STzgoOYFBEg4ZFVZbwJXs=; b=zamf+nYdFRZ+zr7u4IBrHpwaVZ
-	tLKQUbq1rMFb2qe0Xni3MP8emX6HVy5UPMw/ik9L2wEw32HxlUxdA5DP8Xg/JyDlNzL9OghzWlr+W
-	J4lbD1AForElxDRRQLXECrmMYcu17higXQUgp6UL4GNd8BOb1skf8OohawKTe4eHjfpSYgLQ/aPaa
-	dRLs3/ZGf38kxOINa7aPQaetTKZyy7RB9WqhsHT24k735pRSVtjF/qJ7r6YVeAwxhEzoMAuKbwya1
-	BXsKQaIKxF068TSCd5JbA9Rl/aw0UrsjP3j5mMVFchHlih1sMlm5/uiE+UPSGXtMU0KfAnDjn/w7k
-	1ztst8XQ==;
+	bh=P2Idfefkhd5yd2wTqXvp/0zaLmn55htaW7rWMLoCA2w=; b=zl50gY0Yaigt+7m2nZvSEiOQUX
+	oePrQFeh02lQKNYJHKEkfpweF6o38QdmbPok89UyKesWidh9FWpBPXpHtoeK4+B1apdZeEeFThzPc
+	f3qYhEi1FVocBYn9oNpvPyxg8OJjix0v8Jh3/vanrX47asVBDxwj2L2KDmEndkHBLuO5pgtvRJ558
+	c+yblYjobgEBq/IrtdAFY4mS5fMuyuKyTGjnF2ze9u0JrZJfgOvFZX/DlBL9QPj3pfP7lHiN1XnTW
+	IAcVWSAjA5VvbxM6X68Mtt3+VIlvb8XB48FwIC4b5ad2bwjO+ZGj6VjOmZZsRAoLXDAqBBp1Q8P9r
+	QeHS37fA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd6EY-0000000BLoe-1bms;
-	Fri, 26 Jun 2026 13:04:38 +0000
-Received: from fout-b1-smtp.messagingengine.com ([202.12.124.144])
+	id 1wd6Aw-0000000BLXD-3o3L;
+	Fri, 26 Jun 2026 13:00:54 +0000
+Received: from www522.your-server.de ([195.201.215.122])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd6EV-0000000BLo8-29SU
+	id 1wd6Ar-0000000BLVA-467e
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 13:04:37 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfout.stl.internal (Postfix) with ESMTP id 620551D00149;
-	Fri, 26 Jun 2026 09:04:34 -0400 (EDT)
-Received: from phl-imap-05 ([10.202.2.95])
-  by phl-compute-04.internal (MEProxy); Fri, 26 Jun 2026 09:04:34 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1782479074;
-	 x=1782565474; bh=ck5xsWo/5MeWEGxVeZ8T87STzgoOYFBEg4ZFVZbwJXs=; b=
-	aYKmELdfeb0rPqlN8e16bOkUkWCTcLC1/itvp2LZ/WY7n7moMOUqkMHWWtJaKXqZ
-	9Gw6zK6vuVrEJ9AAmpqfHLftZ5vuHIb/DambduN+DMQWXulGjS/37TqRfK/ekWbE
-	ubUoDzlRRYhQFMUcKPBIUkrFX16y+aD5CrBsAIxQVS3xRdjFuwx73q1eH2j/I7Ea
-	UJ88Lajwc0wFBaf9Y/N5Z1AiEjK3LfVoWrUxfw3ttCTJbPdVqCVIev77JkZyFEAn
-	/mdVUh8OQdNKGh5zat8SkH4odI0Xp+xWOX3UgGpiCI3AFB4/eqjBB6XlHVRrYxKs
-	woA2Np322Y7Ek2LTjpd2Xw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1782479074; x=
-	1782565474; bh=ck5xsWo/5MeWEGxVeZ8T87STzgoOYFBEg4ZFVZbwJXs=; b=l
-	NT0ZaMgD+GUMq+qzem7hmjUJ1AqCGZz0Di2PutnGB0PMfBDviVRyVk2hTEJZ/Xvr
-	oz0Z6ai02QeeYi7QfnSWZg3oQgUrrKrSxzewbuh4qpwJKnz7oZGVlaBHf+IPMCZH
-	krW4c0x/GnbsCxAkFeHhyMEUYrS/eyg/O91df5W1bW/OtFXWX111CeF1FjdH8EVk
-	Ju4295eY6i5ya/sMSiEpD0/jdATePygnywQzr/1MQ8h1g3sw5QRlJUxfudo/869J
-	1TnCPCiVV+pZYl6iUVW7KfTvzlz0vyRaf1SIbxMCWsmQ3r1c5QMfJnMSWr+iLvy/
-	D0JocP7YSKM0gZtuh+lHA==
-X-ME-Sender: <xms:4Xg-alcHfQcPvFdUTtTsSMf3Jx_3jlYaPcZ3H9sZPfY8UU_6Pa5MDw>
-    <xme:4Xg-auAdl5Z633VBpm59SxEsZJ3Tcx_67dQ9fWelCY7fY4CCYmWZtCORi2E66rZNl
-    xeNAsJ9iIcQG_HgYEIJtfY3SkhUu0mmlHi3WD7TWLa0ssNQ3pBXu1k>
-X-ME-Proxy-Cause: dmFkZTGumcPKcYwUjmZLHZyGSxGucW9r5tCK8vdAwuEMt5W3aGAeR670U78q6k/BQeoGPg
-    HHxkD26HPAU6mikhbPmHyDO7TCwYxKrcLT66iE1WTXnJ5LEgQSQdDUu3z/4YgsdlM76HmC
-    BMVxETundec920vGBbomfOyfKGb48gt0Un5kOZkqdnqKl8HJVCPxhmoh3zOxnxIf7c+wl6
-    UsGglnbGOLpCw3kryKdBHSLKb+hh1kQ6iyXS1V6B1xKaQY0H5ajbxk2kQdc9aQwKj0BhLO
-    w4wc/Cb2NlkQh+mQWIIhMPgz9ai0tZkHTZ0Joat8mL1mHuX1vEqoisl3jraJfksOs1gDlN
-    C0fBpBfY6De1JJRguCgbLG/RxDnaie0HejkaN8k0X8NqdRGU9v9dCNkyI3VPo+I5NGlzKK
-    l3vwJ0fNY7ikWuekmBPr+/glLv9XEE+qED4OPGkXw57r695ar1jf5JGHakIUjssCATkfrD
-    oBtjEzb9peCDUQl6eYv70tAeplRdhLyjfGT6ghNHv9clqa+JxYarKHdmlwenjg14j10gfV
-    QpNcV0dECfvnxj41K3LkRz7Fw6PyIaW8EJPyP7LRj/9y2dJoKEugVKdfen0KESG1/6HdXj
-    dTLMmgrHVVEYKu3gGao5UbwdNZhIjJlxRvL00qONo9BDBD7IvtplF0WhRDVw
-X-ME-Proxy: <xmx:4Xg-aoDodgQlAZf9gr9zMsDT9U0SHMiXMikUGH7igB6h1-5e_T8mEA>
-    <xmx:4Xg-asAoJZehc9MlVl5gWxTQJsq20ZPd0CWoN_yn7aVb6xIQqk0j4A>
-    <xmx:4Xg-arqWhANO3-qCrN9pRu3FD7RuwpGqqKy2sQacBohvpQX0HTtdWg>
-    <xmx:4Xg-aumiU-KFcmgiBoQyEQixP6mboDV8A60nIhtTL9jrr0p5fHxbHQ>
-    <xmx:4ng-asuttGD_CyH_7nQ26-LslR3dtE_Vh2-3tcVfGa8A7RIsJZc0Ouqn>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id AFA001820086; Fri, 26 Jun 2026 09:04:33 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-MIME-Version: 1.0
-X-ThreadId: A5EVnRCqXlfN
-Date: Fri, 26 Jun 2026 15:03:53 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Gary Yang" <gary.yang@cixtech.com>
-Cc: "Fugang . duan" <fugang.duan@cixtech.com>,
- linux-arm-kernel@lists.infradead.org, cix-kernel-upstream@cixtech.com,
- "Peter Chen" <peter.chen@kernel.org>
-Message-Id: <21f81761-ac02-4771-9dfd-38e653d1f74f@app.fastmail.com>
-In-Reply-To: <20260626092015.1709904-1-gary.yang@cixtech.com>
-References: <20260626092015.1709904-1-gary.yang@cixtech.com>
-Subject: Re: [PATCH] MAINTAINERS: Update maintainer and git tree for CIX SoC
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+	Fri, 26 Jun 2026 13:00:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=folker-schwesinger.de; s=default2212; h=In-Reply-To:References:To:From:Cc:
+	Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:Mime-Version:
+	Sender:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=P2Idfefkhd5yd2wTqXvp/0zaLmn55htaW7rWMLoCA2w=; b=fCb6qML9biq0KYATmm+LYcSegQ
+	fwq23ZA3TmsHz4YwMcG1/3eR7iaRM6/yYCi1EenQA3gZvonB0ZjqDt5icDzqDqdi/Ytl1X0HVbLiL
+	RdvoAC9UOzVpZ6DecBzuI2vvlpSus1DCvsirhrNnkDkme7N4MQDBM7sJZj2IFszenrtFw3Bw6dAis
+	HApFD0lgo75fSYNpvbj6UGAdnOq4rB0dMBEwpOZB7S3XTtHDAxH+pHPM7fLGlpiHLmovLkcQDwt3H
+	yEO37KdeKmZNA4rGr8Dzkq/3EehBSUqJ+/vqaKB6HE1x4jabS587kHOvEqsu8QoV1Fs4zRyU8yhfD
+	ABVaFw2Q==;
+Received: from sslproxy04.your-server.de ([78.46.152.42])
+	by www522.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <dev@folker-schwesinger.de>)
+	id 1wd6Ak-00018g-2k;
+	Fri, 26 Jun 2026 15:00:42 +0200
+Received: from localhost ([127.0.0.1])
+	by sslproxy04.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <dev@folker-schwesinger.de>)
+	id 1wd69m-000Cq5-0G;
+	Fri, 26 Jun 2026 15:00:42 +0200
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Fri, 26 Jun 2026 13:00:41 +0000
+Message-Id: <DJJ00J6ROCIR.17UYIA64S2JHY@folker-schwesinger.de>
+Subject: Re: [PATCH v3 2/3] dmaengine: xilinx_dma: Enable transfer chaining
+ for AXIDMA and MCDMA by removing idle restriction
+Cc: <dmaengine@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>
+From: "Folker Schwesinger" <dev@folker-schwesinger.de>
+To: "Suraj Gupta" <suraj.gupta2@amd.com>, <vkoul@kernel.org>,
+ <Frank.Li@kernel.org>, <michal.simek@amd.com>
+X-Mailer: aerc 0.21.0-151-gce80509b8454
+References: <20260626092656.1563871-1-suraj.gupta2@amd.com>
+ <20260626092656.1563871-3-suraj.gupta2@amd.com>
+In-Reply-To: <20260626092656.1563871-3-suraj.gupta2@amd.com>
+X-Virus-Scanned: Clear (ClamAV 1.4.3/28043/Fri Jun 26 08:24:31 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_060435_913234_CE50BB97 
-X-CRM114-Status: GOOD (  14.12  )
+X-CRM114-CacheID: sfid-20260626_060050_318881_D234CF6D 
+X-CRM114-Status: GOOD (  20.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,45 +84,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 26, 2026, at 11:20, Gary Yang wrote:
-> Peter Chen has left CIX Technology. Take over maintenance of the CIX SoC
-> and Update the git tree URL accordingly.
+On Fri Jun 26, 2026 at 11:26 AM CEST, Suraj Gupta wrote:
+> Relax the idle check in xilinx_dma_start_transfer() and
+> xilinx_mcdma_start_transfer() that prevented new transfers from being
+> queued when the channel was busy, so scatter-gather transfers can be
+> chained onto an in-flight transfer.
 >
-> Signed-off-by: Gary Yang <gary.yang@cixtech.com>
-> Reviewed-by: Fugang Duan <fugang.duan@cixtech.com>
+> In scatter-gather mode, only update the CURDESC register when the active
+> list is empty to avoid interfering with transfers already in progress.
+> When the active list contains transfers, the hardware tail pointer
+> extension mechanism handles chaining automatically via the descriptor
+> next pointer chain, which is set up at channel allocation and preserved
+> across descriptor recycling.
+>
+> Direct (non-SG) mode has no descriptor queue: writing the BTT register
+> launches a transfer immediately, so a new transfer must not be programmed
+> while one is in flight. Keep those transfers serialized by retaining the
+> idle check on the non-SG path. MCDMA always operates in scatter-gather
+> mode, so it is unaffected.
+>
+> Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
+> Co-developed-by: Srinivas Neeli <srinivas.neeli@amd.com>
+> Signed-off-by: Srinivas Neeli <srinivas.neeli@amd.com>
 
-This obviously needs an Ack from Peter. I assume he's ok with the
-change, but you should document that since maintainership
-is tied to the person by default rather than their employer.
+For the AXIDMA SG-path:
 
-I've added peter.chen@kernel.org to Cc, hopefully this forwards
-to a current address.
-
-      Arnd
+Tested-by: Folker Schwesinger <dev@folker-schwesinger.de>
 
 > ---
->  MAINTAINERS | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
+>  drivers/dma/xilinx/xilinx_dma.c | 19 ++++++++++++-------
+>  1 file changed, 12 insertions(+), 7 deletions(-)
 >
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 2fb1c75afd16..17b3704bbcde 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -2692,12 +2692,12 @@ F:	arch/arm/mach-ep93xx/
->  F:	drivers/iio/adc/ep93xx_adc.c
-> 
->  ARM/CIX SOC SUPPORT
-> -M:	Peter Chen <peter.chen@cixtech.com>
-> +M:	Gary Yang <gary.yang@cixtech.com>
->  M:	Fugang Duan <fugang.duan@cixtech.com>
->  R:	CIX Linux Kernel Upstream Group <cix-kernel-upstream@cixtech.com>
->  L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
->  S:	Maintained
-> -T:	git git://git.kernel.org/pub/scm/linux/kernel/git/peter.chen/cix.git
-> +T:	git https://github.com/cixtech/linux-mainline.git
->  F:	Documentation/devicetree/bindings/arm/cix.yaml
->  F:	Documentation/devicetree/bindings/mailbox/cix,sky1-mbox.yaml
->  F:	arch/arm64/boot/dts/cix/
-> -- 
-> 2.50.1
+> diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_=
+dma.c
+> index ca396b709742..6e7b183cb499 100644
+> --- a/drivers/dma/xilinx/xilinx_dma.c
+> +++ b/drivers/dma/xilinx/xilinx_dma.c
+> @@ -1580,7 +1580,14 @@ static void xilinx_dma_start_transfer(struct xilin=
+x_dma_chan *chan)
+>  		return;
+>  	}
+> =20
+> -	if (!chan->idle)
+> +	/*
+> +	 * Direct (non-SG) mode has no descriptor queue: writing the BTT
+> +	 * register launches a transfer immediately, so a new transfer must
+> +	 * not be programmed while one is in flight. Keep such transfers
+> +	 * serialized. SG mode supports chaining onto a running transfer via
+> +	 * tail-pointer extension, so it is allowed to proceed when busy.
+> +	 */
+> +	if (!chan->has_sg && !chan->idle)
+>  		return;
+> =20
+>  	head_desc =3D list_first_entry(&chan->pending_list,
+> @@ -1599,7 +1606,7 @@ static void xilinx_dma_start_transfer(struct xilinx=
+_dma_chan *chan)
+>  		dma_ctrl_write(chan, XILINX_DMA_REG_DMACR, reg);
+>  	}
+> =20
+> -	if (chan->has_sg)
+> +	if (chan->has_sg && list_empty(&chan->active_list))
+>  		xilinx_write(chan, XILINX_DMA_REG_CURDESC,
+>  			     head_desc->async_tx.phys);
+>  	reg  &=3D ~XILINX_DMA_CR_DELAY_MAX;
+> @@ -1660,9 +1667,6 @@ static void xilinx_mcdma_start_transfer(struct xili=
+nx_dma_chan *chan)
+>  	if (chan->err)
+>  		return;
+> =20
+> -	if (!chan->idle)
+> -		return;
+> -
+>  	if (list_empty(&chan->pending_list))
+>  		return;
+> =20
+> @@ -1685,8 +1689,9 @@ static void xilinx_mcdma_start_transfer(struct xili=
+nx_dma_chan *chan)
+>  	dma_ctrl_write(chan, XILINX_MCDMA_CHAN_CR_OFFSET(chan->tdest), reg);
+> =20
+>  	/* Program current descriptor */
+> -	xilinx_write(chan, XILINX_MCDMA_CHAN_CDESC_OFFSET(chan->tdest),
+> -		     head_desc->async_tx.phys);
+> +	if (chan->has_sg && list_empty(&chan->active_list))
+> +		xilinx_write(chan, XILINX_MCDMA_CHAN_CDESC_OFFSET(chan->tdest),
+> +			     head_desc->async_tx.phys);
+> =20
+>  	/* Program channel enable register */
+>  	reg =3D dma_ctrl_read(chan, XILINX_MCDMA_CHEN_OFFSET);
+
 
