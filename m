@@ -4,90 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F9F5C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 21:48:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3469CC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 21:52:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ohHI0HByobn0j33Lx+Kl7czfoxwUOXlw3pm9/0NuBG4=; b=VHVhHexMU2QBHgEBTMfPhBzmju
-	9Fy3BtLk84zckwjmrdV0JFSKfLi0Wliz8fV0VY93O3MP9+qSjQaReh+Q7ZSKsBAQhvhNF7EfK1u+A
-	8NItBj1iufjh8DqCGox0W3E5fdNDLhtRoEBHtxuYc6zBu4WLWB38FItkxpmYXcaRefd+b/jNWy7NE
-	GT75lIsEEZrf/oiCR+xwec8x+aCSGgI6F6WEjFZ/uTc01ITV4wBVfQVmKrD1PQIfmGbZv8q5sM1mO
-	d8CiiPZfX+BGGD+C8NR79VIjIbMjIQZMYLzhW/eGNlKkiOsKjFbj/Cem8oOnvDVDBEpK1Kvf9JQFU
-	mzdjA0SA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
+	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2XjP7ltNePjDS5cnt47gmPWCN7JEd91hh65v72L1LY8=; b=lKF4Tkmr9Z9IY3T3c6/L7YI4Oo
+	xiU8C0GnUGNAInF+sEYrRblSuwRNVRcy/WaG2ByqSBioHJlI1PSrrfC2gWsZ3pNXH7coJ+3/BIngZ
+	bjS7BS06z1VnNVoLZrnjWbrM7rgbusZZDPRBI9slZnG7V/0X3HCN0w18GRRXjNbpCQs4V+9YGNE3E
+	0eYsqKqtuZJvUhg0iDvHXmntL0LyKefzJiNr3ygdo0mVl3JbGsQ8lX/od5CTsBhSN5EX+6vPW9qvB
+	B9STfOKEYPs6yhGJ+Is/csSjsBeIm4S9T6s4csA1XZDL/pK62LrhLrL5fMchLH3t5IL6d9FBuJJJ6
+	h9dylQ4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdDaS-0000000Bq91-28N8;
-	Fri, 26 Jun 2026 20:55:44 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wdEDX-0000000BuXY-28T0;
+	Fri, 26 Jun 2026 21:36:07 +0000
+Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdDZu-0000000BpbS-3Mxa;
-	Fri, 26 Jun 2026 20:55:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1782507302;
-	bh=1nHF1vrjaNXH6VxWJ8xbYUrny3B+6HOnTbC9UsQPiUA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=kNLaLxuOFDahf/RD0A7UG+SZrqlNJu9EKRGOAAVZaaFDOZt+byKPdXaxGSqGcpZ4h
-	 SpS5qtqB3h2m1N8tN/yl2LUjsIomJq3Q2BqzQBgrw08rI9i89ZeQ7CurPAd5bTF9bu
-	 QBT9LpEuVwI4wIx0Nxygpu9onus2YPMdaBTxBeqaqXaBdmiMnOe02KbZlOLG4ddBPQ
-	 bD7rtXofqNgbH3XQ5oIq0QFNIFgthViWjNqoX4eUKeJWO6I4s2yrKGnLNbdSiWkpcQ
-	 7DIyTIeA+V6lvVuxknBFG5cwChZTPXsg9xlvlgN6a5k8rdAnidq+4sshYf2kB97e1d
-	 uPMSRIhCZpUwg==
-Received: from jupiter.universe (unknown [100.64.1.62])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id AFD7D17E1270;
-	Fri, 26 Jun 2026 22:55:02 +0200 (CEST)
-Received: by jupiter.universe (Postfix, from userid 1000)
-	id 13EBC480031; Fri, 26 Jun 2026 22:55:02 +0200 (CEST)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Fri, 26 Jun 2026 22:54:59 +0200
-Subject: [PATCH v8 06/29] phy: rockchip: usbdp: Drop seamless DP takeover
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260626-rockchip-usbdp-cleanup-v8-6-47f682987895@collabora.com>
-References: <20260626-rockchip-usbdp-cleanup-v8-0-47f682987895@collabora.com>
-In-Reply-To: <20260626-rockchip-usbdp-cleanup-v8-0-47f682987895@collabora.com>
-To: Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Heiko Stuebner <heiko@sntech.de>, Frank Wang <frank.wang@rock-chips.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: Andy Yan <andy.yan@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>, 
- Yubing Zhang <yubing.zhang@rock-chips.com>, 
- Alexey Charkov <alchark@gmail.com>, linux-phy@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, kernel@collabora.com, 
- devicetree@vger.kernel.org, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, 
- Sashiko <sashiko-bot@kernel.org>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2693;
- i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=1nHF1vrjaNXH6VxWJ8xbYUrny3B+6HOnTbC9UsQPiUA=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGo+5yVrcDd9pGLx40GIcnPMFQdfjYzZAJukZ
- oEs5fq1+0WHRokCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqPuclAAoJENju1/PI
- O/qakkMQAJsmLpk5yiZKcUP5L+SHN9M/nrx1QT+6PnzKk0T1s7CltqMrycoE81zZw0W/r+Dn7cI
- wfbCHUHnrJHhWWu3FCROZcmuhdo+eushp9DTctYIeAB1FIY/peYhZLi5GKkN5Od+pYNr4Xhp8si
- LnklzD2/cXdwPrXu3tIPpY3HiHy0QYwmw47Rbu03P0Y0AM8Uwn9GE6UXCm+d0mkvXQJKx27LyRj
- 32DgVpmySh7bZRRPMp7FMyC+ztePV8wBwdXaTiWmHxQM/RMDWEoKQEQrVb15747YlvnhnQ4pLrD
- uQWPeJ1gObDgC0DvlMbYdAzoFXQ3ekYUdVVo6FmPUy6sjF+hS4ODo/E5HU0fTNep+u4JiolvR8w
- PfbTTFOqxrBVIIJkWqMn2MHqJz0VZd346t738e7Agn4ZLaOj9xClj8C1lw2d37JXXGzSB0qzS+F
- yxmEvd+WngwPpiVDgf8hZ1lMQ0JUnkzTAiT+CJksif7da3cIZYIg7BAdNA143gMK6lN2uoF8Znr
- UqRgA4W0mu2DM0sSd5vCelgc+GMoE6MnrmR/3ggIt9TStxwEcIvFa3nItAC3nXFPC2Q4z+U5BGj
- bn8AxYrGfX0eD3RWVTmQ06m7RmTKEjpKsZHgxU81hYxBzRUZIeQ4WaKuJwXUvVgEzrO8vDN1LCp
- fljNRnd08BOVT4vvJUt8trw==
-X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
- fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
+	id 1wdEDH-0000000BuJb-0UO5
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 26 Jun 2026 21:35:52 +0000
+Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-c85798977dcso865873a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 14:35:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1782509748; x=1783114548; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
+        bh=2XjP7ltNePjDS5cnt47gmPWCN7JEd91hh65v72L1LY8=;
+        b=JIiP6GF8OX5Rg0vJP2u8Dw1A7aoyiZn8Vz7rgICaHf0oVUugJGHCEucF7BaSaY6Nhf
+         a39zLgCnopc5HayZtvQMV4oPXIogdPAXSPraWvVGQylN52BZK3FGJXcwr/WwPccFoPFI
+         5JMZTFzdVzx1JWWo5JgBUGVXsmMdyjVGJ202cA8sgOus0fH3HTAl0ekbvDibMrIppM3N
+         LVcud5koy4sxEzdYMD2q7pnBIaF7og/nW/+vqihPDMCOR+keVjk6+3I94WjR6puZ9Khl
+         tbTqsypCIh+46H3UlE0pZdO21y9/mZQDFjtbYOw0QdMn2H+gMI4DhJzFhABkLPZrDfYY
+         58WA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782509748; x=1783114548;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=2XjP7ltNePjDS5cnt47gmPWCN7JEd91hh65v72L1LY8=;
+        b=rOOW5DYmVIGnKLe+tFLxm8+2LVE27+BgDXXZ/SPXHEyhi8rlbla2RMLTLk2G790gp/
+         bdhWh3hpBcWQZAR26SQsTnIhPHHM5qkHnsDAkKlu4TLzhrBMGbM6f0UBXcL7nl/7Smrk
+         nKPaRN0sqEwcoCxKJHzjUil4SjjSbyEvDiDdHmosHLGuU3wPDmNytqzpw6yyVQahkgVN
+         1T7eUdM0opBeHXlowBJFZG3fRXXSbwZXX9/nh6mMzz1NiOWCtDv4mZGuK0X7Asi+eMSs
+         YvfMzLb9iSYlZAb9PLQ2GVic6zue4sNSzNHJz5hW9FILEmXBVpY7XnbRLaTrqQEWUfHr
+         h1Rw==
+X-Forwarded-Encrypted: i=1; AFNElJ9enzvoqwHPh5dKr6HeQUDdFkmgk3s3+j95H2l5nieXHUpMJGbMl4LxbWhoEuqLwT0lTPxzA4u71FXO4dblDcyB@lists.infradead.org
+X-Gm-Message-State: AOJu0YwwJ/JspZuM2hwFVLBIJzLB5u/N35ul/uOsY3TLxbm1nF80BVnT
+	OrVWGGNB4jKO6InQ6eZSRIa4wZxnvrTOqas3RzFoQvdBWovIOmOk8x/X7Ri1K8e/Y69bsl3E5mX
+	a/6dLQw==
+X-Received: from pgcv18.prod.google.com ([2002:a05:6a02:5312:b0:c8c:6076:b4a5])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a21:1bc1:b0:39f:24a5:3065
+ with SMTP id adf61e73a8af0-3bd4aee9d34mr9183524637.7.1782509747404; Fri, 26
+ Jun 2026 14:35:47 -0700 (PDT)
+Date: Fri, 26 Jun 2026 14:35:22 -0700
+In-Reply-To: <20260626213534.3866178-1-seanjc@google.com>
+Mime-Version: 1.0
+References: <20260626213534.3866178-1-seanjc@google.com>
+X-Mailer: git-send-email 2.55.0.rc0.799.gd6f94ed593-goog
+Message-ID: <20260626213534.3866178-10-seanjc@google.com>
+Subject: [PATCH v8 09/20] KVM: selftests: Add VFIO device support to eventfd
+ IRQ test
+From: Sean Christopherson <seanjc@google.com>
+To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oupton@kernel.org>, Sean Christopherson <seanjc@google.com>
+Cc: Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, David Matlack <dmatlack@google.com>, 
+	Josh Hilke <jrhilke@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_135511_017138_46F1E0FE 
-X-CRM114-Status: GOOD (  14.91  )
+X-CRM114-CacheID: sfid-20260626_143551_193094_1092242A 
+X-CRM114-Status: GOOD (  21.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,69 +91,200 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Right now the DRM drivers do not support seamless DP takeover and I'm
-I'm not aware of any bootloader implementing this feature either.
+From: David Matlack <dmatlack@google.com>
 
-In any case this feature would be limited to boards using the USBDP PHY
-for a DP or eDP connection instead of the more commonly USB-C connector.
-With USB-C's DP AltMode a seamless DP takeover requires handing over the
-state of the TCPM state machine from the bootloader to the kernel. This
-in turn requires a huge amount of work to keep the state machine
-implementations synchronized. It's very unlikely we will see somebody
-implementing that in the foreseeable future.
+Extend the eventfd IRQ test with a '-d' argument that takes a BDF (in the
+format segment:bus:device.function) of an interrupt-capable PCI(e) device
+bound to VFIO, and use said device to trigger interrupts instead of always
+synthesizing interrupts via direct writes to the eventfd.
 
-As the current code is obviously buggy and untested, let's simply drop
-support for seamless DP takeover. It can be re-implemented cleanly once
-somebody adds all missing bits.
+Using a VFIO device to trigger interrupts validates the end-to-end delivery
+of IRQs for "real" devices, and when supported by hardware (and KVM), also
+validates interrupt delivery via IRQ bypass, i.e. via device posted IRQs.
 
-Technically the VOP side should be disabled first to avoid data being
-send to an unpowered PHY from the running pipeline. As a workaround this
-force disables HPD. I'm not sure if this would be good enough, but cannot
-test as there is no support in the bootloaders known to me and my test
-boards route USBDP to USB-C connectors.
+Now that IOMMUFD is a thing, auto-probe IOMMUFD vs. "legacy" VFIO by
+temporarily opening /dev/iommufd, and skip the test if neither IOMMUFD nor
+legacy VFIO is available.  Add a '-t' option to the user override the probe
+logic, e.g. in case IOMMUFD is available but the system is configured for
+legacy usage.
 
-Fixes: 2f70bbddeb45 ("phy: rockchip: add usbdp combo phy driver")
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://lore.kernel.org/linux-phy/20260612164107.C7DB21F000E9@smtp.kernel.org/
-Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+Note, the device must have a VFIO selftest driver in order to work with
+the test.  A helper script to list supported devices will hopefully be
+available in the near future at
+tools/testing/selftests/vfio/scripts/list_supported_devices.sh[1].
+
+Example:
+$ ./tools/testing/selftests/kvm/irq_test -d 0000:06:0a.1
+
+Link: https://lore.kernel.org/all/20260602222941.3133236-1-jrhilke%40google.com [1]
+Signed-off-by: David Matlack <dmatlack@google.com>
+Co-developed-by: Josh Hilke <jrhilke@google.com>
+Signed-off-by: Josh Hilke <jrhilke@google.com>
+Co-developed-by: Sean Christopherson <seanjc@google.com>
+Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- drivers/phy/rockchip/phy-rockchip-usbdp.c | 11 +++++++----
- 1 file changed, 7 insertions(+), 4 deletions(-)
+ tools/testing/selftests/kvm/irq_test.c | 98 ++++++++++++++++++++++++--
+ 1 file changed, 92 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 3fc8222fcaec..f7ff55f03b7c 100644
---- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
-+++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-@@ -926,6 +926,7 @@ static int rk_udphy_parse_lane_mux_data(struct rk_udphy *udphy)
+diff --git a/tools/testing/selftests/kvm/irq_test.c b/tools/testing/selftests/kvm/irq_test.c
+index 9f8895b89821..70b2c9cac279 100644
+--- a/tools/testing/selftests/kvm/irq_test.c
++++ b/tools/testing/selftests/kvm/irq_test.c
+@@ -3,7 +3,10 @@
+ #include "test_util.h"
+ #include "apic.h"
+ #include "processor.h"
++#include "proc_util.h"
  
- static int rk_udphy_get_initial_status(struct rk_udphy *udphy)
++#include <libvfio.h>
++#include <linux/sizes.h>
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <unistd.h>
+@@ -55,6 +58,48 @@ static void *vcpu_thread_main(void *arg)
+ 	return NULL;
+ }
+ 
++static int vfio_setup_msi(struct vfio_pci_device *device)
++{
++	const int flags = MAP_SHARED | MAP_ANONYMOUS;
++	const int prot = PROT_READ | PROT_WRITE;
++	struct iova_allocator *allocator;
++	struct dma_region *region;
++
++	/* Sanity check that the device+driver can actually send MSIs. */
++	TEST_REQUIRE(device->driver.ops);
++	TEST_REQUIRE(device->driver.ops->send_msi);
++
++	/*
++	 * Set up a DMA-able region for the driver to use.   Very few devices
++	 * provide a way to arbitrarily send interrupts (MSIs), e.g. by writing
++	 * an MMIO register.  Instead, most devices send MSIs when an action is
++	 * completed, and practically all actions involve DMA of some form.
++	 */
++	allocator = iova_allocator_init(device->iommu);
++
++	region = &device->driver.region;
++	region->size = SZ_2M;
++	region->iova = iova_allocator_alloc(allocator, region->size);
++	region->vaddr = kvm_mmap(region->size, prot, flags, -1);
++	TEST_ASSERT(region->vaddr != MAP_FAILED, "mmap() failed\n");
++	iommu_map(device->iommu, region);
++
++	iova_allocator_cleanup(allocator);
++
++	vfio_pci_driver_init(device);
++
++	return device->driver.msi;
++}
++
++static void trigger_interrupt(struct vfio_pci_device *device, int eventfd)
++{
++	if (device)
++		vfio_pci_driver_send_msi(device);
++	else
++		eventfd_write(eventfd, 1);
++}
++
++
+ static void kvm_route_msi(struct kvm_vm *vm, u32 gsi, struct kvm_vcpu *vcpu,
+ 			  u8 vector)
  {
-+	const struct rk_udphy_cfg *cfg = udphy->cfgs;
- 	int ret;
- 	u32 value;
+@@ -74,11 +119,29 @@ static void kvm_route_msi(struct kvm_vm *vm, u32 gsi, struct kvm_vcpu *vcpu,
+ 	vm_ioctl(vm, KVM_SET_GSI_ROUTING, &routing.header);
+ }
  
-@@ -938,10 +939,12 @@ static int rk_udphy_get_initial_status(struct rk_udphy *udphy)
- 	rk_udphy_reset_deassert_all(udphy);
- 
- 	regmap_read(udphy->pma_regmap, CMN_LANE_MUX_AND_EN_OFFSET, &value);
--	if (FIELD_GET(CMN_DP_LANE_MUX_ALL, value) && FIELD_GET(CMN_DP_LANE_EN_ALL, value))
--		udphy->status = UDPHY_MODE_DP;
--	else
--		rk_udphy_disable(udphy);
-+	if (FIELD_GET(CMN_DP_LANE_MUX_ALL, value) && FIELD_GET(CMN_DP_LANE_EN_ALL, value)) {
-+		dev_info(udphy->dev, "Started with DP PHY pre-enabled; seamless takeover unsupported\n");
-+		rk_udphy_grfreg_write(udphy->vogrf, &cfg->vogrfcfg[udphy->id].hpd_trigger, false);
++static const char *probe_iommu_type(void)
++{
++	int io_fd;
++
++	io_fd = open("/dev/iommu", O_RDONLY);
++	if (io_fd >= 0) {
++		close(io_fd);
++		return MODE_IOMMUFD;
 +	}
 +
-+	rk_udphy_disable(udphy);
- 
- 	return 0;
++	io_fd = __open_path_or_exit("/dev/vfio/vfio", O_RDONLY,
++				    "Is VFIO (or IOMMUFD) loaded and enabled?");
++	close(io_fd);
++	return MODE_VFIO_TYPE1_IOMMU;
++}
++
+ static void help(const char *name)
+ {
+-	printf("Usage: %s [-h]\n", name);
++	printf("Usage: %s [-d <segment:bus:device.function>] [-h] [-t iommu_type]\n", name);
+ 	printf("\n");
+ 	printf("Tests KVM interrupt routing and delivery via irqfd.\n");
++	printf("-d	Use a VFIO device to send MSI-X interrupts instead of manually signaling the eventfd\n");
++	printf("-t	Override the IOMMU type to use (vfio_type1_iommu or iommufd)\n");
+ 	printf("\n");
+ 	exit(KSFT_FAIL);
  }
-
+@@ -100,14 +163,25 @@ int main(int argc, char **argv)
+ 	u32 gsi = kvm_random_u64_in_range(&kvm_rng, 24, KVM_MAX_IRQ_ROUTES - 1);
+ 	u8 vector = kvm_random_u64_in_range(&kvm_rng, 32, UINT8_MAX);
+ 
+-	struct kvm_vcpu *vcpus[KVM_MAX_VCPUS];
+ 	pthread_t vcpu_threads[KVM_MAX_VCPUS];
++	struct kvm_vcpu *vcpus[KVM_MAX_VCPUS];
++	struct vfio_pci_device *device = NULL;
+ 	int nr_irqs = 1000, nr_vcpus = 1;
+-	int i, j, c, eventfd;
++	const char *device_bdf = NULL;
++	const char *iommu_type = NULL;
++	int i, j, c, msix, eventfd;
++	struct iommu *iommu;
+ 	struct kvm_vm *vm;
++	int irq;
+ 
+-	while ((c = getopt(argc, argv, "h")) != -1) {
++	while ((c = getopt(argc, argv, "d:ht:")) != -1) {
+ 		switch (c) {
++		case 'd':
++			device_bdf = optarg;
++			break;
++		case 't':
++			iommu_type = optarg;
++			break;
+ 		case 'h':
+ 		default:
+ 			help(argv[0]);
+@@ -119,7 +193,19 @@ int main(int argc, char **argv)
+ 	vm = vm_create_with_vcpus(nr_vcpus, guest_code, vcpus);
+ 	vm_install_exception_handler(vm, vector, guest_irq_handler);
+ 
+-	eventfd = kvm_new_eventfd();
++	if (device_bdf) {
++		if (!iommu_type)
++			iommu_type = probe_iommu_type();
++		iommu = iommu_init(iommu_type);
++		device = vfio_pci_device_init(device_bdf, iommu);
++		msix = vfio_setup_msi(device);
++		irq = vfio_msix_to_host_irq(device_bdf, msix);
++		eventfd = device->msi_eventfds[msix];
++		printf("Using device %s MSI-X[%d] (IRQ-%u)\n", device_bdf, msix,
++		       irq);
++	} else {
++		eventfd = kvm_new_eventfd();
++	}
+ 
+ 	pr_info("Injecting interrupts for GSI %d (guest vector 0x%x) %d times\n",
+ 		gsi, vector, nr_irqs);
+@@ -147,7 +233,7 @@ int main(int argc, char **argv)
+ 				    "IRQ flag for vCPU %d not clear prior to test",
+ 				    vcpus[j]->id);
+ 
+-		eventfd_write(eventfd, 1);
++		trigger_interrupt(device, eventfd);
+ 
+ 		clock_gettime(CLOCK_MONOTONIC, &start);
+ 		while (!GUEST_RECEIVED_IRQ(vcpu) &&
 -- 
-2.53.0
+2.55.0.rc0.799.gd6f94ed593-goog
 
 
