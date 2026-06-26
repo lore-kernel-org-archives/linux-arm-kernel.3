@@ -4,77 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 396F0CDE008
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 10:44:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFB71CDE008
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 10:55:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=XOJzH6ZlojNRGhFSQQCm5QvW7MMJvx/jEYA6dtw25WI=; b=Fe82m96GtecPBFGQ232clCAiHd
-	HuW19k9LyuyF4ezj5aH94liFtij5w14m+BitpdM3ZrWPFR++VehM0C7Il+rT5UhKyT7JktpmqTs1w
-	kiYOTCkdCipgusz3XfeOJcxTqaXfeMixtsWK80lWydcmi5AafekQSS4qhEqKRoflHw2+Ohu+5k1kY
-	cbgvFwcnp9YLIUDrGN8PCPqNTh+7D8+enluIgbkmOnKtc561MEs2HeXlXxghtbVo3ZZHCcHJ1cQcN
-	C31+Fpp4rfR3JPUqkUt9kkAQ993fJgVJtkOn8QcCIDO17S/XVRUtK6N9j2fzmdmMGlGhYQc67BcMA
-	0DISQqAA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ONCcGd6ZlJNr1bN8d4F4ClrTccrd587NfTSM5w0oxJM=; b=GASjNRF08JRVy6Z8EOe9XhXmVa
+	QimVkn4v+Z6YLRT5lFrkxKuiVIiv6qkgOJ7lDrBYxOtcszgeCgXAZyOqd1NSJu7da4hCRI8N+lSkX
+	dlKdEwj8an9DE3+wBmWrDkdQBf68Km0SGvGXxjXOkUEyZJvuU9veXfi14G/IKIb0Hh7RXmdl7WC6I
+	VT3dZVzNj6XRXAPYnv/ZUGM6DZTfdv4omhk7XADnVsIY3B18O/pQJGXaD3jd62HRy8qUL/HtqXDdx
+	6GD0D66Xcc1eybLWUMGAswWgzEWuJ1OLtdIw78gtyQTq54SMd3EgitIr2stMKR5RiQEiMoaR7NsRD
+	3LXPJaVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd434-0000000B80b-39jY;
-	Fri, 26 Jun 2026 10:44:38 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1wd4Dp-0000000B9A1-2qUt;
+	Fri, 26 Jun 2026 10:55:45 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd433-0000000B80F-1sxV
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 26 Jun 2026 10:44:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Type:MIME-Version:Message-ID:
-	Date:Subject:To:From:Sender:Reply-To:Cc:Content-Transfer-Encoding:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=XOJzH6ZlojNRGhFSQQCm5QvW7MMJvx/jEYA6dtw25WI=; b=QVRamhBJyiVhqduBn1GIhx6LFK
-	mGMiSxf0vy8eR6lSJuKNbXE+DsK/bO5ZCXkOe3t7G39Le8TOTsaCpSdQCcB3e2oHG3qHqHmH+AbTB
-	XBjMKiRWSkg1nqqU5KJOw86Cj/Ieo+m4kNCQH7Qk1RkYXxkW/NAxwf7JPn8b8+Ba/CdDk2vw23VOk
-	sV+QqeaCNcOOU6V2Lhv8pnH31aVpykspD8AuE98LboJB21dvEKg7erS2yqLFeutnv39LSOFRGB2up
-	1OlZF32vg0pMJVVomE1SPOX2wVawkDFUSHosuSyRHUFM2tM7IsDeFJ1fa00PZkmjYwbH9REXB3pQw
-	VY7N9n/A==;
-Received: from mx20.baidu.com ([111.202.115.85] helo=outbound.baidu.com)
-	by casper.infradead.org with smtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd42v-0000000BfnR-2iuE
+	id 1wd4Do-0000000B99Z-0y8n
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 10:44:34 +0000
-X-MD-Sfrom: lirongqing@baidu.com
-X-MD-SrcIP: 172.31.50.47
-From: lirongqing <lirongqing@baidu.com>
-To: Russell King <linux@armlinux.org.uk>, Marek Szyprowski
-	<m.szyprowski@samsung.com>, Leon Romanovsky <leon@kernel.org>, Danilo
- Krummrich <dakr@kernel.org>, Matthew Wilcox <willy@infradead.org>, Jason
- Gunthorpe <jgg@ziepe.ca>, Li RongQing <lirongqing@baidu.com>, Kees Cook
-	<kees@kernel.org>, Douglas Anderson <dianders@chromium.org>, Gregory CLEMENT
-	<gregory.clement@bootlin.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: [PATCH] ARM: dma-mapping: Fix wrong free function in __iommu_alloc_simple() error path
-Date: Fri, 26 Jun 2026 18:11:51 +0800
-Message-ID: <20260626101151.2185-1-lirongqing@baidu.com>
-X-Mailer: git-send-email 2.17.1
+	Fri, 26 Jun 2026 10:55:44 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id A83E4600AE;
+	Fri, 26 Jun 2026 10:55:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 890841F000E9;
+	Fri, 26 Jun 2026 10:55:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782471343;
+	bh=ONCcGd6ZlJNr1bN8d4F4ClrTccrd587NfTSM5w0oxJM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=GfyLggfPWAdZWacvjfH8rboMlo1IOYnUIXJA0CoLhVw8dMs6+XPDJsUya1SuQadkN
+	 rd4VbdIu6cux/zcXSwlNQ6ILwpmJBcPGtlFQKQdqlKMTOni2smREFTzZePYyAiWv0U
+	 zrUOa7PsjZxVkqKV51z0na/Tok1fOawfiKmtwwDsWfZyzT5L5ZOy2zYdK/qDrLZCBm
+	 pxz+qqpHJaTnNLd6pfYFGYFNssuvOGECgtAErECjFZA9ZAoKhwnBHqZfcYZB42GL7m
+	 AX9T5VE1Dhi49gAsNLyfcMU0D6JQIF2ufuw1Gx/aBrAZKROWmGQjcqr87As5g1GehW
+	 EWktfONzWNYvQ==
+Date: Fri, 26 Jun 2026 11:55:36 +0100
+From: Will Deacon <will@kernel.org>
+To: Sebastian Ene <sebastianene@google.com>
+Cc: catalin.marinas@arm.com, maz@kernel.org, oupton@kernel.org,
+	joey.gouly@arm.com, korneld@google.com, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	android-kvm@google.com, mrigendra.chaubey@gmail.com,
+	perlarsen@google.com, suzuki.poulose@arm.com, vdonnefort@google.com,
+	yuzenghui@huawei.com
+Subject: Re: [PATCH v6 7/7] KVM: arm64: Enforce strict SBZ checks in the FF-A
+ proxy
+Message-ID: <aj5aqMyLGWw1IMAJ@willie-the-truck>
+References: <20260626074545.433234-1-sebastianene@google.com>
+ <20260626074545.433234-8-sebastianene@google.com>
+ <aj5CMsyQ25xuxISV@willie-the-truck>
+ <aj5FZBO7FJ4r219O@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain
-X-Originating-IP: [172.31.63.8]
-X-ClientProxiedBy: bjkjy-exc2.internal.baidu.com (172.31.50.46) To
- bjkjy-exc3.internal.baidu.com (172.31.50.47)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=baidu.com;
-	s=selector1; t=1782468734;
-	bh=XOJzH6ZlojNRGhFSQQCm5QvW7MMJvx/jEYA6dtw25WI=;
-	h=From:To:Subject:Date:Message-ID:Content-Type;
-	b=o0ohRgpAYGU37ntKHrDW+F+viJ1noFsDVl/3erxHn0WUSOOfyS77L0kMm8W6XEiXx
-	 ZSIt2wsNYOpCTw2Ic8eVLN9PV19FKgzw00zrgTCEYGWhBtW0++XhwrYRUL5TFXttSp
-	 t0VuthRsvRy1OtV1E7Lp4K99Mr5sLNGHc2bdtt0GqPuphNNmUBqpqT22A6oOqpSN+P
-	 iBkxv+9CW5Y/vYe6zvuVHjJfjoiR/UW6vpj9+/mJdoU7CenAZxp4jY1nMURyFh7L+d
-	 HFW4qJcH29T2kcz2MTMv8xcBPoCd0wIRZQIv46KtcBOA2bRtQPEY6UGv1YBo5dMAvW
-	 DpJRCuGGKhRNg==
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_114431_341658_2654437A 
-X-CRM114-Status: UNSURE (   9.75  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aj5FZBO7FJ4r219O@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,43 +76,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Li RongQing <lirongqing@baidu.com>
+On Fri, Jun 26, 2026 at 09:24:52AM +0000, Sebastian Ene wrote:
+> On Fri, Jun 26, 2026 at 10:11:14AM +0100, Will Deacon wrote:
+> > On Fri, Jun 26, 2026 at 07:45:45AM +0000, Sebastian Ene wrote:
+> > > Introduce a helper method ffa_check_unused_args_sbz to enforce strict
+> > > arguments checking when the hypervisor acts as a relayer between the
+> > > host and Trustzone.
+> > > 
+> > > Signed-off-by: Sebastian Ene <sebastianene@google.com>
+> > > Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
+> > > ---
+> > >  arch/arm64/kvm/hyp/nvhe/ffa.c | 96 ++++++++++++++++++++++++++++++++++-
+> > >  1 file changed, 95 insertions(+), 1 deletion(-)
+> > > 
+> > > diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> > > index 712811e89435..bd50ddc5b61c 100644
+> > > --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
+> > > +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> > > @@ -74,6 +74,21 @@ static u32 hyp_ffa_version;
+> > >  static bool has_version_negotiated;
+> > >  static hyp_spinlock_t version_lock;
+> > >  
+> > > +static bool ffa_check_unused_args_sbz(struct kvm_cpu_context *ctxt, int first_reg)
+> > > +{
+> > > +	DECLARE_REG(u32, func_id, ctxt, 0);
+> > > +	int reg, end_reg = 7;
+> > > +
+> > > +	if (FFA_MINOR_VERSION(hyp_ffa_version) >= 2)
+> > > +		end_reg = ARM_SMCCC_IS_64(func_id) ? 17 : 7;
+> > 
+> > This looks like an accident waiting to happen if we don't check the major
+> > number as well.
+> > 
+> > I think you should just check:
+> > 
+> > 	if (hyp_ffa_version >= FFA_VERSION_1_2)
+> > 
+> > instead.
+> > 
+> > You should also add a comment.
+> 
+> We restrict hyp_ffa_version major to 1.0 here
+> https://elixir.bootlin.com/linux/v7.1.1/source/arch/arm64/kvm/hyp/nvhe/ffa.c#L962
+> but since this is an easy fix I will include it.
 
-In __iommu_alloc_simple(), when IOMMU mapping creation fails, the error
-path unconditionally called __free_from_pool() regardless of the
-allocation path taken.
+Thanks, Seb. I'm just certain that if/when we update that check, we'll
+forget to update this bit at the same time (I know I would!). So doing
+it now is the simplest thing.
 
-For the COHERENT case, memory is allocated via __alloc_simple_buffer(),
-which does not use the atomic pool. Calling __free_from_pool() on such
-memory silently returns without freeing, causing a page memory leak.
+With that change:
 
-Fix this by matching the free function to the allocation path:
-- COHERENT: use __dma_free_buffer(virt_to_page(addr), size)
-- non-COHERENT: use __free_from_pool(addr, size)
+Acked-by: Will Deacon <will@kernel.org>
 
-Fixes: 565068221b905 ("ARM: 8561/4: dma-mapping: Fix the coherent case when iommu is used")
-Signed-off-by: Li RongQing <lirongqing@baidu.com>
----
- arch/arm/mm/dma-mapping.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm/mm/dma-mapping.c b/arch/arm/mm/dma-mapping.c
-index f9bc53b..55d3d3b 100644
---- a/arch/arm/mm/dma-mapping.c
-+++ b/arch/arm/mm/dma-mapping.c
-@@ -1056,7 +1056,10 @@ static void *__iommu_alloc_simple(struct device *dev, size_t size, gfp_t gfp,
- 	return addr;
- 
- err_mapping:
--	__free_from_pool(addr, size);
-+	if (coherent_flag == COHERENT)
-+		__dma_free_buffer(virt_to_page(addr), size);
-+	else
-+		__free_from_pool(addr, size);
- 	return NULL;
- }
- 
--- 
-2.9.4
-
+Will
 
