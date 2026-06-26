@@ -4,107 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B72A6C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 19:54:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAA31C43211
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 19:58:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WHIpLp9HI+rPAwCzsNS6avOzV6ru9OowfuhFK1lFRb0=; b=ctFtF17GXBnyvLM/Z7TGHAN5zD
-	bEsGcDMCcVXZMp7Fkf1M/Aj+ynMO/8YebNlcKZscPOYeUigJEfSSaN16Eylwf1VYHF4TR/8GWsnU9
-	s9Xbi9/XOt+xVVvugfwNmMqafaL7ySKr1x9ZsSWb817KBAoefNd8EdZsW1c1Fc8mGpBB2IhVkOCZF
-	qUV/Bv0JzI18jN+yga8WL7G4wsui0ni12e5UB56t9LgvVzHIYycimfqFUfrttQj7dWt44sShhkVXJ
-	nQEWlKin+pwAydgeC5EdUN8IUqL9hVn6tCW7NsCw3O7Ydh7jC7Qq9DoBtUK6ELGEHY080EH1w9FTC
-	wGKRBtpA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:From:
+	Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q2IKUBOjt0LLv1AclgrcUtUEkkgxk7U1S1o+izpivZM=; b=wDiI953pR2GxcUviLrLq4TFbU5
+	j517lXxJWjCYBJ9gnwT0aXaBpIdKEhbs1Nxaf/yOdHxiRArFw7DM/HE5mVD7MW647PwdJodlHnRqG
+	auowZ0rWR21hTtVK+UD1uvw0xmsM1TOGhg4hzWuWvx43HEj2Rr4DnWFdZLg1egCLKDdan5c3XAGWP
+	XB0Kz/0VpBq7UNOSahqxCvhEX69fSrhwg2YKa50McmeBB3nAlxWM5QF+DrFiRW/fEhheY/HioHpYC
+	EXMNUvdLbxxbjbmcOiGX4Vn2wRwn2rcQQ75mtHEhBTufi9cYOfcCVBTqADMf/g5UDTFnMvHx4DAlA
+	9w5GLNWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdCce-0000000Bo04-1GO0;
-	Fri, 26 Jun 2026 19:53:56 +0000
-Received: from mail-dl1-x122c.google.com ([2607:f8b0:4864:20::122c])
+	id 1wdCgy-0000000Bo7K-2vJO;
+	Fri, 26 Jun 2026 19:58:24 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdCcb-0000000Bnzj-2djO
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 19:53:54 +0000
-Received: by mail-dl1-x122c.google.com with SMTP id a92af1059eb24-1363fe80fe8so2839769c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 12:53:53 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1782503632; cv=none;
-        d=google.com; s=arc-20260327;
-        b=pE7k+RF71s8z//sMwcQnj88NQVjO2MmQ0Wl5q2cr7QOAus+WunUtMVOqmhWJ+d8Fes
-         KHQFEAgordS+ljHRoFjSQYxh2eV4+mWM0uCdf50uVtkkqhxqcPHD30Cad0xbTrPLvmWv
-         nXDzlbWhz2beZ/oymi0tsMJhpZhnFX2ZpnZpAsUnljZgV2NFYFHa6LgJCX5zZTq3w660
-         kaQ+u5zpRo+BvHXd12DZg5CF7dBWq2bI2iYSdCpHtnGxBFn/9HQdsW0GbZ56tEBpPa8Y
-         Ko9mjKIS4k3/Cgxbr/tM9oOGw36zA1ctMx5D/4tVhDpEwyQJnCC/mZhDOHoL+hBopguW
-         5ZFQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=WHIpLp9HI+rPAwCzsNS6avOzV6ru9OowfuhFK1lFRb0=;
-        fh=MSuF6+ceMPxILic7Nn1PjsI3mfP2OSfP6OfKVYuPXvg=;
-        b=bSUj+mLokK8QFU0MliKVd9OyfPHsvFFaAWCAqtq0hUrE1FW56jocwhyA9w1XQH0Kfk
-         2OnBMMOfKuwkLUhEWGkXNNldNP/K4V4wtMZLw86RDUWFz34u8Hoj6/hHytBGF9lW4uE6
-         fI6b7wfjxdDWgrThrm+OfzlFyP0VaAwfB675XER5mcuEaYiHCoxg2OWlBrIP2RZF1/Ja
-         D4RR4TLk0BgR65D1v3DY36V7OV5aNJ/7W6NcWx8o2tt68rhSlaMPMPdIAp5QCkKVy7i7
-         hxqXLSlM+jN2XPRNteqAkFVoZ3SaFQDjfuq8UlYMOKpf8z9GU0EB085mMR4YZQJk5f/F
-         yR3A==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782503632; x=1783108432; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WHIpLp9HI+rPAwCzsNS6avOzV6ru9OowfuhFK1lFRb0=;
-        b=OUrO3EfLONJunimmoNUNRn4kSRq/tQz6cjrh3H3lQbl4AXfGeyixoTJueRXnud8p8+
-         8rM41LwwBDyqVeFk2epbOBjUhYfNbAt8lV0rJAT2jAe5RsXPx1X1huNUQw9HzctvMbHb
-         AMUBTRjU4IstTerY7by9cmZ4F9jmViixmWLP5c62IbPAtxR5s966DFUfVu9G0QRyto9s
-         HfmJ0lB1eWblD0QRvKzlwqmgv6nCN3nxeo6QAYgQNXIi24j6u6bL3GhaHQfrza2rPAcR
-         qan5ArkZ/gkeq8CN8HepnUwGyl+6a5+l9/+23rR9vOqtIIjuTXCC11iex7D03pZlTpf3
-         iY9g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782503632; x=1783108432;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=WHIpLp9HI+rPAwCzsNS6avOzV6ru9OowfuhFK1lFRb0=;
-        b=IZkkM/M+0IhAPx6q2VMqg+lFUH2AaEZvcsfNMCUDieReU+IjUr3GnLZjnYQm41qz8j
-         ae5JK/XZ+NgpEfaRxDfH+pq8YPykeeNKU2vTc+I1GmbUiIU9M2DrZTczVu4hMlN1mbdx
-         OIfo27Ki4dfP8/29gDLH6QopJKN781KMDPpnWgtmOE6PBFHK3XSsoXPPwhn/F4mNsMWy
-         0ou0w/Yl8dwTPI//7qrx+z/nGOLpNSa1mGWa3Gnlz0OJd/OCI0Kt8DBrOkOGP8bQ0jMj
-         CBZban44kgUcZ6gr/Tkbza86qDnAc7fM8+VfVKMV7lSkBSTNGUCRHMrMv1CzTM44Xs1l
-         xoQQ==
-X-Forwarded-Encrypted: i=1; AFNElJ8qWodj4iBiqZdfuylEdfixNVQONzP7ECQxnrcwD1Ipj4FcjXcliwbhOdrgtV4te4UfawgBcZx+lFNLguE0eO1H@lists.infradead.org
-X-Gm-Message-State: AOJu0YwYl2iIzQ6tugg3fJIRjgOa+WKTkuTrWaXtH5yPK9DtLv+waJeC
-	le2KH59UDDiw4wDpV2TQ0T5klT4toK7cEzNjsWSztFpkiZUJvP2aYYTLTmRDpaxk7kCOsDT/ic6
-	oDLETPlFArkZSBZjRyvjsugEfxhyfx7A=
-X-Gm-Gg: AfdE7cmZTFYDfgdY6L1XAnO2Vvbp3xB6Xt5/qKsI2GmvPTQiJwDiYRRBKBZbMaXpn9R
-	Br805vI6kkSHDqz9JeY2D/AlPErP0XL5EGjkNIf/XIpGrUwFvYDsDDFL2sZKyX3ZHl3Lm2X719d
-	6qmS5tFs3CshoNq4WLFmtTVh4jEHyXY0sd4LSecxzpmduEqxSX4sgES004cTiVtPFLAKWLyN3oz
-	PlH1aSmTbPotI/wCHypheFoR8unr5OU83OSDcnlQeKMpWKPqUPK1mb5C5k4gPRDoBVTMzch7Iyp
-	pzF30y2/T+sZM72irogDzB6f8RlBpMzObwZkLW56JmBi/qGxwifLPJYiqrP7pLQ=
-X-Received: by 2002:a05:7022:2528:b0:136:959a:abf2 with SMTP id
- a92af1059eb24-139db9e5eddmr6574649c88.2.1782503632436; Fri, 26 Jun 2026
- 12:53:52 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260624100326.413699-1-piyushpatle228@gmail.com> <aj5MNiKSCiEDvDzL@raspi>
-In-Reply-To: <aj5MNiKSCiEDvDzL@raspi>
-From: Piyush Patle <piyushpatle228@gmail.com>
-Date: Sat, 27 Jun 2026 01:23:13 +0530
-X-Gm-Features: AVVi8Cc8J5b8utQLMkVEyLYbA13emlJ_chAaoJA4TJ2pE9djj-ndQ8odlJXm0ws
-Message-ID: <CAMB+xkbpqNbYpQH331aiXxEhkp6mZTcfkCeELyeS1qbiLTN-9A@mail.gmail.com>
-Subject: Re: [RFC] drm/imx: upstream direction for i.MX95 display support
-To: Liu Ying <victor.liu@nxp.com>
-Cc: dri-devel@lists.freedesktop.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, marex@nabladev.com, 
-	daniel.baluta@nxp.com, Frank.Li@nxp.com, shawnguo@kernel.org, 
-	tzimmermann@suse.de, maarten.lankhorst@linux.intel.com, mripard@kernel.org, 
-	airlied@gmail.com, simona@ffwll.ch
+	id 1wdCgw-0000000Bo6w-3Qti;
+	Fri, 26 Jun 2026 19:58:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1782503894; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=D3WZsCftahOcMt4cxKE8kIy3vHriVPJPnKUPnh8TUb+BgXjDnK5xKTeOwa4HCNB1DC3Ep33o256HPWq79ViBnTMoDbFe0iVYvxUzlAHu0La1cQXkWqRpvy5r6FJ1Qz+xT+jtotwbPhsZhBVNX/OJsc60h/cBGQHStt92JvtauNk=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1782503894; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=q2IKUBOjt0LLv1AclgrcUtUEkkgxk7U1S1o+izpivZM=; 
+	b=hlbDxphJYgUIeqgUFmtVBIi8eI5XeJcBXjXmBnQMWRaenqfkQw7/jWHxXB7nbMbtDBBrL4FPyGY4nL8u9OAHNUYmTj6XrN9mGPWqYLrtYwoRk6omt8QFiOU+7MkuoUBY9lJ0pNYsA6bZ0Zi8+HMOuACN/xnepnB80yfy/1xGigI=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=rong.moe;
+	spf=pass  smtp.mailfrom=i@rong.moe;
+	dmarc=pass header.from=<i@rong.moe>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1782503894;
+	s=zmail2048; d=rong.moe; i=i@rong.moe;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date:Date:MIME-Version:Message-Id:Reply-To;
+	bh=q2IKUBOjt0LLv1AclgrcUtUEkkgxk7U1S1o+izpivZM=;
+	b=IP/eqXj9LaZbSwoZ+aUFHMNf6IRTAjnG5jLWdv1XxZVhgU6mMLc1woFm1XdMrl26
+	+pykSvpr5QQg4Z/UTtctPjAty0yauWOGz/9TouvKEOX+Go9Fuox6yuczQLQfGk72uir
+	CYdhds8x2b+QUYfjOMsThqJiNWk10M7BJtvc1Ik091ogbCtQ/EkzU+oJwIM7FtyG04b
+	766vU8hNA0Ijde6vXNRrgTnl7p1L4180KX9jD/zQ7tamxZSkCYqJ/KmK5ZOendQabNF
+	KZKg5IRJOswoLRjmTCiornuVnxY21iO5l4mz45LmwSn6EY16+5mrrykL2voHTxui1Y2
+	Wnmbp0p9qg==
+Received: by mx.zohomail.com with SMTPS id 1782503892877670.3110593257745;
+	Fri, 26 Jun 2026 12:58:12 -0700 (PDT)
+Message-ID: <4e96132bcfb267af05c06dc277b5ba6895e3ddde.camel@rong.moe>
+Subject: Re: [PATCH] Bluetooth: btmtk: Disable remote wakeup for
+ MT7922/MT7925
+From: Rong Zhang <i@rong.moe>
+To: Chris Lu =?Big5?Q?=28=B3=B0=B8X=AAl=29?= <Chris.Lu@mediatek.com>, 
+ "luiz.dentz@gmail.com"
+	 <luiz.dentz@gmail.com>
+Cc: "marcel@holtmann.org" <marcel@holtmann.org>, AngeloGioacchino Del Regno
+	 <angelogioacchino.delregno@collabora.com>, SS Wu
+ =?Big5?Q?=28=A7=C5=BE=CB=AAY=29?=
+	 <ss.wu@mediatek.com>, "linux-kernel@vger.kernel.org"
+	 <linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	 <linux-arm-kernel@lists.infradead.org>, "linux-bluetooth@vger.kernel.org"
+	 <linux-bluetooth@vger.kernel.org>, "patchwork-bot+bluetooth@kernel.org"
+	 <patchwork-bot+bluetooth@kernel.org>, "linux-mediatek@lists.infradead.org"
+	 <linux-mediatek@lists.infradead.org>, "matthias.bgg@gmail.com"
+	 <matthias.bgg@gmail.com>
+In-Reply-To: <fd8587e97a48e49332a4ad36e51e18739d000250.camel@mediatek.com>
+References: <20260603-btmtk-remote-wakeup-v1-1-5c1006442f36@rong.moe>
+		 <178050901239.1520440.2026593395539384648.git-patchwork-notify@kernel.org>
+		 <3f9c376a5dbfc9d737e2a7f83c5db8e591fb8793.camel@mediatek.com>
+		 <17FE08E9-2229-4C97-846F-6FA099E22C90@rong.moe>
+		 <CABBYNZ+rR71SKUEuZBTf+E3SwRNzV2-s-zt8EwNJM3PSx9qB_A@mail.gmail.com>
+	 <fd8587e97a48e49332a4ad36e51e18739d000250.camel@mediatek.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+Date: Sat, 27 Jun 2026 03:56:59 +0800
+MIME-Version: 1.0
+User-Agent: Evolution 3.56.2-10 
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_125353_677027_59381D50 
-X-CRM114-Status: GOOD (  31.06  )
+X-CRM114-CacheID: sfid-20260626_125822_918384_4E360DF2 
+X-CRM114-Status: GOOD (  47.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,108 +96,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 26, 2026 at 3:22=E2=80=AFPM Liu Ying <victor.liu@nxp.com> wrote=
-:
->
-> On Wed, Jun 24, 2026 at 03:33:18PM +0530, Piyush Patle wrote:
->
-> [...]
->
-> > The current dc/ implementation is a multi-device component driver with =
-one
-> > platform_driver per block bound via the component framework. The downst=
-ream
-> > i.MX95 driver is a single monolithic platform_driver mapping all blocks=
- from
-> > one register base. Unifying appears to require reconciling two bind mod=
-els,
-> > rather than only adding match_data.
->
+Hi Chris, Luiz,
 
-Hi Liu,
-Thanks for the detailed reply.
+On Fri, 2026-06-26 at 17:56 +0000, Chris Lu (=E9=99=B8=E7=A8=9A=E6=B3=93) w=
+rote:
+> Hi Rong and Luiz,
+>=20
+> On Fri, 2026-06-26 at 12:54 -0400, Luiz Augusto von Dentz wrote:
+> > Hi,
+> >=20
+> >=20
+> > On Fri, Jun 26, 2026 at 7:19=E2=80=AFAM Rong Zhang <i@rong.moe> wrote:
+> > >=20
+> > > Hi Chris,
+> > >=20
+> > > =E4=BA=8E 2026=E5=B9=B46=E6=9C=8826=E6=97=A5 GMT+08:00 10:40:54=EF=BC=
+=8C"Chris Lu (=E9=99=B8=E7=A8=9A=E6=B3=93)"
+> > > <Chris.Lu@mediatek.com> =E5=86=99=E9=81=93=EF=BC=9A
+> > > > Hi Luiz,
+> > > >=20
+> > > > Could we revert this change?
+> > >=20
+> > > Please don't. The fundamental goal of the patch is to make
+> > > MT7922/MT7925 *usable* on affected platforms.
+> > >=20
+> > > Moreover, almost all recent AMD platforms ship with MT7922/MT7925,
+> > > reverting this patch affects quite a lot of users. Almost every AMD
+> > > platform I've met suffers from the issue, and there are plenty of
+> > > bug reports.
+> > >=20
+> > > Intel platforms never ship with MTK WLAN NICs, so I can't tell if
+> > > the issue is reproducible on them.
+> >=20
+> We still have non-AMD platforms with MT7922/7925, where=C2=A0
+> "wakeup by Bluetooth" is an essential feature. In other word, this
+> change will have a serious impact to them.
 
-> I think that upstream i.MX95 display controller driver would also be base=
-d
-> on the component helper.  That's something for sure.
->
-> [...]
+Oh, perhaps I missed something before. Your words were a bit unclear to
+me at first glance.
 
-That answers the biggest question I had. Knowing that upstream i.MX95 shoul=
-d
-follow the component helper makes the overall direction much clearer.
+You previous reply said "wake on Bluetooth". I interpreted it as USB
+remote wakeup upon Bluetooch device connection.
 
->
-> > There is also anticipated divergence which is not yet upstream (i.MX8QX=
-P
-> > prefetch/PRG, LTS and tiling modifiers, and the downstream i.MX95 blit
-> > engine), although mainline dc/ is KMS-only today.
->
-> Just want to point out that I sent out v5 patch set[2] to add i.MX8QXP
-> prefetch engine(DPRC + PRG) support for KMS.  That changes the driver's
-> mode setting code a lot.
->
-> [2] https://lore.kernel.org/all/20251027-imx8-dc-prefetch-v5-0-4ecb6c6d49=
-41@nxp.com/
->
-> [...]
-Thanks for pointing that out. I went through the v5 series together with th=
-e
-downstream i.MX95 driver. Although the modesetting paths are diverging, man=
-y of
-the common display blocks still appear to share very similar register
-programming, with most differences being SoC-specific data such as register
-offsets and tables.
+"Wakeup by Bluetooth" is clearer. You meant using the Bluetooth
+interface as a wakeup source to wake up the system from sleep, right?
 
->
-> > One question for Liu Ying is whether the separate-driver plus shared
-> > helper-library approach is still the preferred direction, and where the
-> > helper boundary would be drawn (which blocks/ops are shared versus
-> > implemented per driver).
->
-> Yes, separate DRM drivers + a helper library approach is still the direct=
-ion
-> I want.  I think that the drivers and library would sit in the same
-> directory drivers/gpu/drm/imx/dc/.
->
-> The purpose to add a library is to share code to reduce overall code line=
-s.
-> I'd assume that shared blocks or common part of slightly different blocks
-> should be covered by the library.
->
-> [...]
+Hmm, it makes more sense to me.
 
-Thanks for confirming that.
-Based on that comparison, my current plan is to prepare a refactoring serie=
-s
-that shares the common implementations for ConstFrame, ExtDst, LayerBlend,
-FrameGen and the FetchUnit base through a helper library, while keeping the
-i.MX95-specific blocks as separate component drivers.
+My patch was inspired by commit f4292e2faf52 ("Bluetooth: btusb: Make
+the CSR clone chip force-suspend workaround more generic"). The
+mentioned commit is correct as the quirky chips can't perform remote
+wakeup at all.
 
-One implementation detail I'd like to clarify: would you prefer the shared
-code to remain in the existing dc-*.c files with additional i.MX95 match
-data, or would you rather see it extracted into separate helper source file=
-s?
->
-> > how the component and monolithic driver models
-> > would be reconciled given the differences described above.
->
-> Like I said above, I don't think upstream driver would be monolithic.
->
+If MT7922/MT7925 can reliably wake up the system from sleep, my patch
+could be a burden. I won't insist anymore if you'd like to revert it.
 
-Understood. I'll treat the downstream monolithic driver as a reference
-and follow these plan for the upstream implementation.
-I'll start by preparing a refactoring series for the shared blocks. If the
-approach looks reasonable, I'd be happy to post the series for review befor=
-e
-working on the i.MX95 driver itself.
+>=20
+> > We cannot really remove it anymore, since it has already been pulled.
+> > Therefore, I strongly prefer that the issue is fixed somehow or if
+> > there is no other way then a proper revert patch must be sent, since
+> > I
+> > don't have any hardware with this controller I cannot really test
+> > this
+> > myself.
+> >=20
+> Got  it.
+> > > >=20
+> > > > Sorry, MediaTek wasn't aware someone submitted this change and it
+> > > > had
+> > > > already been merged.
+> > > >=20
+> > > > MTK believes this issue is strongly related to the platform's USB
+> > > > hub
+> > > > behavior,
+> > >=20
+> > > Still, I believe that there are some interoperability issues in
+> > > MT7922/MT7925's hardware or firmware, as reinitializing the XHCI
+> > > root hub (by logically removing it from the PCI bus and probing it
+> > > again) doesn't make it recover at all.
+> > >=20
+> > > > The product lines MTK directly support haven't reported such
+> > > > issue.
+> > >=20
+> > > ...or did you mean none of the existing AMD platforms are supported
+> > > by MTK?
+> > >=20
+> I'll report it to corresponding department to see if they have such
+> issue. (I'm not from Bluetooth with AMD platform support team)
+>=20
+> > > >=20
+> > > > Disable wake capability would severely impact wake on Bluetooth
+> > > > on
+> > > > MTK's official product lines.
+> > >=20
+> > > Could you kindly explain "MTK's official product lines"?
+> > >=20
+> Some products are module makers selling our modules to downstream
+> customers directly.
+>=20
+> > > > Furthermore, this patch looks like a
+> > > > workaround. There should be a better way to handle this issue. We
+> > > > hope
+> > > > this change can be reverted.
+> > >=20
+> > > The issue is severe on affected platforms by making the Bluetooth
+> > > interface completely gone. IMHO, we must figure out the "better
+> > > way" before reverting it, or else it's more like burying your head
+> > > into sand by shouting "works fine on our platforms" (TM).
+> > >=20
+> > > That being said, I think we can narrow the range of the quirk down
+> > > to AMD platforms only. Does it make sense to you? If so, I will
+> > > submit a patch for this.
+> >=20
+> As I mentioned above, we have many platforms using the kernel driver,
+> not just AMD,
+>=20
+> If this change can be limited to specific platform , it would be the
+> best way so far.
 
-Thanks again for the guidance.
+I plan to submit another patch to properly fix it next week. In general,
+I will:
 
-Regards,
-Piyush Patle
+- narrow the quirk down to AMD platforms only
+- disable USB remote wakeup for runtime autosuspend only
+- leave the wakeup source as is, so users can enable "wakeup by
+Bluetooth" even on AMD platforms if they really want it
 
-> --
-> Regards,
-> Liu Ying
+Hopefully it will minimize the impact of the workaround.
+
+Thanks,
+Rong
+
+>=20
+> > Ok, then you guys please coordinate. I don't want to start requiring
+> > Sign-Off-By (SOB) from driver authors because this instance shows
+> > that
+> > response time can be very long. Therefore, the best way forward in my
+> > opinion, is to have the issue fixed in a way that works for both of
+> > you.
+>=20
+> Of course, Mediatek BT team also agree that any issue need to be
+> resolved, However, original issue for this change requires further
+> verification of Hardware/firmware and even USB behavior. A device that
+> can reproduce the issue stably is required in order to experiment and
+> identify the root cause.
+>=20
+> As mentioned, I'll deliver internally to relate support team. If they
+> have similar settings, MTK will attempt to reproduce it and provide an
+> official solution.
+>=20
+> Thanks very much for your input and understanding.
+>=20
+> Best Regards,
+> Chris Lu
 
