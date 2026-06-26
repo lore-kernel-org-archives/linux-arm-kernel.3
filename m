@@ -4,67 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1865CD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 11:18:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A31B1CDE00C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 11:19:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+dgrebeHjs4fpxqiQop24k7ud/2CLXwg2SgO1/ChW0o=; b=HXNI69poiQRlTj4VH9vdkjx+/O
-	AdoXs2DbWzxQh5Suu349YncjPkD7k7syDNoDcBSRbWTxtOGrqIHIBzg5IJn2nwfpTHZ7bBZRofOUJ
-	0EL/nveWFBv0PkFcsClbzOYEL89Srcmb2Wc+HRe4UznRsDC7S41B/iGeChi4xqVLeZPMrrRVDveLF
-	HGi1CvfgSx/gvJRnhEnVDiyxDk+HH+9HG8YHginx6COvnKWFu3nMSqYhtI+N2DWWZ42H6yej1hIFU
-	KItumu4VhPBbxNQltCjZSgI+GBkO2xgpR/fxKEjf6U6wH2t5m/WPhSvn34U1arlrKM2fKnYAzAKRy
-	ImrDRZaQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Xuly9O0tAMSVu+2hyLKWHwTaD+lUumrMQlikUH/DvvM=; b=nXIPrVLCjcy/nKs/DFobe4Gqo/
+	9l4HmwK6H01ECc8Ot2dziiAfBrCvrf7fkOhCUHJfp70W10K8PDvTQ6BGV06k3e5Nm4eJPNYuJEQqv
+	cNPqSikG46UFM6TYiRAw9A4tP5PWRum9tVXJAxawIvDT3RDLR8lK1+GPn1fyk6lnxtltvG0tthAZO
+	Y7rAlhVQw4Bj2wlilB5qzDpeIvdcfKrWMKBtU8Kid3WEzFAVvqvHxvhYwtRTOWcX5+GtgLO5Q6AlM
+	hpuGnj1fNP3rYn2czBfo2a/EIqtQ/ykLg5XuEdl9T/jE29LpP/gv/7+V+PD5h25dg1it/6wwVc3h4
+	4Cu3Odew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd3ci-0000000B4vT-3RbF;
-	Fri, 26 Jun 2026 10:17:24 +0000
-Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
+	id 1wd4al-0000000BCjS-0zGp;
+	Fri, 26 Jun 2026 11:19:27 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd3cc-0000000B4le-0dkf
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 10:17:24 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=+dgrebeHjs4fpxqiQop24k7ud/2CLXwg2SgO1/ChW0o=;
-	b=QIR/CpMKuhnyRARQVpkEnuyoAYO8fHYJtBAgGdtOnkbmAI7pjaS10Gym833rMASL2GnrETCAK
-	hi+LXXZNs6iP1czILOvDS4naDBe1fzgC52avPQJ29IsxKqeqCHmQMJPxqMRGS6CB8Afq8EVJwT6
-	q1VrGUkslPNt3305PFJ8PUc=
-Received: from mail.maildlp.com (unknown [172.19.163.15])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4gmrw16PzWzmV6M;
-	Fri, 26 Jun 2026 18:08:01 +0800 (CST)
-Received: from kwepemj100009.china.huawei.com (unknown [7.202.194.3])
-	by mail.maildlp.com (Postfix) with ESMTPS id A833540539;
-	Fri, 26 Jun 2026 18:17:08 +0800 (CST)
-Received: from DESKTOP-A37P9LK.huawei.com (10.67.109.17) by
- kwepemj100009.china.huawei.com (7.202.194.3) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.36; Fri, 26 Jun 2026 18:17:08 +0800
-From: Xie Yuanbin <xieyuanbin1@huawei.com>
-To: <xiqi2@huawei.com>, <linux@armlinux.org.uk>
-CC: <akpm@linux-foundation.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <sunnanyong@huawei.com>,
-	<xieyuanbin1@huawei.com>
-Subject: Re: [PATCH v3 2/2] ARM: mm: protect show_pte() in do_DataAbort() fallback path
-Date: Fri, 26 Jun 2026 18:16:15 +0800
-Message-ID: <20260626101615.60920-1-xieyuanbin1@huawei.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260626073048.3595106-3-xiqi2@huawei.com>
-References: <20260626073048.3595106-3-xiqi2@huawei.com>
+	id 1wd4aj-0000000BCj0-1P24;
+	Fri, 26 Jun 2026 11:19:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1782472758; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=g8AUlxrBF5LH1GVl4lbltQSlbHrBtU+213LJQo5t+QW0EbW/YPv83nBSa8PkdbpQmX+vlVt7yl+FiQZlTVbx8T6scTC0OYIlUcfCKP+GYuphXNqVVr9NxVwVCxrT725U1BJUQefRwkeOGpPfm4CC8vE4jzQ7icbfL64n/bDlN0s=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1782472758; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=Xuly9O0tAMSVu+2hyLKWHwTaD+lUumrMQlikUH/DvvM=; 
+	b=kk47VyBMA9hd2okHqdwPc5hvmRv4AlSYFHEW7VIEeEt7ZljEZD5AWvn7AREOtXU2Ex9lNuuC1HLEPlHhCJJWgUJSLnHuI6Cey8ceBhQijiGfBH76tfJj732BrEtqLs3Xr28S7+rgnnxiehDWHqHjwYkuaxjStBO25ZAItT9B2pY=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=rong.moe;
+	spf=pass  smtp.mailfrom=i@rong.moe;
+	dmarc=pass header.from=<i@rong.moe>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1782472757;
+	s=zmail2048; d=rong.moe; i=i@rong.moe;
+	h=Date:Date:From:From:To:To:CC:Subject:Subject:In-Reply-To:References:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To:Cc;
+	bh=Xuly9O0tAMSVu+2hyLKWHwTaD+lUumrMQlikUH/DvvM=;
+	b=UOYFlsAJ4DQ/kmhSh5cHu2StIi3xJxPNds8AsvqRmV4iXu0AruvmZo29XeTfjfHZ
+	q+8NskdgpCDSCeO9GEZA0GGj32fR2GLNmCmqcP84YJI6utuaLSRIdEESGIqR/7uq+Y4
+	eAhkEeCEWyV3MU2H05CcB/JI/mQWP6So2P4gFm1d+tZXLpgGyeJPsfOLfmWizm8vkUx
+	+UCJJcOjFhzNEbzHz0ikg+EBiF0jyJSx+wPt7uWahPs85JlGkEE2HUgTv+MULTrID7t
+	wCLKzMRimxNy9cFdMksGnQmhSbjb40zsBdhf4CZZNKId92yoIxmsHuooUM+TKOY+kzN
+	by9nK4CC5w==
+Received: by mx.zohomail.com with SMTPS id 1782472755335165.29894146156312;
+	Fri, 26 Jun 2026 04:19:15 -0700 (PDT)
+Date: Fri, 26 Jun 2026 19:19:06 +0800
+From: Rong Zhang <i@rong.moe>
+To: =?UTF-8?B?Q2hyaXMgTHUgKOmZuOeomuazkyk=?= <Chris.Lu@mediatek.com>,
+ "patchwork-bot+bluetooth@kernel.org" <patchwork-bot+bluetooth@kernel.org>,
+ "luiz.dentz@gmail.com" <luiz.dentz@gmail.com>
+CC: "marcel@holtmann.org" <marcel@holtmann.org>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ =?UTF-8?B?U1MgV3UgKOW3q+aGsuasoyk=?= <ss.wu@mediatek.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+ "linux-bluetooth@vger.kernel.org" <linux-bluetooth@vger.kernel.org>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>
+Subject: Re: [PATCH] Bluetooth: btmtk: Disable remote wakeup for MT7922/MT7925
+User-Agent: Thunderbird for Android
+In-Reply-To: <3f9c376a5dbfc9d737e2a7f83c5db8e591fb8793.camel@mediatek.com>
+References: <20260603-btmtk-remote-wakeup-v1-1-5c1006442f36@rong.moe> <178050901239.1520440.2026593395539384648.git-patchwork-notify@kernel.org> <3f9c376a5dbfc9d737e2a7f83c5db8e591fb8793.camel@mediatek.com>
+Message-ID: <17FE08E9-2229-4C97-846F-6FA099E22C90@rong.moe>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.67.109.17]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- kwepemj100009.china.huawei.com (7.202.194.3)
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_031718_696791_66D6A5DC 
-X-CRM114-Status: UNSURE (   7.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260626_041925_403556_3F0B3D79 
+X-CRM114-Status: GOOD (  18.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,30 +89,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 26 Jun 2026 15:30:48 +0800, Qi Xi wrote:
-> @@ -638,7 +638,10 @@ do_DataAbort(unsigned long addr, unsigned int fsr, struct pt_regs *regs)
-> 	pr_alert("8<--- cut here ---\n");
-> 	pr_alert("Unhandled fault: %s (0x%03x) at 0x%08lx\n",
-> 		inf->name, fsr, addr);
-> -	show_pte(KERN_ALERT, current->mm, addr);
-> +	if (mmap_read_trylock(current->mm)) {
-> +		show_pte(KERN_ALERT, current->mm, addr);
-> +		mmap_read_unlock(current->mm);
-> +	}
+Hi Chris,
 
-For kernel faults, `current->mm` maybe NULL, and
-`mmap_read_trylock(current->mm)` may cause a panic.
-Also, interrupts may be disabled here.
+=E4=BA=8E 2026=E5=B9=B46=E6=9C=8826=E6=97=A5 GMT+08:00 10:40:54=EF=BC=8C"C=
+hris Lu (=E9=99=B8=E7=A8=9A=E6=B3=93)" <Chris=2ELu@mediatek=2Ecom> =E5=86=
+=99=E9=81=93=EF=BC=9A
+>Hi Luiz,
+>
+>Could we revert this change?
 
-I suggest that waiting for this patch to be merged first:
-https://lore.kernel.org/20260625122612.43501-1-xieyuanbin1@huawei.com
-which make sure that interrupts are enabled here.
-Then, something like:
-```c
-	if (user_mode(regs))
-		mmap_read_lock(current->mm);
-	show_pte(KERN_ALERT, current->mm, addr);
-	if (user_mode(regs))
-		mmap_read_unlock(current->mm);
-```
+Please don't=2E The fundamental goal of the patch is to make MT7922/MT7925=
+ *usable* on affected platforms=2E
+
+Moreover, almost all recent AMD platforms ship with MT7922/MT7925, reverti=
+ng this patch affects quite a lot of users=2E Almost every AMD platform I'v=
+e met suffers from the issue, and there are plenty of bug reports=2E
+
+Intel platforms never ship with MTK WLAN NICs, so I can't tell if the issu=
+e is reproducible on them=2E
+
+>
+>Sorry, MediaTek wasn't aware someone submitted this change and it had
+>already been merged=2E
+>
+>MTK believes this issue is strongly related to the platform's USB hub
+>behavior,=20
+
+Still, I believe that there are some interoperability issues in MT7922/MT7=
+925's hardware or firmware, as reinitializing the XHCI root hub (by logical=
+ly removing it from the PCI bus and probing it again) doesn't make it recov=
+er at all=2E
+
+> The product lines MTK directly support haven't reported such
+>issue=2E
+
+=2E=2E=2Eor did you mean none of the existing AMD platforms are supported =
+by MTK?
+
+>
+>Disable wake capability would severely impact wake on Bluetooth on
+>MTK's official product lines=2E
+
+Could you kindly explain "MTK's official product lines"?
+
+> Furthermore, this patch looks like a
+>workaround=2E There should be a better way to handle this issue=2E We hop=
+e
+>this change can be reverted=2E
+
+The issue is severe on affected platforms by making the Bluetooth interfac=
+e completely gone=2E IMHO, we must figure out the "better way" before rever=
+ting it, or else it's more like burying your head into sand by shouting "wo=
+rks fine on our platforms" (TM)=2E
+
+That being said, I think we can narrow the range of the quirk down to AMD =
+platforms only=2E Does it make sense to you? If so, I will submit a patch f=
+or this=2E
+
+Thanks,
+Rong
+
+>
+>
+>On Wed, 2026-06-03 at 17:50 +0000, patchwork-bot+bluetooth@kernel=2Eorg
+>wrote:
+>> Hello:
+>>=20
+>> This patch was applied to bluetooth/bluetooth-next=2Egit (master)
+>> by Luiz Augusto von Dentz <luiz=2Evon=2Edentz@intel=2Ecom>:
+>>=20
+>> On Wed, 03 Jun 2026 02:38:10 +0800 you wrote:
+>> > These NICs are often reported to lose their Bluetooth interfaces,
+>> > i=2Ee,
+>> > their USB interfaces suddenly become completely unresponsive,
+>> > causing
+>> > the USB core to reset them, only to find that they are no longer
+>> > accessible=2E A power cycle is required to make the Bluetooth
+>> > interfaces
+>> > recover=2E
+>> >=20
+>> > After some investigations, I found that their USB autosuspend
+>> > remote
+>> > wakeup capabilities are so broken that they are precisely the
+>> > culprit
+>> > behind the issue:
+>> >=20
+>> > [=2E=2E=2E]
+>>=20
+>> Here is the summary with links:
+>> =C2=A0 - Bluetooth: btmtk: Disable remote wakeup for MT7922/MT7925
+>> =C2=A0=C2=A0=C2=A0 https://git=2Ekernel=2Eorg/bluetooth/bluetooth-next/=
+c/247570151789
+>>=20
+>> You are awesome, thank you!
+>
+>
+>Best Regards,
+>Chris Lu
 
