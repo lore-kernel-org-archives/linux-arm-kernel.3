@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CACC1CDE008
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 07:04:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 348F1CD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 07:04:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eJOIv5y3265WBGZLY+kMBJBpQgKZfZP/G0nDS8Gem9g=; b=hr3GIHXgmglZcDngF4q1mmNlBr
-	1sSopLu+OIsnzOP/J1+ZPrjqSj2KaI2ypSe4v3BlgJbH4esFC8NyzPahxQpTITADk/EInOGyq9j/k
-	H0jAzCpbpmIVknTz+2Vt0huN2GLGfBv99aCWjzrjNh+g8aUN6ldz8jy8M3DNoVU4R8E90d82AWbTz
-	eVkoYMxidbNjdN5q+yjVl8Gl81eM45BvZAkvnLzgdEv5tyGKmT3o8xoiWjs1+5ScDYSzFPImyXZ84
-	7Ldl81jwG4sIMl2vf4NtaATziGlz5+h3Mmmdn8e9lqvHtkbsp0UHPYu4J77pHEseCc8crHvl+dCzB
-	wGy0qtzA==;
+	bh=7eZM2SS9nk5zRseYXRM8Pi8Rk+zMQJx8tf29JQz3umc=; b=XcnNnAz/ikPkC8wCB2dGf/En0f
+	42A293HWVIrDOpp4fjKJ7GpD1/JQo+GDsNiYyWysQ+XxEeyC3CHXGulYAKcJ4vFtN/bSaVoiyBbQ/
+	50Y3M3apN6UbNs5c2zt/QjkTCau8S335cghFkkVzE2DFgOxnYHatT6o5ItBeLOkBufyVDZB70hyY6
+	NfWabCoPagmLzEIN8ToeCIHIKgTUQkZiKKAPnazoDmaPeAA1IF3mpv7QwJAnvwaL0f4dL9ONGQPno
+	iEz+TyxLS3N3bUVAGCbkNv6EnbpwGjA0HlvPAd/EFoi86nWApg4P/bLKUpfta+eQ3alfmDsVGDG1x
+	zE8hgoUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd0cD-0000000Adv8-0SiP;
-	Fri, 26 Jun 2026 07:04:41 +0000
-Received: from out-174.mta1.migadu.com ([95.215.58.174])
+	id 1wd0cM-0000000Ae1B-1stE;
+	Fri, 26 Jun 2026 07:04:50 +0000
+Received: from out-187.mta1.migadu.com ([2001:41d0:203:375::bb])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd0c5-0000000Adrx-1R3R
+	id 1wd0cF-0000000Adui-3KuF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 07:04:36 +0000
+	Fri, 26 Jun 2026 07:04:45 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1782457471;
+	t=1782457480;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=eJOIv5y3265WBGZLY+kMBJBpQgKZfZP/G0nDS8Gem9g=;
-	b=Ca515uk9RWqS4o0ekFj8+/hqcTO3KLcVDX624/QWpNbXaPOqvZ14bYSvlizztu0mgSxjGM
-	g3vSO4GH7OhBDh6bSFHpg9WhcpZdttdV93dtCNkTy8HBFjfh5aMQoD0VSDny6dj9+xu6o1
-	ZdCbKP7F7pDuOqqkDAG+g/qzRTTirpQ=
+	bh=7eZM2SS9nk5zRseYXRM8Pi8Rk+zMQJx8tf29JQz3umc=;
+	b=hPsnxazMLHflkI0TCJzWJQcQLPEosH8wfoW/bNg5qw5amUTPxjBWszot1UYlNOCuv1CZqp
+	EcNPBOJ3sU8nU+u1JnpQTlW0AnVmYZZsdKjkvz85mUP8R37rVuBWZzVj25d+aq83kKKJz+
+	9Aya8xjiUIPGtA+YQV0Ma6JXrB0mhx0=
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: Marc Zyngier <maz@kernel.org>,
 	Oliver Upton <oupton@kernel.org>,
@@ -55,17 +55,17 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	Sebastian Ene <sebastianene@google.com>,
 	Hyunwoo Kim <imv4bel@gmail.com>,
 	Fuad Tabba <tabba@google.com>
-Subject: [PATCH v3 2/8] KVM: arm64: Make vcpu_{read,write}_sys_reg available to HYP code
-Date: Fri, 26 Jun 2026 08:04:02 +0100
-Message-Id: <20260626070408.3420953-3-fuad.tabba@linux.dev>
+Subject: [PATCH v3 5/8] KVM: arm64: Add host and hypervisor vCPU lookup primitives
+Date: Fri, 26 Jun 2026 08:04:05 +0100
+Message-Id: <20260626070408.3420953-6-fuad.tabba@linux.dev>
 In-Reply-To: <20260626070408.3420953-1-fuad.tabba@linux.dev>
 References: <20260626070408.3420953-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_000433_668333_D52AE8DB 
-X-CRM114-Status: GOOD (  11.17  )
+X-CRM114-CacheID: sfid-20260626_000444_013291_CF9AB5FF 
+X-CRM114-Status: GOOD (  14.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,148 +80,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The vcpu_{read,write}_sys_reg() accessors are host-only, so helpers
-built on them such as kvm_vcpu_set_be()/kvm_vcpu_is_be() cannot be
-shared with hyp code. exception.c already wraps them in
-__vcpu_{read,write}_sys_reg(), which pick the host- or hyp-side accessor
-via has_vhe() and so are valid in any context.
+From: Marc Zyngier <maz@kernel.org>
 
-Move those wrappers to kvm_emulate.h as kvm_vcpu_{read,write}_sys_reg()
-and switch the callers over, so a follow-up series can share that
-emulation code at EL2.
+The nVHE hypervisor repeatedly resolves a host vCPU into the EL2
+address space and validates that the loaded hyp vCPU matches it, with
+that logic open-coded in each handler.
+
+Add __get_host_hyp_vcpus() and the get_host_hyp_vcpus() macro, which
+translate the host vCPU into the hypervisor's address space and, when
+pKVM is enabled, also return the loaded hyp vCPU if it matches. If pKVM
+is enabled but the loaded hyp vCPU does not correspond to the requested
+host vCPU, both the host and hyp vCPU are returned as NULL. Convert
+handle___kvm_vcpu_run() to use it.
 
 No functional change intended.
 
 Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+Co-developed-by: Fuad Tabba <fuad.tabba@linux.dev>
 Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- arch/arm64/include/asm/kvm_emulate.h | 22 +++++++++++++++---
- arch/arm64/kvm/hyp/exception.c       | 34 ++++++++--------------------
- 2 files changed, 28 insertions(+), 28 deletions(-)
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c | 52 ++++++++++++++++++++++--------
+ 1 file changed, 38 insertions(+), 14 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-index 5bf3d7e1d92c7..80b30fead3d16 100644
---- a/arch/arm64/include/asm/kvm_emulate.h
-+++ b/arch/arm64/include/asm/kvm_emulate.h
-@@ -506,6 +506,22 @@ static inline unsigned long kvm_vcpu_get_mpidr_aff(struct kvm_vcpu *vcpu)
- 	return __vcpu_sys_reg(vcpu, MPIDR_EL1) & MPIDR_HWID_BITMASK;
+diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+index 1d01c6e547f5d..8923f594c2640 100644
+--- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
++++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+@@ -212,14 +212,45 @@ static void handle___pkvm_vcpu_put(struct kvm_cpu_context *host_ctxt)
+ 		pkvm_put_hyp_vcpu(hyp_vcpu);
  }
  
-+static inline u64 kvm_vcpu_read_sys_reg(const struct kvm_vcpu *vcpu, int reg)
-+{
-+	if (has_vhe())
-+		return vcpu_read_sys_reg(vcpu, reg);
-+
-+	return __vcpu_sys_reg(vcpu, reg);
-+}
-+
-+static inline void kvm_vcpu_write_sys_reg(struct kvm_vcpu *vcpu, u64 val, int reg)
-+{
-+	if (has_vhe())
-+		vcpu_write_sys_reg(vcpu, val, reg);
-+	else
-+		__vcpu_assign_sys_reg(vcpu, reg, val);
-+}
-+
- static inline void kvm_vcpu_set_be(struct kvm_vcpu *vcpu)
+-static void handle___kvm_vcpu_run(struct kvm_cpu_context *host_ctxt)
++static struct kvm_vcpu *__get_host_hyp_vcpus(struct kvm_vcpu *arg,
++					     struct pkvm_hyp_vcpu **hyp_vcpup)
  {
- 	if (vcpu_mode_is_32bit(vcpu)) {
-@@ -516,9 +532,9 @@ static inline void kvm_vcpu_set_be(struct kvm_vcpu *vcpu)
+-	DECLARE_REG(struct kvm_vcpu *, host_vcpu, host_ctxt, 1);
+-	int ret;
++	struct kvm_vcpu *host_vcpu = kern_hyp_va(arg);
++	struct pkvm_hyp_vcpu *hyp_vcpu = NULL;
  
- 		r = vcpu_has_nv(vcpu) ? SCTLR_EL2 : SCTLR_EL1;
+ 	if (unlikely(is_protected_kvm_enabled())) {
+-		struct pkvm_hyp_vcpu *hyp_vcpu = pkvm_get_loaded_hyp_vcpu();
++		hyp_vcpu = pkvm_get_loaded_hyp_vcpu();
  
--		sctlr = vcpu_read_sys_reg(vcpu, r);
-+		sctlr = kvm_vcpu_read_sys_reg(vcpu, r);
- 		sctlr |= SCTLR_ELx_EE;
--		vcpu_write_sys_reg(vcpu, sctlr, r);
-+		kvm_vcpu_write_sys_reg(vcpu, sctlr, r);
++		if (!hyp_vcpu || hyp_vcpu->host_vcpu != host_vcpu) {
++			hyp_vcpu = NULL;
++			host_vcpu = NULL;
++		}
++	}
++
++	*hyp_vcpup = hyp_vcpu;
++	return host_vcpu;
++}
++
++#define get_host_hyp_vcpus(ctxt, regnr, hyp_vcpup)			\
++	({								\
++		DECLARE_REG(struct kvm_vcpu *, __vcpu, ctxt, regnr);	\
++		__get_host_hyp_vcpus(__vcpu, hyp_vcpup);		\
++	})
++
++static void handle___kvm_vcpu_run(struct kvm_cpu_context *host_ctxt)
++{
++	struct pkvm_hyp_vcpu *hyp_vcpu;
++	struct kvm_vcpu *host_vcpu;
++	int ret;
++
++	host_vcpu = get_host_hyp_vcpus(host_ctxt, 1, &hyp_vcpu);
++
++	if (!host_vcpu) {
++		ret = -EINVAL;
++		goto out;
++	}
++
++	if (unlikely(hyp_vcpu)) {
+ 		/*
+ 		 * KVM (and pKVM) doesn't support SME guests for now, and
+ 		 * ensures that SME features aren't enabled in pstate when
+@@ -231,23 +262,16 @@ static void handle___kvm_vcpu_run(struct kvm_cpu_context *host_ctxt)
+ 			goto out;
+ 		}
+ 
+-		if (!hyp_vcpu) {
+-			ret = -EINVAL;
+-			goto out;
+-		}
+-
+ 		flush_hyp_vcpu(hyp_vcpu);
+ 
+ 		ret = __kvm_vcpu_run(&hyp_vcpu->vcpu);
+ 
+ 		sync_hyp_vcpu(hyp_vcpu);
+ 	} else {
+-		struct kvm_vcpu *vcpu = kern_hyp_va(host_vcpu);
+-
+ 		/* The host is fully trusted, run its vCPU directly. */
+-		fpsimd_lazy_switch_to_guest(vcpu);
+-		ret = __kvm_vcpu_run(vcpu);
+-		fpsimd_lazy_switch_to_host(vcpu);
++		fpsimd_lazy_switch_to_guest(host_vcpu);
++		ret = __kvm_vcpu_run(host_vcpu);
++		fpsimd_lazy_switch_to_host(host_vcpu);
  	}
- }
- 
-@@ -533,7 +549,7 @@ static inline bool kvm_vcpu_is_be(struct kvm_vcpu *vcpu)
- 	r = is_hyp_ctxt(vcpu) ? SCTLR_EL2 : SCTLR_EL1;
- 	bit = vcpu_mode_priv(vcpu) ? SCTLR_ELx_EE : SCTLR_EL1_E0E;
- 
--	return vcpu_read_sys_reg(vcpu, r) & bit;
-+	return kvm_vcpu_read_sys_reg(vcpu, r) & bit;
- }
- 
- static inline unsigned long vcpu_data_guest_to_host(struct kvm_vcpu *vcpu,
-diff --git a/arch/arm64/kvm/hyp/exception.c b/arch/arm64/kvm/hyp/exception.c
-index bef40ddb16dbc..2cb68dc7d441e 100644
---- a/arch/arm64/kvm/hyp/exception.c
-+++ b/arch/arm64/kvm/hyp/exception.c
-@@ -20,22 +20,6 @@
- #error Hypervisor code only!
- #endif
- 
--static inline u64 __vcpu_read_sys_reg(const struct kvm_vcpu *vcpu, int reg)
--{
--	if (has_vhe())
--		return vcpu_read_sys_reg(vcpu, reg);
--
--	return __vcpu_sys_reg(vcpu, reg);
--}
--
--static inline void __vcpu_write_sys_reg(struct kvm_vcpu *vcpu, u64 val, int reg)
--{
--	if (has_vhe())
--		vcpu_write_sys_reg(vcpu, val, reg);
--	else
--		__vcpu_assign_sys_reg(vcpu, reg, val);
--}
--
- static void __vcpu_write_spsr(struct kvm_vcpu *vcpu, unsigned long target_mode,
- 			      u64 val)
- {
-@@ -101,14 +85,14 @@ static void enter_exception64(struct kvm_vcpu *vcpu, unsigned long target_mode,
- 
- 	switch (target_mode) {
- 	case PSR_MODE_EL1h:
--		vbar = __vcpu_read_sys_reg(vcpu, VBAR_EL1);
--		sctlr = __vcpu_read_sys_reg(vcpu, SCTLR_EL1);
--		__vcpu_write_sys_reg(vcpu, *vcpu_pc(vcpu), ELR_EL1);
-+		vbar = kvm_vcpu_read_sys_reg(vcpu, VBAR_EL1);
-+		sctlr = kvm_vcpu_read_sys_reg(vcpu, SCTLR_EL1);
-+		kvm_vcpu_write_sys_reg(vcpu, *vcpu_pc(vcpu), ELR_EL1);
- 		break;
- 	case PSR_MODE_EL2h:
--		vbar = __vcpu_read_sys_reg(vcpu, VBAR_EL2);
--		sctlr = __vcpu_read_sys_reg(vcpu, SCTLR_EL2);
--		__vcpu_write_sys_reg(vcpu, *vcpu_pc(vcpu), ELR_EL2);
-+		vbar = kvm_vcpu_read_sys_reg(vcpu, VBAR_EL2);
-+		sctlr = kvm_vcpu_read_sys_reg(vcpu, SCTLR_EL2);
-+		kvm_vcpu_write_sys_reg(vcpu, *vcpu_pc(vcpu), ELR_EL2);
- 		break;
- 	default:
- 		/* Don't do that */
-@@ -185,7 +169,7 @@ static void enter_exception64(struct kvm_vcpu *vcpu, unsigned long target_mode,
-  */
- static unsigned long get_except32_cpsr(struct kvm_vcpu *vcpu, u32 mode)
- {
--	u32 sctlr = __vcpu_read_sys_reg(vcpu, SCTLR_EL1);
-+	u32 sctlr = kvm_vcpu_read_sys_reg(vcpu, SCTLR_EL1);
- 	unsigned long old, new;
- 
- 	old = *vcpu_cpsr(vcpu);
-@@ -281,7 +265,7 @@ static void enter_exception32(struct kvm_vcpu *vcpu, u32 mode, u32 vect_offset)
- {
- 	unsigned long spsr = *vcpu_cpsr(vcpu);
- 	bool is_thumb = (spsr & PSR_AA32_T_BIT);
--	u32 sctlr = __vcpu_read_sys_reg(vcpu, SCTLR_EL1);
-+	u32 sctlr = kvm_vcpu_read_sys_reg(vcpu, SCTLR_EL1);
- 	u32 return_address;
- 
- 	*vcpu_cpsr(vcpu) = get_except32_cpsr(vcpu, mode);
-@@ -305,7 +289,7 @@ static void enter_exception32(struct kvm_vcpu *vcpu, u32 mode, u32 vect_offset)
- 	if (sctlr & (1 << 13))
- 		vect_offset += 0xffff0000;
- 	else /* always have security exceptions */
--		vect_offset += __vcpu_read_sys_reg(vcpu, VBAR_EL1);
-+		vect_offset += kvm_vcpu_read_sys_reg(vcpu, VBAR_EL1);
- 
- 	*vcpu_pc(vcpu) = vect_offset;
- }
+ out:
+ 	cpu_reg(host_ctxt, 1) =  ret;
 -- 
 2.39.5
 
