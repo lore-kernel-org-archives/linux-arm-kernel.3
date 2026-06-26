@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71E99CDE008
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 07:46:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 431B8CDE008
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 07:46:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mgEdqVZzkg8EdfvsvaTXXYI6aDMdt2t7UIchiBP7OMQ=; b=g/suJ9vCEfwY/AF0qCNSVvSq07
-	GS03PAy0WLyYNjlWQMbOE5P3MdZXL2B9bjWFm15YqucWqNk1WwFz/teC6Y1E0LLktZdwGQuvV0zrS
-	yMtgfGJTteCcYdPUAD8YNBh9K36Gks0PiMoFtcxm+UoE69PPOtofT80JuxLpsLO+RKC90r8RKv5WQ
-	kUdZ/UopDrL5UdxtdwGIfbdCMIs/KYVmmbaSn4eebOeS5krH5iE1gCQuYr/BRCZGUu2tLrSac8Fij
-	8xVHF4FDP0nAdex+xBT4qos1qph+NcuP6P2tw3GdMF4MrNjrHxWpGo/5RilwEZR6qWwrHdO5EUluw
-	ia3dMPMA==;
+	bh=jIcuoAolmWdxAL1Cj0MO5LGeOmqPiUF61NhnhxY/T3c=; b=4GTL2Pvd34K9HVt6jcWpe5Qb4e
+	7y06ThYqAPhrZ0SVm+TubusPuL1XAC/X7rWkSpLeR+pTjEdhr7MSrq0eyVH04Dnve8qyv5f3gf1Q0
+	HlUxVwPN/56dixaXQHb806nJwrDFkMDrU3qxcs9QTGpeu6O0aILpmbO+p5ZJA+blvi0lwoJNGbPIg
+	IZ1jx/E3a1IeYxNhdRfdyd8eIbS1IenQEe3aBtl6cjYmite5iFgzmd/jNpUVzFQaP5GKuts5U7sCG
+	ZDEzlilMbb9SUImjDfZrmfIOYJN/YgleRY5aQTSLKYrR2ab9Vii7/VQ+yQCSHTCowpTLyAvWZXLmR
+	unKm6Tww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd1GT-0000000Ahjm-38DG;
-	Fri, 26 Jun 2026 07:46:17 +0000
-Received: from mail-ej1-x64a.google.com ([2a00:1450:4864:20::64a])
+	id 1wd1Gl-0000000Ai0K-2ElN;
+	Fri, 26 Jun 2026 07:46:35 +0000
+Received: from mail-ej1-x649.google.com ([2a00:1450:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd1GJ-0000000Ahaz-2UlX
+	id 1wd1GS-0000000Ahhr-1Wht
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 07:46:09 +0000
-Received: by mail-ej1-x64a.google.com with SMTP id a640c23a62f3a-c1227d8635aso35205966b.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 00:46:06 -0700 (PDT)
+	Fri, 26 Jun 2026 07:46:17 +0000
+Received: by mail-ej1-x649.google.com with SMTP id a640c23a62f3a-c1217845600so54841366b.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 00:46:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1782459965; x=1783064765; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1782459973; x=1783064773; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=mgEdqVZzkg8EdfvsvaTXXYI6aDMdt2t7UIchiBP7OMQ=;
-        b=LdRYXNIob39TwXct3pM3WQON0qgi11Dqy/Z3wGKBROf/sYDLf3sWVPcxGc+uOpvkZE
-         E3nTBOZuJdf+44CIdiAOnJ+FX53h5tsLTAFj4Y/OLgCT46+Z5LgyUuT2hmY7kYLsCPbh
-         tGNTcc5o7PjogtXXXzEdy/e8TWmVhfpuSzwa3SEjMtHxjpmyb5qxCdJ5uDjgUUBeAAOM
-         YHDoEARYE4seMWKy9kZWB9YE5h2LYRrB4nXxvpmm0UkA+t8eUYSl77BXrKvGj26mAz9R
-         fBQeTfCZ00wkwdQzBWvQfnBeU4HhVwK7VFy6RfoZElYMUSwkG+zOpDOQMo4D22xNmkD4
-         AvIw==
+        bh=jIcuoAolmWdxAL1Cj0MO5LGeOmqPiUF61NhnhxY/T3c=;
+        b=OEfasfmBwpa2x/C+FURQA9ZxHy+Iugd6USr8D5vit0rHh5UQHPVCBoPNZkEE7vfwqv
+         4RPWTAhabH4Qm8Tk53O1DA/VSL/Hc9R8gziC1mOjn6GufB79c1Xle9js3erjxAbnFB2y
+         YT4d1G2+Tx8qMWb/jE6qGEVhgyCL+W7kbLl8A4TSAVWyr04zFe7hOzbx4dDC782skyTq
+         hLkfane2EXniyyMNpu9E5g+Jyfncwqilzq3RFmquUArXroviUDcRsJi4L0Vo5x4inqqw
+         G7cHsNTjAWSrvbrqBq5hcuyMDjH47gimn/MCHnvZxskb4/9PHf4vFO3ACZfbJZ+HYQ82
+         9Hsg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782459965; x=1783064765;
+        d=1e100.net; s=20251104; t=1782459973; x=1783064773;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=mgEdqVZzkg8EdfvsvaTXXYI6aDMdt2t7UIchiBP7OMQ=;
-        b=RyIWo9vO2CzB5hmogovTg9YHbDrgeAt9dsmr47elJmdzITG+Phv+6MiX3X9qnDBKuY
-         YNVhzl6VH5elDB9y12VCMSenG1SdtQ9OpS6LkiSCR3T53fOvk7bt9nl3R0uRNlCv8fU3
-         mxL7NDos0gvHDjuvI3tV/qw3iqQShDbCsEu5Ljgto6uxyKqfejXIPmmdw/3Hwak8fzy/
-         cPlmhcTfuhaXPhJFJaln3Pf5hSgEVDePzFFpok5MxW1YY2+MAoPtLk/IYmGrH54p8grQ
-         G408OySWxP4zg3ZdfjloPFrxaxM5E7q4HPZhvNMnDmDYJQWBMZM5LCgR9e8jkhDPEjtX
-         g0sg==
-X-Forwarded-Encrypted: i=1; AHgh+RoR9JgtVqerbaPOehcJuXy+HTPTrIzFcokV3fZpw253nIamKntcOecD6I38MaGW8FWGFaw8I+jubcGMHz3KfQki@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHN4lOetzP21X+UBATPW4MdARHOdeToIIEgzQUrPEYVMHYKOy5
-	qpbQPp1Sl5hotM70JATcsQEx9D8ETrS4aP71UyMsGhPr4oPWoAFXtublY1U/U16tStGZhFLUXRT
-	GyGBp/V+2DnA88miCe5wzHgr1YNnwEw==
-X-Received: from ejeb22.prod.google.com ([2002:a17:906:1956:b0:bef:4b4a:fd4c])
+        bh=jIcuoAolmWdxAL1Cj0MO5LGeOmqPiUF61NhnhxY/T3c=;
+        b=jGQKpvz5txRiz+x7Abrp3CuN+uOXFjLOBVaGcAmPpTmgu1JsA7h5P5BGcEGpUvW12b
+         kToKf+V9O8HsOIl0+CIl7kmtNa1F3H7epkj1qbHp2fI8b2Ig9b17sJ2hgIxBM0ULMb9F
+         w0MfgHOTKsBLSIVJGznJIlQsXPQjsUCUbMMk4grZmMhqPPg0rC4owaIxxiiLps3XQ9fT
+         r0uRqQRtZuwguUcJ/fblYJDY5NXWfzHAiHiI6rbCpfnoBd4J/QB71tnm83rO+hQWyK0l
+         iIpVhC9JAQAQ9X3+3p21J5F86fi8LeKfFzvwwfSfsfyw+j93Fxn0GEEBPsC9QzAtZnGZ
+         NwTw==
+X-Forwarded-Encrypted: i=1; AHgh+RrNtDQW6gP5Rw4xyIOLJj3vuFP66yi/DraV4PXSRPbNl1+2icKdPLuqR+lCoct7RJkAaH4Nvqxkfm9xMUH9lHa1@lists.infradead.org
+X-Gm-Message-State: AOJu0YykUeCMgmzyCg9riWT79bp069fdJIHRBhky11zI5V00WBe6y+xp
+	qg23sB/cED+S2cPapeJUGjjnveX9YmegQkDP18gfHSein5AIBo1WK7w+WjJrDeDohaaX4o2IwY5
+	Q2ifYgIJPJjbyuBhOBP25/BRCPjLGMw==
+X-Received: from ejbqx9.prod.google.com ([2002:a17:906:fcc9:b0:c0e:81cf:b184])
  (user=sebastianene job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:907:702:b0:c12:1651:17b2 with SMTP id a640c23a62f3a-c1216511edamr222936566b.9.1782459964269;
- Fri, 26 Jun 2026 00:46:04 -0700 (PDT)
-Date: Fri, 26 Jun 2026 07:45:42 +0000
+ 2002:a17:907:7201:b0:bd5:151d:2d31 with SMTP id a640c23a62f3a-c1205d8ac1dmr387442666b.13.1782459972081;
+ Fri, 26 Jun 2026 00:46:12 -0700 (PDT)
+Date: Fri, 26 Jun 2026 07:45:45 +0000
 In-Reply-To: <20260626074545.433234-1-sebastianene@google.com>
 Mime-Version: 1.0
 References: <20260626074545.433234-1-sebastianene@google.com>
 X-Mailer: git-send-email 2.55.0.rc0.799.gd6f94ed593-goog
-Message-ID: <20260626074545.433234-5-sebastianene@google.com>
-Subject: [PATCH v6 4/7] KVM: arm64: Support FFA_NOTIFICATION_SET in host handler
+Message-ID: <20260626074545.433234-8-sebastianene@google.com>
+Subject: [PATCH v6 7/7] KVM: arm64: Enforce strict SBZ checks in the FF-A proxy
 From: Sebastian Ene <sebastianene@google.com>
 To: catalin.marinas@arm.com, maz@kernel.org, oupton@kernel.org, 
 	will@kernel.org
@@ -76,8 +76,8 @@ Cc: joey.gouly@arm.com, korneld@google.com, kvmarm@lists.linux.dev,
 	yuzenghui@huawei.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_004607_657213_CA9EE3F7 
-X-CRM114-Status: GOOD (  13.17  )
+X-CRM114-CacheID: sfid-20260626_004616_448258_6B320495 
+X-CRM114-Status: GOOD (  15.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,52 +92,197 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allow FF-A notification SET messages to be proxied from the pKVM
-hypervisor to Trustzone and verify the arguments.
+Introduce a helper method ffa_check_unused_args_sbz to enforce strict
+arguments checking when the hypervisor acts as a relayer between the
+host and Trustzone.
 
 Signed-off-by: Sebastian Ene <sebastianene@google.com>
 Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
 ---
- arch/arm64/kvm/hyp/nvhe/ffa.c | 26 +++++++++++++++++++++++++-
- 1 file changed, 25 insertions(+), 1 deletion(-)
+ arch/arm64/kvm/hyp/nvhe/ffa.c | 96 ++++++++++++++++++++++++++++++++++-
+ 1 file changed, 95 insertions(+), 1 deletion(-)
 
 diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-index d52d7c4d5e7f..2bb16aa414f9 100644
+index 712811e89435..bd50ddc5b61c 100644
 --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
 +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-@@ -43,6 +43,7 @@
- #define HOST_FFA_ID	0
+@@ -74,6 +74,21 @@ static u32 hyp_ffa_version;
+ static bool has_version_negotiated;
+ static hyp_spinlock_t version_lock;
  
- #define FFA_NOTIF_RECEIVER_ENDP_MASK	GENMASK(15, 0)
-+#define FFA_NOTIF_SENDER_ENDP_MASK	GENMASK(31, 16)
- 
- /*
-  * A buffer to hold the maximum descriptor size we can see from the host,
-@@ -678,7 +679,6 @@ static bool ffa_call_supported(u64 func_id)
- 	case FFA_MEM_DONATE:
- 	case FFA_MEM_RETRIEVE_REQ:
-        /* Optional notification interfaces added in FF-A 1.1 */
--	case FFA_NOTIFICATION_SET:
- 	case FFA_NOTIFICATION_GET:
- 	case FFA_NOTIFICATION_INFO_GET:
- 	/* Optional interfaces added in FF-A 1.2 */
-@@ -917,6 +917,27 @@ static void do_ffa_notif_unbind(struct arm_smccc_1_2_regs *res,
- 	hyp_smccc_1_2_smc(args, res);
- }
- 
-+static void do_ffa_notif_set(struct arm_smccc_1_2_regs *res,
-+			     struct kvm_cpu_context *ctxt)
++static bool ffa_check_unused_args_sbz(struct kvm_cpu_context *ctxt, int first_reg)
 +{
-+	DECLARE_REG(u32, endp_id, ctxt, 1);
-+	DECLARE_REG(u32, flags, ctxt, 2);
-+	struct arm_smccc_1_2_regs *args;
++	DECLARE_REG(u32, func_id, ctxt, 0);
++	int reg, end_reg = 7;
 +
-+	if (FIELD_GET(FFA_NOTIF_SENDER_ENDP_MASK, endp_id) != HOST_FFA_ID) {
++	if (FFA_MINOR_VERSION(hyp_ffa_version) >= 2)
++		end_reg = ARM_SMCCC_IS_64(func_id) ? 17 : 7;
++	for (reg = first_reg; reg <= end_reg; reg++) {
++		if (cpu_reg(ctxt, reg))
++			return true;
++	}
++
++	return false;
++}
++
+ static void ffa_to_smccc_error(struct arm_smccc_1_2_regs *res, u64 ffa_errno)
+ {
+ 	*res = (struct arm_smccc_1_2_regs) {
+@@ -242,6 +257,11 @@ static void do_ffa_rxtx_map(struct arm_smccc_1_2_regs *res,
+ 	int ret = 0;
+ 	void *rx_virt, *tx_virt;
+ 
++	if (ffa_check_unused_args_sbz(ctxt, 4)) {
++		ret = FFA_RET_INVALID_PARAMETERS;
++		goto out;
++	}
++
+ 	if (npages != (KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE) / FFA_PAGE_SIZE) {
+ 		ret = FFA_RET_INVALID_PARAMETERS;
+ 		goto out;
+@@ -318,6 +338,11 @@ static void do_ffa_rxtx_unmap(struct arm_smccc_1_2_regs *res,
+ 	DECLARE_REG(u32, id, ctxt, 1);
+ 	int ret = 0;
+ 
++	if (ffa_check_unused_args_sbz(ctxt, 2)) {
++		ret = FFA_RET_INVALID_PARAMETERS;
++		goto out;
++	}
++
+ 	if (id != HOST_FFA_ID) {
+ 		ret = FFA_RET_INVALID_PARAMETERS;
+ 		goto out;
+@@ -424,6 +449,11 @@ static void do_ffa_mem_frag_tx(struct arm_smccc_1_2_regs *res,
+ 	int ret = FFA_RET_INVALID_PARAMETERS;
+ 	u32 nr_ranges;
+ 
++	if (ffa_check_unused_args_sbz(ctxt, 5)) {
 +		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
 +		return;
 +	}
 +
-+	if (flags & GENMASK(15, 2)) {
+ 	if (fraglen > KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE)
+ 		goto out;
+ 
+@@ -485,6 +515,11 @@ static void __do_ffa_mem_xfer(const u64 func_id,
+ 	u32 offset, nr_ranges, checked_offset;
+ 	int ret = 0;
+ 
++	if (ffa_check_unused_args_sbz(ctxt, 5)) {
++		ret = FFA_RET_INVALID_PARAMETERS;
++		goto out;
++	}
++
+ 	if (addr_mbz || npages_mbz || fraglen > len ||
+ 	    fraglen > KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE) {
+ 		ret = FFA_RET_INVALID_PARAMETERS;
+@@ -584,6 +619,11 @@ static void do_ffa_mem_reclaim(struct arm_smccc_1_2_regs *res,
+ 	int ret = 0;
+ 	u64 handle;
+ 
++	if (ffa_check_unused_args_sbz(ctxt, 4)) {
++		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
++		return;
++	}
++
+ 	handle = PACK_HANDLE(handle_lo, handle_hi);
+ 
+ 	hyp_spin_lock(&host_buffers.lock);
+@@ -764,6 +804,11 @@ static void do_ffa_version(struct arm_smccc_1_2_regs *res,
+ {
+ 	DECLARE_REG(u32, ffa_req_version, ctxt, 1);
+ 
++	if (ffa_check_unused_args_sbz(ctxt, 2)) {
++		res->a0 = FFA_RET_NOT_SUPPORTED;
++		return;
++	}
++
+ 	if (FFA_MAJOR_VERSION(ffa_req_version) != 1) {
+ 		res->a0 = FFA_RET_NOT_SUPPORTED;
+ 		return;
+@@ -813,6 +858,11 @@ static void do_ffa_part_get(struct arm_smccc_1_2_regs *res,
+ 	DECLARE_REG(u32, flags, ctxt, 5);
+ 	u32 count, partition_sz, copy_sz;
+ 
++	if (ffa_check_unused_args_sbz(ctxt, 6)) {
++		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
++		return;
++	}
++
+ 	hyp_spin_lock(&host_buffers.lock);
+ 	if (!host_buffers.rx) {
+ 		ffa_to_smccc_res(res, FFA_RET_BUSY);
+@@ -860,9 +910,15 @@ static void do_ffa_part_get(struct arm_smccc_1_2_regs *res,
+ static void do_ffa_notif_bitmap(struct arm_smccc_1_2_regs *res,
+ 				struct kvm_cpu_context *ctxt)
+ {
++	DECLARE_REG(u32, func_id, ctxt, 0);
+ 	DECLARE_REG(u32, vmid, ctxt, 1);
+ 	struct arm_smccc_1_2_regs *args;
+ 
++	if (ffa_check_unused_args_sbz(ctxt, func_id == FFA_NOTIFICATION_BITMAP_CREATE ? 3 : 2)) {
++		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
++		return;
++	}
++
+ 	if (vmid != HOST_FFA_ID) {
+ 		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
+ 		return;
+@@ -879,6 +935,11 @@ static void do_ffa_notif_bind(struct arm_smccc_1_2_regs *res,
+ 	DECLARE_REG(u32, flags, ctxt, 2);
+ 	struct arm_smccc_1_2_regs *args;
+ 
++	if (ffa_check_unused_args_sbz(ctxt, 5)) {
++		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
++		return;
++	}
++
+ 	if (FIELD_GET(FFA_NOTIF_RECEIVER_ENDP_MASK, endp_id) != HOST_FFA_ID) {
+ 		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
+ 		return;
+@@ -900,7 +961,7 @@ static void do_ffa_notif_unbind(struct arm_smccc_1_2_regs *res,
+ 	DECLARE_REG(u32, reserved, ctxt, 2);
+ 	struct arm_smccc_1_2_regs *args;
+ 
+-	if (reserved) {
++	if (ffa_check_unused_args_sbz(ctxt, 5) || reserved) {
+ 		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
+ 		return;
+ 	}
+@@ -926,6 +987,11 @@ static void do_ffa_notif_set(struct arm_smccc_1_2_regs *res,
+ 		return;
+ 	}
+ 
++	if (ffa_check_unused_args_sbz(ctxt, 5)) {
++		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
++		return;
++	}
++
+ 	if (flags & GENMASK(15, 2)) {
+ 		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
+ 		return;
+@@ -947,6 +1013,11 @@ static void do_ffa_notif_get(struct arm_smccc_1_2_regs *res,
+ 		return;
+ 	}
+ 
++	if (ffa_check_unused_args_sbz(ctxt, 3)) {
++		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
++		return;
++	}
++
+ 	if (flags & GENMASK(31, 4)) {
+ 		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
+ 		return;
+@@ -956,6 +1027,20 @@ static void do_ffa_notif_get(struct arm_smccc_1_2_regs *res,
+ 	hyp_smccc_1_2_smc(args, res);
+ }
+ 
++static void do_ffa_notif_info_get(struct arm_smccc_1_2_regs *res,
++				  struct kvm_cpu_context *ctxt)
++{
++	struct arm_smccc_1_2_regs *args;
++
++	if (ffa_check_unused_args_sbz(ctxt, 1)) {
 +		ffa_to_smccc_res(res, FFA_RET_INVALID_PARAMETERS);
 +		return;
 +	}
@@ -149,12 +294,25 @@ index d52d7c4d5e7f..2bb16aa414f9 100644
  bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
  {
  	struct arm_smccc_1_2_regs res;
-@@ -985,6 +1006,9 @@ bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
- 	case FFA_NOTIFICATION_UNBIND:
- 		do_ffa_notif_unbind(&res, host_ctxt);
+@@ -984,6 +1069,11 @@ bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
+ 
+ 	switch (func_id) {
+ 	case FFA_FEATURES:
++		if (ffa_check_unused_args_sbz(host_ctxt, 3)) {
++			ffa_to_smccc_res(&res, FFA_RET_INVALID_PARAMETERS);
++			goto out_handled;
++		}
++
+ 		if (!do_ffa_features(&res, host_ctxt))
+ 			return false;
  		goto out_handled;
-+	case FFA_NOTIFICATION_SET:
-+		do_ffa_notif_set(&res, host_ctxt);
+@@ -1030,6 +1120,10 @@ bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
+ 	case FFA_NOTIFICATION_GET:
+ 		do_ffa_notif_get(&res, host_ctxt);
+ 		goto out_handled;
++	case FFA_NOTIFICATION_INFO_GET:
++	case FFA_FN64_NOTIFICATION_INFO_GET:
++		do_ffa_notif_info_get(&res, host_ctxt);
 +		goto out_handled;
  	}
  
