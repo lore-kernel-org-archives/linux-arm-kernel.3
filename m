@@ -4,143 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7013CDE008
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 11:17:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46A06CD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 11:17:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DjzML74ejIpR6zLzlBjC6mSv6q/FdQD31kOWB3KqJnQ=; b=BXVKSY45U0QeU5Qega2FGtwfu9
-	vHGNS6LL9hfFWtO8H8Xcuh2qdsVLP4ciz1iOvK4XWAaEjyN3UAjRmxacXyp+uAs6Uhd7fLg25YVyL
-	cq7F0kJ2isImzscQWQAvaARU9+h6tRNUMD0l/5Fg6xDOc2CfS4HzQTlDb8wZ7TyYkmcQ7saD0N6Td
-	O8Eoyp6g+ifsw5HCaS1ajNDmuJeqZACu5eBhZ+M/jEz3J/NS/0fDhrYGp/nOUCsZOBAvqv0rTtQCX
-	PSs705g/rPKWt5WNk6WZodxyU+IQF6UOVHTGuSsc6DbQ6kFhm/IKW+95AOW9Ppbj0B+0D6hTRqGvk
-	okOsPI6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nvBLBJx+kT93NTleCT7dpiOIClkWaZ9So3A0zf5NePU=; b=Ix+vqPrRQBcWjKjR2ziDlQyvBp
+	Jyl0aWr7fU0wJxuRtDhoyErXNMHB4Xb0kaEnoI+/J0quRqbN7oT3OB/e2nmifAbXWcRUPAKnBbu3r
+	zvFQVkqgztvGCodRhbGHnb7Gi6fud368x/KdHI7AtvKk4h2eX10nk1qFGMGAvWEBfPVhuuU8bDYYG
+	6FxRQx3B1P0sQBDjKr1B0eQOWuSer5W8WCqwe3KyD5xy7TEkSPdmLZpmmKh12nYLEpxpB9wfvC+9v
+	zMHkaqqWts+G7aJf1usKcExGj2IRGrluesu60oUttENpvJVGLJuFuOc5GxGMKIafUE25ySn3gTVL4
+	fKuJFGUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd4Ye-0000000BCAv-2jyf;
-	Fri, 26 Jun 2026 11:17:16 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1wd4Z3-0000000BCNg-3pbX;
+	Fri, 26 Jun 2026 11:17:41 +0000
+Received: from mail-dy1-x132d.google.com ([2607:f8b0:4864:20::132d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd4Yb-0000000BC8L-2gqj;
-	Fri, 26 Jun 2026 11:17:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Fx0GksYXDOy0LiAuIDq151I5dFaPsorNoznJqo+tPNTr9+Mwkfql2YfA9NvtAQ9wb/XgBtH82T8mU7sPqVK8qfdSCzZRInBK6EcYoLlfhl6qgCNMwA68lNeUubMwoFtv8tKcVK07Iy/Vws9ePUUJMx6GFjxotG2UaMzHk/yBzPrBEBV1z63RKjTuZbYUIf3zFWvfR4zyGHwBTw0BOZZ9NcFRUipaB4fULankIrHfCkDBV5Xe/WvWZBPNFq9/GbxQ7BxVaTjqIlimdlfODJuD6Oqgpd75IO0hf14L4Ek6Ig047almdcZgwksZYS6r708udXfynm6zQw2TmqsonbSmSg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=DjzML74ejIpR6zLzlBjC6mSv6q/FdQD31kOWB3KqJnQ=;
- b=Jb94uce2abKb6F43pHbHl44/R1PaybCH6AhdiZjZsqJfJNVVEU+TAP+rzL41bUqOf5uBIaPAkCXX4nD/aEsAbaITWOsbbbsrsXrCiax3t7HvrHPSpd4TpbyfQOeANv3sCJY/zhYrY1kxYlzy5N78HEqViUDpE+4zDp/aANQYBpneck3LQvPEVcwZ86ekZsmpcEZ72MtHOP8AM3PYjZJs2Wka5gIPGaNZYUCShoU8I+tFwIvjMlFJBoS6hmqGRQTI9+jWfl+ElTK65diujUkQagwh3hP2JFJu+TJLpS7TlVXWFhN6NNFc4bbetQ9K6pqzKSQEvYq1lsEVhQlBec2sPg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=DjzML74ejIpR6zLzlBjC6mSv6q/FdQD31kOWB3KqJnQ=;
- b=cSk7RQ/nvSM1YiY/BQgKxikTlHh6PzwEKXPk1mZ6aL0mK645EMjShIeKYZO7JsZ+P8j/6VCjTL3r64pmIb68GzvRsJSh+K6zH+nuam5x6h29AFwYHvtkg6LfsZ2in5y5ev1jR03SuZpCpDxFear+V6Y6xf3HsWJH35uf6k13Z67uTphQecFLcirlnICs3/p+5rwwnhU7WYHnsYSBKtmbiy+A8fIXJnlW2Q3y50TCns424H8XqtCBHVQPQ3bBXiG8Y4Bs3uAYnj4300Qjt9ixkELZ90VPhZy5MD/A5WaTaqareXC5z5J9AXbIGGtoFCCpdluB3Wsr6gP9OEGbrjnpTA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB9422.eurprd04.prod.outlook.com (2603:10a6:102:2b4::21)
- by DBBPR04MB8026.eurprd04.prod.outlook.com (2603:10a6:10:1ed::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.20; Fri, 26 Jun
- 2026 11:17:05 +0000
-Received: from PAXPR04MB9422.eurprd04.prod.outlook.com
- ([fe80::54e:28bf:aa85:d25d]) by PAXPR04MB9422.eurprd04.prod.outlook.com
- ([fe80::54e:28bf:aa85:d25d%4]) with mapi id 15.21.0159.016; Fri, 26 Jun 2026
- 11:17:04 +0000
-Date: Fri, 26 Jun 2026 19:15:42 +0800
-From: Xu Yang <xu.yang_2@oss.nxp.com>
-To: Chaoyi Chen <kernel@airkyi.com>
-Cc: Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
-	Peter Chen <hzpeterchen@gmail.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>, 
-	Kishon Vijay Abraham I <kishon@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	Sandy Huang <hjc@rock-chips.com>, Andy Yan <andy.yan@rock-chips.com>, 
-	Yubing Zhang <yubing.zhang@rock-chips.com>, Frank Wang <frank.wang@rock-chips.com>, 
-	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
-	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Amit Sunil Dhamne <amitsd@google.com>, 
-	Dragan Simic <dsimic@manjaro.org>, Johan Jonker <jbx6244@gmail.com>, 
-	Diederik de Haas <didi.debian@cknow.org>, Peter Robinson <pbrobinson@gmail.com>, 
-	Hugh Cole-Baker <sigmaris@gmail.com>, linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	dri-devel@lists.freedesktop.org, Chaoyi Chen <chaoyi.chen@rock-chips.com>
-Subject: Re: [PATCH v15 1/9] drm/bridge: Implement generic USB Type-C DP HPD
- bridge
-Message-ID: <erx73m2ueuvbzjteadjli6aki5by4pr3hyertkkqqoqwhaa4v3@5cstmshcercx>
-References: <20260304094152.92-1-kernel@airkyi.com>
- <20260304094152.92-2-kernel@airkyi.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260304094152.92-2-kernel@airkyi.com>
-X-ClientProxiedBy: MA0PR01CA0097.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:af::14) To PAXPR04MB9422.eurprd04.prod.outlook.com
- (2603:10a6:102:2b4::21)
+	id 1wd4Z1-0000000BCMN-08Nl
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 26 Jun 2026 11:17:40 +0000
+Received: by mail-dy1-x132d.google.com with SMTP id 5a478bee46e88-30c713f37c2so1717327eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 04:17:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782472658; x=1783077458; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=nvBLBJx+kT93NTleCT7dpiOIClkWaZ9So3A0zf5NePU=;
+        b=MWM7ZMFskLhOh0Ip/5EvQu+zIrgeSPjtxY/yO1CJYro+kXd0lYKvSBlNMsl0o75in+
+         A5XG3AzIzfdyM66rRe4nEQa66bIbGLHQUBUMR0AwQwJBk8LmZ5qT+yKjpMwYBq+gZUoA
+         OQ1/tk+WeknknZy9Td6S3Ot8QRIzM1RnbSbOx0KOQQUzi66hqPPU/UcjVG3vnBw9jaMV
+         xzKiX1uyNE7Mi98yB0ZaXcSb7jleGakflgISObyKsblSsejnYhhI3ae49KaC+X2DVnFd
+         JmI2jjUvaXgwAJpEqcaqmg3tQINh3kipGrzsa5CkD5DvXwpJYpVLm0KKmseCNhzcIPNG
+         oNaQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782472658; x=1783077458;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=nvBLBJx+kT93NTleCT7dpiOIClkWaZ9So3A0zf5NePU=;
+        b=IEYF+MFNrjT/aiCUSlUfK+r8vdJxeFfEyA8fdcRDSuypyP886PvkOS8933HpiA0GGH
+         nn7AvIAXHA0kOaqlJHm8zUBnzuJ0bXpqaSXQ19B3IUSiTDJPViMQ//3Pk1edMJt+Asa5
+         W7wJUxsfAbuL+m8omiqjyo9M8XRebn1lJnOicuFoaWWqRrmE6TpHK6sz9AIhGgMV7VbO
+         z2+zDx6QP4PsGJKu21zIOyA9qeb7gi/fv4kozTKveNtck2U9FuXxBhSz6hX0lmquvh8X
+         I/RjXUwGhcAy+p99R7mWOQZOUUaRofkOLVVvPR9u7w1AqiP5fsqxwN5zkC3nGTjVN246
+         gFxg==
+X-Forwarded-Encrypted: i=1; AHgh+Rrs+EX+2EgMZXcWdCxZZwAds/2GSLrpdd4BXiCAixCVBLrxbXZXTHurvv3+/vMPY8+q/wJMcsWOUCXZL8uyFUix@lists.infradead.org
+X-Gm-Message-State: AOJu0YxOI9O64WBetgjdhfqHgkYhE0RtyEfqIHmZAbISn7MsRXhSfPGi
+	MLI35CseFbI6I7YWIgOowytKnfGnWoo4YltyJtWPUSv4EwMl7XpS3aIO
+X-Gm-Gg: AfdE7cltowAN8hc1WOHtmIcu3RXPuki2H82wiSvsv10/DaTQr5t9G1zlHjV10Fag74C
+	nZYUAoxzw5olyGJhFpyR2UsqP6Dx7/qro43GjkmXYr/n4Kg644vL6/CWQAYhd2i0B8NhbHYxETu
+	6fZa/z4et8zgZWu9IOVRP0tjTuI1XiCLokhPJrg7vih7MxDRt/qf8rzG6o8YKNb/Gb3b9XMnls2
+	+cx04w2hnn2miirWpS60gLOEoEYpLrAduhfD7poJxyp30v6KHhywVa2ji5LFVGKkOxit8PrYtP8
+	lV/1NhH6V0zIroeeKrq6pvMgClvBIXlLa99v6Ma9hJQJX/US+IDrIZPsMnA807xJlLtvHAdTAQp
+	Jq8COz8WcT0V6yXhNU8zbF2pHpnlI8kuUf5YQ6mxRcQwrE1W0h9Q+VDN06AWoHuafElkDmyMYm9
+	XMInlGbAToov5fx4SQoKv67+P1AN/cahIokKjq0fXd
+X-Received: by 2002:a05:7300:a485:b0:30b:8878:9c8e with SMTP id 5a478bee46e88-30c85468412mr5529542eec.2.1782472657813;
+        Fri, 26 Jun 2026 04:17:37 -0700 (PDT)
+Received: from primary ([223.181.21.17])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-30c7cac87dcsm19391852eec.31.2026.06.26.04.17.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 26 Jun 2026 04:17:37 -0700 (PDT)
+From: Vidhu Sarwal <vidhu.linux@gmail.com>
+To: Bartosz Golaszewski <brgl@kernel.org>,
+	Tony Lindgren <tony@atomide.com>,
+	Aaro Koskinen <aaro.koskinen@iki.fi>,
+	Andreas Kemnade <andreas@kemnade.info>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Roger Quadros <rogerq@kernel.org>
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-omap@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	skhan@linuxfoundation.org,
+	Vidhu Sarwal <vidhu.linux@gmail.com>
+Subject: [PATCH] ARM: dts: ti: Fix typos in comments
+Date: Fri, 26 Jun 2026 16:47:20 +0530
+Message-ID: <20260626111720.56688-1-vidhu.linux@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9422:EE_|DBBPR04MB8026:EE_
-X-MS-Office365-Filtering-Correlation-Id: d0a6c04e-9085-4344-f3e8-08ded37473b9
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|7416014|23010399003|366016|1800799024|6133799003|11063799006|4143699003|56012099006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: zUIh3be/D51eNGJ/NsLSKWvUOGlGyI698KD3goEQVj8+ww516sApvZ7ZiO9l6ZBgskjqpXv3z91BsMyAoHzBWsjFAOitR6qKfBSMQfycKE5B3QHPxz3XEgCqBelFIRKAjTY1pLMDz+EXMH3OUdKN19nldtYSZXmcoG+ASjUmHYmdEuWZjJSm4DpQsZIpXexxnRy4QoAZYnu6WcUVJDVEEK9GdG67ORhDt2Ctf6Lm73I5kqk1zKwbiLuXAOxLEJkWiduJQHa8js6sSThhjT9FLbxDWRltWYd9zZMTtQ/UxntX3eGaHioDu8LGMwW5dJUK7TowhESrrLJVBDplyytJDxzCCAaWM5UAMZd/IYRPCUZDG/LNKYdd+dF6iU3imDpzw6Gfi5u22c3tgAJ2fQLngCdCJ1UtCMuCiS8nkt+wF2CX3iy+LYfFGWBJHCUjegXq5/7Bm+Kbnaip98S7z2xFgGR1d1f+GhMd2sWndyNAukL1T6ZPUYfFTuuabnzsLVyMOgsxpcX2/zXWOmj3v8acKskTcE9NL1mq4dXoP3TSEwEENSN0jG7Bdu1w9ukhNlKtP9SO7KWTLlmYcqHaPw/aOx5+oc1AVaRjCjrCe1fPVfTjzUZDs7Bvsn/5uU5VR7V2opfseSnkWGrjCFDw3fK/xPC5dgSOk574LBkHzfazB2c=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9422.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(23010399003)(366016)(1800799024)(6133799003)(11063799006)(4143699003)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ooeGY7oY34UOvc4nBl1WPcaeKeACkry2olwhNzkFfvQfthS+iHdJ7ZqGfSc9?=
- =?us-ascii?Q?OKT7s8pvq5NsUA0lbPsHBpKSMZTHWLvO2zraz+8avxNCVeMln4kBmoq2Kqx3?=
- =?us-ascii?Q?Fc8n4gEgFqx0Mplpa8VtSxVHpGQ0Olqxu+7fXbAE4T/8B+XMYmpsO295B5gH?=
- =?us-ascii?Q?L2hYDzFZca8XBTMrusK2iiL7TTu+YphyJQSs8rscNbWRliholCnMDQ+TGRHT?=
- =?us-ascii?Q?DAsRu8lM5p6lUus8a7P6NAwLR5KaMXt+rrXtf/tpD4HRLCdz17phgd+dTDEB?=
- =?us-ascii?Q?SxXsxkdw1vMEdunMo0RZugNxbby2PqodbyDT0+HubQoR4v4LwHNwTtQ0anOM?=
- =?us-ascii?Q?X9nN6YdIc/QZceDn79wiaCcAh1Vh4XzDtoJqrpbFP8/L7Z3t6RVHTws3XAzF?=
- =?us-ascii?Q?zLcw0O9YbZl8VAqknes7NRTZGoHyojLVHqti2m1u3PgcT4zAX7bYyTkWpbTN?=
- =?us-ascii?Q?H9P8NF/EdUdFsRBrgBqZNjaqsSRRKbUHTppZuVr8DkJIY0yTvM2aJ1mKBdq6?=
- =?us-ascii?Q?RC6IW9L1eKzHwAgVD9fs2sBtemetLopYr1tnooaMTXeA4v0Cu7haN9og9Kfk?=
- =?us-ascii?Q?s7tyjDmz2Wp98N+dph7oG7uaoxFJaKaSBAbOEKU8e61GHQUCUjP11F9zK/RS?=
- =?us-ascii?Q?Tt9d39JUvQ7m8bG2lSmgsSlo/zjL/TUoohc2NUW3mL1kdQ3qx4lSMyjIK/0g?=
- =?us-ascii?Q?NgQ/qsCyoax4OFnblL0npvMvd/AGB4zSxyuDCOIg5XLZml/pFDPEktHDi0ll?=
- =?us-ascii?Q?rdoITUmiuPSOWTGdtYp5HQX5hnI0fh09CG07to8Avis88L3GzSYVeSwms6mX?=
- =?us-ascii?Q?IcjwGijIgsXows8LiLoEru1vDUbw/l8B+UqlYFw6NU/uBjO9ITJjB/wOUPJL?=
- =?us-ascii?Q?07EAtVktet5zBZZrAIZdGxHs1izN1BrOf1KmEj+JECHznrHJz4BFIOkhCxbi?=
- =?us-ascii?Q?KawvyAyP+4n1BLruRny6nvO/DYwRVT71fU0EBRByLjYp0YS76anxsCoiGGjM?=
- =?us-ascii?Q?PtSZnesx6cIKG7JNensUO24VgjS77LiBAD8h6iLtwXvPl5D5aGJpP4Y8GJPl?=
- =?us-ascii?Q?MOaO2seRTLZIw7QCAZOL5C0lm1vzDBaDhh5qQ9zZhigT3Wolyy1ZsCH9mZ4t?=
- =?us-ascii?Q?VIDHBr8jvfFYVU6AP0AKXfbJ9FFLdw4x/xaPgqF9hNR5Yu+ZjTSH9DOkVh+l?=
- =?us-ascii?Q?W+3MLTg4o6jRnANnjx2ARWi4Vk8MT/zesRInbmWbDZMaf66KAsgOHMjAh5/6?=
- =?us-ascii?Q?Tb4Y9luAulCE8RPQT0+4ZBZ0m72vudQ44ILYfQqrmTmr+WEv1617DNexQH16?=
- =?us-ascii?Q?3fgzSQqSajDRTwtUkILDD4y9aEIyQ7mgG68ZjUHBR50OS09uSIBOLy59JBNs?=
- =?us-ascii?Q?VrtQ4emtyi77NedjC3bsAPzGWfjKVm6xgBNW1k5cdDna4N5qhXtEkPpHAQSz?=
- =?us-ascii?Q?8xDBYG1zRTzRXDCZICQ+cgaZ3fKXCd8FM3ROW91sXfciC56EcqhA9ra4j4Na?=
- =?us-ascii?Q?jT4DuxkJAvu70N1Ykb3huDGDdwbsP81OCMPjyU4MNVXGSQTs8X4UYlbzOcnE?=
- =?us-ascii?Q?3gyLDut8GwfNsmL9T9J8XPi8ptYnJx3ClMRtpT6ZP1HXiGPzVS4QR6o0JRG/?=
- =?us-ascii?Q?jKRgj5digspJm9YjRkv7neeyQ8DZfeiC5HTpb8P/OQAS4xSaj5egP0IsNoj6?=
- =?us-ascii?Q?bLn3QaaPq6cmbmfsMq17G7ayxNcKgFv3ZJ9FxkkqSYVEee3MOKFFbhvrBA+8?=
- =?us-ascii?Q?W8UBHr1EhsIhHRBzDRaDDSUuPeSlhW2CzUZjiHP4L4hi4Fg7LnaC?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d0a6c04e-9085-4344-f3e8-08ded37473b9
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9422.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Jun 2026 11:17:04.8307
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: IG396oaH562jMvnEFh7iKacdFcbMY3R6C7lDOmNTFEjKpFgPOdQORlrhM0ONQPr5TSs6AZ6zgRwpNRz0Cpgt3WtGddZMm0C88sd0B6umJ7gxJQdi3Bjmhqzqtxd+BqK9
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB8026
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_041713_709936_7B48FA2B 
-X-CRM114-Status: GOOD (  26.82  )
+X-CRM114-CacheID: sfid-20260626_041739_071595_0E7CF2EA 
+X-CRM114-Status: GOOD (  13.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,90 +107,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 04, 2026 at 05:41:44PM +0800, Chaoyi Chen wrote:
-> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> 
-> The HPD function of Type-C DP is implemented through
-> drm_connector_oob_hotplug_event(). For embedded DP, it is required
-> that the DRM connector fwnode corresponds to the Type-C port fwnode.
-> 
-> To describe the relationship between the DP controller and the Type-C
-> port device, we usually using drm_bridge to build a bridge chain.
-> 
-> Now several USB-C controller drivers have already implemented the DP
-> HPD bridge function provided by aux-hpd-bridge.c, it will build a DP
-> HPD bridge on USB-C connector port device.
-> 
-> But this requires the USB-C controller driver to manually register the
-> HPD bridge. If the driver does not implement this feature, the bridge
-> will not be create.
-> 
-> So this patch implements a generic DP HPD bridge based on
-> aux-hpd-bridge.c. It will monitor Type-C bus events, and when a
-> Type-C port device containing the DP svid is registered, it will
-> create an HPD bridge for it without the need for the USB-C controller
-> driver to implement it.
-> 
-> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> Reviewed-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
-> ---
-> 
-> (no changes since v14)
-> 
-> Changes in v13:
-> - Only register drm dp hpd bridge for typec port altmode device.
-> 
-> (no changes since v12)
-> 
-> Changes in v11:
-> - Switch to using typec bus notifiers.
-> 
-> (no changes since v10)
-> 
-> Changes in v9:
-> - Remove the exposed DRM_AUX_HPD_BRIDGE option, and select
-> DRM_AUX_HPD_TYPEC_BRIDGE when it is available.
-> - Add more commit comment about problem background.
-> 
-> Changes in v8:
-> - Merge generic DP HPD bridge into one module.
-> ---
-> 
->  drivers/gpu/drm/bridge/Kconfig                | 10 ++++
->  drivers/gpu/drm/bridge/Makefile               |  1 +
->  .../gpu/drm/bridge/aux-hpd-typec-dp-bridge.c  | 49 +++++++++++++++++++
->  3 files changed, 60 insertions(+)
->  create mode 100644 drivers/gpu/drm/bridge/aux-hpd-typec-dp-bridge.c
-> 
-> diff --git a/drivers/gpu/drm/bridge/Kconfig b/drivers/gpu/drm/bridge/Kconfig
-> index a250afd8d662..559487aa09a9 100644
-> --- a/drivers/gpu/drm/bridge/Kconfig
-> +++ b/drivers/gpu/drm/bridge/Kconfig
-> @@ -30,6 +30,16 @@ config DRM_AUX_HPD_BRIDGE
->  	  Simple bridge that terminates the bridge chain and provides HPD
->  	  support.
->  
-> +if DRM_AUX_HPD_BRIDGE
-> +config DRM_AUX_HPD_TYPEC_BRIDGE
-> +	tristate
-> +	depends on TYPEC || !TYPEC
-> +	default TYPEC
-> +	help
-> +	  Simple bridge that terminates the bridge chain and provides HPD
-> +	  support. It build bridge on each USB-C connector device node.
-> +endif
-> +
+Fix comment typos found with codespell across DaVinci and OMAP
+board files:
 
-Should CONFIG_TYPEC_DP_ALTMODE select this one? Otherwise, we need to do it
-manually.
+  limitaion   -> limitation
+  swithes     -> switches
+  converstion -> conversion
+  differnet   -> different
 
-$ grep -nr --include=Kconfig "select DRM_AUX_HPD_BRIDGE" .
-./drivers/soc/qcom/Kconfig:118: select DRM_AUX_HPD_BRIDGE
-./drivers/usb/typec/ucsi/Kconfig:88:    select DRM_AUX_HPD_BRIDGE if DRM_BRIDGE && OF
-./drivers/usb/typec/ucsi/Kconfig:99:    select DRM_AUX_HPD_BRIDGE if DRM_BRIDGE && OF
-./drivers/usb/typec/tcpm/Kconfig:62:    select DRM_AUX_HPD_BRIDGE if DRM_BRIDGE && OF
-./drivers/usb/typec/tcpm/Kconfig:85:    select DRM_AUX_HPD_BRIDGE if DRM_BRIDGE && OF
+Signed-off-by: Vidhu Sarwal <vidhu.linux@gmail.com>
+---
+ arch/arm/boot/dts/ti/davinci/da850-lcdk.dts       | 2 +-
+ arch/arm/boot/dts/ti/omap/am3517-evm.dts          | 2 +-
+ arch/arm/boot/dts/ti/omap/am5729-beagleboneai.dts | 2 +-
+ arch/arm/boot/dts/ti/omap/omap4-panda-es.dts      | 2 +-
+ 4 files changed, 4 insertions(+), 4 deletions(-)
 
-Thanks,
-Xu Yang
+diff --git a/arch/arm/boot/dts/ti/davinci/da850-lcdk.dts b/arch/arm/boot/dts/ti/davinci/da850-lcdk.dts
+index 8390d71b000a..e70edd5274fe 100644
+--- a/arch/arm/boot/dts/ti/davinci/da850-lcdk.dts
++++ b/arch/arm/boot/dts/ti/davinci/da850-lcdk.dts
+@@ -366,7 +366,7 @@ nand@2000000,0 {
+ 			 * to NAND block 1 (NAND block 0 is not used by default)".
+ 			 * The same doc mentions that for ROM "Silicon Revision 2.1",
+ 			 * "Updated NAND boot mode to offer boot from block 0 or block 1".
+-			 * However the limitaion is left here by default for compatibility
++			 * However the limitation is left here by default for compatibility
+ 			 * with older silicon and because it needs new boot pin settings
+ 			 * not possible in stock LCDK.
+ 			 */
+diff --git a/arch/arm/boot/dts/ti/omap/am3517-evm.dts b/arch/arm/boot/dts/ti/omap/am3517-evm.dts
+index 40f15da81043..a4357fa9f006 100644
+--- a/arch/arm/boot/dts/ti/omap/am3517-evm.dts
++++ b/arch/arm/boot/dts/ti/omap/am3517-evm.dts
+@@ -213,7 +213,7 @@ &i2c2 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&i2c2_pins>;
+ 	clock-frequency = <400000>;
+-	/* User DIP swithes [1:8] / User LEDS [1:2] */
++	/* User DIP switches [1:8] / User LEDS [1:2] */
+ 	tca6416: gpio@21 {
+ 		compatible = "ti,tca6416";
+ 		reg = <0x21>;
+diff --git a/arch/arm/boot/dts/ti/omap/am5729-beagleboneai.dts b/arch/arm/boot/dts/ti/omap/am5729-beagleboneai.dts
+index 43cf4ade950b..76bfb364777e 100644
+--- a/arch/arm/boot/dts/ti/omap/am5729-beagleboneai.dts
++++ b/arch/arm/boot/dts/ti/omap/am5729-beagleboneai.dts
+@@ -420,7 +420,7 @@ stmpe811@41 {
+ 		st,mod-12b = <1>; /* 12-bit ADC */
+ 		st,ref-sel = <0>; /* internal ADC reference */
+ 		st,adc-freq = <1>; /* 3.25 MHz ADC clock speed */
+-		st,sample-time = <4>; /* ADC converstion time: 80 clocks */
++		st,sample-time = <4>; /* ADC conversion time: 80 clocks */
+ 
+ 		stmpe_adc {
+ 			compatible = "st,stmpe-adc";
+diff --git a/arch/arm/boot/dts/ti/omap/omap4-panda-es.dts b/arch/arm/boot/dts/ti/omap/omap4-panda-es.dts
+index a933fe560834..70c609811d11 100644
+--- a/arch/arm/boot/dts/ti/omap/omap4-panda-es.dts
++++ b/arch/arm/boot/dts/ti/omap/omap4-panda-es.dts
+@@ -12,7 +12,7 @@ / {
+ 	compatible = "ti,omap4-panda-es", "ti,omap4-panda", "ti,omap4460", "ti,omap4430", "ti,omap4";
+ };
+ 
+-/* Audio routing is differnet between PandaBoard4430 and PandaBoardES */
++/* Audio routing is different between PandaBoard4430 and PandaBoardES */
+ &sound {
+ 	ti,model = "PandaBoardES";
+ 
+-- 
+2.53.0
+
 
