@@ -4,149 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FB7AC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 15:04:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE046C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 15:12:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fjCQORy/yklmyO4rpJfmpSZy0BWSQ0TX7iZSaDzt5cg=; b=APgu0cxVzm9X/GBEGczKBmt9QV
-	CUbolxNxb5may11sgEwq/TWznk3dmvK+KD1742A3y5Bw6+URCL8cN4vRdlU1lkV0ZkDJSgmgsatnY
-	OGEzoWrtKtWrZuy3o51qJgCcrDg/1wOs0Xx/g2MLfUbeH98D0BGR7AFSwY9B1nrk2WmaOYnsRofJ3
-	s8Me5uAxFNqB51TfgLtojiZGY0+7fqEuex1SrqpC0JA8w6QlvLUwiSAkIeXdTRsEMjo0tCqctx5wx
-	3SdyWn+KAKUcx9F/7VpVnHck9DkZal2KtDwnVcY/i4rqDbCI9rtUOLVjq52BUBXK/ekziQZImsk/Q
-	ZlOteYNA==;
+	bh=8IjQQV0x4v7pxOJTTVBCFNy8jphgOpJOuxHypSpBUQU=; b=oMSeMn123ckCdS22TAm89WbPNB
+	utoCNTKdZKVz8twxktOMjn/yosZmW5P4cbBNhrBaItZeqLRVQ49RQTNTdomkwF+kJ6KdPnXsX2kyY
+	UUToK8/GqSA2djeqadl2QOB3nLCot7RYGaOoKLBzCI1gF+tBVbUJoJzVbMfzmLDtpkRATIRI/Rsnu
+	/IhGnqHzhg3gYyMZwURL/5hZ1d5yJIyLqwNm0EHPtOXx3MOWjCz3K8yjA+K0RW9Pf+kAj8C1MrprM
+	wfshHem8whAg6OzwfPlXI8FJVxU6awr03Jwdl75tqzaQfS/1G2lbkNX2/1+j99eBU1ymqhCTZuk8/
+	iBem6Wqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd86H-0000000BWMP-2QSL;
-	Fri, 26 Jun 2026 15:04:13 +0000
-Received: from mail-southcentralusazolkn19013046.outbound.protection.outlook.com ([52.103.14.46] helo=SA9PR02CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd86E-0000000BWLk-2BnZ
+	id 1wd8EA-0000000BX2L-04T1;
+	Fri, 26 Jun 2026 15:12:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wd8E7-0000000BX1y-0hNo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 15:04:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=awy8ThVHE1mIC3MLNs3LD3ymzA5WNuhkIdTMY+4F2AhYV+0TSkjVb6ZCKOAq0KZ/KZHwadPqPZByJgjjp7++pUFfCIe5z5/Wb2wU9Vim4HroExQ8MOUXEPdcWCszlyIQMGFqSSAo9irCWRWGmmA9Tup2WvppWeMo0hj64DFfONGpIGEEv4hN3bxwLLN+JWNASCmp2sTuBZ9Jv62UabaHWfKVRdRwMLlL9bH0RP51gsQAzbgT0L48b2rYcZi5kSQfMsLpkQYXma/3dCUDtA2zwHzAUtjLOf9BTp4j/dfoHxYJlkT5i8BpE+Yv1hxZdpddNvqB4sp/Nr6qyNKAUNZiYA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fjCQORy/yklmyO4rpJfmpSZy0BWSQ0TX7iZSaDzt5cg=;
- b=mTc6PQX5YgDB18TBTNYJnesuaqDohaUYQfhkmSatEfA/g/ldpDUan5giYD6Xg2VB+kEW+FTAcPyi/YU+xYr4kITZvsoMvaM9WgwmM9dNMecqgDEKSllxbYtH7and0/QAjfumJ5wD4iB+MN/ZlTWy32Zlp0Bdy0p3humfaY05urG24hLdb0W1aTEH0ohPMpKNCP3prq1XjO/6wpbcZOhPc5hhSm8X8LnLf2/xWm3wGDxb3zFSalio2kV1/GIx1707YRaS0OGph6zlFgS8X8Dvx04xZ36Ebw93Xur6hP+1ng9KkJO01MkqNobTn5B4vdiPbTaOEaZS/ce4nh/C4Akbyw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=fjCQORy/yklmyO4rpJfmpSZy0BWSQ0TX7iZSaDzt5cg=;
- b=nrO7GdqJfAlAm1BMl2Eg24MONz5gUHUbpgpEUfVXAIEd9nK5j5lxSIFE0itu2g63LvJzrDYzCYyx2JjI38JCeUlZ5i1GssjsM9d6LnWKp5YbKbtMjfYU3BTobfk8ej1eTWCPVx0rl4H2KDjGoXCqPD9KWpyhmg9lNP46RFtODbVSFSk3V8SBoRB4Wgj870FTEy4b2LdOY4NftUjWTXBE3ZBdTtbqEDnB24shimeFGSUW3lg0OEJC1MsfoyOpNBI/31/V00Zmcd3Hd6yUvUKYvSPJAxE1BX+aLtM5ffbkTBLBfGrAZCqBNFrQtr5QzQ2dCINcEgQFnRLOpkyE/jvQ+g==
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
- by IA3PR02MB10568.namprd02.prod.outlook.com (2603:10b6:208:53b::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.13; Fri, 26 Jun
- 2026 15:04:00 +0000
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::900:1ccf:2b1e:52b6]) by SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::900:1ccf:2b1e:52b6%3]) with mapi id 15.21.0159.007; Fri, 26 Jun 2026
- 15:04:00 +0000
-From: Michael Kelley <mhklinux@outlook.com>
-To: Kameron Carr <kameroncarr@linux.microsoft.com>, Michael Kelley
-	<mhklinux@outlook.com>, "kys@microsoft.com" <kys@microsoft.com>,
-	"haiyangz@microsoft.com" <haiyangz@microsoft.com>, "wei.liu@kernel.org"
-	<wei.liu@kernel.org>, "decui@microsoft.com" <decui@microsoft.com>,
-	"longli@microsoft.com" <longli@microsoft.com>
-CC: "catalin.marinas@arm.com" <catalin.marinas@arm.com>, "will@kernel.org"
-	<will@kernel.org>, "mark.rutland@arm.com" <mark.rutland@arm.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, "sudeep.holla@kernel.org"
-	<sudeep.holla@kernel.org>, "arnd@arndb.de" <arnd@arndb.de>,
-	"thuth@redhat.com" <thuth@redhat.com>, "linux-hyperv@vger.kernel.org"
-	<linux-hyperv@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-arch@vger.kernel.org"
-	<linux-arch@vger.kernel.org>
-Subject: RE: [PATCH v2 4/6] Drivers: hv: Mark shared memory as decrypted for
- CCA Realms
-Thread-Topic: [PATCH v2 4/6] Drivers: hv: Mark shared memory as decrypted for
- CCA Realms
-Thread-Index: AQHdBMj4p7vUSbVMmE+fvPgM94V6W7ZPn6qAgAEPDwCAAEG8oA==
-Date: Fri, 26 Jun 2026 15:04:00 +0000
-Message-ID: <SN6PR02MB41571AB004406F331E167203D4EB2@SN6PR02MB4157.namprd02.prod.outlook.com>
-References: <20260625173500.1995481-1-kameroncarr@linux.microsoft.com>
- <20260625173500.1995481-5-kameroncarr@linux.microsoft.com>
- <SN6PR02MB4157D5F94B5C5F35020FF047D4EC2@SN6PR02MB4157.namprd02.prod.outlook.com>
- <000801dd055c$2e375050$8aa5f0f0$@linux.microsoft.com>
-In-Reply-To: <000801dd055c$2e375050$8aa5f0f0$@linux.microsoft.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|IA3PR02MB10568:EE_
-x-ms-office365-filtering-correlation-id: 43851b75-3a81-4262-b3c7-08ded39427a8
-x-ms-exchange-slblob-mailprops: znQPCv1HvwUXBahuwteIkQeW30lJPuxOF1PXm9A0ZeLXlonzuv4zSh0DPHX/Zagh91CLQP2f/HTrTwwam00EMGvqxY1aol8iTUTG28Fxcc/jCN2wgI15lnDuDzz1/+MzrkQd9XsEhg5v7+rSnYPT6HZagD4Jv8YvRyak3pVRpbRKqUBKSbin52Unv+lssFam353Jf7oQ+djvlssCZNyUt6fA5ihYpZEc49xIPgdbf/uYXTGEW4+enTGfR7zNm6kpyzlkZPyAl3CH8e5aVxNlkB+ts2Pj35tvn9roqB0ZPsfKrfEY9/teerq9ZPbJemhXd5dzz3TtcjVlSOzzRLtFWW5335emp1IyIc6DKibNBhO+2FgtqbmRP9qWptydkJ4yF1k1UCopUg7Ux+5kyBX37qMXSDzvIDuP23+rsLb3FAXjZcftg692IjQ2NSCZSe5YiLZDuoJvy8VwoHQ1SEbzG52KjE9BaSjId+86fIPoHBGkKKTuUZMMETuvmEGVzEgyKaQdcI8tDdbyYTQJ+288GSv6Vc5TnYhbd3Zhy8Zv1vfa2V72HPfX+GrVt9MAhkUEEuojqKEXkoAuhGqiHz/EaUK2NpAEWzEaUM+7FncXHe+becM0aKKvrLNg/DZjbeB0KQB9iIWvo2XqY62B4k+/730mzcSAchKGZyEq6uuCiUQKniTDZsNjClx+apUbuub7dJA255qUzmnyAql7wzTbzJz67wS61bcN/6oCkOe6oBYZjQYOTTqU1FbWzLb95EgKFwcYJdt9rMw=
-x-microsoft-antispam: BCL:0;ARA:14566002|31061999003|19101099003|8062599012|37011999003|19110799012|25010399006|8060799015|41001999006|13091999003|51005399006|15080799012|40105399003|102099032|3412199025|440099028|1710799026;
-x-microsoft-antispam-message-info: =?us-ascii?Q?y/te1Mpm+beqTk+nlaq4tECc24eQ6JrhnUK32OtjUCpLbq4+XK+pmlTp1JfY?=
- =?us-ascii?Q?ezMvcPfF+EcE2ghO3nMwfytKYXCiHUIRWRUJOhfRL8un8TY+XBLwu/H9IFfw?=
- =?us-ascii?Q?+qc/JGddUUqu1PYXZaf6A1kHSdabbzVpUVzJW9tEh7jPNk08V6BJdSZJVvp7?=
- =?us-ascii?Q?zzzNY+0N69mO/vmhQr/GeWkYtWSOOHoIAo+Gm/lK9CdEAbBOkpzc3HcKOECP?=
- =?us-ascii?Q?aDPeojV54Ja21CdCDuqDMKTnU7OB9+wYqozsahBRmJa2nLPX+ly/4d3K/guE?=
- =?us-ascii?Q?6ViogVPjv2oZd1CubegkxxAlIg95fOt+2ORaxGP22ifKTQwGDoyzRRZJuTqC?=
- =?us-ascii?Q?gVvb6pY5BoMTpVcgodaT1lT2qjdDphAc9wswEzjJiTS+8q/FUdewGh3s8+Xu?=
- =?us-ascii?Q?lPl5WEkt/vEFnmk2QB+EhUC4FXb52+7Pav5D2LpSQZol/pqeeqzAfqeyX4DE?=
- =?us-ascii?Q?ybS54LXGmrj5WS4TsjQgxmu8iDkBSAhQYvpOFLbkzPC31WUJ3uC1x5PwyDUM?=
- =?us-ascii?Q?LYhUYJPgmRHCnfDBmcJzRVuK6HYjGRClWbNXP+UWOC3FhqW3b1ORmI4MpM1T?=
- =?us-ascii?Q?CDUoNR7bzD5Uc1JUxSMw4HKGXnwLkFWktWfGBGEGRtCmlmFGNyRYwSiUnTXk?=
- =?us-ascii?Q?kroo7NZc25GzqayszlDbMHD5L0DSyZwTeKGp+EWEjWaIBp42TGssaiFYJwMZ?=
- =?us-ascii?Q?P5A05Cg3B22kwdInQXmQMk1N9pQT4tOMcjOb0TMeY0tCJUzs/sJDJ4Npn0Dw?=
- =?us-ascii?Q?OywvOlIw0n9ns2BZrL6l13lzDFX/hYQuFkxxgCC7ZY3Y6NmUOtiwSWufCbOn?=
- =?us-ascii?Q?5uC2AEd8PXJFL/k4IlJ1UnCSqvildYUQ8CAR5J7jEQ5feturr5HcFwxB403p?=
- =?us-ascii?Q?vhF0dtXUMi+NzM5Solyr/86zXr5deYZ9czIGmpZhhgMWgRFsMfaOGXN7ITxF?=
- =?us-ascii?Q?OJVlcVOUBbcxMJZDpMG5dY6U6sWzt1UPbfeQ04Mh2euPQSQfUO82QK8y0fkB?=
- =?us-ascii?Q?R4HMubUd88M2/PECSB8EmXUiy94VE/ZkveMKMVRcN25VaSbSFTLaOqS3KRqn?=
- =?us-ascii?Q?BQXlSok0?=
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?PW72ajV3FVzDi4M7+1qvMYsUn8Dr/ebTquIzDVfjAMBmUGPj26ih9eKCKgaN?=
- =?us-ascii?Q?uoFE1S4eHrzDTnl4hzSnaSiRUjHnLMFGuX9ea1V3DxA19rWMoSCtiUmYUvOv?=
- =?us-ascii?Q?fFnBInJjnpilvUo2Fy8wcRkp0r/vatBZspGVTMCZt9T19V0qJs6+AHvGKVr6?=
- =?us-ascii?Q?XiNOX/Yg8L2lL4BZeZIBZXuH+PoE60AL4EVhyn/y54Tg0sMub4LAnrhHtQLI?=
- =?us-ascii?Q?LjaNDkjsCxgJrkMywNc7aQ65NcesvbnVba9dyVp60j+7GNLp8voglsAaT+I4?=
- =?us-ascii?Q?BKriYPZk7frYXYxJa4mZx9XXyLi5SwDMEs1FOGDXZOqVPRnEiHoS+3XHIRT7?=
- =?us-ascii?Q?zyxiPDyAkIVmAvQ6zVoRZkfcbbIlxLhbFbTYrBLFHzrrPozP+rBEurLSxAr/?=
- =?us-ascii?Q?DB6W5PYTIQaP86MLjMQNlKVz3MSfwhAajG5oeVAGZahITZqdAUkhCnxJ2+7N?=
- =?us-ascii?Q?djoTZlJeqGL6F0rkh2Q6f4MHyPZYsVyDNWmTJT8NjxjkQ11dcbwjbH+uvXT+?=
- =?us-ascii?Q?ksOeF76Mvd40iIjKsdYjoUpEFwkqczmHEJUA/l+qv2SNbVqLdg5f0s4DeFI5?=
- =?us-ascii?Q?X67fsy7CKxk7A1tKbnfljNhQoUMoS7aLy3Ma+Ye91UTB+QszxbCNOKcAkm5+?=
- =?us-ascii?Q?QeTlU6LBY5bN0NwMAWV69cnndbznuU3AtXskRDmFvOK1jP0omT9OeHUE6dIu?=
- =?us-ascii?Q?Zll5l3OxHdTS2VMVvG1Bz3IFfqhrt1kJRGStc6vBZ2+3LaAWE68T3Y9lX6tv?=
- =?us-ascii?Q?9mbtN2GvZZL7uQuBCZPfCXeCpoaGz6vuUGjCXpc1d/a0/KlP2V1yZfrDYpWn?=
- =?us-ascii?Q?1u1G/UEt97dewTWDxTz6MlBsQ8mHt5HbblcXAlYNyNI9aJYa4/npkuvMtNR7?=
- =?us-ascii?Q?JwRU2plysL5GB8qmq29T6Ie9OQllZ0MIGtTNHm2ZuFUSKdTWM4QDg9lJLnZ8?=
- =?us-ascii?Q?pwJZjADtUPf1CeG/UmM4YnAcf7tgIksMsyBPFZVGQir/SiLHQJvRFWWNFPCi?=
- =?us-ascii?Q?WbEhtRO+guuUw0PKdcp9fwEToG+SGv4qyH+EOFErcv0JZcA9q5nILiPCcKeP?=
- =?us-ascii?Q?BNbRCZ+klXq2X6aIjcLPHKREQ3waW9umej+jrENOADtrtKFQwWoXGbgxmcCy?=
- =?us-ascii?Q?65mJHFsi8RKyufcZrSgi87IE2FOooXCaluczVyP07qOJt8bFTGTh7gtaU5km?=
- =?us-ascii?Q?Xq/bta7bpdsc4kzse6Fnq/SzKwAJ2lWuhZp1q7FAHuuDSSjnWWZdTtTRa/4T?=
- =?us-ascii?Q?ZhzRCnx/6N+rW3LYhgocyCu34IccPeO18Wf7For/OA0bCxXQaceM9/+0kN9K?=
- =?us-ascii?Q?cbU7z+J166TPodkliSbKZIxxDHG/7VWOwIguWUONkgt2S8dFvlr7cAKlkFs2?=
- =?us-ascii?Q?c0oXRD0=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Fri, 26 Jun 2026 15:12:20 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 596401E7D;
+	Fri, 26 Jun 2026 08:12:12 -0700 (PDT)
+Received: from localhost (unknown [10.2.196.114])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 68D2D3F632;
+	Fri, 26 Jun 2026 08:12:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1782486736; bh=YN7HFeAn5PfLzBdHTnw12iJICI72jFBKITQg8GRt9JI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=W4OK0Qj/gfEiAScIK4WRs1+dVyd7SXFPAI+0BUFrcXuVHPnbTliWZzqYxLs3rNdQI
+	 4s5PWJrgQ8F5NTwPDsn9Shr56QFSSGvxFWGKWd/D7lYrWZOS+D08a5l6+jG5+suUU4
+	 ONIuI3yT9d+BIeSeJ2JJHdwLAJoWoEbNTVCuuzEg=
+Date: Fri, 26 Jun 2026 16:12:14 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Wen Jiang <jiangwenxiaomi@gmail.com>
+Cc: linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+	catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org,
+	urezki@gmail.com, baohua@kernel.org, Xueyuan.chen21@gmail.com,
+	dev.jain@arm.com, rppt@kernel.org, david@kernel.org,
+	ryan.roberts@arm.com, anshuman.khandual@arm.com, ajd@linux.ibm.com,
+	linux-kernel@vger.kernel.org, jiangwen6@xiaomi.com,
+	shanghaoqiang@xiaomi.com, Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@arm.com>,
+	James Clark <james.clark@linaro.org>, Tamas.Petz@arm.com,
+	Michiel.VanTol@arm.com
+Subject: Re: [PATCH v4 0/6] mm/vmalloc: Speed up ioremap, vmalloc and vmap
+ with contiguous memory
+Message-ID: <20260626151214.GA1794676@e132581.arm.com>
+References: <20260618084726.1070022-1-jiangwen6@xiaomi.com>
 MIME-Version: 1.0
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-CrossTenant-Network-Message-Id: 43851b75-3a81-4262-b3c7-08ded39427a8
-X-MS-Exchange-CrossTenant-originalarrivaltime: 26 Jun 2026 15:04:00.7103
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA3PR02MB10568
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260618084726.1070022-1-jiangwen6@xiaomi.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_080410_573456_DBDD5CAC 
-X-CRM114-Status: GOOD (  38.79  )
+X-CRM114-CacheID: sfid-20260626_081219_379346_266EE2E9 
+X-CRM114-Status: GOOD (  10.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,99 +77,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Kameron Carr <kameroncarr@linux.microsoft.com> Sent: Friday, June 26,=
- 2026 4:09 AM
->=20
-> On Thursday, June 25, 2026 11:59 AM, Michael Kelley wrote:
-> > From: Kameron Carr <kameroncarr@linux.microsoft.com> Sent: Thursday,
-> > June 25, 2026 10:35 AM
-> > > We need to round up the memory allocated for the input/output pages t=
-o
-> > > the nearest PAGE_SIZE, since set_memory_decrypted() requires the size=
- to
-> > > be a multiple of PAGE_SIZE. This only has an effect on ARM VMs that a=
-re
-> > > using PAGE_SIZE larger than 4K.
-> >
-> > I think this change resulted from a Sashiko comment. My understanding i=
-s
-> > that the ARM CCA architecture only supports CCA guests with 4 KiB page
-> > size. Is that still the case, or has that restriction been lifted in a =
-later version
-> > of the architecture? I'm in favor of handling the larger page sizes, if=
- only for
-> > future proofing. But I wondered whether your intent is to always suppor=
-t
-> > > 4 KiB page sizes even if CCA doesn't support them now. Another way to
-> > put it: In reviewing code, should I flag issues related to page sizes >=
- 4 KiB?
->=20
-> I think you might be right. I'm looking at RMM spec 2.0 beta 2, and the R=
-MI
-> can have granule size 4KB, 16KB, 64KB, but the RSI is restricted to granu=
-le size
-> 4KB.
->=20
-> I'm open to suggestion on best way to move forward.
+On Thu, Jun 18, 2026 at 04:47:20PM +0800, Wen Jiang wrote:
 
-The best approach probably depends on whether the 4 KiB restriction is
-likely to be lifted in a future version of the CCA architecture, and I don'=
-t have
-any insight into that.
+> Besides accelerating the mapping path, this also enables large
+> mappings (PMD and cont-PTE) for vmap, which are currently not
+> supported.
 
-If it is likely to be lifted, then doing the initial implementation to supp=
-ort
-larger page sizes probably makes sense (which is what you've done here).
-It's less work than going back and adding later. But the commit message
-and/or code comments should indicate that the larger page size support
-is future-proofing work, so that someone doesn't get the wrong idea that
-it should work with larger page sizes now.
+I verified this series with large vmap() mappings for Arm trace buffer
+units (TRBE and SPE), and the results are positive.
 
-The alternate approach is to not do any larger page size support now,
-and to explicitly state that the code is assuming the current restriction
-of 4 KiB page size only.
+Arm trace buffer units use the CPU's page tables for address translation
+when writing trace data to DRAM. The larger vmap() mapping granules
+reduce TLB pressure, resulting in significantly fewer L2D TLB refills
+and reduced L1D TLB refills. The decrease in dtlb_walk indicates that
+fewer page table walks are required and that address translations are
+more often satisfied by cached TLB entries.
 
-Whichever approach is chosen should be used consistently so there's
-not a mishmash.
+The detailed results are included below for reference.
 
->=20
-> > > @@ -499,14 +500,16 @@ int hv_common_cpu_init(unsigned int cpu)
-> > >  		}
-> > >
-> > >  		if (!ms_hyperv.paravisor_present &&
-> > > -		    (hv_isolation_type_snp() || hv_isolation_type_tdx())) {
-> > > -			ret =3D set_memory_decrypted((unsigned long)mem, pgcount);
-> > > +		    (hv_isolation_type_snp() || hv_isolation_type_tdx() ||
-> > > +		     hv_isolation_type_cca())) {
-> > > +			ret =3D set_memory_decrypted((unsigned long)kasan_reset_tag(mem),
-> > > +				alloc_size >> PAGE_SHIFT);
-> >
-> > I don't know enough about KASAN or the tag situation on ARM64
-> > to comment on this change. But this same sequence of allocating
-> > memory and then decrypting it occurs in other places in Hyper-V
-> > code. It seems like those places would also need the same
-> > kasan_reset_tag() call.
->=20
-> I'm not sure of the exact behavior of PAGE_END when there are
-> KASAN tags, but it looks like tags could mess with the address
-> comparison.
->=20
-> I do see that __virt_to_phys_nodebug() and virt_addr_valid() in
-> arch/arm64/include/asm/memory.h both reset tags before calling
-> __is_lm_address().
->=20
-> If there are many calls that follow this pattern, it may be better to
-> add the tag reset in __set_memory_enc_dec().
+Thanks for working on this, and here is my test tag:
 
-I had the same thought.
+Tested-by: Leo Yan <leo.yan@arm.com>
 
->=20
-> I can undo this change.
->=20
+P.s. I applied a local change to set PERF_PMU_CAP_AUX_PREFER_LARGE in
+the CoreSight and SPE drivers to allocate large memory chunks. This
+change will be sent out once the MM changes are agreed.
 
-Unfortunately, I don't know whether undoing it is right or not. I
-haven't taken the time to go learn about the whole scheme and its
-implications.
 
-Michael
+## Results with TRBE
+
+Test command:
+
+  taskset -c 2 perf stat -C 10 -e cycles:u,instructions:u,dtlb_walk:u,l1d_tlb:u,l1d_tlb_refill:u,l2d_tlb_refill:u \
+    -- taskset -c 2 perf record -C 10 -m ,1G -e cs_etm// \
+    -- taskset -c 10 ./sparse_branch_delay.elf
+
+The benchmark was run 5 times. CPU10 was isolated and dedicated to
+running the workload while collecting the TLB statistics.
+
+Before this series:
+
+ +----------------+--------+--------+--------+--------+--------+----------+
+ |TLB Metrics     |   Run1 |   Run2 |   Run3 |   Run4 |   Run5 |     Avg. |
+ +----------------+--------+--------+--------+--------+--------+----------+
+ | dtlb_walk      |     63 |     75 |     62 |     73 |     69 |     68.4 |
+ +----------------+--------+--------+--------+--------+--------+----------+
+ | l1d_tlb        |   2093 |   2189 |   2237 |   2036 |   2086 |   2128.2 |
+ +----------------+--------+--------+--------+--------+--------+----------+
+ | l1d_tlb_refill |    154 |    153 |    150 |    165 |    157 |    155.8 |
+ +----------------+--------+--------+--------+--------+--------+----------+
+ | l2d_tlb_refill | 161325 | 161403 | 161432 | 161580 | 161439 | 161435.8 |
+ +----------------+--------+--------+--------+--------+--------+----------+
+
+After this series:
+
+ +----------------+--------+--------+--------+--------+--------+----------+----------+
+ |TLB Metrics     |   Run1 |   Run2 |   Run3 |   Run4 |   Run5 |     Avg. |    Diff. |
+ +----------------+--------+--------+--------+--------+--------+----------+----------+
+ | dtlb_walk      |     67 |     59 |     60 |     58 |     53 |     59.4 |  -13.16% |
+ +----------------+--------+--------+--------+--------+--------+----------+----------+
+ | l1d_tlb        |   6710 |   7120 |   6662 |   6626 |   6542 |   6732.0 | +216.32% |
+ +----------------+--------+--------+--------+--------+--------+----------+----------+
+ | l1d_tlb_refill |    126 |    117 |    119 |    117 |    119 |    119.6 |  -23.23% |
+ +----------------+--------+--------+--------+--------+--------+----------+----------+
+ | l2d_tlb_refill |    506 |    489 |    485 |    506 |    489 |   495.0  |  -99.69% |
+ +----------------+--------+--------+--------+--------+--------+----------+----------+
+
+## Results with SPE
+
+Test command:
+
+  taskset -c 2 perf stat -C 10 -e cycles:u,instructions:u,dtlb_walk:u,l1d_tlb:u,l1d_tlb_refill:u,l2d_tlb_refill:u \
+    -- taskset -c 2 perf record -C 10 -m ,512M -e arm_spe_0/ts_enable=1,pa_enable=1,period=64,min_latency=0/ \
+    -- taskset -c 10 dd if=/dev/zero of=/dev/shm/dd_mem_test bs=1M count=1024 status=progress
+
+The benchmark was run five times. CPU10 was isolated and dedicated to
+running the workload while collecting the TLB statistics.
+
+Before this series:
+
+ +----------------+--------+--------+--------+--------+--------+----------+
+ |TLB Metrics     |   Run1 |   Run2 |   Run3 |   Run4 |   Run5 |     Avg. |
+ +----------------+--------+--------+--------+--------+--------+----------+
+ | dtlb_walk      |   2090 |   1709 |   1679 |   1519 |   1555 |   1710.4 |
+ +----------------+--------+--------+--------+--------+--------+----------+
+ | l1d_tlb        | 254450 | 257227 | 252517 | 252535 | 254752 | 254296.2 |
+ +----------------+--------+--------+--------+--------+--------+----------+
+ | l1d_tlb_refill |  16023 |  16088 |  15944 |  15989 |  15956 |  16000.0 |
+ +----------------+--------+--------+--------+--------+--------+----------+
+ | l2d_tlb_refill |   5887 |   4204 |   3713 |   4556 |   5620 |   4796.0 |
+ +----------------+--------+--------+--------+--------+--------+----------+
+
+After this series:
+
+ +----------------+--------+--------+--------+--------+--------+----------+----------+
+ |TLB Metrics     |   Run1 |   Run2 |   Run3 |   Run4 |   Run5 |     Avg. |    Diff. |
+ +----------------+--------+--------+--------+--------+--------+----------+----------+
+ | dtlb_walk      |   1111 |   1301 |   1229 |   1166 |   1771 |   1315.6 |  -23.08% |
+ +----------------+--------+--------+--------+--------+--------+----------+----------+
+ | l1d_tlb        | 257462 | 257420 | 257241 | 259968 | 261324 | 258683.0 |   +1.73% |
+ +----------------+--------+--------+--------+--------+--------+----------+----------+
+ | l1d_tlb_refill |  15954 |  15919 |  15948 |  15962 |  15968 |  15950.2 |   -0.31% |
+ +----------------+--------+--------+--------+--------+--------+----------+----------+
+ | l2d_tlb_refill |   2672 |   2558 |   2801 |   2478 |   4147 |   2931.2 |  -38.88% |
+ +----------------+--------+--------+--------+--------+--------+----------+----------+
 
