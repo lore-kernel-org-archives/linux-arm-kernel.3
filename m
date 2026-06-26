@@ -4,155 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D42ACDE008
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 11:26:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BBE8CD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 11:42:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xp6BH1YDO1p6QN/66C7G3LI3oo+YrxYKt7PFYlnJB1I=; b=zcmZxLyWFJ/ET8OVJjVzGOzVEy
-	ReIl8CCzEQ4dOPIlJtg2oXauhplEOvVvCpNeszYOdMKTyre2ToE6cYo3SzEDzFk0znHFx5b/l6g/n
-	517qyNNHr8afjZGrtQB/hSxRexH8Fn4iZVNtEVksfUXCpuATBKtdumBeAb9ki6kk0kPjnEm8mxP3O
-	kpYfPtUbA1Qu5XtZ2UTbbDhqFeJ+v8YCWNX5KL+59d9xrbCfz0dArim3S4idglvY54uu6LsGl2mtr
-	djwB31oojXUslUJsn8PX/TtBDfn7YrZ9JSKL421jKoUkE3bMIlKm3VRelxD0czZ2vwFm8/TAwgPSi
-	kAqwl2pA==;
+	bh=1qkvYLHiPQK3YQ/bggKAhUgUK3vQbS1Kelw2b8UZ/Jg=; b=aLy8kPlhkX+OoJze/o5X6hXlAb
+	JeC5GW16VB7hQ+yDnSsP4Hni7K1sKKiYS2pEHbFwpZCAPg/OX0PPOhkOEO1m/mSRNCWAT/o9gXlUV
+	bF3PTtPJGxl4nPOC85wX2rWbgPYLdOg+/rFgfCRVcMbx3dbpmX+aHLGpxSjO0d3nFAJcJjenOjf+A
+	nAenUFXJjgx/X0BAjqbrilwDmODdgcmd/7hBJ6HqHLX8Ia2QZqtW9WWGg20WgedEEz7x5j3VVFS5o
+	LzhbpPcfRyb0E/astBh83Z+V89j4ikRqGTeTdvNzSPefVkOwF+QEudGZkYPTLWT5E9eHqMq6ytL+0
+	YpiPXn6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd4gz-0000000BDRz-0Utj;
-	Fri, 26 Jun 2026 11:25:53 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wd4xG-0000000BFC4-45G2;
+	Fri, 26 Jun 2026 11:42:42 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd4gw-0000000BDRZ-2FbQ
+	id 1wd4xE-0000000BFBU-2fEj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 11:25:51 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65QAch9C1143735
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 11:25:49 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	xp6BH1YDO1p6QN/66C7G3LI3oo+YrxYKt7PFYlnJB1I=; b=nxse7MpIWKwRS9Kq
-	PzD23s235gtdv3TG4eC6YWz3k2Ihyta9XyWxIpJx0isDek4tTXfSirVc8FPCDjcB
-	jX6CLqpCq3/OD/riyHZxJTUhQRDQ4sP5bC1lFI8zSjM3jhhxXBMFgq1rh4gdITVK
-	j9KncVe/esV8QZcP679zaL3TW5K8JtvDPLTdY77yHkkhmWaKEbEnCeSJMoD6xpV4
-	Xoon2A/LR+Vl1J4usG6/b7oyWWkAXb5rRTaCrzaI96OMu5cv6ureohlVfE88jZUa
-	tBw2AERzFTOTifvxtrmbSZCoiGqnXtqcsdAIIZGasRE8Xx9zFzJg+Ips8o+76E8B
-	jdZcaw==
-Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f1eewadgb-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 11:25:48 +0000 (GMT)
-Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-30ca3374c6aso888423eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 04:25:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1782473148; x=1783077948; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=xp6BH1YDO1p6QN/66C7G3LI3oo+YrxYKt7PFYlnJB1I=;
-        b=M0Y3/yfYRjYMGV4XdCMqukquOAAhSCXB/nS+kLGUn/vDRnFcma0dQ4XWfviM7EbTAa
-         klBA4wA+aIkBlZNEu/y5LhvxnLKwIJA4yXz4x1CrvQamsXTSw4o43qfY6FW9fvprhheM
-         miDR5L8gbOHXjLol/qAMSWPKPqaOUDL8wp7UOjOe4/a1tffzU5K2RObJASGyStBKEMW5
-         tOfp4QBkSnOMS8WoyidpsJcwqKSOpm01YQfUzR/GYUCQRqREYVGNrfk2ApoaV+UOHwml
-         K8zFSUZoM/HW6QiStBtHOH8MIyTsk8niNPEvCA/PcBMgDSt6JNkSqI+qSBJJInXmPJtb
-         7yiw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782473148; x=1783077948;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=xp6BH1YDO1p6QN/66C7G3LI3oo+YrxYKt7PFYlnJB1I=;
-        b=lBeY4eOYusAogyonVxMexU/o7UT2MFY4eHEXJf6tKaoWAvufwFw7Xt76wnI3RM8FqM
-         aUlxar440Cagx/SXEx6ubfQZHKWe6s8jYwggkzpMahftfMhfzDtIf+z5gFipTHlZGdLg
-         hp9J1B+Lpn7eY6drgqHDD+lmP6m0qu+kU/AdmjogtHbgzuL0YHtj7bXreS9YzoMIWxsp
-         py+jINSCAI7/3bRwelsKd+9FomNG6LyWXcyNfxgn5rONB/9BYM6z8APOJXP7td3ZV1R5
-         xI39hL0Gz/W6v7lcmVBENf1V+VDnc3a3DWjGER7gU+3S501EY+XW2gevPs4xMaH9vAgL
-         f2wA==
-X-Forwarded-Encrypted: i=1; AHgh+RrvYmZgtWXChJsiVibfYyVL3MaxTzimbq3kgwEb2lMu4obwhWknfH5aEERzKzLOZJYnpXNTK6hRagSNDsJBcAw0@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz8MEapvNWY9x/AeHX53iHJK69SAinkbHj0ZS/OjSVB0+tWTZFR
-	34ZvgUWs19xLBzUSgO01xjvnpiTwr0NhbRHfBd3G67wZ8ltk+a3CNYwzzV9cRYoeYieN0SsvCbc
-	LO6s3GwBRRyUDjzcjUljs0teoIQCPzXRTmHdSR820y4x/i4wwdnuZT2fWIseTH21sWofuV1WtVn
-	xN3inDmhHZlw==
-X-Gm-Gg: AfdE7clp8yrNP5df+AG16AigP3t2TshwoLRVK47Kzr6T8sB7J8w5VBblToiTY1i/Q3E
-	UhlOmw5TrnFUm1QvV3QdtyuK1PtTudGy8IU39gh7Re7gx9VbqEoViqjSmBSatj5KDqW2iEiFsVb
-	RK9Ab2ABBjI/GrVE8y+BEX8BdKhVcifHKgx5wZ/5bK12ruILszfywFzeudkLv8Cd17h2TOFMbPC
-	S95k6LA13OXz0hKXrkdrtXf1AKbat73u+FCMEDOqx6CtK3dvcIiAR3yLwi1F4TLPehZMhmpuICG
-	+cBi+WmPTn3Rx8VrRSMlnyu2rFtKS/hR7TlIFKjO0hiFdjzYhdjvlOXqmfZH4e+NrBLJ0mB3jOm
-	w2IEf1FhIIPhAZk8Sfmgq68YneUjBA6Mp8pD6yw==
-X-Received: by 2002:a05:7300:fd07:b0:30b:d31f:1577 with SMTP id 5a478bee46e88-30c84e596bemr7352327eec.34.1782473147710;
-        Fri, 26 Jun 2026 04:25:47 -0700 (PDT)
-X-Received: by 2002:a05:7300:fd07:b0:30b:d31f:1577 with SMTP id 5a478bee46e88-30c84e596bemr7352290eec.34.1782473147186;
-        Fri, 26 Jun 2026 04:25:47 -0700 (PDT)
-Received: from [10.219.56.41] ([202.46.23.19])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-139d8f6d2e4sm17343537c88.7.2026.06.26.04.25.41
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 26 Jun 2026 04:25:46 -0700 (PDT)
-Message-ID: <abfc0099-be71-4e4c-abe4-e8341a06f15a@oss.qualcomm.com>
-Date: Fri, 26 Jun 2026 16:55:22 +0530
+	Fri, 26 Jun 2026 11:42:42 +0000
+Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id B5C911E6;
+	Fri, 26 Jun 2026 13:41:53 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1782474114;
+	bh=BM4hFHiFsObK0LIS+fIVKgawCpiGQpH+mXX2lBxwRJs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=dp3NNdvW1pGAEnSKWCxg2578oLJ6i0AisKoebBSSrScvuDG0WEWSdGx/Wj8MHWwOQ
+	 P6WeNBn/2U4LN/5Vbsuc7XrYurGyDkqHrnEFiEQVXDNd0NhxnXHWUl5xdy5YWePj4x
+	 Dd6NfsJJjmNzoUiy3kIbQQrZ08/1qFbUZ7SGcI/E=
+Message-ID: <15d76a14-4deb-4f4e-a14e-2094df75bf75@ideasonboard.com>
+Date: Fri, 26 Jun 2026 14:42:31 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/6] iommu/arm-smmu: Add interconnect bandwidth voting
- support
-To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-        Joerg Roedel <joro@8bytes.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org
-References: <20260526-smmu_interconnect_addition-v2-0-2a6d8ca30d63@oss.qualcomm.com>
- <20260526-smmu_interconnect_addition-v2-2-2a6d8ca30d63@oss.qualcomm.com>
- <7xfxlxfqjcqdzl6gckaoyy2ioefglc7bgi66yv5khrbl6fi2zc@ivtiukdaj4jv>
- <d25f24ca-5bb3-4276-ac8f-8340e8fb4ce8@oss.qualcomm.com>
- <sdm7sqiokmsgczeat2mxch42ois5rwabav6c5fm7abct2xoepf@j3kraqrjvpoc>
- <ea345832-711d-4e32-af0f-bc74d8646aef@oss.qualcomm.com>
- <299d54c5-fb93-47ee-9495-fbf48a3204fd@oss.qualcomm.com>
- <aaf4daee-4886-4214-a761-80545d2565ee@oss.qualcomm.com>
- <4f0878a0-2ab1-490d-b251-c6d68c4ee241@oss.qualcomm.com>
+Subject: Re: [PATCH 0/6] arm64: ti: Use syscon for the Control Module
+To: Andrew Davis <afd@ti.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Nishanth Menon <nm@ti.com>,
+ Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
+ Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Abraham I <kishon@kernel.org>, Roger Quadros <rogerq@kernel.org>,
+ Devarsh Thakkar <devarsht@ti.com>, Swamil Jain <s-jain1@ti.com>
+References: <20260528-ti-main-conf-v1-0-a54ac5c8d081@ideasonboard.com>
+ <29c9bd27-df32-4c56-8df2-987722d02b9a@ti.com>
+From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 Content-Language: en-US
-From: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
-In-Reply-To: <4f0878a0-2ab1-490d-b251-c6d68c4ee241@oss.qualcomm.com>
+In-Reply-To: <29c9bd27-df32-4c56-8df2-987722d02b9a@ti.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNjI2MDA5MiBTYWx0ZWRfX0mpj2gpyr+fx
- DVOHM7Y5tUzOElIwyWdghSQcbfZewYCiexohbxn/m7hr5gSZEMcSGKc41rvsJwTttJUH8S2XfpW
- vqaRXQkpFPlUK3QN0arhe5MyXzn9VfA=
-X-Proofpoint-GUID: 27WCSc68FuQE22keWI8h7O5nzsiegGle
-X-Proofpoint-ORIG-GUID: 27WCSc68FuQE22keWI8h7O5nzsiegGle
-X-Authority-Analysis: v=2.4 cv=P7UKQCAu c=1 sm=1 tr=0 ts=6a3e61bc cx=c_pps
- a=Uww141gWH0fZj/3QKPojxA==:117 a=j4ogTh8yFefVWWEFDRgCtg==:17
- a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=j3I-O8hsx3pVybSV4xQA:9 a=3ZKOabzyN94A:10
- a=QEXdDO2ut3YA:10 a=PxkB5W3o20Ba91AHUih5:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjI2MDA5MiBTYWx0ZWRfX/UOVeYt1vjJq
- Mn/AgCTun1dPNLXGrmqG5wp8Or2LArW1iK30HScPRmKYj5x1Rw0sWQCIQHtWqQhB7Ox8CDWI4iN
- L0614Iu8EtEy/h3BzexewgqsOw9FD7dwGBwAyKp0B6xOzP3o5OjCBO+QGtErfABNeBhFjBSqITa
- cJTB46VPWSesCEI3rD+y1vluKGmaJBwaKDdDURcoRI/5pKPIjmrOkWa75GFnDZy/waFkWTlnkx5
- Vl+icg6X2hiZkGS8uONOiiGG71sP6ICS/x/qGW+AUhIDox8zSKgJGAitHKnvhxNxqsW9ZlPCcWh
- YhFC9ymR7F0fkaMpjGfw2uGr0b3ZiotCbZdXHv5SwYOrGdH5YL9+xhOpTxWs4RWHgfW5PFd8Icq
- OS9WdIh8BteumpaFqlJHtjJQivlgXKv/HTL+ffZKomH9dBwZ9a68yoHB8sOzAw9/OAHIHpcYaYP
- wz01MwZmYNmdgYTE4Xg==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-26_03,2026-06-24_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 adultscore=0 phishscore=0 bulkscore=0 spamscore=0
- impostorscore=0 clxscore=1015 suspectscore=0 lowpriorityscore=0
- malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2606260092
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_042550_699392_9834CCD7 
-X-CRM114-Status: GOOD (  26.62  )
+X-CRM114-CacheID: sfid-20260626_044240_832299_EE6D33D0 
+X-CRM114-Status: GOOD (  18.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,131 +73,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Andrew, Krzysztof,
 
-
-On 6/25/2026 2:17 PM, Konrad Dybcio wrote:
-> On 6/19/26 12:54 PM, Bibek Kumar Patro wrote:
+On 29/05/2026 01:59, Andrew Davis wrote:
+> On 5/28/26 7:53 AM, Tomi Valkeinen wrote:
+>> I have been trying to get BeagleY-AI display support to upstream:
 >>
+>> 20260513-beagley-ai-display-v2-0-9e9bcefde6bc@ideasonboard.com
 >>
->> On 6/18/2026 2:58 PM, Konrad Dybcio wrote:
->>> On 6/17/26 4:26 PM, Bibek Kumar Patro wrote:
->>>>
->>>>
->>>> On 6/16/2026 5:51 AM, Dmitry Baryshkov wrote:
->>>>> On Mon, Jun 15, 2026 at 06:36:51PM +0530, Bibek Kumar Patro wrote:
->>>>>>
->>>>>>
->>>>>> On 6/8/2026 7:25 PM, Dmitry Baryshkov wrote:
->>>>>>> On Tue, May 26, 2026 at 08:12:03PM +0530, Bibek Kumar Patro wrote:
->>>>>>>> On some SoCs the SMMU registers require an active interconnect
->>>>>>>> bandwidth vote to be accessible. While other clients typically
->>>>>>>> satisfy this requirement implicitly, certain corner cases (e.g.
->>>>>>>> during sleep/wakeup transitions) can leave the SMMU without a
->>>>>>>> vote, causing intermittent register access failures.
->>>>>>>>
->>>>>>>> Add support for an optional interconnect path to the arm-smmu
->>>>>>>> driver and vote for bandwidth while the SMMU is active. The path
->>>>>>>> is acquired from DT if present and ignored otherwise.
->>>>>>>>
->>>>>>>> The bandwidth vote is enabled before accessing SMMU registers
->>>>>>>> during probe and runtime resume, and released during runtime
->>>>>>>> suspend and on error paths.
->>>>>>>>
->>>>>>>> Generally, from an architectural perspective, GEM_NOC and DDR are
->>>>>>>> expected to have an active vote whenever the adreno_smmu block is
->>>>>>>> powered on. In most common use cases, this requirement is implicitly
->>>>>>>> satisfied because other GPU-related clients (for example, the GMU
->>>>>>>> device) already hold a GEM_NOC vote when adreno_smmu is enabled.
->>>>>>>>
->>>>>>>> However, there are certain corner cases, such as during sleep/wakeup
->>>>>>>> transitions, where the GEM_NOC vote can be removed before adreno_smmu
->>>>>>>> is powered down. If adreno_smmu is then accessed while the interconnect
->>>>>>>> vote is missing, it can lead to the observed failures. Because of the
->>>>>>>> precise ordering involved, this scenario is difficult to reproduce
->>>>>>>> consistently.
->>>>>>>> (also GDSC is involved in adreno usecases can have an independent vote)
->>>>>>>>
->>>>>>>> Signed-off-by: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
->>>>>>>> ---
->>>>>>>>      drivers/iommu/arm/arm-smmu/arm-smmu.c | 57 +++++++++++++++++++++++++++++++++--
->>>>>>>>      drivers/iommu/arm/arm-smmu/arm-smmu.h |  2 ++
->>>>>>>>      2 files changed, 57 insertions(+), 2 deletions(-)
->>>>>>>>
->>>>>>>> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c b/drivers/iommu/arm/arm-smmu/arm-smmu.c
->>>>>>>> index 0bd21d206eb3e75c3b9fb1364cdc92e82c5aa499..07c7e44ec6a5bd1488f00f87d859a20495e46601 100644
->>>>>>>> --- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
->>>>>>>> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
->>>>>>>> @@ -53,6 +53,11 @@
->>>>>>>>      #define MSI_IOVA_BASE            0x8000000
->>>>>>>>      #define MSI_IOVA_LENGTH            0x100000
->>>>>>>> +/* Interconnect bandwidth vote values for the SMMU register access path */
->>>>>>>> +#define ARM_SMMU_ICC_AVG_BW        0
->>>>>>>> +#define ARM_SMMU_ICC_PEAK_BW_HIGH    1000
->>>>>>>
->>>>>>> totally random numbers, which might be different for non-Qualcomm platform.
->>>>>>>
->>>>>>
->>>>>> Ideally, any non-zero value would be enough to keep the path active.
->>>>>
->>>>> This is true for Qualcomm devices. However, you are adding this to a
->>>>> generic code.
->>>>>
->>>>>> Here 1 Would be enough to keep the path active, but might be too small to
->>>>>> reliably keep the bus active.
->>>>>> Other is UINT_MAX, which will reliably keep the bus active but might cause a
->>>>>> power penalty.
->>>>>>
->>>>>> #define ARM_SMMU_ICC_PEAK_BW_HIGH    UINT_MAX
->>>>>>
->>>>>> seems to be suitable here to reliably keep the bus active by BCM
->>>>>> for both Qualcomm and non-Qualcomm platforms (with some power penalty).
->>>>>>
->>>>>> LMK, if you feel otherwise.
->>>>>
->>>>> Shift it to the qcom instance or provide platform-specific values? (My
->>>>> preference would be towards the first solution).
->>>>>
->>>>
->>>>
->>>> To support platform-specific values, we may need to introduce a LUT-based approach in the driver. (Bandwidth voting values cannot be placed in device-tree property IIRC ?)
->>>>
->>>> Currently, all Qualcomm platforms use 0x1000 for SMMU ICC voting. I
->>>
->>> (you used decimal 1000)
->>>
+>> One difficulty has been the handling of the Control Module region, as
+>> we need access to a single in that region, surrounded by registers for
+>> other subsystems. In my series I made the related node a syscon, thus
+>> allowing versatile access to the registers:
 >>
->> It's my bad, i meant 1000 only
->> (I'll check on the icc_bw calculation to get clarity on the values)
+>> https://lore.kernel.org/all/20260513-beagley-ai-display- 
+>> v2-14-9e9bcefde6bc@ideasonboard.com/
 >>
->>>> can evaluate if this could be moved to a Qualcomm-specific
->>>> implementation.
->>>
->>> Add a vendor hook to arm_smmu_runtime_suspend/resume and handle it within
->>> the QC driver
->>>
+>> However, that's not a correct way to handle it. I realized we already
+>> have ti,j721e-system-controller.yaml binding for older SoCs, which has
+>> syscon but it's not used for the newer TI SoCs. This series takes the
+>> same binding into use for the newer SoCs.
 >>
->> Just curious, wouldn't this apply for all the arm-smmu users in addition to Qualcomm devices as i mentioned here [1].
->> Vendor hook would make it Qualcomm specific.
 > 
-> You're proposing to use a Qualcomm-specific bandwidth value so that
-> fits
+> We moved away from this system-controller thing because it was always
+> a hack to allow us to poke into random control registers from nodes
+> throughout the DT. This was a mess and also caused issues with multiple
+> mappings to the same registers (some sub nodes inside the control space
+> also make their own mappings). If you need access to registers then make
+> a node with those registers in the `reg` property.
 > 
+> The only reason we didn't get rid of `ti,j721e-system-controller.yaml`
+> completely from the older SoCs was we were told it would be an ABI
+> break to correct those DT files. Let's not spread that problem to
+> new SoCs.
+I'm still stuck on this issue.
 
-Got it, It seems valid. Will be sharing the new implementation post
-testing in next revision.
+So, to summarize, we have the big control module memory region from 
+which various drivers need "random" registers. In my particular case, 
+the display subsystem (DSS) driver needs to access a single register 
+from the control module, but as the control module contains a lot of 
+registers, there are other similar cases too (I've seen at least one 
+other series, trying to add access to control module registers).
 
-Thanks & regards,
-Bibek
+Taking AM62 SoC as an example, we have this in upstream:
 
-> Konrad
-> 
->>
->> [1]: https://lore.kernel.org/all/984ff9c7-3eef-463c-a330-bf7acd063667@oss.qualcomm.com/
->>
->> Thanks & regards,
->> Bibek
->>
->>> Konrad
->>
+https://github.com/torvalds/linux/blob/4edcdefd4083ae04b1a5656f4be6cd83ae919ef4/arch/arm64/boot/dts/ti/k3-am62-main.dtsi#L44
+
+"main_conf" (simple-bus) node representing the control module, and nodes 
+under that representing either small things like clocks or, in 
+dss_oldi_io_ctrl case, a syscon.
+
+I'm aware of three options on how to handle this.
+
+1) Adding small syscon nodes under the main_conf, similar to the 
+existing dss_oldi_io_ctrl.
+
+I did this in the earlier series: 
+https://lore.kernel.org/all/20260420-beagley-ai-display-v1-3-f628543dfd14%40ideasonboard.com/ 
+
+
+2) Making the whole control module a syscon, as I do in this series.
+
+3) Adding the required registers as a new 'reg' block under the dss' DT 
+node.
+
+Both 1) and 2) have been nacked or at least very strongly questioned. 3) 
+doesn't feel right, the register is not a register for the IP but an 
+external SoC integration register.
+
+Is there an option 4)? In your opinion, is one of the above the one 
+clear choice?
+
+  Tomi
 
 
