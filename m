@@ -4,78 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75104CDE013
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 10:17:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11D1ECD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 10:30:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1iOu4mmk7muFslscsxfttDP5mlyfxxQyRnUH/mB/ePw=; b=cCD1Wo1xGn1XEUlbtPU7m/CLG6
-	EQn6mekjMeTfcpB1GQyc+/fiJd82wJac+uL/jdUZxXAlzmLGy/0MIqWtyRhAEvze9zKs9kLDr3yJD
-	a+vIZalziX4ORbT4xzBcthuFZdBLlQaKLBkX7Rc0Pn6P6emP9mmNJ9/Iy7dkLEedDSi+2aI/GT6NF
-	kRLgUJbVzw/6dhskdD7w8yqPR6r6eu++VDMRMRwfNckMZ5PTt0Z7OgqWz9AujAO+SKKP9jKBOdwND
-	GubRTLrR3qcYcAcQ/UzpUdOW0CEGGycBqa4h3v9lHni9K/8OhWasa7w47aiVKegqckDuIk8Icevb+
-	GmJvHEsA==;
+	bh=5va8VVBtKzACCnxfjlpbKMW6UASR52rb8m3xvY0zgsI=; b=5A/slDiH74w96rV5e4+N8TAzQ7
+	3r6Qpp+wjwrozzSZ5dRaBYtNTo/TqxiWUpXzzhi/30Nkc1qBukRB+Vcylmo8AqLyk30T28wVPIPol
+	P8rBGcfEjWwcIW3J/KIpDJZ0Q0schfHsTYSze7tTzqWrEsld3O/L8KDUNpYFk6ttdolNmKrB3i8YO
+	zQR+XLRzrMtvzA6eI+kDG0qdBDgVZboyOxf3B0VN37fC7CUz8bspIhGefXwmUGd5DoiYfm85WK8Jf
+	VOi7B4dVpnfnKbRGlgChX0VBK0rwKsI8S4SZV/2zPTUsxOvcHSbDc/4VU7idJ6VtVsSZFy5JR0qOi
+	KcQM28hA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd3cF-0000000B4Qn-1oAS;
-	Fri, 26 Jun 2026 10:16:55 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd3cC-0000000B4OO-20oG
+	id 1wd3pG-0000000B6ML-3vCG;
+	Fri, 26 Jun 2026 10:30:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wd3pE-0000000B6Lv-40tl
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 10:16:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1782469012; x=1814005012;
-  h=message-id:subject:from:to:cc:date:in-reply-to:
-   references:content-transfer-encoding:mime-version;
-  bh=zNOQKVs7mFtzvW7ZL9QiUwGBwaYNwddOXYQ6SUFj9VE=;
-  b=oGVUk05U8tIeR6MK2vZaJY1QW6nEPQUYMklI8bC/4qRW7Dd07Z577PTG
-   S5TN36DTeZ1JLBwWl/zA1ayZGMK4OOrjmE1aSmHsP0isZW2or8GQzInNP
-   aISU/peC1pCTCTrnalD7E5uI17vJwpmrnYVfO+YH6jJzmL5Rm665XMyWN
-   LtTL11VTh36pkY6ZqUBAXYYSrJGk2sp9Wb9Bp5501sflx4x75CAAAQqM2
-   NyksdOsgOUVyREl8pduwGfY9v1JMFNzSFxgpCbO1K59e2ucgtn0RWaowZ
-   ZUo5pq3zRa7mlRy+WmBr93yneeoerc+oF+Ba8bbHZFDagNueQFMVknIvd
-   g==;
-X-CSE-ConnectionGUID: 8bIlMgSjTJ2lCwvRkPA3WQ==
-X-CSE-MsgGUID: 8LxoRXNIQeaKlQiHcqlfEw==
-X-IronPort-AV: E=Sophos;i="6.24,226,1774335600"; 
-   d="scan'208";a="60080306"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 26 Jun 2026 03:16:51 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Fri, 26 Jun 2026 03:16:51 -0700
-Received: from DEN-DL-M77643.microsemi.net (10.10.85.11) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Fri, 26 Jun 2026 03:16:48 -0700
-Message-ID: <ae037bec765ab2f660097edd61f02ec4d969098f.camel@microchip.com>
-Subject: Re: [PATCH net-next 6/9] net: sparx5: vcap: add lpm vcap
- implementation
-From: Jens Emil Schulz Ostergaard <jensemil.schulzostergaard@microchip.com>
-To: Jakub Kicinski <kuba@kernel.org>
-CC: <horatiu.vultur@microchip.com>, <UNGLinuxDriver@microchip.com>,
-	<andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
-	<pabeni@redhat.com>, <daniel.machon@microchip.com>,
-	<Steen.Hegelund@microchip.com>, <kees@kernel.org>, <gustavoars@kernel.org>,
-	<netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-hardening@vger.kernel.org>
-Date: Fri, 26 Jun 2026 12:16:48 +0200
-In-Reply-To: <20260615233849.1042290-1-kuba@kernel.org>
-References: <20260612-sparx5_l3_routing-v1-6-fc3c10160f49@microchip.com>
-	 <20260615233849.1042290-1-kuba@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.44.4-0ubuntu2.1 
+	Fri, 26 Jun 2026 10:30:22 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8B4ED1E7D;
+	Fri, 26 Jun 2026 03:30:13 -0700 (PDT)
+Received: from localhost (unknown [10.2.196.114])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9BF623F905;
+	Fri, 26 Jun 2026 03:30:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1782469818; bh=RPGjuxweSBX9qRHLJv2h8Lc6/pXmWzN6MYxGMUlho+Y=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YtZlT4mW9DHylU7QLNesKElwkkpftd5nTIxv+S9wuUMph7P9GGp96HJDF2jvsOYDu
+	 I9zYagqIC/ZzmHL76+l2jcGIX3CBhssPlBMdS1+w6QMKhZKZNtEbN4vbbNyuZ3KvNj
+	 T98VxNktwCAbIgDHJHkGrjEtBHZHSrkknWolo6bg=
+Date: Fri, 26 Jun 2026 11:30:15 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Jie Gan <jie.gan@oss.qualcomm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+	Jingyi Wang <jingyi.wang@oss.qualcomm.com>,
+	Abel Vesa <abel.vesa@oss.qualcomm.com>,
+	Mike Leach <mike.leach@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
+	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 2/2] arm64: dts: qcom: kaanapali: fix traceNoC probe
+ issue
+Message-ID: <20260626103015.GE575984@e132581.arm.com>
+References: <20260624-fix-tracenoc-probe-issue-v2-0-786520f62f21@oss.qualcomm.com>
+ <20260624-fix-tracenoc-probe-issue-v2-2-786520f62f21@oss.qualcomm.com>
+ <f0634a64-1141-4ff9-9033-825e3c75d28d@oss.qualcomm.com>
+ <f39ec59f-97c4-4d5f-bf02-560adae312d9@oss.qualcomm.com>
+ <471d7a92-3629-4274-a303-8906d3626037@arm.com>
+ <25d7d3a1-58e0-4f25-a73a-59a978130c47@oss.qualcomm.com>
+ <20260624151610.GC575984@e132581.arm.com>
+ <a13fb65c-726b-4c99-b741-29040c4564d0@oss.qualcomm.com>
+ <20260625085643.GD575984@e132581.arm.com>
+ <065853f5-b11b-4316-814e-202f07acb6ea@oss.qualcomm.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <065853f5-b11b-4316-814e-202f07acb6ea@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_031652_585846_CDBE2270 
-X-CRM114-Status: GOOD (  20.61  )
+X-CRM114-CacheID: sfid-20260626_033021_036842_D055A857 
+X-CRM114-Status: GOOD (  16.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,89 +92,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 2026-06-15 at 16:38 -0700, Jakub Kicinski wrote:
-> EXTERNAL EMAIL: Do not click links or open attachments unless you know th=
-e content is safe
->=20
-> This is an AI-generated review of your patch. The human sending this
-> email has considered the AI review valid, or at least plausible.
-> ---
-> net: sparx5: vcap: add lpm vcap implementation
->=20
-> Add the implementation for the LPM VCAP for lan969x and sparx5. The LPM
-> VCAP has a static keyset configuration, and a single lookup dedicated to
-> LPM, so this is straight forward, and many functions can use existing
-> functionality.
->=20
-> > diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.c b=
-/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.c
-> > index 95b93e46a41dc..e25e759c24f60 100644
-> > --- a/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.c
-> > +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.c
-> > @@ -1083,6 +1146,46 @@ static void sparx5_vcap_es2_cache_write(struct s=
-parx5 *sparx5,
-> >       }
-> >  }
-> >=20
-> > +static void sparx5_vcap_lpm_cache_write(struct sparx5 *sparx5,
-> > +                                     struct vcap_admin *admin,
-> > +                                     enum vcap_selection sel,
-> > +                                     u32 start,
-> > +                                     u32 count)
-> > +{
-> > +     u32 *keystr, *mskstr, *actstr;
-> > +     int idx;
-> > +
-> > +     keystr =3D &admin->cache.keystream[start];
-> > +     mskstr =3D &admin->cache.maskstream[start];
-> > +     actstr =3D &admin->cache.actionstream[start];
-> > +
-> > +     switch (sel) {
-> > +     case VCAP_SEL_ENTRY:
-> > +             for (idx =3D 0; idx < count; ++idx) {
-> > +                     /* Avoid 'match-off' by setting value & mask */
-> > +                     spx5_wr(keystr[idx] & mskstr[idx], sparx5,
-> > +                             VCAP_SUPER_VCAP_ENTRY_DAT(idx));
->=20
-> [Severity: High]
-> Are concurrent writes to the shared VCAP_SUPER_VCAP_ENTRY_DAT registers
-> safe here without a global hardware lock across the different VCAP types?
->=20
-> It looks like IS0 and IS2 rules are updated via vcap_add_rule() under the
-> rtnl_lock(). However, the LPM rules are updated under the
-> sparx5->router->lock inside a workqueue.
->=20
-> Since both execution paths share the Super VCAP hardware block, could
-> concurrent updates from TC (IS0/IS2) and routing (LPM) race on these shar=
-ed
-> cache registers, and also on VCAP_SUPER_CTRL in sparx5_vcap_super_update(=
-),
-> garbling the hardware command and corrupting the cache memory?
->=20
+Hi Jie,
 
-Very nice catch, I missed this. This is even reachable before this series
-because the debugfs dump also uses these registers, and runs outside of
-rtnl.
+On Fri, Jun 26, 2026 at 10:03:41AM +0800, Jie Gan wrote:
 
-I will send a fix to net which replaces the per instance locks with a singl=
-e
-vcap_control global mutex.
+[...]
 
-> > +                     spx5_wr(~mskstr[idx], sparx5,
-> > +                             VCAP_SUPER_VCAP_MASK_DAT(idx));
-> > +             }
-> > +             break;
->=20
-> [ ... ]
->=20
-> > @@ -1379,6 +1523,7 @@ static void sparx5_vcap_update(struct net_device =
-*ndev,
-> >       struct sparx5 *sparx5 =3D port->sparx5;
-> >=20
-> >       switch (admin->vtype) {
-> > +     case VCAP_TYPE_LPM:
-> >       case VCAP_TYPE_IS0:
-> >       case VCAP_TYPE_IS2:
-> >               sparx5_vcap_super_update(sparx5, cmd, sel, addr);
+> Hi Leo,
+> 
+> To be honest, I would prefer not to modify the interconnect platform driver.
+> On some Qualcomm platforms, multiple itnoc devices reside within small
+> blocks(one or more than one for each block) and are connected to a dummy
+> source. In such cases, two ATIDs are allocated for a path (the dummy source
+> and the itnoc), which is inefficient. This is why the itnoc platform driver
+> created to avoid this waste.
+> 
+> The TraceNoC (called as AG TraceNoC) is a generic TraceNoC device which
+> connected to multiple source and link devices, aggregating data from all
+> source devices into a single output path.
 
+As I said, it may be fragile to couple a specific device property (ATID)
+to the AMBA driver.
+
+You're now facing a case where a device cannot be registered as an AMBA
+device, so it cannot use ATID. Likewise, I can imagine in future where a
+device is registered as an AMBA device, but you don't want ATID.
+
+> This device is implemented as an AMBA device but lacks proper hardware
+> configuration. As a result, it must be handled in the driver as a
+> workaround, which unfortunately breaks the original design intent.
+
+Seems to me, it is not reasonable to pretend an AMBA device but AMBA
+ID registers are absent.
+
+How about add a new DT property ("qcom,tnoc-enable-atid") to force
+enabling ATID?
+
+Thanks,
+Leo
 
