@@ -4,61 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AE80C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 13:52:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8502C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 14:17:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=klomjTp/kFRiT2SqS4cY7wTFQ0YyZY2hiOo18ni0jNo=; b=jgs0Fk2QYVksziDQOFmmYeP/DG
-	5mAU3cnydHwFtNTfvR2jqR1Vww9Jt766qYwcCj9t60RgWBXexe213DizRD8AdF24NcQXg5Mc2Rzuo
-	qiTJJPNBLbSJbdodIRLvgi/YiiTXDnuMa4s5YJ9E9O5irNe4/KBJNIyu02ceu0dIN6fYMA0gRh2lI
-	tKt9N+Mm9FlKp0POdF7IjJd+xDIqlPA7N/WwKDfRGpBL9BEMxHzOhEvSBE+ypCYVywx+4A1UJnHso
-	bEobCj6RWXR8xbKsbaOmDJMbM7ucf9+DF/Q0ljlaAD4fZaiwK2c4/yyBXA1Jjc430FjjXUEoT4xxX
-	3sz/Qalw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HiXIftSGz3/FakEy7iV1z44v7wCiE7fCNRBBHRqbE8s=; b=2JcgMDGTCkNMvdNr5bsWXnWQ+J
+	j5AAI/KpcmXSqnahy8Z+PfkrltQkISNzZ23h3AwnWrAwx7I5F0lEfrm3jwyeVv+qltDH7MQ9JT13a
+	knHOkykE8XjAeoJnRRYHQDvezCAtPtOm3S30lu6U1pHjWXGEs9zHK+G7W3adwp1L+3wOnYqZD4M+l
+	p0ZbsEbak1Kp6qQn5kks/KYXPqVhtIEOLtRdw/7BbLw43dgN0ULLkCDxMNZsR20p4QcUc0iygtVmZ
+	2MvhnOzcalhbW2AaIGO9YHUp3t0L4oxFfJ0JoKjJH1+TdMAatQDRfjFwVhVFJUux7t6s3O3Psl7ch
+	KrCz1RmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd6zD-0000000BQxw-2NVF;
-	Fri, 26 Jun 2026 13:52:51 +0000
-Received: from mail-106112.protonmail.ch ([79.135.106.112])
+	id 1wd7MZ-0000000BRVB-1EOl;
+	Fri, 26 Jun 2026 14:16:59 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd6zA-0000000BQxO-2QH2
+	id 1wd7MV-0000000BRUo-3SP1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 13:52:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rasmusvillemoes.dk;
-	s=protonmail; t=1782481963; x=1782741163;
-	bh=klomjTp/kFRiT2SqS4cY7wTFQ0YyZY2hiOo18ni0jNo=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:Message-ID:From:To:
-	 Cc:Date:Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
-	b=tYtKxiCAO2i7EgBB0iHvY58UJ/xOmE/Mi4aygHHteB8dah1JYvhSLsHmc7aMMQkjq
-	 7OoCzVeMSvPsM1+gbfgi9KlhdeVaXBjsofY47ESJvL83RhYGaWdyWlCgBzzXvarXFo
-	 kqp6fCxBcZAVQEQvIFNVjWxBJJvsDe9YsSNKB4tEwD9SZNEMEGJRukqGCejizJRTJd
-	 5vaO8D+ujry4oIoyUHRbg949P9Lc75PC9PM0mFwXuwzqv9vwuG/3DBfcJJH+kwv1Ti
-	 dIb+++Vuq39+SPO1ikZXFumJ0bWdAWlnupQWazT3gi5B+qTYCtN0Q2DGnVsGnsZE4N
-	 tHY5GUy5C1NVw==
-X-Pm-Submission-Id: 4gmxvD3Kjdz1DFTD
-From: Rasmus Villemoes <linux@rasmusvillemoes.dk>
-To: "Mark Rutland" <mark.rutland@arm.com>
-Cc: <linux-arm-kernel@lists.infradead.org>,  "Ard Biesheuvel"
- <ardb@kernel.org>,  "Will Deacon" <will@kernel.org>,  "Jonathan Corbet"
- <corbet@lwn.net>,  <linux-doc@vger.kernel.org>,
-  <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] docs: arm64: Document that text_offset is always 0
-In-Reply-To: <ajVekauNroapwbtm@J2N7QTR9R3.cambridge.arm.com> (Mark Rutland's
-	message of "Fri, 19 Jun 2026 16:21:53 +0100")
-References: <20260604140839.1930847-1-linux@rasmusvillemoes.dk>
-	<FJaxt3BQA_NDzW32PANPtSgJ_BxYjJ7azs-k2dgboQtWdDfsdpM7j_VNuB7Vym1cYLDXKM1Tsm1YnqsSB7boQA==@protonmail.internalid>
-	<ajVekauNroapwbtm@J2N7QTR9R3.cambridge.arm.com>
-Date: Fri, 26 Jun 2026 15:52:39 +0200
-Message-ID: <87y0g1mms8.fsf@rasmusvillemoes.dk>
-User-Agent: Gnus/5.13 (Gnus v5.13)
-MIME-Version: 1.0
-Content-Type: text/plain
+	Fri, 26 Jun 2026 14:16:58 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 02A4FC6344B;
+	Fri, 26 Jun 2026 14:17:01 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 151A760232;
+	Fri, 26 Jun 2026 14:16:52 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id DF1E0104C83B5;
+	Fri, 26 Jun 2026 16:16:40 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1782483410; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=HiXIftSGz3/FakEy7iV1z44v7wCiE7fCNRBBHRqbE8s=;
+	b=m5HGN2LNoMhBXxCIbtrRqDG7GXhu7+7ogaB+/nzDsIn4MLa5kkPA5pY+/7jFFwOuQ51aWQ
+	Y+Tcx7DX2+P+8d4ut48OT1anz9HquQENZ0WzjRUAbHX97j1gupFhLqqki/VKyD2A9Dx2Be
+	vdrjbYznwyl/q40lt4C1+d3/sLQEQa9cofGSPagfyOQAbLY1FANy+Q5RI5xWEVCyUsQ6x6
+	dLkRu2lAcI5a7ksYedje41gF8Tyhu6BXYRvD3w7z40eozal46JS+mxnRIqaZlqdlgLoBB7
+	rCRGmf8nusV+T4bc92twcZU1dSIM6/9nCt3HH2Mj2fsKKtnIRvB42cBwUIsl8Q==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Fri, 26 Jun 2026 16:16:39 +0200
+Message-Id: <DJJ1MPCEJGZD.UZM9183V6ZE5@bootlin.com>
+Subject: Re: [PATCH 05/37] drm/display: bridge-connector: split code
+ creating the connector to a subfunction
+Cc: "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Thomas
+ Zimmermann" <tzimmermann@suse.de>, "David Airlie" <airlied@gmail.com>,
+ "Simona Vetter" <simona@ffwll.ch>, "Andrzej Hajda"
+ <andrzej.hajda@intel.com>, "Neil Armstrong" <neil.armstrong@linaro.org>,
+ "Robert Foss" <rfoss@kernel.org>, "Laurent Pinchart"
+ <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman" <jonas@kwiboo.se>,
+ "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Inki Dae"
+ <inki.dae@samsung.com>, "Jagan Teki" <jagan@amarulasolutions.com>, "Marek
+ Szyprowski" <m.szyprowski@samsung.com>, "Marek Vasut" <marex@denx.de>,
+ "Stefan Agner" <stefan@agner.ch>, "Frank Li" <Frank.Li@nxp.com>, "Sascha
+ Hauer" <s.hauer@pengutronix.de>, "Pengutronix Kernel Team"
+ <kernel@pengutronix.de>, "Fabio Estevam" <festevam@gmail.com>, "Hui Pu"
+ <Hui.Pu@gehealthcare.com>, "Ian Ray" <ian.ray@gehealthcare.com>, "Thomas
+ Petazzoni" <thomas.petazzoni@bootlin.com>,
+ <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
+ <imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>
+To: "Maxime Ripard" <mripard@kernel.org>, "Luca Ceresoli"
+ <luca.ceresoli@bootlin.com>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+X-Mailer: aerc 0.21.0
+References: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
+ <20260519-drm-bridge-hotplug-v1-5-45e2bdb3dfb4@bootlin.com>
+ <20260608-mindful-heavy-frigatebird-be9faf@houat>
+ <DJ735MTNMYD1.3LPNV404V8PIU@bootlin.com>
+ <20260624-proud-unbiased-pony-ecc3c3@houat>
+ <DJHEAWSEZR79.19UFIKS8QJBQ7@bootlin.com>
+ <20260626-polite-hairy-perch-25e1aa@houat>
+In-Reply-To: <20260626-polite-hairy-perch-25e1aa@houat>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_065249_249182_B2D3C6C9 
-X-CRM114-Status: GOOD (  25.99  )
+X-CRM114-CacheID: sfid-20260626_071656_219273_C98ED1D5 
+X-CRM114-Status: GOOD (  33.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,88 +97,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 19 2026, "Mark Rutland" <mark.rutland@arm.com> wrote:
+Hi Maxime,
 
-> On Thu, Jun 04, 2026 at 04:08:39PM +0200, Rasmus Villemoes wrote:
->> When trying to figure out where to place and call an arm64 Image in
->> memory, reading booting.rst should provide the answer. However, it
->> requires quite some digging to figure out that text_offset is set via
->> ".quad 0" in head.S and is thus actually always 0 since v5.10.
+On Fri Jun 26, 2026 at 12:09 PM CEST, Maxime Ripard wrote:
+> On Wed, Jun 24, 2026 at 05:47:10PM +0200, Luca Ceresoli wrote:
+>> On Wed Jun 24, 2026 at 1:41 PM CEST, Maxime Ripard wrote:
+>> > Hi,x
+>> >
+>> > On Fri, Jun 12, 2026 at 02:56:24PM +0200, Luca Ceresoli wrote:
+>> >> On Mon Jun 8, 2026 at 1:40 PM CEST, Maxime Ripard wrote:
+>> >> > On Tue, May 19, 2026 at 12:37:22PM +0200, Luca Ceresoli wrote:
+>> >> >> In preparation to introduce bridge hotplug, split out from
+>> >> >> drm_bridge_connector_init() the code adding the drm_connector into=
+ a
+>> >> >> dedicated function. This will be needed to be able to add (and re-=
+add) the
+>> >> >> connector from different code paths.
+>> >> >
+>> >> > Same story here, explaining what you need later on that calls for t=
+hat
+>> >> > change would be nice.
+>> >>
+>> >> Here's a more verbose version:
+>> >>
+>> >>     Currently drm_bridge_connector_init() does two things:
+>> >>
+>> >>      * allocate and initialize the drm_bridge_connector
+>> >>        (which embeds a drm_connector)
+>> >>      * initialize and register the embedded drm_connector
+>> >>
+>> >>     For bridge hotplug we need to separate these two actions:
+>> >>
+>> >>      * the drm_connector needs to be added and removed at any time ba=
+sed on
+>> >>        hotplug events
+>> >>      * the drm_bridge_connector is designated to create and remove th=
+e
+>> >>        drm_connector, so it must be persistent for the card lifetime
+>> >>
+>> >>     As the lifetimes of drm_bridge_connector and drm_connector become
+>> >>     different, we need to create them in different moments.
+>> >>
+>> >>     In preparation to support that, split out from
+>> >>     drm_bridge_connector_init() the code adding the drm_connector int=
+o a
+>> >>     dedicated function. No functional changes, just moving code aroun=
+d for
+>> >>     now. A future commit will make the drm_connector be created based=
+ on
+>> >>     hotplug events.
+>> >>
+>> >> Looks good?
+>> >
+>> > The message itself, yes, thanks.
+>> >
+>> > However, I have questions now :)
+>> >
+>> > Do we really expect drm_bridge_connector to stick around when a bridge
+>> > gets unplugged? If so, how does it cope with having, say, an HDMI
+>> > connector, and then swapping out the hotplugged part for an LVDS one?
+>> > Does the HDMI connector sticks around indefinitely?
+>>
+>> In your example, the HDMI drm_connector would be unregistered and put on
+>> hotunplug. Its allocation will stick around until the last put but that'=
+s
+>> quite irrelevant. Then, on plugging the LVDS addon, a new LVDS
+>> drm_connector will be created and registered.
+>>
+>> > *Especially* if we're using overlays for this, I'd expect everything
+>> >  after the first hotplugged bridge to be destroyed, no?
+>>
+>> As said, it would be unregistered immediately but might be freed later o=
+n
+>> if still refcounted.
+>>
+>> This is visible in patches 36+15, the path to follow is:
+>>
+>>  drm_bridge_connector_handle_event(event =3D DRM_BRIDGE_DETACHED) [patch=
+ 36]
+>>  -> drm_bridge_connector_dynconn_release()                      [patch 1=
+5]
+>>
+>> Does this solve your concern?
 >
-> What is the actual problem?
+> Not really, I'm talking about drm_bridge_connector. The fact that
+> bridges are destroyed make sense to me. The fact that
+> drm_bridge_connector sticks around doesn't. It's supposed to be a
+> connector for bridges. If you don't have bridges because they got
+> destroyed, and connector, drm_bridge_connector doesn't have a reason to
+> exist anymore, unless it's drm_bridge_hotplug in a trench coat :)
+
+It is not a hotplug-bridge in a trench coat, no :) The code is clear about
+this.
+
+I'd say with this series a "drm_bridge_connector" is just becoming
+something more (perhaps something else too). Somewhat as "a drm_bridge is
+either a bridge or something else". :)
+
+
+But let's leave names aside for a moment. If just looking at the current
+code, the drm_bridge_connector is "a handler, owned by the card/encoder and
+having the same lifetime, which takes care of drm_connector
+creation/destruction at card probe/removal".
+
+What we need now is just the same plug " and on hotplug events" appended.
+
+So in both cases there needs to be "a handler persitent with the card".
+
+Do we agree so far?
+
+
+Now, the reason I chose to extend the drm_bridge_connector to achieve the
+above is what I tried to motivate in the cover letter:
+
+> The drm_bridge_connector is nowadays the recommended way to implement DRM
+> connectors when a chain of bridges is used. It takes care of adding the
+> drm_connector when the pipeline is composed by an arbitrarily long chain =
+of
+> bridges, which it scans to properly implement the drm_connector
+> operations.
 >
-> The documentation in booting.rst is accurate; I don't see why it's
-> necessary to read the source code to look at text_offset. Immediately
-> above the text in your diff, the documentation has:
+> As such the drm_bridge_connector looked like the ideal component to
+> implement DRM bridge hotplug.
 >
-> | 4. Call the kernel image
-> | ------------------------
-> |
-> | Requirement: MANDATORY
-> |
-> | The decompressed kernel image contains a 64-byte header as follows::
-> |
-> |   u32 code0;                    /* Executable code */
-> |   u32 code1;                    /* Executable code */
-> |   u64 text_offset;              /* Image load offset, little endian */
-> |   u64 image_size;               /* Effective Image size, little endian */
-> |   u64 flags;                    /* kernel flags, little endian */
-> |   u64 res2      = 0;            /* reserved */
-> |   u64 res3      = 0;            /* reserved */
-> |   u64 res4      = 0;            /* reserved */
-> |   u32 magic     = 0x644d5241;   /* Magic number, little endian, "ARM\x64" */
-> |   u32 res5;                     /* reserved (used for PE COFF offset) */
->
-> Can you explain the problem you're facing? e.g.
->
-> * Is the documentation unclear, in a way that could be better?
->
-> * Is there some aspect of the boot protocol that is hard for a
->   bootloader to follow?
->
-> * Is there some problem with *testing* that bootloaders respect the
->   text_offset requirements?
->
-> * Something else?
+> This series augments the drm_bridge_connector code to be able to create a=
+nd
+> destroy the drm_connector reacting on hot(un)plug events.
 
-Yes, the structure of the header is documented. But nowhere is it
-explained how the text_offset field gets its value.
+Before taking that approach I considered some options:
 
-So imagine I've just built an arm64 kernel. Now I want to put that into
-a FIT image, where I tell the bootloader where to place it and what
-address to jump to, via the load= and entry= properties. Now, the
-documentation
+ 1. Create a new component, which is a "a handler, owned by the
+    card/encoder and having the same lifetime, which takes care of
+    drm_connector creation/destruction at card probe/removal and on hotplug
+    events", and wait for drivers to migrate from the drm_bridge_connector
+    to this new thing
 
-  The Image must be placed text_offset bytes from a 2MB aligned base
-  address anywhere in usable system RAM and called there.
+ 2. Create a new component, which is a "handler, owned by the card/encoder
+    and having the same lifetime, which reacts to hotplug events by
+    creating/destroying a drm_bridge_connector (slightly modified to be
+    non-drmm), which in turn takes care of drm_connector
+    creation/destruction", and wait for drivers to migrate to this new
+    thing
 
-is clear enough that those two have to be the same value. What is not at
-all clear is how I'm suppose to determine what that text_offset value is
-that I'm suppose to add to some 2MB aligned address I choose.
+ 3. Extend the dm_bridge_connector to:
+    - behave as before if using the current API
+    - behave as before + hotplug if using a new API
+    (the migration in most cases is as simple as patch 37)
 
-Prior to 120dc60d0, one could at least 'git grep TEXT_OFFSET --
-arch/arm64/' and see 'TEXT_OFFSET := 0x0'.
+All 3 options require changes in card drivers to use a new API (and a new
+object type for cases 1 and 2).
 
->> I've included a Fixes tag since I spent way too much time tracking
->> down where that text_offset might be defined. The mentioned commit did
->> get rid of all references to TEXT_OFFSET-the-macro, but not
->> text_offset-the-concept.
->
-> Keeping text_offset as a concept was deliberate. That allows us to keep
-> the documentation accruate for older kernel versions, and allows for the
-> possiblity that a non-zero offset is introduced in future (though I
-> admit that might be a tough sell).
+To me options 1 and 2 involve more redundant code and/or more complexity.
 
-Fair enough. But would you at least consider adding just this part:
+Your thoughts?
 
->> +- As of v5.10, text_offset is always 0.
->> +
+Luca
 
-One can, using the documented header, read it post-factum from the
-kernel binary itself, and perhaps that's what's intended. But to answer
-your first question, yes, I did find the documenation unclear and
-expected to find some explicit mention of how one is supposed to know
-the value of text_offset.
-
-Rasmus
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
