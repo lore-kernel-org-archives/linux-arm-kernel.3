@@ -4,94 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2243CDE008
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 07:49:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8419FCD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Jun 2026 07:50:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sviuXWEudL4Lc2OsPUzpYG5n9t6uIjHNaWvGJZaU1Ew=; b=JoSGtgHCSmpYekLUjORRJR0sIb
-	iR6QphVcHm08XkcIvNss4/OI1SoO5XuH5bNJicPCMrBs4XcuMAoUdK+gToFyL8oAmgN1o3MwVyBcC
-	kmPZ9bzspi3kTo8lYBlEdAIfgrnAlmI9R4fV+yhq6j1agA650ZqBVEDrTiPOGsJXMHn7S/Y1o//05
-	yWdq43yqOnx6Ti5yNqg4HXHX8xzQrJawliMuwVKxZcz07qoJ+aZDJDBwjt7u5SPOXSGjjX+McozMC
-	TDOgprKWjGHZkZPg3CRgQCXUUWrMVxDkWxuvrj4D8uZI/SXs3iLMm593719XdSffSxUAMU+Fp7nvT
-	/gM/sEMA==;
+	bh=lKCBeFsCXaNuLJFdYCL686ENNyJ5DcId7EPJeT4o5dY=; b=TlOd8iUahdSRzYbCVydVjbM0Yx
+	UReiryliIxiRKVBZJIvTI0zhp049zAPOfwTGWoOgTL044GE+yitOVEFr5iIYteEiWAlqHWTgrbWHm
+	M/Ra+QMPbPyQy5bAqTPrjy5FfouTmvG4FPer8gbgbknb/BlUMvCpIeiR2c96JRd9c5XzbxeMp0TNu
+	4cIuyhp7ZX4HNi1/he4CWAYVv6YJbEnnKjD+cn34PQLiRzpodRT5vCX+COhm2gbqtJanQHVuYceiL
+	Kjs2noZqluNR36paA+xO7E9YmQJowioCXWD1+JFKs2uJJhUJDXCNarMeB/qtizPEzaHP4j4ug9vly
+	APpyplvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd1J1-0000000AibP-1aJy;
-	Fri, 26 Jun 2026 07:48:55 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1wd1KJ-0000000Aipw-2LFT;
+	Fri, 26 Jun 2026 07:50:15 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wd1Iy-0000000Aia6-1j6c
+	id 1wd1KG-0000000AipF-0zNz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Jun 2026 07:48:53 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4926e5803e5so4245e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 00:48:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1782460129; x=1783064929; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=sviuXWEudL4Lc2OsPUzpYG5n9t6uIjHNaWvGJZaU1Ew=;
-        b=C1SQAEI3WVbOqfzhqoYNn62Kjj2ll1N7VOaytyDtzHEEuutZnOxau/sLVbTEfA1i7I
-         Xq43pgALVPlLKaRuBFVcgIMwCEZ0PP8E/R+12vij48Km00BRncQGfGE5yGiAmrnuW7MD
-         4JTb9JUuzHFI3aSoHxHDeh4ni7kh/RXNKijdOyEqAxLtg+Et11xoX9upngIlZG1YwwpL
-         CN3RL8DqDPa3oY3/iUDCko676ZHBttc0h06LBUuVh68EF2Rfp/gN+DQfv8evKFPKqZkI
-         svyyccw506TNftH6jwSd7JCuPdfuj0B6C9SEPmQKcRCUpb2H6mmqW3stloe1Bn3KjjBd
-         3bKQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782460129; x=1783064929;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=sviuXWEudL4Lc2OsPUzpYG5n9t6uIjHNaWvGJZaU1Ew=;
-        b=L+qi/49kMgInvecXWuOZs8wJRU+l2eFAydaszX6jqaJKJqiaTY9A2VgmivYQAhDI7D
-         8ljKyNjZR4xceGox5NxpHkrvKTeE2DKsMoudKUg/6F9P4Z9zthRrXKfEIa3DNwKBYaJL
-         plYXfvrmChRHNKGF/oTjr3vS6QjpZu3s9cXdsiCwx44n4C22hXpcj8Z8Wik+5Ia32aZC
-         UHApzFz1mKFsS8AiLe3/iT+03tjVjx/f6XaK1lCK0X1Md1Ovcqn+WcFBxmRP2RVmXKDG
-         b62Twwxs3fh/Z9GdHKLuDnDIl9du0dwOm74RQzBMrMnxNdFIxVoXy6+5UdH7Ogkb1eFC
-         ZT2Q==
-X-Forwarded-Encrypted: i=1; AFNElJ9JKBCDc+ApFbjvkbypAK0XiUAvRNOARJMA7LhdtkKgrO4SGcDYcSx5sZZknoz9vCaGFgU72+EMU8aBJdmD9JeJ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzmr06zb3gHNZuthkS2zuHhoc9zNb47ikcufIMuwJfMRp6HUZ3m
-	KfzJzFSHiXNwGlm+UStHEGuMbKuNYKA24hRcmCb8Yg+H4S2fX3h0ceXC14EtbuPGIg==
-X-Gm-Gg: AfdE7cnMj5J0IhFp+wUUBFGqd23LAl58opZ4guFSyOd/n7XmF+zcuqb3uHoafb6lf8H
-	G61EL2+XA+MhY+Ptln4Neu9R5VSaFOIL4O++S7eWCSdRGzIsUKZ0YEikO/G5ISyhNtc95+lK/vS
-	GTpcTsC/Qay93iuOTtvxfI3gnaa3wTavzVotlWmiKH8j99z6lIZ1JSQ1045nDX85IUH9gD9IBYz
-	fc0ByqG+/KVAi6gqDR86TFrHVqP6vX/TEFxmK+w9NCIIv8Qro1KMOlhbmjYHKCM6X0z+WPgEypB
-	pdOabNZLTYCEcUG7hJzItI0/iPOc5XqNtpBvd1r1q29ZjieEZnktwyilbRyBxBPxKn0+cMwKWPT
-	HNH1Wp+DGDrQ1Jig1ECxFpbPwJ/wImB8ryRjPsvXGi5q/WHZhj7EHvNY1UKM4zJDDYiPdvSaY6K
-	8BcCVQhqnxVPpChrCIgTu7S5qx4jNUhrnuRADAvQYnU80PEONo8yr28GZrKb0=
-X-Received: by 2002:a7b:ce17:0:b0:492:43a3:2fd7 with SMTP id 5b1f17b1804b1-49269ed6ba1mr786145e9.0.1782460129056;
-        Fri, 26 Jun 2026 00:48:49 -0700 (PDT)
-Received: from google.com (143.11.148.146.bc.googleusercontent.com. [146.148.11.143])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49268ff9f40sm57920045e9.6.2026.06.26.00.48.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 26 Jun 2026 00:48:48 -0700 (PDT)
-Date: Fri, 26 Jun 2026 07:48:44 +0000
-From: Sebastian Ene <sebastianene@google.com>
-To: Will Deacon <will@kernel.org>
-Cc: catalin.marinas@arm.com, maz@kernel.org, oupton@kernel.org,
-	joey.gouly@arm.com, korneld@google.com, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	android-kvm@google.com, mrigendra.chaubey@gmail.com,
-	perlarsen@google.com, suzuki.poulose@arm.com, vdonnefort@google.com,
-	yuzenghui@huawei.com
-Subject: Re: [PATCH v5 1/7] KVM: arm64: Enforce strict SBZ checks in the FF-A
- proxy
-Message-ID: <aj4u3L2RrUDJpmjp@google.com>
-References: <20260623115354.632361-1-sebastianene@google.com>
- <20260623115354.632361-2-sebastianene@google.com>
- <aj0qOFO3pRA-U_mL@willie-the-truck>
+	Fri, 26 Jun 2026 07:50:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=HFgE1gJje1PT96jbXwxBFpzcm/utkv9Y6gl3fj8UQe7pUNuSbWe5f6PTgzbUBROzObSGbyAKAnNebSNoyxKjUxKg/no4SeW55aZTRwbQ6VQNq22inCNnsrMAxCEWVCdWMCpa+FFtUxf9PfRvuf7yx0eLLf/NFBPI2oYyufheG3EuaEo/TMTRwJ9ZU9gGON+YV756lzpk6ICw727VZCM4XVxUg6MyeysS9QvIQsFgtFyH/aY586sy7JGT77KqoLZeYooQ06Iumfxjgjv4ET9kr5qH3G2TYNcqVWP7GhCXsqOZ2JrQ5mo2Gnbu94fAO8E6NGr5Sxb1WKFEqU9WKjgrKw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=lKCBeFsCXaNuLJFdYCL686ENNyJ5DcId7EPJeT4o5dY=;
+ b=hWFy9zoT5WZnJAtZg0Qe0tJHOecJDasGeVoerzMJaU43gs03ugDEZh3OeWz/rw/J+lr3cGoxb3L0v+TIQkcfNPc6PfO1A9q/1ftT9Oc9eUdrha+KR34uNa0eLrn8gEOGSJFdZEXb7UjQpD3AztHyA0QVzr7toGdV4ORmdUtuEgikNwD1xUeLydq9oxgRQynkWIWGpQthVG168CkrRFEcjPk59SSlzahtwOJvEtvuGJnfYk4hff7CLVupfDAbdVPXGsP5TnmPpoS8ahf49Z0Q34mB4D32BQ1MckDZJeb4szueCYhIAeT7HMLjcEBrOZ5uQzR+6n/l0q3QpEhG/gibRw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=lKCBeFsCXaNuLJFdYCL686ENNyJ5DcId7EPJeT4o5dY=;
+ b=WIFjo53W7bI0VKzimhv/+DMHWr4Oo2x/igIG7dLNklihIfRFDUxS0PhM4TEhkrOZph4Qk1wLQjIuWWNTUuahjvDa5ahAC49cnkXrma6dn8f45jaoQicBnefiR2pW4WPt2Ya5eT/b8D7hE7GMlQrMD5JaSbXmHuRzKO1ZZFIwi/di5pUTNdKqclNmoKVy1jhwGeRZ5V4gzVcvY8BrB511iEErSTO+QB6M0dHmr/HVM/dF1bzqMuXNNrrFvSmrpOz5llfjvZpk2ClL4pcTXTl3G7zgvHl47SQhljzlW7ipFitgW7jDD4nnyEXkQswhHaPZCN6FX1ATMyGZKjKX5EtTaA==
+Received: from MRWPR04MB12330.eurprd04.prod.outlook.com (2603:10a6:501:7f::23)
+ by GVXPR04MB9950.eurprd04.prod.outlook.com (2603:10a6:150:11a::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.17; Fri, 26 Jun
+ 2026 07:50:03 +0000
+Received: from MRWPR04MB12330.eurprd04.prod.outlook.com
+ ([fe80::ca22:f8c8:6aca:7889]) by MRWPR04MB12330.eurprd04.prod.outlook.com
+ ([fe80::ca22:f8c8:6aca:7889%6]) with mapi id 15.21.0159.016; Fri, 26 Jun 2026
+ 07:50:03 +0000
+From: Peng Fan <peng.fan@nxp.com>
+To: Pengpeng Hou <pengpeng@iscas.ac.cn>, Jassi Brar
+	<jassisinghbrar@gmail.com>, Frank Li <frank.li@nxp.com>, Sascha Hauer
+	<s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: RE: [PATCH] mailbox: imx: return TXDB_V2 timeout errors
+Thread-Topic: [PATCH] mailbox: imx: return TXDB_V2 timeout errors
+Thread-Index: AQHdA+b2UcB8BMFwn0ytyz+ZPZtYhrZQeNaw
+Date: Fri, 26 Jun 2026 07:50:03 +0000
+Message-ID: <MRWPR04MB1233037C743B0F50B83B13CCA88EB2@MRWPR04MB12330.eurprd04.prod.outlook.com>
+References: <20260624143707.49344-1-pengpeng@iscas.ac.cn>
+In-Reply-To: <20260624143707.49344-1-pengpeng@iscas.ac.cn>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: MRWPR04MB12330:EE_|GVXPR04MB9950:EE_
+x-ms-office365-filtering-correlation-id: f62c4792-ab1d-4ac5-30ee-08ded3578838
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|19092799006|10070799003|23010399003|38070700021|22082099003|18002099003|56012099006|11063799006;
+x-microsoft-antispam-message-info: P7w20qJt/1y7gn4k5jIyAERzQ4EuIVbDyRtqEHFpj62FCZbbojvZuB+MawzsWi1CuR9kxaPrnQizzQj83/CsHefxn6tRjmkc7UVrPgm5sxFJXHHkLuwnSHfOiPlaL6dL//kDa+UH0VKa1f+nhrScWr6PGwdmBSdJZIC+2IXOxiEuy7kZKqixPcyQ0dYjTtRLAoPaGvY+75vHVLTBtuXAR6PCiaOWQ0yQxg3flOx6R5Ue0m7oXoUzpeGr3Z2GaAZyb54XgFpQ2L/YLh9mQyDlapzZlY3CwF1ziyzvmNAJm5f7UmmCzu7kQectJLuJEwWHpU6uwaeLk5LHIe5m/BXkYJGZkhQNgsFBXQk+S7BQyxcYBn+SgaZL8vgzIwkDgUDgWh9d5OefS2Skx2dJpUtmkmx/me/0JC5tGsdvu62P5dDICWfzkIfg3V81s3PFK4iOiN7t9BttAnCddgRZzjz0CBvlbCXHfL+UcYyBAyOHK6QA3B9Hz3mmv9m59Ay4dciIDabJ4i3fcZxDhIPHnChxWVaxfP854bJzPd0ITlupqHyuEQV1tEYjV/6nMYZBQsjLzEtoq6kUqj+c3yExVxeP+zmpW9zVxVWx26re8VEwHx6PhUBt6fPaw5j65kqxtCQLLve7tJkt+JpzQ90KDm2Vc0VOnIc7S6xCVgttbdRic+kGCKA2vpmnIFKbW+McgxVQ4SS8drKon6gTfkZOohAPY6/M/w/+arhBOYseAinbkdo=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MRWPR04MB12330.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(19092799006)(10070799003)(23010399003)(38070700021)(22082099003)(18002099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?DOs58gDxmZ+K8HkmnUPC19JGBzeifw1iwiN+y3+qRm46v9pkqHjbeVrtpbOq?=
+ =?us-ascii?Q?YBURkq34O2ftPzB9TaYKJLdiyTBEZ1IWKiG3ib7tSVBdOdC+AR84JpzYaIa0?=
+ =?us-ascii?Q?MNoyQHbKf61dZGQ7aXP9CKNBoAPRpqQNczVXpSUf/Py80hMbuAkgS/Lx33me?=
+ =?us-ascii?Q?RRwxNM1xfDD/Qi0p7NAQvxP5HuGIPFXtS7dNpQbBv0zOiYzs/1GI49UjrJli?=
+ =?us-ascii?Q?V1iAVGr+cVxczjxUzKvHVCbWqVNZuqo39Rp0FstzjLOzUMKM4UE+LObl6gMc?=
+ =?us-ascii?Q?Uxu5cwnG2CtIoPToMmon3mgDJWgLelCXNsYRmX0gs2RV7ZwUBoTjjv0Mxxe3?=
+ =?us-ascii?Q?0BmP/FcfmTnBLc1ucMvoS3ruyJ16WLdYAqzOUhrk3uLBuf+kFfkdkHVsWZ55?=
+ =?us-ascii?Q?uNleMZ4UAv1KNhVEtVssDfvHVfVCqrPq7lrPyDKOQCljWwh8KfLzWWa9MCHx?=
+ =?us-ascii?Q?mEU+YdxucMAYprEzR3WdF9N7oEepg5QNGIl1hr2gWxmlsMh6Upoewzy4EDZh?=
+ =?us-ascii?Q?jZGlx9BeFOt/QwDNR1h3YRSk+SBjZi9TcvOujV+nnABHIvBOzk8/SKYiCV9Z?=
+ =?us-ascii?Q?1OE2sQYA9FWQ3jO6okfqfSYnjXdp7I1zKY1RfD/6hLo/590O9tCIXW1CLI1u?=
+ =?us-ascii?Q?Qoz/NwBzBfUtMyKstjW0yHMA5+AGH+/N0nU45VWrUrFPFbhx4rYEx7mILcah?=
+ =?us-ascii?Q?4b5rqT6hSP7S1s+9zUn5f2JiM05lwPLyZ1KKTmqQVrMLqFLO1sLhwe9Knkjf?=
+ =?us-ascii?Q?VPRrdSyvFmdV2t3axRgjCdDoqtnt3prwpfC1luK7RORmj4hOVfe8EmW6eDt2?=
+ =?us-ascii?Q?E5rvGpZad3oiN5WYHZVtEbNyaHLzikHVANucXL/n3AJnY/ddcF9/iI/A5QaO?=
+ =?us-ascii?Q?Ezyo3MuSKowxSBCp+Kt9lUvU6a+2gOsRD3wfqMUGM6VW2GgZMnD6MHbNBg7b?=
+ =?us-ascii?Q?Y9QD5nkKp9Wi+lqmf42YQw/adJVPNChFyQv3QvqycVFCyzd9sk1z8/norTdu?=
+ =?us-ascii?Q?09EvfbLndxH3QjnBeLlfBbswwCR4C9PneC9ncbVBwocmImq6Z7RRDC9D8aJV?=
+ =?us-ascii?Q?oyG09ue/7TF7Zu2EsqGx9Q25xXFKdi+8b1aKXZQ1t+LECqceNH+D22REsxv9?=
+ =?us-ascii?Q?N+7SkTHaeJBQ95w4FHo3yn1OEE700v7pl+/GHyQdPjANWYGoAVWNbZ4WImqR?=
+ =?us-ascii?Q?B+T8jJiKIHteyNKlze8edC40Nx2iHkjTtX8I5bN4DEQw+OsZPx7zYi9u09p+?=
+ =?us-ascii?Q?MyYr2t1l6EdpHHPUE8N2n7yBE1m3x9L/59FIrGmf4qeV0Jy3RMI7CwkgJiVn?=
+ =?us-ascii?Q?I2eN9/WsqIB2VSs5VsfYscF6tUr0nAS5vZbIKr/euZbgrWgz3Fi4uG9m2zIq?=
+ =?us-ascii?Q?FeIcZm6A7hf+gVjkrOtaqW3O/PEL+ZJTXOobHFa/ZaN66D1n62w28KvMWtyv?=
+ =?us-ascii?Q?ucd90nm7OTYSy8tbnCZgsfwXLwU5bbtcQQMmRwV4+tCMgqvWypnoneg4x6Ya?=
+ =?us-ascii?Q?km9L6zPnMa4rLTaKeqHFuVta3BI2QJeVjM3bzDBwrmIg64zXFnD9qLVmwhph?=
+ =?us-ascii?Q?7BJXyy/6dJeWu3AvZyxRs302K7hGbUoEP9mB0xkwZCL/kpP+8kqogClmYFtB?=
+ =?us-ascii?Q?YyGWUgPwFO8RkKSeZQmUKY83BiTsjb1qLnRiXe5Y3qGMvhqCZcc9nLQdLKZM?=
+ =?us-ascii?Q?M3EglzcFPYJ4HWK7Po0NVeDNZajXgSxwAbrq2d2PkcI0TpF9Eqpi4myZYCIr?=
+ =?us-ascii?Q?EiTpurAIKjLdzp8Ew9i8VyoGjZwlVTEqcOUWqqR93vp25smWnQYu?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aj0qOFO3pRA-U_mL@willie-the-truck>
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: MRWPR04MB12330.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f62c4792-ab1d-4ac5-30ee-08ded3578838
+X-MS-Exchange-CrossTenant-originalarrivaltime: 26 Jun 2026 07:50:03.3729
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: o8vb3Tfle/qkjMxXnw18IzrvXGs7FoPbPxjKWAtJ3Zn9HLrN8HYwrI/F+KRzMXLx/m07JelNwmyppBbefbpIug==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB9950
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_004852_469350_02D2A84E 
-X-CRM114-Status: GOOD (  29.58  )
+X-CRM114-CacheID: sfid-20260626_005012_287991_891A8848 
+X-CRM114-Status: GOOD (  14.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,68 +141,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 25, 2026 at 02:16:40PM +0100, Will Deacon wrote:
-> Hi all,
-> 
-> On Tue, Jun 23, 2026 at 11:53:48AM +0000, Sebastian Ene wrote:
-> > Introduce a helper method ffa_check_unused_args_sbz to enforce strict
-> > arguments checking when the hypervisor acts as a relayer between the
-> > host and Trustzone.
-> > 
-> > Signed-off-by: Sebastian Ene <sebastianene@google.com>
-> > Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
-> > ---
-> >  arch/arm64/kvm/hyp/nvhe/ffa.c | 54 +++++++++++++++++++++++++++++++++++
-> >  1 file changed, 54 insertions(+)
-> > 
-> > diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> > index 1af722771178..78bb043b33ee 100644
-> > --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-> > +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> > @@ -71,6 +71,20 @@ static u32 hyp_ffa_version;
-> >  static bool has_version_negotiated;
-> >  static hyp_spinlock_t version_lock;
-> >  
-> > +static bool ffa_check_unused_args_sbz(struct kvm_cpu_context *ctxt, int first_reg)
-> > +{
-> > +	DECLARE_REG(u32, func_id, ctxt, 0);
-> > +	int reg, end_reg;
-> > +
-> > +	end_reg = ARM_SMCCC_IS_64(func_id) ? 17 : 7;
-> > +	for (reg = first_reg; reg <= end_reg; reg++) {
-> > +		if (cpu_reg(ctxt, reg))
-> > +			return true;
-> > +	}
-> > +
-> > +	return false;
-> > +}
+> Subject: [PATCH] mailbox: imx: return TXDB_V2 timeout errors
 
-Hello Will,
 
-> 
-> Seb and I tried taking this for a spin on some Android devices and, sadly,
-> it leads to fireworks. The reason is that the FF-A spec quietly changed
-> the list of unused parameter registers for 64-bit SMCs from v1.1 to v1.2
-> of the spec so that pre-existing calls were affected.
-> 
-> For example, in v1.1 a 64-bit RXTX_MAP only has x4-x7 as MBZ, whereas in
-> v1.2 the same call has x4-x17 as SBZ.
-> 
-> We can follow the spec by predicating the additional check on the FF-A
-> version being >= 1.2, but I'm not hopeful that existing drivers are
-> compliant. I also suggest moving this patch to the end of the series in
-> case we need to revert it.
+Same issue:
+https://lore.kernel.org/all/20260617-imx_mbox_rproc-v3-1-77948112defc@linut=
+ronix.de/
 
-I spinned up a new series (v6) which moves the check at the end of the
-series and I made it so that it takes the ff-a version into account.
+Regards
+Peng.
 
-https://lore.kernel.org/all/20260626074545.433234-1-sebastianene@google.com/
+>=20
+> imx_mu_generic_tx() retries TXDB_V2 doorbell sends until the GIR bit
+> clears, but falls through to the common success return even when
+> every
+> readl_poll_timeout() attempt failed.
+>=20
+> Return the final timeout error after the retry loop so mailbox clients
+> can observe a failed doorbell send instead of treating it as successful.
+>=20
+> Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
+> ---
+>  drivers/mailbox/imx-mailbox.c | 2 ++
+>  1 file changed, 2 insertions(+)
+>=20
+> diff --git a/drivers/mailbox/imx-mailbox.c b/drivers/mailbox/imx-
+> mailbox.c index 246a9a9e3..86a8a590b 100644
+> --- a/drivers/mailbox/imx-mailbox.c
+> +++ b/drivers/mailbox/imx-mailbox.c
+> @@ -253,6 +253,8 @@ static int imx_mu_generic_tx(struct
+> imx_mu_priv *priv,
+>  						     cp->type,
+> ++count);
+>  			}
+>  		}
+> +		if (ret)
+> +			return ret;
+>  		break;
+>  	default:
+>  		dev_warn_ratelimited(priv->dev, "Send data on wrong
+> channel type: %d\n", cp->type);
+> --
+> 2.50.1 (Apple Git-155)
+>=20
 
-> 
-> Cheers,
-> 
-> Will
-
-Thanks
-Sebastian
 
