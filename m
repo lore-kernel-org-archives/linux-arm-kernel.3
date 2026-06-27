@@ -4,88 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FEF2C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Jun 2026 06:41:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AF6BC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Jun 2026 06:55:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4lxEbe1Kcf5HJ3vZXPZHCnhc+3o+B9n10H9oF7tgbYE=; b=pgqDh03ukvoxTqNx9T6cobnj6x
-	Wp7Xutbrx8ln0Zl93o917XaCT/t8lWSCj72M02BKTQwucfdHmy8pKSDiQcvVzPOonaWBtCbIkqLRy
-	hW5YoUTELTo1GGeNIPQa0HJA9zWwBUFnLKmeedr+JMnISx9fhT1o1sJxn+4YPC+CmHRjlwEvjfzUi
-	rjS6Bt3HwITOMx2nuRqP4iLHFXjTolxYwt2wtIedWKT164+RbKn0i5S1tNkR5B+Tm38nJFzyqSY8r
-	xbxK1cH6OGZoz5gLAs06tI6Syyy6fBAWfRbAVJCy8qkBiYHVANaD4VmO3bFBGbr5JYtc6uQnuGBi8
-	kfNbCFjQ==;
+	bh=a0YInxvP9vIxrkKOfsq0a9A7RdBzE89fDRN/Cs8YIhM=; b=WUU0JaDaCOs/APx9nt1MfnRsJP
+	kM5fgj5pAuvMkhvhcGvUR9QbbI8TAwm4yNufFvN8Q2u6fqlYgnW4eDEcKJA3bKrvNKwWl+5hREKpg
+	/VQ8sbfcamyUnJWL3P07bTeTo4DKMUslJdGNgQ22i59B7rlgay8N79e8dGD23LaG9L4npN76Fu0OH
+	jvaBaQe+EWuwBP7wMSrNs80fTP2D1qK4y0JaUKdXWSYhkhdTNkpfb0B8FcdqGUJ1NYO5HbrHZuMAI
+	C2pIlRGrz042wAKiSLFej3xU2s/FdBra1sh2FRBiFOuW2M9vkqCG9uQDfFbWA1oUUTB+uo0mISgAt
+	7Uvx8MYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdMio-0000000CDMf-2iSQ;
-	Sat, 27 Jun 2026 06:40:58 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1wdMwa-0000000CEFE-196I;
+	Sat, 27 Jun 2026 06:55:12 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdMim-0000000CDMA-0OyL
+	id 1wdMwX-0000000CEEn-38l9
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 27 Jun 2026 06:40:57 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-49258ac7294so11918175e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 23:40:55 -0700 (PDT)
+	Sat, 27 Jun 2026 06:55:10 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-49263703c6eso15848255e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 23:55:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782542454; x=1783147254; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1782543307; x=1783148107; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=4lxEbe1Kcf5HJ3vZXPZHCnhc+3o+B9n10H9oF7tgbYE=;
-        b=nPEQ+A2aqNmzHDBijFpN1jkzGyoA7P5tsMZz5q+COREE/RE2CO2owxDrNwaiHYZMzT
-         xTaDzkOS3K6vCQVY+2nN95S3EB5YvvghDgBP7xnHPX1bCStFDHKGyZgOk1qvhROVrqcs
-         xbZyeGm/GC8fRzxT/aLVbZwTJiK1nPcavgkBD8u3cZ02CtRg7DPp41k2TC9bl+BVI2JZ
-         UB6/RPizeyQU0zL9FEdNCih+efq/pWkpx1Cg0pSfJwCjrzUSzXgTcS5EYQI90Qw/+43F
-         LvYpVUOvaSq2dTdhtmcwDTdO1DZxV5w2aZauumoTEYjUBXlLDFzaJMPk52io5TOv1xoF
-         MA9Q==
+        bh=a0YInxvP9vIxrkKOfsq0a9A7RdBzE89fDRN/Cs8YIhM=;
+        b=Qu3tDntTHzsNq60Ml9CsFEqHbrZ4nXIe09bxXou5+h3RTX+ffYAMZRC6nHR/75nEOo
+         x7yQR46qg4/WOfOg7THEFt+RxQP7kySk3VJU6iGSYtw156usd4U5ibVUYG1A2Sh2S4wc
+         LcJyRUXHyZl+lCqwUKF9BHxwY5z5eY9utNiih/SSzaf5eGsgR7qg9lPAJYWgoh8SCHbE
+         HuLv48+QCTDwX2h2FUNMg5NfT8IoYFDXIuG44pQ7IqpeGUfTWOu8BJNloGwAUKzwUdpU
+         Y469Bwg4XMWJNSHlSqK8cHMcU+puzSj7m+d/Z6FTavkcUJCeGXqtfQLm1d8OaHfDE1nj
+         CRwA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782542454; x=1783147254;
+        d=1e100.net; s=20251104; t=1782543307; x=1783148107;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=4lxEbe1Kcf5HJ3vZXPZHCnhc+3o+B9n10H9oF7tgbYE=;
-        b=AcwQXn9lPBbUL6dAO3aCNwNK6QhzpM+++u7QZB9v0KUxkiOYkM+TFTEVSh3dWmC3Yo
-         4h8SJidlxn0lTiWQSE9wYzgFUSHKxrCLD8XRhFMELHxh83+vtmebVSLjA48UiRrkpfWq
-         YYoxs1v6bMOrV/yXBvqTYVnRhlyTyboJLvShajFBtWqLuQeoyYMPu1zRWI3oGkyNK6UW
-         Vg579Q1t6UZvkgVL3+rfBb/BEoaaZbDbFTOFQMW4jJxX5+5Oay0Mcwb1js3yQpxyPiux
-         otZrPUHa8+jfxXzSexfgNemFkKFIY48aNsL9sWUxtYXzvIktVfEof3uL5hhRuZmvscoA
-         E9gw==
-X-Forwarded-Encrypted: i=1; AFNElJ/DhZmOcJCMZuKMejfseSRxbuRP8FKgsDcBK/tHTtbSpEAAPNCFATiz7A+2MMbhNVRL98dWvGeQihQONnuoBYWm@lists.infradead.org
-X-Gm-Message-State: AOJu0YyHiDAjNFZ4gl01knscw5fu3KpemObWgWclu91cyJ+yrqEifCLy
-	YVN6qNPaw6Xlp3a2FyxGfUgsUXoZ+bb+yczUpUb2t4WPvRkZSkQcvCAx
-X-Gm-Gg: AfdE7clQ2oq5tKQ12H+Lc/+YdzxAFdy86bCxQyE9PggetukRKMgA3FKSMPqRA8Hl33c
-	+Atc95i0Jb4BliY/Nd0C5YoaGeU9exlZwwcUJRu0g9uPzxt2jN5MULYc7F9uDeKFx45mxna7/EL
-	QCw/VmxSJ7nIzFkkB0nvLfSd+gKMr7LEeC82nWeC3Nit4HMTXFi+sen7ix4iylumDUXO9ZH9+v/
-	FVHjV/gypp/fkTfULaJLBwmnqzSvzihM1X+JX50z6gCsnaU9s3SubDty+7EsRnti0/h1Nvi1sFX
-	D1W3bKQ/RS+yzpvtGThuLIgNMQIhImV1gElN6PZLNTIoi4vVK+Zzn5sTqu/1VNv9G9svet7y8I4
-	eix3pJRbDwFVOWzjs+2PXwW/DKSuUdbIDg7nDvSbHJkQKFnwHdgzHyuGw62iNucm1AwD7OUk4N4
-	N4w5ljR1m3uWTceqth/HdIytev0sZJPto0T4BWDe5dRgDO5xgnmLDOcZPQQ7R3CoDZxvreG81Et
-	Zg9
-X-Received: by 2002:a05:600d:6454:10b0:490:e243:4806 with SMTP id 5b1f17b1804b1-49266866378mr115051425e9.9.1782542453864;
-        Fri, 26 Jun 2026 23:40:53 -0700 (PDT)
+        bh=a0YInxvP9vIxrkKOfsq0a9A7RdBzE89fDRN/Cs8YIhM=;
+        b=KWcobUYzyFHwzfA0hjeyTGDseAozR+If0dW84VfkToQZPf1TJ4wC+NccP5Hxx2IT9M
+         FnOrHtf0ag35liGG3fTN56zmohF8KLL2xp4OAjkKXgWuLwGzURbLJgnO8juthbW5FCnL
+         9YsXTo0w0lpvClfOc3/PqTsla+pcR+zGmgDm4NQP3Dnm1p9NLN6wwwxAzyFrI6Qkiii2
+         t55ss+DtWrcT4Gp020gyxWRm6rBepyHmPzCFdKSwgv1yPtI+JPhiNSgj+JkAFMHG/X7z
+         vYHTOM/hfYHOVLfBMxHkVO+IFINSEkXjVuRFNZ6KLLXsFigIehnV9YsZGPc/1RJ7nVuk
+         BApw==
+X-Forwarded-Encrypted: i=1; AFNElJ+iGzQcJTiQCEmW3iL3awsmUrGX9EWRcXh3JVGr/pmeUpxrbMHJWkZ2PgzjSWN3S6NIgnKjVPK05RJNnLvZarrl@lists.infradead.org
+X-Gm-Message-State: AOJu0YzA8qthXYAQq1Yp57hho5yHrF2wgeCGgOYV/UWBEXkN85zjhEmx
+	+Fep3hE4LhGTBH4ONBh5tOfsB5JUu7nfMFc+WJcfRCFyzhp+aeLArPS8
+X-Gm-Gg: AfdE7cnaIvisOjaUlEHz1P95dPxuXQE+75XBA5Af1VUlT85Xabw9bPNxqvLhYsZnJ5C
+	0/fFepUa5FmdjKBhex1bGb7k3PcEGxlTPeTZSWsRXkDjtW4HYjB9aksNGw16s7Hr50kZmd8JyIr
+	JY/flcDnBEByXUMukl5eH35ZhxddPAQJsyD+WPuJHd5PwIR0gesz9BCxFEaiH1aW6UBjp2VOyfR
+	D/q3iDKNz1nU2PHPWpUtVfiLoyVlopERFipOpTucljDTP0AGPRz7Dz2e4gx8xArCao1vPA1Nije
+	K51ebenpj+Vam9ytOo98ja4WpKfaslMOTK2YZDSKu90OsjVJ+Io3mGOOvOF+87Pc7CQImdpzxx+
+	bY2F0OpOwQpc9xQKRkEKCnOrxGwibBwuu/fNm8ANXF0QzPQVKmUjJKav45ifoMg21QZicHuSiC1
+	O5NdfNAMiX400UwC7UBrOMDPxB+hD5+Q4mfXRNzvB5N3dQoHaxLZ0B5acv6nAAANY8Ng==
+X-Received: by 2002:a05:600c:4f8f:b0:492:432b:d78b with SMTP id 5b1f17b1804b1-492668710e2mr151774915e9.15.1782543306582;
+        Fri, 26 Jun 2026 23:55:06 -0700 (PDT)
 Received: from jernej-laptop.localnet ([188.159.248.16])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49269002511sm131006755e9.8.2026.06.26.23.40.52
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4927038578bsm69037185e9.4.2026.06.26.23.55.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 26 Jun 2026 23:40:53 -0700 (PDT)
+        Fri, 26 Jun 2026 23:55:06 -0700 (PDT)
 From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Chen-Yu Tsai <wens@kernel.org>, Pengpeng Hou <pengpeng@iscas.ac.cn>
-Cc: pengpeng@iscas.ac.cn, Samuel Holland <samuel@sholland.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] bus: sunxi-rsb: fail hardware init on soft-reset timeout
-Date: Sat, 27 Jun 2026 08:40:52 +0200
-Message-ID: <xeoeYUbJQDS7SBkqsEa63Q@gmail.com>
-In-Reply-To: <20260625003416.15841-1-pengpeng@iscas.ac.cn>
-References: <20260625003416.15841-1-pengpeng@iscas.ac.cn>
+To: Chen-Yu Tsai <wens@kernel.org>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Samuel Holland <samuel@sholland.org>, Diogo Silva <diogompaissilva@gmail.com>
+Cc: dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+ Diogo Silva <diogompaissilva@gmail.com>
+Subject: Re: [PATCH] drm/sun4i: Remove dependency on DRM simple helpers
+Date: Sat, 27 Jun 2026 08:55:04 +0200
+Message-ID: <PMdb9FVETQuPUnyh12NM2Q@gmail.com>
+In-Reply-To: <20260623-sun4i_simple-v1-1-fa6696df1fad@gmail.com>
+References: <20260623-sun4i_simple-v1-1-fa6696df1fad@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_234056_147899_CE03203E 
-X-CRM114-Status: UNSURE (   8.59  )
+X-CRM114-CacheID: sfid-20260626_235509_820916_67AFA23D 
+X-CRM114-Status: UNSURE (   8.56  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -101,21 +104,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne =C4=8Detrtek, 25. junij 2026 ob 02:34:16 Srednjeevropski poletni =C4=8D=
-as je Pengpeng Hou napisal(a):
-> sunxi_rsb_hw_init() issues a controller soft reset and waits for the reset
-> bit to clear, but it ignores readl_poll_timeout()'s return value.
+Dne torek, 23. junij 2026 ob 22:34:40 Srednjeevropski poletni =C4=8Das je D=
+iogo Silva napisal(a):
+> Simple KMS helper are deprecated since they only add an intermediate
+> layer between drivers and the atomic modesetting.
+> This patch removes the dependency on drm simple helpers from sun4i
+> DRM drivers.
 >=20
-> If the controller never leaves reset, probe can continue to publish child
-> devices and system resume can report success without a usable RSB
-> controller.
->=20
-> Return the timeout error, assert reset again, and disable the clock before
-> leaving the hardware-init path.
->=20
-> Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
+> Signed-off-by: Diogo Silva <diogompaissilva@gmail.com>
 
-Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+This doesn't look as useful change. Is this tree-wide attempt? If so, it
+should be done in one go in one patch series, coordinated with DRM
+maintainers.
 
 Best regards,
 Jernej
