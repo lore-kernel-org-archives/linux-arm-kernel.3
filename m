@@ -4,90 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35DF2C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Jun 2026 06:39:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09AE8C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Jun 2026 06:39:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ParnwBExfgSuCvGNbbNh3YhRq5Zw4wfCqZvmdKMow3E=; b=x1KewP4/ITIcvY3oNhm1LLydLr
-	41QGzF6SnU6a9OsrFFHA1NM432uK7kvtdJA/IcdKir6c+YS8++vKsRXRHgfOiOir6Sm6eaZoEt26+
-	Mkm/eAoXJOYpDDTjnlsQizTdUqJKBm+bqHWcUEjUzYtI3obZf800CfBkGhB9CW6yfhLr5cUDvvjxN
-	YKkv6EGaiYcl19rIrl6GHueCQ2yAIu/6VvKvRl6Czi8z3XmoInRF/4IOBTDbOAEUaP11mqBS5kcxl
-	QNP6/yCRO1vgtpC0byvEApPnBk59BjTLaMRrpqjBfv5TY2nSV0fvsZHXG7VPiHF+SYg/G6p1fpsYw
-	to3Dntew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ajFU+HuHYiVxYPwroExLm2o4iOyX7zxK6N/HTFuJyzY=; b=ZGOPP+bnQYZj6QRyCzT40bBc1A
+	FpJbhhYuSFiAxXVnDpOynAn7vQwp7dOTx7hJb3WEqnOM6zIVJdwPuOIteH3Ti5BQkVLwhaIimvSaG
+	odH2bkZIiUluzkuRilufyBCDw2qLiwAJlcIMM4RGfo2tndlRtqp5K7UNBSezF5ToYa7yMs1JLwQRj
+	L+tRx0OD9hNFs4OSOKVLvA6aJpUDzzeGdCkBp3fYK27OSyAZIHus9GfliBLd1GztgdRilqA1Zn2yy
+	CgKdrr5sXgRo0Zr0oLpoVcKSZ5SYjd93+NXpuUy1E536zqA6gyjdGUKJeFcEYR8OC8u7RQpqw/VwB
+	oLBB/4WA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdMgq-0000000CD4j-0uE8;
-	Sat, 27 Jun 2026 06:38:56 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1wdMh7-0000000CD7p-1Vg2;
+	Sat, 27 Jun 2026 06:39:13 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdMgo-0000000CD4J-07Ad
+	id 1wdMh5-0000000CD6k-152d
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 27 Jun 2026 06:38:55 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-49258ac7294so11911025e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 23:38:53 -0700 (PDT)
+	Sat, 27 Jun 2026 06:39:12 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-47122683cf3so26170f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 23:39:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782542332; x=1783147132; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ParnwBExfgSuCvGNbbNh3YhRq5Zw4wfCqZvmdKMow3E=;
-        b=GYDzlcPamse4k1Gj5qo/1+3jgAqDnAx5RaXNOjaiP7dk2+Wmih+ZMw5ebDhKcw2Kqu
-         ZOj+GVkgGrNoFvRek6o++sPXnVJ4gJ417SLyPHPFEWDUjhQwD9yWEXg0cBPEOJRAbc3U
-         tQDGKcZot3EG+QkQijbjVwwARpwkpyUrljn8+fWYJyakuNvoMCfmil8/AbyLVQpEfklD
-         TqJMdq75pThSmlgZIN8fbxH+m1b09kpOGxbwASKnhE7A48c+YUPCo2tyJuMupWkssz4w
-         xMJkMKgdOBFMhR0P/EIh7FC8LB7n9wnLWUcVwV0JVfL4zxWIGUZNot4o8Q28mhDpT0VY
-         XUEw==
+        d=0sec.ai; s=google; t=1782542348; x=1783147148; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ajFU+HuHYiVxYPwroExLm2o4iOyX7zxK6N/HTFuJyzY=;
+        b=LDdRtFlZIW0aF025uZP8jv/xzuCrnNaQIFC8IxTGQk4SFNFYalogYleorsWBG0GuMA
+         RZG9C259HZPG3FfkGTuW2BBaaYQhSdGLrDhawuyClynnPipxM3Zo2Zsxa1wFLDdkHX7p
+         sM/nJL8UmgAh/fADMIUpV1uvHL8Zwuc3OWjCI2smK5hVcCaIYhPRLFSzO+5Z4Jvk2sCW
+         37ijPmIVGKsP1XUwpnmLlSzA5bDPeOWoi6kGnKoPJpLvRcdq5oLn8PIkZAFaVfRNrq44
+         mM7hEMz58BiLJ0cNHupP6ODsT5XBqinSXV2JI0oFqkJD9Qs4R0fYuz8JzZvrlmCUgW/X
+         m5LQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782542332; x=1783147132;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=ParnwBExfgSuCvGNbbNh3YhRq5Zw4wfCqZvmdKMow3E=;
-        b=olP+nUzYx6oGWbrDKVogJmXRRXjvUABa84SeVKK3DDV58H4VeQCBzvkB8g7UdMySt1
-         fr5hvGgSfIAAqVN4X9T1zGmZ11raRtR+KlUFjuiWiDdC6U8e6F42IycHMilPcdajvgk1
-         efJeMw03uGKsfPmnbkujxAjmC7bLjx2IuW+G+gEoUZF9+Q/T8t01kONZq6a/zRDs+ITt
-         5VHP8Aop3tP/jC40pCLf0JFO5ZaaX/9q7ueRYeXWn5iknkyWaSM+cdfm5NR8EjL9d4qu
-         oAr1yRMSXXq0Sn8XG0OoM5yKSksfeV3youzCHymKwbb/ddVucYHtuOFQxa8vvLPIoT5y
-         ajmQ==
-X-Forwarded-Encrypted: i=1; AFNElJ836phtwkCp42EY3KbfQvxNppqyYl7RkVc2aKPfdgAsfCUncTH6KeYigsgfv5tZGlra6YJIT3SSBFO3zgU/LuMg@lists.infradead.org
-X-Gm-Message-State: AOJu0YyiGBNX/4ODdaPVihsmhqjuRzHKeXmOIU700Y3GrueRzijFDxZv
-	JWFSVYPTdzUkeGrPS8S5wJRqPU5eJss8Hff/TP2O8ZqsKm2JpWmUgYAH
-X-Gm-Gg: AfdE7cm6VL/sQa0utuGLTfVBQdF/sWwb83OTB9MvMn29ayNEIQQO0lV/ocvhi5VC/wD
-	H2zhaUKVyD1w/Bn0IVQWzOPNcZZTClFSD2MDlA4AF2RfKdwTTs1caAQFjRXSntSpOOwGjTQbeWy
-	3j/tBnBpfUD/mjDXhxERUN2/s5vFYfmhafyohr1PNG9u8xQIEvmHoym437opWfZpjuQ3dpbzKCV
-	dkIFLC+KAO8ohHoeJ6z2Zdt9uNVMdV8yIUZE6PISMU7abovvBvDlYk701MU00J+xXXCDdOQxxb6
-	MtLiGbzuZBvHcPl9e00Mf7zrvAx+b8g1LfENo8NtTH0ZhQf/+ZDHrvC+9FPjAaWx5ghhVHlptis
-	M1Lk6iTw+FoLgIOW440gEjlT/JXStHWujZeAL7ABIzeBoUELrM1ypWwnfUtwyiENPN+aOlORvFf
-	BjOpD7aPqWLJmu/3/bIQufF1nsRIeH3CFCa/ZLrZq8fHBNNWxGoYBR8za6quk1WFM8NQ==
-X-Received: by 2002:a05:600d:8499:10b0:490:e196:6574 with SMTP id 5b1f17b1804b1-49266864b4cmr108469495e9.13.1782542331948;
-        Fri, 26 Jun 2026 23:38:51 -0700 (PDT)
-Received: from jernej-laptop.localnet ([188.159.248.16])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4927038578bsm67964385e9.4.2026.06.26.23.38.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 26 Jun 2026 23:38:50 -0700 (PDT)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: mripard@kernel.org, Dawei Feng <dawei.feng@seu.edu.cn>
-Cc: paulk@sys-base.io, mchehab@kernel.org, gregkh@linuxfoundation.org,
- wens@kernel.org, samuel@sholland.org, hverkuil@kernel.org,
- linux-media@vger.kernel.org, linux-staging@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, jianhao.xu@seu.edu.cn, zilin@seu.edu.cn,
- Dawei Feng <dawei.feng@seu.edu.cn>, stable@vger.kernel.org
-Subject: Re: [PATCH] media: cedrus: fix memory leak in cedrus_init_ctrls()
-Date: Sat, 27 Jun 2026 08:38:49 +0200
-Message-ID: <3HodGaD_QKy_OLZfdyJ49A@gmail.com>
-In-Reply-To: <20260624085920.578446-1-dawei.feng@seu.edu.cn>
-References: <20260624085920.578446-1-dawei.feng@seu.edu.cn>
+        d=1e100.net; s=20251104; t=1782542348; x=1783147148;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ajFU+HuHYiVxYPwroExLm2o4iOyX7zxK6N/HTFuJyzY=;
+        b=Hoxc5FAYEY1Vl/1booOO0OUChzMwwLhLw/hNoaTuLwr7IbGgH/ECFcV2YF+xRCGt7V
+         BgL3amX580S6NUHo53M6wz2xdvhDSCc/Piy7eby8Y4qw6uI64y/u+9tnvrRHWzkcu+f0
+         iPLOcz4GAgBKLlvixMTy+zXcfvHIABuaRIyafuutIRLcYeQt9fM75NWT/UydrVEWR3R2
+         jvZbiWWgkt1X/fjR4CLs603TCkd7IaUZV3aP/t1pOgjSJGcQBoTxhkTtglzClEUb8S4Y
+         iB3c2KEHYn4m0vwgXH6ppy99wb0olu9PcevM4MgwHcEF8Iev3Y+xEDV0D/1un1TzalMJ
+         89MQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rrbsj/FW/IsAiBecYBXsEoDtr7bgbnF5PEpFkqFZJSeD5Zhw4YAzpH46yUnvMQEzQy/iUpqFld07bB2/B22VpUw@lists.infradead.org
+X-Gm-Message-State: AOJu0YwvdJlnP82fIqCn4B1L7ttjd4r460MBDbsohUiiTD4s3pdP92c4
+	tPQdlbMW4NTQyNz5QAZX/hKAZSRiOhW5PzmOUvi51rnfCSMtWFUERNvDFozwyH57jyVD
+X-Gm-Gg: AfdE7cnASx16HDxQrouY8+Vs4Ta/SYY2/++x8DoDWHjgXdV9VDHcbxyE/6QmZFRaT2x
+	A0mV9IX47JdjXGqYYDlJ+8jztfsLv8csAz1iOujqgKPEAMCewXC9XZVA1+TF8uDds44Q6HTxM+d
+	o2IK7OPYh62clKj5177VDY+fVVeg8c0ykooHf6Wz2NdBR3A0ZhDouIN6665XeB8W+CUXjHjfJGf
+	FeRjLYuJ5V+V8is0VVvARbppg4mXJMOoOMtOB6o9khMijghUip/VPAf0iSj4tGjnB2U3DMrNbAP
+	N5uVzkzJZMCNext9Q9gW1dMq/4uBXXsJW4WBFVq3+SeS3GgbfSRhENTfav7/4HVpcnaCBQRXy7y
+	NAeT9GLfxj5hhHCoWpSL3FBQzdb651fRxmT2t+IkzkGt4nGZLhavLO+W9tC1KypbTii6ONoF3ct
+	cLnL6GGchZB05aXF7aqT4rnqtTmXwURBB/pFm6MaFFIJNaSZbkT7YivNNfnsMhCnWBvG1uqqBes
+	Ig58yu19TDchP9jt2CuTTuoe+2dEYLkv0k=
+X-Received: by 2002:a5d:67cb:0:b0:46e:64f3:ee74 with SMTP id ffacd0b85a97d-46fb94541e4mr4577099f8f.45.1782542348074;
+        Fri, 26 Jun 2026 23:39:08 -0700 (PDT)
+Received: from PeakBook-Mini.tail8e484.ts.net ([178.197.218.209])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-46c22c680fasm31551666f8f.34.2026.06.26.23.39.06
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Fri, 26 Jun 2026 23:39:07 -0700 (PDT)
+From: Doruk Tan Ozturk <doruk@0sec.ai>
+To: Neil Armstrong <neil.armstrong@linaro.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Dan Carpenter <error27@gmail.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Hans Verkuil <hverkuil@kernel.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	linux-media@vger.kernel.org,
+	linux-amlogic@lists.infradead.org,
+	linux-staging@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Doruk Tan Ozturk <doruk@0sec.ai>
+Subject: [PATCH v2] media: meson: vdec: fix use-after-free of in-use frames in codec_vp9_rm_noshow_frame()
+Date: Sat, 27 Jun 2026 08:39:05 +0200
+Message-ID: <20260627063905.79363-1-doruk@0sec.ai>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_233854_082498_822E8D14 
-X-CRM114-Status: GOOD (  12.57  )
+X-CRM114-CacheID: sfid-20260626_233911_322716_7304B143 
+X-CRM114-Status: GOOD (  11.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,34 +108,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne sreda, 24. junij 2026 ob 10:59:20 Srednjeevropski poletni =C4=8Das je D=
-awei Feng napisal(a):
-> In cedrus_init_ctrls(), the V4L2 control handler is initialized before
-> allocating memory for ctx->ctrls. If this allocation fails, the function
-> returns -ENOMEM without freeing the previously allocated handler
-> resources, leading to a memory leak.
->=20
-> Fix this by calling v4l2_ctrl_handler_free() on the ctx->ctrls allocation
-> failure path.
->=20
-> The bug was first flagged by an experimental analysis tool we are
-> developing for kernel memory-management bugs while analyzing
-> v6.13-rc1. The tool is still under development and is not yet publicly
-> available. Manual inspection confirms that the bug is still
-> present in v7.1.1.
->=20
-> An x86_64 allyesconfig build showed no new warnings. As we do not have an
-> Allwinner SoC or board with a Cedrus VPU available to test with, no
-> runtime testing was able to be performed.
->=20
-> Fixes: 50e761516f2b ("media: platform: Add Cedrus VPU decoder driver")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Dawei Feng <dawei.feng@seu.edu.cn>
+codec_vp9_rm_noshow_frame() frees the first non-shown reference frame on
+ref_frames_list without excluding frames that are still in use. When the
+previously decoded frame was a non-show (alt-ref) frame and the current
+frame is a non-show inter frame, the freed object is the one
+vp9->prev_frame still points to; codec_vp9_set_mpred_mv() then
+dereferences the stale pointer (use_prev_frame_mvs and
+codec_vp9_get_frame_mv_paddr()), a use-after-free. Freeing a frame that
+is still an active reference (codec_vp9_is_ref()) or the current frame
+has the same in-use-then-free shape and additionally desyncs the
+reference bookkeeping in codec_vp9_sync_ref().
 
-Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+The sibling cleanup codec_vp9_show_frame() already guards exactly these
+cases before freeing:
 
-Best regards,
-Jernej
+	if (codec_vp9_is_ref(vp9, tmp) || tmp == vp9->prev_frame)
+		continue;
 
+rm_noshow_frame() simply omits the same check. Add it, also skipping
+cur_frame, so both cleanup paths agree on which frames are safe to free.
+
+The fields that drive this path (show_frame, frame_type, intra_only) are
+parsed from the VP9 bitstream, so a crafted stream fed to the stateless
+decoder can trigger the free-then-use.
+
+Found by 0sec's autonomous vulnerability analysis (https://0sec.ai).
+Found by static analysis; not yet runtime-reproduced (Amlogic Meson
+hardware required).
+
+Fixes: 00c43088aa68 ("media: meson: vdec: add VP9 decoder support")
+Signed-off-by: Doruk Tan Ozturk <doruk@0sec.ai>
+---
+v2: Per Dan Carpenter's review, also skip active reference frames
+    (codec_vp9_is_ref()) and cur_frame, matching codec_vp9_show_frame()
+    exactly — freeing an in-use altref/reference frame here also caused a
+    codec_vp9_sync_ref() desync, not just the prev_frame UAF.
+
+ drivers/staging/media/meson/vdec/codec_vp9.c | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
+
+diff --git a/drivers/staging/media/meson/vdec/codec_vp9.c b/drivers/staging/media/meson/vdec/codec_vp9.c
+index 8e80ecf84193..dad75950933c 100644
+--- a/drivers/staging/media/meson/vdec/codec_vp9.c
++++ b/drivers/staging/media/meson/vdec/codec_vp9.c
+@@ -1238,6 +1238,8 @@ static void codec_vp9_show_existing_frame(struct codec_vp9 *vp9)
+ 	pr_debug("showing frame %u\n", param->p.frame_to_show_idx);
+ }
+ 
++static bool codec_vp9_is_ref(struct codec_vp9 *vp9, struct vp9_frame *frame);
++
+ static void codec_vp9_rm_noshow_frame(struct amvdec_session *sess)
+ {
+ 	struct codec_vp9 *vp9 = sess->priv;
+@@ -1247,6 +1249,18 @@ static void codec_vp9_rm_noshow_frame(struct amvdec_session *sess)
+ 		if (tmp->show)
+ 			continue;
+ 
++		/*
++		 * Mirror codec_vp9_show_frame(): never free an active
++		 * reference frame, the previously decoded frame, or the
++		 * current frame here. prev_frame is still dereferenced by the
++		 * MV predictor in codec_vp9_set_mpred_mv(), and freeing an
++		 * in-use altref/reference also desyncs codec_vp9_sync_ref();
++		 * either is a use-after-free of an in-use frame.
++		 */
++		if (codec_vp9_is_ref(vp9, tmp) || tmp == vp9->prev_frame ||
++		    tmp == vp9->cur_frame)
++			continue;
++
+ 		pr_debug("rm noshow: %u\n", tmp->index);
+ 		v4l2_m2m_buf_queue(sess->m2m_ctx, tmp->vbuf);
+ 		list_del(&tmp->list);
+-- 
+2.53.0
 
 
