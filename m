@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66319C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Jun 2026 15:53:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 108FBC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Jun 2026 16:23:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LDEHckzY6cmu/LyEFbjKi1V0R0pBN0KTZIlkY6+Igv8=; b=vtTD8H+4x1br/24KbYkokfzmZa
-	cl7rvBhYBCxO+X2aMa7/k5HqrLce2aiHEATQHVGfEbNIsR1kY5KAS4mlen2fGf33nOi69rmVQgWR3
-	xGnpryr4jf02wnsSC8E4zWghLJ30biqd1X9dEnt7XJb7qJ4Q90lvGI6qVq1P8mEvzZMqphhZ5R8/G
-	Q0MHJ3k0ldFnsurzn3e2oNi6870ft/yfXZ+jYfRW+Xl8U3R/xdo1FedKVzCZjhdqAuCHOHW/fMDXF
-	lcFQs1xta8Qr5IXIEEwaDVAK1fhZQdEVW9e3k3BDTsw1NaZv8Pyt2GvjbcqD50LxLT2Th+/De/WNK
-	IrSBiIOQ==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vi9X5QHxom/shb1Xeo0pVk+vxYBtRUDCCAdoquHX1MU=; b=w73/OrgfO3bmIF8xRTTe5M3O2b
+	qgKFCm2eLFq7LD6Lj9pVjcz0BDz6Ljy/NiQh4+wscv9SOGiiauHJSmEmzDwvTZ52IRJXm4oa2IdTd
+	VQlOwlyWSdH8pjkIBdtzC52G1UTsEeoKpQ/9Nbj+aMDEPilBtG+JvZ4L9KGHreHvvpmwXTgSLplop
+	YU3zRNwUIG0f3/8qQNjhhQ93Ho3lQf0+MqaBpefb4SyHy9bZ5yO/qHVmCALPSBjzhQ/c9KhVPtPuT
+	LXxv/9LlSMEGz9KhZY4akPAfwzu7knXMjvmEAxqka5fpaWMDzP2r/xmbHDjqXMZIVD6QdZigL1Gy4
+	lWtorV9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdVL1-0000000CcIc-0hwl;
-	Sat, 27 Jun 2026 15:53:00 +0000
-Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
+	id 1wdVo6-0000000CdAt-1OTS;
+	Sat, 27 Jun 2026 16:23:02 +0000
+Received: from mail-eastusazon11011055.outbound.protection.outlook.com ([52.101.52.55] helo=BL2PR02CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdVKx-0000000CcG9-1zQ1;
-	Sat, 27 Jun 2026 15:52:56 +0000
+	id 1wdVo2-0000000CdAP-3PmM;
+	Sat, 27 Jun 2026 16:23:00 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NXQ7s5nRROfS2YkZBPWw1yn5wrb5EPg8rllOEKeI4kpVtrS7LbfBT5qdC6V9HNnHknPia0jQFyr1f96rAyMTFzRAswgEjwcs7+QRIXauyGKarhNe5LapSsUuRtbTSA3VyuNl9VO1SOU9wNGnc1AQZABrQ4ttiwsArAiQ7PtAtp4reus7M7MnNa7pknpFH3IC+8RXKnenKAdbCRj+kDa8ysag+kcGW0/Ah9PrXrYPKxnrwAatV/HHjEIKTLfyDu9KSgmTe2y55f+yEo1zX85BoKm+EPaHjOcv9Td1B/6PRx6pDwlOzuEwiy0XDTLRiXKzLowRKTXkzs2HluAP+Oi2Ow==
+ b=JeCCxGKCOVPa0jVsf9xBvKiercr04xQv0iAdX26UlLctfavvi8K7nR9SUJPUKXdZ375WTdzA0O18HHhgaj2JnPAs/nMRRdrmz/Zb0YV8erQDAbeSllTj9X1t/PHohmQRhkW7fiRyriU6VBVHqSmH5IHyKUwSe15RAthUjrx9hfqcwBdr8HxgBM79h4fbhesJfnM8uT3PwOl5+Pk4ul9KU0KNeTHndrlTFl88ldu0sFSzjBGOeV+uHuQfSTa8aGIdcUl9vi3qkGKPVXLXGAgI6HxXZOAHOzFmwjmUjHxyHqAAfsEEKTn8MBDH1rNOkIS5fyDwBqX8SahTYIIlbp5WkQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LDEHckzY6cmu/LyEFbjKi1V0R0pBN0KTZIlkY6+Igv8=;
- b=JmC8v4DiJSl4LTUSoYbgXbv+dFUdK2gZAnsJzKz+vlCmah9Yyix5OTgoY9nMCVJ30iQIpkP8avG853RcBg9ISTRf7tueNHNjM0UqRCiABfCZvkISMrk0MJh8mVyyTtC593E+vC4VBRLKOMsbCZK8a65yb3W6Bd+K9JCCMMu+YxEJWJW2wWQMgfTpfzrIiLxpejGCNCuIJMkjJZV6pw1cWE1T+9imUr6VVwkX3mDplpzmaxv/gypx1ZQt7nQt/sMNT9Py77FnFpszOGjyf4OQ+YGSlRic9rUGeMEBPDWfNzejhM+LgAcZgPEzIeYl9LaVGaMhfiB/NvtW9mZYQ5a7gg==
+ bh=vi9X5QHxom/shb1Xeo0pVk+vxYBtRUDCCAdoquHX1MU=;
+ b=Jqqp7QpvKpVxiq25M4nZOvy2UpEcXQHKzpNhlyH6jiGcTVCob3Y5aMm8WqKfQ6uRZ9UkGJMvON4by2j5egDJc8S8JdQfXfPyp5SIFGGieO+pzHQAw7O6kl81mpmH55+GBWkOsg4ZsUEZbGAb19UWGaBNSrkbA74m1kO+kD7qwqpLWj5nw9luH8tHz+NnaVbDsQLI7jeIMHo6Mu90U+vnZ1eHmeiF5p6o3Uqq8Ztiz1bRrYrsUWXB6wleATdN3YF7ZX7mqV9Wfx93vGUz4gJky6O1sq0rSjmhWR5Ah7HtolZRtdMbN+QFoTtA0KTlisLSOJ4bW1PdKuI/g5CySRgpqQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=ideasonboard.com smtp.mailfrom=amd.com;
  dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
  header.from=amd.com; dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LDEHckzY6cmu/LyEFbjKi1V0R0pBN0KTZIlkY6+Igv8=;
- b=4tm63vy/+FwvV/JXlHwcnswg7yHmrLaOV5pBoSN4XGk5ywZxJFrcg08W8KqLvwP7rUNrHxheM7JbrJwbU8BWKxyGQUG9ePf8++IY21yscO7y2fBQzedg/Jg0ynp8Wc5a/L0mOsVlbqyUsZcd6X7vkBIl2OdZvc+suLSrWfwEp+8=
-Received: from CYXPR02CA0018.namprd02.prod.outlook.com (2603:10b6:930:cf::11)
- by LV9PR12MB9830.namprd12.prod.outlook.com (2603:10b6:408:2ec::14) with
+ bh=vi9X5QHxom/shb1Xeo0pVk+vxYBtRUDCCAdoquHX1MU=;
+ b=qIpvNb/1lN9P3nyI9YRUS7c3VzeQIQ7xwY+RAJv8b9BpVCUoPbGiudyhAnrcDn4QYHZqQH6vDIf8TS2Pnkx2ikDUIbmyxY4ZzqaA1JeG9N3DcCnQuCGoA2YbHn+FXVd1w9DwIeZqRs1uv7w0x7wcS4P4dQ6Gwb30JlZ2qwqUeiQ=
+Received: from PH7PR17CA0040.namprd17.prod.outlook.com (2603:10b6:510:323::26)
+ by CY5PR12MB6276.namprd12.prod.outlook.com (2603:10b6:930:f::6) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.17; Sat, 27 Jun
- 2026 15:52:49 +0000
-Received: from CY4PEPF0000EE37.namprd05.prod.outlook.com
- (2603:10b6:930:cf:cafe::a4) by CYXPR02CA0018.outlook.office365.com
- (2603:10b6:930:cf::11) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.18; Sat, 27 Jun
+ 2026 16:22:52 +0000
+Received: from SA2PEPF00003F68.namprd04.prod.outlook.com
+ (2603:10b6:510:323:cafe::af) by PH7PR17CA0040.outlook.office365.com
+ (2603:10b6:510:323::26) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.159.18 via Frontend Transport; Sat,
- 27 Jun 2026 15:52:49 +0000
+ 27 Jun 2026 16:22:52 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
  smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
@@ -58,60 +58,54 @@ Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
  165.204.84.17 as permitted sender) receiver=protection.outlook.com;
  client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
 Received: from satlexmb08.amd.com (165.204.84.17) by
- CY4PEPF0000EE37.mail.protection.outlook.com (10.167.242.43) with Microsoft
+ SA2PEPF00003F68.mail.protection.outlook.com (10.167.248.43) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.181.6 via Frontend Transport; Sat, 27 Jun 2026 15:52:49 +0000
-Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb08.amd.com
+ 15.21.181.6 via Frontend Transport; Sat, 27 Jun 2026 16:22:52 +0000
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb08.amd.com
  (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Sat, 27 Jun
- 2026 10:52:48 -0500
-Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb09.amd.com
- (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Sat, 27 Jun
- 2026 08:52:48 -0700
+ 2026 11:22:51 -0500
 Received: from xhdradheys41.xilinx.com (10.180.168.240) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
- Transport; Sat, 27 Jun 2026 10:52:45 -0500
+ Transport; Sat, 27 Jun 2026 11:22:49 -0500
 From: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-To: <tomi.valkeinen@ideasonboard.com>, <vkoul@kernel.org>,
-	<michal.simek@amd.com>
+To: <laurent.pinchart@ideasonboard.com>, <tomi.valkeinen@ideasonboard.com>,
+	<vkoul@kernel.org>, <michal.simek@amd.com>
 CC: <linux-kernel@vger.kernel.org>, <linux-phy@lists.infradead.org>,
-	<linux-arm-kernel@lists.infradead.org>, Nava kishore Manne
-	<nava.kishore.manne@amd.com>, <stable@vger.kernel.org>, Radhey Shyam Pandey
+	<linux-arm-kernel@lists.infradead.org>, Radhey Shyam Pandey
 	<radhey.shyam.pandey@amd.com>
-Subject: [RESEND PATCH 3/3] phy: zynqmp: keep SERDES scrambler and 8b/10b enabled for USB
-Date: Sat, 27 Jun 2026 21:22:29 +0530
-Message-ID: <20260627155229.2791113-4-radhey.shyam.pandey@amd.com>
+Subject: [PATCH] MAINTAINERS: Add Radhey Shyam Pandey as ZynqMP PHY maintainer
+Date: Sat, 27 Jun 2026 21:52:33 +0530
+Message-ID: <20260627162233.2803425-1-radhey.shyam.pandey@amd.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260627155229.2791113-1-radhey.shyam.pandey@amd.com>
-References: <20260627155229.2791113-1-radhey.shyam.pandey@amd.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000EE37:EE_|LV9PR12MB9830:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7eafc5e0-31b8-475e-5686-08ded4642384
+X-MS-TrafficTypeDiagnostic: SA2PEPF00003F68:EE_|CY5PR12MB6276:EE_
+X-MS-Office365-Filtering-Correlation-Id: e48f908c-f525-4dd2-6bb9-08ded4685632
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700016|23010399003|82310400026|1800799024|6133799003|3023799007|56012099006|11063799006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: 0hE525zsangTBzumVutf6fywNIoCmAE5PFefMxlMgr6ajvVxGCITdOWgg25gxPU10u3c3jplF7PRC/ZMQYUJKwef7xcv6imw4ihmkxNgPFGLNSUedlB1rlrDliVcTV5joam0zESxzgFksr/3utGIN4C2ekesrwjuhKThZ/N/RksYthxDPr3PdgT5Er+/jmtEl6rQmotURYyBDPqmROTcUuPb2/iRTNcLjCVePGRXBXI4l89mtHMj+3nsaCN6tExzbcPNu0FNFd/GS+bHyaMgqkBlc3jbzWAzDJciR2hYP0i6wRm34cyFaOhoDZi0ciqqSK8jmhxbuTYJYATTuE/ztOSUbd6JvPQdutsxWeNCWozUT8dW1wyqPQiwt5Mu28Hz33fTAsYYO4+sJUx4ERnYLOLjU3VdC5xPtKzQvyjlcoUDdmh8jBnMUV3+KrlIPhCxEwMFgpVUL7RhkOwJ99x/kIhEcT2SU5UlN6ef5thvKcEgxKOXEw1V6Oo5TvJNwq810ycnB0aE0KbE9k0kfVO3BewVMgS9zAbCvU2oBQsoUXEN6LU3U8VNtAu9xJQx7R05KIhyuuMH1V6rq0dop5XptjvTkdaIgpeNX0XB+moD3znOflAJbxK/EsEbp2OFjeGtJNDvUzMUgj7lsDfk1Mb5SAHCzxuotJk/ZgkoSJIYYRJVuEd50FKAKezPYxpQoScU4pHxKHpxiYXwNIgcMXanUQ==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700016)(23010399003)(82310400026)(1800799024)(6133799003)(3023799007)(56012099006)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700016|23010399003|376014|13003099007|18002099003|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info: 9rAh1fte2JTgN6FsH9nWfdVeCiHOs+UI+/lcIHORRaRamKj1o156hWj3CT1J/kUMd3jI4TkpOaGBmgaBjdUNth8yWn8o0mlO4sKBmz03s0ZEBtxVkJVDguz1KexrgmlT4UQ+EN6hPtEOfnEdHfgF77DO2BTZSw5yctVZKXY605D71r77crn7mAXpW9urh1CCfWRfZPwF/6HzMmBZ2LUThyD7GEu8OTyCexzKncaTuA8oP3Y8/mj5Ewpqyg9Q7tIxG985q20CLmbUavYtBn2lTkmCaghsnHvGTEiBi86VLUz8tSRlH6B9MH8dvi94fWs63tF/5QBWfxeOSXscQ8mHQs0WRhV0vEzWJycaYnotv3SErMfcpdLSn2X9OdrSltq81cPMkvI2K4sxc0Ho7VUZqPzybv/G/LaG7kDwBQkYVBcbxS3mTBaVOmii0R+eVZ3QLeXgdtRh3+hPbSt6F/2L/0FAmjjhljJnsGE7WioHVI61EAy34Dl53BUdAJI9bwE2i4cc/SjREJzOZjjDK6hzGoP1bp+syxF4RLDUmiRip4E4SRGXQQ7ZYYtUmbV7TXyoLSgvZN1s55OnWNFvDaDJxSQMbbP4bmtcYgjO32XOI0sbSVw/XuQ/m+XmGqnVeBP9iG7EDWKyTcPHyj1yd2cIdO65fotmxQvSGSJxCzh+Tr1r62u9fu+7WIKhjWX1ieM6LU6nisemvF/xAksLKfIQjA==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700016)(23010399003)(376014)(13003099007)(18002099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: n16uJ4T3VCx4oHgToNKpeI1TUHzKliEwkK4RNYubcWvyrP9KMG+oEEtMCFt9kXg4EuGfCtrutbBKsW19Q9VdkNRf2O78yhGUw1x7KrMkPZ+dlxkeQwCyun0pBtJCX89fkPPwf8vYQsIfEKOvGP19yck5hPsb6QTitrxhrnMMSIhuti0Hs20HOG6hSOBlrIniukT6e26iZkjmjDPhC3jwPU8PqcxbLEtA+UIuul0YTU+1WQln1s0+yci1rcazWoxuju1JcSvW9UnrN8p/dN7zqWxlfT/W3kvk0YTyl4VRoZDAOBNBFjLVCyhhVX2NKUZuUH6AVMl36kmMFD4EdjsG1FeOonvZEYGDwxYuVFoaHEtHHpaUuO2/Y9K+B5QiESHaYNzddBBayBPjCSJGnUizM9adUKsvBdoZmXJ7FO/xEaRL6dMUQrFeyRNE5LhVCWOD
+X-MS-Exchange-AntiSpam-MessageData-0: Mvt5GIIDl1mYGr92v5W9jwtHephdMGNNyaVWlAnrkwhNLDstZ+o0Yn9yWQ1vK6h8QWhiFZxNuTxe1bk8dingudzXpkLJ0sb2AwEIdNX5r6ZyU0hkERpg0hln1tHioG8TRyMqFZ52gmQxs4dq4Mk0mUo6ajjV2fRPn3rA0lu0GEAh2G/zJnlU9ogf02Baw3pC2v2xI1MvxSIm6zCNWlmd3Ew3VyC01TmUXoYohEurBjaJyg8FItcYYSQhlwDV3VMatvSuOgBlF86hyYZnEoNg2QK8KZ6lWAlOaB0rfT5vYRFzLyTQR3rND6OmzTZb71Wr9KzceDq/O9t6W1cDGXB1VBt35I7VzksXt7kTRw7Gmj7oQcvsjrP3BjaU3R3hScNY9gAvnRu9UGrdXwUUdxOhKuUHsjV/N83d1kziMOZ2wmLe423MXN48ed5KCisJgIpD
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Jun 2026 15:52:49.0007
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Jun 2026 16:22:52.0367
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7eafc5e0-31b8-475e-5686-08ded4642384
+X-MS-Exchange-CrossTenant-Network-Message-Id: e48f908c-f525-4dd2-6bb9-08ded4685632
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EE37.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00003F68.namprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV9PR12MB9830
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR12MB6276
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260627_085255_521858_778779D3 
-X-CRM114-Status: GOOD (  12.47  )
+X-CRM114-CacheID: sfid-20260627_092258_852939_A00EE1C7 
+X-CRM114-Status: UNSURE (   9.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,95 +120,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nava kishore Manne <nava.kishore.manne@amd.com>
+I am maintaining phy-zynqmp driver in xilinx tree and would like to
+maintain it in the mainline kernel as well. Hence adding myself as a
+maintainer.
 
-USB Gen1 requires scrambling and 8b/10b encoding to be performed in the
-physical layer. Do not bypass PHY-side scrambler or encoder/decoder for
-USB operation, as mandated by the USB 3.x specification.
-
-Scrambler and 8b/10b bypass remain restricted to SATA and SGMII
-modes, where encoding is handled in the controller.
-
-Fixes: 4a33bea00314 ("phy: zynqmp: Add PHY driver for the Xilinx ZynqMP Gigabit Transceiver")
-Cc: stable@vger.kernel.org
-Signed-off-by: Nava kishore Manne <nava.kishore.manne@amd.com>
 Signed-off-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
 ---
- drivers/phy/xilinx/phy-zynqmp.c | 39 ++++++++++++++++++++++++---------
- 1 file changed, 29 insertions(+), 10 deletions(-)
+ MAINTAINERS | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/phy/xilinx/phy-zynqmp.c b/drivers/phy/xilinx/phy-zynqmp.c
-index 6c56c4df8523..087fe402e4e2 100644
---- a/drivers/phy/xilinx/phy-zynqmp.c
-+++ b/drivers/phy/xilinx/phy-zynqmp.c
-@@ -502,15 +502,30 @@ static void xpsgtr_lane_set_protocol(struct xpsgtr_phy *gtr_phy)
- 	}
- }
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 1705eb823dd0..90dd86437c5c 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -29645,6 +29645,7 @@ F:	drivers/edac/zynqmp_edac.c
  
--/* Bypass (de)scrambler and 8b/10b decoder and encoder. */
--static void xpsgtr_bypass_scrambler_8b10b(struct xpsgtr_phy *gtr_phy)
-+/**
-+ * xpsgtr_bypass_scrambler_8b10b - Configure scrambler/encoder behavior
-+ * @gtr_phy: pointer to lane context
-+ * @bypass: true to enable scrambler/encoder bypass (SATA/SGMII),
-+ *          false to disable scrambler/encoder bypass (USB3)
-+ *
-+ * Uses RMW to preserve reserved and unrelated register fields.
-+ */
-+static void xpsgtr_bypass_scrambler_8b10b(struct xpsgtr_phy *gtr_phy,
-+					  bool bypass)
- {
--	xpsgtr_clr_set_phy(gtr_phy, L0_TM_DIG_6,
--			   L0_TM_DIS_DESCRAMBLE_DECODER,
--			   L0_TM_DIS_DESCRAMBLE_DECODER);
--	xpsgtr_clr_set_phy(gtr_phy, L0_TX_DIG_61,
--			   L0_TM_DISABLE_SCRAMBLE_ENCODER,
--			   L0_TM_DISABLE_SCRAMBLE_ENCODER);
-+	if (bypass) {
-+		xpsgtr_clr_set_phy(gtr_phy, L0_TM_DIG_6,
-+				   L0_TM_DIS_DESCRAMBLE_DECODER,
-+				   L0_TM_DIS_DESCRAMBLE_DECODER);
-+		xpsgtr_clr_set_phy(gtr_phy, L0_TX_DIG_61,
-+				   L0_TM_DISABLE_SCRAMBLE_ENCODER,
-+				   L0_TM_DISABLE_SCRAMBLE_ENCODER);
-+	} else {
-+		xpsgtr_clr_set_phy(gtr_phy, L0_TM_DIG_6,
-+				   L0_TM_DIS_DESCRAMBLE_DECODER, 0);
-+		xpsgtr_clr_set_phy(gtr_phy, L0_TX_DIG_61,
-+				   L0_TM_DISABLE_SCRAMBLE_ENCODER, 0);
-+	}
- }
- 
- /* DP-specific initialization. */
-@@ -531,7 +546,7 @@ static void xpsgtr_phy_init_sata(struct xpsgtr_phy *gtr_phy)
- {
- 	struct xpsgtr_dev *gtr_dev = gtr_phy->dev;
- 
--	xpsgtr_bypass_scrambler_8b10b(gtr_phy);
-+	xpsgtr_bypass_scrambler_8b10b(gtr_phy, true);
- 
- 	writel(gtr_phy->lane, gtr_dev->siou + SATA_CONTROL_OFFSET);
- }
-@@ -547,7 +562,7 @@ static void xpsgtr_phy_init_sgmii(struct xpsgtr_phy *gtr_phy)
- 	xpsgtr_clr_set(gtr_dev, TX_PROT_BUS_WIDTH, mask, val);
- 	xpsgtr_clr_set(gtr_dev, RX_PROT_BUS_WIDTH, mask, val);
- 
--	xpsgtr_bypass_scrambler_8b10b(gtr_phy);
-+	xpsgtr_bypass_scrambler_8b10b(gtr_phy, true);
- }
- 
- /* Configure TX de-emphasis and margining for DP. */
-@@ -707,6 +722,10 @@ static int xpsgtr_phy_init(struct phy *phy)
- 	case ICM_PROTOCOL_SGMII:
- 		xpsgtr_phy_init_sgmii(gtr_phy);
- 		break;
-+
-+	case ICM_PROTOCOL_USB:
-+		xpsgtr_bypass_scrambler_8b10b(gtr_phy, false);
-+		break;
- 	}
- 
- out:
+ XILINX ZYNQMP PSGTR PHY DRIVER
+ M:	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
++M:	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+ L:	linux-kernel@vger.kernel.org
+ S:	Supported
+ T:	git https://github.com/Xilinx/linux-xlnx.git
+
+base-commit: 3d5670d672ae08b8c534b7beed6f57c8b44e7b43
 -- 
 2.43.0
 
