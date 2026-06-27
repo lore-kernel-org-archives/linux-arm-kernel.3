@@ -4,60 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFA03C43327
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Jun 2026 22:51:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 503D0C43602
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Jun 2026 22:58:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WUBEoH15RqIo4oFjBLLuDYUfLC4Rqnn2RSE89hLfxZc=; b=Y3gD5v0GtRfAnYPIDpJykCp8ma
-	GVBgwSl751qhzWiFGRTDlS6/q3O8nnZSMlfNAhftNJyzIDvoKI6ygMxjXQIcMZwKXg2kduk3+yQiR
-	XLG8QrUVKStZleDrVOPQhWaSyenb42w6lbJs8zWl1hkoDf4RcpdSfrdmA0zM1yjiAKxzR/jd7VYW9
-	KzUBGWz6ahMZK8UN7WwsH6+HTZvRQnn7A2KKg6r1VwBjJUGTvrTgkI/+H0BSne2W2iRSeuSnrhCp4
-	UlcXAMJhB2rbdNIZ0xyzfrmgmLeLoWt8udzQHzUPtHP2+1xnCQDTDTdrTOEs8QeMsimjhStC7ni9h
-	ksMDrFRQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rjb/FajtBjMgnlv1ralDNgBE434bxvgdfvleOUHgX58=; b=2QVGrsEP1AU8laxC6j2zwRGqUU
+	rxJnDKQ9ku1B56D06CMXAB+bzWI0smvMYUlNqn8ZsKnwcFeIBdSP74RvxLxVxZF2TH9KY9KO4dhwz
+	XpmkSFIIgBvPuN+MPMWdJ3WfjBl6ENmQGMgsrD6OiDg+Mzp68evlAp5KskdQvn2xyBwDduiDwdasg
+	fpoyorgtomU7FTOZegMmmVrN4UQ1rQYF1hwFAGVdeuq451zDSE+k3z3SQaG2JpTZvAQPWWoneAiw8
+	/xHwa+tCPReK/N4icFL+CtefDGs1rwp4nXvO3+0j1E31yeIoRCmdKkHV6kwlV28BTBrvwWkHpoxGH
+	KJLHGxow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdbrS-0000000Co41-2asC;
-	Sat, 27 Jun 2026 22:50:54 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wdbyk-0000000CoQn-1h7C;
+	Sat, 27 Jun 2026 22:58:26 +0000
+Received: from mail-pg1-x542.google.com ([2607:f8b0:4864:20::542])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdbrR-0000000Co3s-3rjH;
-	Sat, 27 Jun 2026 22:50:53 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 98FAF60125;
-	Sat, 27 Jun 2026 22:50:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 501881F000E9;
-	Sat, 27 Jun 2026 22:50:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782600651;
-	bh=WUBEoH15RqIo4oFjBLLuDYUfLC4Rqnn2RSE89hLfxZc=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=ICJ2pavMSOSnqjG0tMQMLjrvwApy9T1MWm1vKfispbXS/6zXo1O2uzFS0Ugdm1T7M
-	 j7ie0vtRfWX09Xq+e4B6fYE929MksJZ6/JMPFyjepVLZJnjG/cCc8dwu2LvA1+Io2A
-	 Igyl6symkXW6vGiMiBDRYYkQF8qye/9TBzIygVCGCmlFCcSBWOnwxt6V/DDMuTGVp3
-	 hdnhqP8dUJBtPe97jSsi50nOyMYD2csRMs3STAecLEZi0XSHym9QbrZGoPTgPIYh38
-	 Zm8mJL6ZtKiMoty26gRKkUqBEPU5aex4/dfPRNO0KhXEuYOrrrVmVYj6ycClvkUClX
-	 4k8Nu2efuw5BA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 5686D3938452;
-	Sat, 27 Jun 2026 22:50:38 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1wdbyh-0000000CoQ1-0ExD
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 27 Jun 2026 22:58:25 +0000
+Received: by mail-pg1-x542.google.com with SMTP id 41be03b00d2f7-c96c92c0980so87180a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 27 Jun 2026 15:58:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782601102; x=1783205902; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=rjb/FajtBjMgnlv1ralDNgBE434bxvgdfvleOUHgX58=;
+        b=XWwbjjLdCiTprvDyi45Gj21iS2QINc2CK7vqPAso5M0fNIs4D2fDA22MbhFP18w5jb
+         uAS4PvkjijskGxqrDREffc4oxcciaUZmWUP2c29D1ULYAMvMsZSb6u8vDfJLdD5fYlIH
+         6JmeZaaGkNeLh2T1YgcxX6yrV8rkrZKP2C665BZ4H/EPLYrE+3cVAkN/emj9fSMYlY4I
+         WoT7NR1lJgw+3hXyk8c4EQwQ/zv9fE56Um/AKVbMii98TIuVs8Koo3y4x5sbtrv+lUDJ
+         cPxBo5wgjVjZYo7mg89vZbR7/h4aeb3Ljp4W5rmbZozEfT6Cth7Mbp2SZ7MKFKs3EzEe
+         mFaA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782601102; x=1783205902;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=rjb/FajtBjMgnlv1ralDNgBE434bxvgdfvleOUHgX58=;
+        b=Jc7o5JZfqAJamMWUNGzJ9Fp1cq5IFu/BmuzczaMJJ2skHzp6ORip/1BGklbQ+dVWH9
+         HWK2GCEuHEvG0/ckcL+vrZvYIGLl5fDL8VXq0ZEY3u5ssbARg1VSDuLfqSe38ExEEuvb
+         nYoRJNQZuslLWwpdh9UR21+8A6kxeVpl0rxQ+c7YJRCKDCG+aN1Nr1+CcEFgduz5cewn
+         yzZ0zl8tP5cTU3aixIMqIRlKDS2Yp5j8IJBVOn9wOiey6i0U13zZyeKnJFxEDnaLH1d6
+         b3zi2anszo0zzZrZXIQ5awlRySbj4IK0wMBP6+baQjqmk+N6TV1u9bWGIBX+hssFR4LQ
+         cgGQ==
+X-Forwarded-Encrypted: i=1; AHgh+RrNby6VW5AKpIeYRNo8EqqADS+2t3qa9Fhgk75Zqoti8BDclCqTvu8JlKwiihj7rGun5xSM7oECzPmFu6zbyQS7@lists.infradead.org
+X-Gm-Message-State: AOJu0YxexrnYrUNpFXKAj6BkO2m9oOtEEtDF/2HP5hgn0MSAFsrWD7AS
+	wiNhJ2ghVQZtrGerah8V3aCFsqg7yTIU9u05keN/MGG+QSXY0qm9XnC2
+X-Gm-Gg: AfdE7cmGdogANzBRlwaBHyPaV6Npf0AxsfTe5sZ7wWRPsakHX9qZNReVYwn+zFPD3Jx
+	Hqu6M8vwrrTYCzt2kCBrQofyeoWzD9JHlH6mbUbBZUd34pzoD9wAUUytzX/lgmBHfw9Z8D5EQMV
+	+0fn7DkE9G5MNNP5PPfJBj7ch8jqKmBthjB1Pz6gYKtr3ssf1DuD4t4qHjO6EII3YySt4dv7LgM
+	oJY4Bq2G6q0T3yDwVgliysG6CXCSmUi6zl3yc9WZvbyQgasA89CvWQ/qVqU+TUYQU/Y9MXE+RCl
+	Sbta3/VoXWd2rSY1EX+5NY8wjNfqn2WVquI8IehcyRzCbrJkDlEwGgqc/xGCbXtRvRJyD1MpMLw
+	zQwwtjKJ1JkMwaQdHQFFrILps9yxDsWLibce0P2YYYUSH93teNPV3jvySyojPrPOe8g4VjnYx/R
+	mDhC4fV0mQYl4=
+X-Received: by 2002:a17:90b:4acd:b0:36b:93f7:a903 with SMTP id 98e67ed59e1d1-37dfa25a0d4mr12186003a91.18.1782601101601;
+        Sat, 27 Jun 2026 15:58:21 -0700 (PDT)
+Received: from server.lan ([150.230.217.250])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-37df3b0ee6esm6313693a91.6.2026.06.27.15.58.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 27 Jun 2026 15:58:21 -0700 (PDT)
+From: Coia Prant <coiaprant@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Dragan Simic <dsimic@manjaro.org>,
+	Jonas Karlman <jonas@kwiboo.se>
+Cc: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Coia Prant <coiaprant@gmail.com>
+Subject: [PATCH 1/3] dt-bindings: vendor-prefixes: Add graperain
+Date: Sun, 28 Jun 2026 06:57:54 +0800
+Message-ID: <20260627225755.1710837-2-coiaprant@gmail.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net] net: airoha: dma map xmit frags with
- skb_frag_dma_map()
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <178260063683.1451849.7063958705946574115.git-patchwork-notify@kernel.org>
-Date: Sat, 27 Jun 2026 22:50:36 +0000
-References: <20260625-airoha-eth-skb_frag_dma_map-v1-1-31d9e460aae6@kernel.org>
-In-Reply-To: <20260625-airoha-eth-skb_frag_dma_map-v1-1-31d9e460aae6@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260627_155823_088486_2EE8C710 
+X-CRM114-Status: UNSURE (   8.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,34 +104,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Add graperain to the vendor prefixes.
 
-This patch was applied to netdev/net.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+Link: https://www.graperain.cn/ (China)
+Link: https://www.graperain.com/ (Global)
 
-On Thu, 25 Jun 2026 11:42:46 +0200 you wrote:
-> Map xmit skb fragments using skb_frag_dma_map() instead of
-> dma_map_single(skb_frag_address()). skb_frag_address() relies on
-> page_address() to obtain a kernel virtual address, which is not
-> guaranteed to work for all page types (e.g. highmem pages or
-> user-pinned pages from MSG_ZEROCOPY).
-> skb_frag_dma_map() maps the fragment directly via its struct page and
-> offset through dma_map_page(), avoiding the need for a kernel virtual
-> address entirely.
-> Introduce an enum airoha_dma_map_type to track how each queue entry was
-> mapped (single vs page), so that the matching unmap function is called
-> on completion and in error paths.
-> 
-> [...]
+Signed-off-by: Coia Prant <coiaprant@gmail.com>
+---
+ Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Here is the summary with links:
-  - [net] net: airoha: dma map xmit frags with skb_frag_dma_map()
-    https://git.kernel.org/netdev/net/c/32f1c2bbb26a
-
-You are awesome, thank you!
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index 396044f36..641a37c0d 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -682,6 +682,8 @@ patternProperties:
+     description: Goramo Gorecki
+   "^gplus,.*":
+     description: GPLUS
++  "^graperain,.*":
++    description: Shenzhen Graperain Technology Co., Ltd.
+   "^grinn,.*":
+     description: Grinn
+   "^grmn,.*":
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.47.3
 
 
