@@ -4,81 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF6F1C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Jun 2026 14:13:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AF39C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Jun 2026 14:13:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gzh2plBXJ+V5rVAo9UH0lZu//mdnWSb19kyOOoCk0VM=; b=EYTUdnUC9WcKrJXLYrIKWybM/e
-	pSQj4343qM9+adzX4ZMIddNNxE/blBmoWSwDlrODMBLQAZ2MzhcbBH0snlunYCYGbAa0i+c7NB/kw
-	OPK3AgJSOOsWfue3WMqnpKWooLosaee+WfcR45k5zkuRF+lVUhHKlKJvm/VTBBUVUxybxNhXlmS4X
-	QhOt+a87AjDLoKuhIxIQ0mnNYNh2oQwlxNPJv4Xz72tD7S6FajQQAWvMZme5slYtHW4wMOYGHSJVv
-	LDcG2JK3lj1WpEGC5Cc48rh69zjXzBASXNCEJmBS+zs3LPjxVuZK/AIenaVrCN1Dly0CdhW0ZASd/
-	qhDmEi9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mImsURL/xNZVlxINAFt8hNVYTcNTARXrkLajjIw43gA=; b=3cFd4b9f8OOdmEK29ymnKOGvrD
+	CqKjmA4xdKoGRELX8zll2HWbRGMSA3tdkI3BKWgKEX3zrPgyFeEE3yxyi0c0YTJhugn97sdM10/s8
+	OkwT4hTYdTLgK0AaIE8iQbszuZ7s6fPDD/gxzRkcrq4dx88zx7Oz1n2ztM6zupf1W8A6ygeRvDPXa
+	5VOunSPxHYeCrZSSk9y1qvq2jfOlsIQMeB+PXwv8z02b4jnAs/mHNlzLPUrHPN7UcvYGxnDwmCzjZ
+	glULe5dffhK0UEkHIz8AMOUbLwjmTjKY4ZO5lHZKKm5+tKJkONdhWFKc21oIiLlwSGydpDcjWHArv
+	9rEirsuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdTmR-0000000CXS8-2IRc;
-	Sat, 27 Jun 2026 14:13:11 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wdTLs-0000000CWAd-0HL0;
+	Sat, 27 Jun 2026 13:45:44 +0000
+Received: from mx4.wp.pl ([212.77.101.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdTmQ-0000000CXRs-1HAt
+	id 1wdTLo-0000000CW9C-3Vyv
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 27 Jun 2026 14:13:10 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 08BAE6001A;
-	Sat, 27 Jun 2026 14:13:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 888B71F000E9;
-	Sat, 27 Jun 2026 14:13:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782569588;
-	bh=Gzh2plBXJ+V5rVAo9UH0lZu//mdnWSb19kyOOoCk0VM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=JnpZG/ZVd5B/C2reKUrIBHrC31EZoCUQUouaF9Ti+GxmZecEzJJ3lo6HKvTt6qIXS
-	 1BCW73i///CgG0wfzEpeWf51FQIchi9EBBDoz7e2TMfWH1NG+PZv3asA4GxL7B6yxv
-	 PKCtNi1c8JgcvT1P+ynkE1VIrs/F530SdF2umAJ9jXYo2M6g9+EjbDsW44W1CLlL2Q
-	 L0tSq4H+6nyJDpny9Nw2VWZTtB5kdnSPKtXNH6FGohGVvFerRyEiv1TkInjmV13ZAl
-	 eW3q2xtQyszuvO+iSuJueq80I2LSLdYsknrVGo2dbvk9R1NAeOD7v31kw2DdiYgYOk
-	 fap6XfIkbWYxA==
-Date: Sat, 27 Jun 2026 15:13:02 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Pragnesh Papaniya <pragnesh.papaniya@oss.qualcomm.com>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sibi Sankar <sibi.sankar@oss.qualcomm.com>,
-	MyungJoo Ham <myungjoo.ham@samsung.com>,
-	Kyungmin Park <kyungmin.park@samsung.com>,
-	Chanwoo Choi <cw00.choi@samsung.com>,
-	Dmitry Osipenko <digetx@gmail.com>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Rajendra Nayak <rajendra.nayak@oss.qualcomm.com>,
-	Pankaj Patil <pankaj.patil@oss.qualcomm.com>,
-	linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-pm@vger.kernel.org,
-	linux-tegra@vger.kernel.org,
-	Amir Vajid <amir.vajid@oss.qualcomm.com>,
-	Ramakrishna Gottimukkula <ramakrishna.gottimukkula@oss.qualcomm.com>
-Subject: Re: [PATCH RFC v7 0/9] firmware: arm_scmi: vendors: Qualcomm Generic
- Vendor Extensions
-Message-ID: <20260625-metal-chachalaca-of-fascination-eabc0f@sudeepholla>
-References: <20260610-rfc_v7_scmi_memlat-v7-0-f3f68c608f25@oss.qualcomm.com>
- <20260616-responsible-junglefowl-of-chaos-7eda7d@sudeepholla>
- <8725caf9-cebb-49ce-b2c8-4960a6073322@oss.qualcomm.com>
- <20260623-busy-beautiful-trout-8cc2ea@sudeepholla>
- <ea9d0c11-e110-4d13-b165-1548875ef9cd@oss.qualcomm.com>
+	Sat, 27 Jun 2026 13:45:42 +0000
+Received: (wp-smtpd smtp.wp.pl 13402 invoked from network); 27 Jun 2026 15:45:36 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wp.pl; s=20241105;
+          t=1782567936; bh=mImsURL/xNZVlxINAFt8hNVYTcNTARXrkLajjIw43gA=;
+          h=Subject:To:Cc:From;
+          b=IlHf0kT4yTo3/HAPOqwi7oHDjxKJV1/2xPnWh3koR5c5ajQpfC+bfgnzIrg+88oes
+           XpKmtGGkFFH9limMxIRsJ/Lld4s+krebinBUnZ7f7rVMCq1LImiau1R9Ezh2uC5vOt
+           DSaUmra/vdc5+Nm7n4YidAI/QzlI2prcEGh5xvp/73M5tWs6syyd4wVao7lnkz1hvx
+           CctzMxvReFZZtMZoya/B/Z6iyBALmpziQDt4ElUEbWxFL5RjahBo7qdtfmqGABVmrV
+           ofBh03zbAUmOdRGPLPnuaFnf+4ZrPHibxFMdu61rA4LE6e6zhl2SJSLO+gfHvMQy8b
+           bqbfHVqoiipNg==
+Received: from 83.5.235.152.ipv4.supernova.orange.pl (HELO [192.168.3.224]) (olek2@wp.pl@[83.5.235.152])
+          (envelope-sender <olek2@wp.pl>)
+          by smtp.wp.pl (WP-SMTPD) with TLS_AES_256_GCM_SHA384 encrypted SMTP
+          for <arnd@arndb.de>; 27 Jun 2026 15:45:36 +0200
+Message-ID: <6079065f-8fbe-4dc1-bec3-bc3ef9d7a5bf@wp.pl>
+Date: Sat, 27 Jun 2026 15:45:35 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ea9d0c11-e110-4d13-b165-1548875ef9cd@oss.qualcomm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [GIT PULL] ARM: mvebu: dt64 for v7.2 (#1)
+To: Arnd Bergmann <arnd@arndb.de>,
+ Gregory Clement <gregory.clement@bootlin.com>, arm <arm@kernel.org>,
+ soc@kernel.org
+Cc: Andrew Lunn <andrew@lunn.ch>,
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+ linux-arm-kernel@lists.infradead.org
+References: <8733z1c8uj.fsf@BLaptop.bootlin.com>
+ <bf8092a3-d037-44ee-8e08-8b2204e5cc95@app.fastmail.com>
+ <4e690104-b42f-4a2b-ac52-5ebfc82f6853@wp.pl>
+ <956403e3-d47f-498c-9f62-79d39c1cf5db@app.fastmail.com>
+Content-Language: pl
+From: Aleksander Jan Bajkowski <olek2@wp.pl>
+In-Reply-To: <956403e3-d47f-498c-9f62-79d39c1cf5db@app.fastmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-WP-MailID: 5aa5d5f268651f9b93b0272d375535c0
+X-WP-AV: skaner antywirusowy Poczty Wirtualnej Polski
+X-WP-SPAM: NO 0000000 [ETOc]                               
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260627_064541_349951_D53A8752 
+X-CRM114-Status: GOOD (  24.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,93 +81,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 25, 2026 at 10:57:40AM +0530, Pragnesh Papaniya wrote:
-> 
-> 
-> On 23-Jun-26 2:17 PM, Sudeep Holla wrote:
-> > On Fri, Jun 19, 2026 at 06:01:23PM +0530, Pragnesh Papaniya wrote:
-> >>
-> >> On 16-Jun-26 1:57 PM, Sudeep Holla wrote:
-> >>
-> >>> Not sure if it was discussed in the previous versions or not, it would be
-> >>> good if you can capture why some of bus scaling doesn't work with the existing
-> >>> SCMI performance protocol and the monitors don't fit the MPAM mode.
-> >>>
-> >>> Please capture them in 1/9 as a motivation for this vendor protocol. It will
-> >>> then help to understand it better as I am still struggling to. Sorry for that.
-> >>
-> >> Thanks for the input!
-> >>
-> >> SCMI perf protocol exports perf domains to kernel where kernel can set
-> >> the frequency but here the scaling governor runs on the SCP while kernel
-> >> just observes frequency changes made by remote governor.
-> > 
-> > OK if it is sort of read-only w.r.t kernel, why not perf domain notifications
-> > work to consume the change done by the SCMI platform.
-> > 
-> > And why do you have set operations in the vendor protocol being proposed then.
-> > It all looks like something just cooked up to make things work. I need
-> > detailed reasoning as why the existing perf protocol can't work considering
-> > all the existing notifications in place.
-> 
-> Please do take another look at the documentation and driver changes to see
-> how it all comes together, since it's apparent that we use SET operation for
-> a ton of things. Taking another stab at explaining how the MEMLAT uses all
-> the ops exposed by the vendor protocol.
-> 
+Hi Arnd,
 
-Sure I will have a look at the documentation again and sorry if I missed
-anything. But in general I would expect the document to be self-explanatory
-and not having to look at the driver on how it is used to understand the
-firmware interface. Please make sure of that if not already.
+On 09/06/2026 21:29, Arnd Bergmann wrote:
+> On Tue, Jun 9, 2026, at 19:35, Aleksander Jan Bajkowski wrote:
+>> On 09/06/2026 18:11, Arnd Bergmann wrote:
+>>> I'm a bit surprised by this oneline change. Since you successfully tested
+>>> this, I assume the change is correct, but I have two questions that
+>>> I would like to have an answer for before I pull it.
+>> By the way, the upstream safexcel driver works correctly only on
+>> coherent
+>> platforms. On non-coherent platforms (MediaTek), the SHA-384 and SHA-512
+>> selftests fail. Since the selftests pass on Armada's SoC, I assume I'm
+>> right.
+> It's not necessarily proof that this is correct, but it is quite likely.
+>
+> After checking the datasheet some more and finding that this should
+> indeed be coherent everywhere, I remembered that even the old
+> 32-bit Armada 370 had a coherency manager. At the time, we used a hack
+> in  arch/arm/mach-mvebu/coherency.c to mark all device nodes as coherent,
+> since the original DTB did not contain the correct annotations.
+>
+> I suspect that the Armada 37xx started out with a copy of the
+> old DT files and also never had the annotation, but then never
+> had the same hack because arch/arm64 does not have platform
+> specific code.
+>
+>> I have a plan to send a patch upstream, which has long been maintained
+>> downstream in OpenWRT[1]. But I need to think a bit more about how to do
+>> this properly.
+>> [1]
+>> https://github.com/openwrt/openwrt/blob/main/target/linux/mediatek/patches-6.18/401-crypto-fix-eip97-cache-incoherent.patch
+> The patch is basically correct, I think you should just change two
+> details:
+>
+> - instead of defining your own SYSTEM_CACHELINE_SIZE macro, just use
+>    the existing CRYPTO_DMA_ALIGN macro that is used in crypto_dma_align
+>
+> - move the 'state[]' and 'cache[]' arrays to the beginning of
+>    safexcel_ahash_req so you don't have to manually align them.
 
-> We use the SET operation to pass on various tuneables (IPM CEIL, stall floors,
-> write-back filter, freq-scale params, adaptive low/high freq, sample ms),
-> the core-freq -> mem-freq map, and min/max clamps) required to run the
-> MEMLAT algorithm on the SCP. You might ask why can't we have these values
-> stored somewhere on the SCP itself?
+My biggest concern is the increased memory overhead. On Marvell
+platforms, this increases the structure size by 150 bytes. I’ve
+checked, and both CRYPTO_DMA_ALIGN and ARCH_DMA_MINALIGN always
+have a value of 128. On MIPS platforms, ARCH_DMA_MINALIGN is set
+per SoC in the mach files. I assume that on a Marvell platform
+with coherent DMA, I should set the value to 4, and on a
+non-coherent MediaTek platform, to 64. How should this be handled
+on an ARM platform?
 
-Exactly, thanks for saving a round trip.
+Best Regards,
+Aleksander
 
-> We would like to but all of these are tuneable values, that can change for
-> various boards for the same SoC.
-> 
-
-Sure and where do these boards get these values from ? I assume device tree ?
-If so, are the fixed and can be done once at boot ?
-
-> The START/STOP operations are meant to start/stop the algorithm, in this case
-> the bus scaling algorithm.
-> 
-
-Yes you need to add more details on that algorithm. Can firmware take random
-strings as input. I guess not. Please list the valid strings and explain them.
-Filter invalid strings in the driver if only handful of values are valid.
-
-> We use the GET operation to get the current frequency of memory that we
-> are trying to scale. It can be also used to read back all the parameters
-> that we are trying to set. Another thing to note is that exposing the current
-> frequency to the userspace was something that the community wanted.
-> 
-
-More fun, user ABI involved, so the firmware interface needs to be as clear
-as possible.
-
-> With all of ^^ in mind, re-using the perf protocol becomes impossible.
-> 
-> https://lore.kernel.org/lkml/k4lpzxtrq3x6riyv6etxiobn7nbpczf2bp3m4oc752nhjknlit@uo53kbppzim7/
-> https://lore.kernel.org/lkml/20241115003809epcms1p518df149458f3023d33ec6d87a315e8f6@epcms1p5/
-> 
-
-It is good to capture summary of these old discussions if they are relevant.
-
-> We'll add more call flow diagrams as part of the documentation for the next
-> re-spin to make reviews a bit more easier.
-> 
-
-Anything that improves and helps in understanding this is always welcome.
-
--- 
-Regards,
-Sudeep
 
