@@ -4,65 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50AF3C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Jun 2026 05:52:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8E69C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Jun 2026 06:37:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=SjDo9zkPqh5G3a4cJVEabwQF/qW3EfvDIzwridmYrhk=; b=qqaPETrLKtiyzoSfUiPEgqDrWn
-	B0j9C+RmFC3YzayuX0kAsIFPqgzjxnEIbZxH0SyA+D6vJivwBiaQf+xwFqUUwuF5OcPxC9efcGTpB
-	WM4399+Oy8bXVFaZ1sUX5qvPbwhzGs6iwFA1p5T829ZnqpKoR05Q7TVYp87n01sPWwFS5WJUqf++N
-	yf2jzR0zfzmwWpx7ONcoo2EC5dJTmcw0E53oIfk/78AP+Qgv8+tuz/sIhyC2Xfv+rJb+nlCUVP5+x
-	BabjE85rFzviYAL6bd2ZDlWBEmgVmQoBRyWTHZasr3pDJEppfKZbF/AKTt2Y9c5b2RztxjkjjEWFM
-	JVnIwKRg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=komZ01FtP3txsJGXgsSmR1HKfwi3kLT906a58S6194k=; b=G3xQD7jhjzw5izowHlV6bODg27
+	mfmgqML58sc5ZclseHts6boTHx3TyMACuqj3G/J1Du7CHPjfXNEUhoxDtk0xxzjDV7oNsk4CHlhAb
+	VmFc59IqkVah5gPkJYA1u8NC8X6am6ss5luHXLBgp+CXj+piru6COLxxuOX8oKHsLTwW/g47uDNnH
+	GY1inIkx+0ElUtCnLgglIQsWDxsS5Z+nGjBB/WRN9NwfFJigK/NNVLkmC+qfMUGbDZKgUByAMObgq
+	t7eMG9E/d/Ha0f+gOuRmE0Cc57Dg1tUnGsi/AdNVGnYqvYPTxGXNZ9vCX/0Y2u/vroJRcWJpOOgof
+	OiJsRVnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdLaR-0000000C9gz-0BxX;
-	Sat, 27 Jun 2026 05:28:15 +0000
-Received: from m16.mail.163.com ([117.135.210.5])
+	id 1wdMeq-0000000CCxb-021V;
+	Sat, 27 Jun 2026 06:36:52 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdLaM-0000000C9gf-37eW
+	id 1wdMen-0000000CCwz-1zGV
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 27 Jun 2026 05:28:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=Sj
-	Do9zkPqh5G3a4cJVEabwQF/qW3EfvDIzwridmYrhk=; b=TCkjbpfRH/7tLfUjmQ
-	qzbCkOInafayZdvaCXmqft3mb286eZg7/1lTSWRC1pQdBbu1flSG7PRhq1WgEIyM
-	FAoo4nzx1vL/wSIHWAbg8wM+LENOBProUGbnROs0me2vuPTNOJAE8VHriVp1U+AX
-	90hIu53qkfUfBhSdBpOTQsKhU=
-Received: from haiyue-pc.localdomain (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id PigvCgBXCwMxXz9qZPylEg--.40725S2;
-	Sat, 27 Jun 2026 13:27:15 +0800 (CST)
-From: Haiyue Wang <haiyuewa@163.com>
-To: devicetree@vger.kernel.org,
-	Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: Haiyue Wang <haiyuewa@163.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Joel Stanley <joel@jms.id.au>,
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/ASPEED MACHINE SUPPORT),
-	linux-aspeed@lists.ozlabs.org (moderated list:ARM/ASPEED MACHINE SUPPORT),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH v1] ARM: dts: aspeed: g6: Use KCS AST2600 compatible string
-Date: Sat, 27 Jun 2026 13:27:07 +0800
-Message-ID: <20260627052708.172918-1-haiyuewa@163.com>
-X-Mailer: git-send-email 2.54.0
+	Sat, 27 Jun 2026 06:36:50 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-46e30429b10so962408f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 23:36:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782542207; x=1783147007; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=komZ01FtP3txsJGXgsSmR1HKfwi3kLT906a58S6194k=;
+        b=luTii29f2McrHCmppotgPpaPYU9hOZscHZSzJUX8tsiEdVtLLxxTdiI7N/x4SEAZVQ
+         yp1xSB2I4cnkBnck3f01W0N6H/+6xKvR6XOtUbCsb+H7jANbXNLcms02zQsm11+RBzXT
+         CKbksbw3PlN5zCHNf7/8JIrYvhhNv7n4w6CcNjxMe7wksutnhQAv7KRuqFZlRdFN10Nl
+         DrdsR5gLWPIDMw7bQ1NLHsVvJYzHM6u14CM0N6rOeihKlp8ZS560CTyVyLpjyn+nl091
+         WeNO5D1+Vhu4RgAKkl5h8pBcRMZ5bNCOvSY6yg1x0NR0n/Sb5fA7nyrtcpTB51RroOLO
+         zoQg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782542207; x=1783147007;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=komZ01FtP3txsJGXgsSmR1HKfwi3kLT906a58S6194k=;
+        b=BGOd9QuUAzCqNJTxyUmXe8pgi3ONPU6HMerKtpXsjKbtEb6AnubRa11phADiadf9kg
+         xd9ok0kp3+uVEiwfwlSplEy742UVzGandPUINEqHLwl+nGEvh7FzpnRXFr77zGXxN9QM
+         M6vyrCv3CYTF0kezasZ8+D+/QroS/f9anPwDNBsGVCsBrdsyDKl9Z0GH8PK4Vg3gJaWA
+         Lny9sd1oJfN0QvniCJP13a+lvfS5XxQnPsrujyWTTw/jBcj8/J2GeSez5XlJyZbKfqsj
+         Zcx6Hdb04yW9OehNc1tjDtqUy5KfRbzSz1zYKH2o1BqCCm6cGuOPv1dfaGxAODCn2eje
+         wJag==
+X-Gm-Message-State: AOJu0YxPetr1QX1YC4AdkcShwNg8KidLlOLN1Oj0HhvTBB7bSirkS+MI
+	sSYJ1IjD3whPTWtMfhlghtECnwmb0YQK+WTHlTQ5casbhBkKoAPPFOZ7
+X-Gm-Gg: AfdE7cmD2k+PvlhMSMArvGuP1ZIxku5EXX8qEZtTpIQ57yRg6lgSXtpyKZIacnL0ZvJ
+	+E7NL+hIg5Xt+irQzOU/4KuIPD2W2SuTnCh0k94OEibAjw8EV5xYGPT+Av7N5roruESuOx0e+rQ
+	uYorgstr03/iwsQoRirDUztsF1NSjWsTHmqMESYLdPfg0kDP2Oyz8AKccLpxdaTNRJenSeSbgt4
+	FGQkJ0Jnh9uPPc5wyzviffYlEclsN6UHypcZ7Q3DblVmktMXm0TX/AICxP47Am55zsgu1Q/EdF3
+	4LbeAROmtAe/46BS10QJ604DnCbfWhOL85z9l6vuHDWIzn0yWABppJ9FN3O4V+LElf0uS6q4lRK
+	80WWl9ocdpxUWzz6rEfd0RvKgL8CzEqbGn21KvFYxen5n3AhohExGEvgWPZsd4OYDVLSSWapzF3
+	iEq7vDIxu5J0LWV2SZ21ukgGCjIkoS7yfZ0oJVh67yW2wurMFgQF8QMWzMBf3cGVpf7NisCYWU8
+	fb4
+X-Received: by 2002:a05:6000:71e:b0:46d:71b0:e754 with SMTP id ffacd0b85a97d-46dc30ddc52mr14625249f8f.41.1782542206978;
+        Fri, 26 Jun 2026 23:36:46 -0700 (PDT)
+Received: from jernej-laptop.localnet ([188.159.248.16])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-46fe25429d5sm6986765f8f.7.2026.06.26.23.36.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 26 Jun 2026 23:36:46 -0700 (PDT)
+From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: Chen-Yu Tsai <wens@kernel.org>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Samuel Holland <samuel@sholland.org>, dri-devel@lists.freedesktop.org,
+ Pengpeng Hou <pengpeng@iscas.ac.cn>
+Cc: linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org, Pengpeng Hou <pengpeng@iscas.ac.cn>
+Subject: Re: [PATCH] drm/sun4i: mixer: Check clock enable failures
+Date: Sat, 27 Jun 2026 08:36:44 +0200
+Message-ID: <H-eSPH2FSEq_Vc39E72MsA@gmail.com>
+In-Reply-To: <20260624055123.26769-1-pengpeng@iscas.ac.cn>
+References: <20260624055123.26769-1-pengpeng@iscas.ac.cn>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: PigvCgBXCwMxXz9qZPylEg--.40725S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7AF4DCFyUZFy3XrW3AryDtrb_yoW8AF43pa
-	909aykX39aqw4aq3WDWF1ktr4kJ3yrAF4DK39xAayUJF9Fg34IqF43tF4xKFsrXr4kuwnI
-	qF18CFyqqr1DWr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pRj0P-UUUUU=
-X-Originating-IP: [101.228.92.86]
-X-CM-SenderInfo: 5kdl53xhzdqiywtou0bp/xtbCzRRPumo-XzQRUwAA3Q
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_222811_686613_0BA8EE96 
-X-CRM114-Status: UNSURE (   9.01  )
+X-CRM114-CacheID: sfid-20260626_233649_540510_033FD5CF 
+X-CRM114-Status: UNSURE (   6.26  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,56 +104,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As the commit 2596f6b93a60 ("ipmi: kcs: aspeed: Add AST2600 compatible
-string") does, change the AST2600 DTS file to use kcs ast2600 compatible
-string.
+Dne sreda, 24. junij 2026 ob 07:51:23 Srednjeevropski poletni =C4=8Das je P=
+engpeng Hou napisal(a):
+> sun8i_mixer_bind() acquires the required bus and module clocks, but
+> ignores clk_prepare_enable() failures before adding the mixer engine to
+> the DRM pipeline.
+>=20
+> Check both clock enable operations and use the existing unwind labels
+> when a required clock cannot be enabled.
+>=20
+> Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
 
-Signed-off-by: Haiyue Wang <haiyuewa@163.com>
----
- arch/arm/boot/dts/aspeed/aspeed-g6.dtsi | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
-index 56bb3b0444f7..774d5af495fb 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
-+++ b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
-@@ -585,7 +585,7 @@ lpc: lpc@1e789000 {
- 				ranges = <0x0 0x1e789000 0x1000>;
- 
- 				kcs1: kcs@24 {
--					compatible = "aspeed,ast2500-kcs-bmc-v2";
-+					compatible = "aspeed,ast2600-kcs-bmc";
- 					reg = <0x24 0x1>, <0x30 0x1>, <0x3c 0x1>;
- 					interrupts = <GIC_SPI 138 IRQ_TYPE_LEVEL_HIGH>;
- 					clocks = <&syscon ASPEED_CLK_GATE_LCLK>;
-@@ -594,7 +594,7 @@ kcs1: kcs@24 {
- 				};
- 
- 				kcs2: kcs@28 {
--					compatible = "aspeed,ast2500-kcs-bmc-v2";
-+					compatible = "aspeed,ast2600-kcs-bmc";
- 					reg = <0x28 0x1>, <0x34 0x1>, <0x40 0x1>;
- 					interrupts = <GIC_SPI 139 IRQ_TYPE_LEVEL_HIGH>;
- 					clocks = <&syscon ASPEED_CLK_GATE_LCLK>;
-@@ -602,7 +602,7 @@ kcs2: kcs@28 {
- 				};
- 
- 				kcs3: kcs@2c {
--					compatible = "aspeed,ast2500-kcs-bmc-v2";
-+					compatible = "aspeed,ast2600-kcs-bmc";
- 					reg = <0x2c 0x1>, <0x38 0x1>, <0x44 0x1>;
- 					interrupts = <GIC_SPI 140 IRQ_TYPE_LEVEL_HIGH>;
- 					clocks = <&syscon ASPEED_CLK_GATE_LCLK>;
-@@ -610,7 +610,7 @@ kcs3: kcs@2c {
- 				};
- 
- 				kcs4: kcs@114 {
--					compatible = "aspeed,ast2500-kcs-bmc-v2";
-+					compatible = "aspeed,ast2600-kcs-bmc";
- 					reg = <0x114 0x1>, <0x118 0x1>, <0x11c 0x1>;
- 					interrupts = <GIC_SPI 141 IRQ_TYPE_LEVEL_HIGH>;
- 					clocks = <&syscon ASPEED_CLK_GATE_LCLK>;
--- 
-2.54.0
+Best regards,
+Jernej
+
 
 
