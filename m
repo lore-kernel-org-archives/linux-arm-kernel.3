@@ -4,86 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2445BC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Jun 2026 01:42:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F93FC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Jun 2026 01:50:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a3misQc9HlKUNeYqqO4Fnmvv4Fv9RkyhsTgdLQ0BWz0=; b=RrkW9bClFXHKjtsPJyTQ4oHw1B
-	p9jbagMHpriz0hVvLLuSsT9tmhQ07/8H37Dxq+nxEu0g2cUX7f9FvPzGJ8PTd2noV5Tdrp9Guzf1T
-	ALr1JpA4zwjpXUQdKdZcgoUC6ZhBhverK9U3s/fWc4aNHXomRXlUrPSDSFKrYBN3DzHf2dUqVh74P
-	cGV8d8Zv3CdMY2SLeAY/zmVxR82NP06bm8eIvINY5PXPLOY+DMeNC2ab4l+Li/v9/7bPjk9Lr3r1X
-	KZYu/jX7dMeE9VWm2EssND8Ng5GH7/UD85lkqTfQpMSQSTT12LEFxGrXYnRCKXZ/r5dspH9x0ZrZh
-	1wnhZXrg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oAkJdxgsaAmyFMdkHSiVQj6HwV6946LAhWL61vW+bek=; b=Hg1lMI1/ofYgEXqtN3hXmFbvow
+	Ll/d9NyUl+nlIDOejTEoubF+KRVosQtkX1v419PhipkIUQ7hidEVK7rY7aRA5Lx8wahRrGK7dnysj
+	NbgIQyUNkbSeUCe7tHSnqyd39MFZZ1iPM4hrF8tLsgJKOmFX/bGaKnQgjiUD+nY3AOHQmsH8dtPOU
+	jMreYJroX+2G0q273Wy9NB+2/tex8Ahs1mkA6wZe2Yo2bJE6eKJRG7cc+ZDOhBSMqqvbPq2RaYU94
+	VlDtNo2r6a0Hr1WaXePw/yLEesTB8+u8cdrEBrwwaSBUA665U7kdvJnjBHmuis1P8GjQqk6pAURpY
+	R9p/ChoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdI3s-0000000C3ug-20re;
-	Sat, 27 Jun 2026 01:42:24 +0000
-Received: from terminus.zytor.com ([2607:7c80:54:3::136] helo=mail.zytor.com)
+	id 1wdHkn-0000000C3Ci-1um8;
+	Sat, 27 Jun 2026 01:22:41 +0000
+Received: from [113.46.200.220] (helo=canpmsgout05.his.huawei.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdI3q-0000000C3uB-05G2;
-	Sat, 27 Jun 2026 01:42:23 +0000
-Received: from [IPV6:2601:646:8081:7da1:dcd4:e1f8:5d79:bdb4] ([IPv6:2601:646:8081:7da1:dcd4:e1f8:5d79:bdb4])
-	(authenticated bits=0)
-	by mail.zytor.com (8.18.1/8.17.1) with ESMTPSA id 65R1EHQ12354017
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NO);
-	Fri, 26 Jun 2026 18:14:17 -0700
-DKIM-Filter: OpenDKIM Filter v2.11.0 mail.zytor.com 65R1EHQ12354017
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zytor.com;
-	s=2026052701; t=1782522861;
-	bh=a3misQc9HlKUNeYqqO4Fnmvv4Fv9RkyhsTgdLQ0BWz0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ieVY684FxDj35+1OdJbAri1pdBhTN2gqeIU7j2Y370sBUQ30QPhmIZvW75cKJPbdR
-	 IMWIkamCPLrfWfNgBKcB3PhaMkYzKHTrmnUKLa1e+ZLSJhv19+SOXDBLXcwGBwQUQm
-	 r/XHx5z9usnk9iv+AszJJxJtR+3sMk9VLHHsh52YfG3DsQ64mFPl5qVJWfAy/D+2Rh
-	 S+WMDllsVtD5pOEp++Uf505LlYCJ5QwZinre3Oi8+jbt4xxPtHa6lglEWhLpIlBWBv
-	 8Y8Cvo1WqplQrMHkk6CviVuUOV0LSl6zFgnbsOyQby5POoRmSu/3wfwF+nNtjeJn02
-	 kxE798jNrTxdQ==
-Message-ID: <33ef4e7b-3139-4cb8-9545-6d445bf6e5f1@zytor.com>
-Date: Fri, 26 Jun 2026 18:14:11 -0700
+	id 1wdHkk-0000000C3CH-3HPd
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 27 Jun 2026 01:22:40 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=oAkJdxgsaAmyFMdkHSiVQj6HwV6946LAhWL61vW+bek=;
+	b=OYFkVtIdh8m8sYBjfMJzlbn82boz8hxAwipaWsE1FFTeRU8sliSaKXfe1s+teLY8L0O7PPVH8
+	bF6FBr5HA2WYeKB3tfD36vOZPcI2r2kuMYmVYvPYnCuXIRDlmC2F6l2GabGbWLjYH38j4ygdaCc
+	gpkWp+lY87QvVSnpSncmij0=
+Received: from mail.maildlp.com (unknown [172.19.162.223])
+	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4gnF0n6VdTz12LDg;
+	Sat, 27 Jun 2026 09:13:29 +0800 (CST)
+Received: from kwepemj100009.china.huawei.com (unknown [7.202.194.3])
+	by mail.maildlp.com (Postfix) with ESMTPS id 7B37C40571;
+	Sat, 27 Jun 2026 09:22:15 +0800 (CST)
+Received: from DESKTOP-A37P9LK.huawei.com (10.67.109.17) by
+ kwepemj100009.china.huawei.com (7.202.194.3) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.36; Sat, 27 Jun 2026 09:22:14 +0800
+From: Xie Yuanbin <xieyuanbin1@huawei.com>
+To: <linux@armlinux.org.uk>
+CC: <akpm@linux-foundation.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <sunnanyong@huawei.com>,
+	<xieyuanbin1@huawei.com>, <xiqi2@huawei.com>
+Subject: Re: [PATCH v3 2/2] ARM: mm: protect show_pte() in do_DataAbort() fallback path
+Date: Sat, 27 Jun 2026 09:22:10 +0800
+Message-ID: <20260627012210.3031-1-xieyuanbin1@huawei.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <aj5ybKcDxl1tOIx4@shell.armlinux.org.uk>
+References: <aj5ybKcDxl1tOIx4@shell.armlinux.org.uk>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 08/18] raid6: warn when using less than four devices
-To: Christoph Hellwig <hch@lst.de>, Andrew Morton <akpm@linux-foundation.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
-        Ard Biesheuvel <ardb@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
-        WANG Xuerui <kernel@xen0n.name>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Michael Ellerman <mpe@ellerman.id.au>,
-        Nicholas Piggin <npiggin@gmail.com>,
-        "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-        Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-        Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-        Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
-        Alexander Gordeev <agordeev@linux.ibm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@kernel.org>,
-        Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-        Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-        Herbert Xu <herbert@gondor.apana.org.au>,
-        Dan Williams <dan.j.williams@intel.com>, Chris Mason <clm@fb.com>,
-        David Sterba <dsterba@suse.com>, Arnd Bergmann <arnd@arndb.de>,
-        Song Liu <song@kernel.org>,
-        Yu Kuai <yukuai@alb-78bjiv52429oh8qptp.cn-shenzhen.alb.aliyuncs.com>,
-        Li Nan <linan122@huawei.com>, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-        linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-        linux-s390@vger.kernel.org, linux-crypto@vger.kernel.org,
-        linux-btrfs@vger.kernel.org, linux-arch@vger.kernel.org,
-        linux-raid@vger.kernel.org
-References: <20260518051804.462141-1-hch@lst.de>
- <20260518051804.462141-9-hch@lst.de>
-Content-Language: en-US, sv-SE
-From: "H. Peter Anvin" <hpa@zytor.com>
-In-Reply-To: <20260518051804.462141-9-hch@lst.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.67.109.17]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemj100009.china.huawei.com (7.202.194.3)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_184222_090636_C0A9D467 
-X-CRM114-Status: GOOD (  13.09  )
+X-CRM114-CacheID: sfid-20260626_182239_318646_75EB5271 
+X-CRM114-Status: GOOD (  13.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,30 +78,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-05-17 22:17, Christoph Hellwig wrote:
-> Quoting H. Peter Anvin who came up with the RAID6 P/Q algorithm, and
-> who wrote the initial implementation, then still part of the md driver:
-> 
->   The RAID-6 code has *never* supported only 3 units, and if it ever
->   worked for *any* of the implementations it was purely by accident.
->   Speaking as the original author I should know; this was deliberate as
->   in some cases the degenerate case (3) would have required extra trays
+On Fri, 26 Jun 2026 13:37:00 +0100, Russell King wrote:
+> On Fri, Jun 26, 2026 at 06:16:15PM +0800, Xie Yuanbin wrote:
+>> I suggest that waiting for this patch to be merged first:
+>> https://lore.kernel.org/20260625122612.43501-1-xieyuanbin1@huawei.com
+>> which make sure that interrupts are enabled here.
+>
+> No, it doesn't ensure that.
 
-Stupid autocorrect. That was of course supposed to be "tests" (as in extra
-code paths) not "trays" :)
+Oh, I'm sorry my description wasn't clear. It should make sure that
+for user unhandled faults, interrupts are enabled here, without
+kernel unhandled faults.
 
->   in the code to no user benefit.
-> 
-> While md never allowed less than 4 devices, btrfs does.  This new
-> warning will trigger for such file systems, but given how it already
-> causes havoc that is a good thing.  If btrfs wants to fix third, it
-> should switch to transparently use three-way mirroring underneath,
-> which will work as P and Q are copies of the single data device by
-> the definition of the Linux RAID 6 P/Q algorithm.
+> We are not "fixing" show_pte(), which is a diagnostic function when
+> things go wrong in the kernel, and is there to *try* to give us
+> information to diagnose what happened. It is *not* a function that
+> is used routinely in the kernel.
 
-For what it's worth, this is also true in the degenerate two-drive RAID-4|5
-case (D = P).
-
-	-hpa
-
+For kernel faults, I fully agree with it. However, for
+user faults, I think "fixing" is necessary.
+We might be able to construct a user-mode program in some way to
+repeatedly trigger unhandled faults -> show_pte(), such as executing bkpt
+instruction, or something else, and then the kernel panic, this may be a
+security vulnerability.
 
