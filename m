@@ -4,92 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4692EC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Jun 2026 10:27:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F8A1C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Jun 2026 10:51:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i+OVcuR6JDaydL807fpfkQlqq/M4XvvRgrybvqtDfnQ=; b=GGHyEKxUxd26wfR1zOlMlRkh3+
-	RBKZppsSNI5EFhtEjZ8iFkgWqA1XgUUMWaa0XpfK29jnkXrQVvqsO95iXo7LvO0mu210wT28/dg4E
-	ugJeKfqJw8EusrY+xUvQbHL5BRiuHYj7hRx2jauxCyRXHbmvV2+GUEh3Vm95ExudMx9zvfSMuW0eC
-	S44SCah6Leqk/cXiOXQI5QTBwD1UW6tSgtWVa4JovWXFN3GdtsP/+e5WLtAftm5nJjdQTti7fUicQ
-	z3muLNahJNjGpDpfsw3RHxJ33EKt8xONscktBkwL35hK4CydpeD1uVgF9caiUil0BK3rR/C7lP7Jd
-	efM7GHUg==;
+	bh=OOmOdm/5pMdvH57Crg3mglFWQt1WB+2zbQrn3R/PVdc=; b=izfFgkcq/qTFn8i2JVTcSqniZw
+	PQnSbNdRTQtXzfKjb0ZO/apTsFOlakIx5vLYSnbQkFcrStud/r4e98CNYqCx293G38iGEIhKCu7Ks
+	VERDzwYinOa9yCNZ1qhy76quveQIVUwCQ2zvE3dnw1ToGDpXQ7hEoCHUJXHqIWNUCAHtc7Kkjn6KT
+	LFpQMGwbTcraW4UwJkJTD4MemcAxLDNF5+DCICqewi5GhtudRzLt7FTRIGl0JXtVOc9vBatRP3EtR
+	dyJJEioesmtbi3kU1hD3u7E1QCcN73zPUaJExCZbfH7m77af8D47rpp3yi5fDuOLooFFHt4GsvDgz
+	4Lwt4GIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdQFW-0000000CNPR-3NBv;
-	Sat, 27 Jun 2026 10:26:58 +0000
-Received: from mail-dl1-x122c.google.com ([2607:f8b0:4864:20::122c])
+	id 1wdQcd-0000000COJk-2j6D;
+	Sat, 27 Jun 2026 10:50:51 +0000
+Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdQFR-0000000CNLz-2WJn
+	id 1wdQcY-0000000COIb-0Pdk
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 27 Jun 2026 10:26:55 +0000
-Received: by mail-dl1-x122c.google.com with SMTP id a92af1059eb24-139f1dfc9faso359914c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 27 Jun 2026 03:26:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782556013; x=1783160813; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=i+OVcuR6JDaydL807fpfkQlqq/M4XvvRgrybvqtDfnQ=;
-        b=g/JH0ezemFir7xw8L/1kboR2nEqmk4t1wpFW2UWxb8vKw1TgnKSjviRZod3sbNqZi3
-         mXV3hkBEvWF1j7ezyxGLFxBAxuXABP1EH/yanBQlLIc9f0Z9b3YX2V0fjr9RV6Sd/zC3
-         0mVjWmfyRW57B+tzEhOxAHa8AKlKz5kHNsNuUBhaoVOcXTSziWv6zubyXA/xKYpczEYl
-         ZBhQ0MC9Hbsj//Waeu2G2cNFZqhAhxexn8JJBLTtJ8zFqQF+UNoBUSvB9nGxpjeMFxS8
-         4yPQaEsFy4INdOf/pCt7fxrNwFzLdz81lmbidwWcVBWqgf0ab8T/PNAfojFMVMdfTH2a
-         QOCw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782556013; x=1783160813;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=i+OVcuR6JDaydL807fpfkQlqq/M4XvvRgrybvqtDfnQ=;
-        b=eeUzieeEoDYTc4XJGK8hOc1uXSMo/K0VEckJbajzTn1Cw6to41rkPu8Bv4ymyFUoNc
-         ahNJ4SC9+5jSR7HzRGcckQd9kzLxbOy7qRx5hnCjnwfPTkwReg79DgUbFl5RDhyQcAdz
-         WbrTu/Y2OMZA1JT2asQLPMJD0xpuhzOjwAmapCGwnVMYjO3pAHjFSyuCYC8WlbC/4Fk1
-         SkOx/mFh70Pxi1IwaKCogrwATH7yzH7rZvYJkS5DEC/kpHij1UYmOKUoUOZaec44Dj2l
-         QtV+Mvx5ZaZ8+J7dcF6bEB1T38wniGRLK8ZxL5m9ABzfJRJ2VAZxXoLYxsz/1TrB1ZcF
-         XO6g==
-X-Forwarded-Encrypted: i=1; AFNElJ+sbdZ7lNT9ngxGj9ukNGg2ODCiQwOBVAf9GAsjYHKNEfQQXgxBNnVEochD4JckmANmtvUGreJduTKbNWw8p2Ms@lists.infradead.org
-X-Gm-Message-State: AOJu0YxHFsM809N2EjlSEt7ny+lIS82oLc9o0jchiUVt5BeKREyNU8A3
-	+fVtp2mxKcedDUA44pBzOzZuGODBdNeV1bksczHXAzmY8GWBIiDVUSDz
-X-Gm-Gg: AfdE7cmKM3TtEMtV9rlQRGV45e23ZeFXuGn+aMdxH6MulYAR/fZCmMFip25l8iqGBRZ
-	SW8OTePbjBLIX64Ys7i86VWUIg6Wld8L+hk5H9x9iWNNFN1H8Ve+JLF8Xtizjg7yMfaD2pKkB0o
-	KHspfcgHqHthTQWsQxKoKFCp7BuToYFe7WVySZ89UuzwG+D8dJk2pTyb9q3ziE0LuuzgZhDlDBG
-	CIoErMfqZNTh2S1LmvZ5VEPKfMwxBk840Z3HzncebwcE1B9SUAQ1m63QztgI4d5O4oyb1I/ZH+6
-	ayhXRLbGbN1QfZRUlyeJe6FkSWuglzl2FtwgTngEa3ttFqiP+Z8D4qM38esZR24iAhKv8aBqV1l
-	28iVXaVoROxZou1PmtxKc3RQx4aKCpbmXk83jBeCimpm2zafxGMwPgAl1G/aWXIpRZIb/tZ4i+L
-	oUOpmpeMa3IXtT7HZa0PU=
-X-Received: by 2002:a05:7022:62a6:b0:139:d82f:2fd6 with SMTP id a92af1059eb24-139dbaa5d52mr8268583c88.22.1782556012517;
-        Sat, 27 Jun 2026 03:26:52 -0700 (PDT)
-Received: from i386.168.1.127 ([2402:a00:163:2ce9:9c6f:e28:3da8:7980])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-139d912197bsm43776437c88.15.2026.06.27.03.26.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 27 Jun 2026 03:26:52 -0700 (PDT)
-From: Hrushiraj Gandhi <hrushirajg23@gmail.com>
-To: linux-rockchip@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: heiko@sntech.de,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	Hrushiraj Gandhi <hrushirajg23@gmail.com>
-Subject: [PATCH v2 2/2] arm64: dts: rockchip: Add Vicharak Vaaman2 board
-Date: Sat, 27 Jun 2026 15:56:33 +0530
-Message-ID: <20260627102633.86222-3-hrushirajg23@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260627102633.86222-1-hrushirajg23@gmail.com>
-References: <20260627102633.86222-1-hrushirajg23@gmail.com>
+	Sat, 27 Jun 2026 10:50:49 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=OOmOdm/5pMdvH57Crg3mglFWQt1WB+2zbQrn3R/PVdc=;
+	b=bcXLIK+nqOCUumVPmwwe9I+dxGQE0a7Sd+sVJY69IZ4+erymjBiN7OVH6ly7gjvnMntjVflMD
+	UsJgW33O844DIC1PxbZ6NFlodZRbkJydtRYnCzVhcpUexfmuB4qxDf0Iv0MEKWULQpq3kZ8yXeO
+	ur1lurGOtSCY90m80uVEYG0=
+Received: from mail.maildlp.com (unknown [172.19.162.144])
+	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4gnTc06JRszRhVt;
+	Sat, 27 Jun 2026 18:41:20 +0800 (CST)
+Received: from kwepemr200004.china.huawei.com (unknown [7.202.195.241])
+	by mail.maildlp.com (Postfix) with ESMTPS id CD9A540538;
+	Sat, 27 Jun 2026 18:50:26 +0800 (CST)
+Received: from [10.67.121.62] (10.67.121.62) by kwepemr200004.china.huawei.com
+ (7.202.195.241) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Sat, 27 Jun
+ 2026 18:50:25 +0800
+Message-ID: <317d33d5-8279-4aa8-84b7-6ae1976636ac@huawei.com>
+Date: Sat, 27 Jun 2026 18:50:24 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/2] CPPC: reduce FFH feedback-counter sampling skew on
+ arm64
+To: Will Deacon <will@kernel.org>
+CC: <catalin.marinas@arm.com>, <rafael@kernel.org>, <lenb@kernel.org>,
+	<robert.moore@intel.com>, <beata.michalska@arm.com>,
+	<zhenglifeng1@huawei.com>, <zhanjie9@hisilicon.com>, <sumitg@nvidia.com>,
+	<cuiyunhui@bytedance.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
+	<acpica-devel@lists.linux.dev>, <linuxarm@huawei.com>,
+	<jonathan.cameron@huawei.com>, <prime.zeng@hisilicon.com>,
+	<wanghuiqiang@huawei.com>, <xuwei5@huawei.com>, <lihuisong@huawei.com>,
+	<yubowen8@huawei.com>, <wangzhi12@huawei.com>, <ionela.voinescu@arm.com>,
+	<jeremy.linton@arm.com>
+References: <20260410094145.4132082-1-zhangpengjie2@huawei.com>
+ <aa1284c1-ea26-48ca-a7d7-022027c8228a@huawei.com>
+ <agw_1IYaY4zeobZE@willie-the-truck>
+ <443104e2-ba6e-454e-8469-909f35817a99@huawei.com>
+From: Pengjie Zhang <zhangpengjie2@huawei.com>
+In-Reply-To: <443104e2-ba6e-454e-8469-909f35817a99@huawei.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.121.62]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemr200004.china.huawei.com (7.202.195.241)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260627_032653_675856_994468EB 
-X-CRM114-Status: GOOD (  14.19  )
+X-CRM114-CacheID: sfid-20260627_035046_771519_9B21864A 
+X-CRM114-Status: GOOD (  33.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,594 +89,192 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add device tree for the Vicharak Vaaman2, a single-board computer
-based on the Rockchip RK3588 SoC.
 
-The board features:
-- RK3588 SoC with 4x Cortex-A76 (big) + 4x Cortex-A55 (little)
-- eMMC storage via SDHCI (HS400)
-- microSD card via SDMMC
-- RK806 PMIC on SPI2 providing all required power domains
-- Two RK8602/RK8603 CPU regulators on I2C0 (big clusters)
-- RK8602 NPU regulator on I2C1
-- HYM8563 RTC on I2C0
-- Status LED on GPIO2_C5 (active-low, heartbeat trigger)
-- UART2 as serial console at 1500000 baud
-- SARADC with 1.8V reference
+On 5/20/2026 10:55 AM, Pengjie Zhang wrote:
+>
+> On 5/19/2026 6:47 PM, Will Deacon wrote:
+>> On Thu, Apr 30, 2026 at 06:00:44PM +0800, zhangpengjie (A) wrote:
+>>> Hi all,
+>>>
+>>> Gentle ping on this thread. It has been a while since I posted it.
+>>>
+>>> Could someone please take a look when you have time? If there is 
+>>> anything
+>>> I should revise or any additional information needed, I'd be happy to
+>>> update it.
+>> It's hard to find active folks who have contributed meaningfully to the
+>> cppc_acpi driver... I've added Ionella and Jeremy, in case they can take
+>> a look.
+>>
+>> Will
+> Thanks Will, and thanks for adding Ionela and Jeremy.
+>
+> While waiting for further comments, I would like to add some
+> test data to make the effect of this series clearer.
+>
+> On the test platform, the maximum frequency reported by the platform
+> is 2300000. I sampled cpuinfo_cur_freq before and after applying this 
+> series.
+>
+> Before applying the series, the samples showed visible transient 
+> outliers.
+>  The minimum value was 2154583 and the maximum value was 2491071.
+> There were 8 samples above 2400000 and 8 samples below 2200000.
+> The largest value exceeded the platform maximum by about 8.3%.
+>
+> After applying the series, the samples became much more stable.
+> The minimum value was 2290243 and the maximum value was 2306310.
+> There were no samples above 2400000 and no samples below 2200000.
+> The largest value exceeded the platform maximum by only about 0.27%.
+>
+> A summary of the 96 samples is:
+>
+>                     before          after
+> min              2154583         2290243
+> max              2491071         2306310
+> range             336488           16067
+> average          2298436.4       2298479.4
+> stddev             55184.1          2868.2
+> samples > 2300000  26 / 96         16 / 96
+> samples > 2400000   8 / 96          0 / 96
+> samples < 2200000   8 / 96          0 / 96
+>
+> So this series does not try to clamp the value to the platform maximum.
+>  Instead, it reduces the sampling skew between the delivered and 
+> reference
+> feedback counters. The remaining small deviation around 2300000 is
+>  much smaller than the previous transient spikes.
+>
+> One concern that may come up is that an FFH read may cause an idle
+> target CPU to be woken, depending on the platform/vendor implementation.
+> However, that behavior is not introduced by this series. It is already 
+> part
+> of how FFH counter reads are implemented on such platforms. This series
+> only changes the sampling form for the FFH feedback counters: when both
+> delivered and reference counters are FFH counters, read them together
+> instead of issuing two separate FFH reads.
+>
+> If the target CPU has to be involved for an FFH read, doing one paired
+> read should be no worse than doing two separate reads, and it also
+> narrows the sampling window between the two counters.
+>
+> If there is any concern about the generic hook or the arm64 
+> implementation,
+> I would be happy to revise it.
+>
+> The raw data is as follows:
+> before:
+> 2303809 2294827 2300000 2293643 2290740 2300000 2297228 2296082
+> 2301707 2295354 2296601 2303163 2296766 2296543 2295412 2298394
+> 2297387 2300000 2308274 2301882 2297752 2418568 2491071 2300000
+> 2183264 2296238 2434731 2296721 2439777 2302159 2301773 2298226
+> 2300000 2305936 2301133 2297511 2300000 2300000 2294408 2298494
+> 2295011 2302721 2295955 2301505 2298064 2297419 2298933 2189595
+> 2298058 2296046 2300000 2301449 2414908 2296559 2305251 2166666
+> 2296626 2173303 2300000 2298806 2411389 2301822 2297291 2300000
+> 2423831 2297902 2300000 2435730 2302433 2295353 2298898 2296043
+> 2321868 2294907 2300000 2157841 2296052 2206530 2300000 2297811
+> 2297920 2294382 2297767 2157230 2302564 2298504 2296822 2300000
+> 2296868 2294866 2154583 2290888 2302542 2292549 2300000 2184259
+>
+> after:
+> 2303738 2296153 2298087 2295607 2301373 2298076 2300000 2295081
+> 2297788 2300000 2300000 2295238 2301449 2300000 2298488 2297911
+> 2301477 2298507 2294976 2296852 2293689 2294077 2293887 2292619
+> 2300000 2300000 2298072 2300000 2291943 2300000 2295370 2300000
+> 2301873 2304645 2300000 2296766 2300000 2300000 2290243 2297954
+> 2297183 2306310 2300000 2296889 2300000 2303800 2301970 2296888
+> 2300000 2301354 2300000 2298405 2298202 2296767 2298663 2302522
+> 2297821 2302471 2300000 2303233 2298226 2298698 2300000 2297291
+> 2296470 2300000 2298398 2300000 2295681 2300000 2300000 2296344
+> 2300000 2296008 2302375 2297977 2298447 2296519 2295565 2294866
+> 2297945 2300000 2294978 2303595 2300000 2300000 2294930 2301096
+> 2296271 2296086 2294482 2300000 2294843 2300000 2296803 2295708
 
-Signed-off-by: Hrushiraj Gandhi <hrushirajg23@gmail.com>
----
- arch/arm64/boot/dts/rockchip/Makefile         |   1 +
- .../dts/rockchip/rk3588-vicharak-vaaman2.dts  | 547 ++++++++++++++++++
- 2 files changed, 548 insertions(+)
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-vicharak-vaaman2.dts
+To follow up on the test data and address any potential questions about
+why the patched frequency doesn't clamp exactly to 2300000, I would like
+to share a breakdown of the instruction-level overhead that explains this
+minor jitter.
 
-diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-index 92114cb757cc..9213280d831b 100644
---- a/arch/arm64/boot/dts/rockchip/Makefile
-+++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -214,6 +214,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-tiger-haikou-video-demo.dtbo
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-toybrick-x0.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-turing-rk1.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-vicharak-axon.dtb
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-vicharak-vaaman2.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-coolpi-4b.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-evb1-v10.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-gameforce-ace.dtb
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-vicharak-vaaman2.dts b/arch/arm64/boot/dts/rockchip/rk3588-vicharak-vaaman2.dts
-new file mode 100644
-index 000000000000..9ba9688c1213
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-vicharak-vaaman2.dts
-@@ -0,0 +1,547 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+
-+/dts-v1/;
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/input/linux-event-codes.h>
-+#include <dt-bindings/leds/common.h>
-+#include <dt-bindings/pinctrl/rockchip.h>
-+#include <dt-bindings/soc/rockchip,vop2.h>
-+#include "rk3588.dtsi"
-+
-+/ {
-+	model = "Vicharak Vaaman2";
-+	compatible = "vicharak,vaaman2", "rockchip,rk3588";
-+
-+	aliases {
-+		mmc0 = &sdmmc;
-+		mmc1 = &sdhci;
-+		serial2 = &uart2;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial2:1500000n8";
-+	};
-+
-+	leds {
-+		compatible = "gpio-leds";
-+
-+		status_led: status-led {
-+			gpios = <&gpio2 RK_PC5 GPIO_ACTIVE_LOW>;
-+			function = LED_FUNCTION_STATUS;
-+			default-state = "on";
-+			retain-state-suspended;
-+			linux,default-trigger = "heartbeat";
-+		};
-+
-+	};
-+
-+	vcc20v_dcin: regulator-vcc20v-dcin {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc20v_dcin";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <20000000>;
-+		regulator-max-microvolt = <20000000>;
-+	};
-+
-+	vcc5v0_sys: regulator-vcc5v0-sys {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc5v0_sys";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		vin-supply = <&vcc20v_dcin>;
-+	};
-+
-+	vcc_1v1_nldo_s3: regulator-vcc-1v1-nldo-s3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc_1v1_nldo_s3";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <1100000>;
-+		regulator-max-microvolt = <1100000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+};
-+
-+&cpu_b0 {
-+	cpu-supply = <&vdd_cpu_big0_s0>;
-+};
-+
-+&cpu_b1 {
-+	cpu-supply = <&vdd_cpu_big0_s0>;
-+};
-+
-+&cpu_b2 {
-+	cpu-supply = <&vdd_cpu_big1_s0>;
-+};
-+
-+&cpu_b3 {
-+	cpu-supply = <&vdd_cpu_big1_s0>;
-+};
-+
-+&cpu_l0 {
-+	cpu-supply = <&vdd_cpu_lit_s0>;
-+};
-+
-+&cpu_l1 {
-+	cpu-supply = <&vdd_cpu_lit_s0>;
-+};
-+
-+&cpu_l2 {
-+	cpu-supply = <&vdd_cpu_lit_s0>;
-+};
-+
-+&cpu_l3 {
-+	cpu-supply = <&vdd_cpu_lit_s0>;
-+};
-+
-+
-+&i2c0 {
-+	pinctrl-0 = <&i2c0m2_xfer>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+
-+	vdd_cpu_big0_s0: regulator@42 {
-+		compatible = "rockchip,rk8602";
-+		fcs,suspend-voltage-selector = <1>;
-+		reg = <0x42>;
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-max-microvolt = <1050000>;
-+		regulator-min-microvolt = <550000>;
-+		regulator-name = "vdd_cpu_big0_s0";
-+		regulator-ramp-delay = <2300>;
-+		vin-supply = <&vcc5v0_sys>;
-+
-+		regulator-state-mem {
-+			regulator-off-in-suspend;
-+		};
-+	};
-+
-+	vdd_cpu_big1_s0: regulator@43 {
-+		compatible = "rockchip,rk8603", "rockchip,rk8602";
-+		fcs,suspend-voltage-selector = <1>;
-+		reg = <0x43>;
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-max-microvolt = <1050000>;
-+		regulator-min-microvolt = <550000>;
-+		regulator-name = "vdd_cpu_big1_s0";
-+		regulator-ramp-delay = <2300>;
-+		vin-supply = <&vcc5v0_sys>;
-+
-+		regulator-state-mem {
-+			regulator-off-in-suspend;
-+		};
-+	};
-+
-+	hym8563: rtc@51 {
-+		compatible = "haoyu,hym8563";
-+		reg = <0x51>;
-+		#clock-cells = <0>;
-+		clock-output-names = "hym8563";
-+		interrupt-parent = <&gpio0>;
-+		interrupts = <RK_PB0 IRQ_TYPE_LEVEL_LOW>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&rtc_int>;
-+		wakeup-source;
-+	};
-+};
-+
-+&i2c1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c1m2_xfer>;
-+	status = "okay";
-+
-+	vdd_npu_s0: regulator@42 {
-+		compatible = "rockchip,rk8602";
-+		reg = <0x42>;
-+		fcs,suspend-voltage-selector = <1>;
-+		regulator-name = "vdd_npu_s0";
-+		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
-+		regulator-min-microvolt = <550000>;
-+		regulator-max-microvolt = <950000>;
-+		regulator-ramp-delay = <2300>;
-+		vin-supply = <&vcc5v0_sys>;
-+
-+		regulator-state-mem {
-+			regulator-off-in-suspend;
-+		};
-+	};
-+};
-+
-+&sdhci {
-+	bus-width = <8>;
-+	full-pwr-cycle-in-suspend;
-+	mmc-hs400-1_8v;
-+	mmc-hs400-enhanced-strobe;
-+	no-sd;
-+	no-sdio;
-+	non-removable;
-+	vmmc-supply = <&vcc_3v3_s3>;
-+	vqmmc-supply = <&vcc_1v8_s3>;
-+	status = "okay";
-+};
-+
-+&sdmmc {
-+	bus-width = <4>;
-+	cap-mmc-highspeed;
-+	cap-sd-highspeed;
-+	cd-gpios = <&gpio0 RK_PA4 GPIO_ACTIVE_LOW>;
-+	disable-wp;
-+	max-frequency = <200000000>;
-+	no-mmc;
-+	no-sdio;
-+	sd-uhs-sdr104;
-+	vmmc-supply = <&vcc_3v3_s3>;
-+	vqmmc-supply = <&vccio_sd_s0>;
-+	status = "okay";
-+};
-+
-+&spi2 {
-+	assigned-clock-rates = <200000000>;
-+	assigned-clocks = <&cru CLK_SPI2>;
-+	num-cs = <1>;
-+	pinctrl-0 = <&spi2m2_cs0 &spi2m2_pins>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	pmic@0 {
-+		reg = <0>;
-+		compatible = "rockchip,rk806";
-+		#gpio-cells = <2>;
-+		gpio-controller;
-+		interrupt-parent = <&gpio0>;
-+		interrupts = <7 IRQ_TYPE_LEVEL_LOW>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pmic_pins>, <&rk806_dvs1_null>,
-+					<&rk806_dvs2_null>, <&rk806_dvs3_null>;
-+		spi-max-frequency = <1000000>;
-+
-+		vcc1-supply = <&vcc5v0_sys>;
-+		vcc2-supply = <&vcc5v0_sys>;
-+		vcc3-supply = <&vcc5v0_sys>;
-+		vcc4-supply = <&vcc5v0_sys>;
-+		vcc5-supply = <&vcc5v0_sys>;
-+		vcc6-supply = <&vcc5v0_sys>;
-+		vcc7-supply = <&vcc5v0_sys>;
-+		vcc8-supply = <&vcc5v0_sys>;
-+		vcc9-supply = <&vcc5v0_sys>;
-+		vcc10-supply = <&vcc5v0_sys>;
-+		vcc11-supply = <&vcc_2v0_pldo_s3>;
-+		vcc12-supply = <&vcc5v0_sys>;
-+		vcc13-supply = <&vcc_1v1_nldo_s3>;
-+		vcc14-supply = <&vcc_1v1_nldo_s3>;
-+		vcca-supply = <&vcc5v0_sys>;
-+
-+		rk806_dvs1_null: dvs1-null-pins {
-+			pins = "gpio_pwrctrl1";
-+			function = "pin_fun0";
-+		};
-+
-+		rk806_dvs2_null: dvs2-null-pins {
-+			pins = "gpio_pwrctrl2";
-+			function = "pin_fun0";
-+		};
-+
-+		rk806_dvs3_null: dvs3-null-pins {
-+			pins = "gpio_pwrctrl3";
-+			function = "pin_fun0";
-+		};
-+
-+		regulators {
-+			vdd_gpu_s0: dcdc-reg1 {
-+				regulator-boot-on;
-+				regulator-min-microvolt = <550000>;
-+				regulator-max-microvolt = <950000>;
-+				regulator-ramp-delay = <12500>;
-+				regulator-name = "vdd_gpu_s0";
-+				regulator-enable-ramp-delay = <400>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vdd_cpu_lit_s0: dcdc-reg2 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <550000>;
-+				regulator-max-microvolt = <950000>;
-+				regulator-ramp-delay = <12500>;
-+				regulator-name = "vdd_cpu_lit_s0";
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vdd_log_s0: dcdc-reg3 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <675000>;
-+				regulator-max-microvolt = <750000>;
-+				regulator-ramp-delay = <12500>;
-+				regulator-name = "vdd_log_s0";
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+					regulator-suspend-microvolt = <750000>;
-+				};
-+			};
-+
-+			vdd_vdenc_s0: dcdc-reg4 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <550000>;
-+				regulator-max-microvolt = <950000>;
-+				regulator-ramp-delay = <12500>;
-+				regulator-name = "vdd_vdenc_s0";
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vdd_ddr_s0: dcdc-reg5 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <675000>;
-+				regulator-max-microvolt = <900000>;
-+				regulator-ramp-delay = <12500>;
-+				regulator-name = "vdd_ddr_s0";
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+					regulator-suspend-microvolt = <850000>;
-+				};
-+			};
-+
-+			vdd2_ddr_s3: dcdc-reg6 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-name = "vdd2_ddr_s3";
-+
-+				regulator-state-mem {
-+					regulator-on-in-suspend;
-+				};
-+			};
-+
-+			vcc_2v0_pldo_s3: dcdc-reg7 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <2000000>;
-+				regulator-max-microvolt = <2000000>;
-+				regulator-name = "vdd_2v0_pldo_s3";
-+
-+				regulator-state-mem {
-+					regulator-on-in-suspend;
-+					regulator-suspend-microvolt = <2000000>;
-+				};
-+			};
-+
-+			vcc_3v3_s3: dcdc-reg8 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-name = "vcc_3v3_s3";
-+
-+				regulator-state-mem {
-+					regulator-on-in-suspend;
-+					regulator-suspend-microvolt = <3300000>;
-+				};
-+			};
-+
-+			vddq_ddr_s0: dcdc-reg9 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-name = "vddq_ddr_s0";
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vcc_1v8_s3: dcdc-reg10 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-name = "vcc_1v8_s3";
-+
-+				regulator-state-mem {
-+					regulator-on-in-suspend;
-+					regulator-suspend-microvolt = <1800000>;
-+				};
-+			};
-+
-+			avcc_1v8_s0: pldo-reg1 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-name = "avcc_1v8_s0";
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vcc_1v8_s0: pldo-reg2 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-name = "vcc_1v8_s0";
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+					regulator-suspend-microvolt = <1800000>;
-+				};
-+			};
-+
-+			avdd_1v2_s0: pldo-reg3 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <1200000>;
-+				regulator-max-microvolt = <1200000>;
-+				regulator-name = "avdd_1v2_s0";
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vcc_3v3_s0: pldo-reg4 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-name = "vcc_3v3_s0";
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vccio_sd_s0: pldo-reg5 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-name = "vccio_sd_s0";
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			pldo6_s3: pldo-reg6 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-name = "pldo6_s3";
-+
-+				regulator-state-mem {
-+					regulator-on-in-suspend;
-+					regulator-suspend-microvolt = <1800000>;
-+				};
-+			};
-+
-+			vdd_0v75_s3: nldo-reg1 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <750000>;
-+				regulator-max-microvolt = <750000>;
-+				regulator-name = "vdd_0v75_s3";
-+
-+				regulator-state-mem {
-+					regulator-on-in-suspend;
-+					regulator-suspend-microvolt = <750000>;
-+				};
-+			};
-+
-+			vdd_ddr_pll_s0: nldo-reg2 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <850000>;
-+				regulator-max-microvolt = <850000>;
-+				regulator-name = "vdd_ddr_pll_s0";
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+					regulator-suspend-microvolt = <850000>;
-+				};
-+			};
-+
-+			avdd_0v75_s0: nldo-reg3 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <837500>;
-+				regulator-max-microvolt = <837500>;
-+				regulator-name = "avdd_0v75_s0";
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vdd_0v85_s0: nldo-reg4 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <850000>;
-+				regulator-max-microvolt = <850000>;
-+				regulator-name = "vdd_0v85_s0";
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vdd_0v75_s0: nldo-reg5 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <750000>;
-+				regulator-max-microvolt = <750000>;
-+				regulator-name = "vdd_0v75_s0";
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+		};
-+	};
-+};
-+
-+&pinctrl {
-+	hym8563 {
-+		rtc_int: rtc-int {
-+			rockchip,pins =
-+				<0 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+};
-+
-+&saradc {
-+	vref-supply = <&avcc_1v8_s0>;
-+	status = "okay";
-+};
-+
-+&tsadc {
-+	status = "okay";
-+};
-+
-+&uart2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart2m0_xfer>;
-+	status = "okay";
-+};
--- 
-2.47.3
+Even when pairing the reads in this series, cpu_read_constcnt() and
+cpu_read_corecnt() still have intrinsic function call and execution
+overheads. A simplified execution trace looks like this:
 
+cpu_read_constcnt:
+bl
+mrs constcnt    <-- T_const (Read timestamp)
+str
+ret
+
+cpu_read_corecnt:
+bl
+mrs corecnt     <-- T_core  (Read timestamp)
+str
+ret
+
+Let δ (delta) be the delay between the two reads in core cycles,
+such that δ = T_core - T_const.
+
+For two consecutive samples:
+Sample 1: constcnt = A1, corecnt = B1 (with delay δ1)
+Sample 2: constcnt = A2, corecnt = B2 (with delay δ2)
+
+If we substitute these into the frequency calculation:
+freq = (B2 - B1) / (A2 - A1) * cntfrq
+
+We get:
+freq = Real_Freq + [ (δ2 - δ1) / (A2 - A1) ] * cntfrq
+
+The error term is entirely dictated by (δ2 - δ1). On modern superscalar,
+out-of-order architectures like ARM64, even identical instruction sequences
+  experience microarchitectural jitter. Because of this, δ1 may not
+be equal to δ2.
+
+On our test platform, the maximum observed difference for (δ2 - δ1) is
+roughly 40 cycles. Over a typical 2us sampling window (plus the FFH
+function call overhead), this translates to a maximum theoretical error of
+< 10MHz, which is less than 1%.
+
+>>> On 4/10/2026 5:41 PM, Pengjie Zhang wrote:
+>>>> The legacy CPPC feedback-counter path reads the delivered and 
+>>>> reference
+>>>> performance counters separately.
+>>>>
+>>>> On arm64 systems using AMU-backed CPPC FFH counters, each FFH read is
+>>>> served through a cross-CPU counter read helper. Reading the counters
+>>>> separately therefore widens the sampling window between them and can
+>>>> skew the delivered/reference ratio used by cpuinfo_cur_freq. Under 
+>>>> heavy
+>>>> load, the skew is observable as transient values that may exceed the
+>>>> platform maximum, as discussed in [1] and [2].
+>>>>
+>>>> This series adds a small generic hook for architectures that can 
+>>>> obtain
+>>>> both FFH feedback counters in one operation, while preserving the
+>>>> existing per-register read path as the fallback.
+>>>>
+>>>> Patch 1 adds the generic CPPC hook and uses it from 
+>>>> cppc_get_perf_ctrs().
+>>>> Patch 2 implements the hook on arm64 by sampling both AMU counters 
+>>>> in a
+>>>> single operation on the target CPU.
+>>>>
+>>>> [1] 
+>>>> https://lore.kernel.org/all/20231025093847.3740104-4-zengheng4@huawei.com/
+>>>> [2] 
+>>>> https://lore.kernel.org/all/20231212072617.14756-1-lihuisong@huawei.com/ 
+>>>>
+>>>>
+>>>> Signed-off-by: Pengjie Zhang <zhangpengjie2@huawei.com>
+>>>>
+>>>> Pengjie Zhang (2):
+>>>>     ACPI: CPPC: add paired FFH feedback-counter read hook
+>>>>     arm64: topology: read CPPC FFH feedback counters in one operation
+>>>>
+>>>>    arch/arm64/kernel/topology.c | 75 
+>>>> ++++++++++++++++++++++++++++++++----
+>>>>    drivers/acpi/cppc_acpi.c     | 58 +++++++++++++++++++++++++---
+>>>>    include/acpi/cppc_acpi.h     |  7 ++++
+>>>>    3 files changed, 127 insertions(+), 13 deletions(-)
+>>>>
 
