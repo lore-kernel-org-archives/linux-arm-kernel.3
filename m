@@ -4,108 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 108FBC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Jun 2026 16:23:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D85E5C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Jun 2026 16:29:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vi9X5QHxom/shb1Xeo0pVk+vxYBtRUDCCAdoquHX1MU=; b=w73/OrgfO3bmIF8xRTTe5M3O2b
-	qgKFCm2eLFq7LD6Lj9pVjcz0BDz6Ljy/NiQh4+wscv9SOGiiauHJSmEmzDwvTZ52IRJXm4oa2IdTd
-	VQlOwlyWSdH8pjkIBdtzC52G1UTsEeoKpQ/9Nbj+aMDEPilBtG+JvZ4L9KGHreHvvpmwXTgSLplop
-	YU3zRNwUIG0f3/8qQNjhhQ93Ho3lQf0+MqaBpefb4SyHy9bZ5yO/qHVmCALPSBjzhQ/c9KhVPtPuT
-	LXxv/9LlSMEGz9KhZY4akPAfwzu7knXMjvmEAxqka5fpaWMDzP2r/xmbHDjqXMZIVD6QdZigL1Gy4
-	lWtorV9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3kVuwVobO7bICdhkJZKQb6fIkiahJplxcjuNKsfvE8A=; b=BczMTu+GkOquAr4IqivZckkN5V
+	hgOZsT4Smr22AcLyylPC7s+DjmhnD2dVKFW3pIxtfsekB1fkMwSsc5Lkn8dXucjsh6QYTcKwW8ecm
+	UTDqZelrngpWQRz4g7Q4pSq4v1kXlGvIF/tG7nAWJHoOEWG0Yn7mrofbhnJeGmRYL++onFDSslnri
+	VJY4xKJTHTLhmPYaFYVhTgHTgiVLs4NXxJkzZynbhZtcHORs6fLdHIjWXJXYBmC30xzPQxR2w9/O3
+	tDJDx9w9o//ffA04vERy0HWcxpK8jnXIkvld3WpEMmOh3IdQveN7wD0c3I42JMq6jBi6624ktF+uh
+	bwl/JZrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdVo6-0000000CdAt-1OTS;
-	Sat, 27 Jun 2026 16:23:02 +0000
-Received: from mail-eastusazon11011055.outbound.protection.outlook.com ([52.101.52.55] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	id 1wdVuF-0000000CdQJ-41lM;
+	Sat, 27 Jun 2026 16:29:23 +0000
+Received: from mail-westus2azon11012035.outbound.protection.outlook.com ([52.101.48.35] helo=MW6PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdVo2-0000000CdAP-3PmM;
-	Sat, 27 Jun 2026 16:23:00 +0000
+	id 1wdVuE-0000000CdPy-0PAB
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 27 Jun 2026 16:29:23 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JeCCxGKCOVPa0jVsf9xBvKiercr04xQv0iAdX26UlLctfavvi8K7nR9SUJPUKXdZ375WTdzA0O18HHhgaj2JnPAs/nMRRdrmz/Zb0YV8erQDAbeSllTj9X1t/PHohmQRhkW7fiRyriU6VBVHqSmH5IHyKUwSe15RAthUjrx9hfqcwBdr8HxgBM79h4fbhesJfnM8uT3PwOl5+Pk4ul9KU0KNeTHndrlTFl88ldu0sFSzjBGOeV+uHuQfSTa8aGIdcUl9vi3qkGKPVXLXGAgI6HxXZOAHOzFmwjmUjHxyHqAAfsEEKTn8MBDH1rNOkIS5fyDwBqX8SahTYIIlbp5WkQ==
+ b=DTXCRWowCfCYKoGFU80N3qoTp6+srPt0t/c6IeJr3Y5grK9HMF8IXrBMgCs/JBJILWv5GbogXV+KKQRRgmKC4u62GHUhlCo34TCqQ4qTWcYQ8gDDf1WgUb/y6KZbHuQIy7lWmfIk//vOcSIWYI/cozJj+XaycmyDcLOePTNoQVmNdUPUOUdUCk/dAX3Kt3Qd9DcFbG2mpZmIwLjWZWHWwd9oHgVrJ7C8+9D8oInjLfA0wK6XRxFA6J7NMgzyFYNEP1JWaJ7Rsc8b4UjrnSdtH3KPhJyKMZMyRtyfUrw9DiBlpguGuXodr6/6R/5Y7T4VBTOqLAk/y3Njml+Ir3WbuA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vi9X5QHxom/shb1Xeo0pVk+vxYBtRUDCCAdoquHX1MU=;
- b=Jqqp7QpvKpVxiq25M4nZOvy2UpEcXQHKzpNhlyH6jiGcTVCob3Y5aMm8WqKfQ6uRZ9UkGJMvON4by2j5egDJc8S8JdQfXfPyp5SIFGGieO+pzHQAw7O6kl81mpmH55+GBWkOsg4ZsUEZbGAb19UWGaBNSrkbA74m1kO+kD7qwqpLWj5nw9luH8tHz+NnaVbDsQLI7jeIMHo6Mu90U+vnZ1eHmeiF5p6o3Uqq8Ztiz1bRrYrsUWXB6wleATdN3YF7ZX7mqV9Wfx93vGUz4gJky6O1sq0rSjmhWR5Ah7HtolZRtdMbN+QFoTtA0KTlisLSOJ4bW1PdKuI/g5CySRgpqQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=ideasonboard.com smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
+ bh=3kVuwVobO7bICdhkJZKQb6fIkiahJplxcjuNKsfvE8A=;
+ b=RAfNQVGKRhhux5cQXlGEX3TnhgCzWyBIzG7a3nbWJRqLkmik/79gUlbwPvDXrnp/rahu7y3juhyoQsbUS7mAU4CmbEve1NGMjGakh1P4P8vfVJCi/Dnzdq5gplqqUIcGlUMH4Ebl3vG1GavdNVhKQy7+SoWwjPyRXGOrP3YPZgYPsauDzRld0aGzgxCIhgJl06/cBo3jZGU8ZUfLE8z7HqvU+z8VTFwZVpxzoUdUDJLi9+BjB8gLMr+/IWAvsGpmWSAvHOXKIZJr6fBQm9S/1kkDxopin5z+6VVoDR2VJuNE2QiHODf668DWl8PrfvlF9bZkVwVaOiBW6nPvj+df1g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vi9X5QHxom/shb1Xeo0pVk+vxYBtRUDCCAdoquHX1MU=;
- b=qIpvNb/1lN9P3nyI9YRUS7c3VzeQIQ7xwY+RAJv8b9BpVCUoPbGiudyhAnrcDn4QYHZqQH6vDIf8TS2Pnkx2ikDUIbmyxY4ZzqaA1JeG9N3DcCnQuCGoA2YbHn+FXVd1w9DwIeZqRs1uv7w0x7wcS4P4dQ6Gwb30JlZ2qwqUeiQ=
-Received: from PH7PR17CA0040.namprd17.prod.outlook.com (2603:10b6:510:323::26)
- by CY5PR12MB6276.namprd12.prod.outlook.com (2603:10b6:930:f::6) with
+ bh=3kVuwVobO7bICdhkJZKQb6fIkiahJplxcjuNKsfvE8A=;
+ b=LXlspY8tM6hAsJUuyVsp1b3dyJ4rew32I++MhCMIDTWZQDG4EPEvhKkiTzNEd9aDuxuuLl7bIQ5XVWpsVUK4bSL/nSHGr9qliYh4a/XzRmtOxlwHc3csUzkhbeJ3hl1ypxSk7dl/cq8jC9RdPuXr8eHmrMKkrJ7oCGm27EM1XFw=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from CY1PR12MB9697.namprd12.prod.outlook.com (2603:10b6:930:107::6)
+ by DM6PR12MB4185.namprd12.prod.outlook.com (2603:10b6:5:216::13) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.18; Sat, 27 Jun
- 2026 16:22:52 +0000
-Received: from SA2PEPF00003F68.namprd04.prod.outlook.com
- (2603:10b6:510:323:cafe::af) by PH7PR17CA0040.outlook.office365.com
- (2603:10b6:510:323::26) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.159.18 via Frontend Transport; Sat,
- 27 Jun 2026 16:22:52 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- SA2PEPF00003F68.mail.protection.outlook.com (10.167.248.43) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.181.6 via Frontend Transport; Sat, 27 Jun 2026 16:22:52 +0000
-Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Sat, 27 Jun
- 2026 11:22:51 -0500
-Received: from xhdradheys41.xilinx.com (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
- Transport; Sat, 27 Jun 2026 11:22:49 -0500
-From: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-To: <laurent.pinchart@ideasonboard.com>, <tomi.valkeinen@ideasonboard.com>,
-	<vkoul@kernel.org>, <michal.simek@amd.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-phy@lists.infradead.org>,
-	<linux-arm-kernel@lists.infradead.org>, Radhey Shyam Pandey
-	<radhey.shyam.pandey@amd.com>
-Subject: [PATCH] MAINTAINERS: Add Radhey Shyam Pandey as ZynqMP PHY maintainer
-Date: Sat, 27 Jun 2026 21:52:33 +0530
-Message-ID: <20260627162233.2803425-1-radhey.shyam.pandey@amd.com>
-X-Mailer: git-send-email 2.43.0
+ 2026 16:29:14 +0000
+Received: from CY1PR12MB9697.namprd12.prod.outlook.com
+ ([fe80::3a41:55a0:8203:596d]) by CY1PR12MB9697.namprd12.prod.outlook.com
+ ([fe80::3a41:55a0:8203:596d%5]) with mapi id 15.21.0159.018; Sat, 27 Jun 2026
+ 16:29:14 +0000
+Message-ID: <21c995be-5881-4b59-928e-058027153ac2@amd.com>
+Date: Sat, 27 Jun 2026 21:59:07 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/3] dmaengine: xilinx_dma: Fix channel idle state
+ management in AXIDMA and MCDMA interrupt handlers
+To: Suraj Gupta <suraj.gupta2@amd.com>, vkoul@kernel.org,
+ Frank.Li@kernel.org, michal.simek@amd.com, dev@folker-schwesinger.de
+Cc: dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260626092656.1563871-1-suraj.gupta2@amd.com>
+ <20260626092656.1563871-2-suraj.gupta2@amd.com>
+Content-Language: en-US
+From: "Pandey, Radhey Shyam" <radheys@amd.com>
+In-Reply-To: <20260626092656.1563871-2-suraj.gupta2@amd.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: PN4PR01CA0059.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:c01:274::9) To CY1PR12MB9697.namprd12.prod.outlook.com
+ (2603:10b6:930:107::6)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA2PEPF00003F68:EE_|CY5PR12MB6276:EE_
-X-MS-Office365-Filtering-Correlation-Id: e48f908c-f525-4dd2-6bb9-08ded4685632
+X-MS-TrafficTypeDiagnostic: CY1PR12MB9697:EE_|DM6PR12MB4185:EE_
+X-MS-Office365-Filtering-Correlation-Id: b287fe68-d529-4d1c-0533-08ded46939fb
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700016|23010399003|376014|13003099007|18002099003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: 9rAh1fte2JTgN6FsH9nWfdVeCiHOs+UI+/lcIHORRaRamKj1o156hWj3CT1J/kUMd3jI4TkpOaGBmgaBjdUNth8yWn8o0mlO4sKBmz03s0ZEBtxVkJVDguz1KexrgmlT4UQ+EN6hPtEOfnEdHfgF77DO2BTZSw5yctVZKXY605D71r77crn7mAXpW9urh1CCfWRfZPwF/6HzMmBZ2LUThyD7GEu8OTyCexzKncaTuA8oP3Y8/mj5Ewpqyg9Q7tIxG985q20CLmbUavYtBn2lTkmCaghsnHvGTEiBi86VLUz8tSRlH6B9MH8dvi94fWs63tF/5QBWfxeOSXscQ8mHQs0WRhV0vEzWJycaYnotv3SErMfcpdLSn2X9OdrSltq81cPMkvI2K4sxc0Ho7VUZqPzybv/G/LaG7kDwBQkYVBcbxS3mTBaVOmii0R+eVZ3QLeXgdtRh3+hPbSt6F/2L/0FAmjjhljJnsGE7WioHVI61EAy34Dl53BUdAJI9bwE2i4cc/SjREJzOZjjDK6hzGoP1bp+syxF4RLDUmiRip4E4SRGXQQ7ZYYtUmbV7TXyoLSgvZN1s55OnWNFvDaDJxSQMbbP4bmtcYgjO32XOI0sbSVw/XuQ/m+XmGqnVeBP9iG7EDWKyTcPHyj1yd2cIdO65fotmxQvSGSJxCzh+Tr1r62u9fu+7WIKhjWX1ieM6LU6nisemvF/xAksLKfIQjA==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700016)(23010399003)(376014)(13003099007)(18002099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|366016|376014|22082099003|18002099003|4143699003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: uPw4XAiB4TceoAmr6Yf6EP4R4Aq+2mhMmb1PTHMSc0t6IrXaGRvrP20BG53h/haajA69/056KbNMe99SWYFVeQhmSqzwbUQb8HJQorekhSzbnfTKSgd5bYPlFMLy36RtnFa4FKwA+D7UrE5p90cTaV5gyLYgKKoYFV0iOCmtW2rBMdnpaQUCymQ8WSe9zt1z9gXuLHTgbPRaDIMNIxH8uuHm9BYvapuEANBm5JtEeNUC3jLrRIFCv5MTboadlr9CcK+AR+DEDb4M3fsic8uZVQzdVmZt46eXYFU+cUmcyupuO2I9FFkvZn4hEqCbDIfo+n743l/zoNsemiqbHUhoOg6QuaMTEoeDcOXapZCONNX8O/Is4D1HX5bhJxNhgibLp8s+HE+IEdnl0b+ubRScrT4FDGpWnW8wi+WPTydush4zw3hq3qlLiB545z1kQq60m+0xgmJk3M8ksMlmNcl6EtIzm3B6X4qdz07hiyepl/spKBMmYl6xwod55DNy8q/8/rZkf9qr5dDH7JWGM2/dh734zuMnqXRTzocZCIdDU4N/kGOlnwqkzizshdqhaoiDyg6sPJ+NfKUe8x0UVMdntLHDMFd+Kx567U92IA6a9UuA0KIjdvtPC81YINgf/utEsJLpGORd1XvZg6k1nvE/zRUAPlwE3K832/hXu6vOrdc=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY1PR12MB9697.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(366016)(376014)(22082099003)(18002099003)(4143699003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: Mvt5GIIDl1mYGr92v5W9jwtHephdMGNNyaVWlAnrkwhNLDstZ+o0Yn9yWQ1vK6h8QWhiFZxNuTxe1bk8dingudzXpkLJ0sb2AwEIdNX5r6ZyU0hkERpg0hln1tHioG8TRyMqFZ52gmQxs4dq4Mk0mUo6ajjV2fRPn3rA0lu0GEAh2G/zJnlU9ogf02Baw3pC2v2xI1MvxSIm6zCNWlmd3Ew3VyC01TmUXoYohEurBjaJyg8FItcYYSQhlwDV3VMatvSuOgBlF86hyYZnEoNg2QK8KZ6lWAlOaB0rfT5vYRFzLyTQR3rND6OmzTZb71Wr9KzceDq/O9t6W1cDGXB1VBt35I7VzksXt7kTRw7Gmj7oQcvsjrP3BjaU3R3hScNY9gAvnRu9UGrdXwUUdxOhKuUHsjV/N83d1kziMOZ2wmLe423MXN48ed5KCisJgIpD
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eElTQ2ZDblRZbTgyT2hkMjJneE5Kb29FbmtsL2RGZjVNU3hYM1ViQVpYcFFn?=
+ =?utf-8?B?akJhMmhnZlg4elhDNTF0UmhjNFhSQTdZRWowRWtjcWhaRVIzYXdCVzUyZ1RI?=
+ =?utf-8?B?eVFDT2lZUXEzZjFJd0JzUndOMklCQTRhTmFaNDF6SS9PNTY1emRVM1o1ZFk2?=
+ =?utf-8?B?YXlVL3hIYzFqeE92TEhJNlBkZ2VLQTFYTDM5Y2RBMk5RWmRvNXo4SlRqelV5?=
+ =?utf-8?B?ajdvTlkwV0NsRjRZYktDV2dzV0xCRmZEZU9ZV1ZxYWt3Q0lkSGZnTnJJT3Bm?=
+ =?utf-8?B?Z2RWOWxOUTEwWGptaDVHb1J3WmJEVkZSeEJsWEFhY2F4VTBzWnJ6dUlkSHRO?=
+ =?utf-8?B?SjlZRGtQMTQ3cWxyclF6RUxVU1UxMk1UeWVVaWh6bmloY0tnYVZTT3hlNFlz?=
+ =?utf-8?B?Lzdla0N3eTNhRTNhbW1FMUhxcFJST1Y1SkY2TCtETXVTTVB3c0htRlo5R2Ni?=
+ =?utf-8?B?SDFMUEJpS29uWGhrZlJtWFd5d1E4SENvNWdiZ2p5eFo0eHg3MlB6Slhuek1D?=
+ =?utf-8?B?SE10VkZMSGFjWHVPUlhIeXRJV2hCQzcwQUhqWWNnaUJGWlR5TUhsVVZmUkJG?=
+ =?utf-8?B?WUhvWXFmR1Nnb2V3Rm1QcVowUDVGV0lzMWFMMCtKVUtqU3QrK21GaCtFZThW?=
+ =?utf-8?B?S1RSWDlSQTNSbVlnbFFFWm8yNEJYSUtTL0hZOGw2Sk01bmIrZVNpUXNvYmE3?=
+ =?utf-8?B?OGhNTWswSHJGZmJzT0t6bjdtMmtnZzA5N2x5di9XZnpQRGpoR1hONDlPc3Vx?=
+ =?utf-8?B?a0lzanFJNzgwZE1wSWpZUFd0SHhvRFJiWVVSZ3dKR3NiZTBiN0dOOGNrZk1u?=
+ =?utf-8?B?WG4rYVFsVFJXQk5jcXcrZDVkN3lpVjU0dEpHdHZXQ0E3eXl4U3ZWWVUzZUU3?=
+ =?utf-8?B?RlJxbjZxRlJRQmdmRkNieU1XVU1ZckFrcTdxNVdOKy9PREMvK0M4ekJzVlNm?=
+ =?utf-8?B?WHBKMFVGRXVjQnNWdlZTNFRZYmU5S1RYdWVBMk1PeGdBSU82SWIvRjZmNG5n?=
+ =?utf-8?B?c3VIazFibWowOU15elBlNjQyUFMzdW5Tejl2a01EV0oyRnNtNVZsNEJNZlZC?=
+ =?utf-8?B?aWdDQWtlS3gvK1dZUDN6ZHJlRW9JK2EyKzRkVUZHbHZkNzZJRnFodVRKcy9U?=
+ =?utf-8?B?SkxEVjdJdzIxbGdCZEhYbFFlVm9sT05hUzJ5eW04TzZLMGhtTjh2Wng5aDJN?=
+ =?utf-8?B?ZEpaZHEveUVJVFFYN240TU9DcmdiSktPWFkvaUxnZ1VhQU5jM25kT1Z0ejZt?=
+ =?utf-8?B?NFkySjgrRFVGRVNQb2lHSWxQV0tJeHFPQzUzWWFrK2NLMmRzUVZCQ0xjNnhh?=
+ =?utf-8?B?dUlWdkJpaEtZTHFNRFExQjBmZ2hQRTVvSU81YkcrSStOV1ZsMHZCWXdZTmJO?=
+ =?utf-8?B?VVhLYlo4bUtWN1JGOEhzVmFUZ3ZjNlBvaVJaRjJLZTFFSkc2aFh2T2hnV29D?=
+ =?utf-8?B?dXpBcFlSTTZuRGNBMmthL3daQjJweU5BeE5yU1N3OVg2UzhXYjJUZ0VXRnpN?=
+ =?utf-8?B?cGcya01Ick5VNklDZFlZSkZMby9qTnJnRDdnNW5PdzlxUnpNYWQ3eGpXRWRB?=
+ =?utf-8?B?MUg4ZXZzN3VXMk1NZm16OEptbDhMMjJOKzFpa1VERy9odWFUZmFSTmZCbmdS?=
+ =?utf-8?B?UnRnSjVCc01kN3Y2ekJmRnAwbml1S3BoRzZiT0RPdEhwdUJmV1V1OTRyVXVE?=
+ =?utf-8?B?V3ZFT3ZUeDBaRjRLV3R4NGtZS2p6YXBXNkI2WW9DSGFuZ1dEbVQ1dG1FNEpj?=
+ =?utf-8?B?WE05Q1Y4ektEZy9tMWR4blpTWEhLSm1IMjhEbnViSXJIZ3BVNmlCUEkwNGs1?=
+ =?utf-8?B?ZjJDZHJqVXF6VWlkbHFQYldoUGtRME1tR3VBcnV5THN6S3VVYnpHaERFQzZI?=
+ =?utf-8?B?WVprM2lPRTExVXBsLzFoNURDRlRoWlZXVS9EZkN2Mm9HRU1tUElJNUREblNZ?=
+ =?utf-8?B?UEVaYXNhV0FUUDBSQVozQjlPeW1mV1d0RG1ZUHR4QkZ0OFBMYWlpUndUbU1O?=
+ =?utf-8?B?MkJCbTZhbjhzRFVtaVR3UmFvY2dXNjNiYTliQzZsbDFWejBzSE1lbDV1d3BL?=
+ =?utf-8?B?VVR4N3lmaEpFR3gzWTJnZ2pHNmhwa0hVeGU0Wk1IMS9NUkt3OE9icEFMRms5?=
+ =?utf-8?B?RXRocTB6aDY0dmc3Q2NEMTcrMGdDbVhrS1V2bkR5VG5QOG15UXlvRFdXZVNX?=
+ =?utf-8?B?VmVxZnpHdzRNK3VHYWU0a2RpNHBQQmhIUitpYjF4UVV0SllBaXdVZk5mOE5W?=
+ =?utf-8?B?b2gxUDE1SnlDOVc1Umxvb0xlY1A3UitiUEw3T0dEV1puSHpIQyt5dkpTblJu?=
+ =?utf-8?B?dHNWSXkzZ1hvcUpIR3RaenFDelErYWtXYWU5a1FaR2VvQlFSRmVIdz09?=
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Jun 2026 16:22:52.0367
+X-MS-Exchange-CrossTenant-Network-Message-Id: b287fe68-d529-4d1c-0533-08ded46939fb
+X-MS-Exchange-CrossTenant-AuthSource: CY1PR12MB9697.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Jun 2026 16:29:14.3596
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e48f908c-f525-4dd2-6bb9-08ded4685632
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00003F68.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR12MB6276
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: uKAu1mVT9wiQPF4n7l5VhOFFoRXvueS0lSJOd4y3FFWJheUuU8GXmwAivXlXm4xG
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4185
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260627_092258_852939_A00EE1C7 
-X-CRM114-Status: UNSURE (   9.04  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260627_092922_143197_54627B5F 
+X-CRM114-Status: GOOD (  17.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,30 +148,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-I am maintaining phy-zynqmp driver in xilinx tree and would like to
-maintain it in the mainline kernel as well. Hence adding myself as a
-maintainer.
+> Fix a race condition in AXIDMA and MCDMA irq handlers where the channel
+> could be incorrectly marked as idle and attempt spurious transfers when
+> descriptors are still being processed.
+> 
+> The issue occurs when:
+> 1. Multiple descriptors are queued and active.
+> 2. An interrupt fires after completing some descriptors.
+> 3. xilinx_dma_complete_descriptor() moves completed descriptors to
+> done_list.
+> 4. Channel is marked idle and start_transfer() is called even though
+>     active_list still contains unprocessed descriptors.
+> 5. This leads to premature transfer attempts and potential descriptor
+>     corruption or missed completions.
+> 
+> Only mark the channel as idle and start new transfers when the active list
+> is actually empty, ensuring proper channel state management and avoiding
+> spurious transfer attempts.
+> 
+> Fixes: c0bba3a99f07 ("dmaengine: vdma: Add Support for Xilinx AXI Direct Memory Access Engine")
+> Tested-by: Folker Schwesinger <dev@folker-schwesinger.de>
+> Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
+> Co-developed-by: Srinivas Neeli <srinivas.neeli@amd.com>
+> Signed-off-by: Srinivas Neeli <srinivas.neeli@amd.com>
 
-Signed-off-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
----
- MAINTAINERS | 1 +
- 1 file changed, 1 insertion(+)
+Reviewed-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+Thanks!
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 1705eb823dd0..90dd86437c5c 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -29645,6 +29645,7 @@ F:	drivers/edac/zynqmp_edac.c
- 
- XILINX ZYNQMP PSGTR PHY DRIVER
- M:	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-+M:	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
- L:	linux-kernel@vger.kernel.org
- S:	Supported
- T:	git https://github.com/Xilinx/linux-xlnx.git
-
-base-commit: 3d5670d672ae08b8c534b7beed6f57c8b44e7b43
--- 
-2.43.0
+> ---
+>   drivers/dma/xilinx/xilinx_dma.c | 12 ++++++++----
+>   1 file changed, 8 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
+> index 404235c17353..ca396b709742 100644
+> --- a/drivers/dma/xilinx/xilinx_dma.c
+> +++ b/drivers/dma/xilinx/xilinx_dma.c
+> @@ -1893,8 +1893,10 @@ static irqreturn_t xilinx_mcdma_irq_handler(int irq, void *data)
+>   	if (status & XILINX_MCDMA_IRQ_IOC_MASK) {
+>   		spin_lock(&chan->lock);
+>   		xilinx_dma_complete_descriptor(chan);
+> -		chan->idle = true;
+> -		chan->start_transfer(chan);
+> +		if (list_empty(&chan->active_list)) {
+> +			chan->idle = true;
+> +			chan->start_transfer(chan);
+> +		}
+>   		spin_unlock(&chan->lock);
+>   	}
+>   
+> @@ -1950,8 +1952,10 @@ static irqreturn_t xilinx_dma_irq_handler(int irq, void *data)
+>   		      XILINX_DMA_DMASR_DLY_CNT_IRQ)) {
+>   		spin_lock(&chan->lock);
+>   		xilinx_dma_complete_descriptor(chan);
+> -		chan->idle = true;
+> -		chan->start_transfer(chan);
+> +		if (list_empty(&chan->active_list)) {
+> +			chan->idle = true;
+> +			chan->start_transfer(chan);
+> +		}
+>   		spin_unlock(&chan->lock);
+>   	}
+>   
 
 
