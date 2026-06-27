@@ -4,91 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AF6BC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Jun 2026 06:55:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C864DC43602
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Jun 2026 06:55:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a0YInxvP9vIxrkKOfsq0a9A7RdBzE89fDRN/Cs8YIhM=; b=WUU0JaDaCOs/APx9nt1MfnRsJP
-	kM5fgj5pAuvMkhvhcGvUR9QbbI8TAwm4yNufFvN8Q2u6fqlYgnW4eDEcKJA3bKrvNKwWl+5hREKpg
-	/VQ8sbfcamyUnJWL3P07bTeTo4DKMUslJdGNgQ22i59B7rlgay8N79e8dGD23LaG9L4npN76Fu0OH
-	jvaBaQe+EWuwBP7wMSrNs80fTP2D1qK4y0JaUKdXWSYhkhdTNkpfb0B8FcdqGUJ1NYO5HbrHZuMAI
-	C2pIlRGrz042wAKiSLFej3xU2s/FdBra1sh2FRBiFOuW2M9vkqCG9uQDfFbWA1oUUTB+uo0mISgAt
-	7Uvx8MYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6URRVOLLPbDGmOPQIy9/O+A7E0jEC0aohmFeB/EeHoE=; b=gMN/qCnxhtX1DPAe9o2gE4x2R8
+	vEsLRuBFE9Pf1A2tEGZ9vpLdL08XlB92HGjcDPX69NiANDEJobWJoWV157KobMBIxO2llgWo/BLFA
+	TxQiTPCgciazE/iNRB6ghzESI7qcd0bjgcwBuxPKzXPQa56UEkk4evAumKE1szKwTFDVSt0d4e5m9
+	Hhak3nVZQhsbCL0g5y2FZK6h6lOcxyEmQu8w075chLqa6K7rToTRKpo38lseKGxgnOJAZfxzM0bSE
+	moOCoh6Lsj3QFG/TJ5I9TcAs8IcrnKYEgrsjaqSDQTe0+GGR7GYhbIZycDncLh0Hhe2o0EOPxWFsq
+	wEHlhXHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdMwa-0000000CEFE-196I;
-	Sat, 27 Jun 2026 06:55:12 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1wdMx3-0000000CEK1-1m7w;
+	Sat, 27 Jun 2026 06:55:41 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdMwX-0000000CEEn-38l9
+	id 1wdMx0-0000000CEIS-31fB
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 27 Jun 2026 06:55:10 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-49263703c6eso15848255e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 23:55:09 -0700 (PDT)
+	Sat, 27 Jun 2026 06:55:39 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-49241dbf9c1so14606195e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 23:55:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782543307; x=1783148107; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=a0YInxvP9vIxrkKOfsq0a9A7RdBzE89fDRN/Cs8YIhM=;
-        b=Qu3tDntTHzsNq60Ml9CsFEqHbrZ4nXIe09bxXou5+h3RTX+ffYAMZRC6nHR/75nEOo
-         x7yQR46qg4/WOfOg7THEFt+RxQP7kySk3VJU6iGSYtw156usd4U5ibVUYG1A2Sh2S4wc
-         LcJyRUXHyZl+lCqwUKF9BHxwY5z5eY9utNiih/SSzaf5eGsgR7qg9lPAJYWgoh8SCHbE
-         HuLv48+QCTDwX2h2FUNMg5NfT8IoYFDXIuG44pQ7IqpeGUfTWOu8BJNloGwAUKzwUdpU
-         Y469Bwg4XMWJNSHlSqK8cHMcU+puzSj7m+d/Z6FTavkcUJCeGXqtfQLm1d8OaHfDE1nj
-         CRwA==
+        d=0sec.ai; s=google; t=1782543337; x=1783148137; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=6URRVOLLPbDGmOPQIy9/O+A7E0jEC0aohmFeB/EeHoE=;
+        b=h4MPjb7oJgch+TFHnuKIUJ5CRuum7YMncQ3DTeK1Vn+xF5HGH3wXIs7uWRtBy1w+5r
+         jAc6g/Q5iv6d0dDGIXVvqEELl1qOCHpQWLvwrEA2y16EUEetb4h8Gr3WYhxg9Hy69Eqr
+         fp05ej2vvbKM0uhLo4loGF+idQZfhBDCPxlKoaJj07N+vccuW74+qQj8B0kyevvfvRNj
+         vuiLR4vteGSgQ9lN8va094tu4R0kPnvSOEjUNdKhHxCrhVqhMtNAa3wGMlWXMI6qjVrN
+         At3k3VioEeGdCax2EPooTqD1LpmaWlQ8Kv5xjH+k/9uX+xNzJSo15ZltJ8KMx+hUYK3+
+         QfJA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782543307; x=1783148107;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=a0YInxvP9vIxrkKOfsq0a9A7RdBzE89fDRN/Cs8YIhM=;
-        b=KWcobUYzyFHwzfA0hjeyTGDseAozR+If0dW84VfkToQZPf1TJ4wC+NccP5Hxx2IT9M
-         FnOrHtf0ag35liGG3fTN56zmohF8KLL2xp4OAjkKXgWuLwGzURbLJgnO8juthbW5FCnL
-         9YsXTo0w0lpvClfOc3/PqTsla+pcR+zGmgDm4NQP3Dnm1p9NLN6wwwxAzyFrI6Qkiii2
-         t55ss+DtWrcT4Gp020gyxWRm6rBepyHmPzCFdKSwgv1yPtI+JPhiNSgj+JkAFMHG/X7z
-         vYHTOM/hfYHOVLfBMxHkVO+IFINSEkXjVuRFNZ6KLLXsFigIehnV9YsZGPc/1RJ7nVuk
-         BApw==
-X-Forwarded-Encrypted: i=1; AFNElJ+iGzQcJTiQCEmW3iL3awsmUrGX9EWRcXh3JVGr/pmeUpxrbMHJWkZ2PgzjSWN3S6NIgnKjVPK05RJNnLvZarrl@lists.infradead.org
-X-Gm-Message-State: AOJu0YzA8qthXYAQq1Yp57hho5yHrF2wgeCGgOYV/UWBEXkN85zjhEmx
-	+Fep3hE4LhGTBH4ONBh5tOfsB5JUu7nfMFc+WJcfRCFyzhp+aeLArPS8
-X-Gm-Gg: AfdE7cnaIvisOjaUlEHz1P95dPxuXQE+75XBA5Af1VUlT85Xabw9bPNxqvLhYsZnJ5C
-	0/fFepUa5FmdjKBhex1bGb7k3PcEGxlTPeTZSWsRXkDjtW4HYjB9aksNGw16s7Hr50kZmd8JyIr
-	JY/flcDnBEByXUMukl5eH35ZhxddPAQJsyD+WPuJHd5PwIR0gesz9BCxFEaiH1aW6UBjp2VOyfR
-	D/q3iDKNz1nU2PHPWpUtVfiLoyVlopERFipOpTucljDTP0AGPRz7Dz2e4gx8xArCao1vPA1Nije
-	K51ebenpj+Vam9ytOo98ja4WpKfaslMOTK2YZDSKu90OsjVJ+Io3mGOOvOF+87Pc7CQImdpzxx+
-	bY2F0OpOwQpc9xQKRkEKCnOrxGwibBwuu/fNm8ANXF0QzPQVKmUjJKav45ifoMg21QZicHuSiC1
-	O5NdfNAMiX400UwC7UBrOMDPxB+hD5+Q4mfXRNzvB5N3dQoHaxLZ0B5acv6nAAANY8Ng==
-X-Received: by 2002:a05:600c:4f8f:b0:492:432b:d78b with SMTP id 5b1f17b1804b1-492668710e2mr151774915e9.15.1782543306582;
-        Fri, 26 Jun 2026 23:55:06 -0700 (PDT)
-Received: from jernej-laptop.localnet ([188.159.248.16])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4927038578bsm69037185e9.4.2026.06.26.23.55.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 26 Jun 2026 23:55:06 -0700 (PDT)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Chen-Yu Tsai <wens@kernel.org>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Samuel Holland <samuel@sholland.org>, Diogo Silva <diogompaissilva@gmail.com>
-Cc: dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- Diogo Silva <diogompaissilva@gmail.com>
-Subject: Re: [PATCH] drm/sun4i: Remove dependency on DRM simple helpers
-Date: Sat, 27 Jun 2026 08:55:04 +0200
-Message-ID: <PMdb9FVETQuPUnyh12NM2Q@gmail.com>
-In-Reply-To: <20260623-sun4i_simple-v1-1-fa6696df1fad@gmail.com>
-References: <20260623-sun4i_simple-v1-1-fa6696df1fad@gmail.com>
+        d=1e100.net; s=20251104; t=1782543337; x=1783148137;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6URRVOLLPbDGmOPQIy9/O+A7E0jEC0aohmFeB/EeHoE=;
+        b=jcKcWKzVyQ378SkLk1uMzEPTzOBtZBM+DHEkI81/BU/h4DjtSbCNVAdq9ETaQrz0Pn
+         9NMtoLqQ+G19NXayB1+CV3trujnVlyKvFSuLh/b0z3219CG53/hJi3uGTQ2FVj9k+nKE
+         seWCtwuv2HGu0f3eQF63869by+jYMA9flQu0anUVTtNpDynNPq2K37aMZeMHUajGRfk1
+         Qs/0p6n6c+KE06VhudhP6qAmMUP2PogMYIjHXypnsLNiOmdT5JXZt7bW2Pdbnqc0BZt2
+         ZpysqjRETuJuh6CzdfQteGgFROsHe8T0oNqkTiG4UCi++75OJWWMaQhzMzOBQSOmUBoO
+         yelw==
+X-Forwarded-Encrypted: i=1; AFNElJ933BfZ1Iubr2iVgZT18W6bmXGtDUsqK8U1333ZnG70/KJLG8IFAvOPgWrEjyDTzgqZaFAaY12UVuL8UVxpm1hY@lists.infradead.org
+X-Gm-Message-State: AOJu0YxD2jye/dVNiFpamUVJmUHNpeGi3/SCi2vnU3WIXWbBOFhgQWvX
+	B+AC4EOo1KQ35MMamSvZKwkRVdkuIZ+nN1RXnL3IH2JaKeaWIJ1nck/mkvvVbB5JM0LK
+X-Gm-Gg: AfdE7cmR1nS2yqicMJvFQyAfPRa46Wo661JxgDRqmpHPFHL5KAijfwdeJ5pXyuWVMCa
+	VEtCNFnurCo+EaC/JqAxMENcGLGbDJYna72FRtXfrnzUclcg/vPBzLX8bE9qeFvAuwiIyzwSDH0
+	RRybA6pCyfpbYCgsBboRNRlrn9xJtzS2+AvK3lHAVzrtEzzaTBIlc/k5p6+s5KUDKD7TK3g6m0p
+	TofSFpYvvTfndrvU/sHnKkS+65M2c3Jj3vpxOKRgZig6NAMVq9DTjMIhgBINWl77KlxpD8bTilH
+	D1332DE1bzZs1p8lNWeB+PGfQrRyLoFEDq4OPOtcANawl0/8pl2ds69TEks6xMF+xHCHSApGwIa
+	MgfVJ0sp9zAZYWqQK7JaTVhdeDIx3vLdKmCUTNcVw5KzsHdmIyxm1B3iMYGrbcFm9k8mC5cpMie
+	K8gNaiZFh61nG2qlYhFt1PkWBDqUXzckwDNWsipxIxAMOt+o1BKax2i4uop4zFpr7ZxbNjNugtw
+	BG3E9I/JDmTIXhaDOZxjQrs9s7ASt8QudU=
+X-Received: by 2002:a05:600c:820a:b0:492:6eda:4296 with SMTP id 5b1f17b1804b1-4926eda42afmr59822545e9.8.1782543336727;
+        Fri, 26 Jun 2026 23:55:36 -0700 (PDT)
+Received: from PeakBook-Mini.tail8e484.ts.net ([178.197.218.209])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-46c1ee0189esm32691380f8f.9.2026.06.26.23.55.35
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Fri, 26 Jun 2026 23:55:36 -0700 (PDT)
+From: Doruk Tan Ozturk <doruk@0sec.ai>
+To: Neil Armstrong <neil.armstrong@linaro.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Dan Carpenter <error27@gmail.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Hans Verkuil <hverkuil@kernel.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	linux-media@vger.kernel.org,
+	linux-amlogic@lists.infradead.org,
+	linux-staging@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Doruk Tan Ozturk <doruk@0sec.ai>
+Subject: [PATCH 0/2] media: meson: vdec: fix two more VP9 reference-frame lifetime bugs
+Date: Sat, 27 Jun 2026 08:55:32 +0200
+Message-ID: <20260627065534.88527-1-doruk@0sec.ai>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_235509_820916_67AFA23D 
-X-CRM114-Status: UNSURE (   8.56  )
+X-CRM114-CacheID: sfid-20260626_235538_802271_86B77CF9 
+X-CRM114-Status: UNSURE (   9.07  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -104,21 +108,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne torek, 23. junij 2026 ob 22:34:40 Srednjeevropski poletni =C4=8Das je D=
-iogo Silva napisal(a):
-> Simple KMS helper are deprecated since they only add an intermediate
-> layer between drivers and the atomic modesetting.
-> This patch removes the dependency on drm simple helpers from sun4i
-> DRM drivers.
->=20
-> Signed-off-by: Diogo Silva <diogompaissilva@gmail.com>
+While reviewing the earlier VP9 prev_frame use-after-free fix, a
+Sashiko AI review of that change surfaced two further reference-frame
+lifetime bugs in the same decoder, both rooted in vp9->prev_frame /
+vp9->cur_frame not being managed across all decode entry points.
 
-This doesn't look as useful change. Is this tree-wide attempt? If so, it
-should be done in one go in one patch series, coordinated with DRM
-maintainers.
+Patch 1 clears the cached prev_frame/cur_frame pointers in the .drain
+flush path, which frees every ref_frames_list node but left those two
+pointers aliasing freed memory; a decode resuming with an inter frame
+would then dereference freed vp9_frame storage in
+codec_vp9_set_mpred_mv() (use-after-free).
 
-Best regards,
-Jernej
+Patch 2 guards codec_vp9_set_mpred_mv() against vp9->prev_frame being
+NULL, which happens when the first decoded frame is an inter frame
+(malformed/adversarial input, or the first frame after a flush). The
+function dereferences prev_frame unconditionally, both for the
+use_prev_frame_mvs computation and for the previous-frame MV read
+register programming, so the NULL case is a NULL pointer dereference.
 
+Both issues were found by static analysis and are not yet runtime-
+reproduced (Amlogic Meson hardware required).
+
+Found by 0sec's autonomous vulnerability analysis (https://0sec.ai).
+
+Doruk Tan Ozturk (2):
+  media: meson: vdec: clear stale prev_frame/cur_frame on flush
+  media: meson: vdec: guard against NULL prev_frame in
+    codec_vp9_set_mpred_mv()
+
+ drivers/staging/media/meson/vdec/codec_vp9.c | 37 ++++++++++++++++----
+ 1 file changed, 30 insertions(+), 7 deletions(-)
+
+-- 
+2.53.0
 
 
