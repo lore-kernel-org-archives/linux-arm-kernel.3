@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56249C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Jun 2026 02:57:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4B36C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Jun 2026 03:16:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vqAETbvuaN/G9LDYJJ1O9SieyTi7IdqxuBwVZNw1xzU=; b=N/2aZUlooDLe4iowmYaC/0vjVd
-	JvNw2MEQ30SohWqDQCbRPqpSxQ7ZpUS2fsTFYRGgwelot4sXa7ri/srg2uGRnh6WTNDcdb08jqlgQ
-	1GKXgUKV7/YEjq1goFkwP9eQJpab/Yo1fHOpeGmcBXj+xgsrLSAsdJeuTLQidatZahmBGUvEphFXg
-	VvWh4MND6Y4SYyaIWtowRY5N+/6aFsgkmXurmcwMr9f4nZZxNSbKfqtSLzDhzwaxIIAyJ3q2cwOf1
-	izW52/fjXswgeyXSRYIYCde5x4v+w10JEz0BqssX9z1D3Wb0PsBPo4mSxGLIY6XSAg36irUzN+D09
-	h5nfSN1g==;
+	bh=rdxdDANKNK/8TPLaOL/J5NZYFBaOdT9eCsT/1hg66bQ=; b=zZRaI5lWRd2/TsnjDqMaITaxea
+	rOdubFu01JQpPq6EHrMJGhwGJ65hqGdGHlGsCCsD2Dw3xGXc3EgdP3+fsENj4eVCzQyadRsMwA0k/
+	U1BDUMGrXsH6Vh91kjoEpHfJLU/8Hinb2CZ4/wrbj94HT0sf3ypOugaKHyp1E+7Fdb+GC+Snr0v96
+	+TKoQvOv5Y9NakNFm/fgqLcOzHnRqImf9GjNeFLAuFOWq5uZ+4TA3+Fs5ySx6swg0jkoX2TsK7cWJ
+	8cXLLLV1JioS9vrsv6TmJZG4+vABCsVjTRxn93GFQhxd77BAWUEZvO4a7tyd3WYUlxQ/zxOjJLaTI
+	SU3phVmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdJEj-0000000C5hf-2wBK;
-	Sat, 27 Jun 2026 02:57:41 +0000
-Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
+	id 1wdJXC-0000000C69C-17Mw;
+	Sat, 27 Jun 2026 03:16:46 +0000
+Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdJEg-0000000C5hA-2Ot0
+	id 1wdJX8-0000000C68n-2jFO
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 27 Jun 2026 02:57:41 +0000
+	Sat, 27 Jun 2026 03:16:45 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=vqAETbvuaN/G9LDYJJ1O9SieyTi7IdqxuBwVZNw1xzU=;
-	b=OC+n4BQpcbrQKgE508R/VqiM2Xv0AtVk5CjteOq+/eCVjVNL2K7EIG+ePrJ2oXsVI2jp0jdsl
-	QW6aLdAvVePxvXJyruFJsTwgK3XwMDKn8qAQqAe/O+GW8m0uv/EaDFVg0wVsBU7E7c2v50CPb8K
-	MGYXejjABJs6LLH64i5B3W4=
-Received: from mail.maildlp.com (unknown [172.19.163.163])
-	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4gnH666PpczLlT9;
-	Sat, 27 Jun 2026 10:48:14 +0800 (CST)
+	bh=rdxdDANKNK/8TPLaOL/J5NZYFBaOdT9eCsT/1hg66bQ=;
+	b=MHosgWAtP/0Af4Pgbz3Sqsy0plyQxj51Ds/nuf/joo1f1T7um8PgGGSTqTJrJSnkMrEuLIrYJ
+	S7M8WSFnQKJVDiGaPIf1ldy2YBiRNcOH7fkx4QAcWAWNA2Nte/kM59HLagQ1jI5Wc/DFMvYhD97
+	ku0hgQpKSlu9opJLTiQAkZE=
+Received: from mail.maildlp.com (unknown [172.19.163.15])
+	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4gnHXD6MScz1K96s;
+	Sat, 27 Jun 2026 11:07:24 +0800 (CST)
 Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id E9F4A4056E;
-	Sat, 27 Jun 2026 10:57:21 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id B234340571;
+	Sat, 27 Jun 2026 11:16:30 +0800 (CST)
 Received: from [10.67.109.254] (10.67.109.254) by
  dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Sat, 27 Jun 2026 10:57:21 +0800
-Message-ID: <c10eb90f-3da5-48c4-9734-1913ea62bd9d@huawei.com>
-Date: Sat, 27 Jun 2026 10:57:04 +0800
+ 15.2.1544.11; Sat, 27 Jun 2026 11:16:30 +0800
+Message-ID: <49d4cefa-f733-4c8a-a371-5607d460ade1@huawei.com>
+Date: Sat, 27 Jun 2026 11:16:28 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH] ARM: entry: Convert IRQ handling to generic IRQ entry
@@ -60,11 +60,11 @@ In-Reply-To: <20260623-arm-generic-irq-entry-v7-1-v1-1-f25ca7079e3b@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
 X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
  dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_195739_296589_D6061520 
-X-CRM114-Status: GOOD (  44.63  )
+X-CRM114-CacheID: sfid-20260626_201643_416632_C921152B 
+X-CRM114-Status: GOOD (  42.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -195,51 +195,6 @@ On 6/23/2026 6:52 AM, Linus Walleij wrote:
 > +{
 > +	return regs->ARM_cpsr & PSR_I_BIT;
 > +}
-
-Hi Linus,
-
-Thanks for the patch.
-
-I have a small suggestion regarding the `interrupts_enabled` logic. If
-arm32 could also implement `regs_irqs_disabled(regs)` (similar to what
-arm64 and some other architectures already have), we might be able to
-unify this across subsystems.
-
-Specifically, we could then replace the custom `interrupts_enabled`
-usage in both the arm64 architecture code and drivers like
-`drivers/irqchip/irq-gic-v3.c`.
-
---- a/arch/arm64/include/asm/ptrace.h
-+++ b/arch/arm64/include/asm/ptrace.h
-@@ -215,8 +215,6 @@ static __always_inline bool regs_irqs_disabled(const
-struct pt_regs *regs)
-        return (regs->pstate & PSR_I_BIT) || !irqs_priority_unmasked(regs);
- }
-
--#define interrupts_enabled(regs)       (!regs_irqs_disabled(regs))
--
- static inline unsigned long user_stack_pointer(struct pt_regs *regs)
- {
-        if (compat_user_mode(regs))
-diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
-index 99444a1b2ffa..60fa6a60adce 100644
---- a/drivers/irqchip/irq-gic-v3.c
-+++ b/drivers/irqchip/irq-gic-v3.c
-@@ -914,7 +914,7 @@ static void __gic_handle_irq_from_irqsoff(struct
-pt_regs *regs)
-
- static void __exception_irq_entry gic_handle_irq(struct pt_regs *regs)
- {
--       if (unlikely(gic_supports_nmi() && !interrupts_enabled(regs)))
-+       if (unlikely(gic_supports_nmi() && regs_irqs_disabled(regs)))
-                __gic_handle_irq_from_irqsoff(regs);
-        else
-                __gic_handle_irq_from_irqson(regs);
-
-Best regards,
-Jinjie
-
-
 > +
 >  #define interrupts_enabled(regs) \
 > -	(!((regs)->ARM_cpsr & PSR_I_BIT))
@@ -492,6 +447,18 @@ Jinjie
 > +	 */
 > +	if (mode == 1 || on_thread_stack())
 > +		call_on_irq_stack(handle_arm_irq, regs);
+
+It seems that the CONFIG_VMAP_STACK Overflow Protection is missing,
+should we implement the C version of CONFIG_VMAP_STACK first, before
+moving the IRQ handling to C?"
+
+-       .macro  irq_handler, from_user:req
+-#ifdef CONFIG_VMAP_STACK
+-       ldr_va  r3, high_memory, cc     @ End of the linear region
+-       cmpcc   r3, r1                  @ Stack pointer was below it?
+-#endif
+
+
 > +	else
 > +		handle_arm_irq(regs);
 > +
@@ -570,6 +537,8 @@ Jinjie
 > Best regards,
 > --  
 > Linus Walleij <linusw@kernel.org>
+> 
+> 
 > 
 
 
