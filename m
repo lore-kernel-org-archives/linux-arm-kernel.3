@@ -4,98 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24648C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Jun 2026 06:55:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EAF1C43327
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Jun 2026 07:31:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SY5IObv1DsntvWInFkK4gkjbbOppwkuoQ6M12vyKR9M=; b=J/Xwgad7DM/xI/ECFvTikYi19A
-	VocJplsjgMdUVmReqKXMOhVOVApyLUQozU0SJaoJ1XnOdgFVkXJW4NYg0CIb9dlq7lsngR1XTY4cT
-	+aBkQTUk5b64vS4PL/e5XH31Z50S3zo7+obPrelTZ6dDIslvAAPNwIuhhfKap6vFDK3ufE3IWnxt8
-	k8bOsXuo9fn0jyRG3xcKeliD+d+QdSw9p1ub48kr26fGAQkwzxBG5IJCu2J25n1wEcIAusv+jHMBY
-	MfWikIJ0WL9lIY2IVYR35E4KfpyVyg9TxvxQqEng2M75NChhlmQayWMPk1I6ais7mXXrd12/MD4QK
-	8lChm73w==;
+	bh=QL3YlGwC31Y8JENjif0rePlWfsMeeECArxgJS8HhxD4=; b=ct+Mo4cFp0Vm9Pglhnx2uROmZt
+	zmJtlXC7pimME3W91N+9hhhSCclsPpXHxpOKySbl+rJD6cyZAkXtf9d+6x+FJRF5ppMLBD5jWa0iJ
+	5IfefHvWCwLJTH/6q985p72FmKaY6lDKzMNje+s1HmWMgPXov2HuGoK/FZmrvOmlB2sWZV7cE0jly
+	vkM2i2oOkN678u5ORaP/VMW1QLwYdqbb2DEJfH6yYhbfYWZXU2guLRtjf6rjr0Ci6ASnyUEgp8znT
+	visdnVGRyuW4N1xS7NNSudB5F8LlE7jWJjfApGW1dnegHW5m3fCvQoGuPVYzQ50K3Qnx3vcwMLJjM
+	M17sNN5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdMx8-0000000CENP-2oxW;
-	Sat, 27 Jun 2026 06:55:46 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1wdNVK-0000000CGKc-45eT;
+	Sat, 27 Jun 2026 07:31:06 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdMx2-0000000CEJ7-2Sgb
+	id 1wdNVI-0000000CGJo-0gya
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 27 Jun 2026 06:55:41 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-46f27bd4c45so1199012f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Jun 2026 23:55:39 -0700 (PDT)
+	Sat, 27 Jun 2026 07:31:05 +0000
+Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-68bd9fce347so3136584a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 27 Jun 2026 00:31:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=0sec.ai; s=google; t=1782543339; x=1783148139; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=SY5IObv1DsntvWInFkK4gkjbbOppwkuoQ6M12vyKR9M=;
-        b=X5qJHV/yMmmf+4ylQHBVODaUVUS4Gu/b11doCBZ98qPrkzjKcue0YrUFNIpyZ5u4LF
-         EqaGQK3PRKUi9D8B07ANW1TyOmbgqywx82T8Ize8xupdIxeFbTrMLx1klHZekjXLv4NL
-         ih+x/QQfi+WnSiY6ddnYQI8gaS9RW8bQ5Cjkz/PgzGg92upkupYJ8tutpUoN93Xj7YiS
-         ztkFJ6TnOwZMUon6h/npuEY7r+W1f+jeohhj6gv2ieiq1uPMQe5KYfdQaN+Gw5VeDkCP
-         OaNG1UpoIsi8qcfWB0Fr2VCRXWSndAE5IWcJKhnnY/2Li0eAPETFS0qMOxMGgHfE+tqC
-         DesQ==
+        d=pardini.net; s=google; t=1782545461; x=1783150261; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=QL3YlGwC31Y8JENjif0rePlWfsMeeECArxgJS8HhxD4=;
+        b=Qz/JkyaxDaev+rguPn0eWJuOXcD+JT5m7AxPBOXtINIJNcwhnKqd+IaDMPqqkYOLux
+         yMMhus7bJpb6MUYoSQS1nGL3U2/zUpeTBHpgOtZMpHgHhscNaKBbAf2ZO3vlm+/P96Pe
+         AojrN0IGtjkyFAnuB6S3pNUaUYeXza72BaEBHwOcS/Ak6Peif1b6uzHzSsXCKRZDGsHc
+         yKXe17rT3NSnFErGYjIZFVYxA1YwCzlazgJSuyvn2/6/Ooi5bfZA6qJYDntSYFQBtg9Y
+         B9/+Spk8r1CCLkk8RuyQWFI1X2P/2J7DVsB81XG5tI+UFBEC+B3STXzY0v0XEMS/kB/1
+         Lhjw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782543339; x=1783148139;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=SY5IObv1DsntvWInFkK4gkjbbOppwkuoQ6M12vyKR9M=;
-        b=OJ2Jewhu9FJNZCYY6I5yb6zIBzQw/wo6VsRIqZN5JOxn2NfmNGlAt6BwtJpAYiHG6Z
-         e+mQsclDQ+rJWj8PAZfiR/uVxkgGnqFH1Ke4VV30O9uvWAKb2Tnkvf0DvJrBD2rG9k1H
-         YRtd/Y++fvc/ByP76l7jA6jCV9AxGNkDDA4sMglpNExy/ISABP4cDVo16ODqTNMTYoF9
-         pPf0MTvLpXLtgnxDDLjFAgV2hUkIHm0zE6KFMuHg+1XCe8eFzbddnm3TpWkVXBPVdEM7
-         hIcemmOtoAInCFuGsNWPLoZIkunNZP7eRimgRReHPkNrhWWCDx3jLOW1ixVBjRDG32no
-         P6WA==
-X-Forwarded-Encrypted: i=1; AHgh+RqnwNqyTXTnZnl/T6VKXwxWppheEI4x7DiRI4p0Q3x+/cpZojoNh/gRJ7Lc7ddeHBrh+WZrDXDuGSfMOuuGsyNo@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywgygc1KoPEPViqlKiY/uIB0c7bAfnnYxaFP36F0CuNNKa+Tgxn
-	6DVvDk77yKJx6NWkPNl+E5L9flbPB42YZzNZFnmHqGEWHKk+zV48J+FdmkLTrBDD1qpL
-X-Gm-Gg: AfdE7cmU/Db74Xfp65YI8bJx8lM+K/t4OzBxau/W4BCixAof3DWTJ59jTn+zivUSdNM
-	9OKXWqlzNsEWC9DqZ6HBRkAEMs1Tv++feDCWhDCmlwjcgIWuZ4xKQt+uynhvo25iWwXoBAvKtR5
-	vMTILS5mx/9JkHd8gxl1zPk+elVpfjNDggAj/a/tEOXSxGMWzB9nL1TyHkrk/tUgvtkQy744RPI
-	Vbv5SXOkPYqZJNmI1HUsT0FiVUYSi76t7achkcDcPyEGFJ3flmeX+LCjEjZjF5W4+SsGO/0EVbe
-	V/3DZxBlccXEP/pRK/LK6qv7vFveAT6K/IMlOo1TtJaEuZmdCrhAoe8R4CKTQXgxOOnoHJ2uIfi
-	f2ZwThRcmmFKwQKdz3IDG1o6bc1Ma5XAVd9+t10MJek+LMR4zSM9VzmEgC5Z0EfmVOJIxTRp0LQ
-	Gz9tzbZHUvOx16JaqCOyMX6rswj+Ap3Ynz10hXtUhpCqE7BRkPjY7xP7o7UVCBh0LdCIofhK8Sz
-	CvJ/bJFmKw/8GsPsXxlrndX3CG3lOiHGKk=
-X-Received: by 2002:a05:6000:4204:b0:460:30bd:4dca with SMTP id ffacd0b85a97d-46dc12e056fmr15051536f8f.30.1782543338095;
-        Fri, 26 Jun 2026 23:55:38 -0700 (PDT)
-Received: from PeakBook-Mini.tail8e484.ts.net ([178.197.218.209])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-46c1ee0189esm32691380f8f.9.2026.06.26.23.55.36
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 26 Jun 2026 23:55:37 -0700 (PDT)
-From: Doruk Tan Ozturk <doruk@0sec.ai>
-To: Neil Armstrong <neil.armstrong@linaro.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Dan Carpenter <error27@gmail.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Hans Verkuil <hverkuil@kernel.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	linux-media@vger.kernel.org,
-	linux-amlogic@lists.infradead.org,
-	linux-staging@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Doruk Tan Ozturk <doruk@0sec.ai>
-Subject: [PATCH 1/2] media: meson: vdec: clear stale prev_frame/cur_frame on flush
-Date: Sat, 27 Jun 2026 08:55:33 +0200
-Message-ID: <20260627065534.88527-2-doruk@0sec.ai>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260627065534.88527-1-doruk@0sec.ai>
-References: <20260627065534.88527-1-doruk@0sec.ai>
+        d=1e100.net; s=20251104; t=1782545461; x=1783150261;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=QL3YlGwC31Y8JENjif0rePlWfsMeeECArxgJS8HhxD4=;
+        b=HeHF5w/r/O9xju/l7Ey/jKQXBrya3ZUT1aVG6j231qzjWx39qoMan9qCp4YzbxxaGa
+         sCRkJGe77lBhXIGHBhhkdRUfvod//KQDJLF8g8oZnNgyjSbiwWSBzo2cFrcpyK9+6M7W
+         LnmYjefAcvLPgxLU98pcnmKWzvHfHTcdCpHbitGt3usgBesZ7jldtAOLGiiXuHu6DZwH
+         6YMRZDjxT5k+EvLRNHAHaqfG5dwT/EGIxDwVZWWwPZ9vkruiDM/OOcmGeGjXI8eQdZ6k
+         9YoI0SH8N9wzoIRWUdHfboOHwi6PQqD/3rc3jQeBOWumj/f/TFoqsYvyGsrmjjQhD3wH
+         JeXA==
+X-Forwarded-Encrypted: i=1; AHgh+RqjCl4pA3PXub0d2UlxEhLMEpujEFZV1tQv2I4IeAOEwVv0jZOci467BsiSkrygonqCx+fbS84zr4LEc0ceRsCL@lists.infradead.org
+X-Gm-Message-State: AOJu0YxJ8zwYVSjnlH7DWXSBG13tqDlpA8e3QDRohzVu97EGbVCHBXm6
+	GYvjlUrz/XPVG6pkilVPToSe/Aed99rYMbimVpFvEJEZFmus8+VZDcnFU3fg5NMbZQ==
+X-Gm-Gg: AfdE7clidbw1TVVt9hTSXpy01CBcVvUWi/ulaIy/Wrht6MOiqH+5UC49Ki3JFxLp32l
+	fk+sY+LVvdd3NA9jPWklEnp4n7Uf4a1VMH2h6AaPi0jGNe/Stat8Y4P5D4LvFIxylsawTtiOPgA
+	W6fHb+pkRrOd9dZhAGZSUJoTzsGc1bE0a1H91wgZELzDRCuZbrPwHNTs3ZY8y5Lc0dxOGb7ZSUr
+	yYS+uZxQv7uq29s9gupX2dnojuSabMfyBktxi4zn5P9uurLyWKOBHDAHm0J463niyxYxmG9polt
+	F8LdhyfNp5gMhdaddxCGQzL+oBfCkdZhWsvIQ+USssXXmOrMnudxE5L0EBxPwcee5huLzoEImzB
+	U79Bc5XEroNieHzE8m1aXhUVsjCPMEW9DG2wxy90WRq37POfPIKvTTGn7Grd5E33XBIbnirn+RG
+	tls4MQ0v6Vnh2ftRIdyKsW5/TS5pF+KpgagJ8x78BllKY/pdx3mqXUZGobmmfVECyUknWf4LMcE
+	QQSKJ5m7ynRxMQvpp6o4nMODjjPL5QfZQsMk9delCjV5AVA4hbftwdgv2yNm0oT
+X-Received: by 2002:a17:907:6d25:b0:c10:2eac:e839 with SMTP id a640c23a62f3a-c1233661842mr156084766b.39.1782545460756;
+        Sat, 27 Jun 2026 00:31:00 -0700 (PDT)
+Received: from ?IPV6:2a02:a466:4d7a:0:79f9:b7dc:8cc2:bc28? (2a02-a466-4d7a-0-79f9-b7dc-8cc2-bc28.fixed6.kpn.net. [2a02:a466:4d7a:0:79f9:b7dc:8cc2:bc28])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-697f47d5a35sm3896286a12.17.2026.06.27.00.30.58
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 27 Jun 2026 00:30:59 -0700 (PDT)
+Message-ID: <45e48dc7-1aa6-4214-8dcc-b3c562d61343@pardini.net>
+Date: Sat, 27 Jun 2026 09:30:58 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] clk: rockchip: rk3588: don't disable unused I2S MCLK
+ output gates
+To: Daniele Briguglio <hello@superkali.me>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Diederik de Haas <diederik@cknow-tech.com>,
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+References: <20260624123914.1767374-1-hello@superkali.me>
+Content-Language: en-US
+From: Ricardo Pardini <ricardo@pardini.net>
+In-Reply-To: <20260624123914.1767374-1-hello@superkali.me>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_235540_641577_8D4AB87B 
-X-CRM114-Status: GOOD (  11.02  )
+X-CRM114-CacheID: sfid-20260627_003104_244328_3749A731 
+X-CRM114-Status: GOOD (  17.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,51 +107,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-codec_vp9_flush_output() (the .drain callback) walks ref_frames_list
-and kfree()s every vp9_frame node, but never clears vp9->prev_frame
-or vp9->cur_frame, which alias nodes that were just freed.
+On 24/06/2026 14:39, Daniele Briguglio wrote:
+> No in-tree board references these gates yet. Boards drive the codec
+> MCLK through the parent I2S*_8CH_MCLKOUT, and now that the gates are
+> managed clocks, clk_disable_unused() turns them off at boot. On a board
+> that relied on firmware leaving the output enabled, that cuts the MCLK
+> and analog audio stops working.
+> 
+> Mark the four gates CLK_IGNORE_UNUSED so an unreferenced gate keeps the
+> state firmware left. A board that wants the kernel to own the gate can
+> reference I2S*_8CH_MCLKOUT_TO_IO from DT instead.
+> 
+> Fixes: 02b9b0bb6269 ("clk: rockchip: rk3588: add GATE_GRF clocks for I2S MCLK output to IO")
+> Reported-by: Diederik de Haas <diederik@cknow-tech.com>
+> Closes: https://lore.kernel.org/linux-rockchip/DJGDSS875DDO.22TYPVYK5X8KZ@cknow-tech.com/
+> Tested-by: Diederik de Haas <diederik@cknow-tech.com>
+> Signed-off-by: Daniele Briguglio <hello@superkali.me>
 
-If decoding resumes after a flush with an inter (non-key) frame,
-codec_vp9_process_frame() calls codec_vp9_set_mpred_mv(), which
-dereferences vp9->prev_frame->{width,height,intra_only,show,type}
-and feeds vp9->prev_frame to codec_vp9_get_frame_mv_paddr(). With
-prev_frame still pointing at freed memory this is a use-after-free.
+I've reproduced the failure reported by Diederik on the NanoPC-T6-LTS 
+(indirect I2S0_8CH_MCLKOUT) without this patch, then with this patch 
+(which fixes it), and re-tested the R58X-Pro (out-of-tree explicit 
+I2S0_8CH_MCLKOUT_TO_IO consumer); it all works for me now.
 
-Clear both cached pointers once the list has been freed so a resumed
-decode starts from a clean state.
+Tested-by: Ricardo Pardini <ricardo@pardini.net> # on R58X-Pro+NanoPC-T6
 
-Found by 0sec's autonomous vulnerability analysis (https://0sec.ai).
-Found by static analysis; not yet runtime-reproduced (Amlogic Meson
-hardware required).
+Thanks,
 
-Fixes: 00c43088aa68 ("media: meson: vdec: add VP9 decoder support")
-Signed-off-by: Doruk Tan Ozturk <doruk@0sec.ai>
----
- drivers/staging/media/meson/vdec/codec_vp9.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+-- Ricardo
 
-diff --git a/drivers/staging/media/meson/vdec/codec_vp9.c b/drivers/staging/media/meson/vdec/codec_vp9.c
-index 8e80ecf84193..5ca27930239f 100644
---- a/drivers/staging/media/meson/vdec/codec_vp9.c
-+++ b/drivers/staging/media/meson/vdec/codec_vp9.c
-@@ -681,6 +681,16 @@ static void codec_vp9_flush_output(struct amvdec_session *sess)
- 		list_del(&tmp->list);
- 		kfree(tmp);
- 	}
-+
-+	/*
-+	 * All ref_frames_list nodes have been freed above. Drop the cached
-+	 * pointers so a decode resuming after the flush (e.g. an inter frame
-+	 * following a drain) cannot dereference freed vp9_frame memory in
-+	 * codec_vp9_set_mpred_mv().
-+	 */
-+	vp9->prev_frame = NULL;
-+	vp9->cur_frame = NULL;
-+
- 	mutex_unlock(&vp9->lock);
- }
- 
--- 
-2.53.0
+> ---
+>   drivers/clk/rockchip/clk-rk3588.c | 8 ++++----
+>   1 file changed, 4 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/clk/rockchip/clk-rk3588.c b/drivers/clk/rockchip/clk-rk3588.c
+> index 2ba9976654c..86953f9ffee 100644
+> --- a/drivers/clk/rockchip/clk-rk3588.c
+> +++ b/drivers/clk/rockchip/clk-rk3588.c
+> @@ -895,7 +895,7 @@ static struct rockchip_clk_branch rk3588_early_clk_branches[] __initdata = {
+>   	MUX(I2S2_2CH_MCLKOUT, "i2s2_2ch_mclkout", i2s2_2ch_mclkout_p, CLK_SET_RATE_PARENT,
+>   			RK3588_CLKSEL_CON(30), 2, 1, MFLAGS),
+>   	GATE_GRF(I2S2_2CH_MCLKOUT_TO_IO, "i2s2_2ch_mclkout_to_io", "i2s2_2ch_mclkout",
+> -			0, RK3588_SYSGRF_SOC_CON6, 2, GFLAGS, grf_type_sys),
+> +			CLK_IGNORE_UNUSED, RK3588_SYSGRF_SOC_CON6, 2, GFLAGS, grf_type_sys),
+>   
+>   	COMPOSITE(CLK_I2S3_2CH_SRC, "clk_i2s3_2ch_src", gpll_aupll_p, 0,
+>   			RK3588_CLKSEL_CON(30), 8, 1, MFLAGS, 3, 5, DFLAGS,
+> @@ -912,7 +912,7 @@ static struct rockchip_clk_branch rk3588_early_clk_branches[] __initdata = {
+>   	MUX(I2S3_2CH_MCLKOUT, "i2s3_2ch_mclkout", i2s3_2ch_mclkout_p, CLK_SET_RATE_PARENT,
+>   			RK3588_CLKSEL_CON(32), 2, 1, MFLAGS),
+>   	GATE_GRF(I2S3_2CH_MCLKOUT_TO_IO, "i2s3_2ch_mclkout_to_io", "i2s3_2ch_mclkout",
+> -			0, RK3588_SYSGRF_SOC_CON6, 7, GFLAGS, grf_type_sys),
+> +			CLK_IGNORE_UNUSED, RK3588_SYSGRF_SOC_CON6, 7, GFLAGS, grf_type_sys),
+>   	GATE(PCLK_ACDCDIG, "pclk_acdcdig", "pclk_audio_root", 0,
+>   			RK3588_CLKGATE_CON(7), 11, GFLAGS),
+>   	GATE(HCLK_I2S0_8CH, "hclk_i2s0_8ch", "hclk_audio_root", 0,
+> @@ -942,7 +942,7 @@ static struct rockchip_clk_branch rk3588_early_clk_branches[] __initdata = {
+>   	MUX(I2S0_8CH_MCLKOUT, "i2s0_8ch_mclkout", i2s0_8ch_mclkout_p, CLK_SET_RATE_PARENT,
+>   			RK3588_CLKSEL_CON(28), 2, 2, MFLAGS),
+>   	GATE_GRF(I2S0_8CH_MCLKOUT_TO_IO, "i2s0_8ch_mclkout_to_io", "i2s0_8ch_mclkout",
+> -			0, RK3588_SYSGRF_SOC_CON6, 0, GFLAGS, grf_type_sys),
+> +			CLK_IGNORE_UNUSED, RK3588_SYSGRF_SOC_CON6, 0, GFLAGS, grf_type_sys),
+>   
+>   	GATE(HCLK_PDM1, "hclk_pdm1", "hclk_audio_root", 0,
+>   			RK3588_CLKGATE_CON(9), 6, GFLAGS),
+> @@ -2229,7 +2229,7 @@ static struct rockchip_clk_branch rk3588_early_clk_branches[] __initdata = {
+>   	MUX(I2S1_8CH_MCLKOUT, "i2s1_8ch_mclkout", i2s1_8ch_mclkout_p, CLK_SET_RATE_PARENT,
+>   			RK3588_PMU_CLKSEL_CON(9), 2, 2, MFLAGS),
+>   	GATE_GRF(I2S1_8CH_MCLKOUT_TO_IO, "i2s1_8ch_mclkout_to_io", "i2s1_8ch_mclkout",
+> -			0, RK3588_SYSGRF_SOC_CON6, 1, GFLAGS, grf_type_sys),
+> +			CLK_IGNORE_UNUSED, RK3588_SYSGRF_SOC_CON6, 1, GFLAGS, grf_type_sys),
+>   	GATE(PCLK_PMU1, "pclk_pmu1", "pclk_pmu0_root", CLK_IS_CRITICAL,
+>   			RK3588_PMU_CLKGATE_CON(1), 0, GFLAGS),
+>   	GATE(CLK_DDR_FAIL_SAFE, "clk_ddr_fail_safe", "clk_pmu0", CLK_IGNORE_UNUSED,
+> 
+> base-commit: 7edfb7fb58ee058298e18fde76a6077ef17d19d8
 
 
