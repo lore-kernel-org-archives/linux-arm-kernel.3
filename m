@@ -4,92 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFFAEC43211
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Jun 2026 13:12:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 379D6C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Jun 2026 13:49:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mYYGf5y/FFyUp8Jk8dSfusP7o73GMsKAwMN8eV/HMTQ=; b=iqo61Nw/ktjHq02m924RPpmisb
-	on07X/XtSQyaGyJ/UoI/cVs2E/NiQmOB+gNfXLwVILxNmZrId/gI9bEb75MUvzdEUr8CC3qz/Uk/a
-	5TKznx+K1jz7th1hxfexXJtXYWJZwf6RsvB/yvgGKHsXVuf936KZe2VFtR3ptt+loaB3FUSrh7DA7
-	ORggkfC3bO7kEsO4sdYgrLIW9DRXEOoGkVF+W5sBcq3U6YDA5ueyHlkMNRcgYpLLxmgM9CNjbwfvl
-	g5GkuXJx8ysm/ZcisnHt11daMkmezU3r3hSFw7077OLwSwmvMr9ChQ56s03lLpnvHk/whRrkNC0hy
-	iPImewDQ==;
+	bh=GE0WgxrhQlszpq0bFS8ekUeWF2E3M+uVciQ9zYtpewc=; b=095Ccbi31O9nkXUcvzpow5OpAW
+	9huVr8YggAdZGkdmzJkK72up6KQHkvN3290mPxW3Mb2L3BCj7CwcH7D+aA5KdrahZCo+hdhslNZV6
+	+7gwPdwIM3Uqou42yWUdcv30tJvbHrS7K7n/3hLWnfddblYngdEvz2VCCq14d+MEXM4/yldm7l271
+	DsnNJ11ZvawEWt6XdVIaWD/ooSD5540CaF4hxIic69RFutpa9lCw98qWfG/gEjQUMygvoVGg6TKfU
+	IVR0nGIyUmjbsp93u7mKZsenShc/p5KzLJ0GfI7W5RkpsUwGWanOmTKLDKG77lwRmfGZalGUWAKi/
+	xNQVcVVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdSpS-0000000CUvO-1dfD;
-	Sat, 27 Jun 2026 13:12:14 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1wdTPT-0000000CWMz-1yrp;
+	Sat, 27 Jun 2026 13:49:27 +0000
+Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdSpP-0000000CUuX-438v
+	id 1wdTPQ-0000000CWME-3MAU
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 27 Jun 2026 13:12:13 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-490cf3000f0so16824545e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 27 Jun 2026 06:12:11 -0700 (PDT)
+	Sat, 27 Jun 2026 13:49:26 +0000
+Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-c88cc025f54so1192908a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 27 Jun 2026 06:49:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782565930; x=1783170730; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=mYYGf5y/FFyUp8Jk8dSfusP7o73GMsKAwMN8eV/HMTQ=;
-        b=eZ05Ov6XPT0hx8fI0f3WTQ0d1RQLBRsaXo0ZRBa+nv0DNdbU7pVzi123yOF1axU6Gx
-         5LE/d+AGPmoXcS3kD3wLL98++sbx4SHD0qjMZ4ezJJBgfPqkMbY0pWbrCT3Kv6btJkLO
-         fftclRtY16OOM0mtgXKjAcFBbVSu58nshJYpb+BdSIoxxvU1V4a1ziWAd0Okl2yvIs5C
-         eTBGXYDItovQmbfEJyD++jO1c/FZcyTwJPc4Z2omHH4361RpLB59mz3x7HLYubeyFiRr
-         I3Os6KXtFWjeoY2ISawZ0IEnugCdMOKAvlhCWk7gPC7EKZrM1SkGx3xcShRrlHql++5n
-         Ik0Q==
+        d=gmail.com; s=20251104; t=1782568163; x=1783172963; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=GE0WgxrhQlszpq0bFS8ekUeWF2E3M+uVciQ9zYtpewc=;
+        b=ILbgPfrsUhnoYXdFbdoF5oHx0008up1NLlcUYlVzaTt1ITO6ORTk6GNBa2k+xZiFRx
+         fep17jXEQsPopdVg6xkXtIyIL7UJ34/PLxQIbL1iZbKYW/8vm4XtEm4BXefHo6VA4UFC
+         1wqmKKEX0cSM+zqwlmwp8JA9teu2DcxwEsuAYzia+kGcU8EhV8to01q+/bxq6/OjAZJz
+         3h9oGgp5Ya40Ub1d90Rx6qHuO8WHt9Qt5gmj7G8NFAkdYi729eeICR2Uzh95gmdcNfpR
+         A5o7SdTdX1/U6BgyPGE7hvacxUCN14SZrUtjkSW5ZlK16lePoto6UCZ8y+VzFvtgiXpW
+         ZjFQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782565930; x=1783170730;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=mYYGf5y/FFyUp8Jk8dSfusP7o73GMsKAwMN8eV/HMTQ=;
-        b=KmtzVqWm8XecHOUuv7+t6Hj2kKEI5DgJGLG7iTS9Qnnoo2jegJCaLgYn4IAJQpgxLo
-         5phDUOPiXuwo8fbZJDJcpoexOeX5Q7c6cbbbriAHLVZAe4AAWmbm6ouzkDPFjyvoxQwY
-         /BaRSPYeAGm+TrJJ9REJX9wZ4itJoyOqiO7kIR+nbtgqbWV+pqOdXG80b4p//DxVN1Dx
-         Cg1AyjH/aeiYsW6qSICMx/RPuIHKQ647in3wPex5KxdlKVF+1ya9YKh/OWYu2KFyp//H
-         otGd4NQNmCHhRFtkLjSQ4MKNqFt2ZIQaWMIeEvzjchlSt0zkJ8cM/Z3XKQU3ZiXC7qy1
-         bzKw==
-X-Forwarded-Encrypted: i=1; AFNElJ/2J+RwV380ax8bv07u1x/DqO1v9leTS1STcan9m+9gBvN2CmfQ2D7y3pFDenGWojx7hSds1YoCuN4qHPKk5qab@lists.infradead.org
-X-Gm-Message-State: AOJu0YwGwzBNy/4NEZ88inRgZjfE8d2dy/SSC2mXhs56aLDQ0z5RzIyh
-	0FRSCyW8Gxkpi68exPmkmPpCqPLS7u1cq5ErQXanKwhLLXmxPViHagAR
-X-Gm-Gg: AfdE7cn93741VDkNxwqoE3NUtz5F/JgnZuRze1CYmuCK9NNm/DK/hOlksmiNZqcEopI
-	yWT8I/WYzdiqV1LjDtKhD0el390/Z/IxjChVUI9MS4/cRLTWZFKABsYCvpJQppyEzz7mlQafrPR
-	/LVf93ahZJQHedbQYkOBIpkoyBYmEK1pmbsctxiwIpD7eC++yAU7f8rADpAYfGRYmB1oWWw9VO1
-	HH0IZKmW33MlNnqiptUsmJuOIlFbtoVG18afW8thFFfoje2YGqlu0lpggE0s3+m7hWYJBpVATPy
-	jvIBbt5WnFfvvy3NV9xdDqCIQFluQjbRvsIVXpE6czExpfKNp5udPO3BLW/CDBz/99xUvU4uwb4
-	SmO1y8ZI10LltHG8a5uRbp9pRT2kqB66lVUaKhuT+T/cG5SeHoheEf/wyeZEA36yfqQqK63/mJ8
-	SbW/Xgh9yCIpe+SdY3
-X-Received: by 2002:a05:600c:4e54:b0:492:523f:a3df with SMTP id 5b1f17b1804b1-4926685fccfmr158769025e9.5.1782565929840;
-        Sat, 27 Jun 2026 06:12:09 -0700 (PDT)
-Received: from toolbox.. ([87.200.95.144])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49268fde98csm171665075e9.6.2026.06.27.06.12.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 27 Jun 2026 06:12:09 -0700 (PDT)
-From: Christian Hewitt <christianshewitt@gmail.com>
-To: Jerome Brunet <jbrunet@baylibre.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	linux-sound@vger.kernel.org,
+        d=1e100.net; s=20251104; t=1782568163; x=1783172963;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=GE0WgxrhQlszpq0bFS8ekUeWF2E3M+uVciQ9zYtpewc=;
+        b=IX2ALxDsu/3pYaO2TbbELQpvuUuo19TUE+uH1pdVVkcfLAfszf7KB5y+wBGfE1+qQ2
+         t4zq68H0nP9Cl1/nYgs4SE9RDedS067WSvsci51d0qL1lExbbadWhBQJ2JUtjrdkV/vD
+         xu6hUg3z2wsU9ujad6V4oSFVnenGRCiXTooimQIquMiktvVfedzkJ9eK3aRSUxwClxCh
+         80owEEK6kMKc+vB0RdgeEExB9AY45v3dlVx6+ZAceW+ppZJhldy3QMBu9584/d/xtCuk
+         OTZcWqpRm48ss0i8p3J1QU/3O+V8B8c73flOovTqTPf72m9soeA+WdiPtII+AwoGR8Lo
+         mUEg==
+X-Forwarded-Encrypted: i=1; AFNElJ80/2LP4P9owcFlZUIXnTXLsvMEKayuif+xKpRQulFwiQ2NRj17ykRv2W9383TbM7fIewvSU9G8frE8xCdemPX+@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy08VbDyq4aoLJ29pHy9CgcwonED2Hs/6XOfgy71D6Hqbz+EKco
+	qZHUjaXMP7F27PCkQrvTYb15Sp5sn/3sP1t3zMoOkiw3FhHWKOgh5+U=
+X-Gm-Gg: AfdE7ckpLrbtRCEljLxK2E3EboUpfLo9fboKKxE3F5pPv9AaBpCXL1DhxNzqHKbJ9dm
+	zSlfrjMqEAOTp0q9MghSIHJt7c6cC/HuaauqWKYTaBKIkXryIwgEvc0O/xE5Ejl4VWHNHFt2uUn
+	wXxdYYDAeoE0qYlkHyT/6YDcpD4j6t24vMe5b+WiidOTBDzY+7JOZbwwbepMizQ83GMPPgUETKT
+	9Wqc4ZX4dq0XHW53MhsVIeQy7vjuxF83PH7NeWOI3yztu3bU39/uuVSccMrF1fX+QGgDJYE92OU
+	FIZa1Thgyvwv1spgLD8PgP/M9HYQvo4ennuoz7afcQF5VyT9JYEFQtwbPwH8JCmhmY70YEsfSzU
+	BDA/rz6dexssvxxDraXYkXUDGDmFt616ntgeIM9xduPTaN1QqwIwU7Q0WcCbwzonnS8+cnpRFzG
+	ot5Jrp7Sa5Kh0k0eTXX3v8yg5xJ9m1MZtNO9cDmRBff/nm9fvdVWsMoAAzCyF+dy4HdWQTu5y0G
+	1eQkB6jcL/ZWFI349cuENHpitjYEC7+yK8yJTNqQkjoTHgR3Q==
+X-Received: by 2002:a05:6a00:f8b:b0:842:38d2:a35f with SMTP id d2e1a72fcca58-845b3ae02b7mr11286739b3a.31.1782568163272;
+        Sat, 27 Jun 2026 06:49:23 -0700 (PDT)
+Received: from localhost.localdomain ([14.5.152.27])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-845ba9fa138sm4691580b3a.52.2026.06.27.06.49.19
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Sat, 27 Jun 2026 06:49:22 -0700 (PDT)
+From: Myeonghun Pak <mhun512@gmail.com>
+To: Sean Wang <sean.wang@mediatek.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Frank Li <Frank.Li@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: dmaengine@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3] ASoC: meson: aiu: fifo-spdif: soft reset the S/PDIF datapath on start/stop
-Date: Sat, 27 Jun 2026 13:12:05 +0000
-Message-ID: <20260627131205.808800-1-christianshewitt@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Myeonghun Pak <mhun512@gmail.com>,
+	Ijae Kim <ae878000@gmail.com>
+Subject: [PATCH v2] dmaengine: mediatek: hsdma: fix runtime PM leak on init failure
+Date: Sat, 27 Jun 2026 22:49:02 +0900
+Message-ID: <20260627134915.8749-1-mhun512@gmail.com>
+X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260627_061212_047931_9C560F7C 
-X-CRM114-Status: GOOD (  12.28  )
+X-CRM114-CacheID: sfid-20260627_064924_838726_AF773180 
+X-CRM114-Status: GOOD (  13.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,64 +104,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The I2S FIFO soft-resets its fast domain on start (AIU_RST_SOFT bit 0 +
-AIU_I2S_SYNC read in aiu_fifo_i2s_trigger), mirroring the downstream
-vendor driver's audio_out_i2s_enable(). The S/PDIF FIFO has no equivalent:
-it only toggles the IEC958 DCU, so a stale datapath FIFO can be replayed,
-producing the "machine gun noise" buffer underrun - on start when switching
-outputs, and on stop when playback ends. The latter is audible on devices
-with an always-on S/PDIF-fed DAC (e.g. the ES7144 on the WeTek Play2).
+mtk_hsdma_hw_init() enables runtime PM and gets a runtime PM reference
+before enabling the HSDMA clock. It currently ignores failures from
+pm_runtime_get_sync(); if runtime resume fails, the usage count remains
+held. If clk_prepare_enable() then fails, the usage count remains held.
 
-The vendor driver resets the IEC958 fast domain (AIU_RST_SOFT bit 2) on
-both enable and disable (audio_hw_958_enable), and when reconfiguring
-(audio_hw_958_reset clears AIU_958_DCU_FF_CTRL then resets). Do the same:
-reset before enabling the DCU on start, and before disabling on stop.
+Use devm_pm_runtime_enable() to manage runtime PM enablement, and use
+pm_runtime_resume_and_get() so resume failures do not leak the usage count.
+If clk_prepare_enable() fails after a successful runtime resume, drop the
+runtime PM reference before returning.
 
-Fixes: 6ae9ca9ce986bf ("ASoC: meson: aiu: add i2s and spdif support")
-Signed-off-by: Christian Hewitt <christianshewitt@gmail.com>
-Reviewed-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+The probe path also ignores the return value from mtk_hsdma_hw_init(), so a
+failed hardware init can continue as a successful probe. Propagate
+mtk_hsdma_hw_init() failures from probe, while keeping a separate unwind
+label so mtk_hsdma_hw_deinit() is only called after hardware init succeeds.
+
+Fixes: 548c4597e984 ("dmaengine: mediatek: Add MediaTek High-Speed DMA controller for MT7622 and MT7623 SoC")
+Co-developed-by: Ijae Kim <ae878000@gmail.com>
+Signed-off-by: Ijae Kim <ae878000@gmail.com>
+Signed-off-by: Myeonghun Pak <mhun512@gmail.com>
 
 ---
-Changes from v2:
-- Ammend description to match the change in v2
-- Add Martin's reviewed-by
-Changes from v1:
-- Add missing fixes tag
-- Trigger AIU_RST_SOFT_958_FAST before disabling DCU matching the
-  stop flow in the vendor driver, as noted by Martin (tests ok)
----
- sound/soc/meson/aiu-fifo-spdif.c | 5 +++++
- 1 file changed, 5 insertions(+)
+Changes in v2:
+- Use devm_pm_runtime_enable() for runtime PM enablement.
+- Drop manual pm_runtime_disable() calls from init/deinit paths.
 
-diff --git a/sound/soc/meson/aiu-fifo-spdif.c b/sound/soc/meson/aiu-fifo-spdif.c
-index e0e00ec026dc..a9861c5d6637 100644
---- a/sound/soc/meson/aiu-fifo-spdif.c
-+++ b/sound/soc/meson/aiu-fifo-spdif.c
-@@ -24,6 +24,7 @@
- #define AIU_MEM_IEC958_CONTROL_MODE_16BIT	BIT(7)
- #define AIU_MEM_IEC958_CONTROL_MODE_LINEAR	BIT(8)
- #define AIU_MEM_IEC958_BUF_CNTL_INIT		BIT(0)
-+#define AIU_RST_SOFT_958_FAST			BIT(2)
+ drivers/dma/mediatek/mtk-hsdma.c | 26 +++++++++++++++++++-------
+ 1 file changed, 19 insertions(+), 7 deletions(-)
+
+diff --git a/drivers/dma/mediatek/mtk-hsdma.c b/drivers/dma/mediatek/mtk-hsdma.c
+index a43412ff5e..27cb370106 100644
+--- a/drivers/dma/mediatek/mtk-hsdma.c
++++ b/drivers/dma/mediatek/mtk-hsdma.c
+@@ -848,17 +848,27 @@ static int mtk_hsdma_hw_init(struct mtk_hsdma_device *hsdma)
+ {
+ 	int err;
  
- #define AIU_FIFO_SPDIF_BLOCK			8
+-	pm_runtime_enable(hsdma2dev(hsdma));
+-	pm_runtime_get_sync(hsdma2dev(hsdma));
++	err = devm_pm_runtime_enable(hsdma2dev(hsdma));
++	if (err)
++		return err;
++
++	err = pm_runtime_resume_and_get(hsdma2dev(hsdma));
++	if (err < 0)
++		return err;
  
-@@ -68,11 +69,15 @@ static int fifo_spdif_trigger(struct snd_pcm_substream *substream, int cmd,
- 	case SNDRV_PCM_TRIGGER_START:
- 	case SNDRV_PCM_TRIGGER_RESUME:
- 	case SNDRV_PCM_TRIGGER_PAUSE_RELEASE:
-+		snd_soc_component_write(component, AIU_RST_SOFT,
-+					AIU_RST_SOFT_958_FAST);
- 		fifo_spdif_dcu_enable(component, true);
- 		break;
- 	case SNDRV_PCM_TRIGGER_SUSPEND:
- 	case SNDRV_PCM_TRIGGER_PAUSE_PUSH:
- 	case SNDRV_PCM_TRIGGER_STOP:
-+		snd_soc_component_write(component, AIU_RST_SOFT,
-+					AIU_RST_SOFT_958_FAST);
- 		fifo_spdif_dcu_enable(component, false);
- 		break;
- 	default:
+ 	err = clk_prepare_enable(hsdma->clk);
+ 	if (err)
+-		return err;
++		goto err_put_pm;
+ 
+ 	mtk_dma_write(hsdma, MTK_HSDMA_INT_ENABLE, 0);
+ 	mtk_dma_write(hsdma, MTK_HSDMA_GLO, MTK_HSDMA_GLO_DEFAULT);
+ 
+ 	return 0;
++
++err_put_pm:
++	pm_runtime_put_sync(hsdma2dev(hsdma));
++
++	return err;
+ }
+ 
+ static int mtk_hsdma_hw_deinit(struct mtk_hsdma_device *hsdma)
+@@ -868,7 +878,6 @@ static int mtk_hsdma_hw_deinit(struct mtk_hsdma_device *hsdma)
+ 	clk_disable_unprepare(hsdma->clk);
+ 
+ 	pm_runtime_put_sync(hsdma2dev(hsdma));
+-	pm_runtime_disable(hsdma2dev(hsdma));
+ 
+ 	return 0;
+ }
+@@ -983,7 +992,9 @@ static int mtk_hsdma_probe(struct platform_device *pdev)
+ 		goto err_unregister;
+ 	}
+ 
+-	mtk_hsdma_hw_init(hsdma);
++	err = mtk_hsdma_hw_init(hsdma);
++	if (err)
++		goto err_free;
+ 
+ 	err = devm_request_irq(&pdev->dev, hsdma->irq,
+ 			       mtk_hsdma_irq, 0,
+@@ -991,7 +1002,7 @@ static int mtk_hsdma_probe(struct platform_device *pdev)
+ 	if (err) {
+ 		dev_err(&pdev->dev,
+ 			"request_irq failed with err %d\n", err);
+-		goto err_free;
++		goto err_deinit;
+ 	}
+ 
+ 	platform_set_drvdata(pdev, hsdma);
+@@ -1000,8 +1011,9 @@ static int mtk_hsdma_probe(struct platform_device *pdev)
+ 
+ 	return 0;
+ 
+-err_free:
++err_deinit:
+ 	mtk_hsdma_hw_deinit(hsdma);
++err_free:
+ 	of_dma_controller_free(pdev->dev.of_node);
+ err_unregister:
+ 	dma_async_device_unregister(dd);
 -- 
-2.43.0
-
+2.47.1
 
