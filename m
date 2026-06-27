@@ -4,62 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D270C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Jun 2026 03:23:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50AF3C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Jun 2026 05:52:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Date:Cc:
-	Content-Type:To:References:Subject:Content-Transfer-Encoding:Mime-Version:
-	Message-Id:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JaDRtHNksBp8HzdSWMeH/ZqouUwL9AyNRTvyVWjch9k=; b=CaltJyH4A7X+ekemzJ1XEV/Vnr
-	bQ/AFWq8hfDmnBj798RaDZIYPSCBFZu2vW2xWpRtWthvA0Pw8WcIUS87kXc68zdvQFEENB+LGFqA8
-	J4awKuvdUcFh+OFwXM2cfPSHj0eWcmaWA9Gu3vrYI/C+OB4dnDEvWPq/pageoQ3UOIoEWHUzuTnVK
-	4cotzrPif9O049t4jm4nTKBLyKDfbbUmqFTAmud7ju/j3sb54+y6mOhiVbIp0++311vmeV7lbaz+e
-	J5dEGpJ5m1DMVf6Oq2X/IhFwKGQSX2ohg/XS+EsuZC3aaj4mZ4hMiXuTF1Thlu2riwc/5zmTFMAyZ
-	V+03JZoQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=SjDo9zkPqh5G3a4cJVEabwQF/qW3EfvDIzwridmYrhk=; b=qqaPETrLKtiyzoSfUiPEgqDrWn
+	B0j9C+RmFC3YzayuX0kAsIFPqgzjxnEIbZxH0SyA+D6vJivwBiaQf+xwFqUUwuF5OcPxC9efcGTpB
+	WM4399+Oy8bXVFaZ1sUX5qvPbwhzGs6iwFA1p5T829ZnqpKoR05Q7TVYp87n01sPWwFS5WJUqf++N
+	yf2jzR0zfzmwWpx7ONcoo2EC5dJTmcw0E53oIfk/78AP+Qgv8+tuz/sIhyC2Xfv+rJb+nlCUVP5+x
+	BabjE85rFzviYAL6bd2ZDlWBEmgVmQoBRyWTHZasr3pDJEppfKZbF/AKTt2Y9c5b2RztxjkjjEWFM
+	JVnIwKRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdJdW-0000000C6KU-3n7v;
-	Sat, 27 Jun 2026 03:23:18 +0000
-Received: from va-1-115.ptr.blmpb.com ([209.127.230.115])
+	id 1wdLaR-0000000C9gz-0BxX;
+	Sat, 27 Jun 2026 05:28:15 +0000
+Received: from m16.mail.163.com ([117.135.210.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdJdS-0000000C6K7-20G6
+	id 1wdLaM-0000000C9gf-37eW
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 27 Jun 2026 03:23:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=2212171451; d=bytedance.com; t=1782530584; h=from:subject:
- mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
- mime-version:in-reply-to:message-id;
- bh=JaDRtHNksBp8HzdSWMeH/ZqouUwL9AyNRTvyVWjch9k=;
- b=a7l1dtQFFIdUJGTYAu0dWZ8R7wwFtJZLDqXJlzQJhnqoCLuBQ9X6S4bqjNXFeqB8ywvlRT
- IQEX9IfeDpRCJMVTYn35ZzuNCq4AQfW+wFB3wUetRkmZ/lvtJsu1td/SXgFrA7oVeQpKst
- mnhDTUN3e5yBQGyAIDAMFs2ZIXqooWyi4UzAnMmsdthx/T7DKx4K+T7i7FIqvhuVS9YFup
- N5RxpRVsZY8jRormmRDRUNX/flfAiN3uR/Lmiek14w61yiWuX+2s0grbPuQhs4ttrSjGf3
- E3xD2piuQIJFDkj9JVfkuY3deIvuAHw9km22Va5Vf8EvzPgsBjjcTphnNJM+GA==
-From: "Yijia Wang" <wangyijia.yeah@bytedance.com>
-Message-Id: <20260627032259.2086191-1-wangyijia.yeah@bytedance.com>
-Mime-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Subject: [PATCH v2 5.15.y] kselftest/arm64: signal: Skip SVE signal test if not enough VLs supported
-References: <stable-reply-item017-arm64-sve-resend-20260626@kernel.org>
-X-Mailer: git-send-email 2.43.0
-X-Original-From: Yijia Wang <wangyijia.yeah@bytedance.com>
-To: <stable@vger.kernel.org>, <sashal@kernel.org>, 
-	<gregkh@linuxfoundation.org>
-X-Lms-Return-Path: <lba+26a3f4216+5a443e+lists.infradead.org+wangyijia.yeah@bytedance.com>
-Content-Type: text/plain; charset=UTF-8
-Cc: <andre.przywara@arm.com>, <linux-kernel@vger.kernel.org>, 
-	<cristian.marussi@arm.com>, <will@kernel.org>, <catalin.marinas@arm.com>, 
-	<broonie@kernel.org>, <shuah@kernel.org>, 
-	<linux-arm-kernel@lists.infradead.org>, 
-	<linux-kselftest@vger.kernel.org>, 
-	"Yijia Wang" <wangyijia.yeah@bytedance.com>
-Date: Sat, 27 Jun 2026 11:22:59 +0800
-In-Reply-To: <stable-reply-item017-arm64-sve-resend-20260626@kernel.org>
+	Sat, 27 Jun 2026 05:28:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=Sj
+	Do9zkPqh5G3a4cJVEabwQF/qW3EfvDIzwridmYrhk=; b=TCkjbpfRH/7tLfUjmQ
+	qzbCkOInafayZdvaCXmqft3mb286eZg7/1lTSWRC1pQdBbu1flSG7PRhq1WgEIyM
+	FAoo4nzx1vL/wSIHWAbg8wM+LENOBProUGbnROs0me2vuPTNOJAE8VHriVp1U+AX
+	90hIu53qkfUfBhSdBpOTQsKhU=
+Received: from haiyue-pc.localdomain (unknown [])
+	by gzsmtp3 (Coremail) with SMTP id PigvCgBXCwMxXz9qZPylEg--.40725S2;
+	Sat, 27 Jun 2026 13:27:15 +0800 (CST)
+From: Haiyue Wang <haiyuewa@163.com>
+To: devicetree@vger.kernel.org,
+	Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: Haiyue Wang <haiyuewa@163.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Joel Stanley <joel@jms.id.au>,
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/ASPEED MACHINE SUPPORT),
+	linux-aspeed@lists.ozlabs.org (moderated list:ARM/ASPEED MACHINE SUPPORT),
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH v1] ARM: dts: aspeed: g6: Use KCS AST2600 compatible string
+Date: Sat, 27 Jun 2026 13:27:07 +0800
+Message-ID: <20260627052708.172918-1-haiyuewa@163.com>
+X-Mailer: git-send-email 2.54.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: PigvCgBXCwMxXz9qZPylEg--.40725S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7AF4DCFyUZFy3XrW3AryDtrb_yoW8AF43pa
+	909aykX39aqw4aq3WDWF1ktr4kJ3yrAF4DK39xAayUJF9Fg34IqF43tF4xKFsrXr4kuwnI
+	qF18CFyqqr1DWr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pRj0P-UUUUU=
+X-Originating-IP: [101.228.92.86]
+X-CM-SenderInfo: 5kdl53xhzdqiywtou0bp/xtbCzRRPumo-XzQRUwAA3Q
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260626_202314_763664_5B3A0BB1 
-X-CRM114-Status: UNSURE (   9.58  )
+X-CRM114-CacheID: sfid-20260626_222811_686613_0BA8EE96 
+X-CRM114-Status: UNSURE (   9.01  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -75,49 +78,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[ Upstream commit 78c09c0f4df89fabdcfb3e5e53d3196cf67f64ef ]
+As the commit 2596f6b93a60 ("ipmi: kcs: aspeed: Add AST2600 compatible
+string") does, change the AST2600 DTS file to use kcs ast2600 compatible
+string.
 
-On platform where SVE is supported but there are less than 2 VLs available
-the signal SVE change test should be skipped instead of failing.
-
-Reported-by: Andre Przywara <andre.przywara@arm.com>
-Tested-by: Andre Przywara <andre.przywara@arm.com>
-Cc: Mark Brown <broonie@kernel.org>
-Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
-Reviewed-by: Mark Brown <broonie@kernel.org>
-Link: https://lore.kernel.org/r/20220524103149.2802-1-cristian.marussi@arm.com
-Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
-Signed-off-by: Yijia Wang <wangyijia.yeah@bytedance.com>
+Signed-off-by: Haiyue Wang <haiyuewa@163.com>
 ---
-Changes in v2:
-- Keep the commit message aligned with the upstream commit, as requested by
-  Sasha.
-- Link to v1:
-  https://lore.kernel.org/r/20260626-b4-arm64-515-preview-clean-v1-1-ad19e286e322@bytedance.com
+ arch/arm/boot/dts/aspeed/aspeed-g6.dtsi | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
- .../arm64/signal/testcases/fake_sigreturn_sve_change_vl.c       | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/tools/testing/selftests/arm64/signal/testcases/fake_sigreturn_sve_change_vl.c b/tools/testing/selftests/arm64/signal/testcases/fake_sigreturn_sve_change_vl.c
-index bb50b5adb..915821375 100644
---- a/tools/testing/selftests/arm64/signal/testcases/fake_sigreturn_sve_change_vl.c
-+++ b/tools/testing/selftests/arm64/signal/testcases/fake_sigreturn_sve_change_vl.c
-@@ -6,6 +6,7 @@
-  * supported and is expected to segfault.
-  */
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
+index 56bb3b0444f7..774d5af495fb 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
++++ b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
+@@ -585,7 +585,7 @@ lpc: lpc@1e789000 {
+ 				ranges = <0x0 0x1e789000 0x1000>;
  
-+#include <kselftest.h>
- #include <signal.h>
- #include <ucontext.h>
- #include <sys/prctl.h>
-@@ -40,6 +41,7 @@ static bool sve_get_vls(struct tdescr *td)
- 	/* We need at least two VLs */
- 	if (nvls < 2) {
- 		fprintf(stderr, "Only %d VL supported\n", nvls);
-+		td->result = KSFT_SKIP;
- 		return false;
- 	}
+ 				kcs1: kcs@24 {
+-					compatible = "aspeed,ast2500-kcs-bmc-v2";
++					compatible = "aspeed,ast2600-kcs-bmc";
+ 					reg = <0x24 0x1>, <0x30 0x1>, <0x3c 0x1>;
+ 					interrupts = <GIC_SPI 138 IRQ_TYPE_LEVEL_HIGH>;
+ 					clocks = <&syscon ASPEED_CLK_GATE_LCLK>;
+@@ -594,7 +594,7 @@ kcs1: kcs@24 {
+ 				};
  
+ 				kcs2: kcs@28 {
+-					compatible = "aspeed,ast2500-kcs-bmc-v2";
++					compatible = "aspeed,ast2600-kcs-bmc";
+ 					reg = <0x28 0x1>, <0x34 0x1>, <0x40 0x1>;
+ 					interrupts = <GIC_SPI 139 IRQ_TYPE_LEVEL_HIGH>;
+ 					clocks = <&syscon ASPEED_CLK_GATE_LCLK>;
+@@ -602,7 +602,7 @@ kcs2: kcs@28 {
+ 				};
+ 
+ 				kcs3: kcs@2c {
+-					compatible = "aspeed,ast2500-kcs-bmc-v2";
++					compatible = "aspeed,ast2600-kcs-bmc";
+ 					reg = <0x2c 0x1>, <0x38 0x1>, <0x44 0x1>;
+ 					interrupts = <GIC_SPI 140 IRQ_TYPE_LEVEL_HIGH>;
+ 					clocks = <&syscon ASPEED_CLK_GATE_LCLK>;
+@@ -610,7 +610,7 @@ kcs3: kcs@2c {
+ 				};
+ 
+ 				kcs4: kcs@114 {
+-					compatible = "aspeed,ast2500-kcs-bmc-v2";
++					compatible = "aspeed,ast2600-kcs-bmc";
+ 					reg = <0x114 0x1>, <0x118 0x1>, <0x11c 0x1>;
+ 					interrupts = <GIC_SPI 141 IRQ_TYPE_LEVEL_HIGH>;
+ 					clocks = <&syscon ASPEED_CLK_GATE_LCLK>;
 -- 
-2.43.0
+2.54.0
+
 
