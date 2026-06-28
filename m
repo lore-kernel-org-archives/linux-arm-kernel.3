@@ -4,95 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 622E1C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Jun 2026 23:08:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9142DC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Jun 2026 03:56:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Sc0LVF54eIDE0MT2UAxiqee+b3f/jtlBzR5Bzv0cEZU=; b=bNuNUp+f6GAGS6trg8gDE/zEzu
-	5n6httWiNqFhS0HxKJqfzh3bZZ5O66oTjDWxywjycnwTqdUE+AT5KB6Jp0VxyD5R0zxsKeEReg+6n
-	fdGSi7zXecYxuF+CVRH9VtlzG2lcD7NvBBYp/QNcwEThLKfOW21KktdnCrbjAbDUswOK+3+Yr0v1l
-	/GuFxtpxAOL0TMfjYtgtm87jYgc71YevshLUH8T6JF2EpM0MhgdnjOdCQoXyu44F7tCYOMEXv217x
-	U4RyF1dVcRjSgVHdSU21JMujoejNt1kBRRq74f84O8ilp0gewcW8qLYSEbW0ShgTO6CP9OgDn/xYh
-	rRvwOcYg==;
+	bh=w+xoCVd8WBKFwRN/yXjXG1KvLkyE55qRDYLdgT/0Hx4=; b=bFMZ8CJ8rawls4mgyxQqp9cRWl
+	MKMi2I3QCoBtfHRhlvG5w26DqoGQs0Gywto9KZjSD5qyg9lkpSxvvQ1fN9P2553aYdkETTx19CvDY
+	nsFL3kC7QeL7IRZbwkd/GWV3OUUABTR3vdPpLt0n/WXZKkmdBXLdkZO2QF5P/T5WdrHnkj/6EpT5b
+	E8NGO1X/aGrvM+Ce/7+Vi4n599HX6lz5lkTdct2hm9Ys3k70q6ez9IivOshJ7PX+CivVKqwTIgY9I
+	oGfmss7TNio2WbAcQHK3Y+9lLrTwG8vL79fcjrdKC27JBHtbDiaVoZ/p6F1J3mGrllrAr6JuyaHi0
+	CypY2bQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdc7x-0000000Cp1x-1uOG;
-	Sat, 27 Jun 2026 23:07:57 +0000
-Received: from mail-ot1-x336.google.com ([2607:f8b0:4864:20::336])
+	id 1wdgct-0000000Cton-1gKp;
+	Sun, 28 Jun 2026 03:56:11 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdc7s-0000000Cp1c-2vLP
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 27 Jun 2026 23:07:55 +0000
-Received: by mail-ot1-x336.google.com with SMTP id 46e09a7af769-7e9c6ae2a79so334740a34.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 27 Jun 2026 16:07:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1782601671; x=1783206471; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Sc0LVF54eIDE0MT2UAxiqee+b3f/jtlBzR5Bzv0cEZU=;
-        b=GN7FT7ANsTnFXJ+5rpfpfGyJTtoUWwOdQKM5gAI+ZNjgRcjK66mdEeE8p6lbqHKmam
-         m21cKjeidRQnKoZbEvqll0nBGSWKHC/Uwf7iGSQWpgStCDWSzDPfi2cQnMTMcbXVu6PJ
-         nbbo6mbbe4cj5TvF4V6GIzR6xY4AzZqjRjjjd8+PgYGr8tYzLanoJftJVpsotAMo4iUP
-         /rFFfFYhfeQaBPxqcwVoxpeYfb+UHIJcWdZswREAVUh6rLxCwfFvuEjYWETiGJvcooti
-         BX5V33GsPbCgqdtxeTU7uNN+pH1r4akxwz3qlOTeE0zLYljNxO2rrtSWnkFANYfh52/G
-         FwPg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782601671; x=1783206471;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Sc0LVF54eIDE0MT2UAxiqee+b3f/jtlBzR5Bzv0cEZU=;
-        b=iCtg1pmvygGrtotQXP7XCEnNdHBV/toN0YhZBeRZJxaqidQP18Z9vvKDiqb3mTnnBx
-         1YjKynTZNzswmOVI0aY+QQjvOOSDP5sq5pRLVeDq46wmMhLI0NoJWAjLgXdHm6U+YlwK
-         mMU/yBsnksndk+l3Cg7MBROtI6zePieBIaXxtxsSfT6Y9hjDkOvrjQWiYdtn2SU24I5J
-         GFGITtY+BE1Rdjn/n6E0iIAmqq5SBwLGMrbkGXpHFTAafcHA2lJ3wbYbK29Fufvn56Tn
-         OvhZx1CPkPhOoiABXN5cw1NTr9S3RgeN96eRNVtOEtBBafOs1FFkvHeCYqApRsX8317G
-         C8eA==
-X-Forwarded-Encrypted: i=1; AFNElJ9iowMrwEkpY/IDYRrzgxNdhNrEQ07zE3qq+4gBwMang1pS3YPkjcr1jMQQRmaIG5Cr3Xk07HEbf/7G6VKzCELe@lists.infradead.org
-X-Gm-Message-State: AOJu0YxAHgXfngviIvpcMOJf5g0oFFK/fJhsbjMFVtfLTGW1lrI17R4e
-	xGmGp8K7BI30yt5S1KvMLC5fUq2yJd9ROpjX8eBrZWPyuvtoj4AAS5JpecuAOl/054Q=
-X-Gm-Gg: AfdE7cnClBeO+Er6sQ3Ihw/KH5l9dejEiNYRErwZRIfHlY6m562Pm1k2fz7EEx/E8lX
-	K8kL2pSfdEUSiM+uA5OvI1iaHt9QPUv7ZEIz7jjYeFww7NUsP+BYVe/eVRref1lf2Yq7l8J7ZZo
-	YOnQSbhJQMMX3S2nsm06bkefUjDMkGKgR8ZkEJbq8os1k+XmhBpe/RZX/8Oam+RWzm7KnuyeeY6
-	CZTpmIq2g71WQVXW2iGvku1iWKKisgBTRIj/pbUms6f6ePIEV+vCJs8I26ilVALfAXXN3borRNh
-	FuY2TJ4HcjdwCKyO1Xa7uy2p9de2iIuxb7CVPNvJvDsVE4+WIdurTeN942UX0iU2RaLSswCDbjt
-	Dq4fHBxaFTlmF2vcrn4K8loPsk9+pf3ylOSTua73T6RRfyM5mvR0kKOY/djjZPO+FOBDpOJcNT8
-	TLL+hS9P+zq66krEFawI5ZcyjKTyQfJmgRSJKGDdaz015jb3R6MYrb/2wDsZRzSkI=
-X-Received: by 2002:a05:6830:349f:b0:7e5:f957:a61f with SMTP id 46e09a7af769-7e99c268898mr11379368a34.18.1782601671671;
-        Sat, 27 Jun 2026 16:07:51 -0700 (PDT)
-Received: from ?IPV6:2600:8803:e7e4:500:f242:ecd6:f61e:d764? ([2600:8803:e7e4:500:f242:ecd6:f61e:d764])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7e9b292029dsm3861948a34.22.2026.06.27.16.07.50
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 27 Jun 2026 16:07:50 -0700 (PDT)
-Message-ID: <6770a7af-06cc-4240-9b20-c299e7080ab1@baylibre.com>
-Date: Sat, 27 Jun 2026 18:07:49 -0500
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/2] iio: adc: add Axiado SARADC driver
-To: Petar Stepanovic <pstepanovic@axiado.com>, Akhila Kavi
- <akavi@axiado.com>, Prasad Bolisetty <pbolisetty@axiado.com>,
- Jonathan Cameron <jic23@kernel.org>, =?UTF-8?Q?Nuno_S=C3=A1?=
- <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>
-Cc: linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260622-axiado-ax3000-ax3005-saradc-v3-0-e57c7c7ae675@axiado.com>
- <20260622-axiado-ax3000-ax3005-saradc-v3-2-e57c7c7ae675@axiado.com>
-Content-Language: en-US
-From: David Lechner <dlechner@baylibre.com>
-In-Reply-To: <20260622-axiado-ax3000-ax3005-saradc-v3-2-e57c7c7ae675@axiado.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	id 1wdgco-0000000CtoH-2fHE;
+	Sun, 28 Jun 2026 03:56:09 +0000
+Received: from smtpclient.apple (unknown [117.182.74.7])
+	by APP-01 (Coremail) with SMTP id qwCowADXfdYKm0BqqCuqAw--.7249S7;
+	Sun, 28 Jun 2026 11:55:57 +0800 (CST)
+Content-Type: text/plain;
+	charset=utf-8
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.700.81.1.8\))
+Subject: Re: [PATCH] fix: drm/mediatek: mtk_drm_probe: of_node_get in loop
+ overwrites previous   node references without release
+From: WenTao Liang <vulab@iscas.ac.cn>
+In-Reply-To: <20260626132849.38694-1-vulab@iscas.ac.cn>
+Date: Sun, 28 Jun 2026 11:55:46 +0800
+Cc: dri-devel@lists.freedesktop.org,
+ linux-mediatek@lists.infradead.org,
+ linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ stable@vger.kernel.org
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <6172B26B-FC2B-4886-8578-E981C4FF14F6@iscas.ac.cn>
+References: <20260626132849.38694-1-vulab@iscas.ac.cn>
+To: chunkuang.hu@kernel.org,
+ p.zabel@pengutronix.de,
+ airlied@gmail.com,
+ simona@ffwll.ch,
+ matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com
+X-Mailer: Apple Mail (2.3826.700.81.1.8)
+X-CM-TRANSID: qwCowADXfdYKm0BqqCuqAw--.7249S7
+X-Coremail-Antispam: 1UD129KBjvJXoW7CFyUArW7ur4fXr17KrWrGrg_yoW8AF4kpF
+	WUKFWYyrW8Kr4xKFyvyFn8uFySy3WSq3y8Wa10q3W8uwn0yFyUXFy5Xa17tFZ7AFyIkF13
+	Jan8JF93ur12vFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUm2b7Iv0xC_tr1lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI
+	8067AKxVWUAVCq3wA2048vs2IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28C
+	jxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW7JVWDJwA2z4x0Y4vE2Ix0cI
+	8IcVCY1x0267AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2
+	z280aVCY1x0267AKxVWxJr0_GcWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2
+	IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r1j6r4U
+	McvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACI402YVCY1x02628vn2kIc2
+	xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWU
+	JVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67
+	kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVW8JVW5JwCI42IY
+	6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIx
+	AIcVC2z280aVAFwI0_Gr0_Cr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIdaVF
+	xhVjvjDU0xZFpf9x07jj5lbUUUUU=
+X-Originating-IP: [117.182.74.7]
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBggMA2pAhrYiZAAAsd
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260627_160752_768731_62E43018 
-X-CRM114-Status: GOOD (  12.22  )
+X-CRM114-CacheID: sfid-20260627_205607_141460_FE2E66A4 
+X-CRM114-Status: GOOD (  13.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,52 +89,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/22/26 2:47 AM, Petar Stepanovic wrote:
-> Add support for the SARADC controller found on Axiado AX3000 and
-> AX3005 SoCs.
-> 
 
-...
 
-> +#define AX_SARADC_CH(_index, _id)                                       \
-> +	{                                                               \
-> +		.type = IIO_VOLTAGE,                                    \
-> +		.indexed = 1,                                           \
-> +		.channel = (_index),                                    \
-> +		.info_mask_separate = BIT(IIO_CHAN_INFO_RAW),           \
-> +		.info_mask_shared_by_type = BIT(IIO_CHAN_INFO_SCALE),   \
-> +		.datasheet_name = (_id),                                \
+> 2026=E5=B9=B46=E6=9C=8826=E6=97=A5 21:28=EF=BC=8CWenTao Liang =
+<vulab@iscas.ac.cn> =E5=86=99=E9=81=93=EF=BC=9A
+>=20
+> In the for_each_child_of_node loop, private->comp_node[comp_id] and
+>  private->mutex_node are assigned via of_node_get without first =
+releasing
+>  any previously stored reference for the same index. When the same =
+comp_id
+>  or mmsys_id matches multiple nodes, earlier node references are
+>  overwritten and permanently leaked.
+>=20
+> Cc: stable@vger.kernel.org
+> Fixes: 1ef7ed48356c ("drm/mediatek: Modify mediatek-drm for mt8195 =
+multi mmsys support")
+> Signed-off-by: WenTao Liang <vulab@iscas.ac.cn>
+> ---
+> drivers/gpu/drm/mediatek/mtk_drm_drv.c | 3 ++-
+> 1 file changed, 2 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.c =
+b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
+> index c86a3f54f35b..2c0d8db9ade2 100644
+> --- a/drivers/gpu/drm/mediatek/mtk_drm_drv.c
+> +++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
+> @@ -1138,6 +1138,7 @@ static int mtk_drm_probe(struct platform_device =
+*pdev)
+>=20
+> 			id =3D of_alias_get_id(node, "mutex");
+> 			if (id < 0 || id =3D=3D private->data->mmsys_id) =
+{
+> +				of_node_put(private->mutex_node);
+> 				private->mutex_node =3D =
+of_node_get(node);
+> 				dev_dbg(dev, "get mutex for mmsys %d", =
+private->data->mmsys_id);
+> 			}
+> @@ -1153,7 +1154,7 @@ static int mtk_drm_probe(struct platform_device =
+*pdev)
+>=20
+> 		if (!mtk_drm_find_mmsys_comp(private, comp_id))
+> 			continue;
+> -
+> +		of_node_put(private->comp_node[comp_id]);
+> 		private->comp_node[comp_id] =3D of_node_get(node);
+>=20
+> 		/*
+> --=20
+> 2.39.5 (Apple Git-154)
 
-This could probably be:
+Please ignore this patch. I will resend a proper version after
+learning the kernel submission process.
 
-		.datasheet_name = "adc" #_index,
+Apologies for the noise.
 
-and avoid the need for _id.
+Best regards,
+WenTao Liang
 
-> +	}
-> +
-> +static const struct iio_chan_spec axiado_saradc_iio_channels[] = {
-> +	AX_SARADC_CH(0, "adc0"),   AX_SARADC_CH(1, "adc1"),
-> +	AX_SARADC_CH(2, "adc2"),   AX_SARADC_CH(3, "adc3"),
-> +	AX_SARADC_CH(4, "adc4"),   AX_SARADC_CH(5, "adc5"),
-> +	AX_SARADC_CH(6, "adc6"),   AX_SARADC_CH(7, "adc7"),
-> +	AX_SARADC_CH(8, "adc8"),   AX_SARADC_CH(9, "adc9"),
-> +	AX_SARADC_CH(10, "adc10"), AX_SARADC_CH(11, "adc11"),
-> +	AX_SARADC_CH(12, "adc12"), AX_SARADC_CH(13, "adc13"),
-> +	AX_SARADC_CH(14, "adc14"), AX_SARADC_CH(15, "adc15"),
-
-Two columns looks a bit odd.
-
-> +};
-> +
-> +static void axiado_saradc_disable(void *data)
-> +{
-> +	struct axiado_saradc *info = data;
-> +
-> +	writel(AX_SARADC_GLOBAL_CTRL_PD, info->regs + AX_SARADC_GLOBAL_CTRL_REG);
-
-People usual make read and write wrappers or use regmap to avoid having
-to write `info->regs + AX_SARADC_GLOBAL_CTRL_REG` so many times.
-
-> +}
 
