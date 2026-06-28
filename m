@@ -4,57 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EFD5C43327
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Jun 2026 15:00:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0BC7C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Jun 2026 15:09:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v3wY4QK+cvFJBzhQbi9vqDdJNzGAUNzTTPvyQRTv9DE=; b=dA8YzBL0cHJBkGYqqT5+kncylq
-	Yt3nAdQ+liqoy5+Ft9VTv+H0owmlrBDS8mYA14z4b/7tuC+PISv57ct8Iw9rVEPcjoswO0mAfZvUo
-	tM+vDkzphihGb7XFt5J0bPacokuHUW++bRjvyZR/R/MVaNGbeWlDcC+g0X4zcFUYKLTeNWR1tgY2E
-	zH4ghf/XbSqygbWChHE+oH/ZJ0NvXhSVQngSQFGGmAh67bUGwm2Noyh1AweT1ZV7WuQmaXASUjdCr
-	T/WxxeRx1dxZ/Fy3t6lvy1GTTXxQxpG8NcLmCuklBygGY85WvMAz0VucIVZX8HlNQNzm188RFkbar
-	2b916A+w==;
+	bh=3zAJRcHs23lKFUq0llrOzQStalR1oMs6ds/qGbWnRRo=; b=lzxxlv5gu2w5TVj9vwbClmrt6M
+	U9mND6sBWKYZUX942UIr4hF1IdnEOyJQJaa2kxRj7d21F0KXRbaM8tvYd7s04ywIRtbFvDMGt7lhT
+	dQesqENtVNwF5R3DQjlKJmkjbH2fbFb9zOmzVUWdE5bu4DqUP5j9hWI/pyj5379IGx7o95b7Q8wIM
+	PnUQiUq8ev9JluU8K+g8kD868Fbly7Dgcc76B42Q0Hxderh6dvu75vBHEueYeAwjB3S26zKmR65l4
+	lbvFbkEyyid22PB+CeayfYVyzU5lzPgoUftorE4DzdSQ1/S9uOKYD63pVWyzv/j5SxNEGnJavhbjd
+	WKDtreag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdqzl-0000000DAVA-1zmv;
-	Sun, 28 Jun 2026 15:00:29 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wdr8Z-0000000DAla-3yMt;
+	Sun, 28 Jun 2026 15:09:36 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdqzj-0000000DAUh-0TAo
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 28 Jun 2026 15:00:27 +0000
+	id 1wdr8Y-0000000DAlR-0iw4;
+	Sun, 28 Jun 2026 15:09:34 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 643DA40085;
-	Sun, 28 Jun 2026 15:00:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C503F1F000E9;
-	Sun, 28 Jun 2026 15:00:21 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id AAA6960052;
+	Sun, 28 Jun 2026 15:09:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2841E1F000E9;
+	Sun, 28 Jun 2026 15:09:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782658826;
-	bh=v3wY4QK+cvFJBzhQbi9vqDdJNzGAUNzTTPvyQRTv9DE=;
+	s=k20260515; t=1782659372;
+	bh=3zAJRcHs23lKFUq0llrOzQStalR1oMs6ds/qGbWnRRo=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=HitqphoVUdspjJgIJz8jcBA7ODQxDzrUQuopb0sGPYESnzimlYud0GzOq39/gNG1I
-	 HqxIy2ic6ku7BYJpoJwcDf6joo16R12sUEO5z8iv9BZnl13w/hoyk/tDZJrCi1PyMk
-	 /iUnwIW1t13mdQ6aD/Ot1g2bylKN8VHXe1TDS1wQObFhasky6zLsSBI57RAqfDxx6y
-	 hZg4Tz55me4wh9rFX3NzAReGX9hkVNT5iWYo2IW0ljptQ6sUEnklxM1s+QmTUalFv1
-	 scItLherAM3TL8JchPyk8gUglqIzIQPjUaDBQ2N5ZM3mJ622O4xi4gcalNzG9/fI4J
-	 XnrDTM1FOuZRw==
-Message-ID: <52e21bac-b560-4bcf-b78a-9ae482837450@kernel.org>
-Date: Sun, 28 Jun 2026 17:00:19 +0200
+	b=cZOIAFp0Wf+CH6wuAqPemtoDERwpGKVzYhuVFO/xRbwA/KZAtDBkEP86lbLKb4dFV
+	 XrCD8mzB53U0Q889WpbDG3i+JnPg1TBaXKoKiYUjcISF/xiomslfQpkwxR0enNP3Ze
+	 ordybz+DMwzfDOD5W0YiKjrsUMGudlPSUzEcFaO69vHfU3I8I3SAy/MEZYGMOOVNrb
+	 Dz5wvN81xWl2Stbw7evSGsSi5DqKQDqsWf4ybhSdPF9K3bCSsdlSvEk8Bq2IpeWcId
+	 ylqsblolIjBuwBGzGBdabk+EX+XMPN7OPuhw1oz8k0gDoX4dj9WTktGDhoL0WoPISL
+	 WzlOl15rg28tw==
+Message-ID: <e9f4f244-f073-4a71-b785-9015de929ee4@kernel.org>
+Date: Sun, 28 Jun 2026 17:09:16 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] clk/samsung: fix parent clock refcount leak in
- exynos_clkout_probe
-To: WenTao Liang <vulab@iscas.ac.cn>, s.nawrocki@samsung.com,
- cw00.choi@samsung.com, mturquette@baylibre.com, sboyd@kernel.org
-Cc: alim.akhtar@samsung.com, bmasney@redhat.com,
- linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Greg KH <gregkh@linuxfoundation.org>, stable@vger.kernel.org
-References: <20260628125422.45267-1-vulab@iscas.ac.cn>
+Subject: Re: [PATCH v3 2/7] media: dt-bindings: video-interface-devices: add
+ video-interface-devices.h references
+To: Kieran Bingham <kieran.bingham@ideasonboard.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Jacopo Mondi <jacopo@jmondi.org>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>, Jimmy Su <jimmy.su@intel.com>,
+ Matthias Fend <matthias.fend@emfend.at>,
+ Mikhail Rudenko <mike.rudenko@gmail.com>,
+ Daniel Scally <dan.scally@ideasonboard.com>,
+ Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
+ Michael Riesch <michael.riesch@collabora.com>,
+ Benjamin Mugnier <benjamin.mugnier@foss.st.com>,
+ Sylvain Petinot <sylvain.petinot@foss.st.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Paul Elder <paul.elder@ideasonboard.com>,
+ Martin Kepplinger <martin.kepplinger@puri.sm>,
+ Quentin Schulz <quentin.schulz@theobroma-systems.com>,
+ Tommaso Merciai <tomm.merciai@gmail.com>,
+ Svyatoslav Ryhel <clamor95@gmail.com>,
+ Richard Acayan <mailingradian@gmail.com>,
+ Thierry Reding <thierry.reding@kernel.org>,
+ Jonathan Hunter <jonathanh@nvidia.com>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Magnus Damm <magnus.damm@gmail.com>, Heiko Stuebner <heiko@sntech.de>
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-tegra@vger.kernel.org,
+ linux@ew.tq-group.com, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
+References: <20260628-kbingham-orientation-v3-0-4ed92968aff8@ideasonboard.com>
+ <20260628-kbingham-orientation-v3-2-4ed92968aff8@ideasonboard.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -100,7 +127,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260628125422.45267-1-vulab@iscas.ac.cn>
+In-Reply-To: <20260628-kbingham-orientation-v3-2-4ed92968aff8@ideasonboard.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -117,26 +144,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/06/2026 14:54, WenTao Liang wrote:
-> of_clk_get_by_name() acquires clock references stored in the local
-> parents[] array. All error paths correctly release these via the clks_put
-> label, but the success path returns 0 without releasing the parent
-> references. The references were only needed to obtain clock names for
-> registration and are permanently leaked after probe completes.
-> 
-> Suggested-by: Greg KH <gregkh@linuxfoundation.org>
+On 28/06/2026 12:22, Kieran Bingham wrote:
+> Expand the documentation of the video-interface-devices orientation to
+> reference the include/dt-bindings/media/video-interface-devices.h header
+> which provides human readable defines for the orientation enum, to help
+> avoid hardcoding values in dts.
 
-What was suggested by Greg?
 
-> Fixes: 9484f2cb8332 ("clk: samsung: exynos-clkout: convert to module driver")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: WenTao Liang <vulab@iscas.ac.cn>
-> ---
-> Changes in v2:
-> - Fix patch format based on reviewer feedback
-
-So what is happening here with LLM?
-
+Introducing header and using it in bindings is the same commit, so these
+should be squashed. It would also spare you a mistake in the subject
+prefixes - two commits and two completely different styles.
 
 Best regards,
 Krzysztof
