@@ -4,77 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9142DC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Jun 2026 03:56:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22AB8C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Jun 2026 08:25:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w+xoCVd8WBKFwRN/yXjXG1KvLkyE55qRDYLdgT/0Hx4=; b=bFMZ8CJ8rawls4mgyxQqp9cRWl
-	MKMi2I3QCoBtfHRhlvG5w26DqoGQs0Gywto9KZjSD5qyg9lkpSxvvQ1fN9P2553aYdkETTx19CvDY
-	nsFL3kC7QeL7IRZbwkd/GWV3OUUABTR3vdPpLt0n/WXZKkmdBXLdkZO2QF5P/T5WdrHnkj/6EpT5b
-	E8NGO1X/aGrvM+Ce/7+Vi4n599HX6lz5lkTdct2hm9Ys3k70q6ez9IivOshJ7PX+CivVKqwTIgY9I
-	oGfmss7TNio2WbAcQHK3Y+9lLrTwG8vL79fcjrdKC27JBHtbDiaVoZ/p6F1J3mGrllrAr6JuyaHi0
-	CypY2bQw==;
+	bh=Y3611FmTv5jNEdQnwU/9bSnhY3z68ox4B9EQSb7IO08=; b=Ybyz8NFx9v2qu/XyS+IhP8EAZh
+	MjcC8PAtDe8XjSQFXdwFt4WfqT8+imogUmDufwdb3CWL6MWhP4gylvqlN2081LjQ/7ys3ko1soQnq
+	W2bNk0Bk0OME/KPXGdjYKtSdsc+YDcH1dnoMzEVv4OYD5o32FKgDfkYuuoMMInnp4pkSkrPhj60/U
+	7RfUlLKnxW6a3oM+SB0qXl2ShEpM1HnwnllWO5oLESSzLRQtEOkws3UHUDEiWqbK90lmODr/wRrZf
+	iF6YqAsPo+lJP6XzDanxPxdEfsJiPM3VMAe8Wmaa/xzk8FmRHNtsK+5k7z4Tle/rcHIDUHDptL4Vj
+	GvILXBOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdgct-0000000Cton-1gKp;
-	Sun, 28 Jun 2026 03:56:11 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1wdkpj-0000000CzE6-25nK;
+	Sun, 28 Jun 2026 08:25:43 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdgco-0000000CtoH-2fHE;
-	Sun, 28 Jun 2026 03:56:09 +0000
-Received: from smtpclient.apple (unknown [117.182.74.7])
-	by APP-01 (Coremail) with SMTP id qwCowADXfdYKm0BqqCuqAw--.7249S7;
-	Sun, 28 Jun 2026 11:55:57 +0800 (CST)
-Content-Type: text/plain;
-	charset=utf-8
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.700.81.1.8\))
-Subject: Re: [PATCH] fix: drm/mediatek: mtk_drm_probe: of_node_get in loop
- overwrites previous   node references without release
-From: WenTao Liang <vulab@iscas.ac.cn>
-In-Reply-To: <20260626132849.38694-1-vulab@iscas.ac.cn>
-Date: Sun, 28 Jun 2026 11:55:46 +0800
-Cc: dri-devel@lists.freedesktop.org,
- linux-mediatek@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- stable@vger.kernel.org
+	id 1wdkpg-0000000CzDl-3nMH
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 28 Jun 2026 08:25:42 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2c6a97e1d1bso12227335ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 28 Jun 2026 01:25:39 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1782635139; cv=none;
+        d=google.com; s=arc-20260327;
+        b=m6+HFrZz+3aeRvnVWV7bGEC7HWL/xTzF56L0ugzhTJlWGhZS8ZyXSuy/Fv+WSXx8m0
+         XEzsJPs0Udta6bopy9IxIq0JX9Kc4Gh8Q9Zo0ZM7g+gE6ucUwypZ9HVst1yTdKW9/Nnr
+         9T3uPhyEt3W4mPhJZGhgBOj9RaPBqBlP6pSqHvN4++C3LMDxrNRXQH8jlpMVw153Rh5k
+         TPdx3oGlwOLdmVEq+FUCf79MtkxBe7CSkCRsOFcs5Y/3wayRPOmxjpfsy+ZB/7ceV7tF
+         aQNzVWEvARRlTE0//HrSjKgj7sFkLnqHtrq5lfc7qa6KCvP+0k7d63xpp6ozKtRQgr77
+         wdHg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=Y3611FmTv5jNEdQnwU/9bSnhY3z68ox4B9EQSb7IO08=;
+        fh=VYlEXrODZHn+WikiM802jkWvvL573BHNk6UWY1FOj7M=;
+        b=I8STvVjFenLaArTdIX9fCifj1d3L/GP6Jx9FJ9GeF/0UnYZiv/QxijCQKSCOOk5GXN
+         HTZgWcay+W6ahnojbi3fdOBLTfPhrnYl42mfFslQIkgXUrp5H5TmTjfxEYW3s+UtRY8l
+         bGo0lr3i2vAjCMP4EcSXu1yq3eCtNDT3+c5SiUcJIuDJMGzumyJoTvNEUQs4thcTVPWG
+         YWYOk/R+PNv3eDlEc9d4dxKEZ6FKonkID/wKrfo2dOqEzjTlQTmn5J+W2Ba04CK0YOIM
+         4Zi59uuXvI2m0zrODU3Un6h5xSTx8fYDQTfgtUb3ULynNWhmOVesnYMcWIhMqHIv64JI
+         tDXg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782635139; x=1783239939; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Y3611FmTv5jNEdQnwU/9bSnhY3z68ox4B9EQSb7IO08=;
+        b=TlzwyxTDsrvAkMnn6TSlq2n+Fp1Y7MkKySLg+fK7b1vKYdgag0l6cnRVEQe5FjJx8A
+         739UNMX1q6MCpv/TNrmNlHY1nou4Zs94ToD9px5+5zC0EVYLJmaVaJ41oM3Of8gLPFJU
+         SWFqO/5vUSguWMjQD7TOG8E3vJLRxjGWmkM7TorNocN8Zd79ef3RCHCjeMMnVdR9ZV5W
+         tOM24vJm6ie7b4nS0BTmP72MRL2wWCFz+M1k4mUfsmU24GemFe5Cd/SWfZZsn52b8NAk
+         FJcB1bKs+v5imIH5cMZrBtLvJpyF2913/nlwgLBp8Fu61kW3i3Wcxg1N+cTXJ88XUfFc
+         EKzw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782635139; x=1783239939;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=Y3611FmTv5jNEdQnwU/9bSnhY3z68ox4B9EQSb7IO08=;
+        b=iubKwWZcSvT1BIdRj8EhOrxMT4eQWcsK/RIZ1OwOVNHkeIJTRFKE24m0zcg9Pd/8ZD
+         HKVNWX+iHUNr5/93iRtS4vyXfqdKaqRNQDITiC66lIoX6aKueC5CRUB9WSLdT7QV4UAo
+         Zl+ecHzVGbZKsoPQxfCbuXjCYn5o2Ft6wu2QnYDJH7r+07eBNffZnQP9n4Z12BJUq9iy
+         ako6JJbN22gfCW/lCjmYXq++uovSEaK8yI7AHWosh/k5iWkmd1iOKkj0JvNDCGh0i97s
+         IQdPHlbMij/KQGq78Bm+v0mkJPxEDTJ5RqH0ENtPdSgavkiBRDntxUeeNHNv0DF1iBux
+         QWXw==
+X-Forwarded-Encrypted: i=1; AFNElJ+pXm7HvtUsB5cP3PpNFjm9oMXcBf3OrxSpbmNY0ZemqSRJ+UWBEKJrSTSbLkML9nTR8fuFWUguf7qyr6P5ACkd@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy/JWtVNpgoiKVy6HThvlc63NKnCJ/5jO8MvWlTrdecfOvrWmL6
+	fmD5Azy1xSiGd7YFO+7Rp3QjuT2+GdwHSkiecdWCklImk4HGxWuSMUVDZqRZTLZbQsy3LpCe93d
+	czLChUApTG4LkLZFEdT1gSawYxQUUOa8=
+X-Gm-Gg: AfdE7cm9YrzAdIr2GIiQJdEeFMROsDcK1KGKeNb2rKkkxCucuSc/qbY6L5rZhtvbcfh
+	lSUl2YeS7fM8fZe+gwnfidxX2gFR2Z4b2z8Lx1r1NM2Mo4ze6I+a3QYjL0SamueyiBblN2WByBl
+	4OiBJT/pcbGTYWZUFEV9wt9ySSpOWCZy7XuyKxWLArjp5CzOCZoEtejSrDoez7xL+hxMvJVlESx
+	5CAsorr/wA6VrGsaMur3cMl1Dw4xhAwhM0NA+dFeZ3Kn2y9gon9GercreKUaZKmxih+RhI8Fqm+
+	eKx6HM+cu+77Hmp9C7ISvdABtVjyKyxvZa0s2/xz0eJSePSgdbtB
+X-Received: by 2002:a05:6a20:d530:b0:3bf:90ba:52cd with SMTP id
+ adf61e73a8af0-3bf90ba55e7mr772607637.11.1782635139074; Sun, 28 Jun 2026
+ 01:25:39 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260626-soc-imx8m-v1-1-62657e3376dc@gmail.com> <aj6l_eMFLvQVq2md@SMW015318>
+In-Reply-To: <aj6l_eMFLvQVq2md@SMW015318>
+From: Felix Gu <ustc.gu@gmail.com>
+Date: Sun, 28 Jun 2026 16:25:28 +0800
+X-Gm-Features: AVVi8CfsyW0fJ7FrAIo4YFoZKQX_l9mugHxBLeemo8-ZqsMdLUudTpptA2bn4QE
+Message-ID: <CAN4SLj2eStTLmu=vbN2ekAV3n0D8E5HUFwh31AjqYz=0GVsFeg@mail.gmail.com>
+Subject: Re: [PATCH] soc: imx8m: fix clock reference leak in imx8m_soc_prepare()
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Marco Felsch <m.felsch@pengutronix.de>, Peng Fan <peng.fan@nxp.com>, 
+	Shawn Guo <shawnguo@kernel.org>, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Message-Id: <6172B26B-FC2B-4886-8578-E981C4FF14F6@iscas.ac.cn>
-References: <20260626132849.38694-1-vulab@iscas.ac.cn>
-To: chunkuang.hu@kernel.org,
- p.zabel@pengutronix.de,
- airlied@gmail.com,
- simona@ffwll.ch,
- matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com
-X-Mailer: Apple Mail (2.3826.700.81.1.8)
-X-CM-TRANSID: qwCowADXfdYKm0BqqCuqAw--.7249S7
-X-Coremail-Antispam: 1UD129KBjvJXoW7CFyUArW7ur4fXr17KrWrGrg_yoW8AF4kpF
-	WUKFWYyrW8Kr4xKFyvyFn8uFySy3WSq3y8Wa10q3W8uwn0yFyUXFy5Xa17tFZ7AFyIkF13
-	Jan8JF93ur12vFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUm2b7Iv0xC_tr1lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI
-	8067AKxVWUAVCq3wA2048vs2IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28C
-	jxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW7JVWDJwA2z4x0Y4vE2Ix0cI
-	8IcVCY1x0267AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2
-	z280aVCY1x0267AKxVWxJr0_GcWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2
-	IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r1j6r4U
-	McvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACI402YVCY1x02628vn2kIc2
-	xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWU
-	JVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67
-	kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVW8JVW5JwCI42IY
-	6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIx
-	AIcVC2z280aVAFwI0_Gr0_Cr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIdaVF
-	xhVjvjDU0xZFpf9x07jj5lbUUUUU=
-X-Originating-IP: [117.182.74.7]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBggMA2pAhrYiZAAAsd
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260627_205607_141460_FE2E66A4 
-X-CRM114-Status: GOOD (  13.05  )
+X-CRM114-CacheID: sfid-20260628_012541_130454_E2CCEDAC 
+X-CRM114-Status: GOOD (  12.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,63 +119,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-> 2026=E5=B9=B46=E6=9C=8826=E6=97=A5 21:28=EF=BC=8CWenTao Liang =
-<vulab@iscas.ac.cn> =E5=86=99=E9=81=93=EF=BC=9A
->=20
-> In the for_each_child_of_node loop, private->comp_node[comp_id] and
->  private->mutex_node are assigned via of_node_get without first =
-releasing
->  any previously stored reference for the same index. When the same =
-comp_id
->  or mmsys_id matches multiple nodes, earlier node references are
->  overwritten and permanently leaked.
->=20
-> Cc: stable@vger.kernel.org
-> Fixes: 1ef7ed48356c ("drm/mediatek: Modify mediatek-drm for mt8195 =
-multi mmsys support")
-> Signed-off-by: WenTao Liang <vulab@iscas.ac.cn>
-> ---
-> drivers/gpu/drm/mediatek/mtk_drm_drv.c | 3 ++-
-> 1 file changed, 2 insertions(+), 1 deletion(-)
->=20
-> diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.c =
-b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-> index c86a3f54f35b..2c0d8db9ade2 100644
-> --- a/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-> +++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-> @@ -1138,6 +1138,7 @@ static int mtk_drm_probe(struct platform_device =
-*pdev)
->=20
-> 			id =3D of_alias_get_id(node, "mutex");
-> 			if (id < 0 || id =3D=3D private->data->mmsys_id) =
-{
-> +				of_node_put(private->mutex_node);
-> 				private->mutex_node =3D =
-of_node_get(node);
-> 				dev_dbg(dev, "get mutex for mmsys %d", =
-private->data->mmsys_id);
-> 			}
-> @@ -1153,7 +1154,7 @@ static int mtk_drm_probe(struct platform_device =
-*pdev)
->=20
-> 		if (!mtk_drm_find_mmsys_comp(private, comp_id))
-> 			continue;
-> -
-> +		of_node_put(private->comp_node[comp_id]);
-> 		private->comp_node[comp_id] =3D of_node_get(node);
->=20
-> 		/*
-> --=20
-> 2.39.5 (Apple Git-154)
-
-Please ignore this patch. I will resend a proper version after
-learning the kernel submission process.
-
-Apologies for the noise.
+Hi Frank,
+On Sat, Jun 27, 2026 at 12:17=E2=80=AFAM Frank Li <Frank.li@oss.nxp.com> wr=
+ote:
+> > ---
+>
+> Thanks for your fix
+>
+>
+> imx8m_soc_prepare() call be from probe(), can your use
+> devm_clk_get_enabled() to combine clk get and enable together.
+>
+> And use new patch change ioremap() to devm_ioremap().
+>
+Those resources are only used in the probe time, it may not necessary
+to use devm here.
 
 Best regards,
-WenTao Liang
-
+Felix
+> Frank
+> >
+> >       return 0;
+> >
 
