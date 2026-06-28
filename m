@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A391DC43327
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Jun 2026 23:01:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49BB2C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Jun 2026 23:01:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fy+qb/ZkQcIV3HZAbLA2s/xGRr97lh54TOzRicHKOHk=; b=ckBd5hIuN21oT+TxoT7ggt7NLV
-	TLOayAwE1H1ns8uay9kT28ylJhIm5BWueNAzEywdX/HV0H2+2vm5+IP/haHgisKpXUibSqWUESS8e
-	s2j+197YIK6H8op56b1IqZzD47IxvZLfyokVlTs9hHwVbbX4t/8vn6mIAVzFG4plf8Ea82EtQmsMi
-	wphEnlwifO4MIsnLD3a1Ys3zNc8BhDdxhlROmOA49rc+Nb1++wWfFnLZdIK00kMovsqVvEWmD+TJa
-	mYc7VT0vE94kTQr4YxOPSCiChugSq+YeihtQVXevgg0Y1LktYd1AnfphUBsjIOSjfhWpb1BkIn2pb
-	/kTGfKRA==;
+	bh=DMSY6dG/6BzfHIX/azlkSk4yjSAWJxyQKbMeQY5ofVg=; b=y6oCIZkUvZtl48kgGXA+CM9X+v
+	Ke8f09FSKz+QG984V1HYEyIGjsV4PtFKunU0q+XDNgumT8zYxPWS6p3Pbm17ieCHjSl32J3dFCRuv
+	iqQy8RD/ncg8qozR44aVpx5D0W+e/nnBhB7ZMmmDhZnm04MWrlQF0Gu8/H68lfSRbnCxuIS7cTPD3
+	3CBAtNRUi+R4ryUOqsEtpF3E+SVP6AWuWsUy9Ufhas2oN94nw72Lm2klsyLTrx0jehgMlDWXPHjvf
+	o44WwJS9mMoBQfyP8QfFdxdmzbVMELYspBkbv7dC2zLq/C3kNzKiixHkyQS+t+59LuQBcDH4Iof74
+	Axvkd8wQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdyUk-0000000DTWn-3iHD;
-	Sun, 28 Jun 2026 23:00:58 +0000
+	id 1wdyUl-0000000DTX8-00me;
+	Sun, 28 Jun 2026 23:00:59 +0000
 Received: from mail-dl1-x122f.google.com ([2607:f8b0:4864:20::122f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdyUa-0000000DTTb-3HNE
+	id 1wdyUc-0000000DTUP-0MLx
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 28 Jun 2026 23:00:49 +0000
-Received: by mail-dl1-x122f.google.com with SMTP id a92af1059eb24-139eea1aeb0so4174909c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 28 Jun 2026 16:00:48 -0700 (PDT)
+	Sun, 28 Jun 2026 23:00:51 +0000
+Received: by mail-dl1-x122f.google.com with SMTP id a92af1059eb24-139b914bab6so3656476c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 28 Jun 2026 16:00:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782687648; x=1783292448; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1782687649; x=1783292449; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Fy+qb/ZkQcIV3HZAbLA2s/xGRr97lh54TOzRicHKOHk=;
-        b=FNmdLW8F27YrImODt1+/VOm2LaKwGs2xfAHQTldrQo62sAr6kZsnNWUnI9J/ivT115
-         xfI1H2IV/5L0GiEj2hjUTtj4zzuYS0lDZt/NcShwUjLYdwbIvm9xOxBZuAMqxhFK9Jso
-         NKgno15Igb52TGiPgNtxyDru6MbcqXQfC8s+k8fiYoMDhXj/WSKPajYqN+pRYT2kkonw
-         OJ3O+6CzeXS1EV6VqusLiuihTp2KmjF2lPuhgBIDjWU5GiqggkYvxhNkwzICrCkpGqyh
-         Ax/U61rmnBF/HwDTn2f9ESCivGJBU/G9LbLcClzfIgdKYHuFXpToudr89opxUjcexIjW
-         Lgsw==
+        bh=DMSY6dG/6BzfHIX/azlkSk4yjSAWJxyQKbMeQY5ofVg=;
+        b=bvtFLKjZRYTdakGjheP9L+m3OVWB+fwNm4F231ghp6USOJJWmM4bwmDjq9UUrwYm8v
+         X4k4p4ofryVssmNw4cNjYEVdBJLuQrpu5whbY17++j1iE7iy74rnOJaVIsI7Sb6NzkPC
+         6sfCVbHj3PFqSqGAzZPEbRh1n2xYbjWEQiBCWFoS3sI8IzS/ubINMZMugZdbGX6ocmBZ
+         lTJUdT8ak3SWSnFucOdDfXoedZmHfC463Vj1+IGESzAyK9hlwL73u5Ls/B48iexPtl8p
+         BisM9bLH/LzSUNHc26qKH4XCCXPI3oaDSm7bR06nu0byENZ4aEFs9z2phiTfz4F/vUox
+         VqWw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782687648; x=1783292448;
+        d=1e100.net; s=20251104; t=1782687649; x=1783292449;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=Fy+qb/ZkQcIV3HZAbLA2s/xGRr97lh54TOzRicHKOHk=;
-        b=bL1CNvF+hHKqVAhhfMq/Fre9pqkxhBYjAi8uQf7U/JudTSVJtCkNWmhn/zrXJYd9oj
-         jbamQhQBLE06SsZH9x8IP6b03R/zo7Uqk1Edr6TGZ+T4pTwZKOOBpgsL2GGV8rWETk5D
-         2q2xow3ReEZNZghW3SJwp1KXcfmWuGMxh3gGQzOEz1q9i3W6/yDwg8eYvH3ex4meA0sL
-         eRSy04BC953XRBb3PZl6/xnIkFJrROvltiwbvXbKdQOws77K4u1timNymuEaOC28e4D0
-         teHVLuOx1IU5aMH00chk1D6aB0KYtKGG2h7BOTWeb5hFEXwBLvomtIbkivPBOgZlU2HF
-         jFCQ==
-X-Forwarded-Encrypted: i=1; AFNElJ8vV6qcOF5a8S7dOh4OTuvt4OrSyq/010a8Lx5b8mWufM62JNRaP4rkLaZxjE4VLx2dARoYk7I5ekInICbPVqij@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz85QJXRCr6IJeUBHB7L9VS/4P6ERRbSffJ4tVf5qtYXp7Vr17N
-	CWGLuHAXx9OsR9DJQLSs8Ve/G9bDCVzfkuodhMqxD8QeBgGUc3ldf1ck
-X-Gm-Gg: AfdE7cnDz3ee99AdCwOaIOkryz/RkDh7SnbkyNfdYNgIulHyolIq1KO2+vlJI02ue/x
-	9zZ/eoqibWRZBNcP9eHSc4/Y25vw33SmQTb/W7qQNnSdA4yer5umsTzaI7DnKsxJZtGZfZTFz4b
-	Ll3KORGFImz3BANV79jKymO8TcIStFR04I/ERnmMjLUBWsMPcan92x1+QyMj5poOOMtLUUuHljp
-	7f5lRV/MZGFSPq4sr5467dptQ2nDiNO0+DmOgLfR6NMneupwwNXHz4M4CoCBdCcUPEUVr7mOdtY
-	JOj5CEWvNFcTJuFye0vxVWFGdvTWlCfGEtkJhLUARK6O7Ix6mTDMUjBl4dEhLG+10JgdgjK939y
-	mh8fx5txBS2NufAKzhVKIq8kLmjJoNfRqtoKgKKWu1TZtN2tXVi6B4MnFGj6UbE0k85UnY56jqH
-	C/lrXwVHdeJO2gx88Emu/fwxSLTbejSYuCj5hoaXj7x8aplomu7Cipk6SUWLBtKnP6UcPUx8Z8z
-	889/tss7A==
-X-Received: by 2002:a05:7022:790:b0:139:ed59:4b7d with SMTP id a92af1059eb24-139ed594cafmr6888379c88.45.1782687648121;
-        Sun, 28 Jun 2026 16:00:48 -0700 (PDT)
+        bh=DMSY6dG/6BzfHIX/azlkSk4yjSAWJxyQKbMeQY5ofVg=;
+        b=PTAV17BWFPS3kM537b92n+Y3iGAqt3WyJYgXKFJQi5NdHYBeZwWPRtw4WJsVCR7WWr
+         I78Cntz9vP81+z6QpEuOXLVdlBFs7sObfkEo4dvW91lwmUT7+UFVznR5W0P+FSJTkh/l
+         +E58u4G0Aebgrh8wCBLzF6UJu7G7cYfHt7uZ0I5WwdPPNRSj2S/Of5W3MPoTO1wVmGT4
+         u4A2T0dMDRIRKvyGL0O/9hqfgxghW27PywjLvLMeGpiG8WnekdW4upB0FaibBQtmUJK5
+         okNmg8rfRSMUCXZRFSn9oWomKEln32PL/GidHnPKntHQ6SjUs+iA7NNAa4iRSZuyAqgq
+         L75g==
+X-Forwarded-Encrypted: i=1; AFNElJ+HlzYeZoTYeUAt2mbrVcaFRs4Hd8O4sYRUrFPJY1VOxNOYDGA+LWJ81k0duLZhVoLGhOYZM8kvJ/GHNXg8DB1h@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzuaw0kL/4VF5qcKw3JXRXp8dbZJeILIuUYfjZ4gXmN4VB5qFrW
+	CJ4r0SpyP34+SSeILzyR3l4/ryhdkVjyxqYbNfaU59+XqfvUqVxzNl3CyIayxg==
+X-Gm-Gg: AfdE7ck3Yl2cFgh2efEoWsuDOM8UwuC1K9J/Rsc8tA4NMhubOVSqxIzUmtGoPTWsDbe
+	IUg/+hp2JGJ6VKlKlwGcTiaR/9uQbso6BXlegLCvwGDdLXc3pPG8SuyFySpft5OZbMg2Blmnb4v
+	HiTcy8xN/3ySANUiaGrrSG6eHIam+moocWlxGZrLqeTXG1Hs5xVRM6+wUPiGuHjj9uQCqTTjL4a
+	dhVRmLLa674cu9bMbyLw3d4BZ3HIYRRdUOR77sY6hKpYDx8z6NDJcfd2WNvjapgBQK88uRwXmLd
+	ie1KqvjA0XH7RtIDrIC7RgkP6YCYVf0QMDoiSTt2XIKi19A9yktBLIreD2zhX7Vy9rVG4S8+2fB
+	UIbEeloOX+ChiB8FasR/QnZIkHDmAcdsrYoZ7mNEasfozMFmLruJ0PaEQFJU/Oyx/JUuOX6FLuq
+	C+OTtVJdQ9gqP/sxDVspel1qP2qHxYrMYPjmQfwNrtZ0cZ6Ch4mb4FeYkH2szO9Yy39ozPpoRfP
+	seGilQtVA==
+X-Received: by 2002:a05:7022:e98e:b0:138:1569:6f1 with SMTP id a92af1059eb24-139dbb2ab73mr12512388c88.11.1782687649350;
+        Sun, 28 Jun 2026 16:00:49 -0700 (PDT)
 Received: from ryzen.lan ([2601:644:8000:7a86::e34])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-139d8f318e7sm41359030c88.3.2026.06.28.16.00.45
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-139d8f318e7sm41359030c88.3.2026.06.28.16.00.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 28 Jun 2026 16:00:46 -0700 (PDT)
+        Sun, 28 Jun 2026 16:00:48 -0700 (PDT)
 From: Rosen Penev <rosenp@gmail.com>
 To: devicetree@vger.kernel.org
 Cc: Andrew Lunn <andrew@lunn.ch>,
@@ -81,17 +81,17 @@ Cc: Andrew Lunn <andrew@lunn.ch>,
 	Dennis Gilmore <dennis@ausil.us>,
 	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Marvell Kirkwood and Armada 370, 375, 38x,...),
 	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH 2/4] ARM: dts: helios4: add vcc-supply to GPIO expander
-Date: Sun, 28 Jun 2026 16:00:40 -0700
-Message-ID: <20260628230042.1204293-3-rosenp@gmail.com>
+Subject: [PATCH 3/4] ARM: dts: helios4: add SATA regulator supplies
+Date: Sun, 28 Jun 2026 16:00:41 -0700
+Message-ID: <20260628230042.1204293-4-rosenp@gmail.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260628230042.1204293-1-rosenp@gmail.com>
 References: <20260628230042.1204293-1-rosenp@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260628_160048_822417_4FA2F919 
-X-CRM114-Status: GOOD (  10.34  )
+X-CRM114-CacheID: sfid-20260628_160050_128267_F868BB10 
+X-CRM114-Status: GOOD (  10.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,32 +106,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The pca953x driver requests a 'vcc' supply, producing:
-  pca953x 0-0020: supply vcc not found, using dummy regulator
+The ahci-mvebu driver and libahci_platform request three supplies
+on SATA controller and port nodes:
+  - ahci-supply  (controller power)
+  - phy-supply   (PHY power)
+  - target-supply (disk power per port)
 
-The PCA9655 (PCA9555-compatible) expander is powered by the same
-always-on 3.3V rail as the other I2C devices on the bus.  Add
-vcc-supply = <&reg_3p3v> to silence the warning.
+Without them the regulator core prints notices at boot, e.g.:
+  supply ahci not found, using dummy regulator
+  supply phy not found, using dummy regulator
+  supply target not found, using dummy regulator
+
+The SATA controller and PHY inside the Armada 388 SoC are powered
+by the 3.3V I/O rail; the four disk bays are powered by the 5V HDD
+rail.  Wire the existing fixed regulators accordingly.
 
 Fixes: ced8025b569e ("ARM: dts: armada388-helios4")
 Assisted-by: opencode:big-pickle
 Signed-off-by: Rosen Penev <rosenp@gmail.com>
 ---
- arch/arm/boot/dts/marvell/armada-388-helios4.dts | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm/boot/dts/marvell/armada-388-helios4.dts | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
 diff --git a/arch/arm/boot/dts/marvell/armada-388-helios4.dts b/arch/arm/boot/dts/marvell/armada-388-helios4.dts
-index 05540b8012c2..cf0432a0e71a 100644
+index cf0432a0e71a..626a7339a5d0 100644
 --- a/arch/arm/boot/dts/marvell/armada-388-helios4.dts
 +++ b/arch/arm/boot/dts/marvell/armada-388-helios4.dts
-@@ -169,6 +169,7 @@ expander0: gpio-expander@20 {
- 					gpio-controller;
- 					#gpio-cells = <2>;
- 					reg = <0x20>;
-+					vcc-supply = <&reg_3p3v>;
- 					pinctrl-names = "default";
- 					pinctrl-0 = <&pca0_pins>;
- 					interrupt-parent = <&gpio0>;
+@@ -222,13 +222,17 @@ sata@a8000 {
+ 				status = "okay";
+ 				#address-cells = <1>;
+ 				#size-cells = <0>;
++				ahci-supply = <&reg_3p3v>;
++				phy-supply = <&reg_3p3v>;
+ 
+ 				sata0: sata-port@0 {
+ 					reg = <0>;
++					target-supply = <&reg_5p0v_hdd>;
+ 				};
+ 
+ 				sata1: sata-port@1 {
+ 					reg = <1>;
++					target-supply = <&reg_5p0v_hdd>;
+ 				};
+ 			};
+ 
+@@ -236,13 +240,17 @@ sata@e0000 {
+ 				status = "okay";
+ 				#address-cells = <1>;
+ 				#size-cells = <0>;
++				ahci-supply = <&reg_3p3v>;
++				phy-supply = <&reg_3p3v>;
+ 
+ 				sata2: sata-port@0 {
+ 					reg = <0>;
++					target-supply = <&reg_5p0v_hdd>;
+ 				};
+ 
+ 				sata3: sata-port@1 {
+ 					reg = <1>;
++					target-supply = <&reg_5p0v_hdd>;
+ 				};
+ 			};
+ 
 -- 
 2.54.0
 
