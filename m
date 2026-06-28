@@ -4,97 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 417DBC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Jun 2026 17:07:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34214C43327
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Jun 2026 17:34:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F6EXA0Eq4U3xfkyZSos69NYqUAWxpb1BwEfcIVdoTYs=; b=DfefCmu0oLDPyWz4jgc4jmemoK
-	Il/hzcWrI0UpuzBAIEN9bKx8D3sK42MUIwQ+YP666Q10xTrYFrfw9lXNtHwKH1uu7dnK32kCPkFcy
-	A8rc8bUuwnv1sYkUxF7fradYWi2reQCZbARIsKAs0KTmJWLZiumIcfBIhlft68SrMrQUGDxMWS6rL
-	RbKo8+Ao1bHTn7M4UkCYqH93kGmv6DSfC0KmlvIMLtnrlNcbjCfeiotf89PUqIFjiGT+86Apdf/qF
-	eaevzNe7xJLCTDQRRQHafQpMrXQVXe/jEF7MdDPsoNorYBW3czNhOJqeyvegd3gKlP5XhKAISwsj1
-	sC2nTqeQ==;
+	bh=IvP5EC4HPkXdnPkEEbC3Vgbr3RX7xQ2s7hFuOh57p+w=; b=OXauXSQWgnTlUwhV5jSOuwkNPD
+	eeOUlXbcgaOPeucMJWc1Wgn9aexdrvn+4k1SGk2En4bTioLF1CDQQfNdneydlLLKUvzDWR+szmX2J
+	QHs++7OYt3v0gVJLpw1EqCKpF0U73il4IZ/my3eXF6ToqWpmBsys+uE/KkBNrN37zHWzI0JOszoll
+	WEydxnLqHSLKEWye5Jz6Z/sTWmAPCbCVXZxjFfhy5/j06Q8sQdrNDsLflryA6wipW1WeW7DL8/+tu
+	uBO4hSHcZ7OPVf5zAe9d9AVdpnIg6GOUuXRsvPFW/VKje8SUM2Bam/Eu81SwOCWso2AF5Af5++uk6
+	C5S152Cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdsyI-0000000DE5K-2PcS;
-	Sun, 28 Jun 2026 17:07:06 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1wdtOk-0000000DFLs-2tN8;
+	Sun, 28 Jun 2026 17:34:26 +0000
+Received: from mail-ot1-x329.google.com ([2607:f8b0:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdsyG-0000000DE3s-1pOw
+	id 1wdtOg-0000000DFLB-44or
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 28 Jun 2026 17:07:05 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-493a613571eso5442015e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 28 Jun 2026 10:07:03 -0700 (PDT)
+	Sun, 28 Jun 2026 17:34:25 +0000
+Received: by mail-ot1-x329.google.com with SMTP id 46e09a7af769-7e9c5cacf1aso425599a34.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 28 Jun 2026 10:34:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782666422; x=1783271222; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=F6EXA0Eq4U3xfkyZSos69NYqUAWxpb1BwEfcIVdoTYs=;
-        b=EfzU0OMx5BIbazYqft8JL/0QJNhaGtUUZi6ikpQEuboTx600hjiJPVeOtSXEAE6ofr
-         DtSvpKoYl1p0dtlGkcpSAiECku6u05XGnRJRQRHT1mIF4o2VWScLPHRjMnQx2h4ekLV8
-         k+P+Ey3BQcieyY9Qmq4XA/BLOIgUcxF16fUGbvgWxjCKGglBxXNgAN+cpHqXw3yoi1dc
-         08uSRjWJRNlIBFC7AB6KLWrlFG6cngVfj5sRid7SLpYnL05npbUPZbemXlKdwI8QgsI7
-         ZuWV4idDxhnfJa2PWFx+HEHSD9C8fVjTADgBaLJRsoZmPh9gEJexYvOCjAWk1le1Ep7T
-         6mlA==
+        d=baylibre.com; s=google; t=1782668061; x=1783272861; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=IvP5EC4HPkXdnPkEEbC3Vgbr3RX7xQ2s7hFuOh57p+w=;
+        b=E6pKRkeovoxaLAY9IjGHf30vDChuY6bH9Vv3wRpRoaXmlH/Yn+jmLw5ZpFZyGSAMKb
+         R+N5scyBDS6MwXAjtaa0wxeMUFjBXtJYDnBJWM+sOCzw29tR4Pd87AjH8YURHLpj8sPW
+         VePk5IKoR9wXjtM8qgBgqjHS8mNyHDhLqcpa6mLi83ly85KlbF2KBzs0ryLBGJ5Wt1oL
+         zkTOHVe/GSrZrVaY3faw0tTkITwtfcbrcl1dBvesjRPEH4JZREVfHfoSxnBGNY9wC82w
+         Gy+fHBAgn1KnHs7CgTBXGlS1Dx+5VUQJvfY+xa5s1mvTBl43/TK+iHMTUoHguqhlYyL3
+         +Dfw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782666422; x=1783271222;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=F6EXA0Eq4U3xfkyZSos69NYqUAWxpb1BwEfcIVdoTYs=;
-        b=ZAzkSkXW00vtgCOP3FFkzdR5Sp63vsdN7S1zxUi4NfyQC1PgWlNWSf1Ite9w3occk9
-         klJ5261g73FcgKSAjxbp2VfAZ67iVPkztU6fmxnnx2j7jzI2OGtthlcZK2APqQrJbC+F
-         kw2zJjzlT4RNfH6Bz950VmTkRhWVTSKftxAjU4D4KfCLfnC7XrfOUmsr3KGCWbq5VC9f
-         6B2IHFpl7eG72s50571DiQ6gTDHOliym10NLiyZbfHirL8YEH2k6RMc8pcsNCIT/LqiY
-         zaaRmWRRUyLnxsf/fIYytUpxrmiTVFYz65VTWJhqM2RLEzwKooQYg4/KyZj0DbySTAaf
-         +7TA==
-X-Forwarded-Encrypted: i=1; AFNElJ8MehqncQy/FyJohVy55CQ+BtYm6vYZGw9p6ngM5THPRi9R7AAnJXqsmSLfAps2nP5YzNG1mLaoa2x4CIzZcS8B@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz83WzVGUeCYAyepOLVdzTQD9e+DbYVWafmqdMiEpK2Z1CBVXVg
-	yT7zhQFIElJjoOpsEKVaPTF5Ff2e58Q/EpKtFAcYnVAs0ORbaEiIaE04
-X-Gm-Gg: AfdE7ckIOm7nBts1sssnmwCu2yb58txHyn2pnJVgK3k/ly1oWmbLnayJSTPaFb0UbCY
-	L5oSDasZnYr7VcaDk1iO//lEzTCL4rjHcBLxzAAg5hR1jCuFVl3hbmqkB+M9YrZhg+Uil2BovLO
-	JmK7x8X1FbBI56hfbKo6OazubYAzdiUXLQI4j3Vi8lnWRBLWBM7RCVzcKDe9Ep0pImloDelA0b2
-	sE+ly7H9DwOkJv+IvFQXKuGo60tx5mVzRtqTnXUtTCKaecLGZd119bFS4MaabdJhAZs20dav+v9
-	VSd3/AXCCwjMKF1Mpd88b+BsoG92ETYpRUf5YJlBLnBwtusDA6uC19/ggu4A5H19rUECqY1LXXC
-	jG4yOsbKX0xsomPjIWN9jFIqmM3+DAQ/z24d1QrhU2lSDy6fsjjBk0v9LCubHBHC1UwxyRs8N0r
-	TAiaN6UubbM/Ih7wFhOrB06VrWtSoRtXLibCgpAEs0r+AZN0Jg6XZphkg3jI5/ZUvyuu8xTIjA8
-	6FevW/pZ5IRxkg9rNZrA8P9AA==
-X-Received: by 2002:a05:600c:3e8d:b0:493:a5d4:3798 with SMTP id 5b1f17b1804b1-493a5d438e1mr51953535e9.1.1782666422446;
-        Sun, 28 Jun 2026 10:07:02 -0700 (PDT)
-Received: from Lord-Beerus.station (net-93-144-65-248.cust.dsl.teletu.it. [93.144.65.248])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493a7fd1b0fsm54217195e9.1.2026.06.28.10.07.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 28 Jun 2026 10:07:01 -0700 (PDT)
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
-To: linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: pierluigi.p@variscite.com,
-	matthias.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Nishanth Menon <nm@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Subject: [PATCH v1 2/4] arm64: dts: ti: var-som-am62p: update audio codec configuration
-Date: Sun, 28 Jun 2026 19:06:47 +0200
-Message-ID: <d59a4590cab14865f5caa5249c4c6ec7632f7d5f.1782665899.git.stefano.r@variscite.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <cover.1782665899.git.stefano.r@variscite.com>
-References: <cover.1782665899.git.stefano.r@variscite.com>
+        d=1e100.net; s=20251104; t=1782668061; x=1783272861;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=IvP5EC4HPkXdnPkEEbC3Vgbr3RX7xQ2s7hFuOh57p+w=;
+        b=U7cn6tUK41N7KLjdud0Fx09cE0xtpADjMI7VqCwoNAizA/f4l0hHjQCZ5TEehLsDd6
+         jqp+pVNYhi+sGqT6Lpp1rmlcoGw8uzFXO43NxjRI0BtLBtdTR83C5fZni/QXW+AXczTA
+         yZhdyoi53rgbnz3WLGVwElcXihq0wnP0E0ZqWwVohijbOh+nCbt+z5ORYHHS8/hXdd1u
+         s4XK+ortXjtTCqHijp1Ggma+OlhD1bQQL8T2gk97P2xlBvGKYgtXlYQ9SCgD8TqJ0Oua
+         z6mfDp2I614yeDpPHnIDeIVNRDivmIgnFMsgb+zpoUQPl/OCL9TPLdi7r5wYdW55Ll92
+         Q7kg==
+X-Forwarded-Encrypted: i=1; AFNElJ/RVbTU2RwvpjIUrOri/amyDRRJgJeA3mOE/xosppjom4ZZspjuczKR0q7dTOtBWP6/tup1Kd7KcZewzw9F8vyo@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy9J6Sp0slghBdfxuF/WFtVzmeeL162xtEj8Qo1ir2u7EYMHDEF
+	8zHm05yOAOM9Y45zXOPX3GhG+XgsM4m8GBqBlplSXC/6t8bOLGs6JrqU4XdTjeGhbuI=
+X-Gm-Gg: AfdE7ck0IzU4L8STBueaPkG77OPNrt1SWlarCGg6NgKEwwmFCEzB4lqflul/D+unXdU
+	1tTjWFkJrRtPrTvxQlaTLn1nilmrQxZ/z1M/JUM/Rc+5g9dbNT15xSJMO+C76q3VnJTnoifhUi7
+	f8dgPvUleGtD97slmTnqunEG0pq1NfOI1chVB05G1GhqONtMnQhQGQLGhGkFTTv7VXU1EztrmJi
+	uQCZvDRz+f7DkVSH6KfLpyHmPhqBYkwAsiMi+F50vIIkLtvqlhr+4tja9+FFAkgW4zVAeCj+FCw
+	h//IVosFU6Q+fA1WBrV71WU8ch2AQfCiqlIsGOHKWrQQ1Xc2f+TTaKXq+fX8Cq491hTs5oJDEgS
+	sUzxn9jvjVU5luPvb5vHuly337AfuPcAgVmg0S6P3Rz7+hSE76ZIjVfOF2Ai8E5t1edVa5onS2J
+	PTJqFi6p/IntVRjEfMJ8IzkFb174LAxJjVIuYV3TSiKQtRYv38rwfZ7M5GKRCnj+I=
+X-Received: by 2002:a05:6830:4998:b0:7e6:f083:130e with SMTP id 46e09a7af769-7e99bfef82bmr13002333a34.4.1782668061288;
+        Sun, 28 Jun 2026 10:34:21 -0700 (PDT)
+Received: from ?IPV6:2600:8803:e7e4:500:f242:ecd6:f61e:d764? ([2600:8803:e7e4:500:f242:ecd6:f61e:d764])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7e9aa7eb558sm6725566a34.24.2026.06.28.10.34.20
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 28 Jun 2026 10:34:20 -0700 (PDT)
+Message-ID: <3f914030-44e8-4f63-ae72-7fde7d843325@baylibre.com>
+Date: Sun, 28 Jun 2026 12:34:20 -0500
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 0/4] AUXADC driver for the MediaTek mt6323 PMIC
+To: rva333@protonmail.com, Jonathan Cameron <jic23@kernel.org>,
+ =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
+ Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Lee Jones <lee@kernel.org>
+Cc: linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, Ben Grisdale <bengris32@protonmail.ch>,
+ Conor Dooley <conor.dooley@microchip.com>,
+ Andy Shevchenko <andriy.shevchenko@intel.com>
+References: <20260623-mt6323-adc-v4-0-299680ad3194@protonmail.com>
+Content-Language: en-US
+From: David Lechner <dlechner@baylibre.com>
+In-Reply-To: <20260623-mt6323-adc-v4-0-299680ad3194@protonmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260628_100704_488489_DB873643 
-X-CRM114-Status: GOOD (  13.49  )
+X-CRM114-CacheID: sfid-20260628_103423_020067_8CF8E473 
+X-CRM114-Status: GOOD (  11.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,56 +110,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update the WM8904 audio codec configuration on the VAR-SOM-AM62P.
-
-Set the audio reference clock rate to 12 MHz and add the codec DRC, GPIO
-and DMIC configuration required by the board.
-
-Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
----
- arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi | 21 ++++++++++++++++++-
- 1 file changed, 20 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi b/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
-index be19cbaffc4b..9440891339b3 100644
---- a/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
-@@ -152,7 +152,7 @@ simple-audio-card,cpu {
- };
- 
- &audio_refclk1 {
--	assigned-clock-rates = <100000000>;
-+	assigned-clock-rates = <12000000>;
- };
- 
- &cpsw3g {
-@@ -204,6 +204,25 @@ wm8904: audio-codec@1a {
- 		DBVDD-supply = <&reg_3v3>;
- 		DCVDD-supply = <&reg_1v8>;
- 		MICVDD-supply = <&reg_1v8>;
-+		wlf,drc-cfg-names = "default", "peaklimiter", "tradition",
-+				    "soft", "music";
-+		/*
-+		 * Config registers per name, respectively:
-+		 * KNEE_IP = 0,   KNEE_OP = 0,     HI_COMP = 1,   LO_COMP = 1
-+		 * KNEE_IP = -24, KNEE_OP = -6,    HI_COMP = 1/4, LO_COMP = 1
-+		 * KNEE_IP = -42, KNEE_OP = -3,    HI_COMP = 0,   LO_COMP = 1
-+		 * KNEE_IP = -45, KNEE_OP = -9,    HI_COMP = 1/8, LO_COMP = 1
-+		 * KNEE_IP = -30, KNEE_OP = -10.5, HI_COMP = 1/4, LO_COMP = 1
-+		 */
-+		wlf,drc-cfg-regs = /bits/ 16 <0x01af 0x3248 0x0000 0x0000>,
-+				   /bits/ 16 <0x04af 0x324b 0x0010 0x0408>,
-+				   /bits/ 16 <0x04af 0x324b 0x0028 0x0704>,
-+				   /bits/ 16 <0x04af 0x324b 0x0018 0x078c>,
-+				   /bits/ 16 <0x04af 0x324b 0x0010 0x050e>;
-+		/* GPIO1 = DMIC_CLK, don't touch others */
-+		wlf,gpio-cfg = <0x0018>, <0xffff>, <0xffff>, <0xffff>;
-+		/* DMIC is connected to IN1L */
-+		wlf,in1l-as-dmicdat1;
- 	};
- };
- 
--- 
-2.47.3
+On 6/23/26 3:16 AM, Roman Vivchar via B4 Relay wrote:
+> This series adds support for the 15-bit AUXADC hardware block found on
+> the MediaTek mt6323 PMIC.
+> 
+> The previous version of the series for all AUXADC, EFUSE and thermal
+> drivers was split after Krzysztof's comment [1].
+> 
+> Tested on the MediaTek mt6572 and mt8163 SoCs (Ben), both paired with a
+> mt6323.
+> 
+> [1]: https://lore.kernel.org/linux-mediatek/20260504-mt6323-v1-0-799b58b355ff@protonmail.com/T/#med30fad67a090be35f549231336b2dec295233f6
+> 
+> Tested-by: Ben Grisdale <bengris32@protonmail.ch> # Amazon Echo Dot (2nd Generation)
+> Signed-off-by: Roman Vivchar <rva333@protonmail.com>
+> ---
+Reviewed-by: David Lechner <dlechner@baylibre.com>
 
 
