@@ -4,91 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCC66C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Jun 2026 20:28:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1765C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Jun 2026 20:56:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+MNxq3nre2XFyGyvcWB6kaxnBzNcf2jxcozOoA2MEh8=; b=aqj/NiBpfwUnRndb/XYJTe34zA
-	mGvlzikvacKejUEsr/Mx1+yALQtZV8u/YgQlhYvmDu6lcCeBWNzkH/a1BGg5WsYe2ooSLIUB7okZK
-	0YlbfpB3pGutlVY2DE8w3TZtYo+VtRIiRKEenAT3lNNE+Zo0jDx3diO8UZPEBmnJaB8qV1+08EJnC
-	+BoQCquUCTKm77BQvvDXKPrUmmnUTQJbAynzvp409yvd/zy6vXMl+yB1uRog7XRI+qpHmGq+sJ2ev
-	S6gc5fkO6zUuuDFbAYROnzoeEP29IhulRCuXvKsFn2rWcc1avXcH45ArHjEKFJvPqmebzgI8ROesz
-	oOyqMR2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zB2RgA4LcSFDTrHCUEiIFGumRAW+eppHEw/DC5yOWko=; b=CoCT25pSgoQvSQpZAj16UOi1Sj
+	wJyKFJCrwgtUZUnXoGCSycT66OgdCofnTT/TCQTXYjpAnMHQEb360Xl6Fp/aeuiiZ601s/efsK3UO
+	kz8mop9sU4AUh66M6DqGbN5XtOtKswmzqADosef5q6IUb7Ke71F9lt48uEnyvfWihkAE6YTledywU
+	RlEGpNOVhFuKNEMlY8N9y1p8tQhbpJT8ub5clvlIZ5XoqR96yzNQFHz+oauHfAD/FkfjNuQpn1YTC
+	QeWT/CVSvsPHSfvewx5zOuJgb5cObOFloGG4o5iXqJzjrEbzu4H0xg7pZ/AHE/t/Enwy3hnJqrYY4
+	JpxyBzoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdw73-0000000DMx3-2wcF;
-	Sun, 28 Jun 2026 20:28:22 +0000
-Received: from mgamail.intel.com ([198.175.65.12])
+	id 1wdwYB-0000000DNOW-0f9P;
+	Sun, 28 Jun 2026 20:56:23 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdw70-0000000DMwi-3sy0
+	id 1wdwY8-0000000DNNZ-2AjZ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 28 Jun 2026 20:28:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1782678499; x=1814214499;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=x5Vi4f0phvjV60V3TXIOIorQbkIhfFhMCJ4c7HWwdqk=;
-  b=THN6pZqbV0nOx/RKHW6ehnsTfLw/aMZJomlD+TJm1nwZPaDHxmML2m1A
-   pi65PAJHOoFHpEdPHKx8TVJKKeaBx8DqyOwcZR0nvleKSOPXGvoUMbtrF
-   4Nq2F3ktqBQQ3NjgUxZElRiLiJoAyPjh/xc81sj0K8AQYccdnuP6MiaCj
-   YWn8LBHHeF3I3Q1ohCnVoGLZNVme3+Zdsp67A5J/Vtirn4ku9MyGvK7PV
-   guYVvV7uYiAB3qIKAhMQ2NHKHT9eEaRFqUV21kwgDveVIT/1spnDXuPge
-   K3yTkhNgM04wBdPqcD9Jpk4VWp2/9uHJcv3x4fAqnWmHFgynAyGRyILy6
-   Q==;
-X-CSE-ConnectionGUID: T/3NFD43TSe6MQAqehariw==
-X-CSE-MsgGUID: X9arMdKNRWO5qcMM9Nj2eQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11831"; a="94860426"
-X-IronPort-AV: E=Sophos;i="6.24,230,1774335600"; 
-   d="scan'208";a="94860426"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Jun 2026 13:28:17 -0700
-X-CSE-ConnectionGUID: 0nckVlaHRHaa9RU2NwKC9w==
-X-CSE-MsgGUID: QfjrX7T9R5Wi5lax0QCKnA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.24,230,1774335600"; 
-   d="scan'208";a="249152241"
-Received: from smoticic-mobl1.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.244.193])
-  by fmviesa008-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Jun 2026 13:28:13 -0700
-Received: from kekkonen.localdomain (localhost [IPv6:::1])
-	by kekkonen.fi.intel.com (Postfix) with SMTP id 229E0121C1C;
-	Sun, 28 Jun 2026 23:28:13 +0300 (EEST)
-Date: Sun, 28 Jun 2026 23:28:13 +0300
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
-From: Sakari Ailus <sakari.ailus@linux.intel.com>
-To: Frank Li <Frank.Li@nxp.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Hans Verkuil <hans@jjverkuil.nl>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Michael Riesch <michael.riesch@collabora.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Martin Kepplinger-Novakovic <martink@posteo.de>,
-	Rui Miguel Silva <rmfrfs@gmail.com>,
-	Purism Kernel Team <kernel@puri.sm>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	Guoniu Zhou <guoniu.zhou@nxp.com>, devicetree@vger.kernel.org,
+	Sun, 28 Jun 2026 20:56:21 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4926ee9e8d9so10733545e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 28 Jun 2026 13:56:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782680178; x=1783284978; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=zB2RgA4LcSFDTrHCUEiIFGumRAW+eppHEw/DC5yOWko=;
+        b=F7SIbLNtXIXtfqLURJpEreCupo6n6Met3Qa2EL7dkmMs0cEQKUqnBLu9SWN7+gLgUm
+         uQOmEEMQ78He/xSa5njizrn9PM6cgKqVUV+FS/hI90VxbGmsd0swZYacYyBiTkVbiTmo
+         OdTXFeyRTPo2kjtgzaE0NRjK6584x0ByLEEs6uWBc+4afAHa7hyvoPHI+IJX2OvAPZnz
+         Z2VUZ+7a81mA1Qd0F7vPFtJyEGKnPmK0MDXKa1ygJfHTZX8rMEA+edeTsX6wAKjpHNA/
+         bbrwEcsAcMDpJn4k7qgfyfC2G/2sFKv+hsUFwIjDj/3d/CbrtRA5hAX0wLIdV6NZpKC8
+         achQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782680178; x=1783284978;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=zB2RgA4LcSFDTrHCUEiIFGumRAW+eppHEw/DC5yOWko=;
+        b=sFyHRTDmR7pcp37h69k5/HjsM5pzbN27KGgWd4czTdINsI2WsjcNGbqMgXf6m2/fjb
+         6NFQ5FyxQCYHH/X88AbCM4zTThGID++cije87uqIjl/3Kwge7oyAiVYvicuV9+ZWbPis
+         bCSrON3bMe5CeCFddaWyDYEkgPpvN6cSwGjLq1cgrG4lzUKX34UdYaV3739TMuUbLvDq
+         QzmRRDQIaix+c8CbrU30w9mlUTUWcTlUcO86fzRZvaKWGleEpoHGhZjtwmDrmMPaOY1J
+         uTI68/9vAgayYBTRI0hHFogrvSDE5+M+h+6B54l5F0R2SbVuXXlDbJma+t+TEcq80qgK
+         zDSA==
+X-Forwarded-Encrypted: i=1; AHgh+RphAZHKoqfofPgvihdAaTqZ+y9mB/QsV4Hn8DbrVgj7o553Hqdxvqs3EsZUHplHU/s4OIJnTWAAe5zyBakGd41J@lists.infradead.org
+X-Gm-Message-State: AOJu0YyrEccA13jywenta2m9azjb3fUaW3wrjb1Rd+PQKXbfu9w44F6P
+	tKC2C5cmQQ/QBcQ1PbW4n9hyxBPVe41CFfa2d8lWZ9vy+NAJo47f1U21
+X-Gm-Gg: AfdE7cmLVbvvItRmuX2IkFlywffdrXB3FgdYvr9QJ5wtL4oycDLSQ7JDVviQKEFxuQf
+	8VDfIHgnEQc+lFm3YjgBcq3EDDKhJ8BrSiQGgzSBoQJ6zMybS7mtVwqVB5io0ow83pI/kZLMPIx
+	6+ETWgWJSyiLifG1SzgS3P3+O9OavFYhmwhTaZQolP+A5IQFxdlWQr/2UaNney5ZzfhpPgI5uoF
+	IoHJ8BoituyMi+5eb/5Xx0Srw6YgvEhuMe2rw54Wi1CkWu3dlrMYyZzQWhdQKlR2zQcZ784dl0a
+	uK3cM7ZKh8oRTVHuFckWR+4P5pTYfz6Q4qgM4rXcEmjAly0+FKQwf1k5EFlDkKTCA0xEAwdCOKB
+	57iI/+3wpgqAA5I1tExRB6h80Oncwnnv0c1iUsnBvpzMoQB5VTjyaMfWC5nIHMcmRdxnmuCW5zc
+	BtkcnF7t3sZlPvBnr+3miuxfLRCXgJGLgAkcR90jhHZa1y3guNdFoLhXBpXuloQ0tjC3btlHqKM
+	739LDEr4HuqzJn7ddcWvedddg==
+X-Received: by 2002:a05:6000:4022:b0:473:1e79:87e6 with SMTP id ffacd0b85a97d-4731e798941mr3474546f8f.3.1782680178221;
+        Sun, 28 Jun 2026 13:56:18 -0700 (PDT)
+Received: from Lord-Beerus.station (net-93-144-65-248.cust.dsl.teletu.it. [93.144.65.248])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-46f86c34d76sm19448910f8f.3.2026.06.28.13.56.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 28 Jun 2026 13:56:17 -0700 (PDT)
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
+To: linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v6 1/9] media: mc-entity: Store parsed V4L2 fwnode
- endpoint in media_pad
-Message-ID: <akGD3ZjW6GPHHI3D@kekkonen.localdomain>
-References: <20260624-imx8qxp_pcam-v6-0-4b3f45920d2f@nxp.com>
- <20260624-imx8qxp_pcam-v6-1-4b3f45920d2f@nxp.com>
+Cc: pierluigi.p@variscite.com,
+	matthias.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Nishanth Menon <nm@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Subject: [PATCH v2 0/4] arm64: dts: am62p5-var-som-symphony: align DTS with hardware revision
+Date: Sun, 28 Jun 2026 22:56:04 +0200
+Message-ID: <cover.1782680023.git.stefano.r@variscite.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260624-imx8qxp_pcam-v6-1-4b3f45920d2f@nxp.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260628_132819_080643_116D598F 
-X-CRM114-Status: GOOD (  24.71  )
+X-CRM114-CacheID: sfid-20260628_135620_591918_B8AF545D 
+X-CRM114-Status: UNSURE (   8.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,71 +107,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
+This series updates the device tree description for the Variscite
+VAR-SOM-AM62P and Symphony carrier board to better reflect the current
+board configuration.
 
-Thanks for the patch.
+It aligns the Ethernet PHY description, updates the audio codec
+configuration, and adds the touchscreen and TPM devices together with
+their required board-level resources.
 
-On Wed, Jun 24, 2026 at 04:37:48PM -0400, Frank.Li@oss.nxp.com wrote:
-> From: Frank Li <Frank.Li@nxp.com>
-> 
-> Each media pad is associated with a firmware node endpoint. Capture the
-> parsed V4L2 fwnode endpoint information in struct media_pad so it can be
-> reused by consumers.
-> 
-> This avoids reparsing firmware node endpoint data every time the endpoint
-> configuration is needed, reduces duplicate code, and provides a common
-> place to store endpoint properties associated with a pad.
-> 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> ---
-> Assume 1 to 1 map between dt's endpoint to medie pad.
-> Change in v6
-> - new patch
-> ---
->  include/media/media-entity.h | 5 ++++-
->  1 file changed, 4 insertions(+), 1 deletion(-)
-> 
-> diff --git a/include/media/media-entity.h b/include/media/media-entity.h
-> index d9b72cd87d524..4a3785cd9f370 100644
-> --- a/include/media/media-entity.h
-> +++ b/include/media/media-entity.h
-> @@ -20,6 +20,8 @@
->  #include <linux/minmax.h>
->  #include <linux/types.h>
->  
-> +#include <media/v4l2-fwnode.h>
+v1->v2:
+ - Remove unused eth property
+ - Remove wrong dmic property
+ - Fix commit message
 
-We have dependencies from V4L2 to MC but not the other way around as MC is
-(or was?) intended for wider use then just V4L2. I'm thus more than a bit
-hesitant adding any references to V4L2 in MC.
+Stefano Radaelli (4):
+  arm64: dts: ti: var-som-am62p: fix Ethernet PHY configuration
+  arm64: dts: ti: var-som-am62p: update audio codec configuration
+  arm64: dts: am62p5-var-som-symphony: add touchscreen support
+  arm64: dts: am62p5-var-som-symphony: add TPM support
 
-I wonder what Hans and Laurent think.
+ .../dts/ti/k3-am62p5-var-som-symphony.dts     | 43 +++++++++++++++++++
+ arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi | 35 +++++++++++++--
+ 2 files changed, 74 insertions(+), 4 deletions(-)
 
-> +
->  /* Enums used internally at the media controller to represent graphs */
->  
->  /**
-> @@ -230,6 +232,7 @@ enum media_pad_signal_type {
->   * @flags:	Pad flags, as defined in
->   *		:ref:`include/uapi/linux/media.h <media_header>`
->   *		(seek for ``MEDIA_PAD_FL_*``)
-> + * @vep:	associated fwnode endpoint information
->   * @pipe:	Pipeline this pad belongs to. Use media_entity_pipeline() to
->   *		access this field.
->   */
-> @@ -240,7 +243,7 @@ struct media_pad {
->  	u16 num_links;
->  	enum media_pad_signal_type sig_type;
->  	unsigned long flags;
-> -
-> +	struct v4l2_fwnode_endpoint vep;
->  	/*
->  	 * The fields below are private, and should only be accessed via
->  	 * appropriate functions.
-> 
 
+base-commit: 3d5670d672ae08b8c534b7beed6f57c8b44e7b43
 -- 
-Regards,
+2.47.3
 
-Sakari Ailus
 
