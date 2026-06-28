@@ -4,74 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81D03C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Jun 2026 14:23:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EFD5C43327
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Jun 2026 15:00:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Vczm7YwWGcXl6BUuvuoQawBq9n1D13yeM3SOthDuKAM=; b=U9aYA7pSNcPBroB571W2AFpv+5
-	kOSvdXREsUwErVzchba7ue0ngnf5huPR7Ykfp6kwshfKEn22W/oIdWfbDKJ5xFLWDPLzYP+ejkEgp
-	NUeCgQay9zewiUKxMBEKUrhYjaygFRQH9pYsSmiYcqbdEb4rJSyfAVxrSQ3vqokLiMUSrfDTvpZ0/
-	xdWwckMNiaLkdem5gqhTKw6VTD38/7EvGqkzbn0Mku9e2DlCRSL04/vBTNcMn9gHv3yBnymcUqwgM
-	wjvhB4+cOYe39yVS+09RAvAl4lwrCe6a0Th38BFVqXxbMBXn5ZbkrBqz0FkgkhCr5qYC2kkw2Cy2+
-	UowwLKNw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=v3wY4QK+cvFJBzhQbi9vqDdJNzGAUNzTTPvyQRTv9DE=; b=dA8YzBL0cHJBkGYqqT5+kncylq
+	Yt3nAdQ+liqoy5+Ft9VTv+H0owmlrBDS8mYA14z4b/7tuC+PISv57ct8Iw9rVEPcjoswO0mAfZvUo
+	tM+vDkzphihGb7XFt5J0bPacokuHUW++bRjvyZR/R/MVaNGbeWlDcC+g0X4zcFUYKLTeNWR1tgY2E
+	zH4ghf/XbSqygbWChHE+oH/ZJ0NvXhSVQngSQFGGmAh67bUGwm2Noyh1AweT1ZV7WuQmaXASUjdCr
+	T/WxxeRx1dxZ/Fy3t6lvy1GTTXxQxpG8NcLmCuklBygGY85WvMAz0VucIVZX8HlNQNzm188RFkbar
+	2b916A+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdqPb-0000000D8aV-2RLJ;
-	Sun, 28 Jun 2026 14:23:07 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1wdqzl-0000000DAVA-1zmv;
+	Sun, 28 Jun 2026 15:00:29 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdqPX-0000000D8Zy-38Cj;
-	Sun, 28 Jun 2026 14:23:05 +0000
-Received: from localhost.localdomain (unknown [117.182.74.7])
-	by APP-05 (Coremail) with SMTP id zQCowAAXnP8_LkFquD7IFQ--.8366S2;
-	Sun, 28 Jun 2026 22:22:56 +0800 (CST)
-From: WenTao Liang <vulab@iscas.ac.cn>
-To: chunkuang.hu@kernel.org,
-	p.zabel@pengutronix.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com
-Cc: dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	WenTao Liang <vulab@iscas.ac.cn>,
-	Greg KH <gregkh@linuxfoundation.org>,
-	stable@vger.kernel.org
-Subject: [PATCH v2] drm/mediatek: fix of_node leak in mtk_drm_probe loop
-Date: Sun, 28 Jun 2026 22:17:51 +0800
-Message-Id: <20260628141751.47090-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+	id 1wdqzj-0000000DAUh-0TAo
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 28 Jun 2026 15:00:27 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 643DA40085;
+	Sun, 28 Jun 2026 15:00:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C503F1F000E9;
+	Sun, 28 Jun 2026 15:00:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782658826;
+	bh=v3wY4QK+cvFJBzhQbi9vqDdJNzGAUNzTTPvyQRTv9DE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=HitqphoVUdspjJgIJz8jcBA7ODQxDzrUQuopb0sGPYESnzimlYud0GzOq39/gNG1I
+	 HqxIy2ic6ku7BYJpoJwcDf6joo16R12sUEO5z8iv9BZnl13w/hoyk/tDZJrCi1PyMk
+	 /iUnwIW1t13mdQ6aD/Ot1g2bylKN8VHXe1TDS1wQObFhasky6zLsSBI57RAqfDxx6y
+	 hZg4Tz55me4wh9rFX3NzAReGX9hkVNT5iWYo2IW0ljptQ6sUEnklxM1s+QmTUalFv1
+	 scItLherAM3TL8JchPyk8gUglqIzIQPjUaDBQ2N5ZM3mJ622O4xi4gcalNzG9/fI4J
+	 XnrDTM1FOuZRw==
+Message-ID: <52e21bac-b560-4bcf-b78a-9ae482837450@kernel.org>
+Date: Sun, 28 Jun 2026 17:00:19 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowAAXnP8_LkFquD7IFQ--.8366S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7AFy8ur4ktF43Ar4xKw1kuFg_yoW8Wr45pF
-	WDKFWYyrW0qr4xKFyvyFyUury3A3WSqayxWr4Yg3WxZwn8tFy7XFyFqay7KFZ7AFyxC3Wa
-	q3Z8AFyfury7AFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9Y14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
-	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
-	jxv20xvE14v26r106r15McIj6I8E87Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr
-	1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxa
-	n2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4
-	AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE
-	17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMI
-	IF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4l
-	IxAIcVC2z280aVAFwI0_Cr0_Gr1UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCT
-	nIWIevJa73UjIFyTuYvjfUOlkVUUUUU
-X-Originating-IP: [117.182.74.7]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBgMMA2pBKkEGVwAAsb
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260628_072304_152634_7BD992A1 
-X-CRM114-Status: UNSURE (   8.56  )
-X-CRM114-Notice: Please train this message.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] clk/samsung: fix parent clock refcount leak in
+ exynos_clkout_probe
+To: WenTao Liang <vulab@iscas.ac.cn>, s.nawrocki@samsung.com,
+ cw00.choi@samsung.com, mturquette@baylibre.com, sboyd@kernel.org
+Cc: alim.akhtar@samsung.com, bmasney@redhat.com,
+ linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Greg KH <gregkh@linuxfoundation.org>, stable@vger.kernel.org
+References: <20260628125422.45267-1-vulab@iscas.ac.cn>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20260628125422.45267-1-vulab@iscas.ac.cn>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,44 +117,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In the for_each_child_of_node loop, private->comp_node[comp_id] and
-private->mutex_node are assigned via of_node_get without first releasing
-any previously stored reference for the same index. When the same comp_id
-or mmsys_id matches multiple nodes, earlier node references are
-overwritten and permanently leaked.
+On 28/06/2026 14:54, WenTao Liang wrote:
+> of_clk_get_by_name() acquires clock references stored in the local
+> parents[] array. All error paths correctly release these via the clks_put
+> label, but the success path returns 0 without releasing the parent
+> references. The references were only needed to obtain clock names for
+> registration and are permanently leaked after probe completes.
+> 
+> Suggested-by: Greg KH <gregkh@linuxfoundation.org>
 
-Suggested-by: Greg KH <gregkh@linuxfoundation.org>
-Fixes: 1ef7ed48356c ("drm/mediatek: Modify mediatek-drm for mt8195 multi mmsys support")
-Cc: stable@vger.kernel.org
-Signed-off-by: WenTao Liang <vulab@iscas.ac.cn>
----
-Changes in v2:
-- Fix patch format based on reviewer feedback
----
- drivers/gpu/drm/mediatek/mtk_drm_drv.c | 2 ++
- 1 file changed, 2 insertions(+)
+What was suggested by Greg?
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.c b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-index c86a3f54f35b..58860f7071a9 100644
---- a/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-+++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-@@ -1138,6 +1138,7 @@ static int mtk_drm_probe(struct platform_device *pdev)
- 
- 			id = of_alias_get_id(node, "mutex");
- 			if (id < 0 || id == private->data->mmsys_id) {
-+				of_node_put(private->mutex_node);
- 				private->mutex_node = of_node_get(node);
- 				dev_dbg(dev, "get mutex for mmsys %d", private->data->mmsys_id);
- 			}
-@@ -1154,6 +1155,7 @@ static int mtk_drm_probe(struct platform_device *pdev)
- 		if (!mtk_drm_find_mmsys_comp(private, comp_id))
- 			continue;
- 
-+		of_node_put(private->comp_node[comp_id]);
- 		private->comp_node[comp_id] = of_node_get(node);
- 
- 		/*
--- 
-2.39.5 (Apple Git-154)
+> Fixes: 9484f2cb8332 ("clk: samsung: exynos-clkout: convert to module driver")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: WenTao Liang <vulab@iscas.ac.cn>
+> ---
+> Changes in v2:
+> - Fix patch format based on reviewer feedback
 
+So what is happening here with LLM?
+
+
+Best regards,
+Krzysztof
 
