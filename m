@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B507C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Jun 2026 23:00:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F49DC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Jun 2026 23:01:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=s7IyQ7+lfeLZPfYuSv6PDTk5mfq4Ex6emC2k3dW0k7M=; b=qC0CUgn8vbQ3z3ukr13C6oL9uV
-	t0yrq+kPZ7I1bT2xeV6FovmQQ2ICK6K5KHavPMJbCyf2Oe7a/NNQexxV4/DKEtCmyqaKiaag3yqYK
-	iZC5D8udRwtJ7XIZIfeZkTvLBiC568aHIaONpsqkhuQorhagZvcEd11Q4ptnSi72H83zUTc2UBs/o
-	7gnD9h2VbNSL5G7dBKG3f0RNh+fJGiI28+Ow5d6IPwHB0GVaohsHTxz9zZTaFbDyPo5D2/fZw4hU/
-	2RNq6oVhDAVLHjiPmjO4ShOIUdgHx7AqSNB1ofbZ3MWuh52ywLW1l7v74Udccn1Bdocb081YymU76
-	Xa2TzArw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tjJ5yefLO5Lv7O368+n/XQBys5bCKstA5+2Lfq1JqAE=; b=vZJ2q+WShgxeSp5AGdntNLysCI
+	bqus0BsBffmBt3uZ5Q6C2j71+632OeAz1Q+4tfSg830tba5OKI4qlVa2ANZ4U6fR9N74sURscfGfY
+	SgVTpVnbuhofQfiIPGjNEi76FfnqeRgHaxEhSfOcOCT3A3DUcGzHcs1yPkcJabk4DhGxKDwrNpSK0
+	1mU84VRRHPFsm4xQF0oPB7Vd9zkmLu4eE353MLz7MbhbuVL6PdMYIWdNUOrECoZf+A9p9elyh7kV7
+	Q+hL94/MIh48d5ppjXz+oGNRBSWwDtS+7y+7I29HhuNsy5IBPBNu3OC5GW40ydGlEXZSdP6rZ8OiP
+	GB2p1HUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdyUa-0000000DTTe-30R1;
+	id 1wdyUa-0000000DTTZ-2YVg;
 	Sun, 28 Jun 2026 23:00:48 +0000
 Received: from mail-dl1-x122f.google.com ([2607:f8b0:4864:20::122f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdyUY-0000000DTSu-1jh8
+	id 1wdyUY-0000000DTSw-1tCd
 	for linux-arm-kernel@lists.infradead.org;
 	Sun, 28 Jun 2026 23:00:47 +0000
-Received: by mail-dl1-x122f.google.com with SMTP id a92af1059eb24-139f1dfc9faso1631856c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 28 Jun 2026 16:00:45 -0700 (PDT)
+Received: by mail-dl1-x122f.google.com with SMTP id a92af1059eb24-139a5f4ca15so3142497c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 28 Jun 2026 16:00:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782687644; x=1783292444; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=s7IyQ7+lfeLZPfYuSv6PDTk5mfq4Ex6emC2k3dW0k7M=;
-        b=YA5ana05DVZlRdl+iPBwOu5Nt5VNDaFyZW1izWGvoLCq5fKvgCc0Cb6trJ9NlgQoyL
-         5wMgBkaDvC0X1onHRDbBoxLhEfWTITxA2Ix5IYxO2EXqBEwMGjRB5+lcET1n1zktxgG6
-         K7NpO12QbuspavQxlMYsv2is4FlUrtLzRIbgDFTOIink22NdB/SqSjklZlIbvrrEnLuO
-         sZ5INKxvnjjNEY4rYYRUDtiUuovb+PAoPSd+bb2LUl+EWh9AZhyTWIh0/XfNORpRSNhT
-         FvriErZZoj3c5aip+hTNugWcTnFHMecL2R4LyOAjKfWyjtvVxveYF9Ia7S37orCIUIwG
-         hAGg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782687644; x=1783292444;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1782687646; x=1783292446; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=s7IyQ7+lfeLZPfYuSv6PDTk5mfq4Ex6emC2k3dW0k7M=;
-        b=JQyn03ITLLU4+ZRxZUIPhNyOUKlDd6mik2cb+L6O8L/Kvdcgbg+GTsq0DpGmdn+mzd
-         fbcEdAEFl1yecLkorE/8KKlyPd//OJfjaIyFD7OPpKheI6wd9YlxTxPKqgA4JAsoByYv
-         wNSsPZsphAvm/BHrc5+Hgbc2uhWfdSXXx64/5zg4StwyvTmXWCx1OB7xsVY2XbvWmhUr
-         2qJ1E8E6MhSBUq7b6BduqpJZWrmeOc6yJ7CzCHX+Hbi2BXOug1u8iHRqV/sIWAQEyI/I
-         KxZCOjTX5hhw8wSuTTMOzg/BaEBncb9OXH1RCY/mhoojhY3yIDNIU08r4OfP6N4SKuOE
-         1znA==
-X-Forwarded-Encrypted: i=1; AFNElJ/br6I6l9Bb8p6tx53rtJBdjILI/opcfrl+072pNZqfm5PkFHsGt9+uJmIp0ZJiw7roHEGIXL2r8jpIGCzm2L7R@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywr1pZ74nys+4yvhFYH+8Eje/lle7kAMtDV63/tGDUYI7jDyB1A
-	SmpVA3dk8D/qPDOLgjiSm5dOW5hpiqTjtc1TmTZtxHao5jwz4GQI8uxl
-X-Gm-Gg: AfdE7clIagBULjSBV7K/cPMQikAOQq0iNYMsMCxEbhoUPk0rFRtC4wLdMkOixj++uK9
-	Xyw4bqKO4r1pmGo1Y9Ipm7x4o4A7pu4eVk7Sby/8LxJ7kCHgPhg1lrEhAgQbv6KzdMWQaEoDkQq
-	4zoHxKpI6bqC7xWiQeDnsbGZaZLX5gdvCMty3G4WHF5OcOz7EahBjUs2SWpi8B+Qhx5RS4mg6RA
-	b5Llu/aJE91D9prYhR3N2DtPGyxvuHllIiE8eEYs51aMCpBH0g7hw7J57XGrigcawcnE0u96NSG
-	9JfYeytqrssoThdnvKomYSL0PkJ6dZJFXS2ep7JfgrjTZdqbYgY9zw7ty/yr8Z73ewmaBUPlQMy
-	awHYMaadJuZpVvOi//mgmr7epid0eYtEBUuHF/uj8ox3PqVg53bZyCrts1IsxwCOkpZrqrLD6x7
-	41AyuKJOb4KaG4oqg9FJ/Yu8S0AmufH6NhGYLc2TvEEB6NG5KKENawQeEq0y7ODOGT2R1Q2hwVg
-	6o6dDX5VQ==
-X-Received: by 2002:a05:7022:381:b0:139:ed5d:5c9e with SMTP id a92af1059eb24-139ed5d5d76mr5557357c88.39.1782687644290;
-        Sun, 28 Jun 2026 16:00:44 -0700 (PDT)
+        bh=tjJ5yefLO5Lv7O368+n/XQBys5bCKstA5+2Lfq1JqAE=;
+        b=WwyaJG44YU8fusoxCyaJPbLZVGK1z8+h/AMLnBe7HAKTiawlP14qkhqkPpqofmZKOH
+         IIZQq7qrEbv4auTQollMCQRFTZmejcVKj/1IvNx2AqPOw/S6D/GO495c/gA3y+wcH9Xq
+         NQChSok+/zQUJEvQA4CCZ2gnpDK4OJcC6EFpJCxLRnVe0WGOU6OkLbQEl/J+XCbDA6nA
+         wy30MxtRGmmNRnmagteXT5+OvL/PswLGMs72PpXpyXKXiQ6FirGlYhUUASPH786THsJ6
+         XXOQx1oTBO+ulLgyFNc7GwqfshRlyHjHLR5T20Vgf6LJh2Buaz9srqWlXCfVUmogJs2M
+         bFVA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782687646; x=1783292446;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=tjJ5yefLO5Lv7O368+n/XQBys5bCKstA5+2Lfq1JqAE=;
+        b=fXrLuR61F53Y7NBQbDdxaRrRsYQfDpgoXhUzAjlMDKoFtwdP8e/nqfjpB1TYNzlIlg
+         MywKRIh+tDkR5j7KsoNh8T/AOkuD/4rX8gBtux6s4U62NlLMHrYjiGxt3uOmix1fZOwJ
+         kPLc0wvEdeA2q4ilopFB/rPw5Rrr+0RLKbF4EdZR0gsVHzlBTftHJo371w8jOOtNgF1G
+         l+raZ8FnDC4VH9WGPHu44UBYBZ7U/i1b1Jybq750qmkLlrjSyjvWA4D8aV8y9+4bn/AP
+         2Nl+ZZ9aa2bqo783NLUFKpx3KvSgHh13nJgTA3LbYwZmlEEtky+Q/UQrQIpTYt4e/IqU
+         /ROQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/2yk5+gcAmsmO4zNLDzXzTtvb4Z1yzCvi94cdW7c9qfLvrrfJnc02k+8umix35qO/zmgSs4stgnQAKpLR0uYlj@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx5KSgrAowjfv56V49prxjDXdxM1HVjkzTRQ8AKF0iaMJ8ooKdJ
+	t7E5XbWP6FL2UXvAyvrU+ZzDTMlgVbpRAIIf6CPOe77/ADF181Hd/jhs
+X-Gm-Gg: AfdE7clLb1oRP5vaAkmDVI8ksDuN7VilRGp2QCPI8mW700dU9sTPVdjTlOR8gpAlwm3
+	KaMfJu6+FxuUvOtEOqkPrkkdgTkBxtwcdnjdt/9esB4DN8Ooj/tTRHWLBFWXkFueHRp5Zgz0uFU
+	LJjgPuCDCRc0cUw4G7xMXTx0nyc4acXCL80ZWc4wPtKwu8KnVtXkTiFa4hr3HV9q+RYDSsKCd6I
+	iogo6pzXLN9Ikn2oMyNdACRW+w1bJ6cCkxJuhSn9jcAQP4ursrACLDRsHb4MdvUi8N6n+k+UnZe
+	vMwcbAThBOK/i0fWu0OYAfLpn6IoEY4YgsLQyIhDPFuXq9qEO+HQ/AZidDAp6d7qk78FkZ0BwgV
+	2Ll0JRCuYZBlRFm1vfO2HdW/GLopUgLPv6w4ScngH25aZIzAFSaroNBttlaXiwLHLC5CRtMIikw
+	lKZfoGCz531/fUk7GRBdD7Ri6ke+TzGjvtWOQMgiH8xpZeDbYcYTzXQtZWzNFCwOJEiQe8EVo5P
+	42Ag7EKew==
+X-Received: by 2002:a05:7022:1e05:b0:139:ed59:4b86 with SMTP id a92af1059eb24-139ed594c61mr6552255c88.42.1782687645642;
+        Sun, 28 Jun 2026 16:00:45 -0700 (PDT)
 Received: from ryzen.lan ([2601:644:8000:7a86::e34])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-139d8f318e7sm41359030c88.3.2026.06.28.16.00.43
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-139d8f318e7sm41359030c88.3.2026.06.28.16.00.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 28 Jun 2026 16:00:43 -0700 (PDT)
+        Sun, 28 Jun 2026 16:00:45 -0700 (PDT)
 From: Rosen Penev <rosenp@gmail.com>
 To: devicetree@vger.kernel.org
 Cc: Andrew Lunn <andrew@lunn.ch>,
@@ -80,16 +81,17 @@ Cc: Andrew Lunn <andrew@lunn.ch>,
 	Dennis Gilmore <dennis@ausil.us>,
 	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Marvell Kirkwood and Armada 370, 375, 38x,...),
 	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH 0/4] ARM: dts: helios4: add regulator supplies and thermal cooling
-Date: Sun, 28 Jun 2026 16:00:38 -0700
-Message-ID: <20260628230042.1204293-1-rosenp@gmail.com>
+Subject: [PATCH 1/4] ARM: dts: helios4: add vcc-supply to EEPROM
+Date: Sun, 28 Jun 2026 16:00:39 -0700
+Message-ID: <20260628230042.1204293-2-rosenp@gmail.com>
 X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260628230042.1204293-1-rosenp@gmail.com>
+References: <20260628230042.1204293-1-rosenp@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260628_160046_457878_9D4A797F 
-X-CRM114-Status: UNSURE (   7.63  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260628_160046_485377_F477CFD3 
+X-CRM114-Status: GOOD (  12.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,20 +106,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds missing vcc-supply properties to the EEPROM and GPIO
-expander on the Helios4, adds SATA regulator supplies, and wires the
-on-board LM75 temperature sensor into a thermal zone with active fan
-cooling.
+The at24 driver requests a 'vcc' supply for the EEPROM, producing
+'supply vcc not found, using dummy regulator' at boot when the
+property is missing.
 
-Rosen Penev (4):
-  ARM: dts: helios4: add vcc-supply to EEPROM
-  ARM: dts: helios4: add vcc-supply to GPIO expander
-  ARM: dts: helios4: add SATA regulator supplies
-  ARM: dts: helios4: wire LM75 into a thermal zone with fan cooling
+The EEPROM sits on the Helios 4 and is powered by the
+same always-on 3.3V rail used by other on-board I2C devices.
+Add vcc-supply = <&reg_3p3v> to silence the warning.
 
- .../boot/dts/marvell/armada-388-helios4.dts   | 46 +++++++++++++++++++
- 1 file changed, 46 insertions(+)
+Fixes: ced8025b569e ("ARM: dts: armada388-helios4")
+Assisted-by: opencode:big-pickle
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
+---
+ arch/arm/boot/dts/marvell/armada-388-helios4.dts | 4 ++++
+ 1 file changed, 4 insertions(+)
 
+diff --git a/arch/arm/boot/dts/marvell/armada-388-helios4.dts b/arch/arm/boot/dts/marvell/armada-388-helios4.dts
+index 390e98df49c9..05540b8012c2 100644
+--- a/arch/arm/boot/dts/marvell/armada-388-helios4.dts
++++ b/arch/arm/boot/dts/marvell/armada-388-helios4.dts
+@@ -201,6 +201,10 @@ temp_sensor: temp@4c {
+ 					reg = <0x4c>;
+ 					vcc-supply = <&reg_3p3v>;
+ 				};
++
++				eeprom@53 {
++					vcc-supply = <&reg_3p3v>;
++				};
+ 			};
+ 
+ 			i2c@11100 {
 -- 
 2.54.0
 
