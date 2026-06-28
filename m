@@ -4,91 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AC46C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Jun 2026 23:12:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C54B1C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Jun 2026 23:50:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HBzVoiVEKC6YZTZ3TI4LBB+zvfVWnbKnaW6nuLVCnqQ=; b=Yvop1knCOcFgecVe0rPLYNccV1
-	7pA8PvClW4tRs3D1WUkvp2+d1wz4o4XQiddfP5A6Adf1ut4pXMh1zTv2vsNdJGPQ09enP7m27Mex9
-	w8qn24mozgC8gjCGryKprNSha7OMGgXm58GmsUhoWFYX+SEnPRnUYsj6Rgxty/E9FpIlDDEAdBoqS
-	k/y+QlTttVbn1xEXecFhePq6Vv0v1YtkJomI7iEba8icplfJ31wUF92CchNGrn1GoPeirrqCxUiD0
-	Npu3V4MkTs9XNw8c1oA4ckZUrdsQdW15E04e+rpB8hNmTNRvporTVwwHsW9mQhjlCJSW/ziL6BDH4
-	kUloWwOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=w9ASwZXxOhuIEA88U9uqvxx2ThgVPLf9gDKq6x0EUXg=; b=rxP60fBEPy3C33b0Va0FZ5//40
+	XvPd5bVzSkEJDXNRIhCSRu2yym0Ok0ny0KS/hcNn3oGeDSHCzHLrEj2cvq4wzRw1Cz2pd4Lh8W9WP
+	DEtnwY+krD54KgBbTYu9EwdQajBSK9WQdtEiGiP5GyUa/LqRdAQXUbXcCSd365vAZz7NK/yKtfDLe
+	Xsvxt8FSZxa6oMXyn/FybUGFDl4q11zyr2pJrZksBtLBaBtsoowdizaNBJ3uZ5S8rf8yOCoySoqP7
+	BAWXKK+emtk5KbZCZ2qx+QsM1aE4J/buliNKjaorkHYw7EOyVsLc0AX75/Onrcy2iK2r8AUfagO23
+	6MqxQI9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdyfS-0000000DUSY-2pm2;
-	Sun, 28 Jun 2026 23:12:02 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1wdyZt-0000000DUEK-46L7;
+	Sun, 28 Jun 2026 23:06:18 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wdyfQ-0000000DUSC-0xkE
+	id 1wdyZs-0000000DUDz-0big
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 28 Jun 2026 23:12:01 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-8478a25f268so52990b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 28 Jun 2026 16:11:59 -0700 (PDT)
+	Sun, 28 Jun 2026 23:06:17 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2c81db32393so47835ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 28 Jun 2026 16:06:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782688319; x=1783293119; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=HBzVoiVEKC6YZTZ3TI4LBB+zvfVWnbKnaW6nuLVCnqQ=;
-        b=aoRkEVl5g6qyRCs3h1pEYfWbyasMVqBlZ7zGAemIQya7LR+sgBuQkaN2/+Iuo8TU3o
-         CnJ4TSsPbRthKjynxsO65e6KQDdQydQLrm8eFhJ2uEm/6fsEcmZ0fEvfOa++zCKYMtht
-         kjJMCFR9Mrcpo6R6l2erMXxvGBm//zmKyN1gZ44+1QUvY0Rvm3JUDd1uTT1R17525Bxg
-         Ctemvu9YXGUb0gkcXnxnwHkjHWs3aKNrihIoQQ25wmBy62BwamVn/TVukNIIJ99hlD2w
-         U6b+VA6sHRFyu4N79GL4c6kqmABqI/cp0FPG4EStzbv3b+e0ID2XUsIs/mK7uPiQbuBY
-         3f8g==
+        d=google.com; s=20251104; t=1782687975; x=1783292775; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=w9ASwZXxOhuIEA88U9uqvxx2ThgVPLf9gDKq6x0EUXg=;
+        b=iXJd+v8OyWOUUHjH4lfsqqYgzyLJKt8AQIxCSifRwcldppBUkzKYRTH2SWF+ugyvye
+         09Myjb7XEFF414sCN912EPv2DCEXkwbiIQXCJyTVRVOczSw9yxWHdqxt44DJMEL/ERdM
+         fs/ysFjZf12pkxuyTeH9uc1aUjXSIYJPQNNTGdBizUDOsi47GRoPkpjAfN0hv6dKn+sd
+         nqUYvtfKL5gxb1hcbBSJyVqAhvawiqBICbwsCzdub0eform3TZElRMwXxJ0+UbL3vv/J
+         y6Uelozb4ZuK2rOTz+kAMSTH1FEbdpb2voEpmSU5oqmlhhiuCfe0wk5TFaPGSIcoeaBi
+         gLTA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782688319; x=1783293119;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=HBzVoiVEKC6YZTZ3TI4LBB+zvfVWnbKnaW6nuLVCnqQ=;
-        b=s0SYEPQjuRa7iSCe3CrAjjzenc8cSQvwNozQe295sHISS2j6tEbi0UpDB/M43CEozT
-         y08z5a9x+I/acHTMOisTqUzo3SKjZXGQerJ5+v3aA+8Q3GkUXpLVq39eutWuspbSmvWA
-         Bs6cvnqS278ZMrfF71u/f7kAJa7WU2a6EkU1A/AUa97euDhef9wn/6splrg3F9Rmdjsh
-         fjo4c3HywHvAObWVYaSdRIpj/iH3FrikqA6YvY6p26arG6ZEPeJUujQ5UVZ69HDtsCqq
-         6+b5vaYXCijE1olLOezQfAHvahsXTI20DVNWJz8GYmkEZPYke/uzmPercryGPuZMJTB3
-         3zqQ==
-X-Forwarded-Encrypted: i=1; AHgh+RpH0vcXnIV1o3xKxE767obiCE4Kv6qVL1ICzmL9FbBH9GCYPPVUFZjusMNAXltiixadZDLfTXeSOb/uFXgCuXim@lists.infradead.org
-X-Gm-Message-State: AOJu0YyonN+1iFhalKKW2vZmElRjaQregqQMMnU2CKBvBzAny7n3b9ye
-	odrmxKJ/gSXixr6QqJezSGbuKt1dmtWb1+q2Qoazl2g8776JtMNE/V16
-X-Gm-Gg: AfdE7cmYkJbDsc0nTjaUtxSTGx2Rnew1Mu0LIVmoVn7PBBA44cBYHAffq1X8UHYh55R
-	D681MYS4Bx5Wxa4pFnBHsDRTa2yYdC+K+llWOYIPauq/gRkb9iCZNOi7GIiC9oiG8v4k2tKBj28
-	Szj9hl+1Y012QJJuaes1RN+hGa28Pg2hISeIhgJFbAKRjNEMDdft+cmm028wX48c7TGV3YP1Nog
-	JmPPwo4N+YQ2YGOTe8811uGSgimQDKncCUyD1AE13GElRo98YDhct6P03yJrALE/vKz99E5U1KO
-	D3CIgZT/IsVncIuyI5bXaHUH3NTtXJO95GMdMKe1Mpb216odTMVr9Z3kywNA3o5BGU3sZa660IE
-	HAhtEw4AEZ+In7Txm5dF40CBT2HVlmn9w/dmNtCV5coih3mbDzfL4o4Ww92RdspUf8l4OrqFYzi
-	LHAnIxm4CdjRKL2pR4lOcGM0ltwYYVkyyp5g3vCirzFCqV/WA1baGtplZpIda1vtpvw8BvC9I+F
-	fsyYyB3Yg==
-X-Received: by 2002:a05:6a00:b90:b0:846:f517:ba5a with SMTP id d2e1a72fcca58-846f517fca4mr2671001b3a.28.1782688318921;
-        Sun, 28 Jun 2026 16:11:58 -0700 (PDT)
-Received: from ryzen.lan ([2601:644:8000:7a86::e34])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-845a3fec0f7sm10450263b3a.22.2026.06.28.16.11.56
+        d=1e100.net; s=20251104; t=1782687975; x=1783292775;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=w9ASwZXxOhuIEA88U9uqvxx2ThgVPLf9gDKq6x0EUXg=;
+        b=DxRXxtOeOfeBp1OcT+iSjBW7W+amu3Oamy2rJtbNr+jYeH9V2tE+w1vKZfWRlavw9h
+         h3YWc+VaCZShwwgXUSLnsggCoUtaKHc715xb+loyRSNhfwtP4z0mfxbPy5vYefN3+1NT
+         2lBmCDSAG/aqADHXrNiTv5JXa8a2PBD1cIZyxnpyON3ChJZupeuVhLOKe0OrVRfm46PR
+         bpMWdR7NRzcoVS1YSFAaxGdt7rlk1cr4J7FYEcH9H7bItxKUGGKkO2I6KSo5bmm+tTee
+         VeOoI6GMe2TaX4UIl9BQNQgSsTCZOXoxpZ/NNWsgOrjGWE7Y4jYr7uiDhAlga8flOJSS
+         5JQA==
+X-Forwarded-Encrypted: i=1; AHgh+RrSdNNBMAD1OKSkX02lkyKKu9H8dPpyzHLGQrnr9oGV1t96hXIxMDWEqGsaSQjAtLFzruUkJ/mUBbhwbnKk7J+H@lists.infradead.org
+X-Gm-Message-State: AOJu0YzreJURMSBffJuzyDEI7zDNAlwxGmiY0fxm33B/kRDjR5ZgXrmw
+	ScJXLECPZQxra3RWK4ZwNFU5VfS59+5xXT5SQQ5joqmV0eTyRlLKGMbSuPUOelPS+w==
+X-Gm-Gg: AfdE7ckTD0NkyHzl0pKp9Eb09A0s33hz/6ClKpHqWlsHGJIe3IkcRuRUU4F35tsyXcb
+	UkEuYLrLtcyS1ceZcsb8JOg2UsRtU0U+VRIyrrpM0MTlZ7jr1Gx/sSnrzCzIcYj3LuEy3b/2/Qr
+	dHbCZlGd9J94rjckpse3lbG2tk+xjru54QsZ4E0k57gA6H3pa42QP6Lr+1zmzodcalAe26142lr
+	7ayIg05WJNKhYOogYnVT9I6Pb16VUIGr56VMHr575CXjy6R8a6zRZh88wN7rmxKn/KV3yDpash6
+	Opbn/42FtT/p3I0SjLMC4qgdPoDEwDwgnyaYDPl+7ZQfPGmgz6GMlGfjtEq59uMf9NPcISIkeWo
+	FvR8PpCM2fsxnaDXD5Mh9STWXlU+zeeNvOOCxd1OYZBvGETevfpUCP/u4Uh6KVixIFfIIDHkqjy
+	zkGKAlNwDE6ZgqBiCpI1fqHm+BN+pjqAgfqizimNJd3BYDUazoOU4z8LHDYg==
+X-Received: by 2002:a17:902:fd87:b0:2c1:ee6e:be1c with SMTP id d9443c01a7336-2c9a27fbf39mr2722965ad.26.1782687974705;
+        Sun, 28 Jun 2026 16:06:14 -0700 (PDT)
+Received: from google.com (10.129.124.34.bc.googleusercontent.com. [34.124.129.10])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ca0b454815sm3400655ad.2.2026.06.28.16.06.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 28 Jun 2026 16:11:57 -0700 (PDT)
-From: Rosen Penev <rosenp@gmail.com>
-To: devicetree@vger.kernel.org
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Hauke Mehrtens <hauke@hauke-m.de>,
-	=?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <zajec5@gmail.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org (moderated list:BROADCOM BCM5301X ARM ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH] ARM: dts: BCM5301X: drop extra AXI bus ranges that break PCIe
-Date: Sun, 28 Jun 2026 16:11:56 -0700
-Message-ID: <20260628231156.1254012-1-rosenp@gmail.com>
-X-Mailer: git-send-email 2.54.0
+        Sun, 28 Jun 2026 16:06:14 -0700 (PDT)
+Date: Sun, 28 Jun 2026 23:06:07 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: will@kernel.org, robin.murphy@arm.com, jgg@nvidia.com, joro@8bytes.org,
+	kees@kernel.org, baolu.lu@linux.intel.com, kevin.tian@intel.com,
+	miko.lenczewski@arm.com, smostafa@google.com,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+	jamien@nvidia.com
+Subject: Re: [PATCH rc v6 2/7] iommu/arm-smmu-v3: Implement
+ is_attach_deferred() for kdump
+Message-ID: <akGo30h_EZCUJCkJ@google.com>
+References: <cover.1779265413.git.nicolinc@nvidia.com>
+ <89cbd3760a13f11cf63f6ead12f44974511f308a.1779265413.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <89cbd3760a13f11cf63f6ead12f44974511f308a.1779265413.git.nicolinc@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260628_161200_266055_6F956660 
-X-CRM114-Status: GOOD (  10.44  )
+X-CRM114-CacheID: sfid-20260628_160616_183215_8E2E5BE6 
+X-CRM114-Status: GOOD (  12.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,36 +105,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-These addresses overlap with DRAM on BCM5301X/BCM470X SoCs, causing the OF
-address translation code to route PCIe MMIO accesses through the AXI bus
-space instead of directly to memory, breaking PCIe. Remove the extra
-ranges to restore the original single-entry mapping that only covers the
-AXI peripheral register space.
+On Wed, May 20, 2026 at 10:03:19AM -0700, Nicolin Chen wrote:
+> Though the kdump kernel adopts the crashed kernel's stream table, the iommu
+> core will still try to attach each probed device to a default domain, which
+> overwrites the adopted STE and breaks in-flight DMA from that device.
+> 
+> Implement an is_attach_deferred() callback to prevent this. For each device
+> that has STE.V=1 and STE.Cfg!=Abort in the adopted table, defer the default
+> domain attachment, until the device driver explicitly requests it.
+> 
+> Fixes: b63b3439b856 ("iommu/arm-smmu-v3: Abort all transactions if SMMU is enabled in kdump kernel")
+> Cc: stable@vger.kernel.org # v6.12+
+> Reviewed-by: Kevin Tian <kevin.tian@intel.com>
+> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 
-Assisted-by: opencode:big-pickle
-Fixes: 767012397976 ("ARM: dts: BCM5301X: Describe PCIe controllers fully")
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
----
- arch/arm/boot/dts/broadcom/bcm-ns.dtsi | 5 +----
- 1 file changed, 1 insertion(+), 4 deletions(-)
+Reviewed-by: Pranjal Shrivastava <praan@google.com>
 
-diff --git a/arch/arm/boot/dts/broadcom/bcm-ns.dtsi b/arch/arm/boot/dts/broadcom/bcm-ns.dtsi
-index bd52de0faa3e..27a97c8122de 100644
---- a/arch/arm/boot/dts/broadcom/bcm-ns.dtsi
-+++ b/arch/arm/boot/dts/broadcom/bcm-ns.dtsi
-@@ -95,10 +95,7 @@ L2: cache-controller@22000 {
- 	axi@18000000 {
- 		compatible = "brcm,bus-axi";
- 		reg = <0x18000000 0x1000>;
--		ranges = <0x00000000 0x18000000 0x00100000>,
--			 <0x08000000 0x08000000 0x08000000>,
--			 <0x20000000 0x20000000 0x08000000>,
--			 <0x28000000 0x28000000 0x08000000>;
-+		ranges = <0x00000000 0x18000000 0x00100000>;
- 		#address-cells = <1>;
- 		#size-cells = <1>;
- 
--- 
-2.54.0
-
+Thanks,
+Praan
 
