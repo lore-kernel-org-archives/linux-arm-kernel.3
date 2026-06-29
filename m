@@ -4,93 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 725FFC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 16:40:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7B93C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 16:40:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C5GdEv1gYkrutMa/9eRDoSEN3dnm0xb5aQFmw17wydw=; b=K+MWzQIb/FoeYY4PhxkxKXYpCo
-	NmBTIjBjHhQPrzErgh7xrUvE6DNGw2/BlgZKcjF8usu2cCogphkHTdvVyUR9r0Oe4PBLaJhzzSBFz
-	cPZ+J5ZvplTCRmRDkAjjNA4gDj6PTt2jvdR4BtM+e7Qbh1x6n88/U6YtPFXkrV3HqM8UO8tb5fmQ0
-	xY2fvHI4ExtZqKteViJMCre4SYUCQwM5Ww5xkg3OU0M9AwUajbiAZNbRlvmXAs1xVaVL01Qvg+Inm
-	UmK/1ixiSJyHpfKqwL/4TjXKun8zjwf9RFAn3S8rT21/NXckfZ0T9SJqdtehp9h60sF19KKVaiQz5
-	nHEWJ/tw==;
+	bh=vTAqympCuHM2c/PQmqwHbJCuVDhybEJa0vtK+R7ZX2Q=; b=HN3ZV2PxP33ObJ6lA7xplq0kQW
+	JLsvt4cg0IIMYBCj4++ngDMXfgxlp/KOpIxevhtOXZhVEcNSCfQhuQisCWwlwfwm7/R/iwQXJjSp/
+	cBwe4+XKX4D8Myd6FL7+L1Nup1B7u4S2th1Q4g0ovRMYBtmK0+8SLC+mxvvjfPIEKBLFiT70jeWid
+	64lSNlzqXWJbu3u4q6HkQvF+TTxnhsCKB8eCfkGysSrMuMRhUiR2Brg6FKkXrlNjaTNAjTcZ0y+nT
+	Se6xlyXLzwZwZFVXF1ZH+fAC3u6VI1K9uySxcMf39Y45w+36coJjteTOJ6E1b3vN04N19JCqmbEYv
+	8/LKGGYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weF26-0000000FEog-37wv;
-	Mon, 29 Jun 2026 16:40:30 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1weF2C-0000000FEqC-3u1z;
+	Mon, 29 Jun 2026 16:40:36 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weF24-0000000FEoK-3jnE
+	id 1weF2A-0000000FEpF-17HC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 16:40:30 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2c9df229032so54095ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 09:40:28 -0700 (PDT)
+	Mon, 29 Jun 2026 16:40:35 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-49270caa5c0so27989175e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 09:40:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1782751228; x=1783356028; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=C5GdEv1gYkrutMa/9eRDoSEN3dnm0xb5aQFmw17wydw=;
-        b=oXfMvrHy/TaN6Bob9fuheVPMfdjHfKc9J3EB92thOIAMWML0DPb9M73ufkHg3BIODf
-         iA66FYkxxF1Wit6I6MLS4lytsv4h7x2nuCs/0QmvLzpDiyFlrh1iyw+5NdK7ulNk9POq
-         u2EIDBE6ffFbP9xTMK5EImWcm0GvL2udWDJpUMk6g/xYget7pHcO/JMhxdC6VuLNHRlv
-         MhAfe1WhypGZ8ZSOyp8f78RtlYymfOwLj1IHyqaxo+iBd9chCIBewlSFYb2ecxDw9+cd
-         /5G1y5v8541q4M/ymaSffTSnyrG7ss5DbpAG/LCzYcv3fL9lTG0NCH3y4ynU/UfiZT2K
-         g4cw==
+        d=gmail.com; s=20251104; t=1782751232; x=1783356032; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=vTAqympCuHM2c/PQmqwHbJCuVDhybEJa0vtK+R7ZX2Q=;
+        b=QnK1u5zCEm/tNF7E84vPMpkGQE2h9Zk/kaBsMquL+wk0jakxUQ6h/dppiDEbaGdwYd
+         vkAS5fcA426OqLoa68Gx8L+HcxgxVO7t/YY9rXsKv2PmhJCLZMCRDsmiHiisV5T5AveU
+         T3GYnc4E5YJ3ca9LvAmWreFPoqhL9kiZoz9vGaWeIH2VL2KVxevhw532DLkLBg2KMM+0
+         uz3BGHpgKAh32SET5jEbYaY33lRebSF6v4vFyasghm4ED75EfYli/cfPLDcmsnQNO4u3
+         95nWGTE4EgOshrtloxHbcBPEb4A7af3uP01tSd7AJKa+3TohslLz1SKj07A1FtnEIiPl
+         q8EA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782751228; x=1783356028;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=C5GdEv1gYkrutMa/9eRDoSEN3dnm0xb5aQFmw17wydw=;
-        b=rjxEOy4r/fEcHUkf46W4Qi6oVSqsrCseT0a3Jg8sBIutq+8YVt04eeUeVXfp9N0xVz
-         jYJ3VObyjGDkGH4HASooCIyS8aixC8kNxMO6wylylfcGngyIbsoJAZQYCzvMWmlo2rkF
-         rIZTZG8U0bVlIBvStc5L48EtgsIspcq4PviO9lrG7M1yKiWCY/DPkGl5x7Sh2cS/F7XR
-         A52nJmq3k0rMIsEozhmYJVxiObiBSBeDE8eYJJt3/VLuWQyXoK5Z47AewEussqu1xQyp
-         +OjdYSTTdSxi9W9RkYMLjQwzuHREQ/giVbASoq1qdO4MtPawELNYrP4yLjioG0fZJGmj
-         QyKA==
-X-Forwarded-Encrypted: i=1; AHgh+RpKM2ioqL7VZDTVPFX3idHlX/fG3kkn3q0zG2n/Gb/+qOmwQRUDN0cNPqfttJSkQvPoVdrdIfZ00OmUNTuepUP8@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz3D7DyK21NbQvAs0OQG2bRsx4nBjhm5gdyv3bqBVlEswwWoAmu
-	s09WezWGgsgpzNhoSirQnxZt6tgFVw1a50Uug0Hfyr6Gnq5HBqJjVaIanutn9l/MFA==
-X-Gm-Gg: AfdE7cnZVe0TfLsPRDZpbivTS/gaLNi+DoVJuJEBDJnfp3zdrMUQ2UM1fLrKq+lSuLM
-	pS50dFR/DT1tjivi90rofyRVd2UFDpAmkilNQxUdjBywu+XtQUkVjw+uxmgniJjxdSKBp2fzzc7
-	GHx4OaCfdiTC53/uYcqk1+VKMqbMetmS1PEjxZ1mrMXGmTsjxAr2TpE7Me3KZsx9kIKU3GLuFqC
-	QcfXPUYfYVH3YzJXPgaD4+4GQoprH1ibCIkXu7F5Tay9HaxldCE5jTAabPmVSd4v8UJMKwNVuQv
-	mAv+uP3N/4Vbx7btg+7FugZRT0gVW4bSmfHaKbVEk8R3AC44NrLD8/z47i1JiB+5DHw5SOWN9+E
-	t0rPkB2tYMaghGOazRwhHpOnGPta0fy0aRPoxu9Xb28sJTcWXH/+nhO46OUg4phsuAXiao9NhGd
-	31lAy3PWDD9W6nstsY/bkdQGBrslO+JbFDBLCH6Uw06Ijybkg=
-X-Received: by 2002:a17:903:1844:b0:2c7:f688:f22f with SMTP id d9443c01a7336-2ca2cff7977mr338545ad.13.1782751227357;
-        Mon, 29 Jun 2026 09:40:27 -0700 (PDT)
-Received: from google.com (10.129.124.34.bc.googleusercontent.com. [34.124.129.10])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-847a00029d3sm35570b3a.20.2026.06.29.09.40.23
+        d=1e100.net; s=20251104; t=1782751232; x=1783356032;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=vTAqympCuHM2c/PQmqwHbJCuVDhybEJa0vtK+R7ZX2Q=;
+        b=NdinaaSeMGWtSjZfKMO1YmeLJMOjxU+k/VP6ezxyQTilIanbf8zUvHg52VIbMa79p3
+         GZamkZZJ/pIpNMzf43Cszux/8F8dDDyIfi0hBRqndynyb6PFkoPSiaTwnAdQDOcVo2NT
+         AfouVa+viFGNJZ3+jGvta5k6oytmUP/UOm8YWQuIItDkDyESDKH5bAZg4vWoR4KTXbiX
+         iG9Ul+HlvOuoOUSLgh7FDm3MLiuTXM7lGOYzwFgddznkS6j3Unyz7pUABgV5zp0d8ta8
+         E1qDRcm9OtXOQGO1+VrYlE09zlh2uESF64oIJ5ufNBme1RZgE39i4nCmN8453JoCI50Y
+         A5Cw==
+X-Forwarded-Encrypted: i=1; AFNElJ/m7XBZkwYA3/vWCe+YH9gwdYbIG8L+oPjE1/mFer/HICWSDPwb5eDdEVS71g3HdZCLYEfaEZpDW8zcmNwjqU+h@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzhl91J4gEnKGUXezL5TakCyRnoJRhmVHf7ZnNkpssLU7mYpHWa
+	yNc4qqv011qmfxeFFPqfVesFkqsLFurlXuuEoRBnSQJFr6CONtmIwnGg
+X-Gm-Gg: AfdE7ckWOi3is6hcWwGCYS7jEtxYZ6OpqIv4J3Umtaluvv939sCLsIOCtnykQCqOpDO
+	3HjGB3citv9bDeRxP7JRAirycxChHoc4etjgd3Tn3XLmbhieclDmYu+FRwL6jf0cCBuV2/MX8+k
+	JhSCVpTHxeOkSxSKXsk4QkfUKX9UvIPiLPtSKlds35FUhdR6+wCraFaRIlLBj9DeMrVXQDQN/mC
+	8S5AQSNZcZIv0pgcuJV6SrSypmOOWzGYTvSHUMZvzEbRdbqXBAAPGloCv6l78d2OU4jOUQwEGlb
+	tsPr9AFTftq455hG0S5Z0dec1fnmlA/3Tt9WFBEx9GOtywAkSEC1BsWFGY5otcZRJ6/1eGKFZbk
+	ILXpxDJl7I8rLk2fSy4tkxNkpaHqSg1pn/P7vNG9hbxgaQ+9omR3FSnI00+e5WUBxGC9HCpkEDg
+	Lf2cvJTDbC9YGqPXGT3DkUm1BzcAE4HLmEuMv1nDWWDnK3D3FVehPIF3kxiinMFWOHUvyAVEhyo
+	dOxPt7nBg554Hh8sFpeXoo4FL0ul+We
+X-Received: by 2002:a05:600c:1d09:b0:493:a535:5527 with SMTP id 5b1f17b1804b1-493b82ac8d4mr6429385e9.21.1782751231985;
+        Mon, 29 Jun 2026 09:40:31 -0700 (PDT)
+Received: from Lord-Beerus.station (net-93-144-65-248.cust.dsl.teletu.it. [93.144.65.248])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493b8c238fasm2254645e9.0.2026.06.29.09.40.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Jun 2026 09:40:26 -0700 (PDT)
-Date: Mon, 29 Jun 2026 16:40:21 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: will@kernel.org, robin.murphy@arm.com, jgg@nvidia.com, joro@8bytes.org,
-	kees@kernel.org, baolu.lu@linux.intel.com, kevin.tian@intel.com,
-	miko.lenczewski@arm.com, smostafa@google.com,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org,
-	jamien@nvidia.com
-Subject: Re: [PATCH rc v6 7/7] iommu/arm-smmu-v3: Detect
- ARM_SMMU_OPT_KDUMP_ADOPT in probe()
-Message-ID: <akKf9S1TURJJq6em@google.com>
-References: <cover.1779265413.git.nicolinc@nvidia.com>
- <8f43bbe920466359465f2083cfd09a15ee8e5ff1.1779265413.git.nicolinc@nvidia.com>
+        Mon, 29 Jun 2026 09:40:31 -0700 (PDT)
+Date: Mon, 29 Jun 2026 18:40:29 +0200
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Subject: Re: [PATCH v5 06/14] arm64: dts: imx8mp-var-som-symphony: enable PCIe
+Message-ID: <akKf_akO7IZ2ltHd@Lord-Beerus.station>
+References: <cover.1780929317.git.stefano.r@variscite.com>
+ <26b5b602c3995a5a74f64b84576ab4d54ace23ee.1780929317.git.stefano.r@variscite.com>
+ <akKdkWos2E25M_q8@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <8f43bbe920466359465f2083cfd09a15ee8e5ff1.1779265413.git.nicolinc@nvidia.com>
+In-Reply-To: <akKdkWos2E25M_q8@lizhi-Precision-Tower-5810>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_094028_956117_9594FB8E 
-X-CRM114-Status: GOOD (  22.78  )
+X-CRM114-CacheID: sfid-20260629_094034_324814_9F7279A3 
+X-CRM114-Status: GOOD (  13.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,82 +108,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 20, 2026 at 10:03:24AM -0700, Nicolin Chen wrote:
-> arm_smmu_device_hw_probe() runs before arm_smmu_init_structures(), so it's
-> natural to decide whether the kdump kernel must adopt the crashed kernel's
-> stream table.
-> 
-> Given that memremap is used to adopt the old stream table, set this option
-> only on a coherent SMMU.
-> 
-> And make sure SMMU isn't in Service Failure Mode.
-> 
-> Fixes: b63b3439b856 ("iommu/arm-smmu-v3: Abort all transactions if SMMU is enabled in kdump kernel")
-> Cc: stable@vger.kernel.org # v6.12+
-> Reviewed-by: Kevin Tian <kevin.tian@intel.com>
-> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-> ---
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 31 +++++++++++++++++++++
->  1 file changed, 31 insertions(+)
-> 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> index 851bcebfdb3d4..fb34c3ffee9fe 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -5353,6 +5353,33 @@ static void arm_smmu_get_httu(struct arm_smmu_device *smmu, u32 reg)
->  			  hw_features, fw_features);
->  }
->  
-> +static void arm_smmu_device_hw_probe_kdump(struct arm_smmu_device *smmu)
-> +{
-> +	u32 gerror, gerrorn, active;
-> +
-> +	/* No adoption if SMMU is disabled (i.e., there is no in-flight DMA) */
-> +	if (!(readl_relaxed(smmu->base + ARM_SMMU_CR0) & CR0_SMMUEN))
-> +		return;
-> +
-> +	/* For now, only support a coherent SMMU that works with MEMREMAP_WB */
-> +	if (!(smmu->features & ARM_SMMU_FEAT_COHERENCY)) {
-> +		dev_warn(smmu->dev,
-> +			 "kdump: non-coherent SMMU unsupported; reset to block all DMAs\n");
-> +		return;
-> +	}
+Hi Frank,
 
-We seem to be checking it here right at the beginning, let's remove the
-redundant checks downstream?
+On Mon, Jun 29, 2026 at 12:30:09PM -0400, Frank Li wrote:
+> 
+> You have to provide all clocks, otherwise, whole clocks and clock-names will
+> by overwrite with one clock "ref".
+> 
+> suppose CHECK_DTBS should report warning about clocks items.
+> 
+> Frank
+> 
 
-> +
-> +	gerror = readl_relaxed(smmu->base + ARM_SMMU_GERROR);
-> +	gerrorn = readl_relaxed(smmu->base + ARM_SMMU_GERRORN);
-> +	active = gerror ^ gerrorn;
-> +	if (active & GERROR_SFM_ERR) {
-> +		dev_warn(smmu->dev,
-> +			 "kdump: SMMU in Service Failure Mode, must reset\n");
-> +		return;
-> +	}
-> +
-> +	smmu->options |= ARM_SMMU_OPT_KDUMP_ADOPT;
-> +}
-> +
->  static int arm_smmu_device_hw_probe(struct arm_smmu_device *smmu)
->  {
->  	u32 reg;
-> @@ -5567,6 +5594,10 @@ static int arm_smmu_device_hw_probe(struct arm_smmu_device *smmu)
->  
->  	dev_info(smmu->dev, "oas %lu-bit (features 0x%08x)\n",
->  		 smmu->oas, smmu->features);
-> +
-> +	if (is_kdump_kernel())
-> +		arm_smmu_device_hw_probe_kdump(smmu);
-> +
->  	return 0;
->  }
-  
-Apart from that nit,
+thanks for checking.
 
-Reviewed-by: Pranjal Shrivastava <praan@google.com>
+In this case the SoC dtsi does not provide any clocks or clock-names for
+the PCIe PHY node, so this is not overriding an existing clock list. It
+only adds the external reference clock used by the board.
+
+This follows the same pattern used by the i.MX8MP EVK, where the PCIe
+PHY node only provides the external "ref" clock together with
+fsl,refclk-pad-mode = <IMX8_PCIE_REFCLK_PAD_INPUT>.
+
+This is also why CHECK_DTBS does not report any warnings for this node.
+
+$: sed -n '/^&pcie_phy {/,/^};/p' arch/arm64/boot/dts/freescale/imx8mp-evk.dts
+&pcie_phy {
+        fsl,refclk-pad-mode = <IMX8_PCIE_REFCLK_PAD_INPUT>;
+        clocks = <&pcie0_refclk>;
+        clock-names = "ref";
+        status = "okay";
+};
 
 Thanks,
-Praan
+Stefano
 
