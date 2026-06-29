@@ -4,128 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E65DC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 04:09:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5035EC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 04:10:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PCbQYqZeLaUUzlcfiFVUrktZlR6kWo7lMTcRNRi7q2k=; b=dIdcJw3b3vxJV0c5yR1xVZ9PyD
-	Ed6swXyKA1snJNmtwgwAf13ZWaxEqSpYxryB0hBeWfxPUJVNr0rwbo6j371HVGaNir1y/81SIDKmP
-	4DduvcCdRjwFlUru466EegM5WjiGuQblnyojbdM20HBRaMQSOg8iW6JnftIbQdL3pQtEDmoSG5KVc
-	bwDA5xI/X6nsSepEFKsLntMu+E7HJsgMi0hw5gco+jMqkVGuRgUBFCaTVt9f1JHbEAEOjFsvo5vOI
-	s68CsInBA2jCL63+thu91cuc16XVdtoPdwmIDbFxjOSKKlSwIrUoL/x4Qp0EBd63j/iOu2avmhW83
-	VhRpIyaA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0AJFPCPl13lM4PjiWiJ8ZgohvKPjZXPbwSegvuAIxxs=; b=k3OqYYnRSViv8cgElbBUdYmmq6
+	LMb7BVxgbbx/SMq2b1Ddlj1BbUs2jdgnuLQPSZk3qqxJJcV/uCcnJ+9P/0Kj0dK3ucTaOeIpgbbOz
+	LreogR5SQjrwla+BIQxwURu3izaFQJHmON7kLIbEfrnj3/hSr1zlv6zvzjEei2Ei1T2wmHMEvonaY
+	+1DHQ/W3lhqKAvSsXHjp5RU04gxDzTmmpZF9me9YnDgDGsiluiU4dUb6b3szn7PfZ3o5yw08ObxBD
+	qlbbOj2mkIgGmc+5HyfojCX2lNl7GsPO5ZtI+lHDF+x1CfzFHe7Q4R71MzxiWGJ7t5sWX94p+fg/q
+	EBKn44IA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we3G7-0000000Df1O-2os3;
-	Mon, 29 Jun 2026 04:06:11 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1we3CF-0000000Derj-0xoI;
+	Mon, 29 Jun 2026 04:02:11 +0000
+Received: from mail-eastusazon11011067.outbound.protection.outlook.com ([52.101.52.67] helo=BL2PR02CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we3G4-0000000Df0z-0G4j
+	id 1we3CB-0000000DerL-44rk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 04:06:09 +0000
-Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65T3J2TT1992909;
-	Mon, 29 Jun 2026 04:04:46 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=
-	content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=PCbQYq
-	ZeLaUUzlcfiFVUrktZlR6kWo7lMTcRNRi7q2k=; b=KrbqZAVGv5B6uDns16vHR5
-	jHYCcGKpedVH4h9WJ2KInnslH6uucCZjIKVoh8j365rOmy8oFj3g3aAKLWFjEiwH
-	nSWf3pk/A9F1x0GPNUOsFbHQpsgPWZTUKgcGO2U5E26qFdtsvQCmNx9uMF0sxtpq
-	qw2ki567kVaHOHPEcuPVvrxa9d/JDXPLCV/S3DtS4Q7KvMFnUoKmKHRnhTeyQ4yx
-	DOoRusfsX/PbmvCXLn285Soghgo7e5v9YYQnvF4P+SsMSAdlJP+zHSIY/5lFGrJC
-	TMrehriqGAndb5oPZYWWoJooBYnC6dLVM3vonE1SLKGA2F/2CVI9iaSwcCBhRf5Q
-	==
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4f26req76p-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 29 Jun 2026 04:04:45 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 65T3nk2h000729;
-	Mon, 29 Jun 2026 04:04:44 GMT
-Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4f2uhy3ged-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 29 Jun 2026 04:04:44 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
-	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 65T44gtw49021186
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 29 Jun 2026 04:04:42 GMT
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id B036B20043;
-	Mon, 29 Jun 2026 04:04:42 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 5D08520040;
-	Mon, 29 Jun 2026 04:04:32 +0000 (GMT)
-Received: from [9.123.5.233] (unknown [9.123.5.233])
-	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Mon, 29 Jun 2026 04:04:32 +0000 (GMT)
-Message-ID: <e0607dbe-4d55-4aee-8368-25110848bc09@linux.ibm.com>
-Date: Mon, 29 Jun 2026 09:34:31 +0530
+	Mon, 29 Jun 2026 04:02:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yoK8uIq8Wy8WreyKSD16TpaOH3+GF4QgAL7J3unDWHziJ9k/7t5Kum4oXXGxq8sqSjsGZSsJqSzOKn8Dy4vwyr9Qivk1McDSbevCkqnpCNlXHAbqzJKAcNDi0RZJSznSQT4sw0hkfHUrKTW1HjjHi/pUdbx2Xx0TZ1JaJK+1soUjZoXrLkqvQp9zhFX2rfny89Tvl0FRvGFxFfK07J1umh9i8sBi7NmsOAjnTmfn3GeL7SxAVfZI0YPfYRxpkaUU7DcfNywWuwf9TTNPWEqBUvvPcU8hMZtoCMHIN1x58i1zZfCBMsEImATcaViPGeE3inqmtN/1sneE1WKJKprSpA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=0AJFPCPl13lM4PjiWiJ8ZgohvKPjZXPbwSegvuAIxxs=;
+ b=n84uYG5wsXL426qIbVhMgvDsDH6iA2AiRKwA+HABrtebAX7aaa8gJtT+dMXbk2iKgG87bU/awu6plEYxy/H8RGNUmRyHHBuB7n3KKZQAp15zddQZFdnAA1N0pzRvWkZq4RTCBu96zmjoVEM6BnXEYn8xRcAOUBnJc2HJYrUJ14eZYT0oj5wnTC+3tvVrRjwKZDIvkIj9XZuRpFyMMafiqWpkg/UXO/pQggPsMWOxYyvtjXflM3iflRUAyJ+rnn24Sxo+YwVcjfqsHohVYnjP/B3D6OWMz9yTb2IpBhw6gR2e0RRN7aY9QUcJRpJKGHTAoleDbULL5LapO7mx5Aropw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0AJFPCPl13lM4PjiWiJ8ZgohvKPjZXPbwSegvuAIxxs=;
+ b=pzOB2/JXw2KoSfoG2lYkVfFo3uq5iKMuRSUI+2j3zcZLXZyPUFIG31oGlDMscO8dMe6BY0sV9jzFQYmPZ9qrFEojNcTkHfmiZg/6DIb+ej/0+dwXb4R5zFp0JYsB6EYqCOwki3Rji36OFl1r3UkvCa/rhPW8i55xkrlsxEKLJZc8Xrf/WgwGtX6pu/F+PQZJKKe/xBC6vxI+xhZ7//kqCdIGojBzWiLpvT36ac1tIJpTj46Mr/MD7EuktYdsLpIfMIx38Mhi+GlOSiq4jWU69C6jVD/Yw6j6GG0ChfrYaJhOXbmJkcF8jLcuEsdOPw2CG65VO0SHl9jG18WZYUPq3Q==
+Received: from SJ0PR13CA0179.namprd13.prod.outlook.com (2603:10b6:a03:2c7::34)
+ by DS0PR12MB7704.namprd12.prod.outlook.com (2603:10b6:8:138::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Mon, 29 Jun
+ 2026 04:01:59 +0000
+Received: from BY1PEPF0001AE19.namprd04.prod.outlook.com
+ (2603:10b6:a03:2c7:cafe::94) by SJ0PR13CA0179.outlook.office365.com
+ (2603:10b6:a03:2c7::34) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.8 via Frontend Transport; Mon, 29
+ Jun 2026 04:01:59 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ BY1PEPF0001AE19.mail.protection.outlook.com (10.167.242.101) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.181.6 via Frontend Transport; Mon, 29 Jun 2026 04:01:58 +0000
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Sun, 28 Jun
+ 2026 21:01:49 -0700
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail205.nvidia.com
+ (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Sun, 28 Jun
+ 2026 21:01:48 -0700
+Received: from nvidia.com (10.127.8.12) by mail.nvidia.com (10.129.68.8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Sun, 28 Jun 2026 21:01:47 -0700
+Date: Sun, 28 Jun 2026 21:01:45 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Pranjal Shrivastava <praan@google.com>
+CC: <will@kernel.org>, <robin.murphy@arm.com>, <jgg@nvidia.com>,
+	<joro@8bytes.org>, <kees@kernel.org>, <baolu.lu@linux.intel.com>,
+	<kevin.tian@intel.com>, <miko.lenczewski@arm.com>, <smostafa@google.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <stable@vger.kernel.org>, <jamien@nvidia.com>
+Subject: Re: [PATCH rc v6 1/7] iommu/arm-smmu-v3: Add
+ arm_smmu_kdump_adopt_strtab() for kdump
+Message-ID: <akHuKRctyEv88ytr@nvidia.com>
+References: <cover.1779265413.git.nicolinc@nvidia.com>
+ <f3d1f938a9b4d540f67d9c1ff394bd62735a4f5c.1779265413.git.nicolinc@nvidia.com>
+ <akGnm_dzvoapjwoI@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 00/12] arm64: Add HOTPLUG_PARALLEL support for
- secondary CPUs
-To: Jinjie Ruan <ruanjinjie@huawei.com>, catalin.marinas@arm.com,
-        will@kernel.org, tsbogend@alpha.franken.de, tglx@kernel.org,
-        mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
-        hpa@zytor.com, peterz@infradead.org, kees@kernel.org,
-        nathan@kernel.org, linusw@kernel.org, ojeda@kernel.org,
-        david.kaplan@amd.com, lukas.bulwahn@redhat.com, ryan.roberts@arm.com,
-        maz@kernel.org, timothy.hayes@arm.com, lpieralisi@kernel.org,
-        thuth@redhat.com, menglong8.dong@gmail.com, oupton@kernel.org,
-        yeoreum.yun@arm.com, miko.lenczewski@arm.com, broonie@kernel.org,
-        kevin.brodsky@arm.com, james.clark@linaro.org,
-        yangyicong@hisilicon.com, tabba@google.com, osandov@fb.com,
-        arnd@arndb.de, anshuman.khandual@arm.com, david@kernel.org,
-        akpm@linux-foundation.org, ljs@kernel.org, dev.jain@arm.com,
-        yang@os.amperecomputing.com, chaitanyas.prakash@arm.com,
-        kprateek.nayak@amd.com, chenl311@chinatelecom.cn,
-        thorsten.blum@linux.dev, chang.seok.bae@intel.com,
-        tim.c.chen@linux.intel.com, x86@kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-mips@vger.kernel.org
-References: <20260624092537.2916971-1-ruanjinjie@huawei.com>
-Content-Language: en-US
-From: Shrikanth Hegde <sshegde@linux.ibm.com>
-In-Reply-To: <20260624092537.2916971-1-ruanjinjie@huawei.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Authority-Analysis: v=2.4 cv=a4kAM0SF c=1 sm=1 tr=0 ts=6a41eede cx=c_pps
- a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
- a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=V8glGbnc2Ofi9Qvn3v5h:22 a=UTcEnaM7yftER99u_cAA:9
- a=QEXdDO2ut3YA:10 a=zZCYzV9kfG8A:10
-X-Proofpoint-ORIG-GUID: brKsWx2Mn5cq22CSo7JfDcXigXZ8mboI
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjI5MDAyOSBTYWx0ZWRfX4wuecVrq54Iy
- 09MuLAjOrz4oMF0mdeWXs+yPEw2RHZ5MEGeCZZQ7PFIZ2Q8tULLjM1jh2pAcB5A1x/txgTR5z2H
- QSarFRBtoBx1X2qhnmIT+ORW4AiRaEuNDfc0b5Ms7QwRNXFNSOs5xOZCLmsrFtQlCOJSsAoX0Es
- g3pLBjXT9zh22aSvrbk5nRCiXnLAyJEH3tq/6+hLw/6I6v4mNVjma2epz7cuMgHeoS8KcYkxA2t
- ju97JqZHRkjH1cHpkOUumvZ3ktTgUyRWdrxxvz9qrzkNX9TeQVS+liYC+4JvYJHv2OD/tqOR4iU
- +pnviHtig/I4k8R+j7b+rY1gPdjNP7incw4E2f6UxpQodqFJd16k4/OC0Tn/1+4UEbqkZdSO+1U
- rD6UQ6VzaLh4e3NICIJyfuiE9em7wPlXa/nDZkdlYqSQtkOXAZFGJyK8eoXXC173ga82W2waYLx
- N24t8mv2YzipMjc8t3g==
-X-Proofpoint-GUID: r39Yr-mCbX02DwkQlbof5NCflo21fNWH
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNjI5MDAyOSBTYWx0ZWRfX0dtp8M6P3xSX
- Km3HXGHO8viEhGwrt2g/J/kRq7WP4XqsyDiGB+S0dVDp2rKp8y4yYwpRenpX7AIhH324AS+c2+J
- ZvjCVjjjFhuPZCJJeyTNN2qdy6LcCWY=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-29_01,2026-06-26_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1011 bulkscore=0 suspectscore=0 lowpriorityscore=0 impostorscore=0
- spamscore=0 priorityscore=1501 adultscore=0 malwarescore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2606290029
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <akGnm_dzvoapjwoI@google.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BY1PEPF0001AE19:EE_|DS0PR12MB7704:EE_
+X-MS-Office365-Filtering-Correlation-Id: cb524f0a-ca74-4fa0-ced3-08ded5932af1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|23010399003|36860700016|7416014|376014|6133799003|4143699003|56012099006|5023799004|11063799006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 173+ty3wpEUvv1IIKh1i+HdT3TExiZcSGkzP4kt4f1/TSnjtSqhJUJMUKin0jdRoPyQwZgN1USOTXg9Wz8nRqWawrMZEqeZxQHVqg3PSCGLE7hx+A6zAPDU70qPaxfpwmh+GhgeRw2pkUdaALO+kAN5ff4P1XL9V0tQzE/kbyzPMIAdTBJ2WbwBZFEEM0OaG3jBlyYnggRrSKO/5AlpmLXXKvbZFHMsmGOYsziVBEACMTbRLPaGXJyFo+ab3JNV2Z5IC6L4jLpVqfZEEWX0Ik5cBucw2KMVWyTqL1pQBrrE/TAeNdStgfHhwFqdSneRp3eH2kiR547mAHxDKWvBxSr6/QC3ByFFmnz+aEHN5cpElu1XCp/Zv+Oz1Z3bsyuo/1CP1sZCxIh8S24IG7M+SJf2CFx9X6HCz9WMrndmN3YSX1mXPvHQz+1dUa+fEzT6d6kJaC4GLD3YDaoJdJhcKLSJMj4NewCX7+AiFEMP82k9k2StloeMey65XtJGLHYV7vs5HgANEuH57bzeL/Ptsc9po0+IALLbWupPQEqF64E5AKnD3k3wlENnR4Ao8+cKeLg0jSqhGAOeBJNPoIP376dadHPx933HbEfmcw0UjZjkKYMr3GU3GBy7b5XT0wRp7/33dip9w/t6l8FaCcakkMi+wKoEsMA2FMDAVY4oHFJ565T4QYcop2LwbdBEawahw+jdCAFl1vo0QetS9L0Q8bA==
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(23010399003)(36860700016)(7416014)(376014)(6133799003)(4143699003)(56012099006)(5023799004)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: Ck5R7iCrd2MyoBnAGjjDVoAW/NrTgDFdj5HStUm//4nmx0XuCphZykVTu1C9oCN2el0JwOFAGMrG0pPlWVvysNQq+PYKRxkFEuvPHHfXnYB4HP07YqOYXlg6OOj4/UdXuGJJLLByYkpZLXly2cQsGkLVZEsDPK4hwcSyrdleiGWLoale7ePT4aPMBi93RJg/K4TiRIBnQWkoIzbARKJtRyArtNRfKHsytEv3K02ZrfE8RI+tOVoe5cxcVebLVGLy4LD83vUcRanF4HjhWbJJ+y0qlzVHjgHIIWftrQ3UcqqvhXVKVsUKeWQiWD4ttX9rgGo6muBL9F5naLjk6R2fePjHb5vjZSFkwMRVzYOVusBdBrbOOOiaA9wzgFQ05EIWJ23jB56pGC1Gb7/HUFebQcnvDywegSHnt3WECZRE92JxpXHIiYROShGGv4HnNj1R
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jun 2026 04:01:58.9233
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: cb524f0a-ca74-4fa0-ced3-08ded5932af1
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BY1PEPF0001AE19.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB7704
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260628_210608_253569_32D29C41 
-X-CRM114-Status: GOOD (  13.44  )
+X-CRM114-CacheID: sfid-20260628_210208_047286_7D877E80 
+X-CRM114-Status: GOOD (  36.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,24 +132,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sun, Jun 28, 2026 at 11:00:43PM +0000, Pranjal Shrivastava wrote:
+> On Wed, May 20, 2026 at 10:03:18AM -0700, Nicolin Chen wrote:
+> > +static int arm_smmu_kdump_adopt_l2_strtab(struct arm_smmu_device *smmu, u32 sid,
+> > +					  phys_addr_t base, u32 span,
+> > +					  struct arm_smmu_strtab_l2 **l2table)
+[...]
+> > +
+> > +	/*
+> > +	 * Retest the span in case the L1 descriptor has been overwritten since
+> > +	 * the adopt. Reject this master's insert; panic or SMMU-disable would
+> > +	 * either lose the vmcore or cascade aborts. Do not try to fix it, as it
+> > +	 * would break all other SIDs in the same bus (PCI case). The corruption
+> > +	 * blast radius is already bounded to that bus range.
+> > +	 */
+> > +	if (span != STRTAB_SPLIT + 1) {
+> > +		dev_err(smmu->dev,
+> > +			"kdump: L1[%u] span %u changed since adopt (was %u)\n",
+> > +			arm_smmu_strtab_l1_idx(sid), span, STRTAB_SPLIT + 1);
+> > +		return -EINVAL;
+> > +	}
+> > +
+> > +	size = (1UL << (span - 1)) * sizeof(struct arm_smmu_ste);
+> > +
+> > +	table = devm_memremap(smmu->dev, base, size, MEMREMAP_WB);
+> 
+> Why do we use devm_memremap() here but memremap() in the rest of the
+> functions (even for the L1 ptr)?
 
+Because it's called by arm_smmu_init_l2_strtab() that is a later
+stage (arm_smmu_insert_master) than the other adopt functions.
 
-On 6/24/26 2:55 PM, Jinjie Ruan wrote:
-> Support for parallel secondary CPU bringup is already utilized by x86,
-> MIPS, and RISC-V. This patch brings this capability to the arm64
-> architecture.
-> 
-> Introduce CONFIG_HOTPLUG_PARALLEL_SMT to avoid primary SMT threads
-> to boot first constraint.
-> 
-> And add a 'cpu' parameter to update_cpu_boot_status() to allow updating
-> the boot status at a per-CPU granularity during parallel bringup.
-> 
-> Rework the global `secondary_data` and `__early_cpu_boot_status` accessed
-> during early boot into per-CPU arrays to allow secondary CPUs to boot
-> in parallel.
-> 
+This is deliberate. Otherwise, no one would undo memremap.
 
-Shouldn't this be called CONFIG_BRINGUP_PARALLEL instead?
-Hotplug usually means disable/enable CPU at runtime.
+I can add a line of note here.
+
+> > +static int arm_smmu_kdump_adopt_strtab_2lvl(struct arm_smmu_device *smmu,
+> > +					    u32 cfg_reg, phys_addr_t base)
+[...]
+> > +
+> > +	cfg->l2.l2ptrs =
+> > +		kcalloc(num_l1_ents, sizeof(*cfg->l2.l2ptrs), GFP_KERNEL);
+> > +	if (!cfg->l2.l2ptrs)
+> > +		return -ENOMEM;
+> 
+> We shuold ummap cfg->l2.l1tab before returning -ENOMEM here
+
+No. The caller would call cleanup() on the -ENOMEM.
+
+> > +		if (span != STRTAB_SPLIT + 1) {
+> > +			dev_err(smmu->dev,
+> > +				"kdump: L1[%u] unsupported span %u (vs %u)\n",
+> > +				i, span, STRTAB_SPLIT + 1);
+> > +			return -EINVAL;
+> 
+> We leak kcalloc'd mem (l2.l2ptrs) here, also we should unmap cfg->l2.l1tab
+
+Ditto.
+
+> > +static int arm_smmu_kdump_adopt_strtab_linear(struct arm_smmu_device *smmu,
+> > +					      u32 cfg_reg, phys_addr_t base)
+> > +{
+> > +	u32 log2size = FIELD_GET(STRTAB_BASE_CFG_LOG2SIZE, cfg_reg);
+> > +	struct arm_smmu_strtab_cfg *cfg = &smmu->strtab_cfg;
+> > +	unsigned int max_log2size;
+> > +	size_t size;
+> > +
+> > +	/*
+> > +	 * Only a coherent SMMU is supported at this moment. For a non-coherent
+> > +	 * SMMU that wants to support ARM_SMMU_OPT_KDUMP_ADOPT, try MEMREMAP_WC.
+> > +	 */
+> > +	if (WARN_ON(!(smmu->features & ARM_SMMU_FEAT_COHERENCY)))
+> > +		return -EOPNOTSUPP;
+> > +
+> > +	/* Cap the size at what the kdump kernel itself would have allocated */
+> > +	if (smmu->features & ARM_SMMU_FEAT_2_LVL_STRTAB)
+> > +		max_log2size =
+> > +			ilog2(STRTAB_MAX_L1_ENTRIES * STRTAB_NUM_L2_STES);
+> 
+> Looks like we'd never hit this if condition because we'd never support a
+> "linear" strtab if the HW supports ARM_SMMU_FEAT_2_LVL_STRTAB. Please
+> see arm_smmu_init_strtab:
+
+It's a defensive check that Sashiko recommended, as we cannot be sure
+that the crashed kernel was using the same driver, which I think it's
+not bad to have..
+
+> > +	size = cfg->linear.num_ents * sizeof(struct arm_smmu_ste);
+> > +	cfg->linear.table = memremap(base, size, MEMREMAP_WB);
+> > +	if (!cfg->linear.table)
+> > +		return -ENOMEM;
+> 
+> We seem to skips initializing cfg->linear.ste_dma (it is populated in
+> arm_smmu_init_strtab_linear)
+
+Yes, deliberately since it's not used anywhere in kdump adopt mode.
+
+> While the comment notes that arm_smmu_write_strtab() is bypassed in the
+> kdump case, leaving cfg->linear.ste_dma uninitialized seems like a 
+> ticking time bomb if any other part of the driver ever uses it.
+
+I can't think of a reason...
+
+> > +static void arm_smmu_kdump_adopt_cleanup(void *data)
+> > +{
+> > +	struct arm_smmu_device *smmu = data;
+> > +	u32 cfg_reg = readl_relaxed(smmu->base + ARM_SMMU_STRTAB_BASE_CFG);
+> 
+> I'm worried about reading the HW register here, since this is a devres action, it
+> can run after arm_smmu_device_remove() or arm_smmu_device_shutdown()
+> (which would call rpm_put()). Please see __device_release_driver[1]:
+> 
+> 	pm_runtime_put_sync(dev); <--- HW turned off
+> 
+> 	device_remove(dev);
+> 
+> 	if (dev->bus && dev->bus->dma_cleanup)
+> 		dev->bus->dma_cleanup(dev);
+> 
+> 	device_unbind_cleanup(dev); <--- This is where devm_release runs
+> 	device_links_driver_cleanup(dev);
+> 
+> Thus, even if we call rpm_get() here it would make no sense as the 
+> register contents would've been lost. Can we rely on some SW state
+> here? smmu->features & 2LVL or maybe add an fmt in cfg? 
+
+Yes. Sashiko pointed it out too. We can do feature bit.
+
+> > +		 * format, enforce the same format to match the adopted table.
+> > +		 */
+> > +		ret = arm_smmu_kdump_adopt_strtab_linear(smmu, cfg_reg, base);
+> > +		if (!ret)
+> > +			smmu->features &= ~ARM_SMMU_FEAT_2_LVL_STRTAB;
+> 
+> IIRC, this should NOT be set if we selected the linear format.
+> Looking at arm_smmu_init_strtab(), if the HW supports 2-level tables,
+> the driver unconditionally selects it. What is the expected scenario
+> where the previous kernel would have allocated a linear table on 2-level
+> capable hardware? IMO, it is a bug if we see linear fmt with this
+> feature set. Am I missing something?
+
+Again, the crashed kernel doesn't have to use the same driver.
+
+I will address the rest of your comments.
+
+Thanks
+Nicolin
 
