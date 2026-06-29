@@ -4,67 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CB06C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 11:13:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E102C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 11:16:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gBrw4h6G+CAidiPHKiZfKf7oBnSSJvuEXV9bJiShaTA=; b=Vd4a/069lRYFTr11pLo/G3SzM7
-	kgtE8SJAE41vymNEhThyDSOIxts/oamzndXrHRdPzB8tEqLdwRSs0F0InfPyYDGHHtZGkxMK+4ZeF
-	8Xr4gNVJdcnEWSaCOEomZuk0FzL3yidB4yQMvkSwzP5bvINikktsxSUx1wy9Lt9yRAF2r2kgyEJnq
-	dYY6FYSbbgO/cyMeuCePaQt91oWiOYAtrJMMisuatjGz/Ur1yUBa15LC32qsWvH/RVEnin84LiIOA
-	3DipCehOypZhTLqP47o2UYprxXw0AVeVnw13LwoohaPIyqXbFXwRVyYgoVbUmE5h9+AOfZxBIk6zv
-	J/4kpPHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1JPnrdxJvL0WFN5wrOSvEBToBxSFJluscDvZ5wP//rQ=; b=3xdr/YLSEpdLgvc5AVRIGHzxzD
+	wVhfVkS5MmWq2qZbnV3aQ8Q9I1nIjYnqwgJnWa6YdW9dR0GWrOL4Ko5aqk7g5d06pYkx/Oqd/qCtY
+	v9M84czQCinGJSSW45baLrsjaQNZm4ZYeLkhVAlUQf8orDgfF13+5TUtZrATbVSV23e8D85XUh/kq
+	/Mj7yGCHQKvTXoVMm7iihZVZMl0EmtTDtbr6H+uCO7EwjKpwmZ05VRQSmW+5YN+ti0Vnw5NBIWLzC
+	1GVnhNTPhRMhvIYro2M4+fqWG+XgPpHoz8aljkMuRQD9dSrmTJ+0fm64wdcHxT6o1FxLoP1dOHxVt
+	uzAKHeCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weWPC-0000000GoNo-0Ivw;
-	Tue, 30 Jun 2026 11:13:30 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1weWSH-0000000Gow7-2y5j;
+	Tue, 30 Jun 2026 11:16:41 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weWPB-0000000GoNP-1wrW;
-	Tue, 30 Jun 2026 11:13:29 +0000
+	id 1weWSG-0000000Gow1-0wox
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 30 Jun 2026 11:16:40 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C3E28600BB;
-	Tue, 30 Jun 2026 11:13:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 262B41F000E9;
-	Tue, 30 Jun 2026 11:13:24 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DB13641450;
+	Tue, 30 Jun 2026 11:16:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD70C1F000E9;
+	Tue, 30 Jun 2026 11:16:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782818008;
-	bh=gBrw4h6G+CAidiPHKiZfKf7oBnSSJvuEXV9bJiShaTA=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=blytqQRac+g9IOLHTev0RLz7JAEA05ZsCRJ4cXitfvYsRAWj+gBUwA3e6cQe8G0UO
-	 PmqqWpzCpst3E2PvtVSn5zI6mrdwPf0p93zgNTlUC+ctCybXfH6X9J1JZ3viG6eATk
-	 W/0sowhyccmzR/ELJy79DfC7PRH4Hk+2ksfFhFf5w/3BxLpG7rq4fDlGIsoMndRLaQ
-	 ISDk9zW3XOoIF3nWXA39CBFku69yw+kff9k6bT2J8SgKMr6GCcewIkNUHIf7kcfpLR
-	 dR7FNbthATEO2DTOT+eXGFIJt028JX+fkSP8YDOCwgjuuzeV6rGd5vO1VRkidBO596
-	 f9DESVmWQK+TQ==
-From: Pratyush Yadav <pratyush@kernel.org>
-To: Wandun Chen <chenwandun1@gmail.com>
-Cc: chenhuacai@kernel.org,  kernel@xen0n.name,  pjw@kernel.org,
-  palmer@dabbelt.com,  aou@eecs.berkeley.edu,  robh@kernel.org,
-  saravanak@kernel.org,  bhe@redhat.com,  rppt@kernel.org,
-  linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org,
-  loongarch@lists.linux.dev,  linux-riscv@lists.infradead.org,
-  devicetree@vger.kernel.org,  kexec@lists.infradead.org,
-  iommu@lists.linux.dev,  zhaomeijing@lixiang.com,
-  catalin.marinas@arm.com,  will@kernel.org,  alex@ghiti.fr,
-  akpm@linux-foundation.org,  pasha.tatashin@soleen.com,
-  pratyush@kernel.org,  ruirui.yang@linux.dev,  m.szyprowski@samsung.com,
-  robin.murphy@arm.com
-Subject: Re: [PATCH v4 10/10] loongarch: kdump: exclude non-dumpable
- reserved memory regions from vmcore
-In-Reply-To: <20260630074715.4126796-11-chenwandun1@gmail.com> (Wandun Chen's
-	message of "Tue, 30 Jun 2026 15:47:14 +0800")
-References: <20260630074715.4126796-1-chenwandun1@gmail.com>
-	<20260630074715.4126796-11-chenwandun1@gmail.com>
-Date: Tue, 30 Jun 2026 13:13:22 +0200
-Message-ID: <2vxza4sci8ml.fsf@kernel.org>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	s=k20260515; t=1782818199;
+	bh=1JPnrdxJvL0WFN5wrOSvEBToBxSFJluscDvZ5wP//rQ=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=a/b/6v/GIOOHx3mkurLDiSwCYEV+FaF40ZarjWBYs9LAk/x2Dab1vbwzWPBbXumSY
+	 qCL/R4hpI/xR+csPkyDFeDvW4uWAciPLePWgJiybdXppe5u25pNrNFO4tn1dzd3v3v
+	 kC6+KrIIGd52n54CP2TaUk1hT7OeTv7S2pKHfi+YAo9wHuuiDJxubujr9JwfkcthuH
+	 qCTk6N3IiLNlrXU3sJcZR+gK9/ZuSgJY1RV8MfARE0y6eRBx9npsHpyXb96vPKEeik
+	 8JCRbFXSCYsoI7lIBSyw4rxO1bn3/GJeaS+q+zB4cPOZNcw+UUdVipomdASSnvbce1
+	 t6tWQb7qzWNGQ==
+From: Mark Brown <broonie@kernel.org>
+To: phucduc.bui@gmail.com
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, Shengjiu Wang <shengjiu.wang@gmail.com>, 
+ Xiubo Li <Xiubo.Lee@gmail.com>, Frank Li <Frank.Li@nxp.com>, 
+ Fabio Estevam <festevam@gmail.com>, Nicolin Chen <nicoleotsuka@gmail.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
+ linuxppc-dev@lists.ozlabs.org
+In-Reply-To: <20260615093824.115751-1-phucduc.bui@gmail.com>
+References: <20260615093824.115751-1-phucduc.bui@gmail.com>
+Subject: Re: [PATCH v2 00/11] ASoC: fsl: Use guard() for mutex & spin locks
+Message-Id: <178275717908.47562.6018027459951398381.b4-ty@b4>
+Date: Mon, 29 Jun 2026 19:19:39 +0100
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.16-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2551; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=suxmd7hBx6haxwfUYdAMlT9JDpZz5886NYdo7Mep1MA=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqQ6WTVpXn+QGYzZVDWj262eDQ3hIPy1Vgt4Fm/
+ PIjKaF1pxuJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCakOlkwAKCRAk1otyXVSH
+ 0AIZB/9pCqWJBKcMORA4HBEEOe7lHfNBdFAzXulEYYl+5A2SiJEdEPvc4Ga9EUUxHrNPS5I4j+P
+ deSVsyW0G3OLOTfvVl532NgIvjBtFV3RUjyR4wbrfKtabENJsnxhC0WD40xWSRfVA4ZuzoFc7Zi
+ f0qBGcqMWEpTLSdNMPURlZEfhPDctucv4ocZA8ajy/rGXo8Uy+dxI5D+VZq/04pUhz08nU0DCSJ
+ +ZIRf3WapsbVH1DdZhOGB6IevhavBKBK84tajirZ6/6E/qraFYdDhGzKHXSOhsqshuzC796HZX0
+ WXOBmsq8g0rx9F6D5E+sms6w0i+dK0mbimBO9/HarTYFVEPS
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,22 +87,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 30 2026, Wandun Chen wrote:
+On Mon, 15 Jun 2026 16:38:13 +0700, phucduc.bui@gmail.com wrote:
+> ASoC: fsl: Use guard() for mutex & spin locks
+> 
+> From: bui duc phuc <phucduc.bui@gmail.com>
+> 
+> Hi all,
+> 
+> This series converts mutex and spinlock handling in the FSL sound drivers
+> to use guard() helpers.
+> The changes are code cleanup only and should have no functional impact.
+> 
+> [...]
 
-> From: Wandun Chen <chenwandun@lixiang.com>
->
-> Apply the same non-dumpable reserved memory filtering to LoongArch
-> kdump as was done for arm64. Use of_reserved_mem_kdump_exclude() to
-> drop flagged regions from the elfcorehdr PT_LOAD segments, and
-> of_reserved_mem_kdump_nr_ranges() to pre-size the crash_mem array.
->
-> Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
+Applied to
 
-Acked-by: Pratyush Yadav <pratyush@kernel.org>
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.3
 
-[...]
+Thanks!
 
--- 
-Regards,
-Pratyush Yadav
+[01/11] ASoC: fsl_asrc: Use guard() for spin locks
+        https://git.kernel.org/broonie/sound/c/d7e261b7ad1b
+[02/11] ASoC: fsl_audmix: Use guard() for spin locks
+        https://git.kernel.org/broonie/sound/c/58712476dee2
+[03/11] ASoC: fsl_easrc: Use guard() for spin locks
+        https://git.kernel.org/broonie/sound/c/48d84310be60
+[04/11] ASoC: fsl_esai: Use guard() for spin locks
+        https://git.kernel.org/broonie/sound/c/cb87bdabd341
+[05/11] ASoC: fsl_spdif: Use guard() for spin locks
+        https://git.kernel.org/broonie/sound/c/a1b865cff274
+[06/11] ASoC: fsl_ssi: Use guard() for mutex locks
+        https://git.kernel.org/broonie/sound/c/4d748e7082ec
+[07/11] ASoC: fsl_xcvr: Use guard() for spin locks
+        https://git.kernel.org/broonie/sound/c/94b0cb1dd6d9
+[08/11] ASoC: imx-audio-rpmsg: Use guard() for spin locks
+        https://git.kernel.org/broonie/sound/c/929d412fdb0d
+[09/11] ASoC: fsl_rpmsg: Use guard() for mutex & spin locks
+        https://git.kernel.org/broonie/sound/c/11ce4dd4e7be
+[10/11] ASoC: fsl: mpc5200_dma: Use guard() for spin locks
+        https://git.kernel.org/broonie/sound/c/caed9fb2e428
+[11/11] ASoC: fsl: mpc5200_psc_ac97: Use guard() for mutex locks
+        https://git.kernel.org/broonie/sound/c/8a2d7e46317a
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
