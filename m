@@ -4,59 +4,164 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 722DBC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 06:51:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 739BEC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 06:52:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dB9JRvxnhnqiTxASidvAztScsUR1iGkU1aIGfbiC9yA=; b=moIQnxAOYwkA2bBGaoP7B1C0b1
-	RdZqD7r3UWq2HKjOiu4oM9yFW7zNIczXw0qfGfZnyPOh3LFSG90yAF3+/os1vowE1wlf7NUoMm0nU
-	JEJPtdnnfsynz4EuFQO7nlma8ED+48YWjELGnuxe225DFfvpVQCRWKUPMgq6ZoSyUfNVjB4WkvjBA
-	LMe/LZPOJXYsqgnS1oOt6xuRBFiKslZtsL4t0JiAfrB4bByeeyu7Q9n2pkZhgGkLgW21uAH/H2/T0
-	11uaa69dIfHVbR3+HB6GFJfJMPLWlvpIkcJ6sbHEpErScS8ONiw6MqO5lDL5UgCBtXj+SvsenrC91
-	IIwiQx9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4bx/9Zme8+P93Sk9hnuVh1AEC3EOcOFTpQjt9zAyQ9U=; b=ISd4sABaIwY/R1XUhwjCi6fHxr
+	0sLQHrV/IelIKozA8gAf0kZ8bttJKmzecjV1d8hKzxCeAXsA2AEozQn1cym5fq32yIamuEw+x+rLl
+	wTaP3VZaq6rfTz6Oo3TG8bnRQ6+SX6ecm6XPzFUwx3G9lbH/cfBD4blap7JQdM1kWylJ045Ex+pj4
+	jW9pt+0XBFugkXZNogLrml4wC4w/wHx4K5OHkbfOfkGpUNGKUAZFyNHBJkRMifecDzM7sukeKG12N
+	7nGcAxIYABIT/fiYAk/mNruHwkA+QfVHQApTpQxy8mjolP9PucUdysYu2Wpltgvuux+PZZ9ZAhp0k
+	bA+fZpUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we5pw-0000000Do7I-1b2D;
-	Mon, 29 Jun 2026 06:51:20 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1we5qa-0000000DoD7-3VTa;
+	Mon, 29 Jun 2026 06:52:00 +0000
+Received: from smtp-out2.suse.de ([195.135.223.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we5pu-0000000Do74-3aFF
+	id 1we5qX-0000000DoC8-4A66
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 06:51:18 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9931C40DEF;
-	Mon, 29 Jun 2026 06:51:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42D311F000E9;
-	Mon, 29 Jun 2026 06:51:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782715878;
-	bh=dB9JRvxnhnqiTxASidvAztScsUR1iGkU1aIGfbiC9yA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Fir7FRGGQMtmHlpqAhi/pLMkAJ20luA9HPlO1oeC7nw8Fb0kTJPvv5ZSdxHmNZKZX
-	 eK431aHszfxNt2azRbVaxZzOXDBnWfbzMK1vjbvz7OCv8ddpsY3b7UpqN3hiWWWLz2
-	 yszDF3LKWEm5XwX6BZ+ON/IYDFNtsyvZ3je0n/F77qX+bM9RtZHJA4iM6mPMfgj5bv
-	 sejXZh5qxPQa2e2YRBPmrtVNLB2+ZW43/6KlCI1YGFFynyqkO1gprJXytm1NFtRjyp
-	 6S7bQOazgHqnx4CMS+COVjJY0xst78QcaGqfOIVCdV4a0zmYXR4js3Ej/PbAJQtxrt
-	 o5fVQUvQMDM3A==
-Date: Mon, 29 Jun 2026 14:51:09 +0800
-From: Peter Chen <peter.chen@kernel.org>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Gary Yang <gary.yang@cixtech.com>,
-	"Fugang . duan" <fugang.duan@cixtech.com>,
-	linux-arm-kernel@lists.infradead.org,
-	cix-kernel-upstream@cixtech.com
-Subject: Re: [PATCH] MAINTAINERS: Update maintainer and git tree for CIX SoC
-Message-ID: <akIV3eH0n9kRMNvf@QCOM-gEdNzOMOFu.na.qualcomm.com>
-References: <20260626092015.1709904-1-gary.yang@cixtech.com>
- <21f81761-ac02-4771-9dfd-38e653d1f74f@app.fastmail.com>
+	Mon, 29 Jun 2026 06:51:59 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 7400775D0F;
+	Mon, 29 Jun 2026 06:51:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1782715913; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=4bx/9Zme8+P93Sk9hnuVh1AEC3EOcOFTpQjt9zAyQ9U=;
+	b=WuR6iIrVxW40HIiPjBb+EQCqInTYW5XztTvFyPFwSdqGAdd5n2ob2gwwcq1HxQz0rIsvpg
+	CDe6zr3pg0V5p0y0jlOAsWcUhIcV0ydLtzo1ME8juI6yUbdVdAbjh9Tzro+k/I0/yohfY8
+	EbEFtLP/pWuOd+WA/2xMMh9cVOeb8Lc=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1782715913;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=4bx/9Zme8+P93Sk9hnuVh1AEC3EOcOFTpQjt9zAyQ9U=;
+	b=Kv24lKIywIP3KmvkNpLlfMuJUFoxkAVkizthLhCwoB9iWQmEanlx9ExWFpeA67ra0xqiom
+	SJhRY8GlvWO9v9BA==
+Authentication-Results: smtp-out2.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=WuR6iIrV;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=Kv24lKIy
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1782715913; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=4bx/9Zme8+P93Sk9hnuVh1AEC3EOcOFTpQjt9zAyQ9U=;
+	b=WuR6iIrVxW40HIiPjBb+EQCqInTYW5XztTvFyPFwSdqGAdd5n2ob2gwwcq1HxQz0rIsvpg
+	CDe6zr3pg0V5p0y0jlOAsWcUhIcV0ydLtzo1ME8juI6yUbdVdAbjh9Tzro+k/I0/yohfY8
+	EbEFtLP/pWuOd+WA/2xMMh9cVOeb8Lc=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1782715913;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=4bx/9Zme8+P93Sk9hnuVh1AEC3EOcOFTpQjt9zAyQ9U=;
+	b=Kv24lKIywIP3KmvkNpLlfMuJUFoxkAVkizthLhCwoB9iWQmEanlx9ExWFpeA67ra0xqiom
+	SJhRY8GlvWO9v9BA==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 0D5C5779A8;
+	Mon, 29 Jun 2026 06:51:53 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id nwYmAQkWQmp/PQAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Mon, 29 Jun 2026 06:51:53 +0000
+Message-ID: <f3f2320f-dfe7-4728-9cf4-c3eaab33d09e@suse.de>
+Date: Mon, 29 Jun 2026 08:51:52 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <21f81761-ac02-4771-9dfd-38e653d1f74f@app.fastmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] drm/sun4i: Remove dependency on DRM simple helpers
+To: =?UTF-8?Q?Jernej_=C5=A0krabec?= <jernej.skrabec@gmail.com>,
+ Chen-Yu Tsai <wens@kernel.org>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Samuel Holland <samuel@sholland.org>,
+ Diogo Silva <diogompaissilva@gmail.com>
+Cc: dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20260623-sun4i_simple-v1-1-fa6696df1fad@gmail.com>
+ <PMdb9FVETQuPUnyh12NM2Q@gmail.com>
+Content-Language: en-US
+From: Thomas Zimmermann <tzimmermann@suse.de>
+Autocrypt: addr=tzimmermann@suse.de; keydata=
+ xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
+ XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
+ BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
+ hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
+ 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
+ AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
+ AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
+ AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
+ lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
+ U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
+ vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
+ 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
+ j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
+ T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
+ 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
+ GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
+ hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
+ EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
+ C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
+ yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
+ SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
+ Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
+ 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
+In-Reply-To: <PMdb9FVETQuPUnyh12NM2Q@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Rspamd-Action: no action
+X-Rspamd-Queue-Id: 7400775D0F
+X-Spamd-Result: default: False [-3.01 / 50.00];
+	BAYES_HAM(-3.00)[99.99%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	MIME_TRACE(0.00)[0:+];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FREEMAIL_TO(0.00)[gmail.com,kernel.org,linux.intel.com,ffwll.ch,sholland.org];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[12];
+	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	ARC_NA(0.00)[];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	RCVD_TLS_ALL(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	DNSWL_BLOCKED(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	MID_RHS_MATCH_FROM(0.00)[];
+	TAGGED_RCPT(0.00)[];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	DKIM_TRACE(0.00)[suse.de:+];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.de:mid,suse.de:dkim,suse.com:url]
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260628_235158_195901_910EAC1C 
+X-CRM114-Status: GOOD (  13.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,55 +176,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26-06-26 15:03:53, Arnd Bergmann wrote:
-> On Fri, Jun 26, 2026, at 11:20, Gary Yang wrote:
-> > Peter Chen has left CIX Technology. Take over maintenance of the CIX SoC
-> > and Update the git tree URL accordingly.
-> >
-> > Signed-off-by: Gary Yang <gary.yang@cixtech.com>
-> > Reviewed-by: Fugang Duan <fugang.duan@cixtech.com>
-> 
+Hi
 
-Acked-by: Peter Chen <peter.chen@kernel.org>
+Am 27.06.26 um 08:55 schrieb Jernej Škrabec:
+> Dne torek, 23. junij 2026 ob 22:34:40 Srednjeevropski poletni čas je Diogo Silva napisal(a):
+>> Simple KMS helper are deprecated since they only add an intermediate
+>> layer between drivers and the atomic modesetting.
+>> This patch removes the dependency on drm simple helpers from sun4i
+>> DRM drivers.
+>>
+>> Signed-off-by: Diogo Silva <diogompaissilva@gmail.com>
+> This doesn't look as useful change. Is this tree-wide attempt? If so, it
+> should be done in one go in one patch series, coordinated with DRM
+> maintainers.
 
-Peter
-> This obviously needs an Ack from Peter. I assume he's ok with the
-> change, but you should document that since maintainership
-> is tied to the person by default rather than their employer.
-> 
-> I've added peter.chen@kernel.org to Cc, hopefully this forwards
-> to a current address.
-> 
->       Arnd
-> 
-> > ---
-> >  MAINTAINERS | 4 ++--
-> >  1 file changed, 2 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/MAINTAINERS b/MAINTAINERS
-> > index 2fb1c75afd16..17b3704bbcde 100644
-> > --- a/MAINTAINERS
-> > +++ b/MAINTAINERS
-> > @@ -2692,12 +2692,12 @@ F:	arch/arm/mach-ep93xx/
-> >  F:	drivers/iio/adc/ep93xx_adc.c
-> > 
-> >  ARM/CIX SOC SUPPORT
-> > -M:	Peter Chen <peter.chen@cixtech.com>
-> > +M:	Gary Yang <gary.yang@cixtech.com>
-> >  M:	Fugang Duan <fugang.duan@cixtech.com>
-> >  R:	CIX Linux Kernel Upstream Group <cix-kernel-upstream@cixtech.com>
-> >  L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
-> >  S:	Maintained
-> > -T:	git git://git.kernel.org/pub/scm/linux/kernel/git/peter.chen/cix.git
-> > +T:	git https://github.com/cixtech/linux-mainline.git
-> >  F:	Documentation/devicetree/bindings/arm/cix.yaml
-> >  F:	Documentation/devicetree/bindings/mailbox/cix,sky1-mbox.yaml
-> >  F:	arch/arm64/boot/dts/cix/
-> > -- 
-> > 2.50.1
+Yes, the interface is supposed to go away because it is fairly useless.  
+It's a low-effort task for beginners. Hence many people send out such 
+clean-up patches for the various drivers.  If the change is acceptable 
+to you, it would be appreciated if you could merge it into the driver.
+
+Best regards
+Thomas
+
+>
+> Best regards,
+> Jernej
+>
+>
 
 -- 
+--
+Thomas Zimmermann
+Graphics Driver Developer
+SUSE Software Solutions Germany GmbH
+Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
+GF: Jochen Jaser, Andrew McDonald, Werner Knoblich, (HRB 36809, AG Nürnberg)
 
-Thanks,
-Peter Chen
+
 
