@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10594C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 13:28:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FA1AC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 13:28:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AbxQxhI8jkWFpggqqu0BJxCVlmjNB8rVpnB3U/bG9/8=; b=4Cejsdgt0P7QrGiuHAYk7QJLyg
-	RXdFDsDuPKYxGLt1CznObfh6CT/aQ5GTi2V/1f2tmYV3NhhQhkM9bYt8XfYlgIIYEUEs01/kk3R0a
-	+ymOEj7ruHKqCs17Rp3GRB0CygUnSYWggzCT0Ms98gBF7ufmQAa4yM2oLod5RyRqLHrrUOL78X6Zp
-	3X+VnZufaJxjgZq6ngOIJkCuUpuxuUN+YEg/nxe7hNuBX+NEvZnHYOOVyMCxm/Sknw+W5FdTo89ks
-	ReuK6j3DEpW3n/xRku4dNx3VHruheCCm3Iu0gC16EqxzRa5OPe1yp/zjbZHX2DIPGQ5XJeAUngORo
-	sHOvnWVg==;
+	bh=iYwaK59VeErRBhP0Q9iTMSGYiDgPnUNQAe6MLCdyQLw=; b=0CA0/oOzWywWRZQZZRgReqkl+I
+	AjiktP5u/wb4ZSD+SJ+S0Yt9ozsyOltjwh2lvVb75G0soKgxWzP09QFVES5eG3DgcFf/fMnVqFF87
+	EibYumNeo8hxCjEoYtlK1wA1lZUlpZcH78FJKQs7OHTGLMZcFNFbBFLrx+GCVWwIhRlnVSMhAnzci
+	D8PKnNKPlrVvZImMHb4C5KQi6mDJIDzKrOJFzP3+dmnOK9MZWNgtKbQ3sPkph6PpFZdcGwvzPxtvU
+	ZneH8G+ZZ6jpO3lx7tNlXf7YZHk5pdWzvXguvBJzSoZyn/0LtxyXrGEXKu+Vm7jFd+wNsK7iB+WV1
+	FpGMDY+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weC21-0000000Ekw9-4AYs;
-	Mon, 29 Jun 2026 13:28:14 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1weC28-0000000El3G-1bCH;
+	Mon, 29 Jun 2026 13:28:20 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weC20-0000000EkuS-1hZd;
-	Mon, 29 Jun 2026 13:28:12 +0000
+	id 1weC26-0000000El21-415a;
+	Mon, 29 Jun 2026 13:28:19 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id CFDF460008;
+	by sea.source.kernel.org (Postfix) with ESMTP id A7C2C41320;
+	Mon, 29 Jun 2026 13:28:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 089BD1F00A3A;
 	Mon, 29 Jun 2026 13:28:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 090611F000E9;
-	Mon, 29 Jun 2026 13:28:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782739691;
-	bh=AbxQxhI8jkWFpggqqu0BJxCVlmjNB8rVpnB3U/bG9/8=;
+	s=k20260515; t=1782739698;
+	bh=iYwaK59VeErRBhP0Q9iTMSGYiDgPnUNQAe6MLCdyQLw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=l+Bjn0TWuJNScCkv2eF3hy4+9W/x+N/FOa0Y6J7K1PFzRKxbGv4SQUtde7aDOLy8B
-	 jZkrFSnHT6Vb61R5R/ETfTSspiaEh+nheFllga8qyHXfV3yUxDZSenK4zIhVp2ALI+
-	 nzRCJXHiieCva9BC4U/A20qdEbhgbI/dhbWcdg/Jt7oAcq2GDapzVbIFKbACjvCd9P
-	 uYVxIeyS3AcefXCPNeybaedPhtAmuQ8NxzQKp3Kq4z2cU2T7FaobBGokfDAJ0YP4jO
-	 D6rFiTomsxEP9rkITDZ/6mMxQ/dBT7Rjpc7U1oDKGDNycGwvTBYGhfgJLQfBm3ssL7
-	 lcm3OEdYqXtkw==
+	b=h5AFqQi4jStPxyTSP1+6Qa/JvBSIFtVgK0MNZzsiH6wjFRswa/RLrnQqFNHih/qjG
+	 EWv3fVYPKDKbBtHjWpFdO8cIy9X4E9hkJpPP6vBXA8/qsQylAAtt6v+NK73U7OXv92
+	 YB7mQNWAxRfG6dGtDgsPLk0YTrL8XMwVLZP0DiJLe31ovoUMss8UP/7D/l/j5xY8/E
+	 GWyr+Tst/J+V3i8q9C/i4YobqaQblCJhFZjTHY4YfQcFjDhwMaiBx0Ip4Lj1e9DE6L
+	 mM017Lryq9TQOfeRAPIp4At1UOUu2ZNtp0Xj6zezM1lXYTXWiO8CpisTNWLtJuCnOG
+	 JFsljvXoooevw==
 From: Arnd Bergmann <arnd@kernel.org>
 To: linux-gpio@vger.kernel.org
 Cc: Arnd Bergmann <arnd@arndb.de>,
@@ -76,9 +76,9 @@ Cc: Arnd Bergmann <arnd@arndb.de>,
 	linux-phy@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	linux-sound@vger.kernel.org
-Subject: [PATCH 12/13] gpib: gpio: replace linux/gpio.h inclusion
-Date: Mon, 29 Jun 2026 15:26:32 +0200
-Message-Id: <20260629132633.1300009-13-arnd@kernel.org>
+Subject: [PATCH 13/13] gpiolib: remove linux/gpio.h
+Date: Mon, 29 Jun 2026 15:26:33 +0200
+Message-Id: <20260629132633.1300009-14-arnd@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20260629132633.1300009-1-arnd@kernel.org>
 References: <20260629132633.1300009-1-arnd@kernel.org>
@@ -100,26 +100,115 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-linux/gpio.h is going away, so use linux/gpio/consumer.h instead.
+After all other drivers have converted to linux/gpio/consumer.h
+or linux/gpio/legacy.h, remove the final leftover bits here.
 
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- drivers/gpib/gpio/gpib_bitbang.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ MAINTAINERS                   |  1 -
+ drivers/gpio/TODO             |  4 +---
+ drivers/gpio/gpiolib-cdev.c   |  2 +-
+ drivers/gpio/gpiolib-legacy.c |  3 +--
+ drivers/gpio/gpiolib.c        |  2 +-
+ include/linux/gpio.h          | 22 ----------------------
+ 6 files changed, 4 insertions(+), 30 deletions(-)
+ delete mode 100644 include/linux/gpio.h
 
-diff --git a/drivers/gpib/gpio/gpib_bitbang.c b/drivers/gpib/gpio/gpib_bitbang.c
-index 0e227980b493..2e8d895db06a 100644
---- a/drivers/gpib/gpio/gpib_bitbang.c
-+++ b/drivers/gpib/gpio/gpib_bitbang.c
-@@ -64,7 +64,7 @@
- #include <linux/gpio/consumer.h>
- #include <linux/gpio/driver.h>
- #include <linux/gpio/machine.h>
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 15011f5752a9..7f3f386b1d8c 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -11175,7 +11175,6 @@ F:	Documentation/devicetree/bindings/gpio/
+ F:	Documentation/driver-api/gpio/
+ F:	drivers/gpio/
+ F:	include/dt-bindings/gpio/
+-F:	include/linux/gpio.h
+ F:	include/linux/gpio/
+ K:	(devm_)?gpio_(request|free|direction|get|set)
+ K:	GPIOD_FLAGS_BIT_NONEXCLUSIVE
+diff --git a/drivers/gpio/TODO b/drivers/gpio/TODO
+index 7ce80fde1f17..894c7e1af252 100644
+--- a/drivers/gpio/TODO
++++ b/drivers/gpio/TODO
+@@ -52,9 +52,7 @@ Work items:
+   base can be made dynamic (set to -1) if CONFIG_GPIO_SYSFS is disabled.
+ 
+ - When this work is complete (will require some of the items in the
+-  following ongoing work as well) we can delete the old global
+-  numberspace accessors from <linux/gpio.h> and eventually delete
+-  <linux/gpio.h> altogether.
++  following ongoing work as well) we can delete <linux/gpio/lagacy.h>.
+ 
+ -------------------------------------------------------------------------------
+ 
+diff --git a/drivers/gpio/gpiolib-cdev.c b/drivers/gpio/gpiolib-cdev.c
+index 82f27db0b230..9b6a28819371 100644
+--- a/drivers/gpio/gpiolib-cdev.c
++++ b/drivers/gpio/gpiolib-cdev.c
+@@ -11,7 +11,7 @@
+ #include <linux/device.h>
+ #include <linux/err.h>
+ #include <linux/file.h>
 -#include <linux/gpio.h>
 +#include <linux/gpio/consumer.h>
- #include <linux/irq.h>
+ #include <linux/gpio/driver.h>
+ #include <linux/hte.h>
+ #include <linux/interrupt.h>
+diff --git a/drivers/gpio/gpiolib-legacy.c b/drivers/gpio/gpiolib-legacy.c
+index ef3f2ef30cf2..33e5a45e720b 100644
+--- a/drivers/gpio/gpiolib-legacy.c
++++ b/drivers/gpio/gpiolib-legacy.c
+@@ -7,8 +7,7 @@
  
- static int sn7516x_used = 1, sn7516x;
+ #include <linux/gpio/consumer.h>
+ #include <linux/gpio/driver.h>
+-
+-#include <linux/gpio.h>
++#include <linux/gpio/legacy.h>
+ 
+ #include "gpiolib.h"
+ 
+diff --git a/drivers/gpio/gpiolib.c b/drivers/gpio/gpiolib.c
+index e5fb60111151..1f498d6c8c68 100644
+--- a/drivers/gpio/gpiolib.c
++++ b/drivers/gpio/gpiolib.c
+@@ -29,7 +29,7 @@
+ #include <linux/string.h>
+ #include <linux/string_choices.h>
+ 
+-#include <linux/gpio.h>
++#include <linux/gpio/consumer.h>
+ #include <linux/gpio/driver.h>
+ #include <linux/gpio/machine.h>
+ 
+diff --git a/include/linux/gpio.h b/include/linux/gpio.h
+deleted file mode 100644
+index b0d4942a65de..000000000000
+--- a/include/linux/gpio.h
++++ /dev/null
+@@ -1,22 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0 */
+-/*
+- * NOTE: This header *must not* be included.
+- *
+- * If you're implementing a GPIO driver, only include <linux/gpio/driver.h>
+- * If you're implementing a GPIO consumer, only include <linux/gpio/consumer.h>
+- * If you're using the legacy interfaces, include <linux/gpio/legacy.h>
+- */
+-
+-#ifndef __LINUX_GPIO_H
+-#define __LINUX_GPIO_H
+-
+-#include <linux/types.h>
+-#ifdef CONFIG_GPIOLIB
+-#include <linux/gpio/consumer.h>
+-#endif
+-
+-#ifdef CONFIG_GPIOLIB_LEGACY
+-#include <linux/gpio/legacy.h>
+-#endif /* CONFIG_GPIOLIB_LEGACY */
+-
+-#endif /* __LINUX_GPIO_H */
 -- 
 2.39.5
 
