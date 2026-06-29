@@ -4,99 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12332C43327
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 17:15:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ACAFC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 17:36:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mloHFD8lHRGWc9buHYqgCWKHRZzcSqlxB20ESS9JMes=; b=HWt8oBnlney/ORGXL1wc/PZsd+
-	MwaYOf34WVhzn1QfyRM7FwxhgRTirPiyuRAcjNmsioYaufjkIrf6xbBWrlRfB4Tu/DYXl6Gdtfory
-	HEZaR3Dyqgu18BYZ79Uo9cMdBOD0PM6nghP0HfXaRn4XFDa8Ljl0Bx8hCKXj/6rq7hWosmg4LdFqF
-	+xTcgHggwYN0JAb+N5TH+Fk9IjD/E1yRdmiMZ+vmUgwlOp63jYY3i4Z0Olaw/pzFZhPktleLgyK/p
-	OZNtUAypGMbyj1TlAegalArnrQZPbbjXMxUnRUSmYX4jbOzABaDWswQHW661LGpxTSphmvobWmCwO
-	8oUYuxxQ==;
+	bh=Ck52aVERa/dSK9EW2phIhpiajUjsHvNg/KF8jAj4tKg=; b=vdE7ZQKQGX30NlYffL/SzoRiGI
+	eXMMtaMWVoiPgpE0SG6CAw7OTEqymxHaJdH43iCkbzOyTSakMsP9Nwo+1vZQhTRc8RbTewoXg5NLG
+	qYLBg+N2NcQOwYOuHdlhS8ZLM4WEP/YkURr2ZnR0Sg9nTXo946AAUGXdf9bv1SPa87wv/mOP0tnWo
+	jRjSFY2sxBx94ttDjqfOO6zZmEofdEQ3Up0ypw/wUo6vvTmRjJ5wBhlKTXyDcsTJ8qrWz5QWCeTwq
+	T6clzYRnqDw0aSf6xzwgPsR0k3FZWu0TLf648ugNy/YcohvQg0DrclWe50vmtx2g2wXA2L13r5y5V
+	lZab5mhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weFZS-0000000FHvY-17ax;
-	Mon, 29 Jun 2026 17:14:58 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1weFuX-0000000FIwI-0JXr;
+	Mon, 29 Jun 2026 17:36:45 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weFZP-0000000FHud-1noo
+	id 1weFuV-0000000FIvn-0QpI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 17:14:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1782753293;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=mloHFD8lHRGWc9buHYqgCWKHRZzcSqlxB20ESS9JMes=;
-	b=YutsecaVbGS/9sQyKUzUocnQaV4Syj349CEp3rzXiXQfvG0L/4bjgumyl9kYo/bKU0BwfS
-	DOtsguJJu5rcLlC3fVOD0CL0SyNvoXswy7CrtDZTr0R4fpjX9H5D0K+fmi5Tv93w8kkf5K
-	o/bMPMtkCGJTYELVSHpQCwi14dNlx4k=
-Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com
- [209.85.219.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-577-dJj4e9YnM9-zoxAFbfSEiQ-1; Mon, 29 Jun 2026 13:14:51 -0400
-X-MC-Unique: dJj4e9YnM9-zoxAFbfSEiQ-1
-X-Mimecast-MFC-AGG-ID: dJj4e9YnM9-zoxAFbfSEiQ_1782753291
-Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-8f08f19552aso11659856d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 10:14:51 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782753291; x=1783358091;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=mloHFD8lHRGWc9buHYqgCWKHRZzcSqlxB20ESS9JMes=;
-        b=VAy5mpFP8iui0sJiJC14WU11uf+Ppj9sxuidETlG6K5WPWbXVQzDU2yDevNBFe8FdT
-         OBbzl56e8b/hPfFQDyWNezKbIJyOWKqB9A5lWLhY/aqDgwnmlgbw/zuwBFglB5cqZyNz
-         msll7G4uC5NBPeWqt8E3iVKNSvFxzYEhxon53AIJnveoHuVe9bwqi4iJjgKbMLauUoSW
-         SlzgraeA1FtefJuJh1XrDsaAuvkgtjLFsjExWJmuQCka8jEyuPtIboU8gnwfBwqZB0BH
-         0Cjfq1eIG/SHxvTeYV5de52VccQldyxIC1wi5m8dGAnjphSw2OjN5vgR0XTtd3hOWf2t
-         nHtA==
-X-Forwarded-Encrypted: i=1; AHgh+RqqF09ehrhaVSbGaZYAmu6pHzNwyR0CBHgS92Xj8Ff8L32vapZAGxcsgSuwkTVO1lP9iMkHT781TyQwszt5l3EK@lists.infradead.org
-X-Gm-Message-State: AOJu0YxApBZjSspEJte5G+lW9uAs+GsPWqe3BkQ+5N60CZmgBcGFf9zG
-	cVcJI2k0mVQVL6pqmLeUJi/44gplRbr8/6nX4RpjJ8vNxS4eS/Phgp3L+XEh4WZEnauP7R1w6O5
-	xVppGuZQ9OXXUnC6pxZMinA7q3/oalHzKQKE+38kYIcUqMbT5cf23WwhkqwmvkMUkNnSmLIwzyX
-	S5pNEDfUOn
-X-Gm-Gg: AfdE7cnGUaI24/C8TwBc4sMmr4cR9Bh9Lnf2z3FSsQBlHMLlZgoMOfsTkVa8s49ZdXa
-	ljTRTZJlrUQ120Ub1zZmNHjLfJ6YF+93WyfBlspXB3nmB6gN3PRY71bXKgNDreSHdlJ/02FZeeH
-	xcesKhAwlL0uHXnTkWv5KtqnPpFeSGExH4cbtWyGap8bByGasD27P+grWIVcbBT55v9eQdoNVse
-	E4rIV9OuyWawkfub2Ecg4HDRSdWFg2Qe+9NLa3XDTpuDm7cYH17+/o6bFQOaq94rOpmus4pgXU3
-	yvjNdvuKYJapV6d+mCwX+RioPFMdH3AVTm2hiX25zB/G9LASAbCmtEbn2f4DS5lyfBy9/YG2ECX
-	gu6i0slowhL+/JJ/DJ0XLK+hf1H143QsXuKEARm9UMT4+kw==
-X-Received: by 2002:ad4:5ceb:0:b0:8e9:f62b:8f9c with SMTP id 6a1803df08f44-8f1be38d9e3mr1780716d6.49.1782753289829;
-        Mon, 29 Jun 2026 10:14:49 -0700 (PDT)
-X-Received: by 2002:ad4:5ceb:0:b0:8e9:f62b:8f9c with SMTP id 6a1803df08f44-8f1be38d9e3mr1780026d6.49.1782753289258;
-        Mon, 29 Jun 2026 10:14:49 -0700 (PDT)
-Received: from redhat.com (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8f1a736d5fcsm2694296d6.39.2026.06.29.10.14.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Jun 2026 10:14:48 -0700 (PDT)
-Date: Mon, 29 Jun 2026 13:14:47 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: Wentao Liang <vulab@iscas.ac.cn>
-Cc: andrew@lunn.ch, gregory.clement@bootlin.com,
-	sebastian.hesselbarth@gmail.com, mturquette@baylibre.com,
-	sboyd@kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] clk: mvebu: ap-cpu: fix missing clk_put() in
- ap_cpu_clock_probe()
-Message-ID: <akKoB3CV6AtEQBVu@redhat.com>
-References: <20260617014126.1716291-1-vulab@iscas.ac.cn>
+	Mon, 29 Jun 2026 17:36:43 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1BD596014B;
+	Mon, 29 Jun 2026 17:36:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 620E31F000E9;
+	Mon, 29 Jun 2026 17:36:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782754601;
+	bh=Ck52aVERa/dSK9EW2phIhpiajUjsHvNg/KF8jAj4tKg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=KjaI50+gv3cmFnwRjqe6vTKfy49cDAY23fDmMF3N9T/0Io5q/qT0Q0F2n+Gv1EWzk
+	 GOIm5WnE+sogMZ6SOs6TV9DkwIpebLa+2JgRbXc4BqMd1ieftFthZcvUZEdkoAbIyF
+	 iCKEbj2tJIVRZgPqaF1Axib5kH6LONGp5AdMT8RovzBryMJSQXwma2rQytxsxJ7/XT
+	 +zns84KvzucCrgsGo1h6+jn6PWZTU3nUUnizHk6V5hX891lQRZB3UPhPm9K34CAWai
+	 gixob5Cg7h5dd44cQ98s+DsEdSITlckacEJqhfYJShwirdeuiz4hAjbV9CANlQ+E6b
+	 2g92MUpvRF56g==
+Date: Mon, 29 Jun 2026 10:36:40 -0700
+From: Oliver Upton <oupton@kernel.org>
+To: Leonardo Bras <leo.bras@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Saket Dumbre <saket.dumbre@intel.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Chengwen Feng <fengchengwen@huawei.com>,
+	Kees Cook <kees@kernel.org>,
+	=?utf-8?Q?Miko=C5=82aj?= Lenczewski <miko.lenczewski@arm.com>,
+	James Morse <james.morse@arm.com>, Zeng Heng <zengheng4@huawei.com>,
+	mrigendrachaubey <mrigendra.chaubey@gmail.com>,
+	Thomas Huth <thuth@redhat.com>, Ryan Roberts <ryan.roberts@arm.com>,
+	Yeoreum Yun <yeoreum.yun@arm.com>, Mark Brown <broonie@kernel.org>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	James Clark <james.clark@linaro.org>, Fuad Tabba <tabba@google.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Sascha Bischoff <Sascha.Bischoff@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Tian Zheng <zhengtian10@huawei.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-acpi@vger.kernel.org,
+	acpica-devel@lists.linux.dev, kvm@vger.kernel.org
+Subject: Re: [PATCH v2 06/13] KVM: arm64: dirty_bit: Add base FEAT_HACDBS
+ cleaning routine
+Message-ID: <akKtKH8O5hngLenm@kernel.org>
+References: <20260629111820.1873540-1-leo.bras@arm.com>
+ <20260629111820.1873540-7-leo.bras@arm.com>
 MIME-Version: 1.0
-In-Reply-To: <20260617014126.1716291-1-vulab@iscas.ac.cn>
-User-Agent: Mutt/2.3.2 (2026-04-26)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: C2raND9hTpqblG5BQumHVfzsuUx8iZUWV6oCydibQsg_1782753291
-X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_101455_543410_9B2E8466 
-X-CRM114-Status: GOOD (  28.33  )
+In-Reply-To: <20260629111820.1873540-7-leo.bras@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,81 +95,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Wentao,
-
-On Wed, Jun 17, 2026 at 01:41:26AM +0000, Wentao Liang wrote:
-> The function ap_cpu_clock_probe() calls of_clk_get() to obtain a
-> reference to the parent clock for each CPU cluster, but it never
-> releases it with clk_put().  The returned clk is used only to read
-> the parent's name via __clk_get_name(), and the reference is leaked
-> on every successful cluster initialization as well as on the error
-> path when devm_clk_hw_register() fails.
+On Mon, Jun 29, 2026 at 12:17:54PM +0100, Leonardo Bras wrote:
+> Introduce the basic cleaning routine that is going to be used for both
+> dirty-bitmap and dirty-ring routines.
 > 
-> Rather than adding clk_put() calls, replace the of_clk_get() +
-> __clk_get_name() pattern with of_clk_get_parent_name(), which is
-> the intended API for this use case and handles the reference
-> counting internally.  This matches the pattern already used by the
-> sibling drivers clk-cpu.c and clk-corediv.c.
+> It sets the required registers with the input buffer, and wait for
+> HACDBSIRQ to happen, which means either the task is done, or there was some
+> error during processing.
 > 
-> Fixes: f756e362d9384 ("clk: mvebu: add CPU clock driver for Armada 7K/8K")
-> Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+> It is ran with preemption disabled, as a task being scheduled in could
+> change the translation registers used by HACDBS and end up corrupting the
+> current dirty-bit tracking and the sched-in task's S2 pagetables.
+> 
+> Signed-off-by: Leonardo Bras <leo.bras@arm.com>
 > ---
-> v3: Replace incorrect Fixes tag.
-> v2: Replace of_clk_get() + __clk_get_name() with of_clk_get_parent_name()
->     as suggested by Brian Masney, instead of adding clk_put() calls.
->     Also correct the Fixes: tag to point to the original commit that
->     introduced the leak.
-> ---
->  drivers/clk/mvebu/ap-cpu-clk.c | 10 +++-------
->  1 file changed, 3 insertions(+), 7 deletions(-)
+>  arch/arm64/kvm/dirty_bit.c | 81 ++++++++++++++++++++++++++++++++++++++
+>  1 file changed, 81 insertions(+)
 > 
-> diff --git a/drivers/clk/mvebu/ap-cpu-clk.c b/drivers/clk/mvebu/ap-cpu-clk.c
-> index a8175908e353..1cf63c7a0bc3 100644
-> --- a/drivers/clk/mvebu/ap-cpu-clk.c
-> +++ b/drivers/clk/mvebu/ap-cpu-clk.c
-> @@ -288,7 +288,6 @@ static int ap_cpu_clock_probe(struct platform_device *pdev)
->  		char *clk_name = "cpu-cluster-0";
->  		struct clk_init_data init;
->  		const char *parent_name;
-> -		struct clk *parent;
->  		u64 cpu;
+> diff --git a/arch/arm64/kvm/dirty_bit.c b/arch/arm64/kvm/dirty_bit.c
+> index 789da8712b1b..e4283828b780 100644
+> --- a/arch/arm64/kvm/dirty_bit.c
+> +++ b/arch/arm64/kvm/dirty_bit.c
+> @@ -1,36 +1,117 @@
+>  // SPDX-License-Identifier: GPL-2.0-only
+>  /*
+>   * Copyright (C) 2026 ARM Ltd.
+>   * Author: Leonardo Bras <leo.bras@arm.com>
+>   */
 >  
->  		cpu = of_get_cpu_hwid(dn, 0);
-> @@ -304,13 +303,12 @@ static int ap_cpu_clock_probe(struct platform_device *pdev)
->  		if (ap_cpu_data->hws[cluster_index])
->  			continue;
+>  #include <asm/kvm_dirty_bit.h>
+> +#include <asm/kvm_mmu.h>
+>  #include <linux/kconfig.h>
+>  #include <linux/acpi.h>
 >  
-> -		parent = of_clk_get(np, cluster_index);
-> -		if (IS_ERR(parent)) {
-> -			dev_err(dev, "Could not get the clock parent\n");
-> +		parent_name = of_clk_get_parent_name(np, cluster_index);
-> +		if (!parent_name) {
-> +			dev_err(dev, "Could not get the clock parent name\n");
->  			of_node_put(dn);
->  			return -EINVAL;
->  		}
-> -		parent_name =  __clk_get_name(parent);
->  		clk_name[12] += cluster_index;
->  		ap_cpu_clk[cluster_index].clk_name =
->  			ap_cp_unique_name(dev, np->parent, clk_name);
-> @@ -328,11 +326,9 @@ static int ap_cpu_clock_probe(struct platform_device *pdev)
->  		ret = devm_clk_hw_register(dev, &ap_cpu_clk[cluster_index].hw);
->  		if (ret) {
->  			of_node_put(dn);
-> -			clk_put(parent);
->  			return ret;
->  		}
->  		ap_cpu_data->hws[cluster_index] = &ap_cpu_clk[cluster_index].hw;
-> -		clk_put(parent);
->  	}
+>  DEFINE_PER_CPU(struct hacdbs, hacdbs_pcp) = {
+>  	.status = HACDBS_OFF,
+>  	.size = 0,
+>  };
+>  
+>  /* HDBSS entry field definitions */
+>  #define HDBSS_ENTRY_VALID BIT(0)
+>  #define HDBSS_ENTRY_TTWL_SHIFT (1)
+>  #define HDBSS_ENTRY_TTWL_MASK (GENMASK(3, 1))
+>  #define HDBSS_ENTRY_TTWL(x) \
+>  	(((x) << HDBSS_ENTRY_TTWL_SHIFT) & HDBSS_ENTRY_TTWL_MASK)
+>  #define HDBSS_ENTRY_TTWL_RESV HDBSS_ENTRY_TTWL(-4)
+>  #define HDBSS_ENTRY_IPA GENMASK_ULL(55, 12)
+>  
+>  static __ro_after_init int hacdbsirq = -1;
+>  
+> +static void hacdbs_start(u64 *hw_entries, int size)
+> +{
+> +	u64 br;
+> +	/* Each entry is 8 bytes */
+> +	int size_b = size * sizeof(hw_entries[0]);
+> +	int size_p2 = max(roundup_pow_of_two(size_b), PAGE_SIZE);
+> +
+> +	/* If not using the full size of the array, put a stop entry at the end */
+> +	if (size_b < size_p2)
+> +		hw_entries[size] = HDBSS_ENTRY_VALID | HDBSS_ENTRY_TTWL_RESV;
+> +
+> +	sysreg_clear_set_s(SYS_HACDBSCONS_EL2,
+> +			   HACDBSCONS_EL2_ERR_REASON | HACDBSCONS_EL2_INDEX, 0);
+> +
+> +	br = (virt_to_phys(hw_entries) & HACDBSBR_EL2_BADDR_MASK) |
+> +	     FIELD_PREP(HACDBSBR_EL2_SZ, ilog2(size_p2) - 12) |
+> +	     FIELD_PREP(HACDBSBR_EL2_EN, 1);
+> +
+> +	this_cpu_write(hacdbs_pcp.status, HACDBS_RUNNING);
+> +	this_cpu_write(hacdbs_pcp.size, size);
+> +	write_sysreg_s(br, SYS_HACDBSBR_EL2);
+> +	isb();
+> +}
+> +
+> +static int hacdbs_stop(void)
+> +{
+> +	write_sysreg_s(0, SYS_HACDBSBR_EL2);
+> +	isb();
+> +
+> +	if (this_cpu_read(hacdbs_pcp.status) == HACDBS_ERROR) {
+> +		/* In case of error, HACDBSCONS_EL2.INDEX should point the faulty entry */
+> +		u64 cons = read_sysreg_s(SYS_HACDBSCONS_EL2);
+> +		int idx = FIELD_GET(HACDBSCONS_EL2_INDEX, cons);
+> +
+> +		this_cpu_write(hacdbs_pcp.status, HACDBS_IDLE);
+> +
+> +		return idx;
+> +	}
+> +
+> +	return this_cpu_read(hacdbs_pcp.size);
+> +}
+> +
+> +/*
+> + * Clears dirty-bits for an array of pages (hw_entries) using HACDBS
+> + * Returns the number of items cleaned from the array. If returns value < size,
+> + *	there was an error in the processing.
+> + */
+> +static int dirty_bit_clear(struct kvm *kvm, u64 *hw_entries, int size)
+> +{
+> +	u64 hcr_el2;
+> +	int ret;
+> +
+> +	preempt_disable();
+> +
+> +	hcr_el2 = read_sysreg(HCR_EL2);
+> +	write_sysreg(hcr_el2 | HCR_EL2_VM, HCR_EL2);
 
-This doesn't apply against Linus's latest tree. It looks like it's just
-this last chunk that's the issue. What version of the kernel did you develop
-this against? The last change to this driver upstream was from me in August
-2025.
+sysreg_clear_set_hcr(). I'm pretty sure all the speculative AT errata
+depend on HCR_EL2.VM being set _after_ the stage-2 MMU has been loaded.
 
-Please submit a new version that applies cleanly upstream.
+> +	__load_stage2(&kvm->arch.mmu);
 
-Brian
+Pretty sure you need an ISB here to ensure loading the MMU is ordered
+with enabling HACDBS.
 
+> +	hacdbs_start(hw_entries, size);
+> +
+> +	do {
+> +		wfi();
+> +	} while (this_cpu_read(hacdbs_pcp.status) == HACDBS_RUNNING);
+
+This is exactly why I said you should just poll hardware instead. It is
+entirely possible that the IRQ arrives before you WFI.
+
+> +	ret = hacdbs_stop();
+> +
+> +	write_sysreg(hcr_el2, HCR_EL2);
+
+write_sysreg_hcr()
+
+Thanks,
+Oliver
 
