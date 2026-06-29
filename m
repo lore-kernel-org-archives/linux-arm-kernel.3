@@ -4,143 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AEBDC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 08:16:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13CDAC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 08:23:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D9rPDjMwd5TVOnUZugglriIjH9wIgGYPH56soFebzfs=; b=U0mbjclyqc9vgEAyQpozxih7hv
-	xOdDsSK/FJXO5lx9z0WrdoUBWz701lViDOVZAdxnlcqE146DJAi/fXyYnxNZ9gYrcrh/to+oyMkS9
-	OWQ7SlGTx8069Q8uNSLT3frtG5rwpXLdNWArcNdUkw4QA0oRTaXhsPE9Tciq23VuLiNwzM3qwG9Vv
-	u3XSshAEcIanlZhVPdAiJyQz/zm9EeEHyAYqfkJuAXeYoq3ymieiU4clRyjs+nVt8e3wQvqoK0f6g
-	FXB/giWX8iTTFDihr1IqLmSXKAfkr7wiEH96YAHbB6NIoyzxjLDN0KErcxKlJk5H7MF06TU4Waf0m
-	qxpPxy+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
+	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VO/Eqtujp/7YYhCx/kcKYmrsWvAHVn++t8w3Nw2m6SY=; b=dLxj/4yBsJLYDzW/cuF5zIgxlw
+	Qkp1zAZnt/wAQhlIGxRKjq/rEMFxt26Gx96NF8C+TXMgeaKwFPe/oEvwQot4Q0rd5Gerc3nGFVn0i
+	sQ6Vv9G6nTvzWxhee1wqkYQlepwlOGs+vapH2XLax/1yokjjgZzAb3lSrTstI/zoSYN+vwFe6jiLs
+	70s8yvWxtE/xm+X/dFioVy/bwQzv0kro0mDSH8afWfYvq4/80APs5QYkOk3Wc6o86Xp5Z2PBJgrht
+	wzGT2CduzlH83lZyajzBD7ACwdzrjjJ3060OSa7hF1EFsn922ctsivjG5t80g0S1fui6hGXJdg1Fd
+	PDychPlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we79m-0000000DzNU-0kIA;
-	Mon, 29 Jun 2026 08:15:54 +0000
-Received: from mail-japanwestazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c406::3] helo=OS8PR02CU002.outbound.protection.outlook.com)
+	id 1we7Ga-0000000Dzw3-0ELN;
+	Mon, 29 Jun 2026 08:22:56 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we79j-0000000DzMV-1MSD
+	id 1we7GZ-0000000Dzvx-0qRu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 08:15:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sDsXa3v/h+dcXs5U9SSO6D/moQz/2p5Go+yj5swl7EWhake5qEPOLpIbMDDw+ZjT6UHjUFQyACJpHl1BEEDBnxUMQmy+FNxdx8datuiIsNnemEukHfqdbT7n3CXwEjQ89Xtq91Sq+MUTnaV7OAqvGR2827lZj3i1b4KOvSj5P6GC/zKmxb+5ypjcoK2z81Dy+zgSWarnnoBB9qTS61CjzTE8Y/nD3j0btjFijTHtZGBZnqav9eXn2E/vZ6fYvxPwrh1lVPmsxpVpiIn/AJfaidXPpOrFlyTzf0Eev/kGNUrqiz4MJJUDlTCki4kzc2IhmaWyWLYl/6vz2OUToge43Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=D9rPDjMwd5TVOnUZugglriIjH9wIgGYPH56soFebzfs=;
- b=kENsQ6hjOrEi71PVfK09aOOSV0ujvVGKuGDz/3kyL/ylqnQ6/OaUp567xLVkui4NAP+xLR9y2dNti5O0F7dSzYkvRciZtMBoSKxq2FWfZfnIfUCt2UNHpZq7pk3HX6+++DZt45uaejN0s2YSE4AeO+3Y0pRTcV5my+RAaujm096qoI9xbGLa7e1KuWp7jGykknMdfQ2aFX9Ti8sQ42dRPZJtEAtvTYJrCOKdlyYkgCDyGVHne7mC8QFpvXW0gslyWKG4bRVC4+Irj27jgo32kDh29Rzv7kSGsrCJIBdzl7LLOWGA4OP9eBgAL6CfK9J5WsDwktrFfVUq6b7sVOo3fw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
- header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=D9rPDjMwd5TVOnUZugglriIjH9wIgGYPH56soFebzfs=;
- b=k+bjzex8oOQIs0cXqyEliLcx9K2i0XBP4eTfAiEprgUE63f9UTueeDz11/1WA5EKAdgEGeTTj6nwU+Dn+4l9/TdAflll3T4JrIA/QPqAFhocYzj8Fe5T+m15W3NP22I0dVT74VwWPfOMOZNUjnm3lqQNoGTaYCmOMRpMq9CTtizVyWQB/llQD8rFseXaKucatYLI5Bfta2nL1t41cADSZAfMshGB5kCDhMH0clrOMI8L7/bvunqz3u0fa+Qa8S8TLoyQjLzp3zvO4rSGynvBJvKhhYow4+rm1iWbhTdW9d4w7sGbJZ8DUNY3xDvgeJIpOf5EC0qoRh9L2f7SWUp5BQ==
-Received: from KL1PR0601MB4276.apcprd06.prod.outlook.com
- (2603:1096:820:78::12) by SI2PR06MB5410.apcprd06.prod.outlook.com
- (2603:1096:4:1ed::13) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Mon, 29 Jun
- 2026 08:15:36 +0000
-Received: from KL1PR0601MB4276.apcprd06.prod.outlook.com
- ([fe80::b7f3:3c41:fd0e:e3f6]) by KL1PR0601MB4276.apcprd06.prod.outlook.com
- ([fe80::b7f3:3c41:fd0e:e3f6%7]) with mapi id 15.21.0159.018; Mon, 29 Jun 2026
- 08:15:36 +0000
-From: YH Chung <yh_chung@aspeedtech.com>
-To: Markus Elfring <Markus.Elfring@web.de>, "linux-aspeed@lists.ozlabs.org"
-	<linux-aspeed@lists.ozlabs.org>, "openbmc@lists.ozlabs.org"
-	<openbmc@lists.ozlabs.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, Rob
- Herring <robh@kernel.org>, Ryan Chen <ryan_chen@aspeedtech.com>
-CC: LKML <linux-kernel@vger.kernel.org>, Maciej Lawniczak
-	<maciej.lawniczak@intel.com>
-Subject: RE: [PATCH 5/7] soc: aspeed: Add eSPI flash channel support
-Thread-Topic: [PATCH 5/7] soc: aspeed: Add eSPI flash channel support
-Thread-Index: AQHcstFRz8cZq16J/U+sBKwdttKpXrZOQGgAgAeYkJA=
-Date: Mon, 29 Jun 2026 08:15:35 +0000
-Message-ID: <KL1PR0601MB4276C2C831B257898AAB363190E82@KL1PR0601MB4276.apcprd06.prod.outlook.com>
-References: <20260313-upstream_espi-v1-5-9504428e1f43@aspeedtech.com>
- <3ab543eb-ca09-4d75-b75c-b8a4c71b2173@web.de>
-In-Reply-To: <3ab543eb-ca09-4d75-b75c-b8a4c71b2173@web.de>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=aspeedtech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: KL1PR0601MB4276:EE_|SI2PR06MB5410:EE_
-x-ms-office365-filtering-correlation-id: 255daaaf-7a32-4b6b-b768-08ded5b698f1
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|23010399003|42112799006|7416014|376014|1800799024|921020|38070700021|18002099003|22082099003|4143699003|56012099006;
-x-microsoft-antispam-message-info: +H1oOTbFoc4Kz/yGNFDdqjgBnvN5TfK2tiWzLMHWo9+p6h0yXvGsMKOo9H6ha2UpzjvzBRVYY3OIMiy+sZ4p6UARERJ/YwKPaNGxYts+5baW0ei3Qr78mGkqwr1aI2pLPHGo2nkihFS+iS/4Qs64QA0LPaTHURK0lXY1tU8mtsru8wLp20PruF189jNLE6FkRzMiNlxyuwODW3+0Z6BZOoRa/av9kXaQK7h5y3a65mvm0Vs5LoYdGwoXhWujd5KTfbd8rkSKOeiVAiuLmBBwmdfM7XK3ie+C0NSSrjW+91f4TdJ5rB7M23Q6B0etd2uwzbmdwKTMJo7wKKjn0IoxKWsFseq95ppy1xkcdxVjLxi6WzjH6LtJ3bvAE/ehl6y2ZN7RIrTqW5Gf+LPgloCvEL6TIaHKdzP00ESXdBRnmaucmMGisgTQjsPbwvJA7l47BgdvkmmvEXR1gqgftQpJYdUq6Tz7+yGTwBg2DLSukp4iwLeWWpdBDtjlGV1DpD8rme2NoKbIuWFpUvUzx0A/OsR4mJfdWAFxM96Iu4aVrWZSzW9Iull0h6CyO7TbEjM3leUOaVUOxONTuXqhVXkZq1h+1V4QKO7+O+9ctlEvMWDXfyaufMUASblw/fM3ySGzHdEE+kwYu6KZkewRCQBuhs88qzmbw6CjKjJAsCCZ9bV1GxbVMhJWVXlO3M9YhHtp
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-tw;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR0601MB4276.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(42112799006)(7416014)(376014)(1800799024)(921020)(38070700021)(18002099003)(22082099003)(4143699003)(56012099006);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?MUtQZE9UdG5NSVlwQXhwcWI0WUJvcnZEVHRsajY2VFpra2xLbXhya0NLYjQ4?=
- =?utf-8?B?bC92WkMzdnFGVS9IV1FEOUpDNjVIQy94Z3BwemE1WWZZQ2txeVVaTitaTTI2?=
- =?utf-8?B?SE1rb3p3dUhDbTB3aTdmeWxKNEtXRUgxSEwzWVpQcHQ5elBIb3Y4Y2x5VEFS?=
- =?utf-8?B?MTE0N2VNalMzUXliOXZLM0JvUFBGNUE5Ymd0YXRlVVhPLzlXN05JaHlhN2lv?=
- =?utf-8?B?Y3hOcGV0T0R0SFpqV0thWkVZdFZTWnNpK3o4Yys4VGswOHFWWG1YbFQ5RzNL?=
- =?utf-8?B?VXB6L3E2Ykl1ZHFVUC8zamEyaUdZSXFnOWx4MGRGU3BUb3JBSlREQTZQdWJo?=
- =?utf-8?B?ZGRmMUowK0JyeUpWNXE4L2drUW9WaXByQ1RqejQyOVp4RG52dlhzaElBSmpz?=
- =?utf-8?B?OS83NUpOcXVDaEszQkZuKzNLNVdzK20ranJzdXJpRzYySjRJNEU1YWhhaWk4?=
- =?utf-8?B?MnZweXdPYWhLYkVKU0NwLzBidG5zWDZZbUxXWUhaTDI0MnhmMU5pTEh0dWNj?=
- =?utf-8?B?d2E3S0RCbXFTMWN0UlhkTXBWNGl1cjVWdkplbnBKdGJ3RmdSWmdKVnVpNEJN?=
- =?utf-8?B?dUhlekY3dFlPc2ZMUGdIY0pjV3RMYXIwSXJtNHRoTG4wdkR5elVZRjVHdVRJ?=
- =?utf-8?B?M0I2VjVUSWFJaDk5UUxmMmRBa3U2SEZhNWRVeER5YmpmUUdBanRiSFYxLzB1?=
- =?utf-8?B?NmxSNFpFUkExdHh5eHdKSC9sVGJWeFNJZ05HRkhTUWRaZ2txT3RJQW02eFR0?=
- =?utf-8?B?dVNMRjkraDNIT3ZXVE14Z09LcjNxY2h1MC9Sc0VrSjN5KzRJUDBCNWVkajM3?=
- =?utf-8?B?USs4T2RxL04wSmxHR2p6MWljdVB6ekNYSENoNzBaRGh2T0Y0Z29EVWdGVVh0?=
- =?utf-8?B?a3Q2UGFuS0RpRE1hOGk2QjJ5MXlNZE9lUmQyaEZ3L2F2dGJ4WUtuQmF2V2VI?=
- =?utf-8?B?VG01dDJhMmw4MGZZTkZmZXRCK29VYXAxb0hTUGxKb015cjJGSFh3QjdWajdV?=
- =?utf-8?B?SjljQTJOcGNNcW5OMVl5MXRJODVoUFJoWGtnT0xhZVBzT0J3V1RMMElOVGlN?=
- =?utf-8?B?aDlwOVpJWEtkcVVWSmMxajQ2d0dsVGNQTGNRcFFKV1hKMnI0RkIzbGM1NmpQ?=
- =?utf-8?B?YTdWUjMwVUtTV05CdllHNU9VSzF0RW81UWFSYnliODVTakdXam9pK09EY1NX?=
- =?utf-8?B?VUlpa01GN211dTlnZmIwZmx0U1NMais2c3B1cUd6MFN4YWJhbVVEQXB1SDkx?=
- =?utf-8?B?RkMwNUY5Vnhxa1M5S1E2c25lVGFmb1NZRG9yV0crdlhYTnVwZXQxUnJMejJ5?=
- =?utf-8?B?Nkt1eTRmbHRvZU5PcElJdm5PL01qeEdEMHY4NTJsejlHazVXcWFxV05JbTRp?=
- =?utf-8?B?SVdvemM1RnRGRXBtSk9JaUhPYmJudC9SalgxWVA5OTIvVGp5VGdwTW5iRWNj?=
- =?utf-8?B?eWpabnlUWkNPNEtKeW1uL2ZQUWlaWmZla2g4T0d6UzFneUc2RjQrZGRRNUFO?=
- =?utf-8?B?U0RjZC81WEpNMDJSalFiYkUyY3dXc1l6dEdNaEpKZ0ZUTTlaVEdUNU5PeGZH?=
- =?utf-8?B?NEpzeTZleHlhSTZHR0FoRVlybTVqdkRsR2hOZWwrZW1EaURjVmppUnlrSTFG?=
- =?utf-8?B?bUw0N1VueENVSTkzckZZQTMxRmJnNmpERHV0aWEwNkt1a0t6SVltSjBCa3Ny?=
- =?utf-8?B?b3JtQ3VoSE9iQW92c3VEMWNEbXVkeko4S2NJQllOeTRaekUvZ1lITHl4RW1n?=
- =?utf-8?B?ZkVzMGpJUjVmMzY4TmtqaDkxcXhSUEV5N2NnNWZ4aFlVM3c5eG0rM2VWbW1V?=
- =?utf-8?B?QU1DYWkzOXgrLzV1NVVCelAwWUl1bHZSNjBtd2hxR2ZmZEQxOTZnVkYwckxV?=
- =?utf-8?B?REJlRC9PM3FqOWVsdkQxTmlOU3FKb04zejBJempjVGROcnkzaGdGbURXZmpR?=
- =?utf-8?B?QlBjc2J2aVhSUmVJak1iUFRxaG5tN3ZKa0E4RU1QV0crVUxPcE5taVl5WDdn?=
- =?utf-8?B?NG1pVk9aWmdwRnIvSHNnM3lJK3plbHhxS0lDcElmVFd1cW1zRU55MkpuY1o3?=
- =?utf-8?B?L0tzOFdiZVZRK0tXU3hha2Z1Mzc4UUFPUXBBSWd5OUFvNDRoa25xK1NtT0Y5?=
- =?utf-8?B?M2NsTkZVbWVRZ3RocGV6ay9hbjR2V2FadjcxTFdZUlB6clhYUjdCU0gvV1Zw?=
- =?utf-8?B?Um9IWGt3c2RGTlBMVWwyZ0hoZUVZNnp3MGd5cWpLZWc1T0dya25CZG1nV2lR?=
- =?utf-8?B?TDJ0Zjl0NjhES2VEcFpCTHdpY0lWejFaeTZSWXJjVGQ1bjhGRTVnNnZqRm5h?=
- =?utf-8?B?QWZpZU03MDR5M242cS9LdXU5aDQzWlR6clRKTmdQMkVTdTVvcDdsZz09?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	Mon, 29 Jun 2026 08:22:55 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6265260008;
+	Mon, 29 Jun 2026 08:22:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 739681F000E9;
+	Mon, 29 Jun 2026 08:22:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782721374;
+	bh=VO/Eqtujp/7YYhCx/kcKYmrsWvAHVn++t8w3Nw2m6SY=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=XivbAz0ssU3xBxeHz99KrnYfHYas/5DiSN2PW/BOqm8/4XmEauHi4ydRgkhrh1yA/
+	 bXL4NyUB4YbH6kQJku8f4JV6f6iVEOjQo1l6Wc+q+l3T/mnkji4bmigiQU39mNSGWZ
+	 L16g/BWnBADNf230G55BLuiGn6u0K0ei/NY69VivGRF7YbMegpJSIcgBo17lQsvn4+
+	 d9dDaI6+3hsqSde7H4JPxYif9lgIxW+UwXazss4NCelkMzdzJyGiSdHv3tX0J9koPR
+	 kiiA/e+m+x2AXI7uulaV3HGfJaM8dP/AYJbf1JdzpSJuxNVZsTFV4KVh28fkdJ/RKL
+	 3Rf7S7g1QLMJg==
 MIME-Version: 1.0
-X-OriginatorOrg: aspeedtech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: KL1PR0601MB4276.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 255daaaf-7a32-4b6b-b768-08ded5b698f1
-X-MS-Exchange-CrossTenant-originalarrivaltime: 29 Jun 2026 08:15:35.9605
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: aEKiUs0Fnf+EQr0Xftfw+WdPdtAIk89/NDSSjMdZWKw6NH603yhp49g3agIq8hArJthX07G4xRZblEn8rNf3Xw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SI2PR06MB5410
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_011551_365516_8C14B611 
-X-CRM114-Status: GOOD (  12.49  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH v4 00/31] Introduce SCMI Telemetry FS support
+From: Christian Brauner <brauner@kernel.org>
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: Cristian Marussi <cristian.marussi@arm.com>, 
+ Christian Brauner <brauner@kernel.org>, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, arm-scmi@vger.kernel.org, 
+ linux-fsdevel@vger.kernel.org, linux-doc@vger.kernel.org, 
+ sudeep.holla@kernel.org, james.quinlan@broadcom.com, f.fainelli@gmail.com, 
+ vincent.guittot@linaro.org, etienne.carriere@st.com, peng.fan@oss.nxp.com, 
+ michal.simek@amd.com, d-gole@ti.com, jic23@kernel.org, elif.topuz@arm.com, 
+ lukasz.luba@arm.com, philip.radford@arm.com, souvik.chakravarty@arm.com, 
+ leitao@kernel.org, kas@kernel.org, puranjay@kernel.org, 
+ usama.arif@linux.dev, kernel-team@meta.com
+In-Reply-To: <eba18827-5ef5-464c-90f0-2444a996acac@kernel.org>
+References: <20260612223802.1337232-1-cristian.marussi@arm.com>
+ <20260617-waten-allabendlich-zueinander-93d4b1367b8c@brauner>
+ <ajLVW1eHzbGDm4yn@pluto> <29a304f0-1e62-418a-b84f-aabdc4c0de8d@kernel.org>
+ <ajR_FBWOoXJKSeoH@pluto> <0025b907-27b9-4a51-b78f-f8ad413644d0@kernel.org>
+ <ajU7UqwPZBlwRGkf@pluto> <eba18827-5ef5-464c-90f0-2444a996acac@kernel.org>
+Date: Mon, 29 Jun 2026 10:22:46 +0200
+Message-Id: <20260629-rangfolge-intellektuell-flagrant-2814268b9d66@brauner>
+X-Mailer: b4 0.16-dev-4217c
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4629; i=brauner@kernel.org;
+ h=from:subject:message-id; bh=/qvCfB/+hMAUzRTvNVnPwfLgW8fwdjy78lEtyErvzqI=;
+ b=owGbwMvMwCU28Zj0gdSKO4sYT6slMWQ5aUdoSJ83+6L6VqSa5cq93csnn+A55qDlWFX7NL/lf
+ fjWokKDjlIWBjEuBlkxRRaHdpNwueU8FZuNMjVg5rAygQxh4OIUgInwBTL8r8hPX/Mv6+6XNvdn
+ LgGJ5wV/rrBX+1oevqyCp2e6z6z8VkaGy69NLvVWMe+6saT6k23GZbaqVc5rXZfWisy+8ra5dfV
+ WJgA=
+X-Developer-Key: i=brauner@kernel.org; a=openpgp;
+ fpr=4880B8C9BD0E5106FC070F4F7B3C391EFEA93624
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,23 +89,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgTWFya3VzLA0KDQo+ID4gKysrIGIvZHJpdmVycy9zb2MvYXNwZWVkL2VzcGkvYXNwZWVkLWVz
-cGkuYw0KPiDigKYNCj4gPiArc3RhdGljIHZvaWQgYXNwZWVkX2VzcGlfZmxhc2hfcnhfd29yayhz
-dHJ1Y3Qgd29ya19zdHJ1Y3QgKndvcmspIHsNCj4gPiArCXN0cnVjdCBhc3BlZWRfZXNwaV9mbGFz
-aCAqZmxhc2ggPSBjb250YWluZXJfb2Yod29yaywgc3RydWN0DQo+IGFzcGVlZF9lc3BpX2ZsYXNo
-LCByeF93b3JrKTsNCj4gPiArCXN0cnVjdCBhc3BlZWRfZXNwaSAqZXNwaSA9IGNvbnRhaW5lcl9v
-ZihmbGFzaCwgc3RydWN0IGFzcGVlZF9lc3BpLA0KPiA+ICtmbGFzaCk7DQo+ID4gKw0KPiA+ICsJ
-bXV0ZXhfbG9jaygmZmxhc2gtPnR4X210eCk7DQo+ID4gKwlhc3BlZWRfZXNwaV9mbGFzaF9oYW5k
-bGVfbHVuKGVzcGkpOw0KPiA+ICsJbXV0ZXhfdW5sb2NrKCZmbGFzaC0+dHhfbXR4KTsNCj4gPiAr
-fQ0KPiDigKYNCj4gDQo+IFVuZGVyIHdoaWNoIGNpcmN1bXN0YW5jZXMgd291bGQgeW91IGJlY29t
-ZSBpbnRlcmVzdGVkIHRvIGFwcGx5IGEgc3RhdGVtZW50DQo+IGxpa2Ug4oCcZ3VhcmQobXV0ZXgp
-KCZmbGFzaC0+dHhfbXR4KTvigJ0/DQo+IGh0dHBzOi8vZWxpeGlyLmJvb3RsaW4uY29tL2xpbnV4
-L3Y3LjEuMS9zb3VyY2UvaW5jbHVkZS9saW51eC9tdXRleC5oI0wyNTMNCj4gDQpUaGFua3MgZm9y
-IHRoZSBzdWdnZXN0aW9uLiBJIGFncmVlIHRoYXQgZ3VhcmQobXV0ZXgpIGlzIGhlbHBmdWwgd2hl
-biBhIGxvY2tlZA0Kc2VjdGlvbiBoYXMgbXVsdGlwbGUgZXhpdCBwYXRocy4gU2luY2UgdGhpcyB3
-b3JrZXIgY3VycmVudGx5IGhhcyBhIHNpbmdsZQ0Kc2ltcGxlIHBhdGgsIEkgd291bGQgcHJlZmVy
-IHRvIGtlZXAgdGhlIGV4cGxpY2l0IG11dGV4X2xvY2soKS9tdXRleF91bmxvY2soKQ0KcGFpciBm
-b3IgcmVhZGFiaWxpdHkuIEkgY2FuIHN3aXRjaCB0byBndWFyZChtdXRleCkgaWYgeW91IHRoaW5r
-IGl0IHdvdWxkIGJlDQpiZXR0ZXIgaW4gdGhpcyBjYXNlLg0KDQpUaGFua3MsDQpZdW4gSHN1YW4N
-Cg==
+> > Thanks a lot, David !
+> 
+> Let's hope for some guidance regarding the FS side soon.
+> 
+> But yeah, avoiding the in-kernel FS sounds completely reasonable at this point.
+
+Afaiu, David wanted me to add a few comments on the viability of a
+character device for this.
+
+I think you usually have at least the following options:
+
+(1) character device
+(2) notification pipe
+(3) netlink
+(4) well-known AF_UNIX socket
+
+You then need to consider your constraints. David added a few:
+
+(i) root can set properties (enable/disable events)
+(ii) non-root can only retrieve properties/events
+
+I assume you mean real root, i.e., root on the host system or more
+specifically anyone with CAP_SYS_ADMIN or some other relevant
+capability.
+
+This is a rather simple model and gets a lot of head-scratching out of
+the way.
+
+But root could also mean "root in a users namespace" which makes this
+more complicated as it effectively means that an unprivileged container
+would be enable/disable events. This makes sense if there's a subset of
+events that naturally lends itself to be charged to a container and that
+the container might have a genuine use for.
+
+This touches on another design question which decides how complicated
+the whole implementation is going to be: What consumer-producer
+relationship does this need?
+
+The process subscribing to the telemetry stream might have exclusive
+access. IOW, once you have subscribed to the telemetry stream the
+connect is busy and no new subscribers are allowed. This is a very
+simple model ofc which has advantages.
+
+On the other end you have the uevent model. Uevents are broadcast to all
+subscribers who have a uevent netlink socket open (glossing over some
+namespacing details that are irrelevant here).
+
+You need to figure out what you really need here. The choice of
+transport also has quality of life implications. 
+
+  (1):
+  A character device is somewhat simple but it means it's all inherently
+  tied to devtmpfs and namespacing it retroactively is not possible. If
+  you ever want to namespace it, i.e., delegate it to unprivileged
+  sandboxes, userspace needs to bind-mount the character device into the
+  container at container startup or have a mechanism to inject said
+  character devices later via the new mount api. It's all possible I'm
+  just pointing out that you're tied to a rather rigid kernel object. But
+  I think in general it is ok.
+
+  (2):
+  A while ago David Howells extended pipes with the concept of a
+  watchqueue. A watchqueue is just a pipe with some special properties. It
+  can be created by passing O_NOTIFICATION to pipe(2) "meticulously
+  undocumented" as Jon would say...) into which the kernel splices small,
+  fixed-format notification records:
+
+  int fds[2];
+  pipe2(fds, O_NOTIFICATION_PIPE);
+  ioctl(fds[0], IOC_WATCH_QUEUE_SET_SIZE, nr_notes);   /* preallocate, 1..512 */
+  ioctl(fds[0], IOC_WATCH_QUEUE_SET_FILTER, &filter);  /* optional */
+  keyctl(KEYCTL_WATCH_KEY, KEY_SPEC_SESSION_KEYRING, fds[0], 0x01); /* subscribe a source */
+
+  If the ring is full or no free note exists, the record is dropped and
+  PIPE_BUF_FLAG_LOSS is set on the last buffer. So consumers always learn
+  that they missed something — but not what.
+
+  IOC_WATCH_QUEUE_SET_FILTER takes struct watch_notification_filter with
+  up to 16 watch_notification_type_filter entries. With a filter installed
+  the default is reject and only the type bit + subtype bit + info match
+  let a record through. Passing NULL removes all filters (everything
+  passes).
+
+  Kinda like a ringbuffer might be something to consider.
+  O_NOTIFICATION_PIPE works from all contexts (hence the preallocation).
+
+  (3):
+  No.
+
+  (4):
+  A while ago I added the "coredump socket" to the kernel. Basically,
+  userspace listens on a well-known AF_UNIX socket address (in this case
+  configured via /proc/sys/kernel/core_pattern). The kernel connects to it
+  and sends the coredump data via this socket (with some protocol
+  negotiation at the beginning).
+
+If you really want to transform the data stream you're receiving into a
+FUSE filesystem I think any of the referenced methods is compatible with
+that. You just refresh the various files when new events come in and
+otherwise show the data that you already have.
+
+In other words, if you allow multiple consumers the following scenario
+may happen: Consumer A consumes event E_1 and consumer B consumes E_2,
+consumer A now gets E_3. If consumer A is what funnels the data into a
+filesystem then consumer A misses data. That might be fine or might not
+be.
+
 
