@@ -4,158 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1AFDC43327
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 08:47:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ED53C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 08:48:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dsuvkNF0CRvWMwPOO/jhGrruMUfqUKJkLRonqqcBpsg=; b=3019Aiya05idn+1Fe18ZQuIu98
-	ijq7lqPw+JxO4ZPW/oTRDwPQzyz9VaXsc3Dsv4M7FfwpcalpKVYC3rO45tHV0QlE9CqzarsyWJr4a
-	PNqrQGLfGy28D5TMCJXrmbU+b1b6sETmiLGHEBLC+u3mU/h2jNEFTyx5B4ifFkWp8f7SWEGmW8Nuo
-	JM85f6VV+R78m0thRwllrJgl270Jh6DgioNCKuoSkfW6aVXlfxp7KHzoWwGtONcqe9Oqux98u+9mg
-	3vyVlPrVkoePo/QvYXOM+2qwsJ1vi8WhR6c0SeTgNcRIt563XSQA+L3IqDhhBeMQmRnpfsIFu6J7x
-	ePLgozzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2CYHaiLd9ywNSZ9pftV2yPbkytXEfUK5AIl8p5DJYxA=; b=01Ry6FPpn2TYaVYwWcMJjSqUem
+	PRyMsBtnay5ET8Q0ugTOFAlhYhTQyT4eV59PWxJL1eWT2Fg2VskAHBUIfByaaVPVHqewgBBgJitPd
+	BptW1yUI7oYhJS9sqkN/XPlwcfpeEVwYq0atfHz2iHDAY0nAJq3cbFRFNbbD3QLaeU60SeTsIYnSu
+	Fg9n6nNoaQMU8LDYgxPPO+II65O9hltLjNIz878z09J5AzTCLiolIeC0v6bzLLK2uLMMyTyi0fX68
+	Zvt9ra/Go4s7+C8r3gzC6jmpsyMp+VUfbB8ncoVNYSGawQBtY7M8GjInOsZlzASXB5wB3qMaRMAl1
+	i/KP1hxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we7dx-0000000E1qK-1LnX;
-	Mon, 29 Jun 2026 08:47:05 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1we7fD-0000000E27j-2wx0;
+	Mon, 29 Jun 2026 08:48:23 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we7dt-0000000E1ot-2Oo4
+	id 1we7fB-0000000E27C-1EPx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 08:47:02 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65T8OIMZ2348855
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 08:47:01 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	dsuvkNF0CRvWMwPOO/jhGrruMUfqUKJkLRonqqcBpsg=; b=S5v1Oid/YK8zkt6J
-	2ItjNKJhX4moBJ+xFFnUfRz7spo1b7QPzxRTMwHqM6TOXp7IZl9+etshzKHNQ2rz
-	i8xUonlPASvKY+E0gX+DsEkgdmdjL8iV4rAzMh/hFyB88f+QRqDRE/LLHLRQlLi9
-	IpQcxAeTgjRc+k5mu42tticXPsqjKzVTtE8BYoA6yky3gI5xFv+Cqj6pu1r+A+gk
-	rAnUY3QSJEYk4vDJnN8Jarv0mR/jFbeb4re3zvxWlJQ7g2jMik0hamPAGO168iyi
-	ypMG0IKeeleScoOwHOtgelvOflQSlXJE5WE+2ubIBIOFSEzNDKahIp5iVb9gTuvB
-	maH2kA==
-Received: from mail-ua1-f70.google.com (mail-ua1-f70.google.com [209.85.222.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f3n5s03dd-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 08:47:00 +0000 (GMT)
-Received: by mail-ua1-f70.google.com with SMTP id a1e0cc1a2514c-96934c2fa45so27783241.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 01:47:00 -0700 (PDT)
+	Mon, 29 Jun 2026 08:48:22 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2c81db32393so66345ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 01:48:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1782722820; x=1783327620; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=dsuvkNF0CRvWMwPOO/jhGrruMUfqUKJkLRonqqcBpsg=;
-        b=fVgrwEUG5ElPRIzn7gw8w2EQGqAx0yhzgao+9iuY5PsB9bHt9y/PnashI9RD0u10K8
-         5iZ4HldspfwJ9sEOxm3bQLvBGxEUgDpDOJmVvIE5QCYNBamVOpE0zB5Af2+7vwCQUZxT
-         +LOZT8WrCUu2axs3R9nRkvn9wpNgLn/Ni8wRqswEVCZTgSmS/7SN56tUBkDml7H4IV6v
-         e6XDhKuFTED1SBpF2cE4hgjVz8OLADH6rhhmW4f56Djl03wubMD11UYdocsyNOvV18Zp
-         1jl00MF2D/ntdl6nag5ubKVx72OxXmE1t5zA042BCxw2o1/ugrmulAePl0e9EAKrtNmZ
-         oCrA==
+        d=google.com; s=20251104; t=1782722900; x=1783327700; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=2CYHaiLd9ywNSZ9pftV2yPbkytXEfUK5AIl8p5DJYxA=;
+        b=BLFFe/JRYEGsn9tUj4niKMc0M632LrGL5zLw8LkCXWvgwTtTGDcitpRcv2MQkwZ/gG
+         a9jo/7tOTOTF+5E3zI6YcZz6CIr7qGd2o7a87sZ+oRNom08X3nUv+1U6kFT+6IzRdd2B
+         /JmSPrVWaw8yVMNaZ5VoH/ylAWiUM5E/t6rpYz+9L04rp9hN2qfdRCHM6K2bQ4hSzSzX
+         8+3vSoP50AkZid/OX5fNPWMa4tYVuZJID0v9KrANMAKeDm75hKRt6uSzbfVdnGn5UMW+
+         d529ciBmayPwPbneMv7BuV3AsqB2rsFKdtx3A0H0vGYTLnxAZfoRG39p5V76yGHQk5AT
+         K4OA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782722820; x=1783327620;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=dsuvkNF0CRvWMwPOO/jhGrruMUfqUKJkLRonqqcBpsg=;
-        b=J4NSuuo/7HLELQYG8f8eqbBDBrL8cw2JeuJFxeUiVSr7oKB5uTyh4egCeUpIlhBV+x
-         Cx7iOyuRh5DaALCBoPup0R2y5VlsG21fRz5t/Bg4sxPacRABmhc5veCmQxpDWgCnfVLZ
-         uxuSY56TvzWX7yighoAT+psNjwBzLzpUmgRgPIIb2UuXuMQ5zZlV1ilNGDACbW/4i1k0
-         k9NR0GgP1+Ruouwj//lD1uG7FzOR4p8gbXaq1XO7/ULF+NAebzSkuX/kAqusgFGTVLNt
-         fKl6ui12tjynW7s1p8rSrMiRl/4IT+yJFmsj1jE3aqkGcyu04H0PMTY5UqdehHEVmbI7
-         iXXA==
-X-Forwarded-Encrypted: i=1; AHgh+RpPoj4V/zODnC4yf1Odcy+NTgw20mwU1uxb4PpDBP6n9YecMB3IW+Mqnfk6Zx8AKuxeDNCZ2EeejggF5F29tD9i@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywhf4wGWramwSi9S4R2evBzObOoKbCGgKhwhkA6kR95UebC2Jqi
-	nSNOSSPCA+C+JU2Vab4dHCqVmUEZ4aRB+uahMDI00tQdOPWy8JZJuGv290ryLmCuYWYc24vpmy3
-	yLblmiBo+an2qYG07d6DxS/C0R8ApXO4220jjIjlHC+x5z+CTulwbV6kJ4ZrHiYIcx0/YaYdazD
-	PCGQ==
-X-Gm-Gg: AfdE7cm9XjpCR1zWwwU2AJHYPm+xDzSXfYLj6MPi3WbgF08heKzgl8tiwQFPdMZLk9Y
-	UU9oFqlPTkA6q0mUoMc7zaoDT2/DOzRKfuOxo+motcsmKeJlPSrXhrMsUnhr0WNmfiLlG9DLUl1
-	FUJnkchMre7IwDjzdYCVAAJedtnx4pLQ8F/C+FrimjVcC/+17bmLbZ0r23ia1uZ1nosGPZ+bb0r
-	CN/V+TZVzu9Ipqr24VQ2tb03VOFCWPh3wp6LDld457IhPskBjlJPRxOTahczuvdgVVRHER7enp/
-	/Y2SzKadpQoZoBECv6Bz9KgTcJdpW/Mwo7gvcyMPyj8OliCf0EcXzMcCUx2U6vdMYxZEZvgZNyf
-	OvOXz+XrdZiBOv39lXX4YaSfAk4wlwzuR/78=
-X-Received: by 2002:a05:6102:6c5:b0:738:4343:fba9 with SMTP id ada2fe7eead31-73843441853mr493661137.6.1782722819879;
-        Mon, 29 Jun 2026 01:46:59 -0700 (PDT)
-X-Received: by 2002:a05:6102:6c5:b0:738:4343:fba9 with SMTP id ada2fe7eead31-73843441853mr493642137.6.1782722819368;
-        Mon, 29 Jun 2026 01:46:59 -0700 (PDT)
-Received: from [192.168.120.170] ([178.235.128.140])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-698481d0359sm3009277a12.30.2026.06.29.01.46.54
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 29 Jun 2026 01:46:57 -0700 (PDT)
-Message-ID: <3ac0279b-105c-403a-90e8-822c28a6dcfc@oss.qualcomm.com>
-Date: Mon, 29 Jun 2026 10:46:53 +0200
+        d=1e100.net; s=20251104; t=1782722900; x=1783327700;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=2CYHaiLd9ywNSZ9pftV2yPbkytXEfUK5AIl8p5DJYxA=;
+        b=TkFTSBXMSiL+eZ6/i+lPi7pE5ILvnE1siSqS7ncA68PeiAcPSZ041MbLY1Evq9qd6w
+         5T69SWSF82iOI7r/kujATc2tPqnso4tcSR34dy9zCP0AwzbPPyGt6IRkpzCGBX1vZDD2
+         WltCQJLunV83vSZMpYoOXXDux7NrjTBt2ujC8hiCeFvapsthaoq/EdXwpTKZD/UyVI7+
+         P5jUfpo6qZ2zYAVh/L3xWN9Vo1EYHN0nSDqoJOCXgp6zRbCFY7IcdY34gcki7MvYhSK9
+         /AMfltAZaPpciFXkxx1oll1U+P0XF2KE7sfhUb8NLiKxOcUyxnGtj+4S1uFwGopOq/HP
+         nvHw==
+X-Forwarded-Encrypted: i=1; AHgh+Rru1mMxCn112K+qIvPF77y3QYjryobGBReocSqfTN0nt4BuREEiRwHONXSgQTtdZM2QHpI4plRZUK7Okug/s3WU@lists.infradead.org
+X-Gm-Message-State: AOJu0YxtxGQchXg8glgDypaosc81R25ZjH6Gw2J1VPhZgNuFPLw35whw
+	3DH9+QQ67brnav7m6MnyrHytKkovh6GEupeadX7JE2MG0zzFA+oGPVMPHWgSfm63Jw==
+X-Gm-Gg: AfdE7ckNVosVjWieK0O8emMgnM3ML+3+Ee7ytI0GkgtsizUYXuf2jfnnsf6if7vA0eQ
+	vzD9L5K+qMjVxCUyRKNRRXe/epTEPKd7St0hreQrQGszumYkKtnDvwhbUXFFpxLVfodvo4j/Bzk
+	FMd/hgTowzEhhmgTnqL2hI+11xnN5M5hrZ5IOCLwqg7KMMXRxcpOwZuZ2ac3OtdeOrAOSnpHeyU
+	xTTwAlIBKtnKRQ6XzOqodAfEm3g8E2S8qBMBWgdZz7drJT+3yYEH31xd12pT7OjGYwEx3jbcJTe
+	GQKelGTsMIES6Xet7gr5/qsJqIgpGyoZDyKWQnqIiPZEj83z3hL3TK4QDK8pLx3GSQiufzBAkd0
+	PwAStoj+QHQHqLQxLN6DgMXOZVMNt1znHdMHaZqcC6wmbe+2t1HBQw5NTqrie5ae/G2gwuBMz9Z
+	+ZyQ/lMEsijPV53spXyJZeK/dKB1hDbQ7lwaUi63MXlVGJISA=
+X-Received: by 2002:a17:902:f612:b0:2c7:9e6a:1a8d with SMTP id d9443c01a7336-2c9a24512fcmr3816645ad.12.1782722899601;
+        Mon, 29 Jun 2026 01:48:19 -0700 (PDT)
+Received: from google.com (10.129.124.34.bc.googleusercontent.com. [34.124.129.10])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-846de12ed24sm2482229b3a.8.2026.06.29.01.48.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 29 Jun 2026 01:48:18 -0700 (PDT)
+Date: Mon, 29 Jun 2026 08:48:11 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: will@kernel.org, robin.murphy@arm.com, jgg@nvidia.com, joro@8bytes.org,
+	kees@kernel.org, baolu.lu@linux.intel.com, kevin.tian@intel.com,
+	miko.lenczewski@arm.com, smostafa@google.com,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+	jamien@nvidia.com
+Subject: Re: [PATCH rc v6 3/7] iommu/arm-smmu-v3: Do not enable EVTQ/PRIQ
+ interrupts in kdump kernel
+Message-ID: <akIxS7kuhuLRHAMg@google.com>
+References: <cover.1779265413.git.nicolinc@nvidia.com>
+ <e643786d849d274c1d8dcfc03795f572aef812bd.1779265413.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/8] arm64: dts: qcom: shikra: Add Adreno SMMU node
-To: Akhil P Oommen <akhilpo@oss.qualcomm.com>,
-        Rob Clark <robin.clark@oss.qualcomm.com>, Sean Paul <sean@poorly.run>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jesszhan0024@gmail.com>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Will Deacon <will@kernel.org>,
-        Robin Murphy <robin.murphy@arm.com>,
-        "Joerg Roedel (AMD)" <joro@8bytes.org>,
-        Bjorn Andersson <andersson@kernel.org>
-Cc: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>,
-        linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org,
-        freedreno@lists.freedesktop.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        iommu@lists.linux.dev, Imran Shaik <imran.shaik@oss.qualcomm.com>,
-        Komal Bajaj <komal.bajaj@oss.qualcomm.com>
-References: <20260628-shikra-gpu-v3-0-9b28a3b167e1@oss.qualcomm.com>
- <20260628-shikra-gpu-v3-4-9b28a3b167e1@oss.qualcomm.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20260628-shikra-gpu-v3-4-9b28a3b167e1@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNjI5MDA2OSBTYWx0ZWRfX/zY4VIevaHhk
- cLFkX3fkDlgPgJKd4J9MYttOrbHMwALxI1NnDR2TPC974M/KM14TS1bHWR6JUjUwvWbSJu+ETf1
- UUh6ggMjYoUxAsKbmKULy83K3LnVAno=
-X-Proofpoint-ORIG-GUID: w2tZdbPio1YkliVlCFNFLggckVNKVaTn
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjI5MDA2OSBTYWx0ZWRfX4OLzjsnEPhIK
- Pu1qrJceI7K1fAtgUYhxyJ5/j6spN607M7+tZU57fJma/F94FiXNXluLJFzWnQaZVqQdDc0ub7p
- JQKsjT0PZBmHujKFUY9SURVM9SRNPG/BS3eiauFYBz2tLvaS5KdNXls1QjD/c+mdr5aDesnZFx/
- eUjjiN8BNmXPQ1E7Ky+Ksl/2ysupoLLyyip7mUntqnwnt5awcE3RR2C8c/m9pBT2IcX5aZuGFYc
- YnLqCodHEh1grm4A2Bbc7ygbfgCGcN/5uWKl64ydddhUn0riqWOW00WvU0GNv2sLuco51kPe989
- dejPfqKMQrGw4gS9cQOdRYbzKySM5QjkLRgwMyXAUV+FLy2vG2BBf+43az5llxLX7OiSauASqmz
- rohGlUk8KnjI5UjK/7HGU1hwo5ZA0sPRbI2KpUpsuNnVycLtcXiRh/ej+ub4Ncc3av1jj6/lawN
- sNA+1OGTAyoEQKPo0cg==
-X-Authority-Analysis: v=2.4 cv=NZzWEWD4 c=1 sm=1 tr=0 ts=6a423104 cx=c_pps
- a=R6oCqFB+Yf/t2GF8e0/dFg==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
- a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
- a=EUspDBNiAAAA:8 a=CtAqrJV6yErwifH23rQA:9 a=QEXdDO2ut3YA:10
- a=TD8TdBvy0hsOASGTdmB-:22
-X-Proofpoint-GUID: w2tZdbPio1YkliVlCFNFLggckVNKVaTn
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-29_02,2026-06-26_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 impostorscore=0 spamscore=0 adultscore=0 suspectscore=0
- clxscore=1015 bulkscore=0 priorityscore=1501 malwarescore=0
- lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2606290069
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <e643786d849d274c1d8dcfc03795f572aef812bd.1779265413.git.nicolinc@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_014701_621348_0163CD52 
-X-CRM114-Status: GOOD (  10.66  )
+X-CRM114-CacheID: sfid-20260629_014821_371368_C6CB34FA 
+X-CRM114-Status: GOOD (  29.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,23 +105,167 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/28/26 8:23 PM, Akhil P Oommen wrote:
-> From: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
+On Wed, May 20, 2026 at 10:03:20AM -0700, Nicolin Chen wrote:
+> In kdump cases, the crashed kernel's CDs and page tables can be corrupted,
+> which could trigger event spamming. Also, we cannot serve page requests.
 > 
-> Add the Adreno GPU IOMMU (adreno_smmu) node for the Shikra SoC.
+> Skip the IRQ setup for EVTQ/PRIQ in arm_smmu_setup_irqs().
 > 
-> Signed-off-by: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
-> Signed-off-by: Imran Shaik <imran.shaik@oss.qualcomm.com>
-> Signed-off-by: Komal Bajaj <komal.bajaj@oss.qualcomm.com>
-
-Drop the sign-offs that don't apply (presumably applied as part
-of shuffling around the handlers of the patch in the in-flight
-tree OR missing c-d-b)
-
-> Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
+> Skip their IRQ handler registration in unique-IRQ and combined-IRQ cases.
+> 
+> Fixes: b63b3439b856 ("iommu/arm-smmu-v3: Abort all transactions if SMMU is enabled in kdump kernel")
+> Cc: stable@vger.kernel.org # v6.12+
+> Reviewed-by: Kevin Tian <kevin.tian@intel.com>
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 > ---
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 58 ++++++++++++++-------
+>  1 file changed, 39 insertions(+), 19 deletions(-)
+> 
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> index 2d7eb42449eaf..e00b28e36f9c4 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> @@ -2464,7 +2464,11 @@ static irqreturn_t arm_smmu_combined_irq_thread(int irq, void *dev)
+>  
+>  static irqreturn_t arm_smmu_combined_irq_handler(int irq, void *dev)
+>  {
+> -	arm_smmu_gerror_handler(irq, dev);
+> +	irqreturn_t ret = arm_smmu_gerror_handler(irq, dev);
+> +
+> +	/* In kdump, EVTQ/PRIQ are disabled and there is no thread to wake */
+> +	if (is_kdump_kernel())
+> +		return ret;
+>  	return IRQ_WAKE_THREAD;
+>  }
+>  
+> @@ -4963,6 +4967,21 @@ static void arm_smmu_setup_unique_irqs(struct arm_smmu_device *smmu)
+>  	arm_smmu_setup_msis(smmu);
+>  
+>  	/* Request interrupt lines */
+> +	irq = smmu->gerr_irq;
+> +	if (irq) {
+> +		ret = devm_request_irq(smmu->dev, irq, arm_smmu_gerror_handler,
+> +				       0, "arm-smmu-v3-gerror", smmu);
+> +		if (ret < 0)
+> +			dev_warn(smmu->dev, "failed to enable gerror irq\n");
+> +	} else {
+> +		dev_warn(smmu->dev,
+> +			 "no gerr irq - errors will not be reported!\n");
+> +	}
+> +
+> +	/* No EVTQ/PRIQ interrupts in kdump -- queues are disabled */
+> +	if (is_kdump_kernel())
+> +		return;
+> +
+>  	irq = smmu->evtq.q.irq;
+>  	if (irq) {
+>  		ret = devm_request_threaded_irq(smmu->dev, irq, NULL,
+> @@ -4975,16 +4994,6 @@ static void arm_smmu_setup_unique_irqs(struct arm_smmu_device *smmu)
+>  		dev_warn(smmu->dev, "no evtq irq - events will not be reported!\n");
+>  	}
+>  
+> -	irq = smmu->gerr_irq;
+> -	if (irq) {
+> -		ret = devm_request_irq(smmu->dev, irq, arm_smmu_gerror_handler,
+> -				       0, "arm-smmu-v3-gerror", smmu);
+> -		if (ret < 0)
+> -			dev_warn(smmu->dev, "failed to enable gerror irq\n");
+> -	} else {
+> -		dev_warn(smmu->dev, "no gerr irq - errors will not be reported!\n");
+> -	}
+> -
+>  	if (smmu->features & ARM_SMMU_FEAT_PRI) {
+>  		irq = smmu->priq.q.irq;
+>  		if (irq) {
+> @@ -5005,7 +5014,7 @@ static void arm_smmu_setup_unique_irqs(struct arm_smmu_device *smmu)
+>  static int arm_smmu_setup_irqs(struct arm_smmu_device *smmu)
+>  {
+>  	int ret, irq;
+> -	u32 irqen_flags = IRQ_CTRL_EVTQ_IRQEN | IRQ_CTRL_GERROR_IRQEN;
+> +	u32 irqen_flags = IRQ_CTRL_GERROR_IRQEN;
+>  
+>  	/* Disable IRQs first */
+>  	ret = arm_smmu_write_reg_sync(smmu, 0, ARM_SMMU_IRQ_CTRL,
+> @@ -5020,19 +5029,30 @@ static int arm_smmu_setup_irqs(struct arm_smmu_device *smmu)
+>  		/*
+>  		 * Cavium ThunderX2 implementation doesn't support unique irq
+>  		 * lines. Use a single irq line for all the SMMUv3 interrupts.
+> +		 *
+> +		 * In kdump, EVTQ/PRIQ are disabled, so no threaded handling.
+>  		 */
+> -		ret = devm_request_threaded_irq(smmu->dev, irq,
+> -					arm_smmu_combined_irq_handler,
+> -					arm_smmu_combined_irq_thread,
+> -					IRQF_ONESHOT,
+> -					"arm-smmu-v3-combined-irq", smmu);
+> +		if (is_kdump_kernel())
+> +			ret = devm_request_irq(smmu->dev, irq,
+> +					       arm_smmu_combined_irq_handler, 0,
+> +					       "arm-smmu-v3-combined-irq",
+> +					       smmu);
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+This `if` isn't needed, we can continue using devm_request_threaded_irq,
+if you look at the doc for devm_request_threaded_irq [1] it says:
 
-Konrad
+/**
+ * devm_request_threaded_irq - allocate an interrupt line for a managed device with error logging
+ * @dev:	Device to request interrupt for
+ * @irq:	Interrupt line to allocate
+ * @handler:	Function to be called when the interrupt occurs
+ * @thread_fn:	Function to be called in a threaded interrupt context. NULL
+ *		for devices which handle everything in @handler
+ * @irqflags:	Interrupt type flags
+ * @devname:	An ascii name for the claiming device, dev_name(dev) if NULL
+ * @dev_id:	A cookie passed back to the handler function
+[...]
+*/
+
+So, we can pass handler() here while leaving the thread_fn == NULL:
+
+ret = devm_request_threaded_irq(smmu->dev, irq,
+         arm_smmu_combined_irq_handler,
+         is_kdump_kernel() ? NULL : arm_smmu_combined_irq_thread,
+         IRQF_ONESHOT,
+         "arm-smmu-v3-combined-irq", smmu);
+
+(In fact that's exactly what devm_request_irq does under the hood [2])
+
+Additionally, the arm_smmu_combined_irq_handler() returns 
+IRQ_WAKE_THREAD unconditionally, which causes us to hit the warn_on[3] in
+__handle_irq_event_percpu.
+
+Hence, we'd need to refactor the arm_smmu_combined_irq_handler() to
+return IRQ_HANDLED / _NONE if is_kdump_kernel().
+
+> +		else
+> +			ret = devm_request_threaded_irq(
+> +				smmu->dev, irq, arm_smmu_combined_irq_handler,
+> +				arm_smmu_combined_irq_thread, IRQF_ONESHOT,
+> +				"arm-smmu-v3-combined-irq", smmu);
+>  		if (ret < 0)
+>  			dev_warn(smmu->dev, "failed to enable combined irq\n");
+>  	} else
+>  		arm_smmu_setup_unique_irqs(smmu);
+>  
+> -	if (smmu->features & ARM_SMMU_FEAT_PRI)
+> -		irqen_flags |= IRQ_CTRL_PRIQ_IRQEN;
+> +	/* No EVTQ/PRIQ IRQ generation in kdump -- queues are disabled */
+> +	if (!is_kdump_kernel()) {
+> +		irqen_flags |= IRQ_CTRL_EVTQ_IRQEN;
+> +		if (smmu->features & ARM_SMMU_FEAT_PRI)
+> +			irqen_flags |= IRQ_CTRL_PRIQ_IRQEN;
+> +	}
+>  
+>  	/* Enable interrupt generation on the SMMU */
+>  	ret = arm_smmu_write_reg_sync(smmu, irqen_flags,
+> -- 
+> 2.43.0
+> 
+
+Thanks,
+Praan
+
+[1] https://elixir.bootlin.com/linux/v7.1.1/source/kernel/irq/devres.c#L75
+[2] https://elixir.bootlin.com/linux/v7.1.1/source/include/linux/interrupt.h#L218
+[3] https://elixir.bootlin.com/linux/v7.1.1/source/kernel/irq/handle.c#L225
 
