@@ -4,62 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15284C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 20:23:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4356CC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 20:42:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zassGxIWJP7K2eqm0Cz7ERtaJxDHIdjK3ECDalvfM5E=; b=rO6EtTpqkRnINkrnuyiyZ8n0bq
-	w0r8S24N+eKJO9BzsxsvBufFkPYnHswjZKtmZ6ASXg+WRoaYnlVZqDpx+jueTFsGy4X3LQVcAgWFv
-	8VZpf/rLIwLm4kFpzjzS+EpaGr4VA9Jk2jT3A2F/8w8+6HwircLP3oTgFmdE5ydD2VcMzyaCpiBKT
-	sWyPA/eA40ByHWHriMaHKGEdcpQkIs0w/lua5SdbEYMJ6wiRxRbcRaXg2cV9M+/cGBjCT7CtsyGwa
-	b1btsTl6x0hRmPt0XN2PYv2caDDsOOdgbsqChXVwfq7Tq7supNaw7Fc7U82cZoRxoo6WJdHeUPWsF
-	bv+sHBKA==;
+	bh=7+/G6fGJwj33cgWatinfrglRH+cgf3TmqKmmKZEzcJk=; b=fnsCwTvfqNO1N+M0JLYmWNLB9Y
+	YP/pa5ULpLNS0bnkf28C7rX0wVbyaagR2AJMH9mwGAV0FNocuc0zTBKo9OxOBa7fT8MFiYaN3jqzI
+	7LiB9i6G2uCEIH2yzQjciFhqw2bXSa+sfJriyX5SwHz1Uas4unVCsnbEdzTp1WkFK+9Uf3gf0k7tP
+	eudc+0PGtFBXfLkVIwJjUqdoD+RZdSx88JSnFllglYXAtKnCkBIhO7Uib+P2cLYFADqk/YSvltR81
+	3C9tg7KxgRfBCE3iVQ7JcTXwIy3IXpr4nhQGxZvxODFGSP/CDH3GxQ5TMa0Y8GFeiV/OgWo6rcGSs
+	tDf0tVag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weIVb-0000000FRY6-05wv;
-	Mon, 29 Jun 2026 20:23:11 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1weInl-0000000FSCP-1VMd;
+	Mon, 29 Jun 2026 20:41:57 +0000
+Received: from mail-northeuropeazon11011050.outbound.protection.outlook.com ([52.101.65.50] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weIVX-0000000FRXS-1mIh
+	id 1weInj-0000000FSC4-1h4M
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 20:23:09 +0000
-Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id E7D7F8D4;
-	Mon, 29 Jun 2026 22:22:20 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1782764541;
-	bh=6BGCtWCSnzscsVLSmkOHT0KynDhANaGbAaBhMOXMItI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HqmG60kJwrakddc5jSOxRNmE+QEGp5nvtf1vHx/Bk1W8vyTxkgxP6QvWpNTB2dDAi
-	 C7MfRVTI29fqj5uHKnQ2OquAWNYAjgLfdjkxZ4yfe0fAURC0BT+vvD8+VKwr7R0AP7
-	 9/xyQQI6Wu4/tC3+N6MVsCpUZqMcMrdJfHiAfXfk=
-Date: Mon, 29 Jun 2026 23:23:02 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Frank.Li@oss.nxp.com
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Guoniu Zhou <guoniu.zhou@oss.nxp.com>, Frank Li <Frank.Li@nxp.com>,
-	Aisheng Dong <aisheng.dong@nxp.com>, linux-media@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Guoniu Zhou <guoniu.zhou@nxp.com>
-Subject: Re: (subset) [PATCH v5 0/2] media: nxp: imx8-isi: Add virtual
- channel and frame descriptor support
-Message-ID: <20260629202302.GK3054459@killaraus.ideasonboard.com>
-References: <20260521-isi_vc-v5-0-a38eb4fcd58e@oss.nxp.com>
- <178276214766.2429861.1950641421457268519.b4-ty@b4>
+	Mon, 29 Jun 2026 20:41:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gzliHIbLexLraEKNDlc3FMRX7Y//4q31tOMjGhkR9LBtiYlclARaCDRhC7i9Bz68lXNz1OKU+rtfG85Rr681zjtO645kTMoKkp0y/d7BmTfHuXRjwbWwfzJ84XReGKgCpBBST7NqYWCwa80h6wXnS4b3LyBPKbh8qIsZCjvYsTwuO6BQlSvrGoiacR8hhxGAcw/Dla25wbxVPNmv6PX3wzS5JsiWuPvxz8iE3HaG4tJmUxN9e3aBYv5S6i0HEoMQoAdUzoJF72MOMvt7ykZXf+2YoivO/KC/Eqndds5Jh3jWiCZOPtNQXwLZbvdAzb0R8TOeHtpNyk6ERcif+G6qZA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7+/G6fGJwj33cgWatinfrglRH+cgf3TmqKmmKZEzcJk=;
+ b=JV3YmP/FY6nIz3t9+j+W52Z1TuNFdpWWHaiM39uOp+Rk3Te7IcBdz6fEd/DrgrXZSCtSF3vdvmSS5cc4H7PiOahWi+0wM89gAgn4buyH01P6UwosBOOxGYiaVzcwC+vcgRsX87iCDPFbqiDSJ+Pj9jsPAiuMoyW7Q85Bb+W4VI0l2A6fze13DJizFFobDvNWmqWPVbk9mXsJtkohPnEZNxwsZJzLf5Ohsa0AzIj2gdhG/M8Z0fZPItZ1O62XfdmD/8ax2BbTtFx9GMlTvtt2EC+Lbj+Bi/M7ihW0j1hITJULGl5ani5yDD8+yZN+V9ntenCCr996e9yxyTaCkxs5Sw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7+/G6fGJwj33cgWatinfrglRH+cgf3TmqKmmKZEzcJk=;
+ b=CoqCpN9mx3FjQeAg0E0KVzjgBF2sUpYmFFB2o51RMz72csBcT9wlnb5q9B+PgLDuemrqwKZ2v7KjQ5WSXoDh4sG5nXsTQ9p1TROmAuGc4FNPoxskjv4MUc+lHgYEtSQgvIHIbPUKKU74eU5Zifa//jTE5nps9EggzElXF8Vn49Ie0ZdAaWECYhYE3RDIq1rpMZpwVemgSLJ1KJ1h4aHWpOxrS4xBSoDvbFLOZfOed7eWMp6jgPjCoIs43bql0SZzg1VFJyAVZZ3MNATzEWiHFZViaY1Ivxy/AlFmZMjtnKcc7sXnl1t6jHjkII2dYGBSghM2yAQ0oqaBOvTCS6AKRA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AS5PR04MB9772.eurprd04.prod.outlook.com (2603:10a6:20b:677::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Mon, 29 Jun
+ 2026 20:41:50 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Mon, 29 Jun 2026
+ 20:41:50 +0000
+From: Frank.Li@oss.nxp.com
+To: s.hauer@pengutronix.de,
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	peng.fan@nxp.com,
+	shawnguo@kernel.org,
+	krzysztof.kozlowski@oss.qualcomm.com,
+	linux-arm-kernel@lists.infradead.org,
+	Li Jun <lijun01@kylinos.cn>
+Cc: Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH] firmware: imx: sm-misc: Add NULL check for kmalloc in syslog_show
+Date: Mon, 29 Jun 2026 16:41:42 -0400
+Message-ID: <178276569309.2475689.8476501730139793064.b4-ty@b4>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260610003814.75493-1-lijun01@kylinos.cn>
+References: <20260610003814.75493-1-lijun01@kylinos.cn>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: PH0P220CA0029.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:d3::27) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <178276214766.2429861.1950641421457268519.b4-ty@b4>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AS5PR04MB9772:EE_
+X-MS-Office365-Filtering-Correlation-Id: adbd0fc9-78c1-4f08-a307-08ded61ed867
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|23010399003|376014|56012099006|11063799006|18002099003|22082099003|921020;
+X-Microsoft-Antispam-Message-Info: OPsX0dfrr4S7oYWN0KDWDyGguqqpBlcYUAB6u4/D009qi5Bj8TeokRKNAiQHhIEXF3ptCvUAgZSQBRLPWxK8P6B6qlQStD+LbKR1TRuj8PCmsDrdSQpQ19/OtxdRRMqmyTrMHEZ7M3Y21ZyyZiA0dVfCC62y48TsoJAycVt/Dvz0NLW6tOozaY8jyNOoqv2nb0hnip8MoLxbZDD4Ef8yTiNDC/BKvNHB6B1vwoxoNBW9I4WogccePuG3IfhmF+yC3HQWx7HRPUsuTNg9d1GAFhFl0eYibRRLjucs+p8+efEGb1YS5GxAHYbnS9BSsFf0zzMFvjTNY6Hxg5sG8q3TVQmFjPfY0OX+nR04nV/6HgAFAk7J/8+Grk9RDB3OsZuqLi5aSRNb3vA24YNaAjKjvm0rFRBfoSnBp5VFV61A78WDD4aHWcZp3c5p0KuHvE0biciBdi+T8Xny1YBYuYiKpxr6Yo0tGp4Yr0B6hj3a6OM90xvA/+P6Kb7xld06mCJoqJH7BfBIwZBKFko35p37uuq+bR8lQT6/RC9G7GI3q4Oa2zw6Y2pF3ZKVscLS/pv9ktAomiaweEMx6DWvEWStipGAPTXU4whpI7zksWu81VWrzqFvWVq390CvIL32tLDDMTN1pyPKhS/+HJvIxVGla/WIXThxevIQlxlDqCxo5KmjeuMtSH+QCQgJTsEOUg0MHEyAecbZ9rS03D7SWbcZ/Q==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(23010399003)(376014)(56012099006)(11063799006)(18002099003)(22082099003)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?blJvNmd6c1NaYWphSCtIbkc4Y3lhZlFaQzlyRENMMmJ2MTRNK09PaCtvRWx2?=
+ =?utf-8?B?b0pneGJYTGQ2WHdNNTZjQnhYZEIyNXhRMzJUa1dKMjlFZWNkVTB4SnVtSEpR?=
+ =?utf-8?B?bEhtU2JmbFpwbGNPQnpVcEZ2cDVteVZmWjVUeDJpV2RKWVNEMzRybUUrYVpn?=
+ =?utf-8?B?WnR4RUc2TkxaamMwR2gwWjN5WHdhV2xGTVlncko1bGowVzFQaGd1QnpUdUlx?=
+ =?utf-8?B?djNxU1FlQWtqNDI1STNDM3lWTFlMUmlhTTFRM1cyL0FWRHJQTlFPYVBWZjBO?=
+ =?utf-8?B?NVFzYXFwbzczLzJINU5lZjJuZVAvazViczdWRGJiUmMwOXQzNHpuaEhTSmxM?=
+ =?utf-8?B?RlFVNWVtcmM3NDJRYWlHNkZQd2owNUdOdzdYcFJtdXUrNzhCNGQ4TnRBLzIz?=
+ =?utf-8?B?dCt4RTlWNVUvdW8yL2tRUE1DbVczdW9MU0dCQ2hqbGJQNCtqb1ZRc1NjVjE1?=
+ =?utf-8?B?Z21IOUMzOXRaN0tyL2k4SjlTQmFwMHJFYVJVcCsvUWRPT3B4eG5xak9rZ3d1?=
+ =?utf-8?B?bHljQ2IrOHpKYUJMUkJGeG9IVU1PU1EyQTBzQ2VXWFJsNE9aWFpVNDl0OWxQ?=
+ =?utf-8?B?Y1FGM2J2MkFLNEpsRTNUK1Qyd2ErWDlvL3BEb0lBYTZEQ2lVaEhhV1U0eGc2?=
+ =?utf-8?B?MmkzNkZicjdlRm1TNVBuRUh2cEliU01GdkIrMjNOMThpTWZWb21sOU92bGhx?=
+ =?utf-8?B?RStvZU9lL1ZaclJ3dSthWFM3YUc3OXRXTnNqNnFSWDBqMkltdzJNMlk1QVA2?=
+ =?utf-8?B?d2NNREpJSkFFU2ttT1l4SFNPTXdFamt3TjdINU44M0Z6akpXQWZTbmpNbmtn?=
+ =?utf-8?B?cUJhZmRWQjFRSUoyV1V2RXNhUzRVQzNmMUJJWWRnUmFzVmw4VVdaZW11V3ov?=
+ =?utf-8?B?OFFqT1FXRXpHb0g1eXhlbkpJLytFWFB6VXZocHNDTzNwcUlnSzd5WXRQMkV6?=
+ =?utf-8?B?a21Rd2o3VDJrSDJNVGtocUhKZFJtcVN0K3JyeTVISmcyYW1uWDFkUHhaT21E?=
+ =?utf-8?B?Q3k1QWZmZDI4dkhQNTllc1dFQUFveVRhRVRBR1NHdXg2Rm9oNjFHUXNmSnZZ?=
+ =?utf-8?B?aE9NTFpHWG5KdFo4cTdpK0F2R3FFUUhqdkl3WDlsTWNYd2FGYVJjWkhaU0ZK?=
+ =?utf-8?B?c2VJVDV5c3dZTmxnUFFGdVVGQ2grNmN4NzZqQlhFajJyT2hNVzdydE1ROU8r?=
+ =?utf-8?B?dElGc283eWFvSnRaTWhIb1NKYlh1U3VFMHlGZHZhU1FLcXV6czVPRWo1TStP?=
+ =?utf-8?B?SzhxZHVHUmVlMjU4UFVITnBITjE3b2daTFM3NkxYZ3ZKa1QybW8yNkdGeDFQ?=
+ =?utf-8?B?MVFOdVhLQ2ZwWm1uZG52eitVZGw3dEprVEVMUndUNWdrS2N3MTJsbng1ZUdw?=
+ =?utf-8?B?SXIrQ0NIbHF1VmVzUXAxMmx3NnhWYXEyUnpNdTNoQjAyWWU4am03YWRMMmFI?=
+ =?utf-8?B?Z1hsaUdOSy8yZElzMkg3VGltMUorYmlhRkFXb2FIVHdLZDJDdko2Z3VWMDU4?=
+ =?utf-8?B?ak5EZWc4NzNtLzY3MHpMN2VoaW5uY2U2SGtqNmZrSDRseDVnSUJIR0ZESVQ0?=
+ =?utf-8?B?RUgxOHAwZHZDQWtWWjB5VTdqRUJWVXc3R1Bzb3YxaFowU2NHNHJObzNvU25D?=
+ =?utf-8?B?NmlSaUt2ZXhKM3JSUE9RSU9KSFVuSTdTb0NxMExndm9YbXExek1TNms3bE82?=
+ =?utf-8?B?WkU2NFNTeG56SnZSN3M1a3BJc3NkOFlZUWxRT0F3S2hhYThRTlN5cTN1Z3k0?=
+ =?utf-8?B?Umw1LzBKaHFFaTRrKzUvSFpIckFmOG9ZVi8wR2RXa3FGN0I1S01hcUNsa3ZB?=
+ =?utf-8?B?dENuUVhadjNHenl0OXhlbThwQmtSVWJXRU9kY0JEV1ZKK0ZnQ2Y3Tmg3b3JJ?=
+ =?utf-8?B?VldIaFExeWhNaHZwcEJZcDFpbEROZGJhSXFJb2R5WC80RnBuVVlabm5qZXdS?=
+ =?utf-8?B?bk1GaDE1VldXU0tqUS9jU0NCQzJ4NWRCK3RqSjJhbkxCYzdrU1pqTitBblVr?=
+ =?utf-8?B?Z0NKMU4vaUJWVEUwODVwcnhaTmJBaVdtZURkU2duRGNKYy9jYkJVNWdZejdq?=
+ =?utf-8?B?Z1FydEV0c1l6TnpnMkVtMUVwV245Q2dqdE1oL3RicFlNaGFnM0dMaStSdUhG?=
+ =?utf-8?B?S1BqaTlYb2RWdTNyaDBSVEhEcnJiQ2Y2LzcrQWFlQ0k3SzF1MzBrVHl6SEhB?=
+ =?utf-8?B?TU40T2t0UnBWUGVHaDZyc29EUEJvemUxODBTblVIS1d5anB2UUR4R3VBWFk5?=
+ =?utf-8?B?QmhKV0RsNGVSSFgycW1lRnpxYjh2T2hwbFdaT1F4TVFVbjJBVXZFbEtwUTNT?=
+ =?utf-8?B?eWpNVUVaNkhDc1RGM2dpeUZwYmxWNitWU3JvS3NGUG1oYlZucUN0WnBoeDho?=
+ =?utf-8?Q?2+sfRKHDkUmbhx/gcX+aCeeTULAcxTTrdOqOm?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: adbd0fc9-78c1-4f08-a307-08ded61ed867
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jun 2026 20:41:50.3310
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: pVOPUrXJeC+URueZDau7tkpchzmDgKDZe4poNksl1CLMgxV5N0RMyJYHTjrRm0qLGq0R7jirk7PrVCke2SxxriAVgV/D6lLXJ/jfFKP6ExUnfgV5Tx8tWLvEvA+0I5Dk
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB9772
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_132307_614356_8E678413 
-X-CRM114-Status: GOOD (  10.25  )
+X-CRM114-CacheID: sfid-20260629_134155_454640_F4E8E670 
+X-CRM114-Status: UNSURE (   7.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,24 +155,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 29, 2026 at 03:42:31PM -0400, Frank.Li@oss.nxp.com wrote:
-> From: Frank Li <Frank.Li@nxp.com>
-> 
-> 
-> On Thu, 21 May 2026 17:10:03 +0800, Guoniu Zhou wrote:
-> > This patch series enhances the i.MX ISI driver's with virtual channel
-> > support and adds frame descriptor capabilities to the crossbar subdevice.
-> 
-> Applied, thanks!
-> 
-> [1/2] media: imx8-isi: crossbar: Add get_frame_desc operation
->       commit: 3e15a3510908c990ee352aa206d5f9c23d4b216e
+From: Frank Li <Frank.Li@nxp.com>
 
-Is this a mistake ? Patch 1/2 has no R-b tag, and you're not listed as
-maintainer for this driver.
 
+On Wed, 10 Jun 2026 08:38:14 +0800, Li Jun wrote:
+> Add a proper NULL check for the kmalloc() return value in syslog_show().
+> If memory allocation fails, syslog would be NULL and passing it to
+> misc_syslog() could lead to a NULL pointer dereference.
+
+Applied, thanks!
+
+[1/1] firmware: imx: sm-misc: Add NULL check for kmalloc in syslog_show
+      commit: 4cf26bc2e7e099c86127d63ed7272753da45737e
+
+Best regards,
 -- 
-Regards,
-
-Laurent Pinchart
+Frank Li <Frank.Li@nxp.com>
 
