@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D3BFC43602
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEFCEC43327
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 09:00:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,33 +12,33 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9+AqSk9mrw8EE4phk7ZM+5/RHqQMiKJOJ6jJ+0oKyYk=; b=g7g+OmJOXQSMYrO/HgHjxhjbXG
-	k5SnxP4/55ZFu4ZTU9DL1G/0al9Gka2llHkhPEP0WwVJ1vghJLlSTGVCjgCaPGw7wTLk7QXaPWztU
-	tkV8VR5ZJdF2LQVkvlFIaoAr3mwSLFzazCmuRnzH8o1/AD2fjD5HRvv4ZgYeDL5BanP4gnJ8aXtv2
-	aBcpv6XKtPwlCSQ7Tvfm1XmLLF4ezfvZSlILnBXFqN54pf2CusTawJOqYK8gYm8FIfqnNuv6gd1Nt
-	7NxD7fCs9MAl7NXQec6OErkiRIB6IRoymiZJSSIZ5s2cu9mDGv6fkEehYZqfqJTdvh+alt6HSkpEZ
-	CQlF/gUg==;
+	bh=ZxQBBGcdB1N3yS3mUmstL3L+Lv0K/n1rMODPw3Gz/bo=; b=WicSQxeo6VXhJdotUChf/uNey/
+	CwQ5Qy41X20889RMPAKqE781BP7agdeJCYP7Uj/vSIyHpNnurADuEDj9Z3IRaRj0JRL7xM+lJ4B1M
+	QqXZdpThuC7LY80cqZPKjS2Nwu8pAlSHjDXT5W1kW0w3sBRPyrCI10qRa8rg/jCa+B1eeT2WPEaYO
+	GA4Jo2LugUcvnvc7Ja3Gn6+PNFTWpVqZvzo99nHXrupSYvg3xK8kT5e4k1zhVufuHHS1+YYliYkke
+	dUfG4t1aUVE+zSTpG7ewqTtTH2MpfwiSL0wz90xpss4MmnUkEplaBGxpU4B0Cy3NvyGrfFKZ3yvPK
+	IjEmuq/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we7rF-0000000E5D6-1SQJ;
+	id 1we7rF-0000000E5Cj-0ybA;
 	Mon, 29 Jun 2026 09:00:49 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we7qx-0000000E4xe-0dRr
+	id 1we7qv-0000000E4uy-0qTc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 09:00:32 +0000
+	Mon, 29 Jun 2026 09:00:30 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D8CF41A00;
-	Mon, 29 Jun 2026 02:00:25 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BB2CD1758;
+	Mon, 29 Jun 2026 02:00:23 -0700 (PDT)
 Received: from e129823.cambridge.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 904423F836;
-	Mon, 29 Jun 2026 02:00:28 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 74E1B3F836;
+	Mon, 29 Jun 2026 02:00:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782723630; bh=8b5eZRre3Cu0DB9ohAJCb64s8pk5pPGSHPb1kfc7QcI=;
+	t=1782723628; bh=QjDXNWOfIWP+eMunuM4ZYHXy9MPp5SlBj4dAJia7dJU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ddmUQJh4UsrIzx8UvgSOzOiu0CxtjZwG0zZso6ihzecRgZspwctCZWUrxxzJfdMhd
-	 D4MbCQTkoYui57nqXC5KODneNAHawFsxwIkCyona1tFrDBpbB6TY8i90zpIzc0l1kq
-	 LiVPtkHUp/3BiNXZzXH8lg7i2gTdc1Kp9BWHNSJQ=
+	b=VUyq2B8tEjpqE+aBzKC5aQSslrn5WNPpIEIk4ZpB3baBomgVU1Z6yOMLyof25nqYm
+	 qCOTtY8fM5/yylIw1qyQPPwSFcG/9ChBvPzqqTqiV0zvz9E81cjFcvaQskIV21a6CC
+	 OlgPpoIKYrUBgVnuuhJIKtzlbtD7YpGZhEt59nMo=
 From: Yeoreum Yun <yeoreum.yun@arm.com>
 To: coresight@lists.linaro.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -50,17 +50,17 @@ Cc: suzuki.poulose@arm.com,
 	leo.yan@arm.com,
 	jie.gan@oss.qualcomm.com,
 	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH v8 09/13] coresight: etm4x: missing cscfg_csdev_disable_active_config() in perf enable
-Date: Mon, 29 Jun 2026 10:00:02 +0100
-Message-ID: <20260629090007.1718746-10-yeoreum.yun@arm.com>
+Subject: [PATCH v8 08/13] coresight: etm4x: fix inconsistencies with sysfs configuration
+Date: Mon, 29 Jun 2026 10:00:01 +0100
+Message-ID: <20260629090007.1718746-9-yeoreum.yun@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260629090007.1718746-1-yeoreum.yun@arm.com>
 References: <20260629090007.1718746-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_020031_280956_48BB1C4C 
-X-CRM114-Status: GOOD (  16.21  )
+X-CRM114-CacheID: sfid-20260629_020029_329475_08B7A3A9 
+X-CRM114-Status: GOOD (  26.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,111 +75,332 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In the perf enable path, there are missing cases where
-cscfg_csdev_disable_active_config() is not called:
+The current ETM4x configuration via sysfs can lead to
+several inconsistencies:
 
-  - Branch broadcast is selected but not supported by the hardware
-  - etm4_enable_hw() fails
+  - If the configuration is modified via sysfs while a perf session is
+    active, the running configuration may differ before a sched-out and
+    after a subsequent sched-in.
 
-This can lead to a leak of config_desc->active_cnt.
-Fix this by properly calling cscfg_csdev_disable_active_config()
-in these error paths.
+  - If a perf session and a sysfs session enable tracing concurrently,
+    the configuration from configfs may become corrupted.
 
-Fixes: 810ac401db1f ("coresight: etm4x: Add complex configuration handlers to etmv4")
-Suggested-by: Leo Yan <leo.yan@arm.com>
+  - There is a risk of corrupting drvdata->config if a perf session enables
+    tracing while cscfg_csdev_disable_active_config() is being handled in
+    etm4_disable_sysfs().
+
+To resolve these issues, separate the configuration into:
+
+  - active_config: the configuration applied to the current session
+  - config: the configuration set via sysfs
+
+Additionally:
+
+  - Apply the configuration from configfs after taking the appropriate mode.
+
+  - Since active_config and related fields are accessed only by the local CPU
+    in etm4_enable/disable_sysfs_smp_call() (similar to perf enable/disable),
+    remove the lock/unlock from the sysfs enable/disable path and
+    startup/dying_cpu except when to access config fields.
+
+Fixes: 54ff892b76c6 ("coresight: etm4x: splitting struct etmv4_drvdata")
 Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
 ---
- .../coresight/coresight-etm4x-core.c          | 44 +++++++++++--------
- 1 file changed, 25 insertions(+), 19 deletions(-)
+ .../hwtracing/coresight/coresight-etm4x-cfg.c |   2 +-
+ .../coresight/coresight-etm4x-core.c          | 103 ++++++++++--------
+ drivers/hwtracing/coresight/coresight-etm4x.h |   2 +
+ 3 files changed, 58 insertions(+), 49 deletions(-)
 
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
+index 9b4947d75fde..9d56e17e09b1 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
++++ b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
+@@ -47,7 +47,7 @@ static int etm4_cfg_map_reg_offset(struct etmv4_drvdata *drvdata,
+ 				   struct cscfg_regval_csdev *reg_csdev, u32 offset)
+ {
+ 	int err = -EINVAL, idx;
+-	struct etmv4_config *drvcfg = &drvdata->config;
++	struct etmv4_config *drvcfg = &drvdata->active_config;
+ 	u32 off_mask;
+ 
+ 	if (((offset >= TRCEVENTCTL0R) && (offset <= TRCVIPCSSCTLR)) ||
 diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-index 31ac7783fdb8..f32943b0669a 100644
+index 2798604943ed..31ac7783fdb8 100644
 --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
 +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-@@ -794,8 +794,7 @@ static int etm4_parse_event_config(struct coresight_device *csdev,
- 		.ATTR_CFG_FLD_timestamp_CFG = U64_MAX,
- 	};
- 	struct perf_event_attr *attr = &event->attr;
--	unsigned long cfg_hash;
--	int preset, cc_threshold;
-+	int cc_threshold;
- 	u8 ts_level;
+@@ -245,6 +245,7 @@ void etm4_release_trace_id(struct etmv4_drvdata *drvdata)
+ struct etm4_enable_arg {
+ 	struct etmv4_drvdata *drvdata;
+ 	struct coresight_path *path;
++	struct etmv4_config config;
+ 	int rc;
+ };
  
- 	/* Clear configuration from previous run */
-@@ -881,16 +880,6 @@ static int etm4_parse_event_config(struct coresight_device *csdev,
- 		/* bit[12], Return stack enable bit */
- 		config->cfg |= TRCCONFIGR_RS;
- 
--	/*
--	 * Set any selected configuration and preset. A zero configid means no
--	 * configuration active, preset = 0 means no preset selected.
--	 */
--	cfg_hash = ATTR_CFG_GET_FLD(attr, configid);
--	if (cfg_hash) {
--		preset = ATTR_CFG_GET_FLD(attr, preset);
--		ret = cscfg_csdev_enable_active_config(csdev, cfg_hash, preset);
--	}
--
- 	/* branch broadcast - enable if selected and supported */
- 	if (ATTR_CFG_GET_FLD(attr, branch_broadcast)) {
- 		if (!caps->trcbb) {
-@@ -914,7 +903,9 @@ static int etm4_enable_perf(struct coresight_device *csdev,
- 			    struct coresight_path *path)
+@@ -270,10 +271,11 @@ static void etm4x_prohibit_trace(struct etmv4_drvdata *drvdata)
+ static u64 etm4x_get_kern_user_filter(struct etmv4_drvdata *drvdata)
  {
- 	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
--	int ret;
-+	struct perf_event_attr *attr = &event->attr;
-+	unsigned long cfg_hash;
-+	int ret, preset;
+ 	u64 trfcr = drvdata->trfcr;
++	struct etmv4_config *config = &drvdata->active_config;
  
- 	if (WARN_ON_ONCE(drvdata->cpu != smp_processor_id()))
- 		return -EINVAL;
-@@ -925,7 +916,19 @@ static int etm4_enable_perf(struct coresight_device *csdev,
- 	/* Configure the tracer based on the session's specifics */
- 	ret = etm4_parse_event_config(csdev, event);
- 	if (ret)
--		goto out;
-+		goto err;
-+
-+	/*
-+	 * Set any selected configuration and preset. A zero configid means no
-+	 * configuration active, preset = 0 means no preset selected.
-+	 */
-+	cfg_hash = ATTR_CFG_GET_FLD(attr, configid);
+-	if (drvdata->config.mode & ETM_MODE_EXCL_KERN)
++	if (config->mode & ETM_MODE_EXCL_KERN)
+ 		trfcr &= ~TRFCR_EL1_ExTRE;
+-	if (drvdata->config.mode & ETM_MODE_EXCL_USER)
++	if (config->mode & ETM_MODE_EXCL_USER)
+ 		trfcr &= ~TRFCR_EL1_E0TRE;
+ 
+ 	return trfcr;
+@@ -281,7 +283,7 @@ static u64 etm4x_get_kern_user_filter(struct etmv4_drvdata *drvdata)
+ 
+ /*
+  * etm4x_allow_trace - Allow CPU tracing in the respective ELs,
+- * as configured by the drvdata->config.mode for the current
++ * as configured by the drvdata->active_config.mode for the current
+  * session. Even though we have TRCVICTLR bits to filter the
+  * trace in the ELs, it doesn't prevent the ETM from generating
+  * a packet (e.g, TraceInfo) that might contain the addresses from
+@@ -292,12 +294,13 @@ static u64 etm4x_get_kern_user_filter(struct etmv4_drvdata *drvdata)
+ static void etm4x_allow_trace(struct etmv4_drvdata *drvdata)
+ {
+ 	u64 trfcr, guest_trfcr;
++	struct etmv4_config *config = &drvdata->active_config;
+ 
+ 	/* If the CPU doesn't support FEAT_TRF, nothing to do */
+ 	if (!drvdata->trfcr)
+ 		return;
+ 
+-	if (drvdata->config.mode & ETM_MODE_EXCL_HOST)
++	if (config->mode & ETM_MODE_EXCL_HOST)
+ 		trfcr = drvdata->trfcr & ~(TRFCR_EL1_ExTRE | TRFCR_EL1_E0TRE);
+ 	else
+ 		trfcr = etm4x_get_kern_user_filter(drvdata);
+@@ -305,7 +308,7 @@ static void etm4x_allow_trace(struct etmv4_drvdata *drvdata)
+ 	write_trfcr(trfcr);
+ 
+ 	/* Set filters for guests and pass to KVM */
+-	if (drvdata->config.mode & ETM_MODE_EXCL_GUEST)
++	if (config->mode & ETM_MODE_EXCL_GUEST)
+ 		guest_trfcr = drvdata->trfcr & ~(TRFCR_EL1_ExTRE | TRFCR_EL1_E0TRE);
+ 	else
+ 		guest_trfcr = etm4x_get_kern_user_filter(drvdata);
+@@ -499,7 +502,7 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
+ {
+ 	int i, rc;
+ 	const struct etmv4_caps *caps = &drvdata->caps;
+-	struct etmv4_config *config = &drvdata->config;
++	struct etmv4_config *config = &drvdata->active_config;
+ 	struct coresight_device *csdev = drvdata->csdev;
+ 	struct device *etm_dev = &csdev->dev;
+ 	struct csdev_access *csa = &csdev->access;
+@@ -619,27 +622,52 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
+ static void etm4_enable_sysfs_smp_call(void *info)
+ {
+ 	struct etm4_enable_arg *arg = info;
++	struct etmv4_drvdata *drvdata;
+ 	struct coresight_device *csdev;
++	unsigned long cfg_hash;
++	int preset;
+ 
+ 	if (WARN_ON(!arg))
+ 		return;
+ 
+-	csdev = arg->drvdata->csdev;
++	drvdata = arg->drvdata;
++	csdev = drvdata->csdev;
+ 	if (!coresight_take_mode(csdev, CS_MODE_SYSFS)) {
+ 		/* Someone is already using the tracer */
+ 		arg->rc = -EBUSY;
+ 		return;
+ 	}
+ 
+-	arg->rc = etm4_enable_hw(arg->drvdata);
++	drvdata->active_config = arg->config;
+ 
+-	/* The tracer didn't start */
++	/* enable any config activated by configfs */
++	cscfg_config_sysfs_get_active_cfg(&cfg_hash, &preset);
 +	if (cfg_hash) {
-+		preset = ATTR_CFG_GET_FLD(attr, preset);
-+		ret = cscfg_csdev_enable_active_config(csdev, cfg_hash, preset);
-+		if (ret)
++		arg->rc = cscfg_csdev_enable_active_config(csdev,
++							   cfg_hash,
++							   preset);
++		if (arg->rc)
 +			goto err;
 +	}
- 
- 	drvdata->trcid = path->trace_id;
- 
-@@ -934,16 +937,19 @@ static int etm4_enable_perf(struct coresight_device *csdev,
- 
- 	/* And enable it */
- 	ret = etm4_enable_hw(drvdata);
--
--out:
--	/* Failed to start tracer; roll back to DISABLED mode */
- 	if (ret) {
++
++	drvdata->trcid = arg->path->trace_id;
++
++	/* Tracer will never be paused in sysfs mode */
++	drvdata->paused = false;
++
++	arg->rc = etm4_enable_hw(drvdata);
+ 	if (arg->rc) {
 -		coresight_set_mode(csdev, CS_MODE_DISABLED);
--		return ret;
-+		if (cfg_hash)
-+			cscfg_csdev_disable_active_config(csdev);
+-		return;
++		cscfg_csdev_disable_active_config(csdev);
 +		goto err;
  	}
  
- 	csdev->path = path;
- 	return 0;
++	drvdata->sticky_enable = true;
+ 	csdev->path = arg->path;
 +
++	return;
 +err:
-+	/* Failed to start tracer; roll back to DISABLED mode */
++	/* The tracer didn't start */
 +	coresight_set_mode(csdev, CS_MODE_DISABLED);
-+	return ret;
  }
  
- static int etm4_enable_sysfs(struct coresight_device *csdev, struct coresight_path *path)
+ /*
+@@ -677,7 +705,7 @@ static int etm4_config_timestamp_event(struct etmv4_drvdata *drvdata,
+ 	int ctridx;
+ 	int rselector;
+ 	const struct etmv4_caps *caps = &drvdata->caps;
+-	struct etmv4_config *config = &drvdata->config;
++	struct etmv4_config *config = &drvdata->active_config;
+ 
+ 	/* No point in trying if we don't have at least one counter */
+ 	if (!caps->nr_cntr)
+@@ -761,7 +789,7 @@ static int etm4_parse_event_config(struct coresight_device *csdev,
+ 	int ret = 0;
+ 	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+ 	const struct etmv4_caps *caps = &drvdata->caps;
+-	struct etmv4_config *config = &drvdata->config;
++	struct etmv4_config *config = &drvdata->active_config;
+ 	struct perf_event_attr max_timestamp = {
+ 		.ATTR_CFG_FLD_timestamp_CFG = U64_MAX,
+ 	};
+@@ -922,25 +950,7 @@ static int etm4_enable_sysfs(struct coresight_device *csdev, struct coresight_pa
+ {
+ 	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+ 	struct etm4_enable_arg arg = { };
+-	unsigned long cfg_hash;
+-	int ret, preset;
+-
+-	/* enable any config activated by configfs */
+-	cscfg_config_sysfs_get_active_cfg(&cfg_hash, &preset);
+-	if (cfg_hash) {
+-		ret = cscfg_csdev_enable_active_config(csdev, cfg_hash, preset);
+-		if (ret) {
+-			etm4_release_trace_id(drvdata);
+-			return ret;
+-		}
+-	}
+-
+-	raw_spin_lock(&drvdata->spinlock);
+-
+-	drvdata->trcid = path->trace_id;
+-
+-	/* Tracer will never be paused in sysfs mode */
+-	drvdata->paused = false;
++	int ret;
+ 
+ 	/*
+ 	 * Executing etm4_enable_hw on the cpu whose ETM is being enabled
+@@ -948,20 +958,20 @@ static int etm4_enable_sysfs(struct coresight_device *csdev, struct coresight_pa
+ 	 */
+ 	arg.drvdata = drvdata;
+ 	arg.path = path;
++
++	raw_spin_lock(&drvdata->spinlock);
++	arg.config = drvdata->config;
++	raw_spin_unlock(&drvdata->spinlock);
++
+ 	ret = smp_call_function_single(drvdata->cpu,
+ 				       etm4_enable_sysfs_smp_call, &arg, 1);
+ 	if (!ret)
+ 		ret = arg.rc;
+ 	if (!ret)
+-		drvdata->sticky_enable = true;
+-
+-	if (ret)
++		dev_dbg(&csdev->dev, "ETM tracing enabled\n");
++	else
+ 		etm4_release_trace_id(drvdata);
+ 
+-	raw_spin_unlock(&drvdata->spinlock);
+-
+-	if (!ret)
+-		dev_dbg(&csdev->dev, "ETM tracing enabled\n");
+ 	return ret;
+ }
+ 
+@@ -1048,7 +1058,7 @@ static void etm4_disable_hw(struct etmv4_drvdata *drvdata)
+ {
+ 	u32 control;
+ 	const struct etmv4_caps *caps = &drvdata->caps;
+-	struct etmv4_config *config = &drvdata->config;
++	struct etmv4_config *config = &drvdata->active_config;
+ 	struct coresight_device *csdev = drvdata->csdev;
+ 	struct csdev_access *csa = &csdev->access;
+ 	int i;
+@@ -1090,7 +1100,10 @@ static void etm4_disable_sysfs_smp_call(void *info)
+ 
+ 	etm4_disable_hw(drvdata);
+ 
++	cscfg_csdev_disable_active_config(drvdata->csdev);
++
+ 	drvdata->csdev->path = NULL;
++
+ 	coresight_set_mode(drvdata->csdev, CS_MODE_DISABLED);
+ }
+ 
+@@ -1135,8 +1148,6 @@ static void etm4_disable_sysfs(struct coresight_device *csdev)
+ {
+ 	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+ 
+-	raw_spin_lock(&drvdata->spinlock);
+-
+ 	/*
+ 	 * Executing etm4_disable_hw on the cpu whose ETM is being disabled
+ 	 * ensures that register writes occur when cpu is powered.
+@@ -1144,10 +1155,6 @@ static void etm4_disable_sysfs(struct coresight_device *csdev)
+ 	smp_call_function_single(drvdata->cpu, etm4_disable_sysfs_smp_call,
+ 				 drvdata, 1);
+ 
+-	raw_spin_unlock(&drvdata->spinlock);
+-
+-	cscfg_csdev_disable_active_config(csdev);
+-
+ 	/*
+ 	 * we only release trace IDs when resetting sysfs.
+ 	 * This permits sysfs users to read the trace ID after the trace
+@@ -1704,7 +1711,7 @@ static void etm4_set_default(struct etmv4_config *config,
+ static int etm4_get_next_comparator(struct etmv4_drvdata *drvdata, u32 type)
+ {
+ 	int nr_comparator, index = 0;
+-	struct etmv4_config *config = &drvdata->config;
++	struct etmv4_config *config = &drvdata->active_config;
+ 
+ 	/*
+ 	 * nr_addr_cmp holds the number of comparator _pair_, so time 2
+@@ -1746,7 +1753,7 @@ static int etm4_set_event_filters(struct etmv4_drvdata *drvdata,
+ 	int i, comparator, ret = 0;
+ 	u64 address;
+ 	const struct etmv4_caps *caps = &drvdata->caps;
+-	struct etmv4_config *config = &drvdata->config;
++	struct etmv4_config *config = &drvdata->active_config;
+ 	struct etm_filters *filters = event->hw.addr_filters;
+ 
+ 	if (!filters)
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
+index c0f7da17a186..a974e4d05838 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x.h
++++ b/drivers/hwtracing/coresight/coresight-etm4x.h
+@@ -1068,6 +1068,7 @@ struct etmv4_save_state {
+  *		allows tracing at all ELs. We don't want to compute this
+  *		at runtime, due to the additional setting of TRFCR_CX when
+  *		in EL2. Otherwise, 0.
++ * @active_config:	structure holding current applied configuration parameters.
+  * @config:	structure holding configuration parameters.
+  * @save_state:	State to be preserved across power loss
+  * @paused:	Indicates if the trace unit is paused.
+@@ -1089,6 +1090,7 @@ struct etmv4_drvdata {
+ 	bool				os_unlock : 1;
+ 	bool				paused : 1;
+ 	u64				trfcr;
++	struct etmv4_config		active_config;
+ 	struct etmv4_config		config;
+ 	struct etmv4_save_state		*save_state;
+ 	u32				ss_status[ETM_MAX_SS_CMP];
 -- 
 LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
