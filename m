@@ -4,60 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC49BC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 12:00:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D5F8C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 12:00:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H3LMo9OUhCt7iuD9sUwObFV3HjBdU8mIDrDWMzZ4g6Q=; b=N/SayktsSI4kmaCYAm+dPx3jAJ
-	bmAM1LnRuabWRIjQhbd5WaD+S6L+sDrT49eQR4dfwiVjaXOKvOMds2MHwjfkVoCaRMBZDuscYdmk+
-	OKZdyxGyzNXGGcVQT6OLYbYvkc2MRxpjidYOAsv7vk2AnQHP9vuLKCVy0C5YsH/EHaLw+S3VyTOLv
-	67OizZE7JIgwHRvQdZ7DMClBGwfbPNDsGb/XKXXbSIUvQNCA9FQUlWhnBPuK8kfDwVZoMUDdCSfAN
-	GIiyfMVsAIe2KltDhuQnIcf3yV3Pdl2SKoWH2T8G+K7oi6QoPS72NN3NmKNlNKDbLE0pdMrUf4ivH
-	XdqsWI3w==;
+	bh=L1Qi8aaabkyU8mLYWdZ4vkmaNrhKLS+kwl7chKsoswg=; b=ln59iI7AUs2hC9oFPsI5b+BtKm
+	rWJFmpljXr85WsiJJfvHSO4CxIKB/wYTiCth0rm6ThDoy69i8nY33gc2yJ/5H1aJw6Wn9c2jpj3Uh
+	utZZ54lsXJyD/oiQImLcnFZjiO/Cb33sx6MeFyyDRGIiy8nYfYmp/Wkn51txHlJbv4aguU+WqVlai
+	ju6E2P4YK0yY1Fa10sh85oMZ2iaBxi87uX5A3fJSrkeAz5PPFsWInW3XEttW/rcRaaIIZIG9m+1um
+	DUycxM/PcxeRu4aHvS4KHae+eQcekz1orUy+tR/nEl2L2nHxtTPskz6Nh+NTeosKpgRR1fSylyWpf
+	4aeETKXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weAen-0000000EV9s-1ihr;
-	Mon, 29 Jun 2026 12:00:09 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1weAet-0000000EVBT-25m2;
+	Mon, 29 Jun 2026 12:00:15 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weAel-0000000EV9Z-2uIW
+	id 1weAen-0000000EV9m-0M3J
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 12:00:07 +0000
+	Mon, 29 Jun 2026 12:00:09 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 25776424CC;
+	by sea.source.kernel.org (Postfix) with ESMTP id A703040825;
+	Mon, 29 Jun 2026 12:00:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87CC91F00A3A;
 	Mon, 29 Jun 2026 12:00:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2ADC91F000E9;
-	Mon, 29 Jun 2026 12:00:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782734407;
-	bh=H3LMo9OUhCt7iuD9sUwObFV3HjBdU8mIDrDWMzZ4g6Q=;
+	s=k20260515; t=1782734408;
+	bh=L1Qi8aaabkyU8mLYWdZ4vkmaNrhKLS+kwl7chKsoswg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=aCKCScNIw7pY1NYDeBsU/PN8yQETYoNGnOvKW9qOn0jGqvLent2MpvdaKon7xo0Xj
-	 buSv7W1ouVicuoBqYkdTiwX01kg6xeJoym5FPcnHA0jvV+HpIDuH9+NFTIbFuKKG//
-	 4xOY+p9Cn3xDnc4Gr7ykkqi1rqNF9adIPgF3r2qYIiYSUVye+puqD9MQhUphqiGCZT
-	 1RdlILLnr5a4crM7xC3ucQbPAr8ac+itE2SJ6fE5X6R+JqT64OiEuzg/VN/ektNh0r
-	 xNs++EQWMkgAcABIRhhatIXkdrHQ4BiKshf5EstgaeUmEfry4vB+HFDioXqsB7NfZe
-	 A8tdAbu0pruuQ==
+	b=gkgpitWUSNEUB92fkfmyLjluF7YMPrr4yKIK2mnxxARELLKfmAbQe8nmDcoCvczRt
+	 KzsNGnQ6DxslzxSRsVtgOjXosKBEDsnC7DUCOsRMyjZWOxhomRkbhcAAOuMRYOjt3M
+	 4H12gQOoCI+xg9AUWKUnSuwH6RYPkKPppzrPoZ7K3wZsdrdiO0NOzoWv4ZlzKKsyXn
+	 cw0pRh8rBsjnP0xnOM03NcFHL9xr0R00vl2kG8syIYrwZBxJ7at2Mlp7AaE4yxa+j9
+	 mC7U2a3joRUvsYxxc87Ctu2NYK0T6DhvLd57wZWrRS7RRpcztDVlADXCHFtxgz040P
+	 mlUpLbzKECTYQ==
 From: Will Deacon <will@kernel.org>
-To: linux-arm-kernel@lists.infradead.org,
-	Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: catalin.marinas@arm.com,
-	kernel-team@android.com,
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	David Hildenbrand <david@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	Ben Hutchings <ben@decadent.org.uk>
-Subject: Re: [PATCH] arm64/mm: Optimize TLB flush in unmap_hotplug_[pmd|pud]_range()
-Date: Mon, 29 Jun 2026 12:59:57 +0100
-Message-ID: <178273154856.1018225.14785712662574952579.b4-ty@kernel.org>
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] arm64: Avoid eager DVMSync reclaim batches with C1-Pro SME erratum
+Date: Mon, 29 Jun 2026 12:59:58 +0100
+Message-ID: <178273083868.1015419.15360144659141801455.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260626012845.475959-1-anshuman.khandual@arm.com>
-References: <20260626012845.475959-1-anshuman.khandual@arm.com>
+In-Reply-To: <20260610104829.1157497-1-catalin.marinas@arm.com>
+References: <20260610104829.1157497-1-catalin.marinas@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -75,24 +70,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 26 Jun 2026 02:28:45 +0100, Anshuman Khandual wrote:
-> flush_tlb_kernel_range() could flush down an entire block mapping just with
-> a single PAGE_SIZE stride. This capability was being used umapping PMD and
-> PUD based block mappings in unmap_hotplug_[pmd|pud]_range().
+On Wed, 10 Jun 2026 11:37:16 +0100, Catalin Marinas wrote:
+> The C1-Pro SME DVMSync workaround currently samples mm_cpumask() from
+> arch_tlbbatch_add_pending(). It requires a DSB after every batched TLBI
+> so that the mask read is ordered after the hardware DVMSync, defeating
+> much of the reclaim batching benefit.
 > 
-> But later on the commit 48478b9f7913
-> ("arm64/mm: Enable batched TLB flush in unmap_hotplug_range()") replaced
-> this PAGE_SIZE stride with [PMD|PUD]_SIZE strides, hence forcing multiple
-> PAGE_SIZE stride based TLB flushes on platforms where TLB range operation
-> is not supported. Revert back to the earlier TLB behaviour along with the
-> required comments that were dropped earlier.
+> Introduce the sme_active_cpus mask tracking which CPUs run in user-space
+> with SME enabled and use it for batch flushing instead of accumulating
+> the mm_cpumask() of the unmapped pages.
 > 
 > [...]
 
 Applied to arm64 (for-next/fixes), thanks!
 
-[1/1] arm64/mm: Optimize TLB flush in unmap_hotplug_[pmd|pud]_range()
-      https://git.kernel.org/arm64/c/ff4c5a0de1f2
+[1/1] arm64: Avoid eager DVMSync reclaim batches with C1-Pro SME erratum
+      https://git.kernel.org/arm64/c/534eb6940a89
 
 Cheers,
 -- 
