@@ -4,75 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45194C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 06:47:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3802C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 06:48:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I52N9mFbc5LOQ/rxNzEmVs0EoFJ4aiUXlWOD6LDV1Ew=; b=k4hnv94qXY8lqs1BQCmzx2kqkO
-	mcfxm48wUHd2FkaMEmmaXU8W6SvV4WoxjlcA/BuAahiJitSsJlrhg3KNg+TMknap6u9KxzvPTNS/T
-	hlQtq5EFeMkmgSedhUDKeYRuL4NTKTMM0vQcOhVm6YGQHHp+NYEFOFh2WrfEYIAVldYNHcojy3VDS
-	DbaFLUKWKm5p+gdkNnp4aVWd2tWvMBlLcxoym+RytogY2VTHkmEtFM5t/8ea0zMZl/d2M6W3htcaw
-	QhPpWMm1unuVKDLxZ88Rvr5J9g4Xv/P9NM1MKQnYwguffBOokGOccJzxDcrbMYVQ2PnTV80gTEJLQ
-	cbZRRdbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u/fJt3NKLlyjvcFkI8VZNqRDO7ANl8HQ8B6aLmlQAi4=; b=NsIQebvyQE6Kion5VDCrOy+Rj2
+	QyXDMi58fcahYjpLBAVttRETADCk4YrY8RY4o9Z5FzGrRXCrjKzqVYHiRxxLlSD0hegqGOe2u5rZJ
+	XGUhP+Qd0pmsDBfyq8TVY7f6LWg1CT+vRRjoUmFaF2EVkQEu77+5maRdcL/SIrU0Dqmlwhn/sa8tR
+	hxSOdLk2DzgunRMM1KMoLVlT9MOi/nbAU2cUL6MMj6czbKo1qrPF6d4WnE6iD7m4J4Zqdvz57GPLD
+	B8dbKfd5b93WCu1V776wlNxz/ro6vzuNc1tB81BH9qOYyAGJNYQ/4UqOmONO02XKyaco87su5lxmS
+	FXvAQiqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we5lz-0000000DnTv-0n3n;
-	Mon, 29 Jun 2026 06:47:15 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1we5mD-0000000DnXd-1M1W;
+	Mon, 29 Jun 2026 06:47:29 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we5ly-0000000DnTh-1kGG
+	id 1we5m4-0000000DnW1-2mwp
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 29 Jun 2026 06:47:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=u/fJt3NKLlyjvcFkI8VZNqRDO7ANl8HQ8B6aLmlQAi4=; b=RQOUl5EWAYVMIlc8EWYwSQMO2t
+	k+XlusLCMmMyOm+Vb4ga4PW0ysENCctehaVj4Z6eKU/+RacIkRxXDxgxoz0DFjC92wq4Cn+4AGK+S
+	MAktp1llea7oYyWHCEO0k2HZ6fKfQRL4t4DItTDID/ZkvOeKgTQdax+aQNPEM80grN5eKK1j8enHU
+	5RY1+Hd7jixf2NrAMaETa7MMYRpWE3KagicNRAAzfy2APcrnFTx3ArA5iuogxeIjkLkvEzbDZbp8C
+	yEWVbZ38r8PyTl6mcH2JJPetlKORIlKcaw/REedUwdcwtzmtHAL/upTSZQKgQjHPsURjVGigbMvTq
+	gTwKzhbQ==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1we5m1-00000000hIb-0zpz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 06:47:14 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 178F8438E0;
-	Mon, 29 Jun 2026 06:47:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EAD6E1F000E9;
-	Mon, 29 Jun 2026 06:47:03 +0000 (UTC)
-X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: Jason Gunthorpe <jgg@ziepe.ca>
-Cc: Alexey Kardashevskiy <aik@amd.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
-	Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>,
-	Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>,
-	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
-Subject: Re: [PATCH v6 00/20] dma-mapping: Use DMA_ATTR_CC_SHARED through
- direct, pool and swiotlb paths
-In-Reply-To: <20260619140616.GB1068655@ziepe.ca>
-References: <20260604083959.1265923-1-aneesh.kumar@kernel.org>
- <aigYbK12D8uKQvJF@arm.com> <20260609144746.GL2764304@ziepe.ca>
- <2ecfa1a8-6202-4319-9692-a6ffeb5a3dbf@amd.com>
- <yq5aqzm4dz25.fsf@kernel.org> <20260618153705.GH231643@ziepe.ca>
- <yq5ao6h6enhm.fsf@kernel.org> <20260619122148.GL231643@ziepe.ca>
- <yq5aldcaejos.fsf@kernel.org> <20260619140616.GB1068655@ziepe.ca>
-Date: Mon, 29 Jun 2026 12:16:30 +0530
-Message-ID: <yq5ao6gtoncp.fsf@kernel.org>
+	Mon, 29 Jun 2026 06:47:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2002E176B;
+	Sun, 28 Jun 2026 23:47:10 -0700 (PDT)
+Received: from [10.164.19.15] (unknown [10.164.19.15])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3C1F03F85F;
+	Sun, 28 Jun 2026 23:47:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1782715634; bh=wG+BKRCh7EswG1NnBEIJLxPGzB+YZ6gQORqGiFpNlxk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=L1ipuc6pUg//TJm2iPvJ8j4e8NZzKbVkfx4X1O65glkyl1Z6AzAdvwnb9H9muTdJO
+	 yIY6NujGnMcYEdyOgxBHRN6ZdFko2nQQ03RgGjxLf8sfQD0J/IMOFAieH7m5C84m1a
+	 DYnT2j6Lc7v4DOn1UajCixH0dkmX1SKs8MWOtFHM=
+Message-ID: <aecf8ea2-43e3-4aad-810a-120b036d8bc2@arm.com>
+Date: Mon, 29 Jun 2026 12:17:07 +0530
 MIME-Version: 1.0
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 6/6] mm/vmalloc: align vm_area so vmap() can batch
+ mappings
+To: Wen Jiang <jiangwenxiaomi@gmail.com>, linux-mm@kvack.org,
+ linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
+ will@kernel.org, akpm@linux-foundation.org, urezki@gmail.com
+Cc: baohua@kernel.org, Xueyuan.chen21@gmail.com, rppt@kernel.org,
+ david@kernel.org, ryan.roberts@arm.com, anshuman.khandual@arm.com,
+ ajd@linux.ibm.com, linux-kernel@vger.kernel.org, jiangwen6@xiaomi.com,
+ shanghaoqiang@xiaomi.com
+References: <20260618084726.1070022-1-jiangwen6@xiaomi.com>
+ <20260618084726.1070022-7-jiangwen6@xiaomi.com>
+Content-Language: en-US
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <20260618084726.1070022-7-jiangwen6@xiaomi.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260629_074717_701839_132709CF 
+X-CRM114-Status: GOOD (  20.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,244 +91,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Jason Gunthorpe <jgg@ziepe.ca> writes:
-
-> On Fri, Jun 19, 2026 at 02:36:19PM +0100, Aneesh Kumar K.V wrote:
->> >> Agreed. If the device can do encrypted DMA and requires bouncing, it
->> >> should bounce through encrypted pools. We don't support encrypted pools
->> >> now and that means, we mark the option ("mem_encrypt=on iommu=pt
->> >> swiotlb=force") not supported for now? 
->> >
->> > ?? if you don't have a CC system then the swiotlb is "encrypted"
->> > meaning ordinary struct page system memory.
->> >
->> > The hypervisor should not be triggering any CC special stuff here, it
->> > is not a CC guest.
->> >
->> > Agree we don't need to worry about swiotlb=force with a trusted device
->> > in the GUEST for now, but it should be something to fix eventually.
->> >
->> 
->> If i understand this correctly, the setup Alexey is referring to here is
->> bare metal system with memory encryption enabled and dma address doesn't
->> need C bit cleared because it is handled in iommu.
->
-> This is how I understand it too, if the iommu is turned on then it can
-> take the high PA with the C bit set and map it to an IOVA that matches
-> the device's dma limit.
->
->> ( I consider this as memory encryption that is handled
->> transparently, device can access any address because that encryption
->> details are now managed by iommu).
->
-> Compared to the guest side there are some important host side differences:
->
->  - On the host the iommu can fix it because this is only a matter of
->    IOVA range not access control. On a guest even a IOMMU cannot
->    permit access to private memory
->  - On the host the state of the device is driven by the dma limit
->    which is not set until after the driver probes. On guest the state is
->    set by the tsm and device security level before the driver
->    probes
->  - Both flows end up using pgprot_decrypted and set_memory_decrypted()
->    to create their special pools, but for completely different
->    reasons.
->  - The memory coming from the special swiotlb pool must NOT be used by
->    a trusted device on a CC guest, while there is no problem for any
->    device to use it on the host.
->
-
-Agreed.
-
->> Thinking about this more, I guess we should mark the swiotlb as
->> cc_shared only with  CC_ATTR_GUEST_MEM_ENCRYPT instead of
->> CC_ATTR_MEM_ENCRYPT as we have below.
->
-> The name cc_shared should be used for GUEST scenarios only.
->
-> I guess there is some merit in keeping swiotlb using "decrypted" to
-> mean it usinig pgprot_decrypted and set_memory_decyped() which AMD
-> gives meaning to on both host and guest.
->
-
-Are you suggesting to change the struct io_tlb_mem::cc_shared back to
-struct io_tlb_mem::unencrypted?. If we want to split cc_shared and
-unencrypted as two flags, I think we will add quiet a lot of code
-duplication.
-
-> IDK what AMD should do on the host by default. I guess it should setup
-> a swiotlb pool of low dma addrs "unencrypted", but not "cc_shared"?
->
-
-If by low DMA address you mean using an address with the C-bit
-cleared. Currently the SME code uses force_dma_unencrypted() as the hook to
-determine whether the C-bit needs to be cleared. Therefore,
-force_dma_unencrypted(dev) must be true to use such a pool.
-
-The current code already does this and uses the swiotlb pool correctly
-on SME. The challenge arises when we want to force SWIOTLB
-bouncing even for devices that can handle encrypted DMA addresses (more
-on that below). For such a config force_dma_uencrypted(dev) will return
-false and swiotlb will be marked cc_shared/decrypted = true; This trip
-the new check we added.
-
-	/* swiotlb pool is incorrect for this device */
-	if (unlikely(mem->cc_shared != force_dma_unencrypted(dev)))
-		return (phys_addr_t)DMA_MAPPING_ERROR;
-
-We can also do
-
-	if (cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT)) {
-		/* swiotlb pool is incorrect for this device */
-		if (unlikely(mem->cc_shared != force_dma_unencrypted(dev)))
-			return (phys_addr_t)DMA_MAPPING_ERROR;
-
-		/* Force attrs to match the kind of memory in the pool */
-		if (mem->cc_shared)
-			*attrs |= DMA_ATTR_CC_SHARED;
-		else
-			*attrs &= ~DMA_ATTR_CC_SHARED;
-	} else {
-		/*
-		 * Host memory encryption where device requires an
-		 * unencrypted dma_addr_t due to dma mask limit
-    		 */
-		if (force_dma_unencrypted(dev))
-			*attrs |= DMA_ATTR_CC_SHARED;
-		else
-			*attrs &= ~DMA_ATTR_CC_SHARED;
-	}
 
 
-Here I see value in having DMA_ATTR_UNENCRYPTED. The question is do we
-need to split this into two flags and introduce the resulting code
-duplication.
+On 18/06/26 2:17 pm, Wen Jiang wrote:
+> From: "Barry Song (Xiaomi)" <baohua@kernel.org>
+> 
+> Try to align the vmap virtual address to PMD_SHIFT or a
+> larger PTE mapping size hinted by the architecture, so
+> contiguous pages can be batch-mapped when setting PMD or
+> PTE entries.
+> 
+> Add __get_vm_area_node_aligned_caller() as a wrapper over
+> __get_vm_area_node() to simplify repeated calls with fixed
+> arguments.
+> 
+> Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
+> Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
+> Tested-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
+> ---
+>  mm/vmalloc.c | 37 ++++++++++++++++++++++++++++++++++++-
+>  1 file changed, 36 insertions(+), 1 deletion(-)
+> 
+> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+> index fffb885cb2158..bc9fa93e2bdc6 100644
+> --- a/mm/vmalloc.c
+> +++ b/mm/vmalloc.c
+> @@ -3628,6 +3628,41 @@ static int vmap_batched(unsigned long addr, unsigned long end,
+>  	return err;
+>  }
+>  
+> +static struct vm_struct *__get_vm_area_node_aligned_caller(unsigned long size,
+> +		unsigned long align, unsigned long flags, const void *caller)
 
->
-> But if we are operating on the host then this pool is not limited to
-> only T=0 devices, every device can "safely" use it. (ignoring this
-> destroys the security memory encryption on bare metal was supposed to
-> provide)
->
->> Now we have the case of host memory encryption where the C-bit needs to
->> be cleared in dma_addr_t. That requires special handling in the kernel, and
->> I believe we need to mark swiotlb as unencrypted in this configuration.
->
-> I think we need to split the two things up, they have different
-> behaviors and need different flags and labels to make it all work
-> right.
->
->> I am still not clear whether there is a config option or runtime check
->> we can use to identify this case.
->
-> The dma api has to detect, after the driver sets the dma limit, that
-> none of system memory is usable when:
->  - The direct path is being used
->  - phys to dma for 0 is outside the dma limit
->
-> Then it should assume the arch has setup a swiotlb pool for it to use
-> to fix the high memory problem.
->
-> Similar hackery would be needed in the dma alloc path to know that
-> decrypted can be used to fix the high memory problem like for GUEST.
->
-> I guess some 'dev_cannot_reach_memory(dev)' sort of test in a
-> few key places? Setup with a static branch to be a nop on everything
-> but AMD, compiled out on every other arch.
->
+There are 3 similar functions below __get_vm_area_node: they are __get_vm_area_caller,
+get_vm_area and get_vm_area_caller. You can put this one just below them.
 
-If we are not able to reach the memory because of the memory encryption
-bit, then isn't dev_cannot_reach_memory(dev) the same as
-force_dma_unencrypted(dev)? If so, that is how it is already done.
 
-I am wondering whether we can keep this simpler by ignoring the
-swiotlb=force kernel parameter and keeping cc_shared as it is, even
-though that can be confusing when looking at SME.
+> +{
+> +	return __get_vm_area_node(size, align, PAGE_SHIFT, flags,
+> +			VMALLOC_START, VMALLOC_END,
+> +			NUMA_NO_NODE, GFP_KERNEL, caller);
+> +}
+> +
+> +static struct vm_struct *vmap_get_aligned_vm_area(unsigned long size,
+> +		unsigned long flags, const void *caller)
+> +{
+> +	struct vm_struct *vm_area;
+> +	unsigned int shift;
+> +
+> +	/* Try PMD alignment for large sizes */
 
-The three configurations we need to consider here are:
+This comment feels excessive. Can remove it.
 
-1) SEV-SNP guest
-2) SME host with iommu=translated
-3) SME host with iommu=passthrough
 
-IIUC, all of the above work with the current code because we mark the
-swiotlb as cc_shared/decrypted when CC_ATTR_MEM_ENCRYPT is set (i.e.,
-this applies to an SME host as well).
+> +	if (size >= PMD_SIZE) {
 
-The challenge arises when the user forces swiotlb bouncing with the
-swiotlb=force command-line option. At that point, all devices, including
-those whose DMA mask can handle encrypted DMA addresses, are forced to
-use SWIOTLB. That becomes a problem because SWIOTLB is marked as
-decrypted by default.
+Need an arch_vmap_pmd_supported() check here.
 
-How about something like the following?
 
-x86/dma: Disable forced SWIOTLB bouncing for SME IOMMU passthrough
+> +		vm_area = __get_vm_area_node_aligned_caller(size, PMD_SIZE,
+> +				flags, caller);
+> +		if (vm_area)
+> +			return vm_area;
+> +	}
+> +
+> +	/* Try CONT_PTE alignment */
 
-With host memory encryption and IOMMU passthrough, DMA address handling
-depends on whether a device can address the C-bit. Devices that cannot
-address it need DMA addresses with the C-bit cleared, while devices that
-can address encrypted memory should keep using encrypted DMA addresses.
+Comment feels excessive, and again no need to mention arm64 specific stuff here.
+Just remove it.
 
-The default swiotlb pool is marked shared when memory encryption is active.
-Forcing all devices through that pool would also force devices capable of
-encrypted DMA to use shared mappings. Clear the global swiotlb-force-bounce
-state in this mode, and warn when this overrides an explicit swiotlb=force
-command-line request.
+> +	shift = arch_vmap_pte_supported_shift(size);
+> +	if (shift > PAGE_SHIFT) {
+> +		vm_area = __get_vm_area_node_aligned_caller(size, 1UL << shift,
+> +				flags, caller);
+> +		if (vm_area)
+> +			return vm_area;
+> +	}
+> +
+> +	/* Fall back to page alignment */
 
-Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+This comment can also be dropped, but I am fine either way.
 
-modified   arch/x86/kernel/pci-dma.c
-@@ -51,8 +51,24 @@ static void __init pci_swiotlb_detect(void)
- 	 * Set swiotlb to 1 so that bounce buffers are allocated and used for
- 	 * devices that can't support DMA to encrypted memory.
- 	 */
--	if (cc_platform_has(CC_ATTR_HOST_MEM_ENCRYPT))
-+	if (cc_platform_has(CC_ATTR_HOST_MEM_ENCRYPT)) {
- 		x86_swiotlb_enable = true;
-+		/*
-+		 * With host memory encryption and IOMMU passthrough, devices
-+		 * that cannot address the C-bit need DMA addresses with the
-+		 * C-bit cleared, while devices that can address encrypted
-+		 * memory should keep using encrypted DMA addresses.
-+		 *
-+		 * The default SWIOTLB pool is marked shared when memory
-+		 * encryption is active, so forcing all devices through it would
-+		 * also force devices that support encrypted DMA to use shared
-+		 * mappings. Disable global forced bouncing in this mode.
-+		 */
-+		if (iommu_default_passthrough() &&
-+		    clear_swiotlb_force_bounce())
-+			pr_warn("Ignoring swiotlb=force with host memory encryption and "
-+				"IOMMU passthrough\n");
-+	}
- 
- 	/*
- 	 * Guest with guest memory encryption currently perform all DMA through
-modified   include/linux/swiotlb.h
-@@ -40,6 +40,7 @@ void __init swiotlb_init_remap(bool addressing_limit, unsigned int flags,
- int swiotlb_init_late(size_t size, gfp_t gfp_mask,
- 	int (*remap)(void *tlb, unsigned long nslabs));
- extern void __init swiotlb_update_mem_attributes(void);
-+bool __init clear_swiotlb_force_bounce(void);
- 
- #ifdef CONFIG_SWIOTLB
- 
-modified   kernel/dma/swiotlb.c
-@@ -208,6 +208,15 @@ unsigned long swiotlb_size_or_default(void)
- 	return default_nslabs << IO_TLB_SHIFT;
- }
- 
-+bool __init clear_swiotlb_force_bounce(void)
-+{
-+	if (!swiotlb_force_bounce)
-+		return false;
-+
-+	swiotlb_force_bounce = false;
-+	return true;
-+}
-+
- void __init swiotlb_adjust_size(unsigned long size)
- {
- 	/*
+
+> +	return __get_vm_area_node_aligned_caller(size, PAGE_SIZE, flags, caller);
+> +}
+> +
+>  /**
+>   * vmap - map an array of pages into virtually contiguous space
+>   * @pages: array of page pointers
+> @@ -3666,7 +3701,7 @@ void *vmap(struct page **pages, unsigned int count,
+>  		return NULL;
+>  
+>  	size = (unsigned long)count << PAGE_SHIFT;
+> -	area = get_vm_area_caller(size, flags, __builtin_return_address(0));
+> +	area = vmap_get_aligned_vm_area(size, flags, __builtin_return_address(0));
+
+So the effect is that now we search for an aligned vm_struct unconditionally. Better
+to mention in the commit message that we do not expect any significant overhead for
+this.
+
+
+>  	if (!area)
+>  		return NULL;
+>  
+
 
