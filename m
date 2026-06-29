@@ -4,94 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAA31C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 13:57:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66F97C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 13:59:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fi+aOF3X0XE+EnDA3NYao73z90dCW8BKgRHxnIWsmow=; b=Bviko4iZuB8E/koogKpm5YvJ8V
-	F4zVxSJeBdjatnE3F8Gvd8wim1xaGjAD2NSQu9P4V/f9m+9yVlr6Lr8WisjGf9eDK6GLNlFpYbURQ
-	/mvlTm4KNWIQBkHOXkveNFGK82vdbQQvmw5khweKuvZwAqTCMcQNKjSWu3utYqp8hSzOG88WkNDFe
-	2ITVcffqHHZIctCsacixpzl2SXu0bt8TlWacUT3Ntze5WHGaa3cR+zoIaQyjT/YY2f9JgM3nkcR34
-	opV4dAlKa1K/eMd7QMVjnqozsKpWwBnMaigFRLWKyvT2NfVxqUtekEqRqMlUK2lMsJNYtw6wnuc8C
-	I6Eu6BGA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Eq0NlXkjV03GwRAcmSojFAfHDnE7PE65aXZcNBP60RU=; b=wNjxvecib/Gcw0snx5yZW0DpGg
+	nyScI2toEhkz41XStz4TjNAHDR1CIKImqBS8igZeK4HaCVG8H+aQx/I6Go0b6hysJyKxTm4SFnYSg
+	/FNxJ/1jnpED48fm9iyr9WQ83zgRNTQ47AS8smNWbDehd6TdwAXy/tAmiaSD6vUY7kFnJtPYfLaCb
+	rpApGNTTGzsOP0VmUPGioONaJhFtEXOfQ/1fmuEv07EQNNmSUz9REVoa979w8Y8hVv9olHLzBSsZ6
+	BH13iawjYZ8euS2g2ZparuELDgBsAKUQ50rIs/8aMiXa6vqx13P6hXA8jAa4dA8yoxMxjRyOTbLBt
+	J9FI4daw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weCUg-0000000EoXQ-25BG;
-	Mon, 29 Jun 2026 13:57:50 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1weCWH-0000000Eorz-0Q4v;
+	Mon, 29 Jun 2026 13:59:29 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weCUY-0000000EoR3-1tpR
+	id 1weCWF-0000000Eore-38vr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 13:57:43 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-493a440bc10so10982355e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 06:57:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1782741460; x=1783346260; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Fi+aOF3X0XE+EnDA3NYao73z90dCW8BKgRHxnIWsmow=;
-        b=CIw77trLl3xXwjBmRuCqroLawvQO2a0bpBOJqeqBtkAKYY/JnyTvVc+qEPJ5QHxjCQ
-         GDs0ExEtUfN8SahUaS7vKgSeEhL5t55zs+SFiuoKQ5uwAVFmJgNy7FgsHfhH644DJLZc
-         IrB1Q9ViTCfE86kfHwMf1B0JLu74fdTYvT/+DtZtYy9V+HBrbOe4Ub9zhEeowyJFSou+
-         Pt02m2Jo9aMoe79yiSB6XiJ7zsaKaGXeLUE5Y5DChp2VdToBXWQqyTcBJTgeBLlwlnGq
-         wc2kHmVQRSkZGyNnYR2BjTxC3zGybVXTfIM0rOgmxUp5foKR9ALyysq1j2TfB/+CRy+m
-         ieGQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782741460; x=1783346260;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Fi+aOF3X0XE+EnDA3NYao73z90dCW8BKgRHxnIWsmow=;
-        b=gggNKw0vHhNrkYW6zQS/KRBBbHhhiMvrdXBYoijJfTehmKAoMhFmGRwiWucbfUMItw
-         7WD88Evtty/ZPsZz1MVjHk8XmuQyELRoekdskXmN+/PLRomZGPvoYDhUOTePEW8q4XuP
-         cFDWiFqtt+0Pm1dW0Kmt0lK0hY6g4Cef7FW0hIRZSaeTY/4sFGdP4sHB+D1zSsOnitHz
-         w0kIiA/WgMpjcIDcHrvsRY/PBX/nxZVvkxdAeg2qVU4WiiO8UZo8POiBHbSyvSMW1wz0
-         lxhlcj34t47qK+fgNVl8ndAzR9HMTjGOqlLyt1vrQX5b2esFLeWqhxQx6IPxnIu4+PHc
-         xnXQ==
-X-Forwarded-Encrypted: i=1; AFNElJ91swmaFDUohzkUVlv0LPKvpu1Z2rW3aetxfzKN1coBWkDMTpg4ND4L9qi4d94Xm7IvebyWPIpNScxHYDAH9xKr@lists.infradead.org
-X-Gm-Message-State: AOJu0YznC3za8l3nfvD5c7qRBOAglivKlq57yQQRJS8Q4HklHPq2aqQK
-	BQau17vyQF5uYShI1qDx4kCIv3PEg56bcVkxbPIVvZ10ivB33vdr7WP8l6a+Gf6tBxX+DSsSE0N
-	QckDS
-X-Gm-Gg: AfdE7ckNAUPFKcpV3EqfWmUF9grBgSg2qLDeOekqjs2cNpPk95JV60dozyO69yFyYn7
-	zYeeEE2BBKS+bUHgPOBr2Q9eXIaQ+ET3aYNkcjYFLdZ64d33UbvvHWztLiYMiYfN2fJ/yuol7Kw
-	hned3ccvvXFzYDW/YdHv946sPgZMrDyIVnhpVDKEanZj5nUJYsZXWoAdSXMQOA4MgIfmFzDF4hC
-	dFvH6Vho2K9uXa5Jgn9ROyGhMRzCyMixR8L97l6+sy1UujdO1Vb0tZ1SlZ/qou1i3uFHqm6M60v
-	uOUCSN1CdqpJ5a1eXVVsbjmGWtubWQVc4ggJPTjyHVQJ68o5nDgWo0Xau2WQGT0D6Dpzk2peL2d
-	fqgSJ3V8v7767LhC9QvG7Qj9Ya+Gbfl9C/QBtJ08E1oZSsMZ1dsvn9oYecx7yHiNIhy/pNeUQ8d
-	ph7i+S3lJ3vsYqHUMH8APV8fuv01z5BtLzu3Jm1fRsZQziKcRrJi/NMUOAuLXjMh+C2nSWt1oDh
-	2O1
-X-Received: by 2002:a05:600c:5290:b0:493:b7a6:3dac with SMTP id 5b1f17b1804b1-493b7a63dbdmr608125e9.33.1782741460528;
-        Mon, 29 Jun 2026 06:57:40 -0700 (PDT)
-Received: from localhost (p200300f65f47db04294e5bd34a12a699.dip0.t-ipconnect.de. [2003:f6:5f47:db04:294e:5bd3:4a12:a699])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-49268fe949csm375305105e9.5.2026.06.29.06.57.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Jun 2026 06:57:38 -0700 (PDT)
-Date: Mon, 29 Jun 2026 15:57:35 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
-	Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Heiko Stuebner <heiko@sntech.de>, linux-rockchip@lists.infradead.org, linux-sound@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 03/17] ASoC: rockchip: rockchip_sai: #include
- <linux/platform_device.h> explicitly
-Message-ID: <akJ5lkLieSgkdfW9@monoceros>
-References: <cover.1782490566.git.u.kleine-koenig@baylibre.com>
- <d2fe7dc85277b01526f9320ed5baab2acd29660b.1782490566.git.u.kleine-koenig@baylibre.com>
- <8dcfcd10-4b9d-4775-9e23-3884b896a7b9@sirena.org.uk>
+	Mon, 29 Jun 2026 13:59:27 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9178D600AA;
+	Mon, 29 Jun 2026 13:59:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E7251F000E9;
+	Mon, 29 Jun 2026 13:59:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782741565;
+	bh=Eq0NlXkjV03GwRAcmSojFAfHDnE7PE65aXZcNBP60RU=;
+	h=From:To:Cc:Subject:Date;
+	b=nVcV/4lE/+/zThby5E7p+CgsX8N5YIFl3t8FAo/ngKPcdYMJ7xveXMEe3+cOIzk7a
+	 DqqzDz8NpKzQpQMa/wOH8bABrUJPbK3mKuPuoIULOGpLl+DUauNaJU9QnfFdcK/tSt
+	 09a824uPHoizghh6nfGxssxORHSIgsMRmCCdW14u9i8gXa/FgMoqBFx34ckZ1mJqJN
+	 5q88vgvuWpqo/5SY7v2DEnI44FSTzYQtbgKVKVNqhrD1jLIJvR8ILA2XzFEAwrPDJG
+	 iH0ZSAOv0e6hJYPhXqrW7HIjshPw2GztB/ppvYSKE/SpaB05MXtelriIdVa77LmmMz
+	 hGd2c/VKh0R9Q==
+From: Arnd Bergmann <arnd@kernel.org>
+To: Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Marcel Holtmann <marcel@holtmann.org>,
+	MyungJoo Ham <myungjoo.ham@samsung.com>,
+	Chanwoo Choi <cw00.choi@samsung.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Andy Shevchenko <andy@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Ulf Hansson <ulfh@kernel.org>,
+	linux-bluetooth@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-gpio@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-i2c@vger.kernel.org,
+	linux-iio@vger.kernel.org,
+	linux-input@vger.kernel.org,
+	linux-mmc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org,
+	linux-usb@vger.kernel.org
+Subject: [PATCH] [RFC] gpiolib: introduce gpio_name() helper
+Date: Mon, 29 Jun 2026 15:56:29 +0200
+Message-Id: <20260629135917.1308621-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="4sshmqzaaw52uohq"
-Content-Disposition: inline
-In-Reply-To: <8dcfcd10-4b9d-4775-9e23-3884b896a7b9@sirena.org.uk>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_065742_500018_50E393DD 
-X-CRM114-Status: GOOD (  13.95  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,48 +84,292 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Arnd Bergmann <arnd@arndb.de>
 
---4sshmqzaaw52uohq
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2 03/17] ASoC: rockchip: rockchip_sai: #include
- <linux/platform_device.h> explicitly
-MIME-Version: 1.0
+Most remaining users of desc_to_gpio() only call it for printing debug
+information.
 
-Hello Mark,
+Replace this with a new gpiod_name() helper that returns the
+gpio_desc->name string after checking the gpio_desc pointer.
 
-On Mon, Jun 29, 2026 at 12:17:04PM +0100, Mark Brown wrote:
-> On Fri, Jun 26, 2026 at 08:00:22PM +0200, Uwe Kleine-K=F6nig (The Capable=
- Hub) wrote:
-> > Currently that header is only included via:
-> >=20
-> > 	<sound/dmaengine_pcm.h> ->
-> > 	<sound/soc.h> ->
-> > 	<linux/platform_device.h>
->=20
-> Acked-by: Mark Brown <broonie@kernel.org>
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+---
 
-You're too late for the Ack, this patch already is applied and part of
-v7.2.
+Not sure if this the way we want to take this, or if the gpio name is
+an appropriate replacement in debug printk.
 
-Best regards
-Uwe
+Since most of the callers of desc_to_gpio() and gpio_to_desc() are
+otherwise in drivers that already depend on CONFIG_GPIOLIB_LEGACY and
+include linux/gpio/legacy.h, only a handful of instances remain that
+are otherwise in files that otherwise only use the descriptor interfaces:
 
---4sshmqzaaw52uohq
-Content-Type: application/pgp-signature; name="signature.asc"
+arch/arm/mach-pxa/pxa27x.c:	reset_gpio = desc_to_gpio(gpiod);
+arch/arm/plat-orion/gpio.c:	unsigned gpio = desc_to_gpio(desc);
+drivers/gpio/gpio-nomadik.c:		mode = nmk_prcm_gpiocr_get_mode(pctldev, desc_to_gpio(desc));
+drivers/gpio/gpiolib-acpi-core.c:			desc = gpio_to_desc(agpio->pin_table[pin_index]);
+drivers/gpio/gpiolib-cdev.c:	hte_init_line_attr(hdesc, desc_to_gpio(line->desc), flags, NULL,
+drivers/gpio/gpiolib-sysfs.c:	desc = gpio_to_desc(gpio);
+drivers/gpio/gpiolib-sysfs.c:						   desc_to_gpio(desc));
+drivers/gpio/gpiolib.c:	trace_gpio_direction(desc_to_gpio(desc), 1, ret);
+drivers/input/misc/soc_button_array.c:	*gpio_ret = desc_to_gpio(desc);
+drivers/pinctrl/core.c:			gdev = gpiod_to_gpio_device(gpio_to_desc(gpio_num));
+drivers/platform/x86/x86-android-tablets/core.c: * 2. Calling desc_to_gpio() to get an old style GPIO number for gpio-keys
+drivers/soc/fsl/qe/gpio.c:	gpio_num = desc_to_gpio(gpiod);
+---
+ drivers/bluetooth/hci_intel.c             |  4 ++--
+ drivers/extcon/extcon-rtk-type-c.c        |  4 ++--
+ drivers/gpio/gpio-aggregator.c            |  4 ++--
+ drivers/gpio/gpiolib.c                    | 13 +++++++++++++
+ drivers/gpu/drm/bridge/analogix/anx7625.c |  6 +++---
+ drivers/i2c/busses/i2c-gpio.c             |  4 ++--
+ drivers/iio/accel/mma9551.c               |  4 ++--
+ drivers/iio/humidity/dht11.c              |  2 +-
+ drivers/input/touchscreen/edt-ft5x06.c    |  6 +++---
+ drivers/input/touchscreen/hycon-hy46xx.c  |  5 ++---
+ drivers/mmc/host/atmel-mci.c              |  8 ++++----
+ drivers/power/supply/bq24257_charger.c    |  2 +-
+ drivers/usb/gadget/udc/at91_udc.c         |  4 ++--
+ include/linux/gpio/consumer.h             |  8 ++++++++
+ 14 files changed, 47 insertions(+), 27 deletions(-)
 
------BEGIN PGP SIGNATURE-----
+diff --git a/drivers/bluetooth/hci_intel.c b/drivers/bluetooth/hci_intel.c
+index c31105b91e47..2e6ebc152bcb 100644
+--- a/drivers/bluetooth/hci_intel.c
++++ b/drivers/bluetooth/hci_intel.c
+@@ -1176,8 +1176,8 @@ static int intel_probe(struct platform_device *pdev)
+ 	list_add_tail(&idev->list, &intel_device_list);
+ 	mutex_unlock(&intel_device_list_lock);
+ 
+-	dev_info(&pdev->dev, "registered, gpio(%d)/irq(%d).\n",
+-		 desc_to_gpio(idev->reset), idev->irq);
++	dev_info(&pdev->dev, "registered, gpio(%s)/irq(%d).\n",
++		 gpiod_name(idev->reset), idev->irq);
+ 
+ 	return 0;
+ }
+diff --git a/drivers/extcon/extcon-rtk-type-c.c b/drivers/extcon/extcon-rtk-type-c.c
+index 82b60b927e41..fb57e9d7ddb6 100644
+--- a/drivers/extcon/extcon-rtk-type-c.c
++++ b/drivers/extcon/extcon-rtk-type-c.c
+@@ -1356,8 +1356,8 @@ static int extcon_rtk_type_c_probe(struct platform_device *pdev)
+ 				(int)PTR_ERR(gpio));
+ 		} else {
+ 			type_c->rd_ctrl_gpio_desc = gpio;
+-			dev_dbg(dev, "%s get rd-ctrl-gpios (id=%d) OK\n",
+-				__func__, desc_to_gpio(gpio));
++			dev_dbg(dev, "%s get rd-ctrl-gpios (id=%s) OK\n",
++				__func__, gpiod_name(gpio));
+ 		}
+ 	}
+ 
+diff --git a/drivers/gpio/gpio-aggregator.c b/drivers/gpio/gpio-aggregator.c
+index bc6699a821ee..27df680fbdbb 100644
+--- a/drivers/gpio/gpio-aggregator.c
++++ b/drivers/gpio/gpio-aggregator.c
+@@ -758,8 +758,8 @@ int gpiochip_fwd_desc_add(struct gpiochip_fwd *fwd, struct gpio_desc *desc,
+ 
+ 	fwd->descs[offset] = desc;
+ 
+-	dev_dbg(chip->parent, "%u => gpio %d irq %d\n", offset,
+-		desc_to_gpio(desc), gpiod_to_irq(desc));
++	dev_dbg(chip->parent, "%u => gpio %s irq %d\n", offset,
++		gpiod_name(desc), gpiod_to_irq(desc));
+ 
+ 	return 0;
+ }
+diff --git a/drivers/gpio/gpiolib.c b/drivers/gpio/gpiolib.c
+index 1f498d6c8c68..00de24db74a5 100644
+--- a/drivers/gpio/gpiolib.c
++++ b/drivers/gpio/gpiolib.c
+@@ -4122,6 +4122,19 @@ int gpiod_set_consumer_name(struct gpio_desc *desc, const char *name)
+ }
+ EXPORT_SYMBOL_GPL(gpiod_set_consumer_name);
+ 
++/**
++ * gpiod_name() - get a name to print for a gpio descriptor
++ * @desc: gpio or NULL pointer to query
++ *
++ * Returns:
++ * The desc->name field or a dummy string for unknown GPIOs.
++ */
++const char *gpiod_name(const struct gpio_desc *desc)
++{
++	return desc ? desc->name : "(no gpio)";
++}
++EXPORT_SYMBOL_GPL(gpiod_name);
++
+ /**
+  * gpiod_is_shared() - check if this GPIO can be shared by multiple consumers
+  * @desc: GPIO to inspect
+diff --git a/drivers/gpu/drm/bridge/analogix/anx7625.c b/drivers/gpu/drm/bridge/analogix/anx7625.c
+index fffcd6154c71..5dce097d4045 100644
+--- a/drivers/gpu/drm/bridge/analogix/anx7625.c
++++ b/drivers/gpu/drm/bridge/analogix/anx7625.c
+@@ -1448,9 +1448,9 @@ static void anx7625_init_gpio(struct anx7625_data *platform)
+ 
+ 	if (platform->pdata.gpio_p_on && platform->pdata.gpio_reset) {
+ 		platform->pdata.low_power_mode = 1;
+-		DRM_DEV_DEBUG_DRIVER(dev, "low power mode, pon %d, reset %d.\n",
+-				     desc_to_gpio(platform->pdata.gpio_p_on),
+-				     desc_to_gpio(platform->pdata.gpio_reset));
++		DRM_DEV_DEBUG_DRIVER(dev, "low power mode, pon %s, reset %s.\n",
++				     gpiod_name(platform->pdata.gpio_p_on),
++				     gpiod_name(platform->pdata.gpio_reset));
+ 	} else {
+ 		platform->pdata.low_power_mode = 0;
+ 		DRM_DEV_DEBUG_DRIVER(dev, "not low power mode.\n");
+diff --git a/drivers/i2c/busses/i2c-gpio.c b/drivers/i2c/busses/i2c-gpio.c
+index f4355b17bfbf..4c320a833d9e 100644
+--- a/drivers/i2c/busses/i2c-gpio.c
++++ b/drivers/i2c/busses/i2c-gpio.c
+@@ -440,8 +440,8 @@ static int i2c_gpio_probe(struct platform_device *pdev)
+ 	 * get accessors to get the actual name of the GPIO line,
+ 	 * from the descriptor, then provide that instead.
+ 	 */
+-	dev_info(dev, "using lines %u (SDA) and %u (SCL%s)\n",
+-		 desc_to_gpio(priv->sda), desc_to_gpio(priv->scl),
++	dev_info(dev, "using lines %s (SDA) and %s (SCL%s)\n",
++		 gpiod_name(priv->sda), gpiod_name(priv->scl),
+ 		 pdata->scl_is_output_only
+ 		 ? ", no clock stretching" : "");
+ 
+diff --git a/drivers/iio/accel/mma9551.c b/drivers/iio/accel/mma9551.c
+index 020370b0ec07..b9d1fc3caf83 100644
+--- a/drivers/iio/accel/mma9551.c
++++ b/drivers/iio/accel/mma9551.c
+@@ -426,8 +426,8 @@ static int mma9551_gpio_probe(struct iio_dev *indio_dev)
+ 			return ret;
+ 		}
+ 
+-		dev_dbg(dev, "gpio resource, no:%d irq:%d\n",
+-			desc_to_gpio(gpio), data->irqs[i]);
++		dev_dbg(dev, "gpio resource, no:%s irq:%d\n",
++			gpiod_name(gpio), data->irqs[i]);
+ 	}
+ 
+ 	return 0;
+diff --git a/drivers/iio/humidity/dht11.c b/drivers/iio/humidity/dht11.c
+index 980cb946bbf7..ca6b8c53e462 100644
+--- a/drivers/iio/humidity/dht11.c
++++ b/drivers/iio/humidity/dht11.c
+@@ -305,7 +305,7 @@ static int dht11_probe(struct platform_device *pdev)
+ 
+ 	dht11->irq = gpiod_to_irq(dht11->gpiod);
+ 	if (dht11->irq < 0) {
+-		dev_err(dev, "GPIO %d has no interrupt\n", desc_to_gpio(dht11->gpiod));
++		dev_err(dev, "GPIO %s has no interrupt\n", gpiod_name(dht11->gpiod));
+ 		return -EINVAL;
+ 	}
+ 
+diff --git a/drivers/input/touchscreen/edt-ft5x06.c b/drivers/input/touchscreen/edt-ft5x06.c
+index d3b1177185a3..2d31c77614b0 100644
+--- a/drivers/input/touchscreen/edt-ft5x06.c
++++ b/drivers/input/touchscreen/edt-ft5x06.c
+@@ -1326,10 +1326,10 @@ static int edt_ft5x06_ts_probe(struct i2c_client *client)
+ 	edt_ft5x06_ts_prepare_debugfs(tsdata);
+ 
+ 	dev_dbg(&client->dev,
+-		"EDT FT5x06 initialized: IRQ %d, WAKE pin %d, Reset pin %d.\n",
++		"EDT FT5x06 initialized: IRQ %d, WAKE pin %s, Reset pin %s.\n",
+ 		client->irq,
+-		tsdata->wake_gpio ? desc_to_gpio(tsdata->wake_gpio) : -1,
+-		tsdata->reset_gpio ? desc_to_gpio(tsdata->reset_gpio) : -1);
++		gpiod_name(tsdata->wake_gpio),
++		gpiod_name(tsdata->reset_gpio));
+ 
+ 	return 0;
+ }
+diff --git a/drivers/input/touchscreen/hycon-hy46xx.c b/drivers/input/touchscreen/hycon-hy46xx.c
+index 1513f20cbf51..797667c5dd99 100644
+--- a/drivers/input/touchscreen/hycon-hy46xx.c
++++ b/drivers/input/touchscreen/hycon-hy46xx.c
+@@ -528,9 +528,8 @@ static int hycon_hy46xx_probe(struct i2c_client *client)
+ 		return error;
+ 
+ 	dev_dbg(&client->dev,
+-		"HYCON HY46XX initialized: IRQ %d, Reset pin %d.\n",
+-		client->irq,
+-		tsdata->reset_gpio ? desc_to_gpio(tsdata->reset_gpio) : -1);
++		"HYCON HY46XX initialized: IRQ %d, Reset pin %s.\n",
++		client->irq, gpiod_name(tsdata->reset_gpio));
+ 
+ 	return 0;
+ }
+diff --git a/drivers/mmc/host/atmel-mci.c b/drivers/mmc/host/atmel-mci.c
+index 3b4928f5b9b2..b21820564315 100644
+--- a/drivers/mmc/host/atmel-mci.c
++++ b/drivers/mmc/host/atmel-mci.c
+@@ -2255,11 +2255,11 @@ static int atmci_init_slot(struct atmel_mci *host,
+ 	slot->sdio_irq = sdio_irq;
+ 
+ 	dev_dbg(&mmc->class_dev,
+-	        "slot[%u]: bus_width=%u, detect_pin=%d, "
+-		"detect_is_active_high=%s, wp_pin=%d\n",
+-		id, slot_data->bus_width, desc_to_gpio(slot_data->detect_pin),
++	        "slot[%u]: bus_width=%u, detect_pin=%s, "
++		"detect_is_active_high=%s, wp_pin=%s\n",
++		id, slot_data->bus_width, gpiod_name(slot_data->detect_pin),
+ 		str_true_false(!gpiod_is_active_low(slot_data->detect_pin)),
+-		desc_to_gpio(slot_data->wp_pin));
++		gpiod_name(slot_data->wp_pin));
+ 
+ 	mmc->ops = &atmci_ops;
+ 	mmc->f_min = DIV_ROUND_UP(host->bus_hz, 512);
+diff --git a/drivers/power/supply/bq24257_charger.c b/drivers/power/supply/bq24257_charger.c
+index 72f1bfea8d54..b756bab74eec 100644
+--- a/drivers/power/supply/bq24257_charger.c
++++ b/drivers/power/supply/bq24257_charger.c
+@@ -868,7 +868,7 @@ static void bq24257_pg_gpio_probe(struct bq24257_device *bq)
+ 	}
+ 
+ 	if (bq->pg)
+-		dev_dbg(bq->dev, "probed PG pin = %d\n", desc_to_gpio(bq->pg));
++		dev_dbg(bq->dev, "probed PG pin = %s\n", gpiod_name(bq->pg));
+ }
+ 
+ static int bq24257_fw_probe(struct bq24257_device *bq)
+diff --git a/drivers/usb/gadget/udc/at91_udc.c b/drivers/usb/gadget/udc/at91_udc.c
+index 5aa360ba4f03..099313604387 100644
+--- a/drivers/usb/gadget/udc/at91_udc.c
++++ b/drivers/usb/gadget/udc/at91_udc.c
+@@ -1896,8 +1896,8 @@ static int at91udc_probe(struct platform_device *pdev)
+ 					gpiod_to_irq(udc->board.vbus_pin),
+ 					at91_vbus_irq, 0, driver_name, udc);
+ 			if (retval) {
+-				DBG("request vbus irq %d failed\n",
+-				    desc_to_gpio(udc->board.vbus_pin));
++				DBG("request vbus irq %s failed\n",
++				    gpiod_name(udc->board.vbus_pin));
+ 				goto err_unprepare_iclk;
+ 			}
+ 		}
+diff --git a/include/linux/gpio/consumer.h b/include/linux/gpio/consumer.h
+index fceeefd5f893..9c91fae62f8c 100644
+--- a/include/linux/gpio/consumer.h
++++ b/include/linux/gpio/consumer.h
+@@ -172,6 +172,8 @@ int gpiod_set_consumer_name(struct gpio_desc *desc, const char *name);
+ 
+ bool gpiod_is_shared(const struct gpio_desc *desc);
+ 
++const char *gpiod_name(const struct gpio_desc *desc);
++
+ /* Convert between the old gpio_ and new gpiod_ interfaces */
+ struct gpio_desc *gpio_to_desc(unsigned gpio);
+ int desc_to_gpio(const struct gpio_desc *desc);
+@@ -538,6 +540,12 @@ static inline bool gpiod_is_shared(const struct gpio_desc *desc)
+ 	return false;
+ }
+ 
++static inline const char *gpiod_name(const struct gpio_desc *desc)
++{
++	WARN_ON(desc);
++	return "(no gpio)";
++}
++
+ static inline struct gpio_desc *gpio_to_desc(unsigned gpio)
+ {
+ 	return NULL;
+-- 
+2.39.5
 
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmpCecwACgkQj4D7WH0S
-/k4QuQf+IZ3MYAOoCiX56AcddT2ysdPwmOlVVSv/6YS6KhChCyJRk6ZSdHoDg3Qn
-xGnj118aX3gekqAPdZGK+3E7fkhwmSCRh9y3c2QgmPZlcwdJqeHrsMbthgmp4+r+
-0GSSh+LTi6ndwo1JU+dP6aUhpyGk5AuRGTvL4ZMA7yuTmVfoSAFk/UrzBqtRXfV9
-PeNnlWg92EyYbL4HQeH1S0xzB7O3KQoB4ni2q4wpQYbFSoQN+FpNRe4oNzkUlXuc
-BBZDGFl7zH8/laFhRMpvfQPxXpksv5JxWWrtgcDINgpwz3+Zm7nYtVuG7r402M8T
-mg//pdx2TidvXsmJe3CMWgTmnZlBAQ==
-=Ojc5
------END PGP SIGNATURE-----
-
---4sshmqzaaw52uohq--
 
