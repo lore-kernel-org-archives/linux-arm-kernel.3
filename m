@@ -4,86 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FA1AC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 13:28:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF8EDC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 13:33:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iYwaK59VeErRBhP0Q9iTMSGYiDgPnUNQAe6MLCdyQLw=; b=0CA0/oOzWywWRZQZZRgReqkl+I
-	AjiktP5u/wb4ZSD+SJ+S0Yt9ozsyOltjwh2lvVb75G0soKgxWzP09QFVES5eG3DgcFf/fMnVqFF87
-	EibYumNeo8hxCjEoYtlK1wA1lZUlpZcH78FJKQs7OHTGLMZcFNFbBFLrx+GCVWwIhRlnVSMhAnzci
-	D8PKnNKPlrVvZImMHb4C5KQi6mDJIDzKrOJFzP3+dmnOK9MZWNgtKbQ3sPkph6PpFZdcGwvzPxtvU
-	ZneH8G+ZZ6jpO3lx7tNlXf7YZHk5pdWzvXguvBJzSoZyn/0LtxyXrGEXKu+Vm7jFd+wNsK7iB+WV1
-	FpGMDY+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ah5EDiHoXZZ+lJdmyeIH71Txk5rReWMRYVm4i/71Zto=; b=xecQMslApDHigrkmYh6ePb14mo
+	hhoEDN+AzKtmqPZi2pygBCKRVXeOIPtaYZd4f4ok/mK21epe732GVkmGXMPgMQSzMj/aPttlgXnpp
+	inoCFzjNaSJG7+tE7TEeFXtBzqgi70JspdSLXND7+z8tE3X3/FxraaiTCfdm96l2TQnGk7csa2LsD
+	qMQ3RxMsTp7NhmvofUaJLs8+Vl1SyQ0cRIKA6Th9PcAT1QMv5e1u5MhGuim+6FrrwmF9AtsRIPV+r
+	/ju0HsZcE2zHBzZoZW8d3Kw8oEUkDfaulfPMMF+xyZNTEOb/e3We5+CGCO0OvF+cJ8KV55tVWNlzh
+	gG8zcLFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weC28-0000000El3G-1bCH;
-	Mon, 29 Jun 2026 13:28:20 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1weC6b-0000000Elly-0b62;
+	Mon, 29 Jun 2026 13:32:57 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weC26-0000000El21-415a;
-	Mon, 29 Jun 2026 13:28:19 +0000
+	id 1weC6Z-0000000Ellp-1Qts
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 29 Jun 2026 13:32:55 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A7C2C41320;
-	Mon, 29 Jun 2026 13:28:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 089BD1F00A3A;
-	Mon, 29 Jun 2026 13:28:11 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B857660008;
+	Mon, 29 Jun 2026 13:32:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3EF3F1F000E9;
+	Mon, 29 Jun 2026 13:32:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782739698;
-	bh=iYwaK59VeErRBhP0Q9iTMSGYiDgPnUNQAe6MLCdyQLw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=h5AFqQi4jStPxyTSP1+6Qa/JvBSIFtVgK0MNZzsiH6wjFRswa/RLrnQqFNHih/qjG
-	 EWv3fVYPKDKbBtHjWpFdO8cIy9X4E9hkJpPP6vBXA8/qsQylAAtt6v+NK73U7OXv92
-	 YB7mQNWAxRfG6dGtDgsPLk0YTrL8XMwVLZP0DiJLe31ovoUMss8UP/7D/l/j5xY8/E
-	 GWyr+Tst/J+V3i8q9C/i4YobqaQblCJhFZjTHY4YfQcFjDhwMaiBx0Ip4Lj1e9DE6L
-	 mM017Lryq9TQOfeRAPIp4At1UOUu2ZNtp0Xj6zezM1lXYTXWiO8CpisTNWLtJuCnOG
-	 JFsljvXoooevw==
-From: Arnd Bergmann <arnd@kernel.org>
-To: linux-gpio@vger.kernel.org
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Gregory Clement <gregory.clement@bootlin.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Greg Ungerer <gerg@linux-m68k.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Hauke Mehrtens <hauke@hauke-m.de>,
-	=?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <zajec5@gmail.com>,
-	Yoshinori Sato <ysato@users.sourceforge.jp>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Linus Walleij <linusw@kernel.org>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Dominik Brodowski <linux@dominikbrodowski.net>,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	patches@opensource.cirrus.com,
-	linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	linux-input@vger.kernel.org,
-	linux-media@vger.kernel.org,
-	netdev@vger.kernel.org,
-	linux-sunxi@lists.linux.dev,
-	linux-phy@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-sound@vger.kernel.org
-Subject: [PATCH 13/13] gpiolib: remove linux/gpio.h
-Date: Mon, 29 Jun 2026 15:26:33 +0200
-Message-Id: <20260629132633.1300009-14-arnd@kernel.org>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20260629132633.1300009-1-arnd@kernel.org>
-References: <20260629132633.1300009-1-arnd@kernel.org>
+	s=k20260515; t=1782739974;
+	bh=Ah5EDiHoXZZ+lJdmyeIH71Txk5rReWMRYVm4i/71Zto=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=IQxSl2C5ZVoL+RZJnQ3IGrU4zyMNjh1eQY3r2zP0WlKD7IATkcPbK7dfca6hsG4pS
+	 pxjIWksqD+fcsHFRVIPvbQ6FTsyowM/bEaqgt+NVPjJCSiRYd+l6crhjRUhImCH19w
+	 9I6J+a/uYOHnEzIIuT7pFCJk295i8ji9aSw6zH/6ougbdQwIKenkRyWE2agDpYPaZd
+	 WexRZ5Gk4UluaTfonEeEXYmc+VEBKlpLdLb7mKSr3gxNOyytLSeGUpSOGGrljN6vhe
+	 shavK04GKdJYbw9MOmNjGQJwg2mstrjuZDbIHCHdSSIKzM03CI/PHPFeooC9mLYtZ7
+	 stxgnBRbClUQQ==
+Date: Mon, 29 Jun 2026 08:32:53 -0500
+From: Rob Herring <robh@kernel.org>
+To: chancel.liu@oss.nxp.com
+Cc: krzk+dt@kernel.org, conor+dt@kernel.org, Frank.Li@nxp.com,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 1/4] dt-bindings: connector: Add fsl,aud-io-slot
+ binding
+Message-ID: <20260629133253.GA2593312-robh@kernel.org>
+References: <20260629074734.3643227-1-chancel.liu@oss.nxp.com>
+ <20260629074734.3643227-2-chancel.liu@oss.nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260629074734.3643227-2-chancel.liu@oss.nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,118 +72,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Arnd Bergmann <arnd@arndb.de>
+On Mon, Jun 29, 2026 at 04:47:31PM +0900, chancel.liu@oss.nxp.com wrote:
+> From: Chancel Liu <chancel.liu@nxp.com>
+> 
+> The NXP AUD-IO slot represents a physically present I/O connector on
+> the base board. It acts as a nexus that exposes a constrained set of
+> I/O resources, such as GPIOs, clocks and interrupts, through fixed
+> electrical wiring. All actual hardware providers reside on the base
+> board. The connector node only defines index-based mappings to those
+> providers.
+> 
+> This connector type is present on i.MX95 19x19 EVK and i.MX952 EVK,
+> where it is used to attach the IMX-AUD-IO audio expansion card[1]. The
+> same add-on board can be reused across different base boards that carry
+> this connector.
+> 
+> [1]https://www.nxp.com/part/IMX-AUD-IO
+> 
+> Signed-off-by: Chancel Liu <chancel.liu@nxp.com>
+> ---
+>  .../bindings/connector/fsl,aud-io-slot.yaml   | 113 ++++++++++++++++++
+>  1 file changed, 113 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/connector/fsl,aud-io-slot.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/connector/fsl,aud-io-slot.yaml b/Documentation/devicetree/bindings/connector/fsl,aud-io-slot.yaml
+> new file mode 100644
+> index 000000000000..5085574d221b
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/connector/fsl,aud-io-slot.yaml
+> @@ -0,0 +1,113 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/connector/fsl,aud-io-slot.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: NXP AUD-IO Slot
+> +
+> +maintainers:
+> +  - Frank Li <Frank.li@nxp.com>
+> +  - Chancel Liu <chancel.liu@nxp.com>
+> +
+> +description:
+> +  The NXP AUD-IO slot represents a physically present I/O connector on
+> +  the base board. It acts as a nexus that exposes a constrained set of
+> +  I/O resources, such as GPIOs, clocks and interrupts, through fixed
+> +  electrical wiring. All actual hardware providers reside on the base
+> +  board. The connector node only defines index-based mappings to those
+> +  providers. This connector type is present on i.MX95 19x19 EVK and
+> +  i.MX952 EVK, where it is used to attach the IMX-AUD-IO expansion card.
+> +
+> +properties:
+> +  compatible:
+> +    oneOf:
+> +      - items:
+> +          - enum:
+> +              - fsl,imx952-evk-aud-io
+> +          - const: fsl,imx95-19x19-evk-aud-io
+> +      - const: fsl,imx95-19x19-evk-aud-io
+> +
+> +  gpio-controller: true
+> +
+> +  '#gpio-cells':
+> +    const: 2
+> +
+> +  gpio-map:
+> +    minItems: 1
+> +    maxItems: 32
 
-After all other drivers have converted to linux/gpio/consumer.h
-or linux/gpio/legacy.h, remove the final leftover bits here.
+You don't know how many GPIOs are on the connector?
 
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
----
- MAINTAINERS                   |  1 -
- drivers/gpio/TODO             |  4 +---
- drivers/gpio/gpiolib-cdev.c   |  2 +-
- drivers/gpio/gpiolib-legacy.c |  3 +--
- drivers/gpio/gpiolib.c        |  2 +-
- include/linux/gpio.h          | 22 ----------------------
- 6 files changed, 4 insertions(+), 30 deletions(-)
- delete mode 100644 include/linux/gpio.h
+> +
+> +  gpio-map-mask:
+> +    items:
+> +      - const: 0xffff
+> +      - const: 0x0
+> +
+> +  gpio-map-pass-thru:
+> +    items:
+> +      - const: 0x0
+> +      - const: 0x1
+> +
+> +  '#clock-cells':
+> +    const: 1
+> +
+> +  clock-map:
+> +    minItems: 1
+> +    maxItems: 16
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 15011f5752a9..7f3f386b1d8c 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -11175,7 +11175,6 @@ F:	Documentation/devicetree/bindings/gpio/
- F:	Documentation/driver-api/gpio/
- F:	drivers/gpio/
- F:	include/dt-bindings/gpio/
--F:	include/linux/gpio.h
- F:	include/linux/gpio/
- K:	(devm_)?gpio_(request|free|direction|get|set)
- K:	GPIOD_FLAGS_BIT_NONEXCLUSIVE
-diff --git a/drivers/gpio/TODO b/drivers/gpio/TODO
-index 7ce80fde1f17..894c7e1af252 100644
---- a/drivers/gpio/TODO
-+++ b/drivers/gpio/TODO
-@@ -52,9 +52,7 @@ Work items:
-   base can be made dynamic (set to -1) if CONFIG_GPIO_SYSFS is disabled.
- 
- - When this work is complete (will require some of the items in the
--  following ongoing work as well) we can delete the old global
--  numberspace accessors from <linux/gpio.h> and eventually delete
--  <linux/gpio.h> altogether.
-+  following ongoing work as well) we can delete <linux/gpio/lagacy.h>.
- 
- -------------------------------------------------------------------------------
- 
-diff --git a/drivers/gpio/gpiolib-cdev.c b/drivers/gpio/gpiolib-cdev.c
-index 82f27db0b230..9b6a28819371 100644
---- a/drivers/gpio/gpiolib-cdev.c
-+++ b/drivers/gpio/gpiolib-cdev.c
-@@ -11,7 +11,7 @@
- #include <linux/device.h>
- #include <linux/err.h>
- #include <linux/file.h>
--#include <linux/gpio.h>
-+#include <linux/gpio/consumer.h>
- #include <linux/gpio/driver.h>
- #include <linux/hte.h>
- #include <linux/interrupt.h>
-diff --git a/drivers/gpio/gpiolib-legacy.c b/drivers/gpio/gpiolib-legacy.c
-index ef3f2ef30cf2..33e5a45e720b 100644
---- a/drivers/gpio/gpiolib-legacy.c
-+++ b/drivers/gpio/gpiolib-legacy.c
-@@ -7,8 +7,7 @@
- 
- #include <linux/gpio/consumer.h>
- #include <linux/gpio/driver.h>
--
--#include <linux/gpio.h>
-+#include <linux/gpio/legacy.h>
- 
- #include "gpiolib.h"
- 
-diff --git a/drivers/gpio/gpiolib.c b/drivers/gpio/gpiolib.c
-index e5fb60111151..1f498d6c8c68 100644
---- a/drivers/gpio/gpiolib.c
-+++ b/drivers/gpio/gpiolib.c
-@@ -29,7 +29,7 @@
- #include <linux/string.h>
- #include <linux/string_choices.h>
- 
--#include <linux/gpio.h>
-+#include <linux/gpio/consumer.h>
- #include <linux/gpio/driver.h>
- #include <linux/gpio/machine.h>
- 
-diff --git a/include/linux/gpio.h b/include/linux/gpio.h
-deleted file mode 100644
-index b0d4942a65de..000000000000
---- a/include/linux/gpio.h
-+++ /dev/null
-@@ -1,22 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0 */
--/*
-- * NOTE: This header *must not* be included.
-- *
-- * If you're implementing a GPIO driver, only include <linux/gpio/driver.h>
-- * If you're implementing a GPIO consumer, only include <linux/gpio/consumer.h>
-- * If you're using the legacy interfaces, include <linux/gpio/legacy.h>
-- */
--
--#ifndef __LINUX_GPIO_H
--#define __LINUX_GPIO_H
--
--#include <linux/types.h>
--#ifdef CONFIG_GPIOLIB
--#include <linux/gpio/consumer.h>
--#endif
--
--#ifdef CONFIG_GPIOLIB_LEGACY
--#include <linux/gpio/legacy.h>
--#endif /* CONFIG_GPIOLIB_LEGACY */
--
--#endif /* __LINUX_GPIO_H */
--- 
-2.39.5
+You don't know how many clocks are on the connector?
 
+> +
+> +  clock-map-mask:
+> +    items:
+> +      - const: 0xff
+
+> +
+> +  clock-map-pass-thru: true
+
+The purpose of this property (for GPIO) was to pass thru flag cells 
+which are standardized. That's not the case for clocks.
+
+Anyways, these properties need to be defined in dtschema first.
+
+Rob
 
