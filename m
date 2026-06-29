@@ -4,96 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7B93C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 16:40:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 340F0C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 16:48:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vTAqympCuHM2c/PQmqwHbJCuVDhybEJa0vtK+R7ZX2Q=; b=HN3ZV2PxP33ObJ6lA7xplq0kQW
-	JLsvt4cg0IIMYBCj4++ngDMXfgxlp/KOpIxevhtOXZhVEcNSCfQhuQisCWwlwfwm7/R/iwQXJjSp/
-	cBwe4+XKX4D8Myd6FL7+L1Nup1B7u4S2th1Q4g0ovRMYBtmK0+8SLC+mxvvjfPIEKBLFiT70jeWid
-	64lSNlzqXWJbu3u4q6HkQvF+TTxnhsCKB8eCfkGysSrMuMRhUiR2Brg6FKkXrlNjaTNAjTcZ0y+nT
-	Se6xlyXLzwZwZFVXF1ZH+fAC3u6VI1K9uySxcMf39Y45w+36coJjteTOJ6E1b3vN04N19JCqmbEYv
-	8/LKGGYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pqu0ijd46YxLc8T2KWk89iPbnUD8g36UVIY5VbePUtk=; b=iQE3j32THI1BDOYGkBV3a8v0Rv
+	04HP9/HBtrecEYH/Qy81SdHMHxVdFDOGqB/IJ0SVr9C4IdJzBz3ogoeYNyYAlzkvuQ56GbFS+1Ize
+	e/aI8RRO4EGuKDO3+pyTBi7syPcNkG+yXQOAxZ21636usp9dHbfRFnWNgJoUnfm8XXX3nJNNUxv0M
+	Zi5dYD7uLC9hasURgfI2tgYZa2D/ljaklRbdIZQJR5+RXCfstTtBio7qshfg2CcWDFbzl4kMKQBwq
+	xcETypiQiYKPeIeU4T/vpRFGiwOirbk/wMKdgKbpW9rwOFphqtRHlaIb68/CVvnHyTbDlw4aTQedp
+	F641hHJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weF2C-0000000FEqC-3u1z;
-	Mon, 29 Jun 2026 16:40:36 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1weFA3-0000000FFPj-4BU7;
+	Mon, 29 Jun 2026 16:48:44 +0000
+Received: from mail-yx1-xb129.google.com ([2607:f8b0:4864:20::b129])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weF2A-0000000FEpF-17HC
+	id 1weFA0-0000000FFOS-2GUO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 16:40:35 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-49270caa5c0so27989175e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 09:40:33 -0700 (PDT)
+	Mon, 29 Jun 2026 16:48:42 +0000
+Received: by mail-yx1-xb129.google.com with SMTP id 956f58d0204a3-664c6304683so1672010d50.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 09:48:40 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1782751719; cv=none;
+        d=google.com; s=arc-20260327;
+        b=M+J9kkEKtHO0W90EZG+p5q22/434cs9IT6xA4N5coi52qpGGZvo+wZEDLaUkwU6IXl
+         TAGeU9PX4KUtbEIWTKEwUa1RqYvSKcGE2zi2XRICLpzTN/kJ6AwIxHSy2yY9dMEXFhoK
+         wNBmQNtk+0muArNs0mqAfLnuzUBvxz8lqbGrWbZe/DnaS0fnSJK/ccQFNlGBJkhO/y7Z
+         LHOI1D6WnbfmEzWHyOxH9inCqYuQX7tPBYnMXgo+TA2cfSNjVJ/Xrs7QAz5b3Chl47dv
+         qyNrSlBw+daRuVi45HcpEyVDFxrIMdn8oyw26xzL0+QXZxHKOk4nf5kYivnLJxs2lMnD
+         G2Fg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=pqu0ijd46YxLc8T2KWk89iPbnUD8g36UVIY5VbePUtk=;
+        fh=qLXito0mp2Abued/T7Yqb6A6imTLGjZBTYOuTMSYBrw=;
+        b=qw6Mmk2GJD6GLPZNeDGW3krJ3ah0lVedXm7tpbiKt91UPEogqvg8G3rxr9mhBuD+mv
+         dbOskVUUIpL9FrozlSxUlB8IRtV0vOPxg6MK3RUCKDfSNKxNyrw0XCMxTezkU8ptZ/LX
+         H3tT2qLnWiKaoaBVLiOzJJHg3VP94we9wFtBIvUZR3kPoD44jUpw3YZHe5qrCglOnphh
+         X5I90yFjic6EJ1RQRM5Tjbu1N1oq5BaKy9XpJA41QbMsn78MCvcq0nBba+nyEprWnj7P
+         VDgWX4But7XFmK9FJpzgruM2F9GFYN0s6HUS+roepbaWN/NAML/ZuHWa93xswCexRy1G
+         SOYA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782751232; x=1783356032; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=vTAqympCuHM2c/PQmqwHbJCuVDhybEJa0vtK+R7ZX2Q=;
-        b=QnK1u5zCEm/tNF7E84vPMpkGQE2h9Zk/kaBsMquL+wk0jakxUQ6h/dppiDEbaGdwYd
-         vkAS5fcA426OqLoa68Gx8L+HcxgxVO7t/YY9rXsKv2PmhJCLZMCRDsmiHiisV5T5AveU
-         T3GYnc4E5YJ3ca9LvAmWreFPoqhL9kiZoz9vGaWeIH2VL2KVxevhw532DLkLBg2KMM+0
-         uz3BGHpgKAh32SET5jEbYaY33lRebSF6v4vFyasghm4ED75EfYli/cfPLDcmsnQNO4u3
-         95nWGTE4EgOshrtloxHbcBPEb4A7af3uP01tSd7AJKa+3TohslLz1SKj07A1FtnEIiPl
-         q8EA==
+        d=gmail.com; s=20251104; t=1782751719; x=1783356519; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=pqu0ijd46YxLc8T2KWk89iPbnUD8g36UVIY5VbePUtk=;
+        b=jDig6LzCOKHm542CM4SrqNktw8ha7r6YOjLEPt5gu8wuKbSB3OjVnalJAzQW4uSkNT
+         YO7Y1dUsXpXBdL8u8j4S9icC9yeV710ChJYua7cjACG+9OnTFxmQ6CtnKhARJOB2Tw9l
+         21rkwSFNRXeJXpTjOVMGK5P9EpBPj1IOpc7RB9Mb3dRDH/v6+i0bvuVxjl4CBJxEu0Aq
+         HwlmE0wG33okr2nw+JBW4QXh8C8XJO/0fM1Xf+ptc5A/mL6S5sXHvYW6kBvptTVRi+A6
+         meeL1G1ujXUhjyiypkWZTAuk4ZLREyHOQcEWF+EKLfv0DugtAmxcd50kj32GjpDt0Q++
+         wfBQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782751232; x=1783356032;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=vTAqympCuHM2c/PQmqwHbJCuVDhybEJa0vtK+R7ZX2Q=;
-        b=NdinaaSeMGWtSjZfKMO1YmeLJMOjxU+k/VP6ezxyQTilIanbf8zUvHg52VIbMa79p3
-         GZamkZZJ/pIpNMzf43Cszux/8F8dDDyIfi0hBRqndynyb6PFkoPSiaTwnAdQDOcVo2NT
-         AfouVa+viFGNJZ3+jGvta5k6oytmUP/UOm8YWQuIItDkDyESDKH5bAZg4vWoR4KTXbiX
-         iG9Ul+HlvOuoOUSLgh7FDm3MLiuTXM7lGOYzwFgddznkS6j3Unyz7pUABgV5zp0d8ta8
-         E1qDRcm9OtXOQGO1+VrYlE09zlh2uESF64oIJ5ufNBme1RZgE39i4nCmN8453JoCI50Y
-         A5Cw==
-X-Forwarded-Encrypted: i=1; AFNElJ/m7XBZkwYA3/vWCe+YH9gwdYbIG8L+oPjE1/mFer/HICWSDPwb5eDdEVS71g3HdZCLYEfaEZpDW8zcmNwjqU+h@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzhl91J4gEnKGUXezL5TakCyRnoJRhmVHf7ZnNkpssLU7mYpHWa
-	yNc4qqv011qmfxeFFPqfVesFkqsLFurlXuuEoRBnSQJFr6CONtmIwnGg
-X-Gm-Gg: AfdE7ckWOi3is6hcWwGCYS7jEtxYZ6OpqIv4J3Umtaluvv939sCLsIOCtnykQCqOpDO
-	3HjGB3citv9bDeRxP7JRAirycxChHoc4etjgd3Tn3XLmbhieclDmYu+FRwL6jf0cCBuV2/MX8+k
-	JhSCVpTHxeOkSxSKXsk4QkfUKX9UvIPiLPtSKlds35FUhdR6+wCraFaRIlLBj9DeMrVXQDQN/mC
-	8S5AQSNZcZIv0pgcuJV6SrSypmOOWzGYTvSHUMZvzEbRdbqXBAAPGloCv6l78d2OU4jOUQwEGlb
-	tsPr9AFTftq455hG0S5Z0dec1fnmlA/3Tt9WFBEx9GOtywAkSEC1BsWFGY5otcZRJ6/1eGKFZbk
-	ILXpxDJl7I8rLk2fSy4tkxNkpaHqSg1pn/P7vNG9hbxgaQ+9omR3FSnI00+e5WUBxGC9HCpkEDg
-	Lf2cvJTDbC9YGqPXGT3DkUm1BzcAE4HLmEuMv1nDWWDnK3D3FVehPIF3kxiinMFWOHUvyAVEhyo
-	dOxPt7nBg554Hh8sFpeXoo4FL0ul+We
-X-Received: by 2002:a05:600c:1d09:b0:493:a535:5527 with SMTP id 5b1f17b1804b1-493b82ac8d4mr6429385e9.21.1782751231985;
-        Mon, 29 Jun 2026 09:40:31 -0700 (PDT)
-Received: from Lord-Beerus.station (net-93-144-65-248.cust.dsl.teletu.it. [93.144.65.248])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493b8c238fasm2254645e9.0.2026.06.29.09.40.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Jun 2026 09:40:31 -0700 (PDT)
-Date: Mon, 29 Jun 2026 18:40:29 +0200
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Subject: Re: [PATCH v5 06/14] arm64: dts: imx8mp-var-som-symphony: enable PCIe
-Message-ID: <akKf_akO7IZ2ltHd@Lord-Beerus.station>
-References: <cover.1780929317.git.stefano.r@variscite.com>
- <26b5b602c3995a5a74f64b84576ab4d54ace23ee.1780929317.git.stefano.r@variscite.com>
- <akKdkWos2E25M_q8@lizhi-Precision-Tower-5810>
+        d=1e100.net; s=20251104; t=1782751719; x=1783356519;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=pqu0ijd46YxLc8T2KWk89iPbnUD8g36UVIY5VbePUtk=;
+        b=RHl4M6fv6ZMILBkJEH572LDk8Zi/uTGzOJaV7Ee9mvOCaKpAjYErN59YNRrubGDVu0
+         H+XiHbxP7xbaYuUM06GBLy5o5usKr486BteY5n7NfZI4W8WUztRFU9P7bHQJFzgTnWYA
+         Kr6d6Wb4nOzwq7WekIu8I82c/gMlA8cZpnBKXqsDRjOGC/9L57kBtjB/pgsSodlS+I8+
+         lIQ6XwOmDbU9Ko3Uak/kVap+4BEfaWaugaXbYwHGwKkVGS3VfOXahD5IxCEuxmuHI+E3
+         5V89X2y0Vv/vJtwRxPM2NrCJTiasxaVRmNq9hUCYwEVpBrzIRv1q0VetFdsrcF/MMHKC
+         GrJw==
+X-Forwarded-Encrypted: i=1; AHgh+RqEu6p9YRTCVBDSLNx7JnGT3r0roFZpIYqDKjpt7+Ka0rn/7uNFfQ6vSiY4+cRlnMTjqBGYPMDtPrCCkwIHURHO@lists.infradead.org
+X-Gm-Message-State: AOJu0YzEitPdpDhZO4aJ5a34zbE+/vui7u2tlfkSLXhI8EzzH46vL3fG
+	UperHW5X06exFiZpJVvfRIp7dWcu0559280GV6ttvokai5DcjE2lGAvpafBtML6pbxGNatLx+nO
+	aEmeesQG3++t3SsIqDineH8Mu2y2Gx3o=
+X-Gm-Gg: AfdE7cnXfOonTPhdsjqL/T7dDZHd53Waso/HN36GEg9QwDNLyhgi4gqph6w5AlubBfV
+	mq3v81P8Qm9yigSBmC9DcyuQG1Lf1hH80KOj1HL8OhXhsupTb57yEerkb3IUF3dXxsgTkam1XMw
+	mBvSwFkZqqruCcLcSZLJE9QijCjcqbXzshXygTPfSbSC/VN69I0VTERVM5B0P4Te22WmqnqVzqg
+	v2Czr96Ae6VXVo0RnM0hQcSbxqiOEUH50Rp8lQlgTnEbvi7VBKf+HCVY70xviO/3+jtOA==
+X-Received: by 2002:a53:a7cd:0:b0:664:c1a2:36ed with SMTP id
+ 956f58d0204a3-664f9a828b9mr336123d50.63.1782751719282; Mon, 29 Jun 2026
+ 09:48:39 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <akKdkWos2E25M_q8@lizhi-Precision-Tower-5810>
+References: <20260621145919.1453-1-ekffu200098@gmail.com> <aj426bA-YiOKt06m@kernel.org>
+ <CABFDxME8wej3m8T5gn8y4dmpOLZutm=tDTa7ZcfhbWwScTu_5Q@mail.gmail.com> <akJafRKJJBd5Jrv0@kernel.org>
+In-Reply-To: <akJafRKJJBd5Jrv0@kernel.org>
+From: Sang-Heon Jeon <ekffu200098@gmail.com>
+Date: Tue, 30 Jun 2026 01:48:27 +0900
+X-Gm-Features: AVVi8Ce7e8tTlZ7wLMJcBpYQ1j4KVXqbB4X7R45vGUUSJRnYUp1U99vuoyq3ILs
+Message-ID: <CABFDxMFTfFO_jePBnM_uZXcmLBHJM3db-=VzFE+bxSYgm1G-1Q@mail.gmail.com>
+Subject: Re: [PATCH 0/6] treewide: remove unnecessary invalid range checks in
+ memblock iteration loops
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Andrew Morton <akpm@linux-foundation.org>, 
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Huacai Chen <chenhuacai@kernel.org>, Muchun Song <muchun.song@linux.dev>, 
+	Oscar Salvador <osalvador@suse.de>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, 
+	Will Deacon <will@kernel.org>, Alexander Potapenko <glider@google.com>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Andrey Konovalov <andreyknvl@gmail.com>, David Hildenbrand <david@kernel.org>, 
+	Dmitry Vyukov <dvyukov@google.com>, kasan-dev@googlegroups.com, 
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org, 
+	linux-riscv@lists.infradead.org, loongarch@lists.linux.dev, 
+	Vincenzo Frascino <vincenzo.frascino@arm.com>, WANG Xuerui <kernel@xen0n.name>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_094034_324814_9F7279A3 
-X-CRM114-Status: GOOD (  13.28  )
+X-CRM114-CacheID: sfid-20260629_094840_586578_D4BA3EB4 
+X-CRM114-Status: GOOD (  23.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,38 +126,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
+On Mon, Jun 29, 2026 at 8:44=E2=80=AFPM Mike Rapoport <rppt@kernel.org> wro=
+te:
+>
+> On Fri, Jun 26, 2026 at 07:59:22PM +0900, Sang-Heon Jeon wrote:
+> > On Fri, Jun 26, 2026 at 5:23=E2=80=AFPM Mike Rapoport <rppt@kernel.org>=
+ wrote:
+> > >
+> > > On Sun, Jun 21, 2026 at 11:59:10PM +0900, Sang-Heon Jeon wrote:
+> > > > The memblock API guarantees that for_each_mem_range() and
+> > > > for_each_mem_pfn_range() never return an invalid range, meaning sta=
+rt is
+> > > > always less than end.
+> > > >
+> > > > Several memblock callers still have unnecessary invalid range check=
+s in
+> > > > their loop bodies, so remove them.
+> > > >
+> > > > Sang-Heon Jeon (6):
+> > > >   arm64: mm: remove unreachable invalid range check in
+> > > >     kasan_init_shadow()
+> > > >   LoongArch: remove unreachable invalid range check in kasan_init()
+> > > >   riscv: remove unreachable invalid range check in
+> > > >     create_linear_mapping_page_table()
+> > > >   riscv: remove unreachable invalid range check in kasan_init()
+> > > >   mm: remove unnecessary empty range check in
+> > > >     early_calculate_totalpages()
+> > > >   mm/hugetlb: remove unnecessary empty range check in
+> > > >     hugetlb_bootmem_set_nodes()
+> > >
+> > > I queued this for inclusion into memblock tree.
+> >
+> > Thank you, Mike.
+> >
+> > Could you please review and queue this patch [1] as well? It does the
+> > same kind of clean up, I just missed it at the time.
+>
+> Can you please resend them all as a single set?
 
-On Mon, Jun 29, 2026 at 12:30:09PM -0400, Frank Li wrote:
-> 
-> You have to provide all clocks, otherwise, whole clocks and clock-names will
-> by overwrite with one clock "ref".
-> 
-> suppose CHECK_DTBS should report warning about clocks items.
-> 
-> Frank
-> 
+Thanks for considering, Mike.
+I've sent v2 patch series [1] that includes the missing patches.
 
-thanks for checking.
+[1] https://lore.kernel.org/all/20260629163736.1606688-1-ekffu200098@gmail.=
+com/#t
 
-In this case the SoC dtsi does not provide any clocks or clock-names for
-the PCIe PHY node, so this is not overriding an existing clock list. It
-only adds the external reference clock used by the board.
+> > [1] https://lore.kernel.org/all/20260626032902.703944-1-ekffu200098@gma=
+il.com/
+> >
+> > > >  arch/arm64/mm/kasan_init.c     | 3 ---
+> > > >  arch/loongarch/mm/kasan_init.c | 3 ---
+> > > >  arch/riscv/mm/init.c           | 2 --
+> > > >  arch/riscv/mm/kasan_init.c     | 3 ---
+> > > >  mm/hugetlb.c                   | 3 +--
+> > > >  mm/mm_init.c                   | 3 +--
+> > > >  6 files changed, 2 insertions(+), 15 deletions(-)
+> > > >
+> > > > --
+> > > > 2.43.0
+> > > >
+> > >
+> > > --
+> > > Sincerely yours,
+> > > Mike.
+> >
+> > Best Regards,
+> > Sang-Heon Jeon
+>
+> --
+> Sincerely yours,
+> Mike.
 
-This follows the same pattern used by the i.MX8MP EVK, where the PCIe
-PHY node only provides the external "ref" clock together with
-fsl,refclk-pad-mode = <IMX8_PCIE_REFCLK_PAD_INPUT>.
-
-This is also why CHECK_DTBS does not report any warnings for this node.
-
-$: sed -n '/^&pcie_phy {/,/^};/p' arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-&pcie_phy {
-        fsl,refclk-pad-mode = <IMX8_PCIE_REFCLK_PAD_INPUT>;
-        clocks = <&pcie0_refclk>;
-        clock-names = "ref";
-        status = "okay";
-};
-
-Thanks,
-Stefano
+Best Regards,
+Sang-Heon Jeon
 
