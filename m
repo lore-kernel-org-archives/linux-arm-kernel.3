@@ -4,64 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B956C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 06:20:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B26BC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 06:42:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ub16g8RqXLcskK6Fsx6rpUpyK9owbsuzrSRMHq/iM7s=; b=rCkje+HagedsugubZVsZoQ/9vS
-	m/l7254yGcevkdN8GgrXpOiOiaz7ipB89BSbUlu/Q6tnb0jqErp139JVQyzYoxUp8ds8HV7fefNFc
-	7EOXiEW0tT54mRchOHTwlmCGVcGQarjDYO33JeVZpkRdFySUGfNYxSenEreHsb2E8iOIQ96ktXYUe
-	mP0dPUspHlLeuzrY2N9x7576ag6Dm0rtlKTocKYXbdMyb/7bB4cvTw95Lr8XEAQ5hfDBn9xhexgnt
-	VLl6g7uCaYVs/aO59qdzuhJGYJumSakGGqbfYpdeKk00OS+acScb93eY9sFeJQ7bbAtXU22KwMlUx
-	2tCzJWrQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9SBUrAAk1NDr0xcsN8kM+SIzGkij32PCytMkcytIGAQ=; b=we7Y1t0btATXZi0fxfoV33Fh7I
+	IOaBeBCyzfOPs/JydIhGAoltcK3ZJL1bgibRGw3Ry6+EKLKeMN9PdlBF8cdAQhfRuSD7gjx6jNdxG
+	nTL2WMS54vUcA7BuzTIAIhWn0Q7eJ41dtmhUeD5T91zvHRUSYcs6d2GpFdce3Tzi8QE871VLb+l3/
+	jS0wQs9vJYV8RzQ1iJvm3CajaThEsF1+16iv+PrapfwmtQ03VwdwgGeHmnMrzsWFfFVq/rcSMgY5T
+	53UjdlI7uw9fFEufU0A23fBRYJWF5ARSzurouqmyFAIynFxuPG9tAulyWs6ViV+bApz3j74rG+UM2
+	3rytdyOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we5M7-0000000DkiY-1Cyi;
-	Mon, 29 Jun 2026 06:20:31 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we5M4-0000000Dkhx-19pA
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 06:20:30 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ADFDA176B;
-	Sun, 28 Jun 2026 23:20:22 -0700 (PDT)
-Received: from [10.164.19.15] (unknown [10.164.19.15])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C37F43F85F;
-	Sun, 28 Jun 2026 23:20:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782714027; bh=ymaXtgSzFABz4iScBxNN5MaznB6X3+kdvqfUSvn6QUQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=GkeTzKgDjQb/XP4L1JdrSTkO8QNtJM4GujIs+ZmXRxFoLmgki+UvDzQhq4MYvtrPR
-	 /mtqkQXmGdUsRGffsknqiUIuKC6ffALraRQvWtk5LVsIqO4UHMGHWhgrDErlWkegW0
-	 N24uiOwteB0KKrM124zQnvpNfJUkahCFLOFt9LSM=
-Message-ID: <21c5415a-da5d-48c7-92cc-83e8bf1c6dd9@arm.com>
-Date: Mon, 29 Jun 2026 11:50:20 +0530
+	id 1we5gr-0000000Dm7L-0PaJ;
+	Mon, 29 Jun 2026 06:41:57 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1we5gp-0000000Dm6F-1GFF;
+	Mon, 29 Jun 2026 06:41:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id AA19460054;
+	Mon, 29 Jun 2026 06:41:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 59D70C2BCB8;
+	Mon, 29 Jun 2026 06:41:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1782715314;
+	bh=NFuuFcb/ruJh3wvrl4TTnR1hgxROnRQip/VR2F/THy0=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=BWi51dZaDFBXTr5XrIKky5i25CHrbQToYpeLA72LEB+hyVegKpoIkhAA6RIvCOQhO
+	 IKXaP9U7b3MM7CC1iG3Bbr4BRchL3b1AnqNJ7jO6wDHacsCGwC/MhbnVY3CXE536mZ
+	 Y8HkOWFhDlyQQDHnhjvhOM8XLrg3BJMr3EsH/KgXvnGH4joqrBJG7i45oG0ESb3UmG
+	 aMd6HVbtTZxkEwFwKpuwzx7AAUJlxCptbMK713HjYZZianKaexN9tkQQW+KUe0W9+s
+	 QbTbE1ySTTFJbkSEKkNR7PzrDTn/PBzxFfFn/F6iAs2B6+cVwdQWuJG8LAegHbwjUV
+	 c5KaaKLcWp+ZA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4034EC43458;
+	Mon, 29 Jun 2026 06:41:54 +0000 (UTC)
+From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
+Date: Mon, 29 Jun 2026 06:41:51 +0000
+Subject: [PATCH] arm64: dts: amlogic: add some device nodes for A9
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 4/6] mm/vmalloc: Extend page table walk to support
- larger page_shift sizes and eliminate page table rewalk
-To: Wen Jiang <jiangwenxiaomi@gmail.com>, linux-mm@kvack.org,
- linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
- will@kernel.org, akpm@linux-foundation.org, urezki@gmail.com
-Cc: baohua@kernel.org, Xueyuan.chen21@gmail.com, rppt@kernel.org,
- david@kernel.org, ryan.roberts@arm.com, anshuman.khandual@arm.com,
- ajd@linux.ibm.com, linux-kernel@vger.kernel.org, jiangwen6@xiaomi.com,
- shanghaoqiang@xiaomi.com
-References: <20260618084726.1070022-1-jiangwen6@xiaomi.com>
- <20260618084726.1070022-5-jiangwen6@xiaomi.com>
-Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <20260618084726.1070022-5-jiangwen6@xiaomi.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260628_232028_421610_D90B55A3 
-X-CRM114-Status: GOOD (  24.37  )
+Message-Id: <20260629-a9-node-v1-1-42ff6a0c16ab@amlogic.com>
+X-B4-Tracking: v=1; b=H4sIAK4TQmoC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDMyNL3URL3bz8lFRd41SztOTUpETzZEsDJaDqgqLUtMwKsEnRsbW1AAQ
+ 6oYpZAAAA
+X-Change-ID: 20260629-a9-node-3e6fceba7c90
+To: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Xianwei Zhao <xianwei.zhao@amlogic.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782715311; l=5289;
+ i=xianwei.zhao@amlogic.com; s=20251216; h=from:subject:message-id;
+ bh=qsqMagQntUJk2+7nKd+Qfbf+tdW0g4n8khbu2y9iCho=;
+ b=38v+7CfaRd6EV/UMT6fu9MuQbrcIgyUeFJuxl0LYqrsoLtV/DjAjF56OEhN2PtvvEdaM63/yi
+ 3MKG7QMdJmpCYpV+E+ESfxUHLwaUcsBc5eB1zbSfnP3aa6ESTdb85vf
+X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
+ pk=dWwxtWCxC6FHRurOmxEtr34SuBYU+WJowV/ZmRJ7H+k=
+X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20251216 with
+ auth_id=578
+X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,220 +85,194 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: xianwei.zhao@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 
+Add pinctrl and irqchip-gpio device nodes for A9 SoC.
 
-On 18/06/26 2:17 pm, Wen Jiang wrote:
-> From: "Barry Song (Xiaomi)" <baohua@kernel.org>
-> 
-> vmap_pages_range_noflush_walk() (formerly vmap_small_pages_range_noflush())
-> provides a clean interface by taking struct page **pages and mapping them
-> via direct PTE iteration. This avoids the page table rewalk seen when
-> using vmap_range_noflush() for page_shift values other than PAGE_SHIFT.
-> 
-> Extend it to support larger page_shift values, and add PMD- and
-> contiguous-PTE mappings as well. Rename it to vmap_pages_range_noflush_walk()
-> since it now handles more than just small pages.
-> 
-> For vmalloc() allocations with VM_ALLOW_HUGE_VMAP, we no longer need to
-> iterate over pages one by one via vmap_range_noflush(), which would
-> otherwise lead to page table rewalk. The code is now unified with the
-> PAGE_SHIFT case by simply calling vmap_pages_range_noflush_walk().
-> 
-> Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
-> Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
-> Tested-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
-> ---
->  mm/vmalloc.c | 81 ++++++++++++++++++++++++++++++----------------------
->  1 file changed, 47 insertions(+), 34 deletions(-)
-> 
-> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-> index 6660f240d27c9..253e017130e09 100644
-> --- a/mm/vmalloc.c
-> +++ b/mm/vmalloc.c
-> @@ -127,7 +127,8 @@ static int vmap_pte_range(pmd_t *pmd, unsigned long addr, unsigned long end,
->  	pte_t *pte;
->  	u64 pfn;
->  	struct page *page;
-> -	unsigned long size = PAGE_SIZE;
-> +	unsigned long size;
-> +	unsigned int steps;
->  
->  	if (WARN_ON_ONCE(!PAGE_ALIGNED(end - addr)))
->  		return -EINVAL;
-> @@ -149,8 +150,8 @@ static int vmap_pte_range(pmd_t *pmd, unsigned long addr, unsigned long end,
->  		}
->  
->  		size = vmap_set_ptes(pte, addr, end, pfn, prot, max_page_shift);
-> -		pfn += PFN_DOWN(size);
-> -	} while (pte += PFN_DOWN(size), addr += size, addr != end);
-> +		steps = PFN_DOWN(size);
-> +	} while (pte += steps, pfn += steps, addr += size, addr != end);
->  
+Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
+---
+Add pinctrl and irqchip-gpio device node for A9.
+---
+ arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi | 140 ++++++++++++++++++++++++++++
+ 1 file changed, 140 insertions(+)
 
-This belongs to previous patch.
+diff --git a/arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi
+index 660c8556a864..cdc57b685cc3 100644
+--- a/arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi
++++ b/arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi
+@@ -6,6 +6,7 @@
+ #include <dt-bindings/interrupt-controller/irq.h>
+ #include <dt-bindings/interrupt-controller/arm-gic.h>
+ #include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/pinctrl/amlogic,pinctrl.h>
+ 
+ / {
+ 	interrupt-parent = <&gic>;
+@@ -97,6 +98,95 @@ soc {
+ 		#size-cells = <2>;
+ 		ranges;
+ 
++		apb: bus@fe000000 {
++			compatible = "simple-bus";
++			reg = <0x0 0xfe000000 0x0 0x480000>;
++			#address-cells = <2>;
++			#size-cells = <2>;
++			ranges = <0x0 0x0 0x0 0xfe000000 0x0 0x480000>;
++
++			periphs_pinctrl: pinctrl@4000 {
++				compatible = "amlogic,pinctrl-a9";
++				#address-cells = <2>;
++				#size-cells = <2>;
++				ranges = <0x0 0x0 0x0 0x4000 0x0 0x340>;
++
++				gpioz: gpio@c0 {
++					reg = <0 0xc0 0 0x20>, <0 0x18 0 0x8>;
++					reg-names = "gpio", "mux";
++					gpio-controller;
++					#gpio-cells = <2>;
++					gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_Z<<8) 16>;
++				};
++
++				gpiox: gpio@100 {
++					reg = <0 0x100 0 0x24>, <0 0xc 0 0x8>;
++					reg-names = "gpio", "mux";
++					gpio-controller;
++					#gpio-cells = <2>;
++					gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_X<<8) 18>;
++				};
++
++				gpioh: gpio@140 {
++					reg = <0 0x140 0 0x20>, <0 0x2c 0 0x4>;
++					reg-names = "gpio", "mux";
++					gpio-controller;
++					#gpio-cells = <2>;
++					gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_H<<8) 8>;
++				};
++
++				gpiom: gpio@1a0 {
++					reg = <0 0x1a0 0 0x20>, <0 0x20 0 0x4>;
++					reg-names = "gpio", "mux";
++					gpio-controller;
++					#gpio-cells = <2>;
++					gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_M<<8) 8>;
++				};
++
++				gpiob: gpio@240 {
++					reg = <0 0x240 0 0x20>, <0 0x0 0 0x8>;
++					reg-names = "gpio", "mux";
++					gpio-controller;
++					#gpio-cells = <2>;
++					gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_B<<8) 14>;
++				};
++
++				gpioa: gpio@280 {
++					reg = <0 0x280 0 0x24>, <0 0x40 0 0xc>;
++					reg-names = "gpio", "mux";
++					gpio-controller;
++					#gpio-cells = <2>;
++					gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_A<<8) 20>;
++				};
++
++				gpioy: gpio@2c0 {
++					reg = <0 0x2c0 0 0x20>, <0 0x30 0 0x8>;
++					reg-names = "gpio", "mux";
++					gpio-controller;
++					#gpio-cells = <2>;
++					gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_Y<<8) 10>;
++				};
++
++				gpiocc: gpio@300 {
++					reg = <0 0x300 0 0x20>, <0 0x14 0 0x4>;
++					reg-names = "gpio", "mux";
++					gpio-controller;
++					#gpio-cells = <2>;
++					gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_CC<<8) 2>;
++				};
++			};
++
++			gpio_intc: interrupt-controller@4080 {
++				compatible = "amlogic,a9-gpio-intc",
++					     "amlogic,meson-gpio-intc";
++				reg = <0x0 0x4080 0x0 0x20>;
++				interrupt-controller;
++				#interrupt-cells = <2>;
++				amlogic,channel-interrupts =
++					<10 11 12 13 14 15 16 17 18 19 20 21>;
++			};
++		};
++
+ 		gic: interrupt-controller@ff800000 {
+ 			compatible = "arm,gic-v3";
+ 			#interrupt-cells = <3>;
+@@ -123,6 +213,56 @@ uart_b: serial@1e000 {
+ 				clock-names = "xtal", "pclk", "baud";
+ 				status = "disabled";
+ 			};
++
++			aobus_pinctrl: pinctrl@4000 {
++				compatible = "amlogic,pinctrl-a9";
++				#address-cells = <2>;
++				#size-cells = <2>;
++				ranges = <0x0 0x0 0x0 0x4000 0x0 0x0e0>;
++
++				gpioao: gpio@1c {
++					reg = <0 0x1c 0 0x20>, <0 0x0 0 0x8>;
++					reg-names = "gpio", "mux";
++					gpio-controller;
++					#gpio-cells = <2>;
++					gpio-ranges = <&aobus_pinctrl 0 (AMLOGIC_GPIO_AO<<8) 13>;
++				};
++
++				gpioc: gpio@3c {
++					reg = <0 0x3c 0 0x20>, <0 0x10 0 0x4>;
++					reg-names = "gpio", "mux";
++					gpio-controller;
++					#gpio-cells = <2>;
++					gpio-ranges = <&aobus_pinctrl 0 (AMLOGIC_GPIO_C<<8) 7>;
++				};
++
++				gpiod: gpio@5c {
++					reg = <0 0x5c 0 0x24>, <0 0x8 0 0x8>;
++					reg-names = "gpio", "mux";
++					gpio-controller;
++					#gpio-cells = <2>;
++					gpio-ranges = <&aobus_pinctrl 0 (AMLOGIC_GPIO_D<<8) 18>;
++				};
++
++				test_n: gpio@c0 {
++					reg = <0 0xc0 0 0x20>;
++					reg-names = "gpio";
++					gpio-controller;
++					#gpio-cells = <2>;
++					gpio-ranges = <&aobus_pinctrl 0 (AMLOGIC_GPIO_TEST_N<<8) 1>;
++				};
++			};
++
++			gpio_ao_intc: interrupt-controller@4080 {
++				compatible = "amlogic,a9-gpio-ao-intc",
++					     "amlogic,meson-gpio-intc";
++				reg = <0x0 0x4080 0x0 0x34>;
++				interrupt-controller;
++				#interrupt-cells = <2>;
++				amlogic,channel-interrupts =
++					<384 385 386 387 388 389 390 391 392 393
++					394 395 396 397 398 399 400 401 402 403>;
++			};
+ 		};
+ 	};
+ };
 
-Apart from that LGTM:
+---
+base-commit: 3d5670d672ae08b8c534b7beed6f57c8b44e7b43
+change-id: 20260629-a9-node-3e6fceba7c90
 
-Reviewed-by: Dev Jain <dev.jain@arm.com>
+Best regards,
+-- 
+Xianwei Zhao <xianwei.zhao@amlogic.com>
 
-
->  	lazy_mmu_mode_disable();
->  	*mask |= PGTBL_PTE_MODIFIED;
-> @@ -542,8 +543,10 @@ void vunmap_range(unsigned long addr, unsigned long end)
->  
->  static int vmap_pages_pte_range(pmd_t *pmd, unsigned long addr,
->  		unsigned long end, pgprot_t prot, struct page **pages, int *nr,
-> -		pgtbl_mod_mask *mask)
-> +		pgtbl_mod_mask *mask, unsigned int shift)
->  {
-> +	unsigned long pfn, size;
-> +	unsigned int steps;
->  	int err = 0;
->  	pte_t *pte;
->  
-> @@ -574,9 +577,10 @@ static int vmap_pages_pte_range(pmd_t *pmd, unsigned long addr,
->  			break;
->  		}
->  
-> -		set_pte_at(&init_mm, addr, pte, mk_pte(page, prot));
-> -		(*nr)++;
-> -	} while (pte++, addr += PAGE_SIZE, addr != end);
-> +		pfn = page_to_pfn(page);
-> +		size = vmap_set_ptes(pte, addr, end, pfn, prot, shift);
-> +		steps = PFN_DOWN(size);
-> +	} while (pte += steps, *nr += steps, addr += size, addr != end);
->  
->  	lazy_mmu_mode_disable();
->  	*mask |= PGTBL_PTE_MODIFIED;
-> @@ -586,7 +590,7 @@ static int vmap_pages_pte_range(pmd_t *pmd, unsigned long addr,
->  
->  static int vmap_pages_pmd_range(pud_t *pud, unsigned long addr,
->  		unsigned long end, pgprot_t prot, struct page **pages, int *nr,
-> -		pgtbl_mod_mask *mask)
-> +		pgtbl_mod_mask *mask, unsigned int shift)
->  {
->  	pmd_t *pmd;
->  	unsigned long next;
-> @@ -596,7 +600,27 @@ static int vmap_pages_pmd_range(pud_t *pud, unsigned long addr,
->  		return -ENOMEM;
->  	do {
->  		next = pmd_addr_end(addr, end);
-> -		if (vmap_pages_pte_range(pmd, addr, next, prot, pages, nr, mask))
-> +
-> +		if (shift >= PMD_SHIFT) {
-> +			struct page *page = pages[*nr];
-> +			phys_addr_t phys_addr;
-> +
-> +			if (WARN_ON(!page))
-> +				return -ENOMEM;
-> +			if (WARN_ON(!pfn_valid(page_to_pfn(page))))
-> +				return -EINVAL;
-> +
-> +			phys_addr = page_to_phys(page);
-> +
-> +			if (vmap_try_huge_pmd(pmd, addr, next, phys_addr, prot,
-> +						shift)) {
-> +				*mask |= PGTBL_PMD_MODIFIED;
-> +				*nr += 1 << (PMD_SHIFT - PAGE_SHIFT);
-> +				continue;
-> +			}
-> +		}
-> +
-> +		if (vmap_pages_pte_range(pmd, addr, next, prot, pages, nr, mask, shift))
->  			return -ENOMEM;
->  	} while (pmd++, addr = next, addr != end);
->  	return 0;
-> @@ -604,7 +628,7 @@ static int vmap_pages_pmd_range(pud_t *pud, unsigned long addr,
->  
->  static int vmap_pages_pud_range(p4d_t *p4d, unsigned long addr,
->  		unsigned long end, pgprot_t prot, struct page **pages, int *nr,
-> -		pgtbl_mod_mask *mask)
-> +		pgtbl_mod_mask *mask, unsigned int shift)
->  {
->  	pud_t *pud;
->  	unsigned long next;
-> @@ -614,7 +638,7 @@ static int vmap_pages_pud_range(p4d_t *p4d, unsigned long addr,
->  		return -ENOMEM;
->  	do {
->  		next = pud_addr_end(addr, end);
-> -		if (vmap_pages_pmd_range(pud, addr, next, prot, pages, nr, mask))
-> +		if (vmap_pages_pmd_range(pud, addr, next, prot, pages, nr, mask, shift))
->  			return -ENOMEM;
->  	} while (pud++, addr = next, addr != end);
->  	return 0;
-> @@ -622,7 +646,7 @@ static int vmap_pages_pud_range(p4d_t *p4d, unsigned long addr,
->  
->  static int vmap_pages_p4d_range(pgd_t *pgd, unsigned long addr,
->  		unsigned long end, pgprot_t prot, struct page **pages, int *nr,
-> -		pgtbl_mod_mask *mask)
-> +		pgtbl_mod_mask *mask, unsigned int shift)
->  {
->  	p4d_t *p4d;
->  	unsigned long next;
-> @@ -632,14 +656,18 @@ static int vmap_pages_p4d_range(pgd_t *pgd, unsigned long addr,
->  		return -ENOMEM;
->  	do {
->  		next = p4d_addr_end(addr, end);
-> -		if (vmap_pages_pud_range(p4d, addr, next, prot, pages, nr, mask))
-> +		if (vmap_pages_pud_range(p4d, addr, next, prot, pages, nr, mask, shift))
->  			return -ENOMEM;
->  	} while (p4d++, addr = next, addr != end);
->  	return 0;
->  }
->  
-> -static int vmap_small_pages_range_noflush(unsigned long addr, unsigned long end,
-> -		pgprot_t prot, struct page **pages)
-> +/*
-> + * It can take an array of pages which are not all contiguous, but it
-> + * may have contiguous chunks, as hinted by @shift.
-> + */
-> +static int vmap_pages_range_noflush_walk(unsigned long addr, unsigned long end,
-> +		pgprot_t prot, struct page **pages, unsigned int shift)
->  {
->  	unsigned long start = addr;
->  	pgd_t *pgd;
-> @@ -654,7 +682,7 @@ static int vmap_small_pages_range_noflush(unsigned long addr, unsigned long end,
->  		next = pgd_addr_end(addr, end);
->  		if (pgd_bad(*pgd))
->  			mask |= PGTBL_PGD_MODIFIED;
-> -		err = vmap_pages_p4d_range(pgd, addr, next, prot, pages, &nr, &mask);
-> +		err = vmap_pages_p4d_range(pgd, addr, next, prot, pages, &nr, &mask, shift);
->  		if (err)
->  			break;
->  	} while (pgd++, addr = next, addr != end);
-> @@ -677,27 +705,12 @@ static int vmap_small_pages_range_noflush(unsigned long addr, unsigned long end,
->  int __vmap_pages_range_noflush(unsigned long addr, unsigned long end,
->  		pgprot_t prot, struct page **pages, unsigned int page_shift)
->  {
-> -	unsigned int i, nr = (end - addr) >> PAGE_SHIFT;
-> -
->  	WARN_ON(page_shift < PAGE_SHIFT);
->  
-> -	if (!IS_ENABLED(CONFIG_HAVE_ARCH_HUGE_VMALLOC) ||
-> -			page_shift == PAGE_SHIFT)
-> -		return vmap_small_pages_range_noflush(addr, end, prot, pages);
-> +	if (!IS_ENABLED(CONFIG_HAVE_ARCH_HUGE_VMALLOC))
-> +		page_shift = PAGE_SHIFT;
->  
-> -	for (i = 0; i < nr; i += 1U << (page_shift - PAGE_SHIFT)) {
-> -		int err;
-> -
-> -		err = vmap_range_noflush(addr, addr + (1UL << page_shift),
-> -					page_to_phys(pages[i]), prot,
-> -					page_shift);
-> -		if (err)
-> -			return err;
-> -
-> -		addr += 1UL << page_shift;
-> -	}
-> -
-> -	return 0;
-> +	return vmap_pages_range_noflush_walk(addr, end, prot, pages, page_shift);
->  }
->  
->  int vmap_pages_range_noflush(unsigned long addr, unsigned long end,
 
 
