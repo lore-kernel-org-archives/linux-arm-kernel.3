@@ -4,99 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D84B8C43327
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 09:48:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 263F1C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 09:51:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zTD44WdJSK3FZpGp1YBqkIsU4pLxtym31A5/dbuPSIk=; b=a4mEHW6DbkL1pAIAWl9ni62MIs
-	NPsrla2pBs08cTv9+JybziaSEVIFudekUn26rueFsG0weS3YH1UjILYTI6+A4SVdt58wn1aSQvbeh
-	0sr+GhlgRUWO1jwvtnWZCwpyNVudOAiAiesL8I/IdNvxli5OBOmeptyAR1WPhQ8IBIVr0npAhhvgt
-	tLxebfmUdLs7brAPpBzopsq8lvpUINMZwZ7IFuReSovjpZg3/BQbAOvUzmJpoRbomwRBoDZz23qW8
-	EDJIB9YsauC0vGXVLS8Nd3y24v1hm57RHCJ4Hqr80WbTLeeLVWxi+d5V6k7uYUacJGUQ4PeXgvd2n
-	FBUYEtLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ans8cQyuz+4bONK8ZwcfQWnEefdUl8mlhioaHY5g7cg=; b=2MoE7DX/lVZuSg9E525WKQINLz
+	+wOF5VGMH9B+y1/hCJPtkF1Bs8drkKVXpBQJpLF6IwT9E/SuY5SHTJlh3lQ42Sf/ccN1jq9YuTlto
+	jdGPuStfKpFgvRU1ec4dz0lKRlzdTfT59lLx+iO9kEF+w+Hfje2Zydy1g+44GgHfq4kTWqU5QwrA9
+	MMOrJH8O4L7n/LnujIXFEN8V3Ewzc/ZwBx9v6G6BqKfkV7XE+NC3waeT1RCI4FkVgGYp0AE8IV3yE
+	59sT3bfqNHmTR4qP80CwTIRguOlAxrBKRjhZnTbCwoLxUX5rDTO8p10D8EY+8k0ouyJ6mvymcPOL5
+	YonDTpHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we8bO-0000000EEz3-2mgL;
-	Mon, 29 Jun 2026 09:48:30 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1we8eD-0000000EG1O-1cwm;
+	Mon, 29 Jun 2026 09:51:25 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we8bL-0000000EEt7-29C0
+	id 1we8eB-0000000EG1A-3Jqm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 09:48:29 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2ca15944645so1575185ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 02:48:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782726506; x=1783331306; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=zTD44WdJSK3FZpGp1YBqkIsU4pLxtym31A5/dbuPSIk=;
-        b=geNeZl7nJZ4deAMpho6SJBmBIZDEa/5JpEiV6UhkCwZM81oxnWDyRL7Ny3+9Ox9Opb
-         vx7YhkPSXaj6WgONnYwNyCbEfP+ejpHskQ7p9QtYnT03qLx3m4/4rcyiBMe1KYYQASYk
-         OYcopmPJ4zuNwN86YA5D3A5JXGTHihMUnn6wWJXsdLQMIgZMlhyVrOpIVWVJjum0dr8F
-         Jf9FEFzz+BTOD1Oe7sccdobADCmUjyKIgrY3Mxxn97tlG8f0/MeYjCU8EAGiFvOxSkho
-         XyjHXX5f47SlPkSuSuRLhWBxFOyTbXZehyktSzp75vyD4yEmgVfPV0tQNbT+XL/Zm6gj
-         +miQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782726506; x=1783331306;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=zTD44WdJSK3FZpGp1YBqkIsU4pLxtym31A5/dbuPSIk=;
-        b=izmiIQqIL+3sZ8ewVBj8evYbnKkBGOI09JEtMoTpNgKVosRQsH1/Q0nhxCSUrXpeGJ
-         udViQaXXvLc/paT7uM1xgrZBlj55DG1L1KLVLyWO+UsdcKl662DE3S4TstTTG0E390g6
-         +l76LaPvYdUVhk7rzw2cdmCnjGy8cOZPhcO3KFf1YW0t4rUBGsWuJFJQFdCs+f2vq/Te
-         l6cuHLJw31I4le3vP4S4NESNtWVBufy+QLIUG2Ty096L22odu4fn2uLvdx5j0DsLMk/s
-         oxZF3twtntGZ2tYfT3coP7NLe+mknYixVnNV7VURH1qGCfj7nKZyg2FLUz6S6J2bl8pr
-         VsDQ==
-X-Forwarded-Encrypted: i=1; AHgh+RqszDhPk/RGCoNIa1FzO9SacpHO8nC9KjTHeUL+WoOlbh55vGyNPxmpt+SW/KvoWZltLNFcyWvGdMthUfqD/k8p@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywv4Jqp5XKNTExQv8t62UE7INjd4B8qkyBhLQ4otlSZpTsHtrt1
-	Caws6YED3tnXGb5XI3kRSfIK38hNvxomTNLZRHsrTk8S4t1Q3M0ntgcS
-X-Gm-Gg: AfdE7cll12dph1pdBBzz/D8ZNKnBHbPav/yeC0VghzAJnRX+FjZ/0fJaRGuTK8aGK1G
-	r0JVZ362SyfFaFQpamCldS/fYDnD13RQ/pHvryZGqbSBf4UnME6dyWjs3qQFjSdf9pFilnAzKyK
-	+k34yo8WZlS+b5SkSdmUdsUhit8PpK1lyr/oi6sNQ8pGGU4GCmVWCDVy1MwMv6+aW6+UsCSh+z9
-	My518Z78T0VbKgkdyZzrLgKGx11N8YoZBQdb8RvyE8DOOfnmjMDKqf3n3P60r5Y4iU4ofuhad9y
-	T2n60j1MaX/zXoeB0Lfkmj3rAhqB9A4Cx3j8s7USaoBCRbMWmfGWeqV+eEycedICkmZuhkoGXHe
-	pPzRuoweK39ah++9NXcaJISPDrwNsqNRQ+B/dz8O2ULWeAm2Lu37qVu+kTVJKzIQ5cBoelNBYiX
-	pVxnBP67VBdRidcseSCENmT4u42vuXiHa+3XjCvJIJ8EtLfjvssS9G4FvKqnE8A5vyTg==
-X-Received: by 2002:a17:902:f612:b0:2c7:f2c6:89e0 with SMTP id d9443c01a7336-2c98549d2a7mr85863555ad.4.1782726506210;
-        Mon, 29 Jun 2026 02:48:26 -0700 (PDT)
-Received: from [192.168.0.100] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c7f5af8a07sm88963245ad.25.2026.06.29.02.48.22
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 29 Jun 2026 02:48:25 -0700 (PDT)
-Message-ID: <df86d371-2994-4f33-80fe-36509054fee3@gmail.com>
-Date: Mon, 29 Jun 2026 17:48:19 +0800
+	Mon, 29 Jun 2026 09:51:23 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id C3B2C60008;
+	Mon, 29 Jun 2026 09:51:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 681D11F000E9;
+	Mon, 29 Jun 2026 09:51:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782726682;
+	bh=Ans8cQyuz+4bONK8ZwcfQWnEefdUl8mlhioaHY5g7cg=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=OVJB8yvfXgbiOBWbfWIoCv4EaqRoiMKbn/u81nCdeww8OY0lsKYD5YUIGjzxCGvda
+	 QELTkKii4nlxFHZwgwLIfbn0ZuR6eySGblk232ZI6431dTMGNSMlXLKKQ9Qa1qM3jm
+	 PwJPy2IiyYjaHq4ALlzg8wobD7QaTTEdFsyUk4xvyyOGmzo8YP5EJ5x6ldFZ4JvAPS
+	 iXqMh0s+dbaUW+YKPGg0H5u/nJIvCb4b7ivUOvUQoo34xbrDTEkKt9Iy9BelIW2fDb
+	 FhaZMyl2j8BRqrNZGVnrwnyxL/L/6vRUJ4wxARUZ8wqDwoPUKvuyLL22OYmDijOqQ3
+	 V3iAOA40OozrQ==
+X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Alexey Kardashevskiy <aik@amd.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
+	Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>,
+	Mostafa Saleh <smostafa@google.com>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>,
+	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
+Subject: Re: [PATCH v6 00/20] dma-mapping: Use DMA_ATTR_CC_SHARED through
+ direct, pool and swiotlb paths
+In-Reply-To: <yq5ao6gtoncp.fsf@kernel.org>
+References: <20260604083959.1265923-1-aneesh.kumar@kernel.org>
+ <aigYbK12D8uKQvJF@arm.com> <20260609144746.GL2764304@ziepe.ca>
+ <2ecfa1a8-6202-4319-9692-a6ffeb5a3dbf@amd.com>
+ <yq5aqzm4dz25.fsf@kernel.org> <20260618153705.GH231643@ziepe.ca>
+ <yq5ao6h6enhm.fsf@kernel.org> <20260619122148.GL231643@ziepe.ca>
+ <yq5aldcaejos.fsf@kernel.org> <20260619140616.GB1068655@ziepe.ca>
+ <yq5ao6gtoncp.fsf@kernel.org>
+Date: Mon, 29 Jun 2026 15:21:08 +0530
+Message-ID: <yq5ah5mloesz.fsf@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/4] dt-bindings: reset: nuvoton,ma35d1-reset: add
- simple-mfd and child node support
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong
- <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
- Catalin Marinas <catalin.marinas@arm.com>, Jacky Huang
- <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>,
- Hui-Ping Chen <hpchen0nvt@gmail.com>, Joey Lu <yclu4@nuvoton.com>,
- linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260625023958.569299-1-a0987203069@gmail.com>
- <20260625023958.569299-2-a0987203069@gmail.com>
- <20260625-striped-demonic-jerboa-502afb@quoll>
-Content-Language: en-US
-From: Joey Lu <a0987203069@gmail.com>
-In-Reply-To: <20260625-striped-demonic-jerboa-502afb@quoll>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_024827_692327_B4D46043 
-X-CRM114-Status: GOOD (  19.57  )
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,86 +99,107 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On 6/25/2026 3:51 PM, Krzysztof Kozlowski wrote:
-> On Thu, Jun 25, 2026 at 10:39:55AM +0800, Joey Lu wrote:
->> The MA35D1 system-management syscon node hosts the USB PHY register
->> block at offset 0x60.  To model usb-phy@60 as a DT child of the syscon
->> node the binding must allow:
-> Explain why do you need child node. If you have fixed device @0x60, you do
-> not need DT child node at all. Compatible implies that child existence.
-The commit message will be rewritten to state the motivation: the USB PHY
-register block at offset 0x60 needs a referenceable DT node because consumer
-drivers (dwc2, ehci0/ohci0, ehci1/ohci1) look it up via `phys = 
-<&usb_phy N>`,
-which requires an explicit node with a phandle. Optional per-board 
-calibration
-properties (`nuvoton,rcalcode`, `nuvoton,oc-active-high`) also need to be
-expressed in DT.
->
->>    - simple-mfd as an optional third compatible so the MFD core can
->>      instantiate child platform devices.
->>
->>    - #address-cells and #size-cells (each const: 1) so child nodes can
->>      carry a reg property.
->>
->>    - An open child-node pattern (patternProperties "^.*@[0-9a-f]+$")
->>      to pass dt-schema validation.
-> No. Do not explain what you did - we can read the diff. You must explain
-> WHY you are doing that.
-Addressed above.
->> Signed-off-by: Joey Lu <a0987203069@gmail.com>
->> ---
->>   .../bindings/reset/nuvoton,ma35d1-reset.yaml        | 13 ++++++++++++-
->>   1 file changed, 12 insertions(+), 1 deletion(-)
->>
->> diff --git a/Documentation/devicetree/bindings/reset/nuvoton,ma35d1-reset.yaml b/Documentation/devicetree/bindings/reset/nuvoton,ma35d1-reset.yaml
->> index 3ce7dcecd87a..1fda7e8f4b5d 100644
->> --- a/Documentation/devicetree/bindings/reset/nuvoton,ma35d1-reset.yaml
->> +++ b/Documentation/devicetree/bindings/reset/nuvoton,ma35d1-reset.yaml
->> @@ -19,6 +19,8 @@ properties:
->>       items:
->>         - const: nuvoton,ma35d1-reset
->>         - const: syscon
->> +      - const: simple-mfd
->> +    minItems: 2
->>   
->>     reg:
->>       maxItems: 1
->> @@ -26,6 +28,16 @@ properties:
->>     '#reset-cells':
->>       const: 1
->>   
->> +  '#address-cells':
->> +    const: 1
->> +
->> +  '#size-cells':
->> +    const: 1
->> +
->> +patternProperties:
->> +  "^.*@[0-9a-f]+$":
-> This must be specific.
-The `patternProperties` key will be changed from `"^.*@[0-9a-f]+$"` to
-`"^usb-phy@[0-9a-f]+$"` so it matches only USB PHY child nodes, 
-following the
-naming convention used by existing vendor bindings.
->> +    type: object
-> Missing ref and additionalProps. Please look at other simple-mfd.
-`$ref: /schemas/phy/nuvoton,ma35d1-usb2-phy.yaml#` will be added under the
-patternProperties entry, alongside `type: object`, so the child node will be
-validated against the PHY binding schema. This follows the pattern used by
-existing vendor bindings.
+Alexey,
 
-Thanks for review.
->> +
->>   required:
->>     - compatible
->>     - reg
->> @@ -43,4 +55,3 @@ examples:
->>           #reset-cells = <1>;
->>       };
->>   ...
->> -
->> -- 
->> 2.43.0
->>
+Aneesh Kumar K.V <aneesh.kumar@kernel.org> writes:
+
+> The current code already does this and uses the swiotlb pool correctly
+> on SME. The challenge arises when we want to force SWIOTLB
+> bouncing even for devices that can handle encrypted DMA addresses (more
+> on that below). For such a config force_dma_uencrypted(dev) will return
+> false and swiotlb will be marked cc_shared/decrypted = true; This trip
+> the new check we added.
+>
+> 	/* swiotlb pool is incorrect for this device */
+> 	if (unlikely(mem->cc_shared != force_dma_unencrypted(dev)))
+> 		return (phys_addr_t)DMA_MAPPING_ERROR;
+>
+> We can also do
+>
+> 	if (cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT)) {
+> 		/* swiotlb pool is incorrect for this device */
+> 		if (unlikely(mem->cc_shared != force_dma_unencrypted(dev)))
+> 			return (phys_addr_t)DMA_MAPPING_ERROR;
+>
+> 		/* Force attrs to match the kind of memory in the pool */
+> 		if (mem->cc_shared)
+> 			*attrs |= DMA_ATTR_CC_SHARED;
+> 		else
+> 			*attrs &= ~DMA_ATTR_CC_SHARED;
+> 	} else {
+> 		/*
+> 		 * Host memory encryption where device requires an
+> 		 * unencrypted dma_addr_t due to dma mask limit
+>     		 */
+> 		if (force_dma_unencrypted(dev))
+> 			*attrs |= DMA_ATTR_CC_SHARED;
+> 		else
+> 			*attrs &= ~DMA_ATTR_CC_SHARED;
+> 	}
+>
+>
+> Here I see value in having DMA_ATTR_UNENCRYPTED. The question is do we
+> need to split this into two flags and introduce the resulting code
+> duplication.
+>
+
+Can you help to test this patch?
+
+commit 0275ed870ff8dadb4890fe8342e84b294f657c43
+Author: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+Date:   Mon Jun 29 11:55:08 2026 +0530
+
+    swiotlb: Return unencrypted DMA addresses for SME bounce buffers
+    
+    On hosts with memory encryption, the default swiotlb pool is marked shared
+    and decrypted when memory encryption is active.
+    
+    Make host-memory-encryption swiotlb mappings consistently return
+    unencrypted DMA addresses. This applies regardless of whether the device
+    itself requires unencrypted DMA due to its DMA mask, because the bounce
+    buffer memory backing the mapping is already unencrypted. It also preserves
+    swiotlb=force for devices that can address encrypted memory: forced bounce
+    mappings use the unencrypted swiotlb pool and receive unencrypted DMA
+    addresses.
+    
+    Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+
+diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
+index a62e1571ec95..9ba23cf8d97b 100644
+--- a/kernel/dma/swiotlb.c
++++ b/kernel/dma/swiotlb.c
+@@ -1514,15 +1514,26 @@ phys_addr_t swiotlb_tbl_map_single(struct device *dev, phys_addr_t orig_addr,
+ 	if (cc_platform_has(CC_ATTR_MEM_ENCRYPT))
+ 		pr_warn_once("Memory encryption is active and system is using DMA bounce buffers\n");
+ 
+-	/* swiotlb pool is incorrect for this device */
+-	if (unlikely(mem->cc_shared != force_dma_unencrypted(dev)))
+-		return (phys_addr_t)DMA_MAPPING_ERROR;
++	if (cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT)) {
++		/* swiotlb pool is incorrect for this device */
++		if (unlikely(mem->cc_shared != force_dma_unencrypted(dev)))
++			return (phys_addr_t)DMA_MAPPING_ERROR;
+ 
+-	/* Force attrs to match the kind of memory in the pool */
+-	if (mem->cc_shared)
++		/* Force attrs to match the kind of memory in the pool */
++		if (mem->cc_shared)
++			*attrs |= DMA_ATTR_CC_SHARED;
++		else
++			*attrs &= ~DMA_ATTR_CC_SHARED;
++	} else if (cc_platform_has(CC_ATTR_HOST_MEM_ENCRYPT)) {
++		/*
++		 * On hosts with memory encryption, SWIOTLB-backed memory
++		 * is unencrypted memory. DMA addresses returned for bounce
++		 * buffers must therefore have the C-bit cleared, even for
++		 * devices that can address encrypted memory. This also
++		 * preserves swiotlb=force for those devices.
++		 */
+ 		*attrs |= DMA_ATTR_CC_SHARED;
+-	else
+-		*attrs &= ~DMA_ATTR_CC_SHARED;
++	}
+ 
+ 	/*
+ 	 * The default swiotlb memory pool is allocated with PAGE_SIZE
 
