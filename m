@@ -4,86 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F08DFC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 15:44:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04A55C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 15:45:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QPyQU6+yuB09FuIkfFeAr4jLXLJolnakzFOl2Nr96m8=; b=SFw3GutuOMWG2tlB5D6xM9DR4U
-	UH6Qq54L6Oax5hobU/8imZicAVLU+UCubDUTcL6c1sp6UhW1qFwzPhgxchOXPChZ0NZQVdb3a3cyY
-	LsQAj6YKczzWYOlIsmCwe4WtW/LnxJbq/lKYeMv01bGhRwNBLQ277qZFRQMw7DY0ArzsEgOZ9CX5j
-	HYPuydUw5St8D1yZYxYQWWRmte1CUnvoCekFOaX2xeVCJmLytt/XXRwCIHdzcau4fSu/DnJLM4ppm
-	xWx7I/9GziTqxxBXZxJNbDAT7dqbQkgVjrfkZM4ev8iEjpSGPKBSBmoRqFSSWOx711W3mEHyL6tca
-	oMEylRNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JSWP+oCjDefLm/g9PuV1GqUkziDul2e9yv/ysVQsJLY=; b=e1r8K4VwQwpWH7cpfqxLcK6QXh
+	SnMyu8742FXQl82ycf/OSYGMGm9b0GfREP7BsTiUV6v7zb9pGZDuvKrEQopOuZSX3aFB4b07Io35G
+	SPjRk9sGO59n/S/9QFa+06UtCUf/lq7eFMm/QZSOpBD5Wxu8tIXpiMBAJV54LlD58Bu+KLHlLL2Cf
+	BCppr3gHXnORjJb1SkNuGZ4JvWa3G0tbSMiQDd0Xy7L3MPuGk3lNviecKf0b5mpbyXtRHhvsPp+5l
+	3rVZ7h0Sjt1xQmx4KmjEaFJpjmoMztwXcLRKWm6nu7i1d9k/TYNQeIKsi0Nyd6d9tOUZrgWnlDYP2
+	nUVvrQSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weE9Y-0000000F6iV-2caZ;
-	Mon, 29 Jun 2026 15:44:08 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1weEAz-0000000F70e-4AuG;
+	Mon, 29 Jun 2026 15:45:37 +0000
+Received: from flow-b5-smtp.messagingengine.com ([202.12.124.140])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weE9V-0000000F6hx-453z
+	id 1weEAx-0000000F6zs-1Z7G
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 15:44:07 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-8424b00710aso2495212b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 08:44:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1782747845; x=1783352645; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=QPyQU6+yuB09FuIkfFeAr4jLXLJolnakzFOl2Nr96m8=;
-        b=lk1YrL9ES0/hz57DCvFohwkspGFoFQnMOWQ8f+10Le0xxa9CyWndmAan8toip9TIvs
-         AQK69RpzwuiyvoXJiVWjYWU1BhiQ0x25Rm4Q11JCSipNWp0OvmYsIST9QJo04Uk9SW06
-         mXjoaIELnDCR1RDG8I+u6gyAF+FkioidBKwCNFYRpoyq14O7x6SL5qaX2Cnf4TGmfhpD
-         Oz+WiT45KIWfZcbWT9XrYg+jSQBg6ZMETNCBhfZ8bEGTRMocXcl/DO2mb7bCkR6IWnL5
-         h3dMTuxczrrJh9uATW5qp62gOrytmtI9f3LnO5s9bwe9fwrOGSP4r9KG0HbT5ZYc7K01
-         kEJw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782747845; x=1783352645;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=QPyQU6+yuB09FuIkfFeAr4jLXLJolnakzFOl2Nr96m8=;
-        b=k+OtwEFDnlyPZ+YBUp29c8+mcW0N5j4PWRWVMSeQjCVUYlWyFmylSY4vC9p4I/YkMY
-         CFa6FpKOGspvAK9u7uVVo04KjgS0sHmBjzeXUnN3WPnNBDi5yvOBwXj+Y0agcRckZYas
-         criKROfdeP8SZRkf238y7tzgG5HlqxtItknpyW4M0TUiYzrMUshmecl1kSiKn2zaawYy
-         NiKNZmLuP//SLFjGylP5sN/L9XMgPw5FXyDM0l0Kr+1eAT09frg8qmhSVgpH6DV5cYOC
-         jb++SRYfQF/b/n8Vrx0Ek5p2WaxOoK8Hir8xsrVBR3psveK4nR3i0ll9rO6t5zNvhTx/
-         47bw==
-X-Forwarded-Encrypted: i=1; AHgh+RqUhyD5E7vjgFR1d/hKMOOfoLdl+MwQleHxqvOSJ4SUlY84YTh7zNP7J4xS3ru81vVJhBxsuA13gmewCrz+kLaN@lists.infradead.org
-X-Gm-Message-State: AOJu0YyueKpDS1vbV9TizLJM2tA+cH+44iAKMouIV5HklBOkVvaqVwI5
-	/OlP/lm4F6jt4lYLOWeuKL9IV5kwKUfzkCSeCCjDtiUMkFkZdQyi+GkhFAKABGh3Ykk=
-X-Gm-Gg: AfdE7cm8qSI5O8fBXudM3zPJ999deDA6NWpa9cI65WgKv1lbwdUkUZZVIexWzuJPWt7
-	8uEOxz0TfW8r+ApTQVwK5T7rhOdB12BVt94SPu9n8Q/ACc8sj/bVu8XRW6tZQwPfl3SNHhRxj53
-	P9UoysAjwMqMTuCXiOqUNwAJlvfSaLs6WhklWyIDlrVrdmOm3ZkBO6rvSU/nHaeO0I+gmABJEMp
-	pQaSeqtn056yrPyCfcXXsi7nICYTrUdvNgxrxLpSt2HAYkjAwWesy4psASs8Qtqf1AmTEcoOiFB
-	7ByEnPhSNlX22jwEH1K+T8saCFBOQtk3LVzhmLFEmDJMENqs4C00XgvxpFOLZ+WsE257b/rg47L
-	ksL18DETUSQmma0TCpFDLdZGP/hjSgWGvTc5SoUzN4ZUJQ0rZIOQGXDWvqutC96gDA3HA6pi2om
-	oOIf/eJAjhZxMbz6gHu76a3NlYYaY=
-X-Received: by 2002:a05:6a00:1a86:b0:847:1b77:6eb9 with SMTP id d2e1a72fcca58-8479eeb6872mr89527b3a.9.1782747844789;
-        Mon, 29 Jun 2026 08:44:04 -0700 (PDT)
-Received: from p14s ([2604:3d09:148c:c800:aa83:261a:68a7:9974])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c9bbcd9f5acsm73446a12.10.2026.06.29.08.44.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Jun 2026 08:44:04 -0700 (PDT)
-Date: Mon, 29 Jun 2026 09:44:02 -0600
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: Tanmay Shah <tanmay.shah@amd.com>
-Cc: michal.simek@amd.com, andersson@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-remoteproc@vger.kernel.org
-Subject: Re: [PATCH] remoteproc: xlnx: refactor start & stop ops
-Message-ID: <akKSwrbbkFxNIiXu@p14s>
-References: <20260619163854.410392-1-tanmay.shah@amd.com>
+	Mon, 29 Jun 2026 15:45:36 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailflow.stl.internal (Postfix) with ESMTP id B7CF01300119;
+	Mon, 29 Jun 2026 11:45:33 -0400 (EDT)
+Received: from phl-imap-05 ([10.202.2.95])
+  by phl-compute-04.internal (MEProxy); Mon, 29 Jun 2026 11:45:34 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1782747933;
+	 x=1782755133; bh=JSWP+oCjDefLm/g9PuV1GqUkziDul2e9yv/ysVQsJLY=; b=
+	NE6t34RDiIItJnjdvpPNLzERZEmy1Uokb4joPY1CUGLVDWSQy6O7lM7YR/JH2Vzz
+	EKjSBDHgy12XKPTe4T6/vFGszy9/X5bhW/dAEDGMtAFHdRGEckNuxhc9bX3PR0VE
+	bfW0MW2BR1AKR58Jk7h1JxjrIx1Kz7REAVnwk0oAlfoj8/mj7rRNlBSR0zA4hhnh
+	nrZ5Ql6KmC6VRVCiJ20YjlxB5Hon27fcsCOduVLOhAndchegK3YeVpKE9Pp1EySs
+	+Hgew3gjNwCsL97JbgGzSZGffJk0l4s3icmD0kqHlku9NQytJJHrK5zKTtqTrlSN
+	nN0K/5MSbp6GsS3AP9v5Xw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1782747933; x=
+	1782755133; bh=JSWP+oCjDefLm/g9PuV1GqUkziDul2e9yv/ysVQsJLY=; b=B
+	vW9GpEfQf5KLp9NtJM6GkHv3I5ZqIvw4Ca2lMiHX8SKqsoxlmypG2EMXAsormSFb
+	oqLT0a0Bl9FJyA6vd4v32gwdXkqPQVCs0Q1Y9jXp5dOSVQI2tfbQcx1ULcycd2no
+	cz4W31l3TBY05Bi2KSWoBV2ZPe6YbfMg4EFP7hw/vkSYA/ePVKRQACV+DCkNrleC
+	7d2U6h7NAcmkprtPUjO4A9XW6JXNK6W9RSqJU2/A289YIaXuaBCd1hJaZ6vsHuTg
+	GNxjVNjZ5DH/aXylHFIrfAuE5N81jk6hj/53mTDmJA3sJAwIS6GzLql0EapV+l/2
+	td6qNY5irlX8jNYf/UttQ==
+X-ME-Sender: <xms:HJNCaoMrkvvQS7N_eQkd2-7GzY3rf6oAfFR9scbcsRER6z01sw7mzQ>
+    <xme:HJNCapwMpwLVp89QaYKeW8Gu_iFO6mtIcDakQdQ1IcDR2awHglttG5XYgUbY-f2KY
+    MUHVhVlQ81X_KxAdYNn48ZwudPAYseWVvBXQ00pUVx7Z5102rCPfbsZ>
+X-ME-Proxy-Cause: dmFkZTGfEuV5uhz9iLc4/VqJewkOwZztE2Q/W2L8MWGpthXJSG6cnqB0ybUTZO/gmTStFr
+    IiMG3oMMwTOd1GN29iTAZh8ELqDq/pvNTu31HqcDhNTnRV5w+qN8TY5zQgqjhrWyTFnLFv
+    a5lC1bd0Nsy33atl2U9pCG8DwHiBT9SAvLqnCXSLgY6ykY2nreWYk0o6gpE7z+zCzbU5QI
+    CLqmPEwYE4mll5+cmq6mEdAN12TaRxj619rRYC2M3spZPblqPgudPkyzWrdvTZpBYK3w/u
+    jqv7Hdzc+TtswHLZ1V6GZ+c/1ZffJJfwsB5JIPB30uvkpQkKQBrSQtzi9AGb8HNFEb2kgE
+    qKkXl9pCm/0B95O8InFrTkKN0fJJdpnCSraeOZvlbYvDYSuDEOsOuD28QLxuf4mNOnHYEc
+    4em35Aufoj/L6MFtoXv8X9guYW3iZk9yMbK8VidKBOe9HIlA6Vy69oYVLWvoeIP/sRtUxM
+    xWA7NaPmd/Kd9MV/ItckFUA5jQ19oB0lqDlABCPUJva5FAJO0rNnJiVDlHuYcKo1028G2L
+    QCmWZB57sVtG9lZURwNtcccEDwqWzXsVO1FCuadUaHZRSO4zh0UrefsDvNNDkSsAklUL8C
+    nDBMgI4yo+tcTzxNjLzthPlRQuu7ftRHxOLDna+Fu5ygZv/F2jkt5rcMUitw
+X-ME-Proxy: <xmx:HJNCaiVR99ITZUIeVHLQIjkAl3W5L7-NY_eXPpexE2ezyiuvPV7Wig>
+    <xmx:HJNCaqDcmel0SZvoqXYoLZayz9Q48weXPGpjP4Y1EEA9-teXfq9kNA>
+    <xmx:HJNCalHWKybZhCSB_h9ep1tLEkKEMci7ODZ3AjJ9oK0yH0tMhtYVDw>
+    <xmx:HJNCamc1hcyXGhjSob0H8QG7OUqPoVNgYLrZzyvRI9sJF6RPK2srWA>
+    <xmx:HZNCahf_1C-xXUG9BEQMuJSIEx8k4QdhQtNpq8TMrV7EM8NaHbepNMFj>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id BA658182007A; Mon, 29 Jun 2026 11:45:32 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260619163854.410392-1-tanmay.shah@amd.com>
+X-ThreadId: A045QOfflcQ7
+Date: Mon, 29 Jun 2026 17:45:12 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Andy Shevchenko" <andriy.shevchenko@intel.com>,
+ "Arnd Bergmann" <arnd@kernel.org>
+Cc: "Linus Walleij" <linusw@kernel.org>,
+ "Bartosz Golaszewski" <brgl@kernel.org>,
+ "Marcel Holtmann" <marcel@holtmann.org>,
+ "MyungJoo Ham" <myungjoo.ham@samsung.com>,
+ "Chanwoo Choi" <cw00.choi@samsung.com>,
+ "Geert Uytterhoeven" <geert+renesas@glider.be>,
+ "Andy Shevchenko" <andy@kernel.org>,
+ "Dmitry Torokhov" <dmitry.torokhov@gmail.com>,
+ "Ulf Hansson" <ulfh@kernel.org>, linux-bluetooth@vger.kernel.org,
+ linux-kernel@vger.kernel.org,
+ "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
+ dri-devel@lists.freedesktop.org, linux-i2c@vger.kernel.org,
+ linux-iio@vger.kernel.org, linux-input@vger.kernel.org,
+ "linux-mmc @ vger . kernel . org" <linux-mmc@vger.kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+ linux-usb@vger.kernel.org
+Message-Id: <34d4eddf-bfe5-4103-b2c6-143c63ea37f9@app.fastmail.com>
+In-Reply-To: <akKN59lv55CXS3HU@ashevche-desk.local>
+References: <20260629135917.1308621-1-arnd@kernel.org>
+ <akKN59lv55CXS3HU@ashevche-desk.local>
+Subject: Re: [PATCH] [RFC] gpiolib: introduce gpio_name() helper
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_084406_045297_06D0CF52 
-X-CRM114-Status: GOOD (  33.59  )
+X-CRM114-CacheID: sfid-20260629_084535_695845_95B6E5EF 
+X-CRM114-Status: GOOD (  14.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,255 +124,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 19, 2026 at 09:38:54AM -0700, Tanmay Shah wrote:
-> Current _start and _stop ops are implemented using various APIs from the
-> platform management firmware driver. Instead provide respective RPU
-> start and stop API in the firmware driver and move the logic to interact
-> with the PM firmware in the firmware driver. The remoteproc driver doesn't
-> need to know actual logic, but only the final result i.e. RPU start/stop
-> was success or not. This refactor keeps the remoteproc driver simple and
-> moves firmware interaction logic to the firmware driver.
-> 
-> Signed-off-by: Tanmay Shah <tanmay.shah@amd.com>
-> ---
->  drivers/firmware/xilinx/zynqmp.c        | 93 +++++++++++++++++++++++++
->  drivers/remoteproc/xlnx_r5_remoteproc.c | 68 ++----------------
->  include/linux/firmware/xlnx-zynqmp.h    | 12 ++++
->  3 files changed, 110 insertions(+), 63 deletions(-)
+On Mon, Jun 29, 2026, at 17:23, Andy Shevchenko wrote:
+> On Mon, Jun 29, 2026 at 03:56:29PM +0200, Arnd Bergmann wrote:
+>> +const char *gpiod_name(const struct gpio_desc *desc)
+>> +{
+>> +	return desc ? desc->name : "(no gpio)";
 >
+> Can we get into here with wrong (error pointer descriptor)? Shouldn't you call
+> one of validate_desc() / VALIDATE_DESC()?
 
-Applied.
+Since all the callers previously call desc_to_gpio and that does
+not even check desc at all, it would be a preexisting bug if
+any caller passed an error pointer.
 
-Thanks,
-Mathieu
- 
-> diff --git a/drivers/firmware/xilinx/zynqmp.c b/drivers/firmware/xilinx/zynqmp.c
-> index af838b2dc327..f9a3a95b0638 100644
-> --- a/drivers/firmware/xilinx/zynqmp.c
-> +++ b/drivers/firmware/xilinx/zynqmp.c
-> @@ -1513,6 +1513,99 @@ int zynqmp_pm_request_wake(const u32 node,
->  }
->  EXPORT_SYMBOL_GPL(zynqmp_pm_request_wake);
->  
-> +/**
-> + * zynqmp_pm_start_rpu - Boot Real-time Processing Unit (Cortex-R) on SoC
-> + *
-> + * @node: power-domains id of the core
-> + * @bootaddr: Boot address of elf
-> + *
-> + * Return: status, either success or error+reason
-> + */
-> +int zynqmp_pm_start_rpu(const u32 node, const u64 bootaddr)
-> +{
-> +	enum rpu_boot_mem bootmem;
-> +	int ret;
-> +
-> +	/*
-> +	 * The exception vector pointers (EVP) refer to the base-address of
-> +	 * exception vectors (for reset, IRQ, FIQ, etc). The reset-vector
-> +	 * starts at the base-address and subsequent vectors are on 4-byte
-> +	 * boundaries.
-> +	 *
-> +	 * Exception vectors can start either from 0x0000_0000 (LOVEC) or
-> +	 * from 0xFFFF_0000 (HIVEC) which is mapped in the OCM (On-Chip Memory)
-> +	 *
-> +	 * Usually firmware will put Exception vectors at LOVEC.
-> +	 *
-> +	 * It is not recommend that you change the exception vector.
-> +	 * Changing the EVP to HIVEC will result in increased interrupt latency
-> +	 * and jitter. Also, if the OCM is secured and the Cortex-R5F processor
-> +	 * is non-secured, then the Cortex-R5F processor cannot access the
-> +	 * HIVEC exception vectors in the OCM.
-> +	 */
-> +	bootmem = (bootaddr >= 0xFFFC0000) ?
-> +		   PM_RPU_BOOTMEM_HIVEC : PM_RPU_BOOTMEM_LOVEC;
-> +
-> +	pr_debug("RPU boot addr 0x%llx from %s.", bootaddr,
-> +		 bootmem == PM_RPU_BOOTMEM_HIVEC ? "OCM" : "TCM");
-> +
-> +	/* Request node before starting RPU core if new version of API is supported */
-> +	if (zynqmp_pm_feature(PM_REQUEST_NODE) > PM_API_VERSION_1) {
-> +		ret = zynqmp_pm_request_node(node,
-> +					     ZYNQMP_PM_CAPABILITY_ACCESS, 0,
-> +					     ZYNQMP_PM_REQUEST_ACK_BLOCKING);
-> +		if (ret < 0) {
-> +			pr_err("failed to request 0x%x", node);
-> +			return ret;
-> +		}
-> +	}
-> +
-> +	ret = zynqmp_pm_request_wake(node, true,
-> +				     bootmem, ZYNQMP_PM_REQUEST_ACK_NO);
-> +	if (ret)
-> +		pr_err("failed to start RPU = 0x%x\n", node);
-> +	return ret;
-> +}
-> +EXPORT_SYMBOL_GPL(zynqmp_pm_start_rpu);
-> +
-> +/**
-> + * zynqmp_pm_stop_rpu - Stop Real-time Processing Unit (Cortex-R) on SoC
-> + *
-> + * @node: power-domains id of the core
-> + *
-> + * Return: status, either success or error+reason
-> + */
-> +int zynqmp_pm_stop_rpu(const u32 node)
-> +{
-> +	int ret;
-> +
-> +	/* Use release node API to stop core if new version of API is supported */
-> +	if (zynqmp_pm_feature(PM_RELEASE_NODE) > PM_API_VERSION_1) {
-> +		ret = zynqmp_pm_release_node(node);
-> +		if (ret)
-> +			pr_err("failed to stop remoteproc RPU %d\n", ret);
-> +		return ret;
-> +	}
-> +
-> +	/*
-> +	 * Check expected version of EEMI call before calling it. This avoids
-> +	 * any error or warning prints from firmware as it is expected that fw
-> +	 * doesn't support it.
-> +	 */
-> +	if (zynqmp_pm_feature(PM_FORCE_POWERDOWN) != PM_API_VERSION_1) {
-> +		pr_debug("EEMI interface %d ver 1 not supported\n",
-> +			 PM_FORCE_POWERDOWN);
-> +		return -EOPNOTSUPP;
-> +	}
-> +
-> +	/* maintain force pwr down for backward compatibility */
-> +	ret = zynqmp_pm_force_pwrdwn(node, ZYNQMP_PM_REQUEST_ACK_BLOCKING);
-> +	if (ret)
-> +		pr_err("core force power down failed\n");
-> +	return ret;
-> +}
-> +EXPORT_SYMBOL_GPL(zynqmp_pm_stop_rpu);
-> +
->  /**
->   * zynqmp_pm_set_requirement() - PM call to set requirement for PM slaves
->   * @node:		Node ID of the slave
-> diff --git a/drivers/remoteproc/xlnx_r5_remoteproc.c b/drivers/remoteproc/xlnx_r5_remoteproc.c
-> index 3349d1877751..dcd8a93f031c 100644
-> --- a/drivers/remoteproc/xlnx_r5_remoteproc.c
-> +++ b/drivers/remoteproc/xlnx_r5_remoteproc.c
-> @@ -364,49 +364,12 @@ static void zynqmp_r5_rproc_kick(struct rproc *rproc, int vqid)
->  static int zynqmp_r5_rproc_start(struct rproc *rproc)
->  {
->  	struct zynqmp_r5_core *r5_core = rproc->priv;
-> -	enum rpu_boot_mem bootmem;
->  	int ret;
->  
-> -	/*
-> -	 * The exception vector pointers (EVP) refer to the base-address of
-> -	 * exception vectors (for reset, IRQ, FIQ, etc). The reset-vector
-> -	 * starts at the base-address and subsequent vectors are on 4-byte
-> -	 * boundaries.
-> -	 *
-> -	 * Exception vectors can start either from 0x0000_0000 (LOVEC) or
-> -	 * from 0xFFFF_0000 (HIVEC) which is mapped in the OCM (On-Chip Memory)
-> -	 *
-> -	 * Usually firmware will put Exception vectors at LOVEC.
-> -	 *
-> -	 * It is not recommend that you change the exception vector.
-> -	 * Changing the EVP to HIVEC will result in increased interrupt latency
-> -	 * and jitter. Also, if the OCM is secured and the Cortex-R5F processor
-> -	 * is non-secured, then the Cortex-R5F processor cannot access the
-> -	 * HIVEC exception vectors in the OCM.
-> -	 */
-> -	bootmem = (rproc->bootaddr >= 0xFFFC0000) ?
-> -		   PM_RPU_BOOTMEM_HIVEC : PM_RPU_BOOTMEM_LOVEC;
-> -
-> -	dev_dbg(r5_core->dev, "RPU boot addr 0x%llx from %s.", rproc->bootaddr,
-> -		bootmem == PM_RPU_BOOTMEM_HIVEC ? "OCM" : "TCM");
-> -
-> -	/* Request node before starting RPU core if new version of API is supported */
-> -	if (zynqmp_pm_feature(PM_REQUEST_NODE) > 1) {
-> -		ret = zynqmp_pm_request_node(r5_core->pm_domain_id,
-> -					     ZYNQMP_PM_CAPABILITY_ACCESS, 0,
-> -					     ZYNQMP_PM_REQUEST_ACK_BLOCKING);
-> -		if (ret < 0) {
-> -			dev_err(r5_core->dev, "failed to request 0x%x",
-> -				r5_core->pm_domain_id);
-> -			return ret;
-> -		}
-> -	}
-> -
-> -	ret = zynqmp_pm_request_wake(r5_core->pm_domain_id, 1,
-> -				     bootmem, ZYNQMP_PM_REQUEST_ACK_NO);
-> +	ret = zynqmp_pm_start_rpu(r5_core->pm_domain_id, rproc->bootaddr);
->  	if (ret)
-> -		dev_err(r5_core->dev,
-> -			"failed to start RPU = 0x%x\n", r5_core->pm_domain_id);
-> +		dev_err(&rproc->dev, "failed to start RPU\n");
-> +
->  	return ret;
->  }
->  
-> @@ -423,30 +386,9 @@ static int zynqmp_r5_rproc_stop(struct rproc *rproc)
->  	struct zynqmp_r5_core *r5_core = rproc->priv;
->  	int ret;
->  
-> -	/* Use release node API to stop core if new version of API is supported */
-> -	if (zynqmp_pm_feature(PM_RELEASE_NODE) > 1) {
-> -		ret = zynqmp_pm_release_node(r5_core->pm_domain_id);
-> -		if (ret)
-> -			dev_err(r5_core->dev, "failed to stop remoteproc RPU %d\n", ret);
-> -		return ret;
-> -	}
-> -
-> -	/*
-> -	 * Check expected version of EEMI call before calling it. This avoids
-> -	 * any error or warning prints from firmware as it is expected that fw
-> -	 * doesn't support it.
-> -	 */
-> -	if (zynqmp_pm_feature(PM_FORCE_POWERDOWN) != 1) {
-> -		dev_dbg(r5_core->dev, "EEMI interface %d ver 1 not supported\n",
-> -			PM_FORCE_POWERDOWN);
-> -		return -EOPNOTSUPP;
-> -	}
-> -
-> -	/* maintain force pwr down for backward compatibility */
-> -	ret = zynqmp_pm_force_pwrdwn(r5_core->pm_domain_id,
-> -				     ZYNQMP_PM_REQUEST_ACK_BLOCKING);
-> +	ret = zynqmp_pm_stop_rpu(r5_core->pm_domain_id);
->  	if (ret)
-> -		dev_err(r5_core->dev, "core force power down failed\n");
-> +		dev_err(&rproc->dev, "failed to stop RPU\n");
->  
->  	return ret;
->  }
-> diff --git a/include/linux/firmware/xlnx-zynqmp.h b/include/linux/firmware/xlnx-zynqmp.h
-> index 7e27b0f7bf7e..347df66ee176 100644
-> --- a/include/linux/firmware/xlnx-zynqmp.h
-> +++ b/include/linux/firmware/xlnx-zynqmp.h
-> @@ -644,6 +644,8 @@ int zynqmp_pm_get_node_status(const u32 node, u32 *const status,
->  			      u32 *const requirements, u32 *const usage);
->  int zynqmp_pm_get_rpu_node_status(const u32 node, u32 *const status,
->  				  u32 *const requirements, u32 *const usage);
-> +int zynqmp_pm_start_rpu(const u32 node, const u64 bootaddr);
-> +int zynqmp_pm_stop_rpu(const u32 node);
->  int zynqmp_pm_set_sd_config(u32 node, enum pm_sd_config_type config, u32 value);
->  int zynqmp_pm_set_gem_config(u32 node, enum pm_gem_config_type config,
->  			     u32 value);
-> @@ -960,6 +962,16 @@ static inline int zynqmp_pm_get_rpu_node_status(const u32 node, u32 *const statu
->  	return -ENODEV;
->  }
->  
-> +static inline int zynqmp_pm_start_rpu(const u32 node, const u64 bootaddr)
-> +{
-> +	return -ENODEV;
-> +}
-> +
-> +static inline int zynqmp_pm_stop_rpu(const u32 node)
-> +{
-> +	return -ENODEV;
-> +}
-> +
->  static inline int zynqmp_pm_set_sd_config(u32 node,
->  					  enum pm_sd_config_type config,
->  					  u32 value)
-> 
-> base-commit: 721396afea31eac476d88f5db10ba111ba4b8382
-> -- 
-> 2.34.1
-> 
+I added the NULL pointer check since many callers had that
+part originally, like
+
+      tsdata->wake_gpio ? desc_to_gpio(tsdata->wake_gpio) : -1,
+
+> Also not sure if "(no gpio)" is a good choice. "not requested"? "not provided"?
+
+Any of those seem fine to me, not sure.
+
+>> +static inline const char *gpiod_name(const struct gpio_desc *desc)
+>> +{
+>> +	WARN_ON(desc);
+>> +	return "(no gpio)";
+>
+> Hmm... This will be a second copy with a slight potential of going apart from
+> the other case. Perhaps a #define? (Yes, yes, I understand that there are pros
+> and cons, in particular readability with define is questionable.)
+
+I was mostly trying to optimize for consistency with the other
+stub functions here. Since it should not actually be used at all
+without gpiolib, returning NULL or an empty string here would
+also work.
+
+     Arnd
 
