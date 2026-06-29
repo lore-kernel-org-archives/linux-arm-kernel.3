@@ -4,97 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4235AC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 03:54:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E65DC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 04:09:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LFFcFveTYAjTv+ZdiJ5NifJ7wIuGpllPfX6b0xg96Fk=; b=3bjwwz9N8mFsAcYOdTq+u84ruH
-	aLFExQ5PltHz/vZdNun4Y0ziwYsF6V8vGCa77PrRFPjKC8to8FlD2wEwU4dWnveCzDKBwVbmxzhJP
-	yYwvRlAYPO5hxkBQFOB2myeljUGpERuZrWkXoKg+sZgKYwL8WdxRKVW8ruuUVPUW/VQYFIYfANTbA
-	48qJkSULO4SgnXuFCHhhFXxHtJ4u5yRr/HfnFlK40gNG/dlacYde5SXnqNn/M19tjHyyPDMzy8GrT
-	bg2DcZU9Gfi+Q28l5wh6Y3zecrlZhhnWiLSeAiBTEvbaMes5xOqDPNzBwg0dQZ6YwMF82wk6/O/3C
-	ysUsMYCg==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PCbQYqZeLaUUzlcfiFVUrktZlR6kWo7lMTcRNRi7q2k=; b=dIdcJw3b3vxJV0c5yR1xVZ9PyD
+	Ed6swXyKA1snJNmtwgwAf13ZWaxEqSpYxryB0hBeWfxPUJVNr0rwbo6j371HVGaNir1y/81SIDKmP
+	4DduvcCdRjwFlUru466EegM5WjiGuQblnyojbdM20HBRaMQSOg8iW6JnftIbQdL3pQtEDmoSG5KVc
+	bwDA5xI/X6nsSepEFKsLntMu+E7HJsgMi0hw5gco+jMqkVGuRgUBFCaTVt9f1JHbEAEOjFsvo5vOI
+	s68CsInBA2jCL63+thu91cuc16XVdtoPdwmIDbFxjOSKKlSwIrUoL/x4Qp0EBd63j/iOu2avmhW83
+	VhRpIyaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we34V-0000000DeVi-1sDh;
-	Mon, 29 Jun 2026 03:54:11 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1we3G7-0000000Df1O-2os3;
+	Mon, 29 Jun 2026 04:06:11 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we34T-0000000DeVC-0Z0r
+	id 1we3G4-0000000Df0z-0G4j
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 03:54:10 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2c9c9916f75so4557785ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 28 Jun 2026 20:54:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782705248; x=1783310048; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=LFFcFveTYAjTv+ZdiJ5NifJ7wIuGpllPfX6b0xg96Fk=;
-        b=SGsJrs1G6lcCgv47OluonhTXQQkB9nFQcmXQCItzQnGR17Z7ljknPiUh15AtrMxLCS
-         rK6mrDjCyl12AW6rKzA30haduuCcKeJ4hUMqmRMXBNUoY5QlAigc0LCZmog2rsMJhbNj
-         elp4hB7iWXW4niKjbbFf2btdWNGYwWJawxWtyMU/W/AhDdXQ3gz8baCJwEnhX85Wj+w/
-         TxqU0c0MzsOHkoRO0DskChObCjP0THKEWAzdJXj8eKF6XdB+ap1s/C5QAoE+XWQW6A2e
-         9RlKU9UwJmj7YlhmK7IGbCttgrf5YhYFx6soTUSrBOhYeUS3zz1QeCe51rnQWQIMzY94
-         LbxQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782705248; x=1783310048;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=LFFcFveTYAjTv+ZdiJ5NifJ7wIuGpllPfX6b0xg96Fk=;
-        b=Lz1bwZkytb2fVCjNZlvUY5FLw8nzIqqhSS1oCykA84sPl/8HLAbYxLef/sSdlqPGFV
-         iFV+FQ9Lq65TqFzs0FGUlY9J6MoU4H+0QirCMV4mYC/0PBH5WKDK9DMBRpu4CsDverQq
-         HJNgSWoA/59U1/X3WOVAwP4+IdKuqBBFt4R8YSDwdGU3U7vr0sv/6loCHKSgsdBOEu2v
-         /8FRUG2Ft0eGZOiUN4rZjik+C5PC+e1XRoykTZRGBEbVxKLDPkNCpCDC/7KQwTmdgXJ5
-         9VVhotDzIbd6t3ekqITJV40zkIO6S4Opm76lFcmPLIzcT5JOrQG+c6L9CJMwwvKfpkKc
-         XSyA==
-X-Forwarded-Encrypted: i=1; AHgh+RpNLyven27S9iacehE9nYdsLMHuDPy4iyhIbfzXYdfVLE1wvJQZzxZ0Ra3jEZgW50Y5QKxx1gK/b0TS47Ft9YgE@lists.infradead.org
-X-Gm-Message-State: AOJu0YzSp2RneHW9mQfBfGOC1DOEFayvyzeBnNAK1Pi9Ws+i0M8mwyce
-	CczPoL1JdDydSgEyQHNfYOWhqupSsdZlT6JM0KfpPoj9x1cPe466DnwM
-X-Gm-Gg: AfdE7ckaRIrAkvDap9DrhhsWQeB9E3Fer09mkRgpZOHPuqLnOsya28y6+rV3TVQxlVv
-	TR5hDdo8ZPfNRNkOndfhmJaUHUQUYRJ+js+Q81CWsoH5YkeICtSWbJbSPhzCoHbk9FpA1BsgX49
-	mRaLIF6g6HaaOD6hlyYRpkiUwvFPSMMbqcP8k+IiPjMwL3VRbSQzMOnrHbsUVnZw08yOuEubQSY
-	DS/H8Y+Rqm2iVKvF/VZcgIJLSFKdJqz4MfS8fPt/IgzFwZZIHyc/6Lpaa7SklrwQ8VL2qTyMbb6
-	YzZirdw1zucLc88et9getQrWZ4OYwcX7bszr7MKGTeICBF3S73/nrgb75z0D8SYG+wmkTTtDyyn
-	0q3AOBeJrDdrvhki5yxAbVwtq3KQsZvVG6koJFR6C3Uh35kEp+coLdUGLEKEM+r5x6JXUnLofs5
-	8Zaud8kshVzdImCLzThp8OIvcNh6d0nXntucUsrWjbzBtJkTiGOG1aCzHAun+58StlvLHdvhb+d
-	otW
-X-Received: by 2002:a17:903:244f:b0:2ca:b8d:e65f with SMTP id d9443c01a7336-2ca0b8de994mr9096045ad.1.1782705248120;
-        Sun, 28 Jun 2026 20:54:08 -0700 (PDT)
-Received: from [192.168.0.100] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c9b1b02f8esm36341435ad.71.2026.06.28.20.54.04
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 28 Jun 2026 20:54:07 -0700 (PDT)
-Message-ID: <abe52380-dbb9-49e1-b93b-ab4aca9105b6@gmail.com>
-Date: Mon, 29 Jun 2026 11:54:03 +0800
+	Mon, 29 Jun 2026 04:06:09 +0000
+Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65T3J2TT1992909;
+	Mon, 29 Jun 2026 04:04:46 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=
+	content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=PCbQYq
+	ZeLaUUzlcfiFVUrktZlR6kWo7lMTcRNRi7q2k=; b=KrbqZAVGv5B6uDns16vHR5
+	jHYCcGKpedVH4h9WJ2KInnslH6uucCZjIKVoh8j365rOmy8oFj3g3aAKLWFjEiwH
+	nSWf3pk/A9F1x0GPNUOsFbHQpsgPWZTUKgcGO2U5E26qFdtsvQCmNx9uMF0sxtpq
+	qw2ki567kVaHOHPEcuPVvrxa9d/JDXPLCV/S3DtS4Q7KvMFnUoKmKHRnhTeyQ4yx
+	DOoRusfsX/PbmvCXLn285Soghgo7e5v9YYQnvF4P+SsMSAdlJP+zHSIY/5lFGrJC
+	TMrehriqGAndb5oPZYWWoJooBYnC6dLVM3vonE1SLKGA2F/2CVI9iaSwcCBhRf5Q
+	==
+Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4f26req76p-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 29 Jun 2026 04:04:45 +0000 (GMT)
+Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma11.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 65T3nk2h000729;
+	Mon, 29 Jun 2026 04:04:44 GMT
+Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
+	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4f2uhy3ged-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 29 Jun 2026 04:04:44 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
+	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 65T44gtw49021186
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 29 Jun 2026 04:04:42 GMT
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id B036B20043;
+	Mon, 29 Jun 2026 04:04:42 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 5D08520040;
+	Mon, 29 Jun 2026 04:04:32 +0000 (GMT)
+Received: from [9.123.5.233] (unknown [9.123.5.233])
+	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Mon, 29 Jun 2026 04:04:32 +0000 (GMT)
+Message-ID: <e0607dbe-4d55-4aee-8368-25110848bc09@linux.ibm.com>
+Date: Mon, 29 Jun 2026 09:34:31 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 5/7] drm/verisilicon: add DC8000 (DCUltraLite) display
- controller support
-To: Icenowy Zheng <zhengxingda@iscas.ac.cn>,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
- airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org
-Cc: ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260625094449.708386-1-a0987203069@gmail.com>
- <20260625094449.708386-6-a0987203069@gmail.com>
- <39e7d0426d1690ccfc8dbcfc77e7440bc5c9a725.camel@iscas.ac.cn>
+Subject: Re: [PATCH v3 00/12] arm64: Add HOTPLUG_PARALLEL support for
+ secondary CPUs
+To: Jinjie Ruan <ruanjinjie@huawei.com>, catalin.marinas@arm.com,
+        will@kernel.org, tsbogend@alpha.franken.de, tglx@kernel.org,
+        mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
+        hpa@zytor.com, peterz@infradead.org, kees@kernel.org,
+        nathan@kernel.org, linusw@kernel.org, ojeda@kernel.org,
+        david.kaplan@amd.com, lukas.bulwahn@redhat.com, ryan.roberts@arm.com,
+        maz@kernel.org, timothy.hayes@arm.com, lpieralisi@kernel.org,
+        thuth@redhat.com, menglong8.dong@gmail.com, oupton@kernel.org,
+        yeoreum.yun@arm.com, miko.lenczewski@arm.com, broonie@kernel.org,
+        kevin.brodsky@arm.com, james.clark@linaro.org,
+        yangyicong@hisilicon.com, tabba@google.com, osandov@fb.com,
+        arnd@arndb.de, anshuman.khandual@arm.com, david@kernel.org,
+        akpm@linux-foundation.org, ljs@kernel.org, dev.jain@arm.com,
+        yang@os.amperecomputing.com, chaitanyas.prakash@arm.com,
+        kprateek.nayak@amd.com, chenl311@chinatelecom.cn,
+        thorsten.blum@linux.dev, chang.seok.bae@intel.com,
+        tim.c.chen@linux.intel.com, x86@kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-mips@vger.kernel.org
+References: <20260624092537.2916971-1-ruanjinjie@huawei.com>
 Content-Language: en-US
-From: Joey Lu <a0987203069@gmail.com>
-In-Reply-To: <39e7d0426d1690ccfc8dbcfc77e7440bc5c9a725.camel@iscas.ac.cn>
+From: Shrikanth Hegde <sshegde@linux.ibm.com>
+In-Reply-To: <20260624092537.2916971-1-ruanjinjie@huawei.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Authority-Analysis: v=2.4 cv=a4kAM0SF c=1 sm=1 tr=0 ts=6a41eede cx=c_pps
+ a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
+ a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=V8glGbnc2Ofi9Qvn3v5h:22 a=UTcEnaM7yftER99u_cAA:9
+ a=QEXdDO2ut3YA:10 a=zZCYzV9kfG8A:10
+X-Proofpoint-ORIG-GUID: brKsWx2Mn5cq22CSo7JfDcXigXZ8mboI
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjI5MDAyOSBTYWx0ZWRfX4wuecVrq54Iy
+ 09MuLAjOrz4oMF0mdeWXs+yPEw2RHZ5MEGeCZZQ7PFIZ2Q8tULLjM1jh2pAcB5A1x/txgTR5z2H
+ QSarFRBtoBx1X2qhnmIT+ORW4AiRaEuNDfc0b5Ms7QwRNXFNSOs5xOZCLmsrFtQlCOJSsAoX0Es
+ g3pLBjXT9zh22aSvrbk5nRCiXnLAyJEH3tq/6+hLw/6I6v4mNVjma2epz7cuMgHeoS8KcYkxA2t
+ ju97JqZHRkjH1cHpkOUumvZ3ktTgUyRWdrxxvz9qrzkNX9TeQVS+liYC+4JvYJHv2OD/tqOR4iU
+ +pnviHtig/I4k8R+j7b+rY1gPdjNP7incw4E2f6UxpQodqFJd16k4/OC0Tn/1+4UEbqkZdSO+1U
+ rD6UQ6VzaLh4e3NICIJyfuiE9em7wPlXa/nDZkdlYqSQtkOXAZFGJyK8eoXXC173ga82W2waYLx
+ N24t8mv2YzipMjc8t3g==
+X-Proofpoint-GUID: r39Yr-mCbX02DwkQlbof5NCflo21fNWH
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNjI5MDAyOSBTYWx0ZWRfX0dtp8M6P3xSX
+ Km3HXGHO8viEhGwrt2g/J/kRq7WP4XqsyDiGB+S0dVDp2rKp8y4yYwpRenpX7AIhH324AS+c2+J
+ ZvjCVjjjFhuPZCJJeyTNN2qdy6LcCWY=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-06-29_01,2026-06-26_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1011 bulkscore=0 suspectscore=0 lowpriorityscore=0 impostorscore=0
+ spamscore=0 priorityscore=1501 adultscore=0 malwarescore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2606290029
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260628_205409_180126_A3D6211D 
-X-CRM114-Status: GOOD (  21.71  )
+X-CRM114-CacheID: sfid-20260628_210608_253569_32D29C41 
+X-CRM114-Status: GOOD (  13.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,191 +141,23 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On 6/26/2026 4:03 PM, Icenowy Zheng wrote:
-> 在 2026-06-25四的 17:44 +0800，Joey Lu写道：
->> The Nuvoton MA35D1 SoC integrates a Verisilicon DCUltraLite display
->> controller (DC8000 generation) whose register layout differs from
->> the DC8200 in several important ways:
->>
->> 1. No CONFIG_EX commit path: framebuffer updates use the enable (bit
->> 0)
->>     and reset (bit 4) bits in FB_CONFIG instead of the DC8200 staging
->>     registers (FB_CONFIG_EX, FB_TOP_LEFT, FB_BOTTOM_RIGHT,
->>     FB_BLEND_CONFIG, PANEL_CONFIG_EX).
->>
->> 2. No PANEL_START register: panel output starts when
->>     PANEL_CONFIG.RUNNING is set; there is no multi-display sync start
->>     register.
->>
->> 3. Different IRQ registers: DCUltraLite uses DISP_IRQ_STA (0x147C) /
->>     DISP_IRQ_EN (0x1480) versus DC8200's TOP_IRQ_ACK (0x0010) /
->>     TOP_IRQ_EN (0x0014).
->>
->> 4. Simpler clock topology: only 'core' (bus gate) and 'pix0' (pixel
->>     divider) clocks; no axi or ahb clocks required.
->>
->> Signed-off-by: Joey Lu <a0987203069@gmail.com>
->> ---
->>   drivers/gpu/drm/verisilicon/Makefile    |  2 +-
->>   drivers/gpu/drm/verisilicon/vs_dc.c     |  5 +-
->>   drivers/gpu/drm/verisilicon/vs_dc.h     |  1 +
->>   drivers/gpu/drm/verisilicon/vs_dc8000.c | 86
->> +++++++++++++++++++++++++
->>   4 files changed, 92 insertions(+), 2 deletions(-)
->>   create mode 100644 drivers/gpu/drm/verisilicon/vs_dc8000.c
->>
->> diff --git a/drivers/gpu/drm/verisilicon/Makefile
->> b/drivers/gpu/drm/verisilicon/Makefile
->> index 9d4cd16452fa..d2fd8e4dff24 100644
->> --- a/drivers/gpu/drm/verisilicon/Makefile
->> +++ b/drivers/gpu/drm/verisilicon/Makefile
->> @@ -1,6 +1,6 @@
->>   # SPDX-License-Identifier: GPL-2.0-only
->>   
->> -verisilicon-dc-objs := vs_bridge.o vs_crtc.o vs_dc.o vs_dc8200.o
->> vs_drm.o vs_hwdb.o \
->> +verisilicon-dc-objs := vs_bridge.o vs_crtc.o vs_dc.o vs_dc8200.o
->> vs_dc8000.o vs_drm.o vs_hwdb.o \
->>   	vs_plane.o vs_primary_plane.o vs_cursor_plane.o
->>   
->>   obj-$(CONFIG_DRM_VERISILICON_DC) += verisilicon-dc.o
->> diff --git a/drivers/gpu/drm/verisilicon/vs_dc.c
->> b/drivers/gpu/drm/verisilicon/vs_dc.c
->> index fd1f5fe67a68..9499fffbca58 100644
->> --- a/drivers/gpu/drm/verisilicon/vs_dc.c
->> +++ b/drivers/gpu/drm/verisilicon/vs_dc.c
->> @@ -134,7 +134,10 @@ static int vs_dc_probe(struct platform_device
->> *pdev)
->>   	dev_info(dev, "Found DC%x rev %x customer %x\n", dc-
->>> identity.model,
->>   		 dc->identity.revision, dc->identity.customer_id);
->>   
->> -	dc->funcs = &vs_dc8200_funcs;
->> +	if (dc->identity.generation == VSDC_GEN_DC8200)
->> +		dc->funcs = &vs_dc8200_funcs;
->> +	else
->> +		dc->funcs = &vs_dc8000_funcs;
->>   
->>   	if (port_count > dc->identity.display_count) {
->>   		dev_err(dev, "too many downstream ports than HW
->> capability\n");
->> diff --git a/drivers/gpu/drm/verisilicon/vs_dc.h
->> b/drivers/gpu/drm/verisilicon/vs_dc.h
->> index 825f5dd6bf17..ac96ad701199 100644
->> --- a/drivers/gpu/drm/verisilicon/vs_dc.h
->> +++ b/drivers/gpu/drm/verisilicon/vs_dc.h
->> @@ -66,5 +66,6 @@ struct vs_dc {
->>   };
->>   
->>   extern const struct vs_dc_funcs vs_dc8200_funcs;
->> +extern const struct vs_dc_funcs vs_dc8000_funcs;
->>   
->>   #endif /* _VS_DC_H_ */
->> diff --git a/drivers/gpu/drm/verisilicon/vs_dc8000.c
->> b/drivers/gpu/drm/verisilicon/vs_dc8000.c
->> new file mode 100644
->> index 000000000000..fbe0fa516cac
->> --- /dev/null
->> +++ b/drivers/gpu/drm/verisilicon/vs_dc8000.c
->> @@ -0,0 +1,86 @@
->> +// SPDX-License-Identifier: GPL-2.0-only
->> +/*
->> + * Copyright (C) 2026 Joey Lu <yclu4@nuvoton.com>
->> + */
->> +
->> +#include <linux/regmap.h>
->> +
->> +#include "vs_crtc_regs.h"
->> +#include "vs_dc.h"
->> +#include "vs_drm.h"
->> +#include "vs_primary_plane_regs.h"
->> +
->> +static void vs_dc8000_panel_enable_ex(struct vs_dc *dc, unsigned int
->> output)
->> +{
->> +	regmap_set_bits(dc->regs, VSDC_FB_CONFIG(output),
->> +			VSDC_FB_CONFIG_RESET);
->> +}
->> +
->> +static void vs_dc8000_panel_disable_ex(struct vs_dc *dc, unsigned
->> int output)
->> +{
->> +	regmap_clear_bits(dc->regs, VSDC_FB_CONFIG(output),
->> +			  VSDC_FB_CONFIG_RESET);
->> +}
->> +
->> +static void vs_dc8000_crtc_begin(struct vs_dc *dc, unsigned int
->> output)
->> +{
->> +	regmap_set_bits(dc->regs, VSDC_FB_CONFIG(output),
->> +			VSDC_FB_CONFIG_VALID);
->> +}
->> +
->> +static void vs_dc8000_crtc_flush(struct vs_dc *dc, unsigned int
->> output)
->> +{
->> +	regmap_clear_bits(dc->regs, VSDC_FB_CONFIG(output),
->> +			  VSDC_FB_CONFIG_VALID);
->> +}
->> +
->> +static void vs_dc8000_crtc_enable_ex(struct vs_dc *dc, unsigned int
->> output)
->> +{
->> +	regmap_set_bits(dc->regs, VSDC_FB_CONFIG(output),
->> +			VSDC_FB_CONFIG_ENABLE);
->> +}
->> +
->> +static void vs_dc8000_crtc_disable_ex(struct vs_dc *dc, unsigned int
->> output)
->> +{
->> +	regmap_clear_bits(dc->regs, VSDC_FB_CONFIG(output),
->> +			  VSDC_FB_CONFIG_ENABLE);
->> +}
->> +
->> +static void vs_dc8000_enable_vblank(struct vs_dc *dc, unsigned int
->> output)
->> +{
->> +	regmap_set_bits(dc->regs, VSDC_DISP_IRQ_EN,
->> +			VSDC_DISP_IRQ_VSYNC(output));
->> +}
->> +
->> +static void vs_dc8000_disable_vblank(struct vs_dc *dc, unsigned int
->> output)
->> +{
->> +	regmap_clear_bits(dc->regs, VSDC_DISP_IRQ_EN,
->> +			  VSDC_DISP_IRQ_VSYNC(output));
->> +}
->> +
->> +static u32 vs_dc8000_irq_ack(struct vs_dc *dc)
->> +{
->> +	u32 hw_irqs, unified = 0;
->> +	unsigned int i;
->> +
->> +	regmap_read(dc->regs, VSDC_DISP_IRQ_STA, &hw_irqs);
->> +
->> +	for (i = 0; i < VSDC_MAX_OUTPUTS; i++) {
->> +		if (hw_irqs & VSDC_DISP_IRQ_VSYNC(i))
->> +			unified |= VSDC_IRQ_VSYNC(i);
->> +	}
-> Maybe a warning for unknown IRQ bits should be added here.
->
-> Thanks,
-> Icenowy
-I will add the same `drm_WARN_ONCE` pattern in `vs_dc8000_irq_ack` for
-unknown `VSDC_DISP_IRQ_STA` bits.
->> +
->> +	return unified;
->> +}
->> +
->> +const struct vs_dc_funcs vs_dc8000_funcs = {
->> +	.panel_enable_ex	= vs_dc8000_panel_enable_ex,
->> +	.panel_disable_ex	= vs_dc8000_panel_disable_ex,
->> +	.crtc_begin		= vs_dc8000_crtc_begin,
->> +	.crtc_flush		= vs_dc8000_crtc_flush,
->> +	.crtc_enable_ex		= vs_dc8000_crtc_enable_ex,
->> +	.crtc_disable_ex	= vs_dc8000_crtc_disable_ex,
->> +	.enable_vblank		= vs_dc8000_enable_vblank,
->> +	.disable_vblank		= vs_dc8000_disable_vblank,
->> +	.irq_ack		= vs_dc8000_irq_ack,
->> +};
+
+On 6/24/26 2:55 PM, Jinjie Ruan wrote:
+> Support for parallel secondary CPU bringup is already utilized by x86,
+> MIPS, and RISC-V. This patch brings this capability to the arm64
+> architecture.
+> 
+> Introduce CONFIG_HOTPLUG_PARALLEL_SMT to avoid primary SMT threads
+> to boot first constraint.
+> 
+> And add a 'cpu' parameter to update_cpu_boot_status() to allow updating
+> the boot status at a per-CPU granularity during parallel bringup.
+> 
+> Rework the global `secondary_data` and `__early_cpu_boot_status` accessed
+> during early boot into per-CPU arrays to allow secondary CPUs to boot
+> in parallel.
+> 
+
+Shouldn't this be called CONFIG_BRINGUP_PARALLEL instead?
+Hotplug usually means disable/enable CPU at runtime.
 
