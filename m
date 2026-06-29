@@ -4,92 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D24EC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 16:27:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD8A6C43327
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 16:28:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nzD5qwer7lN3cs3aCecnlGIOZWp59qV1QyyQWTexqnY=; b=f2vSCqkPAE1nSp1B90tl9niguD
-	Lln1tME583/uvqW8KTOYcsNTjMUZ+GuDR+4fFAvi17eU0up+37mbunkgq1mPuzj+Lz6EL+TYtsMk9
-	JyeeGGGiw5rb4NhKtinnFYZLglxAWszP8UNBm66JGPF1xz8zY//vsBcOVtaLV5bx4NQ27yARzOfYL
-	aRAu0CG6XOvXwJXDZUDmsQ7Cc02fPUPr73FWTDS4zbTSCi0rOoF6uqcDtQei6lAdYDezK6Rwv064r
-	fDT74YIU9QS23RFlW+WY6WzSk/Aup+027jMOnPW1rmlbDqtURYeKszSn9HoJQbTSLMgYNeCtwZeJS
-	kpGrXvyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bio6F01mW1uhzjb2Qp+Xy8h4WP35qzyJOdcn1fRlVDM=; b=Atg4XFqfVnLfnjBhaluNN72WxZ
+	R+QNY7Tsymlxrl79Gnq7R6by83hYfGCKmiJPemO0C+oy1T70U/0eakNTWu5/fH1dKIBTuvKoUN+Nu
+	BJg1Sb5Ot8hi7lDM4EqmyJKEtA2VowKc/GsANEITFtlLzHpRJ3CfiHMoUTYq6S6wLrj6czCPlPFVJ
+	NmAobuv5RV5Svn0IilXr6vlboGRvL1jONB4jik3iKlrF+o0XzlqAOptpfAQutcvj3z+HU2QwRr8RC
+	kMVTNP+cXK4ghJNlqo5QJGcAJBdLf8bkCyvEx8ON7mIJH388hTdMSiJGDXjy5PVqsD5UiJUjhaaPE
+	Mbzh3RNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weEp3-0000000FD2u-0RcL;
-	Mon, 29 Jun 2026 16:27:01 +0000
-Received: from mail-dl1-x1234.google.com ([2607:f8b0:4864:20::1234])
+	id 1weEqU-0000000FDJA-1YSl;
+	Mon, 29 Jun 2026 16:28:30 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weEoz-0000000FD1O-26kO
+	id 1weEqS-0000000FDIo-1Y31
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 16:26:58 +0000
-Received: by mail-dl1-x1234.google.com with SMTP id a92af1059eb24-139b914bab6so4790409c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 09:26:57 -0700 (PDT)
+	Mon, 29 Jun 2026 16:28:29 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2c81db32393so104515ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 09:28:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782750417; x=1783355217; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=nzD5qwer7lN3cs3aCecnlGIOZWp59qV1QyyQWTexqnY=;
-        b=fZFxvjOd2bKdsDA/eHK/9bQRbj/71FiaXxTX8zSMb4CbGO8kZ03hMAAO9RS6C3efY9
-         UW2lxKStO3DsJ9Jir6DmmrMBWMHqFNL0tQu2iTl9J2qNLC9bN0aO0ZjYzi61hyvLqzW6
-         /gNxoimJiLcTdxgaa3Sz1F/GRTfLDw5LhyIJlV98DngdtISczJlYE7D/0alOCnCZrJNI
-         Myu+cBpx61mKxmh0hvut1JQ0XyVIHkBg+bK1/JVK73T91N3gMmWr+fqEAxhytt+XTj0C
-         9+zu5breIa9gCsF+RfMokXIUcWtNEP59UPK5m37v3V8Sg/GvUVRxpbeu+9vHFdD8eIwh
-         FOPg==
+        d=google.com; s=20251104; t=1782750508; x=1783355308; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=bio6F01mW1uhzjb2Qp+Xy8h4WP35qzyJOdcn1fRlVDM=;
+        b=ubnuVPusc6u7qOCEJCH9Le/6YV38gYFpXerLKfyI44KFfoBkHPKK8VfxQhwHeUafzD
+         5ixKVjZ28N/svNqXldc1w+JXMVn0Cz4ZHKziqHk9o438Ydko+NOAjS0Rt+C4VM0ozrRu
+         nDi7SswrrG1GBlqyveLXXSrlXh5GhoUgJtyImQaCRPXfzEIsZQwtsX+3/ofyky0DIQkE
+         nRw2FtssKGY5qPrWpPRE5f3N9UcB2fLMm2VKzKflJFspv2B8s5C2pN0WTkN0skKdYbEQ
+         SlPYK3G9ZnQx8mF1EpLF9NtYtsSeSe/dyvC7fwlyMIPVvVyh/Jy7eHSUOoJGSchN0ttQ
+         z/Bg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782750417; x=1783355217;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=nzD5qwer7lN3cs3aCecnlGIOZWp59qV1QyyQWTexqnY=;
-        b=GuqickQoIHnWDlTJGZHimFjomLbvHdpVKrwKvuWqNrmEDZueyuYocXOZTPFNzsQbm9
-         mWWIrJqxtni15c39KX7t8UFxFXwnGvSeS3pd/gyjhyFDVAI6GXCLPhBb+3q4PAHocKgF
-         ygd4jehnPMiw9LzYUZ7G7LkarOC8hoferXjQpyjzVCKwT+rI4T+3irdmznUDDXZLhfHy
-         AbM8GYPCl3A+yFunLdOlr5SlMetFCukgbTxCS4nQo7L3DA2cJ1QOedbGD7TA+br4+UPu
-         lyAWnfXQg7dvG6vvAiWfHf05CQaN1jMS3pyZBQuYDkQmaQQ54Q/JBSvQ1IFe+8ggoSi9
-         PjjQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+vKNKCBXJHJp44Hwwax6ADmj63SQyhxcdvmGA6OaH1hbRD4I1iQD8E4qNT78cm7dt1e5Weg5C6F5MfoJ8YSbXM@lists.infradead.org
-X-Gm-Message-State: AOJu0YwRgRR9xMP5sv90gRnmVzr3O12/E29esirG7tlF8HOe3tqWnzPs
-	izzf/3VHNyxZXUMPYXp+ttg9APcuGh8AGCgV5tu09AwgcPelJ+KfMwKC
-X-Gm-Gg: AfdE7cl+e3sa03e6D1/UQimn86qWD8rCHmcTYX3mvJ/HW9Bn6iwqUKjDSP++3gZQQs2
-	Ab0LJmwVO24fB7dTcro6zuagCY82KryTZOjuBFRoXnvY8PMfse93OlcS0+pXRaMLNGI3YLHmrcA
-	zjpEAv35ypvYmpwxPilhs3uxJJE91OYBwJY4w57gQ0dyc6JwDl3B1QbjDU0f+hTBbDZU47NXlHq
-	Q0KjigHN0l3lpVSYONbqjuf3IQPC0PhGGypqFWkfelUTZfX111EUzBV/9+JN/k7p0tyAMEel5uo
-	Q7rfgK267QV8vl51mT+EbPyDhpVnQsRCn9XzL7V+eermLQM2DMbxj0z1F3bizrEMv9+U/9E8+OZ
-	dvNIwz+pB+DoKoHN2ABKYUz16bYVTJw/rJ48YudEFmRoLZvzRMOJYps7yaQvy4dsK4qZZR9totL
-	HT28Bki16ApFqsplJ7fyyV5TQrt7Hs5/0sDDc=
-X-Received: by 2002:a05:7022:79f:b0:137:e6a1:c4b3 with SMTP id a92af1059eb24-13b2a0a0e57mr117216c88.0.1782750416413;
-        Mon, 29 Jun 2026 09:26:56 -0700 (PDT)
-Received: from Black-Pearl.localdomain ([49.207.62.174])
-        by smtp.googlemail.com with ESMTPSA id a92af1059eb24-139d912197bsm80851896c88.15.2026.06.29.09.26.52
+        d=1e100.net; s=20251104; t=1782750508; x=1783355308;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=bio6F01mW1uhzjb2Qp+Xy8h4WP35qzyJOdcn1fRlVDM=;
+        b=QuPgndJv43nwu2nxOKH5TKqZq/AUs4sCv49uoV/RWBJn+CpRiK2Po34ayY9MUq6aFr
+         ghmxIjRef4YoZUKAcDO+9brfxKh8xQ/bT8aO6UqDriBEvatXLQtNxtQc3LjmiTy26HA5
+         /W4Lx284xN035N0mCl4iZKv35VjwVg+5jQM+4LzapvEsFluLTzId1K+3ZMPMNLDsR6fv
+         /9foaqlfjBcW9JcE455+TUewLQTYds5jK73FAXMTsqXp/x1rbPqIH7Ia7SSrC/5/AE2T
+         6zhLklwSSagRoN6gtccxnqlPegk3FX12EvkK/ppbUlLEvD7Eds5ZTfwm7SUPWSkeKidU
+         ZKGA==
+X-Forwarded-Encrypted: i=1; AHgh+Rqkxy8D7kbvmLUT8J+1gMfp6QnzYN695puYC8ABHl9FyG0kEX7sEjr1CJyvDhBxo6utMqsb2VRjHNeLCtI3zkZJ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy0bmZM9jgJLoTVldD7GSRgBcN7BSaix3Wt07zO0wo5STh3T0yq
+	KQahVlYhy+e1zio/S+X/MR9aH+ZfB1WWMuf9U5GH3SPH/6470+nh6KGTewrO/mLlxg==
+X-Gm-Gg: AfdE7cmnKvQESSAliSW67Jqboo1R2jVEeOhXNkt1g5W9PfOLPy3yuEzsXBM3JfkCKh4
+	wbe/yLkYHTFG2fxpf5Csf1cWpKm1Aqa3YmH0CtEJSsAS+VAudPsnTUsFklXlMzQAyG6tjbhg/DF
+	udgdLBHuZ6+CLlim5xrjCQ+fdPOpY4qcAGr3ZbQWCqdHB4BOMcBpe+bgUU+OI+nF72ipDsna2nj
+	UckwR9co1elSSJizFYefs0h0jYBCdGHn8L6/nZEvzRPh0LMxQHDoSuY4/JN2hei/kP3r5dAK0Qe
+	v3HUXE2U2y72W68qHBUbvfLRKOnaOFItOKhxFFzLLgUrHxjGqR8seGH11u5ea3Jaxg1bRhooWlF
+	nQc49DcNWHRfGYwDyzD4gtNVlLvoJAyz6tNxbE6jJuCRGM7xzH5+28bpY2Cwrr1Mi/vmz3N1U0T
+	sGfKUrDajTCYrbj+Wxpw8/99/+6pHH59zO/l+3AHvpTB9mtB4=
+X-Received: by 2002:a17:902:fdaf:b0:2c7:debf:2146 with SMTP id d9443c01a7336-2ca2cf9c2c1mr251595ad.9.1782750507162;
+        Mon, 29 Jun 2026 09:28:27 -0700 (PDT)
+Received: from google.com (10.129.124.34.bc.googleusercontent.com. [34.124.129.10])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-38052f4789dsm10213a91.14.2026.06.29.09.28.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Jun 2026 09:26:55 -0700 (PDT)
-From: Charan Pedumuru <charan.pedumuru@gmail.com>
-Date: Mon, 29 Jun 2026 16:26:40 +0000
-Subject: [PATCH v5 2/2] dt-bindings: mmc: st,sdhci: Convert to DT schema
+        Mon, 29 Jun 2026 09:28:26 -0700 (PDT)
+Date: Mon, 29 Jun 2026 16:28:20 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: will@kernel.org, robin.murphy@arm.com, jgg@nvidia.com, joro@8bytes.org,
+	kees@kernel.org, baolu.lu@linux.intel.com, kevin.tian@intel.com,
+	miko.lenczewski@arm.com, smostafa@google.com,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+	jamien@nvidia.com
+Subject: Re: [PATCH rc v6 6/7] iommu/arm-smmu-v3: Skip RMR bypass for kdump
+ adoption
+Message-ID: <akKdJFx7zhWtpjBT@google.com>
+References: <cover.1779265413.git.nicolinc@nvidia.com>
+ <88e75018e94adc2eb3db8c1fd97c3cc738c170bb.1779265413.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260629-st-mmc-v5-2-3cf0e639bff8@gmail.com>
-References: <20260629-st-mmc-v5-0-3cf0e639bff8@gmail.com>
-In-Reply-To: <20260629-st-mmc-v5-0-3cf0e639bff8@gmail.com>
-To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- Patrice Chotard <patrice.chotard@foss.st.com>
-Cc: linux-mmc@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Charan Pedumuru <charan.pedumuru@gmail.com>
-X-Mailer: b4 0.15.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <88e75018e94adc2eb3db8c1fd97c3cc738c170bb.1779265413.git.nicolinc@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_092657_562519_2A4B6142 
-X-CRM114-Status: GOOD (  20.11  )
+X-CRM114-CacheID: sfid-20260629_092828_408253_B7B9E5D2 
+X-CRM114-Status: GOOD (  15.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,253 +105,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert STMicroelectronics sdhci-st MMC/SD controller binding from
-text format to YAML DT schema.
-Changes during conversion:
-- Preserve optional 'icn' clock and 'top-mmc-delay' register region
-  via minItems: 1 on their respective properties.
-- Conditionally require reg-names when two reg entries are present
-  via an allOf if/then block, preventing silent runtime failure in
-  devm_platform_ioremap_resource_byname().
-- Constrain max-frequency to enum [200000000, 100000000, 50000000]
-  with a default of 50000000, matching the driver's behaviour in
-  sdhci-st.c.
+On Wed, May 20, 2026 at 10:03:23AM -0700, Nicolin Chen wrote:
+> RMR bypass STEs are installed during SMMUv3 probe for StreamIDs listed by
+> IORT RMR nodes. A normal boot switches the driver to a fresh stream table
+> whose initial STEs abort, so those RMR SIDs need bypass entries before it
+> becomes live. This preserves firmware/guest-owned traffic, including vSMMU
+> guest MSI cases built around RMR-described SIDs.
+> 
+> ARM_SMMU_OPT_KDUMP_ADOPT is the opposite case: the driver keeps SMMUEN set
+> and adopts the crashed kernel's stream table, so RMR SIDs already have the
+> only translation state known to be safe for active in-flight DMA. Replacing
+> an adopted STE with bypass can turn translated DMA into physical DMA, then
+> point it at the wrong memory.
+> 
+> arm_smmu_make_bypass_ste() also rewrites the STE in place after clearing it
+> first. While the table is live, a concurrent hardware STE fetch can observe
+> V=0 or mixed old/new state.
+> 
+> Leaving the adopted STE unmodified keeps the kdump kernel using the crashed
+> kernel's translation. That gives the endpoint driver a chance to probe and
+> quiesce the device.
+> 
+> If the old STE was already abort or invalid, installing bypass would create
+> new DMA permission; leaving it alone is a safer failure mode. Later domain
+> setup still gets the RMR direct mappings through the reserved-region path.
+> 
+> Fixes: b63b3439b856 ("iommu/arm-smmu-v3: Abort all transactions if SMMU is enabled in kdump kernel")
+> Cc: stable@vger.kernel.org # v6.12+
+> Assisted-by: Codex:gpt-5.5
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+ 
+Reviewed-by: Pranjal Shrivastava <praan@google.com>
 
-Signed-off-by: Charan Pedumuru <charan.pedumuru@gmail.com>
----
- Documentation/devicetree/bindings/mmc/sdhci-st.txt | 110 ---------------------
- .../devicetree/bindings/mmc/st,sdhci.yaml          | 105 ++++++++++++++++++++
- 2 files changed, 105 insertions(+), 110 deletions(-)
-
-diff --git a/Documentation/devicetree/bindings/mmc/sdhci-st.txt b/Documentation/devicetree/bindings/mmc/sdhci-st.txt
-deleted file mode 100644
-index ccf82b4ee838..000000000000
---- a/Documentation/devicetree/bindings/mmc/sdhci-st.txt
-+++ /dev/null
-@@ -1,110 +0,0 @@
--* STMicroelectronics sdhci-st MMC/SD controller
--
--This file documents the differences between the core properties in
--Documentation/devicetree/bindings/mmc/mmc.txt and the properties
--used by the sdhci-st driver.
--
--Required properties:
--- compatible:		Must be "st,sdhci" and it can be compatible to "st,sdhci-stih407"
--			to set the internal glue logic used for configuring the MMC
--			subsystem (mmcss) inside the FlashSS (available in STiH407 SoC
--			family).
--
--- clock-names:		Should be "mmc" and "icn".  (NB: The latter is not compulsory)
--			See: Documentation/devicetree/bindings/resource-names.txt
--- clocks:		Phandle to the clock.
--			See: Documentation/devicetree/bindings/clock/clock-bindings.txt
--
--- interrupts:		One mmc interrupt should be described here.
--- interrupt-names:	Should be "mmcirq".
--
--- pinctrl-names:	A pinctrl state names "default" must be defined.
--- pinctrl-0:		Phandle referencing pin configuration of the sd/emmc controller.
--			See: Documentation/devicetree/bindings/pinctrl/pinctrl-bindings.txt
--
--- reg:			This must provide the host controller base address and it can also
--			contain the FlashSS Top register for TX/RX delay used by the driver
--			to configure DLL inside the flashSS, if so reg-names must also be
--			specified.
--
--Optional properties:
--- reg-names:		Should be "mmc" and "top-mmc-delay". "top-mmc-delay" is optional
--			for eMMC on stih407 family silicon to configure DLL inside FlashSS.
--
--- non-removable:	Non-removable slot. Also used for configuring mmcss in STiH407 SoC
--			family.
--			See:  Documentation/devicetree/bindings/mmc/mmc.txt.
--
--- bus-width:		Number of data lines.
--			See:  Documentation/devicetree/bindings/mmc/mmc.txt.
--
--- max-frequency:	Can be 200MHz, 100MHz or 50MHz (default) and used for
--			configuring the CCONFIG3 in the mmcss.
--			See:  Documentation/devicetree/bindings/mmc/mmc.txt.
--
--- resets:		Phandle and reset specifier pair to softreset line of HC IP.
--			See: Documentation/devicetree/bindings/reset/reset.txt
--
--- vqmmc-supply:		Phandle to the regulator dt node, mentioned as the vcc/vdd
--			supply in eMMC/SD specs.
--
--- sd-uhs-sdr50:	To enable the SDR50 in the mmcss.
--			See:  Documentation/devicetree/bindings/mmc/mmc.txt.
--
--- sd-uhs-sdr104:	To enable the SDR104 in the mmcss.
--			See:  Documentation/devicetree/bindings/mmc/mmc.txt.
--
--- sd-uhs-ddr50:		To enable the DDR50 in the mmcss.
--			See:  Documentation/devicetree/bindings/mmc/mmc.txt.
--
--Example:
--
--/* Example stih416e eMMC configuration */
--
--mmc0: sdhci@fe81e000 {
--	compatible	= "st,sdhci";
--	reg		= <0xfe81e000 0x1000>;
--	interrupts	= <GIC_SPI 127 IRQ_TYPE_NONE>;
--	interrupt-names	= "mmcirq";
--	pinctrl-names	= "default";
--	pinctrl-0	= <&pinctrl_mmc0>;
--	clock-names	= "mmc";
--	clocks		= <&clk_s_a1_ls 1>;
--	bus-width	= <8>
--
--/* Example SD stih407 family configuration */
--
--mmc1: sdhci@9080000 {
--	compatible	= "st,sdhci-stih407", "st,sdhci";
--	reg		= <0x09080000 0x7ff>;
--	reg-names	= "mmc";
--	interrupts	= <GIC_SPI 90 IRQ_TYPE_NONE>;
--	interrupt-names	= "mmcirq";
--	pinctrl-names	= "default";
--	pinctrl-0	= <&pinctrl_sd1>;
--	clock-names	= "mmc";
--	clocks		= <&clk_s_c0_flexgen CLK_MMC_1>;
--	resets		= <&softreset STIH407_MMC1_SOFTRESET>;
--	bus-width	= <4>;
--};
--
--/* Example eMMC stih407 family configuration */
--
--mmc0: sdhci@9060000 {
--	compatible	= "st,sdhci-stih407", "st,sdhci";
--	reg		= <0x09060000 0x7ff>, <0x9061008 0x20>;
--	reg-names	= "mmc", "top-mmc-delay";
--	interrupts	= <GIC_SPI 92 IRQ_TYPE_NONE>;
--	interrupt-names	= "mmcirq";
--	pinctrl-names	= "default";
--	pinctrl-0	= <&pinctrl_mmc0>;
--	clock-names	= "mmc";
--	clocks		= <&clk_s_c0_flexgen CLK_MMC_0>;
--	vqmmc-supply	= <&vmmc_reg>;
--	max-frequency	= <200000000>;
--	bus-width	= <8>;
--	non-removable;
--	sd-uhs-sdr50;
--	sd-uhs-sdr104;
--	sd-uhs-ddr50;
--};
-diff --git a/Documentation/devicetree/bindings/mmc/st,sdhci.yaml b/Documentation/devicetree/bindings/mmc/st,sdhci.yaml
-new file mode 100644
-index 000000000000..798af599d374
---- /dev/null
-+++ b/Documentation/devicetree/bindings/mmc/st,sdhci.yaml
-@@ -0,0 +1,105 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/mmc/st,sdhci.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: STMicroelectronics SDHCI-ST MMC/SD Controller
-+
-+maintainers:
-+  - Peter Griffin <peter.griffin@linaro.org>
-+
-+description:
-+  The STMicroelectronics SDHCI-ST MMC/SD host controller is compliant with
-+  the SD Host Controller Interface (SDHCI) specification and is used to
-+  interface with MMC, SD and SDIO cards. The ST SDHCI controller extends the
-+  standard SDHCI capabilities with platform-specific configurations such as
-+  additional register regions, clock inputs, and delay control mechanisms
-+  required for signal timing adjustments to support high-speed modes across
-+  different ST SoCs.
-+
-+allOf:
-+  - $ref: mmc-controller.yaml#
-+  - if:
-+      properties:
-+        reg:
-+          minItems: 2
-+      required:
-+        - reg
-+    then:
-+      required:
-+        - reg-names
-+
-+properties:
-+  compatible:
-+    oneOf:
-+      - const: st,sdhci
-+      - items:
-+          - const: st,sdhci-stih407
-+          - const: st,sdhci
-+
-+  reg:
-+    minItems: 1
-+    items:
-+      - description: MMC controller base registers
-+      - description: FlashSS Top registers for TX/RX DLL delay configuration
-+
-+  reg-names:
-+    minItems: 1
-+    items:
-+      - const: mmc
-+      - const: top-mmc-delay
-+
-+  clocks:
-+    minItems: 1
-+    items:
-+      - description: Clock for the MMC controller
-+      - description: Interconnect (ICN) clock
-+
-+  clock-names:
-+    minItems: 1
-+    items:
-+      - const: mmc
-+      - const: icn
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  interrupt-names:
-+    const: mmcirq
-+
-+  resets:
-+    maxItems: 1
-+
-+  max-frequency:
-+    enum: [200000000, 100000000, 50000000]
-+    default: 50000000
-+
-+required:
-+  - reg
-+  - compatible
-+  - clocks
-+  - clock-names
-+  - interrupts
-+  - interrupt-names
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/clock/stih407-clks.h>
-+    mmc@9060000 {
-+        compatible = "st,sdhci-stih407", "st,sdhci";
-+        reg = <0x09060000 0x7ff>, <0x9061008 0x20>;
-+        reg-names = "mmc", "top-mmc-delay";
-+        interrupts = <GIC_SPI 92 IRQ_TYPE_LEVEL_HIGH>;
-+        interrupt-names = "mmcirq";
-+        pinctrl-names = "default";
-+        pinctrl-0 = <&pinctrl_mmc0>;
-+        clock-names = "mmc", "icn";
-+        clocks = <&clk_s_c0_flexgen CLK_MMC_0>,
-+                 <&clk_s_c0_flexgen CLK_RX_ICN_HVA>;
-+        bus-width = <8>;
-+    };
-+...
-
--- 
-2.54.0
-
+Thanks,
+Praan
 
