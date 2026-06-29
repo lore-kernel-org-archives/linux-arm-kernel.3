@@ -4,67 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6537C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 14:39:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99AE8C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 14:43:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TYFgpODSCVX2C5CNzgVOEDY1ictoCpmsvxoF8q8OHKo=; b=DHX2uUxrZgsqk1GB7/3dfrH1qk
-	XqyrlvxaRELgjlj9cUur1jtU7nE2D/OtZNWOJhcGB3prpqGtbhGEXO0OY7jHLd4r6Up6SLvVvh1qa
-	6oBoZlISINwpqr2QzSkiwevd0liaaoOrFla6cWr6jc2fQUU15PAwpNY7Oq7b49Gtu1IiJTCe034nh
-	0SRbJ7gLbvgDgu90RLfN7hYWPL0xxfXWEvN7QQ/AsEsNaPA5KSkQTnh/VCpIt2yl54vHfya1MJBeg
-	uAyPznSqO0inGlaIpf9f4FUKdLXgH+t8JlBT3nc4bOWYvoD7p9jiDcEQR3sBKlvtUdAvX1Dq4jUPl
-	BGxR4FcQ==;
+	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=58ktZVbAnDtVu79nFLixrkjfvdLbXQCFTyzfgA0wa84=; b=IithTME7Wyk/9zk6NsaujWUkMy
+	6OxWhZI+WPsZyZiTsxzeMXZz6VOACEmICsJam1A25n3wr5FEEy9y/JflNz856zHOMwP+x1IGxWQ53
+	dwFJxM5vHErUq4FZgt/hBLJgVPEaJKuPIYudJG4yaR54cM3fREDkj1JDi407SEtGeMhYMYV6VS4LS
+	tOGG7DAlN3oBcDNBxKXKeGeyVzVPxXJf/Vc7tI7UKnSg0Z2RGJfAMyIyAn4ofhxQICUx6pGgSqhP5
+	16nT/9pmqy2lTjSQtm2SDNGObI5NyVNJjAnP2SmMk7lLiqVhvuGmJHLLYK2CXO7/qG4DsVuwpAzOy
+	G2yWEq6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weD9J-0000000Eu40-1mce;
-	Mon, 29 Jun 2026 14:39:49 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1weDCh-0000000Eunq-45cE;
+	Mon, 29 Jun 2026 14:43:19 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weD9G-0000000Eu13-2aYH
+	id 1weDCe-0000000EumR-30mw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 14:39:47 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 02141C6B3B6
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 14:39:55 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id D86715FF96;
-	Mon, 29 Jun 2026 14:39:44 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B956A106F189D;
-	Mon, 29 Jun 2026 16:39:40 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1782743984; h=from:subject:date:message-id:to:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=TYFgpODSCVX2C5CNzgVOEDY1ictoCpmsvxoF8q8OHKo=;
-	b=aCINo6MownjuVkcTFqrBr6oSrm3KiWHhDbzIYYJ/yhUTr3GRLSU5pNQBR3xUhiWKC5lRAl
-	zKe52tasxQ7pMqqgMxsDYO05TRJUMwagkFZ0v4+NTv8gGVKvA8tznu1Tz4vfhKHeIDN4mM
-	gZPg6uMlPb4kb+cl7JI6OMHegkXbnn/2CeKQ/sbXDd6lxM9jSSndONVpxCF+Kfg0Xqf6V9
-	Xs4gZjXiYC4JxCCzTVMUlCo4GMmJhXiO/ppDooUwI08QuSvtKKYIPF0+zsv0nia5qnlpn/
-	2p1CgPs/Unv4XUBFxkU06v+4IAyS3dmeAyjqRqzickQZpPppazvjaRub7+36EA==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Richard Weinberger <richard@nod.at>, 
- Vignesh Raghavendra <vigneshr@ti.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- linux-mtd@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Pengpeng Hou <pengpeng@iscas.ac.cn>
-In-Reply-To: <20260615063232.44383-1-pengpeng@iscas.ac.cn>
-References: <20260615063232.44383-1-pengpeng@iscas.ac.cn>
-Subject: Re: [PATCH] mtd: nand: ecc-mtk: handle ECC clock enable failures
-Message-Id: <178274398069.256048.11835186154105614379.b4-ty@bootlin.com>
-Date: Mon, 29 Jun 2026 16:39:40 +0200
+	Mon, 29 Jun 2026 14:43:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1782744193;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=58ktZVbAnDtVu79nFLixrkjfvdLbXQCFTyzfgA0wa84=;
+	b=aKm7X6lJ/diq3nCnxawNzEhkMO3Djb8+hkGcn2Sol7pQdtruFzRsYJJy6qhctlV86e3Gpu
+	KVNUYQhKxEs/pb+raZkIiGR/ke2MyaUf4w+CRuIKEJdzvOOWFpTQsaFL64HfuRUdk3FXBr
+	fmV4FTKE0vQplIfCtvT2IiK+z7ZbYuQ=
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-122-S1yCAlH2Mr-ekxOVhC0pjA-1; Mon,
+ 29 Jun 2026 10:43:11 -0400
+X-MC-Unique: S1yCAlH2Mr-ekxOVhC0pjA-1
+X-Mimecast-MFC-AGG-ID: S1yCAlH2Mr-ekxOVhC0pjA_1782744190
+Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 8003D195398D;
+	Mon, 29 Jun 2026 14:43:10 +0000 (UTC)
+Received: from [172.20.117.132] (unknown [10.30.44.223])
+	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id A6E4B19560A3;
+	Mon, 29 Jun 2026 14:43:09 +0000 (UTC)
+From: cki-project@redhat.com
+Subject: =?utf-8?b?4p2M?= FAIL: Test report for for-kernelci (7.2.0-rc1,
+ upstream-arm-next, dc59e4fe)
+Date: Mon, 29 Jun 2026 14:43:09 -0000
+To: linux-arm-kernel@lists.infradead.org, ftjahjad@redhat.com,
+ catalin.marinas@arm.com, will@kernel.org, bgoncalv@redhat.com,
+ mmalik@redhat.com, omosnace@redhat.com
 MIME-Version: 1.0
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
+Message-Id: <97837.126062910431101447@us-mta-122.us.mimecast.lan>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: zQOa8hck1cLQ1MTcNMkJ9DFsCo719OeBveCKqjIXlnQ_1782744190
+X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.14.3
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_073946_830418_72B99596 
-X-CRM114-Status: UNSURE (   8.87  )
+X-CRM114-CacheID: sfid-20260629_074316_832410_DCFCDBA1 
+X-CRM114-Status: UNSURE (   7.04  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,28 +85,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 15 Jun 2026 14:32:32 +0800, Pengpeng Hou wrote:
-> mtk_ecc_get() gets a reference to the ECC platform device, obtains the
-> provider state and then enables the ECC clock before initializing the
-> hardware.
-> 
-> The clk_prepare_enable() return value is currently ignored.  If enabling
-> the clock fails, the code still touches the ECC registers and returns a
-> live ECC handle to the caller.  The provider device reference acquired
-> by of_find_device_by_node() is also kept even though the handle setup
-> failed.
-> 
-> [...]
+Hi, we tested your kernel and here are the results:
 
-Applied to mtd/fixes, thanks!
+    Overall result: FAILED
+             Merge: OK
+           Compile: OK
+              Test: FAILED
 
-[1/1] mtd: nand: ecc-mtk: handle ECC clock enable failures
-      commit: 82d9a2b45b170f0c52ac61e0e3e23f212cd065f0
 
-Patche(s) should be available on mtd/linux.git and will be
-part of the next PR (provided that no robot complains by then).
+Kernel information:
+    Commit message: Linux 7.2-rc1
 
-Kind regards,
-Miquèl
+You can find all the details about the test run at
+    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2636852511
+
+One or more kernel tests failed:
+    Unrecognized or new issues:
+        Boot test
+             aarch64
+                   Logs: https://datawarehouse.cki-project.org/kcidb/tests/=
+redhat:2636852511_aarch64_kernel_kcidb_tool_21543639_6
+                   Non-passing ran subtests:
+                       =E2=9D=8C FAIL distribution/kpkginstall/journalctl-c=
+heck
+        Reboot test
+             aarch64
+                   Logs: https://datawarehouse.cki-project.org/kcidb/tests/=
+redhat:2636852511_aarch64_kernel_kcidb_tool_21543639_11
+                   Non-passing ran subtests:
+                       =E2=9D=8C FAIL misc/reboot-test/journalctl-check
+        selinux-policy: serge-testsuite
+             aarch64
+                   Logs: https://datawarehouse.cki-project.org/kcidb/tests/=
+redhat:2636852511_aarch64_kernel_kcidb_tool_21543641_8
+                   Non-passing ran subtests:
+                       =E2=9A=A1 ERROR Setup
+                       =E2=9D=8C FAIL Test
+
+    We also see the following known issues which are not related to your ch=
+anges:
+        Issue: [upstream] Hardware - Firmware test suite - auto-waive failu=
+res
+            URL: https://gitlab.com/cki-project/infrastructure/-/issues/779
+            Affected tests:
+                Hardware - Firmware test suite [aarch64]
+
+
+
+If you find a failure unrelated to your changes, please ask the test mainta=
+iner to review it.
+This will prevent the failures from being incorrectly reported in the futur=
+e.
+
+Please reply to this email if you have any questions about the tests that w=
+e
+ran or if you have any suggestions on how to make future tests more effecti=
+ve.
+
+        ,-.   ,-.
+       ( C ) ( K )  Continuous
+        `-',-.`-'   Kernel
+          ( I )     Integration
+           `-'
+___________________________________________________________________________=
+___
 
 
