@@ -4,94 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 643C5C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 15:23:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 322FEC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 15:24:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PR93AUCuHx4BvFFne4zA1X1VhGPQ7Re4xvHDc2Jr1Is=; b=yPDwrCV4XRa5fMq9Ta1UXu8IQ8
-	A9CBl67wZR6VRmbzx2qi0i+oCq73pFWfxBYT5QVLCKL6IY6byVhTYKzouCBuUobn282LXTlee9zIk
-	PUcJkC7YOdIcsTA4Fv+pRlXXoPKCmVjwjSa/rwKa/hRNNSr9ncEkNFLOONvRuBLsPEI7nzrYxUGhC
-	ata8kL+sNzyHAnmDhKOtp9OZ9N9nkRrlciPR6Kl7DRIzqOA4ZtmzZKT8mSgVwCcJebxsmpzLI5XZS
-	yXM3ai4KQhkYGCGJRVF2MBsDLJ8S97NA4j0uCFJcwCkVwoP9D3VA6g5YH9VsM35zxiaSez523p4+A
-	w1tWBfrw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:From:To:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=t9HMNcmuNOgHLZxwriuw4CBow1Oqe0l3xin2DE2AG/U=; b=u+dOnaCTVJXepaGRycwB8G1fxW
+	l+GRAkftVY4lwGqb1kDbn9lZ9kOyPQ7uk231hUabXEMVMmjPU8EbVEBdBsJLl7Yr7l5P5S4Rg3Zar
+	SGim9MJYNKqPhK6GmOSIO7/Oucj4rDyHE6d6p7r3CNkY4X8FuZ7YN9NSkQATD5c/ONFhOZe7OzuAZ
+	7jjFOsEgjJhyCGIQh5Vl9r93M+0aZtGjOl3tRub4ijeA/d1gmxD04AtuqOoNCJsCR96zGPammgmIO
+	4M1p6EGtsLUcz0+h77wV9bUAhIxWle50pvhtF+OjO5azJxFBfrfwRYtejLyZKB+Hkc8TcrHh4a2rT
+	faHpFr9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weDph-0000000F3Qp-2LIY;
-	Mon, 29 Jun 2026 15:23:37 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1weDqK-0000000F3cV-3WSC;
+	Mon, 29 Jun 2026 15:24:16 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weDpf-0000000F3Pt-3kDK
+	id 1weDqI-0000000F3b7-1TJ4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 15:23:37 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-46cbe01d4b6so2029807f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 08:23:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1782746613; x=1783351413; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=PR93AUCuHx4BvFFne4zA1X1VhGPQ7Re4xvHDc2Jr1Is=;
-        b=hmoHVtHwuj1rOOyxdULUFiaxZDZyLbGmHOsBc+8PthNDjJ8Ulq/u3Zg27mV8xdo85g
-         QcCrt4LnXG59GpUUTI107u0zG8jOP7S0479CTL8O8AoyQe5ZlwR+7/+VZ6jkZDb1cwoc
-         yCUFLMyrcph3vO8Fg5TRXxfrVtW8OOdz3IfKcpW5746PoaK2LBs8nDL6AtuTgpOsyDSc
-         7wgNtdvmsjSchPIqFzx+26biJMor/SbGADH+GGt6SECmCJf6awlhqQHsCEZJ6J3QW+kY
-         Wla/R7cukrqBh1hVDTG1SnqSVZ/ud4gF6BqhgAV0CawBCqat9eV7aLg+1fgpPQCGX5bM
-         B0UQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782746613; x=1783351413;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=PR93AUCuHx4BvFFne4zA1X1VhGPQ7Re4xvHDc2Jr1Is=;
-        b=hS1hGLsua8isYAtG8lt0tLfEu7cyZhw0qQdYKCpBOx4eQ+AW+p4Qe2ZTdvMb4kAUr4
-         6LHewZfcpWrWje8gftolLwxYr2DMrCQwqnZ/xq4Zihsnb0VqWkVqGtA/vWvA+mv8wG9k
-         5vaLj7Ugj3mVnZMMT6JaU7DKeBC4i9HGYDCn44dqNnlLPvGpniqoKVd5PqHY7rqoxVkR
-         82pPWvrLg4EL0EX0UTM4pRoeNo6It7HR8wzz7+Dho+S+4JhnxT6MJI9y4otwTNh0HoAM
-         vTpuSvsJTqFI+GTBwe26U0p/vfsbwofpgnQQFBx9P4t0L0wfRVEzTIdQ5svUi7WybFqj
-         sXkg==
-X-Forwarded-Encrypted: i=1; AHgh+Rq/M4K6i02ZLzlMT+Ir9S9UvefbfumBReYCO4H5CvS9vx9PXq/SEwGWhbQjeBPGUBXERgcPKPZ+qYmT3pjzDJB+@lists.infradead.org
-X-Gm-Message-State: AOJu0YyLp0zhZqsguNmkb3v0cumFCaqEicl0byeN4wVmVdSZFYug12wM
-	8DJzkWrVTybb/58o8YjS/BCOqcRaaVhXD8MzKalEnu7TuMoHlVM75TX6igoXGA5Ow9Q=
-X-Gm-Gg: AfdE7cm6s+f+67lFwlbpuvrVs3KwLmYGaMUyXXSzhbL2r/beGSYFsywk7xIXhoQ+v0b
-	yV3IyChdSa/03tFx6srOi91h2UJw+iykZOIfuSBXNPNw/wJd7iwAUxlhs6u/ZPka3cSpFAeTf/k
-	1S64BJKqivYV6n/A5BeaIosNhUJ1AgpYG7fIH5FUn3AbMWltecrNoe+KpMoAnSAcM9v1d2gzgzz
-	YKDo3YUZJ0mPfz2MEjdRbRG1sdsvyxsj+fxWAfzwrLq0PkCKnUszCzX9dKy0EUTzU7v/0NRRxWi
-	7xJ0iJ36Ua9mjXIUAX3xp2NeollL37iVSScFf++c88SzxARBnzVRaZw6ya+YWf1Dy8VGBmgx3As
-	TfaJXQfVagg1QJnh/AX/1b0pJWraZ5sLcV+GkRYIM/7LWgsr6HyQJqqDgxow4n1Oikyw6TQkehL
-	+Ttlnu7afCAp9QQlF1dAKSd2o=
-X-Received: by 2002:adf:ff89:0:b0:473:1706:7f01 with SMTP id ffacd0b85a97d-475017f6871mr1213528f8f.43.1782746613293;
-        Mon, 29 Jun 2026 08:23:33 -0700 (PDT)
-Received: from linaro.org ([2a02:2454:ff24:7210:5f1:38dc:c145:9ce3])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-46c1ee018e8sm56854684f8f.11.2026.06.29.08.23.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Jun 2026 08:23:32 -0700 (PDT)
-Date: Mon, 29 Jun 2026 17:23:28 +0200
-From: Stephan Gerhold <stephan.gerhold@linaro.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org, Jack Matthews <jack@jackmatthe.ws>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Subject: Re: [PATCH 0/2] clocksource/drivers/arm_arch_timer_mmio: Restore
- support for early init
-Message-ID: <akKN8EKAOT7GTzdV@linaro.org>
-References: <20260610-arm-arch-timer-mmio-early-v1-0-ac17218ec8b4@linaro.org>
- <87se6t8q3s.wl-maz@kernel.org>
- <aip2Pnmi-LJPKwW7@linaro.org>
- <87qzmd89ih.wl-maz@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <87qzmd89ih.wl-maz@kernel.org>
+	Mon, 29 Jun 2026 15:24:16 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id ECE114E40B46;
+	Mon, 29 Jun 2026 15:24:09 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id B62B85FF96;
+	Mon, 29 Jun 2026 15:24:09 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id AB576106F18F0;
+	Mon, 29 Jun 2026 17:24:00 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1782746648; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=t9HMNcmuNOgHLZxwriuw4CBow1Oqe0l3xin2DE2AG/U=;
+	b=KyKTA+gOIjf7GpxHnA2BZSNdQhPh/FN5WhHsijEVb+j6YeAbTaPwUR777uRBDlp/buzMQ7
+	SuG/NJVdaYV2mUiMF4Up/pg3J7xmsNrmKcsky6rPxNXvY08Kvqg9e3q+jcMyO1PKybzXdy
+	0or9lnIQOd2yh88sxr109v6Vp4KrCA1g2mh8Ea7iz/YGb0WK2/GuCI6qPyEjQCHP3SfQfw
+	ny6brEttZe39S+lrHj7pO06RZi5KGB0oPj3Ju0dvnNMJmzIimpS8a/d2W3w2l/GtqGBpn3
+	Xab86sgnBfUIISwfU4LEMd86fdtFmDNKzEb88tL7mndHgSLTloSm4RhuhOyu3A==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Mon, 29 Jun 2026 17:23:59 +0200
+Message-Id: <DJLMXVXP93KY.1K1DUHELTRHT2@bootlin.com>
+Cc: "Maxime Ripard" <mripard@kernel.org>, "Maarten Lankhorst"
+ <maarten.lankhorst@linux.intel.com>, "Thomas Zimmermann"
+ <tzimmermann@suse.de>, "David Airlie" <airlied@gmail.com>, "Simona Vetter"
+ <simona@ffwll.ch>, "Andrzej Hajda" <andrzej.hajda@intel.com>, "Neil
+ Armstrong" <neil.armstrong@linaro.org>, "Robert Foss" <rfoss@kernel.org>,
+ "Jonas Karlman" <jonas@kwiboo.se>, "Jernej Skrabec"
+ <jernej.skrabec@gmail.com>, "Inki Dae" <inki.dae@samsung.com>, "Jagan Teki"
+ <jagan@amarulasolutions.com>, "Marek Szyprowski"
+ <m.szyprowski@samsung.com>, "Marek Vasut" <marex@denx.de>, "Stefan Agner"
+ <stefan@agner.ch>, "Frank Li" <Frank.Li@nxp.com>, "Sascha Hauer"
+ <s.hauer@pengutronix.de>, "Pengutronix Kernel Team"
+ <kernel@pengutronix.de>, "Fabio Estevam" <festevam@gmail.com>, "Hui Pu"
+ <Hui.Pu@gehealthcare.com>, "Ian Ray" <ian.ray@gehealthcare.com>, "Thomas
+ Petazzoni" <thomas.petazzoni@bootlin.com>,
+ <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
+ <imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>
+To: "Laurent Pinchart" <laurent.pinchart@ideasonboard.com>, "Luca Ceresoli"
+ <luca.ceresoli@bootlin.com>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+Subject: Re: [PATCH 05/37] drm/display: bridge-connector: split code
+ creating the connector to a subfunction
+X-Mailer: aerc 0.21.0
+References: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
+ <20260519-drm-bridge-hotplug-v1-5-45e2bdb3dfb4@bootlin.com>
+ <20260608-mindful-heavy-frigatebird-be9faf@houat>
+ <DJ735MTNMYD1.3LPNV404V8PIU@bootlin.com>
+ <20260624-proud-unbiased-pony-ecc3c3@houat>
+ <DJHEAWSEZR79.19UFIKS8QJBQ7@bootlin.com>
+ <20260626-polite-hairy-perch-25e1aa@houat>
+ <DJJ1MPCEJGZD.UZM9183V6ZE5@bootlin.com>
+ <20260626-classy-nightingale-of-romance-1cacad@houat>
+ <DJJ4X22CJ3FG.5EYF84LVRNOG@bootlin.com>
+ <20260629144443.GA3106950@killaraus.ideasonboard.com>
+In-Reply-To: <20260629144443.GA3106950@killaraus.ideasonboard.com>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_082336_010995_F7BB4D76 
-X-CRM114-Status: GOOD (  62.24  )
+X-CRM114-CacheID: sfid-20260629_082414_668369_6E3C219E 
+X-CRM114-Status: GOOD (  45.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,174 +101,210 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 11, 2026 at 02:57:42PM +0100, Marc Zyngier wrote:
-> On Thu, 11 Jun 2026 09:47:58 +0100,
-> Stephan Gerhold <stephan.gerhold@linaro.org> wrote:
-> > 
-> > On Thu, Jun 11, 2026 at 08:59:19AM +0100, Marc Zyngier wrote:
-> > > On Wed, 10 Jun 2026 18:53:09 +0100,
-> > > Stephan Gerhold <stephan.gerhold@linaro.org> wrote:
-> > > > 
-> > > > Jack reported a regression for some single-core Qualcomm platforms (e.g.
-> > > > MDM9625, MDM9607) that no longer boot because no timers can be found during
-> > > > early boot [1].
-> > > 
-> > > Again, this is *not* a regression. These machines were *never*
-> > > supported upstream.
-> > > 
-> > 
-> > Sorry, I'll reword this next time. MDM9607 does have all required
-> > drivers and compatibles upstream already and is just missing the actual
-> > DT so it does feel somewhat supported to me, but I'm fine treating this
-> > as a feature extension without stable backporting etc.
-> 
-> "Supported" has a different definition for me. Cortex-A5 without the
-> A9-style TWD was so far never seen in the wild. The Generic MMIO timer
-> was introduced way after Cortex-A5 shipped, and was designed to work
-> with the CPU timers, making this QCOM contraption a franken-hack.
-> 
-> So calling this supported is very much pushing the boundaries of what
-> was supposed to be put together.
-> 
+On Mon Jun 29, 2026 at 4:44 PM CEST, Laurent Pinchart wrote:
+> On Fri, Jun 26, 2026 at 06:51:14PM +0200, Luca Ceresoli wrote:
+>> On Fri Jun 26, 2026 at 4:38 PM CEST, Maxime Ripard wrote:
+>> > On Fri, Jun 26, 2026 at 04:16:39PM +0200, Luca Ceresoli wrote:
+>> >> On Fri Jun 26, 2026 at 12:09 PM CEST, Maxime Ripard wrote:
+>> >> > On Wed, Jun 24, 2026 at 05:47:10PM +0200, Luca Ceresoli wrote:
+>> >> >> On Wed Jun 24, 2026 at 1:41 PM CEST, Maxime Ripard wrote:
+>> >> >> > On Fri, Jun 12, 2026 at 02:56:24PM +0200, Luca Ceresoli wrote:
+>> >> >> >> On Mon Jun 8, 2026 at 1:40 PM CEST, Maxime Ripard wrote:
+>> >> >> >> > On Tue, May 19, 2026 at 12:37:22PM +0200, Luca Ceresoli wrote=
+:
+>> >> >> >> >> In preparation to introduce bridge hotplug, split out from
+>> >> >> >> >> drm_bridge_connector_init() the code adding the drm_connecto=
+r into a
+>> >> >> >> >> dedicated function. This will be needed to be able to add (a=
+nd re-add) the
+>> >> >> >> >> connector from different code paths.
+>> >> >> >> >
+>> >> >> >> > Same story here, explaining what you need later on that calls=
+ for that
+>> >> >> >> > change would be nice.
+>> >> >> >>
+>> >> >> >> Here's a more verbose version:
+>> >> >> >>
+>> >> >> >>     Currently drm_bridge_connector_init() does two things:
+>> >> >> >>
+>> >> >> >>      * allocate and initialize the drm_bridge_connector
+>> >> >> >>        (which embeds a drm_connector)
+>> >> >> >>      * initialize and register the embedded drm_connector
+>> >> >> >>
+>> >> >> >>     For bridge hotplug we need to separate these two actions:
+>> >> >> >>
+>> >> >> >>      * the drm_connector needs to be added and removed at any t=
+ime based on
+>> >> >> >>        hotplug events
+>> >> >> >>      * the drm_bridge_connector is designated to create and rem=
+ove the
+>> >> >> >>        drm_connector, so it must be persistent for the card lif=
+etime
+>> >> >> >>
+>> >> >> >>     As the lifetimes of drm_bridge_connector and drm_connector =
+become
+>> >> >> >>     different, we need to create them in different moments.
+>> >> >> >>
+>> >> >> >>     In preparation to support that, split out from
+>> >> >> >>     drm_bridge_connector_init() the code adding the drm_connect=
+or into a
+>> >> >> >>     dedicated function. No functional changes, just moving code=
+ around for
+>> >> >> >>     now. A future commit will make the drm_connector be created=
+ based on
+>> >> >> >>     hotplug events.
+>> >> >> >>
+>> >> >> >> Looks good?
+>> >> >> >
+>> >> >> > The message itself, yes, thanks.
+>> >> >> >
+>> >> >> > However, I have questions now :)
+>> >> >> >
+>> >> >> > Do we really expect drm_bridge_connector to stick around when a =
+bridge
+>> >> >> > gets unplugged? If so, how does it cope with having, say, an HDM=
+I
+>> >> >> > connector, and then swapping out the hotplugged part for an LVDS=
+ one?
+>> >> >> > Does the HDMI connector sticks around indefinitely?
+>> >> >>
+>> >> >> In your example, the HDMI drm_connector would be unregistered and =
+put on
+>> >> >> hotunplug. Its allocation will stick around until the last put but=
+ that's
+>> >> >> quite irrelevant. Then, on plugging the LVDS addon, a new LVDS
+>> >> >> drm_connector will be created and registered.
+>> >> >>
+>> >> >> > *Especially* if we're using overlays for this, I'd expect everyt=
+hing
+>> >> >> >  after the first hotplugged bridge to be destroyed, no?
+>> >> >>
+>> >> >> As said, it would be unregistered immediately but might be freed l=
+ater on
+>> >> >> if still refcounted.
+>> >> >>
+>> >> >> This is visible in patches 36+15, the path to follow is:
+>> >> >>
+>> >> >>  drm_bridge_connector_handle_event(event =3D DRM_BRIDGE_DETACHED) =
+[patch 36]
+>> >> >>  -> drm_bridge_connector_dynconn_release()                      [p=
+atch 15]
+>> >> >>
+>> >> >> Does this solve your concern?
+>> >> >
+>> >> > Not really, I'm talking about drm_bridge_connector. The fact that
+>> >> > bridges are destroyed make sense to me. The fact that
+>> >> > drm_bridge_connector sticks around doesn't. It's supposed to be a
+>> >> > connector for bridges. If you don't have bridges because they got
+>> >> > destroyed, and connector, drm_bridge_connector doesn't have a reaso=
+n to
+>> >> > exist anymore, unless it's drm_bridge_hotplug in a trench coat :)
+>> >>
+>> >> It is not a hotplug-bridge in a trench coat, no :) The code is clear =
+about
+>> >> this.
+>> >>
+>> >> I'd say with this series a "drm_bridge_connector" is just becoming
+>> >> something more (perhaps something else too). Somewhat as "a drm_bridg=
+e is
+>> >> either a bridge or something else". :)
+>> >>
+>> >>
+>> >> But let's leave names aside for a moment. If just looking at the curr=
+ent
+>> >> code, the drm_bridge_connector is "a handler, owned by the card/encod=
+er and
+>> >> having the same lifetime, which takes care of drm_connector
+>> >> creation/destruction at card probe/removal".
+>> >>
+>> >> What we need now is just the same plug " and on hotplug events" appen=
+ded.
+>> >>
+>> >> So in both cases there needs to be "a handler persitent with the card=
+".
+>> >>
+>> >> Do we agree so far?
+>> >
+>> > Ish. If we go for that, then we need to update the name.
+>>
+>> drm_connector_manager?
+>> drm_bridge_connector_manager?
+>
+> I'm fine with a rename. When developing drm_bridge_connector I've always
+> envisioned it as code that manages the creation of a connector for a
+> chain of bridges. In particular, the drm_bridge_connector object is
+> *not* and has never been a bridge.
 
-Got it.
+That's my understanding of the drm_bridge_connector too.
 
-> >
-> > > > These platforms rely on an obscure timer setup where the
-> > > > global Arm MMIO timer (arm,armv7-timer-mem) is used as the only available
-> > > > timer for the CPU. This setup used to work fine until commit 0f67b56d84b4
-> > > > ("clocksource/drivers/arm_arch_timer_mmio: Switch over to standalone
-> > > > driver") when the early timer initialization using TIMER_OF_DECLARE() was
-> > > > removed when moving to the standalone MMIO driver.
-> > > > 
-> > > > There doesn't seem to be any other usable CPU timer on those platforms, so
-> > > > this series restores the early timer support using TIMER_OF_DECLARE()
-> > > > inside the new standalone arm_arch_timer_mmio driver. This is pretty ugly,
-> > > > but I could not think of a better solution so far. I tried to keep the
-> > > > ugliness for the two probe paths as limited as possible. :-)
-> > > > 
-> > > > If someone has a better idea how to solve this, I would be happy to try it.
-> > > 
-> > > I would suggest finding out what is the latest point in the init
-> > > sequence where the timer can be probed without preventing boot.
-> > > 
-> > 
-> > It doesn't get far without having any timer:
-> > 
-> > [    0.000000] timer_probe: no matching timers found
-> > [    0.000000] entering initcall level: console
-> > [    0.000000] calling  con_init+0x0/0x354 @ 0
-> > [    0.000000] Console: colour dummy device 80x30
-> > [    0.000000] initcall con_init+0x0/0x354 returned 0 after 0 usecs
-> > [    0.000000] sched_clock: 32 bits at 300 Hz, resolution 3333333ns, wraps every 7158278824300949ns
-> > [    0.000000] Calibrating delay loop... 
-> > <board hangs>
-> >
-> 
-> This is nothing that "lpj=[some value]" on the command line can't help
-> getting past.
-> 
-> > If you look at start_kernel() in init/main.c it's basically time_init()
-> > that would normally probe the TIMER_OF_DECLARE() timers and
-> > calibrate_delay() that needs some timer to finish. There is also
-> > random_init() that comes directly after time_init(), which already wants
-> > to have access to timestamp counters. I don't see any other suitable
-> > place to hook into. :-/
-> 
-> None of that should be a problem. I can boot a hacked arm64 kernel
-> without any timer all the way to the point where it is waiting for a
-> tick to enter the scheduler and run userspace. There's no reason why
-> 32bit can't do something similar. Heck, 32bit doesn't even have a
-> standard timer to rely on, so that's very much possible to do.
-> 
-> Can you at least give it a try?
-> 
+> Ideally all this should move to the DRM core and be transparent to
+> drivers. Drivers could set a flag somewhere to opt-in for connectors
+> managed by the DRM core.
 
-Thanks for the suggestion and sorry for the delay! I started testing
-this, but then ran out of time before my vacation when trying to get the
-CP15 timer working on the Cortex-A7.
+Not sure I got what you mean.
 
-With lpj=2658304, it proceeds until raid6_select_algo for me with my
-current kernel config. I probably don't need the raid6 stuff on this
-platform. Also, raid6_select_algo is subsys_initcall() so if I move
-arm_arch_timer_mmio to core_initcall() instead of
-builtin_platform_driver() (device_initcall()) it does indeed boot
-successfully to the userspace login with the lpi= parameter. Nice!
+Currently drivers "opt-in" by:
 
-> > 
-> > I also don't see any other timer we could use, at least for MDM9625.
-> > It's a single-core Cortex-A5 and the downstream kernel defines only the
-> > arm,armv7-timer-mem, which seems to be used for everything... (The
-> > situation for MDM9607 is a bit different, but not any less messy,
-> > unfortunately.)
-> 
-> MDM9607 appears to be a Cortex-A7, so it *definitely* has all the
-> bells and whistles that we need. The DT I found doesn't make describe
-> the timer, but it is absolutely part of the CPU.
-> 
+ 1. passing DRM_BRIDGE_ATTACH_NO_CONNECTOR to drm_bridge_attach()
+ 2. instantiating a drm_bridge_connector via drm_bridge_connector_init()
 
-The CP15 timer is indeed *definitely* there for the Cortex-A7 in
-MDM9607, but it's also *definitely* not working for me ... :(
+Do you suggest changing that, so 1 and 2 are done transparently if the
+driver sets a new flag?
 
-As you saw, it's not documented anywhere for MDM9607. I tried to enable
-it a few years ago already, but I couldn't get it working. I tried again
-and it's still unusable. The CP15 timer is certainly there and it does
-tick just fine. It also signals interrupts (ISTATUS gets set).
-But I can't find the interrupts in the GIC:
+>> > drm_bridge_connector for something that is neither a bridge or a
+>> > connector is not great.
+>> >
+>> > But even then, I'm not even sure why we need to have that "manager" in
+>> > the first place. You want to make bridges be aware if they are the las=
+t
+>> > in the chain or not.
+>
+> I don't think bridges should be aware of whether or not they're the last
+> one in the chain.
 
- - I tried some common options (PPI 13+14+11+10, 2+3+4+1), but it hangs
-   in raid6_select_algo like above (no timer interrupts).
+I proposed that, not because I "want" that but because for hotplug we need
+a way to know whether a DRM video pipeline is complete in the hardware or
+not. This is used in patch 36:
 
- - I created some brute force probing code that fires the timer and then
-   scans literally all GIC IRQs using GICD_ISPENDR. Nothing.
-   (It finds the correct PPIs on other platforms...)
+	/* Add the connector if the pipeline is now complete */
+	if (drm_bridge_connector_pipeline_is_complete(bridge_connector))
+		drm_bridge_connector_add_connector(bridge_connector);
 
- - I asked Konrad if he can find something helpful in the chip
-   documentation, but apparently there is no clear mention of the CP15
-   interrupts there either ....
+In other words, on a hotplug event (some new hardware was added), check
+whether the card is now complete _in the hardware_, and if it is create a
+drm_connector.
 
-In other words, it looks like whoever designed this hardware didn't
-think it would be useful to hook up the CPU interrupt lines to the GIC.
-Or something like that ... Unfortunately, this means that we probably
-need the MMIO timer even for the Cortex-A7 in MDM9607. :(
+In this series I proposed implementing it via a new .is_tail callback, that
+has been rejected during Dispaly Next Hackfest [0].
 
+The idea that popped up there was that bridge drivers could expose the
+fwnode handler to the port@<N>/endpoint pointing to the next bridge. I
+liked the idea but then I realized it would hardly fly in complex cases
+like bridges with dual-LVDS-or-two-single-LVDS output, e.g. SN65DSI84.
 
-Since you mentioned that we don't need a timer early, I played a bit
-with using the CP15 timer only as clocksource (without interrupt). That
-seems works quite well actually to bypass the delay calibration problem.
-In fact, then it skips the calibration entirely and uses (presumably
-more accurate?) timer-based delay loops instead:
+So Maxime proposed [1]:
 
-[    0.000000] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 6370867519511994 ns
-[    0.000000] arch_timer: No interrupt available, NOT giving up
-[    0.000000] arch_timer: cp15 timer running at 19.20MHz (virt).
-[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x46d987e47, max_idle_ns: 440795202767 ns
-[    0.000002] sched_clock: 56 bits at 19MHz, resolution 52ns, wraps every 4398046511078ns
-[    0.010688] Switching to timer-based delay loop, resolution 52ns
-[    0.019028] Console: colour dummy device 80x30
-[    0.024932] Calibrating delay loop (skipped), value calculated using timer frequency.. 38.00 BogoMIPS (lpj=64000)
-...
+ ) Thanks for the notes, I think I largely agree with the discussion.
+ ) Reading through it, I thought it would be nice for a new callback called
+ ) get_next_bridge or something that would return either an error, NULL or =
+a
+ ) (refcounted) pointer to the next bridge in the chain. And have some kind
+ ) of special error (ENODEV?) when the bridge should be there but isn't
+ ) (and thus the chain isn't complete).
 
-Still need the core_initcall() change, since it looks like that
-raid6_select_algo code really wants to have some timer interrupts.
+To me, "Making bridges aware if they are the last in the chain or not" is
+not a goal. It is just a technique to implement
+drm_bridge_connector_pipeline_is_complete().  I'm happy to implementing it
+in a different way if you have better ideas, but I haven't.
 
-Aside from that it's just a couple of if conditions in the
-arm_arch_timer driver to bypass the interrupt handling, but I imagine
-you wouldn't be very happy about that kind of butchering either ...? :/
+[0] https://lore.kernel.org/lkml/DIXTUCXAU68V.1T7X89LMEUF2F@bootlin.com/
+[1] https://lore.kernel.org/lkml/20260624-vagabond-neon-gorilla-cd6487@houa=
+t/
 
-> As for the A5, if we can't get this machine to use the driver as is
-> without butchering it and going 15 years back in time, then I'd rather
-> hack together a minimal driver that only this contraption will make
-> use of, and be done with it.
+Luca
 
-To be fair, if you look at PATCH 2/2 in this series, the actual MMIO
-handling is completely unchanged. It's just some reshuffling of the
-init/parsing code. The primary annoyance is probably use of pr_*()
-rather than dev_*() logging and some minor manual resource management.
-We could duplicate the parsing functions to avoid this reshuffling, but
-the actual MMIO code would be still exactly the same. I'm not sure if
-we should duplicate that.
-
-Thanks,
-Stephan
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
