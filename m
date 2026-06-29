@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5C79C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 12:49:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E2EEC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 12:50:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O+/YUQD7YAYGSS5DehzY5s76C5ID0xVuOZFRGvMTkns=; b=aUVk3uOALNQHAnloFFKH+z2aEW
-	1omNdjOYols6akXExWjeWnKeVWwdBNsP/I5vXkaBfEoYuK+3CK+iVIDOKLk5b/3kFS5vxhl1Kbdyn
-	zbJJqrDnViyB/9R4IL1Q2AjI/VCVrc+Xo9zLPByRvBdT+Yd8/VIMqf00E8whgTjPHyLZZWcA+J1eu
-	CPBx2uOLFLHm5uI1JXZkw3+VrB3rd1Dg+L1XqtIEzIVnQ2L1RN7MpvLOOOHhc8tErsxuWo2EO+7v9
-	SDVWE/2S9CoPHF9JVjC9RjfIQTyR2VIicSPFxpyY4E9O7upiZdgCnYy6E3R6uLyCncAtPWLvHyK41
-	Hl25W80Q==;
+	bh=AEvcL4eAJdQvW0mI6HKHdq0ilBCt30WgNyC54gIx2CQ=; b=Ii8jXHWuGD4zhLhnv7xH+pMOAJ
+	kuajjNbc0JYAduy/2OI4Pk6rm2r7jgAlhBYdWOX9tq3VTy7eh5ww7o5ZxRS0h4RQCMOxqpiAfog0E
+	s+4xd4xlD57EF37GzOufjc699Z4cqXYJnLxblZKQz3TjtdoCa70mAl9k+s6umz5mCXcepBLd+/0n7
+	30u0FNtTi2IowoBqrFy8PonqeSQL3uyL7RrDn9YvNG3qrFFr0jqbAwqlhYwLWQT9aNe3pHxZDQ6Ar
+	h1f0iUD1aHnkWsyINVRdlD4GQDYtORwV5kyXKVLOUdItKj7u+pvI6soGQDjE8AEJYjlOSVsyXLxtA
+	obpFFeTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weBQQ-0000000EceK-2nhu;
-	Mon, 29 Jun 2026 12:49:22 +0000
-Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
+	id 1weBRI-0000000EcsM-3z5E;
+	Mon, 29 Jun 2026 12:50:16 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weBQN-0000000Ecbj-0NaS
+	id 1weBRH-0000000EcrL-3dy8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 12:49:21 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=O+/YUQD7YAYGSS5DehzY5s76C5ID0xVuOZFRGvMTkns=;
-	b=2WZBudhenS3hM7mMwRIBVvPr/ThfSgz9lYWaUAUXKzw+rms+JuhUfZ2f2Qvr4Ol5Tv83L3W5M
-	R82qUDI/0vzLePM/Tt9O/T5egeDzpdeVUoyssT5fm3z40XZ8yZOdimhg6N7GvGV+qJIewGrlaLr
-	K4lVPTsnMqFBoWYxGanvTc0=
-Received: from mail.maildlp.com (unknown [172.19.163.214])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4gpm7w366hzmV8L;
-	Mon, 29 Jun 2026 20:39:56 +0800 (CST)
-Received: from kwepemj100009.china.huawei.com (unknown [7.202.194.3])
-	by mail.maildlp.com (Postfix) with ESMTPS id 22A4740580;
-	Mon, 29 Jun 2026 20:49:05 +0800 (CST)
-Received: from DESKTOP-A37P9LK.huawei.com (10.67.109.17) by
- kwepemj100009.china.huawei.com (7.202.194.3) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.36; Mon, 29 Jun 2026 20:49:04 +0800
-From: Xie Yuanbin <xieyuanbin1@huawei.com>
-To: <bigeasy@linutronix.de>, <linux@armlinux.org.uk>,
-	<rmk+kernel@armlinux.org.uk>
-CC: <xieyuanbin1@huawei.com>, <arnd@arndb.de>, <clrkwllms@kernel.org>,
-	<liaohua4@huawei.com>, <lilinjie8@huawei.com>, <linusw@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-rt-devel@lists.linux.dev>, <rostedt@goodmis.org>
-Subject: Re: [PATCH v2] ARM: enable interrupts when unhandled user faults are triggered
-Date: Mon, 29 Jun 2026 20:48:16 +0800
-Message-ID: <20260629124816.136079-1-xieyuanbin1@huawei.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260629123349.134224-1-xieyuanbin1@huawei.com>
-References: <20260629123349.134224-1-xieyuanbin1@huawei.com>
+	Mon, 29 Jun 2026 12:50:15 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2DF0F42E2F;
+	Mon, 29 Jun 2026 12:50:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB8711F00A3A;
+	Mon, 29 Jun 2026 12:50:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782737415;
+	bh=AEvcL4eAJdQvW0mI6HKHdq0ilBCt30WgNyC54gIx2CQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=VDkIDnL15o3M8f4zo4AGU7YEQMIl5UgoBJmoENdTz3injrYVyiI70r951xn34x3RT
+	 Pw9QIawJBv0eTJ/Q5XIwzpOrc92S10duEN6s4paizdMeFEI0frzAIFGcm56IRPJXqE
+	 tJMQMqdNYR1KJm6hqjvILDk+/RKKHhhLdfAoi8N+AvQa8HDlnL/e2iGyAWs36q9vYT
+	 gLKqinDNO7AeOuRkbBvvXuroiMdBSMyzyE7XMgvM5M+u+mYEhM/JEi6qxqzjsB7IaG
+	 eWbkeBz79q7UNXb6hA7NI2OTcn1xxev064bnsQilEQZx4T2e7YolKesHZa4tL0mxIi
+	 29l+SSejuBXUQ==
+Date: Mon, 29 Jun 2026 13:50:09 +0100
+From: Will Deacon <will@kernel.org>
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Ben Hutchings <ben@decadent.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	"David Hildenbrand (Arm)" <david@kernel.org>,
+	patches@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Sasha Levin <sashal@kernel.org>,
+	stable <stable@vger.kernel.org>, mark.rutland@arm.com
+Subject: Re: [PATCH 6.1 337/522] arm64/mm: Enable batched TLB flush in
+ unmap_hotplug_range()
+Message-ID: <akJqAZ8CdhHqGJIS@willie-the-truck>
+References: <20260616145125.307082728@linuxfoundation.org>
+ <20260616145141.584613180@linuxfoundation.org>
+ <b0d5836032ce3135bfc473f6bff791306d086925.camel@decadent.org.uk>
+ <ajqXWqiAol6Shdd6@willie-the-truck>
+ <d2a633c8-496e-48e1-bfa0-a0fc75bd0a08@arm.com>
+ <2026062451-bluff-coherent-672d@gregkh>
+ <b51f82ed-aa54-4c67-bcef-e59acd10c789@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.67.109.17]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- kwepemj100009.china.huawei.com (7.202.194.3)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_054919_621205_D9971A14 
-X-CRM114-Status: GOOD (  12.03  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <b51f82ed-aa54-4c67-bcef-e59acd10c789@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,14 +81,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 29 Jun 2026 11:40:22 +0200, Sebastian Andrzej Siewior wrote:
-> If this is moved to the callers of arm_notify_die() then I don't know
-> what to do about baddataabort(). It looks like it gets invoked with
-> disabled interrupts, too but I'm not sure. This looks like pre ARM v7.
-> Is it reasonable to add such a check there?
+On Thu, Jun 25, 2026 at 07:59:51AM +0530, Anshuman Khandual wrote:
+> On 24/06/26 9:59 PM, Greg Kroah-Hartman wrote:
+> > On Wed, Jun 24, 2026 at 04:05:01PM +0100, Ryan Roberts wrote:
+> >> On 23/06/2026 15:25, Will Deacon wrote:
+> >>> On Sun, Jun 21, 2026 at 05:02:27PM +0200, Ben Hutchings wrote:
+> >>>>> @@ -949,15 +953,14 @@ static void unmap_hotplug_pmd_range(pud_
+> >>>>>  		WARN_ON(!pmd_present(pmd));
+> >>>>>  		if (pmd_sect(pmd)) {
+> >>>>>  			pmd_clear(pmdp);
+> >>>>> -
+> >>>>> -			/*
+> >>>>> -			 * One TLBI should be sufficient here as the PMD_SIZE
+> >>>>> -			 * range is mapped with a single block entry.
+> >>>>> -			 */
+> >>>>> -			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+> >>>>> -			if (free_mapped)
+> >>>>> +			if (free_mapped) {
+> >>>>> +				/* CONT blocks are not supported in the vmemmap */
+> >>>>> +				WARN_ON(pmd_cont(pmd));
+> >>>>> +				flush_tlb_kernel_range(addr, addr + PMD_SIZE);
+> >>>>
+> >>>> It wasn't clear to me from the commit message why this now adds PMD_SIZE
+> >>>> rather than PAGE_SIZE.  It seems like this change is fine for Linux
+> >>>> 6.13+ with a CPU that supports TLB range flushing, but otherwise results
+> >>>> in unnecessarily executing multiple TLB invalidations at intervals of
+> >>>> the base page size.
+> >>>
+> >>> Hmm, the commit message also makes very little sense to me and so I don't
+> >>> understand why this patch has us doing multiple TLB invalidations when
+> >>> we run into a !cont, block mapping at the PMD level. The old comment
+> >>> (which this patch removes) should still apply afaict.
+> >>>
+> >>> Anshuman, Ryan, any ideas what's going on here?
+> >>
+> >> I think this change was probably my fault; Given the API is called
+> >> flush_tlb_kernel_range() it seemed like an abuse/hack to pretend we are only
+> >> flushing the first PAGE_SIZE of the range. But as I understand it, even if the
+> >> HW shatters a block mapping into multiple TLB entries, all of the entries
+> >> relating to the block mapping will be invalidated if just one of them intersects
+> >> the TLBI range/address. So it should be safe to reapply this hack.
+> >>
+> >> Although ideally I think it would be better if this API took a stride argument;
+> >> then intent is clear.
+> >>
+> >> What's the best way to handle this? Submit a patch for mainline that reverts
+> >> this part, then get it backported to stable (implying this current patch will
+> >> have been applied to stable)?
+> > 
+> > yes, that's probably the best way.
+> Sure, will send out the change as suggested.
 
-Oh, I'm not sure about this place either. Would interrupts here be
-disabled? I'm not familiar with the entry assembly code of v4t, so
-I don't know how to construct a user-space program that can run to
-baddataabort(), and I also don't have a v4t device to test it.
+In case anybody ends up following the breadcrumbs, the patch is here:
+
+https://lore.kernel.org/r/20260626012845.475959-1-anshuman.khandual@arm.com
+
+Will
 
