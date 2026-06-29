@@ -4,102 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30FCCC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 20:13:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CE7DC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 20:19:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qRLe+V4vhd+rp9mv7dWMWv7QlRgt7F0xMaqSp5zX+2Y=; b=wnmPI9oo1XH03tR7KzS1ojFeE0
-	hVNX9ueH0MXNRKFihm3vCqbR4e4l0HHXnsDykHtTbFN+fMaYfjujCm/krsYa4IybPTb10RfRvnm43
-	Q7ca6YW2zSp+S66SL2mATI3NFT41/qFPrgftmgatQRuaW0tCyZIH73yKHkmY/NgQmBe6pIP+UyO1V
-	wXCAR9ewwHFJwApJjRnLQem6r5DVPu1Oyh8a7zheZnFssdmZ3Zqse3zr4J/uYHbolB/jmGo4d2xH4
-	9gpCdx0UTyCZRbt3cG2mAG+qKaH688KuUtl6HPm+2+/qU8HDUxlpDnxwYD7p1WY5FEnKi1lpHlO13
-	dLPxuImg==;
+	bh=9U/tqvMNO+4hi5AkpeVjOQ7FJ/NMHLcEnlIZLBAMbGg=; b=rfotYtSqjR3x1Ep6OIUy2XOKY8
+	1qgAekHg6tRhAaZ92Ipn9ffbGMS2XVq5vK1UAAR/Fa7QKfsK/Zm+9rLnndTmoH11bYKVmqNG4SxYK
+	YE/NRQc3+p3Ul8Il3Q61OCLDuJgxHLNltCnjd5T30Bmgg7vUac5c+FZPudsyTkwFV59u75bxHWnVW
+	k/ZUjiOlM9TgHPP4gV6jdUoVKLS7KSuyHq3cfjwQzXrJR63Heh7IJ8PTEQaeqTN0GizZ34NphDLWc
+	hrBQmw85vGCIOVrjdgkC0fmiemTAq6fT2Duh15F/qW0bSXFJMrvp/utKalt0FbTo3MgfQOixlincv
+	J2aYYnfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weILm-0000000FQPA-25Pp;
-	Mon, 29 Jun 2026 20:13:02 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1weIRl-0000000FQYx-0Zlx;
+	Mon, 29 Jun 2026 20:19:13 +0000
+Received: from mail-francecentralazon11013037.outbound.protection.outlook.com ([40.107.162.37] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weILi-0000000FQOl-3J7M
+	id 1weIRW-0000000FQYV-2Mfm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 20:13:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1782763977;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=qRLe+V4vhd+rp9mv7dWMWv7QlRgt7F0xMaqSp5zX+2Y=;
-	b=EfCrCmE7IIXNIWxqSIxPlwQrnYuZKwwg2oK2YgLWTpnLSvfuQx+INiFeepvOr6y9XMlHiK
-	rYUYrz+42UxIPFiN9GCCnHaBsYqtDvlzpLy1y9xlnEny09vBh0XgQ2e07fdgCNf5AkdGGV
-	L61W36JkOKpmE1UCFnTbCjT9CtBYpMA=
-Received: from mail-ot1-f72.google.com (mail-ot1-f72.google.com
- [209.85.210.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-344-IH6uxz0_Oq2CmVJCQnjZYA-1; Mon, 29 Jun 2026 16:12:55 -0400
-X-MC-Unique: IH6uxz0_Oq2CmVJCQnjZYA-1
-X-Mimecast-MFC-AGG-ID: IH6uxz0_Oq2CmVJCQnjZYA_1782763975
-Received: by mail-ot1-f72.google.com with SMTP id 46e09a7af769-7e9d585d046so2713132a34.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 13:12:55 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782763975; x=1783368775;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=qRLe+V4vhd+rp9mv7dWMWv7QlRgt7F0xMaqSp5zX+2Y=;
-        b=ZPAh4LryG9rvyE1pCKFpozMi/QH1dVTaIuJlZcQYoHm/Sjd2RuY3OSn559TT0aSM6X
-         O0oL5fTWk8uVaYXnhwvZtCUFK13RipFHS8O49B+4OsVlNLPPc5tBzTMKYmPkN97EZm/s
-         IK8/qUZ/u7XtGRUHf4F+Kw0+uWqpBuRglrlQRZHaf/OFX52MwxSKszI42vgOABRJ16M5
-         Yvnq1VSGTLkgLhKQp7EU7XcmpulUzCaE1WNp0wdJaoJcpAOnJm/dw1KtPc2enD7JRQfQ
-         GcuHLfkfAAHksGE7TkfCYwUQkunwUjb+d48ZWNQygipSZQ1ygRMIvywPGIaeB/XAuVjM
-         UWUg==
-X-Forwarded-Encrypted: i=1; AFNElJ/iJFIRs9HG577NCvYglA1AVbn0em1f8y5ohe3nnT6rK10E9tN4EidV7NrOp40YSF9Hi5icgsASYa4G1eI0/lTo@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywv9Jph9fyaitv5q66BTJV6pK5/2BV1t6su6AznnniW1iOFEaD+
-	BF4R9c6cgMaLN5UT8MoN/E/Frcsn8X+r5HoPd3OLNTT1I9n0nwqG60QGwn552XH/ZfOfri13VtI
-	1tUg1+dKdmiciV5Yx2CHvCQUYAIBdNOMfJNkfNTe7lHXALnVyTV1Up6tIPJWR/HTXsfPlhcYslJ
-	nM
-X-Gm-Gg: AfdE7cnv/GCXvaGAQSANTUxDYhxOpTdP43VrEDzcACBweH5iqu45I9HWVQxEIVUlOuc
-	KGu2lAXuL/CyiThbYaFmr+tOfl64G2cqDt7uuoGFQsbsCOAptUtpey944DBcz/25t4CKL/XyZmH
-	u5S8jqq3UfnaaGnyKGuM037hiqqo4oYIa0C1/hBeUzuCfoINiCuM4M3vSfSAA0N4lv0foPgcEj9
-	pUFgfcJyKRyJQ+SSY4Inb/7AULLTqgz950cdfOfv2L2CZ4QmnxHks7nE4f+QD5YzyNXpxQZmboo
-	TGH2J9kx65P1OMzsnWsN97WGB/5msxbLaSDCSveowfWLfSxpjP192AVbFZEKREs9SobDM4LlhF6
-	uIQ5NXiamkw==
-X-Received: by 2002:a05:6830:1b6d:b0:7e9:e9bc:ae84 with SMTP id 46e09a7af769-7e9ecb902e8mr408280a34.12.1782763975165;
-        Mon, 29 Jun 2026 13:12:55 -0700 (PDT)
-X-Received: by 2002:a05:6830:1b6d:b0:7e9:e9bc:ae84 with SMTP id 46e09a7af769-7e9ecb902e8mr408259a34.12.1782763974655;
-        Mon, 29 Jun 2026 13:12:54 -0700 (PDT)
-Received: from redhat.com ([2600:382:8127:f62c:d44b:25b0:6b89:f501])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7e9ec307edesm585857a34.21.2026.06.29.13.12.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Jun 2026 13:12:53 -0700 (PDT)
-Date: Mon, 29 Jun 2026 16:12:50 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: Colin Foster <colin.foster@in-advantage.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org,
-	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>
-Subject: Re: [PATCH v1 1/3] clk: clocking-wizard: fix clock difference
- detection
-Message-ID: <akLRwsEQEd3JGcvz@redhat.com>
-References: <20260506200555.2558434-1-colin.foster@in-advantage.com>
- <20260506200555.2558434-2-colin.foster@in-advantage.com>
-MIME-Version: 1.0
-In-Reply-To: <20260506200555.2558434-2-colin.foster@in-advantage.com>
-User-Agent: Mutt/2.3.2 (2026-04-26)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: rqMyZxvsxgZEEk4MZVoe9TVvTzE-yXRuu4YRJ-Bxs5c_1782763975
-X-Mimecast-Originator: redhat.com
+	Mon, 29 Jun 2026 20:19:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=e7EGw6+W9IdMGilaoTYyR1X7hrBuKONDiLn1a3PksK1eIwpiSRx4PFJ/PMhPBqIQtMu0xyk17YRgg+uhWKg3h9VyVZCn3ryLy74B+0HTxx8R4TTuRKfgf2ncNa8jzrYidnxUFFLk/sfJ4GNQCbEgfLe9YhbtmjuYsb0MT7KZEYirogQ7V0F2PcDGlPCgU4kmKDZAznU/9R2Nh35UBh78pqgfkCjZR9EahG9sTA9ROZm2X/kRJP1XVXa5S0rXU5/fPlx00N308LNs5jaymjCgj6cNrkATuXFOnAA6FWVg3dzLcmgJlwdzoB4/RfCkhBidQizWh0szKOdPBDHXgpkEoA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9U/tqvMNO+4hi5AkpeVjOQ7FJ/NMHLcEnlIZLBAMbGg=;
+ b=KPENsCOzieT/HHO2SdhlfjguBmGwzNbNVF8Qv6r872jMlOQBXzEj9JM3ZsiwCn+dxy/bBswq9EVQpv5NMpIdS7m6J1xYmsqOysChAP+ERDmknTsyfPQo0RRS2H8CnecNe7vDCftZUh78RgHkqXTwe+IFISJDLOLLR1fS+nwgjVY/LLZwPwj+sKndqUPCaJ6DAr3/wVE/hKnVQDBl4wKR5vyfduqpNCto1SUdP/9B7c12xPt12f8HBKYrioxHBaG+XP2TZJq9FhnVna/Uylpo8Ms77GTXiaJJWySz/2cXDzzhNlAnQIOdii/Qb8k84FB1SxxUyAO74Rt3oWw6dYjXHQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9U/tqvMNO+4hi5AkpeVjOQ7FJ/NMHLcEnlIZLBAMbGg=;
+ b=AtZVzoNJzpieu20XOIQeHWoV57KiWZB4Mo0hr4TTdt+mmfJ0tW50f6twTYdsY9gkNQzRFrz1VyUueOv66fLbd1nQM2mJ4986Rrqw8wjAZTViuK89Nuu4qRJPSoLFkfL0WJmnpjX70s6C04+yCZVJugxX00/ed2Xl2V0CQGtfJVu+ywhlV0W6ogTY81Fmv93ywsYaq7u97hFmlujod3Gxy9ryQkEKKViwf25Yz1ICFieVgSFs9ajTDk2gcbST5NENJzfvNpcnF7FddCQl78pWezUuMOd2Zk2VWRip7Q4p5S5Plpoc9RjnO7lUImPsOvIDeq1IVaV2oU9eGss9mHjDPA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by PAWPR04MB9806.eurprd04.prod.outlook.com (2603:10a6:102:389::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Mon, 29 Jun
+ 2026 20:18:54 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Mon, 29 Jun 2026
+ 20:18:54 +0000
+Date: Mon, 29 Jun 2026 16:18:46 -0400
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Leonardo Costa <leoreis.costa@gmail.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de,
+	festevam@gmail.com, leonardo.costa@toradex.com,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	regressions@lists.linux.dev
+Subject: Re: [REGRESSION] mainline/master: Apalis iMX6 no longer boots
+Message-ID: <akLTJkNmD2rUjyw9@lizhi-Precision-Tower-5810>
+References: <20260629143439.361560-1-leoreis.costa@gmail.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+In-Reply-To: <20260629143439.361560-1-leoreis.costa@gmail.com>
+X-ClientProxiedBy: SN7P220CA0023.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:806:123::28) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PAWPR04MB9806:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7719b5b5-24f7-4926-5745-08ded61ba45a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|19092799006|7416014|23010399003|1800799024|18002099003|22082099003|11063799006|5023799004|56012099006|6133799003|3023799007;
+X-Microsoft-Antispam-Message-Info: oOb5253rNChtP492uk0esCa5qpU51VnWArkcy6MCOaVs/SB3Ta8tn112SRjIH3xz0q05POvVlY9lUum22DzUL4dAO0eqVCHWmNinGZNoa4fBxhNP+3JcMB8jV7KmDnam0rJA+lpsNImUPtSaIvyBK+f6b8DXIxSsyYEkbyYKMAerv63Ia9qJDiRfr+b4WSVSFQWgEH1S5nAdZKLno4EHiDagAg/VfUoCdKxxlCgAy/m1WCVvdU2/DO5PswDS/xJrn5iMwtUv1jaMJpyctzfId09sIsu9i619drJg/Svb4+hgPhtZJH8Pzp9t5jXvuP83izADLsjabwi5evcDYqG5FaujwupXK/Yt1/c8vfoIodCosky8zyKRLFUSRm3PHeFVLUFb3pwY7ZzVj1GE7z+zTbRkn9FmyB30U6uX6uNcRMxlIr8/10qzNq9mZRRjVT/R2ZrOMGqE9nm65DszqdAfR9X2plcQReZLilKOUTQrUhCbYOjpcklz8WORiyCnaPZrzHtUfCPxoWXbFFpt63f3exUjHzjVzbsNlv8OaamGO890qL/aWhOVq+v50rl5J2FtzsB6gVekLO6snwJvtfeDZPRUyd/5dV/yZRVsUMPUyqIfoh5EeF34tu0kUs/vspPY
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(19092799006)(7416014)(23010399003)(1800799024)(18002099003)(22082099003)(11063799006)(5023799004)(56012099006)(6133799003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?yRP2nCnwwjuwETpxj07ai4iv1Lap9fhGglkQ0PvvK9VPUUaYw2O3q0Xxo65D?=
+ =?us-ascii?Q?oSve1m0cXqG0+fHxUuuOixOOKFLdlYBX/+pr/RT+cbaoaRbCvN+94+vW/qbg?=
+ =?us-ascii?Q?+yt+Ag358xCGweuAjhL/JEIqiZRlwlK/mfURgoAnGof93fhPDvx9anUvo6Jg?=
+ =?us-ascii?Q?kHs9cqcsQOjRiKL66Cb4CLtoP2SwxGQ2+SinwZAkn/brRjWgerYAVTnRAc95?=
+ =?us-ascii?Q?h4tFhcr/pYdwa0g00PoMuSzdrQIx13tK5wV0Vj45xXoASdYH37hXOXKTdFpG?=
+ =?us-ascii?Q?nGu6Mnsgmh5Crcw+yTKv/uuLeIjmcH6PajAh7wq369HM0FSiTLwpnxrcVEeK?=
+ =?us-ascii?Q?9aeMVLWDxmVHbczNo8XCRjCUoiYhIzN5Bm5tyR7OvuBFFHgt8HhEVBEeNBqe?=
+ =?us-ascii?Q?YFJBQMBIj1sXyWkXVmupPQKlbPXCBrao92930hJbYwB0du5SXUVhBnFA05OJ?=
+ =?us-ascii?Q?OPLT8zVWI6GbDOMuzN9Xd1ETGaMm+lnqQeUs7lxG+ILaC/Bo77HwXRB6c2Ct?=
+ =?us-ascii?Q?8UapTFwtTpw4zxoU49Zd2JAQLJLqT0rxvweWyZartZyf4n5/J4TZLwD3W0E0?=
+ =?us-ascii?Q?qCv4DbGXpPqbN7hvvPZAoF6KYhRpZw0NxPrVxkLGOv13nrgBvJ/U09EkRBUz?=
+ =?us-ascii?Q?HdUXBXEGpyReGZHZs0W7ud6l8yqOLT8jFQv7OkWfF2XYb2L9Hej5YoEfRw8J?=
+ =?us-ascii?Q?ntKxi0G3I8cOsSSaIENYuuj+oy1c8oNpanm8QjpXVq6NTHoxDvXwW3Sfoa7o?=
+ =?us-ascii?Q?wHp+bd3mpA33T9SGUZjOCAvEJACXfvPvxHP/T2tkfRHOSWXYBmIy7S6j48xd?=
+ =?us-ascii?Q?BG9qk2io/v3Z3Qz/lDxsnAhfCtIERX+p7vM3vvLbTOg9pIsq6/lsB9yceE2Z?=
+ =?us-ascii?Q?Xg13KN8aVV+pyi1c69159diahnKw/QVYwNvUbpE24if1f462L9/85fNTmcTC?=
+ =?us-ascii?Q?FbS850ojLD7SwhMygUi0unCboyhBXkMHB8RQ1pjRJgd6RltGr5cSNlwmXVo/?=
+ =?us-ascii?Q?DxUWYQGkhIICkZGL9mJIeKilnqQUnPKo0GL6iNDAeu1jEytnCPEXMb29nnAd?=
+ =?us-ascii?Q?AnuMTFrlOp6WfFqGHDBCgrIUqe2z6uKUqZCO4fj3qUSiWsGMq2zc+DvlVVoy?=
+ =?us-ascii?Q?N42s3Rwqk7bOizzOaFhqtb27cu/a1omOyUIGNSOh3WBGu7v0vj0t+5qU1w2g?=
+ =?us-ascii?Q?oPsOuT1T4sHHV4ptRKgfDCSfP7ujmCJOSfXo2/SvPfLny23hQCsgkiD44+CP?=
+ =?us-ascii?Q?5plYkNienQtuEn04p/6Ls7OT4qZfWwAe2CtonGyUWYzIebuJwc7uBRMmRr/y?=
+ =?us-ascii?Q?MRKGEPk+BHxHP2j39Naul8b9Hlx849MYGKsyZrDjzso6BEBqfkV5stpeT/tC?=
+ =?us-ascii?Q?Mt9QYYoj9MJzblprlSnisjmXbXkqq8ZDB/q+lnr4XEqxTVqLfzNW8zVYoHIB?=
+ =?us-ascii?Q?3N4Yud4w7AC2Euu2jHZoB+15zycroTY2MyB+kyKjnSqVme5n+XMFWHfdRR/R?=
+ =?us-ascii?Q?vVwqd5h7D9SDqAeVjBR4XNfMCubaGhT2ywBgFIRwSWnFP8Y+yGAkY6EnqAra?=
+ =?us-ascii?Q?yHqQFm5gUwuH2qmGRwEhQqxHYeok4XfnuQv3MhfLiWZnxeDJJHLwNq7eFg2H?=
+ =?us-ascii?Q?ujYkYa+8EGn6cs64BT9AbPN4nGvZW2pKPw/W1j8FcJA1kuaUlHhjj4lqe3eJ?=
+ =?us-ascii?Q?8JHUZ5Yzao0OHpmsolrUVU4E+zrfSqQaFsZJWq74OTe/tOodbv0P9JNv6hw3?=
+ =?us-ascii?Q?iN7QJPiLDxcOpkRNvQcVjivwBBJ3TzU/4ubKmitQGgfxrPgFZshv?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7719b5b5-24f7-4926-5745-08ded61ba45a
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jun 2026 20:18:54.4815
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: EYkcG7jsAI2c3qUB612ppyJi4b9O1i9morUw59wJA8XqeoADaI/x9/QPgNwsqa227yZOWqSmexTqY1fTUaUUlgKUyzjOj2GPyhTODM3NqZ/QsEpuoRjBK4zVh5aICKGU
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR04MB9806
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_131258_925991_51B79700 
-X-CRM114-Status: GOOD (  19.42  )
+X-CRM114-CacheID: sfid-20260629_131858_782078_3F0564CA 
+X-CRM114-Status: GOOD (  19.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,59 +139,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Colin,
+On Mon, Jun 29, 2026 at 11:34:32AM -0300, Leonardo Costa wrote:
+> Hello,
+>
+> We are seeing a regression on Apalis iMX6 where the kernel doesn't boot in the
+> newest v7.2-rc1 (it was working before, in v7.1). The device tree being used is the imx6q-apalis-eval.dtb. The kernel
+> configuration used is the one shown below:
+>
+>     https://gist.github.com/lcosta37/53efdb2fb6e6e0fc05437c7e53b47737
+>
+> The kernel logs stop almost immediately as the board starts to boot, and I
+> don't notice any difference in the logs that points to the cause.
+>
+> Is this known? We are seeing this behavior on all Apalis iMX6 modules, though
+> we don't see it on Colibri iMX6, so it is not SoC-specific.
 
-On Wed, May 06, 2026 at 03:05:53PM -0500, Colin Foster wrote:
-> The diff calculation didn't take into account rollover. As such, a
-> target clock frequency below the requested rate would not be considered.
-> 
-> Before this change, bogus diffs would be used to determine the closest
-> possible clock:
-> 
-> 8<--------
-> clk-wizard-test: requesting 133312500 Hz on output 0 (clock NOT enabled)
-> *** Clock wizard - Matching for rate 133312500 parent rate 99999000
-> m = 33, d = 1, o = 25, freq = 131998680, diff = 18446744073708237796
-> m = 34, d = 1, o = 26, freq = 130767923, diff = 18446744073707007039
-> m = 35, d = 1, o = 26, freq = 134614038, diff = 1301538
-> m = 36, d = 1, o = 27, freq = 133332000, diff = 19500
-> 8<--------
-> 
-> After this change:
-> 
-> 8<--------
-> clk-wizard-test: requesting 133312500 Hz on output 0 (clock NOT enabled)
-> *** Clock wizard - Matching for rate 133312500 parent rate 99999000
-> m = 33, d = 1, o = 25, freq = 131998680, diff = 1313820
-> m = 35, d = 1, o = 26, freq = 134614038, diff = 1301538
-> m = 36, d = 1, o = 27, freq = 133332000, diff = 19500
-> 8<--------
-> 
-> Signed-off-by: Colin Foster <colin.foster@in-advantage.com>
-> ---
->  drivers/clk/xilinx/clk-xlnx-clock-wizard.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/clk/xilinx/clk-xlnx-clock-wizard.c b/drivers/clk/xilinx/clk-xlnx-clock-wizard.c
-> index 032a688840d8..88b47b8cc387 100644
-> --- a/drivers/clk/xilinx/clk-xlnx-clock-wizard.c
-> +++ b/drivers/clk/xilinx/clk-xlnx-clock-wizard.c
-> @@ -408,7 +408,7 @@ static int clk_wzrd_get_divisors(struct clk_hw *hw, unsigned long rate,
->  			if (o < omin || o > omax)
->  				continue;
->  			freq = DIV_ROUND_CLOSEST_ULL(vco_freq, o);
-> -			diff = freq - rate;
-> +			diff = abs(freq - rate);
->  
->  			if (diff < best_diff) {
->  				printk("m = %d, d = %d, o = %d, freq = %llu, diff = %llu", m, d, o, freq, diff);
+Can you help bisect to locate which commit cause this problem?
 
-Stephen didn't pick this up last development cycle and I'm assembling a
-pull for him. This doesn't apply to upstream.  Please post a new
-version that applies cleanly.
+Frank
 
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/clk/xilinx/clk-xlnx-clock-wizard.c#n341
-
-Brian
-
+>
+> Logs from v7.2-rc1 (not working, printing stops after the last line pasted
+> here):
+>
+>     [    0.000000] Booting Linux on physical CPU 0x0
+>     [    0.000000] Linux version 7.2.0-rc1-0.0.0-devel (oe-user@oe-host) (arm-tdx-linux-gnueabi-gcc (GCC) 16.1.0, GNU ld (GNU Binutils) 2.46.1) #1 SMP PREEMPT Sun Jun 28 19:01:31 UTC 2026
+>     [    0.000000] CPU: ARMv7 Processor [412fc09a] revision 10 (ARMv7), cr=10c5387d
+>     [    0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+>     [    0.000000] OF: fdt: Machine model: Toradex Apalis iMX6Q/D Module on Apalis Evaluation Board
+>     [    0.000000] Memory policy: Data cache writealloc
+>     [    0.000000] cma: Reserved 256 MiB at 0x40000000
+>     [    0.000000] OF: reserved mem: Reserved memory: No reserved-memory node in the DT
+>     [    0.000000] Zone ranges:
+>     [    0.000000]   Normal   [mem 0x0000000010000000-0x000000003fffffff]
+>     [    0.000000]   HighMem  [mem 0x0000000040000000-0x000000004fffffff]
+>     [    0.000000] Movable zone start for each node
+>     [    0.000000] Early memory node ranges
+>     [    0.000000]   node   0: [mem 0x0000000010000000-0x000000004fffffff]
+>     [    0.000000] Initmem setup node 0 [mem 0x0000000010000000-0x000000004fffffff]
+>     [    0.000000] percpu: Embedded 15 pages/cpu s28684 r8192 d24564 u61440
+>     [    0.000000] Kernel command line: root=PARTUUID=adb2cea1-02 ro rootwait console=tty1 console=ttymxc0,115200
+>     [    0.000000] printk: log buffer data + meta data: 131072 + 409600 = 540672 bytes
+>     [    0.000000] Dentry cache hash table entries: 131072 (order: 7, 524288 bytes, linear)
+>     [    0.000000] Inode-cache hash table entries: 65536 (order: 6, 262144 bytes, linear)
+>     [    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 262144
+>     [    0.000000] mem auto-init: stack:all(zero), heap alloc:off, heap free:off
+>     [    0.000000] SLUB: HWalign=32, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+>     [    0.000000] rcu: Preemptible hierarchical RCU implementation.
+>     [    0.000000] rcu:     RCU event tracing is enabled.
+>     [    0.000000]  Trampoline variant of Tasks RCU enabled.
+>     [    0.000000]  Tracing variant of Tasks RCU enabled.
+>     [    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 10 jiffies.
+>     [    0.000000] RCU Tasks: Setting shift to 2 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=4.
+>     [    0.000000] NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16
+>     [    0.000000] L2C-310 errata 752271 769419 enabled
+>     [    0.000000] L2C-310 enabling early BRESP for Cortex-A9
+>     [    0.000000] L2C-310 full line of zeros enabled for Cortex-A9
+>     [    0.000000] L2C-310 ID prefetch enabled, offset 16 lines
+>
+>
+> Logs from v7.1 (working) (full logs here: https://paste.debian.net/hidden/0f65ae5f)
+>
+>     [    0.000000] Booting Linux on physical CPU 0x0
+>     [    0.000000] Linux version 7.1.0-0.0.0-devel (oe-user@oe-host) (arm-tdx-linux-gnueabi-gcc (GCC) 16.1.0, GNU ld (GNU Binutils) 2.46.1) #1 SMP PREEMPT Wed Jun 24 01:36:41 UTC 2026
+>     [    0.000000] CPU: ARMv7 Processor [412fc09a] revision 10 (ARMv7), cr=10c5387d
+>     [    0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+>     [    0.000000] OF: fdt: Machine model: Toradex Apalis iMX6Q/D Module on Apalis Evaluation Board
+>     [    0.000000] Memory policy: Data cache writealloc
+>     [    0.000000] cma: Reserved 256 MiB at 0x40000000
+>     [    0.000000] OF: reserved mem: Reserved memory: No reserved-memory node in the DT
+>     [    0.000000] Zone ranges:
+>     [    0.000000]   Normal   [mem 0x0000000010000000-0x000000003fffffff]
+>     [    0.000000]   HighMem  [mem 0x0000000040000000-0x000000004fffffff]
+>     [    0.000000] Movable zone start for each node
+>     [    0.000000] Early memory node ranges
+>     [    0.000000]   node   0: [mem 0x0000000010000000-0x000000004fffffff]
+>     [    0.000000] Initmem setup node 0 [mem 0x0000000010000000-0x000000004fffffff]
+>     [    0.000000] percpu: Embedded 15 pages/cpu s28684 r8192 d24564 u61440
+>     [    0.000000] pcpu-alloc: s28684 r8192 d24564 u61440 alloc=15*4096
+>     [    0.000000] pcpu-alloc: [0] 0 [0] 1 [0] 2 [0] 3
+>     [    0.000000] Kernel command line: root=PARTUUID=4ce4ba92-02 ro rootwait console=tty1 console=ttymxc0,115200
+>     [    0.000000] printk: log buffer data + meta data: 131072 + 409600 = 540672 bytes
+>     [    0.000000] Dentry cache hash table entries: 131072 (order: 7, 524288 bytes, linear)
+>     [    0.000000] Inode-cache hash table entries: 65536 (order: 6, 262144 bytes, linear)
+>     [    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 262144
+>     [    0.000000] mem auto-init: stack:all(zero), heap alloc:off, heap free:off
+>     [    0.000000] SLUB: HWalign=32, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+>     [    0.000000] rcu: Preemptible hierarchical RCU implementation.
+>     [    0.000000] rcu:     RCU event tracing is enabled.
+>     [    0.000000]  Trampoline variant of Tasks RCU enabled.
+>     [    0.000000]  Tracing variant of Tasks RCU enabled.
+>     [    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 10 jiffies.
+>     [    0.000000] RCU Tasks: Setting shift to 2 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=4.
+>     [    0.000000] NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16
+>     [    0.000000] L2C-310 errata 752271 769419 enabled
+>     [    0.000000] L2C-310 enabling early BRESP for Cortex-A9
+>     [    0.000000] L2C-310 full line of zeros enabled for Cortex-A9
+>     [    0.000000] L2C-310 ID prefetch enabled, offset 16 lines
+>     [    0.000000] L2C-310 dynamic clock gating enabled, standby mode enabled
+>     [    0.000000] L2C-310 cache controller enabled, 16 ways, 1024 kB
+>     [    0.000000] L2C-310: CACHE_ID 0x410000c7, AUX_CTRL 0x76470001
+>     [    0.000000] rcu: srcu_init: Setting srcu_struct sizes based on contention.
+>     [    0.000000] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+>     [    0.000000] Switching to timer-based delay loop, resolution 333ns
+>     [    0.000001] sched_clock: 32 bits at 3000kHz, resolution 333ns, wraps every 715827882841ns
+>     [    0.000018] clocksource: mxc_timer1: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 637086815595 ns
+>     [    0.001910] Console: colour dummy device 80x30
+>     [    0.001926] printk: legacy console [tty1] enabled
+>     [    0.002519] Calibrating delay loop (skipped), value calculated using timer frequency.. 6.00 BogoMIPS (lpj=30000)
+>     [    0.002561] CPU: Testing write buffer coherency: ok
+>     [    0.002627] CPU0: Spectre v2: using BPIALL workaround
+>     [    0.002650] pid_max: default: 32768 minimum: 301
+>     [    0.002989] Mount-cache hash table entries: 2048 (order: 1, 8192 bytes, linear)
+>     [    0.003038] Mountpoint-cache hash table entries: 2048 (order: 1, 8192 bytes, linear)
+>     [    0.003430] VFS: Finished mounting rootfs on nullfs
+>     [    0.004538] CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
+>     [    0.006552] Setting up static identity map for 0x10100000 - 0x10100060
+>     [    0.006835] rcu: Hierarchical SRCU implementation.
+>     [    0.006864] rcu:     Max phase no-delay instances is 1000.
+>     [    0.007320] Timer migration: 1 hierarchy levels; 8 children per group; 1 crossnode level
+>     [    0.008854] smp: Bringing up secondary CPUs ...
+>     [    0.010035] CPU1: thread -1, cpu 1, socket 0, mpidr 80000001
+>     [    0.010218] CPU1: Spectre v2: using BPIALL workaround
+>     [    0.011412] CPU2: thread -1, cpu 2, socket 0, mpidr 80000002
+>     [    0.011581] CPU2: Spectre v2: using BPIALL workaround
+>     [    0.012747] CPU3: thread -1, cpu 3, socket 0, mpidr 80000003
+>     [    0.012917] CPU3: Spectre v2: using BPIALL workaround
+>     [    0.013109] smp: Brought up 1 node, 4 CPUs
+>     ...
+>
 
