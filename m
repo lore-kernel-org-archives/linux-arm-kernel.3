@@ -4,83 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3BE6C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 06:07:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B956C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 06:20:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yPUk0tK7dnxSRwlTSpiw1hFsw3wyFM85DDCNS3QkcBM=; b=3P7t+RI9Y4vWq3D6hhiByWbpGl
-	fAMg+4uki2t7rTXNaYycARMXKMfyXHLDGeFSQ+kAfiPUHWDniNpCVYS8sYEW4wzqB1Snz2+kXFEvc
-	w2KItTGnQ4tE3asfgNfMPM2KhcMWf2Qr6KAN/z52HEXSTCQEVAh54RB/tkc/D/v4hnuPGkbpQtsRm
-	jub5i9E6JSQ7JRbEiPVuL6fdSN+rLFllH8M3KQ3GDeY54vWomT6CEV54jkEDGt2va65Um+1syHUXA
-	w/vZVZQaNZO3M3mwrcphPJprpc7B5BRN7TAzYIHMewyJdhHqwS5eGBJu3Bhn9Hghpi+u4HYqfcsk9
-	yJ0/p5qw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ub16g8RqXLcskK6Fsx6rpUpyK9owbsuzrSRMHq/iM7s=; b=rCkje+HagedsugubZVsZoQ/9vS
+	m/l7254yGcevkdN8GgrXpOiOiaz7ipB89BSbUlu/Q6tnb0jqErp139JVQyzYoxUp8ds8HV7fefNFc
+	7EOXiEW0tT54mRchOHTwlmCGVcGQarjDYO33JeVZpkRdFySUGfNYxSenEreHsb2E8iOIQ96ktXYUe
+	mP0dPUspHlLeuzrY2N9x7576ag6Dm0rtlKTocKYXbdMyb/7bB4cvTw95Lr8XEAQ5hfDBn9xhexgnt
+	VLl6g7uCaYVs/aO59qdzuhJGYJumSakGGqbfYpdeKk00OS+acScb93eY9sFeJQ7bbAtXU22KwMlUx
+	2tCzJWrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we59d-0000000Djuk-2l8N;
-	Mon, 29 Jun 2026 06:07:37 +0000
-Received: from mgamail.intel.com ([192.198.163.15])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we59b-0000000Djn6-1VxQ
+	id 1we5M7-0000000DkiY-1Cyi;
+	Mon, 29 Jun 2026 06:20:31 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1we5M4-0000000Dkhx-19pA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 06:07:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1782713256; x=1814249256;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=iY967g1ZEXuRDMEeq8Z98MT4WkdJAVc0EMew914JPwE=;
-  b=KkNOYxp7hPfBtPfuKENwQubgjykpWl0WfLRAx+mIU/PIKLy2fTD5idX8
-   xedwCod5XINRHAJdlnLWe/6atE0hMtSkV/MPX6HmMZmGVLHQaMAaJBEqg
-   El+y0DEmrKrDKtPBRek1vmbSKWJZ5vVZolfiMFbnUR8AX/4DhgQA4JwAn
-   a55kL4udubGf7h02BDl2z3xnrCIYpNqKr2/iZEtvycaV873UaIgykEP69
-   bdmcNv4ItEidWPVGmD9uFTpny1MlJLNasQBGrqE/s7TfZKrg9sYbGK39P
-   ZWbcdDd79QwZKpWDioFJP7iwrU5wQ+CjXf+KHScs6HMBbsJk5xrX81zH7
-   g==;
-X-CSE-ConnectionGUID: J6LmZXhxRsiuaKSgk+0B2g==
-X-CSE-MsgGUID: qqfRvLrfRt+kmb9Z8F5ySw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11831"; a="83533038"
-X-IronPort-AV: E=Sophos;i="6.24,231,1774335600"; 
-   d="scan'208";a="83533038"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Jun 2026 23:05:33 -0700
-X-CSE-ConnectionGUID: X2Y08qLLQWiV8H/vMCy++g==
-X-CSE-MsgGUID: r9Evo2xCRPm5B0mtFMWtOw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.24,231,1774335600"; 
-   d="scan'208";a="252000444"
-Received: from kniemiec-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.207])
-  by orviesa007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Jun 2026 23:05:30 -0700
-Date: Mon, 29 Jun 2026 09:05:27 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Petar Stepanovic <pstepanovic@axiado.com>
-Cc: David Lechner <dlechner@baylibre.com>, Akhila Kavi <akavi@axiado.com>,
-	Prasad Bolisetty <pbolisetty@axiado.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>,
-	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/2] iio: adc: add Axiado SARADC driver
-Message-ID: <akILJ0zG-g8rMzts@ashevche-desk.local>
-References: <20260622-axiado-ax3000-ax3005-saradc-v3-0-e57c7c7ae675@axiado.com>
- <20260622-axiado-ax3000-ax3005-saradc-v3-2-e57c7c7ae675@axiado.com>
- <6770a7af-06cc-4240-9b20-c299e7080ab1@baylibre.com>
- <b06005e0-b7bc-4967-ac7b-cb170219f131@axiado.com>
+	Mon, 29 Jun 2026 06:20:30 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ADFDA176B;
+	Sun, 28 Jun 2026 23:20:22 -0700 (PDT)
+Received: from [10.164.19.15] (unknown [10.164.19.15])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C37F43F85F;
+	Sun, 28 Jun 2026 23:20:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1782714027; bh=ymaXtgSzFABz4iScBxNN5MaznB6X3+kdvqfUSvn6QUQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=GkeTzKgDjQb/XP4L1JdrSTkO8QNtJM4GujIs+ZmXRxFoLmgki+UvDzQhq4MYvtrPR
+	 /mtqkQXmGdUsRGffsknqiUIuKC6ffALraRQvWtk5LVsIqO4UHMGHWhgrDErlWkegW0
+	 N24uiOwteB0KKrM124zQnvpNfJUkahCFLOFt9LSM=
+Message-ID: <21c5415a-da5d-48c7-92cc-83e8bf1c6dd9@arm.com>
+Date: Mon, 29 Jun 2026 11:50:20 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <b06005e0-b7bc-4967-ac7b-cb170219f131@axiado.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 4/6] mm/vmalloc: Extend page table walk to support
+ larger page_shift sizes and eliminate page table rewalk
+To: Wen Jiang <jiangwenxiaomi@gmail.com>, linux-mm@kvack.org,
+ linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
+ will@kernel.org, akpm@linux-foundation.org, urezki@gmail.com
+Cc: baohua@kernel.org, Xueyuan.chen21@gmail.com, rppt@kernel.org,
+ david@kernel.org, ryan.roberts@arm.com, anshuman.khandual@arm.com,
+ ajd@linux.ibm.com, linux-kernel@vger.kernel.org, jiangwen6@xiaomi.com,
+ shanghaoqiang@xiaomi.com
+References: <20260618084726.1070022-1-jiangwen6@xiaomi.com>
+ <20260618084726.1070022-5-jiangwen6@xiaomi.com>
+Content-Language: en-US
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <20260618084726.1070022-5-jiangwen6@xiaomi.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260628_230735_441482_B255DFAE 
-X-CRM114-Status: GOOD (  16.28  )
+X-CRM114-CacheID: sfid-20260628_232028_421610_D90B55A3 
+X-CRM114-Status: GOOD (  24.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,48 +76,217 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 29, 2026 at 04:33:00AM +0200, Petar Stepanovic wrote:
 
-...
 
-> >> +static const struct iio_chan_spec axiado_saradc_iio_channels[] = {
-> >> +     AX_SARADC_CH(0, "adc0"),   AX_SARADC_CH(1, "adc1"),
-> >> +     AX_SARADC_CH(2, "adc2"),   AX_SARADC_CH(3, "adc3"),
-> >> +     AX_SARADC_CH(4, "adc4"),   AX_SARADC_CH(5, "adc5"),
-> >> +     AX_SARADC_CH(6, "adc6"),   AX_SARADC_CH(7, "adc7"),
-> >> +     AX_SARADC_CH(8, "adc8"),   AX_SARADC_CH(9, "adc9"),
-> >> +     AX_SARADC_CH(10, "adc10"), AX_SARADC_CH(11, "adc11"),
-> >> +     AX_SARADC_CH(12, "adc12"), AX_SARADC_CH(13, "adc13"),
-> >> +     AX_SARADC_CH(14, "adc14"), AX_SARADC_CH(15, "adc15"),
-> > Two columns looks a bit odd.
+On 18/06/26 2:17 pm, Wen Jiang wrote:
+> From: "Barry Song (Xiaomi)" <baohua@kernel.org>
 > 
-> I will also reformat the channel table to one entry per line.
-
-I think with a new approach David proposed, 4 per line will be also acceptable.
-
-> >> +};
-
-...
-
-> >> +static void axiado_saradc_disable(void *data)
-> >> +{
-> >> +     struct axiado_saradc *info = data;
-> >> +
-> >> +     writel(AX_SARADC_GLOBAL_CTRL_PD, info->regs + AX_SARADC_GLOBAL_CTRL_REG);
-> > People usual make read and write wrappers or use regmap to avoid having
-> > to write `info->regs + AX_SARADC_GLOBAL_CTRL_REG` so many times.
+> vmap_pages_range_noflush_walk() (formerly vmap_small_pages_range_noflush())
+> provides a clean interface by taking struct page **pages and mapping them
+> via direct PTE iteration. This avoids the page table rewalk seen when
+> using vmap_range_noflush() for page_shift values other than PAGE_SHIFT.
 > 
-> My understanding is that simple read/write wrappers are not always
-> preferred unless they provide additional value. Would switching the
-> driver to regmap be acceptable here to avoid repeating the base address
-> calculation?
+> Extend it to support larger page_shift values, and add PMD- and
+> contiguous-PTE mappings as well. Rename it to vmap_pages_range_noflush_walk()
+> since it now handles more than just small pages.
+> 
+> For vmalloc() allocations with VM_ALLOW_HUGE_VMAP, we no longer need to
+> iterate over pages one by one via vmap_range_noflush(), which would
+> otherwise lead to page table rewalk. The code is now unified with the
+> PAGE_SHIFT case by simply calling vmap_pages_range_noflush_walk().
+> 
+> Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
+> Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
+> Tested-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
+> ---
+>  mm/vmalloc.c | 81 ++++++++++++++++++++++++++++++----------------------
+>  1 file changed, 47 insertions(+), 34 deletions(-)
+> 
+> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+> index 6660f240d27c9..253e017130e09 100644
+> --- a/mm/vmalloc.c
+> +++ b/mm/vmalloc.c
+> @@ -127,7 +127,8 @@ static int vmap_pte_range(pmd_t *pmd, unsigned long addr, unsigned long end,
+>  	pte_t *pte;
+>  	u64 pfn;
+>  	struct page *page;
+> -	unsigned long size = PAGE_SIZE;
+> +	unsigned long size;
+> +	unsigned int steps;
+>  
+>  	if (WARN_ON_ONCE(!PAGE_ALIGNED(end - addr)))
+>  		return -EINVAL;
+> @@ -149,8 +150,8 @@ static int vmap_pte_range(pmd_t *pmd, unsigned long addr, unsigned long end,
+>  		}
+>  
+>  		size = vmap_set_ptes(pte, addr, end, pfn, prot, max_page_shift);
+> -		pfn += PFN_DOWN(size);
+> -	} while (pte += PFN_DOWN(size), addr += size, addr != end);
+> +		steps = PFN_DOWN(size);
+> +	} while (pte += steps, pfn += steps, addr += size, addr != end);
+>  
 
-This is the value of transition --> having that register base to be hidden and
-not repeated all the times.
+This belongs to previous patch.
 
--- 
-With Best Regards,
-Andy Shevchenko
+Apart from that LGTM:
 
+Reviewed-by: Dev Jain <dev.jain@arm.com>
+
+
+>  	lazy_mmu_mode_disable();
+>  	*mask |= PGTBL_PTE_MODIFIED;
+> @@ -542,8 +543,10 @@ void vunmap_range(unsigned long addr, unsigned long end)
+>  
+>  static int vmap_pages_pte_range(pmd_t *pmd, unsigned long addr,
+>  		unsigned long end, pgprot_t prot, struct page **pages, int *nr,
+> -		pgtbl_mod_mask *mask)
+> +		pgtbl_mod_mask *mask, unsigned int shift)
+>  {
+> +	unsigned long pfn, size;
+> +	unsigned int steps;
+>  	int err = 0;
+>  	pte_t *pte;
+>  
+> @@ -574,9 +577,10 @@ static int vmap_pages_pte_range(pmd_t *pmd, unsigned long addr,
+>  			break;
+>  		}
+>  
+> -		set_pte_at(&init_mm, addr, pte, mk_pte(page, prot));
+> -		(*nr)++;
+> -	} while (pte++, addr += PAGE_SIZE, addr != end);
+> +		pfn = page_to_pfn(page);
+> +		size = vmap_set_ptes(pte, addr, end, pfn, prot, shift);
+> +		steps = PFN_DOWN(size);
+> +	} while (pte += steps, *nr += steps, addr += size, addr != end);
+>  
+>  	lazy_mmu_mode_disable();
+>  	*mask |= PGTBL_PTE_MODIFIED;
+> @@ -586,7 +590,7 @@ static int vmap_pages_pte_range(pmd_t *pmd, unsigned long addr,
+>  
+>  static int vmap_pages_pmd_range(pud_t *pud, unsigned long addr,
+>  		unsigned long end, pgprot_t prot, struct page **pages, int *nr,
+> -		pgtbl_mod_mask *mask)
+> +		pgtbl_mod_mask *mask, unsigned int shift)
+>  {
+>  	pmd_t *pmd;
+>  	unsigned long next;
+> @@ -596,7 +600,27 @@ static int vmap_pages_pmd_range(pud_t *pud, unsigned long addr,
+>  		return -ENOMEM;
+>  	do {
+>  		next = pmd_addr_end(addr, end);
+> -		if (vmap_pages_pte_range(pmd, addr, next, prot, pages, nr, mask))
+> +
+> +		if (shift >= PMD_SHIFT) {
+> +			struct page *page = pages[*nr];
+> +			phys_addr_t phys_addr;
+> +
+> +			if (WARN_ON(!page))
+> +				return -ENOMEM;
+> +			if (WARN_ON(!pfn_valid(page_to_pfn(page))))
+> +				return -EINVAL;
+> +
+> +			phys_addr = page_to_phys(page);
+> +
+> +			if (vmap_try_huge_pmd(pmd, addr, next, phys_addr, prot,
+> +						shift)) {
+> +				*mask |= PGTBL_PMD_MODIFIED;
+> +				*nr += 1 << (PMD_SHIFT - PAGE_SHIFT);
+> +				continue;
+> +			}
+> +		}
+> +
+> +		if (vmap_pages_pte_range(pmd, addr, next, prot, pages, nr, mask, shift))
+>  			return -ENOMEM;
+>  	} while (pmd++, addr = next, addr != end);
+>  	return 0;
+> @@ -604,7 +628,7 @@ static int vmap_pages_pmd_range(pud_t *pud, unsigned long addr,
+>  
+>  static int vmap_pages_pud_range(p4d_t *p4d, unsigned long addr,
+>  		unsigned long end, pgprot_t prot, struct page **pages, int *nr,
+> -		pgtbl_mod_mask *mask)
+> +		pgtbl_mod_mask *mask, unsigned int shift)
+>  {
+>  	pud_t *pud;
+>  	unsigned long next;
+> @@ -614,7 +638,7 @@ static int vmap_pages_pud_range(p4d_t *p4d, unsigned long addr,
+>  		return -ENOMEM;
+>  	do {
+>  		next = pud_addr_end(addr, end);
+> -		if (vmap_pages_pmd_range(pud, addr, next, prot, pages, nr, mask))
+> +		if (vmap_pages_pmd_range(pud, addr, next, prot, pages, nr, mask, shift))
+>  			return -ENOMEM;
+>  	} while (pud++, addr = next, addr != end);
+>  	return 0;
+> @@ -622,7 +646,7 @@ static int vmap_pages_pud_range(p4d_t *p4d, unsigned long addr,
+>  
+>  static int vmap_pages_p4d_range(pgd_t *pgd, unsigned long addr,
+>  		unsigned long end, pgprot_t prot, struct page **pages, int *nr,
+> -		pgtbl_mod_mask *mask)
+> +		pgtbl_mod_mask *mask, unsigned int shift)
+>  {
+>  	p4d_t *p4d;
+>  	unsigned long next;
+> @@ -632,14 +656,18 @@ static int vmap_pages_p4d_range(pgd_t *pgd, unsigned long addr,
+>  		return -ENOMEM;
+>  	do {
+>  		next = p4d_addr_end(addr, end);
+> -		if (vmap_pages_pud_range(p4d, addr, next, prot, pages, nr, mask))
+> +		if (vmap_pages_pud_range(p4d, addr, next, prot, pages, nr, mask, shift))
+>  			return -ENOMEM;
+>  	} while (p4d++, addr = next, addr != end);
+>  	return 0;
+>  }
+>  
+> -static int vmap_small_pages_range_noflush(unsigned long addr, unsigned long end,
+> -		pgprot_t prot, struct page **pages)
+> +/*
+> + * It can take an array of pages which are not all contiguous, but it
+> + * may have contiguous chunks, as hinted by @shift.
+> + */
+> +static int vmap_pages_range_noflush_walk(unsigned long addr, unsigned long end,
+> +		pgprot_t prot, struct page **pages, unsigned int shift)
+>  {
+>  	unsigned long start = addr;
+>  	pgd_t *pgd;
+> @@ -654,7 +682,7 @@ static int vmap_small_pages_range_noflush(unsigned long addr, unsigned long end,
+>  		next = pgd_addr_end(addr, end);
+>  		if (pgd_bad(*pgd))
+>  			mask |= PGTBL_PGD_MODIFIED;
+> -		err = vmap_pages_p4d_range(pgd, addr, next, prot, pages, &nr, &mask);
+> +		err = vmap_pages_p4d_range(pgd, addr, next, prot, pages, &nr, &mask, shift);
+>  		if (err)
+>  			break;
+>  	} while (pgd++, addr = next, addr != end);
+> @@ -677,27 +705,12 @@ static int vmap_small_pages_range_noflush(unsigned long addr, unsigned long end,
+>  int __vmap_pages_range_noflush(unsigned long addr, unsigned long end,
+>  		pgprot_t prot, struct page **pages, unsigned int page_shift)
+>  {
+> -	unsigned int i, nr = (end - addr) >> PAGE_SHIFT;
+> -
+>  	WARN_ON(page_shift < PAGE_SHIFT);
+>  
+> -	if (!IS_ENABLED(CONFIG_HAVE_ARCH_HUGE_VMALLOC) ||
+> -			page_shift == PAGE_SHIFT)
+> -		return vmap_small_pages_range_noflush(addr, end, prot, pages);
+> +	if (!IS_ENABLED(CONFIG_HAVE_ARCH_HUGE_VMALLOC))
+> +		page_shift = PAGE_SHIFT;
+>  
+> -	for (i = 0; i < nr; i += 1U << (page_shift - PAGE_SHIFT)) {
+> -		int err;
+> -
+> -		err = vmap_range_noflush(addr, addr + (1UL << page_shift),
+> -					page_to_phys(pages[i]), prot,
+> -					page_shift);
+> -		if (err)
+> -			return err;
+> -
+> -		addr += 1UL << page_shift;
+> -	}
+> -
+> -	return 0;
+> +	return vmap_pages_range_noflush_walk(addr, end, prot, pages, page_shift);
+>  }
+>  
+>  int vmap_pages_range_noflush(unsigned long addr, unsigned long end,
 
 
