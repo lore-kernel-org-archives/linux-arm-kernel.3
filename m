@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A24C3C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 13:27:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59EC2C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 13:27:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5OeG3rRkzBqKhKaTP/QnJC8xEGmo/Ic6rup2rdYeGlI=; b=AiimN1nIIIsYkq+SiN7rl+KdNH
-	4v8ap83xpcRZtqktsl8mh7/+Dj9nAh57Aflx1PYGH9FtFsIQAyzO67Vpljjw70dWioDpeewRk56D6
-	MCbyXGWs3LZV0zyU+Is5MuwNMU49LCnk4l1YlHjbehmSg71TLYw5PWarTXA3QaT/VvAk8uJZsokNI
-	shZMf5qw0YpUOfzBYiVzFjmHquWPJCD0A9uk9x60SACUxjE5LCE26N8QIXSmIOFmDUWPAzEjvzkQb
-	6ukLAZUM8WEXO9yCr9e+f5oVWsYj4gGVSfHhjr+Qzwnu39QNUi6qg9UCQiW9tOtdtd7o74shPmohx
-	szAXXMsQ==;
+	bh=eOck3k2GHZO/S3AlTEUqocjsRNiDXqKCWowdRT7XkWQ=; b=csXvp8zziVcH4d7aOgQhpt/IUx
+	79B53sJ91/271J5QboDiQfamkbIWxVQSSxmcbsZEIJN9p4wd/LQfwI9uRbbh0zrroOroU4RFfoha6
+	OHK4uZzAu0c8upT9s5TVuYgoDiFc2c365c7JxDuBKZTM6SOftpX8J0+rFd2fz+qZPDFaghoz8F1kx
+	aHDHPyWRzng3xIa8nodw0uLq90aqnCAjolAB9NlU4c3BiFxV9Te0yEohzicIIrTHuPpBVjTgXXPFA
+	BvpWGrwTXUmyj7VSgJ6eYiy48+m8NEFLinUtMU5b/CIIRlaWoJ3DIoNPxA7ypkyJKh0Je0ZaKUagK
+	R74zQeEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weC1E-0000000Ek81-0l7i;
-	Mon, 29 Jun 2026 13:27:24 +0000
+	id 1weC1K-0000000EkEC-3xX9;
+	Mon, 29 Jun 2026 13:27:30 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weC1C-0000000Ek6q-3e78;
-	Mon, 29 Jun 2026 13:27:22 +0000
+	id 1weC1J-0000000EkCi-3Z2r;
+	Mon, 29 Jun 2026 13:27:29 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9BE9D405B3;
+	by sea.source.kernel.org (Postfix) with ESMTP id 9737A41A3A;
+	Mon, 29 Jun 2026 13:27:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1AC31F000E9;
 	Mon, 29 Jun 2026 13:27:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0344C1F00A3A;
-	Mon, 29 Jun 2026 13:27:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782739642;
-	bh=5OeG3rRkzBqKhKaTP/QnJC8xEGmo/Ic6rup2rdYeGlI=;
+	s=k20260515; t=1782739649;
+	bh=eOck3k2GHZO/S3AlTEUqocjsRNiDXqKCWowdRT7XkWQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=VEWPeht+Xql8Htfcb0XujBxovU/UjA5wNYx656mgwj/wAPbE7l9njMwSiI68NBHZn
-	 9s0bf5fydgquXff7KNgOosHUEyDMQ1RTnVEoJ8TvOqkcPWdWGhBDWS++c3Rs5WAhxQ
-	 6UIBz58ycqw8QdlujISNsMh+7PfcQbdg4XbV4C8Y5RTn7YhMPsv+8nbAQiqqqFZ8XX
-	 8djtypw/XjCzyHgsaz6cKMwDIJkwgJBHBvLPV7MX1xHRBra1/gtIA+03J3pXOKm2PM
-	 7/jVfyIgBKHdblY7K9eEewDQPWKA5cRwuXdHunOjc3gA63h2ATO33e4cdnZS9TLhlO
-	 LyDD8splpT/KA==
+	b=FK3JXy8U0qoXEQw7Ia7A2VdPMA6etYZxLO5R1hO0eG2bDFs9j3KWyic/u9Tbb30/T
+	 0i4fbanW/FC5tBTOgKJSvN1vOquOpY2w/EZ4GNYNP/mk9OSCxR0jP9MBWkCjojecAM
+	 QYf4OTn1oTrUX5tBhX91NPhYsWVc784JDB962NXCnay9DMWPkS4ab9jv6tRfUcz040
+	 umhw+xmYJT3fQVGynYhdDfPo+x9vMpMWCnnSbr41bSHpwTdm0N8kL72KM0yqxHw5g3
+	 rOigYSqSChhHf+P+lMgYawL7s91VVuZ6V+JINIHcElahI3LOVWmhse0Bb5sE7lMy+C
+	 ewwreLb4k13Dg==
 From: Arnd Bergmann <arnd@kernel.org>
 To: linux-gpio@vger.kernel.org
 Cc: Arnd Bergmann <arnd@arndb.de>,
@@ -76,9 +76,9 @@ Cc: Arnd Bergmann <arnd@arndb.de>,
 	linux-phy@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	linux-sound@vger.kernel.org
-Subject: [PATCH 05/13] mfd: replace linux/gpio.h inclusions
-Date: Mon, 29 Jun 2026 15:26:25 +0200
-Message-Id: <20260629132633.1300009-6-arnd@kernel.org>
+Subject: [PATCH 06/13] [net-next] net: replace linux/gpio.h inclusions
+Date: Mon, 29 Jun 2026 15:26:26 +0200
+Message-Id: <20260629132633.1300009-7-arnd@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20260629132633.1300009-1-arnd@kernel.org>
 References: <20260629132633.1300009-1-arnd@kernel.org>
@@ -100,195 +100,106 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-linux/gpio.h should no longer be used, convert these instead to
-either linux/gpio/consumer.h or linux/gpio/legacy.h as needed.
+linux/gpio.h should no longer be used, change these in drivers/net to
+linux/gpio/consumer.h where possible, with b53 being the only one still
+using linux/gpio/legacy.h.
 
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- drivers/mfd/aat2870-core.c        | 2 +-
- drivers/mfd/arizona-irq.c         | 2 +-
- drivers/mfd/lp3943.c              | 2 +-
- drivers/mfd/si476x-cmd.c          | 2 +-
- drivers/mfd/si476x-i2c.c          | 2 +-
- drivers/mfd/sm501.c               | 2 +-
- drivers/mfd/tps6105x.c            | 2 +-
- drivers/mfd/tps65911-comparator.c | 2 +-
- drivers/mfd/wm8994-irq.c          | 2 +-
- include/linux/mfd/lp3943.h        | 2 +-
- include/linux/mfd/ti-lmu.h        | 2 +-
- include/linux/mfd/tps65910.h      | 2 +-
- include/linux/mfd/ucb1x00.h       | 2 +-
- 13 files changed, 13 insertions(+), 13 deletions(-)
+ drivers/net/dsa/b53/b53_priv.h                       | 3 ++-
+ drivers/net/dsa/microchip/ksz8.c                     | 2 +-
+ drivers/net/ethernet/allwinner/sun4i-emac.c          | 2 +-
+ drivers/net/ethernet/apm/xgene/xgene_enet_main.c     | 2 +-
+ drivers/net/ethernet/oki-semi/pch_gbe/pch_gbe_main.c | 2 +-
+ drivers/net/phy/mdio_device.c                        | 2 +-
+ 6 files changed, 7 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/mfd/aat2870-core.c b/drivers/mfd/aat2870-core.c
-index 34d66ba9646a..0d56cd6fbc6a 100644
---- a/drivers/mfd/aat2870-core.c
-+++ b/drivers/mfd/aat2870-core.c
-@@ -13,7 +13,7 @@
- #include <linux/uaccess.h>
- #include <linux/i2c.h>
- #include <linux/delay.h>
+diff --git a/drivers/net/dsa/b53/b53_priv.h b/drivers/net/dsa/b53/b53_priv.h
+index cd27a7344e89..29cca7945df7 100644
+--- a/drivers/net/dsa/b53/b53_priv.h
++++ b/drivers/net/dsa/b53/b53_priv.h
+@@ -23,6 +23,7 @@
+ #include <linux/mutex.h>
+ #include <linux/phylink.h>
+ #include <linux/etherdevice.h>
++#include <linux/gpio/consumer.h>
+ #include <net/dsa.h>
+ 
+ #include "b53_regs.h"
+@@ -467,7 +468,7 @@ static inline void b53_arl_search_read(struct b53_device *dev, u8 idx,
+ #ifdef CONFIG_BCM47XX
+ 
+ #include <linux/bcm47xx_nvram.h>
 -#include <linux/gpio.h>
 +#include <linux/gpio/legacy.h>
- #include <linux/mfd/core.h>
- #include <linux/mfd/aat2870.h>
- #include <linux/regulator/machine.h>
-diff --git a/drivers/mfd/arizona-irq.c b/drivers/mfd/arizona-irq.c
-index 544016d420fe..14f9cb2c4b67 100644
---- a/drivers/mfd/arizona-irq.c
-+++ b/drivers/mfd/arizona-irq.c
-@@ -8,7 +8,7 @@
-  */
- 
+ #include <bcm47xx_board.h>
+ static inline struct gpio_desc *b53_switch_get_reset_gpio(struct b53_device *dev)
+ {
+diff --git a/drivers/net/dsa/microchip/ksz8.c b/drivers/net/dsa/microchip/ksz8.c
+index 138f2ab0774e..586916570a84 100644
+--- a/drivers/net/dsa/microchip/ksz8.c
++++ b/drivers/net/dsa/microchip/ksz8.c
+@@ -18,7 +18,7 @@
  #include <linux/delay.h>
--#include <linux/gpio.h>
-+#include <linux/gpio/legacy.h>
- #include <linux/interrupt.h>
- #include <linux/irq.h>
- #include <linux/irqdomain.h>
-diff --git a/drivers/mfd/lp3943.c b/drivers/mfd/lp3943.c
-index 6764553147e4..1918b5c7a5e7 100644
---- a/drivers/mfd/lp3943.c
-+++ b/drivers/mfd/lp3943.c
-@@ -28,7 +28,7 @@
-  */
- 
- #include <linux/err.h>
+ #include <linux/dsa/ksz_common.h>
+ #include <linux/export.h>
 -#include <linux/gpio.h>
 +#include <linux/gpio/consumer.h>
- #include <linux/i2c.h>
- #include <linux/mfd/core.h>
- #include <linux/mfd/lp3943.h>
-diff --git a/drivers/mfd/si476x-cmd.c b/drivers/mfd/si476x-cmd.c
-index 3bb2decfebd3..8cbc0a386f3f 100644
---- a/drivers/mfd/si476x-cmd.c
-+++ b/drivers/mfd/si476x-cmd.c
-@@ -15,7 +15,7 @@
- #include <linux/atomic.h>
- #include <linux/i2c.h>
- #include <linux/device.h>
--#include <linux/gpio.h>
-+#include <linux/gpio/consumer.h>
- #include <linux/videodev2.h>
- 
- #include <linux/mfd/si476x-core.h>
-diff --git a/drivers/mfd/si476x-i2c.c b/drivers/mfd/si476x-i2c.c
-index 7ddc97dfc940..7be3460b0491 100644
---- a/drivers/mfd/si476x-i2c.c
-+++ b/drivers/mfd/si476x-i2c.c
-@@ -13,7 +13,7 @@
- #include <linux/slab.h>
- #include <linux/interrupt.h>
- #include <linux/delay.h>
--#include <linux/gpio.h>
-+#include <linux/gpio/legacy.h>
- #include <linux/regulator/consumer.h>
- #include <linux/i2c.h>
- #include <linux/err.h>
-diff --git a/drivers/mfd/sm501.c b/drivers/mfd/sm501.c
-index b5bda477ebfc..9d5bb67e8084 100644
---- a/drivers/mfd/sm501.c
-+++ b/drivers/mfd/sm501.c
-@@ -35,7 +35,7 @@ struct sm501_device {
- struct sm501_gpio;
- 
- #ifdef CONFIG_MFD_SM501_GPIO
--#include <linux/gpio.h>
-+#include <linux/gpio/consumer.h>
- 
- struct sm501_gpio_chip {
- 	struct gpio_chip	gpio;
-diff --git a/drivers/mfd/tps6105x.c b/drivers/mfd/tps6105x.c
-index e2f6858d101e..b11cd2c03311 100644
---- a/drivers/mfd/tps6105x.c
-+++ b/drivers/mfd/tps6105x.c
-@@ -16,7 +16,7 @@
- #include <linux/init.h>
- #include <linux/i2c.h>
- #include <linux/regmap.h>
--#include <linux/gpio.h>
-+#include <linux/gpio/consumer.h>
- #include <linux/spinlock.h>
- #include <linux/slab.h>
- #include <linux/err.h>
-diff --git a/drivers/mfd/tps65911-comparator.c b/drivers/mfd/tps65911-comparator.c
-index 7098712ea008..cc8545a972bc 100644
---- a/drivers/mfd/tps65911-comparator.c
-+++ b/drivers/mfd/tps65911-comparator.c
-@@ -14,7 +14,7 @@
- #include <linux/err.h>
- #include <linux/platform_device.h>
- #include <linux/debugfs.h>
--#include <linux/gpio.h>
-+#include <linux/gpio/consumer.h>
- #include <linux/mfd/tps65910.h>
- 
- #define COMP1					0
-diff --git a/drivers/mfd/wm8994-irq.c b/drivers/mfd/wm8994-irq.c
-index a46cea948763..a15483489b9d 100644
---- a/drivers/mfd/wm8994-irq.c
-+++ b/drivers/mfd/wm8994-irq.c
-@@ -9,7 +9,7 @@
- 
+ #include <linux/if_vlan.h>
  #include <linux/kernel.h>
  #include <linux/module.h>
+diff --git a/drivers/net/ethernet/allwinner/sun4i-emac.c b/drivers/net/ethernet/allwinner/sun4i-emac.c
+index fc7341a5cbb7..42174249ef61 100644
+--- a/drivers/net/ethernet/allwinner/sun4i-emac.c
++++ b/drivers/net/ethernet/allwinner/sun4i-emac.c
+@@ -15,7 +15,7 @@
+ #include <linux/clk.h>
+ #include <linux/etherdevice.h>
+ #include <linux/ethtool.h>
 -#include <linux/gpio.h>
 +#include <linux/gpio/consumer.h>
- #include <linux/i2c.h>
+ #include <linux/interrupt.h>
  #include <linux/irq.h>
- #include <linux/mfd/core.h>
-diff --git a/include/linux/mfd/lp3943.h b/include/linux/mfd/lp3943.h
-index 402f01078fcc..5d2d172d3598 100644
---- a/include/linux/mfd/lp3943.h
-+++ b/include/linux/mfd/lp3943.h
-@@ -10,7 +10,7 @@
- #ifndef __MFD_LP3943_H__
- #define __MFD_LP3943_H__
+ #include <linux/mii.h>
+diff --git a/drivers/net/ethernet/apm/xgene/xgene_enet_main.c b/drivers/net/ethernet/apm/xgene/xgene_enet_main.c
+index 3b2951030a38..507db46daf2b 100644
+--- a/drivers/net/ethernet/apm/xgene/xgene_enet_main.c
++++ b/drivers/net/ethernet/apm/xgene/xgene_enet_main.c
+@@ -7,7 +7,7 @@
+  *	    Keyur Chudgar <kchudgar@apm.com>
+  */
  
 -#include <linux/gpio.h>
 +#include <linux/gpio/consumer.h>
- #include <linux/regmap.h>
- 
- /* Registers */
-diff --git a/include/linux/mfd/ti-lmu.h b/include/linux/mfd/ti-lmu.h
-index 0bc0e8199798..5040c7d1e1b9 100644
---- a/include/linux/mfd/ti-lmu.h
-+++ b/include/linux/mfd/ti-lmu.h
-@@ -10,7 +10,7 @@
- #ifndef __MFD_TI_LMU_H__
- #define __MFD_TI_LMU_H__
- 
+ #include "xgene_enet_main.h"
+ #include "xgene_enet_hw.h"
+ #include "xgene_enet_sgmac.h"
+diff --git a/drivers/net/ethernet/oki-semi/pch_gbe/pch_gbe_main.c b/drivers/net/ethernet/oki-semi/pch_gbe/pch_gbe_main.c
+index 48b94ce77490..88c5c52e0e38 100644
+--- a/drivers/net/ethernet/oki-semi/pch_gbe/pch_gbe_main.c
++++ b/drivers/net/ethernet/oki-semi/pch_gbe/pch_gbe_main.c
+@@ -16,7 +16,7 @@
+ #include <linux/net_tstamp.h>
+ #include <linux/ptp_classify.h>
+ #include <linux/ptp_pch.h>
 -#include <linux/gpio.h>
 +#include <linux/gpio/consumer.h>
- #include <linux/notifier.h>
- #include <linux/regmap.h>
+ 
+ #define PCH_GBE_MAR_ENTRIES		16
+ #define PCH_GBE_SHORT_PKT		64
+diff --git a/drivers/net/phy/mdio_device.c b/drivers/net/phy/mdio_device.c
+index 56080d3d2d25..a18263d5bb02 100644
+--- a/drivers/net/phy/mdio_device.c
++++ b/drivers/net/phy/mdio_device.c
+@@ -8,7 +8,7 @@
+ 
+ #include <linux/delay.h>
+ #include <linux/errno.h>
+-#include <linux/gpio.h>
++#include <linux/gpio/consumer.h>
  #include <linux/gpio/consumer.h>
-diff --git a/include/linux/mfd/tps65910.h b/include/linux/mfd/tps65910.h
-index f67ef0a4e041..3813fc9c2b55 100644
---- a/include/linux/mfd/tps65910.h
-+++ b/include/linux/mfd/tps65910.h
-@@ -12,7 +12,7 @@
- #ifndef __LINUX_MFD_TPS65910_H
- #define __LINUX_MFD_TPS65910_H
- 
--#include <linux/gpio.h>
-+#include <linux/gpio/consumer.h>
- #include <linux/regmap.h>
- 
- /* TPS chip id list */
-diff --git a/include/linux/mfd/ucb1x00.h b/include/linux/mfd/ucb1x00.h
-index ede237384723..4ad54e22ed33 100644
---- a/include/linux/mfd/ucb1x00.h
-+++ b/include/linux/mfd/ucb1x00.h
-@@ -9,7 +9,7 @@
- 
- #include <linux/device.h>
- #include <linux/mfd/mcp.h>
--#include <linux/gpio.h>
-+#include <linux/gpio/consumer.h>
- #include <linux/gpio/driver.h>
- #include <linux/mutex.h>
- 
+ #include <linux/init.h>
+ #include <linux/interrupt.h>
 -- 
 2.39.5
 
