@@ -4,61 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0033DC43327
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 10:39:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5643C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 10:39:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d5hzbJKhS21S1+V1jSNqHg5EKm1dwr6q6uS1GwOe+Eg=; b=xHEh6Jltju/5q4X7UDUYhoO5xm
-	P+orHVa6gFKPx+3WBgTUt4sD2j7WMCt6VVeskaXTBgdlIFUZsPH7GXTeNgiH7KqBAJIviQzwTVgOm
-	TZyL5m6rRdPdkpgSclho3656cxAw5c2SYdvHVFVZcbyJevbtcpI3K8eK76wGZKurMY9ogYEFHEZIS
-	pK9Jf2Ws2XxmUPStDnixFmfWqZEF2omh1+ktfV8NsmNzjDcbtjcK1GdusbuNtuoDvFb2p4wtoZaYO
-	HafUjevg8a9wIVu71rb17raf3kafAoJxA3gHGzwvWAARdkHJ1SNoYhEHVAAUyjnq1o+2zzL6Q5bfX
-	CUYfSGKQ==;
+	bh=X/6DMeF+VzrPuokfm4ZDmzjeVtbdIynLnrQnwoD7BaQ=; b=bgXgAhWtcL60Aka16seN9CMe5n
+	F0eymOBuhsKQVt0ehXvuEqz1AQ/0ezfIRkNZdt6G1EyQteHSxLb46//y/c9ZmGMlXbnOIX5pt5uS6
+	CGVb/nVo3tGFDjKnj44irH90VvaOq7qCaqOKvSnQ4x/jirmto05J5LZmyVTlmXkajA0TAvgk2ots5
+	uJ7iAaA3mCLUlEXy3MODjDMakGaA9VhjGuPamGyiinzz14SeJWIKOMii1NyjW1TkkIawFc9fO9kqe
+	aQs7fqqYS0fZsAyqi8e1z6oWrmMLtCCBQgZdwh5hArLK1SI7Oi9sIcdJ80dp0aB+ceG+Mv7j+j1D5
+	yQJCfYGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we9OV-0000000ELw8-0YYY;
-	Mon, 29 Jun 2026 10:39:15 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we9OS-0000000ELvg-0390
+	id 1we829-0000000E6uj-2qe8;
+	Mon, 29 Jun 2026 09:12:05 +0000
+Received: from mail-koreacentralazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c40f::6] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1we825-0000000E6u2-47Vi
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 10:39:13 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 31058176C;
-	Mon, 29 Jun 2026 03:39:04 -0700 (PDT)
-Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3237E3F836;
-	Mon, 29 Jun 2026 03:39:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782729548; bh=5t7qu9IcNuS8J8E9a4etz5XNwuttdUNRUE+XETA47pM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=uWdJ4jljL8LE6B1uF6rvS8kHKh3gG3t+xJVm+Ufn/UMPhSfA/05l4Ou8/tAJ6Bn6L
-	 p24Ea2DiahsxPC1U8ScjT6LzYRoF8/GLJDk6l2ASYyW+WjUXHkF7qd9R7r+rSclGxC
-	 pxHS1PO/1cSPdjzNbt2pIZF5Dy5EzKJAc/b9d6ms=
-Date: Mon, 29 Jun 2026 11:38:51 +0100
-From: Wei-Lin Chang <weilin.chang@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, Oliver Upton <oupton@kernel.org>, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH v3 3/5] KVM: arm64: nv: Avoid full shadow s2 unmap
-Message-ID: <iaosk4wfl45gajjgq5px7azzpsjthps5auqlxfey74dlcltndc@abua7k74njdb>
-References: <20260510145338.322962-1-weilin.chang@arm.com>
- <20260510145338.322962-4-weilin.chang@arm.com>
- <86cxyfvgf4.wl-maz@kernel.org>
+	Mon, 29 Jun 2026 09:12:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Zk/uo/1d4t64PyCd/e/qIxdBhWM+UwD9D9nTyYBctmN7s+yCX8La39ixHhPz32I5UzANSX8Q7iXXz5LYIFiurRxU0lBLOhjZAkjIvcpBhXv8C09c7m4VsnxjFj+8Lm0se6Pd25j/2v4qcYJZfay4Mpz4R3R4uMx2TxSP4fJ1IBNXgbb1jrjaPeV8m3I8On4aCnIP7nBsaHXCXSbrDDgvNbyY70OqRQTNu+9bX3zkybLqAIVs5tClgKv/gC6moe7diKgTZBknIza22ktfgRYmNyHD01nXpMzuHej4aST/p4glSw/QRUvMvO0Fc3WJA5OUzk12uJg0OnUH1+Ui31/aKg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=X/6DMeF+VzrPuokfm4ZDmzjeVtbdIynLnrQnwoD7BaQ=;
+ b=isE9JF63dOSkcj+sUESuoB0J2G7fQN0bHaDyjpABOC2/ZbpwofctwuWOM+TE7S4HycC+U8DAybb0hgvD/OUIYG7UAmTGnc9rPnOvWEneuZfDVkAQT2+CUQIGdJH7W20DXzSXdVWhao/NX8QscjeZ4FHleLPUNPFRjPNe9hyEjpFU5Jm8bzEyzfc1ratCtXOsgDlo41aOT5JVk9Ti9KkFnoCtErRr1zKnfIjEE/2tmUo6cYD+fJoIMWRPG0V31gPnHDgojeJGYz/OO3SshHZv4sX2PkuIisbwPBhpKEA4ajOlJbBeGeHsvLr/A3wkM0pBMX35EcPV4ozsC+xREbBlxg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=cixtech.com; dmarc=pass action=none header.from=cixtech.com;
+ dkim=pass header.d=cixtech.com; arc=none
+Received: from SEYPR06MB6226.apcprd06.prod.outlook.com (2603:1096:101:df::13)
+ by SEYPR06MB6432.apcprd06.prod.outlook.com (2603:1096:101:16f::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Mon, 29 Jun
+ 2026 09:11:46 +0000
+Received: from SEYPR06MB6226.apcprd06.prod.outlook.com
+ ([fe80::56e8:777c:d80e:d364]) by SEYPR06MB6226.apcprd06.prod.outlook.com
+ ([fe80::56e8:777c:d80e:d364%5]) with mapi id 15.21.0159.018; Mon, 29 Jun 2026
+ 09:11:46 +0000
+From: "Joakim  Zhang" <joakim.zhang@cixtech.com>
+To: Philipp Zabel <p.zabel@pengutronix.de>, "mturquette@baylibre.com"
+	<mturquette@baylibre.com>, "sboyd@kernel.org" <sboyd@kernel.org>,
+	"bmasney@redhat.com" <bmasney@redhat.com>, "robh@kernel.org"
+	<robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>, Gary Yang
+	<Gary.Yang@cixtech.com>
+CC: cix-kernel-upstream <cix-kernel-upstream@cixtech.com>,
+	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: RE: [PATCH v6 3/4] reset: cix: add sky1 audss auxiliary reset driver
+Thread-Topic: [PATCH v6 3/4] reset: cix: add sky1 audss auxiliary reset driver
+Thread-Index: AQHdAt8NOhOy9rSMn0W7G5oKLL4fGrZNYZYAgAfI1iA=
+Date: Mon, 29 Jun 2026 09:11:46 +0000
+Message-ID: <SEYPR06MB62260AFE3A4C2CBC998F876082E82@SEYPR06MB6226.apcprd06.prod.outlook.com>
+References: <20260623070805.211019-1-joakim.zhang@cixtech.com>
+	 <20260623070805.211019-4-joakim.zhang@cixtech.com>
+ <0193c47ff4ca98b1a6cb56ed8f4d8876b54756d8.camel@pengutronix.de>
+In-Reply-To: <0193c47ff4ca98b1a6cb56ed8f4d8876b54756d8.camel@pengutronix.de>
+Accept-Language: zh-CN, en-US
+Content-Language: zh-CN
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=cixtech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SEYPR06MB6226:EE_|SEYPR06MB6432:EE_
+x-ms-office365-filtering-correlation-id: 4ba44a18-6353-4426-4d38-08ded5be71eb
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|23010399003|376014|366016|1800799024|38070700021|3023799007|22082099003|18002099003|5023799004|4143699003|56012099006;
+x-microsoft-antispam-message-info: nsJXqU3DDeN02DEtm2pkaRkOzvdUq/3VM3WktrXMPTBVEa9cDHMzbyGLs1T4kDF2EKnSWdCEnjcDePWdMbQUHduiWNBcHKm42N53e0B+FE+zc3dRo3Vp72VLagQUhoZdABNsFgCf4d7PPrGKfYKbjubmYqjb4N/dkU8HhLI+5aoPrb+oPcpzB+oZFVjOTDGXvZkHikqFxvxULbRvJy+ct9JR6+4a5agNWk5Gb408N49u9Ru0QAJzsLEI/vm8Bb2fQfridCA0p+UQ1mfchQupSEhTwDgfs5Laui3sxpoEJK7Cu+7iEBT8bvXZFNMdlfSAM0lOfhaaYcnzJQ8JLc3Gm6eQptni/MSni0RC82KjyuxcsgQJIpE/k37Ah+q4XMyb/dHPtyRocKTO97gDj5irx0ag9E1UTpWk0TqSSyQraIyUHQ1MJIRdB2Cx2TObMtfYEB5qi5MR+wr+KL6U8XNZxC7+h3IYB2Hl8Z4S1c16FJJIJMKnpR8YY737lpZo8JiLTofrsXjrqHfneUnnUiTUPDI4OGLoxXjWjAK+u0NpPWJRGqIScqZF6ezac8PU/yM5sYVD+l2SMbu2Fwm6ApCs7p3eltt0O46zm9rpMRiGZvad+Rbz6KLDSvxXfoN1zt2lUiW6TxKAPUdBuScH04UKsl2WQOjoi1LmjEmherPtF75+AFXrUc5hQ86NG3HuEj/ON8w85oxbDMwKGnwjFYu6estQqTT8SOn4VL71u/AMFDM=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEYPR06MB6226.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(366016)(1800799024)(38070700021)(3023799007)(22082099003)(18002099003)(5023799004)(4143699003)(56012099006);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?Ibg5Ais5PLqKNIyrDBK1wkbFEUazH78InRJy0ECUQAEJNHKp+Uyb88nMge8N?=
+ =?us-ascii?Q?ylQkRCQiSsMlwtgL91sniqyLJJUFdx9NKKWiu0RFfgXN2hp4rjkTJ7CHNRwF?=
+ =?us-ascii?Q?bs7eI1PDxp6LAIOS8cMOjzTW7s0h4J2XFMkOtjev+YsaUhHDJEOfhVbftx3p?=
+ =?us-ascii?Q?m59aQ6Eb4ZhwwJPIfJxmY0MB6ZBGYmdd6rjUZoICm9hK3FiS9jdWt0BzKaC+?=
+ =?us-ascii?Q?J+kORjKGCyvK9meks75Wk1oU2XY+2O44P5pjwPFCsVmIPk3xDy8WBI0cocgp?=
+ =?us-ascii?Q?LfD4h196yrhX3k88iP2+MVqHkkPI/YHW2XBkkSKUb38Yswn9IAp08u9OVEq1?=
+ =?us-ascii?Q?IC054bngxYT7eoE1OhJ0jTrTNYnbzm0tADNSgzu2bj25i4wnvevNS9t/t9Wl?=
+ =?us-ascii?Q?BIlduj5xfMUDuOCSw/a7ykWNOQ0v3jjPJYvrrW8hXc52s/9CqQLzuaPfuxkP?=
+ =?us-ascii?Q?0Q26jSlt3m9u/D/EnSfvc5D9uj3ITAbuFqCpXhPeMTz7nfAzxVVHHaiT4xfx?=
+ =?us-ascii?Q?OKowxSgUnDKI9qUi9p33OVVG2mdbUX3Rk2Xuhhv6BGiJxoISTqD6Cnjxtt4y?=
+ =?us-ascii?Q?Mpuu7z3idE1RRV7n/hFpjVdZmrHgM3YhvjDYjBIsyg4blOeBUKL6EYzuq8pm?=
+ =?us-ascii?Q?DxepZUsUlwznj8ixXR4WG15DremRlJuK4jGWG9NTwkKF9PPInpbKZ8h2cdid?=
+ =?us-ascii?Q?Zb/S3aoAoOm5xkqLMyLwsf7HcXzVkR/ov5fXkUhFT7tzggv1xoJzjQT7FDEn?=
+ =?us-ascii?Q?2q0cpNnf2eIcIWNSGPiTE233Sslaq8wFbvZEa5Nl0Z2SMK0JNOAjkMfDieka?=
+ =?us-ascii?Q?4Ujb6lK9WmBS1fvJA9y7tUUUNsXn8Pkf/j/GJGM4qCaW/Z5ZvHHFB/rIeHOt?=
+ =?us-ascii?Q?6/Eh7M56z+hZWv9DSXtDPlvopiZvxjFQQ8/PhCHBQGUAsdXPiPN/dd+gJi41?=
+ =?us-ascii?Q?OhnxM0YoPi9wLKLyT/oWUNVQOz/a472O+VfbivBT4oLTQgWI70KD9UpWNjIe?=
+ =?us-ascii?Q?2oCzVUOF99RgdRtlcZz5+YtqdZbfqDTwZVqvJ0sxZZ2PHZc3sJe6fMzk1ZV2?=
+ =?us-ascii?Q?1CQRWlBxXMoZNnGGTjh7B8GF3p+Dnb7Otz5acv08Ue8fbaU6Qi7TDGscgMGL?=
+ =?us-ascii?Q?dvKXm3s3E9SjYTcasUm21C2acUFw5rhtluBVq4vDb44HiGNrzimUyDC7XDQD?=
+ =?us-ascii?Q?uWsGXLI6tDwQPDuFk5EcjIJ0w9pP1XOX4UvDjrcwkCjNv+vQrgQb4sgxw0pU?=
+ =?us-ascii?Q?D/N7/Km+W35nIIVL8I7y4EVTciGNE4zwIHVBd6zTMJCpzFfLIMHbyIv5nnNw?=
+ =?us-ascii?Q?bgJq0yZEaYu+7PjMoQK3ZpXDpVucvlm1Gx1MuybaYMAg3o7ZfLQo+/Z7bpjq?=
+ =?us-ascii?Q?8+SSEbB2S2rbQ4KxXwWhMUbbEu408sYwE9pb0ZO4EjkUj0NuxgKHU/bSficl?=
+ =?us-ascii?Q?E76QlqFBAsc4CBMo/QlFKYR2pn9vVLOqO15TNQwivnrpXwRnwLqHQM4xOgwv?=
+ =?us-ascii?Q?yVR4mppJSCN+mvNQssGuqSAyYHWA+QTcwzBvrc/ayKtGlqMAq8+tYOUfx9ZZ?=
+ =?us-ascii?Q?agIA479FIv2VgFnee/k/ecykq9E/JZcnz1leJAdITYMc+GECnzgkB2CHU8NF?=
+ =?us-ascii?Q?nlbrlja6D4P3onElKGNq3wWHKicojVOyL70Y0GyuVk4b72gc/22SWTRTvXaF?=
+ =?us-ascii?Q?Z/GvkNjW1NlyQGLZyUckIVrX/rKKs1ckRqL68Xfs4lc74bfngpmuhYRNCl+C?=
+ =?us-ascii?Q?apxUY/9ykw=3D=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <86cxyfvgf4.wl-maz@kernel.org>
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SEYPR06MB6226.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4ba44a18-6353-4426-4d38-08ded5be71eb
+X-MS-Exchange-CrossTenant-originalarrivaltime: 29 Jun 2026 09:11:46.4282
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: uuQhD6rS+k7JWAVd9yWYsoRm7TQAyuB5A7TcRakxf4MPbwySCdp4SewNqA0/dytTtXdf7wztmuRLfuAKiCwZExCy7zndX2NSc5d9SOlusSc=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR06MB6432
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_033912_154624_2C9EC33F 
-X-CRM114-Status: GOOD (  57.10  )
+X-CRM114-CacheID: sfid-20260629_021202_170546_8B04B362 
+X-CRM114-Status: GOOD (  33.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,459 +143,315 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
 
-Sorry for the late reply.
+Hello, Philipp
 
-On Thu, May 28, 2026 at 01:59:11PM +0100, Marc Zyngier wrote:
-> On Sun, 10 May 2026 15:53:36 +0100,
-> Wei-Lin Chang <weilin.chang@arm.com> wrote:
-> > 
-> > Currently we are forced to fully unmap all shadow stage-2 for a VM when
-> > unmapping a page from the canonical stage-2, for example during an MMU
-> > notifier call. This is because we are not tracking what canonical IPA
-> > are mapped in the shadow stage-2 page tables hence there is no way to
-> > know what to unmap.
-> > 
-> > Create a per kvm_s2_mmu maple tree to track canonical IPA range ->
-> > nested IPA range, so that it is possible to partially unmap shadow
-> > stage-2 when a canonical IPA range is unmapped. The algorithm is simple
-> > and conservative:
-> > 
-> > At each shadow stage-2 map, insert the nested IPA range into the maple
-> > tree, with the canonical IPA range as the key. If the canonical IPA
-> > range doesn't overlap with existing ranges in the tree, insert as is,
-> > and a reverse mapping for this range is established. But if the
-> > canonical IPA range overlaps with any existing ranges in the tree,
-> > create a new range that spans all the overlapping ranges including the
-> > input range and replace those existing ranges. In the mean time, mark
-> > this new spanning canonical IPA range with an "UNKNOWN_IPA" bit,
-> > indicating we give up tracking the nested IPA ranges that map to this
-> > canonical IPA range.
-> > 
-> > The maple tree's 64 bit entry is enough to store the nested IPA and
-> > the UNKNOWN_IPA status, therefore besides maple tree's internal
-> > operation, memory allocation is avoided.
-> > 
-> > Example:
-> > |||| means existing range, ---- means empty range
-> > 
-> > input:            $$$$$$$$$$$$$$$$$$$$$$$$$$
-> > tree:  --||||-----|||||||---------||||||||||-----------
-> > 
-> > insert spanning range and replace overlapping ones:
-> >        --||||-----||||||||||||||||||||||||||-----------
-> >                   ^^^^marked UNKNOWN_IPA^^^^
-> > 
-> > With the reverse map created, when a canonical IPA range gets unmapped,
-> > look into each s2 mmu's maple tree and look for canonical IPA ranges
-> > affected, and base on their UNKNOWN_IPA status:
-> > 
-> > UNKNOWN_IPA     -> fall back and fully unmap the current shadow
-> >                    stage-2, also clear the tree
-> > 
-> > not UNKNOWN_IPA -> unmap the nested IPA range, and remove the reverse
-> >                    map entry
-> > 
-> > Suggested-by: Marc Zyngier <maz@kernel.org>
-> > Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+> -----Original Message-----
+> From: Philipp Zabel <p.zabel@pengutronix.de>
+> Sent: Wednesday, June 24, 2026 4:30 PM
+> To: Joakim Zhang <joakim.zhang@cixtech.com>; mturquette@baylibre.com;
+> sboyd@kernel.org; bmasney@redhat.com; robh@kernel.org;
+> krzk+dt@kernel.org; conor+dt@kernel.org; Gary Yang
+> <gary.yang@cixtech.com>
+> Cc: cix-kernel-upstream <cix-kernel-upstream@cixtech.com>; linux-
+> clk@vger.kernel.org; devicetree@vger.kernel.org; linux-kernel@vger.kernel=
+.org;
+> linux-arm-kernel@lists.infradead.org
+> Subject: Re: [PATCH v6 3/4] reset: cix: add sky1 audss auxiliary reset dr=
+iver
+>=20
+> EXTERNAL EMAIL
+>=20
+> CAUTION: Suspicious Email from unusual domain.
+>=20
+> On Di, 2026-06-23 at 15:08 +0800, joakim.zhang@cixtech.com wrote:
+> > From: Joakim Zhang <joakim.zhang@cixtech.com>
+> >
+> > Add an auxiliary reset controller driver for the AUDSS CRU. Sixteen
+> > software reset lines for audio subsystem peripherals are controlled
+> > through one register in the CRU register map.
+> >
+> > The driver is created by the AUDSS clock platform driver and registers
+> > the reset controller on the CRU device node.
+> >
+> > Signed-off-by: Joakim Zhang <joakim.zhang@cixtech.com>
 > > ---
-> >  arch/arm64/include/asm/kvm_host.h   |   4 +
-> >  arch/arm64/include/asm/kvm_nested.h |   4 +
-> >  arch/arm64/kvm/mmu.c                |  27 ++++--
-> >  arch/arm64/kvm/nested.c             | 140 +++++++++++++++++++++++++++-
-> >  4 files changed, 167 insertions(+), 8 deletions(-)
-> > 
-> > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> > index 1a56d137df10..dc4c0bce1bbb 100644
-> > --- a/arch/arm64/include/asm/kvm_host.h
-> > +++ b/arch/arm64/include/asm/kvm_host.h
-> > @@ -223,6 +223,10 @@ struct kvm_s2_mmu {
-> >  	 */
-> >  	bool	pending_unmap;
-> >  
-> > +	bool	nested_revmap_broken;
-> > +	/* canonical IPA to nested IPA range lookup */
-> > +	struct maple_tree nested_revmap_mt;
+> >  drivers/reset/Kconfig            |  14 +++
+> >  drivers/reset/Makefile           |   1 +
+> >  drivers/reset/reset-sky1-audss.c | 192
+> > +++++++++++++++++++++++++++++++
+> >  3 files changed, 207 insertions(+)
+> >  create mode 100644 drivers/reset/reset-sky1-audss.c
+> >
+> > diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig index
+> > d009eb0849a3..f74859b292ae 100644
+> > --- a/drivers/reset/Kconfig
+> > +++ b/drivers/reset/Kconfig
+> > @@ -300,6 +300,20 @@ config RESET_SKY1
+> >       help
+> >         This enables the reset controller for Cix Sky1.
+> >
+> > +config RESET_SKY1_AUDSS
+> > +     tristate "Cix Sky1 Audio Subsystem reset controller"
+> > +     depends on ARCH_CIX || COMPILE_TEST
+> > +     select AUXILIARY_BUS
+> > +     select REGMAP_MMIO
+> > +     default CLK_SKY1_AUDSS
+> > +     help
+> > +       Support for block-level software reset lines in the Cix Sky1
+> > +       Audio Subsystem (AUDSS) Clock and Reset Unit. Sixteen reset
+> > +       outputs for audio peripherals are controlled through the CRU
+> > +       register map. The driver binds as an auxiliary device from
+> > +       the AUDSS clock driver. Say M or Y here if you want to build
+> > +       this driver.
 > > +
-> >  #ifdef CONFIG_PTDUMP_STAGE2_DEBUGFS
-> >  	struct dentry *shadow_pt_debugfs_dentry;
-> >  #endif
-> > diff --git a/arch/arm64/include/asm/kvm_nested.h b/arch/arm64/include/asm/kvm_nested.h
-> > index 091544e6af44..5cbf78dfc685 100644
-> > --- a/arch/arm64/include/asm/kvm_nested.h
-> > +++ b/arch/arm64/include/asm/kvm_nested.h
-> > @@ -76,6 +76,8 @@ extern void kvm_s2_mmu_iterate_by_vmid(struct kvm *kvm, u16 vmid,
-> >  				       const union tlbi_info *info,
-> >  				       void (*)(struct kvm_s2_mmu *,
-> >  						const union tlbi_info *));
-> > +extern void kvm_record_nested_revmap(gpa_t gpa, struct kvm_s2_mmu *mmu,
-> > +				     gpa_t fault_ipa, size_t map_size);
-> >  extern void kvm_vcpu_load_hw_mmu(struct kvm_vcpu *vcpu);
-> >  extern void kvm_vcpu_put_hw_mmu(struct kvm_vcpu *vcpu);
-> >  
-> > @@ -164,6 +166,8 @@ extern int kvm_s2_handle_perm_fault(struct kvm_vcpu *vcpu,
-> >  				    struct kvm_s2_trans *trans);
-> >  extern int kvm_inject_s2_fault(struct kvm_vcpu *vcpu, u64 esr_el2);
-> >  extern void kvm_nested_s2_wp(struct kvm *kvm);
-> > +extern void kvm_unmap_gfn_range_nested(struct kvm *kvm, gpa_t gpa, size_t size,
-> > +				       bool may_block);
-> >  extern void kvm_nested_s2_unmap(struct kvm *kvm, bool may_block);
-> >  extern void kvm_nested_s2_flush(struct kvm *kvm);
-> >  
-> > diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> > index e4becd5cdf36..ce0bd88cd3c1 100644
-> > --- a/arch/arm64/kvm/mmu.c
-> > +++ b/arch/arm64/kvm/mmu.c
-> > @@ -5,6 +5,7 @@
-> >   */
-> >  
-> >  #include <linux/acpi.h>
-> > +#include <linux/maple_tree.h>
-> >  #include <linux/mman.h>
-> >  #include <linux/kvm_host.h>
-> >  #include <linux/io.h>
-> > @@ -1099,6 +1100,7 @@ void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu)
-> >  {
-> >  	struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
-> >  	struct kvm_pgtable *pgt = NULL;
-> > +	struct maple_tree *revmap_mt = &mmu->nested_revmap_mt;
-> >  
-> >  	write_lock(&kvm->mmu_lock);
-> >  	pgt = mmu->pgt;
-> > @@ -1108,8 +1110,11 @@ void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu)
-> >  		free_percpu(mmu->last_vcpu_ran);
-> >  	}
-> >  
-> > -	if (kvm_is_nested_s2_mmu(kvm, mmu))
-> > +	if (kvm_is_nested_s2_mmu(kvm, mmu)) {
-> > +		if (!mtree_empty(revmap_mt))
-> > +			mtree_destroy(revmap_mt);
-> >  		kvm_init_nested_s2_mmu(mmu);
-> > +	}
-> >  
-> >  	write_unlock(&kvm->mmu_lock);
-> >  
-> > @@ -1631,6 +1636,10 @@ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
-> >  		goto out_unlock;
-> >  	}
-> >  
-> > +	if (s2fd->nested)
-> > +		kvm_record_nested_revmap(gfn << PAGE_SHIFT, pgt->mmu,
-> > +					 s2fd->fault_ipa, PAGE_SIZE);
-> > +
-> >  	ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, s2fd->fault_ipa, PAGE_SIZE,
-> >  						 __pfn_to_phys(pfn), prot,
-> >  						 memcache, flags);
-> > @@ -2034,6 +2043,10 @@ static int kvm_s2_fault_map(const struct kvm_s2_fault_desc *s2fd,
-> >  		ret = KVM_PGT_FN(kvm_pgtable_stage2_relax_perms)(pgt, gfn_to_gpa(gfn),
-> >  								 prot, flags);
-> >  	} else {
-> > +		if (s2fd->nested)
-> > +			kvm_record_nested_revmap(canonical_gpa, pgt->mmu,
-> > +						 gfn_to_gpa(gfn), mapping_size);
-> > +
-> >  		ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, gfn_to_gpa(gfn), mapping_size,
-> >  							 __pfn_to_phys(pfn), prot,
-> >  							 memcache, flags);
-> > @@ -2389,14 +2402,16 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
-> >  
-> >  bool kvm_unmap_gfn_range(struct kvm *kvm, struct kvm_gfn_range *range)
-> >  {
-> > +	gpa_t gpa = range->start << PAGE_SHIFT;
-> > +	size_t size = (range->end - range->start) << PAGE_SHIFT;
-> > +	bool may_block = range->may_block;
-> > +
-> >  	if (!kvm->arch.mmu.pgt || kvm_vm_is_protected(kvm))
-> >  		return false;
-> >  
-> > -	__unmap_stage2_range(&kvm->arch.mmu, range->start << PAGE_SHIFT,
-> > -			     (range->end - range->start) << PAGE_SHIFT,
-> > -			     range->may_block);
-> > +	__unmap_stage2_range(&kvm->arch.mmu, gpa, size, may_block);
-> 
-> This sort of cleanups could be in a separate patch.
-
-Ack.
-
-> 
-> > +	kvm_unmap_gfn_range_nested(kvm, gpa, size, may_block);
-> >  
-> > -	kvm_nested_s2_unmap(kvm, range->may_block);
-> >  	return false;
-> >  }
-> >  
-> > @@ -2674,7 +2689,7 @@ void kvm_arch_flush_shadow_memslot(struct kvm *kvm,
-> >  
-> >  	write_lock(&kvm->mmu_lock);
-> >  	kvm_stage2_unmap_range(&kvm->arch.mmu, gpa, size, true);
-> > -	kvm_nested_s2_unmap(kvm, true);
-> > +	kvm_unmap_gfn_range_nested(kvm, gpa, size, true);
-> >  	write_unlock(&kvm->mmu_lock);
-> >  }
-> >  
-> > diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-> > index 883b6c1008fb..35b5d5f21a23 100644
-> > --- a/arch/arm64/kvm/nested.c
-> > +++ b/arch/arm64/kvm/nested.c
-> > @@ -7,6 +7,7 @@
-> >  #include <linux/bitfield.h>
-> >  #include <linux/kvm.h>
-> >  #include <linux/kvm_host.h>
-> > +#include <linux/maple_tree.h>
-> >  
-> >  #include <asm/fixmap.h>
-> >  #include <asm/kvm_arm.h>
-> > @@ -43,6 +44,20 @@ struct vncr_tlb {
-> >   */
-> >  #define S2_MMU_PER_VCPU		2
-> >  
+> >  config RESET_SOCFPGA
+> >       bool "SoCFPGA Reset Driver" if COMPILE_TEST && (!ARM
+> || !ARCH_INTEL_SOCFPGA)
+> >       default ARM && ARCH_INTEL_SOCFPGA diff --git
+> > a/drivers/reset/Makefile b/drivers/reset/Makefile index
+> > 3e52569bd276..e81407ea3e29 100644
+> > --- a/drivers/reset/Makefile
+> > +++ b/drivers/reset/Makefile
+> > @@ -39,6 +39,7 @@ obj-$(CONFIG_RESET_RZV2H_USB2PHY) +=3D
+> > reset-rzv2h-usb2phy.o
+> >  obj-$(CONFIG_RESET_SCMI) +=3D reset-scmi.o
+> >  obj-$(CONFIG_RESET_SIMPLE) +=3D reset-simple.o
+> >  obj-$(CONFIG_RESET_SKY1) +=3D reset-sky1.o
+> > +obj-$(CONFIG_RESET_SKY1_AUDSS) +=3D reset-sky1-audss.o
+> >  obj-$(CONFIG_RESET_SOCFPGA) +=3D reset-socfpga.o
+> >  obj-$(CONFIG_RESET_SUNPLUS) +=3D reset-sunplus.o
+> >  obj-$(CONFIG_RESET_SUNXI) +=3D reset-sunxi.o diff --git
+> > a/drivers/reset/reset-sky1-audss.c b/drivers/reset/reset-sky1-audss.c
+> > new file mode 100644
+> > index 000000000000..20870f37d7d7
+> > --- /dev/null
+> > +++ b/drivers/reset/reset-sky1-audss.c
+> > @@ -0,0 +1,192 @@
+> > +// SPDX-License-Identifier: GPL-2.0-only
 > > +/*
-> > + * Per shadow S2 reverse map (IPA -> nested IPA range) maple tree payload
-> > + * layout:
+> > + * Cix Sky1 Audio Subsystem reset controller driver
 > > + *
-> > + * bit  62:     valid, prevents the case where the nested IPA is 0 and turning
-> > + *              the whole value to 0
-> > + * bits 55-12:  nested IPA bits 55-12
-> > + * bit  0:      UNKNOWN_IPA bit, 1 indicates we give up on tracking what nested
-> > + *              IPA maps to this canonical IPA in the shadow stage-2
+> > + * Copyright 2026 Cix Technology Group Co., Ltd.
 > > + */
-> > +#define VALID_ENTRY		BIT(62)
-> > +#define ADDR_MASK		GENMASK_ULL(55, 12)
-> > +#define UNKNOWN_IPA		BIT(0)
 > > +
-> >  void kvm_init_nested(struct kvm *kvm)
-> >  {
-> >  	kvm->arch.nested_mmus = NULL;
-> > @@ -769,12 +784,57 @@ static struct kvm_s2_mmu *get_s2_mmu_nested(struct kvm_vcpu *vcpu)
-> >  	return s2_mmu;
-> >  }
-> >  
-> > +void kvm_record_nested_revmap(gpa_t ipa, struct kvm_s2_mmu *mmu,
-> > +			      gpa_t fault_ipa, size_t map_size)
-> 
-> The name fault_ipa doesn't really make sense here. This is the IPA as
-> seen from L1 (the input to the L1 S2 tables). We indeed obtain it from
-> a fault, but that should not influence the naming here.
-> 
-> Similarly, 'ipa' should be qualified a bit better to reflect that this
-> is the L0 IPA.
-
-Yeah these names aren't very clear. I'll change to use 'canonical IPA',
-and 'nested IPA'.
-
-> 
-> > +{
-> > +	struct maple_tree *revmap_mt = &mmu->nested_revmap_mt;
-> > +	gpa_t ipa_end = ipa + map_size - 1;
-> 
-> Are you always guaranteed that ipa is aligned on map_size?
-
-From what I see in kvm_s2_fault_map() and gmem_abort(), yes, the ipa is
-aligned to map_size.
-
-What about adding
-
-	if (WARN_ON(!IS_ALIGNED(canonical_ipa, map_size))) {
-		ALIGN_DOWN(canonical_ipa, map_size);
-		canonical_ipa_end = canonical_ipa + map_size;
-	}
-
-to be safe?
-
-> 
-> > +	u64 entry, new_entry = 0;
-> > +	MA_STATE(mas_rev, revmap_mt, ipa, ipa_end);
+> > +#include <dt-bindings/reset/cix,sky1-audss-cru.h>
 > > +
-> > +	if (mmu->nested_revmap_broken)
-> > +		return;
+> > +#include <linux/auxiliary_bus.h>
+> > +#include <linux/delay.h>
+> > +#include <linux/device.h>
+> > +#include <linux/io.h>
+> > +#include <linux/module.h>
+> > +#include <linux/of.h>
+> > +#include <linux/of_address.h>
+> > +#include <linux/regmap.h>
+> > +#include <linux/reset-controller.h>
 > > +
-> > +	mtree_lock(revmap_mt);
-> > +	entry = xa_to_value(mas_find_range(&mas_rev, ipa_end));
+> > +#define SKY1_RESET_SLEEP_MIN_US              50
+> > +#define SKY1_RESET_SLEEP_MAX_US              100
 > > +
-> > +	if (entry) {
-> > +		/* maybe just a perm update... */
-> > +		if (!(entry & UNKNOWN_IPA) && mas_rev.index == ipa &&
-> 
-> Shouldn't you check that VALID_ENTRY is set? Is the index guaranteed
-> to match the L0 IPA?
-
-Right now either VALID_ENTRY or UNKNOWN_IPA is set for an exising entry
-in the tree, having both set is not expected. I think we can turn
-VALID_ENTRY and UNKNOWN_IPA tests into helpers and warn if they are both
-set in the helpers?
-
-> 
-> > +		    mas_rev.last == ipa_end &&
-> > +		    fault_ipa == (entry & ADDR_MASK))
-> 
-> Again, I think there is a potential alignment issue here.
-> 
-> > +			goto unlock;
-> > +		/*
-> > +		 * Create a "UNKNOWN_IPA" range that spans all the overlapping
-> > +		 * ranges and store it.
-> > +		 */
-> > +		while (entry && mas_rev.index <= ipa_end) {
-> > +			ipa = min(mas_rev.index, ipa);
-> > +			ipa_end = max(mas_rev.last, ipa_end);
-> > +			entry = xa_to_value(mas_find_range(&mas_rev, ipa_end));
-> > +		}
-> > +		new_entry |= UNKNOWN_IPA;
-> > +	} else {
-> > +		new_entry |= fault_ipa;
-> > +		new_entry |= VALID_ENTRY;
-> > +	}
+> > +#define AUDSS_SW_RST                 0x78
 > > +
-> > +	mas_set_range(&mas_rev, ipa, ipa_end);
-> > +	if (mas_store_gfp(&mas_rev, xa_mk_value(new_entry),
-> > +			  GFP_NOWAIT | __GFP_ACCOUNT))
-> > +		mmu->nested_revmap_broken = true;
-> 
-> I really think we ought to track this event happening. Maybe a trace
-> point.
+> > +struct sky1_audss_reset_map {
+> > +     unsigned int offset;
+> > +     unsigned int mask;
+> > +};
+> > +
+> > +struct sky1_audss_reset {
+> > +     struct reset_controller_dev rcdev;
+> > +     struct regmap *regmap;
+> > +     const struct sky1_audss_reset_map *map; };
+> > +
+> > +static const struct sky1_audss_reset_map sky1_audss_reset_map[] =3D {
+> > +     [AUDSS_I2S0_SW_RST]   =3D { AUDSS_SW_RST, BIT(0) },
+> > +     [AUDSS_I2S1_SW_RST]   =3D { AUDSS_SW_RST, BIT(1) },
+> > +     [AUDSS_I2S2_SW_RST]   =3D { AUDSS_SW_RST, BIT(2) },
+> > +     [AUDSS_I2S3_SW_RST]   =3D { AUDSS_SW_RST, BIT(3) },
+> > +     [AUDSS_I2S4_SW_RST]   =3D { AUDSS_SW_RST, BIT(4) },
+> > +     [AUDSS_I2S5_SW_RST]   =3D { AUDSS_SW_RST, BIT(5) },
+> > +     [AUDSS_I2S6_SW_RST]   =3D { AUDSS_SW_RST, BIT(6) },
+> > +     [AUDSS_I2S7_SW_RST]   =3D { AUDSS_SW_RST, BIT(7) },
+> > +     [AUDSS_I2S8_SW_RST]   =3D { AUDSS_SW_RST, BIT(8) },
+> > +     [AUDSS_I2S9_SW_RST]   =3D { AUDSS_SW_RST, BIT(9) },
+> > +     [AUDSS_WDT_SW_RST]    =3D { AUDSS_SW_RST, BIT(10) },
+> > +     [AUDSS_TIMER_SW_RST]  =3D { AUDSS_SW_RST, BIT(11) },
+> > +     [AUDSS_MB0_SW_RST]    =3D { AUDSS_SW_RST, BIT(12) },
+> > +     [AUDSS_MB1_SW_RST]    =3D { AUDSS_SW_RST, BIT(13) },
+> > +     [AUDSS_HDA_SW_RST]    =3D { AUDSS_SW_RST, BIT(14) },
+> > +     [AUDSS_DMAC_SW_RST]   =3D { AUDSS_SW_RST, BIT(15) },
+> > +};
+> > +
+> > +static struct sky1_audss_reset *to_sky1_audss_reset(struct
+> > +reset_controller_dev *rcdev) {
+> > +     return container_of(rcdev, struct sky1_audss_reset, rcdev); }
+> > +
+> > +static int sky1_audss_reset_set(struct reset_controller_dev *rcdev,
+> > +                             unsigned long id, bool assert) {
+> > +     struct sky1_audss_reset *priv =3D to_sky1_audss_reset(rcdev);
+> > +     const struct sky1_audss_reset_map *signal =3D &priv->map[id];
+> > +     unsigned int value =3D assert ? 0 : signal->mask;
+> > +
+> > +     return regmap_update_bits(priv->regmap, signal->offset,
+> > + signal->mask, value);
+>=20
+> Why does this propagate the return value ...
+I'll propagate the return value in the ops callbacks.
 
-Will do.
 
-> 
-> > +unlock:
-> > +	mtree_unlock(revmap_mt);
 > > +}
 > > +
-> >  void kvm_init_nested_s2_mmu(struct kvm_s2_mmu *mmu)
-> >  {
-> >  	/* CnP being set denotes an invalid entry */
-> >  	mmu->tlb_vttbr = VTTBR_CNP_BIT;
-> >  	mmu->nested_stage2_enabled = false;
-> >  	atomic_set(&mmu->refcnt, 0);
-> > +	mt_init(&mmu->nested_revmap_mt);
-> > +	mmu->nested_revmap_broken = false;
-> >  }
-> >  
-> >  void kvm_vcpu_load_hw_mmu(struct kvm_vcpu *vcpu)
-> > @@ -1150,6 +1210,82 @@ void kvm_nested_s2_wp(struct kvm *kvm)
-> >  	kvm_invalidate_vncr_ipa(kvm, 0, BIT(kvm->arch.mmu.pgt->ia_bits));
-> >  }
-> >  
-> > +static void reset_revmap_and_unmap(struct kvm_s2_mmu *mmu, bool may_block)
-> > +{
-> > +	mtree_destroy(&mmu->nested_revmap_mt);
-> > +	mmu->nested_revmap_broken = false;
-> > +	kvm_stage2_unmap_range(mmu, 0, kvm_phys_size(mmu), may_block);
+> > +static int sky1_audss_reset_assert(struct reset_controller_dev *rcdev,
+> > +                                unsigned long id) {
+> > +     sky1_audss_reset_set(rcdev, id, true);
+>=20
+> ... only to be ignored? It'd be better to pass it on.
+Yes, will add.
+
+
+> > +     usleep_range(SKY1_RESET_SLEEP_MIN_US,
+> SKY1_RESET_SLEEP_MAX_US);
+> > +     return 0;
 > > +}
 > > +
-> > +static void unmap_mmu_ipa_range(struct kvm_s2_mmu *mmu, gpa_t gpa,
-> > +				  size_t unmap_size, bool may_block)
-> 
-> Same comment as above about the nature of 'gpa'. I *think* this is the
-> L0 IPA, but please clarify.
-
-Will use clearer names from now.
-
-> 
-> > +{
-> > +	struct maple_tree *revmap_mt = &mmu->nested_revmap_mt;
-> > +	gpa_t ipa = gpa;
-> > +	gpa_t ipa_end = gpa + unmap_size - 1;
-> 
-> Similar concerns about alignments.
-
-For this function, I don't think there are any guarantees on alignment
-for sizes > PAGE_SIZE, but I think if we make sure the range we unmap
-completely covers the input range then things should be fine.
-
-> 
-> > +	u64 entry;
-> > +	size_t entry_size;
-> > +	MA_STATE(mas_rev, revmap_mt, gpa, ipa_end);
-> > +
-> > +	if (mmu->nested_revmap_broken) {
-> > +		reset_revmap_and_unmap(mmu, may_block);
-> > +		return;
-> > +	}
-> > +
-> > +	mtree_lock(revmap_mt);
-> > +	entry = xa_to_value(mas_find_range(&mas_rev, ipa_end));
-> > +
-> > +	while (entry && mas_rev.index <= ipa_end) {
-> 
-> I'm again concerned that the VALID bit is never checked.
-> 
-> > +		ipa = mas_rev.last + 1;
-> > +		entry_size = mas_rev.last - mas_rev.index + 1;
-> > +		/*
-> > +		 * Give up and invalidate this s2 mmu if the unmap range
-> > +		 * touches any UNKNOWN_IPA range.
-> > +		 */
-> > +		if (entry & UNKNOWN_IPA) {
-> > +			mtree_unlock(revmap_mt);
-> > +			reset_revmap_and_unmap(mmu, may_block);
-> > +			return;
-> > +		}
-> > +
-> > +		/*
-> > +		 * Ignore result, it is okay if a reverse mapping erase
-> > +		 * fails.
-> > +		 */
-> > +		mas_store_gfp(&mas_rev, NULL, GFP_NOWAIT | __GFP_ACCOUNT);
-> > +
-> > +		mtree_unlock(revmap_mt);
-> > +		kvm_stage2_unmap_range(mmu, entry & ADDR_MASK, entry_size,
-> > +				       may_block);
-> > +		mtree_lock(revmap_mt);
-> > +		/*
-> > +		 * Other maple tree operations during preemption could render
-> > +		 * this ma_state invalid, so reset it.
-> > +		 */
-> > +		mas_set_range(&mas_rev, ipa, ipa_end);
-> > +		entry = xa_to_value(mas_find_range(&mas_rev, ipa_end));
-> > +	}
-> > +	mtree_unlock(revmap_mt);
+> > +static int sky1_audss_reset_deassert(struct reset_controller_dev *rcde=
+v,
+> > +                                  unsigned long id) {
+> > +     sky1_audss_reset_set(rcdev, id, false);
+> > +     usleep_range(SKY1_RESET_SLEEP_MIN_US,
+> SKY1_RESET_SLEEP_MAX_US);
+> > +     return 0;
 > > +}
 > > +
-> > +void kvm_unmap_gfn_range_nested(struct kvm *kvm, gpa_t gpa, size_t size,
-> > +				bool may_block)
+> > +static int sky1_audss_reset(struct reset_controller_dev *rcdev,
+> > +                         unsigned long id) {
+> > +     sky1_audss_reset_assert(rcdev, id);
+> > +     sky1_audss_reset_deassert(rcdev, id);
+> > +     return 0;
+> > +}
+>=20
+> Will any AUDSS reset consumer use the reset_control_reset() API?
+> If not, no need to implement this.
+Will remove both .reset and .status.
+
+
+> > +
+> > +static int sky1_audss_reset_status(struct reset_controller_dev *rcdev,
+> > +                                unsigned long id) {
+> > +     struct sky1_audss_reset *priv =3D to_sky1_audss_reset(rcdev);
+> > +     const struct sky1_audss_reset_map *signal =3D &priv->map[id];
+> > +     unsigned int value;
+> > +
+> > +     regmap_read(priv->regmap, signal->offset, &value);
+> > +     return !!(value & signal->mask); }
+> > +
+> > +static const struct reset_control_ops sky1_audss_reset_ops =3D {
+> > +     .reset    =3D sky1_audss_reset,
+> > +     .assert   =3D sky1_audss_reset_assert,
+> > +     .deassert =3D sky1_audss_reset_deassert,
+> > +     .status   =3D sky1_audss_reset_status,
+> > +};
+> > +
+> > +static const struct regmap_config sky1_audss_regmap_config =3D {
+> > +     .reg_bits =3D 32,
+> > +     .val_bits =3D 32,
+> > +     .reg_stride =3D 4,
+> > +};
+> > +
+> > +static void sky1_audss_reset_iounmap(void *data) {
+> > +     iounmap(data);
+> > +}
+> > +
+> > +static int sky1_audss_reset_get_regmap(struct sky1_audss_reset *priv)
 > > +{
-> > +	int i;
+> > +     struct device *dev =3D priv->rcdev.dev;
+> > +     void __iomem *base;
+> > +     int ret;
 > > +
-> > +	if (!kvm->arch.nested_mmus_size)
-> > +		return;
+> > +     priv->regmap =3D dev_get_regmap(dev->parent, NULL);
+> > +     if (priv->regmap)
+> > +             return 0;
 > > +
-> > +	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
-> > +		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
+> > +     base =3D of_iomap(dev->parent->of_node, 0);
+> > +     if (!base)
+> > +             return dev_err_probe(dev, -ENOMEM, "failed to iomap
+> > + address space\n");
 > > +
-> > +		if (kvm_s2_mmu_valid(mmu))
-> > +			unmap_mmu_ipa_range(mmu, gpa, size, may_block);
-> > +	}
+> > +     ret =3D devm_add_action_or_reset(dev, sky1_audss_reset_iounmap, b=
+ase);
+> > +     if (ret)
+> > +             return dev_err_probe(dev, ret, "failed to register
+> > + iounmap action\n");
 > > +
-> > +	kvm_invalidate_vncr_ipa(kvm, gpa, gpa + size);
-> 
-> I'm not overly fond of propagating the VNCR invalidation in all the S2
-> manipulations. I understand why you are doing it here, but I think we
-> need to have a better solution.
+> > +     priv->regmap =3D devm_regmap_init_mmio(dev, base,
+> &sky1_audss_regmap_config);
+> > +     if (IS_ERR(priv->regmap))
+> > +             return dev_err_probe(dev, PTR_ERR(priv->regmap),
+> > +                                  "failed to initialize regmap\n");
+>=20
+> Why is there a fallback path? The clock driver creates the regmap before
+> creating the reset aux device, so dev_get_regmap() can never fail.
+Agreed.=20
 
-I agree. I think moving kvm_invalidate_vncr_ipa() up one level, to the
-places where canonical IPA are being invalidated, is slightly more
-sensible.
 
-> 
-> Fundamentally, VNCR invalidation has nothing to do with S2. This
-> really is a EL2 S1 thing. And given that you have a reverse map per
-> s2_mmu, it would be easy enough to track VNCR TLBs through that.
-> 
-> It doesn't have to be part of this patch, but that would be a good
-> thing to disentangle as a subsequent patch.
+> > +
+> > +     return 0;
+> > +}
+> > +
+> > +static int sky1_audss_reset_probe(struct auxiliary_device *adev,
+> > +                               const struct auxiliary_device_id *id)
+> > +{
+> > +     struct sky1_audss_reset *priv;
+> > +     struct device *dev =3D &adev->dev;
+> > +     int ret;
+> > +
+> > +     priv =3D devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
+> > +     if (!priv)
+> > +             return -ENOMEM;
+> > +
+> > +     priv->map =3D sky1_audss_reset_map;
+> > +     priv->rcdev.owner =3D THIS_MODULE;
+> > +     priv->rcdev.nr_resets =3D ARRAY_SIZE(sky1_audss_reset_map);
+> > +     priv->rcdev.ops =3D &sky1_audss_reset_ops;
+> > +     priv->rcdev.of_node =3D dev->parent->of_node;
+>=20
+> auxiliary_device_create() uses device_set_of_node_from_dev() to inherit t=
+he
+> parent of_node, so you can use dev->of_node here.
+Done. rcdev.of_node now uses dev->of_node.
 
-I'll have a think, thanks!
+
+> > +     priv->rcdev.dev =3D dev;
+> > +     priv->rcdev.of_reset_n_cells =3D 1;
+>=20
+> No need to set of_reset_n_cells.
+>=20
+> > +
+> > +     dev_set_drvdata(dev, priv);
+>=20
+> This seems unnecessary as well.
+>=20
+> > +
+> > +     ret =3D sky1_audss_reset_get_regmap(priv);
+> > +     if (ret)
+> > +             return dev_err_probe(dev, ret, "failed to get
+> > + regmap\n");
+> > +
+> > +     return devm_reset_controller_register(dev, &priv->rcdev); }
+> > +
+> > +static const struct auxiliary_device_id sky1_audss_reset_ids[] =3D {
+> > +     { .name =3D "clk_sky1_audss.reset" },
+> > +     { }
+> > +};
+> > +MODULE_DEVICE_TABLE(auxiliary, sky1_audss_reset_ids);
+> > +
+> > +static struct auxiliary_driver sky1_audss_reset_driver =3D {
+> > +     .probe =3D sky1_audss_reset_probe,
+> > +     .id_table =3D sky1_audss_reset_ids, };
+> > +
+>=20
+> Drop this empty line.
+Removed dev_set_drvdata() and the extra blank line.
 
 Thanks,
-Wei-Lin Chang
-
-> 
-> Thanks,
-> 
-> 	M.
-> 
-> -- 
-> Without deviation from the norm, progress is not possible.
+Joakim
 
