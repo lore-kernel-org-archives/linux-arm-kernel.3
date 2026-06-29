@@ -4,132 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D879AC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 07:48:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC0C7C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 07:50:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mEa8kPpUCj7rcCD7ijUMPoeV7puoVbelN4G7TkDPWQQ=; b=Oz/yLkNDfM1rXonB2odRP0MmJR
-	T/EbUuw/n6mqzcLD97BUQC2Oh4l8P5ESwJlLJeLkHDrKNM0Rb5aEe5gJzg/a6gNvBYX8pYYtdWknd
-	OrYcnjklIPGzldsNlJJUZpfRhc8XqTgZ6ZmM5VEMhPQDz0caFOBh7kS9gr59GBwrrbf3vhGTS4dqI
-	dAt5GXrluFJeBJFsZn0kHdYUDCB7rbG9aRQDJ5i3yWXAeQuTXHKnY6AGq16V/XLmKVswageacRkCd
-	bsi8aPYMtf2Gq2bbDkpzN69RtAbD3Od2lhQBxzFR+Van4ryLQdP+ZlGYuC05TVW0QUST2/yLbw/ca
-	0FEEufng==;
+	bh=Qylp1+q58BKXjVYMlUJn3x4tvz3kf67QuXXQvLn3hVQ=; b=TYSkMOIulI95hUEe2OMS8qTkHa
+	qAZ+jqckuNyjXAk0v04CtHtsttUH2PNjBofRA3G9WhhFhvMvi0kcdjAivGdC6fLDShBfRgmH/xvAn
+	dj/IpYjrg9ixvYd5SA7i6ttEJYxkX6CSLNfxbNmqJdZRw98eaTPMze2WS/qisOWbuDkZ20icIEfNL
+	pWiCwgy8nfjHpzTgID6XXKRwYimtGKNi57LyIFAwwyUSI+lThstib3L5IQhaTN3Glh35S0vQdCnjA
+	/qhWhjY3icdiAvK+S/DoLFEcV1XqD5Y7tXLzXSW6mKnNc0Q6GlronMtLYTI+wkJCMTcKLjjK3Cple
+	eX5VHtGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we6jG-0000000Dwij-2E0V;
-	Mon, 29 Jun 2026 07:48:30 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1we6l4-0000000Dx7Z-3JRV;
+	Mon, 29 Jun 2026 07:50:22 +0000
+Received: from dd54918.kasserver.com ([85.13.167.58])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we6jD-0000000Dwf3-1fJS
+	id 1we6l1-0000000Dx5k-30Qj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 07:48:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=x9Ed5j8hNl4d8AvUnyGWvjAfrOYRLE/VMX0XHFwfO+VAEp+7CVby3Rsgh+O5UCAteu1B/MCzuI7odElb9gDt9UoJETewZ50Rm9g2kMeWLraPg2UKRXJcPdMMs9VMz3RFzkiHtJ1S3aNe6JTIEBflWdzhwi7JwvN1vtSqLS822MHZ9bT/pLdFfrzmk6QqxZONHjswpndQS22qxEZmlNUtMt6v7PyYoCbBCBCDZ57REUebjixcAD5Xa0PY4whcL48sEI1va1+e1rMgp1FhoSUfBMuWb4EDp1ihtpdmK4D1LYLa4tS9pAfIA0CXGcONGy3vRTG4/cK0nW/bSLeZ/fs7mQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=mEa8kPpUCj7rcCD7ijUMPoeV7puoVbelN4G7TkDPWQQ=;
- b=HpzR+8Rv3z3JbZ9OTDXokFBuRAAUZYZgJrom1yG9LzAcwjhxStuRyxVMK53IT7jZjZ55X26Brnco9UPKuAn24h1zxyepEd6lmbbLNxuMF0f4rQlNLE4FYhHtukpbMqi9VVe+5QZLqBdma4q0Cyt9cqjicZUJH/pQ9ADYt0OHA5Tuy6t+/fRByRSdd7AhWdMRuA5xEl28QMyptFn0Rnffiyv2AOD+l7OxIerD5sbKmQVIwvYN0724LiX6hGTgQXN6UWQkLiQafnfpjmQBzkB6E4gHtYUHIUb9G1M9VM7y5nF6GXTHRCh7zqvV10doXEOwKz0eVASG4xuMGzsYM0ItdQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mEa8kPpUCj7rcCD7ijUMPoeV7puoVbelN4G7TkDPWQQ=;
- b=r+fYN8WppNMo01v8P7sdokWVNvxjvEd9ldBpS+3iYgfPAf3iDP0iwINkSZPxfK77PL1uvOi4xV/tSG/3n1bcekOzV5HhmUA8Ax8bzoGFckguec6u31tdJ9C51ClCnmSohtBDltiujmUWwvUJnn5czJmMausqPd98gp/VdkZVp1iysU8gocyaP5pTsyOBcj3Cmwqf7PvOouSnlDhk2UOrBz0QR9nAnQRs6kyLppQbVaoKuK8t1Ci2aBRnqvfSeq8CODoL5lZ/9Tt1GJ9y6Jm3qH+AyV6AjOHLbpNERnZHRGQpJZ1r7Q5IhwsdlYfrIhY8EZbfx6aqS9G1APo6QdFKiQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GVXPR04MB10021.eurprd04.prod.outlook.com
- (2603:10a6:150:112::20) by PA1PR04MB10553.eurprd04.prod.outlook.com
- (2603:10a6:102:485::15) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Mon, 29 Jun
- 2026 07:48:08 +0000
-Received: from GVXPR04MB10021.eurprd04.prod.outlook.com
- ([fe80::d247:853:3e16:1994]) by GVXPR04MB10021.eurprd04.prod.outlook.com
- ([fe80::d247:853:3e16:1994%5]) with mapi id 15.21.0159.018; Mon, 29 Jun 2026
- 07:48:08 +0000
-From: chancel.liu@oss.nxp.com
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	Frank.Li@nxp.com,
-	s.hauer@pengutronix.de
-Cc: kernel@pengutronix.de,
-	festevam@gmail.com,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 4/4] arm64: dts: freescale: Add common DTS overlay for IMX-AUD-IO add-on board
-Date: Mon, 29 Jun 2026 16:47:34 +0900
-Message-ID: <20260629074734.3643227-5-chancel.liu@oss.nxp.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20260629074734.3643227-1-chancel.liu@oss.nxp.com>
-References: <20260629074734.3643227-1-chancel.liu@oss.nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SEWP216CA0137.KORP216.PROD.OUTLOOK.COM
- (2603:1096:101:2c0::6) To GVXPR04MB10021.eurprd04.prod.outlook.com
- (2603:10a6:150:112::20)
+	Mon, 29 Jun 2026 07:50:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=karo-electronics.de;
+	s=kas202603021246; t=1782719411;
+	bh=Qylp1+q58BKXjVYMlUJn3x4tvz3kf67QuXXQvLn3hVQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=ecw7erenvWIYPBx2V7ZPPuTiP0QJvB7JeAWgS4GWnn8/503xZok/8BGzb9DeXRFBc
+	 XeC7jO4MWatNjCHC1ECcBW6XrZdV0OBa382Qs/IVNEJ5dgLX3G92WP+J1ri7YIyWer
+	 dwai6hyb94q6EmVN0GrRTOkeBo/h0lefqhkodnLOH1A79zFz1cvQTTHVYCYQsOCsz1
+	 c62YtKjIwpqQE3i0RhHvCf2yilcCcl4J95W3ejucUfo5okw7f5V89GB8iMAPWRex8x
+	 ZZ1n2IpEQXDTL/6Gfp4KBftpnC4mSJJIA2vDTx0WN8aEMFIQMHm9Gls1wkkKm9TBcP
+	 0b7q1/LHFGtGQ==
+Received: from karo-electronics.de (unknown [89.1.81.74])
+	by dd54918.kasserver.com (Postfix) with ESMTPSA id 8485F7722430;
+	Mon, 29 Jun 2026 09:50:10 +0200 (CEST)
+Date: Mon, 29 Jun 2026 09:50:09 +0200
+From: Lothar =?UTF-8?B?V2HDn21hbm4=?= <LW@KARO-electronics.de>
+To: pankaj.gupta@oss.nxp.com
+Cc: Jonathan Corbet <corbet@lwn.net>, Shuah Khan
+ <skhan@linuxfoundation.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank
+ Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
+ Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+ Pankaj Gupta <pankaj.gupta@nxp.com>, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Frieder Schrempf
+ <frieder.schrempf@kontron.de>, kernel test robot <lkp@intel.com>,
+ sashiko-bot <sashiko-bot@kernel.org>
+Subject: Re: [PATCH v26 3/7] firmware: imx: add driver for NXP EdgeLock
+ Enclave
+Message-ID: <20260629095009.3256f956@karo-electronics.de>
+In-Reply-To: <20260629-imx-se-if-v26-3-146446285744@nxp.com>
+References: <20260629-imx-se-if-v26-0-146446285744@nxp.com>
+	<20260629-imx-se-if-v26-3-146446285744@nxp.com>
+Organization: Ka-Ro electronics GmbH
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GVXPR04MB10021:EE_|PA1PR04MB10553:EE_
-X-MS-Office365-Filtering-Correlation-Id: 735feabf-80b9-4657-5992-08ded5b2c2cc
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|23010399003|7416014|19092799006|376014|56012099006|11063799006|3023799007|22082099003|18002099003|13003099007;
-X-Microsoft-Antispam-Message-Info: VaZSRlVojQLdRxRR3bX+vlfYwhM7QenKtHwUBS7s0GYWhFnROrnpzfBUWMCpG6/3AHTr5KagGKTYtfGurQQ/ZuNxcplN7z37VhPxRk0e/wEKI7lyY+jmn760AYiKNjqoYBUld7gx2FWNhGi3citSXjiMjh+0zXFlxBt7hx3Z/zuK1pY78i5yMfCXqJNXzt0KrvTXkzSrBJHD+OCQ40C/0feGAR5H3469aUSHPP3N9vV446JXGgcDzdwVCIrDlMdf9RWN+6vRefNMy3yTUjYYTt5e6MzMFlJbODREFOd9cNgNh0XRhPWeWVqPRoPk9GgMvQP1EFVbAb+LSDA2EjeoSFp8H76xpUN/tDcgciKIsoGkBgxsanNtfF3qV1xWia2aAHS21e1ovUdfWMBL7OKMjQVJYte8wWRlXSJ+U3x21ip09eqDg4ynHYnB866ffqSr4UChwen2xSEmJ1HlUMRzAhSGYA/Wc8zgv5H2eN9bxixuMuNMqQv5qapnOU9VOteKbykbu9lNkRtd9RhMZOrF60o3wba/8kxbN+heCuDgJxDY3T7kFVjejybN1hvCkCRWSz+6tojg9h7YMz9qB9NlJh6g9TeVMNHaGshoAs8Ts/i0K5SctNi3h6NbAXK5kiC8haGogza338Tz0UK9QUcmB9pvMCBE2rWgtSkRTttQFjg=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB10021.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(23010399003)(7416014)(19092799006)(376014)(56012099006)(11063799006)(3023799007)(22082099003)(18002099003)(13003099007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?kkHKSFNehgEb4Gr0tXLklQoBZCJOvML7WNgfOtxh028IiyQqCXwd0R4hjcZ+?=
- =?us-ascii?Q?L1dTmVrGKXmJ6KWPn26aKLn8Zcz19BbLnwGZLC3zsHU2Y0W7BgAo0WWbNGcr?=
- =?us-ascii?Q?2ZoMbOw0VGwVVI+tevxZ8X25saT69PbiH2wyvQwiJ48cGaWEfI1jFxYZ/Vez?=
- =?us-ascii?Q?3s9xIkdiEAglqDSZHUTtRSneKomw7MnOFnUMIFk5/s9hWa4kI9IjQW2R4eNT?=
- =?us-ascii?Q?aXBQzTf3nHBITMut6UwD+gCT6TGMT0QBVF2JZ7DSuyn4Y8bSX9hDFX5sWEfb?=
- =?us-ascii?Q?qXW+t9Lx77xsXK0v47BzCf/w6XJxb5ej5aQov1fU39gE6VwVqUWO4CqIV6Wl?=
- =?us-ascii?Q?zZpj7z3pRRF9u9RTMKFQdMrxS5V+wd7KomUkyXy0WPDla4w04NqwTLmlbitC?=
- =?us-ascii?Q?HQKI1pBAGB4/sUeZGLh32t7MGq3t45HV65CqikuwRLy7zX+dr0JbMu2hniIW?=
- =?us-ascii?Q?Jqbo2X6nalbGBbDw+Jhs3N+ge+LvMNVFEZOozdAa011uvtzL9xdT1C4oiZsp?=
- =?us-ascii?Q?gG7tPwgNiAZKzMa4HU16TP3Ox8GGa1nG81YGBDZ/K9AY5tvZQrb8juptfj1C?=
- =?us-ascii?Q?Js9JpVZbjtBnAozFLAshkRhgIls0BvF48UQ55O7NI/gD5WpDuVOQg9k5QPgl?=
- =?us-ascii?Q?xjXCb6j0U/WbsSZVuPkpLL7MY+UbehHhDxOmwaoFShoBJrM2L2aqiqRD0CIx?=
- =?us-ascii?Q?eKnVSYc7lS9y7CY9PNuaDcF+xlnDHq7+3R9tiH7eScEfYpsQSPUa5Xhvcgir?=
- =?us-ascii?Q?dF2SfJF9Db78cYLC6o767KCgxSN5geVc7tZN/G4oVuT6y4WNeFRgSSdgGmcL?=
- =?us-ascii?Q?cfgVcCaJ0mUuhVah3GcjsA55iJ8ZXTj/BlOoYL61vMRF3D0+PXXuF51+befV?=
- =?us-ascii?Q?gB45mlHelpZLfkotEmXGAbo0nrNVt/JnzXhpeHM5HHC7mFdgrFSUTir6g2UJ?=
- =?us-ascii?Q?preXL6f2lj/FN1YZykQIWRoNLYsDKMgb1DDHiACnnufdo1X1CwubBMQxqqUH?=
- =?us-ascii?Q?Gk53ejKO3BJEGJ5B7nBPS+oQ3rCcwk7o4WX9ORyNiJRIIGSCOimgUb4IAwVC?=
- =?us-ascii?Q?KVySGs8KjIVC/KP6G1yGML8ECYIZ0q1RKtrBQllC4m5P+yW5Hfx8bAT0+nxm?=
- =?us-ascii?Q?eNUYPm9osm+YnO0nu/cKXa5PMWA9MfeH69Vhs/70x+Nr2F+SKQOgx2wujks5?=
- =?us-ascii?Q?9TraOYIjvCp53g7sk0LCulDK/b58iBgk46Bi+0xpuPOLpuwlqb//nHVTrjHI?=
- =?us-ascii?Q?xCzeh10gv1yq+u3b5W81q3Y1X6DT3eihq7M50RI1R8VEeppl140S/P3xrb0o?=
- =?us-ascii?Q?i5Mpgmxv4L80idabhqnvhrMVZswurhj23PbwBZDTtpcodIqXVvic5vfclsDz?=
- =?us-ascii?Q?T9kpqeLyvJjTsNGEuKsrztgRRO0Qk5P5gt1UNIcIpbMPWFHpFX/2Z0RK/Mt3?=
- =?us-ascii?Q?G2LMd3zHNY32SQOb2uemYtWhuQinvtwMeVM+H6eg3Ccdaj7i2QVVJIUytZs8?=
- =?us-ascii?Q?7hS6h3RYgrkXfHNvtKwRXIzVPSyQNQJKjv/dOfRcNrsOVJoJKrxlPGDs0KUg?=
- =?us-ascii?Q?Wow9N42bXUNphQzNXTUtXvpxnSBoXkBd/uWzVHa0WRdnvvy4AdK22XH97LXN?=
- =?us-ascii?Q?VwnV/XukRy0GBpCJ16P9VZHDUxj+dyYXLXnjt/wGnxTKeXDgd4mQEU/ZZNqw?=
- =?us-ascii?Q?mDOw2A4uHiiLUSVBNWaB4PSLMB7wv8W4Egbo0TnebLbxBvKBtq0EYY8JZ2kU?=
- =?us-ascii?Q?MrW5TGnIEFc/x0NgzxAwYO2pW1Y8d1ZP4Q4OpJJzsqAkN6b33viu?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 735feabf-80b9-4657-5992-08ded5b2c2cc
-X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB10021.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jun 2026 07:48:08.3913
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: PNwQMMUpnAkvbEZTs+ZWc+bwjy6E0iXvzTQ+hQ4yTRl5wYPLUCYy8WMutoklHzBNnb7U+zhPdsiGGpppWBcci0TMOtSYzUjXSakkP5aYeUjvHmuU2W53MRjCt6iMtp+X
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10553
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Spamd-Bar: /
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_004827_445964_2EC177A5 
-X-CRM114-Status: GOOD (  13.49  )
+X-CRM114-CacheID: sfid-20260629_005020_219299_BB72866B 
+X-CRM114-Status: GOOD (  16.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,107 +81,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chancel Liu <chancel.liu@nxp.com>
+Hi,
 
-Add common DTS overlay for the IMX-AUD-IO add-on board[1] which
-connects to the base board through a fsl,aud-io-slot connector.
+On Mon, 29 Jun 2026 17:51:59 +0530 pankaj.gupta@oss.nxp.com wrote:
+> From: Pankaj Gupta <pankaj.gupta@nxp.com>
+>=20
+> Add MU-based communication interface for secure enclave.
+>=20
+> NXP hardware IP(s) for secure-enclaves like Edgelock Enclave(ELE), are
+> embedded in the SoC to support the features like HSM, SHE & V2X, using
+> message based communication interface.
+>=20
+> The secure enclave FW communicates with Linux over single or multiple
+> dedicated messaging unit(MU) based interface(s).
+> Exists on i.MX SoC(s) like i.MX8ULP, i.MX93, i.MX95 etc.
+>=20
+> For i.MX9x SoC(s) there is at least one dedicated ELE MU(s) for each
+> world - Linux(one or more) and OPTEE-OS (one or more).
+>=20
+[...]
+> +	ret =3D se_fill_cmd_msg_hdr(priv, (struct se_msg_hdr *)&tx_msg->header,
+> +				  ELE_GET_INFO_REQ, ELE_GET_INFO_REQ_MSG_SZ,
+> +				  true);
+> +	if (ret)
+> +		goto exit;
+[...]
+> +/* Fill a command message header with a given command ID and length in b=
+ytes. */
+> +static inline int se_fill_cmd_msg_hdr(struct se_if_priv *priv, struct se=
+_msg_hdr *hdr,
+> +				      u8 cmd, u32 len, bool is_base_api)
+> +{
+> +	hdr->tag =3D priv->if_defs->cmd_tag;
+> +	hdr->ver =3D (is_base_api) ? priv->if_defs->base_api_ver : priv->if_def=
+s->fw_api_ver;
+> +	hdr->command =3D cmd;
+> +	hdr->size =3D len >> 2;
+> +
+> +	return 0;
+> +}
+>
+I don't see a point in having a function always return zero and
+implement error checks that will never be used.
 
-This board features a CS42888 codec providing 2 microphone inputs, 2
-line inputs and 6 channels audio output capability.
+[...]
+> +static const struct of_device_id se_match[] =3D {
+> +	{ .compatible =3D "fsl,imx8ulp-se-ele-hsm", .data =3D &imx8ulp_se_ele_h=
+sm},
+> +	{ .compatible =3D "fsl,imx93-se-ele-hsm", .data =3D &imx93_se_ele_hsm},
+> +	{},
+>
+Since the last entry in this array must be a NULL entry, there should be
+no comma after the {}. This will generate a compile error if (e.g. by
+patch conflict resolution) an entry is added after the end marker.
 
-[1]https://www.nxp.com/part/IMX-AUD-IO
 
-Signed-off-by: Chancel Liu <chancel.liu@nxp.com>
----
- arch/arm64/boot/dts/freescale/Makefile        |  4 ++
- arch/arm64/boot/dts/freescale/imx-aud-io.dtso | 57 +++++++++++++++++++
- 2 files changed, 61 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx-aud-io.dtso
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 8ddaab127ab9..f2417c20300c 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -672,11 +672,15 @@ dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-evk-pcie0-ep.dtb
- imx95-19x19-evk-pcie0-ep-dtbs += imx95-19x19-evk.dtb imx-pcie0-ep.dtbo
- imx95-19x19-evk-pcie1-ep-dtbs += imx95-19x19-evk.dtb imx-pcie1-ep.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-evk-pcie0-ep.dtb imx95-19x19-evk-pcie1-ep.dtb
-+imx95-19x19-evk-aud-io-dtbs += imx95-19x19-evk.dtb imx-aud-io.dtbo
-+dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-evk-aud-io.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-libra-rdk-fpsc.dtb
- 
- dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-verdin-evk.dtb
- 
- dtb-$(CONFIG_ARCH_MXC) += imx952-evk.dtb
-+imx952-evk-aud-io-dtbs += imx952-evk.dtb imx-aud-io.dtbo
-+dtb-$(CONFIG_ARCH_MXC) += imx952-evk-aud-io.dtb
- 
- imx8mm-kontron-dl-dtbs			:= imx8mm-kontron-bl.dtb imx8mm-kontron-dl.dtbo
- imx8mm-kontron-bl-lte-dtbs		:= imx8mm-kontron-bl.dtb imx8mm-kontron-bl-lte.dtbo
-diff --git a/arch/arm64/boot/dts/freescale/imx-aud-io.dtso b/arch/arm64/boot/dts/freescale/imx-aud-io.dtso
-new file mode 100644
-index 000000000000..311b7f984576
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx-aud-io.dtso
-@@ -0,0 +1,57 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Common Device Tree for the IMX-AUD-IO add-on board[1].
-+ * It connects to the base board through an AUD-IO slot.
-+ *
-+ * [1]https://www.nxp.com/part/IMX-AUD-IO
-+ *
-+ * Copyright 2026 NXP
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/gpio/gpio.h>
-+
-+&{/} {
-+	aud-io-sound-cs42888 {
-+		compatible = "fsl,imx-audio-card";
-+		model = "imx-cs42888";
-+
-+		pri-dai-link {
-+			link-name = "cs42888";
-+			format = "i2s";
-+			fsl,mclk-equal-bclk;
-+
-+			codec {
-+				sound-dai = <&audio_io_codec>;
-+			};
-+
-+			cpu {
-+				sound-dai = <&aud_io_cpu>;
-+			};
-+		};
-+	};
-+};
-+
-+&aud_io_i2c {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	audio_io_codec: codec@48 {
-+		compatible = "cirrus,cs42888";
-+		reg = <0x48>;
-+		clocks = <&aud_io_slot 0>;
-+		clock-names = "mclk";
-+		VA-supply = <&aud_io_reg_5v>;
-+		VD-supply = <&aud_io_reg_3v3>;
-+		VLS-supply = <&aud_io_reg_1v8>;
-+		VLC-supply = <&aud_io_reg_1v8>;
-+		#sound-dai-cells = <0>;
-+		reset-gpios = <&aud_io_slot 0 GPIO_ACTIVE_LOW>;
-+	};
-+};
-+
-+&aud_io_cpu {
-+	status = "okay";
-+};
--- 
-2.50.1
-
+Lothar Wa=C3=9Fmann
 
