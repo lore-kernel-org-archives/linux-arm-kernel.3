@@ -4,92 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09AA2C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 14:24:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A217FC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 14:25:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=geRPSWvxvMn9jDj9k0oxQ8NVSaQtfwxbqr6vTa84l6I=; b=fJThr+At7SsYJs/aSkkjhwBQ73
-	LCPfB0L9wFIkwUfWZYI0kIMcPIWibxmsp8lpu/8MGONBYd2RCxnzGdxRlC1iUNEEw+f6O80akT930
-	MwxDxbysi3lWOW8ecUrWz0dtzTR+Roc6SxcqeFv+gAEBOYseDUAD1GzQjLYm11UkOeqhZ47yhi0K8
-	oA1w7SqeCOtARn/SQDjJ/97CtCtrCZgOONPt6sY8B8Aimq1ZH/Jkia3myZ74CvclREXJPDdPA0ExT
-	yOw2HR0MLHHTWP4S22T9oDlGxhyCXJrPOrdBXwKbCJluMEdLPwOgvUOmfvdS+/21p7sciFrI4h5Ix
-	VIxmUmAg==;
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ST6f+Ye0p9/T3JscEZ5f79X56UQF/QbBzy9biCJtv04=; b=LxMvMFO1ZBA8gIl3rVARvf23rv
+	zGh6bkCa0+ydBoF/P2wI7l8BH8qpNb4zzMrJlCJW4mKYw5sCFzTPKDaiiu47K0ylYKKANy4SZDGGZ
+	Tn4OKZfXxJXvdpDOgb5LAx/A7eHNiEbt3RcjT5utbUGVqYzSvVDYVCjbRJC4ojzJ8iu+W71SNO2uj
+	jQX0vRUqWf3ceTRpG6Xii4J4iyz8yrmRdAoPyVe3jWBXvRm/94gI4ucoaPXfzNg6jtqh662qIRPlO
+	xgLyiNVImoycBfg5zBilPTvqXCHu5dYW7cR1IcETFxxoOBUP3tFaWWIAsxpW9BNsH52KKTHTVM/fP
+	tCrRhT4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weCuH-0000000Es0C-2D11;
-	Mon, 29 Jun 2026 14:24:17 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	id 1weCut-0000000Es8T-2hRg;
+	Mon, 29 Jun 2026 14:24:55 +0000
+Received: from fout-b3-smtp.messagingengine.com ([202.12.124.146])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weCuE-0000000EryM-17IP
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 14:24:15 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-37fb17e1435so979836a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 07:24:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782743053; x=1783347853; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=geRPSWvxvMn9jDj9k0oxQ8NVSaQtfwxbqr6vTa84l6I=;
-        b=svnKla/jiz/Fto50MswQye/+x0EAOS5ObWs39QicS8oVzdFNu1MYwOuis6sPFVpXwc
-         JvO0Wov8teD7y2bMBrIWn+ivqSu999PJl8rZKcW2RJDEJbC4WLOMDNCetbe8SV+WIlWs
-         YzZTFBBaEW1u3un6NcXpRF+2WqL+qCnVn6VaUb8n9lFqnmCHZbY0KJlloIF2S2UEL9Yu
-         vT9bVD0UqdL3OsrIGqtzPUwpBkAnFMXNWtjD64PsBae2Gs83zoy8h9UsXVX4nfAN0pw1
-         DAXy0kE9+RRW3Oiqws3JpCPresS+yCCrrihC8tSAjcLnvG2ahYpiBZASwEToj6YmBTQ8
-         592g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782743053; x=1783347853;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=geRPSWvxvMn9jDj9k0oxQ8NVSaQtfwxbqr6vTa84l6I=;
-        b=HmKj9cDn9tIbxKnBlC8ycuUq5CLPeuMX7aQ0F7WR2aZ/AkkKAJ6ELHdmM79CmDeNY/
-         GCykLOn5oUB1a3iyJoX8yoYXdwjRmWDCnFBd4EaXFfV6nDuoiqaqqZy8pYzw2cHd+h2J
-         sLh82W9ff3zsvuo7ZrMblPVbo47ebMerIVb0VpXwjaLG1AMjzzixhYzw7D57P0FegDdl
-         URKi5CtWgOBK3wI0kMgsxgDDmm1iJS7ha0UnxbJcRC4gWcj7JO+CyO0J8jw4LREuHEtD
-         A3K9hm/0YxpN0eVC0AGh+mgxrnn88GtworjeklUlU6BYR7PInhmex4le0vzg6Tc8e0o9
-         mO0w==
-X-Forwarded-Encrypted: i=1; AHgh+RqzcIE8EKIUdfDCrEuvVGaKQD2MPSmWb6pJeYxRIxmGMAepWTXGQnXrUMTsADVWmlYZsVvNmJxjS0KNR4tBcxSw@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx9X/z9X+IE3+JOiCr4mTN+F63mN/AV3f+y28EK4XLkCLUscjYC
-	XhL2bptsN5o4xlJdHUsF+4mgMb2hcmQ1cx8qV0VU/i6MKA1blvyO0cCP
-X-Gm-Gg: AfdE7cmKFMEmcs7HU5O0UkE3BcxeOOOw0BxGl/iILr/L6TakLZNNyL4//eFjEbpk5hV
-	bcbnSOu5t7OgYaq2DKPeOCxdRnNu75GSZ0DIIxMfVYkL0KEhtKjTSP2ks2eXG3ajFwaLkIE0y+a
-	YGaUzzH5Iv+qXdSje6zAjvd4ACcil8NQGo90zmC9gXNBz0nDXmGWq0RolbYdLNPZig5eVuJ9QEf
-	wrGvWBwnVWxRpN8dXu2R7+YnKCGWft8Xafq+jDdx2WtkdMjMxE5k/ELYy5l3/TM7KvdqgCz9Vsz
-	r2nUd5fSbptCLwUo7pzvRQ+Lz4wEAQg0ARFUs42QJ9JKR2rJPRwlKkMlej5IWyvnHuzBauQICBk
-	Sxvc+GpTWAktmNro9ohhd+Exn0Oip4H9kq6by8iy9Zhcsl91sv0szZOKeMOMMHGemySU/tO9Lxw
-	lIDr+JA0ApIH6N1awSPxwCw210LQ7zIOiFR/YI7FeDyocw
-X-Received: by 2002:a17:90b:510f:b0:380:540:d49a with SMTP id 98e67ed59e1d1-3800540eb15mr3073658a91.7.1782743053280;
-        Mon, 29 Jun 2026 07:24:13 -0700 (PDT)
-Received: from buffalo-ssd (M014013071096.v4.enabler.ne.jp. [14.13.71.96])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-37fd2bd0e49sm3919763a91.0.2026.06.29.07.24.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Jun 2026 07:24:12 -0700 (PDT)
-From: Akari Tsuyukusa <akkun11.open@gmail.com>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Chen-Yu Tsai <wenst@chromium.org>,
-	Miles Chen <miles.chen@mediatek.com>
-Cc: Akari Tsuyukusa <akkun11.open@gmail.com>,
-	linux-clk@vger.kernel.org (open list:COMMON CLK FRAMEWORK),
-	linux-kernel@vger.kernel.org (open list:ARM/Mediatek SoC support),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Mediatek SoC support),
-	linux-mediatek@lists.infradead.org (moderated list:ARM/Mediatek SoC support)
-Subject: [PATCH] clk: mediatek: fix memory leak on module removal
-Date: Mon, 29 Jun 2026 23:23:40 +0900
-Message-ID: <20260629142348.273766-1-akkun11.open@gmail.com>
-X-Mailer: git-send-email 2.54.0
+	id 1weCuq-0000000Es7L-21qf;
+	Mon, 29 Jun 2026 14:24:54 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfout.stl.internal (Postfix) with ESMTP id 5DA241D0004C;
+	Mon, 29 Jun 2026 10:24:50 -0400 (EDT)
+Received: from phl-imap-05 ([10.202.2.95])
+  by phl-compute-04.internal (MEProxy); Mon, 29 Jun 2026 10:24:51 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1782743090;
+	 x=1782829490; bh=ST6f+Ye0p9/T3JscEZ5f79X56UQF/QbBzy9biCJtv04=; b=
+	QpqdxALBlVVbSg1RXbbjqLWGXcZOg6UqpE3Vp6LevI4Da066273Jj7jYVeGLX46X
+	LinpDyHOTAAY1ongsWzSZL+cCdadSKdT0xgB5OPkSaEwxh5/PislXxwdCzTIn1oC
+	REt8J2lpL+fvicpf35ivwedoOFMDa8U26a+Af0XNlCdSTmG3z5R12GILfzE6SmTw
+	FSZhN3jd43gzf68bIdGOSAU4nIKKt3MyN2QskGPZia8vNMzlX9e7VXzhu4kxYVYg
+	UDp5rYOlGWSODvbwl5w7pVhSokE3VL50QWNcbqiwsUhiYZ7tyEoxKDIwx448Lzze
+	gpc1InqfpdaZWMjyp3kd3g==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1782743090; x=
+	1782829490; bh=ST6f+Ye0p9/T3JscEZ5f79X56UQF/QbBzy9biCJtv04=; b=e
+	D8S00wyxDWIHB4Vh6oD0X5VzqSqT3z4JotdW/BevQ/hvoQRvSJ4gTpnwUbUNiVvN
+	G8siwGcgZmVG/TiUnnHXTn1tsmN/subJSQHJswtPIGvID4LqW/bOCUf3i8XXJylD
+	WXFxcFkgAA51bD9rS9zR/PPIXlhSNlheEG9hBMoaX7lGzr2EPU8twS2qKcETnnQm
+	Qs5hEZixKNmtvZib/V3CaUcHSInjjz5LDs6JZn2Dya+ogiS20nIaSB/Wve0+l3vU
+	4lYeZ8peAB5opxA5w2Az8mr0V2i2rBQh06bw6SfOrM/yaqhg/PcE4nsPAcFWerV8
+	TtuULrK3Mxq74ikYvQblg==
+X-ME-Sender: <xms:MIBCaql7Lgd3sryMBTzkKROi9XQHyr-mPzl__i6jqTbD1qnnWKapeA>
+    <xme:MIBCaspQPzsdeixLixlgpZMYG5LAHo2BNmL19hPCnpr36VcfZX9X-UrFYGxcz-wzQ
+    FHMcFjDOH5GNavn-sKvTKphcbpDb8uMr6ot8UHnPkfiaw3UDeqj7rPH>
+X-ME-Proxy-Cause: dmFkZTFwMprh5ZTFo5dfY8jM7ZxjUWaH+6tuhRdcmlFtEOFs7CUeegyqf4KKEhiSUkhGfs
+    shXdXn9QyoPevOyt3wuw7W3b5VIqMtvVsBDfkCDz6NnAXXSMKMS5RqJu9AKvF7V/7Z/6Bi
+    o0wdMW9CiqJY/GgvBhOb0boUTG3wawZBpqPqCJpYSmm0ZUUPAxL/htVEpmvED9VgSAp9uO
+    zvahS1FdRiM/3V4XEQKoztXK7nRXCyS0PV0utsqTVPI12PA5tNhyvrCWLN5gRjPD2bHxU6
+    yOkzZKnYaHdZcjhI1InBzIpD6AI5/7LesBqxsjdlhlSFuvuQ25fjoVntskThnjOfxN+lZE
+    lFlNPLX+2itzUULLge6bWTtAB4gI3sI98mx95AMy7L7s3J2Lv71eLqppsCyvkKkEp2BD1K
+    X6EPcmiBSA1+8CjSwZ9bnZEcfmRccnhjlt2iNkvsKWyLj1/wdv94pbMwFcIJuz9wDCbxo9
+    iBNu3jQYL8WYsjMfsNE2vt4jeYv+M/ZCxcL9u0F0peViPJlj6wA+lX7v8n1XmcHqI61L+w
+    oLntPH/4/NI3qcbGTonJrQKLjbjbudgB6r41pCwHJNyhc1FcWRmp+vAdOlmUYuMVG7tHGh
+    6rD7rTPwVD+A8OzG+9MFeYdJfte1jipxt2d5zch6FCoqCZ/4EPVTxch9C7GQ
+X-ME-Proxy: <xmx:MIBCatSPI8gdpFe_jZGU980MEecKsgaD01fqwY3y0NFvfmGlqDlOxA>
+    <xmx:MIBCao34oOmlMnXycJ5rfPkhkaUAebnqg9lvHyA5mty5cHOJD-WBYA>
+    <xmx:MIBCag-Iqfk-FL1_oE5qTJym1-rZQx9v3Q9OVRepLRT0ApXpjHMnWA>
+    <xmx:MIBCap_cFbmtt8ZxWbtOgzQq15eYwtPWSzjtzUotI0VkfSQ6bHQfuw>
+    <xmx:MoBCasDybz41gqrB1Ue2uuwv7YF9L8UCJORz1VN9UqDok726_y_e3jKq>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 1B5D1182007E; Mon, 29 Jun 2026 10:24:48 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-ThreadId: AbUlhqeXux_w
+Date: Mon, 29 Jun 2026 16:24:27 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Andreas Schwab" <schwab@linux-m68k.org>,
+ "Arnd Bergmann" <arnd@kernel.org>
+Cc: "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
+ "Bartosz Golaszewski" <brgl@kernel.org>, "Andrew Lunn" <andrew@lunn.ch>,
+ "Sebastian Hesselbarth" <sebastian.hesselbarth@gmail.com>,
+ "Gregory Clement" <gregory.clement@bootlin.com>,
+ "Frank Li" <Frank.Li@nxp.com>, "Robert Jarzmik" <robert.jarzmik@free.fr>,
+ "Krzysztof Kozlowski" <krzk@kernel.org>,
+ "Greg Ungerer" <gerg@linux-m68k.org>,
+ "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
+ "Hauke Mehrtens" <hauke@hauke-m.de>,
+ =?UTF-8?Q?Rafa=C5=82_Mi=C5=82ecki?= <zajec5@gmail.com>,
+ "Yoshinori Sato" <ysato@users.sourceforge.jp>,
+ "John Paul Adrian Glaubitz" <glaubitz@physik.fu-berlin.de>,
+ "Linus Walleij" <linusw@kernel.org>,
+ "Dmitry Torokhov" <dmitry.torokhov@gmail.com>,
+ "Jakub Kicinski" <kuba@kernel.org>, "Paolo Abeni" <pabeni@redhat.com>,
+ "Dominik Brodowski" <linux@dominikbrodowski.net>,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, patches@opensource.cirrus.com,
+ linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+ linux-sh@vger.kernel.org, linux-input@vger.kernel.org,
+ linux-media@vger.kernel.org, Netdev <netdev@vger.kernel.org>,
+ linux-sunxi@lists.linux.dev, linux-phy@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-sound@vger.kernel.org
+Message-Id: <bb0e4e89-cefb-40e7-9373-f76ce6c0efa5@app.fastmail.com>
+In-Reply-To: <mvmik71win7.fsf@suse.de>
+References: <20260629132633.1300009-1-arnd@kernel.org>
+ <mvmik71win7.fsf@suse.de>
+Subject: Re: [PATCH 00/13] treewide: replace linux/gpio.h
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_072414_311309_5E496E18 
-X-CRM114-Status: GOOD (  11.88  )
+X-CRM114-CacheID: sfid-20260629_072452_962764_F6863128 
+X-CRM114-Status: GOOD (  11.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,156 +130,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some MediaTek clock drivers do not call platform_set_drvdata() during
-probe(), but their remove() callback calls platform_get_drvdata(). This
-results in platform_get_drvdata() returning NULL, which leads to calling
-mtk_free_clk_data(NULL) -> kfree(NULL).
-Therefore, the actual clk_data is never released, causing a memory leak.
+On Mon, Jun 29, 2026, at 16:01, Andreas Schwab wrote:
+> On Jun 29 2026, Arnd Bergmann wrote:
+>
+>> From: Arnd Bergmann <arnd@arndb.de>
+>>
+>> The linux/gpio.h header used to be the global definition for the gpio
+>> interfaces, with 1100 users back in linux-3.17. In linux-7.2, only about
+>> 130 of those remain, so this series cleans out the rest.
+>>
+>> In each subsystem, we can replace the header either with
+>> linux/gpio/consumer.h for users of the modern gpio descriptor interface,
+>
+> A few of them already used <linux/gpio/consumer.h>, and is duplicated
+> now.
 
-Fix this by calling platform_set_drvdata() during probe.
+Indeed, I have removed the extra ones now and folded those into
+the patches.
 
-Fixes: 124294ff468f ("clk: mediatek: mt8192: Move apmixedsys clock driver to its own file")
-Fixes: 4c02c9af3cb9 ("clk: mediatek: mt8173: Break down clock drivers and allow module build")
-Fixes: 54b7026f011e ("clk: mediatek: mt8135-apmixedsys: Convert to platform_driver and module")
-Fixes: c50e2ea6507b ("clk: mediatek: mt7622-apmixedsys: Add .remove() callback for module build")
-Fixes: 0d363282bb0c ("clk: mediatek: Add MediaTek Helio X10 MT6795 clock drivers")
-Fixes: c6368ce86435 ("clk: mediatek: mt2712-apmixedsys: Add .remove() callback for module build")
-Fixes: 838b86331c5e ("clk: mediatek: mt7622: Move infracfg to clk-mt7622-infracfg.c")
-Signed-off-by: Akari Tsuyukusa <akkun11.open@gmail.com>
----
- drivers/clk/mediatek/clk-mt2712-apmixedsys.c | 1 +
- drivers/clk/mediatek/clk-mt6795-apmixedsys.c | 1 +
- drivers/clk/mediatek/clk-mt6795-infracfg.c   | 1 +
- drivers/clk/mediatek/clk-mt6795-pericfg.c    | 1 +
- drivers/clk/mediatek/clk-mt7622-apmixedsys.c | 1 +
- drivers/clk/mediatek/clk-mt7622-infracfg.c   | 1 +
- drivers/clk/mediatek/clk-mt8135-apmixedsys.c | 1 +
- drivers/clk/mediatek/clk-mt8173-apmixedsys.c | 1 +
- drivers/clk/mediatek/clk-mt8173-infracfg.c   | 1 +
- drivers/clk/mediatek/clk-mt8192-apmixedsys.c | 1 +
- 10 files changed, 10 insertions(+)
+     Arnd
 
-diff --git a/drivers/clk/mediatek/clk-mt2712-apmixedsys.c b/drivers/clk/mediatek/clk-mt2712-apmixedsys.c
-index 54b18e9f83f8..24522fc24019 100644
---- a/drivers/clk/mediatek/clk-mt2712-apmixedsys.c
-+++ b/drivers/clk/mediatek/clk-mt2712-apmixedsys.c
-@@ -129,6 +129,7 @@ static int clk_mt2712_apmixed_probe(struct platform_device *pdev)
- 		goto unregister_plls;
- 	}
+diff --git a/drivers/gpib/gpio/gpib_bitbang.c b/drivers/gpib/gpio/gpib_bitbang.c
+index 2e8d895db06a..34d14b94a0b8 100644
+--- a/drivers/gpib/gpio/gpib_bitbang.c
++++ b/drivers/gpib/gpio/gpib_bitbang.c
+@@ -64,7 +64,6 @@
+ #include <linux/gpio/consumer.h>
+ #include <linux/gpio/driver.h>
+ #include <linux/gpio/machine.h>
+-#include <linux/gpio/consumer.h>
+ #include <linux/irq.h>
  
-+	platform_set_drvdata(pdev, clk_data);
- 	return 0;
+ static int sn7516x_used = 1, sn7516x;
+diff --git a/drivers/input/keyboard/matrix_keypad.c b/drivers/input/keyboard/matrix_keypad.c
+index 98d0269a978f..8863b741d1a3 100644
+--- a/drivers/input/keyboard/matrix_keypad.c
++++ b/drivers/input/keyboard/matrix_keypad.c
+@@ -16,7 +16,6 @@
+ #include <linux/interrupt.h>
+ #include <linux/jiffies.h>
+ #include <linux/module.h>
+-#include <linux/gpio/consumer.h>
+ #include <linux/input/matrix_keypad.h>
+ #include <linux/slab.h>
+ #include <linux/of.h>
+diff --git a/drivers/input/misc/soc_button_array.c b/drivers/input/misc/soc_button_array.c
+index eb11bf2e9436..a6c984205123 100644
+--- a/drivers/input/misc/soc_button_array.c
++++ b/drivers/input/misc/soc_button_array.c
+@@ -15,7 +15,6 @@
+ #include <linux/dmi.h>
+ #include <linux/gpio/consumer.h>
+ #include <linux/gpio_keys.h>
+-#include <linux/gpio/consumer.h>
+ #include <linux/platform_device.h>
  
- unregister_plls:
-diff --git a/drivers/clk/mediatek/clk-mt6795-apmixedsys.c b/drivers/clk/mediatek/clk-mt6795-apmixedsys.c
-index 123d5d7fea85..b607592a7c37 100644
---- a/drivers/clk/mediatek/clk-mt6795-apmixedsys.c
-+++ b/drivers/clk/mediatek/clk-mt6795-apmixedsys.c
-@@ -175,6 +175,7 @@ static int clk_mt6795_apmixed_probe(struct platform_device *pdev)
- 	dev_dbg(dev, "Performing initial setup for MD1\n");
- 	clk_mt6795_apmixed_setup_md1(base);
+ static bool use_low_level_irq;
+diff --git a/drivers/net/ethernet/oki-semi/pch_gbe/pch_gbe_main.c b/drivers/net/ethernet/oki-semi/pch_gbe/pch_gbe_main.c
+index 88c5c52e0e38..5f5adc9c9e83 100644
+--- a/drivers/net/ethernet/oki-semi/pch_gbe/pch_gbe_main.c
++++ b/drivers/net/ethernet/oki-semi/pch_gbe/pch_gbe_main.c
+@@ -16,7 +16,6 @@
+ #include <linux/net_tstamp.h>
+ #include <linux/ptp_classify.h>
+ #include <linux/ptp_pch.h>
+-#include <linux/gpio/consumer.h>
  
-+	platform_set_drvdata(pdev, clk_data);
- 	return 0;
+ #define PCH_GBE_MAR_ENTRIES		16
+ #define PCH_GBE_SHORT_PKT		64
+diff --git a/drivers/net/phy/mdio_device.c b/drivers/net/phy/mdio_device.c
+index a18263d5bb02..06151f207134 100644
+--- a/drivers/net/phy/mdio_device.c
++++ b/drivers/net/phy/mdio_device.c
+@@ -9,7 +9,6 @@
+ #include <linux/delay.h>
+ #include <linux/errno.h>
+ #include <linux/gpio/consumer.h>
+-#include <linux/gpio/consumer.h>
+ #include <linux/init.h>
+ #include <linux/interrupt.h>
+ #include <linux/kernel.h>
+diff --git a/drivers/phy/broadcom/phy-bcm-ns2-usbdrd.c b/drivers/phy/broadcom/phy-bcm-ns2-usbdrd.c
+index d9c06129ed23..171bf097a8b8 100644
+--- a/drivers/phy/broadcom/phy-bcm-ns2-usbdrd.c
++++ b/drivers/phy/broadcom/phy-bcm-ns2-usbdrd.c
+@@ -4,7 +4,6 @@
+ #include <linux/delay.h>
+ #include <linux/extcon-provider.h>
+ #include <linux/gpio/consumer.h>
+-#include <linux/gpio/consumer.h>
+ #include <linux/init.h>
+ #include <linux/interrupt.h>
+ #include <linux/io.h>
+diff --git a/drivers/phy/ti/phy-j721e-wiz.c b/drivers/phy/ti/phy-j721e-wiz.c
+index 2233babc0078..1f5dba49ace4 100644
+--- a/drivers/phy/ti/phy-j721e-wiz.c
++++ b/drivers/phy/ti/phy-j721e-wiz.c
+@@ -12,7 +12,6 @@
+ #include <linux/clk.h>
+ #include <linux/clk-provider.h>
+ #include <linux/gpio/consumer.h>
+-#include <linux/gpio/consumer.h>
+ #include <linux/io.h>
+ #include <linux/module.h>
+ #include <linux/mfd/syscon.h>
+diff --git a/include/linux/mfd/ti-lmu.h b/include/linux/mfd/ti-lmu.h
+index 5040c7d1e1b9..2089ec5124e8 100644
+--- a/include/linux/mfd/ti-lmu.h
++++ b/include/linux/mfd/ti-lmu.h
+@@ -10,7 +10,6 @@
+ #ifndef __MFD_TI_LMU_H__
+ #define __MFD_TI_LMU_H__
  
- unregister_ref2usb:
-diff --git a/drivers/clk/mediatek/clk-mt6795-infracfg.c b/drivers/clk/mediatek/clk-mt6795-infracfg.c
-index e4559569f5b0..12146bb3b726 100644
---- a/drivers/clk/mediatek/clk-mt6795-infracfg.c
-+++ b/drivers/clk/mediatek/clk-mt6795-infracfg.c
-@@ -116,6 +116,7 @@ static int clk_mt6795_infracfg_probe(struct platform_device *pdev)
- 	if (ret)
- 		goto unregister_cpumuxes;
+-#include <linux/gpio/consumer.h>
+ #include <linux/notifier.h>
+ #include <linux/regmap.h>
+ #include <linux/gpio/consumer.h>
+diff --git a/sound/soc/codecs/cs42l84.c b/sound/soc/codecs/cs42l84.c
+index 36c3abc21fed..f2448b4c11fc 100644
+--- a/sound/soc/codecs/cs42l84.c
++++ b/sound/soc/codecs/cs42l84.c
+@@ -16,7 +16,6 @@
+ #include <linux/init.h>
+ #include <linux/delay.h>
+ #include <linux/i2c.h>
+-#include <linux/gpio/consumer.h>
+ #include <linux/regmap.h>
+ #include <linux/slab.h>
+ #include <linux/acpi.h>
+diff --git a/sound/soc/codecs/dmic.c b/sound/soc/codecs/dmic.c
+index 8b05d6f9b429..cbed11136935 100644
+--- a/sound/soc/codecs/dmic.c
++++ b/sound/soc/codecs/dmic.c
+@@ -7,7 +7,6 @@
  
-+	platform_set_drvdata(pdev, clk_data);
- 	return 0;
- 
- unregister_cpumuxes:
-diff --git a/drivers/clk/mediatek/clk-mt6795-pericfg.c b/drivers/clk/mediatek/clk-mt6795-pericfg.c
-index d48240eb2a67..28faeb2e657a 100644
---- a/drivers/clk/mediatek/clk-mt6795-pericfg.c
-+++ b/drivers/clk/mediatek/clk-mt6795-pericfg.c
-@@ -125,6 +125,7 @@ static int clk_mt6795_pericfg_probe(struct platform_device *pdev)
- 	if (ret)
- 		goto unregister_composites;
- 
-+	platform_set_drvdata(pdev, clk_data);
- 	return 0;
- 
- unregister_composites:
-diff --git a/drivers/clk/mediatek/clk-mt7622-apmixedsys.c b/drivers/clk/mediatek/clk-mt7622-apmixedsys.c
-index 8a29eaab0cfc..a9fc2e5536b3 100644
---- a/drivers/clk/mediatek/clk-mt7622-apmixedsys.c
-+++ b/drivers/clk/mediatek/clk-mt7622-apmixedsys.c
-@@ -109,6 +109,7 @@ static int clk_mt7622_apmixed_probe(struct platform_device *pdev)
- 	if (ret)
- 		goto unregister_gates;
- 
-+	platform_set_drvdata(pdev, clk_data);
- 	return 0;
- 
- unregister_gates:
-diff --git a/drivers/clk/mediatek/clk-mt7622-infracfg.c b/drivers/clk/mediatek/clk-mt7622-infracfg.c
-index cfdf3b07c3e0..b44baf521d2f 100644
---- a/drivers/clk/mediatek/clk-mt7622-infracfg.c
-+++ b/drivers/clk/mediatek/clk-mt7622-infracfg.c
-@@ -90,6 +90,7 @@ static int clk_mt7622_infracfg_probe(struct platform_device *pdev)
- 	if (ret)
- 		goto unregister_cpumuxes;
- 
-+	platform_set_drvdata(pdev, clk_data);
- 	return 0;
- 
- unregister_cpumuxes:
-diff --git a/drivers/clk/mediatek/clk-mt8135-apmixedsys.c b/drivers/clk/mediatek/clk-mt8135-apmixedsys.c
-index 19e4ee489ec3..41e5cfbcbb76 100644
---- a/drivers/clk/mediatek/clk-mt8135-apmixedsys.c
-+++ b/drivers/clk/mediatek/clk-mt8135-apmixedsys.c
-@@ -66,6 +66,7 @@ static int clk_mt8135_apmixed_probe(struct platform_device *pdev)
- 	if (ret)
- 		goto unregister_plls;
- 
-+	platform_set_drvdata(pdev, clk_data);
- 	return 0;
- 
- unregister_plls:
-diff --git a/drivers/clk/mediatek/clk-mt8173-apmixedsys.c b/drivers/clk/mediatek/clk-mt8173-apmixedsys.c
-index d7d416172ab3..fe36d2eac3da 100644
---- a/drivers/clk/mediatek/clk-mt8173-apmixedsys.c
-+++ b/drivers/clk/mediatek/clk-mt8173-apmixedsys.c
-@@ -179,6 +179,7 @@ static int clk_mt8173_apmixed_probe(struct platform_device *pdev)
- 	if (r)
- 		goto unregister_ref2usb;
- 
-+	platform_set_drvdata(pdev, clk_data);
- 	return 0;
- 
- unregister_ref2usb:
-diff --git a/drivers/clk/mediatek/clk-mt8173-infracfg.c b/drivers/clk/mediatek/clk-mt8173-infracfg.c
-index fa2d1d557e04..b923b73c64f6 100644
---- a/drivers/clk/mediatek/clk-mt8173-infracfg.c
-+++ b/drivers/clk/mediatek/clk-mt8173-infracfg.c
-@@ -128,6 +128,7 @@ static int clk_mt8173_infracfg_probe(struct platform_device *pdev)
- 	if (r)
- 		goto unregister_clk_hw;
- 
-+	platform_set_drvdata(pdev, clk_data);
- 	return 0;
- 
- unregister_clk_hw:
-diff --git a/drivers/clk/mediatek/clk-mt8192-apmixedsys.c b/drivers/clk/mediatek/clk-mt8192-apmixedsys.c
-index b0563a285bd6..446c55b77777 100644
---- a/drivers/clk/mediatek/clk-mt8192-apmixedsys.c
-+++ b/drivers/clk/mediatek/clk-mt8192-apmixedsys.c
-@@ -176,6 +176,7 @@ static int clk_mt8192_apmixed_probe(struct platform_device *pdev)
- 	if (r)
- 		goto unregister_gates;
- 
-+	platform_set_drvdata(pdev, clk_data);
- 	return r;
- 
- unregister_gates:
--- 
-2.54.0
-
+ #include <linux/delay.h>
+ #include <linux/gpio/consumer.h>
+-#include <linux/gpio/consumer.h>
+ #include <linux/platform_device.h>
+ #include <linux/regulator/consumer.h>
+ #include <linux/slab.h>
 
