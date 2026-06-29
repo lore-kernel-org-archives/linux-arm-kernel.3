@@ -4,118 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A217FC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 14:25:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66F7BC43327
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 14:29:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ST6f+Ye0p9/T3JscEZ5f79X56UQF/QbBzy9biCJtv04=; b=LxMvMFO1ZBA8gIl3rVARvf23rv
-	zGh6bkCa0+ydBoF/P2wI7l8BH8qpNb4zzMrJlCJW4mKYw5sCFzTPKDaiiu47K0ylYKKANy4SZDGGZ
-	Tn4OKZfXxJXvdpDOgb5LAx/A7eHNiEbt3RcjT5utbUGVqYzSvVDYVCjbRJC4ojzJ8iu+W71SNO2uj
-	jQX0vRUqWf3ceTRpG6Xii4J4iyz8yrmRdAoPyVe3jWBXvRm/94gI4ucoaPXfzNg6jtqh662qIRPlO
-	xgLyiNVImoycBfg5zBilPTvqXCHu5dYW7cR1IcETFxxoOBUP3tFaWWIAsxpW9BNsH52KKTHTVM/fP
-	tCrRhT4A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wBpbsi5FzX0qyeI5y08KpDoYRn3UiM6EZGXZ0C5P48Q=; b=BcaWEs9Gv7HpXM9SJChvzfGcIg
+	B+WDqxMw1DP0G0Qvr6gAt5IwT6QYxtwc/czeZS+mGmrdGierZ5EMvJlTCNUoeGNuhCL7mkqeeynup
+	8uWy4fqo09GGgLhixFzworAxKFAdkkxNAGr0qqPxeKKPcGq6VkamdIrCRiZfNI/05SitUC3GizHOo
+	Hd3/FjlTEjGJlFhrbmzQXgd7geFlO7dV89JpHoynjQL24EmRw7ZtY1DZ5jzW8ZWGeIV2q60DRl6J/
+	kChf2D9pW9MLVRmLNlvfFB9/g5KxBtKg0NNGvrJrAWu27NIwYo2IuGWrrhuvRKn+H2Bx6mheRsZxB
+	nv61mo5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weCut-0000000Es8T-2hRg;
-	Mon, 29 Jun 2026 14:24:55 +0000
-Received: from fout-b3-smtp.messagingengine.com ([202.12.124.146])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weCuq-0000000Es7L-21qf;
-	Mon, 29 Jun 2026 14:24:54 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfout.stl.internal (Postfix) with ESMTP id 5DA241D0004C;
-	Mon, 29 Jun 2026 10:24:50 -0400 (EDT)
-Received: from phl-imap-05 ([10.202.2.95])
-  by phl-compute-04.internal (MEProxy); Mon, 29 Jun 2026 10:24:51 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1782743090;
-	 x=1782829490; bh=ST6f+Ye0p9/T3JscEZ5f79X56UQF/QbBzy9biCJtv04=; b=
-	QpqdxALBlVVbSg1RXbbjqLWGXcZOg6UqpE3Vp6LevI4Da066273Jj7jYVeGLX46X
-	LinpDyHOTAAY1ongsWzSZL+cCdadSKdT0xgB5OPkSaEwxh5/PislXxwdCzTIn1oC
-	REt8J2lpL+fvicpf35ivwedoOFMDa8U26a+Af0XNlCdSTmG3z5R12GILfzE6SmTw
-	FSZhN3jd43gzf68bIdGOSAU4nIKKt3MyN2QskGPZia8vNMzlX9e7VXzhu4kxYVYg
-	UDp5rYOlGWSODvbwl5w7pVhSokE3VL50QWNcbqiwsUhiYZ7tyEoxKDIwx448Lzze
-	gpc1InqfpdaZWMjyp3kd3g==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1782743090; x=
-	1782829490; bh=ST6f+Ye0p9/T3JscEZ5f79X56UQF/QbBzy9biCJtv04=; b=e
-	D8S00wyxDWIHB4Vh6oD0X5VzqSqT3z4JotdW/BevQ/hvoQRvSJ4gTpnwUbUNiVvN
-	G8siwGcgZmVG/TiUnnHXTn1tsmN/subJSQHJswtPIGvID4LqW/bOCUf3i8XXJylD
-	WXFxcFkgAA51bD9rS9zR/PPIXlhSNlheEG9hBMoaX7lGzr2EPU8twS2qKcETnnQm
-	Qs5hEZixKNmtvZib/V3CaUcHSInjjz5LDs6JZn2Dya+ogiS20nIaSB/Wve0+l3vU
-	4lYeZ8peAB5opxA5w2Az8mr0V2i2rBQh06bw6SfOrM/yaqhg/PcE4nsPAcFWerV8
-	TtuULrK3Mxq74ikYvQblg==
-X-ME-Sender: <xms:MIBCaql7Lgd3sryMBTzkKROi9XQHyr-mPzl__i6jqTbD1qnnWKapeA>
-    <xme:MIBCaspQPzsdeixLixlgpZMYG5LAHo2BNmL19hPCnpr36VcfZX9X-UrFYGxcz-wzQ
-    FHMcFjDOH5GNavn-sKvTKphcbpDb8uMr6ot8UHnPkfiaw3UDeqj7rPH>
-X-ME-Proxy-Cause: dmFkZTFwMprh5ZTFo5dfY8jM7ZxjUWaH+6tuhRdcmlFtEOFs7CUeegyqf4KKEhiSUkhGfs
-    shXdXn9QyoPevOyt3wuw7W3b5VIqMtvVsBDfkCDz6NnAXXSMKMS5RqJu9AKvF7V/7Z/6Bi
-    o0wdMW9CiqJY/GgvBhOb0boUTG3wawZBpqPqCJpYSmm0ZUUPAxL/htVEpmvED9VgSAp9uO
-    zvahS1FdRiM/3V4XEQKoztXK7nRXCyS0PV0utsqTVPI12PA5tNhyvrCWLN5gRjPD2bHxU6
-    yOkzZKnYaHdZcjhI1InBzIpD6AI5/7LesBqxsjdlhlSFuvuQ25fjoVntskThnjOfxN+lZE
-    lFlNPLX+2itzUULLge6bWTtAB4gI3sI98mx95AMy7L7s3J2Lv71eLqppsCyvkKkEp2BD1K
-    X6EPcmiBSA1+8CjSwZ9bnZEcfmRccnhjlt2iNkvsKWyLj1/wdv94pbMwFcIJuz9wDCbxo9
-    iBNu3jQYL8WYsjMfsNE2vt4jeYv+M/ZCxcL9u0F0peViPJlj6wA+lX7v8n1XmcHqI61L+w
-    oLntPH/4/NI3qcbGTonJrQKLjbjbudgB6r41pCwHJNyhc1FcWRmp+vAdOlmUYuMVG7tHGh
-    6rD7rTPwVD+A8OzG+9MFeYdJfte1jipxt2d5zch6FCoqCZ/4EPVTxch9C7GQ
-X-ME-Proxy: <xmx:MIBCatSPI8gdpFe_jZGU980MEecKsgaD01fqwY3y0NFvfmGlqDlOxA>
-    <xmx:MIBCao34oOmlMnXycJ5rfPkhkaUAebnqg9lvHyA5mty5cHOJD-WBYA>
-    <xmx:MIBCag-Iqfk-FL1_oE5qTJym1-rZQx9v3Q9OVRepLRT0ApXpjHMnWA>
-    <xmx:MIBCap_cFbmtt8ZxWbtOgzQq15eYwtPWSzjtzUotI0VkfSQ6bHQfuw>
-    <xmx:MoBCasDybz41gqrB1Ue2uuwv7YF9L8UCJORz1VN9UqDok726_y_e3jKq>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 1B5D1182007E; Mon, 29 Jun 2026 10:24:48 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1weCym-0000000EscM-19CU;
+	Mon, 29 Jun 2026 14:28:56 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1weCyk-0000000Esbk-2B47
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 29 Jun 2026 14:28:55 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CA28416A3;
+	Mon, 29 Jun 2026 07:28:46 -0700 (PDT)
+Received: from localhost (unknown [10.2.196.114])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C80543F905;
+	Mon, 29 Jun 2026 07:28:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1782743331; bh=rVIpgPhieX/hjC3o46WFkzWX0pZQG5WKKAO87ImTv3w=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=eQzriMHvEelb+GRgBs6E+iOc+LzatJGj0P3ERA+k3ICsHUL0BLFmbopMkhXEEEjFM
+	 GI6HS3b+ecuLQ2wXtZxrj3DKrOouxsynsOan44cbs9/dmaqesyIJTMT9ptNsqnY4ao
+	 bNr/i7lLu4m6jI0q4LwManSJOY/hukQweyviJSdg=
+Date: Mon, 29 Jun 2026 15:28:48 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Jie Gan <jie.gan@oss.qualcomm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+	Jingyi Wang <jingyi.wang@oss.qualcomm.com>,
+	Abel Vesa <abel.vesa@oss.qualcomm.com>,
+	Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
+	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 2/2] arm64: dts: qcom: kaanapali: fix traceNoC probe
+ issue
+Message-ID: <20260629142848.GB1812158@e132581.arm.com>
+References: <471d7a92-3629-4274-a303-8906d3626037@arm.com>
+ <25d7d3a1-58e0-4f25-a73a-59a978130c47@oss.qualcomm.com>
+ <20260624151610.GC575984@e132581.arm.com>
+ <a13fb65c-726b-4c99-b741-29040c4564d0@oss.qualcomm.com>
+ <20260625085643.GD575984@e132581.arm.com>
+ <065853f5-b11b-4316-814e-202f07acb6ea@oss.qualcomm.com>
+ <20260626103015.GE575984@e132581.arm.com>
+ <c1ac3ab4-f214-4947-b42f-cbc635be6bbb@oss.qualcomm.com>
+ <20260626154949.GA1812158@e132581.arm.com>
+ <9432df20-08bf-4134-b4b9-e6b5d618af81@oss.qualcomm.com>
 MIME-Version: 1.0
-X-ThreadId: AbUlhqeXux_w
-Date: Mon, 29 Jun 2026 16:24:27 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Andreas Schwab" <schwab@linux-m68k.org>,
- "Arnd Bergmann" <arnd@kernel.org>
-Cc: "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
- "Bartosz Golaszewski" <brgl@kernel.org>, "Andrew Lunn" <andrew@lunn.ch>,
- "Sebastian Hesselbarth" <sebastian.hesselbarth@gmail.com>,
- "Gregory Clement" <gregory.clement@bootlin.com>,
- "Frank Li" <Frank.Li@nxp.com>, "Robert Jarzmik" <robert.jarzmik@free.fr>,
- "Krzysztof Kozlowski" <krzk@kernel.org>,
- "Greg Ungerer" <gerg@linux-m68k.org>,
- "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
- "Hauke Mehrtens" <hauke@hauke-m.de>,
- =?UTF-8?Q?Rafa=C5=82_Mi=C5=82ecki?= <zajec5@gmail.com>,
- "Yoshinori Sato" <ysato@users.sourceforge.jp>,
- "John Paul Adrian Glaubitz" <glaubitz@physik.fu-berlin.de>,
- "Linus Walleij" <linusw@kernel.org>,
- "Dmitry Torokhov" <dmitry.torokhov@gmail.com>,
- "Jakub Kicinski" <kuba@kernel.org>, "Paolo Abeni" <pabeni@redhat.com>,
- "Dominik Brodowski" <linux@dominikbrodowski.net>,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, patches@opensource.cirrus.com,
- linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
- linux-sh@vger.kernel.org, linux-input@vger.kernel.org,
- linux-media@vger.kernel.org, Netdev <netdev@vger.kernel.org>,
- linux-sunxi@lists.linux.dev, linux-phy@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-sound@vger.kernel.org
-Message-Id: <bb0e4e89-cefb-40e7-9373-f76ce6c0efa5@app.fastmail.com>
-In-Reply-To: <mvmik71win7.fsf@suse.de>
-References: <20260629132633.1300009-1-arnd@kernel.org>
- <mvmik71win7.fsf@suse.de>
-Subject: Re: [PATCH 00/13] treewide: replace linux/gpio.h
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <9432df20-08bf-4134-b4b9-e6b5d618af81@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_072452_962764_F6863128 
-X-CRM114-Status: GOOD (  11.81  )
+X-CRM114-CacheID: sfid-20260629_072854_595666_6404CE70 
+X-CRM114-Status: GOOD (  15.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,144 +92,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 29, 2026, at 16:01, Andreas Schwab wrote:
-> On Jun 29 2026, Arnd Bergmann wrote:
->
->> From: Arnd Bergmann <arnd@arndb.de>
->>
->> The linux/gpio.h header used to be the global definition for the gpio
->> interfaces, with 1100 users back in linux-3.17. In linux-7.2, only about
->> 130 of those remain, so this series cleans out the rest.
->>
->> In each subsystem, we can replace the header either with
->> linux/gpio/consumer.h for users of the modern gpio descriptor interface,
->
-> A few of them already used <linux/gpio/consumer.h>, and is duplicated
-> now.
+On Mon, Jun 29, 2026 at 10:08:17AM +0800, Jie Gan wrote:
 
-Indeed, I have removed the extra ones now and folded those into
-the patches.
+[...]
 
-     Arnd
+> Can I fix the issue by adding "arm,primecell-periphid" property. That's
+> would be the best temp solution as it avoids breaking the original design of
+> both the TraceNoC AMBA driver and interconnect TraceNoC platform driver.
 
-diff --git a/drivers/gpib/gpio/gpib_bitbang.c b/drivers/gpib/gpio/gpib_bitbang.c
-index 2e8d895db06a..34d14b94a0b8 100644
---- a/drivers/gpib/gpio/gpib_bitbang.c
-+++ b/drivers/gpib/gpio/gpib_bitbang.c
-@@ -64,7 +64,6 @@
- #include <linux/gpio/consumer.h>
- #include <linux/gpio/driver.h>
- #include <linux/gpio/machine.h>
--#include <linux/gpio/consumer.h>
- #include <linux/irq.h>
- 
- static int sn7516x_used = 1, sn7516x;
-diff --git a/drivers/input/keyboard/matrix_keypad.c b/drivers/input/keyboard/matrix_keypad.c
-index 98d0269a978f..8863b741d1a3 100644
---- a/drivers/input/keyboard/matrix_keypad.c
-+++ b/drivers/input/keyboard/matrix_keypad.c
-@@ -16,7 +16,6 @@
- #include <linux/interrupt.h>
- #include <linux/jiffies.h>
- #include <linux/module.h>
--#include <linux/gpio/consumer.h>
- #include <linux/input/matrix_keypad.h>
- #include <linux/slab.h>
- #include <linux/of.h>
-diff --git a/drivers/input/misc/soc_button_array.c b/drivers/input/misc/soc_button_array.c
-index eb11bf2e9436..a6c984205123 100644
---- a/drivers/input/misc/soc_button_array.c
-+++ b/drivers/input/misc/soc_button_array.c
-@@ -15,7 +15,6 @@
- #include <linux/dmi.h>
- #include <linux/gpio/consumer.h>
- #include <linux/gpio_keys.h>
--#include <linux/gpio/consumer.h>
- #include <linux/platform_device.h>
- 
- static bool use_low_level_irq;
-diff --git a/drivers/net/ethernet/oki-semi/pch_gbe/pch_gbe_main.c b/drivers/net/ethernet/oki-semi/pch_gbe/pch_gbe_main.c
-index 88c5c52e0e38..5f5adc9c9e83 100644
---- a/drivers/net/ethernet/oki-semi/pch_gbe/pch_gbe_main.c
-+++ b/drivers/net/ethernet/oki-semi/pch_gbe/pch_gbe_main.c
-@@ -16,7 +16,6 @@
- #include <linux/net_tstamp.h>
- #include <linux/ptp_classify.h>
- #include <linux/ptp_pch.h>
--#include <linux/gpio/consumer.h>
- 
- #define PCH_GBE_MAR_ENTRIES		16
- #define PCH_GBE_SHORT_PKT		64
-diff --git a/drivers/net/phy/mdio_device.c b/drivers/net/phy/mdio_device.c
-index a18263d5bb02..06151f207134 100644
---- a/drivers/net/phy/mdio_device.c
-+++ b/drivers/net/phy/mdio_device.c
-@@ -9,7 +9,6 @@
- #include <linux/delay.h>
- #include <linux/errno.h>
- #include <linux/gpio/consumer.h>
--#include <linux/gpio/consumer.h>
- #include <linux/init.h>
- #include <linux/interrupt.h>
- #include <linux/kernel.h>
-diff --git a/drivers/phy/broadcom/phy-bcm-ns2-usbdrd.c b/drivers/phy/broadcom/phy-bcm-ns2-usbdrd.c
-index d9c06129ed23..171bf097a8b8 100644
---- a/drivers/phy/broadcom/phy-bcm-ns2-usbdrd.c
-+++ b/drivers/phy/broadcom/phy-bcm-ns2-usbdrd.c
-@@ -4,7 +4,6 @@
- #include <linux/delay.h>
- #include <linux/extcon-provider.h>
- #include <linux/gpio/consumer.h>
--#include <linux/gpio/consumer.h>
- #include <linux/init.h>
- #include <linux/interrupt.h>
- #include <linux/io.h>
-diff --git a/drivers/phy/ti/phy-j721e-wiz.c b/drivers/phy/ti/phy-j721e-wiz.c
-index 2233babc0078..1f5dba49ace4 100644
---- a/drivers/phy/ti/phy-j721e-wiz.c
-+++ b/drivers/phy/ti/phy-j721e-wiz.c
-@@ -12,7 +12,6 @@
- #include <linux/clk.h>
- #include <linux/clk-provider.h>
- #include <linux/gpio/consumer.h>
--#include <linux/gpio/consumer.h>
- #include <linux/io.h>
- #include <linux/module.h>
- #include <linux/mfd/syscon.h>
-diff --git a/include/linux/mfd/ti-lmu.h b/include/linux/mfd/ti-lmu.h
-index 5040c7d1e1b9..2089ec5124e8 100644
---- a/include/linux/mfd/ti-lmu.h
-+++ b/include/linux/mfd/ti-lmu.h
-@@ -10,7 +10,6 @@
- #ifndef __MFD_TI_LMU_H__
- #define __MFD_TI_LMU_H__
- 
--#include <linux/gpio/consumer.h>
- #include <linux/notifier.h>
- #include <linux/regmap.h>
- #include <linux/gpio/consumer.h>
-diff --git a/sound/soc/codecs/cs42l84.c b/sound/soc/codecs/cs42l84.c
-index 36c3abc21fed..f2448b4c11fc 100644
---- a/sound/soc/codecs/cs42l84.c
-+++ b/sound/soc/codecs/cs42l84.c
-@@ -16,7 +16,6 @@
- #include <linux/init.h>
- #include <linux/delay.h>
- #include <linux/i2c.h>
--#include <linux/gpio/consumer.h>
- #include <linux/regmap.h>
- #include <linux/slab.h>
- #include <linux/acpi.h>
-diff --git a/sound/soc/codecs/dmic.c b/sound/soc/codecs/dmic.c
-index 8b05d6f9b429..cbed11136935 100644
---- a/sound/soc/codecs/dmic.c
-+++ b/sound/soc/codecs/dmic.c
-@@ -7,7 +7,6 @@
- 
- #include <linux/delay.h>
- #include <linux/gpio/consumer.h>
--#include <linux/gpio/consumer.h>
- #include <linux/platform_device.h>
- #include <linux/regulator/consumer.h>
- #include <linux/slab.h>
+Before proceeding with the "arm,primecell-periphid" property, could you
+clarify a bit:
+
+  - For an interconnect TraceNoC, what would be the consequence of
+    enabling ATID? Would it simply be a no-op, or are there any side
+    effects? Or is the concern that the trace IDs could be exhausted?
+
+  - How can you guarantee that a interconnect TraceNoC will never
+    require ATID in the future?
+
+> The TraceNoC device here must be treated as an AMBA device and I am
+> continuing to investigate the issue with our hardware team.
+
+> We aim to fix it from hardware perspetive for existing platforms if possible
+> and ensure it is fixed in future platforms.
+
+I'm concerned that all of use end up repeatedly fixing similar issues
+whenever hardware configurations change or modules are reused in
+different topologies.
+
+For example, if future platforms may require ATID support for an
+interconnect TraceNoC, then the issue will pop up again.
+
+Thanks,
+Leo
 
