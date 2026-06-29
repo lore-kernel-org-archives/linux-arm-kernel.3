@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CF7CC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 13:28:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10594C43602
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 13:28:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NrdLJGMFs8wtvc4BJiEXLk7S18TXVPww8hdTab/uPp0=; b=Jf0T9bd+yT5DNyH2RbGAlqFyeW
-	p52Y8T2dAz+yrteEYe4s5G9pDxcE83ftM/53/v5XxLpBWho6xTd5ByLmR/IEGPUISdcFV7n0uyMJZ
-	yl6b94YBnFUToR/HGhUhBsrKiWGfFhuvqpeyhzA/lXArdUyvo4/umA4HEwmPGXegUs7xBv0fNNeXQ
-	CzawryDHJkLZ2eNtP2RAYaaHhQm4NDVTmRJ56KPEeQ3hu4qmmyrJqs8hwaEq86yAlEDl3rBMYcISo
-	NlVDK7NR6B7PKxzcX7jXvpRSMLvXvzq23YVEEgbJp/FC1FRtaw0Fgq0TbyhOuce4oGmgZzZ84RCT4
-	FfiluGEA==;
+	bh=AbxQxhI8jkWFpggqqu0BJxCVlmjNB8rVpnB3U/bG9/8=; b=4Cejsdgt0P7QrGiuHAYk7QJLyg
+	RXdFDsDuPKYxGLt1CznObfh6CT/aQ5GTi2V/1f2tmYV3NhhQhkM9bYt8XfYlgIIYEUEs01/kk3R0a
+	+ymOEj7ruHKqCs17Rp3GRB0CygUnSYWggzCT0Ms98gBF7ufmQAa4yM2oLod5RyRqLHrrUOL78X6Zp
+	3X+VnZufaJxjgZq6ngOIJkCuUpuxuUN+YEg/nxe7hNuBX+NEvZnHYOOVyMCxm/Sknw+W5FdTo89ks
+	ReuK6j3DEpW3n/xRku4dNx3VHruheCCm3Iu0gC16EqxzRa5OPe1yp/zjbZHX2DIPGQ5XJeAUngORo
+	sHOvnWVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weC1u-0000000EknD-25YI;
-	Mon, 29 Jun 2026 13:28:06 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1weC21-0000000Ekw9-4AYs;
+	Mon, 29 Jun 2026 13:28:14 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weC1t-0000000Eklp-2WUu;
-	Mon, 29 Jun 2026 13:28:05 +0000
+	id 1weC20-0000000EkuS-1hZd;
+	Mon, 29 Jun 2026 13:28:12 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D0C60600AA;
+	by tor.source.kernel.org (Postfix) with ESMTP id CFDF460008;
+	Mon, 29 Jun 2026 13:28:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 090611F000E9;
 	Mon, 29 Jun 2026 13:28:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 095261F00A3D;
-	Mon, 29 Jun 2026 13:27:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782739684;
-	bh=NrdLJGMFs8wtvc4BJiEXLk7S18TXVPww8hdTab/uPp0=;
+	s=k20260515; t=1782739691;
+	bh=AbxQxhI8jkWFpggqqu0BJxCVlmjNB8rVpnB3U/bG9/8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=MdfFbWJ+eRFMBqPEa0RaoTx93bwz14wfILPGSeLWLBjlLfc3/sLoXDbWrIj5zm02+
-	 Cf2hMRjwSDX/HAe9LEvEYerCFkB4Bk3PXB3dCOCCjACDoUXoZNbg8bIRYUlO4u3fYA
-	 d+1jW1L/FhTyHKMjueY3fNJ+ZEn6tUHmVKdynuygFjwpm+i13U8Rgg7ESeNFEllxMf
-	 MEenB1SREnePNOyBX0VPdLwMnOs4/5gV6TKMZk/7FolVupBaKJWIqfsANDATpC5cz+
-	 GtYRhxo3yuIHrBGuNzZr02FwMfR28H0gTO6X9o6PxTogIxu8yfoYD9nvIRoXYg4F/d
-	 k2IOqV+EaupRw==
+	b=l+Bjn0TWuJNScCkv2eF3hy4+9W/x+N/FOa0Y6J7K1PFzRKxbGv4SQUtde7aDOLy8B
+	 jZkrFSnHT6Vb61R5R/ETfTSspiaEh+nheFllga8qyHXfV3yUxDZSenK4zIhVp2ALI+
+	 nzRCJXHiieCva9BC4U/A20qdEbhgbI/dhbWcdg/Jt7oAcq2GDapzVbIFKbACjvCd9P
+	 uYVxIeyS3AcefXCPNeybaedPhtAmuQ8NxzQKp3Kq4z2cU2T7FaobBGokfDAJ0YP4jO
+	 D6rFiTomsxEP9rkITDZ/6mMxQ/dBT7Rjpc7U1oDKGDNycGwvTBYGhfgJLQfBm3ssL7
+	 lcm3OEdYqXtkw==
 From: Arnd Bergmann <arnd@kernel.org>
 To: linux-gpio@vger.kernel.org
 Cc: Arnd Bergmann <arnd@arndb.de>,
@@ -76,9 +76,9 @@ Cc: Arnd Bergmann <arnd@arndb.de>,
 	linux-phy@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	linux-sound@vger.kernel.org
-Subject: [PATCH 11/13] Input: matrix_keyboard - replace linux/gpio.h inclusion
-Date: Mon, 29 Jun 2026 15:26:31 +0200
-Message-Id: <20260629132633.1300009-12-arnd@kernel.org>
+Subject: [PATCH 12/13] gpib: gpio: replace linux/gpio.h inclusion
+Date: Mon, 29 Jun 2026 15:26:32 +0200
+Message-Id: <20260629132633.1300009-13-arnd@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20260629132633.1300009-1-arnd@kernel.org>
 References: <20260629132633.1300009-1-arnd@kernel.org>
@@ -104,22 +104,22 @@ linux/gpio.h is going away, so use linux/gpio/consumer.h instead.
 
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- drivers/input/keyboard/matrix_keypad.c | 2 +-
+ drivers/gpib/gpio/gpib_bitbang.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/input/keyboard/matrix_keypad.c b/drivers/input/keyboard/matrix_keypad.c
-index e50a6fea9a60..98d0269a978f 100644
---- a/drivers/input/keyboard/matrix_keypad.c
-+++ b/drivers/input/keyboard/matrix_keypad.c
-@@ -16,7 +16,7 @@
- #include <linux/interrupt.h>
- #include <linux/jiffies.h>
- #include <linux/module.h>
+diff --git a/drivers/gpib/gpio/gpib_bitbang.c b/drivers/gpib/gpio/gpib_bitbang.c
+index 0e227980b493..2e8d895db06a 100644
+--- a/drivers/gpib/gpio/gpib_bitbang.c
++++ b/drivers/gpib/gpio/gpib_bitbang.c
+@@ -64,7 +64,7 @@
+ #include <linux/gpio/consumer.h>
+ #include <linux/gpio/driver.h>
+ #include <linux/gpio/machine.h>
 -#include <linux/gpio.h>
 +#include <linux/gpio/consumer.h>
- #include <linux/input/matrix_keypad.h>
- #include <linux/slab.h>
- #include <linux/of.h>
+ #include <linux/irq.h>
+ 
+ static int sn7516x_used = 1, sn7516x;
 -- 
 2.39.5
 
