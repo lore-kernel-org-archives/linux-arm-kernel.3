@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D36C2C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 11:16:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24879C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 11:17:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uwh8Si0th8ZwAZOQzQjkI23sQnD/NKR2H40oiYsbBcc=; b=o7FvkOuHRFTZWSzQAhk5LeQvkW
-	mydyXmlCeOedKu178BAMkXXm0reJG5uxmE+qzW8W8Il5prLWTHY3do64PHTfLmeFlZW3JyUMMdzGq
-	tETsdH234OWs7IgMsFAidzDCJvwo1FHdUHNk7eHRcRLjUA/xTklQkUkWmvIRbfkiVUAtCX7SiXEvJ
-	6kN5//rkY9bB/k5KXTuBlav9MAJWaMY5+hGS7Wb6kGnmCMyWUg2eupbmPUu3ddJeJ7ayQXVJJn3U2
-	tQ/ffS6hWjCArFx6Xn6VG87xn58kkfwal7B7nShcvFkkV7AFE6G26LOKkynRfMUvDCr7FSgP/MDOv
-	NcKIzv+Q==;
+	bh=dhzauwQZPbpylpGr4WGE9mMiIv1Y0Ir+oeoCGGiZuDg=; b=bAAbajhkwfsC2ErYETcc9pYpBW
+	Zj96kmbTLbxzKwoX52rxtrUj9q/e1aATeGwzPCrgZOxLU/6WejLqjKAyP4zM38gcb3Q1ibdcfCybe
+	CEjPTF9oL7fhySLchCoTOLR9go32Ztgl5iWdcJ0hqte5VUMYEwpenR6Cq+LMImc90U/Ze10sh/M3k
+	SiGHBbR9ZnTpZcyED28ftoGs+tg9Of7vajiJ27TEsnt83jbk7DDybTC4N61P1lkczA0DeOmK0qP+g
+	cPK63zNnn6qR3kvrGmjipg7aJNOy5Tfo5lvCX3D2Fpjz/I4rDRBexRIOyYkQ4uH2pCgXQELlNrLBN
+	eUJfd/KQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weWSR-0000000GozE-3bZ6;
-	Tue, 30 Jun 2026 11:16:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1weWSe-0000000Gp4x-489T;
+	Tue, 30 Jun 2026 11:17:04 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weWSL-0000000Goxb-1Jr3;
-	Tue, 30 Jun 2026 11:16:45 +0000
+	id 1weWSV-0000000Gp0W-03dO;
+	Tue, 30 Jun 2026 11:16:55 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DD82241450;
-	Tue, 30 Jun 2026 11:16:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92EBB1F00A3D;
-	Tue, 30 Jun 2026 11:16:42 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C157341450;
+	Tue, 30 Jun 2026 11:16:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90D9C1F00A3D;
+	Tue, 30 Jun 2026 11:16:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782818204;
-	bh=uwh8Si0th8ZwAZOQzQjkI23sQnD/NKR2H40oiYsbBcc=;
+	s=k20260515; t=1782818214;
+	bh=dhzauwQZPbpylpGr4WGE9mMiIv1Y0Ir+oeoCGGiZuDg=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=ZvCLDp0pTJUja1XYhOzi88zaV4EHqESZME0ESIQ32LTRYEeZbSO3B4q7aGfWdOoLY
-	 pRbyAMMf40Vryxrc1tv88gwaTKZrnnFfe+Ss0wyI+xoZ2RKVpFBMKFpJ8I/Ci/xl35
-	 Gd5wzahFfoGk1A8+Ko9pRhRdYbON8YUe+l5vIqrDqJPS/IYHSP6oGEWI21GYc8Yx9u
-	 ytXRuYlaK9I99EIZ4onc8CH+oKR8uLkHyeeBK5SbYz7jZ/i6BFkfgWUMnPrfTpBEtA
-	 xuH7P8IbaVBkO9fEuCXgOkr3ef4JMsUArmiRZ3jz6k4Qbq4TWAp2ZYsVt1XVMHinD3
-	 iMsFwYAEZNPLA==
+	b=UNSA3/+D4r4cXAUAKPFvhYTv+69PZbKlTh/NF3TZEpJ79O3McYU/fwKvHa8S7Au8X
+	 tX+y9qFmH6BPicNXjYYrlg/+j9DkBZTOmp5fDfF82aSx1rwaLaKKhHCs08Y9W1rNfi
+	 5Ztpl705/j5PzUbR/AowX4vMebYvQ0Xr3oTbEGjJBru5MDRRY9r6W1fMoP5Vynuukf
+	 rEq/9ouifH2RwckH0jfh6hQdqbxSSqLI992u/HezAKa/rBMHmvSyv+1x6CI8TRgk/E
+	 1Glrnw2PT127SjjgnMl8/IQ4lmL66DAjjfg1DyFlGzz0gA6ifGxBa8bG9MbsCGMIN/
+	 k9fB3VhenjZEw==
 From: Mark Brown <broonie@kernel.org>
-To: Jerome Brunet <jbrunet@baylibre.com>, phucduc.bui@gmail.com
-Cc: Liam Girdwood <lgirdwood@gmail.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20260612020113.9557-1-phucduc.bui@gmail.com>
-References: <20260612020113.9557-1-phucduc.bui@gmail.com>
-Subject: Re: [PATCH] ASoC: meson: Use dev_err_probe() for device reset
- failures
-Message-Id: <178275373770.47562.15070770755130138575.b4-ty@b4>
-Date: Mon, 29 Jun 2026 18:22:17 +0100
+To: linux-mediatek@lists.infradead.org, 
+ Luca Leonardo Scorcia <l.scorcia@gmail.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+In-Reply-To: <20260615185810.11804-1-l.scorcia@gmail.com>
+References: <20260615185810.11804-1-l.scorcia@gmail.com>
+Subject: Re: [PATCH v4] ASoC: dt-bindings: mtk-btcvsd-snd: Convert to DT
+ Schema
+Message-Id: <178275431870.47562.12564836681670805353.b4-ty@b4>
+Date: Mon, 29 Jun 2026 18:31:58 +0100
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1143; i=broonie@kernel.org;
- h=from:subject:message-id; bh=PCbzGkWYAYYksoSIhRQjpcu2gmaaexe+mLNsnTfEwio=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqQ6WZWIfUc4s45wZXBGe4jnhWyGlRcJ4JeGqB6
- TR7yRlefNaJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCakOlmQAKCRAk1otyXVSH
- 0KBoB/9OS3c4ESlo/bqe1KuMbLzj61E4fIEf/dCQKC+rfqTLbj+FVX4llQ5hBA18hz7cTbuUaag
- 728XcB6dqMy7hcndFYcP1LYA9VMNYmj2+AX9xPxPtVINKe7UY5Z0K5N7RXWK3/ZE3h7HSqUZoxA
- OVn0Kg1uJEZtQ4xywEx/qV0JSr/s4cKjPs8ANjmeqFTi/4eSFRMPHwciZwZ0laLjttXYEndWWgM
- 2FlUU301soopsIdiUCPNb3C/g/08Z59sVH1FghmQoamnyOH35vN6tuVbIPlBAWoPydXSjbMO2yI
- 7ilTep2elxjZcW+4awRuKh8UlrWkKckhuF2mcCy2PU/NLYFS
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1137; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=sWHuPdL4V7aEh8FugrGqBsjNaOpEn9LSPJKhiXzoATk=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqQ6WjLm2GfsXw6NKD5XVY0W5AtH6+Er1DxKMlP
+ fHioa7fM6WJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCakOlowAKCRAk1otyXVSH
+ 0LmmB/9aq99s/+8+af6mipyDDgGfYxlP702UF2VGKCa6ALZ7GWzOw8XxmiNG9hYfUhlcXMHJ5tF
+ GQlTZvXT6Sp7YyFnWHOqvKkoQafpEkiWL9d7+G1Tm73WSTgHmYFucxwOWf6KTTfdxy3ePy5q0yC
+ kB3LfDbjrhgEaO3T4VE2dZd8oc3Qw9uf7kxrYzh5BByuYO0knHFu2PLZC5AYqe2hX7qZFN+gfCF
+ IooPHITfNjS6eKssJdyR2qUzl6NGzvweMWn27In54iB5sbm/C8ZomO9s9TTti3ntJi5nMK1kVAT
+ mYJLbo8Th01HOax++kLQSM9Kvy6GUiwBhvLAcAwNgFY3R/br
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -85,8 +86,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 12 Jun 2026 09:01:12 +0700, phucduc.bui@gmail.com wrote:
-> ASoC: meson: Use dev_err_probe() for device reset failures
+On Mon, 15 Jun 2026 20:57:50 +0200, Luca Leonardo Scorcia wrote:
+> ASoC: dt-bindings: mtk-btcvsd-snd: Convert to DT Schema
 
 Applied to
 
@@ -94,8 +95,8 @@ Applied to
 
 Thanks!
 
-[1/1] ASoC: meson: Use dev_err_probe() for device reset failures
-      https://git.kernel.org/broonie/sound/c/6ed013a581d0
+[1/1] ASoC: dt-bindings: mtk-btcvsd-snd: Convert to DT Schema
+      https://git.kernel.org/broonie/sound/c/012dfa0c45ec
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent to Linus during
