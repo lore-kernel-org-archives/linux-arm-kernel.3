@@ -4,134 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A284AC43602
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 15:29:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06A2BC43327
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 15:36:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=53Q7fDvsLHfCdpxdhUVIYXmixubrZSQ008lgK//m+lE=; b=SMVW6/dKdTGeWqDSG27f2PCiP5
-	lMOxngfRvMiTXPX3L69hdqGOczNX8tyw+3QhAhU7bCs6+dmlD6juImHRFNF1VA3LG6DoxxUoS+rr5
-	1ehMlpQ4x/95EijuVOVJ5lFEl9himeBHLbyDoJe+K0+b29yysviCYYeBLU16SaIryvoH4hV0m+Fim
-	Bs2NSCV/tcDNzBASzkr9T1TRfKIbkFmC+rJUcBvGXXR3mAaS+WwMQqIlprbQAQDAgV3pVadbtbQND
-	x6tBkHqpjhUGkLwFKXZuAMp9o71Jm6JJfHSFIxkZR9yuphS0mAgJQmbdngZdoE5AeQtdktyYRplVh
-	3kQJ4ILA==;
+	bh=RsiAkF5rnsXrEzna1iMYWZla+7JEf5EC3Z4oGTp3rT8=; b=0vgQGlJT9ezJ2tgVU0KlI2nnIk
+	B8eKtIBl/rqdhpSwfqu7zBJXBPNecFX9nWQopoxsM+f7Cj4ko9IwJbEVOu0rtArLtzHqBpfLVj9tj
+	7Z4t9Ye60r91FdB9tdpyE/qJzyqbI8OhTanRLe78Z21RVzjDqGjZI+qwYpFkcOv1ZJsTSnUe3bydW
+	WJhxoSbxtNHzf1PkAGCPzQ7I6uX9XrbrDAxrZStBGHeYIwbCn7sxYEkwrzRFXtWzCDY7vQ8GcA+5z
+	8J6Pbf2Z2pWYJ5yYmBBm4ph9H/jtkFFMsqD8l/sqYKi9YRWRU2E7UcBJm3treKrNtdDLcLF8I0mE8
+	7lv6Bl3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weDvb-0000000F4eL-15yL;
-	Mon, 29 Jun 2026 15:29:43 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1weE1o-0000000F5bd-2VRE;
+	Mon, 29 Jun 2026 15:36:08 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weDvY-0000000F4dI-1KhT
+	id 1weE1m-0000000F5au-396I
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 15:29:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=h68z1V2U163BXQ6Uq/mWPPiNxXN1cqnCdE7hoUtMFx7nUAGxVXabQ295MXRACypM7vlyifWsyfP6vit0Lz6m0uHxmtsfsi4rn7RkPR1mpff5iccKHHss4WlOU2qDJW1qZrVzJNXPJ+FIN5DNRcD8cZmOIZ+NZ5Wtyj1ES5euSJGZp4hFXDRdYLxQcM0eZKp5TpnI8AstsSJT3sr14zSXcXRo19ylgzk3oqSD0qEiAzxrenAjGXHx1sEFOQgyGYRxmla4cmT+SZqbX6Pts1phiGAC+Tjh5H49nD/BgohsFSTGcOPnfkcQXlugYwaLqo0xQ/A8gX6OAB44GP5JLLjOrQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=53Q7fDvsLHfCdpxdhUVIYXmixubrZSQ008lgK//m+lE=;
- b=JxJP/cZCs08OcKFzRo5tB4jhr2/cldnUvVSjWNa09F5zfMn6U62BFZ5xDR4PPhFWTd4L2TaRU8HEmRvCm9IT/emjdT5U4XC9gaHr1/inCh2OopfNKgIHHz5M0zb2NsQAuSIX8DsNIhRXEb4Bg8M6alZRzLC1Oi3TEffWYUQjsiauQex60pfY8ymIgGCnfHWSKrkwgA85f5aLwoUNoPKkJHcHY+ZOtsqVIF3aCpR7tfCRD2ikkQG0JCuRICeZ/eLRTLKGBLmLoy0Lh/msSRiQpY+41NTg3yEv8hCe1yWwa1pH6d3MRX9mLTDT+tCMm7Uhkn8o/LgwyDOMx88TtuEXAw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=53Q7fDvsLHfCdpxdhUVIYXmixubrZSQ008lgK//m+lE=;
- b=TNZGYOPzRT8N6Lx+pQc5dxd3iOAsx4xtQZW74Xxo66EcpyiPRNb51ULej0aT2YmIYk4hWWEEmDKoZ9/6aDyjuWemokxBd94j6+IPvz12u35dqx0Ukbof09iiSj2cvf0+fJxW55NX1o+fLQRhq/ZQ3Zi+eYhYR0v17zL2NhzPLCL/6xfWEcilt8coVap9xuoGDreNhc28TMZlp+pCEahmbHmJkvNjmX6PVwp4vJfgYW1VrCOHjVvVe1a+WA/3zO00iz6OT4R4OfW6GrmDNWhWosChWiLhR1Dw37slQGn9llambghVcBwHWjtIDcp6y53gf7dOQsX1pJIX0/smHrUR6A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by VI0PR04MB11070.eurprd04.prod.outlook.com (2603:10a6:800:264::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Mon, 29 Jun
- 2026 15:29:34 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Mon, 29 Jun 2026
- 15:29:34 +0000
-Date: Mon, 29 Jun 2026 11:29:26 -0400
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Mon, 29 Jun 2026 15:36:07 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2c9d87b1f9eso9481695ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 08:36:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1782747365; x=1783352165; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=RsiAkF5rnsXrEzna1iMYWZla+7JEf5EC3Z4oGTp3rT8=;
+        b=DO4dqH/TYYh8HCTE1s+3HyZOMdHcTiXRf8Z9orlbaBrkkqRIgNK5eDpmdxXMsjPIPl
+         bGtfaV1RCIYyPn5E7R+3HyUkYkAXQSk9LasZ7ikzPYEaM8nZ/SKD0J9DDyC9KFyOmkZv
+         2YKedInmIzO9AxSKcJd8+1M9qp20eEzeeqoLoknuy5E9Qgeo9hQmqTv44SDwY6xTBLEN
+         mqb4oyPlmTmUPA95rBY4GYDDc7ywn4QdHZt2OVKlP8CRYJsxDwuRhzUpJD2bku44IoGX
+         3Tifhh9tU9KBgMeraR8rSLth7/pi0VByJsscfrryGSIUS/KQ9sN/RR7UStsosBeQq/K3
+         S2NA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782747365; x=1783352165;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=RsiAkF5rnsXrEzna1iMYWZla+7JEf5EC3Z4oGTp3rT8=;
+        b=XTiMyFoRYoKWUIY9AB/Shhtsi/p6XS/jI9bKIPYoQ1H8XL09IX3G1T/Cj6XrULafwc
+         T89PXBFIeyaSV2zsh6OoaoN9du/o6UExTgh6bV4twVEg8f7+4a+mfStj0OKYiWdS7LKM
+         IaK70ydo/wNCxjZ6zyCX6WzDCiOjnEOM7I1gWCOCjD8fk075FvrvavrPjHtMWBZtdx+8
+         GwcizZsi7+PucE0s5W1n5X5LWH+S+DldwRi77y/2OUQb67f5Wq1O10JyIz+bq6/biwh/
+         VYbgltIZcqEH48yWrxIjSl/+a3K4AD9uO6NbtQDvRiYdp68hJ/mWUrA/r1eghixtdMkM
+         ZhZQ==
+X-Forwarded-Encrypted: i=1; AHgh+RqBCdDb7Lo11maAHhVuI63OHN9udv78En+I7kHLgvX3ClRuJY9/apY6of8poJvyEwzP7JXKbR+wFXfaNfR0LDhj@lists.infradead.org
+X-Gm-Message-State: AOJu0YzQhuQS/fb7riN/sfCotlpVEPn6AkldrjaDeneraDlRLyPIEeay
+	stbwEwjpggp8STHyRnXSDe5Pl2K+wrDZUu5chqABLXxCcbAFaeHbgLWLKCer28UHSMo=
+X-Gm-Gg: AfdE7cnogEhChitMTHOKqmHa1lElBaQgqGfCwFwgrtRPsCG8ojGIC5GpkHqV818wS51
+	KjS/XYx0hXho/sm69AI+k2iF2TZZ5RZ+mcEam/L/0DWkYWN81jC9kZujDTqTywNBX/hiplvoQB1
+	QJP8wUxR6JJGCoED3xSoPJeZWnn4tWMXrZg1ZNRdxVRKgCz/P/NSbxZx/PTqvxOHCTr3/uY60iU
+	xAnzbALqAim8l6Chlp8E0pkpvTrbXdwFepApEbc0jipM946+q3oICePDY3gu6hmxpA/K50HwKck
+	2aayvLYrEMYtCMZ2kpgZ60HRdWVbed7YP7i2FtrX6tysQ/cgHRnl8SR/0COltdU5j/GS4iv2fpI
+	LnBN56fyNpRckKphedAgkIixwLqd2mwJPu9VohY6UgR55NBKG4LxT7jq7iPCJrCaL6vFtU0xZIH
+	ptzxWgX7djLXEsKnADoIRkoS0CIag=
+X-Received: by 2002:a17:903:2f8a:b0:2c0:b5c1:8e22 with SMTP id d9443c01a7336-2c9854b5597mr89458355ad.12.1782747364963;
+        Mon, 29 Jun 2026 08:36:04 -0700 (PDT)
+Received: from p14s ([2604:3d09:148c:c800:aa83:261a:68a7:9974])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c7f63d09f0sm98408955ad.56.2026.06.29.08.36.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 29 Jun 2026 08:36:04 -0700 (PDT)
+Date: Mon, 29 Jun 2026 09:36:00 -0600
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: Ben Levinsky <ben.levinsky@amd.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	linux-remoteproc@vger.kernel.org, Frank Li <Frank.Li@nxp.com>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
 	Fabio Estevam <festevam@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Hans Verkuil <hverkuil@kernel.org>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org
-Subject: Re: [PATCH v12 2/2] arm64: dts: imx8ulp: Add MIPI CSI-2 and ISI nodes
-Message-ID: <akKPVovk-j-gKAjz@lizhi-Precision-Tower-5810>
-References: <20260424-csi2_imx8ulp-v12-0-da148eabc035@oss.nxp.com>
- <20260424-csi2_imx8ulp-v12-2-da148eabc035@oss.nxp.com>
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Patrice Chotard <patrice.chotard@foss.st.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Tanmay Shah <tanmay.shah@amd.com>, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH v3 0/5] remoteproc: cleanup shared carveout and
+ resource-table helpers
+Message-ID: <akKQ4H09G2MpRVGN@p14s>
+References: <20260529021637.2077602-1-ben.levinsky@amd.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260424-csi2_imx8ulp-v12-2-da148eabc035@oss.nxp.com>
-X-ClientProxiedBy: SA1PR03CA0001.namprd03.prod.outlook.com
- (2603:10b6:806:2d3::12) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI0PR04MB11070:EE_
-X-MS-Office365-Filtering-Correlation-Id: b8c62635-7909-4b85-5396-08ded5f3388e
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|23010399003|19092799006|1800799024|366016|4143699003|11063799006|56012099006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: 0czYZSUmzppef8WFIG6DbOrsLmi85eeGHY2dqYwkgMk1tBJlED1h9+i1ivY0h3FhNXaEtZfeR9NRKc6QUQELdkeFuWNx3jWxb3NUn/f6x8+Sx8tU0WyjDLlsIi3ybg8g9G/B+Nq8pOmxUDFT243QLGRFS9tI6XZ6tskke6vFV8ldJrzLYNTW+QoNNwPYtMn8zt8nsDnlu/qlAuLyynamg6slzmNRgkWSuR8dHG9Hu+NlA+CkZ3EWYnS88d38m9uThHHpf2L4czIf8nfoSaf+69ibHcW/OygBk6rNfsGN2zaSVQOf3iibTa8filTmgrsxNcJuliqr+HdREsJ54eMGIiCaLt+uTVc+wEJk+BAKjjJ2x3RsTyUdUirOrpd6rOcOZlw0oMoK+U4jODeD7PBuE+zFVzMLW/PQp1/gM9G3wSJE5LBlGM29SU4lLh+Esg5nvk5OP+LtfMZjzZotpkDU//1oYZKiXyUOUc2RhyiUEpwPSSZwW7x4JwyQaRR43Datc+7jyVJRwJRZYRRks6B8OkBu05vHNuu8pZm7iC+ZoTEB2xYh5i487LKR0JS3aEBGTzZZtWj/xp0MVwB4za8JIFe/cf6u3eJvdk4Dfmlz6GhDXUVuzLz1tB7/MRHDCAySdRUQbYF9HfWG8diu/y6PO6StUVdNlBPHHqC5MTRToxk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(23010399003)(19092799006)(1800799024)(366016)(4143699003)(11063799006)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?/mwmAL4roQi4WdTapljkoQDAKOWxzyzzr2RqzL3ztuLnSHGuRwM87hh94yOS?=
- =?us-ascii?Q?onw3Azw3w2g14LmN34Wso8/Jul3SVEGzqtIGFNkD7NQz08NfQ60VJrqxpxFt?=
- =?us-ascii?Q?5+s1MDBAumxHarlRS64zVe6Q60bNwsvZF7q7j6+XhlctLWzDUNuSjSOqwe5B?=
- =?us-ascii?Q?kNTymk5cFYHbX9ZpMuI0afFULGnCYNmIyU4Nwp8hXGJ3yVbkN4PBOE3ly8VB?=
- =?us-ascii?Q?aOGrIedy+PF1DPnMyJUuqJ/oH1dWD6HG3kuGYjfFkDUTPltv0QIMVF4vAG4v?=
- =?us-ascii?Q?jntEBBfLPntLVXToB8E1J3TRPV/0kelRv2ikNJJo8SK7EgNnO8kfIxH7hYdF?=
- =?us-ascii?Q?AIwZvL/KXDSgE163vXJmeGB+XJiMzsi9k0xXI20q9kF2J/PfJ+ZpRk3819Is?=
- =?us-ascii?Q?gq5CvcGi0NCHkmrOLJ5yzTcLSrVrXLJSwzPx3S+dRKViBN0MATAd9ej+14Vm?=
- =?us-ascii?Q?pxgwpzpzhTk/uAtPLGMxvPXgiAjE1D+E3me1JBQIX+Bx+C6El5raHj8+oBYp?=
- =?us-ascii?Q?BZKvEOoBIWucJW9P5IYzN0gnZdUWKhMC6eB8ZjFX6KARiAn+076LnXR2+tPr?=
- =?us-ascii?Q?dZS7dB68U+UoS8Ao5NuMtjLgfgFXbeyAWjPZitCZhNCRzHCAFDNmxltibuli?=
- =?us-ascii?Q?GdXij2womtZ8Fo8nnd/wIT1Wq5IBt6bCsqJ7ANaGaOLxU98eLlx9KPfdnhH8?=
- =?us-ascii?Q?17Bh35m2rS1UrBqpnyKHU86GPdRo970GjiO3SS26/YcFrdEEdIHpbef0MwOD?=
- =?us-ascii?Q?8EbrxPlYbwqaUF0FUGD4viRJGH71qfvdpq3PHBjavNhdbnON+DXvePTHSRTT?=
- =?us-ascii?Q?0aNhRULW9wzm4ypbupAXgpnnfze1Qqftqt0ps49ppDGttP4UaDF4zcjw1hTp?=
- =?us-ascii?Q?qXJKSvZT2+zr9AJDqM+nnqF0pwSU/C+2tHzO/BdbT5kWRJonIvTMs9pOqfuQ?=
- =?us-ascii?Q?jRDdakZle2O9SXbvRdqqYO+9tzPg89b1Lbh5usBAwQqj/aQ8OnoDR9twJpzb?=
- =?us-ascii?Q?mucjarOnJwm2Au2sEV76Zt/NCkgt5JhcIWWqVx0myDQFfiCO6TXftYNXgw6q?=
- =?us-ascii?Q?ukErl1FS/j9x1XQbgxiQWlodjDDELK2r1YS8f7d7YXlFv/B1mULkW/B5BOi8?=
- =?us-ascii?Q?GcFj7v6Dw652ngsi7+78ntN4kBBpFin1qIdBTvnp/gZj3fXdm/OElO+SaEKK?=
- =?us-ascii?Q?K8kM4VY4euOJ4kuRBSmL7EOc1dNUQ6iDHL44Uq0L8TsPBS7eo9I9vskW3VAH?=
- =?us-ascii?Q?UzEpYU13aEPcvWJPoSm79koN1VTlhgIp0UfHx4daOn0u1z+tBZiJ05F8Ph28?=
- =?us-ascii?Q?TYJBDMQL8EwNBjujVcJuHgyVr4JJuGvQcz9HFTQPT8MW+P2sJhKzrq920Epc?=
- =?us-ascii?Q?Ez5HSOPhhrSzl6DKS/1G+MJTV9pO/5Dh4b/ZT1IQBqWwFCZgAr5GVR+7SMup?=
- =?us-ascii?Q?EdFCUr6EDvZl1s9jHBL3p8jgjJDah8mjxCLIAycObqXvkLCQsMTBKDcUqz20?=
- =?us-ascii?Q?0MhRZXED9uxNzAOT1GfkqttlTNB5d6oWOpVZukkmdhDXYOs2X22c565wvukn?=
- =?us-ascii?Q?7VUQts2jjgBAF2KsPg3/BrI3FT2xjp14Ak3pcHpW3GJA8sbh2sA7VnVAMGDT?=
- =?us-ascii?Q?9pHCuU7Mo25PvuVsGZ4AdVczfEh8+ZQbJwYohLvgyQra9Eer3PzWCaoHv1ts?=
- =?us-ascii?Q?7vpb57wfAeScKtrzOqmuegNhhRvHfQVvLmajHzA73ag7QKQ9LnwZqqoLqXcv?=
- =?us-ascii?Q?uZAIFfaHImGv3g3IhchMmpbs6fDq07VK9dCLPWGWRv4SD9vZ14s2?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b8c62635-7909-4b85-5396-08ded5f3388e
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jun 2026 15:29:33.9256
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: f2mBgyT/iczUU1WF0Wtss5vYHSChaVg4eB8GiMK+Pc3OZEdGyQaECQfl8pzPRyM5GwRfvhVRADXbeTbqfiDtFqZQBs2Kqd97OzNsbKWv9eUy2E3+skZXXyUSeUWjPYXz
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB11070
+In-Reply-To: <20260529021637.2077602-1-ben.levinsky@amd.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_082940_358423_D3872CBC 
-X-CRM114-Status: GOOD (  19.84  )
+X-CRM114-CacheID: sfid-20260629_083606_804417_E1852A3E 
+X-CRM114-Status: GOOD (  30.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,117 +112,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 24, 2026 at 02:49:51PM +0800, Guoniu Zhou wrote:
-> The MIPI CSI-2 in the i.MX8ULP is almost identical to the version present
-> in the i.MX8QXP/QM and is routed to the ISI. Add both the MIPI CSI-2 and
-> ISI nodes, disabled by default, as they require an attached camera sensor
-> to function.
->
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-> ---
+Applied.
 
-This part of the previous version patch should be applied. If missed
-something, please send new patch, which base on my dt64 branch.
+Thanks,
+Mathieu
 
-Frank
-
-> Changes in v12:
-> - Swap ISI axi and apb clocks to align with dt-binding requirements
-> - Update commit message
->
-> Changes in v11:
-> - Removed #include <dt-bindings/reset/imx8ulp-pcc-reset.h> which was
->   deleted by Rob's dt-bindings cleanup series [2]
-> - Replaced reset macros with numeric values and added comments to
->   document the reset indices
->
-> Changes in v1-v10:
-> - See cover letter
-> ---
->  arch/arm64/boot/dts/freescale/imx8ulp.dtsi | 66 ++++++++++++++++++++++++++++++
->  1 file changed, 66 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx8ulp.dtsi b/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
-> index 9b5d98766512..c5cae7675ce0 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
-> @@ -859,6 +859,72 @@ spdif: spdif@2dab0000 {
->  				dma-names = "rx", "tx";
->  				status = "disabled";
->  			};
-> +
-> +			isi: isi@2dac0000 {
-> +				compatible = "fsl,imx8ulp-isi";
-> +				reg = <0x2dac0000 0x10000>;
-> +				interrupts = <GIC_SPI 119 IRQ_TYPE_LEVEL_HIGH>;
-> +				clocks = <&cgc2 IMX8ULP_CLK_LPAV_AXI_DIV>,
-> +					 <&pcc5 IMX8ULP_CLK_ISI>;
-> +				clock-names = "axi", "apb";
-> +				power-domains = <&scmi_devpd IMX8ULP_PD_ISI>;
-> +				status = "disabled";
-> +
-> +				ports {
-> +					#address-cells = <1>;
-> +					#size-cells = <0>;
-> +
-> +					port@0 {
-> +						reg = <0>;
-> +						isi_in: endpoint {
-> +							remote-endpoint = <&mipi_csi_out>;
-> +						};
-> +					};
-> +				};
-> +			};
-> +
-> +			mipi_csi: csi@2daf0000 {
-> +				compatible = "fsl,imx8ulp-mipi-csi2";
-> +				reg = <0x2daf0000 0x10000>,
-> +				      <0x2dad0000 0x10000>;
-> +				clocks = <&pcc5 IMX8ULP_CLK_CSI>,
-> +					 <&pcc5 IMX8ULP_CLK_CSI_CLK_ESC>,
-> +					 <&pcc5 IMX8ULP_CLK_CSI_CLK_UI>,
-> +					 <&pcc5 IMX8ULP_CLK_CSI_REGS>;
-> +				clock-names = "core", "esc", "ui", "pclk";
-> +				assigned-clocks = <&pcc5 IMX8ULP_CLK_CSI>,
-> +						  <&pcc5 IMX8ULP_CLK_CSI_CLK_ESC>,
-> +						  <&pcc5 IMX8ULP_CLK_CSI_CLK_UI>,
-> +						  <&pcc5 IMX8ULP_CLK_CSI_REGS>;
-> +				assigned-clock-parents = <&cgc2 IMX8ULP_CLK_PLL4_PFD1_DIV1>,
-> +							 <&cgc2 IMX8ULP_CLK_PLL4_PFD1_DIV2>,
-> +							 <&cgc2 IMX8ULP_CLK_PLL4_PFD0_DIV1>;
-> +				assigned-clock-rates = <200000000>,
-> +						       <80000000>,
-> +						       <100000000>,
-> +						       <79200000>;
-> +				power-domains = <&scmi_devpd IMX8ULP_PD_MIPI_CSI>;
-> +				resets = <&pcc5 5>,	/* PCC5_CSI_REGS_SWRST */
-> +					 <&pcc5 6>;	/* PCC5_CSI_SWRST> */
-> +				status = "disabled";
-> +
-> +				ports {
-> +					#address-cells = <1>;
-> +					#size-cells = <0>;
-> +
-> +					port@0 {
-> +						reg = <0>;
-> +					};
-> +
-> +					port@1 {
-> +						reg = <1>;
-> +
-> +						mipi_csi_out: endpoint {
-> +							remote-endpoint = <&isi_in>;
-> +						};
-> +					};
-> +				};
-> +			};
->  		};
->
->  		gpiod: gpio@2e200000 {
->
-> --
+On Thu, May 28, 2026 at 07:16:32PM -0700, Ben Levinsky wrote:
+> This series is a preparatory remoteproc cleanup split out from review of
+> the AMD BRAM-based remoteproc series.
+> 
+> During review, there was a request to move the duplicated plain
+> ioremap_wc()/iounmap() carveout callbacks into common code and to
+> factor the "missing resource table is OK" ELF parsing path into a
+> common helper as well. There was also a request to send that cleanup as
+> its own patchset first, with the AMD BRAM series respun afterwards on
+> top once this cleanup is merged.
+> 
+> This version keeps the same overall cleanup goals as v2, but reworks
+> the optional resource-table pieces based on follow-up review:
+> 
+>   - reshape the optional resource-table helper in patch 4 into the thin
+>     parse_fw() wrapper form suggested on the thread
+>   - switch the patch 5 clients over to that helper shape directly,
+>     without post-helper rproc->table_ptr checks
+>   - keep the driver-local parse_fw() wrappers and their existing log
+>     messages and severity choices
+>   - retain as much of the existing per-driver parse_fw() logic and code
+>     placement as possible while moving the missing-table handling
+>     through the shared helper
+> 
+> This series now does that in five patches:
+> 
+>   1. add common subsystem-private callbacks for the exact-match
+>      wc-ioremap carveout case
+>   2. switch the in-tree exact-match users over to those callbacks
+>   3. mark carveouts mapped through the shared wc-ioremap helper as
+>      iomem so the framework uses the proper I/O accessors
+>   4. add a common helper for drivers that treat a missing ELF resource
+>      table as optional while keeping per-driver logging decisions local
+>   5. switch the matching in-tree drivers over to that helper while
+>      keeping thin local parse_fw() wrappers
+> 
+> For the carveout map/unmap cleanup, this series covers the exact-match
+> users called out in review: xlnx_r5_remoteproc, rcar_rproc,
+> st_remoteproc, stm32_rproc, imx_rproc, and imx_dsp_rproc. The zynqmp R5
+> TCM mapping path is left alone because it also clears the mapped memory
+> and is not an exact match.
+> 
+> For the optional resource-table handling, this series converts
+> xlnx_r5_remoteproc, rcar_rproc, stm32_rproc, imx_rproc, and
+> imx_dsp_rproc. st_remoteproc is intentionally left unchanged because its
+> parse_fw() callback also builds carveouts and is therefore not a direct
+> match for the helper introduced here.
+> 
+> Changes in v3:
+>   - rework patch 4 so the optional resource-table helper matches the
+>     thin-wrapper form suggested in review
+>   - note that patch 4 still triggers a checkpatch --strict warning for
+>     the flow-control macro form, but that implementation follows the
+>     maintainer's review suggestion for the thin parse_fw() wrapper shape
+>   - update patch 5 to use that helper shape directly in the client
+>     parse_fw() callbacks
+>   - drop the post-helper rproc->table_ptr checks from the converted
+>     drivers
+>   - keep the converted parse_fw() wrappers otherwise close to their
+>     existing structure and placement
+>   - test xlnx_r5_remoteproc on the latest tree with firmware images
+>     both with and without an ELF resource table
+> 
+> Changes in v2:
+>   - split the mem->is_iomem change out into a separate patch
+>   - add a common error message on ioremap_wc() failure
+>   - drop logging from the optional resource-table helper
+>   - keep driver-local parse_fw() wrappers to preserve per-platform
+>     missing-resource-table logging policy
+> 
+> Ben Levinsky (5):
+>   remoteproc: add common wc-ioremap carveout callbacks
+>   remoteproc: switch exact-match drivers to wc-ioremap callbacks
+>   remoteproc: mark wc-ioremap carveouts as iomem
+>   remoteproc: add helper for optional ELF resource tables
+>   remoteproc: switch drivers to optional resource-table helper
+> 
+>  drivers/remoteproc/imx_dsp_rproc.c       | 41 +++-----------
+>  drivers/remoteproc/imx_rproc.c           | 40 ++------------
+>  drivers/remoteproc/rcar_rproc.c          | 41 ++------------
+>  drivers/remoteproc/remoteproc_internal.h | 38 +++++++++++++
+>  drivers/remoteproc/st_remoteproc.c       | 31 +----------
+>  drivers/remoteproc/stm32_rproc.c         | 39 ++-----------
+>  drivers/remoteproc/xlnx_r5_remoteproc.c  | 70 +++++-------------------
+>  7 files changed, 73 insertions(+), 227 deletions(-)
+> 
+> -- 
 > 2.34.1
->
 
