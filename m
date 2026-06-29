@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25120C43458
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50F9DC43602
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 20:54:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,47 +12,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FPkiIfYS/p9tSmw68fTY23RyXQT+oRK4BisdBJ7hMl0=; b=Ry3lwD5jk1TSL2hp9XEYGJ70rm
-	j0XCTFHMoSiInFx4Nb7pAEX0FzQaYOqEuy/Ak9BeLBCvz5rWsvAos2Y5vHPRlLRKsv7NdGUKe9mCq
-	BJ/YJ4ucMReYZiTHft3uGmR9icFdjVkZRGlIB1xzHpCy5oY6gVe4TockztUZ1edN4ZdvPyxUdD/D8
-	uTHmeOuqM22T0sEMh1IYddTERSLXBmhjF8XnHpaF7qqeddSEeo1U4lTB8oZYuBlBxgyXdfyhUMYIG
-	kD0rq1+Pz74A0xLM14p5L+ZEZlsWQOw6AY4uGPl7XUsrjLFmEbjWW3kbWp9yTApGtkCxUg2skJ9ko
-	nnHO+5QA==;
+	bh=HvUemmIDJu4RTh8sTckIOTe9PHQR4W57RxU32jwA8N4=; b=WmYXbZ7c7IyIN1li2bmP0E+yBg
+	5YiXJs0kniIfQgElRx97j8KuROyoMNc+pINSLM89Htd7gB+NUF8dIAOt17A+mrqGiqL8JXB541Mi+
+	8yk+tSTorTsTRy58vTb0tmcNbZbW6OhpDDeQFPQDqASliRqulUvw1EsnwypezG+vxOMXh6F+L4Ajf
+	301mIND2v5BoMSAujE7XaYosrIytD+2c/77GI9J1qNYVvDN96yuyBhHq0I40nnoG47YiDGtPJe9Yo
+	mDb60L/+YtsCrTrExEe29CtrzjhzHfGTWvCuda/sRPjgEZOZ3HClAOeQJJDlx5McmoIdiuj/YK7UN
+	7Sx5WyAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weIzT-0000000FSlM-35Tk;
+	id 1weIzT-0000000FSlw-3tTY;
 	Mon, 29 Jun 2026 20:54:03 +0000
 Received: from mail-eastus2azon11020075.outbound.protection.outlook.com ([52.101.56.75] helo=BN1PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weIzN-0000000FSit-2Fax
+	id 1weIzR-0000000FSit-3cN7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 20:53:58 +0000
+	Mon, 29 Jun 2026 20:54:02 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QEx97I2PcWHDRaBSvKmjUUegG4eTHIPjtMItldqdAD46apsQ6GJx/nr1wzQG2OXRW/tCw1HeB2XhifAGQeQsqMHmjcpZKCiuP/IV/9n+9v6jDds2yRFy8WVCuimW8ZK5JSnWyLZuM477VbpVWfLcO4tYjejUELmFcx3z+/BJZ1BWLNQn3k5qwoScKjvemRA1S4x5hHPojLv2AI+S1J0Rb5vM1cqPbOWTXI+nIEJIi964gz8HTgxU+XUi3yCmJQ7j4uFWzT2lSa0xKLNIyrihE+QPxjOZ312LVB8M1M/w1tGM1NK0oc1JfSzYH3Ojf24oPkJ9HbLhT6WJZAudfSX37Q==
+ b=PzJgvLE3K/QrN4bozhLp926zYqPhWdMgKuziTe+z4prAqrWga8B5OTneCUEy/CI4ZGKqzOTADaNvhQ8aEFwmsmu0IR10aMmmGhTXSnv8yjAhZkw+Lr++T7DiqU5gB1kzGULkBnjbW5ZZqYaRp4h4NYPxySJIlDqe/zTlVEtPHrUBjeTWTNXaEzx7pSav1X09KOcEdm46U8+JOEzSD18UMZ5ESMM1be7QHimNj+z966qVPH18fI5GTpIgck7KJ8IbJTo/LafmFKsPhNF1+QljZdYZY8xM2+dfkRwBAFXegYAdCCv2If88DztnIF1c7jbtfvjS6lBFTSu2+k85ZvJtbQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=FPkiIfYS/p9tSmw68fTY23RyXQT+oRK4BisdBJ7hMl0=;
- b=pXPMubYwfDmzw7ro+q8K9TgKASA6Hl8wvuHX8im8oX82I2ACUYdEfiz0qhklSAVUXg0MYUUgXKq8meBSEEkGePi2M+8tl56Iqlce7R0aaWU8uTsANTGJxjv7xhQCQKM/572fBgoDvygpCgjwVlpRtAVRU1IeuIhILRpgLAO7/2kKshC3dSgN+aNbIJTYQdc5CMD63tCKfYATL3TmdZ30ukWIZee093W2xacM2sqTNd4sC4/Hoc+V5sOGEWL7pauhIAoCti6jD7SLletJ+lGU6s43yUwVYeEyM5FHfdtTLYC8QFx5cfG/hiaS+oDL2RhBQXlfe2tNqrDNHVfhreiaow==
+ bh=HvUemmIDJu4RTh8sTckIOTe9PHQR4W57RxU32jwA8N4=;
+ b=MIYcaAbSxPFTVuiYyfresQkXMVEbFay58jso7WqereW2avKYf0TLPhQ8k0dCNR6FbI7qrF28FZJPuTRpumGX2zxlXwDoSYdkbARJSlCPWa8d250XQNGDQX/NHo0UhBbNRyBvKd75/Yur+/OWazzx7K8AG3rvsHUZQTykCxIszCLR3ciSG9rd5wm5aX8enK3q53qrPssHzFgjSP5rVbatgYd2O9Kgzk+JfBPoE9O8vesKSYcQP1gNHiv/gK4iaZuV9SO+JfQvA4aXAJK3qQQ0yfpgIBHGLlprAZ5THGaXo6hYhCaoG/7azt3zLz0WCHu6Osw93wWxHE8O0tEodX1VYA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=in-advantage.com; dmarc=pass action=none
  header.from=in-advantage.com; dkim=pass header.d=in-advantage.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=in-advantage.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=FPkiIfYS/p9tSmw68fTY23RyXQT+oRK4BisdBJ7hMl0=;
- b=BBEVfqNykrk49lbyPDCIcCVSxY5UKeobuuY6pnia/s8c/KBZuGi8q9cUjc16Wdfxd/4AD8mCI4IfJ8ph6CqT/qOAWEDRvY4BZHU1DAyxrB6HWWwMutHfd7/xBNTQoUi3tIevc2DPg6KV3wEYC1U2TEb1otJO46LKGU5A2PlKPxg=
+ bh=HvUemmIDJu4RTh8sTckIOTe9PHQR4W57RxU32jwA8N4=;
+ b=K9jpuO8ZoUL83Pt9P6DEI/6Mh7N4SkYDb6WWghFREjQSYDSmx8V1j0TCoWTdEyeiIDQJEwLqwVo0K6+umaQrC3JH3ftJrveze13zsIj1nhTA7jW//A90y/73DWt8DUhCGyPidlnqDVi6fPgUnE0YN5m8ldkoLc0bRK50UUY7LSk=
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=in-advantage.com;
 Received: from CH0PR10MB5290.namprd10.prod.outlook.com (2603:10b6:610:dc::14)
  by SJ0PR10MB4749.namprd10.prod.outlook.com (2603:10b6:a03:2da::20) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.18; Mon, 29 Jun
- 2026 20:53:52 +0000
+ 2026 20:53:55 +0000
 Received: from CH0PR10MB5290.namprd10.prod.outlook.com
  ([fe80::fd87:b9a4:818d:5ef5]) by CH0PR10MB5290.namprd10.prod.outlook.com
  ([fe80::fd87:b9a4:818d:5ef5%4]) with mapi id 15.21.0159.018; Mon, 29 Jun 2026
- 20:53:52 +0000
+ 20:53:55 +0000
 From: Colin Foster <colin.foster@in-advantage.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -62,72 +62,72 @@ Cc: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
 	Brian Masney <bmasney@redhat.com>,
 	Stephen Boyd <sboyd@kernel.org>,
 	Michael Turquette <mturquette@baylibre.com>
-Subject: [PATCH_v2 1/3] clk: clocking-wizard: fix clock difference detection
-Date: Mon, 29 Jun 2026 15:53:44 -0500
-Message-ID: <20260629205346.3228886-2-colin.foster@in-advantage.com>
+Subject: [PATCH_v2 3/3] clk: clocking-wizard: remove 20kHz restriction
+Date: Mon, 29 Jun 2026 15:53:46 -0500
+Message-ID: <20260629205346.3228886-4-colin.foster@in-advantage.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260629205346.3228886-1-colin.foster@in-advantage.com>
 References: <20260629205346.3228886-1-colin.foster@in-advantage.com>
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: BN9PR03CA0344.namprd03.prod.outlook.com
- (2603:10b6:408:f6::19) To CH0PR10MB5290.namprd10.prod.outlook.com
+X-ClientProxiedBy: BN9PR03CA0347.namprd03.prod.outlook.com
+ (2603:10b6:408:f6::22) To CH0PR10MB5290.namprd10.prod.outlook.com
  (2603:10b6:610:dc::14)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: CH0PR10MB5290:EE_|SJ0PR10MB4749:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9725e4ef-6b50-48be-8a77-08ded620869a
+X-MS-Office365-Filtering-Correlation-Id: 55afa4e2-77d0-479c-c5fa-08ded62088b6
 X-MS-Exchange-AtpMessageProperties: SA
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|376014|366016|56012099006|3023799007|11063799006|18002099003|55112099003|22082099003;
-X-Microsoft-Antispam-Message-Info: E3uV7ZySJZdKnb7wqJ163XaQOV8V0/XCufisOKphSUJj4wVJdbvBLlbIruh/ELniQpbBwyAPr/9wYCUCqVFn9MW4xNazL2QytNVIAYnq1boiuTmwSc1IiX2gpQ+T1pCffze48AdqP/1rlPlz6JXIF4vafvTUzQ7CJPz+sQuBazIdFIxEcSanqLgJXy/tEgKTq+Hxf2aCcI2rgWA6ONyiNEqLBH2oqRedmBxQj1vt8ZvnlgxbvKhqsRmRIcojKt9/DG/IqI8G6Gi2WSyMtx365zg/5mz1R3sepKgkuZ8LBq8dBmu6kY2oQEKZlyGFMDXpCYgn/+GNEqzV6vQ1dIuK/cbCRtJMcxsrYfY2hIQaBKUW8bI4ipVQuK3euJbVObQWt/ljeDbAcA1bJM8IiM8te+JbeHXeNce3IRh8EfmA0SA72P7Dw/uOotDTEN/UV9huD1Wcz524KO9QzwJphtwWt51DzQxXxooNHhqNVRkL7AB21NVzofS8QlIZI8rTY6Uotc5hAVJEAiNvDH8imvmYilT1OYTlxcZOQsFFuaXPBlZpCenkumTUJrnZ74g2hiu67l5r/vRh+JEzuZ/feTMNHhW8mXo8lbCRLiSL7hd+0BvT6hURX84btBj3n/EvOf/M1tMkXvszPSqpuaBgj3yIkdsCBBOMvAS2dmi/BAdXkMk=
+X-Microsoft-Antispam-Message-Info: jtK0WIyxk6PVQ88iPZwWry2+yRcUYOBvMkEyGXYnGBpaSIaKCpw6Vd63c6b1AnFrzUU+r3WS3Z30ib/WVWPpx9Zv9okbYfvVL1WgEyEI5bqINxZT/3jhIIgVy5Ysz+7A/U0w5fJGbPVtq0U0C4kKCMb9zsMW5BsSpXa8pDnTUcdxbHBT4Zj6AiW5iK4Bu/haSwIL9SrR2s9cpypuDpsRf5cTwn6FgmWYm7yOhzU8Ag+dp3wn9Mmh5mMe0gdN1s3P3JHIQpx9Tewjs7aZn9L93f135rOgYuuVDG37yR+SHORzR+QufRdSBN6+Y86rn7awa0U9WimltOxyG4htc0EKV3EPr32XQ9XaRwDPL2mZCDoeuPIrW25d450O4Np7EPmdtZoaYFrugnQYCjpLpUJT90GM40PHRS+WAH4rSn32DwoN93BgTXdkR/LdWTswreIMtt/rLT7InTyOyUf7dmAylBxYKfG17lgIVm6x62+HRNVf+v1WNDr9hPSOn4TfzvuBq/sqS+Khj/p4zuqEFkiTj8aene5ErSFcavnBWCem4MitpT2gYc3pb9raCYe3Ph0o0jlPWRwmmtdesi9xQ1rQvFTwAd28z0SFoUY8iXwlIsTu0SVZ5NYer2J+gETnebc/xK43MM1lP7Mt4bb6w91qnlviBJXxOoGRLFxLiGfenlM=
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR10MB5290.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(366016)(56012099006)(3023799007)(11063799006)(18002099003)(55112099003)(22082099003);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?G83NNIV9yjhDtWVhl3sNTGBE4XDE/4Mi0RAKLkOXC1FpS3Pq9JH99rq4jzdg?=
- =?us-ascii?Q?jQ1ZU5QUKVhEkYPc8nv4MvppvBqUJBex0xVZfmT4YlqiUbhx0rS8ouekGJgf?=
- =?us-ascii?Q?MI1WxMzOhAG2Su/FlISSNkpoTFshZTFCAu7JAU32MNf8fqgsDSC4cQUYfozn?=
- =?us-ascii?Q?n867rRtYDanvogRC2JnKGVs1R7ICwdq8y9j/Q58NgIj9wdGNAaGfQg+jI1cc?=
- =?us-ascii?Q?cdDltxFuBbWhrcMeNez0h+rAqVjF7ashTs5nGGd9OsEDZJ1ZYfmJBM5MbutX?=
- =?us-ascii?Q?ATMDeT+2oHh9hpSt+wsTtS7HwnFMJqLJi5rVxDRLeggv1In42Dd5MyHWvEcw?=
- =?us-ascii?Q?xnrN0EVJ4PSzqgMRrxEUu8UB0RY4P14t4rlMEgjmGxOsYTv3NR78kl4h3JPU?=
- =?us-ascii?Q?3MG0a7Vumz5svExLIQmBwPGVgnqFUFDi3H0DhliY1Gf/RxGqcifh8opQye5f?=
- =?us-ascii?Q?obIUknvEOBja9737UZAixHPvPOJhRa1Ou4F8OFBT0SFmDFZ7VkeaAkkp5qMG?=
- =?us-ascii?Q?Mw4wWms1jrXQ77xvH5dEH4pjk1HdMCiOxFPw3Bv8vBxC29TEPDgsIHPoeK4s?=
- =?us-ascii?Q?o86cvMfHaQOPq46SwYbvYxVxDhJUYUXWkztlw5WRFpu/y5QMj+eNpA8RfoTq?=
- =?us-ascii?Q?yOW8PP8KQzFFpipwtQCS5tmiMWgdAN1UUCUhJu4JdgP+hwDYB04d+udrk0ip?=
- =?us-ascii?Q?p7lu6sHkkcBVfUZNKicTPM8H6/BcxfFm9/2XdjO8SXu5rbliuXkEtXV5xrvJ?=
- =?us-ascii?Q?AOEM0NmCqaowXZnKBnX2+CNDI1HFF9lrOfr65rkXTTFmeM+fTDEPHMM4n5NY?=
- =?us-ascii?Q?n+uzXXlct+w1jKMYOqowpDx9fysL7K5NnJNm/WygH9YO9nIMi4rPxrwpE0lh?=
- =?us-ascii?Q?T4ungvaZE5JcylkstO8VlVpACHOljNXK2O3KBX891P+1zf0+LnDlZXrLJOJi?=
- =?us-ascii?Q?XLKfAoIx/UpNG4vlU5Woo7ptKiZyrlD9gXeozXdquZwMWfktGWRFGcYIc6Tk?=
- =?us-ascii?Q?sH98PkOTwEKL+yPVJuzcWh8P40sccTyMAlL9+kMiEEj15+b+CUz6WGcaw/TY?=
- =?us-ascii?Q?TW/HAE86E4X/g3PYobzQdY+yThPMN9E1tYSGmFZZSrhL/ipm8GJob9SiTvTD?=
- =?us-ascii?Q?hp4fKfYo266CvnetmbXz11Ou4JuWYuGwYDrWwH/UwT4kh6xW1jB+XONctZ/Q?=
- =?us-ascii?Q?yuZIOsaMMOagFzAtce8rAyVG4Z1SEjRZCS6tXWM+8UOvZ0zsAlz8tKIKSmFG?=
- =?us-ascii?Q?/D5NqIw9rxe1vI6H2F3wXFJNOfCImqvPI+Ah1A8/SxbxKHcqjm7WEZaPRCt9?=
- =?us-ascii?Q?5+nJ6sMj8UDHA2Pe1BA8al2vcAFam+HC0WtJIw3pRA8TV3vIybbyeFU+7GpR?=
- =?us-ascii?Q?CJ3hwJTp3lQeDNz/tuQot2ACng9iCldLg215NbORKces1gb0eT5/KY4+GmfR?=
- =?us-ascii?Q?nmFv2oCCwjboayhAjOQVmlQvMEGYzI3eYPDFXUfO+uK3BHoZspa+RiflXkM8?=
- =?us-ascii?Q?DOr1j76qv1FTUk45U8YU9/P7zlbGljLrUtA71PstiMeHng4fpwwPnNKHKRuK?=
- =?us-ascii?Q?eyJh5HSWiDKyVUjZP0cXvyJkdcYAa1FzZFVucEpNx++t51tiD2ZiUlN06jrZ?=
- =?us-ascii?Q?6tiGTCN5PPg9Bto2cnDYZUN+HHVIHkvQ/NQG/6GFQpwlWtkXIOpXOeapwnqV?=
- =?us-ascii?Q?lm9y+hbmxvhaA82Uw3C2K9WKBqrH80NsM3PKOkJt+j103VG5FuYdksR7fleE?=
- =?us-ascii?Q?jngSeW1bqOOR22UDgj8VIuE6LdNkiDs=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?tys4RFKLVU9i0uump+nmcTjyDf7kq/P4wnzxE3jHiCmdRufKkyvtUNkiGHX5?=
+ =?us-ascii?Q?yqN4uVDZj6GGRFNIFVaSDKUvewdzbjT42IO+STa2fzdXSPNZ8/r0/EWXHWrE?=
+ =?us-ascii?Q?P/28aPvkI7UmrQgqItTZZiWYlgy/rUIg3gprrzPVZ/mh5Nwy6P/XN1WdJEVv?=
+ =?us-ascii?Q?RJTIRCjTGkN5LhyumQNf/A7eG7Kmq0CWGg/5qEbkYVaSPEFNNBw9Bqa2wvKf?=
+ =?us-ascii?Q?I1ssg2ewU5faLnOjq3mP+a6J3WhsqOP6Fo7zcUfnPL7d5I034Yo3YCM70Ksf?=
+ =?us-ascii?Q?fnuC1geePAmr7t0yaafxvbUpGWru4wHe8k1/BzlObUo5Uq0LDt71DWYt4VWs?=
+ =?us-ascii?Q?sEzobR6v8ZQuVIHXHE1A8OHaMXN2nUz5VvvHc7+dc1w86dbx7eSq9OFC6GF4?=
+ =?us-ascii?Q?B2PeKtwzLGjnEPATagORBTKyS5VnSd3Gesj+JewX+cbt7leekrCdAuOsF6Rn?=
+ =?us-ascii?Q?TqtSXA/sbw/qvVPXgGWqsyC772hIHs1tX6Wwh+6ERPodL+Hutn58CF4rwtlI?=
+ =?us-ascii?Q?z9izMIi4Tpqrk+9TZ7yD45odGx3QDG5+Pq9xQBHW5ZBB8R+ZzxSHCkbOgTHG?=
+ =?us-ascii?Q?45wBBT9WKaXR3wGfe7YxpLsXK6ft/kK0+tDBFrrDmUCuGAHqCzMQZGksPupy?=
+ =?us-ascii?Q?xJglsIc4KX83yeZH8NTuZakbf7Xa/kbG+x4TaaEskZIr4GwiDcNN2hpV2dDJ?=
+ =?us-ascii?Q?27myujmnmH8shTk3LR6RLZi1yDp+7qwNriMEohTBdHP216ZpdOiwGEirZ8IR?=
+ =?us-ascii?Q?XbcdjmNznAbVC1ngK+7S43+7cwlfNo9NBaO8iifdjoQZRkRLACTG8UxzJJOT?=
+ =?us-ascii?Q?GR6w/FvsQpz6qJWsZw5A1rEOYmOxCa30PN4UG2JMhoms5bvpbYtNOEnzHDGP?=
+ =?us-ascii?Q?FACnZlVr+qpOzltSlJd6TchRphXSNbGXMzrnPru5Qcip4lQM6LGkRN1aKcRq?=
+ =?us-ascii?Q?G/BGMmnkrM31qo5OnLM6rj+NEAS+GVtCZ9woGDBKS+ocFOCOcxM7KcQqOc7w?=
+ =?us-ascii?Q?pZ7khHsGnsXbpRHKJftl3Izd8Pbhwpeo2n0fPLZgK4o9trWBLWPRL6Kb/LV9?=
+ =?us-ascii?Q?Y/mlhe+9Srt0aLQf6cGKH5nm0ABXhskswp33MZg3rA8zx/M1qJ06ysINuaFS?=
+ =?us-ascii?Q?UBc4D42+FMMgMU2pP2HZvp0aHd2xYZUEllnprZwTy1CkYxlOdf1yASbBZZyI?=
+ =?us-ascii?Q?PYnsD7BgRnMnQTPJHxDXl1BH3K7PI25sMro7gjmpaIseInWqfRWez53vvjHN?=
+ =?us-ascii?Q?VDYjhZrGqW7rv2v+4Xy57MWkAHRMHmHdxatYrqSVBdX0L0+fvDXvoJw/1HlF?=
+ =?us-ascii?Q?dmlIzJ7Vqp/73nVmgrUt23L78/P4d298NmLgaBq19FOow1HeHObxSXOzUzek?=
+ =?us-ascii?Q?zWgi29Nz3pfik8oAQ5lt8YdsTmBe9wSJJxNpouQRRM3sFIiC5VagxQiYJOu2?=
+ =?us-ascii?Q?IV1dLeblB49zbMORyrqgRSPpFqKl/zXA1D8sK7c4hukTsEBolRnGQ6rNu6i0?=
+ =?us-ascii?Q?fCflkisKq4y/01Ha/T87e8e0emYe1czABPpHmucnBsqFTyfkbZ1IC2receCS?=
+ =?us-ascii?Q?d7Z6pfNwVYShuVaUlm0LohCeGQOYPVwcFri98nAKhCOJ2pNZ0Yzg4OLo8vbN?=
+ =?us-ascii?Q?Q6fJuH9Biv+lL+dTBJvPI/t5ekn2LaLp6Otl6SB8lI3l2+mhkNyLBkbjaEe7?=
+ =?us-ascii?Q?2fn/HjG39EaGCxmbYz9ztcX6Y2AV5YUMSZr0zl6aJaB8q74RasrkkeN7OXF8?=
+ =?us-ascii?Q?G+2baPtGrBwuMGLJmqwwMe8fY7l9UFY=3D?=
 X-OriginatorOrg: in-advantage.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9725e4ef-6b50-48be-8a77-08ded620869a
+X-MS-Exchange-CrossTenant-Network-Message-Id: 55afa4e2-77d0-479c-c5fa-08ded62088b6
 X-MS-Exchange-CrossTenant-AuthSource: CH0PR10MB5290.namprd10.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jun 2026 20:53:51.9904
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jun 2026 20:53:55.5646
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 48e842ca-fbd8-4633-a79d-0c955a7d3aae
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: a6jut9zFQbFhNvAquiNbybDNcmppmpZYSPoX9/AH/vVpflyH5yYBOtoftiZMzflF3dcnoOC1jqNCFsmjeicSnYs3/WO+qrSZLeY7cCqI40o=
+X-MS-Exchange-CrossTenant-UserPrincipalName: WcsPPvIjb4IeBxqrQeaLvPBK9vfEsSDhWP9j27hHAoDaJkfri4OGfzWJsmNo0fwFjiSRqal1ImFUXfsj2cNRMvTbScR2YRXraYGS7P+VV2Y=
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR10MB4749
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_135357_578950_0FD3FE99 
-X-CRM114-Status: GOOD (  11.64  )
+X-CRM114-CacheID: sfid-20260629_135401_904728_E9597C8D 
+X-CRM114-Status: GOOD (  11.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,51 +142,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The diff calculation didn't take into account rollover. As such, a
-target clock frequency below the requested rate would not be considered.
+There is a 20KHz minimum target for clock difference that was baked into
+the driver. This is unnecessary, and causes target clock frequencies to
+be rejected that should otherwise succeed.
 
-Before this change, bogus diffs would be used to determine the closest
-possible clock:
+The discrepancy existed in versal drivers as well, but was removed as
+part of 'commit e0a94c6bb5b4 ("clk: xilinx: Optimize divisor search in
+clk_wzrd_get_divisors_ver()")'
 
-8<--------
-clk-wizard-test: requesting 133312500 Hz on output 0 (clock NOT enabled)
-*** Clock wizard - Matching for rate 133312500 parent rate 99999000
-m = 33, d = 1, o = 25, freq = 131998680, diff = 18446744073708237796
-m = 34, d = 1, o = 26, freq = 130767923, diff = 18446744073707007039
-m = 35, d = 1, o = 26, freq = 134614038, diff = 1301538
-m = 36, d = 1, o = 27, freq = 133332000, diff = 19500
-8<--------
+Apply the change to allow differences >= 20kHz.
 
-After this change:
+Before the change:
 
 8<--------
-clk-wizard-test: requesting 133312500 Hz on output 0 (clock NOT enabled)
-*** Clock wizard - Matching for rate 133312500 parent rate 99999000
-m = 33, d = 1, o = 25, freq = 131998680, diff = 1313820
-m = 35, d = 1, o = 26, freq = 134614038, diff = 1301538
-m = 36, d = 1, o = 27, freq = 133332000, diff = 19500
+clk-wizard-test: requesting 133312000 Hz on output 0 (clock NOT enabled)
+*** Clock wizard - Matching for rate 133312000 parent rate 99999000
+m = 33, d = 1, o = 25, freq = 131998680, diff = 1313320
+m = 35, d = 1, o = 26, freq = 134614038, diff = 1302038
+m = 36, d = 1, o = 27, freq = 133332000, diff = 20000
+*** Clock wizard - Matching for rate 133312000 parent rate 99999000
+m = 33, d = 1, o = 25, freq = 131998680, diff = 1313320
+m = 35, d = 1, o = 26, freq = 134614038, diff = 1302038
+m = 36, d = 1, o = 27, freq = 133332000, diff = 20000
+clk-wizard-test: clk_set_rate(133312000) failed: -22
+8<--------
+
+After the change:
+
+8<--------
+clk-wizard-test: requesting 133312000 Hz on output 0 (clock NOT enabled)
+*** Clock wizard - Matching for rate 133312000 parent rate 99999000
+m = 33, d = 1, o = 25, freq = 131998680, diff = 1313320
+m = 35, d = 1, o = 26, freq = 134614038, diff = 1302038
+m = 36, d = 1, o = 27, freq = 133332000, diff = 20000
+*** Clock wizard - Matching for rate 133312000 parent rate 99999000
+m = 33, d = 1, o = 25, freq = 131998680, diff = 1313320
+m = 35, d = 1, o = 26, freq = 134614038, diff = 1302038
+m = 36, d = 1, o = 27, freq = 133332000, diff = 20000
+*** Clock wizard - Matching for rate 133332000 parent rate 99999000
+m = 33, d = 1, o = 25, freq = 131998680, diff = 1333320
+m = 35, d = 1, o = 26, freq = 134614038, diff = 1282038
+m = 36, d = 1, o = 27, freq = 133332000, diff = 0
+clk-wizard-test: success -- actual rate: 133332000 Hz (requested 133312000 Hz, error 20000 Hz)
 8<--------
 
 Reviewed-by: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
 Reviewed-by: Brian Masney <bmasney@redhat.com>
 Signed-off-by: Colin Foster <colin.foster@in-advantage.com>
 ---
- drivers/clk/xilinx/clk-xlnx-clock-wizard.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/clk/xilinx/clk-xlnx-clock-wizard.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
 diff --git a/drivers/clk/xilinx/clk-xlnx-clock-wizard.c b/drivers/clk/xilinx/clk-xlnx-clock-wizard.c
-index 4a0136349f71a..77c9d025ca8cf 100644
+index c7e8010afae52..a8decb3ec40f4 100644
 --- a/drivers/clk/xilinx/clk-xlnx-clock-wizard.c
 +++ b/drivers/clk/xilinx/clk-xlnx-clock-wizard.c
-@@ -406,7 +406,7 @@ static int clk_wzrd_get_divisors(struct clk_hw *hw, unsigned long rate,
- 			if (o < omin || o > omax)
- 				continue;
- 			freq = DIV_ROUND_CLOSEST_ULL(vco_freq, o);
--			diff = freq - rate;
-+			diff = abs(freq - rate);
- 			if (diff < best_diff) {
- 				best_diff = diff;
- 				divider->m = m >> 3;
+@@ -105,7 +105,6 @@
+ #define VER_WZRD_VCO_MAX		4320000000ULL
+ #define VER_WZRD_O_MIN			2
+ #define VER_WZRD_O_MAX			511
+-#define WZRD_MIN_ERR			20000
+ #define WZRD_FRAC_POINTS		1000
+ 
+ /* Get the mask from width */
+@@ -420,7 +419,7 @@ static int clk_wzrd_get_divisors(struct clk_hw *hw, unsigned long rate,
+ 			}
+ 		}
+ 	}
+-	return best_diff < WZRD_MIN_ERR ? 0 : -EBUSY;
++	return best_diff != -1ULL ? 0 : -EBUSY;
+ }
+ 
+ static int clk_wzrd_reconfig(struct clk_wzrd_divider *divider, void __iomem *div_addr)
 -- 
 2.43.0
 
