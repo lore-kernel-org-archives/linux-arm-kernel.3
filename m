@@ -4,75 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 096D7C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 12:49:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5C79C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 12:49:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZnCdA3RZ8rzOBYeB70O433uBRb2J0cxlC2SD87W2TX0=; b=Q/xEXqfygMOLySHW1UmbP3wE6+
-	k8uAcOUOXlurDGBDIBbjTZEObSBjR709O5Aamv7eJT8tL0GkKEITkgJrdGnpK55NN2ABBEZqXkhOS
-	1E7bv/uEN3cqAXVUui1m9aR4VTv8/Ijrt3rT8fPUrwEUwA/AJEHOz0jrqXnVLqbTlgBQAV+DkTBnx
-	p547Lv+iJEVRRpeh3wiOKhsqbN3WOychRtHMFFU8mvaKM7c0p2u/9XGJ+sBXy2ew9gA8BaD3bti14
-	eRxUX/GXSzZ5X5SWeXbS37t5oKJShbpqpTC6gw5Pbcu22ZXpJbj8nI5VCvYsErtM/XFnpyRcbnl0K
-	d4WsrVKw==;
+	bh=O+/YUQD7YAYGSS5DehzY5s76C5ID0xVuOZFRGvMTkns=; b=aUVk3uOALNQHAnloFFKH+z2aEW
+	1omNdjOYols6akXExWjeWnKeVWwdBNsP/I5vXkaBfEoYuK+3CK+iVIDOKLk5b/3kFS5vxhl1Kbdyn
+	zbJJqrDnViyB/9R4IL1Q2AjI/VCVrc+Xo9zLPByRvBdT+Yd8/VIMqf00E8whgTjPHyLZZWcA+J1eu
+	CPBx2uOLFLHm5uI1JXZkw3+VrB3rd1Dg+L1XqtIEzIVnQ2L1RN7MpvLOOOHhc8tErsxuWo2EO+7v9
+	SDVWE/2S9CoPHF9JVjC9RjfIQTyR2VIicSPFxpyY4E9O7upiZdgCnYy6E3R6uLyCncAtPWLvHyK41
+	Hl25W80Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weBQ9-0000000EcYU-1Wz4;
-	Mon, 29 Jun 2026 12:49:05 +0000
-Received: from verein.lst.de ([213.95.11.211])
+	id 1weBQQ-0000000EceK-2nhu;
+	Mon, 29 Jun 2026 12:49:22 +0000
+Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weBQ6-0000000EcXW-40Zc;
-	Mon, 29 Jun 2026 12:49:04 +0000
-Received: by verein.lst.de (Postfix, from userid 2407)
-	id 8495D68B05; Mon, 29 Jun 2026 14:48:57 +0200 (CEST)
-Date: Mon, 29 Jun 2026 14:48:56 +0200
-From: Christoph Hellwig <hch@lst.de>
-To: "H. Peter Anvin" <hpa@zytor.com>
-Cc: Christoph Hellwig <hch@lst.de>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Dan Williams <dan.j.williams@intel.com>, Chris Mason <clm@fb.com>,
-	David Sterba <dsterba@suse.com>, Arnd Bergmann <arnd@arndb.de>,
-	Song Liu <song@kernel.org>,
-	Yu Kuai <yukuai@alb-78bjiv52429oh8qptp.cn-shenzhen.alb.aliyuncs.com>,
-	Li Nan <linan122@huawei.com>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-crypto@vger.kernel.org,
-	linux-btrfs@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-raid@vger.kernel.org
-Subject: Re: cleanup the RAID6 P/Q library v3
-Message-ID: <20260629124856.GA23695@lst.de>
-References: <20260518051804.462141-1-hch@lst.de> <20260518141205.c100f76eec5f58e78bbbf7af@linux-foundation.org> <20260519082432.GA14956@lst.de> <7d8efc7c-65e3-49f8-9381-910de7affef2@zytor.com> <20260629122152.GA21344@lst.de> <8684FEC2-AD56-4BDA-874F-1D3D7170F880@zytor.com>
+	id 1weBQN-0000000Ecbj-0NaS
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 29 Jun 2026 12:49:21 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=O+/YUQD7YAYGSS5DehzY5s76C5ID0xVuOZFRGvMTkns=;
+	b=2WZBudhenS3hM7mMwRIBVvPr/ThfSgz9lYWaUAUXKzw+rms+JuhUfZ2f2Qvr4Ol5Tv83L3W5M
+	R82qUDI/0vzLePM/Tt9O/T5egeDzpdeVUoyssT5fm3z40XZ8yZOdimhg6N7GvGV+qJIewGrlaLr
+	K4lVPTsnMqFBoWYxGanvTc0=
+Received: from mail.maildlp.com (unknown [172.19.163.214])
+	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4gpm7w366hzmV8L;
+	Mon, 29 Jun 2026 20:39:56 +0800 (CST)
+Received: from kwepemj100009.china.huawei.com (unknown [7.202.194.3])
+	by mail.maildlp.com (Postfix) with ESMTPS id 22A4740580;
+	Mon, 29 Jun 2026 20:49:05 +0800 (CST)
+Received: from DESKTOP-A37P9LK.huawei.com (10.67.109.17) by
+ kwepemj100009.china.huawei.com (7.202.194.3) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.36; Mon, 29 Jun 2026 20:49:04 +0800
+From: Xie Yuanbin <xieyuanbin1@huawei.com>
+To: <bigeasy@linutronix.de>, <linux@armlinux.org.uk>,
+	<rmk+kernel@armlinux.org.uk>
+CC: <xieyuanbin1@huawei.com>, <arnd@arndb.de>, <clrkwllms@kernel.org>,
+	<liaohua4@huawei.com>, <lilinjie8@huawei.com>, <linusw@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-rt-devel@lists.linux.dev>, <rostedt@goodmis.org>
+Subject: Re: [PATCH v2] ARM: enable interrupts when unhandled user faults are triggered
+Date: Mon, 29 Jun 2026 20:48:16 +0800
+Message-ID: <20260629124816.136079-1-xieyuanbin1@huawei.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260629123349.134224-1-xieyuanbin1@huawei.com>
+References: <20260629123349.134224-1-xieyuanbin1@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <8684FEC2-AD56-4BDA-874F-1D3D7170F880@zytor.com>
-User-Agent: Mutt/1.5.17 (2007-11-01)
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.67.109.17]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemj100009.china.huawei.com (7.202.194.3)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_054903_141307_59433236 
-X-CRM114-Status: GOOD (  13.11  )
+X-CRM114-CacheID: sfid-20260629_054919_621205_D9971A14 
+X-CRM114-Status: GOOD (  12.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,12 +80,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 29, 2026 at 05:34:41AM -0700, H. Peter Anvin wrote:
-> The real issue though is that the benchmarking isn't really helpful, either. 
-> 
-> It has to do with power across the whole chip, so it perversely enough depends on what *else* is going on...
+On Mon, 29 Jun 2026 11:40:22 +0200, Sebastian Andrzej Siewior wrote:
+> If this is moved to the callers of arm_notify_die() then I don't know
+> what to do about baddataabort(). It looks like it gets invoked with
+> disabled interrupts, too but I'm not sure. This looks like pre ARM v7.
+> Is it reasonable to add such a check there?
 
-Yes.  And preferences might matter if this is just a file server or
-something running a real workload as well.  But I don't really have a
-good answer to that.
+Oh, I'm not sure about this place either. Would interrupts here be
+disabled? I'm not familiar with the entry assembly code of v4t, so
+I don't know how to construct a user-space program that can run to
+baddataabort(), and I also don't have a v4t device to test it.
 
