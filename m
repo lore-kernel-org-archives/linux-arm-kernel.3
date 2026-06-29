@@ -4,107 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40B23C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 12:32:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4CB6C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 12:33:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mx+bJya2052OeT1zYheYpJVI5drzn8BNJLEF7IAU1sg=; b=fUKfprJHldOL/EWMIvN6HhcLOP
-	SSIdTen7mGrNSuH4DF26YnB8xRx37mOtJM4cL0qBlg65yw7INz3pQm8ugbZ4jdvzI8yPB91P49xzG
-	8IjjIIRObl8oIEkhx2PL9Jk+YYTOQfIWUu46FSKWN2xe1Qs2kWpOsJMvpYpQX0mSMkxctcuW/3SQR
-	tBITUfjMTtA2ec4qPccMsLXIV5VYCMSY93zVAfTkKS9qTIaWyEYfk8eWfGBbmtjIUP6aPBbaQGu3Z
-	c18MF6jIpVwJZdFzXsa8Zp5TdDOqq9DjTZZvWB/Vs2uWJLWwZK5fKRE9DlMS2cE9IeJktPMtO6ijU
-	z7Fm2mDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=W6yfFGpGsowdA7nocV8Q2ZeGgDt/heljVkQt2pc3Sqk=; b=kTr8Fmxl+zlgOgfUrqS1zdhEjA
+	tRSySu/ogk2o9eaYJ2CKuDsE02N4nq2aWofsOBtGdanD1N6fmLDiPecfwqZTz1wohf75mV8lMvNNA
+	o+lXKOMUpH9GASnOXAKi02LxspWhpAiBIadFK/fWxL1KTOuVtEhVWICWLn7wDNLYyWMiPTDh3WYpq
+	Ia4tJHqSg08sdvupEGsDemkSmWGqG5CrG707kLIroezQSOs3TivYVeEFi3cS55SaLEh5OFC0ckEJL
+	e6CTjPKStdDPt0eqB+VwG9ETsFEBVSS0VUhN5aogctnURtVbHbXexwz9XxfQttSSNdYZudoLv8YKx
+	eXOXVzVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weBAL-0000000EYxC-1f5W;
-	Mon, 29 Jun 2026 12:32:45 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	id 1weBAj-0000000EZ0f-27Nc;
+	Mon, 29 Jun 2026 12:33:09 +0000
+Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weBAI-0000000EYwm-3gQQ
+	id 1weBAh-0000000EZ01-0x72
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 12:32:44 +0000
-Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-68bd9fce347so5618648a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 05:32:42 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1782736361; cv=none;
-        d=google.com; s=arc-20260327;
-        b=evA1qC2ThpizY503UxLUQufow4hgJI7QbVEA+JrSf2/k5bTJXnDP5aeHKGio5fjFly
-         IDCJUOpQ9Ne/TUHrhMY1oQ1Au946ed3CI9DoX0ph7J/1lqA8hW88/N5z/Lz8Bi3RggPo
-         5WYe1iQAZ0OtxxaTbx//dv0U+3NUm3S+WS56tDDhoZ1B6LqCrC/Wy7e+6BifRmkKSPba
-         E6hkKdcmpDYEeSmVUS9E32pKkv2LBVdHuhLu3788UywnS8s7ns3sA1v2z3SJJcmLXnZW
-         VRDt4RJWzxqwZD26KeiNx6phg194tjLPQmWs34V3sprimt/blKFLXDW6Pzxz4LTReOdT
-         zh/g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=mx+bJya2052OeT1zYheYpJVI5drzn8BNJLEF7IAU1sg=;
-        fh=1R6cIPb4QqKmybHXMFpp+cODhl77rUFF7echofsiQMM=;
-        b=jMxKPhaDfjf9aHOAGmmgJn4YfYXVmu783kieHJRhPBKG6k70meWd5922o1iUmmit66
-         Gqo5Rmc3hm+/NQPmfac7h7qJRsyWZi3kJoIiywZNRX98dYYT1IJ4zcbYLO+l+55hwPkC
-         /J5Ot/zX6X0lO4JNaRpou3fR+5xORPDOP+gXQ1h0ieZEZaAR1wTXKSmrDPHSCGPKstzv
-         LiFif7/wEIPDODoW48+ph7a6k2lT2AOnMSRi5PQS5c8yJOc6pihlp/+nnCBrLt5CprRs
-         +qbKxR4+3MpASQHswchOmYXY7DisTiom8dpT40P3o68fHurYtwjV4Y1LCMPM55SdU4Te
-         T5PA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Mon, 29 Jun 2026 12:33:08 +0000
+Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-c1268d56234so97661066b.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 05:33:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1782736361; x=1783341161; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=mx+bJya2052OeT1zYheYpJVI5drzn8BNJLEF7IAU1sg=;
-        b=XRLb8a0op7xQNWvv9zjdINf+AVzAB3cYyS42/hE90w6XgckOHWw1lPGroJePDpaZAk
-         Hq14z9ZP3atBBTovxm45NvKAansRYtt3Vdw2YOtAnk4AR8BmBEwmDNhk2ja2eTYiUyWn
-         DjO38c7ShbJmGpnOGkCiZ/cMI0ROicpU71ZF8rLmJhLPB5yHyy6AXNZNI69Uin7tiuaF
-         oJuEVRkqc/F6rino3AbwG1cIheR4fWHG/DKNFdI/h05UnubioqEqTg/aO9AbkKVUejZc
-         nGUlqZmR6A4T14ArvSqiyo8YVajIMWKZqoC5JFrk+UnmFxrZl9D4094OtyVtrZhSSdlh
-         zLLw==
+        d=gmail.com; s=20251104; t=1782736385; x=1783341185; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=W6yfFGpGsowdA7nocV8Q2ZeGgDt/heljVkQt2pc3Sqk=;
+        b=CaCrxxqnUzshY9q19xocT4qGRLxBgguOw6h6VBPDESOqlPhDQ/8x0dcAJGtj1LrU4u
+         R093cAbRFZT1PjqB+Ww5rdE8D8VHv1xrgfXv3nlXQO7K74ZAwhM7C+4VgTcJNc1vLvON
+         zzWAAu3fXDhD6f8e1irZcbaP60+FgwFZFzYxg4pfsyy5d051COPwEo3u39WqOT5Y0lh3
+         aCUt2YSmsy63waBlAfKGUJIOs7nUXRBJ59K+UQ3y9FWq+YtaZfr+cSn5WhrfZFooslVx
+         eK8/N7xv5LVY83VmiyUbQ/CzBAGsXnx3Dw+LFfzXE031tTIuX0xauDE3eMqYzhdknF+/
+         1Uig==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782736361; x=1783341161;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20251104; t=1782736385; x=1783341185;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=mx+bJya2052OeT1zYheYpJVI5drzn8BNJLEF7IAU1sg=;
-        b=s3NE/dk3qP8U0Eo7lh9g7Xk5WIcha3YSIKSlfjcscMmu5MXq828Q7Aw6aGyHed4aNl
-         b/Rwy3zsmflueiMyfmWX2mmeH0uD+ssq+pxkMVo0pKKPKaTR0C3AS8AhOeNXNI751wOv
-         Tm+sqd8fIc2vg1V0/MvVk4TL3Hc9kalLlWIdNBkmbHSBMta6aqwwD8p8OVfvR+Gwg10y
-         u14KNxlkYerPmAE4qlQjz9fEk5gtlc8vG0fzenKZUfonNIR0FaaxHyjDTqmzB4hyGJON
-         bV0iGKfA6lDgUlHnY9CxjCMb6bpAG9+L6+mrjXizgLu04/PpfTFhu7Ymc7nBV3AA6HAU
-         5Dlg==
-X-Forwarded-Encrypted: i=1; AHgh+RqsIjW7CU9yrbct06ZmyeU5vu5kMeoGS5JH98JIyjdUNaYxjsU8eTIQwf9sax/kL4J6YssJphHT5uC16OXUGikR@lists.infradead.org
-X-Gm-Message-State: AOJu0YzgWyJccpcZKG42GQELIjAMBecGW9Bo62Or0HPAlPnaii6k7HnL
-	rcxAkB5L/g0tNUcinGPfQJoHYq3BtGUZTvdIo0wpYwI4DBTWeP4mkbdwQKQdawzzpIAdFnBNvEB
-	03RrjxKF32eRmWPF4srGjnJwW98hQoXSrzMeqsb7pLg==
-X-Gm-Gg: AfdE7ckmElq850OUozZdyxWR70gPpEtGE/qqhpA/vkFqAaD1oUU4J/4gbKaLkrtVPzU
-	q69n/ittBidcWK6WSpzA6qJVOY7+0j6aoOeWWzuXJu9yA+ISOx0PcfH2/C++dI8OREPLBlgK12w
-	hJD8HKinc/vI3TSF2keIScmBESO3utmf8PsvLuT4YZe2zIQIjocSyCgPiDTEfo/76E5FXCtQn+r
-	pUcZx0+F4Q9LI3VW3dSS928qE0cdpsd4tB+0knaVVm6dfkLKDUvKUh/lPhfmmEmNarn5eZsF4ri
-	t72KDTlapfNErpTvvQ09px4AWZqFvQ==
-X-Received: by 2002:a05:6402:35cd:b0:697:d475:9692 with SMTP id
- 4fb4d7f45d1cf-6983630b4camr4695431a12.11.1782736360872; Mon, 29 Jun 2026
- 05:32:40 -0700 (PDT)
+        bh=W6yfFGpGsowdA7nocV8Q2ZeGgDt/heljVkQt2pc3Sqk=;
+        b=ZuOS9mMnG3q3a23aycQIpMiiivrjvdUGqE2KTeihLtEqXAiKTjhGOwfb5+7oowqcQp
+         RtY0SCxLNjqZxR73EW9Uy0zvHvI/KqQQt2J74jjOkj+E31juKQopqPt7HuW2Ehd/atiE
+         QbedbYqp8Y2bUCTh7wvFT8zAMorjpL9oiXDQ9bvVx77OCqQL6Fm50yQJMndCqnLAKxQD
+         pN7uImByvWmqYEJD9NBLUJCjUZMUbDa+uiJJIdzxSl0dPXtfd4ozXCVVKDhBgioQbK+j
+         WzK4bNpkDwMELkvN7Ydvf8HyeN5qE8OR+x9xE1kHHqR+pnE3+G58IzaQSkSCSxeGDlNj
+         leoA==
+X-Forwarded-Encrypted: i=1; AHgh+Rr3Cp3A1ZnoSRsbHGe4+BCmLkhyilbnkEBRn/HvjifXWoBuVHQldE35ds4dhFNaFWPJ9v6MUrvDbSLbZ58xqkx1@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx0j13BqUUBQRh21hOp0pREc6TTfpZEYffueG8R7IK/c3rS63Hl
+	ZTOo7GTICT9uAQWorhljWRGlteUhbHLAe6dvPQS7tpeD9KMbP6RS75S1
+X-Gm-Gg: AfdE7cmIX0kK/z/CQfxhYPCkBe9G3HHIkwHu/XEsPYPYlUKcApYXvysPWn4u7pyTT6G
+	zOsn9gKMzYE+PTNpHwOizBzMsZdiQeou82ZXi1A6vTRVWY3I8EAdqk8eQsXuKFUH3M32Qn0j+os
+	EpB9DCQ3g+oxShbWm4/ZTzHHMU/lQUnsilw2Y+Aqb5PwP7k7JTaU0Kwvp3nV/DE7NO9I2eGMH5i
+	y9jJAap7FpR8DD0Pu2pgT0AwLJfzUM4StP1pLj4G+OmBKkHlbr+zw2s8MoN5R3E6GS3aKNY70kf
+	Hlldm9ZkRPMVyYrzhvt0TaIREtabA/5vEAHph2uQWNYa7rUNOWCUFKacpVvfCHdLMaF66WH+ghs
+	MnhaqfTkm2JwZMPJwJIdGybRPkrqBpx54KvdPyDRlXClj7euq4vP1GxEZaslbUN93vf4muUivLf
+	ps/Ij1uqw=
+X-Received: by 2002:a17:906:f116:b0:c12:2b66:352b with SMTP id a640c23a62f3a-c123342a062mr351983366b.5.1782736384619;
+        Mon, 29 Jun 2026 05:33:04 -0700 (PDT)
+Received: from fedora ([46.205.218.111])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c11fbe05c22sm773866566b.39.2026.06.29.05.33.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 29 Jun 2026 05:33:04 -0700 (PDT)
+From: Daniel Pawlik <pawlik.dan@gmail.com>
+To: netfilter-devel@vger.kernel.org,
+	netdev@vger.kernel.org
+Cc: pablo@netfilter.org,
+	fw@strlen.de,
+	phil@nwl.cc,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	andrew+netdev@lunn.ch,
+	razor@blackwall.org,
+	idosch@nvidia.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	bridge@lists.linux.dev,
+	coreteam@netfilter.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	rchen14b@gmail.com,
+	lorenzo@kernel.org,
+	Daniel Pawlik <pawlik.dan@gmail.com>
+Subject: [PATCH 0/5] netfilter: nf_flow_table_path: L2 bridge offload
+Date: Mon, 29 Jun 2026 14:32:48 +0200
+Message-ID: <20260629123253.1912621-1-pawlik.dan@gmail.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-References: <20260613-exynos990-peris-fix-v3-v3-0-2b230db78ae4@gmail.com> <20260613-exynos990-peris-fix-v3-v3-3-2b230db78ae4@gmail.com>
-In-Reply-To: <20260613-exynos990-peris-fix-v3-v3-3-2b230db78ae4@gmail.com>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Mon, 29 Jun 2026 13:32:29 +0100
-X-Gm-Features: AVVi8CdLbhp4Di9rmkSMap57ieyZzpxVCIoG3c1G91VB-Ou_IfcxhglJYrQ6uH0
-Message-ID: <CADrjBPpNQd6WgwVo-a3Mz74d1EptPm9D9BisLEmoFRsdUb3izw@mail.gmail.com>
-Subject: Re: [PATCH v3 3/3] clk: samsung: exynos990: Fix PERIS gate clock parents
-To: Denzeel Oliva <wachiturroxd150@gmail.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Sylwester Nawrocki <s.nawrocki@samsung.com>, 
-	Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Brian Masney <bmasney@redhat.com>, Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_053242_961019_6841AACE 
-X-CRM114-Status: GOOD (  18.83  )
+X-CRM114-CacheID: sfid-20260629_053307_313703_40F264F5 
+X-CRM114-Status: GOOD (  11.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,100 +114,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krysztof & Denzeel,
+This series adds L2 bridge offload support to nft_flow_offload, allowing
+bridged IPv4/IPv6 flows to be accelerated by the flowtable fast path
+without requiring L3 routing.
 
-On Sat, 13 Jun 2026 at 13:36, Denzeel Oliva <wachiturroxd150@gmail.com> wrote:
->
-> Correct eight PERIS gate clock parents to match the hardware clock
-> tree and reorder the GIC mux parents so mout_peris_bus_user is the
-> default source.
->
-> Signed-off-by: Denzeel Oliva <wachiturroxd150@gmail.com>
-> ---
+Background
+----------
+Hardware flow offload engines (e.g. MediaTek PPE) can accelerate bridged
+traffic but require that nft_flow_offload detect and handle bridged flows
+differently from routed ones: no routing table lookup, MAC addresses from
+the Ethernet header, and VLAN context pre-populated from the bridge port.
 
-Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+Patches
+-------
+1/5  net: export __dev_fill_forward_path
+     Refactors dev_fill_forward_path() to expose __dev_fill_forward_path()
+     which accepts a caller-supplied net_device_path_ctx, needed to
+     pre-populate VLAN state before the forward path walk.
 
-@Krysztof: I was thinking, maybe we should establish a new rule/best
-practice for Samsung clock upstream submissions whereby patch
-contributors should link to the downstream cal-if code for the SoC
-after the --- line. That would make reviewing the patches' correctness
-a bit easier, as the downstream cal-if code would be readily available
-to the reviewer.
+2/5  net: bridge: add flow offload helpers
+     Adds br_fdb_has_forwarding_entry_rcu(), br_vlan_get_offload_info_rcu()
+     and br_vlan_is_enabled_rcu() to expose bridge state to nft_flow_offload
+     without requiring inclusion of net/bridge/br_private.h.
 
-regards,
+3/5  netfilter: nf_flow_table_path: add L2 bridge offload
+     Core of the series. Adds nft_flow_offload_is_bridging() detection,
+     nft_flow_route_bridging() which avoids nf_route() (fails for
+     bridged-only subnets), MAC/VLAN pre-population for bridged flows,
+     and a dst leak fix (allocation references in dsts[] were never
+     released after nft_default_forward_path() transferred ownership).
+     nft_flow_route() becomes a thin dispatcher.
 
-Peter
+4/5  netfilter: nf_flow_table_path: handle DEV_PATH_MTK_WDMA in path info
+     Fixes zero-source-MAC in PPE entries when a bridged flow traverses
+     MT7996/MT7915 WiFi WDMA hardware.
 
->  drivers/clk/samsung/clk-exynos990.c | 18 +++++++++---------
->  1 file changed, 9 insertions(+), 9 deletions(-)
->
-> diff --git a/drivers/clk/samsung/clk-exynos990.c b/drivers/clk/samsung/clk-exynos990.c
-> index ee3566b8e57c..df5928833b23 100644
-> --- a/drivers/clk/samsung/clk-exynos990.c
-> +++ b/drivers/clk/samsung/clk-exynos990.c
-> @@ -2551,7 +2551,7 @@ static const unsigned long peris_clk_regs[] __initconst = {
->
->  /* Parent clock list for CMU_PERIS muxes */
->  PNAME(mout_peris_bus_user_p)           = { "oscclk", "mout_cmu_peris_bus" };
-> -PNAME(mout_peris_clk_peris_gic_p)      = { "oscclk", "mout_peris_bus_user" };
-> +PNAME(mout_peris_clk_peris_gic_p)      = { "mout_peris_bus_user", "oscclk" };
->
->  static const struct samsung_mux_clock peris_mux_clks[] __initconst = {
->         MUX(CLK_MOUT_PERIS_BUS_USER, "mout_peris_bus_user",
-> @@ -2584,15 +2584,15 @@ static const struct samsung_gate_clock peris_gate_clks[] __initconst = {
->              CLK_CON_GAT_GOUT_BLK_PERIS_UID_RSTNSYNC_CLK_PERIS_BUSP_IPCLKPORT_CLK,
->              21, 0, 0),
->         GATE(CLK_GOUT_PERIS_CLK_PERIS_OSCCLK_CLK,
-> -            "gout_peris_clk_peris_oscclk_clk", "mout_peris_bus_user",
-> +            "gout_peris_clk_peris_oscclk_clk", "oscclk",
->              CLK_CON_GAT_CLK_BLK_PERIS_UID_RSTNSYNC_CLK_PERIS_OSCCLK_IPCLKPORT_CLK,
->              21, 0, 0),
->         GATE(CLK_GOUT_PERIS_CLK_PERIS_GIC_CLK,
-> -            "gout_peris_clk_peris_gic_clk", "mout_peris_bus_user",
-> +            "gout_peris_clk_peris_gic_clk", "mout_peris_clk_peris_gic",
->              CLK_CON_GAT_GOUT_BLK_PERIS_UID_RSTNSYNC_CLK_PERIS_GIC_IPCLKPORT_CLK,
->              21, 0, 0),
->         GATE(CLK_GOUT_PERIS_AD_AXI_P_PERIS_ACLKM,
-> -            "gout_peris_ad_axi_p_peris_aclkm", "mout_peris_bus_user",
-> +            "gout_peris_ad_axi_p_peris_aclkm", "mout_peris_clk_peris_gic",
->              CLK_CON_GAT_GOUT_BLK_PERIS_UID_AD_AXI_P_PERIS_IPCLKPORT_ACLKM,
->              21, CLK_IGNORE_UNUSED, 0),
->         GATE(CLK_GOUT_PERIS_OTP_CON_BIRA_PCLK,
-> @@ -2600,19 +2600,19 @@ static const struct samsung_gate_clock peris_gate_clks[] __initconst = {
->              CLK_CON_GAT_GOUT_BLK_PERIS_UID_OTP_CON_BIRA_IPCLKPORT_PCLK,
->              21, 0, 0),
->         GATE(CLK_GOUT_PERIS_GIC_CLK,
-> -            "gout_peris_gic_clk", "mout_peris_bus_user",
-> +            "gout_peris_gic_clk", "mout_peris_clk_peris_gic",
->              CLK_CON_GAT_GOUT_BLK_PERIS_UID_GIC_IPCLKPORT_CLK,
->              21, CLK_IS_CRITICAL, 0),
->         GATE(CLK_GOUT_PERIS_LHM_AXI_P_PERIS_CLK,
-> -            "gout_peris_lhm_axi_p_peris_clk", "oscclk",
-> +            "gout_peris_lhm_axi_p_peris_clk", "mout_peris_bus_user",
->              CLK_CON_GAT_GOUT_BLK_PERIS_UID_LHM_AXI_P_PERIS_IPCLKPORT_I_CLK,
->              21, CLK_IGNORE_UNUSED, 0),
->         GATE(CLK_GOUT_PERIS_MCT_PCLK,
-> -            "gout_peris_mct_pclk", "mout_peris_clk_peris_gic",
-> +            "gout_peris_mct_pclk", "mout_peris_bus_user",
->              CLK_CON_GAT_GOUT_BLK_PERIS_UID_MCT_IPCLKPORT_PCLK,
->              21, 0, 0),
->         GATE(CLK_GOUT_PERIS_OTP_CON_TOP_PCLK,
-> -            "gout_peris_otp_con_top_pclk", "mout_peris_clk_peris_gic",
-> +            "gout_peris_otp_con_top_pclk", "mout_peris_bus_user",
->              CLK_CON_GAT_GOUT_BLK_PERIS_UID_OTP_CON_TOP_IPCLKPORT_PCLK,
->              21, 0, 0),
->         GATE(CLK_GOUT_PERIS_D_TZPC_PERIS_PCLK,
-> @@ -2624,7 +2624,7 @@ static const struct samsung_gate_clock peris_gate_clks[] __initconst = {
->              CLK_CON_GAT_GOUT_BLK_PERIS_UID_TMU_SUB_IPCLKPORT_PCLK,
->              21, 0, 0),
->         GATE(CLK_GOUT_PERIS_TMU_TOP_PCLK,
-> -            "gout_peris_tmu_top_pclk", "mout_peris_clk_peris_gic",
-> +            "gout_peris_tmu_top_pclk", "mout_peris_bus_user",
->              CLK_CON_GAT_GOUT_BLK_PERIS_UID_TMU_TOP_IPCLKPORT_PCLK,
->              21, 0, 0),
->         GATE(CLK_GOUT_PERIS_OTP_CON_BIRA_OSCCLK,
->
-> --
-> 2.54.0
->
+5/5  netfilter: nf_flow_table_path: add VLAN passthrough support
+     Records VLAN encap info for passthrough-mode bridge ports so hardware
+     offload entries include the correct VLAN tag.
+
+Rebase note
+-----------
+Originally developed against OpenWrt pending-6.18 patches by Ryan Chen
+<rchen14b@gmail.com> and Bo-Cun Chen <bc-bocun.chen@mediatek.com>.
+Rebased to current upstream: path discovery infrastructure moved to
+nf_flow_table_path.c in commit 93d7a7ed0734 ("netfilter: flowtable: move
+path discovery infrastructure to its own file"), so all netfilter changes
+now land in that file rather than nft_flow_offload.c.
+
+How to enable bridge offload
+-----------------------------
+1. Load kmod-br-netfilter so that bridged IP traffic traverses the
+   netfilter forward chain.
+
+2. Enable netfilter hooks on the bridge:
+     echo 1 > /sys/class/net/<br>/bridge/nf_call_iptables
+     echo 1 > /sys/class/net/<br>/bridge/nf_call_ip6tables
+
+3. Register bridge member interfaces in the nft flowtable:
+     table inet filter {
+         flowtable f {
+             hook ingress priority filter
+             devices = { eth0, wlan0 }
+         }
+         chain forward {
+             type filter hook forward priority filter
+             meta l4proto { tcp, udp } flow add @f
+         }
+     }
+
+Daniel Pawlik (1):
+  net: bridge: add flow offload helpers
+
+Ryan Chen (4):
+  net: export __dev_fill_forward_path
+  netfilter: nf_flow_table_path: add L2 bridge offload
+  netfilter: nf_flow_table_path: handle DEV_PATH_MTK_WDMA in path info
+  netfilter: nf_flow_table_path: add VLAN passthrough support
+
+ include/linux/if_bridge.h          |  23 ++++
+ include/linux/netdevice.h          |   2 +
+ net/bridge/br_fdb.c                |  32 +++++
+ net/bridge/br_vlan.c               |  45 +++++++
+ net/core/dev.c                     |  32 +++--
+ net/netfilter/nf_flow_table_path.c | 201 +++++++++++++++++++++++++++--
+ 6 files changed, 312 insertions(+), 23 deletions(-)
+
+-- 
+2.54.0
+
 
