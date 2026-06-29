@@ -4,77 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D068C43327
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 17:07:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12332C43327
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 17:15:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CU8TMB46KVquqb6NZE+mjswOyduzrIxQL/Z45liuHG4=; b=3H43s8N6lQIgfQTIkUwoJ7bSnB
-	5N3/wyCPE1OPy6wghE5SkM22PuezKFz5cQGagcMp9lqicntFfe2iHOlyHPl1g1MwyUTa6MhNsd9qr
-	OYUyxYQndRxPqxjCPF/neOmTlcD7cXQwlA7DaJDrBz/UCLj7g2hoB+GNcM7FKarmoLcGcl5y497Tb
-	nxippdWcbpV7ArkYHiRGubB+oM7J+PWFCt6dZ45QqLA6D5G+T8fRR9M7QyWTQ3qu2tqq3oYNIcPD7
-	tYcg5BLKlYSxmBzCEvCjuKMu89LCxwWcIovGVsb1Lh9/8TgrG06P3OTndxTIcU6ObMJbgyWQmCjH3
-	nqZg4o6g==;
+	bh=mloHFD8lHRGWc9buHYqgCWKHRZzcSqlxB20ESS9JMes=; b=HWt8oBnlney/ORGXL1wc/PZsd+
+	MwaYOf34WVhzn1QfyRM7FwxhgRTirPiyuRAcjNmsioYaufjkIrf6xbBWrlRfB4Tu/DYXl6Gdtfory
+	HEZaR3Dyqgu18BYZ79Uo9cMdBOD0PM6nghP0HfXaRn4XFDa8Ljl0Bx8hCKXj/6rq7hWosmg4LdFqF
+	+xTcgHggwYN0JAb+N5TH+Fk9IjD/E1yRdmiMZ+vmUgwlOp63jYY3i4Z0Olaw/pzFZhPktleLgyK/p
+	OZNtUAypGMbyj1TlAegalArnrQZPbbjXMxUnRUSmYX4jbOzABaDWswQHW661LGpxTSphmvobWmCwO
+	8oUYuxxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weFRp-0000000FHVR-1oS4;
-	Mon, 29 Jun 2026 17:07:05 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1weFZS-0000000FHvY-17ax;
+	Mon, 29 Jun 2026 17:14:58 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weFRn-0000000FHV4-3KhE
+	id 1weFZP-0000000FHud-1noo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 17:07:03 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id BE1F160123
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 17:07:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7682A1F00A3A
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 17:07:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782752822;
-	bh=CU8TMB46KVquqb6NZE+mjswOyduzrIxQL/Z45liuHG4=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=Yrxvbo4XVFc+tkKdK7ym6mYWtieEBKFP4ZF/LfZmsMd+Q2sbjIohStqMyffYbb58m
-	 fo2OjtDduxdHXaWy+Bev1CZcc8KNmm1GFXx+PhNrm7ZYumddHmBPQdHAbWbk70xjTA
-	 AYXXm5/9uFyV1BJu5nILEbmvwZ5k2KrYToZBRfhRAUKYhvDT1mIDIZ1Rgvh3Jyc3s6
-	 G6uFpkq84Tnqzhx50fgN0Zqmv+hftyHBlT9H1sVzLfpQXniz7880NHZEmkrJ2b9aL6
-	 GyNQ2WIkGDusVbegI6YLTwu73CQV2IVb4o4/cnaVVQxgbH1FGChiBRSv3jBYoTpVog
-	 MD9GRaLjSTOPA==
-Received: by mail-lj1-f175.google.com with SMTP id 38308e7fff4ca-39b03d41976so14912471fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 10:07:02 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+Rq11LSfmKORHCO+c96SdqHHJUGwndhKMpPalFibeJpEA89KwNg2zLvhb1qG0U6Q+LUIURXZTOy8KEwPrVlorvnf@lists.infradead.org
-X-Gm-Message-State: AOJu0YyRWojUkYyh69ZMbSB9GdXJPA313JcqCkSFAbiNZbW/ghaIzTg6
-	XL6TUrzSS71Sef7Dn0217ruLSbaLvFDazRU70jnUVarIlSSAvkHXAfbVjceyhRk/bnnRA74otBt
-	0xOK6y0itdwzqZ3TjUhB/MNibBqz4rtfIDwziIGvhhg==
-X-Received: by 2002:a05:651c:158c:b0:399:83a4:4f2c with SMTP id
- 38308e7fff4ca-39b1daae071mr107701fa.18.1782752821184; Mon, 29 Jun 2026
- 10:07:01 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Mon, 29 Jun 2026 10:06:59 -0700
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Mon, 29 Jun 2026 10:06:59 -0700
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260625115718.1678991-2-v@baodeep.com>
+	Mon, 29 Jun 2026 17:14:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1782753293;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=mloHFD8lHRGWc9buHYqgCWKHRZzcSqlxB20ESS9JMes=;
+	b=YutsecaVbGS/9sQyKUzUocnQaV4Syj349CEp3rzXiXQfvG0L/4bjgumyl9kYo/bKU0BwfS
+	DOtsguJJu5rcLlC3fVOD0CL0SyNvoXswy7CrtDZTr0R4fpjX9H5D0K+fmi5Tv93w8kkf5K
+	o/bMPMtkCGJTYELVSHpQCwi14dNlx4k=
+Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com
+ [209.85.219.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-577-dJj4e9YnM9-zoxAFbfSEiQ-1; Mon, 29 Jun 2026 13:14:51 -0400
+X-MC-Unique: dJj4e9YnM9-zoxAFbfSEiQ-1
+X-Mimecast-MFC-AGG-ID: dJj4e9YnM9-zoxAFbfSEiQ_1782753291
+Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-8f08f19552aso11659856d6.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 10:14:51 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782753291; x=1783358091;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=mloHFD8lHRGWc9buHYqgCWKHRZzcSqlxB20ESS9JMes=;
+        b=VAy5mpFP8iui0sJiJC14WU11uf+Ppj9sxuidETlG6K5WPWbXVQzDU2yDevNBFe8FdT
+         OBbzl56e8b/hPfFQDyWNezKbIJyOWKqB9A5lWLhY/aqDgwnmlgbw/zuwBFglB5cqZyNz
+         msll7G4uC5NBPeWqt8E3iVKNSvFxzYEhxon53AIJnveoHuVe9bwqi4iJjgKbMLauUoSW
+         SlzgraeA1FtefJuJh1XrDsaAuvkgtjLFsjExWJmuQCka8jEyuPtIboU8gnwfBwqZB0BH
+         0Cjfq1eIG/SHxvTeYV5de52VccQldyxIC1wi5m8dGAnjphSw2OjN5vgR0XTtd3hOWf2t
+         nHtA==
+X-Forwarded-Encrypted: i=1; AHgh+RqqF09ehrhaVSbGaZYAmu6pHzNwyR0CBHgS92Xj8Ff8L32vapZAGxcsgSuwkTVO1lP9iMkHT781TyQwszt5l3EK@lists.infradead.org
+X-Gm-Message-State: AOJu0YxApBZjSspEJte5G+lW9uAs+GsPWqe3BkQ+5N60CZmgBcGFf9zG
+	cVcJI2k0mVQVL6pqmLeUJi/44gplRbr8/6nX4RpjJ8vNxS4eS/Phgp3L+XEh4WZEnauP7R1w6O5
+	xVppGuZQ9OXXUnC6pxZMinA7q3/oalHzKQKE+38kYIcUqMbT5cf23WwhkqwmvkMUkNnSmLIwzyX
+	S5pNEDfUOn
+X-Gm-Gg: AfdE7cnGUaI24/C8TwBc4sMmr4cR9Bh9Lnf2z3FSsQBlHMLlZgoMOfsTkVa8s49ZdXa
+	ljTRTZJlrUQ120Ub1zZmNHjLfJ6YF+93WyfBlspXB3nmB6gN3PRY71bXKgNDreSHdlJ/02FZeeH
+	xcesKhAwlL0uHXnTkWv5KtqnPpFeSGExH4cbtWyGap8bByGasD27P+grWIVcbBT55v9eQdoNVse
+	E4rIV9OuyWawkfub2Ecg4HDRSdWFg2Qe+9NLa3XDTpuDm7cYH17+/o6bFQOaq94rOpmus4pgXU3
+	yvjNdvuKYJapV6d+mCwX+RioPFMdH3AVTm2hiX25zB/G9LASAbCmtEbn2f4DS5lyfBy9/YG2ECX
+	gu6i0slowhL+/JJ/DJ0XLK+hf1H143QsXuKEARm9UMT4+kw==
+X-Received: by 2002:ad4:5ceb:0:b0:8e9:f62b:8f9c with SMTP id 6a1803df08f44-8f1be38d9e3mr1780716d6.49.1782753289829;
+        Mon, 29 Jun 2026 10:14:49 -0700 (PDT)
+X-Received: by 2002:ad4:5ceb:0:b0:8e9:f62b:8f9c with SMTP id 6a1803df08f44-8f1be38d9e3mr1780026d6.49.1782753289258;
+        Mon, 29 Jun 2026 10:14:49 -0700 (PDT)
+Received: from redhat.com (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8f1a736d5fcsm2694296d6.39.2026.06.29.10.14.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 29 Jun 2026 10:14:48 -0700 (PDT)
+Date: Mon, 29 Jun 2026 13:14:47 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Wentao Liang <vulab@iscas.ac.cn>
+Cc: andrew@lunn.ch, gregory.clement@bootlin.com,
+	sebastian.hesselbarth@gmail.com, mturquette@baylibre.com,
+	sboyd@kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3] clk: mvebu: ap-cpu: fix missing clk_put() in
+ ap_cpu_clock_probe()
+Message-ID: <akKoB3CV6AtEQBVu@redhat.com>
+References: <20260617014126.1716291-1-vulab@iscas.ac.cn>
 MIME-Version: 1.0
-References: <20260625115718.1678991-1-v@baodeep.com> <20260625115718.1678991-2-v@baodeep.com>
-Date: Mon, 29 Jun 2026 10:06:59 -0700
-X-Gmail-Original-Message-ID: <CAMRc=McgB0gYfvE1KMXkNFnMgx6ahKoMFb2pi0_AF03m4BDk_g@mail.gmail.com>
-X-Gm-Features: AVVi8Cex4Km60qsC3nmt5H_9iHFU4BjDrOYA0iDy91F4RstIOAhIA0emnN3RoSU
-Message-ID: <CAMRc=McgB0gYfvE1KMXkNFnMgx6ahKoMFb2pi0_AF03m4BDk_g@mail.gmail.com>
-Subject: Re: [PATCH v2 1/2] gpio: shared-proxy: always serialize with a
- sleeping mutex
-To: Viacheslav Bocharov <v@baodeep.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
-	Marek Szyprowski <m.szyprowski@samsung.com>, Robin Murphy <robin.murphy@arm.com>, 
-	Diederik de Haas <diederik@cknow-tech.com>, linux-gpio@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Linus Walleij <linusw@kernel.org>, 
-	Bartosz Golaszewski <brgl@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+In-Reply-To: <20260617014126.1716291-1-vulab@iscas.ac.cn>
+User-Agent: Mutt/2.3.2 (2026-04-26)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: C2raND9hTpqblG5BQumHVfzsuUx8iZUWV6oCydibQsg_1782753291
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260629_101455_543410_9B2E8466 
+X-CRM114-Status: GOOD (  28.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,99 +111,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 25 Jun 2026 13:57:17 +0200, Viacheslav Bocharov <v@baodeep.com> said:
-> The shared GPIO descriptor used either a mutex or a spinlock, chosen at
-> runtime from the underlying chip's can_sleep:
->
-> 	shared_desc->can_sleep = gpiod_cansleep(shared_desc->desc);
-> 	... if (can_sleep) mutex_lock(); else spin_lock_irqsave();
->
-> can_sleep describes only the value path (->get/->set). Under the same
-> lock, however, the proxy may call gpiod_set_config() and
-> gpiod_direction_*(), which can reach pinctrl paths that take a mutex
-> (e.g. gpiod_set_config() -> gpiochip_generic_config() ->
-> pinctrl_gpio_set_config()), independent of can_sleep. On a controller
-> with non-sleeping MMIO value ops the descriptor lock was a spinlock, so
-> the sleeping pinctrl call ran from atomic context. Reproduced on an
-> Amlogic A113X board with the workaround from commit 28f240683871
-> ("pinctrl: meson: mark the GPIO controller as sleeping") reverted; the
-> original Khadas VIM3 report hit the same path:
->
-> 	BUG: sleeping function called from invalid context
-> 	  __mutex_lock
-> 	  pinctrl_get_device_gpio_range
-> 	  pinctrl_gpio_set_config
-> 	  gpiochip_generic_config
-> 	  gpiod_set_config
-> 	  gpio_shared_proxy_set_config   <- voting spinlock held
-> 	  ...
-> 	  mmc_pwrseq_simple_probe
->
-> The spinlock existed to take the value vote from atomic context, but the
-> vote and the (possibly sleeping) control operations share the same state
-> and lock, so this scheme cannot serialize config under a mutex and still
-> offer atomic value access. Always serialize the shared descriptor with a
-> mutex instead and mark the proxy a sleeping gpiochip, driving the
-> underlying GPIO through the cansleep value accessors: those are valid
-> for both sleeping and non-sleeping chips, so value access keeps working
-> on fast controllers, at the cost of no longer being atomic.
->
-> This is observable: consumers gating on gpiod_cansleep() take their
-> sleeping branch on a proxied GPIO (mmc-pwrseq-emmc skips its
-> emergency-restart reset handler; its normal reset is unaffected), and
-> consumers that reject sleeping GPIOs (pwm-gpio, ps2-gpio, ...) would
-> fail to probe. Such atomic users do not share a pin through the proxy,
-> whose purpose is voting on shared reset/enable lines. The same narrowing
-> already applies on Amlogic since that workaround, and rockchip
-> addressed the identical splat per-driver in commit 7ca497be0016 ("gpio:
-> rockchip: Stop calling pinctrl for set_direction"); fixing the proxy
-> addresses the locking error once, for every controller.
->
-> The lock type was added by commit a060b8c511ab ("gpiolib: implement
-> low-level, shared GPIO support"); the sleeping call under it arrived with
-> the proxy driver.
->
-> Fixes: e992d54c6f97 ("gpio: shared-proxy: implement the shared GPIO proxy driver")
-> Reported-by: Marek Szyprowski <m.szyprowski@samsung.com>
-> Closes: https://lore.kernel.org/all/00107523-7737-4b92-a785-14ce4e93b8cb@samsung.com/
-> Signed-off-by: Viacheslav Bocharov <v@baodeep.com>
+Hi Wentao,
+
+On Wed, Jun 17, 2026 at 01:41:26AM +0000, Wentao Liang wrote:
+> The function ap_cpu_clock_probe() calls of_clk_get() to obtain a
+> reference to the parent clock for each CPU cluster, but it never
+> releases it with clk_put().  The returned clk is used only to read
+> the parent's name via __clk_get_name(), and the reference is leaked
+> on every successful cluster initialization as well as on the error
+> path when devm_clk_hw_register() fails.
+> 
+> Rather than adding clk_put() calls, replace the of_clk_get() +
+> __clk_get_name() pattern with of_clk_get_parent_name(), which is
+> the intended API for this use case and handles the reference
+> counting internally.  This matches the pattern already used by the
+> sibling drivers clk-cpu.c and clk-corediv.c.
+> 
+> Fixes: f756e362d9384 ("clk: mvebu: add CPU clock driver for Armada 7K/8K")
+> Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
 > ---
-> v1 -> v2: open-code the descriptor mutex; drop the gpio_shared_desc_lock
->           guard and the gpio_shared_lockdep_assert() helper, use
->           guard(mutex) and lockdep_assert_held() directly; move the
->           mutex rationale from the header to the can_sleep assignment in
->           probe.
->
-> v1: https://lore.kernel.org/linux-gpio/20260610153329.937833-2-v@baodeep.com/
->
->  drivers/gpio/gpio-shared-proxy.c | 66 +++++++++++++-------------------
->  drivers/gpio/gpiolib-shared.c    |  9 +----
->  drivers/gpio/gpiolib-shared.h    | 28 +-------------
->  3 files changed, 29 insertions(+), 74 deletions(-)
->
-> diff --git a/drivers/gpio/gpio-shared-proxy.c b/drivers/gpio/gpio-shared-proxy.c
-> index 6941e4be6cf1..0cd52015b731 100644
-> --- a/drivers/gpio/gpio-shared-proxy.c
-> +++ b/drivers/gpio/gpio-shared-proxy.c
-> @@ -9,8 +9,10 @@
->  #include <linux/err.h>
->  #include <linux/gpio/consumer.h>
->  #include <linux/gpio/driver.h>
-> +#include <linux/lockdep.h>
->  #include <linux/mod_devicetable.h>
->  #include <linux/module.h>
-> +#include <linux/mutex.h>
->  #include <linux/string_choices.h>
->  #include <linux/types.h>
->
-> @@ -32,7 +34,7 @@ gpio_shared_proxy_set_unlocked(struct gpio_shared_proxy_data *proxy,
+> v3: Replace incorrect Fixes tag.
+> v2: Replace of_clk_get() + __clk_get_name() with of_clk_get_parent_name()
+>     as suggested by Brian Masney, instead of adding clk_put() calls.
+>     Also correct the Fixes: tag to point to the original commit that
+>     introduced the leak.
+> ---
+>  drivers/clk/mvebu/ap-cpu-clk.c | 10 +++-------
+>  1 file changed, 3 insertions(+), 7 deletions(-)
+> 
+> diff --git a/drivers/clk/mvebu/ap-cpu-clk.c b/drivers/clk/mvebu/ap-cpu-clk.c
+> index a8175908e353..1cf63c7a0bc3 100644
+> --- a/drivers/clk/mvebu/ap-cpu-clk.c
+> +++ b/drivers/clk/mvebu/ap-cpu-clk.c
+> @@ -288,7 +288,6 @@ static int ap_cpu_clock_probe(struct platform_device *pdev)
+>  		char *clk_name = "cpu-cluster-0";
+>  		struct clk_init_data init;
+>  		const char *parent_name;
+> -		struct clk *parent;
+>  		u64 cpu;
+>  
+>  		cpu = of_get_cpu_hwid(dn, 0);
+> @@ -304,13 +303,12 @@ static int ap_cpu_clock_probe(struct platform_device *pdev)
+>  		if (ap_cpu_data->hws[cluster_index])
+>  			continue;
+>  
+> -		parent = of_clk_get(np, cluster_index);
+> -		if (IS_ERR(parent)) {
+> -			dev_err(dev, "Could not get the clock parent\n");
+> +		parent_name = of_clk_get_parent_name(np, cluster_index);
+> +		if (!parent_name) {
+> +			dev_err(dev, "Could not get the clock parent name\n");
+>  			of_node_put(dn);
+>  			return -EINVAL;
+>  		}
+> -		parent_name =  __clk_get_name(parent);
+>  		clk_name[12] += cluster_index;
+>  		ap_cpu_clk[cluster_index].clk_name =
+>  			ap_cp_unique_name(dev, np->parent, clk_name);
+> @@ -328,11 +326,9 @@ static int ap_cpu_clock_probe(struct platform_device *pdev)
+>  		ret = devm_clk_hw_register(dev, &ap_cpu_clk[cluster_index].hw);
+>  		if (ret) {
+>  			of_node_put(dn);
+> -			clk_put(parent);
+>  			return ret;
+>  		}
+>  		ap_cpu_data->hws[cluster_index] = &ap_cpu_clk[cluster_index].hw;
+> -		clk_put(parent);
+>  	}
 
-I was about to apply it but then realized that it can be simplified further.
-The set_func() argument in gpio_shared_proxy_set_unlocked() is no longer
-needed and can be replaced with a direct call to gpiod_set_value_cansleep().
+This doesn't apply against Linus's latest tree. It looks like it's just
+this last chunk that's the issue. What version of the kernel did you develop
+this against? The last change to this driver upstream was from me in August
+2025.
 
-Would you mind sending a v3 with that included?
+Please submit a new version that applies cleanly upstream.
 
-Thanks,
-Bartosz
+Brian
+
 
