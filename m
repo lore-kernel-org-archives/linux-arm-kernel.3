@@ -4,106 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C9FBC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 14:52:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20AD3C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 14:54:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YrA9ccFaco9J2BZQ3eRpFjtGI3CKCK/xF2koXbFr26M=; b=3AE1tWiYOO8o8vWIWmPnnIPYYu
-	JR5afcpMCEhd5p+wcPuFRwQaH6SoyqBE55Qbqgv18FwRmp9620keZL0vZCq4Kx6+PwoRL57kMnXoD
-	1nxsnTHH2Cu7KSMPs8+pSIpqIYQguJBmbwawZ69qjBzOckS38IwRFWA3LCcggi54XsDsDQuwYROfg
-	XKo417u1jQ0eeA3k8hj8cLz5SPqC/uK/p0JxyXqYUTD3YltmhA9xl1T5jmK0s0FdG8lkaUxh4bZ7D
-	myGSYStCNwutBCxQe4fDh5+bUVpzAxMRKTLbfbfpTvTypzhevuG6cr5Y+yoVZikePBEr8CYdV7AQM
-	27PZ+/ag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4Z8Fz1fRVkTQIb2KN3JUG08EPIq1mQm84WayplzduZo=; b=cL2SGrbRjULdEKn7+nyKEegYfp
+	P6Fst/sG3T4aR8aPCf5EVBbOghl8iDzFe5w4eVMb36r31vHC0vwKrMPVUqdoXcHlu+AOgHqJNqRyX
+	RN2ykM9hObdM8qQOOno7GMOx7RZyQY6hVcanj4NY49SOqpr6su3P/nMQpBRDsD+eEo/xUn/nbHRte
+	OWW6FMBN6Kcaa9sMMzh6B+IMJdBuavMzUtMgAD1fsF3vvV05dXudbND0wXxzdwTbtDeZP8qCwnU+K
+	hfOHI85j7nbUhluFxIQeTkJtMrZW4WZbwGT9IO79LUIgg/PlnUke1qa4b9yxXJ7p6nm6NdFXdr2uD
+	3jb3Am/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weDLB-0000000Exkb-3V6C;
-	Mon, 29 Jun 2026 14:52:05 +0000
-Received: from mail-vk1-f194.google.com ([209.85.221.194])
+	id 1weDNY-0000000EyPD-3Ecp;
+	Mon, 29 Jun 2026 14:54:32 +0000
+Received: from mail-oo1-xc32.google.com ([2607:f8b0:4864:20::c32])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weDL9-0000000Exj0-1G5a
+	id 1weDNW-0000000EyOb-2bjl
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 14:52:04 +0000
-Received: by mail-vk1-f194.google.com with SMTP id 71dfb90a1353d-59d7db12342so1311817e0c.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 07:52:02 -0700 (PDT)
+	Mon, 29 Jun 2026 14:54:32 +0000
+Received: by mail-oo1-xc32.google.com with SMTP id 006d021491bc7-6a17f6cce4fso307909eaf.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 07:54:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1782744869; x=1783349669; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=4Z8Fz1fRVkTQIb2KN3JUG08EPIq1mQm84WayplzduZo=;
+        b=pKAEvd92MyVp28XuH9Ph51x1Np78N1achNDTpLtP8iWHdZtmBz3rELac7tujkcC7ED
+         bpni83OVphoknySOK4rqChDwNB6RoXwA1bzMYeu+r7EXBk+9ONcp4B2p8xV1B9KUvIgo
+         IMvBaLKmykLWy58QF5dSwwz9TBm7kPpYAQ8JzD9lDnMgQjG1pTmVbfL7mvXAtc5/Ykq0
+         E+GeAN6Eq00Y+HCOKkU4Y/v+m/0DiHc5DBobgZop7evYiB3oqAlha78ehX50WuuHnRZN
+         sEGKuL8PfRjUF29QOrlTWN3cXMaoRhFE51pWjLDdEZ2abL3YguZU9m/Wd3z4/xFgDyF0
+         tF3g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782744722; x=1783349522;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YrA9ccFaco9J2BZQ3eRpFjtGI3CKCK/xF2koXbFr26M=;
-        b=LAY3RUFGnb1ImbcUUkyEMfHZuKFavTryx6dwPze0uG8FAwuxmBvLy5seV1iE53lUz8
-         hA5tErYxiaw948eT0w3H9K+kzD0snOGGruPDHDyMGFotYlupHAHKtUCfISmovuk+2me2
-         RROZjpfPTRZb5Vnp2Ejp19lfwg1Sp8oo6VLTyR+vtNVTF8zHYLbtjZXrcVhl359wfPaU
-         Ki4PePN40pOOyB7wZsaWGfdIODvU9wXldZzygKzJlO2jRJVCpnqbho5WP79cGOw1U7oo
-         5k3m1N2nKjI5MZXdxYyQlUaSg+cH+DOs6OfeWFR/xTtBQ4lBv/BvEMq8x4Wvm+8n4MRr
-         /GuQ==
-X-Forwarded-Encrypted: i=1; AHgh+RrBRTILcGapzZ8mbIb1Vab48wYDuxL+n/YioIF6VTu0agdNWRX88QwAhMwddNvhutcMPT/rTVDBf9fOZcidzxOy@lists.infradead.org
-X-Gm-Message-State: AOJu0YzNAFT9IBoA1Z8pssOUerns97aLYIrZNRBP+YdvPBZLbzds+ri2
-	WZNKSfXed9PSiYkJiEKCrahRsKigs1fGNix8EckHSL1ReYGR3mykgYxgRJ7fugiCR+8=
-X-Gm-Gg: AfdE7clN8NmFAqBfRzCtXQGUdPOhhOvqovZw/GL0it3q3aEiVcKIs+4OvjEpOfVQXwE
-	aProBzATtcEExPfDByfwXAm/N85WMXjzTWvtEorRs8cxni+619Cp08cncA75F+BobMZ4Y7XduTq
-	xoLDy49p+iMkxjthAw2Dlyt+eCyBd9yPkg57A9ephkTrBizh9qutXl657cOPDhGq2lXzdsiW10F
-	N5cPM9+PrdF/TdotBdE/pgGGlID85GNZXb/lt0aWHD56lLimg25+H2bCvf061nfB5RtcZl0Agm+
-	oI5/OJGlIeCLeNXA6mK9J7ALsC9e/larVKPICieY37N5wyRT3Wwpqd38dKcr0CN+pso09I5GTR6
-	pcQ6toll6twuBikT353yTF4n8gAfspCFnmxwaBUguCKOJaH6/Iix/w/pqjDMB6wxtTV9rM96ks/
-	LDQhExvVn2eenC1N/EIyQJJUG2USs7660B1Tnj+7KGg7M/b6WDIg==
-X-Received: by 2002:a05:6122:4fa2:b0:5bd:9ea9:3de5 with SMTP id 71dfb90a1353d-5bdbecfbfc3mr4855e0c.8.1782744721873;
-        Mon, 29 Jun 2026 07:52:01 -0700 (PDT)
-Received: from mail-vs1-f54.google.com (mail-vs1-f54.google.com. [209.85.217.54])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5bda2dd64c3sm2168775e0c.1.2026.06.29.07.52.01
-        for <linux-arm-kernel@lists.infradead.org>
+        d=1e100.net; s=20251104; t=1782744869; x=1783349669;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=4Z8Fz1fRVkTQIb2KN3JUG08EPIq1mQm84WayplzduZo=;
+        b=BVxEwYXIei8fJ676yhVfMtlPCOJTE+NJxtzZ7aGz5K9Td1vqdx9RkUG66zHrlEI5IZ
+         LWEMijfz9OgWVEM1py5wBiyJTodW4qd99DN9drzQqqGYBoAtPo//gxhpbcR2q5px7Szk
+         lOtURY+iZ4717e+iqrO2URe7T7XPzi3+fWL3wwgxS56Sb0FWER6SByb9tLEKvgII1feR
+         788KAqKTp63Q636h0LQO1KJrNWNp4uTy1J1dbpmc6OmAE8Eu8PbbVWlKebLAlYXcwYqV
+         mc9+FuXMf+lS0XYR3abpCoYEkgVNESa48eIG85isFmO50IEGpJW0T6qNkNPaRaezQ6LU
+         EMGQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+3cMOr9SZWooniGNbssQqKl0n3LH4Q3pr5+s2CEn5yC0nUv4wkGvUR/ueXyfkDM9N3RxotsiJ4eFqAIQFroPYY@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz3kTLLLBBxaXpwXsa0ewW01QR9D08O+/BgqoSIOlXHPUMXJpD1
+	/nlXxcjXHly+XGsd4I0TAP14R999tAZccHFtXl/507h8HWCT1UtQE6m0A92Yx27zHZ8=
+X-Gm-Gg: AfdE7cl9FHpzumPk7DiSDoPk7H7GgnKPgxuxingnxf4rObFcOA9nXKPd5x8mzH38mQU
+	9AhEDruFl4AQ2AhFEDqqtiNCzz33yjZAobrqOsq3mWV4Uzw8QXLtr/oancQy6Ib92vcaZQwUdxM
+	K1Fsx2AJ1ysksyM2+5QGhkwWP92cuel1sNWYvlppdbHcIIVFMot15mBGgUE5Uiqu/eJ6PHOI4I3
+	7A3s6866eZVtNaWg23GIzlxfi9Wpw5NNfyu1kOAN5S9jQlX5Pz49h3G1WqpYPteBmp14CF2CkMt
+	vun8nsXJUkjyzfJouHFPMh1w7GT3SfAm+TKntwwajhDuusKoXnQw2+6qDW8fBH/5OGCd0XgZRco
+	5WwMFnpYYCpPSLuw09SyBWghClwisAo+V5eKiiIvItPwherEJFOWpyllfxNzDfO58c34UXz/nB4
+	c0sUHaIS8Yst6gbb62q9ypLc15x34SA0+NUx1MDQElQybpTABHOL/5dly1mLYGEeE=
+X-Received: by 2002:a05:6820:708d:20b0:69d:f864:d35b with SMTP id 006d021491bc7-6a1890a067dmr11074eaf.23.1782744869202;
+        Mon, 29 Jun 2026 07:54:29 -0700 (PDT)
+Received: from ?IPV6:2600:8803:e7e4:500:3533:aa22:9a69:df1c? ([2600:8803:e7e4:500:3533:aa22:9a69:df1c])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-448db51ef14sm36094fac.0.2026.06.29.07.54.28
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 29 Jun 2026 07:52:01 -0700 (PDT)
-Received: by mail-vs1-f54.google.com with SMTP id ada2fe7eead31-736eea06c3eso880641137.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 07:52:01 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+Ro5EGU6PXHVtwnFTwo19Sd4qFK/Uzd0SXaVw9M1exqG/0QpxFXnE5awMyaEte+yw4w5T+d/Wn7nIMzSy2ZSCUQj@lists.infradead.org
-X-Received: by 2002:a05:6102:c86:b0:738:ecd7:198e with SMTP id
- ada2fe7eead31-738ecd71defmr1394925137.19.1782744721048; Mon, 29 Jun 2026
- 07:52:01 -0700 (PDT)
+        Mon, 29 Jun 2026 07:54:28 -0700 (PDT)
+Message-ID: <06ce8972-55f6-4114-a3c5-1d3bd6f45d73@baylibre.com>
+Date: Mon, 29 Jun 2026 09:54:28 -0500
 MIME-Version: 1.0
-References: <20260629-qcom-sa8255p-emac-v11-0-1b7fb95b51f9@oss.qualcomm.com>
- <20260629-qcom-sa8255p-emac-v11-1-1b7fb95b51f9@oss.qualcomm.com>
- <CAMuHMdXen+E-Ai51aWBa_KV9W8Fz2cQPpT-FG_kQ7akhrrYa_A@mail.gmail.com> <CAMRc=Me3jaZXiXa1sFXr=8Do4sCd+XN1pKTcWC8-0j78SjCkKA@mail.gmail.com>
-In-Reply-To: <CAMRc=Me3jaZXiXa1sFXr=8Do4sCd+XN1pKTcWC8-0j78SjCkKA@mail.gmail.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 29 Jun 2026 16:51:49 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdVUBgG0EFB16OxHisbxx-sBvDKvBPNZdpyDnmBrnX4ptQ@mail.gmail.com>
-X-Gm-Features: AVVi8CdkJoaQviVQ7ltoNYHwA2g-kW32TDsBBJn2QkEKdC-zwJrV4O3to75iJ6g
-Message-ID: <CAMuHMdVUBgG0EFB16OxHisbxx-sBvDKvBPNZdpyDnmBrnX4ptQ@mail.gmail.com>
-Subject: Re: [PATCH net-next v11 1/7] dt-bindings: phy: document the serdes
- PHY on sa8255p
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Vinod Koul <vkoul@kernel.org>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
-	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, Shawn Guo <shawnguo@kernel.org>, 
-	Fabio Estevam <festevam@gmail.com>, Jan Petrous <jan.petrous@oss.nxp.com>, s32@nxp.com, 
-	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>, Romain Gantois <romain.gantois@bootlin.com>, 
-	Magnus Damm <magnus.damm@gmail.com>, Maxime Ripard <mripard@kernel.org>, 
-	Christophe Roullier <christophe.roullier@foss.st.com>, Radu Rendec <rrendec@redhat.com>, 
-	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, Drew Fustini <dfustini@tenstorrent.com>, 
-	linux-sunxi@lists.linux.dev, linux-amlogic@lists.infradead.org, 
-	linux-mips@vger.kernel.org, imx@lists.linux.dev, 
-	linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	sophgo@lists.linux.dev, linux-riscv@lists.infradead.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, 
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/2] iio: adc: add Axiado SARADC driver
+To: Petar Stepanovic <pstepanovic@axiado.com>, Akhila Kavi
+ <akavi@axiado.com>, Prasad Bolisetty <pbolisetty@axiado.com>,
+ Jonathan Cameron <jic23@kernel.org>, =?UTF-8?Q?Nuno_S=C3=A1?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>
+Cc: linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260622-axiado-ax3000-ax3005-saradc-v3-0-e57c7c7ae675@axiado.com>
+ <20260622-axiado-ax3000-ax3005-saradc-v3-2-e57c7c7ae675@axiado.com>
+ <6770a7af-06cc-4240-9b20-c299e7080ab1@baylibre.com>
+ <b06005e0-b7bc-4967-ac7b-cb170219f131@axiado.com>
+Content-Language: en-US
+From: David Lechner <dlechner@baylibre.com>
+In-Reply-To: <b06005e0-b7bc-4967-ac7b-cb170219f131@axiado.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_075203_349959_6EF4BE33 
-X-CRM114-Status: GOOD (  29.82  )
+X-CRM114-CacheID: sfid-20260629_075430_666210_8A06BA5A 
+X-CRM114-Status: GOOD (  10.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,65 +109,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Bartosz,
+On 6/28/26 9:33 PM, Petar Stepanovic wrote:
+> 
+> On 6/28/2026 1:07 AM, David Lechner wrote:
 
-On Mon, 29 Jun 2026 at 16:07, Bartosz Golaszewski <brgl@kernel.org> wrote:
-> On Mon, 29 Jun 2026 15:51:31 +0200, Geert Uytterhoeven
-> <geert@linux-m68k.org> said:
-> > On Mon, 29 Jun 2026 at 13:29, Bartosz Golaszewski
-> > <bartosz.golaszewski@oss.qualcomm.com> wrote:
-> >> Describe the SGMII/SerDes PHY present on the Qualcomm sa8255p platforms.
-> >> This is essentially the same hardware as sa8775p rev3 but the PHY is
-> >> managed by firmware over SCMI.
-> >
-> > So why can't it be reuse the DT bindings, and be compatible with
-> > qcom,sa8775p-dwmac-sgmii-phy?
-> >
-> >> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-> >
-> >> --- /dev/null
-> >> +++ b/Documentation/devicetree/bindings/phy/qcom,sa8255p-dwmac-sgmii-phy.yaml
-> >
-> >> +  power-domains:
-> >> +    maxItems: 1
-> >> +
-> >> +  power-domain-names:
-> >> +    items:
-> >> +      - const: serdes
-> >
-> >> +examples:
-> >> +  - |
-> >> +    phy@8901000 {
-> >> +        compatible = "qcom,sa8255p-dwmac-sgmii-phy";
-> >> +        reg = <0x08901000 0xe10>;
-> >> +        #phy-cells = <0>;
-> >> +        power-domains = <&scmi7_dvfs 0>;
-> >> +        power-domain-names = "serdes";
-> >
-> > Ah, this uses power-domains, while the existing bindings for
-> > qcom,sa8775p-dwmac-sgmii-phy use a clock.
-> > I guess the clock is the correct hardware description?
-> >
-> > Adding to my list of examples for backing a hardware-to-SCMI remapping
-> > driver...
-> >
->
-> Russell King asked me to put the PHY logic for SCMI pm domains into the PHY
-> driver instead of the MAC driver where it was previously. Instead of cramming
-> both HLOS and firmware handling into the same driver, I figured it makes more
-> sense to have a dedicated, cleaner driver as the two share very little code (if
-> any).
+...
 
-I think you are mixing up DT bindings and driver implementation?
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+>>> +};
+>>> +
+>>> +static void axiado_saradc_disable(void *data)
+>>> +{
+>>> +     struct axiado_saradc *info = data;
+>>> +
+>>> +     writel(AX_SARADC_GLOBAL_CTRL_PD, info->regs + AX_SARADC_GLOBAL_CTRL_REG);
+>> People usual make read and write wrappers or use regmap to avoid having
+>> to write `info->regs + AX_SARADC_GLOBAL_CTRL_REG` so many times.
+> 
+> My understanding is that simple read/write wrappers are not always
+> preferred unless they provide additional value. Would switching the
+> driver to regmap be acceptable here to avoid repeating the base address
+> calculation?
+> 
+Yes, regmap is always nice because it brings a lot of extra features
+for free.
 
