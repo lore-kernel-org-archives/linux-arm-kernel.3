@@ -4,127 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CE7DC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 20:19:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7461EC43602
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 20:19:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9U/tqvMNO+4hi5AkpeVjOQ7FJ/NMHLcEnlIZLBAMbGg=; b=rfotYtSqjR3x1Ep6OIUy2XOKY8
-	1qgAekHg6tRhAaZ92Ipn9ffbGMS2XVq5vK1UAAR/Fa7QKfsK/Zm+9rLnndTmoH11bYKVmqNG4SxYK
-	YE/NRQc3+p3Ul8Il3Q61OCLDuJgxHLNltCnjd5T30Bmgg7vUac5c+FZPudsyTkwFV59u75bxHWnVW
-	k/ZUjiOlM9TgHPP4gV6jdUoVKLS7KSuyHq3cfjwQzXrJR63Heh7IJ8PTEQaeqTN0GizZ34NphDLWc
-	hrBQmw85vGCIOVrjdgkC0fmiemTAq6fT2Duh15F/qW0bSXFJMrvp/utKalt0FbTo3MgfQOixlincv
-	J2aYYnfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nZg/W7O3xMrPOVncSfqHtuO2PvBNacKXPKLTL7Ha6Q0=; b=tfocK9Ho6yd8bipODA27WZXk20
+	ijv52HSDqlAJUvWctpZIm/sWR05B70tywed5XYu1VWN1aLqpdEKKJcoQ72inL/Q7k6NC0j50dpAf9
+	zD5VGpTUoRNlhxDPui/rpXfMO14/k4yJXrg2OWXFc3+l82G2HhQivFF07qoZzMgtaefKpqSgyZMCp
+	mZbLde6xCNifEYxIFPM/IfCBQNU2WcBLDOU6cL1/IBcz3zN/nQQ9IlpxvO0DgYaM9OZ9ZFq0/MPBs
+	KX6R3kfZGnG8M1E9Lu50EeGln0GbIQ2ChMW8eHdKlJ4y1wkiAccgf3MY4Rb1QZi9zIlhYJiVK7GI/
+	FGlnd4CA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weIRl-0000000FQYx-0Zlx;
-	Mon, 29 Jun 2026 20:19:13 +0000
-Received: from mail-francecentralazon11013037.outbound.protection.outlook.com ([40.107.162.37] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1weISA-0000000FQdF-154W;
+	Mon, 29 Jun 2026 20:19:38 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weIRW-0000000FQYV-2Mfm
+	id 1weIS6-0000000FQbM-3YkC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 20:19:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=e7EGw6+W9IdMGilaoTYyR1X7hrBuKONDiLn1a3PksK1eIwpiSRx4PFJ/PMhPBqIQtMu0xyk17YRgg+uhWKg3h9VyVZCn3ryLy74B+0HTxx8R4TTuRKfgf2ncNa8jzrYidnxUFFLk/sfJ4GNQCbEgfLe9YhbtmjuYsb0MT7KZEYirogQ7V0F2PcDGlPCgU4kmKDZAznU/9R2Nh35UBh78pqgfkCjZR9EahG9sTA9ROZm2X/kRJP1XVXa5S0rXU5/fPlx00N308LNs5jaymjCgj6cNrkATuXFOnAA6FWVg3dzLcmgJlwdzoB4/RfCkhBidQizWh0szKOdPBDHXgpkEoA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=9U/tqvMNO+4hi5AkpeVjOQ7FJ/NMHLcEnlIZLBAMbGg=;
- b=KPENsCOzieT/HHO2SdhlfjguBmGwzNbNVF8Qv6r872jMlOQBXzEj9JM3ZsiwCn+dxy/bBswq9EVQpv5NMpIdS7m6J1xYmsqOysChAP+ERDmknTsyfPQo0RRS2H8CnecNe7vDCftZUh78RgHkqXTwe+IFISJDLOLLR1fS+nwgjVY/LLZwPwj+sKndqUPCaJ6DAr3/wVE/hKnVQDBl4wKR5vyfduqpNCto1SUdP/9B7c12xPt12f8HBKYrioxHBaG+XP2TZJq9FhnVna/Uylpo8Ms77GTXiaJJWySz/2cXDzzhNlAnQIOdii/Qb8k84FB1SxxUyAO74Rt3oWw6dYjXHQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=9U/tqvMNO+4hi5AkpeVjOQ7FJ/NMHLcEnlIZLBAMbGg=;
- b=AtZVzoNJzpieu20XOIQeHWoV57KiWZB4Mo0hr4TTdt+mmfJ0tW50f6twTYdsY9gkNQzRFrz1VyUueOv66fLbd1nQM2mJ4986Rrqw8wjAZTViuK89Nuu4qRJPSoLFkfL0WJmnpjX70s6C04+yCZVJugxX00/ed2Xl2V0CQGtfJVu+ywhlV0W6ogTY81Fmv93ywsYaq7u97hFmlujod3Gxy9ryQkEKKViwf25Yz1ICFieVgSFs9ajTDk2gcbST5NENJzfvNpcnF7FddCQl78pWezUuMOd2Zk2VWRip7Q4p5S5Plpoc9RjnO7lUImPsOvIDeq1IVaV2oU9eGss9mHjDPA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by PAWPR04MB9806.eurprd04.prod.outlook.com (2603:10a6:102:389::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Mon, 29 Jun
- 2026 20:18:54 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Mon, 29 Jun 2026
- 20:18:54 +0000
-Date: Mon, 29 Jun 2026 16:18:46 -0400
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Leonardo Costa <leoreis.costa@gmail.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de,
-	festevam@gmail.com, leonardo.costa@toradex.com,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	regressions@lists.linux.dev
-Subject: Re: [REGRESSION] mainline/master: Apalis iMX6 no longer boots
-Message-ID: <akLTJkNmD2rUjyw9@lizhi-Precision-Tower-5810>
-References: <20260629143439.361560-1-leoreis.costa@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260629143439.361560-1-leoreis.costa@gmail.com>
-X-ClientProxiedBy: SN7P220CA0023.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:806:123::28) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Mon, 29 Jun 2026 20:19:37 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2c9b42be8feso20740795ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 13:19:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1782764373; x=1783369173; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=nZg/W7O3xMrPOVncSfqHtuO2PvBNacKXPKLTL7Ha6Q0=;
+        b=aVwUy0q/g6JkmdalFhaNttbITIwUb0EwBjoEURF95B603WGOuaF26xE8Fp/hixu++6
+         wrqYYP4Jb1mo9KRwLlhkGbD/XLyNkFi5A8vX+8BcG+3s9VslTGI/rd1+jqjax62TeQtd
+         ZEA0x2/HaW7pGAub+ro+XZdOTVRoigSMS9vTJO2Tfpmi84XxKTv9nY9NrypTREaQirtd
+         GDWQPc/lleVdQ1VRZDjVSdcE9ZME7Us5qr3naIvTiEn8oQjWigcRpWKDb6bVH0+uVLQx
+         0qRdZlcT/mPd7tm6+VugB4Hf7G3gHVCQtloN2vKZZj099iKheJd1vhlC39J2G4j/bYap
+         ys0Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782764373; x=1783369173;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=nZg/W7O3xMrPOVncSfqHtuO2PvBNacKXPKLTL7Ha6Q0=;
+        b=LVzL0aTRyriu4gbyvrNo8uTaf7TUeudUqAlt8xbIGWQ4fRHZN8306d1v/2suxKQcwJ
+         q5nJfgP86OIPxOLxHaLLfZATNq3Wuvp4ujLrSZc0U49HoCiwjHq7C1pGNU4YXlTrvqOl
+         9rwaXeO5fxY195vm9xTPP8qNs3vFUQkCsvdkk6a1vCFDnSBMYgl+yOQ31EBCgWxsZc1W
+         Yjyx88mquIeSkxpp73chJzlmlAAN2zK3NGg32nuqyGspcMm3qAn5PqtkiEEYQ7yaP7kE
+         7TSesVw6tcC3rmnd0PGWhsumzTxGZJz/Tx6CeG8vHMbaJt2tlgmYQtWLYn3VMzw8SAyl
+         T8pg==
+X-Forwarded-Encrypted: i=1; AHgh+RoPQ25p7A+mYF47kxIdRwEYkiLfV3ypOBpE/F1qcRq/KmNTBUBYoTK6J9FFiSuLRdRSxRszwqkc9J4R4u6SG9sB@lists.infradead.org
+X-Gm-Message-State: AOJu0YxTwCpxd1tNkURe+p8Nsxf4PD1l3W3Ji7v6MsOWWnjbxWryVmpH
+	FlsFavgVwFhTHOYcDWCPIoJqPXXa87ruGZWceazPvAUZjjSGDbcIiIw69Q+UKkmdy5c=
+X-Gm-Gg: AfdE7cmyL2uJjc7gG4ZaMhIW1DyLKAuptzMePNHP6lq/NZRKbYhI0fucIu7ZwB360sS
+	28gZMOSAa9+Qtuil0TmcicLMo49E6HMYXibmz2DHWCkaBdN1oyQQO5MbU3Iecps90gdhk4gkY8b
+	EnWYPxr7Ib+NFe+TCGubCJFGnknDSdymEMcWOH2l5RawpTX30niViVeHLqyxHkR72ljJ6/KhKGx
+	oHWEG5EzetviNXUbq66UaqrBXhkyc7KgzNUw8WFZ66i377rVU/7AYd25dwoNGfkpggKcCd7e34F
+	nTiDuBtzqte/LJMB6v6QAptylqskYuZKmENAR7r+zblt+/WAVSYPkyvO82I2GC9VwQmqzn7E6cc
+	AXY6vR+XHX0xhSWOgQeCVdo4UgfDfF/9LLoYQhWTLpn2WqThdBMLRImMeFpaHdLbhV+oev4i3Xq
+	jvFEbKvKxcgw==
+X-Received: by 2002:a17:903:1c2:b0:2c9:e86e:aa0a with SMTP id d9443c01a7336-2ca2d3d202emr6219205ad.0.1782764373360;
+        Mon, 29 Jun 2026 13:19:33 -0700 (PDT)
+Received: from localhost ([71.212.202.210])
+        by smtp.gmail.com with UTF8SMTPSA id d9443c01a7336-2ca37c908e7sm102735ad.35.2026.06.29.13.19.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 29 Jun 2026 13:19:32 -0700 (PDT)
+From: Kevin Hilman <khilman@baylibre.com>
+To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
+ Geert Uytterhoeven <geert+renesas@glider.be>, 
+ Magnus Damm <magnus.damm@gmail.com>, Heiko Stuebner <heiko@sntech.de>, 
+ Aaro Koskinen <aaro.koskinen@iki.fi>, 
+ Andreas Kemnade <andreas@kemnade.info>, Roger Quadros <rogerq@kernel.org>, 
+ Tony Lindgren <tony@atomide.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+ linux-omap@vger.kernel.org
+In-Reply-To: <20260608-n-dt-bindings-simple-bus-syscon-v3-0-4eba9ec1212a@oss.qualcomm.com>
+References: <20260608-n-dt-bindings-simple-bus-syscon-v3-0-4eba9ec1212a@oss.qualcomm.com>
+Subject: Re: (subset) [PATCH v3 0/3] dt-bindings: mfd: syscon: Tighten
+ checks
+Message-Id: <178276437217.1055800.1836973932721840283.b4-ty@b4>
+Date: Mon, 29 Jun 2026 13:19:32 -0700
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PAWPR04MB9806:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7719b5b5-24f7-4926-5745-08ded61ba45a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|19092799006|7416014|23010399003|1800799024|18002099003|22082099003|11063799006|5023799004|56012099006|6133799003|3023799007;
-X-Microsoft-Antispam-Message-Info: oOb5253rNChtP492uk0esCa5qpU51VnWArkcy6MCOaVs/SB3Ta8tn112SRjIH3xz0q05POvVlY9lUum22DzUL4dAO0eqVCHWmNinGZNoa4fBxhNP+3JcMB8jV7KmDnam0rJA+lpsNImUPtSaIvyBK+f6b8DXIxSsyYEkbyYKMAerv63Ia9qJDiRfr+b4WSVSFQWgEH1S5nAdZKLno4EHiDagAg/VfUoCdKxxlCgAy/m1WCVvdU2/DO5PswDS/xJrn5iMwtUv1jaMJpyctzfId09sIsu9i619drJg/Svb4+hgPhtZJH8Pzp9t5jXvuP83izADLsjabwi5evcDYqG5FaujwupXK/Yt1/c8vfoIodCosky8zyKRLFUSRm3PHeFVLUFb3pwY7ZzVj1GE7z+zTbRkn9FmyB30U6uX6uNcRMxlIr8/10qzNq9mZRRjVT/R2ZrOMGqE9nm65DszqdAfR9X2plcQReZLilKOUTQrUhCbYOjpcklz8WORiyCnaPZrzHtUfCPxoWXbFFpt63f3exUjHzjVzbsNlv8OaamGO890qL/aWhOVq+v50rl5J2FtzsB6gVekLO6snwJvtfeDZPRUyd/5dV/yZRVsUMPUyqIfoh5EeF34tu0kUs/vspPY
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(19092799006)(7416014)(23010399003)(1800799024)(18002099003)(22082099003)(11063799006)(5023799004)(56012099006)(6133799003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?yRP2nCnwwjuwETpxj07ai4iv1Lap9fhGglkQ0PvvK9VPUUaYw2O3q0Xxo65D?=
- =?us-ascii?Q?oSve1m0cXqG0+fHxUuuOixOOKFLdlYBX/+pr/RT+cbaoaRbCvN+94+vW/qbg?=
- =?us-ascii?Q?+yt+Ag358xCGweuAjhL/JEIqiZRlwlK/mfURgoAnGof93fhPDvx9anUvo6Jg?=
- =?us-ascii?Q?kHs9cqcsQOjRiKL66Cb4CLtoP2SwxGQ2+SinwZAkn/brRjWgerYAVTnRAc95?=
- =?us-ascii?Q?h4tFhcr/pYdwa0g00PoMuSzdrQIx13tK5wV0Vj45xXoASdYH37hXOXKTdFpG?=
- =?us-ascii?Q?nGu6Mnsgmh5Crcw+yTKv/uuLeIjmcH6PajAh7wq369HM0FSiTLwpnxrcVEeK?=
- =?us-ascii?Q?9aeMVLWDxmVHbczNo8XCRjCUoiYhIzN5Bm5tyR7OvuBFFHgt8HhEVBEeNBqe?=
- =?us-ascii?Q?YFJBQMBIj1sXyWkXVmupPQKlbPXCBrao92930hJbYwB0du5SXUVhBnFA05OJ?=
- =?us-ascii?Q?OPLT8zVWI6GbDOMuzN9Xd1ETGaMm+lnqQeUs7lxG+ILaC/Bo77HwXRB6c2Ct?=
- =?us-ascii?Q?8UapTFwtTpw4zxoU49Zd2JAQLJLqT0rxvweWyZartZyf4n5/J4TZLwD3W0E0?=
- =?us-ascii?Q?qCv4DbGXpPqbN7hvvPZAoF6KYhRpZw0NxPrVxkLGOv13nrgBvJ/U09EkRBUz?=
- =?us-ascii?Q?HdUXBXEGpyReGZHZs0W7ud6l8yqOLT8jFQv7OkWfF2XYb2L9Hej5YoEfRw8J?=
- =?us-ascii?Q?ntKxi0G3I8cOsSSaIENYuuj+oy1c8oNpanm8QjpXVq6NTHoxDvXwW3Sfoa7o?=
- =?us-ascii?Q?wHp+bd3mpA33T9SGUZjOCAvEJACXfvPvxHP/T2tkfRHOSWXYBmIy7S6j48xd?=
- =?us-ascii?Q?BG9qk2io/v3Z3Qz/lDxsnAhfCtIERX+p7vM3vvLbTOg9pIsq6/lsB9yceE2Z?=
- =?us-ascii?Q?Xg13KN8aVV+pyi1c69159diahnKw/QVYwNvUbpE24if1f462L9/85fNTmcTC?=
- =?us-ascii?Q?FbS850ojLD7SwhMygUi0unCboyhBXkMHB8RQ1pjRJgd6RltGr5cSNlwmXVo/?=
- =?us-ascii?Q?DxUWYQGkhIICkZGL9mJIeKilnqQUnPKo0GL6iNDAeu1jEytnCPEXMb29nnAd?=
- =?us-ascii?Q?AnuMTFrlOp6WfFqGHDBCgrIUqe2z6uKUqZCO4fj3qUSiWsGMq2zc+DvlVVoy?=
- =?us-ascii?Q?N42s3Rwqk7bOizzOaFhqtb27cu/a1omOyUIGNSOh3WBGu7v0vj0t+5qU1w2g?=
- =?us-ascii?Q?oPsOuT1T4sHHV4ptRKgfDCSfP7ujmCJOSfXo2/SvPfLny23hQCsgkiD44+CP?=
- =?us-ascii?Q?5plYkNienQtuEn04p/6Ls7OT4qZfWwAe2CtonGyUWYzIebuJwc7uBRMmRr/y?=
- =?us-ascii?Q?MRKGEPk+BHxHP2j39Naul8b9Hlx849MYGKsyZrDjzso6BEBqfkV5stpeT/tC?=
- =?us-ascii?Q?Mt9QYYoj9MJzblprlSnisjmXbXkqq8ZDB/q+lnr4XEqxTVqLfzNW8zVYoHIB?=
- =?us-ascii?Q?3N4Yud4w7AC2Euu2jHZoB+15zycroTY2MyB+kyKjnSqVme5n+XMFWHfdRR/R?=
- =?us-ascii?Q?vVwqd5h7D9SDqAeVjBR4XNfMCubaGhT2ywBgFIRwSWnFP8Y+yGAkY6EnqAra?=
- =?us-ascii?Q?yHqQFm5gUwuH2qmGRwEhQqxHYeok4XfnuQv3MhfLiWZnxeDJJHLwNq7eFg2H?=
- =?us-ascii?Q?ujYkYa+8EGn6cs64BT9AbPN4nGvZW2pKPw/W1j8FcJA1kuaUlHhjj4lqe3eJ?=
- =?us-ascii?Q?8JHUZ5Yzao0OHpmsolrUVU4E+zrfSqQaFsZJWq74OTe/tOodbv0P9JNv6hw3?=
- =?us-ascii?Q?iN7QJPiLDxcOpkRNvQcVjivwBBJ3TzU/4ubKmitQGgfxrPgFZshv?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7719b5b5-24f7-4926-5745-08ded61ba45a
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jun 2026 20:18:54.4815
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: EYkcG7jsAI2c3qUB612ppyJi4b9O1i9morUw59wJA8XqeoADaI/x9/QPgNwsqa227yZOWqSmexTqY1fTUaUUlgKUyzjOj2GPyhTODM3NqZ/QsEpuoRjBK4zVh5aICKGU
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR04MB9806
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.16-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_131858_782078_3F0564CA 
-X-CRM114-Status: GOOD (  19.89  )
+X-CRM114-CacheID: sfid-20260629_131934_898935_9EBA5D0A 
+X-CRM114-Status: UNSURE (   9.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,133 +114,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 29, 2026 at 11:34:32AM -0300, Leonardo Costa wrote:
-> Hello,
->
-> We are seeing a regression on Apalis iMX6 where the kernel doesn't boot in the
-> newest v7.2-rc1 (it was working before, in v7.1). The device tree being used is the imx6q-apalis-eval.dtb. The kernel
-> configuration used is the one shown below:
->
->     https://gist.github.com/lcosta37/53efdb2fb6e6e0fc05437c7e53b47737
->
-> The kernel logs stop almost immediately as the board starts to boot, and I
-> don't notice any difference in the logs that points to the cause.
->
-> Is this known? We are seeing this behavior on all Apalis iMX6 modules, though
-> we don't see it on Colibri iMX6, so it is not SoC-specific.
 
-Can you help bisect to locate which commit cause this problem?
+On Mon, 08 Jun 2026 22:44:23 +0200, Krzysztof Kozlowski wrote:
+> Changes in v3:
+> - Drop patch #2:
+>   dt-bindings: mfd: syscon: Drop unneeded case for syscon + simple-mfd
+> - Bump dtschema requirement
+> - Link to v2: https://patch.msgid.link/20260608-n-dt-bindings-simple-bus-syscon-v2-0-0203e6c249dc@oss.qualcomm.com
+> 
+> Changes in v2:
+> 1. New patches #2 and #3
+> 1. Add missing part of patch #1, thus not adding Rob's Ack.
+> https://lore.kernel.org/all/20260531110404.12768-3-krzysztof.kozlowski@oss.qualcomm.com/
+> 
+> [...]
 
-Frank
+Applied, thanks!
 
->
-> Logs from v7.2-rc1 (not working, printing stops after the last line pasted
-> here):
->
->     [    0.000000] Booting Linux on physical CPU 0x0
->     [    0.000000] Linux version 7.2.0-rc1-0.0.0-devel (oe-user@oe-host) (arm-tdx-linux-gnueabi-gcc (GCC) 16.1.0, GNU ld (GNU Binutils) 2.46.1) #1 SMP PREEMPT Sun Jun 28 19:01:31 UTC 2026
->     [    0.000000] CPU: ARMv7 Processor [412fc09a] revision 10 (ARMv7), cr=10c5387d
->     [    0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
->     [    0.000000] OF: fdt: Machine model: Toradex Apalis iMX6Q/D Module on Apalis Evaluation Board
->     [    0.000000] Memory policy: Data cache writealloc
->     [    0.000000] cma: Reserved 256 MiB at 0x40000000
->     [    0.000000] OF: reserved mem: Reserved memory: No reserved-memory node in the DT
->     [    0.000000] Zone ranges:
->     [    0.000000]   Normal   [mem 0x0000000010000000-0x000000003fffffff]
->     [    0.000000]   HighMem  [mem 0x0000000040000000-0x000000004fffffff]
->     [    0.000000] Movable zone start for each node
->     [    0.000000] Early memory node ranges
->     [    0.000000]   node   0: [mem 0x0000000010000000-0x000000004fffffff]
->     [    0.000000] Initmem setup node 0 [mem 0x0000000010000000-0x000000004fffffff]
->     [    0.000000] percpu: Embedded 15 pages/cpu s28684 r8192 d24564 u61440
->     [    0.000000] Kernel command line: root=PARTUUID=adb2cea1-02 ro rootwait console=tty1 console=ttymxc0,115200
->     [    0.000000] printk: log buffer data + meta data: 131072 + 409600 = 540672 bytes
->     [    0.000000] Dentry cache hash table entries: 131072 (order: 7, 524288 bytes, linear)
->     [    0.000000] Inode-cache hash table entries: 65536 (order: 6, 262144 bytes, linear)
->     [    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 262144
->     [    0.000000] mem auto-init: stack:all(zero), heap alloc:off, heap free:off
->     [    0.000000] SLUB: HWalign=32, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
->     [    0.000000] rcu: Preemptible hierarchical RCU implementation.
->     [    0.000000] rcu:     RCU event tracing is enabled.
->     [    0.000000]  Trampoline variant of Tasks RCU enabled.
->     [    0.000000]  Tracing variant of Tasks RCU enabled.
->     [    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 10 jiffies.
->     [    0.000000] RCU Tasks: Setting shift to 2 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=4.
->     [    0.000000] NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16
->     [    0.000000] L2C-310 errata 752271 769419 enabled
->     [    0.000000] L2C-310 enabling early BRESP for Cortex-A9
->     [    0.000000] L2C-310 full line of zeros enabled for Cortex-A9
->     [    0.000000] L2C-310 ID prefetch enabled, offset 16 lines
->
->
-> Logs from v7.1 (working) (full logs here: https://paste.debian.net/hidden/0f65ae5f)
->
->     [    0.000000] Booting Linux on physical CPU 0x0
->     [    0.000000] Linux version 7.1.0-0.0.0-devel (oe-user@oe-host) (arm-tdx-linux-gnueabi-gcc (GCC) 16.1.0, GNU ld (GNU Binutils) 2.46.1) #1 SMP PREEMPT Wed Jun 24 01:36:41 UTC 2026
->     [    0.000000] CPU: ARMv7 Processor [412fc09a] revision 10 (ARMv7), cr=10c5387d
->     [    0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
->     [    0.000000] OF: fdt: Machine model: Toradex Apalis iMX6Q/D Module on Apalis Evaluation Board
->     [    0.000000] Memory policy: Data cache writealloc
->     [    0.000000] cma: Reserved 256 MiB at 0x40000000
->     [    0.000000] OF: reserved mem: Reserved memory: No reserved-memory node in the DT
->     [    0.000000] Zone ranges:
->     [    0.000000]   Normal   [mem 0x0000000010000000-0x000000003fffffff]
->     [    0.000000]   HighMem  [mem 0x0000000040000000-0x000000004fffffff]
->     [    0.000000] Movable zone start for each node
->     [    0.000000] Early memory node ranges
->     [    0.000000]   node   0: [mem 0x0000000010000000-0x000000004fffffff]
->     [    0.000000] Initmem setup node 0 [mem 0x0000000010000000-0x000000004fffffff]
->     [    0.000000] percpu: Embedded 15 pages/cpu s28684 r8192 d24564 u61440
->     [    0.000000] pcpu-alloc: s28684 r8192 d24564 u61440 alloc=15*4096
->     [    0.000000] pcpu-alloc: [0] 0 [0] 1 [0] 2 [0] 3
->     [    0.000000] Kernel command line: root=PARTUUID=4ce4ba92-02 ro rootwait console=tty1 console=ttymxc0,115200
->     [    0.000000] printk: log buffer data + meta data: 131072 + 409600 = 540672 bytes
->     [    0.000000] Dentry cache hash table entries: 131072 (order: 7, 524288 bytes, linear)
->     [    0.000000] Inode-cache hash table entries: 65536 (order: 6, 262144 bytes, linear)
->     [    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 262144
->     [    0.000000] mem auto-init: stack:all(zero), heap alloc:off, heap free:off
->     [    0.000000] SLUB: HWalign=32, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
->     [    0.000000] rcu: Preemptible hierarchical RCU implementation.
->     [    0.000000] rcu:     RCU event tracing is enabled.
->     [    0.000000]  Trampoline variant of Tasks RCU enabled.
->     [    0.000000]  Tracing variant of Tasks RCU enabled.
->     [    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 10 jiffies.
->     [    0.000000] RCU Tasks: Setting shift to 2 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=4.
->     [    0.000000] NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16
->     [    0.000000] L2C-310 errata 752271 769419 enabled
->     [    0.000000] L2C-310 enabling early BRESP for Cortex-A9
->     [    0.000000] L2C-310 full line of zeros enabled for Cortex-A9
->     [    0.000000] L2C-310 ID prefetch enabled, offset 16 lines
->     [    0.000000] L2C-310 dynamic clock gating enabled, standby mode enabled
->     [    0.000000] L2C-310 cache controller enabled, 16 ways, 1024 kB
->     [    0.000000] L2C-310: CACHE_ID 0x410000c7, AUX_CTRL 0x76470001
->     [    0.000000] rcu: srcu_init: Setting srcu_struct sizes based on contention.
->     [    0.000000] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
->     [    0.000000] Switching to timer-based delay loop, resolution 333ns
->     [    0.000001] sched_clock: 32 bits at 3000kHz, resolution 333ns, wraps every 715827882841ns
->     [    0.000018] clocksource: mxc_timer1: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 637086815595 ns
->     [    0.001910] Console: colour dummy device 80x30
->     [    0.001926] printk: legacy console [tty1] enabled
->     [    0.002519] Calibrating delay loop (skipped), value calculated using timer frequency.. 6.00 BogoMIPS (lpj=30000)
->     [    0.002561] CPU: Testing write buffer coherency: ok
->     [    0.002627] CPU0: Spectre v2: using BPIALL workaround
->     [    0.002650] pid_max: default: 32768 minimum: 301
->     [    0.002989] Mount-cache hash table entries: 2048 (order: 1, 8192 bytes, linear)
->     [    0.003038] Mountpoint-cache hash table entries: 2048 (order: 1, 8192 bytes, linear)
->     [    0.003430] VFS: Finished mounting rootfs on nullfs
->     [    0.004538] CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
->     [    0.006552] Setting up static identity map for 0x10100000 - 0x10100060
->     [    0.006835] rcu: Hierarchical SRCU implementation.
->     [    0.006864] rcu:     Max phase no-delay instances is 1000.
->     [    0.007320] Timer migration: 1 hierarchy levels; 8 children per group; 1 crossnode level
->     [    0.008854] smp: Bringing up secondary CPUs ...
->     [    0.010035] CPU1: thread -1, cpu 1, socket 0, mpidr 80000001
->     [    0.010218] CPU1: Spectre v2: using BPIALL workaround
->     [    0.011412] CPU2: thread -1, cpu 2, socket 0, mpidr 80000002
->     [    0.011581] CPU2: Spectre v2: using BPIALL workaround
->     [    0.012747] CPU3: thread -1, cpu 3, socket 0, mpidr 80000003
->     [    0.012917] CPU3: Spectre v2: using BPIALL workaround
->     [    0.013109] smp: Brought up 1 node, 4 CPUs
->     ...
->
+[3/3] ARM: dts: ti: Add specific compatibles for SCM conf nodes
+      commit: 68f994ec51e279e63c8fc40c1bfa8add4b708111
+
+Best regards,
+-- 
+Kevin Hilman (TI) <khilman@baylibre.com>
+
 
