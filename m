@@ -4,93 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DB73C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 15:15:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A567C43327
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 15:23:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UPSjr9JU+pCYrEmDJ7OVpfKAUb1nOpu7R28XymotIVY=; b=Zfc0IHcrK2HH8W/T+uij0/Dp82
-	a3TSQlwW3fy5bLH1vm3/nTI0nblOdtf4DB3/8BstsvQFjUPKl+LqkixHCkNvF9gYRS/akGJTwhFfY
-	ABotbMBxgMvzFr4NwiYqbfRNrP0sbkbCJZohETpLSeNsoqsWjNqrGiTN4GbNK8RCNWhuHinLfttJ2
-	vkMZo2DSrPUF9FQg2wVGN/kWjWwcHn+Bu+jbwhKMMM/lsdOA0cf9JAtFv+23xCC7PFqbSZoQTV1NL
-	kyYQJHi5DhbBTF9yQP1RzBV3kA63LLzlnsZM7hVG6FviAzsB9tA3HvmlNQRyy8QxAITbLcbO0/iIo
-	1oywafZg==;
+	bh=QHHQmFDOSKnD4YpRfcLyNv6UBGspgJLpj/tD/xD0v50=; b=Z0k5aKxSccZTUhhzeSzo6hwJNE
+	ShHmc26wiKIK0pwsPOjxkupgbz7WtLDZaIlWU/2fFcpWCHk4By31+930ZptJ8HrdCG7Y41cgKK60f
+	dObTZ0wVpFIC4KWFm+60QuBfMwmpD49HEm1DIEnrrUuc+mJVkMOOpnuF5tDAMWyav3uaZKjwsI8Vx
+	2i6g4VUCyFc5p4NCe9ZuKBn4LVshI1fwUSOm9b1A3M2kOIpO+stGcf12obkajMeyKI8wSx7S4+tO9
+	owGyB2nSTufeeB5iq2SQwvgsKJgKE1VFsfc7tFucjrD92YJxfDqfZowygPfbB1kH7mAlIplbbN5N5
+	YLjQvw5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weDhr-0000000F2Lv-2oes;
-	Mon, 29 Jun 2026 15:15:31 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1weDpb-0000000F3PN-1yDh;
+	Mon, 29 Jun 2026 15:23:31 +0000
+Received: from mgamail.intel.com ([192.198.163.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weDhp-0000000F2L6-0V60
+	id 1weDpY-0000000F3Oi-2wHD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 15:15:30 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2c9b2ac97cdso55775ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 08:15:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1782746128; x=1783350928; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=UPSjr9JU+pCYrEmDJ7OVpfKAUb1nOpu7R28XymotIVY=;
-        b=dhrNcb1IBwTnV/peqcKw40hJ027d+/KC3UjcrpLQ1UQLsJApjleXVZ4vS7ithDXg9L
-         V/O1ixrSSfI7tQatD1HsW2r7lTzGBHkt+NbfhNjguILrdmTA8p9XSPV1dMy9pyORTv6u
-         qFzq9H/+w0UicI10FcRY/WWpkD1cnSY/SX+KZWzUaBLXHbaAphd/eISNAnXHJON8lmd+
-         xEB5G7+UZy5Gl+ngVObzVE1DpXTEFr2d/f0gUwwhh3Ks3oJa341QZbpVsXuyqDQpIJ1E
-         LiTn6SL+QRZtYVUqMKrAWKpBvfwwTznYCQ24Jqwkqnjl+VQ9nu9cL1zSE8AQ/xgRNO3K
-         k/rQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782746128; x=1783350928;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=UPSjr9JU+pCYrEmDJ7OVpfKAUb1nOpu7R28XymotIVY=;
-        b=CkwB6BfQ5mSWHs40g/+4dYrg8tiOfQUEtuNvdUXh0vMUuj+JPIsQ/Bw51dXz2qhh/v
-         P7+b4aGoCUeBF3ORu4GvImPSWb4rXTZD3CmDMSfcPh4s6chs9Cl99eQwDBo72dID4Ecj
-         i10KCksZhfvIUxPIs9SQLmxSdN0zGSO13dOROIWShok4JzJUv6tYNjPd1GpLn2igHLDo
-         sOymKYqIC+uIqqwMgM2ueQcjF02kt85sb8J1zONSb3s4V22ZjyTxzARLjIvJw56jQite
-         cpN0qecscD/b7VyO/9zwFOsSJyZvUas1ocjRowbuMH6CmJKOBvvaYzbMoFedpH+FttKl
-         L5Rw==
-X-Forwarded-Encrypted: i=1; AHgh+RqQodX2A1UBs22A6JCXjxfAy+IJzfS0CGYaeIZnEVOJCkW2DnJpfB/pVMVTK8CJ339KDO/tieF4gOOWzPUEPaBF@lists.infradead.org
-X-Gm-Message-State: AOJu0YxI5FI/UV7qhdDcFQxPWuGZcQ5+99k78uXFGPCS0PLYzicChCtj
-	zY4oMayeS8x208srSbP3+n2qBwJd6nQTnp6xS9zTubTv7VbZS1FsxSaTlApcLrxynA==
-X-Gm-Gg: AfdE7cmUvGvfSHH8x/Zo/K5EV5SOz6G+f2P1JdkVbzi8VdcE4ExUFDxogOs10r44tY6
-	v7o+7HAOWnZayMbNdWNiNqvdy8DiwvhafV02Re4a28igkzlFodfsjNGyw28b6l74Nq+Kc+Xqg98
-	YDRplv3az07eqPyxn9Dt0eYv/a5sIAvCyJ9Qe0ww4SdIBA9NuOG5bNzKjLjQ6/UQwb7OwrFsDE5
-	H9lBsvXMfhPeQ4R0X1SE7Ig1wGTqWjQtMS62NosxzDN280E63ahupOONk6ye659JJ3dkvvYPQSX
-	FE+jFle5AdohIetKyr3PtFRTNCHPdLZ/JVStl7zVCq/hpMOGrtVzZUTDPopntEPXOUqxj9O9QQl
-	Pi1UJt/pQ1Nq1+j91/VqTeQKVFSGG1GxZ0MVQtLS4PZR2c0rh2PE9MfkO6jMWafQvJQD3Cq0rro
-	b+Tot8q6kNUgFxqkXOz6K1zFj7negVmqwRMa1y10AAE4xb4ls=
-X-Received: by 2002:a17:902:e5c1:b0:2c7:b1e7:501e with SMTP id d9443c01a7336-2ca2ce7f8b4mr86255ad.3.1782746127572;
-        Mon, 29 Jun 2026 08:15:27 -0700 (PDT)
-Received: from google.com (10.129.124.34.bc.googleusercontent.com. [34.124.129.10])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c9b0992227sm50676885ad.37.2026.06.29.08.15.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Jun 2026 08:15:26 -0700 (PDT)
-Date: Mon, 29 Jun 2026 15:15:21 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: will@kernel.org, robin.murphy@arm.com, jgg@nvidia.com, joro@8bytes.org,
-	kees@kernel.org, baolu.lu@linux.intel.com, kevin.tian@intel.com,
-	miko.lenczewski@arm.com, smostafa@google.com,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org,
-	jamien@nvidia.com
-Subject: Re: [PATCH rc v6 4/7] iommu/arm-smmu-v3: Skip EVTQ/PRIQ setup in
- kdump kernel
-Message-ID: <akKMCYsdH4lVSyf7@google.com>
-References: <cover.1779265413.git.nicolinc@nvidia.com>
- <1280ac4fdb37f998fd6dcb2bf8f4437283279395.1779265413.git.nicolinc@nvidia.com>
+	Mon, 29 Jun 2026 15:23:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1782746609; x=1814282609;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=ikG8LyC1XcdBJf6tJzF7Bt/BQgmZRgtL19n+WxN3KCI=;
+  b=YsVczWe2FVG2TJt82CU8DmlAZ2H7OrA+nsuVq8cpniRdcgsbfwbCFaIq
+   h5j5UbJSbmB7vdHlEXQbVow7UhuZ9SfL2D3Fj0L+KKAR2kwdUWtJvBjMi
+   B+dbIpxu7VFKRHAZTjnus7utp/Vu2+RJtUSjsjJaHXfCOU6HaWLlCvhyI
+   krHIS7RZYhJ+ojGhz58E/xp4W7+YsoEVZlZ8mG8xLDphq3UpCgT1gXUJw
+   dMuEcLem64DWTEsPR1TZUhIdEiO58jR2g7eNDAY5GPxRPmanML68u4Q+D
+   y7mXtqTah/Zm0HHztKp64bMAxhEXSKAVR0d2dyuelNow/XLnf1TSh/qPW
+   g==;
+X-CSE-ConnectionGUID: HANNaLnBRYGLXNTtIrlG4A==
+X-CSE-MsgGUID: KLMIeSiYSmGN3B6ga4hLBQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11832"; a="94023541"
+X-IronPort-AV: E=Sophos;i="6.24,232,1774335600"; 
+   d="scan'208";a="94023541"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Jun 2026 08:23:26 -0700
+X-CSE-ConnectionGUID: 7N2MW441QaazjVGcO5Si8w==
+X-CSE-MsgGUID: QtCGyfNORrCYVEX/UtpPDg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.24,232,1774335600"; 
+   d="scan'208";a="245635032"
+Received: from kniemiec-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.207])
+  by fmviesa009-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Jun 2026 08:23:22 -0700
+Date: Mon, 29 Jun 2026 18:23:19 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Marcel Holtmann <marcel@holtmann.org>,
+	MyungJoo Ham <myungjoo.ham@samsung.com>,
+	Chanwoo Choi <cw00.choi@samsung.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Andy Shevchenko <andy@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Ulf Hansson <ulfh@kernel.org>, linux-bluetooth@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, linux-i2c@vger.kernel.org,
+	linux-iio@vger.kernel.org, linux-input@vger.kernel.org,
+	linux-mmc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org, linux-usb@vger.kernel.org
+Subject: Re: [PATCH] [RFC] gpiolib: introduce gpio_name() helper
+Message-ID: <akKN59lv55CXS3HU@ashevche-desk.local>
+References: <20260629135917.1308621-1-arnd@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <1280ac4fdb37f998fd6dcb2bf8f4437283279395.1779265413.git.nicolinc@nvidia.com>
+In-Reply-To: <20260629135917.1308621-1-arnd@kernel.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_081529_161168_6F4157ED 
-X-CRM114-Status: GOOD (  23.01  )
+X-CRM114-CacheID: sfid-20260629_082328_766350_23633C73 
+X-CRM114-Status: GOOD (  14.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,101 +98,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 20, 2026 at 10:03:21AM -0700, Nicolin Chen wrote:
-> In kdump cases, the crashed kernel's CDs and page tables can be corrupted,
-> which could trigger event spamming. Also, we cannot serve page requests.
-> 
-> Skip the EVTQ/PRIQ setup entirely rather than enabling then disabling them.
-> 
-> Also add some inline comments explaining that.
-> 
-> Fixes: b63b3439b856 ("iommu/arm-smmu-v3: Abort all transactions if SMMU is enabled in kdump kernel")
-> Cc: stable@vger.kernel.org # v6.12+
-> Suggested-by: Kevin Tian <kevin.tian@intel.com>
-> Reviewed-by: Kevin Tian <kevin.tian@intel.com>
-> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-> ---
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 43 +++++++++++++--------
->  1 file changed, 27 insertions(+), 16 deletions(-)
-> 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> index e00b28e36f9c4..3f22949391c82 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -5161,21 +5161,35 @@ static int arm_smmu_device_reset(struct arm_smmu_device *smmu)
->  	cmd.opcode = CMDQ_OP_TLBI_NSNH_ALL;
->  	arm_smmu_cmdq_issue_cmd_with_sync(smmu, &cmd);
->  
-> -	/* Event queue */
-> -	writeq_relaxed(smmu->evtq.q.q_base, smmu->base + ARM_SMMU_EVTQ_BASE);
-> -	writel_relaxed(smmu->evtq.q.llq.prod, smmu->page1 + ARM_SMMU_EVTQ_PROD);
-> -	writel_relaxed(smmu->evtq.q.llq.cons, smmu->page1 + ARM_SMMU_EVTQ_CONS);
-> -
-> -	enables |= CR0_EVTQEN;
-> -	ret = arm_smmu_write_reg_sync(smmu, enables, ARM_SMMU_CR0,
-> -				      ARM_SMMU_CR0ACK);
-> -	if (ret) {
-> -		dev_err(smmu->dev, "failed to enable event queue\n");
-> -		return ret;
-> +	/*
-> +	 * Event queue
-> +	 *
-> +	 * Do not enable in a kdump case, as the crashed kernel's CDs and page
-> +	 * tables might be corrupted, triggering event spamming.
-> +	 */
-> +	if (!is_kdump_kernel()) {
-> +		writeq_relaxed(smmu->evtq.q.q_base,
-> +			       smmu->base + ARM_SMMU_EVTQ_BASE);
-> +		writel_relaxed(smmu->evtq.q.llq.prod,
-> +			       smmu->page1 + ARM_SMMU_EVTQ_PROD);
-> +		writel_relaxed(smmu->evtq.q.llq.cons,
-> +			       smmu->page1 + ARM_SMMU_EVTQ_CONS);
-> +
-> +		enables |= CR0_EVTQEN;
-> +		ret = arm_smmu_write_reg_sync(smmu, enables, ARM_SMMU_CR0,
-> +					      ARM_SMMU_CR0ACK);
+On Mon, Jun 29, 2026 at 03:56:29PM +0200, Arnd Bergmann wrote:
 
-Nit:
-I believe only the write_reg_sync(CR0) should be under this if condition
-do we see any weird behavior if we perform the reg writes in
-kdump_kernel?
-
-> +		if (ret) {
-> +			dev_err(smmu->dev, "failed to enable event queue\n");
-> +			return ret;
-> +		}
->  	}
->  
-> -	/* PRI queue */
-> -	if (smmu->features & ARM_SMMU_FEAT_PRI) {
-> +	/*
-> +	 * PRI queue
-> +	 *
-> +	 * Do not enable in a kdump case, as we cannot serve page requests.
-> +	 */
-> +	if (!is_kdump_kernel() && (smmu->features & ARM_SMMU_FEAT_PRI)) {
->  		writeq_relaxed(smmu->priq.q.q_base,
->  			       smmu->base + ARM_SMMU_PRIQ_BASE);
->  		writel_relaxed(smmu->priq.q.llq.prod,
-> @@ -5208,9 +5222,6 @@ static int arm_smmu_device_reset(struct arm_smmu_device *smmu)
->  		return ret;
->  	}
->  
-> -	if (is_kdump_kernel())
-> -		enables &= ~(CR0_EVTQEN | CR0_PRIQEN);
-> -
->  	/* Enable the SMMU interface */
->  	enables |= CR0_SMMUEN;
->  	ret = arm_smmu_write_reg_sync(smmu, enables, ARM_SMMU_CR0,
-> -- 
-> 2.43.0
+> Most remaining users of desc_to_gpio() only call it for printing debug
+> information.
 > 
+> Replace this with a new gpiod_name() helper that returns the
+> gpio_desc->name string after checking the gpio_desc pointer.
 
-Apart from that nit, 
+Oh, that's nice!
 
-Reviewed-by: Pranjal Shrivastava <praan@google.com>
+...
 
-Thanks,
-Praan
+> +/**
+> + * gpiod_name() - get a name to print for a gpio descriptor
+> + * @desc: gpio or NULL pointer to query
+> + *
+> + * Returns:
+> + * The desc->name field or a dummy string for unknown GPIOs.
+> + */
+> +const char *gpiod_name(const struct gpio_desc *desc)
+> +{
+> +	return desc ? desc->name : "(no gpio)";
+
+Can we get into here with wrong (error pointer descriptor)? Shouldn't you call
+one of validate_desc() / VALIDATE_DESC()?
+
+Also not sure if "(no gpio)" is a good choice. "not requested"? "not provided"?
+
+> +}
+
+...
+
+> +static inline const char *gpiod_name(const struct gpio_desc *desc)
+> +{
+> +	WARN_ON(desc);
+> +	return "(no gpio)";
+
+Hmm... This will be a second copy with a slight potential of going apart from
+the other case. Perhaps a #define? (Yes, yes, I understand that there are pros
+and cons, in particular readability with define is questionable.)
+
+> +}
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
