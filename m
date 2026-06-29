@@ -4,125 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A600EC43327
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 08:45:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB5ECC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 08:45:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SyP1rDr+scbd8EHqOhd2SEKwzz9Yk3yho9coNffyF3s=; b=PReOmxkEGczz0NCEmT+MbaSkYG
-	MOYZM0vonlWl2YWF4MBNi6ZWN+UpUG+2AoUDAwt4cMVA2TYSF2qg45qxtmnJ+vPJEDkkDvkFalTwt
-	CdCWR0ZjD6c5eMeNnKDW+SkU8yW7dLpVX0eDvXeEDN3GL2VGbPFCP5G8qbLgGi9f0nMPNVjDt8CQ/
-	ztVJAF/i9PyJaLj/gYpkw+A3NNs5hZzL9K/jr6D/1WOoQzrczz7Nt0CgXN4I33g+1FnPIjkWmKKT8
-	AR7T4TO/zEHodokqrNxFBqsybTvqZOFueEt1Zzy+HFoouEw2qUr0/U3Gb3YBH5rz4FXU64UOyfVjz
-	/mvt8ECA==;
+	bh=VShnXE/S6J2Bs5ZstLQRozp+7OGRibuiVFYr3Gy/x8s=; b=DXQwYOPC347gMbIdZ9oNYqvjYd
+	mqA14rugQXyJouCIVNyYP1Y4r/XAIgoOQFVFc32OtmNS+GeYWPaSQV+/ann+FlGoLUtUF4vYcNHhc
+	N4d96qkK6t0uX9uShaHB87d1jWURG1OgzvZbkX2o1z8kTBVxgadJVmoL9r2vBAyxRedNK9nyPEE7Y
+	QO5MB9GmVuYs2nA0jFpsfL5ep0kMpWJfOkDDUH/shgyqMgecaX0PbK3qBz4HJycB65w0suqVJmSX/
+	f4PocMomQW7UXb064kTYdRQbattvKBvi4kNLxXedVYcnYZVvMp0AE9+WhUaT6YQs7R+O1g3yJja9v
+	RzS9lUcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we6OS-0000000DsyN-394w;
-	Mon, 29 Jun 2026 07:27:00 +0000
-Received: from exmail3.compal.com ([59.120.207.196] helo=tpecef22.compal.com)
+	id 1we7cJ-0000000E1ak-0389;
+	Mon, 29 Jun 2026 08:45:23 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we6OP-0000000Dsxu-2F5i;
-	Mon, 29 Jun 2026 07:26:58 +0000
-X-UUID: e5119798738b11f1a87c2323a98e90a4-20260629
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.15,REQID:a88dff58-80aa-4fd8-8822-6aca3768c74b,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:e276073,CLOUDID:300c9912-9a7e-42e1-81ab-466f1025c889,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|865|888|
-	898,TC:-5,Content:-10|0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:ni
-	l,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE
-	:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: e5119798738b11f1a87c2323a98e90a4-20260629
-Received: from sdmg12.sdbg.compal.com [(10.113.168.10)] by tpecef22.compal.com
-	(envelope-from <jackbb_wu@compal.com>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1505790952; Mon, 29 Jun 2026 15:26:50 +0800
-X-UUID: e216f86c738b11f1a9f9c99e036204b4-20260629
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.15,REQID:412e1593-7594-480f-8640-49ac201ef9bf,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:e276073,CLOUDID:d57df88b-c1a3-4335-bf81-c4a7f9da024d,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|865|888|
-	898,TC:-5,Content:-10|0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:ni
-	l,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE
-	:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: e216f86c738b11f1a9f9c99e036204b4-20260629
-Received: from sdbmbx12.tpe.compalcomm.com [(10.113.2.136)] by sdmg12.sdbg.compal.com
-	(envelope-from <jackbb_wu@compal.com>)
-	(Compal Mail Service with TLSv1.2 ECDHE-RSA-AES256-SHA 256/256)
-	with ESMTP id 1908956407; Mon, 29 Jun 2026 15:26:45 +0800
-Received: from SDBMBX13.tpe.compalcomm.com (10.113.2.137) by
- SDBMBX12.tpe.compalcomm.com (10.113.2.136) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA) id 15.2.2562.29;
- Mon, 29 Jun 2026 15:26:40 +0800
-Received: from SDBMBX13.tpe.compalcomm.com ([fe80::7d1b:448d:4d95:51b0]) by
- SDBMBX13.tpe.compalcomm.com ([fe80::7d1b:448d:4d95:51b0%11]) with mapi id
- 15.02.2562.029; Mon, 29 Jun 2026 15:26:40 +0800
-From: "Wu. JackBB (GSM)" <JackBB_Wu@compal.com>
-To: Andrew Lunn <andrew@lunn.ch>
-CC: Loic Poulain <loic.poulain@oss.qualcomm.com>, Sergey Ryazanov
-	<ryazanov.s.a@gmail.com>, Johannes Berg <johannes@sipsolutions.net>, "Andrew
- Lunn" <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, "Eric
- Dumazet" <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Wen-Zhi Huang <wen-zhi.huang@mediatek.com>, Shi-Wei Yeh
-	<shi-wei.yeh@mediatek.com>, Minano Tseng <Minano.tseng@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Simon Horman <horms@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-mediatek@lists.infradead.org"
-	<linux-mediatek@lists.infradead.org>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>
-Subject: RE: [External Mail] Re: [PATCH v3 2/7] net: wwan: t9xx: Add control
- plane transaction layer
-Thread-Topic: [External Mail] Re: [PATCH v3 2/7] net: wwan: t9xx: Add control
- plane transaction layer
-Thread-Index: AQHdA/KoG0AzoVDQmky5mWyAxH40ubZVI4cU
-Date: Mon, 29 Jun 2026 07:26:40 +0000
-Message-ID: <49939d4d682f4c1fb359973ea2cdbd00@compal.com>
-References: <20260624-t9xx_driver_v1-v3-0-73ff03f60c48@compal.com>
- <20260624-t9xx_driver_v1-v3-2-73ff03f60c48@compal.com>,<2a90ae6b-2b6d-4340-b557-915252cc3488@lunn.ch>
-In-Reply-To: <2a90ae6b-2b6d-4340-b557-915252cc3488@lunn.ch>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [10.113.2.241]
-x-tm-as-product-ver: SMEX-14.0.0.3239-9.1.2019-30036.005
-x-tm-as-result: No-10--4.183300-8.000000
-x-tmase-matchedrid: tkB2VEODQ1cuv++HU7VXryRFbfQbCufdN0X64jGy2db7+pncqRJfy2XQ
-	7TcqkNINhElhJj9TP7jAaX2MpgGS36gkniSqkpn+WZxYhPYYrMlHgZVDYg0zz4vmY1hE2VDUJQk
-	txNYzOLPtFo0/MAzmm/xu9bNQI/V0YNP5ZvfGAKupSoJx15avkdZEjr6xrP/hagCqz15rA4CvI7
-	qr7lIWqpm1ztAFUDBkjMlIlc7424OFF2q3JMLbrJGPSO6O5JCao4NJa7SjFsq4ssz2NHTRNT0wV
-	pvG2n4d28gAxP/Ts6IHvfG6dvIquv6mDCw61sljHGqZLFSL6vqvbctbyBVCOC+JND9IHIJ4kfMa
-	fuDIkC0Ich2EKbNazC40qe60KYOEZS4zlkrLF17MiA92IomI4m+o7cT3SFLw39InOc4KUjGgIAo
-	CghvZZgz+8rPHUa6xHcvjWJiii5la1X5Zxk7x/Q==
-x-tm-as-user-approved-sender: No
-x-tm-as-user-blocked-sender: No
-x-tmase-result: 10--4.183300-8.000000
-x-tmase-version: SMEX-14.0.0.3239-9.1.2019-30036.005
-x-tm-snts-smtp: BD93CB2734EF2CC9B20D2CE68070D84515D2F48398ED874D2E0ED1AAC02636F92000:8
-Content-Type: text/plain; charset="big5"
-Content-Transfer-Encoding: base64
+	id 1we7cG-0000000E1a9-0bs3
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 29 Jun 2026 08:45:21 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 6D69212F;
+	Mon, 29 Jun 2026 10:44:34 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1782722674;
+	bh=3mwpvD9m0LM0xROJVh89e4aig42l8CUBljGvEkPTYjo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=VjWlPhJPzYIHg18PptzEGYwDvLtAzb2fUCkJiwnGIxi6hQOdv8wATBbgLDCU/oHu+
+	 DsK53Q4xrldvi4EKioRYUSUeM6oqmPda9tImbR5UhFfFiwv82mWpoQQIKL7ubRDyKA
+	 FaVUrcdkJXd3H1scI3qlVoHfhi40eyXHkTm4wAz4=
+Date: Mon, 29 Jun 2026 11:45:16 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: Frank Li <Frank.Li@nxp.com>, Hans Verkuil <hans@jjverkuil.nl>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Michael Riesch <michael.riesch@collabora.com>,
+	Martin Kepplinger-Novakovic <martink@posteo.de>,
+	Rui Miguel Silva <rmfrfs@gmail.com>,
+	Purism Kernel Team <kernel@puri.sm>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-media@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	Guoniu Zhou <guoniu.zhou@nxp.com>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v6 1/9] media: mc-entity: Store parsed V4L2 fwnode
+ endpoint in media_pad
+Message-ID: <20260629084516.GA3054459@killaraus.ideasonboard.com>
+References: <20260624-imx8qxp_pcam-v6-0-4b3f45920d2f@nxp.com>
+ <20260624-imx8qxp_pcam-v6-1-4b3f45920d2f@nxp.com>
+ <akGD3ZjW6GPHHI3D@kekkonen.localdomain>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <akGD3ZjW6GPHHI3D@kekkonen.localdomain>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_002657_940095_D5B68CD1 
-X-CRM114-Status: GOOD (  13.39  )
+X-CRM114-CacheID: sfid-20260629_014520_354402_79DC61DD 
+X-CRM114-Status: GOOD (  27.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,23 +81,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgQW5kcmV3LA0KDQo+ID4gK3N0YXRpYyBpbnQgX19pbml0IG10a19jb21tb25fZHJ2X2luaXQo
-dm9pZCkNCj4gPiArew0KPiA+ICsJcmV0dXJuIDA7DQo+ID4gK30NCj4gPiArbW9kdWxlX2luaXQo
-bXRrX2NvbW1vbl9kcnZfaW5pdCk7DQo+ID4gKw0KPiA+ICtzdGF0aWMgdm9pZCBfX2V4aXQgbXRr
-X2NvbW1vbl9kcnZfZXhpdCh2b2lkKQ0KPiA+ICt7DQo+ID4gK30NCj4gPiArbW9kdWxlX2V4aXQo
-bXRrX2NvbW1vbl9kcnZfZXhpdCk7DQo+DQo+IFNpbmNlIHRoZXNlIGRvbid0IGRvIGFueXRoaW5n
-LCB0aGV5IHNob3VsZCBub3QgYmUgbmVlZGVkLg0KDQpXaWxsIG1vdmUgbW9kdWxlX2luaXQvbW9k
-dWxlX2V4aXQgdG8gdGhlIHBhdGNoIHRoYXQgZmlyc3QgYWRkcw0KY29udGVudCB0byB0aGVtIGlu
-IHY0Lg0KDQo+ID4gKwlTRVRfSFdfQklUUyhod19iaXRzLCBjaHMsIE1IQ0NJRl9SQzJFUF9FVlRf
-REVWSUNFX1JFU0VULA0KPiA+ICsJCSAgICBERVZfRVZUX0gyRF9ERVZJQ0VfUkVTRVQpOw0KPiA+
-ICsNCj4gPiArCXJldHVybiBMRTMyX1RPX1UzMihjcHVfdG9fbGUzMihod19iaXRzKSk7DQo+DQo+
-IFBsZWFzZSBkb24ndCBhZGQgd2hpdGUgc3BhY2UgbGlrZSB0aGlzLiBJIGFzc3VtZSBhIHByZXZp
-b3VzIHBhdGNoDQo+IGFkZGVkIHRoaXMgY29kZSwgc28gbW92ZSB0aGlzIHRvIHRoYXQgcGF0Y2gu
-DQoNCldpbGwgcmVtb3ZlIHRoZSBleHRyYSBibGFuayBsaW5lIGluIHY0Lg0KDQo+ID4gLQlkZXZt
-X2tmcmVlKGRldiwgbWRldik7DQo+ID4gKwltdGtfZGV2X2ZyZWUobWRldik7DQo+DQo+IFdoeSBh
-cmUgeW91IHJlbW92aW5nIGRldm1fIGNhbGxzPw0KDQptdGtfZGV2X2FsbG9jL210a19kZXZfZnJl
-ZSBhcmUgcGFpcmVkIHdyYXBwZXJzIHNvIHRoZSBjYWxsZXINCmRvZXNuJ3QgbmVlZCB0byBrbm93
-IHRoZSB1bmRlcmx5aW5nIGFsbG9jYXRpb24gbWVjaGFuaXNtLg0KVGhlIGRldm1fa2ZyZWUgaXMg
-c3RpbGwgY2FsbGVkIGluc2lkZSBtdGtfZGV2X2ZyZWUuDQoNClRoYW5rcy4NCg0KSmFjayBXdS4N
-Cg0K
+On Sun, Jun 28, 2026 at 11:28:13PM +0300, Sakari Ailus wrote:
+> On Wed, Jun 24, 2026 at 04:37:48PM -0400, Frank.Li@oss.nxp.com wrote:
+> > From: Frank Li <Frank.Li@nxp.com>
+> > 
+> > Each media pad is associated with a firmware node endpoint. Capture the
+> > parsed V4L2 fwnode endpoint information in struct media_pad so it can be
+> > reused by consumers.
+> > 
+> > This avoids reparsing firmware node endpoint data every time the endpoint
+> > configuration is needed, reduces duplicate code, and provides a common
+> > place to store endpoint properties associated with a pad.
+> > 
+> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> > ---
+> > Assume 1 to 1 map between dt's endpoint to medie pad.
+> > Change in v6
+> > - new patch
+> > ---
+> >  include/media/media-entity.h | 5 ++++-
+> >  1 file changed, 4 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/include/media/media-entity.h b/include/media/media-entity.h
+> > index d9b72cd87d524..4a3785cd9f370 100644
+> > --- a/include/media/media-entity.h
+> > +++ b/include/media/media-entity.h
+> > @@ -20,6 +20,8 @@
+> >  #include <linux/minmax.h>
+> >  #include <linux/types.h>
+> >  
+> > +#include <media/v4l2-fwnode.h>
+> 
+> We have dependencies from V4L2 to MC but not the other way around as MC is
+> (or was?) intended for wider use then just V4L2. I'm thus more than a bit
+> hesitant adding any references to V4L2 in MC.
+> 
+> I wonder what Hans and Laurent think.
+
+I agree. Furthermore, this will significantly increase the size of the
+media_pad structure, for all pads. That's not a good design.
+
+> > +
+> >  /* Enums used internally at the media controller to represent graphs */
+> >  
+> >  /**
+> > @@ -230,6 +232,7 @@ enum media_pad_signal_type {
+> >   * @flags:	Pad flags, as defined in
+> >   *		:ref:`include/uapi/linux/media.h <media_header>`
+> >   *		(seek for ``MEDIA_PAD_FL_*``)
+> > + * @vep:	associated fwnode endpoint information
+> >   * @pipe:	Pipeline this pad belongs to. Use media_entity_pipeline() to
+> >   *		access this field.
+> >   */
+> > @@ -240,7 +243,7 @@ struct media_pad {
+> >  	u16 num_links;
+> >  	enum media_pad_signal_type sig_type;
+> >  	unsigned long flags;
+> > -
+> > +	struct v4l2_fwnode_endpoint vep;
+> >  	/*
+> >  	 * The fields below are private, and should only be accessed via
+> >  	 * appropriate functions.
+> > 
+> 
+> -- 
+> Regards,
+> 
+> Sakari Ailus
+
+-- 
+Regards,
+
+Laurent Pinchart
 
