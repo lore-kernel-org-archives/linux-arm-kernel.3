@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 400A5C43327
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 23:09:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 835DFC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 23:09:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
 	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aXmnj89xoCIvMuBaqwQHNMn4ouTM94E3AMMPwYX8YnE=; b=H+CvNTllLyN1PrpXfERv0q3Ayu
-	2Wmixm8Ql8ql/KFkpe4HSsPwimzut9E4/wWv6vrrds0U4BQDcpS19g6oeUWqHTp6FxB3akv3CGTqw
-	bK0xB6w1rG1UicsvUSCXlqhKA8UCjzqK0+MCg/jUsktCu7HmYatNNR6m35p6QzlCQlMRXrKaHII/x
-	NXz1JchPqtO7DI6hvwkBySs2/9S838tpp3gXsOjKWzcGCrYBxaS795lH7i4hv9sORt4kzhFo7dd5j
-	ttvqr+Y11q+o277gnee1u22DOOhpJ3xprYtXFrBTTpNuzkcyr3qqhpLLao4RwxidF2VE/1JFddwIV
-	ttlB0bpw==;
+	bh=QOJkdR880M2PvVuP1jx/N7v4IUkhUGtCavXAyOFBFiQ=; b=FB52R5YeDFK4D/JXYuofuxbgxw
+	IS7UH6//GApXFf00pYWw4WjFhF/N3W5SgKCHMteZYHyW5/zV7Nrt/ljYvMQ6dZj2WDA3cwVEnWaz3
+	UIWyyUNld6tO2OO//9RBv73Bw4bNuRlBLzYJ56RQrIs/fU6gC+fzbhV0gwRT2fGLfmR428Ze32b7Q
+	Wfr4FUnxe8Mal9ZDMGJY23WedRX86KYoWEAFrtE4064FXF011CoLQJ68FMJGKJJFkJxfy8DoeXuTp
+	ilRC9EWNkfMiSns094Sztv9wj6T1Xzj9IqkGrjPA31F5iBVeDfx1LTUBZsIyievLJekuUVZ5jDzxB
+	N2cBP6cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weL63-0000000FZgP-2Kap;
-	Mon, 29 Jun 2026 23:08:59 +0000
-Received: from mail-eastus2azon11011007.outbound.protection.outlook.com ([52.101.57.7] helo=BN8PR05CU002.outbound.protection.outlook.com)
+	id 1weL6b-0000000FZnm-39G6;
+	Mon, 29 Jun 2026 23:09:33 +0000
+Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weL61-0000000FZfp-21Eb
+	id 1weL6Y-0000000FZmb-1fJJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 23:08:58 +0000
+	Mon, 29 Jun 2026 23:09:32 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Uc3ahcSUZ21a12rWF2jtEAqfdbDWOEreffg9gY1JUlKll7Ia0Ah/aSJXTpu7cgoMdU3DJ2fC/3JsoNTlHbG884sQr4y0cJeVcfJGGL4KvEPw7mB+xnb1J2WcKR/7plwwBMlcjkxK3vTII/b/fkMMT81ncNcc1nse/k33Q+nGpakubxK6BeEkyk2rnGcip/BV5I8WJetVSUJ0YEGvm5+PtTvbNP++ByTFk5mjh478gIn5VxyFPq0EDBJQc7he3QByF3QpsXWqmcjP5e+iohMObGVAHxE3hrubkUm5m3rDj2H7uUYugklwCeSyfoHEagDjxwiufsks4llViF42Olwndg==
+ b=t34sKxDELcSg0h5MYsmjX/MiijpIaCoNKFFw89820VqrYCqNOGbz1MkJkJOIRFaCHa0HUszoDtbBwTLIMJFjoBocCtQvELUcyVq7FGQ2v6bHnYthhIO/wH8kPdP9iRhm919ewxAqeuzhaO0hKr4i+6YGJx3DudgqBHkfjXsX7qTlkx25kd0aJo/QtgFimqvmsDb/0LWu9V1xEQXVierw3FHkdMeFEKX97TdzSU/1Bnwszgd1sYxFoNVNQqNNCiraIZZyU7FjSSW77xBDJWGNzS1YwtPgTK5KCKZwvaCdar2UMazLeojDvmZR0CVY7rxAqnbxjdb3KJVOsZLg1fOcug==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=aXmnj89xoCIvMuBaqwQHNMn4ouTM94E3AMMPwYX8YnE=;
- b=JGdrYZmE4cUdRp2bb4mG0oLH84wZKqOGJGciE5ZuJO00vYhEVrTjbo/xAQdXROjYTUUUkpbAqPTaAgLTHwT18Uxyqs9srhbl1fvr8EaPZ8EIYcpzbe//is+OwLUHw/g4nNosAKxoyg9W7ZiWMaaJxOf/iLmVUHi9rK2OMIiFB6t/bQi5ko2/24AovGjUDGkoOG8vqV/2CIMnI90wmNyGt/2j/PqsL9qvwsuwKBTiV9JzkAiPr1ictohxiDRTl0ORTmZ9GjR6NcWgASBoOWEcMEMlE5pozy3c/WZn9234ougbk3Wxgxm3sjB6HK4GgO8bgNmenwrjV+MIezfsVgj4FA==
+ bh=QOJkdR880M2PvVuP1jx/N7v4IUkhUGtCavXAyOFBFiQ=;
+ b=T4Qx0sBAuzzjchRv/oR/1bH6hlu14PJoh7rRZlr1AsYjx1ETTKevBlcHHsa4ncFSEF70IFoHQUFTIy1MIN2gf9vb4t52Et8tkTfTA1DfV2TbZnxxkao5WEia1INgXCBpqbvJTPdwUA50vk6B1LDOXTOcS+h8N3ZUsfO7gGIlmRwwtS+cSsonxoFSsdv1OPYtgkhumCVV1XAyFaE2jN8RS/SxaaRFwALTJ0VDzZvx8XtP934T2RhqFhxerVRuHt5HvGxPQrRRT/oKBI90A90VB5wAVY8mexNvq0PQTaxyf1ZccMCEsR7YOOtlHFT+cgkafwfHtDA1xAYNAYX5aa0rkA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
  dkim=pass header.d=nvidia.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=aXmnj89xoCIvMuBaqwQHNMn4ouTM94E3AMMPwYX8YnE=;
- b=cjMhh6YBoe3mgICt10bzP1EOtS/87FVd9VIB7X8iE65QXQAQC+XuiBu2JL9r2hy9hxOoe8NKP2LwrBtZzIbZVJJRiQ6SXoJmp+2kZsWTXvv9aPZJe0V+khQIGEnJkLUz6QMuyaectFWp9EMxJEwAFGkz4OnaBeYBMFoVMq9mSkuMJi/o5g+60QG9v2beqbvqVtcRqI5N6tBkCGpUkMKFSEa1E0uVq3M0OfZsGUI0X7IfOSQwWj4XAhOfpoArad3O0du+sgGXca8vp9LoYzcEHdUkFtLzWU9WqWn/4IqgAw9i6ZUnRoabUNTq5ikaN0Pbjao/M/dvRE1R3fc9Z6dLgQ==
+ bh=QOJkdR880M2PvVuP1jx/N7v4IUkhUGtCavXAyOFBFiQ=;
+ b=JkHwNrVW2h15GdbUQ/76qVkAnDbI0GTug5WOLYDyC/hxOuTqQIW6/yipe7Mq/aA/Ec5gV87sa6bC/561O39VTfNk86w9GSrKYoYBpWrRCZ+vPgoH5g7IC7MYEc18zpWMMW8ZxGTA/BChxaYRdYxYhRp9c9YvutGrrGs9dWqspMC9aulZBIe/sVuHXyGqmsAZWtxQXAviOkqfBZn9mpdtSDHyznYzqBMRTkQOAdl7vdgY238Hbl9NRJAAjkPvXbztZsXoglSK8oEMBilcqw062R6GmrwmloViU+f8x91Xgrtt7WDatHPBhIECs6bQ80JW+Pkg5QRm2dEEObkTYaWhjQ==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nvidia.com;
 Received: from IA1PR12MB6089.namprd12.prod.outlook.com (2603:10b6:208:3ef::9)
- by DM4PR12MB7528.namprd12.prod.outlook.com (2603:10b6:8:110::17) with
+ by DS0PR12MB9421.namprd12.prod.outlook.com (2603:10b6:8:1a1::20) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Mon, 29 Jun
- 2026 23:08:49 +0000
+ 2026 23:09:23 +0000
 Received: from IA1PR12MB6089.namprd12.prod.outlook.com
  ([fe80::abd0:32b3:6f57:1d3c]) by IA1PR12MB6089.namprd12.prod.outlook.com
  ([fe80::abd0:32b3:6f57:1d3c%3]) with mapi id 15.21.0159.018; Mon, 29 Jun 2026
- 23:08:49 +0000
-Message-ID: <ba15e106-9066-4e55-be2f-6767a32e123d@nvidia.com>
-Date: Mon, 29 Jun 2026 18:08:37 -0500
+ 23:09:23 +0000
+Message-ID: <d75592c9-5292-4704-b024-6450ea0e8278@nvidia.com>
+Date: Mon, 29 Jun 2026 18:09:11 -0500
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/2] arm64: errata: NVIDIA Olympus device store/load
- ordering
+Subject: Re: [PATCH v4 2/2] arm64: io: apply the device store-release
+ workaround once per block write
 To: Vladimir Murzin <vladimir.murzin@arm.com>,
  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
 Cc: Jason Gunthorpe <jgg@nvidia.com>, linux-arm-kernel@lists.infradead.org,
@@ -65,78 +65,79 @@ Cc: Jason Gunthorpe <jgg@nvidia.com>, linux-arm-kernel@lists.infradead.org,
  linux-doc@vger.kernel.org, Vikram Sethi <vsethi@nvidia.com>,
  Jason Sequeira <jsequeira@nvidia.com>
 References: <20260625182425.3194066-1-sdonthineni@nvidia.com>
- <381fb71c-0a2c-4dec-98a3-56ad88e190c6@arm.com>
+ <20260625182425.3194066-3-sdonthineni@nvidia.com>
+ <97b62a6f-a514-46bb-9ee8-81f563220f6a@arm.com>
 Content-Language: en-US
 From: Shanker Donthineni <sdonthineni@nvidia.com>
-In-Reply-To: <381fb71c-0a2c-4dec-98a3-56ad88e190c6@arm.com>
+In-Reply-To: <97b62a6f-a514-46bb-9ee8-81f563220f6a@arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SA0PR11CA0156.namprd11.prod.outlook.com
- (2603:10b6:806:1bb::11) To IA1PR12MB6089.namprd12.prod.outlook.com
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SA0PR11CA0151.namprd11.prod.outlook.com
+ (2603:10b6:806:1bb::6) To IA1PR12MB6089.namprd12.prod.outlook.com
  (2603:10b6:208:3ef::9)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR12MB6089:EE_|DM4PR12MB7528:EE_
-X-MS-Office365-Filtering-Correlation-Id: dc5f1675-6057-4256-1142-08ded63360ed
+X-MS-TrafficTypeDiagnostic: IA1PR12MB6089:EE_|DS0PR12MB9421:EE_
+X-MS-Office365-Filtering-Correlation-Id: c210ad20-e1ff-40e9-ce5d-08ded633752c
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|1800799024|366016|6133799003|5023799004|4143699003|11063799006|22082099003|56012099006|18002099003;
-X-Microsoft-Antispam-Message-Info: ehSy+PHotvoJ0NwkQyMoTpIzbvg2MK/TTJD6HN8d19Q+sWsL8HnFxNZSwn808EYvsmzIwai/Qb/rkkiImHzr3ZndPcPSpRNt6IwOoDKpSNt6v5oGF6fTiiYeKuVnjg7WvWOpJXnDqL5BCs/BeEQkoDoNMrTlPaT8HZoqMq1kQYI51IJD8ZnQBKu0TSHmmrseaYReAnMWhByc1iAbJTGU9RsxiGvtjdMKnktq5BsnwxxdINbfpnooVFGKAu5nlFcrCnJQ2WL/cqXvYHpJ2yr0pY39sKifwyWkPUdNI8cajS3Dye+Qxlfa0Q40QKCbErXrxjv0XgKfFBGkttIVy4TF9xEIXO/OL9E7BT/zD+MVM4+I74bZOwsNRAyOo3cFLC7+C3p1S38R/UqOj7DJTX/DDlk0MNuOPC268A7ety7NjYEYKXyo+8MO6981TzGWxfryJz24vPxTE8pYptepYcndt736rlgIJYwi4Y35xKf6dNy02DnE2depS5scMfKerTBQFBHUIhWFnVPcdqQknTa3+6MX58jyArlrjgQDorptks8mXKXihdrxd9se6UFtR8CrVf6xVzN+uWjdgYBFoW+nhuJUXxNrgNnbk6b3MzqGEs09AzMlKyn5xiDkw8n6ueDNOzSVdJtePjWOeGa2/wMbuhEo5kfTcja2NIyLS9bheg0=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA1PR12MB6089.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(1800799024)(366016)(6133799003)(5023799004)(4143699003)(11063799006)(22082099003)(56012099006)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|1800799024|366016|22082099003|18002099003|11063799006|56012099006|6133799003|4143699003;
+X-Microsoft-Antispam-Message-Info: LRtsXxwsihvZL87TgX/000O/TL05vzhSSjXVkUxxb3t/eTsJplBv2jHH5MRSfDq3aVjR+BYXV19Q0HJWWS0o5r7VUx65uCmiz/NVFPqFLiRN8AiUfAuABNhojEl7ZKgQhN3GSImpv58Zw29zpHWwHg4wQONM0QeFaH+Pbt3yjMcyBUFzaQWsMRzKV0Dxx8T8jywiZhO1adr583uhRF0sSWwf1rQG15j+qPUXN5Vx6RESVJ+1G89KTR09bMSMPgqPABsAML4mb6tqx70S1cc5A5v/zeAZJ4cPDo7K2ncP1NB1w4QcDDkmuivt+P/xMEZCmR0+/uAEO2E0DcafL9j3SC//tbmoxVAEdrGc8X+4GjEC4uGmvv4XwHuF6/mGdqMndZVuCKikJaP9mJqq1MqybnCFwjEfIp4RZgIHFEKy8IobHoUyssjLp6ebrE+eL+66hcp36Ff4wiwBYpG6+b04DtoNi06C4N7CEJE0/BkzA3PIgLGZM2FFT6h+RCFnOQc3ImpbNnDM8bRFSJ5V958ePuHvtKvvXlnV/RC1D0e2JIOWLrp+EV+ld8r3K64FE7ANjZHyR42PciuM5xvbFNGfmiCKMKhO/faDrBz6s0mFIN5HzeVWYwvnSx1kaAkFrbdK4p0QBNdSf6Nnr27ExBexkyEdzFEmZ2m8IkKCuvFxr9E=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA1PR12MB6089.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(1800799024)(366016)(22082099003)(18002099003)(11063799006)(56012099006)(6133799003)(4143699003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?c282S2QrcURRbXhtMlNOMG9lUVREazZodTJJMGFOSDhacUQ0TFBsZHo0OTZh?=
- =?utf-8?B?K0RJTEd2ZTJZbldFSE1rdjJaciszLzRkcDNuRk5aWWNWd1BEdmNjVEtCR2g1?=
- =?utf-8?B?Y1NXUVZFQkN6QXBEVGxUTHNoVXJaTnNKYXVBU3lzNUpJWFRQSlFJdS9FOHVy?=
- =?utf-8?B?SHY1d2xoc1hid1dSUFlOUjlMdS8vcjhjUnF1L0FXVVFnb0dzb1FOK0h6ejNo?=
- =?utf-8?B?VWI5M2ZZVVJ5ZjNLbnFJWFRuWldVQkEzN1p4YXZvUmhySmgxTGhHODJ2NXpF?=
- =?utf-8?B?dWZ4QjViT1luaitwWFI4WjZpOEdrNTFmOUNaVlZxWjZqZVROeit4dUNzVzB3?=
- =?utf-8?B?WEg3Wks1emxzK005d2pKSjl5TVYyWkdjZEFwSUhnNnBGVFdGZFRMTFBmWGJj?=
- =?utf-8?B?dGRlKzRzZnJYWG5qZ3ZCMjQyWjljWEgvUVlqSW1iVXJOQ3RJRmYwSjYyV0or?=
- =?utf-8?B?N0NGOGNSUGhoMjF6ZS9pd20ySjBLbFJTNmtiK0hpSkhWTXVrdXFXc0txY3g5?=
- =?utf-8?B?bWl1YkE5RS9lMUtTbG51Zzg0Kys3Y0VEbUc2YXVlUHhPeHBiZ1VHYlJpVWVV?=
- =?utf-8?B?a0hoLzBUdWdnME5sVlc2a2RodUhtd1JUSGljT0s5aHVCL0RsMVNydFNpbGR6?=
- =?utf-8?B?WG4zVXhiUDdsT0IraWRPQ0FOT0E4dW1kck9pZnJ3WkdBeEd0TTNFR0h5dlpl?=
- =?utf-8?B?QXNZWlZoS3oxL1FSZ0lmTEZkb1ovOEMyUjY3OHQ2ZWM2ZnFVQXlRYmhYcVpk?=
- =?utf-8?B?Q3BFVWsvcXJ5WjVML21uVG5QZkd1V3Rjd2hQYW9hMjJMN0ZlcEVJcVRiUnJ2?=
- =?utf-8?B?K0Yxd21XUUVFcmo1SUVqWGRoL3Qvbk00N2YwbU1hQUVPVHAyR1FWaExsakNr?=
- =?utf-8?B?T1c2bXBjb1NVVkhubXpMVy8vUW5HTlN5OG0vOE03T3RVMjNyT0ppZlJTQytP?=
- =?utf-8?B?YnppMWpMdDhNSmJ6dkM1N1ZnN0V4Y3BQV1RZaksxMkhYRzgwVklsRnZkb3lw?=
- =?utf-8?B?VVlBelQzd1dDM01uY3lhK1RNTUx6b0VZRmVHT200bENNU1ExUkR6d0R2aXBn?=
- =?utf-8?B?VXhIb0FhazUrNmliekFMWnJhbUt3YXVpVTJZUFkvLzBoYVZPWnBpdVJlRU9G?=
- =?utf-8?B?TFlEdVNlY2hyaDVOL0xIblRKa3JoUE9VRGdlUEJGY3U1dmNzdlMzL1J3WWRv?=
- =?utf-8?B?NUJ0SHl3djhCbmhSWDZoZjFKWE9HU2tmVjE5MjFHVkdUWmZzUktyWlpaRUkv?=
- =?utf-8?B?MWo4S1lRaUNqR05kSWVBeWtTZ1hYaGdQVGdHby9ja2dNUVZWQ1R1dmt2QVNu?=
- =?utf-8?B?M2ZVWEh4RW5FTkk2Z2M2QndNWmpJdkp4NktvUGE5MG5NS2VXNkYySi80K1FH?=
- =?utf-8?B?ZHBYbTZ3bUE3ajBwUk03Vmx6NW4rVUgzVm4rU0xpRjBTMkJSR3doNXVWZlZu?=
- =?utf-8?B?Y28zMEFuUlhCeVlPM01CTWRwNXNXR0txVnB2Zm9ZblVyUVh0ZTFjaFJseFFq?=
- =?utf-8?B?Q3Fyam80RzRKMUxxSk0vOVY4WTZPKzdaREp2cFFsRkRLNERBM0Z5dDNDWUs4?=
- =?utf-8?B?QXkrOUlKbkdLakNGaVRWOExBQUxkclpFOUFmMkVtZFk0aEM2dFVldFlVKzlv?=
- =?utf-8?B?c2dMSHlUendZdk44TkpFZ3VTTzkvKzhKSnhDTzBJcnI1QzRiajUxZzE0NXJV?=
- =?utf-8?B?Vjl4WDBBdzVBMkVWdmFZWUlUcWpST2pRVjFndjBkNDNPTHdFdTUySUNyK0I2?=
- =?utf-8?B?MmhQR1EwT2FEbmZmdjhNNW9kNVlCRW5wdCtQd2R4QmNQYXc3dDFMcm1sWndB?=
- =?utf-8?B?RlZtREV2cDhHV1NkMUlFRkdSZ3NJRHFmNWI4b2ViNnh1RzBtbWpwMjhZU1dn?=
- =?utf-8?B?SGFPdERMbDFuU01OV1llbzRLcTFleDBuZjRDKytyMjBqbkhwVjFBV3cwYTVn?=
- =?utf-8?B?L1BCQ25XTkpkT29kbDBSSFZCL2J0NldHbGp6SkwrM25wUWRmODlOOGwwUDdp?=
- =?utf-8?B?VFQ4VDVyb0dDVUNDN0NGVENvNzFQb2lpZ1NoSTlHaXZnekpzSjhJZmNuRHdQ?=
- =?utf-8?B?KzRGY0VqdXZUSGU2YktJbThHM3FwMkdYM1NQb3pCNXFvQk9xeENKcmtsTVYr?=
- =?utf-8?B?U0pKVG5FbXN3Q09wTUJPbzV0TlorU0xnWElmSHh5VFdjeVlIUVp0Vm41N25V?=
- =?utf-8?B?ZWZuN0kxL215Nzl5RWNVdEpSeDduRTlBd0Q4akRyRTQ2dFZLREdHWHVNdDBl?=
- =?utf-8?B?THFEN0s3NGptcjdJSFg1MUdSTGlNVmkrNE1PQjBZWUo1aVJZRlRSSWVHTUFI?=
- =?utf-8?B?RnprbUMwK0swb3BsVFgxNFRMM0ZvbFBCdC9DdFZUdDkra3BvdEdHQT09?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YjZjZmVrc3Q3Y093T0d3NXdLMTZkcjZrMkQ1Yk1JbnQ2MTU4N1VKN1NMS2l2?=
+ =?utf-8?B?dmUxK2RqRm05UDFvb3FHYmxzZDZBVVJYSmdiNkxDcjM3UTA4Y01qY2tDcXRo?=
+ =?utf-8?B?Z3JxWDMxVit1MnMycDBYVUEwcHNlN0FUaitKVXdiNm1ZQkM2SzFhMC85dWtn?=
+ =?utf-8?B?UWlqc0FMeTk2bjZyRllVL0I4d3F0Ty9STlR4MXF0MFZzMUpYN0xNR2FLeUtp?=
+ =?utf-8?B?Yjg3Q1hkSjlvcUtzNFNuMmtualJQaXpNdjlWSzRDYmxrWVh4b2pjejl2R21v?=
+ =?utf-8?B?bkt3cWlrTk9XeUp5eWZrMGE5SllBZVFyTVdJV3ppU3JXTHVEdTNUNk9vSXdt?=
+ =?utf-8?B?c0hTclpUSFk4TjBlYXM1b1FGNEMyVWM2YUpoZ2lFRFN1cXZBVUNRdnllakNG?=
+ =?utf-8?B?Z1pZR3JnRGx6WUZCMUQ5TGludWFNZ0lYazY5N1JEcVNnTzljNTdEUzlDcElz?=
+ =?utf-8?B?NHBOV0NDRGUwQlpWeGQwa08wUmlhTlMyck95MmZ0NWRhTE5ES3pOcFRlR0JI?=
+ =?utf-8?B?TVp5OFVBemZYa0NKT3RvVEszdFZnQTFpRUJ6UXk1c0xtUWZ3OW5aaE92RnZp?=
+ =?utf-8?B?ZlZXVDdZbGV5RTdhL3JCaURzQ21sQ3cyam43cDBjWTl3NmxxQnl2eHFkMldJ?=
+ =?utf-8?B?S3V2am5aRmdNSWhlMXhJb0VrM1BCRURwclkvOGxWNkphSEZ6NkpLZTlvaFJi?=
+ =?utf-8?B?NldCWUh5cDc5MzFScTV6d3NuamVwbXlKY3hIU2lYaW5rNjVkcGR2c3N5bnpv?=
+ =?utf-8?B?SHdsdEFaRFk4alVKWlVUS3BLU1UrZE5DYTRRaDJIVVcrU0VzTFVmRS9UMTFj?=
+ =?utf-8?B?WkIxbVowQmdyUUo2dnloOW5aYWtIVVZMbWYvbjBwanp5b2M5ZGd2VGRFQnlO?=
+ =?utf-8?B?REU2YlQwTS96cVZRUjNFU1htaThCbkpoTXJvMTl3VzZiTVkvcHpEUXF4REpy?=
+ =?utf-8?B?SFVkMG1rWm1jc1ZWMk9UeHlRRU4zQ2RWRFdFSnhwOXNsV3BGWnlCblhod1Zt?=
+ =?utf-8?B?R2xXakExWXVwQWUvaVlUZVNtQzkxME9KK1B3T3U3OXp3QVA0TDI3dHFjMk00?=
+ =?utf-8?B?QjdRaUh5MlBSczNPUGFPMi83NFh4eW0wcGxJS0lxbFppam10VFhGVytzK1Yx?=
+ =?utf-8?B?di81MVAzS056NUt1THpPb0tCbmxmaGFDY2d5MUVla1pKTGlhaTQ1Vmp3bjE3?=
+ =?utf-8?B?YWxsUTB2b3JWNXJHZnA2SEVaNWNBNE5uM1RwdFdMc2lrd1ZHVTZqSlR2NGRI?=
+ =?utf-8?B?MjE5ekNXNGdLcngxQ0w4bnBHVDNHdEVCUGdpUHFjMTFlcXpxaWtRS1krcFVa?=
+ =?utf-8?B?S2xWWHBIakgyZkRZaU5sNzV3N3JoR2VjTTVtNHpVcnNITDNoTW43Y0tiSktv?=
+ =?utf-8?B?Vm5NYzIrcElIWENLQ2daT2FQZ3dmYUEvVDJRNXhhVi91dGo5dnB5Z203Yi9a?=
+ =?utf-8?B?MWRzMmZLazJNVm9FZzFOZU5SV2FHT2gzU1ZZTW9iMFF5MEphQW4xcXV3emRD?=
+ =?utf-8?B?VHB2cGI1MTRTWUpNZmRyY3ZnQWszbUtsVCtZbjZaL3NheHdJd0poSEd3bkZY?=
+ =?utf-8?B?VkV0cjFrVlVYb0lRbnczZXdtNTd0cGp0OVFtdE9IMDNyLzM4VWlTNmg5RHdP?=
+ =?utf-8?B?TW4zYUNLWDJZT2swRHd0WEMyb1dBNW9HbFNOMXh1ODZIUGdnUXJPdGdhZFVQ?=
+ =?utf-8?B?d0NWdmpYbHlJdnYrS3RJK2dsVlVlQ0ZMOU90MSsrZWUyTEhiaHNScEJ1UVMz?=
+ =?utf-8?B?QU83dkhqYnJvSkwrWTR4SzQ1ZVMrNUdRZllPdXpoVEhDTVhLWXhLcWN6SjZx?=
+ =?utf-8?B?RGJHdThqUDFhSHRqZnE0dTQ1L0J6NWk4Y2c3UzdOQmoybVJaNERWZ2lYK0tZ?=
+ =?utf-8?B?VGR0MmNqamtRbTA5RUwyZ0JjTXN1NkZEY2JEMWlxNnBKSjIvOEpMMzF3UExO?=
+ =?utf-8?B?U01iYTA1VmZ1eFFVWENLZFJ4MzlBN3dEZXZCNmZEc3BEdmpaM3h0MjYzcUU3?=
+ =?utf-8?B?b1FWZ1ZBM1hOSXFBY25URGVrb2dVTU9yS1Vrc2xVa1FXT3JHcjBRb0Zxb1Vr?=
+ =?utf-8?B?NFJRWGMvaGxMS24xcEJqVEoxVEpQYlpIc2x0L1E1Y2dlWFR5UW15MytsdDIx?=
+ =?utf-8?B?cVlHMnUrQmNhK1R1WXMzUXprZXNkSXdRN1VFVlZ2MWtjNi84SHZrakEzaWVD?=
+ =?utf-8?B?ZHBVamV4aWNreG5KNml3eXdrS2h5dDJCdmt3cTZWYi9vWStNa1pva0lBckJM?=
+ =?utf-8?B?d0tWaUZacWl2VHVNeXBMQkFEVTZFNXhDUnBQQUNITHBuVEhRRXcybFFtMTNR?=
+ =?utf-8?B?VU1nblVOMnNqZnhiaFNGYUZPMlA0UzVwenVTYndKVFZ4ZDBDYU1EUT09?=
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: dc5f1675-6057-4256-1142-08ded63360ed
+X-MS-Exchange-CrossTenant-Network-Message-Id: c210ad20-e1ff-40e9-ce5d-08ded633752c
 X-MS-Exchange-CrossTenant-AuthSource: IA1PR12MB6089.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jun 2026 23:08:49.2638
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jun 2026 23:09:23.1908
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: NE0PhN6WnBjX7Vo/NGXwPUNzuiWmHmDWxzCDV9Cv3bIMDcgCr+b+BprtOKvdAw94wjAQ62tgtx1jn+JYaR7PJQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB7528
+X-MS-Exchange-CrossTenant-UserPrincipalName: 5FwpmJ1vBPM2sWz35umBtbTrHZLiqzAHtKkmSGwFpdzt0OxPeHOVxgr5U/N9JQ3jYyGE209TJqDzEB6mL+SE/A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB9421
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_160857_634932_CD8E63B1 
-X-CRM114-Status: GOOD (  20.48  )
+X-CRM114-CacheID: sfid-20260629_160930_469643_650C3347 
+X-CRM114-Status: GOOD (  18.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,58 +155,33 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Vladimir,
 
+On 6/29/2026 5:48 AM, Vladimir Murzin wrote:
 
-On 6/29/2026 5:45 AM, Vladimir Murzin wrote:
 > External email: Use caution opening links or attachments
 >
 >
 > Hi,
 >
 > On 6/25/26 19:24, Shanker Donthineni wrote:
->> This series works around the NVIDIA Olympus device store/load ordering
->> erratum (T410-OLY-1027): a Device-nGnR* load can be observed by a
->> peripheral before an older, non-overlapping Device-nGnR* store to the
->> same peripheral, breaking the program order that drivers rely on for
->> MMIO and potentially leaving a device in an incorrect state.
+>> The generic memset_io()/memcpy_toio() are built on __raw_write*(), so on
+>> parts with the NVIDIA Olympus device store/load ordering erratum the
+>> ARM64_WORKAROUND_DEVICE_STORE_RELEASE workaround promotes every store in
+>> the block to a store-release. Each stlr* carries a barrier cost, so block
+>> MMIO becomes O(n) store-releases, making a block copy many times slower
+>> than a single ordered burst and growing with the transfer size.
 >>
->> Patch 1 adds the workaround. It promotes the raw MMIO store helpers
->> (__raw_writeb/w/l/q, and therefore writel()/writel_relaxed()) to
->> store-release on affected CPUs, and promotes the trailing DGH of the
->> write-combining __iowrite{32,64}_copy() helpers to dmb osh. Everything is
->> gated on a new ARM64_WORKAROUND_DEVICE_STORE_RELEASE cpucap and patched
->> in only on affected parts, so it is a no-op elsewhere.
+>> Provide arm64 memset_io()/memcpy_toio() that emit plain str* in the loop
+>> and order the whole block against subsequent loads with a single
+>> trailing dmb osh on affected CPUs (a no-op elsewhere, preserving the
+>> relaxed contract of these helpers). This keeps block MMIO writes at
+>> one-barrier cost rather than scaling with the transfer size.
 >>
->> Patch 2 provides arm64 memset_io()/memcpy_toio(). The generic versions
->> are built on __raw_write*(), so patch 1 would promote every store in a
->> block to a store-release; as each STLR drains the write-combining buffer,
->> block MMIO becomes O(n) store-releases. The arm64 versions emit plain
->> STR in the loop and order the whole block with a single trailing dmb osh,
->> keeping block MMIO at one-barrier cost.
+>> Performance (NVIDIA Olympus, write-combining MMIO to a device BAR, single
+>> PE pinned; per-call cost in ns; consecutive writes ping-pong between two
+>> buffers so repeated stores are not coalesced; iowrite64/iowrite32 =
+>> __iowrite{64,32}_copy()):
 >>
->> Performance: NVIDIA Olympus, write-combining MMIO to a device BAR, single
->> PE pinned; per-call cost in ns. Consecutive writes ping-pong between two
->> buffers so repeated stores are not coalesced. iowrite64/iowrite32 =
->> __iowrite{64,32}_copy().
->>
->> Table 1 - workaround off (CONFIG_NVIDIA_OLYMPUS_1027_ERRATUM=n)
->> +-------+-----------+-----------+-----------+-------------+
->> |  size | iowrite64 | iowrite32 | memset_io | memcpy_toio |
->> +-------+-----------+-----------+-----------+-------------+
->> |    8B |   67.9 ns |   67.8 ns |    3.6 ns |    3.6 ns   |
->> |   16B |   67.9 ns |   67.8 ns |    4.0 ns |    4.0 ns   |
->> |   32B |   67.9 ns |   67.9 ns |    4.6 ns |    4.6 ns   |
->> |   64B |   69.1 ns |   69.1 ns |   69.1 ns |   69.0 ns   |
->> |  128B |  138.3 ns |  138.3 ns |  138.4 ns |  138.3 ns   |
->> |  256B |  276.6 ns |  276.6 ns |  276.6 ns |  276.7 ns   |
->> |  512B |  276.6 ns |  276.5 ns |  276.6 ns |  276.6 ns   |
->> |   1KB |  276.6 ns |  278.4 ns |  276.6 ns |  276.6 ns   |
->> |   2KB |  278.4 ns |  278.4 ns |  275.9 ns |  276.6 ns   |
->> |   4KB |  365.7 ns |  365.7 ns |  365.7 ns |  365.7 ns   |
->> +-------+-----------+-----------+-----------+-------------+
->> relaxed/no-flush: memset_io()/memcpy_toio() issue plain stores with no
->> trailing dgh() or barrier, unlike __iowrite*_copy() which ends with dgh().
->>
->> Table 2 - workaround on, arm64 memset_io/memcpy_toio (this series)
+>> Table 1 - arm64 memset_io/memcpy_toio (this patch)
 >> +-------+-----------+-----------+-----------+-------------+
 >> |  size | iowrite64 | iowrite32 | memset_io | memcpy_toio |
 >> +-------+-----------+-----------+-----------+-------------+
@@ -222,7 +198,7 @@ On 6/29/2026 5:45 AM, Vladimir Murzin wrote:
 >> +-------+-----------+-----------+-----------+-------------+
 >> all four helpers end with a single trailing barrier (dmb osh).
 >>
->> Table 3 - workaround on, generic per-store memset_io/memcpy_toio
+>> Table 2 - generic per-store memset_io/memcpy_toio
 >> +-------+-----------+-----------+-------------+--------------+
 >> |  size | iowrite64 | iowrite32 |   memset_io |  memcpy_toio |
 >> +-------+-----------+-----------+-------------+--------------+
@@ -241,35 +217,155 @@ On 6/29/2026 5:45 AM, Vladimir Murzin wrote:
 >> workaround promotes to store-release, so every store is individually
 >> ordered - hence O(n) in the store count.
 >>
->> Tables 2 and 3 show why patch 2 is needed: the generic per-store block
->> writers collapse to O(n) under the workaround (4KB ~314x slower, ~115 us
->> vs ~366 ns), while the arm64 versions stay flat at one-barrier cost.
-> That's interesting. With the way the patch set is structured, it
-> now looks like:
->
-> 1. Fix the erratum, but cause a performance regression.
-> 2. Restore the performance regression and (re)apply the erratum
->     workaround.
->
-> Would it make sense to avoid introducing the performance
-> regression in the first place by structuring the patch set
-> slightly differently?
->
-> 1. (Re)introduce arm64 memset_io()/memcpy_toio().
-> 2. Fix the erratum once for all
->
-> What do you reckon?
+>> The arm64 versions stay flat at one-barrier cost while the generic
+>> per-store writers collapse to O(n): at 4KB ~314x slower (~115 us vs
+>> ~366 ns).
+>>
+>> Signed-off-by: Shanker Donthineni <sdonthineni@nvidia.com>
+>> ---
+>>   arch/arm64/include/asm/io.h |  5 +++
+>>   arch/arm64/kernel/io.c      | 82 +++++++++++++++++++++++++++++++++++++
+>>   2 files changed, 87 insertions(+)
+>>
+>> diff --git a/arch/arm64/include/asm/io.h b/arch/arm64/include/asm/io.h
+>> index 69e0fa004d31..649503f347bc 100644
+>> --- a/arch/arm64/include/asm/io.h
+>> +++ b/arch/arm64/include/asm/io.h
+>> @@ -266,6 +266,11 @@ __iowrite64_copy(void __iomem *to, const void *from, size_t count)
+>>   }
+>>   #define __iowrite64_copy __iowrite64_copy
+>>
+>> +void memset_io(volatile void __iomem *dst, int c, size_t count);
+>> +#define memset_io memset_io
+>> +void memcpy_toio(volatile void __iomem *dst, const void *src, size_t count);
+>> +#define memcpy_toio memcpy_toio
+>> +
+>>   /*
+>>    * I/O memory mapping functions.
+>>    */
+>> diff --git a/arch/arm64/kernel/io.c b/arch/arm64/kernel/io.c
+>> index fe86ada23c7d..b5fd9ee6d9eb 100644
+>> --- a/arch/arm64/kernel/io.c
+>> +++ b/arch/arm64/kernel/io.c
+>> @@ -5,9 +5,91 @@
+>>    * Copyright (C) 2012 ARM Ltd.
+>>    */
+>>
+>> +#include <linux/align.h>
+>>   #include <linux/export.h>
+>>   #include <linux/types.h>
+>>   #include <linux/io.h>
+>> +#include <linux/unaligned.h>
+>> +
+>> +#include <asm/alternative.h>
+>> +
+>> +/*
+>> + * ARM64_WORKAROUND_DEVICE_STORE_RELEASE promotes every raw MMIO store
+>> + * (__raw_write*()) to a store-release on affected CPUs. The generic
+>> + * memset_io()/memcpy_toio() are built on those helpers, so the workaround would
+>> + * emit one store-release per element and turn a block write into O(n) ordered
+>> + * stores - far more costly than the single barrier a block actually needs.
+>> + *
+>> + * Provide arm64 versions that emit plain STR in the loop and order the whole
+>> + * block against subsequent loads with one trailing DMB OSH, patched in only on
+>> + * affected CPUs (a no-op elsewhere, so the relaxed contract of these helpers is
+>> + * preserved).
+>> + *
+>> + * This capability is currently enabled only for the NVIDIA Olympus device
+>> + * store/load ordering erratum, where a Device-nGnR* load may be observed before
+>> + * an older, non-overlapping Device-nGnR* store to the same peripheral.
+>> + */
+>> +static __always_inline void iomem_block_store_barrier(void)
+>> +{
+>> +     asm volatile(ALTERNATIVE("nop", "dmb osh",
+>> +                              ARM64_WORKAROUND_DEVICE_STORE_RELEASE)
+>> +                  : : : "memory");
+>> +}
+>> +
+>> +void memset_io(volatile void __iomem *dst, int c, size_t count)
+>> +{
+>> +     u64 qc = (u8)c;
+>> +
+>> +     qc *= ~0ULL / 0xff;
+>> +
+>> +     while (count && !IS_ALIGNED((__force unsigned long)dst, sizeof(u64))) {
+>> +             asm volatile("strb %w0, [%1]" : : "rZ"((u8)c), "r"(dst) : "memory");
+>> +             dst++;
+>> +             count--;
+>> +     }
+>> +     while (count >= sizeof(u64)) {
+>> +             asm volatile("str %x0, [%1]" : : "rZ"(qc), "r"(dst) : "memory");
+>> +             dst += sizeof(u64);
+>> +             count -= sizeof(u64);
+>> +     }
+>> +     while (count) {
+>> +             asm volatile("strb %w0, [%1]" : : "rZ"((u8)c), "r"(dst) : "memory");
+>> +             dst++;
+>> +             count--;
+>> +     }
+>> +
+>> +     iomem_block_store_barrier();
+>> +}
+>> +EXPORT_SYMBOL(memset_io);
+>> +
+>> +void memcpy_toio(volatile void __iomem *dst, const void *src, size_t count)
+>> +{
+>> +     while (count && !IS_ALIGNED((__force unsigned long)dst, sizeof(u64))) {
+>> +             asm volatile("strb %w0, [%1]"
+>> +                          : : "rZ"(*(const u8 *)src), "r"(dst) : "memory");
+>> +             src++;
+>> +             dst++;
+>> +             count--;
+>> +     }
+>> +     while (count >= sizeof(u64)) {
+>> +             asm volatile("str %x0, [%1]"
+>> +                          : : "rZ"(get_unaligned((const u64 *)src)), "r"(dst)
+> Why do we need get_unaligned() here? I understand this came from
+> the generic implementation, where it needs to handle architectures
+> that do not support unaligned accesses. But IIUC this is not an
+> issue for arm64, and there was no special handling in memcpy_toio()
+> before 0110feaaf6d0 ("arm64: Use new fallback IO memcpy/memset").
+> Am I missing something?
 
-Yes, that ordering makes sense.
+Thanks for the review.
 
-I can restructure v5 so that patch 1 introduces the arm64 memset_{to}io()
-implementations while preserving the existing behavior. Patch 2 will
-then add the complete erratum workaround, including the conditional
-trailing DMB for those block-write helpers. This avoids introducing
-the intermediate performance regression and keeps each commit
-independently usable.
+I used get_unaligned() because I was trying to keep the arm64 implementation
+as close as possible to the generic memcpy_toio() implementation in
+lib/iomem_copy.c. However, you are right that before commit 0110feaaf6d0
+(“arm64: Use new fallback IO memcpy/memset”), the arm64 implementation
+used a direct u64 load and did not explicitly handle source alignment. I
+can restore the previous arm64 form in v5 if that is preferred.
 
-Will and Catalin, could you please share your thoughts on this approach?
+>> +                          : "memory");
+>> +             src += sizeof(u64);
+>> +             dst += sizeof(u64);
+>> +             count -= sizeof(u64);
+>> +     }
+>> +     while (count) {
+>> +             asm volatile("strb %w0, [%1]"
+>> +                          : : "rZ"(*(const u8 *)src), "r"(dst) : "memory");
+>> +             src++;
+>> +             dst++;
+>> +             count--;
+>> +     }
+>> +
+>> +     iomem_block_store_barrier();
+> It is perhaps a matter of taste, but having the inline assembly
+> here (and in memset_io()) might make the code clearer. To a
+> casual reader, it would be obvious that the barrier is not
+> guaranteed and is only applicable to ARM64_WORKAROUND_DEVICE_STORE_RELEASE,
+> without having to jump back and forth through the code.
+>
+> Obliviously maintainers might have different preference ;)
+
+Regarding the barrier, iomem_block_store_barrier() is declared
+static __always_inline, so it does not add a function call. The nop/dmb
+osh alternative is emitted directly in each caller. I used the helper to
+avoid duplicating the alternative sequence.
+
+I understand that placing the assembly directly in both functions could
+make its conditional nature more obvious. I do not have a strong preference
+and am happy to follow Will’s and Catalin’s preference here.
 
 -Shanker
 
