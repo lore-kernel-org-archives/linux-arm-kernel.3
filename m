@@ -4,97 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0558C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 14:45:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 891F6C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 14:48:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/NeaDO8L9kLes3vdVy9wmkRNojB2Scb9QMbqMtGljeM=; b=T9Vyh7yJfHsvip6nH8IUkNVVHM
-	xfIjKQIZbkiaVC+DNV0JgmloNZ4BQxaNK8y/Yze4CSAJGSJWUBvIsLnqdTISHcAhfKzNnw0qvRzAH
-	hhhC74UVHp/l4fYQmu+lLa572TwEVGtk5hqiV5rWYMhkAxTyQTpXhTFbNzSeiysyp5Shcxe9b//Ib
-	fY/AMvPJSop2wVkCOQIR6VaLrs6lZP5JIpzudkVRNXnstCwqLHFasVs8tJa8IpZ8mxn1ttn67ZwsT
-	CitzUZrgdXKucFBIjCygom5Nw9ZxBijeLQ78w22vgaa7RBlzud09STEI0BDWkQaZlSAuEd0Yz6uoo
-	AnPZaYiA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QWhKW2eNrkhNPnZK/AJGOmyvgWT8TkmGzQ6dgobIakQ=; b=HgH39g+MvB2oqsl5nyV7ZGMTzC
+	ZjQaAPrOHxEse5UZoGJEgxgDCkRUb5KQJ+JFinQq6ywc5+8p93jwel9WGxVArOSXbSwKX5QIOCWaM
+	ToRGi2R69Oyal9OX2Lp19WefAZVNNLw4mHK5EwLtshxYDvkZl//0Q+ZXXZ4jcXO4SlUWMmnTM7T18
+	3WSnJdcPjxPZ98maZ6/Fe02gB8IWbthBNMpDDp5VvAYXRHFTkKvq1TbISyxB4d9Laxsq3rWhlpT9M
+	Cv+fsuu/tA9kvEMCZzuavOX3X1+VwX6ADIZnJD2wN+TqL1SZ8rSrRdDjHj+QGMP+s2nZnptvjMEiv
+	5dPLxdcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weDED-0000000EvKe-3cE5;
-	Mon, 29 Jun 2026 14:44:53 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1weDHN-0000000Evr8-0n95;
+	Mon, 29 Jun 2026 14:48:09 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weDEB-0000000EvIn-3DsO
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 29 Jun 2026 14:44:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=/NeaDO8L9kLes3vdVy9wmkRNojB2Scb9QMbqMtGljeM=; b=mvKiTDF0WTASVHZxOXCMzgpBW6
-	R87YEgAnJUAcU73aMuxm+EY3xxqLWXFp41Hp+cjAl4FO4YabqQDiUNC1IVHeg31Rg6LEdsk1tAQvg
-	xyq8GEFCyBSQoHRwDSKGujAz5t3i1XiEMqxwKXUa/OraqoqLQtp+IFQMUjmlv6oJOtXkr1P8y33Pc
-	fjJxyVMaXsiduN4pkLUueB3BuNI9zFLHB08hI0wGVHmytF4fPTuluEOl52tzt8VkTIGtef0GLQFXO
-	wOQUvEXM84nuwcOgWfgi8DLK5GAwCd7nuu2t6dYErYdFQs/NtEbo3ti/d8KTnpiiJ8eXRhfQyuLzS
-	s6c4AzEA==;
-Received: from perceval.ideasonboard.com ([213.167.242.64])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1weDE8-0000000188t-0WhT
+	id 1weDHL-0000000Evq8-11Py
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 14:44:49 +0000
-Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 8DBE0E91;
-	Mon, 29 Jun 2026 16:44:01 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1782744241;
-	bh=rgpIHVCv/jG78fP6tu1dl2Qy9Ys1bGvoYAfVxN1Vrr4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gokLY0M0tPdapkigMuv4Uqg6nQoeAp9ooLReXpUXVg3B3IlLcUc15FrUa6tHeiqlN
-	 XFFu3bImhumtdCJX1OIyNvqmI5cXpP+Vyu/8E7LiH3H7pl79GTXJAoWrYLIka2vje4
-	 m2AGTwxSCKAcReaJbpW3lBv0zCLhNN5BQxEZwwZM=
-Date: Mon, 29 Jun 2026 17:44:43 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: Maxime Ripard <mripard@kernel.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>, Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Inki Dae <inki.dae@samsung.com>,
-	Jagan Teki <jagan@amarulasolutions.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Hui Pu <Hui.Pu@gehealthcare.com>,
-	Ian Ray <ian.ray@gehealthcare.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 05/37] drm/display: bridge-connector: split code creating
- the connector to a subfunction
-Message-ID: <20260629144443.GA3106950@killaraus.ideasonboard.com>
-References: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
- <20260519-drm-bridge-hotplug-v1-5-45e2bdb3dfb4@bootlin.com>
- <20260608-mindful-heavy-frigatebird-be9faf@houat>
- <DJ735MTNMYD1.3LPNV404V8PIU@bootlin.com>
- <20260624-proud-unbiased-pony-ecc3c3@houat>
- <DJHEAWSEZR79.19UFIKS8QJBQ7@bootlin.com>
- <20260626-polite-hairy-perch-25e1aa@houat>
- <DJJ1MPCEJGZD.UZM9183V6ZE5@bootlin.com>
- <20260626-classy-nightingale-of-romance-1cacad@houat>
- <DJJ4X22CJ3FG.5EYF84LVRNOG@bootlin.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <DJJ4X22CJ3FG.5EYF84LVRNOG@bootlin.com>
+	Mon, 29 Jun 2026 14:48:08 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-493a613571eso12809035e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 07:48:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782744485; x=1783349285; darn=lists.infradead.org;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=QWhKW2eNrkhNPnZK/AJGOmyvgWT8TkmGzQ6dgobIakQ=;
+        b=jSqu8OK5dmZTnlKNyu7cH8G+0GcaolJopd8PSwxoi009U57GlvKMXIQA1zutGvUxea
+         4SJLj0ShVn8BBFGeGfr7+O+gQjRzOUt1eTO+nhH2K5bosO00wyqhb+o8W0imcpd2Sfwp
+         mgONbeNz3GhiTKBzOF05fbTjdtchnWiZNtaWACObdNNsTKD7OurRxuIcmtBde2RyAJDl
+         N+5EXHhwm6AWHH/Tk81phO56vU1u9r4/pWshc+vl8E1e6Jvj4y5k5nfNbSe4ZKfx5Ni8
+         cFevigonzJZIXLkiU0iqJBMhSUhpdAo3i69K/79s2XKQDN5mKhmZcxWY5i9FD+Z+3Zbc
+         ZYJw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782744485; x=1783349285;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=QWhKW2eNrkhNPnZK/AJGOmyvgWT8TkmGzQ6dgobIakQ=;
+        b=JYQAqdFpHh+si3BKUC15gKdNfitueqa2eBRBbmJj7q5gKHDB0c6+8jqZ2bMlW62DKr
+         UQiulgzTlm5YP3hX4bFgpWxzE1SDBPCasu1sUDmyx1uk0KhYrbSL0FLgnJdWkmq7IgXY
+         2xPgG3Sinh3KdclNqExdcAQUWR+Wz/0XxzDzGFSkEsd6Zi5j+90tKDSOtH7mnK+GxvuD
+         nUnKV4BQUYT8FZt8F/UedbJZrMsX9M3UxFcpYZ8yNXVZSBY2YXlLvD1ptjvbEQRMytQi
+         DpO54dBdpj6WCPq5gZR2vm0m82PfFOBU5BPbzAVXVU8ktL87w8MW4mlUfa9QdFKzMe3p
+         OjTA==
+X-Forwarded-Encrypted: i=1; AFNElJ/5dso1VrLKK7EXfNEWkaSh5/ad5QvjFB2akfxHbGI5bHzTSAx08nq7WtQr3Ja49NQ6l16Ema3XsIZZsp4iCCY4@lists.infradead.org
+X-Gm-Message-State: AOJu0YyN0ewPEVzpw2yU8AGGWoqCogEa4ORq/qnq5rbzl9UALgTnIN6c
+	VTmmV0jZmKLDxmmMl2GGx5eKLjk36XpYbJbjB+34wh2qU9+3o/6MzqIj
+X-Gm-Gg: AfdE7ck89Ng8M6Swk5cLjBb3jua/Hdstr8HpfItAFJ/sohiosHBrc1uMrEv7p9cgW2+
+	s3dbPol7sSjUII+QzJdwWiDN1ax3DPF+BOZ5yM8mDWEcXShmrcYE77w9eyktfJtvM7VWfuWKq/v
+	gksNTg2n6PFm9+2i7P6XBcOFmb+4n7QSm+QEjoPuO99eORZiKetFbG2/k3jyWOENRA8fPMy8wEc
+	KYPPMwUNHp7qc2CzW67T6x/Tq3IXCHNdeQEUz4KnMFXYD2WpTWEU8nEtlJ3VQh7lS98p0M+gUbt
+	DS63401+QXNhM3006zv8AL6W8M8hzXeZ74msIyVOUrniueniQOSH2g0a2kCOg43SqRgYUOZaQUy
+	zcOY7tWXs5jPjorszztnwTpCw5hPK9lRgjdwZ6eNUWsQrWH/s3QT1WaGdnxklx7schiYCv7tKZN
+	eO3ogr3ylsrqJXu6sa1Aje+ldYZHlPmP1H0GDijL1UYY3HPZALyN49AqoXOy8R54CFGbrqXQFse
+	gwwL+unzjKr5JCV
+X-Received: by 2002:a05:600c:8b08:b0:490:9d1b:f086 with SMTP id 5b1f17b1804b1-493b8289905mr175815e9.14.1782744484783;
+        Mon, 29 Jun 2026 07:48:04 -0700 (PDT)
+Received: from smtpclient.apple (static.253.36.98.91.clients.your-server.de. [91.98.36.253])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49268fc0f32sm321549885e9.3.2026.06.29.07.48.01
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 29 Jun 2026 07:48:04 -0700 (PDT)
+Content-Type: text/plain;
+	charset=utf-8
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.600.51.1.1\))
+Subject: Re: [PATCH] ASoC: meson: aiu: fifo-spdif: soft reset the S/PDIF
+ datapath on start/stop
+From: Christian Hewitt <christianshewitt@gmail.com>
+In-Reply-To: <1jwlvha6xv.fsf@starbuckisacylon.baylibre.com>
+Date: Mon, 29 Jun 2026 18:47:44 +0400
+Cc: Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Liam Girdwood <lgirdwood@gmail.com>,
+ Mark Brown <broonie@kernel.org>,
+ Jaroslav Kysela <perex@perex.cz>,
+ Takashi Iwai <tiwai@suse.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>,
+ linux-sound@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <D8EA185E-1F9C-4655-82C9-2C46A035782B@gmail.com>
+References: <20260626080422.4191435-1-christianshewitt@gmail.com>
+ <CAFBinCD5bn5VixbomCz0nmHuopBmgh0CJc-V4jY2vdXhoP_VCw@mail.gmail.com>
+ <1jwlvha6xv.fsf@starbuckisacylon.baylibre.com>
+To: Jerome Brunet <jbrunet@baylibre.com>
+X-Mailer: Apple Mail (2.3864.600.51.1.1)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_154448_346225_B3DCA804 
-X-CRM114-Status: GOOD (  47.15  )
+X-CRM114-CacheID: sfid-20260629_074807_299190_36EDAA2C 
+X-CRM114-Status: GOOD (  18.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,141 +113,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 26, 2026 at 06:51:14PM +0200, Luca Ceresoli wrote:
-> On Fri Jun 26, 2026 at 4:38 PM CEST, Maxime Ripard wrote:
-> > On Fri, Jun 26, 2026 at 04:16:39PM +0200, Luca Ceresoli wrote:
-> >> On Fri Jun 26, 2026 at 12:09 PM CEST, Maxime Ripard wrote:
-> >> > On Wed, Jun 24, 2026 at 05:47:10PM +0200, Luca Ceresoli wrote:
-> >> >> On Wed Jun 24, 2026 at 1:41 PM CEST, Maxime Ripard wrote:
-> >> >> > On Fri, Jun 12, 2026 at 02:56:24PM +0200, Luca Ceresoli wrote:
-> >> >> >> On Mon Jun 8, 2026 at 1:40 PM CEST, Maxime Ripard wrote:
-> >> >> >> > On Tue, May 19, 2026 at 12:37:22PM +0200, Luca Ceresoli wrote:
-> >> >> >> >> In preparation to introduce bridge hotplug, split out from
-> >> >> >> >> drm_bridge_connector_init() the code adding the drm_connector into a
-> >> >> >> >> dedicated function. This will be needed to be able to add (and re-add) the
-> >> >> >> >> connector from different code paths.
-> >> >> >> >
-> >> >> >> > Same story here, explaining what you need later on that calls for that
-> >> >> >> > change would be nice.
-> >> >> >>
-> >> >> >> Here's a more verbose version:
-> >> >> >>
-> >> >> >>     Currently drm_bridge_connector_init() does two things:
-> >> >> >>
-> >> >> >>      * allocate and initialize the drm_bridge_connector
-> >> >> >>        (which embeds a drm_connector)
-> >> >> >>      * initialize and register the embedded drm_connector
-> >> >> >>
-> >> >> >>     For bridge hotplug we need to separate these two actions:
-> >> >> >>
-> >> >> >>      * the drm_connector needs to be added and removed at any time based on
-> >> >> >>        hotplug events
-> >> >> >>      * the drm_bridge_connector is designated to create and remove the
-> >> >> >>        drm_connector, so it must be persistent for the card lifetime
-> >> >> >>
-> >> >> >>     As the lifetimes of drm_bridge_connector and drm_connector become
-> >> >> >>     different, we need to create them in different moments.
-> >> >> >>
-> >> >> >>     In preparation to support that, split out from
-> >> >> >>     drm_bridge_connector_init() the code adding the drm_connector into a
-> >> >> >>     dedicated function. No functional changes, just moving code around for
-> >> >> >>     now. A future commit will make the drm_connector be created based on
-> >> >> >>     hotplug events.
-> >> >> >>
-> >> >> >> Looks good?
-> >> >> >
-> >> >> > The message itself, yes, thanks.
-> >> >> >
-> >> >> > However, I have questions now :)
-> >> >> >
-> >> >> > Do we really expect drm_bridge_connector to stick around when a bridge
-> >> >> > gets unplugged? If so, how does it cope with having, say, an HDMI
-> >> >> > connector, and then swapping out the hotplugged part for an LVDS one?
-> >> >> > Does the HDMI connector sticks around indefinitely?
-> >> >>
-> >> >> In your example, the HDMI drm_connector would be unregistered and put on
-> >> >> hotunplug. Its allocation will stick around until the last put but that's
-> >> >> quite irrelevant. Then, on plugging the LVDS addon, a new LVDS
-> >> >> drm_connector will be created and registered.
-> >> >>
-> >> >> > *Especially* if we're using overlays for this, I'd expect everything
-> >> >> >  after the first hotplugged bridge to be destroyed, no?
-> >> >>
-> >> >> As said, it would be unregistered immediately but might be freed later on
-> >> >> if still refcounted.
-> >> >>
-> >> >> This is visible in patches 36+15, the path to follow is:
-> >> >>
-> >> >>  drm_bridge_connector_handle_event(event = DRM_BRIDGE_DETACHED) [patch 36]
-> >> >>  -> drm_bridge_connector_dynconn_release()                      [patch 15]
-> >> >>
-> >> >> Does this solve your concern?
-> >> >
-> >> > Not really, I'm talking about drm_bridge_connector. The fact that
-> >> > bridges are destroyed make sense to me. The fact that
-> >> > drm_bridge_connector sticks around doesn't. It's supposed to be a
-> >> > connector for bridges. If you don't have bridges because they got
-> >> > destroyed, and connector, drm_bridge_connector doesn't have a reason to
-> >> > exist anymore, unless it's drm_bridge_hotplug in a trench coat :)
-> >>
-> >> It is not a hotplug-bridge in a trench coat, no :) The code is clear about
-> >> this.
-> >>
-> >> I'd say with this series a "drm_bridge_connector" is just becoming
-> >> something more (perhaps something else too). Somewhat as "a drm_bridge is
-> >> either a bridge or something else". :)
-> >>
-> >>
-> >> But let's leave names aside for a moment. If just looking at the current
-> >> code, the drm_bridge_connector is "a handler, owned by the card/encoder and
-> >> having the same lifetime, which takes care of drm_connector
-> >> creation/destruction at card probe/removal".
-> >>
-> >> What we need now is just the same plug " and on hotplug events" appended.
-> >>
-> >> So in both cases there needs to be "a handler persitent with the card".
-> >>
-> >> Do we agree so far?
-> >
-> > Ish. If we go for that, then we need to update the name.
-> 
-> drm_connector_manager?
-> drm_bridge_connector_manager?
+> On 29 Jun 2026, at 4:04=E2=80=AFpm, Jerome Brunet =
+<jbrunet@baylibre.com> wrote:
+>=20
+> On ven. 26 juin 2026 at 22:41, Martin Blumenstingl =
+<martin.blumenstingl@googlemail.com> wrote:
+>=20
+>> On Fri, Jun 26, 2026 at 10:04=E2=80=AFAM Christian Hewitt
+>> <christianshewitt@gmail.com> wrote:
+>>>=20
+>>> The I2S FIFO soft-resets its fast domain on start (AIU_RST_SOFT bit =
+0 +
+>>> AIU_I2S_SYNC read in aiu_fifo_i2s_trigger), mirroring the downstream
+>>> vendor driver's audio_out_i2s_enable(). The S/PDIF FIFO has no =
+equivalent:
+>>> it only toggles the IEC958 DCU, so a stale datapath FIFO can be =
+replayed,
+>>> producing the "machine gun noise" buffer underrun - on start when =
+switching
+>>> outputs, and on stop when playback ends. The latter is audible on =
+devices
+>>> with an always-on S/PDIF-fed DAC (e.g. the ES7144 on the WeTek =
+Play2).
+>>>=20
+>>> The vendor driver resets the IEC958 fast domain (AIU_RST_SOFT bit 2) =
+on
+>>> both enable and disable (audio_hw_958_enable), and when =
+reconfiguring
+>>> (audio_hw_958_reset clears AIU_958_DCU_FF_CTRL then resets). Do the =
+same:
+>>> reset before enabling the DCU on start, and after disabling it on =
+stop.
+>>>=20
+>>> Signed-off-by: Christian Hewitt <christianshewitt@gmail.com>
+>> Reviewed-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+>>=20
+>> This matches the vendor driver, references:
+>> - fast-reset SPDIF is triggered on enable and disable: [0]
+>> - fast-reset SPDIF is triggered after all of the configuration is
+>> written, then DCU_FF_CTRL is enabled: [1]
+>=20
+> Take what the vendor driver does with a grain of salt, especially when
+> it comes to audio
+>=20
+>>=20
+>> [...]
+>>>        case SNDRV_PCM_TRIGGER_SUSPEND:
+>>>        case SNDRV_PCM_TRIGGER_PAUSE_PUSH:
+>>>        case SNDRV_PCM_TRIGGER_STOP:
+>>>                fifo_spdif_dcu_enable(component, false);
+>>> +               snd_soc_component_write(component, AIU_RST_SOFT,
+>>> +                                       AIU_RST_SOFT_958_FAST);
+>> It doesn't seem to make any difference, so just for the record:
+>> The vendor driver first triggers AIU_RST_SOFT_958_FAST then disables =
+DCU: [2]
+>>=20
+>=20
+> One could even wonder if there is any point in applying a reset when
+> everything is stopped, if the enable path will apply this same
+> reset before anything else is started again ? Does it really changes
+> anything to the reported issue ?
 
-I'm fine with a rename. When developing drm_bridge_connector I've always
-envisioned it as code that manages the creation of a connector for a
-chain of bridges. In particular, the drm_bridge_connector object is
-*not* and has never been a bridge.
+Using disable/reset or reset/disable didn=E2=80=99t make any difference =
+in my
+testing, but without any reset playback stop on the WeTek Play2 board
+with hardwired DAC always triggers the buffer underrun.
 
-Ideally all this should move to the DRM core and be transparent to
-drivers. Drivers could set a flag somewhere to opt-in for connectors
-managed by the DRM core.
+CH.
 
-> > drm_bridge_connector for something that is neither a bridge or a
-> > connector is not great.
-> >
-> > But even then, I'm not even sure why we need to have that "manager" in
-> > the first place. You want to make bridges be aware if they are the last
-> > in the chain or not.
-
-I don't think bridges should be aware of whether or not they're the last
-one in the chain.
-
-> > Use that property in attach to either create a
-> > drm_bridge_connector instance if you're last, or attach the next bridge
-> > if you aren't.
-> 
-> What? o_O
-> 
-> Several encoder drivers have been painfully converted to create a
-> drm_bridge_connector. Now if the bridges start doing it themselves we
-> should go back to those encoder drivers and ditch all the
-> drm_bridge_connector from there?
-> 
-> I must be missing something. Can you elaborate on this?
-
--- 
-Regards,
-
-Laurent Pinchart
 
