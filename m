@@ -4,104 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBE00C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 16:54:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B888CC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 16:54:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6d/g78nARanRf8gSDZnSYai0WcH3apHlQ9zVtHuPszY=; b=PSHmMfeOt5ZaEt0GaSd1MrWdtd
-	TS8JMnhEsc8loQlY29qMvUVYIg/CWUmSBf8WITDe1mOBLy7Te28LxESOgh9b2ZT8jbaLJZF7Ci/Y+
-	IHNDhgyetyNdGnPYL6Xb20zWZvsyOwpmEElU/iGNqhROv5yBEHKGIDCu3TgHlOJ97g+WLZkbuAOgh
-	R5VjH+jnDSnUi5KfKGnetr4iNSlAf/Fe/d2HJTuZzFfv1mbBe8+cz+pFZ5eDwxcr7S8Zbhy3fkzcS
-	FiqsJhwRztq0hKbamQ/8OsDdj0i1T2tjmKoF5+g/j46Y6BLlYl71edxphkfmzM6E3D+z8a1VEShuL
-	bDLlE7og==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nrtvzAHL3u6/v5L5E9Co3P0QE5xowtwOQFIomSwMWjk=; b=NTJuGNTb/e0DxTsoCSzjt1Nt4h
+	E3X5v5+LMhVQAUqKcJpliJ5gspdsPjZSiQdlfIMGPMb6dWuvLyMsF7eNZByygsw3rGH1EBjgVYAgI
+	5DiUi0lpGUb2WR741OJ7vgoZXhspjRNPHUG+ityUWNfBeAuqQZh7bXs27TNEgyUfAmAlbN0Y9U0eJ
+	ngqGNb3A22rZKoPfc6fcPPtOvq4QLMdOuP4Idnz3J3PcpJqMXx7RvfbfjhmwHbNoIU9C783HpdUX6
+	FuihyTIlW3lmq7BA50KZffhblwdHfgLzJI1ydwlsqeMX+NWq9crdHFsXiMXNEzKLsILVq2PdQuMSZ
+	7s0ZZCfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weFFB-0000000FG4H-1VUR;
-	Mon, 29 Jun 2026 16:54:01 +0000
-Received: from fout-a5-smtp.messagingengine.com ([103.168.172.148])
+	id 1weFFU-0000000FGAg-3XIW;
+	Mon, 29 Jun 2026 16:54:20 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weFF8-0000000FG3V-2RUs;
-	Mon, 29 Jun 2026 16:54:00 +0000
-Received: from phl-compute-03.internal (phl-compute-03.internal [10.202.2.43])
-	by mailfout.phl.internal (Postfix) with ESMTP id 2B039EC006E;
-	Mon, 29 Jun 2026 12:53:57 -0400 (EDT)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-03.internal (MEProxy); Mon, 29 Jun 2026 12:53:57 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=shutemov.name;
-	 h=cc:cc:content-type:content-type:date:date:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm3; t=1782752037; x=
-	1782838437; bh=6d/g78nARanRf8gSDZnSYai0WcH3apHlQ9zVtHuPszY=; b=N
-	ZGXNR6l5Q5v6NSr0q7LeE3fgkfIyMitsQCjVn7v8EvVru91478oo7MeDOSbQM26m
-	jXS7ZK8I0eDYmVea6vlN5n1uZ/0jhMJZWxwctEzmWRFX9JwQ+g5dYAiwmnABUeqO
-	iQQnaeVwxmFbXfcW303hDGplMiP925vknxX7jjhBw/aB6ZIPOdeLrKpiigBS+NH7
-	QKi59d5tw57ViTA7i/7lozw/kxWgNHfc5ViGHZqaL+KIxTxAptlsY2roq/A8WR+K
-	6RG0YPVeTHFlz+8apZFIB33tG9nAbyhib9xNDIePDD2ahIbtLVBqA+GjPd18FGRY
-	4coNxb4WD7seVtSuvUYEw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=
-	1782752037; x=1782838437; bh=6d/g78nARanRf8gSDZnSYai0WcH3apHlQ9z
-	VtHuPszY=; b=VcLy23F2+rXWsexJnDQ9eY3tf1dz+WSD4OsddeGafhV3XOXsvza
-	vPyvN+x/K6o9oIUQGmrnDOW+Y3eMWGF/O2/ieYNRNtL30o5MLRZ22/9G4paMnV7k
-	IUcNB2wf5gs7QpkFkR54877YrjuOdaooBd2M1Z/HVL8+bTCmi7pVKYCSJRMqU1Wz
-	9My4n07gFiuajN34yG0+jXFr9vACJlGYx6cM1Uj07adSwT8JQvRZ3BLb8vsTTSQx
-	fU6iyNJQyL0xTJzPAdJQ5IlYNrlL/R8k6aHNH2iFr/hXcUgmu6ELLqlVnH0Nadxw
-	uhhpKQgzIpoSPvrC7tk41ruayEwpqjuJdGA==
-X-ME-Sender: <xms:JKNCao6v9mqnJhXtz4YURts2z0BtLhuXfKTy6V2ZcbCR5Em7o5PogA>
-    <xme:JKNCatBVzvo5QVRA8h-7p9SEyeVvn75WtlwUTfrkLKPG_JQ2bXpo0rZeQ-DDZQox7
-    AhTB8DBJLrHI4Nap55Wwq14VEKHEQeQ4_8Kug7F7fX0zo20hoh7_fBI>
-X-ME-Received: <xmr:JKNCak7788qMfyw2E3E7cuuZer7kOXeqNxmCKuzhr8y0Pc9aFwfXh_dhndluEQ>
-X-ME-Proxy-Cause: dmFkZTEzzn6OgJCgoJErvGmXtkQgHIU8zND7m0wTMLGAHBlOG8NESTBmLsw97avQ8mqKmv
-    6Utolx1pAcqyJypNeKEtYm8JWl1pX9x1mCAwaKZrBoFF445lJbgx9KdFGtEPq+K29okb2/
-    GX2qOqaHUaxHPYGzgJ1ezEOlhOax32ciKt1bvZjbGyUAdl9/pp7SKN4tg2364f/kIciFBx
-    vhKBZzOA8AfVHiY8IYqGu/eTt2W4ocxoQcBSy9kono6UHQpJoHumvxlql/oZaZ2i6ChXzx
-    r7Q9YXOJnEIcwzDi6PHmtDTyBWgHTXI/qLdwYfMvCburY83E7VBnbeXga/IYsJsPFZk/Y9
-    tum8cSWFzNNeUvGxZrk1hq+viFDxGo+aNzQgla9mg7a/+P2RZ8KJETcTb/0oTKTrIvFqL8
-    G0tr9UfyC6EsqIwIIzYROWTUZca8Fsn0KRCX0yM0ewQdjBZxEUdczSxTYT0MOilPHSaiZP
-    zDAf/DV+WFpKAAq3/igyF3nd7b04DgMv35CwlN8+D0rJPnANvcHDbCH5K5oP4BLZVS24R3
-    wr6mAhbrpE+EO6a9mwyDr9uHGPBvjlDC+LsgbGwjtS6pZ11e7SduTP8dGHBXMINONAbuhV
-    fn0TODSdVkaKHjbJdYQVJSgrfx4zbXgXdv6o5gmfGO0U1UzoCBhnd8Nwg3Vg
-X-ME-Proxy: <xmx:JKNCahuTtPzanffSa5-Q7EnYsy7zkM7x0DZAYQeW_cs9nH7JvEJb3Q>
-    <xmx:JKNCaqwSzhbZCRVYt7XQrkJxxdXnWPa1PqbChw1bfgRytYEzMXPoDg>
-    <xmx:JKNCasZenza9aO6cScS7AOXemQEYw5HMbFNInoYT0UrIma8bXSW2hw>
-    <xmx:JKNCai3wuk3ev92TG89NwWF4zNSWSNZs7ylY3tOq937Du365jUgg4Q>
-    <xmx:JaNCatQuGJWUU7v2OjSZKkwvETUMsh4BM05qg36L5qZajk02KUKWPWTW>
-Feedback-ID: ie3994620:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
- 29 Jun 2026 12:53:56 -0400 (EDT)
-Date: Mon, 29 Jun 2026 17:53:55 +0100
-From: Kiryl Shutsemau <kirill@shutemov.name>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>, 
-	Doug Anderson <dianders@chromium.org>, Petr Mladek <pmladek@suse.com>, 
-	Thomas Gleixner <tglx@linutronix.de>, Andrew Morton <akpm@linux-foundation.org>, 
-	Baoquan He <bhe@redhat.com>, Puranjay Mohan <puranjay@kernel.org>, 
-	Usama Arif <usama.arif@linux.dev>, Breno Leitao <leitao@debian.org>, 
-	Julien Thierry <julien.thierry.kdev@gmail.com>, Lecopzer Chen <lecopzer@gmail.com>, 
-	Sumit Garg <sumit.garg@kernel.org>, kernel-team@meta.com, kexec@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 0/4] arm64: cross-CPU NMI via SDEI
-Message-ID: <akKiV3CAKWLwHnsW@thinkstation>
-References: <cover.1781709543.git.kas@kernel.org>
- <aj6xvvY4AA-fQG2X@arm.com>
- <aj7Pm5H0MN5WwhDK@thinkstation>
- <akJsQK2iG2oZ3vYE@thinkstation>
- <akKVKhOsv6EJVFv4@arm.com>
+	id 1weFFS-0000000FG9N-3UDW
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 29 Jun 2026 16:54:18 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 22ECC43E04
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 16:54:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EAA541F0155C
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 16:54:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782752058;
+	bh=nrtvzAHL3u6/v5L5E9Co3P0QE5xowtwOQFIomSwMWjk=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=UtH5gwa+U1zvJ6MiDKihq7fz1abrI92vBGcYoq95X9rWwvz5W22oGlu4vG8sTBX+v
+	 lZvuZzP6DS79zjdwBazFvkl6XvoQbUodjizsh/Y5t56PyS2oiOkfYCx7wkLk7cdr+q
+	 2NhTOPmDU9hdWHEJWT+FaK8smDYBGn2B+2GOFurQSd53ujUwxlBKe0UjPhBCgGA3QX
+	 k22qz2Jmw2cBhPjOS+8yx0ottM8TY6XGd5Ka/4VbWDj5PV4d5a2kNIQXOJuCPPFOrx
+	 MdEVXZTxj/5NUCsyS7s46Ae8fQuMQf8DXRbIUUrciT9U9mcW4df21f2qy+RvS22A4/
+	 JmKSNxfAR6eag==
+Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-5aeb36ed873so1401244e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 09:54:17 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RrkeD/jZdBLoKxGmXvkrc+VI7i3X6FH9UCoL35rwJKNYnr4KJ1laIC1wd7azhl4jEsDv3sF66AlI9XBj2gMdFol@lists.infradead.org
+X-Gm-Message-State: AOJu0YxxX2Oxr4NnvMaUxrJIBqYFSE9hiESuz0yvfGBi51qMWy44Rofb
+	4TUuvpBIyQtXs1ucTzWl5Q7OQuI5RPrATKU7lgk3Ru4EgzopnmPDweyNrePfCvGA8DLlOUmB+Y6
+	0f5HmPQ5n9RADK+F/JETvDPbI0cz+a7rtWTcHCGjkmg==
+X-Received: by 2002:a05:6512:3d19:b0:5ae:b97b:f75a with SMTP id
+ 2adb3069b0e04-5aebdbbc205mr24885e87.55.1782752056582; Mon, 29 Jun 2026
+ 09:54:16 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <akKVKhOsv6EJVFv4@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_095358_925533_40EE9D78 
-X-CRM114-Status: GOOD (  15.47  )
+References: <20260629-qcom-sa8255p-emac-v11-0-1b7fb95b51f9@oss.qualcomm.com>
+ <20260629-qcom-sa8255p-emac-v11-1-1b7fb95b51f9@oss.qualcomm.com>
+ <CAMuHMdXen+E-Ai51aWBa_KV9W8Fz2cQPpT-FG_kQ7akhrrYa_A@mail.gmail.com>
+ <CAMRc=Me3jaZXiXa1sFXr=8Do4sCd+XN1pKTcWC8-0j78SjCkKA@mail.gmail.com> <CAMuHMdVUBgG0EFB16OxHisbxx-sBvDKvBPNZdpyDnmBrnX4ptQ@mail.gmail.com>
+In-Reply-To: <CAMuHMdVUBgG0EFB16OxHisbxx-sBvDKvBPNZdpyDnmBrnX4ptQ@mail.gmail.com>
+From: Bartosz Golaszewski <brgl@kernel.org>
+Date: Mon, 29 Jun 2026 18:54:04 +0200
+X-Gmail-Original-Message-ID: <CAMRc=Meb58KCuLXkNSJwUq6KJUzZv0u49FBA2L4C8Vd3NVo8Cg@mail.gmail.com>
+X-Gm-Features: AVVi8CdXDDErrbJGCmrBnsO12t_UfV9Z0jI02dBWCQjihPCNNCZY7ROJGiFNTUI
+Message-ID: <CAMRc=Meb58KCuLXkNSJwUq6KJUzZv0u49FBA2L4C8Vd3NVo8Cg@mail.gmail.com>
+Subject: Re: [PATCH net-next v11 1/7] dt-bindings: phy: document the serdes
+ PHY on sa8255p
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Vinod Koul <vkoul@kernel.org>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
+	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Jerome Brunet <jbrunet@baylibre.com>, Shawn Guo <shawnguo@kernel.org>, 
+	Fabio Estevam <festevam@gmail.com>, Jan Petrous <jan.petrous@oss.nxp.com>, s32@nxp.com, 
+	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>, Romain Gantois <romain.gantois@bootlin.com>, 
+	Magnus Damm <magnus.damm@gmail.com>, Maxime Ripard <mripard@kernel.org>, 
+	Christophe Roullier <christophe.roullier@foss.st.com>, Radu Rendec <rrendec@redhat.com>, 
+	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, Drew Fustini <dfustini@tenstorrent.com>, 
+	linux-sunxi@lists.linux.dev, linux-amlogic@lists.infradead.org, 
+	linux-mips@vger.kernel.org, imx@lists.linux.dev, 
+	linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	sophgo@lists.linux.dev, linux-riscv@lists.infradead.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, 
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,34 +104,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 29, 2026 at 04:54:18PM +0100, Catalin Marinas wrote:
-> Have you tried SDEI_EVENT_COMPLETE_AND_RESUME instead? Just COMPLETE
-> won't return to the kernel. We have sdei_handler_abort() to complete the
-> event and, hopefully, you can continue with the CPU_OFF. It's a work
-> around the TF-A non-compliance but I think this is useful even if you
-> don't issue the CPU_OFF (e.g. no CPU hotplug, just the park loop).
+On Mon, Jun 29, 2026 at 4:58=E2=80=AFPM Geert Uytterhoeven <geert@linux-m68=
+k.org> wrote:
+>
+> Hi Bartosz,
+>
+> On Mon, 29 Jun 2026 at 16:07, Bartosz Golaszewski <brgl@kernel.org> wrote=
+:
+> > On Mon, 29 Jun 2026 15:51:31 +0200, Geert Uytterhoeven
+> > <geert@linux-m68k.org> said:
+> > > On Mon, 29 Jun 2026 at 13:29, Bartosz Golaszewski
+> > > <bartosz.golaszewski@oss.qualcomm.com> wrote:
+> > >> Describe the SGMII/SerDes PHY present on the Qualcomm sa8255p platfo=
+rms.
+> > >> This is essentially the same hardware as sa8775p rev3 but the PHY is
+> > >> managed by firmware over SCMI.
+> > >
+> > > So why can't it be reuse the DT bindings, and be compatible with
+> > > qcom,sa8775p-dwmac-sgmii-phy?
+> > >
+> > >> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm=
+.com>
+> > >
+> > >> --- /dev/null
+> > >> +++ b/Documentation/devicetree/bindings/phy/qcom,sa8255p-dwmac-sgmii=
+-phy.yaml
+> > >
+> > >> +  power-domains:
+> > >> +    maxItems: 1
+> > >> +
+> > >> +  power-domain-names:
+> > >> +    items:
+> > >> +      - const: serdes
+> > >
+> > >> +examples:
+> > >> +  - |
+> > >> +    phy@8901000 {
+> > >> +        compatible =3D "qcom,sa8255p-dwmac-sgmii-phy";
+> > >> +        reg =3D <0x08901000 0xe10>;
+> > >> +        #phy-cells =3D <0>;
+> > >> +        power-domains =3D <&scmi7_dvfs 0>;
+> > >> +        power-domain-names =3D "serdes";
+> > >
+> > > Ah, this uses power-domains, while the existing bindings for
+> > > qcom,sa8775p-dwmac-sgmii-phy use a clock.
+> > > I guess the clock is the correct hardware description?
+> > >
+> > > Adding to my list of examples for backing a hardware-to-SCMI remappin=
+g
+> > > driver...
+> > >
+> >
+> > Russell King asked me to put the PHY logic for SCMI pm domains into the=
+ PHY
+> > driver instead of the MAC driver where it was previously. Instead of cr=
+amming
+> > both HLOS and firmware handling into the same driver, I figured it make=
+s more
+> > sense to have a dedicated, cleaner driver as the two share very little =
+code (if
+> > any).
+>
+> I think you are mixing up DT bindings and driver implementation?
+>
 
-Tried it. The result is the opposite of what I expected, and it argues
-against doing the complete at all under QEMU's TF-A.
+Ah indeed, but the bindings don't share a lot of content either.
 
-Same A/B harness as before -- a CPU wedged with interrupts masked is
-stopped via the SDEI rung; I only vary how its handler ends. kdump
-capture kernel boot under QEMU:
-
-  - park, event left uncompleted (current series):   boots to a shell
-  - sdei_handler_abort() then CPU_OFF:               hangs at SDEI re-init
-  - sdei_handler_abort() then park (no CPU_OFF):     hangs at SDEI re-init
-  - CPU_OFF, event left uncompleted:                 hangs at SDEI re-init
-
-The third line is the surprising one: completing the event via
-sdei_handler_abort() and then just parking -- no CPU_OFF at all -- breaks
-the capture kernel too, at the same point as CPU_OFF does. The only
-variant that boots is the one that leaves the event uncompleted and
-parks. So here it's completing the event that the capture kernel trips
-over, not the dangling dispatch -- backwards from the non-compliance
-theory, where completing should be the safe thing and "useful even
-without CPU_OFF".
-
--- 
-  Kiryl Shutsemau / Kirill A. Shutemov
+Bartosz
 
